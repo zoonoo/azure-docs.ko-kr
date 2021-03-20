@@ -7,10 +7,10 @@ ms.author: lle
 author: lle
 ms.date: 04/14/2020
 ms.openlocfilehash: 916d799ba08f46cb86ee2e22c4af7fc1b92b385f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386155"
 ---
 # <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Azure SQL Managed Instance 에이전트를 사용 하 여 SSIS 패키지 실행
@@ -19,7 +19,7 @@ ms.locfileid: "100386155"
 
 이 기능을 사용 하 여 SQL Managed Instance, Azure Files 같은 파일 시스템 또는 Azure SSIS integration runtime 패키지 저장소에 저장 된 SSIS 패키지를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능을 사용 하려면 최신 SQL Server Management Studio (SSMS)를 [다운로드](/sql/ssms/download-sql-server-management-studio-ssms) 하 여 설치 합니다. 버전 지원 세부 정보:
 

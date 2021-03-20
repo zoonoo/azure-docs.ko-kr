@@ -4,10 +4,10 @@ description: Service Fabric에 대한 일반적인 네트워킹 패턴과 Azure 
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87421470"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
@@ -38,7 +38,7 @@ Service Fabric 템플릿은 모두 [GitHub](https://github.com/Azure/service-fab
 
 ### <a name="existing-virtual-network"></a>기존 가상 네트워크
 
-다음 예제에서는 **ExistingRG** 리소스 그룹에 ExistingRG-vnet이라는 기존 가상 네트워크로 시작합니다. 서브넷의 이름은 default입니다. 이러한 기본 리소스는 Azure Portal을 사용하여 표준 VM(가상 컴퓨터)을 만들 때 만들어집니다. VM을 만들지 않고 가상 네트워크 및 서브넷을 만들 수 있지만 기존 가상 네트워크에 클러스터를 추가하는 주요 목표는 다른 VM에 대한 네트워크 연결을 제공하는 것입니다. VM을 만드는 작업은 기존 가상 네트워크가 일반적으로 사용되는 방식의 좋은 예제가 됩니다. Service Fabric 클러스터가 공용 IP 주소 없이 내부 부하 분산 장치만 사용하는 경우 VM 및 해당 공용 IP를 보안 *점프 서버*로 사용할 수 있습니다.
+다음 예제에서는 **ExistingRG** 리소스 그룹에 ExistingRG-vnet이라는 기존 가상 네트워크로 시작합니다. 서브넷의 이름은 default입니다. 이러한 기본 리소스는 Azure Portal을 사용하여 표준 VM(가상 컴퓨터)을 만들 때 만들어집니다. VM을 만들지 않고 가상 네트워크 및 서브넷을 만들 수 있지만 기존 가상 네트워크에 클러스터를 추가하는 주요 목표는 다른 VM에 대한 네트워크 연결을 제공하는 것입니다. VM을 만드는 작업은 기존 가상 네트워크가 일반적으로 사용되는 방식의 좋은 예제가 됩니다. Service Fabric 클러스터가 공용 IP 주소 없이 내부 부하 분산 장치만 사용하는 경우 VM 및 해당 공용 IP를 보안 *점프 서버* 로 사용할 수 있습니다.
 
 ### <a name="static-public-ip-address"></a>고정 공용 IP 주소
 
@@ -342,7 +342,7 @@ DnsSettings              : {
                 ],
     ```
 
-5. 부하 분산 장치의 `frontendIPConfigurations` 설정을 `publicIPAddress`를 사용하는 방식에서 서브넷 및 `privateIPAddress`를 사용하는 방식으로 변경합니다. `privateIPAddress`에서는 미리 정의된 고정 내부 IP 주소를 사용합니다. 동적 IP 주소를 사용하려면 `privateIPAddress` 요소를 제거한 다음 `privateIPAllocationMethod`를 **Dynamic**으로 변경합니다.
+5. 부하 분산 장치의 `frontendIPConfigurations` 설정을 `publicIPAddress`를 사용하는 방식에서 서브넷 및 `privateIPAddress`를 사용하는 방식으로 변경합니다. `privateIPAddress`에서는 미리 정의된 고정 내부 IP 주소를 사용합니다. 동적 IP 주소를 사용하려면 `privateIPAddress` 요소를 제거한 다음 `privateIPAllocationMethod`를 **Dynamic** 으로 변경합니다.
 
     ```json
                 "frontendIPConfigurations": [

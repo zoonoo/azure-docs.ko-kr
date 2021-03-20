@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: c608f357eb1eff9fd36e583b98d26250a71cb923
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85515683"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>DistCp를 사용 하 여 Azure Storage blob와 Azure Data Lake Storage Gen1 간에 데이터 복사
@@ -23,7 +23,7 @@ ms.locfileid: "85515683"
 
 Azure Data Lake Storage Gen1에 대 한 액세스 권한이 있는 HDInsight 클러스터가 있는 경우 DistCp 같은 Hadoop 에코 시스템 도구를 사용 하 여 HDInsight 클러스터 저장소 (WASB) 간에 데이터를 Data Lake Storage Gen1 계정으로 복사할 수 있습니다. 이 문서에서는 DistCp 도구를 사용 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.

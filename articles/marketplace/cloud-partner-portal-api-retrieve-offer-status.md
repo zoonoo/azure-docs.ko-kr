@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272014"
 ---
 # <a name="retrieve-offer-status"></a>제안 상태 검색
@@ -126,7 +126,7 @@ ms.locfileid: "87272014"
 |  estimatedTimeFrame   | 이 단계를 완료하는 데 걸리는 예상 시간(일반 형식)입니다.                       |
 |  id                   | 단계의 식별자입니다.                                                                         |
 |  stepName             | 단계의 이름입니다.                                                                               |
-|  description          | 단계에 대한 설명입니다.                                                                        |
+|  설명          | 단계에 대한 설명입니다.                                                                        |
 |  상태               | 단계의 상태입니다. 가능한 값 목록을 보려면 아래의 [단계 상태](#step-status)를 참조하세요.    |
 |  messages             | 단계와 관련된 메시지의 배열입니다.                                                          |
 |  processPercentage    | 단계의 완료율입니다.                                                              |
@@ -154,7 +154,7 @@ ms.locfileid: "87272014"
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
 |  성공                   | 제안 제출 처리를 완료했습니다.               |
 |  취소됨                    | 제안 제출이 취소되었습니다.                           |
-|  Failed                      | 제안 제출에 실패했습니다.                                 |
+|  실패                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 ### <a name="step-status"></a>단계 상태

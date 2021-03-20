@@ -12,17 +12,17 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994046"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Azure Active Directory B2C Twilio Verify 앱 통합
 
 이 연습에서는 Azure Active Directory B2C (Azure AD B2C)의 샘플 온라인 지불 앱을 Twilio Verify API와 통합 하는 방법에 대해 알아봅니다. Twilio Verify 앱 Azure AD B2C을 사용 하면 고객이 동적 링크 및 강력한 고객 인증을 통해 PSD2 (결제 서비스 지시어 2) 트랜잭션 요구 사항을 준수할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -42,7 +42,7 @@ Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 | 1     | 사용자가 PSD2 Demo 앱에 로그인 또는 등록을 시작 합니다. 사용자는 Azure AD B2C 결합 된 로그인 및 등록 정책을 통해 인증 됩니다. 응용 프로그램에 토큰이 반환 됩니다. 등록 시 사용자의 전화 번호는 SMS/Phone을 사용 하 여 확인 되 고 Azure AD B2C 계정에 기록 됩니다.     |
 | 2     | 사용자가 $50.00의 전송과 같은 높은 위험 수준 트랜잭션을 시작 합니다. 사용자의 현재 액세스 토큰은 PolicyId를 평가 하 여 사용자가 Step-Up 사용자 지정 정책을 통해 이미 인증 되었는지 여부를 확인 합니다.     |

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 530cf3b20820e34913612419d0ffa731a70f6a58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484012"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>에서 자체 포함 된 Service Fabric 클러스터를 사용 하 여 환경 만들기 Azure DevTest Labs
@@ -25,28 +25,28 @@ Service Fabric 클러스터는 DevTest Labs에서 환경을 사용 하 여 생�
 2. 다음 단계를 수행 하 여 Service Fabric 공급자가 구독에 등록 되어 있는지 확인 합니다.
     1. 왼쪽 탐색 메뉴에서 **구독** 을 선택 하 고 **구독** 을 선택 합니다.
     2. **구독** 페이지의 왼쪽 메뉴에 있는 **설정** 섹션에서 **리소스 공급자** 를 선택 합니다. 
-    3. **ServiecFabric** 가 등록 되어 있지 않으면 **등록**을 선택 합니다. 
-3. 랩의 **DevTest Labs** 페이지에서 도구 모음의 **+ 추가**를 선택합니다. 
+    3. **ServiecFabric** 가 등록 되어 있지 않으면 **등록** 을 선택 합니다. 
+3. 랩의 **DevTest Labs** 페이지에서 도구 모음의 **+ 추가** 를 선택합니다. 
     
     ![도구 모음에 단추 추가](./media/create-environment-service-fabric-cluster/add-button.png)
 3. **기본 선택** 페이지의 목록에서 **랩 클러스터 Service Fabric** 를 선택 합니다. 
 
     ![목록에서 Service Fabric Lab Cluster를 선택 합니다.](./media/create-environment-service-fabric-cluster/select-service-fabric-cluster.png)
 4. **설정 구성** 페이지에서 다음 단계를 수행 합니다. 
-    1. 클러스터 환경의 **이름을** 지정 합니다. **environment** Service Fabric 클러스터를 만들 Azure에서 리소스 그룹의 이름입니다. 
-    2. 클러스터 가상 컴퓨터에 대 한 **os (운영 체제)** 를 선택 합니다. 기본값은 **Windows**입니다.
+    1. 클러스터 환경의 **이름을** 지정 합니다.  Service Fabric 클러스터를 만들 Azure에서 리소스 그룹의 이름입니다. 
+    2. 클러스터 가상 컴퓨터에 대 한 **os (운영 체제)** 를 선택 합니다. 기본값은 **Windows** 입니다.
     3. 클러스터의 **관리자** 이름을 지정 합니다. 
     4. 관리자의 **암호** 를 지정 합니다. 
-    5. **인증서**의 경우 Base64 인코딩된 문자열로 인증서 정보를 입력 합니다. 인증서를 만들려면 다음 단계를 수행 합니다.
+    5. **인증서** 의 경우 Base64 인코딩된 문자열로 인증서 정보를 입력 합니다. 인증서를 만들려면 다음 단계를 수행 합니다.
         1. [Git 리포지토리에서](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) **Create-ClusterCertificate.ps1** 파일을 다운로드 합니다. 또는 컴퓨터에서 리포지토리를 복제 합니다. 
-        2. **PowerShell**을 시작합니다. 
+        2. **PowerShell** 을 시작합니다. 
         3. 명령을 사용 하 여 **ps1** 파일을 실행 합니다 `.\Create-ClusterCertificate.ps1` . 이 페이지의 인증서 관련 필드에 입력 해야 하는 정보를 사용 하 여 메모장에서 열린 텍스트 파일이 표시 됩니다. . 
-    6. **인증서에 대 한 암호**를 입력 합니다.
+    6. **인증서에 대 한 암호** 를 입력 합니다.
     7. 인증서의 **지문을** 지정 합니다.
     8. **설정 구성** 페이지에서 **추가** 를 선택 합니다. 
 
         ![클러스터 설정 구성](./media/create-environment-service-fabric-cluster/configure-settings.png)
-5. 클러스터를 만든 후 이전 단계에서 제공한 환경 이름이 포함 된 리소스 그룹이 표시 됩니다. 를 확장 하면 Service Fabric 클러스터가 표시 됩니다. 리소스 그룹의 상태가 **만드는 중**에 중지 되 면 도구 모음에서 **새로 고침** 을 선택 합니다. **Service Fabric 클러스터** 환경에서는 Linux 또는 Windows에서 5 노드 1-nodetype 클러스터를 만듭니다.
+5. 클러스터를 만든 후 이전 단계에서 제공한 환경 이름이 포함 된 리소스 그룹이 표시 됩니다. 를 확장 하면 Service Fabric 클러스터가 표시 됩니다. 리소스 그룹의 상태가 **만드는 중** 에 중지 되 면 도구 모음에서 **새로 고침** 을 선택 합니다. **Service Fabric 클러스터** 환경에서는 Linux 또는 Windows에서 5 노드 1-nodetype 클러스터를 만듭니다.
 
     다음 예제에서 **mysfabricclusterrg** 는 Service Fabric 클러스터에 대해 특별히 생성 된 리소스 그룹의 이름입니다. 랩 환경이 생성 되는 리소스 그룹 내에 자체 포함 된다는 점에 유의 해야 합니다. 이는 환경을 정의 하는 템플릿으로, 새로 만든 리소스 그룹이 나 [랩에서 사용 하도록 구성 된 가상 네트워크](devtest-lab-configure-vnet.md)내의 리소스에만 액세스할 수 있습니다. 위의 예제는 동일한 리소스 그룹에 필요한 모든 리소스를 만듭니다.
 
@@ -87,7 +87,7 @@ Service Fabric 클러스터는 일정에 따라 시작 되거나 중지 될 수�
 
 1. 왼쪽 메뉴에서 **자동 시작** 을 선택 합니다.
 2. **이 service fabric 클러스터의 자동 시작 예약을 허용 하려면** **켜기** 를 선택 합니다. 이 페이지는 랩 소유자가 자신의 가상 컴퓨터 또는 Service Fabric 클러스터를 자동으로 시작 하도록 허용한 경우에만 사용할 수 있습니다.
-3. 도구 모음에서 **저장**을 선택합니다. 
+3. 도구 모음에서 **저장** 을 선택합니다. 
 
     ![자동 별 페이지](./media/create-environment-service-fabric-cluster/set-auto-start-settings.png)
 
@@ -95,13 +95,13 @@ Service Fabric 클러스터는 일정에 따라 시작 되거나 중지 될 수�
 종료에 대 한 설정을 변경 하려면 다음 단계를 수행 합니다.
 
 1. 왼쪽 메뉴에서 **자동 종료** 를 선택 합니다. 
-2. 이 페이지에서는 **사용**을 선택 하 여 자동 **종료를 옵트아웃** (opt out) 할 수 있습니다. 
-3. **설정 됨**을 선택한 경우 다음 단계를 **수행 합니다.**
+2. 이 페이지에서는 **사용** 을 선택 하 여 자동 **종료를 옵트아웃** (opt out) 할 수 있습니다. 
+3. **설정 됨** 을 선택한 경우 다음 단계를 **수행 합니다.**
     1. 종료 **시간** 을 지정 합니다.
     2. 시간의 **표준 시간대** 를 지정 합니다. 
     3. 자동 종료 전에 DevTest Labs에서 **알림을** 보낼지 여부를 지정 합니다. 
     4. 알림 옵션에 대해 **예** 를 선택한 경우 알림을 보낼 **Webhook URL** 및/또는 **메일 주소** 를 지정 합니다. 
-    5. 도구 모음에서 **저장**을 선택합니다.
+    5. 도구 모음에서 **저장** 을 선택합니다.
 
         ![자동 종료 페이지](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)
 

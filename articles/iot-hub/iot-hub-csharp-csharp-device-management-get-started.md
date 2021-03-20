@@ -11,10 +11,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 5760c574e64a3b3b4a1df12092cff44374790a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89018402"
 ---
 # <a name="get-started-with-device-management-net"></a>디바이스 관리 시작(.NET)
@@ -61,17 +61,17 @@ ms.locfileid: "89018402"
 
 이 섹션에서는 디바이스에서 직접 메서드를 사용하여 원격 다시 시작을 시작하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택합니다.
 
-1. **새 프로젝트 만들기**에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 찾아 선택한 후 **다음**을 선택합니다.
+1. **새 프로젝트 만들기** 에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 찾아 선택한 후 **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 *TriggerReboot*로 지정하고 .NET Framework 버전 4.5.1 이상을 선택합니다. **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 *TriggerReboot* 로 지정하고 .NET Framework 버전 4.5.1 이상을 선택합니다. **만들기** 를 선택합니다.
 
     ![새 Visual C# Windows 클래식 데스크톱 프로젝트](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-configure.png)
 
-1. **솔루션 탐색기**에서 **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+1. **솔루션 탐색기** 에서 **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 클릭합니다.
 
-1. **찾아보기**를 선택하고 **Microsoft.Azure.Devices**를 검색하여 선택합니다. **설치**를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치합니다.
+1. **찾아보기** 를 선택하고 **Microsoft.Azure.Devices** 를 검색하여 선택합니다. **설치** 를 선택하여 **Microsoft.Azure.Devices** 패키지를 설치합니다.
 
     ![NuGet 패키지 관리자 창](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "89018402"
    Console.ReadLine();
    ```
 
-1. **빌드** > **솔루션 빌드**를 선택합니다.
+1. **빌드** > **솔루션 빌드** 를 선택합니다.
 
 > [!NOTE]
 > 이 자습서에서는 디바이스의 보고된 속성에 대한 쿼리를 한 번만 수행합니다. 프로덕션 코드에서는 보고된 속성의 변경 사항을 감지하도록 폴링하는 것이 좋습니다.
@@ -146,15 +146,15 @@ ms.locfileid: "89018402"
 
 시뮬레이트된 디바이스 앱을 만들려면 다음 단계를 수행합니다.
 
-1. Visual Studio의 이미 만든 TriggerReboot 솔루션에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트 만들기**에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 찾아 선택한 후 **다음**을 선택합니다.
+1. Visual Studio의 이미 만든 TriggerReboot 솔루션에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다. **새 프로젝트 만들기** 에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 찾아 선택한 후 **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 *SimulateManagedDevice*로 지정하고 **솔루션**에 대해 **솔루션에 추가**를 선택합니다. **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 *SimulateManagedDevice* 로 지정하고 **솔루션** 에 대해 **솔루션에 추가** 를 선택합니다. **만들기** 를 선택합니다.
 
     ![프로젝트 이름 지정 및 솔루션에 추가](./media/iot-hub-csharp-csharp-device-management-get-started/configure-device-app.png)
 
-1. 솔루션 탐색기에서 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택합니다.
 
-1. **찾아보기**를 선택하고 **Microsoft.Azure.Devices.Client**를 검색하여 선택합니다. **설치**를 선택합니다.
+1. **찾아보기** 를 선택하고 **Microsoft.Azure.Devices.Client** 를 검색하여 선택합니다. **설치** 를 선택합니다.
 
     ![NuGet 패키지 관리자 창 클라이언트 앱](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 
@@ -235,11 +235,11 @@ ms.locfileid: "89018402"
    }
    ```
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정** 을 선택합니다.
 
-1. **일반 속성** > **시작 프로젝트**에 대해 **단일 시작 프로젝트**를 선택하고 **SimulateManagedDevice** 프로젝트를 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
+1. **일반 속성** > **시작 프로젝트** 에 대해 **단일 시작 프로젝트** 를 선택하고 **SimulateManagedDevice** 프로젝트를 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
 
-1. **빌드** > **솔루션 빌드**를 선택합니다.
+1. **빌드** > **솔루션 빌드** 를 선택합니다.
 
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 재시도 정책(예: 지수 백오프)을 구현해야 합니다.
@@ -248,9 +248,9 @@ ms.locfileid: "89018402"
 
 이제 앱을 실행할 준비가 되었습니다.
 
-1. .NET 디바이스 앱 **SimulateManagedDevice**를 실행하려면 솔루션 탐색기에서 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다. 앱은 IoT Hub의 메서드 호출에 대한 수신을 시작합니다.
+1. .NET 디바이스 앱 **SimulateManagedDevice** 를 실행하려면 솔루션 탐색기에서 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 를 선택한 다음, **새 인스턴스 시작** 을 선택합니다. 앱은 IoT Hub의 메서드 호출에 대한 수신을 시작합니다.
 
-1. 디바이스가 연결되고 메서드 호출을 기다린 후 **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다.
+1. 디바이스가 연결되고 메서드 호출을 기다린 후 **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 를 선택한 다음, **새 인스턴스 시작** 을 선택합니다.
 
    그러면 **SimulatedManagedDevice** 콘솔 및 디바이스의 보고된 속성에 "다시 부팅 중!"이라고 표시되며, 여기에는 **TriggerReboot** 콘솔에 기록된 마지막 다시 부팅 시간이 포함됩니다.
 

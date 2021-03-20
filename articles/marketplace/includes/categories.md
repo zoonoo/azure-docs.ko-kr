@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 범주 및 하위 범주 목록에 대 한 포함 파일
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -10,10 +10,10 @@ ms.custom: include file
 author: anbene
 ms.author: mingshen
 ms.openlocfilehash: 763ee108e1e2899bb2268ae5e6236f74a73e4b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87498052"
 ---
 | [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
@@ -93,7 +93,7 @@ ms.locfileid: "87498052"
 | &nbsp;&nbsp;엔터프라이즈 하이브리드 저장소 | **Sales** |
 | &nbsp;&nbsp;파일 공유 | &nbsp;&nbsp;영업 |
 | &nbsp;&nbsp;데이터 수명 주기 관리 | &nbsp;&nbsp;구성, 가격, 견적 (CPQ) |
-| **웹**  | &nbsp;&nbsp;계약 관리 |
+| **Web**  | &nbsp;&nbsp;계약 관리 |
 | &nbsp;&nbsp;블로그 & CMSs | &nbsp;&nbsp;CRM |
 | &nbsp;&nbsp;스타터 Web Apps | &nbsp;&nbsp;전자 상거래 |
 | &nbsp;&nbsp;전자 상거래 | &nbsp;&nbsp;비즈니스 데이터 보강  |

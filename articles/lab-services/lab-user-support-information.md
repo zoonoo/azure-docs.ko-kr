@@ -4,10 +4,10 @@ description: 이 문서에서는 랩 사용자 또는 교육자가 도움을 얻
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 8d0c8a3ad8ba92e606f19480bdb36483f377fa04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85443505"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>지원 정보 보기(Azure Lab Services의 랩 사용자)
@@ -23,8 +23,8 @@ ms.locfileid: "85443505"
  
 ## <a name="view-support-information"></a>지원 정보 보기
 1. [Azure Lab Services Portal](https://labs.azure.com)에 로그인합니다.
-2. 도움이 필요한 **랩 또는 가상 머신**을 선택하고 **?** 를 선택합니다. 페이지 오른쪽 상단 모서리에 있습니다. 
-3. **보기 지원 웹 사이트**, **이메일 지원** 및 **지원 전화 번호**에 대한 링크가 표시되는지 확인합니다.
+2. 도움이 필요한 **랩 또는 가상 머신** 을 선택하고 **?** 를 선택합니다. 페이지 오른쪽 상단 모서리에 있습니다. 
+3. **보기 지원 웹 사이트**, **이메일 지원** 및 **지원 전화 번호** 에 대한 링크가 표시되는지 확인합니다.
 
     ![지원 정보 보기](./media/lab-user-support-information/support-information.png)
 4. 드롭다운 목록에서 해당 랩으로 전환하여 다른 랩의 지원 연락처 정보를 볼 수 있습니다. 

@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: tugup
 ms.openlocfilehash: d8585d0b39e4a4ef9cf77f40ea878ddb47bcb0de
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831825"
 ---
 # <a name="azure-service-fabric-hosting-life-cycle"></a>Azure Service Fabric 호스팅 수명 주기
@@ -162,7 +162,7 @@ ServicePackage가를 전달 `DeactivationGraceInterval` / `ExclusiveModeDeactiva
 - **ServiceTypeDisableGraceInterval**: 기본값: 30 초. 서비스 유형을 사용 하지 않도록 설정할 수 있는 시간 간격입니다.
 - **ServiceTypeRegistrationTimeout**: 기본값: 300 초 ServiceType이 Service Fabric에 등록 하기 위한 시간 제한입니다.
 
-### <a name="activation"></a>활성화
+### <a name="activation"></a>정품 인증
 - **ActivationRetryBackoffInterval**: 기본값: 10 초. 모든 활성화 오류에 대 한 백오프 간격입니다.
 - **ActivationMaxFailureCount**: 기본값: 20. 포기 하기 전에 시스템에서 실패 한 정품 인증을 다시 시도 하는 최대 횟수입니다. 
 - **ActivationRetryBackoffExponentiationBase**: 기본값: 1.5.

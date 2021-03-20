@@ -4,10 +4,10 @@ description: Azure Portal을 사용하여 VHD 파일에서 Azure DevTest Labs에
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cac812a9c38fc1dedfd31659a626b122f9527e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87289406"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
@@ -24,15 +24,15 @@ ms.locfileid: "87289406"
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
+1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 
-1. 랩의 기본 창에서 **구성 및 정책**을 선택합니다. 
+1. 랩의 기본 창에서 **구성 및 정책** 을 선택합니다. 
 
-1. **구성 및 정책** 창에서 **사용자 지정 이미지**를 선택합니다.
+1. **구성 및 정책** 창에서 **사용자 지정 이미지** 를 선택합니다.
 
-1. **사용자 지정 이미지** 창에서 **+추가**를 선택합니다.
+1. **사용자 지정 이미지** 창에서 **+추가** 를 선택합니다.
 
     ![사용자 지정 이미지 추가](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -40,12 +40,12 @@ ms.locfileid: "87289406"
 
 1. 사용자 지정 이미지에 대한 설명을 입력합니다. 이 설명은 VM을 만들 때 기본 이미지 목록에 표시됩니다.
 
-1. **OS 형식**의 경우 **Windows** 또는 **Linux**를 선택합니다.
+1. **OS 형식** 의 경우 **Windows** 또는 **Linux** 를 선택합니다.
 
-    - **Windows**를 선택하는 경우 확인란을 통해 컴퓨터에서 *Sysprep*이 실행되었는지를 지정합니다. 
-    - **Linux**를 선택하는 경우 확인란을 통해 컴퓨터에서 *deprovision*이 실행되었는지를 지정합니다. 
+    - **Windows** 를 선택하는 경우 확인란을 통해 컴퓨터에서 *Sysprep* 이 실행되었는지를 지정합니다. 
+    - **Linux** 를 선택하는 경우 확인란을 통해 컴퓨터에서 *deprovision* 이 실행되었는지를 지정합니다. 
 
-1. 드롭다운 메뉴에서 **VHD**를 선택합니다. 새 사용자 지정 이미지를 만드는 데 사용될 VHD입니다. 필요한 경우 **PowerShell을 사용하여 VHD 업로드**를 선택합니다.
+1. 드롭다운 메뉴에서 **VHD** 를 선택합니다. 새 사용자 지정 이미지를 만드는 데 사용될 VHD입니다. 필요한 경우 **PowerShell을 사용하여 VHD 업로드** 를 선택합니다.
 
 1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 라이선스 이미지(Microsoft에서 게시)가 아닌 경우 계획 이름, 계획 제안 및 계획 게시자를 입력할 수도 있습니다.
 

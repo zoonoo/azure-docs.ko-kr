@@ -9,10 +9,10 @@ ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 968f82a143872fd282222539ab71a70db488a20d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91935706"
 ---
 # <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>비즈니스 연속성 및 재해 복구 계획 설정
@@ -104,19 +104,19 @@ Fslogix에 대 한 레지스트리 항목을 구성 하는 경우 FSLogix 에이
 
 레지스트리 항목을 구성 하려면:
 
-1. **레지스트리 편집기**를 엽니다.
-2. **컴퓨터**  >  **HKEY_LOCAL_MACHINE**  >  **소프트웨어**  >  **fslogix**  >  **프로필**로 이동 합니다.
+1. **레지스트리 편집기** 를 엽니다.
+2. **컴퓨터**  >  **HKEY_LOCAL_MACHINE**  >  **소프트웨어**  >  **fslogix**  >  **프로필** 로 이동 합니다.
    
      > [!div class="mx-imgBorder"]
      > ![레지스트리 편집기에서 프로필 창의 스크린샷 VHDLocation이 선택 됩니다.](media/regedit-profiles.png)
 
-3. **VHDLocations** 를 마우스 오른쪽 단추로 클릭 하 고 **다중 문자열 편집**을 선택 합니다.
+3. **VHDLocations** 를 마우스 오른쪽 단추로 클릭 하 고 **다중 문자열 편집** 을 선택 합니다.
 
      > [!div class="mx-imgBorder"]
      > ![다중 문자열 편집 창의 스크린샷 값 데이터에는 미국 Centrual 및 미국 동부 위치가 나열 됩니다.](media/multi-string-edit.png)
 
 4. **값 데이터** 필드에 사용 하려는 위치를 입력 합니다.
-5. 완료되면 **확인**을 선택합니다.
+5. 완료되면 **확인** 을 선택합니다.
 
 첫 번째 위치를 사용할 수 없는 경우 FSLogix 에이전트가 자동으로 두 번째로 장애 조치 (failover) 됩니다.
 

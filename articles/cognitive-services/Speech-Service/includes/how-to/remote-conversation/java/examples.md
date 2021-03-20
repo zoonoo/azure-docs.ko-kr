@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: amishu
 ms.openlocfilehash: 6a73c238cde7fbddfb7aa4c7153b5de5b442e9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87284224"
 ---
 ## <a name="upload-the-audio"></a>오디오 업로드
@@ -95,7 +95,7 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", Service
 
 ## <a name="get-transcription-results"></a>기록 결과 가져오기
 
-여기에 표시 된 코드의 경우 Windows 및 Linux에서 Java (1.8.0 이상)에 대해서만 지원 되는 **원격 대화 버전 1.8.0**가 필요 합니다. 
+여기에 표시 된 코드의 경우 Windows 및 Linux에서 Java (1.8.0 이상)에 대해서만 지원 되는 **원격 대화 버전 1.8.0** 가 필요 합니다. 
 
 ### <a name="obtaining-the-async-conversation-client-sdk"></a>비동기 대화 클라이언트 SDK 가져오기
 
@@ -129,7 +129,7 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeAndAsync", Service
 
 ### <a name="sample-transcription-code"></a>샘플 기록 코드
 
-`conversationId`이 있으면 클라이언트 응용 프로그램에서 원격 대화 기록 클라이언트 **RemoteConversationTranscriptionClient** 를 만들어 비동기 기록의 상태를 쿼리 합니다. RemoteConversationTranscriptionClient에서 **Getge Tionoperation** 메서드 **RemoteConversationTranscriptionClient** 를 사용 하 여 [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) 개체를 가져옵니다. PollerFlux 개체에는 원격 작업 상태 **RemoteConversationTranscriptionOperation** 및 최종 결과 **RemoteConversationTranscriptionResult**에 대 한 정보가 포함 됩니다. 작업이 완료 되 면 [Syncpoller 러 러](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java)에 **getRemoteConversationTranscriptionResult result** 를 호출 하 여 get을 가져옵니다. **RemoteConversationTranscriptionResult** 이 코드에서는 결과 내용을 시스템 출력으로 출력 합니다.
+`conversationId`이 있으면 클라이언트 응용 프로그램에서 원격 대화 기록 클라이언트 **RemoteConversationTranscriptionClient** 를 만들어 비동기 기록의 상태를 쿼리 합니다. RemoteConversationTranscriptionClient에서 **Getge Tionoperation** 메서드  를 사용 하 여 [PollerFlux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/PollerFlux.java) 개체를 가져옵니다. PollerFlux 개체에는 원격 작업 상태 **RemoteConversationTranscriptionOperation** 및 최종 결과 **RemoteConversationTranscriptionResult** 에 대 한 정보가 포함 됩니다. 작업이 완료 되 면 [Syncpoller 러 러](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/SyncPoller.java)에 **getRemoteConversationTranscriptionResult result** 를 호출 하 여 get을 가져옵니다.  이 코드에서는 결과 내용을 시스템 출력으로 출력 합니다.
 
 ```java
 // Create the speech config object

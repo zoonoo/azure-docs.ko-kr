@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 245db436fc3216fe5c8c8f51c50c0ac03190f9eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85564562"
 ---
 # <a name="connect-palo-alto-networks-to-azure-sentinel"></a>Palo Alto Networks를 Azure 센티널에 연결
@@ -36,14 +36,14 @@ Syslog 에이전트를 통해 CEF 형식의 Syslog 메시지를 Azure 작업 영
 
 1.  [Syslog 모니터링 구성](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring) 으로 이동 하 고 2 단계와 3 단계를 수행 하 여 Palo Alto Networks 어플라이언스에서 Azure 센티널로 cef 이벤트 전달을 구성 합니다.
 
-    1. **Syslog 서버 형식을** **BSD**로 설정 해야 합니다.
+    1. **Syslog 서버 형식을** **BSD** 로 설정 해야 합니다.
 
        > [!NOTE]
        > PDF의 복사/붙여넣기 작업은 텍스트를 변경 하 고 임의의 문자를 삽입할 수 있습니다. 이를 방지 하려면이 예제에서 볼 수 있는 것 처럼 텍스트를 편집기에 복사 하 고 로그 형식이 손상 될 수 있는 문자를 모두 제거 합니다.
  
         ![CEF 텍스트 복사 문제](./media/connect-cef/paloalto-text-prob1.png)
 
-1. Palo Alto Networks 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog**를 검색 합니다.
+1. Palo Alto Networks 이벤트의 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 를 검색 합니다.
 
 1. [단계 3: 연결 유효성 검사](connect-cef-verify.md)로 계속 진행합니다.
 

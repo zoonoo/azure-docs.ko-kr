@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/13/2020
 ms.author: juliako
 ms.openlocfilehash: fbc77b960cac0db2d077345c74d64485bd7ad8bb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994499"
 ---
 POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사용되는 URL입니다.

@@ -12,10 +12,10 @@ ms.reviewer: ozge
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89010905"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 ## <a name="about-rest"></a>REST 정보
 
-REST는 *Representational State Transfer*을 나타냅니다. 구체적인 정의는 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
+REST는 *Representational State Transfer* 을 나타냅니다. 구체적인 정의는 [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
 
 REST는 HTTP/HTTPS와 같은 인터넷 프로토콜을 통해 서비스와 상호 작용할 수 있게 해 주는 아키텍처입니다. REST는 서버 또는 클라이언트에서 실행 되는 소프트웨어에 독립적입니다. REST API은 HTTP/HTTPS를 지 원하는 모든 플랫폼에서 호출할 수 있습니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 애플리케이션을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다.
 
@@ -66,9 +66,9 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
-**요청 URI**: `https://myaccount.blob.core.windows.net/?comp=list` .요청 URI는 blob storage 계정 끝점 `https://myaccount.blob.core.windows.net` 및 리소스 문자열에서 생성 됩니다 `/?comp=list` .
+**요청 URI**: `https://myaccount.blob.core.windows.net/?comp=list` .  요청 URI는 blob storage 계정 끝점 `https://myaccount.blob.core.windows.net` 및 리소스 문자열에서 생성 됩니다 `/?comp=list` .
 
-[URI 매개 변수](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers를 호출할 때 사용할 수 있는 추가 쿼리 매개 변수가 있습니다. 이러한 매개 변수 중 일부는 필터링에 사용되는 호출 *timeout*(초) 및 *prefix*입니다.
+[URI 매개 변수](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers를 호출할 때 사용할 수 있는 추가 쿼리 매개 변수가 있습니다. 이러한 매개 변수 중 일부는 필터링에 사용되는 호출 *timeout*(초) 및 *prefix* 입니다.
 
 또 다른 유용한 매개 변수는 *maxresults:* 입니다. 사용 가능한 컨테이너가 이 값보다 많으면 응답 본문에 다음 요청에서 반환할 그 다음 컨테이너를 나타내는 *NextMarker* 요소가 포함됩니다. 이 기능을 사용하려면 다음 요청을 만들 때 *NextMarker* 값을 URI에 *marker* 매개 변수로 입력합니다. 이 기능을 사용하면 결과 페이징과 비슷한 동작이 발생합니다.
 
@@ -78,13 +78,13 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[요청 헤더](/rest/api/storageservices/List-Containers2#request-headers)**:** 이 섹션에는 필수 및 선택적 요청 헤더가 나열됩니다. *Authorization* 헤더, *x-ms-date*(요청의 UTC 시간 포함) 및 *x-ms-version*(사용할 REST API 버전 지정)의 세 가지 헤더가 필요합니다. 헤더에 *x-ms-client-request-id*를 포함하는 것은 선택 사항입니다. 이 필드의 값을 원하는 대로 설정할 수 있으며, 로깅이 사용되면 스토리지 분석 로그에 기록됩니다.
+[요청 헤더](/rest/api/storageservices/List-Containers2#request-headers)**:** 이 섹션에는 필수 및 선택적 요청 헤더가 나열됩니다. *Authorization* 헤더, *x-ms-date*(요청의 UTC 시간 포함) 및 *x-ms-version*(사용할 REST API 버전 지정)의 세 가지 헤더가 필요합니다. 헤더에 *x-ms-client-request-id* 를 포함하는 것은 선택 사항입니다. 이 필드의 값을 원하는 대로 설정할 수 있으며, 로깅이 사용되면 스토리지 분석 로그에 기록됩니다.
 
 [요청 본문](/rest/api/storageservices/List-Containers2#request-body)**:** ListContainers에 대한 요청 본문이 없습니다. 요청 본문은 BLOB을 업로드할 때 모든 PUT 작업에 사용되며, 적용하려는 저장된 액세스 정책 XML 목록을 보낼 수 있는 SetContainerAccessPolicy에도 사용됩니다. 저장된 액세스 정책은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md) 문서에서 다룹니다.
 
 [응답 상태 코드](/rest/api/storageservices/List-Containers2#status-code)**:** 개발자가 알아야 하는 상태 코드를 알려줍니다. 이 예제에서는 HTTP 상태 코드 200이 정상입니다. HTTP 상태 코드의 전체 목록은 [상태 코드 정의](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조하세요. Storage REST API에 대한 오류 코드를 보려면 [공통 REST API 오류 코드](/rest/api/storageservices/common-rest-api-error-codes)를 참조하세요.
 
-[응답 헤더](/rest/api/storageservices/List-Containers2#response-headers)**:** *내용 유형을*포함 합니다. 전달 된 요청 ID 인 *x-y (요청 id)* 입니다. 사용 되는 Blob service 버전을 나타내는 *x m s-버전* 그리고 UTC *날짜*이며 요청이 수행 된 시간을 알려 줍니다.
+[응답 헤더](/rest/api/storageservices/List-Containers2#response-headers)**:** *내용 유형을* 포함 합니다. 전달 된 요청 ID 인 *x-y (요청 id)* 입니다. 사용 되는 Blob service 버전을 나타내는 *x m s-버전* 그리고 UTC *날짜* 이며 요청이 수행 된 시간을 알려 줍니다.
 
 [응답 본문](/rest/api/storageservices/List-Containers2#response-body):이 필드는 요청한 데이터를 제공하는 XML 구조입니다. 이 예제에서 응답은 컨테이너 및 해당 속성의 목록입니다.
 
@@ -103,12 +103,12 @@ HttpRequestMessage 개체인 요청을 만들려면 Program.cs에서 ListContain
 
 필요한 몇 가지 기본 정보:
 
-- ListContainers의 경우 **메서드**는 `GET`입니다. 이 값은 요청을 인스턴스화할 때 설정됩니다.
-- **리소스**는 URI에서 호출되는 API를 나타내는 쿼리 부분이며, 값은 `/?comp=list`입니다. 앞서 언급했듯이, 리소스는 [ListContainers API](/rest/api/storageservices/List-Containers2)에 대한 정보를 표시하는 참조 설명서 페이지에 있습니다.
-- URI는 해당 스토리지 계정에 대한 Blob service 엔드포인트를 만들고 리소스를 연결하여 구성됩니다. **요청 URI**의 값은 결국 `http://contosorest.blob.core.windows.net/?comp=list`입니다.
-- ListContainers의 경우 **requestBody**가 null이고 추가 **헤더**는 없습니다.
+- ListContainers의 경우 **메서드** 는 `GET`입니다. 이 값은 요청을 인스턴스화할 때 설정됩니다.
+- **리소스** 는 URI에서 호출되는 API를 나타내는 쿼리 부분이며, 값은 `/?comp=list`입니다. 앞서 언급했듯이, 리소스는 [ListContainers API](/rest/api/storageservices/List-Containers2)에 대한 정보를 표시하는 참조 설명서 페이지에 있습니다.
+- URI는 해당 스토리지 계정에 대한 Blob service 엔드포인트를 만들고 리소스를 연결하여 구성됩니다. **요청 URI** 의 값은 결국 `http://contosorest.blob.core.windows.net/?comp=list`입니다.
+- ListContainers의 경우 **requestBody** 가 null이고 추가 **헤더** 는 없습니다.
 
-여러 API가 *ifMatch*처럼 다른 매개 변수를 전달할 수 있습니다. 예를 들어 PutBlob을 호출할 때 IfMatch를 사용할 수 있습니다. 이 경우 ifMatch를 eTag로 설정하면 개발자가 입력한 eTag가 BLOB의 현재 eTag와 일치하면 BLOB만 업데이트합니다. 다른 사람이 eTag를 검색한 후 BLOB을 업데이트하면 변경 내용이 재정의되지 않습니다.
+여러 API가 *ifMatch* 처럼 다른 매개 변수를 전달할 수 있습니다. 예를 들어 PutBlob을 호출할 때 IfMatch를 사용할 수 있습니다. 이 경우 ifMatch를 eTag로 설정하면 개발자가 입력한 eTag가 BLOB의 현재 eTag와 일치하면 BLOB만 업데이트합니다. 다른 사람이 eTag를 검색한 후 BLOB을 업데이트하면 변경 내용이 재정의되지 않습니다.
 
 먼저 `uri` 및 `payload`를 설정합니다.
 
@@ -176,7 +176,7 @@ httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetA
 }
 ```
 
-SendAsync 호출을 만들 때 [Fiddler](https://www.telerik.com/fiddler) 같은 네트워크 감지기를 실행하면 요청 및 응답 정보를 볼 수 있습니다. 살펴보겠습니다. 스토리지 계정의 이름은 *contosorest*입니다.
+SendAsync 호출을 만들 때 [Fiddler](https://www.telerik.com/fiddler) 같은 네트워크 감지기를 실행하면 요청 및 응답 정보를 볼 수 있습니다. 살펴보겠습니다. 스토리지 계정의 이름은 *contosorest* 입니다.
 
 **요청:**
 
@@ -286,19 +286,19 @@ Authorization="SharedKey <storage account name>:<signature>"
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 대부분의 이러한 필드는 거의 사용되지 않습니다. Blob Storage의 경우 VERB, md5, 콘텐츠 길이, 정식화 헤더 및 정식화 리소스를 지정합니다. 다른 항목은 비워 두어도 됩니다(하지만 비어 있다는 것을 알 수 있도록 `\n` 삽입).
@@ -434,15 +434,15 @@ AuthorizationHeader는 응답을 게시하기 전에 요청 헤더에 배치되�
 
 ## <a name="example-list-blobs"></a>예: blob 나열
 
-컨테이너 *컨테이너-1*에 대 한 blob 목록 작업을 호출 하는 코드를 변경 하는 방법을 살펴보겠습니다. 이 코드는 컨테이너를 나열 하는 코드와 거의 동일 하며, URI 및 응답을 구문 분석 하는 방법만 다릅니다.
+컨테이너 *컨테이너-1* 에 대 한 blob 목록 작업을 호출 하는 코드를 변경 하는 방법을 살펴보겠습니다. 이 코드는 컨테이너를 나열 하는 코드와 거의 동일 하며, URI 및 응답을 구문 분석 하는 방법만 다릅니다.
 
-[ListBlobs](/rest/api/storageservices/List-Blobs)에 대한 참조 설명서를 보시면 메서드는 *GET*이고 RequestURI는 다음과 같습니다.
+[ListBlobs](/rest/api/storageservices/List-Blobs)에 대한 참조 설명서를 보시면 메서드는 *GET* 이고 RequestURI는 다음과 같습니다.
 
 ```
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 ```
 
-ListContainersAsyncREST에서 URI를 설정하는 코드를 ListBlobs에 대한 API로 변경합니다. 컨테이너 이름은 **container-1**입니다.
+ListContainersAsyncREST에서 URI를 설정하는 코드를 ListBlobs에 대한 API로 변경합니다. 컨테이너 이름은 **container-1** 입니다.
 
 ```csharp
 String uri =

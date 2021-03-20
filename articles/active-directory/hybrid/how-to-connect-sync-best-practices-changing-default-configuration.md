@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70e91ff8fa3666a2dfc5aaad07be7927852b08bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85357701"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
@@ -29,7 +29,7 @@ ms.locfileid: "85357701"
 Azure AD Connect에 의해 만들어진 구성은 온-프레미스 Active Directory와 Azure AD를 동기화하는 대부분의 환경에 대해 “있는 그대로” 작동합니다. 그러나 일부 경우에는, 특정 필요 또는 요구 사항을 충족시키기 위해 구성에 일부 변경 내용을 적용할 필요가 있습니다.
 
 ## <a name="changes-to-the-service-account"></a>서비스 계정의 변경 내용
-Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에서 실행 중입니다. 이 서비스 계정은 동기화에 사용 되는 데이터베이스에 암호화 키를 저장 합니다. 127 문자 길이의 암호를 사용 하 여 생성 되 고 암호가 만료 되지 않도록 설정 됩니다.
+Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에서 실행 중입니다. 이 서비스 계정은 동기화에 의해 사용되는 데이터베이스에 대한 암호화 키를 보유합니다. 127자의 긴 암호로 만들어지며, 만료되지 않도록 설정됩니다.
 
 * 서비스 계정의 암호는 변경 또는 초기화가 **지원되지 않습니다** . 이렇게 하면 암호화 키는 파기되고 서비스는 데이터베이스에 액세스할 수 없으며, 서비스를 시작할 수 없습니다.
 
@@ -66,7 +66,7 @@ Azure AD Connect 동기화는 설치 마법사에서 만든 서비스 계정에�
 기본 규칙을 변경해야 할 경우 기본 규칙의 복사본을 만든 다음 원래 규칙을 사용하지 않도록 설정해야 합니다. 그런 다음 복제된 규칙을 변경합니다. 동기화 규칙 편집기가 이들 단계를 수행하도록 도와줍니다. 기본 규칙을 열면 이 대화 상자가 나타납니다.  
 ![경고 받은 기본 규칙](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
-**예**를 선택하여 규칙의 복사본을 만듭니다. 그런 다음 복제된 규칙이 열립니다.  
+**예** 를 선택하여 규칙의 복사본을 만듭니다. 그런 다음 복제된 규칙이 열립니다.  
 ![복제된 규칙](./media/how-to-connect-sync-best-practices-changing-default-configuration/clonedrule.png)
 
 이 복제된 규칙에서 범위, 조인 및 변환에 필요한 사항을 변경합니다.

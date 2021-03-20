@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 사용자 지정 아티팩트 원본용 Gi
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 225aae5e0a017b711f29a47829b06f8bb7a6a8ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483145"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
@@ -31,12 +31,12 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
 
 1. 아티팩트 또는 Resource Manager 템플릿 정의를 포함하는 GitHub 리포지토리의 홈페이지로 이동합니다.
-2. **복제 또는 다운로드**를 선택합니다.
+2. **복제 또는 다운로드** 를 선택합니다.
 3. URL을 클립보드에 복사하려면 **HTTPS 복제 url** 단추를 선택합니다. 나중에 사용할 수 있도록 URL을 저장합니다.
-4. GitHub의 오른쪽 위에서 프로필 이미지를 선택한 다음 **설정**을 선택합니다.
-5. 왼쪽의 **개인 설정** 메뉴에서 **개인 액세스 토큰**을 선택합니다.
+4. GitHub의 오른쪽 위에서 프로필 이미지를 선택한 다음 **설정** 을 선택합니다.
+5. 왼쪽의 **개인 설정** 메뉴에서 **개인 액세스 토큰** 을 선택합니다.
 6. **Generate new token**(새 토큰 생성)을 탭합니다.
-7. **새 개인 액세스 토큰** 페이지의 **토큰 설명** 아래에 설명을 입력합니다. **범위 선택** 아래의 기본 항목에 동의한 다음 **토큰 생성**을 선택합니다.
+7. **새 개인 액세스 토큰** 페이지의 **토큰 설명** 아래에 설명을 입력합니다. **범위 선택** 아래의 기본 항목에 동의한 다음 **토큰 생성** 을 선택합니다.
 8. 생성된 토큰을 저장합니다. 토큰은 나중에 사용합니다.
 9. GitHub를 닫습니다.   
 10. [리포지토리에 랩 연결](#connect-your-lab-to-the-repository) 섹션을 계속 진행합니다.
@@ -44,26 +44,26 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Azure Repos 복제 URL 및 개인 액세스 토큰 가져오기
 
 1. 팀 컬렉션의 홈 페이지 (예:)로 이동한 `https://contoso-web-team.visualstudio.com` 다음 프로젝트를 선택 합니다.
-2. 프로젝트 홈 페이지에서 선택 **코드**합니다.
-3. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제**를 선택합니다.
+2. 프로젝트 홈 페이지에서 선택 **코드** 합니다.
+3. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제** 를 선택합니다.
 4. URL을 저장합니다. URL은 나중에 사용합니다.
-5. 개인 액세스 토큰을 만들려면 사용자 계정 드롭다운 메뉴에서 **내 프로필**을 선택합니다.
-6. 프로필 정보 페이지에서 **보안**을 탭합니다.
-7. **보안** 탭에서 **추가**를 선택합니다.
+5. 개인 액세스 토큰을 만들려면 사용자 계정 드롭다운 메뉴에서 **내 프로필** 을 선택합니다.
+6. 프로필 정보 페이지에서 **보안** 을 탭합니다.
+7. **보안** 탭에서 **추가** 를 선택합니다.
 8. **개인 액세스 토큰 만들기** 페이지에서:
    1. 토큰에 대한 **설명** 을 입력합니다.
-   2. **다음 기간 내에 만료** 목록에서 **180일**을 선택합니다.
-   3. **계정** 목록에서 **액세스 가능한 모든 계정**을 선택합니다.
+   2. **다음 기간 내에 만료** 목록에서 **180일** 을 선택합니다.
+   3. **계정** 목록에서 **액세스 가능한 모든 계정** 을 선택합니다.
    4. **읽기 전용** 옵션을 선택 합니다.
-   5. **토큰 만들기**를 선택합니다.
-9. 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. **토큰 복사**를 선택하고 나중에 사용할 수 있게 토큰 값을 저장합니다.
+   5. **토큰 만들기** 를 선택합니다.
+9. 새 토큰이 **개인 액세스 토큰** 목록에 표시됩니다. **토큰 복사** 를 선택하고 나중에 사용할 수 있게 토큰 값을 저장합니다.
 10. [리포지토리에 랩 연결](#connect-your-lab-to-the-repository) 섹션을 계속 진행합니다.
 
 ## <a name="connect-your-lab-to-the-repository"></a>랩을 리포지토리에 연결
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
+2. **추가 서비스** 를 선택한 후 서비스 목록에서 **DevTest Labs** 를 선택합니다.
 3. 랩 목록에서 랩을 선택합니다. 
-4. **구성 및 정책**  >  **리포지토리**  >  **+ 추가**를 선택 합니다.
+4. **구성 및 정책**  >  **리포지토리**  >  **+ 추가** 를 선택 합니다.
 
     ![리포지토리 추가 버튼](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. 두 번째 **리포지토리** 페이지에서 다음 정보를 지정합니다.
@@ -74,7 +74,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
    5. **폴더 경로**. 아티팩트 또는 Resource Manager 템플릿 정의가 포함된 복제 URL에 상대적인 폴더 경로를 하나 이상 입력합니다. 하위 디렉터리를 지정하는 경우 폴더 경로에 슬래시를 포함해야 합니다.
 
       ![리포지토리 영역](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ### <a name="related-blog-posts"></a>관련 블로그 게시물
 * [DevTest Labs에서 실패한 아티팩트 문제 해결](devtest-lab-troubleshoot-artifact-failure.md)

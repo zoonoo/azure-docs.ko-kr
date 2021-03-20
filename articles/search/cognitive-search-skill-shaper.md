@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 81eb0e60befc544a6c3bee8f04e901b6a5e472bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85560817"
 ---
 # <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 
 **Shaper** 기술은 나중에 보강 파이프라인에서 참조할 수 있는 [복합 형식](search-howto-complex-data-types.md) 으로 여러 입력을 통합 합니다. **Shaper** 기술을 사용 하면 기본적으로 구조체를 만들고 해당 구조체의 멤버 이름을 정의 하 고 각 멤버에 값을 할당할 수 있습니다. 검색 시나리오에서 유용 하 게 사용할 수 있는 통합 필드의 예로는 이름 및 성을 단일 구조, 도시 및 주를 단일 구조로 결합 하거나 이름 및 생년월일을 단일 구조로 결합 하 여 고유한 id를 설정 하는 것이 있습니다.
 
-또한 [시나리오 3](#nested-complex-types) 에 설명 된 **Shaper** 기술은 입력에 선택적 *sourcecontext* 속성을 추가 합니다. *원본* 및 *sourcecontext* 속성은 함께 사용할 수 없습니다. 입력이 기술 컨텍스트에 있는 경우 *소스*를 사용 하면 됩니다. 입력이 기술 컨텍스트와 *다른* 컨텍스트에 있는 경우 *sourcecontext*를 사용 합니다. *Sourcecontext* 에서는 원본으로 지정 된 특정 요소를 사용 하 여 중첩 된 입력을 정의 해야 합니다. 
+또한 [시나리오 3](#nested-complex-types) 에 설명 된 **Shaper** 기술은 입력에 선택적 *sourcecontext* 속성을 추가 합니다. *원본* 및 *sourcecontext* 속성은 함께 사용할 수 없습니다. 입력이 기술 컨텍스트에 있는 경우 *소스* 를 사용 하면 됩니다. 입력이 기술 컨텍스트와 *다른* 컨텍스트에 있는 경우 *sourcecontext* 를 사용 합니다. *Sourcecontext* 에서는 원본으로 지정 된 특정 요소를 사용 하 여 중첩 된 입력을 정의 해야 합니다. 
 
 출력 이름은 항상 "output"입니다. 내부적으로 파이프라인은 아래 예제와 같이 "analyzedText"와 같은 다른 이름을 매핑할 수 있지만 **Shaper** 기술 자체는 응답에서 "출력"을 반환 합니다. 이는 보강된 문서를 디버그하고 이름 불일치를 확인하거나 사용자 지정 기술을 작성하고 응답을 직접 구조화하는 경우에 중요합니다.
 
@@ -31,7 +31,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>시나리오 1: 복합 형식
 
-각각 두 개의 멤버(*text* 및 *sentiment*)가 있는 *analyzedText*라는 구조를 만드는 시나리오를 가정해 보세요. 인덱스에서 다중 파트 검색 가능 필드를 *복합 형식* 이라고 하며, 원본 데이터에 매핑되는 해당 하는 복잡 한 구조를 포함 하는 경우가 많습니다.
+각각 두 개의 멤버(*text* 및 *sentiment*)가 있는 *analyzedText* 라는 구조를 만드는 시나리오를 가정해 보세요. 인덱스에서 다중 파트 검색 가능 필드를 *복합 형식* 이라고 하며, 원본 데이터에 매핑되는 해당 하는 복잡 한 구조를 포함 하는 경우가 많습니다.
 
 그러나 복합 형식을 만들기 위한 또 다른 방법은 **Shaper** 기술을 사용 하는 것입니다. 기술에이 기술을 포함 하 여 기술를 처리 하는 동안 메모리 내 작업은 중첩 된 구조로 데이터 셰이프를 출력할 수 있으며,이는 인덱스의 복합 형식에 매핑될 수 있습니다. 
 
@@ -109,7 +109,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ### <a name="skill-output"></a>기술 출력
 
-**Shaper** 기술은 *텍스트* 와 *감정*의 결합 된 요소를 사용 하 여 *analyzedText* 라는 새 요소를 생성 합니다. 이 출력은 인덱스 스키마를 따릅니다. Azure Cognitive Search 인덱스에서 가져오고 인덱싱됩니다.
+**Shaper** 기술은 *텍스트* 와 *감정* 의 결합 된 요소를 사용 하 여 *analyzedText* 라는 새 요소를 생성 합니다. 이 출력은 인덱스 스키마를 따릅니다. Azure Cognitive Search 인덱스에서 가져오고 인덱싱됩니다.
 
 ```json
 {

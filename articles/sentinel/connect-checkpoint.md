@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 32cbdabef4d89c7fabb47a52ebf0589690b7ab33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85566054"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Check Point를 Azure 센티널에 연결
@@ -35,7 +35,7 @@ Syslog 에이전트를 통해 Azure 작업 영역에 CEF 형식의 Syslog 메시
 1. 아래 지침을 사용 하 여 **기본 배포** 까지 아래로 스크롤하고 지침에 따라 연결을 설정 합니다.
    - **Syslog 포트** 를 **514** 으로 설정 하거나 에이전트에서 설정한 포트를 설정 합니다.
      - CLI에서 **이름** 및 **대상 서버 Ip 주소** 를 SYSLOG 에이전트 이름 및 ip 주소로 바꿉니다.
-     - 형식을 **Cef**로 설정 합니다.
+     - 형식을 **Cef** 로 설정 합니다.
 1. R 77.30 또는 R 80.10 버전을 사용 하는 경우 **설치** 까지 스크롤한 다음 지침에 따라 해당 버전에 대 한 로그 내보내기를 설치 합니다.
 1. [단계 3: 연결 유효성 검사](connect-cef-verify.md)로 계속 진행합니다.
  

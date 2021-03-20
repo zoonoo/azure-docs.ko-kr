@@ -7,10 +7,10 @@ ms.date: 04/12/2020
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 980e8e3c2f2c1ca1dc716df1e77caaa3fe3181aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386172"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Azure 지원 dtexec 유틸리티를 사용 하 여 SQL Server Integration Services 패키지 실행
@@ -27,7 +27,7 @@ AzureDTExec는 Data Factory 파이프라인에서 SSIS 패키지 실행 작업�
 
 SSMS를 통해 AzureDTExec를 구성 하 여 데이터 팩터리에 파이프라인을 생성 하는 Azure Active Directory (Azure AD) 응용 프로그램을 사용할 수 있습니다. 또한 패키지를 저장 하는 파일 시스템, 파일 공유 또는 Azure Files에 액세스 하도록 구성할 수 있습니다. 사용자가 호출 옵션에 대해 지정한 값에 따라 AzureDTExec는 SSIS 패키지 실행 작업을 사용 하 여 고유한 Data Factory 파이프라인을 생성 하 고 실행 합니다. 해당 옵션에 대해 동일한 값을 사용 하 여 AzureDTExec를 호출 하면 기존 파이프라인이 다시 실행 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 AzureDTExec를 사용 하려면 최신 버전의 SSMS (버전 18.3 이상)를 다운로드 하 여 설치 합니다. [이 웹 사이트](/sql/ssms/download-sql-server-management-studio-ssms)에서 다운로드합니다.
 
 ## <a name="configure-the-azuredtexec-utility"></a>AzureDTExec 유틸리티 구성

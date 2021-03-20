@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566472"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Virtual WAN 파트너를 위한 자동화 지침
@@ -27,7 +27,7 @@ ms.locfileid: "94566472"
 * Azure Virtual WAN의 포털 환경을 테스트합니다.
 * 그런 다음, 자동화하려는 연결 단계의 부분을 결정합니다. 최소한 자동화하는 것이 좋습니다.
 
-  * 액세스 제어
+  * Access Control
   * Azure Virtual WAN에 분기 디바이스 정보 업로드
   * Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정
 
@@ -52,7 +52,7 @@ Azure Virtual WAN과 함께 예상되는 고객 환경을 이해합니다.
 
 ## <a name="automation-details"></a><a name ="understand"></a>자동화 세부 정보
 
-###  <a name="access-control"></a><a name="access"></a>액세스 제어
+###  <a name="access-control"></a><a name="access"></a>Access Control
 
 고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
 
@@ -81,12 +81,12 @@ Azure에 분기 (온-프레미스 사이트) 정보를 업로드 하는 사용�
 * **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 디바이스 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션에서는 다음 정보를 제공합니다.
 
-    * 가상 허브 VNet의 **주소 공간** 입니다.<br>예제:
+    * 가상 허브 VNet의 **주소 공간**.<br>예제:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * 허브에 연결 된 Vnet의 **주소 공간** 입니다.<br>예제:
+    * 허브에 연결된 VNet의 **주소 공간**.<br>예제:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]

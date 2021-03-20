@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: bc345509db1c2a14afb0ae781eccad8f77395c18
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97347067"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀 (미리 보기) 이란?
@@ -57,7 +57,7 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 - *고정 비용* 또는 *지출 한도가* 있는 시나리오는 중요 합니다. 예를 들어, 필요에 따라 관리 되는 인스턴스를 정기적으로 배포 하는 고정 된 (또는 자주 변경 되지 않는) 크기의 공유 개발-테스트 또는 데모 환경을 실행 합니다.
 - VNet 서브넷의 *최소 IP 주소 할당이* 중요 한 시나리오입니다. 풀의 모든 인스턴스는 가상 컴퓨터를 공유 하 고 있으므로 할당 된 IP 주소 수는 단일 인스턴스의 경우 보다 낮습니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 인스턴스 풀은 일반 (*단일*) 관리 되는 인스턴스의 아키텍처와 유사 합니다. [Azure 가상 네트워크 내에서 배포](../../virtual-network/virtual-network-for-azure-services.md) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](connectivity-architecture-overview.md#high-level-connectivity-architecture)에도 의존 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
 

@@ -6,15 +6,15 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 7d1044d02ceba1f3d0996b1fe1c8a9a44b31049b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91253652"
 ---
 # <a name="active-and-inactive-events"></a>활성 및 비활성 이벤트
 
-**활성** 이벤트는 고객에 게 결과를 표시 하 고 보상 점수를 확인할 수 있는 순위에 대 한 모든 호출입니다. 기본 동작입니다.
+**활성** 이벤트는 고객에 게 결과를 표시 하 고 보상 점수를 확인할 수 있는 순위에 대 한 모든 호출입니다. 이것은 기본적인 동작입니다.
 
 **비활성** 이벤트는 비즈니스 논리로 인해 사용자에 게 권장 되는 작업이 표시 되는지 확신할 수 없는 순위에 대 한 호출입니다. 이를 통해 Personalizer 기본 보상으로 학습 되지 않도록 이벤트를 취소할 수 있습니다. 비활성 이벤트는 보상 API를 호출 하면 안 됩니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "91253652"
 * 사용자가 표시 하거나 볼 수 없는 렌더링 하지 않는 UI입니다.
 * 응용 프로그램이 거의 실시간 컨텍스트로 순위를 설정 하 고 응용 프로그램에서 출력을 사용 하거나 사용 하지 않을 때 예측 개인 설정을 수행 하 고 있습니다.
 
-이러한 경우 Personalizer를 사용 하 여 Rank를 호출 하 고 이벤트를 _비활성화_하도록 요청 합니다. Personalizer는이 이벤트에 대 한 보상을 받을 수 없으며 기본 보상을 적용 하지 않습니다.
+이러한 경우 Personalizer를 사용 하 여 Rank를 호출 하 고 이벤트를 _비활성화_ 하도록 요청 합니다. Personalizer는이 이벤트에 대 한 보상을 받을 수 없으며 기본 보상을 적용 하지 않습니다.
 
 비즈니스 논리에서 나중에 응용 프로그램에서 순위 호출의 정보를 사용 하는 경우에는 이벤트를 _활성화_ 하기만 하면 됩니다. 이벤트가 활성화 되는 즉시 Personalizer는 이벤트 보상을 기대 합니다. 보상 API에 대 한 명시적 호출이 없으면 Personalizer는 기본 보상을 적용 합니다.
 

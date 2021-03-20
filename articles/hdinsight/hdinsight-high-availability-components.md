@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945307"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight에서 지원 되는 고가용성 서비스
@@ -48,7 +48,7 @@ HDInsight는 자동 장애 조치 (failover) 기능을 사용 하 여 네 가지
 
 Microsoft는 HDInsight 클러스터의 다음 표에서 4 개의 Apache 서비스에 대 한 지원을 제공 합니다. Apache의 구성 요소에서 지원 되는 고가용성 서비스와 구별 하기 위해 *HDINSIGHT HA 서비스* 라고 합니다.
 
-| 서비스 | 클러스터 노드 | 클러스터 유형 | 목적 |
+| 서비스 | 클러스터 노드 | 클러스터 유형 | 용도 |
 |---|---|---|---|
 | Apache Ambari 서버| 활성 헤드 노드 | 모두 | 클러스터를 모니터링 하 고 관리 합니다.|
 | Apache YARN에 대 한 애플리케이션 타임라인 서버 | 활성 헤드 노드 | Kafka를 제외한 모든 | 클러스터에서 실행 되는 YARN 작업에 대 한 디버깅 정보를 유지 관리 합니다.|

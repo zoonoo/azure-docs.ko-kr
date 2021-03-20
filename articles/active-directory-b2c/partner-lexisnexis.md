@@ -11,10 +11,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 5f408699cae9580188a3780fc8f8654eaa97c26b
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97108436"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 LexisNexis 구성에 대 한 자습서
@@ -27,7 +27,7 @@ ms.locfileid: "97108436"
 - 전화 번호
 - 사용자의 컴퓨터에서 수집 된 프로 파일링 정보
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -49,7 +49,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![lexisnexis에 대 한 스크린샷-다이어그램](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:--------------|:-------------|
 |1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.

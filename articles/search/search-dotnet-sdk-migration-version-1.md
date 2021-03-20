@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4860918fc4f995ad267fc35b142d3fcb460ce177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002830"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
@@ -58,7 +58,7 @@ Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSea
 
 `IndexAction` 은 더 이상 public 생성자를 포함하지 않으며 해당 속성은 변경할 수 없습니다. `Delete`, `Merge`, `MergeOrUpload` 및 `Upload`와 같은 다양한 용도의 작업을 만들기 위해서는 새로운 정적 메서드를 사용해야 합니다. `IndexAction.Create` 는 제거되었습니다. 한 개의 문서만 받는 오버로드를 사용한 경우 대신 `Upload` 를 사용해야 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -83,7 +83,7 @@ indexClient.Documents.Index(batch);
 ### <a name="indexbatchexception-changes"></a>IndexBatchException 변경
 `IndexBatchException.IndexResponse` 속성이 `IndexingResults`로 이름이 변경되었고 형식은 이제 `IList<IndexingResult>`입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -175,7 +175,7 @@ public static IndexGetStatisticsResult GetStatistics(
 ### <a name="scoringparameters-changes"></a>ScoringParameters 변경
 최신 SDK에 새 클래스인 `ScoringParameter` 가 추가되어 검색 쿼리에 있는 점수 매기기 프로필에 매개 변수를 더 쉽게 제공할 수 있습니다. `SearchParameters` 클래스의 `ScoringProfiles` 속성은 이전에는 `IList<string>`으로 입력되었지만 이제는 `IList<ScoringParameter>`로 입력됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -209,7 +209,7 @@ sp.ScoringParameters =
 
 요약하자면 모델 개체를 래핑하기 위해서만 존재했던 `OperationResponse`파생 클래스가 제거되었습니다. 나머지 클래스는 접미사가 `Response`에서 `Result`로 변경되었습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -340,7 +340,7 @@ var client =
 > 
 > 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음과 같은 코드가 있는 경우
 
 ```csharp
@@ -391,7 +391,7 @@ public class Model
 
 `IntValue` 를 0으로 설정하면 네트워크에서 해당 값이 0으로 올바르게 직렬화되고 인덱스에 0으로 저장됩니다. 또한 왕복이 예상대로 작동합니다.
 
-이 접근 방식에서 알고 있어야 하는 한 가지 잠재적인 문제가 있습니다. Null이 허용되지 않는 속성의 모델 형식을 사용하는 경우 인덱스의 문서가 해당 필드에 대해 Null 값을 포함하지 않음을 **보장**해야 합니다. SDK와 Azure Search REST API 모두 이를 적용하는 데 활용할 수 없습니다.
+이 접근 방식에서 알고 있어야 하는 한 가지 잠재적인 문제가 있습니다. Null이 허용되지 않는 속성의 모델 형식을 사용하는 경우 인덱스의 문서가 해당 필드에 대해 Null 값을 포함하지 않음을 **보장** 해야 합니다. SDK와 Azure Search REST API 모두 이를 적용하는 데 활용할 수 없습니다.
 
 이것은 가상의 문제가 아닙니다. `Edm.Int32` 형식인 기존 인덱스에 새 필드를 추가하는 시나리오를 가정하겠습니다. 인덱스 정의를 업데이트한 후 모든 문서는 해당하는 새 필드에 대해 Null 값을 포함하게 됩니다(Azure Search에서 모든 형식은 Null을 허용하기 때문). 그런 다음 해당 필드에 대해 Null이 허용되지 않는 `int` 속성으로 모델 클래스를 사용하는 경우 문서를 검색하려고 시도할 때 다음과 같은 `JsonSerializationException`이 발생합니다.
 

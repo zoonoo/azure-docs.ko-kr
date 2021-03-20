@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
 ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98725839"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
@@ -128,7 +128,7 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하 여 사용자 정의 경로
 
-|이름|주소 접두사|다음 홉|
+|Name|주소 접두사|다음 홉|
 |----|--------------|-------|
 |서브넷-vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-인터넷|13.64.0.0/11|인터넷|

@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 035399924216434de85865102db8838ea3fa15a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85570222"
 ---
 ## <a name="create-a-project-zip-file"></a>프로젝트 ZIP 파일 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "85570222"
 
 로컬 터미널 창에서 앱 프로젝트의 루트 디렉터리로 이동합니다. 
 
-이 디렉터리는 _index.html_, _index.php_ 및 _app.js_와 같은 웹앱에 대한 입력 파일을 포함해야 합니다. 또한 _project.json_, _composer.json_, _package.json_, _bower.json_ 및 _requirements.txt_와 같은 패키지 관리 파일을 포함할 수 있습니다.
+이 디렉터리는 _index.html_, _index.php_ 및 _app.js_ 와 같은 웹앱에 대한 입력 파일을 포함해야 합니다. 또한 _project.json_, _composer.json_, _package.json_, _bower.json_ 및 _requirements.txt_ 와 같은 패키지 관리 파일을 포함할 수 있습니다.
 
 App Service 배포 자동화를 실행 하려면 모든 빌드 작업 (예:,,, 및)을 실행 하 `npm` `bower` `gulp` `composer` `pip` 고 앱을 실행 하는 데 필요한 모든 파일이 있는지 확인 합니다. 이 단계는 [패키지를 직접 실행](../articles/app-service/deploy-run-package.md)하려는 경우에 필요 합니다.
 

@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87489518"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 OIDC (itsme Openid connect Connect) 구성
@@ -40,7 +40,7 @@ Itsme digital ID 앱을 사용 하면 카드 판독기, 암호, 2 단계 인증 
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 |1     | 웹 사이트 또는 응용 프로그램에서 Azure AD B2C 사용자 흐름을 조정 하 여 **itsme에 로그인** 단추를 포함 합니다. 사용자가이 단추를 클릭 하면 상호 작용 흐름이 시작 됩니다.  |
 |2     | Azure AD B2C는 itsme 클라이언트 암호 API에 권한 부여 요청을 전송 하 여 Openid connect connect 흐름을 시작 합니다. 잘 알려진/Openid connect 구성 끝점은 끝점에 대 한 정보를 포함 하 고 있습니다.  |
@@ -61,7 +61,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. 에 전자 메일을 보내 itsme 계정을 활성화 onboarding@itsme.be 합니다. B2C 설정에 필요한 **파트너 코드** 및 **서비스 코드** 를 받게 됩니다.
 
-3. Itsme 파트너 계정이 활성화 된 후에는 **클라이언트 암호**에 대 한 일회성 링크를 포함 하는 전자 메일을 받게 됩니다.
+3. Itsme 파트너 계정이 활성화 된 후에는 **클라이언트 암호** 에 대 한 일회성 링크를 포함 하는 전자 메일을 받게 됩니다.
 
 4. [Itsme](https://business.itsme.be/en) 의 지침에 따라 구성을 완료 합니다.
 
@@ -74,9 +74,9 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Azure AD B2C 테넌트가 포함된 디렉터리를 사용하고 있는지 확인합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 
-2. **Azure 서비스**에서 **Azure AD B2C** 를 선택 하거나, **추가 서비스** 를 선택 하 고 **모든 서비스** 검색 상자를 사용 하 여 *Azure AD B2C*를 검색 합니다.
+2. **Azure 서비스** 에서 **Azure AD B2C** 를 선택 하거나, **추가 서비스** 를 선택 하 고 **모든 서비스** 검색 상자를 사용 하 여 *Azure AD B2C* 를 검색 합니다.
 
-3. **ID 공급자**를 선택한 다음, **새 OpenID Connect 공급자**를 선택합니다.
+3. **ID 공급자** 를 선택한 다음, **새 OpenID Connect 공급자** 를 선택합니다.
 
 4. 다음 정보를 사용 하 여 양식을 작성 합니다.
 
@@ -94,52 +94,52 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |표시 이름 | name |
    |이름 | given_name |
    |Surname | family_name |
-   |메일 | 이메일|
+   |Email | 이메일|
 
-5. **저장**을 선택합니다.
+5. **저장** 을 선택합니다.
 
 ### <a name="configure-a-user-flow"></a>사용자 흐름 구성
 
-1. Azure AD B2C 테 넌 트에서 **정책**아래에서 **사용자 흐름**을 선택 합니다.
+1. Azure AD B2C 테 넌 트에서 **정책** 아래에서 **사용자 흐름** 을 선택 합니다.
 
-2. **새 사용자 흐름**을 선택 합니다.
+2. **새 사용자 흐름** 을 선택 합니다.
 
-3. **등록 및 로그인**을 선택 하 고, 버전을 선택한 다음, **만들기**를 선택 합니다.
+3. **등록 및 로그인** 을 선택 하 고, 버전을 선택한 다음, **만들기** 를 선택 합니다.
 
-4. **이름**을 입력합니다.
+4. **이름** 을 입력합니다.
 
-5. **Id 공급자** 섹션에서 **itsme**를 선택 합니다.
+5. **Id 공급자** 섹션에서 **itsme** 를 선택 합니다.
 
-6. **만들기**를 선택합니다.
+6. **만들기** 를 선택합니다.
 
 7. 사용자 흐름 이름을 선택 하 여 새로 만든 사용자 흐름을 엽니다.
 
 8. **속성** 을 선택 하 고 다음 값을 조정 합니다.
 
-   * **액세스 & ID 토큰 수명 (분)** 을 **5**로 변경 합니다.
-   * **새로 고침 토큰 슬라이딩 윈도우 수명을** **만료 없음**으로 변경 합니다.
+   * **액세스 & ID 토큰 수명 (분)** 을 **5** 로 변경 합니다.
+   * **새로 고침 토큰 슬라이딩 윈도우 수명을** **만료 없음** 으로 변경 합니다.
 
 ### <a name="register-an-application"></a>애플리케이션 등록
 
-1. B2C 테 넌 트의 **관리**에서 **앱 등록**  >  **새 등록**을 선택 합니다.
+1. B2C 테 넌 트의 **관리** 에서 **앱 등록**  >  **새 등록** 을 선택 합니다.
 
-2. 응용 프로그램의 **이름을** 입력 하 고 **리디렉션 URI**를 입력 합니다. 테스트 목적으로를 입력 `https://jwt.ms` 합니다.
+2. 응용 프로그램의 **이름을** 입력 하 고 **리디렉션 URI** 를 입력 합니다. 테스트 목적으로를 입력 `https://jwt.ms` 합니다.
 
-3. Multi-factor authentication을 **사용 하지 않도록 설정**했는지 확인 합니다.
+3. Multi-factor authentication을 **사용 하지 않도록 설정** 했는지 확인 합니다.
 
-4. **등록**을 선택합니다.
+4. **등록** 을 선택합니다.
 
-   a. 테스트 목적으로 **인증**을 선택 하 고 **암시적 권한 부여**에서 **액세스 토큰** 및 **ID 토큰** 확인란을 선택 합니다.  
+   a. 테스트 목적으로 **인증** 을 선택 하 고 **암시적 권한 부여** 에서 **액세스 토큰** 및 **ID 토큰** 확인란을 선택 합니다.  
 
-   b. **저장**을 선택합니다.
+   b. **저장** 을 선택합니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. B2C 테 넌 트에서 **정책** 아래에서 **사용자 흐름**을 선택 합니다.
+1. B2C 테 넌 트에서 **정책** 아래에서 **사용자 흐름** 을 선택 합니다.
 
 2. 이전에 만든 사용자 흐름을 선택 합니다.
 
-3. **사용자 흐름 실행**을 선택합니다.
+3. **사용자 흐름 실행** 을 선택합니다.
 
    a. **응용 프로그램**: *등록 된 앱을 선택 합니다* .
 
@@ -147,7 +147,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 4. Itsme **식별** 페이지가 나타납니다.  
 
-5. 휴대폰 번호를 입력 하 고 **보내기**를 선택 합니다.
+5. 휴대폰 번호를 입력 하 고 **보내기** 를 선택 합니다.
 
 6. Itsme 앱에서 작업을 확인 합니다.
 
