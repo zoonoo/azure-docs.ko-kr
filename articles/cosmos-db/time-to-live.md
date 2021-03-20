@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
 ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360091"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live)
@@ -28,7 +28,7 @@ TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기�
 
 Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정 된 시간부터 델타로 해석 됩니다. TTL(Time to Live)은 컨테이너 또는 컨테이너 내 항목에서 설정할 수 있습니다.
 
-1. **컨테이너에서 TTL(Time to Live)** (`DefaultTimeToLive` 사용하여 설정):
+1. **컨테이너에서 TTL(Time to Live)**(`DefaultTimeToLive` 사용하여 설정):
 
    - 누락(또는 null로 설정)되는 경우 항목이 자동으로 삭제되지 않습니다.
 
@@ -36,7 +36,7 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
    - 존재 하 고 값이 *0이 아닌* *일부 숫자로 설정* 된 경우, 마지막으로 수정한 시간 이후 항목은 *"n"* 초 후에 만료 됩니다.
 
-2. **항목에서 TTL(Time to Live)** (`ttl` 사용하여 설정):
+2. **항목에서 TTL(Time to Live)**(`ttl` 사용하여 설정):
 
    - 이 속성은 `DefaultTimeToLive`가 표시되고 부모 컨테이너에 대해 null로 설정되지 않은 경우에만 적용할 수 있습니다.
 
@@ -50,7 +50,7 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
 - 컨테이너에서 TTL이 -1로 설정된 경우 TTL(Time to Live)이 n으로 설정된 이 컨테이너의 항목은 n초 후에 만료되고 나머지 항목은 만료되지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이 섹션에서는 컨테이너와 항목에 할당 된 ttl (time to live) 값이 다른 몇 가지 예를 보여 줍니다.
 

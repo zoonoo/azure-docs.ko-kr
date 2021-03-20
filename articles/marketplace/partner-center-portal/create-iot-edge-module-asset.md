@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
 ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93346777"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>IoT Edge 모듈 기술 자산 준비
@@ -25,7 +25,7 @@ IoT Edge 모듈은 IoT Edge 장치에서 실행 되는 Docker와 호환 되는 �
 - IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](../../iot-edge/iot-edge-modules.md)를 참조하세요.
 - IoT Edge 모듈 개발을 시작 하려면 [고유한 IoT Edge 모듈 개발](../../iot-edge/module-development.md)을 참조 하세요.
 
-## <a name="technical-requirements"></a>기술적인 요구 사항
+## <a name="technical-requirements"></a>기술 요구 사항
 
 IoT Edge 모듈은 Azure Marketplace에 인증 하 고 게시 하려면 다음 기술 요구 사항을 충족 해야 합니다.
 
@@ -64,7 +64,7 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원 해야 합니다
 <p><u>Minimum hardware requirements:</u> Linux x64 and arm32 OS, 1GB of RAM, 500 Mb of storage</p>
 ```
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 모듈에는 IoT Edge 장치에 최대한 간단 하 게 배포 하는 기본 구성 설정이 포함 되어야 합니다. 이 정보는 [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace)의 계획에 대 한 **기술 구성** 페이지에서 제공 됩니다. 컨테이너에는 Edge 허브 및 IoT Hub와 통신할 수 있도록 IoT Edge Module SDK가 포함 될 수도 있습니다.
 

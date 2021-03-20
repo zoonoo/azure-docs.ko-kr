@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: b5dadb886078f701bb01447efd606c862ee73073
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945524"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight의 Apache Hadoop 서비스에서 사용하는 포트
@@ -159,7 +159,7 @@ HDInsight 클러스터의 모든 노드는 Azure Virtual Network에 있습니다
 
 ### <a name="spark-ports"></a>Spark 포트
 
-| 서비스 | 노드 | 포트 | 프로토콜 | URL 경로 | Description |
+| 서비스 | 노드 | 포트 | 프로토콜 | URL 경로 | 설명 |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift 서버 |헤드 노드 |10002 |Thrift | &nbsp; | Spark SQL에 연결하기 위한 서비스(Thrift/JDBC) |
 | Livy 서버 | 헤드 노드 | 8998 | HTTP | &nbsp; | 문, 작업 및 애플리케이션을 실행하기 위한 서비스 |

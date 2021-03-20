@@ -9,10 +9,10 @@ ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89226032"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Visual Studio를 사용 하 여 WebJobs 개발 및 배포
@@ -59,7 +59,7 @@ Visual Studio는 WebJobs 사용 프로젝트에 다음 항목을 추가 합니�
 
 ### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> 기존 콘솔 응용 프로그램 프로젝트에 WebJobs 배포 사용
 
-다음과 같은 두 가지 옵션이 있습니다.
+다음 두 가지 옵션을 사용할 수 있습니다.
 
 * [웹 프로젝트를 사용하여 자동 배포 사용](#convertlink).
 
@@ -71,7 +71,7 @@ Visual Studio는 WebJobs 사용 프로젝트에 다음 항목을 추가 합니�
 
 #### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> 웹 프로젝트와 함께 자동 WebJob 배포 사용
 
-1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **Add**  >  **Azure WebJob으로 기존 프로젝트**추가를 선택 합니다.
+1. **솔루션 탐색기** 에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음   >  **Azure WebJob으로 기존 프로젝트** 추가를 선택 합니다.
    
     ![Existing Project as Azure WebJob(기존 프로젝트를 Azure WebJob으로)](./media/webjobs-dotnet-deploy-vs/eawj.png)
    
@@ -79,15 +79,15 @@ Visual Studio는 WebJobs 사용 프로젝트에 다음 항목을 추가 합니�
 2. **프로젝트 이름** 드롭다운 목록에서 WebJob으로 추가할 콘솔 앱 프로젝트를 선택 합니다.
    
     ![Azure WebJob 추가 대화 상자에서 프로젝트 선택](./media/webjobs-dotnet-deploy-vs/aaw1.png)
-3. [Azure WebJob 추가](#configure) 대화 상자를 완료 하 고 **확인**을 선택 합니다. 
+3. [Azure WebJob 추가](#configure) 대화 상자를 완료 하 고 **확인** 을 선택 합니다. 
 
 #### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> 웹 프로젝트를 제외한 WebJob 배포 사용
-1. **솔루션 탐색기**에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **Azure WebJob으로 게시**를 선택 합니다. 
+1. **솔루션 탐색기** 에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **Azure WebJob으로 게시** 를 선택 합니다. 
    
     ![Publish as Azure WebJob(Azure WebJob으로 게시)](./media/webjobs-dotnet-deploy-vs/paw.png)
    
     [프로젝트 이름](#configure) 상자에서 프로젝트가 선택된 상태로 **Add Azure WebJob(Azure WebJob 추가)** 대화 상자가 나타납니다.
-2. [Azure WebJob 추가](#configure) 대화 상자를 완료 하 고 **확인**을 선택 합니다.
+2. [Azure WebJob 추가](#configure) 대화 상자를 완료 하 고 **확인** 을 선택 합니다.
    
    **웹 게시** 마법사가 나타납니다. 바로 게시하지 않으려면 마법사를 닫습니다. 입력한 설정은 [프로젝트를 배포](#deploy)할 때 사용할 수 있게 저장됩니다.
 
@@ -102,22 +102,22 @@ Visual Studio는 WebJobs 사용 프로젝트에 다음 항목을 추가 합니�
     동일한 솔루션에서 웹 프로젝트를 배포할 때 WebJob으로 자동 배포 하도록 구성 된 프로젝트를 만듭니다. 관련 웹 애플리케이션을 실행하는 동일한 웹 앱에서 WebJob을 실행하려는 경우에 이 옵션을 사용합니다.
 
 > [!NOTE]
-> WebJobs new-project 새 프로젝트 템플릿은 NuGet 패키지를 자동으로 설치하고 *WebJobs SDK* 에 대한 [Program.cs](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)에 코드를 포함합니다. WebJobs SDK를 사용하지 않으려면 *Program.cs*에서 `host.RunAndBlock` 문을 제거하거나 변경합니다.
+> WebJobs new-project 새 프로젝트 템플릿은 NuGet 패키지를 자동으로 설치하고 *WebJobs SDK* 에 대한 [Program.cs](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs)에 코드를 포함합니다. WebJobs SDK를 사용하지 않으려면 *Program.cs* 에서 `host.RunAndBlock` 문을 제거하거나 변경합니다.
 > 
 > 
 
 #### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
-1. **File** > **New** > **Project**를 선택합니다. **Crete a 새 프로젝트** 대화 상자에서 c #에 대 한 **Azure WebJob (.NET Framework)** 을 검색 하 고 선택 합니다.
+1. **File** > **New** > **Project** 를 선택합니다. **Crete a 새 프로젝트** 대화 상자에서 c #에 대 한 **Azure WebJob (.NET Framework)** 을 검색 하 고 선택 합니다.
    
 2. 이전 지침에 따라 [콘솔 앱 프로젝트를 독립 WebJobs 프로젝트로 만듭니다](#convertnolink).
 
 #### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> 웹 프로젝트에 연결된 WebJob을 위해 WebJob new-project 템플릿 사용
-1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **Add**  >  **새 Azure WebJob 프로젝트**추가를 선택 합니다.
+1. **솔루션 탐색기** 에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음   >  **새 Azure WebJob 프로젝트** 추가를 선택 합니다.
    
     ![New Azure WebJob Project(새 Azure WebJob 프로젝트) 메뉴 항목](./media/webjobs-dotnet-deploy-vs/nawj.png)
    
     [Add Azure WebJob(Azure WebJob 추가)](#configure) 대화 상자가 나타납니다.
-2. [Azure WebJob 추가](#configure) 대화 상자를 완료 하 고 **확인**을 선택 합니다.
+2. [Azure WebJob 추가](#configure) 대화 상자를 완료 하 고 **확인** 을 선택 합니다.
 
 
 ### <a name="webjob-publish-settingsjson-file"></a><a id="publishsettings"></a> 파일에webjob-publish-settings.js
@@ -157,9 +157,9 @@ WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 
 IntelliSense를 사용 하 여 Visual Studio에서이 파일을 직접 편집할 수 있습니다. 파일 스키마는에 저장 됩니다 [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) .
 
 ### <a name="deploy-a-webjobs-project"></a><a id="deploy"></a>WebJob 프로젝트 배포
-웹 프로젝트에 연결 된 WebJobs 프로젝트는 웹 프로젝트와 함께 자동으로 배포 됩니다. 웹 프로젝트 배포에 대 한 자세한 내용은 **How-to guides**  >  왼쪽 탐색에서**앱 배포** 방법 가이드를 참조 하세요.
+웹 프로젝트에 연결 된 WebJobs 프로젝트는 웹 프로젝트와 함께 자동으로 배포 됩니다. 웹 프로젝트 배포에 대 한 자세한 내용은   >  왼쪽 탐색에서 **앱 배포** 방법 가이드를 참조 하세요.
 
-WebJobs 프로젝트를 단독으로 배포 하려면 **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Azure WebJob으로 게시**를 선택 합니다. 
+WebJobs 프로젝트를 단독으로 배포 하려면 **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Azure WebJob으로 게시** 를 선택 합니다. 
 
 ![Publish as Azure WebJob(Azure WebJob으로 게시)](./media/webjobs-dotnet-deploy-vs/paw.png)
 
@@ -176,17 +176,17 @@ WebJob 배포 정보:
 
 * 명령줄 배포에 대한 자세한 내용은 [Azure WebJob의 명령줄 또는 지속적인 전송 사용](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)을 참조하세요.
 
-* WebJob을 배포 하 고 WebJob의 유형을 변경 하 고 다시 배포 하는 경우 파일 * 에서webjobs-publish-settings.js* 을 삭제 합니다. 이렇게 하면 Visual Studio에서 게시 옵션을 다시 표시 하므로 WebJob의 유형을 변경할 수 있습니다.
+* WebJob을 배포 하 고 WebJob의 유형을 변경 하 고 다시 배포 하는 경우 파일 *에서webjobs-publish-settings.js* 을 삭제 합니다. 이렇게 하면 Visual Studio에서 게시 옵션을 다시 표시 하므로 WebJob의 유형을 변경할 수 있습니다.
 
 * WebJob을 배포하고 나중에 실행 모드를 연속에서 비연속으로 또는 그 반대로 변경하면 Visual Studio는 사용자가 WebJob을 다시 배포할 때 Azure에서 새 WebJob을 만듭니다. 다른 일정 설정을 변경 하는 경우 실행 모드를 동일 하거나 예약 된 요청 사이에서 전환 하는 경우 Visual Studio는 새 작업을 만드는 대신 기존 작업을 업데이트 합니다.
 
 ## <a name="webjob-types"></a>WebJob 형식
 
-WebJob의 형식은 *트리거됨* 또는 *연속*일 수 있습니다.
+WebJob의 형식은 *트리거됨* 또는 *연속* 일 수 있습니다.
 
 - 트리거됨 (기본값): 트리거된 WebJob은 바인딩 이벤트 또는 [일정](#scheduling-a-triggered-webjob)에 따라 시작 하거나 요청 시 수동으로 트리거할 때 시작 됩니다. 웹 앱이 실행 되는 단일 인스턴스에서 실행 됩니다.
 
-- 연속: WebJob을 만들 때 [연속](#continuous-execution) webjob이 즉시 시작 됩니다. 기본적으로 모든 웹 앱 크기 조정 된 인스턴스에서 실행 되지만 *설정. 작업*을 통해 단일 인스턴스로 실행 되도록 구성할 수 있습니다.
+- 연속: WebJob을 만들 때 [연속](#continuous-execution) webjob이 즉시 시작 됩니다. 기본적으로 모든 웹 앱 크기 조정 된 인스턴스에서 실행 되지만 *설정. 작업* 을 통해 단일 인스턴스로 실행 되도록 구성할 수 있습니다.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 
@@ -202,7 +202,7 @@ WebJob의 형식은 *트리거됨* 또는 *연속*일 수 있습니다.
 }
 ```
 
-이 파일은 WebJob의 스크립트 (예: 또는)를 사용 하 여 WebJobs 폴더의 루트에 있습니다 `wwwroot\app_data\jobs\triggered\{job name}` `wwwroot\app_data\jobs\continuous\{job name}` . Visual Studio에서 WebJob을 배포 하는 경우 Visual Studio의 작업 파일 속성을 **새 버전으로 복사**로 표시 *합니다.*
+이 파일은 WebJob의 스크립트 (예: 또는)를 사용 하 여 WebJobs 폴더의 루트에 있습니다 `wwwroot\app_data\jobs\triggered\{job name}` `wwwroot\app_data\jobs\continuous\{job name}` . Visual Studio에서 WebJob을 배포 하는 경우 Visual Studio의 작업 파일 속성을 **새 버전으로 복사** 로 표시 *합니다.*
 
 [Azure Portal에서 WebJob을 만드는](webjobs-create.md)경우에는 *설정. 작업* 파일이 만들어집니다.
 
@@ -216,7 +216,7 @@ WebJobs는 Azure Functions에서 타이머 트리거로 일정을 예약 하는 
 
 WebJobs에서 지원 되는 설정은 다음과 같습니다.
 
-| **설정** | **형식**  | **설명** |
+| **설정** | **Type**  | **설명** |
 | ----------- | --------- | --------------- |
 | `is_in_place` | 모두 | WebJob을 임시 폴더에 먼저 복사 하지 않고 대신 실행할 수 있습니다. 자세한 내용은 [WebJob 작업 디렉터리](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)를 참조 하세요. |
 | `is_singleton` | 계속 | 규모 확장 시 단일 인스턴스에 대해 WebJob을 실행 합니다. 자세한 내용은 [연속 작업을 singleton으로 설정](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)을 참조 하세요. |
@@ -229,11 +229,11 @@ Azure에서 **Always on** 을 사용 하도록 설정 하는 경우 Visual Studi
 
 1. 아직 수행 하지 않은 경우 프로젝트를 [Azure에 게시](#deploy-to-azure-app-service)합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-1. **게시** 탭에서 **편집**을 선택 합니다. 
+1. **게시** 탭에서 **편집** 을 선택 합니다. 
 
-1. **프로필 설정** 대화 상자에서 **WebJob 유형**으로 **연속** 을 선택 하 고 **저장**을 선택 합니다.
+1. **프로필 설정** 대화 상자에서 **WebJob 유형** 으로 **연속** 을 선택 하 고 **저장** 을 선택 합니다.
 
     ![WebJob의 게시 설정 대화 상자](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
 

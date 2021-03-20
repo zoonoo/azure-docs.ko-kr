@@ -12,16 +12,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c84636ea86b3b640aef365c1c5d8e634b9a1f48
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99593163"
 ---
 # <a name="how-to-programmatically-configure-cloud-sync-using-ms-graph-api"></a>MS Graph API를 사용 하 여 클라우드 동기화를 프로그래밍 방식으로 구성 하는 방법
 
 다음 문서에서는 MSGraph Api만 사용 하 여 동기화 프로필을 처음부터 복제 하는 방법을 설명 합니다.  
-이 작업을 수행 하는 방법의 구조는 다음 단계로 구성 됩니다.  아래에 이 계정과 키의 예제가 나와 있습니다.
+이 작업을 수행 하는 방법의 구조는 다음 단계로 구성 됩니다.  핵심 원리는 다음과 같습니다.
 
 - [기본 설정](#basic-setup)
 - [서비스 사용자 만들기](#create-service-principals)

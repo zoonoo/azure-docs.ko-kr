@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/28/2020
 ms.openlocfilehash: a15c3e0fb3550c6e50b3fba2279611fdba25bc84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945566"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
@@ -200,7 +200,7 @@ set hive.vectorized.execution.enabled = true;
 
 ## <a name="next-steps"></a>다음 단계
 
-이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Apache Hive 최적화](./optimize-hive-ambari.md)
 * [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

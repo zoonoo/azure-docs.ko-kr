@@ -6,15 +6,15 @@ ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
 ms.openlocfilehash: e899b249261ea3238695a2e2be6001cb6a9bc763
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91318061"
 ---
 # <a name="convert-models"></a>모델 변환
 
-Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할 수 있습니다. 성능을 최대화 하려면 데이터를 전처리 하 여 최적의 형식을 지정 해야 합니다. 데이터 양에 따라이 단계는 시간이 오래 걸릴 수 있습니다. 모델을 로드 하는 동안이 시간이 소요 되는 경우에는 실용적이 지 않습니다. 또한 여러 세션에 대해이 프로세스를 반복 하는 것은 불필요 합니다. 이러한 이유로 ARR 서비스는 미리 실행할 수 있는 전용 *변환 서비스*를 제공 합니다.
+Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할 수 있습니다. 성능을 최대화 하려면 데이터를 전처리 하 여 최적의 형식을 지정 해야 합니다. 데이터 양에 따라이 단계는 시간이 오래 걸릴 수 있습니다. 모델을 로드 하는 동안이 시간이 소요 되는 경우에는 실용적이 지 않습니다. 또한 여러 세션에 대해이 프로세스를 반복 하는 것은 불필요 합니다. 이러한 이유로 ARR 서비스는 미리 실행할 수 있는 전용 *변환 서비스* 를 제공 합니다.
 변환 되 면 Azure Storage 계정에서 모델을 로드할 수 있습니다.
 
 ## <a name="supported-source-formats"></a>지원 되는 원본 형식
@@ -38,7 +38,7 @@ Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할
 
 모든 모델 데이터 (입력 및 출력)는 사용자가 제공 하는 Azure blob 저장소에 저장 됩니다. Azure 원격 렌더링은 자산 관리를 완벽 하 게 제어할 수 있도록 합니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 변환 가격 책정에 대 한 자세한 내용은 [원격 렌더링 가격 책정](https://azure.microsoft.com/pricing/details/remote-rendering) 페이지를 참조 하세요.
 

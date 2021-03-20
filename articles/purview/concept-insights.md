@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 12/02/2020
 ms.openlocfilehash: d841fa336b2702a02f3215f97a6403217986d7e0
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96554759"
 ---
-# <a name="understand-insights-in-azure-purview"></a>Azure 부서의 범위의 통찰력 이해
+# <a name="understand-insights-in-azure-purview"></a>Azure Purview의 인사이트 이해
 
 이 문서에서는 Azure 부서의 범위의 정보 기능에 대 한 개요를 제공 합니다.
 

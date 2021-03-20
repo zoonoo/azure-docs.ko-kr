@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: fa61046ee87c1cac3c8a8bb93ed97b577019e016
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94628444"
 ---
 # <a name="azure-firewall-certifications"></a>Azure 방화벽 인증
@@ -28,8 +28,8 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - AFM 및 DNB(네덜란드)
 - AMF 및 ACPR(프랑스)
 - APRA (오스트레일리아)
-- 아르헨티나
-- Australia IRAP
+- 아르헨티나 PDPA
+- 오스트레일리아 IRAP
 - CDSA
 - CFTC 1.31
 - CSA STAR 증명
@@ -38,7 +38,7 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - 캐나다 개인 정보 보호법
 - 6PP (영국)
 - EU ENISA IAF
-- EU 모델 절
+- EU Model Clauses
 - 유럽 금융 기관
 - FCA 및 PRA(영국)
 - FERPA(미국)
@@ -46,7 +46,7 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - FINMA(스위스)
 - FSA(덴마크)
 - GLBA(미국)
-- Germany C5
+- 독일 C5
 - GxP(FDA 21 CFR Part 11)
 - HIPAA
 - HITECH Act (US)
@@ -57,7 +57,7 @@ Azure 방화벽은 PCI (결제 카드 산업), SOC (서비스 조직 컨트롤),
 - ISO 27017:2015
 - ISO 27018:2014
 - ISO 9001:2015
-- Japan My Number Act
+- 일본 My Number Act
 - K-ISMS
 - KNF (폴란드)
 - MAS 및 ABS(싱가포르)

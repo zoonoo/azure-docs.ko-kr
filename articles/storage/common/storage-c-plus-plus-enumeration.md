@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92784101"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
@@ -196,7 +196,7 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 
 Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [C + +에서 Blob Storage를 사용 하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [C++에서 Queue Storage를 사용하는 방법](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API 설명서](https://azure.github.io/azure-storage-cpp/)

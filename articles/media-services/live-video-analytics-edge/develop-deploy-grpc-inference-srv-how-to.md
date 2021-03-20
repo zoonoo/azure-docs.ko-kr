@@ -4,10 +4,10 @@ description: 이 문서에서는 gRPC 유추 서버를 개발 하 고 배포 하
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881655"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>방법 가이드 – gRPC 유추 서버 개발 및 배포
@@ -24,7 +24,7 @@ ms.locfileid: "98881655"
 * [GRPC 소개](https://www.grpc.io/docs/what-is-grpc/introduction/)
 * [proto3 언어 가이드](https://developers.google.com/protocol-buffers/docs/proto3)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 또는 Windows 컴퓨터 중 하나를 실행 하는 x86-64 또는 ARM64 장치입니다.
 * 컴퓨터에 [Docker를 설치](https://docs.docker.com/desktop/#download-and-install) 합니다.
@@ -148,7 +148,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
 1. VSCode를 시작 하 고/src/edge/modules/grpcExtension 폴더로 이동 합니다.
 1. 파일에 대 한 간단한 연습을 수행해 보겠습니다.
 
-    1. **Program.cs**: 응용 프로그램의 진입점입니다. 이는 호스트 역할을 하는 gRPC 서버를 초기화 하 고 관리 하는 일을 담당 합니다. 이 샘플에서 gRPC 클라이언트 (예: 라이브 비디오 분석)에서 들어오는 gRPC 메시지를 수신 대기 하는 포트는 AppConfig.js의 grpcBindings 구성 요소에 의해 지정 됩니다.
+    1. **Program .cs**: 응용 프로그램의 진입점입니다. 이는 호스트 역할을 하는 gRPC 서버를 초기화 하 고 관리 하는 일을 담당 합니다. 이 샘플에서 gRPC 클라이언트 (예: 라이브 비디오 분석)에서 들어오는 gRPC 메시지를 수신 대기 하는 포트는 AppConfig.js의 grpcBindings 구성 요소에 의해 지정 됩니다.
     
         ```json    
         {
@@ -191,7 +191,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
               }
             }
             ```
-        * Appconfig.jsbatchSize의 값에 따라 서버는 메시지를 계속 받고 비디오 프레임을 목록에 저장 합니다. BatchSize 제한에 도달 하면 함수는 이미지를 처리 하는 파일 또는 함수를 호출 합니다. 이 경우 메서드는 BatchImageProcessor.cs 라는 파일을 호출 합니다.
+        * Appconfig.jsbatchSize의 값에 따라 서버는 메시지를 계속 받고 비디오 프레임을 목록에 저장 합니다. BatchSize 제한에 도달 하면 함수는 이미지를 처리 하는 파일 또는 함수를 호출 합니다. 이 경우 메서드는 BatchImageProcessor .cs 라는 파일을 호출 합니다.
     1. **Processors\BatchImageProcessor.cs**:이 클래스는 이미지를 처리 하는 일을 담당 합니다. 이 샘플에서는 이미지 분류 모델을 사용 했습니다. 처리 되는 모든 이미지에 대해 사용 되는 알고리즘은 다음과 같습니다.
 
         1. 처리를 위해 바이트 배열의 이미지를 변환 합니다. 자세한 내용은 메서드: `GetBytes(Bitmap image)`
@@ -207,7 +207,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
     IEnumerable<Inference> ProcessImage(List<Image> images) 
     ```
 
-    새 클래스를 추가한 후에는 클래스를 인스턴스화하고 ProcessImage 메서드를 호출 하 여 처리 논리를 실행 하도록 MediaGraphExtensionService.cs를 업데이트 해야 합니다. 
+    새 클래스를 추가한 후에는 MediaGraphExtensionService를 업데이트 하 여 클래스를 인스턴스화하고 처리 논리를 실행 하기 위해 ProcessImage 메서드를 호출 해야 합니다. 
 
 ## <a name="connect-with-live-video-analytics-module"></a>라이브 비디오 분석 모듈을 사용 하 여 연결
 
@@ -231,7 +231,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
     * Program.cs - 샘플 프로그램 코드입니다. 이 코드에서는 다음을 수행합니다.
 
         * 앱 설정을 로드합니다.
-        * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 이 모듈을 통해 [직접 메서드](direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
+        * Live Video Analytics on IoT Edge 모듈에서 공개하는 직접 메서드를 호출합니다. 모듈을 사용하여 해당 [직접 메서드](direct-methods.md)를 호출하여 라이브 비디오 스트림을 분석할 수 있습니다.
         * 터미널 창에서 프로그램의 출력을 검사하고, 출력 창에서 모듈에서 생성된 이벤트를 검사할 수 있도록 일시 중지합니다.
         * 리소스를 정리하는 직접 메서드를 호출합니다.
 1. operations.json 파일을 편집합니다.

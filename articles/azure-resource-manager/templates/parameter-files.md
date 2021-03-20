@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿을 배포하는 동안 값을 전�
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89276663"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Resource Manager 매개 변수 파일 만들기
@@ -213,9 +213,9 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ## <a name="file-name"></a>파일 이름
 
-매개 변수 파일의 이름을 지정하는 일반적인 규칙은 템플릿 이름에 **.parameters**를 추가하는 것입니다. 예를 들어, 템플릿의 이름이 **azuredeploy.json**인 경우 매개 변수 파일의 이름은 **azuredeploy.parameters.json**이 됩니다. 이 명명 규칙은 템플릿과 매개 변수 간의 연결을 확인하는 데 도움이 됩니다.
+매개 변수 파일의 이름을 지정하는 일반적인 규칙은 템플릿 이름에 **.parameters** 를 추가하는 것입니다. 예를 들어, 템플릿의 이름이 **azuredeploy.json** 인 경우 매개 변수 파일의 이름은 **azuredeploy.parameters.json** 이 됩니다. 이 명명 규칙은 템플릿과 매개 변수 간의 연결을 확인하는 데 도움이 됩니다.
 
-다른 환경에 배포하려면 둘 이상의 매개 변수 파일을 만듭니다. 매개 변수 파일의 이름을 지정할 때 용도를 식별할 수 있는 방법을 추가합니다. 예를 들면 **azuredeploy.parameters-dev.json**과 **azuredeploy.parameters-prod.json**을 사용합니다.
+다른 환경에 배포하려면 둘 이상의 매개 변수 파일을 만듭니다. 매개 변수 파일의 이름을 지정할 때 용도를 식별할 수 있는 방법을 추가합니다. 예를 들면 **azuredeploy.parameters-dev.json** 과 **azuredeploy.parameters-prod.json** 을 사용합니다.
 
 ## <a name="parameter-precedence"></a>매개 변수 우선 순위
 
@@ -225,7 +225,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 ## <a name="parameter-name-conflicts"></a>매개 변수 이름 충돌
 
-템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 **FromTemplate**인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 **ResourceGroupName** 매개 변수는 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다. 배포 명령에 사용되지 않은 매개 변수 이름을 이용하면 이와 같은 혼동을 방지할 수 있습니다.
+템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 **FromTemplate** 인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 **ResourceGroupName** 매개 변수는 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. **ResourceGroupNameFromTemplate** 에 대한 값을 제공하라는 메시지가 표시됩니다. 배포 명령에 사용되지 않은 매개 변수 이름을 이용하면 이와 같은 혼동을 방지할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

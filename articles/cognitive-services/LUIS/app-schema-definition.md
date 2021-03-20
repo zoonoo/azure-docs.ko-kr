@@ -6,21 +6,21 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
 ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91327326"
 ---
 # <a name="app-schema-definition"></a>앱 스키마 정의
 
 LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예제 길이 발언, 기능 및 설정을 포함 합니다.
 
-## <a name="format"></a>형식
+## <a name="format"></a>서식
 
 앱을 가져오고 내보낼 때 또는 중 하나를 선택 `.json` `.lu` 합니다.
 
-|형식|정보|
+|서식|정보|
 |--|--|
 |`.json`| 표준 프로그래밍 형식|
 |`.lu`|Bot Framework의 [Bot Builder 도구](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown/docs/lu-file-format.md)에서 지원 됩니다.|
@@ -65,7 +65,7 @@ LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예�
 }
 ```
 
-| element                  | 주석                              |
+| element                  | 의견                              |
 |--------------------------|--------------------------------------|
 | "hierarchicals": [],     | 사용 되지 않는 경우 [machine learning 엔터티](luis-concept-entity-types.md)를 사용 합니다.   |
 | "합성": [],        | 사용 되지 않는 경우 [machine learning 엔터티](luis-concept-entity-types.md)를 사용 합니다. [복합 엔터티](reference-entity-composite.md) 참조입니다. |

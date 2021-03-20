@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0cfbb0be22dee4550050d6af10314f3a3bb1f583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87505992"
 ---
 # <a name="extend-or-renew-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹 할당 (미리 보기) 확장 또는 갱신
@@ -72,17 +72,17 @@ Privileged Identity Management는 관리자 및 만료 되는 권한 있는 액�
 
 ![권한 있는 액세스 그룹 할당-승인 또는 거부할 요청 및 링크를 나열 하는 요청 승인 페이지](media/groups-renew-extend/group-assignment-extend-admin-approve.png)
 
-관리자가 **승인** 또는 **거부**를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
+관리자가 **승인** 또는 **거부** 를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
 
 ![요청자 이유, 할당 유형, 시작 시간, 종료 시간 및 이유를 사용 하 여 그룹 할당 요청 승인](media/groups-renew-extend/group-assignment-extend-admin-approve-reason.png)
 
-그룹 할당 확장 요청을 승인할 때 리소스 관리자는 새 시작 날짜, 종료 날짜 및 할당 유형을 선택할 수 있습니다. 관리자가 특정 작업을 완료하도록 제한된 액세스를 제공하려는 경우 할당 유형 변경이 필요할 수 있습니다(예: 하루). 이 예제에서는 관리자가 **적격**에서 **활성**으로 할당을 변경할 수 있습니다. 즉, 활성화를 요구하지 않고도 요청자에게 액세스 권한을 제공할 수 있습니다.
+그룹 할당 확장 요청을 승인할 때 리소스 관리자는 새 시작 날짜, 종료 날짜 및 할당 유형을 선택할 수 있습니다. 관리자가 특정 작업을 완료하도록 제한된 액세스를 제공하려는 경우 할당 유형 변경이 필요할 수 있습니다(예: 하루). 이 예제에서는 관리자가 **적격** 에서 **활성** 으로 할당을 변경할 수 있습니다. 즉, 활성화를 요구하지 않고도 요청자에게 액세스 권한을 제공할 수 있습니다.
 
 ### <a name="admin-initiated-extension"></a>관리자가 시작한 확장
 
 그룹에 할당 된 사용자가 그룹 할당에 대 한 확장을 요청 하지 않는 경우 관리자는 사용자를 대신 하 여 할당을 확장할 수 있습니다. 그룹 할당의 관리 확장에는 승인이 필요 하지 않지만 할당이 확장 된 후에는 다른 모든 관리자에 게 알림이 전송 됩니다.
 
-그룹 할당을 확장 하려면 Privileged Identity Management의 할당 뷰로 이동 합니다. 확장이 필요한 할당을 찾습니다. 그런 다음 작업 열에서 **연장**을 선택합니다.
+그룹 할당을 확장 하려면 Privileged Identity Management의 할당 뷰로 이동 합니다. 확장이 필요한 할당을 찾습니다. 그런 다음 작업 열에서 **연장** 을 선택합니다.
 
 ![확장할 링크를 사용 하 여 적격 그룹 할당을 나열 하는 할당 페이지](media/groups-renew-extend/group-assignment-extend-admin-approve.png)
 
@@ -96,7 +96,7 @@ Privileged Identity Management는 관리자 및 만료 되는 권한 있는 액�
 
 ![내 역할 페이지-만료 된 할당 탭](media/groups-renew-extend/groups-renew-from-my-roles.png)
 
-표시 되는 할당 목록은 기본적으로 **적격 할당**으로 설정 됩니다. 드롭다운 메뉴를 사용 하 여 적격 및 활성 할당 간을 전환할 수 있습니다.
+표시 되는 할당 목록은 기본적으로 **적격 할당** 으로 설정 됩니다. 드롭다운 메뉴를 사용 하 여 적격 및 활성 할당 간을 전환할 수 있습니다.
 
 목록에서 그룹 할당에 대 한 갱신을 요청 하려면 **갱신** 작업을 선택 합니다. 그런 다음 요청 이유를 제공합니다. 리소스 관리자가 승인 또는 거부를 결정 하는 데 도움이 될 수 있는 추가 컨텍스트나 비즈니스 근거 외에도 기간을 제공 하는 것이 유용 합니다.
 
@@ -108,7 +108,7 @@ Privileged Identity Management는 관리자 및 만료 되는 권한 있는 액�
 
 리소스 관리자는 전자 메일 알림의 링크를 사용 하거나 Azure Portal에서 Privileged Identity Management에 액세스 하 고 왼쪽 창에서 **요청 승인** 을 선택 하 여 갱신 요청에 액세스할 수 있습니다.
 
-관리자가 **승인** 또는 **거부**를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
+관리자가 **승인** 또는 **거부** 를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
 
 그룹 할당을 갱신 하는 요청을 승인할 때 리소스 관리자는 새 시작 날짜, 종료 날짜 및 할당 형식을 입력 해야 합니다.
 

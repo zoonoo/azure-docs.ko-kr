@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/13/2020
 ms.openlocfilehash: 8b391438d8d6605e7ef493a6552af634db840ad5
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555155"
 ---
 # <a name="understand-business-glossary-features-in-azure-purview"></a>Azure 부서의 범위의 비즈니스 용어집 기능 이해
@@ -33,7 +33,7 @@ ms.locfileid: "96555155"
 ## <a name="custom-attributes"></a>사용자 지정 특성
 
 Azure 부서의 범위는 비즈니스 용어집 용어에 대 한 8 가지 기본 특성을 지원 합니다.
-- 이름
+- Name
 - 정의
 - 데이터 관리자
 - 데이터 전문가

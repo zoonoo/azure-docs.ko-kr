@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e41f372cd0105896765d5a267456b6bda767dd4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798429"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 카탈로그 작성자에 게 액세스 관리 위임
@@ -35,19 +35,19 @@ ms.locfileid: "87798429"
 
 **필수 역할:** 전역 관리자 또는 사용자 관리자
 
-1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
-1. 왼쪽 메뉴의 **자격 관리** 섹션에서 **설정**을 클릭 합니다.
+1. 왼쪽 메뉴의 **자격 관리** 섹션에서 **설정** 을 클릭 합니다.
 
-1. **편집**을 클릭합니다.
+1. **편집** 을 클릭합니다.
 
     ![카탈로그 작성자를 추가 하기 위한 설정](./media/entitlement-management-delegate-catalog/settings-delegate.png)
 
 1. **위임 권한 관리** 섹션에서 **카탈로그 작성자 추가** 를 클릭 하 여이 자격 관리 역할을 위임할 사용자 또는 그룹을 선택 합니다.
 
-1. **선택**을 클릭합니다.
+1. **선택** 을 클릭합니다.
 
-1. **Save**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 ## <a name="allow-delegated-roles-to-access-the-azure-portal"></a>위임 된 역할이 Azure Portal에 액세스할 수 있도록 허용
 
@@ -55,11 +55,11 @@ ms.locfileid: "87798429"
 
 **필수 역할:** 전역 관리자 또는 사용자 관리자
 
-1. Azure Portal에서 **Azure Active Directory** 를 클릭 한 다음 **사용자**를 클릭 합니다.
+1. Azure Portal에서 **Azure Active Directory** 를 클릭 한 다음 **사용자** 를 클릭 합니다.
 
-1. 왼쪽 메뉴에서 **사용자 설정**을 클릭 합니다.
+1. 왼쪽 메뉴에서 **사용자 설정** 을 클릭 합니다.
 
-1. **AZURE AD 관리 포털에 대 한 액세스 제한** 이 **아니요**로 설정 되어 있는지 확인 합니다.
+1. **AZURE AD 관리 포털에 대 한 액세스 제한** 이 **아니요** 로 설정 되어 있는지 확인 합니다.
 
     ![Azure AD 사용자 설정-관리 포털](./media/entitlement-management-delegate-catalog/user-settings.png)
 

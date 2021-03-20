@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,10 +9,10 @@ ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 0fc6a62a94f31617209bcc60bfaa95bc8927551a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050322"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Event Grid IoT Edge 모듈 배포
@@ -31,7 +31,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. IoT Hub로 이동합니다.
 1. **자동 장치 관리** 섹션의 메뉴에서 **IoT Edge** 를 선택 합니다. 
 1. 장치 목록에서 대상 장치의 ID를 클릭 합니다.
-1. **모듈 설정**을 선택 합니다. 페이지를 열어 둡니다. 다음 섹션의 단계를 계속 진행 합니다.
+1. **모듈 설정** 을 선택 합니다. 페이지를 열어 둡니다. 다음 섹션의 단계를 계속 진행 합니다.
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
@@ -80,13 +80,13 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 ### <a name="review-deployment"></a>배포 검토
 
-1. 검토 섹션에서는 이전 두 개의 섹션에서 선택한 항목에 따라 생성된 JSON 배포 매니페스트를 보여줍니다. **$EdgeAgent** 및 **$edgeHub**목록에 두 개의 모듈이 있는지 확인 합니다. 이 두 개의 모듈은 IoT Edge 런타임을 구성하며 모든 배포에서 필수 기본값입니다.
-1. 배포 정보를 검토한 다음 **제출**을 선택합니다.
+1. 검토 섹션에서는 이전 두 개의 섹션에서 선택한 항목에 따라 생성된 JSON 배포 매니페스트를 보여줍니다. **$EdgeAgent** 및 **$edgeHub** 목록에 두 개의 모듈이 있는지 확인 합니다. 이 두 개의 모듈은 IoT Edge 런타임을 구성하며 모든 배포에서 필수 기본값입니다.
+1. 배포 정보를 검토한 다음 **제출** 을 선택합니다.
 
 ### <a name="verify-your-deployment"></a>배포 확인
 
 1. 배포를 제출한 후 IoT Hub의 IoT Edge 페이지로 돌아갑니다.
 1. 배포의 대상으로 지정 된 **IoT Edge 장치** 를 선택 하 여 세부 정보를 엽니다.
-1. 장치 세부 정보에서 Event Grid 모듈이 **배포에 지정** 되 고 **장치에서 보고**되는 것으로 표시 되는지 확인 합니다.
+1. 장치 세부 정보에서 Event Grid 모듈이 **배포에 지정** 되 고 **장치에서 보고** 되는 것으로 표시 되는지 확인 합니다.
 
 모듈을 디바이스에서 시작한 다음, IoT Hub에 다시 보고하려면 몇 분 정도 걸릴 수 있습니다. 업데이트된 상태를 보려면 페이지를 새로 고칩니다.

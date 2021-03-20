@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90d8cc39174f6392b0c532948305fa713535f0c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279230"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: 디바이스 옵션
@@ -31,7 +31,7 @@ ms.locfileid: "89279230"
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Azure AD Connect에서 디바이스 옵션 구성
 
-1.  Azure AD Connect를 실행합니다. **추가 작업** 페이지에서 **디바이스 옵션 구성**을 선택합니다.  **다음**을 클릭합니다.
+1.  Azure AD Connect를 실행합니다. **추가 작업** 페이지에서 **디바이스 옵션 구성** 을 선택합니다.  **다음** 을 클릭합니다.
     ![디바이스 옵션 구성](./media/how-to-connect-device-options/deviceoptions.png) 
 
     **개요** 페이지는 세부 정보를 표시합니다.

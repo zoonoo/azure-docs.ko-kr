@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317619"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
@@ -43,7 +43,7 @@ ms.locfileid: "91317619"
 | 일시 중단 |시스템에서만 설정합니다. 시스템이 **현재** 자동 업그레이드를 받을 수 없습니다. |
 | 사용 안 함 |자동 업그레이드를 사용할 수 없습니다. |
 
-`Set-ADSyncAutoUpgrade`(으)로 **사용**과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단**상태를 설정합니다.  1\.1.750.0 이전 버전에서는 자동 업그레이드 상태가 일시 중단됨으로 설정되어 있으면 Set-ADSyncAutoUpgrade cmdlet이 자동 업그레이드를 차단합니다. 이제 이 기능이 자동 업그레이드를 차단하지 않도록 변경되었습니다.
+`Set-ADSyncAutoUpgrade`(으)로 **사용** 과 **사용 안 함** 사이를 전환할 수 있습니다. 시스템에서만 **일시 중단** 상태를 설정합니다.  1\.1.750.0 이전 버전에서는 자동 업그레이드 상태가 일시 중단됨으로 설정되어 있으면 Set-ADSyncAutoUpgrade cmdlet이 자동 업그레이드를 차단합니다. 이제 이 기능이 자동 업그레이드를 차단하지 않도록 변경되었습니다.
 
 자동 업그레이드는 Azure AD Connect Health를 업그레이드 인프라로 사용합니다. 자동 업그레이드가 작동하도록 **Office 365 URL 및 IP 주소 범위** 에서 설명하는 대로 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)용 프록시 서버에서 URL을 열었는지 확인합니다.
 
@@ -63,7 +63,7 @@ UpgradeResult가 아닌 결과 (예: ' AADHealthEndpointNotDefined ' 또는 ' Di
 
 그런 다음 프록시 또는 방화벽에서 필요한 URL을 열었는지 확인합니다. 자동 업데이트는 [개요](#overview)에서 설명된 대로 Azure AD Connect Health를 사용합니다. 프록시를 사용하는 경우 [프록시 서버](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 사용하기 위해 상태가 구성되었는지 확인합니다. 또한 Azure AD에 대한 [상태 연결](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) 을 테스트합니다.
 
-Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. 원본 **Azure AD Connect 업그레이드** 및 이벤트 ID 범위 **300-399**에 대 한 이벤트 로그 필터를 추가 합니다.  
+Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. 원본 **Azure AD Connect 업그레이드** 및 이벤트 ID 범위 **300-399** 에 대 한 이벤트 로그 필터를 추가 합니다.  
 !["이벤트 원본" 및 "포함/제외" 이벤트 Id 상자가 강조 표시 된 "현재 로그 필터링" 창을 보여 주는 스크린샷](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 이제 자동 업그레이드 상태와 관련된 이벤트 로그를 볼 수 있습니다.  

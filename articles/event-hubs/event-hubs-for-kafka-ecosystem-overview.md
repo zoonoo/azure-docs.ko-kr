@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs에서 지원하는 Apache Kafk
 ms.topic: article
 ms.date: 09/25/2020
 ms.openlocfilehash: b0f0da76bba68f8a66695700d530e871cbd35e3c
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97861335"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Apache Kafka 애플리케이션에서 Azure Event Hubs 사용
@@ -104,7 +104,7 @@ Apache Kafka에 대 한 Event Hubs의 목표는 Apache Kafka API로 잠긴 응�
 
 [위에서](#is-apache-kafka-the-right-solution-for-your-workload)설명한 것 처럼 Azure Messaging는 수많은 메시징 시나리오에 대 한 풍부 하 고 강력한 검사를 제공 하 고, 다음 기능은 현재 Apache Kafka API에 대 한 Event Hubs 지원을 통해 지원 되지 않지만 원하는 기능을 사용할 수 있는 위치와 방법을 확인 합니다.
 
-### <a name="transactions"></a>의
+### <a name="transactions"></a>트랜잭션
 
 [Azure Service Bus](../service-bus-messaging/service-bus-transactions.md) 에는 메시지 처리에서 발생 하는 아웃 바운드 메시지를 트랜잭션 일관성 보호를 통해 여러 대상 엔터티로 보내는 동시에 메시지 및 세션을 수신 하 고 정착 수 있는 강력한 트랜잭션 지원이 있습니다. 기능 집합은 시퀀스에서 각 메시지를 정확히 한 번만 처리 하도록 허용할 뿐만 아니라 Apache Kafka의 경우와 같이 다른 소비자가 실수로 동일한 메시지를 다시 처리 하는 위험을 방지 합니다. Service Bus은 트랜잭션 메시지 작업에 권장 되는 서비스입니다.
 

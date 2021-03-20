@@ -4,10 +4,10 @@ description: Azure Container Instances에서 현재 실행 중인 컨테이너�
 ms.topic: article
 ms.date: 03/30/2018
 ms.openlocfilehash: de48e6ac246e2b0751561b4c60bb63d88b599bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79247203"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
@@ -74,7 +74,7 @@ Bye.
 
 [컨테이너 그룹](container-instances-container-groups.md)에 애플리케이션 컨테이너 및 로깅 사이드카 등의 여러 컨테이너가 있는 경우 `--container-name`을 사용하여 명령을 실행할 컨테이너의 이름을 지정합니다.
 
-예를 들어 컨테이너 그룹에서 *mynginx*는 *nginx-app* 및 *logger*라는 두 개의 컨테이너입니다. *nginx-app* 컨테이너에서 셸을 시작하려면:
+예를 들어 컨테이너 그룹에서 *mynginx* 는 *nginx-app* 및 *logger* 라는 두 개의 컨테이너입니다. *nginx-app* 컨테이너에서 셸을 시작하려면:
 
 ```azurecli
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"

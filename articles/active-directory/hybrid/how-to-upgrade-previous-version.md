@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 36b7fce2e2ccb6f331e42e8052ef4fb75d35e831
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98729993"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
@@ -145,7 +145,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 이전 버전에서 Azure AD Connect를 업그레이드할 때 업그레이드 시작 시 다음 오류가 발생할 수 있습니다. 
 
-![Error](./media/how-to-upgrade-previous-version/error1.png)
+![오류](./media/how-to-upgrade-previous-version/error1.png)
 
 이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이러한 경우인지 확인하려면 PowerShell 창을 열고 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`를 실행합니다.
 

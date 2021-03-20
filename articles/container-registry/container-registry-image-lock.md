@@ -4,10 +4,10 @@ description: 컨테이너 이미지 또는 리포지토리에 대 한 특성을 
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77659699"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure container registry에서 컨테이너 이미지 잠그기
@@ -21,7 +21,7 @@ Azure container registry에서 이미지 버전 또는 리포지토리를 잠가
 
 ## <a name="scenarios"></a>시나리오
 
-기본적으로 Azure Container Registry의 태그가 지정 된 이미지는 *변경*가능 하므로 적절 한 사용 권한이 있으면 동일한 태그가 있는 이미지를 반복적으로 업데이트 하 고 레지스트리로 푸시할 수 있습니다. 필요에 따라 컨테이너 이미지를 [삭제할](container-registry-delete.md) 수도 있습니다. 이 동작은 이미지를 개발할 때 레지스트리의 크기를 유지 해야 하는 경우에 유용 합니다.
+기본적으로 Azure Container Registry의 태그가 지정 된 이미지는 *변경* 가능 하므로 적절 한 사용 권한이 있으면 동일한 태그가 있는 이미지를 반복적으로 업데이트 하 고 레지스트리로 푸시할 수 있습니다. 필요에 따라 컨테이너 이미지를 [삭제할](container-registry-delete.md) 수도 있습니다. 이 동작은 이미지를 개발할 때 레지스트리의 크기를 유지 해야 하는 경우에 유용 합니다.
 
 그러나 컨테이너 이미지를 프로덕션 환경에 배포 하는 경우에는 *변경할* 수 없는 컨테이너 이미지가 필요할 수 있습니다. 변경할 수 없는 이미지는 실수로 삭제 하거나 덮어쓸 수 없는 이미지입니다.
 
@@ -59,7 +59,7 @@ az acr repository show \
 
 ### <a name="lock-an-image-by-tag"></a>태그로 이미지 잠그기
 
-Myrepo */myrepo:* *myrepo*의 태그 이미지를 잠그려면 다음 [az acr repository update][az-acr-repository-update] 명령을 실행 합니다.
+Myrepo */myrepo:* *myrepo* 의 태그 이미지를 잠그려면 다음 [az acr repository update][az-acr-repository-update] 명령을 실행 합니다.
 
 ```azurecli
 az acr repository update \

@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 9b6c6a320e6299808a91214476c8c0460f9f53d9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895056"
 ---
 # <a name="set-up-vcenter-on-your-private-cloud-for-vmware-vrealize-automation"></a>VMware vRealize 자동화를 위해 사설 클라우드에서 vCenter 설정
@@ -34,7 +34,7 @@ VCenter server를 구성 하기 전에 다음 작업을 완료 합니다.
 | 폴더 | 폴더 만들기 <br>폴더 삭제 |
 | 전역 |  사용자 지정 특성 관리<br>사용자 지정 특성 설정 |
 | 네트워크 | 네트워크 할당 |
-| 사용 권한 | 권한 수정 |
+| 권한 | 권한 수정 |
 | 리소스 | 리소스 풀에 VM 할당<br>가상 컴퓨터의 전원 끄기 마이그레이션<br>가상 컴퓨터의 마이그레이션 전원 |
 | 가상 컴퓨터 인벤토리 |  기존에서 만들기<br>새로 만들기<br>이동<br>제거 | 
 | 가상 컴퓨터 상호 작용 |  CD 미디어 구성<br>콘솔 상호 작용<br>디바이스 연결<br>전원 끄기<br>전원 켜기<br>다시 설정<br>일시 중지됨<br>도구 설치 | 
@@ -64,7 +64,7 @@ VCenter server를 구성 하기 전에 다음 작업을 완료 합니다.
         ![vRA 설치 프록시](media/configure-vra-endpoint-proxy.png)
 
     11. **다음** 을 클릭합니다.
-    12. **설치** 를 클릭합니다.
+    12. **Install** 을 클릭합니다.
 
 ## <a name="configure-the-vsphere-agent"></a>VSphere 에이전트 구성
 

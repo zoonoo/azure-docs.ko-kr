@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98219915"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
@@ -73,7 +73,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 7. **추가** 를 선택하여 게스트 사용자에게 자동으로 초대를 발송합니다. 초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 셀프 서비스 앱 관리를 위해서는 글로벌 관리자 및 Azure AD 관리자가 일부 초기 설정을 해야 합니다. 이 설정의 일부로 셀프 서비스를 위해 앱을 구성하고 애플리케이션 소유자가 관리할 수 있는 그룹을 앱에 할당합니다. 모든 사용자가 멤버 자격을 요청할 수 있지만 그룹 소유자의 승인이 필요하도록 그룹을 구성할 수도 있습니다. ([셀프 서비스 그룹 관리](../enterprise-users/groups-self-service-management.md)에 대해 자세히 알아보세요.) 
 

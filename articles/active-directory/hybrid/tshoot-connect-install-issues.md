@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25314b4a306678dc877a95194907b3d73979e4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89275864"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>문제 해결: Azure AD Connect 설치 문제
@@ -48,7 +48,7 @@ ms.locfileid: "89275864"
 * [온-프레미스 Active Directory에 대 한 사용 권한 문제](./how-to-connect-configure-ad-ds-connector-account.md)
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect에 대한 필수 조건](./how-to-connect-install-prerequisites.md)
+* [Azure AD Connect에 대 한 필수 구성 요소](./how-to-connect-install-prerequisites.md)
 * [Azure AD Connect에 사용할 설치 유형 선택](./how-to-connect-install-select-installation.md)
 * [기본 설정을 사용하여 Azure AD Connect 시작](./how-to-connect-install-express.md)
 * [Azure AD Connect의 사용자 지정 설치](./how-to-connect-install-custom.md)

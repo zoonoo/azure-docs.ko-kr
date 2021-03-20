@@ -17,10 +17,10 @@ ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279417"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
@@ -211,7 +211,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="july-2016"></a>2016년 7월
 **새로운 미리 보기 기능:**
 
-* [AD DS용 Azure AD Connect Health](how-to-connect-health-adds.md)
+* [AD DS에 대 한 Azure AD Connect Health](how-to-connect-health-adds.md)입니다.
 
 ## <a name="january-2016"></a>2016년 1월
 **에이전트 업데이트:**

@@ -9,10 +9,10 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880711"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>블록 Blob Storage에 대한 성능 계층
@@ -26,7 +26,7 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 
 다음은 다양 한 성능 계층에 적용 되는 고려 사항입니다.
 
-| 영역 |표준 성능  |프리미엄 성능  |
+| 영역형 |표준 성능  |프리미엄 성능  |
 |---------|---------|---------|
 |지역 가용성     |   모든 지역      | [영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
 |지원 되는 [저장소 계정 유형](../common/storage-account-overview.md#types-of-storage-accounts)     |     범용 v2, BlobStorage, 범용 v1    |    BlockBlobStorage     |

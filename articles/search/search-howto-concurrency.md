@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/26/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 52260facc1a458a3ef18b067e6d52e189f5d329c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881757"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Azure Cognitive Search에서 동시성을 관리 하는 방법
@@ -23,7 +23,7 @@ ms.locfileid: "98881757"
 > [!Tip]
 > [샘플 c # 솔루션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) 의 개념 코드는 Azure Cognitive Search에서 동시성 제어가 작동 하는 방식을 설명 합니다. 이 코드는 동시성 제어를 호출하는 조건을 만듭니다. [아래 코드 조각을](#samplecode) 읽으면 대부분의 개발자가 사용할 수 있지만, 실행 하려는 경우에는 appsettings.js을 편집 하 여 서비스 이름과 관리 api 키를 추가 합니다. 서비스 URL이 `http://myservice.search.windows.net`인 경우 서비스 이름은 `myservice`입니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 낙관적 동시성은 인덱스, 인덱서, 데이터 원본, 기술력과 및 synonymMap 리소스에 쓰는 API 호출의 액세스 조건 검사를 통해 구현 됩니다.
 
@@ -216,7 +216,7 @@ Etag 또는 AccessCondition 개체를 연습 하는 다른 샘플을 수정 해 
 
 + [GitHub의 azure-검색-dotnet 샘플](https://github.com/Azure-Samples/azure-search-dotnet-samples) 에는 추가 c # 샘플이 포함 되어 있습니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 + [일반적인 HTTP 요청 및 응답 헤더](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
 + [HTTP 상태 코드](/rest/api/searchservice/http-status-codes)

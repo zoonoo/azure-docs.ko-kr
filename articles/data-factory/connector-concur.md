@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
 ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383673"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Concur에서 데이터 복사(미리 보기)
@@ -46,18 +46,18 @@ Concur에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **Concur** 로 설정해야 합니다. | Yes |
-| connectionProperties | Concur에 연결 하는 방법을 정의 하는 속성 그룹입니다. | Yes |
+| type | type 속성은 **Concur** 로 설정해야 합니다. | 예 |
+| connectionProperties | Concur에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
 | ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
 | authenticationType | 허용 되는 값은 `OAuth_2.0_Bearer` 및 `OAuth_2.0` (레거시)입니다. OAuth 2.0 인증 옵션은 2017 년 2 월부터 사용 되지 않는 이전 Concur API와 함께 작동 합니다. | 예 |
-| host | Concur 서버의 끝점 (예:) `implementation.concursolutions.com` 입니다.  | Yes |
+| host | Concur 서버의 끝점 (예:) `implementation.concursolutions.com` 입니다.  | 예 |
 | baseUrl | Concur의 인증 URL의 기본 URL입니다. | 인증의 경우 예 `OAuth_2.0_Bearer` |
-| clientId | Concur App Management에서 제공 하는 응용 프로그램 클라이언트 ID입니다.  | Yes |
+| clientId | Concur App Management에서 제공 하는 응용 프로그램 클라이언트 ID입니다.  | 예 |
 | clientSecret | 클라이언트 ID에 해당 하는 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 인증의 경우 예 `OAuth_2.0_Bearer` |
 | 사용자 이름 | Concur service에 액세스 하는 데 사용 하는 사용자 이름입니다. | 예 |
 | password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예:**

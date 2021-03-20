@@ -4,10 +4,10 @@ description: 리소스 속성을 검색 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91327751"
 ---
 # <a name="discover-resource-properties"></a>리소스 속성 검색
@@ -41,7 +41,7 @@ Visual Studio Code 및 Azure Resource Manager 도구 확장은 각 리소스 유
 Azure Resource Manager 템플릿 참조는 템플릿 스키마를 위한 가장 포괄적인 리소스입니다. API 버전, 템플릿 형식 및 속성 정보를 찾을 수 있습니다.
 
 1. [Azure Resource Manager 템플릿 참조](/azure/templates/)로 이동 합니다.
-1. 왼쪽 탐색 영역에서 **저장소**를 선택 하 고 **모든 리소스**를 선택 합니다. 모든 리소스 페이지에는 리소스 유형과 버전이 요약 되어 있습니다.
+1. 왼쪽 탐색 영역에서 **저장소** 를 선택 하 고 **모든 리소스** 를 선택 합니다. 모든 리소스 페이지에는 리소스 유형과 버전이 요약 되어 있습니다.
 
     ![템플릿 참조 리소스 버전](./media/view-resources/resource-manager-template-reference-resource-versions.png)
 
@@ -72,16 +72,16 @@ Azure Resource Manager 템플릿 참조는 템플릿 스키마를 위한 가장 
 [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 검색 상자에 **리소스 탐색기**를 입력 한 다음 **리소스 탐색기**를 선택 합니다.
+1. 검색 상자에 **리소스 탐색기** 를 입력 한 다음 **리소스 탐색기** 를 선택 합니다.
 
     ![Azure Portal에서 리소스 탐색기 검색을 보여 주는 스크린샷](./media/view-resources/azure-portal-resource-explorer.png)
 
-1. 왼쪽에서 **구독**을 확장 한 다음 Azure 구독을 확장 합니다. **공급자** 또는 **resourcegroups**에서 저장소 계정을 찾을 수 있습니다.
+1. 왼쪽에서 **구독** 을 확장 한 다음 Azure 구독을 확장 합니다. **공급자** 또는 **resourcegroups** 에서 저장소 계정을 찾을 수 있습니다.
 
     ![Azure Portal 리소스 탐색기](./media/view-resources/azure-portal-resource-explorer-home.png)
 
-    - **공급자**: **providers**  ->  **Microsoft. Storage**  ->  **storageaccounts**를 확장 한 다음 저장소 계정을 선택 합니다.
-    - **Resourcegroups**: 저장소 계정이 포함 된 리소스 그룹을 선택 하 고 **리소스**를 선택한 다음, 저장소 계정을 선택 합니다.
+    - **공급자**: **providers**  ->  **Microsoft. Storage**  ->  **storageaccounts** 를 확장 한 다음 저장소 계정을 선택 합니다.
+    - **Resourcegroups**: 저장소 계정이 포함 된 리소스 그룹을 선택 하 고 **리소스** 를 선택한 다음, 저장소 계정을 선택 합니다.
 
     오른쪽에 다음과 유사한 기존 저장소 계정에 대 한 SKU 구성이 표시 됩니다.
 
@@ -100,15 +100,15 @@ Resources.azure.com은 Azure 구독을 사용 하는 모든 사용자가 공용 
 [![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. [Resources.azure.com](https://resources.azure.com/)으로 이동 합니다. 도구가 왼쪽 창에서 널리 사용 되는 데 몇 분 정도 걸립니다.
-1. **구독**을 선택 합니다.
+1. **구독** 을 선택 합니다.
 
     ![resource.azure.com api 매핑](./media/view-resources/resources-azure-com-api-mapping.png)
 
     왼쪽의 노드는 오른쪽의 API 호출과 일치 합니다. **GET** 단추를 선택 하 여 API 호출을 수행할 수 있습니다.
-1. 왼쪽에서 **구독**을 확장 한 다음 Azure 구독을 확장 합니다. **공급자** 또는 **resourcegroups**에서 저장소 계정을 찾을 수 있습니다.
+1. 왼쪽에서 **구독** 을 확장 한 다음 Azure 구독을 확장 합니다. **공급자** 또는 **resourcegroups** 에서 저장소 계정을 찾을 수 있습니다.
 
-    - **공급자**: **providers**  ->  **Microsoft. storage**  ->  **storageaccounts**를 확장 한 다음 저장소 계정으로 이동 합니다.
-    - **Resourcegroups**: 저장소 계정이 포함 된 리소스 그룹을 선택 하 고 **리소스**를 선택 합니다.
+    - **공급자**: **providers**  ->  **Microsoft. storage**  ->  **storageaccounts** 를 확장 한 다음 저장소 계정으로 이동 합니다.
+    - **Resourcegroups**: 저장소 계정이 포함 된 리소스 그룹을 선택 하 고 **리소스** 를 선택 합니다.
 
     오른쪽에 다음과 유사한 기존 저장소 계정에 대 한 sku 구성이 표시 됩니다.
 

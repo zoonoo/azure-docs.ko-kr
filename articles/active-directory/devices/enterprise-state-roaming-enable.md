@@ -13,15 +13,15 @@ ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 34b554fbef63f23b3540fe49e5c45976122add25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89268607"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 
-Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
+Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독을 가져오는 방법에 대 한 자세한 내용은 [AZURE ad 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조 하세요.
 
 Enterprise State Roaming을 사용하도록 설정하면 Azure Information Protection에서 Azure Rights Management 보호에 대해 제한된 체험용 라이선스가 조직에 자동으로 부여됩니다. 이 체험용 구독은 엔터프라이즈 설정 암호화 및 Enterprise State Roaming에서 동기화한 애플리케이션 데이터를 암호화하고 암호를 해독하도록 제한됩니다. [유료 구독](https://azure.microsoft.com/pricing/details/information-protection/)이 있어야 Azure Rights Management 서비스의 전체 기능을 사용할 수 있습니다.
 
@@ -31,7 +31,7 @@ Enterprise State Roaming을 사용하도록 설정하면 Azure Information Prote
 ## <a name="to-enable-enterprise-state-roaming"></a>Enterprise State Roaming을 사용하려면
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
-1. Enterprise State Roaming **Azure Active Directory**  >  **장치**  >  **Enterprise State Roaming**를 선택 합니다.
+1. Enterprise State Roaming **Azure Active Directory**  >  **장치**  >  를 선택 합니다.
 1. **사용자가 디바이스에서 설정 및 앱 데이터를 동기화할 수 있습니다.** 를 선택합니다. 자세한 내용은 [디바이스 설정을 구성하는 방법](./device-management-azure-portal.md)을 참조하세요.
   
    ![사용자자 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있습니다.라고 레이블이 지정된 디바이스 설정 이미지](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -56,9 +56,9 @@ Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설
 사용자별 디바이스 동기화 상태 보고서를 보려면 이러한 단계를 수행합니다.
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
-1. 사용자 **Azure Active Directory**  >  **Users**  >  **모든 사용자**를 선택 합니다.
-1. 사용자를 선택한 다음 **디바이스**를 선택합니다.
-1. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 디바이스**를 선택하여 동기화 상태를 표시합니다.
+1. 사용자 **Azure Active Directory**  >    >  **모든 사용자** 를 선택 합니다.
+1. 사용자를 선택한 다음 **디바이스** 를 선택합니다.
+1. **표시** 아래에서 **설정 및 앱 데이터를 동기화하는 디바이스** 를 선택하여 동기화 상태를 표시합니다.
   
    ![디바이스 동기화 데이터 설정의 이미지](./media/enterprise-state-roaming-enable/sync-status.png)
   
@@ -94,6 +94,6 @@ Enterprise State Roaming을 사용하여 Microsoft 클라우드에 동기화된 
 
 * [엔터프라이즈 상태 로밍 개요](enterprise-state-roaming-overview.md)
 * [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.md)
-* [설정 동기화에 대한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md)
+* [설정 동기화에 대 한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 로밍 설정 참조](enterprise-state-roaming-windows-settings-reference.md)
 * [문제 해결](enterprise-state-roaming-troubleshooting.md)

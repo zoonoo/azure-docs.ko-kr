@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571507"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 사용자 대량 복원
@@ -34,13 +34,13 @@ CSV 템플릿을 다운로드하고 작성하여 Azure AD 사용자를 대량 �
 
 다운로드된 CSV 템플릿의 행은 다음과 같습니다.
 
-- **버전 번호**: 버전 번호가 포함된 첫 번째 행은 업로드 CSV에 포함되어야 합니다.
-- **열 머리글**: 열 머리글의 형식은 &lt;‘항목 이름’&gt; [PropertyName] &lt;‘필수 또는 비워 둠’&gt;입니다.  `Object ID [objectId] Required`)을 입력합니다. 템플릿의 일부 이전 버전은 약간 다를 수 있습니다.
-- **예제 행**: 템플릿에는 각 열에 허용되는 값에 대한 예제 행이 포함되어 있습니다. 예제 행을 제거하고 원하는 항목으로 바꾸어야 합니다.
+- **버전 번호**: 버전 번호가 포함된 첫 번째 행은 CSV 업로드에 포함되어야 합니다.
+- **열 머리글**: 열 머리글의 형식은 &lt;*항목 이름*&gt; [PropertyName] &lt;*필수 또는 비워 둠*&gt;입니다. `Object ID [objectId] Required`)을 입력합니다. 템플릿의 일부 이전 버전은 약간 다를 수 있습니다.
+- **예제 행**: 템플릿에는 각 열에 대해 허용 가능한 값의 예제 행이 포함되어 있습니다. 예제 행을 제거하고 원하는 항목으로 바꾸어야 합니다.
 
 ### <a name="additional-guidance"></a>추가 지침
 
-- 업로드 템플릿의 처음 두 행은 제거하거나 수정하면 안 됩니다. 제거하거나 수정하면 업로드를 처리할 수 없습니다.
+- 업로드 템플릿의 처음 두 행은 제거하거나 수정하면 안 됩니다. 이렇게 하면 업로드를 처리할 수 없습니다.
 - 필수 열이 먼저 나열됩니다.
 - 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
 - 최대한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
