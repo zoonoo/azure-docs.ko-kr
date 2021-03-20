@@ -4,10 +4,10 @@ description: Azure Adviser를 시작합니다.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85117865"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Adviser 시작
@@ -21,13 +21,13 @@ Azure Portal을 통해 Advisor에 액세스하고, 권장 사항을 검색하고
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **Advisor**를 클릭합니다.  왼쪽 창에 Advisor가 표시되지 않으면 **모든 서비스**를 클릭합니다.  서비스 메뉴 창의 **모니터링 및 관리** 아래에서 **Advisor**를 클릭합니다. Advisor 대시보드가 표시됩니다.
+1. 왼쪽 창에서 **Advisor** 를 클릭합니다.  왼쪽 창에 Advisor가 표시되지 않으면 **모든 서비스** 를 클릭합니다.  서비스 메뉴 창의 **모니터링 및 관리** 아래에서 **Advisor** 를 클릭합니다. Advisor 대시보드가 표시됩니다.
 
    ![Azure Portal을 사용하여 Azure Advisor 액세스](./media/advisor-get-started/advisor-portal-menu.png) 
 
 1. Advisor 대시보드에는 선택한 모든 구독에 대한 권장 사항 요약이 표시됩니다.  구독 필터 드롭다운을 사용하여 권장 사항을 표시할 구독을 선택할 수 있습니다.
 
-1. 특정 범주에 대 한 권장 사항을 가져오려면 **안정성**, **보안**, **성능**또는 **비용**탭 중 하나를 클릭 합니다. 
+1. 특정 범주에 대 한 권장 사항을 가져오려면 **안정성**, **보안**, **성능** 또는 **비용** 탭 중 하나를 클릭 합니다. 
 
    ![Azure Advisor 대시보드](./media/advisor-overview/advisor-dashboard.png)
 
@@ -43,7 +43,7 @@ Advisor에서 권장 사항을 선택하여 권장 사항 작업 및 영향을 �
 
 1. 권장 사항과 해당 권장 사항이 적용되는 리소스에 대한 정보를 검토합니다.
 
-1. 권장 사항을 구현하려면 **권장 작업**을 클릭합니다.
+1. 권장 사항을 구현하려면 **권장 작업** 을 클릭합니다.
 
 ## <a name="filter-recommendations"></a>필터 권장 사항
 
@@ -63,9 +63,9 @@ Advisor에서 권장 사항을 선택하여 권장 사항 작업 및 영향을 �
 
 1. 권장 사항을 클릭합니다.
 
-1. **연기**를 클릭합니다. 
+1. **연기** 를 클릭합니다. 
 
-1. 연기 기간을 지정하거나, 권장 사항을 해제하려면 **안 함**을 선택합니다.
+1. 연기 기간을 지정하거나, 권장 사항을 해제하려면 **안 함** 을 선택합니다.
 
 ## <a name="exclude-subscriptions-or-resource-groups"></a>구독 또는 리소스 그룹 제외
 
@@ -76,7 +76,7 @@ Advisor 권장 사항을 수신하지 않으려는 리소스 그룹 또는 구�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
 
-1. 작업 모음에서 **구성**을 클릭합니다.
+1. 작업 모음에서 **구성** 을 클릭합니다.
 
 1. Advisor 권장 사항을 수신하지 않으려는 구독 또는 리소스 그룹의 선택을 취소합니다.
 
@@ -93,19 +93,19 @@ Advisor는 7 일 동안 가상 머신 사용량을 모니터링 하 고 사용�
 사용량이 낮은 가상 머신을 더 적극적으로 식별하려면 구독당 평균 CPU 사용률 규칙을 조정할 수 있습니다.  CPU 사용률 규칙은 5%, 10%, 15% 또는 20%로 설정할 수 있습니다.
 
 > [!NOTE]
-> 사용량이 낮은 가상 머신을 식별하기 위한 평균 CPU 사용률 규칙을 조정하려면 구독 *소유자*여야 합니다.  구독 또는 리소스 그룹에 대해 필요한 사용 권한이 없는 경우 사용자 인터페이스에서 포함 또는 제외 옵션을 사용할 수 없습니다. 
+> 사용량이 낮은 가상 머신을 식별하기 위한 평균 CPU 사용률 규칙을 조정하려면 구독 *소유자* 여야 합니다.  구독 또는 리소스 그룹에 대해 필요한 사용 권한이 없는 경우 사용자 인터페이스에서 포함 또는 제외 옵션을 사용할 수 없습니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
 
-1. 작업 모음에서 **구성**을 클릭합니다.
+1. 작업 모음에서 **구성** 을 클릭합니다.
 
 1. **규칙** 탭을 클릭합니다.
 
-1. 평균 CPU 사용률 규칙을 조정할 구독을 선택한 다음 **편집**을 클릭합니다.
+1. 평균 CPU 사용률 규칙을 조정할 구독을 선택한 다음 **편집** 을 클릭합니다.
 
-1. 원하는 평균 CPU 사용률 값을 선택하고 **적용**을 클릭합니다.
+1. 원하는 평균 CPU 사용률 값을 선택하고 **적용** 을 클릭합니다.
 
-1. 새 평균 CPU 사용률 규칙을 사용하도록 기존 권장 사항을 업데이트하려면 **권장 사항 새로 고침**을 클릭합니다. 
+1. 새 평균 CPU 사용률 규칙을 사용하도록 기존 권장 사항을 업데이트하려면 **권장 사항 새로 고침** 을 클릭합니다. 
 
    ![Advisor 구성 권장 사항 규칙 예제](./media/advisor-get-started/advisor-configure-rules.png)
 
@@ -115,7 +115,7 @@ Advisor는 권장 사항 요약을 다운로드할 수 있습니다.  권장 사
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 [Advisor](https://aka.ms/azureadvisordashboard)를 엽니다.
 
-1. 작업 모음에서 **CSV로 다운로드** 또는 **PDF로 다운로드**를 클릭합니다.
+1. 작업 모음에서 **CSV로 다운로드** 또는 **PDF로 다운로드** 를 클릭합니다.
 
 다운로드 옵션은 Advisor 대시보드에 적용한 모든 필터를 반영합니다.  특정 권장 사항 범주 또는 권장 사항을 보면서 다운로드 옵션을 선택하면 다운로드한 요약에 해당 범주 또는 권장 사항에 대한 정보만 포함됩니다. 
 

@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97964435"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>가상 컴퓨터 제품에 대 한 계획을 만드는 방법
@@ -116,7 +116,7 @@ Microsoft **세금 송금만** 선택을 선택 하 여 microsoft 송금 판매�
 
 **저장** 을 선택하여 계속합니다.
 
-### <a name="pricing"></a>가격 책정
+### <a name="pricing"></a>가격
 
 **라이선스 모델** 의 경우 **사용량 기반 월별 청구 계획** 을 선택 하 여이 요금제에 대 한 가격 책정을 구성 하거나 고객이 기존 라이선스를 사용 하 여이 요금제를 사용할 수 있도록 **사용자 라이선스를 가져옵니다** .
 

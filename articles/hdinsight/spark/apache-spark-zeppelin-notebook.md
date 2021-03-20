@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: ba58c007dc0bc3776f429366651cb79404b137b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928482"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
@@ -136,7 +136,7 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
     ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
 
-    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
     ```
     com.databricks:spark-csv_2.10:1.4.0
@@ -194,7 +194,7 @@ Ambari에서 서비스의 유효성을 검사 하려면로 이동 `https://CLUST
 
 명령줄에서 서비스의 유효성을 검사 하려면 헤드 노드로 SSH를 수행 합니다. Command를 사용 하 여 사용자를 zeppelin로 전환 `sudo su zeppelin` 합니다. 상태 명령:
 
-|명령 |Description |
+|명령 |설명 |
 |---|---|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|서비스 상태.|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|서비스 버전입니다.|

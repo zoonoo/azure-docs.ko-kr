@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 3129bbe171329ecf37f8712394cedf9b70188220
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005822"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Azure Portal을 통해 업데이트를 설치하려면
 
 1. StorSimple 디바이스 관리자를 이동하고 **디바이스** 를 선택합니다. 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다.
 
-    ![최근 Device Manager MySSDevManager 강조 표시 되 고 선택 된 후에는 장치가 강조 표시 되 고 선택 되며, 장치 MYSSIS1103 강조 표시 되 고 선택 됩니다.](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate1m.png) 
+    ![최근 장치 관리자 MySSDevManager 강조 표시 되 고 선택 된 후에는 장치가 강조 표시 되 고 선택 되며, 장치 MYSSIS1103 강조 표시 되 고 선택 됩니다.](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate1m.png) 
 
 2. **설정** 블레이드에서 **디바이스 업데이트** 를 클릭합니다.
 

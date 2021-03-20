@@ -10,10 +10,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
 ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420770"
 ---
 # <a name="graph-search-query-syntax"></a>그래프 검색 쿼리 구문
@@ -36,7 +36,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
 
  
 - 및/또는
-- 와일드 **카드와 일치** 및 * *\** _ 연산자.
+- 와일드 **카드와 일치** 및 **\*** 연산자.
 
 ### <a name="examples"></a>예제
 
@@ -49,7 +49,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
  
 - 와일드 카드 일치: 
     - `machi?e learning`
-    - `mach_ing`
+    - `mach*ing`
  
 >[!NOTE]
 > "*" 문자를 사용 하 여 Lucene 쿼리를 시작할 수 없습니다.
@@ -83,7 +83,7 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
  
  
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 기간 > 100;
 - {Failed, NotStarted}의 상태

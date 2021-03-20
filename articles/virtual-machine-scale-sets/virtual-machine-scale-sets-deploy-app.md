@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
 ms.openlocfilehash: e7a4ddaf74df6e04c1597b9c106cd458ddebac55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079594"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 세트에 애플리케이션 배포
@@ -48,7 +48,7 @@ PowerShell DSC 확장을 사용하면 PowerShell을 통해 확장 집합의 VM �
 - [Get-AzVmss](/powershell/module/az.compute/get-azvmss)를 사용하여 확장 집합에 대한 정보를 가져옵니다.
 - [Update-AzVmss](/powershell/module/az.compute/update-azvmss)를 사용하여 VM 인스턴스에 확장을 적용합니다.
 
-DSC 확장은 *myResourceGroup*이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용됩니다. 다음과 같이 고유한 이름을 입력합니다.
+DSC 확장은 *myResourceGroup* 이라는 리소스 그룹의 *myScaleSet* VM 인스턴스에 적용됩니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```powershell
 # Define the script for your Desired Configuration to download and run
@@ -82,17 +82,17 @@ Update-AzVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-확장 집합에 대한 업그레이드 정책이 *수동*이면 [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance)를 사용하여 VM 인스턴스를 업데이트합니다. 이 cmdlet은 업데이트된 확장 집합 구성을 VM 인스턴스에 적용하고 애플리케이션을 설치합니다.
+확장 집합에 대한 업그레이드 정책이 *수동* 이면 [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance)를 사용하여 VM 인스턴스를 업데이트합니다. 이 cmdlet은 업데이트된 확장 집합 구성을 VM 인스턴스에 적용하고 애플리케이션을 설치합니다.
 
 
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>cloud-init를 사용하여 Linux VM에 앱 설치
 [Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 실행되면 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.
 
-Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
+Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install** 은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
 
 *cloud-init.txt* 예제 파일을 포함한 자세한 내용은 [cloud-init를 사용하여 Azure VM 사용자 지정](../virtual-machines/linux/using-cloud-init.md)을 참조하세요.
 
-확장 집합을 만들고 cloud-init 파일을 사용하려면 `--custom-data` 매개 변수를 [az vmss create](/cli/azure/vmss) 명령에 추가하고 cloud-init 파일의 이름을 지정합니다. 다음 예제에서는 *myResourceGroup*에 *myScaleSet*라는 확장 집합을 만들고, *cloud-init.txt* 파일을 사용하여 VM 인스턴스를 구성합니다. 다음과 같이 고유한 이름을 입력합니다.
+확장 집합을 만들고 cloud-init 파일을 사용하려면 `--custom-data` 매개 변수를 [az vmss create](/cli/azure/vmss) 명령에 추가하고 cloud-init 파일의 이름을 지정합니다. 다음 예제에서는 *myResourceGroup* 에 *myScaleSet* 라는 확장 집합을 만들고, *cloud-init.txt* 파일을 사용하여 VM 인스턴스를 구성합니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss create \

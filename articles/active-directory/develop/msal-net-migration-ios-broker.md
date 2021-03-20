@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89177434"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
@@ -119,7 +119,7 @@ MSAL.NET에서 iOS에 대 한 개체 창을 설정 하는 두 가지 작업을 �
 이 할당을 통해 broker에 대 한 호출을 사용 하 여 UIViewController가 있는지 확인할 수 있습니다. 올바르게 설정 되지 않은 경우 다음 오류가 발생할 수 있습니다. `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. AcquireTokenInteractive 호출에서를 사용 하 여 `.WithParentActivityOrWindow(App.RootViewController)` 사용할 개체 창에 대 한 참조를 전달 합니다.
 
-**예를 들면 다음과 같습니다.**
+**예를 들어:**
 
 `App.cs`의 경우
 ```csharp

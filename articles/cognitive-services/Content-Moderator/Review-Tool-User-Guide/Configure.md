@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912024"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
@@ -66,7 +66,7 @@ ms.locfileid: "92912024"
 
 ## <a name="tags"></a>태그
 
-**태그** 탭에서는 두 개의 기본 중재 태그 &mdash; **isadult** ( **a** ) 및 **isracy** ( **r** )와 함께 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
+**태그** 탭에서는 두 개의 기본 중재 태그 &mdash; **isadult** (**a**) 및 **isracy** (**r**)와 함께 사용자 지정 중재 태그를 정의할 수 있습니다. 사용자 지정 태그를 만들 때 기본 태그와 함께 검토에서 사용할 수 있게 됩니다. 표시 유형 설정을 전환 하 여 리뷰에 표시 되는 태그를 변경할 수 있습니다.
 
 ![태그 보기 ("표시 됨" 확인란 포함)](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ ms.locfileid: "92912024"
 
 새 태그를 만들려면 해당 필드에 짧은 코드, 이름 및 설명을 입력 해야 합니다.
 
-- **Short code** : 태그에 대해 두 문자로 된 코드를 입력 합니다. 예: **cb**
-- **이름** : 공백 없이 소문자에 짧은 설명 태그 이름을 입력 합니다. 예: **is인**
-- **설명** : (선택 사항) 태그가 대상으로 하는 콘텐츠 종류에 대 한 설명을 입력 합니다. 예: **사이버 인의 묘사 또는 인스턴스**
+- **Short code**: 태그에 대해 두 문자로 된 코드를 입력 합니다. 예: **cb**
+- **이름**: 공백 없이 소문자에 짧은 설명 태그 이름을 입력 합니다. 예: **is인**
+- **설명**: (선택 사항) 태그가 대상으로 하는 콘텐츠 종류에 대 한 설명을 입력 합니다. 예: **사이버 인의 묘사 또는 인스턴스**
 
 **추가** 를 클릭 하 여 태그를 추가 하 고 태그 만들기를 마치면 **저장** 을 클릭 합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "92912024"
 - 감정
 - Face
 - PhotoDNA 클라우드 서비스
-- 텍스트 분석
+- Text Analytics
 
 ### <a name="add-a-connector"></a>커넥터 추가
 

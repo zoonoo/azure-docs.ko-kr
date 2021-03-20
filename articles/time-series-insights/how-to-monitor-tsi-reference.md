@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
 ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591392"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>모니터링 Azure Time Series Insights 데이터 참조
@@ -38,7 +38,7 @@ Azure Time Series Insights 환경에서 Azure Monitor 하 여 수집 된 데이�
 |IngressStoredBytes|저장된 수신 바이트|바이트|합계|성공적으로 처리되어 쿼리에 사용할 수 있는 총 이벤트 크기|
 |IngressStoredEvents|저장된 수신 이벤트|개수|합계|성공적으로 처리되어 쿼리에 사용할 수 있는 총 평면화된 이벤트 크기|
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|
 |---|---|---|---|---|

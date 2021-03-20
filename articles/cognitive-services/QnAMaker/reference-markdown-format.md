@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ms.openlocfilehash: f49e05578f55a38845acbd4010f928fb17c51606
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96352272"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>QnA Maker 대답 텍스트에서 지원 되는 Markdown 형식
@@ -28,7 +28,7 @@ Markdown는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](./index
 
 다음은 QnA Maker의 대답 텍스트에서 사용할 수 있는 markdown 형식 목록입니다.
 
-|목적|서식|예제 Markdown|렌더링<br>채팅 봇에 표시 된 대로|
+|용도|서식|예제 Markdown|렌더링<br>채팅 봇에 표시 된 대로|
 |--|--|--|--|
 두 문장 사이에 있는 새 줄입니다.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![두 문장 사이에 새 줄 서식 지정](./media/qnamaker-concepts-datasources/format-newline.png)|
 |H1부터 h6 까지의 헤더,의 수는 `#` 헤더를 나타냅니다. 1 `#` 은 h1입니다.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![markdown 헤더를 사용 하 여 형식 지정](./media/qnamaker-concepts-datasources/format-headers.png)<br>![markdown 헤더 H1을 H5로 서식 지정](./media/qnamaker-concepts-datasources/format-h1-h5.png)|
@@ -37,8 +37,8 @@ Markdown는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](./index
 |링크 URL|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![URL 형식 (하이퍼링크)](./media/qnamaker-concepts-datasources/format-url.png)|
 |* 공용 이미지에 대 한 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![공용 이미지 URL의 형식 ](./media/qnamaker-concepts-datasources/format-image-url.png)|
 |취소선|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![취소선 서식](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
-|굵게 및 기울임꼴|`***text**_`|`How can I create a _*_QnA Maker_*_ bot?`|![굵게 및 기울임꼴 서식 지정](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
-|링크의 굵은 URL|`[_*text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![굵게 표시 되는 URL의 형식](./media/qnamaker-concepts-datasources/format-bold-url.png)|
+|굵게 및 기울임꼴|`***text**_`|`How can I create a _*_QnA Maker_** bot?`|![굵게 및 기울임꼴 서식 지정](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|링크의 굵은 URL|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![굵게 표시 되는 URL의 형식](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |링크에 대 한 기울임꼴 URL|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![기울임꼴 URL 형식](./media/qnamaker-concepts-datasources/format-url-italics.png)|
 |이스케이프 markdown 기호|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![이스케이프 markdown 기호에 대 한 형식입니다.](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |정렬된 목록|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>앞의 예제에서는 markdown에 기본 제공 되는 자동 번호 매기기를 사용 합니다.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>앞의 예제에서는 명시적 번호 매기기를 사용 합니다.|![정렬 된 목록의 형식](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
@@ -51,8 +51,8 @@ Markdown는 CI/CD 파이프라인의 일부로 또는 [일괄 테스트](./index
 
 | HTML 유지  | API 요청의 표현  | 표시 (KB) |
 |-----------|---------|-------------------------|
-| Yes | \&l t; br \& gt; | &lt;br&gt; |
-| Yes | \&l t; h3 \& gt; 헤더 \& l t;/h 3 \& gt; | &lt;h3 &gt; 헤더 &lt; /h 3&gt; |
+| 예 | \&l t; br \& gt; | &lt;br&gt; |
+| 예 | \&l t; h3 \& gt; 헤더 \& l t;/h 3 \& gt; | &lt;h3 &gt; 헤더 &lt; /h 3&gt; |
 
 또한 CR LF (\r\n)는 KB의 \n로 변환 됩니다. LF (\n)는 그대로 유지 됩니다. \T, \n 등의 이스케이프 시퀀스를 이스케이프 하려면 백슬래시를 사용할 수 있습니다 (예: ' \\ \\ r \\ \\ n ' 및 ' \\ \\ t ').
 

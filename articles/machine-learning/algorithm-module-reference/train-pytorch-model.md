@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: 2d88069f33995bdbe9dd479afe9a4e72ab9939b6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420668"
 ---
 # <a name="train-pytorch-model"></a>Pytorch 모델 학습
@@ -58,7 +58,7 @@ ms.locfileid: "93420668"
 ## <a name="technical-notes"></a>기술 정보
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 이름               | Type                    | Description                              |
+| Name               | Type                    | 설명                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델    | UntrainedModelDirectory | 학습 되지 않은 모델, pytorch 필요         |
 | 학습 데이터 세트   | ImageDirectory          | 학습 데이터 세트                         |
@@ -66,7 +66,7 @@ ms.locfileid: "93420668"
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 이름          | 범위            | Type    | 기본값 | Description                              |
+| Name          | 범위            | Type    | 기본값 | 설명                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoch        | >0               | 정수 | 5       | 레이블 또는 결과 열이 포함된 열을 선택합니다. |
 | Batch 크기    | >0               | 정수 | 16      | 일괄 처리에서 학습 하는 인스턴스 수   |
@@ -76,7 +76,7 @@ ms.locfileid: "93420668"
 
 ###  <a name="outputs"></a>출력  
 
-| 이름          | Type           | Description   |
+| Name          | Type           | 설명   |
 | ------------- | -------------- | ------------- |
 | 학습된 모델 | ModelDirectory | 학습된 모델 |
 

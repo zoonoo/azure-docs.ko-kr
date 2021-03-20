@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87289356"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
@@ -109,7 +109,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 
 - 팀이 랩의 리소스에 재출할 수 있는 **전체 비용**. 여러 컴퓨터를 스핀업하는 것 자체는 간단합니다. 이 경우 비용을 제어하는 메커니즘 중 하나는 사용자 및/또는 랩당 VM 수를 제한하는 것입니다.
 - 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 구독에 10 개의 lab이 있는 경우 labs는 각 랩에 약 79 개의 가상 머신을 맞출 수 있습니다 (10 개의 랩 자체에 대 한 800 상한-10 개의 리소스 그룹) = 79 가상 머신을 랩 당 합니다.
-- 랩이 Express 경로 등을 통해 온-프레미스에 연결되는 경우에는 VNet/서브넷용으로 **정의된 사용 가능한 IP 주소 공간**이 있습니다. ‘IP 주소를 가져올 수 없음’ 오류로 인해 랩에서 VM 생성이 실패하는 일이 없도록 하려는 경우 랩 소유자는 사용 가능한 IP 주소 공간에 맞게 랩당 최대 VM 수를 적절하게 지정할 수 있습니다.
+- 랩이 Express 경로 등을 통해 온-프레미스에 연결되는 경우에는 VNet/서브넷용으로 **정의된 사용 가능한 IP 주소 공간** 이 있습니다. ‘IP 주소를 가져올 수 없음’ 오류로 인해 랩에서 VM 생성이 실패하는 일이 없도록 하려는 경우 랩 소유자는 사용 가능한 IP 주소 공간에 맞게 랩당 최대 VM 수를 적절하게 지정할 수 있습니다.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
 

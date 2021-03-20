@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 06e197a6e445c7dc1179be696318905f2132ee36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85477739"
 ---
 # <a name="configure-keychain"></a>키 집합 구성
@@ -32,7 +32,7 @@ ms.locfileid: "85477739"
 
 IOS의 MSAL은 `com.microsoft.adalcache` 기본적으로 액세스 그룹을 사용 합니다. 이는 MSAL 및 Azure AD 인증 Library (ADAL) Sdk 둘 다에서 사용 되는 공유 액세스 그룹으로, 동일한 게시자의 여러 앱 간에 SSO (최고 Single Sign-On) 환경을 보장 합니다.
 
-IOS에서 `com.microsoft.adalcache` **프로젝트 설정**  >  **기능**키  >  **집합 공유** 에서 XCode의 앱 자격에 키 집합 그룹을 추가 합니다.
+IOS에서 `com.microsoft.adalcache` **프로젝트 설정**  >  **기능** 키  >  **집합 공유** 에서 XCode의 앱 자격에 키 집합 그룹을 추가 합니다.
 
 ### <a name="macos"></a>macOS
 

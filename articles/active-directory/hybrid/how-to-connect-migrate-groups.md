@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85358585"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Azure AD Connect 위해 한 포리스트에서 다른 포리스트로 그룹 마이그레이션
 
 이 문서에서는 마이그레이션된 그룹 개체가 클라우드의 기존 개체와 일치 하도록 한 포리스트에서 다른 포리스트로 그룹을 마이그레이션하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure AD Connect 버전 1.5.18.0 이상
 - 원본 앵커 특성이로 설정 됩니다. `mS-DS-ConsistencyGuid`

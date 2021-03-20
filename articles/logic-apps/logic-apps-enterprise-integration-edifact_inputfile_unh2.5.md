@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: c6d95cb938a341b94a32989e82c42d37956c0a80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89179847"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Azure Logic Apps에서 UNH2.5 세그먼트를 사용하여 EDIFACT 문서를 처리합니다.
@@ -43,7 +43,7 @@ EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 �
 
 1. EDIFACT 규약의 수신 설정에서 스키마를 구성 합니다.
 
-1. EDIFACT 규약을 선택 하 고 **JSON으로 편집**을 선택 합니다. 수신 규약의 섹션에 UNH 2.5 값을 추가 합니다 `schemaReferences` .
+1. EDIFACT 규약을 선택 하 고 **JSON으로 편집** 을 선택 합니다. 수신 규약의 섹션에 UNH 2.5 값을 추가 합니다 `schemaReferences` .
 
    ![수신 규약에 UNH 2.5 추가](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
@@ -57,7 +57,7 @@ EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 �
 
 1. EDIFACT 규약의 송신 설정에서 스키마를 구성 합니다.
 
-1. EDIFACT 규약을 선택 하 고 **JSON으로 편집**을 선택 합니다. 송신 규약 섹션에 UNH 2.5 값을 추가 합니다 `schemaReferences` .
+1. EDIFACT 규약을 선택 하 고 **JSON으로 편집** 을 선택 합니다. 송신 규약 섹션에 UNH 2.5 값을 추가 합니다 `schemaReferences` .
 
    ![규약을 보내도록 UNH 2.5 추가](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 

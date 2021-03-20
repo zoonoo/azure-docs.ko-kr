@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 96652b2a1eb35668bd8a810b309ab31cec5afdb7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97967262"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
@@ -22,7 +22,7 @@ ms.locfileid: "97967262"
 
 Azure Cosmos DB의 데이터베이스 엔진은 스냅샷 격리를 사용한 전체 ACID(원자성, 일관성, 격리, 내구성) 준수 트랜잭션을 지원합니다. 컨테이너의 [논리 파티션](partitioning-overview.md) 범위 내에 있는 모든 데이터베이스 작업은 파티션의 복제본이 호스팅하는 데이터베이스 엔진 내에서 트랜잭션 방식으로 실행 됩니다. 이러한 작업은 쓰기(논리 파티션 내에서 하나 이상의 항목을 업데이트) 및 읽기 작업을 모두 포함합니다. 다음 표에서는 다양 한 작업 및 트랜잭션 유형을 보여 줍니다.
 
-| **연산**  | **작업 유형** | **단일 또는 다중 항목 트랜잭션** |
+| **작업**  | **작업 유형** | **단일 또는 다중 항목 트랜잭션** |
 |---------|---------|---------|
 | 삽입(사전/사후 트리거 없음) | 쓰기 | 단일 항목 트랜잭션 |
 | 삽입(사전/사후 트리거 있음) | 쓰기 및 읽기 | 다중 항목 트랜잭션 |

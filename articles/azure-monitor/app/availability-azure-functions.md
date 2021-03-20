@@ -4,10 +4,10 @@ description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589942"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
@@ -35,7 +35,7 @@ ms.locfileid: "100589942"
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
     - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](../../azure-functions/functions-create-scheduled-function.md) 방법에 대 한 지침을 따르세요 (정리 전 중지).
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 아래 코드를 실행. csx 파일에 복사 합니다. 이렇게 하면 기존 코드가 바뀝니다. 이렇게 하려면 Azure Functions 응용 프로그램으로 이동 하 여 왼쪽에서 타이머 트리거 함수를 선택 합니다.
 

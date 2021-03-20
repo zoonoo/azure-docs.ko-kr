@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
 ms.openlocfilehash: 7dc8aac730fdf46cab47a3297b8c001cb0b8e314
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99226408"
 ---
 # <a name="test-vm-network-latency"></a>VM 네트워크 대기 시간 테스트
@@ -139,7 +139,7 @@ Linux를 실행 하는 Vm을 테스트 하려면 [SockPerf](https://github.com/m
     sudo yum install -y autoconf
 ```
 
-#### <a name="for-ubuntu"></a>Ubuntu 용
+#### <a name="for-ubuntu"></a>Ubuntu
 
 다음 명령을 실행합니다.
 

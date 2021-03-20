@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
 ms.openlocfilehash: 3adbd292d42fd6fd2a0e149e103c17968a6f084b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94950757"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
@@ -30,7 +30,7 @@ ms.locfileid: "94950757"
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Microsoft Azure StorSimple 디바이스를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | Description |
+| 아이콘 | 설명 |
 |:--- |:--- |
 | ![위험 아이콘](./media/storsimple-safety/IC740879.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고 아이콘 ](./media/storsimple-safety/IC740879.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |

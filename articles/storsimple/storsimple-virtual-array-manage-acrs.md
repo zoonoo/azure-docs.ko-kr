@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bad0d7adfd77dff53b1582e63a91f2cd87a9233d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85507622"
 ---
 # <a name="use-storsimple-device-manager-to-manage-access-control-records-for-storsimple-virtual-array"></a>StorSimple Device Manager를 사용하여 StorSimple Virtual Array에 대한 액세스 제어 레코드 관리
@@ -63,18 +63,18 @@ ACR을 추가하려면 다음 단계를 수행합니다.
 
 #### <a name="to-add-an-acr"></a>ACR을 추가하려면
 
-1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
-2. **액세스 제어 레코드** 블레이드에서 **추가**를 클릭합니다.
+1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션 내에서 **액세스 제어 레코드** 를 클릭합니다.
+2. **액세스 제어 레코드** 블레이드에서 **추가** 를 클릭합니다.
 3. **ACR 추가** 블레이드에서 다음을 수행합니다.
    
-    1. ACR의 **이름**을 입력합니다.
+    1. ACR의 **이름** 을 입력합니다.
     
-    2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN 이름을 제공합니다. Windows Server 호스트의 IQN을 가져오려면 다음을 수행합니다.
+    2. **iSCSI 초기자 이름** 에서 Windows 호스트의 IQN 이름을 제공합니다. Windows Server 호스트의 IQN을 가져오려면 다음을 수행합니다.
    
     3. Windows 호스트에서 Microsoft iSCSI 초기자를 시작합니다. iSCSI 초기자 속성 창의 **구성** 탭에서 **초기자 이름** 필드의 문자열을 선택하고 복사합니다.
     **ACR 추가** 블레이드의 **IQN** 필드에 이 문자열을 붙여넣습니다.
    
-    6. **추가**를 클릭하여 ACR을 추가합니다.  
+    6. **추가** 를 클릭하여 ACR을 추가합니다.  
    
         ![액세스 제어 레코드 추가](./media/storsimple-virtual-array-manage-acrs/ova-add-acrs.png)
 4. 테이블 형식 목록이 이 추가 사항을 반영하도록 업데이트됩니다.
@@ -91,13 +91,13 @@ ACR을 편집하려면 다음 단계를 수행합니다.
 
 #### <a name="to-edit-an-acr"></a>ACR을 편집하려면
 
-1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
+1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션 내에서 **액세스 제어 레코드** 를 클릭합니다.
 2. **액세스 제어 레코드** 블레이드에서 액세스 제어 레코드의 테이블 형식 목록에서 수정하려는 ACR을 두 번 클릭합니다.
 3. **액세스 제어 레코드 편집** 블레이드에서 다음을 수행합니다.
    
     1. ACR에 IQN을 제공합니다.
    
-    2. 블레이드의 맨 위에서 **저장**을 클릭하여 수정된 ACR을 저장합니다. 다음과 같은 확인 메시지가 표시됩니다.
+    2. 블레이드의 맨 위에서 **저장** 을 클릭하여 수정된 ACR을 저장합니다. 다음과 같은 확인 메시지가 표시됩니다.
    
         ![액세스 제어 레코드 편집](./media/storsimple-virtual-array-manage-acrs/ova-edit-acrs.png)
 
@@ -115,15 +115,15 @@ Azure Portal에서 **구성** 페이지를 사용하여 ACR을 삭제합니다.
 
 #### <a name="to-delete-an-access-control-record"></a>액세스 제어 레코드를 삭제하려면
 
-1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션 내에서 **액세스 제어 레코드**를 클릭합니다.
+1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성** 섹션 내에서 **액세스 제어 레코드** 를 클릭합니다.
 
 2. **액세스 제어 레코드** 블레이드에서 액세스 제어 레코드의 테이블 형식 목록에서 삭제하려는 ACR을 두 번 클릭합니다.
 
-3. 액세스 제어 레코드 편집 블레이드에서 **삭제**를 두 번 클릭합니다.
+3. 액세스 제어 레코드 편집 블레이드에서 **삭제** 를 두 번 클릭합니다.
    
     ![ACR 삭제](./media/storsimple-virtual-array-manage-acrs/ova-del-acrs.png)
 
-4. 확인 메시지가 나타나면 **삭제**를 클릭하여 삭제를 계속합니다. 테이블 형식 목록이 삭제를 반영하도록 업데이트됩니다.
+4. 확인 메시지가 나타나면 **삭제** 를 클릭하여 삭제를 계속합니다. 테이블 형식 목록이 삭제를 반영하도록 업데이트됩니다.
    
    ![경고 메시지](./media/storsimple-virtual-array-manage-acrs/ova-del-acrs-warning.png)
 

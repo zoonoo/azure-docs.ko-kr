@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84988105"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Azure AD 인증 VPN 클라이언트 문제 해결
@@ -24,7 +24,7 @@ ms.locfileid: "84988105"
 
 ![로그](./media/troubleshoot-ad-vpn-client/1.png)
 
-1. 클라이언트 창의 오른쪽 아래에 있는 화살표 아이콘을 클릭 하 여 **상태 로그**를 표시 합니다.
+1. 클라이언트 창의 오른쪽 아래에 있는 화살표 아이콘을 클릭 하 여 **상태 로그** 를 표시 합니다.
 2. 문제를 나타낼 수 있는 오류에 대 한 로그를 확인 합니다.
 3. 오류 메시지는 빨강으로 표시 됩니다.
 
@@ -34,8 +34,8 @@ ms.locfileid: "84988105"
 
 ![로그인](./media/troubleshoot-ad-vpn-client/2.png)
 
-1. ...를 선택 합니다. 문제를 해결 하려는 프로필 옆에 있습니다. **구성-저장 된 계정 > 선택 취소**합니다.
-2. **저장**을 선택합니다.
+1. ...를 선택 합니다. 문제를 해결 하려는 프로필 옆에 있습니다. **구성-저장 된 계정 > 선택 취소** 합니다.
+2. **저장** 을 선택합니다.
 3. 연결을 시도합니다.
 4. 그래도 연결에 실패 하는 경우 다음 섹션을 계속 진행 합니다.
 
@@ -45,7 +45,7 @@ VPN 클라이언트에서 진단을 실행 합니다.
 
 ![진단](./media/troubleshoot-ad-vpn-client/3.png)
 
-1. **...를 클릭** 합니다. 진단을 실행 하려는 프로필 옆에 있습니다. **진단 > 진단 실행**을 선택 합니다.
+1. **...를 클릭** 합니다. 진단을 실행 하려는 프로필 옆에 있습니다. **진단 > 진단 실행** 을 선택 합니다.
 2. 클라이언트는 일련의 테스트를 실행 하 고 테스트 결과를 표시 합니다.
 
    * 인터넷 액세스 – 클라이언트가 인터넷에 연결 되어 있는지 확인 합니다.

@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure DevTest Labs에 이미 생성 된 Vm (가
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476243"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>사용자 지정 이미지 저장 및 여러 랩에 배포
 이 문서에서는 이미 만든 Vm (가상 머신)에서 사용자 지정 이미지를 저장 하는 단계를 제공 합니다. 또한 조직의 다른 DevTest Labs에 이러한 사용자 지정 이미지를 배포 하는 방법에 대해서도 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 다음 항목이 이미 준비 되어 있어야 합니다.
 
 - Azure DevTest Labs에서 이미지 팩터리의 랩입니다.
@@ -42,7 +42,7 @@ ms.locfileid: "85476243"
 이미지 팩터리에 사용자 지정 이미지를 맞추기 위한 스크립트는 이전 단계에서 만든 가상 컴퓨터에 대 한 Vhd를 저장 합니다 (Azure의 리소스에 대 한 태그를 기반으로 식별).
 
 ## <a name="update-configuration-for-distributing-images"></a>이미지 배포에 대 한 구성 업데이트
-프로세스의 다음 단계는 이미지 팩터리 랩의 사용자 지정 이미지를이를 필요로 하는 다른 랩에서 푸시하는 것입니다. 이 프로세스의 핵심 부분은 구성 파일 ** 에 대 한labs.js** 입니다. 이미지 팩터리에 포함 된 **구성** 폴더에서이 파일을 찾을 수 있습니다.
+프로세스의 다음 단계는 이미지 팩터리 랩의 사용자 지정 이미지를이를 필요로 하는 다른 랩에서 푸시하는 것입니다. 이 프로세스의 핵심 부분은 구성 파일 **에 대 한labs.js** 입니다. 이미지 팩터리에 포함 된 **구성** 폴더에서이 파일을 찾을 수 있습니다.
 
 구성 파일의 labs.js에는 두 가지 주요 항목이 있습니다.
 

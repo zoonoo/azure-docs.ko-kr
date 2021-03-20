@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
 ms.openlocfilehash: 8dabfec18cb904fa72518428220991b817b53529
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928913"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에 대한 Apache Storm 토폴로지 및 구성 요소 예제
 
 HDInsight에서 [Apache Storm](https://storm.apache.org/)과 함께 사용하기 위해 Microsoft에서 만들고 유지 관리하는 예제 목록은 다음과 같습니다. 이러한 예제에서는 기본 C# 및 Java 토폴로지 생성부터 Event Hub, Cosmos DB, SQL Database, HDInsight의 [Apache HBase](https://hbase.apache.org/), Azure Storage 등 Azure 서비스 작업에 이르는 다양한 토픽을 다룹니다. 또한 일부 예제에서는 SignalR 및 Socket.IO와 같은 Azure가 아니거나 Microsoft가 아닌 기술로 작업하는 방법을 보여 줍니다.
 
-| Description | 데모 | 언어/프레임워크 |
+| 설명 | 데모 | 언어/프레임워크 |
 |:--- |:--- |:--- |
 | [Apache Storm에서 Azure Data Lake Storage에 쓰기](apache-storm-write-data-lake-store.md) |Azure Data Lake Storage에 쓰기 |Java |
 | [이벤트 허브 Spout 및 Bolt 원본](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |이벤트 허브 Spout 및 Bolt에 대한 소스 |Java |

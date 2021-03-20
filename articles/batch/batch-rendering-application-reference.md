@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
 ms.openlocfilehash: ace3fe7aee6b9ffc7226448b455bcfea1f931458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85964875"
 ---
 # <a name="rendering-applications"></a>렌더링 애플리케이션
@@ -44,7 +44,7 @@ ms.locfileid: "85964875"
 
 ### <a name="batch-explorer-templates"></a>Batch Explorer 템플릿
 
-풀 및 작업 템플릿은 Batch Explorer의 **갤러리**에서 액세스할 수 있습니다.  템플릿 원본 파일은 [GitHub의 Batch Explorer 데이터 리포지토리](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax)에서 사용할 수 있습니다.
+풀 및 작업 템플릿은 Batch Explorer의 **갤러리** 에서 액세스할 수 있습니다.  템플릿 원본 파일은 [GitHub의 Batch Explorer 데이터 리포지토리](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/3dsmax)에서 사용할 수 있습니다.
 
 ## <a name="rendering-with-autodesk-maya"></a>Autodesk Maya로 렌더링
 
@@ -79,7 +79,7 @@ render -renderer arnold -proj "%AZ_BATCH_JOB_PREP_WORKING_DIR%" -verb -rd "%AZ_B
 
 ### <a name="batch-explorer-templates"></a>Batch Explorer 템플릿
 
-풀 및 작업 템플릿은 Batch Explorer의 **갤러리**에서 액세스할 수 있습니다.  템플릿 원본 파일은 [GitHub의 Batch Explorer 데이터 리포지토리](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya)에서 사용할 수 있습니다.
+풀 및 작업 템플릿은 Batch Explorer의 **갤러리** 에서 액세스할 수 있습니다.  템플릿 원본 파일은 [GitHub의 Batch Explorer 데이터 리포지토리](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/maya)에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

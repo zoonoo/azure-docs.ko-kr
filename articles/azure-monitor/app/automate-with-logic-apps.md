@@ -4,10 +4,10 @@ description: 논리 앱에 Application Insights 커넥터를 추가하여 반복
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.openlocfilehash: d7ff75be3cb847235405a740df4a20803cdc87b3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589919"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화

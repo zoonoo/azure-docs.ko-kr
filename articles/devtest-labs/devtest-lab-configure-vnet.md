@@ -4,10 +4,10 @@ description: 기존 가상 네트워크 및 서브넷을 구성하고 Azure DevT
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 21fe23b6be6fdc924c5502ff97f9c03a3f3e759d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87283557"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs에서 가상 네트워크 구성
@@ -22,13 +22,13 @@ ms.locfileid: "87283557"
 다음 단계에서는 동일한 랩에서 VM을 만들 때 사용할 수 있도록 랩에 기존 가상 네트워크(및 서브넷)를 추가하는 방법을 안내합니다. 
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
+1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택합니다.
 1. 랩 목록에서 원하는 랩을 탭합니다. 
-1. 랩의 기본 창에서 **구성 및 정책**을 선택합니다.
+1. 랩의 기본 창에서 **구성 및 정책** 을 선택합니다.
 
     ![랩의 구성 및 정책에 액세스](./media/devtest-lab-configure-vnet/policies-menu.png)
-1. **외부 리소스** 섹션에서 **가상 네트워크**를 선택합니다. 랩에 대해 만들어진 기본 가상 네트워크뿐만 아니라 현재 랩에 대해 구성한 가상 네트워크의 목록이 표시됩니다. 
-1. **+추가**를 선택합니다.
+1. **외부 리소스** 섹션에서 **가상 네트워크** 를 선택합니다. 랩에 대해 만들어진 기본 가상 네트워크뿐만 아니라 현재 랩에 대해 구성한 가상 네트워크의 목록이 표시됩니다. 
+1. **+추가** 를 선택합니다.
    
     ![랩에 기존 가상 네트워크 추가](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 1. **가상 네트워크** 창에서 **[가상 네트워크 선택]** 을 선택합니다.
@@ -43,13 +43,13 @@ ms.locfileid: "87283557"
 
     ![랩 서브넷 창](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
-   - **랩 서브넷 이름**을 지정합니다.
-   - 가상 컴퓨터를 만들 때 서브넷을 사용 하려면 **가상 컴퓨터를 만들 때 사용**을 선택 합니다.
+   - **랩 서브넷 이름** 을 지정합니다.
+   - 가상 컴퓨터를 만들 때 서브넷을 사용 하려면 **가상 컴퓨터를 만들 때 사용** 을 선택 합니다.
    - [shared public IP address](devtest-lab-shared-ip.md)(공유 공용 IP 주소)를 사용하도록 설정하려면 **Enable shared public IP**(공유 공용 IP 사용)를 선택합니다.
    - 서브넷에서 공용 IP 주소를 허용하려면 **Allow public IP creation(공용 IP 생성 허용)** 을 선택합니다.
    - **사용자 당 최대 가상 머신** 필드에서 각 서브넷에 대 한 사용자 당 최대 vm 수를 지정 합니다. VM 수에 제한을 두지 않으려면 이 필드는 공백으로 둡니다.
-1. **확인**을 선택하여 랩 서브넷 창을 닫습니다.
-1. **저장**을 선택하여 가상 네트워크 창을 닫습니다.
+1. **확인** 을 선택하여 랩 서브넷 창을 닫습니다.
+1. **저장** 을 선택하여 가상 네트워크 창을 닫습니다.
 
 이제 가상 네트워크를 구성했으므로 VM을 만들 때 선택할 수 있습니다. VM을 만들고 가상 네트워크를 지정하는 방법은 [랩에 VM 추가](devtest-lab-add-vm.md) 문서를 참조하세요. 
 

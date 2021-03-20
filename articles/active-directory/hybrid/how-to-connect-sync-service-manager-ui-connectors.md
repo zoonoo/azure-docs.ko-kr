@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91319880"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
@@ -31,11 +31,11 @@ ms.locfileid: "91319880"
 커넥터 탭은 동기화 엔진이 연결된 모든 시스템을 관리하는 데 사용됩니다.
 
 ## <a name="connector-actions"></a>커넥터 작업
-| 작업 | 주석 |
+| 작업 | 의견 |
 | --- | --- |
 | 생성 |사용하지 마십시오. 추가 AD 포리스트에 연결하려면 설치 마법사를 사용합니다. |
 | 속성 |모든 도메인 및 OU 필터링에 사용 |
-| [Delete](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
+| [삭제](#delete) |커넥터 공간에서 데이터를 삭제하거나 포리스트에 대한 연결을 삭제하는 데 사용 |
 | [실행 프로필 구성](#configure-run-profiles) |여기서는 도메인 필터링만 구성 이 작업을 사용하여 이미 구성된 실행 프로필을 볼 수 있습니다. |
 | 실행 |프로필의 일회성 실행을 시작하는 데 사용 |
 | 중지 |현재 프로필을 실행하는 커넥터 중지 |
@@ -65,11 +65,11 @@ ms.locfileid: "91319880"
 
 !["커넥터 공간 검색" 창을 보여 주는 스크린샷](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
-먼저 **범위**를 선택합니다. 데이터(RDN, DN 앵커, 하위 트리) 또는 개체의 상태(다른 모든 옵션)에 따라 검색할 수 있습니다.  
+먼저 **범위** 를 선택합니다. 데이터(RDN, DN 앵커, 하위 트리) 또는 개체의 상태(다른 모든 옵션)에 따라 검색할 수 있습니다.  
 !["범위" 드롭다운 메뉴를 보여 주는 스크린샷](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
  예를 들어 하위 트리 검색을 수행하는 경우 모든 개체를 하나의 OU로 가져옵니다.  
 !["하위 트리" 검색의 예를 보여 주는 스크린샷](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
-이 표에서 개체를 선택하고, **속성**을 선택한 다음 원본 커넥터 공간의 메타버스, 대상 커넥터 공간으로 이어지는 [흐름을 따릅니다](tshoot-connect-object-not-syncing.md).
+이 표에서 개체를 선택하고, **속성** 을 선택한 다음 원본 커넥터 공간의 메타버스, 대상 커넥터 공간으로 이어지는 [흐름을 따릅니다](tshoot-connect-object-not-syncing.md).
 
 ### <a name="changing-the-ad-ds-account-password"></a>AD DS 계정 암호 변경
 계정 암호를 변경하는 경우 동기화 서비스가 더 이상 온-프레미스 AD에 대한 변경 내용을 가져오거나 내보낼 수 없습니다.   다음이 표시될 수 있습니다.
@@ -84,7 +84,7 @@ ms.locfileid: "91319880"
 </br>![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
 2. **커넥터** 탭으로 이동합니다.
 3. AD DS 계정을 사용하도록 구성된 AD 커넥터를 선택합니다.
-4. 작업 아래에서 **속성**을 선택합니다.
+4. 작업 아래에서 **속성** 을 선택 합니다.
 5. 팝업 대화 상자에서 Active Directory 포리스트에 연결을 선택합니다.
 6. 포리스트 이름은 해당 온-프레미스 AD를 나타냅니다.
 7. 사용자 이름은 동기화에 사용되는 AD DS 계정을 나타냅니다.

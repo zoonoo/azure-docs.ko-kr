@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4077146292db1266d5dbc51cc577f952b2bff191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85357514"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>AD DS 계정 암호 변경
@@ -29,7 +29,7 @@ AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신�
 
 * Synchronization Service Manager에서 온-프레미스 AD를 사용하여 가져오기 또는 내보내기 작업을 수행하면 **no-start-credentials** 오류를 나타내며 실패합니다.
 
-* Windows 이벤트 뷰어에서 응용 프로그램 이벤트 로그에 **이벤트 ID 6000** 및 메시지 **' "contoso.com" 자격 증명이 잘못 되었기 때문에 "관리 에이전트를 실행 하지 못했습니다."** 라는 오류가 포함 되어 있습니다.
+* Windows 이벤트 뷰어에서 애플리케이션 이벤트 로그에는 **이벤트 ID 6000** 오류 및 메시지 **'자격 증명이 잘못되었기 때문에 "contoso.com" 관리 에이전트를 실행하지 못했습니다.'** 가 포함됩니다.
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>AD DS 계정에 대한 새 암호로 동기화 서비스를 업데이트하는 방법
@@ -40,15 +40,15 @@ AD DS 계정은 Azure AD Connect가 온-프레미스 Active Directory와 통신�
 
 2. **커넥터** 탭으로 이동합니다.
 
-3. 암호가 변경된 AD DS 계정에 해당하는 **AD 커넥터**를 선택합니다.
+3. 암호가 변경된 AD DS 계정에 해당하는 **AD 커넥터** 를 선택합니다.
 
-4. **작업**아래에서 **속성**을 선택 합니다.
+4. **작업** 아래에서 **속성** 을 선택합니다.
 
-5. 팝업 대화 상자에서 **Active Directory 포리스트에 연결**을 선택합니다.
+5. 팝업 대화 상자에서 **Active Directory 포리스트에 연결** 을 선택합니다.
 
 6. **암호** 텍스트 상자에 AD DS 계정의 새 암호를 입력합니다.
 
-7. **확인**을 클릭하여 새 암호를 저장하고 팝업 대화 상자를 닫습니다.
+7. **확인** 을 클릭하여 새 암호를 저장하고 팝업 대화 상자를 닫습니다.
 
 8. Windows Service Control Manager에서 Azure AD Connect 동기화 서비스를 다시 시작합니다. 이 경우 이전 암호에 대한 모든 참조는 메모리 캐시에서 제거됩니다.
 

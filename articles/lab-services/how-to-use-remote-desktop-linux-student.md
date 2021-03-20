@@ -4,10 +4,10 @@ description: Azure Lab Services의 랩에서 Linux 가상 머신에 대해 원�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d13868477ff2e3378d87d7785789a7498ed17e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85443420"
 ---
 # <a name="connect-to-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Azure Lab Services의 교실 랩에서 Linux 가상 머신에 연결
@@ -24,7 +24,7 @@ ms.locfileid: "85443420"
    
 1. 타일에서 VM이 중지된 상태인 경우 단추를 전환하여 VM을 시작합니다. 
 
-2. **연결**을 선택합니다. VM에 연결하는 두 가지 옵션이 표시됩니다. **SSH** 및 **RDP**
+2. **연결** 을 선택합니다. VM에 연결하는 두 가지 옵션이 표시됩니다. **SSH** 및 **RDP**
 
     ![학생 VM - 연결 옵션](./media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 
@@ -44,7 +44,7 @@ ms.locfileid: "85443420"
 ### <a name="connect-to-the-student-vm-using-microsoft-remote-desktop-rdp"></a>Microsoft RDP(원격 데스크톱)를 사용하여 학생 VM에 연결
 학생들은 Linux 그래픽 데스크톱 환경(예: MATE, XFCE 등)을 위해 RDP 및 GUI 패키지를 사용하여 랩을 설정한 후 Microsoft RDP(원격 데스크톱)를 사용하여 Linux VM에 연결할 수 있습니다. 연결 단계는 다음과 같습니다. 
 
-1. VM에 대한 타일에서 VM이 실행 중인지 확인하고 **연결**을 클릭합니다. VM에 연결하는 두 가지 옵션이 표시됩니다. **SSH** 및 **RDP**
+1. VM에 대한 타일에서 VM이 실행 중인지 확인하고 **연결** 을 클릭합니다. VM에 연결하는 두 가지 옵션이 표시됩니다. **SSH** 및 **RDP**
 
     ![학생 VM - 연결 옵션](./media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 2. **RDP** 옵션을 선택합니다.  RDP 파일이 머신에 다운로드되면 VM에 저장합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "85443420"
 
 1. [첫 번째 섹션](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh)의 지침에 따라 VM에 대한 SSH 연결 정보를 복사합니다.  X2Go 클라이언트를 사용하여 연결하려면 이 정보가 필요합니다.
 
-1. SSH 연결 정보를 찾았으면 X2Go 클라이언트를 열고 **세션** > **새 세션**을 선택합니다.
+1. SSH 연결 정보를 찾았으면 X2Go 클라이언트를 열고 **세션** > **새 세션** 을 선택합니다.
    ![X2Go 새 세션 만들기](./media/how-to-use-classroom-lab/x2go-new-session.png)
 
 1. SSH 연결 정보에 따라 **세션 기본 설정** 창에 값을 입력합니다.  예를 들어 연결 정보는 다음과 유사하게 표시됩니다.
@@ -81,7 +81,7 @@ ms.locfileid: "85443420"
    - **SSH 포트** - VM에 할당된 고유 포트입니다(예: **12345**).
    - **세션 유형** - 강사가 VM을 구성한 Linux 그래픽 데스크톱 환경을 선택합니다.  이 정보는 강사로부터 받아야 합니다.
 
-    마지막으로 **확인**을 클릭하여 세션을 만듭니다.
+    마지막으로 **확인** 을 클릭하여 세션을 만듭니다.
 
     ![X2Go 세션 기본 설정](./media/how-to-use-classroom-lab/x2go-session-preferences.png)
 
@@ -90,9 +90,9 @@ ms.locfileid: "85443420"
     ![X2Go 새 세션 시작](./media/how-to-use-classroom-lab/x2go-start-session.png)
 
     > [!NOTE] 
-    > 이와 유사한 메시지가 표시되면 **예**를 선택하여 암호를 계속 입력합니다. **호스트 '[`00000000-0000-0000-0000-000000000000.eastus2.cloudapp.eastus.cloudapp.azure.com`]:12345'의 신뢰성을 설정할 수 없습니다.  ECDSA 키 지문이 SHA256:00000000000000000000000000000000000000000000입니다. 연결을 계속하시겠습니까(예/아니요)?**
+    > 이와 유사한 메시지가 표시되면 **예** 를 선택하여 암호를 계속 입력합니다. **호스트 '[`00000000-0000-0000-0000-000000000000.eastus2.cloudapp.eastus.cloudapp.azure.com`]:12345'의 신뢰성을 설정할 수 없습니다.  ECDSA 키 지문이 SHA256:00000000000000000000000000000000000000000000입니다. 연결을 계속하시겠습니까(예/아니요)?**
 
-2. 메시지가 표시되면 암호를 입력하고 **확인**을 클릭합니다.  이제 VM의 GUI 데스크톱 환경에 원격으로 연결됩니다.
+2. 메시지가 표시되면 암호를 입력하고 **확인** 을 클릭합니다.  이제 VM의 GUI 데스크톱 환경에 원격으로 연결됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 교실 랩에서 Linux VM에 대해 원격 데스크톱 연결 기능을 사용하도록 설정하는 방법에 대한 내용은 [Linux 가상 머신에 원격 데스크톱 사용](how-to-enable-remote-desktop-linux.md)을 참조하세요. 

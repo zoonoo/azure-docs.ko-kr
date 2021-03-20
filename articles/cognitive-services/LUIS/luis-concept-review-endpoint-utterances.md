@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 82f228d5e6f801539c549e16faea371782ad4b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316446"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>엔드포인트 발언을 검토하여 활성 학습을 사용하도록 설정하는 데 관한 개념입니다.
@@ -24,7 +24,7 @@ ms.locfileid: "91316446"
 ## <a name="single-pool-for-utterances-per-app"></a>앱당 발언을 위한 단일 풀
 **엔드포인트 발언 검토** 목록은 버전에 따라 달라지지 않습니다. 적극적으로 편집 중인 발언의 버전이나 엔드포인트에서 게시된 앱 버전에 관계없이 검토할 단일 발언 풀이 있습니다.
 
-[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)에서는 버전 이름이 필요 하며 응용 프로그램에는 있어야 하지만 해당 유효성 검사 보다는 사용 되지 않습니다. Review 길이 발언는 전체 응용 프로그램에 적용 됩니다. 한 _버전_에서 길이 발언를 제거 하는 경우 모든 버전에 영향을 줍니다.
+[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9)에서는 버전 이름이 필요 하며 응용 프로그램에는 있어야 하지만 해당 유효성 검사 보다는 사용 되지 않습니다. Review 길이 발언는 전체 응용 프로그램에 적용 됩니다. 한 _버전_ 에서 길이 발언를 제거 하는 경우 모든 버전에 영향을 줍니다.
 
 ## <a name="where-are-the-utterances-from"></a>발화를 가져오는 위치
 끝점 길이 발언는 응용 프로그램의 HTTP 끝점에 대 한 최종 사용자 쿼리에서 가져옵니다. 앱이 게시되지 않았거나 아직 적중을 받지 않은 경우에는 검토할 발화가 없습니다. 특정 의도 또는 엔터티에 대한 엔드포인트 적중이 수신되지 않은 경우에는 검토할 해당 적중이 포함된 발화가 없습니다.

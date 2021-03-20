@@ -4,10 +4,10 @@ description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.openlocfilehash: db06b64fba203fb3d2ed54d34235504ac6aa4e2d
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99223460"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
@@ -75,7 +75,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
       ![시나리오 창](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-1. **백업 정책** 에서  >  **백업 정책을 선택** 하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 다음, **확인** 을 선택합니다.
+1. **백업 정책** 에서  >  **백업 정책을 선택** 하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 다음 **확인** 을 선택합니다.
     - 백업 정책은 백업이 수행 되는 시기와 저장 기간을 지정 합니다.
     - 드롭다운 메뉴 아래에 기본 정책의 상세 정보가 나열됩니다.
 
@@ -111,7 +111,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 2. **Backup 항목** 에서 **Azure Virtual Machine** 을 선택 합니다.
 3. **백업 항목** 목록에서 줄임표 (...)를 선택 합니다.
 4. **지금 백업** 을 선택 합니다.
-5. **지금 백업** 에서 달력 컨트롤을 사용하여 복구 지점을 유지해야 하는 마지막 날을 선택합니다. 그런 다음, **확인** 을 선택합니다.
+5. **지금 백업** 에서 달력 컨트롤을 사용하여 복구 지점을 유지해야 하는 마지막 날을 선택합니다. 그런 다음 **확인** 을 선택합니다.
 6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중** 에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="provide-permissions"></a>권한 제공
@@ -160,8 +160,8 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 1. [VM 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks).
 2. 다음 작업 중 하나를 수행 하 여 가상 머신 인스턴스를 다시 만듭니다.
-    1. 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세히 알아보기](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    2. PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아보기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    1. 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세한 정보를 알아보세요](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    2. PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세한 정보를 알아보세요](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 3. Linux Vm의 경우 데이터 디스크가 열리고 탑재 되도록 ADE 확장을 다시 설치 합니다.
 
 ## <a name="next-steps"></a>다음 단계

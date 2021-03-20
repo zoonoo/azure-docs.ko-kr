@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
 ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420702"
 ---
 # <a name="poisson-regression"></a>포아송 회귀
@@ -57,13 +57,13 @@ ms.locfileid: "93420702"
 
 3. **포아송 회귀** 모듈의 오른쪽 창에서 **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    - **단일 매개 변수** : 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공 합니다.
+    - **단일 매개 변수**: 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공 합니다.
   
-    - **매개 변수 범위** : 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 매개 변수 스윕을 수행 합니다. 강사는 최적의 구성을 찾기 위해 지정 하는 여러 값을 반복 합니다.
+    - **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 매개 변수 스윕을 수행 합니다. 강사는 최적의 구성을 찾기 위해 지정 하는 여러 값을 반복 합니다.
   
-4. **최적화 허용 오차** : 최적화 중 허용 시간 간격을 정의 하는 값을 입력 합니다. 값이 작을수록는 속도는 느려지고 맞춤은 더 정확해집니다.
+4. **최적화 허용 오차**: 최적화 중 허용 시간 간격을 정의 하는 값을 입력 합니다. 값이 작을수록는 속도는 느려지고 맞춤은 더 정확해집니다.
 
-5. **L1 정규화 weight** 및 **l2 정규화 가중치** : l1 및 l2 정규화에 사용할 형식 값입니다. *정규화* 를 통해 학습 데이터와 독립적인 모델의 요소에 관한 알고리즘에 제약 조건을 추가합니다. 과잉 맞춤을 방지하려는 경우에 일반적으로 정규화를 사용합니다. 
+5. **L1 정규화 weight** 및 **l2 정규화 가중치**: l1 및 l2 정규화에 사용할 형식 값입니다. *정규화* 를 통해 학습 데이터와 독립적인 모델의 요소에 관한 알고리즘에 제약 조건을 추가합니다. 과잉 맞춤을 방지하려는 경우에 일반적으로 정규화를 사용합니다. 
 
     - 모델의 스파스 수준을 최대화하려는 경우에는 L1 정규화가 유용합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "93420702"
 
     L1 및 L2 정규화에 대 한 자세한 내용은 [Machine Learning에 대 한 l1 및 L2 정규화](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)를 참조 하세요.
 
-6. **BFGS에 대 한 메모리 크기** : 모델 맞춤 및 최적화를 위해 예약할 메모리 양을 지정 합니다.
+6. **BFGS에 대 한 메모리 크기**: 모델 맞춤 및 최적화를 위해 예약할 메모리 양을 지정 합니다.
 
      BFGS는 Broyden – Fletcher – Goldfarb – Shanno (BFGS) 알고리즘을 기반으로 하는 최적화의 특정 메서드입니다. 메서드는 제한 된 양의 메모리 (L)를 사용 하 여 다음 단계 방향을 계산 합니다.
 

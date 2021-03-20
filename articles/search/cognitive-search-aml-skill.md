@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.openlocfilehash: 6cefe543ea8ba992b028448070bf041a77bfec64
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630278"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 AML 기술
@@ -168,7 +168,7 @@ AML를 사용할 수 없거나 성공 하지 않은 상태 코드를 전송 하�
 
 AML 서비스를 사용할 수 없는 경우 또는 HTTP 오류를 반환 하는 경우에는 HTTP 오류에 대 한 모든 사용 가능한 정보에 대 한 친숙 한 오류가 인덱서 실행 기록에 추가 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [AML 서비스 문제 해결](../machine-learning/how-to-troubleshoot-deployment.md)

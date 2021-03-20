@@ -8,10 +8,10 @@ ms.date: 01/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bb608492327baae958c32be05d8f2a1bb4dbfbf
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99226644"
 ---
 # <a name="understand-azure-files-billing"></a>Azure Files 청구 이해
@@ -114,7 +114,7 @@ Azure Files는 표준 파일 공유에 종 량 제 비즈니스 모델을 사용
 > [!Note]  
 > NFS 4.1은 프로 비전 된 청구 모델을 사용 하는 프리미엄 파일 공유에만 사용할 수 있으며, 트랜잭션은 프리미엄 파일 공유에 대 한 청구에 영향을 주지 않습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 - [가격 책정 페이지를 Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)합니다.
 - [Azure Files 배포를 계획](./storage-files-planning.md) 하 고 [Azure 파일 동기화 배포를 계획](./storage-sync-files-planning.md)합니다.
 - [파일 공유를 만들고](./storage-how-to-create-file-share.md) [Azure 파일 동기화를 배포](./storage-sync-files-deployment-guide.md)합니다.
