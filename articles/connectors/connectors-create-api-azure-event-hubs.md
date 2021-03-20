@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 65da8e07c01561577fe7eff449bfc10348c7f277
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716604"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Azure Event Hubs 및 Azure Logic Apps를 사용하여 이벤트 모니터링, 수신 및 전송
@@ -77,25 +77,25 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
    ![트리거 속성](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이벤트 허브 이름** | 예 | 모니터링할 이벤트 허브의 이름입니다. |
-   | **콘텐츠 형식** | No | 이벤트의 내용 유형입니다. 기본값은 `application/octet-stream`입니다. |
-   | **소비자 그룹 이름** | No | 이벤트를 읽는 데 사용할 [이벤트 허브 소비자 그룹의 이름](../event-hubs/event-hubs-features.md#consumer-groups) 입니다. 지정하지 않으면 기본값 소비자 그룹이 사용됩니다. |
-   | **최대 이벤트 수** | No | 최대 이벤트 수입니다. 트리거는 1과 이 속성으로 지정된 이벤트의 수 범위의 숫자를 반환합니다. |
+   | **콘텐츠 형식** | 아니요 | 이벤트의 내용 유형입니다. 기본값은 `application/octet-stream`입니다. |
+   | **소비자 그룹 이름** | 아니요 | 이벤트를 읽는 데 사용할 [이벤트 허브 소비자 그룹의 이름](../event-hubs/event-hubs-features.md#consumer-groups) 입니다. 지정하지 않으면 기본값 소비자 그룹이 사용됩니다. |
+   | **최대 이벤트 수** | 아니요 | 최대 이벤트 수입니다. 트리거는 1과 이 속성으로 지정된 이벤트의 수 범위의 숫자를 반환합니다. |
    | **간격** | 예 | 빈도에 따라 워크플로가 실행 되는 빈도를 설명 하는 양의 정수입니다. |
    | **빈도** | 예 | 되풀이의 시간 단위입니다. |
    ||||
 
    **추가 속성**
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **콘텐츠 스키마** | No | 이벤트 허브에서 읽을 이벤트의 JSON 콘텐츠 스키마입니다. 예를 들어 콘텐츠 스키마를 지정 하는 경우 스키마와 일치 하는 이벤트에 대해서만 논리 앱을 트리거할 수 있습니다. |
-   | **최소 파티션 키** | No | 읽을 최소 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
-   | **최대 파티션 키** | No | 읽을 최대 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
-   | **표준 시간대** | No | 이 트리거는 UTC 오프셋을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. <p>자세한 내용은 [Azure Logic Apps를 사용 하 여 되풀이 작업 및 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요. |
-   | **시작 시간** | No | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss<p>또는<p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ<p>자세한 내용은 [Azure Logic Apps를 사용 하 여 되풀이 작업 및 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요. |
+   | **콘텐츠 스키마** | 아니요 | 이벤트 허브에서 읽을 이벤트의 JSON 콘텐츠 스키마입니다. 예를 들어 콘텐츠 스키마를 지정 하는 경우 스키마와 일치 하는 이벤트에 대해서만 논리 앱을 트리거할 수 있습니다. |
+   | **최소 파티션 키** | 아니요 | 읽을 최소 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
+   | **최대 파티션 키** | 아니요 | 읽을 최대 [파티션](../event-hubs/event-hubs-features.md#partitions) ID를 입력합니다. 기본적으로 모든 파티션이 읽혀집니다. |
+   | **표준 시간대** | 아니요 | 이 트리거는 UTC 오프셋을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. <p>자세한 내용은 [Azure Logic Apps를 사용 하 여 되풀이 작업 및 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요. |
+   | **시작 시간** | 아니요 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss<p>또는<p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ<p>자세한 내용은 [Azure Logic Apps를 사용 하 여 되풀이 작업 및 워크플로 만들기 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요. |
    ||||
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
@@ -128,12 +128,12 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    ![Event Hub 이름을 선택하고 이벤트 콘텐츠를 제공](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | 속성 | 필수 | Description |
+   | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
    | **이벤트 허브 이름** | 예 | 이벤트를 보낼 이벤트 허브 |
-   | **콘텐츠** | No | 전송하려는 이벤트의 콘텐츠 |
+   | **콘텐츠** | 아니요 | 전송하려는 이벤트의 콘텐츠 |
    | **속성** | 예 | 보낼 앱 속성 및 값 |
-   | **파티션 키** | No | 이벤트를 보낼 위치에 대 한 [파티션](../event-hubs/event-hubs-features.md#partitions) ID입니다. |
+   | **파티션 키** | 아니요 | 이벤트를 보낼 위치에 대 한 [파티션](../event-hubs/event-hubs-features.md#partitions) ID입니다. |
    ||||
 
    예를 들어 Event Hubs 트리거의 출력을 다른 이벤트 허브로 보낼 수 있습니다.
@@ -150,13 +150,13 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결 정보에 대한 메시지가 표시되면 다음과 같은 세부 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 만들 이름 |
    | **Event Hubs 네임 스페이스** | 예 | <*이벤트 허브-네임 스페이스*> | 사용하려는 Event Hubs 네임스페이스를 선택합니다. |
    |||||  
 
-   다음은 그 예입니다. 
+   예를 들면 다음과 같습니다.
 
    ![Event Hub 연결 만들기](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

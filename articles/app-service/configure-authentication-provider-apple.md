@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 11/19/2020
 ms.reviewer: mikarmar
 ms.openlocfilehash: b77e0613f502d003b5e4651e34be4cadbd4209a9
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603360"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-sign-in-using-a-sign-in-with-apple-provider-preview"></a>Apple 공급자 (미리 보기)를 사용 하 여 로그인을 사용 하 여 로그인 하도록 App Service 또는 Azure Functions 앱 구성
@@ -39,7 +39,7 @@ Apple 개발자 포털에서 앱 ID 및 서비스 ID를 만들어야 합니다.
 ![Apple 개발자 포털에서 새 서비스 식별자 등록](media/configure-authentication-provider-apple/apple-register-service.jpg)
 8. **서비스 ID 등록** 페이지에서 설명 및 식별자를 제공 합니다. 설명은 동의 화면에서 사용자에 게 표시 되는 내용입니다. 식별자는 app service를 사용 하 여 Apple 공급자를 구성 하는 데 사용 되는 클라이언트 ID가 됩니다. 그런 다음, **구성** 을 선택합니다.
 ![설명 및 식별자 제공](media/configure-authentication-provider-apple/apple-configure-service-1.jpg)
-9. 팝업 창에서 기본 앱 Id를 앞에서 만든 앱 Id로 설정 합니다. 도메인 섹션에서 응용 프로그램의 도메인을 지정 합니다. 반환 URL의 경우 URL을 사용 `<app-url>/.auth/login/apple/callback` 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/apple/callback`. 그런 다음 **추가** 및 **저장** 을 선택 합니다.
+9. 팝업 창에서 기본 앱 Id를 앞에서 만든 앱 Id로 설정 합니다. 도메인 섹션에서 응용 프로그램의 도메인을 지정 합니다. 반환 URL의 경우 URL을 사용 `<app-url>/.auth/login/apple/callback` 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/apple/callback` 그런 다음 **추가** 및 **저장** 을 선택 합니다.
 ![등록을 위한 도메인 및 반환 URL 지정](media/configure-authentication-provider-apple/apple-configure-service-2.jpg)
 10. 서비스 등록 정보를 검토 하 고 **저장** 을 선택 합니다.
 
@@ -159,7 +159,7 @@ public static string GetAppleClientSecret(string teamId, string clientId, string
     
     b. 개체 내에서 `registration` 를 `clientSecretSettingName` 클라이언트 암호를 저장 한 응용 프로그램 설정의 이름으로 설정 합니다.
     
-    c. 개체 내에서 `login` `scopes` Apple에서 인증할 때 사용 되는 범위 목록 (예: "이름" 및 "전자 메일")을 포함 하도록 배열을 설정 하도록 선택할 수 있습니다. 범위가 구성 된 경우 사용자가 처음으로 로그인 할 때 동의 화면에서 명시적으로 요청 됩니다.
+    다. 개체 내에서 `login` `scopes` Apple에서 인증할 때 사용 되는 범위 목록 (예: "이름" 및 "전자 메일")을 포함 하도록 배열을 설정 하도록 선택할 수 있습니다. 범위가 구성 된 경우 사용자가 처음으로 로그인 할 때 동의 화면에서 명시적으로 요청 됩니다.
 
 이 구성이 설정 되 면 앱에서 Apple 공급자를 인증에 사용할 준비가 된 것입니다.
 

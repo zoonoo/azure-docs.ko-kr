@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542192"
 ---
 # <a name="pattern-syntax"></a>패턴 구문
@@ -26,14 +26,14 @@ ms.locfileid: "91542192"
 |함수|구문|중첩 수준|예제|
 |--|--|--|--|
 |엔터티| {} -중괄호|2|{Entity-name} 형식은 어디에 있나요?|
-|선택 사항|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
+|선택적|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
 |그룹화|()-괄호|2|is (a \| b)|
 |또는| \| -세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {폼-이름-long} &#x7c; {폼 번호})|
 |utterance의 시작 및/또는 끝|^-캐럿|-|^ utterance 시작<br>utterance가 완료 되었습니다.<br>^ ' number} 엔터티 ^의 전체 utterance의 엄격한 리터럴 일치 항목 ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>패턴의 중첩 구문
 
-대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예: `[[this]is] a new form` 이 예에서는 다음 길이 발언을 허용 합니다.
+대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예를 들어 `[[this]is] a new form`을 참조하십시오. 이 예에서는 다음 길이 발언을 허용 합니다.
 
 |중첩 된 선택적 utterance 예제|설명|
 |--|--|
@@ -41,14 +41,14 @@ ms.locfileid: "91542192"
 |새 양식|패턴의 외부 선택적 단어 및 선택적 단어가 아닌 단어를 찾습니다.|
 |새 양식|필수 단어만 찾습니다.|
 
-괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
+괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예를 들어 `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`을 참조하십시오. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다.
 
 Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 위치인 경우 엔터티 2는 목록 엔터티 (RedWest-C)에서 알려진 빌딩 이름이 고, 다음 길이 발언는이 패턴에 매핑됩니다.
 
 |Nested grouping utterance 예제|설명|
 |--|--|
 |RedWest-C|외부 그룹화 엔터티와 일치|
-|Seattle|내부 그룹화 엔터티 중 하 나와 일치|
+|시애틀|내부 그룹화 엔터티 중 하 나와 일치|
 |Cairo|내부 그룹화 엔터티 중 하 나와 일치|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>선택적인 구문을 사용 하 여 그룹에 대 한 중첩 제한

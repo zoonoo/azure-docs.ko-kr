@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: service-bus-messaging
 author: axisc
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
 ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652611"
 ---
 다음 표에서는 현재 지원 Azure Service Bus는 JMS (Java Message Service) 기능을 보여 줍니다. 또한 지원 되지 않는 기능을 보여 줍니다.

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98693406"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
@@ -108,7 +108,7 @@ HTTPS 포트는 일반적으로 포트 5671을 통해 AMQP를 사용 하는 경�
 * 중복 검색
 * Express 엔터티
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 이 섹션은 Service Bus 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다.
 
 [Service Bus 가격 및 대금 청구](https://azure.microsoft.com/pricing/details/service-bus/) 문서에서는 Service Bus의 요금 청구 기준에 대해 설명합니다. Service Bus 가격 책정 옵션에 대한 특정 정보는 [Service Bus 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.

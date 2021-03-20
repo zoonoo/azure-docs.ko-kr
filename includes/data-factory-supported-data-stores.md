@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: e600af10d2393bcd59317b4b918b7458cc63df31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91571945"
 ---
-| Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 |
+| 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
@@ -37,7 +37,7 @@ ms.locfileid: "91571945"
 | &nbsp; |[FTP](../articles/data-factory/v1/data-factory-ftp-connector.md) |✓ | |
 | &nbsp; |[HDFS](../articles/data-factory/v1/data-factory-hdfs-connector.md)* |✓ | |
 | &nbsp; |[SFTP](../articles/data-factory/v1/data-factory-sftp-connector.md) |✓ | |
-| **Others** |[일반 HTTP](../articles/data-factory/v1/data-factory-http-connector.md) |✓ | |
+| **기타** |[일반 HTTP](../articles/data-factory/v1/data-factory-http-connector.md) |✓ | |
 | &nbsp; |[일반 OData](../articles/data-factory/v1/data-factory-odata-connector.md) |✓ | |
 | &nbsp; |[일반 ODBC](../articles/data-factory/v1/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/v1/data-factory-salesforce-connector.md) |✓ | |

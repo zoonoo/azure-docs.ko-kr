@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
 ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396858"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기
@@ -66,7 +66,7 @@ $vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## <a name="create-a-reserved-public-ip"></a>예약된 공용 IP 만들기
 
-PublicIPAddress의 할당 메서드를 **Static** (고정)으로 지정합니다. 자동 크기 조정 애플리케이션 게이트웨이 VIP는 정적일 수만 있습니다. 동적 IP는 지원되지 않습니다. 표준 PublicIpAddress SKU만 지원됩니다.
+PublicIPAddress의 할당 메서드를 **Static**(고정)으로 지정합니다. 자동 크기 조정 애플리케이션 게이트웨이 VIP는 정적일 수만 있습니다. 동적 IP는 지원되지 않습니다. 표준 PublicIpAddress SKU만 지원됩니다.
 
 ```azurepowershell
 #Create static public IP
@@ -107,11 +107,11 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Http 헤더를 다시 쓰는 데 필요한 새 개체를 구성합니다.
 
-- **RequestHeaderConfiguration** :이 개체는 다시 쓰려는 요청 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
-- **ResponseHeaderConfiguration** :이 개체는 다시 쓰려는 응답 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
-- **ActionSet** : 이 개체는 위에 지정된 요청 및 응답 헤더의 구성을 포함합니다. 
-- **RewriteRule** : 이 개체는 위에 지정된 모든 *actionSets* 를 포함합니다. 
-- **RewriteRuleSet** : 이 개체는 모든 *rewriteRules* 를 포함하며 요청 회람 규칙인 기본 또는 경로 기반에 연결해야 합니다.
+- **RequestHeaderConfiguration**:이 개체는 다시 쓰려는 요청 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
+- **ResponseHeaderConfiguration**:이 개체는 다시 쓰려는 응답 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
+- **ActionSet**: 이 개체는 위에 지정된 요청 및 응답 헤더의 구성을 포함합니다. 
+- **RewriteRule**: 이 개체는 위에 지정된 모든 *actionSets* 를 포함합니다. 
+- **RewriteRuleSet**: 이 개체는 모든 *rewriteRules* 를 포함하며 요청 회람 규칙인 기본 또는 경로 기반에 연결해야 합니다.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

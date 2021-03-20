@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
 ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944780"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>HDInsight 4.0 Apache Spark에 Azure HDInsight 3.6 Apache Storm 마이그레이션
@@ -54,7 +54,7 @@ Spark 구조적 스트리밍은 Spark 스트리밍 (i 스트림)을 대체 합�
 
 Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 구성 요소로 구성됩니다. 그래프의 구성 요소 간에 데이터가 흐릅니다. 각 구성 요소는 하나 이상의 데이터 스트림을 사용하며, 선택적으로 하나 이상의 스트림을 내보낼 수 있습니다.
 
-|구성 요소 |Description |
+|구성 요소 |설명 |
 |---|---|
 |Spout|데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.|
 |화살표|Spout 또는 다른 볼트에서 내보낸 스트림을 사용 합니다. Bolt는 필요에 따라 스트림을 토폴로지로 내보낼 수 있습니다. 또한 Bolt는 HDFS, Kafka 또는 HBase와 같은 외부 서비스 또는 스토리지에 데이터를 쓰는 역할을 수행합니다.|
@@ -64,7 +64,7 @@ Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 
 
 스톰은 다음 세 가지 디먼 구성 되어 있으며,이로 인해 스톰 클러스터가 작동 합니다.
 
-|데몬 |Description |
+|데몬 |설명 |
 |---|---|
 |Nimbus|Hadoop JobTracker와 마찬가지로 클러스터 주위에 코드를 배포 하 고 컴퓨터에 작업을 할당 하 고 오류를 모니터링 하는 일을 담당 합니다.|
 |Zookeeper|클러스터 조정에 사용 됩니다.|

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: juergent
 ms.openlocfilehash: 54bfd7c6e691efbd754e9ea2b804e16b3e07ebbe
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670963"
 ---
 # <a name="installation-of-sap-hana-on-azure-virtual-machines"></a>Azure virtual machines에 SAP HANA 설치
@@ -29,7 +29,7 @@ ms.locfileid: "101670963"
 > [!NOTE]
 > 이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA large instances에 SAP HANA를 배포 하는 방법에 대 한 자세한 내용은 [Azure에서 SAP HANA (Large instances)를 설치 및 구성 하는 방법](./hana-installation.md)을 참조 하세요.
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 또한이 가이드에서는 다음에 대해 잘 알고 있다고 가정 합니다.
 * SAP HANA, SAP NetWeaver 및 온-프레미스에 설치하는 방법
 * Azure에서 SAP HANA 및 SAP 응용 프로그램 인스턴스를 설치 하 고 작동 하는 방법입니다.

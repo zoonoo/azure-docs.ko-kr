@@ -10,10 +10,10 @@ ms.date: 12/17/2020
 ms.author: kegorman
 ms.reviewer: tigorman
 ms.openlocfilehash: 6e59d0065dfa74979bf3bbc72458bda516e3b641
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101669980"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
@@ -49,7 +49,7 @@ ms.locfileid: "101669980"
 | **리소스** |전용  |다른 클라이언트와 공유|
 | **지역** |데이터 센터 |[지역 쌍](../../regions.md#region-pairs)|
 | **스토리지** |SAN/실제 디스크 |[Azure 관리 스토리지](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-| **배율** |수직적 확장 |수평적 확장|
+| **규모** |수직적 확장 |수평적 확장|
 
 
 ### <a name="requirements"></a>요구 사항

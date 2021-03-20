@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541047"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
@@ -35,7 +35,7 @@ LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모�
 ## <a name="map-preexisting-data-to-intents-and-entities"></a>의도 및 엔터티에 기존 데이터 매핑
 LUIS를 사용하여 만들지 않은 시스템이 있는 경우에도 사용자가 수행하려는 다양한 작업에 매핑되는 텍스트 데이터가 있으면 사용자 입력의 기존 범주에서 LUIS의 의도로 매핑할 수 있습니다. 사용자가 말한 내용에서 중요한 단어나 구를 식별할 수 있는 경우, 이러한 단어가 엔터티에 매핑될 수 있습니다.
 
-파일을 엽니다 [`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) . 여기에는 사용자 쿼리가 분류된 방식, 사용자가 말한 내용, 쿼리에서 가져온 유용한 정보가 있는 일부 열을 포함하여 가상 홈 자동화 서비스에 대한 사용자 쿼리 로그가 포함됩니다.
+[`IoT.csv`](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) 파일을 엽니다. 여기에는 사용자 쿼리가 분류된 방식, 사용자가 말한 내용, 쿼리에서 가져온 유용한 정보가 있는 일부 열을 포함하여 가상 홈 자동화 서비스에 대한 사용자 쿼리 로그가 포함됩니다.
 
 ![기존 데이터의 CSV 파일](./media/luis-tutorial-node-import-utterances-csv/csv.png)
 
@@ -82,7 +82,7 @@ CSV에서 발화를 포함하는 열 항목을 LUIS에서 이해할 수 있는 J
         }
 ```
 
-이 예제에서 `intentName`은 CSV 파일에서 **Request** 열 머리글 아래의 사용자 요청에서 가져오고 `entityName`은 키 정보가 있는 다른 열에서 가져옵니다. 예를 들어, **Operation** 또는 **Device**에 대한 항목이 있고 해당 문자열이 실제 요청에도 나타나면 엔터티로 레이블을 지정할 수 있습니다. 다음 코드는 이 구문 분석 프로세스를 보여 줍니다. 이 코드를 복사하거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js)하여 `_parse.js`에 저장할 수 있습니다.
+이 예제에서 `intentName`은 CSV 파일에서 **Request** 열 머리글 아래의 사용자 요청에서 가져오고 `entityName`은 키 정보가 있는 다른 열에서 가져옵니다. 예를 들어, **Operation** 또는 **Device** 에 대한 항목이 있고 해당 문자열이 실제 요청에도 나타나면 엔터티로 레이블을 지정할 수 있습니다. 다음 코드는 이 구문 분석 프로세스를 보여 줍니다. 이 코드를 복사하거나 [다운로드](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js)하여 `_parse.js`에 저장할 수 있습니다.
 
    [!code-javascript[Node.js code for parsing a CSV file to extract intents, entities, and labeled utterances](~/samples-luis/examples/build-app-programmatically-csv/_parse.js)]
 
@@ -179,7 +179,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>LUIS 앱 열기
-스크립트가 완료되면 [LUIS](luis-reference-regions.md)에 로그인하여 **내 앱**에서 직접 만든 LUIS 앱을 볼 수 있습니다. **TurnOn**, **TurnOff** 및 **None** 의도에서 추가한 발화를 확인할 수 있습니다.
+스크립트가 완료되면 [LUIS](luis-reference-regions.md)에 로그인하여 **내 앱** 에서 직접 만든 LUIS 앱을 볼 수 있습니다. **TurnOn**, **TurnOff** 및 **None** 의도에서 추가한 발화를 확인할 수 있습니다.
 
 ![TurnOn 의도](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

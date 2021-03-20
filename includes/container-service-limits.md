@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: container-service
 author: mlearned
@@ -9,10 +9,10 @@ ms.date: 11/22/2019
 ms.author: mlearned
 ms.custom: include file
 ms.openlocfilehash: a42bba1b6524825aa571e4c18319b61b97829792
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96584511"
 ---
 | 리소스 | 제한 |

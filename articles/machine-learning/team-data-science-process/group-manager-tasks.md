@@ -11,10 +11,10 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7ab6d6511d1e2cec82b321003c9d663249ddcf49
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94740229"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process 그룹 관리자 작업
@@ -213,7 +213,7 @@ git push
 ```
 
 > [!NOTE]
-> Git 리포지토리에 처음 커밋하는 경우 명령을 실행 하기 전에 전역 매개 변수 *user.name* 및 *user. email* 을 구성 해야 할 수 있습니다. `git commit` 다음 두 명령을 실행합니다.
+> Git 리포지토리에 처음 커밋하는 경우 명령을 실행 하기 전에 *user.name* 및 *user.email* 전역 매개 변수를 구성 해야 할 수 있습니다 `git commit` . 다음 두 명령을 실행합니다.
 > 
 > `git config --global user.name <your name>`
 > 

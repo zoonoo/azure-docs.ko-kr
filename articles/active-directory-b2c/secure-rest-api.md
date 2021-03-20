@@ -12,10 +12,10 @@ ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f6907db7f6e53247a8f2fc0042e8c8e6b081dbd3
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516379"
 ---
 # <a name="secure-your-restful-services"></a>RESTful 서비스 보호 
@@ -70,7 +70,7 @@ HTTP 기본 인증을 사용하여 REST API 기술 프로필을 구성하려면 
 1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
 1. REST API 기술 프로필을 검색합니다. 예: `REST-ValidateProfile` 또는 `REST-GetProfile`
 1. `<Metadata>` 요소를 찾습니다.
-1. *AuthenticationType* 을 `Basic`으로 변경합니다.
+1. *AuthenticationType* 을 `Basic`로 변경합니다.
 1. *AllowInsecureAuthInProduction* 을 `false`로 변경합니다.
 1. `</Metadata>` 요소를 닫은 직후 다음 XML 코드 조각을 추가합니다.
     ```xml

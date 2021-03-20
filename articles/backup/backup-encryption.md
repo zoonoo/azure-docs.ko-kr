@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
 ms.openlocfilehash: c9b1b2782a34285ae194f2998a7cd053cf3c0c70
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325684"
 ---
 # <a name="encryption-in-azure-backup"></a>Azure Backup에서 암호화
@@ -21,7 +21,7 @@ ms.locfileid: "96325684"
 
 - **Recovery Services 자격 증명 모음의 데이터 암호화**
   - **플랫폼 관리 키 사용**: 기본적으로 모든 데이터는 플랫폼 관리 키를 사용 하 여 암호화 됩니다. 이 암호화를 사용 하도록 설정 하기 위해 끝에서 명시적인 조치를 취할 필요는 없습니다. Recovery Services 자격 증명 모음에 백업되는 모든 워크로드에 적용됩니다.
-  - **고객 관리 키 사용**: Azure Virtual Machines를 백업할 때 사용자가 소유 하 고 관리 하는 암호화 키를 사용 하 여 데이터를 암호화 하도록 선택할 수 있습니다. Azure Backup를 사용 하면 Azure Key Vault에 저장 된 RSA 키를 사용 하 여 백업을 암호화할 수 있습니다. 백업 암호화에 사용 되는 암호화 키는 원본에 사용 된 것과 다를 수 있습니다. 데이터는 AES 256 기반 DEK (데이터 암호화 키)를 사용 하 여 보호 됩니다. 즉, 키를 사용 하 여 보호 됩니다. 이를 통해 데이터와 키에 대 한 모든 권한을 제공 합니다. 암호화를 허용 하려면 Recovery Services 자격 증명 모음에 Azure Key Vault 암호화 키에 대 한 액세스 권한을 부여 해야 합니다. 필요할 때마다 키를 사용 하지 않도록 설정 하거나 액세스를 취소할 수 있습니다. 그러나 자격 증명 모음에 대 한 항목을 보호 하기 전에 키를 사용 하 여 암호화를 사용 하도록 설정 해야 합니다. [자세한 내용은 여기를 참조](encryption-at-rest-with-cmk.md)하세요.
+  - **고객 관리 키 사용**: Azure Virtual Machines를 백업할 때 사용자가 소유 하 고 관리 하는 암호화 키를 사용 하 여 데이터를 암호화 하도록 선택할 수 있습니다. Azure Backup를 사용 하면 Azure Key Vault에 저장 된 RSA 키를 사용 하 여 백업을 암호화할 수 있습니다. 백업 암호화에 사용 되는 암호화 키는 원본에 사용 된 것과 다를 수 있습니다. 데이터는 AES 256 기반 DEK (데이터 암호화 키)를 사용 하 여 보호 됩니다. 즉, 키를 사용 하 여 보호 됩니다. 이를 통해 데이터와 키에 대 한 모든 권한을 제공 합니다. 암호화를 허용 하려면 Recovery Services 자격 증명 모음에 Azure Key Vault 암호화 키에 대 한 액세스 권한을 부여 해야 합니다. 필요할 때마다 키를 사용 하지 않도록 설정 하거나 액세스를 취소할 수 있습니다. 그러나 자격 증명 모음에 대 한 항목을 보호 하기 전에 키를 사용 하 여 암호화를 사용 하도록 설정 해야 합니다. [여기를 참조하세요](encryption-at-rest-with-cmk.md).
   - **인프라 수준 암호화**: 고객이 관리 하는 키를 사용 하 여 Recovery Services 자격 증명 모음에서 데이터를 암호화 하는 것 외에도 저장소 인프라에 추가 암호화 계층을 구성 하도록 선택할 수 있습니다. 이 인프라 암호화는 플랫폼에서 관리 됩니다. 고객 관리 키를 사용 하 여 미사용 암호화와 함께 사용 하면 백업 데이터의 2 계층 암호화를 사용할 수 있습니다. 미사용 암호화에 고유한 키를 사용 하도록 처음 선택 하는 경우에만 인프라 암호화를 구성할 수 있습니다. 인프라 암호화는 플랫폼 관리 키를 사용 하 여 데이터를 암호화 합니다.
 - **백업 중인 작업에만 적용 되는 암호화**  
   - **Azure 가상 컴퓨터 백업**: Azure Backup는 사용자가 소유 하 고 관리 하는 [고객 관리 키](../virtual-machines/disk-encryption.md#customer-managed-keys) 뿐만 아니라 [플랫폼 관리 키](../virtual-machines/disk-encryption.md#platform-managed-keys)를 사용 하 여 암호화 된 디스크가 있는 vm의 백업을 지원 합니다. 또한 [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade)를 사용 하 여 암호화 된 OS 또는 데이터 디스크를 포함 하는 Azure 가상 컴퓨터를 백업할 수 있습니다. ADE는 Windows Vm에 BitLocker를 사용 하 고 Linux Vm의 DM-Crypt를 사용 하 여 게스트 간 암호화를 수행 합니다.

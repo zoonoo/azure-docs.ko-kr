@@ -4,10 +4,10 @@ description: 이 문서에서는 SQL 규칙 작업 구문에 대 한 참조를 �
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652839"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문

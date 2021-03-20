@@ -8,10 +8,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0226ab75d53733b94a9ae5734b42b7340998759c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379270"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 푸시
@@ -53,8 +53,8 @@ ms.locfileid: "100379270"
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | Type 속성은 **Azuresearch** 로 설정 되어야 합니다. | 예 |
-| url | 검색 서비스에 대 한 URL입니다. | Yes |
-| key | 검색 서비스에 대 한 관리 키입니다. | Yes |
+| url | 검색 서비스에 대 한 URL입니다. | 예 |
+| key | 검색 서비스에 대 한 관리 키입니다. | 예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -62,8 +62,8 @@ ms.locfileid: "100379270"
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearchIndex** 로 설정되어야 합니다.| Yes |
-| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | Yes |
+| type | 형식 속성은 **AzureSearchIndex** 로 설정되어야 합니다.| 예 |
+| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -73,8 +73,8 @@ ms.locfileid: "100379270"
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 예 |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 예 |
+| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 아니요 |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 데이터를 쓸 때 AzureSearchSink가 삽입됩니다. 즉, 문서를 작성할 때 문서 키가 검색 인덱스에 이미 있는 경우 Azure Cognitive Search는 충돌 예외를 throw 하는 대신 기존 문서를 업데이트 합니다.

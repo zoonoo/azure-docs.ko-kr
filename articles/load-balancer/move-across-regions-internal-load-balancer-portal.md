@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ms.openlocfilehash: 68a2cb6926cb41956711a9e3c15d21c250d27f0b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698493"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 내부 Load Balancer을 다른 지역으로 이동
@@ -20,7 +20,7 @@ ms.locfileid: "94698493"
 Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 내부 부하 분산 장치의 기존 구성과 가상 네트워크를 내보낼 수 있습니다.  그런 다음 부하 분산 장치 및 가상 네트워크를 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다.  Resource Manager 및 템플릿에 대한 자세한 내용은 [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 내부 부하 분산 장치가 이동 하려는 Azure 지역에 있는지 확인 합니다.
 
@@ -218,7 +218,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 6. 위에서 이동한 대상 가상 네트워크의 값을 편집 하려면 먼저 리소스 ID를 가져온 다음 파일 **의parameters.js** 에 복사 하 여 붙여넣어야 합니다. ID를 가져오려면 다음을 수행 합니다.
 
-    1. [Azure portal](https://portal.azure.com)  >  다른 브라우저 탭 또는 창에서 Azure Portal **리소스 그룹** 에 로그인 합니다.
+    1. [](https://portal.azure.com)  >  다른 브라우저 탭 또는 창에서 Azure Portal **리소스 그룹** 에 로그인 합니다.
     2. 위의 단계에서 이동 된 가상 네트워크를 포함 하는 대상 리소스 그룹을 찾아 클릭 합니다.
     3. > **설정**  >  **속성** 을 선택 합니다.
     4. 오른쪽 블레이드에서 **리소스 ID** 를 강조 표시 하 고 클립보드에 복사 합니다.  또는 **리소스 ID** 경로 오른쪽의 **클립보드로 복사** 단추를 클릭할 수 있습니다.
@@ -259,7 +259,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
 
 10. 또한 선택하는 경우 템플릿의 다른 매개 변수를 변경할 수 있으며 요구 사항에 따라 선택적입니다.
 
-    * **Sku** -template.js파일의 **sku**  >  **이름** 속성을 변경 하 여 구성의 내부 부하 분산 장치에 대 한 sku를 표준에서 기본 또는 기본으로 변경할 수 **template.json** 있습니다.
+    * **Sku** -template.js파일의 **sku**  >  **이름** 속성을 변경 하 여 구성의 내부 부하 분산 장치에 대 한 sku를 표준에서 기본 또는 기본으로 변경할 수  있습니다.
 
         ```json
         "resources": [

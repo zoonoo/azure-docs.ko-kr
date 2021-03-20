@@ -8,10 +8,10 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: e5973f58887b212919ad739232faafddcf9e735c
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100561543"
 ---
 # <a name="extending-ontologies"></a>온톨로지 확장 
@@ -79,7 +79,7 @@ RealEstateCore ontology에 대 한 자세한 내용은 [*개념: 업계 표준 �
  
 :::image type="content" source="media/concepts-extending-ontologies/ontology-with-models.png" alt-text="Space (최상위), 대화방 (중간 수준), ConferenceRoom, Office 및 FocusRoom (하위 수준)를 포함 하 여 확장 된 RealEstateCore space 계층 구조에서 발췌 한 것입니다. 모델의 이름은 각 요소에 연결 됩니다. 예를 들어 대화방은 Room101 라는 모델에 연결 됩니다."::: 
 
-모델 ID (연산자)를 사용 하 여 디지털 쌍에 대해 쿼리 하는 경우 `IS_OF_MODEL` 확장 된 계층의 모델 id를 사용 해야 합니다. 예들 들어 `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`입니다. 
+모델 ID (연산자)를 사용 하 여 디지털 쌍에 대해 쿼리 하는 경우 `IS_OF_MODEL` 확장 된 계층의 모델 id를 사용 해야 합니다. 예: `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')` 
 
 ## <a name="contributing-back-to-the-original-ontology"></a>원래 ontology 다시 기여 
 

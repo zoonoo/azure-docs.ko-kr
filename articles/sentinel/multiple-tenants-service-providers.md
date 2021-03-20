@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
 ms.openlocfilehash: 011ddb883c028a954a8b0683c220bf6341eddb66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91578152"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Azure 센티널에서 여러 테 넌 트를 MSSP로 관리
@@ -33,17 +33,17 @@ ms.locfileid: "91578152"
 
     1. Azure Portal에서 **구독** 을 선택한 다음 메뉴에서 관련 구독을 선택 합니다.
 
-    1. 구독 화면의 탐색 메뉴에 있는 **설정**에서 **리소스 공급자**를 선택 합니다.
+    1. 구독 화면의 탐색 메뉴에 있는 **설정** 에서 **리소스 공급자** 를 선택 합니다.
 
-    1. ** *구독 이름* 에서 | 리소스 공급자** 화면에서 *OperationalInsights* 및 *microsoft securityinsights*를 검색 하 고 선택 하 고 **상태** 열을 확인 합니다. 공급자의 상태가 *Notregistered*인 경우 **등록**을 선택 합니다.
+    1. ***구독 이름* 에서 | 리소스 공급자** 화면에서 *OperationalInsights* 및 *microsoft securityinsights* 를 검색 하 고 선택 하 고 **상태** 열을 확인 합니다. 공급자의 상태가 *Notregistered* 인 경우 **등록** 을 선택 합니다.
     
         :::image type="content" source="media/multiple-tenants-service-providers/check-resource-provider.png" alt-text="리소스 공급자 확인":::
 
 ## <a name="how-to-access-azure-sentinel-in-managed-tenants"></a>관리 되는 테 넌 트에서 Azure 센티널에 액세스 하는 방법
 
-1. **디렉터리 + 구독**에서 위임 된 디렉터리 (디렉터리 = 테 넌 트)를 선택 하 고 고객의 Azure 센티널 작업 영역이 있는 구독을 선택 합니다.
+1. **디렉터리 + 구독** 에서 위임 된 디렉터리 (디렉터리 = 테 넌 트)를 선택 하 고 고객의 Azure 센티널 작업 영역이 있는 구독을 선택 합니다.
 
-    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="리소스 공급자 확인":::
+    :::image type="content" source="media/multiple-tenants-service-providers/directory-subscription.png" alt-text="테 넌 트 및 구독 선택":::
 
 1. Azure 센티널를 엽니다. 선택한 구독의 모든 작업 영역을 볼 수 있으며, 사용자는 테 넌 트의 모든 작업 영역 처럼 원활 하 게 작업할 수 있습니다.
 

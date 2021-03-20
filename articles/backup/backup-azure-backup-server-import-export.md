@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사�
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: 006c0fa4d67c9a85426d7a007912df65876313da
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98701816"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (MABS)

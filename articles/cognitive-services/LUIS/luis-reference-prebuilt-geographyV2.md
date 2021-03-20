@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
 ms.openlocfilehash: ad6fd62178ec8e987e1e3b6e05cc961bbe15e377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541965"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
@@ -22,7 +22,7 @@ ms.locfileid: "91541965"
 ## <a name="subtypes"></a>하위 유형
 지리적 위치에는 하위 유형이 있습니다.
 
-|Subtype|목적|
+|Subtype|용도|
 |--|--|
 |`poi`|관심 지점|
 |`city`|도시 이름|
@@ -68,7 +68,7 @@ ms.locfileid: "91541965"
 }
 ```
 
-앞의 JSON에서 `poi` 는 **관심 지점**에 대 한 약어입니다.
+앞의 JSON에서 `poi` 는 **관심 지점** 에 대 한 약어입니다.
 
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
 

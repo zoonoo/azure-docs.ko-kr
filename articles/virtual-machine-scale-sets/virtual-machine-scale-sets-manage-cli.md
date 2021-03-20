@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570524"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 관리
@@ -23,7 +23,7 @@ ms.locfileid: "91570524"
 
 
 ## <a name="view-information-about-a-scale-set"></a>확장 집합에 대한 정보 보기
-확장 집합에 대한 전체 정보를 보려면 [az vmss show](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet*이라는 확장 집합에 대한 정보를 가져옵니다. 다음과 같이 고유한 이름을 입력합니다.
+확장 집합에 대한 전체 정보를 보려면 [az vmss show](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대한 정보를 가져옵니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -31,7 +31,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>확장 집합의 VM 보기
-확장 집합에서 VM 인스턴스 목록을 보려면 [az vmss list-instances](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myScaleSet*이라는 확장 집합의 모든 VM 인스턴스를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
+확장 집합에서 VM 인스턴스 목록을 보려면 [az vmss list-instances](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myScaleSet* 이라는 확장 집합의 모든 VM 인스턴스를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
 
 ```azurecli
 az vmss list-instances \
@@ -40,7 +40,7 @@ az vmss list-instances \
     --output table
 ```
 
-특정 VM 인스턴스에 대한 추가 정보를 보려면 `--instance-id` 매개 변수를 [az vmss get-instance-view](/cli/azure/vmss)에 추가하고 보려는 인스턴스를 지정합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 VM 인스턴스 *0*에 대한 정보를 봅니다. 다음과 같이 고유한 이름을 입력합니다.
+특정 VM 인스턴스에 대한 추가 정보를 보려면 `--instance-id` 매개 변수를 [az vmss get-instance-view](/cli/azure/vmss)에 추가하고 보려는 인스턴스를 지정합니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 VM 인스턴스 *0* 에 대한 정보를 봅니다. 다음과 같이 고유한 이름을 입력합니다.
 
 ```azurecli
 az vmss get-instance-view \
@@ -65,7 +65,7 @@ GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourc
 ```
 
 ## <a name="list-connection-information-for-vms"></a>VN의 연결 정보 나열
-확장 집합의 VM에 연결하려면 할당된 공용 IP 주소와 포트 번호에 RDP 또는 SSH합니다. NAT(네트워크 주소 변환) 규칙은 기본적으로 각 VM에 원격 연결 트래픽을 전달하는 Azure Load Balancer에 추가됩니다. 주소 및 포트를 나열하여 확장 집합의 VM 인스턴스에 연결하려면 [az vmss list-instance-connection-info](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup* 리소스 그룹에서 VM 인스턴스에 대한 연결 정보를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
+확장 집합의 VM에 연결하려면 할당된 공용 IP 주소와 포트 번호에 RDP 또는 SSH합니다. NAT(네트워크 주소 변환) 규칙은 기본적으로 각 VM에 원격 연결 트래픽을 전달하는 Azure Load Balancer에 추가됩니다. 주소 및 포트를 나열하여 확장 집합의 VM 인스턴스에 연결하려면 [az vmss list-instance-connection-info](/cli/azure/vmss)를 사용합니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 리소스 그룹에서 VM 인스턴스에 대한 연결 정보를 나열합니다. 다음과 같은 이름에 고유한 값을 제공합니다.
 
 ```azurecli
 az vmss list-instance-connection-info \
@@ -77,7 +77,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>확장 집합의 용량 변경
 이전 명령은 확장 집합 및 VM 인스턴스에 대한 정보를 표시했습니다. 확장 집합에서 인스턴스 수를 늘리거나 줄이려면 용량을 변경할 수 있습니다. 확장 집합은 필요한 수의 VM을 만들거나 제거한 후 애플리케이션 트래픽을 받도록 VM을 구성합니다.
 
-현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss)를 사용하여 *sku.capacity*를 쿼리합니다.
+현재 확장 집합의 인스턴스 수를 보려면 [az vmss show](/cli/azure/vmss)를 사용하여 *sku.capacity* 를 쿼리합니다.
 
 ```azurecli
 az vmss show \
@@ -87,7 +87,7 @@ az vmss show \
     --output table
 ```
 
-그런 다음[az vmss scale](/cli/azure/vmss)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *5*로 설정합니다.
+그런 다음[az vmss scale](/cli/azure/vmss)을 사용하여 확장 집합의 Virtual Machines 수를 수동으로 증가 또는 감소시킬 수 있습니다. 다음 예제는 확장 집합의 VM 수를 *5* 로 설정합니다.
 
 ```azurecli
 az vmss scale \
@@ -102,13 +102,13 @@ az vmss scale \
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>확장 집합에서 VM 중지 및 시작
 확장 집합에서 하나 이상의 VM을 중지하려면 [az vmss stop](/cli/azure/vmss#az-vmss-stop)을 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 중지하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 중지됩니다. 여러 VM을 중지하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 중지합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```azurecli
 az vmss stop --resource-group myResourceGroup --name myScaleSet --instance-ids 0
 ```
 
-중지된 VM은 할당된 상태를 유지하고 계속 컴퓨팅 요금을 부과합니다. 대신 VM의 할당을 취소하고 스토리지 요금만을 부과하려는 경우 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 여러 VM의 할당을 취소하려면 각 인스턴스 ID를 공백으로 구분합니다. 다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 중지하고 할당을 취소합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+중지된 VM은 할당된 상태를 유지하고 계속 컴퓨팅 요금을 부과합니다. 대신 VM의 할당을 취소하고 스토리지 요금만을 부과하려는 경우 [az vmss deallocate](/cli/azure/vmss)를 사용합니다. 여러 VM의 할당을 취소하려면 각 인스턴스 ID를 공백으로 구분합니다. 다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 중지하고 할당을 취소합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```azurecli
 az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -118,7 +118,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 ### <a name="start-vms-in-a-scale-set"></a>확장 집합의 VM 시작
 확장 집합에서 하나 이상의 VM을 시작하려면 [az vmss start](/cli/azure/vmss)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 시작됩니다. 여러 VM을 시작하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```azurecli
 az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -128,7 +128,7 @@ az vmss start --resource-group myResourceGroup --name myScaleSet --instance-ids 
 ## <a name="restart-vms-in-a-scale-set"></a>확장 집합의 VM 다시 시작
 확장 집합에서 하나 이상의 VM을 다시 시작하려면 [az vmss restart](/cli/azure/vmss)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 다시 시작하도록 지정할 수 있습니다. 인스턴스 ID를 지정하지 않으면 확장 집합에서 모든 VM이 다시 시작됩니다. 여러 VM을 다시 시작하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 다시 시작합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```azurecli
 az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-ids 0
@@ -138,7 +138,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 ## <a name="remove-vms-from-a-scale-set"></a>확장 집합에서 VM 제거
 확장 집합에서 하나 이상의 VM을 제거하려면 [az vmss delete-instances](/cli/azure/vmss)를 사용합니다. `--instance-ids` 매개 변수를 사용하면 하나 이상의 가상 컴퓨터를 제거하도록 지정할 수 있습니다. 인스턴스 ID에 *를 지정하면 확장 집합에서 모든 VM이 제거됩니다. 여러 VM을 제거하려면 각 인스턴스 ID를 공백으로 구분합니다.
 
-다음 예제에서는 *myScaleSet*이라는 확장 집합 및 *myResourceGroup*이라는 리소스 그룹에서 인스턴스 *0*을 제거합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
+다음 예제에서는 *myScaleSet* 이라는 확장 집합 및 *myResourceGroup* 이라는 리소스 그룹에서 인스턴스 *0* 을 제거합니다. 다음과 같이 사용자 고유의 값을 제공합니다.
 
 ```azurecli
 az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --instance-ids 0

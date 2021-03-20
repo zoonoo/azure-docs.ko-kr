@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 51e0fb2ffa7b573ecfeda163d9ad99597ff735a2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109207"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
@@ -29,7 +29,7 @@ ms.locfileid: "92109207"
 
 이 문서에서는 WebHDFS REST API 및 Data Lake Storage Gen1 REST API를 사용하여 Azure Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법을 알아봅니다. REST API를 사용하여 Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법에 대한 지침은 [REST API를 사용한 Data Lake Storage Gen1에서의 계정 관리 작업](data-lake-store-get-started-rest-api.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
@@ -52,7 +52,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS'
 ```
 
-이전 명령에서 \<`REDACTED`\>를 이전에 검색한 권한 부여 토큰으로 바꿉니다. 이 명령은 Data Lake Storage Gen1 계정의 루트 폴더에 **mytempdir**이라는 디렉터리를 만듭니다.
+이전 명령에서 \<`REDACTED`\>를 이전에 검색한 권한 부여 토큰으로 바꿉니다. 이 명령은 Data Lake Storage Gen1 계정의 루트 폴더에 **mytempdir** 이라는 디렉터리를 만듭니다.
 
 작업이 성공적으로 완료되면 다음 코드 조각과 같은 응답이 표시됩니다.
 
@@ -185,6 +185,6 @@ HTTP/1.1 200 OK
 ## <a name="next-steps"></a>다음 단계
 * [REST API를 사용 하 여 Data Lake Storage Gen1에 대 한 계정 관리 작업](data-lake-store-get-started-rest-api.md).
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 REST API 참조](/rest/api/datalakestore/)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)

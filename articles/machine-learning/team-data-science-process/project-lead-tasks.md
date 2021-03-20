@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000983"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스의 프로젝트 리드 작업
@@ -36,7 +36,7 @@ ms.locfileid: "96000983"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos를 사용 하 여 TDSP 프로젝트를 설정 합니다. 팀에서 다른 코드 호스팅 플랫폼을 사용 하는 경우 프로젝트 리더 작업은 동일 하지만 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md) 와 [팀 리더가](team-lead-tasks.md) 다음과 같은 리소스 및 권한을 설정 했다고 가정 합니다.
 

@@ -5,10 +5,10 @@ ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652397"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
@@ -94,7 +94,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 각 탭에 필요한 모든 정보를 입력한 다음, **검토 + 만들기** 를 선택합니다. 지원 하기 위해 보낼 세부 정보를 확인 합니다. 필요에 따라 변경하려면 탭으로 돌아갑니다. 지원 요청이 완료되면 **만들기** 를 선택합니다.
 
-지원 엔지니어가 지정 된 방법을 사용 하 여 연락을 드립니다. 초기 응답 시간에 대 한 자세한 내용은 [지원 범위 및 응답성](https://azure.microsoft.com/support/plans/response/)을 참조 하세요.
+지원 엔지니어가 귀하가 지정한 방법으로 연락할 것입니다. 초기 응답 시간에 대한 정보는 [지원 범위 및 응답성](https://azure.microsoft.com/support/plans/response/)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

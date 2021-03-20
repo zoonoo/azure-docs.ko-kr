@@ -4,10 +4,10 @@ description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90530423"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>리소스 할당량 오류 해결
@@ -93,7 +93,7 @@ Virtual Machines                             0 10000 Count
 >
 >
 
-1. **구독**을 선택합니다.
+1. **구독** 을 선택합니다.
 
    ![화면 캡처는 구독이 선택 된 Azure Portal 메뉴를 표시 합니다.](./media/error-resource-quota/subscriptions.png)
 
@@ -105,7 +105,7 @@ Virtual Machines                             0 10000 Count
 
    ![사용량 + 할당량 선택](./media/error-resource-quota/select-usage-quotas.png)
 
-4. 오른쪽 위의 모서리에서 **요청 증가**를 선택 합니다.
+4. 오른쪽 위의 모서리에서 **요청 증가** 를 선택 합니다.
 
    ![증가 요청](./media/error-resource-quota/request-increase.png)
 
