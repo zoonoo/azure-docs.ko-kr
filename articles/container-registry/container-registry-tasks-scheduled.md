@@ -4,10 +4,10 @@ description: 이 자습서에서는 하나 이상의 타이머 트리거를 설�
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 13a4ccac4ea97538583c1c063a6dc61e4d25686a
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96030614"
 ---
 # <a name="tutorial-run-an-acr-task-on-a-defined-schedule"></a>자습서: 정의 된 일정에 따라 ACR 작업 실행

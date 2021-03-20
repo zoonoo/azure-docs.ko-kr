@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95973051"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드
@@ -39,10 +39,10 @@ ms.locfileid: "95973051"
 
 다음 단계에 따라 인증 에이전트가 설치된 위치를 확인합니다.
 
-1. 테 넌 트의 전역 관리자 자격 증명을 사용 하 여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색에서 **Azure Active Directory** 를 선택합니다.
 3. **Azure AD Connect** 를 선택합니다. 
-4. **통과 인증** 을 선택 합니다. 이 블레이드는 인증 에이전트가 설치된 서버를 나열합니다.
+4. **통과 인증** 을 선택합니다. 이 블레이드는 인증 에이전트가 설치된 서버를 나열합니다.
 
 ![Azure Active Directory 관리 센터 - 통과 인증 블레이드](./media/how-to-connect-pta-upgrade-preview-authentication-agents/pta8.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "95973051"
 
 업그레이드하기 전에 다음 항목이 준비되었는지 확인합니다.
 
-1. **클라우드 전용 전역 관리자 계정 만들기**: 통과 인증 에이전트가 제대로 작동하지 않는 비상 상황에서는 사용할 클라우드 전용 전역 관리자 계정이 없다면 업그레이드하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../fundamentals/add-users-azure-active-directory.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+1. **클라우드 전용 전역 관리자 계정 만들기**: 통과 인증 에이전트가 제대로 작동하지 않는 비상 상황에서는 사용할 클라우드 전용 전역 관리자 계정이 없다면 업그레이드하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../fundamentals/add-users-azure-active-directory.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 2.  **고가용성 보장**: 이전에 완료되지 않은 경우, 로그인 요청에 대해 고가용성을 제공하기 위해 [지침](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 따라 두 번째 독립 실행형 인증 에이전트를 설치합니다.
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Azure AD Connect 서버에서 인증 에이전트 업그레이드
@@ -74,7 +74,7 @@ ms.locfileid: "95973051"
 5. **최신 버전이 설치되었는지 확인**: 이전에 설명한 것처럼 **제어판 -> 프로그램 -> 프로그램 및 기능** 으로 이동하여 “**Microsoft Azure AD Connect 인증 에이전트**”에 대한 항목이 있는지 확인합니다.
 
 >[!NOTE]
->위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 서버당 두 개의 인증 에이전트 항목이 표시됩니다. 하나의 항목은 **활성** 으로 인증 에이전트를 보여 주고, 다른 하나는 **비활성** 으로 보여 줍니다. 이는 _예상_ 된 것입니다. **비활성** 항목은 몇 일 후 자동으로 삭제됩니다.
+>위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 서버당 두 개의 인증 에이전트 항목이 표시됩니다. 하나의 항목은 **활성** 으로 인증 에이전트를 보여 주고, 다른 하나는 **비활성** 으로 보여 줍니다. _예상된_ 동작입니다. **비활성** 항목은 몇 일 후 자동으로 삭제됩니다.
 
 ## <a name="upgrading-the-authentication-agent-on-other-servers"></a>다른 서버에서 인증 에이전트 업그레이드
 
@@ -86,7 +86,7 @@ ms.locfileid: "95973051"
 4. **최신 버전이 설치되었는지 확인**: 이전에 설명한 것처럼 **제어판 -> 프로그램 -> 프로그램 및 기능** 으로 이동하여 **Microsoft Azure AD Connect 인증 에이전트** 라는 항목이 있는지 확인합니다.
 
 >[!NOTE]
->위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 서버당 두 개의 인증 에이전트 항목이 표시됩니다. 하나의 항목은 **활성** 으로 인증 에이전트를 보여 주고, 다른 하나는 **비활성** 으로 보여 줍니다. 이는 _예상_ 된 것입니다. **비활성** 항목은 몇 일 후 자동으로 삭제됩니다.
+>위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 서버당 두 개의 인증 에이전트 항목이 표시됩니다. 하나의 항목은 **활성** 으로 인증 에이전트를 보여 주고, 다른 하나는 **비활성** 으로 보여 줍니다. _예상된_ 동작입니다. **비활성** 항목은 몇 일 후 자동으로 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [**문제 해결**](tshoot-connect-pass-through-authentication.md) - 기능과 관련된 일반적인 문제를 해결하는 방법에 대해 알아봅니다.

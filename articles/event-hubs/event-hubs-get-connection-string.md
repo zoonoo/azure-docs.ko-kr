@@ -4,10 +4,10 @@ description: 이 문서에서는 클라이언트가 Azure Event Hubs에 연결�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5ae6c66ddbbf4b9946e7037e1a7723043bf60507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86537193"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
@@ -31,13 +31,13 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 
 ## <a name="get-connection-string-from-the-portal"></a>포털에서 연결 문자열 가져오기
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
-2. 왼쪽 탐색 메뉴에서 **모든 서비스**를 선택합니다. 
-3. **Analytics** 섹션에서 **Event Hubs**를 선택합니다. 
+2. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택합니다. 
+3. **Analytics** 섹션에서 **Event Hubs** 를 선택합니다. 
 4. 이벤트 허브 목록에서 해당 이벤트 허브를 선택합니다.
-6. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책**을 선택합니다.
+6. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택합니다.
 
     ![공유 액세스 정책 메뉴 항목](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
-7. 정책 목록에서 **공유 액세스 정책**을 선택합니다. 기본 이름은 **RootManageSharedAccessPolicy**입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
+7. 정책 목록에서 **공유 액세스 정책** 을 선택합니다. 기본 이름은 **RootManageSharedAccessPolicy** 입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
 
     ![Event Hubs 공유 액세스 정책](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
 8. **연결 문자열 기본 키** 필드 옆에 있는 **복사** 단추를 선택합니다. 

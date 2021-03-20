@@ -4,10 +4,10 @@ description: Service Health 사용 하는 지역에서 Azure 서비스의 상태
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.openlocfilehash: 8246b0ab93b95c13858e4ff96d0f24b255d05e55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90967787"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
@@ -44,7 +44,7 @@ Service Health 대시보드를 시작하려면 포털 대시보드에서 Service
 
 ## <a name="see-emerging-issues-which-may-impact-your-services"></a>서비스에 영향을 줄 수 있는 새로운 문제를 참조 하세요.
 
-대상 통신이 영향을 받는 고객에 게 전송 되기 전에 광범위 한 서비스 문제가 [Azure 상태 페이지](https://status.azure.com) 에 게시 될 수 있는 경우가 있습니다. Azure Service Health에서 사용자에 게 영향을 줄 수 있는 문제에 대 한 포괄적인 보기를 제공 하도록 하기 위해 활성 Azure 상태 페이지 문제는 *새로운 문제로*Service Health에 표시 됩니다. Azure 상태 페이지에서 이벤트가 활성화 되 면 새로운 문제 배너가 Service Health에 표시 됩니다. 문제에 대 한 전체 정보를 보려면 배너를 클릭 합니다.
+대상 통신이 영향을 받는 고객에 게 전송 되기 전에 광범위 한 서비스 문제가 [Azure 상태 페이지](https://status.azure.com) 에 게시 될 수 있는 경우가 있습니다. Azure Service Health에서 사용자에 게 영향을 줄 수 있는 문제에 대 한 포괄적인 보기를 제공 하도록 하기 위해 활성 Azure 상태 페이지 문제는 *새로운 문제로* Service Health에 표시 됩니다. Azure 상태 페이지에서 이벤트가 활성화 되 면 새로운 문제 배너가 Service Health에 표시 됩니다. 문제에 대 한 전체 정보를 보려면 배너를 클릭 합니다.
 
 ![새로운 서비스 문제](./media/service-health-overview/azure-service-health-emerging-issue.png)
 

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: eeb9a71854f52da5c1a9f4befae93c377ad67b05
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920310"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>전용 에이전트 풀에서 ACR 작업 실행
@@ -44,7 +44,7 @@ ms.locfileid: "98920310"
 
 에이전트 풀 계층은 풀에서 인스턴스당 다음과 같은 리소스를 제공 합니다.
 
-|서비스 계층    | 형식  |  CPU  |메모리(GB)  |
+|서비스 계층    | Type  |  CPU  |메모리(GB)  |
 |---------|---------|---------|---------|
 |S1     |  표준    | 2       |    3     |
 |S2     |  표준    | 4       |    8     |
@@ -93,7 +93,7 @@ az acr agentpool update \
 
 작업 에이전트 풀을 사용 하려면 다음 Azure 서비스에 액세스 해야 합니다. 기존 네트워크 보안 그룹 또는 사용자 정의 경로에 다음 방화벽 규칙을 추가 해야 합니다.
 
-| 방향 | 프로토콜 | 원본         | 원본 포트 | 대상          | 대상 포트 | 사용됨    |
+| Direction | 프로토콜 | 원본         | 원본 포트 | 대상          | 대상 포트 | 사용됨    |
 |-----------|----------|----------------|-------------|----------------------|-----------|---------|
 | 아웃바운드  | TCP      | VirtualNetwork | 모두         | AzureKeyVault        | 443       | 기본값 |
 | 아웃바운드  | TCP      | VirtualNetwork | 모두         | Storage              | 443       | 기본값 |

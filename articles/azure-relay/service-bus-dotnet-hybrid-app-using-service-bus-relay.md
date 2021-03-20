@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90983894"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
@@ -61,7 +61,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 1. SDK [다운로드 페이지](https://azure.microsoft.com/downloads/)에서 .NET용 Azure SDK를 설치합니다.
 1. **.Net** 열에서 사용 중인 [Visual Studio](https://www.visualstudio.com) 버전을 선택 합니다. 이 자습서에서는 Visual Studio 2019을 사용 합니다.
-1. 설치 관리자를 실행 하거나 저장 하 라는 메시지가 표시 되 면 **실행**을 선택 합니다.
+1. 설치 관리자를 실행 하거나 저장 하 라는 메시지가 표시 되 면 **실행** 을 선택 합니다.
 1. **웹 플랫폼 설치 관리자** 대화 상자 **에서 설치를 선택 하** 고 설치를 계속 진행 합니다.
 
 설치가 완료 되 면 앱 개발을 시작 하는 데 필요한 모든 것이 있습니다. SDK에는 Visual Studio에서 Azure 애플리케이션을 쉽게 개발할 수 있는 도구가 포함되어 있습니다.
@@ -76,26 +76,26 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 먼저, 시뮬레이션된 온-프레미스 제품 카탈로그 시스템을 빌드합니다.  이 프로젝트는 Visual Studio 콘솔 애플리케이션으로, [Azure Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)를 사용하여 Service Bus 라이브러리 및 구성 설정을 포함합니다. <a name="create-the-project"></a>
 
-1. 관리자 권한으로 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
-1. 프로젝트 이름을 *ProductsServer* 로 선택 하 고 **만들기**를 선택 합니다.
+1. 관리자 권한으로 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
+1. 프로젝트 이름을 *ProductsServer* 로 선택 하 고 **만들기** 를 선택 합니다.
 
    ![새 프로젝트 구성][11]
 
-1. **솔루션 탐색기**에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리**를 선택 합니다.
-1. **찾아보기**를 선택한 다음, **WindowsAzure.ServiceBus**를 검색하여 선택합니다. **설치**를 선택하고 사용 약관에 동의합니다.
+1. **솔루션 탐색기** 에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리** 를 선택 합니다.
+1. **찾아보기** 를 선택한 다음, **WindowsAzure.ServiceBus** 를 검색하여 선택합니다. **설치** 를 선택하고 사용 약관에 동의합니다.
 
    ![NuGet 패키지 선택][13]
 
    필수 클라이언트 어셈블리가 이제 참조됩니다.
 
-1. 제품 계약의 새 클래스를 추가합니다. **솔루션 탐색기**에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **클래스**추가를 선택 합니다.
-1. **이름**에 *ProductsContract.cs* 를 입력 하 고 **추가**를 선택 합니다.
+1. 제품 계약의 새 클래스를 추가합니다. **솔루션 탐색기** 에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고   >  **클래스** 추가를 선택 합니다.
+1. **이름** 에 *ProductsContract* 이름을 입력 하 고 **추가** 를 선택 합니다.
 
 솔루션에 다음과 같은 코드를 변경 합니다.
 
-1. *ProductsContract.cs*에서 네임스페이스 정의를 다음 코드로 바꿉니다. 이 코드는 서비스의 계약을 정의합니다.
+1. *ProductsContract.cs* 에서 네임스페이스 정의를 다음 코드로 바꿉니다. 이 코드는 서비스의 계약을 정의합니다.
 
     ```csharp
     namespace ProductsServer
@@ -132,7 +132,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     }
     ```
 
-1. *Program.cs*에서 네임 스페이스 정의를 다음 코드로 바꿉니다 .이 코드는 프로필 서비스와 해당 호스트에 대 한 호스트를 추가 합니다.
+1. *Program .cs* 에서 네임 스페이스 정의를 다음 코드로 바꿉니다 .이 코드는 프로필 서비스와 해당 호스트에 대 한 호스트를 추가 합니다.
 
     ```csharp
     namespace ProductsServer
@@ -187,7 +187,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     }
     ```
 
-1. **솔루션 탐색기**에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. 요소의 맨 아래에서 `<system.ServiceModel>` 아직 내에 `<system.ServiceModel>` 다음 XML 코드를 추가 합니다. 를 `yourServiceNamespace` 네임 스페이스의 이름으로 바꾸고,를 `yourKey` 포털에서 이전에 검색 한 SAS 키로 바꾸어야 합니다.
+1. **솔루션 탐색기** 에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. 요소의 맨 아래에서 `<system.ServiceModel>` 아직 내에 `<system.ServiceModel>` 다음 XML 코드를 추가 합니다. 를 `yourServiceNamespace` 네임 스페이스의 이름으로 바꾸고,를 `yourKey` 포털에서 이전에 검색 한 SAS 키로 바꾸어야 합니다.
 
     ```xml
     <system.serviceModel>
@@ -214,7 +214,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     > [!NOTE]
     > 로 인해 발생 하는 오류는 `transportClientEndpointBehavior` 경고 일 뿐 이며이 예제에서는 차단 문제가 아닙니다.
 
-1. 여전히 *App.config*의 `<appSettings>` 요소에서 연결 문자열 값을 포털에서 이전에 가져온 연결 문자열로 바꿉니다.
+1. 여전히 *App.config* 의 `<appSettings>` 요소에서 연결 문자열 값을 포털에서 이전에 가져온 연결 문자열로 바꿉니다.
 
     ```xml
     <appSettings>
@@ -224,36 +224,36 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     </appSettings>
     ```
 
-1. Ctrl + Shift + B를 선택 하거나 **Build**빌드  >  **솔루션** 빌드를 선택 하 여 응용 프로그램을 빌드하고 지금까지 작업의 정확성을 확인 합니다.
+1. Ctrl + Shift + B를 선택 하거나 빌드  >  **솔루션** 빌드를 선택 하 여 응용 프로그램을 빌드하고 지금까지 작업의 정확성을 확인 합니다.
 
 ## <a name="create-an-aspnet-application"></a>ASP.NET 애플리케이션 만들기
 
 이 섹션에서는 제품 서비스에서 검색한 데이터를 표시하는 간단한 ASP.NET 애플리케이션을 빌드합니다.
 
-### <a name="create-the-project"></a>프로젝트 만들기
+### <a name="create-the-project"></a>프로젝트를 만듭니다.
 
 1. Visual Studio가 관리자 권한으로 실행 되 고 있는지 확인 합니다.
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 c #에 대 한 **ASP.NET 웹 응용 프로그램 (.NET Framework)** 을 선택 하 고 **다음**을 선택 합니다.
-1. 프로젝트 이름을 *ProductsPortal* 로 선택 하 고 **만들기**를 선택 합니다.
-1. **새 ASP.NET 웹 응용 프로그램 만들기**에서 **MVC** 를 선택 하 고 **인증**아래에서 **변경** 을 선택 합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 c #에 대 한 **ASP.NET 웹 응용 프로그램 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
+1. 프로젝트 이름을 *ProductsPortal* 로 선택 하 고 **만들기** 를 선택 합니다.
+1. **새 ASP.NET 웹 응용 프로그램 만들기** 에서 **MVC** 를 선택 하 고 **인증** 아래에서 **변경** 을 선택 합니다.
 
    ![ASP.NET 웹 애플리케이션 선택][16]
 
-1. **변경 인증**에서 **인증 안 함** 을 선택한 다음 **확인**을 선택 합니다. 이 자습서에서는 사용자가 로그인 할 필요가 없는 앱을 배포 하 고 있습니다.
+1. **변경 인증** 에서 **인증 안 함** 을 선택한 다음 **확인** 을 선택 합니다. 이 자습서에서는 사용자가 로그인 할 필요가 없는 앱을 배포 하 고 있습니다.
 
     ![인증 지정][18]
 
-1. **새 ASP.NET 웹 응용 프로그램 만들기**로 돌아가서 **만들기** 를 선택 하 여 MVC 앱을 만듭니다.
+1. **새 ASP.NET 웹 응용 프로그램 만들기** 로 돌아가서 **만들기** 를 선택 하 여 MVC 앱을 만듭니다.
 1. 새 웹 앱에 대 한 Azure 리소스를 구성 합니다. [웹 앱 게시](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard)의 단계를 따릅니다. 그런 다음이 자습서로 돌아가 다음 단계를 계속 합니다.
-1. **솔루션 탐색기**에서 **모델** 을 마우스 오른쪽 단추로 클릭 한 다음 **Add**  >  **클래스**추가를 선택 합니다.
-1. 클래스 이름을 *Product.cs*로 지정한 다음 **추가**를 선택 합니다.
+1. **솔루션 탐색기** 에서 **모델** 을 마우스 오른쪽 단추로 클릭 한 다음   >  **클래스** 추가를 선택 합니다.
+1. 클래스 이름을 *Product .cs* 로 지정한 다음 **추가** 를 선택 합니다.
 
     ![제품 모델 만들기][17]
 
 ### <a name="modify-the-web-application"></a>웹 애플리케이션 수정
 
-1. Visual Studio의 *Product.cs* 파일에서 기존 네임 스페이스 정의를 다음 코드로 바꿉니다.
+1. Visual Studio의 *제품 .cs* 파일에서 기존 네임 스페이스 정의를 다음 코드로 바꿉니다.
 
    ```csharp
     // Declare properties for the products inventory.
@@ -268,8 +268,8 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     }
     ```
 
-1. **솔루션 탐색기**에서 **컨트롤러**를 확장 한 다음 **HomeController.cs** 를 두 번 클릭 하 여 Visual Studio에서 파일을 엽니다.
-1. *HomeController.cs*에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다.
+1. **솔루션 탐색기** 에서 **컨트롤러** 를 확장 한 다음 **HomeController** 를 두 번 클릭 하 여 Visual Studio에서 파일을 엽니다.
+1. *HomeController.cs* 에서 기존 네임스페이스 정의를 다음 코드로 바꿉니다.
 
     ```csharp
     namespace ProductsWeb.Controllers
@@ -291,13 +291,13 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     }
     ```
 
-1. **솔루션 탐색기**에서 **뷰**  >  **공유**를 확장 한 다음 **_Layout** 을 두 번 클릭 하 여 Visual Studio 편집기에서 파일을 엽니다.
-1. 의 모든 항목 `My ASP.NET Application` 을 *Northwind Traders 제품*으로 변경 합니다.
+1. **솔루션 탐색기** 에서 **뷰**  >  **공유** 를 확장 한 다음 **_Layout** 을 두 번 클릭 하 여 Visual Studio 편집기에서 파일을 엽니다.
+1. 의 모든 항목 `My ASP.NET Application` 을 *Northwind Traders 제품* 으로 변경 합니다.
 1. `Home`, `About` 및 링크를 제거 `Contact` 합니다. 다음 예제에서 강조 표시된 코드를 삭제합니다.
 
     ![생성된 목록 항목 삭제][41]
 
-1. **솔루션 탐색기**에서 **뷰**  >  **홈**을 확장 한 다음 **Index. cshtml** 를 두 번 클릭 하 여 Visual Studio 편집기에서 파일을 엽니다. 파일의 전체 내용을 다음 코드로 바꿉니다.
+1. **솔루션 탐색기** 에서 **뷰**  >  **홈** 을 확장 한 다음 **Index. cshtml** 를 두 번 클릭 하 여 Visual Studio 편집기에서 파일을 엽니다. 파일의 전체 내용을 다음 코드로 바꿉니다.
 
    ```html
    @model IEnumerable<ProductsWeb.Models.Product>
@@ -339,7 +339,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 애플리케이션을 실행하여 작동하는지 확인합니다.
 
-1. **ProductsPortal**이 활성 프로젝트인지 확인합니다. **솔루션 탐색기** 에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트로 설정**을 선택 합니다.
+1. **ProductsPortal** 이 활성 프로젝트인지 확인합니다. **솔루션 탐색기** 에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트로 설정** 을 선택 합니다.
 1. Visual Studio에서 F5 키를 선택 합니다.
 
 애플리케이션이 브라우저에 실행되는 것으로 나타나야 합니다.
@@ -351,10 +351,10 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 다음 단계는 온-프레미스 제품 서버를 ASP.NET 애플리케이션과 연결하는 것입니다.
 
 1. 아직 열려 있지 않은 경우 Visual Studio에서 [ASP.NET 응용 프로그램 만들기](#create-an-aspnet-application) 섹션에서 만든 **ProductsPortal** 프로젝트를 엽니다.
-1. [온-프레미스 서버 만들기](#create-an-on-premises-server) 섹션의 단계와 마찬가지로 NuGet 패키지를 프로젝트 참조에 추가 합니다. **솔루션 탐색기**에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리**를 선택 합니다.
-1. *WindowsAzure.ServiceBus*를 검색하고 **WindowsAzure.ServiceBus** 항목을 선택합니다. 그런 다음 설치를 완료 하 고이 대화 상자를 닫습니다.
-1. **솔루션 탐색기**에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **Add**  >  **기존 항목**추가를 선택 합니다.
-1. **ProductsServer** 콘솔 프로젝트에서 *ProductsContract.cs* 파일로 이동합니다. *ProductsContract.cs*를 강조 표시 합니다. **추가**옆에 있는 아래쪽 화살표를 선택 하 고 **링크로 추가**를 선택 합니다.
+1. [온-프레미스 서버 만들기](#create-an-on-premises-server) 섹션의 단계와 마찬가지로 NuGet 패키지를 프로젝트 참조에 추가 합니다. **솔루션 탐색기** 에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리** 를 선택 합니다.
+1. *WindowsAzure.ServiceBus* 를 검색하고 **WindowsAzure.ServiceBus** 항목을 선택합니다. 그런 다음 설치를 완료 하 고이 대화 상자를 닫습니다.
+1. **솔루션 탐색기** 에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음   >  **기존 항목** 추가를 선택 합니다.
+1. **ProductsServer** 콘솔 프로젝트에서 *ProductsContract.cs* 파일로 이동합니다. *ProductsContract* 를 강조 표시 합니다. **추가** 옆에 있는 아래쪽 화살표를 선택 하 고 **링크로 추가** 를 선택 합니다.
 
    ![링크로 추가][24]
 
@@ -400,19 +400,19 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
    }
    ```
 
-1. **솔루션 탐색기**에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭 합니다. 프로젝트가 아닌 솔루션을 마우스 오른쪽 단추로 클릭 해야 합니다. **추가** > **기존 프로젝트**를 선택합니다.
+1. **솔루션 탐색기** 에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭 합니다. 프로젝트가 아닌 솔루션을 마우스 오른쪽 단추로 클릭 해야 합니다. **추가** > **기존 프로젝트** 를 선택합니다.
 1. **ProductsServer** 프로젝트로 이동한 후 *ProductsServer.csproj* 솔루션 파일을 두 번 클릭하여 추가합니다.
-1. **ProductsPortal**에 데이터를 표시 하려면 **ProductsServer** 를 실행 해야 합니다. **솔루션 탐색기**에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **속성을 선택 하** 여 **속성 페이지**를 표시 합니다.
-1. **공용 속성**  >  **시작 프로젝트** 를 선택 하 고 **여러 개의 시작 프로젝트**를 선택 합니다. **ProductsServer** 및 **ProductsPortal** 이 순서 대로 표시 되 고 둘 다에 대 한 **작업이** **시작**되는지 확인 합니다.
+1. **ProductsPortal** 에 데이터를 표시 하려면 **ProductsServer** 를 실행 해야 합니다. **솔루션 탐색기** 에서 **ProductsPortal** 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **속성을 선택 하** 여 **속성 페이지** 를 표시 합니다.
+1. **공용 속성**  >  **시작 프로젝트** 를 선택 하 고 **여러 개의 시작 프로젝트** 를 선택 합니다. **ProductsServer** 및 **ProductsPortal** 이 순서 대로 표시 되 고 둘 다에 대 한 **작업이** **시작** 되는지 확인 합니다.
 
       ![여러 개의 시작 프로젝트][25]
 
 1. 왼쪽에서 **공용 속성**  >  **프로젝트 종속성** 을 선택 합니다.
-1. **프로젝트**에 대해 **ProductsPortal**를 선택 합니다. **ProductsServer**가 선택되어 있는지 확인합니다.
+1. **프로젝트** 에 대해 **ProductsPortal** 를 선택 합니다. **ProductsServer** 가 선택되어 있는지 확인합니다.
 
     ![프로젝트 종속성][26]
 
-1. **프로젝트**에 대해 **ProductsServer**를 선택 합니다. **ProductsPortal** 이 선택 되어 있지 않은지 확인 한 다음 **확인** 을 선택 하 여 변경 내용을 저장 합니다.
+1. **프로젝트** 에 대해 **ProductsServer** 를 선택 합니다. **ProductsPortal** 이 선택 되어 있지 않은지 확인 한 다음 **확인** 을 선택 하 여 변경 내용을 저장 합니다.
 
 ## <a name="run-the-project-locally"></a>로컬로 프로젝트 실행
 
@@ -420,7 +420,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 ![웹 애플리케이션][10]
 
-**ProductsPortal** 페이지에서 **새로 고침** 을 선택 합니다. 페이지를 새로 고칠 때마다 **ProductsServer**에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
+**ProductsPortal** 페이지에서 **새로 고침** 을 선택 합니다. 페이지를 새로 고칠 때마다 **ProductsServer** 에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
 
 다음 섹션으로 진행 하기 전에 두 응용 프로그램을 모두 닫습니다.
 
@@ -428,7 +428,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 다음 단계는 Azure 웹 앱 **ProductsPortal** 프런트 엔드를 다시 게시 하는 것입니다.
 
-1. **솔루션 탐색기**에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다. **게시** 페이지에서 **게시**를 선택합니다.
+1. **솔루션 탐색기** 에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시** 를 선택 합니다. **게시** 페이지에서 **게시** 를 선택합니다.
 
    > [!NOTE]
    > 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 애플리케이션이 아직 실행되지 않기 때문에 발생합니다.
@@ -442,13 +442,13 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 <a name="set-productsportal-as-web-app"></a>클라우드에서 응용 프로그램을 실행 하기 전에 Visual Studio 내에서 웹 앱으로 **ProductsPortal** 가 시작 되었는지 확인 해야 합니다.
 
-1. Visual Studio에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
-1. **웹**을 선택합니다. **시작 작업**에서 **시작 URL**을 선택 합니다. 이전에 배포 된 웹 앱에 대 한 URL (이 예제에서는)을 입력 합니다 `https://productsportal20190906122808.azurewebsites.net/` .
+1. Visual Studio에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **속성** 을 선택 합니다.
+1. **웹** 을 선택합니다. **시작 작업** 에서 **시작 URL** 을 선택 합니다. 이전에 배포 된 웹 앱에 대 한 URL (이 예제에서는)을 입력 합니다 `https://productsportal20190906122808.azurewebsites.net/` .
 
     ![시작 URL][27]
 
-1. **파일** > **모두 저장**을 선택합니다.
-1. **빌드**  >  **솔루션 다시**빌드를 선택 합니다.
+1. **파일** > **모두 저장** 을 선택합니다.
+1. **빌드**  >  **솔루션 다시** 빌드를 선택 합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -456,13 +456,13 @@ F5 키를 선택 하 여 응용 프로그램을 빌드하고 실행 합니다. *
 
    ![Azure에서 웹앱 실행][1]
 
-제품 인벤토리는 제품 서비스 온-프레미스 시스템에서 검색 된 데이터를 나열 하 고 웹 앱에 해당 데이터를 표시 합니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
+제품 인벤토리는 제품 서비스 온-프레미스 시스템에서 검색 된 데이터를 나열 하 고 웹 앱에 해당 데이터를 표시 합니다. URL을 확인하여 **ProductsPortal** 이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
 
    > [!IMPORTANT]
    > **ProductsServer** 콘솔 애플리케이션이 실행 중이어야 하며 **ProductsPortal** 애플리케이션에 데이터를 제공할 수 있어야 합니다. 브라우저에서 오류가 표시 되는 경우 **ProductsServer** 가 로드 되 고 다음 메시지가 표시 될 때까지 몇 초 정도 기다린 다음 브라우저를 새로 고칩니다.
    >
 
-브라우저에서 **ProductsPortal** 페이지를 새로 고칩니다. 페이지를 새로 고칠 때마다 **ProductsServer**에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
+브라우저에서 **ProductsPortal** 페이지를 새로 고칩니다. 페이지를 새로 고칠 때마다 **ProductsServer** 에서 `GetProducts()`가 호출되면 서버 앱에 메시지가 표시되는 것을 확인하게 됩니다.
 
 ![업데이트된 출력][38]
 

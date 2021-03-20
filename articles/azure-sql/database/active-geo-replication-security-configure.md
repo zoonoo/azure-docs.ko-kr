@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674792"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리
@@ -25,7 +25,7 @@ ms.locfileid: "92674792"
 
 ## <a name="disaster-recovery-with-contained-users"></a>포함된 사용자를 사용한 재해 복구
 
-master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사용자와 달리 포함된 사용자는 데이터베이스 자체에서 완전히 관리됩니다. 두 가지 이점이 있습니다. 재해 복구 시나리오에서 데이터베이스는 사용자를 관리하므로 사용자는 추가 구성 없이 지역 복원을 사용하여 복구된 새로운 주 데이터베이스 또는 데이터베이스에 계속해서 연결할 수 있습니다. 로그인 관점에서 이 구성에는 잠재적인 확장성 및 성능 이점이 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 이식 가능한 데이터베이스 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 참조하세요.
+master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사용자와 달리 포함된 사용자는 데이터베이스 자체에서 완전히 관리됩니다. 두 가지 이점이 있습니다. 재해 복구 시나리오에서 데이터베이스는 사용자를 관리하므로 사용자는 추가 구성 없이 지역 복원을 사용하여 복구된 새로운 주 데이터베이스 또는 데이터베이스에 계속해서 연결할 수 있습니다. 로그인 관점에서 이 구성에는 잠재적인 확장성 및 성능 이점이 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 참조하세요.
 
 기본 절충점은 대규모로 재해 복구 프로세스를 관리하는 것이 좀 더 어렵다는 점입니다. 동일한 로그인을 사용하는 여러 데이터베이스가 있는 경우 여러 데이터베이스에 포함된 사용자를 사용하여 자격 증명을 유지 관리하면 포함된 사용자의 이점이 없어질 수 있습니다. 예를 들어 암호 회전 정책에 따라 마스터 데이터베이스에 한 번 로그인하기 위해 암호를 변경하는 대신 여러 데이터베이스에 변경 내용이 일관되어야 합니다. 이러한 이유로 동일한 사용자 이름 및 암호를 사용하는 여러 데이터베이스가 있는 경우 포함된 사용자를 사용하는 것은 좋지 않습니다.
 

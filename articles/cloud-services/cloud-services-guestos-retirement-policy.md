@@ -14,10 +14,10 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "68945445"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 게스트 OS 지원 가능성 및 사용 중지 정책
@@ -27,7 +27,7 @@ Microsoft는 게시된 게스트 OS에 대한 [지원 정책을 제공합니다]
 
 정책은 다음과 같습니다.
 
-1. Microsoft는 **최소한 최근 2가지 버전의 게스트 OS 제품군**을 지원합니다. 제품군이 사용 중지되면 고객은 공식 사용 중지 날짜로부터 12개월 내에 지원되는 새 게스트 OS 제품군으로 업데이트해야 합니다.
+1. Microsoft는 **최소한 최근 2가지 버전의 게스트 OS 제품군** 을 지원합니다. 제품군이 사용 중지되면 고객은 공식 사용 중지 날짜로부터 12개월 내에 지원되는 새 게스트 OS 제품군으로 업데이트해야 합니다.
 2. Microsoft는 지원되는 게스트 OS 제품군의 **최신 두 버전 이상을 지원합니다**.
 3. Microsoft는 Azure SDK의 **최신 두 버전 이상을 지원합니다**. SDK의 버전이 사용 중지되면 고객은 공식 사용 중지 날짜로부터 12개월 내에 최신 버전으로 업데이트해야 합니다.
 
@@ -64,7 +64,7 @@ Microsoft의 판단에 따라 고객이 전환하기에 용이하도록 이 기�
 * **제품군 사용 중지** <br>Microsoft는 블로그 게시물 및 포털 알림을 사용합니다. 할당된 서비스 관리자와의 직접적인 통신(전자 메일, 포털 메시지, 전화 통화)를 통해 사용 중지된 게스트 OS 제품군을 여전히 사용 중인 고객에게 알립니다. 모든 변경 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)에 게시됩니다.
 * **버전 사용 중지** <br>모든 변경 내용 및 발생 날짜는 릴리스, 사용 안 함 및 만료를 포함하여 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)에 게시됩니다. 서비스 관리자는 비활성화된 게스트 OS 버전 또는 제품군에서 실행 되는 배포가 있는 경우 전자 메일을 받게 됩니다. 이 전자 메일의 타이밍은 달라질 수 있습니다. 일반적으로 비활성화되기 최소 1개월 전이지만 이 시기는 공식 SLA는 없습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 **마이그레이션의 영향을 줄일 수 있는 방법**
 
 Cloud Services를 디자인하기 위한 최신 게스트 OS 제품군을 사용하는 것이 좋습니다.

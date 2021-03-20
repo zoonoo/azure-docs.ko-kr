@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 02993f2b79e37e5e50c20c4ee07220bcbd36edb8
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741403"
 ---
 # <a name="use-service-management-from-python"></a>Python에서 서비스 관리 사용
@@ -115,7 +115,7 @@ for location in result:
 
 * 서유럽
 * 북유럽
-* 동남아시아
+* 동남 아시아
 * 동아시아
 * 미국 중부
 * 미국 중북부
@@ -321,7 +321,7 @@ operation_result = sms.get_operation_status(result.request_id)
 print('Operation status: ' + operation_result.status)
 ```
 
-## <a name="create-a-virtual-machine"></a><a name="CreateVM"> </a>가상 머신 만들기
+## <a name="create-a-virtual-machine"></a><a name="CreateVM"> </a>가상 컴퓨터 만들기
 가상 머신을 만들려면 먼저 [클라우드 서비스](#CreateCloudService)를 만들어야 합니다. 그런 다음, **create\_virtual\_machine\_deployment** 메서드를 사용하여 가상 머신 배포를 만듭니다.
 
 ```python

@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: bd46a7776495624affef77a44fcf68334750ba17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75609998"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric의 재구성
-*구성*은 상태 저장 서비스의 파티션에 대한 복제본과 그 역할로 정의됩니다.
+*구성* 은 상태 저장 서비스의 파티션에 대한 복제본과 그 역할로 정의됩니다.
 
-*재구성*은 한 구성을 다른 구성으로 이동하는 프로세스입니다. 상태 저장 서비스의 파티션에 대해 복제본 세트에 변경을 수행합니다. 이전 구성을 *이전 구성 (PC)* 이라고 하며, 새 구성을 *현재 구성 (CC)* 이라고 합니다. Azure Service Fabric의 재구성 프로토콜은 복제본 세트에 대한 모든 변경에서 일관성을 유지하고 가용성을 유지 관리합니다.
+*재구성* 은 한 구성을 다른 구성으로 이동하는 프로세스입니다. 상태 저장 서비스의 파티션에 대해 복제본 세트에 변경을 수행합니다. 이전 구성을 *이전 구성 (PC)* 이라고 하며, 새 구성을 *현재 구성 (CC)* 이라고 합니다. Azure Service Fabric의 재구성 프로토콜은 복제본 세트에 대한 모든 변경에서 일관성을 유지하고 가용성을 유지 관리합니다.
 
 장애 조치(Failover) 관리자는 시스템의 여러 이벤트에 대한 대처로 재구성을 시작합니다. 예를 들어, 주 복제본이 실패하면 활성 보조를 주 복제본으로 승격시키기 위해 재구성이 시작됩니다. 또 다른 예로 노드 업그레이드를 위해 주 복제본을 다른 노드로 이동해야 하는 애플리케이션 업그레이드를 들 수 있습니다.
 

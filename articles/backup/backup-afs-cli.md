@@ -4,10 +4,10 @@ description: Azure CLI를 사용 하 여 Recovery Services 자격 증명 모음�
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94565894"
 ---
 # <a name="back-up-azure-file-shares-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure 파일 공유 백업
@@ -22,7 +22,7 @@ Azure CLI (명령줄 인터페이스)는 Azure 리소스를 관리 하기 위한
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - 이 자습서에는 버전 2.0.18 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+ - 이 자습서에는 Azure CLI 버전 2.0.18 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -83,7 +83,7 @@ Name                                  ResourceGroup
 요청 시 백업을 트리거하기 위해 다음 매개 변수를 정의 해야 합니다.
 
 * **--container-name** 은 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container#az-backup-container-list) 명령을 사용 합니다.
-* **--name** 은 요청 시 백업을 트리거할 파일 공유의 이름입니다. 백업 된 항목 **name** 의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
+* **--name** 은 요청 시 백업을 트리거할 파일 공유의 이름입니다. 백업 된 항목  의 이름 **또는 이름을** 검색 하려면 [az backup item list](/cli/azure/backup/item#az-backup-item-list) 명령을 사용 합니다.
 * **--유지-** 복구 지점을 보존할 시점까지 날짜를 지정 합니다. 값은 UTC 시간 형식 (dd-mm-yyyy)으로 설정 해야 합니다.
 
 다음 예에서는 보관이 포함 된 *afsaccount* 저장소 계정에서 *azurefiles 파일* 공유에 대 한 요청 시 백업을 트리거하고 *20-01-2020* 까지 트리거합니다.

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7577ca4b8a1d7db7ea99aadfef4fd2a445b66425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90940792"
 ---
 # <a name="list-the-azure-arc-enabled-postgresql-hyperscale-server-groups-created-in-an-azure-arc-data-controller"></a>Azure arc Data Controller에서 만든 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 나열 합니다.
@@ -61,7 +61,7 @@ postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:3
 kubectl get postgresql-12
 ```
 
-Postgres 버전 11을 실행 하는 서버 그룹을 나열 하려면 _postgresql-12_ 를 _postgresql-11_로 바꿉니다.
+Postgres 버전 11을 실행 하는 서버 그룹을 나열 하려면 _postgresql-12_ 를 _postgresql-11_ 로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계:
 

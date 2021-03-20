@@ -9,10 +9,10 @@ ms.date: 12/28/2020
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 3f1fb099aa18ebec5a7e2063740556cf806302e7
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558092"
 ---
 # <a name="about-the-cisco-ise-pxgrid-integration"></a>Cisco ISE pxGrid 통합 정보
@@ -200,7 +200,7 @@ ISE pxGrid 노드가 끝점 장치 항목을 구독 하는지 확인 합니다. 
 
     - MAC 주소
 
-    - 이름
+    - Name
 
     - Product ID
 

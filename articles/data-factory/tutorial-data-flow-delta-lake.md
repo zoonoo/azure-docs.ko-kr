@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2021
 ms.date: 02/09/2021
 ms.openlocfilehash: cb8d44353e826df14ed3baab2c4ca66ffed4a569
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417663"
 ---
 # <a name="transform-data-in-delta-lake-using-mapping-data-flows"></a>매핑 데이터 흐름을 사용 하 여 델타 lake의 데이터 변환
@@ -22,7 +22,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
 이 자습서에서는 데이터 흐름 캔버스를 사용 하 여 Azure Data Lake Storage (ADLS) Gen2에서 데이터를 분석 및 변환 하 고 델타 Lake에 저장할 수 있는 데이터 흐름을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. ADLS 저장소를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md)를 참조하세요.
 

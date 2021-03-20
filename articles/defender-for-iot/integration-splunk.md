@@ -9,10 +9,10 @@ ms.date: 1/4/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98557988"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>IoT 용 Defender 및 ICS 위협 모니터링 응용 프로그램 Splunk
@@ -152,7 +152,7 @@ IoT *전달 규칙* 에 Defender를 사용 하 여 Splunk 서버에 경고 정�
 
     :::image type="content" source="media/integration-splunk/forwarding-rule.png" alt-text="전달 규칙에 대 한 규칙을 만듭니다.":::
 
-    | 매개 변수 | Description |
+    | 매개 변수 | 설명 |
     |--|--|
     | **이름** | 전달 규칙 이름입니다. |
     | **심각도 선택** | 최소한의 보안 수준 인시던트를 전달 합니다. 예를 들어 Minor를 선택 하면이 심각도 수준 위의 사소한 경고 및 경고가 전달 됩니다. |
@@ -166,7 +166,7 @@ IoT *전달 규칙* 에 Defender를 사용 하 여 Splunk 서버에 경고 정�
 
     :::image type="content" source="media/integration-splunk/parameters.png" alt-text="이 화면에 입력 해야 하는 Splunk 매개 변수입니다.":::
 
-    | 매개 변수 | Description |
+    | 매개 변수 | 설명 |
     |--|--|
     | **Host** | Splunk 서버 주소 |
     | **포트** | 8089 |

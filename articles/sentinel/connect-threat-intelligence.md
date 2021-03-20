@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
 ms.openlocfilehash: 205cc6eea5d1ac3be2d0e266621067dc8e20d2f9
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96121741"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
@@ -70,7 +70,7 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한으로 위협 지표를 저장 합니다.
 
-### <a name="instructions"></a>지침
+### <a name="instructions"></a>Instructions
 
 1. 응용 프로그램 ID, 응용 프로그램 암호 및 Azure Active Directory 테 넌 트 ID를 가져오려면 Azure Active Directory에 [응용 프로그램을 등록](/graph/auth-v2-service#1-register-your-app) 합니다. Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 통합 팁 제품 또는 앱을 구성 하는 경우에 이러한 값이 필요 합니다.
 
@@ -100,11 +100,11 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 - TAXII 2.0 서버 URI 및 컬렉션 ID입니다.
 
-### <a name="instructions"></a>지침
+### <a name="instructions"></a>Instructions
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 후 **위협 인텔리전스-TAXII (미리 보기)** 커넥터를 선택 합니다.
 
-2. **커넥터 페이지 열기** 를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 
 3. 텍스트 상자에 필수 및 선택적 정보를 지정 합니다.
 

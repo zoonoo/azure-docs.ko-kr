@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 9889e0e95db84b4dbc5856ba6425f0f303161068
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741624"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 Node.js 응용 프로그램 빌드 및 배포
@@ -33,7 +33,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
 ![Hello World 웹 페이지를 표시하는 웹 브라우저][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
 

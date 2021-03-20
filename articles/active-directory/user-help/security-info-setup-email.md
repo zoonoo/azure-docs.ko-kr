@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 4f0ea55149fc8cfeeb6ef719d67346019b81078a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83744461"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>이메일 주소를 확인 방법으로 설정
@@ -53,22 +53,22 @@ ms.locfileid: "83744461"
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
+2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보** 를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가** 를 선택합니다.
 
     ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. **방법 추가** 페이지의 드롭다운 목록에서 **이메일**을 선택한 다음, **추가**를 선택합니다.
+3. **방법 추가** 페이지의 드롭다운 목록에서 **이메일** 을 선택한 다음, **추가** 를 선택합니다.
 
     ![이메일이 선택된 방법 추가 상자](media/security-info/securityinfo-myprofile-addemail.png)
 
-4. **이메일** 페이지에서 이메일 주소(예: alain@gmail.com)를 선택한 후 **다음**을 선택합니다.
+4. **이메일** 페이지에서 이메일 주소(예: alain@gmail.com)를 선택한 후 **다음** 을 선택합니다.
 
     ![전화 번호를 추가하고 전화 통화 선택](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
     >이 이메일 주소는 회사 또는 학교 이메일일일 수 없습니다.
 
-5. 지정된 이메일 주소로 전송된 코드를 입력하고 **다음**을 선택합니다.
+5. 지정된 이메일 주소로 전송된 코드를 입력하고 **다음** 을 선택합니다.
 
     ![전화 번호를 추가하고 문자 메시지 선택](media/security-info/securityinfo-myprofile-emailcode.png)
 
@@ -87,7 +87,7 @@ ms.locfileid: "83744461"
 
     ![보안 정보에서 전화 방법을 삭제하기 위한 링크](media/security-info/securityinfo-myprofile-emaildelete.png)
 
-2. 확인 상자에서 **예**를 선택하여 **이메일** 계정을 삭제합니다. 이메일 계정이 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
+2. 확인 상자에서 **예** 를 선택하여 **이메일** 계정을 삭제합니다. 이메일 계정이 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
 ## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 

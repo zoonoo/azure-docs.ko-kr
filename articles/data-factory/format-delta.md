@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2020
 ms.author: daperlov
 ms.openlocfilehash: bb5360a678751b37cf36677fca611b39746621f4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386495"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Azure Data Factory의 델타 형식
@@ -34,10 +34,10 @@ ms.locfileid: "100386495"
 | 서식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
 | 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
 | 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
-| 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
+| 압축 유형 | 델타 테이블의 압축 유형입니다. | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | 압축 수준 | 압축이 최대한 빠르게 완료 되는지 또는 결과 파일이 최적으로 압축 되어야 하는지 여부를 선택 합니다. | `compressedType`가 지정 된 경우 필수 사항입니다. | `Optimal` 또는 `Fastest` | compressionLevel |
-| 시간 이동 | 델타 테이블의 이전 스냅숏을 쿼리할 지 여부를 선택 합니다. | 아니요 | Timestamp 별 쿼리: 타임 스탬프 <br> 버전별 쿼리: Integer | timestampAsOf <br> versionAsOf |
-| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
+| 시간 이동 | 델타 테이블의 이전 스냅숏을 쿼리할 지 여부를 선택 합니다. | no | Timestamp 별 쿼리: 타임 스탬프 <br> 버전별 쿼리: Integer | timestampAsOf <br> versionAsOf |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | no | `true` 또는 `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>스키마 가져오기
 
@@ -71,7 +71,7 @@ source(output(movieId as integer,
 | 서식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
 | 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
 | 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
-| 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
+| 압축 유형 | 델타 테이블의 압축 유형입니다. | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | 압축 수준 | 압축이 최대한 빠르게 완료 되는지 또는 결과 파일이 최적으로 압축 되어야 하는지 여부를 선택 합니다. | `compressedType`가 지정 된 경우 필수 사항입니다. | `Optimal` 또는 `Fastest` | compressionLevel |
 | Vacuum | 이전 버전의 테이블에 대 한 보존 임계값을 시간 단위로 지정 합니다. 0 이하의 기본값은 30 일입니다. | 예 | 정수 | 진공 |
 | Update 메서드 | 델타 lake에서 허용 되는 업데이트 작업을 지정 합니다. 삽입 되지 않는 메서드의 경우 행을 표시 하려면 이전 alter row 변환이 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br> 삽입 가능한 <br> 있는 <br> merge |

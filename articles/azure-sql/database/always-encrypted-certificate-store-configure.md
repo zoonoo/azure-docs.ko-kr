@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
 ms.openlocfilehash: 60dea826a12ea475806adb6db88faa88e26463a1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674836"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Windows 인증서 저장소를 사용 하 여 Always Encrypted 구성
@@ -99,7 +99,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
     ![암호화 된 열을 보여 주는 스크린샷 ... 환자 테이블의 메뉴 옵션을 선택 합니다.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
-상시 암호화 마법사에는 **열 선택** , **마스터 키 구성** (CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
+상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
 ### <a name="column-selection"></a>열 선택
 

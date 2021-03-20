@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674766"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
@@ -100,7 +100,7 @@ Visual Studio를 사용 하 여 빌드하는 [이 샘플을 사용 하 여 Windo
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 ```
 
-Visual Studio를 시작합니다. [도구] -> [옵션] -> [크로스 플랫폼] -> [연결 관리자]에서 Linux 상자에 연결을 추가합니다.
+Visual Studio를 실행합니다. [도구] -> [옵션] -> [크로스 플랫폼] -> [연결 관리자]에서 Linux 상자에 연결을 추가합니다.
 
 ![도구 옵션](./media/develop-cplusplus-simple/tools.png)
 

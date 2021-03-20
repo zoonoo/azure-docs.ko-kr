@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: victorh
 ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83758965"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 규칙으로 Application 게이트웨이에서 웹 애플리케이션 방화벽 v2 구성
@@ -21,7 +21,7 @@ ms.locfileid: "83758965"
 
 사용자 지정 규칙을 사용하면 WAF(웹 애플리케이션 방화벽) v2를 통과하는 각 요청에 대해 평가된 고유한 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 사용자 지정 규칙에는 작업(허용 또는 차단), 일치 조건 및 전체 사용자 지정을 허용하는 연산자가 있습니다.
 
-이 문서에서는 사용자 지정 규칙을 사용하는 Application Gateway WAF v2를 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
+이 문서에서는 사용자 지정 규칙을 사용하는 Application Gateway WAF v2를 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot* 이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
 
 더 많은 사용자 지정 규칙 예를 보려면 [사용자 지정 웹 애플리케이션 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)을 참조하세요.
 

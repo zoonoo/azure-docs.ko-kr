@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: d8a176fff0da932d0fafd40b9ab895b635acc5f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96169446"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>방법: 다른 id 공급자를 사용 하도록 iOS 및 macOS에 대 한 MSAL 구성
@@ -180,7 +180,7 @@ do{
 
 인증 기관 URL이로 설정 되 면 `"login.microsoftonline.com/common"` 사용자는 해당 홈 테 넌 트에 로그인 됩니다. 그러나 일부 앱은 사용자를 다른 테 넌 트에 서명 해야 할 수 있으며, 일부 앱은 단일 테 넌 트에서만 작동 합니다.
 
-특정 테 넌 트에 사용자를 서명 하려면 `MSALPublicClientApplication` 특정 권한으로를 구성 합니다. 예를 들어:
+특정 테 넌 트에 사용자를 서명 하려면 `MSALPublicClientApplication` 특정 권한으로를 구성 합니다. 예를 들면 다음과 같습니다.
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 

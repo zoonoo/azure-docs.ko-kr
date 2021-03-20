@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
 ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82508135"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>관리 Id를 사용 하는 Azure 관리 되는 응용 프로그램
@@ -21,15 +21,15 @@ ms.locfileid: "82508135"
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다.
 
-- **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
-- **사용자 할당 ID**는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
+- **시스템 할당 ID** 는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
+- **사용자 할당 ID** 는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다.
 
 ## <a name="how-to-use-managed-identity"></a>관리 Id를 사용 하는 방법
 
 관리 되는 Id를 사용 하면 관리 되는 응용 프로그램에 대 한 많은 시나리오 해결할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
 - 기존 Azure 리소스에 연결 된 관리 되는 응용 프로그램 배포 [기존 네트워크 인터페이스](../../virtual-network/virtual-network-network-interface-vm.md)에 연결 된 관리 되는 응용 프로그램 내에서 Azure VM (가상 머신)을 배포 하는 경우를 예로 들 수 있습니다.
-- 관리 되는 응용 프로그램 및 게시자에 게 **관리 되는 리소스 그룹**외부의 Azure 리소스에 대 한 액세스 권한 부여
+- 관리 되는 응용 프로그램 및 게시자에 게 **관리 되는 리소스 그룹** 외부의 Azure 리소스에 대 한 액세스 권한 부여
 - Azure 내에서 활동 로그 및 기타 서비스에 대 한 관리 되는 응용 프로그램의 운영 id를 제공 합니다.
 
 ## <a name="adding-managed-identity"></a>관리 Id 추가
@@ -46,11 +46,11 @@ ms.locfileid: "82508135"
 }
 ```
 
-**Id**를 사용 하 여 관리 되는 응용 프로그램을 만드는 두 가지 일반적인 방법으로는 [CreateUIDefinition.js설정](./create-uidefinition-overview.md) 및 [Azure Resource Manager 템플릿이](../templates/template-syntax.md)있습니다. 간단한 단일 만들기 시나리오의 경우에는 보다 풍부한 환경을 제공 하기 때문에 CreateUIDefinition을 사용 하 여 관리 되는 Id를 사용 해야 합니다. 그러나 자동화 된 응용 프로그램이 나 여러 관리 되는 응용 프로그램 배포를 필요로 하는 고급 또는 복합 시스템을 처리할 때 템플릿을 사용할 수 있습니다.
+**Id** 를 사용 하 여 관리 되는 응용 프로그램을 만드는 두 가지 일반적인 방법으로는 [CreateUIDefinition.js설정](./create-uidefinition-overview.md) 및 [Azure Resource Manager 템플릿이](../templates/template-syntax.md)있습니다. 간단한 단일 만들기 시나리오의 경우에는 보다 풍부한 환경을 제공 하기 때문에 CreateUIDefinition을 사용 하 여 관리 되는 Id를 사용 해야 합니다. 그러나 자동화 된 응용 프로그램이 나 여러 관리 되는 응용 프로그램 배포를 필요로 하는 고급 또는 복합 시스템을 처리할 때 템플릿을 사용할 수 있습니다.
 
 ### <a name="using-createuidefinition"></a>CreateUIDefinition 사용
 
-관리 되는 응용 프로그램은 [CreateUIDefinition.js에서](./create-uidefinition-overview.md)관리 id를 사용 하 여 구성할 수 있습니다. [출력 섹션](./create-uidefinition-overview.md#outputs)에서 키를 `managedIdentity` 사용 하 여 관리 되는 응용 프로그램 템플릿의 identity 속성을 재정의할 수 있습니다. 샘플 아래는 관리 되는 응용 프로그램에서 **시스템이 할당** 한 id를 사용 하도록 설정 합니다. 더 복잡 한 id 개체는 소비자에 게 입력을 요청 하는 CreateUIDefinition 요소를 사용 하 여 구성 될 수 있습니다. 이러한 입력은 **사용자 할당 id**를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 데 사용할 수 있습니다.
+관리 되는 응용 프로그램은 [CreateUIDefinition.js에서](./create-uidefinition-overview.md)관리 id를 사용 하 여 구성할 수 있습니다. [출력 섹션](./create-uidefinition-overview.md#outputs)에서 키를 `managedIdentity` 사용 하 여 관리 되는 응용 프로그램 템플릿의 identity 속성을 재정의할 수 있습니다. 샘플 아래는 관리 되는 응용 프로그램에서 **시스템이 할당** 한 id를 사용 하도록 설정 합니다. 더 복잡 한 id 개체는 소비자에 게 입력을 요청 하는 CreateUIDefinition 요소를 사용 하 여 구성 될 수 있습니다. 이러한 입력은 **사용자 할당 id** 를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 데 사용할 수 있습니다.
 
 ```json
 "outputs": {
@@ -132,7 +132,7 @@ CreateUIDefinition은 관리 되는 기본 제공 [id 컨트롤](./microsoft-man
 > Marketplace 관리 응용 프로그램 템플릿은 Azure Portal 만들기 환경을 통해 고객에 게 자동으로 생성 됩니다.
 > 이러한 시나리오의 경우 `managedIdentity` identity를 사용 하도록 설정 하려면 CreateUIDefinition의 출력 키를 사용 해야 합니다.
 
-Azure Resource Manager 템플릿을 통해 관리 Id를 사용 하도록 설정할 수도 있습니다. 샘플 아래는 관리 되는 응용 프로그램에서 **시스템이 할당** 한 id를 사용 하도록 설정 합니다. 더 복잡 한 id 개체는 Azure Resource Manager 템플릿 매개 변수를 사용 하 여 입력을 제공 하 여 구성 될 수 있습니다. 이러한 입력은 **사용자 할당 id**를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 데 사용할 수 있습니다.
+Azure Resource Manager 템플릿을 통해 관리 Id를 사용 하도록 설정할 수도 있습니다. 샘플 아래는 관리 되는 응용 프로그램에서 **시스템이 할당** 한 id를 사용 하도록 설정 합니다. 더 복잡 한 id 개체는 Azure Resource Manager 템플릿 매개 변수를 사용 하 여 입력을 제공 하 여 구성 될 수 있습니다. 이러한 입력은 **사용자 할당 id** 를 사용 하 여 관리 되는 응용 프로그램을 구성 하는 데 사용할 수 있습니다.
 
 #### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>관리 Id에 Azure Resource Manager 템플릿을 사용 해야 하는 경우
 
@@ -166,7 +166,7 @@ Azure Resource Manager 템플릿을 통해 관리 Id를 사용 하도록 설정�
 
 ### <a name="userassigned-template"></a>UserAssigned 된 템플릿
 
-**사용자 할당 id**를 사용 하 여 관리 되는 응용 프로그램을 배포 하는 기본 Azure Resource Manager 템플릿입니다.
+**사용자 할당 id** 를 사용 하 여 관리 되는 응용 프로그램을 배포 하는 기본 Azure Resource Manager 템플릿입니다.
 
 ```json
 "resources": [

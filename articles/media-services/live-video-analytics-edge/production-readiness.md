@@ -4,10 +4,10 @@ description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 �
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97400559"
 ---
 # <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
@@ -148,7 +148,7 @@ sudo chown -R edgeuser /var/local/mediaservices
 #### <a name="system-variables"></a>시스템 변수
 사용할 수 있는 시스템 정의 변수는 다음과 같습니다.
 
-|시스템 변수|설명|예|
+|시스템 변수|설명|예제|
 |-----------|-----------|-----------|
 |System.DateTime|ISO8601 파일 호환 형식 (기본 표현 YYYYMMDDThhmmss)의 UTC 날짜/시간입니다.|20200222T173200Z|
 |PreciseDateTime|ISO8601 파일 호환 형식의 UTC 날짜 시간 (기본 표현 YYYYMMDDThhmmss)입니다.|20200222T 173200.123 Z|

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 40529df5195a29fbf2ff4887311932c2ffbf471d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96029898"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 애플리케이션
@@ -61,7 +61,7 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 이 섹션에서는 애플리케이션의 프런트 엔드를 빌드합니다. 먼저 애플리케이션에서 표시하는 페이지를 만듭니다.
 그런 다음 Service Bus 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
 
-### <a name="create-the-project"></a>프로젝트 만들기
+### <a name="create-the-project"></a>프로젝트를 만듭니다.
 
 1. 관리자 권한을 사용하여 Visual Studio 시작: **Visual Studio** 프로그램 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행** 을 클릭합니다. 이 문서의 뒷부분에서 설명 하는 Azure Compute 에뮬레이터를 사용 하려면 Visual Studio를 관리자 권한으로 시작 해야 합니다.
    

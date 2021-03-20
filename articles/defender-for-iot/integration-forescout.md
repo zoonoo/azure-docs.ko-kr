@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98558028"
 ---
 # <a name="about-the-forescout-integration"></a>Forescout 통합 정보
@@ -140,7 +140,7 @@ IoT 및 Forescout 용 Defender를 구성한 후에는 IoT 용 Defender에서 센
 
 1. **CyberX 플랫폼** 으로 이동 합니다. IoT 용 Defender에서 감지한 장치에 대해 다음과 같은 장치 특성이 표시 됩니다.
 
-   | 항목 | Description |
+   | 항목 | 설명 |
    |--|--|
    | IoT 용 Azure Defender에서 권한 부여 | 네트워크 학습 기간 동안 IoT 용 Defender에서 네트워크에서 검색 된 장치입니다. |
    | 펌웨어 | 장치의 펌웨어 세부 정보입니다. 예를 들어, 모델 및 버전 정보를 참조 하세요. |
