@@ -10,10 +10,10 @@ ms.date: 08/26/2019
 ms.author: elioda
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336788"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>디바이스 쌍 시작(Node.js)
@@ -56,9 +56,9 @@ ms.locfileid: "91336788"
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
-이 섹션에서는 **myDeviceId**와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음, 셀룰러 연결을 보고하는 디바이스를 선택합니다.
+이 섹션에서는 **myDeviceId** 와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음, 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
-1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에 다음 명령을 사용하여 package.json 파일을 만듭니다. `--yes` 매개 변수는 모든 기본값을 허용합니다.
+1. **addtagsandqueryapp** 라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에 다음 명령을 사용하여 package.json 파일을 만듭니다. `--yes` 매개 변수는 모든 기본값을 허용합니다.
 
     ```cmd/sh
     npm init --yes
@@ -105,7 +105,7 @@ ms.locfileid: "91336788"
         });
    ```
 
-    **레지스트리** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Registry** 개체를 초기화한 다음, **myDeviceId**에 대한 디바이스 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
+    **레지스트리** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Registry** 개체를 초기화한 다음, **myDeviceId** 에 대한 디바이스 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
 
     태그를 업데이트한 후에는 **queryTwins** 함수를 호출합니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "91336788"
 
     이전 코드는 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 디바이스의 디바이스 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 디바이스만을 선택하기 위해 쿼리를 구체화합니다.
 
-    코드는 **query** 개체를 만들 때 두 번째 매개 변수에서 반환되는 최대 문서 수를 지정합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러번 **nextAsTwin** 메서드를 호출하는 데 사용할 수 있는 **hasMoreResults** 부울 속성이 들어 있습니다. **next**라는 메서드는 디바이스 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
+    코드는 **query** 개체를 만들 때 두 번째 매개 변수에서 반환되는 최대 문서 수를 지정합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러번 **nextAsTwin** 메서드를 호출하는 데 사용할 수 있는 **hasMoreResults** 부울 속성이 들어 있습니다. **next** 라는 메서드는 디바이스 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
 
 6. 다음으로 애플리케이션을 실행합니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "91336788"
         node AddTagsAndQuery.js
     ```
 
-   **Redmond43**에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
+   **Redmond43** 에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
 
    ![쿼리 결과에서 하나의 디바이스 확인](media/iot-hub-node-node-twin-getstarted/service1.png)
 
@@ -151,9 +151,9 @@ ms.locfileid: "91336788"
 
 ## <a name="create-the-device-app"></a>디바이스 앱 만들기
 
-이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 디바이스 쌍의 reported 속성을 업데이트합니다.
+이 섹션에서는 **myDeviceId** 로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 디바이스 쌍의 reported 속성을 업데이트합니다.
 
-1. **reportconnectivity**라는 빈 폴더를 새로 만듭니다. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. `--yes` 매개 변수는 모든 기본값을 허용합니다.
+1. **reportconnectivity** 라는 빈 폴더를 새로 만듭니다. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. `--yes` 매개 변수는 모든 기본값을 허용합니다.
 
     ```cmd/sh
     npm init --yes
@@ -207,7 +207,7 @@ ms.locfileid: "91336788"
         });
     ```
 
-    **Client** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 후 **myDeviceId**에 대한 디바이스 쌍을 검색하고, 연결 정보로 reported 속성을 업데이트합니다.
+    **Client** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **Client** 개체를 초기화한 후 **myDeviceId** 에 대한 디바이스 쌍을 검색하고, 연결 정보로 reported 속성을 업데이트합니다.
 
 5. 디바이스 앱 실행
 
@@ -223,7 +223,7 @@ ms.locfileid: "91336788"
         node AddTagsAndQuery.js
     ```
 
-    이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
+    이번에는 **myDeviceId** 가 두 쿼리 결과에 모두 나타나야 합니다.
 
     ![두 쿼리 결과에 myDeviceId 표시](media/iot-hub-node-node-twin-getstarted/service2.png)
 

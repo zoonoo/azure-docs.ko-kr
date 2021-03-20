@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355128"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Azure Cognitive Search의 일반적인 인덱서 문제 해결
@@ -49,7 +49,7 @@ Azure Storage CosmosDB 및 Azure SQL은 구성 가능한 방화벽을 제공 합
 
 * [Azure SQL](../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules)
 
-**제한**사항: Azure Storage에 대 한 위의 설명서에서 설명한 대로, 검색 서비스와 저장소 계정이 다른 지역에 있는 경우에만 IP 주소 범위 제한이 적용 됩니다.
+**제한** 사항: Azure Storage에 대 한 위의 설명서에서 설명한 대로, 검색 서비스와 저장소 계정이 다른 지역에 있는 경우에만 IP 주소 범위 제한이 적용 됩니다.
 
 [사용자 지정 Web Api 기술로](cognitive-search-custom-skill-web-api.md)사용할 수 있는 Azure 함수는 [IP 주소 제한](../azure-functions/ip-addresses.md#ip-address-restrictions)도 지원 합니다. 구성할 IP 주소 목록은 검색 서비스의 IP 주소 및 서비스 태그의 IP 주소 범위입니다 `AzureCognitiveSearch` .
 

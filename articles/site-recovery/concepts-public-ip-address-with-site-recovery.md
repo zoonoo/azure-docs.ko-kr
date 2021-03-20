@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 01c2f61dcf024e8c9dbbd5b2ee11a479b3c16305
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86130284"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
@@ -51,7 +51,7 @@ Azure Traffic Manager에서는 엔드포인트 간의 DNS 수준 라우팅이 �
 - [Traffic Manager 프로필](../traffic-manager/quickstart-create-traffic-manager-profile.md)을 만듭니다.
 - **우선 순위** 라우팅 방법을 사용하여 엔드포인트 두 개를 만듭니다. 그중 하나는 원본용 **기본** 엔드포인트이고 다른 하나는 Azure용 **장애 조치(failover)** 엔드포인트입니다. **기본** 엔드포인트는 우선 순위 1에 할당되고 **장애 조치(failover)** 엔드포인트는 우선 순위 2에 할당됩니다.
 - **기본** 엔드포인트는 원본 환경의 위치(Azure 내부 또는 외부)에 따라 [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints)일 수도 있고 [외부](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)일 수도 있습니다.
-- **장애 조치(failover)** 엔드포인트는 **Azure** 엔드포인트로 생성됩니다. 이 엔드포인트는 재해 이벤트에서 Traffic Manager가 사용하는 외부 연결 엔드포인트이므로 **정적 공용 IP 주소**를 사용합니다.
+- **장애 조치(failover)** 엔드포인트는 **Azure** 엔드포인트로 생성됩니다. 이 엔드포인트는 재해 이벤트에서 Traffic Manager가 사용하는 외부 연결 엔드포인트이므로 **정적 공용 IP 주소** 를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Site Recovery와 함께 Traffic Manager 사용](../site-recovery/concepts-traffic-manager-with-site-recovery.md) 문서를 자세히 살펴봅니다.

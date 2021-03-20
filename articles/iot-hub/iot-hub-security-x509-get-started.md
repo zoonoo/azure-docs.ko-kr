@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-csharp
 ms.openlocfilehash: a3e328418a0f111cd0b985310ea6dc497999772d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92909797"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
@@ -26,7 +26,7 @@ ms.locfileid: "92909797"
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 사용하려면 다음과 같은 리소스를 준비해야 합니다.
 
@@ -56,7 +56,7 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 > [!NOTE]
 > IoT hub에 등록할 수 있는 x.509 CA 인증서의 최대 수는 25 개입니다. 자세한 내용은 [Azure IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
 
-1. Azure Portal에서 IoT hub로 이동 하 고 **Settings**  >  허브에 대 한 설정 **인증서** 를 선택 합니다.
+1. Azure Portal에서 IoT hub로 이동 하 고   >  허브에 대 한 설정 **인증서** 를 선택 합니다.
 
 1. **추가** 를 선택 하 여 새 인증서를 추가 합니다.
 
@@ -96,7 +96,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 다음으로 IoT Hub에 등록된 X.509 디바이스를 시뮬레이트하는 C# 애플리케이션을 만드는 방법을 보여줍니다. 시뮬레이트된 디바이스에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 장치 응용 프로그램만 만듭니다. 이 시뮬레이트된 디바이스에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 애플리케이션을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 애플리케이션은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
 
-1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택한 다음 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 선택 합니다. **새로 만들기** 를 선택합니다.
+1. Visual Studio를 열고 **새 프로젝트 만들기** 를 선택한 다음 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 선택 합니다. **다음** 을 선택합니다.
 
 1. **새 프로젝트 구성** 에서 프로젝트 이름을 *SimulateX509Device* 로 지정한 다음, **만들기** 를 선택 합니다.
 
@@ -153,7 +153,7 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
     }
     ```
 
-1. 마지막으로 **Main** 함수에 다음 코드 줄을 추가 하 여 설치 프로그램에서 요구 하는 대로 자리 표시자 _장치 id_ , _-iot 허브 이름_ 및 _절대 경로-.pfx-파일_ 을 바꿉니다.
+1. 마지막으로 **Main** 함수에 다음 코드 줄을 추가 하 여 설치 프로그램에서 요구 하는 대로 자리 표시자 _장치 id_, _-iot 허브 이름_ 및 _절대 경로-.pfx-파일_ 을 바꿉니다.
 
     ```csharp
     try

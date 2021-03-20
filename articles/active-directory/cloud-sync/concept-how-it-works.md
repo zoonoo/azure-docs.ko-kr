@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e1079ab4a523fbbc99c1e9190aef960b3f0723f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613842"
 ---
 # <a name="cloud-sync-deep-dive---how-it-works"></a>클라우드 동기화 심층 이해-작동 방식
 
 ## <a name="overview-of-components"></a>구성 요소 개요
 
-![작동 방식](media/concept-how-it-works/how-1.png)
+![작동 방법](media/concept-how-it-works/how-1.png)
 
 클라우드 동기화는 Azure AD 서비스를 기반으로 구축 되었으며 다음과 같은 두 가지 주요 구성 요소가 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "98613842"
 
 
 ## <a name="initial-setup"></a>초기 설정
-초기 설치 중에 몇 가지 작업을 수행 하면 클라우드 동기화가 수행 됩니다.  해당 경고는 다음과 같습니다. 
+초기 설치 중에 몇 가지 작업을 수행 하면 클라우드 동기화가 수행 됩니다.  이러한 항목은 다음과 같습니다. 
 
 - **에이전트를 설치 하는 동안**: 프로 비전 하려는 AD 도메인에 대 한 에이전트를 구성 합니다.  이 구성은 하이브리드 id 서비스에 도메인을 등록 하 고 요청을 수신 대기 하는 service bus에 대 한 아웃 바운드 연결을 설정 합니다.
 - **프로 비전을 사용 하는 경우**: AD 도메인을 선택 하 고 2 분 마다 실행 되는 프로 비전을 사용 하도록 설정 합니다. 필요에 따라 암호 해시 동기화를 선택 취소 하 고 알림 전자 메일을 정의할 수 있습니다. Microsoft Graph Api를 사용 하 여 특성 변환을 관리할 수도 있습니다.
@@ -93,4 +93,4 @@ Azure AD Connect 클라우드 프로 비전 에이전트는 Azure AD와 함께 S
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)

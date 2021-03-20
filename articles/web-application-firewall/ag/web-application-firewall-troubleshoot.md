@@ -8,10 +8,10 @@ ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
 ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92131839"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Azure 애플리케이션 Gateway에 대 한 WAF (웹 응용 프로그램 방화벽) 문제 해결
@@ -150,11 +150,11 @@ WAF 로그의 목적은 WAF에 의해 일치 되거나 차단 되는 모든 요�
 
 제외 목록을 사용할 경우의 한 가지 장점 중 하나는 요청의 특정 부분만 사용 하지 않도록 설정 된다는 것입니다. 그러나이는 전역 설정 이므로 WAF를 통해 전달 되는 모든 트래픽에 특정 제외가 적용 될 수 있음을 의미 합니다. 예를 들어 *1 = 1* 은 특정 앱에 대 한 본문의 유효한 요청 이지만 다른 항목에 대해서는 그렇지 않은 경우 문제가 발생할 수 있습니다. 또 다른 혜택은 전체 요청을 제외 하는 것과는 반대로 특정 조건이 충족 될 경우 본문, 헤더 및 제외할 쿠키 중에서 선택할 수 있는 것입니다.
 
-때로는 직관적이 지 않을 수 있는 방식으로 특정 매개 변수가 WAF에 전달 되는 경우가 있습니다. 예를 들어 Azure Active Directory를 사용 하 여 인증할 때 전달 되는 토큰이 있습니다. 이 토큰 *__RequestVerificationToken*은 일반적으로 요청 쿠키로 전달 됩니다. 그러나 쿠키를 사용 하지 않도록 설정 하는 경우이 토큰은 요청 특성 또는 "arg"로도 전달 됩니다. 이 경우 *__RequestVerificationToken* 를 제외 목록에 **요청 특성 이름** 으로도 추가 해야 합니다.
+때로는 직관적이 지 않을 수 있는 방식으로 특정 매개 변수가 WAF에 전달 되는 경우가 있습니다. 예를 들어 Azure Active Directory를 사용 하 여 인증할 때 전달 되는 토큰이 있습니다. 이 토큰 *__RequestVerificationToken* 은 일반적으로 요청 쿠키로 전달 됩니다. 그러나 쿠키를 사용 하지 않도록 설정 하는 경우이 토큰은 요청 특성 또는 "arg"로도 전달 됩니다. 이 경우 *__RequestVerificationToken* 를 제외 목록에 **요청 특성 이름** 으로도 추가 해야 합니다.
 
 ![제외](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
-이 예제에서는 *text1*과 같은 **요청 특성 이름을** 제외 하려고 합니다. 이는 방화벽 로그에서 특성 이름을 볼 수 있기 때문에 분명 합니다. **데이터: 일치 하는 데이터: 1 = 1은 ARGS: text1:1 =** 1입니다. 특성이 **text1**입니다. 다른 몇 가지 방법으로이 특성 이름을 찾을 수도 있습니다. [요청 특성 이름 찾기](#finding-request-attribute-names)를 참조 하세요.
+이 예제에서는 *text1* 과 같은 **요청 특성 이름을** 제외 하려고 합니다. 이는 방화벽 로그에서 특성 이름을 볼 수 있기 때문에 분명 합니다. **데이터: 일치 하는 데이터: 1 = 1은 ARGS: text1:1 =** 1입니다. 특성이 **text1** 입니다. 다른 몇 가지 방법으로이 특성 이름을 찾을 수도 있습니다. [요청 특성 이름 찾기](#finding-request-attribute-names)를 참조 하세요.
 
 ![WAF 제외 목록](../media/web-application-firewall-troubleshoot/waf-config.png)
 
@@ -172,7 +172,7 @@ Azure PowerShell를 사용 하려면 [PowerShell을 통해 웹 응용 프로그�
 
 [Fiddler](https://www.telerik.com/fiddler)의 도움으로 개별 요청을 검사 하 고 웹 페이지의 특정 필드를 확인 합니다. 이를 통해 제외 목록을 사용 하 여 특정 필드를 검사에서 제외할 수 있습니다.
 
-이 예제에서는 *1 = 1* 문자열을 입력 한 필드가 **text1**이라고 표시 되는 것을 볼 수 있습니다.
+이 예제에서는 *1 = 1* 문자열을 입력 한 필드가 **text1** 이라고 표시 되는 것을 볼 수 있습니다.
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="진행률 Telerik Fiddler 웹 디버거의 스크린샷 Raw 탭에서 1 = 1은 이름 text1 뒤에 표시 됩니다." border="false":::
 
@@ -293,15 +293,15 @@ CRS 규칙 집합이 작동 하는 방식에 대 한 정보를 알고 있으며,
 
 사용자가 숫자 IP 주소를 사용 하 여 Application Gateway로 이동 했기 때문에 첫 번째 항목이 기록 됩니다 .이 경우에는 무시 해도 됩니다.
 
-두 번째 (규칙 942130)는 흥미로운 항목입니다. 패턴 (1 = 1)과 일치 하는 세부 정보에서 볼 수 있으며 필드의 이름은 **text1**로 지정 됩니다. 동일한 이전 단계에 따라 **1 = 1** **과** 같은 **요청 특성 이름을** 제외 합니다.
+두 번째 (규칙 942130)는 흥미로운 항목입니다. 패턴 (1 = 1)과 일치 하는 세부 정보에서 볼 수 있으며 필드의 이름은 **text1** 로 지정 됩니다. 동일한 이전 단계에 따라 **1 = 1** **과** 같은 **요청 특성 이름을** 제외 합니다.
 
 ## <a name="finding-request-header-names"></a>요청 헤더 이름 찾기
 
-Fiddler는 요청 헤더 이름을 찾을 때 유용한 도구입니다. 다음 스크린샷에서는이 GET 요청에 대 한 헤더를 볼 수 있습니다. 여기에는 *content-type*, *사용자 에이전트*등이 포함 됩니다.
+Fiddler는 요청 헤더 이름을 찾을 때 유용한 도구입니다. 다음 스크린샷에서는이 GET 요청에 대 한 헤더를 볼 수 있습니다. 여기에는 *content-type*, *사용자 에이전트* 등이 포함 됩니다.
 
 :::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="진행률 Telerik Fiddler 웹 디버거의 스크린샷 Raw 탭에는 연결, content-type 및 사용자 에이전트와 같은 요청 헤더 정보가 나열 됩니다." border="false":::
 
-요청 및 응답 헤더를 보는 또 다른 방법은 Chrome의 개발자 도구 내에서 확인 하는 것입니다. F12 키를 누르거나 마우스 오른쪽 단추를 클릭 하 **Inspect**>  ->  **개발자 도구**검사 하 고 **네트워크** 탭을 선택할 수 있습니다. 웹 페이지를 로드 하 고 검사 하려는 요청을 클릭 합니다.
+요청 및 응답 헤더를 보는 또 다른 방법은 Chrome의 개발자 도구 내에서 확인 하는 것입니다. F12 키를 누르거나 마우스 오른쪽 단추를 클릭 하 >  ->  **개발자 도구** 검사 하 고 **네트워크** 탭을 선택할 수 있습니다. 웹 페이지를 로드 하 고 검사 하려는 요청을 클릭 합니다.
 
 ![Chrome F12](../media/web-application-firewall-troubleshoot/chrome-f12.png)
 

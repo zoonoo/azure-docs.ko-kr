@@ -4,10 +4,10 @@ description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91405210"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
@@ -22,7 +22,7 @@ Advisor를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 * 전반적인 Azure 비용을 줄일 수 있는 기회를 식별 하 여 리소스의 성능, 보안 및 안정성을 향상 시킵니다.
 * 온라인으로 작업이 제안되는 추천 가져오기
 
-[Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
+[Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor** 를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
 Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다섯 가지 범주로 구분됩니다. 
 
@@ -30,7 +30,7 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 * **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색 합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
 * **성능**: 응용 프로그램의 속도를 향상 시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
 * **비용**: 전체 Azure 비용을 최적화 하 고 절감 합니다. 자세한 내용은 [Advisor 비용 권장 사항](advisor-cost-recommendations.md)을 참조하세요.
-* **운영 뛰어난**기능: 프로세스 및 워크플로 효율성, 리소스 관리 효율성 및 배포 모범 사례를 달성할 수 있도록 지원 합니다. . 자세한 내용은 Advisor 작동에 대 한 [권장 사항](advisor-operational-excellence-recommendations.md)을 참조 하세요.
+* **운영 뛰어난** 기능: 프로세스 및 워크플로 효율성, 리소스 관리 효율성 및 배포 모범 사례를 달성할 수 있도록 지원 합니다. . 자세한 내용은 Advisor 작동에 대 한 [권장 사항](advisor-operational-excellence-recommendations.md)을 참조 하세요.
 
   ![Advisor 권장 사항 유형](./media/advisor-overview/advisor-dashboard.png)
 
@@ -45,13 +45,13 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-do-i-access-advisor"></a>Advisor에 액세스하려면 어떻게 해야 하나요?
-[Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor**를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
+[Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor** 를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
 가상 머신 리소스 인터페이스를 통해 Advisor 권장 사항을 볼 수도 있습니다. 가상 컴퓨터를 선택하고 메뉴에서 Advisor 권장 사항으로 스크롤합니다. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor에 액세스하려면 어떤 권한이 필요하나요?
  
-구독, 리소스 그룹 또는 리소스의 *소유자*, *참가자*또는 *읽기 권한자* 로 Advisor 권장 사항에 액세스할 수 있습니다.
+구독, 리소스 그룹 또는 리소스의 *소유자*, *참가자* 또는 *읽기 권한자* 로 Advisor 권장 사항에 액세스할 수 있습니다.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
@@ -61,7 +61,7 @@ Azure Advisor에는 추가 리소스 유형에 대 한 권장 사항을 포함 �
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 
-권장 사항을 연기하거나 해제하려면 **연기** 링크를 클릭합니다. 연기 기간을 지정하거나, 권장 사항을 해제하려면 **안 함**을 선택합니다.
+권장 사항을 연기하거나 해제하려면 **연기** 링크를 클릭합니다. 연기 기간을 지정하거나, 권장 사항을 해제하려면 **안 함** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

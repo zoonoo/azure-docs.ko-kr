@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91333106"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Azure SQL Edge 배포 문제 해결 
@@ -28,7 +28,7 @@ Azure SQL Edge는 두 가지 배포 모델을 지원 합니다.
 ## <a name="troubleshooting-iot-edge-device-and-deployments"></a>장치 및 배포 IoT Edge 문제 해결
 
 Azure IoT Edge를 통해 SQL Edge를 배포 하는 동안 오류가 발생 하는 경우 `iotedge` 서비스가 올바르게 구성 되 고 실행 중인지 확인 합니다. 다음 문서는 Azure IoT Edge와 관련 된 문제를 해결할 때 도움이 될 수 있습니다.
-- [Azure IoT Edge에 대 한 일반적인 문제 및 해결 방법](../iot-edge/troubleshoot-common-errors.md)입니다.
+- [Azure IoT Edge에 대한 일반적인 문제 및 해결 방법](../iot-edge/troubleshoot-common-errors.md).
 - [IoT Edge 장치 문제 해결](../iot-edge/troubleshoot.md)
 
 ## <a name="docker-command-errors"></a>Docker 명령 오류
@@ -104,7 +104,7 @@ SQL Edge 컨테이너를 실행 하지 못하는 경우 다음 테스트를 시�
 
 기본적으로 SQL Edge 오류 로그는 컨테이너 내의 **/var/opt/mssql/log** 디렉터리에 있고 다음 방법 중 하나를 사용 하 여 액세스할 수 있습니다.
 
-- 컨테이너를 만들 때 호스트 디렉터리를 **/var/opt/mssql**에 탑재한 경우, 대신 호스트의 매핑된 경로에 있는 **log** 하위 디렉터리에서 확인할 수 있습니다.
+- 컨테이너를 만들 때 호스트 디렉터리를 **/var/opt/mssql** 에 탑재한 경우, 대신 호스트의 매핑된 경로에 있는 **log** 하위 디렉터리에서 확인할 수 있습니다.
 - 대화형 명령 프롬프트를 사용 하 여 컨테이너에 연결 합니다. 컨테이너가 실행되고 있지 않으면 먼저 컨테이너를 시작합니다. 그런 다음, 대화형 명령 프롬프트를 사용하여 로그를 검사합니다. `docker ps` 명령을 실행하여 컨테이너 ID를 가져올 수 있습니다.
 
     ```bash

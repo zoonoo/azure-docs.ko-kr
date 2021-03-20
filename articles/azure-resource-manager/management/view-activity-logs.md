@@ -4,10 +4,10 @@ description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91371595"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>활동 로그를 확인 하 여 리소스에 대 한 작업 모니터링
@@ -30,11 +30,11 @@ ms.locfileid: "91371595"
 
 포털을 통해 활동 로그를 보려면 다음 단계를 수행 합니다.
 
-1. Azure Portal 메뉴에서 **모니터**를 선택 하거나, 모든 페이지에서 **모니터** 를 검색 하 고 선택 합니다.
+1. Azure Portal 메뉴에서 **모니터** 를 선택 하거나, 모든 페이지에서 **모니터** 를 검색 하 고 선택 합니다.
 
     ![모니터 선택](./media/view-activity-logs/select-monitor-from-menu.png)
 
-1. **활동 로그**를 선택 합니다.
+1. **활동 로그** 를 선택 합니다.
 
     ![활동 로그 선택](./media/view-activity-logs/select-activity-log.png)
 
@@ -42,7 +42,7 @@ ms.locfileid: "91371595"
 
     ![최근 작업의 요약 보기](./media/view-activity-logs/audit-summary.png)
 
-1. 미리 정의 된 필터 집합을 신속 하 게 실행 하려면 **빠른 인사이트**을 선택 합니다.
+1. 미리 정의 된 필터 집합을 신속 하 게 실행 하려면 **빠른 인사이트** 을 선택 합니다.
 
     ![신속한 정보 활용을 선택 합니다.](./media/view-activity-logs/select-quick-insights.png)
 
@@ -54,11 +54,11 @@ ms.locfileid: "91371595"
 
     ![필터 보기](./media/view-activity-logs/view-filters.png)
 
-1. 특정 작업에 집중하려면 필터를 변경하거나 새 필터를 적용합니다. 예를 들어 다음 이미지는 **Timespan**의 새 값을 보여주며, **리소스 종류**는 스토리지 계정으로 설정됩니다.
+1. 특정 작업에 집중하려면 필터를 변경하거나 새 필터를 적용합니다. 예를 들어 다음 이미지는 **Timespan** 의 새 값을 보여주며, **리소스 종류** 는 스토리지 계정으로 설정됩니다.
 
     ![필터 옵션 설정](./media/view-activity-logs/set-filter.png)
 
-1. 나중에 쿼리를 다시 실행해야 하는 경우 **현재 필터 고정**을 선택합니다.
+1. 나중에 쿼리를 다시 실행해야 하는 경우 **현재 필터 고정** 을 선택합니다.
 
     ![필터 고정](./media/view-activity-logs/pin-filters.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "91371595"
 
     ![필터 이름 지정](./media/view-activity-logs/name-filters.png)
 
-1. 필터는 대시보드에서 사용할 수 있습니다. Azure Portal 메뉴에서 **대시보드**를 선택합니다.
+1. 필터는 대시보드에서 사용할 수 있습니다. Azure Portal 메뉴에서 **대시보드** 를 선택합니다.
 
     ![대시보드에 필터링 표시](./media/view-activity-logs/activity-log-on-dashboard.png)
 

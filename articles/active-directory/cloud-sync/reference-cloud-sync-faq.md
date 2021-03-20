@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 39d1554fd1b6cac1a90a794cfd93def97e494bfe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613530"
 ---
 # <a name="azure-active-directory-connect-cloud-sync-faq"></a>Azure Active Directory Connect 클라우드 동기화 FAQ
@@ -103,4 +103,4 @@ Exchange 하이브리드 배포 기능을 사용 하면 온-프레미스와 Micr
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)

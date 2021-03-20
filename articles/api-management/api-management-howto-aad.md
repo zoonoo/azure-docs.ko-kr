@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91363208"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
@@ -27,45 +27,45 @@ ms.locfileid: "91363208"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
-- Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md)를 참조하세요.
+- Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md)를 참조 하세요.
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD를 사용하여 개발자 계정에 권한 부여
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 새 페이지를 추가하기 위해 ![화살표 아이콘입니다.](./media/api-management-howto-aad/arrow.png).
-3. 검색 상자에 **api**를 입력합니다.
-4. **API Management 서비스**를 선택 합니다.
+2. 선택 ![화살표 아이콘입니다.](./media/api-management-howto-aad/arrow.png).
+3. 검색 상자에 **api** 를 입력합니다.
+4. **API Management 서비스** 를 선택 합니다.
 5. API Management 서비스 인스턴스를 선택합니다.
-6. **개발자 포털**에서 **id**를 선택 합니다.
-7. 위에서 **+추가**를 선택합니다.
+6. **개발자 포털** 에서 **id** 를 선택 합니다.
+7. 위에서 **+추가** 를 선택합니다.
 
     **ID 공급자 추가** 창이 오른쪽에 나타납니다.
-8. **공급자 형식** 아래에서 **Azure Active Directory**를 선택합니다.
+8. **공급자 형식** 아래에서 **Azure Active Directory** 를 선택합니다.
 
-    기타 필요한 정보를 입력할 수 있는 컨트롤이 창에 나타납니다. 제어에는 **클라이언트 ID** 및 **클라이언트 암호**가 포함됩니다. (이러한 컨트롤에 대한 정보는 이 아티클의 뒷부분에 다룹니다.)
-9. **리디렉션 URL**의 내용을 적어둡니다.
+    기타 필요한 정보를 입력할 수 있는 컨트롤이 창에 나타납니다. 제어에는 **클라이언트 ID** 및 **클라이언트 암호** 가 포함됩니다. (이러한 컨트롤에 대한 정보는 이 아티클의 뒷부분에 다룹니다.)
+9. **리디렉션 URL** 의 내용을 적어둡니다.
     
    ![Azure Portal에서 ID 공급자를 추가하는 단계](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. 브라우저에서 다른 탭을 엽니다. 
 11. [Azure Portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 으로 이동 하 여 Active Directory에 앱을 등록 합니다.
-12. **관리** 아래에서 **앱 등록**을 선택합니다.
-13. **새 등록**을 선택합니다. **응용 프로그램 등록** 페이지에서 다음과 같이 값을 설정 합니다.
+12. **관리** 아래에서 **앱 등록** 을 선택합니다.
+13. **새 등록** 을 선택합니다. **응용 프로그램 등록** 페이지에서 다음과 같이 값을 설정 합니다.
     
     * **이름을** 의미 있는 이름으로 설정 합니다. 예: *개발자-포털*
-    * **지원 되는 계정 유형을** **이 조직 디렉터리의 계정에만**설정 합니다. 
+    * **지원 되는 계정 유형을** **이 조직 디렉터리의 계정에만** 설정 합니다. 
     * **리디렉션 URI** 를 9 단계에서 가져온 값으로 설정 합니다. 
-    * **등록**을 선택 합니다. 
+    * **등록** 을 선택 합니다. 
 
 14.  응용 프로그램을 등록 한 후 **개요** 페이지에서 **응용 프로그램 (클라이언트) ID** 를 복사 합니다. 
 15. API Management 인스턴스로 돌아갑니다. **Id 공급자 추가** 창에서 **클라이언트 Id** 상자에 **응용 프로그램 (클라이언트) id** 값을 붙여넣습니다.
-16. Azure AD 구성으로 다시 전환 하 고 **관리**아래에서 **인증서 & 암호** 를 선택 합니다. **새 클라이언트 암호** 단추를 선택합니다. **설명**에 값을 입력하고, **만료** 옵션을 선택하고, **추가**를 선택합니다. 페이지를 벗어나기 전에 클라이언트 암호 값을 복사 합니다. 이는 다음 단계에서 필요합니다. 
-17. **관리**에서 **인증** 을 선택한 다음 **암시적 권한 부여** 에서 **ID 토큰** 을 선택 합니다.
+16. Azure AD 구성으로 다시 전환 하 고 **관리** 아래에서 **인증서 & 암호** 를 선택 합니다. **새 클라이언트 암호** 단추를 선택합니다. **설명** 에 값을 입력하고, **만료** 옵션을 선택하고, **추가** 를 선택합니다. 페이지를 벗어나기 전에 클라이언트 암호 값을 복사 합니다. 이는 다음 단계에서 필요합니다. 
+17. **관리** 에서 **인증** 을 선택한 다음 **암시적 권한 부여** 에서 **ID 토큰** 을 선택 합니다.
 18. API Management 인스턴스로 돌아가서 비밀을 **클라이언트 암호** 상자에 붙여넣습니다.
 
     > [!IMPORTANT]
-    > 키가 만료되기 전에 **클라이언트 암호**를 업데이트해야 합니다. 
+    > 키가 만료되기 전에 **클라이언트 암호** 를 업데이트해야 합니다. 
     >  
     >
 
@@ -74,9 +74,9 @@ ms.locfileid: "91363208"
     > [!NOTE]
     > **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 애플리케이션이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 애플리케이션에 권한을 부여해야 합니다. 권한을 부여 하려면 전역 관리자가 다음을 수행 해야 합니다. `https://<URL of your developer portal>/aadadminconsent`(예: https://contoso.portal.azure-api.net/aadadminconsent)로 이동합니다.
     > b. 액세스 권한을 부여하려는 Azure AD 테넌트의 도메인 이름을 입력합니다.
-    > 다. **제출**을 선택합니다. 
+    > 다. **제출** 을 선택합니다. 
 
-20.  원하는 구성을 지정한 후에 **추가**를 선택합니다.
+20.  원하는 구성을 지정한 후에 **추가** 를 선택합니다.
 
 변경 내용이 저장되면 지정된 Azure AD 인스턴스의 사용자는 [Azure AD 계정을 사용하여 개발자 포털에 로그인](#log_in_to_dev_portal)의 단계를 수행하여 개발자 포털에 로그인할 수 있습니다.
 
@@ -87,8 +87,8 @@ Azure AD 테 넌 트의 사용자에 대 한 액세스를 사용 하도록 설�
 외부 Azure AD 그룹을 APIM에 추가 하려면 먼저 이전 섹션을 완료 해야 합니다. 또한 등록 한 응용 프로그램에는 다음 `Directory.Read.All` 단계에 따라 권한으로 MICROSOFT GRAPH API에 대 한 액세스 권한을 부여 해야 합니다. 
 
 1. 이전 섹션에서 만든 앱 등록으로 돌아갑니다.
-2. **API 권한**을 선택 하 고 **+ 권한 추가**를 클릭 합니다. 
-3. **Api 권한 요청** 창에서 **Microsoft api** 탭을 선택 하 고 아래로 스크롤한 다음 **Azure Active Directory 그래프** 타일을 선택 합니다. **응용 프로그램 사용 권한**을 선택 하 고 **디렉터리**를 검색 한 다음 디렉터리를 선택 합니다. **All** 권한. 
+2. **API 권한** 을 선택 하 고 **+ 권한 추가** 를 클릭 합니다. 
+3. **Api 권한 요청** 창에서 **Microsoft api** 탭을 선택 하 고 아래로 스크롤한 다음 **Azure Active Directory 그래프** 타일을 선택 합니다. **응용 프로그램 사용 권한** 을 선택 하 고 **디렉터리** 를 검색 한 다음 디렉터리를 선택 합니다. **All** 권한. 
 4. 창의 맨 아래에 있는 **권한 추가** 를 클릭 한 다음이 디렉터리의 모든 사용자에 게 액세스 권한을 부여 하도록 **{tenantname}에 대 한 관리자 동의 부여** 를 클릭 합니다. 
 
 이제 API Management 인스턴스의 **그룹** 탭에서 외부 Azure AD 그룹을 추가할 수 있습니다.
@@ -120,15 +120,15 @@ Azure AD 테 넌 트의 사용자에 대 한 액세스를 사용 하도록 설�
 
 이전 섹션에서 구성된 Azure AD 계정을 사용하여 개발자 포털에 로그인하려면:
 
-1. Active Directory 애플리케이션 구성의 로그인 URL을 사용하여 새 브라우저 창을 열고, **Azure Active Directory**를 선택합니다.
+1. Active Directory 애플리케이션 구성의 로그인 URL을 사용하여 새 브라우저 창을 열고, **Azure Active Directory** 를 선택합니다.
 
    ![로그인 페이지][api-management-dev-portal-signin]
 
-1. Azure AD에서 사용자의 자격 증명을 입력하고 **로그인**을 선택합니다.
+1. Azure AD에서 사용자의 자격 증명을 입력하고 **로그인** 을 선택합니다.
 
    ![사용자 이름 및 암호로 로그인][api-management-aad-signin]
 
-1. 추가 정보가 필요한 경우 등록 양식과 함께 메시지가 표시될 수 있습니다. 등록 양식을 완성하고 **등록**을 선택합니다.
+1. 추가 정보가 필요한 경우 등록 양식과 함께 메시지가 표시될 수 있습니다. 등록 양식을 완성하고 **등록** 을 선택합니다.
 
    ![등록 양식의 "등록" 단추][api-management-complete-registration]
 

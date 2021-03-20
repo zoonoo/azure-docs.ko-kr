@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.openlocfilehash: 8a174c3b2bfb390eb7d691ae1bdcb0e28dde9032
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751090"
 ---
 # <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>서버 쪽 암호화 및 고객이 관리 하는 키를 사용 하 여 VMware Vm을 Azure Vm으로 마이그레이션
@@ -23,7 +23,7 @@ Azure Migrate Server 마이그레이션 포털 환경을 사용 하 여 [에이�
 
 관리 디스크에 대 한 CMK (고객 관리 키)를 사용 하는 SSE (서버 쪽 암호화)에 [대해 자세히 알아보세요](../virtual-machines/disk-encryption.md) .
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 도구 요구 사항을 이해 하려면 에이전트 없는 복제를 사용 하 여 VMware Vm을 Azure로 마이그레이션하는 방법에 대 한 [자습서를 검토 합니다](tutorial-migrate-vmware.md) .
 - [다음 지침에 따라](./create-manage-projects.md) Azure Migrate 프로젝트를 만들고 **Azure Migrate: 서버 마이그레이션** 도구를 프로젝트에 추가 합니다.
@@ -55,7 +55,7 @@ Vm 복제를 시작 하려면 복제 인프라를 준비 해야 합니다.
 
 ## <a name="create-a-disk-encryption-set"></a>디스크 암호화 집합 만들기
 
-디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함 된 Key Vault에 Managed Disks 매핑됩니다. CMK를 사용 하 여 Vm을 복제 하려면 디스크 암호화 집합을 만들고이를 복제 작업에 대 한 입력으로 전달 합니다.
+디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다. CMK를 사용 하 여 Vm을 복제 하려면 디스크 암호화 집합을 만들고이를 복제 작업에 대 한 입력으로 전달 합니다.
 
 Azure PowerShell를 사용 하 여 디스크 암호화 집합을 만들려면 [여기](../virtual-machines/windows/disks-enable-customer-managed-keys-powershell.md) 의 예제를 따르세요. Vm을 마이그레이션하는 대상 구독 및 마이그레이션의 대상 Azure 지역에서 디스크 암호화 집합이 만들어졌는지 확인 합니다.
 

@@ -7,13 +7,13 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 239918cc19eefbef9e3c3f12d5ddd3bb5434b490
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96751022"
 ---
-# <a name="how-does-hyper-v-replication-work"></a>Hyper-v 복제는 어떻게 작동 하나요?
+# <a name="how-does-hyper-v-replication-work"></a>Hyper-V 복제 작동 방식
 
 이 문서에서는 Azure Migrate 서버 마이그레이션 도구를 사용 하 여 Hyper-v Vm을 마이그레이션할 때 사용 되는 아키텍처와 프로세스에 대 한 개요를 제공 합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "96751022"
 
 ## <a name="agentless-migration"></a>에이전트 없는 마이그레이션
 
-Azure Migrate 서버 마이그레이션 도구는 Hyper-v에 최적화 된 마이그레이션 워크플로를 사용 하 여 온-프레미스 Hyper-v Vm에 대 한 에이전트 없는 복제를 제공 합니다. 소프트웨어 에이전트는 Hyper-v 호스트나 클러스터 노드에만 설치 합니다. Hyper-v Vm에는 아무 것도 설치할 필요가 없습니다.
+Azure Migrate Server Migration 도구는 Hyper-V에 최적화된 마이그레이션 워크플로를 사용하여 온-프레미스 Hyper-V VM에 에이전트 없는 복제를 제공합니다. 소프트웨어 에이전트는 Hyper-V 호스트나 클러스터 노드에만 설치하며, Hyper-v Vm에는 아무 것도 설치할 필요가 없습니다.
 
 ## <a name="server-migration-and-azure-site-recovery"></a>서버 마이그레이션 및 Azure Site Recovery
 
@@ -37,7 +37,7 @@ Azure Migrate Server 마이그레이션은 온-프레미스 워크 로드 및 �
 **구성 요소** | **배포** | 
 --- | --- 
 **복제 공급자** | Microsoft Azure Site Recovery 공급자는 Hyper-v 호스트에 설치 되 고 Azure 마이그레이션 서버 마이그레이션에 등록 됩니다.<br/> 공급자는 Hyper-v Vm에 대 한 복제를 오케스트레이션 합니다.
-**Recovery Services 에이전트** | Microsoft Azure 복구 서비스 에이전트는 데이터 복제를 처리 합니다. 공급자와 함께 작동 하 여 Hyper-v Vm에서 Azure로 데이터를 복제 합니다.<br/> 복제 된 데이터는 Azure 구독의 저장소 계정에 업로드 됩니다. 서버 마이그레이션 도구는 복제 된 데이터를 처리 하 고 구독의 복제본 디스크에 적용 합니다. 복제 디스크는 마이그레이션할 때 Azure Vm을 만드는 데 사용 됩니다.
+**Recovery Services 에이전트** | Microsoft Azure 복구 서비스 에이전트는 데이터 복제를 처리 합니다. 공급자와 함께 작동 하 여 Hyper-v Vm에서 Azure로 데이터를 복제 합니다.<br/> 복제 된 데이터는 Azure 구독의 저장소 계정에 업로드 됩니다. 서버 마이그레이션 도구는 복제된 데이터를 처리하고 구독의 복제본 디스크에 적용합니다. 복제본 디스크는 마이그레이션할 때 Azure VM을 만드는 데 사용됩니다.
 
 - 구성 요소는 단일 설치 파일에 의해 설치 되며 포털의 Azure Migrate Server 마이그레이션에서 다운로드 됩니다.
 - 공급자 및 어플라이언스는 아웃 바운드 HTTPS 포트 443 연결을 사용 하 여 Azure Migrate 서버 마이그레이션과 통신 합니다.

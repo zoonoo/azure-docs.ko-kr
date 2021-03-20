@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148779"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -40,7 +40,7 @@ ms.locfileid: "92148779"
 
 ## <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-provision**을 선택합니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-provision** 을 선택합니다.
 
 2. **시작** 패널의 **터미널** 탭 아래에 진행률이 표시됩니다.
 
@@ -53,13 +53,13 @@ ms.locfileid: "92148779"
 
 5. *What IoT hub would you like to choose*(어떤 IoT 허브를 선택하시겠습니까?) 메시지가 표시되면 IoT Hub를 선택하거나 만듭니다.
 
-6. *함수 앱: 함수 앱 이름: xxx*와 유사한 내용이 표시됩니다. 함수 앱 이름을 적어둡니다. 이후 단계에서 사용됩니다.
+6. *함수 앱: 함수 앱 이름: xxx* 와 유사한 내용이 표시됩니다. 함수 앱 이름을 적어둡니다. 이후 단계에서 사용됩니다.
 
 7. Azure Resource Manager 템플릿 배포를 마칠 때까지 기다립니다. 완료를 나타내는 *Resource Manager template deployment: Done*(Resource Manager 템플릿 배포: 완료) 메시지가 표시됩니다.
 
 ## <a name="deploy-function-app"></a>함수 앱 배포
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-deploy**를 선택합니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **cloud-deploy** 를 선택합니다.
 
 2. 함수 앱 코드 업로드 프로세스를 마칠 때까지 기다립니다. *function app deploys: Done*(함수 앱 배포: 완료) 메시지가 표시됩니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "92148779"
 
 1. MXChip IoT DevKit를 컴퓨터에 연결합니다.
 
-2. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **config-device-connection**을 선택합니다.
+2. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...** - **config-device-connection** 을 선택합니다.
 
 3. MXChip IoT DevKit에서 **A** 단추를 길게 누르고 **재설정** 단추를 누른 다음, **A** 단추를 놓으면 DekKit가 구성 모드로 전환됩니다.
 

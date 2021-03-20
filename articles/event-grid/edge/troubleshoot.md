@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171349"
 ---
 # <a name="common-issues"></a>일반적인 문제
@@ -36,7 +36,7 @@ sudo docker logs eventgridmodule
 
 ## <a name="unable-to-make-https-requests"></a>HTTPS 요청을 수행할 수 없습니다.
 
-* 먼저 Event Grid 모듈이 **인바운드: serverAuth: tlsPolicy** 를 **strict** 또는 **enabled**로 설정 했는지 확인 합니다.
+* 먼저 Event Grid 모듈이 **인바운드: serverAuth: tlsPolicy** 를 **strict** 또는 **enabled** 로 설정 했는지 확인 합니다.
 
 * 모듈 간 통신의 경우 포트 **4438** 에 대 한 호출을 수행 하 고 모듈의 이름이 배포 된 항목과 일치 하는지 확인 합니다. 
 
@@ -58,7 +58,7 @@ sudo docker logs eventgridmodule
 
 ## <a name="unable-to-make-http-requests"></a>HTTP 요청을 만들 수 없습니다.
 
-* 먼저 Event Grid 모듈에 **인바운드: serverAuth: tlsPolicy** 가 **사용** 또는 사용 **안 함으로**설정 되어 있는지 확인 합니다.
+* 먼저 Event Grid 모듈에 **인바운드: serverAuth: tlsPolicy** 가 **사용** 또는 사용 **안 함으로** 설정 되어 있는지 확인 합니다.
 
 * 모듈 간 통신의 경우 포트 **5888** 에 대 한 호출을 수행 하 고 모듈의 이름이 배포 된 항목과 일치 하는지 확인 합니다. 
 

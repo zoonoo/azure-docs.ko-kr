@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171451"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>자습서: 로컬로 이벤트 게시, 구독
@@ -21,7 +21,7 @@ ms.locfileid: "86171451"
 > [!NOTE]
 > Azure Event Grid 토픽 및 구독에 대 한 자세한 내용은 [Event Grid 개념](concepts.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -41,7 +41,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. IoT Hub로 이동합니다.
 1. **자동 장치 관리** 섹션의 메뉴에서 **IoT Edge** 를 선택 합니다. 
 1. 장치 목록에서 대상 장치의 ID를 클릭 합니다.
-1. **모듈 설정**을 선택 합니다. 페이지를 열어 둡니다. 다음 섹션의 단계를 계속 진행 합니다.
+1. **모듈 설정** 을 선택 합니다. 페이지를 열어 둡니다. 다음 섹션의 단계를 계속 진행 합니다.
 
 ### <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 
@@ -107,8 +107,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 ### <a name="submit-the-deployment-request"></a>배포 요청 제출
 
 1. 검토 섹션에는 이전 섹션에서 선택한 항목에 따라 만든 JSON 배포 매니페스트가 표시 됩니다. JSON에 나열 된 **eventgridmodule** 및 **subscriber** 모듈이 모두 표시 되는지 확인 합니다. 
-1. 배포 정보를 검토한 다음 **제출**을 선택합니다. 배포를 제출한 후에는 **장치** 페이지로 돌아갑니다.
-1. **모듈 섹션**에서 **event grid** 와 **구독자** 모듈이 모두 나열 되는지 확인 합니다. 그리고 **배포에 지정** 된 및 **장치 열에서 보고** 된가 **예**로 설정 되어 있는지 확인 합니다.
+1. 배포 정보를 검토한 다음 **제출** 을 선택합니다. 배포를 제출한 후에는 **장치** 페이지로 돌아갑니다.
+1. **모듈 섹션** 에서 **event grid** 와 **구독자** 모듈이 모두 나열 되는지 확인 합니다. 그리고 **배포에 지정** 된 및 **장치 열에서 보고** 된가 **예** 로 설정 되어 있는지 확인 합니다.
 
     모듈을 디바이스에서 시작한 다음, IoT Hub에 다시 보고하려면 몇 분 정도 걸릴 수 있습니다. 업데이트된 상태를 보려면 페이지를 새로 고칩니다.
 
@@ -177,7 +177,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     ```
 
     >[!NOTE]
-    > **Endpointtype** 속성은 구독자가 **Webhook**임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure 구독자 샘플에 해당 합니다.
+    > **Endpointtype** 속성은 구독자가 **Webhook** 임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure 구독자 샘플에 해당 합니다.
 2. 항목에 대 한 구독을 만들려면 다음 명령을 실행 합니다. HTTP 상태 코드가 인지 확인 `200 OK` 합니다.
 
     ```sh

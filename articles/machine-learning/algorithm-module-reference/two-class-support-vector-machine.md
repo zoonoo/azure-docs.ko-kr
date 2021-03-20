@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420566"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Two-Class 지원 벡터 컴퓨터 모듈
@@ -42,9 +42,9 @@ SVMs (Support vector machines)는 감독 된 학습 방법의 잘 연구 된 클
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    -   **단일 매개 변수** : 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공할 수 있습니다.  
+    -   **단일 매개 변수**: 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공할 수 있습니다.  
 
-    -   **매개 변수 범위** : 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.
+    -   **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.
 
 3.  **반복 횟수** 에 대해 모델을 작성할 때 사용 되는 반복 횟수를 나타내는 숫자를 입력 합니다.  
   

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: mayg
 ms.openlocfilehash: 528a24bb64aa8d323b5d63a27af0a52ccdf1abb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86132316"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
@@ -22,7 +22,7 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션�
 
 이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure에 복제하는 경우 구독, Azure Virtual Network, 스토리지 계정 및 Recovery Services 자격 증명 모음을 비롯한 [Azure 리소스를 준비](tutorial-prepare-azure.md)합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](./vmware-physical-azure-support-matrix.md)을 검토합니다.
@@ -79,7 +79,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 1. 격리된 네트워크를 만듭니다. Azure에서 만드는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 주소 범위를 프로덕션 네트워크에서 사용하는 IP 주소 범위와 동일하게 사용하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
 1. 격리된 네트워크의 DNS IP 주소를 제공합니다. DNS 가상 머신을 가져올 것으로 예상되는 IP 주소를 사용합니다. Azure로 복제하는 경우 장애 조치(failover)에 사용되는 가상 머신의 IP 주소를 제공합니다. IP 주소를 입력하려면 복제된 가상 머신의 **컴퓨팅 및 네트워크** 설정에서 **대상 IP** 설정을 선택합니다.
 
-   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure 네트워크":::
+   :::image type="content" source="./media/site-recovery-active-directory/azure-test-network.png" alt-text="Azure 테스트 네트워크":::
 
    > [!TIP]
    > Site Recovery는 가상 머신의 **컴퓨팅 및 네트워크** 설정에서 제공한 것과 동일한 IP 주소를 사용하여 동일한 이름의 서브넷에 테스트 가상 머신을 만들려고 시도합니다. 테스트 장애 조치(failover)에 제공된 Azure Virtual Network에서 이름이 동일한 서브넷을 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 가상 머신이 만들어집니다.
@@ -91,7 +91,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 1. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](hyper-v-vmm-test-failover.md#prepare-dhcp)합니다.
 1. 격리된 네트워크에서 실행하는 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 수행합니다. 테스트 장애 조치(failover)를 수행하려면 도메인 컨트롤러 가상 머신에서 사용 가능한 최신 _애플리케이션 일치_ 복구 지점을 사용합니다.
 1. 애플리케이션이 실행되는 가상 머신을 포함하고 있는 복구 계획에 대한 테스트 장애 조치(failover)를 실행합니다.
-1. 테스트를 완료한 후 도메인 컨트롤러 가상 머신에서 _테스트 장애 조치(failover)를 정리_합니다. 이 단계는 테스트 장애 조치(failover)에 대해 생성된 도메인 컨트롤러를 삭제합니다.
+1. 테스트를 완료한 후 도메인 컨트롤러 가상 머신에서 _테스트 장애 조치(failover)를 정리_ 합니다. 이 단계는 테스트 장애 조치(failover)에 대해 생성된 도메인 컨트롤러를 삭제합니다.
 
 ### <a name="remove-references-to-other-domain-controllers"></a>다른 도메인 컨트롤러에 대한 참조 제거
 
@@ -102,11 +102,11 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 > [!IMPORTANT]
 > 이 섹션에 설명된 구성의 일부는 표준 또는 기본 도메인 컨트롤러 구성이 아닙니다. 프로덕션 도메인 컨트롤러를 이렇게 변경하지 않으려면 테스트 장애 조치(failover)에 사용할 Site Recovery 전용 도메인 컨트롤러를 만들 수 있습니다. 해당 도메인 컨트롤러만 이렇게 변경하면 됩니다.
 
-Windows Server 2012부터 [AD DS(Active Directory Domain Services)에 추가 세이프가드가 기본적으로 제공됩니다](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). 이러한 보호 기능은 기본 하이퍼바이저 플랫폼이 **vm-generationid**을 지 원하는 경우 USN (업데이트 시퀀스 번호) 롤백에 대해 가상화 된 도메인 컨트롤러를 보호 하는 데 도움이 됩니다. Azure는 **VM-GenerationID**를 지원합니다. 이로 인해 Azure Virtual Machines에서 Windows Server 2012 이상을 실행하는 도메인 컨트롤러에는 이러한 추가 세이프가드가 있습니다.
+Windows Server 2012부터 [AD DS(Active Directory Domain Services)에 추가 세이프가드가 기본적으로 제공됩니다](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100). 이러한 보호 기능은 기본 하이퍼바이저 플랫폼이 **vm-generationid** 을 지 원하는 경우 USN (업데이트 시퀀스 번호) 롤백에 대해 가상화 된 도메인 컨트롤러를 보호 하는 데 도움이 됩니다. Azure는 **VM-GenerationID** 를 지원합니다. 이로 인해 Azure Virtual Machines에서 Windows Server 2012 이상을 실행하는 도메인 컨트롤러에는 이러한 추가 세이프가드가 있습니다.
 
-**VM-GenerationID**를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID**도 다시 설정됩니다. 또한 RID (상대 ID) 풀이 삭제 되 고 `SYSVOL` 폴더는 신뢰할 수 없는 것으로 표시 됩니다. 자세한 내용은 [Active Directory Domain Services 가상화 소개](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [안전 하 게 DFSR (분산 파일 시스템 Replication 가상화)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671)을 참조 하세요.
+**VM-GenerationID** 를 다시 설정할 때 AD DS 데이터베이스의 **InvocationID** 도 다시 설정됩니다. 또한 RID (상대 ID) 풀이 삭제 되 고 `SYSVOL` 폴더는 신뢰할 수 없는 것으로 표시 됩니다. 자세한 내용은 [Active Directory Domain Services 가상화 소개](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) 및 [안전 하 게 DFSR (분산 파일 시스템 Replication 가상화)](https://techcommunity.microsoft.com/t5/storage-at-microsoft/safely-virtualizing-dfsr/ba-p/424671)을 참조 하세요.
 
-Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 설정될 수 있습니다. **VM-GenerationID**가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 도메인 컨트롤러 가상 머신에 로그인 할 수 있는 시간이 길어질 수 있습니다.
+Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID** 가 다시 설정될 수 있습니다. **VM-GenerationID** 가 다시 설정되면 Azure에서 도메인 컨트롤러 가상 머신이 시작될 때 추가 세이프가드를 트리거합니다. 이로 인해 도메인 컨트롤러 가상 머신에 로그인 할 수 있는 시간이 길어질 수 있습니다.
 
 이 도메인 컨트롤러는 테스트 장애 조치(failover)에만 사용되므로 가상화 세이프가드가 필요하지 않습니다. 도메인 컨트롤러 가상 컴퓨터에 대 한 **VM-vm-generationid** 값이 변경 되지 않도록 하려면 `DWORD` 온-프레미스 도메인 컨트롤러에서 다음 값을 **4** 로 변경 하면 됩니다.
 
@@ -118,21 +118,21 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
 - **Vm-generationid** 값은 다음과 같이 변경 됩니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Azure 네트워크":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2170.png" alt-text="Generation ID 변경":::
 
 - **InvocationID** 값은 다음과 같이 변경 됩니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="Azure 네트워크":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event1109.png" alt-text="호출 ID 변경":::
 
 - `SYSVOL` 폴더 및 `NETLOGON` 공유를 사용할 수 없습니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="Azure 네트워크":::
+  :::image type="content" source="./media/site-recovery-active-directory/sysvolshare.png" alt-text="SYSVOL 폴더 공유":::
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="Azure 네트워크":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event13565.png" alt-text="NtFrs SYSVOL 폴더":::
 
 - DFSR 데이터베이스가 삭제됩니다.
 
-  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="Azure 네트워크":::
+  :::image type="content" source="./media/site-recovery-active-directory/Event2208.png" alt-text="DFSR 데이터베이스가 삭제됩니다.":::
 
 ### <a name="troubleshoot-domain-controller-issues-during-test-failover"></a>테스트 장애 조치(failover)를 수행하는 동안 도메인 컨트롤러 문제 해결
 
@@ -165,13 +165,13 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
       Powershell 함수를 사용할 수도 있습니다. 자세한 내용은 [DFSR-SYSVOL authoritative/non-authoritative restore PowerShell functions](/archive/blogs/thbouche/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions)(DFSR SYSVOL 신뢰할 수 있는/신뢰할 수 없는 복원 PowerShell 함수)를 참조하세요.
 
-1. 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **0**으로 설정하여 초기 동기화 요구 사항을 바이패스합니다. `DWORD`가 존재 하지 않는 경우 **매개 변수** 노드에서 만들 수 있습니다.
+1. 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **0** 으로 설정하여 초기 동기화 요구 사항을 바이패스합니다. `DWORD`가 존재 하지 않는 경우 **매개 변수** 노드에서 만들 수 있습니다.
 
    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
    자세한 내용은 [DNS 이벤트 ID 4013 문제 해결: DNS 서버가 AD 통합 DNS 영역을 로드할 수 없습니다](https://support.microsoft.com/kb/2001093)를 참조하세요.
 
-1. 글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제합니다. 이 작업을 수행하려면 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **1**로 설정합니다. `DWORD`가 존재 하지 않는 경우 **Lsa** 노드 아래에서 만들 수 있습니다.
+1. 글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제합니다. 이 작업을 수행하려면 온-프레미스 도메인 컨트롤러에서 다음 레지스트리 키를 **1** 로 설정합니다. `DWORD`가 존재 하지 않는 경우 **Lsa** 노드 아래에서 만들 수 있습니다.
 
    `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 

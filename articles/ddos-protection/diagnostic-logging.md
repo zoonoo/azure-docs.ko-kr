@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591879"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
@@ -29,14 +29,14 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 - **작업:** 공격 완화 보고서는 집계 된 netflow 프로토콜 데이터를 사용 하 여 리소스에 대 한 공격에 대 한 자세한 정보를 제공 합니다. 공용 IP 리소스가 공격을 받을 때마다 완화가 시작되는 즉시 보고서 생성이 시작됩니다. 5분마다 생성되는 증분 보고서와 전체 완화 기간에 대한 사후 완화 보고서가 있습니다. 이렇게 하면 DDoS 공격이 더 오랜 시간 지속되는 경우 5분마다 완화 보고서의 최신 스냅샷을 볼 수 있고 공격 완화가 완료되면 전체 요약을 볼 수 있습니다. 
 - **Allmetrics**: DDoS 공격 기간 동안 사용 가능한 모든 메트릭을 제공 합니다. 
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서 학습할 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 알림, 완화 보고서 및 완화 흐름 로그를 포함 하 여 DDoS 진단 로그를 구성 합니다. 
 > * 정의 된 범위의 모든 공용 Ip에 대해 진단 로깅을 사용 하도록 설정 합니다.
 > * 통합 문서에서 로그 데이터를 봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하려면 먼저 [Azure DDoS standard 보호 계획](manage-ddos-protection.md) 을 만들고 가상 네트워크에서 DDoS Protection standard를 사용 하도록 설정 해야 합니다.
@@ -48,10 +48,10 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 1. 포털의 왼쪽 위에서 **모든 서비스** 를 선택합니다.
 2. **필터** 상자에서 *모니터* 를 입력합니다. 결과에 **모니터** 가 표시되면 해당 모니터를 선택합니다.
-3. **설정** 아래에서 **진단 설정** 을 선택 합니다.
+3. **설정** 아래에서 **진단 설정** 을 선택합니다.
 4. 로깅하려는 공용 IP 주소가 포함된 **구독** 및 **리소스 그룹** 을 선택합니다.
 5. **리소스 종류** 에 대 한 **공용 ip 주소** 를 선택 하 고 로그를 사용 하도록 설정 하려는 특정 공용 ip 주소를 선택 합니다.
-6. **진단 설정 추가** 를 선택합니다. **범주 세부 정보** 에서 다음 중 필요한 옵션을 선택 하 고 **저장** 을 선택 합니다.
+6. **진단 설정 추가** 를 선택합니다. **범주 세부 정보** 에서 다음 옵션을 필요한 만큼 선택한 다음 **저장** 을 선택합니다.
 
     ![DDoS 진단 설정](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 
@@ -154,7 +154,7 @@ DDoS 공격을 시뮬레이션 하 여 로그의 유효성을 검사 하려면 [
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 - 알림, 완화 보고서 및 완화 흐름 로그를 포함 하 여 DDoS 진단 로그를 구성 합니다. 
 - 정의 된 범위의 모든 공용 Ip에 대해 진단 로깅을 사용 하도록 설정 합니다.

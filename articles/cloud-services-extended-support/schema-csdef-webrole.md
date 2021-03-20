@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: fef3e3cc63fb9e1ca6aa64cf799a620f187db76f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744500"
 ---
 # <a name="azure-cloud-services-extended-support-definition-webrole-schema"></a>Azure Cloud Services (확장 지원) 정의 WebRole 스키마
@@ -142,7 +142,7 @@ Azure 웹 역할은 ASP.NET, PHP, Windows Communication Foundation 및 FastCGI�
 
 [바인딩](#Bindings)
 
-[바인딩되](#Binding)
+[바인딩](#Binding)
 
 [Startup 클래스](#Startup)
 
@@ -360,7 +360,7 @@ ph x="1" /&gt; 요소는 내부 엔드포인트 또는 인스턴스 입력 엔�
 | attribute | Type | 설명 |  
 | --------- | ---- | ----------- |  
 |assemblyName|문자열|필수 요소. 진입점을 포함하는 어셈블리의 경로 및 파일 이름입니다. 경로는 **\\ %ROLEROOT%\Approot** 폴더를 기준으로 합니다 .에서는 **\\ %ROLEROOT%\Approot** 를 지정 하지 마십시오 `commandLine` . **%ROLEROOT%** 는 Azure에서 유지 관리되는 환경 변수이며, 사용자 역할에 대한 루트 폴더 위치를 나타냅니다. **\\ %ROLEROOT%\Approot** 폴더는 역할의 응용 프로그램 폴더를 나타냅니다.<br /><br /> HWC 역할의 경우 경로는 항상 **\\ %ROLEROOT%\Approot\bin** 폴더에 상대적입니다.<br /><br /> 전체 IIS 및 IIS Express 웹 역할의 경우 **\\ %ROLEROOT%\Approot** 폴더를 기준으로 어셈블리를 찾을 수 없는 경우 **\\ %ROLEROOT%\Approot\bin** 가 검색 됩니다.<br /><br /> 전체 IIS에 대한 이 대체 동작은 권장 모범 사례는 아니며, 향후 버전에서 제거될 수도 있습니다.|  
-|targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예들 들어 `targetFrameworkVersion="v4.0"`입니다.|  
+|targetFrameworkVersion|문자열|필수 요소. 어셈블리가 작성되는 .NET Framework의 버전입니다. 예: `targetFrameworkVersion="v4.0"`|  
 
 ##  <a name="sites"></a><a name="Sites"></a> 사이트용  
 `Sites` 요소는 웹 역할에서 호스팅되는 웹 사이트 및 웹 애플리케이션의 컬렉션을 설명합니다. 이 요소는 `Site` 요소의 부모입니다. `Sites` 요소를 지정하지 않는 경우 웹 역할이 레거시 웹 역할로 호스팅되고, 웹 역할에서 호스팅되는 웹 사이트를 하나만 지정할 수 있습니다. 이 요소는 선택 사항이며 역할은 시작 블록을 하나만 가질 수 있습니다.

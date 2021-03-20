@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c20cfb96b5cd6e1d05e332fa7157fe6e0cde8656
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613697"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent-using-powershell-cmdlets"></a>Powershell cmdlet을 사용 하 여 Azure AD Connect 프로 비전 에이전트 설치 
@@ -108,4 +108,4 @@ ms.locfileid: "98613697"
 
 - [프로비저닝이란?](what-is-provisioning.md)
 - [Azure AD Connect cloud 프로 비전 에이전트 gMSA PowerShell cmdlet](how-to-gmsa-cmdlets.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)

@@ -4,10 +4,10 @@ description: Azure Container Instances에서 실행하는 컨테이너에서 환
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: 92ae59f69b7cb43fee1d3ce8190a85fc20a11f60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169768"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>컨테이너 인스턴스에서 환경 변수 설정
@@ -49,7 +49,7 @@ az container create \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
-두 컨테이너의 상태가 *종료됨*으로 표시되면([az container show][az-container-show]를 사용하여 상태 확인) [az container logs][az-container-logs]로 해당 로그를 표시하여 출력을 봅니다.
+두 컨테이너의 상태가 *종료됨* 으로 표시되면([az container show][az-container-show]를 사용하여 상태 확인) [az container logs][az-container-logs]로 해당 로그를 표시하여 출력을 봅니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -144,12 +144,12 @@ Azure:\
 Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정 하려면 컨테이너를 만들 때 **고급** 페이지에서 지정 합니다.
 
 1. **고급** 페이지에서 *실패 시* **다시 시작 정책을** 로 설정 합니다.
-2. **환경 변수**에서 `NumWords` 첫 번째 변수에 값으로을 입력 `5` 하 고 `MinLength` `8` 두 번째 변수에 값을 입력 합니다. 
+2. **환경 변수** 에서 `NumWords` 첫 번째 변수에 값으로을 입력 `5` 하 고 `MinLength` `8` 두 번째 변수에 값을 입력 합니다. 
 1. **검토 + 만들기** 를 선택 하 여 컨테이너를 확인 한 다음 배포 합니다.
 
 ![환경 변수 사용 단추 및 텍스트 상자를 표시하는 포털 페이지][portal-env-vars-01]
 
-컨테이너의 로그를 보려면 **설정** 에서 **컨테이너**, **로그**를 차례로 선택 합니다. 이전 CLI 및 PowerShell 섹션에서 표시된 출력과 유사하게 스크립트의 동작이 환경 변수에서 수정된 방법을 볼 수 있습니다. 각각이 8개 문자의 최소 길이로 5개의 단어만 표시됩니다.
+컨테이너의 로그를 보려면 **설정** 에서 **컨테이너**, **로그** 를 차례로 선택 합니다. 이전 CLI 및 PowerShell 섹션에서 표시된 출력과 유사하게 스크립트의 동작이 환경 변수에서 수정된 방법을 볼 수 있습니다. 각각이 8개 문자의 최소 길이로 5개의 단어만 표시됩니다.
 
 ![컨테이너 로그 출력을 표시하는 포털][portal-env-vars-02]
 

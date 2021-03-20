@@ -7,10 +7,10 @@ ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008362"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Windows 데스크톱 (클래식) 클라이언트를 사용 하 여 연결
@@ -41,7 +41,7 @@ Windows 버전과 일치하는 클라이언트를 선택합니다.
 
 관리자 권한이 필요하지 않은 현재 사용자의 클라이언트를 설치하거나, 디바이스의 모든 사용자가 클라이언트에 액세스할 수 있도록 관리자가 클라이언트를 설치 및 구성할 수 있습니다.
 
-설치가 완료되면 **원격 데스크톱**을 검색하여 시작 메뉴에서 클라이언트를 시작할 수 있습니다.
+설치가 완료되면 **원격 데스크톱** 을 검색하여 시작 메뉴에서 클라이언트를 시작할 수 있습니다.
 
 ## <a name="subscribe-to-a-workspace"></a>작업 영역 구독
 
@@ -52,19 +52,19 @@ Windows 버전과 일치하는 클라이언트를 선택합니다.
 
 ### <a name="subscribe-with-a-user-account"></a>사용자 계정으로 구독
 
-1. 클라이언트의 기본 페이지에서 **구독**을 선택 합니다.
+1. 클라이언트의 기본 페이지에서 **구독** 을 선택 합니다.
 2. 메시지가 표시되면 사용자 계정으로 로그인합니다.
 3. 리소스는 연결 센터에 표시 되 고 작업 영역 별로 그룹화 됩니다.
 
 ### <a name="subscribe-with-a-url"></a>URL을 사용 하 여 구독
 
-1. 클라이언트의 기본 페이지에서 **URL을 사용 하 여 구독**을 선택 합니다.
+1. 클라이언트의 기본 페이지에서 **URL을 사용 하 여 구독** 을 선택 합니다.
 2. 작업 영역 URL 또는 이메일 주소를 입력합니다.
-   - **작업 영역 URL**을 사용하는 경우 관리자가 제공한 URL을 사용합니다. Windows Virtual Desktop에서 리소스에 액세스하는 경우 다음 URL 중 하나를 사용할 수 있습니다.
+   - **작업 영역 URL** 을 사용하는 경우 관리자가 제공한 URL을 사용합니다. Windows Virtual Desktop에서 리소스에 액세스하는 경우 다음 URL 중 하나를 사용할 수 있습니다.
      - Windows Virtual Desktop(클래식): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - **전자 메일** 필드를 대신 사용 하는 경우 전자 메일 주소를 입력 합니다. 이렇게 하면 관리자가 [전자 메일 검색](/windows-server/remote/remote-desktop-services/rds-email-discovery)을 설정 하는 경우 전자 메일 주소와 연결 된 URL을 검색 하도록 클라이언트에 지시 합니다.
-3. **다음**을 선택합니다.
+3. **다음** 을 선택합니다.
 4. 메시지가 표시되면 사용자 계정으로 로그인합니다.
 5. 리소스는 연결 센터에 작업 영역 별로 그룹화 되어 표시 됩니다.
 

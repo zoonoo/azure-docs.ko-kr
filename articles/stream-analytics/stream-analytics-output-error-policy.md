@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 19d762a55127af34e84185b11518aa6584acb5bd
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98012413"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Azure Stream Analytics 출력 오류 정책
@@ -22,7 +22,7 @@ ms.locfileid: "98012413"
 ![Azure Stream Analytics 출력 오류 정책 위치](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
 
-## <a name="retry"></a>다시 시도
+## <a name="retry"></a>재시도
 오류가 발생하면 Azure Stream Analytics는 쓰기가 성공할 때까지 무기한으로 이벤트 작성을 다시 시도합니다. 재시도에 대한 시간 제한은 없습니다. 결국, 재시도 중인 이벤트에 의해 모든 후속 이벤트의 처리가 차단됩니다. 이 옵션은 기본 출력 오류 처리 정책입니다.
 
 ## <a name="drop"></a>드롭

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 24d026785025dba4ae45de404edec67c2cf3871a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335588"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management의 페이지 템플릿
@@ -27,7 +27,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [로그인](#SignIn)  
   
--   [등록하세요](#SignUp)  
+-   [등록](#SignUp)  
   
 -   [페이지를 찾을 수 없음](#PageNotFound)  
   
@@ -227,7 +227,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|유형|설명|  
+|속성|Type|설명|  
 |--------------|----------|-----------------|  
 |referenceCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
 |errorCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  

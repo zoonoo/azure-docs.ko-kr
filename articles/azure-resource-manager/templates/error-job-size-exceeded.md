@@ -4,10 +4,10 @@ description: 작업 크기나 템플릿이 너무 클 때 발생 하는 오류�
 ms.topic: troubleshooting
 ms.date: 01/19/2021
 ms.openlocfilehash: 1fde4918aff6e3bf494876f83c5b4313b3c5f3d2
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98610406"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>작업 크기 초과에 대 한 오류 해결
@@ -22,10 +22,10 @@ ms.locfileid: "98610406"
 
 배포가 허용 되는 한도 중 하나를 초과 하면이 오류가 발생 합니다. 일반적으로이 오류는 배포를 실행 하는 작업 또는 템플릿 중 하나가 너무 클 때 표시 됩니다.
 
-배포 작업은 1mb를 초과할 수 없습니다. 작업에는 요청에 대 한 메타 데이터가 포함 됩니다. 큰 템플릿의 경우 템플릿과 결합 된 메타 데이터는 작업에 대해 허용 되는 크기를 초과할 수 있습니다.
+배포 작업은 1mb를 초과할 수 없습니다. 작업에는 요청에 대한 메타데이터가 포함됩니다. 큰 템플릿의 경우 템플릿과 결합된 메타데이터가 작업에 허용되는 크기를 초과할 수 있습니다.
 
 
-템플릿은 4mb를 초과할 수 없습니다. 4mb 제한은 [복사](copy-resources.md) 를 사용 하 여 여러 인스턴스를 만드는 리소스 정의에 대해 확장 된 후 템플릿의 최종 상태에 적용 됩니다. 최종 상태에는 변수 및 매개 변수에 대 한 확인 된 값도 포함 됩니다.
+템플릿은 4MB를 초과할 수 없습니다. 4mb 제한은 [복사](copy-resources.md) 를 사용 하 여 여러 인스턴스를 만드는 리소스 정의에 대해 확장 된 후 템플릿의 최종 상태에 적용 됩니다. 최종 상태에는 변수 및 매개 변수에 대해 확인된 값도 포함됩니다.
 
 템플릿에 대 한 다른 한도는 다음과 같습니다.
 

@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743290"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
@@ -22,7 +22,7 @@ ms.locfileid: "98743290"
 
 이 문서에서는 [Visual Studio용 Python Tools][Python Tools for Visual Studio]를 사용하여 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 Cloud Service를 만들고 배포하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * [Visual Studio 2013, 2015 또는 2017](https://www.visualstudio.com/)
 * [Visual Studio용 Python Tools][Python Tools for Visual Studio](PTVS)
 * [VS 2013용 Azure SDK Tools][Azure SDK Tools for VS 2013] 또는  

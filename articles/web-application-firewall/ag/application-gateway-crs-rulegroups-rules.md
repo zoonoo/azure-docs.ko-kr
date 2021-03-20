@@ -9,13 +9,13 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98746512"
 ---
-# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙
 
 Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약점 및 악용 사례로부터 웹 애플리케이션을 보호합니다. 이 작업은 OWASP core 규칙 집합 3.1, 3.0 또는 2.2.9를 기반으로 정의 되는 규칙을 통해 수행 됩니다. 이러한 규칙은 규칙 별로 사용 하지 않도록 설정할 수 있습니다. 이 문서에는 제공 된 현재 규칙 및 규칙 집합이 포함 되어 있습니다.
 
@@ -57,7 +57,7 @@ WAF는 다음과 같은 웹 취약점 으로부터 보호 합니다.
 |**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-31)**|사이트 간 스크립팅 공격 으로부터 보호|
 |**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-31)**|SQL 삽입 공격 으로부터 보호|
 |**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-31)**|세션 고정 공격 으로부터 보호|
-|**[요청-944-응용 프로그램-공격-세션-JAVA](#crs944-31)**|JAVA 공격 으로부터 보호|
+|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-31)**|JAVA 공격 으로부터 보호|
 
 ### <a name="owasp-crs-30"></a>OWASP CRS 3.0
 
@@ -337,7 +337,7 @@ Application Gateway에서 웹 응용 프로그램 방화벽을 사용 하는 경
 |943110|가능한 세션 고정 공격 = 오프-도메인 참조 페이지가 있는 SessionID 매개 변수 이름|
 |943120|가능한 세션 고정 공격 = 참조 페이지가 없는 SessionID 매개 변수 이름|
 
-### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">요청-944-응용 프로그램-공격-세션-JAVA</p>
+### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA</p>
 
 |RuleId|설명|
 |---|---|

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2f393701b97be76acab49a627a195b337018fa29
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144435"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>리소스 공급자 REST API(.NET)를 사용하여 IoT Hub 만들기
@@ -36,13 +36,13 @@ ms.locfileid: "92144435"
 
 ## <a name="prepare-your-visual-studio-project"></a>Visual Studio 프로젝트 준비
 
-1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕 화면 프로젝트를 만듭니다. 프로젝트 이름을 **CreateIoTHubREST**로 지정합니다.
+1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕 화면 프로젝트를 만듭니다. 프로젝트 이름을 **CreateIoTHubREST** 로 지정합니다.
 
-2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
+2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리** 를 클릭합니다.
 
-3. NuGet 패키지 관리자에서 **시험판 포함**을 선택하고 **찾아보기** 페이지에서 **Microsoft.Azure.Management.ResourceManager**를 검색합니다. 패키지를 선택하고 **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
+3. NuGet 패키지 관리자에서 **시험판 포함** 을 선택하고 **찾아보기** 페이지에서 **Microsoft.Azure.Management.ResourceManager** 를 검색합니다. 패키지를 선택하고 **설치** 를 클릭하고 **변경 내용 검토** 에서 **확인** 을 클릭한 다음 **동의함** 을 클릭하여 라이선스에 동의합니다.
 
-4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory**를 검색합니다.  **설치**를 클릭하고 **변경 내용 검토**에서 **확인**을 클릭한 다음 **동의함**을 클릭하여 라이선스에 동의합니다.
+4. NuGet 패키지 관리자에서 **Microsoft.IdentityModel.Clients.ActiveDirectory** 를 검색합니다.  **설치** 를 클릭하고 **변경 내용 검토** 에서 **확인** 을 클릭한 다음 **동의함** 을 클릭하여 라이선스에 동의합니다.
 
 5. Program.cs에서 기존 **using** 문을 다음 코드로 바꿉니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "92144435"
     using System.Threading;
     ```
 
-6. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호**를 적어 두었습니다. **리소스 그룹 이름**은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름입니다. 기존 또는 새 리소스 그룹을 사용할 수 있습니다. **IoT Hub 이름**은 **MyIoTHub**와 같이 사용자가 만든 IoT Hub의 이름입니다. IoT hub의 이름은 전역적으로 고유해야 합니다. **배포 이름**은 **Deployment_01**과 같은 배포의 이름입니다.
+6. Program.cs에서 다음 정적 변수를 추가하여 자리 표시자 값을 바꿉니다. 이 자습서의 앞부분에서 **ApplicationId**, **SubscriptionId**, **TenantId** 및 **암호** 를 적어 두었습니다. **리소스 그룹 이름** 은 IoT Hub를 만들 때 사용할 리소스 그룹의 이름입니다. 기존 또는 새 리소스 그룹을 사용할 수 있습니다. **IoT Hub 이름** 은 **MyIoTHub** 와 같이 사용자가 만든 IoT Hub의 이름입니다. IoT hub의 이름은 전역적으로 고유해야 합니다. **배포 이름** 은 **Deployment_01** 과 같은 배포의 이름입니다.
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -162,9 +162,9 @@ ms.locfileid: "92144435"
     Console.ReadLine();
     ```
 
-2. **빌드**, **솔루션 빌드**를 차례로 클릭합니다. 오류를 수정합니다.
+2. **빌드**, **솔루션 빌드** 를 차례로 클릭합니다. 오류를 수정합니다.
 
-3. **디버그**, **디버깅 시작**을 차례로 클릭하여 애플리케이션을 실행합니다. 배포를 실행하는 데 몇 분 정도 걸릴 수 있습니다.
+3. **디버그**, **디버깅 시작** 을 차례로 클릭하여 애플리케이션을 실행합니다. 배포를 실행하는 데 몇 분 정도 걸릴 수 있습니다.
 
 4. 애플리케이션이 새 IoT Hub에 추가되었는지 확인하려면 [Azure Portal](https://portal.azure.com/)을 방문하여 리소스 목록을 확인합니다. 또는 **AzResource** PowerShell cmdlet을 사용 합니다.
 
