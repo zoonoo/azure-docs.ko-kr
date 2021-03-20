@@ -8,17 +8,17 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: 99c36354334701dcd4c7c30c5fd5039c13885525
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97358724"
 ---
 # <a name="create-a-dynamics-365-for-business-central-offer"></a>Dynamics 365 for Business Central 제품 만들기
 
 이 문서에서는 새 Dynamics 365 비즈니스 센터 제품을 만드는 방법을 설명 합니다. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) 은 재무, 운영, 공급망, CRM, 프로젝트 관리 및 전자 상거래를 비롯 한 다양 한 비즈니스 프로세스를 처리 하는 ERP (엔터프라이즈 리소스 계획) 서비스입니다. 프리미엄 패키지는 클래식 배포 모델 및 제조도 지원합니다. Dynamics 365 Business Central의 모든 제품은 인증 프로세스를 통과해야 합니다.
 
-시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 >[!NOTE]
 > 제품을 게시 한 후에는 게시에 대 한 제품을 다시 제출 하 고 파트너 센터 및 온라인 스토어 에서만 제품을 편집할 수 있습니다.

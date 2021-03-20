@@ -4,10 +4,10 @@ description: Batch 풀 크기 조정 시작 이벤트에 대한 참조입니다.
 ms.topic: reference
 ms.date: 12/28/2020
 ms.openlocfilehash: be64a2ef30cbe3c404633b29202a4adf1e49ea9e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97803615"
 ---
 # <a name="pool-resize-start-event"></a>풀 크기 조정 시작 이벤트

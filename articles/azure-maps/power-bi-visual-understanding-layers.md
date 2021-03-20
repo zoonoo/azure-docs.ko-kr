@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a5c7296a0e7b7f6ea33c1f4a669675efd90f9e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86261846"
 ---
 # <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체의 레이어 이해
@@ -63,7 +63,7 @@ Azure Maps 시각적 개체에는 두 가지 유형의 계층을 사용할 수 �
     :::column-end:::
 :::row-end:::
 
-모든 데이터 렌더링 계층 및 **타일 계층**은 확대/축소 수준 범위를 지정 하는 데 사용 되는 최소 및 최대 확대/축소 수준 옵션을 포함 하며 이러한 레이어는에 표시 되어야 합니다. 이를 통해 하나의 확대/축소 수준에서 하나의 렌더링 계층을 사용 하 고 다른 확대/축소 수준에서 다른 렌더링 계층으로 전환할 수 있습니다.
+모든 데이터 렌더링 계층 및 **타일 계층** 은 확대/축소 수준 범위를 지정 하는 데 사용 되는 최소 및 최대 확대/축소 수준 옵션을 포함 하며 이러한 레이어는에 표시 되어야 합니다. 이를 통해 하나의 확대/축소 수준에서 하나의 렌더링 계층을 사용 하 고 다른 확대/축소 수준에서 다른 렌더링 계층으로 전환할 수 있습니다.
 
 이러한 계층에는 맵의 다른 계층을 기준으로 위치를 지정 하는 옵션도 있습니다. 여러 데이터 렌더링 레이어를 사용 하는 경우 맵에 추가 되는 순서에 따라 동일한 **계층 위치** 값이 있는 경우에는 해당 계층의 상대 계층화 순서가 결정 됩니다.
 

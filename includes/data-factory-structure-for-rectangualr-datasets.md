@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67182873"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>사각형 데이터 세트의 구조 정의 지정
@@ -16,7 +16,7 @@ ms.locfileid: "67182873"
 
 각 열에는 다음 속성이 포함됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | name |열의 이름입니다. |예 |
 | type |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |예 |
@@ -54,8 +54,8 @@ ms.locfileid: "67182873"
 * Decimal
 * Byte[]
 * Bool
-* 문자열 
-* GUID
+* String 
+* Guid
 * DateTime
 * Datetimeoffset
 * Timespan 

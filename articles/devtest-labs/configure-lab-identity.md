@@ -4,10 +4,10 @@ description: Azure DevTest에서 lab identity를 구성 하는 방법에 대해 
 ms.topic: article
 ms.date: 08/20/2020
 ms.openlocfilehash: a652eb5751f9b723911a1c1baaaaf9860febc5b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88719685"
 ---
 # <a name="configure-a-lab-identity"></a>랩 id 구성
@@ -20,7 +20,7 @@ Azure AD (Azure Active Directory)의 Azure 리소스에 대 한 관리 되는 id
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID  
 
- **시스템 할당 관리 id**는   Azure 서비스 인스턴스에서 직접 사용 하도록 설정 됩니다. ID를 사용하도록 설정하면 Azure는 인스턴스의 구독에서 신뢰하는 Azure AD 테넌트에 인스턴스의 ID를 만듭니다. ID가 만들어지면 자격 증명이 인스턴스에 프로비전됩니다. 시스템 할당 ID의 수명 주기는 사용하도록 설정된 Azure 서비스 인스턴스와 직접적으로 연관됩니다. 인스턴스가 삭제되면 Azure는 Azure AD에서 자격 증명과 ID를 자동으로 정리합니다. 
+ **시스템 할당 관리 id** 는   Azure 서비스 인스턴스에서 직접 사용 하도록 설정 됩니다. ID를 사용하도록 설정하면 Azure는 인스턴스의 구독에서 신뢰하는 Azure AD 테넌트에 인스턴스의 ID를 만듭니다. ID가 만들어지면 자격 증명이 인스턴스에 프로비전됩니다. 시스템 할당 ID의 수명 주기는 사용하도록 설정된 Azure 서비스 인스턴스와 직접적으로 연관됩니다. 인스턴스가 삭제되면 Azure는 Azure AD에서 자격 증명과 ID를 자동으로 정리합니다. 
 
 ### <a name="scenarios-for-using-labs-system-assigned-identity"></a>랩의 시스템 할당 id 사용에 대 한 시나리오  
 
@@ -39,7 +39,7 @@ Azure AD (Azure Active Directory)의 Azure 리소스에 대 한 관리 되는 id
 > 8/10/2020 이후에 만들어진 새 랩의 경우 랩의 시스템 할당 id는 기본적으로 On으로 설정 되 고 랩 소유자는 랩의 수명 주기에 대해이 기능을 해제할 수 없습니다.  
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **DevTest Labs**를 검색 합니다.
+1. **DevTest Labs** 를 검색 합니다.
 1. 랩 목록에서 원하는 랩을 선택 합니다.
 1. **구성 및 정책**  ->  **id (미리 보기)** 를 선택 합니다. 
 

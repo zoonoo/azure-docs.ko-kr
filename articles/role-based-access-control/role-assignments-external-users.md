@@ -14,17 +14,17 @@ ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: it-pro
 ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556288"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Azure Portal를 사용 하 여 외부 게스트 사용자에 게 Azure 역할 할당
 
 Azure [RBAC (역할 기반 액세스 제어)](overview.md) 를 사용 하면 사용자 환경의 특정 리소스에 액세스 해야 하지만 전체 인프라 또는 청구 관련 범위에 대 한 액세스를 필요로 하는 외부 협력자, 공급 업체 또는 프리랜서에서 작업 하는 중소기업 및 중소기업에 대해 더 나은 보안 관리가 가능 합니다. [AZURE ACTIVE DIRECTORY B2B](../active-directory/external-identities/what-is-b2b.md) 의 기능을 사용 하 여 외부 게스트 사용자와 공동 작업을 수행할 수 있으며, Azure RBAC를 사용 하 여 사용자 환경에서 게스트 사용자에 게 필요한 권한만 부여할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 역할을 할당 하거나 역할 할당을 제거 하려면 다음이 있어야 합니다.
 

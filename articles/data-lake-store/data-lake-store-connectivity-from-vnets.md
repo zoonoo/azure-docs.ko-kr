@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92104039"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Azure VNET 내 VM에서 Azure Data Lake Storage Gen1 액세스
@@ -29,7 +29,7 @@ Azure Data Lake Storage Gen1은 공용 인터넷 IP 주소에서 실행되는 Pa
 이 문서에서는 앞서 나열한 세 가지 방법 중 하나를 사용하여 리소스에 액세스하도록 제한된 Azure VM에서 Azure Data Lake Storage Gen1에 액세스할 수 있도록 설정하는 방법을 알아봅니다.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>연결이 제한된 VM에서 Azure Data Lake Storage Gen1에 대한 연결 사용
-이러한 VM에서 Azure Data Lake Storage Gen1에 액세스하려면 Azure Data Lake Storage Gen1 계정을 사용할 수 있는 지역에 대한 IP 주소에 액세스하도록 구성해야 합니다. 계정의 DNS 이름(`<account>.azuredatalakestore.net`)을 확인하여 Data Lake Storage Gen1 계정 지역에 대한 IP 주소를 식별할 수 있습니다. 계정의 DNS 이름을 확인하려면 **nslookup**과 같은 도구를 사용할 수 있습니다. 컴퓨터에서 명령 프롬프트를 열고 다음 명령을 실행합니다.
+이러한 VM에서 Azure Data Lake Storage Gen1에 액세스하려면 Azure Data Lake Storage Gen1 계정을 사용할 수 있는 지역에 대한 IP 주소에 액세스하도록 구성해야 합니다. 계정의 DNS 이름(`<account>.azuredatalakestore.net`)을 확인하여 Data Lake Storage Gen1 계정 지역에 대한 IP 주소를 식별할 수 있습니다. 계정의 DNS 이름을 확인하려면 **nslookup** 과 같은 도구를 사용할 수 있습니다. 컴퓨터에서 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
 ```console
 nslookup mydatastore.azuredatalakestore.net
@@ -54,6 +54,6 @@ UDR 또는 BGP 교환 경로 중 하나를 사용하여 인터넷 액세스를 �
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>ExpressRoute를 사용하여 제한된 VM에서 연결을 사용하도록 설정
 ExpressRoute 회로가 구성되면 온-프레미스 서버는 공용 피어링을 통해 Data Lake Storage Gen1에 액세스할 수 있습니다. 공용 피어링을 위한 ExpressRoute 구성에 대한 자세한 내용은 [ExpressRoute FAQ](../expressroute/expressroute-faqs.md)에서 확인할 수 있습니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 * [Azure Data Lake Storage Gen1에 저장된 데이터 보호](data-lake-store-security-overview.md)

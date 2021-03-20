@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
 ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98874250"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
@@ -161,7 +161,7 @@ Site Recovery와 파일 동기화를 통합하려면:
 
 1. Azure Portal로 이동하고, 복구 서비스 자격 증명 모음을 선택합니다.
 2. 파일 서버 환경에서 만든 복구 계획을 선택합니다.
-3. **테스트 장애 조치** 를 선택합니다.
+3. **테스트 장애 조치 (Failover)** 를 선택 합니다.
 4. 복구 지점과 Azure 가상 네트워크를 선택하여 테스트 장애 조치(failover) 프로세스를 시작합니다.
 5. 보조 환경이 가동되면 유효성 검사를 수행합니다.
 6. 유효성 검사가 완료되면 복구 계획에서 **테스트 장애 조치(failover) 정리** 를 선택하고, 테스트 장애 조치(failover) 환경이 정리됩니다.

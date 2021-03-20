@@ -4,10 +4,10 @@ description: 이 문서에서는 서비스에 연결 하려고 할 때 Azure Arc
 ms.date: 09/02/2020
 ms.topic: conceptual
 ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90900676"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>연결 된 컴퓨터 에이전트 연결 문제 해결
@@ -44,7 +44,7 @@ ms.locfileid: "90900676"
 다음은 대화형 설치를 수행할 때 Linux 용 연결 된 컴퓨터 에이전트에서 자세한 정보 로깅을 사용 하도록 설정 하는 명령의 예입니다.
 
 >[!NOTE]
->**Azcmagent**를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
+>**Azcmagent** 를 실행 하려면 Linux 컴퓨터에 대 한 *루트* 액세스 권한이 있어야 합니다.
 
 ```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
@@ -67,7 +67,7 @@ azcmagent connect \
 
 다음 표에는 알려진 오류 및 문제 해결 방법에 대 한 제안 사항이 정리 되어 있습니다.
 
-|메시지 |Error |가능한 원인: |솔루션 |
+|메시지 |오류 |가능한 원인: |솔루션 |
 |--------|------|---------------|---------|
 |권한 부여 토큰 장치 흐름을 획득 하지 못했습니다. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |끝점에 연결할 수 없음 `login.windows.net` | 끝점에 대 한 연결을 확인 합니다. |
 |권한 부여 토큰 장치 흐름을 획득 하지 못했습니다. |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |프록시 또는 방화벽에서 끝점에 대 한 액세스를 차단 하 고 `login.windows.net` 있습니다. | 끝점에 대 한 연결을 확인 하 고 방화벽이 나 프록시 서버에 의해 차단 되지 않습니다. |
@@ -89,4 +89,4 @@ azcmagent connect \
 
 * 고객 환경을 개선하기 위한 공식 Microsoft Azure 계정인 [@AzureSupport](https://twitter.com/azuresupport)와 연결합니다. Azure 지원은 Azure 커뮤니티를 답변, 지원 및 전문가에게 연결합니다.
 
-* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기**를 선택합니다.
+* Azure 지원 인시던트 제출 [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 이동하여 **지원 받기** 를 선택합니다.

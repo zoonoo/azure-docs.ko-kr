@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.openlocfilehash: 33e521d418c219be8eb85b79a0e07d999edb1b08
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374272"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Presto에서 데이터 복사
@@ -42,18 +42,18 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Presto** 로 설정해야 합니다. | 예 |
-| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. (예: 192.168.222.160)  | Yes |
-| serverVersion | Presto 서버의 버전입니다. (예: 0.148-t)  | Yes |
+| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. (예: 192.168.222.160)  | 예 |
+| serverVersion | Presto 서버의 버전입니다. (예: 0.148-t)  | 예 |
 | 카탈로그 | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | 예 |
 | 포트 | Presto 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8080입니다.  | 예 |
 | authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **LDAP** 입니다. | 예 |
 | 사용자 이름 | Presto에 연결하는 데 사용되는 사용자 이름입니다.  | 예 |
 | password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 false입니다.  | 예 |
-| trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용할 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 예 |
-| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
-| allowHostNameCNMismatch | TLS를 통해 연결할 때 CA에서 발급 한 TLS/SSL 인증서 이름이 서버의 호스트 이름과 일치 하도록 할지 여부를 지정 합니다. 기본값은 false입니다.  | 예 |
-| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
+| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 false입니다.  | 아니요 |
+| trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용할 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
+| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
+| allowHostNameCNMismatch | TLS를 통해 연결할 때 CA에서 발급 한 TLS/SSL 인증서 이름이 서버의 호스트 이름과 일치 하도록 할지 여부를 지정 합니다. 기본값은 false입니다.  | 아니요 |
+| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
 | timeZoneID | 연결에서 사용되는 현지 표준 시간대입니다. 이 옵션에 유효한 값은 IANA 표준 시간대 데이터베이스에 지정되어 있습니다. 기본값은 시스템 표준 시간대입니다.  | 예 |
 
 **예:**

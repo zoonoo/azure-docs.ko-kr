@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: yushwang
 ms.openlocfilehash: 2b298185866d16da02fe8d3b3fdb41f0b0b1f726
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878547"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections-azure-portal"></a>S2S VPN 또는 VNet 간 연결에 대 한 IPsec/IKE 정책 구성: Azure Portal
@@ -28,8 +28,10 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 ### <a name="considerations"></a>고려 사항
 
 * IPsec/IKE 정책은 다음 게이트웨이 Sku에만 작동 합니다.
-  * ***VpnGw1 ~ 5 및 VpnGw1AZ ~ 5AZ** _ _ ***Standard** _ 및 _*_highperformance_*_ _ 지정 된 연결에 대해 ***one** _ 정책 조합만 지정할 수 있습니다.
-  _ IKE (주 모드)와 IPsec (빠른 모드) 모두에 대 한 모든 알고리즘 및 매개 변수를 지정 해야 합니다. 부분 정책 지정은 허용되지 않습니다.
+  * ***VpnGw1 ~ 5 및 VpnGw1AZ ~ 5AZ***
+  * ***표준** _ 및 _ *_highperformance_**
+* 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
+* IKE(주 모드)와 IPsec(빠른 모드) 둘 다에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
 * 해당 VPN 디바이스 공급업체 사양을 참조하여 정책이 해당 온-프레미스 VPN 디바이스에서 지원되는지 확인하세요. 정책이 호환되지 않는 경우 S2S 또는 VNet 간 연결을 설정할 수 없습니다.
 
 ## <a name="workflow"></a><a name ="workflow"></a>워크플로

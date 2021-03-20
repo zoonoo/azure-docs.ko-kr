@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b9999ae92840d79bb19464216c0f28504011b3f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008324"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 (클래식)에서 호스트 풀 만들기
@@ -38,11 +38,11 @@ Azure Resource Manager 템플릿을 사용하여 Windows Virtual Desktop 호스�
 
 ### <a name="deploy-the-template-to-azure"></a>Azure에 템플릿 배포
 
-엔터프라이즈 구독에 배포 하는 경우 아래로 스크롤하여 **Azure에 배포**를 선택한 다음 이미지 원본에 따라 매개 변수를 채웁니다.
+엔터프라이즈 구독에 배포 하는 경우 아래로 스크롤하여 **Azure에 배포** 를 선택한 다음 이미지 원본에 따라 매개 변수를 채웁니다.
 
 클라우드 솔루션 공급자 구독에서 배포 하는 경우 다음 단계를 수행 하 여 Azure에 배포 합니다.
 
-1. 아래로 스크롤하여 **Azure에 배포**를 마우스 오른쪽 단추로 클릭한 다음, **링크 위치 복사**를 선택합니다.
+1. 아래로 스크롤하여 **Azure에 배포** 를 마우스 오른쪽 단추로 클릭한 다음, **링크 위치 복사** 를 선택합니다.
 2. 메모장 같은 텍스트 편집기를 열고 링크를 붙여넣습니다.
 3. "" 바로 뒤 https://portal.azure.com/ 와 해시 태그 (#) 앞에 @ 기호를 입력 하 고 그 다음에 테 넌 트 도메인 이름을 입력 합니다. 사용 해야 하는 형식의 예는 다음과 같습니다 `https://portal.azure.com/@Contoso.onmicrosoft.com#create/` .
 4. 클라우드 솔루션 공급자 구독에 대한 관리자/기여자 권한이 있는 사용자로 Azure Portal에 로그인합니다.

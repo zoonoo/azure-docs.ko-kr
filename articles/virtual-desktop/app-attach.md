@@ -7,10 +7,10 @@ ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185770"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>MSIX 앱 연결을 위한 PowerShell 스크립트 만들기 (미리 보기)
@@ -87,7 +87,7 @@ PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUI
     Possible values for VolumeName along with current mount points are:
 
     \\?\Volume{a12b3456-0000-0000-0000-10000000000}\
-    **_ NO MOUNT POINTS _*_
+    *** NO MOUNT POINTS ***
 
     \\?\Volume{c78d9012-0000-0000-0000-20000000000}\
         E:\
@@ -98,7 +98,7 @@ PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUI
     ```
 
 
-6.  방금 복사한 볼륨 GUID를 사용 하 여 _ *$volumeGuid** 변수를 업데이트 합니다.
+6.  방금 복사한 볼륨 GUID를 사용하여 **$volumeGuid** 변수를 업데이트합니다.
 
 7. 관리 PowerShell 프롬프트를 열고 환경에 적용되는 변수로 다음 PowerShell 스크립트를 업데이트합니다.
 

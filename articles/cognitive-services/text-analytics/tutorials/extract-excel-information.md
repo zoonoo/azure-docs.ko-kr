@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
 ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93359904"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Text Analytics 및 Power Automate를 사용하여 Excel에서 정보 추출 
@@ -31,7 +31,7 @@ ms.locfileid: "93359904"
 > * Excel에서 텍스트를 추출 하 여 텍스트 분석 API 보냅니다. 
 > * API의 정보를 사용 하 여 Excel 시트를 업데이트 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Microsoft Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/cognitive-services/) 또는 [로그인](https://portal.azure.com/).
 - Text Analytics 리소스입니다. 없는 경우 [Azure Portal에서 만들고](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) 무료 계층을 사용 하 여이 자습서를 완료할 수 있습니다.
@@ -76,12 +76,12 @@ Excel 파일에 추가 될 정보를 나타내는 변수를 만듭니다. **새 
 
 만든 변수에 다음 정보를 추가 합니다. Excel 파일의 열을 나타냅니다. 축소 된 변수가 있으면 해당 변수를 클릭 하 여 확장할 수 있습니다.
 
-| 작업 |이름   | 유형 | 값 |
+| 작업 |Name   | Type | 값 |
 |---------|---------|---|---|
-| 변수 초기화 | var_person | String | Person |
+| 변수 초기화 | var_person | String | 사람 |
 | 변수 2 초기화 | var_phone | String | Phone_Number |
 | 변수 3 초기화 | var_plumbing | String | 복잡 |
-| 변수 4 초기화 | var_other | String | other | 
+| 변수 4 초기화 | var_other | String | 기타 | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="흐름 변수에 포함 된 정보":::
@@ -123,7 +123,7 @@ Excel 파일에 추가 될 정보를 나타내는 변수를 만듭니다. **새 
 
 | 필드           | 값                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| 연결 이름 | Text Analytics 리소스에 대 한 연결의 이름입니다. `TAforPowerAutomate`)을 입력합니다. |
+| 연결 이름 | Text Analytics 리소스에 대 한 연결의 이름입니다. 예: `TAforPowerAutomate` |
 | 계정 키     | Text Analytics 리소스의 키입니다.                                                                                   |
 | 사이트 URL        | Text Analytics 리소스에 대 한 끝점입니다.                                                       |
 
@@ -170,7 +170,7 @@ Excel 파일에 추가 될 정보를 나타내는 변수를 만듭니다. **새 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="흐름에 Text Analytics 자격 증명을 추가 합니다. 6@@":::
 
-Excel 정보를 입력 하 고 **키 열** , **키 값** 및 **PersonName** 필드를 업데이트 합니다. 그러면 API에서 검색 된 이름이 Excel 시트에 추가 됩니다. 
+Excel 정보를 입력 하 고 **키 열**, **키 값** 및 **PersonName** 필드를 업데이트 합니다. 그러면 API에서 검색 된 이름이 Excel 시트에 추가 됩니다. 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="흐름에 Text Analytics 자격 증명을 추가 합니다. 일":::
@@ -218,7 +218,7 @@ Excel 정보를 입력 하 고 **키 열** , **키 값** 및 **PersonName** 필�
 
 ## <a name="test-the-workflow"></a>워크플로 테스트
 
-화면의 오른쪽 위 모서리에서 **저장** , **테스트** 를 차례로 클릭 합니다. **트리거 동작을 수행** 합니다 .를 선택 합니다. **저장 & 테스트** , **흐름 실행** , **완료** 를 차례로 클릭 합니다.
+화면의 오른쪽 위 모서리에서 **저장**, **테스트** 를 차례로 클릭 합니다. **트리거 동작을 수행** 합니다 .를 선택 합니다. **저장 & 테스트**, **흐름 실행**, **완료** 를 차례로 클릭 합니다.
 
 Excel 파일이 OneDrive 계정에서 업데이트 됩니다. 이는 아래와 같습니다.
 

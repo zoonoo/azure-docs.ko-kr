@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure event grid 토픽 또는 도메인의 진
 ms.topic: conceptual
 ms.date: 12/03/2020
 ms.openlocfilehash: 36ade14932b5d25c7a1fe05632da671de68ba3bb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574989"
 ---
 #  <a name="diagnostic-logs-for-azure-event-grid-topicsdomains"></a>Azure Event Grid 토픽/도메인에 대 한 진단 로그

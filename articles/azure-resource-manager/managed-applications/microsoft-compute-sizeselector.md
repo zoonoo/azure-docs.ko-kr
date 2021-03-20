@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: d6408f8c08694ae681d302ae35f5778894091733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87063625"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI 요소
@@ -70,11 +70,11 @@ ms.locfileid: "87063625"
 - `recommendedSizes`에는 적어도 하나의 크기가 포함됩니다. 권장되는 첫 번째 크기가 기본값으로 사용됩니다. 지원되는 크기 목록은 권장되는 상태에 따라 정렬되지 않습니다. 사용자는 권장되는 상태별로 정렬할 열을 선택할 수 있습니다.
 - 선택한 위치에서 권장되는 첫 번째 크기를 사용할 수 없는 경우 해당 크기를 자동으로 건너뜁니다. 대신 권장되는 다음 크기가 사용됩니다.
 - `constraints.allowedSizes` 및 `constraints.excludedSizes`는 모두 선택 사항이지만 동시에 사용할 수는 없습니다. 사용 가능한 크기 목록은 [구독에 사용 가능한 가상 머신 크기 목록](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)을 호출하여 확인할 수 있습니다. `constraints.allowedSizes`에 지정되지 않은 크기는 숨겨지며 `constraints.excludedSizes`에 지정되지 않은 크기가 표시됩니다.
-- `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux**일 수 있습니다. 가상 머신의 하드웨어 비용을 결정하는 데 사용됩니다.
+- `osPlatform`을 지정해야 하며 **Windows** 또는 **Linux** 일 수 있습니다. 가상 머신의 하드웨어 비용을 결정하는 데 사용됩니다.
 - `imageReference`은 자사 이미지에 대해 생략되지만, 타사 이미지에 대해서는 제공됩니다. 가상 머신의 소프트웨어 비용을 결정하는 데 사용됩니다.
-- `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2**와 같은 정적 값 또는 `[steps('step1').vmCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1**입니다.
+- `count`는 요소에 적절한 승수를 설정하는 데 사용됩니다. **2** 와 같은 정적 값 또는 `[steps('step1').vmCount]`와 같은 다른 요소의 동적 값을 지원합니다. 기본값은 **1** 입니다.
 - `numAvailabilityZonesRequired`는 1, 2 또는 3일 수 있습니다.
-- 기본적으로 `hideDiskTypeFilter`는 **false**입니다. 디스크 형식 필터를 사용하면 모든 디스크 형식 또는 SSD만을 볼 수 있습니다.
+- 기본적으로 `hideDiskTypeFilter`는 **false** 입니다. 디스크 형식 필터를 사용하면 모든 디스크 형식 또는 SSD만을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

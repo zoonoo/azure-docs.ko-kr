@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
 ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86250314"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Azure API Management에서 프로토콜 및 암호화 관리
@@ -27,7 +27,7 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 
 ![APIM에서 프로토콜 및 암호화 관리](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 
@@ -35,10 +35,10 @@ Azure API Management는 클라이언트 및 백 엔드 쪽에서 모두 여러 T
 
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>TLS 프로토콜 및 3DES 암호화를 관리하는 방법
 
-1. Azure Portal에서 **API Management 인스턴스**로 이동합니다.
+1. Azure Portal에서 **API Management 인스턴스** 로 이동합니다.
 2. 메뉴에서 **프로토콜 설정** 을 선택 합니다.  
 3. 원하는 프로토콜 또는 암호화를 사용하거나 사용하지 않도록 설정합니다.
-4. **저장**을 클릭합니다. 변경 내용은 1시간 이내에 적용됩니다.  
+4. **저장** 을 클릭합니다. 변경 내용은 1시간 이내에 적용됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 36e1a8a288e1f9b2a8d65ab966b607b594d66f4e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653604"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 Azure 서비스
@@ -26,13 +26,13 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 > [!NOTE]
 > 지원 수준은 서비스가 Gen 2 Data Lake Storage 지원 되는 방법만을 나타냅니다.
 
-|Azure 서비스 |지원 수준 |Azure AD |공유 키| 관련 문서 |
+|Azure 서비스 |지원 수준 |Azure AD |공유 키| 관련된 문서 |
 |---------------|-------------------|---|---|---|
 |Azure 데이터 팩터리|일반 공급|예|예|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Databricks|일반 공급|예|예|[Azure Databricks와 함께 사용](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) <br> [자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[자습서: Spark를 사용 하 여 Azure Databricks으로 데이터 Data Lake Storage Gen2 액세스](data-lake-storage-use-databricks-spark.md)|
 |Azure Event Hub|일반 공급|아니요|예|[Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처](../../event-hubs/event-hubs-capture-overview.md)|
 |Azure Event Grid|일반 공급|예|예|[자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트](data-lake-storage-events.md)|
-|Azure Logic Apps|일반 공급|아니요|예|[개요 - Azure Logic Apps란?](../../logic-apps/logic-apps-overview.md)|
+|Azure Logic Apps|일반 공급|아니요|예|[개요-Azure Logic Apps 이란?](../../logic-apps/logic-apps-overview.md)|
 |Azure Machine Learning|일반 공급|예|예|[Azure storage 서비스의 데이터에 액세스](../../machine-learning/how-to-access-data.md)|
 |Azure Stream Analytics|일반 공급|예|예|[빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Azure Data Lake Gen2로 송신](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Data Box|일반 공급|아니요|예|[Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage 데이터를 마이그레이션합니다.](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
@@ -41,10 +41,10 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |Power BI|일반 공급|예|예|[Power BI를 사용 하 여 Data Lake Storage Gen2 데이터 분석](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics(이전의 SQL Data Warehouse)|일반 공급|예|예|[스토리지 계정에서 데이터 분석](../../synapse-analytics/get-started-analyze-storage.md)|
 |SSIS(SQL Server Integration Services)|일반 공급|예|예|[Azure Storage 연결 관리자](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
-|Azure Data Explorer|일반 공급|예|예|[Azure Data Lake에서 Azure Data Explorer를 사용하여 데이터 쿼리](/azure/data-explorer/data-lake-query-data)|
+|Azure 데이터 탐색기|일반 공급|예|예|[Azure Data Lake에서 Azure Data Explorer를 사용하여 데이터 쿼리](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|미리 보기|예|예|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../search/search-howto-index-azure-data-lake-storage.md)|
-|Azure Content Delivery Network|아직 지원되지 않음|해당 없음|해당 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
-|Azure SQL Database|아직 지원되지 않음|해당 없음|해당 없음|[Azure SQL Database란?](../../azure-sql/database/sql-database-paas-overview.md)|
+|Azure Content Delivery Network|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../cdn/cdn-overview.md)|
+|Azure SQL Database|아직 지원되지 않음|해당 사항 없음|해당 사항 없음|[Azure SQL Database란?](../../azure-sql/database/sql-database-paas-overview.md)|
 
 ## <a name="see-also"></a>참고 항목
 

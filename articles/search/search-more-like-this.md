@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1c2f8058a85bbc0643ed31a7dc910339d0f6d9dd
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94697053"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>Azure Cognitive Search의 moreLikeThis (미리 보기)
@@ -27,7 +27,7 @@ ms.locfileid: "94697053"
 
 `MoreLikeThis` [복합 형식의](search-howto-complex-data-types.md)검색 가능한 하위 필드에는를 사용할 수 없습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 모든 예제에서는 [빠른 시작: Azure Portal에서 검색 인덱스 만들기](search-get-started-portal.md)의 호텔 샘플을 사용 합니다.
 

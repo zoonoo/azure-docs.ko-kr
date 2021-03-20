@@ -8,10 +8,10 @@ ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 91b6134e7c809a8af75aa1cf23523e352e0a1a0e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997344"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
@@ -53,7 +53,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| 용도 | From | 대상 |
+| Windows Server Update Services와 함께 | 시작 | 대상 |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -69,7 +69,7 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 사용자가 고려해 야 하는 다른 포트는 응용 프로그램 포트입니다.
 
-| 용도 | 포트 |
+| Windows Server Update Services와 함께 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -109,7 +109,7 @@ ASE가 있는 VNet의 DNS 설정을 변경하면 ASE를 재부팅해야 합니�
 ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 항목이 있습니다. Azure Portal의 기능 중 일부는 _SCM 사이트_ 에 대한 직접 액세스에 의존합니다. Azure App Service의 모든 앱에는 URL이 두 개 있습니다. 첫 번째 URL은 앱에 액세스하는 것입니다. 두 번째 URL은 _Kudu 콘솔_ 이라고도 하는 SCM 사이트에 액세스하는 것입니다. SCM 사이트를 사용하는 기능은 다음과 같습니다.
 
 -   웹 작업
--   함수
+-   Functions
 -   스트리밍 로그
 -   Kudu
 -   확장
@@ -122,7 +122,7 @@ ILB ASE가 도메인 이름이 *contoso.appserviceenvironment.net* 앱 이름이
 
 ## <a name="ase-ip-addresses"></a>ASE IP 주소 ##
 
-ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 핵심 원리는 다음과 같습니다.
 
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
 - **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
@@ -169,7 +169,7 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 
 기본 앱 액세스 포트는 다음과 같습니다.
 
-| 용도 | 포트 |
+| Windows Server Update Services와 함께 | 포트 |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
@@ -180,9 +180,9 @@ ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 �
 
 ![인바운드 보안 규칙][4]
 
-기본 규칙을 사용하면 VNet의 IP가 ASE 서브넷과 통신할 수 있습니다. 공용 VIP라고도 하는 부하 분산 장치가 ASE와 통신할 수 있도록 하는 또 다른 기본 규칙도 있습니다. 기본 규칙을 확인하려면 **추가** 아이콘 옆에 있는 **기본 규칙** 을 선택합니다. 기본 규칙 이전에 다른 모든 항목 거부 규칙을 추가 하는 경우 VIP와 ASE 간의 트래픽을 방지 합니다. VNet 내에서 들어오는 트래픽을 차단하려면 인바운드를 허용하는 규칙을 직접 추가합니다. 대상 **및 포트** 범위가 * _ 인 azureloadbalancer와 같은 원본을 사용 *\** 합니다. NSG 규칙은 ASE 서브넷에 적용되므로 대상을 구체적으로 지정할 필요는 없습니다.
+기본 규칙을 사용하면 VNet의 IP가 ASE 서브넷과 통신할 수 있습니다. 공용 VIP라고도 하는 부하 분산 장치가 ASE와 통신할 수 있도록 하는 또 다른 기본 규칙도 있습니다. 기본 규칙을 확인하려면 **추가** 아이콘 옆에 있는 **기본 규칙** 을 선택합니다. 기본 규칙 이전에 다른 모든 항목 거부 규칙을 추가 하는 경우 VIP와 ASE 간의 트래픽을 방지 합니다. VNet 내에서 들어오는 트래픽을 차단하려면 인바운드를 허용하는 규칙을 직접 추가합니다. 이때 대상이 **Any** 이고 포트 범위가 **\*** 인 AzureLoadBalancer와 같은 원본을 사용합니다. NSG 규칙은 ASE 서브넷에 적용되므로 대상을 구체적으로 지정할 필요는 없습니다.
 
-앱에 IP 주소를 할당한 경우 포트를 열어 두어야 합니다. 포트를 보려면 _ *App Service Environment** > **IP 주소** 를 선택 합니다.  
+앱에 IP 주소를 할당한 경우 포트를 열어 두어야 합니다. 포트를 확인 하려면 **App Service Environment**  >  **IP 주소** 를 선택 합니다.  
 
 다음 아웃바운드 규칙에 표시된 모든 항목이 필요합니다(마지막 항목은 제외). 이러한 항목을 통해 네트워크에서 이 문서 앞부분에서 언급했던 ASE 종속성에 액세스할 수 있습니다. 이러한 항목 중 하나라도 차단하면 ASE의 작동이 중지됩니다. 목록의 마지막 항목은 사용자의 ASE가 VNet의 다른 리소스와 통신할 수 있도록 설정합니다.
 

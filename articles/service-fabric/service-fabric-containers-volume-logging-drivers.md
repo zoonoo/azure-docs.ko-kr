@@ -4,10 +4,10 @@ description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azur
 ms.topic: conceptual
 ms.date: 6/10/2018
 ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247696"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Service Fabric에 대 한 Azure Files 볼륨 드라이버
@@ -18,7 +18,7 @@ Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](
 > Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 일반 공급으로 릴리스 되었습니다.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
@@ -31,7 +31,7 @@ Azure Files 볼륨 드라이버는 Docker 컨테이너에 대 한 [Azure Files](
 
 * Hyper-v 컨테이너를 사용 하는 경우 Azure Resource Manager 템플릿 (Azure 클러스터)의 ClusterManifest (로컬 클러스터) 또는 fabricSettings 섹션 또는 (독립 실행형 클러스터)의 ClusterConfig.js에 다음 코드 조각을 추가 해야 합니다.
 
-ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. 이 예제에서 볼륨 이름은 **sfazurefile** 이 고 클러스터에서 수신 대기 하는 포트는 **19100**입니다. 클러스터에 대 한 올바른 값으로 바꿉니다.
+ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. 이 예제에서 볼륨 이름은 **sfazurefile** 이 고 클러스터에서 수신 대기 하는 포트는 **19100** 입니다. 클러스터에 대 한 올바른 값으로 바꿉니다.
 
 ``` xml 
 <Section Name="Hosting">
@@ -172,7 +172,7 @@ sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type
 </ApplicationManifest>
 ```
 
-Azure Files 볼륨 플러그 인의 드라이버 이름이 **sfazurefile**입니다. 이 값은 응용 프로그램 매니페스트에서 **볼륨** 태그 요소의 **Driver** 특성에 대해 설정 됩니다.
+Azure Files 볼륨 플러그 인의 드라이버 이름이 **sfazurefile** 입니다. 이 값은 응용 프로그램 매니페스트에서 **볼륨** 태그 요소의 **Driver** 특성에 대해 설정 됩니다.
 
 위의 코드 조각에 있는 **volume** 태그에서 Azure Files 볼륨 플러그 인에는 다음 특성이 필요 합니다.
 - **Source** - 볼륨의 이름입니다. 사용자는 해당 볼륨에 대한 이름을 임의로 선택할 수 있습니다.
@@ -227,7 +227,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 </ContainerHostPolicies>
 ```
 
-볼륨 플러그 인을 지정할 때 Service Fabric은 지정된 매개 변수를 사용하여 볼륨을 자동으로 만듭니다. **Volume** 요소에 대한 **Source** 태그는 볼륨의 이름이며 **Driver** 태그는 볼륨 드라이버 플러그 인을 지정합니다. **Destination** 태그는 실행 중인 컨테이너에서 **Source**가 매핑되는 위치입니다. 따라서 대상은 컨테이너 내에 이미 존재하는 위치가 될 수 없습니다. 옵션은 **DriverOption** 태그를 사용하여 다음과 같이 지정할 수 있습니다.
+볼륨 플러그 인을 지정할 때 Service Fabric은 지정된 매개 변수를 사용하여 볼륨을 자동으로 만듭니다. **Volume** 요소에 대한 **Source** 태그는 볼륨의 이름이며 **Driver** 태그는 볼륨 드라이버 플러그 인을 지정합니다. **Destination** 태그는 실행 중인 컨테이너에서 **Source** 가 매핑되는 위치입니다. 따라서 대상은 컨테이너 내에 이미 존재하는 위치가 될 수 없습니다. 옵션은 **DriverOption** 태그를 사용하여 다음과 같이 지정할 수 있습니다.
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">

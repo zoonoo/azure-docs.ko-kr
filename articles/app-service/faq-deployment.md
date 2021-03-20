@@ -10,10 +10,10 @@ ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 163a6940e50d1f8beacc23855fd1e6f9daad0085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080476"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
@@ -26,7 +26,7 @@ ms.locfileid: "88080476"
 
 다음은 웹앱 코드를 게시할 수 있는 몇 가지 옵션입니다.
 
-*   Visual Studio를 사용하여 배포. Visual Studio 솔루션이 있는 경우 웹 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 나서 **게시**를 선택합니다.
+*   Visual Studio를 사용하여 배포. Visual Studio 솔루션이 있는 경우 웹 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 나서 **게시** 를 선택합니다.
 *   FTP 클라이언트를 사용하여 배포. Azure Portal에서 코드를 배포할 웹앱에 대한 게시 프로필을 다운로드합니다. 그다음에 동일한 게시 프로필 FTP 자격 증명을 사용하여 \site\wwwroot에 파일을 업로드합니다.
 
 자세한 내용은 [App Service에 앱 배포](deploy-local-git.md)를 참조하세요.
@@ -73,7 +73,7 @@ FTP 문제를 해결하려면:
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>App Service에 내 코드를 게시하려면 어떻게 하나요?
 
-Azure 빠른 시작은 선택한 배포 스택 및 방법을 사용하여 앱을 배포할 수 있도록 디자인되어 있습니다. Azure Portal에서 빠른 시작을 사용하려면 앱 서비스로 이동하고 **배포**에서 **빠른 시작**을 선택합니다.
+Azure 빠른 시작은 선택한 배포 스택 및 방법을 사용하여 앱을 배포할 수 있도록 디자인되어 있습니다. Azure Portal에서 빠른 시작을 사용하려면 앱 서비스로 이동하고 **배포** 에서 **빠른 시작** 을 선택합니다.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>App Service에 배포한 후 때때로 앱이 다시 시작되지 않는 이유는 무엇인가요?
 

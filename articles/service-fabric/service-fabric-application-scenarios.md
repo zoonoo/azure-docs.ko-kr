@@ -4,10 +4,10 @@ description: 서비스 패브릭의 클라우드 애플리케이션 범주 개�
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575672"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오

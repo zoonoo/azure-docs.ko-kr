@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109156"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 데이터 암호화
@@ -74,7 +74,7 @@ MEK 및 MEK가 상주하는 Key Vault 인스턴스를 관리하는 사람이 다
 
 데이터 암호화 디자인에 사용되는 세 가지 종류의 키가 있습니다. 다음 테이블에서는 요약 정보를 제공합니다.
 
-| 키                   | 약어 | 연결 대상 | 스토리지 위치                             | 형식       | 참고                                                                                                   |
+| 키                   | 약어 | 연결 대상 | 스토리지 위치                             | Type       | 참고                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | 마스터 암호화 키 | MEK          | Data Lake Storage Gen1 계정 | Key Vault                              | 비대칭 | Data Lake Storage Gen1 또는 사용자가 관리할 수 있습니다.                                                              |
 | 데이터 암호화 키   | DEK          | Data Lake Storage Gen1 계정 | 영구 스토리지, Data Lake Storage Gen1 서비스에서 관리 | 대칭  | DEK는 MEK에서 암호화됩니다. 암호화된 DEK는 영구 미디어에 저장됩니다. |
@@ -107,7 +107,7 @@ MEK 및 MEK가 상주하는 Key Vault 인스턴스를 관리하는 사람이 다
 
 고객이 관리하는 키를 사용하는 경우 MEK를 회전할 수 있습니다. 고객 관리 키를 사용하여 Data Lake Storage Gen1 계정을 설정하는 방법을 알아보려면 [시작](./data-lake-store-get-started-portal.md)을 참조하세요.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 Data Lake Storage Gen1 계정을 설정할 때에 고유한 키를 사용하기로 했습니다. 계정을 만든 후에는 이 옵션을 변경할 수 없습니다. 다음 단계에서는 사용자가 고객 관리 키를 사용(즉, Key Vault에서 사용자 고유의 키를 선택함)한다고 가정합니다.
 
@@ -116,7 +116,7 @@ Data Lake Storage Gen1 계정을 설정할 때에 고유한 키를 사용하기�
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Data Lake Storage Gen1에서 MEK를 회전하는 방법
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Data Lake Storage Gen1 계정에 연결된 키를 저장하는 Key Vault 인스턴스로 이동합니다. **키**를 선택 합니다.
+2. Data Lake Storage Gen1 계정에 연결된 키를 저장하는 Key Vault 인스턴스로 이동합니다. **키** 를 선택 합니다.
 
     ![Key Vault의 스크린샷](./media/data-lake-store-encryption/keyvault.png)
 
@@ -124,11 +124,11 @@ Data Lake Storage Gen1 계정을 설정할 때에 고유한 키를 사용하기�
 
    ![강조 표시된 새 버전에서 키 창의 스크린샷](./media/data-lake-store-encryption/keynewversion.png)
 
-4. Data Lake Storage Gen1 계정으로 이동하여 **암호화**를 선택합니다.
+4. Data Lake Storage Gen1 계정으로 이동하여 **암호화** 를 선택합니다.
 
    ![강조 표시된 암호화에서 Data Lake Storage Gen1 계정 창의 스크린샷](./media/data-lake-store-encryption/select-encryption.png)
 
-5. 메시지는 새로운 주요 버전의 키를 사용할 수 있는지 알려 줍니다. **키 회전**을 클릭하여 키를 새 버전으로 업데이트합니다.
+5. 메시지는 새로운 주요 버전의 키를 사용할 수 있는지 알려 줍니다. **키 회전** 을 클릭하여 키를 새 버전으로 업데이트합니다.
 
    ![강조 표시된 메시지와 회전 키에서 Data Lake Storage Gen1 창의 스크린샷](./media/data-lake-store-encryption/rotatekey.png)
 

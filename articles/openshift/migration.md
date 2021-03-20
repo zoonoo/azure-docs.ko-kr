@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: 마이그레이션, aro, openshift, red hat
 ms.openlocfilehash: 371672de83a6d745d7b367f8327a64e11059923e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653281"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그레이션
@@ -81,7 +81,7 @@ Azure Red Hat OpenShift 4 클러스터가 만들어지면 임시 관리자가 �
 
 Azure Red Hat OpenShift 4는 클러스터에서 네트워크를 설정 하는 데 [클러스터 네트워크 운영자](https://docs.openshift.com/container-platform/4.6/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [DNS 연산자](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html)및 [수신 운영자](https://docs.openshift.com/container-platform/4.6/networking/ingress-operator.html)와 같은 몇 가지 연산자를 사용 합니다. Azure Red Hat OpenShift 4 클러스터에서 네트워킹을 설정 하는 방법에 대 한 자세한 내용은 [네트워킹 다이어그램](concepts-networking.md) 및 [네트워킹 이해](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html)를 참조 하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 Azure Red Hat OpenShift 4는 다음 PersistentVolume 플러그 인을 지원 합니다.
 
 - EBS (AWS 탄력적 블록 저장소)

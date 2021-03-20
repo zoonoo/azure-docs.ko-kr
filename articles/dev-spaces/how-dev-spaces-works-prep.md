@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Azure Dev Spaces 작업을 사용 하 여 프로젝트를 준비 하는 방법을 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: d2da69dd8a8c2683ff584dfd0ffc61cb023f2ece
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91968160"
 ---
 # <a name="how-preparing-a-project-for-azure-dev-spaces-works"></a>Azure Dev Spaces 작동을 위해 프로젝트를 준비 하는 방법
@@ -34,9 +34,9 @@ azds prep --enable-ingress
 * Node.js
 * .NET Core
 
-*must* `prep` 소스 코드를 포함 하는 디렉터리에서 명령을 실행 해야 합니다. `prep`올바른 디렉터리에서 명령을 실행 하면 클라이언트 쪽 도구에서 언어를 식별 하 고 적절 한 Dockerfile을 만들어 응용 프로그램을 컨테이너 화 수 있습니다. `prep`Java 프로젝트용 *pom.xml* 파일을 포함 하는 디렉터리에서 명령을 실행할 수도 있습니다.
+ `prep` 소스 코드를 포함 하는 디렉터리에서 명령을 실행 해야 합니다. `prep`올바른 디렉터리에서 명령을 실행 하면 클라이언트 쪽 도구에서 언어를 식별 하 고 적절 한 Dockerfile을 만들어 응용 프로그램을 컨테이너 화 수 있습니다. `prep`Java 프로젝트용 *pom.xml* 파일을 포함 하는 디렉터리에서 명령을 실행할 수도 있습니다.
 
-`prep`소스 코드를 포함 하지 않는 디렉터리에서 명령을 실행 하는 경우 클라이언트 쪽 도구는 Dockerfile을 생성 하지 않습니다. *지원 되지 않는 언어로 인해 Dockerfile을 생성할*수 없다는 오류도 표시 됩니다. 이 오류는 클라이언트 쪽 도구에서 프로젝트 형식을 인식 하지 못하는 경우에도 발생 합니다.
+`prep`소스 코드를 포함 하지 않는 디렉터리에서 명령을 실행 하는 경우 클라이언트 쪽 도구는 Dockerfile을 생성 하지 않습니다. *지원 되지 않는 언어로 인해 Dockerfile을 생성할* 수 없다는 오류도 표시 됩니다. 이 오류는 클라이언트 쪽 도구에서 프로젝트 형식을 인식 하지 못하는 경우에도 발생 합니다.
 
 명령을 실행할 때 `prep` 플래그를 지정 하는 옵션이 있습니다 `--enable-ingress` . 이 플래그는 컨트롤러에이 서비스에 대 한 인터넷 액세스 가능 끝점을 만들도록 지시 합니다. 이 플래그를 지정 하지 않으면 클러스터 내 에서만 또는 클라이언트 쪽 도구에서 만든 localhost 터널을 사용 하 여 서비스에 액세스할 수 있습니다. `prep`생성 된 투구 차트를 업데이트 하 여 명령을 실행 한 후에이 동작을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 

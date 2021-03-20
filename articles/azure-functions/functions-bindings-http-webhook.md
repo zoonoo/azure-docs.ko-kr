@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.openlocfilehash: 5236a3be9f8908d886274764dfc0c0da5b3565bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92104481"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP 트리거 및 바인딩 개요
 
 서버 리스 Api를 빌드하고 [웹 후크에](https://en.wikipedia.org/wiki/Webhook)응답 하기 위해 HTTP 요청을 통해 Azure Functions를 호출할 수 있습니다.
 
-| 작업 | 형식 |
+| 작업 | Type |
 |---------|---------|
 | HTTP 요청에서 함수 실행 | [트리거](./functions-bindings-http-webhook-trigger.md) |
 | 함수에서 HTTP 응답 반환 |[출력 바인딩](./functions-bindings-http-webhook-output.md) |

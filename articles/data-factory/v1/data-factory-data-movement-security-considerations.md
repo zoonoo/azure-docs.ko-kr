@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375105"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
@@ -22,7 +22,7 @@ ms.locfileid: "100375105"
 ## <a name="introduction"></a>소개
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Azure Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
-Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](data-factory-create-pipelines.md)를 만듭니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
+Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](data-factory-create-pipelines.md)를 만듭니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
 
 Data Factory는 **미국 서부**, **미국 동부** 및 **북유럽** 지역에서만 사용할 수 있지만, 데이터 이동 서비스는 [여러 지역에서 전역적으로](data-factory-data-movement-activities.md#global) 사용할 수 있습니다. Data Factory 서비스는 데이터 이동 서비스가 아직 해당 지역에 배포되지 않은 경우 서비스가 대체 지역을 사용하도록 명시적으로 지시하지 않는 한 데이터가 지리적 영역/지역을 벗어나지 않도록 합니다. 
 

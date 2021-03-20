@@ -8,10 +8,10 @@ ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88606809"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>SaaS 처리 Api에 대 한 일반적인 질문
@@ -38,9 +38,9 @@ SaaS 제품을 구독 하는 동안 사용자는 Microsoft 플랫폼을 통해 S
 
 ### <a name="how-are-you-notified-when-a-user-subscribes-to-your-saas-offer"></a>사용자가 SaaS 제품을 구독 하는 경우 어떤 알림이 표시 되나요?
 
-제품을 구독 한 후 Azure 사용자는 Azure에서 모든 제품을 검색 하 고 관리할 수 있습니다. 기본적으로 새로 가입한 SaaS 제품의 상태는 **프로 비전 중으로 보류 중**으로 표시 됩니다. 이 상태에서 Azure 사용자는 Azure Portal에서 SaaS 구독 관리 환경을 탐색 하기 위해 **계정을 구성**하는 작업을 수행 하 라는 메시지가 표시 됩니다.
+제품을 구독 한 후 Azure 사용자는 Azure에서 모든 제품을 검색 하 고 관리할 수 있습니다. 기본적으로 새로 가입한 SaaS 제품의 상태는 **프로 비전 중으로 보류 중** 으로 표시 됩니다. 이 상태에서 Azure 사용자는 Azure Portal에서 SaaS 구독 관리 환경을 탐색 하기 위해 **계정을 구성** 하는 작업을 수행 하 라는 메시지가 표시 됩니다.
 
-사용자가 **계정 구성**을 선택 하면 SaaS 서비스 웹 사이트로 리디렉션됩니다. 제품을 게시할 때 게시자가 URL을 구성 했습니다. 이 페이지를 게시자의 방문 페이지 라고 합니다. Azure 사용자는 Azure에서 기존 AAD 자격 증명을 기반으로 SaaS 방문 페이지에 로그인 합니다.
+사용자가 **계정 구성** 을 선택 하면 SaaS 서비스 웹 사이트로 리디렉션됩니다. 제품을 게시할 때 게시자가 URL을 구성 했습니다. 이 페이지를 게시자의 방문 페이지 라고 합니다. Azure 사용자는 Azure에서 기존 AAD 자격 증명을 기반으로 SaaS 방문 페이지에 로그인 합니다.
 
 Azure 사용자가 방문 페이지로 리디렉션되는 경우 토큰이 쿼리 URL에 추가 됩니다. 이 토큰은 수명이 짧고 24 시간 동안 유효 합니다. 그런 다음이 토큰이 있는지 검색 하 고 Microsoft의 API를 호출 하 여 토큰과 연결 된 추가 컨텍스트를 가져올 수 있습니다.
 

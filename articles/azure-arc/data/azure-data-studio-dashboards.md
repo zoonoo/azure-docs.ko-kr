@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92107575"
 ---
 # <a name="azure-data-studio-dashboards"></a>대시보드 Azure Data Studio
@@ -24,7 +24,7 @@ ms.locfileid: "92107575"
 
 ## <a name="connecting-to-a-data-controller"></a>데이터 컨트롤러에 연결
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - 다운로드 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Azure Arc 확장이 설치 되었습니다.
@@ -68,7 +68,7 @@ https://52.154.152.24:30080
 
 1. 왼쪽의 **연결** 탭을 선택 합니다.
 
-아래쪽을 향해 **Azure Arc 컨트롤러**라는 패널을 확장 합니다.
+아래쪽을 향해 **Azure Arc 컨트롤러** 라는 패널을 확장 합니다.
 
 + 아이콘을 클릭 하 여 새 데이터 컨트롤러 연결을 추가 합니다.
 
@@ -80,7 +80,7 @@ https://52.154.152.24:30080
 
 ## <a name="view-the-data-controller-dashboard"></a>데이터 컨트롤러 대시보드 보기
 
-**Arc controller** 확장 가능 패널의 연결 패널에서 데이터 컨트롤러를 마우스 오른쪽 단추로 클릭 하 고 **관리**를 선택 합니다.
+**Arc controller** 확장 가능 패널의 연결 패널에서 데이터 컨트롤러를 마우스 오른쪽 단추로 클릭 하 고 **관리** 를 선택 합니다.
 
 여기에서 이름, 지역, 연결 모드, 리소스 그룹, 구독, 컨트롤러 끝점 및 네임 스페이스와 같은 데이터 컨트롤러 리소스에 대 한 세부 정보를 볼 수 있습니다.  데이터 컨트롤러에서 관리 하는 모든 관리 되는 데이터베이스 리소스의 목록도 볼 수 있습니다.
 

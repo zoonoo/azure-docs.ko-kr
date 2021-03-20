@@ -4,10 +4,10 @@ description: 이 문서에서는 사용자 할당 관리 id를 사용 하 여 Se
 ms.topic: article
 ms.date: 12/09/2019
 ms.openlocfilehash: 79d8654733b580be96d59e78f31105077929ac78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260084"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity"></a>User-Assigned 관리 Id를 사용 하 여 Service Fabric 응용 프로그램 배포
@@ -88,7 +88,7 @@ User-Assigned id를 사용 하 여 응용 프로그램을 사용 하도록 설�
       </ServiceManifestImport>
     ```
 
-3. **ManagedIdentity** **Resources** `ServiceIdentityRef` 응용 프로그램 매니페스트의에서와 일치 하는 이름으로 리소스 섹션 내부에 microsoft.managedidentity를 추가 하려면 서비스 매니페스트를 업데이트 합니다 `IdentityBindingPolicy` .
+3.   `ServiceIdentityRef` 응용 프로그램 매니페스트의에서와 일치 하는 이름으로 리소스 섹션 내부에 microsoft.managedidentity를 추가 하려면 서비스 매니페스트를 업데이트 합니다 `IdentityBindingPolicy` .
 
     **ServiceManifest.xml**
 

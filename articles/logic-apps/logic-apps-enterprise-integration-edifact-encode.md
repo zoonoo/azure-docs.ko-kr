@@ -9,10 +9,10 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: cee97fddc619840de821ebb70d32e0cab1bbe040
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82106528"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 인코딩
@@ -39,7 +39,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 
 2. EDIFACT 메시지 인코딩 커넥터에는 트리거가 없으므로 요청 트리거와 마찬가지로 논리 앱을 시작하는 트리거를 추가해야 합니다. Logic App Designer에서 트리거를 추가하고 작업을 논리 앱에 추가합니다.
 
-3.  검색 상자에서 필터로 "EDIFACT"를 입력합니다. **규약 이름으로 Edifact 메시지 인코딩** 또는 **id로 edifact 메시지 인코딩**중 하나를 선택 합니다.
+3.  검색 상자에서 필터로 "EDIFACT"를 입력합니다. **규약 이름으로 Edifact 메시지 인코딩** 또는 **id로 edifact 메시지 인코딩** 중 하나를 선택 합니다.
    
     ![EDIFACT 검색](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
@@ -54,7 +54,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
     | 연결 이름 * |연결의 이름을 입력합니다. |
     | 통합 계정 * |통합 계정의 이름을 입력합니다. 통합 계정 및 논리 앱이 동일한 Azure 위치에 있어야 합니다. |
 
-5.  완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기**를 선택합니다.
+5.  완료되면 연결 정보는 이 예제와 유사해야 합니다. 연결 만들기를 완료하려면 **만들기** 를 선택합니다.
 
     ![통합 계정 연결 세부 사항](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
@@ -64,7 +64,7 @@ EDIFACT 메시지 인코딩 커넥터를 사용하여 EDI 및 파트너 관련 �
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>규약 이름으로 EDIFACT 메시지 인코딩
 
-규약 이름으로 EDIFACT 메시지를 인코딩하도록 선택한 경우 ** 규약의 이름** 목록을 열고 EDIFACT 규약 이름을 입력 또는 선택합니다. 인코딩할 XML 메시지를 입력합니다.
+규약 이름으로 EDIFACT 메시지를 인코딩하도록 선택한 경우 **규약의 이름** 목록을 열고 EDIFACT 규약 이름을 입력 또는 선택합니다. 인코딩할 XML 메시지를 입력합니다.
 
 ![인코딩할 EDIFACT 규약 이름 및 XML 메시지를 입력합니다.](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 

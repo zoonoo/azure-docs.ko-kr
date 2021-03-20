@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998586"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>CLI를 사용 하 여 Azure Database for MySQL에 대 한 개인 링크 만들기 및 관리
@@ -23,7 +23,7 @@ ms.locfileid: "95998586"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -170,7 +170,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     | 설정 | 값 |
     | ------- | ----- |
     | 연결 이름| 원하는 연결 이름을 선택 합니다.|
-    | Hostname | *Mydemoserver.privatelink.mysql.database.azure.com* 선택 |
+    | 호스트 이름 | *Mydemoserver.privatelink.mysql.database.azure.com* 선택 |
     | 사용자 이름 | *username@servername* MySQL 서버를 만드는 동안 제공 되는 사용자 이름을 입력 합니다. |
     | 암호 | MySQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||

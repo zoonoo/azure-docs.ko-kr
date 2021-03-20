@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
 ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943905"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML 서비스용 azure storage 솔루션
@@ -18,7 +18,7 @@ HDInsight의 ML 서비스는 다른 저장소 솔루션을 사용 하 여 분석
 
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/)
-- [Azure File 스토리지](https://azure.microsoft.com/services/storage/files/)
+- [Azure 파일 저장소](https://azure.microsoft.com/services/storage/files/)
 
 필요한 경우, HDInsight 클러스터가 있는 여러 Azure Storage 계정 또는 컨테이너에 액세스할 수도 있습니다. Azure File storage는 Azure storage 파일 공유를 Linux 파일 시스템에 탑재할 수 있도록 하는에 지 노드에서 사용할 수 있는 편리한 데이터 저장소 옵션입니다. 하지만, Azure File 공유는 마운팅이 가능하고 Windows 또는 Linux 등 지원되는 운영 체제가 있는 모든 시스템에서 사용할 수 있습니다.
 

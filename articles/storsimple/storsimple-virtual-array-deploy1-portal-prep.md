@@ -9,10 +9,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c1a3d0b05f04ad8c182d428843479160666b96ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87070325"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
@@ -30,7 +30,7 @@ Resource Manager 모델을 사용하여 가상 배열을 파일 서버 또는 iS
 
 이 문서에 게시된 정보는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
-### <a name="get-started"></a>시작
+### <a name="get-started"></a>시작하기
 배포 워크플로는 포털 준비, 가상화된 환경에 가상 배열 프로비전, 설치 완료로 구성됩니다. 파일 서버 또는 iSCSI 서버로 StorSimple 가상 배열 배포를 시작하려면 다음 표에 준비된 리소스를 참고해야 합니다.
 
 #### <a name="deployment-articles"></a>배포 문서
@@ -52,7 +52,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 * [StorSimple 가상 배열 파일 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
 * [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 여기에는 StorSimple 디바이스 관리자 서비스, StorSimple 가상 배열, 데이터 센터 네트워크에 대한 필수 조건이 제공됩니다.
 
@@ -128,8 +128,8 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 #### <a name="to-get-the-virtual-array-image"></a>가상 배열 이미지를 가져오려면
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
-2. Azure Portal에서 **찾아보기 &gt; StorSimple 디바이스 관리자**를 클릭합니다.
-3. 기존 StorSimple 디바이스 관리자 서비스를 선택합니다. **StorSimple 디바이스 관리자** 블레이드에서 **빠른 시작**을 클릭합니다. 
+2. Azure Portal에서 **찾아보기 &gt; StorSimple 디바이스 관리자** 를 클릭합니다.
+3. 기존 StorSimple 디바이스 관리자 서비스를 선택합니다. **StorSimple 디바이스 관리자** 블레이드에서 **빠른 시작** 을 클릭합니다. 
 4. Microsoft 다운로드 센터에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.
    
    * Windows Server 2012 이상의 Hyper-V용 VHDX
@@ -148,17 +148,17 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>디바이스 관리자 서비스와 동일한 Azure 구독에 있는 스토리지 계정 자격 증명을 추가하려면
 
 1. Device Manager 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다.
-3. **추가**를 클릭합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명** 을 선택합니다.
+3. **추가** 를 클릭합니다.
 4. **스토리지 계정 추가** 블레이드에서 다음을 수행합니다.
    
-   1. **구독**에 **현재**를 선택합니다.
+   1. **구독** 에 **현재** 를 선택합니다.
    
    2. Azure Storage 계정의 이름을 제공합니다.
    
-   3. **사용**을 선택하여 StorSimple 디바이스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함**을 선택합니다.
+   3. **사용** 을 선택하여 StorSimple 디바이스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 프라이빗 클라우드 내에서 작동하는 경우에만 **사용 안 함** 을 선택합니다.
    
-   4. **추가**를 클릭합니다. 스토리지 계정이 성공적으로 만들어진 후 알림이 표시됩니다.<br></br>
+   4. **추가** 를 클릭합니다. 스토리지 계정이 성공적으로 만들어진 후 알림이 표시됩니다.<br></br>
    
       ![기존 스토리지 계정 자격 증명 추가](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

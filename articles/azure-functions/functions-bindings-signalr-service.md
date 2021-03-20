@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: 9e60fd9a20720d75f96a0b78ee783bd5509a8f90
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97763492"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Azure Functions의 SignalR Service 바인딩
 
 이 문서 집합에서는 Azure Functions의 SignalR 서비스 바인딩을 사용 하 여 [Azure SignalR service](https://azure.microsoft.com/services/signalr-service/) 에 연결 된 클라이언트에 실시간 메시지를 전송 하 고 전송 하는 방법을 설명 합니다. Azure Functions는 SignalR Service에 대한 입력 및 출력 바인딩을 지원합니다.
 
-| 작업 | 유형 |
+| 작업 | Type |
 |---------|---------|
 | SignalR Service의 메시지 처리 | [트리거 바인딩](./functions-bindings-signalr-service-trigger.md) |
 | 서비스 끝점 URL 및 액세스 토큰 반환 | [입력 바인딩](./functions-bindings-signalr-service-input.md) |
