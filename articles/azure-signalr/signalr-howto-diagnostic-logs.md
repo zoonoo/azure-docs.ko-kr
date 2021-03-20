@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572260"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 리소스 로그
 
 이 자습서에서는 Azure SignalR Service에 대 한 리소스 로그, 설정 방법 및 문제 해결 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 리소스 로그를 사용 하도록 설정 하려면 로그 데이터를 저장 하는 위치에 있어야 합니다. 이 자습서에서는 Azure Storage와 Log Analytics를 사용 합니다.
 
 * [Azure storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) -정책 감사, 정적 분석 또는 백업에 대 한 리소스 로그를 유지 합니다.
@@ -68,7 +68,7 @@ Azure SignalR Service는 한 범주에서 리소스 로그를 캡처합니다.
 
 **Format**
 
-속성 | 설명
+Name | 설명
 ------- | -------
 time | 로그 이벤트 시간
 수준 | 로그 이벤트 수준
@@ -81,7 +81,7 @@ properties | 이 로그 이벤트와 관련 된 자세한 속성입니다. 자�
 
 **속성 테이블**
 
-속성 | Description
+Name | Description
 ------- | -------
 type | 로그 이벤트의 유형입니다. 현재 Azure SignalR 서비스에 대 한 연결 정보를 제공 합니다. 형식만 `ConnectivityLogs` 사용할 수 있습니다.
 collection | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`
@@ -128,7 +128,7 @@ message | 로그 이벤트의 세부 메시지
 
 보관 로그 열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-속성 | Description
+Name | Description
 ------- | ------- 
 TimeGenerated | 로그 이벤트 시간
 컬렉션 | 로그 이벤트의 컬렉션입니다. 허용 되는 값은 `Connection` , 및입니다. `Authorization``Throttling`

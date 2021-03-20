@@ -1,5 +1,5 @@
 ---
-title: SQL Managed Instance 마이그레이션에 대 한 네트워크 토폴로지
+title: SQL Managed Instance 마이그레이션에 대한 네트워크 토폴로지
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 Azure SQL Managed Instance 마이그레이션의 원본 및 대상 구성에 대해 알아봅니다.
 services: database-migration
@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
 ms.openlocfilehash: 0799e8c76bc5d3969943d766aa83de40659a236a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101093323"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 Azure SQL Managed Instance 마이그레이션에 대 한 네트워크 토폴로지
@@ -84,7 +84,7 @@ Azure SQL Managed Instance 온-프레미스 네트워크에 연결 된 경우이
 | **이름**                  | **포트인**                                              | **프로토콜만** | **원본** | **대상이**           | **작업** | **규칙이 필요한 이유**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ServiceBus                | 443, ServiceTag: ServiceBus                           | TCP          | 모두        | 모두                       | Allow      | Service Bus를 통한 관리 평면 통신 <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
-| 스토리지                   | 443, ServiceTag: Storage                              | TCP          | 모두        | 모두                       | Allow      | Azure blob storage를 사용 하는 관리 평면. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
+| Storage                   | 443, ServiceTag: Storage                              | TCP          | 모두        | 모두                       | Allow      | Azure blob storage를 사용 하는 관리 평면. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
 | 진단               | 443, ServiceTag: AzureMonitor                         | TCP          | 모두        | 모두                       | Allow      | DMS는 이 규칙을 사용하여 문제 해결을 위한 진단 정보를 수집합니다. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                  |
 | SQL 원본 서버         | 1433(또는 SQL Server가 수신 대기 중인 TCP IP 포트) | TCP          | 모두        | 온-프레미스 주소 공간 | 허용      | DMS의 SQL Server 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                                       |
 | SQL Server 명명된 인스턴스 | 1434                                                  | UDP          | 모두        | 온-프레미스 주소 공간 | 허용      | DMS의 SQL Server 명명된 인스턴스 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                        |

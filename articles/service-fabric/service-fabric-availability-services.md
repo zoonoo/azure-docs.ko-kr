@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018905"
 ---
 # <a name="availability-of-service-fabric-services"></a>서비스 패브릭 서비스의 가용성
@@ -37,5 +37,5 @@ Service Fabric 개념에 대한 자세한 내용은 다음 문서를 참조하�
 - [Service Fabric 서비스 크기 조정](service-fabric-concepts-scalability.md)
 - [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
-- [신뢰할 수 있는 서비스](service-fabric-reliable-services-introduction.md)
+- [Reliable Services](service-fabric-reliable-services-introduction.md)
 

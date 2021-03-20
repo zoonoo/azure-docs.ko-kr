@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: duau
 ms.openlocfilehash: 5f2aa3d05d349880b5eb2d35a2c58af0741b9855
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98185583"
 ---
 # <a name="nested-traffic-manager-profiles"></a>중첩 Traffic Manager 프로필
@@ -113,7 +113,7 @@ Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 �
 
 [Traffic Manager 프로필](traffic-manager-overview.md)에 대한 자세한 정보
 
-[Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)
+[Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md) 방법 알아보기
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png

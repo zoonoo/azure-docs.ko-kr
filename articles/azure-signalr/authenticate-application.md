@@ -7,10 +7,10 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.openlocfilehash: 597b69c1180ea1fb2a6812d648f8b8ad37707d66
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092605"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-azure-signalr-service"></a>Azure Active Directory를 사용 하 여 Azure SignalR Service에 액세스 하는 응용 프로그램 인증
@@ -55,7 +55,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 
 ![인증 업로드](./media/authenticate/certification.png)
 
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당  
 Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
 
 역할 할당에 적절 한 범위를 결정 한 후 Azure Portal에서 해당 리소스로 이동 합니다. 리소스에 대 한 액세스 제어 (IAM) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.

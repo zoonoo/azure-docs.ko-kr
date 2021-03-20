@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092436"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계
@@ -235,7 +235,7 @@ Azure AD에 대한 내용:
 
 * 애플리케이션의 **구성** 탭에서 Azure AD의 애플리케이션에 권한을 추가합니다. 각 애플리케이션(로컬 및 배포된 버전)에 사용 권한이 필요합니다.
 
-    ![사용 권한](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![권한](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
 * 동적 CENC 보호 설정에 올바른 발급자를 사용합니다.
 

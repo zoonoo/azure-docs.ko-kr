@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 40f912122e6ffb9cccbd32a747f6f0d46fd6c330
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019147"
 ---
 # <a name="scale-with-additional-process-servers"></a>추가 프로세스 서버를 사용 하 여 크기 조정
@@ -41,7 +41,7 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 여기서 보호된 원본 머신 각각은 각 100GB의 디스크 3개로 구성됩니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 추가 프로세스 서버에 대한 필수 구성 요소는 다음 표에 요약되어 있습니다.
 
@@ -81,7 +81,7 @@ UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCred
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-예들 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

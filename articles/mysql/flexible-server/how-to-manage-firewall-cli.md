@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545075"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버 방화벽 규칙 만들기 및 관리
@@ -35,7 +35,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정의 **구독 id** 를 참조 하는 **id** 속성을 기록해 둡니다.
 
@@ -89,11 +89,11 @@ az account set --subscription <subscription id>
 **Az mysql 신축 서버 방화벽-규칙** 명령은 Azure CLI에서 방화벽 규칙을 만들고, 삭제 하 고, 나열 하 고, 표시 하 고, 업데이트 하는 데 사용 됩니다.
 
 명령:
-- **만들기** : 유연한 서버 방화벽 규칙을 만듭니다.
-- **목록** : 유연한 서버 방화벽 규칙을 나열 합니다.
-- **업데이트** : 유연한 서버 방화벽 규칙을 업데이트 합니다.
-- **표시** : 유연한 서버 방화벽 규칙의 세부 정보를 표시 합니다.
-- **삭제** : 유연한 서버 방화벽 규칙을 삭제 합니다.
+- **만들기**: 유연한 서버 방화벽 규칙을 만듭니다.
+- **목록**: 유연한 서버 방화벽 규칙을 나열 합니다.
+- **업데이트**: 유연한 서버 방화벽 규칙을 업데이트 합니다.
+- **표시**: 유연한 서버 방화벽 규칙의 세부 정보를 표시 합니다.
+- **삭제**: 유연한 서버 방화벽 규칙을 삭제 합니다.
 
 구성 가능한 CLI 매개 변수의 전체 목록은 Azure CLI [참조 설명서](/cli/azure/mysql/flexible-server) 를 참조 하세요. 예를 들어 아래 명령에서 필요에 따라 리소스 그룹을 지정할 수 있습니다.
 

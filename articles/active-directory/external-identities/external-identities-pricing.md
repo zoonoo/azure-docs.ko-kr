@@ -12,10 +12,10 @@ manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92442068"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD 외부 Id에 대 한 청구 모델
@@ -51,20 +51,20 @@ Azure AD 테 넌 트는 적절 한 청구 및 기능에 대 한 액세스를 위
 
     ![디렉터리 + 구독 아이콘을 선택 합니다.](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. **Azure 서비스**에서 **Azure Active Directory**를 선택 합니다.
+3. **Azure 서비스** 에서 **Azure Active Directory** 를 선택 합니다.
 
-4. 왼쪽 메뉴에서 **외부 ID**를 선택합니다.
+4. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
 
-5. **구독**아래에서 **연결 된 구독**을 선택 합니다.
+5. **구독** 아래에서 **연결 된 구독** 을 선택 합니다.
 
-6. 테 넌 트 목록에서 테 넌 트 옆의 확인란을 선택 하 고 **구독 연결**을 선택 합니다.
+6. 테 넌 트 목록에서 테 넌 트 옆의 확인란을 선택 하 고 **구독 연결** 을 선택 합니다.
 
     ![테 넌 트를 선택 하 고 구독 연결](media/external-identities-pricing/linked-subscriptions.png)
 
-7. 구독 링크 창에서 **구독** 및 **리소스 그룹**을 선택 합니다. 그런 다음, **적용**을 선택합니다.
+7. 구독 링크 창에서 **구독** 및 **리소스 그룹** 을 선택 합니다. 그런 다음, **적용** 을 선택합니다.
 
    > [!NOTE]
-   > 구독이 나열 되지 않은 경우 [구독을 테 넌 트에 연결할](../fundamentals/active-directory-how-subscriptions-associated-directory.md)수 있습니다. 또는 **아직 구독을 만들**수 없는 경우 링크를 선택 하 여 새 구독을 추가할 수 있습니다.
+   > 구독이 나열 되지 않은 경우 [구독을 테 넌 트에 연결할](../fundamentals/active-directory-how-subscriptions-associated-directory.md)수 있습니다. 또는 **아직 구독을 만들** 수 없는 경우 링크를 선택 하 여 새 구독을 추가할 수 있습니다.
 
     ![구독 및 리소스 그룹 선택](media/external-identities-pricing/link-subscription-resource.png)
 

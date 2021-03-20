@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: c028dcf6649da9abd196997d077b58386a5e6dd9
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101092789"
 ---
 # <a name="azure-active-directory-authorization---rest-api-reference"></a>Azure Active Directory 권한 부여-REST API 참조
@@ -24,7 +24,7 @@ Azure 구독에서 기본적으로 사용할 수 있는 역할은 다음과 같�
 - **Azure 앱 구성 데이터 소유자**:이 역할은 모든 작업에 대 한 모든 권한을 제공 합니다.
 - **Azure 앱 구성 데이터 판독기**:이 역할은 읽기 작업을 사용 하도록 설정 합니다.
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
 역할에는 해당 역할에 할당 된 사용자가 수행할 수 있는 작업 목록이 포함 됩니다. Azure 앱 구성은 다음 작업을 지원 합니다.
 
@@ -43,4 +43,4 @@ HTTP/1.1 403 Forbidden
 
 ## <a name="managing-role-assignments"></a>역할 할당 관리
 
-모든 Azure 서비스에서 standard 인 [AZURE RBAC 절차](../role-based-access-control/overview.md) 를 사용 하 여 역할 할당을 관리할 수 있습니다. Azure CLI, PowerShell 및 Azure Portal를 통해이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+모든 Azure 서비스에서 standard 인 [AZURE RBAC 절차](../role-based-access-control/overview.md) 를 사용 하 여 역할 할당을 관리할 수 있습니다. Azure CLI, PowerShell 및 Azure Portal를 통해이 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.

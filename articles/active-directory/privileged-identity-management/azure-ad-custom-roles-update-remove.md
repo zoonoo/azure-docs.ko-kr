@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4a35442dd8af1cd4acf22de453c8d10460e1e39f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371531"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 할당된 Azure AD 사용자 지정 역할 업데이트 또는 제거
@@ -44,13 +44,13 @@ ms.locfileid: "92371531"
 
     ![적격 역할 할당을 표시하기 위한 Azure AD 사용자 지정 역할 미리 보기 선택](./media/azure-ad-custom-roles-assign/view-custom.png)
 
-1. **역할**을 선택하여 Azure AD 애플리케이션에 대한 사용자 지정 역할의 **할당** 목록을 표시합니다.
+1. **역할** 을 선택하여 Azure AD 애플리케이션에 대한 사용자 지정 역할의 **할당** 목록을 표시합니다.
 
     ![적격 역할 할당 목록을 표시하기 위한 역할 선택](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 
 1. 업데이트 또는 제거하려는 역할을 선택합니다.
 1. **적격 역할** 또는 **활성 역할** 탭에서 역할 할당을 찾습니다.
-1. **업데이트** 또는 **제거**를 선택하여 역할 할당을 업데이트하거나 제거합니다.
+1. **업데이트** 또는 **제거** 를 선택하여 역할 할당을 업데이트하거나 제거합니다.
 
     ![적격 역할 할당에서 제거 또는 업데이트 선택](./media/azure-ad-custom-roles-update-remove/remove-update.png)
 

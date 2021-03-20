@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
 ms.openlocfilehash: aec553b473e0fb2688224e8a8d027f7e9f3a6025
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716621"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
@@ -237,7 +237,7 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 - [음성에 대 한 자세한 정보를 제공 하는 기회 제공](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)
 - [사람에게 핸드오프](#conversational-transparency)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 - [Microsoft 봇 지침](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
 - [Cortana 디자인 지침](/cortana/voice-commands/voicecommand-design-guidelines)
 - [Microsoft Windows UWP 음성 디자인 지침](/windows/uwp/design/input/speech-interactions)

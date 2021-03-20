@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371514"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 관리 기능
@@ -42,8 +42,8 @@ Privileged Identity Management에서 Azure AD 역할에 대 한 관리 환경은
 
 또한 Azure AD 역할에 대 한 새로운 설정을 추가 합니다.
 
-- **이전**에는 역할 별로 활성화 설정만 구성할 수 있었습니다. 즉, 다단계 인증 요구 사항 및 인시던트/요청 티켓 요구 사항과 같은 정품 인증 설정이 지정 된 역할에 적합 한 모든 사용자에 게 적용 되었습니다.
-- **이제**개별 사용자가 multi-factor authentication을 수행 해야 역할을 활성화할 수 있는지 여부를 구성할 수 있습니다. 또한 특정 역할과 관련 된 Privileged Identity Management 전자 메일을 고급 제어할 수 있습니다.
+- **이전** 에는 역할 별로 활성화 설정만 구성할 수 있었습니다. 즉, 다단계 인증 요구 사항 및 인시던트/요청 티켓 요구 사항과 같은 정품 인증 설정이 지정 된 역할에 적합 한 모든 사용자에 게 적용 되었습니다.
+- **이제** 개별 사용자가 multi-factor authentication을 수행 해야 역할을 활성화할 수 있는지 여부를 구성할 수 있습니다. 또한 특정 역할과 관련 된 Privileged Identity Management 전자 메일을 고급 제어할 수 있습니다.
 
 ## <a name="extend-and-renew-assignments"></a>할당 확장 및 갱신
 

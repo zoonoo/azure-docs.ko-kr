@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 24e56736e0d033420f9aaf976b0fb7d9727c1a5b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92143224"
 ---
 # <a name="configure-network-access-control"></a>네트워크 액세스 제어 구성
@@ -41,24 +41,24 @@ Azure Portal를 통해 Azure SignalR Service에 대 한 네트워크 액세스 �
 
 1. 보안을 유지 하려는 Azure SignalR 서비스로 이동 합니다.
 
-1. **네트워크 액세스 제어**라고 하는 설정 메뉴를 클릭 합니다.
+1. **네트워크 액세스 제어** 라고 하는 설정 메뉴를 클릭 합니다.
 
     ![포털의 네트워크 ACL](media/howto-network-access-control/portal.png)
 
 1. 기본 작업을 편집 하려면 **허용/거부** 단추를 설정/해제 합니다.
 
     > [!TIP]
-    > 기본 작업은 ACL 규칙에 일치 하는 항목이 없을 때 수행 하는 동작입니다. 예를 들어 기본 작업이 **거부**인 경우 아래에서 명시적으로 승인 되지 않은 요청 유형은 거부 됩니다.
+    > 기본 작업은 ACL 규칙에 일치 하는 항목이 없을 때 수행 하는 동작입니다. 예를 들어 기본 작업이 **거부** 인 경우 아래에서 명시적으로 승인 되지 않은 요청 유형은 거부 됩니다.
 
-1. 공용 네트워크 규칙을 편집 하려면 **공용 네트워크**에서 허용 되는 요청 유형을 선택 합니다.
+1. 공용 네트워크 규칙을 편집 하려면 **공용 네트워크** 에서 허용 되는 요청 유형을 선택 합니다.
 
     ![포털에서 공용 네트워크 ACL 편집 ](media/howto-network-access-control/portal-public-network.png)
 
-1. 개인 끝점 네트워크 규칙을 편집 하려면 **개인 끝점 연결**아래의 각 행에서 허용 되는 요청 유형을 선택 합니다.
+1. 개인 끝점 네트워크 규칙을 편집 하려면 **개인 끝점 연결** 아래의 각 행에서 허용 되는 요청 유형을 선택 합니다.
 
     ![포털에서 개인 끝점 ACL 편집 ](media/howto-network-access-control/portal-private-endpoint.png)
 
-1. **저장**을 클릭하여 변경 내용을 적용합니다.
+1. **저장** 을 클릭하여 변경 내용을 적용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 robots: noindex
 ms.openlocfilehash: a90b26c677c3d53794bce3c2ff48c618415e4cf2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379372"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 이동
@@ -118,8 +118,8 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 
 | **속성** | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
-| Query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |임의의 문자. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure Data Factory를 통해 사용자는 위의 예제에서 "." 인 nestingSeparator를 통해 계층을 나타낼 수 있습니다. 구분 기호를 사용 하는 경우 복사 작업은 테이블 정의의 "Name. First", "Name. Middle" 및 "Name. Last"에 따라 3 개의 자식 요소가 있는 "Name" 개체를 먼저 생성 합니다. |예 |
+| Query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |임의의 문자. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure Data Factory를 통해 사용자는 위의 예제에서 "." 인 nestingSeparator를 통해 계층을 나타낼 수 있습니다. 구분 기호를 사용 하는 경우 복사 작업은 테이블 정의의 "Name. First", "Name. Middle" 및 "Name. Last"에 따라 3 개의 자식 요소가 있는 "Name" 개체를 먼저 생성 합니다. |아니요 |
 
 **DocumentDbCollectionSink** 는 다음 속성을 지원합니다.
 
@@ -127,7 +127,7 @@ Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 Data Fa
 | --- | --- | --- | --- |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>위의 예에서 출력 테이블의 `Name.First`는 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다.<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |중첩 수준을 구분하는데 사용되는 문자입니다.<br/><br/>기본값은 `.`.(점)입니다. |중첩 수준을 구분하는데 사용되는 문자입니다. <br/><br/>기본값은 `.`.(점)입니다. |
 | writeBatchSize |문서를 작성하는 Azure Cosmos DB 서비스에 대한 병렬 요청 수입니다.<br/><br/>이 속성을 사용하여 Cosmos DB 간 데이터를 복사하는 경우 성능을 미세 조정할 수 있습니다. Cosmos DB에 더 많은 병렬 요청이 전송되기 때문에 writeBatchSize 증가하는 경우 더 나은 성능을 기대할 수 있습니다. 그러나 "요청 빈도가 큼" 인 오류 메시지를 throw 할 수 있는 제한을 방지 해야 합니다.<br/><br/>제한은 문서 크기, 문서에서 용어 수, 대상 컬렉션의 인덱싱 정책 등을 비롯 한 여러 요소로 결정 됩니다. 복사 작업의 경우 더 나은 컬렉션 (예: S3)을 사용 하 여 가장 많은 처리량 (2500 요청 단위/초)을 사용할 수 있습니다. |정수 |아니요(기본값: 5) |
-| writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: "00:30:00"(30분). |예 |
+| writeBatchTimeout |시간이 초과 되기 전에 완료하려는 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: "00:30:00"(30분). |아니요 |
 
 ## <a name="importexport-json-documents"></a>JSON 문서 Import/Export
 이 Cosmos DB 커넥터를 사용하여 다음을 쉽게 수행할 수 있습니다.

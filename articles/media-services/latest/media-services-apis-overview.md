@@ -1,6 +1,6 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
-제목: v3 Api를 사용 하 여 개발: Azure Media Services 설명: Media Services v3로 개발할 때 엔터티 및 Api에 적용 되는 규칙에 대해 알아봅니다. 서비스: media services documentationcenter: ' ' author: IngridAtMicrosoft 관리자: femila ms.date editor: ' '
+제목: v3 Api를 사용 하 여 개발: Azure Media Services 설명: Media Services v3로 개발할 때 엔터티 및 Api에 적용 되는 규칙에 대해 알아봅니다. services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
 ms. 서비스: media services ms. 작업: 밀리초. 토픽: 개념: 밀리초. 날짜: 10/23/2020. 작성자: inhenkel. 사용자 지정: seodec18
 

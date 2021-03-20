@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/14/2020
 ms.author: inhenkel
 ms.openlocfilehash: da3edfe1f21245c23a75f5ea991f79f55f016129
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98690474"
 ---
 <!-- Migration guide next steps -->
@@ -20,7 +20,7 @@ Media Services API V3로 마이그레이션하는 [이점에 대해 알아봅니
 Media Services V2 API와 V3 API 간의 차이점을 이해 합니다.
 
 - [API 액세스](../migrate-v-2-v-3-differences-api-access.md)
-- [기능 간격](../migrate-v-2-v-3-differences-feature-gaps.md)
+- [기능 차이](../migrate-v-2-v-3-differences-feature-gaps.md)
 - [용어 및 엔터티 변경](../migrate-v-2-v-3-differences-terminology.md)
 
 ### <a name="step-3"></a>3단계
@@ -33,4 +33,4 @@ Media Services V2의 응용 프로그램은 고유할 수 있습니다. 따라�
 - [라이브 스트리밍](../migrate-v-2-v-3-migration-scenario-based-live-streaming.md)
 - [패키징 및 제공](../migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [콘텐츠 보호](../migrate-v-2-v-3-migration-scenario-based-content-protection.md)
-- [MRU (미디어 예약 단위)](../migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
+- [MRU(미디어 예약 단위)](../migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)

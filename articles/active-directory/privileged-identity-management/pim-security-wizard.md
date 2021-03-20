@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92372432"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Azure AD 역할에 대 한 검색 및 통찰력 (미리 보기) (이전의 보안 마법사)
@@ -37,13 +37,13 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다.
 
 1. **AZURE AD 역할** 을 선택한 다음 **검색 및 Insights (미리 보기)** 를 선택 합니다. 페이지를 열면 검색 프로세스가 시작 되어 관련 역할 할당을 찾습니다.
 
     ![Azure AD 역할-3 가지 옵션을 보여 주는 검색 및 정보 페이지](./media/pim-security-wizard/new-preview-link.png)
 
-1. **전역 관리자 줄이기**를 선택 합니다.
+1. **전역 관리자 줄이기** 를 선택 합니다.
 
     !["전역 관리자 감소" 작업을 선택 하 여 "검색 및 정보 (미리 보기)"를 보여 주는 스크린샷](./media/pim-security-wizard/new-preview-page.png)
 
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
     ![전역 관리자 줄이기-모든 전역 관리자를 표시 하는 역할 창](./media/pim-security-wizard/new-global-administrator-list.png)
 
-1. **다음** 을 선택 하 여 적합 한 사용자 또는 그룹을 선택 하 고 **적격 설정** 또는 **할당 제거**를 선택 합니다.
+1. **다음** 을 선택 하 여 적합 한 사용자 또는 그룹을 선택 하 고 **적격 설정** 또는 **할당 제거** 를 선택 합니다.
 
     ![역할에 적합 한 멤버를 선택 하는 옵션을 사용 하 여 멤버를 적격 페이지로 변환 합니다.](./media/pim-security-wizard/new-global-administrator-buttons.png)
 

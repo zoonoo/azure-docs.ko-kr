@@ -4,10 +4,10 @@ description: 다양한 입력 소스에서 Batch 리소스 파일을 만드는 �
 ms.date: 03/18/2020
 ms.topic: how-to
 ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109292"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 생성 및 사용

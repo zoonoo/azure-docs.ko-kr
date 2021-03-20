@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery를 사용 하 여 스토리지 공간 다이렉트를 실행 하는 Azure Vm 복제
-description: Azure Site Recovery를 사용 하 여 스토리지 공간 다이렉트를 실행 하는 Azure Vm을 복제 하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용 하 여 저장소 공간 다이렉트를 실행 하는 Azure Vm 복제
+description: Azure Site Recovery를 사용 하 여 저장소 공간 다이렉트를 실행 하는 Azure Vm을 복제 하는 방법을 알아봅니다.
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92424829"
 ---
-# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>스토리지 공간 다이렉트 실행 중인 Azure Vm을 다른 지역에 복제
+# <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>저장소 공간 다이렉트 실행 중인 Azure Vm을 다른 지역에 복제
 
 이 문서에서는 스토리지 공간 다이렉트를 실행하는 Azure VM의 재해 복구를 사용하도록 설정하는 방법에 대해 설명합니다.
 
@@ -77,10 +77,10 @@ Site Recovery [복구 계획](./site-recovery-create-recovery-plans.md) 을 사�
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  만든 복구 계획을 선택합니다.
-3.  **테스트 장애 조치**를 선택합니다.
+3.  **테스트 장애 조치 (Failover)** 를 선택 합니다.
 4.  테스트 장애 조치(failover) 프로세스를 시작하려면 복구 지점과 Azure 가상 네트워크를 선택합니다.
 5.  보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
-6.  유효성 검사가 완료되면 장애 조치(failover) 환경을 정리하기 위해 **테스트 장애 조치(failover) 정리**를 선택합니다.
+6.  유효성 검사가 완료 되 면 장애 조치 (failover) 환경을 정리 하려면 **테스트 장애 조치 (failover) 정리** 를 선택 합니다.
 
 자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: active-directory
 author: kalyankrishna1
 manager: CelesteDG
@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: kkrishna
 ms.openlocfilehash: 174946667885debc348370ef2c6f93206890e9c1
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94628023"
 ---
 MSAL의 토큰 캐시 구현을 사용 하면 백그라운드 앱, Api 및 서비스에서 액세스 토큰 캐시를 사용 하 여 사용자를 대신 하 여 계속 작동할 수 있습니다. 이렇게 하면 사용자가 프런트 엔드 웹 앱을 종료 한 후 백그라운드 앱 및 서비스가 사용자를 대신 하 여 계속 작업 해야 하는 경우에 특히 유용 합니다.

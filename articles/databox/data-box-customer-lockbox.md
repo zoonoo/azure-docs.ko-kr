@@ -9,10 +9,10 @@ ms.date: 07/10/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: 178ad169c1b576458f38b440ca79f4bb9eb012f5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92124914"
 ---
 # <a name="use-customer-lockbox-for-azure-data-box-preview"></a>Azure Data Box에 대 한 고객 Lockbox 사용 (미리 보기)
@@ -62,7 +62,7 @@ Lockbox를 사용 하도록 설정 하지 않은 경우 데이터 액세스에 �
 
     ![Azure Portal 요청](./media/data-box-customer-lockbox/3-lockbox-request-azure-portal.png)
 
-    포털에서 lockbox 요청을 승인 하려면 **승인**을 선택할 수 있습니다.
+    포털에서 lockbox 요청을 승인 하려면 **승인** 을 선택할 수 있습니다.
 
     ![요청 승인](./media/data-box-customer-lockbox/4-lockbox-request-details-azure-portal.png)
 

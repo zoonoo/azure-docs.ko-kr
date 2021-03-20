@@ -11,10 +11,10 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 06/03/2020
 ms.openlocfilehash: f5c176db4f679c79bb42c6ceb46b3588e9440874
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572224"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
@@ -38,11 +38,11 @@ Azure Blob storage에 저장 된 감사 로그는 `sqldbauditlogs` azure storage
 
 ### <a name="event-hub"></a>이벤트 허브
 
-감사 이벤트는 감사 구성 중에 정의 된 네임 스페이스 및 이벤트 허브에 기록 되 고, [Apache Avro](https://avro.apache.org/) 이벤트의 본문에서 캡처되고 utf-8 인코딩을 사용 하 여 JSON 형식 지정을 사용 하 여 저장 됩니다. 감사 로그를 읽으려면 [Avro 도구](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
+감사 이벤트는 감사 구성 중에 정의된 네임스페이스 및 이벤트 허브에 기록되고, [Apache Avro](https://avro.apache.org/) 이벤트의 본문에 캡처되고, UTF-8 인코딩과 함께 JSON 형식을 사용하여 저장됩니다. 감사 로그를 읽으려면 [Avro 도구](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-감사 이벤트는 구성 하는 동안 정의 된 작업 영역 Log Analytics 범주가 있는 `AzureDiagnostics` 테이블에 기록 됩니다 `SQLSecurityAuditEvents` . Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../../azure-monitor/logs/log-query-overview.md)를 참조하세요.
+감사 이벤트는 감사 구성 중에 정의된 Log Analytics 작업 영역, 범주가 `SQLSecurityAuditEvents`인 `AzureDiagnostics` 테이블에 기록됩니다. Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../../azure-monitor/logs/log-query-overview.md)를 참조하세요.
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>감사 로그 필드
 

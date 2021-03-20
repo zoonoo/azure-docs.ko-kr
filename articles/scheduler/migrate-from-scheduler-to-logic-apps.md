@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
 ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368267"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Azure Scheduler 작업을 Azure Logic Apps로 마이그레이션
@@ -65,9 +65,9 @@ ms.locfileid: "92368267"
 
    스키마는 없지만 JSON 형식의 샘플 페이로드가 있는 경우 해당 페이로드로 스키마를 생성할 수 있습니다.
 
-   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
+   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성** 을 선택합니다.
 
-   1. 다음과 같이 **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다.
+   1. 다음과 같이 **샘플 JSON 페이로드를 입력하거나 붙여넣기** 에서 샘플 페이로드를 입력하고 **완료** 를 선택합니다.
 
       ![샘플 페이로드](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "92368267"
       }
       ```
 
-1. 트리거 아래에서 **다음 단계**를 선택합니다.
+1. 트리거 아래에서 **다음 단계** 를 선택합니다.
 
 1. 검색 상자에서 필터로 `delay until`을 입력합니다. 작업 목록에서 다음 작업을 선택합니다. **다음 기간까지 지연**
 
@@ -112,7 +112,7 @@ ms.locfileid: "92368267"
 
 일회성 작업을 수동으로 실행하거나 트리거하려면 논리 앱의 요청 트리거에 대한 엔드포인트 URL에 호출을 보냅니다. 이 호출에서 전송할 입력 또는 페이로드를 지정합니다. 앞에서 스키마를 지정하여 입력 또는 페이로드에 대해 설명했을 수도 있습니다.
 
-예를 들어 Postman 앱을 사용하는 경우 이 샘플과 비슷한 설정으로 POST 요청을 만든 후 **보내기**를 선택하여 요청을 만들 수 있습니다.
+예를 들어 Postman 앱을 사용하는 경우 이 샘플과 비슷한 설정으로 POST 요청을 만든 후 **보내기** 를 선택하여 요청을 만들 수 있습니다.
 
 | 요청 메서드 | URL | 본문 | headers |
 |----------------|-----|------|---------|
@@ -151,7 +151,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
    고급 일정 옵션에 대한 자세한 내용은 [Azure Logic Apps를 사용하여 되풀이 작업 및 워크플로를 만들고 실행](../connectors/connectors-native-recurrence.md)을 참조하세요.
 
-1. [수백 개의 바로 사용할 수 있는 커넥터](../connectors/apis-list.md)에서 선택하여 원하는 다른 작업을 추가합니다. 트리거 아래에서 **다음 단계**를 선택합니다. 원하는 작업을 찾아 선택합니다.
+1. [수백 개의 바로 사용할 수 있는 커넥터](../connectors/apis-list.md)에서 선택하여 원하는 다른 작업을 추가합니다. 트리거 아래에서 **다음 단계** 를 선택합니다. 원하는 작업을 찾아 선택합니다.
 
    예를 들어 URL로 요청을 전송하는 HTTP 작업 또는 Storage 큐, Service Bus 큐, Service Bus 토픽을 사용하는 작업을 포함할 수 있습니다.
 
@@ -169,7 +169,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
 일시적인 오류가 발생할 때 논리 앱에서 작업 재실행을 시도하는 방법을 제어하려면 다음과 같이 각 작업의 설정에서 [재시도 정책](../logic-apps/logic-apps-exception-handling.md#retry-policies)을 설정하면 됩니다.
 
-1. 작업의 줄임표( **...** ) 메뉴를 열고 **설정**을 선택합니다.
+1. 작업의 줄임표( **...** ) 메뉴를 열고 **설정** 을 선택합니다.
 
    ![작업 설정 열기](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -181,7 +181,7 @@ Logic Apps에서 각 일회성 작업은 단일 논리 앱 실행 인스턴스�
 
 Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조건을 해결하는 대체 작업을 실행할 수 있습니다. Azure Logic Apps에서도 동일한 작업을 수행할 수 있습니다.
 
-1. 논리 앱 디자이너에서, 처리하려는 작업의 위쪽에서 포인터를 단계 사이의 화살표 위로 이동하고 **병렬 분기 추가**를 선택합니다.
+1. 논리 앱 디자이너에서, 처리하려는 작업의 위쪽에서 포인터를 단계 사이의 화살표 위로 이동하고 **병렬 분기 추가** 를 선택합니다.
 
    ![병렬 분기 추가](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -189,7 +189,7 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 
    ![병렬 작업 추가](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. 대체 작업에서 줄임표( **...** ) 메뉴를 열고 **실행 조건 구성**을 선택합니다.
+1. 대체 작업에서 줄임표( **...** ) 메뉴를 열고 **실행 조건 구성** 을 선택합니다.
 
    ![실행 조건 구성](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -197,7 +197,7 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 
    !["실행 조건" 속성 설정](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. 완료되면 **완료**를 선택합니다.
+1. 완료되면 **완료** 를 선택합니다.
 
 예외 처리에 대한 자세한 내용은 [오류 및 예외 처리 - RunAfter 속성](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior)을 참조하세요.
 
@@ -224,18 +224,18 @@ Azure Scheduler에서 기본 작업이 실행에 실패하는 경우 오류 조�
 
 Azure 구독에 유료 지원 플랜이 있는 경우 Azure Portal에서 기술 지원 요청을 만들 수 있습니다. 없는 경우 다른 지원 옵션을 선택할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com) 주 메뉴에서 **도움말 + 지원**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 주 메뉴에서 **도움말 + 지원** 을 선택합니다.
 
-1. **지원** 메뉴에서 **새 지원 요청**을 선택합니다. 요청에 대해 다음 정보를 제공합니다.
+1. **지원** 메뉴에서 **새 지원 요청** 을 선택합니다. 요청에 대해 다음 정보를 제공합니다.
 
    | 속성 | 값 |
    |---------|-------|
    | **문제 유형** | **기술** |
    | **구독** | <*your-Azure-subscription*> |
-   | **서비스** | **모니터링 및 관리** 아래에서 **Scheduler**를 선택합니다. **Scheduler**를 찾을 수 없는 경우 먼저 **모든 서비스**를 선택합니다. |
+   | **서비스** | **모니터링 및 관리** 아래에서 **Scheduler** 를 선택합니다. **Scheduler** 를 찾을 수 없는 경우 먼저 **모든 서비스** 를 선택합니다. |
    ||| 
 
-1. 원하는 지원 옵션을 선택합니다. 유료 지원 계획이 있는 경우 **다음**을 선택합니다.
+1. 원하는 지원 옵션을 선택합니다. 유료 지원 계획이 있는 경우 **다음** 을 선택합니다.
 
 **커뮤니티**
 

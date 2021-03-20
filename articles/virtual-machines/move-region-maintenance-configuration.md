@@ -8,10 +8,10 @@ ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98202915"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성을 다른 지역으로 이동
@@ -24,7 +24,7 @@ ms.locfileid: "98202915"
 - 유지 관리 구성과 관련 된 리소스를 이동 하지만 구성 자체는 이동 하지 않으려면 [다음 지침](move-region-maintenance-configuration-resources.md)을 따르세요.
 - 유지 관리 구성과 연결 된 리소스를 모두 이동 하려면 먼저이 문서의 지침을 따르세요. 그런 다음, 다음 [지침](move-region-maintenance-configuration-resources.md)을 따릅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 유지 관리 제어 구성 이동을 시작 하기 전에 다음을 수행 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "98202915"
     ```
 2. 구독 내에서 구성 레코드의 반환 된 테이블 목록을 검토 합니다. 예를 들면 다음과 같습니다. 목록에는 특정 환경에 대 한 값이 포함 됩니다.
 
-    **Name** | **위치** | **리소스 그룹**
+    **이름** | **위치** | **리소스 그룹**
     --- | --- | ---
     유지 관리 건너뛰기 | eastus2 | 구성-리소스 그룹
     IgniteDemoConfig | eastus2 | 구성-리소스 그룹

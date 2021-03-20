@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371990"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
@@ -44,9 +44,9 @@ Site Recovery가 Azure에서 장애 조치된 클래식 가상 머신을 만들 
 
 Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습니다. 하이드레이션의 내부 활동이 온-프레미스 가상 머신에 대해 실패했으므로 발생할 수 있습니다.
 
-Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상태의 일부 드라이버 및 자동 시작 상태의 DHCP와 같은 서비스가 필요합니다. 따라서 장애 조치(failover) 시 하이드레이션 작업은 **atapi, intelide, storflt, vmbus 및 storvsc 드라이버**의 시작 형식을 부팅 시작으로 변환합니다. 또한 DHCP와 같은 몇 가지 서비스의 시작 유형을 자동 시작으로 변환합니다. 이 작업은 특정 환경 문제로 인해 실패할 수 있습니다. 
+Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상태의 일부 드라이버 및 자동 시작 상태의 DHCP와 같은 서비스가 필요합니다. 따라서 장애 조치(failover) 시 하이드레이션 작업은 **atapi, intelide, storflt, vmbus 및 storvsc 드라이버** 의 시작 형식을 부팅 시작으로 변환합니다. 또한 DHCP와 같은 몇 가지 서비스의 시작 유형을 자동 시작으로 변환합니다. 이 작업은 특정 환경 문제로 인해 실패할 수 있습니다. 
 
-**Windows 게스트 OS**의 드라이버 시작 유형을 수동으로 변경하려면 아래 단계를 따릅니다.
+**Windows 게스트 OS** 의 드라이버 시작 유형을 수동으로 변경하려면 아래 단계를 따릅니다.
 
 1. 비하이드레이션 스크립트를 [다운로드](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1)하여 다음과 같이 실행합니다. 이 스크립트는 VM에 하이드레이션이 필요한지 확인합니다.
 
@@ -84,17 +84,17 @@ SSH 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-mach
 
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우에는 다음을 수행합니다.
 
-1. **가상 머신** > **네트워킹**으로 차례로 이동하고, 필요한 네트워크 인터페이스의 이름을 클릭합니다.  ![스크린샷 선택한 네트워크 인터페이스 이름을 사용 하는 가상 컴퓨터에 대 한 네트워킹 페이지를 표시 합니다.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. **IP 구성**으로 이동한 다음, 필요한 IP 구성의 이름 필드를 클릭합니다. ![I P 구성 이름이 선택 된 네트워크 인터페이스에 대 한 I P 구성 페이지를 보여 주는 스크린샷](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. 공용 IP 주소를 사용하도록 설정하려면 **사용**을 클릭합니다. ![IP 사용](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. **필수 설정 구성** > **새로 만들기**를 차례로 클릭합니다. ![새로 만들기](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. 공용 주소의 이름을 입력하고, **SKU** 및 **할당**에 대한 기본 옵션을 선택한 다음, **확인**을 클릭합니다.
-6. 이제 변경 내용을 저장하려면 **저장**을 클릭합니다.
+1. **가상 머신** > **네트워킹** 으로 차례로 이동하고, 필요한 네트워크 인터페이스의 이름을 클릭합니다.  ![스크린샷 선택한 네트워크 인터페이스 이름을 사용 하는 가상 컴퓨터에 대 한 네트워킹 페이지를 표시 합니다.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. **IP 구성** 으로 이동한 다음, 필요한 IP 구성의 이름 필드를 클릭합니다. ![I P 구성 이름이 선택 된 네트워크 인터페이스에 대 한 I P 구성 페이지를 보여 주는 스크린샷](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. 공용 IP 주소를 사용하도록 설정하려면 **사용** 을 클릭합니다. ![IP 사용](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. **필수 설정 구성** > **새로 만들기** 를 차례로 클릭합니다. ![새로 만들기](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. 공용 주소의 이름을 입력하고, **SKU** 및 **할당** 에 대한 기본 옵션을 선택한 다음, **확인** 을 클릭합니다.
+6. 이제 변경 내용을 저장하려면 **저장** 을 클릭합니다.
 7. 패널을 닫고, 가상 머신의 **개요** 섹션으로 이동하여 RDP를 연결합니다.
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>연결할 수 없음/RDP/SSH - VM 연결 단추 사용 가능
 
-Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단**을 검사하고 [이 문서](../virtual-machines/troubleshooting/boot-diagnostics.md)에 나열된 오류를 확인합니다.
+Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단** 을 검사하고 [이 문서](../virtual-machines/troubleshooting/boot-diagnostics.md)에 나열된 오류를 확인합니다.
 
 1. 가상 머신이 시작되지 않은 경우 이전의 복구 지점으로 장애 조치를 시도합니다.
 2. 가상 머신 내 애플리케이션이 가동되지 않는 경우 애플리케이션 일치 복구 지점으로 장애 조치를 시도합니다.

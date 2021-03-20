@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
 ms.openlocfilehash: 15f1a814b302611029cf6459b8d2df93a32a2d36
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97740558"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>새 Azure Time Series Insights Gen2 API 버전으로 마이그레이션
@@ -63,7 +63,7 @@ ms.locfileid: "97740558"
 
     [![저장 된 쿼리 업데이트](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **완료** 를 클릭합니다.
+1. **Done** 을 클릭합니다.
 
     [![완료 된 마이그레이션](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -107,7 +107,7 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
   - [GetSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="typesbatchput"></a>유형 Batchput
 

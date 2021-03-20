@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
 ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371956"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
@@ -48,9 +48,9 @@ ms.locfileid: "92371956"
     3. [Site Recovery 폴더에 나열된 폴더가 바이러스 백신 프로그램](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 제외되고 바이러스 백신 소프트웨어에서 제외되도록 해야 합니다.  
     4. 문제를 해결한 후에 [구성 서버에 원본 머신 등록](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)의 지침에 따라 등록을 다시 시도합니다.
 
-7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare**나 **Azure**로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패 하는 경우 다음 단계를 완료 합니다. a. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
+7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare** 나 **Azure** 로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패 하는 경우 다음 단계를 완료 합니다. a. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
     b. Installation_Directory/Vx/bin/uninstall.sh 파일을 열고 **stop_services** 함수에 대한 호출을 주석으로 처리합니다.
-    c. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
+    다. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
     d. 모바일 에이전트를 [제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) 합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
 
 8. 사용자 계정에 대해 multi-factor authentication을 사용 하도록 설정 하지 않았는지 확인 합니다. Azure Site Recovery는 현재 사용자 계정에 대 한 multi-factor authentication을 지원 하지 않습니다. Multi-factor authentication을 사용 하도록 설정 된 사용자 계정을 사용 하지 않고 구성 서버를 등록 합니다.  
@@ -99,7 +99,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 
 Setting | 세부 정보
 --- | ---
-사용 | UnifiedAgentConfigurator.exe  /CSEndPoint <구성 서버 IP 주소\> /PassphraseFilePath <암호 파일 경로\>
+사용량 | UnifiedAgentConfigurator.exe  /CSEndPoint <구성 서버 IP 주소\> /PassphraseFilePath <암호 파일 경로\>
 에이전트 구성 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log 아래에 있습니다.
 /CSEndPoint | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 /PassphraseFilePath |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -114,7 +114,7 @@ Setting | 세부 정보
 
 Setting | 세부 정보
 --- | ---
-사용 | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <구성 서버 IP 주소\> -P <암호 파일 경로\>
+사용량 | cd /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i <구성 서버 IP 주소\> -P <암호 파일 경로\>
 -i | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
@@ -195,7 +195,7 @@ AAD(Azure Active Directory)에서 [OVA(Open Virtualization Application)](vmware-
 이 문제를 해결하려면 Azure Portal에 로그인하고 다음 중 하나를 수행합니다.
 
 - AAD에서 애플리케이션 개발자 역할을 요청합니다. 애플리케이션 개발자 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/roles/permissions-reference.md)을 참조하세요.
-- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true*로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)를 참조 하세요.
+- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true* 로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)를 참조 하세요.
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>프로세스 서버/마스터 대상이 구성 서버와 통신할 수 없음 
 

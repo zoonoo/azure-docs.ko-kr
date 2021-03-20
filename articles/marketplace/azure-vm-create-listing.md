@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
 ms.openlocfilehash: 7030ffeb49c0a3919894f6dcf81e7252777267c5
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629600"
 ---
 # <a name="how-to-configure-virtual-machine-offer-listing-details"></a>가상 컴퓨터 제품 목록 세부 정보를 구성 하는 방법
@@ -55,8 +55,8 @@ HTML 태그를 사용하여 설명의 서식을 지정하면 더 흡입력 있�
 
 제품에 대한 온라인 추가 문서를 제공합니다. 링크를 추가 하려면 **링크 추가** 를 선택 하 고 다음 필드를 완료 합니다.
 
-- **Name** : 고객은 세부 정보 페이지에서 이름을 볼 수 있습니다.
-- **링크** : 고객이 온라인 문서를 볼 수 있는 웹 주소를 입력 합니다.
+- **Name**: 고객은 세부 정보 페이지에서 이름을 볼 수 있습니다.
+- **링크**: 고객이 온라인 문서를 볼 수 있는 웹 주소를 입력 합니다.
 
 ## <a name="customer-support-links"></a>고객 지원 링크
 
@@ -67,15 +67,15 @@ HTML 태그를 사용하여 설명의 서식을 지정하면 더 흡입력 있�
 
 ## <a name="partner-support-contact"></a>파트너 지원 연락처
 
-고객이 지원 티켓을 열 때 사용할 Microsoft 파트너의 **이름** , **전자 메일** 및 **전화 번호** 를 제공 합니다. 이 정보는 Azure Marketplace에 나열되지 않습니다.
+고객이 지원 티켓을 열 때 사용할 Microsoft 파트너의 **이름**, **전자 메일** 및 **전화 번호** 를 제공 합니다. 이 정보는 Azure Marketplace에 나열되지 않습니다.
 
 ## <a name="engineering-contact"></a>엔지니어링 연락처
 
-인증 관련 문제를 포함 하 여 제품에 문제가 있는 경우 사용할 Microsoft의 **이름** , **전자 메일** 및 **전화 번호** 를 제공 합니다. 이 정보는 Azure Marketplace에 나열되지 않습니다.
+인증 관련 문제를 포함 하 여 제품에 문제가 있는 경우 사용할 Microsoft의 **이름**, **전자 메일** 및 **전화 번호** 를 제공 합니다. 이 정보는 Azure Marketplace에 나열되지 않습니다.
 
 ## <a name="cloud-solution-provider-program-contact"></a>클라우드 솔루션 공급자 프로그램 연락처
 
-CSP 프로그램 (해당 하는 경우)을 처리 하는 사용자의 **이름** , **전자 메일** 및 **전화 번호** 를 제공 합니다. 이 정보는 Azure Marketplace에 나열되지 않습니다. **CSP 프로그램 마케팅 자료** 에 대해이 프로그램의 파트너가 마케팅 자료를 볼 수 있는 웹 주소를 입력 합니다.
+CSP 프로그램 (해당 하는 경우)을 처리 하는 사용자의 **이름**, **전자 메일** 및 **전화 번호** 를 제공 합니다. 이 정보는 Azure Marketplace에 나열되지 않습니다. **CSP 프로그램 마케팅 자료** 에 대해이 프로그램의 파트너가 마케팅 자료를 볼 수 있는 웹 주소를 입력 합니다.
 
 ## <a name="marketplace-media"></a>마켓플레이스 미디어
 

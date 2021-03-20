@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
 ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018684"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
@@ -105,11 +105,11 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Front Door Service
 - Azure Bastion
 - Azure App Service
-- Azure 기능
+- Azure Functions
 - Azure 데이터 팩터리
 - Azure API Management
 - Azure Batch 
-- Azure Data Explorer
+- Azure 데이터 탐색기
 - HDInsight
 - Azure Cosmos DB
 - Azure Data Lake Store

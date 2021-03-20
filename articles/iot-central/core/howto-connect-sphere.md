@@ -9,10 +9,10 @@ author: sandeeppujar
 ms.date: 04/30/2020
 ms.custom: device-developer
 ms.openlocfilehash: 770f6e56a669ab2d9b425a7a2879eeef5d37377b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123426"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Azure Sphere 디바이스 추가
@@ -47,13 +47,13 @@ Azure Sphere는 인터넷에 연결된 디바이스를 위한 기본 제공 통�
 
 IoT Central에서 Azure Sphere 디바이스를 만들려면 다음을 수행합니다.
 
-1. Azure IoT Central 애플리케이션에서 **디바이스 템플릿** 탭을 선택하고 **+ 새로 만들기**를 선택합니다. **추천 디바이스 템플릿 사용** 섹션에서 **Azure Sphere 샘플 디바이스**를 선택합니다.
+1. Azure IoT Central 애플리케이션에서 **디바이스 템플릿** 탭을 선택하고 **+ 새로 만들기** 를 선택합니다. **추천 디바이스 템플릿 사용** 섹션에서 **Azure Sphere 샘플 디바이스** 를 선택합니다.
 
     :::image type="content" source="media/howto-connect-sphere/sphere-create-template.png" alt-text="Azure Sphere DevKit에 대한 디바이스 템플릿":::
 
-1. 디바이스 템플릿에서 **개요**라고 하는 보기를 편집하여 **온도** 및 **단추 누르기**가 표시되도록 합니다.
+1. 디바이스 템플릿에서 **개요** 라고 하는 보기를 편집하여 **온도** 및 **단추 누르기** 가 표시되도록 합니다.
 
-1. **디바이스 및 클라우드 데이터 편집** 보기 유형을 선택하여 읽기/쓰기 속성 **상태 LED**를 표시하는 다른 보기를 추가합니다. **상태 LED** 속성을 양식의 오른쪽에 있는 빈 점선 사각형으로 끕니다. **저장**을 선택합니다.
+1. **디바이스 및 클라우드 데이터 편집** 보기 유형을 선택하여 읽기/쓰기 속성 **상태 LED** 를 표시하는 다른 보기를 추가합니다. **상태 LED** 속성을 양식의 오른쪽에 있는 빈 점선 사각형으로 끕니다. **저장** 을 선택합니다.
 
 ## <a name="prepare-the-device"></a>디바이스 준비
 
@@ -67,7 +67,7 @@ Azure Sphere DevKit 디바이스를 IoT Central에 연결하려면 [디바이스
 
 디바이스가 IoT Central에 연결되면 대시보드에서 원격 분석을 볼 수 있습니다.
 
-:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Azure Sphere DevKit에 대한 디바이스 템플릿":::
+:::image type="content" source="media/howto-connect-sphere/sphere-view.png" alt-text="Azure Sphere DevKit를 위한 대시보드":::
 
 ## <a name="create-a-simulated-device"></a>시뮬레이션된 디바이스 만들기
 
@@ -75,11 +75,11 @@ Azure Sphere DevKit 디바이스를 IoT Central에 연결하려면 [디바이스
 
 시뮬레이션된 디바이스를 만들려면 다음을 수행합니다.
 
-- **디바이스 > Azure IoT Sphere**를 선택합니다.
-- **+새로 만들기**를 선택합니다.
-- 고유한 **디바이스 ID** 및 친숙한 **디바이스 이름**을 입력합니다.
+- **디바이스 > Azure IoT Sphere** 를 선택합니다.
+- **+새로 만들기** 를 선택합니다.
+- 고유한 **디바이스 ID** 및 친숙한 **디바이스 이름** 을 입력합니다.
 - **시뮬레이션된** 설정을 사용하도록 설정합니다.
-- **만들기**를 선택합니다.
+- **만들기** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

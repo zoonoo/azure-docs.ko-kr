@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090128"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: 준비 서버 및 재해 복구
@@ -33,7 +33,7 @@ ms.locfileid: "90090128"
 * 새 구성 변경 내용을 테스트하고 배포합니다.
 * 새 서버를 도입하고 이전 서비스를 제거합니다.
 
-설치 중에 서버를 선택하여 **스테이징 모드**로 둘 수 있습니다. 이 작업은 서버가 가져오기 및 동기화에 대해 활성화하도록 하지만 내보내기는 수행하지 않습니다. 설치 중에 이러한 기능을 선택하더라도 스테이징 모드에 있는 서버는 암호 동기화 또는 비밀번호 쓰기 저장을 실행하지 않습니다. 스테이징 모드를 해제하면 서버가 내보내기를 시작하고 암호 동기화 및 비밀번호 쓰기 저장을 사용하도록 설정합니다.
+설치 중에 서버를 선택하여 **스테이징 모드** 로 둘 수 있습니다. 이 작업은 서버가 가져오기 및 동기화에 대해 활성화하도록 하지만 내보내기는 수행하지 않습니다. 설치 중에 이러한 기능을 선택하더라도 스테이징 모드에 있는 서버는 암호 동기화 또는 비밀번호 쓰기 저장을 실행하지 않습니다. 스테이징 모드를 해제하면 서버가 내보내기를 시작하고 암호 동기화 및 비밀번호 쓰기 저장을 사용하도록 설정합니다.
 
 > [!NOTE]
 > 암호 해시 동기화 기능이 사용되도록 설정된 Azure AD Connect를 사용한다고 가정합니다. 준비 모드에서 서버는 온-프레미스 AD의 암호 변경에 대한 동기화를 중지합니다. 준비 모드를 사용되지 않도록 설정하면 서버는 마지막에 중단한 암호 변경부터 동기화를 다시 시작합니다. 서버가 오랫 동안 준비 모드를 유지할 경우 서버가 해당 기간 동안 발생한 모든 암변호 경 내용을 동기화하는 데 다소 시간이 걸릴 수 있습니다.
@@ -56,18 +56,18 @@ ms.locfileid: "90090128"
 5. [활성 서버 전환](#switch-active-server)
 
 #### <a name="prepare"></a>준비
-1. Azure AD Connect를 설치하고 **스테이징 모드**를 선택하고 설치 마법사의 마지막 페이지에서 **동기화 시작**의 선택을 취소합니다. 이 모드를 통해 동기화 엔진을 수동으로 실행할 수 있습니다.
+1. Azure AD Connect를 설치하고 **스테이징 모드** 를 선택하고 설치 마법사의 마지막 페이지에서 **동기화 시작** 의 선택을 취소합니다. 이 모드를 통해 동기화 엔진을 수동으로 실행할 수 있습니다.
    ![Azure AD Connect 대화 상자의 구성 준비 페이지가 표시 됩니다.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
-2. 시작 메뉴에서 로그오프/로그온하고 **동기화 서비스**를 선택합니다.
+2. 시작 메뉴에서 로그오프/로그온하고 **동기화 서비스** 를 선택합니다.
 
 #### <a name="configuration"></a>구성
 주 서버에 사용자 지정 변경 내용을 적용했으며 구성을 스테이징 서버와 비교하려는 경우 [Azure AD Connect 구성 구조 분석](https://github.com/Microsoft/AADConnectConfigDocumenter)을 사용합니다.
 
 #### <a name="import-and-synchronize"></a>가져오기 및 동기화
-1. **커넥터**를 선택하고 **Active Directory 도메인 서비스** 유형의 첫 번째 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다. 이 형식인 모든 커넥터에 해당 단계를 수행합니다.
-2. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
-3. 탭 커넥터가 여전히 선택되어있는지 확인합니다. **Active Directory Domain Services** 형식인 각 커넥터의 경우 **실행**을 클릭하고 **델타 동기화** 및 **확인**을 선택합니다.
-4. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 **확인**을 차례로 선택합니다.
+1. **커넥터** 를 선택하고 **Active Directory 도메인 서비스** 유형의 첫 번째 커넥터를 선택합니다. **실행** 을 클릭하고 **전체 가져오기** 및 **확인** 을 선택합니다. 이 형식인 모든 커넥터에 해당 단계를 수행합니다.
+2. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행** 을 클릭하고 **전체 가져오기** 및 **확인** 을 선택합니다.
+3. 탭 커넥터가 여전히 선택되어있는지 확인합니다. **Active Directory Domain Services** 형식인 각 커넥터의 경우 **실행** 을 클릭하고 **델타 동기화** 및 **확인** 을 선택합니다.
+4. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행** 을 클릭하고 **델타 동기화** 및 **확인** 을 차례로 선택합니다.
 
 이제 Azure AD 및 온-프레미스 AD에 스테이징된 내보내기 변경 사항이 있습니다.(Exchange 하이브리드 배포를 사용하는 경우) 다음 단계를 사용하면 디렉터리에 실제로 내보내기를 시작하기 전에 무엇이 변경될지를 검사할 수 있습니다.
 
@@ -85,11 +85,11 @@ ms.locfileid: "90090128"
 1. 섹션 [CSAnalyzer](#appendix-csanalyzer)의 PowerShell 스크립트를 `csanalyzer.ps1`이라는 파일에 복사합니다.
 2. PowerShell 창을 열고 PowerShell 스크립트를 만든 폴더로 이동합니다.
 3. `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`을 실행합니다.
-4. 이제 Microsoft Excel에서 검사할 수 있는 **processedusers1.csv**라는 파일이 있습니다. 이 파일은 DN 특성에서 공통 식별자(예: displayName 및 userPrincipalName)로의 매핑을 제공합니다. 현재는 내보내려는 실제 특성 변경 사항이 포함되어 있지 않습니다.
+4. 이제 Microsoft Excel에서 검사할 수 있는 **processedusers1.csv** 라는 파일이 있습니다. 이 파일은 DN 특성에서 공통 식별자(예: displayName 및 userPrincipalName)로의 매핑을 제공합니다. 현재는 내보내려는 실제 특성 변경 사항이 포함되어 있지 않습니다.
 
 #### <a name="switch-active-server"></a>활성 서버 전환
 1. Azure AD로 내보내지 않으므로 현재 활성 서버에서 서버를 해제하거나(DirSync/FIM Azure AD Sync) 스테이징 모드로 설정합니다(Azure AD Connect).
-2. **스테이징 모드** 서버에서 설치 마법사를 실행하고 **스테이징 모드**를 사용하지 않도록 설정합니다.
+2. **스테이징 모드** 서버에서 설치 마법사를 실행하고 **스테이징 모드** 를 사용하지 않도록 설정합니다.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
 ## <a name="disaster-recovery"></a>재해 복구
@@ -102,7 +102,7 @@ ms.locfileid: "90090128"
 이러한 질문 및 조직의 정책에 대한 답변에 따라 다음 전략 중 하나를 구현할 수 있습니다.
 
 * 필요할 때 다시 작성합니다.
-* **스테이징 모드**라고 하는 예비 대기 서버가 있습니다.
+* **스테이징 모드** 라고 하는 예비 대기 서버가 있습니다.
 * 가상 머신을 사용합니다.
 
 기본 제공 SQL Express 데이터베이스를 사용하지 않는 경우 [SQL 고가용성](#sql-high-availability) 섹션도 또한 검토해야 합니다.
@@ -113,7 +113,7 @@ ms.locfileid: "90090128"
 동기화 엔진 서버는 개체에 대한 상태를 저장하지 않으므로 Active Directory 및 Azure AD의 데이터에서 데이터베이스를 다시 빌드할 수 있습니다. **sourceAnchor** 특성을 온-프레미스 및 클라우드에서 개체를 조인하는데 사용합니다. 기존 온-프레미스 및 클라우드 개체로 서버를 다시 작성하는 경우 다시 설치 시 동기화 엔진은 해당 개체를 일치시킵니다. 문서화 및 저장해야 할 사항은 필터링 및 동기화 규칙 등과 같은 서버의 구성 변경입니다. 동기화를 시작하기 전에 해당 사용자 지정 구성을 다시 적용해야 합니다.
 
 ### <a name="have-a-spare-standby-server---staging-mode"></a>스테이징 모드라는 예비 대기 서버가 있습니다.
-더 복잡한 환경을 사용하는 경우 하나 이상의 대기 서버가 있는 것이 좋습니다. 설치 중에 서버를 사용하도록 설정하여 **스테이징 모드**로 둘 수 있습니다.
+더 복잡한 환경을 사용하는 경우 하나 이상의 대기 서버가 있는 것이 좋습니다. 설치 중에 서버를 사용하도록 설정하여 **스테이징 모드** 로 둘 수 있습니다.
 
 자세한 내용은 [준비 모드](#staging-mode)를 참조 하세요.
 
@@ -151,9 +151,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency

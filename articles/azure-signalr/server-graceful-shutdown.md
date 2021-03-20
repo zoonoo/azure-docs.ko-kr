@@ -7,10 +7,10 @@ ms.date: 11/12/2020
 ms.service: signalr
 ms.topic: conceptual
 ms.openlocfilehash: d9dd7ce9cf321628598a7bb866c5d1b1a6fb0e1e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98201674"
 ---
 # <a name="server-graceful-shutdown"></a>서버 정상 종료
@@ -20,7 +20,7 @@ Microsoft Azure SignalR Service는 서버를 정상적으로 종료 하는 두 �
 
 대신, 비즈니스 논리와 관련 하 여 자신을 닫기 위해 클라이언트 연결을 기다리거나 데이터 손실 없이 다른 서버에 대 한 클라이언트 연결을 마이그레이션할 수도 있습니다. 
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 일반적으로 정상 종료 프로세스에는 네 단계가 있습니다.
 

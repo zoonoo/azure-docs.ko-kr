@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92537663"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Azure Cache for Redis 관리 Faq
 이 문서에서는 Redis 용 Azure Cache를 관리 하는 방법에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
 
-## <a name="common-questions-and-answers"></a>일반적인 질문과 답변
+## <a name="common-questions-and-answers"></a>일반적인 질문 및 답변
 이 섹션에서는 다음 Faq를 다룹니다.
 
 * [언제 비 TLS/SSL 포트를 사용하여 Redis에 연결할 수 있도록 해야 하나요?](#when-should-i-enable-the-non-tlsssl-port-for-connecting-to-redis)

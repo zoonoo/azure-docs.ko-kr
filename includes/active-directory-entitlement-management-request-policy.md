@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -9,10 +9,10 @@ ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
 ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98698008"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자

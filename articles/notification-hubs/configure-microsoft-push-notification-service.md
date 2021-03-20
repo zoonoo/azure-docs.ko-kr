@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 6784331dccd779390ace7dc632d54fe54aedc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87760994"
 ---
 # <a name="configure-microsoft-push-notification-service-mpns-settings-in-the-azure-portal"></a>Azure Portal에서 MPNS (Microsoft 푸시 알림 서비스) 설정 구성
@@ -33,16 +33,16 @@ ms.locfileid: "87760994"
 1. Azure Portal의 **알림 허브** 페이지에서 왼쪽 메뉴에 있는 **Windows Phone (MPNS)** 를 선택 합니다.
 2. 인증되지 않았거나 인증된 푸시 알림 사용:
 
-   a. 인증되지 않은 푸시 알림을 사용하도록 설정하려면 **인증되지 않은 푸시 사용** > **저장**을 선택합니다.
+   a. 인증되지 않은 푸시 알림을 사용하도록 설정하려면 **인증되지 않은 푸시 사용** > **저장** 을 선택합니다.
 
       ![인증되지 않은 푸시 알림을 사용하도록 설정하는 방법을 보여주는 스크린샷](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
    b. 인증된 푸시 알림을 사용하도록 설정하려면 다음을 수행합니다.
-      * 도구 모음에서 **인증서 업로드**를 선택합니다.
+      * 도구 모음에서 **인증서 업로드** 를 선택합니다.
       * 파일 아이콘을 선택한 다음, 인증서 파일을 선택합니다.
       * 인증서에 대한 암호를 입력합니다.
-      * **확인**을 선택합니다.
-      * **Windows Phone(MPNS)** 페이지에서 **저장**을 선택합니다.
+      * **확인** 을 선택합니다.
+      * **Windows Phone(MPNS)** 페이지에서 **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

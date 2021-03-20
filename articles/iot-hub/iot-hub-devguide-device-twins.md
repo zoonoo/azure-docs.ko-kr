@@ -12,10 +12,10 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093023"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
@@ -124,7 +124,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 다음은 그 예입니다. 
+이전 예제에서 `telemetryConfig` 디바이스 쌍 desired 및 reported 속성은 솔루션 백 엔드 및 디바이스 앱에서 이 디바이스의 원격 분석 구성을 동기화하는 데 사용됩니다. 예를 들면 다음과 같습니다.
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -203,7 +203,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - 본문
         
-    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예를 들면 다음과 같습니다.
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 패치와 동일한 형식을 사용 합니다. 여기에는 모든 쌍 섹션 (태그, 속성 보고 됨, 속성)이 포함 되 고 "$metadata" 요소가 포함 되어 있다는 차이점이 있습니다. 예제:
 
     ```json
     {
@@ -312,7 +312,7 @@ IoT Hub는, 또는 문서 크기를 제한 보다 크게 증가 시키는 모든
 
 IoT Hub는 디바이스 쌍 desired 또는 reported 속성의 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -411,5 +411,5 @@ IoT Hub는 연결되지 않은 디바이스에 대한 desired 속성 업데이�
 이 문서에서 설명한 일부 개념을 시도해 보려면 다음과 같은 IoT Hub 자습서를 참조하세요.
 
 * [디바이스 쌍을 사용하는 방법](iot-hub-node-node-twin-getstarted.md)
-* [장치 쌍 속성을 사용 하는 방법](tutorial-device-twins.md)
+* [디바이스 쌍 속성을 사용하는 방법](tutorial-device-twins.md)
 * [VS Code용 Azure IoT Tools를 사용하여 디바이스 관리](iot-hub-device-management-iot-toolkit.md)

@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370936"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
@@ -39,21 +39,21 @@ Azure AD (Azure Active Directory)에서 사용자 중 한 명에 게 Azure AD �
 
 1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 디렉터리에 대 한 전역 관리자 계정을 사용 하 여 로그인 합니다.
 
-2. **Azure Active Directory**를 검색하고 선택합니다.
+2. **Azure Active Directory** 를 검색하고 선택합니다.
 
       ![Azure Active Directory에 대한 Azure Portal 검색](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
 
-3. **사용자**를 선택합니다.
+3. **사용자** 를 선택합니다.
 
-4. 역할 할당을 가져올 사용자를 검색 하 고 선택 합니다. 예를 들어 _Alain Charon_입니다.
+4. 역할 할당을 가져올 사용자를 검색 하 고 선택 합니다. 예를 들어 _Alain Charon_ 입니다.
 
       ![모든 사용자 페이지-사용자를 선택 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-5. **Alain Charon 프로필** 페이지에서 **할당 된 역할**을 선택 합니다.
+5. **Alain Charon 프로필** 페이지에서 **할당 된 역할** 을 선택 합니다.
 
     **Alain Charon-관리 역할** 페이지가 나타납니다.
 
-6. **할당 추가**를 선택 하 고, alain (예: _응용 프로그램 관리자_)에 할당할 역할을 선택한 후 **선택**을 선택 합니다.
+6. **할당 추가** 를 선택 하 고, alain (예: _응용 프로그램 관리자_)에 할당할 역할을 선택한 후 **선택** 을 선택 합니다.
 
     ![할당 된 역할 페이지-선택한 역할을 표시 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
@@ -65,9 +65,9 @@ Azure AD (Azure Active Directory)에서 사용자 중 한 명에 게 Azure AD �
 
 ### <a name="to-remove-a-role-assignment-from-a-user"></a>사용자에서 역할 할당을 제거하려면
 
-1. **Azure Active Directory**를 선택하고, **사용자**를 선택한 후, 역할 할당을 제거할 사용자를 검색하여 선택합니다. 예를 들어 _Alain Charon_입니다.
+1. **Azure Active Directory** 를 선택하고, **사용자** 를 선택한 후, 역할 할당을 제거할 사용자를 검색하여 선택합니다. 예를 들어 _Alain Charon_ 입니다.
 
-2. **할당 된 역할**을 선택 하 고 **응용 프로그램 관리자**를 선택한 후 **할당 제거**를 선택 합니다.
+2. **할당 된 역할** 을 선택 하 고 **응용 프로그램 관리자** 를 선택한 후 **할당 제거** 를 선택 합니다.
 
     ![할당 된 역할 페이지, 선택한 역할 및 제거 옵션 표시](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 

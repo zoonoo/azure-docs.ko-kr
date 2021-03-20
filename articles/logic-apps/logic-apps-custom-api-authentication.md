@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 5e0dcd478c6eb6696a0e07d35d4dccddac68ac1c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993184"
 ---
 # <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 Api 호출에 대 한 보안 강화
@@ -197,16 +197,16 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 }
 ```
 
-| 속성 | 필수 | Description | 
+| 속성 | 필수 | 설명 | 
 | -------- | -------- | ----------- | 
-| tenant | Yes | Azure AD 테넌트의 GUID | 
-| 대상 | Yes | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
-| clientId | Yes | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
-| secret | Yes | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
-| 형식 | Yes | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| tenant | 예 | Azure AD 테넌트의 GUID | 
+| 대상 | 예 | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
+| clientId | 예 | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
+| secret | 예 | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
+| 형식 | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
-예들 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 ``` json
 {
@@ -251,8 +251,8 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | 속성 | 필수 | 설명 |
 | -------- | -------- | ----------- |
 | `type` | 예 | 인증 유형입니다. TLS/SSL 클라이언트 인증서의 경우 값은 이어야 합니다 `ClientCertificate` . |
-| `password` | No | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 |
-| `pfx` | Yes | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 |
+| `password` | 아니요 | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 |
+| `pfx` | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 |
 ||||
 
 <a name="basic"></a>
@@ -273,9 +273,9 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 
 | 속성 | 필수 | Description | 
 | -------- | -------- | ----------- | 
-| type | Yes | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
-| 사용자 이름 | Yes | 인증에 사용할 사용자 이름 | 
-| password | Yes | 인증에 사용할 암호 | 
+| type | 예 | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
+| 사용자 이름 | 예 | 인증에 사용할 사용자 이름 | 
+| password | 예 | 인증에 사용할 암호 | 
 |||| 
 
 <a name="azure-ad-code"></a>

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008443"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>MacOS 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결
@@ -36,7 +36,7 @@ ms.locfileid: "88008443"
 2. 피드 URL을 입력합니다. 이는 URL 또는 이메일 주소일 수 있습니다.
    - URL을 사용하는 경우 관리자가 제공한 URL을 사용합니다. 일반적으로 URL은 <https://rdweb.wvd.microsoft.com>입니다.
    - 이메일을 사용하려면 이메일 주소를 입력하세요. 그러면 클라이언트가 이메일 주소와 연결된 URL을 검색합니다(관리자가 서버를 그렇게 구성한 경우).
-3. **추가**를 선택합니다.
+3. **추가** 를 선택합니다.
 4. 메시지가 표시되면 사용자 계정으로 로그인합니다.
 
 로그인하면 사용 가능한 리소스 목록이 표시됩니다.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.openlocfilehash: 16ab0ab0e4c4d647f62b38d71acde69df0ae0d42
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100378488"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Jira에서 데이터 복사
@@ -44,11 +44,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성은 **Jira** 로 설정해야 합니다. | 예 |
 | host | Jira 서비스의 IP 주소 또는 호스트 이름입니다. (예: jira.example.com)  | 예 |
-| 포트 | Jira 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 HTTPS를 통해 연결하는 경우 443이고, HTTP를 통해 연결하는 경우 8080입니다.  | 예 |
+| 포트 | Jira 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 HTTPS를 통해 연결하는 경우 443이고, HTTP를 통해 연결하는 경우 8080입니다.  | 아니요 |
 | 사용자 이름 | Jira 서비스에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
 | password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예:**

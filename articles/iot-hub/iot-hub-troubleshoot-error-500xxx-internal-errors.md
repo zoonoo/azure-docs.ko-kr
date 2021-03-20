@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92538207"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx 내부 오류
@@ -23,13 +23,13 @@ ms.locfileid: "92538207"
 
 IoT Hub에 대 한 요청이 500 및/또는 일종의 "서버 오류"로 시작 하는 오류와 함께 실패 합니다. 몇 가지 가능한 원인은 다음과 같습니다.
 
-* **500001 ServerError** : IoT Hub 서버 쪽 문제로 실행 되었습니다.
+* **500001 ServerError**: IoT Hub 서버 쪽 문제로 실행 되었습니다.
 
-* **500008 GenericTimeout** : IoT Hub 시간이 초과 되기 전에 연결 요청을 완료할 수 없습니다.
+* **500008 GenericTimeout**: IoT Hub 시간이 초과 되기 전에 연결 요청을 완료할 수 없습니다.
 
-* **Serviceunavailable 수 없음 (오류 코드 없음)** : IoT Hub 내부 오류가 발생 했습니다.
+* **Serviceunavailable 수 없음 (오류 코드 없음)**: IoT Hub 내부 오류가 발생 했습니다.
 
-* **Internalservererror (오류 코드 없음)** : IoT Hub에서 내부 오류가 발생 했습니다.
+* **Internalservererror (오류 코드 없음)**: IoT Hub에서 내부 오류가 발생 했습니다.
 
 ## <a name="cause"></a>원인
 

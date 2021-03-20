@@ -4,10 +4,10 @@ description: Azure Batch 풀의 컴퓨팅 노드에서 SSH 또는 RDP 포트에 
 ms.topic: how-to
 ms.date: 02/13/2018
 ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109309"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 원격 액세스 구성 또는 비활성화
@@ -71,7 +71,7 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 
 ## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>예제: 특정 IP 주소의 RDP 트래픽 허용
 
-다음 C# 코드 조각에서는 *198.51.100.7*이라는 IP 주소에서 오는 RDP 액세스만 허용하도록 Windows 풀의 컴퓨팅 노드에 있는 RDP 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 IP 주소와 일치하지 않는 트래픽을 거부합니다.
+다음 C# 코드 조각에서는 *198.51.100.7* 이라는 IP 주소에서 오는 RDP 액세스만 허용하도록 Windows 풀의 컴퓨팅 노드에 있는 RDP 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 IP 주소와 일치하지 않는 트래픽을 거부합니다.
 
 ```csharp
 pool.NetworkConfiguration = new NetworkConfiguration
@@ -89,7 +89,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 
 ## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>예제: 특정 서브넷의 SSH 트래픽 허용
 
-다음 Python 코드 조각에서는 *192.168.1.0/24*라는 서브넷에서 오는 액세스만 허용하도록 Linux 풀의 컴퓨팅 노드에 있는 SSH 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 서브넷과 일치하지 않는 트래픽을 거부합니다.
+다음 Python 코드 조각에서는 *192.168.1.0/24* 라는 서브넷에서 오는 액세스만 허용하도록 Linux 풀의 컴퓨팅 노드에 있는 SSH 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 서브넷과 일치하지 않는 트래픽을 거부합니다.
 
 ```python
 pool.network_configuration = batchmodels.NetworkConfiguration(

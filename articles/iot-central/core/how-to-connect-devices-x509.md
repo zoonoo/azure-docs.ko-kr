@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: cf0db71600c9350b4d70e6375f509a6e88709f70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100378335"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>IoT Central 응용 프로그램용 Node.js 장치 SDK를 사용 하 여 x.509 인증서를 사용 하 여 장치를 연결 하는 방법
@@ -28,7 +28,7 @@ IoT Central는 SAS (공유 액세스 서명) 및 x.509 인증서를 모두 지�
 - [Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
 - [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [클라이언트 응용 프로그램을 만들고 Azure IoT Central 응용 프로그램 (JavaScript) 자습서에 연결](./tutorial-connect-device.md) 합니다.
 - [Git](https://git-scm.com/download/)

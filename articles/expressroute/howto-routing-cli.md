@@ -9,10 +9,10 @@ ms.date: 10/09/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 2c56e847e3b112d50285cd2c116c8f22efbc507f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715533"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>자습서: CLI를 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
@@ -246,7 +246,7 @@ az network express-route peering update -g ExpressRouteResourceGroup --circuit-n
    * 가상 네트워크에 예약된 주소 공간의 일부가 아닌 서브넷 쌍입니다. 한 서브넷은 기본 링크에 사용되고 다른 서브넷은 보조 링크에 사용됩니다. Microsoft에서 사용 가능한 두 번째 IP를 라우터에 사용하므로, 이러한 각 서브넷에서는 사용 가능한 첫 번째 IP 주소를 라우터에 할당하겠습니다. 이 서브넷 쌍에 대한 세 가지 옵션이 있습니다.
        * IPv4: 2개의 /30 서브넷
        * IPv6: 2개의 /126 서브넷
-       * 둘 다: 2개의 /30 서브넷과 2개의 /126 서브넷
+       * 둘 다: 두 개의 /30 서브넷과 두 개의 /126 서브넷
    * 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 이 피어링에 프라이빗 AS 숫자를 사용할 수 있습니다. 65515를 사용하지 않는지 확인합니다.
    * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.

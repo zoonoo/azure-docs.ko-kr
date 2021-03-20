@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 동기화 네트워킹 고려 사항 | Microsoft Docs
-description: Azure File Sync를 사용 하 여 온-프레미스에서 파일을 캐시 하도록 네트워킹을 구성 하는 방법을 알아봅니다.
+description: Azure 파일 동기화를 사용 하 여 온-프레미스에서 파일을 캐시 하도록 네트워킹을 구성 하는 방법을 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 76d97e3312c1df51193d8a881f3ee07fcd155d75
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629362"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Azure 파일 동기화 네트워킹 고려 사항

@@ -7,10 +7,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 01/14/2021
 ms.openlocfilehash: 3b951cd0878bda4a3f65f9208f6997419a10d537
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200263"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>사용자 지정 공급자 c # RESTful 끝점 참조

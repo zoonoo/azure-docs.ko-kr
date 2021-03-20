@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: active-directory
 author: daveba
@@ -10,10 +10,10 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 6e5885e076222cd23ba127f3be41c1218f327ca0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92379744"
 ---
 - 각 관리 ID는 [Azure AD 서비스 한도 및 제한 사항](../articles/active-directory/enterprise-users/directory-service-limits-restrictions.md)에 설명된 대로 Azure AD 테넌트의 개체 할당량 한도 계산에 포함됩니다.

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 6863c492059ccee152ecf3d03a09e61793576bcb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715601"
 ---
 # <a name="configure-a-rule-set-with-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)을 사용 하 여 규칙 집합 구성
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 이 문서에서는 Azure Portal에서 규칙 집합 및 규칙의 첫 번째 집합을 만드는 방법을 보여 줍니다. 그런 다음 규칙 집합 페이지 또는 끝점 관리자에서 규칙 집합을 경로에 연결 하는 방법을 알아봅니다.
 

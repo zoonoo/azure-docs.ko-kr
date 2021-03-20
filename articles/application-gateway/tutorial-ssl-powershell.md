@@ -10,13 +10,13 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93396569"
 ---
-# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
+# <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Azure PowerShell을 사용하여 TLS 종료로 애플리케이션 게이트웨이 만들기
 
 Azure PowerShell를 사용 하 여 백 엔드 서버에 대 한 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 을 사용 하는 [TLS/SSL 종료](ssl-overview.md) 용 인증서가 있는 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다. 
 
@@ -27,7 +27,7 @@ Azure PowerShell를 사용 하 여 백 엔드 서버에 대 한 [가상 머신 �
 * 인증서가 있는 애플리케이션 게이트웨이 만들기
 * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

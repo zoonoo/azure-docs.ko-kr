@@ -4,10 +4,10 @@ description: Azure의 백업에서 Windows Server 시스템 상태를 복원 하
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 4ef23d6ff16c263e310304cc240c2090751640b1
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97008472"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
