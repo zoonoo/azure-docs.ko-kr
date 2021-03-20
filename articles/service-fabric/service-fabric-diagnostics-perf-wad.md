@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86258610"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
@@ -41,7 +41,7 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
 
 3. 이전 단계에서 선언된 `PerformanceCounterConfiguration`에 수집하려는 성능 카운터를 추가합니다. 수집하려는 각 카운터는 `counterSpecifier`, `sampleRate`, `unit`, `annotation` 및 관련 `sinks`로 정의됩니다.
 
-*총 프로세서 시간*(CPU를 처리 작업에 사용하는 시간)에 대한 카운터를 사용한 구성 및 Service Fabric 사용자 지정 성능 카운터 중 하나인 *초당 Service Fabric 작업자 메서드 호출*의 예제는 다음과 같습니다. Service Fabric 사용자 지정 성능 카운터의 전체 목록은 [Reliable Actor 성능 카운터](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) 및 [Reliable Service 성능 카운터](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters)를 참조하세요.
+*총 프로세서 시간*(CPU를 처리 작업에 사용하는 시간)에 대한 카운터를 사용한 구성 및 Service Fabric 사용자 지정 성능 카운터 중 하나인 *초당 Service Fabric 작업자 메서드 호출* 의 예제는 다음과 같습니다. Service Fabric 사용자 지정 성능 카운터의 전체 목록은 [Reliable Actor 성능 카운터](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters) 및 [Reliable Service 성능 카운터](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters)를 참조하세요.
 
  ```json
  "WadCfg": {

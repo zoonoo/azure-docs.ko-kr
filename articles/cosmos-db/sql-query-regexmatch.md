@@ -9,10 +9,10 @@ ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 7f5b2831f45e902b312636e4133557a16ee7ec95
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341640"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
@@ -52,7 +52,7 @@ Azure Cosmos DB는 다음과 같은 네 가지 한정자를 지원 합니다.
   
   부울 식을 반환합니다. 검색할 문자열 식, 정규식 또는 선택한 한정자가 잘못 된 경우 정의 되지 않은 값을 반환 합니다.
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
 다음 간단한 RegexMatch 예제에서는 몇 가지 다른 한정자를 사용 하 여 정규식 일치에 대해 문자열 "abcd"를 확인 합니다.
   

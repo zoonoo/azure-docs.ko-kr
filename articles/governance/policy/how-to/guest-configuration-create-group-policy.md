@@ -4,10 +4,10 @@ description: 그룹 정책 Windows Server 2019 보안 기준에서 정책 정의
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93348647"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Windows에 대 한 그룹 정책 기준에서 게스트 구성 정책 정의를 만드는 방법
@@ -29,7 +29,7 @@ DSC 커뮤니티는 내보낸 그룹 정책 템플릿을 DSC 형식으로 변환
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Windows Server 2019 보안 기준 다운로드 및 관련 PowerShell 모듈 설치
 
-PowerShell에서 **DSC** , **GuestConfiguration** , **기준 관리** 및 관련 Azure 모듈을 설치 하려면 다음을 수행 합니다.
+PowerShell에서 **DSC**, **GuestConfiguration**, **기준 관리** 및 관련 Azure 모듈을 설치 하려면 다음을 수행 합니다.
 
 1. PowerShell 프롬프트에서 다음 명령을 실행합니다.
 

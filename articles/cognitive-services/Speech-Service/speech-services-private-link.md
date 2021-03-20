@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
 ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99559653"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>개인 끝점을 통해 Speech Services 사용
@@ -216,9 +216,9 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 선택한 아티클의 매개 변수 대신 다음 매개 변수를 사용 합니다.
 
-| Setting             | 값                                    |
+| 설정             | 값                                    |
 |---------------------|------------------------------------------|
-| 리소스 유형       | **Microsoft.CognitiveServices/accounts** |
+| 리소스 종류       | **Microsoft.CognitiveServices/accounts** |
 | 리소스            | **\<your-speech-resource-name>**         |
 | 대상 하위 리소스 | **account**                              |
 
@@ -389,7 +389,7 @@ DNS 이름 예는 다음과 같습니다.
 | `commands`     | [사용자 지정 명령](custom-commands.md)                       |
 | `convai`       | [대화 전사](conversation-transcription.md) |
 | `s2s`          | [Speech Translation](speech-translation.md)                 |
-| `stt`          | [음성 텍스트](speech-to-text.md)                         |
+| `stt`          | [음성 텍스트 변환](speech-to-text.md)                         |
 | `tts`          | [텍스트 음성 변환](text-to-speech.md)                         |
 | `voice`        | [Custom Voice](how-to-custom-voice.md)                      |
 

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320226"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>PostgreSQL Hyperscale 서버 그룹 문제 해결
@@ -97,7 +97,7 @@ Azure Data Studio를 시작 하 고 문제 해결 노트북을 엽니다.
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio-오픈 PostgreSQL 문제 해결 노트북":::
 
-**TSG100-Azure Arc Enabled PostgreSQL Hyperscale 노트북** 이 열립니다. :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-오픈 PostgreSQL 문제 해결 노트북"::: 합니다.
+**TSG100-Azure Arc Enabled PostgreSQL Hyperscale 노트북** 이 열립니다. :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio PostgreSQL 문제 해결 노트북을 사용"::: 합니다.
 
 #### <a name="run-the-scripts"></a>스크립트 실행
 맨 위에 있는 ' 모두 실행 ' 단추를 선택 하 여 노트북을 한꺼번에 실행 하거나 단계별로 실행 하 고 각 코드 셀을 하나씩 실행할 수 있습니다.

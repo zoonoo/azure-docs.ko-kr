@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 660f6dfae23331455408ae7127274550a3a4cc3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90019838"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Azure IoT Central UI 사용자 지정
@@ -54,7 +54,7 @@ ms.locfileid: "90019838"
 
 ### <a name="changes-for-operators"></a>연산자의 변경 내용
 
-관리자가 사용자 지정 테마를 만들 경우 운영자와 응용 프로그램의 다른 사용자가 더 이상 **설정**에서 테마를 선택할 수 없습니다.
+관리자가 사용자 지정 테마를 만들 경우 운영자와 응용 프로그램의 다른 사용자가 더 이상 **설정** 에서 테마를 선택할 수 없습니다.
 
 ## <a name="replace-help-links"></a>도움말 링크 바꾸기
 

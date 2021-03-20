@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360702"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
@@ -58,7 +58,7 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 각 StorSimple 디바이스 관리자 서비스에 대해 다음과 같은 특성이 존재합니다.
 
 * **이름** – StorSimple 디바이스 관리자 서비스를 만들었을 때 할당된 이름입니다. **서비스 이름은 서비스를 만든 후에 변경할 수 없습니다. 이는 Azure Portal에서 이름을 바꿀 수 없는 장치, 볼륨, 볼륨 컨테이너 및 백업 정책과 같은 다른 엔터티의 경우에도 마찬가지입니다.**
-* **상태** – 서비스의 상태로, **활성** , **만드는 중** 또는 **온라인** 일 수 있습니다.
+* **상태** – 서비스의 상태로, **활성**, **만드는 중** 또는 **온라인** 일 수 있습니다.
 * **위치** – StorSimple 디바이스를 배포할 지리적 위치입니다.
 * **구독** – 서비스와 연관된 청구 구독입니다.
 
@@ -156,7 +156,7 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>서비스 데이터 암호화 키 변경을 시작하려면
 1. 옵션 1을 선택하여 모든 권한으로 로그온합니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. cmdlet이 성공적으로 완료되면 새 서비스 데이터 암호화 키를 얻을 수 있습니다. 이 키를 복사하고 저장해 두었다가 이 프로세스의 3단계에서 사용합니다. 이 키는 StorSimple 관리자 서비스에 등록된 나머지 모든 디바이스를 업데이트하는 데 사용됩니다.
@@ -189,7 +189,7 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>업데이트 5.0 이전 버전을 실행하는 디바이스에서 지원되는 작업
 Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바이스만이 지원됩니다. 이전 버전을 실행하는 디바이스에는 제한된 지원을 제공합니다. Azure Portal로 마이그레이션한 후 다음 테이블을 사용하여 업데이트 5.0 이전 버전을 실행하는 디바이스에서 지원되는 작업을 알아볼 수 있습니다.
 
-| 작업(Operation)                                                                                                                       | 지원됨      |
+| 작업                                                                                                                       | 지원됨      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
 | 디바이스 등록                                                                                                               | 예            |
 | 일반, 네트워크 및 보안과 같은 디바이스 설정 구성                                                                | 예            |
@@ -200,7 +200,7 @@ Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바�
 | 볼륨 만들기, 수정 및 삭제                                                                                             | 아니요             |
 | 백업 정책 만들기, 수정 및 삭제                                                                                      | 아니요             |
 | 수동 백업 수행                                                                                                            | 아니요             |
-| 예약된 백업 수행                                                                                                         | 적용할 수 없음 |
+| 예약된 백업 수행                                                                                                         | 해당 사항 없음 |
 | backupset에서 복원                                                                                                        | 아니요             |
 | 업데이트 3.0 이상을 실행하는 디바이스에 복제 <br> 원본 디바이스는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
 | 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 아니요             |

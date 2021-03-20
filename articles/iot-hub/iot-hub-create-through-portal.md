@@ -10,10 +10,10 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536048"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure Portal을 사용하여 IoT Hub 만들기
@@ -36,13 +36,13 @@ ms.locfileid: "92536048"
 
 IoT 허브에 설정할 수 있는 몇 가지 속성은 다음 과같습니다.
 
-**가격 및 크기** : 이 속성을 사용하여 다른 계층으로 마이그레이션하거나 IoT 허브 단위의 수를 설정할 수 있습니다. 
+**가격 및 크기**: 이 속성을 사용하여 다른 계층으로 마이그레이션하거나 IoT 허브 단위의 수를 설정할 수 있습니다. 
 
-**작업 모니터링** : 디바이스-클라우드 메시지 또는 클라우드-디바이스 메시지와 관련된 이벤트 로깅과 같은 다양한 모니터링 범주를 설정하거나 해제합니다.
+**작업 모니터링**: 디바이스-클라우드 메시지 또는 클라우드-디바이스 메시지와 관련된 이벤트 로깅과 같은 다양한 모니터링 범주를 설정하거나 해제합니다.
 
-**IP 필터** : IoT 허브에서 수락하거나 거부할 IP 주소 범위를 지정합니다.
+**IP 필터**: IoT 허브에서 수락하거나 거부할 IP 주소 범위를 지정합니다.
 
-**속성** : 리소스 ID, 리소스 그룹, 위치 등 다른 곳에 복사하여 사용할 수 있는 속성의 목록을 제공합니다.
+**속성**: 리소스 ID, 리소스 그룹, 위치 등 다른 곳에 복사하여 사용할 수 있는 속성의 목록을 제공합니다.
 
 ### <a name="shared-access-policies"></a>공유 액세스 정책
 

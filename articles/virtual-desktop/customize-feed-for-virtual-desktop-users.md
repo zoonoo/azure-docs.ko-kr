@@ -7,10 +7,10 @@ ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084297"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Windows 가상 데스크톱 사용자의 피드 사용자 지정
@@ -101,19 +101,19 @@ Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName
 
 Azure Portal를 사용 하 여 이름을 설정 하 여 게시 된 원격 데스크톱의 표시 이름을 변경할 수 있습니다.
 
-1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
+1. <https://portal.azure.com> 에서 Azure Portal에 로그인합니다.
 
-2. **Windows 가상 데스크톱**을 검색 합니다.
+2. **Windows 가상 데스크톱** 을 검색 합니다.
 
-3. 서비스에서 **Windows 가상 데스크톱**을 선택 합니다.
+3. 서비스에서 **Windows 가상 데스크톱** 을 선택 합니다.
 
-4. Windows 가상 데스크톱 페이지의 화면 왼쪽에서 **응용 프로그램 그룹** 을 선택 하 고 편집 하려는 앱 그룹의 이름을 선택 합니다. 예를 들어 데스크톱 응용 프로그램 그룹의 표시 이름을 편집 하려면 **desktop**이라는 앱 그룹을 선택 합니다.
+4. Windows 가상 데스크톱 페이지의 화면 왼쪽에서 **응용 프로그램 그룹** 을 선택 하 고 편집 하려는 앱 그룹의 이름을 선택 합니다. 예를 들어 데스크톱 응용 프로그램 그룹의 표시 이름을 편집 하려면 **desktop** 이라는 앱 그룹을 선택 합니다.
 
 5. 화면 왼쪽의 메뉴에서 **응용 프로그램** 을 선택 합니다.
 
-6. 업데이트 하려는 응용 프로그램을 선택 하 고 새 **표시 이름을**입력 합니다.
+6. 업데이트 하려는 응용 프로그램을 선택 하 고 새 **표시 이름을** 입력 합니다.
 
-7. **저장**을 선택합니다. 이제 편집한 응용 프로그램에 업데이트 된 이름이 표시 됩니다.
+7. **저장** 을 선택합니다. 이제 편집한 응용 프로그램에 업데이트 된 이름이 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

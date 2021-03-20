@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92092888"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
@@ -37,9 +37,9 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ## <a name="developer-portal-templates-overview"></a>개발자 포털 템플릿 개요
 
-관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 이를 가져오려면 먼저 Azure Portal를 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털** 을 클릭 합니다.
+관리자로 로그인되어 있는 동안 **개발자 포털** 에서 템플릿을 편집합니다. 이를 가져오려면 먼저 Azure Portal를 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털** 을 클릭 합니다.
 
-개발자 포털 템플릿에 액세스하려면 왼쪽의 사용자 지정 아이콘을 클릭하여 사용자 지정 메뉴를 표시한 다음 **템플릿**을 클릭합니다.
+개발자 포털 템플릿에 액세스하려면 왼쪽의 사용자 지정 아이콘을 클릭하여 사용자 지정 메뉴를 표시한 다음 **템플릿** 을 클릭합니다.
 
 ![사용자 지정 메뉴를 표시 하는 사용자 지정 아이콘을 강조 표시 하는 스크린샷][api-management-customize-menu]
 
@@ -162,7 +162,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿을 되돌리는 데 사용 하는 아이콘을 강조 표시 하는 스크린샷][api-management-revert-template]
 
-**예**를 클릭하여 확인합니다.
+**예** 를 클릭하여 확인합니다.
 
 ![예를 선택 하 여 변경 내용을 확인 하는 위치를 보여 주는 스크린샷][api-management-revert-template-confirm]
 
@@ -175,7 +175,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![템플릿 되돌리기][api-management-reset-template]
 
-**예**를 클릭하여 확인합니다.
+**예** 를 클릭하여 확인합니다.
 
 ![확인][api-management-reset-template-confirm]
 

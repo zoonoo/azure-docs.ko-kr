@@ -6,10 +6,10 @@ ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: cbf9eb6c97dcceeca5e86e8bef47a39fb685792f
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734813"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Azure Automation에서 인증서 관리
@@ -36,7 +36,7 @@ Azure Automation은 Azure Resource Manager 리소스에 대해 [Get-AzAutomation
 
 다음 테이블의 내부 cmdlet은 Runbook의 인증서에 액세스하는 데 사용됩니다. 이 cmdlet은 글로벌 모듈 `Orchestrator.AssetManagement.Cmdlets`와 함께 제공됩니다. 자세한 내용은 [내부 cmdlet](modules.md#internal-cmdlets)을 참조하세요.
 
-| 내부 Cmdlet | Description |
+| 내부 cmdlet | Description |
 |:---|:---|
 |`Get-AutomationCertificate`|Runbook 또는 DSC 구성에 사용할 인증서를 가져옵니다. [System.Security.Cryptography.X509Certificates.X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) 개체를 반환합니다.|
 
@@ -47,7 +47,7 @@ Azure Automation은 Azure Resource Manager 리소스에 대해 [Get-AzAutomation
 
 다음 표의 함수를 사용 하 여 Python 2 및 3 runbook의 인증서에 액세스할 수 있습니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
 
-| 기능 | Description |
+| 함수 | Description |
 |:---|:---|
 | `automationassets.get_automation_certificate` | 인증서 자산에 대한 정보를 검색합니다. |
 

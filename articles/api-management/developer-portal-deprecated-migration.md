@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92326024"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>새 개발자 포털로 마이그레이션
@@ -25,7 +25,7 @@ ms.locfileid: "92326024"
 이 문서에서는 더 이상 사용 되지 않는 레거시 포털에서 API Management의 새 개발자 포털로 마이그레이션하기 위해 수행 해야 하는 단계를 설명 합니다.
 
 > [!IMPORTANT]
-> 이전 개발자 포털은 더 이상 사용 되지 않으며 보안 업데이트만 받게 됩니다. 모든 API Management 서비스에서 제거 될 때 2023 평상시와 같이 계속 해 서 사용할 수 있습니다.
+> 이전 개발자 포털은 더 이상 사용 되지 않으며 보안 업데이트만 받게 됩니다. 모든 API Management 서비스에서 제거되는 2023년 10월 만료될 때까지 평상시와 같이 계속 사용할 수 있습니다.
 
 ![API Management 개발자 포털](media/api-management-howto-developer-portal/cover.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "92326024"
 
     - 새 개발자 포털 도메인을 가리키도록 응용 프로그램의 반환 URL을 변경 합니다.
     - 응용 프로그램의 반환 URL 접미사를에서로 수정 합니다 `/signin-aad` `/signin` .
-    - 응용 프로그램 클레임에 *지정 된 이름*, *성*및 *사용자의 개체 ID* 를 포함 합니다.
+    - 응용 프로그램 클레임에 *지정 된 이름*, *성* 및 *사용자의 개체 ID* 를 포함 합니다.
 
 - 대화형 테스트 콘솔에서 OAuth 2.0를 사용 하는 경우 새 개발자 포털 도메인을 가리키도록 응용 프로그램의 반환 URL을 변경 하 고 접미사를 수정 합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "92326024"
 
 ## <a name="next-steps"></a>다음 단계
 
-개발자 포털에 대해 자세히 알아보세요.
+다음 문서를 통해 개발자 포털에 대해 자세히 알아봅니다.
 
 - [Azure API Management 개발자 포털 개요](api-management-howto-developer-portal.md)
 - [개발자 포털 액세스 및 사용자 지정](api-management-howto-developer-portal-customize.md)

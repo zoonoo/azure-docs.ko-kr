@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.openlocfilehash: 21e4189e56f704129710da5b1d39613c4e1b1df5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91766888"
 ---
 # <a name="troubleshoot-database-corruption-in-azure-database-for-mysql"></a>Azure Database for MySQL의 데이터베이스 손상 문제 해결
@@ -39,7 +39,7 @@ ms.locfileid: "91766888"
 > - 클라이언트 컴퓨터에서 서버에 액세스할 수 있도록 방화벽 규칙을 구성 했는지 확인 합니다. 자세한 내용은 [단일 서버에서 방화벽 규칙 구성](howto-manage-firewall-using-portal.md) 및 [유연한 서버에서 방화벽 규칙 구성](flexible-server/how-to-connect-tls-ssl.md)을 참조 하세요.
 > - SSL을 사용 `--ssl-cert` 하는 경우 mysqldump에 ssl 옵션을 사용 합니다.
 
-Mysqldump를 사용 하 여 명령줄에서 백업 파일을 만듭니다. 다음 명령을 사용합니다.
+Mysqldump를 사용 하 여 명령줄에서 백업 파일을 만듭니다. 다음 명령을 실행합니다.
 
 ```
 $ mysqldump [--ssl-cert=/path/to/pem] -h [host] -u [uname] -p[pass] [dbname] > [backupfile.sql]

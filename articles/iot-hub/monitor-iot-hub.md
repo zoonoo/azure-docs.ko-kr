@@ -8,10 +8,10 @@ ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 11/06/2020
 ms.openlocfilehash: c9e6107e981d2bae96c5d9f368c8122d3ce245f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570945"
 ---
 # <a name="monitoring-azure-iot-hub"></a>모니터링 Azure IoT Hub
@@ -120,7 +120,7 @@ IoT Hub 리소스 로그의 일부 작업 `sdkVersion` 은 개체의 속성을 �
 
 다음 표에서는 다양 한 Azure IoT Sdk에 사용 되는 SDK 이름을 보여 줍니다.
 
-| SdkVersion 속성의 SDK 이름 | Language |
+| SdkVersion 속성의 SDK 이름 | 언어 |
 |----------|----------|
 | .NET | .NET (C#) |
 | microsoft. azure. 장치 | .NET (c #) 서비스 SDK |

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 13467a51b2a06dbc0ca0ec5eadd139fde8b82ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103495"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
@@ -23,7 +23,7 @@ ms.locfileid: "92103495"
 
 이 문서에서는 REST API를 사용하여 Azure Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법을 알아봅니다. 계정 관리 작업에는 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등이 포함 됩니다. REST API를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업을 수행 하는 방법에 대 한 지침은 [REST API를 사용 하 여 Data Lake Storage Gen1의 filesystem 작업](data-lake-store-data-operations-rest-api.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 * **[말아](https://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
@@ -76,6 +76,6 @@ HTTP/1.1 200 OK
 ## <a name="next-steps"></a>다음 단계
 * [REST API를 사용한 Data Lake Storage Gen1에서의 파일 시스템 작업](data-lake-store-data-operations-rest-api.md)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 REST API 참조](/rest/api/datalakestore/)
 * [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)

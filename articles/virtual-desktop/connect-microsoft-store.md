@@ -7,10 +7,10 @@ ms.date: 10/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 9bab2a11ff9e7907621087e5027929e3e42eaf29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91744868"
 ---
 # <a name="connect-with-the-microsoft-store-client"></a>Microsoft Store 클라이언트와 연결
@@ -33,7 +33,7 @@ Windows 10을 사용 하 여 장치에서 Windows 가상 데스크톱 리소스�
 
 작업 영역을 구독 하려면 다음을 수행 합니다.
 
-1. 연결 센터 화면에서 **+ 추가**를 탭 한 다음 **작업 영역**을 탭 합니다.
+1. 연결 센터 화면에서 **+ 추가** 를 탭 한 다음 **작업 영역** 을 탭 합니다.
 2. 관리자가 제공한 작업 영역 URL 필드에 작업 영역 URL을 입력 합니다. 작업 영역 URL은 URL 또는 전자 메일 주소일 수 있습니다.
    
    - 작업 영역 URL을 사용 하는 경우 관리자가 제공한 URL을 사용 합니다.
@@ -41,7 +41,7 @@ Windows 10을 사용 하 여 장치에서 Windows 가상 데스크톱 리소스�
        - Windows 가상 데스크톱 (클래식 `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx` ):
        - Windows 가상 데스크톱: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery` .
   
-3. **구독**을 탭 합니다.
+3. **구독** 을 탭 합니다.
 4. 자격 증명을 입력하라는 메시지가 표시되면 입력합니다.
 5. 구독 후에는 작업 영역이 연결 센터에 표시 됩니다.
 

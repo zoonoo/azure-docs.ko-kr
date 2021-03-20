@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 01/19/2020
 ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879244"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 marketplace 프로그램 지원
@@ -49,7 +49,7 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 - 다른 항목을 선택 하려면 **다른 문제 선택** 을 클릭 합니다.
 - 문제를 해결 하려면 권장 단계와 문서 (사용 가능한 경우)를 검토 합니다.
 
-    ![권장 해결 방법](./media/support/recommended-solutions.png)
+    ![권장 솔루션](./media/support/recommended-solutions.png)
 
 자체 도움말에서 답변을 찾을 수 없는 경우 **문제 세부 정보 제공** 을 선택 합니다. 모든 필수 필드를 입력 하 여 해결 프로세스의 속도를 높이고, **제출** 을 선택 합니다.
 

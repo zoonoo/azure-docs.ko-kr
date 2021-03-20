@@ -10,10 +10,10 @@ services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366958"
 ---
 # <a name="configure-opc-publisher"></a>OPC 게시자 구성
@@ -120,7 +120,7 @@ OPC UA 이벤트를 게시하려면 데이터 변경 내용에 동일한 구성 
 
 ### <a name="configure-using-opc-ua-method-calls"></a>OPC UA 메서드 호출 사용 구성
 
-OPC 게시자에는 포트 62222에서 액세스할 수 있는 OPC UA 서버가 포함됩니다. 호스트 이름이 **publisher**이면 엔드포인트 URI는 `opc.tcp://publisher:62222/UA/Publisher`입니다.
+OPC 게시자에는 포트 62222에서 액세스할 수 있는 OPC UA 서버가 포함됩니다. 호스트 이름이 **publisher** 이면 엔드포인트 URI는 `opc.tcp://publisher:62222/UA/Publisher`입니다.
 
 이 엔드포인트는 다음 네 가지 메서드를 공개합니다.
 

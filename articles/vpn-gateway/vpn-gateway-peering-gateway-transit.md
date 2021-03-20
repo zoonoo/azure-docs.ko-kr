@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: cherylmc
 ms.openlocfilehash: 73a7d76de34d29b2d51c54569b234cd8221b08f8
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98872182"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
@@ -35,7 +35,7 @@ ms.locfileid: "98872182"
 > 네트워크의 토폴로지를 변경하고 Windows VPN 클라이언트를 사용하는 경우, 변경 내용을 클라이언트에 적용하기 위해 Windows 클라이언트용 VPN 클라이언트 패키지를 다운로드하여 다시 설치해야 합니다.
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 가상 네트워크 및 사용 권한이 있는지 확인 합니다.
 
@@ -44,8 +44,8 @@ ms.locfileid: "98872182"
 |VNet|배포 모델| 가상 네트워크 게이트웨이|
 |---|---|---|---|
 | 허브-RM| [Resource Manager](./tutorial-site-to-site-portal.md)| [예](tutorial-create-gateway-portal.md)|
-| 스포크-RM | [Resource Manager](./tutorial-site-to-site-portal.md)| No |
-| 스포크-클래식 | [클래식](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | No |
+| 스포크-RM | [Resource Manager](./tutorial-site-to-site-portal.md)| 아니요 |
+| 스포크-클래식 | [클래식](vpn-gateway-howto-site-to-site-classic-portal.md#CreatVNet) | 아니요 |
 
 ### <a name="permissions"></a><a name="permissions"></a>권한
 

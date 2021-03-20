@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e112060db4a44884d3094a939b03ff106ba72e65
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96492202"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
@@ -54,7 +54,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 1. **새 프로젝트 만들기** 에서 c #에 대 한 **콘솔 앱 (.NET Framework)** 을 선택 하 고 **다음** 을 선택 합니다.
 1. **새 프로젝트 구성** 에서 앱의 이름을 입력 하 고 **만들기** 를 선택 합니다.
 
-이 문서의 모든 코드 예제를 `Program` *Program.cs* 파일의 클래스에 추가 합니다.
+이 문서의 모든 코드 예제를 `Program` *프로그램 .cs* 파일의 클래스에 추가 합니다.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
 
@@ -67,7 +67,7 @@ Visual Studio에서 새로운 Windows 콘솔 애플리케이션을 만듭니다.
 - [.Net 용 Azure Storage Files 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Storage.Files.Shares/):이 패키지는 저장소 계정의 파일 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 - [.Net 용 시스템 Configuration Manager 라이브러리](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/):이 패키지는 구성 파일에서 값을 저장 하 고 검색 하는 클래스를 제공 합니다.
 
-NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 아래 단계를 수행합니다.
+NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택합니다. 그런 다음를 검색 하 고 **Azure. Core** 를 선택한 다음 **설치** 를 선택 합니다.
@@ -87,7 +87,7 @@ NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 아래 단계�
 - [.Net 용 Microsoft Azure Storage 파일 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/):이 패키지는 저장소 계정의 파일 리소스에 대 한 프로그래밍 방식의 액세스를 제공 합니다.
 - [.Net 용 Microsoft Azure Configuration Manager 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/):이 패키지는 응용 프로그램이 실행 되는 위치에 관계 없이 구성 파일에서 연결 문자열을 구문 분석 하기 위한 클래스를 제공 합니다.
 
-NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 아래 단계를 수행합니다.
+NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리** 를 선택 합니다.
 1. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택합니다. 그런 다음를 검색 하 고 **Microsoft Azure. Blob** 을 선택 하 고 **설치** 를 선택 합니다.
@@ -135,7 +135,7 @@ NuGet을 사용 하 여 패키지를 가져올 수 있습니다. 아래 단계�
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 
-**솔루션 탐색기** 에서 *Program.cs* 파일을 열고 파일 맨 위에 다음 using 지시문을 추가 합니다.
+**솔루션 탐색기** 에서 *프로그램 .cs* 파일을 열고 파일 맨 위에 다음 using 지시문을 추가 합니다.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -156,7 +156,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>프로그래밍 방식으로 파일 공유 액세스
 
-*Program.cs* 파일에서 다음 코드를 추가 하 여 파일 공유에 프로그래밍 방식으로 액세스 합니다.
+*Program .cs* 파일에서 다음 코드를 추가 하 여 파일 공유에 프로그래밍 방식으로 액세스 합니다.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -559,7 +559,7 @@ Azure 스토리지 분석는 Azure Files에 대 한 메트릭을 지원 합니�
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-먼저 `using` 위에서 추가한 것과 함께 다음 지시문을 *Program.cs* 파일에 추가 합니다.
+먼저 `using` 위에서 추가한 내용과 함께 다음 지시문을 *Program .cs* 파일에 추가 합니다.
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;

@@ -4,10 +4,10 @@ description: Azure Lighthouse에 고객에 게 제공 하는 관리 서비스 �
 ms.date: 02/17/2021
 ms.topic: how-to
 ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092151"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리 서비스 제품 게시
@@ -26,12 +26,12 @@ Azure Marketplace에 제품을 게시 하지 않거나 모든 요구 사항을 �
 
 |**고려 사항**  |**관리 서비스 제안**  |**ARM 템플릿**  |
 |---------|---------|---------|
-|[파트너 센터 계정](../../marketplace/partner-center-portal/create-account.md) 필요   |예         |예        |
-|[실버 또는 골드 클라우드 플랫폼 역량 수준](/partner-center/learn-about-competencies) 또는 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 가 필요 합니다.      |예         |예         |
-|Azure Marketplace를 통해 신규 고객에 게 제공     |예     |예       |
+|[파트너 센터 계정](../../marketplace/partner-center-portal/create-account.md) 필요   |예         |아니요        |
+|[실버 또는 골드 클라우드 플랫폼 역량 수준](/partner-center/learn-about-competencies) 또는 [Azure 전문가 MSP](https://partner.microsoft.com/membership/azure-expert-msp) 가 필요 합니다.      |예         |아니요         |
+|Azure Marketplace를 통해 신규 고객에 게 제공     |예     |아니요       |
 |특정 고객에 게 제품을 제한할 수 있습니다.     |예 (CSP (클라우드 솔루션 공급자) 프로그램의 대리점을 통해 설정 된 구독과 함께 사용할 수 없는 개인 제공만 해당)         |예         |
-|Azure Portal에서 고객 동의가 필요 합니다.     |예     |예   |
-|Automation을 사용 하 여 여러 구독, 리소스 그룹 또는 고객을 등록할 수 있습니다. |예     |예    |
+|Azure Portal에서 고객 동의가 필요 합니다.     |예     |아니요   |
+|Automation을 사용 하 여 여러 구독, 리소스 그룹 또는 고객을 등록할 수 있습니다. |아니요     |예    |
 |새로운 기본 제공 역할 및 Azure Lighthouse 기능에 즉시 액세스     |항상 그렇지 않음 (약간의 지연 후 일반적으로 사용 가능)         |예         |
 
 > [!NOTE]

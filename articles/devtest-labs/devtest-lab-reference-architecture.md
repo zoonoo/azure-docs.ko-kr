@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92328847"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈를 위한 Azure DevTest Labs 참조 아키텍처
@@ -20,7 +20,7 @@ ms.locfileid: "92328847"
 
 ![참조 아키텍처 다이어그램](./media/devtest-lab-reference-architecture/reference-architecture.png)
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 참조 아키텍처의 핵심 요소는 다음과 같습니다.
 
 - **Azure Active Directory (AZURE ad)**: DevTest Labs는 [Id 관리에 Azure AD 서비스](../active-directory/fundamentals/active-directory-whatis.md)를 사용 합니다. DevTest Labs를 기반으로 환경에 대 한 액세스 권한을 사용자에 게 부여 하는 경우 다음 두 가지 주요 측면을 고려 하세요.
@@ -44,7 +44,7 @@ DevTest Labs에는 기본 제공 할당량 또는 한도가 없지만 랩의 일
 - **리소스 그룹**: 기본 구성에서 DevTest Labs는 모든 새 가상 머신에 대해 리소스 그룹을 만들거나 사용자가 서비스를 사용 하 여 환경을 만듭니다. 구독은 [최대 980 개의 리소스 그룹을](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits)포함할 수 있습니다. 따라서이는 구독의 가상 컴퓨터 및 환경에 대 한 제한입니다. 고려해 야 할 두 가지 다른 구성이 있습니다.
     - **[모든 가상 컴퓨터는 동일한 리소스 그룹으로 이동 합니다](resource-group-control.md)**.이 설정은 리소스 그룹 제한을 충족 하는 데 도움이 되지만 리소스 유형 별 리소스 그룹 제한에 영향을 줍니다.
     - **공유 공용 Ip 사용**: 동일한 크기와 지역의 모든 vm이 동일한 리소스 그룹으로 이동 합니다. 이 구성은 가상 컴퓨터에 공용 IP 주소를 사용할 수 있는 경우 리소스 그룹 할당량 및 리소스 유형 그룹 할당량 마다 "중간 중심"입니다.
-- **리소스 그룹당**리소스 그룹당 리소스: 리소스 유형별 리소스 그룹당 기본 제한은 [800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)입니다.  모든 Vm을 사용 하 여 *동일한 리소스 그룹 구성으로 이동* 하는 경우, 특히 vm에 추가 디스크가 많은 경우이 구독 제한을 훨씬 더 빨리 맞 더 합니다.
+- **리소스 그룹당** 리소스 그룹당 리소스: 리소스 유형별 리소스 그룹당 기본 제한은 [800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)입니다.  모든 Vm을 사용 하 여 *동일한 리소스 그룹 구성으로 이동* 하는 경우, 특히 vm에 추가 디스크가 많은 경우이 구독 제한을 훨씬 더 빨리 맞 더 합니다.
 - **Storage 계정**: DevTest Labs의 랩에는 저장소 계정이 제공 됩니다. [구독 당 지역별 저장소 계정 수](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)에 대 한 Azure 할당량은 250입니다. 동일한 지역에 있는 DevTest Labs의 최대 수는 250입니다.
 - **역할 할당**: 역할 할당은 사용자 또는 사용자에 게 리소스에 대 한 액세스 권한 (소유자, 리소스, 권한 수준)을 부여 하는 방법입니다. Azure의 [구독 당 역할 할당은 2000 개로 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits)됩니다. 기본적으로 DevTest Labs 서비스는 각 VM에 대 한 리소스 그룹을 만듭니다. 소유자에 게는 DevTest Labs VM에 대 한 *소유자* 권한 및 리소스 그룹에 대 한 *읽기* 권한이 부여 됩니다. 이러한 방식으로 사용자가 만드는 각 새 VM은 사용자에 게 랩에 대 한 사용 권한을 부여할 때 사용 되는 할당 외에도 두 개의 역할 할당을 사용 합니다.
 - **API 읽기/쓰기**: REST Api, PowerShell, Azure CLI 및 azure SDK를 비롯 한 다양 한 방법으로 Azure 및 DevTest Labs를 자동화할 수 있습니다. Automation을 통해 API 요청에 대 한 다른 제한에 도달할 수 있습니다. 각 구독은 최대 [12000 읽기 요청 및 시간당 1200 쓰기 요청](../azure-resource-manager/management/request-limits-and-throttling.md)을 허용 합니다. DevTest Labs를 자동화 하는 경우이 한도를 염두에 두어야 합니다.

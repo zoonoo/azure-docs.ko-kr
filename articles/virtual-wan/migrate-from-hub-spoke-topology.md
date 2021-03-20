@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
 ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91839642"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Azure Virtual WAN으로 마이그레이션
@@ -33,7 +33,7 @@ Contoso는 유럽 및 아시아에서 사무실이 있는 글로벌 재무 조�
 
 다음 그림은 여러 Azure 지역에 대 한 연결을 포함 하 여 기존의 글로벌 네트워크에 대 한 개략적인 보기를 보여 줍니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png" alt-text="Contoso 기존 네트워크 토폴로지":::
 **그림: Contoso 기존 네트워크 토폴로지**
 
 기존 네트워크 토폴로지에서 이해할 수 있는 사항은 다음과 같습니다.
@@ -48,9 +48,9 @@ Contoso는 유럽 및 아시아에서 사무실이 있는 글로벌 재무 조�
 
 * 클라우드 호스팅 애플리케이션에 최적화된 경로를 HQ(본사)와 지점 모두에 제공합니다.
 * 다음 연결 경로를 유지 하면서 VPN 종료에 대 한 기존 온-프레미스 데이터 센터 (DC)의 의존도를 제거 합니다.
-  * **VNet에**연결: VPN 연결 사무소는 로컬 Azure 지역에서 클라우드로 마이그레이션된 응용 프로그램에 액세스할 수 있어야 합니다.
+  * **VNet에** 연결: VPN 연결 사무소는 로컬 Azure 지역에서 클라우드로 마이그레이션된 응용 프로그램에 액세스할 수 있어야 합니다.
   * 허브에서 VNet으로의 **분기**: VPN 연결 된 사무실은 원격 Azure 지역의 클라우드로 마이그레이션된 응용 프로그램에 액세스할 수 있어야 합니다.
-  * **분기 분기: 지역**VPN 연결 된 사무실은 서로 통신할 수 있어야 하 고, 연결 된 본사/DC 사이트와 통신할 수 있어야 합니다.
+  * **분기 분기: 지역** VPN 연결 된 사무실은 서로 통신할 수 있어야 하 고, 연결 된 본사/DC 사이트와 통신할 수 있어야 합니다.
   * 허브에서 **분기로의 분기**: 전 세계에 분리 된 VPN 연결 사무실은 서로 통신할 수 있어야 하 고, 모든 express 경로 연결 된 사령부/DC 사이트와 통신할 수 있어야 합니다.
   * **인터넷 지점**: 연결 된 사이트는 인터넷과 통신할 수 있어야 합니다. 이 트래픽을 필터링 하 고 기록 해야 합니다.
   * **Vnet 간**: 동일한 지역의 스포크 가상 네트워크는 서로 통신할 수 있어야 합니다.
@@ -61,7 +61,7 @@ Contoso는 유럽 및 아시아에서 사무실이 있는 글로벌 재무 조�
 
 다음 그림은 이전 섹션에서 자세히 설명 하는 요구 사항을 충족 하기 위해 Azure 가상 WAN을 사용 하는 업데이트 된 대상 토폴로지의 상위 수준 보기를 보여 줍니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/vwan-architecture.png" alt-text="Contoso 가상 WAN 아키텍처":::
 **그림: Azure 가상 WAN 아키텍처**
 
 요약:
@@ -82,7 +82,7 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 다음 그림은 Azure 가상 WAN을 출시 하기 전에 Contoso의 단일 지역 토폴로지를 보여 줍니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure1.png" alt-text="단일 지역 토폴로지":::
 **그림 1: 단일 지역 수동 허브 및 스포크**
 
 허브 및 스포크 방식으로 유지 하기 위해 고객 관리 허브 가상 네트워크에는 다음과 같은 여러 가지 함수 블록이 포함 되어 있습니다.
@@ -103,14 +103,14 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 > Azure 가상 WAN은 표준 SKU를 사용 하 여이 문서에 표시 된 트래픽 경로 중 일부를 사용 하도록 설정 해야 합니다.
 >
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure2.png" alt-text="가상 WAN 허브 배포":::
 **그림 2: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>3 단계: 원격 사이트 (Express 경로 및 VPN)를 가상 WAN에 연결
 
 가상 WAN 허브를 기존 Express 경로 회로에 연결 하 고 인터넷을 통해 사이트 간 Vpn을 원격 분기로 설정 합니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="가상 WAN에 원격 사이트 연결":::
 **그림 3: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
 이 시점에서 온-프레미스 네트워크 장비는 가상 WAN 관리 허브 VNet에 할당 된 IP 주소 공간을 반영 하는 경로를 수신 하기 시작 합니다. 이 단계에서 원격 VPN 연결 분기에는 스포크 가상 네트워크의 기존 애플리케이션에 대한 두 가지 경로가 표시됩니다. 이러한 장치는 전환 단계에서 대칭 라우팅을 보장 하기 위해 고객 관리 허브에 대 한 터널을 계속 사용 하도록 구성 해야 합니다.
@@ -119,21 +119,21 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 프로덕션 연결에 관리 되는 가상 WAN 허브를 사용 하기 전에 테스트 스포크 가상 네트워크 및 가상 WAN VNet 연결을 설정 하는 것이 좋습니다. 다음 단계를 계속하기 전에 ExpressRoute 및 사이트 간 VPN을 통해 이 테스트 환경에 대한 연결이 작동하는지 확인합니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure4.png" alt-text="가상 WAN을 통해 하이브리드 연결 테스트":::
 **그림 4: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
 이 단계에서는 원래 고객 관리 허브 가상 네트워크와 새 가상 WAN 허브가 모두 동일한 Express 경로 회로에 연결 되어 있다는 것을 인식 하는 것이 중요 합니다. 이로 인해 두 환경에서 스포크를 사용 하도록 설정 하는 데 사용할 수 있는 트래픽 경로가 있습니다. 예를 들어 고객 관리 허브 가상 네트워크에 연결 된 스포크의 트래픽은 새 가상 WAN 허브에 대 한 VNet 연결을 통해 연결 된 스포크에 연결 하기 위해 Express 경로 회로에 사용 되는 MSEE 장치를 트래버스 합니다. 이를 통해 5 단계에서 스포크를 단계적으로 마이그레이션할 수 있습니다.
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>5 단계: 가상 WAN 허브로의 연결 전환
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure5.png" alt-text="가상 WAN 허브로의 전환 연결":::
 **그림 5: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
 **입니다.** 스포크 가상 네트워크에서 이전의 고객이 관리 하는 허브로 기존 피어 링 연결을 삭제 합니다. a-c 단계가 완료될 때까지는 스포크 가상 네트워크의 애플리케이션에 액세스할 수 없습니다.
 
 **2**. VNet 연결을 통해 가상 WAN 허브에 스포크 가상 네트워크를 연결 합니다.
 
-**c**3. 스포크-스포크 통신을 위해 이전에 스포크 가상 네트워크 내에서 사용된 모든 UDR(사용자 정의 경로)을 제거합니다. 이 경로는 이제 Virtual WAN 허브 내에서 사용할 수 있는 동적 라우팅을 통해 사용하도록 설정됩니다.
+3. 스포크-스포크 통신을 위해 이전에 스포크 가상 네트워크 내에서 사용된 모든 UDR(사용자 정의 경로)을 제거합니다. 이 경로는 이제 Virtual WAN 허브 내에서 사용할 수 있는 동적 라우팅을 통해 사용하도록 설정됩니다.
 
 **4**. 고객 관리 허브의 기존 Express 경로 및 VPN 게이트웨이는 이제 다음 단계 (e)를 허용 하도록 서비스 해제 됩니다.
 
@@ -143,7 +143,7 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 이제 Virtual WAN 허브가 새 토폴로지의 중앙 지점이 되도록 Azure 네트워크를 다시 설계했습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure6.png" alt-text="공유 서비스 스포크가 된 이전 허브":::
 **그림 6: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
 가상 WAN 허브는 관리 되는 엔터티 이며 가상 머신과 같은 사용자 지정 리소스의 배포를 허용 하지 않기 때문에 이제 공유 서비스 블록이 스포크 가상 네트워크로 존재 하 고 Azure 애플리케이션 게이트웨이 또는 네트워크 가상화 어플라이언스를 통한 인터넷 수신과 같은 기능을 호스트 합니다. 이제 공유 서비스 환경과 백 엔드 가상 머신 간의 트래픽이 Virtual WAN 관리형 허브를 통과합니다.
@@ -152,7 +152,7 @@ Azure Virtual WAN에서 원격 사이트에 대한 인터넷 연결도 제공합
 
 이 단계에서는 Contoso에서 대부분의 비즈니스 애플리케이션을 Microsoft Cloud로 마이그레이션했으며, 몇 가지 레거시 애플리케이션만 온-프레미스 DC 내에 남아 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure7.png" alt-text="가상 WAN을 완벽 하 게 활용 하기 위해 온-프레미스 연결 최적화":::
 **그림 7: 고객이 관리 하는 허브 및 스포크에서 가상 WAN으로 마이그레이션**
 
 Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 온-프레미스 VPN 연결의 서비스를 해제하도록 결정합니다. HQ 또는 DC 네트워크에 계속 액세스하는 모든 분기는 Azure Virtual WAN의 기본 제공 전송 라우팅을 사용하여 Microsoft 글로벌 네트워크를 통과할 수 있습니다.
@@ -163,7 +163,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>최종 상태 아키텍처 및 트래픽 경로
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/figure8.png" alt-text="최종 상태 아키텍처 및 트래픽 경로":::
 **그림: 이중 지역 가상 WAN**
 
 이 섹션에서는 몇 가지 트래픽 흐름의 예를 살펴보고 이 토폴로지에서 원래의 요구 사항을 충족시키는 방법에 대해 간략히 설명합니다.
@@ -178,7 +178,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 * 아시아 Virtual WAN 허브에서 트래픽을 로컬로 연결된 VNet으로 라우팅합니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="흐름 1":::
 
 ### <a name="path-2"></a>경로 2
 
@@ -190,7 +190,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 * Virtual WAN 허브-허브 글로벌 연결을 통해 트래픽을 원격 지역에 연결된 VNet으로 전송할 수 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="흐름 2":::
 
 ### <a name="path-3"></a>경로 3
 
@@ -204,7 +204,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 * 가상 WAN 허브에서 허브로의 글로벌 연결을 통해 트래픽을 전송할 수 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="흐름 3":::
 
 ### <a name="path-4"></a>경로 4
 
@@ -214,7 +214,7 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 * Virtual WAN 허브-허브 글로벌 연결을 통해 추가적인 사용자 구성 없이 연결된 모든 Azure VNet을 기본적으로 통과할 수 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="흐름 4":::
 
 ### <a name="path-5"></a>경로 5
 
@@ -226,13 +226,13 @@ Azure Virtual WAN의 모든 기능을 활용하기 위해 Contoso는 레거시 �
 
 * 서유럽 Virtual WAN 허브에서 트래픽을 로컬로 연결된 VNet으로 라우팅합니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="흐름 5":::
 
 ## <a name="security-and-policy-control-via-azure-firewall"></a>Azure Firewall을 통한 보안 및 정책 제어
 
 Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께 모든 분기와 Vnet 간의 연결을 확인 했습니다. 보안 제어 및 네트워크 격리에 대 한 요구 사항을 충족 하려면 허브 네트워크를 통해 트래픽을 계속 분리 하 고 기록 해야 합니다. 이전에이 함수는 NVA (네트워크 가상 어플라이언스)에서 수행 되었습니다. 또한 Contoso는 기존 프록시 서비스의 서비스를 해제 하 고 기본 Azure 서비스를 사용 하 여 아웃 바운드 인터넷 필터링을 원합니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="Azure Firewall을 통한 보안 및 정책 제어":::
 **그림: 가상 WAN (보안 가상 허브)의 Azure 방화벽**
 
 가상 WAN 허브에 Azure 방화벽을 도입 하 여 통합 된 정책 제어 지점을 사용 하려면 다음과 같은 개략적인 단계를 수행 해야 합니다. 이 프로세스 및 보안 가상 허브의 개념에 대 한 자세한 내용은 [Azure 방화벽 관리자](../firewall-manager/index.yml)를 참조 하세요.
@@ -256,7 +256,7 @@ Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께
 
 * Azure Firewall에서 정책을 이러한 흐름에 적용할 수 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="흐름 6":::
 
 ### <a name="path-7"></a>경로 7
 
@@ -268,7 +268,7 @@ Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께
 
 * 이 트래픽은 Azure 방화벽 FQDN 규칙을 사용 하 여 로컬로 필터링 하거나, 검사를 위해 타사 보안 서비스로 보낼 수 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="흐름 7":::
 
 ### <a name="path-8"></a>경로 8
 
@@ -280,7 +280,7 @@ Contoso는 이제이 문서의 앞부분에서 설명한 요구 사항과 함께
 
 * 이 트래픽은 Azure 방화벽 FQDN 규칙을 사용 하 여 로컬로 필터링 하거나, 검사를 위해 타사 보안 서비스로 보낼 수 있습니다.
 
-:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="허브 및 스포크":::
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="흐름 8":::
 
 ## <a name="next-steps"></a>다음 단계
 

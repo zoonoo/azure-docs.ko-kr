@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: shsha
 ms.openlocfilehash: 3be079b97c2660437344f88203fdda06cc6d6740
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86258968"
 ---
 # <a name="initializer-codepackages"></a>이니셜라이저 CodePackage
@@ -23,12 +23,12 @@ ms.locfileid: "86258968"
  
 ## <a name="semantics"></a>의미 체계
 
-이니셜라이저 CodePackage가 성공적으로 완료 될 때까지 실행 되어야 합니다 **(종료 코드 0)**. 실패 한 이니셜라이저 CodePackage 성공적으로 완료 될 때까지 다시 시작 됩니다. 여러 이니셜라이저 CodePackages 허용 되며, ServicePackage begin 실행의 다른 CodePackages 전에 **지정 된 순서에 따라** 순차적으로 **성공적으로 완료**될 때까지 **순차적**으로 실행 됩니다.
+이니셜라이저 CodePackage가 성공적으로 완료 될 때까지 실행 되어야 합니다 **(종료 코드 0)**. 실패 한 이니셜라이저 CodePackage 성공적으로 완료 될 때까지 다시 시작 됩니다. 여러 이니셜라이저 CodePackages 허용 되며, ServicePackage begin 실행의 다른 CodePackages 전에 **지정 된 순서에 따라** 순차적으로 **성공적으로 완료** 될 때까지 **순차적** 으로 실행 됩니다.
 
 ## <a name="specifying-initializer-codepackages"></a>이니셜라이저 CodePackages 지정
 Servicemanifest.xml에서 **이니셜라이저** 특성을 **true** 로 설정 하 여 CodePackage을 이니셜라이저로 표시할 수 있습니다. 이니셜라이저가 여러 개 있는 경우에는 **execorder** 특성을 통해 실행 순서를 지정할 수 있습니다. **Execorder** 는 음수가 아닌 정수 여야 하며 이니셜라이저 CodePackages 유효 합니다. **Execorder** 값이 낮은 이니셜라이저 CodePackages 먼저 실행 됩니다. 이니셜라이저 CodePackage에 대해 **Execorder** 가 지정 되지 않은 경우 기본값 0이 가정 됩니다. **Execorder** 값이 같은 이니셜라이저 CodePackages의 상대적 실행 순서는 지정 되지 않습니다.
 
-다음 Servicemanifest.xml 코드 조각에서는 이니셜라이저로 표시 되는 세 가지 CodePackages를 설명 합니다. 이 ServicePackage가 활성화 되 면 **order order**의 가장 낮은 값을 가지 므로 *InitCodePackage0* 이 먼저 실행 됩니다. *InitCodePackage0*의 성공적으로 완료 되 면 (종료 코드 0) *InitCodePackage1* 이 실행 됩니다. 마지막으로 *InitCodePackage1*가 성공적으로 완료 되 면 *WorkloadCodePackage* 이 실행 됩니다.
+다음 Servicemanifest.xml 코드 조각에서는 이니셜라이저로 표시 되는 세 가지 CodePackages를 설명 합니다. 이 ServicePackage가 활성화 되 면 **order order** 의 가장 낮은 값을 가지 므로 *InitCodePackage0* 이 먼저 실행 됩니다. *InitCodePackage0* 의 성공적으로 완료 되 면 (종료 코드 0) *InitCodePackage1* 이 실행 됩니다. 마지막으로 *InitCodePackage1* 가 성공적으로 완료 되 면 *WorkloadCodePackage* 이 실행 됩니다.
 
 ```xml
 <CodePackage Name="InitCodePackage0" Version="1.0" Initializer="true" ExecOrder="0">

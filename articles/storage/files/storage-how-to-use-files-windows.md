@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e64b7efdd430287a7a3a969c5bf62b0c0e2aec9c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94626897"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
@@ -32,7 +32,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 | Windows Server 2012 R2 | SMB 3.0 | 예 | 예 |
 | Windows Server 2012 | SMB 3.0 | 예 | 예 |
 | Windows 7<sup>3</sup> | SMB 2.1 | 예 | 예 |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 예 |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 아니요 |
 
 <sup>1</sup> Windows 10, 버전 1507, 1607, 1803, 1809, 1903, 1909 및 2004입니다.  
 <sup>2</sup> Windows Server, 버전 1809, 1903, 1909, 2004.  

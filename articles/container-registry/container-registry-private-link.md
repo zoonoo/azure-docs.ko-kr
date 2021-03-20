@@ -4,10 +4,10 @@ description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93342303"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결
@@ -216,8 +216,8 @@ az network private-dns record-set a add-record \
     | 속성 | 고유한 이름을 입력합니다. |
     | 하위 리소스 |**레지스트리** 를 선택합니다.|
     | **네트워킹** | |
-    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET* )를 선택합니다. |
-    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet* )을 선택합니다. |
+    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET*)를 선택합니다. |
+    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet*)을 선택합니다. |
     |**프라이빗 DNS 통합**||
     |프라이빗 DNS 영역과 통합 |**예** 를 선택합니다. |
     |프라이빗 DNS 영역 |(새) *privatelink.azurecr.io* 를 선택합니다. |
@@ -259,8 +259,8 @@ az network private-dns record-set a add-record \
     | 설정 | 값 |
     | ------- | ----- |
     |**네트워킹**| |
-    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET* )를 선택합니다. |
-    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet* )을 선택합니다. |
+    | 가상 네트워크| 가상 머신이 배포된 가상 네트워크(예: *myDockerVMVNET*)를 선택합니다. |
+    | 서브넷 | 가상 머신이 배포된 서브넷(예: *myDockerVMSubnet*)을 선택합니다. |
     |**프라이빗 DNS 통합**||
     |프라이빗 DNS 영역과 통합 |**예** 를 선택합니다. |
     |프라이빗 DNS 영역 |(새) *privatelink.azurecr.io* 를 선택합니다. |
@@ -306,7 +306,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 프라이빗 링크 연결의 유효성을 검사하려면 가상 네트워크에서 설정한 가상 머신에 대해 SSH를 수행합니다.
 
-또는와 같은 유틸리티를 `nslookup` 실행 `dig` 하 여 개인 링크를 통해 레지스트리의 IP 주소를 조회 합니다. 예를 들어:
+또는와 같은 유틸리티를 `nslookup` 실행 `dig` 하 여 개인 링크를 통해 레지스트리의 IP 주소를 조회 합니다. 예를 들면 다음과 같습니다.
 
 ```bash
 dig $REGISTRY_NAME.azurecr.io

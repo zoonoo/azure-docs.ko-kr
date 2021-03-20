@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320230"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Data Studio를 사용 하 여 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 관리
@@ -68,7 +68,7 @@ PostgreSQL 대시보드 보기:
 
 ## <a name="work-with-your-data-and-schema"></a>데이터 및 스키마 작업
 
-Azure Data Studio 창의 왼쪽에서 노드 **서버**를 확장 합니다.
+Azure Data Studio 창의 왼쪽에서 노드 **서버** 를 확장 합니다.
 
 [연결 추가]를 선택 하 고 PostgreSQL 인스턴스에 대 한 연결 세부 정보를 입력 합니다.
 - **연결 형식:** PostgreSQL
@@ -88,7 +88,7 @@ Azure Data Studio 창의 왼쪽에서 노드 **서버**를 확장 합니다.
 
 연결 되 면 몇 가지 환경을 사용할 수 있습니다.
 - **새 쿼리**
-- **새 노트북**
+- **새 Notebook**
 - **서버 표시를 확장 하 고 데이터베이스 내 개체를 찾아보거나 작업 합니다.**
 - **...**
 

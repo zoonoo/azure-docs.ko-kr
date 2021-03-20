@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
 ms.openlocfilehash: 37d9352b6384ee2b5e95903f35d531bd672b25b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96490978"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>검색 쿼리를 Bing Visual Search API로 보내기
@@ -78,7 +78,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 
 다음은 요청에서 지정해야 하는 쿼리 매개 변수입니다. 최소한 쿼리 매개 변수를 포함 해야 합니다 `mkt` .
 
-| Name | 값 | 형식 | 필수 |
+| Name | 값 | Type | 필수 |
 | --- | --- | --- | --- |
 | <a name="cc"></a>cc  | 결과를 가져올 위치를 나타내는 두 자리 국가 코드입니다.<br /><br /> 이 매개 변수를 설정하는 경우 [Accept-Language](#acceptlanguage) 헤더도 지정해야 합니다. Bing은 언어 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 지정한 국가 코드와 언어를 결합하여 결과를 반환할 지역/국가를 결정합니다. 언어 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾습니다. 또는 지정된 지역/국가 대신 집계 또는 기본 지역/국가를 결과에 사용할 수 있습니다.<br /><br /> 여러 언어를 지정하는 경우에만 이 쿼리 매개 변수와 `Accept-Language` 쿼리 매개 변수를 사용해야 합니다. 여러 언어를 지정하지 않는 경우 `mkt` 및 `setLang` 쿼리 매개 변수를 사용해야 합니다.<br /><br /> 이 매개 변수와 [](#mkt)mkt&mdash; 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | String | 아니요       |
 | <a name="mkt"></a>mkt   | 결과가 나오는 지역/국가입니다. <br /><br /> **참고:** 알려진 경우 항상 시장을 지정 해야 합니다. 지역/국가를 지정하면 Bing이 요청을 라우팅하고 최적 응답을 반환하는 데 도움이 됩니다.<br /><br /> 이 매개 변수와 [](#cc)cc&mdash; 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. | String | 예      |
@@ -109,7 +109,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 
 ### <a name="content-form-types"></a>콘텐츠 양식 유형
 
-각 요청에는 헤더가 포함 되어야 합니다 `Content-Type` . 헤더는로 설정 해야 합니다. `multipart/form-data; boundary=\<boundary string\>` 여기서 \<boundary string\> 은 폼 데이터의 경계를 식별 하는 고유한 불투명 문자열입니다. 예: `boundary=boundary_1234-abcd`.
+각 요청에는 헤더가 포함 되어야 합니다 `Content-Type` . 헤더는로 설정 해야 합니다. `multipart/form-data; boundary=\<boundary string\>` 여기서 \<boundary string\> 은 폼 데이터의 경계를 식별 하는 고유한 불투명 문자열입니다. 예: `boundary=boundary_1234-abcd`
 
 이미지 토큰 또는 URL Visual Search를 전송 하는 경우 다음 코드 조각은 게시물의 본문에 포함 해야 하는 폼 데이터를 보여 줍니다. 양식 데이터는 헤더를 포함 해야 `Content-Disposition` 하며 해당 `name` 매개 변수를 "knowledgeRequest"로 설정 해야 합니다. 개체에 대 한 자세한 `imageInfo` 내용은 요청을 참조 하십시오.
 

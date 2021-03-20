@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 0d4b27b85ac7bc61e14a79f29e4e26ec4973ced1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84744054"
 ---
 # <a name="embed-the-internet-analyzer-client"></a>Internet Analyzer 클라이언트 포함
@@ -30,7 +30,7 @@ Internet Analyzer가 제대로 작동하려면 Azure와 기타 Microsoft 서비�
 
 테스트 구성 후 Azure Portal이나 Azure 명령줄 인터페이스를 통해 스크립트 URL을 찾을 수 있습니다. 자세한 내용은 [Internet Analyzer 리소스 만들기](internet-analyzer-create-test-portal.md)를 참조하세요.
 
-옵션 1. Azure Portal에서 [이 링크](https://aka.ms/InternetAnalyzerPreviewPortal)를 사용하여 Azure Internet Analyzer의 미리 보기 포털 페이지를 엽니다. **설정 > 구성**으로 이동하여 Internet Analyzer 프로필을 탐색하고 스크립트 URL을 확인합니다.
+옵션 1. Azure Portal에서 [이 링크](https://aka.ms/InternetAnalyzerPreviewPortal)를 사용하여 Azure Internet Analyzer의 미리 보기 포털 페이지를 엽니다. **설정 > 구성** 으로 이동하여 Internet Analyzer 프로필을 탐색하고 스크립트 URL을 확인합니다.
 
 옵션 2. Azure 명령줄 인터페이스를 사용하여 `scriptFileUri` 속성을 확인합니다.
 ```azurecli-interactive

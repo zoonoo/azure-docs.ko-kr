@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
 ms.openlocfilehash: ee15bfaa1d69e2e5047e7d24986f8e4e7d5b8b31
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102180244"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화 모범 사례 
@@ -56,7 +56,7 @@ Azure SQL Database는 단일 자격 증명 세트만 지원합니다. 이 제약
 
 동기화 그룹의 데이터베이스 수준에서 감사를 사용 하도록 설정 하는 것이 좋습니다. 
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 ### <a name="database-considerations-and-constraints"></a><a name="database-considerations-and-constraints"></a> 데이터베이스 고려 사항 및 제약 조건
 

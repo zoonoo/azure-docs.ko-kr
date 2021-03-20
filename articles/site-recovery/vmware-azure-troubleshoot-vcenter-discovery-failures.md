@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
 ms.openlocfilehash: 1a8471305af93194ccae7b0928685e10d4d64726
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366662"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>vCenter Server 검색 오류 문제 해결
@@ -73,7 +73,7 @@ DRA 프록시 구성의 경우:
  
     **cd C:\Program Files\Microsoft Azure Site Recovery 공급자**
 
-3. 명령 프롬프트에서 다음 명령을 실행 합니다.
+3. 명령 프롬프트에서 다음 명령을 실행합니다.
    
    **DRCONFIGURATOR.EXE/configure/AddBypassUrls [vCenter 추가 시 제공 된 vCenter Server의 FQDN]**
 

@@ -4,10 +4,10 @@ description: 수행할 상태 확인 및 업그레이드를 자동으로 실행 
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.openlocfilehash: 6b6116bf1188fcf191b2d672e6c698bb3c050e6c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018480"
 ---
 # <a name="application-upgrade-parameters"></a>애플리케이션 업그레이드 매개 변수
@@ -78,7 +78,7 @@ Service Fabric CLI를 사용하는 Service Fabric 애플리케이션 업그레�
 
 ### <a name="required-parameters"></a>필수 매개 변수
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | application-id  |업그레이드될 애플리케이션의 ID입니다. <br> 일반적으로 'fabric:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 '\~' 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 ' fabric:/myapp/app1 ' 인 경우 응용 프로그램 id는 \~ 6.0 이상에서는 ' myapp app1 '이 고 이전 버전에서는 ' myapp/app1 '입니다.|
 application-version |업그레이드 대상인 애플리케이션 형식의 버전입니다.|
@@ -86,7 +86,7 @@ application-version |업그레이드 대상인 애플리케이션 형식의 버�
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 default-service-health-policy | 서비스 유형의 상태를 평가 하기 위해 기본적으로 사용 되는 상태 정책의 [JSON](/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) 인코딩된 사양입니다. 맵은 기본적으로 비어 있습니다. |
 failure-action | 허용되는 값은 **Rollback**, **Manual** 및 **Invalid** 입니다. *Monitored* 업그레이드에서 모니터링 정책 또는 상태 정책 위반이 발생하면 수행할 보정 작업입니다. <br>**Rollback** 은 업그레이드가 업그레이드 이전 버전으로 자동으로 롤백되도록 지정합니다. <br>**Manual** 은 업그레이드가 *UnmonitoredManual* 업그레이드 모드로 전환됨을 나타냅니다. <br>**Invalid** 는 실패 작업이 유효하지 않음을 나타냅니다.|
