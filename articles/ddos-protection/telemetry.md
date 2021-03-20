@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716196"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>DDoS 보호 원격 분석 보기 및 구성
 
 Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 인사이트와 시각화를 제공합니다. DDoS 공격으로부터 자신의 가상 네트워크를 보호하는 고객은 공격 완화 보고서 및 완화 흐름 로그를 통해 공격 트래픽 및 공격을 완화하는 데 수행된 작업에 대해 자세히 파악할 수 있습니다. 다양 한 원격 분석은 DDoS 공격 기간 동안 상세 메트릭을 포함 하 여 Azure Monitor를 통해 노출 됩니다. DDoS Protection에서 노출하는 Azure Monitor 메트릭에 대한 경고를 구성할 수 있습니다. 로깅은 Azure Monitor 진단 인터페이스를 통한 고급 분석을 위해 [Azure 센티널](../sentinel/connect-azure-ddos-protection.md), Splunk (azure Event Hubs), OMS Log Analytics 및 Azure Storage와 추가로 통합 될 수 있습니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서 학습할 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * DDoS protection 원격 분석 보기
@@ -37,7 +37,7 @@ Azure DDoS Protection 표준은 DDoS 공격 분석을 통해 자세한 공격 �
 Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) 사용할 수 있습니다. 이러한 메트릭은 진단 설정을 통해 내보낼 수도 있습니다 ( [DDoS 진단 로깅 보기 및 구성](diagnostic-logging.md)참조).
 
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | Description |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | 설명 |
 | --- | --- | --- | --- | --- |
 | BytesDroppedDDoS | 인바운드 바이트가 삭제된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 삭제된 DDoS| 
 | BytesForwardedDDoS | 인바운드 바이트가 전달된 DDoS | 초당 바이트 수 | 최대 | 인바운드 바이트가 전달된 DDoS |
@@ -62,7 +62,7 @@ Azure DDoS Protection Standard에 대해 다음 [메트릭을](../azure-monitor/
 | UDPPacketsForwardedDDoS | 인바운드 UDP 패킷이 전달된 DDoS | 초당 개수 | 최대 | 인바운드 UDP 패킷이 전달된 DDoS |
 | UDPPacketsInDDoS | 인바운드 UDP 패킷 DDoS | 초당 개수 | 최대 | 인바운드 UDP 패킷 DDoS |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 이 자습서의 단계를 완료 하려면 먼저 [Azure DDoS standard 보호 계획](manage-ddos-protection.md) 을 만들고 가상 네트워크에서 DDoS Protection standard를 사용 하도록 설정 해야 합니다.
@@ -97,7 +97,7 @@ DDoS 공격을 시뮬레이션 하 여 DDoS protection 원격 분석의 유효�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업 방법을 알아보았습니다.
+본 자습서에서는 다음 작업에 관한 방법을 학습했습니다.
 
 - DDoS 보호 메트릭에 대한 경고 구성
 - DDoS protection 원격 분석 보기

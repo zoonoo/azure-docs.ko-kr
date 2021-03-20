@@ -17,18 +17,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cea26cb119f64679807bc6c5eaadb41b341e5d5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89662379"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정
 Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)는 Azure AD Connect의 주요 구성 요소입니다. 온-프레미스 환경과 Azure AD 간의 ID 데이터를 동기화하는 데 관련된 모든 작업을 담당합니다. Azure AD Connect 동기화는 DirSync, Azure AD Sync 및 Azure Active Directory Connector가 구성된 Forefront Identity Manager의 후속 제품입니다.
 
-이 항목은 **Azure AD Connect 동기화**(**동기화 엔진**이라고도 함)를 다루며 관련된 모든 다른 항목에 대한 링크를 나열합니다. Azure AD Connect에 대한 링크는 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)을 참조하세요.
+이 항목은 **Azure AD Connect 동기화**(**동기화 엔진** 이라고도 함)를 다루며 관련된 모든 다른 항목에 대한 링크를 나열합니다. Azure AD Connect에 대한 링크는 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)을 참조하세요.
 
-동기화 서비스는 두 개의 구성 요소, 온-프레미스 **Azure AD Connect 동기화** 및 **Azure AD Connect 동기화 서비스**라는 Azure AD의 서비스 쪽 구성 요소로 구성됩니다.
+동기화 서비스는 두 개의 구성 요소, 온-프레미스 **Azure AD Connect 동기화** 및 **Azure AD Connect 동기화 서비스** 라는 Azure AD의 서비스 쪽 구성 요소로 구성됩니다.
 
 ## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect 동기화 항목
 | 항목 | 포함된 내용 및 적용 시기 |
@@ -36,7 +36,7 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 | **Azure AD Connect 동기화 기본 사항** | |
 | [아키텍처 이해](concept-azure-ad-connect-sync-architecture.md) |동기화 엔진을 처음 접하고 아키텍처와 사용되는 용어에 대해 알고자 하는 사용자를 대상으로 합니다. |
 | [기술 개념](how-to-connect-sync-technical-concepts.md) |간단한 버전의 아키텍처 항목으로 사용되는 용어를 간략히 설명합니다. |
-| [Azure AD Connect에 대한 토폴로지](plan-connect-topologies.md) |다양한 토폴로지와 동기화 엔진에서 지원하는 시나리오에 대해 설명합니다. |
+| [Azure AD Connect에 대 한 토폴로지](plan-connect-topologies.md) |다양한 토폴로지와 동기화 엔진에서 지원하는 시나리오에 대해 설명합니다. |
 | **사용자 지정 구성** | |
 | [설치 마법사 다시 실행](how-to-connect-installation-wizard.md) |Azure AD Connect 설치 마법사를 다시 실행하는 경우 사용할 수 있는 옵션을 설명합니다. |
 | [선언적 프로비전 이해](concept-azure-ad-connect-sync-declarative-provisioning.md) |선언적 프로비전이라는 구성 모델을 설명합니다. |

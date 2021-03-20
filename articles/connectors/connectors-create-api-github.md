@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999549"
 ---
 # <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 GitHub 리포지토리 모니터링 및 관리
@@ -24,9 +24,9 @@ GitHub 커넥터를 시작하려면 [먼저 논리 앱을 만듭니다](../logic
 
 논리 앱에서 GitHub 커넥터를 사용하려면 먼저 *연결* 을 만들고, 다음 속성에 대한 세부 정보를 제공해야 합니다. 
 
-| 속성 | 필수 | Description | 
+| 속성 | 필수 | 설명 | 
 | -------- | -------- | ----------- | 
-| 토큰 | Yes | GitHub 자격 증명을 제공합니다. |
+| 토큰 | 예 | GitHub 자격 증명을 제공합니다. |
 
 연결을 만든 후에 이 작업을 실행하고 이 문서에서 설명하는 트리거를 수신 대기할 수 있습니다.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
 ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715550"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
@@ -73,7 +73,7 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 앞 도어는 현재 진단 로그 (일괄 처리 시간)를 제공 합니다. 진단 로그는 각 항목에 대해 다음 스키마를 갖는 개별 API 요청을 제공 합니다.
 
-| 속성  | Description |
+| 속성  | 설명 |
 | ------------- | ------------- |
 | BackendHostname | 요청을 백 엔드에 전달 하는 경우이 필드는 백 엔드의 호스트 이름을 나타냅니다. 요청이 리디렉션 되거나 지역 캐시로 전달 되는 경우이 필드는 비어 있습니다 (라우팅 규칙에 캐싱이 설정 된 경우). |
 | CacheStatus | 캐싱 시나리오의 경우이 필드는 POP에서 캐시 적중/누락을 정의 합니다. |
@@ -121,8 +121,8 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 | 시나리오 | 로그 항목 수 | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | True | CONFIG_NOCACHE |
-| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | True | 리 |
+| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | 참 | CONFIG_NOCACHE |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | 참 | 리 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP의 캐시 누락 (부모 캐시 POP에서 캐시 적중) | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. 적중 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 누락을 캐시 하지만 부모 캐시 POP에서 부분 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP의 캐시 PARTIAL_HIT, 부모 캐시의 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. 적중 |

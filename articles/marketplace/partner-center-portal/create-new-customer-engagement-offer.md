@@ -8,17 +8,17 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: 0c220daab0d1d9ae7d50d37d9303d6677bd52cc1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97360308"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
 이 문서에서는 고객 Engagement & PowerApps 제품에 대 한 새 Dynamics 365을 만드는 방법을 설명 합니다. 고객 참여 (PowerApps, 영업, 서비스, 프로젝트 서비스 및 필드 서비스) 용 Dynamics 365에 대 한 모든 앱은 표준 요구 사항, 호환성 및 적절 한 방법에 대 한 솔루션을 검사 하는 인증 프로세스를 통과 해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
 
-시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만드세요](create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 >[!NOTE]
 > 제품을 게시 한 후에는 게시에 대 한 제품을 다시 제출 하 고 파트너 센터 및 온라인 스토어 에서만 제품을 편집할 수 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "97360308"
 
 **제품 별칭** 을 입력합니다. 파트너 센터에서 제품에 사용되는 이름입니다.
 
-- 이 이름은 Marketplace에서 사용되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
+- 이 이름은 마켓플레이스에서 사용되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
 - **만들기** 를 선택한 후에는이 이름을 변경할 수 없습니다.
 
 **만들기** 를 선택하여 제품을 생성하고 계속합니다.

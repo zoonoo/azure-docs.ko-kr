@@ -5,10 +5,10 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.custom: references_regions
 ms.openlocfilehash: d4764772473bbf2e5aafe2607a9462c9a6a15203
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100559508"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Azure Arc 사용 서버: 데이터 상주
@@ -21,7 +21,7 @@ Azure Arc 사용 서버는 **미국, 유럽, 영국, 오스트레일리아 및 �
 
 Azure Arc 사용 서버는 연결 된 컴퓨터에서을 사용 하도록 설정 하기 전에 확장을 지정 해야 하는 [AZURE VM 확장](manage-vm-extensions.md) 구성 설정 (즉, 속성 값)을 저장 합니다. 예를 들어 Log Analytics VM 확장을 사용 하도록 설정 하면 Log Analytics **작업 영역 ID** 및 **기본 키** 를 요청 합니다.
 
-연결 된 컴퓨터에 대 한 메타 데이터 정보도 수집 됩니다. 특히 다음에 대한 내용을 설명합니다.
+연결 된 컴퓨터에 대 한 메타 데이터 정보도 수집 됩니다. 특히:
 
 * 운영 체제 이름, 유형 및 버전
 * 컴퓨터 이름

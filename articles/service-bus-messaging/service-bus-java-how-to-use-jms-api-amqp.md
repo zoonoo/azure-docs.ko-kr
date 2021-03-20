@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 97031abaedaa3e5595e290fa0292646feb744d47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90086694"
 ---
 # <a name="use-the-java-message-service-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0와 함께 Java 메시지 서비스 사용
@@ -50,7 +50,7 @@ Service Bus를 사용 하 여 JMS 응용 프로그램을 빌드하고 실행할 
 
 ### <a name="java-naming-and-directory-interface"></a>Java 명명 및 디렉터리 인터페이스
 
-JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI: **Connectionfactory** 와 **Destination**을 사용 하 여 두 가지 유형의 JMS 개체가 확인 됩니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리는 다음 형식의 속성 파일을 사용 하 여 구성 된 간단한 속성 파일 기반 JNDI 공급자와 함께 제공 됩니다.
+JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI: **Connectionfactory** 와 **Destination** 을 사용 하 여 두 가지 유형의 JMS 개체가 확인 됩니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리는 다음 형식의 속성 파일을 사용 하 여 구성 된 간단한 속성 파일 기반 JNDI 공급자와 함께 제공 됩니다.
 
 ```TEXT
 # servicebus.properties - sample JNDI configuration
@@ -67,7 +67,7 @@ queue.QUEUE = queue1
 
 #### <a name="set-up-jndi-context-and-configure-the-connectionfactory-object"></a>JNDI 컨텍스트를 설정 하 고 ConnectionFactory 개체를 구성 합니다.
 
-참조 되는 연결 문자열은 **기본 연결 문자열**아래 [Azure Portal](https://portal.azure.com) 의 공유 액세스 정책에서 사용할 수 있는 연결 문자열입니다.
+참조 되는 연결 문자열은 **기본 연결 문자열** 아래 [Azure Portal](https://portal.azure.com) 의 공유 액세스 정책에서 사용할 수 있는 연결 문자열입니다.
 
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
@@ -126,7 +126,7 @@ Service Bus와 함께 JMS를 사용 하는 경우 특별 한 Api 또는 옵션�
 
 #### <a name="configure-the-jndi-initialcontext-object"></a>JNDI InitialContext 개체 구성
 
-JNDI 환경은 javax.naming.InitialContext 클래스의 생성자에 구성 정보의 해시 테이블을 전달 하 여 구성 됩니다. 해시 테이블에 있는 두 개의 필수 요소는 초기 컨텍스트 팩터리의 클래스 이름과 공급자 URL입니다. 다음 코드에서는 **servicebus**라는 속성 파일에서 qpid 속성 파일 기반 JNDI 공급자를 사용 하도록 JNDI 환경을 구성 하는 방법을 보여 줍니다.
+JNDI 환경은 javax.naming.InitialContext 클래스의 생성자에 구성 정보의 해시 테이블을 전달 하 여 구성 됩니다. 해시 테이블에 있는 두 개의 필수 요소는 초기 컨텍스트 팩터리의 클래스 이름과 공급자 URL입니다. 다음 코드에서는 **servicebus** 라는 속성 파일에서 qpid 속성 파일 기반 JNDI 공급자를 사용 하도록 JNDI 환경을 구성 하는 방법을 보여 줍니다.
 
 ```java
 // Set up JNDI context
@@ -305,7 +305,7 @@ public class JmsQueueQuickstart {
 
 ### <a name="run-the-application"></a>애플리케이션 실행
 
-공유 액세스 정책의 **연결 문자열**을 전달하여 애플리케이션을 실행합니다.
+공유 액세스 정책의 **연결 문자열** 을 전달하여 애플리케이션을 실행합니다.
 다음 출력은 응용 프로그램을 실행 하는 형식입니다.
 
 ```Output

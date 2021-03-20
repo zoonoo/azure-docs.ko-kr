@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: devx-track-js
 ms.openlocfilehash: f9e8cdd3eb5c9f441444683fb5efaccc880b2757
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98184614"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio Mobile Center를 사용하여 실제 사용자 측정을 Traffic Manager에 보내는 방법
@@ -97,8 +97,8 @@ Visual Studio Mobile Center를 처음 사용하는 경우 해당 [웹 사이트]
 
 ## <a name="next-steps"></a>다음 단계
 - [실제 사용자 측정](traffic-manager-rum-overview.md)에 대한 자세한 정보
-- [Traffic Manager 작동 방식](traffic-manager-overview.md)
+- [Traffic Manager 작동 방법](traffic-manager-overview.md) 알아보기
 - [Mobile Center](/mobile-center/)에 대해 자세히 알아봅니다.
 - Mobile Center [등록](https://mobile.azure.com)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)
+- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md) 방법 알아보기

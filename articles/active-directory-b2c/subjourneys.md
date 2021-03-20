@@ -11,10 +11,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97386870"
 ---
 # <a name="sub-journeys"></a>하위 경험
@@ -125,7 +125,7 @@ Sub 경험는 [사용자 경험](userjourneys.md)처럼 동작 합니다 .이는
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 사용자 경험에서 정책의 하위 경험을 참조 하는 데 사용할 수 있는 하위 여행 식별자입니다. [후보](userjourneys.md#journeylist) 요소의 **SubJourneyReferenceId** 요소는이 특성을 가리킵니다. |
-| 형식 | 예 | 가능한 값은 `Call` , 또는 `Transfer` 입니다. 자세한 내용은 [사용자 경험 분기](#user-journey-branching) 를 참조 하세요.|
+| Type | 예 | 가능한 값은 `Call` , 또는 `Transfer` 입니다. 자세한 내용은 [사용자 경험 분기](#user-journey-branching) 를 참조 하세요.|
 
 **Subjourney** 요소에는 다음 요소가 포함 됩니다.
 

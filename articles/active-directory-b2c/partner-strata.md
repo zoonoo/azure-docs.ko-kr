@@ -12,10 +12,10 @@ ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100557182"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>층를 사용 하 여 온-프레미스 응용 프로그램을 보호 하기 위한 Azure AD B2C 확장을 위한 자습서
@@ -29,7 +29,7 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
 - **간편한 구성**: Azure AD B2C는 Maverics ID Orchestrator SAML 또는 oidc 커넥터를 Azure AD B2C에 연결 하는 간단한 단계별 사용자 인터페이스를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -57,7 +57,7 @@ Maverics Id Orchestrator는 온-프레미스 응용 프로그램을 보호 하�
 
 ![이미지 하이브리드 앱에 액세스할 수 있도록 층 Maverics와 Azure AD B2C 통합의 아키텍처를 보여 줍니다.](./media/partner-strata/strata-architecture-diagram.png)
 
-| 단계 | Description |
+| 단계 | 설명 |
 |:-------|:---------------|
 | 1. | 사용자가 온-프레미스 호스팅된 응용 프로그램에 대 한 액세스를 요청 합니다. Maverics Id Orchestrator는 응용 프로그램에 대 한 사용자의 요청을 프록시 합니다.|
 | 2. | Orchestrator에서 사용자의 인증 상태를 확인 합니다. 세션 토큰이 수신 되지 않거나 제공 된 세션 토큰이 잘못 된 경우 인증을 위해 Azure AD B2C 사용자에 게 보냅니다.|
@@ -259,7 +259,7 @@ appgateways:
 
 Orchestrator가 Azure AD B2C 및 기타 id 시스템에 연결 하는 데 사용 하는 암호를 보호 하는 것이 중요 합니다. Maverics는 기본적으로 암호를 일반 텍스트로 로드 하지만 `maverics.yaml` 이 자습서에서는 Azure Key Vault를 암호 공급자로 사용 합니다.
 
-지침에 따라 Orchestrator 인스턴스에서 암호 공급자로 사용할 [새 Key Vault를 만듭니다](../key-vault/secrets/quick-create-portal.md) . 자격 증명 모음에 비밀을 추가 하 고 지정 된를 `SECRET NAME` 각 비밀에 기록해 둡니다. 예들 들어 `AzureADB2CClientSecret`입니다.
+지침에 따라 Orchestrator 인스턴스에서 암호 공급자로 사용할 [새 Key Vault를 만듭니다](../key-vault/secrets/quick-create-portal.md) . 자격 증명 모음에 비밀을 추가 하 고 지정 된를 `SECRET NAME` 각 비밀에 기록해 둡니다. 예: `AzureADB2CClientSecret`
 
 `maverics.yaml` 구성 파일에서 값을 비밀로 선언하려면 비밀을 꺾쇠 괄호로 묶습니다.
 

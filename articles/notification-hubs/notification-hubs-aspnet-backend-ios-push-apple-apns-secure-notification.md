@@ -15,10 +15,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90090349"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs 보안 푸시
@@ -119,7 +119,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
     이 메서드는 앱 백 엔드를 호출하여 공유 기본 설정에 저장된 자격 증명을 통해 알림 콘텐츠를 검색합니다.
 
-4. 이제 들어오는 알림을 처리 하 고 위의 메서드를 사용 하 여 표시할 콘텐츠를 검색 합니다. 먼저 푸시 알림을 받을 때 백그라운드에서 iOS 앱을 실행할 수 있도록 설정 합니다. **XCode**의 왼쪽 패널에서 앱 프로젝트를 선택하고 가운데 창의 **대상** 섹션에서 기본 앱 대상을 클릭합니다.
+4. 이제 들어오는 알림을 처리 하 고 위의 메서드를 사용 하 여 표시할 콘텐츠를 검색 합니다. 먼저 푸시 알림을 받을 때 백그라운드에서 iOS 앱을 실행할 수 있도록 설정 합니다. **XCode** 의 왼쪽 패널에서 앱 프로젝트를 선택하고 가운데 창의 **대상** 섹션에서 기본 앱 대상을 클릭합니다.
 5. 그런 다음 중앙 창 위쪽의 **기능** 탭을 클릭 하 고 **원격 알림** 상자를 선택 합니다.
 
     ![앱 프로젝트를 선택 하 고 기능 탭을 열어 놓은 XCode의 스크린샷 원격 알림 확인란이 선택 되어 있습니다.][IOS1]
@@ -157,6 +157,6 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
 2. iOS 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
-3. iOS 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다. 알림 센터에 보안 알림이 표시되는지 확인해야 합니다.
+3. iOS 앱 UI에서 **로그인** 을 클릭합니다. 그리고 나서 **푸시 보내기** 를 클릭합니다. 알림 센터에 보안 알림이 표시되는지 확인해야 합니다.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

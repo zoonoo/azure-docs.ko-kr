@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
 ms.openlocfilehash: 61e8ee2cbcd1252704b2d1e220fcfaaff17c2f28
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93085992"
 ---
 # <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 작업에 대 한 사용자 액세스 제한
@@ -37,10 +37,10 @@ Azure Cosmos DB에서는 데이터베이스 서비스와의 상호 작용을 인
 > 다음 섹션에서 명령을 실행 하려면 수정 하려는 구독에 대 한 [Azure 소유자 역할](../role-based-access-control/built-in-roles.md#owner) 뿐만 아니라 Azure PowerShell Module 3.0.0 이상을 설치 해야 합니다.
 
 다음 섹션의 PowerShell 스크립트에서 다음 자리 표시자를 사용자 환경에 해당 하는 값으로 대체 합니다.
-- `$MySubscriptionId` -사용 권한을 제한 하려는 Azure Cosmos 계정을 포함 하는 구독 ID입니다. 예: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
-- `$MyResourceGroupName` -Azure Cosmos 계정이 포함 된 리소스 그룹입니다. 예: `myresourcegroup`.
-- `$MyAzureCosmosDBAccountName` -Azure Cosmos 계정의 이름입니다. 예: `mycosmosdbsaccount`.
-- `$MyUserName` - username@domain 액세스를 제한 하려는 사용자의 로그인 ()입니다. 예: `cosmosdbuser@contoso.com`.
+- `$MySubscriptionId` -사용 권한을 제한 하려는 Azure Cosmos 계정을 포함 하는 구독 ID입니다. 예를 들어 `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`을 참조하십시오.
+- `$MyResourceGroupName` -Azure Cosmos 계정이 포함 된 리소스 그룹입니다. 예를 들어 `myresourcegroup`을 참조하십시오.
+- `$MyAzureCosmosDBAccountName` -Azure Cosmos 계정의 이름입니다. 예를 들어 `mycosmosdbsaccount`을 참조하십시오.
+- `$MyUserName` - username@domain 액세스를 제한 하려는 사용자의 로그인 ()입니다. 예를 들어 `cosmosdbuser@contoso.com`을 참조하십시오.
 
 ## <a name="select-your-azure-subscription"></a>Azure 구독 선택
 

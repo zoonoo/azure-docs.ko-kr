@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2a1118e394046b217a288663659a2c910098e992
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96576012"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항

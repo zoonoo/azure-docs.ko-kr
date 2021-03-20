@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: sideeksh
 ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426387"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
@@ -43,14 +43,14 @@ ms.locfileid: "89426387"
 ## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Azure에 대 한 자격 증명 모음 삭제-Hyper-v VM (VMM 포함)
 
 1. System Center VMM에서 관리 하는 Hyper-v Vm을 삭제 하려면 [다음 단계](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) 를 수행 합니다.
-2. 모든 복제 정책을 분리 하 고 삭제 합니다. **Site Recovery Infrastructure**  >  **System Center VMM 복제 정책에 대 한**Site Recovery 인프라 > 자격 증명 모음에서이 작업을 수행  >  **Replication Policies**합니다.
+2. 모든 복제 정책을 분리 하 고 삭제 합니다.   >  **System Center VMM 복제 정책에 대 한** Site Recovery 인프라 > 자격 증명 모음에서이 작업을 수행  >  합니다.
 3. 연결 된 VMM 서버를 등록 취소 하려면 [다음 단계](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) 를 수행 합니다.
 4. 그런 다음 자격 증명 모음을 삭제 합니다.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>자격 증명 모음 삭제-Hyper-v VM에서 Azure로
 
 1. 모든 보호 된 Vm을 삭제 하려면 [다음 단계](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) 를 수행 합니다.
-2. 모든 복제 정책을 분리 하 고 삭제 합니다. 자격 증명 모음에서 **Site Recovery Infrastructure**  >  **hyper-v 사이트 복제 정책에 대 한**Site Recovery 인프라 >이 작업을 수행  >  **Replication Policies**합니다.
+2. 모든 복제 정책을 분리 하 고 삭제 합니다. 자격 증명 모음에서   >  **hyper-v 사이트 복제 정책에 대 한** Site Recovery 인프라 >이 작업을 수행  >  합니다.
 3. Hyper-v 호스트의 등록을 취소 하려면 [다음 지침](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) 을 따르세요.
 4. Hyper-V 사이트를 삭제합니다.
 5. 그런 다음 자격 증명 모음을 삭제 합니다.
