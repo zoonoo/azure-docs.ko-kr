@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/30/2020
 ms.author: Zhchia
 ms.openlocfilehash: c2feae18c4b32e1a1a87d153219aff0bfee3b756
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182192"
 ---
 # <a name="tutorial-configure-visibly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 시각적 구성
@@ -35,7 +35,7 @@ ms.locfileid: "96182192"
 > * 시각적으로 그룹 및 그룹 멤버 자격 프로 비전
 > * 시각적으로 [Single sign-on](./visibly-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

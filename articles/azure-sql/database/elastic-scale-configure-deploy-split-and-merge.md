@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792075"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
@@ -104,7 +104,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 3. 파일 경로를 확인하고 **다음** 을 클릭합니다.
 4. 암호를 입력하고 **확장 속성 모두 포함** 을 선택된 상태로 두고 **다음** 을 클릭합니다.
 5. **인증서 저장소를 자동으로 선택[…]** 을 선택된 상태로 두고 **다음** 을 클릭합니다.
-6. **마침** , **확인** 을 차례로 클릭합니다.
+6. **마침**, **확인** 을 차례로 클릭합니다.
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>클라우드 서비스에 PFX 파일 업로드
 

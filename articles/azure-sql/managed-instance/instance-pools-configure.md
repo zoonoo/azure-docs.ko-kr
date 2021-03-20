@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
 ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793112"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>인스턴스 풀에 Azure SQL Managed Instance 배포
@@ -43,7 +43,7 @@ ms.locfileid: "92793112"
 
 사용 가능한 [PowerShell 명령](/powershell/module/az.sql/):
 
-|cmdlet |Description |
+|Cmdlet |Description |
 |:---|:---|
 |[New-AzSQLInstancePool](/powershell/module/az.sql/new-azsqlinstancepool/) | SQL Managed Instance 풀을 만듭니다. |
 |[Get-AzSQLInstancePool](/powershell/module/az.sql/get-azsqlinstancepool/) | 인스턴스 풀에 대 한 정보를 반환 합니다. |

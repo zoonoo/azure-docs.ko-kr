@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 225ccb67153a33ed47af68ebb1549dce37426278
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573464"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 시작
@@ -18,7 +18,7 @@ ms.locfileid: "96573464"
 
 이 문서에서는 Visual Studio에서 간단한 Reliable Actor 애플리케이션을 만들고 디버그하는 과정을 안내합니다. Reliable Actors에 대한 자세한 내용은 [Service Fabric Reliable Actors 소개](service-fabric-reliable-actors-introduction.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 컴퓨터에 Visual Studio를 비롯한 Service Fabric 개발 환경이 설정되어 있는지 확인합니다. 자세한 내용은 [개발 환경 설정 방법](service-fabric-get-started.md)을 참조하세요.
 
@@ -85,7 +85,7 @@ internal class HelloWorld : Actor, IHelloWorld
 
 행위자 서비스를 호출하는 간단한 콘솔 애플리케이션을 만듭니다.
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 > **Add**  >  **새 프로젝트** 추가 ...를 클릭 합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 >   >  **새 프로젝트** 추가 ...를 클릭 합니다.
 
 2. **.NET Core** 프로젝트 형식에서 **콘솔 응용 프로그램(.NET Core)** 을 선택합니다.  프로젝트 이름을 *ActorClient* 로 지정합니다.
     

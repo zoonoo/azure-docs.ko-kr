@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 97659d4ab95fdbe75460161d0ceed71a1cb5cf82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88182411"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
@@ -41,13 +41,13 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 
 리포지토리에서 Azure Resource Manager 템플릿을 구성 하기 위해 수행할 수 있는 몇 가지 규칙이 있습니다.
 
-- 마스터 템플릿 파일의 이름을 *azuredeploy.js설정*해야 합니다.
+- 마스터 템플릿 파일의 이름을 *azuredeploy.js설정* 해야 합니다.
 
-- 매개 변수 파일에 정의 된 매개 변수 값을 사용 하려면 매개 변수 파일의 이름을 *azuredeploy.parameters.js설정*해야 합니다.
+- 매개 변수 파일에 정의 된 매개 변수 값을 사용 하려면 매개 변수 파일의 이름을 *azuredeploy.parameters.js설정* 해야 합니다.
 
   DevTest Labs에서 중첩된 템플릿을 자동으로 관리할 수 있도록 매개 변수 `_artifactsLocation` 및 `_artifactsLocationSasToken`을 사용하여 parametersLink URI 값을 생성합니다. 자세한 내용은 [테스트 환경을 위한 중첩 된 Azure Resource Manager 템플릿 배포](deploy-nested-template-environments.md)를 참조 하세요.
 
-- 다음과 같이 *metadata.js에 있는*파일에서 템플릿 표시 이름 및 설명을 지정 하는 메타 데이터를 정의할 수 있습니다.
+- 다음과 같이 *metadata.js에 있는* 파일에서 템플릿 표시 이름 및 설명을 지정 하는 메타 데이터를 정의할 수 있습니다.
 
   ```json
   {
@@ -63,15 +63,15 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 리포지토리를 만들고 구성한 후 Azure Portal를 사용 하 여 랩에 추가할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
+1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택합니다.
 1. 랩 목록에서 원하는 랩을 선택 합니다.
-1. 랩의 **개요** 창에서 **구성 및 정책**을 선택 합니다.
+1. 랩의 **개요** 창에서 **구성 및 정책** 을 선택 합니다.
 
    ![구성 및 정책](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
 
-1. **구성 및 정책** 설정 목록에서 **리포지토리**를 선택 합니다. **공용 아티팩트** 리포지토리 리포지토리는 모든 랩에 대해 자동으로 생성 되 고 [DevTest labs 공용 GitHub 리포지토리에](https://github.com/Azure/azure-devtestlab)연결 됩니다.
+1. **구성 및 정책** 설정 목록에서 **리포지토리** 를 선택 합니다. **공용 아티팩트** 리포지토리 리포지토리는 모든 랩에 대해 자동으로 생성 되 고 [DevTest labs 공용 GitHub 리포지토리에](https://github.com/Azure/azure-devtestlab)연결 됩니다.
 
-1. Azure Resource Manager 템플릿 리포지토리를 추가 하려면 **추가**를 선택 합니다.
+1. Azure Resource Manager 템플릿 리포지토리를 추가 하려면 **추가** 를 선택 합니다.
 
    ![공용 리포지토리](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 
@@ -81,11 +81,11 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
    - **Git 복제 url**: GitHub 또는 Azure Repos에서 git HTTPS 복제 url을 입력 합니다.
    - **분기** (선택 사항): Azure Resource Manager 템플릿 정의에 액세스 하는 분기 이름을 입력 합니다.
    - **개인용 액세스 토큰**: 리포지토리에 안전 하 게 액세스 하는 데 사용 되는 개인 액세스 토큰을 입력 합니다.
-     - Azure Repos에서 토큰을 가져오려면 사용자 프로필에서 **사용자 설정**  >  **보안**  >  **개인용 액세스 토큰**을 선택 합니다.
-     - GitHub에서 토큰을 가져오려면 프로필에서 **설정**  >  **개발자 설정**  >  **개인 액세스 토큰**을 선택 합니다.
+     - Azure Repos에서 토큰을 가져오려면 사용자 프로필에서 **사용자 설정**  >  **보안**  >  **개인용 액세스 토큰** 을 선택 합니다.
+     - GitHub에서 토큰을 가져오려면 프로필에서 **설정**  >  **개발자 설정**  >  **개인 액세스 토큰** 을 선택 합니다.
    - **폴더 경로**: 아티팩트 정의 또는 Azure Resource Manager 템플릿 정의에 대 한 GIT 클론 URI에 상대적인 폴더 경로를 입력 합니다.
 
-1. **저장**을 선택합니다.
+1. **저장** 을 선택합니다.
 
    ![새 리포지토리 추가](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
@@ -97,9 +97,9 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 
 환경에서 리소스를 편집할 수 있도록 랩 사용자 **참가자** 역할을 부여 하려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 랩 **개요** 창에서 **구성 및 정책**을 선택 하 고 **랩 설정**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 랩 **개요** 창에서 **구성 및 정책** 을 선택 하 고 **랩 설정** 을 선택 합니다.
 
-1. **랩 설정** 창에서 **참가자**를 선택 하 고 **저장** 을 선택 하 여 랩 사용자에 게 쓰기 권한을 부여 합니다.
+1. **랩 설정** 창에서 **참가자** 를 선택 하 고 **저장** 을 선택 하 여 랩 사용자에 게 쓰기 권한을 부여 합니다.
 
    ![랩 사용자 액세스 권한 구성](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
 
@@ -111,11 +111,11 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
+1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택합니다.
 
 1. 랩 목록에서 원하는 랩을 선택 합니다.
 
-1. 랩의 페이지에서 **추가**를 선택 합니다.
+1. 랩의 페이지에서 **추가** 를 선택 합니다.
 
 1. **기본 선택** 창에는 사용할 수 있는 기본 이미지가 표시 되 고 Azure Resource Manager 템플릿이 먼저 나열 됩니다. 원하는 Azure Resource Manager 템플릿을 선택 합니다.
 
@@ -123,9 +123,9 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
 
 1. **추가** 창에서 환경 사용자에 게 표시할 **환경 이름** 값을 입력 합니다.
 
-   Azure Resource Manager 템플릿은 나머지 입력 필드를 정의 합니다. 파일 * 에azuredeploy.parameter.js* 템플릿이 기본값을 정의 하는 경우 입력 필드에 해당 값이 표시 됩니다.
+   Azure Resource Manager 템플릿은 나머지 입력 필드를 정의 합니다. 파일 *에azuredeploy.parameter.js* 템플릿이 기본값을 정의 하는 경우 입력 필드에 해당 값이 표시 됩니다.
 
-   *보안 문자열*형식의 매개 변수는 Azure Key Vault의 비밀을 사용할 수 있습니다. 키 자격 증명 모음에 암호를 저장 하 고 랩 리소스를 만들 때 암호를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에 암호 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조 하세요.  
+   *보안 문자열* 형식의 매개 변수는 Azure Key Vault의 비밀을 사용할 수 있습니다. 키 자격 증명 모음에 암호를 저장 하 고 랩 리소스를 만들 때 암호를 사용 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에 암호 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조 하세요.  
 
    ![창 추가](./media/devtest-lab-create-environment-from-arm/add.png)
 
@@ -137,7 +137,7 @@ Azure DevTest Labs에는 외부 GitHub 원본에 직접 연결할 필요 없이 
    > - GEN-SSH-PUB-KEY
    > - GEN-PASSWORD
 
-1. **추가**를 선택하여 환경을 만듭니다.
+1. **추가** 를 선택하여 환경을 만듭니다.
 
    환경에서 즉시 프로 비전을 시작 하며, 상태는 **내 가상 머신** 목록에 표시 됩니다. 랩에서는 Azure Resource Manager 템플릿에 정의 된 모든 리소스를 프로 비전 하는 새 리소스 그룹을 자동으로 만듭니다.
 
@@ -162,7 +162,7 @@ Azure Portal를 사용 하 여 랩에 단일 환경을 추가할 수 있지만 �
 
 다음 샘플 스크립트는 랩에서 환경을 만듭니다. 주석은 스크립트를 더 잘 이해 하는 데 도움이 됩니다.
 
-1. 다음 샘플 PowerShell 스크립트를 하드 드라이브에 *deployenv.ps1*로 저장 합니다.
+1. 다음 샘플 PowerShell 스크립트를 하드 드라이브에 *deployenv.ps1* 로 저장 합니다.
 
    [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

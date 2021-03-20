@@ -4,15 +4,15 @@ description: 백업에서 제공 하는 기본 제공 Azure 정책에 대해 지
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: 4658d1beffe707682e173491edea1eac0db9c811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82183622"
 ---
 # <a name="supported-vm-skus-for-azure-policy"></a>Azure Policy에 지원되는 VM SKU
 
-Azure Backup는 **구독 또는 리소스 그룹 내의 지정 된 위치에 있는 모든 Azure vm**에 할당 될 수 있는 기본 제공 정책 (Azure Policy 사용)을 제공 합니다. 이 정책이 지정 된 범위에 할당 되 면 해당 범위에서 만들어진 모든 새 Vm은 **동일한 위치 및 구독의 기존 자격 증명 모음**에 백업 하도록 자동으로 구성 됩니다. 아래 표에는이 정책에서 지원 되는 모든 VM Sku가 나와 있습니다.
+Azure Backup는 **구독 또는 리소스 그룹 내의 지정 된 위치에 있는 모든 Azure vm** 에 할당 될 수 있는 기본 제공 정책 (Azure Policy 사용)을 제공 합니다. 이 정책이 지정 된 범위에 할당 되 면 해당 범위에서 만들어진 모든 새 Vm은 **동일한 위치 및 구독의 기존 자격 증명 모음** 에 백업 하도록 자동으로 구성 됩니다. 아래 표에는이 정책에서 지원 되는 모든 VM Sku가 나와 있습니다.
 
 ## <a name="supported-vms"></a>지원 되는 Vm *
 

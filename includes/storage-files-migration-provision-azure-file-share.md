@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 공유를 프로 비전 할 때의 고려 사항
-description: Azure File Sync와 함께 사용 하기 위해 Azure 파일 공유를 프로 비전 합니다. 마이그레이션 문서 전체에서 공유 되는 일반 텍스트 블록
+description: Azure 파일 동기화와 함께 사용 하기 위해 Azure 파일 공유를 프로 비전 합니다. 마이그레이션 문서 전체에서 공유 되는 일반 텍스트 블록
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: d48baba5ee60a2bf5a4cb5e4d1ce840fce8eec43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82143622"
 ---
 Azure 파일 공유는 Azure storage 계정의 클라우드에 저장 됩니다.
@@ -22,7 +22,7 @@ Azure 파일 공유는 Azure storage 계정의 클라우드에 저장 됩니다.
 각각 하나의 파일 공유를 사용 하 여 저장소 계정을 배포 하는 것이 가장 좋습니다.
 여러 Azure 파일 공유를 동일한 저장소 계정으로 풀링할 수 있습니다. 보관 공유가 있거나 해당 위치에서 일상적인 작업을 필요로 하는 경우입니다.
 
-이러한 고려 사항은 Azure File Sync 하는 것 보다 Azure VM을 통해 직접 클라우드 액세스에 적용 됩니다. 이러한 공유에만 Azure File Sync를 사용 하려는 경우 여러 개의 Azure storage 계정으로 그룹화 하는 것이 좋습니다.
+이러한 고려 사항은 Azure 파일 동기화 하는 것 보다 Azure VM을 통해 직접 클라우드 액세스에 적용 됩니다. 이러한 공유에만 Azure 파일 동기화를 사용 하려는 경우 여러 개의 Azure storage 계정으로 그룹화 하는 것이 좋습니다.
 
 공유의 목록을 만든 경우 각 공유를 상주할 저장소 계정에 매핑해야 합니다.
 

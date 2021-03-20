@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: responsible-ml
 ms.openlocfilehash: 39f4b1a7b9eb1ad7a87097240dd772e4f2dadf17
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98683545"
 ---
 # <a name="what-is-differential-privacy-in-machine-learning-preview"></a>Machine learning의 차등 개인 정보 (미리 보기)
@@ -30,7 +30,7 @@ Machine learning의 차등 개인 정보 및 작동 방식에 대해 알아봅�
 > [!div class="mx-imgBorder"]
 > ![차등 개인 정보 취급 방침 machine learning 프로세스](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
 
-기존 시나리오에서는 원시 데이터가 파일 및 데이터베이스에 저장됩니다. 사용자가 데이터를 분석할 때는 일반적으로 원시 데이터를 사용합니다. 이렇게 하면 개인 프라이버시를 침해할 수 있기 때문에 문제가 됩니다. 차등 프라이버시는 사용자가 개별 데이터 요소를 식별할 수 없도록 데이터에 "노이즈" 또는 임의성을 추가하여 이 문제를 해결하려고 합니다. 적어도 이러한 시스템은 타당한 거부를 제공합니다. 따라서 개인의 개인 정보 보호는 데이터의 정확도에 대해 제한 된 영향으로 유지 됩니다.
+기존 시나리오에서는 원시 데이터가 파일 및 데이터베이스에 저장되었습니다. 사용자가 데이터를 분석할 때는 일반적으로 원시 데이터를 사용합니다. 이는 개인의 프라이버시를 침해할 수 있기 때문에 문제가 됩니다. 차등 프라이버시는 사용자가 개별 데이터 요소를 식별할 수 없도록 데이터에 "노이즈" 또는 임의성을 추가하여 이 문제를 해결하려고 합니다. 적어도 이러한 시스템은 타당한 거부를 제공합니다. 따라서 개인의 개인 정보 보호는 데이터의 정확도에 대해 제한 된 영향으로 유지 됩니다.
 
 차등 비공개 시스템 데이터는 **쿼리** 라는 요청을 통해 공유됩니다. 사용자가 데이터에 대한 쿼리를 제출하면 **프라이버시 메커니즘** 이라고 알려진 작업이 요청된 데이터에 노이즈를 추가합니다. 프라이버시 메커니즘은 원시 데이터 대신 *데이터의 근사값* 을 반환합니다. 이러한 프라이버시 보호 결과는 **보고서** 에 나타납니다. 보고서는 두 가지 부분 즉, 컴퓨팅한 실제 데이터와 데이터가 생성된 방식에 대한 설명으로 구성됩니다.
 

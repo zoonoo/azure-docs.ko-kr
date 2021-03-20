@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92096354"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Azure Active Directory Connect의 사용자 지정 설치
@@ -46,10 +46,10 @@ Azure AD Connect에 대 한 사용자 지정 설치를 설정 하려면 다음 �
 
 ![Azure AD Connect에서 필수 설치 구성 요소에 대 한 선택적 선택을 보여 주는 스크린샷](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| 선택적 구성 | Description |
+| 선택적 구성 | 설명 |
 | --- | --- |
 |사용자 지정 설치 위치 지정| Azure AD Connect에 대 한 기본 설치 경로를 변경할 수 있습니다.|
-| 기존 SQL Server 사용 |SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용 하려는 데이터베이스 서버가 이미 있는 경우이 옵션을 선택 합니다. 인스턴스 **이름**에 인스턴스 이름, 쉼표 및 포트 번호를 입력 합니다 (SQL Server 인스턴스에서 검색을 사용 하지 않는 경우).  그런 다음, Azure AD Connect 데이터베이스의 이름을 지정합니다.  SQL 권한에 따라 새 데이터베이스를 만들 수 있는지 또는 SQL 관리자가 미리 데이터베이스를 만들어야 하는지 여부가 결정 됩니다.  SQL Server 관리자 (SA) 권한이 있는 경우 [기존 데이터베이스를 사용 하 여 Azure AD Connect 설치](how-to-connect-install-existing-database.md)를 참조 하세요.  위임 된 권한 (DBO)을 사용 하는 경우 [SQL 위임 된 관리자 권한을 사용 하 여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조 하세요. |
+| 기존 SQL Server 사용 |SQL Server 이름 및 인스턴스 이름을 지정할 수 있습니다. 사용 하려는 데이터베이스 서버가 이미 있는 경우이 옵션을 선택 합니다. 인스턴스 **이름** 에 인스턴스 이름, 쉼표 및 포트 번호를 입력 합니다 (SQL Server 인스턴스에서 검색을 사용 하지 않는 경우).  그런 다음, Azure AD Connect 데이터베이스의 이름을 지정합니다.  SQL 권한에 따라 새 데이터베이스를 만들 수 있는지 또는 SQL 관리자가 미리 데이터베이스를 만들어야 하는지 여부가 결정 됩니다.  SQL Server 관리자 (SA) 권한이 있는 경우 [기존 데이터베이스를 사용 하 여 Azure AD Connect 설치](how-to-connect-install-existing-database.md)를 참조 하세요.  위임 된 권한 (DBO)을 사용 하는 경우 [SQL 위임 된 관리자 권한을 사용 하 여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조 하세요. |
 | 기존 서비스 계정 사용 |기본적으로 Azure AD Connect는 동기화 서비스에 대 한 가상 서비스 계정을 제공 합니다. SQL Server의 원격 인스턴스를 사용 하거나 인증이 필요한 프록시를 사용 하는 경우 도메인에서 *관리 서비스 계정* 또는 암호로 보호 된 서비스 계정을 사용할 수 있습니다. 이러한 경우 사용 하려는 계정을 입력 합니다. 설치를 실행 하려면 서비스 계정에 대 한 로그인 자격 증명을 만들 수 있도록 SQL의 SA가 필요 합니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](reference-connect-accounts-permissions.md#adsync-service-account)을 참조하세요. </br></br>이제 SQL 관리자는 최신 빌드를 사용 하 여 대역 외에서 데이터베이스를 프로 비전 할 수 있습니다. 그런 다음 Azure AD Connect 관리자는 데이터베이스 소유자 권한으로 설치할 수 있습니다.  자세한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.|
 | 사용자 지정 동기화 그룹 지정 |기본적으로 동기화 서비스가 설치 될 때 Azure AD Connect는 서버에 로컬인 4 개의 그룹을 만듭니다. 이러한 그룹은 관리자, 운영자, 찾아보기 및 암호 재설정입니다. 여기서 사용자의 고유한 그룹을 지정할 수 있습니다. 그룹은 서버에서 로컬 이어야 합니다. 도메인에서 찾을 수 없습니다. |
 |동기화 설정 가져오기 (미리 보기)|다른 버전의 Azure AD Connect에서 설정을 가져올 수 있습니다.  자세한 내용은 [Azure AD Connect 구성 설정 가져오기 및 내보내기](how-to-connect-import-export-config.md)를 참조 하세요.|
@@ -59,7 +59,7 @@ Azure AD Connect에 대 한 사용자 지정 설치를 설정 하려면 다음 �
 
 !["사용자 로그인" 페이지를 보여 주는 스크린샷 "암호 해시 동기화" 옵션이 선택 되어 있습니다.](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Single sign-on 옵션 | Description |
+| Single sign-on 옵션 | 설명 |
 | --- | --- |
 | 암호 해시 동기화 |사용자는 온-프레미스 네트워크에서 사용 하는 것과 동일한 암호를 사용 하 여 Microsoft 365 같은 Microsoft 클라우드 서비스에 로그인 할 수 있습니다. 사용자 암호는 암호 해시로 Azure AD에 동기화 됩니다. 클라우드에서 인증이 발생 합니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조 하세요. |
 |통과 인증|사용자는 온-프레미스 네트워크에서 사용 하는 것과 동일한 암호를 사용 하 여 Microsoft 365 같은 Microsoft 클라우드 서비스에 로그인 할 수 있습니다.  온-프레미스 Active Directory 도메인 컨트롤러에 전달 하 여 사용자 암호의 유효성을 검사 합니다.
@@ -92,17 +92,17 @@ Active Directory Domain Services (Azure AD DS)에 연결 하려면 충분 한 �
 
 !["디렉터리 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-custom/connectdir01.png)
 
-포리스트 이름을 입력 하 고  **디렉터리 추가**를 선택 하면 창이 표시 됩니다. 다음 표에서는 옵션에 대해 설명 합니다.
+포리스트 이름을 입력 하 고  **디렉터리 추가** 를 선택 하면 창이 표시 됩니다. 다음 표에서는 옵션에 대해 설명 합니다.
 
 | 옵션 | Description |
 | --- | --- |
-| 새 계정 만들기 | 디렉터리 동기화 중에 Active Directory 포리스트에 연결 해야 하는 Azure AD Connect Azure AD DS 계정을 만듭니다. 이 옵션을 선택한 후 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력 합니다.  Azure AD Connect는 제공 된 엔터프라이즈 관리자 계정을 사용 하 여 필요한 Azure AD DS 계정을 만듭니다. NetBIOS 형식 또는 FQDN 형식으로 도메인 파트를 입력할 수 있습니다. 즉, *FABRIKAM\administrator* 또는 *FABRIKAM. com\administrator*를 입력 합니다. |
-| 기존 계정 사용 | 디렉터리 동기화 중에 Active Directory 포리스트에 연결 하는 데 사용할 수 Azure AD Connect 기존 Azure AD DS 계정을 제공 합니다. NetBIOS 형식 또는 FQDN 형식으로 도메인 파트를 입력할 수 있습니다. 즉, *FABRIKAM\syncuser* 또는 *FABRIKAM. com\syncuser*를 입력 합니다. 이 계정은 기본 읽기 권한만 필요 하므로 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account)을 참조하세요. |
+| 새 계정 만들기 | 디렉터리 동기화 중에 Active Directory 포리스트에 연결 해야 하는 Azure AD Connect Azure AD DS 계정을 만듭니다. 이 옵션을 선택한 후 엔터프라이즈 관리자 계정의 사용자 이름 및 암호를 입력 합니다.  Azure AD Connect는 제공 된 엔터프라이즈 관리자 계정을 사용 하 여 필요한 Azure AD DS 계정을 만듭니다. NetBIOS 형식 또는 FQDN 형식으로 도메인 파트를 입력할 수 있습니다. 즉, *FABRIKAM\administrator* 또는 *FABRIKAM. com\administrator* 를 입력 합니다. |
+| 기존 계정 사용 | 디렉터리 동기화 중에 Active Directory 포리스트에 연결 하는 데 사용할 수 Azure AD Connect 기존 Azure AD DS 계정을 제공 합니다. NetBIOS 형식 또는 FQDN 형식으로 도메인 파트를 입력할 수 있습니다. 즉, *FABRIKAM\syncuser* 또는 *FABRIKAM. com\syncuser* 를 입력 합니다. 이 계정은 기본 읽기 권한만 필요 하므로 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 더 많은 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account)을 참조하세요. |
 
 ![새 계정을 만들거나 기존 계정을 사용 하도록 선택할 수 있는 "연결 디렉터리" 페이지와 A D 포리스트 계정 창을 보여 주는 스크린샷](./media/how-to-connect-install-custom/connectdir02.png)
 
 >[!NOTE]
-> 빌드 1.4.18.0에서 엔터프라이즈 관리자 또는 도메인 관리자 계정을 Azure AD DS 커넥터 계정으로 사용할 수 없습니다. **기존 계정 사용**을 선택 하는 경우 엔터프라이즈 관리자 계정 또는 도메인 관리자 계정을 입력 하려고 하면 다음과 같은 오류가 표시 됩니다. "AD 포리스트 계정에 엔터프라이즈 또는 도메인 관리자 계정을 사용 하는 것은 허용 되지 않습니다. 계정을 만들거나 올바른 권한이 있는 동기화 계정을 지정 Azure AD Connect 합니다. "
+> 빌드 1.4.18.0에서 엔터프라이즈 관리자 또는 도메인 관리자 계정을 Azure AD DS 커넥터 계정으로 사용할 수 없습니다. **기존 계정 사용** 을 선택 하는 경우 엔터프라이즈 관리자 계정 또는 도메인 관리자 계정을 입력 하려고 하면 다음과 같은 오류가 표시 됩니다. "AD 포리스트 계정에 엔터프라이즈 또는 도메인 관리자 계정을 사용 하는 것은 허용 되지 않습니다. 계정을 만들거나 올바른 권한이 있는 동기화 계정을 지정 Azure AD Connect 합니다. "
 >
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 로그인 구성
@@ -110,11 +110,11 @@ Active Directory Domain Services (Azure AD DS)에 연결 하려면 충분 한 �
 
 !["Azure A D 로그인 구성" 페이지에서 확인 되지 않은 도메인을 보여 주는 스크린샷](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 
-**추가 안 함** 또는 **확인 되지**않음으로 표시 된 모든 도메인을 검토 합니다. Azure AD에서 사용 하는 도메인이 확인 되었는지 확인 합니다. 도메인을 확인 한 후에는 순환 새로 고침 아이콘을 선택 합니다. 자세한 내용은 [도메인 추가 및 확인](../fundamentals/add-custom-domain.md)을 참조 하세요.
+**추가 안 함** 또는 **확인 되지** 않음으로 표시 된 모든 도메인을 검토 합니다. Azure AD에서 사용 하는 도메인이 확인 되었는지 확인 합니다. 도메인을 확인 한 후에는 순환 새로 고침 아이콘을 선택 합니다. 자세한 내용은 [도메인 추가 및 확인](../fundamentals/add-custom-domain.md)을 참조 하세요.
 
 사용자가 Azure AD에 로그인 하 고 Microsoft 365 때 *userPrincipalName* 특성을 사용 합니다. 사용자가 동기화 되기 전에 Azure AD에서 UPN-접미사가 라고도 하는 도메인을 확인 해야 합니다. 기본 특성 userPrincipalName을 유지 하는 것이 좋습니다. 
 
-UserPrincipalName 특성을 라우팅할 수 없고 확인할 수 없는 경우에는 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보유 하는 특성으로 전자 메일을 선택할 수 있습니다. UserPrincipalName 이외의 특성을 사용 하는 경우이를 *대체 ID*라고 합니다. 
+UserPrincipalName 특성을 라우팅할 수 없고 확인할 수 없는 경우에는 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보유 하는 특성으로 전자 메일을 선택할 수 있습니다. UserPrincipalName 이외의 특성을 사용 하는 경우이를 *대체 ID* 라고 합니다. 
 
 대체 ID 특성 값은 RFC 822 표준을 따라야 합니다. 암호 해시 동기화, 통과 인증 및 페더레이션이 있는 대체 ID를 사용할 수 있습니다. Active Directory에는 단일 값만 있는 경우에도 특성을 다중값으로 정의할 수 없습니다. 대체 ID에 대 한 자세한 내용은 [통과 인증: 질문과 대답](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)을 참조 하세요.
 
@@ -151,7 +151,7 @@ UserPrincipalName 특성을 라우팅할 수 없고 확인할 수 없는 경우�
 
 ![사용자를 고유 하 게 식별할 수 있는 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-custom/unique2.png)
 
-| 설정 | Description |
+| 설정 | 설명 |
 | --- | --- |
 | [사용자는 모든 포리스트에서 한 번만 표시 됩니다.](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |모든 사용자가 Azure AD에 개별 개체로 만들어집니다. 개체는 메타 버스에서 조인 되지 않습니다. |
 | [Mail 특성](plan-connect-topologies.md#multiple-forests-single-azure-ad-tenant) |메일 특성에 다른 포리스트의 동일한 값이 있는 경우 이 옵션은 사용자 및 연락처를 연결합니다. GALSync를 사용 하 여 연락처를 만든 경우이 옵션을 사용 합니다. 이 옵션을 선택 하면 메일 특성이 채워지지 않은 인 사용자 개체가 Azure AD에 동기화 되지 않습니다. |
@@ -162,7 +162,7 @@ UserPrincipalName 특성을 라우팅할 수 없고 확인할 수 없는 경우�
 #### <a name="select-how-users-should-be-identified-by-using-a-source-anchor"></a>원본 앵커를 사용 하 여 사용자를 식별 하는 방법 선택
 *Sourceanchor* 특성은 사용자 개체의 수명 동안 변경할 수 없습니다. Azure AD의 사용자와 온-프레미스 사용자를 연결 하는 기본 키입니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 | --- | --- |
 | Azure에서 원본 앵커를 관리 하도록 허용 | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택 하는 경우 Azure AD Connect는 sourceanchor [로 Msds-consistencyguid 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)에 설명 된 sourceanchor 특성 선택 논리를 적용 합니다. 사용자 지정 설치가 완료 되 면 sourceAnchor 특성으로 선택 된 특성이 표시 됩니다. |
 | 특정 특성 선택 | 기존 AD 특성을 sourceAnchor 특성으로 지정 하려면이 옵션을 선택 합니다. |
@@ -171,7 +171,7 @@ SourceAnchor 특성을 변경할 수 없기 때문에 적절 한 특성을 선�
 
 At 기호 (@)를 포함 하는 특성은 사용할 수 없으므로 email 및 userPrincipalName를 사용할 수 없습니다. 특성은 대/소문자를 구분 하므로 포리스트 간에 개체를 이동할 때 대 문자와 소문자를 유지 해야 합니다. 이진 특성은 b a s e 64로 인코딩되고 다른 특성 형식은 인코딩되지 않은 상태로 유지 됩니다. 
 
-페더레이션 시나리오와 일부 Azure AD 인터페이스에서 sourceAnchor 특성을 *immutableID*라고도 합니다. 
+페더레이션 시나리오와 일부 Azure AD 인터페이스에서 sourceAnchor 특성을 *immutableID* 라고도 합니다. 
 
 원본 앵커에 대 한 자세한 내용은 [디자인 개념](plan-connect-design-concepts.md#sourceanchor)을 참조 하세요.
 
@@ -205,7 +205,7 @@ At 기호 (@)를 포함 하는 특성은 사용할 수 없으므로 email 및 us
 
 
 
-| 선택적 기능 | Description |
+| 선택적 기능 | 설명 |
 | --- | --- |
 | Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 사용 하면 온-프레미스와 Microsoft 365 모두 Exchange 사서함을 함께 사용할 수 있습니다. Azure AD Connect Azure AD의 특정 [특성](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) 집합을 온-프레미스 디렉터리에 다시 동기화 합니다. |
 | Exchange 메일 공용 폴더 | Exchange 메일 공용 폴더 기능을 사용 하면 Active Directory 온-프레미스 인스턴스에서 Azure AD로 메일 사용이 가능한 공용 폴더 개체를 동기화 할 수 있습니다. |
@@ -230,7 +230,7 @@ Azure AD와 동기화 되는 특성을 제한 하려는 경우 사용 하는 서
 >
 
 ### <a name="directory-extension-attribute-sync"></a>디렉터리 확장 특성 동기화
-조직에서 추가 된 사용자 지정 특성을 사용 하거나 Active Directory의 다른 특성을 사용 하 여 Azure AD에서 스키마를 확장할 수 있습니다. 이 기능을 사용 하려면 **선택적 기능** 페이지에서 **디렉터리 확장 특성 동기화**를 선택 합니다. **디렉터리 확장** 페이지에서 더 많은 특성을 선택 하 여 동기화 할 수 있습니다.
+조직에서 추가 된 사용자 지정 특성을 사용 하거나 Active Directory의 다른 특성을 사용 하 여 Azure AD에서 스키마를 확장할 수 있습니다. 이 기능을 사용 하려면 **선택적 기능** 페이지에서 **디렉터리 확장 특성 동기화** 를 선택 합니다. **디렉터리 확장** 페이지에서 더 많은 특성을 선택 하 여 동기화 할 수 있습니다.
 
 >[!NOTE]
 >**사용 가능한 특성** 필드는 대/소문자를 구분 합니다.
@@ -260,7 +260,7 @@ Azure AD Connect에 추가 된 각 포리스트에 대해 도메인 관리자 �
 
 1.  그룹 정책 관리 도구를 엽니다.
 2.  모든 사용자에 게 적용 되는 그룹 정책을 편집 합니다. 예를 들어 기본 도메인 정책입니다.
-3.  **사용자 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**로 이동 합니다. 그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
+3.  **사용자 구성**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지** 로 이동 합니다. 그런 다음 **영역에 사이트 할당 목록** 을 선택합니다.
 4.  정책을 사용 하도록 설정 합니다. 그런 다음 대화 상자에서 값의 `https://autologon.microsoftazuread-sso.com` 및 값을 입력 `1` 합니다. 설정은 다음 이미지와 같습니다.
   
     ![인트라넷 영역을 보여 주는 스크린샷](./media/how-to-connect-install-custom/sitezone.png)
@@ -426,12 +426,12 @@ Azure AD Connect는 이전 단계에서 해당 메타 데이터 원본에서 검
 * 동기화가 완료 되 면 Azure AD Connect에서 **페더레이션 로그인** 추가 작업 확인을 사용 하 여 선택한 온-프레미스 사용자 계정에 대 한 인증을 확인 합니다.
 * 인트라넷의 도메인에 가입 된 컴퓨터에서 브라우저를 통해 로그인 할 수 있는지 확인 합니다. https://myapps.microsoft.com에 연결합니다. 그런 다음 로그온 한 계정을 사용 하 여 로그인을 확인 합니다. 기본 제공 Azure AD DS administrator 계정은 동기화 되지 않으며 확인에 사용할 수 없습니다.
 * 엑스트라넷의 장치에서 로그인 할 수 있는지 확인 합니다. 홈 컴퓨터 또는 모바일 장치에서에 연결 https://myapps.microsoft.com 합니다. 그런 다음 자격 증명을 제공 합니다.
-* 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com에 연결합니다. 그런 다음 **office 365**  >  **office 365 Single Sign-On Test**를 선택 합니다.
+* 리치 클라이언트 로그인 유효성을 검사합니다. https://testconnectivity.microsoft.com에 연결합니다. 그런 다음 **office 365**  >  **office 365 Single Sign-On Test** 를 선택 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 이 섹션에는 Azure AD Connect를 설치 하는 동안 문제가 발생 하는 경우 사용할 수 있는 문제 해결 정보가 포함 되어 있습니다.
 
-Azure AD Connect 설치를 사용자 지정 하는 경우 **필수 구성 요소 설치** 페이지에서 **기존 SQL Server 사용**을 선택할 수 있습니다. 다음과 같은 오류가 표시 될 수 있습니다. "ADSync 데이터베이스에 이미 데이터가 포함 되어 있으므로 덮어쓸 수 없습니다. 기존 데이터베이스를 제거 하 고 다시 시도 하십시오. "
+Azure AD Connect 설치를 사용자 지정 하는 경우 **필수 구성 요소 설치** 페이지에서 **기존 SQL Server 사용** 을 선택할 수 있습니다. 다음과 같은 오류가 표시 될 수 있습니다. "ADSync 데이터베이스에 이미 데이터가 포함 되어 있으므로 덮어쓸 수 없습니다. 기존 데이터베이스를 제거 하 고 다시 시도 하십시오. "
 
 !["필수 구성 요소 설치" 페이지를 보여 주는 스크린샷 페이지 아래쪽에 오류가 표시 됩니다.](./media/how-to-connect-install-custom/error1.png)
 
@@ -448,7 +448,7 @@ Azure AD Connect 설치를 사용자 지정 하는 경우 **필수 구성 요소
 3. 데이터베이스를 삭제 합니다.
     1. **Microsoft SQL Server Management Studio** 를 사용 하 여 SQL 인스턴스에 연결 합니다. 
     1. **Adsync** 데이터베이스를 찾아서 마우스 오른쪽 단추로 클릭 합니다.
-    1. 상황에 맞는 메뉴에서 **삭제**를 선택 합니다.
+    1. 상황에 맞는 메뉴에서 **삭제** 를 선택 합니다.
     1. **확인** 을 선택 하 여 데이터베이스를 삭제 합니다.
 
 ![Microsoft SQL Server Management Studio를 보여 주는 스크린샷 D 동기화가 선택 됩니다.](./media/how-to-connect-install-custom/error2.png)

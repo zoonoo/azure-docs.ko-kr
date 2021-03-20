@@ -9,10 +9,10 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
 ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98873572"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
@@ -103,7 +103,7 @@ Cognitive Services에 대 한 빅 데이터에 대해 자세히 알아보려면 
 * **Ui 도구**: 예-ui 전용
 * **구독**: AI 빌더
 
-### <a name="continuous-integration-and-deployment"></a>지속적인 통합 및 배포
+### <a name="continuous-integration-and-deployment"></a>연속 통합 및 배포
 
 Azure DevOps 및 GitHub 작업을 사용 하 여 배포를 관리할 수 있습니다. 이에 대해 설명 하는 [아래 섹션](#continuous-integration-and-delivery-with-devops-and-github-actions) 에는 음성 및 LANGUAGE UNDERSTANDING (LUIS) 서비스를 위한 사용자 지정 모델을 학습 하 고 배포 하는 CI/CD 통합의 두 가지 예가 있습니다. 
 

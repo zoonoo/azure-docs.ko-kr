@@ -4,10 +4,10 @@ description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100651666"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
@@ -50,7 +50,7 @@ Service Bus는 세 가지 필터 조건을 지원합니다.
 
 복잡한 필터 규칙에는 처리 용량이 필요합니다. 특히 SQL 필터 규칙을 사용 하면 구독, 토픽 및 네임 스페이스 수준에서 전체 메시지 처리량이 줄어듭니다. 가능 하면 응용 프로그램에서 SQL과 유사한 필터에 대 한 상관 관계 필터를 선택 해야 합니다. 이러한 필터는 처리 하는 것이 훨씬 더 효율적이 고 처리량에 미치는 영향은 적습니다.
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
 SQL 필터 조건을 사용하면 속성 및 값을 추가, 제거 또는 교체하여 메시지에 주석을 달 수 있는 작업을 정의할 수 있습니다. 이 작업은 SQL UPDATE 문에 개괄적으로 의지하는 [SQL-like 식을 사용](service-bus-messaging-sql-filter.md)합니다. 작업은 메시지가 일치 된 후 구독에 메시지를 선택 하기 전에 메시지에 대해 수행 됩니다. 메시지 속성에 대한 변경 사항은 구독에 복사된 메시지에 대한 프라이빗입니다.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
 ms.openlocfilehash: d321e0c10b66a15e6cb309cefe711602fa12957c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91534112"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 애플리케이션 디버그
@@ -28,7 +28,7 @@ ms.locfileid: "91534112"
 
 4. 애플리케이션을 배포합니다.
 
-5. Eclipse IDE에서 **실행 -&gt; 원격 Java 애플리케이션 및 입력 연결 속성**을 선택하고 속성을 다음과 같이 설정합니다.
+5. Eclipse IDE에서 **실행 -&gt; 원격 Java 애플리케이션 및 입력 연결 속성** 을 선택하고 속성을 다음과 같이 설정합니다.
 
    ```
    Host: ipaddress

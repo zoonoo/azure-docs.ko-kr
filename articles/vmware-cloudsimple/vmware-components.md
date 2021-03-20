@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88142505"
 ---
 # <a name="private-cloud-vmware-components"></a>사설 클라우드 VMware 구성 요소
@@ -48,13 +48,13 @@ vCenter server 어플라이언스 (VCSA)는 CloudSimple로 VMware 솔루션에 �
 
 ### <a name="vcenter-single-sign-on"></a>vCenter Single Sign-On
 
-VCSA의 포함 된 Platform Services 컨트롤러는 **VCenter 단일 Sign-On 도메인**에 연결 됩니다.  도메인 이름은 **cloudsimple. local**입니다.  VCenter에 액세스할 수 있는 기본 사용자 **CloudOwner@cloudsimple.com** 가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
+VCSA의 포함 된 Platform Services 컨트롤러는 **VCenter 단일 Sign-On 도메인** 에 연결 됩니다.  도메인 이름은 **cloudsimple. local** 입니다.  VCenter에 액세스할 수 있는 기본 사용자 **CloudOwner@cloudsimple.com** 가 만들어집니다.  [VCenter에 대 한](set-vcenter-identity.md)온-프레미스/Azure active directory id 원본을 추가할 수 있습니다.
 
 ## <a name="vsan-storage"></a>vSAN 저장소
 
 사설 클라우드는 클러스터에 로컬인 완전히 구성 된 모든 플래시 vSAN 저장소로 생성 됩니다.  Vsphere 데이터 저장소를 사용 하 여 vSphere 클러스터를 만들려면 동일한 SKU의 최소 3 개 노드가 필요 합니다.  중복 제거 및 압축은 기본적으로 vSAN 데이터 저장소에서 사용 하도록 설정 됩니다.  VSphere 클러스터의 각 노드에 두 개의 디스크 그룹이 만들어집니다. 각 디스크 그룹에는 하나의 캐시 디스크와 3 개의 용량 디스크가 포함 되어 있습니다.
 
-기본 vSAN 저장소 정책은 Vsan 클러스터에 생성 되 고 vSAN 데이터 저장소에 적용 됩니다.  이 정책은 필요한 수준의 서비스를 보장 하기 위해 데이터 저장소 내에서 VM 저장소 개체를 프로 비전 하 고 할당 하는 방법을 결정 합니다.  저장소 정책은 오류 허용 **(FTT)** 및 **실패 허용 오차 방법을**정의 합니다.  새 저장소 정책을 만들고 Vm에 적용할 수 있습니다. SLA를 유지 하기 위해 vSAN 데이터 저장소에서 25%의 예비 용량을 유지 해야 합니다.  
+기본 vSAN 저장소 정책은 Vsan 클러스터에 생성 되 고 vSAN 데이터 저장소에 적용 됩니다.  이 정책은 필요한 수준의 서비스를 보장 하기 위해 데이터 저장소 내에서 VM 저장소 개체를 프로 비전 하 고 할당 하는 방법을 결정 합니다.  저장소 정책은 오류 허용 **(FTT)** 및 **실패 허용 오차 방법을** 정의 합니다.  새 저장소 정책을 만들고 Vm에 적용할 수 있습니다. SLA를 유지 하기 위해 vSAN 데이터 저장소에서 25%의 예비 용량을 유지 해야 합니다.  
 
 ### <a name="default-vsan-storage-policy"></a>기본 vSAN 저장소 정책
 
@@ -82,7 +82,7 @@ NSX 데이터 센터는 사설 클라우드에서 네트워크 가상화, 마이
 
 ## <a name="vsphere-cluster"></a>vSphere 클러스터
 
-ESXi 호스트는 사설 클라우드의 고가용성을 보장 하기 위해 클러스터로 구성 됩니다.  사설 클라우드를 만들 때 vSphere 관리 구성 요소가 첫 번째 클러스터에 배포 됩니다.  관리 구성 요소에 대 한 리소스 풀이 만들어지고 모든 관리 Vm이이 리소스 풀에 배포 됩니다. 사설 클라우드를 축소 하기 위해 첫 번째 클러스터를 삭제할 수 없습니다.  vSphere 클러스터는 **VSPHERE HA**를 사용 하는 vm에 대해 고가용성을 제공 합니다.  허용 되는 오류는 클러스터에서 사용 가능한 노드 수를 기반으로 합니다.  수식을 사용할 수 있습니다 ```Number of nodes = 2N+1``` . 여기서 ```N``` 은 허용 되는 오류 수입니다.
+ESXi 호스트는 사설 클라우드의 고가용성을 보장 하기 위해 클러스터로 구성 됩니다.  사설 클라우드를 만들 때 vSphere 관리 구성 요소가 첫 번째 클러스터에 배포 됩니다.  관리 구성 요소에 대 한 리소스 풀이 만들어지고 모든 관리 Vm이이 리소스 풀에 배포 됩니다. 사설 클라우드를 축소 하기 위해 첫 번째 클러스터를 삭제할 수 없습니다.  vSphere 클러스터는 **VSPHERE HA** 를 사용 하는 vm에 대해 고가용성을 제공 합니다.  허용 되는 오류는 클러스터에서 사용 가능한 노드 수를 기반으로 합니다.  수식을 사용할 수 있습니다 ```Number of nodes = 2N+1``` . 여기서 ```N``` 은 허용 되는 오류 수입니다.
 
 ### <a name="vsphere-cluster-limits"></a>vSphere 클러스터 제한
 

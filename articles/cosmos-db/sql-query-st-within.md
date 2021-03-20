@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9372da349d0ea9169bb59570b7e6dd0e597d1cdf
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100558229"
 ---
 # <a name="st_within-azure-cosmos-db"></a>ST_WITHIN (Azure Cosmos DB)
@@ -35,7 +35,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
   부울 값을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는를 사용 하 여 다각형 내에서 모든 패밀리 문서를 찾는 방법을 보여 줍니다 `ST_WITHIN` .  
   

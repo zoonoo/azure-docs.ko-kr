@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pepogors
 ms.openlocfilehash: f8a9025a50b2815f0e6030e7baf317b261c8c462
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86256333"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
@@ -20,10 +20,10 @@ Azure Portal에서는 새 Service Fabric 클러스터를 만들 때 역방향 �
 
 [Azure Portal을 사용하여 클러스터를 만들](./service-fabric-cluster-creation-via-portal.md) 때 역방향 프록시를 구성하려면 다음을 수행해야 합니다.
 
-1. **2단계: 클러스터 구성**의 **노드 유형 구성** 아래에서 **역방향 프록시 사용**을 선택합니다.
+1. **2단계: 클러스터 구성** 의 **노드 유형 구성** 아래에서 **역방향 프록시 사용** 을 선택합니다.
 
    ![포털에서 역방향 프록시 사용](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. 필드 보안 역방향 프록시를 구성 하려면 TLS/SSL 인증서를 구성 해야 합니다. **3단계: 보안**에 있는 **클러스터 보안 설정 구성**의 **구성 형식** 아래에서 **사용자 지정**을 선택합니다. 그런 다음, **역방향 프록시 SSL 인증서** 아래에서 **역방향 프록시의 SSL 인증서 포함**을 선택하고 인증서 세부 정보를 입력합니다.
+2. 필드 보안 역방향 프록시를 구성 하려면 TLS/SSL 인증서를 구성 해야 합니다. **3단계: 보안** 에 있는 **클러스터 보안 설정 구성** 의 **구성 형식** 아래에서 **사용자 지정** 을 선택합니다. 그런 다음, **역방향 프록시 SSL 인증서** 아래에서 **역방향 프록시의 SSL 인증서 포함** 을 선택하고 인증서 세부 정보를 입력합니다.
 
    ![포털에서 보안 역방향 프록시 구성](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 
@@ -74,7 +74,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
         ...
     }
     ```
-3. 역방향 프록시에 대 한 포트에서 TLS/SSL 인증서를 구성 하려면 **ServiceFabric/클러스터** [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)의 ***reverseProxyCertificate*** 속성에 인증서를 추가 합니다.
+3. 역방향 프록시에 대 한 포트에서 TLS/SSL 인증서를 구성 하려면 *ServiceFabric/클러스터* *  [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)에서 * reverseProxyCertificate _ 속성에 인증서를 추가 합니다.
 
     ```json
     {
@@ -243,10 +243,10 @@ Azure 클러스터 외부에서 역방향 프록시를 처리하려면 역방향
 ### <a name="expose-the-reverse-proxy-using-azure-portal"></a>Azure Portal을 사용하여 역방향 프록시 노출 
 
 1. Azure Portal에서 클러스터에 대한 리소스 그룹, 해당 클러스터에 대한 부하 분산 장치를 차례로 클릭합니다.
-2. 역방향 프록시 포트에 대한 상태 프로브를 추가하려면 부하 분산 장치 창에 있는 왼쪽 분할 창의 **설정** 아래에서 **상태 프로브**를 클릭합니다. 그런 다음, [상태 프로브] 창의 위쪽에서 **추가**를 클릭하고, 역방향 프록시 포트에 대한 세부 정보를 입력한 다음, **확인**을 클릭합니다. 클러스터를 만들 때 변경하지 않는 한 역방향 프록시 포트는 기본적으로 19081입니다.
+2. 역방향 프록시 포트에 대한 상태 프로브를 추가하려면 부하 분산 장치 창에 있는 왼쪽 분할 창의 **설정** 아래에서 **상태 프로브** 를 클릭합니다. 그런 다음, [상태 프로브] 창의 위쪽에서 **추가** 를 클릭하고, 역방향 프록시 포트에 대한 세부 정보를 입력한 다음, **확인** 을 클릭합니다. 클러스터를 만들 때 변경하지 않는 한 역방향 프록시 포트는 기본적으로 19081입니다.
 
    ![역방향 프록시 상태 프로브 구성](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. 역방향 프록시 포트를 노출하는 Load Balancer 규칙을 추가하려면 부하 분산 장치 창에 있는 왼쪽 분할 창의 **설정** 아래에서 **부하 분산 규칙**을 클릭합니다. 그런 다음, [부하 분산 규칙] 창의 위쪽에서 **추가**를 클릭하고, 역방향 프록시 포트에 대한 세부 정보를 입력합니다. **포트** 값을 역방향 프록시가 노출되도록 하려는 포트로 설정하고, **백 엔드 포트** 값을 역방향 프록시를 사용하도록 설정할 때 설정한 포트로 설정하고, **상태 프로브** 값을 이전 단계에서 구성한 상태 프로브로 설정해야 합니다. 다른 필드를 적절하게 설정한 다음, **확인**을 클릭합니다.
+3. 역방향 프록시 포트를 노출하는 Load Balancer 규칙을 추가하려면 부하 분산 장치 창에 있는 왼쪽 분할 창의 **설정** 아래에서 **부하 분산 규칙** 을 클릭합니다. 그런 다음, [부하 분산 규칙] 창의 위쪽에서 **추가** 를 클릭하고, 역방향 프록시 포트에 대한 세부 정보를 입력합니다. **포트** 값을 역방향 프록시가 노출되도록 하려는 포트로 설정하고, **백 엔드 포트** 값을 역방향 프록시를 사용하도록 설정할 때 설정한 포트로 설정하고, **상태 프로브** 값을 이전 단계에서 구성한 상태 프로브로 설정해야 합니다. 다른 필드를 적절하게 설정한 다음, **확인** 을 클릭합니다.
 
    ![역방향 프록시에 대한 부하 분산 장치 규칙 구성](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 

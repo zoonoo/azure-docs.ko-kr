@@ -4,10 +4,10 @@ description: 데이터 직렬화 모범 사례 및 애플리케이션 업그레�
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.openlocfilehash: 9474a0bf8041ac541389f782f60bf1220d690cde
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575638"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>데이터 serialization이 애플리케이션 업그레이드에 미치는 영향

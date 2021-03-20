@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: a7283ad4c4c61ecc293a55ffc4cb9626bb28d630
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92108731"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
@@ -43,8 +43,8 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
-* **Azure Active Directory 서비스 주체**입니다. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
+* **1.0 이상 Azure PowerShell** 합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
+* **Azure Active Directory 서비스 주체** 입니다. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
     **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
@@ -76,13 +76,13 @@ Set-AzContext -SubscriptionId <subscription ID>
 ## <a name="set-relevant-acls-on-the-sample-data"></a>샘플 데이터에서 관련 ACL 설정
 HDInsight 클러스터에서 업로드한 샘플 데이터에 액세스할 수 있는지 확인하려면 HDInsight 클러스터와 Data Lake Storage Gen1 간의 ID를 설정하는 데 사용되는 Azure AD 애플리케이션에서 액세스하려는 파일/폴더에 액세스할 수 있는지 확인해야 합니다. 이렇게 하려면 다음 단계를 수행합니다.
 
-1. HDInsight 클러스터와 연결 된 Azure AD 응용 프로그램의 이름과 Data Lake Storage Gen1를 사용 하는 저장소 계정을 찾습니다. 이름을 찾는 한 가지 방법은 리소스 관리자 템플릿을 사용 하 여 만든 HDInsight 클러스터 블레이드를 열고 **클러스터 AZURE AD id** 탭을 클릭 한 다음 **서비스 주체 표시 이름**값을 확인 하는 것입니다.
+1. HDInsight 클러스터와 연결 된 Azure AD 응용 프로그램의 이름과 Data Lake Storage Gen1를 사용 하는 저장소 계정을 찾습니다. 이름을 찾는 한 가지 방법은 리소스 관리자 템플릿을 사용 하 여 만든 HDInsight 클러스터 블레이드를 열고 **클러스터 AZURE AD id** 탭을 클릭 한 다음 **서비스 주체 표시 이름** 값을 확인 하는 것입니다.
 2. 이제 HDInsight 클러스터에서 액세스하려는 파일/폴더에서 Azure AD 애플리케이션에 대한 액세스를 제공합니다. Data Lake Storage Gen1의 파일/폴더에 대한 올바른 ACL을 설정하려면 [Data Lake Storage Gen1의 데이터 보안](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>HDInsight 클러스터에서 테스트 작업을 실행하여 Data Lake Storage Gen1 사용
 HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업을 실행하여 HDInsight 클러스터가 Data Lake Storage Gen1에 액세스할 수 있는지 테스트할 수 있습니다. 이렇게 하려면 이전에 Data Lake Storage Gen1를 사용 하 여 저장소 계정에 업로드 한 샘플 데이터를 사용 하 여 테이블을 만드는 샘플 Hive 작업을 실행 합니다.
 
-이 섹션에서는 HDInsight Linux 클러스터로 SSH 하 고 샘플 Hive 쿼리를 실행 합니다. Windows 클라이언트를 사용하는 경우 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY**를 사용하는 것이 좋습니다.
+이 섹션에서는 HDInsight Linux 클러스터로 SSH 하 고 샘플 Hive 쿼리를 실행 합니다. Windows 클라이언트를 사용하는 경우 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY** 를 사용하는 것이 좋습니다.
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop에 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -91,7 +91,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
    ```
    hive
    ```
-2. CLI를 사용하여 다음 문을 입력하여 Data Lake Storage Gen1에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
+2. CLI를 사용하여 다음 문을 입력하여 Data Lake Storage Gen1에서 샘플 데이터를 사용한 **vehicles** 라는 새 테이블을 만듭니다.
 
    ```
    DROP TABLE vehicles;
@@ -99,7 +99,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
    SELECT * FROM vehicles LIMIT 10;
    ```
 
-   다음과 비슷한 결과가 나타나야 합니다.
+   다음과 비슷한 내용이 출력됩니다.
 
    ```
    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
@@ -118,7 +118,7 @@ PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>HDFS 명령을 사용하여 Data Lake Storage Gen1 액세스
 Data Lake Storage Gen1을 사용하도록 HDInsight 클러스터를 구성하고 나면 HDFS 셸 명령을 사용하여 저장소에 액세스할 수 있습니다.
 
-이 섹션에서는 HDInsight Linux 클러스터로 SSH 하 고 HDFS 명령을 실행 합니다. Windows 클라이언트를 사용하는 경우 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY**를 사용하는 것이 좋습니다.
+이 섹션에서는 HDInsight Linux 클러스터로 SSH 하 고 HDFS 명령을 실행 합니다. Windows 클라이언트를 사용하는 경우 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있는 **PuTTY** 를 사용하는 것이 좋습니다.
 
 PuTTY 사용에 대한 자세한 내용은 [Windows에서 HDInsight의 Linux 기반 Hadoop에 SSH 사용](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 

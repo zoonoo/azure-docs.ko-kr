@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392370"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>보존 정책을 사용 하 여 기록 데이터 관리
@@ -70,7 +70,7 @@ Azure SQL Edge에서 확장 이벤트 (Xevent)를 사용 하 여 데이터 보�
 
 다음 6 개의 확장 이벤트는 정리 작업의 상태를 추적 하는 데 도움이 됩니다. 
 
-| 이름 | Description |
+| Name | 설명 |
 |------| ------------|
 | data_retention_task_started  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 시작 될 때 발생 합니다. |
 | data_retention_task_completed  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 종료 될 때 발생 합니다. |

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 18a02b81e459217ccca53d48a08e35a706b071b0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793265"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
@@ -60,7 +60,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 흥미로운 데이터 집합에 대해 쿼리를 실행하려면 티켓 생성기를 실행하여 티켓 판매 데이터를 만듭니다.
 
 1. *PowerShell ISE* 에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReporting.ps1* 스크립트를 열고 다음 값을 설정합니다.
-   * **$DemoScenario** = 1, **모든 부문에서 이벤트 티켓을 구입합니다** .
+   * **$DemoScenario** = 1, **모든 부문에서 이벤트 티켓을 구입합니다**.
 2. **F5** 키를 눌러 스크립트를 실행하고 티켓 판매를 생성합니다. 스크립트를 실행하는 동안 이 자습서의 단계를 계속합니다. *임시 배포된 쿼리 실행* 섹션에서 티켓 데이터를 쿼리하기 때문에 티켓 생성자가 완료될 때까지 기다립니다.
 
 ## <a name="explore-the-global-views"></a>전역 뷰 탐색
@@ -106,7 +106,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 1. *PowerShell ISE* 에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReporting.ps1* 을 엽니다. 
 
-1. **$DemoScenario = 2** , _임시 보고 데이터베이스 배포_ 를 설정합니다.
+1. **$DemoScenario = 2**, _임시 보고 데이터베이스 배포_ 를 설정합니다.
 
 1. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 만들려면 **F5** 키를 누릅니다.
 
@@ -132,7 +132,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
     ![외부 테이블 만들기](./media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
-   생성되고 채워진 로컬 테이블 _VenueTypes_ . 이 참조 데이터 테이블은 모든 테넌트 데이터베이스에서 일반적이므로 여기에서 로컬 테이블로 표시되며 일반 데이터로 채워질 수 있습니다. 일부 쿼리의 경우, 헤드 데이터베이스에 정의된 이 테이블을 사용하여 헤드 데이터베이스로 이동해야 하는 데이터 양을 줄일 수 있습니다.
+   생성되고 채워진 로컬 테이블 _VenueTypes_. 이 참조 데이터 테이블은 모든 테넌트 데이터베이스에서 일반적이므로 여기에서 로컬 테이블로 표시되며 일반 데이터로 채워질 수 있습니다. 일부 쿼리의 경우, 헤드 데이터베이스에 정의된 이 테이블을 사용하여 헤드 데이터베이스로 이동해야 하는 데이터 양을 줄일 수 있습니다.
 
     ![테이블 만들기](./media/saas-tenancy-cross-tenant-reporting/create-table.png)
 

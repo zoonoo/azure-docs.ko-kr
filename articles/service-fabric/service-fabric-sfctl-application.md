@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260864"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,7 +20,7 @@ ms.locfileid: "86260864"
 |명령|설명|
 | --- | --- |
 | create | 지정한 설명을 사용하여 Microsoft Azure Service Fabric 애플리케이션을 만듭니다. |
-| 삭제 | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
+| delete | 기존 Microsoft Azure Service Fabric 애플리케이션을 삭제합니다. |
 | 배포됨 | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션에 대한 정보를 가져옵니다. |
 | deployed-health | Service Fabric 노드에 배포된 애플리케이션의 상태에 대한 정보를 가져옵니다. |
 | deployed-list | Microsoft Azure Service Fabric 노드에서 배포된 애플리케이션의 목록을 가져옵니다. |
@@ -31,7 +31,7 @@ ms.locfileid: "86260864"
 | manifest | 애플리케이션 유형을 설명하는 매니페스트를 가져옵니다. |
 | provision | 외부 저장소의 '. .sfpkg ' 패키지를 사용 하는 클러스터 또는 이미지 저장소의 응용 프로그램 패키지를 사용 하 여 Service Fabric 응용 프로그램 유형을 프로 비전 하거나 등록 합니다. |
 | report-health | Microsoft Azure Service Fabric 애플리케이션에 대한 상태 보고서를 보냅니다. |
-| type | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
+| 형식 | 지정된 이름과 정확히 일치하는 Microsoft Azure Service Fabric 클러스터에서 애플리케이션 종류의 목록을 가져옵니다. |
 | type-list | Microsoft Azure Service Fabric 클러스터에서 애플리케이션의 유형 목록을 가져옵니다. |
 | unprovision | 클러스터에서 Microsoft Azure Service Fabric 애플리케이션 유형을 제거하거나 등록 취소합니다. |
 | 업그레이드 | Microsoft Azure Service Fabric 클러스터에서 애플리케이션 업그레이드를 시작합니다. |

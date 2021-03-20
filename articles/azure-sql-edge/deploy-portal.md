@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395090"
 ---
 # <a name="deploy-azure-sql-edge"></a>Azure SQL Edge 배포 
@@ -52,7 +52,7 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 
 4. **장치에서 모듈 설정:** 페이지의 **IoT Edge 모듈** 에서 Azure SQL Edge 모듈을 클릭 합니다. 기본 모듈 이름은 *AzureSQLEdge* 로 설정 됩니다. 
 
-5. **업데이트 IoT Edge 모듈** 블레이드의 *모듈 설정* 섹션에서 *IoT Edge 모듈 이름* , *다시 시작 정책* 및 *원하는 상태* 에 대해 원하는 값을 지정 합니다. 
+5. **업데이트 IoT Edge 모듈** 블레이드의 *모듈 설정* 섹션에서 *IoT Edge 모듈 이름*, *다시 시작 정책* 및 *원하는 상태* 에 대해 원하는 값을 지정 합니다. 
 
    > [!IMPORTANT]    
    > 모듈에서 **이미지 URI** 설정을 변경 하거나 업데이트 하지 마십시오.

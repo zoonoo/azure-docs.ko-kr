@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a01f91a81629800d3f03b907c65f05433b6163e6
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93375872"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>클라우드 어플라이언스를 중지 및 시작하려면
@@ -28,7 +28,7 @@ ms.locfileid: "93375872"
 
     ![StorSimple Cloud Appliance 가상 컴퓨터 4](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 
-5. VM이 중지되면 **시작** (단추를 사용할 수 있게 됨)을 클릭하여 VM을 시작합니다. 클라우드 어플라이언스가 시작되면 상태는 **시작됨** 입니다.
+5. VM이 중지되면 **시작**(단추를 사용할 수 있게 됨)을 클릭하여 VM을 시작합니다. 클라우드 어플라이언스가 시작되면 상태는 **시작됨** 입니다.
 
     ![가상 컴퓨터 5 StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart5.png)
 

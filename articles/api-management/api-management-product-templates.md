@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c8cd4aa3e91c5d69c40e47683818ed8bc9be338
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249906"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management의 제품 템플릿
@@ -79,7 +79,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|설명|  
+|속성|Type|설명|  
 |--------------|----------|-----------------|  
 |페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|제품 컬렉션에 대한 페이징 정보입니다.|  
 |필터링|[필터링](api-management-template-data-model-reference.md#Filtering) 엔터티.|제품 목록 페이지에 대한 필터링 정보입니다.|  
@@ -204,11 +204,11 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|설명|  
+|속성|Type|설명|  
 |--------------|----------|-----------------|  
-|Product|[제품](api-management-template-data-model-reference.md#Product)|지정된 제품.|  
+|제품|[제품](api-management-template-data-model-reference.md#Product)|지정된 제품.|  
 |IsDeveloperSubscribed|boolean|현재 사용자가 이 제품을 구독하는지 여부입니다.|  
-|SubscriptionState|number|구독의 상태입니다. 가능한 상태는 다음과 같습니다.<br /><br /> -   `0 - suspended` – 구독이 차단되고 구독자는 제품의 API를 호출할 수 없습니다.<br />-   `1 - active` – 구독이 활성화되어 있습니다.<br />-   `2 - expired` - 구독이 만료 날짜에 도달되었고 비활성화되었습니다.<br />-   `3 - submitted` - 구독 요청이 개발자에 의해 발생했지만 아직 승인 또는 거부되지 않았습니다.<br />-   `4 - rejected` – 구독 요청이 관리자에 의해 거부되었습니다.<br />-   `5 - cancelled` - 구독이 개발자 또는 관리자에 의해 취소되었습니다.|  
+|SubscriptionState|숫자|구독의 상태입니다. 가능한 상태는 다음과 같습니다.<br /><br /> -   `0 - suspended` – 구독이 차단되고 구독자는 제품의 API를 호출할 수 없습니다.<br />-   `1 - active` – 구독이 활성화되어 있습니다.<br />-   `2 - expired` - 구독이 만료 날짜에 도달되었고 비활성화되었습니다.<br />-   `3 - submitted` - 구독 요청이 개발자에 의해 발생했지만 아직 승인 또는 거부되지 않았습니다.<br />-   `4 - rejected` – 구독 요청이 관리자에 의해 거부되었습니다.<br />-   `5 - cancelled` - 구독이 개발자 또는 관리자에 의해 취소되었습니다.|  
 |제한|array|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
 |DelegatedSubscriptionEnabled|boolean|[위임](./api-management-howto-setup-delegation.md)이 이 구독에 대해 활성화되었는지 여부입니다.|  
 |DelegatedSubscriptionUrl|문자열|위임을 사용하는 경우 위임된 구독 URL입니다.|  

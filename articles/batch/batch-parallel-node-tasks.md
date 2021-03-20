@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 ms.openlocfilehash: 8bc9f03f05d52df6e400be5c57033ab2a38fa8eb
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92102968"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 컴퓨팅 노드의 사용량 극대화
@@ -20,7 +20,7 @@ ms.locfileid: "92102968"
 - 데이터를 공유할 수 있는 태스크에 대 한 **데이터 전송을 최소화** 합니다. 공유 데이터를 더 적은 수의 노드로 복사 하 고 각 노드에서 병렬로 태스크를 실행 하 여 데이터 전송 요금을 크게 줄일 수 있습니다. 특히 각 노드로 복사할 데이터를 지역 간에 전송해야 하는 경우 적용됩니다.
 - 많은 양의 메모리를 필요로 하는 태스크에 대 한 **메모리 사용을 최대화** 합니다. 단, 짧은 기간 동안에만 실행 중에 변수를 사용 합니다. 이러한 급증을 효율적으로 처리하기 위해 많은 메모리를 가진 적지만 크기가 큰 컴퓨팅 노드를 사용할 수 있습니다. 이러한 노드에는 각 노드에서 병렬로 실행되는 여러 작업이 있지만 각 작업은 시간을 두고 노드의 풍부한 메모리를 활용합니다.
 - 풀 내에서 노드 간 통신이 필요한 경우 **노드 번호 제한을 완화** 합니다. 현재 노드 간 통신에 대해 구성된 풀은 컴퓨팅 노드가 50개로 제한됩니다. 이러한 풀의 각 노드가 병렬로 태스크를 실행할 수 있으면 더 많은 수의 태스크를 동시에 실행할 수 있습니다.
-- 먼저 계산 환경을 Azure로 이동 하는 경우와 같이 **온-프레미스 계산 클러스터를 복제**합니다. 현재 온-프레미스 솔루션이 컴퓨팅 노드당 여러 태스크를 실행하는 경우 최대 노드 태스크 수를 늘려 해당 구성을 보다 자세히 미러링할 수 있습니다.
+- 먼저 계산 환경을 Azure로 이동 하는 경우와 같이 **온-프레미스 계산 클러스터를 복제** 합니다. 현재 온-프레미스 솔루션이 컴퓨팅 노드당 여러 태스크를 실행하는 경우 최대 노드 태스크 수를 늘려 해당 구성을 보다 자세히 미러링할 수 있습니다.
 
 ## <a name="example-scenario"></a>예제 시나리오
 
@@ -46,7 +46,7 @@ Azure Batch를 사용 하 여 노드당 작업 슬롯을 노드 코어 수 (최�
 
 [CloudPool.TaskSchedulingPolicy](/dotnet/api/microsoft.azure.batch.cloudpool) 속성을 사용하여 풀의 모든 노드에서 태스크를 균등하게 할당하도록 지정할 수 있습니다("확산"). 또는 작업이 풀의 다른 노드로 할당되기 전에 최대한 많은 작업이 각 노드에 할당되도록 지정할 수 있습니다.("압축")
 
-예를 들어, TaskSlotsPerNode 값 16으로 구성 된 [표준 \_ D14](../cloud-services/cloud-services-sizes-specs.md) 노드의 풀 (위 예제에서는)을 고려 합니다 [.](/dotnet/api/microsoft.azure.batch.cloudpool) [Cloudpool.taskschedulingpolicy](/dotnet/api/microsoft.azure.batch.cloudpool) 가 *Pack*의 [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) 로 구성 된 경우 각 노드의 16 개 코어를 모두 사용 하는 것이 최대화 되 고 자동 크기 조정 [풀이](batch-automatic-scaling.md) 풀에서 사용 되지 않는 노드 (태스크가 할당 되지 않은 노드)를 제거할 수 있습니다. 리소스 사용량을 최소화하고 비용을 절감합니다.
+예를 들어, TaskSlotsPerNode 값 16으로 구성 된 [표준 \_ D14](../cloud-services/cloud-services-sizes-specs.md) 노드의 풀 (위 예제에서는)을 고려 합니다 [.](/dotnet/api/microsoft.azure.batch.cloudpool) [Cloudpool.taskschedulingpolicy](/dotnet/api/microsoft.azure.batch.cloudpool) 가 *Pack* 의 [ComputeNodeFillType](/dotnet/api/microsoft.azure.batch.common.computenodefilltype) 로 구성 된 경우 각 노드의 16 개 코어를 모두 사용 하는 것이 최대화 되 고 자동 크기 조정 [풀이](batch-automatic-scaling.md) 풀에서 사용 되지 않는 노드 (태스크가 할당 되지 않은 노드)를 제거할 수 있습니다. 리소스 사용량을 최소화하고 비용을 절감합니다.
 
 ## <a name="define-variable-slots-per-task"></a>작업당 가변 슬롯 정의
 

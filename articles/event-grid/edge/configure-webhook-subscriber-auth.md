@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: d78b6e80005e9533ccd5ebfaea853f35ae6004be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171655"
 ---
 # <a name="configure-webhook-subscriber-authentication"></a>웹후크 구독자 인증 구성
@@ -43,7 +43,7 @@ ms.locfileid: "86171655"
  ```
 
 >[!NOTE]
->`outbound__webhook__allowUnknownCA` `true` 일반적으로 자체 서명 된 인증서를 사용 하는 것 처럼 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **false**로 설정 하는 것이 좋습니다.
+>`outbound__webhook__allowUnknownCA` `true` 일반적으로 자체 서명 된 인증서를 사용 하는 것 처럼 테스트 환경 에서만 속성을로 설정 합니다. 프로덕션 워크 로드의 경우 **false** 로 설정 하는 것이 좋습니다.
 
 ## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>HTTPS 구독자를 허용 하지만 인증서 유효성 검사를 건너뜁니다.
 

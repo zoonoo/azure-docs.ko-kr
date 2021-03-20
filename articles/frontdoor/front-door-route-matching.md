@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91449205"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>요청을 라우팅 규칙과 일치 시키는 방법
@@ -38,7 +38,7 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 요청을 처리하는 방법은 특정 경로에 캐싱을 사용할지 여부에 따라 달라집니다. 따라서 요청에 캐시된 응답이 없는 경우 구성된 백 엔드 풀의 적절한 백 엔드에 요청이 전달됩니다.
 
 ## <a name="route-matching"></a>경로 매칭
-이 섹션에서는 지정된 Front Door 회람 규칙에 매칭하는 방법을 중점적으로 설명합니다. 기본 개념은 항상 "왼쪽"만 보면서 **가장 구체적인 첫 번째 매칭**에 매칭하는 것입니다.  HTTP 프로토콜, 프런트 엔드 호스트, 경로 순서로 매칭합니다.
+이 섹션에서는 지정된 Front Door 회람 규칙에 매칭하는 방법을 중점적으로 설명합니다. 기본 개념은 항상 "왼쪽"만 보면서 **가장 구체적인 첫 번째 매칭** 에 매칭하는 것입니다.  HTTP 프로토콜, 프런트 엔드 호스트, 경로 순서로 매칭합니다.
 
 ### <a name="frontend-host-matching"></a>프런트 엔드 호스트 매칭
 프런트 엔드 호스트와 일치 하는 경우 아래에 정의 된 논리를 사용 합니다.

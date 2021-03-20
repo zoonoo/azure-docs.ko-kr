@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998092"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Brivo Onair Identity Connector 구성
@@ -106,7 +106,7 @@ Azure AD를 사용하여 자동 사용자 프로비저닝을 수행하도록 Bri
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에서 `https://scim.brivo.com/ActiveDirectory/v2/`를 입력합니다. 이전에 검색한 **SCIM Authentication Token(SCIM 인증 토큰)** 값을 **비밀 토큰** 에 입력합니다. **연결 테스트** 를 클릭하여 Azure AD에서 Brivo Onair Identity Connector에 연결할 수 있는지 확인합니다. 연결이 실패하면 Brivo Onair Identity Connector 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에 `https://scim.brivo.com/ActiveDirectory/v2/`을 입력합니다. 이전에 검색한 **SCIM Authentication Token(SCIM 인증 토큰)** 값을 **비밀 토큰** 에 입력합니다. **연결 테스트** 를 클릭하여 Azure AD에서 Brivo Onair Identity Connector에 연결할 수 있는지 확인합니다. 연결이 실패하면 Brivo Onair Identity Connector 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 

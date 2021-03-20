@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: c4198a1b73f76d61e39324befc85b55bd260e363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212224"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
@@ -256,7 +256,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 |**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |
 |**connection** | **ConnectionStringSetting** | Notification Hubs 연결 문자열을 포함하는 앱 설정의 이름입니다.  연결 문자열은 알림 허브의 *DefaultFullSharedAccessSignature* 값으로 설정해야 합니다. 이 문서의 뒷부분에 나오는 [연결 문자열 설정](#connection-string-setup)을 참조하세요.|
-|**platform** | **플랫폼** | platform 속성은 알림의 대상으로 지정된 클라이언트 플랫폼을 나타냅니다. 기본적으로 출력 바인딩에서 platform 속성을 생략하면 템플릿 알림을 사용하여 Azure Notification Hub에 구성된 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요. **platform**을 설정한 경우 다음 값 중 하나여야 합니다. <ul><li><code>apns</code>&mdash;Apple Push Notification Service. APNS에 대 한 알림 허브를 구성 하 고 클라이언트 앱에서 알림을 받는 방법에 대 한 자세한 내용은 [Azure Notification Hubs를 사용 하 여 iOS에 푸시 알림 보내기](../notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md)를 참조 하세요.</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). ADM에 대한 Notification Hubs를 구성하고 Kindle 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Kindle 앱에 대한 Notification Hubs 시작](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)을 참조하세요.</li><li><code>wns</code>&mdash;Windows 플랫폼을 대상으로 하는 [Windows 푸시 알림 서비스](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) Windows Phone 8.1 이상도 WNS에서 지원됩니다. 자세한 내용은 [Windows 유니버설 플랫폼 앱용 Notification Hubs 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)을 참조하세요.</li><li><code>mpns</code>&mdash;[Microsoft 푸시 알림 서비스](/previous-versions/windows/apps/ff402558(v=vs.105)). 이 플랫폼은 Windows Phone 8 및 이전 Windows Phone 플랫폼을 지원합니다. 자세한 내용은 [Windows Phone에서 Azure Notification Hubs를 사용하여 푸시 알림 보내기](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)를 참조하세요.</li></ul> |
+|**platform** | **플랫폼** | platform 속성은 알림의 대상으로 지정된 클라이언트 플랫폼을 나타냅니다. 기본적으로 출력 바인딩에서 platform 속성을 생략하면 템플릿 알림을 사용하여 Azure Notification Hub에 구성된 플랫폼을 대상으로 지정할 수 있습니다. 일반적으로 Azure 알림 허브 알림에서 템플릿을 사용하여 플랫폼 간 알림을 보내는 방법에 대한 자세한 내용은 [템플릿](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 참조하세요. **platform** 을 설정한 경우 다음 값 중 하나여야 합니다. <ul><li><code>apns</code>&mdash;Apple Push Notification Service. APNS에 대 한 알림 허브를 구성 하 고 클라이언트 앱에서 알림을 받는 방법에 대 한 자세한 내용은 [Azure Notification Hubs를 사용 하 여 iOS에 푸시 알림 보내기](../notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started.md)를 참조 하세요.</li><li><code>adm</code>&mdash;[Amazon Device Messaging](https://developer.amazon.com/device-messaging). ADM에 대한 Notification Hubs를 구성하고 Kindle 앱에서 알림을 받는 방법에 대한 자세한 내용은 [Kindle 앱에 대한 Notification Hubs 시작](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)을 참조하세요.</li><li><code>wns</code>&mdash;Windows 플랫폼을 대상으로 하는 [Windows 푸시 알림 서비스](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) Windows Phone 8.1 이상도 WNS에서 지원됩니다. 자세한 내용은 [Windows 유니버설 플랫폼 앱용 Notification Hubs 시작](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)을 참조하세요.</li><li><code>mpns</code>&mdash;[Microsoft 푸시 알림 서비스](/previous-versions/windows/apps/ff402558(v=vs.105)). 이 플랫폼은 Windows Phone 8 및 이전 Windows Phone 플랫폼을 지원합니다. 자세한 내용은 [Windows Phone에서 Azure Notification Hubs를 사용하여 푸시 알림 보내기](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)를 참조하세요.</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -287,9 +287,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 연결 문자열을 기존 알림 허브로 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)에서 알림 허브로 이동한 후 **액세스 정책**을 선택하고 **DefaultFullSharedAccessSignature** 정책 옆에 있는 복사 단추를 선택합니다. 그러면 *DefaultFullSharedAccessSignature* 정책에 대한 연결 문자열이 알림 허브로 복사됩니다. 이 연결 문자열을 사용하면 함수로 허브에 알림 메시지를 보낼 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에서 알림 허브로 이동한 후 **액세스 정책** 을 선택하고 **DefaultFullSharedAccessSignature** 정책 옆에 있는 복사 단추를 선택합니다. 그러면 *DefaultFullSharedAccessSignature* 정책에 대한 연결 문자열이 알림 허브로 복사됩니다. 이 연결 문자열을 사용하면 함수로 허브에 알림 메시지를 보낼 수 있습니다.
     ![알림 허브 연결 문자열 복사](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. Azure Portal에서 함수 앱으로 이동한 후 **애플리케이션 설정**을 선택하고 **MyHubConnectionString**과 같은 키를 추가한 다음, 알림 허브에 대해 복사한 *DefaultFullSharedAccessSignature*를 값으로 붙여넣고 **저장**을 클릭합니다.
+1. Azure Portal에서 함수 앱으로 이동한 후 **애플리케이션 설정** 을 선택하고 **MyHubConnectionString** 과 같은 키를 추가한 다음, 알림 허브에 대해 복사한 *DefaultFullSharedAccessSignature* 를 값으로 붙여넣고 **저장** 을 클릭합니다.
 
 이 애플리케이션 설정의 이름은 *function.json* 또는 .NET 특성의 출력 바인딩 연결 설정에 들어가는 내용입니다. 이 문서의 앞쪽에 있는 [구성 섹션](#configuration)을 참조하세요.
 
@@ -297,7 +297,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참조 |
+| 바인딩 | 참고 |
 |---|---|
 | 알림 허브 | [운영 가이드](/rest/api/notificationhubs/) |
 

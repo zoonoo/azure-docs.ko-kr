@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445382"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Bastion 리소스 로그 사용 및 작업
@@ -23,7 +23,7 @@ ms.locfileid: "91445382"
 1. [Azure Portal](https://portal.azure.com)에서 azure 방호 리소스로 이동 하 고 azure 방호 페이지에서 **진단 설정** 을 선택 합니다.
 
    !["진단 설정" 페이지를 보여 주는 스크린샷](./media/diagnostic-logs/1diagnostics-settings.png)
-2. **진단 설정**을 선택 하 고 **+ 진단 설정 추가** 를 선택 하 여 로그 대상을 추가 합니다.
+2. **진단 설정** 을 선택 하 고 **+ 진단 설정 추가** 를 선택 하 여 로그 대상을 추가 합니다.
 
    !["진단 설정 추가" 단추가 선택 된 "진단 설정" 페이지를 보여 주는 스크린샷](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. **진단 설정** 페이지에서 진단 로그를 저장 하는 데 사용할 저장소 계정의 유형을 선택 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "91445382"
 
 진단 로그에 액세스 하려면 진단 설정을 사용 하도록 설정 하는 동안 지정한 저장소 계정을 직접 사용할 수 있습니다.
 
-1. 저장소 계정 리소스, **컨테이너로**차례로 이동 합니다. 저장소 계정 blob 컨테이너에서 만든 **bastionauditlogs** blob이 표시 됩니다.
+1. 저장소 계정 리소스, **컨테이너로** 차례로 이동 합니다. 저장소 계정 blob 컨테이너에서 만든 **bastionauditlogs** blob이 표시 됩니다.
 
    ![진단 설정](./media/diagnostic-logs/1-navigate-to-logs.png)
 2. 컨테이너 내부로 이동 하면 블로그의 다양 한 폴더가 표시 됩니다. 이러한 폴더는 Azure 방호 리소스의 리소스 계층 구조를 표시 합니다.

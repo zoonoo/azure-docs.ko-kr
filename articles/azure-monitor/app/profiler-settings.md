@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9d9cc377ead0c297e8334d34255bd2c7c7cd39fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86499412"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
@@ -52,7 +52,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 |-|-|
 설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
 메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
-기간 | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
+Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
 Cooldown | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
 
 ## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
@@ -78,13 +78,13 @@ Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입�
 
 웹앱에 들어오는 트래픽을 이미 있거나 수동으로 트래픽을 생성하려는 경우 이 섹션을 건너뛰고 2단계를 계속 진행합니다.
 
-1. Application Insights 포털에서 **Configure**  >  **성능 테스트**구성을 선택 합니다. 
+1. Application Insights 포털에서   >  **성능 테스트** 구성을 선택 합니다. 
 
 1. 새 성능 테스트를 시작하려면 **새로 만들기** 단추를 선택합니다.
 
    ![새 성능 테스트 만들기][create-performance-test]
 
-1. **새 성능 테스트** 창에서 테스트 대상 URL을 구성합니다. 모든 기본 설정을 그대로 적용하고 **테스트 실행**을 선택하여 부하 테스트 실행을 시작합니다.
+1. **새 성능 테스트** 창에서 테스트 대상 URL을 구성합니다. 모든 기본 설정을 그대로 적용하고 **테스트 실행** 을 선택하여 부하 테스트 실행을 시작합니다.
 
     ![부하 테스트 구성][configure-performance-test]
 

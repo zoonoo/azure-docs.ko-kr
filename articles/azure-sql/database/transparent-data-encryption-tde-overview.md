@@ -13,16 +13,16 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
 ms.openlocfilehash: 8fbbd7a2aabc9de417f1eefd2513edba3119bfc0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791395"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대 한 투명 한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-[TDE (투명 한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption) 는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협에 대해 Azure SQL Database, azure SQL Managed Instance 및 Azure Synapse 분석을 보호 합니다. 데이터베이스, 연결된 백업 및 미사용 로그 파일 트랜잭션에 애플리케이션을 변경하지 않고 실시간으로 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포 된 모든 SQL 데이터베이스에 대해 사용 하도록 설정 되며, Azure SQL Database, Azure SQL Managed Instance의 이전 데이터베이스에 대해서는 수동으로 사용 하도록 설정 해야 합니다. Azure Synapse Analytics에 대해 TDE를 수동으로 사용 하도록 설정 해야 합니다.
+[TDE (투명 한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption) 는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협에 대해 Azure SQL Database, azure SQL Managed Instance 및 Azure Synapse 분석을 보호 합니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 새로 배포 된 모든 SQL 데이터베이스에 대해 사용 하도록 설정 되며, Azure SQL Database, Azure SQL Managed Instance의 이전 데이터베이스에 대해서는 수동으로 사용 하도록 설정 해야 합니다. Azure Synapse Analytics에 대해 TDE를 수동으로 사용 하도록 설정 해야 합니다.
 
 TDE를 통해 페이지 수준에서 데이터의 실시간 I/O 암호화 및 암호 해독을 수행합니다. 각 페이지는 메모리로 읽을 때 해독된 다음, 디스크에 쓰기 전에 암호화됩니다. TDE는 DEK (데이터베이스 암호화 키) 라고 하는 대칭 키를 사용 하 여 전체 데이터베이스의 저장소를 암호화 합니다. 데이터베이스 시작 시 암호화 된 DEK는 해독 되어 SQL Server 데이터베이스 엔진 프로세스의 데이터베이스 파일을 암호 해독 하 고 다시 암호화 하는 데 사용 됩니다. DEK는 TDE 보호기에 의해 보호 됩니다. TDE 보호기는 서비스 관리 인증서 (서비스 관리 투명 한 데이터 암호화) 또는 [Azure Key Vault](../../key-vault/general/secure-your-key-vault.md) 에 저장 된 비대칭 키 (고객이 관리 하는 투명 한 데이터 암호화) 중 하나입니다.
 
@@ -99,7 +99,7 @@ PowerShell을 통해 TDE를 구성하려면 Azure 소유자, 참가자 또는 SQ
 
 Azure SQL Database 및 Azure Synapse에 다음 cmdlet을 사용 합니다.
 
-| cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 | [AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |데이터베이스에 대해 투명 한 데이터 암호화를 사용 하거나 사용 하지 않도록 설정 합니다.|
 | [AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |데이터베이스에 대 한 투명 한 데이터 암호화 상태를 가져옵니다. |
@@ -120,7 +120,7 @@ Transact-sql을 사용 하 여 TDE를 관리 합니다.
 
 master 데이터베이스에서 **dbmanager** 역할의 관리자 또는 구성원으로 로그인하여 데이터베이스에 연결합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [ALTER DATABASE(Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF는 데이터베이스를 암호화하거나 해독합니다. |
 | [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |데이터베이스 및 연결된 해당 데이터베이스 암호화 키의 암호화 상태에 대한 정보를 반환합니다. |
@@ -136,7 +136,7 @@ REST API를 사용 하 여 TDE를 관리 합니다.
 REST API를 통해 TDE를 구성 하려면 Azure 소유자, 참가자 또는 SQL 보안 관리자로 연결 되어 있어야 합니다.
 Azure SQL Database 및 Azure Synapse에 대해 다음과 같은 명령 집합을 사용 합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[서버 만들기 또는 업데이트](/rest/api/sql/servers/createorupdate)|서버에 Azure Active Directory id를 추가 합니다. (Key Vault에 대 한 액세스 권한을 부여 하는 데 사용 됨)|
 |[서버 키 만들기 또는 업데이트](/rest/api/sql/serverkeys/createorupdate)|서버에 Key Vault 키를 추가 합니다.|

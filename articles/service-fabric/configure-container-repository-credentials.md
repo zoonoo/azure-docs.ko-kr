@@ -4,10 +4,10 @@ description: 컨테이너 레지스트리에서 이미지를 다운로드 하기
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.openlocfilehash: 0c6421fed88a3909db717c13a6b3faf51c4491cd
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574822"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성

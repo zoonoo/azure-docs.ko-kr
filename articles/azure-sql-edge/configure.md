@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392336"
 ---
 # <a name="configure-azure-sql-edge"></a>Azure SQL Edge 구성
@@ -83,7 +83,7 @@ Azure SQL Edge는 SQL Server on Linux와 같은 [mssql 구성 유틸리티](/sql
 
 Azure SQL Edge에 대해 다음과 같은 새로운 mssql 옵션이 추가 되었습니다. 
 
-|옵션|Description|
+|옵션|설명|
 |:---|:---|
 |**customerfeedback** | SQL Server 사용자 의견을 Microsoft에 보낼지 여부를 선택 합니다. 자세한 내용은 사용 [안 함 및 진단 데이터 수집 사용 안 함](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection) 을 참조 하세요.|      
 |**userrequestedlocalauditdirectory** | 사용 및 진단 데이터 수집 감사 파일에 대 한 대상 디렉터리를 설정 합니다. 자세한 내용은 [사용 현황 및 진단 데이터 수집](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) 에 대 한 로컬 감사를 참조 하세요. |        
