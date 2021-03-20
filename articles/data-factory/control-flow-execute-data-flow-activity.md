@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.author: makromer
 ms.date: 01/03/2021
 ms.openlocfilehash: 0663690318773ccad3bddfaaa03e456c2f58895e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383384"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
@@ -56,13 +56,13 @@ ms.locfileid: "100383384"
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-데이터 | 실행 되는 데이터 흐름에 대 한 참조입니다. | DataFlowReference | Yes
-integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. | IntegrationRuntimeReference | 예
-compute. coreCount | Spark 클러스터에서 사용 되는 코어 수입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 예
-계산. | Spark 클러스터에서 사용 되는 계산의 유형입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | "일반", "서는 E최적화 됨", "MemoryOptimized" | 예
+데이터 | 실행 되는 데이터 흐름에 대 한 참조입니다. | DataFlowReference | 예
+integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. | IntegrationRuntimeReference | 아니요
+compute. coreCount | Spark 클러스터에서 사용 되는 코어 수입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 아니요
+계산. | Spark 클러스터에서 사용 되는 계산의 유형입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | "일반", "서는 E최적화 됨", "MemoryOptimized" | 아니요
 linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정을 지정 합니다.<br/><br/>Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조 하세요. 또한 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아봅니다.<br/> | LinkedServiceReference | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
 스테이징. folderPath | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob storage 계정의 폴더 경로 | String | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
-traceLevel | 데이터 흐름 활동 실행의 로깅 수준 설정 | 세밀 하 고 거칠게, 없음 | 예
+traceLevel | 데이터 흐름 활동 실행의 로깅 수준 설정 | 세밀 하 고 거칠게, 없음 | 아니요
 
 ![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
 

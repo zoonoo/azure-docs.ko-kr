@@ -16,10 +16,10 @@ ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 07ce01304f27ded4e0a566777fcf7027f7a15e4b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359441"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대 한 DNN 수신기 구성
@@ -111,7 +111,7 @@ DNN 수신기를 만들려면 가용성 그룹, 수신기 이름 및 포트의 �
 
 1. 명령 프롬프트 또는 PowerShell과 같은 명령줄 인터페이스 도구를 엽니다. 
 1. 스크립트를 저장 `.ps1` 한 위치 (예: c:\documents.)로 이동 합니다. 
-1. 스크립트를 실행 ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>``` 합니다. 예를 들어: 
+1. 스크립트를 실행 ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>``` 합니다. 예를 들면 다음과 같습니다. 
 
    ```console
    c:\Documents> add_dnn_listener.ps1 ag1 dnnlsnr 6789

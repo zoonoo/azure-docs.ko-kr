@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9e8625724f67caac99ae799674f9db9399e11ad8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89294257"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Azure Cognitive Search 인덱서에 SQL Managed Instance에 대 한 연결 구성
@@ -25,7 +25,7 @@ ms.locfileid: "89294257"
    ![공용 엔드포인트 사용](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/enable-public-endpoint.png "공용 엔드포인트 사용")
 
 ## <a name="enable-azure-sql-managed-instance-public-endpoint"></a>Azure SQL Managed Instance 공용 끝점 사용
-**보안**  >  **가상 네트워크**  >  **공용 끝점**  >  **사용**에서 기존 SQL Managed Instance에 대 한 공용 끝점을 사용 하도록 설정할 수도 있습니다.
+**보안**  >  **가상 네트워크**  >  **공용 끝점**  >  **사용** 에서 기존 SQL Managed Instance에 대 한 공용 끝점을 사용 하도록 설정할 수도 있습니다.
 
    ![관리 되는 인스턴스 VNET을 사용 하 여 공용 끝점 사용](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/mi-vnet.png "공용 엔드포인트 사용")
 

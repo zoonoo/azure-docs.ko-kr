@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 공유 IP 주소를 사용하여 랩 VM에
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 36a5da1b2b6252d0adb480a622c461b33425e675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85484097"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Azure DevTest Labs에서 공유 IP 주소 이해
@@ -16,17 +16,17 @@ Azure DevTest Labs에서는 랩 VM이 동일한 공용 IP 주소를 공유하여
 
 ## <a name="shared-ip-setting"></a>공유 IP 설정
 
-랩을 만들 때 가상 네트워크의 서브넷에 생성 됩니다.  기본적으로 이 서브넷은 **Enable shared public IP**(공유 공용 IP 사용)을 *예*로 설정하면 생성됩니다.  이 구성은 전체 서브넷에 하나의 공용 IP 주소를 만듭니다.  가상 네트워크 및 서브넷 구성에 대한 자세한 내용은 [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)을 참조하세요.
+랩을 만들 때 가상 네트워크의 서브넷에 생성 됩니다.  기본적으로 이 서브넷은 **Enable shared public IP**(공유 공용 IP 사용)을 *예* 로 설정하면 생성됩니다.  이 구성은 전체 서브넷에 하나의 공용 IP 주소를 만듭니다.  가상 네트워크 및 서브넷 구성에 대한 자세한 내용은 [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)을 참조하세요.
 
 ![새 랩 서브넷](media/devtest-lab-shared-ip/lab-subnet.png)
 
-기존 랩의 경우 **구성 및 정책 > Virtual Networks**를 선택하여 이 옵션을 사용하도록 설정할 수 있습니다. 그런 다음, 목록에서 가상 네트워크를 선택하고 선택한 서브넷에 대해 **공유 공용 IP 사용**을 선택합니다. 랩 VM 간에 공용 IP 주소를 공유하지 않으려는 경우 아무 랩에서나 이 옵션을 해제할 수 있습니다.
+기존 랩의 경우 **구성 및 정책 > Virtual Networks** 를 선택하여 이 옵션을 사용하도록 설정할 수 있습니다. 그런 다음, 목록에서 가상 네트워크를 선택하고 선택한 서브넷에 대해 **공유 공용 IP 사용** 을 선택합니다. 랩 VM 간에 공용 IP 주소를 공유하지 않으려는 경우 아무 랩에서나 이 옵션을 해제할 수 있습니다.
 
-이 랩에 생성된 모든 VM은 기본적으로 공유 IP를 사용합니다.  VM을 만들 때 **IP 주소 구성**의 **고급 설정** 페이지에서이 설정을 확인할 수 있습니다.
+이 랩에 생성된 모든 VM은 기본적으로 공유 IP를 사용합니다.  VM을 만들 때 **IP 주소 구성** 의 **고급 설정** 페이지에서이 설정을 확인할 수 있습니다.
 
 ![새 VM](media/devtest-lab-shared-ip/new-vm.png)
 
-- **공유:****공유**로 생성된 모든 VM은 하나의 리소스 그룹(RG)에 배치됩니다. 해당 RG에는 단일 IP 주소가 할당되며, RG에 있는 모든 VM은 이 IP 주소를 사용합니다.
+- **공유:****공유** 로 생성된 모든 VM은 하나의 리소스 그룹(RG)에 배치됩니다. 해당 RG에는 단일 IP 주소가 할당되며, RG에 있는 모든 VM은 이 IP 주소를 사용합니다.
 - **공개:** 만든 각 VM에 자체 IP 주소가 있으며 자체 리소스 그룹에 생성됩니다.
 - **프라이빗:** 만든 각 VM이 개인 IP 주소를 사용합니다. 원격 데스크톱을 사용 하 여 인터넷에서 직접이 VM에 연결할 수 없습니다.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cbc7c82803115f71db233be94d62a857ba050b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86050495"
 ---
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
@@ -20,13 +20,13 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
     ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **4037264**)를 입력하고 **검색**을 클릭합니다.
+3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호(예: **4037264**)를 입력하고 **검색** 을 클릭합니다.
    
     핫픽스 목록이 나타납니다(예: **StorSimple 8000 시리즈용 누적 소프트웨어 번들 업데이트 5.0**).
    
     ![카탈로그 검색](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. **다운로드**를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 파일을 클릭하여 지정된 위치 및 폴더로 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+4. **다운로드** 를 클릭합니다. 다운로드를 표시할 로컬 위치를 지정하거나 **검색** 합니다. 파일을 클릭하여 지정된 위치 및 폴더로 다운로드합니다. 디바이스에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
 5. 위의 표에 나열된 추가 핫픽스(**4037266**)를 검색하고 해당 파일을 이전 표에 나열된 대로 특정 폴더에 다운로드합니다.
 
 > [!NOTE]
@@ -38,8 +38,8 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 일반 모드 핫픽스를 설치 및 확인하려면 다음 단계를 수행합니다. 이미 Azure Portal을 사용하여 설치한 경우 [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes)으로 건너뜁니다.
 
-1. 핫픽스를 설치하려면 StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter**키를 누릅니다.
-2. 옵션 1, **모든 권한으로 로그인**을 선택합니다. 먼저 수동 컨트롤러에 핫픽스를 설치하는 것이 좋습니다.
+1. 핫픽스를 설치하려면 StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter** 키를 누릅니다.
+2. 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 먼저 수동 컨트롤러에 핫픽스를 설치하는 것이 좋습니다.
 3. 핫픽스를 설치하려면 명령 프롬프트에 다음을 입력합니다.
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -51,7 +51,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 4. 메시지가 표시되면 암호를 제공합니다. 첫 번째 주문 업데이트를 설치하기 위한 샘플 출력은 다음과 같습니다. 첫 번째 주문 업데이트의 경우 특정 파일을 가리키도록 해야 합니다.
 
     >[!NOTE] 
-    > 먼저 _HcsSoftwareUpdate.exe_를 설치해야 합니다. 이 설치가 완료된 후에 _CisMdsAgentUpdate.exe_를 설치합니다.
+    > 먼저 _HcsSoftwareUpdate.exe_ 를 설치해야 합니다. 이 설치가 완료된 후에 _CisMdsAgentUpdate.exe_ 를 설치합니다.
    
     ```output
     Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -93,7 +93,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
     > [!NOTE]
     > 업데이트가 진행 중일 때 cmdlet에서 `False`를 보고하는 경우도 있습니다. 핫픽스가 완료되었는지 확인하려면 몇 분 동안 기다린 후 이 명령을 다시 실행하고 `RunInProgress`가 `False`인지 확인합니다. 맞으면 핫픽스가 완료된 것입니다.
 
-7. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 형식:
+7. 소프트웨어 업데이트가 완료된 후 시스템 소프트웨어 버전을 확인합니다. 유형:
    
     `Get-HcsSystem`
    
@@ -180,7 +180,7 @@ KB4037263을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
     ```
 
 3. `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행률을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
-4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
+4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인** 으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 유형:
    
    `Get-HcsFirmwareVersion`
    

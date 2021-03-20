@@ -1,5 +1,5 @@
 ---
-title: 검색에서 삭제 된 자산을 검색 하는 방법
+title: 검사를 통해 삭제된 자산을 검색하는 방법
 description: 이 문서에서는 Azure 부서의 범위 계정이 검색 중 삭제 된 자산을 검색 하는 방법을 설명 합니다.
 author: yaronyg
 ms.author: yarong
@@ -8,13 +8,13 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: 9b1515ef00355c831e161c01227678197792cc20
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555383"
 ---
-# <a name="how-scans-detect-deleted-assets"></a>검색에서 삭제 된 자산을 검색 하는 방법
+# <a name="how-scans-detect-deleted-assets"></a>검사를 통해 삭제된 자산을 검색하는 방법
 
 이 문서에서는 Azure 부서의 범위에서 스캔 결과를 사용 하 여 삭제 된 자산을 검색 하는 방법을 설명 합니다.
 

@@ -16,10 +16,10 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fe6af43c9ca44095c328356e8171da10717875e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728240"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
@@ -110,7 +110,7 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 1. 충돌하는 개체는 Azure Active Directory에 새로 동기화됩니다. 개체의 특성을 비교합니다.  
    - 표시 이름
    - 사용자 계정 이름
-   - 개체 ID입니다.
+   - 개체 ID
 2. Azure AD가 개체 비교에 실패할 경우 제공된 **UserPrincipalNames** 가 포함된 개체가 Active Directory에 있는지 확인합니다. 둘 다 있으면 **아니요** 를 선택합니다.
 
 다음 예에서 두 개체는 동일한 사용자 **Joe Johnson** 에게 속합니다.

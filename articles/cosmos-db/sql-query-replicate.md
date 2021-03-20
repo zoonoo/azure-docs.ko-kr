@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7c0f1673c620ceadeb5ccca2a15cc9b7ce8d7685
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341606"
 ---
 # <a name="replicate-azure-cosmos-db"></a>복제 (Azure Cosmos DB)
@@ -40,9 +40,9 @@ REPLICATE(<str_expr>, <num_expr>)
   
 ## <a name="remarks"></a>설명
 
-  결과의 최대 길이는 1만 자입니다. 예를 들어 (length ( *str_expr* ) *  *num_expr* ) <= 1만입니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
+  결과의 최대 길이는 1만 자입니다. 예를 들어 (length (*str_expr*) *  *num_expr*) <= 1만입니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는 쿼리에서를 사용 하는 방법을 보여 줍니다 `REPLICATE` .
   

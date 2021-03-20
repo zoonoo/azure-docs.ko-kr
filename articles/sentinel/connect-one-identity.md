@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588147"
 ---
 # <a name="connect-one-identity-safeguard"></a>하나의 Id 보호 연결
 하나의 Id 보호 데이터 커넥터는 권한 있는 세션 관련 대시보드의 보호를 사용 하 여 표준 CEF (일반 이벤트 형식) 커넥터를 향상 시킵니다. 이 커넥터를 사용 하 여 시각화, 경고, 조사 등에 대해 장치에서 생성 된 이벤트를 쉽게 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "77588147"
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음 **id 보호 커넥터 하나** 를 선택 합니다.
 
-2. **커넥터 페이지 열기**를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 
 3. **하나의 Id 보호** 페이지에 있는 지침을 따르세요.
 

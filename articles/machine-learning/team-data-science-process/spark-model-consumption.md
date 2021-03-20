@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86027446"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
@@ -545,7 +545,7 @@ BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.
 Spark는 Livy라는 구성 요소와의 REST 인터페이스를 통해 배치 작업 또는 대화형 쿼리를 원격으로 제출하는 메커니즘을 제공합니다. Livy는 HDInsight Spark 클러스터에서 기본적으로 사용하도록 설정되어 있습니다. Livy에 대 한 자세한 내용은 Livy를 [사용 하 여 원격으로 Spark 작업 제출](../../hdinsight/spark/apache-spark-livy-rest-interface.md)을 참조 하세요. 
 
 Livy를 사용하면 Azure blob에 저장된 파일의 점수를 일괄적으로 매긴 다음 결과를 다른 blob에 쓰는 작업을 원격으로 제출할 수 있습니다. 이 작업을 수행하려면  
-[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 이 경우 ***wasb:///example/python/ConsumeGBNYCReg.py***에 스크립트를 업로드 했습니다.   
+[GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py)에서 Python 스크립트를 Spark 클러스터의 Blob에 업로드합니다. **Microsoft Azure Storage Explorer** 또는 **AzCopy** 등과 같은 도구를 사용하여 스크립트를 클러스터 Blob에 복사할 수 있습니다. 이 경우 **_wasb:///example/python/ConsumeGBNYCReg.py_** 에 스크립트를 업로드 했습니다.   
 
 > [!NOTE]
 > 필요한 액세스 키는 Spark 클러스터와 연결된 스토리지 계정용 포털에서 찾을 수 있습니다. 
@@ -599,14 +599,14 @@ conn.close()
 
 또한 이 Python 코드를 [Azure Functions](https://azure.microsoft.com/documentation/services/functions/)에 추가하여 Blob의 타이머, 생성 또는 업데이트 등과 같은 여러 이벤트를 기반으로 Blob의 점수를 매기는 Spark 작업 제출을 트리거할 수 있습니다. 
 
-코드 없는 클라이언트 환경을 선호하는 경우 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)를 사용하여 **Logic Apps Designer**에서 HTTP 작업을 정의하고 해당 매개 변수를 설정하여 Spark 배치 점수 매기기를 호출합니다. 
+코드 없는 클라이언트 환경을 선호하는 경우 [Azure Logic Apps](https://azure.microsoft.com/documentation/services/app-service/logic/)를 사용하여 **Logic Apps Designer** 에서 HTTP 작업을 정의하고 해당 매개 변수를 설정하여 Spark 배치 점수 매기기를 호출합니다. 
 
-* Azure Portal에서 **+ 새로**만들기  ->  **웹 + 모바일**  ->  **논리 앱**을 선택 하 여 새 논리 앱을 만듭니다. 
-* **Logic Apps Designer**를 표시하려면 Logic App 및 App Service 계획의 이름을 입력합니다.
+* Azure Portal에서 **+ 새로** 만들기  ->  **웹 + 모바일**  ->  **논리 앱** 을 선택 하 여 새 논리 앱을 만듭니다. 
+* **Logic Apps Designer** 를 표시하려면 Logic App 및 App Service 계획의 이름을 입력합니다.
 * HTTP 작업을 선택하고 다음 그림과 같은 매개 변수를 입력합니다.
 
 ![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>다음 작업
-**교차 유효성 검사 및 하이퍼 매개 변수**비우기: 교차 유효성 검사 및 하이퍼 매개 변수 스윕을 사용 하 여 모델을 학습 하는 방법에 대 한 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조 하세요.
+**교차 유효성 검사 및 하이퍼 매개 변수** 비우기: 교차 유효성 검사 및 하이퍼 매개 변수 스윕을 사용 하 여 모델을 학습 하는 방법에 대 한 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조 하세요.
 

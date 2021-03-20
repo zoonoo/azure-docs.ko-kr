@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: tamram
 ms.openlocfilehash: 27617da97ced9ac775beae71e4c25202944b2aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78941077"
 ---
 다음 표에서는 테이블 스토리지의 용량, 확장성 및 성능 목표에 대해 설명합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "78941077"
 | 단일 테이블의 최대 크기 | 500TiB |
 | 모든 속성 값을 비롯한 단일 엔터티의 최대 크기 | 1MiB |
 | 테이블 엔터티의 최대 속성 수 | 255개(세 가지 시스템 속성 **PartitionKey**, **RowKey** 및 **Timestamp** 포함) |
-| 엔터티에 있는 개별 속성의 최대 전체 크기 | 속성 유형에 따라 다릅니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/understanding-the-table-service-data-model)의 **속성 유형**을 참조하세요. |
+| 엔터티에 있는 개별 속성의 최대 전체 크기 | 속성 유형에 따라 다릅니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](/rest/api/storageservices/understanding-the-table-service-data-model)의 **속성 유형** 을 참조하세요. |
 | **PartitionKey** | 최대 1KiB의 문자열 |
 | **RowKey** | 최대 1KiB의 문자열 |
 | 엔터티 그룹 트랜잭션의 크기 | 한 개 트랜잭션에는 최대 100개의 엔터티가 포함될 수 있고, 페이로드 크기는 4MiB 미만이어야 합니다. 엔터티 그룹 트랜잭션은 엔터티 업데이트를 한 번만 포함할 수 있습니다. |

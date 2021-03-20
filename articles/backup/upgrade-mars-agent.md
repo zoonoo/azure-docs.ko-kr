@@ -4,10 +4,10 @@ description: MARS (Microsoft Azure Recovery Services) 에이전트를 업그레�
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.openlocfilehash: a1ee26db962781643e9599069282647658301bac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89181479"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 업그레이드
@@ -23,11 +23,11 @@ Azure Backup 에이전트 및 Azure Backup server 설치의 경우:
 
 1. 이전 버전의 에이전트가 백업할 가능성이 있는 서버를 등록 한 Recovery Services 자격 증명 모음으로 이동 합니다. Azure에서 경고 Azure Backup 업데이트에서 이전 Azure Backup 에이전트가 있는 자격 증명 모음에 대 한 대표 목록을 찾을 수 있습니다.
 1. Recovery Services 자격 증명 모음의 왼쪽 **설정** 섹션에서 **관리** 섹션 아래에 있는 **백업 인프라** 를 선택 합니다.
-1. Azure Backup server 설치의 일부로 설치 된 Azure Backup 에이전트를 검색 하려면 **관리 서버**아래의 **백업 관리 서버** 로 이동 합니다. 그러면 연결 된 Azure Backup 에이전트의 버전 번호와 함께 Azure Backup 서버를 설치한 서버가 나열 됩니다.
+1. Azure Backup server 설치의 일부로 설치 된 Azure Backup 에이전트를 검색 하려면 **관리 서버** 아래의 **백업 관리 서버** 로 이동 합니다. 그러면 연결 된 Azure Backup 에이전트의 버전 번호와 함께 Azure Backup 서버를 설치한 서버가 나열 됩니다.
 
     ![Azure Backup server 설치의 일부로 설치 된 MARS 에이전트 목록](./media/upgrade-mars-agent/backup-management-servers.png)
 
-1. MARS (에이전트 버전 Microsoft Azure Recovery Services) 에이전트 설치 또는 Azure Backup 에이전트를 확인 하려면 **관리 서버**아래에 있는 **보호 된 서버** 로 이동 합니다. 그런 다음 백업 관리 유형에서 **Azure Backup 에이전트** 를 선택 합니다. 설치에 대 한 버전 번호와 함께 Azure Backup 에이전트 설치를 포함 하는 서버가 나열 됩니다.
+1. MARS (에이전트 버전 Microsoft Azure Recovery Services) 에이전트 설치 또는 Azure Backup 에이전트를 확인 하려면 **관리 서버** 아래에 있는 **보호 된 서버** 로 이동 합니다. 그런 다음 백업 관리 유형에서 **Azure Backup 에이전트** 를 선택 합니다. 설치에 대 한 버전 번호와 함께 Azure Backup 에이전트 설치를 포함 하는 서버가 나열 됩니다.
 
     ![MARS 에이전트가 설치 된 서버 목록](./media/upgrade-mars-agent/protected-servers.png)
 
@@ -71,9 +71,9 @@ Azure Backup 에이전트 업데이트가 필요한 서버를 확인 한 후에�
 
     ![Microsoft Azure Recovery Services 에이전트 업그레이드 마법사](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 
-1. **업그레이드**를 선택 합니다.
+1. **업그레이드** 를 선택합니다.
 
     ![Microsoft Azure Recovery Services 에이전트 설치](./media/upgrade-mars-agent/upgrade-installation.png)
 

@@ -12,10 +12,10 @@ ms.date: 12/16/2020
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
 ms.openlocfilehash: f5caac0a0da3595075dddd5a273a6883a0cca468
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97861815"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
@@ -78,8 +78,8 @@ Azure Cognitive Services 컨테이너는 Azure Cognitive Services 서비스의 �
 |--|--|--|--|
 | [Computer Vision][cv-containers] | **OCR 읽기** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | 읽기 OCR 컨테이너를 사용 하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대 한 지원이 포함 된 이미지와 문서에서 인쇄 된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [READ API 설명서](./computer-vision/concept-recognizing-text.md)를 참조 하세요. | 제어 된 미리 보기입니다. [액세스를 요청][request-access]합니다. |
 | [공간 분석][spa-containers] | **공간 분석** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 파악 합니다. | 제어 된 미리 보기입니다. [액세스를 요청][request-access]합니다. |
-| [Face][fa-containers] | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. | 사용할 수 없음 |
-| [폼 인식기][fr-containers] | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다. | 사용할 수 없음 | 
+| [Face][fa-containers] | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. | Unavailable |
+| [폼 인식기][fr-containers] | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다. | Unavailable | 
 
 
 <!--

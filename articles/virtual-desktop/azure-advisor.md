@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 76b7f97b6020a3a0d5571a3a105d15f7d7893485
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89147536"
 ---
 # <a name="use-azure-advisor-with-windows-virtual-desktop"></a>Windows 가상 데스크톱과 Azure Advisor 사용
@@ -25,17 +25,17 @@ Azure Advisor는 구성 및 원격 분석을 분석 하 여 일반적인 문제�
 
 ## <a name="how-to-start-using-azure-advisor"></a>Azure Advisor 사용을 시작 하는 방법
 
-Azure Portal에서 Azure 계정으로 시작 해야 합니다. 먼저 <https://portal.azure.com/#home> 다음 그림에 표시 된 것 처럼에서 Azure Portal를 연 다음 **Azure 서비스**에서 **Advisor** 를 선택 합니다. Azure Portal의 검색 표시줄에 "Azure Advisor"을 입력할 수도 있습니다.
+Azure Portal에서 Azure 계정으로 시작 해야 합니다. 먼저 <https://portal.azure.com/#home> 다음 그림에 표시 된 것 처럼에서 Azure Portal를 연 다음 **Azure 서비스** 에서 **Advisor** 를 선택 합니다. Azure Portal의 검색 표시줄에 "Azure Advisor"을 입력할 수도 있습니다.
 
 > [!div class="mx-imgBorder"]
-> ![Azure Portal의 스크린샷 사용자가 Azure Advisor 링크 위로 마우스 커서를 가져가면 드롭다운 메뉴가 나타납니다.](media/azure-advisor.png)
+> ![Azure Portal 스크린샷. 사용자가 Azure Advisor 링크 위로 마우스 커서를 가져가면 드롭다운 메뉴가 나타납니다.](media/azure-advisor.png)
 
 Azure Advisor 열면 다음 5 개의 범주가 표시 됩니다.
 
-- Cost
+- 비용
 - 보안
 - 안정성
-- 뛰어난 운영
+- 운영 효율성
 - 성능
 
 > [!div class="mx-imgBorder"]

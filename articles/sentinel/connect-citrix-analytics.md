@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588385"
 ---
 # <a name="connect-citrix-analytics-security"></a>Citrix Analytics 연결(보안) 
@@ -27,7 +27,7 @@ Citrix Analytics (보안)와 Azure 센티널의 통합을 통해 Citrix 분석 (
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
@@ -38,7 +38,7 @@ Citrix Analytics (보안)와 Azure 센티널의 통합을 통해 Citrix 분석 (
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음 **Citrix Analytics (보안)** 커넥터를 선택 합니다.
 
-2. **커넥터 페이지 열기**를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 
 3. **Citrix Analytics (보안)** 페이지의 지침을 따릅니다.
 

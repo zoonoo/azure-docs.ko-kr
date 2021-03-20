@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89280148"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
@@ -144,7 +144,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대 한 일반적인 정보�
 8. Azure AD STS가 사용자 이름과 암호화된 암호 값으로 구성된 암호 유효성 검사 요청을 해당 테넌트의 Service Bus 큐에 배치합니다.
 9. 초기화된 인증 에이전트는 Service Bus 큐에 영구적으로 연결되므로 사용 가능한 인증 에이전트 중 하나가 암호 유효성 검사 요청을 가져옵니다.
 10. 인증 에이전트가 식별자를 사용하여 자신의 공개 키에 고유한 암호화된 암호 값을 찾고 자신의 프라이빗 키를 사용하여 암호를 해독합니다.
-11. 인증 에이전트가 **dwLogonType** 매개 변수가 **LOGON32_LOGON_NETWORK**로 설정된 [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성을 검사합니다. 
+11. 인증 에이전트가 **dwLogonType** 매개 변수가 **LOGON32_LOGON_NETWORK** 로 설정된 [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성을 검사합니다. 
     - Win32 LogonUser API는 AD FS(Active Directory Federation Service)가 페더레이션 로그인 시나리오에서 사용자 로그인에 사용하는 API이기도 합니다.
     - Win32 LogonUser API는 Windows Server의 표준 확인 프로세스를 사용하여 도메인 컨트롤러를 찾습니다.
 12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.

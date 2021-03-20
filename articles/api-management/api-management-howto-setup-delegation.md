@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341844"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
@@ -52,18 +52,18 @@ ms.locfileid: "93341844"
    
     로그인/가입 사례에 대한 쿼리 매개 변수는 다음과 같습니다.
    
-   * **operation** : 위임 요청의 유형을 식별합니다. 이 경우 **SignIn** 만 가능합니다.
-   * **returnUrl** : 사용자가 로그인 또는 가입 링크를 클릭한 페이지의 URL입니다.
-   * **salt** : 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
-   * **sig** : 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
+   * **operation**: 위임 요청의 유형을 식별합니다. 이 경우 **SignIn** 만 가능합니다.
+   * **returnUrl**: 사용자가 로그인 또는 가입 링크를 클릭한 페이지의 URL입니다.
+   * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+   * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 2. 요청이 Azure API Management에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
    
-   * **returnUrl** 및 **salt** 쿼리 매개 변수( [아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 컴퓨팅합니다.
+   * **returnUrl** 및 **salt** 쿼리 매개 변수([아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 컴퓨팅합니다.
      
-     > HMAC( **salt** + '\n' + **returnUrl** )
+     > HMAC(**salt** + '\n' + **returnUrl**)
 
    * 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
-3. 로그인/가입 요청을 받고 있는지 확인합니다. **operation** 쿼리 매개 변수가 " **SignIn** "으로 설정됩니다.
+3. 로그인/가입 요청을 받고 있는지 확인합니다. **operation** 쿼리 매개 변수가 "**SignIn**"으로 설정됩니다.
 4. 사용자에게 로그인 또는 가입을 위한 UI를 제공합니다.
 5. 사용자가 등록하고 있는 경우 API Management에서 사용자의 해당 계정을 만들어야 합니다. API Management REST API를 사용하여 [사용자를 만듭니다]. 이 작업을 수행하는 경우 사용자 ID를 사용자 저장소에 있는 것과 동일한 값 또는 추적할 수 있는 사용자 ID로 설정해야 합니다.
 6. 사용자가 인증되면
@@ -84,10 +84,10 @@ ms.locfileid: "93341844"
 
 계정 관리 작업에 대한 다음 쿼리 매개 변수를 전달해야 합니다.
 
-* **operation** : 위임 요청의 유형을 식별합니다(ChangePassword, ChangeProfile 또는 CloseAccount).
-* **userId** : 관리할 계정의 사용자 ID입니다.
-* **salt** : 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
-* **sig** : 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
+* **operation**: 위임 요청의 유형을 식별합니다(ChangePassword, ChangeProfile 또는 CloseAccount).
+* **userId**: 관리할 계정의 사용자 ID입니다.
+* **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+* **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>제품 구독 위임
 
@@ -108,21 +108,21 @@ ms.locfileid: "93341844"
    
     제품 구독 케이스에 대한 쿼리 매개 변수:
    
-   * **operation** : 위임 요청 유형을 식별합니다. 제품 구독 요청의 경우 유효한 옵션은 다음과 같습니다.
+   * **operation**: 위임 요청 유형을 식별합니다. 제품 구독 요청의 경우 유효한 옵션은 다음과 같습니다.
      * "Subscribe": 사용자가 제공된 ID를 사용하여 지정된 제품을 구독하도록 하는 요청입니다(아래 참조).
      * "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
      * "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
-   * **productId** : *구독* -사용자가 구독을 요청한 제품의 ID입니다.
-   * **subscriptionId** : *구독 취소* 및 *갱신* 에서 - 제품 구독의 ID입니다.
-   * **userId** : *구독* 시-요청을 만든 사용자의 ID입니다.
-   * **salt** : 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
-   * **sig** : 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
+   * **productId**: *구독* -사용자가 구독을 요청한 제품의 ID입니다.
+   * **subscriptionId**: *구독 취소* 및 *갱신* 에서 - 제품 구독의 ID입니다.
+   * **userId**: *구독* 시-요청을 만든 사용자의 ID입니다.
+   * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
+   * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
 2. 요청이 Azure API Management에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
    
-   * **productId** , **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하는 문자열의 HMAC-SHA512를 계산합니다.
+   * **productId**, **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하는 문자열의 HMAC-SHA512를 계산합니다.
      
-     > HMAC( **salt** + '\n' + **productId** + '\n' + **userId** )
+     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.

@@ -4,17 +4,17 @@ description: 파일 및 디렉터리에 대해 살펴보고 개발 관점에서 
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.openlocfilehash: eafea6c234c3b261521f8a791b7a03e25388f02a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87552642"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Azure Batch의 파일 및 디렉터리
 
 Azure Batch 각 태스크에는 파일 및 디렉터리를 만들 수 있는 작업 디렉터리가 있습니다. 태스크가 실행하는 프로그램, 처리하는 데이터 및 수행하는 처리의 출력을 저장하는 데 작업 디렉터리를 사용할 수 있습니다. 태스크의 모든 파일 및 디렉터리는 태스크 사용자가 소유합니다.
 
-Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리*로 노출합니다. 이 루트 디렉터리는 OS 드라이브에서 직접이 아니라 VM의 임시 저장소 드라이브에 있습니다.
+Batch 서비스는 노드의 파일 시스템 일부를 *루트 디렉터리* 로 노출합니다. 이 루트 디렉터리는 OS 드라이브에서 직접이 아니라 VM의 임시 저장소 드라이브에 있습니다.
 
 태스크는 `AZ_BATCH_NODE_ROOT_DIR` 환경 변수를 참조하여 루트 디렉터리에 액세스할 수 있습니다. 환경 변수 사용에 대한 자세한 내용은 [태스크에 대한 환경 설정](jobs-and-tasks.md#environment-settings-for-tasks)을 참조하세요.
 

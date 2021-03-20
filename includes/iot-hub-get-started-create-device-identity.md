@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: iot-hub
 author: dominicbetts
@@ -9,10 +9,10 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file, devx-track-azurecli
 ms.openlocfilehash: b1a863498603006e37ab98b838ffd426b962d788
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92755409"
 ---
 이 섹션에서는 Azure CLI를 사용하여 이 문서의 디바이스 ID를 만듭니다. 디바이스 ID는 대/소문자를 구분합니다.

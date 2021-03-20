@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77588028"
 ---
 # <a name="connect-trend-micro-deep-security"></a>연결 추세 마이크로 심층 보안
@@ -26,7 +26,7 @@ ms.locfileid: "77588028"
 Trend 마이크로 심층 보안 커넥터를 사용 하면 심층적인 보안 로그를 Azure 센티널에 쉽게 연결 하 고, 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. 이렇게 하면 조직의 네트워크와 시스템에 대 한 더 많은 정보를 제공 하 고 보안 작업 기능을 향상 시킬 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 
@@ -34,7 +34,7 @@ Trend 마이크로 심층 보안 커넥터를 사용 하면 심층적인 보안 
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음 **추세 마이크로 심층 보안** 커넥터를 선택 합니다.
 
-2. **커넥터 페이지 열기**를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 
 3. 지침 및 다음 단계를 수행 합니다.
 

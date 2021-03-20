@@ -9,10 +9,10 @@ ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: fb3e310970fcc2146ee0d4b790a9744dcd566bad
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341657"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
@@ -35,7 +35,7 @@ RAND ()
   `RAND`는 비결정 함수입니다. 의 반복적인 호출은 `RAND` 동일한 결과를 반환 하지 않습니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 임의로 생성 된 숫자 값을 반환 합니다.
   

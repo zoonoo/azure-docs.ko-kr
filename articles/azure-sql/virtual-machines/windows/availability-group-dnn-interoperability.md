@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 10/08/2020
 ms.author: mathoma
 ms.openlocfilehash: 19b4b7407468b19419e2f85193b1f8fb6ace39c3
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359407"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>AG 및 DNN listener와의 기능 상호 운용성 
@@ -89,7 +89,7 @@ MSDTC가 로컬 인 경우 아웃 바운드 통신을 허용 해야 합니다.
 
 Filestream은 지원 되지만, 사용자가 Windows 파일 API를 사용 하 여 범위 파일 공유에 액세스 하는 시나리오에는 지원 되지 않습니다. 
 
-## <a name="filetable"></a>Filetable
+## <a name="filetable"></a>파일 테이블
 
 Filetable은 지원 되지만, 사용자가 Windows 파일 API를 사용 하 여 범위 파일 공유에 액세스 하는 시나리오에는 지원 되지 않습니다. 
 

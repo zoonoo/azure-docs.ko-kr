@@ -15,10 +15,10 @@ ms.date: 11/04/2019
 ms.author: apimpm
 ms.custom: devx-track-python
 ms.openlocfilehash: b63f38609b4b61130e515dd118e8ced9f201defd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87851717"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
@@ -34,7 +34,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
     -   [C#](#CSharp)  
     -   [Java](#Stub)  
     -   [JavaScript](#JavaScript)  
-    -   [목표 C](#ObjectiveC)  
+    -   [Objective C](#ObjectiveC)  
     -   [PHP](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
@@ -90,7 +90,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|유형|설명|  
+|속성|Type|설명|  
 |--------------|----------|-----------------|  
 |`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -345,13 +345,13 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|유형|Description|  
+|속성|Type|Description|  
 |--------------|----------|-----------------|  
 |`apiId`|문자열|현재 API의 ID입니다.|  
 |`apiName`|문자열|API 이름입니다.|  
 |`apiDescription`|문자열|API에 대한 설명입니다.|  
 |`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
-|`operation`|[연산](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
+|`operation`|[작업](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
 |`sampleUrl`|문자열|현재 작업의 URL입니다.|  
 |`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
 |`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  
@@ -657,7 +657,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [JavaScript](#JavaScript)  
   
--   [목표 C](#ObjectiveC)  
+-   [Objective C](#ObjectiveC)  
   
 -   [PHP](#PHP)  
   
@@ -1082,7 +1082,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="objective-c"></a><a name="ObjectiveC"></a> Objective C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> 목표 C  
  **DocumentationSamplesObjc** 템플릿을 사용하면 작업 페이지의 코드 샘플 섹션에 있는 코드 샘플을 사용자 지정할 수 있습니다.  
   
 #### <a name="default-template"></a>기본 템플릿  

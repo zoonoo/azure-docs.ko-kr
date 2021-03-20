@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1115c08214db19227b4b8d7be671ce4da1cf2b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87798600"
 ---
 # <a name="review-access-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 액세스 검토
@@ -78,7 +78,7 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
 
     이 옵션을 선택 하면 사용자가 액세스를 유지 관리 하 고이 선택 항목이 감사 로그에 표시 됩니다. 이 로그에는 검토를 완료 한 다른 검토자가 표시 됩니다.
 
-1. 결정에 대 한 이유를 제공 해야 할 수도 있습니다. 이유를 입력 하 고 **제출**을 클릭 합니다.
+1. 결정에 대 한 이유를 제공 해야 할 수도 있습니다. 이유를 입력 하 고 **제출** 을 클릭 합니다.
 
     ![액세스 승인 또는 거부](./media/entitlement-management-access-reviews-review-access/review-access-decision-approve.png)
 
@@ -93,7 +93,7 @@ Azure AD 자격 관리는 기업에서 그룹, 응용 프로그램 및 SharePoin
 
 여러 사용자에 대 한 액세스를 더 신속 하 게 검토 하려면 시스템 생성 권장 사항을 사용 하 여 한 번의 클릭으로 권장 사항을 적용 하면 됩니다. 권장 사항은 사용자의 로그인 활동을 기반으로 생성 됩니다.
 
-1.  페이지 위쪽의 표시줄에서 **권장 구성 적용**을 클릭 합니다.
+1.  페이지 위쪽의 표시줄에서 **권장 구성 적용** 을 클릭 합니다.
     
     ![권장 구성 적용 선택](./media/entitlement-management-access-reviews-review-access/review-access-use-recommendations.png)
     

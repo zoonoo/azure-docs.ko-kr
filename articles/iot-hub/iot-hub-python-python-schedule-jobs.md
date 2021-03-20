@@ -10,10 +10,10 @@ ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
 ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87876685"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>작업 예약 및 브로드캐스트(Python)
@@ -36,9 +36,9 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
 
-* 솔루션 백 엔드에서 **LockDoor**를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
+* 솔루션 백 엔드에서 **LockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
 
 * 작업을 사용하여 시뮬레이션된 디바이스 앱에서 **LockDoor** 직접 메서드를 호출하고, 디바이스 작업을 사용하여 desired 속성을 업데이트하는 Python 콘솔 앱을 만듭니다.
 
@@ -46,10 +46,10 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 **simDevice.py** - 디바이스 ID로 IoT Hub에 연결하고 **LockDoor** 직접 메서드를 수신합니다.
 
-**scheduleJobService.py**는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
+**scheduleJobService.py** 는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
 
 > [!NOTE]
-> **Python용 Azure IoT SDK**는 **작업** 기능을 직접 지원하지 않습니다. 이 자습서에서는 비동기 스레드 및 타이머를 사용하는 대체 솔루션을 제공합니다. 추가 업데이트는 [Python용 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-python) 페이지에서 **Service Client SDK** 기능 목록을 참조하세요.
+> **Python용 Azure IoT SDK** 는 **작업** 기능을 직접 지원하지 않습니다. 이 자습서에서는 비동기 스레드 및 타이머를 사용하는 대체 솔루션을 제공합니다. 추가 업데이트는 [Python용 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-python) 페이지에서 **Service Client SDK** 기능 목록을 참조하세요.
 >
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
@@ -155,21 +155,21 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 문서에서는 장치에서 직접 메서드를 호출 하 고 장치 쌍을 업데이트 하는 백 엔드 서비스를 만듭니다. 서비스는 장치에서 직접 메서드를 호출 하려면 **서비스 연결** 권한이 필요 합니다. 또한 서비스에는 id 레지스트리를 읽고 쓰기 위한 **레지스트리 읽기** 및 **레지스트리 쓰기** 권한이 필요 합니다. 이러한 권한만 포함 하는 기본 공유 액세스 정책은 없으므로 만들어야 합니다.
 
-**서비스 연결**, **레지스트리 읽기**및 **레지스트리 쓰기** 권한을 부여 하 고이 정책에 대 한 연결 문자열을 가져오는 공유 액세스 정책을 만들려면 다음 단계를 수행 합니다.
+**서비스 연결**, **레지스트리 읽기** 및 **레지스트리 쓰기** 권한을 부여 하 고이 정책에 대 한 연결 문자열을 가져오는 공유 액세스 정책을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 IoT hub를 엽니다. IoT hub를 가져오는 가장 쉬운 방법은 **리소스 그룹**을 선택 하 고 iot hub가 있는 리소스 그룹을 선택한 다음 리소스 목록에서 iot hub를 선택 하는 것입니다.
+1. [Azure Portal](https://portal.azure.com)에서 IoT hub를 엽니다. IoT hub를 가져오는 가장 쉬운 방법은 **리소스 그룹** 을 선택 하 고 iot hub가 있는 리소스 그룹을 선택한 다음 리소스 목록에서 iot hub를 선택 하는 것입니다.
 
-2. IoT Hub의 왼쪽 창에서 **공유 액세스 정책**을 선택합니다.
+2. IoT Hub의 왼쪽 창에서 **공유 액세스 정책** 을 선택합니다.
 
-3. 정책 목록 위의 상단 메뉴에서 **추가**를 선택합니다.
+3. 정책 목록 위의 상단 메뉴에서 **추가** 를 선택합니다.
 
-4. **공유 액세스 정책 추가** 창에서 정책에 대 한 설명이 포함 된 이름을 입력 합니다. 예: *serviceAndRegistryReadWrite*. **사용 권한**아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택 합니다 ( **레지스트리 쓰기**를 선택 하면**레지스트리 읽기가** 자동으로 선택 됨). 그런 다음 **만들기**를 선택합니다.
+4. **공유 액세스 정책 추가** 창에서 정책에 대 한 설명이 포함 된 이름을 입력 합니다. 예: *serviceAndRegistryReadWrite*. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택 합니다 ( **레지스트리 쓰기** 를 선택 하면 **레지스트리 읽기가** 자동으로 선택 됨). 그런 다음 **만들기** 를 선택합니다.
 
     ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
 5. 다시 **공유 액세스 정책** 창의 정책 목록에서 새 정책을 선택 합니다.
 
-6. **공유 액세스 키**에서 **연결 문자열 -- 기본 키**에 대한 복사 아이콘을 선택하고 값을 저장합니다.
+6. **공유 액세스 키** 에서 **연결 문자열 -- 기본 키** 에 대한 복사 아이콘을 선택하고 값을 저장합니다.
 
     ![연결 문자열을 검색하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 

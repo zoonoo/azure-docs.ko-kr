@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 143cf03a33739f43a29af94fc2f8a336fb3aef8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89076670"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
@@ -54,13 +54,13 @@ Message: The client '<identifier>' with object id '<identifier>' does not have a
 
 ## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 
-PowerShell의 경우 **Get-AzResourceProvider**를 사용하여 등록 상태를 확인합니다.
+PowerShell의 경우 **Get-AzResourceProvider** 를 사용하여 등록 상태를 확인합니다.
 
 ```powershell
 Get-AzResourceProvider -ListAvailable
 ```
 
-공급자를 등록하려면 **Register-AzResourceProvider**를 사용하여 등록할 리소스 공급자의 이름을 제공합니다.
+공급자를 등록하려면 **Register-AzResourceProvider** 를 사용하여 등록할 리소스 공급자의 이름을 제공합니다.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
@@ -102,11 +102,11 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 등록 상태를 볼 수 있으며 포털을 통해 리소스 공급자 네임스페이스를 등록할 수 있습니다.
 
-1. 포털에서 **모든 서비스**를 선택합니다.
+1. 포털에서 **모든 서비스** 를 선택합니다.
 
    ![모든 서비스 선택](./media/error-register-resource-provider/select-all-services.png)
 
-1. **구독**을 선택합니다.
+1. **구독** 을 선택합니다.
 
    ![구독 선택](./media/error-register-resource-provider/select-subscriptions.png)
 
@@ -114,7 +114,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
    ![리소스 공급자를 등록할 구독을 선택합니다.](./media/error-register-resource-provider/select-subscription-to-register.png)
 
-1. 구독의 경우 **리소스 공급자**를 선택합니다.
+1. 구독의 경우 **리소스 공급자** 를 선택합니다.
 
    ![리소스 공급자 선택](./media/error-register-resource-provider/select-resource-provider.png)
 

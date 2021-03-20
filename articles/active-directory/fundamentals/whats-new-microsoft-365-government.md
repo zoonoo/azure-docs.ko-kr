@@ -1,5 +1,5 @@
 ---
-title: Microsoft 365 정부에서 제공 되는 Azure AD의 새로운 기능 | Microsoft Docs
+title: Microsoft 365 정부에서 제공 되는 Azure AD의 새로운 기능 | Microsoft 문서
 description: 사용자에 게 영향을 줄 수 있는 Microsoft 365 정부 클라우드 인스턴스에서 Azure Active Directory (Azure AD)에 대 한 몇 가지 변경 내용에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -14,10 +14,10 @@ ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89318933"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Microsoft 365 정부에서 Azure Active Directory의 새로운 기능

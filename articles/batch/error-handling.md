@@ -4,10 +4,10 @@ description: 개발 관점에서 Batch 서비스 워크플로의 오류 처리�
 ms.topic: article
 ms.date: 05/15/2020
 ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85964280"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Azure Batch의 오류 처리 및 검색
@@ -57,7 +57,7 @@ Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기
 
 작업 또는 태스크의 최대 실행 기간을 지정하는 제약 조건( *maxWallClockTime*)을 지정할 수 있습니다. 이 기능은 작동되지 않는 태스크를 종료하는 데 유용할 수 있습니다.
 
-최대 기간을 초과하면 태스크가 *완료됨*으로 표시되지만 종료 코드가 `0xC000013A`로 설정되고 *schedulingError* 필드가 `{ category:"ServerError", code="TaskEnded"}`로 표시됩니다.
+최대 기간을 초과하면 태스크가 *완료됨* 으로 표시되지만 종료 코드가 `0xC000013A`로 설정되고 *schedulingError* 필드가 `{ category:"ServerError", code="TaskEnded"}`로 표시됩니다.
 
 ## <a name="task-exit-codes"></a>태스크 종료 코드
 
@@ -98,7 +98,7 @@ Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기
     사실상 노드를 오프라인으로 만들기 때문에 해당 노드에 더 이상 작업이 할당되지 않지만 노드가 풀에서 실행되도록 유지할 수 있습니다. 그러면 실패한 태스크에 데이터 손실이나 노드에 추가 작업 오류를 발생시키지 않고 실패의 원인을 조사할 수 있습니다. 예를 들어 노드에서 태스크 예약을 사용하지 않도록 설정한 다음, 원격으로 로그인하여 노드의 이벤트 로그를 검사하거나 다른 문제를 해결할 수 있습니다. 조사를 완료하면 태스크 예약([REST](/rest/api/batchservice/computenode/enablescheduling) | [.NET](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling))을 사용하여 노드를 다시 온라인 상태로 되돌리거나 앞서 설명한 다른 작업 중 하나를 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 위에서 설명한 작업을 사용하여 현재 노드에서 실행되는 태스크가 작업 완료 시 처리되는 방법을 지정할 수 있습니다. 예를 들어 Batch .NET 클라이언트 라이브러리를 사용하여 노드에서 태스크 예약을 사용하지 않으면 [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) 열거형 값을 지정하여 실행 중인 태스크를 **종료**하거나, 다른 노드에서 예약을 **다시 대기**하거나 또는 작업(**TaskCompletion**)을 수행하기 전에 완료할 태스크 실행을 허용할지를 지정할 수 있습니다.
+> 위에서 설명한 작업을 사용하여 현재 노드에서 실행되는 태스크가 작업 완료 시 처리되는 방법을 지정할 수 있습니다. 예를 들어 Batch .NET 클라이언트 라이브러리를 사용하여 노드에서 태스크 예약을 사용하지 않으면 [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption) 열거형 값을 지정하여 실행 중인 태스크를 **종료** 하거나, 다른 노드에서 예약을 **다시 대기** 하거나 또는 작업(**TaskCompletion**)을 수행하기 전에 완료할 태스크 실행을 허용할지를 지정할 수 있습니다.
 
 ## <a name="retry-after-errors"></a>오류 후 다시 시도
 

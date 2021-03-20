@@ -17,10 +17,10 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279910"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Active Directory Federation Services (AD FS) 팜에 대 한 TLS/SSL 인증서를 업데이트 합니다.
@@ -53,7 +53,7 @@ Azure AD Connect는 다음과 같은 방법으로 AD FS 팜에 대한 정보를 
 
 ![AD FS 서버 정보](./media/how-to-connect-fed-ssl-update/adfsserverinfo.png)
 
-더 이상 AD FS 팜에 포함되지 않는 서버가 목록에 들어 있으면 **제거**를 클릭하여 AD FS 팜의 서버 목록에서 서버를 삭제합니다.
+더 이상 AD FS 팜에 포함되지 않는 서버가 목록에 들어 있으면 **제거** 를 클릭하여 AD FS 팜의 서버 목록에서 서버를 삭제합니다.
 
 ![목록의 오프라인 서버](./media/how-to-connect-fed-ssl-update/offlineserverlist.png)
 
@@ -83,7 +83,7 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
 ![구성 완료](./media/how-to-connect-fed-ssl-update/configurecomplete.png)   
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 * **새 AD FS TLS/SSL 인증서에 대 한 인증서의 주체 이름은 무엇 인가요?**
 
@@ -95,11 +95,11 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
 * **서버가 오프 라인으로 표시 됩니다. 제가 뭘 해야 하나요?**
 
-    서버가 오프라인 상태이면 Azure AD Connect가 작업을 수행할 수 없습니다. 서버가 AD FS 팜의 일부이면 서버 연결을 확인하세요. 이 문제를 해결한 후 마법사에서 새로 고침 아이콘을 눌러 상태를 업데이트하세요. 서버가 이전에 팜에 포함되었지만 더 이상 존재하지 않으면 **제거**를 클릭하여 Azure AD Connect가 유지 관리하는 서버 목록에서 서버를 삭제합니다. Azure AD Connect의 목록에서 서버를 제거해도 AD FS 구성 자체는 변경되지 않습니다. Windows Server 2016 이상에서 AD FS를 사용하는 경우 서버는 구성 설정에 남아 있게 되며 다음에 작업이 실행될 때 표시됩니다.
+    서버가 오프라인 상태이면 Azure AD Connect가 작업을 수행할 수 없습니다. 서버가 AD FS 팜의 일부이면 서버 연결을 확인하세요. 이 문제를 해결한 후 마법사에서 새로 고침 아이콘을 눌러 상태를 업데이트하세요. 서버가 이전에 팜에 포함되었지만 더 이상 존재하지 않으면 **제거** 를 클릭하여 Azure AD Connect가 유지 관리하는 서버 목록에서 서버를 삭제합니다. Azure AD Connect의 목록에서 서버를 제거해도 AD FS 구성 자체는 변경되지 않습니다. Windows Server 2016 이상에서 AD FS를 사용하는 경우 서버는 구성 설정에 남아 있게 되며 다음에 작업이 실행될 때 표시됩니다.
 
 * **새 TLS/SSL 인증서를 사용 하 여 팜 서버의 하위 집합을 업데이트할 수 있나요?**
 
-    예. 언제든지 **SSL 인증서 업데이트** 작업을 다시 실행하여 나머지 서버를 업데이트할 수 있습니다. **SSL 인증서 업데이트용 서버 선택** 페이지에서 **SSL 만료 날짜**를 기준으로 서버 목록을 정렬하면 아직 업데이트되지 않은 서버에 쉽게 액세스할 수 있습니다.
+    예. 언제든지 **SSL 인증서 업데이트** 작업을 다시 실행하여 나머지 서버를 업데이트할 수 있습니다. **SSL 인증서 업데이트용 서버 선택** 페이지에서 **SSL 만료 날짜** 를 기준으로 서버 목록을 정렬하면 아직 업데이트되지 않은 서버에 쉽게 액세스할 수 있습니다.
 
 * **이전 실행에서 서버를 제거 했지만 계속 오프 라인으로 표시 되 고 AD FS 서버 페이지에 나열 됩니다. 제거한 후에도 오프 라인 서버가 남아 있는 이유는 무엇 인가요?**
 

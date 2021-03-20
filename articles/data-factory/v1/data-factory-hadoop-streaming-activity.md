@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 532ece3bcc8c62771511fb2608e824de846b54fe
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383095"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
@@ -105,7 +105,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 > 
 > 
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 이번 연습의 파이프라인에서는 Azure HDInsight 클러스터에서 Word Count 스트리밍 Map/Reduce 프로그램을 실행합니다. 
 
 ### <a name="linked-services"></a>연결된 서비스

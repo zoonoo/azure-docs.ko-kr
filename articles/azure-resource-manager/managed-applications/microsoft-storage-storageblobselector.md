@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1085b70df67a3f16a7f7f8c5ae85c9ab271b62ac
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92754532"
 ---
 # <a name="microsoftstoragestorageblobselector-ui-element"></a>Microsoft 저장소. StorageBlobSelector UI 요소
@@ -24,19 +24,19 @@ Azure 저장소 계정에서 blob을 선택 하는 컨트롤입니다.
 
 **찾아보기** 를 선택 하면 사용자가 저장소 계정을 선택할 수 있습니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft 저장소. StorageBlobSelector-찾아보기":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-select.png" alt-text="Microsoft 저장소. StorageBlobSelector-저장소 선택":::
 
 사용자는 저장소 계정의 컨테이너를 확인 하 고 하나를 선택할 수 있습니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft 저장소. StorageBlobSelector-찾아보기":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft 저장소. StorageBlobSelector-컨테이너 선택":::
 
 컨테이너에서 사용자는 파일을 선택할 수 있습니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft 저장소. StorageBlobSelector-찾아보기":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft. StorageBlobSelector-파일":::
 
 선택한 파일 이름을 표시 하도록 컨트롤이 업데이트 됩니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft 저장소. StorageBlobSelector-찾아보기":::
+:::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-result.png" alt-text="Microsoft 저장소. StorageBlobSelector-파일 선택 표시":::
 
 ## <a name="schema"></a>스키마
 

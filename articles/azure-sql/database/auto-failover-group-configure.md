@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/14/2019
 ms.openlocfilehash: 09bb7cb2344e3e708a64842916e6e483136da3bb
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594286"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
@@ -52,7 +52,7 @@ ms.locfileid: "94594286"
 
 1. **장애 조치 (Failover) 그룹** 페이지에서 필요한 값을 입력 하거나 선택한 다음 **만들기** 를 선택 합니다.
 
-   - **그룹 내의 데이터베이스** : 장애 조치 (failover) 그룹에 추가 하려는 데이터베이스를 선택 합니다. 장애 조치(failover) 그룹에 데이터베이스를 추가하면 지역 복제 프로세스가 자동으로 시작됩니다.
+   - **그룹 내의 데이터베이스**: 장애 조치 (failover) 그룹에 추가 하려는 데이터베이스를 선택 합니다. 장애 조치(failover) 그룹에 데이터베이스를 추가하면 지역 복제 프로세스가 자동으로 시작됩니다.
 
    ![장애 조치(failover) 그룹에 SQL Database 추가](./media/auto-failover-group-configure/add-sqldb-to-failover-group.png)
 

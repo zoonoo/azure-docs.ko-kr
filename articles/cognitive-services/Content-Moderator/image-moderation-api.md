@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85800998"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
@@ -110,7 +110,7 @@ Content Moderator의 기계 지원 이미지 조정 및 [검토 도구](Review-T
 동일한 이미지를 여러 번 조정하는 대신, 차단된 콘텐츠의 사용자 지정 목록에 불쾌감을 주는 이미지를 추가합니다. 이러한 방식으로 콘텐츠 조정 시스템은 들어오는 이미지를 사용자 지정 목록과 비교하고 추가 처리를 중지합니다.
 
 > [!NOTE]
-> 최대 **5개 이미지 목록**으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
+> 최대 **5개 이미지 목록** 으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 >
 
 Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 작업을 포함하는 전체 [이미지 목록 관리 API](try-image-list-api.md)를 제공합니다. [이미지 목록 API 콘솔](try-image-list-api.md)에서 시작하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 C#에 익숙한 경우 [이미지 목록 .NET 빠른 시작](image-lists-quickstart-dotnet.md)도 확인합니다.

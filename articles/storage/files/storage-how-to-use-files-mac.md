@@ -8,10 +8,10 @@ ms.date: 09/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326068"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS에서 SMB를 통해 Azure 파일 공유 탑재
@@ -28,7 +28,7 @@ ms.locfileid: "91326068"
 1. **찾기를 엽니다**. 찾기는 기본적으로 macOS에서 열리지만 도킹 스테이션에서 "macOS 얼굴 아이콘"을 클릭하여 현재 선택된 애플리케이션인지 확인할 수 있습니다.  
     ![macOS 얼굴 아이콘](./media/storage-how-to-use-files-mac/mount-via-finder-1.png)
 
-2. **"이동" 메뉴에서 "서버에 연결"을 선택**합니다. 필수 조건에서 UNC 경로를 사용 하 여 시작 이중 백슬래시 ( `\\` )를로 변환 하 `smb://` 고 다른 모든 백슬래시 ( `\` )는 슬래시 ()를 전달 `/` 합니다. 링크는 다음과 같습니다. !["서버에 연결" 대화 상자](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
+2. **"이동" 메뉴에서 "서버에 연결"을 선택** 합니다. 필수 조건에서 UNC 경로를 사용 하 여 시작 이중 백슬래시 ( `\\` )를로 변환 하 `smb://` 고 다른 모든 백슬래시 ( `\` )는 슬래시 ()를 전달 `/` 합니다. 링크는 다음과 같습니다. !["서버에 연결" 대화 상자](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
 3. **사용자 이름과 암호를 묻는 메시지가 표시되면 스토리지 계정 이름과 스토리지 계정 키를 사용합니다**. &quot;서버에 연결&quot; 대화 상자에서 &quot;연결&quot;을 클릭하면 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다. (이 경우 macOS 사용자 이름이 자동으로 채워져 있습니다.) macOS 키 집합에 스토리지 계정 이름/스토리지 계정 키를 배치할 수 있는 옵션이 있습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "91326068"
     ![탑재된 Azure 파일 공유의 스냅샷](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>터미널을 통해 Azure 파일 공유 탑재
-1.  `<storage-account-name>`, `<storage-account-key>` 및를 `<share-name>`   사용자 환경에 적합 한 값으로 바꿉니다.
+1. `<storage-account-name>`, `<storage-account-key>` 및를 `<share-name>` 사용자 환경에 적합 한 값으로 바꿉니다.
 
     ```
     open smb://<storage-account-name>:<storage-account-key>@<storage-account-name>.file.core.windows.net/<share-name>

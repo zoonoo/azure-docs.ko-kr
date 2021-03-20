@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 3b816ddc0eccf8c406cfed37d6bfc594e27d3629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85850365"
 ---
 # <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 또는 HTTPS를 통해 AKS 서비스 노출 
 
 이러한 자습서는 [Kubernetes 수신 리소스](https://kubernetes.io/docs/concepts/services-networking/ingress/) 를 사용 하 여 HTTP 또는 HTTPS를 통해 [Azure 애플리케이션 게이트웨이](https://azure.microsoft.com/services/application-gateway/) 를 통해 예제 Kubernetes 서비스를 노출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 설치 된 `ingress-azure` 투구 차트.
   - [**최적의 배포**](ingress-controller-install-new.md): 처음부터 시작 하는 경우 Application Gateway를 사용 하 여 AKS 클러스터를 배포 하는 단계를 설명 하 고 AKS 클러스터에 응용 프로그램 게이트웨이 수신 컨트롤러를 설치 하는 단계를 설명 하는 설치 지침을 참조 하세요.

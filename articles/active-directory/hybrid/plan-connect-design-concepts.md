@@ -18,17 +18,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89279655"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
 
 ## <a name="sourceanchor"></a>sourceAnchor
-sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으로 정의됩니다. 온-프레미스와 Azure AD의 동일한 개체처럼 개체를 고유하게 식별합니다. 이 특성은 **immutableId** 라고도 하며 두 이름을 서로 바꿔 사용할 수 있습니다.
+sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성* 으로 정의됩니다. 온-프레미스와 Azure AD의 동일한 개체처럼 개체를 고유하게 식별합니다. 이 특성은 **immutableId** 라고도 하며 두 이름을 서로 바꿔 사용할 수 있습니다.
 
 변경이 불가능한 말(즉, “변경할 수 없음”)은 이 문서에서 중요합니다. 이 특성의 값은 한번 설정된 후에는 변경할 수 없기 때문에 시나리오를 지원하는 설계를 선택하는 것이 중요합니다.
 
@@ -56,13 +56,13 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 
 SourceAnchor 특성은 대/소문자를 구분합니다. "JohnDoe"의 값은 "johndoe"와 다릅니다. 하지만 대/소문자만 다른 두 개체가 있어서는 안 됩니다.
 
-단일 포리스트 온-프레미스가 있는 경우 사용해야 할 특성은 **objectGUID**입니다. Azure AD Connect에서 사용되는 express 설정을 사용할 때 사용되는 특성이기도 하며 DirSync가 사용하는 특성이기도 합니다.
+단일 포리스트 온-프레미스가 있는 경우 사용해야 할 특성은 **objectGUID** 입니다. Azure AD Connect에서 사용되는 express 설정을 사용할 때 사용되는 특성이기도 하며 DirSync가 사용하는 특성이기도 합니다.
 
 여러 포리스트가 있고 사용자를 포리스트 및 도메인 간에 이동하지 않는 경우 **objectGUID** 특성을 사용하는 것이 좋습니다.
 
 포리스트 및 도메인 간에 사용자를 이동하는 경우 변경되지 않거나 이동 중 사용자와 함께 이동할 수 있는 특성을 찾아야 합니다. 가상 특성을 도입하는 것이 좋습니다. GUID처럼 보이는 것을 포함할 수 있는 특성이 적합합니다. 개체가 생성되는 동안 새 GUID는 생성되고 사용자에게 표시됩니다. 동기화 엔진 서버에서 사용자 지정 동기화 규칙을 만들어 **objectGUID** 에 따라 이 값을 만들고 ADDS에서 선택한 특성을 업데이트할 수 있습니다. 개체를 이동할 때, 이 값의 콘텐츠도 복사했는지 확인합니다.
 
-다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID**가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼해서 이름을 바꿔야 하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress**와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용되지 않는 “\@” 문자도 포함하고 있습니다.
+다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID** 가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼해서 이름을 바꿔야 하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress** 와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용되지 않는 “\@” 문자도 포함하고 있습니다.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>SourceAnchor 특성 변경
 sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 후에는 값을 변경할 수 없습니다.
@@ -132,19 +132,19 @@ Source Anchor 특성으로 objectGUID를 사용하는 기존 Azure AD Connect �
 
 Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
-1. Azure AD Connect 마법사를 시작하고 **구성**을 클릭하여 작업 화면으로 이동합니다.
+1. Azure AD Connect 마법사를 시작하고 **구성** 을 클릭하여 작업 화면으로 이동합니다.
 
-2. **Source Anchor 구성** 작업 옵션을 선택하고 **다음**을 클릭합니다.
+2. **Source Anchor 구성** 작업 옵션을 선택하고 **다음** 을 클릭합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 2단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment01.png)
 
-3. Azure AD 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
+3. Azure AD 관리자 자격 증명을 입력하고 **다음** 을 클릭합니다.
 
-4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음**을 클릭하여 계속합니다.
+4. Azure AD Connect 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 분석합니다. 특성이 디렉터리의 개체에서 구성되지 않는 경우 Azure AD Connect는 다른 애플리케이션이 현재 특성을 사용하지 않고 있으며 Source Anchor 특성으로 사용하는 데 안전하다고 판단합니다. **다음** 을 클릭하여 계속합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 4단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
-5. **구성할 준비 완료** 화면에서 **구성**을 클릭하여 구성을 변경합니다.
+5. **구성할 준비 완료** 화면에서 **구성** 을 클릭하여 구성을 변경합니다.
 
    ![기존 배포에 대해 ConsistencyGuid 사용 - 5단계](./media/plan-connect-design-concepts/consistencyguidexistingdeployment03.png)
 
@@ -183,7 +183,7 @@ Azure에서 사용할 UPN의 값을 제공하기 위해 특성을 선택하는 �
 * 특성 값은 UPN 구문(RFC 822)을 맞춥니다. 즉, 사용자 이름\@도메인 형식이어야 합니다.
 * 값의 접미사는 Azure AD에서 확인된 사용자 지정 도메인 중 하나에 일치합니다.
 
-Express 설정에서 특성에 userPrincipalName을 선택할 것입니다. userPrincipalName 특성에 사용자가 Azure에 로그인하는 데 사용하려는 값이 포함되지 않은 경우 **사용자 지정 설치**를 선택해야 합니다.
+Express 설정에서 특성에 userPrincipalName을 선택할 것입니다. userPrincipalName 특성에 사용자가 Azure에 로그인하는 데 사용하려는 값이 포함되지 않은 경우 **사용자 지정 설치** 를 선택해야 합니다.
 
 ### <a name="custom-domain-state-and-upn"></a>사용자 지정 도메인 상태 및 UPN
 UPN 접미사에 확인된 도메인이 있는지 확인해야 합니다.

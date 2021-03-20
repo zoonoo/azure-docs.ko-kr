@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
 ms.openlocfilehash: 8a8d434fca7cab4432f38fc64093cf1fe060bd5f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019089"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
@@ -45,13 +45,13 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 
 논리 앱을 만든 후에는 다음을 수행 합니다.
 
-1. 논리 앱 디자이너에서 **HTTP 요청을 받을 때**의 첫 번째 작업을 선택 합니다.
+1. 논리 앱 디자이너에서 **HTTP 요청을 받을 때** 의 첫 번째 작업을 선택 합니다.
 
    ![HTTP 수신 작업 추가](./media/analysis-services-async-refresh-logic-app/1.png)
 
 이 단계는 논리 앱이 저장 된 후 HTTP POST URL로 채워집니다.
 
-2. 새 단계를 추가 하 고 **HTTP**를 검색 합니다.  
+2. 새 단계를 추가 하 고 **HTTP** 를 검색 합니다.  
 
    !["HTTP" 타일이 선택 된 "작업 선택" 섹션의 스크린샷](./media/analysis-services-async-refresh-logic-app/9.png)
 
@@ -65,7 +65,7 @@ HTTP 작업을 다음과 같이 구성 합니다.
 
 |속성  |값  |
 |---------|---------|
-|**메서드**     |POST         |
+|**방법**     |POST         |
 |**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \/ /westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes|
 |**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |
@@ -80,7 +80,7 @@ HTTP 작업을 다음과 같이 구성 합니다.
 
 ![완료 된 HTTP 작업](./media/analysis-services-async-refresh-logic-app/7.png)
 
-이제 논리 앱을 테스트 합니다.  논리 앱 디자이너에서 **실행**을 클릭 합니다.
+이제 논리 앱을 테스트 합니다.  논리 앱 디자이너에서 **실행** 을 클릭 합니다.
 
 ![Logic Apps 테스트](./media/analysis-services-async-refresh-logic-app/8.png)
 
@@ -102,9 +102,9 @@ Data Factory 등의 오케스트레이션 도구를 사용 하 여 모델 새로
 
 !["트리거" 페이지를 보여 주는 스크린샷](./media/analysis-services-async-refresh-logic-app/13.png)
 
-이 예에서는 **되풀이**를 사용 합니다.
+이 예에서는 **되풀이** 를 사용 합니다.
 
-활동이 추가 되 면 간격 및 빈도를 구성한 다음 새 매개 변수를 추가 하 고 **이러한 시간에**를 선택 합니다.
+활동이 추가 되 면 간격 및 빈도를 구성한 다음 새 매개 변수를 추가 하 고 **이러한 시간에** 를 선택 합니다.
 
 !["다음 시간" 매개 변수가 선택 된 "되풀이" 섹션을 보여 주는 스크린샷](./media/analysis-services-async-refresh-logic-app/16.png)
 

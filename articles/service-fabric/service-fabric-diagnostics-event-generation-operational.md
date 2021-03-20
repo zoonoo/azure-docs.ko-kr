@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85846653"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 이벤트 목록 
@@ -35,8 +35,8 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | 업그레이드 | 클러스터 업그레이드가 시작되었습니다. | CM | 정보 제공 |
 | 29628 | ClusterUpgradeCompleted | 업그레이드 | 클러스터 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
-| 29629 | ClusterUpgradeRollbackStarted | 업그레이드 | 클러스터 업그레이드 롤백이 시작되었습니다.  | CM | Warning | 
-| 29630 | ClusterUpgradeRollbackCompleted | 업그레이드 | 클러스터 업그레이드 롤백이 완료되었습니다. | CM | Warning | 
+| 29629 | ClusterUpgradeRollbackStarted | 업그레이드 | 클러스터 업그레이드 롤백이 시작되었습니다.  | CM | 경고 | 
+| 29630 | ClusterUpgradeRollbackCompleted | 업그레이드 | 클러스터 업그레이드 롤백이 완료되었습니다. | CM | 경고 | 
 | 29631 | ClusterUpgradeDomainCompleted | 업그레이드 | 업그레이드 도메인이 클러스터 업그레이드 중 업그레이드를 완료했습니다. | CM | 정보 제공 | 
 
 ## <a name="node-events"></a>노드 이벤트
@@ -47,14 +47,14 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | 노드 비활성화가 완료되었습니다. | FM | 정보 제공 | 
 | 18603 | NodeUp | StateTransition | 클러스터에서 노드가 시작되었음을 감지했습니다. | FM | 정보 제공 | 
-| 18604 | NodeDown | StateTransition | 클러스터에서 노드가 종료되었음을 감지했습니다. 노드를 다시 시작하는 동안 NodeDown 이벤트 다음으로 NodeUp 이벤트가 표시됩니다 |  FM | Error | 
+| 18604 | NodeDown | StateTransition | 클러스터에서 노드가 종료되었음을 감지했습니다. 노드를 다시 시작하는 동안 NodeDown 이벤트 다음으로 NodeUp 이벤트가 표시됩니다 |  FM | 오류 | 
 | 18605 | NodeAddedToCluster | StateTransition |  새 노드가 클러스터에 추가되었으며 Service Fabric에서 이 노드에 애플리케이션을 배포할 수 있습니다. | FM | 정보 제공 | 
 | 18606 | NodeRemovedFromCluster | StateTransition |  노드가 클러스터에서 제거되었습니다. Service Fabric에서 이 노드에 애플리케이션을 더 이상 배포하지 않습니다. | FM | 정보 제공 | 
 | 18607 | NodeDeactivateStarted | StateTransition |  노드 비활성화가 시작되었습니다. | FM | 정보 제공 | 
 | 25621 | NodeOpenSucceeded | StateTransition |  노드가 성공적으로 시작되었습니다. | FabricNode | 정보 제공 | 
-| 25622 | NodeOpenFailed | StateTransition |  노드가 시작되지 못하고 링에 조인하지 못했습니다. | FabricNode | Error | 
+| 25622 | NodeOpenFailed | StateTransition |  노드가 시작되지 못하고 링에 조인하지 못했습니다. | FabricNode | 오류 | 
 | 25624 | NodeClosed | StateTransition |  노드가 성공적으로 종료되었습니다. | FabricNode | 정보 제공 | 
-| 25626 | NodeAborted | StateTransition |  노드가 비정상적으로 종료되었습니다. | FabricNode | Error | 
+| 25626 | NodeAborted | StateTransition |  노드가 비정상적으로 종료되었습니다. | FabricNode | 오류 | 
 
 ## <a name="application-events"></a>애플리케이션 이벤트
 
@@ -74,8 +74,8 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | 업그레이드 | 애플리케이션 업그레이드가 시작되었습니다. | CM | 정보 제공 | 
 | 29622 | ApplicationUpgradeCompleted | 업그레이드 | 애플리케이션 업그레이드가 완료되었습니다. | CM | 정보 제공 | 
-| 29623 | ApplicationUpgradeRollbackStarted | 업그레이드 | 애플리케이션 업그레이드 롤백이 시작되었습니다. |CM | Warning | 
-| 29624 | ApplicationUpgradeRollbackCompleted | 업그레이드 | 애플리케이션 롤백이 완료되었습니다. | CM | Warning | 
+| 29623 | ApplicationUpgradeRollbackStarted | 업그레이드 | 애플리케이션 업그레이드 롤백이 시작되었습니다. |CM | 경고 | 
+| 29624 | ApplicationUpgradeRollbackCompleted | 업그레이드 | 애플리케이션 롤백이 완료되었습니다. | CM | 경고 | 
 | 29626 | ApplicationUpgradeDomainCompleted | 업그레이드 | 업그레이드 도메인이 애플리케이션 업그레이드 중 업그레이드를 완료했습니다. | CM | 정보 제공 | 
 
 ## <a name="service-events"></a>서비스 이벤트
@@ -114,26 +114,26 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 | 63648 | ReliableConcurrentQueueOpened | LifeCycle | 신뢰할 수 있는 동시 큐가 열렸습니다. | ReliableConcurrentQueue | 정보 제공 |
 | 63649 | ReliableConcurrentQueueClosed | LifeCycle | 신뢰할 수 있는 동시 큐가 닫혔습니다. | ReliableConcurrentQueue | 정보 제공 |
 | 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | 신뢰할 수 있는 동시 큐가 해당 검사점을 복구 했습니다. | ReliableConcurrentQueue | 정보 제공 |
-| 61687 | TStoreError | 실패 | 신뢰할 수 있는 컬렉션에서 예기치 않은 오류를 수신 했습니다. | TStore | Error |
+| 61687 | TStoreError | 실패 | 신뢰할 수 있는 컬렉션에서 예기치 않은 오류를 수신 했습니다. | TStore | 오류 |
 | 63831 | PrimaryFullCopyInitiated 됨 | LifeCycle | 주 복제본에서 전체 복사를 시작 했습니다. | TReplicator | 정보 제공 |
 | 63832 | PrimaryPartialCopyInitiated | LifeCycle | 주 복제본이 부분 복사를 시작 했습니다. | TReplicator | 정보 제공 |
 | 16831 | BuildIdleReplicaStarted | LifeCycle | 주 복제본이 유휴 복제본 빌드를 시작 했습니다. | 복제 | 정보 제공 |
 | 16832 | BuildIdleReplicaCompleted | LifeCycle | 주 복제본이 유휴 복제본 빌드를 완료 했습니다. | 복제 | 정보 제공 |
-| 16833 | BuildIdleReplicaFailed | LifeCycle | 주 복제본에서 유휴 복제본을 빌드하지 못했습니다. | 복제 | Warning |
-| 16834 | PrimaryReplicationQueueFull | 의료 | 주 복제본의 복제 큐가 꽉 찼습니다. | 복제 | Warning |
-| 16835 | PrimaryReplicationQueueWarning | 의료 | 주 복제본의 복제 큐가 거의 꽉 찼습니다. | 복제 | Warning |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | 주 복제본에서 유휴 복제본을 빌드하지 못했습니다. | 복제 | 경고 |
+| 16834 | PrimaryReplicationQueueFull | 의료 | 주 복제본의 복제 큐가 꽉 찼습니다. | 복제 | 경고 |
+| 16835 | PrimaryReplicationQueueWarning | 의료 | 주 복제본의 복제 큐가 거의 꽉 찼습니다. | 복제 | 경고 |
 | 16836 | PrimaryReplicationQueueWarningMitigated | 의료 | 주 복제본의 복제 큐가 양호 합니다. | 복제 | 정보 제공 |
-| 16837 | SecondaryReplicationQueueFull | 의료 | 보조 복제본의 복제 큐가 꽉 찼습니다. | 복제 | Warning |
-| 16838 | SecondaryReplicationQueueWarning | 의료 | 보조 복제본의 복제 큐가 거의 꽉 찼습니다. | 복제 | Warning |
+| 16837 | SecondaryReplicationQueueFull | 의료 | 보조 복제본의 복제 큐가 꽉 찼습니다. | 복제 | 경고 |
+| 16838 | SecondaryReplicationQueueWarning | 의료 | 보조 복제본의 복제 큐가 거의 꽉 찼습니다. | 복제 | 경고 |
 | 16839 | SecondaryReplicationQueueWarningMitigated | 의료 | 보조 복제본의 복제 큐가 양호 합니다. | 복제 | 정보 제공 |
-| 16840 | PrimaryFaultedSlowSecondary | 의료 | 주 복제본에서 저속 보조 복제본에 오류가 발생 했습니다. | 복제 | Warning |
-| 16841 | ReplicatorFaulted | 의료 | 복제본에 오류가 발생 했습니다. | 복제 | Warning |
+| 16840 | PrimaryFaultedSlowSecondary | 의료 | 주 복제본에서 저속 보조 복제본에 오류가 발생 했습니다. | 복제 | 경고 |
+| 16841 | ReplicatorFaulted | 의료 | 복제본에 오류가 발생 했습니다. | 복제 | 경고 |
 
 ## <a name="container-events"></a>컨테이너 이벤트
 
 **컨테이너 수명 주기 이벤트** 
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | 컨테이너가 시작되었습니다. | Hosting | 정보 제공 | 1 |
 | 23075 | ContainerDeactivated | 컨테이너가 중지되었습니다. | Hosting | 정보 제공 | 1 |
@@ -149,21 +149,21 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **클러스터 상태 보고서 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | 새 클러스터 상태 보고서를 사용할 수 있습니다. | HM | 정보 제공 | 1 |
 | 54437 | ClusterHealthReportExpired | 기존 클러스터 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **노드 상태 보고서 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | 새 노드 상태 보고서를 사용할 수 있습니다. | HM | 정보 제공 | 1 |
 | 54432 | NodeHealthReportExpired | 기존 노드 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **애플리케이션 상태 보고서 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | 새 애플리케이션 상태 보고서가 만들어졌습니다. 배포되지 않은 애플리케이션에 대한 보고서입니다. | HM | 정보 제공 | 1 |
 | 54426 | DeployedApplicationNewHealthReport | 새로 배포된 애플리케이션 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
@@ -174,21 +174,21 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **서비스 상태 보고서 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | 새 서비스 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54433 | ServiceHealthReportExpired | 기존 서비스 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **파티션 상태 보고서 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | 새 파티션 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54431 | PartitionHealthReportExpired | 기존 파티션 상태 보고서가 만료되었습니다. | HM | 정보 제공 | 1 |
 
 **복제본 상태 보고서 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | 상태 저장 복제본 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
 | 54430 | StatelessInstanceNewHealthReport | 새 상태 비저장 인스턴스 상태 보고서가 만들어졌습니다. | HM | 정보 제공 | 1 |
@@ -199,28 +199,28 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **카오스 세션 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | 카오스 테스트 세션이 시작되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50023 | ChaosStopped | 카오스 테스트 세션이 중지되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
 **카오스 노드 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | 노드가 카오스 테스트 세션의 일부로 다시 시작하도록 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50087 | ChaosNodeRestartCompleted | 노드가 카오스 테스트 세션의 일부로 다시 시작되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
 **카오스 애플리케이션 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | 코드 패키지 다시 시작이 카오스 테스트 세션 중에 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | 코드 패키지 다시 시작이 카오스 테스트 세션 중에 완료되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
 **카오스 파티션 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | 주 파티션이 카오스 테스트 세션의 일부로 이동하도록 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | 보조 파티션이 카오스 테스트 세션의 일부로 이동하도록 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
@@ -228,7 +228,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **카오스 복제본 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | 복제본 다시 시작이 카오스 테스트 세션의 일부로 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | 복제본 제거가 카오스 테스트 세션의 일부로 예약되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
@@ -238,7 +238,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 **상관 관계 이벤트**
 
-| EventId | 속성 | 설명 |원본(태스크) | Level | 버전 |
+| EventId | Name | 설명 |원본(태스크) | Level | 버전 |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | 상관 관계가 검색되었습니다. | 테스트 가능성 | 정보 제공 | 1 |
 
@@ -246,7 +246,7 @@ Service Fabric은 [Service Fabric 이벤트](service-fabric-diagnostics-events.m
 
 다음은 버전 6.2 이전의 Service Fabric이 제공하는 이벤트의 포괄적인 목록입니다.
 
-| EventId | 속성 | 원본(태스크) | Level |
+| EventId | Name | 원본(태스크) | Level |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | 정보 제공 |
 | 25621 | NodeOpenedSuccess | FabricNode | 정보 제공 |

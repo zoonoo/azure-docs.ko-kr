@@ -4,10 +4,10 @@ description: 이 문서에서는 DevTest Labs에서 환경에 대 한 보안 경
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: c9f7cf9fe7ab0e3f573470228ee1962aa92ccaef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91308693"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>환경에 대 한 보안 경고 Azure DevTest Labs
@@ -22,7 +22,7 @@ ms.locfileid: "91308693"
 1. 랩의 홈 페이지에서 왼쪽 메뉴의 **보안 경고** 를 선택 합니다. 보안 경고 (높음, 중간 및 낮음) 수가 표시 되어야 합니다. [경고가 분류 되는 방법](../security-center/security-center-alerts-overview.md#how-are-alerts-classified)에 대해 자세히 알아보세요.
 
     ![보안 경고-개요](./media/environment-security-alerts/security-alerts-overview-page.png)
-2. 마지막 열에서 세 개의 점 (...)을 마우스 오른쪽 단추로 클릭 하 고 **보안 경고 보기**를 선택 합니다. 
+2. 마지막 열에서 세 개의 점 (...)을 마우스 오른쪽 단추로 클릭 하 고 **보안 경고 보기** 를 선택 합니다. 
 
     !["보안 경고 보기"가 선택 된 보안 경고 페이지를 보여 주는 스크린샷](./media/environment-security-alerts/view-security-alerts-menu.png)
     

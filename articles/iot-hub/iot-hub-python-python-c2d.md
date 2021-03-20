@@ -10,10 +10,10 @@ ms.date: 04/09/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: ad6399a4713520ca0550d143cf3f19f87d55337c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87876804"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 클라우드-디바이스 메시지 보내기
@@ -50,13 +50,13 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 디바이스를 시뮬레이션하고 IoT Hub에서 클라우드-디바이스 메시지를 수신하는 Python 콘솔 앱을 만듭니다.
 
-1. 작업 디렉터리의 명령 프롬프트에서 **Python 용 Azure IoT Hub 장치 SDK**를 설치 합니다.
+1. 작업 디렉터리의 명령 프롬프트에서 **Python 용 Azure IoT Hub 장치 SDK** 를 설치 합니다.
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. 텍스트 편집기를 사용 하 여 **SimulatedDevice.py**라는 파일을 만듭니다.
+1. 텍스트 편집기를 사용 하 여 **SimulatedDevice.py** 라는 파일을 만듭니다.
 
 1. **SimulatedDevice.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다.
 
@@ -124,7 +124,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md)에서 만든 IoT Hub를 통해 클라우드-디바이스 메시지를 보내는 백 엔드 서비스를 만듭니다. 클라우드-디바이스 메시지를 보내려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
@@ -132,13 +132,13 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이션된 디바이스 앱으로 보내는 Python 콘솔 응용 프로그램을 만듭니다. [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-python.md) 빠른 시작에서 추가한 디바이스의 디바이스 ID가 필요합니다. 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열도 필요합니다.
 
-1. 작업 디렉터리에서 명령 프롬프트를 열고 **Python 용 Azure IoT Hub SERVICE SDK**를 설치 합니다.
+1. 작업 디렉터리에서 명령 프롬프트를 열고 **Python 용 Azure IoT Hub SERVICE SDK** 를 설치 합니다.
 
    ```cmd/sh
    pip install azure-iot-hub
    ```
 
-1. 텍스트 편집기를 사용 하 여 **SendCloudToDeviceMessage.py**라는 파일을 만듭니다.
+1. 텍스트 편집기를 사용 하 여 **SendCloudToDeviceMessage.py** 라는 파일을 만듭니다.
 
 1. **SendCloudToDeviceMessage.py** 파일 앞에 다음 `import` 문 및 변수를 추가합니다.
 

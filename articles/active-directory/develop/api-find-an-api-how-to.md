@@ -12,10 +12,10 @@ ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
 ms.openlocfilehash: 28cfb3d8b09c9661d16ac6e7146c50e7043d913a
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581961"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법

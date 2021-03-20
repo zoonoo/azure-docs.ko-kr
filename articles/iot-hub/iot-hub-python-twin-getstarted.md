@@ -10,10 +10,10 @@ ms.date: 03/11/2020
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ms.openlocfilehash: 12b1d083ae1481f7c8b5fe60cac9156a56aeaa0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87875475"
 ---
 # <a name="get-started-with-device-twins-python"></a>디바이스 쌍 시작(Python)
@@ -22,9 +22,9 @@ ms.locfileid: "87875475"
 
 이 자습서의 끝 부분에 다음의 두 Python 콘솔 앱이 설치됩니다.
 
-* **AddTagsAndQuery.py**는 태그를 추가하고 디바이스 쌍을 쿼리하는 Python 백 엔드 앱입니다.
+* **AddTagsAndQuery.py** 는 태그를 추가하고 디바이스 쌍을 쿼리하는 Python 백 엔드 앱입니다.
 
-* **ReportConnectivity.py**는 앞에서 만든 디바이스 ID와 IoT Hub를 연결하고 연결 상태를 보고하는 디바이스를 시뮬레이트하는 Python 앱입니다.
+* **ReportConnectivity.py** 는 앞에서 만든 디바이스 ID와 IoT Hub를 연결하고 연결 상태를 보고하는 디바이스를 시뮬레이트하는 Python 앱입니다.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "87875475"
 
 이 섹션에서는 **{장치 ID}** 와 연결 된 장치 쌍에 위치 메타 데이터를 추가 하는 Python 콘솔 앱을 만듭니다. 그런 다음 IoT Hub에 저장된 디바이스 쌍을 쿼리하여 Redmond에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
-1. 작업 디렉터리에서 명령 프롬프트를 열고 **Python 용 Azure IoT Hub SERVICE SDK**를 설치 합니다.
+1. 작업 디렉터리에서 명령 프롬프트를 열고 **Python 용 Azure IoT Hub SERVICE SDK** 를 설치 합니다.
 
    ```cmd/sh
    pip install azure-iot-hub
@@ -114,9 +114,9 @@ ms.locfileid: "87875475"
             print("IoT Hub Device Twin service sample stopped")
     ```
 
-    **IoTHubRegistryManager** 개체는 서비스의 장치 쌍과 상호 작용 하는 데 필요한 모든 메서드를 노출 합니다. 이 코드는 먼저 **IoTHubRegistryManager** 개체를 초기화 한 다음 **DEVICE_ID**에 대 한 장치 쌍을 업데이트 하 고 마지막으로 두 개의 쿼리를 실행 합니다. 첫 번째는 **Redmond43** 공장에 위치한 장치의 장치 쌍만을 선택 하 고, 두 번째는 또한 셀룰러 네트워크를 통해 연결 된 장치만 선택 하도록 쿼리를 구체화 합니다.
+    **IoTHubRegistryManager** 개체는 서비스의 장치 쌍과 상호 작용 하는 데 필요한 모든 메서드를 노출 합니다. 이 코드는 먼저 **IoTHubRegistryManager** 개체를 초기화 한 다음 **DEVICE_ID** 에 대 한 장치 쌍을 업데이트 하 고 마지막으로 두 개의 쿼리를 실행 합니다. 첫 번째는 **Redmond43** 공장에 위치한 장치의 장치 쌍만을 선택 하 고, 두 번째는 또한 셀룰러 네트워크를 통해 연결 된 장치만 선택 하도록 쿼리를 구체화 합니다.
 
-6. **AddTagsAndQuery.py**의 끝부분에 다음 코드를 추가하고 **iothub_service_sample_run** 함수를 구현합니다.
+6. **AddTagsAndQuery.py** 의 끝부분에 다음 코드를 추가하고 **iothub_service_sample_run** 함수를 구현합니다.
 
     ```python
     if __name__ == '__main__':
@@ -132,7 +132,7 @@ ms.locfileid: "87875475"
     python AddTagsAndQuery.py
     ```
 
-    **Redmond43**에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
+    **Redmond43** 에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
 
     ![Redmond의 모든 장치를 표시 하는 첫 번째 쿼리](./media/iot-hub-python-twin-getstarted/service-1.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "87875475"
 
 이 섹션에서는 **{장치 ID}** 로 허브에 연결 하는 Python 콘솔 앱을 만든 다음 셀룰러 네트워크를 사용 하 여 연결 된 정보를 포함 하도록 장치 쌍의 보고 된 속성을 업데이트 합니다.
 
-1. 작업 디렉터리의 명령 프롬프트에서 **Python 용 Azure IoT Hub 장치 SDK**를 설치 합니다.
+1. 작업 디렉터리의 명령 프롬프트에서 **Python 용 Azure IoT Hub 장치 SDK** 를 설치 합니다.
 
     ```cmd/sh
     pip install azure-iot-device
@@ -199,7 +199,7 @@ ms.locfileid: "87875475"
 
     **IoTHubModuleClient** 개체는 장치에서 장치 쌍과 상호 작용 하는 데 필요한 모든 메서드를 노출 합니다. 이전 코드는 **IoTHubModuleClient** 개체를 초기화 한 후 장치에 대 한 장치 쌍을 검색 하 고 연결 정보를 사용 하 여 보고 된 속성을 업데이트 합니다.
 
-6. **ReportConnectivity.py**의 끝부분에 다음 코드를 추가하고 **iothub_client_sample_run** 함수를 구현합니다.
+6. **ReportConnectivity.py** 의 끝부분에 다음 코드를 추가하고 **iothub_client_sample_run** 함수를 구현합니다.
 
     ```python
     if __name__ == '__main__':
