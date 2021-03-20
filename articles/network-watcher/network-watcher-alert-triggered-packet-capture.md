@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570979"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
@@ -35,7 +35,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
@@ -138,7 +138,7 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
 1. **Az. Network** 하위 폴더를 마우스 오른쪽 단추로 클릭 하 고 **파일 업로드** 를 선택 합니다. 
 
-6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음, **확인** 을 선택합니다. 
+6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음 **확인** 을 선택합니다. 
 
 7. **Az. Accounts** 및 **az .resources** 에 대해 이러한 단계를 반복 합니다.
 

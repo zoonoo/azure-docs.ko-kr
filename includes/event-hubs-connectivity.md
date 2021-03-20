@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -9,10 +9,10 @@ ms.date: 01/21/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 44afd8ea4ef2ab06ec31b7528e9776faebc3b4dc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98689615"
 ---
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 

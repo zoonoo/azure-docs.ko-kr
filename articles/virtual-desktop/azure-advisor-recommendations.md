@@ -7,10 +7,10 @@ ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90033033"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Azure Advisor 권장 사항을 해결 하는 방법
@@ -34,7 +34,7 @@ ms.locfileid: "90033033"
 
 2. 그런 다음 프로덕션 환경에서 유효성 검사 환경으로 변경 하려는 호스트 풀을 선택 합니다.
 
-3. 호스트 풀의 왼쪽 열에서 **속성** 을 선택 합니다. 그런 다음 "유효성 검사 환경"이 표시 될 때까지 아래로 스크롤합니다. **예**를 선택 하 고 **적용**을 선택 합니다.
+3. 호스트 풀의 왼쪽 열에서 **속성** 을 선택 합니다. 그런 다음 "유효성 검사 환경"이 표시 될 때까지 아래로 스크롤합니다. **예** 를 선택 하 고 **적용** 을 선택 합니다.
 
 >[!div class="mx-imgBorder"]
 >![속성 메뉴의 스크린샷 "유효성 검사 환경"이 빨간색으로 강조 표시 되 고 "예" 거품이 선택 됩니다.](media/validation-yes.png)
@@ -58,7 +58,7 @@ ms.locfileid: "90033033"
 
 2. 유효성 검사에서 프로덕션으로 변경 하려는 호스트 풀을 선택 합니다.
 
-3. 호스트 풀에서 화면 오른쪽에 있는 열의 **속성** 탭을 선택 합니다. 그런 다음 "유효성 검사 환경"이 표시 될 때까지 아래로 스크롤합니다. **아니요**를 선택 하 고 **적용**을 선택 합니다.
+3. 호스트 풀에서 화면 오른쪽에 있는 열의 **속성** 탭을 선택 합니다. 그런 다음 "유효성 검사 환경"이 표시 될 때까지 아래로 스크롤합니다. **아니요** 를 선택 하 고 **적용** 을 선택 합니다.
 
 >[!div class="mx-imgBorder"]
 >![속성 메뉴의 스크린샷 "유효성 검사 환경"이 빨간색으로 강조 표시 되 고 "아니요" 거품이 선택 됩니다.](media/validation-no.png)

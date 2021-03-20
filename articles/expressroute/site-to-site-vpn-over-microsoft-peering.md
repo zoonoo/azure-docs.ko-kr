@@ -9,10 +9,10 @@ ms.date: 02/25/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 366f27a0e2a22e9aa10dda20e105bf644255bdd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89393142"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
@@ -71,9 +71,9 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 ![경로 필터](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-이 예제에서 배포는 *Azure 미국 서부 2* 지역에서만 이루어집니다. 경로 필터 규칙을 추가하여 Azure 미국 서부 2 지역별 접두사만 보여줍니다. 여기에는 BGP 커뮤니티 값 *12076:51026*이 있습니다. **규칙 관리**를 선택하여 허용하려는 지역별 접두사를 지정합니다.
+이 예제에서 배포는 *Azure 미국 서부 2* 지역에서만 이루어집니다. 경로 필터 규칙을 추가하여 Azure 미국 서부 2 지역별 접두사만 보여줍니다. 여기에는 BGP 커뮤니티 값 *12076:51026* 이 있습니다. **규칙 관리** 를 선택하여 허용하려는 지역별 접두사를 지정합니다.
 
-경로 필터 내에서 경로 필터가 적용되는 ExpressRoute 회로를 선택해야 합니다. **회로 추가**를 선택하여 ExpressRoute 회로를 선택할 수 있습니다. 위의 그림에서 경로 필터는 예제 ExpressRoute 회로에 연결되어 있습니다.
+경로 필터 내에서 경로 필터가 적용되는 ExpressRoute 회로를 선택해야 합니다. **회로 추가** 를 선택하여 ExpressRoute 회로를 선택할 수 있습니다. 위의 그림에서 경로 필터는 예제 ExpressRoute 회로에 연결되어 있습니다.
 
 ### <a name="21-configure-the-route-filter"></a><a name="configfilter"></a>2.1 경로 필터 구성
 
@@ -141,9 +141,9 @@ IPsec 터널 쌍을 통해 프라이빗 네트워크 경로를 교환하도록 e
 
 이 예제에서 변수 선언은 예제 네트워크에 따라 다릅니다. 변수를 선언할 때 사용자 환경을 반영하도록 이 섹션을 수정합니다.
 
-* 변수 **localAddressPrefix**는 IPsec 터널을 종료하는 온-프레미스 IP 주소의 배열입니다.
-* **gatewaySku**는 VPN 처리량을 결정합니다. gatewaySku 및 vpnType에 대한 자세한 내용은 [VPN Gateway 구성 설정](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)을 참조하세요. 가격 책정은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요.
-* **vpnType**을 **RouteBased**로 설정합니다.
+* 변수 **localAddressPrefix** 는 IPsec 터널을 종료하는 온-프레미스 IP 주소의 배열입니다.
+* **gatewaySku** 는 VPN 처리량을 결정합니다. gatewaySku 및 vpnType에 대한 자세한 내용은 [VPN Gateway 구성 설정](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)을 참조하세요. 가격 책정은 [VPN Gateway 가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway)을 참조하세요.
+* **vpnType** 을 **RouteBased** 로 설정합니다.
 
 ```json
 "variables": {
@@ -239,7 +239,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 
 ### <a name="34-specify-the-on-premises-vpn-tunnel-termination-local-network-gateway"></a><a name="termination"></a>3.4 온-프레미스 VPN 터널 종료 지정(로컬 네트워크 게이트웨이)
 
-온-프레미스 VPN 디바이스는 **로컬 네트워크 게이트웨이**라고 합니다. 다음 json 코드 조각은 원격 BGP 피어 세부 정보를 지정합니다.
+온-프레미스 VPN 디바이스는 **로컬 네트워크 게이트웨이** 라고 합니다. 다음 json 코드 조각은 원격 BGP 피어 세부 정보를 지정합니다.
 
 ```json
 {
@@ -267,7 +267,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 템플릿의 이 섹션은 활성-활성 구성에 대한 필수 설정으로 VPN Gateway를 구성합니다. 다음 요구 사항을 고려하세요.
 
 * **"RouteBased"** VpnType을 사용하여 VPN Gateway를 만듭니다. 이 설정은 VPN Gateway와 VPN 온-프레미스 간에 BGP 라우팅을 사용하도록 설정하려는 경우에 필수입니다.
-* 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 디바이스 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true**로 설정합니다. 고가용성 VPN Gateway에 대한 자세한 정보를 이해하려면 [고가용성 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
+* 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 디바이스 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true** 로 설정합니다. 고가용성 VPN Gateway에 대한 자세한 정보를 이해하려면 [고가용성 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
 * VPN 터널 간에 eBGP 세션을 구성하려면 양쪽에 두 개의 다른 ASN을 지정해야 합니다. 프라이빗 ASN 번호를 지정하는 것이 좋습니다. 자세한 내용은 [BGP 및 Azure VPN Gateway 개요](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 ```json

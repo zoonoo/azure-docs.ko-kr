@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
 ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95993394"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
@@ -52,7 +52,7 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
-| attribute | Type | 기본값 | Description |
+| attribute | Type | 기본값 | 설명 |
 | --------- | ---- | ------- | ----------- |
 | *호스팅하기* | 문자열 | 호스트 | Redis 서버 IP 주소 또는 호스트 이름 |
 | *port* | 양의 정수 | 6379 (TLS/SSL 아님)<br/>6380 (TLS/SSL) | Redis 서버 포트 |

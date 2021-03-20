@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100571039"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
@@ -20,7 +20,7 @@ ms.locfileid: "100571039"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 * 다양한 VNet에서 손실 및 지연 모니터링, 경고 설정
 
@@ -96,7 +96,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
   >
 
 1. **설치** 를 실행하여 ExpressRoute 모니터링에 사용하려는 각 서버에 에이전트를 설치합니다. 모니터링에 사용하는 서버는 VM 또는 온-프레미스일 수 있으며 인터넷에 액세스할 수 있어야 합니다. 온-프레미스에 하나 이상의 에이전트를 설치하고, Azure에서 모니터링하려는 각 네트워크 세그먼트에 하나의 에이전트를 설치해야 합니다.
-2. **시작** 페이지에서 **다음** 을 클릭합니다.
+2. **Welcome** 페이지에서 **다음** 을 클릭합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의 함** 을 클릭 합니다.
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지 하 **고 다음을 클릭 합니다.**
 5. **에이전트 설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 Operations Manager에 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음** 을 클릭합니다.

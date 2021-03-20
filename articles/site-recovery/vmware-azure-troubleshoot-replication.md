@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91336208"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
@@ -160,7 +160,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 
 `Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
-위의 예제에서 **2147754994**는 아래와 같이 오류를 알려 주는 오류 코드입니다.
+위의 예제에서 **2147754994** 는 아래와 같이 오류를 알려 주는 오류 코드입니다.
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치되어 있지 않음 - 오류 2147221164
 
@@ -172,7 +172,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 **해결 방법**: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
 
 - VSS를 사용할 수 없는 경우
-    - VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
+    - VSS 공급자 서비스의 시작 유형이 **자동** 으로 설정되어 있는지 확인합니다.
     - 다음 서비스를 다시 시작합니다.
         - VSS 서비스
         - Azure Site Recovery VSS 공급자
@@ -187,7 +187,7 @@ Azure Site Recovery VSS 공급자 서비스가 설치되었는지 확인합니�
 - 기존 공급자 제거: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
 - 다시 설치: C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
 
-VSS 공급자 서비스의 시작 유형이 **자동**으로 설정되어 있는지 확인합니다.
+VSS 공급자 서비스의 시작 유형이 **자동** 으로 설정되어 있는지 확인합니다.
     - 다음 서비스를 다시 시작합니다.
         - VSS 서비스
         - Azure Site Recovery VSS 공급자

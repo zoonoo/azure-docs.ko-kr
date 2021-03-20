@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 12/13/2018
 ms.openlocfilehash: e102aaace15d065d02e44fa06655827068020959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91620225"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance를 사용 하 여 Azure App Service 호스팅 계획에 대 한 네트워킹 구성 동기화
@@ -32,11 +32,11 @@ ms.locfileid: "91620225"
 
    ![App Service 계획의 스크린샷](./media/azure-app-sync-network-configuration/app-service-plan.png)
 
-2. **네트워킹** 을 선택 하 고 **관리 하려면 여기를 클릭**하세요 .를 선택 합니다.
+2. **네트워킹** 을 선택 하 고 **관리 하려면 여기를 클릭** 하세요 .를 선택 합니다.
 
    ![서비스 계획 관리 스크린샷](./media/azure-app-sync-network-configuration/manage-plan.png)
 
-3. **VNet**을 선택하고 **네트워크 동기화**를 클릭합니다.
+3. **VNet** 을 선택하고 **네트워크 동기화** 를 클릭합니다.
 
    ![동기화 네트워크의 스크린샷](./media/azure-app-sync-network-configuration/sync.png)
 

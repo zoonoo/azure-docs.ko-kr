@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: victorh
 ms.openlocfilehash: 0d56a1c46f251307755416ef44991ac6f809f330
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566744"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
@@ -31,7 +31,7 @@ Azure CLI를 사용 하 여 TLS/SSL 종료를 위한 인증서로 [응용 프로
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - 이 자습서에는 버전 2.0.4 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+ - 이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 

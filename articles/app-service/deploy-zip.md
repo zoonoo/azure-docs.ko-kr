@@ -6,10 +6,10 @@ ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 150f6b57f1dec0b6d925ef53b4a7001ae9f23607
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97007911"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
@@ -31,7 +31,7 @@ WAR 파일 배포를 사용하면 [WAR](https://wikipedia.org/wiki/WAR_(file_for
 > [!NOTE]
 > 를 사용 하는 경우 `ZipDeploy` 타임 스탬프가 이미 배포 된 것과 일치 하지 않는 경우에만 파일이 복사 됩니다. 출력을 캐시 하는 빌드 프로세스를 사용 하 여 zip을 생성 하면 배포 속도가 빨라질 수 있습니다. 자세한 내용은 [zip 파일이 나 url에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료 하려면 [App Service 앱을 만들거나](./index.yml)다른 자습서에 대해 만든 앱을 사용 합니다.
 
@@ -94,7 +94,7 @@ Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <
 
 고급 배포 시나리오에 대해서는 [Git를 사용하여 Azure에 배포](deploy-local-git.md)를 시도하세요. Azure로의 Git 기반 배포를 수행하면 버전 제어, 패키지 복원, MSBuild 등을 수행할 수 있습니다.
 
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
 * [Kudu: zip 파일에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service 배포 자격 증명](deploy-ftp.md)

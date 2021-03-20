@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98874116"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
@@ -125,7 +125,7 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 
 이 정보 보호 솔루션을 통해 데이터를 다른 사용자와 공유하는 경우에도 제어를 유지합니다. 이러한 애플리케이션 및 솔루션이 온-프레미스 또는 클라우드에 위치하는지와 상관 없이 고유한 기간 업무 애플리케이션 및 소프트웨어 공급 업체의 정보 보호 솔루션에서 Azure RMS를 사용할 수도 있습니다.
 
-다음을 권장합니다.
+다음을 수행하는 것이 좋습니다.
 
 - 조직에 대해 [Azure Information Protection 배포](/azure/information-protection/deployment-roadmap)
 - 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어, 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.

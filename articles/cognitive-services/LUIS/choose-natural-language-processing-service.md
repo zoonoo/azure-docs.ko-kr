@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/20/2020
 ms.openlocfilehash: 1bdcc2e0bc266adae729ce24954e236efd5c7fb4
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92315420"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-chat-bot-conversations"></a>NLP (자연어 처리)와 Cognitive Services를 사용 하 여 채팅 봇 대화를 보강 합니다.

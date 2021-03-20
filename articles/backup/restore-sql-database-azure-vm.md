@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 �
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 7dd8d8d54fa7d33bb4a0935357597d19dd2368c5
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97734405"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
@@ -150,7 +150,7 @@ ms.locfileid: "97734405"
     ![일정 열기](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. 날짜를 선택한 후에는 타임라인 그래프에 사용 가능한 복구 지점이 연속적인 범위로 표시됩니다.
-1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음, **확인** 을 선택합니다.
+1. 시간 표시 막대 그래프에서 복구 시간을 지정 하거나 시간을 선택 합니다. 그런 다음 **확인** 을 선택합니다.
 
 ### <a name="restore-to-a-specific-restore-point"></a>특정 복원 지점으로 복원
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537211"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Azure Portal을 사용하여 직접 피어링 만들기 또는 수정
@@ -53,9 +53,9 @@ ms.locfileid: "91537211"
 6. **PeerASN** 상자에서 ASN을 선택합니다.
 
     >[!IMPORTANT]
-    >피어링 요청을 제출하기 전에 ValidationState가 Approved인 ASN만 선택할 수 있습니다. 방금 PeerAsn 요청을 제출한 경우 ASN 연결이 승인될 때까지 12시간 정도 기다립니다. 선택한 ASN의 유효성 검사가 보류 중인 경우 오류 메시지가 표시됩니다. 선택해야 하는 ASN이 표시되지 않는 경우 올바른 구독을 선택했는지 확인합니다. 그렇다면 **[피어 ASN을 Azure 구독에 연결](https://go.microsoft.com/fwlink/?linkid=2129592)** 을 사용하여 PeerAsn을 이미 만들었는지 확인합니다.
+    >피어링 요청을 제출하기 전에 ValidationState가 승인된 ASN만 선택할 수 있습니다. 방금 PeerAsn 요청을 제출한 경우 ASN 연결이 승인될 때까지 12시간 정도 기다립니다. 선택한 ASN의 유효성 검사가 보류 중인 경우 오류 메시지가 표시됩니다. 선택해야 하는 ASN이 표시되지 않는 경우 올바른 구독을 선택했는지 확인합니다. 그렇다면 **[피어 ASN을 Azure 구독에 연결](https://go.microsoft.com/fwlink/?linkid=2129592)** 을 사용하여 PeerAsn을 이미 만들었는지 확인합니다.
 
-7. 완료되면 **다음: 구성**을 선택하여 계속 진행합니다.
+7. 완료되면 **다음: 구성** 을 선택하여 계속 진행합니다.
 
 
 

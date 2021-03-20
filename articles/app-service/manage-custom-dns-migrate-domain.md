@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
 ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89484304"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
@@ -59,19 +59,19 @@ DNS 레코드 페이지에서 마이그레이션할 DNS 이름의 레코드 종�
 
 ### <a name="enable-the-domain-for-your-app"></a>앱에 대해 도메인 사용
 
-1. [Azure Portal](https://portal.azure.com) 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com) 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인** 을 선택합니다. 
 
     ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-1. **사용자 지정** 도메인 페이지에서 **사용자 지정 도메인 추가**를 선택 합니다.
+1. **사용자 지정** 도메인 페이지에서 **사용자 지정 도메인 추가** 를 선택 합니다.
 
     ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-1. 마이그레이션할 정규화 된 도메인 이름을 입력 합니다 .이 이름은 만든 TXT 레코드 (예:, 또는)에 해당 합니다 `contoso.com` `www.contoso.com` `*.contoso.com` . **유효성 검사**를 선택합니다.
+1. 마이그레이션할 정규화 된 도메인 이름을 입력 합니다 .이 이름은 만든 TXT 레코드 (예:, 또는)에 해당 합니다 `contoso.com` `www.contoso.com` `*.contoso.com` . **유효성 검사** 를 선택합니다.
 
     **사용자 지정 도메인 추가** 단추가 활성화됩니다. 
 
-1. **호스트 이름 레코드 종류**가 마이그레이션할 DNS 레코드 종류로 설정되어 있는지 확인합니다. **호스트 이름 추가**를 선택합니다.
+1. **호스트 이름 레코드 종류** 가 마이그레이션할 DNS 레코드 종류로 설정되어 있는지 확인합니다. **호스트 이름 추가** 를 선택합니다.
 
     ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537194"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Azure Portal에서 경로 서버를 사용 하 여 Exchange 피어 링 만들기 또는 수정
@@ -55,7 +55,7 @@ ms.locfileid: "91537194"
     >[!IMPORTANT] 
     >피어링 요청을 제출하기 전에 ValidationState가 승인된 ASN만 선택할 수 있습니다. 방금 PeerAsn 요청을 제출한 경우 ASN 연결이 승인될 때까지 12시간 정도 기다립니다. 선택한 ASN의 유효성 검사가 보류 중인 경우 오류 메시지가 표시됩니다. 선택해야 하는 ASN이 표시되지 않는 경우 올바른 구독을 선택했는지 확인합니다. 그렇다면 **[피어 ASN을 Azure 구독에 연결](https://go.microsoft.com/fwlink/?linkid=2129592)** 을 사용하여 PeerAsn을 이미 만들었는지 확인합니다.
 
-* 완료되면 **다음: 구성**을 선택하여 계속 진행합니다.
+* 완료되면 **다음: 구성** 을 선택하여 계속 진행합니다.
 
 #### <a name="configure-connections-and-submit"></a>연결 구성 및 제출
 
@@ -65,13 +65,13 @@ ms.locfileid: "91537194"
     > ![경로 서버 구성](./media/setup-exchange-conf-tab-routeserver.png)
  
     * 피어 링 유형으로 **Direct** 를 선택 합니다.
-    * Microsoft 네트워크에 대해 **exchange 경로 서버를 사용 하 여 AS8075**를 선택 합니다. 
-    * **기본 무료**로 SKU를 선택 합니다. 특수 응용 프로그램용으로 예약 된 프리미엄 무료를 선택 하지 마세요.
+    * Microsoft 네트워크에 대해 **exchange 경로 서버를 사용 하 여 AS8075** 를 선택 합니다. 
+    * **기본 무료** 로 SKU를 선택 합니다. 특수 응용 프로그램용으로 예약 된 프리미엄 무료를 선택 하지 마세요.
     * 피어 링을 설정 하려는 **Metro** 위치를 선택 합니다.
 
-1. **피어 링 연결**에서 **새로 만들기** 를 선택 합니다.
+1. **피어 링 연결** 에서 **새로 만들기** 를 선택 합니다.
 
-1.  **직접 피어 링 연결**에서 다음 BGP 세션 세부 정보를 입력 합니다.
+1.  **직접 피어 링 연결** 에서 다음 BGP 세션 세부 정보를 입력 합니다.
 
     > [!div class="mx-imgBorder"]
     > ![스크린샷 추가 된 추가 정보를 포함 하는 직접 피어 링 연결 창을 보여 줍니다.](./media/setup-exchange-conf-tab-direct-route.png)
@@ -86,7 +86,7 @@ ms.locfileid: "91537194"
      * 최대 보급 IPv4 접두사는 최대 2만 일 수 있습니다. 
      * 피어 링 서비스에는 기본적으로 사용 되지 않습니다. Exchange 공급자가 Microsoft와 피어 링 서비스 계약에 서명 하면이 기능을 사용 하도록 설정할 수 있습니다.
 
-1. 완료 되 면 **저장**을 클릭 합니다. 
+1. 완료 되 면 **저장** 을 클릭 합니다. 
 
 1. 피어 링 만들기에서 유효성 검사가 통과 된 것을 볼 수 있습니다. 유효성 검사를 통과 한 후 **만들기** 를 클릭 합니다.
 

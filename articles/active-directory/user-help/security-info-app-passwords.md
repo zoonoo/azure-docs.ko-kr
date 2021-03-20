@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
 ms.openlocfilehash: 84588130788e9be8d3be52a8ea0f3988dce7b952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91537007"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>보안 정보(미리 보기) 페이지에서 앱 암호 만들기
@@ -25,11 +25,11 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->관리자가 사용자의 앱 암호 사용을 허용하지 않을 수 있습니다. **앱 암호**가 옵션으로 표시되지 않으면 조직에서 사용할 수 없는 것입니다.
+>관리자가 사용자의 앱 암호 사용을 허용하지 않을 수 있습니다. **앱 암호** 가 옵션으로 표시되지 않으면 조직에서 사용할 수 없는 것입니다.
 
 앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
 
-- 앱 암호는 자동으로 생성되며 앱당 한 번 만들어 입력해야 합니다.
+- 앱 암호는 자동으로 생성되며, 앱당 한 번 만들어 입력해야 합니다.
 
 - 사용자당 40개의 암호로 제한되어 있습니다. 해당 제한을 초과한 후 암호를 만들려고 하면 새 암호를 만들기 전에 기존 암호를 삭제할 것인지를 묻는 메시지가 표시됩니다.
 
@@ -49,19 +49,19 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
+2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보** 를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가** 를 선택합니다.
 
     ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. **방법 추가** 페이지의 드롭다운 목록에서 **앱 암호**를 선택한 다음, **추가**를 선택합니다.
+3. **방법 추가** 페이지의 드롭다운 목록에서 **앱 암호** 를 선택한 다음, **추가** 를 선택합니다.
 
     ![앱 암호가 선택된 방법 추가 상자](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. 앱 암호가 필요한 앱의 이름을 입력하고 **다음**을 선택합니다.
+4. 앱 암호가 필요한 앱의 이름을 입력하고 **다음** 을 선택합니다.
 
     ![앱 이름이 입력 된 "앱 암호" 페이지를 보여 주는 스크린샷](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. **암호** 상자의 텍스트를 복사한 후 앱(이 예제에서는 Outlook 2010)의 암호 영역에 암호를 붙여넣고 **완료**를 선택합니다.
+5. **암호** 상자의 텍스트를 복사한 후 앱(이 예제에서는 Outlook 2010)의 암호 영역에 암호를 붙여넣고 **완료** 를 선택합니다.
 
     ![앱 이름이 표시되는 앱 암호 페이지](media/security-info/securityinfo-myprofile-password-copytext.png)
 
@@ -80,7 +80,7 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
     ![보안 정보에서 앱 암호 방법을 삭제하기 위한 링크](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-2. 확인 상자에서 **예**를 선택하여 **앱 암호**를 삭제합니다. 앱 암호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
+2. 확인 상자에서 **예** 를 선택하여 **앱 암호** 를 삭제합니다. 앱 암호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
 ## <a name="for-more-information"></a>참조 항목
 

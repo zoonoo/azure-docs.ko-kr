@@ -8,10 +8,10 @@ ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 10/22/2020
 ms.openlocfilehash: 6c7fd0a310663b664d33027951ade885b83d458a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570963"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>모니터링 Azure IoT Hub 데이터 참조
@@ -602,7 +602,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착�
 
 여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 정수 | 디바이스-클라우드 메시지의 크기(바이트) |
 | **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
@@ -636,7 +636,7 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
 | **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
@@ -668,7 +668,7 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 섹션에서 `properties` 이 로그에는 메시지 수신에 대 한 추가 정보가 포함 되어 있습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
 | **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |

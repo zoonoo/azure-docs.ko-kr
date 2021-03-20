@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530904"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
@@ -43,7 +43,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 ### <a name="to-turn-on-cloud-backup-for-ios-devices"></a>iOS 디바이스에 대한 클라우드 백업을 켜려면
 
-- iOS 디바이스에서 **설정**을 선택하고, **백업**을 선택한 다음, **iCloud 백업**을 켭니다.
+- iOS 디바이스에서 **설정** 을 선택하고, **백업** 을 선택한 다음, **iCloud 백업** 을 켭니다.
 
     계정 자격 증명이 iCloud 계정에 백업됩니다.
 
@@ -51,7 +51,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 ### <a name="to-turn-on-cloud-backup-for-android-devices"></a>Android 디바이스에 대한 클라우드 백업을 켜려면
 
-- Android 디바이스에서 **설정**을 선택하고, **백업**을 선택한 다음, **클라우드 백업**을 켭니다.
+- Android 디바이스에서 **설정** 을 선택하고, **백업** 을 선택한 다음, **클라우드 백업** 을 켭니다.
 
     계정 자격 증명이 Cloud 계정에 백업됩니다.
 
@@ -63,7 +63,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 ### <a name="to-recover-your-information"></a>정보를 복구하려면
 
-1. 모바일 디바이스에서 Microsoft Authenticator 앱을 열고 화면 아래쪽에서 **복구 시작**을 선택합니다.
+1. 모바일 디바이스에서 Microsoft Authenticator 앱을 열고 화면 아래쪽에서 **복구 시작** 을 선택합니다.
 
     ![복구 시작을 클릭하는 위치를 보여주는 Microsoft Authenticator 앱](./media/user-help-auth-app-backup-recovery/backup-and-recovery-begin-recovery.png)
 
@@ -87,22 +87,22 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 1. 복구 하는 계정에 대 한 타일을 탭 한 다음 복구에 로그인 하는 옵션을 탭 합니다. 암호를 입력 한 다음 추가 확인으로 전자 메일 주소 또는 전화 번호를 확인 합니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="사용 가능한 계정 타일이 있는 Microsoft Authenticator 앱을 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="일회성 암호 코드 Microsoft Authenticator 보여 주는 스크린샷" border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>회사 또는 학교 계정에 대 한 추가 확인을 제공 하려면
 
 1. Microsoft Authenticator 앱의 **계정** 화면에서 복구 하려는 계정을 탭 하 여 계정의 전체 화면 보기를 엽니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="사용 가능한 계정 타일이 있는 Microsoft Authenticator 앱을 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="사용 가능한 계정 타일을 보여 주는 Microsoft Authenticator 앱" border="true":::
 
 1. 전체 화면 보기에서 QR 코드를 스캔 하는 옵션을 탭 하 여 전체 복구 합니다.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="사용 가능한 계정 타일이 있는 Microsoft Authenticator 앱을 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="인증자는 1 회 암호를 확인 코드로 표시 합니다." border="true":::
 
 >[!NOTE]
 >QR 코드 및 이 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](./user-help-auth-app-download-install.md) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](./security-info-setup-auth-app.md)을 참조하세요.
 >
->Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
+>Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용** 을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
 ## <a name="troubleshoot-backup-and-recovery-problems"></a>백업 및 복구 문제 해결
 

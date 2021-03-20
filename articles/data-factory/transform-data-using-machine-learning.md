@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
 ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100375666"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Azure Machine Learning Studio (클래식) 및 Azure Data Factory를 사용 하 여 예측 파이프라인 만들기
@@ -129,9 +129,9 @@ Azure Machine Learning Studio (클래식)은 예측 실험을 위해 기존 웹 
 | description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |
 | type              | Data Lake Analytics U-SQL 활동의 경우 활동 유형은 **AzureMLBatchExecution** 입니다. | 예      |
 | linkedServiceName | Azure Machine Learning Studio (클래식) 연결 된 서비스에 연결 된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| webServiceInputs  | Azure Machine Learning Studio (클래식) 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키가 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 입력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 예       |
-| webServiceOutputs | Azure Machine Learning Studio (클래식) 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 출력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 예       |
-| globalParameters  | Azure Machine Learning Studio (클래식) Batch 실행 서비스 끝점에 전달 되는 키/값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 웹 서비스 매개 변수의 이름과 일치 해야 합니다. 값은 Azure Machine Learning Studio (클래식) 일괄 처리 실행 요청의 GlobalParameters 속성으로 전달 됩니다. | 예       |
+| webServiceInputs  | Azure Machine Learning Studio (클래식) 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키가 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 입력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
+| webServiceOutputs | Azure Machine Learning Studio (클래식) 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 출력 매개 변수와 일치 해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
+| globalParameters  | Azure Machine Learning Studio (클래식) Batch 실행 서비스 끝점에 전달 되는 키/값 쌍입니다. 키는 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스에 정의 된 웹 서비스 매개 변수의 이름과 일치 해야 합니다. 값은 Azure Machine Learning Studio (클래식) 일괄 처리 실행 요청의 GlobalParameters 속성으로 전달 됩니다. | 아니요       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 

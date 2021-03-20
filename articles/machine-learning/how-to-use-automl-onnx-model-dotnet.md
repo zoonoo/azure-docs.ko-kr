@@ -11,10 +11,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to, automl
 ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358816"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>.NET에서 AutoML ONNX 모델을 사용 하 여 예측 수행
@@ -25,7 +25,7 @@ ms.locfileid: "93358816"
 
 ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레임워크 간의 상호 운용성을 지원합니다. 즉, PyTorch와 같은 널리 사용 되는 여러 기계 학습 프레임 워크 중 하나에서 모델을 학습 하 고, ONNX 형식으로 변환 하 고, ML.NET와 같은 다른 프레임 워크에서 ONNX 모델을 사용할 수 있습니다. 자세히 알아보려면 [ONNX 웹 사이트](https://onnx.ai/)를 방문하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [.NET Core SDK 3.1 이상](https://dotnet.microsoft.com/download)
 - 텍스트 편집기 또는 IDE (예: [Visual Studio](https://visualstudio.microsoft.com/vs/) 또는 [Visual Studio Code](https://code.visualstudio.com/Download))
@@ -50,7 +50,7 @@ ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레
 
 ## <a name="add-software-packages"></a>소프트웨어 패키지 추가
 
-1. .NET Core CLI를 사용 하 여 Microsoft.ML, **MICROSOFT ml. OnnxRuntime** 및 **Microsoft** **Microsoft.ML** NuGet 패키지를 설치 합니다.
+1. .NET Core CLI를 사용 하 여 Microsoft.ML, **MICROSOFT ml. OnnxRuntime** 및 **Microsoft** NuGet 패키지를 설치 합니다.
 
     ```dotnetcli
     dotnet add package Microsoft.ML
@@ -60,7 +60,7 @@ ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레
 
     이러한 패키지에는 .NET 응용 프로그램에서 ONNX 모델을 사용 하는 데 필요한 종속성이 포함 되어 있습니다. ML.NET는 예측을 위해 [Onnx 런타임을](https://github.com/Microsoft/onnxruntime) 사용 하는 API를 제공 합니다.
 
-1. *Program.cs* 파일을 열고 `using` 맨 위에 다음 문을 추가 하 여 적절 한 패키지를 참조 합니다.
+1. *Program .cs* 파일을 열고 `using` 맨 위에 다음 문을 추가 하 여 적절 한 패키지를 참조 합니다.
 
     ```csharp
     using System.Linq;
@@ -88,7 +88,7 @@ ONNX는 AI 모델에 대 한 오픈 소스 형식입니다. ONNX에서는 프레
 
     이 경우 ONNX 모델 파일의 이름은 *automl-model. onnx* 입니다.
 
-1. *Program.cs* 파일을 열고 클래스 내부에 다음 줄을 추가 합니다 `Program` .
+1. *Program .cs* 파일을 열고 클래스 내부에 다음 줄을 추가 합니다 `Program` .
 
     ```csharp
     static string ONNX_MODEL_PATH = "automl-model.onnx";
@@ -130,7 +130,7 @@ Netron와 같은 도구를 사용 하 여 모델의 입력 및 출력을 검사 
 
 ### <a name="define-model-input-schema"></a>모델 입력 스키마 정의
 
-`OnnxInput` *Program.cs* 파일 내에서 다음 속성을 사용 하 여 라는 새 클래스를 만듭니다.
+`OnnxInput` *Program .cs* 파일 내에서 다음 속성을 사용 하 여 라는 새 클래스를 만듭니다.
 
 ```csharp
 public class OnnxInput
@@ -165,7 +165,7 @@ public class OnnxInput
 
 ### <a name="define-model-output-schema"></a>모델 출력 스키마 정의
 
-데이터를 처리 한 후에는 특정 형식의 출력을 생성 합니다. 데이터 출력 스키마를 정의 합니다. `OnnxOutput` *Program.cs* 파일 내에서 다음 속성을 사용 하 여 라는 새 클래스를 만듭니다.
+데이터를 처리 한 후에는 특정 형식의 출력을 생성 합니다. 데이터 출력 스키마를 정의 합니다. `OnnxOutput` *Program .cs* 파일 내에서 다음 속성을 사용 하 여 라는 새 클래스를 만듭니다.
 
 ```csharp
 public class OnnxOutput

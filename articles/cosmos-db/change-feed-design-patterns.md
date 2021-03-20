@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: 443d00e61e593daacca04a4451b90bb78cc7d854
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334609"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Azure Cosmos DB에서 변경 피드 디자인 패턴
@@ -104,7 +104,7 @@ Azure Cosmos DB는 가로 확장성 및 고가용성의 장점 때문에 이벤�
 3. 고객이 쇼핑 카트에서 항목 A를 제거합니다.
 4. 고객이 체크 아웃하고 쇼핑 카트 콘텐츠가 배송됩니다.
 
-현재 쇼핑 카트 콘텐츠의 구체화된 뷰는 각 고객에 대해 유지 관리됩니다. 이 애플리케이션은 이러한 이벤트를 발생 순서대로 처리해야 합니다. 예를 들어 항목 A가 제거되기 전에 카트 체크 아웃을 처리하면 고객이 원하는 항목 B가 아니라 항목 A가 배송될 수 있습니다. 이러한 4개의 이벤트가 발생 순서대로 처리되도록 보장하기 위해 동일한 파티션 키 값 내에 포함해야 합니다. **사용자 이름** (각 고객은 고유한 사용자 이름을 가짐)을 파티션 키로 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 순서와 동일하게 변경 피드에 표시되도록 보장할 수 있습니다.
+현재 쇼핑 카트 콘텐츠의 구체화된 뷰는 각 고객에 대해 유지 관리됩니다. 이 애플리케이션은 이러한 이벤트를 발생 순서대로 처리해야 합니다. 예를 들어 항목 A가 제거되기 전에 카트 체크 아웃을 처리하면 고객이 원하는 항목 B가 아니라 항목 A가 배송될 수 있습니다. 이러한 4개의 이벤트가 발생 순서대로 처리되도록 보장하기 위해 동일한 파티션 키 값 내에 포함해야 합니다. **사용자 이름**(각 고객은 고유한 사용자 이름을 가짐)을 파티션 키로 선택하면 이러한 이벤트가 Azure Cosmos DB에 기록된 순서와 동일하게 변경 피드에 표시되도록 보장할 수 있습니다.
 
 ## <a name="examples"></a>예
 

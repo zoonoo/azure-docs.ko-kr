@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 8f329b6377915a3df6e3f3e212cbd8d41f9ed80d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90017663"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>분석을 사용 하 여 장치 데이터를 분석 하는 방법
@@ -35,7 +35,7 @@ Azure IoT Central는 풍부한 분석 기능을 제공 하 여 기록 추세를 
 
 ## <a name="querying-your-data"></a>데이터 쿼리
 
-먼저 **장치 그룹**을 선택 하 고 분석 하려는 원격 분석을 선택 해야 합니다. 완료 되 면 **분석** 을 선택 하 여 데이터 시각화를 시작 합니다.
+먼저 **장치 그룹** 을 선택 하 고 분석 하려는 원격 분석을 선택 해야 합니다. 완료 되 면 **분석** 을 선택 하 여 데이터 시각화를 시작 합니다.
 
 - **장치 그룹:** [장치 그룹](tutorial-use-device-groups.md) 은 장치의 사용자 정의 그룹입니다. 예를 들어 Oakland의 모든 Refrigerators 또는 모든 버전 2.0 윈드 터빈입니다.
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: duau
 ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95994896"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
@@ -54,7 +54,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     |Name|myIISVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |리소스 그룹| **새로 만들기** 를 선택한 다음, *myResourceGroupTM1* 을 입력합니다.|
+    |Resource group| **새로 만들기** 를 선택한 다음, *myResourceGroupTM1* 을 입력합니다.|
     |위치| **미국 동부** 를 선택합니다.|
     |||
 
@@ -74,7 +74,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |리소스 그룹 | **새로 만들기** 를 선택하고 *myResourceGroupTM2* 를 입력합니다.|
+    |Resource group | **새로 만들기** 를 선택하고 *myResourceGroupTM2* 를 입력합니다.|
     |위치|서유럽|
     |VM 이름 | myIISVMWEurope|
     |가상 네트워크 | **가상 네트워크** 를 선택하고 **가상 네트워크 만들기** 에서 **이름** 에 *myVNet2* 를 입력하고 서브넷에 *mySubnet* 을 입력합니다.|
@@ -86,7 +86,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>IIS를 설치하고 기본 웹 페이지를 사용자 지정
 
-이 섹션에서는 두 개의 vm ( *myIISVMEastUS* myIISVMWEurope)에 IIS 서버를 설치한   &  *myIISVMWEurope* 다음 기본 웹 사이트 페이지를 업데이트 합니다. 사용자 지정된 웹 사이트 페이지에는 웹 브라우저에서 웹 사이트를 방문할 때 연결하는 VM의 이름이 표시됩니다.
+이 섹션에서는 두 개의 vm ( *myIISVMEastUS* myIISVMWEurope)에 IIS 서버를 설치한   &  다음 기본 웹 사이트 페이지를 업데이트 합니다. 사용자 지정된 웹 사이트 페이지에는 웹 브라우저에서 웹 사이트를 방문할 때 연결하는 VM의 이름이 표시됩니다.
 
 1. 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 리소스 목록에서 *myResourceGroupTM1* 리소스 그룹에 있는 *myIISVMEastUS* 를 클릭합니다.
 2. **개요** 페이지에서 **연결** 을 클릭한 다음, **가상 머신에 연결** 에서 **RDP 파일 다운로드** 를 선택합니다.
@@ -140,7 +140,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     |Name|myVMEastUS|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |리소스 그룹| **기존 항목 사용** 을 선택한 다음, *myResourceGroupTM1* 을 선택합니다.|
+    |Resource group| **기존 항목 사용** 을 선택한 다음, *myResourceGroupTM1* 을 선택합니다.|
     |||
 
 4. **크기 선택** 에서 VM 크기를 선택합니다.
@@ -160,7 +160,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     |설정|값|
     |---|---|
     |VM 이름 | *myVMWEurope*|
-    |리소스 그룹 | **기존** 을 선택한 다음, *myResourceGroupTM2* 을 입력합니다.|
+    |Resource group | **기존** 을 선택한 다음, *myResourceGroupTM2* 을 입력합니다.|
     |가상 네트워크 | **가상 네트워크** 를 선택하고 **가상 네트워크 만들기** 에서 **이름** 에 *myVNet4* 를 입력하고 서브넷에 *mySubnet4* 를 입력합니다.|
     |||
 
@@ -185,7 +185,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
-IIS 서버 ( *myIISVMEastUS* myIISVMWEurope)를 실행 하는 두 개의 vm을 추가  &  *myIISVMWEurope* 하 여 사용자 쿼리의 서브넷을 기반으로 사용자 트래픽을 라우팅합니다.
+IIS 서버 ( *myIISVMEastUS* myIISVMWEurope)를 실행 하는 두 개의 vm을 추가  &   하 여 사용자 쿼리의 서브넷을 기반으로 사용자 트래픽을 라우팅합니다.
 
 1. 포털의 검색 창에서 이전 섹션에서 만든 Traffic Manager 프로필 이름을 검색하고, 표시되는 결과에서 해당 프로필을 선택합니다.
 2. **Traffic Manager 프로필** 의 **설정** 섹션에서 **엔드포인트** 를 클릭한 다음, **추가** 를 클릭합니다.

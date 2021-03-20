@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 743412b7602e5781911cdf190e41a5ee15bfddd4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487680"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 응용 프로그램 디자인
@@ -25,11 +25,11 @@ ms.locfileid: "96487680"
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
-- 학습
+- 교육
 - 요구 사항
 - 디자인
 
-## <a name="training"></a>학습
+## <a name="training"></a>교육
 클라우드 응용 프로그램 개발을 시작 하기 전에 Azure에서 보안 및 개인 정보를 이해 하는 데 시간이 걸립니다. 이 단계를 수행 하 여 응용 프로그램에서 악용 가능한 취약점의 수 및 심각도를 줄일 수 있습니다. 지속적으로 변화 하는 위협 환경에 적절 하 게 대응할 수 있도록 준비 하는 것이 좋습니다.
 
 학습 단계 중에 다음 리소스를 사용 하 여 개발자가 사용할 수 있는 Azure 서비스와 Azure에 대 한 보안 모범 사례를 숙지 합니다.
@@ -158,7 +158,7 @@ Azure는 웹 사이트 및 웹 응용 프로그램을 호스트 하는 데 사�
 | 부인            | 부인 방지       | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다.|
 | 정보 공개 | 기밀성       | [미사용](../fundamentals/encryption-atrest.md) 및 [전송 중](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)에 중요 한 데이터를 암호화 합니다. |
 | 서비스 거부      | 사용 가용성          | 잠재적 서비스 거부 조건에 대 한 성능 메트릭을 모니터링 합니다. 연결 필터를 구현합니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md#next-steps)은 DDoS 공격에 대 한 방어를 제공 합니다.|
-| 권한 상승 | 권한 부여         | Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
+| 권한 상승 | 권한 부여         | Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)를 사용 합니다.|
 
 ### <a name="reduce-your-attack-surface"></a>공격 노출 영역 축소
 
@@ -253,7 +253,7 @@ JIT ( *just-in-time* ) 액세스를 구현 하 여 권한 노출 시간을 더 �
 >
 > 사용자 데이터는 TDE (투명한 데이터 암호화) 또는 Azure Storage 서비스 암호화를 사용 하는 저장소 계정에 있는 Azure SQL Database 인스턴스와 같이 다른 곳에 저장 되어야 합니다. 응용 프로그램에서 이러한 데이터 저장소에 액세스 하는 데 사용 하는 암호는 Azure Key Vault에 유지 될 수 있습니다.
 
-### <a name="protect-sensitive-data"></a>중요 한 데이터 보호
+### <a name="protect-sensitive-data"></a>중요한 데이터 보호
 
 데이터 보호는 보안 전략의 필수적인 부분입니다.
 데이터를 분류 하 고 데이터 보호 요구 사항을 파악 하면 데이터 보안을 고려 하 여 앱을 디자인 하는 데 도움이 됩니다. 민감도 및 비즈니스 영향을 기준으로 저장 된 데이터를 분류 (범주화) 하면 개발자가 데이터와 관련 된 위험을 확인할 수 있습니다.

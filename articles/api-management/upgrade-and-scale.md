@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98127790"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
@@ -29,7 +29,7 @@ ms.locfileid: "98127790"
 >[!NOTE]
 >[가격 정보](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 문서에서는 계층별로 대략적인 단위 용량 수를 보여 줍니다. 보다 정확한 수치를 얻기 위해 API에 대해 현실적인 시나리오를 살펴보아야 합니다. [Azure API Management 인스턴스의 용량](api-management-capacity.md) 문서를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 따르려면 다음이 필요합니다.
 

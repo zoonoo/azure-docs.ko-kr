@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98944006"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
@@ -75,7 +75,7 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
     ![R server 관리 유틸리티 테스트](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
-    c. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
+    다. 출력에서 전체 상태가 성공으로 표시되는지 확인합니다.
 
     ![R server 관리 유틸리티 통과](./media/r-server-operationalize/hdinsight-diagnostic3.png)
 
@@ -186,7 +186,7 @@ ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs
 
 1. SSH를 에지 노드로 실행합니다.
 
-1. `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`를 실행합니다.
+1. `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`을 실행합니다.
 
 1. “URI” 섹션을 살펴보고 작업자 노드의 IP 및 포트 세부 정보를 추가합니다.
 

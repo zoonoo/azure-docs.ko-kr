@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529697"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Privileged Identity Management용 Microsoft Graph API(미리 보기)
@@ -49,7 +49,7 @@ Graph Explorer를 사용하여 호출을 테스트하는 경우 도구에서 사
 
 1. [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)에 글로벌 관리자로 로그인합니다.
 
-1. **권한 수정**을 클릭합니다.
+1. **권한 수정** 을 클릭합니다.
 
     !["사용 권한 수정" 작업이 선택 된 "그래프 탐색기" 페이지를 보여 주는 스크린샷](./media/pim-apis/graph-explorer.png)
 
@@ -57,7 +57,7 @@ Graph Explorer를 사용하여 호출을 테스트하는 경우 도구에서 사
 
     ![Graph Explorer - 권한 수정](./media/pim-apis/graph-explorer-modify-permissions.png)
 
-1. **권한 수정**을 클릭하여 권한 변경 사항을 적용합니다.
+1. **권한 수정** 을 클릭하여 권한 변경 사항을 적용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

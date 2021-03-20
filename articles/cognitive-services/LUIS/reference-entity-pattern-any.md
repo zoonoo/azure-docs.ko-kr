@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.openlocfilehash: ec23be3709cebc534c059a21c52452abff683b18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91542209"
 ---
 # <a name="patternany-entity"></a>Pattern.any 엔터티
@@ -25,7 +25,7 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 
 * 엔터티의 끝이 발화의 나머지 텍스트와 혼동될 수 있는 경우
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 클라이언트 애플리케이션이 제목을 기준으로 도서를 검색하는 경우 pattern.any는 전체 제목을 추출합니다. 이 도서 검색에서 pattern.any를 사용하는 템플릿 발화는 `Was {BookTitle} written by an American this year[?]`입니다.
 
@@ -33,8 +33,8 @@ Pattern.any 엔터티는 의도 사용자 예제가 아닌 [패턴](luis-how-to-
 
 |굵게 표시 된 엔터티가 있는 Utterance|
 |--|
-|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales**는 올해 미국에서 저술되었나요?|
-|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>**Half Asleep in Frog Pajamas**는 올해 미국에서 저술되었나요?|
+|`Was The Man Who Mistook His Wife for a Hat and Other Clinical Tales written by an American this year?`<br><br>**The Man Who Mistook His Wife for a Hat and Other Clinical Tales** 는 올해 미국에서 저술되었나요?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br><br>**Half Asleep in Frog Pajamas** 는 올해 미국에서 저술되었나요?|
 |`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br><br>**레몬 케이크의 특정 작업** 인 경우 미국 서 면에서 작성 한 Novel?|
 |`Was There's A Wocket In My Pocket! written by an American this year?`<br><br>**내 주머니에 Wocket가 있습니다.** 은 올해 미국에서 저술되었나요?|
 ||

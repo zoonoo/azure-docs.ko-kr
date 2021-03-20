@@ -4,10 +4,10 @@ description: 개발 관점에서 Batch 서비스 및 고급 워크플로의 기�
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: 76a0b140f3bea4b07a6de632abbcbc3fd26e582d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85965215"
 ---
 # <a name="batch-service-workflow-and-resources"></a>Batch 서비스 워크플로 및 리소스
@@ -23,8 +23,8 @@ Azure Batch 서비스의 핵심 구성 요소에 대한 이 개요에서는 Batc
 
 병렬 워크로드를 처리하기 위해 Batch 서비스를 사용하는 대부분의 애플리케이션 및 서비스에서는 다음과 같은 높은 수준의 워크플로를 일반적으로 사용합니다.
 
-1. [Azure Storage](../storage/index.yml) 계정으로 처리하려는 **데이터 파일**을 업로드합니다. 배치는 Azure Blob Storage에 액세스하기 위한 기본 제공 지원을 포함하고 태스크는 실행 시 이러한 파일을 [컴퓨팅 노드](nodes-and-pools.md#nodes)로 다운로드할 수 있습니다.
-2. 태스크가 실행할 **애플리케이션 파일**을 업로드합니다. 이러한 파일은 이진 파일 또는 스크립트와 해당 종속성일 수 있으며 작업의 태스크로 실행됩니다. 작업하면 스토리지 계정에서 다음 파일을 다운로드할 수 있습니다. 또는 애플리케이션 관리 및 배포를 위한 [애플리케이션 패키지](nodes-and-pools.md#application-packages) Batch 기능을 사용할 수 있습니다.
+1. [Azure Storage](../storage/index.yml) 계정으로 처리하려는 **데이터 파일** 을 업로드합니다. 배치는 Azure Blob Storage에 액세스하기 위한 기본 제공 지원을 포함하고 태스크는 실행 시 이러한 파일을 [컴퓨팅 노드](nodes-and-pools.md#nodes)로 다운로드할 수 있습니다.
+2. 태스크가 실행할 **애플리케이션 파일** 을 업로드합니다. 이러한 파일은 이진 파일 또는 스크립트와 해당 종속성일 수 있으며 작업의 태스크로 실행됩니다. 작업하면 스토리지 계정에서 다음 파일을 다운로드할 수 있습니다. 또는 애플리케이션 관리 및 배포를 위한 [애플리케이션 패키지](nodes-and-pools.md#application-packages) Batch 기능을 사용할 수 있습니다.
 3. 컴퓨팅 노드의 [풀](nodes-and-pools.md#pools)을 만듭니다. 풀을 만들 경우 풀, 크기 및 운영 체제에 대한 컴퓨팅 노드 수를 지정합니다. 작업의 각 태스크를 실행할 경우 풀의 노드 중 하나에서 실행하도록 할당합니다.
 4. [작업](jobs-and-tasks.md#jobs)을 만듭니다. 작업에서는 태스크의 컬렉션을 관리합니다. 각 작업을 작업의 태스크를 실행하는 특정 풀과 연결합니다.
 5. 작업에 [태스크](jobs-and-tasks.md#tasks)를 추가합니다. 각 태스크는 업로드한 스크립트나 애플리케이션을 실행하여 Storage 계정에서 다운로드한 데이터 파일을 처리합니다. 각 태스크가 완료되면 해당 출력을 Azure Storage에 업로드할 수 있습니다.

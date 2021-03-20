@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/14/2020
 ms.author: dnb
 ms.openlocfilehash: b8865fdd53f4947b17a3621a128fc83f3d93d3e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90089074"
 ---
 # <a name="frequently-asked-questions-do-i-need-to-know-how-to-code-to-get-involved-with-sre"></a>질문과 대답: SRE와 관련 하 여 코드를 실행 하는 방법을 알고 있어야 하나요?
@@ -43,7 +43,7 @@ SRE 작업에 반드시 필요 하지는 않지만 Api, Dsl 및 템플릿 (특�
 
 사이트 안정성 엔지니어는 시스템의 안정성을 향상 시키는 방법을 살펴봅니다. 이러한 목표를 달성 하려면 시스템의 소스 코드를 확인 하 여 문제를 확인 하 고 코드 베이스에 수정 사항을 다시 참여 해야 하는 경우가 있습니다. 이러한 작업의 복잡성 수준은 상황에 따라 크게 다를 수 있지만 코딩 전문 지식은 이러한 경우에는 명확한 요구 사항입니다.
 
-*코딩 전문*지식:이 시나리오에서는 전체 소프트웨어 엔지니어링 전문 지식이 필요한 경우가 많습니다.
+*코딩 전문* 지식:이 시나리오에서는 전체 소프트웨어 엔지니어링 전문 지식이 필요한 경우가 많습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

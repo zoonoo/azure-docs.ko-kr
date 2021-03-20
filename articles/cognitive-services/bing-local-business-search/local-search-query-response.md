@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 70a33774ac82312660d887fb86f7e2a482c30a0c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487170"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Bing Local Business Search API 쿼리 및 응답 보내기 및 사용
@@ -28,7 +28,7 @@ ms.locfileid: "96487170"
 
 ## <a name="creating-a-request"></a>요청 만들기
 
-Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 다음은 그 예입니다. 
+Bing Local Business Search API에 요청을 보내려면 검색어를 API 엔드포인트에 추가하고 `Ocp-Apim-Subscription-Key` 헤더를 포함하기 전에 `q=` 매개 변수에 추가합니다. 예를 들면 다음과 같습니다.
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 

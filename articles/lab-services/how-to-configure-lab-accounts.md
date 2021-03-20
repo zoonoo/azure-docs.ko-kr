@@ -4,16 +4,16 @@ description: 이 문서에서는 랩 계정에서 VM의 자동 종료를 구성�
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91650037"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>랩 계정에 대 한 Vm의 자동 종료 구성
 
 여러 자동 종료 비용 제어 기능을 사용 하도록 설정 하 여 가상 컴퓨터를 적극적으로 사용 하지 않을 때 추가 비용을 사전에 방지할 수 있습니다. 다음 세 가지 자동 종료 및 연결 끊기 기능의 조합은 사용자가 실수로 가상 컴퓨터를 실행 하는 대부분의 경우를 포착 합니다.
- 
+ 
 - OS가 유휴 상태로 하다 고 판단 가상 머신에서 사용자를 자동으로 연결을 끊습니다.
 - 사용자가 연결을 끊으면 자동으로 가상 컴퓨터를 종료 합니다.
 - 시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료 합니다.

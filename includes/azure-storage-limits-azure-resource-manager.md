@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 32f972b177e004612856db91e790c5c2781a2b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81536443"
 ---
 다음과 같은 제한은 Azure Storage와 Azure Resource Manager를 사용하여 관리 작업을 수행하는 경우에만 적용됩니다.

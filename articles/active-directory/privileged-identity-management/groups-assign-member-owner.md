@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91534423"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹 (미리 보기)에 대 한 자격 할당
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 Azure 
 
     ![Privileged Identity Management 환경 열기](./media/groups-assign-member-owner/groups-discover-groups.png)
 
-1. **할당 추가**를 선택 합니다.
+1. **할당 추가** 를 선택 합니다.
 
     ![새 할당 창](./media/groups-assign-member-owner/groups-add-assignment.png)
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 Azure 
 
     ![멤버 또는 그룹 선택 창](./media/groups-assign-member-owner/assignment-duration.png)
 
-1. **할당 유형** 목록에서 **적격** 또는 **활성**을 선택합니다. 권한 있는 액세스 그룹은 다음과 같은 두 가지 고유한 할당 유형을 제공 합니다.
+1. **할당 유형** 목록에서 **적격** 또는 **활성** 을 선택합니다. 권한 있는 액세스 그룹은 다음과 같은 두 가지 고유한 할당 유형을 제공 합니다.
 
     - **적격** 할당을 사용 하려면 역할의 멤버가 역할을 사용 하는 작업을 수행 해야 합니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다.
 
@@ -62,9 +62,9 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 Azure 
 
 1. 영구적으로 적격 하거나 영구적으로 할당 된 할당 인 경우 **영구적** 으로 확인란을 선택 합니다. 조직의 설정에 따라 확인란이 표시 되지 않거나 편집 하지 못할 수 있습니다.
 
-1. 완료 되 면 **할당**을 선택 합니다.
+1. 완료 되 면 **할당** 을 선택 합니다.
 
-1. 새 역할 할당을 만들려면 **추가**를 선택 합니다. 상태 알림이 표시됩니다.
+1. 새 역할 할당을 만들려면 **추가** 를 선택 합니다. 상태 알림이 표시됩니다.
 
     ![새 할당 - 알림](./media/groups-assign-member-owner/groups-assignment-notification.png)
 
@@ -87,7 +87,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)은 Azure 
 
     ![역할 할당 업데이트 또는 제거](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
-1. **업데이트** 또는 **제거**를 선택하여 역할 할당을 업데이트하거나 제거합니다.
+1. **업데이트** 또는 **제거** 를 선택하여 역할 할당을 업데이트하거나 제거합니다.
 
     역할 할당을 확장 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management에서 Azure 리소스 역할 확장 또는 갱신](pim-resource-roles-renew-extend.md)을 참조 하세요.
 

@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018327"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
@@ -40,7 +40,7 @@ Microsoft Genomics는 워크플로당 처리된 기가베이스 수를 기준으
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>`msgen` 클라이언트에 대해 가장 일반적으로 사용되는 명령은 무엇인가요?
 `msgen` 클라이언트에 대해 가장 일반적으로 사용되는 명령은 다음과 같습니다. 
 
- |**명령**          |  **필드 설명** |
+ |**Command**          |  **필드 설명** |
  |:--------------------|:-------------         |
  |`list`               |제출한 작업 목록을 반환합니다. 인수는 `msgen help list`을 참조하세요.  |
  |`submit`             |워크플로 요청을 서비스에 제출합니다. 인수는 `msgen help submit`을 참조하세요.|

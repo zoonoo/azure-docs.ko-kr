@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91567828"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
@@ -107,7 +107,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
