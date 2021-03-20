@@ -8,10 +8,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067395"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Service Bus 네임 스페이스 만들기
@@ -55,8 +55,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     리소스 그룹 이름은 **rg** 추가 된 service bus 네임 스페이스 이름입니다.
 
-2. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-3. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+2. **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
+3. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
 이벤트 허브를 만드는 데 몇 분 정도 걸립니다.
 

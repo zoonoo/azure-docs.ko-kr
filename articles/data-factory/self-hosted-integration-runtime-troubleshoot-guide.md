@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
 ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100376465"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
@@ -332,7 +332,7 @@ Integration runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
  
             a. 현재 자체 호스팅 IR을 완전히 제거 합니다.   
             b. 자체 호스팅 IR 비트를 설치 합니다.  
-            c. 다음을 수행 하 여 서비스 계정을 변경 합니다.  
+            다. 다음을 수행 하 여 서비스 계정을 변경 합니다.  
 
              i. 자체 호스팅 IR 설치 폴더로 이동한 다음 *Microsoft Integration Runtime\4.0\Shared* 폴더로 전환 합니다.  
              ii. 상승 된 권한을 사용 하 여 명령 프롬프트 창을 엽니다. 및를 사용자 *\<user>* *\<password>* 이름 및 암호로 바꾸고 다음 명령을 실행 합니다.   
@@ -354,7 +354,7 @@ Integration runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
 
         !["서비스로 로그온" 속성 창의 스크린샷](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 
-#### <a name="more-information"></a>추가 정보
+#### <a name="more-information"></a>자세한 정보
 
 사용자의 경우 위의 두 해결 패턴 중 어느 것도 적용 되지 않으면 다음 Windows 이벤트 로그를 수집 해 보십시오. 
 - 응용 프로그램 및 서비스 로그 > Integration Runtime

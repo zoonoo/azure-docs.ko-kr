@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99538910"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
@@ -64,7 +64,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-| REST (영문) | [**서비스 REST API**](/rest/api/searchservice/) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하 여 데이터 평면 작업에 대 한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**관리 REST API**](/rest/api/searchmanagement/) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 데 사용할 수 있습니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
+| REST | [**서비스 REST API**](/rest/api/searchservice/) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하 여 데이터 평면 작업에 대 한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**관리 REST API**](/rest/api/searchmanagement/) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 데 사용할 수 있습니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
 | Azure SDK for .NET | [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) 는 인덱싱, 쿼리 및 AI 보강와 관련 된 모든 작업을 포함 하 여 데이터 평면 작업을 위한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**Microsoft. Azure. 검색**](/dotnet/api/microsoft.azure.management.search) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 데 사용할 수 있습니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
 | Java용 Azure SDK | [**com.azure.search.documents**](/java/api/com.azure.search.documents) 는 인덱싱, 쿼리 및 AI 보강와 관련 된 모든 작업을 포함 하 여 데이터 평면 작업을 위한 것입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>Azure Resource Manager를 통해 서비스를 만들고 정리 하는 데 [**사용할 수 있습니다**](/java/api/overview/azure/search/management) . 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다.|
 | Python용 Azure SDK | [**azure-검색-문서**](/python/api/overview/azure/search-documents-readme) 는 인덱싱, 쿼리 및 AI 보강 관련 된 모든 작업을 포함 하는 데이터 평면 작업을 위한 문서입니다. 또한이 클라이언트 라이브러리를 사용 하 여 시스템 정보와 통계를 검색할 수 있습니다. <br/><br/>[**azure-mgmt 검색**](/python/api/overview/azure/search/management) 은 서비스를 만들고 Azure Resource Manager를 통해 정리 하는 것입니다. 이 API를 사용 하 여 키를 관리 하 고 서비스를 프로 비전 할 수도 있습니다. |

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1388dc11254324f74efcbaa55c97cac2ccd0c026
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87073734"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>App Service 앱을 다른 지역으로 이동
@@ -17,7 +17,7 @@ ms.locfileid: "87073734"
 
 App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할 수 없습니다. 앱을 다른 지역의 새 앱으로 복원한 다음 새 앱에 대 한 미러링 구성 또는 리소스를 만들어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 없음 [스냅숏에서 복원은](app-service-web-restore-snapshots.md) 일반적으로 **프리미엄** 계층이 필요 하지만 재해 복구 모드에서 영향 받는 앱이 있는 계층에 관계 없이 영향을 받는 앱에 대해 자동으로 사용 하도록 설정 됩니다.
 
@@ -45,7 +45,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
 
     ![영향을 받는 앱 페이지의 스크린샷 상태를 설명 하 고 앱 복원 링크를 제공 하는 경고 알림이 표시 됩니다.](media/manage-disaster-recovery/restore-start.png)
 
-1. **백업 복원** 페이지에서 다음 표에 따라 복원 작업을 구성 합니다. 완료되었으면 **확인**을 클릭합니다.
+1. **백업 복원** 페이지에서 다음 표에 따라 복원 작업을 구성 합니다. 완료되었으면 **확인** 을 클릭합니다.
 
    | 설정 | 값 | 설명 |
    |-|-|-|
@@ -63,7 +63,7 @@ App Service 리소스는 지역에 따라 달라 지 며 지역 간에 이동할
 
 복원 하지 않고 영향 받는 앱에서 파일을 복구 하려는 경우 다음 단계를 사용 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 영향을 받는 앱의 관리 페이지로 이동 하 고 **게시 프로필 가져오기**를 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 영향을 받는 앱의 관리 페이지로 이동 하 고 **게시 프로필 가져오기** 를 클릭 합니다.
 
     ![영향을 받는 앱 페이지의 스크린샷 경고 알림이 표시 되지만 강조 표시 되지 않습니다. 대신 게시 프로필 가져오기 항목이 강조 표시 됩니다.](media/manage-disaster-recovery/get-publish-profile.png)
 

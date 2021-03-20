@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: data-factory
 author: memildin
 ms.service: data-factory
@@ -9,15 +9,15 @@ ms.date: 03/17/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 7d81799f7fbdb2b41db421daa1a85ec8cde511eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "79538832"
 ---
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|설명|
+|필드|Description|
 |----|----|
 |**AlertName**|경고 표시 이름|
 |**AlertType**|고유한 경고 식별자|
@@ -43,7 +43,7 @@ ms.locfileid: "79538832"
 |**SystemAlertId**|이 보안 경고 인스턴스의 고유 식별자|
 |**TenantId**|검색 된 리소스가 있는 구독의 부모 Azure Active directory 테 넌 트 식별자입니다.|
 |**TimeGenerated**|평가가 발생 한 UTC 타임 스탬프 (Security Center의 검색 시간) (DiscoveredTimeUTC와 동일)|
-|**형식**|상수 (' SecurityAlert ')|
+|**유형**|상수 (' SecurityAlert ')|
 |**이름의**|경고를 제공한 공급 업체의 이름 (예: ' Microsoft ')|
 |**VendorOriginalId**|unused|
 |**WorkspaceResourceGroup**|VM, 서버, 가상 머신 확장 집합 또는 작업 영역에 보고 하는 App Service 인스턴스에서 경고가 생성 되는 경우 해당 작업 영역 리소스 그룹 이름이 포함 됩니다.|

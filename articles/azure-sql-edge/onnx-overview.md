@@ -10,13 +10,13 @@ author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
 ms.openlocfilehash: 5dc3d44ac4396897fd43831d51ee628bb06048cb
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392064"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>SQL Edge에서 ONNX를 통한 기계 학습 및 AI
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>SQL Edge에서 ONNX를 사용 하는 기계 학습 및 AI
 
 Azure SQL Edge의 Machine learning은 [ONNX (오픈 신경망 교환)](https://onnx.ai/) 형식의 모델을 지원 합니다. ONNX는 다양한 [기계 학습 프레임워크 및 도구](https://onnx.ai/supported-tools) 간에 모델을 교환하는 데 사용할 수 있는 개방형 형식입니다.
 
@@ -28,7 +28,7 @@ Azure SQL Edge에서 기계 학습 모델을 유추하려면 먼저 모델을 �
 
 ONNX 형식으로 모델을 가져오려면 다음을 수행합니다.
 
-- **모델 빌드 서비스** : [Azure Machine Learning의 자동화된 Machine Learning 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md)와 같은 서비스는 학습된 모델을 ONNX 형식으로 직접 내보내는 것을 지원합니다.
+- **모델 빌드 서비스**: [Azure Machine Learning의 자동화된 Machine Learning 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) 및 [Azure Custom Vision Service](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md)와 같은 서비스는 학습된 모델을 ONNX 형식으로 직접 내보내는 것을 지원합니다.
 
 - [**기존 모델 변환 및/또는 내보내기**](https://github.com/onnx/tutorials#converting-to-onnx-format): 여러 학습 프레임워크(예: [PyTorch](https://pytorch.org/docs/stable/onnx.html), Chainer 및 Caffe2)는 ONNX 형식으로의 기본 내보내기 기능을 지원하여 학습된 모델을 특정 버전의 ONNX 형식으로 저장할 수 있습니다. 네이티브 내보내기를 지원하지 않는 프레임워크의 경우 다양한 기계 학습 프레임워크에서 학습된 모델을 ONNX 형식으로 변환하는 데 사용할 수 있는 독립 실행형 ONNX 변환기 설치 가능 패키지가 있습니다.
 
@@ -54,5 +54,5 @@ ONNX 형식으로 모델을 가져오려면 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal을 통해 SQL Edge 배포](deploy-portal.md)
+- [Azure Portal를 통해 SQL Edge 배포](deploy-portal.md)
 - [Azure SQL Edge에 ONNX 모델 배포 ](deploy-onnx.md)

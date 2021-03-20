@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92071492"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
@@ -95,9 +95,9 @@ PowerShell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 서비스가 배포 된 리소스 그룹으로 이동 합니다.
-3. **리소스 그룹 삭제**를 선택하고 확인합니다.
+3. **리소스 그룹 삭제** 를 선택하고 확인합니다.
 4. 잠시 후에는 배포 된 모든 서비스 구성 요소가 삭제 됩니다.
-5. **Azure Active Directory** > **앱 등록**으로 이동합니다.
+5. **Azure Active Directory** > **앱 등록** 으로 이동합니다.
 6. 배포 된 각 리소스 그룹에 대해 등록 된 세 가지 등록이 있습니다. 등록의 이름은 `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` 입니다. 각 등록을 개별적으로 삭제 합니다.
 
 이제 배포 된 모든 구성 요소가 제거 됩니다.

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 14df0f131aaef8a4c24e2d1eb242a9b440e7c7b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86507593"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>빠른 시작-CloudSimple service로 Azure VMware 솔루션 만들기
@@ -38,24 +38,24 @@ CloudSimple 서비스를 추가 하려면 게이트웨이 서브넷을 만들어
 
 ## <a name="create-the-service"></a>서비스 만들기
 
-1. **모든 서비스**를 선택합니다.
-2. **Cloudsimple 서비스**를 검색 합니다.
+1. **모든 서비스** 를 선택합니다.
+2. **Cloudsimple 서비스** 를 검색 합니다.
 
     ![CloudSimple Service 검색](media/create-cloudsimple-service-search.png)
 
-3. **Cloudsimple 서비스**를 선택 합니다.
+3. **Cloudsimple 서비스** 를 선택 합니다.
 4. **추가** 를 클릭 하 여 새 서비스를 만듭니다.
 
     ![CloudSimple Service 추가](media/create-cloudsimple-service-add.png)
 
 5. CloudSimple 서비스를 만들려는 구독을 선택 합니다.
-6. 서비스에 대 한 리소스 그룹을 선택 합니다. 새 리소스 그룹을 추가 하려면 **새로 만들기**를 클릭 합니다.
+6. 서비스에 대 한 리소스 그룹을 선택 합니다. 새 리소스 그룹을 추가 하려면 **새로 만들기** 를 클릭 합니다.
 7. 서비스를 식별 하는 이름을 입력 합니다.
 8. 서비스 게이트웨이의 CIDR을 입력 합니다. 온-프레미스 서브넷, Azure 서브넷 또는 계획 된 CloudSimple 서브넷과 겹치지 않는/28 서브넷을 지정 합니다. 서비스를 만든 후에는 CIDR을 변경할 수 없습니다.
 
     ![CloudSimple 서비스 만들기](media/create-cloudsimple-service.png)
 
-9. **확인**을 클릭합니다.
+9. **확인** 을 클릭합니다.
 
 서비스가 만들어지고 서비스 목록에 추가 됩니다.
 
@@ -63,26 +63,26 @@ CloudSimple 서비스를 추가 하려면 게이트웨이 서브넷을 만들어
 
 CloudSimple 사설 클라우드 환경에 대 한 종 량 제 용량을 설정 하려면 먼저 Azure Portal에 노드를 프로 비전 합니다.
 
-1. **모든 서비스**를 선택합니다.
-2. **Cloudsimple 노드**를 검색 합니다.
+1. **모든 서비스** 를 선택합니다.
+2. **Cloudsimple 노드** 를 검색 합니다.
 
     ![CloudSimple 노드 검색](media/create-cloudsimple-node-search.png)
 
-3. **Cloudsimple 노드**를 선택 합니다.
+3. **Cloudsimple 노드** 를 선택 합니다.
 4. **추가** 를 클릭 하 여 노드를 만듭니다.
 
     ![CloudSimple 노드 추가](media/create-cloudsimple-node-add.png)
 
 5. CloudSimple 노드를 프로 비전 할 구독을 선택 합니다.
-6. 노드에 대 한 리소스 그룹을 선택 합니다. 새 리소스 그룹을 추가 하려면 **새로 만들기**를 클릭 합니다.
+6. 노드에 대 한 리소스 그룹을 선택 합니다. 새 리소스 그룹을 추가 하려면 **새로 만들기** 를 클릭 합니다.
 7. 노드를 식별 하는 접두사를 입력 합니다.
 8. 노드 리소스의 위치를 선택 합니다.
 9. 노드 리소스를 호스트할 전용 위치를 선택 합니다.
 10. [노드 형식을](cloudsimple-node.md)선택 합니다.
 11. 프로 비전 할 노드 수를 선택 합니다.
-12. **검토 + 만들기**를 선택합니다.
-13. 설정을 검토 합니다. 설정을 수정 하려면 **이전**을 클릭 합니다.
-14. **만들기**를 선택합니다.
+12. **검토 + 만들기** 를 선택합니다.
+13. 설정을 검토 합니다. 설정을 수정 하려면 **이전** 을 클릭 합니다.
+14. **만들기** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

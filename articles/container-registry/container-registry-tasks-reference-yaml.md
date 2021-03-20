@@ -4,10 +4,10 @@ description: 작업 속성, 단계 유형, 단계 속성 및 기본 제공 변�
 ms.topic: article
 ms.date: 07/08/2020
 ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067586"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
@@ -20,7 +20,7 @@ ACR 작업의 다단계 작업 정의는 컨테이너 빌드, 테스트 및 패�
 
 ACR 작업은 표준 YAML 구문의 다단계 작업 선언을 지원합니다. YAML 파일에서 작업 단계를 정의 합니다. 그런 다음 [az acr run][az-acr-run] 명령에 파일을 전달 하 여 작업을 수동으로 실행할 수 있습니다. 또는 파일을 사용 하 여 Git 커밋, 기본 이미지 업데이트 또는 일정에서 자동으로 트리거되는 [az acr task create][az-acr-task-create] 를 사용 하 여 작업을 만듭니다. 이 문서에서는 `acr-task.yaml`을 단계가 포함된 파일로 참조하지만, ACR 작업은 [지원되는 확장명](#supported-task-filename-extensions)을 가진 유효한 파일 이름을 모두 지원합니다.
 
-최상위 `acr-task.yaml` 기본 형식은 **작업 속성**, **단계 유형** 및 **단계 속성**입니다.
+최상위 `acr-task.yaml` 기본 형식은 **작업 속성**, **단계 유형** 및 **단계 속성** 입니다.
 
 * [작업 속성](#task-properties)은 작업 실행 전반에 걸쳐 모든 단계에 적용됩니다. 다음과 같은 몇 가지 전역 태스크 속성이 있습니다.
   * `version`
@@ -51,7 +51,7 @@ steps: # A collection of image or container actions.
 
 ### <a name="supported-task-filename-extensions"></a>지원되는 작업 파일 이름 확장명
 
-ACR 작업에는 `.yaml`을 포함하여 몇 가지 파일 이름 확장명이 예약되어 있으며, 작업 파일로 처리됩니다. 다음 목록에 ‘없는’ 확장명은 ACR 작업에서 Dockerfile로 간주됩니다. .yaml, .yml, .toml, .json, .sh, .bash, .zsh, .ps1, .ps, .cmd, .bat, .ts, .js, .php, .py, .rb, .lua**
+ACR 작업에는 `.yaml`을 포함하여 몇 가지 파일 이름 확장명이 예약되어 있으며, 작업 파일로 처리됩니다. 다음 목록에 ‘없는’ 확장명은 ACR 작업에서 Dockerfile로 간주됩니다. .yaml, .yml, .toml, .json, .sh, .bash, .zsh, .ps1, .ps, .cmd, .bat, .ts, .js, .php, .py, .rb, .lua
 
 YAML은 현재 ACR 작업에서 지원되는 유일한 파일 형식입니다. 다른 파일 이름 확장명은 향후 지원을 위해 예약되었습니다.
 
@@ -75,7 +75,7 @@ az configure --defaults acr=myregistry
 
 태스크 속성은 일반적으로 파일의 맨 위에 나타나며 `acr-task.yaml` , 작업 단계 전체 실행 전체에 적용 되는 전역 속성입니다. 이러한 전역 속성 중 일부는 개별 단계에서 재정의할 수 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 재정의 지원 여부 | 기본값 |
+| 속성 | Type | 옵션 | Description | 재정의 지원 여부 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 기본값은 최신 버전입니다. | 예 | None |
 | `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `timeout` . `timeout`단계에서 속성을 지정 하는 경우이 속성은 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | 600(10분) |
@@ -89,7 +89,7 @@ az configure --defaults acr=myregistry
 
 Secret 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | 문자열 | No | 비밀의 식별자입니다. | 없음 |
 | `keyvault` | 문자열 | 예 | Azure Key Vault 비밀 URL입니다. | 없음 |
@@ -99,7 +99,7 @@ Secret 개체에는 다음과 같은 속성이 있습니다.
 
 네트워크 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 네트워크의 이름입니다. | 없음 |
 | `driver` | 문자열 | 예 | 네트워크를 관리 하는 드라이버입니다. | 없음 |
@@ -111,7 +111,7 @@ Secret 개체에는 다음과 같은 속성이 있습니다.
 
 볼륨 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 탑재할 볼륨의 이름입니다. 영숫자 문자, '-' 및 ' _ '만 포함할 수 있습니다. | 없음 |
 | `secret` | map [string] 문자열 | 아니요 | 맵의 각 키는 볼륨에서 만들어지고 채워진 파일의 이름입니다. 각 값은 암호의 문자열 버전입니다. 비밀 값은 b a s e 64로 인코딩해야 합니다. | 없음 |
@@ -126,7 +126,7 @@ ACR 작업은 세 가지 단계 유형을 지원합니다. 각 단계 유형은 
 | [`push`](#push) | 새로 빌드되었거나 태그가 변경된 이미지를 컨테이너 레지스트리로 `docker push`하는 작업을 실행합니다. Azure Container Registry, 기타 프라이빗 레지스트리 및 공용 Docker 허브가 지원됩니다. |
 | [`cmd`](#cmd) | 컨테이너의 `[ENTRYPOINT]`에 전달된 매개 변수를 사용하여 컨테이너를 명령으로 실행합니다. `cmd`단계 유형은 `env` , `detach` 및 기타 친숙 한 명령 옵션과 같은 매개 변수 `docker run` 를 지원 하 여 동시 컨테이너 실행으로 단위 및 기능 테스트를 가능 하 게 합니다. |
 
-## <a name="build"></a>build
+## <a name="build"></a>빌드
 
 컨테이너 이미지를 빌드합니다. `build` 단계 유형은 클라우드에서 `docker build`를 첫 번째 클래스 기본 형식으로 실행하는 보안 수단인 다중 테넌트를 나타냅니다.
 
@@ -151,7 +151,7 @@ steps:
 
 `build` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인 합니다.
 
-| 속성 | 형식 | 필수 |
+| 속성 | Type | 필수 |
 | -------- | ---- | -------- |
 | `detach` | bool | 선택 사항 |
 | `disableWorkingDirectoryOverride` | bool | 선택 사항 |
@@ -224,7 +224,7 @@ steps:
 
 `push` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인 합니다.
 
-| 속성 | 형식 | 필수 |
+| 속성 | Type | 필수 |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | 선택 사항 |
 | `id` | 문자열 | 옵션 |
@@ -269,7 +269,7 @@ steps:
 
 `cmd` 단계 유형은 다음 속성을 지원합니다.
 
-| 속성 | 형식 | 필수 |
+| 속성 | Type | 필수 |
 | -------- | ---- | -------- |
 | `detach` | bool | 선택 사항 |
 | `disableWorkingDirectoryOverride` | bool | 선택 사항 |
@@ -381,7 +381,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 각 단계 유형은 해당 유형에 적합한 몇 가지 속성을 지원합니다. 다음 표에서는 사용 가능한 모든 단계 속성을 정의합니다. 모든 단계 유형이 모든 속성을 지원하는 것은 아닙니다. 각 단계 유형에 사용 가능한 속성을 보려면 [cmd](#cmd), [build](#build) 및 [push](#push) 단계 유형 참조 섹션을 참조하세요.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | 예 | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. | `false` |
 | `disableWorkingDirectoryOverride` | bool | 예 | 재정의 기능을 사용 하지 않을 지 여부 `workingDirectory` 입니다. 이를와 함께 사용 `workingDirectory` 하 여 컨테이너의 작업 디렉터리를 완전히 제어할 수 있습니다. | `false` |
@@ -392,14 +392,14 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 | `ignoreErrors` | bool | 예 | 컨테이너를 실행 하는 동안 오류가 발생 했는지 여부에 관계 없이 단계를 성공으로 표시할지 여부입니다. | `false` |
 | `isolation` | 문자열 | 예 | 컨테이너의 격리 수준입니다. | `default` |
 | `keep` | bool | 예 | 실행 후 단계 컨테이너를 유지할지 여부입니다. | `false` |
-| `network` | object | 예 | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
+| `network` | 개체 | 예 | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
 | `ports` | [string, string, ...] | 예 | 컨테이너에서 호스트로 게시 되는 포트의 배열입니다. |  없음 |
 | `pull` | bool | 예 | 캐싱 동작을 방지 하기 위해 실행 하기 전에 컨테이너를 강제로 풀 할지 여부를 지정 합니다. | `false` |
 | `privileged` | bool | 예 | 컨테이너를 특권 모드에서 실행할지 여부를 지정 합니다. | `false` |
 | `repeat` | int | 예 | 컨테이너 실행을 반복 하기 위한 다시 시도 횟수입니다. | 0 |
 | `retries` | int | 예 | 컨테이너의 실행이 실패 한 경우 다시 시도 하는 횟수입니다. 컨테이너의 종료 코드가 0이 아닌 경우에만 재시도를 시도 합니다. | 0 |
 | `retryDelay` | int(초) | 예 | 컨테이너 실행 재시도 사이의 지연 시간 (초)입니다. | 0 |
-| `secret` | object | 예 | [Azure 리소스에 대 한](container-registry-tasks-authentication-managed-identity.md)Azure Key Vault 암호 또는 관리 되는 id를 식별 합니다. | 없음 |
+| `secret` | 개체 | 예 | [Azure 리소스에 대 한](container-registry-tasks-authentication-managed-identity.md)Azure Key Vault 암호 또는 관리 되는 id를 식별 합니다. | 없음 |
 | `startDelay` | int(초) | 예 | 컨테이너 실행을 지연 하는 시간 (초)입니다. | 0 |
 | `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
 | [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
@@ -410,10 +410,10 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 VolumeMount 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 탑재할 볼륨의 이름입니다. 속성의 이름과 정확히 일치 해야 합니다 `volumes` . | 없음 |
-| `mountPath`   | 문자열 | 아니요 | 컨테이너에 파일을 탑재 하는 절대 경로입니다.  | 없음 |
+| `mountPath`   | 문자열 | no | 컨테이너에 파일을 탑재 하는 절대 경로입니다.  | 없음 |
 
 ### <a name="examples-task-step-properties"></a>예: 작업 단계 속성
 

@@ -17,10 +17,10 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93394733"
 ---
 # <a name="email-notifications-in-pim"></a>PIM에서 이메일 알림
@@ -50,9 +50,9 @@ Azure AD 역할에 대한 이러한 이메일을 받는 사람은 역할, 이벤
 
 | 사용자 | 역할 활성화가 승인 보류 중임 | 역할 활성화 요청이 완료됨 | PIM이 사용하도록 설정됨 |
 | --- | --- | --- | --- |
-| 권한 있는 역할 관리자</br>(활성화/적격) | yes</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | yes |
-| 보안 관리자</br>(활성화/적격) | 예 | 예* | yes |
-| 전역 관리자</br>(활성화/적격) | 예 | 예* | yes |
+| 권한 있는 역할 관리자</br>(활성화/적격) | 예</br>(명시적인 승인자가 지정되지 않은 경우만) | 예* | 예 |
+| 보안 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
+| 전역 관리자</br>(활성화/적격) | 아니요 | 예* | 예 |
 
 \*[**알림** 설정](pim-how-to-change-default-settings.md#notifications)이 **사용** 으로 설정된 경우
 
@@ -68,7 +68,7 @@ Azure AD 역할에 대 한 주별 Privileged Identity Management 요약 전자 �
 
 이메일에는 4개의 타일이 포함됩니다.
 
-| Tile | Description |
+| Tile | 설명 |
 | --- | --- |
 | **Users activated(사용자가 활성화함)** | 사용자가 조직 내에서 적격 역할을 활성화 한 횟수입니다. |
 | **Users made permanent(사용자 영구 지정)** | 적격 할당이 있는 사용자가 영구 지정된 횟수입니다. |

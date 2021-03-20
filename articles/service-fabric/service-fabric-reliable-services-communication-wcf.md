@@ -7,17 +7,17 @@ ms.date: 06/07/2017
 ms.author: bharatn
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c5b5d413eee2528e2d5c7d04d06f1607949beaae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89012707"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Reliable Services에 대한 WCF 기반 통신 스택
 Reliable Services 프레임워크를 사용하면 서비스 작성자가 서비스에 사용하려는 통신 스택을 결정할 수 있습니다. 선택한 통신 스택을 **CreateServiceReplicaListeners 또는 CreateServiceInstanceListeners** 메서드에서 반환되는 [ICommunicationListener](service-fabric-reliable-services-communication.md) 를 통해 플러그인할 수 있습니다. 이 프레임워크는 WCF 기반 통신을 사용하려는 서비스 작성자를 위한 WCF(Windows Communication Foundation) 기반 통신 스택 구현을 제공합니다.
 
 ## <a name="wcf-communication-listener"></a>WCF 통신 수신기
-**ICommunicationListener**의 WCF 관련 구현은 **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** 클래스에서 제공됩니다.
+**ICommunicationListener** 의 WCF 관련 구현은 **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** 클래스에서 제공됩니다.
 
 서비스 계약의 형식이 있다고 가정합니다 `ICalculator`
 
@@ -57,7 +57,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## <a name="writing-clients-for-the-wcf-communication-stack"></a>WCF 통신 스택에 대한 클라이언트 작성
-WCF를 사용하여 서비스와 통신하는 클라이언트를 작성하는 경우 이 프레임워크에서는 **ClientCommunicationFactoryBase**의 WCF 특정 구현인 [WcfClientCommunicationFactory](service-fabric-reliable-services-communication.md)를 제공합니다.
+WCF를 사용하여 서비스와 통신하는 클라이언트를 작성하는 경우 이 프레임워크에서는 **ClientCommunicationFactoryBase** 의 WCF 특정 구현인 [WcfClientCommunicationFactory](service-fabric-reliable-services-communication.md)를 제공합니다.
 
 ```csharp
 
@@ -69,7 +69,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-WCF 통신 채널은 **WcfCommunicationClientFactory**에서 만든 **WcfCommunicationClient**에서 액세스될 수 있습니다.
+WCF 통신 채널은 **WcfCommunicationClientFactory** 에서 만든 **WcfCommunicationClient** 에서 액세스될 수 있습니다.
 
 ```csharp
 
@@ -83,7 +83,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-클라이언트 코드는 **ServicePartitionClient**를 구현하는 **WcfCommunicationClient**와 함께 **WcfCommunicationClientFactory**를 사용하여 서비스 엔드포인트를 결정하고 서비스와 통신할 수 있습니다.
+클라이언트 코드는 **ServicePartitionClient** 를 구현하는 **WcfCommunicationClient** 와 함께 **WcfCommunicationClientFactory** 를 사용하여 서비스 엔드포인트를 결정하고 서비스와 통신할 수 있습니다.
 
 ```csharp
 // Create binding

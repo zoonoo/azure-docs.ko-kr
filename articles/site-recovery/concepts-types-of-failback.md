@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
 ms.openlocfilehash: c0eaf28f9aeb4050fd35a6036a53e3e91d00f3eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84691087"
 ---
 # <a name="failback-of-vmware-vms-after-disaster-recovery-to-azure"></a>Azure로 재해 복구 후 VMware VM 장애 복구(failback)
@@ -21,7 +21,7 @@ ms.locfileid: "84691087"
 - 원래 위치로 장애 복구(failback) 
 - 대체 위치로 장애 복구(failback)
 
-VMware 가상 머신을 장애 조치했는데 원본 온-프레미스 가상 머신이 여전히 남아 있는 경우 동일한 원본 온-프레미스 가상 머신으로 장애 복구할 수 있습니다. 이 시나리오에서는 변경 내용만 다시 복제됩니다. 이 시나리오를 **원래 위치 복구**라고 합니다. 온-프레미스 가상 머신이 없는 경우에는 **대체 위치 복구** 시나리오라고 합니다.
+VMware 가상 머신을 장애 조치했는데 원본 온-프레미스 가상 머신이 여전히 남아 있는 경우 동일한 원본 온-프레미스 가상 머신으로 장애 복구할 수 있습니다. 이 시나리오에서는 변경 내용만 다시 복제됩니다. 이 시나리오를 **원래 위치 복구** 라고 합니다. 온-프레미스 가상 머신이 없는 경우에는 **대체 위치 복구** 시나리오라고 합니다.
 
 > [!NOTE]
 > 원래 vCenter 및 구성 서버로만 장애 복구 (failback) 할 수 있습니다. 새 구성 서버를 배포한 후 이 서버를 사용하여 장애 복구(failback)할 수 없습니다. 기존 구성 서버에 새 vCenter를 추가한 후 새 vCenter로 장애 복구(failback)할 수도 없습니다.

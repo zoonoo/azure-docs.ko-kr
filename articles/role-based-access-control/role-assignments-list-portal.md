@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556182"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당을 나열합니다.
@@ -185,5 +185,5 @@ CSV 또는 JSON 형식으로 된 범위에서 역할 할당을 다운로드할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)
 - [Azure RBAC 문제 해결](troubleshooting.md)

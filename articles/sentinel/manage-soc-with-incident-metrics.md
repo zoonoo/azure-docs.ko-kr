@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: yelevin
 ms.openlocfilehash: 408913fed864ee5f966b96c81afbfee4b2dc8678
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94660732"
 ---
 # <a name="manage-your-soc-better-with-incident-metrics"></a>인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
@@ -39,7 +39,7 @@ SOC (보안 작업 센터) 관리자는 팀의 성능을 측정 하기 위해 �
 
 인시던트를 만들거나 업데이트할 때마다 새 로그 항목이 테이블에 추가 됩니다. 이를 통해 인시던트에 대 한 변경 내용을 추적할 수 있으며 더 강력한 SOC 메트릭을 사용할 수 있지만, 인시던트에 대해 중복 항목을 제거 해야 할 수 있으므로 (실행 중인 정확한 쿼리에 따라)이 테이블에 대 한 쿼리를 생성할 때이를 염두에 두어야 합니다. 
 
-예를 들어 인시던트 번호로 정렬 되었지만 인시던트의 가장 최근의 로그만 반환 하려는 모든 인시던트의 목록을 반환 하려는 경우 집계 함수를 사용 하 여 KQL [요약 연산자](/azure/data-explorer/kusto/query/summarizeoperator) 를 사용 하면 됩니다 `arg_max()` [aggregation function](/azure/data-explorer/kusto/query/arg-max-aggfunction).
+예를 들어 인시던트 번호로 정렬 되었지만 인시던트의 가장 최근의 로그만 반환 하려는 모든 인시던트의 목록을 반환 하려는 경우 집계 함수를 사용 하 여 KQL [요약 연산자](/azure/data-explorer/kusto/query/summarizeoperator) 를 사용 하면 됩니다 `arg_max()` [](/azure/data-explorer/kusto/query/arg-max-aggfunction).
 
 
 ```Kusto

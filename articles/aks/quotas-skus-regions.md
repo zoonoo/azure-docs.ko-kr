@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 9592b03f5bd9e9436db5665e040b4afd3b68b764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562738"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량, 가상 머신 크기 제한 및 지역 가용성
@@ -49,7 +49,7 @@ VM 유형 및 해당 계산 리소스에 대 한 자세한 내용은 [Azure의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-특정 기본 제한 및 할당량은 증대가 가능합니다. 리소스가 증가를 지 원하는 경우 [Azure 지원 요청][azure-support] 을 통해 증가를 요청 합니다 ( **문제 유형에**대해 **할당량**선택).
+특정 기본 제한 및 할당량은 증대가 가능합니다. 리소스가 증가를 지 원하는 경우 [Azure 지원 요청][azure-support] 을 통해 증가를 요청 합니다 ( **문제 유형에** 대해 **할당량** 선택).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

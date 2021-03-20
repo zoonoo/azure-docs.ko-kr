@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/12/2021
 ms.author: b-juche
 ms.openlocfilehash: 638607da02b1db4842cdc04f86a4fed1860c243f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98134316"
 ---
 # <a name="troubleshoot-nfsv41-kerberos-volume-issues"></a>NFSv 4.1 Kerberos 볼륨 문제 해결 
@@ -40,4 +40,4 @@ ms.locfileid: "98134316"
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [Azure NetApp Files에 대 한 NFSv 4.1 Kerberos 암호화 구성](configure-kerberos-encryption.md)
+* [Azure NetApp Files에 대한 NFSv4.1 Kerberos 암호화 구성](configure-kerberos-encryption.md)

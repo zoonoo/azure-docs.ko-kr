@@ -6,10 +6,10 @@ author: tugup
 ms.author: tugup
 ms.date: 3/12/2020
 ms.openlocfilehash: 07a1b836ca7ea79244e303f54654dfcaa6e5fcb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "82137589"
 ---
 # <a name="liveness-probe"></a>선거의 프로브
@@ -24,31 +24,31 @@ ms.locfileid: "82137589"
 ## <a name="semantics"></a>의미 체계
 컨테이너 당 하나의 선거의 프로브를 지정 하 고 다음 필드를 사용 하 여 해당 동작을 제어할 수 있습니다.
 
-* `initialDelaySeconds`: 컨테이너가 시작 된 후 프로브 실행을 시작 하는 초기 지연 시간 (초)입니다. 지원 되는 값은 **int**입니다. 기본값은 0이 고 최소값은 0입니다.
+* `initialDelaySeconds`: 컨테이너가 시작 된 후 프로브 실행을 시작 하는 초기 지연 시간 (초)입니다. 지원 되는 값은 **int** 입니다. 기본값은 0이 고 최소값은 0입니다.
 
-* `timeoutSeconds`: 프로브를 실패 한 것으로 간주 하는 시간 (초)입니다 (성공적으로 완료 되지 않은 경우). 지원 되는 값은 **int**입니다. 기본값은 1이 고 최소값은 1입니다.
+* `timeoutSeconds`: 프로브를 실패 한 것으로 간주 하는 시간 (초)입니다 (성공적으로 완료 되지 않은 경우). 지원 되는 값은 **int** 입니다. 기본값은 1이 고 최소값은 1입니다.
 
-* `periodSeconds`: 프로브 빈도를 지정 하는 기간 (초)입니다. 지원 되는 값은 **int**입니다. 기본값은 10이 고 최소값은 1입니다.
+* `periodSeconds`: 프로브 빈도를 지정 하는 기간 (초)입니다. 지원 되는 값은 **int** 입니다. 기본값은 10이 고 최소값은 1입니다.
 
-* `failureThreshold`:이 값에 도달 하면 컨테이너가 다시 시작 됩니다. 지원 되는 값은 **int**입니다. 기본값은 3이 고 최소값은 1입니다.
+* `failureThreshold`:이 값에 도달 하면 컨테이너가 다시 시작 됩니다. 지원 되는 값은 **int** 입니다. 기본값은 3이 고 최소값은 1입니다.
 
-* `successThreshold`: 실패 한 경우 프로브를 성공적으로 실행 하려면이 값을 성공적으로 실행 해야 합니다. 지원 되는 값은 **int**입니다. 기본값은 1이 고 최소값은 1입니다.
+* `successThreshold`: 실패 한 경우 프로브를 성공적으로 실행 하려면이 값을 성공적으로 실행 해야 합니다. 지원 되는 값은 **int** 입니다. 기본값은 1이 고 최소값은 1입니다.
 
-언제 든 지 하나의 컨테이너에 하나의 프로브가 있을 수 있습니다. 검색이 **Timeoutseconds**로 설정 된 시간 내에 완료 되지 않으면 대기 하 고 **카운터가 failurethreshold**시간을 계산 합니다. 
+언제 든 지 하나의 컨테이너에 하나의 프로브가 있을 수 있습니다. 검색이 **Timeoutseconds** 로 설정 된 시간 내에 완료 되지 않으면 대기 하 고 **카운터가 failurethreshold** 시간을 계산 합니다. 
 
-또한 Service Fabric는 **DeployedServicePackage**에서 다음 프로브 [상태 보고서][health-introduction-link] 를 발생 시킵니다.
+또한 Service Fabric는 **DeployedServicePackage** 에서 다음 프로브 [상태 보고서][health-introduction-link] 를 발생 시킵니다.
 
-* `OK`: **SuccessThreshold**에 설정 된 값에 대해 프로브가 성공 합니다.
+* `OK`: **SuccessThreshold** 에 설정 된 값에 대해 프로브가 성공 합니다.
 
-* `Error`: 컨테이너를 **failureCount**  ==   다시 시작 하기 전에 프로브 failureCount**카운터가 failurethreshold**입니다.
+* `Error`: 컨테이너를   ==   다시 시작 하기 전에 프로브 failureCount **카운터가 failurethreshold** 입니다.
 
 * `Warning`: 
-    * 프로브에 실패 하 고 **failureCount**  <  **카운터가 failurethreshold**입니다. 이 상태 보고서는 **failureCount** 가 **카운터가 failurethreshold** 또는 **successThreshold**에 설정 된 값에 도달할 때까지 유지 됩니다.
+    * 프로브에 실패 하 고 **failureCount**  <  **카운터가 failurethreshold** 입니다. 이 상태 보고서는 **failureCount** 가 **카운터가 failurethreshold** 또는 **successThreshold** 에 설정 된 값에 도달할 때까지 유지 됩니다.
     * 오류가 발생 한 후에도 경고는 연속 해 서 연속 해 서 업데이트 된 상태로 유지 됩니다.
 
 ## <a name="specifying-a-liveness-probe"></a>선거의 프로브 지정
 
-**ServiceManifestImport**의 ApplicationManifest.xml 파일에서 프로브를 지정할 수 있습니다.
+**ServiceManifestImport** 의 ApplicationManifest.xml 파일에서 프로브를 지정할 수 있습니다.
 
 프로브는 다음 중 하나일 수 있습니다.
 
@@ -119,7 +119,7 @@ TCP 프로브의 경우 Service Fabric는 지정 된 포트를 사용 하 여 �
 
 > [!NOTE]
 > **Exec** 명령은 쉼표로 구분 된 문자열을 사용 합니다. 다음 예제의 명령은 Linux 컨테이너에 대해 작동 합니다.
-> Windows 컨테이너를 검색 하려는 경우 **cmd**를 사용 합니다.
+> Windows 컨테이너를 검색 하려는 경우 **cmd** 를 사용 합니다.
 
 ```xml
   <ServiceManifestImport>

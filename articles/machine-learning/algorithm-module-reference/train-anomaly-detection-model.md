@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90905729"
 ---
 # <a name="train-anomaly-detection-model-module"></a>변칙 검색 모델 학습 모듈
@@ -34,7 +34,7 @@ ms.locfileid: "90905729"
 
 3.  레이블 열을 선택 하 고 알고리즘과 관련 된 다른 매개 변수를 설정 하 여 변칙 검색 모듈을 구성 합니다.  
 
-4.  학습 **변칙 검색 모델**의 오른쪽 입력에 학습 데이터 집합을 연결 합니다.  
+4.  학습 **변칙 검색 모델** 의 오른쪽 입력에 학습 데이터 집합을 연결 합니다.  
 
 5.  파이프라인을 제출합니다.  
 
@@ -42,7 +42,7 @@ ms.locfileid: "90905729"
 
 학습 완료 후:
 
-+ 모델의 매개 변수를 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화**를 선택 합니다. 
++ 모델의 매개 변수를 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **시각화** 를 선택 합니다. 
 
 + 예측을 만들려면 새 입력 데이터로 [모델 점수 매기기](score-model.md) 모듈을 사용 합니다.
 

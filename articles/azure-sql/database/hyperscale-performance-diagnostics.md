@@ -11,10 +11,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791718"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hyperscale 성능 문제 해결 진단
@@ -28,7 +28,7 @@ ms.locfileid: "92791718"
 
 다음 대기 유형 ( [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/))은 기본 계산 복제본에서 로그 전송률이 제한 될 수 있는 이유를 설명 합니다.
 
-|대기 유형    |Description                         |
+|대기 유형    |설명                         |
 |-------------          |------------------------------------|
 |RBIO_RG_STORAGE        | 페이지 서버에서 로그 사용량이 지연 되어 하이퍼 크기 조정 데이터베이스 기본 계산 노드 로그 생성 비율이 제한 될 때 발생 합니다.         |
 |RBIO_RG_DESTAGE        | 장기 로그 저장소에의 한 로그 사용 지연으로 인해 Hyperscale 데이터베이스 계산 노드 로그 생성 비율이 제한 될 때 발생 합니다.         |

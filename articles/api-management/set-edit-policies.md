@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: a737fada3e019029967bc752aaa0dedc354fa880
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92078326"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
@@ -37,7 +37,7 @@ ms.locfileid: "92078326"
 
 4. 이전에 가져온 API 중 하나를 선택합니다.
 5. **디자인** 탭을 선택합니다.
-6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업**을 선택합니다.
+6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업** 을 선택합니다.
 7. **</>** **인바운드 처리** 또는 **아웃 바운드 처리** 섹션에서 (코드 편집기) 아이콘을 선택 합니다.
 8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
 
@@ -75,17 +75,17 @@ ms.locfileid: "92078326"
 
 ### <a name="global-scope"></a>전역 범위
 
-전역 범위는 APIM 인스턴스의 **모든 API**에 대해 구성됩니다.
+전역 범위는 APIM 인스턴스의 **모든 API** 에 대해 구성됩니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 APIM 인스턴스로 이동합니다.
-2. **모든 API**를 클릭합니다.
+2. **모든 API** 를 클릭합니다.
 
     ![전역 범위](./media/api-management-howto-policies/global-scope.png)
 
 3. 삼각형 아이콘을 클릭합니다.
-4. **코드 편집기**를 선택합니다.
+4. **코드 편집기** 를 선택합니다.
 5. 정책을 추가하거나 편집합니다.
-6. **저장**을 누릅니다. 
+6. **저장** 을 누릅니다. 
 
     이러한 변경 내용은 API Management 게이트웨이에 즉시 전파됩니다.
 
@@ -93,42 +93,42 @@ ms.locfileid: "92078326"
 
 제품 범위는 선택한 제품에 대해 구성됩니다.
 
-1. **제품**을 클릭합니다.
+1. **제품** 을 클릭합니다.
 
     ![제품 범위](./media/api-management-howto-policies/product-scope.png)
 
 2. 정책을 적용하려는 제품을 선택합니다.
-3. **정책**을 클릭합니다.
+3. **정책** 을 클릭합니다.
 4. 정책을 추가하거나 편집합니다.
-5. **저장**을 누릅니다. 
+5. **저장** 을 누릅니다. 
 
 ### <a name="api-scope"></a>API 범위
 
-API 범위는 선택한 API의 **모든 작업**에 대해 구성됩니다.
+API 범위는 선택한 API의 **모든 작업** 에 대해 구성됩니다.
 
-1. 정책을 적용하려는 **API**를 선택합니다.
+1. 정책을 적용하려는 **API** 를 선택합니다.
 
     ![API 범위](./media/api-management-howto-policies/api-scope.png)
 
-2. **모든 작업**을 선택합니다.
+2. **모든 작업** 을 선택합니다.
 3. 삼각형 아이콘을 클릭합니다.
-4. **코드 편집기**를 선택합니다.
+4. **코드 편집기** 를 선택합니다.
 5. 정책을 추가하거나 편집합니다.
-6. **저장**을 누릅니다. 
+6. **저장** 을 누릅니다. 
 
 ### <a name="operation-scope"></a>작업 범위 
 
 작업 범위는 선택한 작업에 대해 구성됩니다.
 
-1. **API**를 선택 합니다.
+1. **API** 를 선택 합니다.
 2. 정책을 적용하려는 작업을 선택합니다.
 
     ![작업 범위](./media/api-management-howto-policies/operation-scope.png)
 
 3. 삼각형 아이콘을 클릭합니다.
-4. **코드 편집기**를 선택합니다.
+4. **코드 편집기** 를 선택합니다.
 5. 정책을 추가하거나 편집합니다.
-6. **저장**을 누릅니다. 
+6. **저장** 을 누릅니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

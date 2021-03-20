@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9dfce7b76eed5bfc9f4979c0e3041b6c65c28422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88749381"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Azure Storage 탐색기를 사용 하 여 Azure managed disks 관리
@@ -33,7 +33,7 @@ Storage 탐색기 Azure에 연결 되지 않은 경우 리소스를 관리 하�
 
     ![플러그 인 아이콘을 클릭 합니다.](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon.png)
 
-1. **Azure 계정 추가**를 선택 하 고 **다음**을 클릭 합니다.
+1. **Azure 계정 추가** 를 선택 하 고 **다음** 을 클릭 합니다.
 
     ![Azure 계정 추가](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure.png)
 
@@ -41,7 +41,7 @@ Storage 탐색기 Azure에 연결 되지 않은 경우 리소스를 관리 하�
 
     ![Azure 로그인 대화 상자](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
 
-1. 목록에서 구독을 선택하고 **적용**을 클릭합니다.
+1. 목록에서 구독을 선택하고 **적용** 을 클릭합니다.
 
     ![구독 선택](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
@@ -51,7 +51,7 @@ Storage 탐색기 Azure에 연결 되지 않은 경우 리소스를 관리 하�
 
     ![리소스 그룹 1 선택](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. **업로드**를 선택합니다.
+1. **업로드** 를 선택합니다.
 
     ![업로드 선택](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 
@@ -60,11 +60,11 @@ Storage 탐색기 Azure에 연결 되지 않은 경우 리소스를 관리 하�
 
     ![Vhd 업로드 대화 상자](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog.png)
 
-1. 이제 업로드 상태가 **활동**에 표시 됩니다.
+1. 이제 업로드 상태가 **활동** 에 표시 됩니다.
 
     ![업로드 상태](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading.png)
 
-1. 업로드가 완료 되 고 오른쪽 창에 디스크가 표시 되지 않으면 **새로 고침**을 선택 합니다.
+1. 업로드가 완료 되 고 오른쪽 창에 디스크가 표시 되지 않으면 **새로 고침** 을 선택 합니다.
 
 ## <a name="download-a-managed-disk"></a>관리 디스크 다운로드
 
@@ -79,7 +79,7 @@ Storage 탐색기 Azure에 연결 되지 않은 경우 리소스를 관리 하�
 
     ![관리 디스크 다운로드](media/disks-upload-vhd-to-managed-disk-storage-explorer/download-button.png)
 
-1. **저장** 을 선택 하면 디스크가 다운로드를 시작 합니다. 다운로드 상태가 **활동**에 표시 됩니다.
+1. **저장** 을 선택 하면 디스크가 다운로드를 시작 합니다. 다운로드 상태가 **활동** 에 표시 됩니다.
 
     ![다운로드 상태](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-downloading.png)
 
@@ -91,7 +91,7 @@ Storage 탐색기를 사용 하면 지역 내에서 또는 지역 간에 관리 
 
     ![리소스 그룹 1 선택](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. 오른쪽 창에서 복사 하려는 디스크를 선택 하 고 **복사**를 선택 합니다.
+1. 오른쪽 창에서 복사 하려는 디스크를 선택 하 고 **복사** 를 선택 합니다.
 
     ![관리 디스크 복사](media/disks-upload-vhd-to-managed-disk-storage-explorer/copy-button.png)
 
@@ -107,7 +107,7 @@ Storage 탐색기를 사용 하면 지역 내에서 또는 지역 간에 관리 
 
     ![디스크 붙여넣기 대화 상자](media/disks-upload-vhd-to-managed-disk-storage-explorer/paste-disk-dialog.png)
 
-1. **붙여넣기** 를 선택 하면 디스크가 복사를 시작 하 고 상태가 **활동**에 표시 됩니다.
+1. **붙여넣기** 를 선택 하면 디스크가 복사를 시작 하 고 상태가 **활동** 에 표시 됩니다.
 
     ![붙여넣기 상태 복사](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-copying.png)
 
@@ -117,11 +117,11 @@ Storage 탐색기를 사용 하면 지역 내에서 또는 지역 간에 관리 
 
     ![리소스 그룹 1 선택](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. 오른쪽에서 스냅숏 할 디스크를 선택 하 고 **스냅숏 만들기**를 선택 합니다.
+1. 오른쪽에서 스냅숏 할 디스크를 선택 하 고 **스냅숏 만들기** 를 선택 합니다.
 
     ![스냅샷 만들기](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
 
-1. **스냅숏 만들기**에서 스냅숏을 만들 리소스 그룹 뿐만 아니라 스냅숏의 이름을 지정 합니다. 그런 다음 **만들기**를 선택합니다.
+1. **스냅숏 만들기** 에서 스냅숏을 만들 리소스 그룹 뿐만 아니라 스냅숏의 이름을 지정 합니다. 그런 다음 **만들기** 를 선택합니다.
 
     ![스냅숏 만들기 대화 상자](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 

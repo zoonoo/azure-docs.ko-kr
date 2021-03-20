@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f63ab040e750c0c642c9656a5482529b926e9295
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392115"
 ---
 # <a name="data-streaming-in-azure-sql-edge"></a>Azure SQL Edge의 데이터 스트리밍
@@ -35,15 +35,15 @@ T-sql 스트리밍은 [Azure Stream Analytics](../stream-analytics/stream-analyt
 
 Stream analytics 작업은 다음으로 구성 됩니다.
 
-- **스트림 입력** : 데이터 스트림을 읽을 데이터 소스에 대 한 연결을 정의 합니다. 현재 Azure SQL Edge는 다음과 같은 스트림 입력 유형을 지원합니다.
+- **스트림 입력**: 데이터 스트림을 읽을 데이터 소스에 대 한 연결을 정의 합니다. 현재 Azure SQL Edge는 다음과 같은 스트림 입력 유형을 지원합니다.
     - 에지 허브
     - Kafka 어 (Kafka 입력에 대 한 지원은 현재 Azure SQL Edge의 Intel/AMD64 버전 에서만 사용 가능 합니다.)
 
-- **스트림 출력** : 데이터 스트림을 쓸 데이터 원본에 대 한 연결을 정의 합니다. 현재 Azure SQL Edge는 다음과 같은 스트림 출력 유형을 지원합니다.
+- **스트림 출력**: 데이터 스트림을 쓸 데이터 원본에 대 한 연결을 정의 합니다. 현재 Azure SQL Edge는 다음과 같은 스트림 출력 유형을 지원합니다.
     - 에지 허브
     - Sql (sql 출력은 Azure SQL Edge 인스턴스 내의 로컬 데이터베이스 또는 원격 SQL Server 또는 Azure SQL Database 일 수 있습니다.) 
 
-- **스트림 쿼리** : 스트림 출력에 기록 되기 전에 입력 스트림에 적용할 변환, 집계, 필터, 정렬 및 조인을 정의 합니다. 스트림 쿼리는 Stream Analytics에서 사용 하는 것과 동일한 쿼리 언어를 기반으로 합니다. 자세한 내용은 [Stream Analytics 쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference)를 참조 하세요.
+- **스트림 쿼리**: 스트림 출력에 기록 되기 전에 입력 스트림에 적용할 변환, 집계, 필터, 정렬 및 조인을 정의 합니다. 스트림 쿼리는 Stream Analytics에서 사용 하는 것과 동일한 쿼리 언어를 기반으로 합니다. 자세한 내용은 [Stream Analytics 쿼리 언어](/stream-analytics-query/stream-analytics-query-language-reference)를 참조 하세요.
 
 > [!IMPORTANT]
 > Stream Analytics와 달리 t-sql 스트리밍은 현재 [조회에 대 한 참조 데이터를 사용](../stream-analytics/stream-analytics-use-reference-data.md) 하거나 [스트림 작업에서 UDF의 및 UDA를 사용 하는 것](../stream-analytics/streaming-technologies.md#you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c)을 지원 하지 않습니다.

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7317fd66303aaabf5232106aa7391439880bebaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260290"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -20,7 +20,7 @@ ms.locfileid: "86260290"
 |명령|설명|
 | --- | --- |
 | approve-force | 지정된 복구 작업의 승인을 강제 적용합니다. |
-| 삭제 | 완료된 복구 작업을 삭제합니다. |
+| delete | 완료된 복구 작업을 삭제합니다. |
 | list | 지정된 필터와 일치하는 복구 작업 목록을 가져옵니다. |
 
 ## <a name="sfctl-rpm-approve-force"></a>sfctl rpm approve-force

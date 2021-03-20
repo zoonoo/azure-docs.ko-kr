@@ -12,10 +12,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 043cf83d804803e1b5b47d3ac51bbccaa06e4e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87116413"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책
@@ -53,7 +53,7 @@ Azure AD B2C의 사용자 흐름은 위에서 설명한 파일 패턴을 따릅�
 Azure의 CIAM(고객 ID 및 액세스 관리) 서비스에는 다음이 포함됩니다.
 
 - Microsoft Graph를 통해 액세스할 수 있고 로컬 계정 및 페더레이션된 계정 모두에 대한 사용자 데이터를 보유하는 사용자 디렉터리
-- 사용자와 엔터티 간의 신뢰를 조정하고, ID 또는 액세스 관리 작업을 완료하기 위해 이들 간에 클레임을 전달하는 **ID 경험 프레임워크**에 대한 액세스
+- 사용자와 엔터티 간의 신뢰를 조정하고, ID 또는 액세스 관리 작업을 완료하기 위해 이들 간에 클레임을 전달하는 **ID 경험 프레임워크** 에 대한 액세스
 - ID 토큰, 새로 고침 토큰 및 액세스 토큰(및 해당하는 SAML 어설션)을 발급하고 유효성을 검사하여 리소스를 보호는 STS(보안 토큰 서비스)
 
 Azure AD B2C는 순서대로 ID 공급자, 사용자, 고객, 기타 시스템 및 로컬 사용자 디렉터리와 상호 작용하여 ID 작업을 완료합니다. 예를 들어 사용자를 로그인하거나, 새 사용자를 등록하거나, 암호를 다시 설정합니다. ID 경험 프레임워크 및 정책(사용자 경험 또는 보안 프레임워크 정책이라고도 함)은 다자간 신뢰를 설정하고 행위자, 작업, 프로토콜 및 완료할 단계 시퀀스를 명시적으로 정의합니다.

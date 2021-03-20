@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0a5ebd4822c5f0ff1735464bb4d5b42c436ee529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86260321"
 ---
 # <a name="sfctl-property"></a>sfctl property
@@ -19,7 +19,7 @@ Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
 
 |명령|설명|
 | --- | --- |
-| 삭제 | 지정된 Service Fabric 속성을 삭제합니다. |
+| delete | 지정된 Service Fabric 속성을 삭제합니다. |
 | Get | 지정된 Service Fabric 속성을 가져옵니다. |
 | list | 지정된 이름에서 모든 Service Fabric 속성에 대한 정보를 가져옵니다. |
 | put | Service Fabric 속성을 만들거나 업데이트합니다. |
