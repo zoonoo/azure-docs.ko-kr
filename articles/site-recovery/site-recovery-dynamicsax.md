@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86133815"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
@@ -25,7 +25,7 @@ ms.locfileid: "86133815"
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 복구를 구현하려면 다음과 같은 필수 조건을 완료해야 합니다.
 
@@ -99,9 +99,9 @@ Site Recovery에서 복구 계획을 만들어 장애 조치 프로세스를 자
 
 1. 구독에서 Site Recovery 자격 증명 모음을 선택하고 **복구 계획** 타일을 클릭합니다.
 
-2. **+ 복구 계획**을 선택하고 이름을 지정합니다.
+2. **+ 복구 계획** 을 선택하고 이름을 지정합니다.
 
-3. **원본** 및 **대상**을 선택합니다. 대상으로 Azure 또는 보조 사이트를 지정할 수 있습니다. Azure를 선택하는 경우 배포 모델을 지정해야 합니다.
+3. **원본** 및 **대상** 을 선택합니다. 대상으로 Azure 또는 보조 사이트를 지정할 수 있습니다. Azure를 선택하는 경우 배포 모델을 지정해야 합니다.
 
     ![복구 계획 만들기](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
@@ -137,13 +137,13 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 2. Dynamics AX에 대해 만든 복구 계획을 선택합니다.
 
-3. **테스트 장애 조치**를 선택합니다.
+3. **테스트 장애 조치 (Failover)** 를 선택 합니다.
 
 4. 테스트 장애 조치(failover) 프로세스를 시작할 가상 네트워크를 선택합니다.
 
 5. 보조 환경이 가동되면 유효성 검사를 수행할 수 있습니다.
 
-6. 유효성 검사가 완료되면 **유효성 검사 완료**를 선택합니다. 테스트 장애 조치(failover) 환경이 정리됩니다.
+6. 유효성 검사가 완료되면 **유효성 검사 완료** 를 선택합니다. 테스트 장애 조치(failover) 환경이 정리됩니다.
 
 테스트 장애 조치 수행에 대한 자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치](site-recovery-test-failover-to-azure.md)를 참조하세요.
 
@@ -153,9 +153,9 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 2. Dynamics AX에 대해 만든 복구 계획을 선택합니다.
 
-3. **장애 조치**를 선택하고 **장애 조치**를 선택합니다.
+3. **장애 조치** 를 선택하고 **장애 조치** 를 선택합니다.
 
-4. 대상 네트워크를 선택하고 **✓**를 선택하여 장애 조치 프로세스를 시작합니다.
+4. 대상 네트워크를 선택하고 **✓** 를 선택하여 장애 조치 프로세스를 시작합니다.
 
 장애 조치 수행에 대한 자세한 내용은 [Site Recovery에서 장애 조치](site-recovery-failover.md)를 참조하세요.
 
@@ -167,13 +167,13 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 2. Dynamics AX에 대해 만든 복구 계획을 선택합니다.
 
-3. **장애 조치**를 선택하고 **장애 조치**를 선택합니다.
+3. **장애 조치** 를 선택하고 **장애 조치** 를 선택합니다.
 
-4. **방향 변경**을 선택합니다.
+4. **방향 변경** 을 선택합니다.
 
 5. 데이터 동기화 및 VM 만들기 중 적절한 옵션을 선택합니다.
 
-6. **✓**를 선택하여 장애 복구 프로세스를 시작합니다.
+6. **✓** 를 선택하여 장애 복구 프로세스를 시작합니다.
 
 
 장애 복구 수행에 대한 자세한 내용은 [Azure에서 온-프레미스로의 VMware VM 장애 복구](./vmware-azure-failback.md)를 참조하세요.

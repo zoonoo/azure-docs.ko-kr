@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 097db6683127b410e713be53e6de838cf7734ddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91400726"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Excel Online 데이터 관리
@@ -46,7 +46,7 @@ ms.locfileid: "91400726"
 
 1. [Azure Portal](https://portal.azure.com)의 Logic App 디자이너에서 논리 앱을 엽니다(아직 열려 있지 않은 경우).
 
-1. 트리거 아래에서 **새 단계**를 선택합니다.
+1. 트리거 아래에서 **새 단계** 를 선택합니다.
 
 1. 검색 상자에서 필터로 “excel”을 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 

@@ -4,10 +4,10 @@ description: Azure에서 데이터를 백업 및 복원할 수 있는 테이프�
 ms.topic: conceptual
 ms.date: 04/30/2017
 ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89378443"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>장기 스토리지를 테이프에서 Azure 클라우드로 이동

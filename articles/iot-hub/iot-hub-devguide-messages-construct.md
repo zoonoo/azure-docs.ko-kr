@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: 6d6b7122963b51619f26b8d02a8be4ad39261afb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92147698"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
@@ -30,7 +30,7 @@ IoT Hub 메시지는 다음으로 구성됩니다.
 
 * 아래에 나열된 미리 결정된 *시스템 속성* 집합
 
-* *애플리케이션 속성*집합. 메시지 본문을 역직렬화할 필요 없이 애플리케이션이 정의하고 액세스할 수 있는 문자열 속성 사전입니다. IoT Hub는 절대로 이러한 속성을 수정하지 않습니다.
+* *애플리케이션 속성* 집합. 메시지 본문을 역직렬화할 필요 없이 애플리케이션이 정의하고 액세스할 수 있는 문자열 속성 사전입니다. IoT Hub는 절대로 이러한 속성을 수정하지 않습니다.
 
 * 불투명한 이진 본문.
 
@@ -42,7 +42,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 
 * 디바이스-클라우드 메시지는 최대 256KB까지 가능하며 보내기를 최적화하기 위해 일괄 처리로 그룹화할 수 있습니다. Batch는 최대 256KB가 될 수 있습니다.
 
-* IoT Hub는 임의 분할을 허용하지 않습니다. 디바이스-클라우드 메시지는 원래 **deviceId**와 관련하여 분할됩니다.
+* IoT Hub는 임의 분할을 허용하지 않습니다. 디바이스-클라우드 메시지는 원래 **deviceId** 와 관련하여 분할됩니다.
 
 * [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)에서 설명한 것처럼, IoT Hub는 디바이스 단위 인증 및 액세스 제어를 허용합니다.
 
@@ -57,8 +57,8 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | message-id |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 길이 128자)입니다.  | 예 | messageId |
 | iothub-enqueuedtime |IoT Hub에서 [디바이스-클라우드](iot-hub-devguide-d2c-guidance.md) 메시지를 수신한 날짜 및 시간입니다. | 예 | enqueuedTime |
 | user-id |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. | 예 | userId |
-| iothub-connection-device-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **deviceId**를 포함합니다. | 예 | connectionDeviceId |
-| iothub-connection-module-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **moduleId**를 포함합니다. | 예 | connectionModuleId |
+| iothub-connection-device-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **deviceId** 를 포함합니다. | 예 | connectionDeviceId |
+| iothub-connection-module-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **moduleId** 를 포함합니다. | 예 | connectionModuleId |
 | iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **connectionDeviceGenerationId**([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당)를 포함합니다. | 예 |connectionDeviceGenerationId |
 | iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다.| 예 | connectionAuthMethod |
 | dt-dataschema | 이 값은 장치-클라우드 메시지의 IoT hub에 의해 설정 됩니다. 장치 연결에 설정 된 장치 모델 ID를 포함 합니다. | 아니요 | 해당 없음 |
@@ -113,7 +113,7 @@ IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으�
 * **iothub-connection-auth-generation-id**
 * **iothub-connection-auth-method**
 
-처음 두 가지는 [디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)에 따라 원래 디바이스의 **deviceId** 및 **generationId**를 포함합니다.
+처음 두 가지는 [디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)에 따라 원래 디바이스의 **deviceId** 및 **generationId** 를 포함합니다.
 
 **iothub-connection-auth-method** 속성은 다음 속성을 가진 JSON으로 직렬화된 개체를 포함합니다.
 

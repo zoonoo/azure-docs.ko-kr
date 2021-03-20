@@ -4,10 +4,10 @@ description: 파이프라인 빌드 및 릴리스 Azure Pipelines에서 Azure De
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88080337"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Azure Pipelines 빌드 및 릴리스 파이프라인에서 DevTest Labs 사용
@@ -67,7 +67,7 @@ DevTest Labs에서 환경을 만들고 환경에 배포 하는 세 가지 추가
 ![Azure DevTest Labs 환경 만들기 작업](./media/use-devtest-labs-build-release-pipelines/create-environment.png)
 
 ### <a name="populate-environment-task"></a>환경 채우기 작업
-두 번째 작업 (**환경 채우기 작업 Azure DevTest Labs** )은 기존 DevTest Labs 환경을 업데이트 하는 것입니다. 환경 만들기 작업은이 작업에 대 한 환경 이름을 구성 하는 데 사용 되는 **Baseenv. 환경 resourceid** 를 출력 합니다. 이 예제의 리소스 관리자 템플릿에는 **Adminusername** 및 **adminusername**의 두 매개 변수가 있습니다. 
+두 번째 작업 (**환경 채우기 작업 Azure DevTest Labs** )은 기존 DevTest Labs 환경을 업데이트 하는 것입니다. 환경 만들기 작업은이 작업에 대 한 환경 이름을 구성 하는 데 사용 되는 **Baseenv. 환경 resourceid** 를 출력 합니다. 이 예제의 리소스 관리자 템플릿에는 **Adminusername** 및 **adminusername** 의 두 매개 변수가 있습니다. 
 
 ![Azure DevTest Labs 환경 채우기 작업](./media/use-devtest-labs-build-release-pipelines/populate-environment.png)
 
@@ -77,11 +77,11 @@ DevTest Labs에서 환경을 만들고 환경에 배포 하는 세 가지 추가
 ![App Service 배포 작업](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
 ## <a name="set-up-release-pipeline"></a>릴리스 파이프라인 설정
-**Azure 배포: 리소스 그룹 만들기 또는 업데이트** 및 **Azure App Service 배포**의 두 가지 작업을 사용 하 여 릴리스 파이프라인을 만듭니다. 
+**Azure 배포: 리소스 그룹 만들기 또는 업데이트** 및 **Azure App Service 배포** 의 두 가지 작업을 사용 하 여 릴리스 파이프라인을 만듭니다. 
 
 첫 번째 작업의 경우 리소스 그룹의 이름과 위치를 지정 합니다. 템플릿 위치가 연결 된 아티팩트입니다. 리소스 관리자 템플릿에 연결 된 템플릿이 포함 된 경우 사용자 지정 리소스 그룹 배포를 구현 해야 합니다. 템플릿이 게시 된 drop 아티팩트에 있습니다. 리소스 관리자 템플릿에 대 한 템플릿 매개 변수를 재정의 합니다. 나머지 설정은 기본값을 그대로 유지할 수 있습니다. 
 
-두 번째 작업 **배포 Azure App Service**에 대해 Azure 구독을 지정 하 고, **앱 유형에**대해 **웹 앱** 을 선택 하 고, **App Service 이름**으로 **$ (websites)** 를 선택 합니다. 나머지 설정은 기본값을 그대로 유지할 수 있습니다. 
+두 번째 작업 **배포 Azure App Service** 에 대해 Azure 구독을 지정 하 고, **앱 유형에** 대해 **웹 앱** 을 선택 하 고, **App Service 이름** 으로 **$ (websites)** 를 선택 합니다. 나머지 설정은 기본값을 그대로 유지할 수 있습니다. 
 
 ## <a name="test-run"></a>테스트 실행
 이제 두 파이프라인이 모두 설정 되었으므로 수동으로 빌드를 큐에 대기 하 고 작동 하는지 확인 합니다. 다음 단계는 빌드에 대 한 적절 한 트리거를 설정 하 고 빌드를 릴리스 파이프라인에 연결 하는 것입니다.

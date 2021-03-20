@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421161"
 ---
 # <a name="two-class-neural-network-module"></a>신경망 모듈 Two-Class
@@ -38,17 +38,17 @@ ms.locfileid: "93421161"
   
 ## <a name="how-to-configure"></a>구성 방법
 
-1.  **2 클래스 신경망** 모듈을 파이프라인에 추가 합니다. 이 모듈은 **분류** 범주의 **Machine Learning** , **초기화** 에서 찾을 수 있습니다.  
+1.  **2 클래스 신경망** 모듈을 파이프라인에 추가 합니다. 이 모듈은 **분류** 범주의 **Machine Learning**, **초기화** 에서 찾을 수 있습니다.  
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    -   **단일 매개 변수** : 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.
+    -   **단일 매개 변수**: 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.
 
-    -   **매개 변수 범위** : 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.  
+    -   **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.  
 
 3.  **숨겨진 계층 사양의** 경우 만들 네트워크 아키텍처의 유형을 선택 합니다.  
   
-    -   **완전히 연결 된 사례** : 다음과 같이 2 클래스 신경망에 대해 정의 된 기본 신경망 아키텍처를 사용 합니다.
+    -   **완전히 연결 된 사례**: 다음과 같이 2 클래스 신경망에 대해 정의 된 기본 신경망 아키텍처를 사용 합니다.
   
         -   에는 숨겨진 레이어가 하나 있습니다.
   

@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 1d71b4472b16372927db56b20eca4fcbde0cc625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88005417"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱의 Windows 7 가상 컴퓨터 문제 해결 (클래식)
@@ -30,7 +30,7 @@ Windows 7 Windows 가상 데스크톱은 다음과 같은 기능을 지원 하�
 
 Windows 가상 데스크톱은 Windows 7 용 전체 데스크톱만 가상화 할 수 있습니다.
 
-자동 DPI 크기 조정이 지원 되지 않지만, 원격 데스크톱 클라이언트에서 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **해결**을 선택 하 여 가상 머신에서 해상도를 수동으로 변경할 수 있습니다.
+자동 DPI 크기 조정이 지원 되지 않지만, 원격 데스크톱 클라이언트에서 아이콘을 마우스 오른쪽 단추로 클릭 하 고 **해결** 을 선택 하 여 가상 머신에서 해상도를 수동으로 변경할 수 있습니다.
 
 ## <a name="error-cant-access-the-remote-desktop-user-group"></a>오류: 원격 데스크톱 사용자 그룹에 액세스할 수 없습니다.
 
@@ -43,7 +43,7 @@ Windows 가상 데스크톱이 원격 데스크톱 사용자 그룹에서 사용
 
 1. Azure Portal을 엽니다.
 2. 오류 메시지가 표시 된 가상 컴퓨터를 선택 합니다.
-3. **명령 실행을**선택 합니다.
+3. **명령 실행을** 선택 합니다.
 4. 다음 명령을 `<username>` 추가 하려는 사용자의 이름으로 대체 하 여 실행 합니다.
 
    ```cmd

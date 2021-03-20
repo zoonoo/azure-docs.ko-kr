@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: b0ffe022f6c61cf7d06c510c4f8fa5c764d72b42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067191"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 네임스페이스 및 큐에 대한 Service Bus 권한 부여 규칙 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "88067191"
 > * [토픽 및 구독이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인 하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문 하 여 **Service Bus**를 검색 합니다.
+> 최신 템플릿을 확인 하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문 하 여 **Service Bus** 를 검색 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -95,7 +95,7 @@ Service Bus 네임스페이스에 있는 큐의 이름입니다.
 
 ## <a name="resources-to-deploy"></a>배포할 리소스
 
-**메시징**형식의 표준 Service Bus 네임스페이스와 네임스페이스 및 엔터티에 대한 Service Bus 권한 부여 규칙을 만듭니다.
+**메시징** 형식의 표준 Service Bus 네임스페이스와 네임스페이스 및 엔터티에 대한 Service Bus 권한 부여 규칙을 만듭니다.
 
 ```json
 "resources": [

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 903cb3323b9441ec8bb382054f065760875e3e89
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632835"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool-preview"></a>일관 된 스냅숏 도구 Azure 애플리케이션 문제 해결 (미리 보기)

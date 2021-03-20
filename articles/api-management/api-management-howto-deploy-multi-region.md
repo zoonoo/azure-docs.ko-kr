@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88065457"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
@@ -50,7 +50,7 @@ Azure API Management는 여러 지역 배포를 지원 하므로 API 게시자�
 
 1. Azure Portal에서 API Management 서비스로 이동 하 고 메뉴에서 **위치** 항목을 클릭 합니다.
 2. 제거할 위치에 대해 테이블의 오른쪽 끝에 있는 **...** 단추를 사용하여 상황에 맞는 메뉴를 엽니다. **삭제** 옵션을 선택합니다.
-3. 삭제를 확인하고 **저장**을 클릭하여 변경 내용을 적용합니다.
+3. 삭제를 확인하고 **저장** 을 클릭하여 변경 내용을 적용합니다.
 
 ## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>지역 백 엔드 서비스로 API 호출 라우팅
 
@@ -58,9 +58,9 @@ Azure API Management는 백 엔드 서비스 URL을 하나만 제공합니다. �
 
 시스템의 지리적 분포를 최대한 활용하려면 Azure API Management 인스턴스와 동일한 지역에 백 엔드 서비스를 배포해야 합니다. 그런 다음, 정책과 `@(context.Deployment.Region)` 속성을 사용하여 백 엔드의 로컬 인스턴스로 트래픽을 라우팅하면 됩니다.
 
-1. Azure API Management 인스턴스로 이동하여 왼쪽 메뉴에서 **API**를 클릭합니다.
+1. Azure API Management 인스턴스로 이동하여 왼쪽 메뉴에서 **API** 를 클릭합니다.
 2. 원하는 API를 선택합니다.
-3. **인바운드 처리**의 화살표 드롭다운에서 **코드 편집기**를 클릭합니다.
+3. **인바운드 처리** 의 화살표 드롭다운에서 **코드 편집기** 를 클릭합니다.
 
     ![API 코드 편집기](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
 

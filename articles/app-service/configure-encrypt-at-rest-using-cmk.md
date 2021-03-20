@@ -4,10 +4,10 @@ description: Azure Storage에서 응용 프로그램 데이터를 암호화 하 
 ms.topic: article
 ms.date: 03/06/2020
 ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92146053"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
@@ -71,7 +71,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 저장소 계정의 SAS 키를 정기적으로 회전 하는 것이 좋습니다. 웹 앱이 실수로 액세스를 완화 하지 않도록 하려면 Key Vault에서 SAS URL도 업데이트 해야 합니다.
 
-1. Azure Portal에서 저장소 계정으로 이동 하 여 SAS 키를 회전 합니다. **설정**  >  **액세스 키**에서 아이콘을 클릭 하 여 SAS 키를 회전 합니다.
+1. Azure Portal에서 저장소 계정으로 이동 하 여 SAS 키를 회전 합니다. **설정**  >  **액세스 키** 에서 아이콘을 클릭 하 여 SAS 키를 회전 합니다.
 
 1. 새 SAS URL을 복사 하 고 다음 명령을 사용 하 여 주요 자격 증명 모음에 업데이트 된 SAS URL을 설정 합니다.
 

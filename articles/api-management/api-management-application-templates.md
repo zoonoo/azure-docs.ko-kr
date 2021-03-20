@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1452f380cec711fb224f532ccb02d11c5bbad697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86255186"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API Management의 애플리케이션 템플릿
@@ -27,7 +27,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 -   [애플리케이션 목록](#ProductList)  
   
--   [애플리케이션](#Application)  
+-   [응용 프로그램](#Application)  
   
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](./api-management-developer-portal-templates.md)을 참조하세요.  
@@ -80,7 +80,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|설명|  
+|속성|Type|설명|  
 |--------------|----------|-----------------|  
 |`Paging`|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|애플리케이션 컬렉션에 대한 페이징 정보입니다.|  
 |`Applications`|[애플리케이션](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 애플리케이션입니다.|  

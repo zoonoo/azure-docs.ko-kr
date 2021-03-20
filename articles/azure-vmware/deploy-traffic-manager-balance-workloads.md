@@ -4,10 +4,10 @@ description: Azure VMware 솔루션과 Traffic Manager를 통합 하 여 여러 
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988603"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Traffic Manager를 배포 하 여 Azure VMware 솔루션 워크 로드 균형 조정

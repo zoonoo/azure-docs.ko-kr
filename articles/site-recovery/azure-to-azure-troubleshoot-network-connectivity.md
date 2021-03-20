@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
 ms.openlocfilehash: 24ffce1528aa5c82fec9666fa0cb7b8717107f54
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97652265"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
@@ -108,7 +108,7 @@ Azure Site Recovery 서비스 끝점에 대 한 연결을 설정할 수 없습�
 
 #### <a name="resolution"></a>해결 방법
 
-Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세히 알아봅니다](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세한 정보를 알아보세요](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과 하는 경우 Azure-Azure 복제가 실패 함 (151072)
 

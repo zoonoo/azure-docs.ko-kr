@@ -7,10 +7,10 @@ ms.date: 07/09/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88007814"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
@@ -69,18 +69,18 @@ Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -Re
 
 Azure Portal에서 세션 호스트에 사용자를 직접 할당 하려면 다음을 수행 합니다.
 
-1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
+1. <https://portal.azure.com> 에서 Azure Portal에 로그인합니다.
 2. 검색 창에 **Windows 가상 데스크톱** 을 입력 합니다.
-3. **서비스**에서 **Windows 가상 데스크톱**을 선택 합니다.
-4. Windows 가상 데스크톱 페이지에서 창의 왼쪽에 있는 메뉴로 이동 하 여 **호스트 풀**을 선택 합니다.
+3. **서비스** 에서 **Windows 가상 데스크톱** 을 선택 합니다.
+4. Windows 가상 데스크톱 페이지에서 창의 왼쪽에 있는 메뉴로 이동 하 여 **호스트 풀** 을 선택 합니다.
 5. 업데이트 하려는 호스트 풀의 이름을 선택 합니다.
-6. 다음으로 창의 왼쪽에 있는 메뉴로 이동 하 고 **응용 프로그램 그룹**을 선택 합니다.
+6. 다음으로 창의 왼쪽에 있는 메뉴로 이동 하 고 **응용 프로그램 그룹** 을 선택 합니다.
 7. 편집할 데스크톱 앱 그룹의 이름을 선택 하 고 창의 왼쪽에 있는 메뉴에서 **할당** 을 선택 합니다.
-8. **+ 추가**를 선택 하 고이 데스크톱 앱 그룹을 게시할 사용자 또는 사용자 그룹을 선택 합니다.
+8. **+ 추가** 를 선택 하 고이 데스크톱 앱 그룹을 게시할 사용자 또는 사용자 그룹을 선택 합니다.
 9. 알림 표시줄에서 **VM 할당** 을 선택 하 여 세션 호스트를 사용자에 게 할당 합니다.
-10. 사용자에 게 할당 하려는 세션 호스트를 선택 하 고 **할당**을 선택 합니다.
+10. 사용자에 게 할당 하려는 세션 호스트를 선택 하 고 **할당** 을 선택 합니다.
 11. 사용 가능한 사용자 목록에서 세션 호스트를 할당 하려는 사용자를 선택 합니다.
-12. 완료 되 면 **선택**을 선택 합니다.
+12. 완료 되 면 **선택** 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

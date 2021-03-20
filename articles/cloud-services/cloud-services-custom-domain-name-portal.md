@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742372"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스에 대 한 사용자 지정 도메인 이름 구성 (클래식)
@@ -47,7 +47,7 @@ CNAME 레코드는 **contoso.com** 또는 **www \. contoso.com** 와 같은 *특
 > [!NOTE]
 > 일부 도메인 등록 기관은 \. contoso.com와 같이 루트 이름이 아닌 CNAME 레코드를 사용 하는 경우 하위 도메인을 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 [CNAME 레코드에 대한 Wikipedia 항목](https://en.wikipedia.org/wiki/CNAME_record) 또는 [IETF 도메인 이름 - 구현 및 사양](https://tools.ietf.org/html/rfc1035) 문서를 참조하세요.
 
-### <a name="a-record"></a>A 레코드
+### <a name="a-record"></a>A 레코드를
 *A* 레코드는 **contoso.com** 또는 **www \. contoso.com** 같은 도메인 또는 **\* contoso.com** 와 같은 *와일드 카드 도메인* 을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 CNAME 레코드에 대 한 A 레코드의 주요 혜택은 contoso.com와 같이 와일드 카드를 사용 하는 하나의 항목을 사용할 수 있다는 것입니다 .이는 \* **mail.contoso.com**, **login.contoso.com** 또는 **www \. contso.com** 같은 여러 하위 도메인에 대 한 요청을 처리 *_합니다._*
 
 > [!NOTE]

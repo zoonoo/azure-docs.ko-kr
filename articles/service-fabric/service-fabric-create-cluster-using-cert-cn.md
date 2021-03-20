@@ -4,10 +4,10 @@ description: 템플릿의 인증서 일반 이름을 사용하여 Service Fabric
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: c852b40d35f936753d3c16420159676da239b6c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86246438"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>지문 대신 인증서 일반 이름을 사용하는 Service Fabric 클러스터 배포
@@ -113,14 +113,14 @@ Write-Host "Common Name              :"  $CommName
     },
     ```
 
-    또한 *certificateThumbprint*이 더 이상 필요 없으면 제거해도 됩니다.
+    또한 *certificateThumbprint* 이 더 이상 필요 없으면 제거해도 됩니다.
 
 2. *sfrpApiVersion* 변수 값을 "2018-02-01"로 설정합니다.
     ```json
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **Virtualmachineprofile** -> **extensionprofile** -> **확장** -> **속성** -> **설정** -> **인증서**에서를 추가 합니다. 
+3. **Microsoft.Compute/virtualMachineScaleSets** 리소스에서 지문 대신 인증서 설정의 일반 이름을 사용하도록 가상 머신 확장을 업데이트합니다.  **Virtualmachineprofile** -> **extensionprofile** -> **확장** -> **속성** -> **설정** -> **인증서** 에서를 추가 합니다. 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"

@@ -4,10 +4,10 @@ description: 이 문서에서는 Kafka에 대한 Azure Event Hubs에서 Apache S
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913741"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Azure Event Hubs를 사용 하 여 Apache Spark 응용 프로그램 연결
@@ -24,7 +24,7 @@ ms.locfileid: "92913741"
 > * Kafka용 Event Hubs에서 읽기
 > * Kafka용 Event Hubs에 쓰기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 먼저 다음 사항을 확인해야 합니다.
 -   동작합니다. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.

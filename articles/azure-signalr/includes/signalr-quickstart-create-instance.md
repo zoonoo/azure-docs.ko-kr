@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 author: anthonychu
 ms.service: signalr
@@ -8,21 +8,21 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: f738daab7ddcf0403f546e7c9ffeaeccb66bc6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91355649"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Azure SignalR Service 인스턴스 만들기
 
 애플리케이션이 Azure의 SignalR Service 인스턴스에 연결됩니다.
 
-1. Azure Portal의 왼쪽 위에 있는 새로 만들기 단추를 선택합니다. 새 화면의 검색 상자에서 *SignalR Service*를 입력한 후 Enter 키를 누릅니다.
+1. Azure Portal의 왼쪽 위에 있는 새로 만들기 단추를 선택합니다. 새 화면의 검색 상자에서 *SignalR Service* 를 입력한 후 Enter 키를 누릅니다.
 
     ![Azure Portal의 SignalR Service 검색을 보여주는 스크린샷](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
 
-1. 검색 결과에서 **SignalR Service**를 선택한 다음, **만들기**를 선택합니다.
+1. 검색 결과에서 **SignalR Service** 를 선택한 다음, **만들기** 를 선택합니다.
 
 1. 다음 설정을 입력합니다.
 
@@ -38,6 +38,6 @@ ms.locfileid: "91355649"
 
     ![값이 있는 SignalR 기본 사항 탭을 보여주는 스크린샷](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
-1. **만들기**를 선택하여 SignalR Service 인스턴스 배포를 시작하세요.
+1. **만들기** 를 선택하여 SignalR Service 인스턴스 배포를 시작하세요.
 
-1. 인스턴스가 배포되면 포털에서 열고 해당 설정 페이지를 찾습니다. Azure Functions 바인딩이나 REST API를 통해 Azure SignalR Service를 사용하는 경우에만 서비스 모드 설정을 *서버리스*로 변경합니다. 그렇지 않으면 *클래식*이나 *기본값*으로 유지합니다.
+1. 인스턴스가 배포되면 포털에서 열고 해당 설정 페이지를 찾습니다. Azure Functions 바인딩이나 REST API를 통해 Azure SignalR Service를 사용하는 경우에만 서비스 모드 설정을 *서버리스* 로 변경합니다. 그렇지 않으면 *클래식* 이나 *기본값* 으로 유지합니다.

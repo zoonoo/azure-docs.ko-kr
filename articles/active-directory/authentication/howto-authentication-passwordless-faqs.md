@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ca4943293f9474d4089267d05460d6d8766b79e6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646387"
 ---
 # <a name="deployment-frequently-asked-questions-faqs-for-hybrid-fido2-security-keys-in-azure-ad"></a>Azure AD에서 하이브리드 FIDO2 보안 키에 대 한 배포 Faq (질문과 대답) 
@@ -157,7 +157,7 @@ Windows Server 2016 또는 2019 도메인 컨트롤러에서 다음 패치가 �
 
 아니요,이 기능은 온-프레미스 전용 장치에 대해서는 지원 되지 않습니다. FIDO2 자격 증명 공급자가 표시 되지 않습니다.
 
-### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>도메인 관리자 또는 기타 높은 권한 계정에 대해 FIDO2 보안 키 로그인이 작동 하지 않습니다. 그 이유는
+### <a name="fido2-security-key-sign-in-isnt-working-for-my-domain-admin-or-other-high-privilege-accounts-why"></a>도메인 관리자 또는 기타 높은 권한 계정에 대해 FIDO2 보안 키 로그인이 작동 하지 않습니다. 이유
 
 기본 보안 정책은 온-프레미스 리소스에 대 한 높은 권한 계정에 로그인 할 수 있는 권한을 Azure AD에 부여 하지 않습니다.
 

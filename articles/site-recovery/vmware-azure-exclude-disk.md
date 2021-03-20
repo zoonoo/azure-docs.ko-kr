@@ -7,10 +7,10 @@ ms.date: 12/10/2019
 ms.author: mayg
 ms.topic: conceptual
 ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129872"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>VMware VM 복제에서 Azure로 디스크 제외
@@ -42,7 +42,7 @@ ms.locfileid: "86129872"
 
 ## <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 
-1. VMware vm에 대해 [복제를 사용 하도록 설정](./hyper-v-azure-tutorial.md) 하는 경우 복제 하려는 vm을 선택한 후 **복제**  >  **속성**사용  >  **속성 구성** 페이지에서 **복제할 디스크** 열을 검토 합니다. 기본적으로 모든 디스크는 복제를 위해 선택 됩니다.
+1. VMware vm에 대해 [복제를 사용 하도록 설정](./hyper-v-azure-tutorial.md) 하는 경우 복제 하려는 vm을 선택한 후 **복제**  >  **속성** 사용  >  **속성 구성** 페이지에서 **복제할 디스크** 열을 검토 합니다. 기본적으로 모든 디스크는 복제를 위해 선택 됩니다.
 2. 특정 디스크를 복제 하지 않으려는 경우 **디스크에서 복제할** 디스크의 선택을 취소 합니다. 
 
     ![복제에서 디스크 제외](./media/vmware-azure-exclude-disk/enable-replication-exclude-disk1.png)

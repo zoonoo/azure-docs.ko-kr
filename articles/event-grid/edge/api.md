@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 414487d460d897eff787b11915db560706b29eb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171757"
 ---
 # <a name="rest-api"></a>REST API
@@ -31,9 +31,9 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 ```?api-version=2019-01-01-preview```
 
 ### <a name="request-content-type"></a>요청 내용 유형
-모든 API 요청은 **콘텐츠 형식**이어야 합니다.
+모든 API 요청은 **콘텐츠 형식** 이어야 합니다.
 
-**Eventgridschema** 또는 **Customschema**의 경우 content-type 값은 다음 값 중 하나일 수 있습니다.
+**Eventgridschema** 또는 **Customschema** 의 경우 content-type 값은 다음 값 중 하나일 수 있습니다.
 
 ```Content-Type: application/json```
 
@@ -554,10 +554,10 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 - 각 배열 항목은 JSON 개체 여야 합니다.
 - 다른 제약 조건 (페이로드 크기 제외)이 없습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="set-up-topic-with-eventgrid-schema"></a>EventGrid 스키마를 사용 하 여 토픽 설정
-이벤트를 **eventgridschema**에 게시 해야 하는 항목을 설정 합니다.
+이벤트를 **eventgridschema** 에 게시 해야 하는 항목을 설정 합니다.
 
 ```json
     {

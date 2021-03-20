@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
 ms.openlocfilehash: 647ac363dd81604f0a5a1d750d98a3349beb19c0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931721"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Blob storage 공유 액세스 서명을 사용 하 여 HDInsight에서 데이터에 대 한 액세스 제한
@@ -208,7 +208,7 @@ Set-AzStorageblobcontent `
 
 3. **설정** 을 선택하고 다음 항목에 대한 값을 추가합니다.
 
-    |항목 |Description |
+    |항목 |설명 |
     |---|---|
     |StorageConnectionString|저장된 정책 및 SAS를 만들 스토리지 계정에 대한 연결 문자열입니다. 형식은 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`여야 하며 여기서 `myaccount`는 사용자의 스토리지 계정 이름이고 `mykey`는 스토리지 계정에 대한 키입니다.|
     |ContainerName|액세스를 제한할 스토리지 계정의 컨테이너입니다.|

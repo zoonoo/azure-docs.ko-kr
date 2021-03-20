@@ -10,10 +10,10 @@ ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
 ms.openlocfilehash: 7d59ca60c7f90c227885927086511bd1f8ac7ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86185843"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Azure Automation의 보안 자산 암호화
@@ -94,7 +94,7 @@ Automation 계정에 대한 시스템 할당 ID는 다음과 비슷한 응답으
 
 ### <a name="configuration-of-the-key-vault-access-policy"></a>Key Vault 액세스 정책 구성
 
-관리 ID가 Automation 계정에 할당되면 고객 관리형 키를 저장하는 Key Vault에 대한 액세스를 구성합니다. Azure Automation를 사용하려면 고객 관리형 키에 대해 **get**, **recover**, **wrapKey**, **UnwrapKey**가 필요합니다.
+관리 ID가 Automation 계정에 할당되면 고객 관리형 키를 저장하는 Key Vault에 대한 액세스를 구성합니다. Azure Automation를 사용하려면 고객 관리형 키에 대해 **get**, **recover**, **wrapKey**, **UnwrapKey** 가 필요합니다.
 
 이러한 액세스 정책은 다음 REST API 호출을 사용하여 설정할 수 있습니다.
 

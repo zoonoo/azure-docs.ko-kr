@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: eebaa70cee99380ac67b8f6516a5b08ff2832c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86134737"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
@@ -76,12 +76,12 @@ ms.locfileid: "86134737"
 
 다음과 같이 프로세스 서버의 상태를 모니터링할 수 있습니다. 
 
-1. 복제된 머신 및 해당 프로세스 서버의 복제 상태 및 상태를 모니터링하려면 자격 증명 모음 > **복제된 항목**에서 모니터링하려는 머신을 클릭합니다.
-2. **복제 상태**에서 VM 상태를 모니터링할 수 있습니다. 상태를 클릭하여 오류 정보를 드릴다운합니다.
+1. 복제된 머신 및 해당 프로세스 서버의 복제 상태 및 상태를 모니터링하려면 자격 증명 모음 > **복제된 항목** 에서 모니터링하려는 머신을 클릭합니다.
+2. **복제 상태** 에서 VM 상태를 모니터링할 수 있습니다. 상태를 클릭하여 오류 정보를 드릴다운합니다.
 
     ![VM 대시보드의 프로세스 서버 상태](./media/vmware-physical-azure-monitor-process-server/vm-ps-health.png)
 
-4. **프로세스 서버 상태**에서 프로세스 서버의 상태를 모니터링할 수 있습니다. 세부 정보를 드릴다운합니다.
+4. **프로세스 서버 상태** 에서 프로세스 서버의 상태를 모니터링할 수 있습니다. 세부 정보를 드릴다운합니다.
 
     ![VM 대시보드의 프로세스 서버 세부 정보](./media/vmware-physical-azure-monitor-process-server/ps-summary.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "86134737"
     - 프로세스 서버가 구성 서버의 기본 배포에서 실행되는 경우 구성 서버가 그에 따라 강조 표시됩니다.
     - 드릴다운하려면 구성 서버 또는 프로세스 서버를 클릭합니다. 모든 문제 및 수정 권장 사항을 기록해 둡니다.
 
-**Site Recovery 인프라**의 자격 증명 모음에서 프로세스 서버를 모니터링할 수도 있습니다. **Site Recovery 인프라 관리**에서 **구성 서버**를 클릭합니다. 프로세스 서버와 연결된 구성 서버를 선택하고 프로세스 서버 세부 정보로 드릴다운합니다.
+**Site Recovery 인프라** 의 자격 증명 모음에서 프로세스 서버를 모니터링할 수도 있습니다. **Site Recovery 인프라 관리** 에서 **구성 서버** 를 클릭합니다. 프로세스 서버와 연결된 구성 서버를 선택하고 프로세스 서버 세부 정보로 드릴다운합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

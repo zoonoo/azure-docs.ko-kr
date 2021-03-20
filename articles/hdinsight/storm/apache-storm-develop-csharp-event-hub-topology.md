@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4393c6797f5a164a063b55f8994d7d37d278f3c4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929191"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
@@ -121,7 +121,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책** 을 선택합니다. **+ 추가** 를 선택 하 여 다음 정책을 만듭니다.
 
-   | 이름 | 사용 권한 |
+   | Name | 권한 |
    | --- | --- |
    | 기록기 |Send |
    | 판독기 |수신 대기 |

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
 ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93420855"
 ---
 # <a name="convert-to-indicator-values"></a>표시기 값으로 변환
@@ -49,7 +49,7 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 | --------- | ------------- |
 | 10301     | 낮음           |
 | 10302     | 중간        |
-| 10303     | 높은          |
+| 10303     | 높음          |
 
 **변환을 표시기 값으로** 적용 하는 경우 디자이너는 단일 레이블 열을 부울 값을 포함 하는 여러 열로 변환 합니다.  
 
@@ -71,8 +71,8 @@ Azure Machine Learning 디자이너의 **표시기 값으로 변환** 모듈을 
 
 모듈은 두 개의 출력을 반환 합니다.
 
-- **결과 데이터 집합** : 변환 된 표시기 값 열이 있는 데이터 집합입니다. 정리 하도록 선택 되지 않은 열도 "통과" 됩니다.
-- **표시기 값 변환** : 표시기 값으로 변환 하는 데 사용 되는 데이터 변환으로, 작업 영역에 저장 하 여 나중에 새 데이터에 적용할 수 있습니다.
+- **결과 데이터 집합**: 변환 된 표시기 값 열이 있는 데이터 집합입니다. 정리 하도록 선택 되지 않은 열도 "통과" 됩니다.
+- **표시기 값 변환**: 표시기 값으로 변환 하는 데 사용 되는 데이터 변환으로, 작업 영역에 저장 하 여 나중에 새 데이터에 적용할 수 있습니다.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>새 데이터에 저장 된 표시기 값 작업 적용
 

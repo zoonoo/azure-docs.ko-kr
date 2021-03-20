@@ -1,5 +1,5 @@
 ---
-title: Azure Instance Metadata Service (IMDS)에 대 한 일반적인 오류 코드
+title: Azure Instance Metadata Service(IMDS)에 대한 일반적인 오류 코드
 titleSuffix: Azure Load Balancer
 description: Azure Instance Metadata Service (IMDS)에 대 한 일반적인 오류 코드 및 해당 완화 방법의 개요
 services: load-balancer
@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/12/2021
 ms.author: allensu
 ms.openlocfilehash: e932e211996a05b2740613381735a7de3492e5bf
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100519187"
 ---
 # <a name="error-codes-common-error-codes-when-using-imds-to-retrieve-load-balancer-information"></a>오류 코드: IMDS를 사용 하 여 부하 분산 장치 정보를 검색할 때 발생 하는 일반적인 오류 코드

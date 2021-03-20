@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: a0e75957a0ab49394dab56f2b7fb847dee4b43cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81413686"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 결합 변환
@@ -20,7 +20,7 @@ ms.locfileid: "81413686"
 
 분할 된 변환을 사용 하 여 JSON과 같은 계층 구조 구조 내에서 배열 값을 가져오고 개별 행으로 언 롤 수 있습니다. 이 프로세스를 비 정규화 라고 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 평면화 변환에는 다음과 같은 구성 설정이 포함 됩니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "81413686"
 
 매핑 출력을 확인 하려면 검사 탭 및 데이터 미리 보기를 참조 하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 평면화 변환의 아래 예제에 대해서는 다음 JSON 개체를 참조 하세요.
 

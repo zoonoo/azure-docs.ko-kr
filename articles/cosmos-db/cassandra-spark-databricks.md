@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
 ms.openlocfilehash: 0a83dd143ae626108fdf8d2645b8cc368a3f3e05
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100516569"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-data-from-azure-databricks"></a>Azure Databricks에서 Azure Cosmos DB Cassandra API 데이터 액세스
@@ -20,7 +20,7 @@ ms.locfileid: "100516569"
 
 이 문서에서는 Spark의 [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)에서 Azure Cosmos DB Cassandra API를 사용 하는 방법에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Cosmos DB Cassandra API 계정 프로비전](create-cassandra-dotnet.md#create-a-database-account)
 

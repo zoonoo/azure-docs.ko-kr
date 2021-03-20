@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: data-factory
 author: memildin
 ms.service: data-factory
@@ -9,10 +9,10 @@ ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
 ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91401072"
 ---
 ```json
@@ -71,7 +71,7 @@ ms.locfileid: "91401072"
 |**IsIncident**|Bool|이 필드는 경고가 인시던트 (여러 경고의 복합 그룹) 인지 또는 단일 경고 인지를 결정 합니다. 필드의 기본값은 ' f a l s e '입니다 (단일 경고 임을 나타냄).|
 |**ProcessingEndTime**|DateTime|경고가 포함 된 원래 제품의 최종 사용자가 경고에 액세스할 수 있는 시간입니다.|
 |**ProductName**|String|이 경고를 게시 한 제품의 이름 (Azure Security Center, Azure ATP, Microsoft Defender ATP, MCAS 등)입니다.|
-|**RemediationSteps**|목록<String>|경고를 재구성 하기 위해 수행할 수동 작업 항목입니다.|
+|**RemediationSteps**|은<String>|경고를 재구성 하기 위해 수행할 수동 작업 항목입니다.|
 |**ResourceIdentifiers**|목록 (리소스 식별자)|이 경고에 대 한 리소스 식별자를 사용 하 여 경고를 올바른 제품 노출 그룹 (테 넌 트, 작업 영역, 구독 등)으로 보낼 수 있습니다. 경고 마다 다른 유형의 식별자가 여러 개 있을 수 있습니다.|
 |**심각도**|열거형|공급자가 보고 한 경고의 심각도입니다. 가능한 값: 정보, 낮음, 중간 및 높음|
 |**StartTimeUtc**|DateTime|경고에 포함 된 첫 번째 이벤트 또는 활동의 시간입니다. 필드는 UTC 표준 시간대 정보를 포함 하 여 ISO8601 형식을 준수 하는 문자열 이어야 합니다.|

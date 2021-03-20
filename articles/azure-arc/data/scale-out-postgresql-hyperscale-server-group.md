@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 17bdae658c7095c44a7ae9f30fd85a6c45bf1546
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96779977"
 ---
 # <a name="scale-out-your-azure-arc-enabled-postgresql-hyperscale-server-group-by-adding-more-worker-nodes"></a>작업자 노드를 더 추가 하 여 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 확장
@@ -160,7 +160,7 @@ azdata arc postgres server edit -n <server group name> -w <target number of work
 azdata arc postgres server edit -n postgres01 -w 4
 ```
 
-노드를 추가할 때 서버 그룹에 대 한 보류 중 상태가 표시 됩니다. 예:
+노드를 추가할 때 서버 그룹에 대 한 보류 중 상태가 표시 됩니다. 예를 들면 다음과 같습니다.
 ```console
 azdata arc postgres server list
 ```
@@ -182,7 +182,7 @@ postgres01  Pending 4/5    4
 azdata arc postgres server list
 ```
 
-네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예:
+네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
 ```console
 Name        State    Workers
 ----------  -------  ---------
@@ -195,7 +195,7 @@ postgres01  Ready    4
 kubectl get postgresql-12
 ```
 
-네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예:
+네임 스페이스에 생성 된 서버 그룹의 목록을 반환 하 고 작업자 노드 수를 나타냅니다. 예를 들면 다음과 같습니다.
 ```console
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h

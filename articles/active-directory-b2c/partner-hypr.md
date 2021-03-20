@@ -12,17 +12,17 @@ ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94953766"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 HYPR 구성에 대 한 자습서
 
 이 샘플 자습서에서는 [HYPR](https://get.hypr.com)를 사용 하 여 Azure AD B2C를 구성 하는 방법에 대 한 지침을 제공 합니다. Azure AD B2C을 id 공급자로 사용 하 여 HYPR를 고객 응용 프로그램과 통합 하 여 사용자에 게 진정한 암호 없는 인증을 제공할 수 있습니다. HYPR는 암호를 공개 키 암호화로 바꿔서 사기 행위, 피싱 및 자격 증명 재사용을 제거 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "94953766"
 
 - HYPR cloud 테 넌 트, 무료 [평가판 계정](https://get.hypr.com/free-trial)받기.
 
-- HYPR Rest Api 또는 HYPR Device Manager를 사용 하 여 등록 한 사용자의 모바일 장치가 HYPR 테 넌 트에 있습니다. 예를 들어 [HYPR JAVA SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) 를 사용 하 여이 작업을 수행할 수 있습니다.
+- HYPR Rest Api 또는 HYPR 장치 관리자를 사용 하 여 등록 한 사용자의 모바일 장치가 HYPR 테 넌 트에 있습니다. 예를 들어 [HYPR JAVA SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) 를 사용 하 여이 작업을 수행할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -50,7 +50,7 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![Hypr에 대 한 스크린샷-다이어그램](media/partner-hypr/hypr-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 로그인/등록을 선택 하 고 페이지에 사용자 이름을 입력 합니다.
 | 2. | 응용 프로그램은 식별 확인을 위해 Azure AD B2C 사용자 특성을 보냅니다.
@@ -81,7 +81,7 @@ HYRP 통합에는 다음 구성 요소가 포함 됩니다.
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   c. **사용자 흐름 실행** 을 선택합니다.
+   다. **사용자 흐름 실행** 을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 

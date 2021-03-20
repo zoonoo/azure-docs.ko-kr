@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 68b8bd187d58cd71778b8a922684cc3817a0715d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80398470"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Azure 사용자 지정 리소스 공급자 개요
@@ -37,11 +37,11 @@ Azure 사용자 지정 리소스 공급자를 사용 하 여 달성할 수 있�
 
 ## <a name="what-is-a-custom-resource-provider"></a>사용자 지정 리소스 공급자 정의
 
-Azure 사용자 지정 리소스 공급자는 Azure와 끝점 간에 계약을 만들어 수행 합니다. 이 계약은 새 리소스 ( **Microsoft. customproviders/resourceProviders**)를 통해 새 리소스 및 작업 목록을 정의 합니다. 그러면 사용자 지정 리소스 공급자는 Azure에서 이러한 새 Api를 노출 합니다. Azure 사용자 지정 리소스 공급자는 사용자 지정 리소스 공급자, **끝점**및 사용자 지정 리소스의 세 부분으로 구성 됩니다.
+Azure 사용자 지정 리소스 공급자는 Azure와 끝점 간에 계약을 만들어 수행 합니다. 이 계약은 새 리소스 ( **Microsoft. customproviders/resourceProviders**)를 통해 새 리소스 및 작업 목록을 정의 합니다. 그러면 사용자 지정 리소스 공급자는 Azure에서 이러한 새 Api를 노출 합니다. Azure 사용자 지정 리소스 공급자는 사용자 지정 리소스 공급자, **끝점** 및 사용자 지정 리소스의 세 부분으로 구성 됩니다.
 
 ## <a name="how-to-build-custom-resource-providers"></a>사용자 지정 리소스 공급자를 빌드하는 방법
 
-사용자 지정 리소스 공급자는 Azure와 끝점 간의 계약 목록입니다. 이 계약은 Azure에서 끝점과 상호 작용 하는 방법을 설명 합니다. 리소스 공급자는 프록시와 같은 역할을 하며 지정 된 **끝점**에 요청 및 응답을 전달 합니다. 리소스 공급자는 두 가지 유형의 계약 ( [**Resourcetypes**](./custom-providers-resources-endpoint-how-to.md) 및 [**작업**](./custom-providers-action-endpoint-how-to.md))을 지정할 수 있습니다. 이러한 설정은 끝점 정의를 통해 사용 하도록 설정 됩니다. 끝점 정의는 **이름**, **routingtype**및 **끝점**의 세 필드로 구성 됩니다.
+사용자 지정 리소스 공급자는 Azure와 끝점 간의 계약 목록입니다. 이 계약은 Azure에서 끝점과 상호 작용 하는 방법을 설명 합니다. 리소스 공급자는 프록시와 같은 역할을 하며 지정 된 **끝점** 에 요청 및 응답을 전달 합니다. 리소스 공급자는 두 가지 유형의 계약 ( [**Resourcetypes**](./custom-providers-resources-endpoint-how-to.md) 및 [**작업**](./custom-providers-action-endpoint-how-to.md))을 지정할 수 있습니다. 이러한 설정은 끝점 정의를 통해 사용 하도록 설정 됩니다. 끝점 정의는 **이름**, **routingtype** 및 **끝점** 의 세 필드로 구성 됩니다.
 
 샘플 끝점:
 
@@ -53,17 +53,17 @@ Azure 사용자 지정 리소스 공급자는 Azure와 끝점 간에 계약을 �
 }
 ```
 
-속성 | 필수 | Description
+속성 | 필수 | 설명
 ---|---|---
 name | *예로* | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 API를 통해 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}' 아래에 노출합니다.
-routingType | *아니요* | **끝점**을 사용 하 여 계약 형식을 결정 합니다. 지정하지 않는 경우 기본값은 "Proxy"입니다.
+routingType | *아니요* | **끝점** 을 사용 하 여 계약 형식을 결정 합니다. 지정하지 않는 경우 기본값은 "Proxy"입니다.
 엔드포인트(endpoint) | *예로* | 요청을 라우팅하는 엔드포인트입니다. 응답은 물론 요청의 부작용도 처리합니다.
 
 ### <a name="building-custom-resources"></a>사용자 지정 리소스 빌드
 
 **Resourcetypes** 은 Azure에 추가 되는 새로운 사용자 지정 리소스를 설명 합니다. 이러한 메서드는 기본 RESTful CRUD 메서드를 노출 합니다. [사용자 지정 리소스 만들기에 대 한 자세한 정보](./custom-providers-resources-endpoint-how-to.md)
 
-**Resourcetypes**을 사용 하는 샘플 사용자 지정 리소스 공급자:
+**Resourcetypes** 을 사용 하는 샘플 사용자 지정 리소스 공급자:
 
 ```JSON
 {
@@ -82,7 +82,7 @@ routingType | *아니요* | **끝점**을 사용 하 여 계약 형식을 결정
 
 위의 샘플에 대해 Azure에 추가 된 Api:
 
-HttpMethod | 샘플 URI | Description
+HttpMethod | 샘플 URI | 설명
 ---|---|---
 PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{Customcontext.resourcename}? api-version = 2018-09-01.txt-미리 보기 | Azure REST API를 호출 하 여 새 리소스를 만듭니다.
 Delete | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{Customcontext.resourcename}? api-version = 2018-09-01.txt-미리 보기 | Azure REST API 호출 하 여 기존 리소스를 삭제 합니다.
@@ -91,9 +91,9 @@ GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 ### <a name="building-custom-actions"></a>사용자 지정 작업 빌드
 
-**작업** 은 Azure에 추가 되는 새 작업을 설명 합니다. 이러한 리소스는 리소스 공급자의 맨 위에 노출 되거나 **resourceType**아래에 중첩 될 수 있습니다. [사용자 지정 작업 만들기에 대 한 자세한 정보](./custom-providers-action-endpoint-how-to.md)
+**작업** 은 Azure에 추가 되는 새 작업을 설명 합니다. 이러한 리소스는 리소스 공급자의 맨 위에 노출 되거나 **resourceType** 아래에 중첩 될 수 있습니다. [사용자 지정 작업 만들기에 대 한 자세한 정보](./custom-providers-action-endpoint-how-to.md)
 
-**작업**을 포함 하는 샘플 사용자 지정 리소스 공급자:
+**작업** 을 포함 하는 샘플 사용자 지정 리소스 공급자:
 
 ```JSON
 {
@@ -112,7 +112,7 @@ GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 위의 샘플에 대해 Azure에 추가 된 Api:
 
-HttpMethod | 샘플 URI | Description
+HttpMethod | 샘플 URI | 설명
 ---|---|---
 POST | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction? api-version = 2018-09-01.txt-preview | Azure REST API 호출 하 여 작업을 활성화 합니다.
 

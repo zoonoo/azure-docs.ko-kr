@@ -5,10 +5,10 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.reviewer: janders
 ms.openlocfilehash: 4a98e5ea025894303bc5c77bba0c6154a08315f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80348373"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Azure Blockchain 서비스 개발 개요
@@ -44,7 +44,7 @@ Geth는 Go에서 구현 된 전체 Ethereum 노드를 실행 하기 위한 명�
 쿼럼은 트랜잭션 및 계약 개인 정보 및 새로운 합의 메커니즘과 함께 Ethereum 기반 분산 원장 프로토콜입니다. Go-Ethereum에 대 한 주요 향상 된 기능은 다음과 같습니다.
 
 * 개인 **정보** -쿼럼은 공용 및 개인 상태 분리를 통해 개인 트랜잭션과 개인 계약을 지원 하 고 개인 데이터를 네트워크 참가자에 게 전달 하기 위해 피어 투 피어 암호화 된 메시지 교환을 활용 합니다.
-* **대체 합의 메커니즘** -작업 증명 또는 stake 증명-permissioned 네트워크에는 필요 하지 않습니다. 쿼럼은 래 프 트 및 IBFT와 같은 컨소시엄 체인을 위해 설계 된 여러 가지 합의 메커니즘을 제공 합니다.Azure Blockchain 서비스는 IBFT 합의 메커니즘을 사용 합니다.
+* **대체 합의 메커니즘** -작업 증명 또는 stake 증명-permissioned 네트워크에는 필요 하지 않습니다. 쿼럼은 래 프 트 및 IBFT와 같은 컨소시엄 체인을 위해 설계 된 여러 가지 합의 메커니즘을 제공 합니다.  Azure Blockchain 서비스는 IBFT 합의 메커니즘을 사용 합니다.
 * **피어 권한** 부여-스마트 계약을 사용 하는 노드 및 피어 권한 부여는 알려진 파티가 네트워크에 참가할 수 있도록 합니다.
 * **높은 성능** -쿼럼은 공개 지역 보다 더 높은 성능을 제공 합니다.
 
