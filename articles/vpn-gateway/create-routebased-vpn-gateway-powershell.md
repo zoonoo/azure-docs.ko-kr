@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 8b6ab5dcbd38925afbd98381e427426d27110a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89393516"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
@@ -36,7 +36,7 @@ New-AzResourceGroup -Name TestRG1 -Location EastUS
 
 ## <a name="create-a-virtual-network"></a><a name="vnet"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1** 이라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 $virtualNetwork = New-AzVirtualNetwork `

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 2fd96c47e98a6f8a66a5fda555304c4448d772e0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646105"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합

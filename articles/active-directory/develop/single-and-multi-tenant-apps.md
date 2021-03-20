@@ -14,15 +14,15 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91395909"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory의 테넌시
 
-Azure AD(Azure Active Directory)에서는 사용자 및 앱과 같은 개체를 *테넌트*라는 그룹으로 구성합니다. 테넌트를 사용하면 관리자는 조직 및 조직이 소유한 앱 내에서 해당 보안 및 운영 정책을 충족하도록 사용자의 정책을 설정할 수 있습니다. 
+Azure AD(Azure Active Directory)에서는 사용자 및 앱과 같은 개체를 *테넌트* 라는 그룹으로 구성합니다. 테넌트를 사용하면 관리자는 조직 및 조직이 소유한 앱 내에서 해당 보안 및 운영 정책을 충족하도록 사용자의 정책을 설정할 수 있습니다. 
 
 ## <a name="who-can-sign-in-to-your-app"></a>앱에 로그인할 수 있는 사용자
 

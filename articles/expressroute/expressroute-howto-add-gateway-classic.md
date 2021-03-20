@@ -9,10 +9,10 @@ ms.date: 12/06/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0f42a7d030f45be1b96728fdcac7a13cf797ed34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89396406"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute용 가상 네트워크 게이트웨이 구성(클래식)
@@ -23,7 +23,7 @@ ms.locfileid: "89396406"
 > 
 > 
 
-이 문서에서는 기존 VNet에 대한 가상 네트워크(VNet) 게이트웨이를 추가하고, 크기를 조정하고, 제거하는 단계를 안내합니다. 이 구성 단계는 특히 **클래식 배포 모델**을 사용하여 만들었으며 ExpressRoute 구성에서 사용되는 VNet을 위한 단계입니다. 
+이 문서에서는 기존 VNet에 대한 가상 네트워크(VNet) 게이트웨이를 추가하고, 크기를 조정하고, 제거하는 단계를 안내합니다. 이 구성 단계는 특히 **클래식 배포 모델** 을 사용하여 만들었으며 ExpressRoute 구성에서 사용되는 VNet을 위한 단계입니다. 
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

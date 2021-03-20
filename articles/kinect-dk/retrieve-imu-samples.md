@@ -8,10 +8,10 @@ ms.prod: kinect-dk
 ms.topic: conceptual
 keywords: kinect, azure, 구성, 깊이, 색, RBG, 카메라, 센서, sdk, IMU, 동작 센서, 동작, 자이로스코프가, gyro,가 속도계, FPS
 ms.openlocfilehash: 649dd5b9de62d43d59e74d53adff1ec7de8dfd32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276945"
 ---
 # <a name="retrieve-azure-kinect-imu-samples"></a>Azure Kinect IMU 샘플 검색

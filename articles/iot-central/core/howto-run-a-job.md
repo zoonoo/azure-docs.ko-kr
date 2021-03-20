@@ -8,10 +8,10 @@ ms.author: philmea
 ms.date: 11/19/2020
 ms.topic: how-to
 ms.openlocfilehash: 19d8738790b5634b9de989fa94edac6a542f85f4
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94917344"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행

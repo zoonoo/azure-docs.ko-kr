@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: a54ed9dc6557d9b613485bf28e74af0c59fc9e5e
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225211"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 청구 모델
@@ -125,7 +125,7 @@ MAU (월간 활성 사용자) 청구는 **취소할** 수 없습니다. Azure AD
 
 MAU 기반 계량은 구독/리소스 소유자가 변경 내용을 확인 하는 즉시 사용 하도록 설정 됩니다. 월별 청구서는 변경 될 때까지 청구 되는 인증 단위와 변경으로 시작 하는 MAU의 새 단위를 반영 합니다.
 
-사용자는 전환 월 중에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 사용자는 구독 청구 주기의 나머지 부분에 대해 MAU 계산에 포함 되지 않습니다. 예:
+사용자는 전환 월 중에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 사용자는 구독 청구 주기의 나머지 부분에 대해 MAU 계산에 포함 되지 않습니다. 예를 들면 다음과 같습니다.
 
 * Contoso B2C 테 넌 트에는 1000 명의 사용자가 있습니다. 250 사용자는 지정 된 달에 활성화 됩니다. 구독 관리자는 해당 월 10 일에 인증 단위를 MAU (월간 활성 사용자)로 변경 합니다.
 * 1-10에 대 한 청구는 인증 당 모델을 사용 하 여 청구 됩니다.

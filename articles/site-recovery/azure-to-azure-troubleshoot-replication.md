@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
 ms.openlocfilehash: dc14334668b76ee8cbb81e48abfe1eecf17fa138
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96007361"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구에서 복제 문제 해결
@@ -52,7 +52,7 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 8KB    | 5MB/초 | 디스크당 421GB
 프리미엄 P20 또는 P30 또는 P40 또는 P50 디스크 | 16KB 이상 |20MB/s | 디스크당 1,684GB
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 Azure Site Recovery는 디스크 유형에 따라 데이터 변경 비율에 대 한 제한이 있습니다. 이 문제가 되풀이 또는 임시 인지 확인 하려면 영향을 받는 가상 머신의 데이터 변경 률을 확인 하세요. 원본 가상 머신으로 이동하여 **모니터링** 아래의 메트릭을 찾은 다음, 이 스크린샷과 같이 메트릭을 추가합니다.
 
@@ -104,7 +104,7 @@ Site Recovery 복제가 작동 하려면 VM이 특정 Url 또는 IP 범위에 �
 
 ### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Azure Storage Spaces Direct 구성을 사용 하 고 있습니다.
 
-**해결 방법**: Azure Site Recovery 스토리지 공간 다이렉트 구성에 대 한 응용 프로그램 일치 복구 지점을 만들 수 없습니다. [복제 정책을 구성](azure-to-azure-how-to-enable-replication-s2d-vms.md)합니다.
+**해결 방법**: Azure Site Recovery 저장소 공간 다이렉트 구성에 대 한 응용 프로그램 일치 복구 지점을 만들 수 없습니다. [복제 정책을 구성](azure-to-azure-how-to-enable-replication-s2d-vms.md)합니다.
 
 ### <a name="app-consistency-not-enabled-on-linux-servers"></a>Linux 서버에서 앱 일관성을 사용 하도록 설정 하지 않음
 

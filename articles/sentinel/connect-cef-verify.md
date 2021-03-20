@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
 ms.openlocfilehash: f9fb1c917a0719cb9d250b997329d3415b5872eb
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98747477"
 ---
 # <a name="step-3-validate-connectivity"></a>3 단계: 연결 유효성 검사
 
 로그 전달자 (1 단계)를 배포 하 고 보안 솔루션을 구성 하 여 (2 단계)이 지침에 따라 보안 솔루션과 Azure 센티널 간의 연결을 확인 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 로그 전달자 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 

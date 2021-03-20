@@ -7,10 +7,10 @@ ms.date: 01/04/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0b977944f3a531365487b9655820e5d8f85e13d0
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225918"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
@@ -57,7 +57,7 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 성능 요구 사항을 해결 하려면 UPD [(S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 를 사용 저장소 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다.
 
-#### <a name="cost"></a>Cost
+#### <a name="cost"></a>비용
 
 S2D 클러스터는 필요한 성능을 구현 하지만 기업 고객의 경우 비용이 많이 듭니다. 특히 중소기업 (중소기업) 고객의 경우 비용이 많이 듭니다. 이 솔루션의 경우 기업은 저장소 디스크에 대해 요금을 지불 하 고 공유에 대 한 디스크를 사용 하는 Vm의 비용을 지불 합니다.
 

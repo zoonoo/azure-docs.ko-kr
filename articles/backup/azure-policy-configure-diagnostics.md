@@ -4,10 +4,10 @@ description: Azure Policy를 사용 하 여 지정 된 범위의 모든 자격 �
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 55461937381f7551c42714c835d4755ab65f175b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92171526"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
@@ -22,7 +22,7 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 * 정책은 특정 구독의 모든 Recovery Services 자격 증명 모음 (또는 구독 내의 리소스 그룹)에 한 번에 적용할 수 있습니다. 정책을 할당 하는 사용자에 게 정책이 할당 된 구독에 대 한 **소유자** 액세스 권한이 있어야 합니다.
 
-* 사용자가 지정 하는 LA 작업 영역 (진단 데이터가 전송 되는)은 정책이 할당 된 자격 증명 모음과 다른 구독에 있을 수 있습니다. 사용자는 지정 된 LA 작업 영역이 존재 하는 구독에 대 한 **읽기 권한자**, **참가자**또는 **소유자** 권한이 있어야 합니다.
+* 사용자가 지정 하는 LA 작업 영역 (진단 데이터가 전송 되는)은 정책이 할당 된 자격 증명 모음과 다른 구독에 있을 수 있습니다. 사용자는 지정 된 LA 작업 영역이 존재 하는 구독에 대 한 **읽기 권한자**, **참가자** 또는 **소유자** 권한이 있어야 합니다.
 
 * 관리 그룹 범위는 현재 지원 되지 않습니다.
 
@@ -36,7 +36,7 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 1. Azure Portal에 로그인 하 여 **정책** 대시보드로 이동 합니다.
 2. 왼쪽 메뉴에서 **정의** 를 선택 하 여 Azure 리소스의 모든 기본 제공 정책 목록을 가져옵니다.
-3. **Category = Backup**의 목록을 필터링 합니다. **[Preview]: Recovery Services 자격 증명 모음에 대 한 진단 설정을 배포 하 여 리소스 관련 범주의 Log Analytics 작업 영역을**찾습니다.
+3. **Category = Backup** 의 목록을 필터링 합니다. **[Preview]: Recovery Services 자격 증명 모음에 대 한 진단 설정을 배포 하 여 리소스 관련 범주의 Log Analytics 작업 영역을** 찾습니다.
 
     ![정책 정의 창](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
@@ -46,11 +46,11 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 5. 창 위쪽에서 **할당** 단추를 선택 합니다. 그러면 **정책 할당** 창으로 리디렉션됩니다.
 
-6. **기본**에서 **범위** 필드 옆에 있는 세 개의 점을 선택 합니다. 그러면 적용할 정책의 구독을 선택할 수 있는 올바른 컨텍스트 창이 열립니다. 또한 필요에 따라 리소스 그룹을 선택 하 여 특정 리소스 그룹의 자격 증명 모음에만 정책이 적용 되도록 할 수 있습니다.
+6. **기본** 에서 **범위** 필드 옆에 있는 세 개의 점을 선택 합니다. 그러면 적용할 정책의 구독을 선택할 수 있는 올바른 컨텍스트 창이 열립니다. 또한 필요에 따라 리소스 그룹을 선택 하 여 특정 리소스 그룹의 자격 증명 모음에만 정책이 적용 되도록 할 수 있습니다.
 
     ![정책 할당 기본 사항](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
-7. **매개 변수**에서 다음 정보를 입력 합니다.
+7. **매개 변수** 에서 다음 정보를 입력 합니다.
 
     * **프로필 이름** -정책에 의해 생성 된 진단 설정에 할당 되는 이름입니다.
     * **Log Analytics 작업 영역** -진단 설정이 연결 되어야 하는 Log Analytics 작업 영역입니다. 정책 할당 범위에서 모든 자격 증명 모음의 진단 데이터는 지정 된 LA 작업 영역으로 푸시됩니다.
@@ -59,11 +59,11 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
     ![정책 할당 매개 변수](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
-8. **수정 작업 만들기** -정책을 범위에 할당 하면 해당 범위에서 만든 모든 새 자격 증명 모음이 자동으로 구성 됩니다 (자격 증명 모음이 생성 된 시간부터 30 분 이내). 범위의 기존 자격 증명 모음에 진단 설정을 추가 하려면 정책 할당 시간에 수정 작업을 트리거할 수 있습니다. 수정 작업을 트리거하려면 **수정 작업 만들기**확인란을 선택 합니다.
+8. **수정 작업 만들기** -정책을 범위에 할당 하면 해당 범위에서 만든 모든 새 자격 증명 모음이 자동으로 구성 됩니다 (자격 증명 모음이 생성 된 시간부터 30 분 이내). 범위의 기존 자격 증명 모음에 진단 설정을 추가 하려면 정책 할당 시간에 수정 작업을 트리거할 수 있습니다. 수정 작업을 트리거하려면 **수정 작업 만들기** 확인란을 선택 합니다.
 
     ![정책 할당 수정](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. **검토 + 만들기** 탭으로 이동 하 여 **만들기**를 선택 합니다.
+9. **검토 + 만들기** 탭으로 이동 하 여 **만들기** 를 선택 합니다.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>재구성 작업이 자격 증명 모음에 적용 되는 조건은 무엇입니까?
 

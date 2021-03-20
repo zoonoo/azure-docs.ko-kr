@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: tisande
 ms.openlocfilehash: cb7b2e62a9fabeeca675edb8e6aa356213e0999e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98011398"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB의 조인
@@ -21,7 +21,7 @@ ms.locfileid: "98011398"
 
 조인 하면 조인에 참여 하는 집합의 완전 한 교차곱이 생성 됩니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 이 언어는 구문을 지원 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` 합니다. 이 쿼리는 값이 있는 튜플 집합을 반환 `N` 합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다. 
 
@@ -103,7 +103,7 @@ ms.locfileid: "98011398"
   > [!NOTE]
   > 이렇게 하면 `<from_source2>`와 `<from_source3>`의 범위를 모두 동일한 `<from_source1>`로 지정했기 때문에 두 원본의 교차곱을 만들고,  이로 인해 A 값이 있는 4개(2x2) 튜플, B 값이 있는 0개(1x0) 튜플 및 C 값이 있는 2개(2x1) 튜플을 만들었습니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제는 JOIN 절의 작동 방식을 보여 줍니다. 이러한 예제를 실행 하기 전에 샘플 [제품군 데이터](sql-query-getting-started.md#upload-sample-data)를 업로드 합니다. 다음 예제에서는 소스와 빈 집합의 각 항목에 대 한 교차곱이 비어 있기 때문에 결과가 비어 있습니다.
 

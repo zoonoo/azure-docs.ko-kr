@@ -1,7 +1,7 @@
 ---
-title: 포함 파일
+title: 파일 포함
 titleSuffix: Azure
-description: 포함 파일
+description: 파일 포함
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: beffb2babefd86c2807e21e9337cba66f42fcfc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81678467"
 ---
 구성을 시작 하기 전에 필요한 모듈을 설치 하 고 가져옵니다. PowerShell에서 모듈을 설치 하려면 관리자 권한이 필요 합니다.

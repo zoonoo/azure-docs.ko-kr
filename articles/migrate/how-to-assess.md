@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752263"
 ---
 # <a name="add-assessment-tools"></a>평가 도구 추가
@@ -27,7 +27,7 @@ ms.locfileid: "96752263"
 
     - Azure로의 마이그레이션을 위한 컴퓨터 및 작업을 검색 하 고 평가 하려면 **서버 평가 및 마이그레이션** 을 선택 합니다.
     - 온-프레미스 SQL Server 데이터베이스를 평가 하려면 **데이터베이스 평가 및 마이그레이션** 을 선택 합니다.
-    - 온-프레미스 웹 앱을 평가 하거나 마이그레이션하려면 자세한 Web Apps **탐색** 을 선택  >  **Web Apps** 합니다.
+    - 온-프레미스 웹 앱을 평가 하거나 마이그레이션하려면 자세한 Web Apps **탐색** 을 선택  >  합니다.
     - 가상 데스크톱 인프라를 평가 하려면 **더 많은**  >  **가상 데스크톱 인프라** 탐색을 선택 합니다.
 
     ![평가 시나리오를 선택 하기 위한 옵션](./media/how-to-assess/assess-scenario.png)
@@ -45,7 +45,7 @@ ms.locfileid: "96752263"
 
         ![첫 번째 평가 도구를 추가 하는 단추](./media/how-to-assess/no-assessment-tool.png)
 
-2. **Azure Migrate**  >  **도구 추가** Azure Migrate에서 추가 하려는 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
+2.   >  **도구 추가** Azure Migrate에서 추가 하려는 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
 
     ![목록에서 평가 도구 선택](./media/how-to-assess/select-assessment-tool.png)
 
@@ -59,14 +59,14 @@ ms.locfileid: "96752263"
 
     - 다른 옵션을 사용 하 여 프로젝트를 만들고 데이터베이스 평가 도구를 아직 포함 하지 않은 **경우 데이터베이스**  >  **평가 도구** 에서 **여기를 클릭** 합니다 .를 선택 합니다.
 
-2. **Azure Migrate**  >  **도구 추가** Azure Migrate에서 추가 하려는 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
+2.   >  **도구 추가** Azure Migrate에서 추가 하려는 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
 
     ![목록에서 데이터베이스 평가 도구 선택](./media/how-to-assess/select-database-assessment-tool.png)
 
 
 ## <a name="select-a-web-app-assessment-tool"></a>웹 앱 평가 도구 선택
 
-포털에서 **더 많은** webapps 탐색 옵션을 사용 하 여 Azure Migrate 프로젝트를 만든 경우  >  **WebApps** 웹 앱 평가 도구가 프로젝트에 자동으로 추가 됩니다. 
+포털에서 **더 많은** webapps 탐색 옵션을 사용 하 여 Azure Migrate 프로젝트를 만든 경우  >   웹 앱 평가 도구가 프로젝트에 자동으로 추가 됩니다. 
 
 
 1. 웹 앱 평가 도구가 프로젝트에 없는 경우 **Web Apps**  >  **평가 도구** 에서 **여기를 클릭** 하십시오 .를 선택 합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "96752263"
     ![웹 앱 평가 도구 추가](./media/how-to-assess/no-web-app-assessment-tool.png)
 
 
-2. **Azure Migrate**  >  **도구 추가** Azure Migrate에서 웹 앱 평가 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
+2.   >  **도구 추가** Azure Migrate에서 웹 앱 평가 도구를 선택 합니다. 그런 다음 **도구 추가** 를 선택 합니다.
 
     ![목록에서 데이터베이스 마이그레이션 도구를 선택 합니다.](./media/how-to-assess/select-web-app-assessment-tool.png)
 

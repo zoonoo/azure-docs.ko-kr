@@ -1,7 +1,7 @@
 ---
-title: 포함 파일
+title: 파일 포함
 titleSuffix: Azure
-description: 포함 파일
+description: 파일 포함
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3507aacc68de25f7368cbe3cda917077564c56eb
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96356247"
 ---
 1. **리소스 그룹** 으로 이동 하 여 **피어 링** 리소스를 만들 때 선택한 리소스 그룹을 선택 합니다. 너무 많은 리소스 그룹이 있는 경우 **필터** 상자를 사용 합니다.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
 ms.openlocfilehash: c804e13029dcec42a43885cbf0d9b227b3d0338f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96750805"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
@@ -121,7 +121,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
     ![동적 디스크](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. VM에 연결된 iSCSI 디스크가 없는지 확인합니다. 지원되지 않습니다.
-5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. Integration Services **hyper-v 설정** 에서 사용 하도록 설정 되어 있는지 확인  >  **Integration Services** 합니다.
+5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. Integration Services **hyper-v 설정** 에서 사용 하도록 설정 되어 있는지 확인  >  합니다.
 6. VSS 스냅샷을 만드는 앱과 충돌하지 않는지 확인합니다. 여러 앱이 VSS 스냅샷을 동시에 만들려고 하면 충돌이 발생할 수 있습니다. 예를 들어, 복제 정책에 따라 Site Recovery가 스냅샷을 만들도록 예약되어 있을 때 Backup 앱이 VSS 스냅샷을 만드는 경우가 여기에 해당합니다.   
 7. VM에서 높은 변동률이 발생하는지 확인합니다.
     - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 전체 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동 정보를 파악합니다.
@@ -144,12 +144,12 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 2. VM에 대한 VSS 스냅샷을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
-    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아봅니다](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세한 정보를 알아보세요](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
 ### <a name="common-errors"></a>일반 오류
 
-**오류 코드** | **Message** | **세부 정보**
+**오류 코드** | **메시지** | **세부 정보**
 --- | --- | ---
 **0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅샷 집합을 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅샷 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
 **0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.

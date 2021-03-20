@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에 대 한 비용 계획 및 관리
+title: Azure Cosmos DB에 대한 비용 계획 및 관리
 description: Azure Portal에서 비용 분석을 사용 하 여 Azure Cosmos DB에 대 한 비용을 계획 하 고 관리 하는 방법을 알아봅니다.
 author: SnehaGunda
 ms.author: sngun
@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
 ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602137"
 ---
-# <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 비용 계획 및 관리
+# <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 비용 계획 및 관리
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 Azure Cosmos DB에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 합니다. 먼저 Azure Cosmos DB 용량 계산기를 사용 하 여 리소스를 만들기 전에 워크 로드 비용을 예측 합니다. 나중에 예상 비용을 검토 하 고 리소스 만들기를 시작할 수 있습니다.
 
 Azure Cosmos DB 리소스 사용을 시작한 후에는 Cost Management 기능을 사용 하 여 예산을 설정 하 고 비용을 모니터링 합니다. 예상 비용을 검토 하 고 지출 추세를 파악 하 여 작업할 수 있는 영역을 식별할 수도 있습니다. Azure Cosmos DB 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 Azure Cosmos DB에 대 한 비용을 계획 하 고 관리 하는 방법을 설명 하지만, 타사 서비스를 비롯 하 여 Azure 구독에 사용 되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="provisioned-throughput-or-serverless"></a>프로 비전 된 처리량 또는 서버 리스
 
@@ -43,7 +43,7 @@ Cost Management의 비용 분석은 대부분의 Azure 계정 유형을 지원 �
 
 서버를 사용 하지 않는 모드로 Azure Cosmos DB를 사용 하려면 월 기준으로 사용할 수 있는 [요청 단위](request-units.md) 및 GB의 저장소 수를 예상 해야 합니다. 한 달에 발생 하는 데이터베이스 작업의 수를 평가 하 여 필요한 요청 단위 양을 예측 하 고 해당 하는 시간을 해당 하는 작업 비용에 곱할 수 있습니다. 다음 표에서는 일반적인 데이터베이스 작업에 대 한 예상 비용을 보여 줍니다.
 
-| 작업 | 예상 비용 | 메모 |
+| 작업 | 예상 비용 | 참고 |
 | --- | --- | --- |
 | 항목 만들기 | 5RU | 5 개 미만의 속성을 인덱싱하는 1kb 항목에 대 한 평균 비용 |
 | 항목 업데이트 | 10RU | 5 개 미만의 속성을 인덱싱하는 1kb 항목에 대 한 평균 비용 |

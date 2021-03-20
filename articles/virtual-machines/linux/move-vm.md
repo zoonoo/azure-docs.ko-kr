@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87291099"
 ---
-# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>다른 구독 또는 리소스 그룹으로 VM 이동
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>VM을 다른 구독 또는 리소스 그룹으로 이동
 이 문서에서는 리소스 그룹 또는 구독 간에 VM (가상 머신)을 이동 하는 방법을 안내 합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
 
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ az resource move \
 
 VM 및 해당 리소스를 다른 구독으로 이동하려는 경우 **--destination-subscriptionId** 매개 변수를 추가하여 대상 구독을 지정합니다.
 
-지정된 리소스를 이동할지 확인하는 메시지가 표시되면 **Y**를 입력하여 확인합니다.
+지정된 리소스를 이동할지 확인하는 메시지가 표시되면 **Y** 를 입력하여 확인합니다.
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.openlocfilehash: 59301e26f4d42056322ba5a7cdaff1555c531096
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96354990"
 ---
 # <a name="best-practices-for-monitoring-azure-database-for-mysql--single-server"></a>Azure Database for MySQL 모니터링에 대 한 모범 사례-단일 서버
@@ -33,7 +33,7 @@ Cpu 사용량을 모니터링 하 고 데이터베이스가 CPU 리소스를 소
 ### <a name="memory"></a>메모리 
 데이터베이스 서버에 사용할 수 있는 메모리 양은 [vcores 수](concepts-pricing-tiers.md)에 비례 합니다. 메모리가 작업에 충분 한지 확인 합니다. 응용 프로그램을 부하 테스트 하 여 읽기 및 쓰기 작업을 위한 메모리가 충분 한지 확인 합니다. 데이터베이스 메모리 소비가 정의 된 임계값을 초과 하는 경우가 자주 증가 하는 경우 vCores 이상 성능 계층을 증가 시켜 인스턴스를 업그레이드 해야 함을 나타냅니다. [쿼리 저장소](concepts-query-store.md), [쿼리 성능 권장 사항을](concepts-performance-recommendations.md) 사용 하 여 가장 긴 기간의 쿼리를 식별 합니다. 최적화할 수 있는 기회를 살펴보세요. 
 
-### <a name="storage"></a>스토리지 
+### <a name="storage"></a>Storage 
 MySQL 서버에 대해 프로 비전 된 [저장소의 양에](howto-create-manage-server-portal.md#scale-compute-and-storage) 따라 서버에 대 한 IOPs가 결정 됩니다. 서비스에서 사용 하는 저장소에는 데이터베이스 파일, 트랜잭션 로그, 서버 로그 및 백업 스냅숏이 포함 됩니다. 사용 된 디스크 공간이 총 프로 비전 된 디스크 공간의 85%를 초과 하지 않도록 합니다. 이 경우에는 데이터베이스 서버에서 데이터를 삭제 하거나 보관 하 여 공간을 확보 해야 합니다. 
 
 ### <a name="network-traffic"></a>네트워크 트래픽 

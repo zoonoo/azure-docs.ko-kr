@@ -4,10 +4,10 @@ description: Azure DevTest Labs의 랩에서 VM에 대한 리소스 그룹을 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85483366"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 가상 머신에 대한 리소스 그룹 지정
@@ -30,11 +30,11 @@ ms.locfileid: "85483366"
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택 합니다. 
 3. 목록에서 **DevTest Labs** 를 선택 합니다.
-4. 랩 목록에서 **랩을**선택 합니다.  
+4. 랩 목록에서 **랩을** 선택 합니다.  
 5. 왼쪽 메뉴의 **설정** 섹션에서 **구성 및 정책** 을 선택 합니다. 
 6. 왼쪽 메뉴에서 **랩 설정** 을 선택 합니다. 
-7. **한 리소스 그룹의 모든 가상 컴퓨터를**선택 합니다. 
-8. 드롭다운 목록에서 기존 리소스 그룹을 선택 하거나, **새로 만들기**를 선택 하 고, 리소스 그룹의 **이름을** 입력 하 고, **확인**을 선택 합니다. 
+7. **한 리소스 그룹의 모든 가상 컴퓨터를** 선택 합니다. 
+8. 드롭다운 목록에서 기존 리소스 그룹을 선택 하거나, **새로 만들기** 를 선택 하 고, 리소스 그룹의 **이름을** 입력 하 고, **확인** 을 선택 합니다. 
 
     ![모든 랩 Vm에 대 한 리소스 그룹을 선택 합니다.](./media/resource-group-control/select-resource-group.png)
 
@@ -103,9 +103,9 @@ Azure Resource Manager 템플릿을 사용 하 여 랩을 만드는 경우 다�
 이 설정은 랩에 생성된 새 가상 머신에 적용됩니다. 랩에서 자체 리소스 그룹에 생성 된 이전 Vm은 영향을 받지 않습니다. 랩에서 만든 환경은 계속 해 서 자체 리소스 그룹에 남아 있습니다.
 
 이 API를 사용하는 방법:
-- API 버전 **2018_10_15_preview**을 사용 합니다.
+- API 버전 **2018_10_15_preview** 을 사용 합니다.
 - 새 리소스 그룹을 지정 하는 경우 구독에서 **리소스 그룹에 대 한 쓰기 권한이** 있는지 확인 합니다. 쓰기 권한이 없으면 지정 된 리소스 그룹에서 새 가상 컴퓨터를 만들 수 없습니다.
-- 이 API를 사용하는 동안 **전체 리소스 그룹 ID**를 전달합니다. 예: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>` 리소스 그룹이 랩과 동일한 구독에 있는지 확인 합니다. 
+- 이 API를 사용하는 동안 **전체 리소스 그룹 ID** 를 전달합니다. 예를 들어 `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`을 참조하십시오. 리소스 그룹이 랩과 동일한 구독에 있는지 확인 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

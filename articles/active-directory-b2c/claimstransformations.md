@@ -11,17 +11,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85202962"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**ClaimsTransformations** 요소에는 [사용자 지정 정책](custom-policy-overview.md)의 일부분으로 사용자 경험에서 사용할 수 있는 클레임 변환 함수 목록이 포함되어 있습니다. 클레임 변환에서는 지정된 클레임을 다른 클레임으로 변환합니다. 클레임 변환에서는 문자열 컬렉션에 항목을 추가하거나 문자열 대/소문자를 변경하는 등의 변환 메서드를 지정합니다.
+**ClaimsTransformations** 요소에는 사용자 [지정 정책의](custom-policy-overview.md)일부로 사용자 경험에서 사용할 수 있는 클레임 변환 함수 목록이 포함 되어 있습니다. 클레임 변환에서는 지정된 클레임을 다른 클레임으로 변환합니다. 클레임 변환에서는 문자열 컬렉션에 항목을 추가하거나 문자열 대/소문자를 변경하는 등의 변환 메서드를 지정합니다.
 
 사용자 경험에서 사용할 수 있는 클레임 변환 함수 목록을 포함하려면 정책의BuildingBlocks 섹션에서 ClaimsTransformations XML 요소를 선언해야 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "85202962"
 
 **ClaimsTransformation** 요소는 다음 특성을 포함 합니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- |-------- | ----------- |
 | Id |예 | 클레임 변환을 고유하게 식별하는 데 사용되는 식별자입니다. 정책의 다른 XML 요소에서 식별자를 참조합니다. |
 | TransformationMethod | 예 | 클레임 변환에서 사용할 변환 메서드입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -59,7 +59,7 @@ ms.locfileid: "85202962"
 ```
 
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | 클레임 변환의 입력으로 가져올 클레임 유형을 지정하는 **InputClaim** 요소 목록입니다. 이러한 각 요소는 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조를 포함합니다. |
 | InputParameters | 0:1 | 클레임 변환에 대한 입력으로 제공되는 **InputParameter** 요소 목록입니다.
@@ -69,7 +69,7 @@ ms.locfileid: "85202962"
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -77,7 +77,7 @@ ms.locfileid: "85202962"
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다. |
 | TransformationClaimType |예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -86,13 +86,13 @@ ms.locfileid: "85202962"
 
 **InputParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | 필요한 입력 매개 변수니다. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| attribute | 필수 |Description |
+| 특성 | 필수 |설명 |
 | --------- | ----------- |----------- |
 | Id | 예 | 클레임 변환 메서드의 매개 변수에 대한 참조인 식별자입니다. 각 클레임 변환 메서드에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 클레임 변환 표를 참조하세요. |
 | DataType | 예 | 사용자 지정 정책 XML 스키마의 DataType 열거에 따른 String, Boolean, Int, DateTime 등의 매개 변수 데이터 형식입니다. 이 형식은 산술 연산을 정확하게 수행하는 데 사용됩니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -102,7 +102,7 @@ ms.locfileid: "85202962"
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 필요한 출력 클레임 유형입니다. |
 
@@ -110,14 +110,14 @@ ms.locfileid: "85202962"
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | 예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다.
 | TransformationClaimType | 예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
 
 입력 클레임과 출력 클레임의 유형(문자열, 부울 등)이 같은 경우에는 같은 입력 클레임을 출력 클레임으로 사용할 수 있습니다. 이 경우 클레임 변환에서 입력 클레임이 출력값으로 변경됩니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 사용자가 동의한 서비스 약관의 마지막 버전을 저장하는 경우를 예로 들어 보겠습니다. 그러면 서비스 약관을 업데이트할 때 사용자에게 새 버전 동의 여부를 질문할 수 있습니다. 다음 예에서 **HasTOSVersionChanged** 클레임 변환은 **TOSVersion** 클레임의 값을 **LastTOSAcceptedVersion** 클레임의 값과 비교한 다음 부울 **TOSVersionChanged** 클레임을 반환합니다.
 
@@ -161,7 +161,7 @@ ms.locfileid: "85202962"
 
 - [Boolean](boolean-transformations.md)
 - [날짜](date-transformations.md)
-- [정수](integer-transformations.md)
+- [Integer](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [전화 번호](phone-number-claims-transformations.md)
 - [일반](general-transformations.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92912942"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
@@ -50,7 +50,7 @@ Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.m
 
 5. **보내기** 를 선택합니다.
 
-6. API는 각 분류의 확률 점수를 반환합니다. 또한 이미지가 조건을 충족하는지 확인 결과를 반환합니다( **true** 또는 **false** ). 
+6. API는 각 분류의 확률 점수를 반환합니다. 또한 이미지가 조건을 충족하는지 확인 결과를 반환합니다(**true** 또는 **false**). 
 
    ![이미지 시도 - 평가 콘솔 확률 점수 및 조건 확인](images/try-image-api-3.PNG)
 

@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 0cc874b4df7052c76fa58388bc982b8ffe3acc23
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92142915"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (C)
@@ -34,7 +34,7 @@ ms.locfileid: "92142915"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 Azure 계정. (계정이 없는 경우 몇 분 안에 [Azure 체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.)
 
@@ -180,7 +180,7 @@ int main(void)
 }
 ```
 
-이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (해당 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 모듈 정보만 검색 합니다.) 그러면 앱은 해당 id의 기본 키를 표시 합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
+이 앱은 ID가 **myFirstDevice** 인 디바이스 ID와 ID가 **myFirstModule** 인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (해당 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 모듈 정보만 검색 합니다.) 그러면 앱은 해당 id의 기본 키를 표시 합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
 
 > [!NOTE]
 > IoT Hub ID 레지스트리는 디바이스 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 디바이스 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 디바이스에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 디바이스에 대한 enabled/disabled 플래그를 저장합니다. 애플리케이션이 다른 디바이스별 메타데이터를 저장해야 할 경우 애플리케이션별 스토리지를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide-identity-registry.md)를 참조하세요.

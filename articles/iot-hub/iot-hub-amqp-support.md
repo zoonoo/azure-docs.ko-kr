@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7b3dcfc51df7f0fe4291e9c5babccc1444ad32e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81730744"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>AMQP 프로토콜을 사용 하 여 IoT hub와 통신
@@ -129,9 +129,9 @@ for msg in batch:
         print('unknown message:', msg.properties.content_type)
 ```
 
-위의 코드에 표시 된 것 처럼 클라우드-장치 피드백 메시지에는 *응용 프로그램/vnd.microsoft.iothub.feedback.js*의 콘텐츠 형식이 있습니다. 메시지의 JSON 본문에서 속성을 사용 하 여 원본 메시지의 배달 상태를 유추할 수 있습니다.
+위의 코드에 표시 된 것 처럼 클라우드-장치 피드백 메시지에는 *응용 프로그램/vnd.microsoft.iothub.feedback.js* 의 콘텐츠 형식이 있습니다. 메시지의 JSON 본문에서 속성을 사용 하 여 원본 메시지의 배달 상태를 유추할 수 있습니다.
 
-* `statusCode`피드백 본문의 키에는 *성공*, *만료 됨*, *DeliveryCountExceeded*, *거부 됨*또는 *제거*됨 값 중 하나가 있습니다.
+* `statusCode`피드백 본문의 키에는 *성공*, *만료 됨*, *DeliveryCountExceeded*, *거부 됨* 또는 *제거* 됨 값 중 하나가 있습니다.
 
 * `deviceId`피드백 본문의 키에는 대상 장치의 ID가 있습니다.
 

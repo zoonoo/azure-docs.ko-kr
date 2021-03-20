@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98602633"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용하여 비용 절감
@@ -37,7 +37,7 @@ ms.locfileid: "98602633"
 
 디스크 예약 구매를 고려할 때 다음 방법을 권장 합니다.
 
-- 사용 현황 정보를 분석 하 여 구매할 예약을 결정 합니다. 프로 비전 되거나 사용 된 디스크 용량이 아닌 디스크 Sku의 사용량을 추적 해야 합니다.
+- 사용량 정보를 분석하여 구매해야 하는 예약을 결정합니다. 프로 비전 되거나 사용 된 디스크 용량이 아닌 디스크 Sku의 사용량을 추적 해야 합니다.
 - VM 예약과 함께 디스크 예약을 검사 합니다. 최대 절약을 위해 VM 사용량과 디스크 사용에 대 한 예약을 수행 하는 것이 좋습니다. 먼저 올바른 VM 예약을 확인 한 다음 디스크 예약을 평가할 수 있습니다. 일반적으로 각 워크 로드에 대 한 표준 구성이 있습니다. 예를 들어 SQL Server 서버에는 두 개의 P40 데이터 디스크와 P30 운영 체제 디스크가 하나씩 있을 수 있습니다.
   
   이러한 종류의 패턴을 통해 구매할 수 있는 예약 된 용량을 확인할 수 있습니다. 이 방법은 평가 프로세스를 간소화 하 고 VM과 디스크 모두에 대 한 정렬 된 계획을가지고 있는지 확인할 수 있습니다. 계획에는 구독 또는 지역과 같은 고려 사항이 포함 됩니다.

@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 �
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: 1edfaed99e60409774496c5ae75df8be99a8fe1f
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94917361"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>MARS (질문과 대답 Microsoft Azure Recovery Services) 에이전트
@@ -84,7 +84,7 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 * 백업 자격 증명 모음에 새 컴퓨터 이름을 등록 해야 합니다.
 * 자격 증명 모음에 새 이름을 등록 하는 경우 첫 번째 작업은 *전체* 백업입니다.
-* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세한 정보를 알아보세요](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업의 최대 파일 경로 길이는 얼마 인가요?
 
@@ -167,7 +167,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이 있나요?
 
-예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-windows-with-mars-agent.md#enable-network-throttling).
+예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세한 정보를 알아보세요](backup-windows-with-mars-agent.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 
@@ -198,7 +198,7 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
 
 | 원본 컴퓨터 | 암호 | 사용 가능한 옵션 |
 | --- | --- | --- |
-| 실패 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. **복구 옵션**  >  **Another location** 을 선택 하 여 복원을 수행 합니다. 자세한 내용은 [이 문서](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
+| 실패 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. **복구 옵션**  >   을 선택 하 여 복원을 수행 합니다. 자세한 내용은 [이 문서](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
 | 실패 |실패 |데이터 또는 데이터를 복구할 수 없습니다. |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>백업 작업이 실패 하거나 오랜 시간 동안 실행 되 고 있지 않습니다. 보존 기간을 초과 했습니다. 그래도 복원할 수 있나요?

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: cb9159b98b219c6fb04beb7bbbaade64fc72a30b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927746"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
@@ -282,7 +282,7 @@ ApplicationInsights.config에서:
 </ApplicationInsights>
 ```
 
-또는 Global.aspx.cs와 같은 코드에서 이니셜라이저를 인스턴스화할 수 있습니다.
+또는 Global.asax와 같이 코드에서 이니셜라이저를 인스턴스화할 수 있습니다.
 
 ```csharp
 protected void Application_Start()

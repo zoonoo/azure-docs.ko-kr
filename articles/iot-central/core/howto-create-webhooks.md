@@ -9,15 +9,15 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: b2ac4bbf1457144d23a91c4e83b554b3ee806119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87337231"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Azure IoT Central에서 규칙에 대해 웹후크 작업 만들기
 
-‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’**
+‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
 웹후크를 사용하면 원격 모니터링 및 알림을 위해 IoT Central 앱을 다른 애플리케이션 및 서비스에 연결할 수 있습니다. 웹후크는 IoT Central 앱에서 규칙이 트리거될 때마다 연결하는 다른 애플리케이션 및 서비스에 자동으로 알립니다. IoT Central 앱은 규칙이 트리거될 때마다 다른 응용 프로그램의 HTTP 끝점에 POST 요청을 보냅니다. 페이로드는 장치 세부 정보 및 규칙 트리거 세부 정보를 포함 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "87337231"
 
 1. [RequestBin](https://requestbin.net/)을 엽니다.
 
-1. 새 RequestBin을 만들고 **Bin URL**을 복사합니다.
+1. 새 RequestBin을 만들고 **Bin URL** 을 복사합니다.
 
 1. [원격 분석 규칙](tutorial-create-telemetry-rules.md)을 만듭니다. 규칙을 저장하고 새 작업을 추가합니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "87337231"
 
 ## <a name="data-format-change-notice"></a>데이터 형식 변경 공지
 
-**2020 년 4 월 3**일 이전에 하나 이상의 webhook를 만들고 저장 한 경우에는 웹 후크를 삭제 하 고 새 webhook를 만들어야 합니다. 이전 웹 후크 향후 더 이상 사용 되지 않을 이전 페이로드 형식을 사용 하기 때문입니다.
+**2020 년 4 월 3** 일 이전에 하나 이상의 webhook를 만들고 저장 한 경우에는 웹 후크를 삭제 하 고 새 webhook를 만들어야 합니다. 이전 웹 후크 향후 더 이상 사용 되지 않을 이전 페이로드 형식을 사용 하기 때문입니다.
 
 ### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>웹 후크 페이로드 (지원 되지 않는 형식 3 년 4 월 2020)
 

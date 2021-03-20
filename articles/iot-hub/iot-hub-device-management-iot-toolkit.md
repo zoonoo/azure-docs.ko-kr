@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
 ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81688093"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
@@ -22,7 +22,7 @@ ms.locfileid: "81688093"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 관리 옵션          | Task                    |
+| 관리 옵션          | 작업                    |
 |----------------------------|--------------------------------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -52,9 +52,9 @@ ms.locfileid: "81688093"
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
-1. **탐색기**에서 VS Code를 보고 왼쪽 아래 모서리에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다.
+1. **탐색기** 에서 VS Code를 보고 왼쪽 아래 모서리에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다.
 
-2. 상황에 맞는 메뉴에서 **IoT Hub 선택**을 클릭합니다.
+2. 상황에 맞는 메뉴에서 **IoT Hub 선택** 을 클릭합니다.
 
 3. 처음으로 Azure에 로그인할 수 있게 하는 팝업 메시지가 오른쪽 아래 모서리에 표시됩니다.
 
@@ -63,11 +63,11 @@ ms.locfileid: "81688093"
 5. 잠시 후 디바이스 목록이 **Azure IoT Hub 디바이스** 탭에 표시됩니다.
 
    > [!Note]
-   > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
+   > **IoT Hub 연결 문자열 설정** 을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
 
 ## <a name="direct-methods"></a>직접 메서드
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **직접 메서드 호출**을 선택합니다. 
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **직접 메서드 호출** 을 선택합니다. 
 
 2. 입력 상자에 메서드 이름 및 페이로드를 입력합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "81688093"
 
 ## <a name="read-device-twin"></a>디바이스 쌍 읽기
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집**을 선택합니다. 
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집** 을 선택합니다. 
 
 2. **azure-iot-device-twin.json** 파일은 디바이스 쌍의 콘텐츠를 사용해 열립니다.
 
@@ -85,13 +85,13 @@ ms.locfileid: "81688093"
 
 2. **azure-iot-device-twin.json** 파일을 마우스 오른쪽 단추로 클릭합니다.
 
-3. **디바이스 쌍 업데이트**를 선택하여 디바이스 쌍을 업데이트합니다.
+3. **디바이스 쌍 업데이트** 를 선택하여 디바이스 쌍을 업데이트합니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
  
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 C2D 메시지 보내기**를 선택합니다. 
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 C2D 메시지 보내기** 를 선택합니다. 
 
 2. 입력 상자에 메시지를 입력합니다.
 

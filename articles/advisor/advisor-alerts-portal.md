@@ -4,10 +4,10 @@ description: 새 추천에 대한 Azure Advisor 경고를 만듭니다.
 ms.topic: article
 ms.date: 09/09/2019
 ms.openlocfilehash: 3c51479821914ef34edcd13d8708344169f17aae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100590113"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Azure Portal를 사용 하 여 새 권장 사항에 대 한 Azure Advisor 경고 만들기 

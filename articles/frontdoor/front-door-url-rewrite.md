@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91445481"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>URL 다시 쓰기(사용자 지정 전달 경로)
@@ -36,7 +36,7 @@ URL 재작성의 강력한 부분은 사용자 지정 전달 경로가 와일드
 |            | /foo/\*     |
 |            | /foo/bar/\* |
 
-아래 표의 첫 번째 열은 들어오는 요청을 보여주고, 두 번째 열은 "가장 구체적으로" 일치하는 '경로'를 보여줍니다.  테이블의 세 번째 및 결과 열은 구성 된 **사용자 지정 전달 경로의**예입니다.
+아래 표의 첫 번째 열은 들어오는 요청을 보여주고, 두 번째 열은 "가장 구체적으로" 일치하는 '경로'를 보여줍니다.  테이블의 세 번째 및 결과 열은 구성 된 **사용자 지정 전달 경로의** 예입니다.
 
 예를 들어 두 번째 행을 보시면, 들어오는 요청 `www.contoso.com/sub`와 관련하여 사용자 지정 전달 경로가 `/`이면 전달된 경로는 `/sub`입니다. 사용자 지정 전달 경로가 `/fwd/`이면 전달된 경로는 `/fwd/sub`입니다. 나머지 열에도 마찬가지 원리가 적용됩니다. 아래 경로에서 **강조된** 부분은 와일드 카드에서 일치하는 부분을 나타냅니다.
 

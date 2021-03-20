@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ms.openlocfilehash: 1758cca902eb77ffc66824cb56b8add9446fabf9
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96749150"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 첫 번째 서버 리스 앱 빌드
@@ -100,7 +100,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
 Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 이미 배포 된 Azure 리소스 그룹이 있어야 합니다. 그러면 디자이너에서 리소스 및 서비스에 대한 연결을 논리 앱에 만들 수 있습니다. 이 작업의 경우 다음 단계에 따라 Visual Studio에서 Azure Portal 솔루션을 배포 합니다.
 
-1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 새로 **배포** 를 선택  >  **New** 합니다.
+1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 새로 **배포** 를 선택  >  합니다.
 
    ![리소스 그룹에 대한 새 배포 만들기](./media/logic-apps-serverless-get-started-vs/deploy.png)
 

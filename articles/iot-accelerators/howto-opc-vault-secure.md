@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: a1b7564988c8a4d63a37b53d18ed3a7359e65d72
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92926413"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 사용
@@ -22,7 +22,7 @@ ms.locfileid: "92926413"
 
 이 문서에서는 응용 프로그램을 등록 하는 방법과 OPC UA 장치에 대해 서명 된 응용 프로그램 인증서를 발급 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="deploy-the-certificate-management-service"></a>인증서 관리 서비스 배포
 

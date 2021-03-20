@@ -4,10 +4,10 @@ description: Azure Batch 풀에서 HPC 및 GPU 가상 머신 크기를 활용하
 ms.topic: how-to
 ms.date: 12/17/2018
 ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86147331"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
@@ -92,9 +92,9 @@ Batch 풀에 대해 특별한 VM 크기를 구성하려면 필수 소프트웨�
 
 Windows NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 NVDIA GPU 드라이버를 설치해야 합니다. 다음 샘플 단계에서는 애플리케이션 패키지를 사용하여 NVIDIA GPU 드라이버를 설치합니다. 워크로드가 특정 GPU 드라이버 버전에 따라 달라지는 경우 이 옵션을 선택할 수 있습니다.
 
-1. [NVIDIA 웹 사이트](https://www.nvidia.com/Download/index.aspx)에서 Windows Server 2016에 GPU 드라이버 설치 패키지를 다운로드합니다. 예를 들면 [411.82 버전](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe)입니다. *GPUDriverSetup.exe*와 같은 짧은 이름을 사용하여 파일을 로컬에 저장합니다.
+1. [NVIDIA 웹 사이트](https://www.nvidia.com/Download/index.aspx)에서 Windows Server 2016에 GPU 드라이버 설치 패키지를 다운로드합니다. 예를 들면 [411.82 버전](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe)입니다. *GPUDriverSetup.exe* 와 같은 짧은 이름을 사용하여 파일을 로컬에 저장합니다.
 2. 패키지의 zip 파일을 만듭니다.
-3. Batch 계정에 패키지를 업로드합니다. 단계는 [애플리케이션 패키지](batch-application-packages.md) 지침을 참조하세요. *GPUDriver*와 같은 애플리케이션 ID 및 *411.82*와 같은 버전을 지정합니다.
+3. Batch 계정에 패키지를 업로드합니다. 단계는 [애플리케이션 패키지](batch-application-packages.md) 지침을 참조하세요. *GPUDriver* 와 같은 애플리케이션 ID 및 *411.82* 와 같은 버전을 지정합니다.
 1. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 가상 머신 구성에서 풀을 만듭니다. 다음 표에서는 시작 작업을 사용하여 NVIDIA GPU 드라이버를 자동으로 설치하는 샘플 설정을 보여줍니다.
 
 | 설정 | 값 |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89400557"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
@@ -103,8 +103,8 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 Traffic Manager 엔드포인트에는 세 가지 종류가 있습니다.
 
 1. **Azure 엔드포인트** 는 Azure에서 호스팅되는 서비스입니다.
-2. **외부 엔드포인트**는 Azure 외부에서 호스트되는 서비스입니다.
-3. **중첩 엔드포인트**는 Traffic Manager 프로필의 중첩된 계층을 구성하는 데 사용됩니다. 중첩 엔드포인트는 복잡한 애플리케이션에 대한 고급 트래픽 라우팅 구성을 사용하도록 설정합니다.
+2. **외부 엔드포인트** 는 Azure 외부에서 호스트되는 서비스입니다.
+3. **중첩 엔드포인트** 는 Traffic Manager 프로필의 중첩된 계층을 구성하는 데 사용됩니다. 중첩 엔드포인트는 복잡한 애플리케이션에 대한 고급 트래픽 라우팅 구성을 사용하도록 설정합니다.
 
 세 가지 경우 모두, 엔드포인트는 두 가지 방법으로 추가될 수 있습니다.
 

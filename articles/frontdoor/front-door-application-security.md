@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: duau
 ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89399942"
 ---
 # <a name="application-layer-security-with-front-door"></a>Front Door와 애플리케이션 계층 보안
@@ -38,7 +38,7 @@ Front Door의 애플리케이션 보호는 전 세계 각 에지 환경에서 �
 ## <a name="centralized-protection-policy"></a>중앙 집중식 보호 정책
 - 여러 보호 규칙을 정의하고 우선 순위에 따라 정책에 추가할 수 있습니다. 사용자 지정 규칙은 관리되는 규칙 집합보다 우선순위가 높아서 예외가 허용됩니다. 단일 정책이 웹 애플리케이션에 연결됩니다.  동일한 웹 애플리케이션 보호 정책이 모든 위치의 모든 에지 서버에 복제되고, 모든 지역에서 일관적인 보안 정책이 보장됩니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 - 미리 보기 중에 REST API, PowerShell 또는 CLI를 사용하여 Front Door의 애플리케이션 보호 규칙 및 정책을 만들고 배포할 수 있습니다. 서비스가 일반에 공개되기 전에 포털 액세스가 지원됩니다. 
 
 

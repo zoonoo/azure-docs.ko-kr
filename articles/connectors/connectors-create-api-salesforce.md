@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/24/2018
 tags: connectors
 ms.openlocfilehash: 9950951ab5189c8c7b72de78bca9465ec5f22748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87290596"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Salesforce 리소스 모니터링, 만들기 및 관리
@@ -46,7 +46,7 @@ Salesforce 트리거를 사용하여 Salesforce에서 응답을 가져오고 출
 
      또는
 
-   * 기존 논리 앱의 경우 작업을 추가하려는 단계에서 **새 단계**를 선택합니다. 검색 상자에 필터로 "salesforce"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
+   * 기존 논리 앱의 경우 작업을 추가하려는 단계에서 **새 단계** 를 선택합니다. 검색 상자에 필터로 "salesforce"를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
 1. Salesforce에 로그인하라는 메시지가 표시되면 로그인하고 액세스를 허용합니다.
 

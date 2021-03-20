@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: c1028d0a4a458746c08fd6fa4f16aa952d9962a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87282010"
 ---
 # <a name="azcopy-benchmark"></a>azcopy 벤치 마크
@@ -39,7 +39,7 @@ ms.locfileid: "87282010"
 
 모든 일반적인 인증 유형이 지원 됩니다. 그러나 벤치마킹 업로드에 대 한 가장 편리한 접근 방식은 일반적으로 SAS 토큰을 사용 하 여 빈 컨테이너를 만들고 SAS 인증을 사용 하는 것입니다. 다운로드 모드를 사용 하려면 대상 컨테이너에 테스트 데이터 집합이 있어야 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ```azcopy
 azcopy benchmark [destination] [flags]

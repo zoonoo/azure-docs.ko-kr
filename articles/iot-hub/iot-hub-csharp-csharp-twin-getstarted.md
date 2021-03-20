@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89013761"
 ---
 # <a name="get-started-with-device-twins-net"></a>디바이스 쌍 시작(.NET)
@@ -55,17 +55,17 @@ ms.locfileid: "89013761"
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
-이 섹션에서는 **myDeviceId**와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
+이 섹션에서는 **myDeviceId** 와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다. **새 프로젝트 만들기**에서 **콘솔 앱(.NET Framework)** 을 선택하고 **다음**을 선택합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택합니다. **새 프로젝트 만들기** 에서 **콘솔 앱(.NET Framework)** 을 선택하고 **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 **AddTagsAndQuery**로 지정합니다.
+1. **새 프로젝트 구성** 에서 프로젝트 이름을 **AddTagsAndQuery** 로 지정합니다.
 
     ![AddTagsAndQuery 프로젝트 구성](./media/iot-hub-csharp-csharp-twin-getstarted/config-addtagsandquery-app.png)
 
-1. 솔루션 탐색기에서 **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
 
-1. **찾아보기**를 선택하고 **Microsoft.Azure.Devices**를 검색한 후 선택합니다. **설치**를 선택합니다.
+1. **찾아보기** 를 선택하고 **Microsoft.Azure.Devices** 를 검색한 후 선택합니다. **설치** 를 선택합니다.
 
     ![NuGet 패키지 관리자 창](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
@@ -114,11 +114,11 @@ ms.locfileid: "89013761"
     }
     ```
 
-    **RegistryManager** 클래스는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **registryManager** 개체를 초기화한 다음, **myDeviceId**에 대한 디바이스 쌍을 검색하고, 마지막으로 원하는 위치 정보로 태그를 업데이트합니다.
+    **RegistryManager** 클래스는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **registryManager** 개체를 초기화한 다음, **myDeviceId** 에 대한 디바이스 쌍을 검색하고, 마지막으로 원하는 위치 정보로 태그를 업데이트합니다.
 
     업데이트한 후 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 디바이스의 디바이스 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 디바이스만을 선택하기 위해 쿼리를 구체화합니다.
 
-    이전 코드는 **쿼리** 개체를 만들 때 반환되는 최대 문서 수를 지정합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러 번 **GetNextAsTwinAsync** 메서드를 호출하는 데 사용할 수 있는 **HasMoreResults** 부울 속성이 들어 있습니다. **GetNextAsJson**이라는 메서드는 디바이스 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
+    이전 코드는 **쿼리** 개체를 만들 때 반환되는 최대 문서 수를 지정합니다. **query** 개체에는 모든 결과를 검색하기 위해 여러 번 **GetNextAsTwinAsync** 메서드를 호출하는 데 사용할 수 있는 **HasMoreResults** 부울 속성이 들어 있습니다. **GetNextAsJson** 이라는 메서드는 디바이스 쌍이 아닌 결과(예: 집계 쿼리의 결과)에 대해 사용할 수 있습니다.
 
 1. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
 
@@ -129,7 +129,7 @@ ms.locfileid: "89013761"
     Console.ReadLine();
     ```
 
-1. **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 후 **새 인스턴스 시작**을 선택하여 이 애플리케이션을 실행합니다. **Redmond43**에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
+1. **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 를 선택한 후 **새 인스턴스 시작** 을 선택하여 이 애플리케이션을 실행합니다. **Redmond43** 에 위치한 모든 디바이스를 요청하는 쿼리에 대한 결과로는 하나의 디바이스를 보고 셀룰러 네트워크를 사용하는 디바이스에 대해서는 결과를 제한하는 쿼리에 대한 결과로는 아무 디바이스도 볼 수 없어야 합니다.
 
     ![창에서 쿼리 결과](./media/iot-hub-csharp-csharp-twin-getstarted/addtagapp.png)
 
@@ -137,15 +137,15 @@ ms.locfileid: "89013761"
 
 ## <a name="create-the-device-app"></a>디바이스 앱 만들기
 
-이 섹션에서는 **myDeviceId**로 허브에 연결하는 .NET 콘솔 앱을 만든 다음 셀룰러 네트워크를 사용하여 연결되는 정보에 포함된 reported 속성을 업데이트합니다.
+이 섹션에서는 **myDeviceId** 로 허브에 연결하는 .NET 콘솔 앱을 만든 다음 셀룰러 네트워크를 사용하여 연결되는 정보에 포함된 reported 속성을 업데이트합니다.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다. **새 프로젝트 만들기**에서 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음**을 선택합니다.
+1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 선택합니다. **새 프로젝트 만들기** 에서 **콘솔 앱(.NET Framework)** 을 선택한 후 **다음** 을 선택합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트의 이름을 **ReportConnectivity**로 지정합니다. **솔루션**에 대해 **솔루션에 추가**를 선택하고 **만들기**를 선택합니다.
+1. **새 프로젝트 구성** 에서 프로젝트의 이름을 **ReportConnectivity** 로 지정합니다. **솔루션** 에 대해 **솔루션에 추가** 를 선택하고 **만들기** 를 선택합니다.
 
-1. 솔루션 탐색기에서 **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션 탐색기에서 **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
 
-1. **찾아보기**를 선택하고 **Microsoft.Azure.Devices.Client**를 검색한 후 선택합니다. **설치**를 선택합니다.
+1. **찾아보기** 를 선택하고 **Microsoft.Azure.Devices.Client** 를 검색한 후 선택합니다. **설치** 를 선택합니다.
 
    이 단계에서는 [Azure IoT 디바이스 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet 패키지 및 해당 종속 항목에 참조를 다운로드, 설치 및 추가합니다.
 
@@ -185,7 +185,7 @@ ms.locfileid: "89013761"
     }
     ```
 
-    **Client** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 위에 표시된 코드는 **Client** 개체를 초기화한 다음 **myDeviceId**에 대한 디바이스 쌍을 검색합니다.
+    **Client** 개체는 서비스의 디바이스 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 위에 표시된 코드는 **Client** 개체를 초기화한 다음 **myDeviceId** 에 대한 디바이스 쌍을 검색합니다.
 
 1. **Program** 클래스에 다음 메서드를 추가합니다.
 
@@ -211,7 +211,7 @@ ms.locfileid: "89013761"
     }
     ```
 
-   위의 코드는 **myDeviceId**의 보고된 속성을 연결 정보로 업데이트합니다.
+   위의 코드는 **myDeviceId** 의 보고된 속성을 연결 정보로 업데이트합니다.
 
 1. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
 
@@ -230,17 +230,17 @@ ms.locfileid: "89013761"
     Console.ReadLine();
     ```
 
-1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정**을 선택합니다.
+1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트 설정** 을 선택합니다.
 
-1. **퍼블릭 속성** > **시작 프로젝트**에서 **여러 개의 시작 프로젝트**를 선택합니다. **ReportConnectivity**의 경우 **작업**으로 **시작**을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.  
+1. **퍼블릭 속성** > **시작 프로젝트** 에서 **여러 개의 시작 프로젝트** 를 선택합니다. **ReportConnectivity** 의 경우 **작업** 으로 **시작** 을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.  
 
-1. **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그**를 선택한 후 **새 인스턴스 시작**을 선택하여 이 앱을 실행합니다. 앱이 쌍 정보를 가져오면 연결을 ***보고된 속성***으로 보내는 메시지가 표시됩니다.
+1. **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 를 선택한 후 **새 인스턴스 시작** 을 선택하여 이 앱을 실행합니다. 응용 프로그램에서 쌍 정보를 가져온 다음 연결을 **_보고 된 속성_** 으로 보내는 것을 볼 수 있습니다.
 
     ![디바이스 앱을 실행하여 연결 보고](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 
    디바이스가 연결 정보를 보고한 후에는 두 쿼리 모두에 나타나야 합니다.
 
-1. **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** > **새 인스턴스 시작**을 선택하여 쿼리를 다시 실행합니다. 이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
+1. **AddTagsAndQuery** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** > **새 인스턴스 시작** 을 선택하여 쿼리를 다시 실행합니다. 이번에는 **myDeviceId** 가 두 쿼리 결과에 모두 나타나야 합니다.
 
     ![디바이스 연결이 성공적으로 보고됨](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 

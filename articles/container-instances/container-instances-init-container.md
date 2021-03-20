@@ -4,10 +4,10 @@ description: Azure Container Instances에서 init 컨테이너를 실행 하 여
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 5a729263ee632eb9227694ec8684eb6889c6324b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85954284"
 ---
 # <a name="run-an-init-container-for-setup-tasks-in-a-container-group"></a>컨테이너 그룹의 설치 작업에 대해 init 컨테이너 실행
@@ -38,8 +38,8 @@ Azure Container Instances는 컨테이너 그룹의 *init 컨테이너* 를 지�
 
 * *Init1* 컨테이너는 Docker 허브에서 [busybox](https://hub.docker.com/_/busybox) 이미지를 실행 합니다. 60 초 동안 대기한 다음 [emptyDir 볼륨](container-instances-volume-emptydir.md)의 파일에 명령줄 문자열을 씁니다.
 * 두 응용 프로그램 컨테이너 모두 Microsoft `aci-wordcount` 컨테이너 이미지를 실행 합니다.
-    * *Hamlet* 컨테이너는 셰익스피어의 play *hamlet*에서 단어 주파수를 계산 하는 기본 구성으로 wordcount 앱을 실행 합니다.
-    * *Juliet* 앱 컨테이너는 셰익스피어의 *Romeo 및 juliet*대신 wordcount 앱을 실행 하기 위해 emptDir 볼륨에서 명령줄 문자열을 읽습니다.
+    * *Hamlet* 컨테이너는 셰익스피어의 play *hamlet* 에서 단어 주파수를 계산 하는 기본 구성으로 wordcount 앱을 실행 합니다.
+    * *Juliet* 앱 컨테이너는 셰익스피어의 *Romeo 및 juliet* 대신 wordcount 앱을 실행 하기 위해 emptDir 볼륨에서 명령줄 문자열을 읽습니다.
 
 이미지 사용에 대 한 자세한 내용 및 예제는 `aci-wordcount` [컨테이너 인스턴스에서 환경 변수 설정](container-instances-environment-variables.md)을 참조 하세요.
 

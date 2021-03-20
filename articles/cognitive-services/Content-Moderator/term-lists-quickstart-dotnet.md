@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92900929"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
@@ -304,9 +304,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 용어 또는 목록을 삭제하는 것은 간단합니다. SDK를 사용하여 다음 작업을 수행합니다.
 
-- 용어를 삭제합니다. ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
-- 목록을 삭제하지 않고 목록의 모든 용어를 삭제합니다. ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
-- 목록 및 모든 해당 콘텐츠를 삭제합니다. ( **ContentModeratorClient.ListManagementTermLists.Delete** )
+- 용어를 삭제합니다. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
+- 목록을 삭제하지 않고 목록의 모든 용어를 삭제합니다. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
+- 목록 및 모든 해당 콘텐츠를 삭제합니다. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>용어 삭제
 

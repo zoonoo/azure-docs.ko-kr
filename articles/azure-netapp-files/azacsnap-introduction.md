@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632822"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구 (미리 보기) 란?
@@ -27,7 +27,7 @@ AzAcSnap (Azure 애플리케이션 일치 스냅숏 도구)는 Linux 환경 (예
 
 ## <a name="benefits-of-using-azacsnap"></a>AzAcSnap 사용의 이점
 
-AzAcSnap는 Azure NetApp Files 및 Azure 대규모 인스턴스의 볼륨 스냅숏 및 복제 기능을 활용 합니다.  다음과 같은 이점을 제공합니다.
+AzAcSnap은 Azure NetApp Files 및 Azure 대규모 인스턴스의 볼륨 스냅샷 및 복제 기능을 활용합니다.  다음과 같은 이점을 제공합니다.
 
 - **응용 프로그램 일치 데이터 보호** AzAcSnap은 중요 한 데이터베이스 파일을 백업 하기 위한 중앙화 된 솔루션입니다. 저장소 볼륨 스냅숏을 수행 하기 전에 데이터베이스 일관성을 보장 합니다. 따라서 저장소 볼륨 스냅숏을 데이터베이스 복구에 사용할 수 있습니다.
 - **데이터베이스 카탈로그 관리** 기본 제공 백업 카탈로그가 있는 데이터베이스에서 AzAcSnap를 사용 하는 경우 카탈로그 내의 레코드는 저장소 스냅숏으로 최신 상태로 유지 됩니다.  이 기능을 사용 하면 데이터베이스 관리자가 백업 작업을 볼 수 있습니다.

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89179609"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
@@ -31,7 +31,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 |Name  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|properties     |   참      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
 |tags     |         | Object        |  리소스 태그       |
 
 요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
@@ -137,7 +137,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 
-|Name  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |    [보호 PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |

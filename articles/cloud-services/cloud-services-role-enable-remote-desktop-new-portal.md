@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 8fa0d3c0e29c53e6fe9cb32ddf02168686be1efe
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743256"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic"></a>Azure Cloud Services에서 역할에 대 한 원격 데스크톱 연결 사용 (클래식)

@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: 3e4b4fc3d4a6c9529c7c0ac0daef8a28173e0bf3
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99225346"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제 (미리 보기)
@@ -199,7 +199,7 @@ Azure SQL Managed Instance은 다음 버전의 SQL Server에서 구독자가 될
 - [게시를 만듭니다](/sql/relational-databases/replication/publish/create-a-publication).
 - 서버 이름을 구독자로 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription) (예 `N'azuresqldbdns.database.windows.net` : **Adventureworks** 와 같이 Azure SQL Database 이름의 데이터베이스를 대상 데이터베이스로 사용 합니다. )
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 - [SQL Managed Instance 및 장애 조치 (failover) 그룹으로 복제](transact-sql-tsql-differences-sql-server.md#replication)
 - [SQL Database로 복제](../database/replication-to-sql-database.md)

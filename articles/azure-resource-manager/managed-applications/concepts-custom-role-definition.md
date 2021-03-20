@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81391836"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Azure Managed Applications의 사용자 지정 역할 정의 아티팩트

@@ -10,10 +10,10 @@ ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.openlocfilehash: 927e945a0d045abcd1caa2951dbd484224b2f425
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100519544"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
@@ -36,7 +36,7 @@ DSVM에서 지원 되는 데이터 플랫폼 도구는 다음과 같습니다.
 > SQL Server Developer Edition은 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션에서 실행하려면 라이선스나 SQL Server VM 중 하나가 필요합니다.
 
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 데이터베이스 서버는 이미 미리 구성 되어 있으며 SQL Server와 관련 된 Windows 서비스 (예: `SQL Server (MSSQLSERVER)` )가 자동으로 실행 되도록 설정 되어 있습니다. 수동 단계에서는 Microsoft Machine Learning Server를 사용 하 여 데이터베이스 내 분석을 설정 해야 합니다. SSMS (SQL Server Management Studio)에서 일회성 작업으로 다음 명령을 실행 하 여 분석을 사용 하도록 설정할 수 있습니다. 컴퓨터 관리자로 로그인 한 후에이 명령을 실행 하 여 SSMS에서 새 쿼리를 열고 선택한 데이터베이스가 다음과 같은지 확인 합니다 `master` .
 
@@ -74,7 +74,7 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 
 DSVM에서 사용할 수 있는 SparkR, Sparklyr 및 Microsoft Machine Learning Server와 같은 라이브러리를 사용 하 여 R에서 Spark를 사용할 수 있습니다. 앞의 표에서 샘플에 대한 포인터를 참조하세요.
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 Ubuntu Linux DSVM 버전에서 Microsoft Machine Learning Server Spark 컨텍스트를 실행 하기 전에 로컬 단일 노드 Hadoop HDFS 및 Yarn 인스턴스를 사용 하도록 설정 하려면 일회성 설치 단계를 완료 해야 합니다. 기본적으로 Hadoop 서비스는 설치되지만 DSVM에서 사용하지 않도록 설정됩니다. 이 기능을 사용 하도록 설정 하려면 처음에 루트로 다음 명령을 실행 합니다.
 
 ```bash

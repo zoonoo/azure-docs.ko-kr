@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5788585b2365b12a90a508e5a972b61f73e48c15
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97629513"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Active Directory id를 사용 하 여 Azure Cognitive Search 결과를 자르는 보안 필터
@@ -39,7 +39,7 @@ Azure Cognitive Search의 인덱스에는 문서에 대 한 읽기 권한이 있
 
 다음 절차에 설명 된 대로 응용 프로그램을 다중 테 넌 트 앱으로 Azure AD에 등록 해야 합니다.
 
-### <a name="register-your-application-with-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
+### <a name="register-your-application-with-azure-active-directory"></a>Azure Active Directory에 애플리케이션 등록
 
 이 단계에서는 사용자 및 그룹 계정의 로그인을 허용 하기 위해 응용 프로그램을 Azure AD와 통합 합니다. 조직의 테 넌 트 관리자가 아닌 경우에는 다음 단계를 수행 하기 위해 [새 테 넌 트를 만들어야](../active-directory/develop/quickstart-create-new-tenant.md) 할 수 있습니다.
 

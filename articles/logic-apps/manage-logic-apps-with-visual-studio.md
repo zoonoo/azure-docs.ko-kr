@@ -8,10 +8,10 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
 ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87280769"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
@@ -25,7 +25,7 @@ ms.locfileid: "87280769"
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -69,13 +69,13 @@ ms.locfileid: "87280769"
 
 Visual Studio에서 클라우드 탐색기를 사용하여 Azure 구독에 연결되고 Azure Portal에서 배포된 모든 논리 앱을 찾을 수 있습니다.
 
-1. Visual Studio를 엽니다. **보기** 메뉴에서 **클라우드 탐색기**를 선택합니다.
+1. Visual Studio를 엽니다. **보기** 메뉴에서 **클라우드 탐색기** 를 선택합니다.
 
-1. 클라우드 탐색기에서 **계정 관리** 아이콘을 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용**을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 클라우드 탐색기에서 **계정 관리** 아이콘을 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용** 을 선택 합니다. 예를 들면 다음과 같습니다.
 
    !["계정 관리"를 선택 합니다.](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
-1. **계정 관리** 아이콘 옆에 있는 **리소스 종류**를 선택 합니다. Azure 구독에서 **Logic Apps** 를 확장 하 여 구독과 연결 된 모든 배포 된 논리 앱을 볼 수 있습니다.
+1. **계정 관리** 아이콘 옆에 있는 **리소스 종류** 를 선택 합니다. Azure 구독에서 **Logic Apps** 를 확장 하 여 구독과 연결 된 모든 배포 된 논리 앱을 볼 수 있습니다.
 
 다음으로 논리 앱 편집기에서 논리 앱을 엽니다.
 
@@ -87,7 +87,7 @@ Visual Studio에서는 Visual Studio를 사용 하 여 Azure Portal 또는 Azure
 
 1. [클라우드 탐색기를 열고 논리 앱을 찾습니다](#find-logic-apps-vs).
 
-1. 논리 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기**를 선택 합니다.
+1. 논리 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기** 를 선택 합니다.
 
    > [!TIP]
    > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
@@ -100,18 +100,18 @@ Visual Studio에서는 Visual Studio를 사용 하 여 Azure Portal 또는 Azure
 
 ## <a name="download-from-azure"></a>Azure에서 다운로드
 
-[Azure Portal](https://portal.azure.com) 에서 논리 앱을 [다운로드](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) 하 여 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿으로 저장할 수 있습니다. 그런 다음, Visual Studio를 사용하여 로컬로 템플릿을 편집하고 다른 배포 환경에 적합하도록 사용자 지정할 수 있습니다.  논리 앱을 자동으로 다운로드하면 해당 정의가 [Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 내에서 *매개 변수화*되며, 템플릿도 JSON(JavaScript Object Notation)을 사용합니다.
+[Azure Portal](https://portal.azure.com) 에서 논리 앱을 [다운로드](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) 하 여 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 템플릿으로 저장할 수 있습니다. 그런 다음, Visual Studio를 사용하여 로컬로 템플릿을 편집하고 다른 배포 환경에 적합하도록 사용자 지정할 수 있습니다.  논리 앱을 자동으로 다운로드하면 해당 정의가 [Resource Manager 템플릿](../azure-resource-manager/templates/overview.md) 내에서 *매개 변수화* 되며, 템플릿도 JSON(JavaScript Object Notation)을 사용합니다.
 
 1. Visual Studio에서 클라우드 탐색기를 사용 하 여 [Azure에서 다운로드 하려는 논리 앱을 엽니다](#open-designer).
 
-1. 논리 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기**를 선택 합니다.
+1. 논리 앱의 바로 가기 메뉴에서 **논리 앱 편집기로 열기** 를 선택 합니다.
 
    > [!TIP]
    > Visual Studio 2019에 이 명령이 없으면 Visual Studio에 대한 최신 업데이트가 있는지 확인합니다.
 
    논리 앱 디자이너에서 논리 앱이 열립니다.
 
-1. 디자이너 도구 모음에서 **다운로드**를 선택 합니다.
+1. 디자이너 도구 모음에서 **다운로드** 를 선택 합니다.
 
    ![Azure Portal에서 논리 앱 다운로드](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
@@ -127,7 +127,7 @@ B2B (기업 간) 엔터프라이즈 통합 시나리오에 대 한 논리 앱을
 
 1. Visual Studio에서 논리 앱을 포함 하는 Azure 리소스 그룹 프로젝트를 엽니다.
 
-1. 솔루션 탐색기에서 파일의 바로 가기 메뉴 ** 에서<논리-앱-이름 # C1.js** 을 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl + L)
+1. 솔루션 탐색기에서 파일의 바로 가기 메뉴 **에서<논리-앱-이름 # C1.js** 을 열고 **논리 앱 디자이너를 사용 하 여 열기** 를 선택 합니다. (키보드: Ctrl + L)
 
    ![논리 앱 디자이너를 사용 하 여 논리 앱의 json 파일 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -139,7 +139,7 @@ B2B (기업 간) 엔터프라이즈 통합 시나리오에 대 한 논리 앱을
    ![속성 창-"통합 계정" 속성](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
    > [!TIP]
-   > 속성 창 아직 열려 있지 않으면 **보기** 메뉴에서 **속성 창**을 선택 합니다. (키보드: F4 키 누르기)
+   > 속성 창 아직 열려 있지 않으면 **보기** 메뉴에서 **속성 창** 을 선택 합니다. (키보드: F4 키 누르기)
 
 1. **통합 계정** 속성 목록을 열고 논리 앱에 연결 하려는 통합 계정을 선택 합니다. 예를 들면 다음과 같습니다.
 
@@ -162,23 +162,23 @@ Visual Studio에서 논리 앱이 배포를 자동화 하는 데 사용 하는 [
 
 1. Visual Studio에서 논리 앱을 포함 하는 Azure 리소스 그룹 프로젝트를 엽니다.
 
-1. 솔루션 탐색기에서 `<logic-app-name>.json` 파일의 바로 가기 메뉴를 열고 **논리 앱 디자이너를 사용 하 여 열기**를 선택 합니다. (키보드: Ctrl + L)
+1. 솔루션 탐색기에서 `<logic-app-name>.json` 파일의 바로 가기 메뉴를 열고 **논리 앱 디자이너를 사용 하 여 열기** 를 선택 합니다. (키보드: Ctrl + L)
 
    ![논리 앱 디자이너를 사용 하 여 논리 앱의 json 파일 열기](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
    > Visual Studio 2019에이 명령이 없으면 Visual Studio 및 Azure Logic Apps Tools 확장에 대 한 최신 업데이트가 있는지 확인 합니다.
 
-1. 속성 창에서 논리 앱에 대 한 **위치 유형** 및 **위치 속성** 선택이 표시 되도록 디자이너의 탭 또는 화면을 선택 하 여 논리 앱 디자이너에 포커스가 있는지 확인 합니다. 프로젝트의 위치 형식은 **Region** 또는 **통합 서비스 환경**로 설정 됩니다.
+1. 속성 창에서 논리 앱에 대 한 **위치 유형** 및 **위치 속성** 선택이 표시 되도록 디자이너의 탭 또는 화면을 선택 하 여 논리 앱 디자이너에 포커스가 있는지 확인 합니다. 프로젝트의 위치 형식은 **Region** 또는 **통합 서비스 환경** 로 설정 됩니다.
 
    ![속성 창-"위치 유형 선택" & "위치" 속성](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
    > [!TIP]
-   > 속성 창 아직 열려 있지 않으면 **보기** 메뉴에서 **속성 창**을 선택 합니다. (키보드: F4 키 누르기)
+   > 속성 창 아직 열려 있지 않으면 **보기** 메뉴에서 **속성 창** 을 선택 합니다. (키보드: F4 키 누르기)
 
 1. 위치 유형을 변경 하려면 **위치 유형 선택** 속성 목록을 열고 원하는 위치 유형을 선택 합니다.
 
-   예를 들어 위치 형식이 **통합 서비스 환경**인 경우 **영역**을 선택할 수 있습니다.
+   예를 들어 위치 형식이 **통합 서비스 환경** 인 경우 **영역** 을 선택할 수 있습니다.
 
    !["위치 유형 선택" 속성-위치 유형 변경](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
 
@@ -202,23 +202,23 @@ Visual Studio에서 위치 유형 또는 위치를 변경 하 고 논리 앱을 
 
 Azure Portal에서 논리 앱을 편집하고 변경 내용을 유지하려면 Visual Studio에서 해당 변경 내용으로 앱 버전을 새로 고침해야 합니다.
 
-* Visual Studio의 논리 앱 디자이너 도구 모음에서 **새로 고침**을 선택 합니다.
+* Visual Studio의 논리 앱 디자이너 도구 모음에서 **새로 고침** 을 선택 합니다.
 
   또는
 
-* Visual Studio 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **새로 고침**을 선택합니다.
+* Visual Studio 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **새로 고침** 을 선택합니다.
 
 ![업데이트로 논리 앱 새로 고침](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## <a name="publish-logic-app-updates"></a>논리 앱 업데이트 게시
 
-Visual Studio에서 Azure로 논리 앱 업데이트를 배포할 준비가 되 면 논리 앱 디자이너 도구 모음에서 **게시**를 선택 합니다.
+Visual Studio에서 Azure로 논리 앱 업데이트를 배포할 준비가 되 면 논리 앱 디자이너 도구 모음에서 **게시** 를 선택 합니다.
 
 ![Azure Portal에 업데이트 된 논리 앱 게시](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## <a name="manually-run-your-logic-app"></a>수동으로 논리 앱 실행
 
-Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 수 있습니다. 논리 앱 디자이너 도구 모음에서 **트리거 실행**을 선택 합니다.
+Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 수 있습니다. 논리 앱 디자이너 도구 모음에서 **트리거 실행** 을 선택 합니다.
 
 ![논리 앱에 대 한 수동으로 트리거 실행](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
@@ -226,7 +226,7 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
 논리 앱 실행 상태를 확인하고 문제를 진단하려면 Visual Studio에서 해당 실행에 대한 입력 및 출력 같은 세부 정보를 검토하면 됩니다.
 
-1. 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **실행 기록 열기**를 선택합니다.
+1. 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **실행 기록 열기** 를 선택합니다.
 
    ![논리 앱에 대 한 실행 기록 열기](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
@@ -243,20 +243,20 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
 ## <a name="disable-or-enable-logic-app"></a>논리 앱 사용 또는 사용 안 함
 
-논리 앱을 삭제하지 않고도 다음 번에 트리거 조건이 충족되더라도 트리거가 발생하지 않게 할 수 있습니다. 논리 앱을 사용하지 않도록 설정하면 Logic Apps 엔진이 논리 앱에 대한 이후 워크플로 인스턴스를 만들고 실행하지 못하게 차단됩니다. 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **사용 안 함**을 선택합니다.
+논리 앱을 삭제하지 않고도 다음 번에 트리거 조건이 충족되더라도 트리거가 발생하지 않게 할 수 있습니다. 논리 앱을 사용하지 않도록 설정하면 Logic Apps 엔진이 논리 앱에 대한 이후 워크플로 인스턴스를 만들고 실행하지 못하게 차단됩니다. 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **사용 안 함** 을 선택합니다.
 
 ![클라우드 탐색기에서 논리 앱을 사용 하지 않도록 설정](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
 > [!NOTE]
 > 논리 앱을 사용하지 않도록 설정하면 새 실행이 인스턴스화되지 않습니다. 진행 중 및 보류 중인 모든 실행이 완료될 때까지 계속되며, 완료에 시간이 소요될 수 있습니다.
 
-논리 앱을 다시 활성화 하려면 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **사용**을 선택 합니다.
+논리 앱을 다시 활성화 하려면 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **사용** 을 선택 합니다.
 
 ![클라우드 탐색기에서 논리 앱 사용](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 ## <a name="delete-your-logic-app"></a>논리 앱 삭제
 
-Azure Portal에서 논리 앱을 삭제하려면 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **삭제**를 선택합니다.
+Azure Portal에서 논리 앱을 삭제하려면 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **삭제** 를 선택합니다.
 
 ![Azure Portal에서 논리 앱을 삭제 합니다.](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
