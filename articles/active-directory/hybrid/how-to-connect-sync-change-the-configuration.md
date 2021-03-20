@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2044653673da10de59d5ff125da44ac1f89e22f9
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861853"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
@@ -136,19 +136,19 @@ ms.locfileid: "96861853"
 
 ### <a name="length-of-attributes"></a>특성의 길이
 문자열 특성은 기본적으로 인덱싱 가능하게 설정되고 최대 길이는 448자입니다. 더 길어질 수 있는 문자열 특성을 사용한다면 특성 흐름에 반드시 다음을 포함해야 합니다.  
-`attributeName` <- `Left([attributeName],448)`를 참조하세요.
+`attributeName` <- `Left([attributeName],448)`.
 
 ### <a name="changing-the-userprincipalsuffix"></a>userPrincipalSuffix 변경
 Active Directory의 userPrincipalName 특성을 항상 사용자가 알 수 있는 것은 아니며 로그인 ID로 적절하지 않을 수도 있습니다. Azure AD Connect 동기화 설치 마법사를 통해 다른 특성을 선택할 수 있습니다(예: *mail*). 하지만 일부 경우에는 특성을 계산해야 합니다.
 
 예를 들어 회사 Contoso에는 2개의 Azure AD 디렉터리가 있습니다. 하나는 프로덕션용이고 하나는 테스트용입니다. 테스트 테넌트의 사용자가 로그인 ID에 다른 접미사를 사용하도록 할 수 있습니다.  
-`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`를 참조하세요.
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`.
 
 이 식에서는 첫 번째 @-sign(Word) 왼쪽에 있는 모든 것을 고정된 문자열과 연결합니다.
 
 ### <a name="convert-a-multi-value-attribute-to-single-value"></a>다중 값 특성을 단일 값으로 변환
 Active Directory 내의 일부 특성은 Active Directory 사용자 및 컴퓨터에서 단일 값으로 보이더라도 스키마에서는 다중 값입니다. 설명 특성이 한 예입니다.  
-`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`를 참조하세요.
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`.
 
 이 식에서 특성에 값이 있는 경우 해당 특성 내 첫 번째 항목(*Item*)에서 선행 및 후행 공백을 제거한 다음(*트리밍*), 문자열에 처음 448개의 문자(*왼쪽*)를 유지합니다.
 

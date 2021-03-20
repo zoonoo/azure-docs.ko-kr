@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 9bf857a66643b1e95ea2559601761a7217babad4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91665330"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
@@ -71,9 +71,9 @@ Azure Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 �
 
 | 매개 변수 | URL 항목 | 설명 |
 | --- | --- | --- |
-| **name** | `\<string>` | *조건*의 이름입니다. |
-| **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
-| **measureName** | `\<string>` | *측정값*의 열 이름입니다. |
+| **name** | `\<string>` | *조건* 의 이름입니다. |
+| **splitBy** | `\<string>` | *분할의 기준* 이 되는 열 이름입니다. |
+| **measureName** | `\<string>` | *측정값* 의 열 이름입니다. |
 | **가** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
 | **.** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. |
 
@@ -90,7 +90,7 @@ Azure Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 �
 | --- | --- |
 | `multiChartStack=false` | `true` 는 기본적으로 사용 하도록 설정 되므로 스택에 전달 됩니다 `false` . |
 | `multiChartStack=false&multiChartSameScale=true` | 용어 전체에서 동일한 Y-축 눈금 사용하려면 스택을 사용하도록 설정해야 합니다.  `false`기본적으로를 전달 하면 `true` 이 기능을 사용할 수 있습니다. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  단위는 항상 대문자로 시작합니다. </br> **TimeBucketSize**에 필요한 정수를 전달 하 여 단위 수를 정의 합니다.  |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = `days` , `hours` , `minutes` , `seconds` , `milliseconds` .  단위는 항상 대문자로 시작합니다. </br> **TimeBucketSize** 에 필요한 정수를 전달 하 여 단위 수를 정의 합니다.  |
 | `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. |
 
 > [!NOTE]
@@ -110,7 +110,7 @@ URL 매개 변수로 Azure Time Series Insights 환경에 시계열 정의를 �
 
 * 환경 ID
 * 데이터의 최근 60 분
-* 선택적 매개 변수를 구성 하는 용어 (**F1PressureID**, **F2TempStation**및 **F3VibrationPL**)
+* 선택적 매개 변수를 구성 하는 용어 (**F1PressureID**, **F2TempStation** 및 **F3VibrationPL**)
 
 뷰에 대해 다음 매개 변수가 있는 URL을 생성할 수 있습니다.
 

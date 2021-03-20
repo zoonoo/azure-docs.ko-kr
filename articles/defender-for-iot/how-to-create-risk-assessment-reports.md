@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/17/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d13520a6b2f5e473942d7d0221a4e6f0708b6411
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 367974e214892d4dfefeb138ae5bfa516f49882a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100522260"
 ---
 # <a name="risk-assessment-reporting"></a>위험 평가 보고
@@ -103,7 +103,7 @@ PDF 위험 평가 보고서를 만듭니다. 보고서 이름은 risk-assessment
 
 :::image type="content" source="media/how-to-generate-reports/import-logo-screenshot.png" alt-text="위험 평가 보기를 통해 로고를 가져옵니다.":::
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [공격 벡터 보고](how-to-create-attack-vector-reports.md)
 

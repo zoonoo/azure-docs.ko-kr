@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100522396"
 ---
 # <a name="control-what-traffic-is-monitored"></a>모니터링된 트래픽 제어
@@ -247,7 +247,7 @@ Windows 끝점 모니터링 기능을 사용 하 여 Windows 시스템을 선택
 
 예약 된 검색 또는 수동 검색을 수행할 수 있습니다. 검색이 완료 되 면 CSV 파일에서 결과를 볼 수 있습니다.
 
-**필수 구성 요소**
+**전제 조건**
 
 UDP 포트 135 및 1024 위의 모든 TCP 포트를 사용 하 여 센서의 나가는 트래픽을 스캔 된 서브넷으로 여는 방화벽 규칙을 구성 합니다.
 
@@ -295,7 +295,7 @@ UDP 포트 135 및 1024 위의 모든 TCP 포트를 사용 하 여 센서의 나
 
 1. 검색이 완료 되 면 **작업** 창에서 **검사 결과 보기** 를 선택 합니다. 검색 결과가 포함 된 CSV 파일이 컴퓨터에 다운로드 됩니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [장치 인벤토리에서](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  센서 검색 조사 [장치 맵의 센서 검색 조사](how-to-work-with-the-sensor-device-map.md)

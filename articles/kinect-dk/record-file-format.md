@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 레코드, 재생, matroska, .mkv
 ms.openlocfilehash: f4fa14b0841cb76b2ba191310ecbca312d29f805
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654594"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Azure Kinect 센서 SDK를 사용 하 여 파일 형식 기록
@@ -46,7 +46,7 @@ ffmpeg -i output.mkv -map 0:1 -vsync 0 depth%04d.png
 재생 API를 사용 하지 않고 파일에서 IMU 데이터를 추출 하는 경우 데이터는 이진 형식으로 됩니다.
 IMU 데이터의 구조는 아래와 같습니다. 모든 필드는 작은 endian입니다.
 
-| 필드                        | 형식     |
+| 필드                        | Type     |
 |------------------------------|----------|
 | 가 속도계 Timestamp (μs) | uint64   |
 | 가 속도계 Data (x, y, z) | float [3] |

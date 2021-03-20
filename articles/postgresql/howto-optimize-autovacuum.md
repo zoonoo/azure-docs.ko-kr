@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.openlocfilehash: a94afc1ab970c2cd3f509c86efba4e455d46fd13
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96012564"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 autovacuum 최적화
@@ -54,7 +54,7 @@ SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRa
 
 이전 질문에 따라 업데이트할 수 있는 일부 자동 진공 구성 매개 변수와 몇 가지 지침은 다음과 같습니다.
 
-매개 변수|Description|기본값
+매개 변수|설명|기본값
 ---|---|---
 autovacuum_vacuum_threshold|한 테이블에서 진공 작업을 트리거하는 데 필요한 업데이트 또는 삭제된 튜플의 최소 개수를 지정합니다. 기본값은 50개 튜플입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|50
 autovacuum_vacuum_scale_factor|진공 작업을 트리거할지 여부를 결정할 때 autovacuum_vacuum_threshold에 추가할 테이블 크기의 비율을 지정합니다. 기본값은 0.2로, 테이블 크기의 20%입니다. 이 매개 변수는 postgresql.conf 파일 또는 서버 명령줄에서만 설정합니다. 개별 테이블에 대한 설정을 재정의하려면 테이블 스토리지 매개 변수를 변경합니다.|0.2

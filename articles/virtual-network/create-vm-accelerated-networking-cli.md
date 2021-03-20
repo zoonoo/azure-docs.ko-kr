@@ -17,10 +17,10 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919955"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI을 사용하여 가속 네트워킹을 사용하는 Linux 가상 머신 만들기
@@ -107,7 +107,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *Mynetworksecuritygroup* 이라는 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNetworkSecurityGroup* 이라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli
 az network nsg create \

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98597978"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
@@ -40,8 +40,8 @@ ms.locfileid: "98597978"
 1. **Azure Portal** 에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스** 로 이동합니다.
 1. **새 정책** 을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 아래에서 **사용자 및 그룹** 을 선택합니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
+1. **할당** 에서 **사용자 및 그룹** 을 선택합니다.
    1. **포함** 에서 **모든 사용자** 를 선택합니다.
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료** 를 선택합니다.
@@ -59,6 +59,6 @@ ms.locfileid: "98597978"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
+[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)

@@ -8,10 +8,10 @@ ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523671"
 ---
 # <a name="view-alerts"></a>경고 보기
@@ -32,7 +32,7 @@ ms.locfileid: "100523671"
 
 **경고** 주 보기에서 다양 한 범주에 따라 경고를 볼 수 있습니다. 경고를 선택 하 여 세부 정보를 검토 하 고 이벤트를 관리 합니다.
 
-| 유형별 정렬 | Description |
+| 유형별 정렬 | 설명 |
 |--|--|
 | **중요 한 알림** | 경고가 중요도 별로 정렬 되었습니다. |
 | **고정 된 경고** | 추가 조사를 위해 사용자에 게 고정 된 경고입니다. 고정 된 경고는 보관 되지 않으며 고정 된 폴더에 14 일 동안 저장 됩니다. |

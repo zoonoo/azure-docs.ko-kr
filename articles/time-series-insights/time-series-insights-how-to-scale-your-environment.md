@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0dadf523c5d17ffb91f4fefa71b52d1d1855c978
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91570216"
 ---
 # <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Azure Time Series Insights Gen1 환경의 크기를 조정 하는 방법
@@ -37,7 +37,7 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 1. Azure Portal에서 Azure Time Series Insights 환경을 찾아서 선택 합니다.
 
-1. Azure Time Series Insights 환경의 메뉴에서 **저장소 구성**을 선택 합니다.
+1. Azure Time Series Insights 환경의 메뉴에서 **저장소 구성** 을 선택 합니다.
 
    [![Azure Time Series Insights 용량 구성](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
@@ -47,7 +47,7 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
    또는 슬라이더의 오른쪽에 있는 텍스트 상자에 용량 승수를 입력할 수 있습니다.
 
-1. **저장**을 선택하여 환경을 확장할 수 있습니다. 진행률 표시기에는 변경 내용이 커밋될 때까지 일시적으로 표시됩니다.
+1. **저장** 을 선택하여 환경을 확장할 수 있습니다. 진행률 표시기에는 변경 내용이 커밋될 때까지 일시적으로 표시됩니다.
 
 1. 새 용량이 [제한을 방지 하기에 충분](time-series-insights-diagnose-and-solve-problems.md)한지 확인 합니다.
 

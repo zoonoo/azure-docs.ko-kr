@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91576101"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
@@ -36,7 +36,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 
 Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 위한 Azure AD 웹 애플리케이션을 만들고 구성합니다. 지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 
-이전 연결에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 형식으로 **웹앱/API**를 선택해야 합니다.
+이전 연결에 있는 지침을 수행하는 동안 다음 스크린샷과 같이 애플리케이션 형식으로 **웹앱/API** 를 선택해야 합니다.
 
 ![웹앱 만들기](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "웹앱 만들기")
 
@@ -51,24 +51,24 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 앞에서 만든 Azure Active Directory 애플리케이션에 연결할 Data Lake Storage Gen1 계정을 엽니다.
-2. Data Lake Storage Gen1 계정 블레이드에서 **데이터 탐색기**를 클릭합니다.
+2. Data Lake Storage Gen1 계정 블레이드에서 **데이터 탐색기** 를 클릭합니다.
    
     ![Data Lake Storage Gen1 계정에서 디렉터리 만들기](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "데이터 레이크 계정에서 디렉터리 만들기")
-3. **데이터 탐색기** 블레이드에서 Azure AD 애플리케이션에 대한 액세스를 제공할 파일 또는 폴더를 클릭하고 **액세스**를 클릭합니다. 파일에 대한 액세스를 구성하려면 **파일 미리 보기** 블레이드에서 **액세스**를 클릭해야 합니다.
+3. **데이터 탐색기** 블레이드에서 Azure AD 애플리케이션에 대한 액세스를 제공할 파일 또는 폴더를 클릭하고 **액세스** 를 클릭합니다. 파일에 대한 액세스를 구성하려면 **파일 미리 보기** 블레이드에서 **액세스** 를 클릭해야 합니다.
    
     ![데이터 레이크 파일 시스템에 ACL 설정](./media/data-lake-store-authenticate-using-active-directory/adl.acl.1.png "데이터 레이크 파일 시스템에 ACL 설정")
 4. **액세스** 블레이드는 루트에 이미 할당된 표준 액세스 및 사용자 지정 액세스를 나열합니다. **추가** 아이콘을 클릭하여 사용자 지정 수준 ACL을 추가합니다.
    
     ![표준 및 사용자 지정 액세스 나열](./media/data-lake-store-authenticate-using-active-directory/adl.acl.2.png "표준 및 사용자 지정 액세스 나열")
-5. **추가** 아이콘을 클릭하여 **사용자 지정 액세스 추가** 블레이드를 엽니다. 이 블레이드에서 **사용자 또는 그룹 선택**을 클릭한 다음, **사용자 또는 그룹 선택** 블레이드에서 이전에 만든 Azure Active Directory 애플리케이션을 찾습니다. 검색할 그룹이 많은 경우 위쪽의 텍스트 상자를 사용하여 그룹 이름을 필터링합니다. 추가하려는 그룹을 클릭한 다음 **선택**을 클릭합니다.
+5. **추가** 아이콘을 클릭하여 **사용자 지정 액세스 추가** 블레이드를 엽니다. 이 블레이드에서 **사용자 또는 그룹 선택** 을 클릭한 다음, **사용자 또는 그룹 선택** 블레이드에서 이전에 만든 Azure Active Directory 애플리케이션을 찾습니다. 검색할 그룹이 많은 경우 위쪽의 텍스트 상자를 사용하여 그룹 이름을 필터링합니다. 추가하려는 그룹을 클릭한 다음 **선택** 을 클릭합니다.
    
     ![그룹 추가](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "그룹 추가")
-6. **사용 권한 선택**을 클릭하고 사용 권한 및 이러한 권한을 기본 ACL로 할당할지, 액세스 ALC로 할당할지 또는 둘 다로 할당할지 선택합니다. **확인**을 클릭합니다.
+6. **사용 권한 선택** 을 클릭하고 사용 권한 및 이러한 권한을 기본 ACL로 할당할지, 액세스 ALC로 할당할지 또는 둘 다로 할당할지 선택합니다. **확인** 을 클릭합니다.
    
     ![사용 권한 선택 옵션을 포함 하는 사용자 지정 액세스 블레이드에 대 한 스크린샷 및 확인 옵션이 포함 된 권한 선택 블레이드를 호출 합니다.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "그룹에 권한 할당")
    
     Data Lake Storage Gen1의 사용 권한 및 기본/액세스 ACL에 대한 자세한 내용은 [Data Lake Storage Gen1에서 액세스 제어](data-lake-store-access-control.md)를 참조하세요.
-7. **사용자 지정 액세스 추가** 블레이드에서 **확인**을 클릭합니다. 연결 된 권한으로 새로 추가 된 그룹이 **액세스** 블레이드에서 나열 됩니다.
+7. **사용자 지정 액세스 추가** 블레이드에서 **확인** 을 클릭합니다. 연결 된 권한으로 새로 추가 된 그룹이 **액세스** 블레이드에서 나열 됩니다.
    
     ![사용자 지정 액세스 섹션에서 호출 되는 새로 추가 된 그룹을 포함 하는 액세스 블레이드의 스크린샷](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "그룹에 권한 할당")
 
@@ -84,9 +84,9 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 
 1. [Azure Portal](https://portal.azure.com)에 로그온하고 왼쪽 창에서 Active Directory를 클릭합니다.
 
-2. 왼쪽 창에서 **앱 등록**을 클릭합니다.
+2. 왼쪽 창에서 **앱 등록** 을 클릭합니다.
 
-3. 앱 등록 블레이드 맨 위에서 **엔드포인트**를 클릭합니다.
+3. 앱 등록 블레이드 맨 위에서 **엔드포인트** 를 클릭합니다.
 
     ![앱 등록 옵션 및 out 이라는 끝점 옵션을 사용 하는 Active Directory의 스크린샷](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "OAuth 토큰 끝점")
 

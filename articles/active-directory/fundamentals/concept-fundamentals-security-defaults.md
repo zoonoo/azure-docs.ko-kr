@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9c912b7122a40ae39bcbb703e1387af25fff2bc8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: efaf6060c0b09e071546038d9e30f2c8065059e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029909"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "98600128"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
@@ -76,7 +76,7 @@ Azure AD Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개
 
 이러한 공격자는 액세스 권한을 얻은 후에 원래 계정 소유자를 대신하여 권한 있는 정보에 대한 액세스를 요청할 수 있습니다. 전체 디렉터리를 다운로드하여 전체 조직에서 피싱 공격을 수행할 수도 있습니다. 
 
-모든 사용자에 대해 보호를 개선하는 일반적인 방법 중 하나는 모든 사용자에 대해 다단계 인증과 같은 보다 강력한 형식의 계정 확인을 요구하는 것입니다. 사용자가 다단계 인증 등록을 완료한 후에는 필요할 때마다 추가 인증을 요구하는 메시지가 표시됩니다. 이 기능은 SaaS 애플리케이션을 포함하여 Azure AD에 등록된 모든 애플리케이션을 보호합니다.
+모든 사용자에 대해 보호를 개선하는 일반적인 방법 중 하나는 모든 사용자에 대해 다단계 인증과 같은 보다 강력한 형식의 계정 확인을 요구하는 것입니다. 사용자가 다단계 인증 등록을 완료한 후에는 필요할 때마다 추가 인증을 요구하는 메시지가 표시됩니다. 사용자는 주로 새 장치나 응용 프로그램을 사용 하 여 인증 하거나 중요 한 역할 및 작업을 수행할 때 표시 됩니다. 이 기능은 SaaS 애플리케이션을 포함하여 Azure AD에 등록된 모든 애플리케이션을 보호합니다.
 
 ### <a name="blocking-legacy-authentication"></a>레거시 인증 차단
 
@@ -128,14 +128,14 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 | X** | X |
 | 휴대폰에 문자 메시지 전송 |   | X |
 | 휴대폰에 전화 걸기 |   | X |
-| 앱 암호 |   | X * * _ |
+| 앱 암호 |   | X*** |
 
-- _ * 사용자는 Microsoft Authenticator 앱의 확인 코드를 사용할 수 있지만 알림 옵션을 사용 하 여 등록할 수 있습니다.
-- * * _ 앱 암호는 관리자가 사용 하도록 설정한 경우에만 레거시 인증 시나리오를 사용 하는 사용자별 MFA 에서만 사용할 수 있습니다.
+- ** 사용자는 Microsoft Authenticator 앱의 확인 코드를 사용할 수 있지만 알림 옵션만 사용하여 등록할 수 있습니다.
+- *** 앱 암호는 관리자가 사용하도록 설정한 경우에만 레거시 인증 시나리오를 사용하여 사용자별 MFA에서 사용할 수 있습니다.
 
 ### <a name="disabled-mfa-status"></a>사용하지 않도록 설정된 MFA 상태
 
-조직이 사용자 단위 기반 Azure AD Multi-Factor Authentication의 이전 사용자 인 경우, Multi-factor Auth 상태 페이지를 살펴보면 _ *사용** 또는 **적용** 됨 상태에서 사용자를 표시 하지 않도록 합니다. **사용 안 함** 은 보안 기본값 또는 조건부 액세스 기반 Azure AD Multi-Factor Authentication를 사용 하는 사용자에 대 한 적절 한 상태입니다.
+사용자가 사용자별 기반 Azure AD Multi-Factor Authentication의 이전 사용자 인 경우 Multi-factor Auth 상태 페이지를 살펴보면 사용 또는 **적용** **됨** 상태에서 사용자가 표시 되지 않도록 합니다. **사용 안 함** 은 보안 기본값 또는 조건부 액세스 기반 Azure AD Multi-Factor Authentication를 사용 하는 사용자에 대 한 적절 한 상태입니다.
 
 ### <a name="conditional-access"></a>조건부 액세스
 

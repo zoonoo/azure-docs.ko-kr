@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541507"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
@@ -28,7 +28,7 @@ Azure Database for MySQL은 데이터를 보호하는 방화벽을 사용하여 
 
    :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
-2. **Azure 서비스에 대한 액세스 허용** 에서 **설정** , **저장** 을 차례로 선택합니다.
+2. **Azure 서비스에 대한 액세스 허용** 에서 **설정**, **저장** 을 차례로 선택합니다.
    :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal - Azure 액세스 허용":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>솔루션 2 - 아웃바운드 IP를 명시적으로 허용하는 방화벽 규칙 만들기

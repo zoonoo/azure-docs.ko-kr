@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738721"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Application Gateway 및 Azure 방화벽을 사용 하 여 응용 프로그램을 인터넷에 노출
 
 이 문서에서는 Application Gateway 및 Azure 방화벽을 사용 하 여 응용 프로그램을 인터넷에 노출 하는 방법을 설명 합니다. Azure 스프링 클라우드 서비스 인스턴스를 가상 네트워크에 배포 하는 경우 서비스 인스턴스의 응용 프로그램은 개인 네트워크 에서만 액세스할 수 있습니다. 인터넷에서 응용 프로그램에 액세스할 수 있도록 하려면 **Azure 애플리케이션 게이트웨이와** 통합 하 고 필요에 따라 **Azure 방화벽과** 함께 통합 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [2.0.4 이상을 이상 버전을 Azure CLI](/cli/azure/install-azure-cli)합니다.
 

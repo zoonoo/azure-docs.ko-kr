@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 6af095c7abdb9aa61e57d543ff2ab2f9192dadc8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011441"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>기본 경로에서 Blob 경로 변경
 
 StorSimple 데이터 관리자 서비스가 데이터를 변환하는 경우, 기본적으로 대상 리포지토리를 만드는 동안 지정된 대로, 변환된 Blob를 스토리지 컨테이너에 배치합니다. Blob이 이 위치에 도달하면 이러한 Blob을 다른 위치로 이동하려고 할 수 있습니다. 이 문서에서는 기본 Blob 파일 경로의 이름을 바꾸고 Blob을 다른 위치로 이동하도록 Azure 함수를 설정하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 StorSimple 데이터 관리자 서비스에서 작업 정의를 올바르게 구성했는지 확인합니다.
 

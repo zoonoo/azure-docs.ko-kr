@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94541337"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
@@ -28,11 +28,11 @@ VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 �
 **az mysql server firewall-rule** 명령은 Azure CLI에서 방화벽 규칙을 만들고, 삭제, 나열, 표시 및 업데이트하는 데 사용됩니다.
 
 명령:
-- **create** : Azure MySQL 서버 방화벽 규칙을 만듭니다.
-- **delete** : Azure MySQL 서버 방화벽 규칙을 삭제합니다.
-- **list** : Azure MySQL 서버 방화벽 규칙을 나열 합니다.
-- **show** : Azure MySQL 서버 방화벽 규칙의 세부 정보를 표시 합니다.
-- **update** : Azure MySQL 서버 방화벽 규칙을 업데이트합니다.
+- **create**: Azure MySQL 서버 방화벽 규칙을 만듭니다.
+- **delete**: Azure MySQL 서버 방화벽 규칙을 삭제합니다.
+- **list**: Azure MySQL 서버 방화벽 규칙을 나열 합니다.
+- **show**: Azure MySQL 서버 방화벽 규칙의 세부 정보를 표시 합니다.
+- **update**: Azure MySQL 서버 방화벽 규칙을 업데이트합니다.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure에 로그인 하 고 Azure Database for MySQL 서버를 나열 합니다.
 **az login** 명령을 사용하여 Azure 계정으로 Azure CLI를 안전하게 연결합니다.

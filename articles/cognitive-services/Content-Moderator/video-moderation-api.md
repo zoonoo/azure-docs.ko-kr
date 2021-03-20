@@ -12,10 +12,10 @@ ms.date: 05/18/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4f98eac4305333ec7225c90da2777b7e02f050a0
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96853535"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석
@@ -84,7 +84,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>리소스 참조 설정
 
-_Program.cs_ 의 **Program** 클래스에 다음 정적 필드를 추가 합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
+_Program .cs_ 의 **program** 클래스에 다음 정적 필드를 추가 합니다. 이 필드에는 AMS 구독 연결에 필요한 정보가 있습니다. 위의 단계에서 얻은 값으로 입력하세요. `CLIENT_ID`는 Azure AD 앱의 **애플리케이션 ID** 값이고 `CLIENT_SECRET`는 해당 앱에 대해 사용자가 생성한 "VideoModKey"의 값입니다.
 
 ```csharp
 // declare constants and globals
@@ -121,7 +121,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 로컬 비디오 파일을 사용하려면(가장 간단한 사례) 프로젝트에 추가하고 `INPUT_FILE` 값으로 경로를 입력합니다(상대 경로는 실행 디렉터리와 상대적임).
 
-또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들어 다음과 같습니다.
+또한 현재 디렉터리에 _preset.json_ 파일을 만들고 버전 번호를 지정하기 위해 사용해야 합니다. 예를 들면 다음과 같습니다.
 
 ```JSON
 {

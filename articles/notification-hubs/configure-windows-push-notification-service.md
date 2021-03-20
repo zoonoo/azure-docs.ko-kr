@@ -12,10 +12,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
 ms.openlocfilehash: 62d73a23fff3bd15d873a579d451b2f91509b7fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87758733"
 ---
 # <a name="configure-windows-push-notification-service-settings-in-the-azure-portal"></a>Azure Portal에서 Windows 푸시 알림 서비스 설정 구성
@@ -31,8 +31,8 @@ ms.locfileid: "87758733"
 다음 절차에서는 알림 허브에 대 한 WNS (Windows 푸시 알림 서비스) 설정을 구성 하는 단계에 대해 설명 합니다.
 
 1. Azure Portal의 **알림 허브** 페이지에서 왼쪽 메뉴에 있는 **Windows (WNS)** 를 선택 합니다.
-2. **패키지 SID** 및 **보안 키**에 사용할 값을 입력합니다.
-3. **저장**을 선택합니다.
+2. **패키지 SID** 및 **보안 키** 에 사용할 값을 입력합니다.
+3. **저장** 을 선택합니다.
 
    ![패키지 SID 및 보안 키 상자를 보여주는 스크린샷](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 

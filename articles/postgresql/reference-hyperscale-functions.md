@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: f324ef44d002f50bf27c08072e904c1d92b5512f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026236"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Citus (Hyperscale) SQL API의 함수
@@ -104,7 +104,7 @@ SELECT upgrade_to_reference_table('nation');
 
 Mark \_ tables \_ 공동 배치 () 함수는 분산 된 테이블 (원본)과 기타 항목 (대상)의 목록을 사용 하 여 원본과 동일한 공동 배치 그룹에 대상을 배치 합니다. 소스가 아직 그룹에 없는 경우이 함수는 하나를 만들고 소스와 대상을 할당 합니다.
 
-공동 배치 테이블은 create_distributed_table 매개 변수를 통해 테이블 배포 시 수행 되어야 `colocate_with` 하지만 [create_distributed_table](#create_distributed_table), `mark_tables_colocated` 필요한 경우 나중에 처리할 수 있습니다.
+공동 배치 테이블은 create_distributed_table 매개 변수를 통해 테이블 배포 시 수행 되어야 `colocate_with` 하지만 [](#create_distributed_table), `mark_tables_colocated` 필요한 경우 나중에 처리할 수 있습니다.
 
 #### <a name="arguments"></a>인수
 
@@ -363,7 +363,7 @@ pg_size_pretty
 
 #### <a name="return-value"></a>반환 값
 
-None
+없음
 
 ## <a name="server-group-management-and-repair"></a>서버 그룹 관리 및 복구
 

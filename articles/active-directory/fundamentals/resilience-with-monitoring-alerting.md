@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101648520"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>모니터링 및 분석을 통한 복원 력
@@ -49,7 +49,7 @@ ms.locfileid: "101648520"
 
    - **이전 기간**: 전체 요청 및 성공률 (%)의 변경 내용을 표시 하는 임시 차트 만들기 이전 기간 동안 (예: 지난 주)
 
-- **경고**: log analytics를 사용 하면 키 표시기가 급격 하 게 변경 될 때 트리거되는 [경고](../../azure-monitor/alerts/alerts-log.md) 를 정의 합니다. 이러한 변경으로 인해 Slo에 부정적인 영향을 줄 수 있습니다. 경고는 전자 메일, SMS 및 웹 후크를 비롯 한 다양 한 형태의 알림 방법을 사용 합니다. 먼저 경고가 트리거되는 임계값으로 작동 하는 조건을 정의 합니다. 다음은 그 예입니다. 
+- **경고**: log analytics를 사용 하면 키 표시기가 급격 하 게 변경 될 때 트리거되는 [경고](../../azure-monitor/alerts/alerts-log.md) 를 정의 합니다. 이러한 변경으로 인해 Slo에 부정적인 영향을 줄 수 있습니다. 경고는 전자 메일, SMS 및 웹 후크를 비롯 한 다양 한 형태의 알림 방법을 사용 합니다. 먼저 경고가 트리거되는 임계값으로 작동 하는 조건을 정의 합니다. 예를 들면 다음과 같습니다.
   - 전체 요청에 대 한 갑작스러운 삭제에 대 한 경고: 총 요청 수가 갑자기 삭제 될 때 경고를 트리거합니다. 예를 들어 이전 기간과 비교 하 여 총 요청 수에 25% 놓기가 있으면 경고를 발생 시킵니다.  
   - 성공 율의 중요 한 삭제에 대 한 경고 (%): 선택한 정책의 성공률을 크게 떨어지면 경고를 트리거합니다.
   - 경고가 수신 되 면 Azure AD B2C에 대 한 [Log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), [Application Insights](../../active-directory-b2c/troubleshoot-with-application-insights.md)및 [VS Code 확장](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) 을 사용 하 여 문제를 해결 합니다. 문제를 해결 하 고 업데이트 된 응용 프로그램 또는 정책을 배포한 후에는 정상 범위로 돌아갈 때까지 키 표시기를 계속 모니터링 합니다.

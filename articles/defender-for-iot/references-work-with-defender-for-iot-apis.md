@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: ae7965dd319f2ff885f4329262ae4772452afd62
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523246"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>IoT 센서 및 관리 콘솔 Api 용 Defender
@@ -108,40 +108,40 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 #### <a name="device-fields"></a>장치 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **id** | 숫자 | 예 | - |
+| **ID** | 숫자 | 아니요 | - |
 | **ipAddresses** | JSON 배열 | 예 | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 예 | - |
-| **type** | String | 예 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **name** | String | 아니요 | - |
+| **type** | String | 아니요 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
 | **macAddresses** | JSON 배열 | 예 | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
 | **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 예 | True 또는 False |
-| **장치가** | 부울 | 예 | True 또는 False |
-| **승인됨** | 부울 | 예 | True 또는 False |
+| **engineeringStation** | 부울 | 아니요 | True 또는 False |
+| **장치가** | 부울 | 아니요 | True 또는 False |
+| **승인됨** | 부울 | 아니요 | True 또는 False |
 | **업체인** | String | 예 | - |
 | **인터넷용** | JSON 배열 | 예 | 프로토콜 개체 |
 | **펌웨어입니다** | JSON 배열 | 예 | 펌웨어 개체 |
 
 #### <a name="protocol-fields"></a>프로토콜 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **이름** | String | 예 |  |
+| **이름** | String | 아니요 |  |
 | **주소** | JSON 배열 | 예 | Master 또는 numeric 값 |
 
 #### <a name="firmware-fields"></a>펌웨어 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **연속적인** | String | 예 | 해당 없음 또는 실제 값 |
-| **model** | String | 예 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 예 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 예 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 예 | 해당 없음 또는 실제 값 |
-| **랙마운트** | String | 예 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 예 | 해당 없음 또는 실제 값 |
-| **address** | String | 예 | 해당 없음 또는 실제 값 |
+| **연속적인** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **model** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | 아니요 | 해당 없음 또는 실제 값 |
+| **additionalData** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **랙마운트** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **슬롯** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **address** | String | 아니요 | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -295,31 +295,31 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 쿼리 매개 변수를 설정 하지 않으면 모든 장치 연결이 반환 됩니다.
 
-**예제**:
+**예**:
 
 `/api/v1/devices/connections`
 
 - **deviceId**: 특정 장치 ID를 기준으로 필터링 하 여 연결을 확인 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/devices/<deviceId>/connections`
 
 - **lastActiveInMinutes**: 이제 시간이 지난 후 연결이 활성 상태인 시간 프레임입니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/devices/2/connections?lastActiveInMinutes=20`
 
 - **discoveredBefore**: 특정 시간 (밀리초, UTC) 전에 검색 된 연결만 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/devices/2/connections?discoveredBefore=<epoch>`
 
 - **discoveredAfter**: 특정 시간 (밀리초, UTC) 이후에 검색 된 연결만 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/devices/2/connections?discoveredAfter=<epoch>`
 
@@ -335,19 +335,19 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 | 이름 | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **firstDeviceId** | 숫자 | 예 | - |
-| **secondDeviceId** | 숫자 | 예 | - |
-| **lastSeen** | 숫자 | 예 | Epoch (UTC) |
-| **검색** | 숫자 | 예 | Epoch (UTC) |
-| **포트** | 숫자 배열 | 예 | - |
-| **인터넷용** | JSON 배열 | 예 | 프로토콜 필드 |
+| **firstDeviceId** | 숫자 | 아니요 | - |
+| **secondDeviceId** | 숫자 | 아니요 | - |
+| **lastSeen** | 숫자 | 아니요 | Epoch (UTC) |
+| **검색** | 숫자 | 아니요 | Epoch (UTC) |
+| **포트** | 숫자 배열 | 아니요 | - |
+| **인터넷용** | JSON 배열 | 아니요 | 프로토콜 필드 |
 
 #### <a name="protocol-field"></a>프로토콜 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **name** | String | 예 | - |
-| **명령을** | 문자열 배열 | 예 | - |
+| **name** | String | 아니요 | - |
+| **명령을** | 문자열 배열 | 아니요 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -469,19 +469,19 @@ IoT 용 Defender 센서가 검색 한 모든 장치 목록을 요청 합니다.
 
 기본적으로이 API는 CVEs를 사용 하 여 모든 장치 Ip의 목록을 제공 합니다. 각 IP 주소에 대해 최대 100의 가장 높은 점수를 매긴 CVEs를 제공 합니다.
 
-**예제**:
+**예**:
 
 `/api/v1/devices/cves`
 
 - **deviceId**: 특정 장치에서 식별 된 가장 높은 점수 100를 매긴 cves를 가져오도록 특정 장치 IP 주소를 기준으로 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/devices/<ipAddress>/cves`
 
 - **top**: 각 장치 IP 주소에 대해 검색할 상위 점수가 매겨진 cves의 수입니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/devices/cves?top=50`
 
@@ -499,11 +499,11 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | 이름 | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **cveId** | String | 예 | - |
-| **\** | String | 예 | IP 주소 |
-| **점수** | String | 예 | 0.0-10.0 |
-| **attackVector** | String | 예 | 네트워크, 인접 네트워크, 로컬 또는 물리적 |
-| **description** | String | 예 | - |
+| **cveId** | String | 아니요 | - |
+| **\** | String | 아니요 | IP 주소 |
+| **점수** | String | 아니요 | 0.0-10.0 |
+| **attackVector** | String | 아니요 | 네트워크, 인접 네트워크, 로컬 또는 물리적 |
+| **description** | String | 아니요 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -584,25 +584,25 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 - **상태**: 처리 되거나 처리 되지 않은 경고만 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?state=handled`
 
 - **fromtime**: 특정 시간 (밀리초, UTC)에서 만든 경고를 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?fromTime=<epoch>`
 
 - **totime**: 특정 시간 (밀리초, UTC) 전에만 생성 된 경고를 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?toTime=<epoch>`
 
 - **유형**: 특정 유형에 따라 경고를 필터링 합니다. 필터링 할 기존 형식: 예기치 않은 새 장치, 연결이 끊어지지 않습니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?type=disconnections`
 
@@ -616,23 +616,23 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="alert-fields"></a>경고 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 예 | - |
-| **time** | 숫자 | 예 | Epoch (UTC) |
-| **title** | String | 예 | - |
-| **message** | String | 예 | - |
-| **severity** | String | 예 | 경고, 부, 주 또는 위험 |
-| **엔진** | String | 예 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
+| **ID** | 숫자 | 아니요 | - |
+| **time** | 숫자 | 아니요 | Epoch (UTC) |
+| **title** | String | 아니요 | - |
+| **message** | String | 아니요 | - |
+| **severity** | String | 아니요 | 경고, 부, 주 또는 위험 |
+| **엔진** | String | 아니요 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
 | **sourceDevice** | 숫자 | 예 | 디바이스 ID |
 | **destinationDevice** | 숫자 | 예 | 디바이스 ID |
 | **additionalInformation** | 추가 정보 개체 | 예 | - |
 
 #### <a name="additional-information-fields"></a>추가 정보 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **description** | String | 예 | - |
+| **description** | String | 아니요 | - |
 | **내용을** | JSON 배열 | 예 | String |
 
 #### <a name="response-example"></a>응답 예제
@@ -717,7 +717,7 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 - **minutesTimeFrame**: 이제 이벤트가 보고 된 시간 프레임의 시간 (분)입니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/events?minutesTimeFrame=20`
 
@@ -739,13 +739,13 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="event-fields"></a>이벤트 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|--|
-| **timestamp** | 숫자 | 예 | Epoch (UTC) |
-| **title** | String | 예 | - |
-| **severity** | String | 예 | 정보, 알림 또는 경고 |
-| **owner** | String | 예 | 이벤트를 수동으로 만든 경우이 필드에는 이벤트를 만든 사용자 이름이 포함 됩니다. |
-| **content** | String | 예 | - |
+| **timestamp** | 숫자 | 아니요 | Epoch (UTC) |
+| **title** | String | 아니요 | - |
+| **severity** | String | 아니요 | 정보, 알림 또는 경고 |
+| **소유자도** | String | 예 | 이벤트를 수동으로 만든 경우이 필드에는 이벤트를 만든 사용자 이름이 포함 됩니다. |
+| **content** | String | 아니요 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -852,21 +852,21 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="device-fields"></a>장치 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **name** | String | 예 | - |
-| **ipAddresses** | JSON 배열 | 예 | - |
-| **securityScore** | 숫자 | 예 | - |
+| **name** | String | 아니요 | - |
+| **ipAddresses** | JSON 배열 | 아니요 | - |
+| **securityScore** | 숫자 | 아니요 | - |
 | **업체인** | String | 예 |  |
 | **firmwareVersion** | String | 예 | - |
 | **model** | String | 예 | - |
-| **isWirelessAccessPoint** | 부울 | 예 | True 또는 False |
+| **isWirelessAccessPoint** | 부울 | 아니요 | True 또는 False |
 | **operatingSystem** | 운영 체제 개체 | 예 | - |
 | **취약성** | 취약성 개체 | 예 | - |
 
 #### <a name="operating-system-fields"></a>운영 체제 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
 | **이름** | String | 예 | - |
 | **형식** | String | 예 | - |
@@ -875,53 +875,53 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 #### <a name="vulnerabilities-fields"></a>취약성 필드
  
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
 | **바이러스 방지** | JSON 배열 | 예 | 바이러스 백신 이름 |
 | **plainTextPasswords** | JSON 배열 | 예 | Password 개체 |
 | **remoteAccess** | JSON 배열 | 예 | 원격 액세스 개체 |
-| **isBackupServer** | 부울 | 예 | True 또는 False |
+| **isBackupServer** | 부울 | 아니요 | True 또는 False |
 | **openedPorts** | JSON 배열 | 예 | 열린 포트 개체 |
-| **isEngineeringStation** | 부울 | 예 | True 또는 False |
-| **isKnownScanner** | 부울 | 예 | True 또는 False |
+| **isEngineeringStation** | 부울 | 아니요 | True 또는 False |
+| **isKnownScanner** | 부울 | 아니요 | True 또는 False |
 | **같이** | JSON 배열 | 예 | CVE 개체 |
-| **isUnauthorized 없음** | 부울 | 예 | True 또는 False |
-| **malwareIndicationsDetected** | 부울 | 예 | True 또는 False |
+| **isUnauthorized 없음** | 부울 | 아니요 | True 또는 False |
+| **malwareIndicationsDetected** | 부울 | 아니요 | True 또는 False |
 | **weakAuthentication** | JSON 배열 | 예 | 약한 인증을 사용 하는 검색 된 응용 프로그램 |
 
 #### <a name="password-fields"></a>암호 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **password** | String | 예 | - |
-| **protocol** | String | 예 | - |
-| **강도가** | String | 예 | 매우 약함, 약함, Medium 또는 Strong |
+| **password** | String | 아니요 | - |
+| **protocol** | String | 아니요 | - |
+| **강도가** | String | 아니요 | 매우 약함, 약함, Medium 또는 Strong |
 
 #### <a name="remote-access-fields"></a>원격 액세스 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **port** | 숫자 | 예 | - |
-| **트랜스포트가** | String | 예 | TCP 또는 UDP |
-| **클라이언트로** | String | 예 | IP 주소 |
-| **clientSoftware** | String | 예 | SSH, VNC, 원격 데스크톱 또는 팀 뷰어 |
+| **port** | 숫자 | 아니요 | - |
+| **트랜스포트가** | String | 아니요 | TCP 또는 UDP |
+| **클라이언트로** | String | 아니요 | IP 주소 |
+| **clientSoftware** | String | 아니요 | SSH, VNC, 원격 데스크톱 또는 팀 뷰어 |
 
 #### <a name="open-port-fields"></a>포트 필드 열기
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **port** | 숫자 | 예 | - |
-| **트랜스포트가** | String | 예 | TCP 또는 UDP |
+| **port** | 숫자 | 아니요 | - |
+| **트랜스포트가** | String | 아니요 | TCP 또는 UDP |
 | **protocol** | String | 예 | - |
-| **isConflictingWithFirewall** | 부울 | 예 | True 또는 False |
+| **isConflictingWithFirewall** | 부울 | 아니요 | True 또는 False |
 
 #### <a name="cve-fields"></a>CVE 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | String | 예 | - |
-| **점수** | 숫자 | 예 | Double |
-| **description** | String | 예 | - |
+| **ID** | String | 아니요 | - |
+| **점수** | 숫자 | 아니요 | Double |
+| **description** | String | 아니요 | - |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -1542,8 +1542,8 @@ IP 주소에서 식별 된 CVEs를 나타내는 JSON 개체의 배열입니다.
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
+| **username** | String | 아니요 |
+| **password** | String | 아니요 |
 
 #### <a name="request-example"></a>요청 예제
 
@@ -1655,9 +1655,9 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
-| **new_password** | String | 예 |
+| **username** | String | 아니요 |
+| **password** | String | 아니요 |
+| **new_password** | String | 아니요 |
 
 #### <a name="curl-command"></a>Curl 명령
 
@@ -1734,10 +1734,10 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **admin_username** | String | 예 |
-| **admin_password** | String | 예 |
-| **username** | String | 예 |
-| **new_password** | String | 예 |
+| **admin_username** | String | 아니요 |
+| **admin_password** | String | 아니요 |
+| **username** | String | 아니요 |
+| **new_password** | String | 아니요 |
 
 #### <a name="curl-command"></a>Curl 명령
 
@@ -1825,42 +1825,42 @@ response:
 
 #### <a name="device-fields"></a>장치 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **sensorId** | 숫자 | 예 | - |
+| **sensorId** | 숫자 | 아니요 | - |
 | **zoneId** | 숫자 | 예 | - |
 | **siteId** | 숫자 | 예 | - |
 | **ipAddresses** | JSON 배열 | 예 | IP 주소 (인터넷 주소 또는 이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
-| **name** | String | 예 | - |
-| **type** | String | 예 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
+| **name** | String | 아니요 | - |
+| **type** | String | 아니요 | 알 수 없음, 엔지니어링 스테이션, PLC, HMI, Historian, 도메인 컨트롤러, DB 서버, 무선 액세스 지점, 라우터, 스위치, 서버, 워크스테이션, IP 카메라, 프린터, 방화벽, 터미널 스테이션, VPN Gateway, 인터넷 또는 멀티 캐스트 및 브로드캐스트 |
 | **macAddresses** | JSON 배열 | 예 | MAC 주소 (이중 Nic를 사용 하는 장치의 경우 두 개 이상의 주소를 사용할 수 있음) |
 | **operatingSystem** | String | 예 | - |
-| **engineeringStation** | 부울 | 예 | True 또는 False |
-| **장치가** | 부울 | 예 | True 또는 False |
-| **승인됨** | 부울 | 예 | True 또는 False |
+| **engineeringStation** | 부울 | 아니요 | True 또는 False |
+| **장치가** | 부울 | 아니요 | True 또는 False |
+| **승인됨** | 부울 | 아니요 | True 또는 False |
 | **업체인** | String | 예 | - |
 | **프로토콜** | JSON 배열 | 예 | 프로토콜 개체 |
 | **펌웨어입니다** | JSON 배열 | 예 | 펌웨어 개체 |
 
 #### <a name="protocol-fields"></a>프로토콜 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| Name | String | 예 | - |
+| Name | String | 아니요 | - |
 | 주소 | JSON 배열 | 예 | Master 또는 numeric 값 |
 
 #### <a name="firmware-fields"></a>펌웨어 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **연속적인** | String | 예 | 해당 없음 또는 실제 값 |
-| **model** | String | 예 | 해당 없음 또는 실제 값 |
-| **firmwareVersion** | Double | 예 | 해당 없음 또는 실제 값 |
-| **additionalData** | String | 예 | 해당 없음 또는 실제 값 |
-| **moduleAddress** | String | 예 | 해당 없음 또는 실제 값 |
-| **랙마운트** | String | 예 | 해당 없음 또는 실제 값 |
-| **슬롯** | String | 예 | 해당 없음 또는 실제 값 |
-| **address** | String | 예 | 해당 없음 또는 실제 값 |
+| **연속적인** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **model** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **firmwareVersion** | Double | 아니요 | 해당 없음 또는 실제 값 |
+| **additionalData** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **moduleAddress** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **랙마운트** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **슬롯** | String | 아니요 | 해당 없음 또는 실제 값 |
+| **address** | String | 아니요 | 해당 없음 또는 실제 값 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2020,19 +2020,19 @@ response:
 
 - **상태**: 처리 및 처리 되지 않은 경고만 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?state=handled`
 
 - **fromtime**: 특정 시간 (밀리초, UTC)에서 만든 경고를 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?fromTime=<epoch>`
 
 - **totime**: 특정 시간 (밀리초, UTC) 전에만 생성 된 경고를 필터링 합니다.
 
-  **예제**:
+  **예**:
 
   `/api/v1/alerts?toTime=<epoch>`
 
@@ -2046,23 +2046,23 @@ response:
 
 #### <a name="alert-fields"></a>경고 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **ID** | 숫자 | 예 | - |
-| **time** | 숫자 | 예 | Epoch (UTC) |
-| **title** | String | 예 | - |
-| **message** | String | 예 | - |
-| **severity** | String | 예 | 경고, 부, 주 또는 위험 |
-| **엔진** | String | 예 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
+| **ID** | 숫자 | 아니요 | - |
+| **time** | 숫자 | 아니요 | Epoch (UTC) |
+| **title** | String | 아니요 | - |
+| **message** | String | 아니요 | - |
+| **severity** | String | 아니요 | 경고, 부, 주 또는 위험 |
+| **엔진** | String | 아니요 | 프로토콜 위반, 정책 위반, 맬웨어, 변칙 또는 작동 |
 | **sourceDevice** | 숫자 | 예 | 디바이스 ID |
 | **destinationDevice** | 숫자 | 예 | 디바이스 ID |
 | **additionalInformation** | 추가 정보 개체 | 예 | - |
 
 #### <a name="additional-information-fields"></a>추가 정보 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **description** | String | 예 | - |
+| **description** | String | 아니요 | - |
 | **내용을** | JSON 배열 | 예 | String |
 
 #### <a name="response-example"></a>응답 예제
@@ -2208,9 +2208,9 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="action-fields"></a>작업 필드
 
-| 속성 | Type | Nullable | 값 목록 |
+| Name | Type | Nullable | 값 목록 |
 |--|--|--|--|
-| **action** | String | 예 | 핸들 또는 handleAndLearn |
+| **action** | String | 아니요 | 핸들 또는 handleAndLearn |
 
 #### <a name="request-example"></a>요청 예제
 
@@ -2232,13 +2232,13 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 #### <a name="response-fields"></a>응답 필드
 
 
-| 속성 | Type | Nullable | Description |
+| Name | Type | Nullable | 설명 |
 |--|--|--|--|
-| **내용/오류** | String | 예 | 요청에 성공 하면 content 속성이 나타납니다. 그렇지 않으면 오류 속성이 나타납니다. |
+| **내용/오류** | String | 아니요 | 요청에 성공 하면 content 속성이 나타납니다. 그렇지 않으면 오류 속성이 나타납니다. |
 
 #### <a name="possible-content-values"></a>가능한 콘텐츠 값
 
-| 상태 코드 | 콘텐츠 값 | Description |
+| 상태 코드 | 콘텐츠 값 | 설명 |
 |--|--|--|
 | 200 | 경고 업데이트 요청이 성공적으로 완료 되었습니다. | 업데이트 요청이 성공적으로 완료 되었습니다. 설명이 없습니다. |
 | 200 | 경고가 이미 처리 되었습니다 (**handle**). | 경고에 대 한 핸들 요청을 받았을 때 경고가 이미 처리 되었습니다.<br />경고는 **처리** 된 상태로 유지 됩니다. |
@@ -2414,16 +2414,16 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 
 #### <a name="response-structure"></a>응답 구조
 
-| 속성 | Type | 주석 | Nullable |
+| Name | Type | 의견 | Nullable |
 |--|--|--|--|
-| **dateTime** | String | 예: "2012-04-23T18:25:43.511 Z" | 아니요 |
-| **ticketId** | String | 예: "9a5fe99c-d914-4bda-9332-307384fe40bf" | 아니요 |
-| **tokenName** | String | - | 아니요 |
+| **dateTime** | String | 예: "2012-04-23T18:25:43.511 Z" | no |
+| **ticketId** | String | 예: "9a5fe99c-d914-4bda-9332-307384fe40bf" | no |
+| **tokenName** | String | - | no |
 | **엔진** | 문자열 배열 | - | 예 |
 | **sensorIds** | 문자열 배열 | - | 예 |
 | **서브넷** | 문자열 배열 | - | 예 |
 | **ttl** | 숫자 | - | 예 |
-| **operationType** | String | 값은 "OPEN", "UPDATE" 및 "CLOSE"입니다. | 아니요 |
+| **operationType** | String | 값은 "OPEN", "UPDATE" 및 "CLOSE"입니다. | no |
 
 #### <a name="curl-command"></a>Curl 명령
 
@@ -2431,7 +2431,7 @@ UUID를 포함 하는 경고에 대해 수행할 작업을 나타내는 JSON 개
 |--|--|--|
 | POST | 말아-k-X 사후 d ' {"ticketId": "<TICKET_ID>", ttl ": <TIME_TO_LIVE>," 엔진 ": [<ENGINE1, ENGINE2 ... ENGINEn>], "sensorIds": [<SENSOR_ID1, SENSOR_ID2 ... SENSOR_IDn>], "서브넷": [<SUBNET1, SUBNET2 .... SUBNETn>]} '-H "Authorization: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아-k-X 사후 d ' {"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf", "ttl": "20", "엔진": ["변칙"], "sensorIds": ["5", "3"], "서브넷": ["10.0.0.3"]} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
 | PUT | ticketId "{" ":" <TICKET_ID> ", ttl": "<TIME_TO_LIVE>"} '-H "권한 부여: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아 ticketId-d ' {"": "a5fe99c-d914-9332-307384fe40bf", "ttl": "20"} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
-| DELETE | 말아 ticketId DELETE-d ' {"": "<TICKET_ID>"} '-H "권한 부여: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아 40d-X DELETE-d ' {"ticketId": "a5fe99c-d914-9332-307384fe40bf"} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
+| Delete | 말아 ticketId DELETE-d ' {"": "<TICKET_ID>"} '-H "권한 부여: <AUTH_TOKEN>" https:/ <span> /127.0.0.1/external/v1/maintenanceWindow | 말아 40d-X DELETE-d ' {"ticketId": "a5fe99c-d914-9332-307384fe40bf"} '-H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https <span> :/127.0.0.1/external/v1/maintenanceWindow |
 | GET | https://"Authorization: <AUTH_TOKEN>" ' <IP_ADDRESS>/external/v1/maintenanceWindow? fromDate =&toDate =&ticketId =&tokenName = ' | 1234b734a9244d54ab8d40aedddcabcd "권한 부여:" ' https: <span> /127.0.0.1/external/v1/maintenanceWindow? fromDate = 2020-01-01&toDate = 2020-07-14&ticketId = a5fe99c-d914-9332-307384fe40bf&tokenName = a ' |
 
 ### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>사용자 자격 증명 인증-/external/authentication/validation validation
@@ -2476,8 +2476,8 @@ request:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
+| **username** | String | 아니요 |
+| **password** | String | 아니요 |
 
 #### <a name="response-example"></a>응답 예제
 
@@ -2561,9 +2561,9 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **username** | String | 예 |
-| **password** | String | 예 |
-| **new_password** | String | 예 |
+| **username** | String | 아니요 |
+| **password** | String | 아니요 |
+| **new_password** | String | 아니요 |
 
 #### <a name="curl-command"></a>Curl 명령
 
@@ -2640,10 +2640,10 @@ response:
 
 | **이름** | **형식** | **Null 허용** |
 |--|--|--|
-| **admin_username** | String | 예 |
-| **admin_password** | String | 예 |
-| **username** | String | 예 |
-| **new_password** | String | 예 |
+| **admin_username** | String | 아니요 |
+| **admin_password** | String | 아니요 |
+| **username** | String | 아니요 |
+| **new_password** | String | 아니요 |
 
 #### <a name="curl-command"></a>Curl 명령
 
@@ -2654,6 +2654,6 @@ response:
 
 ## <a name="next-steps"></a>다음 단계
 
-[디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-[디바이스 인벤토리에서 모든 엔터프라이즈 센서 감지 조사](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [디바이스 인벤토리에서 모든 엔터프라이즈 센서 감지 조사](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

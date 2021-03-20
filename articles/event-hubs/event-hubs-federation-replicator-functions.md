@@ -4,10 +4,10 @@ description: 이 문서에서는를 사용 하 여 이벤트 복제 작업 및 �
 ms.topic: article
 ms.date: 12/01/2020
 ms.openlocfilehash: a65815c7da400af8b5b6d46358e6bca6edbd7543
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97663645"
 ---
 # <a name="event-replication-tasks-and-applications-with-azure-functions"></a>Azure Functions를 사용 하는 이벤트 복제 태스크 및 응용 프로그램

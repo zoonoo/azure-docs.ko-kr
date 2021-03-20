@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
 ms.openlocfilehash: 6d5c4ba0f1f55119d1ec38296e67ae3e90c52650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91313725"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>사용자 VPN 클라이언트용 글로벌 또는 허브 기반 프로필 다운로드
@@ -26,9 +26,9 @@ Azure 가상 WAN은 원격 사용자에 대해 글로벌 및 허브 기반의 �
 프로필은 모든 활성 사용자 VPN hubs를 포함 하는 부하 분산 장치를 가리킵니다. 사용자는 사용자의 지리적 위치에 가장 가까운 허브로 전송 됩니다. 이 연결 유형은 사용자가 여러 위치로 이동 하는 경우에 유용 합니다. **전역** 프로필을 다운로드 하려면:
 
 1. 가상 WAN 탭으로 이동합니다.
-2. **사용자 VPN 구성**을 클릭 합니다.
+2. **사용자 VPN 구성** 을 클릭 합니다.
 3. 프로필을 다운로드 하려는 구성을 강조 표시 합니다.
-4. **가상 WAN 사용자 VPN 프로필 다운로드**를 클릭 합니다.
+4. **가상 WAN 사용자 VPN 프로필 다운로드** 를 클릭 합니다.
 
    ![전역 프로필](./media/global-hub-profile/global1.png)
 
@@ -40,12 +40,12 @@ Azure 가상 WAN은 원격 사용자에 대해 글로벌 및 허브 기반의 �
 2. 개요 페이지에서 **허브** 를 클릭 합니다.
 
     ![허브 프로필 1](./media/global-hub-profile/hub1.png)
-3. **사용자 VPN (지점 및 사이트 간)을**클릭 합니다.
-4. **가상 허브 사용자 VPN 프로필 다운로드**를 클릭 합니다.
+3. **사용자 VPN (지점 및 사이트 간)을** 클릭 합니다.
+4. **가상 허브 사용자 VPN 프로필 다운로드** 를 클릭 합니다.
 
    ![허브 프로필 2](./media/global-hub-profile/hub2.png)
-5. **Eaptls**를 확인 합니다.
-6. **생성 및 프로필 다운로드**를 클릭 합니다.
+5. **Eaptls** 를 확인 합니다.
+6. **생성 및 프로필 다운로드** 를 클릭 합니다.
 
    ![허브 프로필 3](./media/global-hub-profile/download.png)
 

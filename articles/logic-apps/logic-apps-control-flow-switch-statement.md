@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89657457"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 실행하는 switch 문 만들기
@@ -40,9 +40,9 @@ ms.locfileid: "89657457"
 
 ## <a name="add-switch-statement"></a>switch 문 추가
 
-1. 이 예제에서는 샘플 워크플로 끝에 switch 문을 추가합니다. 마지막 단계를 수행한 후 **새 단계**를 선택합니다.
+1. 이 예제에서는 샘플 워크플로 끝에 switch 문을 추가합니다. 마지막 단계를 수행한 후 **새 단계** 를 선택합니다.
 
-   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음 **작업 추가**를 선택합니다.
+   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음 **작업 추가** 를 선택합니다.
 
 1. 검색 상자에 필터로 "switch"를 입력합니다. 현재 선택한 작업: **Switch - 컨트롤**
 
@@ -57,7 +57,7 @@ ms.locfileid: "89657457"
 
    !["SelectedOption" 선택](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-1. 승인자가 `Approve` 또는 `Reject`를 선택하는 케이스를 처리하려면 **케이스**와 **기본** 사이에 다른 케이스를 추가합니다. 
+1. 승인자가 `Approve` 또는 `Reject`를 선택하는 케이스를 처리하려면 **케이스** 와 **기본** 사이에 다른 케이스를 추가합니다. 
 
    ![다른 케이스 추가](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
 
@@ -65,17 +65,17 @@ ms.locfileid: "89657457"
 
    | 케이스 # | **SelectedOption** | 작업 |
    |--------|--------------------|--------|
-   | 케이스 1 | **승인** | 승인자가 **승인**을 선택한 경우에만 RSS 항목에 대한 세부 정보를 보내는 Outlook **이메일 보내기** 작업을 추가합니다. |
+   | 케이스 1 | **승인** | 승인자가 **승인** 을 선택한 경우에만 RSS 항목에 대한 세부 정보를 보내는 Outlook **이메일 보내기** 작업을 추가합니다. |
    | 케이스 2 | **거부** | 다른 승인자에게 RSS 항목이 거부되었음을 알리는 Outlook **이메일 보내기** 작업을 추가합니다. |
-   | 기본값 | None | 필요한 작업이 없습니다. 이 예에서는 **SelectedOption**에 두 가지 옵션만 있으므로 **기본** 케이스는 비어 있습니다. |
+   | 기본값 | None | 필요한 작업이 없습니다. 이 예에서는 **SelectedOption** 에 두 가지 옵션만 있으므로 **기본** 케이스는 비어 있습니다. |
    |||
 
    ![완성된 switch 문](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
 1. 논리 앱을 저장합니다. 
 
-   이 예를 수동으로 테스트하려면 논리 앱에서 새 RSS 항목을 찾아서 승인 이메일을 보낼 때까지 **실행**을 선택합니다. 
-   **승인**을 선택하여 결과를 관찰합니다.
+   이 예를 수동으로 테스트하려면 논리 앱에서 새 RSS 항목을 찾아서 승인 이메일을 보낼 때까지 **실행** 을 선택합니다. 
+   **승인** 을 선택하여 결과를 관찰합니다.
 
 ## <a name="json-definition"></a>JSON 정의
 

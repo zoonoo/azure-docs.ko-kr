@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 5cd872d66088e165bfc8356ab6d96a0a6135a0e0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94538311"
 ---
 # <a name="detect-domain-specific-content"></a>도메인 특정 콘텐츠 검색
@@ -100,7 +100,7 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 
 현재 Computer Vision은 다음과 같은 도메인 특정 모델을 지원합니다.
 
-| Name | Description |
+| Name | 설명 |
 |------|-------------|
 | 유명인 | `people_` 범주에서 분류된 이미지에 대해 지원되는 유명인 인식 |
 | 랜드마크 | `outdoor_` 또는 `building_` 범주에서 분류된 이미지에 대해 지원되는 랜드마크 인식 |

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
 ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215776"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Azure 애플리케이션 게이트웨이로 URL 재작성-Azure Portal (미리 보기)
@@ -33,15 +33,15 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
 
 ## <a name="configure-url-rewrite"></a>URL 다시 쓰기 구성
 
-아래 예제에서 요청 URL에 */아티클이*포함 될 때마다 url 경로 및 url 쿼리 문자열이 다시 작성 됩니다.
+아래 예제에서 요청 URL에 */아티클이* 포함 될 때마다 url 경로 및 url 쿼리 문자열이 다시 작성 됩니다.
 
 `contoso.com/article/123/fabrikam` -> `contoso.com/article.aspx?id=123&title=fabrikam`
 
-1. **모든 리소스**를 선택 하 고 응용 프로그램 게이트웨이를 선택 합니다.
+1. **모든 리소스** 를 선택 하 고 응용 프로그램 게이트웨이를 선택 합니다.
 
 2. 왼쪽 창에서 다시 **쓰기** 를 선택 합니다.
 
-3. **재작성 집합**선택:
+3. **재작성 집합** 선택:
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-1.png" alt-text="재작성 집합 추가":::
 
@@ -51,27 +51,27 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     
     b. **연결 된 라우팅 규칙** 목록에 나열 된 규칙을 하나 이상 선택 합니다. 이는 라우팅 규칙을 통해 재작성 구성을 원본 수신기에 연결 하는 데 사용 됩니다. 다른 재작성 집합과 연결 되지 않은 라우팅 규칙만 선택할 수 있습니다. 다른 재작성 집합과 이미 연결 된 규칙은 회색으로 표시 됩니다.
     
-    c. **다음**을 선택합니다.
+    c. **다음** 을 선택합니다.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="재작성 집합 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="규칙에 연결":::
 
 5. 재작성 규칙을 만듭니다.
 
-    a. **재작성 규칙 추가**를 선택 합니다.
+    a. **재작성 규칙 추가** 를 선택 합니다.
     
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="재작성 집합 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="다시 쓰기 규칙 추가를 강조 표시 하는 스크린샷":::
     
     b. 재작성 규칙 **이름** 상자에 재작성 규칙의 이름을 입력 합니다. **규칙 시퀀스** 상자에 숫자를 입력 합니다.
 
-6. 이 예제에서는 경로에 */아티클이*포함 된 경우에만 url 경로 및 url 쿼리 문자열을 다시 작성 합니다. 이렇게 하려면 URL 경로에 */아티클이* 포함 되는지 여부를 평가 하는 조건을 추가 합니다.
+6. 이 예제에서는 경로에 */아티클이* 포함 된 경우에만 url 경로 및 url 쿼리 문자열을 다시 작성 합니다. 이렇게 하려면 URL 경로에 */아티클이* 포함 되는지 여부를 평가 하는 조건을 추가 합니다.
 
     a. **조건 추가** 를 선택한 다음, **If** 명령이 포함 된 상자를 선택 하 여 확장 합니다.
     
-    b. 이 예제에서는 URL 경로에서 pattern */article* 을 확인 하 고 **확인할 변수 형식** 목록에서 **서버 변수**를 선택 합니다.
+    b. 이 예제에서는 URL 경로에서 pattern */article* 을 확인 하 고 **확인할 변수 형식** 목록에서 **서버 변수** 를 선택 합니다.
     
-    c. **서버 변수** 목록에서 uri_path을 선택 합니다.
+    다. **서버 변수** 목록에서 uri_path을 선택 합니다.
     
-    d. **대/소문자 구분**에서 **아니요**를 선택 합니다.
+    d. **대/소문자 구분** 에서 **아니요** 를 선택 합니다.
     
     e. **연산자** 목록에서 **같음 (=)** 을 선택 합니다.
     
@@ -79,35 +79,35 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com/) 에 로�
     
       ()는 나중에 URL 경로를 다시 작성 하기 위한 식을 작성할 때 사용 하는 부분 문자열을 캡처하는 데 사용 됩니다. 자세한 내용은 [여기](rewrite-http-headers-url.md#capturing)를 참조하세요.
 
-    g. **확인**을 선택합니다.
+    g. **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="재작성 집합 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
 
  
 
 7. URL 및 URL 경로를 다시 작성 하는 작업 추가
 
-   a. **재작성 유형** 목록에서 **URL**을 선택 합니다.
+   a. **재작성 유형** 목록에서 **URL** 을 선택 합니다.
 
-   b. **작업 유형** 목록에서 **설정**을 선택 합니다.
+   b. **작업 유형** 목록에서 **설정** 을 선택 합니다.
 
-   c. **구성 요소**에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
+   다. **구성 요소** 에서 **URL 경로 및 url 쿼리 문자열을 모두** 선택 합니다.
 
-   d. **URL 경로 값**에 경로에 대 한 새 값을 입력 합니다. 이 예제에서는 **/article.aspx** 를 사용 합니다. 
+   d. **URL 경로 값** 에 경로에 대 한 새 값을 입력 합니다. 이 예제에서는 **/article.aspx** 를 사용 합니다. 
 
-   e. **Url 쿼리 문자열 값**에 url 쿼리 문자열의 새 값을 입력 합니다. 이 예에서는 **id = {var_uri_path_1} &title = {var_uri_path_2}** 을 사용 합니다.
+   e. **Url 쿼리 문자열 값** 에 url 쿼리 문자열의 새 값을 입력 합니다. 이 예에서는 **id = {var_uri_path_1} &title = {var_uri_path_2}** 을 사용 합니다.
     
     `{var_uri_path_1}` 및 `{var_uri_path_1}` 는이 식의 조건을 평가 하는 동안 캡처된 부분 문자열을 가져오는 데 사용 됩니다. `.*article/(.*)/(.*)`
     
-   f. **확인**을 선택합니다.
+   f. **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="재작성 집합 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="작업":::
 
 8. **만들기** 를 클릭 하 여 재작성 집합을 만듭니다.
 
 9. 새 재작성 집합이 재작성 집합 목록에 나타나는지 확인 합니다.
 
-    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="재작성 집합 추가":::
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="재작성 규칙 추가":::
 
 ## <a name="verify-url-rewrite-through-access-logs"></a>액세스 로그를 통해 URL 재작성 확인
 

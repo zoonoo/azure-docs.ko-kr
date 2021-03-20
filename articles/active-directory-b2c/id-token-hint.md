@@ -12,10 +12,10 @@ ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: d77e145cabcef2931d5fe6e76599da7931e576e8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97669162"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 ID 토큰 힌트 기술 프로필을 정의 합니다.
@@ -82,24 +82,24 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 다음 메타 데이터는 대칭 키를 사용할 때 관련 됩니다. 
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. | 
 | IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. `aud`JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. | 
 
 다음 메타 데이터는 비대칭 키를 사용 하는 경우와 관련이 있습니다. 
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | METADATA| 예 | Openid connect 잘 알려진 구성 끝점이 라고도 하는 토큰 발급자 구성 문서를 가리키는 URL입니다.   |
-| 발급자 | 예 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
-| IdTokenAudience | 예 | 토큰의 의도한 수신자를 식별합니다. `aud`JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
+| 발급자 | 아니요 | 보안 토큰 서비스 (토큰 발급자)를 식별 합니다. 이 값은 메타 데이터에 구성 된 값을 덮어쓰는 데 사용할 수 있으며 `iss` JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
+| IdTokenAudience | 아니요 | 토큰의 의도한 수신자를 식별합니다. `aud`JWT 토큰 클레임 내의 클레임과 동일 해야 합니다. |  
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 대칭 키를 사용 하는 경우 **CryptographicKeys** 요소에는 다음 특성이 포함 됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | JWT 토큰 서명의 유효성을 검사 하는 데 사용 되는 암호화 키입니다.|
 
@@ -108,7 +108,7 @@ Id_token_hint은 유효한 JWT 토큰 이어야 합니다. 다음 표에서는 �
 
 ### <a name="issue-a-token-with-symmetric-keys"></a>대칭 키가 있는 토큰 발급
 
-#### <a name="step-1-create-a-shared-key"></a>1단계: 공유 키 만들기 
+#### <a name="step-1-create-a-shared-key"></a>1단계. 공유 키 만들기 
 
 토큰에 서명 하는 데 사용할 수 있는 키를 만듭니다. 예를 들어 다음 PowerShell 코드를 사용 하 여 키를 생성 합니다.
 
@@ -141,7 +141,7 @@ $newClientSecret
 1. `B2C_1A_IdTokenHintKey` 키를 만들었는지 확인합니다.
 
 
-#### <a name="step-3-add-the-id-token-hint-technical-profile"></a>3단계. ID 토큰 힌트 기술 프로필 추가
+#### <a name="step-3-add-the-id-token-hint-technical-profile"></a>3단계: ID 토큰 힌트 기술 프로필 추가
 
 다음 기술 프로필은 토큰의 유효성을 검사 하 고 클레임을 추출 합니다. 
 
@@ -185,9 +185,9 @@ $newClientSecret
 * `/.well-known/openid-configuration` -토큰 발급자 이름 및 JWK 끝점에 대 한 링크와 같이 토큰에 대 한 관련 정보가 포함 된 잘 알려진 구성 끝점입니다. 
 * `/.well-known/keys` -키에 서명 하는 데 사용 되는 공개 키가 있는 JWK (JSON 웹 키) 끝점 (인증서의 개인 키 부분 포함)입니다.
 
-[TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .net MVC controller 샘플을 참조 하세요.
+[TokenMetadataController](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .net MVC controller 샘플을 참조 하세요.
 
-#### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계: 자체 서명 된 인증서 준비
+#### <a name="step-1-prepare-a-self-signed-certificate"></a>1단계. 자체 서명 된 인증서 준비
 
 인증서가 아직 없는 경우이 방법 가이드에 대해 자체 서명 된 인증서를 사용할 수 있습니다. Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
@@ -230,7 +230,7 @@ New-SelfSignedCertificate `
 </ClaimsProvider>
 ```
 
-#### <a name="step-3-prepare-your-policy"></a>3단계. 정책 준비
+#### <a name="step-3-prepare-your-policy"></a>3단계: 정책 준비
 
 [정책 구성](#configure-your-policy) 단계를 완료 합니다.
 

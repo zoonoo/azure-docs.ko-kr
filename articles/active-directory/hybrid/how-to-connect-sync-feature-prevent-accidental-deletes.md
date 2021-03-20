@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084612"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect 동기화: 실수로 인한 삭제 방지
@@ -51,10 +51,10 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 예상된 경우가 아니라면 조사하여 수정 작업을 수행합니다. 삭제되는 개체를 확인하려면 다음을 수행합니다.
 
 1. 시작 메뉴에서 **동기화 서비스** 를 시작 합니다.
-2. **커넥터**로 이동합니다.
-3. **Azure Active Directory**유형의 커넥터를 선택합니다.
-4. 오른쪽에 있는 **작업**에서 **커넥터 공간 검색**을 선택합니다.
-5. **범위** 아래의 팝업에서 **다음 이후 연결이 끊어짐**을 선택하고 과거 시간을 선택합니다. **검색**을 클릭합니다. 이 페이지는 삭제되는 모든 개체의 보기를 제공합니다. 각 항목을 클릭하면 개체에 대한 추가 정보를 얻을 수 있습니다. **열 설정**을 클릭하여 그리드에 표시되는 특성을 더 추가할 수도 있습니다.
+2. **커넥터** 로 이동합니다.
+3. **Azure Active Directory** 유형의 커넥터를 선택합니다.
+4. 오른쪽에 있는 **작업** 에서 **커넥터 공간 검색** 을 선택합니다.
+5. **범위** 아래의 팝업에서 **다음 이후 연결이 끊어짐** 을 선택하고 과거 시간을 선택합니다. **검색** 을 클릭합니다. 이 페이지는 삭제되는 모든 개체의 보기를 제공합니다. 각 항목을 클릭하면 개체에 대한 추가 정보를 얻을 수 있습니다. **열 설정** 을 클릭하여 그리드에 표시되는 특성을 더 추가할 수도 있습니다.
 
 ![커넥터 공간 검색](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -66,7 +66,7 @@ Azure AD로 내보내도록 스테이징된 삭제 수가 너무 많을 경우 �
 1. 현재 삭제 임계값을 검색하려면 PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다. 기본값은 500입니다.
 2. 일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면 PowerShell cmdlet `Disable-ADSyncExportDeletionThreshold`를 실행합니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다.
    ![스크린샷 Azure AD 전역 관리자 사용자 이름 및 암호를 입력 하는 대화 상자를 보여 줍니다.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
-3. Azure Active Directory Connector를 선택한 상태로 **실행** 작업, **내보내기**를 차례로 선택합니다.
+3. Azure Active Directory Connector를 선택한 상태로 **실행** 작업, **내보내기** 를 차례로 선택합니다.
 4. 보호를 다시 사용하도록 설정하려면 PowerShell cmdlet `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`를 실행합니다. 현재 삭제 임계값을 검색할 때 500을 알게 된 값으로 바꿉니다. Azure AD 전역 관리자 계정 및 암호를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
 ms.openlocfilehash: 97189fd7a232c2467981b23dc20da51ebef08252
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656345"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 스트리밍 작업 만들기 
@@ -249,7 +249,7 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 | 처리 중 | 스트리밍 작업이 실행 중이며 입력을 처리하고 있습니다. 이 상태는 스트리밍 작업이 정상임을 나타냅니다. |
 | 성능 저하됨 | 스트리밍 작업이 실행 중이지만 입력 처리 중에 치명적이 지 않은 오류가 발생 했습니다. 입력 작업은 계속 실행되지만 오류가 발생하는 입력은 삭제됩니다. |
 | 중지됨 | 스트리밍 작업이 중지되었습니다. |
-| Failed | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
+| 실패 | 스트리밍 작업이 실패 했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

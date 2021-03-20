@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 61af7922318514a7b86a349d1970c59d4d168d85
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95023329"
 ---
 # <a name="create-a-new-azure-time-series-insights-gen1-environment-in-the-azure-portal"></a>Azure Portal에서 새 Azure Time Series Insights Gen1 환경을 만듭니다.
@@ -45,7 +45,7 @@ Azure Time Series Insights를 사용 하 여 Azure IoT Event Hubs Hub로 이동 
 
    [![Azure Time Series Insights 리소스 그룹 만들기](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
 
-   설정|제안 값|Description
+   설정|제안 값|설명
    ---|---|---
    환경 이름 | 고유한 이름 | 이 이름은 [시계열 탐색기](https://insights.timeseries.azure.com) 의 환경을 나타냅니다.
    Subscription | 사용자의 구독 | 구독이 여러 개인 경우 이벤트 원본을 포함하는 구독을 선택합니다. Azure Time Series Insights는 동일한 구독의 기존 Azure IoT Hub 및 이벤트 허브 리소스를 자동으로 검색할 수 있습니다.

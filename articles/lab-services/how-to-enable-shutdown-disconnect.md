@@ -4,10 +4,10 @@ description: 원격 데스크톱 연결이 끊어질 때 VM 자동 종료를 사
 ms.topic: article
 ms.date: 10/01/2020
 ms.openlocfilehash: 8f9080f3b7b762d3b9fa448a903a4167cd2cec4a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96433939"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>랩에 대 한 Vm의 자동 종료 구성

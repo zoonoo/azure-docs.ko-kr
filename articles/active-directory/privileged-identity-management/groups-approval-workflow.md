@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91536990"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>권한 있는 액세스 그룹 구성원 및 소유자에 대 한 활성화 요청 승인 (미리 보기)
@@ -34,9 +34,9 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. **Azure AD Privileged Identity Management**를 엽니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다.
 
-1. **요청 승인**을 선택 합니다.
+1. **요청 승인** 을 선택 합니다.
 
     ![요청 승인-검토 요청을 표시 하는 Azure 리소스 페이지](./media/groups-approval-workflow/groups-select-request.png)
 
@@ -44,23 +44,23 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 ## <a name="approve-requests"></a>요청 승인
 
-1. 승인 하려는 요청을 찾아 선택 하 고 **승인**을 선택 합니다.
+1. 승인 하려는 요청을 찾아 선택 하 고 **승인** 을 선택 합니다.
 
     !["승인" 및 "확인" 단추가 강조 표시 된 "요청 승인" 페이지를 보여 주는 스크린샷](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. **근거** 상자에 비즈니스 근거를 입력 합니다.
 
-1. **확인**을 선택합니다. Azure 알림은 사용자의 승인에 의해 생성 됩니다.
+1. **확인** 을 선택합니다. Azure 알림은 사용자의 승인에 의해 생성 됩니다.
 
 ## <a name="deny-requests"></a>요청 거부
 
-1. 거부할 요청을 찾아 선택 하 고 **거부**를 선택 합니다.
+1. 거부할 요청을 찾아 선택 하 고 **거부** 를 선택 합니다.
 
     ![요청 승인-세부 정보 및 근거 상자를 사용 하 여 승인 또는 거부 창](./media/groups-approval-workflow/groups-confirm-denial.png)
 
 1. **근거** 상자에 비즈니스 근거를 입력 합니다.
 
-1. **확인**을 선택합니다. Azure 알림은 거부에 의해 생성 됩니다.
+1. **확인** 을 선택합니다. Azure 알림은 거부에 의해 생성 됩니다.
 
 ## <a name="workflow-notifications"></a>워크플로 알림
 

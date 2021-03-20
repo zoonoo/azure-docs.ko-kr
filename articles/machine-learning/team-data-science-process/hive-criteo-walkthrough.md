@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305934"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스-1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
@@ -50,11 +50,11 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>예측 작업의 예
 이 연습에서는 두 가지 샘플 예측 문제를 처리합니다.
 
-1. **이진 분류** : 사용자가 광고를 클릭했는지 여부를 예측합니다.
+1. **이진 분류**: 사용자가 광고를 클릭했는지 여부를 예측합니다.
 
    * 클래스 0: 클릭 안 함
    * 클래스 1: 클릭
-2. **회귀** : 사용자 기능에서 광고 클릭 확률을 예측합니다.
+2. **회귀**: 사용자 기능에서 광고 클릭 확률을 예측합니다.
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>데이터 과학용 HDInsight Hadoop 클러스터 설정
 > [!NOTE]
@@ -99,7 +99,7 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 설정을 완료했으므로 이제 이 연습의 첫 번째 부분인 Hive를 사용하여 데이터 탐색 및 Azure Machine Learning용 데이터 준비를 시작할 수 있습니다.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Hive 데이터베이스 및 테이블 만들기
-Criteo 데이터 집합에 대 한 Hive 테이블을 만들려면 헤드 노드의 바탕 화면에서 * *_Hadoop 명령줄_* _을 열고 다음 명령을 입력 하 여 hive 디렉터리를 입력 합니다.
+Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드의 바탕 화면에서 ***Hadoop 명령줄*** 을 열고 명령을 입력하여 Hive 디렉터리를 입력합니다.
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ cd %hive_home%\bin
 
 다음 코드는 "criteo" 데이터베이스를 만든 다음 4 개의 테이블을 생성 합니다.
 
-_ 일 00에서 20 일에 빌드된 *개수를 생성* 하는 테이블 \_ \_
+* *개수 생성을 위한 테이블* 한 개(day\_00~day\_20의 날짜를 기반으로 작성)
 * *학습 데이터 세트로 사용하기 위한 테이블* 한 개(day\_21의 날짜를 기반으로 작성)
 * *테스트 데이터 세트로 사용하기 위한 테이블* 두 개(각각 day\_22와 day\_23의 날짜를 기반으로 작성)
 
@@ -161,7 +161,7 @@ STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.wi
 
 **모든 Hive 쿼리를 실행할 수 있는 두 가지 방법이 있습니다.**
 
-* **HIVE repl 명령줄 사용** : 첫 번째는 "hive" 명령을 실행 하 고 hive repl 명령줄에서 쿼리를 복사 하 여 붙여 넣는 것입니다.
+* **HIVE repl 명령줄 사용**: 첫 번째는 "hive" 명령을 실행 하 고 hive repl 명령줄에서 쿼리를 복사 하 여 붙여 넣는 것입니다.
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.wi
   ```
 
      이제 REPL 명령줄에서 쿼리를 잘라내어 붙여넣으면 쿼리를 실행 합니다.
-* **쿼리를 파일에 저장 하 고 명령을 실행** 하는 중입니다. 두 번째는 쿼리를 '. hql ' 파일 ( [sample&#95;hive&#95;&#95;&#95;&#95;데이터베이스&#95;및](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql))에 저장 한 후 다음 명령을 실행 하 여 쿼리를 실행 하는 것입니다.
+* **쿼리를 파일에 저장 하 고 명령을 실행** 하는 중입니다. 두 번째는 쿼리를 '. hql ' 파일 ([sample&#95;hive&#95;&#95;&#95;&#95;데이터베이스&#95;및](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql))에 저장 한 후 다음 명령을 실행 하 여 쿼리를 실행 하는 것입니다.
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -502,13 +502,13 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 
 1. **데이터 원본**
 2. **Hive 데이터베이스 쿼리** 상자에 SELECT * FROM <your\_database\_name.your\_table\_name> 정도만 입력합니다.
-3. **Hcatalog 서버 URI** : 클러스터가 "abc" 이면 단순히 https: \/ /abc.azurehdinsight.net입니다.
-4. **Hadoop user account name** (Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
-5. **Hadoop user account password** (Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
-6. **Location of output data** (출력 데이터 위치): "Azure"를 선택합니다.
-7. **Azure Storage 계정 이름** : 클러스터와 연결 된 저장소 계정
-8. **Azure Storage 계정 키** : 클러스터와 연결 된 저장소 계정의 키입니다.
-9. **Azure container name** (Azure 컨테이너 이름): 클러스터 이름 "abc"의 경우 일반적으로 단순히 "abc"입니다.
+3. **Hcatalog 서버 URI**: 클러스터가 "abc" 이면 단순히 https: \/ /abc.azurehdinsight.net입니다.
+4. **Hadoop user account name**(Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
+5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
+6. **Location of output data**(출력 데이터 위치): "Azure"를 선택합니다.
+7. **Azure Storage 계정 이름**: 클러스터와 연결 된 저장소 계정
+8. **Azure Storage 계정 키**: 클러스터와 연결 된 저장소 계정의 키입니다.
+9. **Azure container name**(Azure 컨테이너 이름): 클러스터 이름 "abc"의 경우 일반적으로 단순히 "abc"입니다.
 
 **Import Data** 에서 데이터 가져오기를 완료하면(모듈에 녹색 틱이 표시됨) 이 데이터를 데이터 세트(선택한 이름 사용)로 저장합니다. 다음과 같이 표시됩니다.
 

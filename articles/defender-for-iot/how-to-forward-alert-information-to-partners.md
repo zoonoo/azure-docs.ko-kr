@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 528ea5a6b05dea59cb397bf32297f05b6cdc9be2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0b71f7ca3f812de1514612f8b0dd5915f3f81bc4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100522736"
 ---
 # <a name="forward-alert-information"></a>경고 정보 전달
@@ -112,7 +112,7 @@ IoT 관리자 용 Defender에는 전달 규칙을 사용할 수 있는 권한이
     
 :::image type="content" source="media/how-to-work-with-alerts-sensor/configure-encryption.png" alt-text="전달 규칙에 대 한 암호화를 구성 합니다.":::
 
-| Syslog 텍스트 메시지 출력 필드 | Description |
+| Syslog 텍스트 메시지 출력 필드 | 설명 |
 |--|--|
 | 날짜 및 시간 | Syslog 서버 컴퓨터가 정보를 받은 날짜 및 시간입니다. |
 | 우선 순위 | 사용자 경고 |
@@ -121,7 +121,7 @@ IoT 관리자 용 Defender에는 전달 규칙을 사용할 수 있는 권한이
 | 메시지 | 센서: 센서 이름입니다.<br /> 경고: 경고의 제목입니다.<br /> 유형: 경고의 유형입니다. **프로토콜 위반**, **정책 위반**, **맬웨어**, 비정상 또는 **운영** **이 될** 수 있습니다.<br /> 심각도: 경고의 심각도입니다. **경고**, **부**, **주** 또는 **중요** 일 수 있습니다.<br /> 원본: 원본 장치 이름입니다.<br /> 원본 IP: 원본 장치 IP 주소입니다.<br /> Destination: 대상 장치 이름입니다.<br /> 대상 IP: 대상 장치의 IP 주소입니다.<br /> 메시지: 경고 메시지입니다.<br /> 경고 그룹: 경고와 연결 된 경고 그룹입니다. |
 
 
-| Syslog 개체 출력 | Description |
+| Syslog 개체 출력 | 설명 |
 |--|--|
 | 날짜 및 시간 |   Syslog 서버 컴퓨터가 정보를 받은 날짜 및 시간입니다. |  
 | 우선 순위 |    사용자 경고 | 
@@ -129,14 +129,14 @@ IoT 관리자 용 Defender에는 전달 규칙을 사용할 수 있는 권한이
 | 메시지 | 센서 이름: 어플라이언스의 이름입니다. <br /> 경고 시간: 경고가 검색 된 시간: syslog 서버 컴퓨터의 시간과 다를 수 있으며 전달 규칙의 표준 시간대 구성에 따라 달라 집니다. <br /> 경고 제목: 경고의 제목입니다. <br /> 경고 메시지: 경고의 메시지입니다. <br /> 경고 심각도: 경고, **부**, **주** 또는 **위험** 경고의 심각도 **입니다.** <br /> 경고 유형: **프로토콜 위반**, **정책 위반**, **맬웨어**, **변칙** 또는 **운영**. <br /> 프로토콜: 경고의 프로토콜입니다.  <br /> **Source_MAC**: 원본 장치의 IP 주소, 이름, 공급 업체 또는 OS입니다. <br /> Destination_MAC: 대상의 IP 주소, 이름, 공급 업체 또는 OS입니다. 데이터가 누락 된 경우 값은 **N/A** 가 됩니다. <br /> alert_group: 경고와 연결 된 경고 그룹입니다. |
 
 
-| Syslog CEF 출력 형식 | Description |
+| Syslog CEF 출력 형식 | 설명 |
 |--|--|
 | 날짜 및 시간 | Syslog 서버 컴퓨터가 정보를 받은 날짜 및 시간입니다. |
 | 우선 순위 | 사용자 경고 | 
 | 호스트 이름 | 센서 IP 주소 |
 | 메시지 | CEF: 0 <br />IoT용 Azure Defender <br />센서 이름: 센서 어플라이언스의 이름입니다. <br />센서 버전 <br />경고 제목: 경고의 제목입니다. <br />msg: 경고 메시지입니다. <br />프로토콜: 경고의 프로토콜입니다. <br />심각도: **경고**, **부**, **주** 또는 **중요** <br />유형: **프로토콜 위반**, **정책 위반**, **맬웨어**, **변칙** 또는 **운영**. <br /> 시작: 경고가 검색 된 시간입니다. <br />는 syslog 서버 컴퓨터의 시간과 다를 수 있으며 전달 규칙의 표준 시간대 구성에 따라 달라 집니다. <br />src_ip: 원본 장치의 IP 주소입니다.  <br />dst_ip: 대상 장치의 IP 주소입니다.<br />cat: 경고와 연결 된 경고 그룹입니다.  |
 
-| Syslog LEEF 출력 형식 | Description |
+| Syslog LEEF 출력 형식 | 설명 |
 |--|--|
 | 날짜 및 시간 |   Syslog 서버 컴퓨터가 정보를 받은 날짜 및 시간입니다. |  
 | 우선 순위 |    사용자 경고 | 
@@ -203,6 +203,6 @@ NetWitness 모니터를 전달 하는 매개 변수를 정의 하려면:
 
 즉, 사용자가 정의한 전달 규칙은 관리자가 만든 제외 규칙에 따라 무시 될 수 있습니다. 제외 규칙은 온-프레미스 관리 콘솔에 정의 됩니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)
