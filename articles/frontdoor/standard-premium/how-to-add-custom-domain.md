@@ -9,21 +9,21 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099890"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588752"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Front 도어 Standard/Premium SKU (미리 보기)에서 사용자 지정 도메인 만들기
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 응용 프로그램 배달에 Azure Front 도어 Standard/Premium을 사용 하는 경우 사용자 지정 도메인은 최종 사용자 요청에서 고유한 도메인 이름을 표시 하려는 경우에 필요 합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다.
 
-Azure Front 도어 Standard/Premium 프로필을 만든 후 기본 프런트 엔드 호스트는 azurefd.net의 하위 도메인을 갖게 됩니다. 이 하위 도메인은 Azure Front 도어 Standard/Premium에서 기본적으로 백 엔드에서 콘텐츠를 배달 하는 경우 URL에 포함 됩니다. 예: `https://contoso-frontend.azurefd.net/activeusers.htm`. 사용자 편의를 위해 Azure Front Door는 사용자 지정 도메인을 기본 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용 하 여 Azure 전면 도어 표준/프리미엄 소유 도메인 이름 대신 URL의 사용자 지정 도메인을 사용 하 여 콘텐츠를 배달 합니다. 예: https://www.contoso.com/photo.png.
+Azure Front 도어 Standard/Premium 프로필을 만든 후 기본 프런트 엔드 호스트는 azurefd.net의 하위 도메인을 갖게 됩니다. 이 하위 도메인은 Azure Front 도어 Standard/Premium에서 기본적으로 백 엔드에서 콘텐츠를 배달 하는 경우 URL에 포함 됩니다. 예: `https://contoso-frontend.azurefd.net/activeusers.htm` 사용자 편의를 위해 Azure Front Door는 사용자 지정 도메인을 기본 호스트에 연결하는 옵션을 제공합니다. 이 옵션을 사용 하 여 Azure 전면 도어 표준/프리미엄 소유 도메인 이름 대신 URL의 사용자 지정 도메인을 사용 하 여 콘텐츠를 배달 합니다. 예: https://www.contoso.com/photo.png
 
 > [!IMPORTANT]
 > Azure 전면 도어 표준/프리미엄 (미리 보기)은 현재 공개 미리 보기로 제공 됩니다.
@@ -38,6 +38,9 @@ Azure Front 도어 Standard/Premium 프로필을 만든 후 기본 프런트 엔
 * Azure를 사용 하 여 [dns 도메인](../../dns/dns-overview.md)을 호스트 하는 경우 도메인 공급자의 dns (domain name system)를 Azure DNS에 위임 해야 합니다. 자세한 내용은 [Azure DNS에 도메인 위임](../../dns/dns-delegate-domain-azure-dns.md)을 참조하세요. 그렇지 않고 도메인 공급자를 사용 하 여 DNS 도메인을 처리 하는 경우 DNS TXT 레코드를 입력 하 여 도메인을 수동으로 확인 해야 합니다.
 
 ## <a name="add-a-new-custom-domain"></a>새 사용자 지정 도메인 추가
+
+> [!NOTE]
+> 공개 미리 보기 상태에서 Apex 도메인을 만드는 데 Azure DNS를 사용 하는 것은 Azure Front 도어 Standard/Premium에서 지원 되지 않습니다. APEX 도메인을 Azure Front 도어 Standard/Premium에 사용할 수 있도록 하는 CNAME 평면화 또는 DNS 추적을 지 원하는 다른 DNS 공급자가 있습니다.
 
 포털의 도메인 섹션에서 사용자 지정 도메인을 관리 합니다. 끝점에 연결 하기 전에 사용자 지정 도메인을 만들고 유효성을 검사할 수 있습니다. 사용자 지정 도메인 및 하위 도메인은 한 번에 하나의 끝점에만 연결할 수 있습니다. 그러나 다른 프런트 문에는 동일한 사용자 지정 도메인의 다른 하위 도메인을 사용할 수 있습니다. 다른 하위 도메인의 사용자 지정 도메인을 동일한 Front 도어 끝점에 매핑할 수도 있습니다.
 

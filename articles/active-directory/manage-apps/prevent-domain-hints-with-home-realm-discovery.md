@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: hirsin
-ms.openlocfilehash: 67cb1003e139a085d45d01617cd44647bad420f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693123"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589381"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>사용자가 홈 영역 검색 정책을 사용 하 여 로그인 하는 동안 페더레이션된 IDP 자동 가속 사용 안 함
 
-Hrd ( [홈 영역 검색 정책](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) )은 관리자에 게 사용자가 인증 하는 방법 및 위치를 제어 하는 여러 방법을 제공 합니다. `domainHintPolicy`HRD 정책의 섹션은 AZURE AD 로그인 페이지를 항상 방문 하 고 도메인 힌트로 인해 페더레이션된 IDP로 자동 가속화 되지 않도록 하 여 페더레이션된 사용자를 [FIDO](../authentication/howto-authentication-passwordless-security-key.md)와 같은 클라우드 관리 자격 증명으로 마이그레이션하는 데 사용 됩니다.
+Hrd ( [홈 영역 검색 정책](/graph/api/resources/homeRealmDiscoveryPolicy) )은 관리자에 게 사용자가 인증 하는 방법 및 위치를 제어 하는 여러 방법을 제공 합니다. `domainHintPolicy`HRD 정책의 섹션은 AZURE AD 로그인 페이지를 항상 방문 하 고 도메인 힌트로 인해 페더레이션된 IDP로 자동 가속화 되지 않도록 하 여 페더레이션된 사용자를 [FIDO](../authentication/howto-authentication-passwordless-security-key.md)와 같은 클라우드 관리 자격 증명으로 마이그레이션하는 데 사용 됩니다.
 
 이 정책은 응용 프로그램에서 관리자가 로그인 중에 도메인 힌트 추가를 제어 하거나 업데이트할 수 없는 경우에 필요 합니다.  예를 들어는 `outlook.com/contoso.com` `&domain_hint=contoso.com` 도메인에 대 한 페더레이션된 IDP 직접 사용자를 자동으로 가속화 하기 위해 매개 변수가 추가 된 로그인 페이지로 사용자를 보냅니다 `contoso.com` . 페더레이션된 IDP로 전송 된 관리 되는 자격 증명을 가진 사용자는 관리 되는 자격 증명을 사용 하 여 로그인 할 수 없으므로 보안 및 사용자가 임의 로그인 환경을 사용 하는 경우를 줄일 수 관리자가 관리 되는 자격 증명을 롤아웃하는 경우에도 사용자가 관리 되는 자격 증명을 항상 사용할 수 있도록 [이 정책을 설정 해야](#suggested-use-within-a-tenant) 합니다.
 
@@ -101,7 +101,7 @@ DomainHintPolicy 논리는 도메인 힌트가 포함 된 들어오는 각 요�
 
 ## <a name="configuring-policy-through-graph-explorer"></a>그래프 탐색기를 통해 정책 구성
 
-Microsoft Graph를 사용 하 여 평소와 같이 [Hrd 정책을](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) 설정 합니다.  
+Microsoft Graph를 사용 하 여 평소와 같이 [Hrd 정책을](/graph/api/resources/homeRealmDiscoveryPolicy) 설정 합니다.  
 
 1. [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)에서 정책. ReadWrite 구성 권한을 부여 합니다.  
 1. URL 사용 `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`

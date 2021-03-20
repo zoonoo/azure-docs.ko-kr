@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505769"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581119"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -86,12 +86,12 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 #### <a name="server-side"></a>서버 쪽
 
-Azure Event Grid 이벤트를 구독 하 여 라이브 이벤트를 모니터링할 수 있습니다. 자세한 내용은 [Eventgrid 이벤트 스키마](media-services-event-schemas.md#live-event-types)를 참조 하세요.
+Azure Event Grid 이벤트를 구독 하 여 라이브 이벤트를 모니터링할 수 있습니다. 자세한 내용은 [Eventgrid 이벤트 스키마](monitoring/media-services-event-schemas.md#live-event-types)를 참조 하세요.
 
 다음 작업 중 하나를 수행할 수 있습니다.
 
-* 스트림 수준 [LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) 이벤트를 [구독](reacting-to-media-services-events.md) 하 고 라이브 이벤트를 중지 하 고 삭제 하는 데 횟수가 제공 되지 않도록 합니다.
-* 트랙 수준 [하트 비트](media-services-event-schemas.md#liveeventingestheartbeat) 이벤트를 [구독](reacting-to-media-services-events.md) 합니다. 모든 트랙에서 들어오는 비트 전송률이 0으로 삭제 되거나 마지막 타임 스탬프가 더 이상 늘어나고 있지 않으면 라이브 이벤트를 안전 하 게 종료할 수 있습니다. 하트 비트 이벤트는 모든 트랙에 대해 20 초 마다 표시 되므로 약간 자세한 정보를 얻을 수 있습니다.
+* 스트림 수준 [LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) 이벤트를 [구독](monitoring/reacting-to-media-services-events.md) 하 고 라이브 이벤트를 중지 하 고 삭제 하는 데 횟수가 제공 되지 않도록 합니다.
+* 트랙 수준 [하트 비트](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) 이벤트를 [구독](monitoring/reacting-to-media-services-events.md) 합니다. 모든 트랙에서 들어오는 비트 전송률이 0으로 삭제 되거나 마지막 타임 스탬프가 더 이상 늘어나고 있지 않으면 라이브 이벤트를 안전 하 게 종료할 수 있습니다. 하트 비트 이벤트는 모든 트랙에 대해 20 초 마다 표시 되므로 약간 자세한 정보를 얻을 수 있습니다.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>라이브 스트림 중에 어떻게 할까요? 삽입 나누기/비디오 및 이미지 슬레이트?
 
@@ -117,7 +117,7 @@ Azure Active Directory (Azure AD)와 같은 특정 토큰 공급자를 사용할
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>JWT 토큰을 사용 하 여 라이선스 또는 키를 요청 하기 전에 JWT 토큰을 가져오는 방법 및 위치
 
-프로덕션의 경우 HTTPS 요청 시 JWT 토큰을 발급 하는 보안 토큰 서비스 (즉, 웹 서비스)가 있어야 합니다. 테스트를 위해 `GetTokenAsync` [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의 된 메서드에 표시 된 코드를 사용할 수 있습니다.
+프로덕션의 경우 HTTPS 요청 시 JWT 토큰을 발급 하는 보안 토큰 서비스 (즉, 웹 서비스)가 있어야 합니다. 테스트를 위해 `GetTokenAsync` [프로그램 .cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의 된 메서드에 표시 된 코드를 사용할 수 있습니다.
 
 플레이어는 사용자를 인증 한 후 해당 토큰에 대해 STS에 요청 하 고 토큰의 값으로 할당 합니다. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용할 수 있습니다.
 

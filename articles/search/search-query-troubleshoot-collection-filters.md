@@ -20,15 +20,15 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 3050f701c11773207aa6054d4d08d908d87b2ce7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88932069"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 문제 해결
 
-Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-orderby-syntax.md) 하려면 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md) 를 **람다 식**과 함께 사용할 수 있습니다. 람다 식은 컬렉션의 각 요소에 적용 되는 하위 필터입니다.
+Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-orderby-syntax.md) 하려면 [ `any` 및 `all` 연산자](search-query-odata-collection-operators.md) 를 **람다 식** 과 함께 사용할 수 있습니다. 람다 식은 컬렉션의 각 요소에 적용 되는 하위 필터입니다.
 
 필터 식의 모든 기능을 람다 식 내에서 사용할 수 있는 것은 아닙니다. 사용할 수 있는 기능은 필터링 하려는 컬렉션 필드의 데이터 형식에 따라 달라 집니다. 이 경우 해당 컨텍스트에서 지원 되지 않는 람다 식의 기능을 사용 하려고 하면 오류가 발생할 수 있습니다. 컬렉션 필드에 대해 복잡 한 필터를 작성 하는 동안 이러한 오류가 발생 하는 경우이 문서는 문제를 해결 하는 데 도움이 됩니다.
 

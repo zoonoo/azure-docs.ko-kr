@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e56473ae935ec58a6cf6f0ea30fe5f7ccfec3f80
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017208"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580320"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure PowerShell 모듈을 사용 하 여 호스트에서 암호화를 사용 하 여 종단 간 암호화를 사용 하도록 설정 합니다.
 
@@ -32,7 +32,20 @@ VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. 프로그�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-호스트에서 Vm 또는 가상 머신 확장 집합에 대 한 암호화를 사용할 수 있으려면 구독에서 기능을 사용 하도록 설정 해야 합니다. 구독 Id를 사용 하 여에 전자 메일을 보내 encryptionAtHost@microsoft.com 구독에 대해 사용 하도록 설정 된 기능을 가져옵니다.
+VM/VMSS에 대 한 EncryptionAtHost 속성을 사용 하기 전에 구독에 대해이 기능을 사용 하도록 설정 해야 합니다. 다음 단계를 수행 하 여 구독에 대 한 기능을 사용 하도록 설정 하세요.
+
+1.  다음 명령을 실행 하 여 구독에 대 한 기능을 등록 합니다.
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+2.  기능을 시도 하기 전에 아래 명령을 사용 하 여 등록 상태가 등록 됨 (몇 분 정도) 되었는지 확인 하세요.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
+    ```
+
 
 ### <a name="create-an-azure-key-vault-and-diskencryptionset"></a>Azure Key Vault 및 Diskset 만들기
 
@@ -46,7 +59,7 @@ API 버전 **2020-06-01** 이상을 사용 하 여 vm 또는 가상 머신 확�
 
 `"securityProfile": { "encryptionAtHost": "true" }`
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="create-a-vm-with-encryption-at-host-enabled-with-customer-managed-keys"></a>고객이 관리 하는 키를 사용 하 여 호스트에서 암호화를 사용 하 여 VM을 만듭니다. 
 

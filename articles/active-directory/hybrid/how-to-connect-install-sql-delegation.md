@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85358670"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치
@@ -31,7 +31,7 @@ ms.locfileid: "85358670"
 ## <a name="before-you-begin"></a>시작하기 전에
 이 기능을 사용하려면 몇 가지 움직이는 부분들이 있으며 각 부분은 조직 내의 다른 관리자와 관련되어 있을 수 있습니다.  다음 표는 이 기능을 사용하여 Azure AD Connect를 배포할 때에 개별 역할 및 각 부분의 의무를 요약하여 보여줍니다.
 
-|역할|Description|
+|역할|설명|
 |-----|-----|
 |도메인 또는 Forest AD 관리자|Azure AD Connect가 동기화 서비스를 실행하는 데 사용하는 도메인 수준 서비스 계정을 만듭니다.  서비스 계정에 관한 자세한 내용은 [계정 및 권한](reference-connect-accounts-permissions.md)을 참조하세요.
 |SQL 관리자|ADSync 데이터베이스를 만들고 Azure AD Connect 관리자 및 도메인/포리스트 관리자가 만든 서비스 계정에 대한 login + dbo 액세스 권한을 부여합니다.|
@@ -44,7 +44,7 @@ Azure AD Connect 관리자|Azure AD Connect를 설치하고 사용자 정의 설
 >필요하지는 않더라도 데이터베이스를 만들 때 Latin1_General_CI_AS 데이터 정렬을 선택하는 것이 **좋습니다**.
 
 
-1. SQL 관리자에게 대/소문자를 구분하지 않는 데이터 정렬 순서 **(Latin1_General_CI_AS)** 로 ADSync 데이터베이스를 만듭니다.  데이터베이스 이름은 **ADSync**로 지정해야 합니다.  Azure AD Connect가 설치될 때 복구 모델, 호환성 수준 및 포함 유형이 올바른 값으로 업데이트됩니다.  그러나 SQL 관리자가 데이터 정렬 순서를 올바르게 설정해야합니다. 그렇지 않으면 Azure AD Connect가 설치를 차단합니다.  SA를 복구하려면 데이터베이스를 삭제하고 다시 만들어야 합니다.
+1. SQL 관리자에게 대/소문자를 구분하지 않는 데이터 정렬 순서 **(Latin1_General_CI_AS)** 로 ADSync 데이터베이스를 만듭니다.  데이터베이스 이름은 **ADSync** 로 지정해야 합니다.  Azure AD Connect가 설치될 때 복구 모델, 호환성 수준 및 포함 유형이 올바른 값으로 업데이트됩니다.  그러나 SQL 관리자가 데이터 정렬 순서를 올바르게 설정해야합니다. 그렇지 않으면 Azure AD Connect가 설치를 차단합니다.  SA를 복구하려면 데이터베이스를 삭제하고 다시 만들어야 합니다.
  
    ![데이터 정렬](./media/how-to-connect-install-sql-delegation/sql4.png)
 2. Azure AD Connect 관리자와 도메인 서비스 계정에 다음 권한을 부여합니다.

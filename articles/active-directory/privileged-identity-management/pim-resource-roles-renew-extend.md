@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f0d22fc540aae448a3da731b709a3b4ea13a69d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84742236"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당 확장 또는 갱신
@@ -51,11 +51,11 @@ Privileged Identity Management는 사용자에 게 전자 메일 알림을 보�
 
 ![활성화 또는 확장 링크를 포함 하는 작업 열](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
 
-이 역할 할당의 연장을 요청하려면 **연장**을 선택하여 요청 양식을 엽니다.
+이 역할 할당의 연장을 요청하려면 **연장** 을 선택하여 요청 양식을 엽니다.
 
 ![이유 상자를 사용 하 여 역할 할당 창 확장](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-role-assignment-request.png)
 
-원래 할당에 대한 정보를 보려면 **할당 세부 정보**를 펼칩니다. 연장 요청의 이유를 입력하고 **연장**을 선택합니다.
+원래 할당에 대한 정보를 보려면 **할당 세부 정보** 를 펼칩니다. 연장 요청의 이유를 입력하고 **연장** 을 선택합니다.
 
 >[!NOTE]
 >연장이 필요한 이유와 부여되어야 하는 연장 기간(이 정보가 있는 경우)에 대한 세부 정보를 포함시키는 것이 좋습니다.
@@ -78,17 +78,17 @@ Privileged Identity Management는 사용자에 게 전자 메일 알림을 보�
 
 ![Azure 리소스-요청 및 승인 또는 거부에 대 한 링크를 나열 하는 요청 승인 페이지](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
 
-관리자가 **승인** 또는 **거부**를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
+관리자가 **승인** 또는 **거부** 를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
 
 ![요청자 이유, 할당 유형, 시작 시간, 종료 시간 및 이유를 사용 하 여 역할 할당 요청 승인](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
-역할 할당 연장에 대한 요청을 승인할 때 리소스 관리자는 새로운 시작 날짜 및 종료 날짜 및 할당 유형을 선택할 수 있습니다. 관리자가 특정 작업을 완료하도록 제한된 액세스를 제공하려는 경우 할당 유형 변경이 필요할 수 있습니다(예: 하루). 이 예제에서는 관리자가 **적격**에서 **활성**으로 할당을 변경할 수 있습니다. 즉, 활성화를 요구하지 않고도 요청자에게 액세스 권한을 제공할 수 있습니다.
+역할 할당 연장에 대한 요청을 승인할 때 리소스 관리자는 새로운 시작 날짜 및 종료 날짜 및 할당 유형을 선택할 수 있습니다. 관리자가 특정 작업을 완료하도록 제한된 액세스를 제공하려는 경우 할당 유형 변경이 필요할 수 있습니다(예: 하루). 이 예제에서는 관리자가 **적격** 에서 **활성** 으로 할당을 변경할 수 있습니다. 즉, 활성화를 요구하지 않고도 요청자에게 액세스 권한을 제공할 수 있습니다.
 
 ### <a name="admin-initiated-extension"></a>관리자가 시작한 확장
 
 역할에 할당 된 사용자가 역할 할당에 대 한 확장을 요청 하지 않는 경우 관리자는 사용자를 대신 하 여 할당을 확장할 수 있습니다. 역할 할당의 관리 확장에는 승인이 필요 하지 않지만 역할이 확장 된 후에는 다른 모든 관리자에 게 알림이 전송 됩니다.
 
-역할 할당을 확장 하려면 Privileged Identity Management에서 리소스 역할 또는 할당 뷰로 이동 합니다. 확장이 필요한 할당을 찾습니다. 그런 다음 작업 열에서 **연장**을 선택합니다.
+역할 할당을 확장 하려면 Privileged Identity Management에서 리소스 역할 또는 할당 뷰로 이동 합니다. 확장이 필요한 할당을 찾습니다. 그런 다음 작업 열에서 **연장** 을 선택합니다.
 
 ![확장할 링크가 있는 적격 역할을 나열 하는 Azure 리소스-할당 페이지](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-extend.png)
 
@@ -98,11 +98,11 @@ Privileged Identity Management는 사용자에 게 전자 메일 알림을 보�
 
 ### <a name="self-renew"></a>자동 갱신
 
-더 이상 리소스에 액세스할 수 없는 사용자는 최대 30 일의 만료 된 할당 기록을 액세스할 수 있습니다. 이렇게 하려면 왼쪽 창에서 **내 역할**로 이동하고 Azure 리소스 역할 섹션에서 **만료된 역할** 탭을 선택합니다.
+더 이상 리소스에 액세스할 수 없는 사용자는 최대 30 일의 만료 된 할당 기록을 액세스할 수 있습니다. 이렇게 하려면 왼쪽 창에서 **내 역할** 로 이동하고 Azure 리소스 역할 섹션에서 **만료된 역할** 탭을 선택합니다.
 
 ![내 역할 페이지-만료 된 역할 탭](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-myroles.png)
 
-표시되는 역할 목록의 기본값은 **적격 역할**입니다. 드롭다운 메뉴를 사용하여 적격 및 활성 할당 역할을 전환합니다.
+표시되는 역할 목록의 기본값은 **적격 역할** 입니다. 드롭다운 메뉴를 사용하여 적격 및 활성 할당 역할을 전환합니다.
 
 목록에서 역할 할당에 대한 갱신을 요청하려면 **갱신** 작업을 선택합니다. 그런 다음 요청 이유를 제공합니다. 리소스 관리자가 승인 또는 거부를 결정 하는 데 도움이 될 수 있는 추가 컨텍스트나 비즈니스 근거 외에도 기간을 제공 하는 것이 유용 합니다.
 
@@ -116,7 +116,7 @@ Privileged Identity Management는 사용자에 게 전자 메일 알림을 보�
 
 ![Azure 리소스-요청 및 승인 또는 거부에 대 한 링크를 나열 하는 요청 승인 페이지](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-grid.png)
 
-관리자가 **승인** 또는 **거부**를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
+관리자가 **승인** 또는 **거부** 를 선택 하면 요청의 세부 정보가 감사 로그에 대 한 비즈니스 근거를 제공 하는 필드와 함께 표시 됩니다.
 
 ![요청자 이유, 할당 유형, 시작 시간, 종료 시간 및 이유를 사용 하 여 역할 할당 요청 승인](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-admin-approve-blade.png)
 
@@ -126,7 +126,7 @@ Privileged Identity Management는 사용자에 게 전자 메일 알림을 보�
 
 리소스 관리자는 리소스의 왼쪽 탐색 메뉴에 있는 **멤버** 탭에서 만료된 역할 할당을 갱신할 수 있습니다. 또한 리소스 역할의 **만료된 역할** 탭 내에서도 만료된 역할 할당을 갱신할 수 있습니다.
 
-**멤버** 화면에서 만료된 모든 역할 할당 목록을 보려면 **만료된 역할**을 선택합니다.
+**멤버** 화면에서 만료된 모든 역할 할당 목록을 보려면 **만료된 역할** 을 선택합니다.
 
 ![Azure 리소스-갱신 링크를 사용 하 여 만료 된 역할을 나열 하는 구성원 페이지](media/pim-resource-roles-renew-extend/aadpim-rbac-renew-from-member-blade.png)
 

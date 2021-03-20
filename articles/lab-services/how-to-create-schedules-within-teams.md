@@ -4,10 +4,10 @@ description: 팀 내에서 Lab Services 일정을 만드는 방법에 대해 알
 ms.topic: article
 ms.date: 10/07/2020
 ms.openlocfilehash: 202b202f99868875a51d13e95fbcac677246cc05
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042340"
 ---
 # <a name="create-and-manage-lab-services-schedules-within-teams"></a>팀 내에서 Lab Services 일정 만들기 및 관리
@@ -28,7 +28,7 @@ ms.locfileid: "92042340"
 ## <a name="automatic-shutdown-and-disconnect-settings"></a>자동 종료 및 연결 끊기 설정
 
 여러 자동 종료 비용 제어 기능을 사용 하 여 가상 머신이 적극적으로 사용 되지 않을 때 추가 비용을 사전에 방지할 수 있습니다. 다음 세 가지 자동 종료 및 연결 끊기 기능의 조합은 사용자가 실수로 가상 컴퓨터를 실행 하는 대부분의 경우를 포착 합니다.
- 
+ 
 - OS가 유휴 상태로 하다 고 판단 가상 머신에서 사용자를 자동으로 연결을 끊습니다.
 - 사용자가 연결을 끊으면 자동으로 가상 컴퓨터를 종료 합니다.
 - 시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료 합니다.

@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿 및 PowerShell을 사용하여 Dev
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 645f1d0717514d2c7e7b16844513327127e4e1a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87272643"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Azure Resource Manager 템플릿 및 PowerShell을 사용하여 랩 자동 생성 또는 수정

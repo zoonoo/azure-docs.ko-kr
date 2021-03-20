@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 05be5295ae5f8c73c916a21bba7dbc98ab0c5e87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002796"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 탐색을 구현하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "89002796"
 
 패싯 탐색의 구현은 검색 기술에 따라 다릅니다. Azure Cognitive Search에서는 이전에 스키마에서 특성을 지정한 필드를 사용하여 쿼리 시 패싯 탐색이 작성됩니다.
 
--   애플리케이션에서 작성한 쿼리는 해당 문서 결과 집합에서 사용 가능한 패싯 필터 값을 받기 위해 *패싯 쿼리 매개 변수*를 보내야 합니다.
+-   애플리케이션에서 작성한 쿼리는 해당 문서 결과 집합에서 사용 가능한 패싯 필터 값을 받기 위해 *패싯 쿼리 매개 변수* 를 보내야 합니다.
 
 -   실제로 문서 결과 집합을 자르려면 애플리케이션에서 `$filter` 식도 적용해야 합니다.
 
@@ -168,7 +168,7 @@ Brand 또는 Price별로 패싯하려는 경우에는 각 문서에 필터 옵�
 
 패싯 탐색의 경우 웹 또는 애플리케이션은 패싯 탐색 구조를 표시하고, 페이지에서 사용자 입력을 검색하며, 변경된 요소를 삽입합니다. 
 
-웹 애플리케이션의 경우 주로 AJAX가 프레젠테이션 계층에서 사용되는데, 이는 증분 변경 내용을 새로 고칠 수 있기 때문입니다. ASP.NET MVC 또는 기타 HTTP를 통해 Azure Cognitive Search에 연결할 수 있는 모든 시각화 플랫폼을 사용할 수도 있습니다. 이 문서 전체에 나오는 샘플 애플리케이션 **Azure Cognitive Search 구직 포털 데모**는 ASP.NET MVC 애플리케이션입니다.
+웹 애플리케이션의 경우 주로 AJAX가 프레젠테이션 계층에서 사용되는데, 이는 증분 변경 내용을 새로 고칠 수 있기 때문입니다. ASP.NET MVC 또는 기타 HTTP를 통해 Azure Cognitive Search에 연결할 수 있는 모든 시각화 플랫폼을 사용할 수도 있습니다. 이 문서 전체에 나오는 샘플 애플리케이션 **Azure Cognitive Search 구직 포털 데모** 는 ASP.NET MVC 애플리케이션입니다.
 
 이 샘플에서 패싯 탐색은 검색 결과 페이지에 작성됩니다. 샘플 애플리케이션의 `index.cshtml` 파일에서 가져온 다음 예제는 검색 결과 페이지에 패싯 탐색을 표시하는 동적 HTML 구조를 표시합니다. 검색 용어를 제출하거나 패킷을 선택 또는 선택 취소하면 자동으로 패싯 목록이 작성되거나 다시 작성됩니다.
 
@@ -255,7 +255,7 @@ if (businessTitleFacet != "")
 
 인덱스의 스키마에 따라 패싯으로 사용할 수 있는 필드가 결정됩니다. 필드가 패싯 가능한 경우 쿼리는 패싯할 필드를 지정합니다. 패싯할 필드는 레이블 아래에 표시되는 값을 제공합니다. 
 
-각 레이블 아래에 표시되는 값은 인덱스에서 검색됩니다. 예를 들어 패싯 필드가 *Color*인 경우 추가 필터링에 사용할 수 있는 값은 해당 필드에 대한 값(Red, Black 등)입니다.
+각 레이블 아래에 표시되는 값은 인덱스에서 검색됩니다. 예를 들어 패싯 필드가 *Color* 인 경우 추가 필터링에 사용할 수 있는 값은 해당 필드에 대한 값(Red, Black 등)입니다.
 
 Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 설정할 수 있습니다(예: `facet=Rating,values:1|2|3|4|5`). 이러한 필드 형식에는 값 목록을 사용하여 패싯 결과를 연속 범위(숫자 값 또는 기간을 기반으로 하는 범위)로 구분하는 작업을 간소화할 수 있습니다. 
 
@@ -283,7 +283,7 @@ Numeric 및 DateTime 값에 한해, 패싯 필드에서 값을 명시적으로 �
 
 **추가 필터로 패싯 결과 자르기**
 
-패싯 결과는 패싯 용어와 일치하는 검색 결과에서 발견된 문서입니다. 다음 예제의 *cloud computing*에 대한 검색 결과에서 254개 항목은 콘텐츠 형식이 *internal specification*입니다. 항목은 상호 배타적이지 않을 수 있습니다. 하나의 항목이 두 필터 조건을 모두 충족하는 경우에는 각각 하나로 계산됩니다. 이 중복은 주로 문서 태깅을 구현하는 데 사용되는 `Collection(Edm.String)` 필드를 패싯할 때 발생합니다.
+패싯 결과는 패싯 용어와 일치하는 검색 결과에서 발견된 문서입니다. 다음 예제의 *cloud computing* 에 대한 검색 결과에서 254개 항목은 콘텐츠 형식이 *internal specification* 입니다. 항목은 상호 배타적이지 않을 수 있습니다. 하나의 항목이 두 필터 조건을 모두 충족하는 경우에는 각각 하나로 계산됩니다. 이 중복은 주로 문서 태깅을 구현하는 데 사용되는 `Collection(Edm.String)` 필드를 패싯할 때 발생합니다.
 
 ```output
 Search term: "cloud computing"
@@ -362,7 +362,7 @@ Azure Cognitive Search에서는 범위를 계산하는 두 가지 방법을 제�
 ## <a name="filter-based-on-distance"></a>거리를 기준으로 필터링
 일반적으로 필터를 사용하면 현재 위치와의 근접성에 따라 매장, 레스토랑 또는 목적지를 쉽게 선택할 수 있습니다. 이 유형의 필터는 패싯 탐색처럼 보일 수 있지만 단순한 필터입니다. 특별히 이와 같은 특정 디자인 문제에 대한 구현 조언을 구하는 경우 이 점에 주의해야 합니다.
 
-Azure Cognitive Search에는 **geo.distance** 및 **geo.intersects**라는 두 개의 지리 공간 함수가 있습니다.
+Azure Cognitive Search에는 **geo.distance** 및 **geo.intersects** 라는 두 개의 지리 공간 함수가 있습니다.
 
 * **geo.distance** 함수는 두 점 사이의 거리를 킬로미터 단위로 반환합니다. 한 점은 필드이고 다른 점은 필터의 일부로 전달되는 상수입니다. 
 * **geo.intersects** 함수는 주어진 점이 주어진 다각형 내부에 있으면 true를 반환합니다. 점은 필드이고, 다각형은 필터의 일부로 전달되는 좌표의 상수 목록으로 지정됩니다.

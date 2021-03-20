@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91978988"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Azure에 VHD를 업로드 하거나 관리 디스크를 다른 지역에 복사-Azure CLI
@@ -55,7 +55,7 @@ Azure에 VHD를 업로드 하려면이 업로드 프로세스에 대해 구성 �
 az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
-프리미엄 SSD 또는 표준 SSD를 업로드 하려면 **standard_lrs** **premium_LRS** 또는 **standardssd_lrs**으로 바꿉니다. 지금은 울트라 디스크가 지원 되지 않습니다.
+프리미엄 SSD 또는 표준 SSD를 업로드 하려면 **standard_lrs** **premium_LRS** 또는 **standardssd_lrs** 으로 바꿉니다. 지금은 울트라 디스크가 지원 되지 않습니다.
 
 업로드 프로세스를 위해 구성 된 빈 관리 디스크를 만들었으므로 이제 VHD를 업로드할 수 있습니다. 디스크에 VHD를 업로드 하려면 업로드할 대상으로 참조할 수 있도록 쓰기 가능한 SAS가 필요 합니다.
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74951482"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
@@ -45,7 +45,7 @@ Cloud Shell은 Microsoft Edge, Microsoft Internet Explorer, Google Chrome, Mozil
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>지정된 사용자에 대해 셸이 하나만 활성화될 수 있습니다.
 
-사용자는 **Bash** 또는 **PowerShell**을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. 메뉴를 사용 하 여 Bash 또는 PowerShell을 교환 하면 기존 세션을 종료 하는 Cloud Shell 다시 시작 됩니다. 또는를 입력 하 여 PowerShell 내에서 bash를 실행 `bash` 하 고를 입력 하 여 bash 내에서 powershell을 실행할 수 있습니다 `pwsh` .
+사용자는 **Bash** 또는 **PowerShell** 을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. 메뉴를 사용 하 여 Bash 또는 PowerShell을 교환 하면 기존 세션을 종료 하는 Cloud Shell 다시 시작 됩니다. 또는를 입력 하 여 PowerShell 내에서 bash를 실행 `bash` 하 고를 입력 하 여 bash 내에서 powershell을 실행할 수 있습니다 `pwsh` .
 
 ### <a name="usage-limits"></a>사용 제한
 

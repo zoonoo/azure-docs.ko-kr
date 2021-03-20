@@ -7,10 +7,10 @@ ms.date: 03/27/2018
 ms.author: srrengar
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a36425acf42a469c7f48b2e954bdacfdfcce1b10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89011483"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
@@ -139,7 +139,7 @@ ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.
    ServiceRuntime.RegisterServiceAsync("StatelessType", context => new Stateless(context, Log.Logger)).GetAwaiter().GetResult();
    ```
 
-4. 서비스 생성자에서 **ServiceTypeName**, **ServiceName**, **PartitionId** 및 **InstanceId**에 대한 속성 보강자를 만듭니다.
+4. 서비스 생성자에서 **ServiceTypeName**, **ServiceName**, **PartitionId** 및 **InstanceId** 에 대한 속성 보강자를 만듭니다.
 
    ```csharp
    public Stateless(StatelessServiceContext context, Serilog.ILogger serilog)

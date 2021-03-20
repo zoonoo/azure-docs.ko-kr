@@ -9,10 +9,10 @@ ms.date: 10/08/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 90d4def5a1c08e305b9315f299e83e2187b6be2c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91969926"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-powershell"></a>자습서: PowerShell을 사용하여 Microsoft 피어링에 대한 경로 필터 구성
@@ -35,7 +35,7 @@ Microsoft 피어링이 ExpressRoute 회로에 구성되면 이러한 서비스�
 
 * 경로 필터를 정의하고 ExpressRoute 회로에 적용합니다. 경로 필터는 Microsoft 피어링을 통해 사용하려는 서비스 목록을 선택할 수 있는 새 리소스입니다. ExpressRoute 라우터는 경로 필터에서 식별된 서비스에 속하는 접두사 목록만을 보냅니다.
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > - BGP 커뮤니티 값을 가져옵니다.
 > - 경로 필터 및 필터 규칙을 만듭니다.
@@ -45,7 +45,7 @@ Microsoft 피어링이 ExpressRoute 회로에 구성되면 이러한 서비스�
 
 Microsoft 피어링이 ExpressRoute 회로에 구성되면 Microsoft Edge 라우터에서 연결 공급자를 통해 Edge 라우터와 쌍으로 연결된 BGP 세션을 설정합니다. 경로는 네트워크에 보급되지 않습니다. 네트워크에 경로 보급을 사용하려면 경로 필터를 연결해야 합니다.
 
-경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 기본적으로 모든 BGP 커뮤니티 값의 허용 목록입니다 경로 필터 리소스가 정의되고 ExpressRoute 회로에 연결되면 BGP 커뮤니티 값에 매핑되는 모든 접두사가 네트워크에 보급됩니다.
+경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 기본적으로 모든 BGP 커뮤니티 값의 허용 목록입니다. 경로 필터 리소스가 정의되고 ExpressRoute 회로에 연결되면 BGP 커뮤니티 값에 매핑되는 모든 접두사가 네트워크에 보급됩니다.
 
 경로 필터를 Microsoft 365 서비스에 연결하려면 ExpressRoute를 통해 Microsoft 365 서비스를 사용할 수 있는 권한이 부여되어야 합니다. ExpressRoute를 통해 Microsoft 365 서비스를 사용할 수 있는 권한이 부여되지 않으면 경로 필터를 연결하는 작업이 실패합니다. 권한 부여 프로세스에 대한 자세한 내용은 [Microsoft 365용 Azure ExpressRoute](/microsoft-365/enterprise/azure-expressroute)를 참조하세요.
 

@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/25/2021
+ms.date: 03/15/2021
 ms.custom: generated
-ms.openlocfilehash: c91172ff110b950335c66f2c0ea9ac59c37e0a76
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 150c174842d50663779012e57f8402ec8b3d3b02
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487854"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580932"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure 리소스 공급자 작업
 
@@ -94,11 +94,11 @@ ms.locfileid: "102487854"
 | [Microsoft.MachineLearningServices](#microsoftmachinelearningservices) |
 | **사물 인터넷** |
 | [Microsoft.Devices](#microsoftdevices) |
+| [Microsoft DeviceUpdate](#microsoftdeviceupdate) |
 | [Microsoft.IoTCentral](#microsoftiotcentral) |
 | [Microsoft.NotificationHubs](#microsoftnotificationhubs) |
 | [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights) |
 | **혼합 현실** |
-| [Microsoft.IoTSpaces](#microsoftiotspaces) |
 | [Microsoft.MixedReality](#microsoftmixedreality) |
 | **통합** |
 | [Microsoft.ApiManagement](#microsoftapimanagement) |
@@ -284,7 +284,7 @@ Azure 서비스: 핵심
 > | Microsoft. 지원/지원 티켓/통신/읽기 | 하나 또는 모든 지원 티켓 통신을 나열 합니다. |
 > | Microsoft. 지원/지원 티켓/통신/쓰기 | 지원 티켓에 새 통신을 추가 합니다. |
 
-## <a name="compute"></a>컴퓨팅
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -982,6 +982,12 @@ Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure
 > | Microsoft.Network/ddosProtectionPlans/join/action | DDoS Protection 계획에 조인 합니다. 경고할 수 없습니다. |
 > | Microsoft.Network/dnsoperationresults/read | DNS 작업의 결과를 가져옵니다. |
 > | Microsoft.Network/dnsoperationstatuses/read | DNS 작업의 상태를 가져옵니다.  |
+> | Microsoft. Network/dnsResolvers/읽기 | JSON 형식의 DNS 확인자 속성을 가져옵니다. |
+> | Microsoft. Network/dnsResolvers/write | JSON 형식으로 DNS 확인자를 만들거나 업데이트 합니다. |
+> | Microsoft. Network/dnsResolvers/delete | DNS 확인자를 삭제 합니다. |
+> | Microsoft. Network/dnsResolvers/inboundEndpoints/read | JSON 형식의 DNS 확인자 인바운드 끝점을 가져옵니다. |
+> | Microsoft. Network/dnsResolvers/inboundEndpoints/write | JSON 형식으로 DNS 확인자 인바운드 끝점을 만들거나 업데이트 합니다. |
+> | Microsoft. Network/dnsResolvers/inboundEndpoints/delete | JSON 형식의 DNS 확인자 인바운드 끝점을 삭제 합니다. |
 > | Microsoft.Network/dnszones/read | Json 형식의 DNS 영역을 가져옵니다. 영역 속성에는 tags, etag, numberOfRecordSets 및 maxNumberOfRecordSets가 포함됩니다. 이 명령은 영역 내에 포함된 레코드 집합을 검색하지 않습니다. |
 > | Microsoft.Network/dnszones/write | 리소스 그룹 내에 DNS 영역을 만들거나 업데이트합니다.  DNS 영역 리소스에서 태그를 업데이트하는 데 사용됩니다. 이 명령은 영역 내에서 레코드 집합을 만들거나 업데이트하는 데 사용할 수 없습니다. |
 > | Microsoft.Network/dnszones/delete | Json 형식의 DNS 영역을 삭제합니다. 영역 속성에는 tags, etag, numberOfRecordSets 및 maxNumberOfRecordSets가 포함됩니다. |
@@ -1143,6 +1149,8 @@ Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure
 > | Microsoft. 네트워크/위치/availablePrivateEndpointTypes/읽기 | 사용 가능한 개인 끝점 리소스를 가져옵니다. |
 > | Microsoft. 네트워크/위치/availableServiceAliases/읽기 | 사용 가능한 서비스 별칭을 가져옵니다. |
 > | Microsoft.Network/locations/checkDnsNameAvailability/read | DNS 레이블을 지정된 위치에서 사용할 수 있는지 확인합니다. |
+> | Microsoft. 네트워크/위치/dnsResolverOperationResults/읽기 | DNS 확인자 작업의 결과를 JSON 형식으로 가져옵니다. |
+> | Microsoft. 네트워크/위치/dnsResolverOperationStatuses/읽기 | DNS 확인자 작업의 상태를 가져옵니다. |
 > | Microsoft.Network/locations/operationResults/read | 비동기 POST 또는 DELETE 작업의 작업 결과를 가져옵니다. |
 > | Microsoft.Network/locations/operations/read | 비동기 작업의 상태를 나타내는 작업 리소스를 가져옵니다. |
 > | Microsoft. 네트워크/위치/serviceTags/읽기 | 서비스 태그 가져오기 |
@@ -1233,6 +1241,7 @@ Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure
 > | Microsoft.Network/networkWatchers/pingMeshes/read | PingMesh 세부 정보를 가져옵니다. |
 > | Microsoft.Network/networkWatchers/pingMeshes/write | PingMesh를 만듭니다. |
 > | Microsoft.Network/networkWatchers/pingMeshes/delete | PingMesh를 삭제합니다. |
+> | Microsoft. 네트워크/networkWatchers/토폴로지/읽기 | 리소스 그룹에 포함된 리소스의 네트워크 수준 보기 및 해당 관계를 가져옵니다. |
 > | Microsoft.Network/operations/read | 사용 가능한 작업을 가져옵니다. |
 > | Microsoft.Network/p2sVpnGateways/read | P2SVpnGateway를 가져옵니다. |
 > | Microsoft.Network/p2sVpnGateways/write | P2SVpnGateway를 씁니다. |
@@ -1394,6 +1403,8 @@ Azure 서비스: [Application Gateway](../application-gateway/index.yml), [azure
 > | Microsoft.Network/virtualNetworks/BastionHosts/action | Virtual Network의 요새 호스트 참조를 가져옵니다. |
 > | Microsoft. Network/virtualNetworks/bastionHosts/default/action | Virtual Network의 요새 호스트 참조를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | IP 주소를 지정된 가상 네트워크에서 사용할 수 있는지 확인합니다. |
+> | Microsoft. Network/virtualNetworks/dnsForwardingRulesets/read | JSON 형식의 Virtual Network에 대 한 DNS 전달 규칙 집합을 가져옵니다. |
+> | Microsoft. Network/virtualNetworks/dnsResolvers/읽기 | JSON 형식의 Virtual Network에 대 한 DNS 확인자를 가져옵니다. |
 > | Microsoft. Network/virtualNetworks/privateDnsZoneLinks/read | JSON 형식의 가상 네트워크 속성에 대 한 사설 DNS 영역 링크를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/subnets/read | 가상 네트워크 서브넷 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/subnets/write | 가상 네트워크 서브넷을 만들거나 기존 가상 네트워크 서브넷을 업데이트합니다. |
@@ -2330,6 +2341,9 @@ Azure 서비스: [Azure Search](../search/index.yml)
 > | Microsoft. 검색/searchServices/privateEndpointConnectionProxies/write | 지정 된 매개 변수를 사용 하 여 개인 끝점 연결 프록시를 만들거나 지정 된 개인 끝점 연결 프록시에 대 한 속성 또는 태그를 업데이트 합니다. |
 > | Microsoft. 검색/searchServices/privateEndpointConnectionProxies/읽기 | 개인 끝점 연결 프록시의 목록을 반환 하거나, 지정 된 개인 끝점 연결 프록시에 대 한 속성을 가져옵니다. |
 > | Microsoft. 검색/searchServices/privateEndpointConnectionProxies/delete | 기존 개인 끝점 연결 프록시를 삭제 합니다. |
+> | Microsoft. 검색/searchServices/privateEndpointConnections/write | 지정 된 매개 변수를 사용 하 여 개인 끝점 연결을 만들거나 지정 된 개인 끝점 연결에 대 한 속성 또는 태그를 업데이트 합니다. |
+> | Microsoft. 검색/searchServices/privateEndpointConnections/읽기 | 개인 끝점 연결의 목록을 반환 하거나, 지정 된 개인 끝점 연결의 속성을 가져옵니다. |
+> | Microsoft. 검색/searchServices/privateEndpointConnections/delete | 기존 개인 끝점 연결을 삭제 합니다. |
 > | Microsoft. 검색/searchServices/sharedPrivateLinkResources/write | 지정한 매개 변수를 사용 하 여 새 공유 개인 링크 리소스를 만들거나 지정 된 공유 개인 링크 리소스에 대 한 속성을 업데이트 합니다. |
 > | Microsoft. 검색/searchServices/sharedPrivateLinkResources/읽기 | 공유 개인 링크 리소스의 목록을 반환 하거나, 지정 된 공유 개인 링크 리소스의 속성을 가져옵니다. |
 > | Microsoft. 검색/searchServices/sharedPrivateLinkResources/delete | 기존 공유 개인 링크 리소스를 삭제 합니다. |
@@ -2346,7 +2360,6 @@ Azure 서비스: [Azure SignalR 서비스](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/unregister/action | ‘Microsoft.SignalRService’ 리소스 공급자를 구독에서 등록 취소합니다. |
 > | Microsoft.SignalRService/locations/checknameavailability/action | 새 SignalR 서비스에서 이름을 사용할 수 있는지 확인합니다. |
 > | Microsoft.SignalRService/locations/operationresults/signalr/read | 위치 기반 비동기 작업의 결과를 쿼리 합니다. |
-> | SignalRService/위치/operationStatuses/operationId/읽기 | 위치 기반 비동기 작업의 상태 쿼리 |
 > | SignalRService/위치/operationStatuses/signalr/읽기 | 위치 기반 비동기 작업의 상태 쿼리 |
 > | Microsoft.SignalRService/locations/usages/read | Azure SignalR 서비스에 대한 할당량 사용량을 가져옵니다. |
 > | Microsoft.SignalRService/operationresults/read | 공급자 수준 비동기 작업의 결과를 쿼리 합니다. |
@@ -2969,6 +2982,9 @@ Azure 서비스: [Container Registry](../container-registry/index.yml)
 > | Microsoft.containerregistry/registry/privateEndpointConnectionProxies/write | 개인 끝점 연결 프록시 만들기 (NRP에만 해당) |
 > | Microsoft.containerregistry/registry/privateEndpointConnectionProxies/delete | 개인 끝점 연결 프록시를 삭제 합니다 (NRP에만 해당). |
 > | Microsoft.containerregistry/registry/privateEndpointConnectionProxies/operationStatuses/읽기 | 개인 끝점 연결 프록시 비동기 작업 상태 가져오기 |
+> | Microsoft.containerregistry/registry/privateEndpointConnections/read | 개인 끝점 연결의 속성을 가져오거나 지정 된 컨테이너 레지스트리에 대 한 모든 개인 끝점 연결을 나열 합니다. |
+> | Microsoft.containerregistry/registry/privateEndpointConnections/write | 개인 끝점 연결을 승인/거부 합니다. |
+> | Microsoft.containerregistry/registry/privateEndpointConnections/delete | 개인 끝점 연결을 삭제 합니다. |
 > | Microsoft.ContainerRegistry/registries/pull/read | 컨테이너 레지스트리에서 이미지를 끌어오거나 가져옵니다. |
 > | Microsoft.ContainerRegistry/registries/push/write | 컨테이너 레지스트리에 이미지를 푸시하거나 작성합니다. |
 > | Microsoft.ContainerRegistry/registries/quarantine/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
@@ -3381,6 +3397,7 @@ Azure 서비스: [Redis에 대 한 Azure 캐시](../azure-cache-for-redis/index.
 > | Microsoft.Cache/checknameavailability/action | 이름을 새 Redis Cache에서 사용할 수 있는지 확인합니다. |
 > | Microsoft.Cache/register/action | ‘Microsoft.Cache’ 리소스 공급자를 구독에 등록합니다. |
 > | Microsoft.Cache/unregister/action | ‘Microsoft.Cache’ 리소스 공급자를 구독에서 등록 취소합니다. |
+> | Microsoft. Cache/위치/checknameavailability/action | 새 Redis 엔터프라이즈 캐시에서 사용할 수 있는 이름 인지 확인 합니다. |
 > | AsyncOperations/위치/m s/읽기 | 비동기 작업의 상태를 읽습니다. |
 > | Microsoft. 캐시/위치/operationResults/read | 이전에 'Location' 헤더가 클라이언트에 반환된 장기 실행 작업의 결과를 가져옵니다 |
 > | OperationsStatus/위치/m s/읽기 | 이전에 ' AzureAsync ' 헤더가 클라이언트에 반환 된 장기 실행 작업의 상태를 확인 합니다. |
@@ -3422,7 +3439,13 @@ Azure 서비스: [Redis에 대 한 Azure 캐시](../azure-cache-for-redis/index.
 > | Microsoft. Cache/redisEnterprise/databases/delete | Redis Enterprise 데이터베이스와 해당 내용을 삭제 합니다. |
 > | Microsoft. Cache/redisEnterprise/databases/read | 관리 포털에서 Redis Enterprise cache 데이터베이스의 설정 및 구성 보기 |
 > | Microsoft. Cache/redisEnterprise/databases/write | 관리 포털에서 Redis Enterprise cache 데이터베이스의 설정 및 구성 수정 |
+> | Microsoft. Cache/redisEnterprise/databases/export/action | Redis Enterprise 데이터베이스에서 저장소 blob로 데이터 내보내기  |
 > | Microsoft. Cache/redisEnterprise/databases/forceUnlink 해제/작업 | Georeplica Redis Enterprise 데이터베이스를 피어에서 강제로 연결 해제 |
+> | Microsoft. Cache/redisEnterprise/databases/import/action | 저장소 blob에서 Redis Enterprise 데이터베이스로 데이터 가져오기 |
+> | Microsoft Cache/redisEnterprise/databases/listKeys/action | 관리 포털에서 Redis Enterprise 데이터베이스 액세스 키의 값을 확인 합니다. |
+> | Microsoft Cache/redisEnterprise/databases/regenerateKey/action | 관리 포털에서 Redis Enterprise 데이터베이스 액세스 키의 값을 변경 합니다. |
+> | Microsoft Cache/redisEnterprise/databases/operationResults/read | 관리 포털에서 Redis Enterprise database 작업의 결과 보기 |
+> | Microsoft Cache/redisEnterprise/operationResults/read | 관리 포털에서 Redis Enterprise 작업의 결과 보기 |
 > | Microsoft Cache/redisEnterprise/privateEndpointConnectionProxies/validate/action | 개인 끝점 연결 프록시 유효성 검사 |
 > | Microsoft Cache/redisEnterprise/privateEndpointConnectionProxies/read | 개인 끝점 연결 프록시 가져오기 |
 > | Microsoft Cache/redisEnterprise/privateEndpointConnectionProxies/write | 개인 끝점 연결 프록시 만들기 |
@@ -3912,6 +3935,8 @@ Azure 서비스: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/cassandraClusters/read | 관리 되는 Cassandra 클러스터를 읽거나 관리 되는 모든 Cassandra 클러스터를 나열 합니다. |
 > | Microsoft.DocumentDB/cassandraClusters/write | 관리 되는 Cassandra 클러스터 만들기 또는 업데이트 |
 > | Microsoft.DocumentDB/cassandraClusters/delete | 관리 되는 Cassandra 클러스터 삭제 |
+> | Microsoft.DocumentDB/cassandraClusters/복구/작업 | 관리 되는 Cassandra keyspace에 대 한 복구 요청 |
+> | Microsoft.DocumentDB/cassandraClusters/fetchNodeStatus/action | 관리 되는 Cassandra 클러스터의 모든 노드에 대 한 노드 상태를 비동기적으로 인출 |
 > | Microsoft.DocumentDB/cassandraClusters/데이터 센터/읽기 | 관리 되는 Cassandra 클러스터의 데이터 센터를 읽거나 관리 되는 Cassandra 클러스터의 모든 데이터 센터를 나열 합니다. |
 > | Microsoft.DocumentDB/cassandraClusters/데이터 센터/쓰기 | 관리 되는 Cassandra 클러스터에서 데이터 센터 만들기 또는 업데이트 |
 > | Microsoft.DocumentDB/cassandraClusters/데이터 센터/삭제 | 관리 되는 Cassandra 클러스터에서 데이터 센터 삭제 |
@@ -4181,6 +4206,8 @@ Azure 서비스: [Azure SQL Database](../azure-sql/database/index.yml), [azure S
 > | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | 확장된 서버 blob 감사 정책 집합 작업의 결과를 검색합니다. |
 > | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | 방화벽 규칙 작업의 상태를 가져옵니다. |
 > | Microsoft.Sql/locations/firewallRulesOperationResults/read | 방화벽 규칙 작업의 상태를 가져옵니다. |
+> | Microsoft .Sql/위치/hybridCertificateAzureAsyncOperation/읽기 | Azure Sql Managed Instance의 장기 하이브리드 인증서 비동기 작업 상태를 가져옵니다. |
+> | Microsoft .Sql/위치/hybridCertificateOperationResults/읽기 | 장기 하이브리드 인증서 비동기 작업의 상태를 가져옵니다. |
 > | Microsoft .Sql/위치/hybridLinkAzureAsyncOperation/읽기 | Azure Sql Managed Instance의 장기 하이브리드 연결 비동기 작업 상태를 가져옵니다. |
 > | Microsoft .Sql/위치/hybridLinkOperationResults/읽기 | 장기 하이브리드 링크 비동기 작업의 상태를 가져옵니다. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/read | 인스턴스 장애 조치(failover) 그룹 목록을 반환하거나 지정된 인스턴스 장애 조치(failover) 그룹의 속성을 가져옵니다. |
@@ -4246,10 +4273,11 @@ Azure 서비스: [Azure SQL Database](../azure-sql/database/index.yml), [azure S
 > | Microsoft.Sql/locations/virtualNetworkRulesAzureAsyncOperation/read | 지정된 가상 네트워크 규칙 azure 비동기 작업의 세부 정보를 반환합니다.  |
 > | Microsoft.Sql/locations/virtualNetworkRulesOperationResults/read | 지정된 가상 네트워크 규칙 작업의 세부 정보를 반환합니다.  |
 > | Microsoft.Sql/managedInstances/tdeCertificates/action | TDE 인증서를 만들거나 업데이트합니다. |
+> | Microsoft .Sql/managedInstances/joinServerTrustGroup/action | 사용자가 관리 되는 서버를 서버 신뢰 그룹에 가입 시킬 수 있는지 확인 |
+> | Microsoft .Sql/managedInstances/hybridCertificate/action | 지정 된 매개 변수를 사용 하 여 하이브리드 인증서를 만들거나 업데이트 합니다. |
 > | Microsoft.Sql/managedInstances/read | 관리되는 인스턴스 목록을 반환하거나 지정된 관리되는 인스턴스에 대한 속성을 가져옵니다. |
 > | Microsoft.Sql/managedInstances/write | 지정된 매개 변수를 사용하여 관리되는 인스턴스를 만들거나 지정된 관리되는 인스턴스에 대한 속성 또는 태그를 업데이트합니다. |
 > | Microsoft.Sql/managedInstances/delete | 기존 관리되는 인스턴스를 삭제합니다. |
-> | Microsoft .Sql/managedInstances/joinServerTrustGroup/action | 사용자가 관리 되는 서버를 서버 신뢰 그룹에 가입 시킬 수 있는지 확인 |
 > | Microsoft .Sql/managedInstances/장애 조치 (failover)/작업 | 고객이 시작한 관리 되는 인스턴스 장애 조치 (failover) |
 > | Microsoft.Sql/managedInstances/administrators/read | 관리되는 인스턴스 관리자 목록을 가져옵니다. |
 > | Microsoft.Sql/managedInstances/administrators/write | 지정된 매개 변수를 사용하여 관리되는 인스턴스 관리자를 만들거나 업데이트합니다. |
@@ -4429,6 +4457,7 @@ Azure 서비스: [Azure SQL Database](../azure-sql/database/index.yml), [azure S
 > | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
 > | Microsoft .Sql/servers/databases/recommendedSensitivityLabels/write | Batch 업데이트 권장 민감도 레이블 |
 > | Microsoft.Sql/servers/databases/replicationLinks/read | 복제 링크 목록을 반환하거나 지정된 복제 링크의 속성을 가져옵니다. |
+> | Microsoft.Sql/servers/databases/replicationLinks/delete | 잠재적 데이터 손실이 발생하는 상태로 강제로 복제 관계를 종료합니다. |
 > | Microsoft.Sql/servers/databases/replicationLinks/failover/action | 주 데이터베이스의 모든 변경 내용을 동기화한 후에 장애 조치(failover)하고, 이 데이터베이스를 복제 관계의 주 데이터베이스로 만들고, 원격 주 데이터베이스를 보조 데이터베이스로 만듭니다. |
 > | Microsoft.Sql/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action | 잠재적 데이터 손실이 발생하는 상태로 즉시 장애 조치(failover)하고, 이 데이터베이스를 복제 관계의 주 데이터베이스로 만들고, 원격 주 데이터베이스를 보조 데이터베이스로 만듭니다. |
 > | Microsoft.Sql/servers/databases/replicationLinks/updateReplicationMode/action | 연결에 대한 복제 모드를 동기 또는 비동기 모드로 업데이트합니다. |
@@ -4912,6 +4941,9 @@ Azure 서비스: [azure 데이터 탐색기](/azure/data-explorer/)
 > | Microsoft .Kusto/클러스터/DataConnections/읽기 | 클러스터의 데이터 연결 리소스를 읽습니다. |
 > | Microsoft .Kusto/클러스터/DataConnections/write | 클러스터의 데이터 연결 리소스를 씁니다. |
 > | Microsoft. Kusto/클러스터/DataConnections/delete | 클러스터의 데이터 연결 리소스를 삭제 합니다. |
+> | Microsoft .Kusto/클러스터/ManagedPrivateEndpoints/읽기 | 연결 된 데이터베이스 구성 리소스를 읽습니다. |
+> | Microsoft .Kusto/클러스터/ManagedPrivateEndpoints/write |  |
+> | Microsoft. Kusto/클러스터/ManagedPrivateEndpoints/delete |  |
 > | Microsoft. Kusto/클러스터/PrincipalAssignments/읽기 | 클러스터 보안 주체 할당 리소스를 읽습니다. |
 > | Microsoft. Kusto/클러스터/PrincipalAssignments/write | 클러스터 보안 주체 할당 리소스를 씁니다. |
 > | Microsoft. Kusto/클러스터/PrincipalAssignments/delete | 클러스터 보안 주체 할당 리소스를 삭제 합니다. |
@@ -5089,6 +5121,9 @@ Azure 서비스: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Synapse/작업 영역/라이브러리/읽기 | 라이브러리 아티팩트 읽기 |
 > | Synapse/작업 영역/managedIdentitySqlControlSettings/쓰기 | 작업 영역에서 관리 되는 Id SQL 제어 설정 업데이트 |
 > | Synapse/작업 영역/managedIdentitySqlControlSettings/읽기 | 관리 Id SQL 컨트롤 설정 가져오기 |
+> | Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints/read | 관리 되는 개인 끝점을 읽습니다. |
+> | Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints/delete | 관리 되는 모든 개인 끝점을 삭제 합니다. |
+> | Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints/write | 관리 되는 개인 끝점을 만들거나 업데이트 합니다. |
 > | Synapse/작업 영역/operationResults/read | 비동기 작업 결과를 읽습니다. |
 > | Synapse/작업 영역/작업 상태/읽기 | 비동기 작업 상태를 읽습니다. |
 > | Synapse/작업 영역/privateEndpointConnections/쓰기 | 개인 끝점 연결 만들기 또는 업데이트 |
@@ -5105,6 +5140,8 @@ Azure 서비스: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Synapse/작업 영역/m p a t 관리자/쓰기 | 작업 영역에서 Active Directory 관리자 설정 |
 > | Synapse/작업 영역/v m 관리자/읽기 | 관리자 Active Directory 작업 영역 가져오기 |
 > | Synapse/작업 영역/m p r/삭제 | 관리자 Active Directory 작업 영역 삭제 |
+> | Synapse/작업 영역/s a s 데이터베이스/쓰기 | SQL Analytics 데이터베이스를 만들거나 업데이트 합니다. |
+> | Synapse/작업 영역/s a s 데이터베이스/읽기 | SQL Analytics 데이터베이스를 읽습니다. |
 > | Synapse/workspace/sqlPools/write | SQL Analytics 풀을 만들거나 업데이트 합니다. |
 > | Synapse/workspaces/sqlPools/read | SQL Analytics 풀을 읽습니다. |
 > | Synapse/workspaces/sqlPools/delete | SQL Analytics 풀을 삭제 합니다. |
@@ -5581,13 +5618,19 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/계정/LUIS/앱/가져오기/작업 | 응용 프로그램을 LUIS로 가져옵니다. 응용 프로그램의 JSON은 요청 본문에 포함 되어야 합니다. 새 앱 ID를 반환 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/게시/작업 | 응용 프로그램의 특정 버전을 게시 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/querylogsasync/action | 지난 달의 응용 프로그램에 대 한 쿼리 로그에 대 한 다운로드 요청을 시작 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/이동/작업 | 앱을 다른 LUIS authoring Azure 리소스로 이동 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/도우미/읽기 | **이 API는 더 이상 사용 되지 않습니다.** |
 > | Cognitiveservices account/accounts/LUIS/apps/azureaccounts/read | 사용자의 Azure Resource Manager 토큰을 사용 하 여 응용 프로그램에 할당 된 LUIS Azure 계정을 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/azureaccounts/delete | Azure Resource Manager 토큰을 사용 하 여 사용자에 대 한 LUIS Azure 계정을 가져옵니다. |
 > | Cognitiveservices account/계정/LUIS/앱/문화권/읽기 | 지원 되는 LUIS 응용 프로그램 문화권을 가져옵니다. |
+> | Cognitiveservices account/accounts/LUIS/apps/culture/tokenizerversions/read | 문화권에 대해 지원 되는 LUIS 응용 프로그램 문화권과 지원 되는 토크 버전을 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/customprebuiltdomains/write | 새 응용 프로그램으로 해당 모델과 함께 미리 작성 된 도메인을 추가 합니다. 새 앱 ID를 반환 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/customprebuiltdomains/read | 특정 문화권에 대해 사용 가능한 모든 사용자 지정 미리 작성 된 도메인을 가져옵니다. 모든 문화권에서 사용 가능한 사용자 지정 미리 작성 된 도메인을 모두 가져옵니다. |
 > | Cognitiveservices account/계정/LUIS/앱/도메인/읽기 | 사용 가능한 응용 프로그램 도메인을 가져옵니다. |
 > | Cognitiveservices account/계정/LUIS/앱/끝점/읽기 | 사용 가능한 끝점 배포 지역 및 url을 반환 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/사용 권한/쓰기 | 이 LUIS 응용 프로그램에 액세스할 수 있는 사용자 목록에 사용자를 추가 합니다. 현재 사용자 액세스 목록을 본문에 전송 된 항목으로 바꿉니다. * |
+> | Cognitiveservices account/계정/LUIS/앱/사용 권한/읽기 | 응용 프로그램에 액세스할 수 있는 권한이 있는 사용자 전자 메일의 목록을 가져옵니다.  |
+> | Cognitiveservices account/계정/LUIS/앱/사용 권한/삭제 | 이 LUIS 응용 프로그램에 액세스할 수 있는 사용자 목록에서 사용자를 제거 했습니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/publishsettings/read | 응용 프로그램에 대 한 게시 설정을 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/publishsettings/write | 응용 프로그램 게시 설정을 업데이트 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/querylogs/read | 응용 프로그램에 대 한 지난 달의 쿼리 로그를 가져옵니다. |
@@ -5601,6 +5644,8 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/계정/LUIS/앱/버전/읽기 | 응용 프로그램 버전 정보를 가져옵니다. 응용 프로그램 버전 목록에 대 한 정보를 가져옵니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/가져오기/작업 | 새 버전을 LUIS 응용 프로그램으로 가져오고, 버전의 JSON을 요청 본문에 포함 해야 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/쓰기 | 응용 프로그램 버전의 이름 또는 설명을 업데이트 합니다. |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/assignedkey/write | **이는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/assignedkey/read | **이는 더 이상 사용 되지 않습니다.** |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/closei lists/write | LUIS 앱에 목록 엔터티를 추가 합니다. 기존 closesublists의 일괄 처리를 추가 합니다. *는 닫힌 목록 모델을 업데이트 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/closed 목록/삭제 | 응용 프로그램에서 닫힌 목록 엔터티를 삭제 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/closed 목록/읽기 | 닫힌 목록 모델의 정보를 가져옵니다. Closedlist 모델에 대 한 정보를 가져옵니다. |
@@ -5617,6 +5662,9 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/accounts/LUIS/apps/versions/compositeentities/roles/write | 복합 엔터티 모델에 대 한 역할을 추가 합니다. 복합 엔터티 모델에 대 한 역할을 업데이트 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/compositeentities/roles/delete | 복합 엔터티 모델의 역할을 삭제 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/compositeentities/roles/read | 복합 엔터티 모델의 역할을 가져옵니다. 복합 엔터티 모델의 역할을 가져옵니다. |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/connectedservices/write | 의도와 서비스 간 매핑을 만들고 서비스와 서비스 간 매핑을 업데이트 합니다. * |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/connectedservices/delete | 의도와 서비스 간의 매핑을 삭제 합니다. |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/connectedservices/read | 의도와 서비스 간의 매핑을 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/customprebuiltdomains/write | 이 응용 프로그램 버전에 모든 해당 모델과 함께 사용자 지정 가능한 미리 작성 된 도메인을 추가 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/customprebuiltdomains/delete | 응용 프로그램 버전에서 미리 빌드된 도메인의 모델을 삭제 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/customprebuiltentities/write | 응용 프로그램 버전에 사용자 지정 미리 작성 된 도메인 엔터티 모델을 추가 합니다. 엔터티 id로 [엔터티 삭제](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c1f) 를 사용 하 여이 엔터티를 제거 합니다. |
@@ -5627,18 +5675,26 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/accounts/LUIS/apps/versions/customprebuiltintents/write | 응용 프로그램에 사용자 지정 미리 작성 된 도메인 의도 모델을 추가 합니다. 의도 id로 [delete 의도](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c1c) 를 사용 하 여이 의도를 제거 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/customprebuiltintents/read | 이 응용 프로그램 버전에 대 한 사용자 지정 미리 작성 한 의도 정보를 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/customprebuiltmodels/read | 이 응용 프로그램 버전에 대 한 사용자 지정 미리 작성 한 도메인 모델 정보를 모두 가져옵니다. |
-> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/쓰기 | 응용 프로그램 버전에 간단한 엔터티 추출기를 추가 합니다. 엔터티 추출기의 이름을 업데이트 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/쓰기 | 응용 프로그램 버전에 간단한 엔터티 추출기를 추가 합니다. 엔터티 추출기의 이름을 업데이트 합니다. 엔터티 추출기를 업데이트 합니다. * |
 > | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/삭제 | 응용 프로그램 버전에서 간단한 엔터티 추출기를 삭제 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/읽기 | 단순 엔터티 모델에 대 한 정보를 가져옵니다. 응용 프로그램 버전의 단순 엔터티 모델에 대 한 정보를 가져옵니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/자식/쓰기 | 기존 엔터티 모델에서 단일 자식을 만듭니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/기능/쓰기 | 엔터티 모델에 대 한 기능 관계 추가 * 엔터티의 기능 관계 목록 업데이트 |
+> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/기능/삭제 | 엔터티 모델의 기능 관계를 삭제 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/기능/읽기 | 엔터티 모델의 기능 관계를 가져옵니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/역할/쓰기 | 단순 엔터티 모델의 역할을 추가 하 여 단순 엔터티 모델의 역할을 업데이트 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/역할/삭제 | 단순 엔터티 모델의 역할을 삭제 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/역할/읽기 | 단순 엔터티 모델의 역할을 가져옵니다. 단순 엔터티 모델의 역할을 가져옵니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/엔터티/역할/제안/읽기 | 엔터티 모델의 정확도를 향상 시키는 예를 제안 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/entities/제안/읽기 | 엔터티 모델의 정확도를 향상 시키는 예를 제안 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/example/write | 응용 프로그램 버전에 레이블이 지정 된 예제를 추가 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/예제/쓰기 | 지정 된 응용 프로그램에 중복 되지 않은 레이블이 지정 된 예제의 일괄 처리를 추가 합니다. Batch는 계층적 자식 엔터티를 포함할 수 없습니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/예제/삭제 | 지정 된 ID의 레이블을 삭제 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/예제/읽기 | 검토할 끝점 예제의 하위 집합을 반환 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/내보내기/읽기 | LUIS 응용 프로그램 버전을 JSON 형식으로 내보냅니다. |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/externalkeys/delete | 이 API는 더 이상 사용 되지 않습니다. |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/externalkeys/read | **이는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/apps/versions/externalkeys/write | **이는 더 이상 사용 되지 않습니다.** |
 > | Cognitiveservices account/계정/LUIS/앱/버전/기능/읽기 | 모든 응용 프로그램 버전 기능을 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/hierarchicalentities/write | 응용 프로그램 버전에 계층적 엔터티 추출기를 추가 합니다. 계층적 엔터티 추출기 모델의 이름 및 자식을 업데이트 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/hierarchicalentities/delete | 응용 프로그램 버전에서 계층적 엔터티 추출기를 삭제 합니다. |
@@ -5652,10 +5708,14 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/계정/LUIS/앱/버전/의도/쓰기 | 응용 프로그램 버전에 의도 분류자를 추가 합니다. 의도 분류자의 이름을 업데이트 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/의도/삭제 | 응용 프로그램 버전에서 의도 분류자를 삭제 합니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/의도/읽기 | 의도 모델에 대 한 정보를 가져옵니다. 응용 프로그램 버전의 의도 모델에 대 한 정보를 가져옵니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/의도/기능/쓰기 | 의도 모델에 대 한 기능 관계를 추가 하 여 의도 *의 기능 관계 목록을 업데이트 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/의도/기능/삭제 | 의도 모델의 기능 관계를 삭제 합니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/의도/기능/읽기 | 의도 모델의 기능 관계를 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/의도/patternrules/read | 특정 의도에 대 한 패턴을 가져옵니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/의도/제안/읽기 | 의도 모델의 정확도를 향상 시키는 예를 제안 합니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/listprebuilts/read | 응용 프로그램의 문화권에 따라 응용 프로그램에 대해 사용 가능한 모든 미리 작성 된 엔터티를 가져옵니다. |
-> | Cognitiveservices account/계정/LUIS/앱/버전/모델/읽기 | 응용 프로그램 버전 모델에 대 한 정보를 가져옵니다. |
+> | Cognitiveservices account/계정/LUIS/앱/버전/모델/읽기 | 응용 프로그램 버전 모델에 대 한 정보를 가져옵니다. 모델에 대 한 정보를 가져옵니다. * |
+> | Cognitiveservices account/계정/LUIS/앱/버전/모델/예제/읽기 | 모델 예제의 목록을 가져옵니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/patternanyentities/write | 패턴을 추가 합니다. 모든 엔터티 추출기는 응용 프로그램 버전에 추가 됩니다. 패턴을 업데이트 합니다. 모든 엔터티 추출기입니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/patternanyentities/delete | 패턴을 삭제 합니다. 응용 프로그램 버전의 모든 엔터티 추출기입니다. |
 > | Cognitiveservices account/accounts/LUIS/apps/versions/patternanyentities/read | 패턴에 대 한 정보를 가져옵니다. 모든 엔터티 모델입니다. 패턴에 대 한 정보를 가져옵니다. 응용 프로그램 버전의 모든 엔터티 모델입니다. |
@@ -5692,8 +5752,15 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/계정/LUIS/앱/버전/제안/삭제 | Utterance 끝점을 삭제 했습니다. 이 utterance은 "Review endpoint 길이 발언" 목록에 있습니다. |
 > | Cognitiveservices account/계정/LUIS/앱/버전/학습/읽기 | 지정 된 응용 프로그램 버전에 대 한 모든 모델 (의도 및 엔터티)의 학습 상태를 가져옵니다. 이 API를 호출 하 여 교육 상태를 얻으려면 먼저 학습 API를 호출 하 여 LUIS 앱을 학습 해야 합니다. |
 > | Cognitiveservices account/accounts/LUIS/azureaccounts/read | Azure Resource Manager 토큰을 사용 하 여 사용자에 대 한 LUIS Azure 계정을 가져옵니다. |
+> | Cognitiveservices account/accounts/LUIS/externalkeys/write | **이 API는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/externalkeys/delete | **이 API는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/externalkeys/read | **이 API는 더 이상 사용 되지 않습니다.** |
 > | Cognitiveservices account/accounts/LUIS/package/slot/gzip/read | LUIS 응용 프로그램을 GZip으로 게시 한 패키지 |
 > | Cognitiveservices account/accounts/LUIS/package/versions/gzip/read | GZip으로 학습 된 LUIS 응용 프로그램 패키지 |
+> | Cognitiveservices account/accounts/LUIS/programmatickey/write | **이 API는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/subscription/write | **이 API는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/subscription/delete | **이 API는 더 이상 사용 되지 않습니다.** |
+> | Cognitiveservices account/accounts/LUIS/subscription/read | **이 API는 더 이상 사용 되지 않습니다.** |
 > | Cognitiveservices account/계정/MetricsAdvisor/경고/이상/구성/쓰기 | 변칙 경고 구성 만들기 또는 업데이트 |
 > | Cognitiveservices account/계정/MetricsAdvisor/경고/변칙/구성/삭제 | 변칙 경고 구성 삭제 |
 > | Cognitiveservices account/계정/MetricsAdvisor/경고/변칙/구성/읽기 | 단일 변칙 경고 구성 쿼리 |
@@ -5786,6 +5853,22 @@ Azure 서비스: [Cognitive Services](../cognitive-services/index.yml)
 > | Cognitiveservices account/accounts/TextAnalytics/keyphrases/action | 이 API는 입력 텍스트의 핵심 요지를 나타내는 문자열 목록을 반환합니다. |
 > | Cognitiveservices account/accounts/TextAnalytics/감정/action | 이 API는 0~1 사이의 숫자 점수를 반환합니다.<br>1에 가까운 점수는 긍정적인 정서를 나타내고, 0에 가까운 점수는 부정적인 정서를 나타냅니다.<br>점수 0.5은 감정 (예:<br>factoid 문). |
 > | Cognitiveservices account/계정/텍스트 분석/분석/작업 | 분석할 텍스트 문서 컬렉션을 제출 합니다. 실행할 고유 작업을 하나 이상 지정 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/action | QnA Maker |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/변경/읽기 | 런타임에 변경 사항을 다운로드 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/변경/쓰기 | 변경 데이터를 바꿉니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/endpointkeys/read | 끝점에 대 한 끝점 키를 가져옵니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/endpointkeys/refreshkeys/작업 | 끝점 키를 다시 생성 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/endpointsettings/read | 끝점에 대 한 끝점 설정을 가져옵니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/endpointsettings/write | 끝점에 대 한 seettings 끝점을 업데이트 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/게시/작업 | 기술 자료의 테스트 인덱스에 있는 모든 변경 내용을 해당 prod 인덱스에 게시 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/delete | 기술 자료 및 모든 해당 데이터를 삭제 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/read | 특정 knowledgebaser의 기술 자료 또는 세부 정보 목록을 가져옵니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/write | 기술 자료를 수정 하거나 기술 자료 콘텐츠를 교체 하는 비동기 작업입니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/generateanswer/action | 기술 자료를 쿼리 하기 위한 GenerateAnswer 호출입니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/학습/작업 | 기술 자료에 제안 사항을 추가 하기 위해 호출을 학습 합니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/create/write | 새 기술 자료를 만드는 비동기 작업입니다. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/기술 자료/다운로드/읽기 | 기술 자료를 다운로드 하세요. |
+> | Cognitiveservices account/accounts/TextAnalytics/QnaMaker/작업/읽기 | 특정 장기 실행 작업에 대한 세부 정보를 가져옵니다. |
 > | Cognitiveservices account/accounts/TextTranslation/검색/작업 | 텍스트의 언어를 식별합니다. |
 > | Cognitiveservices account/accounts/TextTranslation//서 문장/작업 | 텍스트에서 문장 경계의 위치를 식별합니다. |
 > | Cognitiveservices account/계정/TextTranslation/변환/작업 | 텍스트를 번역합니다. |
@@ -5841,6 +5924,10 @@ Azure 서비스: [Machine Learning 서비스](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/locations/usages/read | 구독의 aml 컴퓨팅 리소스에 대한 사용량 보고서입니다. |
 > | Microsoft.MachineLearningServices/locations/vmsizes/read | 지원되는 vm 크기를 가져옵니다. |
 > | MachineLearningServices/작업/읽기 | Machine Learning Services 리소스 공급자에 대 한 모든 작업 가져오기 |
+> | MachineLearningServices/virtualclusters/읽기 | Machine Learning Services 가상 클러스터를 가져옵니다. |
+> | MachineLearningServices/virtualclusters/쓰기 | Machine Learning Services 가상 클러스터를 만들거나 업데이트 합니다. |
+> | MachineLearningServices/virtualclusters/삭제 | Machine Learning Services 가상 클러스터를 삭제 합니다. |
+> | MachineLearningServices/virtualclusters/작업/제출/작업 | Machine Learning Services 가상 클러스터에 작업 제출 |
 > | Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action | Machine Learning Services 작업 영역의 일괄 처리 끝점에서 계산의 이름을 확인 합니다. |
 > | Microsoft.MachineLearningServices/workspaces/read | Machine Learning Services 작업 영역을 가져옵니다. |
 > | Microsoft.MachineLearningServices/workspaces/write | Machine Learning Services 작업 영역을 만들거나 업데이트합니다. |
@@ -5954,7 +6041,7 @@ Azure 서비스: [Machine Learning 서비스](../machine-learning/index.yml)
 > | MachineLearningServices/작업 영역/onlineEndpoints/읽기 | Machine Learning Services 작업 영역에서 온라인 유추 끝점을 가져옵니다. |
 > | MachineLearningServices/작업 영역/onlineEndpoints/쓰기 | Machine Learning Services 작업 영역에서 온라인 유추 끝점을 만들거나 업데이트 합니다. |
 > | MachineLearningServices/작업 영역/onlineEndpoints/삭제 | Machine Learning Services 작업 영역에서 온라인 유추 끝점을 삭제 합니다. |
-> | MachineLearningServices/작업 영역/onlineEndpoints/점수/작업 | Machine Learning Services 작업 영역의 온라인 유추 끝점 점수 |
+> | MachineLearningServices/작업 영역/onlineEndpoints/점수/작업 | Machine Learning Services 작업 영역에서 온라인 끝점의 점수를 매기는 인증 토큰 또는 키 검색 |
 > | MachineLearningServices/workspaces/onlineEndpoints/checkNameAvailability/read | Machine Learning Services 작업 영역에서 온라인 유추 끝점의 이름을 확인 합니다. |
 > | MachineLearningServices/작업 영역/onlineEndpoints/배포/읽기 | Machine Learning Services 작업 영역의 온라인 유추 끝점에서 배포를 가져옵니다. |
 > | MachineLearningServices/작업 영역/onlineEndpoints/배포/쓰기 | Machine Learning Services 작업 영역의 온라인 유추 끝점에서 배포를 만들거나 업데이트 합니다. |
@@ -5974,7 +6061,7 @@ Azure 서비스: [Machine Learning 서비스](../machine-learning/index.yml)
 > | MachineLearningServices/작업 영역/서비스/aks/쓰기 | Machine Learning Services 작업 영역에서 AKS services를 만들거나 업데이트 합니다. |
 > | MachineLearningServices/작업 영역/서비스/aks/listkeys/작업 | Machine Learning Services 작업 영역에서 AKS services에 대 한 키를 나열 합니다. |
 > | MachineLearningServices/작업 영역/서비스/aks/삭제 | Machine Learning Services 작업 영역에서 AKS services를 삭제 합니다. |
-> | MachineLearningServices/작업 영역/서비스/aks/점수/작업 | Machine Learning Services 작업 영역의 점수 AKS services |
+> | MachineLearningServices/작업 영역/서비스/aks/점수/작업 | Machine Learning Services 작업 영역에서 AKS services의 점수를 매기는 인증 토큰 또는 키를 검색 합니다. |
 
 ## <a name="internet-of-things"></a>사물 인터넷
 
@@ -6123,6 +6210,34 @@ Azure 서비스: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning S
 > | Microsoft.Devices/usages/Read | 이 공급자에 대한 구독 사용 정보를 가져옵니다. |
 > | Microsoft.Devices/usages/Read | 이 공급자에 대한 구독 사용 정보를 가져옵니다. |
 
+### <a name="microsoftdeviceupdate"></a>Microsoft DeviceUpdate
+
+Azure 서비스: [IoT Hub에 대 한 장치 업데이트](../iot-hub-device-update/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | 작업 | 설명 |
+> | --- | --- |
+> | Microsoft DeviceUpdate/checkNameAvailability/action | 이름 가용성 확인 |
+> | Microsoft DeviceUpdate/register/action | 장치 업데이트 등록 |
+> | Microsoft DeviceUpdate/등록 취소/작업 | 장치 업데이트 등록 취소 |
+> | Microsoft DeviceUpdate/accounts/read | 장치 업데이트 계정 목록을 반환 합니다. |
+> | Microsoft DeviceUpdate/accounts/write | 장치 업데이트 계정을 만들거나 업데이트 합니다. |
+> | Microsoft DeviceUpdate/accounts/delete | 장치 업데이트 계정을 삭제 합니다. |
+> | Microsoft DeviceUpdate/계정/인스턴스/읽기 | 장치 업데이트 인스턴스 목록을 반환 합니다. |
+> | Microsoft DeviceUpdate/accounts/instances/write | 장치 업데이트 인스턴스를 만들거나 업데이트 합니다. |
+> | Microsoft DeviceUpdate/계정/인스턴스/삭제 | 장치 업데이트 인스턴스를 삭제 합니다. |
+> | Microsoft DeviceUpdate/위치/operationStatuses/읽기 | 작업 상태를 가져옵니다. |
+> | Microsoft DeviceUpdate/위치/operationStatuses/쓰기 | 작업 상태를 업데이트 합니다. |
+> | Microsoft DeviceUpdate/작업/읽기 | 장치 업데이트 작업 나열 |
+> | Microsoft DeviceUpdate/registeredSubscriptions/read | 등록 된 구독 읽기 |
+> | **DataAction** | **설명** |
+> | Microsoft DeviceUpdate/계정/인스턴스/관리/읽기 | 관리와 관련 된 읽기 작업을 수행 합니다. |
+> | Microsoft DeviceUpdate/accounts/instances/management/write | 관리와 관련 된 쓰기 작업을 수행 합니다. |
+> | Microsoft DeviceUpdate/accounts/instances/management/delete | 관리와 관련 된 삭제 작업을 수행 합니다. |
+> | Microsoft DeviceUpdate/계정/인스턴스/업데이트/읽기 | 업데이트와 관련 된 읽기 작업을 수행 합니다. |
+> | Microsoft DeviceUpdate/계정/인스턴스/업데이트/쓰기 | 업데이트와 관련 된 쓰기 작업을 수행 합니다. |
+> | Microsoft DeviceUpdate/계정/인스턴스/업데이트/삭제 | 업데이트와 관련 된 삭제 작업을 수행 합니다. |
+
 ### <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 Azure 서비스: [IoT Central](../iot-central/index.yml)
@@ -6203,18 +6318,6 @@ Azure 서비스: [Time Series Insights](../time-series-insights/index.yml)
 > | Microsoft.TimeSeriesInsights/environments/status/read | 환경의 상태 및 환경과 연결된 작업 상태(예: 수신)를 가져옵니다. |
 
 ## <a name="mixed-reality"></a>혼합 현실
-
-### <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-
-Azure 서비스: [Azure Digital Twins](../digital-twins/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | 작업 | 설명 |
-> | --- | --- |
-> | Microsoft.IoTSpaces/register/action | 리소스를 만들 수 있게 설정하려면 Microsoft.IoTSpaces Graph 리소스 공급자에 대한 구독을 등록하세요. |
-> | Microsoft.IoTSpaces/Graph/write | Microsoft.IoTSpaces Graph 리소스를 만들기 |
-> | Microsoft.IoTSpaces/Graph/read | Microsoft.IoTSpaces Graph 리소스를 가져오기 |
-> | Microsoft.IoTSpaces/Graph/delete | Microsoft.IoTSpaces Graph 리소스를 삭제 |
 
 ### <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
@@ -6430,7 +6533,7 @@ Azure 서비스: [API Management](../api-management/index.yml)
 > | Microsoft.apimanagement/서비스/정책/삭제 | 테 넌 트 수준에서 정책 구성을 삭제 합니다. |
 > | Microsoft.apimanagement/서비스/정책 설명/읽기 | 모든 정책 설명을 나열 합니다. |
 > | Microsoft.ApiManagement/service/policySnippets/read | 모든 정책 코드 조각을 나열 합니다. |
-> | Microsoft.apimanagement/서비스/portalRevisions/읽기 | 개발자 포털 수정 버전의 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 개발자 포털 수정 버전을 가져옵니다. |
+> | Microsoft.apimanagement/서비스/portalRevisions/읽기 | 개발자 포털 수정 엔터티 컬렉션을 나열 합니다. 또는 해당 식별자로 지정 된 개발자 포털 수정 버전을 가져옵니다. |
 > | Microsoft.apimanagement/service/portalRevisions/write | 새 개발자 포털 수정 버전을 만듭니다. 또는 지정 된 포털 수정 버전에 대 한 설명을 업데이트 하거나 최신으로 만듭니다. |
 > | Microsoft.apimanagement/서비스/portalSettings/읽기 | 포털 설정의 컬렉션을 나열 합니다. 또는 포털에 대 한 로그인 설정을 가져오거나 포털에 대 한 등록 설정을 가져오거나 포털에 대 한 위임 설정을 가져옵니다. |
 > | Microsoft.apimanagement/service/portalSettings/write | Sign-In 설정을 업데이트 합니다. 또는 Sign-In 설정을 만들거나 업데이트 합니다. 또는 등록 설정을 업데이트 하거나 등록 설정을 업데이트 하거나 위임 설정을 업데이트 합니다. 또는 위임 설정을 만들거나 업데이트 합니다. |
@@ -6716,6 +6819,7 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 > | Microsoft.EventGrid/eventSubscriptions/read | eventSubscription을 읽습니다. |
 > | Microsoft.EventGrid/eventSubscriptions/delete | EventSubscription 삭제 |
 > | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | 이벤트 구독의 전체 url을 가져옵니다. |
+> | Microsoft EventGrid/Eventgrid/getDeliveryAttributes/action | EventSubscription 배달 특성 가져오기 |
 > | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | 이벤트 구독에 대한 진단 설정을 가져옵니다. |
 > | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | 이벤트 구독에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | eventSubscription에 사용 가능한 메트릭을 가져옵니다. |
@@ -6750,6 +6854,11 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 > | Microsoft EventGrid/관련 항목/삭제 | 파트너 항목 삭제 |
 > | Microsoft EventGrid/제품 토픽/활성화/작업 | 파트너 활성화 항목 |
 > | Microsoft EventGrid/항목 토픽/비활성화/작업 | 파트너 비활성화 항목 |
+> | Microsoft EventGrid/항목 토픽/Eventgrid/write | 관련 토픽 eventSubscription 만들기 또는 업데이트 |
+> | Microsoft EventGrid/항목 토픽/Eventgrid/read | 관련 토픽 eventSubscription 읽기 |
+> | Microsoft EventGrid/항목 토픽/Eventgrid/delete | 관련 토픽 eventSubscription 삭제 |
+> | Microsoft EventGrid/Ul토픽/Eventgrid/getFullUrl/action | 파트너 항목 이벤트 구독의 전체 url을 가져옵니다. |
+> | Microsoft EventGrid/getDeliveryAttributes 토픽/Eventgrid//action | 관련 토픽 EventSubscription 배달 특성 가져오기 |
 > | Microsoft EventGrid/diagnosticSettings 토픽/공급자/Microsoft Insights//read | 파트너 항목에 대 한 진단 설정을 가져옵니다. |
 > | Microsoft EventGrid/diagnosticSettings 토픽/공급자/Microsoft | 파트너 항목에 대 한 진단 설정을 만들거나 업데이트 합니다. |
 > | Microsoft EventGrid/항목 토픽/공급자/Microsoft Insights/logDefinitions/읽기 | 진단 로그에 대 한 액세스 허용 |
@@ -6758,6 +6867,11 @@ Azure 서비스: [Event Grid](../event-grid/index.yml)
 > | Microsoft EventGrid/systemTopics/읽기 | 시스템 항목 읽기 |
 > | Microsoft EventGrid/systemTopics/쓰기 | 시스템 항목 만들기 또는 업데이트 |
 > | Microsoft EventGrid/systemTopics/delete | 시스템 항목 삭제 |
+> | Microsoft EventGrid/systemTopics/Eventgrid/write | SystemTopic eventSubscription 만들기 또는 업데이트 |
+> | Microsoft EventGrid/systemTopics/Eventgrid/read | SystemTopic eventSubscription 읽기 |
+> | Microsoft EventGrid/systemTopics/Eventgrid/delete | SystemTopic eventSubscription을 삭제 합니다. |
+> | Microsoft EventGrid/systemTopics/Eventgrid/getFullUrl/action | SystemTopic 이벤트 구독에 대 한 전체 url을 가져옵니다. |
+> | Microsoft EventGrid/systemTopics/Eventgrid/getDeliveryAttributes/action | SystemTopic EventSubscription 배달 특성 가져오기 |
 > | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/diagnosticSettings/read | 시스템 항목에 대 한 진단 설정을 가져옵니다. |
 > | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/diagnosticSettings/write | 시스템 항목에 대 한 진단 설정을 만들거나 업데이트 합니다. |
 > | Microsoft EventGrid/systemTopics/공급자/Microsoft Insights/logDefinitions/읽기 | 진단 로그에 대 한 액세스 허용 |
@@ -8764,6 +8878,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | 작업 영역에 대한 사용자 알림 설정을 삭제합니다. |
 > | operationalinsights/작업 영역/작업/읽기 | OperationalInsights 작업 영역 작업의 상태를 가져옵니다. |
 > | Microsoft.OperationalInsights/workspaces/query/read | 작업 영역의 데이터에서 쿼리를 실행 |
+> | OperationalInsights/작업 영역/쿼리/AACHttpRequest/읽기 | AACHttpRequest 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AADDomainServicesAccountLogon/읽기 | AADDomainServicesAccountLogon 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AADDomainServicesAccountManagement/읽기 | AADDomainServicesAccountManagement 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AADDomainServicesDirectoryServiceAccess/읽기 | AADDomainServicesDirectoryServiceAccess 테이블에서 데이터를 읽습니다. |
@@ -8778,6 +8893,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | OperationalInsights/작업 영역/쿼리/ABSBotRequests/읽기 | ABSBotRequests 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ABSChannelToBotRequests/읽기 | ABSChannelToBotRequests 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ABSDependenciesRequests/읽기 | ABSDependenciesRequests 테이블에서 데이터를 읽습니다. |
+> | OperationalInsights/작업 영역/쿼리/ACSAuthIncomingOperations/읽기 | ACSAuthIncomingOperations 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ACSBillingUsage/읽기 | ACSBillingUsage 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ACSChatIncomingOperations/읽기 | ACSChatIncomingOperations 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ACSSMSIncomingOperations/read | ACSSMSIncomingOperations 테이블에서 데이터를 읽습니다. |
@@ -8799,6 +8915,8 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | OperationalInsights/작업 영역/쿼리/ADFSSISPackageExecutionComponentPhases/읽기 | ADFSSISPackageExecutionComponentPhases 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ADFSSISPackageExecutionDataStatistics/읽기 | ADFSSISPackageExecutionDataStatistics 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ADFTriggerRun/읽기 | ADFTriggerRun 테이블에서 데이터를 읽습니다. |
+> | OperationalInsights/작업 영역/쿼리/ADPAudit/read | ADPAudit 테이블에서 데이터 읽기 |
+> | OperationalInsights/작업 영역/쿼리/ADPRequests/read | ADPRequests 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | ADReplicationResult 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | ADSecurityAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/ADTDigitalTwinsOperation/읽기 | ADTDigitalTwinsOperation 테이블에서 데이터를 읽습니다. |
@@ -8853,6 +8971,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | OperationalInsights/작업 영역/쿼리/AutoscaleScaleActionsLog/읽기 | AutoscaleScaleActionsLog 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AWSCloudTrail/read | AWSCloudTrail 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | AzureActivity 테이블에서 데이터를 읽습니다. |
+> | OperationalInsights/작업 영역/쿼리/AzureActivityV2/읽기 | AzureActivityV2 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AzureAssessmentRecommendation/읽기 | AzureAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AzureDevOpsAuditing/읽기 | AzureDevOpsAuditing 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/AzureDiagnostics/읽기 | AzureDiagnostics 테이블에서 데이터 읽기 |
@@ -9083,6 +9202,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SigninLogs/read | SigninLogs 테이블에서 데이터 읽기 |
 > | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | SPAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | SQLAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
+> | OperationalInsights/작업 영역/쿼리/SqlAtpStatus/읽기 | SqlAtpStatus 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/SqlDataClassification/읽기 | SqlDataClassification 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | SQLQueryPerformance 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/SqlVulnerabilityAssessmentResult/읽기 | SqlVulnerabilityAssessmentResult 테이블에서 데이터를 읽습니다. |
@@ -9137,6 +9257,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | VMConnection 테이블에서 데이터를 읽습니다. |
 > | OperationalInsights/작업 영역/쿼리/VMProcess/read | VMProcess 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | W3CIISLog 테이블에서 데이터를 읽습니다. |
+> | OperationalInsights/작업 영역/쿼리/W3CIISLogV2/읽기 | W3CIISLogV2 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/VMBoundPort/read | WaaSDeploymentStatus 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | WaaSInsiderStatus 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | WaaSUpdateStatus 테이블에서 데이터를 읽습니다. |
@@ -9148,6 +9269,7 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | WindowsFirewall 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | WindowsServerAssessmentRecommendation 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WireData/read | WireData 테이블에서 데이터를 읽습니다. |
+> | OperationalInsights/작업 영역/쿼리/WorkloadDiagnosticLogs/읽기 | WorkloadDiagnosticLogs 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | WorkloadMonitoringPerf 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | WUDOAggregatedStatus 테이블에서 데이터를 읽습니다. |
 > | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | WUDOStatus 테이블에서 데이터를 읽습니다. |
@@ -9180,6 +9302,9 @@ Azure 서비스: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | 스토리지 구성을 삭제합니다. 이렇게 하면 Microsoft Operational Insights에서 스토리지 계정의 데이터 읽기를 중지합니다. |
 > | Microsoft.OperationalInsights/workspaces/upgradetranslationfailures/read | 작업 영역에 대한 검색 업그레이드 변환 오류 로그를 가져옵니다. |
 > | Microsoft.OperationalInsights/workspaces/usages/read | 작업 영역에서 읽는 데이터 양을 포함하여 작업 영역에 대한 사용량 현황 데이터를 가져옵니다. |
+> | operationalinsights/작업 영역/뷰/읽기 | 작업 영역 뷰를 가져옵니다. |
+> | operationalinsights/작업 영역/뷰/쓰기 | 작업 영역 보기를 만들거나 업데이트 합니다. |
+> | operationalinsights/작업 영역/뷰/삭제 | 작업 영역 보기를 삭제 합니다. |
 
 ### <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -10146,83 +10271,83 @@ Azure 서비스: [Site Recovery](../site-recovery/index.yml)
 > | 작업 | 설명 |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | 지정된 리소스 공급자에 대한 구독을 등록합니다. |
-> | microsoft recoveryservices/위치/r e r e r/작업 | 지역 간 복원을 트리거합니다. |
-> | microsoft recoveryservices/위치/r e a p s/작업 | 보조 지역에서 Recovery Services 자격 증명 모음에 대 한 지역 간 복원 작업 세부 정보를 가져옵니다. |
-> | microsoft recoveryservices/위치/backupCrrJobs/작업 | 보조 지역에서 Recovery Services 자격 증명 모음에 대 한 지역 간 복원 작업을 나열 합니다. |
-> | microsoft recoveryservices/위치/a s e Prevalidateprotection/action |  |
-> | microsoft recoveryservices/위치/backupStatus/작업 | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
-> | microsoft recoveryservices/위치/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
+> | Microsoft RecoveryServices/위치/r e r e r/작업 | 지역 간 복원을 트리거합니다. |
+> | Microsoft RecoveryServices/위치/r e a p s/작업 | 보조 지역에서 Recovery Services 자격 증명 모음에 대 한 지역 간 복원 작업 세부 정보를 가져옵니다. |
+> | Microsoft RecoveryServices/위치/backupCrrJobs/작업 | 보조 지역에서 Recovery Services 자격 증명 모음에 대 한 지역 간 복원 작업을 나열 합니다. |
+> | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
+> | Microsoft.RecoveryServices/Locations/backupStatus/action | Recovery Services 자격 증명 모음의 백업 상태를 반환합니다. |
+> | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | 기능의 유효성을 검사합니다. |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp는 서비스에서 사용하는 내부 작업입니다. |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability는 리소스 이름을 사용할 수 있는지 확인하는 API입니다. |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp는 서비스에서 사용하는 내부 작업입니다. |
-> | microsoft recoveryservices/위치/backupAadProperties/읽기 | 지역 간 복원에 대 한 세 번째 지역에서 인증에 대 한 AAD 속성을 가져옵니다. |
-> | microsoft recoveryservices/위치/backupCrrOperationResults/읽기 | Recovery Services 자격 증명 모음에 대 한 CRR 작업 결과를 반환 합니다. |
-> | microsoft recoveryservices/위치/backupCrrOperationsStatus/읽기 | Recovery Services 자격 증명 모음에 대 한 CRR 작업 상태를 반환 합니다. |
-> | microsoft recoveryservices/위치/backupProtectedItem/쓰기 | 백업 보호 항목을 만듭니다. |
-> | microsoft recoveryservices/위치/backupProtectedItems/읽기 | 모든 보호 항목 목록을 반환합니다. |
+> | Microsoft RecoveryServices/위치/backupAadProperties/읽기 | 지역 간 복원에 대 한 세 번째 지역에서 인증에 대 한 AAD 속성을 가져옵니다. |
+> | Microsoft RecoveryServices/위치/backupCrrOperationResults/읽기 | Recovery Services 자격 증명 모음에 대 한 CRR 작업 결과를 반환 합니다. |
+> | Microsoft RecoveryServices/위치/backupCrrOperationsStatus/읽기 | Recovery Services 자격 증명 모음에 대 한 CRR 작업 상태를 반환 합니다. |
+> | Microsoft RecoveryServices/위치/backupProtectedItem/쓰기 | 백업 보호 항목을 만듭니다. |
+> | Microsoft RecoveryServices/위치/backupProtectedItems/읽기 | 모든 보호 항목 목록을 반환합니다. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | 지정된 작업의 작업 상태를 가져옵니다. |
 > | Microsoft.RecoveryServices/operations/read | 작업에서 리소스 공급자에 대한 작업 목록을 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupJobsExport/작업 | 작업을 내보냅니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupSecurityPIN/작업 | Recovery Services 자격 증명 모음에 대한 보안 PIN 정보를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupValidateOperation/action | 보호된 항목에 대한 작업의 유효성을 검사합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | 작업을 내보냅니다. |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Recovery Services 자격 증명 모음에 대한 보안 PIN 정보를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | 보호된 항목에 대한 작업의 유효성을 검사합니다. |
 > | Microsoft.RecoveryServices/Vaults/write | 자격 증명 모음 만들기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 만듭니다. |
 > | Microsoft.RecoveryServices/Vaults/read | 자격 증명 모음 가져오기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/delete | 자격 증명 모음 삭제 작업에서는 '자격 증명 모음' 형식의 지정된 Azure 리소스를 삭제합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupconfig/read | Recovery Services 자격 증명 모음에 구성을 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupconfig/write | Recovery Services 자격 증명 모음에 대한 구성을 업데이트합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupEncryptionConfigs/읽기 | 백업 리소스 암호화 구성을 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupEncryptionConfigs/쓰기 | 백업 리소스 암호화 구성을 업데이트 합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupEngines 읽기 | 자격 증명 모음에 등록된 모든 백업 관리 서버를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/refreshContainers/작업 | 컨테이너 목록을 새로 고칩니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/backupProtectionIntent/delete | 백업 보호 의도를 삭제합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/backupProtectionIntent/읽기 | 백업 보호 의도를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/operationResults/read | 작업의 상태를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/operationsStatus/읽기 | 작업의 상태를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectableContainers/읽기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/delete | 등록된 컨테이너를 삭제합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/조회/작업 | 컨테이너 내의 워크로드를 조회합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/읽기 | 등록된 모든 컨테이너를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/write | 등록된 컨테이너를 만듭니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/항목/읽기 | 컨테이너의 모든 항목을 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대해 수행된 작업의 결과를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/operationsStatus/read | 보호 컨테이너에 대해 수행 된 작업의 상태를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/백업/작업 | 보호 항목 Backup을 수행합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/delete | 보호된 항목을 삭제합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/read | 보호된 항목의 개체 정보를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/action | 다른 계층으로 이동 하는 데 권장 되는 복구 시점 가져오기 |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목을 만듭니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/operationResults/read | 보호 항목에 대해 수행된 작업의 결과를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | 보호 항목에 대해 수행된 작업의 상태를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | 지역 간 복원에 대 한 AccessToken를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/move/action | 복구 지점을 다른 계층으로 이동 |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 프로비전합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 보호 항목의 복구 지점을 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/복원/작업 | 보호 항목의 복구 지점을 복원합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 취소합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupJobs/취소/작업 | 작업을 취소합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupJobs/읽기 | 모든 작업 개체를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupJobs/operationResults/read | 작업의 작업 결과를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupJobs/operationsStatus/read | 작업의 상태를 반환 합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupOperationResults/읽기 | Recovery Services 자격 증명 모음의 Backup 작업 결과를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupOperations/읽기 | Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupOperationVaultGuardProxies/삭제 | VaultGuard 프록시 삭제 작업은 ' VaultGuard proxy ' 형식의 지정 된 Azure 리소스를 삭제 합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupOperationVaultGuardProxies/읽기 | VaultGuard 프록시 작업 가져오기 ' VaultGuard proxy ' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupOperationVaultGuardProxies/읽기 | 리소스의 VaultGuard 프록시 목록 가져오기 |
-> | microsoft recoveryservices/자격 증명 모음/backupOperationVaultGuardProxies/unlockDelete/action | VaultGuard 프록시 삭제 잠금 해제 작업은 다음 삭제 위험 작업의 잠금을 해제 합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupOperationVaultGuardProxies/쓰기 | Create VaultGuard proxy 작업은 ' VaultGuard Proxy ' 형식의 Azure 리소스를 만듭니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupPolicies/삭제 | 보호 정책을 삭제합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupPolicies/읽기 | 모든 보호 정책을 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupPolicies/쓰기 | 보호 정책을 만듭니다. |
-> | microsoft recoveryservices/자격 증명 모음/백업 정책/operationResults/read | 정책 작업의 결과를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupPolicies/작업/읽기 | 정책 작업의 상태를 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupProtectableItems/읽기 | 모든 보호 가능한 항목 목록을 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupProtectedItems/읽기 | 모든 보호 항목 목록을 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupProtectionContainers/읽기 | 구독에 속하는 컨테이너를 모두 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupProtectionIntents/읽기 | 모든 백업 보호 의도를 나열합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupstorageconfig/읽기 | Recovery Services 자격 증명 모음에 대한 스토리지 구성을 반환합니다. |
-> | microsoft recoveryservices/자격 증명 모음/backupstorageconfig/쓰기 | Recovery Services 자격 증명 모음에 대한 스토리지 구성을 업데이트합니다. |
-> | microsoft recoveryservices/자격 증명 모음/Backupusagesumn/읽기 | Recovery Services의 보호된 항목 및 보호된 서버에 대한 요약을 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Recovery Services 자격 증명 모음에 구성을 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/write | Recovery Services 자격 증명 모음에 대한 구성을 업데이트합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupEncryptionConfigs/읽기 | 백업 리소스 암호화 구성을 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupEncryptionConfigs/쓰기 | 백업 리소스 암호화 구성을 업데이트 합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | 자격 증명 모음에 등록된 모든 백업 관리 서버를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 컨테이너 목록을 새로 고칩니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | 백업 보호 의도를 삭제합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | 백업 보호 의도를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | 작업의 상태를 반환합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupFabrics/operationsStatus/읽기 | 작업의 상태를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | 등록된 컨테이너를 삭제합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | 컨테이너 내의 워크로드를 조회합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | 등록된 모든 컨테이너를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | 등록된 컨테이너를 만듭니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | 컨테이너의 모든 항목을 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | 보호 컨테이너에 대해 수행된 작업의 결과를 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupFabrics/protectionContainers/operationsStatus/read | 보호 컨테이너에 대해 수행 된 작업의 상태를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | 보호 항목 Backup을 수행합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | 보호된 항목을 삭제합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | 보호된 항목의 개체 정보를 반환합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/action | 다른 계층으로 이동 하는 데 권장 되는 복구 시점 가져오기 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | 백업 보호 항목을 만듭니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | 보호 항목에 대해 수행된 작업의 결과를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | 보호 항목에 대해 수행된 작업의 상태를 반환합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | 지역 간 복원에 대 한 AccessToken를 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupFabrics/protectionContainers/protectedItems/recoveryPoints/move/action | 복구 지점을 다른 계층으로 이동 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 프로비전합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | 보호 항목의 복구 지점을 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | 보호 항목의 복구 지점을 복원합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | 보호된 항목에 대한 빠른 항목 복구를 취소합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | 작업을 취소합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/read | 모든 작업 개체를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | 작업의 작업 결과를 반환합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupJobs/operationsStatus/read | 작업의 상태를 반환 합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Recovery Services 자격 증명 모음의 Backup 작업 결과를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Recovery Services 자격 증명 모음의 Backup 작업 상태를 반환합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupOperationVaultGuardProxies/삭제 | VaultGuard 프록시 삭제 작업은 ' VaultGuard proxy ' 형식의 지정 된 Azure 리소스를 삭제 합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupOperationVaultGuardProxies/읽기 | VaultGuard 프록시 작업 가져오기 ' VaultGuard proxy ' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupOperationVaultGuardProxies/읽기 | 리소스의 VaultGuard 프록시 목록 가져오기 |
+> | Microsoft RecoveryServices/자격 증명 모음/backupOperationVaultGuardProxies/unlockDelete/action | VaultGuard 프록시 삭제 잠금 해제 작업은 다음 삭제 위험 작업의 잠금을 해제 합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/backupOperationVaultGuardProxies/쓰기 | Create VaultGuard proxy 작업은 ' VaultGuard Proxy ' 형식의 Azure 리소스를 만듭니다. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | 보호 정책을 삭제합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | 모든 보호 정책을 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | 보호 정책을 만듭니다. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | 정책 작업의 결과를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | 정책 작업의 상태를 가져옵니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | 모든 보호 가능한 항목 목록을 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | 모든 보호 항목 목록을 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | 구독에 속하는 컨테이너를 모두 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | 모든 백업 보호 의도를 나열합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Recovery Services 자격 증명 모음에 대한 스토리지 구성을 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Recovery Services 자격 증명 모음에 대한 스토리지 구성을 업데이트합니다. |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Recovery Services의 보호된 항목 및 보호된 서버에 대한 요약을 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | 리소스 인증서 업데이트 작업은 리소스/저장소 자격 증명 인증서를 업데이트합니다. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
@@ -10231,14 +10356,14 @@ Azure 서비스: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | 경고를 해결합니다. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Recovery Services 자격 증명 모음 알림 구성을 가져옵니다. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Recovery Services 자격 증명 모음에 이메일 알림을 구성합니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnectionProxies/삭제 | 몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnectionProxies/읽기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnectionProxies/유효성 검사/작업 | 보호 가능한 컨테이너를 모두 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnectionProxies/쓰기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnectionProxies/operationsStatus/읽기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnections/삭제 | 개인 끝점 요청을 삭제 합니다. 이 호출은 Backup 관리자에 의해 수행 됩니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnections/쓰기 | 개인 끝점 요청을 승인 또는 거부 합니다. 이 호출은 Backup 관리자에 의해 수행 됩니다. |
-> | microsoft recoveryservices/자격 증명 모음/privateEndpointConnections/operationsStatus/읽기 | 개인 끝점 연결에 대 한 작업 상태를 반환 합니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnectionProxies/삭제 | 몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnectionProxies/읽기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnectionProxies/유효성 검사/작업 | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnectionProxies/쓰기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnectionProxies/operationsStatus/읽기 | 보호 가능한 컨테이너를 모두 가져옵니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnections/삭제 | 개인 끝점 요청을 삭제 합니다. 이 호출은 Backup 관리자에 의해 수행 됩니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnections/쓰기 | 개인 끝점 요청을 승인 또는 거부 합니다. 이 호출은 Backup 관리자에 의해 수행 됩니다. |
+> | Microsoft RecoveryServices/자격 증명 모음/privateEndpointConnections/operationsStatus/읽기 | 개인 끝점 연결에 대 한 작업 상태를 반환 합니다. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | 서비스 컨테이너 등록 작업을 사용하여 복구 서비스와 함께 컨테이너를 등록할 수 있습니다. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | 컨테이너 가져오기 작업을 사용하여 리소스에 대해 등록된 컨테이너를 가져올 수 있습니다. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | 컨테이너 등록 취소 작업을 사용하여 컨테이너 등록을 취소할 수 있습니다. |
@@ -10359,7 +10484,7 @@ Azure 서비스: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft RecoveryServices/자격 증명 모음/replicationVaultSettings/읽기 | 모든 항목을 읽습니다.  |
 > | Microsoft RecoveryServices/자격 증명 모음/replicationVaultSettings/쓰기 | 만들기 또는 업데이트  |
 > | Microsoft.RecoveryServices/vaults/replicationvCenters/read | vCenter를 읽습니다. |
-> | microsoft recoveryservices/자격 증명 모음/사용량/읽기 | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Recovery Services 자격 증명 모음에 대한 사용 세부 정보를 반환합니다. |
 > | Microsoft.RecoveryServices/Vaults/usages/read | 자격 증명 모음 사용 현황을 읽습니다. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | 자격 증명 모음 토큰 작업을 사용하여 자격 증명 모음 수준의 백 엔드 작업에 대한 자격 증명 모음 토큰을 가져올 수 있습니다. |
 
@@ -10527,6 +10652,7 @@ Azure 서비스: [Windows 가상 데스크톱](../virtual-desktop/index.yml)
 > | Microsoft DesktopVirtualization/hostpools/읽기 | Hostpools 읽기 |
 > | Microsoft DesktopVirtualization/hostpools/write | Hostpools 쓰기 |
 > | Microsoft DesktopVirtualization/hostpools/delete | Hostpools 삭제 |
+> | Microsoft DesktopVirtualization/hostpools/retrieveRegistrationToken/action | 호스트 풀의 등록 토큰 검색 |
 > | Microsoft. DesktopVirtualization/hostpools/providers/Microsoft. Insights/diagnosticSettings/read | 진단 설정을 가져옵니다. |
 > | Microsoft. DesktopVirtualization/hostpools/providers/Microsoft. Insights/diagnosticSettings/write | 진단 설정을 만들거나 업데이트 합니다. |
 > | Microsoft. DesktopVirtualization/hostpools/providers/Microsoft. Insights/logDefinitions/읽기 | 사용 가능한 로그를 가져옵니다. |

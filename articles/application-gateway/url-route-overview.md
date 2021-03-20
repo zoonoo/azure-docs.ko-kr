@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84987925"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
@@ -76,9 +76,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |아니요|
-|`/*.jpg`     |아니요|
-|`/Repos/*/Comments/*`     |아니요|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |예|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |아니요|
-|`/*.jpg`     |아니요|
-|`/Repos/*/Comments/*`     |아니요|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
 |`/CurrentUser/Comments/*`     |예|
 
 자세한 내용은 [URL 기반 라우팅을 사용하는 Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)을 참조하세요.

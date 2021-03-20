@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 06/14/2020
 ms.author: yelevin
 ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84783166"
 ---
-# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure 센티널에서 구하기 라이브 스트림를 사용 하 여 위협 감지
+# <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure Sentinel에서 헌팅 라이브 스트림을 사용하여 위협 감지
 
 라이브 스트림를 사용 하 여 이벤트가 발생할 때 새로 만든 쿼리를 테스트 하 고, 일치 하는 항목이 발견 되 면 세션에서 알림을 가져오고, 필요한 경우 조사를 시작할 수 있는 대화형 세션을 만들 수 있습니다. Log Analytics 쿼리를 사용 하 여 라이브 스트림 세션을 신속 하 게 만들 수 있습니다.
 
@@ -43,12 +43,12 @@ ms.locfileid: "84783166"
 
 기존 구하기 쿼리에서 라이브 스트림 세션을 만들거나 처음부터 세션을 만들 수 있습니다.
 
-1. Azure Portal에서 **센티널**  >  **Threat management**  >  **구하기**로 이동 합니다.
+1. Azure Portal에서 **센티널**  >  **Threat management**  >  **구하기** 로 이동 합니다.
 
 1. 구하기 쿼리에서 라이브 스트림 세션을 만들려면 다음을 수행 합니다.
     
     1. **쿼리** 탭에서 사용할 구하기 쿼리를 찾습니다.
-    1. 쿼리를 마우스 오른쪽 단추로 클릭 하 고 **라이브 스트림에 추가를**선택 합니다. 예를 들면 다음과 같습니다.
+    1. 쿼리를 마우스 오른쪽 단추로 클릭 하 고 **라이브 스트림에 추가를** 선택 합니다. 예를 들면 다음과 같습니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기 쿼리에서 라이브 스트림 세션 만들기](./media/livestream/livestream-from-query.png)
@@ -56,7 +56,7 @@ ms.locfileid: "84783166"
 1. 라이브 스트림 세션을 처음부터 만들려면 다음을 수행 합니다. 
     
     1. **라이브 스트림** 탭을 선택 합니다.
-    1. **+ New 라이브 스트림**를 클릭 합니다.
+    1. **+ New 라이브 스트림** 를 클릭 합니다.
     
 1. **라이브 스트림** 창에서 다음을 수행 합니다.
     
@@ -72,7 +72,7 @@ ms.locfileid: "84783166"
 
 1. 명령 모음에서 **저장** 을 선택 합니다.
     
-    **일시 중지**를 선택 하지 않는 한 세션은 Azure Portal에서 로그 아웃 될 때까지 계속 실행 됩니다.
+    **일시 중지** 를 선택 하지 않는 한 세션은 Azure Portal에서 로그 아웃 될 때까지 계속 실행 됩니다.
 
 ## <a name="view-your-livestream-sessions"></a>라이브 스트림 세션 보기
 

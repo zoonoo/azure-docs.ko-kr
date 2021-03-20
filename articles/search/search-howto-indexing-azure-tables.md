@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91275186"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 Azure 테이블 저장소에서 테이블을 인덱싱하는 방법
@@ -36,8 +36,8 @@ ms.locfileid: "91275186"
 
 테이블 인덱싱의 경우 데이터 원본에 다음과 같은 속성이 있어야 합니다.
 
-- **name**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
-- **type**은 `azuretable`여야 합니다.
+- **name** 은 검색 서비스 내 데이터 원본의 고유 이름입니다.
+- **type** 은 `azuretable`여야 합니다.
 - **credentials** 매개 변수는 스토리지 계정 연결 문자열을 포함합니다. 자세한 내용은 [자격 증명 지정](#Credentials) 섹션을 참조하세요.
 - **컨테이너** 는 테이블 이름 및 선택적 쿼리를 설정 합니다.
     - `name` 매개 변수를 사용하여 테이블 이름을 지정합니다.

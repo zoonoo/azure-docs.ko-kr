@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: db4f78e14696c421adaedd16b0b3f8d598f12846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91251901"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>IoT Hub를 사용하여 디바이스에서 클라우드로 파일 업로드(Node.js)
@@ -124,7 +124,7 @@ ms.locfileid: "91251901"
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service**라는 공유 액세스 정책을 사용하여 만듭니다.
+이 문서에서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-node.md)에서 만든 IoT Hub에서 파일 업롣 알림 메시지를 수신하는 백 엔드 서비스를 만듭니다. 파일 업로드 알림 메시지를 수신하려면 서비스에 **서비스 연결** 권한이 있어야 합니다. 기본적으로 모든 IoT Hub는 이 사용 권한을 부여하는 **service** 라는 공유 액세스 정책을 사용하여 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 

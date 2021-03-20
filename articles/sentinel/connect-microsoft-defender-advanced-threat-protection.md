@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
 ms.openlocfilehash: 0db4e0fe0472c75f1eae392980ae697f53007244
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98623369"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Microsoft Defender for Endpoint (이전의 Microsoft Defender ATP)에서 경고 연결
@@ -35,7 +35,7 @@ ms.locfileid: "98623369"
 >
 > 끝점의 [고급 구하기](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview)에 대해 microsoft defender에서 새로운 원시 데이터 로그를 수집 하려면 Microsoft 365 Defender에 대 한 새 커넥터 (이전에는 Microsoft 위협 방지, [설명서 참조](./connect-microsoft-365-defender.md))를 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [끝점 배포용 Microsoft Defender 설정](/windows/security/threat-protection/microsoft-defender-atp/licensing)에 설명 된 대로 끝점에 대 한 microsoft defender에 대 한 유효한 라이선스가 있어야 합니다. 
 

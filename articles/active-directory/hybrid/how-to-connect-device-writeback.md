@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d526394ac89e2d29b2002004736e8480bb15b954
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95973425"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 디바이스 쓰기 저장 사용
@@ -97,7 +97,7 @@ ms.locfileid: "95973425"
   * 시작 메뉴에서 **동기화 서비스** 를 엽니다.
   * **커넥터** 탭을 엽니다.
   * 형식이 Active Directory Domain Services인 커넥터를 찾아 선택합니다.
-  * **작업** 아래에서 **속성** 을 선택 합니다.
+  * **작업** 아래에서 **속성** 을 선택합니다.
   * **Active Directory 포리스트에 연결** 로 이동합니다. 이 화면에 지정된 도메인 및 사용자 이름이 스크립트에 제공된 계정과 일치하는지 확인합니다.
     ![동기화 서비스 관리자의 커넥터 계정](./media/how-to-connect-device-writeback/connectoraccount.png)
 

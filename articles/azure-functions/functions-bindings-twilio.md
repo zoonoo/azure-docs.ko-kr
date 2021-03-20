@@ -7,10 +7,10 @@ ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
 ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91999279"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
@@ -203,7 +203,7 @@ module.exports = function (context, myQueueItem) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예에서는 * 의 다음function.js*에 정의 된 대로 출력 바인딩을 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다.
+다음 예에서는 *의 다음function.js* 에 정의 된 대로 출력 바인딩을 사용 하 여 SMS 메시지를 보내는 방법을 보여 줍니다.
 
 ```json
     {

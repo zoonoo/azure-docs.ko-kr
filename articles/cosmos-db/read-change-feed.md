@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 7021367e1230573343ddf57ccd399d998ad5280e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339277"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
@@ -76,7 +76,7 @@ Azure Functions와 마찬가지로 변경 피드 프로세서 라이브러리를
 
 변경 피드 기능은 MongoDB API의 변경 스트림 및 Cassandra API의 조건자가 있는 쿼리로 표시됩니다. MongoDB API의 구현 세부 정보에 대한 자세한 내용은 [Azure Cosmos DB API for MongoDB에서 스트림 변경](mongodb-change-streams.md)을 참조하세요.
 
-기본 Apache Cassandra는 CDC 로그의 구성 가능한 디스크 크기에 도달하면 보관을 위해 특정 테이블에 플래그를 지정하고 해당 테이블에 대한 쓰기를 거부하는 메커니즘인 CDC(변경 데이터 캡처)를 제공합니다. Cassandra에 대한 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용하여 변경 내용을 쿼리하는 기능을 향상시킵니다. 구현 세부 정보에 대한 자세한 내용은 [Cassandra용 Azure Cosmos DB API에서 스트림 변경](cassandra-change-feed.md)을 참조하세요.
+기본 Apache Cassandra는 CDC 로그의 구성 가능한 디스크 크기에 도달하면 보관을 위해 특정 테이블에 플래그를 지정하고 해당 테이블에 대한 쓰기를 거부하는 메커니즘인 CDC(변경 데이터 캡처)를 제공합니다. Cassandra용 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용하여 변경 내용을 쿼리하는 기능을 향상시킵니다. 구현 세부 정보에 대한 자세한 내용은 [Cassandra용 Azure Cosmos DB API의 변경 피드](cassandra-change-feed.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

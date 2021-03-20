@@ -4,10 +4,10 @@ description: Azure DevTest Labs 엔터프라이즈 환경에 성공적으로 통
 ms.topic: article
 ms.date: 06/2/2020
 ms.openlocfilehash: 9c28cf9eebd8a39a2edce48e4fb8b96dc7608d80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87288030"
 ---
 # <a name="deliver-a-proof-of-concept"></a>개념 증명 제공 
@@ -33,7 +33,7 @@ Azure DevTest Labs에 대 한 주요 시나리오 중 하나는 클라우드에�
 * [DevTest Labs enterprise 설명서](devtest-lab-guidance-prescriptive-adoption.md)
 * [Azure 네트워킹 소개](../virtual-network/virtual-networks-overview.md)
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 DevTest Labs를 사용 하 여 파일럿 또는 개념 증명을 성공적으로 완료 하려면 몇 가지 필수 구성 요소가 있습니다. 
 

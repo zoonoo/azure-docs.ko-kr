@@ -4,10 +4,10 @@ description: Azure Service Fabric은 Service Fabric을 사용하여 기존 컨�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: f84dd0ecb7a4002182c8455bfd86354d794a6f7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84691291"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric의 Docker Compose 배포 지원(미리 보기)
@@ -127,8 +127,8 @@ sfctl compose upgrade-status --deployment-name TestContainerApp
 ### <a name="ports-section"></a>포트 섹션
 
 Service Fabric 서비스 수신기에서 사용될 포트 섹션에서 http 또는 https 프로토콜을 지정합니다. 이렇게 하면 역방향 프록시가 요청을 전달할 수 있는 이름 지정 서비스를 사용하여 엔드포인트 프로토콜이 올바르게 게시되도록 합니다.
-* 비보안 Service Fabric 계산 서비스에 라우팅하려면 **/http**를 지정합니다. 예를 들면 **"80:80/http"** 와 같습니다.
-* 보안 Service Fabric 계산 서비스에 라우팅하려면 **/http**를 지정합니다. 예를 들면 **"443:443/https"** 와 같습니다.
+* 비보안 Service Fabric 계산 서비스에 라우팅하려면 **/http** 를 지정합니다. 예를 들면 **"80:80/http"** 와 같습니다.
+* 보안 Service Fabric 계산 서비스에 라우팅하려면 **/http** 를 지정합니다. 예를 들면 **"443:443/https"** 와 같습니다.
 
 > [!NOTE]
 > 올바른 Service Fabric 수신기 URL을 등록하기 위해 /http 및 /https 포트 섹션 구문은 Service Fabric에 특정됩니다.  프로그래밍 방식으로 Docker 계산 파일 구문의 유효성을 검사하면 유효성 검사 오류가 발생할 수 있습니다.

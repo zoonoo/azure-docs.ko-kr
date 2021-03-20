@@ -19,10 +19,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274115"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
@@ -51,14 +51,14 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 1. 추가 작업 목록에서 **AAD 및 ADFS 트러스트 복구** 를 선택합니다.
    ![AAD 및 ADFS 트러스트 복구](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
-2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 제공하고 **다음**을 클릭합니다.
+2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 제공하고 **다음** 을 클릭합니다.
    ![예제 자격 증명이 입력 된 "Azure AD에 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. **원격 액세스 자격 증명** 페이지에서 도메인 관리자에 대한 자격 증명을 입력합니다.
 
    ![예제 자격 증명이 입력 된 "원격 액세스 자격 증명" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
-    **다음**을 클릭한 후 Azure AD Connect가 인증서 상태를 확인하고 문제를 표시합니다.
+    **다음** 을 클릭한 후 Azure AD Connect가 인증서 상태를 확인하고 문제를 표시합니다.
 
     ![인증서의 상태](./media/how-to-connect-fed-management/RepairADTrust4.PNG)
 
@@ -92,11 +92,11 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 > [!NOTE]
 > AD FS 서버를 추가하려면 Azure AD Connect는 PFX 인증서가 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
-1. **추가 페더레이션 서버 배포**를 선택하고 **다음**을 클릭합니다.
+1. **추가 페더레이션 서버 배포** 를 선택하고 **다음** 을 클릭합니다.
 
    ![추가 페더레이션 서버](./media/how-to-connect-fed-management/AddNewADFSServer1.PNG)
 
-2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
+2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 입력하고 **다음** 을 클릭합니다.
 
    ![샘플 자격 증명이 입력 된 "Azure AD에 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
@@ -114,7 +114,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
    ![AD FS 서버](./media/how-to-connect-fed-management/AddNewADFSServer6.PNG)
 
-6. **다음**을 클릭하고 마지막 **구성** 페이지로 이동합니다. Azure AD Connect가 AD FS 팜에 서버 추가를 완료한 후 연결을 확인하는 옵션이 제공됩니다.
+6. **다음** 을 클릭하고 마지막 **구성** 페이지로 이동합니다. Azure AD Connect가 AD FS 팜에 서버 추가를 완료한 후 연결을 확인하는 옵션이 제공됩니다.
 
    !["설치"를 클릭 한 후 완료할 작업 목록과 함께 "구성 준비 완료" 페이지가 표시 된 스크린샷](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
@@ -125,7 +125,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 > [!NOTE]
 > WAP 서버를 추가하려면 Azure AD Connect는 PFX 인증서가 필요합니다. 따라서 Azure AD Connect를 사용하여 AD FS 팜을 구성한 경우에만 이 작업을 수행할 수 있습니다.
 
-1. 사용 가능한 작업 목록에서 **웹 애플리케이션 프록시 배포**를 선택합니다.
+1. 사용 가능한 작업 목록에서 **웹 애플리케이션 프록시 배포** 를 선택합니다.
 
    ![웹 애플리케이션 프록시 배포](./media/how-to-connect-fed-management/WapServer1.PNG)
 
@@ -158,7 +158,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽게 추가할 수 있습니다. Azure AD Connect는 페더레이션에 대한 도메인을 추가하고 Azure AD와 페더레이션된 여러 도메인이 있는 경우 발급자를 올바르게 반영하기 위해 클레임 규칙을 수정합니다.
 
-1. 페더레이션된 도메인을 추가하려면 작업 **추가 Azure AD 도메인 추가**를 선택합니다.
+1. 페더레이션된 도메인을 추가하려면 작업 **추가 Azure AD 도메인 추가** 를 선택합니다.
 
    ![추가 Azure AD 도메인](./media/how-to-connect-fed-management/AdditionalDomain1.PNG)
 
@@ -176,7 +176,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
     도메인을 선택하면 마법사는 마법사가 수행할 추가 작업 및 구성의 영향에 대한 적절한 정보를 제공합니다. 경우에 따라 Azure AD에서 아직 확인되지 않은 도메인을 선택하는 경우 마법사는 도메인을 확인하는 데 유용한 정보를 제공합니다. 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md) 를 참조하세요.
 
-5. **다음**을 클릭합니다. **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. **설치** 를 클릭하여 구성을 완료합니다.
+5. **다음** 을 클릭합니다. **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. **설치** 를 클릭하여 구성을 완료합니다.
 
    ![구성 준비](./media/how-to-connect-fed-management/AdditionalDomain5.PNG)
 
@@ -200,7 +200,7 @@ Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 > *TargetName* 매개 변수가 필요합니다. AD FS와 함께 제공되는 기본 테마의 이름은 Default입니다.
 
 ## <a name="add-a-sign-in-description"></a><a name="addsignindescription"></a>로그인 설명 추가 
-**로그인 페이지**에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
+**로그인 페이지** 에 로그인 페이지 설명을 추가하려면 다음 Windows PowerShell cmdlet 및 구문을 사용합니다.
 
 ```azurepowershell-interactive
 Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
@@ -214,7 +214,7 @@ AD FS는 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는
 ### <a name="immutable-id-conditional-on-a-value-being-present-in-the-attribute"></a>특성에 나타나는 값에서 변경이 불가능한 ID 조건부
 Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 앵커로 사용할 특성을 지정할 수 있습니다. 사용자 지정 특성의 값이 비어 있지 않은 경우 변경이 불가능한 ID 클레임을 발급하는 것이 좋습니다.
 
-예를 들어 원본 앵커의 특성으로 **ms-ds-consistencyguid**를 선택하고 특성이 해당 항목에 대한 값을 갖는 경우 **ms-ds-consistencyguid**로 **ImmutableID**를 발급할 수 있습니다. 특성에 대한 값이 없는 경우 변경이 불가능한 ID로 **objectGuid**를 발급합니다. 다음 섹션에 설명된 대로 사용자 지정 클레임 규칙의 집합을 생성할 수 있습니다.
+예를 들어 원본 앵커의 특성으로 **ms-ds-consistencyguid** 를 선택하고 특성이 해당 항목에 대한 값을 갖는 경우 **ms-ds-consistencyguid** 로 **ImmutableID** 를 발급할 수 있습니다. 특성에 대한 값이 없는 경우 변경이 불가능한 ID로 **objectGuid** 를 발급합니다. 다음 섹션에 설명된 대로 사용자 지정 클레임 규칙의 집합을 생성할 수 있습니다.
 
 **규칙 1: 쿼리 특성**
 
@@ -223,9 +223,9 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 => add(store = "Active Directory", types = ("http://contoso.com/ws/2016/02/identity/claims/objectguid", "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"), query = "; objectGuid,ms-ds-consistencyguid;{0}", param = c.Value);
 ```
 
-이 규칙에서는 Active Directory의 사용자에 대해 **ms-ds-consistencyguid** 및 **objectGuid**의 값을 쿼리합니다. AD FS 배포에서 적절한 저장소 이름으로 저장소 이름을 변경합니다. 또한 **objectGuid** 및 **ms-ds-consistencyguid**에 대해 정의된 대로 페더레이션에 대한 적절한 클레임 형식으로 클레임 형식을 변경합니다.
+이 규칙에서는 Active Directory의 사용자에 대해 **ms-ds-consistencyguid** 및 **objectGuid** 의 값을 쿼리합니다. AD FS 배포에서 적절한 저장소 이름으로 저장소 이름을 변경합니다. 또한 **objectGuid** 및 **ms-ds-consistencyguid** 에 대해 정의된 대로 페더레이션에 대한 적절한 클레임 형식으로 클레임 형식을 변경합니다.
 
-또한 **issue**가 아닌 **add**를 사용하여 엔터티에 대해 나가는 발급을 추가하지 않고 단지 중간 값으로 값을 사용할 수 있습니다. 변경이 불가능한 ID로 사용할 값을 설정한 후 이후 규칙에서 클레임을 발급합니다.
+또한 **issue** 가 아닌 **add** 를 사용하여 엔터티에 대해 나가는 발급을 추가하지 않고 단지 중간 값으로 값을 사용할 수 있습니다. 변경이 불가능한 ID로 사용할 값을 설정한 후 이후 규칙에서 클레임을 발급합니다.
 
 **규칙 2: 사용자에 대한 ms-ds-consistencyguid가 있는지 확인**
 
@@ -234,7 +234,7 @@ NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsisten
 => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 ```
 
-이 규칙은 단순히 사용자에 대해 채워진 **ms-ds-consistencyguid**가 없는 경우 **useguid**로 설정된 **idflag**라는 임시 플래그를 정의합니다. 이 이면에 숨겨진 논리는 AD FS가 빈 클레임을 허용하지 않는다는 사실입니다. 따라서 규칙 1에 `http://contoso.com/ws/2016/02/identity/claims/objectguid` 및 `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` 클레임을 추가할 때는 해당 사용자에 대해 값이 입력되는 경우에만 **msdsconsistencyguid** 클레임으로 마칩니다. 채워지지 않은 경우 AD FS는 빈 값을 갖는 것을 확인하고 즉시 삭제합니다. 모든 개체에는 **objectGuid**가 있으므로 규칙 1이 실행된 후 항상 클레임이 발생합니다.
+이 규칙은 단순히 사용자에 대해 채워진 **ms-ds-consistencyguid** 가 없는 경우 **useguid** 로 설정된 **idflag** 라는 임시 플래그를 정의합니다. 이 이면에 숨겨진 논리는 AD FS가 빈 클레임을 허용하지 않는다는 사실입니다. 따라서 규칙 1에 `http://contoso.com/ws/2016/02/identity/claims/objectguid` 및 `http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid` 클레임을 추가할 때는 해당 사용자에 대해 값이 입력되는 경우에만 **msdsconsistencyguid** 클레임으로 마칩니다. 채워지지 않은 경우 AD FS는 빈 값을 갖는 것을 확인하고 즉시 삭제합니다. 모든 개체에는 **objectGuid** 가 있으므로 규칙 1이 실행된 후 항상 클레임이 발생합니다.
 
 **규칙 3: 있는 경우 변경이 불가능한 ID로 ms-ds-consistencyguid 발급**
 
@@ -253,7 +253,7 @@ c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
 => issue(Type = "http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID", Value = c2.Value);
 ```
 
-이 규칙에서는 단순히 임시 플래그 **idflag**를 확인합니다. 해당 값에 따라 클레임 발급 여부를 결정합니다.
+이 규칙에서는 단순히 임시 플래그 **idflag** 를 확인합니다. 해당 값에 따라 클레임 발급 여부를 결정합니다.
 
 > [!NOTE]
 > 이러한 규칙 시퀀스는 중요합니다.

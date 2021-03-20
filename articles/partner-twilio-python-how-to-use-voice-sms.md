@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
 ms.custom: devx-track-python
-ms.openlocfilehash: ba93591ade730c4e9c9bdb6a42232e71e10d6469
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b4b9cd0db2a3a99aca80f42b6d69485a542bbadb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000439"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580955"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Python에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS를 Twilio 하 고 사용 하는 방법에 대 한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조 하세요.
@@ -86,7 +86,7 @@ Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Python 애플�
 ### <a name="add-an-incoming-rule"></a>수신 규칙 추가
   1. [네트워크 보안 그룹][azure_nsg] 페이지로 이동합니다.
   2. Virtual Machine과 일치하는 네트워크 보안 그룹을 선택합니다.
-  3. **포트 80** 에 대한 **발신 규칙** 을 추가합니다. 모든 주소에서의 수신을 허용해야 합니다.
+  3. **포트 80** 에 대 한 **나가는 규칙** 을 추가 합니다. 모든 주소에서의 수신을 허용해야 합니다.
 
 ### <a name="set-the-dns-name-label"></a>DNS 이름 레이블 설정
   1. [공용 IP 주소][azure_ips] 페이지로 이동합니다.
@@ -151,6 +151,9 @@ call = client.calls.create(to=to_number,
                            url=url + urlencode({'Message': message}))
 print(call.sid)
 ```
+
+> [!IMPORTANT]
+> 전화 번호는 ' + ' 및 국가 코드로 포맷 해야 합니다. 예를 들어 + 16175551212 (E. 164 형식)입니다. 또한 Twilio는 서식이 지정 되지 않은 미국 번호를 허용 합니다. 예: (415) 555-1212 또는 415-555-1212.
 
 언급한 대로 이 코드는 Twilio 제공 사이트를 사용하여 TwiML 응답을 반환합니다. 고유한 사이트를 대신 사용하여 TwiML 응답을 제공할 수 있습니다. 자세한 내용은 [고유한 웹 사이트에서 TwiML 응답을 제공하는 방법](#howto_provide_twiml_responses)을 참조하십시오.
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 1f7eb3b38b4ae04e81839fce2b14c1a84f3f0204
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 84960e6247edc708bedb899c96ebf7522397269a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564597"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580371"
 ---
 # <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Ubuntu에서 원격 데스크톱을 사용 하도록 xrdp 설치 및 구성
 
@@ -138,7 +138,7 @@ tail -f /var/log/syslog
 
 Red Hat Enterprise Linux 및 SUSE와 같은 기타 Linux 배포에는 검토할 서비스 및 다른 로그 파일 위치를 다시 시작하는 다른 방법이 있을 수 있습니다.
 
-원격 데스크톱 클라이언트에서 응답을 수신하지 않고 시스템 로그에 이벤트가 표시되지 않는 경우 이 동작은 원격 데스크톱 트래픽이 VM에 도달할 수 없다는 것을 나타냅니다. 네트워크 보안 그룹 규칙을 검토하여 포트 3389에서 TCP를 허용하는 규칙이 있는지 확인합니다. 자세한 내용은 [애플리케이션 연결 문제 해결](../troubleshooting/troubleshoot-app-connection.md)을 참조하세요.
+원격 데스크톱 클라이언트에서 응답을 수신하지 않고 시스템 로그에 이벤트가 표시되지 않는 경우 이 동작은 원격 데스크톱 트래픽이 VM에 도달할 수 없다는 것을 나타냅니다. 네트워크 보안 그룹 규칙을 검토하여 포트 3389에서 TCP를 허용하는 규칙이 있는지 확인합니다. 자세한 내용은 [애플리케이션 연결 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-app-connection)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

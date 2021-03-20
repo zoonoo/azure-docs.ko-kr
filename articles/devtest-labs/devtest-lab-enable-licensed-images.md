@@ -4,10 +4,10 @@ description: Azure Portal을 사용하여 Azure DevTest Labs에서 라이선스 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91276359"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩의 라이선스 이미지 사용
@@ -19,17 +19,17 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
-1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
+1. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
 
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 
-1. 왼쪽 패널의 **설정**에서 **구성 및 정책**을 선택합니다.
+1. 왼쪽 패널의 **설정** 에서 **구성 및 정책** 을 선택합니다.
 
-1. 왼쪽 패널의 **가상 머신 기본**에서 **Marketplace 이미지**를 선택합니다. 
+1. 왼쪽 패널의 **가상 머신 기본** 에서 **Marketplace 이미지** 를 선택합니다. 
 
     ![Marketplace 이미지 메뉴 항목](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-marketplace-images.png)
 
-    각 이미지에 대한 **제공 상태**를 포함하여 사용 가능한 모든 Marketplace 이미지가 표시됩니다.
+    각 이미지에 대한 **제공 상태** 를 포함하여 사용 가능한 모든 Marketplace 이미지가 표시됩니다.
 
     ![각 이미지에 대한 제공 상태를 표시하는 Marketplace 이미지 목록](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-offer-status.png)
 
@@ -54,9 +54,9 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
    >
    >
 
-1. 이미지의 **제공 상태** 열에서 **약관을 검토해야 함**을 선택합니다.
+1. 이미지의 **제공 상태** 열에서 **약관을 검토해야 함** 을 선택합니다.
 
-1. 프로그래밍 방식 배포 구성 창에서 **사용**을 선택합니다.
+1. 프로그래밍 방식 배포 구성 창에서 **사용** 을 선택합니다.
 
     ![프로그래밍 방식 배포 구성 창](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-enable-programmatic-deployment.png)
 
@@ -66,9 +66,9 @@ Azure DevTest Labs에서 라이선스 이미지는 일반적으로 타사의 사
    >
 
 
-1. **저장**을 선택합니다. 
+1. **저장** 을 선택합니다. 
 
-    Marketplace 이미지 목록에서 해당 이미지는 이제 **약관에 동의함**으로 표시되며 사용자가 가상 머신을 만드는 데 사용할 수 있습니다.
+    Marketplace 이미지 목록에서 해당 이미지는 이제 **약관에 동의함** 으로 표시되며 사용자가 가상 머신을 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
 > 사용자는 라이선스 이미지에서 사용자 지정 이미지를 만들 수 있습니다. 자세한 내용은 [VHD 파일에서 사용자 지정 이미지 만들기](devtest-lab-create-template.md)를 참조하세요.

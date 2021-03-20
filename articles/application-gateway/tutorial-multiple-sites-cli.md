@@ -10,10 +10,10 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 350962aed89d04c5508e7b2c50e8a838cd5a7174
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566149"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
@@ -37,7 +37,7 @@ Azure CLI를 사용하여 [애플리케이션 게이트웨이](multiple-site-ove
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - 이 자습서에는 버전 2.0.4 이상을 이상의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+ - 이 자습서에는 Azure CLI 버전 2.0.4 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -124,7 +124,7 @@ az network application-gateway address-pool create \
 
 >[!NOTE]
 > Application Gateway 또는 WAF v2 SKU를 사용 하 여 수신기 당 호스트 이름을 5 개까지 구성할 수 있으며 호스트 이름에 와일드 카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview) 을 참조 하세요.
->Azure CLI를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `--host-names` `--host-name` 합니다. 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 공백으로 구분 된 값으로 지정할 수 있습니다. 예, `--host-names "*.contoso.com *.fabrikam.com"`
+>Azure CLI를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `--host-names` `--host-name` 합니다. 호스트 이름을 사용 하 여 최대 5 개의 호스트 이름을 공백으로 구분 된 값으로 지정할 수 있습니다. 예를 들어 `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -175,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>가상 머신 확장 집합 만들기
 
-이 예제에서는 애플리케이션에서 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1* , *myvmss2* 및 *myvmss3* 입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
+이 예제에서는 애플리케이션에서 세 개의 백 엔드 풀을 지원하는 세 개의 가상 머신 확장 집합을 만듭니다. 사용자가 만든 확장 집합의 이름은 *myvmss1*, *myvmss2* 및 *myvmss3* 입니다. 각 확장 집합에는 IIS를 설치하는 두 개의 가상 머신 인스턴스가 포함됩니다.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

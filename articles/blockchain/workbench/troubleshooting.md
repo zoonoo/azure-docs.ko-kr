@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: troubleshooting
 ms.reviewer: brendal
 ms.openlocfilehash: 20c0f9bdd6f820a73b1ba6660de805268c0d8714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85212856"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Azure Blockchain 워크 벤치 미리 보기 문제 해결
@@ -42,7 +42,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 스크립트는 다음 매개 변수를 수락합니다.
 
-| 매개 변수  | Description | 필수 |
+| 매개 변수  | 설명 | 필수 |
 |---------|---------|----|
 | 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | 예 |
 | ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | 예 |
@@ -56,7 +56,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 
 출력 ZIP 파일에는 다음 폴더 구조가 포함됩니다.
 
-| 폴더 또는 파일 | Description  |
+| 폴더 또는 파일 | 설명  |
 |---------|---------|
 | \Summary.txt | 시스템의 요약 |
 | \Metrics\blockchain | 블록체인에 대한 메트릭 |

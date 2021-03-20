@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6048ee9237640799b7bec37083e607fc74ffb8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85252970"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 로밍 설정 참조
@@ -26,7 +26,7 @@ ms.locfileid: "85252970"
 
 Windows 10의 동기화, 백업 및 복원 프레임워크에서 지원되는 디바이스 및 계정 유형에 대한 요약 정보는 다음 테이블을 참조하세요.
 
-| 계정 유형 및 작업 | 데스크톱 | 모바일 |
+| 계정 유형 및 작업 | 바탕 화면 | 모바일 |
 | --- | --- | --- |
 | Azure Active Directory: 동기화 |예 |아니요 |
 | Azure Active Directory: 백업/복원 |아니요 |아니요 |
@@ -69,7 +69,7 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 설정 그룹 열의 내부 항목이 참조하는 설정 및 앱은 앱 자체 내부에서 동기화를 비활성화하거나 MDM(모바일 디바이스 관리) 또는 그룹 정책 설정을 사용하여 디바이스 전체의 동기화를 비활성하는 방법으로만 비활성화할 수 있습니다.
 로밍 또는 동기화하지 않는 설정은 그룹에 소속되지 않습니다.
 
-| 설정 | 데스크톱 | 모바일 | 그룹 |
+| 설정 | 바탕 화면 | 모바일 | 그룹 |
 | --- | --- | --- | --- |
 | **계정**: 계정 사진 |동기화 |X |테마 |
 | **계정**: 기타 계정 설정 |X |X | |
@@ -95,22 +95,22 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **바탕 화면 개인 설정**: 슬라이드 쇼 배경 화면 |동기화 |X |테마 |
 | **바탕 화면 개인 설정**: 작업 표시줄 설정(위치, 자동 숨김 등) |동기화 |X |테마 |
 | **바탕 화면 개인 설정**: 시작 화면 레이아웃 |X |백업(backup) | |
-| **디바이스**: 연결된 공유 프린터 |X |X |other |
+| **디바이스**: 연결된 공유 프린터 |X |X |기타 |
 | **Microsoft Edge 브라우저**: 읽기 목록 |동기화 |동기화 |internal |
 | **Microsoft Edge 브라우저**: 즐겨찾기 |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 상위 사이트<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 형식이 지정된 URL<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 홈 단추 표시<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 팝업 차단<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 암호 저장 제안<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 양식 항목 저장<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 쿠키 기본 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 사이트에서 내 디바이스에 보호된 미디어 라이선스를 저장하도록 허용<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
-| **Microsoft Edge 브라우저**: 화면 판독기 설정<sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 상위 사이트 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 형식이 지정된 URL <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 즐겨찾기 표시줄 설정 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 홈 단추 표시 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 팝업 차단 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 각 다운로드에서 수행할 작업 확인 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 암호 저장 제안 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 보내기 시 요청 추적 안 함 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 양식 항목 저장 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 입력할 때 검색 및 사이트 추천 단어 표시 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 쿠키 기본 설정 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 사이트에서 내 디바이스에 보호된 미디어 라이선스를 저장하도록 허용 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
+| **Microsoft Edge 브라우저**: 화면 판독기 설정 <sup>[[1]](#footnote-1)</sup> |동기화 |동기화 |internal |
 | **고대비**: 켜기 또는 끄기 |동기화 |X |간편한 액세스 |
 | **고대비**: 테마 설정 |동기화 |X |간편한 액세스 |
 | **Internet Explorer**: 탭 열기(URL 및 제목) |동기화 |동기화 |Internet Explorer |
@@ -152,8 +152,8 @@ Windows 10 버전 1803 이상의 경우 Internet Explorer 설정 그룹(즐겨�
 | **돋보기**: 추적 - 키보드 포커스 추적 |동기화 |X |간편한 액세스 |
 | **돋보기**: 추적 - 마우스 커서 추적 |동기화 |X |간편한 액세스 |
 | **돋보기**: 사용자가 로그인하면 시작(기본적으로 꺼져 있음) |동기화 |X |간편한 액세스 |
-| **마우스**: 마우스 커서의 크기 변경 |동기화 |X |other |
-| **마우스**: 마우스 커서의 색상 변경 |동기화 |X |other |
+| **마우스**: 마우스 커서의 크기 변경 |동기화 |X |기타 |
+| **마우스**: 마우스 커서의 색상 변경 |동기화 |X |기타 |
 | **마우스**: 모든 기타 설정 |X |X | |
 | **내레이터**: 빠른 실행 |동기화 |X |간편한 액세스 |
 | **내레이터**: 사용자가 내레이터 말하는 속도를 변경할 수 있음 |동기화 |X |간편한 액세스 |

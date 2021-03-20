@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: a25658677e436edf4d001599bb4981f527016596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84697445"
 ---
 # <a name="azure-functions-http-output-bindings"></a>Azure Functions HTTP 출력 바인딩
@@ -31,7 +31,7 @@ HTTP 트리거 함수의 기본 반환 값은 다음과 같습니다.
 | **direction** | `out`로 설정해야 합니다. |
 | **name** | 응답에 대한 함수 코드에 사용되는 변수 이름이거나 반환 값을 사용하는 `$return`입니다. |
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# 또는 C# 스크립트에서는 함수 반환 형식을 `IActionResult` 또는 `Task<IActionResult>`로 만듭니다. C#에서는 반환 값 특성이 필요 없습니다.
 

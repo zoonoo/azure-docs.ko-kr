@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, 깊이 카메라, tof, 원칙, 성능, 무효화
 ms.openlocfilehash: 22f04b983ed7c6a2ab19a5c1c709621655ee31c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85276957"
 ---
 # <a name="azure-kinect-dk-depth-camera"></a>Azure Kinect 진한 깊이 카메라
@@ -44,7 +44,7 @@ Azure Kinect 진한 깊이 카메라는 진폭 AMCW () ToF (비행 시간) 원�
 
 깊이 카메라는 원시 변조 IR 이미지를 호스트 PC로 전송 합니다. PC에서 GPU 가속 수준 엔진 소프트웨어는 원시 신호를 깊이 맵으로 변환 합니다.깊이 카메라는 여러 모드를 지원 합니다. **좁은 FoV (시야)** 모드는 X 및 Y 차원에서 더 작은 익스텐트가 있지만 Z 차원에서 큰 익스텐트가 있는 장면에 적합 합니다. 장면에 많은 X 및 Y 익스텐트가 있지만 Z 범위가 작은 경우 **넓은 FoV 모드가** 더 적합 합니다.
 
-깊이 카메라는 **2x2 범주화 모드** 를 지원 하 여 해당 되지 않은 **모드**와 비교 하 여 Z 범위를 확장 합니다. 범주화는 이미지 해상도를 낮추는 비용으로 수행 됩니다. 최대 프레임 속도로 15 fps로 실행 되는 1 메가 픽셀 (MP) 모드를 제외 하 고 최대 30 초당 프레임 (fps)까지 모든 모드를 실행할 수 있습니다. 깊이 카메라는 **수동 IR 모드**도 제공 합니다. 이 모드에서는 카메라의 illuminators 활성 상태가 아닌 주변 조명이 관찰 됩니다.
+깊이 카메라는 **2x2 범주화 모드** 를 지원 하 여 해당 되지 않은 **모드** 와 비교 하 여 Z 범위를 확장 합니다. 범주화는 이미지 해상도를 낮추는 비용으로 수행 됩니다. 최대 프레임 속도로 15 fps로 실행 되는 1 메가 픽셀 (MP) 모드를 제외 하 고 최대 30 초당 프레임 (fps)까지 모든 모드를 실행할 수 있습니다. 깊이 카메라는 **수동 IR 모드** 도 제공 합니다. 이 모드에서는 카메라의 illuminators 활성 상태가 아닌 주변 조명이 관찰 됩니다.
 
 ## <a name="camera-performance"></a>카메라 성능
 
@@ -56,7 +56,7 @@ Azure Kinect 진한 깊이 카메라는 진폭 AMCW () ToF (비행 시간) 원�
 
 ![깊이 체계적인 오류](./media/concepts/depth-camera-systematic-error.png)
 
-여기서 *d<sub>t</sub> * 는 시간 *t*에서 측정값 깊이를 나타내고 *N* 은 평균 프로시저에서 사용 되는 프레임의 수이 고, *d<sub>g</sub> 1* 은 그라운드의 깊이입니다.
+여기서 *d <sub>t</sub>* 는 시간 *t* 에서 측정값 깊이를 나타내고 *N* 은 평균 프로시저에서 사용 되는 프레임의 수이 고, *d <sub>g</sub> 1* 은 그라운드의 깊이입니다.
 
 깊이 카메라의 체계적인 오류 사양은 MPI (다중 경로 간섭)를 제외 합니다. MPI는 하나의 센서 픽셀이 둘 이상의 개체에 반영 된 조명을 통합 하는 경우입니다. MPI는 나중에 소개 하는 깊이 무효화를 비롯 하 여 더 높은 변조 주파수를 사용 하는 깊이 카메라에서 부분적으로 완화 됩니다.
 
@@ -66,7 +66,7 @@ Azure Kinect 진한 깊이 카메라는 진폭 AMCW () ToF (비행 시간) 원�
 
 ![깊이 무작위 오류](./media/concepts/depth-camera-random-error.png)
 
-여기서 *N* 은 깊이 측정의 수를 나타내고 *, d<sub>t</sub> * 는 시간 *t* 에서 깊이 측정을 *나타내고 d는* 모든 깊이 측정 *d<sub>t</sub>* 에 대해 계산 된 평균 값을 나타냅니다.
+여기서 *N* 은 깊이 측정의 수를 나타내고 *, d <sub>t</sub>* 는 시간 *t* 에서 깊이 측정을 *나타내고 d는* 모든 깊이 측정 *d <sub>t</sub>* 에 대해 계산 된 평균 값을 나타냅니다.
 
 ## <a name="invalidation"></a>무효화
 

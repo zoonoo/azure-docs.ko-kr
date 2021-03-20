@@ -7,10 +7,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/25/2020
 ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92676110"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE(통합 서비스 환경) 관리
@@ -164,9 +164,9 @@ ISE에 배포한 사용자 지정 커넥터를 보고 관리할 수 있습니다
 
      1. **인스턴스 제한** 의 경우 다음 값을 지정 합니다.
 
-        * **최소** : 사용할 최소 처리 단위 수
-        * **최대값** : 사용할 최대 처리 단위 수
-        * **기본값** : 리소스 메트릭을 읽는 동안 문제가 발생 하 고 현재 용량이 기본 용량 보다 낮은 경우 자동 크기 조정은 기본 처리 단위 수로 확장 됩니다. 그러나 현재 용량이 기본 용량을 초과 하는 경우 자동 크기 조정이 확장 되지 않습니다.
+        * **최소**: 사용할 최소 처리 단위 수
+        * **최대값**: 사용할 최대 처리 단위 수
+        * **기본값**: 리소스 메트릭을 읽는 동안 문제가 발생 하 고 현재 용량이 기본 용량 보다 낮은 경우 자동 크기 조정은 기본 처리 단위 수로 확장 됩니다. 그러나 현재 용량이 기본 용량을 초과 하는 경우 자동 크기 조정이 확장 되지 않습니다.
 
 1. 다른 조건을 추가 하려면 **크기 조정 조건 추가** 를 선택 합니다.
 

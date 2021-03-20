@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Stream Analytics 작업을 사용 하 여
 ms.date: 06/23/2020
 ms.topic: article
 ms.openlocfilehash: 2db4fba59a1a06a24ee2939c51ecdf65aa06cef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85312892"
 ---
 # <a name="process-data-from-your-event-hub-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용 하 여 이벤트 허브에서 데이터 처리 
@@ -22,7 +22,7 @@ Azure Event Hubs 및 Azure Stream Analytics 통합의 주요 이점은 다음과
 ## <a name="end-to-end-flow"></a>종단 간 흐름
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-1. **Event Hubs 네임 스페이스로** 이동한 다음 들어오는 데이터가 있는 **Event hub**로 이동 합니다. 
+1. **Event Hubs 네임 스페이스로** 이동한 다음 들어오는 데이터가 있는 **Event hub** 로 이동 합니다. 
 1. 이벤트 허브 페이지에서 **데이터 처리** 를 선택 합니다.  
 
     ![데이터 처리 타일](./media/process-data-azure-stream-analytics/process-data-tile.png)
@@ -46,14 +46,14 @@ Azure Event Hubs 및 Azure Stream Analytics 통합의 주요 이점은 다음과
 
         테이블 형식의 데이터 예는 테이블 형식의 결과 **입니다.** ![](./media/process-data-azure-stream-analytics/snapshot-results.png)
 
-        **원시 형식의**데이터 예제는 다음과 같습니다. 
+        **원시 형식의** 데이터 예제는 다음과 같습니다. 
 
         ![원시 형식의 결과](./media/process-data-azure-stream-analytics/snapshot-results-raw-format.png)
 1. 쿼리 **테스트** 를 선택 하 여 **테스트 결과** 탭에서 쿼리 테스트 결과의 스냅숏을 확인 합니다. 또한 결과를 다운로드할 수 있습니다.
 
     ![쿼리 결과 테스트](./media/process-data-azure-stream-analytics/test-results.png)
 1. 사용자 고유의 쿼리를 작성 하 여 데이터를 변환 합니다. [Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference)를 참조 하세요.
-1. 쿼리를 테스트 하 고 프로덕션으로 이동 하려면 **쿼리 배포**를 선택 합니다. 쿼리를 배포 하려면 작업에 대 한 출력을 설정 하 고 작업을 시작할 수 있는 Azure Stream Analytics 작업을 만듭니다. Stream Analytics 작업을 만들려면 작업의 이름을 지정 하 고 **만들기**를 선택 합니다.
+1. 쿼리를 테스트 하 고 프로덕션으로 이동 하려면 **쿼리 배포** 를 선택 합니다. 쿼리를 배포 하려면 작업에 대 한 출력을 설정 하 고 작업을 시작할 수 있는 Azure Stream Analytics 작업을 만듭니다. Stream Analytics 작업을 만들려면 작업의 이름을 지정 하 고 **만들기** 를 선택 합니다.
 
       ![Azure Stream Analytics 작업 만들기](./media/process-data-azure-stream-analytics/create-stream-analytics-job.png)
 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
 ms.openlocfilehash: 15b01f92fe0d39d099c10c7c086790a4dbb91379
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96582103"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Azure Data Box Gateway 제한
@@ -27,7 +27,7 @@ Microsoft Azure Data Box Gateway 솔루션을 배포 및 운영할 때 이러한
 
 다음 표에서는 Data Box Gateway 디바이스에 대한 제한을 설명합니다.
 
-| Description | 값 |
+| 설명 | 값 |
 |---|---|
 |아니요. 디바이스당 파일 수 |1억 <br> 추가 되는 모든 2500만 파일 (1억의 최대 제한)에 대해 2tb의 디스크 공간, 8gb의 RAM 및 4 개의 CPU 코어를 추가 해야 합니다. |
 |아니요. 디바이스당 공유 수 |24 |

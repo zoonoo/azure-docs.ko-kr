@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: d61ca10612a0935f8483745d164835d7498280c0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92042816"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>제한 된 장치에서 IoT 플러그 앤 플레이 구현
 
-*제약이 있는 장치*에 대해 개발 하는 경우 [임베디드 C iot 클라이언트 라이브러리](https://aka.ms/embeddedcsdk) 또는 [azure Rtos](/azure/rtos/overview-rtos)를 사용 하 여 azure SDK와 iot 플러그 앤 플레이를 사용할 수 있습니다. 이 문서에는 이러한 제한 된 시나리오에 대 한 링크와 리소스가 포함 되어 있습니다.
+*제약이 있는 장치* 에 대해 개발 하는 경우 [임베디드 C iot 클라이언트 라이브러리](https://aka.ms/embeddedcsdk) 또는 [azure Rtos](/azure/rtos/overview-rtos)를 사용 하 여 azure SDK와 iot 플러그 앤 플레이를 사용할 수 있습니다. 이 문서에는 이러한 제한 된 시나리오에 대 한 링크와 리소스가 포함 되어 있습니다.
 
 ## <a name="use-the-sdk-for-embedded-c"></a>임베디드 C에 SDK 사용
 

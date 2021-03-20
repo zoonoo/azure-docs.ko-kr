@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: b875936e13edfe0eff12f253836b093796951308
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98876329"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
@@ -128,7 +128,7 @@ Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 
 
 Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 - [Azure 가상 네트워크][vm-virtual-network-overview]
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 

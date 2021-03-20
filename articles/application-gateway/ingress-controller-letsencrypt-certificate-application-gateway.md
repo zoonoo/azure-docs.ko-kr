@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84807026"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>AKS 클러스터에 대 한 Application Gateway에 LetsEncrypt.org에서 인증서 사용
@@ -58,7 +58,7 @@ ms.locfileid: "84807026"
 
     리소스를 만듭니다 `ClusterIssuer` . 에서 `cert-manager` `Lets Encrypt` 서명 된 인증서를 가져올 인증 기관을 나타내는 데 필요 합니다.
 
-    Namespaced이 아닌 리소스를 사용 하 여 인증서 `ClusterIssuer` 관리자는 여러 네임 스페이스에서 사용할 수 있는 인증서를 발급 합니다. `Let’s Encrypt` ACME 프로토콜을 사용 하 여 지정 된 도메인 이름을 제어 하 고 인증서를 발급 하는지 확인 합니다. 여기에서 속성을 구성 하는 방법에 대해 자세히 설명 `ClusterIssuer` 합니다. [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer` 는 `cert-manager` 테스트에 사용 되는 스테이징 환경을 사용 하 여 인증서를 발급 하도록 지시 `Lets Encrypt` 합니다 (루트 인증서가 브라우저/클라이언트 신뢰 저장소에 없음).
+    Namespaced이 아닌 리소스를 사용 하 여 인증서 `ClusterIssuer` 관리자는 여러 네임 스페이스에서 사용할 수 있는 인증서를 발급 합니다. `Let’s Encrypt` ACME 프로토콜을 사용 하 여 지정 된 도메인 이름을 제어 하 고 인증서를 발급 하는지 확인 합니다. 여기에서 속성을 구성 하는 방법에 대해 자세히 설명 `ClusterIssuer` 합니다. [](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html) `ClusterIssuer` 는 `cert-manager` 테스트에 사용 되는 스테이징 환경을 사용 하 여 인증서를 발급 하도록 지시 `Lets Encrypt` 합니다 (루트 인증서가 브라우저/클라이언트 신뢰 저장소에 없음).
 
     아래 YAML의 기본 챌린지 형식은 `http01` 입니다. 다른 문제는 [letsencrypt.org](https://letsencrypt.org/docs/challenge-types/) 에 설명 되어 있습니다.
 

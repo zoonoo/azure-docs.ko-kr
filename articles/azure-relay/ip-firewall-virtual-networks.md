@@ -4,16 +4,16 @@ description: 이 문서에서는 특정 IP 주소에서 Azure Relay 네임스페
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91999501"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Azure Relay 네임스페이스에 대한 IP 방화벽 구성
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 릴레이 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
 
-이 기능은 잘 알려진 특정 사이트에서만 Azure Relay에 액세스할 수 있는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생하는 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services)와 함께 릴레이를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽만 허용하도록 **방화벽 규칙**을 만들 수 있습니다. 
+이 기능은 잘 알려진 특정 사이트에서만 Azure Relay에 액세스할 수 있는 시나리오에서 유용합니다. 방화벽 규칙을 사용하면 특정 IPv4 주소에서 발생하는 트래픽을 허용하도록 규칙을 구성할 수 있습니다. 예를 들어 [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services)와 함께 릴레이를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽만 허용하도록 **방화벽 규칙** 을 만들 수 있습니다. 
 
 
 > [!IMPORTANT]
@@ -26,16 +26,16 @@ IP 방화벽 규칙은 네임스페이스 수준에 적용됩니다. 따라서 �
 ### <a name="use-azure-portal"></a>Azure Portal 사용
 이 섹션에서는 Azure Portal을 사용하여 네임스페이스에 대한 IP 방화벽 규칙을 만드는 방법을 보여줍니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 **릴레이 네임스페이스**로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **릴레이 네임스페이스** 로 이동합니다.
 2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. **액세스 허용** 섹션에서 **모든 네트워크** 옵션을 선택하면 릴레이 네임스페이스는 모든 IP 주소로부터의 연결을 허용합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
     ![모든 네트워크 옵션이 선택 된 네트워킹 페이지가 스크린샷에 표시 됩니다.](./media/ip-firewall/all-networks-selected.png)
 1. 특정 네트워크 및 IP 주소에 대한 액세스를 제한하려면 **선택한 네트워크** 옵션을 선택합니다. **방화벽** 섹션에서 다음 단계를 수행합니다.
     1. **클라이언트 IP 주소 추가** 옵션을 선택하여 현재 클라이언트 IP에 네임스페이스에 대한 액세스 권한을 부여합니다. 
-    2. **주소 범위**에 CIDR 표기법으로 특정 IPv4 주소 또는 IPv4 주소 범위를 입력합니다. 
+    2. **주소 범위** 에 CIDR 표기법으로 특정 IPv4 주소 또는 IPv4 주소 범위를 입력합니다. 
 
         ![방화벽 - 모든 네트워크 옵션 선택됨](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
-3. 도구 모음에서 **저장**을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때가지 몇 분 정도 기다립니다.
+3. 도구 모음에서 **저장** 을 선택하여 설정을 저장합니다. 포털 알림에 확인이 표시될 때가지 몇 분 정도 기다립니다.
 
 
 ### <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용

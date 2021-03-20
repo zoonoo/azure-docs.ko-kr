@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: cb44d977407a7e854603e6bbacf3591752b109c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87271946"
 ---
 # <a name="retrieve-operations"></a>작업 검색
@@ -35,7 +35,7 @@ ms.locfileid: "87271946"
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
 |  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  String       |
 |  offerId           |  제안 식별자입니다.                                                                                              |  String       |
-|  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   GUID   |
+|  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   Guid   |
 |  api-version       | 최신 버전 API |    날짜      |
 |  |  |  |
 
@@ -185,7 +185,7 @@ ms.locfileid: "87271946"
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 | estimatedTimeFrame | 이 작업의 예상 기간입니다. |
 | id | 단계 프로세스에 대 한 고유 식별자입니다. |
-| description | 단계에 대한 설명입니다. |
+| 설명 | 단계에 대한 설명입니다. |
 | stepName | 단계의 이름입니다. |
 | 상태 | 단계의 상태 이며 다음 중 하나 `notStarted` \| `running` \| `failed` \| 입니다. `completed` |
 | messages | 단계를 수행 하는 동안 발생 한 알림 또는 경고입니다. 문자열 배열 |

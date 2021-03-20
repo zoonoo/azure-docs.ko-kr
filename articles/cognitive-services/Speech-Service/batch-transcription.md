@@ -12,10 +12,10 @@ ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e48fead4d4364fd84f178388dbfb9158296e687b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659974"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
@@ -30,7 +30,7 @@ ms.locfileid: "98659974"
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
 |    오프 라인 상태에서 지원 되는 로캘 목록을 가져옵니다.              |    GET       |    speechtotext/v 3.0//및 로캘    |
 |    ID로 식별 되는 기록의 변경 가능한 세부 정보를 업데이트 합니다.    |    패치     |    speechtotext/v 3.0//{id}       |
-|    지정 된 기록 작업을 삭제 합니다.                                 |    DELETE    |    speechtotext/v 3.0//{id}       |
+|    지정 된 기록 작업을 삭제 합니다.                                 |    Delete    |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록을 가져옵니다.                        |    GET       |    speechtotext/v 3.0//{id}       |
 |    지정 된 ID로 식별 되는 기록의 결과 파일을 가져옵니다.    |    GET       |    speechtotext/v 3.0//{id}/파일 |
 
@@ -180,7 +180,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](overview.
       Azure에서 쓰기 가능한 컨테이너에 대 한 [임시 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다. 저장 된 액세스 정책을 사용 하는 SAS는 지원 **되지 않습니다** . 지정 하지 않으면 microsoft에서 관리 하는 저장소 컨테이너에 결과를 저장 합니다. [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)호출 하 여 기록을 삭제 하면 결과 데이터도 삭제 됩니다.
 :::row-end:::
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 일괄 처리는 공개 된 인터넷 URI에서 오디오를 읽을 수 있으며, [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md)에서 SAS URI를 사용 하 여 오디오를 읽거나 비디오를 작성할 수 있습니다.
 
@@ -320,7 +320,7 @@ Diarization를 요청 하려면 `diarizationEnabled` `true` 아래에 HTTP 요�
 일괄 처리 기록 서비스는 많은 수의 제출 된 작업을 처리할 수 있습니다. [Get-help](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)의 상태를 쿼리할 수 있습니다.
 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 결과가 최종 삭제 되도록 속성을 설정 합니다.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 전체 샘플은 [GitHub 샘플 리포지토리에서](https://aka.ms/csspeech/samples) 하위 디렉터리 내에서 사용할 수 있습니다 `samples/batch` .
 
