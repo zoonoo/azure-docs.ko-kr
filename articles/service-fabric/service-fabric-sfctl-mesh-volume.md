@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 57efca87aefad346fda175b073409868d21564ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245514"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
@@ -19,7 +19,7 @@ ms.locfileid: "86245514"
 
 |명령|설명|
 | --- | --- |
-| 삭제 | 볼륨 리소스를 삭제합니다. |
+| delete | 볼륨 리소스를 삭제합니다. |
 | list | 모든 볼륨 리소스를 나열합니다. |
 | show | 지정된 이름의 볼륨 리소스를 가져옵니다. |
 

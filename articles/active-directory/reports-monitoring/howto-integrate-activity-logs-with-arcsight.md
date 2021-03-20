@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc7bcab04da005fd0d46d18e7b708dcb1c9d58e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230520"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합
@@ -47,13 +47,13 @@ ms.locfileid: "89230520"
 
 2. 구성 가이드의 **커넥터 배포** 섹션에 있는 단계에 따라 커넥터를 배포합니다. 이 섹션에서는 커넥터를 다운로드하고 압축을 풀며, 압축을 푼 폴더에서 애플리케이션 속성을 구성하고 배포 스크립트를 실행하는 방법을 안내합니다. 
 
-3. **Azure에서 배포 확인**의 단계를 사용하여 커넥터가 제대로 설정되어 기능하는지 확인합니다. 다음을 확인합니다.
+3. **Azure에서 배포 확인** 의 단계를 사용하여 커넥터가 제대로 설정되어 기능하는지 확인합니다. 다음을 확인합니다.
     * 필수 Azure 함수는 Azure 구독에서 만들어집니다.
     * Azure AD 로그가 올바른 대상으로 스트리밍됩니다. 
     * 배포의 애플리케이션 설정은 Azure 함수 앱의 애플리케이션 설정에서 그대로 유지됩니다. 
     * ArcSight 커넥터에 대한 Azure AD 애플리케이션과 CEF 형식으로 매핑된 파일을 포함한 스토리지 계정과 함께, ArcSight에 대한 새 리소스 그룹이 Azure에 생성됩니다.
 
-4. 마지막으로, 구성 가이드의 **배포 후 구성**에 있는 배포 후 단계를 완료합니다. 이 섹션에서는 시간 제한 기간 후 함수 앱이 유휴 상태로 전환 되지 않도록 App Service 계획을 세울 때 추가 구성을 수행 하는 방법에 대해 설명 하 고, 이벤트 허브에서 리소스 로그 스트리밍을 구성 하 고, SysLog 추가 디먼 SmartConnector 키 저장소 certificate를 업데이트 하 여 새로 만든 저장소 계정에 연결 합니다.
+4. 마지막으로, 구성 가이드의 **배포 후 구성** 에 있는 배포 후 단계를 완료합니다. 이 섹션에서는 시간 제한 기간 후 함수 앱이 유휴 상태로 전환 되지 않도록 App Service 계획을 세울 때 추가 구성을 수행 하는 방법에 대해 설명 하 고, 이벤트 허브에서 리소스 로그 스트리밍을 구성 하 고, SysLog 추가 디먼 SmartConnector 키 저장소 certificate를 업데이트 하 여 새로 만든 저장소 계정에 연결 합니다.
 
 5. 또한 구성 가이드에서는 Azure에서 커넥터 속성을 사용자 지정하고 커넥터를 업그레이드 및 제거하는 방법에 대해서도 설명하고 있습니다. 아울러 이벤트 부하가 단일 Syslog NG Daemon SmartConnector로 처리할 수 있는 것보다 큰 경우 [Azure Consumption 계획](https://azure.microsoft.com/pricing/details/functions)으로 업그레이드 및 ArcSight Load Balancer 구성을 포함해 성능 개선 사항에 대한 섹션도 있습니다.
 

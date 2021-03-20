@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 02/18/2019
 ms.openlocfilehash: a21460279420c46b11c43615ae5ecc7bfa81de4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135806"
 ---
 # <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>Azure Vm의 PowerShell 복제에서 디스크 제외
@@ -19,7 +19,7 @@ ms.locfileid: "86135806"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에
 
@@ -40,7 +40,7 @@ ms.locfileid: "86135806"
 
 ## <a name="how-to-exclude-disks-from-replication"></a>복제에서 디스크를 제외 하는 방법
 
-이 예제에서는 하나의 OS가 있는 가상 머신과 미국 동부 지역에 있는 세 개의 데이터 디스크를 미국 서 부 2 지역에 복제 합니다. 가상 컴퓨터의 이름은 *Azuredemovm*입니다. 디스크 1을 제외 하 고 2와 3 디스크를 유지 합니다.
+이 예제에서는 하나의 OS가 있는 가상 머신과 미국 동부 지역에 있는 세 개의 데이터 디스크를 미국 서 부 2 지역에 복제 합니다. 가상 컴퓨터의 이름은 *Azuredemovm* 입니다. 디스크 1을 제외 하 고 2와 3 디스크를 유지 합니다.
 
 ## <a name="get-details-of-the-virtual-machines-to-replicate"></a>복제할 가상 컴퓨터의 세부 정보를 가져옵니다.
 
@@ -78,7 +78,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 다음 예에서는 캐시 저장소 계정, 복제 정책 및 매핑이 이미 있다고 가정 합니다. 이러한 항목이 없는 경우 [Azure PowerShell를 사용 하 여 Azure 가상 머신에 대 한 재해 복구 설정](azure-to-azure-powershell.md)의 프로세스를 따르세요.
 
-*관리 디스크*를 사용 하 여 Azure 가상 머신을 복제 합니다.
+*관리 디스크* 를 사용 하 여 Azure 가상 머신을 복제 합니다.
 
 ```azurepowershell
 

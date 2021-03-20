@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하�
 ms.date: 02/10/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89376981"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
@@ -51,7 +51,7 @@ ms.locfileid: "89376981"
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>보호 해제 파일 공유 후에 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
-Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저장소 계정을**엽니다. **등록 취소** 를 선택 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
+Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저장소 계정을** 엽니다. **등록 취소** 를 선택 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
 
 >[!NOTE]
 >자격 증명 모음에 등록 된 모든 저장소 계정의 등록을 취소 한 후에만 Recovery Services 자격 증명 모음을 삭제할 수 있습니다.
@@ -222,13 +222,13 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 
 나중에 데이터를 복원 해 보세요. 문제가 지속되면 Microsoft 지원에 문의하세요.
 
-### <a name="azurefilesyncchangedetectioninprogress--azure-file-sync-service-change-detection-is-in-progress-for-the-target-file-share-the-change-detection-was-triggered-by-a-previous-restore-to-the-target-file-share"></a>AzureFileSyncChangeDetectionInProgress-대상 파일 공유에 대 한 Azure File Sync 서비스 변경 검색이 진행 중입니다. 대상 파일 공유에 대 한 이전 복원에서 변경 내용 검색을 트리거 했습니다.
+### <a name="azurefilesyncchangedetectioninprogress--azure-file-sync-service-change-detection-is-in-progress-for-the-target-file-share-the-change-detection-was-triggered-by-a-previous-restore-to-the-target-file-share"></a>AzureFileSyncChangeDetectionInProgress-대상 파일 공유에 대 한 Azure 파일 동기화 서비스 변경 검색이 진행 중입니다. 대상 파일 공유에 대 한 이전 복원에서 변경 내용 검색을 트리거 했습니다.
 
 오류 코드: AzureFileSyncChangeDetectionInProgress
 
-오류 메시지: 대상 파일 공유에 대 한 Azure File Sync 서비스 변경 검색이 진행 중입니다. 대상 파일 공유에 대 한 이전 복원에서 변경 내용 검색을 트리거 했습니다.
+오류 메시지: 대상 파일 공유에 대 한 Azure 파일 동기화 서비스 변경 검색이 진행 중입니다. 대상 파일 공유에 대 한 이전 복원에서 변경 내용 검색을 트리거 했습니다.
 
-다른 대상 파일 공유를 사용 하십시오. 또는 복원을 다시 시도 하기 전에 대상 파일 공유에 대 한 Azure File Sync 서비스 변경 검색이 완료 될 때까지 기다릴 수 있습니다.
+다른 대상 파일 공유를 사용 하십시오. 또는 복원을 다시 시도 하기 전에 대상 파일 공유에 대 한 Azure 파일 동기화 서비스 변경 검색이 완료 될 때까지 기다릴 수 있습니다.
 
 ### <a name="usererrorafsrecoverysomefilesnotrestored--one-or-more-files-could-not-be-recovered-successfully-for-more-information-check-the-failed-file-list-in-the-path-given-above"></a>UserErrorAFSRecoverySomeFilesNotRestored-하나 이상의 파일을 성공적으로 복구할 수 없습니다. 자세한 내용은 위에 지정 된 경로에서 실패 한 파일 목록을 확인 하세요.
 
@@ -261,7 +261,7 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 
 오류 메시지: 동일한 대상 파일 공유에서 다른 복원 작업이 진행 중입니다.
 
-다른 대상 파일 공유를 사용 하십시오. 또는 취소 하거나 다른 복원이 완료 될 때까지 기다릴 수 있습니다.
+다른 대상 파일 공유를 사용 하십시오. 또는 취소하거나 다른 복원이 완료될 때까지 기다릴 수 있습니다.
 
 ## <a name="common-modify-policy-errors"></a>일반적인 정책 수정 오류
 

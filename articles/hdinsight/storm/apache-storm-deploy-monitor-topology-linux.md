@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929176"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -246,7 +246,7 @@ Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 URL 주
 
 여러 가지 방법으로 클러스터 헤드 노드에 대 한 FQDN (정규화 된 도메인 이름)을 찾을 수 있습니다.
 
-| FQDN 검색 방법 | Description |
+| FQDN 검색 방법 | 설명 |
 | --- | --- |
 | SSH 세션 | SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다. |
 | Ambari 웹 | Ambari cluster 웹 페이지 ()의 `https://CLUSTERNAME.azurehdinsight.net` 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰** 을 선택 합니다. **요약** 탭에서 **Storm UI 서버** 를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |

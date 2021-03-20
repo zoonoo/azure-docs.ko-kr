@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929760"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
@@ -107,7 +107,7 @@ Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보�
 
 다음 목록에서는 핵심 Spark 실행기 메모리 매개 변수를 보여 줍니다.
 
-|매개 변수 |Description|
+|매개 변수 |설명|
 |---|---|
 |spark.executor.memory|실행자에 사용할 수 있는 총 메모리 양을 정의 합니다.|
 |spark. 저장소. memoryFraction|(기본 ~60%)은 지속된 RDD를 저장하는 데 사용할 수 있는 메모리 양을 정의합니다.|
@@ -122,7 +122,7 @@ YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 
 
 기본적으로 HDInsight의 Spark 클러스터에는 다양한 구성 요소가 포함되어 있습니다. 이러한 각 구성 요소에는 필요에 따라 재정의될 수 있는 기본 구성 값이 포함되어 있습니다.
 
-|구성 요소 |Description|
+|구성 요소 |설명|
 |---|---|
 |Spark 코어|Spark Core, Spark SQL, Spark 스트리밍 Api, GraphX 및 Apache Spark MLlib.|
 |Anaconda|Python 패키지 관리자입니다.|

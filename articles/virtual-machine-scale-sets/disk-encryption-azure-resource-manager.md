@@ -10,10 +10,10 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 4284e94f8d8d0effd160c5048f54fcbede417e38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86129764"
 ---
 # <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 가상 머신 확장 집합 암호화
@@ -36,11 +36,11 @@ Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 집합을 
 
 - [실행 중인 Windows 가상 머신 확장 집합에서 디스크 암호화 사용 안 함](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
-그러고 나서 다음 단계를 수행합니다.
+그런 다음, 다음 단계를 수행합니다.
 
-1. **Deploy to Azure**를 클릭합니다.
+1. **Deploy to Azure** 를 클릭합니다.
 2. 필수 필드를 채운 후 사용 약관에 동의합니다.
-3. **구매**를 클릭하여 템플릿을 배포합니다.
+3. **구매** 를 클릭하여 템플릿을 배포합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,10 +13,10 @@ ms.date: 01/22/2021
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 66376655c61903761d93ea228c6d72fa05734353
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98743052"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
@@ -101,9 +101,9 @@ Azure Portal에서 테이블 형식으로 트래픽 보기 데이터를 볼 수 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Traffic Manager 작동 방식](traffic-manager-overview.md)
+- [Traffic Manager 작동 방법](traffic-manager-overview.md) 알아보기
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)
+- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md) 방법 알아보기
 
 <!--Image references-->
 [1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

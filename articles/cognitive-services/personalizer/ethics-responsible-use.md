@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.openlocfilehash: 602da28f0c235fb0e797a493bc1160631c042a9d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005982"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>책임 있는 Personalizer 구현 지침
@@ -48,7 +48,7 @@ Personalizer 구현은 사용자와 비즈니스에 중요한 가치가 될 수 
 
 콘텐츠와 사용자 인터페이스를 맞춤 설정하기 위해 학습하는 서비스를 사용하는 것이 유용합니다. 또한 사용자가 콘텐츠 맞춤 설정을 알지 못하는 경우를 포함하여 맞춤 설정이 실제 세계에서 부정적인 부작용을 일으키는 경우 잘못 적용될 수도 있습니다.
 
-부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 항목은 "파생적" 선택 항목 또는 손상 위험이 있는 선택 항목으로 간주 될 수 있습니다. 예들 들어 다음과 같습니다.
+부정적 부작용 또는 투명성 부족에 대한 잠재력이 높은 Personalizer 사용의 예로, 지나치게 간소화된 즉각적인 보상으로 인해 개인에게 불리한 결과를 초래할 수 있는 많은 장기적 복합 요인에 따라 "보상"이 달라지는 시나리오가 있습니다. 이러한 항목은 "파생적" 선택 항목 또는 손상 위험이 있는 선택 항목으로 간주 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 
 * **금융**: 위험 요소가 개인이 알지 못하는 데이터를 기반으로 하는 대출, 재무 및 보험 제품에 대 한 제품을 개인 설정 하 고, 얻을 수 없거나, 분쟁을 얻을 수 없습니다.
@@ -101,7 +101,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 ### <a name="unintended-consequences-from-reward-scores"></a>보상 점수에서 의도하지 않은 결과
 보상 점수는 최선의 의도로 작성될 수 있지만, Personalizer에서 콘텐츠의 순위를 지정하는 방식에 대해 예기치 않은 결과 또는 의도하지 않은 결과를 초래할 수 있습니다.
 
-다음과 같은 예를 고려할 수 있습니다.
+다음 예제를 살펴보세요.
 
 * 시청한 비디오 길이의 비율에 대해 비디오 콘텐츠 맞춤 설정을 보상하는 경우 아마도 더 짧은 비디오의 순위를 지정하는 경향이 있습니다.
 * 공유 방식 또는 콘텐츠 자체에 대한 감정 분석 없이 소셜 미디어 공유를 보상하는 경우 공격적이거나, 변조되지 않거나, 선동적인 콘텐츠의 순위로 지정될 수 있으며, 이는 많은 "참여"를 유도하는 경향이 있지만 거의 가치가 없습니다.
@@ -119,7 +119,7 @@ Personalizer는 애플리케이션 비즈니스 논리로 제공되는 보상 �
 
 ![미래 컴퓨팅에서의 AI 가치](media/ethics-and-responsible-use/ai-values-future-computed.png)
 
-### <a name="accountability"></a>책임성
+### <a name="accountability"></a>책임감
 *AI 시스템을 설계하고 배포하는 사용자는 시스템의 작동 방법에 대해 책임을 져야 합니다*.
 
 * Personalizer를 구현하고, 문서화하고, 팀, 임원 및 공급업체에 전달하는 방법에 대한 내부 지침을 만듭니다.

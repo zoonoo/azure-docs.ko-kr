@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 375a81127a000741ca5e0397642800794610bcda
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96754776"
 ---
-# <a name="respond-to-azure-defender-for-dns-alerts"></a>DNS 경고에 대해 Azure Defender에 응답
+# <a name="respond-to-azure-defender-for-dns-alerts"></a>Azure Defender for DNS 경고에 대한 대응
 
 DNS 용 Azure Defender에서 경고를 수신 하는 경우 아래에 설명 된 대로 경고를 조사 하 고 응답 하는 것이 좋습니다. DNS 용 Azure Defender는 연결 된 모든 리소스를 보호 하므로 경고를 트리거한 응용 프로그램이 나 사용자에 게 친숙 한 경우에도 모든 경고를 둘러싼 상황을 확인 하는 것이 중요 합니다.  
 
 
-## <a name="step-1-contact"></a>1단계: 연락처
+## <a name="step-1-contact"></a>1단계. 연락처
 
 1. 리소스 소유자에 게 문의 하 여 동작이 예상 또는 의도적인 지 여부를 확인 합니다.
 1. 작업이 필요한 경우 경고를 해제 합니다.
@@ -38,6 +38,6 @@ DNS 용 Azure Defender에서 경고를 수신 하는 경우 아래에 설명 된
 
 이 페이지에서는 DNS 용 Azure Defender에서 경고에 응답 하는 프로세스에 대해 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
 
-- [DNS 용 Azure Defender 소개](defender-for-dns-introduction.md)
+- [Azure Defender for DNS 소개](defender-for-dns-introduction.md)
 - [Azure Defender의 경고 표시 안 함](alerts-suppression-rules.md)
 - [Security Center 데이터 연속 내보내기](continuous-export.md)

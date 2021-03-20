@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 72aa8e5e3284e0ee7fbe63e0fb617b9eba03292e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417804"
 ---
 # <a name="iot-central-solution-builder-guide"></a>IoT Central 솔루션 빌더 가이드
@@ -48,7 +48,7 @@ IoT Central에는 운영자가 연결 된 장치에서 흐르는 데이터를 �
 
 ## <a name="integrate-with-other-services"></a>다른 서비스와 통합
 
-솔루션 빌더는 IoT Central의 데이터 내보내기 및 규칙 기능을 사용 하 여 다른 서비스와 통합할 수 있습니다. 자세히 알아보려면 다음을 참조하세요.
+솔루션 빌더는 IoT Central의 데이터 내보내기 및 규칙 기능을 사용 하 여 다른 서비스와 통합할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](howto-export-data.md)
 - [워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합](howto-configure-rules-advanced.md)

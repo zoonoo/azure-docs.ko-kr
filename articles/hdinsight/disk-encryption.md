@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988620"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
@@ -124,8 +124,8 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 클러스터를 만드는 동안 다음과 같은 방법으로 버전이 지정 된 키를 사용 하거나 versionless 키를 사용할 수 있습니다.
 
-- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`.
-- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey`.
+- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`
+- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey`
 
 또한 관리 되는 id를 클러스터에 할당 해야 합니다.
 

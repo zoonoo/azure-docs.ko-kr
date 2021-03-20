@@ -4,10 +4,10 @@ description: Service Fabric 애플리케이션 및 서비스를 설명하는 데
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: fcf4c7611f0a6f52c28b234717b9244ac58ad2d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86248223"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
@@ -59,9 +59,9 @@ ms.locfileid: "86248223"
 
 **버전** 특성은 구조화되지 않은 문자열이며 시스템에서 구문 분석하지 않습니다. 버전 특성은 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
-**ServiceTypes**는 이 매니페스트의 **CodePackages**에서 지원하는 서비스 유형을 선언합니다. 이러한 서비스 유형 중 하나에 대해 서비스가 인스턴스화되면 코드 패키지의 진입점을 실행하여 이 매니페스트에 선언된 모든 코드 패키지가 활성화됩니다. 결과 프로세스는 런타임에 지원되는 서비스 유형을 등록합니다. 서비스 유형은 코드 패키지 수준이 아니라 매니페스트 수준에서 선언됩니다. 따라서 코드 패키지가 여러 개인 경우 시스템에서 선언된 서비스 유형 중 어떤 하나를 조회하면 모든 코드 패키지가 활성화됩니다.
+**ServiceTypes** 는 이 매니페스트의 **CodePackages** 에서 지원하는 서비스 유형을 선언합니다. 이러한 서비스 유형 중 하나에 대해 서비스가 인스턴스화되면 코드 패키지의 진입점을 실행하여 이 매니페스트에 선언된 모든 코드 패키지가 활성화됩니다. 결과 프로세스는 런타임에 지원되는 서비스 유형을 등록합니다. 서비스 유형은 코드 패키지 수준이 아니라 매니페스트 수준에서 선언됩니다. 따라서 코드 패키지가 여러 개인 경우 시스템에서 선언된 서비스 유형 중 어떤 하나를 조회하면 모든 코드 패키지가 활성화됩니다.
 
-**EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint**를 통해 지정된 실행 파일은 **SetupEntryPoint**가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint**를 사용하여 다시 시작).  
+**EntryPoint** 를 통해 지정되는 실행 파일은 일반적으로 장기 실행 서비스 호스트입니다. **SetupEntryPoint** 는 서비스 패브릭과 같은 자격 증명(일반적으로 *LocalSystem* 계정)을 사용하여 다른 진입점보다 먼저 실행되는 권한 있는 진입점입니다.  별도의 설정 진입점이 있으면 한동안은 높은 권한을 사용하여 서비스 호스트를 실행하지 않아도 됩니다. **EntryPoint** 를 통해 지정된 실행 파일은 **SetupEntryPoint** 가 성공적으로 종료된 후 실행됩니다. 프로세스가 종료되지 않거나 충돌하는 경우 결과 프로세스를 모니터링하여 다시 시작합니다( **SetupEntryPoint** 를 사용하여 다시 시작).  
 
 **SetupEntryPoint** 를 사용하는 일반적인 시나리오는 서비스를 시작하기 전에 실행 파일을 실행하는 경우 또는 높은 권한을 사용하여 작업을 수행하는 경우입니다. 예를 들면 다음과 같습니다.
 
@@ -72,9 +72,9 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 
 **EnvironmentVariables**(이전 예제에서 설정되지 않음)는 이 코드 패키지에 대해 설정된 환경 변수 목록을 제공합니다. `ApplicationManifest.xml`에서 환경 변수를 재정의하여 다른 서비스 인스턴스의 다른 값을 제공할 수 있습니다. 
 
-이전 예제에서 설정되지 않은 **DataPackage**는 **Name** 특성을 통해 이름이 지정되고 런타임에 프로세스에서 사용할 임의의 정적 데이터를 포함하는 폴더를 선언합니다.
+이전 예제에서 설정되지 않은 **DataPackage** 는 **Name** 특성을 통해 이름이 지정되고 런타임에 프로세스에서 사용할 임의의 정적 데이터를 포함하는 폴더를 선언합니다.
 
-**ConfigPackage**는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 설정 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 **ConfigPackage** **버전**만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. *Settings.xml* 파일의 예는 다음과 같습니다.
+**ConfigPackage** 는 **Name** 특성을 통해 이름이 지정되고 *Settings.xml* 파일을 포함하는 폴더를 선언합니다. 설정 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 **ConfigPackage** **버전** 만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. *Settings.xml* 파일의 예는 다음과 같습니다.
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -85,7 +85,7 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 </Settings>
 ```
 
-Service Fabric 서비스 **끝점** 은 Service Fabric 리소스의 예입니다. 컴파일된 코드를 변경 하지 않고 Service Fabric 리소스를 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
+Service Fabric 서비스 **끝점** 은 Service Fabric 리소스의 예입니다. 컴파일된 코드를 변경 하지 않고 Service Fabric 리소스를 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup** 을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
 
  
 > [!WARNING]
@@ -149,7 +149,7 @@ For more information about other features supported by service manifests, refer 
 
 서비스 매니페스트와 마찬가지로 **Version** 특성은 구조화되지 않은 문자열이며 시스템에서 구문을 분석하지 않습니다. 또한 업그레이드에 대한 각 구성 요소의 버전을 지정하는 데 사용됩니다.
 
-**매개 변수**는 애플리케이션 매니페스트에서 사용되는 매개 변수를 정의합니다. 애플리케이션이 인스턴스화되고 애플리케이션 또는 서비스 구성 설정을 재정의할 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다.  애플리케이션 인스턴스화 중에 값이 변경되지 않은 경우 기본 매개 변수 값이 사용됩니다. 개별 환경에 대해 서로 다른 애플리케이션 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
+**매개 변수** 는 애플리케이션 매니페스트에서 사용되는 매개 변수를 정의합니다. 애플리케이션이 인스턴스화되고 애플리케이션 또는 서비스 구성 설정을 재정의할 수 있을 때 이러한 매개 변수의 값을 제공할 수 있습니다.  애플리케이션 인스턴스화 중에 값이 변경되지 않은 경우 기본 매개 변수 값이 사용됩니다. 개별 환경에 대해 서로 다른 애플리케이션 및 서비스 매개 변수를 유지 관리하는 방법을 알아보려면 [여러 환경에 대한 애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요.
 
 **ServiceManifestImport** 는 이 애플리케이션 유형을 구성하는 서비스 매니페스트에 대한 참조를 포함합니다. 애플리케이션 매니페스트에는 여러 개의 서비스 매니페스트 가져오기가 포함될 수 있으며, 각 항목은 독립적으로 버전화될 수 있습니다. 가져온 서비스 매니페스트는 이 애플리케이션 유형 내에서 유효한 있는 서비스 유형을 결정합니다. ServiceManifestImport 내에서 Settings.xml의 구성 값과 ServiceManifest.xml 파일의 환경 변수를 재정의할 수 있습니다. 끝점 바인딩, 보안 및 액세스, 패키지 공유에 대한 **정책**(이전 예제에서 설정되지 않음)은 가져온 서비스 매니페스트에 설정할 수 있습니다.  자세한 내용은 [애플리케이션에 대한 보안 정책 구성](service-fabric-application-runas-security.md)을 참조하세요.
 

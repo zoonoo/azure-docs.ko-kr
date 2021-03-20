@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4ebe0b6d57225eff9f3f1251d5e491c95e9b7ffc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85965113"
 ---
 # <a name="persist-job-and-task-output"></a>작업 및 태스크 출력 유지
@@ -73,7 +73,7 @@ Batch 솔루션을 디자인할 때 작업 및 태스크 출력과 관련된 다
 
 - **출력 검색**: 작업 출력은 풀의 컴퓨팅 노드에서 직접 검색할 수도 있고, 작업 출력을 영구적으로 저장한 경우에는 Azure Storage 또는 다른 데이터 저장소에서 검색할 수도 있습니다. 태스크의 출력을 컴퓨팅 노드에서 직접 검색하려면 파일 이름과 노드에서의 해당 출력 위치가 필요합니다. Azure Storage에 태스크 출력을 유지하는 경우 Azure Storage SDK를 사용하여 출력 파일을 다운로드하려면 Azure Storage의 파일에 대한 전체 경로가 필요합니다.
 
-- **출력 보기**: Azure Portal에서 Batch 태스크로 이동하여 **노드의 파일**을 선택하면 원하는 출력 파일만 표시되는 것이 아니라 태스크와 연관된 모든 파일이 표시됩니다. 컴퓨팅 노드의 파일은 노드가 존재하는 동안 해당 태스크에 대해 설정한 파일 보존 기간 내에서만 사용할 수 있습니다. Azure Storage에 유지한 태스크 출력을 보려면 Azure Portal 또는 Azure Storage 클라이언트 애플리케이션(예: [Azure Storage Explorer][storage_explorer])을 사용할 수 있습니다. 포털이나 다른 도구를 사용하여 Azure Storage의 출력 데이터를 보려면 파일의 위치를 파악하여 직접 이동해야 합니다.
+- **출력 보기**: Azure Portal에서 Batch 태스크로 이동하여 **노드의 파일** 을 선택하면 원하는 출력 파일만 표시되는 것이 아니라 태스크와 연관된 모든 파일이 표시됩니다. 컴퓨팅 노드의 파일은 노드가 존재하는 동안 해당 태스크에 대해 설정한 파일 보존 기간 내에서만 사용할 수 있습니다. Azure Storage에 유지한 태스크 출력을 보려면 Azure Portal 또는 Azure Storage 클라이언트 애플리케이션(예: [Azure Storage Explorer][storage_explorer])을 사용할 수 있습니다. 포털이나 다른 도구를 사용하여 Azure Storage의 출력 데이터를 보려면 파일의 위치를 파악하여 직접 이동해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: d894ce71e0ffa5a0894a1f6b0035efe66271ded8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591465"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
@@ -31,7 +31,7 @@ ms.locfileid: "100591465"
 > * 새 저장소 계정으로 데이터를 이동 합니다.
 > * 원본 영역에서 리소스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 
@@ -101,7 +101,7 @@ PowerShell을 사용 하 여 템플릿을 내보내려면:
 
 Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
 
 2. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **enter** 키를 누릅니다.
 

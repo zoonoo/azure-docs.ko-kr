@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
 ms.openlocfilehash: c808d4659b5987b099dd96d73bb8c18c08fe3c99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86249398"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure Automation을 사용하여 Azure API Management를 관리
@@ -40,4 +40,4 @@ API Management는 [Azure API Management API용 Windows PowerShell cmdlet](/power
 ## <a name="next-steps"></a>다음 단계
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 Azure API Management를 관리하는 방법을 알아보았으므로, 이제 다음 링크에 따라 더 자세히 알아보세요.
 
-* Azure Automation [시작 자습서](../automation/learn/automation-tutorial-runbook-graphical.md)를 참조 하세요.
+* Azure Automation [시작 자습서](../automation/learn/automation-tutorial-runbook-graphical.md)를 참조하세요.

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
 ms.openlocfilehash: 475ad3de8e0a7636a14949d4fcd8a5ec2812ad5e
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421127"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>웹 서비스 입력 및 웹 서비스 출력 모듈
@@ -40,7 +40,7 @@ ms.locfileid: "93421127"
 
 다음 예제에서는 Python 스크립트 실행 모듈에서 실시간 유추 파이프라인을 수동으로 만드는 방법을 보여 줍니다. 
 
-![예](media/module/web-service-input-output-example.png)
+![예제](media/module/web-service-input-output-example.png)
    
 파이프라인을 제출 하 고 실행이 성공적으로 완료 되 면 실시간 끝점을 배포할 수 있습니다.
    

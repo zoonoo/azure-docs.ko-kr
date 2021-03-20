@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: d6b6649d03da319171b24baa24983972bf270679
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94954548"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
-이 문서에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 MXChip IoT DevKit를 Azure IoT Hub에 [프로 비전](about-iot-dps.md#provisioning-process) 하는 방법을 설명 합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 문서에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 MXChip IoT DevKit를 Azure IoT Hub에 [프로 비전](about-iot-dps.md#provisioning-process) 하는 방법을 설명 합니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 * UDS(고유 디바이스 비밀)를 사용하여 X.509 인증서를 생성합니다.

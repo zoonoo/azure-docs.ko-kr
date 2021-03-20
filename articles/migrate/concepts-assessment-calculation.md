@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567746"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>서버 평가 개요 (Azure Vm으로 마이그레이션)
@@ -155,7 +155,7 @@ Azure VM 평가의 경우 서버 평가는 온-프레미스 VM의 다음 속성�
 --- | --- | ---
 **부팅 유형** | Azure는 UEFI가 아닌 부팅 유형의 BIOS를 사용 하는 Vm을 지원 합니다. | 부팅 유형이 UEFI 인 경우 조건적으로 준비 됨
 **코어 수** | 각 컴퓨터에는 Azure VM에서 지원 되는 최대 수 인 128 코어가 없어야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 평가 설정에서 편안 하 게 요소를 지정 하는 경우 사용 되는 코어 수를 편안 하 게 곱합니다.<br/><br/> 성능 기록이 없으면 할당 된 코어를 사용 하 여 편안 하 게 요소를 적용 Azure Migrate. | 코어 수가 한도 내에 있으면 준비
-**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세히 알아보기](../virtual-machines/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없으면 할당 된 RAM을 사용 하 여 편안 하 게 요소를 적용 합니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
+**RAM** | 각 컴퓨터에는 3892 g b 이상의 RAM이 있어야 합니다 .이는 Azure M 시리즈 Standard_M128m &nbsp; <sup>2</sup> VM에서 지 원하는 최대 크기입니다. [자세한 정보를 알아보세요](../virtual-machines/sizes.md).<br/><br/> 성능 기록을 사용할 수 있는 경우 Azure Migrate는 비교를 위해 사용 된 RAM을 고려 합니다. 편안 하 게 요소를 지정 하는 경우 사용 되는 RAM에는 편안 한 요소가 곱해집니다.<br/><br/> 기록이 없으면 할당 된 RAM을 사용 하 여 편안 하 게 요소를 적용 합니다.<br/><br/> | RAM 용량이 한도 내에 있으면 준비
 **스토리지 디스크** | 할당 된 디스크 크기는 32 TB이 하 여야 합니다. Azure는 Azure 울트라 SSD 디스크를 사용 하 여 64-TB 디스크를 지원 하지만 Azure Migrate: 서버 평가는 현재 울트라 SSD를 지원 하지 않으므로 디스크 크기 제한으로 32 TB를 확인 합니다. <br/><br/> OS 디스크를 포함 하 여 컴퓨터에 연결 된 디스크 수는 65 미만 이어야 합니다. | 디스크 크기와 숫자가 한도 내에 있으면 준비
 **네트워킹** | 컴퓨터에는 32 개의 Nic (네트워크 인터페이스)가 연결 되어 있어야 합니다. | Nic 수가 한도 내에 있으면 준비
 

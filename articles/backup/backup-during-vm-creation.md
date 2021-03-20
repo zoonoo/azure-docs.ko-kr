@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하 여 Azure VM을 만들 때 백업을 사
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89377338"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
@@ -26,13 +26,13 @@ Azure Backup 서비스를 사용 하 여 Azure Vm (가상 머신)을 백업 합�
 
 ## <a name="create-a-vm-with-backup-configured"></a>백업이 구성 된 VM 만들기
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
 
-2. Azure Marketplace에서 **Compute**를 선택 하 고 VM 이미지를 선택 합니다.
+2. Azure Marketplace에서 **Compute** 를 선택 하 고 VM 이미지를 선택 합니다.
 
 3. [Windows](../virtual-machines/windows/quick-create-portal.md) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md) 지침에 따라 VM을 설정 합니다.
 
-4. **관리** 탭의 **백업 사용**에서 **켜기**를 선택 합니다.
+4. **관리** 탭의 **백업 사용** 에서 **켜기** 를 선택 합니다.
 5. Recovery Services 자격 증명 모음에 백업을 Azure Backup 합니다. 기존 자격 증명 모음이 없는 경우 **새로 만들기** 를 선택 합니다.
 6. 제안 된 자격 증명 모음 이름을 그대로 적용 하거나 고유한 이름을 지정 합니다.
 7. 자격 증명 모음을 배치할 리소스 그룹을 지정 하거나 만듭니다. 리소스 그룹 자격 증명 모음은 VM 리소스 그룹과 다를 수 있습니다.
@@ -76,7 +76,7 @@ VM 백업은 백업 정책에 따라 실행 됩니다. 그러나 초기 백업�
 
 VM을 만든 후 다음을 수행 합니다.
 
-1. VM 속성에서 **백업**을 선택 합니다. VM 상태는 초기 백업이 실행 될 때까지 보류 중인 초기 백업입니다.
+1. VM 속성에서 **백업** 을 선택 합니다. VM 상태는 초기 백업이 실행 될 때까지 보류 중인 초기 백업입니다.
 2. **지금** 백업을 선택 하 여 요청 시 백업을 실행 합니다.
 
     ![주문형 백업 실행](./media/backup-during-vm-creation/run-backup.png)

@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/13/2019
 ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93027706"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>정적 결과를 설정 하 여 모의 데이터로 논리 앱 테스트
@@ -21,7 +21,7 @@ ms.locfileid: "93027706"
 
 예를 들어 Outlook 365 메일 보내기 작업에 대 한 정적 결과를 설정 하면 Logic Apps 엔진은 Outlook을 호출 하 고 전자 메일을 보내는 대신 정적 결과로 지정한 모의 데이터만 반환 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "93027706"
 
 1. 정적 결과를 설정 하려는 작업에서 다음 단계를 수행 합니다. 
 
-   1. 작업의 오른쪽 위 모서리에서 줄임표 ( *...* ) 단추를 선택 하 고 **정적 결과** 를 선택 합니다. 예를 들면 다음과 같습니다.
+   1. 작업의 오른쪽 위 모서리에서 줄임표 (*...*) 단추를 선택 하 고 **정적 결과** 를 선택 합니다. 예를 들면 다음과 같습니다.
 
       !["정적 결과" > "정적 결과 사용"을 선택 합니다.](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
 
@@ -132,7 +132,7 @@ ms.locfileid: "93027706"
 
    ![스크린샷 테스트 반쯤 아이콘을 선택할 수 있는 H T P 작업을 보여 줍니다.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
-1. **정적 결과 사용 안 함**  >  **Done** 을 선택 합니다.
+1. **정적 결과 사용 안 함**  >  을 선택 합니다.
 
    ![선택할 수 있는 정적 결과 사용 안 함 옵션을 보여 주는 스크린샷](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 

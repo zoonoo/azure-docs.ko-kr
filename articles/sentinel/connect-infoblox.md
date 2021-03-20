@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567450"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Azure 센티널에 Infoblox NIOS 연결
@@ -38,7 +38,7 @@ Syslog 에이전트를 통해 Azure 센티널 작업 영역에 Syslog 메시지�
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Infoblox NIOS** connector를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. **Infoblox NIOS** 페이지의 지침을 따릅니다.
 

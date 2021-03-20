@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 36dc7d098892fb2be7c2ba3d75de7c7adef1a4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171553"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>자습서: IoTHub로 이벤트 전달
@@ -26,7 +26,7 @@ ms.locfileid: "86171553"
 - [Event Grid 개념](concepts.md)
 - [IoT Edge 허브](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -134,10 +134,10 @@ ms.locfileid: "86171553"
 다음과 같이 IoTHub에 전달할 이벤트 구독의 이벤트를 전달 하도록 edge 허브의 경로를 업데이트 합니다.
 
 1. [Azure 포털](https://ms.portal.azure.com)
-1. **IoT Hub**로 이동 합니다.
+1. **IoT Hub** 로 이동 합니다.
 1. 메뉴에서 **IoT Edge** 선택
 1. 장치 목록에서 대상 장치의 ID를 선택 합니다.
-1. **모듈 설정**을 선택 합니다.
+1. **모듈 설정** 을 선택 합니다.
 1. 경로 섹션에서 **다음** 을 선택 합니다.
 1. 경로에 새 경로를 추가 합니다.
 
@@ -145,7 +145,7 @@ ms.locfileid: "86171553"
   "fromEventGridToIoTHub":"FROM /messages/modules/eventgridmodule/outputs/sampleSub4 INTO $upstream"
   ```
 
-  예를 들면 다음과 같습니다.
+  예제:
 
   ```json
   {

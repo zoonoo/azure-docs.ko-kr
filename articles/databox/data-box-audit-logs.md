@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbe9ab649a708fb36b1c9e4fe89bccadc7ea90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86209685"
 ---
 # <a name="audit-logs-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy에 대 한 감사 로그
@@ -65,14 +65,14 @@ Data Box에서 다음 로그가 수집 됩니다.
 
 다음 응용 프로그램 로그 이벤트 Id는 Data Box에 대 한 패키지 감사 로그의 일부로 수집 됩니다.     
 
-- **DataBox** -로컬 UI에서 발생 하는 이벤트를 포함 합니다. 
+- **DataBox** -로컬 UI에서 발생 하는 이벤트를 포함 합니다. 
 - **DataBox-다시 구축** -Data Box 장치의 다시 프로 비전 관련 된 이벤트를 포함 합니다. Data Box 다시 프로 비전는 로컬 UI를 통해 장치를 다시 설정할 때 발생 합니다. 기존 공유를 제거 하 고 다시 프로 비전의 일부로 공유를 다시 만들거나 장치를 다시 설정 하 여 복사한 데이터를 지우려면이 옵션을 선택 합니다.
-- **DataBox-HcsMgmt** -장치가 Azure 데이터 센터에 다시 배송 되기 전에 **출시 준비** 단계에만 관련 된 이벤트를 포함 합니다. 
+- **DataBox-HcsMgmt** -장치가 Azure 데이터 센터에 다시 배송 되기 전에 **출시 준비** 단계에만 관련 된 이벤트를 포함 합니다. 
 - **DataBox-IfxAudit** -작업에 대 한 제품의 여러 엔터티에 의해 기록 된 메시지, 일부 흐름에서 발생 하는 상황에 대 한 자세한 정보를 나타내는 로그를 포함 합니다.
 
 다음 표에서는 다양 한 이벤트 공급자와 각 경우에 수집 되는 해당 이벤트 Id를 요약 합니다.
 
-|이벤트 공급자 이름    |이벤트 ID    | 메모 |
+|이벤트 공급자 이름    |이벤트 ID    | 참고 |
 |-----------------|-----------------|-------------------|
 |DataBox-OOBE-감사 |4624        |로그온에 성공 했습니다.|
 |                                      |4625        |계정에 로그온 하지 못했습니다. 알 수 없는 사용자 이름 또는 잘못 된 암호입니다.|

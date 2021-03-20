@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
 ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97976795"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대 한 제한
@@ -21,7 +21,7 @@ LUIS에는 몇 가지 제한 영역이 있습니다. 첫 번째는 LUIS의 의�
 
 앱이 LUIS 모델 제한을 초과 하는 경우 [LUIS 디스패치](luis-concept-enterprise.md#dispatch-tool-and-model) 앱을 사용 하거나 [LUIS 컨테이너](luis-container-howto.md)를 사용 하는 것이 좋습니다.
 
-|영역|제한|
+|영역형|제한|
 |--|:--|
 | [앱 이름][luis-get-started-create-app] | *기본 문자 최댓값 |
 | 애플리케이션| 500 Azure 제작 리소스 당 응용 프로그램 |

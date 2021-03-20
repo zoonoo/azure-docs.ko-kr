@@ -4,10 +4,10 @@ description: 확장은 Batch 계산 노드에서 사후 프로 비전 구성 및
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.openlocfilehash: 1bf9847af57347c143ee3d790d89988ba7cd48e4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100417447"
 ---
 # <a name="use-extensions-with-batch-pools"></a>Batch 풀에서 확장 사용
@@ -16,7 +16,7 @@ ms.locfileid: "100417447"
 
 사용할 확장의 라이브 상태를 확인 하 고 검색, 수정 또는 진단 기능을 실행 하기 위해 반환 하는 정보를 검색할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 확장이 포함 된 풀은 [가상 머신 구성을](nodes-and-pools.md#virtual-machine-configuration)사용 해야 합니다.
 - CustomScript 확장 형식은 Azure Batch 서비스에 예약 되어 있으므로 재정의할 수 없습니다.

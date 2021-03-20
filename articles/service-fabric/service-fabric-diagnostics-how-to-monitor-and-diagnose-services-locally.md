@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 58319b47c78a85b4f06c2c834db20f6c42cc1939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86247424"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>로컬 컴퓨터 개발 설정에서의 모니터링 및 진단 서비스
@@ -32,8 +32,8 @@ ms.locfileid: "86247424"
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visual Studio에서 서비스 패브릭 시스템 이벤트 보기
 서비스 패브릭은 ETW 이벤트를 내보내서 애플리케이션 개발자가 플랫폼에서 일어나는 일을 이해할 수 있도록 도와줍니다. 아직 애플리케이션을 만들지 않은 경우 [Visual Studio에서 애플리케이션 처음 만들기](service-fabric-tutorial-create-dotnet-app.md)의 단계에 따라 지금 만드세요. 이 정보는 애플리케이션이 실행되는 동안 진단 이벤트 뷰어에 추적 메시지를 표시하는 데 도움이 될 것입니다.
 
-1. 진단 이벤트 창이 자동으로 표시되지 않으면, Visual Studio에서 **보기** 탭으로 이동하여 **다른 창**, **진단 이벤트 뷰어**를 차례로 선택합니다.
-2. 각 이벤트는 이벤트가 기인하는 노드, 애플리케이션 및 서비스를 알려 주는 표준 메타데이터 정보를 가지고 있습니다. 이벤트 창 상단의 **이벤트 필터링** 상자를 사용하여 이벤트 목록을 필터링할 수도 있습니다. 예를 들어 **노드 이름**이나 **서비스 이름**으로 필터링할 수 있습니다. 또한 이벤트 상세 정보를 볼 때 이벤트 창 상단의 단추를 사용하여 **일시 중지**하고 나중에 이벤트 손실 없이 재개할 수 있습니다.
+1. 진단 이벤트 창이 자동으로 표시되지 않으면, Visual Studio에서 **보기** 탭으로 이동하여 **다른 창**, **진단 이벤트 뷰어** 를 차례로 선택합니다.
+2. 각 이벤트는 이벤트가 기인하는 노드, 애플리케이션 및 서비스를 알려 주는 표준 메타데이터 정보를 가지고 있습니다. 이벤트 창 상단의 **이벤트 필터링** 상자를 사용하여 이벤트 목록을 필터링할 수도 있습니다. 예를 들어 **노드 이름** 이나 **서비스 이름** 으로 필터링할 수 있습니다. 또한 이벤트 상세 정보를 볼 때 이벤트 창 상단의 단추를 사용하여 **일시 중지** 하고 나중에 이벤트 손실 없이 재개할 수 있습니다.
    
    ![Visual Studio 진단 이벤트 뷰어](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "86247424"
 2. *DoWorkAsync* 메서드에서 `ActorEventSource.Current.ActorMessage(this, "Doing Work");` 코드를 찾습니다.  이는 애플리케이션 코드에서 작성된 사용자 지정 ETW의 예제입니다.  
 3. **ActorEventSource.cs** 파일을 보면 성능상의 이유로 빈도가 높은 이벤트에 사용해야 하는 `ActorEventSource.ActorMessage` 메서드에서 오버로드를 확인할 수 있습니다.
 
-서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 애플리케이션을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5**키를 눌러서 애플리케이션을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.
+서비스 코드에 사용자 지정 ETW 추적을 추가한 다음에는 애플리케이션을 다시 빌드, 배포, 실행하여 진단 이벤트 뷰어에서 이벤트를 볼 수 있습니다. **F5** 키를 눌러서 애플리케이션을 디버깅하면 진단 이벤트 뷰어가 자동으로 열립니다.
 
 ## <a name="next-steps"></a>다음 단계
 위에서 로컬 진단을 위해 애플리케이션에 추가한 것과 동일한 추적 코드는 Azure 클러스터에서 애플리케이션을 실행할 때 이 이벤트를 보는 데 이용할 수 있는 도구와 함께 작동합니다. 도구에 대한 다양한 옵션과 도구를 설정하는 방법에 대해 설명하는 이러한 문서를 확인합니다.
