@@ -11,10 +11,10 @@ ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 12/01/2020
 ms.openlocfilehash: 1425003c718ca52c0bea712e9d25cd3e4c035cf1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453971"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Azure SQL Database에 대 한 Advanced Threat Protection 구성
@@ -45,7 +45,7 @@ Azure SQL Database에 대 한 [Advanced Threat Protection](threat-detection-over
 
 - [Advanced Threat Protection](threat-detection-overview.md)에 대해 자세히 알아보세요.
 - [SQL Managed Instance의 Advanced Threat Protection](../managed-instance/threat-detection-configure.md)에 대해 자세히 알아보세요.  
-- [SQL 용 Azure Defender](azure-defender-for-sql.md)에 대해 자세히 알아보세요.
+- [Azure Defender for SQL](azure-defender-for-sql.md)에 대해 자세히 알아봅니다.
 - [감사](../../azure-sql/database/auditing-overview.md)에 대해 자세히 알아보기
 - [Azure security center](../../security-center/security-center-introduction.md) 에 대 한 자세한 정보
 - 가격 책정에 대 한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.

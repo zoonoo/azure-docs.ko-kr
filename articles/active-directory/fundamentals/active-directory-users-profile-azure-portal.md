@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370919"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자 프로필 정보 추가 또는 업데이트
@@ -28,13 +28,13 @@ ms.locfileid: "92370919"
 ## <a name="to-add-or-change-profile-information"></a>프로필 정보를 추가 또는 변경하려면
 1. 조직의 사용자 관리자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 
-2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 다음, 사용자를 선택합니다. 예를 들어 _Alain Charon_입니다.
+2. **Azure Active Directory** 를 선택하고, **사용자** 를 선택한 다음, 사용자를 선택합니다. 예를 들어 _Alain Charon_ 입니다.
 
     **Alain Charon - 프로필** 페이지가 표시됩니다.
 
     ![편집 가능한 정보가 포함된 사용자 프로필 페이지](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. **편집**을 선택하여 사용 가능한 각 섹션에 포함된 정보를 선택적으로 추가하거나 업데이트합니다.
+3. **편집** 을 선택하여 사용 가능한 각 섹션에 포함된 정보를 선택적으로 추가하거나 업데이트합니다.
 
     ![편집 가능한 영역을 보여 주는 사용자 프로필 페이지](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
 
@@ -50,7 +50,7 @@ ms.locfileid: "92370919"
 
     - **인증 연락처 정보입니다.** 이 정보를 확인하여 사용자의 활성 전화 번호와 메일 주소가 있는지 확인합니다. 이 정보는 Azure Active Directory에서 로그인 중인 사용자가 실제로 사용자인지 확인하는 데 사용됩니다. 인증 연락처 정보는 전역 관리자만 업데이트할 수 있습니다.
 
-4. **저장**을 선택합니다.
+4. **저장** 을 선택합니다.
 
     사용자에 대한 모든 변경 내용이 저장됩니다.
 

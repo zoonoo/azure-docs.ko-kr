@@ -15,10 +15,10 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b016987162cc8202b7ad28d4dd8e5ab2953469d1
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024248"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
@@ -38,7 +38,7 @@ TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 
 1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. 설정 블레이드가 표시 되는 Azure Portal의 **투명 한 데이터 암호화** 옵션 ![ 스크린샷을 선택 합니다. 일반 섹션에서 투명 한 데이터 암호화가 강조 표시 됩니다.][1]
-4. **설정을** 선택한 후 투명 한 **Save** 
+4. **설정을** 선택한 후 투명 한  
     ![ 데이터 암호화 블레이드가 표시 되 면 Azure Portal의 스크린샷 저장을 선택 합니다. 데이터 암호화가 설정 되 고 저장 단추가 강조 표시 됩니다.][2]
 
 ## <a name="disabling-encryption"></a>암호화 비활성화

@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 28609ad27330ae4ea5ea7c0d02d5a61181fbe0df
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95554063"
 ---
 시스템을 디자인하고 아키텍처를 설계할 때 해당 시스템에 대한 잠재적 위협을 파악하고, 그에 따라 적절한 방어 수단을 추가해야 합니다. 처음부터 보안을 염두에 두고 제품을 설계하는 것이 매우 중요합니다. 공격자가 시스템을 손상시킬 수 있는 방법을 파악하면 처음부터 적절한 위협 완화 조치를 수행할 수 있기 때문입니다.
@@ -240,7 +240,7 @@ Azure IoT 아키텍처에서 설명한 각 범주에서, 이 예제는 데이터
 
 **정보 공개**: 공격자가 브로드캐스트를 도청하여 인증 없이 정보를 획득할 수 있습니다. **서비스 거부:** 공격자가 브로드캐스트 신호 폭주를 유발하고 정보 배포를 거부할 수 있습니다.
 
-#### <a name="storage"></a>스토리지
+#### <a name="storage"></a>Storage
 
 모든 디바이스 및 현장 게이트웨이는 일종의 스토리지(데이터를 큐에 대기시키는 임시 스토리지, OS(운영 체제) 이미지 스토리지)를 가지고 있습니다.
 

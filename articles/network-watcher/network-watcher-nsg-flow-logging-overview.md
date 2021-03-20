@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100521682"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
@@ -434,7 +434,7 @@ NSG 흐름 로그는 추가 구성이 필요 없이 서비스 끝점과 호환 �
 
 흐름 로그 버전 2에는 전송 되는 바이트와 패킷에 대 한 정보를 저장 하 & _흐름 상태의_ 개념이 도입 되었습니다. [자세히 알아보기](#log-format)
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 NSG 흐름 로그는 수집 된 로그의 GB 당 요금이 청구 되며 구독 당 5gb/월의 무료 계층으로 제공 됩니다. 해당 지역의 현재 가격은 가격 [책정 페이지를 Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/)참조 하세요.
 

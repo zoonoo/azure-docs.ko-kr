@@ -9,13 +9,13 @@ ms.devlang: azurepowershell
 ms.date: 11/16/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 3cb320a37818084f2fbcad22a3cc992655b19c3d
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95550012"
 ---
-# <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 스프링 클라우드 배포
+# <a name="deploy-azure-spring-cloud-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Spring Cloud 배포
 
 이 문서에서는 [SpringCloud](/powershell/module/Az.SpringCloud) PowerShell 모듈을 사용 하 여 Azure 스프링 클라우드 인스턴스를 만드는 방법을 설명 합니다.
 

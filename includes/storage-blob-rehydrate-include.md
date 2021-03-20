@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -11,10 +11,10 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: a369eb7000fb8622a69f4205ffcc232ae9c9d242
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95545937"
 ---
 보관 스토리지에서 데이터를 읽으려면 먼저 핫 또는 쿨로 Blob의 계층을 변경해야 합니다. 이 프로세스를 리하이드레이션 라고 하며 완료 하는 데 몇 시간 정도 걸릴 수 있습니다. 최적의 리하이드레이션 성능을 위해 blob 크기를 크게 권장 합니다. 동시에 여러 가지 소규모 Blob을 리하이드레이션하면 시간이 더 소요될 수 있습니다. 현재 두 개의 리하이드레이션 우선 순위, 즉 High 및 Standard가 있습니다 .이 우선 순위는 [Set Blob 계층](/rest/api/storageservices/set-blob-tier) 또는 [blob 복사](/rest/api/storageservices/copy-blob) 작업의 선택적 *x-리하이드레이션* 속성을 통해 설정할 수 있습니다.

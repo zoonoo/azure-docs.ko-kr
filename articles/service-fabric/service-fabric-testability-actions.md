@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c57f54096a9593f5ab25a5722d3f2d2b9878b511
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100595019"
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
@@ -29,7 +29,7 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 ## <a name="testability-actions-list"></a>테스트 용이성 작업 목록
 | 작업 | 설명 | 관리되는 API | PowerShell cmdlet | 정상/비정상 오류 |
 | --- | --- | --- | --- | --- |
-| CleanTestState |테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. |CleanTestStateAsync |Remove-ServiceFabricTestState |해당 없음 |
+| CleanTestState |테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. |CleanTestStateAsync |Remove-ServiceFabricTestState |해당 사항 없음 |
 | InvokeDataLoss |서비스 파티션으로 데이터 손실을 유도합니다. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |정상 |
 | InvokeQuorumLoss |지정된 상태 저장 서비스 파티션을 쿼럼 손실에 배치합니다. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |정상 |
 | MovePrimary |상태 저장 서비스의 지정된 주 복제본을 지정된 클러스터 노드로 이동합니다. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |정상 |
@@ -39,10 +39,10 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 | RestartNode |노드를 다시 시작하여 서비스 패브릭 클러스터 노드 오류를 시뮬레이션합니다. |RestartNodeAsync |Restart-ServiceFabricNode |비정상 |
 | RestartPartition |파티션의 일부 또는 모든 복제본을 다시 시작하여 데이터 센터 블랙아웃 또는 클러스터 블랙아웃 시나리오를 시뮬레이션합니다. |RestartPartitionAsync |Restart-ServiceFabricPartition |정상 |
 | RestartReplica |클러스터에 보관된 복제본을 다시 시작하고, 복제본을 닫은 후 다시 열어서 복제본 오류를 시뮬레이션합니다. |RestartReplicaAsync |Restart-ServiceFabricReplica |정상 |
-| StartNode |클러스터에서 이미 중지된 노드를 시작합니다. |StartNodeAsync |Start-ServiceFabricNode |해당 없음 |
+| StartNode |클러스터에서 이미 중지된 노드를 시작합니다. |StartNodeAsync |Start-ServiceFabricNode |해당 사항 없음 |
 | StopNode |클러스터의 노드를 중지하여 노드 오류를 시뮬레이션합니다. StartNode가 호출될 때까지 노드가 계속 중지됩니다. |StopNodeAsync |Stop-ServiceFabricNode |비정상 |
-| ValidateApplication |일반적으로 시스템에 일부 오류를 유도한 후 애플리케이션 내의 모든 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateApplicationAsync |Test-ServiceFabricApplication |해당 없음 |
-| ValidateService |일반적으로 시스템에 일부 오류를 유도한 후 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateServiceAsync |Test-ServiceFabricService |해당 없음 |
+| ValidateApplication |일반적으로 시스템에 일부 오류를 유도한 후 애플리케이션 내의 모든 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateApplicationAsync |Test-ServiceFabricApplication |해당 사항 없음 |
+| ValidateService |일반적으로 시스템에 일부 오류를 유도한 후 서비스 패브릭 서비스의 가용성 및 상태를 검사합니다. |ValidateServiceAsync |Test-ServiceFabricService |해당 사항 없음 |
 
 ## <a name="running-a-testability-action-using-powershell"></a>PowerShell을 사용하여 테스트 용이성 작업 실행
 이 자습서에서는 PowerShell을 사용하여 테스트 용이성 작업을 실행하는 방법을 보여 줍니다. 로컬(one-box) 클러스터 또는 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법을 배울 것입니다. Microsoft.Fabric.Powershell.dll(서비스 패브릭PowerShell 모듈)은 Microsoft 서비스 패브릭 MSI를 설치할 때 자동으로 설치됩니다. PowerShell 프롬프트를 열면 이 모듈이 자동으로 로드됩니다.

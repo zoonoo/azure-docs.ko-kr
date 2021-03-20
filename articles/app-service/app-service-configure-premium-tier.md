@@ -7,17 +7,17 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: c187a1521762c0b69d42c81f464694729d3c02f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100594222"
 ---
 # <a name="configure-premiumv3-tier-for-azure-app-service"></a>Azure App Service에 대 한 PremiumV3 계층 구성
 
 새 **PremiumV3** 가격 책정 계층은 더 빠른 프로세서, SSD 저장소 및 기존 가격 책정 계층의 메모리 대 코어 비율을 4 배로 제공 합니다 ( **PremiumV2** 계층 두 개). 성능상의 이점 덕분에 더 적은 인스턴스에서 앱을 실행하여 비용을 절감할 수 있습니다. 이 문서에서는 **PremiumV3** 계층에서 앱을 만들거나 **PremiumV3** 계층으로 앱을 확장 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 앱을 **PremiumV3** 로 강화 하려면 **PremiumV3** 보다 낮은 가격 책정 계층에서 실행 되는 Azure App Service 앱이 있어야 하 고, PremiumV3를 지 원하는 App Service 배포에서 앱이 실행 되 고 있어야 합니다.
 

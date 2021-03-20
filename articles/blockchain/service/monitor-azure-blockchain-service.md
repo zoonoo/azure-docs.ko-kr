@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 05147f48c4cde4cc97bf6cc9cae5c8220a389ebd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594922"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Azure Monitor를 통해 Azure Blockchain 서비스 모니터링  
@@ -158,7 +158,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 
 | 메트릭 이름 | 단위  |  집계 유형| 설명   |
 |---|---|---|---|
-| CPU 사용량 비율   | 백분율  |  Max | CPU 사용량의 백분율입니다.     |
+| CPU 사용량 비율   | 백분율  |  최대 | CPU 사용량의 백분율입니다.     |
 | IO 읽기 바이트   | 킬로바이트   | 합계  |  Blockchain 멤버 리소스의 모든 노드에 걸친 IO 읽기 바이트의 합계입니다.      |
 |IO 쓰기 바이트     | 킬로바이트   | 합계  | IO의 합계는 블록 체인 멤버 리소스의 모든 노드에 걸쳐 바이트를 씁니다.     |
 |메모리 제한       |  7.8gb   | 평균    | 노드당 blockchain 프로세스에 사용할 수 있는 최대 메모리입니다. |

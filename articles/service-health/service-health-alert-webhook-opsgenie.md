@@ -4,10 +4,10 @@ description: 서비스 상태 이벤트에 대한 개인 설정 알림을 OpsGen
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: d8867d442d0c7fe563f6429fc1ff4edb212737c5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594590"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>웹 후크를 사용 하 여 Azure 서비스 상태 경고를 OpsGenie로 보냅니다.

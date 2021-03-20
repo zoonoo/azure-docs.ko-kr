@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus 엔터티 (큐, 토픽 등)�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518231"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스 하 Azure Active Directory 응용 프로그램 인증 및 권한 부여
@@ -43,7 +43,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 다음 목록에서는 가장 좁은 범위에서 시작 하 여 Service Bus 리소스에 대 한 액세스 범위를 지정할 수 있는 수준을 설명 합니다.
 
-- **큐**, **토픽**또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 Azure 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. 
+- **큐**, **토픽** 또는 **구독**: 역할 할당은 특정 Service Bus 엔터티에 적용 됩니다. 현재 Azure Portal는 구독 수준에서 Azure 역할을 Service Bus 하는 사용자/그룹/관리 id 할당을 지원 하지 않습니다. 
 - **Service Bus 네임 스페이스**: 역할 할당은 네임 스페이스 아래 Service Bus의 전체 토폴로지 및 이와 연결 된 소비자 그룹을 확장 합니다.
 - **리소스 그룹**: 역할 할당은 리소스 그룹 아래의 모든 Service Bus 리소스에 적용 됩니다.
 - **구독**: 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Service Bus 리소스에 적용 됩니다.
@@ -54,7 +54,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 [역할 정의 이해](../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조 하세요. Azure 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 [azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당  
 Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
 
 역할 할당에 적절 한 범위를 결정 한 후 Azure Portal에서 해당 리소스로 이동 합니다. 리소스에 대 한 액세스 제어 (IAM) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.
@@ -65,7 +65,7 @@ Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세�
 1. [Azure Portal](https://portal.azure.com/)에서 Service Bus 네임 스페이스로 이동 합니다. 왼쪽 메뉴에서 **Access Control (IAM)** 을 선택 하 여 네임 스페이스에 대 한 액세스 제어 설정을 표시 합니다. Service Bus 네임 스페이스를 만들어야 하는 경우이 문서의 지침 인 [Service Bus Messaging 네임 스페이스 만들기](service-bus-create-namespace-portal.md)를 참조 하세요.
 
     ![왼쪽 메뉴에서 Access Control를 선택 합니다.](./media/authenticate-application/select-access-control-menu.png)
-1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가**를 선택 합니다. 
+1. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다. 도구 모음에서 **추가** 단추를 선택한 다음 **역할 할당 추가** 를 선택 합니다. 
 
     ![도구 모음에 단추 추가](./media/authenticate-application/role-assignments-add-button.png)
 1. **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다.
@@ -98,24 +98,24 @@ Azure AD를 사용 하 여 Service Bus 엔터티에 권한을 부여 하는 첫 
 > [!Note]
 > 응용 프로그램을 네이티브 응용 프로그램으로 등록 하는 경우 리디렉션 URI에 대 한 유효한 URI를 지정할 수 있습니다. 네이티브 응용 프로그램의 경우이 값은 실제 URL 일 필요가 없습니다. 웹 응용 프로그램의 경우 리디렉션 URI는 토큰을 제공 하는 URL을 지정 하므로 유효한 URI 여야 합니다.
 
-응용 프로그램을 등록 한 후에는 **설정**아래에 **응용 프로그램 (클라이언트) ID가** 표시 됩니다.
+응용 프로그램을 등록 한 후에는 **설정** 아래에 **응용 프로그램 (클라이언트) ID가** 표시 됩니다.
 
 ![등록 된 응용 프로그램의 응용 프로그램 ID](./media/authenticate-application/application-id.png)
 
 Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/quickstart-register-app.md)을 참조하세요.
 
 > [!IMPORTANT]
-> **TenantId** 와 **ApplicationId**를 적어 둡니다. 응용 프로그램을 실행 하려면 이러한 값이 필요 합니다.
+> **TenantId** 와 **ApplicationId** 를 적어 둡니다. 응용 프로그램을 실행 하려면 이러한 값이 필요 합니다.
 
 ### <a name="create-a-client-secret"></a>클라이언트 비밀 만들기   
 응용 프로그램은 토큰을 요청할 때 해당 id를 증명 하기 위해 클라이언트 암호가 필요 합니다. 클라이언트 암호를 추가 하려면 다음 단계를 수행 합니다.
 
 1. 페이지에 아직 없는 경우 Azure Portal에서 앱 등록으로 이동 합니다.
 1. 왼쪽 메뉴에서 **인증서 & 암호** 를 선택 합니다.
-1. **클라이언트 암호**에서 새 **클라이언트 암호** 를 선택 하 여 새 암호를 만듭니다.
+1. **클라이언트 암호** 에서 새 **클라이언트 암호** 를 선택 하 여 새 암호를 만듭니다.
 
     ![새 클라이언트 암호-단추](./media/authenticate-application/new-client-secret-button.png)
-1. 비밀에 대 한 설명을 입력 하 고 원하는 만료 간격을 선택한 다음 **추가**를 선택 합니다.
+1. 비밀에 대 한 설명을 입력 하 고 원하는 만료 간격을 선택한 다음 **추가** 를 선택 합니다.
 
     ![클라이언트 암호 추가 페이지](./media/authenticate-application/add-client-secret-page.png)
 1. 새 암호의 값을 안전한 위치에 즉시 복사 합니다. 채우기 값은 한 번만 표시 됩니다.

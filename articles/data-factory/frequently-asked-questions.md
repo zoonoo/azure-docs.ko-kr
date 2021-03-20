@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739337"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
@@ -288,7 +288,7 @@ ADF (Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자
 * nchar
 * varchar
 * nvarchar
-* integer
+* 정수
 * int
 * bit
 * boolean

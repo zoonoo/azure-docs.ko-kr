@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
 ms.openlocfilehash: 9e9f3b7ea3d99de51b9398bda82b690d2c249a1d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520968"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cloud 파트너 포털에서 파트너 센터로 계정을 마이그레이션하는 방법
@@ -65,7 +65,7 @@ Microsoft 파트너 네트워크에 대한 자세한 내용은 파트너 웹 사
 
 Dynamics 365 Customer Engagement, PowerApps, and Dynamics 365 Operations에 대한 계정 및 제품 관리를 간소화하기 위해 제품이 [파트너 센터](https://partner.microsoft.com/)로 이동되었습니다. 이와 같이 이동되었으므로 퍼블릭 및 판매자 카탈로그 모두에서 동일한 콘텐츠를 사용할 수 있습니다.
 
-Dynamics 365 Customer Engagement, PowerApps 및 Dynamics 365 Operations 제품에 대해 **2019년 10월 15일**까지 완료해야 하는 작업에 대한 자세한 내용은 아래 지침을 따르세요.
+Dynamics 365 Customer Engagement, PowerApps 및 Dynamics 365 Operations 제품에 대해 **2019년 10월 15일** 까지 완료해야 하는 작업에 대한 자세한 내용은 아래 지침을 따르세요.
 
 > [!NOTE]
 > Dynamics 365 Business Central 제품에는 적용되지 않습니다.  
@@ -73,10 +73,10 @@ Dynamics 365 Customer Engagement, PowerApps 및 Dynamics 365 Operations 제품�
 1. MPN 멤버십 계정이 처음에 PMC(파트너 멤버 센터)에서 생성된 경우 [파트너 센터](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile)로 로그인하여 계정이 마이그레이션되었는지 확인합니다. 사용자의 MPN ID가 있는 프로필 화면이 표시되는 경우 계속할 준비가 된 것입니다. 그렇지 않으면 [파트너 멤버십 센터](https://partners.microsoft.com/partnerprogram/Welcome.aspx)의 지시에 따라 계정 마이그레이션을 시작해야 합니다. 도움이 필요한 경우 [지원 서비스](https://partner.microsoft.com/support?issueid=100-0077)를 방문하세요.
 2. [파트너 센터에서 상업용 Marketplace 개요 페이지](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)로 이동합니다. 왼쪽 탐색 창에 "상업용 Marketplace"가 표시되는 경우 등록된 것이므로 다음 단계를 계속 진행합니다. 그렇지 않으면 지금 [상업용 Marketplace에 등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)하세요.
 3. [제품을 검색하여](https://appsource.microsoft.com/) AppSource에 제품이 있는지 확인합니다. 제품이 이미 AppSource에 있는 경우 다음 단계를 계속 진행합니다. AppSource에 없는 제품의 경우 [새 Dynamics 365 Customer Engagement 제품](create-new-customer-engagement-offer.md) 또는 [새 Dynamics 365 Operations 제품](create-new-operations-offer.md)을 만드세요.
-4. 파트너 센터의 [계약 페이지](https://partner.microsoft.com/dashboard/account/agreements)에서 **Business Applications ISV 추록**를 검토하고 수락했는지 확인합니다.
+4. 파트너 센터의 [계약 페이지](https://partner.microsoft.com/dashboard/account/agreements)에서 **Business Applications ISV 추록** 를 검토하고 수락했는지 확인합니다.
 5. 파트너 센터의 [계정 설정](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)에서 청구 정보가 완전한지 확인합니다.
 6. 제품이 이전에 인증된 경우에도 인증 및 게시에 대한 신규 및 기존 제품을 제출합니다.
-    * 마케팅 정보 뿐만 아니라 인증용 앱을 제공하는 것을 비롯하여 정보 화면을 완료합니다. **2019년 10월 15일**까지 화면 오른쪽 위 모서리에 있는 **제출**을 선택합니다. 제품의 가용성에 영향을 주지 않도록 하려면 이러한 단계를 완료해야 합니다.
+    * 마케팅 정보 뿐만 아니라 인증용 앱을 제공하는 것을 비롯하여 정보 화면을 완료합니다. **2019년 10월 15일** 까지 화면 오른쪽 위 모서리에 있는 **제출** 을 선택합니다. 제품의 가용성에 영향을 주지 않도록 하려면 이러한 단계를 완료해야 합니다.
     * 자격이 있는 경우 이 프로세스 중에 프리미엄 계층에 참여하도록 요청할 수 있습니다.
     * 인증 또는 재인증을 사용하려면 앱이 최신 버전의 Business Applications 플랫폼을 지원해야 합니다.
     * 앱이 승인되면 제품으로 돌아간 후 "라이브 상태로 전환"을 선택하여 Microsoft AppSource에서 제품을 라이브 상태로 전환할 수 있는 메일을 받게 됩니다.

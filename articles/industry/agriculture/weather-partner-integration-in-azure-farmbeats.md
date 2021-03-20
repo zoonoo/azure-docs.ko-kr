@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: f0fbd93e2a5f4e92089e10e75dc17e304ff80bf6
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147082"
 ---
 # <a name="weather-partner-integration-with-farmbeats"></a>FarmBeats와 날씨 파트너 통합
@@ -117,8 +117,8 @@ Docker 프로그램에는 부트스트랩 및 작업의 두 구성 요소가 필
 
 고객이 FarmBeats에서 Docker 등록을 시작할 때 부트스트랩 구성 요소가 실행 됩니다. `arg1` `arg2` 프로그램에 전달 되는 인수는 다음과 같습니다.
 
-- **FARMBEATS api 끝점** : api 요청에 대 한 FarmBeats api 끝점입니다. 이 끝점은 FarmBeats 배포에 대 한 API 호출을 수행 합니다.
-- **AZURE FUNCTIONS URL** : 고유한 끝점입니다. 이 URL은 FarmBeats Api에 대 한 액세스 토큰을 제공 합니다. `GET`이 URL에 대해를 호출 하 여 액세스 토큰을 가져올 수 있습니다.
+- **FARMBEATS api 끝점**: api 요청에 대 한 FarmBeats api 끝점입니다. 이 끝점은 FarmBeats 배포에 대 한 API 호출을 수행 합니다.
+- **AZURE FUNCTIONS URL**: 고유한 끝점입니다. 이 URL은 FarmBeats Api에 대 한 액세스 토큰을 제공 합니다. `GET`이 URL에 대해를 호출 하 여 액세스 토큰을 가져올 수 있습니다.
 
 부트스트랩은 날씨 데이터를 얻기 위해 사용자가 작업을 실행 하는 데 필요한 메타 데이터를 만듭니다. 자세한 내용은 [참조 구현](https://github.com/azurefarmbeats/noaa_docker)을 참조 하세요. 
 
@@ -127,8 +127,8 @@ Docker 프로그램에는 부트스트랩 및 작업의 두 구성 요소가 필
  > [!NOTE]
  > [참조 구현](https://github.com/azurefarmbeats/noaa_docker) 에서 설명한 대로 파일 *에bootstrap_manifest.js* 를 업데이트 하는 경우에는 다음 메타 데이터를 만들 필요가 없습니다. 부트스트랩 프로그램은 매니페스트 파일을 사용 하 여 필요한 메타 데이터를 만듭니다.
 
-- /**WeatherDataModel** : WeatherDataModel 메타 데이터는 날씨 데이터를 나타냅니다. 원본에서 제공 하는 데이터 집합에 해당 합니다. 예를 들어 DailyForecastSimpleModel은 하루에 한 번 평균 온도, 습도 및 강 정보를 제공할 수 있습니다. 이와 대조적으로 DailyForecastAdvancedModel는 시간별 세분성에서 훨씬 더 많은 정보를 제공할 수 있습니다. 원하는 수의 날씨 데이터 모델을 만들 수 있습니다.
-- /**JobType** : FarmBeats에는 확장 가능한 작업 관리 시스템이 있습니다. 날씨 데이터 공급자는 다양 한 데이터 집합 및 Api (예: GetDailyForecasts)를 사용할 수 있습니다. JobType를 사용 하 여 FarmBeats에서 이러한 데이터 집합 및 Api를 사용 하도록 설정할 수 있습니다. 작업 유형을 만든 후에는 고객이 해당 유형의 작업을 트리거하여 해당 위치 또는 관심 있는 팜에 대 한 날씨 데이터를 가져올 수 있습니다. 자세한 내용은 JobType and Job Api in the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)항목을 참조 하세요.
+- /**WeatherDataModel**: WeatherDataModel 메타 데이터는 날씨 데이터를 나타냅니다. 원본에서 제공 하는 데이터 집합에 해당 합니다. 예를 들어 DailyForecastSimpleModel은 하루에 한 번 평균 온도, 습도 및 강 정보를 제공할 수 있습니다. 이와 대조적으로 DailyForecastAdvancedModel는 시간별 세분성에서 훨씬 더 많은 정보를 제공할 수 있습니다. 원하는 수의 날씨 데이터 모델을 만들 수 있습니다.
+- /**JobType**: FarmBeats에는 확장 가능한 작업 관리 시스템이 있습니다. 날씨 데이터 공급자는 다양 한 데이터 집합 및 Api (예: GetDailyForecasts)를 사용할 수 있습니다. JobType를 사용 하 여 FarmBeats에서 이러한 데이터 집합 및 Api를 사용 하도록 설정할 수 있습니다. 작업 유형을 만든 후에는 고객이 해당 유형의 작업을 트리거하여 해당 위치 또는 관심 있는 팜에 대 한 날씨 데이터를 가져올 수 있습니다. 자세한 내용은 JobType and Job Api in the [FarmBeats Swagger](https://aka.ms/farmbeatsswagger)항목을 참조 하세요.
 
 ### <a name="jobs"></a>작업
 

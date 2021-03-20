@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 02/13/2020
 ms.openlocfilehash: 95b5a7650e0990f13149daeed87da8e261ec37e4
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93241126"
 ---
 # <a name="troubleshoot-data-encryption-in-azure-database-for-mysql"></a>Azure Database for MySQL의 데이터 암호화 문제 해결
@@ -19,7 +19,7 @@ ms.locfileid: "93241126"
 
 ## <a name="introduction"></a>소개
 
-Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 데이터 암호화를 구성 하는 경우 서버는 키에 대 한 지속적인 액세스를 요구 합니다. 서버 Azure Key Vault에서 고객이 관리 하는 키에 대 한 액세스 권한을 상실 하면 모든 연결을 거부 하 고, 적절 한 오류 메시지를 반환 하 고, Azure Portal에서 * **액세스 불가** _로 상태를 변경 합니다.
+Azure Key Vault에서 고객이 관리 하는 키를 사용 하도록 데이터 암호화를 구성 하는 경우 서버는 키에 대 한 지속적인 액세스를 요구 합니다. 서버 Azure Key Vault에서 고객이 관리 하는 키에 대 한 액세스 권한을 상실 하면 모든 연결을 거부 하 고, 적절 한 오류 메시지를 반환 하 고, Azure Portal에서 해당 상태를 ***액세스할*** 수 없음으로 변경 합니다.
 
 Azure Database for MySQL 서버에 액세스할 수 없는 경우 서버를 삭제 하 여 비용을 절감할 수 있습니다. 키 자격 증명 모음에 대 한 액세스가 복원 되 고 서버를 사용할 수 있을 때까지 서버에 대 한 다른 작업은 허용 되지 않습니다. 또한 `Yes` `No` 고객이 관리 하는 키로 암호화 된 경우 액세스할 수 없는 서버에서 (고객 관리)에서 (서비스 관리)로 데이터 암호화 옵션을 변경할 수 없습니다. 서버를 다시 액세스 하려면 키를 수동으로 다시 유효성을 다시 검사 해야 합니다. 이 작업은 고객이 관리 하는 키에 대 한 권한이 해지 되는 동안 무단 액세스 로부터 데이터를 보호 하는 데 필요 합니다.
 
@@ -44,12 +44,12 @@ Azure Database for MySQL 서버에 액세스할 수 없는 경우 서버를 삭�
 #### <a name="disabled-key-vault"></a>비활성화 된 key vault
 
 - `AzureKeyVaultKeyDisabledMessage`
-- _ * 설명 * *: Azure Key Vault 키가 사용 하지 않도록 설정 되어 있으므로 서버에서 작업을 완료할 수 없습니다.
+- **설명**: Azure Key Vault 키가 사용 하지 않도록 설정 되어 있으므로 서버에서 작업을 완료할 수 없습니다.
 
 #### <a name="missing-key-vault-permissions"></a>누락 된 키 자격 증명 모음 권한
 
 - `AzureKeyVaultMissingPermissionsMessage`
-- **설명** : 서버에 Azure Key Vault 하는 데 필요한 가져오기, 래핑 및 래핑 해제 권한이 없습니다. ID를 사용 하 여 서비스 사용자에 게 누락 된 사용 권한을 부여 합니다.
+- **설명**: 서버에 Azure Key Vault 하는 데 필요한 가져오기, 래핑 및 래핑 해제 권한이 없습니다. ID를 사용 하 여 서비스 사용자에 게 누락 된 사용 권한을 부여 합니다.
 
 ### <a name="mitigation"></a>완화 방법
 

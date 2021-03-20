@@ -4,10 +4,10 @@ description: 가상 컴퓨터가 사용 되지 않을 때 자동으로 종료 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: cd7974580ea30c9d0591c88380a4e626711bad1e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93318973"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 및 계산 가상 컴퓨터에 대 한 자동 종료 구성
@@ -100,7 +100,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
     ![활동 로그-변경 기록](./media/devtest-lab-auto-shutdown/activity-log-entry-change-history.png)
 7. 작업에 대 한 자세한 내용을 보려면 **일정 추가 또는 수정** 페이지의 **JSON** 탭으로 전환 합니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 자동 종료이 구성 되 면 vm의 영향을 받는 경우 자동 종료가 트리거되는 데 30 분 전에 랩 사용자에 게 알림이 전송 됩니다. 이 옵션을 사용 하면 랩 사용자는 종료 되기 전에 작업을 저장할 수 있습니다. 또한 알림은 VM에서 계속 작업 해야 하는 경우 다음 작업을 위해 각 VM에 대 한 링크를 제공 합니다.
 

@@ -12,10 +12,10 @@ ms.date: 10/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.openlocfilehash: be03a149f34c16621905081a2f9bb663d85bc53c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255664"
 ---
 # <a name="on-demand-provisioning"></a>주문형 프로비저닝
@@ -134,7 +134,7 @@ ms.locfileid: "99255664"
 
 * 변경 내용 내보내기에 대 한 오류는 크게 다를 수 있습니다. 일반적인 오류에 대 한 [프로 비전 로그를 보려면 설명서](../reports-monitoring/concept-provisioning-logs.md#error-codes) 를 참조 하십시오.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 * **주문형 프로 비전을 사용 하려면 프로 비전을 해제 해야 하나요?** 권한 부여를 위해 수명이 긴 전달자 토큰 또는 사용자 이름과 암호를 사용 하는 응용 프로그램의 경우 추가 단계가 필요 하지 않습니다. 권한 부여를 위해 OAuth를 사용 하는 응용 프로그램은 현재 주문형 프로 비전을 사용 하기 전에 프로 비전 작업을 중지 해야 합니다. G Suite, Box, Facebook 별 작업 공간 및 여유 공간과 같은 응용 프로그램은이 범주에 속합니다. 프로 비전 작업을 중지할 필요 없이 모든 응용 프로그램에 대 한 요청 시 프로 비전을 지원 하기 위해 작업이 진행 중입니다.
 
