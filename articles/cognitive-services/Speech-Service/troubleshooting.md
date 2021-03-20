@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74815421"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Speech SDK 문제 해결
@@ -25,7 +25,7 @@ ms.locfileid: "74815421"
 
 지역 또는 서비스에 대한 잘못된 엔드포인트가 있을 수 있습니다. URI가 올바른지 확인합니다.
 
-또한 구독 키 또는 권한 부여 토큰에 문제가 있을 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
+또한 구독 키 또는 권한 부여 토큰에 문제가 있을 수 있습니다. 자세한 내용은 다음 단원을 참조하세요.
 
 ## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>오류: HTTP 403 사용 권한 없음 또는 HTTP 401 권한 없음
 

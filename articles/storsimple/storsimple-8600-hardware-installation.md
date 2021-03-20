@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91871816"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>StorSimple 8600 디바이스 개봉, 랙 탑재, 케이블 연결
@@ -164,7 +164,7 @@ EBOD 인클로저의 탑재가 완료되면 동일한 단계를 따라 기본 �
 ## <a name="cable-your-storsimple-8600-device"></a>StorSimple 8600 디바이스 케이블 연결
 다음 절차는 StorSimple 8600 디바이스를 전원, 네트워크 및 직렬 연결을 위해 케이블로 연결하는 방법을 설명합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 디바이스를 케이블로 연결하려면 다음이 필요합니다.
 
 * 포장을 완전히 개봉한 기본 인클로저와 EBOD 인클로저

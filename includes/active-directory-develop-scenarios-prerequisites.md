@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,10 +11,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 79952ad04df4780e1b30eb9cf5c7a35f49cc34c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91257075"
 ---
 OAuth 2.0 및 Openid connect Connect를 사용 하는 IAM (id 및 액세스 관리)을 처음 사용 하거나 Microsoft id 플랫폼의 IAM을 처음 접하는 경우 다음 문서 집합이 읽기 목록에서 높아야 합니다.

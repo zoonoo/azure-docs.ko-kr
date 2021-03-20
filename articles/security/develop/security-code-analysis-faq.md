@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879918"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
@@ -192,11 +192,11 @@ ms.locfileid: "98879918"
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Roslyn 분석기 작업을 사용할 때 발생 하는 일반적인 오류는 무엇 인가요?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>잘못 된 Microsoft .Net Core 앱 버전을 사용 하 여 프로젝트를 복원 했습니다.
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>잘못 된 Microsoft.NETCore.App 버전을 사용 하 여 프로젝트를 복원 했습니다.
 
 전체 오류 메시지:
 
-"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*. x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는  이 문제를 해결하려면 복원 및 빌드 또는 게시와 같은 후속 작업에 대해 동일한 설정을 사용해야 합니다. 일반적으로 복원 중이 아닌, 빌드 또는 게시 중에 RuntimeIdentifier 속성이 설정된 경우 이 문제가 발생할 수 있습니다."
+"오류: 프로젝트가 Microsoft.NETCore.App 버전 x. x *.* x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는 버전 *y. y. y* 가 대신 사용 됩니다. 이 문제를 해결하려면 복원 및 빌드 또는 게시와 같은 후속 작업에 대해 동일한 설정을 사용해야 합니다. 일반적으로 복원 중이 아닌, 빌드 또는 게시 중에 RuntimeIdentifier 속성이 설정된 경우 이 문제가 발생할 수 있습니다."
 
 Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌드 컴퓨터의 소스 트리가 빌드 가능한 상태 여야 합니다.
 

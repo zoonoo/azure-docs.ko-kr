@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/18/2016
 tags: connectors
 ms.openlocfilehash: 8d3b180b6f1e9dc4ec4b09dd81786cc81e8588da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75707189"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Outlook.com의 메일, 일정 및 연락처 관리
@@ -27,7 +27,7 @@ ms.locfileid: "75707189"
 > [!NOTE]
 > 과 같은 Microsoft 작업 계정에 대 한 작업을 자동화 하려면 @fabrikam.onmicrosoft.com [Office 365 Outlook 커넥터](../connectors/connectors-create-api-office365-outlook.md)를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Outlook.com 계정](https://outlook.live.com/owa/)
 
@@ -41,15 +41,15 @@ ms.locfileid: "75707189"
 
 1. [Azure Portal](https://portal.azure.com)에서 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
-1. 검색 상자에 “outlook.com”을 필터로 입력합니다. 이 예에서는 **새 전자 메일이 도착할 때**를 선택 합니다.
+1. 검색 상자에 “outlook.com”을 필터로 입력합니다. 이 예에서는 **새 전자 메일이 도착할 때** 를 선택 합니다.
 
 1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Outlook.com 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 있는 경우 트리거 속성에 대 한 정보를 제공 합니다.
 
 1. 트리거에서 **빈도** 및 **간격** 값을 설정 합니다.
 
-   예를 들어 트리거가 15 분 마다 폴링 되도록 하려면 **빈도** 를 **분**으로 설정 하 고 **간격** 을 **15**로 설정 합니다.
+   예를 들어 트리거가 15 분 마다 폴링 되도록 하려면 **빈도** 를 **분** 으로 설정 하 고 **간격** 을 **15** 로 설정 합니다.
 
-1. 디자이너 도구 모음에서 **저장**을 선택 합니다. 그러면 논리 앱이 저장 됩니다.
+1. 디자이너 도구 모음에서 **저장** 을 선택 합니다. 그러면 논리 앱이 저장 됩니다.
 
 트리거에 응답 하려면 다른 작업을 추가 합니다. 예를 들어 전자 메일이 도착할 때 텍스트를 전송 하는 Twilio **메시지 보내기** 작업을 추가할 수 있습니다.
 
@@ -59,15 +59,15 @@ ms.locfileid: "75707189"
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 워크플로의 마지막 단계로 동작을 추가 하려면 **새 단계**를 선택 합니다. 
+1. 워크플로의 마지막 단계로 동작을 추가 하려면 **새 단계** 를 선택 합니다. 
 
-   단계 사이에 작업을 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
+   단계 사이에 작업을 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 표시되는 더하기 기호( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
-1. 검색 상자에 "outlook.com"를 필터로 입력 합니다. 이 예에서는 **전자 메일 보내기**를 선택 합니다. 
+1. 검색 상자에 "outlook.com"를 필터로 입력 합니다. 이 예에서는 **전자 메일 보내기** 를 선택 합니다. 
 
 1. 로그인 하 라는 메시지가 표시 되 면 논리 앱이 계정에 연결할 수 있도록 Outlook.com 자격 증명을 제공 합니다. 그렇지 않고 연결이 이미 있는 경우 작업 속성에 대 한 정보를 제공 합니다.
 
-1. 디자이너 도구 모음에서 **저장**을 선택 합니다. 그러면 논리 앱이 저장 됩니다.
+1. 디자이너 도구 모음에서 **저장** 을 선택 합니다. 그러면 논리 앱이 저장 됩니다.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

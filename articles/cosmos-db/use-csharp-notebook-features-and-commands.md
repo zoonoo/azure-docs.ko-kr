@@ -9,10 +9,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340484"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Azure Cosmos DB C# Notebooks(미리 보기)의 기본 제공 Notebook 명령 및 기능 사용
@@ -149,7 +149,7 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 
-출력 통계를 사용하여 항목을 업로드하는 데 사용되는 유효 RU/s를 계산할 수 있습니다. 예를 들어 38초를 초과하여 25,000 RUs를 사용하는 경우 유효 RU/s는 25,000RUs/38초 = 658RU/s입니다.
+출력 통계를 사용하여 항목을 업로드하는 데 사용되는 유효 RU/s를 계산할 수 있습니다. 예를 들어 38초를 초과하여 25000 RUs를 사용하는 경우 유효 RU/s는 25000RUs/38초 = 658RU/s입니다.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>현재 Notebook에서 다른 Notebook 실행 
 ``%%run`` 매직 명령을 사용하여 현재 Notebook의 작업 영역에서 다른 Notebook을 실행할 수 있습니다. 다음 구문을 사용합니다.

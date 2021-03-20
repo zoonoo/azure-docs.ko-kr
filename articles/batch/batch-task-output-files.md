@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 720c064c6b382bc62565c0828422181c761df8e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936931"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
@@ -111,7 +111,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 [OutputFileUploadOptions.UploadCondition](/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 속성은 출력 파일의 조건부 업로드를 허용합니다. 일반적인 시나리오는 태스크가 성공하면 한 파일 집합을 업로드하고, 실패하면 다른 파일 집합을 업로드하는 것입니다. 예를 들어 태스크가 실패하고 0이 아닌 종료 코드로 종료되는 경우에만 자세한 로그 파일을 업로드하는 것이 좋습니다. 마찬가지로 태스크가 실패하는 경우 파일이 없거나 불완전할 수 있으므로, 태스크가 성공한 경우에만 결과 파일을 업로드하는 것이 좋습니다.
 
-위의 코드 샘플에서는 **UploadCondition** 속성을 **TaskCompletion**으로 설정합니다. 이 설정은 종료 코드의 값에 관계 없이 태스크가 완료된 후에 파일을 업로드하도록 지정합니다.
+위의 코드 샘플에서는 **UploadCondition** 속성을 **TaskCompletion** 으로 설정합니다. 이 설정은 종료 코드의 값에 관계 없이 태스크가 완료된 후에 파일을 업로드하도록 지정합니다.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -177,13 +177,13 @@ C# 이외의 언어로 개발하는 경우 파일 규칙 표준을 직접 구현
 
 [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) 샘플 프로젝트는 GitHub의 [Azure Batch 코드 샘플](https://github.com/Azure/azure-batch-samples) 중 하나입니다. 이 Visual Studio 솔루션에서는 .NET용 Batch 클라이언트 라이브러리를 사용하여 영구 스토리지에 태스크 출력을 유지하는 방법을 보여 줍니다. 샘플을 실행하려면 다음 단계를 수행합니다.
 
-1. **Visual Studio 2019**에서 프로젝트를 엽니다.
-2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
+1. **Visual Studio 2019** 에서 프로젝트를 엽니다.
+2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명** 을 **AccountSettings.settings** 에 추가합니다.
 3. **빌드** 합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
-4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 애플리케이션 ID를 "PersistOutputsTask"로, 애플리케이션 패키지 버전을 "1.0"으로 설정합니다.
+4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지** 를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 애플리케이션 ID를 "PersistOutputsTask"로, 애플리케이션 패키지 버전을 "1.0"으로 설정합니다.
 5. **PersistOutputs** 프로젝트를 **시작**(실행)합니다.
-6. 샘플을 실행하는 데 사용할 지속성 기술을 선택하라는 메시지가 표시될 때 Batch 서비스 API를 통해 샘플을 실행하여 태스크 출력을 유지하려면 **2**를 입력합니다.
-7. 원하는 경우 샘플을 다시 실행하고 **3**을 입력하여 Batch 서비스 API를 통해 출력을 유지하고 파일 규칙 표준에 따라 대상 컨테이너와 Blob 경로의 이름도 지정합니다.
+6. 샘플을 실행하는 데 사용할 지속성 기술을 선택하라는 메시지가 표시될 때 Batch 서비스 API를 통해 샘플을 실행하여 태스크 출력을 유지하려면 **2** 를 입력합니다.
+7. 원하는 경우 샘플을 다시 실행하고 **3** 을 입력하여 Batch 서비스 API를 통해 출력을 유지하고 파일 규칙 표준에 따라 대상 컨테이너와 Blob 경로의 이름도 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

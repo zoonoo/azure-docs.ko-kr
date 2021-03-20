@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4ff8225522e79e2be40682fb5e4823777dde2aa0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998306"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
@@ -44,7 +44,7 @@ ms.locfileid: "88998306"
 
 ![태그 개요](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
-그림에서 **Beatles** 로 태그가 지정 된 메시지는 **beatles**태그에 등록 된 태블릿에만 도달 합니다.
+그림에서 **Beatles** 로 태그가 지정 된 메시지는 **beatles** 태그에 등록 된 태블릿에만 도달 합니다.
 
 태그에 대한 등록을 생성하는 내용은 [등록 관리](notification-hubs-push-notification-registration-management.md)를 참조하세요.
 

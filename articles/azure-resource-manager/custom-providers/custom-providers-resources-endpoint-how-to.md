@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650527"
 ---
 # <a name="adding-custom-resources-to-azure-rest-api"></a>Azure REST API에 사용자 지정 리소스 추가
@@ -56,7 +56,7 @@ ms.locfileid: "75650527"
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-사용자 지정 리소스의 경우 사용자 지정 리소스 공급자는 "" 및 ""의 두 가지 **routingtypes**를 제공 `Proxy` `Proxy, Cache` 합니다.
+사용자 지정 리소스의 경우 사용자 지정 리소스 공급자는 "" 및 ""의 두 가지 **routingtypes** 를 제공 `Proxy` `Proxy, Cache` 합니다.
 
 ### <a name="proxy-routing-type"></a>프록시 라우팅 유형
 
@@ -102,11 +102,11 @@ az resource create --is-full-object \
                     }'
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 is-full-object | *예로* | 속성 개체에 위치, 태그, SKU 및/또는 계획과 같은 다른 옵션이 포함된다는 것을 나타냅니다.
 id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **ResourceProvider** 에 있어야 합니다.
-properties | *예로* | **끝점**으로 전송 되는 요청 본문입니다.
+properties | *예로* | **끝점** 으로 전송 되는 요청 본문입니다.
 
 Azure 사용자 지정 리소스 삭제:
 
@@ -116,7 +116,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 매개 변수 | 필수 | Description
 ---|---|---
-id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **ResourceProvider**에 있어야 합니다.
+id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **ResourceProvider** 에 있어야 합니다.
 
 Azure 사용자 지정 리소스 검색:
 
@@ -131,7 +131,7 @@ id | *예로* | 사용자 지정 리소스의 리소스 ID입니다. 이는 **Re
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
 > [!NOTE]
-> 리소스의 경우 응답에는 끝점에서 적절 한, 및가 포함 되어야 `id` `name` `type` 합니다. **endpoint**
+> 리소스의 경우 응답에는 끝점에서 적절 한, 및가 포함 되어야 `id` `name` `type` 합니다. 
 
 Azure Resource Manager 템플릿에는 `id` , `name` 및가 `type` 다운스트림 끝점에서 올바르게 반환 되어야 합니다. 반환 된 리소스 응답은 다음과 같은 형식 이어야 합니다.
 
@@ -174,7 +174,7 @@ Azure Resource Manager 템플릿에는 `id` , `name` 및가 `type` 다운스트�
 }
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 resourceTypeName | *예로* | 사용자 지정 공급자에 정의 된 **resourceType** 의 **이름** 입니다.
 resourceProviderName | *예로* | 사용자 지정 리소스 공급자 인스턴스 이름입니다.

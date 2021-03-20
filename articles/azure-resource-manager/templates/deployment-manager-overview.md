@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 63553b0bbca031faa44e0d88480fcc08950a3e2c
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627502"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
@@ -30,7 +30,7 @@ Azure 배포 관리자 미리 보기 상태입니다. [피드백](https://aka.ms
 
 추가 리소스:
 
-* [Azure 배포 관리자 REST API 참조](/rest/api/deploymentmanager/)입니다.
+* [Azure Deployment Manager REST API 참조](/rest/api/deploymentmanager/)
 * [자습서: 리소스 관리자 템플릿과 함께 Azure 배포 관리자를 사용](./deployment-manager-tutorial.md)합니다.
 * [자습서: Azure Deployment Manager에서 상태 확인 사용](./deployment-manager-tutorial-health-check.md)을 참조하세요.
 * [Azure 배포 관리자 샘플](https://github.com/Azure-Samples/adm-quickstart).

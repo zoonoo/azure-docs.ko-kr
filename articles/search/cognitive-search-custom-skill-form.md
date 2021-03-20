@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880138"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>예: 양식 인식기 사용자 지정 기술 만들기
@@ -43,7 +43,7 @@ ms.locfileid: "98880138"
 * `FORMS_RECOGNIZER_RETRY_DELAY` 값이 1000로 설정 된입니다. 이 값은 프로그램에서 쿼리를 다시 시도 하기 전까지 대기 하는 시간 (밀리초)입니다.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS` 값이 100로 설정 된입니다. 이 값은 성공적인 응답을 가져오는 동안 프로그램에서 서비스를 쿼리 하는 횟수입니다.
 
-그런 다음 _AnalyzeForm.cs_ 를 열고 `fieldMappings` 파일 *의field-mappings.js* 를 참조 하는 변수를 찾습니다. 이 파일 및이 파일을 참조 하는 변수는 양식에서 추출할 키 목록과 각 키에 대 한 사용자 지정 레이블을 정의 합니다. 예를 들어 값이 이면 `{ "Address:", "address" }, { "Invoice For:", "recipient" }` 스크립트는 검색 된 필드와 필드에 대 한 값만 저장 하 `Address:` `Invoice For:` 고 각각 및로 해당 값에 레이블을 만듭니다 `"address"` `"recipient"` .
+그런 다음 _AnalyzeForm_ 를 열고 `fieldMappings` 파일 *의field-mappings.js* 를 참조 하는 변수를 찾습니다. 이 파일 및이 파일을 참조 하는 변수는 양식에서 추출할 키 목록과 각 키에 대 한 사용자 지정 레이블을 정의 합니다. 예를 들어 값이 이면 `{ "Address:", "address" }, { "Invoice For:", "recipient" }` 스크립트는 검색 된 필드와 필드에 대 한 값만 저장 하 `Address:` `Invoice For:` 고 각각 및로 해당 값에 레이블을 만듭니다 `"address"` `"recipient"` .
 
 마지막으로 변수를 확인 `contentType` 합니다. 이 스크립트는 URL에서 참조 하는 원격 문서에서 지정 된 폼 인식기 모델을 실행 하므로 콘텐츠 형식은 `application/json` 입니다. HTTP 요청에 바이트 스트림을 포함 하 여 로컬 파일을 분석 하려는 경우를 `contentType` 파일의 적절 한 [MIME 형식](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) 으로 변경 해야 합니다.
 
@@ -112,7 +112,7 @@ Azure blob storage에 없는 원격 문서를 분석 하려면 필드에 해당 
 함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
 1. Visual Studio의 **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시** 를 선택 합니다. **새로 만들기**  >  **게시** 를 선택 합니다.
-1. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
+1. Visual Studio를 Azure 계정에 아직 연결 하지 않은 경우 **계정 추가 ...** 를 선택 합니다.
 1. 화면에 표시되는 메시지를 따릅니다. 앱 서비스, Azure 구독, 리소스 그룹, 호스팅 계획 및 사용 하려는 저장소 계정에 대 한 고유한 이름을 지정 합니다. 새 리소스 그룹, 새 호스팅 계획 및 새 저장소 계정 (아직 없는 경우)을 만들 수 있습니다. 작업이 완료되면 **만들기** 를 선택합니다.
 1. 배포가 완료 되 면 사이트 URL을 확인 합니다. 이 URL은 Azure에서 함수 앱의 주소입니다. 임시 위치에 저장 합니다.
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동 하 고 게시 한 함수를 찾습니다 `AnalyzeForm` . **관리** 섹션 아래에 호스트 키가 표시됩니다. *기본* 호스트 키를 복사 하 여 임시 위치에 저장 합니다.

@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
 ms.openlocfilehash: 7fd9e504448d55b4a2ef8c10b4ba1176cb2e3402
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96172638"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합 하는 5 단계
 
-Azure AD (Azure Active Directory)는 Microsoft 클라우드 기반 id 및 액세스 관리 서비스입니다. Azure AD는 고객, 파트너 및 직원이 필요한 응용 프로그램에 액세스할 수 있도록 보안 인증 및 권한 부여 솔루션을 제공 합니다. Azure AD에서 [조건부 액세스](../conditional-access/overview.md), [multi-factor authentication](../authentication/concept-mfa-howitworks.md), [single sign-on](../hybrid/how-to-connect-sso.md)및 [자동 사용자 프로 비전](../app-provisioning/user-provisioning.md) 을 사용 하면 id 및 액세스 관리를 쉽고 안전 하 게 수행할 수 있습니다.
+Azure AD(Azure Active Directory)는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD는 고객, 파트너 및 직원이 필요한 응용 프로그램에 액세스할 수 있도록 보안 인증 및 권한 부여 솔루션을 제공 합니다. Azure AD에서 [조건부 액세스](../conditional-access/overview.md), [multi-factor authentication](../authentication/concept-mfa-howitworks.md), [single sign-on](../hybrid/how-to-connect-sso.md)및 [자동 사용자 프로 비전](../app-provisioning/user-provisioning.md) 을 사용 하면 id 및 액세스 관리를 쉽고 안전 하 게 수행할 수 있습니다.
 
 회사에 Microsoft 365 구독이 있는 경우 이미 Azure AD를 [사용](/office365/enterprise/about-office-365-identity) 하 고 있을 것입니다. 그러나 Azure AD는 모든 응용 프로그램에 사용할 수 있으며, [응용 프로그램 관리를 중앙 집중화](../manage-apps/common-scenarios.md) 하 여 전체 앱 포트폴리오에서 동일한 id 관리 기능, 도구 및 정책을 사용할 수 있습니다. 이렇게 하면 보안을 강화 하 고, 비용을 절감 하 고, 생산성을 높이고, 규정 준수를 보장할 수 있는 통합 솔루션을 제공 합니다. 온-프레미스 앱에 대 한 원격 액세스 권한을 얻게 됩니다.
 

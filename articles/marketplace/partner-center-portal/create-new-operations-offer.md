@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 12/02/2020
 ms.openlocfilehash: bcb7f2d008c54981223b4839f9a750e6ee9ac5cc
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97355151"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
@@ -45,7 +45,7 @@ ms.locfileid: "97355151"
 - 이 이름은 마켓플레이스에서 사용되지 않으며 고객에게 표시되는 제품 이름 및 기타 값과 다릅니다.
 - **만들기** 를 선택한 후에는이 이름을 변경할 수 없습니다.
 
-제품을 생성하고 계속하려면 **만들기** 를 선택합니다.
+**만들기** 를 선택하여 제품을 생성하고 계속합니다.
 
 ## <a name="offer-setup"></a>제품 설정
 

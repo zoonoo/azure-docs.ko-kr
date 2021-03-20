@@ -5,15 +5,15 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
 ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91876450"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
-[지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지 속성 타이머는 `Thread.Sleep` 및 `Task.Delay` (c #) 또는 `setTimeout()` 및 `setInterval()` (JavaScript) 또는 `time.sleep()` (Python) 대신 orchestrator 함수에서 사용 해야 합니다.
+[지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머* 를 제공합니다. 지 속성 타이머는 `Thread.Sleep` 및 `Task.Delay` (c #) 또는 `setTimeout()` 및 `setInterval()` (JavaScript) 또는 `time.sleep()` (Python) 대신 orchestrator 함수에서 사용 해야 합니다.
 
 `CreateTimer` `createTimer` [오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)(.net) 메서드 또는 (JavaScript) 메서드를 호출 하 여 지 속성 타이머를 만듭니다. 메서드는 지정 된 날짜와 시간에 완료 되는 작업을 반환 합니다.
 

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/11/2018
 ms.author: rogarana
 ms.openlocfilehash: aeb15fbb8da44a203789e06a359cb664998602ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77123195"
 ---
 Azure 파일 동기화 에이전트는 새 기능을 추가하고 문제를 해결하기 위해 주기적으로 업데이트됩니다. 사용할 수 있을 때 Microsoft 업데이트에서 Azure 파일 동기화 에이전트에 대한 업데이트를 가져오도록 구성하는 것이 좋습니다.
@@ -23,9 +23,9 @@ Azure 파일 동기화 에이전트 업데이트를 설치하는 데 승인된 �
     항상 모든 Azure 파일 동기화 업데이트를 수행하여 서버 에이전트에 대한 최신 수정 프로그램에 액세스할 수 있도록 하는 것이 좋습니다. Microsoft 업데이트는 업데이트를 자동으로 다운로드하고 설치하여 이 프로세스를 원활하게 합니다.
 2. **AfsUpdater.exe를 사용하여 에이전트 업데이트를 다운로드하고 설치합니다.**  
     AfsUpdater.exe는 에이전트 설치 디렉터리에 있습니다. 실행 파일을 두 번 클릭하여 에이전트 업데이트를 다운로드하고 설치합니다. 
-3. **Microsoft 업데이트 패치 파일 또는 .msp 실행 파일을 사용 하 여 기존 Azure File Sync 에이전트를 패치 합니다. 최신 Azure File Sync 업데이트 패키지는 [Microsoft 업데이트 카탈로그](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)에서 다운로드할 수 있습니다.**  
+3. **Microsoft 업데이트 패치 파일 또는 .msp 실행 파일을 사용 하 여 기존 Azure 파일 동기화 에이전트를 패치 합니다. 최신 Azure 파일 동기화 업데이트 패키지는 [Microsoft 업데이트 카탈로그](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync)에서 다운로드할 수 있습니다.**  
     .msp 실행 파일을 실행하면 Microsoft 업데이트에서 자동으로 사용하는 방식과 동일하게 Azure 파일 동기화 설치가 이전 업그레이드 경로에서 업그레이드됩니다. Microsoft 업데이트 패치를 적용하면 Azure 파일 동기화 설치의 현재 위치 업그레이드가 수행됩니다.
-4. **[Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 최신 Azure File Sync 에이전트 설치 관리자를 다운로드 합니다.**  
+4. **[Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 최신 Azure 파일 동기화 에이전트 설치 관리자를 다운로드 합니다.**  
     기존 Azure 파일 동기화 에이전트 설치를 업그레이드하려면 이전 버전을 제거한 다음, 다운로드한 설치 관리자에서 최신 버전을 설치합니다. Azure 파일 동기화 설치 관리자는 서버 등록, 동기화 그룹 및 다른 모든 설정을 관리합니다.
 
 #### <a name="automatic-agent-lifecycle-management"></a>자동 에이전트 수명 주기 관리
@@ -56,7 +56,7 @@ Set-StorageSyncAgentAutoUpdatePolicy -PolicyMode InstallLatest
 ```
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>에이전트 수명 주기 및 변경 관리 보장
-Azure File Sync은 새로운 기능 및 향상 된 기능을 지속적으로 도입 하는 클라우드 서비스입니다. 즉, 특정 Azure 파일 동기화 에이전트 버전은 제한된 시간 동안만 지원될 수 있습니다. 배포를 용이 하 게 하기 위해 다음 규칙을 통해 변경 관리 프로세스에서 에이전트 업데이트/업그레이드를 수용할 수 있는 충분 한 시간과 알림이 보장 됩니다.
+Azure 파일 동기화은 새로운 기능 및 향상 된 기능을 지속적으로 도입 하는 클라우드 서비스입니다. 즉, 특정 Azure 파일 동기화 에이전트 버전은 제한된 시간 동안만 지원될 수 있습니다. 배포를 용이 하 게 하기 위해 다음 규칙을 통해 변경 관리 프로세스에서 에이전트 업데이트/업그레이드를 수용할 수 있는 충분 한 시간과 알림이 보장 됩니다.
 
 - 주 에이전트 버전은 최초 릴리스 날짜로부터 최소 6개월 동안 지원됩니다.
 - 주 에이전트 버전의 지원 사이에는 3개월 이상 겹치도록 보장합니다. 

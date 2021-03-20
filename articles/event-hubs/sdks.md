@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs의 클라이언트 Sdk에 대 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 9f4eec603245f1e4ea6fa4d97b843ca6a770f2ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930879"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs-클라이언트 Sdk
@@ -37,7 +37,7 @@ ms.locfileid: "88930879"
 | C | [azure-이벤트-허브-c](https://github.com/Azure/azure-event-hubs-c) | <ul><li>[GitHub 위치](https://github.com/Azure/azure-event-hubs-c)</li><li>[자습서](event-hubs-c-getstarted-send.md)</li></ul> |
 
 ## <a name="management-sdks"></a>관리 SDK
-다음 표에서는 현재 사용 가능한 관리용 라이브러리를 나열합니다. 이러한 라이브러리에는 런타임 작업이 포함 되어 있지 않으며 **Event Hubs 엔터티를 관리**하는 용도로만 사용할 수 있습니다.
+다음 표에서는 현재 사용 가능한 관리용 라이브러리를 나열합니다. 이러한 라이브러리에는 런타임 작업이 포함 되어 있지 않으며 **Event Hubs 엔터티를 관리** 하는 용도로만 사용할 수 있습니다.
 
 | 언어 | 패키지 | 참조 | 
 | -------- | ------- | --------------- | 

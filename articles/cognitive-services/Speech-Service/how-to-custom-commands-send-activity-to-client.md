@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94566098"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>사용자 지정 명령 작업을 클라이언트 응용 프로그램으로 보내기
@@ -35,7 +35,7 @@ ms.locfileid: "94566098"
 
 ## <a name="setup-send-activity-to-client"></a>클라이언트에 보내기 작업 설정 
 1. 이전에 만든 사용자 지정 명령 응용 프로그램 열기
-1. ConfirmationResponse **명령 선택** 에서 완료 규칙 아래 **ConfirmationResponse** 에 **있는 작업 추가** 를 선택 하 고 작업 추가를 선택 합니다.
+1. ConfirmationResponse **명령 선택** 에서 완료 규칙 아래  에 **있는 작업 추가** 를 선택 하 고 작업 추가를 선택 합니다.
 1. **새 작업-형식** 에서 **클라이언트에 작업 보내기** 를 선택 합니다.
 1. 아래 JSON을 **활동 내용** 에 복사 합니다.
    ```json

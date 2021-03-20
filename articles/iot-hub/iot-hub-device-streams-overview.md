@@ -12,10 +12,10 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Technical Support'
 ms.openlocfilehash: 9487fc562fa099d2650aabc8d15fc1449c7fcb5c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97825182"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
@@ -26,7 +26,7 @@ Azure IoT Hub ‘디바이스 스트림’은 다양한 클라우드-디바이�
 
 IoT Hub 디바이스 스트림을 사용하면 디바이스가 안전하게 유지되며, 포트 443을 통해 IoT Hub의 스트리밍 엔드포인트에 대한 아웃바운드 TCP 연결만 열면 됩니다. 스트림이 설정되면 서비스 쪽 및 디바이스 쪽 애플리케이션이 각각 프로그래밍 방식으로 WebSocket 클라이언트 개체에 액세스하여 서로 원시 바이트를 보내고 받을 수 있습니다. 이 터널에서 제공하는 안정성 및 순서 지정 보장은 TCP와 유사합니다.
 
-## <a name="benefits"></a>혜택
+## <a name="benefits"></a>이점
 
 IoT Hub 디바이스 스트림은 다음과 같은 혜택을 제공합니다.
 
@@ -142,7 +142,7 @@ IoT Hub에 대 한 장치 스트림 로그를 Azure Monitor 로그에 보내도�
 
 IoT Hub에서 Azure Monitor를 사용 하는 방법에 대 한 자세한 내용은 [Monitor IoT Hub](monitor-iot-hub.md)를 참조 하세요. IoT Hub에서 사용할 수 있는 모든 리소스 로그, 메트릭 및 테이블에 대 한 자세한 내용은 [데이터 참조 모니터링 Azure IoT Hub](monitor-iot-hub-reference.md)을 참조 하세요.
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 공개 미리 보기 중에 IoT Hub 장치 스트림은 미국 중부, 미국 중부 EUAP, 유럽, 동남 아시아 지역에서 사용할 수 있습니다. 이러한 지역 중 하나에 허브를 만들어야 합니다.
 
@@ -194,7 +194,7 @@ IoT Hub 페이지에는 두 개의 [빠른 시작 샘플이](./index.yml) 있습
 
 4. 서비스-로컬 프록시가 사용자의 새 SSH 연결을 기다리도록 지정된 포트에서 수신 대기합니다(샘플에서는 2222 포트가 사용되지만 사용 가능한 다른 포트로 구성될 수 있음). 사용자가 SSH 클라이언트에서 localhost의 서비스-로컬 프록시 포트를 가리킵니다.
 
-### <a name="notes"></a>메모
+### <a name="notes"></a>참고
 
 * 위 단계는 SSH 클라이언트(오른쪽)와 SSH 디먼(왼쪽) 간의 엔드투엔드 터널을 완료합니다. 이 엔드투엔드 연결의 일부는 디바이스 스트림을 통해 IoT Hub로 트래픽을 보내는 것과 관련이 있습니다.
 

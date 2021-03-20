@@ -8,10 +8,10 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/16/2020
 ms.openlocfilehash: 0a3188d5dc2c34c9959ae488ad5a5f962a99f02f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880273"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
@@ -37,7 +37,7 @@ ms.locfileid: "98880273"
 * 하나 이상의 참여 파트너는 다음 영역 중 하나에서 골드 역량이 있어야 합니다.
     - 애플리케이션 개발
     - 애플리케이션 통합
-    - 애플리케이션 수명 주기 관리.
+    - 애플리케이션 수명 주기 관리
     - 클라우드 플랫폼
     - 데이터 분석
     - 데이터 센터
@@ -51,7 +51,7 @@ ms.locfileid: "98880273"
 
 ## <a name="submit-a-nomination"></a>추천 제출
 
-프로그램에 참여하려는 파트너는 함께 작업할 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 기준 10일 이내에 처리합니다. 팀에서 승인하고 다음 단계로 진행합니다.
+프로그램에 참여하려는 파트너는 작업하려는 다른 파트너를 식별해야 합니다. [통합 솔루션 추천 폼](https://aka.ms/AA5qicu)을 완료 해야 합니다. 통합 솔루션 프로그램 팀은 추천을 검토하고 영업일 10일 이내에 수행합니다. 팀에서 승인하고 다음 단계로 진행합니다.
 
 ## <a name="develop-an-integrated-solution"></a>통합 솔루션 개발
 

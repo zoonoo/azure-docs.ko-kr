@@ -9,10 +9,10 @@ ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 03c899307b00010ca87b279ed720b92946d3673c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340089"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-service-unavailable-exceptions"></a>Java v4 SDK 서비스를 사용할 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
@@ -26,7 +26,7 @@ Java v4 SDK가 Azure Cosmos DB에 연결할 수 없습니다.
 [필요한 포트](sql-sdk-connection-modes.md#service-port-ranges) 를 모두 사용 하도록 설정 했는지 확인 합니다.
 
 ### <a name="client-side-transient-connectivity-issues"></a>클라이언트 쪽 임시 연결 문제
-서비스를 사용할 수 없는 예외는 시간 초과를 유발 하는 일시적인 연결 문제가 있는 경우에 발생할 수 있습니다. 일반적으로이 시나리오와 관련 된 스택 추적에는 `ServiceUnavailableException` 진단 정보에 대 한 오류가 포함 됩니다. 예를 들어:
+서비스를 사용할 수 없는 예외는 시간 초과를 유발 하는 일시적인 연결 문제가 있는 경우에 발생할 수 있습니다. 일반적으로이 시나리오와 관련 된 스택 추적에는 `ServiceUnavailableException` 진단 정보에 대 한 오류가 포함 됩니다. 예를 들면 다음과 같습니다.
 
 ```java
 Exception in thread "main" ServiceUnavailableException{userAgent=azsdk-java-cosmos/4.6.0 Linux/4.15.0-1096-azure JRE/11.0.8, error=null, resourceAddress='null', requestUri='null', statusCode=503, message=Service is currently unavailable, please retry after a while. If this problem persists please contact support.: Message: "" {"diagnostics"}

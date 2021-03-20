@@ -4,10 +4,10 @@ description: 지역별 서비스 중단 시에 사용하도록 Batch 애플리�
 ms.topic: how-to
 ms.date: 12/30/2020
 ms.openlocfilehash: 51bcb0cfa35aacd24c0f79082491ef1fc7040889
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831009"
 ---
 # <a name="design-your-batch-application-for-high-availability"></a>고가용성을 위한 Batch 응용 프로그램 디자인

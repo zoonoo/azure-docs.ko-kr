@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 136853182e353ad5cd71981db5935fc3babe162e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339607"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-sql-api-account-using-striim"></a>Striim를 사용 하 여 SQL API 계정 Azure Cosmos DB으로 데이터 마이그레이션
@@ -22,7 +22,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 이 문서에서는 Striim를 사용 하 여 **Oracle 데이터베이스** 에서 **Azure Cosmos DB SQL API 계정** 으로 데이터를 마이그레이션하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
@@ -36,7 +36,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-azure-marketplace.png" alt-text="Striim marketplace 항목 찾기":::
 
-1. 그런 다음 Striim 인스턴스의 구성 속성을 입력 합니다. Striim 환경은 가상 컴퓨터에 배포 됩니다. **기본 사항** 창에서 vm **사용자 이름** , **vm 암호** 를 입력 합니다 .이 암호는 vm에 SSH를 사용 하는 데 사용 됩니다. Striim를 배포 하려는 **구독** , **리소스 그룹** 및 **위치 세부 정보** 를 선택 합니다. 완료 되 면 **확인** 을 선택 합니다.
+1. 그런 다음 Striim 인스턴스의 구성 속성을 입력 합니다. Striim 환경은 가상 컴퓨터에 배포 됩니다. **기본 사항** 창에서 vm **사용자 이름**, **vm 암호** 를 입력 합니다 .이 암호는 vm에 SSH를 사용 하는 데 사용 됩니다. Striim를 배포 하려는 **구독**, **리소스 그룹** 및 **위치 세부 정보** 를 선택 합니다. 완료 되 면 **확인** 을 선택 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-configure-basic-settings.png" alt-text="Striim에 대 한 기본 설정 구성":::
 
@@ -50,7 +50,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    양식을 채운 후 **확인** 을 선택 하 여 계속 합니다.
 
-1. **Striim access 설정** 창에서 Striim UI에 로그인 하는 데 사용 하려는 **공용 IP 주소** (기본값 선택), **Striim에 대 한 도메인 이름** , **관리자 암호** 를 구성 합니다. VNET 및 서브넷을 구성 합니다 (기본값 선택). 세부 정보를 입력 한 후 **확인** 을 선택 하 여 계속 합니다.
+1. **Striim access 설정** 창에서 Striim UI에 로그인 하는 데 사용 하려는 **공용 IP 주소** (기본값 선택), **Striim에 대 한 도메인 이름**, **관리자 암호** 를 구성 합니다. VNET 및 서브넷을 구성 합니다 (기본값 선택). 세부 정보를 입력 한 후 **확인** 을 선택 하 여 계속 합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-access-settings.png" alt-text="Striim access 설정":::
 
@@ -130,7 +130,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/striim-login-ui.png" alt-text="Striim에 로그인":::
 
-1. 이제 Striim의 홈 페이지에 도착 합니다. **대시보드** , **앱** 및 **sourcepreview** 의 세 가지 창이 있습니다. 대시보드 창에서는 데이터를 실시간으로 이동 하 고 시각화할 수 있습니다. 앱 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함 됩니다. 페이지의 오른쪽에는 데이터를 이동 하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
+1. 이제 Striim의 홈 페이지에 도착 합니다. **대시보드**, **앱** 및 **sourcepreview** 의 세 가지 창이 있습니다. 대시보드 창에서는 데이터를 실시간으로 이동 하 고 시각화할 수 있습니다. 앱 창에는 스트리밍 데이터 파이프라인 또는 데이터 흐름이 포함 됩니다. 페이지의 오른쪽에는 데이터를 이동 하기 전에 미리 볼 수 있는 SourcePreview가 있습니다.
 
 1. **앱** 창을 선택 하면 지금은이 창에 집중할 것입니다. Striim에 대해 학습 하는 데 사용할 수 있는 다양 한 샘플 앱이 있습니다. 그러나이 문서에서는 사용자가 직접 만듭니다. 오른쪽 위 모서리에서 **앱 추가** 단추를 선택 합니다.
 
@@ -146,7 +146,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
 1. 다음 페이지에서 응용 프로그램의 이름을로 합니다. **OraToCosmosDB** 와 같은 이름을 입력 한 다음 **저장** 을 선택할 수 있습니다.
 
-1. 그런 다음 원본 Oracle 인스턴스의 원본 구성을 입력 합니다. **원본 이름** 에 대 한 값을 입력 합니다. 원본 이름은 Striim 응용 프로그램에 대 한 명명 규칙 일 뿐 이며 **src_onPremOracle** 와 같은 항목을 사용할 수 있습니다. 원본 매개 변수 **URL** , **사용자 이름** , **암호** 에 대 한 값을 입력 합니다. Oracle에서 데이터를 읽을 수 있도록 판독기로 **LogMiner** 를 선택 합니다. **다음** 을 선택하여 계속합니다.
+1. 그런 다음 원본 Oracle 인스턴스의 원본 구성을 입력 합니다. **원본 이름** 에 대 한 값을 입력 합니다. 원본 이름은 Striim 응용 프로그램에 대 한 명명 규칙 일 뿐 이며 **src_onPremOracle** 와 같은 항목을 사용할 수 있습니다. 원본 매개 변수 **URL**, **사용자 이름**, **암호** 에 대 한 값을 입력 합니다. Oracle에서 데이터를 읽을 수 있도록 판독기로 **LogMiner** 를 선택 합니다. 계속하려면 **다음** 을 선택합니다.
 
    :::image type="content" source="./media/cosmosdb-sql-api-migrate-data-striim/configure-source-parameters.png" alt-text="원본 매개 변수 구성":::
 
@@ -164,7 +164,7 @@ Azure marketplace의 Striim 이미지는 데이터 웨어하우스 및 데이터
 
    * **대상 이름** -대상의 이름을 제공 합니다. 
    * **입력** 원본-드롭다운 목록에서 원본 Oracle 구성에서 만든 입력 스트림을 선택 합니다. 
-   * **컬렉션** -대상 Azure Cosmos DB 구성 속성을 입력 합니다. Collections 구문은 **SourceSchema. SourceTable, TargetDatabase. Targetdatabase** 입니다. 이 예제에서 값은 "SYSTEM"입니다. ORDERS, StriimDemo ". 
+   * **컬렉션**-대상 Azure Cosmos DB 구성 속성을 입력 합니다. Collections 구문은 **SourceSchema. SourceTable, TargetDatabase. Targetdatabase** 입니다. 이 예제에서 값은 "SYSTEM"입니다. ORDERS, StriimDemo ". 
    * **AccessKey** -Azure Cosmos 계정의 PrimaryKey입니다.
    * **ServiceEndpoint** – Azure COSMOS 계정의 URI 이며 Azure Portal의 **키** 섹션에서 찾을 수 있습니다. 
 

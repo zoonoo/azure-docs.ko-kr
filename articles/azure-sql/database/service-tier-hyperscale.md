@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 1/13/2021
 ms.openlocfilehash: 4b5020b6cf7ac2f7aec586d7e6499285c1447b68
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209766"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
@@ -202,7 +202,7 @@ Azure SQL Database Hyperscale 계층은 모든 지역에서 사용할 수 있지
 - 노르웨이 서부
 - 남아프리카 북부
 - 미국 중남부
-- 동남 아시아
+- 동남아시아
 - 스위스 서부
 - 영국 남부
 - 영국 서부

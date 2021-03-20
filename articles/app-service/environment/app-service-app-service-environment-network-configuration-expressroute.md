@@ -8,10 +8,10 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 3fa2677f7c71b118ec3f7da717e29d5879ee982b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88961825"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
@@ -87,7 +87,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-* [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell을 설치합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구** > **Windows PowerShell**에서 **설치**를 선택하여 최신 PowerShell cmdlet을 설치합니다.
+* [Azure 다운로드 페이지][AzureDownloads]에서 Azure PowerShell을 설치합니다. 2015년 6월 이후 날짜의 다운로드를 선택합니다. **명령줄 도구** > **Windows PowerShell** 에서 **설치** 를 선택하여 최신 PowerShell cmdlet을 설치합니다.
 
 * App Service Environment에서만 사용할 고유 서브넷을 만듭니다. 고유 서브넷을 사용하면 서브넷에 적용된 UDR이 App Service Environment의 아웃바운드 트래픽만 엽니다.
 
@@ -96,7 +96,7 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 
 ### <a name="step-1-create-a-route-table"></a>1단계: 경로 테이블 만들기
 
-다음 코드 조각에 표시된 대로 미국 서부 Azure 지역에서 **DirectInternetRouteTable**이라는 경로 테이블을 만듭니다.
+다음 코드 조각에 표시된 대로 미국 서부 Azure 지역에서 **DirectInternetRouteTable** 이라는 경로 테이블을 만듭니다.
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 

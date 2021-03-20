@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87015224"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
@@ -29,11 +29,11 @@ ms.locfileid: "87015224"
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>AKS에 자체 호스팅 게이트웨이 배포
 
-1. **배포 및 인프라**에서 **게이트웨이** 를 선택 합니다.
+1. **배포 및 인프라** 에서 **게이트웨이** 를 선택 합니다.
 2. 배포 하려는 자체 호스팅 게이트웨이 리소스를 선택 합니다.
-3. **배포**를 선택 합니다.
+3. **배포** 를 선택 합니다.
 4. **토큰** 텍스트 상자의 새 토큰은 기본 **만료** 및 **비밀 키** 값을 사용 하 여 자동으로 자동 생성 되었습니다. 원하는 경우 둘 중 하나 또는 둘 다를 조정 하 고 **생성** 을 선택 하 여 새 토큰을 만듭니다.
-5. **배포 스크립트**아래에서 **Kubernetes** 이 선택 되어 있는지 확인 합니다.
+5. **배포 스크립트** 아래에서 **Kubernetes** 이 선택 되어 있는지 확인 합니다.
 6. **배포** 옆의 **게이트웨이 이름>. yml** 파일 링크를 선택 하 여 파일을 다운로드<합니다.
 7. 필요에 따라 iisnode.yml 파일의 포트 매핑 및 컨테이너 이름을 조정 합니다.
 8. 시나리오에 따라 [서비스 유형을](../aks/concepts-network.md#services)변경 해야 할 수도 있습니다. 기본값은 `NodePort`입니다.

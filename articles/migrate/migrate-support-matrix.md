@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 0e1cb33ca0a5fb9a1c7ddb2c4625dfef4acd3a1e
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99627401"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
@@ -38,7 +38,7 @@ ms.locfileid: "99627401"
 
 **도구** | **평가** | **마이그레이션** 
 --- | --- | ---
-Azure Migrate: 서버 평가 | [VMware VM](./tutorial-discover-vmware.md), [Hyper-V VM](./tutorial-discover-hyper-v.md) 및 [물리적 서버](./tutorial-discover-physical.md)를 평가합니다. |  사용할 수 없음 (해당 없음)
+Azure Migrate: Server Assessment | [VMware VM](./tutorial-discover-vmware.md), [Hyper-V VM](./tutorial-discover-hyper-v.md) 및 [물리적 서버](./tutorial-discover-physical.md)를 평가합니다. |  사용할 수 없음 (해당 없음)
 Azure Migrate: Server Migration | 해당 없음 | [VMware VM](tutorial-migrate-vmware.md), [Hyper-V VM](tutorial-migrate-hyper-v.md) 및 [물리적 서버](tutorial-migrate-physical-virtual-machines.md)를 마이그레이션합니다.
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | 해당 없음 | VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 마이그레이션합니다. 
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 평가합니다. | 해당 없음

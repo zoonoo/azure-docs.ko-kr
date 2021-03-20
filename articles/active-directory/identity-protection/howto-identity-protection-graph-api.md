@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2db8cfe652c0fca4b68b00d846e345c1b60cd05d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880239"
 ---
 # <a name="azure-active-directory-identity-protection-and-the-microsoft-graph-powershell-sdk"></a>Azure Active Directory Identity Protection 및 Microsoft Graph PowerShell SDK
@@ -62,7 +62,7 @@ Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 1. **API 권한 요청** 페이지에서 다음을 수행 합니다. 
    1. **애플리케이션 권한** 을 선택합니다.
    1. 및 옆의 확인란을 `IdentityRiskEvent.Read.All` 선택 `IdentityRiskyUser.Read.All` 합니다.
-   1. **모든 권한** 을 선택합니다.
+   1. **권한 추가** 를 선택합니다.
 1. **도메인에 대 한 관리자 동의 부여를 선택 합니다** . 
 
 ### <a name="configure-a-valid-credential"></a>유효한 자격 증명 구성
