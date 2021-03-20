@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/03/2020
 ms.openlocfilehash: f969c06a3419a8017cfc5ebc0de19caa67c8dc68
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361471"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
@@ -77,9 +77,9 @@ ms.locfileid: "100361471"
 
 | **속성 이름** | **설명**  | **형식** | **필수** |
 |---|---|---|---|
-| type  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | TumblingWindowTriggerDependencyReference 또는 SelfDependencyTumblingWindowTriggerReference | Yes |
+| type  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | TumblingWindowTriggerDependencyReference 또는 SelfDependencyTumblingWindowTriggerReference | 예 |
 | offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식에 값을 제공 하 고 음수 및 양수 오프셋을 모두 사용할 수 있습니다. 트리거가 자체에 의존 하는 경우이 속성은 필수 이며 다른 모든 경우에는 선택 사항입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. 값을 지정 하지 않으면 창은 트리거 자체와 동일 합니다. | Timespan<br/>(hh:mm:ss) | 자체 종속성: 예<br/>기타: 아니요 |
-| 크기 | 종속성 연속 창의 크기입니다. 양의 timespan 값을 제공 합니다. 이 속성은 선택 사항입니다. | Timespan<br/>(hh:mm:ss) | 예  |
+| 크기 | 종속성 연속 창의 크기입니다. 양의 timespan 값을 제공 합니다. 이 속성은 선택 사항입니다. | Timespan<br/>(hh:mm:ss) | 아니요  |
 
 > [!NOTE]
 > 연속 창 트리거는 최대 5 개의 다른 트리거에 종속 될 수 있습니다.

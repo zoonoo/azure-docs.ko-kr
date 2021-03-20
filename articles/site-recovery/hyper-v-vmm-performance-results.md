@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92327640"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
@@ -161,10 +161,10 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 | 기본 VMM 클라우드 | 보호되는 VM | 복제 빈도 | 추가 복구 지점 |
 | --- | --- | --- | --- |
-| PrimaryCloudRpo15m |142 |15분 |None |
-| PrimaryCloudRpo30s |47 |30초 |None |
+| PrimaryCloudRpo15m |142 |15분 |없음 |
+| PrimaryCloudRpo30s |47 |30초 |없음 |
 | PrimaryCloudRpo30sArp1 |47 |30초 |1 |
-| PrimaryCloudRpo5m |235 |5분 |None |
+| PrimaryCloudRpo5m |235 |5분 |없음 |
 
 ### <a name="performance-metrics"></a>성능 메트릭
 

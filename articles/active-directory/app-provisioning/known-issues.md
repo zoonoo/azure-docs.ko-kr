@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.date: 01/05/2021
 ms.reviewer: arvinh
 ms.openlocfilehash: 9eba671f6c824c8c88388f2b9d61512dfb1d122f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256646"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
-앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
+앱 프로비저닝 작업 시 알아야 할 알려진 문제 UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
 
 > [!NOTE]
 > 이는 알려진 문제에 대 한 포괄적인 목록이 아닙니다. 나열 되지 않은 문제를 알고 있는 경우 페이지의 맨 아래에 피드백을 제공 합니다.
@@ -64,7 +64,7 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 
 ## <a name="service-issues"></a>서비스 문제 
 
-**지원 되지 않는 시나리오**
+**지원되지 않는 시나리오**
 
 - 프로 비전 암호는 지원 되지 않습니다. 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 

@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.openlocfilehash: aa0ce6a5f909e67f0551c8667bb7e5c5e6d7eb04
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92275603"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
@@ -91,7 +91,7 @@ Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](h
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>AAD authority & 대상을 Microsoft identity platform 끝점에 매핑
 
-| Type | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 메모 |
+| Type | 사용자 | 테넌트 ID | Authority_Url | 결과 끝점 | 참고 |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` 는 계정이 인에 대 한 테 넌 트 별칭입니다. 예: 특정 Azure Active Directory 테 넌 트 또는 Microsoft 계정 시스템 |
 | AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Contoso.com에 있는 계정만 토큰을 획득할 수 있습니다. 확인 된 도메인 또는 테 넌 트 GUID는 테 넌 트 ID로 사용 될 수 있습니다. |
@@ -144,16 +144,16 @@ Microsoft Identity broker와 호환 되는 브로커 리디렉션 URI를 사용 
 
 HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
-| 속성 | 데이터 형식 | 필수 | 메모 |
+| 속성 | 데이터 형식 | 필수 | 참고 |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | Int | 아니요 | 시간 (밀리초) |
 | `read_timeout` | Int | 아니요 | 시간 (밀리초) |
 
-### <a name="logging"></a>logging
+### <a name="logging"></a>로깅
 
 로깅에 대 한 전역 설정은 다음과 같습니다.
 
-| 속성 | 데이터 형식  | 필수 | 메모 |
+| 속성 | 데이터 형식  | 필수 | 참고 |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | 아니요 | 개인 데이터를 내보낼지 여부 |
 | `log_level`   | 문자열 | No | 출력할 로그 메시지입니다. 지원 되는 로그 수준 `ERROR` 에는,, 및가 `WARNING` `INFO` `VERBOSE` 있습니다. |

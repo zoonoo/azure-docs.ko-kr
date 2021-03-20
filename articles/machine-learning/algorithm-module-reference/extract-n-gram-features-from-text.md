@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 12/08/2019
 ms.openlocfilehash: 37a10d90fa0e277fbe45d9f1377e365cb3d42996
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861463"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>텍스트 모듈 참조에서 N-문법 기능 추출
@@ -131,7 +131,7 @@ ms.locfileid: "96861463"
 + **DF**: 원래 모음의 n-문법에 대 한 용어 빈도 점수입니다.
 + **IDF**: 원래 모음의 n-문법에 대 한 역 문서 빈도 점수입니다.
 
-이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 예를 들어:
+이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 모듈이 입력 어휘에서 동일한 키를 가진 중복 행을 찾은 경우 오류가 발생 합니다. 어휘의 두 행이 같은 단어를 포함 하지 않도록 합니다.
 * 어휘 데이터 집합의 입력 스키마는 열 이름과 열 유형을 포함 하 여 정확 하 게 일치 해야 합니다. 

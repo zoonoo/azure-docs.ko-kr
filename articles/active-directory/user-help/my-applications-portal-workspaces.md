@@ -13,10 +13,10 @@ ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282537"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>내 앱 포털에서 컬렉션 사용
@@ -30,11 +30,11 @@ ms.locfileid: "92282537"
 
 ## <a name="access-apps-using-collections"></a>컬렉션을 사용하여 앱 액세스
 
-**내 앱** 포털의 컬렉션 목록에는 기본적으로 사용자에게 액세스 권한이 있는 모든 앱이 포함된 **모든 앱**이 표시됩니다.
+**내 앱** 포털의 컬렉션 목록에는 기본적으로 사용자에게 액세스 권한이 있는 모든 앱이 포함된 **모든 앱** 이 표시됩니다.
 
 ![내 앱 포털의 모든 앱 페이지](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
-이 목록에 표시되는 다른 컬렉션은 관리자가 만들고 사용자와 공유하고 있습니다. 다음 예제에서는 이러한 컬렉션 중 하나를 선택하여 *지원*과 같은 범위가 지정된 추가 앱 세트를 볼 수 있습니다.
+이 목록에 표시되는 다른 컬렉션은 관리자가 만들고 사용자와 공유하고 있습니다. 다음 예제에서는 이러한 컬렉션 중 하나를 선택하여 *지원* 과 같은 범위가 지정된 추가 앱 세트를 볼 수 있습니다.
 
 ![내 앱 포털의 개별 컬렉션 및 범위 지정 앱 세트](media/my-applications-portal-workspaces/my-apps-workspace.png)
 

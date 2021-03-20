@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: b-juche
 ms.openlocfilehash: 6ff87d046c60f588e133010895ec3e7ce08cb71f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740565"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFSv4.1 Kerberos 암호화 구성
@@ -89,7 +89,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
 
 2. 볼륨에서 **명령 탑재** 를 선택 하 여 지침을 표시 합니다.
 
-    다음은 그 예입니다.  
+    예를 들면 다음과 같습니다. 
 
     ![Kerberos 볼륨에 대 한 탑재 명령](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
@@ -110,7 +110,7 @@ Nfs 클라이언트를 구성 하려면 [Azure NetApp Files에 대 한 nfs 클�
     * `$ANFEXPORT`변수는 `host:/export` 탑재 명령에서 찾은 경로입니다.
     * `$ANFMOUNTPOINT`변수는 Linux 호스트의 사용자가 만든 폴더입니다.
 
-## <a name="performance-impact-of-kerberos-on-nfsv41"></a><a name="kerberos_performance"></a>NFSv 4.1에서 Kerberos의 성능 영향 
+## <a name="performance-impact-of-kerberos-on-nfsv41"></a><a name="kerberos_performance"></a>NFSv4.1에서 Kerberos의 성능 영향 
 
 NFSv 4.1 볼륨, 테스트 된 성능 벡터 및 kerberos의 예상 성능 영향에 대해 사용할 수 있는 보안 옵션을 이해 해야 합니다. 자세한 내용은 [nfsv 4.1 볼륨의 Kerberos에 대 한 성능 영향](performance-impact-kerberos.md) 을 참조 하세요.  
 

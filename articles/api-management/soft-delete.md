@@ -7,10 +7,10 @@ author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
 ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101652388"
 ---
 # <a name="api-management-soft-delete-preview"></a>API Management 일시 삭제 (미리 보기)
@@ -31,7 +31,7 @@ API Management 일시 삭제 (미리 보기)를 사용 하 여 최근에 삭제 
 |--|--|--|--|
 | [만들기 또는 업데이트](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | API Management 서비스를 만들거나 업데이트 합니다.  | API Management 서비스 | 모두 |
 | 속성을 true로 설정 하 여 [만들기 또는 업데이트](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) `restore`  | Undeletes 서비스가 이전에 일시 삭제 된 경우에는 API Management 합니다. 을 `restore` 지정 하 고로 설정 하면 `true` 다른 모든 속성은 무시 됩니다.  | API Management 서비스 |  2020-06-01-미리 보기 |
-| [Delete](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | 기존 API Management 서비스를 삭제 합니다. | API Management 서비스 | 2020-06-01-미리 보기|
+| [삭제](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | 기존 API Management 서비스를 삭제 합니다. | API Management 서비스 | 2020-06-01-미리 보기|
 | [이름으로 가져오기](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | 이름으로 일시 삭제 된 Api Management 서비스를 가져옵니다. | 삭제 된 서비스 | 2020-06-01-미리 보기 |
 | [구독 별로 나열](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | 지정 된 구독에 대 한 삭제 취소에 사용할 수 있는 모든 일시 삭제 된 서비스를 나열 합니다. | 삭제 된 서비스 | 2020-06-01-미리 보기
 | [제거](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | API Management 서비스를 제거 합니다. 삭제를 취소 하는 옵션을 사용 하지 않고 삭제 합니다. | 삭제 된 서비스 | 2020-06-01-미리 보기

@@ -4,10 +4,10 @@ description: 서비스 상태 이벤트에 대한 개인 설정 알림을 PagerD
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 7ae5141f33ebf4ec6e32029625af3a199a04d67b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594535"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>웹 후크를 사용 하 여 PagerDuty로 Azure 서비스 상태 경고 보내기

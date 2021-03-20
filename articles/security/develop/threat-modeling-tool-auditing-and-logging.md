@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518280"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
@@ -167,7 +167,7 @@ ms.locfileid: "94518280"
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **단계** | <p>보안 문제가 발생한 후 적절한 감사 내역이 부족하면 범죄 수사가 제한될 수 있습니다. WCF(Windows Communication Foundation)는 성공한/실패한 인증 시도를 기록하는 기능을 제공합니다.</p><p>실패한 인증 시도를 기록하면 관리자에게 무차별 암호 대입 공격 가능성을 경고할 수 있습니다. 마찬가지로, 성공한 인증 이벤트를 기록하면 합법적 계정이 손상될 때 유용한 감사 추적을 제공할 수 있습니다. WCF의 서비스 보안 감사 기능을 사용하도록 설정 |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음은 감사를 사용하도록 설정된 구성 예제입니다.
 ```
 <system.serviceModel>
@@ -196,7 +196,7 @@ ms.locfileid: "94518280"
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **단계** | <p>개발된 솔루션은 감사 로그에 쓸 수 없는 경우 예외를 생성하지 않도록 구성됩니다. 감사 로그에 쓸 수 없는 경우 예외를 throw하지 않도록 WCF가 구성되면 프로그램에서는 실패에 대한 알림을 받지 못하고 중요한 보안 이벤트의 감사가 발생하지 않을 수 있습니다.</p>|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 아래에 보이는 WCF 구성 파일의 `<behavior/>` 요소는 WCF가 감사 로그에 쓸 수 없는 경우 그 사실을 애플리케이션에게 알리지 말라고 WCF에 지시합니다.
 ```
 <behaviors>

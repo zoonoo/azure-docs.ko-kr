@@ -8,10 +8,10 @@ ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: b418a9cae6f6d58dbe82babcfe6fe1e1a5027d43
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657076"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Marketplace 계량 서비스 인증 전략
@@ -68,10 +68,10 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
 
 |  **속성 이름**  |  **필수**  |  **설명**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | 권한 부여 유형입니다. `client_credentials`을 사용하세요. |
+|  `Grant_type`       |   True         | 권한 부여 유형입니다. `client_credentials`을 사용합니다. |
 |  `Client_id`        |   True         | Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.|
 |  `client_secret`    |   True         | Azure AD 앱과 연결 된 암호입니다.  |
-|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`을 사용하세요. |
+|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`을 사용합니다. |
 | | | |
 
 #### <a name="response"></a>*응답*

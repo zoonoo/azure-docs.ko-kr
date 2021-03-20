@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
 ms.openlocfilehash: 8fbcb66be11c7c77a9bfaf0e6ec790622dcbbda7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932179"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 실행
@@ -39,7 +39,7 @@ HDInsight .NET SDK는 .net에서 HDInsight 클러스터로 더 쉽게 작업할 
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. 아래 코드를 **Program.cs** 에 복사 합니다. 그런 다음,,, 및에 대 한 값을 설정 하 여 코드를 편집 `existingClusterName` `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` `defaultStorageContainerName` 합니다.
+1. 아래 코드를 **프로그램 .cs** 에 복사 합니다. 그런 다음,,, 및에 대 한 값을 설정 하 여 코드를 편집 `existingClusterName` `existingClusterPassword` `defaultStorageAccountName` `defaultStorageAccountKey` `defaultStorageContainerName` 합니다.
 
     ```csharp
     using System.Collections.Generic;
@@ -166,7 +166,7 @@ HDInsight .NET SDK는 .net에서 HDInsight 클러스터로 더 쉽게 작업할 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 HDInsight 클러스터를 만드는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * Hive 작업 제출에 대해서는 [HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행](apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
 * HDInsight 클러스터 만들기는 [HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.

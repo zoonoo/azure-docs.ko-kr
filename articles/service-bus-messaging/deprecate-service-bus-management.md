@@ -4,10 +4,10 @@ description: 이 문서에서는 사용 되지 않는 Azure Service Manager REST
 ms.topic: article
 ms.date: 09/25/2020
 ms.openlocfilehash: b82772b364bbc44a898197e7fafd11b33e2e6320
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518792"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Azure Service Bus, 릴레이 및 Event Hubs에 대 한 Azure Service Manager 지원 중단

@@ -14,10 +14,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
 ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452430"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대한 데이터베이스 액세스 권한 부여
@@ -91,7 +91,7 @@ ms.locfileid: "96452430"
 
   - Master 데이터베이스에서 추가 SQL 로그인을 만듭니다.
   - 이 새 로그인과 연결 된 master 데이터베이스에서 사용자 계정을 만듭니다.
-  - `dbmanager` `loginmanager` ALTER role 문을 사용 하 여 데이터베이스에서, 역할 또는 둘 다에 사용자 계정을 추가 `master` 합니다 (Azure Synapse의 경우 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 문을 사용). [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql)
+  - `dbmanager` `loginmanager` ALTER role 문을 사용 하 여 데이터베이스에서, 역할 또는 둘 다에 사용자 계정을 추가 `master` 합니다 (Azure Synapse의 경우 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 문을 사용). [](/sql/t-sql/statements/alter-role-transact-sql)
 
   > [!NOTE]
   > `dbmanager` 및 `loginmanager` 역할은 SQL Managed Instance 배포와 관련이 **없습니다** .

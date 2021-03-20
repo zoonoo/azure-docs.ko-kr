@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a5f501c19da3c2ddc06ad89fe5649789477af7ec
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99255376"
 ---
-# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금과 함께 공격 으로부터 사용자 계정 보호
+# <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금을 사용하여 공격으로부터 사용자 계정 보호
 
-스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하거나 무차별 암호 대입 메서드를 사용 하 여를 가져오는 잘못 된 행위자를 잠글 수 있습니다. 스마트 잠금은 유효한 사용자의 로그인을 인식 하 여 공격자 및 다른 알 수 없는 소스와 다르게 처리할 수 있습니다. 사용자가 계속 해 서 계정에 액세스 하 여 생산성을 유지 하는 동안 공격자가 잠깁니다.
+스마트 잠금을 사용하면 사용자의 암호를 추측하거나 무차별 암호 대입 공격 방법을 사용하여 로그인하려는 잘못된 행위자를 잠글 수 있습니다. 스마트 잠금을 사용하면 유효한 사용자의 로그인을 인식하고 공격자 및 기타 알 수 없는 원본 중 하나와 다르게 취급할 수 있습니다. 공격자는 잠기지만 사용자는 계속해서 계정에 액세스하여 생산성을 유지할 수 있습니다.
 
 ## <a name="how-smart-lockout-works"></a>스마트 잠금 작동 방법
 

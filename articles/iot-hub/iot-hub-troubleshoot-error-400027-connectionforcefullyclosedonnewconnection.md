@@ -13,10 +13,10 @@ ms.custom:
 - fasttrack-edit
 - iot
 ms.openlocfilehash: e5d1dc345c72d77be6172fb9c3a10eb2f38d186a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506331"
 ---
 # <a name="400027-connectionforcefullyclosedonnewconnection"></a>400027 ConnectionForcefullyClosedOnNewConnection
@@ -33,6 +33,6 @@ ms.locfileid: "94506331"
 
 다른 클라이언트가 동일한 자격 증명을 사용 하 여 IoT Hub에 대 한 새 연결을 만들어 IoT Hub 이전 연결을 닫았습니다. IoT Hub는 동일한 자격 증명 집합을 사용 하 여 두 개 이상의 클라이언트에 연결할 수 없습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 각 클라이언트가 자체 id를 사용 하 여 IoT Hub에 연결 하는지 확인 합니다.

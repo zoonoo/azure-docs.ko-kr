@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331739"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Azure 방화벽 정책을 사용 하 여 규칙 계층 구조 정의
@@ -48,7 +48,7 @@ Azure 방화벽 정책을 사용 하 여 규칙 계층을 정의 하 고 규정 
 - 데이터베이스 방화벽 정책입니다. 데이터베이스 방화벽 정책은 기본 방화벽 정책을 상속 합니다.
 - 엔지니어링 방화벽 정책입니다. 또한 엔지니어링 방화벽 정책은 기본 방화벽 정책을 상속 합니다.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="팀 및 요구 사항" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="정책 계층" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>규칙 컬렉션 그룹에 액세스 하기 위한 사용자 지정 역할 만들기 
 
@@ -90,14 +90,14 @@ Azure 방화벽 정책을 사용 하 여 규칙 계층을 정의 하 고 규정 
 
    `*/read", "Microsoft.Network/*/read", "Microsoft.Network/firewallPolicies/ruleCollectionGroups/write` 
 
-    **작업은 작업**속성에 대 한 작업   입니다. 읽기 작업 뒤에 꼭 쉼표를 추가해야 합니다. 이 작업을 통해 사용자는 규칙 컬렉션 그룹을 만들고 업데이트할 수 있습니다.
-6.  **AssignableScopes**에서 다음 형식의 구독 ID를 추가 합니다. 
+    **작업은 작업** 속성에 대 한 작업   입니다. 읽기 작업 뒤에 꼭 쉼표를 추가해야 합니다. 이 작업을 통해 사용자는 규칙 컬렉션 그룹을 만들고 업데이트할 수 있습니다.
+6.  **AssignableScopes** 에서 다음 형식의 구독 ID를 추가 합니다. 
 
    `/subscriptions/xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxx`
 
    명시적 구독 ID를 추가해야 합니다. 그렇지 않으면 역할을 구독으로 가져올 수 없습니다.
 7.  **Id**   속성 줄을 삭제 하 고 **IsCustom**   속성을 true로 변경 합니다.
-8.  **Name**   및 **Description**   속성을 *AZFM Rule collection Group Author* 로 변경 합니다. *이 역할의 사용자는 방화벽 정책 규칙 컬렉션 그룹을 편집할 수 있습니다* .
+8.  **Name**   및  **Description**   속성을 *AZFM Rule collection Group Author* 로 변경 합니다. *이 역할의 사용자는 방화벽 정책 규칙 컬렉션 그룹을 편집할 수 있습니다* .
 
 JSON 파일은 다음 예제와 같이 표시 됩니다.
 
@@ -132,11 +132,11 @@ Get-AzRoleDefinition 명령을 사용 하 여 모든 사용자 지정 역할을 
 
    `Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom`
 
-Azure Portal에서 사용자 지정 역할을 볼 수도 있습니다. 구독으로 이동 하 여 **액세스 제어 (IAM)**, **역할**을 선택 합니다.
+Azure Portal에서 사용자 지정 역할을 볼 수도 있습니다. 구독으로 이동 하 여 **액세스 제어 (IAM)**, **역할** 을 선택 합니다.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="팀 및 요구 사항":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="팀 및 요구 사항":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="SalesAppPolicy 읽기 권한":::
 
 자세한 내용은 [자습서: Azure PowerShell을 사용 하 여 Azure 사용자 지정 역할 만들기](../role-based-access-control/tutorial-custom-role-powershell.md)를 참조 하세요.
 
@@ -145,8 +145,8 @@ Azure Portal에서 사용자 지정 역할을 볼 수도 있습니다. 구독으
 포털에서 AZFM Rule Collection Group Authors 역할에 사용자를 추가 하 고 방화벽 정책에 대 한 액세스를 제공할 수 있습니다.
 
 1. 포털에서 응용 프로그램 팀 방화벽 정책 (예: SalesAppPolicy)을 선택 합니다.
-2. **Access Control**를 선택 합니다.
-3. **역할 할당 추가**를 선택합니다.
+2. **Access Control** 를 선택 합니다.
+3. **역할 할당 추가** 를 선택합니다.
 4. 사용자/사용자 그룹 (예: 영업 팀)을 역할에 추가 합니다.
 
 다른 방화벽 정책에 대해이 절차를 반복 합니다.

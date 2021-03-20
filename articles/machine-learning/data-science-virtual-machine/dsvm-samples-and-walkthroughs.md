@@ -10,10 +10,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100519765"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학에 대 한 샘플 Virtual Machines
@@ -22,7 +22,7 @@ DSVMs (Azure 데이터 과학 Virtual Machines)은 포괄적인 샘플 코드 �
 > [!NOTE]
 > 데이터 과학 virtual machines에서 Jupyter 노트북을 실행 하는 방법에 대 한 자세한 내용은 [Jupyter 액세스](#access-jupyter) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 샘플을 실행 하려면 [Ubuntu Data Science Virtual Machine](./dsvm-ubuntu-intro.md)를 프로 비전 해야 합니다.
 

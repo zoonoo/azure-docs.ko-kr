@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 3/27/2018
 ms.openlocfilehash: a70c4fcd01a1a95c598d980004ee60292a6cf24b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594609"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Webhook를 사용 하 여 문제 관리 시스템에 대 한 상태 알림 구성
@@ -58,7 +58,7 @@ https <i></i> ://app.azure.com/h/0DET-URB/bbadb3
 ## <a name="parse-the-impacted-services-to-determine-the-incident-scope"></a>영향을 받는 서비스를 구문 분석 하 여 인시던트 범위 결정
 Service Health 경고는 여러 지역 및 서비스에서 발생 한 문제를 알려 줍니다. 전체 세부 정보를 얻으려면의 값을 구문 분석 해야 `impactedServices` 합니다.
 
-내부 콘텐츠는 이스케이프 되지 않은 경우 정기적으로 구문 분석할 수 있는 다른 JSON 개체를 포함 하는 이스케이프 된 [json](https://json.org/) 문자열입니다. 다음은 그 예입니다. 
+내부 콘텐츠는 이스케이프 되지 않은 경우 정기적으로 구문 분석할 수 있는 다른 JSON 개체를 포함 하는 이스케이프 된 [json](https://json.org/) 문자열입니다. 예를 들면 다음과 같습니다.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

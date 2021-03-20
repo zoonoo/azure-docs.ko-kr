@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: b34ac24cb26bf5db4a49a5ad5b531deb252f4695
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446127"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새로운 DBA – 마이그레이션 후 Azure SQL Database 관리
@@ -65,7 +65,7 @@ Azure SQL Database에서 백업을 만들지 않습니다 .이는 필요 하지 
 
 |서비스 계층|보존 기간(일)|
 |---|:---:|
-|기본|7|
+|Basic|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -222,7 +222,7 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 Express 경로를 사용 하면 추가 요금 없이 구입할 대역폭 제한을 2 배까지 버스트 할 수도 있습니다. Express 경로를 사용 하 여 지역 간 연결을 구성할 수도 있습니다. Express 경로 연결 공급자 목록을 보려면 [express 경로 파트너 및 피어 링 위치](../../expressroute/expressroute-locations.md)를 참조 하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../../expressroute/expressroute-introduction.md)
-- [필수 구성 요소](../../expressroute/expressroute-prerequisites.md)
+- [전제 조건](../../expressroute/expressroute-prerequisites.md)
 - [워크플로](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?
@@ -304,7 +304,7 @@ SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을
 |**서비스 계층**|**일반적인 사용 사례 시나리오**|
 |---|---|
 |**기본**|소수의 사용자 및 높은 동시성, 배율 및 성능 요구 사항이 없는 데이터베이스를 가진 애플리케이션입니다. |
-|**표준**|낮음에서 중간 정도의 IO 수요와 함께 상당한 동시성, 배율 및 성능 요구 사항을 가진 애플리케이션입니다. |
+|**Standard**|낮음에서 중간 정도의 IO 수요와 함께 상당한 동시성, 배율 및 성능 요구 사항을 가진 애플리케이션입니다. |
 |**Premium**|많은 동시 사용자, 높은 CPU/메모리 및 높은 IO 수요를 가진 애플리케이션입니다. 높은 동시성, 높은 처리량 및 대기 시간에 민감한 앱은 Premium 수준을 이용할 수 있습니다. |
 |||
 

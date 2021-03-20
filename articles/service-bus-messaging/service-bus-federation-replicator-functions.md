@@ -4,13 +4,13 @@ description: 이 문서에서는를 사용 하 여 메시지 복제 태스크 �
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 4db151f54a2ad236ba937b005ba6a1fd3edd5967
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97657498"
 ---
-# <a name="message-replication-tasks-and-applications"></a>메시지 복제 태스크 및 응용 프로그램
+# <a name="message-replication-tasks-and-applications"></a>메시지 복제 작업 및 애플리케이션
 
 [메시지 복제 및 지역 간 페더레이션](service-bus-federation-overview.md) 문서에서 설명 하는 것 처럼 Service Bus 엔터티 쌍 간의 메시지 시퀀스와 Service Bus 간 및 기타 메시지 원본 및 대상 간의 복제는 일반적으로 Azure Functions에서 기울어집니다 됩니다.
 

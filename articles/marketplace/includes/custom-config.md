@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: a1bc7cf1fd339ca3660c7b39326f37d2763c74b2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92284325"
 ---
 추가 구성이 필요한 경우 시작 시 실행 되는 예약 된 작업을 사용 하 여 VM을 배포한 후 VM에 대 한 최종 변경을 수행 합니다. 또한 다음 사항도 고려합니다.

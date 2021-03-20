@@ -4,10 +4,10 @@ description: Azure Event Grid를 사용하여 타사 Event Grid SaaS 및 PaaS �
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506149"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Azure Event Grid의 파트너 이벤트 (미리 보기)
@@ -90,7 +90,7 @@ ms.locfileid: "94506149"
 1. 그런 다음 두 번째 구독자의 Azure 구독에 **파트너 항목인 partner** 항목 2가 만들어집니다. 구독자는 파트너 항목을 활성화 해야 합니다. 
 1. 구독자 2는 파트너 항목 2에 대 한 **Azure Functions 구독** 을 만듭니다. 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 파트너 토픽은 Event Grid를 사용 하는 경우 수행 되는 작업의 수에 따라 요금이 청구 됩니다. 청구 및 자세한 가격 정보에 대 한 기준으로 사용 되는 모든 유형의 작업에 대 한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조 하세요.
 
 ## <a name="limits"></a>제한

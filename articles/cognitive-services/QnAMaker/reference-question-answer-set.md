@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
 ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94506008"
 ---
 # <a name="question-and-answer-pair"></a>질문 및 답변 쌍
@@ -28,8 +28,8 @@ ms.locfileid: "94506008"
 쌍에 대 한 **선택적** 설정에는 다음이 포함 됩니다.
 
 * **질문의 대체 형태** -다양 한 질문에 대 한 올바른 답을 반환 QnA Maker 수 있습니다. 위해 구와
-* **메타 데이터** : 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
-* 다중 전환 **프롬프트** (멀티 턴 대화를 계속 하는 데 사용 됨)
+* **메타 데이터**: 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
+* 다중 전환 **프롬프트**(멀티 턴 대화를 계속 하는 데 사용 됨)
 
 ![QnA Maker 기술 자료](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

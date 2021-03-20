@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
 ms.openlocfilehash: 5b8dd911952a63ba8775f27a6128ff61e849e823
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861428"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>데이터 보존 정책 사용 및 사용 안 함
@@ -56,7 +56,7 @@ CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_cod
 
 - DATA_DELETION-데이터 보존이 설정 되었는지 여부를 나타냅니다.
 - 테이블의 열에 FILTER_COLUMN-행이 사용 되지 않을 지 여부를 확인 하는 데 사용 됩니다. 필터 열은 다음 데이터 형식의 열만 될 수 있습니다. 
-    - Date
+    - 날짜
     - SmallDateTime
     - DateTime
     - DateTime2
