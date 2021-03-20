@@ -4,10 +4,10 @@ description: 사용자 고유의 공용 IP 주소를 사용 하는 Batch 풀을 
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.openlocfilehash: e822311718847e173763847d503335f71457308b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91849331"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>지정 된 공용 IP 주소를 사용 하 여 Azure Batch 풀 만들기
@@ -24,7 +24,7 @@ Azure Batch 풀을 만들 때 지정한 Azure VNet ( [가상 네트워크)의 �
 
 - **Azure VNet**. 풀 및 IP 주소를 만드는 동일한 Azure 구독에서 [가상 네트워크](batch-virtual-network.md) 를 사용 해야 합니다. Azure Resource Manager 기반 Vnet만 사용할 수 있습니다. VNet이 모든 [일반 요구 사항을](batch-virtual-network.md#vnet-requirements)충족 하는지 확인 합니다.
 
-- **하나 이상의 Azure 공용 IP 주소**입니다. 하나 이상의 공용 IP 주소를 만들려면 [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [Azure CLI (Command-Line Interface)](/cli/azure/network/public-ip#az-network-public-ip-create)또는 [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress)를 사용할 수 있습니다. 아래에 나열 된 요구 사항을 준수 해야 합니다.
+- **하나 이상의 Azure 공용 IP 주소** 입니다. 하나 이상의 공용 IP 주소를 만들려면 [Azure Portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), [Azure CLI (Command-Line Interface)](/cli/azure/network/public-ip#az-network-public-ip-create)또는 [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress)를 사용할 수 있습니다. 아래에 나열 된 요구 사항을 준수 해야 합니다.
 
 > [!NOTE]
 > Batch는 공용 IP 주소를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 100 전용 노드에 대해 일괄 처리는 일반적으로 하나의 NSG (네트워크 보안 그룹) 및 부하 분산 장치 하나를 할당 합니다. 이러한 리소스는 구독의 리소스 할당량에 의해 제한 됩니다. 더 큰 풀을 사용 하는 경우 이러한 리소스 중 하나 이상에 대해 [할당량 증가를 요청](batch-quota-limit.md#increase-a-quota) 해야 할 수 있습니다.
@@ -34,12 +34,12 @@ Azure Batch 풀을 만들 때 지정한 Azure VNet ( [가상 네트워크)의 �
 공용 IP 주소를 만들 때 다음 요구 사항을 염두에 두어야 합니다.
 
 - 공용 IP 주소는 풀을 만드는 데 사용 하는 Batch 계정과 동일한 구독 및 지역에 있어야 합니다.
-- **IP 주소 할당** 은 **고정**으로 설정 해야 합니다.
-- **SKU** 는 **Standard**로 설정 되어야 합니다.
+- **IP 주소 할당** 은 **고정** 으로 설정 해야 합니다.
+- **SKU** 는 **Standard** 로 설정 되어야 합니다.
 - DNS 이름을 지정 해야 합니다.
 - 공용 IP 주소는 가상 컴퓨터 구성 풀에만 사용 해야 합니다. 이러한 IP 주소를 사용 하는 다른 리소스는 없으며, 풀에서 할당 오류가 발생할 수 있습니다.
 - 보안 정책 또는 리소스 잠금은 사용자의 공용 IP 주소에 대 한 액세스를 제한 하지 않아야 합니다.
-- 풀에 대해 지정 된 공용 IP 주소의 수는 풀을 대상으로 하는 Vm의 수를 수용할 만큼 충분히 커야 합니다. 이 값은 적어도 **targetDedicatedNodes**   풀의 targetDedicatedNodes 및 **targetLowPriorityNodes**속성의 합계 여야 합니다   . IP 주소가 충분 하지 않으면 풀에서 계산 노드를 부분적으로 할당 하 고 크기 조정 오류가 발생 합니다. 현재 Batch는 100 Vm 마다 하나의 공용 IP 주소를 사용 합니다.
+- 풀에 대해 지정 된 공용 IP 주소의 수는 풀을 대상으로 하는 Vm의 수를 수용할 만큼 충분히 커야 합니다. 이 값은 적어도 ****   풀의 targetDedicatedNodes 및 **targetLowPriorityNodes** 속성의 합계 여야 합니다   . IP 주소가 충분 하지 않으면 풀에서 계산 노드를 부분적으로 할당 하 고 크기 조정 오류가 발생 합니다. 현재 Batch는 100 Vm 마다 하나의 공용 IP 주소를 사용 합니다.
 - 항상 공용 IP 주소의 추가 버퍼가 있습니다. 하나 이상의 추가 공용 ip 주소를 추가 하거나 풀에 추가 하는 총 공용 IP 주소의 약 10%를 추가 하는 것이 좋습니다. 이 추가 버퍼는 규모를 축소 하는 경우 내부 최적화를 사용 하 여 일괄 처리에 도움이 되며, 규모를 확장 하거나 축소 한 후에 더 빠르게 확장할 수 있습니다.
 - 풀을 만든 후에는 풀에서 사용 하는 공용 IP 주소 목록을 추가 하거나 변경할 수 없습니다. 목록을 수정 해야 하는 경우 풀을 삭제 한 다음 다시 만들어야 합니다.
 

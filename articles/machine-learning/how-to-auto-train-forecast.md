@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 14837391f7bf907acbbe1d573f3171acef4db658
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 66fa56b45e8d3cff7a8ace300a450b9c41df9bc0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503507"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588718"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "102503507"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -349,7 +349,7 @@ best_run, fitted_model = local_run.get_output()
 ```python
 label_query = test_labels.copy().astype(np.float)
 label_query.fill(np.nan)
-label_fcst, data_trans = fitted_pipeline.forecast(
+label_fcst, data_trans = fitted_model.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
@@ -373,7 +373,7 @@ day_datetime,store,week_of_year
 01/01/2019,A,1
 ```
 
-필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.predict(test_data)`를 실행하여 미래 가치를 예측합니다.
+필요한 단계를 반복하여 이 미래 데이터를 데이터 프레임에 로드하고 `best_run.forecast(test_data)`를 실행하여 미래 가치를 예측합니다.
 
 > [!NOTE]
 > `target_lags`및/또는을 사용 하도록 설정한 경우에는 자동화 된 ML을 사용 하 여 예측에 대 한 샘플에서 예측을 지원 하지 않습니다 `target_rolling_window_size` .

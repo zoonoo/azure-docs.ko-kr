@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: victorh
 ms.openlocfilehash: 23a7682d8a64de57db4ff9ae785ada90d4a06944
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87084673"
 ---
 # <a name="azure-firewall-central-management"></a>Azure 방화벽 중앙 관리
@@ -27,9 +27,9 @@ Azure 방화벽 관리자는 클라우드 기반 보안 경계에 대 한 중앙
 
 ### <a name="firewall-policy"></a>방화벽 정책
 
-방화벽 정책은 NAT, 네트워크 및 응용 프로그램 규칙 컬렉션 및 위협 인텔리전스 설정을 포함 하는 Azure 리소스입니다. *보안 가상 허브* 및 *허브 가상 네트워크*의 여러 Azure 방화벽 인스턴스에서 사용할 수 있는 전역 리소스입니다. 새 정책은 처음부터 새로 만들거나 기존 정책에서 상속할 수 있습니다. DevOps는 상속을 사용하여 조직에서 규정한 기본 정책에 따라 로컬 방화벽 정책을 만들 수 있습니다. 정책은 여러 지역 및 구독에서 작동합니다.
+방화벽 정책은 NAT, 네트워크 및 응용 프로그램 규칙 컬렉션 및 위협 인텔리전스 설정을 포함 하는 Azure 리소스입니다. *보안 가상 허브* 및 *허브 가상 네트워크* 의 여러 Azure 방화벽 인스턴스에서 사용할 수 있는 전역 리소스입니다. 새 정책은 처음부터 새로 만들거나 기존 정책에서 상속할 수 있습니다. DevOps는 상속을 사용하여 조직에서 규정한 기본 정책에 따라 로컬 방화벽 정책을 만들 수 있습니다. 정책은 여러 지역 및 구독에서 작동합니다.
  
-Azure 방화벽 관리자를 사용 하 여 방화벽 정책 및 연결을 만들 수 있습니다. 그러나 REST API, 템플릿, Azure PowerShell 및 CLI를 사용 하 여 정책을 만들고 관리할 수도 있습니다. 정책을 만든 후에는 가상 WAN 허브의 방화벽과 연결 하 여 가상 네트워크에서 *보호 된 가상 허브* 및/또는 방화벽으로 it *허브를 Virtual Network*수 있습니다.
+Azure 방화벽 관리자를 사용 하 여 방화벽 정책 및 연결을 만들 수 있습니다. 그러나 REST API, 템플릿, Azure PowerShell 및 CLI를 사용 하 여 정책을 만들고 관리할 수도 있습니다. 정책을 만든 후에는 가상 WAN 허브의 방화벽과 연결 하 여 가상 네트워크에서 *보호 된 가상 허브* 및/또는 방화벽으로 it *허브를 Virtual Network* 수 있습니다.
 
 ### <a name="pricing"></a>가격 책정
 

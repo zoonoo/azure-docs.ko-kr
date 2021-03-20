@@ -4,10 +4,10 @@ description: 이 문서에서는 랩 소유자가 랩 가상 머신에서 사용
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88717638"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 가상 컴퓨터에 대 한 사용자 할당 관리 id 사용
@@ -31,7 +31,7 @@ ms.locfileid: "88717638"
 
     > [!div class="mx-imgBorder"]
     > ![Id 추가 단추](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-1. 드롭다운 목록에서 기존 **사용자 관리 id** 를 선택 하 고 **확인**을 선택 합니다. 
+1. 드롭다운 목록에서 기존 **사용자 관리 id** 를 선택 하 고 **확인** 을 선택 합니다. 
 
     > [!div class="mx-imgBorder"]
     > ![Id 추가](./media/enable-managed-identities-lab-vms/add-identity.png)

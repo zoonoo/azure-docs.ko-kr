@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ms.openlocfilehash: 2be4bc92dde278b054bd04f412f937440027ece7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74671674"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>아웃바운드 IP 주소 변경 준비하는 방법
@@ -29,13 +29,13 @@ Azure App Service 앱의 아웃바운드 IP 주소가 변경된다는 알림을 
 
 1.  [Azure Portal](https://portal.azure.com)을 엽니다.
 
-2.  왼쪽 탐색 메뉴에서 **App Service**를 선택합니다.
+2.  왼쪽 탐색 메뉴에서 **App Service** 를 선택합니다.
 
 3.  목록에서 App Service 앱을 선택합니다.
 
 1.  앱이 함수 앱인 경우 [함수 앱 아웃바운드 IP 주소](../azure-functions/ip-addresses.md#find-outbound-ip-addresses)를 참조하세요.
 
-4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성**을 클릭하고 **아웃바운드 IP 주소**라는 섹션을 찾습니다.
+4.  **설정** 헤더 아래의 왼쪽 탐색에서 **속성** 을 클릭하고 **아웃바운드 IP 주소** 라는 섹션을 찾습니다.
 
 5. IP 주소를 복사하여 필터링 또는 허용된 목록 같은 아웃바운드 트래픽의 특별 처리에 추가합니다. 목록에서 기존 IP 주소를 삭제하지 마세요.
 

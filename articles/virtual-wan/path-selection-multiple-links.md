@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: f24696c0db3155a59106e1361b01454b9ac16a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91267757"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>여러 ISP 링크에서 Azure 경로 선택
 
-Azure 가상 WAN은 vpn 사이트에 링크 정보를 포함 하는 기능을 제공 하 여, VPN/SD WAN 장치 솔루션이 다양 한 링크를 통해 Azure로 트래픽을 유도 하는 분기 관련 정책을 프로그래밍할 수 있는 시나리오를 가능 하 게 합니다. 이를 **Azure 경로 선택**이라고 합니다.
+Azure 가상 WAN은 vpn 사이트에 링크 정보를 포함 하는 기능을 제공 하 여, VPN/SD WAN 장치 솔루션이 다양 한 링크를 통해 Azure로 트래픽을 유도 하는 분기 관련 정책을 프로그래밍할 수 있는 시나리오를 가능 하 게 합니다. 이를 **Azure 경로 선택** 이라고 합니다.
 
 ## <a name="architecture"></a>Architecture
 

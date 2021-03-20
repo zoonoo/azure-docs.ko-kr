@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 45f4ca6349c14f21ce48a1fcf34b7fc8998dd278
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99af0ee46e2827ac8a5749d58bb19cf85f96aa46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733519"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577464"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 
@@ -69,7 +69,9 @@ Azure 계정과 음성 서비스 구독을 만든 후에는 사용자 지정 음
 
 ## <a name="how-to-migrate-to-custom-neural-voice"></a>사용자 지정 신경망로 마이그레이션하는 방법
 
-비 신경망 또는 표준 사용자 지정 음성을 사용 하는 경우 아래 단계에 따라 사용자 지정 신경망로 마이그레이션하는 것이 좋습니다. 사용자 지정 신경망로 이동 하면 보다 자연 스러운 대화형 인터페이스에 대해 보다 현실적인 음성을 개발 하 고 고객과 최종 사용자가 책임을 지는 최신 텍스트 음성 변환 기술을 활용할 수 있습니다. 
+사용자 지정 음성의 표준/비 신경망 학습 계층 (적응, 통계적 패라메트릭, concacenative)은 더 이상 사용 되지 않습니다. 2/28/2021 이전에는 모든 기존 음성 구독에 대 한 알림 메시지를 보냈습니다. 사용 중단 기간 (3/1/2021-2/29/2024) 동안 기존 표준 계층 사용자는 비 신경망 모델을 계속 사용할 수 있습니다. 모든 새 사용자/새 음성 리소스는 신경망/사용자 지정 신경망로 이동 해야 합니다. 2/29/2024 후에는 모든 표준/비-신경망 사용자 지정 음성이 더 이상 지원 되지 않습니다. 
+
+비 신경망 사용자 지정 음성을 사용 하는 경우 아래 단계를 바로 따라 사용자 지정 신경망로 마이그레이션합니다. 사용자 지정 신경망로 이동 하면 보다 자연 스러운 대화형 인터페이스에 대해 보다 현실적인 음성을 개발 하 고 고객과 최종 사용자가 책임을 지는 최신 텍스트 음성 변환 기술을 활용할 수 있습니다. 
 
 1. 액세스 제한 및 여기 [에 적용에서 정책](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 에 대해 [](https://aka.ms/customneural)자세히 알아보세요. 사용자 지정 신경망 서비스에 대 한 액세스는 자격 조건에 따라 Microsoft의 유일한 판단을 받습니다. 고객은 응용 프로그램을 검토 한 후에만 기술에 액세스 하 고, [책임 AI 원칙](https://microsoft.com/ai/responsible-ai) 및 [준수 코드](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)와 연계 하 여 사용 하기 위해 최선을 다하고 있습니다. 
 2. 응용 프로그램이 승인 되 면 "신경망" 학습 기능에 대 한 액세스 권한이 제공 됩니다. 응용 프로그램에서 제공 하는 것과 동일한 Azure 구독을 사용 하 여 [사용자 지정 음성 포털](https://speech.microsoft.com/customvoice) 에 로그인 해야 합니다. 

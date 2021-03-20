@@ -10,10 +10,10 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368165"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
@@ -85,7 +85,7 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 | 요소 | 필수 | 설명 | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | 아니요 | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 표준 시간대 오프셋을 사용하는 작업의 시작 시간 | 
-| [**조치**](#action) | 예 | 기본 동작의 세부 정보로, **errorAction** 개체를 포함할 수 있습니다. | 
+| [**action**](#action) | 예 | 기본 동작의 세부 정보로, **errorAction** 개체를 포함할 수 있습니다. | 
 | [**errorAction**](#error-action) | 아니요 | 기본 동작이 실패하는 경우 실행되는 보조 동작에 대한 세부 정보 |
 | [**방법**](#recurrence) | 아니요 | 되풀이 작업에 대한 빈도 및 간격 등의 세부 정보 | 
 | [**retryPolicy**](#retry-policy) | 아니요 | 동작을 다시 시도하는 빈도에 대한 세부 정보 | 
@@ -148,9 +148,9 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 <a name="action"></a>
 
-## <a name="action"></a>action
+## <a name="action"></a>작업
 
-Scheduler 작업은 지정된 일정에 따라 기본 **action**을 실행합니다. Scheduler는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 동작을 지원합니다. 기본 **action**이 실패하는 경우 Scheduler는 오류를 처리하는 보조 [**errorAction**](#erroraction)을 실행할 수 있습니다. **action** 개체는 다음과 같은 요소를 설명합니다.
+Scheduler 작업은 지정된 일정에 따라 기본 **action** 을 실행합니다. Scheduler는 HTTP, 스토리지 큐, Service Bus 큐 또는 Service Bus 항목 동작을 지원합니다. 기본 **action** 이 실패하는 경우 Scheduler는 오류를 처리하는 보조 [**errorAction**](#erroraction)을 실행할 수 있습니다. **action** 개체는 다음과 같은 요소를 설명합니다.
 
 * 동작의 서비스 유형
 * 동작의 세부 정보
@@ -220,11 +220,11 @@ SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세
 
 ## <a name="erroraction"></a>errorAction
 
-작업의 기본 **action**이 실패하는 경우 Scheduler는 오류를 처리하는 **errorAction**을 실행할 수 있습니다. 기본 **action**에서 Scheduler가 오류 처리 엔드포인트를 호출하거나 사용자 알림을 보낼 수 있도록 **errorAction** 개체를 지정할 수 있습니다. 
+작업의 기본 **action** 이 실패하는 경우 Scheduler는 오류를 처리하는 **errorAction** 을 실행할 수 있습니다. 기본 **action** 에서 Scheduler가 오류 처리 엔드포인트를 호출하거나 사용자 알림을 보낼 수 있도록 **errorAction** 개체를 지정할 수 있습니다. 
 
-예를 들어 기본 엔드포인트에서 재해가 발생하는 경우 **errorAction**을 사용하여 보조 엔드포인트를 호출하거나 오류 처리 엔드포인트에 알릴 수 있습니다. 
+예를 들어 기본 엔드포인트에서 재해가 발생하는 경우 **errorAction** 을 사용하여 보조 엔드포인트를 호출하거나 오류 처리 엔드포인트에 알릴 수 있습니다. 
 
-기본 **action**과 마찬가지로 오류 동작은 다른 동작에 따라 단순 또는 복합 논리를 사용할 수 있습니다. 
+기본 **action** 과 마찬가지로 오류 동작은 다른 동작에 따라 단순 또는 복합 논리를 사용할 수 있습니다. 
 
 <a name="recurrence"></a>
 
@@ -248,16 +248,16 @@ SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세
 
 | 속성 | 필수 | 값 | 설명 | 
 |----------|----------|-------|-------------| 
-| **주기와** | **recurrence**가 사용된 경우, 예 | "Minute", "Hour", "Day", "Week", "Month", "Year" | 발생 간격 간의 시간 단위 | 
-| **간격은** | 아니요 | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
-| **일정과** | 아니요 | 상황에 따라 다름 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays**를 참조하세요. | 
+| **주기와** | **recurrence** 가 사용된 경우, 예 | "Minute", "Hour", "Day", "Week", "Month", "Year" | 발생 간격 간의 시간 단위 | 
+| **간격은** | 아니요 | 1에서 1000(포함) 사이 | **frequency** 에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
+| **일정과** | 아니요 | 상황에 따라 다름 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays** 를 참조하세요. | 
 | **시간의** | 아니요 | 1 - 24 | 작업 실행 시기에 대한 시간 표식이 포함된 배열 | 
-| **내** | 아니요 | 0 ~ 59 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
+| **minutes** | 아니요 | 0 ~ 59 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
 | **months** | 아니요 | 1 - 12 | 작업 실행 시기에 대한 월 표식이 포함된 배열 | 
 | **monthDays** | 아니요 | 상황에 따라 다름 | 작업 실행 시기에 대한 날짜 표식이 포함된 배열 | 
 | **평일** | 아니요 | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | 작업 실행 시기에 대한 요일 표식이 포함된 배열 | 
-| **count** | 아니요 | <*없음을*> | 되풀이 횟수입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
-| **endTime** | 아니요 | <*없음을*> | 되풀이를 중지할 날짜 및 시간입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
+| **count** | 아니요 | <*없음을*> | 되풀이 횟수입니다. 기본값은 무한 반복입니다. **count** 및 **endTime** 을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
+| **endTime** | 아니요 | <*없음을*> | 되풀이를 중지할 날짜 및 시간입니다. 기본값은 무한 반복입니다. **count** 및 **endTime** 을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
 ||||
 
 이러한 요소에 대한 자세한 내용은 [복잡한 일정 및 고급 되풀이 빌드](../scheduler/scheduler-advanced-complexity.md)를 참조하세요.

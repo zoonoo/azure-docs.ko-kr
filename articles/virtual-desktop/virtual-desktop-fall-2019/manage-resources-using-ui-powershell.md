@@ -8,10 +8,10 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: d7219751d584eb458cded9f4e30cccb1439dfa1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069020"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 (클래식) 관리 도구 배포
@@ -139,13 +139,13 @@ Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCre
 Azure AD 애플리케이션을 확인하고 동의를 제공하려면 다음을 수행합니다.
 
 1. 인터넷 브라우저를 열고 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal 상단에 있는 검색 창에서 **앱 등록**을 검색하고 **서비스** 아래에서 항목을 선택합니다.
-3. **모든 애플리케이션**을 선택하고 [Azure Active Directory 앱 등록 만들기](#create-an-azure-active-directory-app-registration)에서 PowerShell 스크립트에 제공한 고유한 앱 이름을 검색합니다.
-4. 브라우저 왼쪽 패널에서 **인증**을 선택하고 다음 그림에 표시된 것처럼 리디렉션 URI가 관리 도구의 웹앱 URL과 동일한지 확인합니다.
+2. Azure Portal 상단에 있는 검색 창에서 **앱 등록** 을 검색하고 **서비스** 아래에서 항목을 선택합니다.
+3. **모든 애플리케이션** 을 선택하고 [Azure Active Directory 앱 등록 만들기](#create-an-azure-active-directory-app-registration)에서 PowerShell 스크립트에 제공한 고유한 앱 이름을 검색합니다.
+4. 브라우저 왼쪽 패널에서 **인증** 을 선택하고 다음 그림에 표시된 것처럼 리디렉션 URI가 관리 도구의 웹앱 URL과 동일한지 확인합니다.
 
    [ ![리디렉션 URI가 입력된 인증 페이지](../media/management-ui-redirect-uri-inline.png) ](../media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. 왼쪽 패널에서 **API 사용 권한**을 선택하여 사용 권한이 추가되었는지 확인합니다. 전역 관리자인 경우 **`tenantname`에 대한 관리자 동의 부여**를 선택하고 대화 상자 프롬프트에 따라 조직의 관리자 동의를 제공합니다.
+5. 왼쪽 패널에서 **API 사용 권한** 을 선택하여 사용 권한이 추가되었는지 확인합니다. 전역 관리자인 경우 **`tenantname`에 대한 관리자 동의 부여** 를 선택하고 대화 상자 프롬프트에 따라 조직의 관리자 동의를 제공합니다.
 
     [ ![API 사용 권한 페이지](../media/management-ui-permissions-inline.png) ](../media/management-ui-permissions-expanded.png#lightbox)
 
@@ -161,8 +161,8 @@ Azure AD 애플리케이션을 확인하고 동의를 제공하려면 다음을 
    > [!NOTE]
    > 관리 도구를 구성하는 동안 관리자 동의를 부여하지 않은 경우에는 로그인하는 각 사용자가 고유한 사용자 동의를 제공해야 해당 도구를 사용할 수 있습니다.
 
-3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹**을 선택합니다.
-4. **기본 테넌트 그룹**을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
+3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹** 을 선택합니다.
+4. **기본 테넌트 그룹** 을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
 
    > [!NOTE]
    > 사용자 지정 테넌트 그룹이 있는 경우 드롭다운 목록에서 선택하지 말고 수동으로 이름을 입력합니다.

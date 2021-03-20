@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Fabric에서 중앙 비밀 저장
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88869758"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Azure Service Fabric의 중앙 비밀 저장소 
@@ -84,7 +84,7 @@ Service Fabric 애플리케이션에서 비밀을 사용하려면 다음 단계�
      </Section>
    ```
 
-1. **ApplicationManifest.xml**에 있는 섹션을 가져옵니다.
+1. **ApplicationManifest.xml** 에 있는 섹션을 가져옵니다.
    ```xml
      <ServiceManifestImport>
        <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
@@ -102,7 +102,7 @@ Service Fabric 애플리케이션에서 비밀을 사용하려면 다음 단계�
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
 1. 컨테이너에 비밀을 탑재합니다. 컨테이너 내에서 비밀을 사용할 수 있도록 설정하는 데 필요한 유일한 변경 내용은 탑재 지점을 `<ConfigPackage>`에 `specify`하는 것입니다.
-다음 코드 조각은 수정된 **ApplicationManifest.xml**입니다.  
+다음 코드 조각은 수정된 **ApplicationManifest.xml** 입니다.  
 
    ```xml
    <ServiceManifestImport>
@@ -120,7 +120,7 @@ Service Fabric 애플리케이션에서 비밀을 사용하려면 다음 단계�
    ```
    컨테이너 내부의 탑재 지점에서 비밀을 사용할 수 있습니다.
 
-1. `Type='SecretsStoreRef`를 지정하여 비밀을 프로세스 환경 변수에 바인딩할 수 있습니다. 다음 코드 조각은 `supersecret` 버전 `ver1`을 **ServiceManifest.xml**의 환경 변수 `MySuperSecret`에 바인딩하는 방법의 예제입니다.
+1. `Type='SecretsStoreRef`를 지정하여 비밀을 프로세스 환경 변수에 바인딩할 수 있습니다. 다음 코드 조각은 `supersecret` 버전 `ver1`을 **ServiceManifest.xml** 의 환경 변수 `MySuperSecret`에 바인딩하는 방법의 예제입니다.
 
    ```xml
    <EnvironmentVariables>

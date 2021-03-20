@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74082594"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
@@ -35,7 +35,7 @@ ms.locfileid: "74082594"
 3. 예정된 장애 조치(Failover) 후에는 선택적으로 주 사이트에서 보조 사이트로 복제가 다시 시작됩니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [재해 복구 드릴](hyper-v-vmm-test-failover.md)을 완료하여 모든 항목이 예상대로 작동하는지 확인합니다.
 - 장애 복구(Failback)를 완료하려면 주 및 보조 VMM 서버가 Site Recovery에 연결되어 있는지 확인합니다.
@@ -53,9 +53,9 @@ Hyper-V VM에 대해 주기적이거나 예정된 장애 조치(Failover)를 실
 
 
 1. **설정**  >  **복제 된 항목** 에서 VM > **장애 조치 (Failover)** 를 클릭 합니다.
-1. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 VM을 종료하려고 시도하는 경우 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 또한 Site Recovery는 장애 조치(Failover)를 트리거하기 전에 보조 사이트로 아직 전송되지 않은 온-프레미스 데이터를 동기화하려고 합니다. 종료가 실패하더라도 장애 조치(failover)는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+1. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 VM을 종료하려고 시도하는 경우 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다** 를 선택합니다. 또한 Site Recovery는 장애 조치(Failover)를 트리거하기 전에 보조 사이트로 아직 전송되지 않은 온-프레미스 데이터를 동기화하려고 합니다. 종료가 실패하더라도 장애 조치(failover)는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 2. 이제 보조 VMM 클라우드의 VM을 볼 수 있습니다.
-3. VM을 확인 한 후 장애 조치(Failover)를 **커밋**합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
+3. VM을 확인 한 후 장애 조치(Failover)를 **커밋** 합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
 
 > [!WARNING]
 > 장애 조치 (failover)를 **취소 하지 않음**: 장애 조치 (failover)를 시작 하기 전에 VM 복제가 중지 됩니다. 진행 중인 장애 조치(failover)를 취소하면 장애 조치(failover)가 중지되지만 VM은 다시 복제되지 않습니다.  
@@ -66,11 +66,11 @@ Hyper-V VM에 대해 주기적이거나 예정된 장애 조치(Failover)를 실
 보조 사이트에서 주 사이트로의 복제를 시작하고 주 사이트로 장애 복구(Failback)합니다. 주 사이트에서 VM을 다시 실행하면 보조 사이트로 복제할 수 있습니다.  
 
  
-1. VM을 클릭하고 **역방향 복제**를 클릭합니다.
-2. 작업이 완료되면 VM을 클릭하고, **장애 조치**에서 보조 VMM 클라우드의 장애 조치 방향을 확인하고, 원본 및 대상 위치를 선택합니다. 
+1. VM을 클릭하고 **역방향 복제** 를 클릭합니다.
+2. 작업이 완료되면 VM을 클릭하고, **장애 조치** 에서 보조 VMM 클라우드의 장애 조치 방향을 확인하고, 원본 및 대상 위치를 선택합니다. 
 4. 장애 조치를 시작합니다. **작업** 탭에서 장애 조치 진행 상황을 따를 수 있습니다.
 5. 주 VMM 클라우드에서 VM를 사용할 수 있는지 확인합니다.
-6. 주 VM에서 보조 사이트로 다시 복제하기 시작하려면 **역방향 복제**를 클릭합니다.
+6. 주 VM에서 보조 사이트로 다시 복제하기 시작하려면 **역방향 복제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Hyper-V VM을 보조 사이트에 복제하는 [단계를 검토](hyper-v-vmm-disaster-recovery.md)합니다.

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: f9b7b92fd21e12f1d86c5d5878e48c6ec6b0e748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87088022"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
@@ -61,7 +61,7 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-이 F# Azure Function에서는 하나 이상의 인수를 사용하게 됩니다. Azure Functions 인수에 대해 이야기할 때 *입력* 인수 및 *출력* 인수를 언급합니다. 입력 인수란 표현 그대로 F# Azure Function에 입력하는 것입니다. *출력* 인수란 함수에서 데이터를 *출력*하여 다시 전달하는 방식으로 사용되는 변경 가능한 데이터 또는 `byref<>` 인수입니다.
+이 F# Azure Function에서는 하나 이상의 인수를 사용하게 됩니다. Azure Functions 인수에 대해 이야기할 때 *입력* 인수 및 *출력* 인수를 언급합니다. 입력 인수란 표현 그대로 F# Azure Function에 입력하는 것입니다. *출력* 인수란 함수에서 데이터를 *출력* 하여 다시 전달하는 방식으로 사용되는 변경 가능한 데이터 또는 `byref<>` 인수입니다.
 
 위의 예에서 `blob`은 입력 인수이며 `output`은 출력 인수입니다. 여기서는 `output`에 `byref<>`를 사용합니다(`[<Out>]` 주석을 추가할 필요 없음). `byref<>` 형식을 사용하면 인수가 참조하는 레코드 또는 개체를 함수를 통해 변경할 수 있습니다.
 

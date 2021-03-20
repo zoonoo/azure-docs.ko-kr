@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54b6ae227fc4b3b951717799660543c02874dda0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88919661"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $select 구문
@@ -57,9 +57,9 @@ field_path ::= identifier('/'identifier)*
 
 두 번째 폼을 사용 하는 경우 목록에서 검색할 수 있는 필드만 지정할 수 있습니다.
 
-하위 필드를 명시적으로 지정 하지 않고 복합 필드를 나열 하는 경우 검색 가능한 모든 하위 필드가 쿼리 결과 집합에 포함 됩니다. 예를 들어 인덱스에 `Address` `Street` `City` `Country` 모두 검색할 수 있는, 및 하위 필드가 있는 필드가 있다고 가정 합니다. `Address` **$Select**에서 지정 하는 경우 쿼리 결과에는 세 개의 하위 필드가 모두 포함 됩니다.
+하위 필드를 명시적으로 지정 하지 않고 복합 필드를 나열 하는 경우 검색 가능한 모든 하위 필드가 쿼리 결과 집합에 포함 됩니다. 예를 들어 인덱스에 `Address` `Street` `City` `Country` 모두 검색할 수 있는, 및 하위 필드가 있는 필드가 있다고 가정 합니다. `Address` **$Select** 에서 지정 하는 경우 쿼리 결과에는 세 개의 하위 필드가 모두 포함 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 `HotelId` `HotelName` `Rating` 의 하위 필드 뿐만 아니라 결과에, 및 최상위 필드를 `City` 포함 합니다 `Address` .
 

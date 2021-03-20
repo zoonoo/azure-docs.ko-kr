@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88936132"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예: Python을 사용 하 여 사용자 지정 기술 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "88936132"
   + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Visual Studio Code용 Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
-## <a name="create-an-azure-function"></a>Azure Functions 만들기
+## <a name="create-an-azure-function"></a>Azure Function 만들기
 
 이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하는 개념을 보여 주지만 다른 방법이 가능 합니다. [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 
@@ -44,12 +44,12 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
 
 1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create new project...`을 검색하여 선택합니다.
 
-1. 프로젝트 작업 영역에 대한 디렉터리 위치를 선택하고 **선택**을 선택합니다.
+1. 프로젝트 작업 영역에 대한 디렉터리 위치를 선택하고 **선택** 을 선택합니다.
 
     > [!NOTE]
     > 다음 단계는 작업 영역 외부에서 완료하도록 설계되었습니다. 따라서 작업 영역의 일부인 프로젝트 폴더를 선택 하지 마십시오.
 
-1. 함수 앱 프로젝트에 사용할 언어를 선택 합니다. 이 자습서에서는 **Python**을 선택 합니다.
+1. 함수 앱 프로젝트에 사용할 언어를 선택 합니다. 이 자습서에서는 **Python** 을 선택 합니다.
 1. Python 버전을 선택 합니다 (버전 3.7.5는 Azure Functions에서 지원 됨).
 1. 프로젝트의 첫 번째 함수에 사용할 템플릿을 선택 합니다. **Http 트리거** 를 선택 하 여 새 함수 앱에서 http 트리거 함수를 만듭니다.
 1. 함수 이름을 제공 합니다. 이 경우 **Concatenator** 을 사용 하겠습니다. 
@@ -172,7 +172,7 @@ def transform_value(value):
 
 ### <a name="debug-your-code-locally"></a>로컬에서 코드 디버그
 
-Visual Studio Code를 사용 하면 코드를 쉽게 디버그할 수 있습니다. ' F5 ' 키를 누르거나 **디버그** 메뉴로 이동 하 여 **디버깅 시작**을 선택 합니다.
+Visual Studio Code를 사용 하면 코드를 쉽게 디버그할 수 있습니다. ' F5 ' 키를 누르거나 **디버그** 메뉴로 이동 하 여 **디버깅 시작** 을 선택 합니다.
 
 관심 있는 줄에서 ' F9 '를 눌러 코드에서 중단점을 설정할 수 있습니다.
 
@@ -182,7 +182,7 @@ Visual Studio Code를 사용 하면 코드를 쉽게 디버그할 수 있습니�
 
 함수 동작에 만족 하는 경우에는 게시할 수 있습니다.
 
-1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서를 검색 하 고 **함수 앱에 배포를**선택 합니다. 
+1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서를 검색 하 고 **함수 앱에 배포를** 선택 합니다. 
 
 1. 응용 프로그램을 배포 하려는 Azure 구독을 선택 합니다.
 
@@ -194,9 +194,9 @@ Visual Studio Code를 사용 하면 코드를 쉽게 디버그할 수 있습니�
 
 1. 새 리소스의 위치를 선택 합니다 (예: 미국 서 부 2).
 
-이제 azure 구독에 azure에서 새 Azure 함수를 호스트 하는 데 필요한 리소스가 생성 됩니다. 배포가 완료될 때가지 기다립니다. 출력 창에 배포 프로세스의 상태가 표시 됩니다.
+이제 azure 구독에 azure에서 새 Azure 함수를 호스트 하는 데 필요한 리소스가 생성 됩니다. 배포가 완료될 때까지 기다립니다. 출력 창에 배포 프로세스의 상태가 표시 됩니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 로 이동 하 고 이름으로 게시 한 함수를 찾습니다. 이름을 **Concatenator**로 지정한 경우 리소스를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 로 이동 하 고 이름으로 게시 한 함수를 찾습니다. 이름을 **Concatenator** 로 지정한 경우 리소스를 선택 합니다.
 
 1. **</> 함수 URL 가져오기** 단추를 클릭 합니다. 이를 통해 URL을 복사 하 여 함수를 호출할 수 있습니다.
 

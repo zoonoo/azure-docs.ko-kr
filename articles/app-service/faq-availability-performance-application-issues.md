@@ -10,10 +10,10 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88959003"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
@@ -32,11 +32,11 @@ ms.locfileid: "88959003"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>높은 CPU 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다.이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>높은 메모리 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다.이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다.높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>PowerShell를 사용하여 App Service Web Apps를 어떻게 자동화할 수 있나요?
 
@@ -47,7 +47,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 웹앱의 이벤트 로그를 보려면:
 
 1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
-2. 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
+2. 메뉴에서 **디버그 콘솔**  >  **CMD** 를 선택 합니다.
 3. **LogFiles** 폴더를 선택합니다.
 4. 이벤트 로그를 보려면 **eventlog.xml** 옆에 있는 연필 아이콘을 선택합니다.
 5. 로그를 다운로드하려면 PowerShell cmdlet `Save-AzureWebSiteLog -Name webappname`을 실행합니다.
@@ -59,19 +59,19 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
 2. **프로세스 탐색기** 메뉴를 선택합니다.
 3. **w3wp.exe** 프로세스 또는 WebJob 프로세스를 마우스 오른쪽 단추로 클릭합니다.
-4. **메모리 덤프**  >  **전체 덤프**다운로드를 선택 합니다.
+4. **메모리 덤프**  >  **전체 덤프** 다운로드를 선택 합니다.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>내 웹앱의 프로세스 수준 정보는 어떻게 볼 수 있나요?
 
 웹앱에 대한 프로세스 수준 정보를 보는 데는 두 가지 옵션이 있습니다.
 
 *   Azure Portal에서 다음을 수행합니다.
-    1. 웹앱에 대한 **프로세스 탐색기**를 선택합니다.
+    1. 웹앱에 대한 **프로세스 탐색기** 를 선택합니다.
     2. 세부 정보를 확인하려면 **w3wp.exe** 프로세스를 선택합니다.
 *   Kudu 콘솔에서:
     1. **Kudu 웹 사이트** ()에 로그인 `https://*yourwebsitename*.scm.azurewebsites.net` 합니다.
     2. **프로세스 탐색기** 메뉴를 선택합니다.
-    3. **w3wp.exe** 프로세스에 대한 **속성**을 선택합니다.
+    3. **w3wp.exe** 프로세스에 대한 **속성** 을 선택합니다.
 
 ## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>내 앱으로 이동할 때 “오류 403 - 이 웹앱이 중지되었습니다.”가 표시되었습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
@@ -93,22 +93,22 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 1. Azure Portal에서 웹앱으로 이동합니다.
 2. **구성** 선택
-3. **일반 설정**을 선택 합니다.
-4. **무중단**에 대해 **켜기**를 선택합니다.
+3. **일반 설정** 을 선택 합니다.
+4. **무중단** 에 대해 **켜기** 를 선택합니다.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>실패한 요청 추적을 어떻게 켜나요?
 
 실패한 요청 추적을 켜려면:
 
 1. Azure Portal에서 웹앱으로 이동합니다.
-3. **모든 설정**  >  **진단 로그**를 선택 합니다.
-4. **실패한 요청 추적**에 대해 **켜기**를 선택합니다.
-5. **저장**을 선택합니다.
-6. 웹앱 블레이드에서 **도구**를 선택합니다.
-7. **Visual Studio Online**을 선택합니다.
-8. 설정이 **켜기**가 아니면 **켜기**를 선택합니다.
-9. **이동**을 선택합니다.
-10. **Web.config**를 선택합니다.
+3. **모든 설정**  >  **진단 로그** 를 선택 합니다.
+4. **실패한 요청 추적** 에 대해 **켜기** 를 선택합니다.
+5. **저장** 을 선택합니다.
+6. 웹앱 블레이드에서 **도구** 를 선택합니다.
+7. **Visual Studio Online** 을 선택합니다.
+8. 설정이 **켜기** 가 아니면 **켜기** 를 선택합니다.
+9. **이동** 을 선택합니다.
+10. **Web.config** 를 선택합니다.
 11. system.webServer에서 이 구성을 추가합니다(특정 URL을 캡처하기 위해).
 
     ```xml
@@ -142,9 +142,9 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     </tracing>
     ```
 13. 실패한 요청 추적을 다운로드하려면 [Portal](https://portal.azure.com)에서 웹 사이트로 이동합니다.
-15. **Tools**  >  **Kudu**  >  **Go**를 선택 합니다.
-18. 메뉴에서 **디버그 콘솔**  >  **CMD**를 선택 합니다.
-19. **LogFiles** 폴더를 선택하고 이름이 **W3SVC**로 시작하는 폴더를 선택합니다.
+15. **Tools**  >  **Kudu**  >  **Go** 를 선택 합니다.
+18. 메뉴에서 **디버그 콘솔**  >  **CMD** 를 선택 합니다.
+19. **LogFiles** 폴더를 선택하고 이름이 **W3SVC** 로 시작하는 폴더를 선택합니다.
 20. XML 파일을 확인하려면 연필 아이콘을 선택합니다.
 
 ## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>“’메모리 비율’ 한도로 인해 작업 프로세스가 재생을 요청했습니다.”라는 메시지가 표시됩니다. 이 문제를 어떻게 해결하나요?

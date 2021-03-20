@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/11/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: f7ba6363ec3a38d37ea3df0f76409289069638e8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 80a943d235783852f57832363b5af8048f010575
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537799"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599438"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -44,7 +44,7 @@ ms.locfileid: "99537799"
 
 ### <a name="relation-extraction"></a>[관계 추출](#tab/relation-extraction)
 
-관계 추출은 텍스트에 언급 된 개념 간의 의미 있는 연결을 식별 합니다. 예를 들어 "조건 시간" 관계는 조건 이름을 시간에 연결 하 여 찾을 수 있습니다. 
+관계 추출은 텍스트에 언급 된 개념 간의 의미 있는 연결을 식별 합니다. 예를 들어 "조건 시간" 관계는 조건 이름을 시간 또는 약어와 전체 설명 사이에 연결 하 여 찾을 수 있습니다.  
 
 > [!div class="mx-imgBorder"]
 > ![상태 재지정](../media/ta-for-health/health-relation-extraction.png)
@@ -52,19 +52,23 @@ ms.locfileid: "99537799"
 
 ### <a name="entity-linking"></a>[엔터티 연결](#tab/entity-linking)
 
-엔터티 연결은 텍스트에 언급 된 명명 된 엔터티를 미리 정의 된 개념의 데이터베이스에 있는 개념에 연결 하 여 고유 엔터티를 구분 합니다. 예를 들어, 통합 의료 언어 시스템 (UMLS)이 있습니다.
+엔터티 링크는 텍스트에 언급 된 명명 된 엔터티를 구분 UMLS (통합 의료 언어 시스템)를 비롯 한 미리 정의 된 개념의 데이터베이스에 있는 개념에 연결 하 여 고유 엔터티를 제공 합니다. 의료 개념은 또한 추가 형태의 정규화로 기본 이름 지정이 할당 됩니다.
 
 > [!div class="mx-imgBorder"]
 > ![상태 EL](../media/ta-for-health/health-entity-linking.png)
 
 상태에 대 한 Text Analytics는[Umls](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)(통합 의료 언어 시스템) Metathesaurus 기술 자료에 있는 상태 및 생명 공학 어휘에 연결 하는 것을 지원 합니다.
 
-### <a name="negation-detection"></a>[부정 감지](#tab/negation-detection) 
+### <a name="assertion-detection"></a>[어설션 검색](#tab/assertion-detection) 
 
-의료 콘텐츠의 의미는 부정과 같은 한정자의 영향을 받습니다 .이는 잘못 진단 된 경우 중요 한 함축을 가질 수 있습니다. 상태에 대 한 Text Analytics는 텍스트에 언급 된 여러 엔터티의 부정 검색을 지원 합니다. 
+Misrepresented 인 경우 중요 한 영향을 줄 수 있는 음수 또는 조건부 어설션과 같은 한정자의 경우 의료 콘텐츠의 의미가 크게 영향을 받습니다. 상태 Text Analytics는 텍스트에서 엔터티에 대 한 세 가지 범주의 어설션 검색을 지원 합니다. 
+
+* 명확
+* 조건
+* 연관성
 
 > [!div class="mx-imgBorder"]
-> ![상태 NEG](../media/ta-for-health/health-negation.png)
+> ![상태 NEG](../media/ta-for-health/assertions.png)
 
 ---
 
@@ -137,20 +141,20 @@ example.json
 
 이 POST 요청은 비동기 작업에 대 한 작업을 제출 하는 데 사용 되므로 응답 개체에 텍스트가 없습니다.  그러나 작업 및 출력의 상태를 확인 하는 GET 요청을 수행 하려면 응답 헤더에 작업-위치 키 값이 있어야 합니다.  다음은 POST 요청의 응답 헤더에 있는 작업 위치 키 값의 예입니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/health/jobs/<jobID>`
 
 작업 상태를 확인 하려면 POST 응답의 작업-위치 키 헤더 값에 있는 URL에 대 한 GET 요청을 수행 합니다.  작업 상태를 반영 하는 데 사용 되는 상태는,,,,, `NotStarted` `running` `succeeded` `failed` `rejected` `cancelling` 및 `cancelled` 입니다.  
 
 `NotStarted` `running` GET 요청과 동일한 URL에 대 한 DELETE HTTP 호출을 포함 하는 또는 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대 한 자세한 내용은 [상태 호스팅 API 참조에 대 한 Text Analytics를 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob)하세요.
 
-다음은 GET 요청에 대 한 응답의 예입니다.  출력을 제거 하 고 나 `expirationDateTime` 서 (작업이 만들어진 시간부터 24 시간)이 경과 될 때까지 출력을 검색할 수 있습니다.
+다음은 GET 요청에 대 한 응답의 예입니다.  출력은 `expirationDateTime` (작업이 생성 된 시간부터 24 시간 이후)이 경과 된 후 출력이 제거 될 때까지 검색에 사용할 수 있습니다.
 
 ```json
 {
-    "jobId": "b672c6f5-7c0d-4783-ba8c-4d0c47213454",
-    "lastUpdateDateTime": "2020-11-18T01:45:00Z",
-    "createdDateTime": "2020-11-18T01:44:55Z",
-    "expirationDateTime": "2020-11-19T01:44:55Z",
+    "jobId": "be437134-a76b-4e45-829e-9b37dcd209bf",
+    "lastUpdateDateTime": "2021-03-11T05:43:37Z",
+    "createdDateTime": "2021-03-11T05:42:32Z",
+    "expirationDateTime": "2021-03-12T05:42:32Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -163,8 +167,7 @@ example.json
                         "length": 5,
                         "text": "100mg",
                         "category": "Dosage",
-                        "confidenceScore": 1.0,
-                        "isNegated": false
+                        "confidenceScore": 1.0
                     },
                     {
                         "offset": 31,
@@ -172,15 +175,35 @@ example.json
                         "text": "remdesivir",
                         "category": "MedicationName",
                         "confidenceScore": 1.0,
-                        "isNegated": false,
+                        "name": "remdesivir",
                         "links": [
                             {
                                 "dataSource": "UMLS",
                                 "id": "C4726677"
                             },
                             {
+                                "dataSource": "DRUGBANK",
+                                "id": "DB14761"
+                            },
+                            {
+                                "dataSource": "GS",
+                                "id": "6192"
+                            },
+                            {
+                                "dataSource": "MEDCIN",
+                                "id": "398132"
+                            },
+                            {
+                                "dataSource": "MMSL",
+                                "id": "d09540"
+                            },
+                            {
                                 "dataSource": "MSH",
                                 "id": "C000606551"
+                            },
+                            {
+                                "dataSource": "MTHSPL",
+                                "id": "3QKI37EEHE"
                             },
                             {
                                 "dataSource": "NCI",
@@ -189,6 +212,22 @@ example.json
                             {
                                 "dataSource": "NCI_FDA",
                                 "id": "3QKI37EEHE"
+                            },
+                            {
+                                "dataSource": "NDDF",
+                                "id": "018308"
+                            },
+                            {
+                                "dataSource": "RXNORM",
+                                "id": "2284718"
+                            },
+                            {
+                                "dataSource": "SNOMEDCT_US",
+                                "id": "870592005"
+                            },
+                            {
+                                "dataSource": "VANDF",
+                                "id": "4039395"
                             }
                         ]
                     },
@@ -197,57 +236,62 @@ example.json
                         "length": 13,
                         "text": "intravenously",
                         "category": "MedicationRoute",
-                        "confidenceScore": 1.0,
-                        "isNegated": false
-                    },
-                    {
-                        "offset": 56,
-                        "length": 4,
-                        "text": "over",
-                        "category": "Time",
-                        "confidenceScore": 0.87,
-                        "isNegated": false
+                        "confidenceScore": 1.0
                     },
                     {
                         "offset": 73,
                         "length": 7,
                         "text": "120 min",
                         "category": "Time",
-                        "confidenceScore": 0.99,
-                        "isNegated": false
+                        "confidenceScore": 0.94
                     }
                 ],
                 "relations": [
                     {
                         "relationType": "DosageOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/0",
-                        "target": "#/results/documents/0/entities/1"
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/0",
+                                "role": "Dosage"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            }
+                        ]
                     },
                     {
                         "relationType": "RouteOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/2",
-                        "target": "#/results/documents/0/entities/1"
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/2",
+                                "role": "Route"
+                            }
+                        ]
                     },
                     {
                         "relationType": "TimeOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/3",
-                        "target": "#/results/documents/0/entities/1"
-                    },
-                    {
-                        "relationType": "TimeOfMedication",
-                        "bidirectional": false,
-                        "source": "#/results/documents/0/entities/4",
-                        "target": "#/results/documents/0/entities/1"
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/3",
+                                "role": "Time"
+                            }
+                        ]
                     }
                 ],
                 "warnings": []
             }
         ],
         "errors": [],
-        "modelVersion": "2020-09-03"
+        "modelVersion": "2021-03-01"
     }
 }
 ```
@@ -294,30 +338,47 @@ example.json
             "id": "1",
             "entities": [
                 {
-                    "id": "0",
                     "offset": 25,
                     "length": 5,
                     "text": "100mg",
                     "category": "Dosage",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
+                    "confidenceScore": 1.0
                 },
                 {
-                    "id": "1",
                     "offset": 31,
                     "length": 10,
                     "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
-                    "isNegated": false,
+                    "name": "remdesivir",
                     "links": [
                         {
                             "dataSource": "UMLS",
                             "id": "C4726677"
                         },
                         {
+                            "dataSource": "DRUGBANK",
+                            "id": "DB14761"
+                        },
+                        {
+                            "dataSource": "GS",
+                            "id": "6192"
+                        },
+                        {
+                            "dataSource": "MEDCIN",
+                            "id": "398132"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "d09540"
+                        },
+                        {
                             "dataSource": "MSH",
                             "id": "C000606551"
+                        },
+                        {
+                            "dataSource": "MTHSPL",
+                            "id": "3QKI37EEHE"
                         },
                         {
                             "dataSource": "NCI",
@@ -326,115 +387,215 @@ example.json
                         {
                             "dataSource": "NCI_FDA",
                             "id": "3QKI37EEHE"
+                        },
+                        {
+                            "dataSource": "NDDF",
+                            "id": "018308"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "2284718"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "870592005"
+                        },
+                        {
+                            "dataSource": "VANDF",
+                            "id": "4039395"
                         }
                     ]
                 },
                 {
-                    "id": "2",
                     "offset": 42,
                     "length": 13,
                     "text": "intravenously",
                     "category": "MedicationRoute",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
+                    "confidenceScore": 1.0
                 },
                 {
-                    "id": "3",
-                    "offset": 56,
-                    "length": 4,
-                    "text": "over",
-                    "category": "Time",
-                    "confidenceScore": 0.87,
-                    "isNegated": false
-                },
-                {
-                    "id": "4",
                     "offset": 73,
                     "length": 7,
                     "text": "120 min",
                     "category": "Time",
-                    "confidenceScore": 0.99,
-                    "isNegated": false
+                    "confidenceScore": 0.94
                 }
             ],
             "relations": [
                 {
                     "relationType": "DosageOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/0",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/0",
+                            "role": "Dosage"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        }
+                    ]
                 },
                 {
                     "relationType": "RouteOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/2",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/2",
+                            "role": "Route"
+                        }
+                    ]
                 },
                 {
                     "relationType": "TimeOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/3",
-                    "target": "#/documents/0/entities/1"
-                },
-                {
-                    "relationType": "TimeOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/4",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/3",
+                            "role": "Time"
+                        }
+                    ]
                 }
-            ]
+            ],
+            "warnings": []
         }
     ],
     "errors": [],
-    "modelVersion": "2020-09-03"
+    "modelVersion": "2021-03-01"
 }
 ```
 
-### <a name="negation-detection-output"></a>부정 감지 출력
+### <a name="assertion-output"></a>어설션 출력
 
-부정 감지를 사용 하는 경우, 경우에 따라 단일 부정 단어가 한 번에 여러 용어를 해결할 수 있습니다. 인식 되는 엔터티의 부정은 플래그의 부울 값으로 JSON 출력에 표시 됩니다 `isNegated` . 예를 들면 다음과 같습니다.
+상태에 대 한 Text Analytics는 텍스트 내 개념의 컨텍스트를 심층적으로 이해 하는 의료 개념에 할당 된 정보 특성인 어설션 한정자를 반환 합니다. 이러한 한정자는 각각 서로 다른 측면에 초점을 맞춘 세 가지 범주로 구분 되며 함께 사용할 수 없는 값의 집합을 포함 합니다. 각 엔터티에는 범주 당 하나의 값만 할당 됩니다. 각 범주에 대 한 가장 일반적인 값은 기본값입니다. 서비스의 출력 응답에 기본값과 다른 어설션 한정자만 포함 되어 있습니다.
+
+**확신**  -개념의 존재 여부 (존재 하는 경우)와 해당 텍스트가 현재 상태와 관련 된 정도에 대 한 정보를 제공 합니다 (확정 및 가능한 경우).
+*   **긍정** [기본값]: 개념이 존재 하거나 발생 합니다.
+* **음수**: 개념이 없거나 발생 한 적이 없습니다.
+* **Positive_Possible**: 개념이 있지만 약간의 불확실성이 있습니다.
+* **Negative_Possible**: 개념의 존재는 거의 없으므로 약간의 불확실성이 있습니다.
+* **Neutral_Possible**: 둘 중 하나에 대해 추세 없이 개념이 존재 하거나 존재 하지 않을 수 있습니다.
+
+**조건** 지정-특정 조건에 따라 개념이 있는지 여부에 대 한 정보를 제공 합니다. 
+*   **없음** [기본값]: 개념은 팩트가 아닌 팩트 이며 특정 조건에 의존 하지 않습니다.
+*   **가상**: 개념은 나중에 개발 하거나 발생할 수 있습니다.
+*   **조건**: 개념이 존재 하거나 특정 조건 에서만 발생 합니다.
+
+**연결** -개념이 텍스트의 제목 또는 다른 사용자와 연결 되어 있는지 여부를 설명 합니다.
+*   **Subject** [기본값]: 개념은 텍스트의 제목 (일반적으로 환자)과 연결 됩니다.
+*   **Someone_Else**: 개념은 텍스트의 제목이 아닌 사용자와 연결 됩니다.
+
+
+어설션 검색은 부정 된 엔터티를 확신 범주에 대 한 음수 값으로 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
-  "id": "2",
-  "offset": 90,
-  "length": 10,
-  "text": "chest pain",
-  "category": "SymptomOrSign",
-  "score": 0.9972,
-  "isNegated": true,
-  "links": [
-    {
-      "dataSource": "UMLS",
-      "id": "C0008031"
-    },
-    {
-      "dataSource": "CHV",
-      "id": "0000023593"
-    },
+                        "offset": 381,
+                        "length": 3,
+                        "text": "SOB",
+                        "category": "SymptomOrSign",
+                        "confidenceScore": 0.98,
+                        "assertion": {
+                            "certainty": "negative"
+                        },
+                        "name": "Dyspnea",
+                        "links": [
+                            {
+                                "dataSource": "UMLS",
+                                "id": "C0013404"
+                            },
+                            {
+                                "dataSource": "AOD",
+                                "id": "0000005442"
+                            },
     ...
 ```
 
 ### <a name="relation-extraction-output"></a>관계 추출 출력
 
-관계 추출 출력에는 관계의 *원본* 및 *대상* 에 대 한 URI 참조가 포함 됩니다. 관계 역할이 인 엔터티 `ENTITY` 는 필드에 할당 됩니다 `target` . 관계 역할이 인 엔터티 `ATTRIBUTE` 는 필드에 할당 됩니다 `source` . 약어 관계는 양방향 `source` 및 `target` 필드를 포함 하며 `bidirectional` 로 설정 됩니다 `true` . 
+상태에 대 한 Text Analytics는 특성 및 엔터티 간의 관계 (예: 본문 구조의 방향, 조제의 dosage) 및 엔터티 간의 관계 (예: 약어 검색)를 포함 하 여 서로 다른 개념 간의 관계를 인식 합니다.
+
+**약어**
+
+**DIRECTION_OF_BODY_STRUCTURE**
+
+**DIRECTION_OF_CONDITION**
+
+**DIRECTION_OF_EXAMINATION**
+
+**DIRECTION_OF_TREATMENT**
+
+**DOSAGE_OF_MEDICATION**
+
+**FORM_OF_MEDICATION**
+
+**FREQUENCY_OF_MEDICATION**
+
+**FREQUENCY_OF_TREATMENT**
+
+**QUALIFIER_OF_CONDITION**
+
+**RELATION_OF_EXAMINATION**
+
+**ROUTE_OF_MEDICATION** 
+
+**TIME_OF_CONDITION**
+
+**TIME_OF_EVENT**
+
+**TIME_OF_EXAMINATION**
+
+**TIME_OF_MEDICATION**
+
+**TIME_OF_TREATMENT**
+
+**UNIT_OF_CONDITION**
+
+**UNIT_OF_EXAMINATION**
+
+**VALUE_OF_CONDITION**  
+
+**VALUE_OF_EXAMINATION**
+
+> [!NOTE]
+> * 조건을 참조 하는 관계는 진단 엔터티 형식 또는 SYMPTOM_OR_SIGN 엔터티 형식 중 하나를 참조할 수 있습니다.
+> * 조제를 참조 하는 관계는 MEDICATION_NAME 엔터티 형식 또는 MEDICATION_CLASS 엔터티 형식 중 하나를 참조할 수 있습니다.
+> * 시간을 참조 하는 관계는 TIME 엔터티 형식 또는 날짜 엔터티 형식을 참조할 수 있습니다.
+
+관계 추출 출력에는 관계 유형 엔터티의 URI 참조 및 할당 된 역할이 포함 되어 있습니다. 예를 들면 다음과 같습니다.
 
 ```json
-"relations": [
-                {
-                    "relationType": "DosageOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/1/entities/0",
-                    "target": "#/documents/1/entities/1"
-                },
-                {
-                    "relationType": "FrequencyOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/1/entities/2",
-                    "target": "#/documents/1/entities/1"
-                }
-            ]
-  },
+                "relations": [
+                    {
+                        "relationType": "DosageOfMedication",
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/0",
+                                "role": "Dosage"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            }
+                        ]
+                    },
+                    {
+                        "relationType": "RouteOfMedication",
+                        "entities": [
+                            {
+                                "ref": "#/results/documents/0/entities/1",
+                                "role": "Medication"
+                            },
+                            {
+                                "ref": "#/results/documents/0/entities/2",
+                                "role": "Route"
+                            }
+                        ]
 ...
 ]
 ```

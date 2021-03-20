@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91254264"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
@@ -89,7 +89,7 @@ ms.locfileid: "91254264"
 
     ![개별 보고서 파일 목록](./media/backup-mabs-release-notes-v3/individual-report-files.png)
 
-1. **보고서**로 끝나지 않는 보고서 파일을 선택 하 고 **옵션** 을 마우스 오른쪽 단추로 클릭 한 다음 **관리**를 선택 합니다.
+1. **보고서** 로 끝나지 않는 보고서 파일을 선택 하 고 **옵션** 을 마우스 오른쪽 단추로 클릭 한 다음 **관리** 를 선택 합니다.
 
     ![보고서 파일에 대해 관리를 선택 합니다.](./media/backup-mabs-release-notes-v3/manage-files.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "91254264"
 
     ![최신 보고서 파일로 파일 바꾸기](./media/backup-mabs-release-notes-v3/replace-files.png)
 
-    파일이 바뀌면 **이름** 및 **설명**이 그대로 유지되고 비어 있지 않은지 확인합니다.
+    파일이 바뀌면 **이름** 및 **설명** 이 그대로 유지되고 비어 있지 않은지 확인합니다.
 
 1. 파일이 대체 된 후 MABS 서비스를 다시 시작 하 고 보고서 파일을 사용 합니다.
 

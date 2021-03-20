@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88861064"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Azure Service Bus 네임 스페이스를 다른 영역으로 이동
@@ -30,7 +30,7 @@ ms.locfileid: "88861064"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 리소스** 를 선택한 다음 Service Bus 네임 스페이스를 선택 합니다.
-3. > **설정**  >  **템플릿 내보내기**를 선택 합니다.
+3. > **설정**  >  **템플릿 내보내기** 를 선택 합니다.
 4. **템플릿 내보내기** 페이지에서 **다운로드** 를 선택 합니다.
 
     :::image type="content" source="./media/move-across-regions/download-template.png" alt-text="리소스 관리자 템플릿 다운로드":::
@@ -45,64 +45,64 @@ ms.locfileid: "88861064"
 ## <a name="move"></a>이동
 템플릿을 배포 하 여 대상 지역에 Service Bus 네임 스페이스를 만듭니다. 
 
-1. Azure Portal에서 **리소스 만들기**를 선택 합니다.
-2. **Marketplace 검색**에서 검색 텍스트에 대 한 **템플릿 배포** 를 입력 하 고 **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)** 를 선택한 다음 **enter**키를 누릅니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
+2. **Marketplace 검색** 에서 검색 텍스트에 대 한 **템플릿 배포** 를 입력 하 고 **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)** 를 선택한 다음 **enter** 키를 누릅니다.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="리소스 관리자 템플릿 다운로드":::    
-1. **템플릿 배포** 페이지에서 **만들기**를 선택 합니다.
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="새 템플릿 배포":::    
+1. **템플릿 배포** 페이지에서 **만들기** 를 선택 합니다.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="리소스 관리자 템플릿 다운로드":::        
-1. **사용자 지정 배포** 페이지에서 **편집기에서 사용자 고유의 템플릿 빌드**를 선택 합니다.
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="새 템플릿 배포-만들기 단추":::        
+1. **사용자 지정 배포** 페이지에서 **편집기에서 사용자 고유의 템플릿 빌드** 를 선택 합니다.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="리소스 관리자 템플릿 다운로드":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="편집기에서 사용자 고유의 템플릿 빌드-링크":::            
 1. **템플릿 편집** 페이지의 도구 모음에서 **파일 로드** 를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="리소스 관리자 템플릿 다운로드":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="템플릿 선택":::                
 1. **저장** 을 선택 하 여 템플릿을 저장 합니다. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="리소스 관리자 템플릿 다운로드":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="템플릿 저장":::                    
 1. **사용자 지정 배포** 페이지에서 다음 단계를 수행 합니다. 
-    1. Azure **구독**을 선택 합니다. 
-    2. 기존 **리소스 그룹**을 선택하거나 리소스 그룹을 만듭니다. 
+    1. Azure **구독** 을 선택합니다. 
+    2. 기존 **리소스 그룹** 을 선택하거나 리소스 그룹을 만듭니다. 
     3. 대상 **위치** 또는 지역을 선택 합니다. 기존 리소스 그룹을 선택한 경우이 설정은 읽기 전용입니다. 
-    4. **네임 스페이스의 새 이름을**입력 합니다.
-    1. **검토 + 만들기**를 선택합니다. 
+    4. **네임 스페이스의 새 이름을** 입력 합니다.
+    1. **검토 + 만들기** 를 선택합니다. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 다운로드":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="리소스 관리자 템플릿 배포":::
     1. **검토 + 만들기** 페이지의 페이지 맨 아래에서 **만들기** 를 선택 합니다. 
     
 ## <a name="verify"></a>확인
-1. 배포가 성공적으로 완료 되 면 **리소스 그룹으로 이동**을 선택 합니다.
+1. 배포가 성공적으로 완료 되 면 **리소스 그룹으로 이동** 을 선택 합니다.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="리소스 관리자 템플릿 다운로드":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="리소스 그룹으로 이동 링크":::    
 1. **리소스 그룹** 페이지에서 Service Bus 네임 스페이스를 선택 합니다. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="리소스 관리자 템플릿 다운로드":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Service Bus 네임 스페이스 선택":::    
 1. **Service Bus 네임 스페이스** 페이지에서 원본 지역의 큐, 토픽 및 구독이 표시 되는지 확인 합니다. 
     1. 오른쪽 창 맨 아래에 있는 네임 스페이스에 **큐** 가 표시 됩니다.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="리소스 관리자 템플릿 다운로드":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="네임 스페이스의 큐":::
     2. **항목** 탭으로 전환 하 여 네임 스페이스의 항목을 확인 합니다.
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="리소스 관리자 템플릿 다운로드":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="네임 스페이스의 항목":::
     3. 구독을 만들었는지 확인 하려면 항목을 선택 합니다. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="리소스 관리자 템플릿 다운로드":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="토픽 구독":::      
     
     
 
 ## <a name="discard-or-clean-up"></a>삭제 또는 정리
-배포 후에는 시작 하려는 경우 **대상 Service Bus 네임 스페이스**를 삭제 하 고이 문서의 [준비](#prepare) 및 [이동](#move) 섹션에 설명 된 단계를 반복할 수 있습니다.
+배포 후에는 시작 하려는 경우 **대상 Service Bus 네임 스페이스** 를 삭제 하 고이 문서의 [준비](#prepare) 및 [이동](#move) 섹션에 설명 된 단계를 반복할 수 있습니다.
 
-변경 내용을 커밋하고 Service Bus 네임 스페이스의 이동을 완료 하려면 **소스 Service Bus 네임 스페이스**를 삭제 합니다. 네임 스페이스를 삭제 하기 전에 모든 메시지를 처리 하는지 확인 합니다. 
+변경 내용을 커밋하고 Service Bus 네임 스페이스의 이동을 완료 하려면 **소스 Service Bus 네임 스페이스** 를 삭제 합니다. 네임 스페이스를 삭제 하기 전에 모든 메시지를 처리 하는지 확인 합니다. 
 
 Azure Portal를 사용 하 여 Service Bus 네임 스페이스 (원본 또는 대상)를 삭제 하려면 다음을 수행 합니다.
 
-1. Azure Portal의 맨 위에 있는 검색 창에서 **Service Bus**를 입력 하 고 검색 결과에서 **Service Bus** 을 선택 합니다. 목록에 Service Bus 네임 스페이스가 표시 됩니다.
+1. Azure Portal의 맨 위에 있는 검색 창에서 **Service Bus** 를 입력 하 고 검색 결과에서 **Service Bus** 을 선택 합니다. 목록에 Service Bus 네임 스페이스가 표시 됩니다.
 2. 삭제할 대상 네임 스페이스를 선택 하 고 도구 모음에서 **삭제** 를 선택 합니다. 
 
     ![네임 스페이스 삭제-단추](./media/move-across-regions/delete-namespace-button.png)
-3. **리소스 삭제** 페이지에서 선택한 리소스를 확인 하 고 **예**를 입력 하 여 삭제를 확인 한 다음 **삭제**를 선택 합니다. 
+3. **리소스 삭제** 페이지에서 선택한 리소스를 확인 하 고 **예** 를 입력 하 여 삭제를 확인 한 다음 **삭제** 를 선택 합니다. 
 
     다른 옵션은 Service Bus 네임 스페이스가 있는 리소스 그룹을 삭제 하는 것입니다. **리소스 그룹** 페이지의 도구 모음에서 **리소스 그룹 삭제** 를 선택 하 고 삭제를 확인 합니다. 
 

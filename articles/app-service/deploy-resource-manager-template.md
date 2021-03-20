@@ -7,10 +7,10 @@ ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88961621"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
@@ -111,7 +111,7 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 템플릿이 TLS/SSL 바인딩에 대 한 [Microsoft 웹/인증서](/azure/templates/microsoft.web/certificates) 리소스를 포함 하 고 인증서가 Key Vault에 저장 된 경우 App Service id에서 인증서에 액세스할 수 있는지 확인 해야 합니다.
 
-전역 Azure에서 App Service 서비스 주체의 ID는 **abfa0a7c-a6b6-4736-8310-5855508787cd**입니다. App Service 서비스 주체에 Key Vault에 대한 액세스를 허용하려면 다음을 사용합니다.
+전역 Azure에서 App Service 서비스 주체의 ID는 **abfa0a7c-a6b6-4736-8310-5855508787cd** 입니다. App Service 서비스 주체에 Key Vault에 대한 액세스를 허용하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy `
@@ -121,9 +121,9 @@ Set-AzKeyVaultAccessPolicy `
   -PermissionsToCertificates get
 ```
 
-Azure Government에서 App Service 서비스 주체의 ID는 **6a02c803-dafd-4136-b4c3-5a6f318b4714**입니다. 앞의 예제에서 해당 ID를 사용합니다.
+Azure Government에서 App Service 서비스 주체의 ID는 **6a02c803-dafd-4136-b4c3-5a6f318b4714** 입니다. 앞의 예제에서 해당 ID를 사용합니다.
 
-Key Vault에서 **인증서** 및 **생성/가져오기**를 선택하여 인증서를 업로드합니다.
+Key Vault에서 **인증서** 및 **생성/가져오기** 를 선택하여 인증서를 업로드합니다.
 
 ![인증서 가져오기](media/web-sites-rm-template-guidance/import-certificate.png)
 

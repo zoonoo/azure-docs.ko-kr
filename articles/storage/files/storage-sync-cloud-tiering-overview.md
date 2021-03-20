@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576461"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적인 기능인 클라우드 계층화는 온-프레미스 파일 서버의 성능을 유지 하면서 필요한 로컬 저장소의 양을 줄입니다.
@@ -39,7 +39,7 @@ Azure 파일 동기화의 선택적인 기능인 클라우드 계층화는 온-�
 날짜 정책 및 볼륨의 사용 가능한 공간 정책이 함께 작동 하는 방법에 대 한 자세한 예제는 [클라우드 계층화 정책 선택 Azure 파일 동기화](storage-sync-choose-cloud-tiering-policies.md)을 참조 하세요.
 
 ### <a name="windows-server-data-deduplication"></a>Windows Server 데이터 중복 제거
-데이터 중복 제거는 Windows Server 2016부터 클라우드 계층화를 사용 하도록 설정 된 볼륨에서 지원 됩니다. 자세한 내용은 [Azure 파일 동기화 배포 계획](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication)을 참조 하세요.
+데이터 중복 제거는 Windows Server 2016부터 클라우드 계층화를 사용 하도록 설정 된 볼륨에서 지원 됩니다. 자세한 내용은 [Azure 파일 동기화 배포 계획](./storage-sync-files-planning.md#data-deduplication)을 참조 하세요.
 
 ### <a name="cloud-tiering-heatmap"></a>클라우드 계층화 열 지도
 Azure 파일 동기화는 시간이 지남에 따라 파일 액세스 (읽기 및 쓰기 작업)를 모니터링 하 고, 자주 액세스 하는 빈도에 따라 모든 파일에 열 점수를 할당 합니다. 이러한 점수를 사용 하 여 각 서버 끝점에서 네임 스페이스의 "열 지도"를 작성 합니다. 이 열 지도는 클라우드 계층화를 사용 하도록 설정 된 위치에서 열 점수를 기준으로 정렬 된 모든 동기화 파일의 목록입니다. 최근에 액세스 한 파일은 활성 상태인 것으로 간주 되 고, 거의 수행 되지 않았고 특정 시간 동안 액세스 되지 않은 파일은 쿨로 간주 됩니다. 
@@ -109,4 +109,3 @@ Azure 파일 동기화 agent 버전 11을 사용 하는 경우 클라우드 계�
 ## <a name="next-steps"></a>다음 단계
 * [Azure 파일 동기화 클라우드 계층화 정책 선택](storage-sync-choose-cloud-tiering-policies.md)
 * [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
-

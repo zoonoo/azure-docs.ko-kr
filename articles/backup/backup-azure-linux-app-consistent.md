@@ -4,10 +4,10 @@ description: Azure에 Linux 가상 머신의 애플리케이션 일치 백업을
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88999243"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM의 애플리케이션 일치 백업
@@ -18,30 +18,30 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 프레임워크는 VM 스냅샷을 만드는 동안 사용자 지정 사전 스크립트 및 사후 스크립트를 실행하는 옵션을 제공합니다. 사전 스크립트는 VM 스냅샷을 만들기 직전에 실행되고 사후 스크립트는 VM 스냅샷을 만든 직후에 실행됩니다. 사전 스크립트와 사후 스크립트는 VM 스냅샷을 만드는 동안 애플리케이션과 환경을 제어하도록 유연성을 제공합니다.
 
-사전 스크립트는 IO를 정지하고 메모리 내 콘텐츠를 디스크로 플러시하는 네이티브 애플리케이션 API를 호출합니다. 이 작업을 통해 스냅샷의 애플리케이션 일관성이 보장됩니다. 사후 스크립트는 네이티브 응용 프로그램 Api를 사용 하 여 IOs를 재개 합니다. 그러면 응용 프로그램이 VM 스냅숏 후 정상 작업을 다시 시작할 수 있습니다.
+사전 스크립트는 IO를 정지하고 메모리 내 콘텐츠를 디스크로 플러시하는 네이티브 애플리케이션 API를 호출합니다. 이 작업을 통해 스냅샷의 애플리케이션 일관성이 보장됩니다. 사후 스크립트는 네이티브 애플리케이션 API를 사용하여 IO를 재개합니다. 그러면 애플리케이션이 VM 스냅샷을 만든 후 정상 작업을 계속할 수 있습니다.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>사전 스크립트 및 사후 스크립트를 구성하는 단계
 
 1. 백업하려는 Linux VM에 루트 사용자로 로그인합니다.
 
-2. [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 **VMSnapshotScriptPluginConfig.json**을 다운로드하여 백업할 모든 VM의 **/etc/azure** 폴더에 복사합니다. **/etc/azure** 폴더가 없으면 만듭니다.
+2. [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 **VMSnapshotScriptPluginConfig.json** 을 다운로드하여 백업할 모든 VM의 **/etc/azure** 폴더에 복사합니다. **/etc/azure** 폴더가 없으면 만듭니다.
 
-3. 백업할 모든 VM의 애플리케이션에 대한 사전 스크립트와 사후 스크립트를 복사합니다. VM의 어떤 위치로도 스크립트를 복사할 수 있습니다. **VMSnapshotScriptPluginConfig.json** 파일에서 스크립트 파일의 전체 경로를 업데이트해야 합니다.
+3. 백업할 모든 VM의 애플리케이션에 대한 사전 스크립트와 사후 스크립트를 복사합니다. VM의 어떤 위치로도 스크립트를 복사할 수 있습니다. 파일의 **VMSnapshotScriptPluginConfig.js** 에 있는 스크립트 파일의 전체 경로를 업데이트 해야 합니다.
 
 4. 다음 파일에 대해 다음과 같은 권한이 있는지 확인합니다.
 
-   - **VMSnapshotScriptPluginConfig.json**: 권한 "600" 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
+   - **VMSnapshotScriptPluginConfig.js**: "600" 권한 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기" 및 "쓰기" 권한을 가져야 하며 사용자는 "실행" 권한을 가져서는 안됩니다.
 
-   - **사전 스크립트 파일**: 권한 “700”  예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
+   - **사전 스크립트 파일**: 권한 "700"  예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
 
-   - **사후 스크립트**: 권한 “700” 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
+   - **사후 스크립트** "700" 권한 예를 들어 "루트" 사용자만 이 파일에 대한 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다.
 
    > [!IMPORTANT]
    > 이 프레임워크는 사용자에게 강력한 권한을 부여합니다. 프레임워크를 보호하고 “root” 사용자만 중요한 JSON 및 스크립트 파일에 액세스할 수 있도록 합니다.
    > 요구 사항이 충족되지 않으면 스크립트가 실행되지 않아서 파일 시스템 작동이 중단되고 일관성 없는 백업이 만들어집니다.
    >
 
-5. 다음에 설명된 대로 **VMSnapshotScriptPluginConfig.json**을 구성합니다.
+5. 여기에 설명 된 대로 **VMSnapshotScriptPluginConfig.js를** 구성 합니다.
     - **Pluginname**:이 필드를 그대로 두거나 스크립트가 예상 대로 작동 하지 않을 수 있습니다.
 
     - **preScriptLocation**: 백업될 VM에서 사전 스크립트의 전체 경로를 제공합니다.
@@ -56,11 +56,11 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
     - **Postscriptnoofretries 시도**: 종료 하기 전에 오류가 발생 하는 경우 사후 스크립트를 다시 시도해 야 하는 횟수를 설정 합니다. 0은 한 번의 시도를 의미 하 고 실패 한 경우 재시도 하지 않습니다.
 
-    - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대 한 개별 시간 제한을 지정 합니다 (최 댓 값은 1800 일 수 있음).
+    - **timeoutInSeconds**: 사전 스크립트 및 사후 스크립트에 대한 개별 제한 시간을 지정합니다(최댓값은 1800 일 수 있음).
 
-    - **continueBackupOnFailure**: Azure Backup을 사전 스크립트 또는 사후 스크립트가 실패하는 경우 파일 시스템 일관성/충돌 일관성 백업으로 대체하려는 경우 이 값을 **true**로 설정합니다. 이 설정을 **false** 로 설정 하면 스크립트 오류가 발생 하는 경우 백업에 실패 합니다 (이 설정에 관계 없이 크래시 일관성 백업으로 대체 하는 단일 디스크 VM이 있는 경우 제외). **ContinueBackupOnFailure** 값이 false로 설정 된 경우 백업이 실패 하면 서비스의 다시 시도 논리에 따라 백업 작업을 다시 시도 합니다 (규정 된 횟수).
+    - **continueBackupOnFailure**: 사전 스크립트 또는 사후 스크립트가 실패 하는 경우 파일 시스템 일관성/충돌 일관성 백업으로 대체 Azure Backup 하려면이 값을 **true** 로 설정 합니다. 이 설정을 **false** 로 설정 하면 스크립트 오류가 발생 하는 경우 백업에 실패 합니다 (이 설정에 관계 없이 크래시 일관성 백업으로 대체 하는 단일 디스크 VM이 있는 경우 제외). **ContinueBackupOnFailure** 값이 false로 설정 된 경우 백업이 실패 하면 서비스의 다시 시도 논리에 따라 백업 작업을 다시 시도 합니다 (규정 된 횟수).
 
-    - **fsFreezeEnabled**: 파일 시스템 일관성을 유지하는 VM 스냅샷을 만드는 동안 Linux fsfreeze를 호출해야 하는지 여부를 지정합니다. 애플리케이션이 fsfreeze 비활성화에 대한 종속성을 갖지 않는 한, 이 설정을 **true**로 유지하는 것이 좋습니다.
+    - **fsFreezeEnabled**: 파일 시스템 일관성을 유지하는 VM 스냅샷을 만드는 동안 Linux fsfreeze를 호출해야 하는지 여부를 지정합니다. 응용 프로그램에 fsfreeze 비활성화에 대 한 종속성이 없으면이 설정을 **true** 로 설정 된 상태로 유지 하는 것이 좋습니다.
 
     - **ScriptsExecutionPollTimeSeconds**: 스크립트 실행에 대 한 각 폴링 간에 확장이 대기 해야 하는 시간을 설정 합니다. 예를 들어 값이 2 인 경우 확장은 사전/사후 스크립트 실행이 2 초 마다 완료 되었는지 여부를 확인 합니다. 사용할 수 있는 최소값 및 최대값은 각각 1과 5입니다. 값은 반드시 정수 여야 합니다.
 
@@ -70,7 +70,7 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 
 사전 스크립트 및 사후 스크립트를 작성하는 동안 적절한 로깅을 추가했는지 확인하고 스크립트 로그를 검토하여 모든 스크립트 문제를 해결하세요. 스크립트를 실행하는 데 여전히 문제가 있는 경우 자세한 내용은 다음 표를 참조하세요.
 
-| Error | 오류 메시지 | 권장 작업 |
+| 오류 | 오류 메시지 | 권장 작업 |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |사전 스크립트가 오류를 반환하여 백업이 애플리케이션에 일관되지 않을 수 있습니다.| 이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하세요.|  
 |Post-ScriptExecutionFailed |사후 스크립트가 애플리케이션 상태에 영향을 줄 수 있는 오류를 반환했습니다. |이 문제를 해결하려면 스크립트에 대한 오류 로그를 확인하고 애플리케이션 상태를 확인하세요. |
@@ -80,8 +80,8 @@ VM의 백업 스냅샷을 만들 때 애플리케이션 일관성이란 복원 �
 | IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig.json** 파일이 잘못되어서 사전 스크립트 및 사후 스크립트를 실행할 수 없으며 백업이 애플리케이션에 일관되지 않습니다. | [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig)에서 복사본을 다운로드하고 다시 구성하세요. |
 | InsufficientPermissionforPre-Script | 스크립트 실행을 위해 “루트” 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
 | InsufficientPermissionforPost-Script | 스크립트 실행을 위해 루트 사용자는 파일의 소유자여야 하며 파일은 "700" 권한을 가져야 합니다. 즉, “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 가져야 합니다. | "루트" 사용자가 스크립트 파일의 "소유자"이고 “소유자”만이 "읽기", "쓰기" 및 "실행" 권한을 갖는지 확인합니다. |
-| Pre-ScriptTimeout | 애플리케이션 일치 백업 사전 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 **/etc/azure**에 있는 **VMSnapshotScriptPluginConfig.json** 파일에서 시간 제한을 늘립니다. |
-| Post-ScriptTimeout | 애플리케이션 일치 백업 사후 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 **/etc/azure**에 있는 **VMSnapshotScriptPluginConfig.json** 파일에서 시간 제한을 늘립니다. |
+| Pre-ScriptTimeout | 애플리케이션 일치 백업 사전 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 **/etc/azure** 에 있는 **VMSnapshotScriptPluginConfig.json** 파일에서 시간 제한을 늘립니다. |
+| Post-ScriptTimeout | 애플리케이션 일치 백업 사후 스크립트의 실행이 시간 초과되었습니다. | 스크립트를 확인하고 **/etc/azure** 에 있는 **VMSnapshotScriptPluginConfig.json** 파일에서 시간 제한을 늘립니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

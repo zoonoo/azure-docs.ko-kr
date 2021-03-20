@@ -4,10 +4,10 @@ description: Service Fabric Windows 독립 실행형 클러스터에서 Active D
 ms.topic: conceptual
 ms.date: 03/29/2018
 ms.openlocfilehash: d4a7afc2ddb0f39014a7cf0fd006d7fe23673a95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91840730"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Active Directory 사용자 또는 그룹으로 서비스 실행
@@ -15,7 +15,7 @@ Windows Server 독립 실행형 클러스터의 경우, RunAs 정책을 사용�
 
 도메인 사용자 또는 그룹을 사용하여 권한이 부여된 도메인의 다른 리소스(예: 파일 공유)에 액세스할 수 있습니다.
 
-다음 예제는 *TestUser*라는 Active Directory 사용자와 *MyCert*라는 인증서를 사용하여 암호화된 도메인 암호를 보여 줍니다. `Invoke-ServiceFabricEncryptText` PowerShell 명령을 사용하여 암호 텍스트를 만들 수 있습니다. 자세한 내용은 [Service Fabric 애플리케이션의 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
+다음 예제는 *TestUser* 라는 Active Directory 사용자와 *MyCert* 라는 인증서를 사용하여 암호화된 도메인 암호를 보여 줍니다. `Invoke-ServiceFabricEncryptText` PowerShell 명령을 사용하여 암호 텍스트를 만들 수 있습니다. 자세한 내용은 [Service Fabric 애플리케이션의 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 
 암호 해독을 위한 인증서의 프라이빗 키는 대역 외 메서드를 사용하여(Azure에서는 Azure Resource Manager를 통해) 로컬 머신에 배포해야 합니다. 그런 다음 Service Fabric이 컴퓨터에 서비스 패키지를 배포할 때 사용자 이름과 함께 암호를 해독하고 이 자격 증명으로 실행하도록 Active Directory로 인증할 수 있습니다.
 
@@ -35,7 +35,7 @@ Windows Server 독립 실행형 클러스터의 경우, RunAs 정책을 사용�
 ```
 
 > [!NOTE] 
-> 서비스에 RunAs 정책을 적용하고 서비스 매니페스트가 HTTP 프로토콜로 엔드포인트 리소스를 선언하면 **SecurityAccessPolicy**도 지정해야 합니다.  자세한 내용은 [HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당](service-fabric-assign-policy-to-endpoint.md)을 참조하세요. 
+> 서비스에 RunAs 정책을 적용하고 서비스 매니페스트가 HTTP 프로토콜로 엔드포인트 리소스를 선언하면 **SecurityAccessPolicy** 도 지정해야 합니다.  자세한 내용은 [HTTP 및 HTTPS 엔드포인트에 보안 액세스 정책 할당](service-fabric-assign-policy-to-endpoint.md)을 참조하세요. 
 >
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->

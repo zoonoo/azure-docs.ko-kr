@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: tomfitz
 ms.openlocfilehash: 04f86883a75110985d1cbe050fe3fd3e0582986a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88893771"
 ---
 # <a name="microsoftcommoneditablegrid-ui-element"></a>EditableGrid UI 요소
@@ -134,8 +134,8 @@ ms.locfileid: "88893771"
 
 - `label`속성은 컨트롤의 일부로 표시 되지 않지만 최종 탭 요약에 표시 됩니다.
 - `ariaLabel`속성은 표의 접근성 레이블입니다. 화면 판독기를 사용 하는 사용자에 게 유용한 텍스트를 지정 합니다.
-- `constraints.width`속성은 표의 전체 너비를 설정 하는 데 사용 됩니다. 옵션은 _Full_, _Medium_, _Small_입니다. 기본값은 _Full_입니다.
-- 열 `width` 자식의 속성에 따라 열 너비가 결정 됩니다. 너비는 _3fr_과 같은 분수 단위를 사용 하 여 지정 되며, 해당 단위에 비례 하는 열에 전체 공간이 할당 됩니다. 열 너비를 지정 하지 않으면 기본값은 _1fr_입니다.
+- `constraints.width`속성은 표의 전체 너비를 설정 하는 데 사용 됩니다. 옵션은 _Full_, _Medium_, _Small_ 입니다. 기본값은 _Full_ 입니다.
+- 열 `width` 자식의 속성에 따라 열 너비가 결정 됩니다. 너비는 _3fr_ 과 같은 분수 단위를 사용 하 여 지정 되며, 해당 단위에 비례 하는 열에 전체 공간이 할당 됩니다. 열 너비를 지정 하지 않으면 기본값은 _1fr_ 입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

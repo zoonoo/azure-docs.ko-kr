@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.openlocfilehash: 8b97221de4921e06ddfab610618f37683b990181
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87132741"
 ---
 # <a name="what-is-reinforcement-learning"></a>보충 학습이란?
@@ -29,15 +29,15 @@ ms.locfileid: "87132741"
 
 * 애플리케이션은 대안 목록의 콘텐츠 하나를 표시할 수 있는 기회를 제공합니다.
 * 애플리케이션은 각 대안에 대한 정보와 사용자 컨텍스트를 제공합니다.
-* 애플리케이션은 _보상 점수_를 컴퓨팅합니다.
+* 애플리케이션은 _보상 점수_ 를 컴퓨팅합니다.
 
 다른 보충 학습 방법과는 달리, Personalizer는 시뮬레이션을 수행할 필요가 없습니다. Personalizer의 학습 알고리즘은 고유한 기회를 만들려면 시간과 비용이 들고 최적이 아닌 성능을 얻게 되면 후회를 할 수 밖에 없다는 점(가능한 보상의 손실)을 이해함으로써 외부 세계에 대응하고(제어하는 것이 아니라) 각 데이터 포인트에서 학습하도록 설계되었습니다.
 
 ## <a name="what-type-of-reinforcement-learning-algorithms-does-personalizer-use"></a>Personalizer는 어떤 유형의 보충 학습 알고리즘을 사용하나요?
 
-현재 버전의 Personalizer는 특정 컨텍스트에서 불연속 작업 간에 결정 또는 선택하도록 프레임이 설정된 보충 학습 방법인 **Contextual Bandits**를 사용합니다.
+현재 버전의 Personalizer는 특정 컨텍스트에서 불연속 작업 간에 결정 또는 선택하도록 프레임이 설정된 보충 학습 방법인 **Contextual Bandits** 를 사용합니다.
 
-특정 컨텍스트에서 가능한 최상의 결정을 내리도록 학습된 모델인 _의사 결정 메모리_는 선형 모델 세트를 사용합니다. 이 방식은 반복적으로 비즈니스 성과를 보여주었으며 부분적으로 검증된 방법입니다. 다중 패스 학습 없이 실제 세계로부터 매우 빠르게 배울 수 있으므로 부분적이고, 감독 학습 모델 및 심층 신경망을 보완할 수 있으므로 부분적입니다.
+특정 컨텍스트에서 가능한 최상의 결정을 내리도록 학습된 모델인 _의사 결정 메모리_ 는 선형 모델 세트를 사용합니다. 이 방식은 반복적으로 비즈니스 성과를 보여주었으며 부분적으로 검증된 방법입니다. 다중 패스 학습 없이 실제 세계로부터 매우 빠르게 배울 수 있으므로 부분적이고, 감독 학습 모델 및 심층 신경망을 보완할 수 있으므로 부분적입니다.
 
 탐색/공격 트래픽 할당은 설정된 탐색 비율에 따라 임의로 만들어지고, 탐색에 대한 기본 알고리즘은 엡실론 그리디(Epsilon-Greedy)입니다.
 

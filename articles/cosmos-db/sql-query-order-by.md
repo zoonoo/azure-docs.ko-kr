@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93338303"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 ORDER BY 절
@@ -56,7 +56,7 @@ ORDER BY <sort_specification>
 > [!Note]
 > 정렬 되는 속성이 일부 문서에 대해 정의 되지 않은 경우이를 ORDER BY 쿼리로 검색 하려면이 경로를 인덱스에 명시적으로 포함 해야 합니다. 기본 인덱싱 정책은 sort 속성이 정의 되지 않은 문서를 검색 하는 것을 허용 하지 않습니다. [일부 누락 된 필드가 있는 문서에 대 한 예제 쿼리를 검토](#documents-with-missing-fields)합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 예를 들어 다음은 주 도시 이름의 오름차순으로 패밀리를 검색 하는 쿼리입니다.
 

@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: ff49d5e88df7c56ed4dee0685f09e45eb372aa5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88930216"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
@@ -25,7 +25,7 @@ Batch 관리 .NET 라이브러리 및 AccountManagement 샘플을 사용하는 �
 
 ADAL ( [Azure Active Directory 인증 라이브러리](../active-directory/azuread-dev/active-directory-authentication-libraries.md) )은 응용 프로그램 내에서 사용할 수 있도록 Azure AD에 대 한 프로그래밍 인터페이스를 제공 합니다. 애플리케이션에서 ADAL을 호출하려면 Azure AD 테넌트에 애플리케이션을 등록해야 합니다. 애플리케이션을 등록할 때 Azure AD 테넌트 내에서 이름을 포함하여 애플리케이션에 대한 Azure AD 정보를 제공합니다. 그런 다음, Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 애플리케이션 ID를 제공합니다. 애플리케이션 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-AccountManagement 샘플 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/quickstart-register-app.md)에서 [애플리케이션 추가](../active-directory/develop/quickstart-register-app.md) 섹션의 단계를 따릅니다. 애플리케이션 유형으로 **네이티브 클라이언트 애플리케이션**을 지정합니다. **리디렉션 URI**의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 `http://myaccountmanagementsample` 실제 끝점이 될 필요는 없으므로 **리디렉션 uri**에 유효한 uri (예:)를 지정할 수 있습니다.
+AccountManagement 샘플 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/quickstart-register-app.md)에서 [애플리케이션 추가](../active-directory/develop/quickstart-register-app.md) 섹션의 단계를 따릅니다. 애플리케이션 유형으로 **네이티브 클라이언트 애플리케이션** 을 지정합니다. **리디렉션 URI** 의 업계 표준 OAuth 2.0 URI는 `urn:ietf:wg:oauth:2.0:oob`입니다. 그러나 `http://myaccountmanagementsample` 실제 끝점이 될 필요는 없으므로 **리디렉션 uri** 에 유효한 uri (예:)를 지정할 수 있습니다.
 
 ![애플리케이션 추가](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -35,18 +35,18 @@ AccountManagement 샘플 애플리케이션을 등록하려면 [Azure Active Dir
 
 ## <a name="grant-the-azure-resource-manager-api-access-to-your-application"></a>애플리케이션에 대한 Azure Resource Manager API 액세스 권한 부여
 
-다음으로, Azure Resource Manager API에 애플리케이션에 대한 액세스 권한을 위임해야 합니다. 리소스 관리자 API에 대한 Azure AD 식별자는 **Windows Azure Service Management API**입니다.
+다음으로, Azure Resource Manager API에 애플리케이션에 대한 액세스 권한을 위임해야 합니다. 리소스 관리자 API에 대한 Azure AD 식별자는 **Windows Azure Service Management API** 입니다.
 
 Azure Portal에서 다음 단계를 따릅니다.
 
-1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **앱 등록**을 클릭한 다음, **추가**를 클릭합니다.
+1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스** 를 선택하고 **앱 등록** 을 클릭한 다음, **추가** 를 클릭합니다.
 2. 앱 등록의 목록에서 애플리케이션의 이름을 검색합니다.
 
     ![애플리케이션 이름 검색](./media/batch-aad-auth-management/search-app-registration.png)
 
-3. **설정** 블레이드를 표시합니다. **API 액세스** 섹션에서 **필요한 사용 권한**을 선택합니다.
-4. **추가**를 클릭하여 새로운 필요한 사용 권한을 추가합니다.
-5. 1단계에서 **Windows Azure Service Management API**를 입력하고 결과 목록에서 해당 API를 선택하고 **선택** 단추를 클릭합니다.
+3. **설정** 블레이드를 표시합니다. **API 액세스** 섹션에서 **필요한 사용 권한** 을 선택합니다.
+4. **추가** 를 클릭하여 새로운 필요한 사용 권한을 추가합니다.
+5. 1단계에서 **Windows Azure Service Management API** 를 입력하고 결과 목록에서 해당 API를 선택하고 **선택** 단추를 클릭합니다.
 6. 2단계에서 **조직 사용자로 Azure 클래식 배포 모델에 액세스** 옆의 확인란을 선택하고 **선택** 단추를 클릭합니다.
 7. **완료** 단추를 클릭합니다.
 
@@ -58,11 +58,11 @@ Azure Portal에서 다음 단계를 따릅니다.
 
 Azure AD를 사용하여 Batch Management 솔루션을 인증하려면 잘 알려진 다음 두 개의 엔드포인트가 필요합니다.
 
-- **Azure AD 공통 엔드포인트**는 통합 인증의 경우와 같이 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다.
+- **Azure AD 공통 엔드포인트** 는 통합 인증의 경우와 같이 특정 테넌트를 제공하지 않을 때 일반 자격 증명 수집 인터페이스를 제공합니다.
 
     `https://login.microsoftonline.com/common`
 
-- **Azure Resource Manager 엔드포인트**는 Batch Management 서비스에 대한 요청을 인증하기 위한 토큰을 얻는 데 사용됩니다.
+- **Azure Resource Manager 엔드포인트** 는 Batch Management 서비스에 대한 요청을 인증하기 위한 토큰을 얻는 데 사용됩니다.
 
     `https://management.core.windows.net/`
 

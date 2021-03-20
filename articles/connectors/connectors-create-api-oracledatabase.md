@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/20/2020
 tags: connectors
 ms.openlocfilehash: 91873a2d6a498712773bfe721653e64c3364666f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674823"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
@@ -69,7 +69,7 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
     > [!TIP]
     > 이 방법은 커넥터에 대해 사용 가능한 트리거 및 작업을 확인하는 가장 빠른 방법이기도 합니다. 커넥터 이름의 일부를 입력합니다(예: `oracle`). 디자이너에 모든 트리거 및 작업이 나열됩니다. 
 
-5. 작업 중 하나를 선택합니다(예: **Oracle 데이터베이스 - 행 가져오기** ). **온-프레미스 데이터 게이트웨이를 통해 연결** 을 선택합니다. Oracle 서버 이름, 인증 방법, 사용자 이름, 암호를 입력하고 게이트웨이를 선택합니다.
+5. 작업 중 하나를 선택합니다(예: **Oracle 데이터베이스 - 행 가져오기**). **온-프레미스 데이터 게이트웨이를 통해 연결** 을 선택합니다. Oracle 서버 이름, 인증 방법, 사용자 이름, 암호를 입력하고 게이트웨이를 선택합니다.
 
     ![대화 상자의 제목은 "Oracle Database-행 가져오기"입니다. "온-프레미스 데이터 게이트웨이를 통해 연결" 이라고 표시 된 확인란이 선택 되어 있습니다. 그 아래에는 5 개의 다른 입력란이 있습니다.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
@@ -98,23 +98,23 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 ## <a name="common-errors"></a>일반 오류
 
-#### <a name="error-cannot-reach-the-gateway"></a>**오류** : 게이트웨이에 연결할 수 없습니다.
+#### <a name="error-cannot-reach-the-gateway"></a>**오류**: 게이트웨이에 연결할 수 없습니다.
 
-**원인** : 온-프레미스 데이터 게이트웨이가 클라우드에 연결할 수 없습니다. 
+**원인**: 온-프레미스 데이터 게이트웨이가 클라우드에 연결할 수 없습니다. 
 
-**해결 방법** : 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.    꺼져 있거나 절전 모드 상태일 수 있는 컴퓨터에는 게이트웨이를 설치하지 않는 것이 좋습니다.  온-프레미스 데이터 게이트웨이 서비스(PBIEgwService)를 다시 시작할 수도 있습니다.
+**해결 방법**: 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.    꺼져 있거나 절전 모드 상태일 수 있는 컴퓨터에는 게이트웨이를 설치하지 않는 것이 좋습니다.  온-프레미스 데이터 게이트웨이 서비스(PBIEgwService)를 다시 시작할 수도 있습니다.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류** : 사용 중인 공급자는 더 이상 사용되지 않습니다. 'System.Data.OracleClient에는 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.'. [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database)을 참조하여 공식 공급자를 설치합니다.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자는 더 이상 사용되지 않습니다. 'System.Data.OracleClient에는 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.'. [https://go.microsoft.com/fwlink/p/?LinkID=272376](/power-bi/connect-data/desktop-connect-oracle-database)을 참조하여 공식 공급자를 설치합니다.
 
-**원인** : 온-프레미스 데이터 게이트웨이가 실행 중인 컴퓨터에 Oracle 클라이언트 SDK가 설치되지 않았습니다.  
+**원인**: 온-프레미스 데이터 게이트웨이가 실행 중인 컴퓨터에 Oracle 클라이언트 SDK가 설치되지 않았습니다.  
 
-**해결 방법** : 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 Oracle 클라이언트 SDK를 다운로드하여 설치합니다.
+**해결 방법**: 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 Oracle 클라이언트 SDK를 다운로드하여 설치합니다.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**오류** : 테이블 '[Tablename]'에 키 열이 정의되어 있지 않습니다.
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**오류**: 테이블 '[Tablename]'에 키 열이 정의되어 있지 않습니다.
 
-**원인** : 테이블에 기본 키가 없습니다.  
+**원인**: 테이블에 기본 키가 없습니다.  
 
-**해결 방법** : Oracle Database 커넥터에는 기본 키 열이 있는 테이블을 사용해야 합니다.
+**해결 방법**: Oracle Database 커넥터에는 기본 키 열이 있는 테이블을 사용해야 합니다.
  
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 

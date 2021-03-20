@@ -12,10 +12,10 @@ ms.date: 10/26/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 337275cef0f2159cb5fac40ac0435408baf3bbef
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96170925"
 ---
 # <a name="tutorial-for-configuring-theaccesshub-admin-tool-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 TheAccessHub Admin 도구를 구성 하기 위한 자습서
@@ -52,7 +52,7 @@ TheAccessHub Admin 도구는 Azure의 다른 응용 프로그램과 마찬가지
 
 ![N8identity 아키텍처 다이어그램을 보여 주는 이미지](./media/partner-n8identity/n8identity-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자는 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C TheAccessHub Admin 도구를 호출 하 고 사용자 특성을 전달 합니다.

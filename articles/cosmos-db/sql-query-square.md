@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: dff3787936914c3d3dbb61bdc0053126853e52af
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335351"
 ---
 # <a name="square-azure-cosmos-db"></a>제곱 (Azure Cosmos DB)
@@ -35,7 +35,7 @@ SQUARE(<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는 1에서 3까지의 숫자의 제곱을 반환합니다.  
   

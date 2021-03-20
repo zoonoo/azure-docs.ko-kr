@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: b6689220873aaeb65337ba480e346e5d2c8020ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91707866"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 논리적 복제 및 논리적 디코딩
@@ -53,8 +53,8 @@ PostgreSQL의 논리적 복제 및 논리적 디코딩 기능은 Postgres 버전
 
 ### <a name="logical-replication"></a>논리적 복제
 논리적 복제는 ' 게시자 ' 및 ' 구독자 ' 라는 용어를 사용 합니다. 
-* 게시자는 **데이터를 전송**하는 PostgreSQL 데이터베이스입니다. 
-* 구독자는 데이터 **를**전송 하는 PostgreSQL 데이터베이스입니다.
+* 게시자는 **데이터를 전송** 하는 PostgreSQL 데이터베이스입니다. 
+* 구독자는 데이터 **를** 전송 하는 PostgreSQL 데이터베이스입니다.
 
 논리적 복제를 시도 하는 데 사용할 수 있는 몇 가지 샘플 코드는 다음과 같습니다.
 

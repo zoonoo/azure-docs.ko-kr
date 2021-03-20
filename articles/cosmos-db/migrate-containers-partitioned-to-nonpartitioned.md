@@ -9,10 +9,10 @@ ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93334092"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션
@@ -20,7 +20,7 @@ ms.locfileid: "93334092"
 
 Azure Cosmos DB는 파티션 키 없이 컨테이너를 만드는 것을 지원 합니다. 현재는 2. x 보다 작거나 같은 버전의 Azure CLI 및 Azure Cosmos DB Sdk (.Net, Java, NodeJs)를 사용 하 여 분할 되지 않은 컨테이너를 만들 수 있습니다. Azure Portal를 사용 하 여 분할 되지 않은 컨테이너를 만들 수 없습니다. 그러나 이러한 분할 되지 않은 컨테이너는 탄력적이 지 않으며 저장소 용량은 20gb이 고 처리량 제한은 10K r u/초입니다.
 
-분할 되지 않은 컨테이너는 레거시 컨테이너 이므로 분할 되지 않은 기존 컨테이너를 분할 된 컨테이너로 마이그레이션하여 저장소 및 처리량을 확장 해야 합니다. Azure Cosmos DB은 분할 되지 않은 컨테이너를 분할 된 컨테이너로 마이그레이션하기 위한 시스템 정의 메커니즘을 제공 합니다. 이 문서에서는 기존의 분할 되지 않은 모든 컨테이너를 분할 된 컨테이너로 자동 마이그레이션하는 방법에 대해 설명 합니다. 모든 언어에서 V3 버전의 Sdk를 사용 하는 경우에만 자동 마이그레이션 기능을 사용할 수 있습니다.
+분할되지 않은 컨테이너는 레거시 컨테이너이므로 분할되지 않은 기존 컨테이너를 분할된 컨테이너로 마이그레이션하여 스토리지 및 처리량의 크기를 조정해야 합니다. Azure Cosmos DB는 분할되지 않은 컨테이너를 분할된 컨테이너로 마이그레이션하기 위한 시스템 정의 메커니즘을 제공합니다. 이 문서에서는 기존의 분할되지 않은 모든 컨테이너를 분할된 컨테이너로 자동 마이그레이션하는 방법에 대해 설명합니다. 모든 언어에서 V3 버전의 SDK를 사용하는 경우에만 자동 마이그레이션 기능을 사용할 수 있습니다.
 
 > [!NOTE]
 > 현재이 문서에 설명 된 단계를 사용 하 여 Azure Cosmos DB MongoDB 및 Gremlin API 계정을 마이그레이션할 수 없습니다.

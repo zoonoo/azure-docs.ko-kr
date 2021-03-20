@@ -10,10 +10,10 @@ ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
 ms.openlocfilehash: 7a4d9fb9f803a497e84fa189d9a89c2d9097bb70
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675053"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Azure AD 게스트 사용자 만들기 및 Azure AD 관리자로 설정
@@ -23,7 +23,7 @@ ms.locfileid: "92675053"
 > [!NOTE]
 > 이 문서는 **공개 미리 보기** 에 있습니다.
 
-Azure Active Directory (Azure AD)의 게스트 사용자는 다른 Azure Active Directory 또는 그 외부에서 현재 Azure AD로 가져온 사용자입니다. 예를 들어 게스트 사용자는 다른 Azure Active directory의 사용자 또는 *\@ outlook.com* , *\@ hotmail.com* , *\@ live.com* , *\@ gmail.com* 등의 계정을 포함할 수 있습니다. 이 문서에서는 azure ad 게스트 사용자를 만들고 해당 게스트 사용자가 Azure AD 내에서 그룹의 일부가 될 필요 없이 azure SQL 논리 서버에 대 한 Azure AD 관리자로 설정 하는 방법을 보여 줍니다.
+Azure Active Directory (Azure AD)의 게스트 사용자는 다른 Azure Active Directory 또는 그 외부에서 현재 Azure AD로 가져온 사용자입니다. 예를 들어 게스트 사용자는 다른 Azure Active directory의 사용자 또는 *\@ outlook.com*, *\@ hotmail.com*, *\@ live.com*, *\@ gmail.com* 등의 계정을 포함할 수 있습니다. 이 문서에서는 azure ad 게스트 사용자를 만들고 해당 게스트 사용자가 Azure AD 내에서 그룹의 일부가 될 필요 없이 azure SQL 논리 서버에 대 한 Azure AD 관리자로 설정 하는 방법을 보여 줍니다.
 
 ## <a name="feature-description"></a>기능 설명
 
@@ -133,7 +133,7 @@ Azure AD 게스트 사용자를 SQL 논리 서버에 대 한 Azure AD 관리자�
 
 ## <a name="limitations"></a>제한 사항
 
-Azure AD 게스트 사용자를 SQL Managed Instance에 대 한 Azure AD 관리자로 선택할 수 없도록 하는 Azure Portal에는 제한이 있습니다. *\@ Outlook.com* , *\@ hotmail.com* , *\@ live.com* 또는 *\@ gmail.com* 와 같은 Azure ad 외부의 게스트 계정의 경우 AD 관리 선택기는 이러한 계정을 표시 하지만 회색으로 표시 되며 선택할 수 없습니다. 위에 나열 된 [PowerShell 또는 CLI 명령을](#setting-a-guest-user-as-an-azure-ad-admin) 사용 하 여 Azure AD 관리자를 설정 합니다. 또는 게스트 사용자를 포함 하는 Azure AD 그룹을 SQL Managed Instance에 대 한 Azure AD 관리자로 설정할 수 있습니다.
+Azure AD 게스트 사용자를 SQL Managed Instance에 대 한 Azure AD 관리자로 선택할 수 없도록 하는 Azure Portal에는 제한이 있습니다. *\@ Outlook.com*, *\@ hotmail.com*, *\@ live.com* 또는 *\@ gmail.com* 와 같은 Azure ad 외부의 게스트 계정의 경우 AD 관리 선택기는 이러한 계정을 표시 하지만 회색으로 표시 되며 선택할 수 없습니다. 위에 나열 된 [PowerShell 또는 CLI 명령을](#setting-a-guest-user-as-an-azure-ad-admin) 사용 하 여 Azure AD 관리자를 설정 합니다. 또는 게스트 사용자를 포함 하는 Azure AD 그룹을 SQL Managed Instance에 대 한 Azure AD 관리자로 설정할 수 있습니다.
 
 이 기능은이 기능을 일반 공급 하기 전에 SQL Managed Instance 사용할 수 있습니다.
 

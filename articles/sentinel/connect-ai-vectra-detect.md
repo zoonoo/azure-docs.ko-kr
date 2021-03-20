@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
 ms.openlocfilehash: c57f4a49ac89f1347fc88f8bacddce3abab7e44e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87038225"
 ---
 # <a name="connect-ai-vectra-detect-to-azure-sentinel"></a>Azure 센티널에 AI Vectra 검색 연결
@@ -47,7 +47,7 @@ AI Vectra 검색 구성 [1 단계: 로그 전달자 배포](connect-cef-agent.md
 
 2. **테스트** 단추를 클릭 하 여 일부 테스트 이벤트를 로그 전달자에 게 강제로 보낼 수 있습니다.
 
-3. AI Vectra 검색 이벤트에 대해 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog**를 검색 합니다.
+3. AI Vectra 검색 이벤트에 대해 Log Analytics에서 관련 스키마를 사용 하려면 **CommonSecurityLog** 를 검색 합니다.
 
 4. [단계 3: 연결 유효성 검사](connect-cef-verify.md)로 계속 진행합니다.
 

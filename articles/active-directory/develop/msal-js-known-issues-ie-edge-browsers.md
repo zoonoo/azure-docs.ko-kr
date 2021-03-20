@@ -14,10 +14,10 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83772083"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제(MSAL.js)
@@ -52,8 +52,8 @@ IE 및 Microsoft Edge의 인증 관련 문제에 대해 여러 번 보고받았�
 문제가 특정 버전의 Microsoft Edge 브라우저에서만 발생하는지와 다른 브라우저에서도 발생하는지 테스트한 다음에 다음 해결 방법을 채택해야 합니다.  
 1. 이 문제를 해결하기 위한 첫 번째 단계로, 인증 흐름의 리디렉션과 관련된 애플리케이션 도메인 및 기타 사이트를 브라우저의 보안 설정에서 신뢰할 수 있는 사이트로 추가하여 동일한 보안 영역에 속하도록 해야 합니다.
 이렇게 하려면 다음 단계를 따르십시오.
-    - **Internet Explorer**를 열고 오른쪽 위 모퉁이에 있는 **설정**(기어 아이콘)을 클릭합니다.
-    - **인터넷 옵션**을 선택합니다.
+    - **Internet Explorer** 를 열고 오른쪽 위 모퉁이에 있는 **설정**(기어 아이콘)을 클릭합니다.
+    - **인터넷 옵션** 을 선택합니다.
     - **보안** 탭을 선택합니다.
     - **신뢰할 수 있는 사이트** 옵션 아래의 **사이트** 단추를 클릭하고 열리는 대화 상자에 URL을 추가합니다.
 
@@ -65,7 +65,7 @@ IE 및 Microsoft Edge의 인증 관련 문제에 대해 여러 번 보고받았�
 
 IE 또는 Microsoft Edge에서 팝업이 차단되는 경우가 있습니다. 예를 들어 [다단계 인증](../authentication/concept-mfa-howitworks.md) 중에 두 번째 팝업이 발생하는 경우입니다. 브라우저에서 팝업을 한 번 또는 항상 허용하도록 하는 경고가 표시됩니다. 허용하도록 선택하면 브라우저에서 팝업 창이 자동으로 열리고 해당 창에 대한 `null` 핸들이 반환됩니다. 결과적으로 라이브러리에는 창에 대한 핸들이 없으며 팝업 창을 닫을 수 있는 방법이 없습니다. Chrome에서는 팝업을 허용하라는 메시지가 사용자에게 표시되면 동일한 문제가 발생하지 않습니다. Chrome에서 팝업 창이 자동으로 열리지 않기 때문입니다.
 
-**해결 방법**은 개발자가 앱 사용을 시작하기 전에 IE 및 Microsoft Edge에서 팝업을 허용하여 이 문제를 방지하는 것입니다.
+**해결 방법** 은 개발자가 앱 사용을 시작하기 전에 IE 및 Microsoft Edge에서 팝업을 허용하여 이 문제를 방지하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Internet Explorer에서 MSAL.js를 사용](msal-js-use-ie-browser.md)하는 것에 대해 자세히 알아보세요.

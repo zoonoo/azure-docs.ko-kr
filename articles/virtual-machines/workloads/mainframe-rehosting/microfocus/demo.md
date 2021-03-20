@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733152"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 BankDemo 설정
@@ -22,7 +22,7 @@ CICs는 여러 온라인 메인프레임 응용 프로그램에서 사용 하는
 > [!NOTE]
 > 출시 예정: Azure Vm에서 [마이크로 포커스 엔터프라이즈 서버 5.0](https://techcommunity.microsoft.com/t5/azurecat/micro-focus-enterprise-server-5-0-quick-start-template-on-azure/ba-p/1160110) 을 설정 하는 방법에 대 한 지침입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [엔터프라이즈 개발자](set-up-micro-focus-azure.md)를 사용 하는 VM. 엔터프라이즈 개발자는 개발 및 테스트 목적으로 엔터프라이즈 서버의 전체 인스턴스를 보유 하 고 있습니다. 이 인스턴스는 데모에 사용 되는 Enterprise Server의 인스턴스입니다.
 
@@ -124,7 +124,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
 1. **BANKDEMO** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새로 고침** 을 선택 합니다.
 
-2. **데이터베이스** 를 확장 하 고 **테이블** 을 선택 합니다. 다음과 유사한 내용이 표시 됩니다.
+2. **데이터베이스** 를 확장 하 고 **테이블** 을 선택 합니다. 다음과 유사한 출력이 표시됩니다.
 
      ![개체 탐색기에서 확장 된 BANKDEMO 테이블](media/04-demo-explorer.png)
 

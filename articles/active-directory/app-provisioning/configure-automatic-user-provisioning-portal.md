@@ -1,23 +1,22 @@
 ---
-title: Azure AD에서 엔터프라이즈 앱에 대한 사용자 프로비저닝 관리
-description: Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 사용자 계정 프로비전을 관리하는 방법에 대해 알아봅니다.
+title: Azure Active Directory에서 엔터프라이즈 앱에 대 한 사용자 프로 비전 관리
+description: Azure Active Directory를 사용 하 여 엔터프라이즈 앱에 대 한 사용자 계정 프로 비전을 관리 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 03/18/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 02d415bd957b0490857081b996c592f90365f031
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 5dceeb11ed9a4d6af88650a6146f58db412748d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555622"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579419"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
@@ -63,9 +62,7 @@ Azure Active Directory 포털을 사용하여 디렉터리에서 Single Sign-On�
 
 **매핑** 을 확장하여 사용자 계정이 프로비저닝되거나 업데이트될 때 Azure AD와 대상 애플리케이션 간에 흐르는 사용자 특성을 보고 편집할 수 있습니다.
 
-Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹 개체도 관리 합니다. 테이블에서 매핑을 선택하여 오른쪽에 있는 매핑 편집기를 엽니다. 이 편집기에서 매핑을 보고 사용자 지정할 수 있습니다.
-
-![특성 매핑 화면 표시](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구성된 매핑 세트가 있습니다. 일부 앱은 그룹 개체도 관리 합니다. 테이블에서 매핑을 선택 하 여 매핑 편집기를 열고 사용자가이를 확인 하 고 사용자 지정할 수 있습니다.
 
 지원되는 사용자 지정은 다음과 같습니다.
 
@@ -79,10 +76,10 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구�
 
 ### <a name="settings"></a>설정
 
-**프로비저닝** 화면의 **설정** 영역에서 선택한 애플리케이션에 대한 Azure AD 프로비저닝 서비스를 시작 및 중지할 수 있습니다. 프로비저닝 캐시를 지우고 서비스를 다시 시작하도록 선택할 수도 있습니다.
+**설정** 을 확장 하 여 알림을 받을 전자 메일 주소와 오류에 대 한 경고를 받을지 여부를 설정 합니다. 동기화 할 사용자 범위를 선택할 수도 있습니다. 모든 사용자 및 그룹 또는 할당 된 그룹만 동기화 하도록 선택할 수 있습니다.
+
+### <a name="provisioning-status"></a>프로비전 상태 
 
 프로비전을 애플리케이션에 대해 처음으로 사용하는 경우 **프로비전 상태** 를 **켜기** 로 변경하여 서비스를 활성화합니다. 이렇게 변경하면 Azure AD 프로비저닝 서비스가 초기 주기를 실행합니다. **사용자 및 그룹** 섹션에 할당 된 사용자를 읽고, 대상 애플리케이션을 쿼리한 다음, Azure AD **매핑** 섹션에 정의된 프로비저닝 작업을 실행합니다. 이 과정에서 프로비저닝 서비스가 관리하는 사용자 계정에 대해 캐시된 데이터를 저장하므로 할당 범위에 들지 않는 대상 애플리케이션 내의 관리되지 않는 계정은 프로비저닝 해제 작업의 영향을 받지 않습니다. 초기 주기 후 프로비전 서비스는 40분 간격으로 사용자 및 그룹 개체를 자동으로 동기화합니다.
 
 **프로비저닝 상태** 를 **끄기** 로 변경하여 프로비저닝 서비스를 일시 중지할 수 있습니다. 이 상태에서는 Azure가 앱의 어떤 사용자 또는 그룹 개체도 만들거나 업데이트하거나 제거하지 않습니다. 상태를 다시 **켜기** 로 변경하면 서비스는 중단되었던 위치에서 진행됩니다.
-
-**현재 상태 지우기 및 동기화 다시 시작** 은 초기 주기를 트리거합니다. 그러면 서비스는 원본 시스템의 모든 사용자를 다시 평가하고 프로비저닝 범위에 있는지 확인합니다. 이 서비스는 애플리케이션이 현재 격리 중이거나 특성 매핑을 변경해야 하는 경우에 유용할 수 있습니다. 계산해야 하는 개체의 수 때문에 초기 주기는 일반적인 증분 주기보다 완료하는 데 더 오래 걸립니다. [여기](application-provisioning-when-will-provisioning-finish-specific-user.md)에서 초기 및 증분 주기의 성능에 대해 자세히 알아볼 수 있습니다.

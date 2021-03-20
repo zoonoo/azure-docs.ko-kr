@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88935537"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술에서 주석을 참조 하는 방법
 
 이 문서에서는 다양한 시나리오를 설명하는 예제를 사용하여 기술 정의에서 주석을 참조하는 방법을 알아 봅니다. 문서의 콘텐츠는 기술 집합을 통해 흐르기 때문에 주석으로 보강됩니다. 주석은 다운스트림 추가 보강을 위한 입력으로 사용되거나 인덱스에서 출력 필드에 매핑될 수 있습니다. 
  
-이 문서의 예제는 문서 해독 단계의 일부로서 [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)에서 자동으로 생성한 *콘텐츠* 필드에 기반을 둡니다. Blob 컨테이너에서 문서를 참조할 때는 *콘텐츠* 필드가 *문서*의 일부인 `"/document/content"`과 같은 형식을 사용합니다. 
+이 문서의 예제는 문서 해독 단계의 일부로서 [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)에서 자동으로 생성한 *콘텐츠* 필드에 기반을 둡니다. Blob 컨테이너에서 문서를 참조할 때는 *콘텐츠* 필드가 *문서* 의 일부인 `"/document/content"`과 같은 형식을 사용합니다. 
 
 ## <a name="background-concepts"></a>배경 개념
 

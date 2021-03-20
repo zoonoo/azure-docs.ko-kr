@@ -8,10 +8,10 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962811"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요
@@ -24,9 +24,9 @@ App Service 진단은 Windows의 앱 뿐만 아니라 [Linux/컨테이너](./ove
 
 ## <a name="open-app-service-diagnostics"></a>App Service 진단 열기
 
-App Service 진단에 액세스 하려면 App Service 웹 앱으로 이동 하거나 [Azure Portal](https://portal.azure.com)에서 App Service Environment 합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
+App Service 진단에 액세스 하려면 App Service 웹 앱으로 이동 하거나 [Azure Portal](https://portal.azure.com)에서 App Service Environment 합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결** 을 클릭합니다.
 
-Azure Functions의 경우 함수 앱으로 이동 하 고, 상단 탐색에서 **플랫폼 기능**을 클릭 하 고, **리소스 관리** 섹션에서 **문제 진단 및 해결** 을 선택 합니다.
+Azure Functions의 경우 함수 앱으로 이동 하 고, 상단 탐색에서 **플랫폼 기능** 을 클릭 하 고, **리소스 관리** 섹션에서 **문제 진단 및 해결** 을 선택 합니다.
 
 App Service 진단 홈페이지에서 각 홈페이지 타일의 키워드를 사용 하 여 앱에 대 한 문제를 가장 잘 설명 하는 범주를 선택할 수 있습니다. 또한이 페이지에서는 Windows 앱에 대 한 **진단 도구** 를 찾을 수 있습니다. [진단 도구 (Windows 앱에만 해당)](#diagnostic-tools-only-for-windows-app)를 참조 하세요.
 
