@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/11/2017
 ms.author: allensu
 ms.openlocfilehash: cff355aeb74efc9dec2780840ae57fea4c5764cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84888716"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
@@ -34,7 +34,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
     ![CDN 프로필 관리 단추](./media/cdn-reports/cdn-manage-btn.png)
    
     CDN 관리 포털이 열립니다.
-2. **분석** 탭을 마우스로 가리킨 후 **핵심 보고서** 플라이아웃을 마우스로 가리킵니다. **에지 CNAME**을 클릭합니다.
+2. **분석** 탭을 마우스로 가리킨 후 **핵심 보고서** 플라이아웃을 마우스로 가리킵니다. **에지 CNAME** 을 클릭합니다.
    
     ![CDN 관리 포털 - 사용자 지정 보고서 메뉴](./media/cdn-reports/cdn-custom-reports.png)
 
@@ -58,9 +58,9 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 사용자 지정 보
    - 캐시 상태: 캐시 상태별로 통계를 구성합니다.
 
 
-보고서의 날짜 범위를 설정하려면 드롭다운 목록에서 **오늘** 또는 **이번 주**와 같은 사전 정의된 날짜 범위를 선택하거나, **사용자 지정**을 선택하고 달력 아이콘을 클릭하여 날짜 범위를 수동으로 입력합니다. 
+보고서의 날짜 범위를 설정하려면 드롭다운 목록에서 **오늘** 또는 **이번 주** 와 같은 사전 정의된 날짜 범위를 선택하거나, **사용자 지정** 을 선택하고 달력 아이콘을 클릭하여 날짜 범위를 수동으로 입력합니다. 
 
-날짜 범위를 선택한 후 **이동**을 클릭하여 보고서를 생성합니다.
+날짜 범위를 선택한 후 **이동** 을 클릭하여 보고서를 생성합니다.
 
 **이동** 단추 오른쪽의 Excel 기호를 클릭하여 Excel 형식으로 데이터를 내보낼 수 있습니다.
 

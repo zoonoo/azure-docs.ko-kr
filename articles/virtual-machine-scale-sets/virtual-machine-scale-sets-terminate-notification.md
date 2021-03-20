@@ -10,10 +10,10 @@ ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: c4d6de1b3406e6d82bdac5ff9b5c72a2286da988
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747750"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대한 종료 알림
@@ -180,7 +180,7 @@ POST 요청 본문에 필요한 json은 다음과 같습니다. 요청에 StartR
 
 [이벤트를](../virtual-machines/linux/scheduled-events.md#python-sample)쿼리하고 이벤트에 응답 하는 예제 스크립트를 참조할 수도 있습니다.
 
-## <a name="tips-and-best-practices"></a>팁 및 모범 사례
+## <a name="tips-and-best-practices"></a>팁과 모범 사례
 -   ' 삭제 ' 작업에 대 한 알림만 종료 – 확장 집합에서 *scheduledEventsProfile* 을 사용 하도록 설정한 경우 모든 삭제 작업 (수동 삭제 또는 자동 크기 조정 시작 된 확장)에서 종료 이벤트를 생성 합니다. 다시 부팅, 이미지로 다시 설치, 다시 배포 및 중지/할당 취소와 같은 다른 작업은 종료 이벤트를 생성 하지 않습니다. 우선 순위가 낮은 Vm에 대해서는 종료 알림을 사용 하도록 설정할 수 없습니다.
 -   시간 제한에 대 한 필수 대기 없음 – 이벤트를 받은 후 이벤트의 *NotBefore* 시간이 만료 되기 전에 언제 든 지 terminate 작업을 시작할 수 있습니다.
 -   제한 시간에 필수 삭제 – 이벤트가 생성 된 후 시간 제한 값을 확장 하는 기능이 없습니다. 제한 시간이 만료 되 면 보류 중인 종료 이벤트가 처리 되 고 VM이 삭제 됩니다.

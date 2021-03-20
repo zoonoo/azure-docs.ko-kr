@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용으로 고정 공용 IP 주소를 만들어 사용하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: e1f81bf4c4d35108557449a8bebd126bdf744191
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726549"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592373"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)의 *기본* SKU 부하 분산 장치를 사용 하 여 송신 트래픽에 대 한 고정 공용 IP 주소 사용
 
-기본적으로 AKS(Azure Kubernetes Service) 클러스터의 송신 IP 주소는 임의로 할당됩니다. 하지만 외부 서비스 액세스용 IP 주소를 확인해야 하는 등의 경우에는 이러한 구성이 적합하지 않습니다. 대신, 서비스 액세스에 대 한 허용 목록에 추가 되는 고정 IP 주소를 할당 해야 할 수 있습니다.
+기본적으로 AKS(Azure Kubernetes Service) 클러스터의 송신 IP 주소는 임의로 할당됩니다. 하지만 외부 서비스 액세스용 IP 주소를 확인해야 하는 등의 경우에는 이러한 구성이 적합하지 않습니다. 대신 서비스 액세스를 위해 allowlist에 추가 되는 고정 IP 주소를 할당 해야 할 수도 있습니다.
 
 이 문서에서는 AKS 클러스터의 송신 트래픽에 사용할 고정 공용 IP 주소를 만들어 사용하는 방법을 설명합니다.
 
@@ -107,7 +107,7 @@ kubectl apply -f egress-service.yaml
 기본 *Debian* Pod를 시작하여 해당 Pod에 연결합니다.
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 컨테이너 내에서 웹 사이트에 액세스하려면 `apt-get`을 사용하여 컨테이너에 `curl`을 설치합니다.

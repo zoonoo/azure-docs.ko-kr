@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91306364"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
@@ -103,7 +103,7 @@ Azure AD 포털에 새 도메인을 성공적으로 추가한 다음, `Convert-M
 다음 단계를 사용하여 Microsoft Online 트러스트를 제거하고 원본 도메인을 업데이트합니다.
 
 1. AD FS 페더레이션 서버에서 **AD FS 관리**
-2. 왼쪽에서 **트러스트 관계** 및 **신뢰 당사자 트러스트**를 확장합니다.
+2. 왼쪽에서 **트러스트 관계** 및 **신뢰 당사자 트러스트** 를 확장합니다.
 3. 오른쪽에서 **Microsoft Office 365 ID 플랫폼** 항목을 삭제합니다.
    ![Microsoft 온라인 제거](./media/how-to-connect-install-multiple-domains/trust4.png)
 4. [Windows PowerShell용 Azure Active Directory 모듈](/previous-versions/azure/jj151815(v=azure.100))이 설치된 컴퓨터에서 `$cred=Get-Credential`을(를) 실행합니다.  

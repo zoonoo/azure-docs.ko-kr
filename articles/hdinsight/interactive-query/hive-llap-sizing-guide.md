@@ -8,10 +8,10 @@ ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
 ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931107"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Azure HDInsight Interactive Query 클러스터(Hive LLAP) 크기 조정 가이드
@@ -26,9 +26,9 @@ ms.locfileid: "98931107"
 | 작업자   | **D14 v2**        | **vCPU 16개, 112GB RAM, 800GB SSD**       |
 | ZooKeeper   | A4 v2        | vCPU 4개, 8GB RAM, 40GB SSD       |
 
-**_참고: 모든 권장 구성 값은 D14 v2 type worker node _을 기반으로 합니다._*  
+***참고: 모든 권장 구성 값은 D14 v2 유형 작업자 노드 기준입니다.***  
 
-### <a name="_configuration"></a>_ *구성:**    
+### <a name="configuration"></a>**구성:**    
 | 구성 키      | 권장되는 값  | Description |
 | :---        |    :----:   | :---     |
 | yarn.nodemanager.resource.memory-mb | 102400(MB) | 노드의 모든 YARN 컨테이너에 제공되는 총 메모리 양(MB) | 
@@ -52,59 +52,59 @@ ms.locfileid: "98931107"
 ### <a name="llap-daemon-size-estimations"></a>**LLAP 디먼 크기 예측:** 
 
 #### <a name="1-determining-total-yarn-memory-allocation-for-all-containers-on-a-node"></a>**1. 노드의 모든 컨테이너에 대한 총 YARN 메모리 할당 결정**    
-구성: **_yarn-mb_* _  
+구성: ***yarn.nodemanager.resource.memory-mb***  
 
 이 값은 각 노드의 YARN 컨테이너에서 사용할 수 있는 메모리의 최대 합계(MB)를 나타냅니다. 지정된 값은 해당 노드의 실제 메모리 총량보다 작아야 합니다.   
 노드의 모든 YARN 컨테이너에 대 한 총 메모리 = (전체 실제 메모리 – OS + 기타 서비스의 메모리)  
 이 값을 가용 RAM 크기의 90% 이하로 설정합니다.  
-D14 v 2의 경우 권장 값은 _ * 102400 MB * *입니다. 
+D14 v2의 경우 권장 값은 **102400MB** 입니다. 
 
 #### <a name="2-determining-maximum-amount-of-memory-per-yarn-container-request"></a>**2. YARN 컨테이너 요청당 최대 메모리 양 결정**  
-구성: **_yarn-mb_* _
+구성: ***yarn.scheduler.maximum-allocation-mb***
 
-이 값은 Resource Manager의 모든 컨테이너 요청에 제공되는 최대 할당량(MB)을 나타냅니다. 지정된 값보다 높은 메모리 요청은 적용되지 않습니다. 리소스 관리자은 _yarn의 증분으로 컨테이너에 메모리를 제공할 수 있습니다. 최소 할당 mb * 이며 yarn에서 지정한 크기를 초과할 수 없습니다. *최대 할당*. 지정된 값은 *yarn.nodemanager.resource.memory-mb* 에 지정된 노드의 모든 컨테이너에 대해 주어진 총 메모리를 초과하지 않아야 합니다.    
+이 값은 Resource Manager의 모든 컨테이너 요청에 제공되는 최대 할당량(MB)을 나타냅니다. 지정된 값보다 높은 메모리 요청은 적용되지 않습니다. Resource Manager는 *yarn.scheduler.minimum-allocation-mb* 단위로 컨테이너에 메모리를 제공할 수 있으며, *yarn.scheduler.maximum-allocation-mb* 에 지정된 크기를 초과할 수 없습니다. 지정된 값은 *yarn.nodemanager.resource.memory-mb* 에 지정된 노드의 모든 컨테이너에 대해 주어진 총 메모리를 초과하지 않아야 합니다.    
 D14 v2 작업자 노드의 경우 권장 값은 **102400MB** 입니다.
 
 #### <a name="3-determining-maximum-amount-of-vcores-per-yarn-container-request"></a>**3. YARN 컨테이너 요청당 최대 vCore 양 결정**  
-구성: **_yarn-vcores_* _  
+구성: ***yarn.scheduler.maximum-allocation-vcores***  
 
 이 값은 Resource Manager의 모든 컨테이너 요청에 제공되는 최대 가상 CPU 코어 수입니다. 이 값보다 많은 수의 vCore를 요청하면 적용되지 않습니다. YARN 스케줄러의 글로벌 속성입니다. LLAP 디먼 컨테이너의 경우 이 값을 사용 가능한 총 vCore의 75%로 설정할 수 있습니다. 나머지 25%는 NodeManager, DataNode 및 작업자 노드에서 실행되는 기타 서비스를 위해 남겨 두어야 합니다.  
 D14 v2 VM에는 vCore가 16개 있으며 LLAP 디먼 컨테이너에서 vCore 총 16개 중 75%를 사용할 수 있습니다.  
-D14 v 2의 경우 권장 되는 값은 _ * 12 * *입니다.  
+D14 v2의 경우 권장되는 값은 **12** 입니다.  
 
 #### <a name="4-number-of-concurrent-queries"></a>**4. 동시 쿼리 수**  
-구성: **_hive_*. e s. t s t. t a s. 큐 _
+구성: ***hive.server2.tez.sessions.per.default.queue***
 
 이 구성 값은 병렬로 시작할 수 있는 Tez 세션 수를 결정합니다. 이 Tez 세션은 "hive.server2.tez.default.queues"에 지정된 각 큐에 대해 시작됩니다. Tez AM(쿼리 코디네이터) 수에 해당합니다. 작업자 노드 수와 동일한 것이 좋습니다. Tez AM 수는 LLAP 디먼 노드 수보다 많아도 됩니다. Tez AM의 주요 역할은 쿼리 실행을 조정하고 쿼리 계획 조각을 해당 LLAP 디먼에 할당하여 실행하는 것입니다. 처리량을 높이려면 이 값을 LLAP 데몬 노드의 배수로 유지하십시오.  
 
-기본 HDInsight 클러스터에는 4 개의 작업자 노드에서 실행 되는 4 개의 LLAP 디먼이 있으므로 권장 되는 값은 _ * 4 * *입니다.  
+기본 HDInsight 클러스터는 4개의 작업자 노드에서 4개의 LLAP 디먼이 실행되므로 권장 값은 **4** 입니다.  
 
 **Hive 구성 변수에 대 한 Ambari UI 슬라이더 `hive.server2.tez.sessions.per.default.queue` :**
 
 ![' LLAP 최대 동시 쿼리 '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "LLAP 최대 동시 쿼리 수")
 
 #### <a name="5-tez-container-and-tez-application-master-size"></a>**5. Tez 컨테이너 및 Tez 애플리케이션 마스터 크기**    
-구성: **_tez. .96mb, hive. 컨테이너 .size_* _  
+구성: ***tez.am.resource.memory.mb, hive.tez.container.size***  
 
-_tez. node.js *-Tez 응용 프로그램 마스터 크기를 정의 합니다.  
+*tez.am.resource.memory.mb* - Tez 애플리케이션 마스터 크기를 정의합니다.  
 권장 값은 **4096MB** 입니다.
    
 *hive.tez.container.size* -Tez 컨테이너에 제공되는 메모리 양을 정의합니다. 이 값은 YARN 최소 컨테이너 크기(*yarn.scheduler.minimum-allocation-mb*)와 YARN 최대 컨테이너 크기(*yarn.scheduler.maximum-allocation-mb*) 사이에서 설정해야 합니다. LLAP 디먼 실행기는 이 값을 사용하여 실행기당 메모리 사용량을 제한합니다.  
 권장 값은 **4096MB** 입니다.  
 
 #### <a name="6-llap-queue-capacity-allocation"></a>**6. LLAP 큐 용량 할당**   
-구성: **_yarn_* _입니다. _  
+구성: ***yarn.scheduler.capacity.root.llap.capacity***  
 
 이 값은 LLAP 큐에 제공되는 용량의 백분율을 나타냅니다. 용량 할당은 YARN 큐 구성 방식에 따라 워크로드마다 다른 값을 가질 수 있습니다. 워크로드가 읽기 전용 작업인 경우 용량의 90%로 설정하면 작동합니다. 그러나 워크 로드가 관리 되는 테이블을 사용 하 여 업데이트/삭제/병합 작업과 혼합 되어 있는 경우 llap 큐에 대해 85%의 용량을 제공 하는 것이 좋습니다. 나머지 15% 용량은 압축 등의 다른 작업에서 사용 하 여 기본 큐에서 컨테이너를 할당할 수 있습니다. 이렇게 하면 기본 큐의 작업이 YARN 리소스를 박탈하지 않습니다.    
 
-D14v2 worker 노드의 경우 llap 큐에 권장 되는 값은 _ * 85 * *입니다.     
+D14v2 worker 노드의 경우 llap 큐에 권장 되는 값은 **85** 입니다.     
 (읽기 전용 워크로드의 경우 적절하게 90까지 늘릴 수 있습니다.)  
 
 #### <a name="7-llap-daemon-container-size"></a>**7. LLAP 디먼 컨테이너 크기**    
-구성: **_hive. yarn. m b_*  
+구성: ***hive.llap.daemon.yarn.container.mb***  
    
 LLAP 디먼은 각 작업자 노드에서 YARN 컨테이너로 실행됩니다. LLAP 디먼 컨테이너의 총 메모리 크기는 다음 요소에 따라 다릅니다.    
-_ YARN 컨테이너 크기의 구성 (YARN, YARN, YARN,,. dddmb) (영문)
+*  YARN 컨테이너 크기의 구성(yarn.scheduler.minimum-allocation-mb, yarn.scheduler.maximum-allocation-mb, yarn.nodemanager.resource.memory-mb)
 *  노드의 Tez AM 수
 *  노드의 모든 컨테이너 및 LLAP 큐 용량에 대해 구성된 총 메모리  
 
@@ -112,11 +112,11 @@ Tez AM(Tez 애플리케이션 마스터)에 필요한 메모리는 다음과 같
 Tez AM은 쿼리 코디네이터 역할을 하며, Tez AMs의 수는 처리할 동시 쿼리 수에 따라 구성 해야 합니다. 이론적으로는 작업자 노드당 하나의 Tez AM을 고려할 수 있습니다. 그러나 작업자 노드에는 Tez AM이 둘 이상 표시 될 수 있습니다. 계산을 위해 모든 LLAP 데몬 노드/작업자 노드에 대해 Tez AMs의 균일 한 분포를 가정 합니다.
 Tez AM당 4GB의 메모리를 사용하는 것이 좋습니다.  
 
-Hive 구성 * hive. e s t. t s p. n **a z**.  
-Ambari UI에서 env 변수 _*_num_llap_nodes_for_llap_daemons_*_ 로 지정 된 llap 디먼 노드 수입니다.  
-Tez AM 컨테이너 크기 = Tez 구성 _*_tez._*_. p. m.  
+Hive 구성 ***hive***. c s. t e r. n a t e.  
+Ambari UI에서 env 변수 ***num_llap_nodes_for_llap_daemons*** 로 지정 된 llap 디먼 노드 수입니다.  
+Tez AM 컨테이너 크기 = Tez 구성 ***tez.***. p. m.  
 
-노드당 tez AM memory = _ *(** ceil **(** llap 데몬 노드 수의 tez AMs 수 **/** **)** **x** tez AM 컨테이너 크기 **)**  
+노드 당 tez AM 메모리 = **(** ceil **(** llap 데몬 노드 수의 tez AMs **/** 수 **)** **x** tez AM 컨테이너 크기 **)**  
 D14 v2의 경우 기본 구성에는 Tez AM 4개와 LLAP 디먼 노드 4개가 있습니다.  
 노드당 Tez AM 메모리 = (ceil(4/4) x 4 GB) = 4GB
 
@@ -133,22 +133,25 @@ D14 v2 worker 노드의 경우 HDI 4.0-권장 되는 값은 (85 GB-4gb-1gb)) = *
 HDI 3.6의 경우 슬라이더 AM에 대 한 추가 ~ 2gb를 예약 해야 하므로 권장 값은 **79 GB** 입니다.  
 
 #### <a name="8-determining-number-of-executors-per-llap-daemon"></a>**8. LLAP 디먼 당 실행기 수 결정**  
-구성: **_hive.llap.daemon.num.executors_* _, _*_hive. 풀_*_ .
+구성: ***hive.llap.daemon.num.executors** _, _ *_hive_* . a. 풀.*
 
-_*_hive.llap.daemon.num.executors_*_:   
+***hive.llap.daemon.num.executors***:   
 이 구성은 LLAP 디먼당 병렬로 작업을 실행할 수 있는 실행기 수를 제어합니다. 이 값은 vcores 수, 실행자 당 사용 되는 메모리 양 및 LLAP 디먼 컨테이너에 사용할 수 있는 총 메모리 양에 따라 달라 집니다.    실행자 수는 작업자 노드당 사용 가능한 vcore의 120% 초과 구독 수 있습니다. 그러나 실행 기 당 필요한 메모리와 LLAP 디먼 컨테이너 크기를 기준으로 메모리 요구 사항을 충족 하지 않는 경우에는 조정 해야 합니다.
 
 각 실행자는 Tez 컨테이너와 같으며 4GB (Tez 컨테이너 크기)의 메모리를 사용할 수 있습니다. LLAP 디먼의 모든 실행자는 동일한 힙 메모리를 공유 합니다. 모든 실행 기에서 메모리 집약적 작업을 동시에 실행 하는 것은 아니므로 실행 기 당 75%의 Tez 컨테이너 크기 (4gb)를 고려할 수 있습니다. 이러한 방식으로 증가 하는 병렬 처리를 위해 각 실행자에 더 많은 메모리 (예: 3gb)를 부여 하 여 실행 기 수를 늘릴 수 있습니다. 그러나 대상 작업에 대해이 설정을 조정 하는 것이 좋습니다.
 
 D14 v2 VM에는 vCore가 16개 있습니다.
-D14 v 2의 경우 실행 기 수에 권장 되는 값은 (실행 기 당 3gb를 고려 하는 각 작업자 노드의 16 vcore x 120% ~ = _ *19**)입니다.
+D14 v 2의 경우 실행 기 수에 권장 되는 값은 (실행 기 당 3gb를 고려 하는 각 작업자 노드의 16 vcore x 120% ~ = **19** )입니다.
 
-**_hive_. a l a. a l a. a 0.*실행자는 지정 된 대로 고정 되므로 LLAP 디먼 당 실행 기 수와 동일 합니다. D14 v 2의 경우 권장 되는 값은 _* 19** 입니다.
+***hive.llap.io.threadpool.size***:   
+이 값은 실행기의 스레드 풀 크기를 지정합니다. 실행기는 지정된 값으로 고정되므로 LLAP 디먼당 실행기 수와 동일합니다.    
+D14 v 2의 경우 권장 되는 값은 **19** 입니다.
 
 #### <a name="9-determining-llap-daemon-cache-size"></a>**9. LLAP 디먼 캐시 크기 결정**  
-구성: **_hive_*......size _
+구성: ***hive.llap.io.memory.size***
 
-LLAP 디먼 컨테이너 메모리는 다음 구성 요소로 구성 됩니다. _ 헤드 실
+LLAP 디먼 컨테이너 메모리는 다음 구성 요소로 구성됩니다.
+*  헤드룸
 *  실행기에서 사용하는 힙 메모리(Xmx)
 *  디먼당 메모리 내 캐시(오프힙 메모리 크기, SSD 캐시가 활성화된 경우 적용할 수 없음)
 *  메모리 내 캐시 메타데이터 크기(SSD 캐시가 활성화된 경우에만 적용 가능)
@@ -181,18 +184,18 @@ D14 v2 및 HDI 4.0의 경우 권장 되는 SSD 캐시 크기 = 19 g b/0.08 ~ = *
 D14 v2 및 HDI 3.6의 경우 권장 되는 SSD 캐시 크기 = 18gb/0.08 ~ = **225 GB**
 
 #### <a name="10-adjusting-map-join-memory"></a>**10. 맵 조인 메모리 조정**   
-구성: **_hive. auto. noconditionaltask_* _
+구성: ***hive.auto.convert.join.noconditionaltask.size***
 
-이 매개 변수를 적용 하려면 _hive noconditionaltask *를 사용 하도록 설정 했는지 확인 합니다.
+이 매개 변수를 적용하려면 *hive.auto.convert.join.noconditionaltask* 를 활성화해야 합니다.
 이 구성은 다른 실행자에서 메모리의 초과 구독을 고려 하 여 더 많은 맵 조인 변환을 허용 하도록 Hive 최적화 프로그램의 MapJoin 선택 임계값을 결정 합니다. 실행 기 당 3GB를 고려 하 여이 크기를 3GB로 초과 구독 수 있지만 일부 힙 메모리는 다른 작업에 의해 정렬 버퍼, 순서 섞기 등에 사용 될 수도 있습니다.   
 따라서 D14 v2의 경우 실행 기 당 3gb 메모리를 사용 하는 경우이 값을 **2048** 로 설정 하는 것이 좋습니다.  
 
 (참고:이 값에는 워크 로드에 적합 한 조정이 필요할 수 있습니다. 이 값을 너무 낮게 설정하면 autoconvert 기능이 사용되지 않을 수 있습니다. 또한 너무 높게 설정 하면 메모리 예외 또는 GC 일시 중지로 인해 성능이 저하 될 수 있습니다.  
 
 #### <a name="11-number-of-llap-daemons"></a>**11. LLAP 디먼 수**
-Ambari 환경 변수: **_num_llap_nodes, num_llap_nodes_for_llap_daemons_* _  
+Ambari 환경 변수: ***num_llap_nodes, num_llap_nodes_for_llap_daemons***  
 
-_ *num_llap_nodes**-HIVE llap 서비스에서 사용 하는 노드 수를 지정 합니다. 여기에는 llap 디먼, Llap 서비스 마스터 및 TEZ AM (Application master)을 실행 하는 노드가 포함 됩니다.  
+**num_llap_nodes** -HIVE llap 서비스에서 사용 하는 노드 수를 지정 합니다. 여기에는 llap 디먼, Llap 서비스 마스터 및 TEZ AM (Application master)을 실행 하는 노드가 포함 됩니다.  
 
 ![' LLAP 서비스에 대 한 노드 수 '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "LLAP 서비스에 대 한 노드 수")  
 

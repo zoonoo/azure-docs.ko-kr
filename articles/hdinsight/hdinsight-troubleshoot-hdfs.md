@@ -6,10 +6,10 @@ ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0be7805493e5acc41254c57ca912b5a2ecf02dae
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98931468"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop HDFS 문제 해결
@@ -127,7 +127,7 @@ Ambari 사용에 대한 자세한 내용은 [Apache Ambari 웹 UI를 사용하�
 `-s`옵션은 표시 되는 파일 길이의 집계 요약을 생성 합니다.  
 `-h`옵션은 파일 크기의 형식을 지정 합니다.
 
-예:
+예제:
 
 ```bash
 hdfs dfs -du -s -h hdfs://mycluster/

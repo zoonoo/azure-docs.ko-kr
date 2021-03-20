@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
 ms.openlocfilehash: 7923dad3d47122c0ceb04d1240736e2b66a0dd64
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92048256"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>방법: 메트릭을 구성 하 고 미세 조정 하 여 구성 검색
@@ -43,9 +43,9 @@ ms.locfileid: "92048256"
 
 이 구성은 별도의 구성을 사용 하는 경우를 제외 하 고이 메트릭의 모든 계열에 적용 됩니다. 메트릭 수준 구성은 데이터가 등록 때 기본적으로 적용 되며 왼쪽 패널에 표시 됩니다. 사용자는 메트릭 페이지에서 메트릭 수준 구성을 직접 편집할 수 있습니다. 
 
-**방향과**같은 추가 매개 **변수를 사용** 하 여 구성을 추가로 튜닝할 수 있습니다. 여러 검색 방법을 함께 사용할 수도 있습니다. 
+**방향과** 같은 추가 매개 **변수를 사용** 하 여 구성을 추가로 튜닝할 수 있습니다. 여러 검색 방법을 함께 사용할 수도 있습니다. 
 
-:::image type="content" source="../media/configuration-combination.png" alt-text="메트릭 선택" lightbox="../media/configuration-combination.png":::
+:::image type="content" source="../media/configuration-combination.png" alt-text="구성 조합" lightbox="../media/configuration-combination.png":::
 
 ### <a name="tune-the-configuration-for-a-specific-series-or-group"></a>특정 계열 또는 그룹에 대 한 구성 조정
 
@@ -53,7 +53,7 @@ ms.locfileid: "92048256"
 
 이 구성은 메트릭 수준 구성 대신 계열 또는 특정 계열 그룹에 적용 됩니다. 이 그룹에 대 한 조건을 설정한 후 저장 합니다.
 
-:::image type="content" source="../media/advanced-configuration.png" alt-text="메트릭 선택" lightbox="../media/advanced-configuration.png":::
+:::image type="content" source="../media/advanced-configuration.png" alt-text="고급 구성" lightbox="../media/advanced-configuration.png":::
 
 ### <a name="anomaly-detection-methods"></a>변칙 검색 메서드
 
@@ -68,15 +68,15 @@ ms.locfileid: "92048256"
 
 민감도는 각 지점의 예상 값 범위 너비에 영향을 줄 수 있습니다. 증가 하는 경우 예상 값 범위가 더 엄격 하 게 증가 하 고 더 이상 이상이 보고 됩니다.
 
-:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="메트릭 선택":::
+:::image type="content" source="../media/metrics/smart-detection-high-sensitivity.png" alt-text="높은 민감도를 사용 하는 스마트 감지":::
 
 민감도를 중단 하면 예상 값 범위가 더 넓어집니다. 이러한 이상에 대 한 변칙은 보고 됩니다.
 
-:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="메트릭 선택":::
+:::image type="content" source="../media/metrics/smart-detection-low-sensitivity.png" alt-text="낮은 민감도를 사용 하는 스마트 감지":::
 
 **임계값 변경** 
 
-변경 임계값은 일반적으로 특정 범위를 기준으로 메트릭 데이터가 유지 되는 경우에 사용 됩니다. 임계값은 **변경 비율**에 따라 설정 됩니다. **변경 임계값** 모드는 시나리오에서 변칙을 검색할 수 있습니다.
+변경 임계값은 일반적으로 특정 범위를 기준으로 메트릭 데이터가 유지 되는 경우에 사용 됩니다. 임계값은 **변경 비율** 에 따라 설정 됩니다. **변경 임계값** 모드는 시나리오에서 변칙을 검색할 수 있습니다.
 
 * 데이터는 일반적으로 안정적이 고 매끄럽게 작동 합니다. 변동 시 알림이 표시 되도록 하려고 합니다.
 * 데이터는 일반적으로 매우 불안정 하 고 많은 변동입니다. 너무 안정적 이거나 플랫 상태가 될 때이를 알리는 것이 좋습니다.
@@ -85,16 +85,16 @@ ms.locfileid: "92048256"
 
 1. 메트릭 또는 시계열에 대 한 변칙 검색 구성을 설정할 때 변칙 검색 방법으로 **변경 임계값** 을 선택 합니다.
     
-    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="메트릭 선택":::
+    :::image type="content" source="../media/metrics/change-threshold.png" alt-text="임계값 변경":::
 
 2. 시나리오에 따라 범위 **밖** 의 범위 또는 **범위** 매개 변수를 선택 합니다.
 
-    변동을 검색 하려면 **범위 밖**을 선택 합니다. 예를 들어 아래 설정을 사용 하는 경우 이전 값과 비교 하 여 10%를 초과 하는 데이터 요소는 이상 값으로 검색 됩니다.
-    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="메트릭 선택":::
+    변동을 검색 하려면 **범위 밖** 을 선택 합니다. 예를 들어 아래 설정을 사용 하는 경우 이전 값과 비교 하 여 10%를 초과 하는 데이터 요소는 이상 값으로 검색 됩니다.
+    :::image type="content" source="../media/metrics/out-of-the-range.png" alt-text="범위를 벗어난 매개 변수":::
 
-    데이터의 평평한 선을 검색 하려면 **범위에서**를 선택 합니다. 예를 들어 아래 설정을 사용 하는 경우 이전 값과 비교 하 여 0.01% 내에서 변경 되는 데이터 요소는 이상 값으로 검색 됩니다. 임계값은 매우 작으므로 (0.01%) 데이터의 직선을 이상 값으로 검색 합니다.
+    데이터의 평평한 선을 검색 하려면 **범위에서** 를 선택 합니다. 예를 들어 아래 설정을 사용 하는 경우 이전 값과 비교 하 여 0.01% 내에서 변경 되는 데이터 요소는 이상 값으로 검색 됩니다. 임계값은 매우 작으므로 (0.01%) 데이터의 직선을 이상 값으로 검색 합니다.
 
-    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="메트릭 선택":::
+    :::image type="content" source="../media/metrics/in-the-range.png" alt-text="범위 매개 변수":::
 
 3. 이상으로 계산 되며 이전에 캡처한 데이터 요소가 비교에 사용 될 변경의 비율을 설정 합니다. 이 비교는 항상 현재 데이터 요소와 그 앞의 단일 데이터 요소 N 점 사이에 있습니다.
     
@@ -117,7 +117,7 @@ ms.locfileid: "92048256"
 
 각 메트릭 세부 정보 페이지의 메트릭 드롭다운 목록 옆에 있는 **미리 설정 된 이벤트 구성** 단추를 클릭 합니다.
  
-:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="메트릭 선택":::
+:::image type="content" source="../media/metrics/preset-event-button.png" alt-text="미리 설정 된 이벤트 단추":::
 
 표시 되는 창에서 사용에 따라 옵션을 구성 합니다. 구성을 사용 하려면 **휴일 이벤트 사용** 이 선택 되어 있는지 확인 합니다. 
 
@@ -136,7 +136,7 @@ ms.locfileid: "92048256"
 |**확장할 기간 (일)**    |  휴일 전후에 영향을 받는 날짜입니다.        |
 
 
-**주기 이벤트** 섹션을 사용 하면 일부 시나리오에서 데이터의 순환 패턴을 사용 하 여 불필요 한 경고를 줄일 수 있습니다. 예: 
+**주기 이벤트** 섹션을 사용 하면 일부 시나리오에서 데이터의 순환 패턴을 사용 하 여 불필요 한 경고를 줄일 수 있습니다. 예를 들면 다음과 같습니다. 
 
 - 주 및 월 패턴과 같이 여러 패턴이 나 주기가 있는 메트릭입니다. 
 - 명확한 패턴이 없지만 데이터의 연도가 연도 (YoY), 월간 (MoM), 월간 주간 (WoW) 또는 일 (일 기준) (DoD) 인 메트릭입니다.
@@ -161,13 +161,13 @@ X-사용할 수 없음
 
 Cycle 이벤트는 순환 패턴을 따르는 경우 변칙을 줄이는 데 사용 되지만 여러 데이터 요소가 패턴을 따르지 않는 경우 비정상을 보고 합니다. **Strict 모드** 는 한 데이터 요소가 패턴을 따르지 않는 경우 변칙 보고를 사용 하도록 설정 하는 데 사용 됩니다. 
 
-:::image type="content" source="../media/metrics/preset-events.png" alt-text="메트릭 선택":::
+:::image type="content" source="../media/metrics/preset-events.png" alt-text="미리 설정 된 이벤트 구성":::
 
 ## <a name="view-recent-incidents"></a>최근 인시던트 보기
 
 메트릭 관리자는 수집 된 모든 시계열 데이터에 대 한 변칙을 검색 합니다. 그러나 중요 한 영향을 주지 않을 수 있으므로 모든 비정상을 에스컬레이션 해야 하는 것은 아닙니다. 관련 된 항목을 인시던트에 그룹화 하기 위해 변칙에 대해 집계가 수행 됩니다. 이러한 인시던트는 메트릭 세부 정보 페이지의 **인시던트** 탭에서 볼 수 있습니다. 
 
-인시던트를 클릭 하 여 자세한 정보를 볼 수 있는 **인시던트 분석** 페이지로 이동 합니다. **새 인시던트 허브에서 인시던트 관리**를 클릭 하 여 특정 메트릭의 모든 인시던트를 찾을 수 있는 [인시던트 허브](diagnose-incident.md) 페이지를 찾습니다. 
+인시던트를 클릭 하 여 자세한 정보를 볼 수 있는 **인시던트 분석** 페이지로 이동 합니다. **새 인시던트 허브에서 인시던트 관리** 를 클릭 하 여 특정 메트릭의 모든 인시던트를 찾을 수 있는 [인시던트 허브](diagnose-incident.md) 페이지를 찾습니다. 
 
 ## <a name="subscribe-anomalies-for-notification"></a>알림에 대 한 변칙 구독
 

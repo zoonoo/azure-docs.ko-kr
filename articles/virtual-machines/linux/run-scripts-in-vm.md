@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 9531b5b3d5f178e204d408c677e8908be86e3367
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 633f4fa6254b2db7a802bb29bffc83b271216d49
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552867"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601757"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Linux VM에서 스크립트 실행
 
@@ -57,7 +57,7 @@ ms.locfileid: "102552867"
 
 ## <a name="serial-console"></a>직렬 콘솔
 
-[직렬 콘솔](../troubleshooting/serial-console-linux.md)은 키보드를 VM에 연결하는 것과 유사하게 VM에 대 한 직접 액세스를 제공합니다.
+[직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-linux)은 키보드를 VM에 연결하는 것과 유사하게 VM에 대 한 직접 액세스를 제공합니다.
 
 * Azure 가상 머신에서 명령을 실행합니다.
 * Azure Portal에서 가상 머신에 텍스트 기반 콘솔을 사용하여 실행할 수 있습니다.
@@ -71,4 +71,4 @@ VM 내에서 스크립트 및 명령을 실행할 수 있는 다양한 기능에
 * [사용자 지정 스크립트 확장](../extensions/custom-script-linux.md)
 * [명령 실행](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [직렬 콘솔](../troubleshooting/serial-console-linux.md)
+* [직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-linux)

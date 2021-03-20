@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 4591253e1a305632b7f41afe692f297d71366382
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98744601"
 ---
 # <a name="enable-monitoring-for-cloud-services-extended-support-using-the-azure-portal"></a>Azure Portal을 사용 하 여 Cloud Services (확장 지원)에 대 한 모니터링 사용
@@ -40,5 +40,5 @@ ms.locfileid: "98744601"
 6. 경고 설정을 완료 하 고 변경 내용을 저장 하 고 구성 된 메트릭에 따라 시간이 지남에 따라 **경고** 블레이드가 채워질 것을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services (확장 지원)에 대 한 질문과 [대답](faq.md) 을 검토 합니다.
-- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용 하 여 클라우드 서비스 (확장 지원)를 배포 합니다.
+- Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
+- [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.

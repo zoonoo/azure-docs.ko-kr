@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev, devx-track-java
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9d1faf7aed5cf4c4975925c7a56d169dc99a7bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87313594"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
@@ -32,7 +32,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 고객에게 SSO를 제공하도록 애플리케이션 내에서 SDK를 구성하는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
@@ -43,7 +43,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 ### <a name="identity-brokers"></a>ID broker
 
-Microsoft는 다른 공급업체의 애플리케이션 전체에서 자격 증명의 브리징을 허용하고 자격 증명의 유효성을 검사할 단일 보안 위치가 필요한 향상된 기능을 허용하는 애플리케이션을 모든 모바일 플랫폼에 대해 제공합니다. 이를 **broker**라고 합니다.
+Microsoft는 다른 공급업체의 애플리케이션 전체에서 자격 증명의 브리징을 허용하고 자격 증명의 유효성을 검사할 단일 보안 위치가 필요한 향상된 기능을 허용하는 애플리케이션을 모든 모바일 플랫폼에 대해 제공합니다. 이를 **broker** 라고 합니다.
 
 iOS 및 Android에서 broker는 고객이 독립적으로 설치하는 다운로드 가능한 애플리케이션을 통해 제공되거나 해당 직원에 대한 일부 또는 모든 디바이스를 관리하는 회사에 의해 디바이스에 푸시됩니다. broker는 IT 관리자 구성에 따라 일부 애플리케이션에 대해서만 또는 전체 디바이스에 대한 보안 관리를 지원합니다. Windows에서 이 기능은 기술적으로 웹 인증 브로커로 알려진 운영 체제에 기본적으로 제공된 계정 선택기로 제공됩니다.
 

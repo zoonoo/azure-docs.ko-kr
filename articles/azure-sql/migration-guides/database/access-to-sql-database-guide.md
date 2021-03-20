@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 9b64dc95c6ee00a834c2741b30026df7350780c0
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: e323b1c15d78da4e8c1a82ae8848df7f59b0dd87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565093"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657359"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>마이그레이션 가이드: Azure SQL Database에 대 한 액세스
 
@@ -42,17 +42,58 @@ Access 데이터베이스를 Azure SQL Database로 마이그레이션하려면 �
 
 1. 액세스를 위해 SQL Server Migration Assistant를 엽니다. 
 1. **파일** 을 선택한 다음, **새 프로젝트** 를 선택합니다. 마이그레이션 프로젝트의 이름을 입력 합니다. 
-1. **데이터베이스 추가** 를 선택 하 고 새 프로젝트에 추가할 데이터베이스를 선택 합니다.
+
+   ![새 프로젝트 선택](./media/access-to-sql-database-guide/new-project.png)
+
+1. **데이터베이스 추가** 를 선택 하 고 새 프로젝트에 추가할 데이터베이스를 선택 합니다. 
+
+   ![데이터베이스 추가 선택](./media/access-to-sql-database-guide/add-databases.png)
+
 1. **액세스 메타 데이터 탐색기** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **보고서 만들기** 를 선택 합니다. 
-1. 샘플 평가를 검토 합니다. 예를 들어: 
+
+   ![데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 보고서 만들기를 선택 합니다.](./media/access-to-sql-database-guide/create-report.png)
+
+1. 샘플 평가를 검토 합니다. 예를 들면 다음과 같습니다. 
+
+   ![샘플 보고서 평가 검토](./media/access-to-sql-database-guide/sample-assessment.png)
+
+### <a name="validate-data-types"></a>데이터 형식의 유효성 검사
+
+기본 데이터 형식 매핑의 유효성을 검사하고 필요한 경우 요구 사항에 따라 해당 매핑을 변경합니다. 이렇게 하려면 다음 단계를 따르십시오.
+
+1. 메뉴에서 **도구** 를 선택합니다. 
+1. **프로젝트 설정** 을 선택합니다. 
+1. **형식 매핑** 탭을 선택합니다. 
+
+   ![형식 매핑](./media/access-to-sql-database-guide/type-mappings.png)
+
+1. **액세스 메타 데이터 탐색기** 에서 테이블을 선택 하 여 각 테이블에 대 한 형식 매핑을 변경할 수 있습니다.
+
 
 ### <a name="convert-schema"></a>스키마 변환
 
 데이터베이스 개체를 변환 하려면 다음 단계를 수행 합니다. 
 
 1. **Azure SQL Database에 연결을** 선택 하 고 연결 정보를 제공 합니다.
-1. **액세스 메타 데이터 탐색기** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **스키마 변환** 을 선택 합니다.  
+
+   ![Azure SQL Database에 연결](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+
+1. **액세스 메타 데이터 탐색기** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **스키마 변환** 을 선택 합니다. 또는 데이터베이스를 선택한 후 위쪽 탐색 모음에서 **스키마 변환** 을 선택할 수 있습니다.
+
+   ![데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 스키마 변환을 선택 합니다.](./media/access-to-sql-database-guide/convert-schema.png)
+
+   변환 된 쿼리를 원래 쿼리로 비교: 
+
+   ![변환 된 쿼리를 소스 코드와 비교할 수 있습니다.](./media/access-to-sql-database-guide/query-comparison.png)
+
+   변환 된 개체를 원본 개체와 비교 합니다. 
+
+   ![변환 된 개체를 원본과 비교할 수 있습니다.](./media/access-to-sql-database-guide/table-comparison.png)
+
 1. 필드 개별 개체를 변환 하려면 개체를 마우스 오른쪽 단추로 클릭 하 고 **스키마 변환** 을 선택 합니다. 변환 된 개체는 **Access 메타 데이터 탐색기** 에서 굵게 표시 됩니다. 
+
+   ![메타 데이터 탐색기의 Bold 개체가 변환 되었습니다.](./media/access-to-sql-database-guide/converted-items.png)
+ 
 1. 출력 창에서 **결과 검토** 를 선택 하 고 **오류 목록** 창에서 오류를 검토 합니다. 
 
 
@@ -64,9 +105,28 @@ Access 용 SSMA를 사용 하 여 데이터를 마이그레이션하려면 다�
 
 1. 아직 연결 하지 않은 경우 **Azure SQL Database 연결을** 선택 하 고 연결 정보를 제공 합니다. 
 1. **Azure SQL Database 메타 데이터 탐색기** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스와 동기화** 를 선택 합니다. 이 작업을 수행 하면 MySQL 스키마가 Azure SQL Database에 게시 됩니다.
+
+   ![데이터베이스와 동기화](./media/access-to-sql-database-guide/synchronize-with-database.png)
+
+   원본 프로젝트와 대상 간의 매핑을 검토 합니다.
+
+   ![데이터베이스와의 동기화를 검토 합니다.](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+
 1. **액세스 메타 데이터 탐색기** 를 사용 하 여 마이그레이션하려는 항목 옆에 있는 확인란을 선택 합니다. 전체 데이터베이스를 마이그레이션하려면 데이터베이스 옆의 확인란을 선택 합니다. 
 1. 마이그레이션하려는 데이터베이스 또는 개체를 마우스 오른쪽 단추로 클릭 하 고 **데이터 마이그레이션** 을 선택 합니다. 
    전체 데이터베이스에 대 한 데이터를 마이그레이션하려면 데이터베이스 이름 옆의 확인란을 선택 합니다. 개별 테이블에서 데이터를 마이그레이션하려면 데이터베이스를 확장 하 고 테이블을 확장 한 다음 테이블 옆의 확인란을 선택 합니다. 개별 테이블에서 데이터를 생략 하려면 확인란의 선택을 취소 합니다.
+
+    ![데이터 마이그레이션](./media/access-to-sql-database-guide/migrate-data.png)
+
+    마이그레이션된 데이터를 검토 합니다. 
+
+    ![데이터 검토 마이그레이션](./media/access-to-sql-database-guide/migrate-data-review.png)
+
+1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 Azure SQL Database에 연결 하 고 데이터 및 스키마를 검토 하 여 마이그레이션 유효성을 검사 합니다.
+
+   ![SSMA에서 유효성 검사](./media/access-to-sql-database-guide/validate-data.png)
+
+
 
 ## <a name="post-migration"></a>마이그레이션 후 
 

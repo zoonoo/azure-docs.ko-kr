@@ -4,10 +4,10 @@ description: 이 문서에서는 특정 이벤트 복제 태스크 패턴을 구
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 438964c228f060dede93abf582c9504b698db8b0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934614"
 ---
 # <a name="event-replication-tasks-patterns"></a>이벤트 복제 태스크 패턴
@@ -50,7 +50,7 @@ Azure Functions 기반 지침에 사용 되는 [샘플로 제공](https://github
 
 이러한 속성은 문자열 형식 이며 해당 원래 속성의 문자열 형식 값을 포함 합니다. 이벤트가 여러 번 전달 되는 경우에는 직접 소스의 서비스 할당 메타 데이터가 이미 존재 하는 속성에 추가 되 고 값은 세미콜론으로 구분 됩니다.
 
-### <a name="failover"></a>장애 조치
+### <a name="failover"></a>장애 조치 
 
 재해 복구를 위해 복제를 사용 하는 경우 Event Hubs 서비스의 지역 가용성 이벤트 또는 네트워크 중단에 대 한 보호를 위해 이러한 모든 오류 시나리오에서는 하나의 이벤트 허브에서 다음 이벤트 허브로 장애 조치 (failover)를 수행 하 여 생산자 및/또는 소비자에 게 보조 끝점을 사용 하도록 지시 해야 합니다.
 
@@ -76,7 +76,7 @@ SRV 레코드는 일반적인 규칙에 따라 접두사를 사용 하 `_azure_e
 
 그런 다음 응용 프로그램의 영역에서 기본 이벤트 허브에 해당 하는 하위 영역을 가리키는 CNAME 항목을 만듭니다.
 
-| CNAME 레코드                | Alias                    |
+| 레코드                | Alias                    |
 | --------------------------- | ------------------------ |
 | `eventhub.test.example.com` | `test1.test.example.com` |
 

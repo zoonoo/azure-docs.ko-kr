@@ -1,5 +1,5 @@
 ---
-title: Azure Blob 저장소에 대 한 비용 계획 및 관리
+title: Azure Blob Storage에 대한 비용 계획 및 관리
 description: Azure Portal에서 비용 분석을 사용 하 여 Azure Blob 저장소에 대 한 비용을 계획 하 고 관리 하는 방법을 알아봅니다.
 services: storage
 author: normesta
@@ -10,13 +10,13 @@ ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98601313"
 ---
-# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob 저장소에 대 한 비용 계획 및 관리
+# <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Azure Blob Storage에 대한 비용 계획 및 관리
 
 이 문서는 Azure Blob 저장소에 대 한 비용을 계획 하 고 관리 하는 데 도움이 됩니다. 첫째, Azure 가격 계산기를 사용 하 여 비용을 예측 합니다. 저장소 계정을 만든 후에는 필요한 만큼만 지불 하도록 계정을 최적화 합니다. 비용 관리 기능을 사용 하 여 예산 및 모니터링 비용을 설정 합니다. 예상 비용을 검토 하 고 지출 추세를 모니터링 하 여 작업할 수 있는 영역을 식별할 수도 있습니다.
 

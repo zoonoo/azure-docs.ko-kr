@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: jobreen
 ms.openlocfilehash: 1846b036f12fe7e691021ec0248782cad946d9b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650410"
 ---
 # <a name="azure-custom-providers-resource-onboarding-overview"></a>Azure 사용자 지정 공급자 리소스 온 보 딩 개요
@@ -54,16 +54,16 @@ Microsoft. CustomProviders/resourceProviders 및 Microsoft. CustomProviders/asso
 }
 ```
 
-속성 | 필수 여부 | Description
+속성 | 필수 여부 | 설명
 ---|---|---
 name | 예 | 엔드포인트 정의의 이름입니다. 리소스 온 보 딩의 경우 이름은 "연결" 이어야 합니다.
 routingType | 예 | 끝점을 사용 하 여 계약 유형을 결정 합니다. 리소스 온 보 딩의 경우 유효한 **Routingtypes** 는 "프록시, 캐시, 확장" 및 "Webhook, 캐시, 확장"입니다.
 엔드포인트(endpoint) | 예 | 요청을 라우팅하는 엔드포인트입니다. 이렇게 하면 응답 및 요청의 부작용이 처리 됩니다.
 
-연결 리소스 형식을 사용 하 여 사용자 지정 공급자를 만든 후에는 Microsoft. CustomProviders/association을 사용 하 여 대상으로 지정할 수 있습니다. Microsoft. CustomProviders/association은 다른 Azure 리소스를 확장할 수 있는 확장 리소스입니다. Microsoft. CustomProviders/association의 인스턴스를 만든 경우에는 **targetResourceId**속성을 사용 합니다 .이 속성은 유효한 Microsoft Customproviders/resourceproviders 또는 Microsoft. Solutions/APPLICATIONS 리소스 ID 여야 합니다. 이러한 경우, 사용자가 만든 Microsoft CustomProviders/resourceProviders 인스턴스의 연결 리소스 형식으로 요청이 전달 됩니다.
+연결 리소스 형식을 사용 하 여 사용자 지정 공급자를 만든 후에는 Microsoft. CustomProviders/association을 사용 하 여 대상으로 지정할 수 있습니다. Microsoft. CustomProviders/association은 다른 Azure 리소스를 확장할 수 있는 확장 리소스입니다. Microsoft. CustomProviders/association의 인스턴스를 만든 경우에는 **targetResourceId** 속성을 사용 합니다 .이 속성은 유효한 Microsoft Customproviders/resourceproviders 또는 Microsoft. Solutions/APPLICATIONS 리소스 ID 여야 합니다. 이러한 경우, 사용자가 만든 Microsoft CustomProviders/resourceProviders 인스턴스의 연결 리소스 형식으로 요청이 전달 됩니다.
 
 > [!NOTE]
-> **TargetResourceId**로 제공 되는 Microsoft. Solutions/APPLICATIONS 리소스 ID는 "public" 이름의 관리 되는 리소스 그룹에 배포 되어 있어야 합니다.
+> **TargetResourceId** 로 제공 되는 Microsoft. Solutions/APPLICATIONS 리소스 ID는 "public" 이름의 관리 되는 리소스 그룹에 배포 되어 있어야 합니다.
 
 샘플 Azure 사용자 지정 공급자 연결:
 
@@ -76,7 +76,7 @@ routingType | 예 | 끝점을 사용 하 여 계약 유형을 결정 합니다. 
 }
 ```
 
-속성 | 필수 여부 | Description
+속성 | 필수 여부 | 설명
 ---|---|---
 targetResourceId | 예 | Microsoft. CustomProviders/resourceProviders 또는 Microsoft. Solutions/applications의 리소스 ID입니다.
 
@@ -154,7 +154,7 @@ Azure 사용자 지정 리소스 공급자 개발에 대 한 질문이 있는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 사용자 지정 공급 기업에 대해 알아보았습니다. 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 사용자 지정 공급 기업에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 - [자습서: 사용자 지정 공급자를 사용 하 여 리소스 온 보 딩](./tutorial-resource-onboarding.md)
 - [자습서: Azure에서 사용자 지정 작업 및 리소스 만들기](./tutorial-get-started-with-custom-providers.md)

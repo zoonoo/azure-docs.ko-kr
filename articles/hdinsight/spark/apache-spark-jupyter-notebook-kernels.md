@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98930401"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터의 Jupyter Notebook에 대 한 커널
@@ -67,7 +67,7 @@ Spark HDInsight 클러스터에서 Jupyter Notebook와 함께 새 커널을 사�
 
     다음 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
 
-   | 매직 | 예제 | Description |
+   | 매직 | 예제 | 설명 |
    | --- | --- | --- |
    | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
    | 정보 |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
@@ -122,7 +122,7 @@ SELECT * FROM hivesampletable
 
 Notebook이 스토리지 계정에 저장되는 방식은 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)와 호환됩니다. 클러스터에 SSH를 수행 하는 경우 파일 관리 명령을 사용할 수 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 |---------|-------------|
 | `hdfs dfs -ls /HdiNotebooks` | # 루트 디렉터리에 모든 항목 나열 –이 디렉터리의 모든 항목은 홈 페이지의 Jupyter에 표시 됩니다. |
 | `hdfs dfs –copyToLocal /HdiNotebooks` | # HdiNotebooks 폴더의 콘텐츠를 다운로드 합니다.|

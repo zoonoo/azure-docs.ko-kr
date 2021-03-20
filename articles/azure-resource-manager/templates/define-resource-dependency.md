@@ -4,13 +4,13 @@ description: 배포 중에 다른 리소스에 종속 된 Azure 리소스를 설
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: f6b63b066da06a17c3a2e51ab0f3ab9bf521a144
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934750"
 ---
-# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에서 리소스를 배포 하는 순서 정의
+# <a name="define-the-order-for-deploying-resources-in-arm-templates"></a>ARM 템플릿에서 리소스 배포 순서 정의
 
 리소스를 배포할 때 일부 리소스가 다른 리소스 보다 먼저 존재 하는지 확인 해야 할 수 있습니다. 예를 들어 데이터베이스를 배포 하기 전에 논리 SQL server가 필요 합니다. 한 리소스를 다른 리소스에 종속 된 것으로 표시 하 여이 관계를 설정 합니다. 요소를 사용 `dependsOn` 하 여 명시적 종속성을 정의 합니다. **참조** 또는 **목록** 함수를 사용 하 여 암시적 종속성을 정의 합니다.
 
@@ -214,7 +214,7 @@ Resource Manager는 템플릿의 유효성을 검사하는 동안 순환적 종�
 ## <a name="next-steps"></a>다음 단계
 
 * 자습서를 진행 하려면 [자습서: 종속 리소스를 사용 하 여 ARM 템플릿 만들기](template-tutorial-create-templates-with-dependent-resources.md)를 참조 하세요.
-* 리소스 종속성을 포함 하는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용 하 여 복잡 한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조 하세요.
+* 리소스 종속성을 다루는 Microsoft Learn 모듈은 [고급 ARM 템플릿 기능을 사용하여 복잡한 클라우드 배포 관리](/learn/modules/manage-deployments-advanced-arm-template-features/)를 참조하세요.
 * 종속성 설정 시 권장 사항은 [ARM 템플릿 모범 사례](template-best-practices.md)를 참조 하세요.
 * 배포 중 종속성 문제 해결에 대해 알아보려면 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
 * Azure Resource Manager 템플릿을 만드는 방법에 대 한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.

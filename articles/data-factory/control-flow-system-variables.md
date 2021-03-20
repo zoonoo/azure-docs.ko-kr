@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a5d2043c29db87876cc0d5ddb5b3708abad033c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201229"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591982"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 시스템 변수
 
@@ -66,6 +66,20 @@ ms.locfileid: "102201229"
 | @triggerBody(). fileName  |생성 또는 삭제로 인해 트리거를 발생 시킨 파일의 이름입니다.   |
 | @triggerBody(). folderName  |로 지정 된 파일을 포함 하는 폴더의 경로 `@triggerBody().fileName` 입니다. 폴더 경로의 첫 번째 세그먼트는 Azure Blob Storage 컨테이너의 이름입니다.  |
 | @trigger().startTime |파이프라인 실행을 호출 하기 위해 트리거가 발생 한 시간입니다. |
+
+## <a name="custom-event-trigger-scope"></a>사용자 지정 이벤트 트리거 범위
+
+이러한 시스템 변수는 [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger)형식의 트리거에 대 한 트리거 JSON의 어디에서 나 참조할 수 있습니다.
+
+>[!NOTE]
+>Azure Data Factory [Azure Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 사용 하 여 사용자 지정 이벤트의 형식을 지정할 것으로 예상 합니다.
+
+| 변수 이름 | 설명
+| --- | --- |
+| @triggerBody(). 이벤트. eventType | 사용자 지정 이벤트 트리거 실행을 트리거한 이벤트의 유형입니다. 이벤트 유형은 고객 정의 필드 이며 string 유형의 값을 사용 합니다. |
+| @triggerBody(). 이벤트 제목 | 트리거를 발생 시킨 사용자 지정 이벤트의 제목입니다. |
+| @triggerBody(). 이벤트 데이터. _keyName_ | 사용자 지정 이벤트의 데이터 필드는 고객이 메시지와 데이터를 전송 하는 데 사용할 수 있는 JSON blob에서 무료로 제공 됩니다. 데이터를 사용 하십시오. 각 필드를 참조 하는 _keyName_ 예를 들어 @triggerBody ().  . i a. i a. |
+| @trigger().startTime | 파이프라인 실행을 호출 하기 위해 트리거가 발생 한 시간입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

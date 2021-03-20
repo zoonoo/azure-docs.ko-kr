@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: d4dcd319000edb204ba188ed14b4c797dba5cd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75610100"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric 서비스에 대한 클러스터 리소스 관리자 설정 구성
@@ -26,7 +26,7 @@ Service Fabric 클러스터 리소스 관리자를 사용하면 개별적으로 
 메트릭은 명명된 특정 서비스에 필요한 리소스의 집합입니다. 서비스의 메트릭 구성에는 기본적으로 해당 서비스의 상태 저장 복제본 또는 상태 비저장 인스턴스 각각이 서비하는 리소스의 크기가 포함됩니다. 메트릭에는 조정이 필요한 경우 서비스에 대한 해당 메트릭의 부하 분산 중요도를 나타내는 가중치도 포함됩니다.
 
 ## <a name="advanced-placement-rules"></a>고급 배치 규칙
-덜 일반적인 시나리오에서 유용한 다른 유형의 배치 규칙이 있습니다. 예는 다음과 같습니다.
+덜 일반적인 시나리오에서 유용한 다른 유형의 배치 규칙이 있습니다. 몇 가지 예는 다음과 같습니다.
 - 지리적으로 분산된 클러스터를 지원하는 제약 조건
 - 특정 애플리케이션 아키텍처
 

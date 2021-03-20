@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95992937"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 업체 규약 만들기 및 관리
@@ -28,7 +28,7 @@ ms.locfileid: "95992937"
 
 RosettaNet 메시지 교환에 대 한 규약을 만들려면 [Exchange RosettaNet 메시지](../logic-apps/logic-apps-enterprise-integration-rosettanet.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -57,14 +57,14 @@ Azure 주 메뉴에서 **모든 서비스** 를 선택합니다. 검색 상자�
 
    !["추가" 선택](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **이름** | 예 | <*계약 이름*> | 규약의 이름 |
-   | **계약 유형** | Yes | **AS2**, **X12** 또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  
-   | **호스트 파트너** | Yes | <*호스트-파트너-이름*> | 호스트 파트너는 규약을 지정 하는 조직을 나타냅니다. |
-   | **호스트 ID** | Yes | <*호스트-파트너-식별자*> | 호스트 파트너의 식별자입니다. |
-   | **게스트 파트너** | Yes | <*게스트-파트너-이름*> | 게스트 파트너는 호스트 파트너와 비즈니스를 수행하는 조직을 나타냅니다. |
-   | **게스트 ID** | Yes | <*게스트-파트너-식별자*> | 게스트 파트너의 식별자입니다. |
+   | **계약 유형** | 예 | **AS2**, **X12** 또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  
+   | **호스트 파트너** | 예 | <*호스트-파트너-이름*> | 호스트 파트너는 규약을 지정 하는 조직을 나타냅니다. |
+   | **호스트 ID** | 예 | <*호스트-파트너-식별자*> | 호스트 파트너의 식별자입니다. |
+   | **게스트 파트너** | 예 | <*게스트-파트너-이름*> | 게스트 파트너는 호스트 파트너와 비즈니스를 수행하는 조직을 나타냅니다. |
+   | **게스트 ID** | 예 | <*게스트-파트너-식별자*> | 게스트 파트너의 식별자입니다. |
    | **수신 설정** | 상황에 따라 다름 | 상황에 따라 다름 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너 로부터 들어오는 모든 메시지를 수신 하는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>- [AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) <br>- [X12 메시지 설정](logic-apps-enterprise-integration-x12.md) |
    | **송신 설정** | 상황에 따라 다름 | 상황에 따라 다름 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너에 게 보내는 모든 메시지를 보내는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>- [AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) <br>- [X12 메시지 설정](logic-apps-enterprise-integration-x12.md) |
    |||||

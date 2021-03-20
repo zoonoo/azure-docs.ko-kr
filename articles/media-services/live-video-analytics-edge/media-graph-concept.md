@@ -4,10 +4,10 @@ description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97401103"
 ---
 # <a name="media-graph"></a>미디어 그래프
@@ -92,11 +92,11 @@ RTSP 원본 노드를 사용 하면 [rtsp](https://tools.ietf.org/html/rfc2326) 
 
 #### <a name="http-extension-processor"></a>HTTP 확장 프로세서
 
-HTTP 확장 프로세서 노드를 사용 하면 고유한 IoT Edge 모듈을 미디어 그래프에 연결할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 노출 하는 HTTP REST 끝점에 릴레이 합니다. 이 노드에는 필요한 경우 REST 끝점을 사용 하 여 인증 하는 기능이 있습니다. 또한 노드에는 REST 끝점에 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 JPEG, PNG 또는 BMP 형식을 지원 합니다. 프로세서에 대 한 자세한 내용은 [여기](media-graph-extension-concept.md#http-extension-processor)를 참조 하세요.
+HTTP 확장 프로세서 노드를 사용 하면 고유한 IoT Edge 모듈을 미디어 그래프에 연결할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 노출 하는 HTTP REST 끝점에 릴레이 합니다. 이 노드에는 필요한 경우 REST 끝점을 사용 하 여 인증 하는 기능이 있습니다. 또한 노드에는 REST 끝점에 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. 스케일러는 이미지 가로 세로 비율을 유지하거나 패딩하거나 늘일 수 있는 옵션을 제공합니다. 이미지 인코더는 JPEG, PNG 또는 BMP 형식을 지원 합니다. [여기](media-graph-extension-concept.md#http-extension-processor)서 프로세서에 대해 자세히 알아보세요.
 
 #### <a name="grpc-extension-processor"></a>gRPC 확장 프로세서
 
-GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 제공 하는 [Grpc](terminology.md#grpc) 끝점에 릴레이 합니다. 노드는 [공유 메모리](https://en.wikipedia.org/wiki/Shared_memory) 를 사용 하 여 데이터를 전송 하거나 콘텐츠를 grpc 메시지의 본문에 직접 포함할 수 있도록 지원 합니다. 또한 노드에는 gRPC 끝점으로 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원 합니다. 프로세서에 대 한 자세한 내용은 [여기](media-graph-extension-concept.md#grpc-extension-processor)를 참조 하세요.
+GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 제공 하는 [Grpc](terminology.md#grpc) 끝점에 릴레이 합니다. 이 노드는 [공유 메모리](https://en.wikipedia.org/wiki/Shared_memory)를 사용하여 데이터를 전송하거나 콘텐츠를 gRPC 메시지의 본문에 직접 포함할 수 있도록 지원합니다. 또한 이 노드에는 비디오 프레임을 gRPC 엔드포인트로 릴레이하기 전에 스케일링하고 인코딩하기 위한 기본 제공 이미지 포맷터가 포함되어 있습니다. 스케일러는 이미지 가로 세로 비율을 유지하거나 패딩하거나 늘일 수 있는 옵션을 제공합니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원합니다. [여기](media-graph-extension-concept.md#grpc-extension-processor)서 프로세서에 대해 자세히 알아보세요.
 
 #### <a name="signal-gate-processor"></a>신호 게이트 프로세서  
 

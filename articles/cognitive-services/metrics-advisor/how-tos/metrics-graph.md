@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbullwin
 ms.openlocfilehash: bcedef4a1339dacaff3fe841e97f985c42320819
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92043156"
 ---
 # <a name="how-to-build-a-metrics-graph-to-analyze-related-metrics"></a>방법: 메트릭 그래프를 작성 하 여 관련 메트릭 분석
@@ -33,9 +33,9 @@ ms.locfileid: "92043156"
 
 다음으로, 다른 노드를 추가 하 고 기존 노드에 대 한 관계를 지정 해야 합니다. 기존 노드를 선택 하 고 마우스 오른쪽 단추를 클릭 합니다. 상황에 맞는 메뉴에 몇 가지 옵션이 표시 됩니다. 
 
-**관계 추가**를 클릭 하면 다른 메트릭을 선택 하 고 두 노드 간의 관계 유형을 지정할 수 있습니다. 특정 차원 필터를 적용할 수도 있습니다. 
+**관계 추가** 를 클릭 하면 다른 메트릭을 선택 하 고 두 노드 간의 관계 유형을 지정할 수 있습니다. 특정 차원 필터를 적용할 수도 있습니다. 
 
-:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="메트릭 선택":::
+:::image type="content" source="../media/graph/metrics-graph-node-action.png" alt-text="노드 및 관계 추가":::
 
 위의 단계를 반복 하면 관련 된 모든 메트릭 간의 관계를 설명 하는 메트릭 그래프가 만들어집니다.
 **노드 색에 대 한 힌트**
@@ -48,9 +48,9 @@ ms.locfileid: "92043156"
 
 메트릭 그래프가 작성 될 때 그래프 내의 메트릭에 변칙이 검색 될 때마다 관련 비정상 상태를 확인 하 고 문제에 대 한 상위 수준 보기를 가져올 수 있습니다. 
 
-그래프 내에서 인시던트를 클릭 하 고 진단 정보 아래의 **교차 메트릭 분석**까지 아래로 스크롤합니다.
+그래프 내에서 인시던트를 클릭 하 고 진단 정보 아래의 **교차 메트릭 분석** 까지 아래로 스크롤합니다.
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="메트릭 선택":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="관련 메트릭 및 비정상 보기":::
 
 ## <a name="next-steps"></a>다음 단계
 

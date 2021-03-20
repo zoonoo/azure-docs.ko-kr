@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: aprameyr
 ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84710748"
 ---
 # <a name="replicas-and-instances"></a>복제본 및 인스턴스 
 이 문서에서는 상태 저장 서비스의 복제본과 상태 비저장 서비스의 인스턴스 수명 주기에 대한 개요를 제공합니다.
 
 ## <a name="instances-of-stateless-services"></a>상태 비저장 서비스의 인스턴스
-상태 비저장 서비스의 인스턴스는 클러스터의 한 노드에서 실행되는 서비스 논리의 사본입니다. 파티션 내 인스턴스는 해당 **InstanceId**로 고유하게 식별됩니다. 다음 다이어그램에서 인스턴스 수명 주기가 모델링됩니다.
+상태 비저장 서비스의 인스턴스는 클러스터의 한 노드에서 실행되는 서비스 논리의 사본입니다. 파티션 내 인스턴스는 해당 **InstanceId** 로 고유하게 식별됩니다. 다음 다이어그램에서 인스턴스 수명 주기가 모델링됩니다.
 
 ![인스턴스 수명 주기](./media/service-fabric-concepts-replica-lifecycle/instance.png)
 
@@ -26,7 +26,7 @@ ms.locfileid: "84710748"
 이 인스턴스에 대한 애플리케이션 호스트 또는 노드가 충돌할 경우 삭제됨 상태로 전환됩니다.
 
 ### <a name="ready-rd"></a>Ready(RD), 준비됨
-준비됨 상태에서는 인스턴스가 노드에서 시작되어 실행 중입니다. 이 인스턴스가 신뢰할 수 있는 서비스라면 **RunAsync**가 호출되었습니다. 
+준비됨 상태에서는 인스턴스가 노드에서 시작되어 실행 중입니다. 이 인스턴스가 신뢰할 수 있는 서비스라면 **RunAsync** 가 호출되었습니다. 
 
 이 인스턴스에 대한 애플리케이션 호스트 또는 노드가 충돌할 경우 삭제됨 상태로 전환됩니다.
 
@@ -97,7 +97,7 @@ StandBy 복제본은 다운되었다가 열린 지속형 서비스의 복제본�
 대기 상태에서 복제본 역할은 관련이 없습니다.
 
 > [!NOTE]
-> 다운되거나 삭제되지 않은 모든 복제본을 *가동된다*고 간주합니다.
+> 다운되거나 삭제되지 않은 모든 복제본을 *가동된다* 고 간주합니다.
 >
 
 > [!NOTE]

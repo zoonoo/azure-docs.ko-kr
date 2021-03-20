@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 58148e3a20ba41ae9707543be290f2d632cb1185
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d11d17f90dcd6335fcaf6bd48a44037777a087e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375292"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601388"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Redis 인스턴스에 대 한 프리미엄 Azure 캐시에 대 한 데이터 지 속성 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "100375292"
 
 Azure Cache for Redis에서 Redis 지속성을 제공하는 데 사용하는 모델은 다음과 같습니다.
 
-* **RDB 지속성** - RDB(Redis 데이터베이스) 지속성이 구성되면 Azure Cache for Redis에서 구성 가능한 백업 빈도에 따라 Azure Cache for Redis 스냅샷을 Redis 이진 형식으로 디스크에 유지합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅샷을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
+* **Rdb 지 속성** -Rdb (Redis 데이터베이스) 지 속성이 구성 된 경우 Redis에 대 한 azure cache는 구성 가능한 백업 빈도에 따라 Redis에 대 한 azure cache의 스냅숏을 Redis 이진 형식으로 디스크 (Azure Storage 계정)에 유지 합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅샷을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
 * **AOF 지속성** - AOF(Append only file) 지속성이 구성되면 Azure Cache for Redis에서 모든 쓰기 작업을 Azure Storage 계정에 초당 1회 이상 저장되는 로그에 저장합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 저장된 쓰기 작업을 사용하여 캐시를 재구성합니다. AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
 
 지 속성은 사용자가 소유 하 고 관리 하는 Azure Storage 계정에 Redis 데이터를 기록 합니다. 캐시를 만드는 동안 **새 Azure cache For Redis** 블레이드에 대해 구성 하거나 기존 프리미엄 캐시의 **리소스 메뉴** 에서 구성할 수 있습니다.

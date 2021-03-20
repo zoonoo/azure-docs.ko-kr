@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
 ms.openlocfilehash: 57a03b107678f83200b11f408784f6455cbceffd
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94579294"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Personalizer 학습 동작 구성
@@ -53,9 +53,9 @@ Azure Portal의 Personalizer 리소스에 대 한 **평가** 페이지에서 **�
 > ![Azure Portal에서 수련 생 모드 학습 동작의 평가를 검토 하는 스크린샷](media/settings/evaluate-apprentice-mode.png)
 
 수련 여 모드는 다음과 같은 **평가 메트릭을** 제공 합니다.
-* **기준선 – 평균 보상** : 응용 프로그램의 기본 (기준선)의 평균 보상입니다.
-* **Personalizer – 평균 보상** : 총 보상 Personalizer의 평균에 도달 했을 가능성이 있습니다.
-* 최근 **1000 이벤트에 대 한 보상 성과 비율** : 최신 1000 이벤트에 대해 기준선 및 Personalizer 보상의 비율입니다.
+* **기준선 – 평균 보상**: 응용 프로그램의 기본 (기준선)의 평균 보상입니다.
+* **Personalizer – 평균 보상**: 총 보상 Personalizer의 평균에 도달 했을 가능성이 있습니다.
+* 최근 **1000 이벤트에 대 한 보상 성과 비율**: 최신 1000 이벤트에 대해 기준선 및 Personalizer 보상의 비율입니다.
 
 ## <a name="switch-behavior-to-online-mode"></a>온라인 모드로 동작 전환
 

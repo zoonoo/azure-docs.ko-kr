@@ -5,10 +5,10 @@ tags: top-support-issue
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91284621"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 기록 보기
@@ -27,7 +27,7 @@ Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 배포에 대한 �
 
 1. 검사하려는 리소스 그룹을 선택합니다.
 
-1. **배포**에서 링크를 선택합니다.
+1. **배포** 에서 링크를 선택합니다.
 
    ![배포 기록 선택](./media/deployment-history/select-deployment-history.png)
 
@@ -117,7 +117,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-1. 배포 요약에서 **작업 세부 정보**를 선택합니다.
+1. 배포 요약에서 **작업 세부 정보** 를 선택합니다.
 
     ![작업 세부 정보 선택](./media/deployment-history/get-operation-details.png)
 

@@ -1,20 +1,20 @@
 ---
 title: 엔터티 형식-LUIS
-description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
+description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_ 보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91316565"
 ---
 # <a name="extract-data-with-entities"></a>엔터티를 사용 하 여 데이터 추출
 
-엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
+엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_ 보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
 
 엔터티는 다음과 같은 여러 가지 유형이 있습니다.
 
@@ -47,13 +47,13 @@ ms.locfileid: "91316565"
 
 ## <a name="entity-represents-data-extraction"></a>엔터티는 데이터 추출을 나타냅니다.
 
-엔터티는 _utterance 내의_데이터 개념을 나타냅니다. 의도는 _전체 utterance_을 분류 합니다.
+엔터티는 _utterance 내의_ 데이터 개념을 나타냅니다. 의도는 _전체 utterance_ 을 분류 합니다.
 
 다음 네 가지 길이 발언을 고려 합니다.
 
 |발화|예측된 의도|추출 된 엔터티|설명|
 |--|--|--|--|
-|도움말|help|-|추출할 항목이 없습니다.|
+|Help|help|-|추출할 항목이 없습니다.|
 |항목 보내기|sendSomething|-|추출할 항목이 없습니다. 모델에는이 컨텍스트에서 추출 하는 데 필요한 기능이 없으며 `something` 받는 사람이 언급 되지 않습니다.|
 |Bob이 있는 메일 보내기|sendSomething|`Bob`, `present`|모델은 미리 작성 된 `Bob` 엔터티의 필수 기능을 추가 하 여 추출 `personName` 합니다. 기계 학습 엔터티를 추출 하는 데 사용 되었습니다 `present` .|
 |Bob에 게 빠졌습니다의 상자를 보냅니다.|sendSomething|`Bob`, `box of chocolates`|두 개의 중요 한 데이터 `Bob` 및는 `box of chocolates` 기계 학습 엔터티에 의해 추출 됩니다.|
@@ -99,13 +99,13 @@ ms.locfileid: "91316565"
 
 데이터를 추출해야 하는 방법 및 추출된 후에 데이터를 표시하는 방법에 따라 엔터티를 선택합니다.
 
-|엔터티 유형|목적|
+|엔터티 유형|용도|
 |--|--|
 |[**컴퓨터-학습**](tutorial-machine-learned-entity.md)|레이블이 지정 된 예제에서 배운 중첩 된 복잡 한 데이터를 추출 합니다. |
-|[**목록**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
+|[**은**](reference-entity-list.md)|**정확히 일치** 하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
 |[**패턴. 모든**](#patternany-entity)|엔터티 끝을 찾는 엔터티는 자유 형식 이므로 확인 하기 어렵습니다. [패턴](luis-concept-patterns.md)에서만 사용할 수 있습니다.|
 |[**미리 빌드됨**](luis-reference-prebuilt-entities.md)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
-|[**정규식**](reference-entity-regular-expression.md)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|
+|[**정규식**](reference-entity-regular-expression.md)|**정확히 일치** 하는 텍스트를 위해 정규식을 사용 합니다.|
 
 
 ## <a name="extraction-versus-resolution"></a>추출 및 해결
@@ -140,7 +140,7 @@ Utterance에는 데이터의 의미가 utterance 내의 컨텍스트를 기반�
 <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>
 ## <a name="exceeding-app-limits-for-entities"></a>엔터티에 대 한 앱 제한 초과
 
-[제한](luis-limits.md#model-limits)보다 더 많이 필요한 경우 지원 담당자에 게 문의 하세요. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+[제한](luis-limits.md#model-limits)보다 더 많이 필요한 경우 지원 담당자에 게 문의 하세요. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원** 을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## <a name="entity-prediction-status-and-errors"></a>엔터티 예측 상태 및 오류
 

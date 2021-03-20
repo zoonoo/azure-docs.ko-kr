@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 41b1372cd5165b3548a4e574e7eb037111188bac
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7dc4d78f7af1086f9a4de9aa7392acb388df966e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341555"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590673"
 ---
 # <a name="round-azure-cosmos-db"></a>ROUND (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,24 +37,24 @@ ROUND(<numeric_expr>)
   
 ## <a name="remarks"></a>설명
   
-  수행 된 반올림 연산은 0에서 벗어난 중간점을 따릅니다. 입력이 두 개의 정수 사이에서 정확 하 게 일치 하는 숫자 식인 경우 결과는 0에서 먼 가장 가까운 정수 값이 됩니다. 이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
+수행 된 반올림 연산은 0에서 벗어난 중간점을 따릅니다. 입력이 두 개의 정수 사이에서 정확 하 게 일치 하는 숫자 식인 경우 결과는 0에서 먼 가장 가까운 정수 값이 됩니다. 이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
   
-  |<numeric_expr>|까지|
-  |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
-  |0.5|1|
-  |6.5000|7||
+|<numeric_expr>|까지|
+|-|-|
+|-6.5000|-7|
+|-0.5|-1|
+|0.5|1|
+|6.5000|7|
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
-  다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
+다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
   
 ```sql
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
-  결과 집합은 다음과 같습니다.  
+결과 집합은 다음과 같습니다.  
   
 ```json
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  

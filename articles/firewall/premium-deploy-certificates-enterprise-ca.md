@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525498"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590469"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Azure 방화벽 미리 보기용 엔터프라이즈 CA 인증서 배포 및 구성
 
@@ -25,7 +25,7 @@ Azure 방화벽 프리미엄 미리 보기에는 인증서 인증 체인이 필�
 
 Azure 방화벽 프리미엄 미리 보기에서 사용 하는 인증서에 대 한 자세한 내용은 [Azure 방화벽 프리미엄 미리 보기 인증서](premium-certificates.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 일반적으로 루트 CA의 웹 등록 사이트에 액세스 `https://<servername>/certsrv` 하 고 **인증서 요청** 을 선택 합니다.
 1. **고급 인증서 요청** 을 선택 합니다.
 1. **이 CA에 요청을 만들어 제출** 합니다 .를 선택 합니다.
-1. 다음과 같이 하위 인증 기관 템플릿을 사용 하 여 양식을 작성 합니다.
+1. 하위 인증 기관 템플릿을 사용 하 여 양식을 작성 합니다.
 1. 요청을 제출 하 고 인증서를 설치 합니다.
 1. Internet Explorer를 사용 하 여 Windows Server에서이 요청을 수행 한다고 가정 하 고 **인터넷 옵션** 을 엽니다.
 1. **콘텐츠** 탭으로 이동 하 여 **인증서** 를 선택 합니다.
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="validate-tls-inspection"></a>TLS 검사 유효성 검사
 
-1. 대상 URL 또는 선택한 FQDN에 대 한 TLS 검사를 사용 하 여 응용 프로그램 규칙을 만듭니다.  예: `*bing.com`
+1. 대상 URL 또는 선택한 FQDN에 대 한 TLS 검사를 사용 하 여 응용 프로그램 규칙을 만듭니다.  예를 들어 `*bing.com`을 참조하십시오.
 1. 규칙의 원본 범위 내에 있는 도메인에 가입 된 컴퓨터에서 대상으로 이동 하 여 브라우저의 주소 표시줄 옆에 있는 잠금 기호를 선택 합니다. 인증서는 공용 CA가 아닌 엔터프라이즈 CA에서 발급 된 것으로 표시 해야 합니다.
 1. 인증서 경로를 포함 하 여 자세한 정보를 표시 하는 인증서를 표시 합니다.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/certificate-details.png" alt-text="인증서 세부 정보":::

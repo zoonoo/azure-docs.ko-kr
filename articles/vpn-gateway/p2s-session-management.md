@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91274236"
 ---
 # <a name="point-to-site-vpn-session-management"></a>지점 및 사이트 간 VPN 세션 관리
@@ -26,12 +26,12 @@ Azure 가상 네트워크 게이트웨이는 현재 지점 및 사이트 간 VPN
 
 포털에서 세션을 확인 하 고 연결을 끊으려면:
 
-1. VPN 게이트웨이로 이동 합니다.
-1. **모니터링** 섹션에서 **지점 및 사이트 간 세션**을 선택 합니다.
+1. VPN Gateway로 이동합니다.
+1. **모니터링** 섹션에서 **지점 및 사이트 간 세션** 을 선택 합니다.
 
    :::image type="content" source="./media/p2s-session-management/portal.png" alt-text="포털 예제":::
 1. 창의 이름의 모든 현재 세션을 볼 수 있습니다.
-1. 연결을 끊을 세션에 대해 **"..."** 를 선택한 다음 **연결 끊기**를 선택 합니다.
+1. 연결을 끊을 세션에 대해 **"..."** 를 선택한 다음 **연결 끊기** 를 선택 합니다.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -44,7 +44,7 @@ PowerShell을 사용 하 여 세션을 확인 하 고 연결을 끊으려면
    ```
 1. 연결을 끊을 세션의 **VpnConnectionId** 를 복사 합니다.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="포털 예제":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="PowerShell 예제":::
 1. 세션의 연결을 끊으려면 다음 명령을 실행 합니다.
 
    ```azurepowershell-interactive

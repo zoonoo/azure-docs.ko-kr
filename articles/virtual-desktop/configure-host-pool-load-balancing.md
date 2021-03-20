@@ -7,10 +7,10 @@ ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2c57ac10fbd318dd4bbb2dc86457e186dd824834
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91951658"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Windows Virtual Desktop 부하 분산 방법 구성
@@ -83,8 +83,8 @@ MaxSessionLimit  : 6
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. 서비스에서 **Windows 가상 데스크톱** 을 검색 하 고 선택 합니다.
-3. Windows 가상 데스크톱 페이지에서 **호스트 풀**을 선택 합니다.
-4. 편집 하려는 호스트 풀의 이름을 선택 합니다.
-5. **속성**을 선택합니다.
+3. Windows Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
+4. 편집하려는 풀의 이름을 선택합니다.
+5. **속성** 을 선택합니다.
 6. 필드에 **최대 세션 제한을** 입력 하 고 드롭다운 메뉴에서이 호스트 풀에 대해 원하는 **부하 분산 알고리즘** 을 선택 합니다.
-7. **저장**을 선택합니다. 그러면 새 부하 분산 설정이 적용 됩니다.
+7. **저장** 을 선택합니다. 그러면 새 부하 분산 설정이 적용 됩니다.
