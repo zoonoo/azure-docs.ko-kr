@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90007641"
 ---
 # <a name="moving-azure-resources-across-regions"></a>지역 간에 Azure 리소스 이동
@@ -25,7 +25,7 @@ Azure 지역, 지역 및 가용성 영역은 Azure 글로벌 인프라의 토대
 - **서비스/기능에 맞추기**: 리소스를 이동하여 특정 지역에서 사용할 수 있는 서비스 또는 기능을 활용합니다.
 - **비즈니스 개발에 대응**: 합병 또는 인수 등의 비즈니스 변화에 대응하여 리소스를 지역으로 이동합니다.
 - **근접성에 맞추기**: 리소스를 비즈니스 지역으로 이동합니다.
-- **데이터 요구 사항 충족**: 데이터 상주 요구 사항 또는 데이터 분류 요구 사항에 맞게 리소스를 이동 합니다. [자세히 알아봅니다](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
+- **데이터 요구 사항 충족**: 데이터 상주 요구 사항 또는 데이터 분류 요구 사항에 맞게 리소스를 이동 합니다. [자세한 정보를 알아보세요](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
 - **배포 요구 사항에 대응**: 오류로 배포된 리소스를 이동하거나 용량 요구 사항에 따라 이동합니다. 
 - **서비스 해제에 응답**: 영역 서비스 해제로 인해 리소스를 이동 합니다.
 
@@ -42,8 +42,8 @@ Azure 지역, 지역 및 가용성 영역은 Azure 글로벌 인프라의 토대
 
 여러 가지 방법을 사용 하 여 리소스를 다른 지역으로 이동할 수 있습니다.
 
-- 리소스 **그룹에서 리소스 이동 시작**:이 방법을 사용 하 여 리소스 그룹 내에서 영역 이동을 시작 합니다. 이동 하려는 리소스를 선택한 후에는 리소스 이동 기 허브에서 프로세스가 계속 진행 되 고, 리소스 종속성을 확인 하 고, 이동 프로세스를 오케스트레이션 합니다. [자세히 알아봅니다](../../resource-mover/move-region-within-resource-group.md).
-- **리소스 이동 기 허브에서 직접 리소스 이동 시작**:이 방법을 사용 하면 허브에서 직접 지역 이동 프로세스를 시작 합니다. [자세히 알아봅니다](../../resource-mover/tutorial-move-region-virtual-machines.md).
+- 리소스 **그룹에서 리소스 이동 시작**:이 방법을 사용 하 여 리소스 그룹 내에서 영역 이동을 시작 합니다. 이동 하려는 리소스를 선택한 후에는 리소스 이동 기 허브에서 프로세스가 계속 진행 되 고, 리소스 종속성을 확인 하 고, 이동 프로세스를 오케스트레이션 합니다. [자세한 정보를 알아보세요](../../resource-mover/move-region-within-resource-group.md).
+- **리소스 이동 기 허브에서 직접 리소스 이동 시작**:이 방법을 사용 하면 허브에서 직접 지역 이동 프로세스를 시작 합니다. [자세한 정보를 알아보세요](../../resource-mover/tutorial-move-region-virtual-machines.md).
 
 
 ## <a name="support-for-region-move"></a>영역 이동 지원

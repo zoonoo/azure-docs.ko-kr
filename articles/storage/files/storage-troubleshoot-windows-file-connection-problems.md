@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98878513"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
@@ -145,7 +145,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](./storage-files-scale-targets.md#azure-files-scale-targets)을 참조하세요.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../blobs/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
@@ -210,7 +210,7 @@ SMB를 통해 탑재 된 Azure 파일 공유에서 파일을 열면 응용 프�
 > Get-AzStorageFileHandle 및 Close-AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 ### <a name="cause-2"></a>원인 2
-파일 임대가 파일을 수정 하거나 삭제할 수 없습니다. 다음 PowerShell을 사용 하 여 파일에 파일 임대가 있는지 확인할 수 있습니다., `<resource-group>` , `<storage-account>` `<file-share>` 및를 `<path-to-file>` 사용자 환경에 적합 한 값으로 바꿉니다.
+파일 임대로 인해 파일을 수정하거나 삭제할 수 없습니다. 다음 PowerShell을 사용 하 여 파일에 파일 임대가 있는지 확인할 수 있습니다., `<resource-group>` , `<storage-account>` `<file-share>` 및를 `<path-to-file>` 사용자 환경에 적합 한 값으로 바꿉니다.
 
 ```PowerShell
 # Set variables 
@@ -236,7 +236,7 @@ $fileClient = $file.ShareFileClient
 $fileClient.GetProperties().Value
 ```
 
-파일에 임대가 있는 경우 반환 되는 개체에는 다음 속성이 포함 되어야 합니다.
+파일에 임대가 있는 경우 반환되는 개체에 다음 속성이 포함되어야 합니다.
 
 ```Output
 LeaseDuration         : Infinite
@@ -245,7 +245,7 @@ LeaseStatus           : Locked
 ```
 
 ### <a name="solution-2"></a>해결 방법 2
-파일에서 임대를 제거 하려면 임대를 해제 하거나 임대를 중단할 수 있습니다. 임대를 해제 하려면 임대를 만들 때 설정 하는 임대 LeaseId 필요 합니다. LeaseId는 임대를 중단할 필요가 없습니다.
+파일에서 임대를 제거하려면 임대를 해제하거나 임대를 중단할 수 있습니다. 임대를 해제하려면 임대를 만들 때 설정한 임대의 LeaseId가 필요합니다. LeaseId는 임대를 중단할 필요가 없습니다.
 
 다음 예에서는 원인 2에 표시 된 파일에 대 한 임대를 해제 하는 방법을 보여 줍니다 .이 예에서는 다음의 PowerShell 변수를 사용 하 여 계속 합니다. 2.
 
@@ -289,7 +289,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee844140(v=ws.10)) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -299,7 +299,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -320,7 +320,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -361,7 +361,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -378,7 +378,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 AadDsTenantNotFound는 azure [Ad 도메인 서비스 (azure AD DS)](../../active-directory-domain-services/overview.md) 가 연결 된 구독의 azure ad 테 넌 트에 만들어지지 않는 저장소 계정의 [Azure Files에서 Azure Active Directory Domain Services (azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 저장소 계정이 배포 된 구독의 Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 합니다. 관리 되는 도메인을 만들려면 Azure AD 테 넌 트의 관리자 권한이 있어야 합니다. Azure AD 테 넌 트의 관리자가 아닌 경우 관리자에 게 문의 하 여 [관리 되는 Azure Active Directory Domain Services 도메인을 만들고 구성](../../active-directory-domain-services/tutorial-create-instance.md)하는 단계별 지침을 따르세요.
 
@@ -417,7 +417,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 - 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
 - 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 [Icacls 도구](/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
 

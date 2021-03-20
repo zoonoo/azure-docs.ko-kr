@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
 ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018225"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Azure API Management에서 외부 Redis 호환 캐시 사용
@@ -46,13 +46,13 @@ Azure API Management는 기본 제공 캐시를 활용 하는 것 외에도 외�
 + [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + [Azure API Management에서 캐싱](api-management-howto-cache.md)에 대한 이해
 
-## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Redis에 대 한 Azure Cache 만들기
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"></a> Redis에 대 한 Azure Cache 만들기
 
 이 섹션에서는 Azure에서 Azure Cache for Redis를 만드는 방법을 설명합니다. Azure 내부 또는 외부에 Azure Cache for Redis가 이미 있으면 다음 섹션으로 <a href="#add-external-cache">건너뛸</a> 수 있습니다.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"> </a> Kubernetes에 Redis 캐시 배포
+## <a name="deploy-redis-cache-to-kubernetes"></a><a name="create-cache"></a> Kubernetes에 Redis 캐시 배포
 
 캐싱을 위해 자체 호스팅 게이트웨이는 외부 캐시에만 의존 합니다. 캐시를 효과적으로 자체 호스팅 게이트웨이로 사용 하는 경우 조회 및 저장소 대기 시간을 최소화 하려면 서로 가까이에 배치 해야 합니다. Redis cache를 동일한 Kubernetes 클러스터 또는 근처의 별도 클러스터에 배포 하는 것이 가장 좋은 방법입니다. Redis cache를 Kubernetes 클러스터에 배포 하는 방법에 대 한 자세한 내용은 다음 [링크](https://github.com/kubernetes/examples/tree/master/guestbook) 를 참조 하세요.
 

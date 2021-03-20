@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536762"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
@@ -139,7 +139,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Azure Cache for Redis PowerShell에 사용되는 속성
 다음 표에서는 Azure PowerShell을 사용하여 Azure Cache for Redis 인스턴스를 만들고 관리할 때 자주 사용되는 매개 변수에 대한 속성 및 설명을 포함합니다.
 
-| 매개 변수 | Description | 기본값 |
+| 매개 변수 | 설명 | 기본값 |
 | --- | --- | --- |
 | 속성 |캐시의 이름 | |
 | 위치 |캐시의 위치 | |

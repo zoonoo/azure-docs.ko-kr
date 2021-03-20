@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90084739"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
@@ -74,7 +74,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 * SyncCycleEnabled
 * MaintenanceEnabled
 
-Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncScheduler에서 노출되었습니다. 이 속성을 설정하는 것은 **지원되지 않습니다**. 속성 **SchedulerSuspended**는 Connect에서만 수정되어야 합니다. PowerShell에서 직접 설정하는 것은 **지원되지 않습니다**.
+Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled** 는 Set-ADSyncScheduler에서 노출되었습니다. 이 속성을 설정하는 것은 **지원되지 않습니다**. 속성 **SchedulerSuspended** 는 Connect에서만 수정되어야 합니다. PowerShell에서 직접 설정하는 것은 **지원되지 않습니다**.
 
 스케줄러 구성은 Azure AD에 저장됩니다. 스테이징 서버가 있는 경우 주 서버를 변경하면 스테이징 서버에도 영향을 줍니다(IsStagingModeEnabled 제외).
 
@@ -169,7 +169,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 
    ![커넥터를 선택 하 고 실행 중인 커넥터가 선택한 중지 작업으로 강조 표시 된 Synchronization Service Manager를 보여 주는 스크린샷](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
 
-   * 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
+   * 시작 메뉴에서 **동기화 서비스** 를 시작합니다. **커넥터** 로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지** 를 선택합니다.
 
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.
 

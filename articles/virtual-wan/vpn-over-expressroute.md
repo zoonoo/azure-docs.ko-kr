@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: b8dde3ed76587e2343edaec8626287853ec6ef9b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487510"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
@@ -137,15 +137,15 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 * **vpnSiteConfiguration**:이 섹션에서는 가상 WAN에 연결 하는 사이트로 설정 된 장치 세부 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함 됩니다.
 * **vpnSiteConnections**:이 섹션에서는 다음 설정에 대 한 정보를 제공 합니다.
 
-    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예:
+    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예제:
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예:
+    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예제:
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예:
+    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 `Instance0` `Instance1` 각 사이트에 대해 및를 확인 하 고 공용 ip 주소 대신 개인 ip 주소입니다.<br>예제:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"

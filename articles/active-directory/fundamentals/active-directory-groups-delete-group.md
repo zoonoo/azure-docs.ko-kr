@@ -14,10 +14,10 @@ ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aed5f282ff7b5d573a6f8511f2fc4dbfd27135d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371820"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 삭제
@@ -32,13 +32,13 @@ ms.locfileid: "92371820"
 ## <a name="to-delete-a-group"></a>그룹 삭제
 1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택한 다음, **그룹**을 선택합니다.
+2. **Azure Active Directory** 를 선택한 다음, **그룹** 을 선택합니다.
 
-3. **그룹 - 모든 그룹** 페이지에서 삭제할 그룹을 검색하여 선택합니다. 이 단계에 **MDM policy - East**를 사용하겠습니다.
+3. **그룹 - 모든 그룹** 페이지에서 삭제할 그룹을 검색하여 선택합니다. 이 단계에 **MDM policy - East** 를 사용하겠습니다.
 
     ![그룹 - 그룹 이름이 강조 표시된 모든 그룹 페이지](media/active-directory-groups-delete-group/group-all-groups-screen.png)
 
-4. **MDM policy - East 개요** 페이지에서 **삭제**를 선택합니다.
+4. **MDM policy - East 개요** 페이지에서 **삭제** 를 선택합니다.
 
     그룹이 Azure Active Directory 테넌트에서 삭제됩니다.
 

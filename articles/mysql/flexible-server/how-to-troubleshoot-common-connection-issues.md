@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 9/21/2020
 ms.openlocfilehash: b328da01cd3b2ecb3eb5f183296eab808de27399
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90937277"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL 유연한 서버에 대 한 연결 문제 해결
@@ -32,7 +32,7 @@ ms.locfileid: "90937277"
 
 응용 프로그램이 Azure Database for MySQL 유연한 서버에 영구적으로 연결 하지 못하는 경우 일반적으로 다음 중 하나에 해당 하는 문제가 있음을 나타냅니다.
 
-* TLS/SSL을 사용 하는 암호화 된 연결: 유연한 서버는 1.2 TLS (전송 계층 보안)를 사용 하는 암호화 된 연결만 지원 하 고 **tls 1.0 및 tls 1.1를 사용 하는 모든 들어오는 연결은 거부**됩니다. TLS 버전을 사용 하지 않도록 설정 하거나 변경할 수 없습니다. [Azure Database for MySQL 유연한 서버에서 TLS 1.2 (Transport Layer Security)를 사용 하 여 암호화 된 연결](./how-to-connect-tls-ssl.md)에 대해 자세히 알아보세요.
+* TLS/SSL을 사용 하는 암호화 된 연결: 유연한 서버는 1.2 TLS (전송 계층 보안)를 사용 하는 암호화 된 연결만 지원 하 고 **tls 1.0 및 tls 1.1를 사용 하는 모든 들어오는 연결은 거부** 됩니다. TLS 버전을 사용 하지 않도록 설정 하거나 변경할 수 없습니다. [Azure Database for MySQL 유연한 서버에서 TLS 1.2 (Transport Layer Security)를 사용 하 여 암호화 된 연결](./how-to-connect-tls-ssl.md)에 대해 자세히 알아보세요.
 - 전용 액세스의 유연한 서버 *(VNet 통합)*: 유연한 서버와 동일한 가상 네트워크 내에서 연결 하는지 확인 합니다. [Azure Database for MySQL 유연한 서버에서 virtual network]를 참조 하세요.<!--(./concepts-networking-virtual-network.md)-->
 - 공용 액세스를 사용 하는 유연한 서버 *(허용 되는 IP 주소)*, 방화벽이 클라이언트의 연결을 허용 하도록 구성 되어 있는지 확인 합니다. Azure Portal를 [사용 하 여 유연한 서버 방화벽 규칙 만들기 및 관리](./how-to-manage-firewall-portal.md)를 참조 하세요.
 * 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대 한 연결을 허용 해야 합니다. 일부 방화벽에서 MySQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.

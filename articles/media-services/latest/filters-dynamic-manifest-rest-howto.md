@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c1d7bf933b487c40d571f1912341b5ef771e4e67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90527329"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
@@ -85,7 +85,7 @@ ms.locfileid: "90527329"
 
 ## <a name="create-account-filters"></a>계정 필터 만들기
 
-다운로드 한 postman의 컬렉션에서 **계정 필터** -> **계정 필터 만들기 또는 업데이트**를 선택 합니다.
+다운로드 한 postman의 컬렉션에서 **계정 필터** -> **계정 필터 만들기 또는 업데이트** 를 선택 합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
@@ -95,7 +95,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **본문** 탭을 선택하고 [이전에 정의](#define-a-filter)한 json 코드를 붙여넣습니다.
 
-**보내기**를 선택합니다. 
+**보내기** 를 선택합니다. 
 
 필터를 만들었습니다.
 
@@ -103,7 +103,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-asset-filters"></a>자산 필터 만들기  
 
-다운로드 한 "Media Services v3" postman collection에서 **자산** -> **필터 만들기 또는 업데이트**를 선택 합니다.
+다운로드 한 "Media Services v3" postman collection에서 **자산** -> **필터 만들기 또는 업데이트** 를 선택 합니다.
 
 **PUT** HTTP 요청 메서드는 다음과 유사합니다.
 
@@ -113,7 +113,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **본문** 탭을 선택하고 [이전에 정의](#define-a-filter)한 json 코드를 붙여넣습니다.
 
-**보내기**를 선택합니다. 
+**보내기** 를 선택합니다. 
 
 자산 필터를 만들었습니다.
 

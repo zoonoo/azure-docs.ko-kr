@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: af5399be44d2946775622598c5c1db3d8355f7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86257073"
 ---
 # <a name="sfctl-store"></a>sfctl store
@@ -19,7 +19,7 @@ ms.locfileid: "86257073"
 
 |명령|설명|
 | --- | --- |
-| 삭제 | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
+| delete | 기존 이미지 저장소 콘텐츠를 삭제합니다. |
 | root-info | 이미지 저장소의 루트에서 콘텐츠 정보를 가져옵니다. |
 | stat | 이미지 저장소 콘텐츠 정보를 가져옵니다. |
 

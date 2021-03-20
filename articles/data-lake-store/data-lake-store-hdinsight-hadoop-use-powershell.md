@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b7cb9d5c5c2ca850678d3f3194a9af8de526ada4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103393"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure PowerShell을 사용하여 Azure Data Lake Storage Gen1을 (추가 스토리지로) 사용하는 HDInsight 클러스터 만들기
@@ -51,9 +51,9 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **1.0 이상 Azure PowerShell**합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
+* **1.0 이상 Azure PowerShell** 합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.
 * **Windows SDK**. [여기](https://dev.windows.com/en-us/downloads)에서 설치할 수 있습니다. 이를 사용하여 보안 인증서를 만듭니다.
-* **Azure Active Directory 서비스 주체**입니다. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
+* **Azure Active Directory 서비스 주체** 입니다. 이 자습서의 단계에서는 Azure AD에서 서비스 사용자를 만드는 방법에 대한 지침을 제공합니다. 그러나 서비스 사용자를 만들려면 Azure AD 관리자여야 합니다. Azure AD 관리자인 경우 이 필수 조건을 건너뛰고 자습서를 진행할 수 있습니다.
 
     **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
@@ -87,7 +87,7 @@ PowerShell을 사용하여 Data Lake Storage Gen1과 함께 작동하도록 HDIn
     New-AzResourceGroup -Name $resourceGroupName -Location "East US 2"
     ```
 
-    다음과 같은 출력이 표시됩니다.
+    다음과 유사한 출력이 표시됩니다.
 
     ```output
     ResourceGroupName : hdiadlgrp
@@ -141,7 +141,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 
 ### <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-이 섹션의 단계를 진행하기 전에 [Windows SDK](https://dev.windows.com/en-us/downloads) 가 설치되어 있는지 확인합니다. 또한 인증서가 만들어지는 **C:\mycertdir**과 같은 디렉터리가 만들어져 있어야 합니다.
+이 섹션의 단계를 진행하기 전에 [Windows SDK](https://dev.windows.com/en-us/downloads) 가 설치되어 있는지 확인합니다. 또한 인증서가 만들어지는 **C:\mycertdir** 과 같은 디렉터리가 만들어져 있어야 합니다.
 
 1. PowerShell 창에서 Windows SDK를 설치한 위치로 이동(일반적으로 `C:\Program Files (x86)\Windows Kits\10\bin\x86`)하고 [MakeCert][makecert] 유틸리티를 사용하여 자체 서명된 인증서와 프라이빗 키를 만듭니다. 다음 명령을 사용합니다.
 
@@ -152,7 +152,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
     makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -r -len 2048
     ```
 
-    프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk**를 확인해야 합니다.
+    프라이빗 키 암호를 입력하라는 메시지가 표시됩니다. 명령을 성공적으로 실행한 후 지정한 인증서 디렉터리에서 **CertFile.cer** 및 **mykey.pvk** 를 확인해야 합니다.
 2. [Pvk2Pfx][pvk2pfx] 유틸리티를 사용하여 MakeCert가 생성한 .pvk 및 .cer 파일을 .pfx 파일로 변환합니다. 다음 명령을 실행합니다.
 
     ```azurepowershell
@@ -165,7 +165,7 @@ Data Lake Storage Gen1에 대한 Active Directory 인증을 설정하려면 다�
 
 이 섹션에서는 Azure Active Directory 애플리케이션용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 인증서를 제공하여 서비스 주체로 인증하는 단계를 수행합니다. 다음 명령을 실행하여 Azure Active Directory에서 애플리케이션을 만듭니다.
 
-1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. 또한 **-HomePage** 및 **-IdentiferUris**에 대한 값은 자리 표시자이며 확인되지 않습니다.
+1. PowerShell 콘솔 창에 다음 cmdlet을 붙여 넣습니다. **-DisplayName** 속성에 대해 지정한 값이 고유한지 확인합니다. 또한 **-HomePage** 및 **-IdentiferUris** 에 대한 값은 자리 표시자이며 확인되지 않습니다.
 
     ```azurepowershell
     $certificateFilePath = "$certificateFileDir\CertFile.pfx"
@@ -259,7 +259,7 @@ HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업�
     hive
     ```
 
-2. CLI를 사용하여 다음 문을 입력하여 Data Lake Storage Gen1에서 샘플 데이터를 사용한 **vehicles**라는 새 테이블을 만듭니다.
+2. CLI를 사용하여 다음 문을 입력하여 Data Lake Storage Gen1에서 샘플 데이터를 사용한 **vehicles** 라는 새 테이블을 만듭니다.
 
     ```azurepowershell
     DROP TABLE vehicles;

@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93358459"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
@@ -52,7 +52,7 @@ ms.locfileid: "93358459"
 2. RSS 트리거와 이메일 보내기 작업 사이에 "Foreach" 루프를 추가합니다. 
 
    1. 단계 사이에서 루프를 추가하려면 해당 단계 사이에 있는 화살표 위로 포인터를 이동합니다. 
-   표시되는 **더하기 기호** ( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
+   표시되는 **더하기 기호**( **+** )를 선택한 다음, **작업 추가** 를 선택합니다.
 
       ![“작업 추가” 선택](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -124,7 +124,7 @@ ms.locfileid: "93358459"
 
 기본적으로 “Foreach” 루프의 주기는 병렬로 실행됩니다. 각 주기를 순차적으로 실행하려면 루프의 **순차** 옵션을 설정합니다. "Foreach" 루프는 예측 가능한 결과를 예상할 경우 루프 내에 중첩된 루프 또는 변수가 있으면 순차적으로 실행되어야 합니다. 
 
-1. 루프의 오른쪽 위 모서리에서 **줄임표** ( **...** ) > **설정** 을 선택합니다.
+1. 루프의 오른쪽 위 모서리에서 **줄임표**( **...** ) > **설정** 을 선택합니다.
 
    !["Foreach" 루프에서 "..." > "설정"을 차례로 선택합니다.](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
@@ -191,7 +191,7 @@ ms.locfileid: "93358459"
 
    ![변수 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    | -------- | ----- | ----------- |
    | **이름** | 제한 | 변수의 이름 | 
    | **형식** | 정수 | 변수의 데이터 형식 | 
@@ -251,9 +251,9 @@ ms.locfileid: "93358459"
 
 "Until" 루프는 이러한 속성을 기반으로 실행을 중지 하므로 적절 하 게 값을 설정 해야 합니다.
 
-* **개수** :이 값은 루프를 종료 하기 전에 실행 되는 가장 높은 루프의 수입니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+* **개수**:이 값은 루프를 종료 하기 전에 실행 되는 가장 높은 루프의 수입니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
 
-* **Timeout** :이 값은 루프가 종료 되기 전에 실행 되 고 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 되는 가장 많은 시간입니다. **제한 시간** 값에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+* **Timeout**:이 값은 루프가 종료 되기 전에 실행 되 고 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 되는 가장 많은 시간입니다. **제한 시간** 값에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
 
   시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다.
 

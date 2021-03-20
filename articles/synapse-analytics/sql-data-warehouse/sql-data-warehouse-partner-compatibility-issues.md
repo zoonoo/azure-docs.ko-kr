@@ -10,10 +10,10 @@ ms.date: 11/18/2020
 ms.author: procha
 ms.reviewer: jrasnick
 ms.openlocfilehash: a1031656eaa5125d07ae078773379270b26625e7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98121382"
 ---
 # <a name="compatibility-issues-with-third-party-applications-and-azure-synapse-analytics"></a>타사 응용 프로그램 및 Azure Synapse Analytics와의 호환성 문제
@@ -53,7 +53,7 @@ Azure Synapse 전용 SQL 풀에 연결 된 Tableau를 사용 하는 경우이 �
 ```
 TDC 파일 사용에 대 한 자세한 내용은 Tableau 지원에 문의 하세요. 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Synapse Analytics의 전용 SQL 풀에 대 한 t-sql 언어 요소입니다.](./sql-data-warehouse-reference-tsql-language-elements.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)
 * [Azure Synapse Analytics에서 전용 SQL 풀에 대해 지원 되는 t-sql 문입니다.](./sql-data-warehouse-reference-tsql-statements.md)

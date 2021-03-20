@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: sharrai
 ms.openlocfilehash: 5860928d71c0e7431190908d5df5d7496e8ffb17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89426319"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Site Recovery 데이터 암호화 기능 사용 중단
@@ -22,14 +22,14 @@ ms.locfileid: "89426319"
 ## <a name="deprecation-information"></a>사용 중단 정보
 
 
-Hyper-v vm을 보호 하는 고객은 복제 된 데이터가 보안 위협 으로부터 보호 되도록 Site Recovery 데이터 암호화 기능을 사용할 수 있습니다. 이 기능은 **2022 년 4 월 30**일부 터 더 이상 사용 되지 않습니다. 이는 SSE ( [저장소 서비스 암호화](../storage/common/storage-service-encryption.md) )를 사용 하는 [미사용 고급 암호화](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) 기능으로 대체 됩니다. SSE를 사용 하면 데이터를 저장소에 저장 하 고 검색 시 암호를 해독 하기 전에 암호화 되며, Azure로 장애 조치 (failover) 되 면 Vm이 암호화 된 저장소 계정에서 실행 되므로, 향상 된 RTO (복구 시간 목표)를 사용할 수 있습니다.
+Hyper-v vm을 보호 하는 고객은 복제 된 데이터가 보안 위협 으로부터 보호 되도록 Site Recovery 데이터 암호화 기능을 사용할 수 있습니다. 이 기능은 **2022 년 4 월 30** 일부 터 더 이상 사용 되지 않습니다. 이는 SSE ( [저장소 서비스 암호화](../storage/common/storage-service-encryption.md) )를 사용 하는 [미사용 고급 암호화](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/) 기능으로 대체 됩니다. SSE를 사용 하면 데이터를 저장소에 저장 하 고 검색 시 암호를 해독 하기 전에 암호화 되며, Azure로 장애 조치 (failover) 되 면 Vm이 암호화 된 저장소 계정에서 실행 되므로, 향상 된 RTO (복구 시간 목표)를 사용할 수 있습니다.
 
 이 기능을 사용 하는 기존 고객 인 경우 사용 중단 세부 정보 및 수정 단계와의 통신을 받게 됩니다. 
 
 
 ## <a name="what-are-the-implications"></a>의미는 무엇 인가요?
 
-**2022 년 4 월 30**일 이후 사용 중지 된 암호화 기능을 사용 하는 모든 vm은 장애 조치 (failover)를 수행할 수 없습니다. 
+**2022 년 4 월 30** 일 이후 사용 중지 된 암호화 기능을 사용 하는 모든 vm은 장애 조치 (failover)를 수행할 수 없습니다. 
 
 ## <a name="required-action"></a>필수 작업
 성공적인 장애 조치 (failover) 작업을 계속 하려면 다음에 설명 된 단계를 수행 합니다.

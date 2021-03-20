@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91848724"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
@@ -133,7 +133,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
 }
 ```
 
-템플릿 파일의 이름이 _pool-ffmpeg.json_으로 지정되면 다음과 같이 템플릿을 호출합니다.
+템플릿 파일의 이름이 _pool-ffmpeg.json_ 으로 지정되면 다음과 같이 템플릿을 호출합니다.
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json
@@ -152,7 +152,7 @@ CLI는 `poolId` 및 `nodeCount` 매개 변수에 대한 값을 제공하라는 �
 }
 ```
 
-매개 변수 JSON 파일의 이름이 *pool-parameters.json*으로 지정되면 다음과 같이 템플릿을 호출합니다.
+매개 변수 JSON 파일의 이름이 *pool-parameters.json* 으로 지정되면 다음과 같이 템플릿을 호출합니다.
 
 ```azurecli
 az batch pool create --template pool-ffmpeg.json --parameters pool-parameters.json
@@ -242,7 +242,7 @@ ffmpeg의 MP4 비디오 파일을 두 개 중 더 낮은 해상도로 코드 변
 }
 ```
 
-템플릿 파일의 이름이 _job-ffmpeg.json_으로 지정되면 다음과 같이 템플릿을 호출합니다.
+템플릿 파일의 이름이 _job-ffmpeg.json_ 으로 지정되면 다음과 같이 템플릿을 호출합니다.
 
 ```azurecli
 az batch job create --template job-ffmpeg.json
@@ -256,11 +256,11 @@ Batch 풀 또는 작업을 만들려면 [Batch Explorer](https://github.com/Azur
 
 템플릿을 업로드하려면
 
-1. Batch Explorer에서 **갤러리** > **로컬 템플릿**을 선택합니다.
+1. Batch Explorer에서 **갤러리** > **로컬 템플릿** 을 선택합니다.
 
 2. 로컬 풀 또는 작업 템플릿을 선택하거나 끌어서 놓습니다.
 
-3. **이 템플릿 사용**을 선택하고 화면에 표시되는 메시지를 따릅니다.
+3. **이 템플릿 사용** 을 선택하고 화면에 표시되는 메시지를 따릅니다.
 
 ## <a name="file-groups-and-file-transfer"></a>파일 그룹 및 파일 전송
 

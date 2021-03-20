@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: tisande
 ms.openlocfilehash: 1f3c4ef56feb77e9b01375b8b5dbdb567f5bfadb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102179972"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Azure Cosmos DB의 키워드
@@ -117,7 +117,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 다음과 같은 와일드 카드 문자를 사용할 수 있습니다.
 
-| 와일드카드 문자 | Description                                                  | 예                                     |
+| 와일드카드 문자 | Description                                                  | 예제                                     |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
 | %                    | 0 개 이상의 문자를 가진 문자열                      | WHERE c. "%,% PS%"와 같은 설명      |
 | _ (밑줄)     | 임의의 단일 문자                                       | WHERE c. "% SO_PS%"와 같은 설명      |
@@ -166,7 +166,7 @@ WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
 
 ### <a name="using-wildcard-characters-as-literals"></a>와일드 카드 문자를 리터럴로 사용
 
-와일드 카드 문자를 대괄호로 묶어 리터럴 문자로 취급할 수 있습니다. 와일드 카드 문자를 대괄호로 묶으면 특수 한 특성을 모두 제거 합니다. 다음은 몇 가지 예입니다.
+와일드 카드 문자를 대괄호로 묶어 리터럴 문자로 취급할 수 있습니다. 와일드 카드 문자를 대괄호로 묶으면 특수 한 특성을 모두 제거 합니다. 몇 가지 예제는 다음과 같습니다.
 
 | 무늬           | 의미 |
 | ----------------- | ------- |

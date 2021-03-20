@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 242700c05053aa9d07e3a561a21986c8451a46c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91612447"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>스토리지 계정에 대한 마지막 동기화 시간 속성 확인
@@ -48,7 +48,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 스토리지 계정의 마지막 동기화 시간을 가져오려면 스토리지 계정의 **geoReplicationStats.lastSyncTime** 속성을 확인하세요. `--expand` 매개 변수를 사용하여 **geoReplicationStats**에서 중첩된 속성의 값을 반환합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+Azure CLI를 사용하여 스토리지 계정의 마지막 동기화 시간을 가져오려면 스토리지 계정의 **geoReplicationStats.lastSyncTime** 속성을 확인하세요. `--expand` 매개 변수를 사용하여 **geoReplicationStats** 에서 중첩된 속성의 값을 반환합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 $lastSyncTime=$(az storage account show \

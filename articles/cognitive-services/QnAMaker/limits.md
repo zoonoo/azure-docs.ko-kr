@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
 ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98164875"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
@@ -20,7 +20,7 @@ ms.locfileid: "98164875"
 
 기술 자료의 최대 수는 [Azure Cognitive Search 계층 제한을](../../search/search-limits-quotas-capacity.md)기반으로 합니다.
 
-|**Azure Cognitive Search 계층** | **무료** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |게시할 수 있는 기술 자료의 최대 수|2|14|49|199|199|2,999|
 
@@ -66,7 +66,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 기술 자료 당 최대 메타 데이터 필드 수는 **[Azure Cognitive Search 계층 제한을](../../search/search-limits-quotas-capacity.md)** 기반으로 합니다.
 
-|**Azure Cognitive Search 계층** | **무료** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
+|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
 

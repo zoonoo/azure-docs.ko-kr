@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: 3e3d3c01ba1190871da39ce27de6a95952d09be1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99538209"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>예약 된 공용 IPv6 주소 접두사
@@ -40,7 +40,7 @@ Azure에서 이중 스택 (IPv4 + IPv6) 가상 네트워크 (VNet) 및 Vm (가�
 
 접두사 크기가 CIDR (클래스 없는 Inter-Domain 라우팅) 마스크 크기로 지정 되어 있습니다. 예를 들어/128의 마스크는 IPv6 주소를 128 비트로 구성 하므로 개별 IPv6 주소를 나타냅니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
  
 개별 IP 주소와 IP 범위 모두에서 Azure 공용 ip를 사용 하는 것과 관련 된 비용은 [공용 Ip 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조 하세요.
 

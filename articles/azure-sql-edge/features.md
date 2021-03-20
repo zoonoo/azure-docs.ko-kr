@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 19dcbbf102a1d8d21f1b14780ea33816a1677c55
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93392030"
 ---
 # <a name="supported-features-of-azure-sql-edge"></a>Azure SQL Edge의 지원 되는 기능 
@@ -90,7 +90,7 @@ Azure SQL Edge는 SQL Server on Linux 기능 하위 집합을 지 원하는 것 
 | &nbsp; | 관리 데이터 웨어하우스 |
 | &nbsp; | 포함된 데이터베이스 |
 | **SQL Server 에이전트** |  하위 시스템: CmdExec, PowerShell, 큐 판독기, SSIS, SSAS 및 SSRS. |
-| &nbsp; | 알립니다. |
+| &nbsp; | 경고. |
 | &nbsp; | 관리 되는 백업. |
 | **고가용성** | Always On 가용성 그룹.  |
 | &nbsp; | 기본 가용성 그룹. |

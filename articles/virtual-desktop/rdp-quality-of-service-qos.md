@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: b61faf74d96e2571e91f7bf9d10eac88cdbf8345
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94639377"
 ---
 # <a name="implement-quality-of-service-qos-for-windows-virtual-desktop-preview"></a>Windows Virtual Desktop (미리 보기)에 대 한 QoS (서비스 품질) 구현
@@ -95,7 +95,7 @@ DSCP 값은 구성 된 네트워크에 패킷 또는 스트림에 제공할 우�
 
 4. 새로 만든 정책을 마우스 오른쪽 단추로 클릭 한 다음 **편집** 을 선택 합니다.
 
-5. 그룹 정책 관리 편집기에서 **컴퓨터 구성** , **Windows 설정** 을 차례로 확장 하 고 **정책 기반 QoS** 를 마우스 오른쪽 단추로 클릭 한 다음 **새 정책 만들기** 를 선택 합니다.
+5. 그룹 정책 관리 편집기에서 **컴퓨터 구성**, **Windows 설정** 을 차례로 확장 하 고 **정책 기반 QoS** 를 마우스 오른쪽 단추로 클릭 한 다음 **새 정책 만들기** 를 선택 합니다.
 
 6. **정책 기반 QoS** 대화 상자의 열기 페이지에서 **이름** 상자에 새 정책의 이름을 입력 합니다. **DSCP 값 지정** 을 선택 하 고 값을 **46** 으로 설정 합니다. **아웃 바운드 스로틀 시간 지정** 을 선택 하지 않은 채로 두고 **다음** 을 선택 합니다.
 
@@ -109,7 +109,7 @@ DSCP 값은 구성 된 네트워크에 패킷 또는 스트림에 제공할 우�
 
 사용자가 만든 새 정책은 세션 호스트 컴퓨터에서 그룹 정책 새로 고쳐질 때까지 적용 되지 않습니다. 그룹 정책 정기적으로 새로 고칠 수 있지만 다음 단계를 수행 하 여 즉시 새로 고침을 강제로 수행할 수 있습니다.
 
-1. 그룹 정책를 새로 고칠 각 세션 호스트에서 관리자 권한 ( *관리자 권한으로 실행* )으로 명령 프롬프트를 엽니다.
+1. 그룹 정책를 새로 고칠 각 세션 호스트에서 관리자 권한 (*관리자 권한으로 실행*)으로 명령 프롬프트를 엽니다.
 
 1. 명령 프롬프트에서 다음을 입력 합니다.
 
@@ -125,7 +125,7 @@ DSCP 값은 구성 된 네트워크에 패킷 또는 스트림에 제공할 우�
 New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
 ```
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 * [QoS (서비스 품질) 정책](/windows-server/networking/technologies/qos/qos-policy-top)
 
