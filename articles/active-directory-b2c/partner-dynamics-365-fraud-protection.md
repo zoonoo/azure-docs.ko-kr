@@ -12,10 +12,10 @@ ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101646557"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 Microsoft Dynamics 365 사기 방지 구성
@@ -98,7 +98,7 @@ CORS 설정, **허용 된 원본** 추가 `https://{your_tenant_name}.b2clogin.c
 
 [Azure의 App service](../app-service/configure-common.md#configure-app-settings)에서 응용 프로그램 설정을 구성 합니다. 이렇게 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에는 다음 설정이 제공 되어야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings: InstanceId | Microsoft EFP 구성 |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Microsoft device 지문 인식을 고객 ID |     |
@@ -117,7 +117,7 @@ CORS 설정, **허용 된 원본** 추가 `https://{your_tenant_name}.b2clogin.c
 
 제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies)에서 다음 자리 표시자를 찾아 인스턴스의 해당 값으로 바꿉니다.
 
-| 자리표시자 | 다음 항목으로 교체 | 메모 |
+| 자리표시자 | 다음 항목으로 교체 | 참고 |
 | :-------- | :------------| :-----------|
 |{your_tenant_name} | 테 넌 트 약식 이름 |  yourtenant.onmicrosoft.com의 "모든 테 넌 트"   |
 |{your_tenantId} | Azure AD B2C 테 넌 트의 테 넌 트 ID |  01234567-89ab-cdef-0123-456789abcdef   |

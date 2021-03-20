@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 Platform as a Service (Pass) 서비스를 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85478742"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Azure DevTest Labs에서 PaaS (Platform as a Service) 서비스 사용
@@ -41,7 +41,7 @@ DevTest Labs 리소스 공급자는 랩 사용자를 대신 하 여 리소스를
 - 리소스 관리자 템플릿 파일이 저장 되는 저장소 계정입니다. 
  
 #### <a name="lab-virtual-network"></a>랩 가상 네트워크
-[랩의 가상 네트워크에 환경 연결](connect-environment-lab-virtual-network.md) 문서에서는 토큰을 사용 하도록 리소스 관리자 템플릿을 수정 하는 방법을 설명 합니다 `$(LabSubnetId)` . 환경을 만들면 `$(LabSubnetId)` 토큰은 **가상 컴퓨터 만들기에서 사용** 옵션이 **true**로 설정 된 첫 번째 서브넷 표시로 바뀝니다. 환경을 통해 이전에 만든 네트워크를 사용할 수 있습니다. 테스트 환경에서 스테이징 및 프로덕션으로 동일한 리소스 관리자 템플릿을 사용 하려는 경우 `$(LabSubnetId)` 리소스 관리자 템플릿 매개 변수에서를 기본값으로 사용 합니다. 
+[랩의 가상 네트워크에 환경 연결](connect-environment-lab-virtual-network.md) 문서에서는 토큰을 사용 하도록 리소스 관리자 템플릿을 수정 하는 방법을 설명 합니다 `$(LabSubnetId)` . 환경을 만들면 `$(LabSubnetId)` 토큰은 **가상 컴퓨터 만들기에서 사용** 옵션이 **true** 로 설정 된 첫 번째 서브넷 표시로 바뀝니다. 환경을 통해 이전에 만든 네트워크를 사용할 수 있습니다. 테스트 환경에서 스테이징 및 프로덕션으로 동일한 리소스 관리자 템플릿을 사용 하려는 경우 `$(LabSubnetId)` 리소스 관리자 템플릿 매개 변수에서를 기본값으로 사용 합니다. 
 
 #### <a name="environment-storage-account"></a>환경 저장소 계정
 DevTest Labs에서는 [중첩 된 리소스 관리자 템플릿](../azure-resource-manager/templates/linked-templates.md)사용을 지원 합니다. [[테스트 환경에 대해 중첩 Azure Resource Manager 템플릿 배포](deploy-nested-template-environments.md) 문서에서는 및 토큰을 사용 하 여  `_artifactsLocation` `_artifactsLocationSasToken` 주 템플릿의 중첩 된 폴더와 동일한 폴더에 있는 리소스 관리자 템플릿에 대 한 URI를 만드는 방법을 설명 합니다. 이러한 두 토큰에 대 한 자세한 내용은 [Azure Resource Manager-모범 사례 가이드](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)의 **배포 아티팩트** 섹션을 참조 하세요.
@@ -62,7 +62,7 @@ DevTest Labs 환경에서는 특정 코드 및 구성을 개별적으로 테스�
 ### <a name="security"></a>보안
 DevTest Labs를 사용 하 여 올바르게 구성 된 Azure 구독을 사용 하면 [랩을 통해 azure 리소스에 대 한 액세스를 제한할](devtest-lab-add-devtest-user.md)수 있습니다. 환경을 사용 하면 랩 소유자가 다른 Azure 리소스에 대 한 액세스를 허용 하지 않고 승인 된 구성을 사용 하 여 PaaS 리소스에 액세스할 수 있습니다. 랩 사용자가 환경을 사용자 지정 하는 시나리오에서 랩 소유자는 참가자 액세스를 허용할 수 있습니다. 참가자 액세스를 통해 랩 사용자는 관리 되는 리소스 그룹 내 에서만 Azure 리소스를 추가 하거나 제거할 수 있습니다. 이를 통해 보다 쉽게 추적 하 고 관리할 수 있으며 사용자 참가자가 구독에 액세스할 수 있습니다.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>자동화
 Automation은 대규모의 효과적인 에코 시스템에 대 한 핵심 구성 요소입니다. Automation은 구독과 랩에서 여러 환경을 관리 하거나 추적 하는 작업을 처리 하는 데 필요 합니다.
 
 ### <a name="cicd-pipeline"></a>CI/CD 파이프라인

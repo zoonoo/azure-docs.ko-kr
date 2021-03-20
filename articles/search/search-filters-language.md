@@ -8,12 +8,11 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 120c30803d1423dc8b1255c65703e84d5938f235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a12203c833fc817b1898e6179d7f812d0a994e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89002524"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Azure Cognitive Search에서 언어를 기준으로 필터링 하는 방법 
@@ -46,7 +45,7 @@ Azure Cognitive Search에서 쿼리는 단일 인덱스를 대상으로 합니�
 
 ## <a name="constrain-the-query-and-trim-results"></a>쿼리 제한 및 결과 자르기
 
-쿼리의 매개 변수는 검색을 특정 필드로 제한한 다음 시나리오에 도움이 되지 않는 필드의 결과를 자르는 데 사용됩니다. 프랑스어 문자열을 포함하는 필드로 검색을 제한하려면 **searchFields**를 사용하여 해당 언어의 문자열이 포함된 필드로 쿼리의 대상을 지정합니다. 
+쿼리의 매개 변수는 검색을 특정 필드로 제한한 다음 시나리오에 도움이 되지 않는 필드의 결과를 자르는 데 사용됩니다. 프랑스어 문자열을 포함하는 필드로 검색을 제한하려면 **searchFields** 를 사용하여 해당 언어의 문자열이 포함된 필드로 쿼리의 대상을 지정합니다. 
 
 기본적으로 검색은 검색 가능으로 표시된 모든 필드를 반환합니다. 따라서 제공하려는 언어별 검색 환경을 따르지 않는 필드는 제외하려고 할 수 있습니다. 특히 프랑스어 문자열이 있는 필드로 검색을 제한하면 영어 문자열이 있는 필드를 결과에서 제외할 수 있습니다. **$select** 쿼리 매개 변수를 사용하면 호출 애플리케이션에 반환되는 필드를 제어할 수 있습니다.
 

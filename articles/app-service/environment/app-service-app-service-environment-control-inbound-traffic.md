@@ -8,10 +8,10 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962063"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
@@ -29,7 +29,7 @@ App Service Environment를 Azure Resource Manager 가상 네트워크에서 **�
 ## <a name="inbound-network-ports-used-in-an-app-service-environment"></a>App Service 환경에서 사용하는 인바운드 네트워크 포트
 네트워크 보안 그룹을 사용 하 여 인바운드 네트워크 트래픽을 잠그기 전에 App Service Environment에서 사용 하는 필수 및 선택적 네트워크 포트 집합을 알고 있어야 합니다.  일부 포트에 대한 트래픽을 실수로 닫으면 App Service Environment의 기능이 손실될 수 있습니다.
 
-다음 목록에는 App Service Environment에서 사용 하는 포트가 나와 있습니다. 명확하게 언급이 없는 한 모든 포트는 **TCP**입니다.
+다음 목록에는 App Service Environment에서 사용 하는 포트가 나와 있습니다. 명확하게 언급이 없는 한 모든 포트는 **TCP** 입니다.
 
 * 454: TLS를 통해 App Service 환경을 관리 하 고 유지 관리 하기 위해 Azure 인프라에서 사용 되는  **필수 포트** 입니다.  이 포트에 대 한 트래픽을 차단 하지 않습니다.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
 * 455: TLS를 통해 App Service 환경을 관리 하 고 유지 관리 하기 위해 Azure 인프라에서 사용 되는  **필수 포트** 입니다.  이 포트에 대 한 트래픽을 차단 하지 않습니다.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
@@ -118,7 +118,7 @@ Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecuri
 ## <a name="special-considerations-for-explicit-ip-ssl"></a>명시적 IP-SSL에 대한 특별 고려 사항
 앱이 명시적 Ase 주소 (공용 VIP가 있는 경우에 *만* 적용 됨)로 구성 된 경우 App Service Environment의 기본 ip 주소를 사용 하는 대신 HTTP 및 HTTPS 트래픽은 포트 80 및 443 이외의 포트를 통해 서브넷으로 흐릅니다.
 
-각 IP SSL 주소에서 사용 하는 개별 포트 쌍을 찾으려면 포털로 이동 하 여 App Service Environment의 세부 정보 UX 블레이드를 확인 합니다.  **모든 설정**  >  **IP 주소**를 선택 합니다.  **Ip 주소** 블레이드는 App Service Environment에 대해 명시적으로 구성 된 모든 IP SSL 주소 표를 표시 합니다. 블레이드에는 각 IP SSL 주소와 연결 된 HTTP 및 HTTPS 트래픽을 라우팅하는 데 사용 되는 특수 포트 쌍도 표시 됩니다.  네트워크 보안 그룹에서 규칙을 구성할 때 DestinationPortRange 매개 변수에이 포트 쌍을 사용 합니다.
+각 IP SSL 주소에서 사용 하는 개별 포트 쌍을 찾으려면 포털로 이동 하 여 App Service Environment의 세부 정보 UX 블레이드를 확인 합니다.  **모든 설정**  >  **IP 주소** 를 선택 합니다.  **Ip 주소** 블레이드는 App Service Environment에 대해 명시적으로 구성 된 모든 IP SSL 주소 표를 표시 합니다. 블레이드에는 각 IP SSL 주소와 연결 된 HTTP 및 HTTPS 트래픽을 라우팅하는 데 사용 되는 특수 포트 쌍도 표시 됩니다.  네트워크 보안 그룹에서 규칙을 구성할 때 DestinationPortRange 매개 변수에이 포트 쌍을 사용 합니다.
 
 ASE의 앱이 IP-HTTPS를 사용 하도록 구성 된 경우 외부 고객은 특별 한 포트 쌍 매핑에 대해 걱정할 필요가 없습니다.  앱에 대한 트래픽은 구성된 IP-SSL 주소를 정상적으로 이동됩니다.  특수 포트 쌍으로의 변환은 자동으로 발생 하며,이는 ASE를 포함 하는 서브넷에 라우팅 트래픽의 최종 레그를 수행 하는 동안 자동으로 발생 합니다. 
 

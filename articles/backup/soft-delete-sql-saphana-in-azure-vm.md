@@ -4,10 +4,10 @@ description: Azure VM의 SQL server에 대 한 일시 삭제 및 Azure VM 워크
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91254298"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA
@@ -21,11 +21,11 @@ ms.locfileid: "91254298"
 >[!NOTE]
 >이러한 지침은 Azure VM의 SAP HANA에도 적용 됩니다.
 
-1. SQL server에서 데이터베이스의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal에서 Recovery Services 자격 증명 모음으로 이동한 후 백업 항목으로 이동 하 고 **백업 중지**를 선택 합니다.
+1. SQL server에서 데이터베이스의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal에서 Recovery Services 자격 증명 모음으로 이동한 후 백업 항목으로 이동 하 고 **백업 중지** 를 선택 합니다.
 
    ![백업 중지](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 
-2. 다음 창에는 백업 데이터를 삭제 하거나 보존할 수 있는 옵션이 제공 됩니다. **백업 데이터 삭제**를 선택 하면 데이터베이스 백업이 영구적으로 삭제 되지 않습니다. 대신 백업 데이터는 일시 삭제 된 상태에서 14 일 동안 보존 됩니다. 첫 번째, 12, 15 일에 대 한 일반 경고 전자 메일을 사용 하 여 15 일 후에 데이터베이스의 백업 상태를 사용자에 게 알릴 때까지 삭제는 지연 됩니다.
+2. 다음 창에는 백업 데이터를 삭제 하거나 보존할 수 있는 옵션이 제공 됩니다. **백업 데이터 삭제** 를 선택 하면 데이터베이스 백업이 영구적으로 삭제 되지 않습니다. 대신 백업 데이터는 일시 삭제 된 상태에서 14 일 동안 보존 됩니다. 첫 번째, 12, 15 일에 대 한 일반 경고 전자 메일을 사용 하 여 15 일 후에 데이터베이스의 백업 상태를 사용자에 게 알릴 때까지 삭제는 지연 됩니다.
 
    ![백업 데이터 삭제](./media/soft-delete-sql-saphana-in-azure-vm/delete-backup-data.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "91254298"
 
    ![일시 삭제 된 항목](./media/soft-delete-sql-saphana-in-azure-vm/soft-deleted-items.png)
 
-4. 일시 삭제 된 DB를 복원 하려면 먼저 삭제를 취소 해야 합니다. 삭제를 취소 하려면 일시 삭제 된 DB를 선택한 다음 **삭제 취소**옵션을 선택 합니다.
+4. 일시 삭제 된 DB를 복원 하려면 먼저 삭제를 취소 해야 합니다. 삭제를 취소 하려면 일시 삭제 된 DB를 선택한 다음 **삭제 취소** 옵션을 선택 합니다.
 
    ![데이터베이스 삭제 취소](./media/soft-delete-sql-saphana-in-azure-vm/undelete-database.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "91254298"
 
    ![VM 복원](./media/soft-delete-sql-saphana-in-azure-vm/restore-vm.png)
 
-6. 삭제 취소 프로세스가 완료 되 면 상태는 "데이터 보존으로 백업 중지"로 돌아간 다음 **백업 다시 시작**을 선택할 수 있습니다. 백업 **다시 시작** 작업은 백업 및 보존 일정을 정의 하는 사용자가 선택한 백업 정책과 연결 된 활성 상태의 백업 항목을 다시 가져옵니다.
+6. 삭제 취소 프로세스가 완료 되 면 상태는 "데이터 보존으로 백업 중지"로 돌아간 다음 **백업 다시 시작** 을 선택할 수 있습니다. 백업 **다시 시작** 작업은 백업 및 보존 일정을 정의 하는 사용자가 선택한 백업 정책과 연결 된 활성 상태의 백업 항목을 다시 가져옵니다.
 
    ![백업 다시 시작](./media/soft-delete-sql-saphana-in-azure-vm/resume-backup.png)
 
@@ -64,7 +64,7 @@ Azure PowerShell 사용에 대 한 단계 순서는 위에 설명 된 Azure Port
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
 ```
 
-백업 항목의 **deletestate** 가 **Notdeleted** 에서 **tobedeleted**로 변경 됩니다. 백업 데이터는 14 일 동안 보존 됩니다. 삭제 작업을 되돌리려면 실행 취소-삭제를 수행 해야 합니다.
+백업 항목의 **deletestate** 가 **Notdeleted** 에서 **tobedeleted** 로 변경 됩니다. 백업 데이터는 14 일 동안 보존 됩니다. 삭제 작업을 되돌리려면 실행 취소-삭제를 수행 해야 합니다.
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 삭제 작업 취소
 
@@ -82,7 +82,7 @@ $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkloa
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
 ```
 
-백업 항목의 아웃 **공간** 을 **notdeleted**로 되돌립니다. 그러나 보호는 계속 중지 됩니다. 백업을 다시 시작 하 여 보호를 다시 사용 하도록 설정 합니다.
+백업 항목의 아웃 **공간** 을 **notdeleted** 로 되돌립니다. 그러나 보호는 계속 중지 됩니다. 백업을 다시 시작 하 여 보호를 다시 사용 하도록 설정 합니다.
 
 ## <a name="how-to-disable-soft-delete"></a>일시 삭제를 사용 하지 않도록 설정 하는 방법
 

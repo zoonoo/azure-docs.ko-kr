@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
 ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89145487"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에서 가상 파일 시스템 탑재
@@ -78,7 +78,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Azure Blob 파일 시스템
 
-또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob 스토리지를 사용하는 것입니다. Blob 파일 시스템 탑재를 위해서는 해당 스토리지 계정에 대한 `AccountKey` 또는 `SasKey`가 필요합니다. 이러한 키를 가져오는 방법은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md) 또는 [SAS(공유 액세스 서명) 사용](../storage/common/storage-sas-overview.md)을 참조하세요. blobfuse 사용에 대한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조하세요. blobfuse에 탑재된 디렉터리에 대한 기본 액세스 권한을 얻으려면 작업을 **관리자**로 실행합니다. Blobfuse는 사용자 공간에 디렉터리를 탑재하고, 풀 생성 시 루트로 탑재됩니다. Linux에서 모든 **관리자** 태스크는 루트입니다. FUSE 모듈의 모든 옵션은 [FUSE 참조 페이지](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명되어 있습니다.
+또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob 스토리지를 사용하는 것입니다. Blob 파일 시스템 탑재를 위해서는 해당 스토리지 계정에 대한 `AccountKey` 또는 `SasKey`가 필요합니다. 이러한 키를 가져오는 방법은 [스토리지 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md) 또는 [SAS(공유 액세스 서명) 사용](../storage/common/storage-sas-overview.md)을 참조하세요. blobfuse 사용에 대한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조하세요. blobfuse에 탑재된 디렉터리에 대한 기본 액세스 권한을 얻으려면 작업을 **관리자** 로 실행합니다. Blobfuse는 사용자 공간에 디렉터리를 탑재하고, 풀 생성 시 루트로 탑재됩니다. Linux에서 모든 **관리자** 태스크는 루트입니다. FUSE 모듈의 모든 옵션은 [FUSE 참조 페이지](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명되어 있습니다.
 
 문제 해결 가이드 외에도 blobfuse 저장소의 GitHub 문제 설명은 현재의 blobfuse 문제 및 해결 방법을 확인하는 데 유용합니다. 자세한 내용은 [blobfuse 문제](https://github.com/Azure/azure-storage-fuse/issues)를 참조하세요.
 

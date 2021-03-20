@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.openlocfilehash: 93ab2ecc8e820c461a7c79082ac1d50c24f0ba8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76960790"
 ---
 # <a name="409001-devicealreadyexists"></a>409001 DeviceAlreadyExists
@@ -21,12 +21,12 @@ ms.locfileid: "76960790"
 
 ## <a name="symptoms"></a>증상
 
-IoT Hub에서 장치를 등록 하려고 하면 **409001 DeviceAlreadyExists**오류가 발생 하 여 요청이 실패 합니다.
+IoT Hub에서 장치를 등록 하려고 하면 **409001 DeviceAlreadyExists** 오류가 발생 하 여 요청이 실패 합니다.
 
 ## <a name="cause"></a>원인
 
 IoT hub에 장치 ID가 같은 장치가 이미 있습니다. 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다른 장치 ID를 사용 하 고 다시 시도 하세요.

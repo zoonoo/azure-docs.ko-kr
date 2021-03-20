@@ -5,10 +5,10 @@ services: service-fabric
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 972700dded1841994de9252b4aa4bbc8eaefeaf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76024701"
 ---
 # <a name="service-fabric-architecture"></a>서비스 패브릭 아키텍처
@@ -36,7 +36,7 @@ ms.locfileid: "76024701"
 
 ## <a name="reliability-subsystem"></a>안정성 하위 시스템
 
-안정성 하위 시스템은 *복제자*, *장애 조치(Failover) 관리자* 및 *리소스 분산 장치*를 통해 Service Fabric 서비스의 상태를 매우 가용성 있게 하는 메커니즘을 제공합니다.
+안정성 하위 시스템은 *복제자*, *장애 조치(Failover) 관리자* 및 *리소스 분산 장치* 를 통해 Service Fabric 서비스의 상태를 매우 가용성 있게 하는 메커니즘을 제공합니다.
 
 * 복제자는 기본 서비스 복제본에서 보조 복제본으로 자동으로 복제되는 변경되는 상태를 확인하고 서비스 복제본 세트에서 기본 및 보조 복제본간의 일관성을 유지합니다. 복제자는 복제본 세트의 복제본 간의 쿼럼 관리를 담당합니다. 장애 조치(failover) 단위와 상호 작용하여 복제할 작업 목록을 가져오고, 재구성 에이전트는 복제본 세트의 구성과 함께 이를 제공합니다. 여기서 구성은 작업을 복제해야 하는 복제본을 나타냅니다. 서비스 패브릭은 패브릭 복제자라고 불리는 기본 복제자를 제공합니다. 이는 프로그래밍 모델 API가 서비스 상태를 높은 가용성과 안정성 있게 만드는 데 이용될 수 있습니다.
 * 장애 조치(Failover) 관리자는 클러스터에 노드가 추가되거나 삭제된 경우 부하가 사용 가능한 노드에 걸쳐 자동으로 재분산되도록 합니다. 클러스터의 노드가 실패한 경우, 해당 클러스터는 자동으로 서비스 복제본을 재구성하여 가용성을 유지합니다.

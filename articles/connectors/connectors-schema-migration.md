@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 ms.openlocfilehash: 114b8b32d4abb1fd9b7e641625cd1b132470bafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87281449"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>논리 앱을 최신 스키마 버전으로 마이그레이션
@@ -19,16 +19,16 @@ ms.locfileid: "87281449"
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-2. 논리 앱의 메뉴에서 **개요**를 선택합니다. 도구 모음에서 **스키마 업데이트**를 선택합니다.
+2. 논리 앱의 메뉴에서 **개요** 를 선택합니다. 도구 모음에서 **스키마 업데이트** 를 선택합니다.
 
    > [!NOTE]
-   > **스키마 업데이트**를 선택하면 Azure Logic Apps가 자동으로 마이그레이션 단계를 실행하고 코드 출력을 제공합니다. 이 출력을 사용하여 논리 앱 정의를 업데이트할 수 있습니다. 그러나 다음 **모범 사례** 섹션에 설명된 대로 모범 사례를 따라야 합니다.
+   > **스키마 업데이트** 를 선택하면 Azure Logic Apps가 자동으로 마이그레이션 단계를 실행하고 코드 출력을 제공합니다. 이 출력을 사용하여 논리 앱 정의를 업데이트할 수 있습니다. 그러나 다음 **모범 사례** 섹션에 설명된 대로 모범 사례를 따라야 합니다.
 
    ![스키마 업데이트](./media/connectors-schema-migration/update-schema.png)
 
    스키마 업데이트 페이지가 나타나고 새 스키마의 향상된 기능을 설명하는 문서 링크를 보여줍니다.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 다음은 논리 앱을 최신 스키마 버전으로 마이그레이션하는 모범 사례입니다.
 

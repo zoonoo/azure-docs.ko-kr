@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9d81836b47acb19f624075480aafef74c9c0934c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91306126"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 동기화: 두 번째로 설치 마법사 실행
@@ -30,7 +30,7 @@ ms.locfileid: "91306126"
 >[!IMPORTANT]
 >동기화가 진행 중인 동안에는 설치 마법사를 실행할 수 없습니다.  마법사를 실행 하기 전에 동기화가 실행 되 고 있지 않은지 확인 하십시오.
 
-**Azure AD Connect**라는 시작 메뉴에서 설치 마법사를 찾을 수 있습니다
+**Azure AD Connect** 라는 시작 메뉴에서 설치 마법사를 찾을 수 있습니다
 
 ![시작 메뉴](./media/how-to-connect-installation-wizard/startmenu.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "91306126"
 
 Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습니다. ADFS에 있는 추가 옵션은 [ADFS 관리](how-to-connect-fed-management.md#manage-ad-fs)에 문서화됩니다.
 
-작업 중 하나를 선택하고 **다음**을 클릭하여 계속합니다.
+작업 중 하나를 선택하고 **다음** 을 클릭하여 계속합니다.
 
 > [!IMPORTANT]
 > 설치 마법사가 열린 동안 동기화 엔진의 모든 작업이 일시 중단됩니다. 구성 변경을 완료하는 즉시 설치 마법사를 닫았는지 확인합니다.
@@ -52,7 +52,7 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 
 ![모든 옵션 및 해당 상태의 목록이 있는 페이지](./media/how-to-connect-installation-wizard/viewconfig.png)
 
-**이전**을 클릭하여 다시 돌아갑니다. **종료**를 선택하는 경우 설치 마법사를 닫습니다.
+**이전** 을 클릭하여 다시 돌아갑니다. **종료** 를 선택하는 경우 설치 마법사를 닫습니다.
 
 ## <a name="customize-synchronization-options"></a>동기화 옵션 사용자 지정
 이 옵션을 사용하여 동기화 구성을 변경합니다. 사용자 지정 구성 설치 경로에서 옵션의 하위 집합을 확인할 수 있습니다. Express 설치를 처음 사용하더라도 이 옵션이 표시됩니다.
@@ -85,7 +85,7 @@ Azure AD Connect와 함께 ADFS를 설치한 경우 더 많은 옵션이 있습�
 ![준비 모드의 현재 상태도 표시하는 옵션](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>사용자 로그인 변경
-이 옵션을 사용하면 암호 해시 동기화, 통과 인증 또는 페더레이션 간 사용자 로그인 방법을 변경할 수 있습니다. **구성하지 않음**으로 변경할 수 없습니다.
+이 옵션을 사용하면 암호 해시 동기화, 통과 인증 또는 페더레이션 간 사용자 로그인 방법을 변경할 수 있습니다. **구성하지 않음** 으로 변경할 수 없습니다.
 
 이 옵션에 대한 자세한 내용은 [사용자 로그인](plan-connect-user-signin.md#changing-the-user-sign-in-method)을 참조하세요.
 

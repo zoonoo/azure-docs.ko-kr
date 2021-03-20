@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 8a6be588544883b77c3ff115c9dba5e6ecd5fbd7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92747210"
 ---
 # <a name="configure-tcp-reset-and-idle-timeout-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 TCP 다시 설정 및 유휴 시간 제한 구성
@@ -55,7 +55,7 @@ Azure Load Balancer의 유휴 시간 제한 범위는 다음과 같습니다.
 
 8. **TCP 다시 설정** 에서 **사용** 을 선택 합니다.
 
-   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="부하 분산 장치 규칙을 편집 합니다." border="true":::
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="유휴 시간 제한 및 tcp 재설정을 설정 합니다." border="true":::
 
 9. **저장** 을 선택합니다.
 

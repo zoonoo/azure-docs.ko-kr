@@ -12,10 +12,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91297473"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 마이그레이션 작업 모니터링
@@ -67,7 +67,7 @@ ms.locfileid: "91297473"
       <td>마이그레이션이 완료되었습니다.</td>
     </tr>
     <tr>
-      <td>Failed</td>
+      <td>실패</td>
       <td>마이그레이션이 실패했습니다. 마이그레이션 오류를 확인하려면 마이그레이션 세부 정보를 클릭합니다.</td>
     </tr>
     <tr>
@@ -93,7 +93,7 @@ ms.locfileid: "91297473"
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>기간</strong></td>
-      <td>N/A</td>
+      <td>해당 없음</td>
       <td>초기화 중인 마이그레이션 작업부터 완료된 마이그레이션 또는 오류가 발생한 마이그레이션까지의 총 시간입니다.</td>
     </tr>
      </tbody>
@@ -133,10 +133,10 @@ ms.locfileid: "91297473"
 | ------------- | ------------- |
 | **상태 - 동기화 중**      | 지속적인 동기화가 실행 중입니다. |
 | **삽입**      | 대상에 적용된 행의 CDC 삽입 수입니다.      |
-| **Update** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
-| **Delete**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
+| **업데이트** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
+| **삭제**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
 | **적용된 합계**      | 대상에 적용된 행의 전체 CDC 업데이트, 삽입 및 삭제 수입니다. |
-| **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 오류의 예에는 *511: 최대 허용 행 크기 %d보다 큰 %d 크기의 행을 만들 수 없음, 8114: %ls에서 %ls로의 데이터 형식 변환 오류*가 있습니다.  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
+| **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 오류의 예에는 *511: 최대 허용 행 크기 %d보다 큰 %d 크기의 행을 만들 수 없음, 8114: %ls에서 %ls로의 데이터 형식 변환 오류* 가 있습니다.  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
 
 > [!NOTE]
 > 적용된 삽입, 업데이트 및 삭제의 CDC 값 및 합계는 데이터베이스가 중단되거나 마이그레이션이 다시 시작되는 경우 감소할 수 있습니다.

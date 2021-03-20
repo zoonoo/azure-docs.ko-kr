@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/01/2020
 ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76903055"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Azure 논리 A에서 종단 간 워크플로를 모니터링 하는 사용자 지정 추적 스키마 만들기
@@ -51,7 +51,7 @@ Azure Logic Apps에는 워크플로의 일부에 대해 사용 하도록 설정�
 }
 ```
 
-| 속성 | 필수 | Type | Description |
+| 속성 | 필수 | Type | 설명 |
 |----------|----------|------|-------------|
 | sourceType | 예 | String | 허용 되는 값을 포함 하는 실행 원본의 형식: `Microsoft.Logic/workflows` , `custom` |
 | source | 예 | 문자열 또는 JToken | 원본 형식이 인 경우 `Microsoft.Logic/workflows` 소스 정보는이 스키마를 따라야 합니다. 원본 형식이 이면 `custom` 스키마는 JToken입니다. |

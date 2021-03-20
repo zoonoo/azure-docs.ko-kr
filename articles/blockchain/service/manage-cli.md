@@ -5,10 +5,10 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.openlocfilehash: 36b012c486c0c7d3303a81998e88f1605999c899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87170855"
 ---
 # <a name="manage-azure-blockchain-service-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Blockchain 서비스 관리
@@ -19,7 +19,7 @@ Azure Portal 외에도 Azure CLI를 사용 하 여 Azure Blockchain 서비스의
 
 Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다.
 
-Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요** 를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/bash](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사** 를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 CLI를 로컬로 설치 하 고 사용 하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
@@ -70,7 +70,7 @@ az blockchain member create \
 | **protocol** | Blockchain 프로토콜입니다. 현재 *Quorum* 프로토콜이 지원됩니다. |
 | **컨소시엄** | 참가할 또는 만들 컨소시엄의 이름입니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요. |
 | **컨소시엄-관리-계정-암호** | 컨소시엄 계정 암호는 멤버 계정 암호라고도 합니다. 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다. |
-| **sku** | 계층 유형입니다. *표준* 또는 *기본*입니다. 개발, 테스트 및 개념 증명에 *기본* 계층을 사용합니다. 프로덕션 등급 배포에 *표준* 계층을 사용합니다. Blockchain Data Manager를 사용하거나 대량의 프라이빗 트랜잭션을 전송하는 경우 *표준* 계층도 사용해야 합니다. 멤버를 만든 후 기본과 표준 간의 가격 책정 계층 변경은 지원되지 않습니다. |
+| **sku** | 계층 유형입니다. *표준* 또는 *기본* 입니다. 개발, 테스트 및 개념 증명에 *기본* 계층을 사용합니다. 프로덕션 등급 배포에 *표준* 계층을 사용합니다. Blockchain Data Manager를 사용하거나 대량의 프라이빗 트랜잭션을 전송하는 경우 *표준* 계층도 사용해야 합니다. 멤버를 만든 후 기본과 표준 간의 가격 책정 계층 변경은 지원되지 않습니다. |
 
 ## <a name="change-blockchain-member-passwords-or-firewall-rules"></a>Blockchain 구성원 암호 또는 방화벽 규칙 변경
 
@@ -211,12 +211,12 @@ az role assignment create \
 | 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
-| **assignee** | Azure AD 사용자 ID입니다. 예, `user@contoso.com` |
+| **assignee** | Azure AD 사용자 ID입니다. 예를 들어 `user@contoso.com` |
 | **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
-**예:**
+**예제:**
 
-Azure AD 사용자에 대 한 노드 액세스를 blockchain **구성원**에 게 부여:
+Azure AD 사용자에 대 한 노드 액세스를 blockchain **구성원** 에 게 부여:
 
 ```azurecli
 az role assignment create \
@@ -225,9 +225,9 @@ az role assignment create \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
 
-**예:**
+**예제:**
 
-Blockchain **트랜잭션 노드에**Azure AD 사용자에 대 한 노드 액세스를 부여 합니다.
+Blockchain **트랜잭션 노드에** Azure AD 사용자에 대 한 노드 액세스를 부여 합니다.
 
 ```azurecli
 az role assignment create \
@@ -250,7 +250,7 @@ az role assignment create \
 | **담당자-개체-id** | Azure AD 그룹 ID 또는 응용 프로그램 ID입니다. |
 | **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
-**예:**
+**예제:**
 
 **응용 프로그램 역할** 에 대 한 노드 액세스 권한 부여
 
@@ -273,7 +273,7 @@ az role assignment delete \
 | 매개 변수 | 설명 |
 |---------|-------------|
 | **role** | Azure AD 역할의 이름입니다. |
-| **assignee** | Azure AD 사용자 ID입니다. 예, `user@contoso.com` |
+| **assignee** | Azure AD 사용자 ID입니다. 예를 들어 `user@contoso.com` |
 | **범위** | 역할 할당의 범위입니다. Blockchain 멤버 또는 트랜잭션 노드일 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

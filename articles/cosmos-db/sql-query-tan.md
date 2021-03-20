@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: eeff0f8a98333da4b143bef88bc7f8d5fe73fecb
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340800"
 ---
 # <a name="tan-azure-cosmos-db"></a>황갈색 (Azure Cosmos DB)
@@ -35,7 +35,7 @@ TAN (<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는 PI()/2의 탄젠트를 계산합니다.  
   

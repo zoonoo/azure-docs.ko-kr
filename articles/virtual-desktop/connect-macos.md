@@ -7,10 +7,10 @@ ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230877"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>MacOS 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결
@@ -37,7 +37,7 @@ ms.locfileid: "89230877"
    - URL을 사용하는 경우 관리자가 제공한 URL을 사용합니다. 일반적으로 URL은 <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>입니다.
    - 이메일을 사용하려면 이메일 주소를 입력하세요. 그러면 클라이언트가 이메일 주소와 연결된 URL을 검색합니다(관리자가 서버를 그렇게 구성한 경우).
    - US Gov 포털을 통해 연결 하려면를 사용 <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> 합니다.
-3. **추가**를 선택합니다.
+3. **추가** 를 선택합니다.
 4. 메시지가 표시되면 사용자 계정으로 로그인합니다.
 
 로그인하면 사용 가능한 리소스 목록이 표시됩니다.

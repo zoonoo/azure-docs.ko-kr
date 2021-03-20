@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 910b8dae10036cc2e396be13495fd28363dc971d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97934563"
 ---
-# <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Key Vault 액세스 정책 할당
+# <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 Key Vault 액세스 정책 할당
 
 Key Vault 액세스 정책은 지정 된 서비스 주체 (즉, 응용 프로그램 또는 사용자 그룹)가 Key Vault [비밀](../secrets/index.yml), [키](../keys/index.yml)및 [인증서](../certificates/index.yml)에 대해 다른 작업을 수행할 수 있는지 여부를 결정 합니다. Azure Portal (이 문서), [Azure CLI](assign-access-policy-cli.md)또는 [Azure PowerShell](assign-access-policy-powershell.md)를 사용 하 여 액세스 정책을 할당할 수 있습니다.
 

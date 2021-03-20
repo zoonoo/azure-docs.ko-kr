@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 0133d6cc54038a56847556a83242114c78e09321
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 4a75931017bbde24c17ecdc0da498547c6088682
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574411"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581527"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>ExpressRoute 연결 파트너 및 피어링 위치
 
@@ -87,6 +87,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[BCX](https://www.bcx.co.za/solutions/connectivity/data-networks)** |지원됨 |지원됨 |케이프타운, 요하네스버그|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |지원됨 |지원됨 |몬트리올, 토론토, 퀘벡 시티 |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |지원됨 |지원됨 |암스테르담, Amsterdam2, 시카고, 홍콩 특별 행정구, 요하네스버그, 런던, London2, Newport (Wales), 파리, 상 파울로, 실리콘 계곡, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
+| **[BSNL](https://www.bsnl.co.in/opencms/bsnl/BSNL/services/enterprises/cloudway.html)** |지원됨 |지원됨 |첸나이, 뭄바이 |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |지원됨 |지원됨 |마이애미 |
 | **CDC** | 지원됨 | 지원됨 | 캔버라, 캔버라2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |지원됨 |지원됨 |Amsterdam2, 시카고, 더블린, 프랑크푸르트, 홍콩, Las Vegas, London2, 뉴욕, 파리, San Antonio, 실리콘 계곡, 도쿄,, 워싱턴 DC, 워싱턴 DC2 |
@@ -148,7 +149,7 @@ ExpressRoute 위치(예: 피어링 위치 또는 Meet-Me 위치)는 MSEE(Microso
 | **[Optus](https://www.optus.com.au/enterprise/)** |지원됨 |지원됨 |멜버른, 시드니 |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |지원됨 |지원됨 |암스테르담, 암스테르담2, 두바이2, 프랑크푸르트, 홍콩 특별 행정구, 요하네스버그, 런던, 파리, 상파울루, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | 지원됨 | 지원됨 | 두바이2 |
-| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |지원됨 |지원됨 |시카고, Las Vegas, 실리콘 계곡, 워싱턴 DC |
+| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |지원됨 |지원됨 |시카고, 달라스, Las Vegas, 실리콘 계곡, 워싱턴 DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |지원됨 |지원됨 |시카고, 홍콩, 홍콩2, 런던, 싱가포르2 |
 | **[다시 z](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | 지원됨 | 지원됨 | 오클랜드 |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | 지원됨 | 지원됨 | Milan | 

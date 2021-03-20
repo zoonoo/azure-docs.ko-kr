@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/13/2020
 ms.author: yelevin
 ms.openlocfilehash: a0056391dddec25511deb7033d37f59db3d835c8
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567936"
 ---
 # <a name="connect-your-thycotic-secret-server-to-azure-sentinel"></a>Thycotic Secret 서버를 Azure 센티널에 연결
@@ -31,7 +31,7 @@ ms.locfileid: "98567936"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

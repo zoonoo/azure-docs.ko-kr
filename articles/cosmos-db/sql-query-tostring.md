@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 85406a1c4a8d5780354d4161581550b02262f36b
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340756"
 ---
 # <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
@@ -35,7 +35,7 @@ ToString(<expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는가 `ToString` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다.   
   

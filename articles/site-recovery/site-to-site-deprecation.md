@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: sharrai
 ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87421844"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Azure Site Recovery를 사용 하 여 고객이 관리 하는 사이트 (VMM) 간의 재해 복구 사용 중단
@@ -57,8 +57,8 @@ Site Recovery를 사용 하 여 System Center Virtual Machine Manager (SCVMM)에
 
 Hyper-v 복제본 사용의 옵션 2로 이동 하도록 선택 하는 경우 다음 단계를 실행 합니다.
 
-1. **보호 된 항목**  >  **복제 된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭 하 > 복제를 **사용 하지 않도록 설정**합니다.
-2. **복제 사용 안 함**에서 **제거**를 선택 합니다.
+1. **보호 된 항목**  >  **복제 된 항목** 에서 컴퓨터를 마우스 오른쪽 단추로 클릭 하 > 복제를 **사용 하지 않도록 설정** 합니다.
+2. **복제 사용 안 함** 에서 **제거** 를 선택 합니다.
 
     이 옵션은 Azure Site Recovery에서 복제된 항목을 제거합니다(청구 중지). 온-프레미스 가상 머신에서 복제 구성이 정리되지 **않습니다**. 
 

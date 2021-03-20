@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure DevOps (이전의 Visual Studio Team Serv
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85476141"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리 실행
@@ -26,7 +26,7 @@ ms.locfileid: "85476141"
     - 구성 이미지 팩터리에 대 한 입력입니다.
         - GoldenImages. 이 폴더에는 사용자 지정 이미지의 정의를 나타내는 JSON 파일이 포함 되어 있습니다.
         - Labs.js합니다. 팀이 특정 사용자 지정 이미지를 받도록 등록 하는 파일입니다.
-- 스크립트. 이미지 팩터리의 엔진입니다.
+- 스크립트만. 이미지 팩터리의 엔진입니다.
 
 이 섹션의 문서에서는 이러한 스크립트 및 템플릿에 대 한 자세한 정보를 제공 합니다.
 
@@ -40,10 +40,10 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 ## <a name="check-in-the-image-factory-to-git"></a>Git에 대 한 이미지 팩터리 체크 인
 이미지 팩터리의 모든 PowerShell, 템플릿 및 구성은 [공용 DevTest Labs GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)에 있습니다. 새 팀 프로젝트에 코드를 가져오는 가장 빠른 방법은 리포지토리를 가져오는 것입니다. 이를 통해 전체 DevTest Labs 리포지토리를 가져와서 추가 문서 및 샘플을 얻을 수 있습니다.
 
-1. 이전 단계에서 만든 Azure devops 프로젝트를 방문 합니다 (URL은 **https: \/ / \<accountname> . visualstudio.com/MyFirstProject**와 같습니다.).
-2. **리포지토리 가져오기를**선택 합니다.
+1. 이전 단계에서 만든 Azure devops 프로젝트를 방문 합니다 (URL은 **https: \/ / \<accountname> . visualstudio.com/MyFirstProject** 와 같습니다.).
+2. **리포지토리 가져오기를** 선택 합니다.
 3. DevTest Labs 리포지토리의 **복제 URL** 을 입력 `https://github.com/Azure/azure-devtestlab` 합니다.
-4. **가져오기**를 선택합니다.
+4. **가져오기** 를 선택합니다.
 
     ![Git 리포지토리 가져오기](./media/set-up-devops-lab/import-git-repo.png)
 
@@ -69,7 +69,7 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 명령줄 매개 변수를 간소화 하기 위해는 이미지 팩터리를 구동 하는 키 값을 빌드 변수 집합으로 캡슐화 합니다. **변수** 탭을 선택 하면 여러 기본 변수 목록이 표시 됩니다. Azure DevOps에 입력할 변수 목록은 다음과 같습니다.
 
 
-| 변수 이름 | 값 | 메모 |
+| 변수 이름 | 값 | 참고 |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | **구성** 폴더에 대 한 리포지토리의 전체 경로입니다. 위의 전체 리포지토리를 가져온 경우 왼쪽에 있는 값이 올바릅니다. 그렇지 않으면 업데이트는 구성 위치를 가리킵니다. |
 | Devtestlab 이름 | MyImageFactory | 이미지를 생성 하기 위해 팩터리에서 사용 되는 Azure DevTest Labs의 랩 이름입니다. 없는 경우 하나 만듭니다. 랩이 서비스 끝점에서 액세스할 수 있는 것과 동일한 구독에 있는지 확인 합니다. |
@@ -85,8 +85,8 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 ## <a name="connect-to-azure"></a>Azure에 연결
 다음 단계는 서비스 주체를 설정 하는 것입니다. 이 id는 DevOps 빌드 에이전트가 사용자를 대신 하 여 Azure에서 작동할 수 있도록 하는 Azure Active Directory의 id입니다. 설정 하려면 먼저 Azure PowerShell 빌드 단계를 추가 하 여 시작 합니다.
 
-1. **작업 추가**를 선택 합니다.
-2. **Azure PowerShell**를 검색 합니다.
+1. **작업 추가** 를 선택 합니다.
+2. **Azure PowerShell** 를 검색 합니다.
 3. 찾은 후 **추가** 를 선택 하 여 작업을 빌드에 추가 합니다. 이렇게 하면 작업이 왼쪽에 추가 된 것 처럼 보입니다.
 
 ![PowerShell 단계 설정](./media/set-up-devops-lab/set-up-powershell-step.png)
@@ -94,7 +94,7 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 서비스 주체를 설정 하는 가장 빠른 방법은 Azure DevOps에서이 작업을 수행할 수 있도록 하는 것입니다.
 
 1. 방금 추가한 **작업** 을 선택 합니다.
-2. **Azure 연결 형식**에 대해 **Azure Resource Manager**를 선택 합니다.
+2. **Azure 연결 형식** 에 대해 **Azure Resource Manager** 를 선택 합니다.
 3. **관리** 링크를 선택 하 여 서비스 주체를 설정 합니다.
 
 자세한 내용은 이 [블로그 게시물](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)을 참조하세요. **관리** 링크를 선택 하면 Azure에 대 한 연결을 설정 하는 devops (블로그 게시물의 두 번째 스크린샷)의 올바른 위치가 됩니다. 설정 하는 경우 **서비스 끝점 Azure Resource Manager** 선택 해야 합니다.
@@ -104,8 +104,8 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 
 1. 먼저 빌드 작업의 이름을 **Virtual Machines 만듭니다**.
 2. **Azure Resource Manager** 를 선택 하 여 만든 **서비스 주체** 를 선택 합니다.
-3. **서비스 끝점**을 선택 합니다.
-4. **스크립트 경로**에 **대해 ...를 선택 합니다. (줄임표)** 오른쪽에 있습니다.
+3. **서비스 끝점** 을 선택 합니다.
+4. **스크립트 경로** 에 **대해 ...를 선택 합니다. (줄임표)** 오른쪽에 있습니다.
 5. **MakeGoldenImageVMs.ps1** 스크립트로 이동 합니다.
 6. 스크립트 매개 변수는 다음과 같습니다. `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -DevTestLabName $(DevTestLabName) -vmSize $(VMSize) -machineUserName $(MachineUserName) -machinePassword (ConvertTo-SecureString -string '$(MachinePassword)' -AsPlainText -Force) -StandardTimeoutMinutes $(StandardTimeoutMinutes)`
 

@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ms.openlocfilehash: 8de7ad2808e5319819410b3125472e28496647b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91267145"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>NVA에 대한 Virtual WAN 허브 경로 테이블 만들기: Azure portal
@@ -73,14 +73,14 @@ ms.locfileid: "91267145"
 
 1. 가상 WAN으로 이동합니다.
 2. 경로 테이블을 만들려는 허브를 클릭합니다.
-3. **...** 를 클릭한 다음, **가상 허브 편집**을 클릭합니다.
+3. **...** 를 클릭한 다음, **가상 허브 편집** 을 클릭합니다.
 4. **가상 허브 편집** 페이지에서 아래로 스크롤하여 **라우팅에 표 사용** 확인란을 선택합니다.
 5. **대상 접두사가 다음인 경우** 열에서 주소 공간을 추가합니다. **다음 홉으로 보내기** 열에서 DMZ NVA 네트워크 인터페이스 개인 IP 주소를 추가합니다.
 
    > [!NOTE]
    > DMZ NVA 네트워크는 로컬 허브에 적용됩니다.
    
-6. **확인**을 클릭하여 허브 리소스를 경로 테이블 설정으로 업데이트합니다.
+6. **확인** 을 클릭하여 허브 리소스를 경로 테이블 설정으로 업데이트합니다.
 
 ## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. VNet 연결 만들기
 
@@ -96,15 +96,15 @@ ms.locfileid: "91267145"
 
 연결하려는 각 가상 네트워크에 대해 다음 절차를 반복합니다.
 
-1. 가상 WAN에 대한 페이지에서 **가상 네트워크 연결**을 클릭합니다.
-2. 가상 네트워크 연결 페이지에서 **+연결 추가**를 클릭합니다.
+1. 가상 WAN에 대한 페이지에서 **가상 네트워크 연결** 을 클릭합니다.
+2. 가상 네트워크 연결 페이지에서 **+연결 추가** 를 클릭합니다.
 3. **연결 추가** 페이지에서 다음 필드를 채웁니다.
 
     * **연결 이름** - 연결의 이름을 지정합니다.
     * **허브** - 이 연결과 연결할 허브를 선택합니다.
     * **구독** - 구독을 확인합니다.
     * **가상 네트워크** - 이 허브에 연결할 가상 네트워크를 선택합니다. 가상 네트워크에는 기존의 가상 네트워크 게이트웨이를 사용할 수 없습니다.
-4. **확인**을 클릭하여 연결을 만듭니다.
+4. **확인** 을 클릭하여 연결을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

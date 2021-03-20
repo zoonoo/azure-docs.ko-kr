@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: twooley
 ms.openlocfilehash: a2c55a2d3277bbb6c3cf72f5ea703780d2a5e9bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87318847"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Java SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
@@ -27,7 +27,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용 하 여 폴더 만들기, 데이
 
 [Azure Data Lake Storage Gen1 Java API 문서](https://azure.github.io/azure-data-lake-store-java/javadoc/)에서 Data Lake Storage Gen1용 Java SDK API 문서에 액세스할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Java 개발 키트(JDK 7 이상, Java 버전 1.7 이상 사용)
 * Data Lake Storage Gen1 계정 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 * [Maven](https://maven.apache.org/install.html) 이 자습서에서는 빌드 및 프로젝트 종속성을 위해 Maven을 사용합니다. Maven 또는 Gradle과 같은 빌드 시스템을 사용하지 않고 빌드할 수 있지만 이러한 시스템 생성은 종속성을 훨씬 쉽게 관리할 수 있습니다.
@@ -78,7 +78,7 @@ Azure Data Lake Storage Gen1 Java SDK를 사용 하 여 폴더 만들기, 데이
 * 애플리케이션에 대한 서비스 간 인증의 경우 [Java를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-java.md)을 참조하세요.
 
 ## <a name="create-a-data-lake-storage-gen1-client"></a>Data Lake Storage Gen1 클라이언트 만들기
-[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들 때는 Data Lake Storage Gen1에 인증할 때 생성한 Data Lake Storage Gen1 계정 이름 및 토큰 공급자를 지정해야 합니다([인증](#authentication) 섹션 참조). Data Lake Storage Gen1 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE**는 **mydatalakestoragegen1.azuredatalakestore.net**과 같은 이름으로 바꿉니다.
+[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) 개체를 만들 때는 Data Lake Storage Gen1에 인증할 때 생성한 Data Lake Storage Gen1 계정 이름 및 토큰 공급자를 지정해야 합니다([인증](#authentication) 섹션 참조). Data Lake Storage Gen1 계정 이름은 정규화된 도메인 이름이어야 합니다. 예를 들어 **FILL-IN-HERE** 는 **mydatalakestoragegen1.azuredatalakestore.net** 과 같은 이름으로 바꿉니다.
 
 ```java
 private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name

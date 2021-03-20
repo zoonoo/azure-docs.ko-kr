@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: tomfitz
 ms.openlocfilehash: 05302d92f2304be35a7b88fac6fabfc17b13c63e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75651723"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Azure Portal을 통해 서비스 카탈로그 애플리케이션 게시
 
 조직의 구성원을 위한 Azure [관리되는 애플리케이션](overview.md)을 Azure Portal을 사용하여 게시할 수 있습니다. 예를 들어 조직 표준을 준수하도록 하는 IT 부서에서 관리형 애플리케이션을 게시할 수 있습니다. 이러한 관리되는 애플리케이션은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 관리되는 애플리케이션을 게시하려면 리소스를 관리할 ID를 지정합니다. Azure Active Directory 사용자 그룹을 지정하는 것이 좋습니다. 새 Azure Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 
 
@@ -24,17 +24,17 @@ ms.locfileid: "75651723"
 
 ## <a name="create-managed-application-with-portal"></a>포털을 사용하여 관리되는 애플리케이션 만들기
 
-1. 왼쪽 위 모서리에서 **+ 새로 만들기**를 선택합니다.
+1. 왼쪽 위 모서리에서 **+ 새로 만들기** 를 선택합니다.
 
    ![새 서비스](./media/publish-portal/new.png)
 
-1. **서비스 카탈로그**를 검색합니다.
+1. **서비스 카탈로그** 를 검색합니다.
 
-1. 결과에서 **서비스 카탈로그 관리되는 애플리케이션 정의**를 찾을 때까지 스크롤 합니다. 이 폴더를 선택합니다.
+1. 결과에서 **서비스 카탈로그 관리되는 애플리케이션 정의** 를 찾을 때까지 스크롤 합니다. 이 폴더를 선택합니다.
 
    ![관리되는 애플리케이션 정의 검색](./media/publish-portal/select-managed-apps-definition.png)
 
-1. **만들기**를 선택하여 관리 애플리케이션 정의 만들기 프로세스를 시작합니다.
+1. **만들기** 를 선택하여 관리 애플리케이션 정의 만들기 프로세스를 시작합니다.
 
    ![관리되는 애플리케이션 정의 만들기](./media/publish-portal/create-definition.png)
 
@@ -42,15 +42,15 @@ ms.locfileid: "75651723"
 
    ![값 제공](./media/publish-portal/fill-application-values.png)
 
-1. [인증 및 잠금 수준] 섹션에 도달하면 **권한 부여 추가**를 선택합니다.
+1. [인증 및 잠금 수준] 섹션에 도달하면 **권한 부여 추가** 를 선택합니다.
 
    ![권한 부여 추가](./media/publish-portal/add-authorization.png)
 
-1. 리소스를 관리할 Azure Active Directory 그룹을 선택하고 **확인**을 선택합니다.
+1. 리소스를 관리할 Azure Active Directory 그룹을 선택하고 **확인** 을 선택합니다.
 
    ![권한 부여 그룹 추가](./media/publish-portal/add-auth-group.png)
 
-1. 모든 값을 입력했으면 **만들기**를 선택합니다.
+1. 모든 값을 입력했으면 **만들기** 를 선택합니다.
 
    ![관리되는 애플리케이션 만들기](./media/publish-portal/create-app.png)
 

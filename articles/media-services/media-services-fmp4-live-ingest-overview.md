@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7323ae611431e1d91fd1a8471914be388fcc4712
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92019514"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services 조각화된 MP4 라이브 수집 사양 
@@ -75,7 +75,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 ## <a name="6-definition-of-stream"></a>6. "스트림"의 정의
 스트림은 라이브 프레젠테이션 작성, 스트리밍 장애 조치(failover) 및 중복성 시나리오 처리를 위한 라이브 수집의 기본 작업 단위입니다. 스트림은 단일 트랙 또는 여러 트랙을 포함할 수 있는 하나의 고유한 조각화된 MP4 비트스트림으로 정의됩니다. 전체 라이브 프레젠테이션은 라이브 인코더의 구성에 따라 하나 이상의 스트림을 포함할 수 있습니다. 다음 예에서는 스트림을 사용하여 전체 라이브 프레젠테이션을 작성하는 다양한 옵션을 설명합니다.
 
-**예:** 
+**예제:** 
 
 고객은 다음 오디오/비디오 비트 전송률을 포함하는 라이브 스트리밍 프레젠테이션을 생성하고자 합니다.
 
@@ -159,7 +159,7 @@ Media Services용 ISO 조각화된 MP4 기반 라이브 수집은 표준 장기 
 
 1. 오디오/비디오 트랙 없이 스파스 트랙만 포함하는 별도의 조각화된 MP4 비트스트림을 생성합니다.
 1. [1]의 섹션 6에서 정의한 대로 **라이브 서버 매니페스트 상자** 에서 *parenttrack name* 매개 변수를 사용 하 여 부모 트랙의 이름을 지정 합니다. 자세한 내용은 [1]의 4.2.1.2.1.2 섹션을 참조 하세요.
-1. **Live Server Manifest Box**에서 **manifestOutput**을 반드시 **true**로 설정해야 합니다.
+1. **Live Server Manifest Box** 에서 **manifestOutput** 을 반드시 **true** 로 설정해야 합니다.
 1. 신호 보내기 이벤트의 스파스 특성에 따라 다음이 권장됩니다.
    
     a. 라이브 이벤트의 시작 부분에서 서비스가 클라이언트 매니페스트의 스파스 트랙을 등록하도록 인코더가 초기 헤더 상자를 서비스에 전송합니다.

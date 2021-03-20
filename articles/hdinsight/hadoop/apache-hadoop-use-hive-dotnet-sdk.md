@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
 ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927243"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
@@ -44,7 +44,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. 변수에 대 한 값을 초기화 하려면 아래 코드를 편집 `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` 합니다. 그런 다음 수정 된 코드를 Visual Studio에서 **Program.cs** 의 전체 콘텐츠로 사용 합니다.
+1. 변수에 대 한 값을 초기화 하려면 아래 코드를 편집 `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` 합니다. 그런 다음 Visual Studio에서 수정 된 코드를 **프로그램** 의 전체 콘텐츠로 사용 합니다.
 
     ```csharp
     using System.Collections.Generic;
@@ -139,7 +139,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight .NET SDK를 사용 하 여 Apache Hive 쿼리를 전송 하는 방법을 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 HDInsight .NET SDK를 사용 하 여 Apache Hive 쿼리를 전송 하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)

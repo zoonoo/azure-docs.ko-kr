@@ -11,10 +11,10 @@ ms.author: junhan
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87321686"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
@@ -47,9 +47,9 @@ ms.locfileid: "87321686"
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>로그인하여 IoT Hub에 액세스
 
-1. **탐색기**에서 VS Code를 보고 왼쪽 아래 모서리에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다.
+1. **탐색기** 에서 VS Code를 보고 왼쪽 아래 모서리에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다.
 
-2. 상황에 맞는 메뉴에서 **IoT Hub 선택**을 클릭합니다.
+2. 상황에 맞는 메뉴에서 **IoT Hub 선택** 을 클릭합니다.
 
 3. 처음으로 Azure에 로그인할 수 있게 하는 팝업 메시지가 오른쪽 아래 모서리에 표시됩니다.
 
@@ -58,23 +58,23 @@ ms.locfileid: "87321686"
 5. 잠시 후 디바이스 목록이 **Azure IoT Hub 디바이스** 탭에 표시됩니다.
 
    > [!Note]
-   > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
+   > **IoT Hub 연결 문자열 설정** 을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 장치를 연결 하는 IoT hub에 대 한 **iothubowner** 정책 연결 문자열을 입력 합니다.
 
 ## <a name="monitor-device-to-cloud-messages"></a>디바이스-클라우드 메시지 모니터링
 
 디바이스에서 IoT Hub로 보낸 메시지를 모니터링하려면 다음 단계를 수행합니다.
 
-1. 장치를 마우스 오른쪽 단추로 클릭 하 고 **모니터링 시작 기본 제공 이벤트 끝점**을 선택 합니다.
+1. 장치를 마우스 오른쪽 단추로 클릭 하 고 **모니터링 시작 기본 제공 이벤트 끝점** 을 선택 합니다.
 
 2. 모니터링 되는 메시지는 **출력**  >  **Azure IoT Hub** 보기에 표시 됩니다.
 
-3. 모니터링을 중지 하려면 **출력** 뷰를 마우스 오른쪽 단추로 클릭 하 고 **기본 제공 이벤트 끝점 모니터링 중지**를 선택 합니다.
+3. 모니터링을 중지 하려면 **출력** 뷰를 마우스 오른쪽 단추로 클릭 하 고 **기본 제공 이벤트 끝점 모니터링 중지** 를 선택 합니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 C2D 메시지 보내기**를 선택합니다.
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 C2D 메시지 보내기** 를 선택합니다.
 
 2. 입력 상자에 메시지를 입력합니다.
 

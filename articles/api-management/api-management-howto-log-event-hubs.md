@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
 ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072410"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법
@@ -40,13 +40,13 @@ API Management 로거는 [API Management REST API](/rest/api/apimanagement/ApiMa
 
 1. APIM 인스턴스로 이동합니다.
 2. API 탭을 선택합니다.
-3. 정책을 추가하려는 API를 선택합니다. 이 예제에서는 **무제한** 제품의 **Echo API**에 정책을 추가합니다.
-4. **모든 작업**을 선택합니다.
+3. 정책을 추가하려는 API를 선택합니다. 이 예제에서는 **무제한** 제품의 **Echo API** 에 정책을 추가합니다.
+4. **모든 작업** 을 선택합니다.
 5. 화면 맨 위에서 디자인 탭을 선택합니다.
 6. 인바운드 또는 아웃바운드 처리 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
 7. 코드 편집기를 선택합니다. 자세한 내용은 [정책을 설정하거나 편집하는 방법](set-edit-policies.md)을 참조하세요.
 8. 커서를 `inbound` 또는 `outbound` 정책 섹션에 둡니다.
-9. 오른쪽 창에서 **고급 정책**  >  **EventHub에 기록을**선택 합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
+9. 오른쪽 창에서 **고급 정책**  >  **EventHub에 기록을** 선택 합니다. 그러면 `log-to-eventhub` 정책 문 템플릿을 삽입합니다.
 
 ```xml
 <log-to-eventhub logger-id="logger-id">
@@ -75,8 +75,8 @@ API Management 로거는 [API Management REST API](/rest/api/apimanagement/ApiMa
 [Azure Stream Analytics 쿼리](../event-hubs/process-data-azure-stream-analytics.md)를 사용 하 여 Event Hubs에서 로그를 미리 볼 수 있습니다. 
 
 1. Azure Portal에서 로거가 이벤트를 전송 하는 이벤트 허브를 찾습니다. 
-2. **기능**에서 **데이터 처리** 탭을 선택 합니다.
-3. **이벤트에서 실시간 통찰력 사용** 카드에서 **탐색**을 선택 합니다.
+2. **기능** 에서 **데이터 처리** 탭을 선택 합니다.
+3. **이벤트에서 실시간 통찰력 사용** 카드에서 **탐색** 을 선택 합니다.
 4. **입력 미리 보기** 탭에서 로그를 미리 볼 수 있습니다. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계

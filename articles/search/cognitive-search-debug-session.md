@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057623"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Azure Cognitive Search의 디버그 세션
@@ -49,15 +49,15 @@ ms.locfileid: "92057623"
 
 **기술 그래프** 보기에는 기술 세트에 대한 계층적 시각적 표현이 제공됩니다. 그래프는 기술이 실행되는 순서를 위에서 아래로 표현한 것입니다. 다른 기술의 출력에 따라 달라지는 기술은 그래프 아래에 표시됩니다. 계층에서 같은 수준에 있는 기술은 병렬로 실행할 수 있습니다. 
 
-그래프에서 기술을 선택하면 연결되어 있는 기술, 입력을 만드는 노드, 출력을 받아들이는 노드가 강조 표시됩니다. 각 기술 노드에는 해당 유형, 오류 또는 경고, 실행 수가 표시됩니다. **기술 그래프**에서는 디버그 또는 개선할 기술을 선택할 수 있습니다. 기술을 선택하면 해당 세부 정보가 그래프 오른쪽의 기술 세부 정보 창에 표시됩니다.
+그래프에서 기술을 선택하면 연결되어 있는 기술, 입력을 만드는 노드, 출력을 받아들이는 노드가 강조 표시됩니다. 각 기술 노드에는 해당 유형, 오류 또는 경고, 실행 수가 표시됩니다. **기술 그래프** 에서는 디버그 또는 개선할 기술을 선택할 수 있습니다. 기술을 선택하면 해당 세부 정보가 그래프 오른쪽의 기술 세부 정보 창에 표시됩니다.
 
-> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="디버그 세션 만들기":::
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="기술 그래프":::
 
 ## <a name="skill-details"></a>기술 세부 정보
 
-기술 세부 정보 창의 **기술 그래프**에서 특정 기술을 강조 표시하면 해당 기술로 작업할 수 있는 일련의 영역이 표시됩니다. 기술 설정의 세부 정보를 검토하고 편집할 수 있습니다. 기술의 JSON 정의가 제공됩니다. 기술 실행의 세부 정보와 오류 및 경고도 표시됩니다. **Skill Settings**(기술 설정) 탭과 **Skill JSON Editor**(기술 JSON 편집기)를 사용하면 기술을 직접 편집할 수 있습니다. [`</>`](#expression-evaluator)는 기술 입력 및 출력의 식을 살펴보고 편집할 수 있는 창을 엽니다.
+기술 세부 정보 창의 **기술 그래프** 에서 특정 기술을 강조 표시하면 해당 기술로 작업할 수 있는 일련의 영역이 표시됩니다. 기술 설정의 세부 정보를 검토하고 편집할 수 있습니다. 기술의 JSON 정의가 제공됩니다. 기술 실행의 세부 정보와 오류 및 경고도 표시됩니다. **Skill Settings**(기술 설정) 탭과 **Skill JSON Editor**(기술 JSON 편집기)를 사용하면 기술을 직접 편집할 수 있습니다. [`</>`](#expression-evaluator)는 기술 입력 및 출력의 식을 살펴보고 편집할 수 있는 창을 엽니다.
 
-기술 설정 창의 중첩된 입력 컨트롤을 사용하면 프로젝션을 위한 복잡한 도형, 복잡한 유형 필드의 출력 필드 매핑 또는 기술에 대한 입력을 만들 수 있습니다. 중첩된 입력을 **식 계산기**와 함께 사용하면 편리한 테스트 및 식 유효성 검사 빌더가 제공됩니다.
+기술 설정 창의 중첩된 입력 컨트롤을 사용하면 프로젝션을 위한 복잡한 도형, 복잡한 유형 필드의 출력 필드 매핑 또는 기술에 대한 입력을 만들 수 있습니다. 중첩된 입력을 **식 계산기** 와 함께 사용하면 편리한 테스트 및 식 유효성 검사 빌더가 제공됩니다.
 
 ## <a name="skill-execution-history"></a>기술 실행 기록
 
@@ -71,13 +71,13 @@ ms.locfileid: "92057623"
 
 ## <a name="enriched-data-structure"></a>보강된 데이터 구조
 
-**보강 데이터 구조** 창에는 기술 세트를 통해 문서의 보강이 표시되며, 각 보강 및 원래 기술에 대한 컨텍스트가 자세히 설명되어 있습니다. **식 계산기**를 사용하여 각 보강에 대한 내용을 볼 수도 있습니다.
+**보강 데이터 구조** 창에는 기술 세트를 통해 문서의 보강이 표시되며, 각 보강 및 원래 기술에 대한 컨텍스트가 자세히 설명되어 있습니다. **식 계산기** 를 사용하여 각 보강에 대한 내용을 볼 수도 있습니다.
 
-> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="디버그 세션 만들기":::
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="보강된 데이터 구조":::
 
 ## <a name="expression-evaluator"></a>식 계산기
 
-**식 계산기**에서는 경로의 값을 얼른 엿볼 수 있습니다. 기술이나 프로젝션에 대한 입력 또는 컨텍스트를 업데이트하기 전에 경로를 편집하고 결과를 테스트 할 수 있습니다.
+**식 계산기** 에서는 경로의 값을 얼른 엿볼 수 있습니다. 기술이나 프로젝션에 대한 입력 또는 컨텍스트를 업데이트하기 전에 경로를 편집하고 결과를 테스트 할 수 있습니다.
 
 ## <a name="errorswarnings"></a>오류/경고
 

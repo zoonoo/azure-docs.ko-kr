@@ -7,17 +7,17 @@ ms.date: 12/07/2020
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 19a98b5786f35839d84e1e969c29e45e2b5e8dea
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98573397"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
 이 문서에서는 온-프레미스 VMware VM (가상 머신)을 Azure로 복제 하도록 설정 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 시스템이 다음 조건을 충족 한다고 가정 합니다.
 
@@ -75,12 +75,12 @@ VMware 가상 컴퓨터를 복제 하는 경우 다음 정보를 염두에 두�
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-rep3.png" alt-text="복제 대상 창 사용":::
 
-1. **Virtual machines**  >  에서 **가상** 컴퓨터를 선택 하 고 복제 하려는 각 가상 컴퓨터를 선택 합니다. 복제를 사용 하도록 설정할 수 있는 가상 컴퓨터만 선택할 수 있습니다. 그런 다음, **확인** 을 선택합니다. 특정 가상 컴퓨터를 보거나 선택할 수 없는 경우 문제 해결을 위해 [원본 컴퓨터가 Azure Portal에 나열 되지 않음](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) 을 참조 하세요.
+1. **Virtual machines**  >  에서 **가상** 컴퓨터를 선택 하 고 복제 하려는 각 가상 컴퓨터를 선택 합니다. 복제를 사용 하도록 설정할 수 있는 가상 컴퓨터만 선택할 수 있습니다. 그런 다음 **확인** 을 선택합니다. 특정 가상 컴퓨터를 보거나 선택할 수 없는 경우 문제 해결을 위해 [원본 컴퓨터가 Azure Portal에 나열 되지 않음](vmware-azure-troubleshoot-replication.md#step-3-troubleshoot-source-machines-that-arent-available-for-replication) 을 참조 하세요.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication5.png" alt-text="복제 사용 가상 컴퓨터 선택 창":::
 
 1. 속성   >  **속성 구성** 에서 프로세스 서버가 VM에 Site Recovery 모바일 서비스를 자동으로 설치 하는 데 사용 하는 계정을 선택 합니다. 또한 데이터 변동 패턴에 따라 복제에 사용할 대상 관리 디스크의 형식을 선택 합니다.
-1. 기본적으로 원본 VM의 모든 디스크가 복제 됩니다. 복제에서 디스크를 제외 하려면 복제 하지 않을 디스크에 대 한 **포함** 확인란의 선택을 취소 합니다. 그런 다음, **확인** 을 선택합니다. 나중에 추가 속성을 설정할 수 있습니다. 디스크 제외에 대해 [자세히 알아보세요](vmware-azure-exclude-disk.md).
+1. 기본적으로 원본 VM의 모든 디스크가 복제 됩니다. 복제에서 디스크를 제외 하려면 복제 하지 않을 디스크에 대 한 **포함** 확인란의 선택을 취소 합니다. 그런 다음 **확인** 을 선택합니다. 나중에 추가 속성을 설정할 수 있습니다. 디스크 제외에 대해 [자세히 알아보세요](vmware-azure-exclude-disk.md).
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication6.png" alt-text="복제 사용 속성 구성 창":::
 

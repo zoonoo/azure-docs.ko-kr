@@ -9,10 +9,10 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0985afe3ddfd0d9de3c36ad6b030b6f259708c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87458252"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 메시지 보내기, 받기 및 일괄 처리
@@ -25,7 +25,7 @@ ms.locfileid: "87458252"
 
 1. 하나 이상의 ["일괄 처리 발신자"](#batch-sender) 논리 앱은 이전에 만든 일괄 처리 수신자에게 메시지를 보냅니다.
 
-   또한 고객 번호와 같은 고유 키를 지정하여 해당 키에 따라 대상 일괄 처리를 논리적 하위 집합으로 *분할*하거나 나눌 수도 있습니다. 이런 방식으로 수신자 앱에서 동일한 키가 있는 모든 항목을 수집하고 함께 처리할 수 있습니다.
+   또한 고객 번호와 같은 고유 키를 지정하여 해당 키에 따라 대상 일괄 처리를 논리적 하위 집합으로 *분할* 하거나 나눌 수도 있습니다. 이런 방식으로 수신자 앱에서 동일한 키가 있는 모든 항목을 수집하고 함께 처리할 수 있습니다.
 
 Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure 지역을 공유 해야 합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
@@ -78,7 +78,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
    이 예의 경우 일괄 처리 트리거가 발생할 때 이메일을 보내는 작업을 추가합니다. 일괄 처리에서 10개의 메시지가 있거나 10MB에 도달하거나 10분이 경과하면 트리거가 실행되고 이메일을 보냅니다.
 
-   1. 일괄 처리 트리거에서 **새 단계**를 선택 합니다.
+   1. 일괄 처리 트리거에서 **새 단계** 를 선택 합니다.
 
    1. 검색 상자에서 필터로 `send email`을 입력합니다. 전자 메일 공급자에 따라 전자 메일 커넥터를 선택합니다.
 
@@ -114,7 +114,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
     ![논리 앱 저장](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
    > [!IMPORTANT]
-   > Visual Studio를 사용 하는 경우 다음 섹션을 계속 진행 하기 전에 먼저 [batch 수신기 논리 앱을 Azure에 *배포* ](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)해야 합니다. 그렇지 않으면 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
+   > Visual Studio를 사용 하는 경우 다음 섹션을 계속 진행 하기 전에 먼저 [batch 수신기 논리 앱을 Azure에 *배포*](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)해야 합니다. 그렇지 않으면 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
 <a name="batch-sender"></a>
 
@@ -138,7 +138,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
 1. 메시지를 보내는 새 작업을 일괄 처리에 추가합니다.
 
-   1. **되풀이** 트리거에서 **새 단계**를 선택 합니다.
+   1. **되풀이** 트리거에서 **새 단계** 를 선택 합니다.
 
    1. 검색 상자에서를 필터로 입력 `batch` 하 고, **일괄 처리 트리거를 사용 하 여 Logic Apps 워크플로 선택** 작업을 선택 합니다.
 
@@ -153,7 +153,7 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
       > [!IMPORTANT]
       > Visual Studio를 사용 중이 고 선택할 배치 수신기가 표시 되지 않는 경우 이전에 배치 수신기를 만들어 Azure에 배포 했는지 확인 합니다. 그렇지 않은 경우 [batch receiver 논리 앱을 Azure에 배포 하는 방법을](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure)알아봅니다.
 
-   1. 작업 목록에서 다음 작업을 선택 합니다. **Batch_messages-<*your-logic-app-name* > **
+   1. 작업 목록에서 다음 작업을 선택 합니다. **Batch_messages-< >**
 
       !["Batch_messages - <your-logic-app>" 작업 선택](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
@@ -172,9 +172,9 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
    1. **메시지 콘텐츠** 상자 내부를 클릭합니다.
 
-   1. 동적 콘텐츠 목록이 표시 되 면 **식**을 선택 합니다.
+   1. 동적 콘텐츠 목록이 표시 되 면 **식** 을 선택 합니다.
 
-   1. 식을 입력 `utcnow()` 하 고 **확인**을 선택 합니다.
+   1. 식을 입력 `utcnow()` 하 고 **확인** 을 선택 합니다.
 
       !["메시지 내용"에서 "식"을 선택 하 고 "utcnow ()"를 입력 한 다음 "확인"을 선택 합니다.](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
@@ -190,9 +190,9 @@ Batch 수신자와 일괄 처리 발신자는 동일한 Azure 구독 *및* azure
 
    1. **파티션 이름** 상자 내부를 클릭하여 동적 콘텐츠 목록을 표시합니다.
 
-   1. 동적 콘텐츠 목록에서 **식**을 선택합니다.
+   1. 동적 콘텐츠 목록에서 **식** 을 선택합니다.
 
-   1. 식을 입력 한 `rand(1,6)` 다음 **확인**을 선택 합니다.
+   1. 식을 입력 한 `rand(1,6)` 다음 **확인** 을 선택 합니다.
 
       ![대상 일괄 처리에 대한 파티션 설정](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
 ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92677482"
 ---
 # <a name="query-ingested-telemetry-data"></a>수집된 원격 분석 데이터 쿼리
@@ -42,7 +42,7 @@ FarmBeats REST Api를 사용 하 여 수집 센서 원격 분석 데이터를 �
 > [!NOTE]
 > 관심 있는 센서 개체의 **id** 및 **sensorModelId** 입니다.
 
-2. 1 단계에서 설명한 대로 **sensorModelId** 에 대 한 GET/{id}를/SensorModel API로 만듭니다. "센서 모델"에는 센서의 수집 원격 분석에 대 한 모든 메타 데이터 및 세부 정보가 포함 되어 있습니다. 예를 들어 센서 **모델** 개체 내의 **센서 측정값** 에는 센서에서 전송 하는 측정값과 해당 유형 및 단위에 대 한 세부 정보가 있습니다. 예를 들면 다음과 같습니다.
+2. 1 단계에서 설명한 대로 **sensorModelId** 에 대 한 GET/{id}를/SensorModel API로 만듭니다. "센서 모델"에는 센서의 수집 원격 분석에 대 한 모든 메타 데이터 및 세부 정보가 포함 되어 있습니다. 예를 들어 센서 **모델** 개체 내의 **센서 측정값** 에는 센서에서 전송 하는 측정값과 해당 유형 및 단위에 대 한 세부 정보가 있습니다. 예제:
 
   ```json
   {

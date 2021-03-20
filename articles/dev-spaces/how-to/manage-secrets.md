@@ -7,10 +7,10 @@ description: Azure Dev Spaces를 사용 하 여 응용 프로그램을 개발할
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.custom: devx-track-js
 ms.openlocfilehash: 8791480f420dfd76d5291ce82e8ebf7412a41326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91972971"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Azure Dev Space로 작업할 때 비밀을 관리하는 방법
@@ -143,7 +143,7 @@ configurations:
 위의 예제에서 *mynugetsecret* 는 기존 암호이 고 *pattoken* 는 기존 키입니다.
 
 >[!NOTE]
-> 비밀 이름 및 키에는 문자를 포함할 수 있습니다 `.` . `\`를 사용 하 여 암호를 `.` 빌드 인수로 전달할 때 이스케이프 합니다. 예를 들어, *토큰*의 키를 사용 하 여 *foo. bar* 라는 암호를 전달 `MYTOKEN: ${secret.foo\.bar.token}` 합니다. 또한 암호는 접두사 및 후 위 텍스트를 사용 하 여 평가할 수 있습니다. 예들 들어 `MYURL: eus-${secret.foo\.bar.token}-version1`입니다. 또한 부모 및 최상위 공간에서 사용 가능한 암호는 빌드 인수로 전달 될 수 있습니다.
+> 비밀 이름 및 키에는 문자를 포함할 수 있습니다 `.` . `\`를 사용 하 여 암호를 `.` 빌드 인수로 전달할 때 이스케이프 합니다. 예를 들어 *토큰* 의 키를 사용 하 여 *foo.bar* 라는 암호를 전달 `MYTOKEN: ${secret.foo\.bar.token}` 합니다. 또한 암호는 접두사 및 후 위 텍스트를 사용 하 여 평가할 수 있습니다. 예: `MYURL: eus-${secret.foo\.bar.token}-version1` 또한 부모 및 최상위 공간에서 사용 가능한 암호는 빌드 인수로 전달 될 수 있습니다.
 
 Dockerfile에서 *ARG* 지시어를 사용 하 여 비밀을 사용 하 고 dockerfile에서 나중에 동일한 변수를 사용 합니다. 예를 들면 다음과 같습니다.
 

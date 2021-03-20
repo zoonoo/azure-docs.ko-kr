@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
 ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98928341"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop에 대해 .NET SDK를 사용하여 Apache Sqoop 작업 실행
@@ -44,7 +44,7 @@ HDInsight .NET SDK는 .NET 클라이언트 라이브러리를 제공하므로 .N
 
 Hive에서 SQL Server로  이 예제에서는 Hive `hivesampletable` 테이블의 데이터를 SQL Database의 `mobiledata` 테이블로 내보냅니다.
 
-1. Program.cs 파일에서 다음 코드를 사용 합니다. 코드를 편집 하 여, 및에 대 한 값을 설정 합니다 `ExistingClusterName` `ExistingClusterPassword` .
+1. Program .cs 파일에서 다음 코드를 사용 합니다. 코드를 편집 하 여, 및에 대 한 값을 설정 합니다 `ExistingClusterName` `ExistingClusterPassword` .
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;

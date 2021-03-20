@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 377aa042919f94ec31549f6d672a4dabc6c86859
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340739"
 ---
 # <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
@@ -35,7 +35,7 @@ TRIM(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 쿼리 내에서를 사용 하는 방법을 보여 줍니다 `TRIM` .  
   

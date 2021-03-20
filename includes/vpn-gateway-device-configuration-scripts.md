@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 02/07/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: e84a77629026bb8885a48b8ed928699825f07115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77111247"
 ---
 | **공급업체** | **디바이스 패밀리** | **펌웨어 버전** |

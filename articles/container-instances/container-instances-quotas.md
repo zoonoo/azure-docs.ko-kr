@@ -4,10 +4,10 @@ description: Azure Container Instances 서비스의 할당량, 제한 및 지역
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: eaaa8e0b2d72aaea546a1bc351da40932c1deb14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87384834"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Azure Container Instances 할당량 및 제한
@@ -24,7 +24,7 @@ Azure Container Instances에 대 한 계산, 메모리 및 저장소 리소스�
 
 ## <a name="next-steps"></a>다음 단계
 
-특정 기본 제한 및 할당량은 증대가 가능합니다. 이러한 증대를 지원하는 하나 이상의 리소스에 대해 증대를 요청하려면 [Azure 지원 요청][azure-support](**발급 요청**에 대해 "할당량" 선택)을 제출합니다.
+특정 기본 제한 및 할당량은 증대가 가능합니다. 이러한 증대를 지원하는 하나 이상의 리소스에 대해 증대를 요청하려면 [Azure 지원 요청][azure-support](**발급 요청** 에 대해 "할당량" 선택)을 제출합니다.
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
