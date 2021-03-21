@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.openlocfilehash: f76c3e6c739ae4dd13355d350a01b878e4d4f360
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666211"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Azure 이미지 작성기 서비스 문제 해결
@@ -41,7 +41,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>이미지 템플릿의 업데이트/업그레이드는 현재 지원 되지 않습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 'Conflict'. Details: Update/Upgrade of image templates is currently not supported
@@ -57,7 +57,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>리소스 작업이 ' 실패 ' 터미널 프로 비전 상태로 완료 되었습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' failed with message '{
@@ -85,7 +85,7 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 
 ### <a name="error-getting-managed-image"></a>관리 되는 이미지를 가져오는 동안 오류 발생
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.
@@ -107,7 +107,7 @@ Status=403 Code="AuthorizationFailed" Message="The client '......' with object i
 
 ### <a name="build--step-failed-for-image-version"></a>이미지 버전에 대 한 빌드 단계가 실패 했습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 ```text
 Build (Shared Image Version) step failed for Image Version '/subscriptions/.../providers/Microsoft.Compute/galleries/.../images/... /versions/0.23768.4001': Error getting Image Version '/subscriptions/.../resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001': Error getting image version '... :0.23768.4001': compute.GalleryImageVersionsClient#Get: Failure responding to request: StatusCode=404 -- Original Error: autorest/azure: Service returned an error. 
 Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/galleries/.../images/.../versions/0.23768.4001' under resource group '<rgName>' was not found."
@@ -122,7 +122,7 @@ Azure 이미지 작성기에서 원본 이미지를 찾을 수 없습니다.
 
 ### <a name="downloading-external-file-to-local-file"></a>로컬 파일에 외부 파일을 다운로드 하는 중
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [attempt 1 of 10] failed: Error downloading '<myFile>' to 'xxxxx.0.customizer.fp'..
@@ -210,7 +210,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
     ```
 5. 프로 비전 해제 단계입니다. Azure 이미지 작성기는 숨겨진 사용자 지정자를 추가 합니다. 이 프로 비전 해제 단계는 프로 비전 해제를 위해 VM을 준비 하는 일을 담당 합니다. Windows Sysprep (c:\DeprovisioningScript.ps1 사용) 또는 Linux waagent 프로 비전 해제 (/tmp/DeprovisioningScript.sh 사용)를 실행 합니다. 
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -229,7 +229,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="packer-build-command-failure"></a>팩 er 빌드 명령 실패
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
   "provisioningState": "Succeeded",
@@ -248,7 +248,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 로그를 검토 하 여 오류 지정자를 찾습니다. *(원격 분석)* 를 검색 합니다. 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -264,7 +264,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="timeout-exceeded"></a>제한 시간 초과
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in building/customizing image: Failed while waiting for packerizer: Timeout waiting for microservice to complete: 'context deadline exceeded'
@@ -290,7 +290,7 @@ Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in bui
 
 ### <a name="long-file-download-time"></a>긴 파일 다운로드 시간
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 ```text
 [086cf9c4-0457-4e8f-bfd4-908cfe3fe43c] PACKER OUT 
 myBigFile.zip 826 B / 826000 B  1.00%
@@ -313,7 +313,7 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 
 ### <a name="error-waiting-on-shared-image-gallery"></a>공유 이미지 갤러리에서 대기 하는 동안 오류 발생
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in distributing 1 images out of total 1: {[Error 0] [Distribute 0] Error publishing MDI to shared image gallery:/subscriptions/<subId>/resourceGroups/xxxxxx/providers/Microsoft.Compute/galleries/xxxxx/images/xxxxxx, Location:eastus. Error: Error returned from SIG client while publishing MDI to shared image gallery for dstImageLocation: eastus, dstSubscription: <subId>, dstResourceGroupName: XXXXXX, dstGalleryName: XXXXXX, dstGalleryImageName: XXXXXX. Error: Error waiting on shared image gallery future for resource group: XXXXXX, gallery name: XXXXXX, gallery image name: XXXXXX.Error: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded}
@@ -336,7 +336,7 @@ az resource show \
  
 ### <a name="low-windows-resource-information-events"></a>낮은 Windows 리소스 정보 이벤트
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 [45f485cf-5a8c-4379-9937-8d85493bc791] PACKER OUT     azure-arm: Waiting for operation to complete (system performance: 1% cpu; 37% memory)...
@@ -391,7 +391,7 @@ az resource show \
 
 ### <a name="builds-finished-but-no-artifacts-were-created"></a>빌드가 완료 되었지만 생성 된 아티팩트가 없습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 [a170b40d-2d77-4ac3-8719-72cdc35cf889] PACKER OUT Build 'azure-arm' errored: Future#WaitForCompletion: context has been cancelled: StatusCode=200 -- Original Error: context deadline exceeded
@@ -418,7 +418,7 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 
 ### <a name="resource-not-found"></a>리소스를 찾을 수 없음
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
   "provisioningState": "Succeeded",
@@ -441,7 +441,7 @@ Azure 이미지 작성기 다시 확인은 필요한 모든 권한을가지고 �
 
 ### <a name="sysprep-timing"></a>Sysprep 타이밍
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 [922bdf36-b53c-4e78-9cd8-6b70b9674685] PACKER OUT     azure-arm: Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
@@ -505,7 +505,7 @@ VM 크기를 늘립니다. 또는 타이밍 문제를 방지 하기 위해 60 �
 
 ### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>컨텍스트 취소 컨텍스트가 취소 된 후 작성기를 취소 하는 중
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 ```text
 PACKER ERR 2020/03/26 22:11:23 Cancelling builder after context cancellation context canceled
 PACKER OUT Cancelling build after receiving terminated
@@ -555,7 +555,7 @@ template name:  t_1556938436xxx
 
 ### <a name="operation-was-canceled"></a>작업이 취소되었습니다.
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 
 ```text
 2020-05-05T18:28:24.9280196Z ##[section]Starting: Azure VM Image Builder Task
@@ -595,7 +595,7 @@ Azure DevOps 기능 및 제한 사항에 대 한 자세한 내용은 [Microsoft 
 
 ### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>저속 Windows 로그온: ' Windows 모듈 설치 관리자를 기다려 주세요. '
 
-#### <a name="error"></a>Error
+#### <a name="error"></a>오류
 이미지 작성기를 사용 하 여 Windows 10 이미지를 만든 다음, RDP를 사용 하 여 이미지에서 VM을 만들고, 첫 번째 로그온 시 다음 메시지와 함께 파란색 화면을 표시 하는 데 몇 분 정도 기다려야 합니다.
 ```text
 Please wait for the Windows Modules Installer

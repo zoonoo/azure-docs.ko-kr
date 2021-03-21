@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
 ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915950"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>ACR 작업에서 Azure 관리 id 사용 
@@ -84,7 +84,7 @@ az acr task create \
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. id에 다른 Azure 리소스에 대 한 액세스 권한을 부여 합니다.
 
-작업 요구 사항에 따라 id 권한을 부여 하 여 다른 Azure 리소스에 액세스할 수 있습니다. 예를 들어 다음과 같습니다.
+작업 요구 사항에 따라 id 권한을 부여 하 여 다른 Azure 리소스에 액세스할 수 있습니다. 다음은 이러한 템플릿의 예입니다.
 
 * Azure의 대상 컨테이너 레지스트리에 끌어오기, 푸시 및 끌어오기 또는 기타 권한을 사용 하 여 관리 되는 id 역할을 할당 합니다. 레지스트리 역할의 전체 목록은 [Azure Container Registry 역할 및 사용 권한](container-registry-roles.md)을 참조 하세요. 
 * Azure 주요 자격 증명 모음에서 암호를 읽도록 관리 되는 id를 할당 합니다.

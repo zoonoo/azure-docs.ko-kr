@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742796"
 ---
 # <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD Multi-Factor Authentication 사용자 데이터 수집
@@ -30,7 +30,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure AD MFA AD FS 어댑터는 9
 
 인증 시도(보고 및 문제 해결에 사용):
 
-- Timestamp
+- 타임스탬프
 - 사용자 이름
 - 이름
 - 성
@@ -71,7 +71,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure AD MFA AD FS 어댑터는 9
 활성화(Microsoft Authenticator 모바일 앱에서 계정을 활성화하기 위한 시도):
 - 사용자 이름
 - 계정 이름
-- Timestamp
+- 타임스탬프
 - 활성화 코드 결과 가져오기
 - 활성화 성공
 - 활성화 오류

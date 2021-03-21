@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
 ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98247185"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>HTTPS 엔드포인트를 사용하여 상업용 Marketplace 잠재 고객 관리
@@ -240,11 +240,11 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
 1. **연결 세부 정보** 팝업 창에서 **잠재 고객 대상** 에 대한 **HTTPS 엔드포인트** 를 선택합니다. 이전 단계를 수행하여 만든 흐름의 HTTP POST URL을 **HTTPS 엔드포인트 URL** 필드로 붙여넣습니다.
     ![연결 세부 정보 연락처 이메일](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
 
-1. **연락처 이메일** 에서 새 잠재 고객이 수신될 때 이메일 알림을 받을 회사의 사용자에 대한 이메일 주소를 입력합니다. 세미콜론으로 구분하여 여러 이메일을 입력할 수 있습니다.
+1. **연락처 이메일** 에서 새 잠재 고객이 수신될 때 이메일 알림을 받을 회사의 사용자에 대한 이메일 주소를 입력합니다. 세미콜론으로 구분하여 여러 메일을 입력할 수 있습니다.
 
 1. **확인** 을 선택합니다.
 
-잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 **유효성 검사** 단추를 선택합니다. 성공하면 잠재 고객 대상에서 테스트 잠재 고객이 생깁니다.
+잠재 고객 대상에 성공적으로 연결되었는지 확인하려면 **유효성 검사** 단추를 선택합니다. 성공하면 잠재 고객 대상에 테스트 잠재 고객이 생깁니다.
 
 >[!NOTE] 
 >제품에 대한 잠재 고객을 받으려면 먼저 나머지 제품 구성을 끝내고 게시해야 합니다.

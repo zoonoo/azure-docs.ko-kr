@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
 ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215462"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
@@ -508,7 +508,7 @@ Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필
 
 다음 테이블에서는 중첩 엔드포인트에 대한 Traffic Manager의 상태 검사 동작에 대해 설명합니다.
 
-| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 메모 |
+| 자식 프로필 모니터 상태 | 부모 엔드포인트 모니터 상태 | 참고 |
 | --- | --- | --- |
 | 사용 안 함. 하위 프로필을 사용하지 않도록 설정했습니다. |중지됨 |부모 엔드포인트 상태는 Stopped이며 Disabled가 아닙니다. Disabled 상태는 부모 프로필에서 엔드포인트를 사용할 수 없도록 설정했음을 표시하도록 예약되어 있습니다. |
 | Degraded. 하나 이상의 자식 프로필 엔드포인트가 Degraded 상태입니다. |Online: 자식 프로필의 Online 엔드포인트 수가 MinChildEndpoints 값 이상입니다.<BR>CheckingEndpoint: 자식 프로필의 Online 및 CheckingEndpoint 엔드포인트 수 합계가 MinChildEndpoints 값 이상입니다.<BR>Degraded: 그렇지 않은 경우 |트래픽이 CheckingEndpoint 상태의 엔드포인트로 라우팅됩니다. MinChildEndpoints를 너무 높게 설정하는 경우 엔드포인트의 성능이 항상 저하됩니다. |

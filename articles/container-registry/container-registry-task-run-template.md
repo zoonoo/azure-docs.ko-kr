@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿을 사용 하 여 이미지를 빌
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98916068"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>리소스 관리자 템플릿을 사용 하 여 ACR 작업 실행

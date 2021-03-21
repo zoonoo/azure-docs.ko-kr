@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736188"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절 한 MySQL Server 옵션을 선택 합니다.
@@ -41,7 +41,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 
 이러한 옵션들의 주요 차이점은 다음 표에 나와 있습니다.
 
-| attribute          | Azure Database for MySQL<br/>단일 서버 |Azure Database for MySQL<br/>유연한 서버  |Azure Vm의 MySQL                      |
+| 특성          | Azure Database for MySQL<br/>단일 서버 |Azure Database for MySQL<br/>유연한 서버  |Azure Vm의 MySQL                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
 | MySQL 버전 지원 | 5.6, 5.7 & 8.0| 5.7 & 8.0 | 모든 버전|
 | 컴퓨팅 크기 조정 | 지원 됨 (및에서 기본 계층으로 크기 조정은 지원 되지 않음)| 지원됨 | 지원됨|

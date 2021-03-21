@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: e20679c3999f7ece1f6d3ed47a241cfd9dab9236
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102214748"
 ---
 # <a name="plan-your-qna-maker-app"></a>QnA Maker 앱 계획
@@ -98,7 +98,7 @@ QnA Maker 리소스에 대해 만들어진 첫 번째 기술 자료는 리소스
 
 * 공용 URL
 * 비공개 SharePoint URL
-* 파일
+* File
 
 수집 프로세스는 [지원 되는 콘텐츠 형식을](../reference-document-format-guidelines.md) markdown로 변환 합니다. *답변* 의 모든 편집은 markdown를 사용 하 여 수행 됩니다. 기술 자료를 만든 후에는 [서식 있는 텍스트 작성](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer)기능을 사용 하 여 QnA Maker 포털에서 [QnA 쌍](question-answer-set.md) 을 편집할 수 있습니다.
 

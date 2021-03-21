@@ -4,10 +4,10 @@ description: Service Fabric 클러스터에 대한 클라이언트를 인증하�
 ms.topic: conceptual
 ms.date: 6/28/2019
 ms.openlocfilehash: a1f89e144f9cef12c5bff87befb00a88bad8d7d9
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215972"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
@@ -26,7 +26,7 @@ Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabr
 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 이미 테넌트를 만들었다고 가정합니다. 그러지 않은 경우 [Azure Active Directory 테넌트를 얻는 방법][active-directory-howto-tenant]을 참조하세요.
 
 Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 단계를 단순화하기 위해 Windows PowerShell 스크립트 집합을 만들었습니다.

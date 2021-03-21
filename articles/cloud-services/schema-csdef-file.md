@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: b98534b049698ea95c6738ce3404dd5ef8ff7a28
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502267"
 ---
 # <a name="azure-cloud-services-classic-definition-schema-csdef-file"></a>Azure Cloud Services (클래식) 정의 스키마 (.csdef 파일)
@@ -66,7 +66,7 @@ ms.locfileid: "102502267"
 
 다음 표에서는 `ServiceDefinition` 요소의 특성을 설명합니다.
 
-| attribute               | 설명 |
+| 특성               | 설명 |
 | ----------------------- | ----------- |
 | name                    |필수 요소. 서비스의 이름입니다. 이름은 서비스 계정 내에서 고유해야 합니다.|
 | topologyChangeDiscovery | 선택 사항입니다. 토폴로지 유형 변경 알림을 지정합니다. 가능한 값은 다음과 같습니다.<br /><br /> -   `Blast` - 업데이트를 모든 역할 인스턴스에 최대한 빨리 보냅니다. 옵션을 선택한 경우 역할은 시작하지 않고 토폴로지 업데이트를 처리할 수 있어야 합니다.<br />-   `UpgradeDomainWalk` - 이전 인스턴스가 업데이트를 성공적으로 수락한 후 업데이트를 각 역할 인스턴스에 순차적으로 보냅니다.|

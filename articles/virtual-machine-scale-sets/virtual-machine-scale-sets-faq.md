@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100587948"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
@@ -64,7 +64,7 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-예! 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+예. 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
 ## <a name="autoscale"></a>자동 크기 조정
@@ -523,7 +523,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>가속 네트워킹을 포함한 확장 집합을 사용할 수 있나요?
 
-예. 가속된 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 true로 설정합니다. 예를 들면 다음과 같습니다.
+예. 가속된 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 true로 설정합니다. 예
 
 ```json
 "networkProfile": {

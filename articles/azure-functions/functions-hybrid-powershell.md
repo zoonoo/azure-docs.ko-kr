@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: eamono
 ms.openlocfilehash: 5e01ffd8e17fda9113c7ec0fdb2c7f436b39c810
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936909"
 ---
 # <a name="managing-hybrid-environments-with-powershell-in-azure-functions-and-app-service-hybrid-connections"></a>Azure Functions 및 App Service 하이브리드 연결에서 PowerShell을 사용 하 여 하이브리드 환경 관리
@@ -118,7 +118,7 @@ App Service 하이브리드 연결 기능은 Basic, Standard 및 격리 요금�
     | **끝점 포트** | 5986 |
     | **Servicebus 네임 스페이스** | 새로 만들기 |
     | **위치** | 사용 가능한 위치 선택 |
-    | **Name** | contosopowershellhybrid | 
+    | **이름** | contosopowershellhybrid | 
 
 1. **확인** 을 선택 하 여 하이브리드 연결을 만듭니다.
 

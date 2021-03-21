@@ -4,10 +4,10 @@ description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고�
 ms.topic: conceptual
 ms.date: 9/4/2018
 ms.openlocfilehash: 4f1cbe1e2d2c185906feb4ccba380cb31df864f5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588211"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
@@ -18,14 +18,14 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
 1. [Azure PowerShell 모듈](/powershell/azure/install-az-ps) 을 설치 해야 합니다.
 2. 내게 알려주도록 구성된 [작업 그룹을 만들거나 재사용](../azure-monitor/alerts/action-groups.md)해야 합니다.
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 1. PowerShell을 사용하여 계정으로 Azure에 로그인하고 상호 작용하려는 구독을 선택합니다.
 
     ```azurepowershell

@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: a8733723fdc59634609a4a79c3b12f12208ab63b
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470288"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Azure Storage 데이터에 대 한 액세스 권한 부여
@@ -26,10 +26,10 @@ ms.locfileid: "103470288"
 | Azure 아티팩트 | 공유 키 (저장소 계정 키) | 공유 액세스 서명(SAS) | Azure AD(Azure Active Directory) | 온-프레미스 Active Directory Domain Services | 익명 공용 읽기 액세스 |
 | -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |Azure Blob     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원되지 않음|[지원됨](../blobs/anonymous-read-access-configure.md)         |
-|SMB (Azure Files)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |지원 안 함         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |[지원 됨, 자격 증명을 Azure AD에 동기화 해야 합니다.](../files/storage-files-active-directory-overview.md)|지원 안 함         |
-|Azure Files (REST)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원 안 함         |지원 안 함 |지원 안 함         |
-|Azure 큐     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원되지 않음 | 지원 안 함         |
-|Azure Tables     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원 안 함         |지원 안 함| 지원 안 함         |
+|SMB (Azure Files)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |지원되지 않음         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |[지원 됨, 자격 증명을 Azure AD에 동기화 해야 합니다.](../files/storage-files-active-directory-overview.md)|지원되지 않음         |
+|Azure Files (REST)     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원되지 않음         |지원되지 않음 |지원되지 않음         |
+|Azure 큐     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원되지 않음 | 지원되지 않음         |
+|Azure Tables     |[지원됨](/rest/api/storageservices/authorize-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원되지 않음         |지원되지 않음| 지원되지 않음         |
 
 각 권한 부여 옵션에 대 한 간략 한 설명은 다음과 같습니다.
 

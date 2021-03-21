@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 2ef547bea9ba84665ec7187a5adf2f7a7d87e0a4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666333"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 및 JSON 파일의 중첩 형식 쿼리
@@ -47,7 +47,7 @@ FROM
 > [!IMPORTANT]
 > 이 예에서는 COVID-19 Open Research 데이터 집합의 파일을 사용 합니다. [여기에서 데이터의 라이선스 및 구조를 참조](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 첫 번째 단계는 데이터 원본이 생성 될 데이터베이스를 만드는 것입니다. 그런 다음 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) 를 실행 하 여 개체를 초기화 합니다. 설치 스크립트는 데이터 원본, 데이터베이스 범위 자격 증명 및 샘플에서 사용 되는 외부 파일 형식을 만듭니다.
 

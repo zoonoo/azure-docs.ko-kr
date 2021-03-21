@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 9e0aa186e742318ab5793fa8390251d94327bf08
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632710"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Barracuda CloudGen Firewall 연결
@@ -35,7 +35,7 @@ CGFW (Barracuda CloudGen Firewall) 커넥터를 사용 하면 Barracuda CGFW 로
 
 1. Azure Portal에서 **Azure 센티널**  >  **데이터 커넥터** 로 이동한 다음 **Barracuda cloudgen 방화벽** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. **Barracuda CloudGen 방화벽** 페이지의 지침을 따릅니다.
 

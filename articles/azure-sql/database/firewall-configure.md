@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
 ms.openlocfilehash: bbad7dcaa1d92df4969c88e4ba86a62987509e39
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632802"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
@@ -108,7 +108,7 @@ Azure의 응용 프로그램이 서버에 연결 하려고 하면 방화벽은�
 > [!IMPORTANT]
 > 이 옵션은 다른 고객의 구독에서 연결을 포함 하 여 Azure의 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택 하는 경우 로그인 및 사용자 권한이 권한 있는 사용자만 액세스할 수 있도록 제한 해야 합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure SQL Server에 대한 IP 방화벽 규칙을 만들고 관리하려면 다음 중 하나에서 수행할 수 있습니다.
 

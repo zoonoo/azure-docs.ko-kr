@@ -4,10 +4,10 @@ description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 �
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.openlocfilehash: a642affbac79766684dc75a37dae0373450d20e8
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632532"
 ---
 # <a name="get-access-keys-for-event-grid-resources-topics-or-domains"></a>Event Grid 리소스 (토픽 또는 도메인)에 대 한 액세스 키 가져오기

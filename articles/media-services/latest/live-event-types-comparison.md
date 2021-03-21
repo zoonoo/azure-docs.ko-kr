@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 3126cbf4f9d87e9baa7267e309210b751a47069d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897801"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737798"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI (Azure Vm에 SQL Server)에 대 한 가상 머신 준비
@@ -27,7 +27,7 @@ ms.locfileid: "98737798"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 - Microsoft Azure 구독. [무료로](https://azure.microsoft.com/free/)시작 하세요. 
 - Azure virtual machines의 Windows 도메인 또는 가상 네트워크 페어링을 사용 하 여 Azure로 확장 된 온-프레미스 데이터 센터.
@@ -111,7 +111,7 @@ Azure Marketplace의 SQL Server VM 이미지는 SQL IaaS 에이전트 확장에 
 
 다음 표에서는 FCI 구성에 따라 열어야 할 수 있는 포트에 대해 자세히 설명 합니다. 
 
-   | 목적 | 포트 | 메모
+   | 용도 | 포트 | 메모
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다. </br> </br> **사용**: 모든 fci 구성. |
    | 상태 프로브 | TCP 59999 | 모든 공개 TCP 포트입니다. 이 포트를 사용 하도록 부하 분산 장치 [상태 프로브](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) 및 클러스터를 구성 합니다. </br> </br> **사용**: 부하 분산 장치를 사용 하는 fci |

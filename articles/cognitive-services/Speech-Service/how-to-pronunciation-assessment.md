@@ -13,10 +13,10 @@ ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.openlocfilehash: dc1ab8bd1a851f7fafd5c001ac73e66973e1b64c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051891"
 ---
 # <a name="pronunciation-assessment"></a>발음 평가
@@ -177,10 +177,10 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 | 매개 변수 | 설명 | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 계산 될 텍스트입니다. | 필수 |
-| GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | Optional |
-| 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본값: `Phoneme`. | Optional |
-| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본값: `False`. | Optional |
-| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | Optional |
+| GradingSystem | 점수 보정의 시점 시스템입니다. `FivePoint`시스템은 0-5 부동 소수점 점수를 제공 하 고 `HundredMark` 0-100 부동 소수점 점수를 제공 합니다. 기본값: `FivePoint`. | 선택 사항 |
+| 세분성 | 평가 세분성입니다. 허용 되는 값은 전체 텍스트의 점수를 표시 하는 전체 텍스트, word 및 음소 수준에 대 한 점수를 표시 하는입니다 .이 값은 전체 텍스트 `Phoneme` `Word` `FullText` 수준 에서만 점수를 표시 합니다. 기본값: `Phoneme`. | 선택 사항 |
+| EnableMiscue | Miscue 계산을 사용 합니다. 이 기능을 사용 하도록 설정 하면 단어를 참조 텍스트와 비교 하 여 비교에 따라 생략/삽입으로 표시 됩니다. 허용되는 값은 `False` 및 `True`입니다. 기본값: `False`. | 선택 사항 |
+| ScenarioId | 사용자 지정 된 지점 시스템을 나타내는 GUID입니다. | 선택 사항 |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>발음 평가 결과 매개 변수
 

@@ -10,10 +10,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-java
 ms.openlocfilehash: 997a37ac4252813abf1b35877cd34e192ec3e2ae
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97585720"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java에서 Queue Storage를 사용 하는 방법
@@ -36,7 +36,7 @@ ms.locfileid: "97585720"
 
 이라는 Java 응용 프로그램을 만들려면 `queues-how-to-v12` 다음을 수행 합니다.
 
-1. 콘솔 창 (예: cmd, PowerShell 또는 Bash)에서 Maven를 사용 하 여 이름이 인 새 콘솔 앱을 만듭니다 `queues-how-to-v12` . 다음 명령을 입력 `mvn` 하 여 "hello 세계" Java 프로젝트를 만듭니다.
+1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 Maven을 사용하여 `queues-how-to-v12`라는 새 콘솔 앱을 만듭니다. 다음 `mvn` 명령을 입력하여 "hello world" Java 프로젝트를 만듭니다.
 
    ```bash
     mvn archetype:generate \
@@ -101,7 +101,7 @@ ms.locfileid: "97585720"
 
 ### <a name="install-the-package"></a>패키지 설치
 
-`pom.xml`텍스트 편집기에서 파일을 엽니다. 종속성 그룹에 다음 종속성 요소를 추가합니다.
+텍스트 편집기에서 `pom.xml` 파일을 엽니다. 종속성 그룹에 다음 종속성 요소를 추가합니다.
 
 ```xml
 <dependency>

@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a763bed0ed31d80ec094fde3c68c5c84537fec46
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013842"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>.NET을 사용하여 온-프레미스 인코더로 라이브 스트리밍을 수행하는 방법
@@ -37,7 +37,7 @@ ms.locfileid: "103013842"
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하여 통과 배달을 위해 구성된 **채널** 을 만드는 단계를 안내합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정.
@@ -55,7 +55,7 @@ ms.locfileid: "103013842"
 
 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 다음 코드 예제는 다음 작업을 수행하는 방법을 보여 줍니다.
 

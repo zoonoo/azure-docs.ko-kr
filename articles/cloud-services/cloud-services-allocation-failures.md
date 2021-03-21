@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 95fe4a8e1f6c6ee5f519311f8e756be89a09acf8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738313"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-classic-in-azure"></a>Azure에서 Cloud Services (클래식)을 배포 하는 경우 할당 오류 문제 해결
@@ -55,7 +55,7 @@ Azure Portal에서 클라우드 서비스로 이동 하 고 사이드바에서 *
 |ConstrainedAllocationFailed     |Azure 작업 ' `{Operation ID}` '이 (가) ConstrainedAllocationFailed 코드와 함께 실패 했습니다. 세부 정보: 할당 하지 못했습니다. 요청에서 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.|[ConstrainedAllocationFailed 문제 해결](cloud-services-troubleshoot-constrained-allocation-failed.md)|
 |OverconstrainedAllocationRequest     |배포 요청 제약 조건으로 인해이 배포에 필요한 VM 크기 (또는 VM 크기의 조합)를 프로 비전 할 수 없습니다. 가능 하면 가상 네트워크 바인딩과 같은 제약 조건을 완화 하 여 다른 배포 없이 호스팅된 서비스에 배포 하거나 다른 선호도 그룹이 나 선호도 그룹을 사용 하지 않거나 다른 지역에 배포 해 보십시오.|[OverconstrainedAllocationRequest 문제 해결](cloud-services-troubleshoot-overconstrained-allocation-request.md)|
 
-예제 오류 메시지:
+오류 메시지 예:
 
 > "ConstrainedAllocationFailed 코드를 사용 하 여 Azure 작업 ' {operation id} '이 (가) 실패 했습니다. 세부 정보: 할당 하지 못했습니다. 요청에서 제약 조건을 충족할 수 없습니다. 요청된 새로운 서비스 배포가 선호도 그룹에 바인딩되어 있거나 가상 네트워크를 대상으로 하거나 호스티드 서비스에 기존 배포가 있습니다. 이러한 조건이 특정 Azure 리소스에 대한 새로운 배포를 제한합니다. 나중에 다시 시도하거나, VM 크기를 줄이거나 역할 인스턴스의 수를 줄입니다. 가능하다면 앞서 말한 제약 조건을 제거하거나 다른 지역에 배포를 시도합니다.”
 

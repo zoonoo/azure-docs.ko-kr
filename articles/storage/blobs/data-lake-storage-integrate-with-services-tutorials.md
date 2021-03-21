@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: b67c3ccebefc178ddebc2b4a7fd49043bc0776b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735423"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2와 함께 Azure 서비스를 사용 하는 자습서
@@ -33,7 +33,7 @@ ms.locfileid: "101735423"
 | HDInsight | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | HDInsight | [Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md) |
 | Power BI | [Power BI를 사용 하 여 Data Lake Storage Gen2 데이터 분석](/power-query/connectors/datalakestorage) |
-| Azure Data Explorer | [Azure Data Lake에서 Azure Data Explorer를 사용하여 데이터 쿼리](/azure/data-explorer/data-lake-query-data) |
+| Azure 데이터 탐색기 | [Azure Data Lake에서 Azure Data Explorer를 사용하여 데이터 쿼리](/azure/data-explorer/data-lake-query-data) |
 | Azure Cognitive Search | [문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](../../search/search-howto-index-azure-data-lake-storage.md) |
 
 > [!NOTE]

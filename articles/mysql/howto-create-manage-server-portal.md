@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 1/26/2021
 ms.openlocfilehash: 83876f77e0d7ffc0ae20bc5a545c1f18f53f4a8f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897988"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 서버 관리
@@ -90,7 +90,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
  
 
 > [!IMPORTANT]
-> 서버 관리자 암호를 다시 설정 하면 자동으로 서버 관리자 권한이 기본값으로 다시 설정 됩니다. 하나 이상의 서버 관리자 권한을 실수로 취소 한 경우 서버 관리자 암호를 다시 설정 하는 것이 좋습니다.
+> 서버 관리자 암호를 다시 설정하면 자동으로 서버 관리자 권한이 기본값으로 다시 설정됩니다. 하나 이상의 서버 관리자 권한을 실수로 취소 한 경우 서버 관리자 암호를 다시 설정 하는 것이 좋습니다.
    
 > [!NOTE]
 > 서버 관리자 사용자에 게는 기본적으로 SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASE, CREATE 임시 TABLES, LOCK TABLES, EXECUTE, REPLICATION 슬레이브, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE 루틴, ALTER 루틴이, CREATE USER, EVENT, TRIGGER 권한이 있습니다.

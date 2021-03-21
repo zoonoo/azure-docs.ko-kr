@@ -17,10 +17,10 @@ ms.author: anilmur
 ms.reviewer: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7bf00abfaa56453303fa85e3062a7fafc7e0ac56
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014172"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Azure Media Services를 사용하여 라이브 스트리밍을 수행하여 .NET으로 다중 비트 스트림을 만드는 방법

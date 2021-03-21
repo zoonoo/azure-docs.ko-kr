@@ -8,10 +8,10 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7663848bd06244de7efb169a576e11a5c78204c1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100392904"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
@@ -29,7 +29,7 @@ ms.locfileid: "100392904"
 > [!IMPORTANT]
 > 이 웹 커넥터는 현재 HTML 페이지에서 테이블 콘텐츠를 추출하도록 지원합니다. HTTP/s 엔드포인트에서 데이터를 검색하려면 [HTTP 커넥터](data-factory-http-connector.md)를 대신 사용합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 웹 테이블 커넥터를 사용하려면 자체 호스트 통합 런타임(즉, 데이터 관리 게이트웨이)을 설정하고 싱크 연결된 서비스에서 `gatewayName` 속성을 구성해야 합니다. 예를 들어, 웹 테이블에서 Azure Blob 스토리지로 복사하려면 다음과 같이 Azure Storage 연결된 서비스를 구성합니다.
 
@@ -67,9 +67,9 @@ ms.locfileid: "100392904"
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **웹** |Yes |
+| type |형식 속성은 **웹** |예 |
 | Url |웹 원본에 대한 URL입니다. |예 |
-| authenticationType |익명 |Yes |
+| authenticationType |익명 |예 |
 
 ### <a name="using-anonymous-authentication"></a>익명 인증 사용
 

@@ -13,10 +13,10 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 11/02/2020
 ms.openlocfilehash: 257abf03994c7006b1c3789174f550515dcd309a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841464"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Always Encrypted 구성 
@@ -606,7 +606,7 @@ Always Encrypted를 사용 하도록 데이터베이스를 구성한 후에는 �
 ## <a name="related-information"></a>관련 정보
 
 - [상시 암호화(클라이언트 개발)](/sql/relational-databases/security/encryption/always-encrypted-client-development)
-- [투명 한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption)
+- [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption)
 - [암호화 SQL Server](/sql/relational-databases/security/encryption/sql-server-encryption)
 - [상시 암호화 마법사](/sql/relational-databases/security/encryption/always-encrypted-wizard)
 - [상시 암호화 블로그](/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

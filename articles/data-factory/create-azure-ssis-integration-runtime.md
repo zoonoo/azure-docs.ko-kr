@@ -7,10 +7,10 @@ ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 4b26abe1d1340e4e8c5f034fad72f612f0b246a2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739415"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
@@ -34,7 +34,7 @@ Azure-SSIS IR이 프로비저닝되면 익숙한 도구를 사용하여 Azure에
 
 이 문서에서는 Azure Portal, Azure PowerShell 및 Azure Resource Manager 템플릿을 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

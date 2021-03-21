@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 39750a86ccf781a10109e299e27a55a03173acb6
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98901056"
 ---
 증분 스냅숏은 관리 디스크의 지정 시간 백업으로, 마지막 스냅숏 이후의 변경 내용 으로만 구성 됩니다. 증분 스냅숏에서 디스크를 복원 하는 경우 시스템은 증분 스냅숏을 만들 때 디스크의 지정 시간 백업을 나타내는 전체 디스크를 재구성 합니다. 관리 디스크 스냅숏에 대 한이 새로운 기능을 사용 하면를 선택 하지 않는 한 개별 스냅숏이 있는 전체 디스크를 저장할 필요가 없기 때문에 더욱 비용 효율적일 수 있습니다. 전체 스냅숏과 마찬가지로 증분 스냅숏은 전체 관리 디스크 또는 전체 스냅숏을 만드는 데 사용할 수 있습니다.

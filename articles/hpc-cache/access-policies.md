@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
 ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471788"
 ---
 # <a name="control-client-access"></a>클라이언트 액세스 제어
@@ -39,7 +39,7 @@ Azure Portal의 **클라이언트 액세스 정책** 페이지를 사용 하 여
 
 이 섹션의 나머지 부분에서는 규칙에서 사용할 수 있는 값에 대해 설명 합니다.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 
 범위 용어와 주소 필터는 함께 작동 하 여 규칙의 영향을 받는 클라이언트를 정의 합니다.
 

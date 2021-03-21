@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: references_regions
 ms.openlocfilehash: 125f2be205760618ab6ffa3175f719f5e91e8c05
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103012261"
 ---
 # <a name="media-services-regional-availability"></a>Media Services 지역 가용성
@@ -44,8 +44,8 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 |Name|상태|지역
 |---|---|---|
-|표준|GA|모두|
-|프리미엄|GA|모두|
+|Standard|GA|모두|
+|Premium|GA|모두|
 
 ## <a name="live-encoding"></a>라이브 인코딩
 
@@ -82,7 +82,7 @@ Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 스
 
 |암호화|상태|영역|
 |---|---|---| 
-|스토리지|GA|모두|
+|Storage|GA|모두|
 |AES-128 키|GA|모두|
 |Fairplay|GA|모두|
 |PlayReady|GA|모두|

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: deb6b5f3718c1a7c84e3591bf9abcceb72b785da
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054747"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Azure 진단 확장에서 Azure Monitor 로그로 데이터 수집
@@ -24,7 +24,7 @@ Azure 진단 확장은 Azure Storage 계정에 데이터를 저장 합니다. �
 | 로그 형식 | 리소스 종류 | 위치 |
 | --- | --- | --- |
 | IIS 로그 |Virtual Machines <br> 웹 역할 <br> 작업자 역할 |wad-iis-logfiles(Blob Storage) |
-| syslog |Virtual Machines |LinuxsyslogVer2v0(Table Storage) |
+| Syslog |Virtual Machines |LinuxsyslogVer2v0(Table Storage) |
 | Service Fabric 작업 이벤트 |Service Fabric 노드 |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor 이벤트 |Service Fabric 노드 |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service 이벤트 |Service Fabric 노드 |WADServiceFabricReliableServiceEventTable |

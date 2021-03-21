@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
 ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98541193"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
@@ -31,7 +31,7 @@ Azure Vm을 복제 하는 동안 장애 조치 VM에 대해 다음과 같은 주
 - [공용 IP](../virtual-network/public-ip-addresses.md)
 - 서브넷 및 NIC 모두에 대 한 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 복구 쪽 구성을 미리 계획 해야 합니다.
 - 네트워킹 리소스를 미리 만듭니다. Azure Site Recovery 서비스에서 이러한 설정을 적용 하 고 장애 조치 (failover) VM이 이러한 설정을 준수 하는지 확인할 수 있도록 입력으로 제공 합니다.

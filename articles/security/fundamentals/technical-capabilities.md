@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
 ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735780"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 다음은 핵심적인 Azure id 관리 기능입니다.
 
-- SSO(Single sign-on)
+- Single Sign-On
 
 - Multi-Factor Authentication
 
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - ID 보호
 
-#### <a name="single-sign-on"></a>SSO(Single sign-on)
+#### <a name="single-sign-on"></a>Single Sign-On
 
 [Sso (single sign-on)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) 는 단일 사용자 계정을 사용 하 여 한 번만 로그인 함으로써 비즈니스를 수행 하는 데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미 합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 

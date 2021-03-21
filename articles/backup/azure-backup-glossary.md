@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup와 함께 사용 하는 데 도움
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502028"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
@@ -31,7 +31,7 @@ ms.locfileid: "102502028"
 
 (워크 로드 관련 용어)
 
-응용 프로그램 일치 백업은 메모리 콘텐츠 및 보류 중인 i/o 작업을 캡처합니다. 앱 일치 스냅숏은 [VSS](#vss-windows-volume-shadow-copy-service) vss writer (또는 Linux 용 사전 또는 사후 스크립트)를 사용 하 여 백업이 발생 하기 전에 앱 데이터의 일관성을 유지 합니다. [자세히 알아보기](backup-azure-vms-introduction.md).
+응용 프로그램 일치 백업은 메모리 콘텐츠 및 보류 중인 i/o 작업을 캡처합니다. 앱 일치 스냅숏은 [VSS](#vss-windows-volume-shadow-copy-service) vss writer (또는 Linux 용 사전 또는 사후 스크립트)를 사용 하 여 백업이 발생 하기 전에 앱 데이터의 일관성을 유지 합니다. [자세한 정보를 알아보세요](backup-azure-vms-introduction.md).
 
 ## <a name="azure-resource-manager-arm-templates"></a>ARM(Azure Resource Manager) 템플릿
 
@@ -88,7 +88,7 @@ Azure Backup는 저장소 및 데이터를 항상 사용 가능 하 게 유지 �
 
 ## <a name="bare-metal-backup"></a>완전 백업
 
-운영 체제 파일 백업 및 중요 한 볼륨의 모든 데이터 (사용자 데이터 제외) 정의에 따라 완전 백업에는 시스템 상태 백업이 포함 됩니다. BMR 백업은 컴퓨터가 시작되지 않고 모든 것을 복구해야 할 경우 보호 기능을 제공합니다. [자세히 알아보기](backup-mabs-system-state-and-bmr.md).
+운영 체제 파일 백업 및 중요 한 볼륨의 모든 데이터 (사용자 데이터 제외) 정의에 따라 완전 백업에는 시스템 상태 백업이 포함 됩니다. BMR 백업은 컴퓨터가 시작되지 않고 모든 것을 복구해야 할 경우 보호 기능을 제공합니다. [자세한 정보를 알아보세요](backup-mabs-system-state-and-bmr.md).
 
 ## <a name="backup-extensions--vm-extensions"></a>백업 확장/v m 확장
 
@@ -112,7 +112,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 BCDR는 비즈니스 중단을 최소화 하면서 계획 되거나 계획 되지 않은 서비스 또는 Azure 중단 중에 앱과 워크 로드를 실행 하 고 실행 하도록 하기 위해 조직에서 채택 해야 하는 일련의 프로세스를 포함 합니다. Azure에서 제공 하는 다양 한 서비스에 [대해 자세히 알아보고](https://azure.microsoft.com/solutions/backup-and-disaster-recovery/#overview) 소리 BCDR 전략을 만드는 데 도움을 줍니다.
 
-## <a name="churn"></a>Churn
+## <a name="churn"></a>변동
 
 연속 된 두 백업 간에 백업 되는 데이터의 변경 비율입니다. 새 데이터를 추가 하거나 기존 데이터를 수정 또는 삭제 했기 때문일 수 있습니다.
 
@@ -120,7 +120,7 @@ BCDR는 비즈니스 중단을 최소화 하면서 계획 되거나 계획 되�
 
 (워크 로드 관련 용어)
 
-크래시 일관성 스냅숏은 일반적으로 백업 시 Azure VM이 종료 되는 경우에 발생 합니다. 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. [자세히 알아보기](backup-azure-vms-introduction.md#snapshot-consistency).
+크래시 일관성 스냅숏은 일반적으로 백업 시 Azure VM이 종료 되는 경우에 발생 합니다. 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. [자세한 정보를 알아보세요](backup-azure-vms-introduction.md#snapshot-consistency).
 
 ## <a name="cross-region-restore-crr"></a>CRR (영역 간 복원)
 
@@ -148,7 +148,7 @@ BCDR는 비즈니스 중단을 최소화 하면서 계획 되거나 계획 되�
 
 (워크 로드 관련 용어)
 
-파일 시스템 일치 백업은 모든 파일의 스냅숏을 동시에 가져와서 일관성을 제공 합니다. [자세히 알아보기](backup-azure-vms-introduction.md#snapshot-consistency).
+파일 시스템 일치 백업은 모든 파일의 스냅숏을 동시에 가져와서 일관성을 제공 합니다. [자세한 정보를 알아보세요](backup-azure-vms-introduction.md#snapshot-consistency).
 
 ## <a name="frontend-storage--source-size"></a>프런트 엔드 저장소/원본 크기
 
@@ -202,7 +202,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 (워크 로드 관련 용어)
 
-**Azure Backup 에이전트** 또는 **Recovery Services 에이전트가** 라고도 하는 MARS 에이전트는 Azure Backup에서 온-프레미스 컴퓨터 및 azure Vm의 데이터를 azure의 백업 Recovery Services 자격 증명 모음으로 백업 하는 데 사용 됩니다. [자세히 알아보기](backup-support-matrix-mars-agent.md).
+**Azure Backup 에이전트** 또는 **Recovery Services 에이전트가** 라고도 하는 MARS 에이전트는 Azure Backup에서 온-프레미스 컴퓨터 및 azure Vm의 데이터를 azure의 백업 Recovery Services 자격 증명 모음으로 백업 하는 데 사용 됩니다. [자세한 정보를 알아보세요](backup-support-matrix-mars-agent.md).
 
 ## <a name="nsg-network-security-group"></a>NSG (네트워크 보안 그룹)
 
@@ -210,7 +210,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 ## <a name="offline-seeding"></a>오프 라인 시드
 
-오프 라인 시드는 네트워크 대역폭을 사용 하지 않고 초기 (전체) 백업을 오프 라인으로 전송 하는 프로세스를 말합니다. 백업 데이터를 실제 저장 장치에 복사 하는 메커니즘을 제공 합니다 .이 장치는 가까운 Azure 데이터 센터에 제공 되어 Recovery Services 자격 증명 모음에 업로드 됩니다. [자세히 알아보기](offline-backup-overview.md).
+오프 라인 시드는 네트워크 대역폭을 사용 하지 않고 초기 (전체) 백업을 오프 라인으로 전송 하는 프로세스를 말합니다. 백업 데이터를 실제 저장 장치에 복사 하는 메커니즘을 제공 합니다 .이 장치는 가까운 Azure 데이터 센터에 제공 되어 Recovery Services 자격 증명 모음에 업로드 됩니다. [자세한 정보를 알아보세요](offline-backup-overview.md).
 
 ## <a name="on-demand-backup--ad-hoc-backup"></a>주문형 백업/임시 백업
 
@@ -232,7 +232,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 ## <a name="protected-instance"></a>보호 된 인스턴스
 
-보호 된 인스턴스는 Azure에 백업을 구성 하는 데 사용 하는 컴퓨터, 물리적 또는 가상 서버를 나타냅니다.  **청구 관점** 에서 컴퓨터에 대 한 보호 된 인스턴스 수는 프런트 엔드 크기의 함수입니다. 따라서 단일 백업 인스턴스 (예: Azure에 백업 된 VM)는 프런트 엔드 크기에 따라 여러 보호 된 인스턴스에 해당할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/backup/).
+보호 된 인스턴스는 Azure에 백업을 구성 하는 데 사용 하는 컴퓨터, 물리적 또는 가상 서버를 나타냅니다.  **청구 관점** 에서 컴퓨터에 대 한 보호 된 인스턴스 수는 프런트 엔드 크기의 함수입니다. 따라서 단일 백업 인스턴스 (예: Azure에 백업 된 VM)는 프런트 엔드 크기에 따라 여러 보호 된 인스턴스에 해당할 수 있습니다. [자세한 정보를 알아보세요](https://azure.microsoft.com/pricing/details/backup/).
 
 ## <a name="rbac-role-based-access-control"></a>RBAC (역할 기반 액세스 제어)
 
@@ -246,7 +246,7 @@ Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단�
 
 *Microsoft RecoveryServices/* vault 형식의 Azure Resource Manager 리소스입니다. 현재 Recovery Services 자격 증명 모음을 사용 하 여 azure vm, azure vm의 SQL, Azure Vm의 SAP HANA 및 Azure 파일 공유와 같은 작업을 백업 합니다. MARS, Azure Backup Server (MABS) 및 System Center DPM을 사용 하 여 온-프레미스 워크 로드를 백업 하는 데도 사용 됩니다. [Recovery Services 자격 증명 모음에 대해 자세히 알아보세요](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>리소스 그룹
+## <a name="resource-group"></a>Resource group
 
 [Azure Resource Manager 설명서](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)를 참조 하세요.
 
@@ -272,11 +272,11 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 ## <a name="secondary-region--paired-region"></a>보조 지역/쌍을 이루는 지역
 
-지역 쌍은 동일한 지리 내의 두 지역으로 구성 됩니다. 하나는 주 지역이 고 다른 하나는 보조 지역입니다. 쌍을 이루는 지역은 일부 Azure 서비스 (GRS 설정 Azure Backup 포함)에서 비즈니스 연속성을 보장 하 고 데이터 손실을 방지 하는 데 사용 됩니다. [자세히 알아보기](../best-practices-availability-paired-regions.md).
+지역 쌍은 동일한 지리 내의 두 지역으로 구성 됩니다. 하나는 주 지역이 고 다른 하나는 보조 지역입니다. 쌍을 이루는 지역은 일부 Azure 서비스 (GRS 설정 Azure Backup 포함)에서 비즈니스 연속성을 보장 하 고 데이터 손실을 방지 하는 데 사용 됩니다. [자세한 정보를 알아보세요](../best-practices-availability-paired-regions.md).
 
 ## <a name="soft-delete"></a>일시 삭제
 
-일시 삭제는 실수로 백업 데이터를 삭제 하지 못하도록 방지 하는 기능입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우)에도 백업 데이터는 추가 시간 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. [자세히 알아보기](backup-azure-security-feature-cloud.md).
+일시 삭제는 실수로 백업 데이터를 삭제 하지 못하도록 방지 하는 기능입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우)에도 백업 데이터는 추가 시간 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. [자세한 정보를 알아보세요](backup-azure-security-feature-cloud.md).
 
 ## <a name="snapshot"></a>스냅샷
 
@@ -286,7 +286,7 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 [저장소 계정 설명서](../storage/common/storage-account-overview.md)를 참조 하세요.
 
-## <a name="subscription"></a>구독
+## <a name="subscription"></a>Subscription
 
 Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 논리적 컨테이너입니다. Vm (가상 머신), 데이터베이스 등의 모든 리소스에 대 한 세부 정보를 포함 합니다.
 
@@ -294,13 +294,13 @@ Azure 구독은 Azure에서 리소스를 프로비저닝하는 데 사용되는 
 
 (워크 로드 관련 용어)
 
-운영 체제 파일을 백업 합니다. 이 백업을 사용 하면 컴퓨터를 시작할 때 복구할 수 있지만 시스템 파일 및 레지스트리가 손실 됩니다. [자세히 알아보기](backup-mabs-system-state-and-bmr.md).
+운영 체제 파일을 백업 합니다. 이 백업을 사용 하면 컴퓨터를 시작할 때 복구할 수 있지만 시스템 파일 및 레지스트리가 손실 됩니다. [자세한 정보를 알아보세요](backup-mabs-system-state-and-bmr.md).
 
 ## <a name="tenant"></a>테넌트
 
 테넌트는 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다.
 
-## <a name="tier"></a>계층
+## <a name="tier"></a>서비스 계층
 
 현재 Azure Backup는 다음과 같은 백업 저장소 계층을 지원 합니다.
 
@@ -322,7 +322,7 @@ Azure Backup에서 지 원하는 모든 워크 로드에 대 한 백업 데이�
 
 ## <a name="vault-credentials"></a>자격 증명 모음 자격 증명
 
-자격 증명 모음 자격 증명 파일은 포털에서 각 자격 증명 모음에 대해 생성 하는 인증서입니다. 이는 온-프레미스 서버를 자격 증명 모음에 등록 하는 동안 사용 됩니다. [자세히 알아보기](backup-azure-dpm-introduction.md).
+자격 증명 모음 자격 증명 파일은 포털에서 각 자격 증명 모음에 대해 생성 하는 인증서입니다. 이는 온-프레미스 서버를 자격 증명 모음에 등록 하는 동안 사용 됩니다. [자세한 정보를 알아보세요](backup-azure-dpm-introduction.md).
 
 ## <a name="vnet-virtual-network"></a>VNET (Virtual Network)
 
