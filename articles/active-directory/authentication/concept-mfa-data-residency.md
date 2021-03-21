@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7381ab62eb39c555c6b4eb34f150fc71bea1f10f
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561467"
 ---
 # <a name="data-residency-and-customer-data-for-azure-ad-multifactor-authentication"></a>Azure AD 다단계 인증을 위한 데이터 상주 및 고객 데이터
@@ -113,7 +113,7 @@ Azure 다단계 인증 서버의 경우 다음 Azure Portal 페이지에 조직 
 | 소버린 클라우드                      | 로그인 로그                         | 다단계 인증 활동 보고서 (개인 데이터 포함)| 다단계 인증 서비스 로그 |
 |--------------------------------------|--------------------------------------|-------------------------------|------------------|
 | Microsoft Azure Germany              | 독일                              | 미국                            | 미국               |
-| Azure China 21Vianet                 | 중국                                | 미국                            | 미국               |
+| Azure 중국 21Vianet                 | 중국                                | 미국                            | 미국               |
 | Microsoft 정부 클라우드           | 미국                                   | 미국                            | 미국               |
 
 다단계 인증 활동 보고서는 UPN (사용자 계정 이름) 및 전체 전화 번호와 같은 개인 데이터를 포함 합니다.

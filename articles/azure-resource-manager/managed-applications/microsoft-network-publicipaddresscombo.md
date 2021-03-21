@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5def6db9d551b3882204c9f997f164a0df7ac223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87063305"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 요소
@@ -80,15 +80,15 @@ ms.locfileid: "87063305"
 }
 ```
 
-- `options.hideNone`이 **true**로 지정 되 면은 `newOrExistingOrNone` **new** 또는 **existing**값만 갖습니다.
-- `options.hideDomainNameLabel`이 **true**로 지정 되 면 `domainNameLabel` 는 선언 되지 않습니다.
+- `options.hideNone`이 **true** 로 지정 되 면은 `newOrExistingOrNone` **new** 또는 **existing** 값만 갖습니다.
+- `options.hideDomainNameLabel`이 **true** 로 지정 되 면 `domainNameLabel` 는 선언 되지 않습니다.
 
 ## <a name="remarks"></a>설명
 
-- `constraints.required.domainNameLabel`을 **true**로 설정하면 사용자가 새 공용 IP 주소를 만들 때 도메인 이름 레이블을 제공해야 합니다. 레이블이 없는 기존의 공용 IP 주소는 선택할 수 없습니다.
-- `options.hideNone`을 **true**로 설정하면 공용 IP 주소에 대해 **없음**을 선택하는 옵션이 숨겨집니다. 기본 값은 **false**입니다.
-- `options.hideDomainNameLabel`이 **true**로 설정하면 도메인 이름 레이블의 텍스트 상자가 숨겨집니다. 기본 값은 **false**입니다.
-- `options.hideExisting`이 true이면 사용자가 기존 공용 IP 주소를 선택할 수 없습니다. 기본 값은 **false**입니다.
+- `constraints.required.domainNameLabel`을 **true** 로 설정하면 사용자가 새 공용 IP 주소를 만들 때 도메인 이름 레이블을 제공해야 합니다. 레이블이 없는 기존의 공용 IP 주소는 선택할 수 없습니다.
+- `options.hideNone`을 **true** 로 설정하면 공용 IP 주소에 대해 **없음** 을 선택하는 옵션이 숨겨집니다. 기본 값은 **false** 입니다.
+- `options.hideDomainNameLabel`이 **true** 로 설정하면 도메인 이름 레이블의 텍스트 상자가 숨겨집니다. 기본 값은 **false** 입니다.
+- `options.hideExisting`이 true이면 사용자가 기존 공용 IP 주소를 선택할 수 없습니다. 기본 값은 **false** 입니다.
 - `zone`의 경우 지정된 영역에 대한 유일한 공용 IP 주소 또는 영역 복원력 있는 공용 IP 주소를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

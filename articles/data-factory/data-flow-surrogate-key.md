@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/30/2020
 ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93147187"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 서로게이트 키 변환 
@@ -21,7 +21,7 @@ ms.locfileid: "93147187"
 
 서로게이트 키 변환을 사용 하 여 데이터의 각 행에 증분 키 값을 추가 합니다. 이 기능은 별모양 스키마 분석 데이터 모델에서 차원 테이블을 디자인할 때 유용 합니다. 별모양 스키마에서 차원 테이블의 각 멤버에는 비 비즈니스 키인 고유 키가 필요 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ![서로게이트 키 변환](media/data-flow/surrogate.png "서로게이트 키 변환")
 
@@ -41,7 +41,7 @@ ms.locfileid: "93147187"
 
 #### <a name="database-sources"></a>데이터베이스 원본
 
-SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예: `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
+SQL 쿼리 옵션을 사용 하 여 원본에서 MAX ()를 선택 합니다. 예: `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`
 
 ![서로게이트 키 쿼리](media/data-flow/surrogate-key-max-database.png "서로게이트 키 변환 쿼리")
 

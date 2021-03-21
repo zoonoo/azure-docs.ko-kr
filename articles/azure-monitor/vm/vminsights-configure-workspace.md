@@ -1,5 +1,5 @@
 ---
-title: VM insights에 대 한 Log Analytics 작업 영역 구성
+title: VM 인사이트에 대한 Log Analytics 작업 영역 구성
 description: VM insights에서 사용 하는 Log Analytics 작업 영역을 만들고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.custom: references_regions
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.openlocfilehash: 5a0e04772cfc1c9be77c0ad8b32b0e93be8b9f54
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046723"
 ---
-# <a name="configure-log-analytics-workspace-for-vm-insights"></a>VM insights에 대 한 Log Analytics 작업 영역 구성
+# <a name="configure-log-analytics-workspace-for-vm-insights"></a>VM 인사이트에 대한 Log Analytics 작업 영역 구성
 VM insights는 Azure Monitor에서 하나 이상의 Log Analytics 작업 영역에서 데이터를 수집 합니다. 에이전트를 온 보 딩 하기 전에 작업 영역을 만들고 구성 해야 합니다. 이 문서에서는 작업 영역에 대 한 요구 사항을 설명 하 고 VM insights에 대해 구성 하는 방법을 설명 합니다.
 
 ## <a name="overview"></a>개요
@@ -60,7 +60,7 @@ VM insights에서 Log Analytics 작업 영역을 사용 하려면 먼저 *VMInsi
 > [!NOTE]
 > *VMInsights* 솔루션을 작업 영역에 추가 하면 작업 영역에 연결 된 모든 기존 가상 컴퓨터에서 데이터를 InsightsMetrics로 보내기 시작 합니다. 다른 데이터 형식에 대 한 데이터는 작업 영역에 연결 된 기존 가상 컴퓨터에 Dependency Agent를 추가할 때까지 수집 되지 않습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Azure Portal를 사용 하 여 기존 작업 영역을 구성 하는 세 가지 옵션이 있습니다. 각 항목에 대한 설명은 아래와 같습니다.
 
 단일 작업 영역을 구성 하려면 **Azure Monitor** 메뉴에서 **Virtual Machines** 옵션으로 이동 하 여 **다른 온 보 딩 옵션** 을 선택한 다음 **작업 영역을 구성** 합니다. 구독 및 작업 영역을 선택한 다음 **구성** 을 클릭 합니다.

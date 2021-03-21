@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: c3c8495b7355ee5d9ee8c28b4e0097a0080964d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046641"
 ---
 # <a name="enable-vm-insights-for-a-hybrid-virtual-machine"></a>하이브리드 가상 컴퓨터에 대해 VM insights 사용
@@ -18,7 +18,7 @@ ms.locfileid: "102046641"
 > [!IMPORTANT]
 > 하이브리드 Vm을 사용 하도록 설정 하는 권장 방법은 먼저 [서버에 대 한 Azure Arc](../../azure-arc/servers/overview.md) 를 사용 하도록 설정 하 여 Vm이 azure vm과 유사한 프로세스를 사용 하 여 vm 정보를 사용할 수 있도록 합니다. 이 문서에서는 Azure Arc를 사용 하지 않도록 선택 하는 경우 하이브리드 Vm을 등록 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
@@ -40,7 +40,7 @@ Log Analytics 에이전트에 대 한 방화벽 요구 사항은 [Log Analytics 
 
 다음 위치에서 종속성 에이전트를 다운로드할 수 있습니다.
 
-| 파일 | OS | 버전 | SHA-256 |
+| File | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.7.12710 | CA29CC328F991D7301FD0360F4F56DF78275545BB8CDA853679899CA885E96F0  |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.7.12710 | 98380DBEB2E2A5848F2202BC22422C68B20B62090C1BFC1DECAB37ED5451ED8C |
@@ -79,7 +79,7 @@ Dependency Agent는 셀프 추출 이진이 포함된 셸 스크립트인 *Insta
 > 에이전트를 설치 또는 구성하려면 루트 액세스가 필요합니다.
 >
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | -help | 명령줄 옵션 목록을 가져옵니다. |
 | -S | 사용자 프롬프트 없이 자동 설치를 수행합니다. |

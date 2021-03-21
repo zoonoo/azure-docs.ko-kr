@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710195"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 구문 분석 변환
@@ -21,7 +21,7 @@ ms.locfileid: "101710195"
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 구문 분석 변환 구성 패널에서 인라인으로 구문 분석 하려는 열에 포함 된 데이터의 형식을 선택 합니다. 구문 분석 변환에는 다음과 같은 구성 설정도 포함 됩니다.
 

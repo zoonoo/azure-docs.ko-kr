@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90898217"
 ---
 # <a name="summarize-data"></a>데이터 요약
@@ -49,7 +49,7 @@ ms.locfileid: "90898217"
 |열 이름|설명|
 |------|------|  
 |**기능**|열의 이름입니다.|
-|**Count**|모든 행의 개수|
+|**개수**|모든 행의 개수|
 |**고유 값 수**|열의 고유 값 수|
 |**누락 값 개수**|열의 고유 값 수|
 |**Min**|열에서 가장 낮은 값|  
@@ -57,7 +57,7 @@ ms.locfileid: "90898217"
 |**평균값**|모든 열 값의 평균|
 |**평균 편차**|열 값의 평균 편차|
 |**첫 번째 변위치**|처음 사분 위 값|
-|**중간값**|중앙값 열 값|
+|**중앙값**|중앙값 열 값|
 |**세 번째 변위치**|3 분 분의 값|
 |**모드**|열 값 모드|
 |**범위**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|

@@ -1,18 +1,18 @@
 ---
-title: VM 정보를 사용 하 여 성능을 차트로 만드는 방법
+title: VM 인사이트를 성능을 차트로 나타내는 방법
 description: 성능은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑하는 VM 정보 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
 ms.openlocfilehash: 02cb6a0c69fef1a33dd9327ddbd86e02b376a60e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046468"
 ---
-# <a name="how-to-chart-performance-with-vm-insights"></a>VM 정보를 사용 하 여 성능을 차트로 만드는 방법
+# <a name="how-to-chart-performance-with-vm-insights"></a>VM 인사이트를 성능을 차트로 나타내는 방법
 
 VM insights에는 가상 컴퓨터의 성능을 결정 하는 데 도움이 되는 여러 Kpi (핵심 성과 지표)를 대상으로 하는 성능 차트 집합이 포함 되어 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 처리할 때 고려해 야 할 여러 요소가 있지만, VM insights는 프로세서, 메모리, 네트워크 어댑터 및 디스크 사용량과 관련 된 주요 운영 체제 성능 표시기를 모니터링 합니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
 

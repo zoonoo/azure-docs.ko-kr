@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74079486"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Visual Studio용 클라우드 탐색기를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
@@ -54,17 +54,17 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 허브에 액세스 하려면 다음 단계를 수행 합니다.
 
-1. Visual Studio에서 **View**  >  **클라우드 탐색기** 보기를 선택 하 여 클라우드 탐색기를 엽니다.
+1. Visual Studio에서   >  **클라우드 탐색기** 보기를 선택 하 여 클라우드 탐색기를 엽니다.
 
 1. 계정 관리 아이콘을 선택 하 여 구독을 표시 합니다.
 
     ![계정 관리 아이콘](media/iot-hub-visual-studio-cloud-device-messaging/account-management-icon.png)
 
-1. Azure에 로그인 한 경우 계정이 표시 됩니다. 처음으로 Azure에 로그인 하려면 **계정 추가**를 선택 합니다.
+1. Azure에 로그인 한 경우 계정이 표시 됩니다. 처음으로 Azure에 로그인 하려면 **계정 추가** 를 선택 합니다.
 
-1. 사용 하려는 Azure 구독을 선택 하 고 **적용**을 선택 합니다.
+1. 사용 하려는 Azure 구독을 선택 하 고 **적용** 을 선택 합니다.
 
-1. 구독을 확장 한 다음 **IoT hub**를 확장 합니다.  각 허브에서 해당 허브에 대 한 장치를 볼 수 있습니다.
+1. 구독을 확장 한 다음 **IoT hub** 를 확장 합니다.  각 허브에서 해당 허브에 대 한 장치를 볼 수 있습니다.
 
     ![디바이스 목록](media/iot-hub-visual-studio-cloud-device-messaging/hub-device-list.png)
 
@@ -72,27 +72,27 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 디바이스에서 IoT Hub로 보낸 메시지를 모니터링하려면 다음 단계를 수행합니다.
 
-1. IoT Hub 또는 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+1. IoT Hub 또는 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작** 을 선택합니다.
 
     ![D2C 메시지 모니터링 시작](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message-vs2019.png)
 
-1. 모니터링 되는 메시지는 **출력**아래에 나타납니다.
+1. 모니터링 되는 메시지는 **출력** 아래에 나타납니다.
 
     ![D2C 메시지 모니터링 결과](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result-vs2019.png)
 
-1. 모니터링을 중지하려면 IoT Hub 또는 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 중지**를 선택합니다.
+1. 모니터링을 중지하려면 IoT Hub 또는 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 중지** 를 선택합니다.
 
 ## <a name="send-cloud-to-device-messages"></a>클라우드-디바이스 메시지 보내기
 
 IoT Hub에서 디바이스로 메시지를 보내려면 다음 단계를 수행합니다.
 
-1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **C2D 메시지 보내기**를 선택합니다.
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **C2D 메시지 보내기** 를 선택합니다.
 
 1. 입력 상자에 메시지를 입력합니다.
 
     ![C2D 메시지 보내기](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-test.png)
 
-    결과는 **출력**아래에 나타납니다.
+    결과는 **출력** 아래에 나타납니다.
 
     ![C2D 메시지 보내기 결과](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result-vs2019.png)
 

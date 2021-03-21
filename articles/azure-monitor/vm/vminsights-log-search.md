@@ -1,15 +1,15 @@
 ---
-title: VM 정보에서 로그를 쿼리 하는 방법
+title: VM 인사이트에서 로그를 쿼리하는 방법
 description: VM insights 솔루션은에 대 한 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
 ms.openlocfilehash: 28ee7f3d327c09f5837c7dc9e2f39c0f2ca4d888
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046536"
 ---
 # <a name="how-to-query-logs-from-vm-insights"></a>VM 정보에서 로그를 쿼리 하는 방법
@@ -46,7 +46,7 @@ VM insights는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection* 의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |Direction |연결 방향으로 값은 *인바운드* 또는 *아웃바운드* 입니다. |
 |컴퓨터 |컴퓨터 FQDN |
@@ -58,7 +58,7 @@ VM insights는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |LinksEstablished |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 |LinksTerminated |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -69,7 +69,7 @@ VM insights는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |BytesSent |보고 기간 동안 전송된 총 바이트 수 |
 |BytesReceived |보고 기간 동안 수신된 총 바이트 수 |
@@ -97,7 +97,7 @@ VM insights는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토
 
 또한 *VMConnection* 은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |RemoteCountry |RemoteIp를 호스트 하는 국가/지역의 이름입니다.  예: *미국* |
 |RemoteLatitude |지리적 위치 위도입니다. 예: *47.68* |
@@ -107,11 +107,11 @@ VM insights는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |MaliciousIp |RemoteIp 주소 |
 |IndicatorThreadType |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
-|설명 |관찰된 위협에 대한 설명입니다. |
+|Description |관찰된 위협에 대한 설명입니다. |
 |TLPLevel |TLP(Traffic Light Protocol) 수준은 정의된 *White*, *Green*, *Amber*, *Red* 값 중 하나입니다. |
 |신뢰도 |값은 *0 - 100* 입니다. |
 |심각도 |값은 *0 - 5* 입니다. 여기서 *5* 는 가장 심각하고 *0* 은 심각하지 않습니다. 기본값은 *3* 입니다.  |
@@ -127,7 +127,7 @@ VM insights는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토
 
 VMBoundPort의 모든 레코드는 다음 필드로 식별 됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |Process | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
 |Tcp/ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
@@ -155,7 +155,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 
 *Vmcomputer* 유형의 레코드는 종속성 에이전트가 있는 서버에 대 한 인벤토리 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자입니다. |
 |SourceSystem | *Insights* | 
@@ -217,7 +217,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 
 *Vmprocess* 유형의 레코드는 종속성 에이전트가 있는 서버에서 TCP 연결 프로세스에 대 한 인벤토리 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자입니다. |
 |SourceSystem | *Insights* | 
@@ -232,7 +232,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |그룹 | 프로세스 그룹 이름입니다. 동일한 그룹의 프로세스는 논리적으로 관련 되어 있습니다. 예를 들어 동일한 제품 또는 시스템 구성 요소의 일부입니다. |
 |StartTime | 프로세스 풀 시작 시간 |
 |FirstPid | 프로세스 풀의 첫 번째 PID |
-|설명 | 프로세스 설명 |
+|Description | 프로세스 설명 |
 |CompanyName | 회사의 이름 |
 |InternalName | 내부 이름 |
 |ProductName | 제품 이름 |
@@ -241,7 +241,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |ExecutablePath |실행 파일의 경로입니다. |
 |명령줄 | 명령줄 |
 |시작 위치 | 작업 디렉터리 |
-|Services | 프로세스가 실행 되 고 있는 서비스의 배열입니다. |
+|서비스 | 프로세스가 실행 되 고 있는 서비스의 배열입니다. |
 |UserName | 프로세스를 실행 중인 계정 |
 |UserDomain | 프로세스를 실행 중인 도메인 |
 |_ResourceId | 작업 영역 내 프로세스에 대한 고유 식별자 |
@@ -433,7 +433,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 *InsightsMetrics* 형식의 레코드는 가상 컴퓨터의 게스트 운영 체제에서 성능 데이터를 포함 합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 |TenantId | 작업 영역에 대 한 고유 식별자 |
 |SourceSystem | *Insights* | 
@@ -441,7 +441,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 |Computer | 컴퓨터 FQDN | 
 |원본 | *vm.azm.ms* |
 |네임스페이스 | 성능 카운터의 범주입니다. | 
-|속성 | 성능 카운터의 이름입니다. |
+|Name | 성능 카운터의 이름입니다. |
 |Val | 수집 된 값 | 
 |태그 | 레코드에 대 한 관련 세부 정보입니다. 다른 레코드 형식에 사용 되는 태그는 아래 표를 참조 하세요.  |
 |AgentId | 각 컴퓨터의 에이전트에 대 한 고유 식별자 |
@@ -450,7 +450,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 *InsightsMetrics* 테이블에 현재 수집 된 성능 카운터는 다음 표에 나열 되어 있습니다.
 
-| 네임스페이스 | 속성 | 설명 | 단위 | 태그 |
+| 네임스페이스 | Name | Description | 단위 | 태그 |
 |:---|:---|:---|:---|:---|
 | Computer    | 하트비트             | 컴퓨터 하트 비트                        | | |
 | 메모리      | AvailableMB           | 사용 가능한 메모리 바이트                    | 메가바이트      | memorySizeMB-총 메모리 크기|

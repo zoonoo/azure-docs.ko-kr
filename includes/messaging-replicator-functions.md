@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: service-bus-messaging, event-hubs
 author: spelluru
 ms.service: service-bus-messaging, event-hubs
@@ -9,10 +9,10 @@ ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 1ce983ee739a4a124a93c7913f092b23dfec3cbd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98901069"
 ---
 ## <a name="what-is-a-replication-task"></a>복제 작업 이란?
@@ -85,7 +85,7 @@ Azure VNet (가상 네트워크)에 바인딩된 Event Hubs에 액세스 해야 
 | **VNet을 사용 하 여 프리미엄 계획 Azure Functions** | [![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)|[![시각화](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)
 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 [샘플 리포지토리에](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/) 는 Event Hubs 및/또는 Service Bus 엔터티 간에 이벤트를 복사 하는 복제 작업의 몇 가지 예제가 포함 되어 있습니다.
 

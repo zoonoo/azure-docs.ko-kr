@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 785c87e8136430557af819cd8c7ab1db8f54c060
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102507724"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
@@ -129,7 +129,7 @@ Azure Storage의 Azure Blob, 큐, 테이블 및 파일 서비스에 대한 액�
 Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약입니다. 구독 가격 책정 및 관련 조건은 구독에 대해 선택된 제안에 따라 제어됩니다.
 [Microsoft 온라인 정기가입 계약](https://azure.microsoft.com/support/legal/subscription-agreement/) 및 [Azure 구독과 Azure Active Directory의 연관 관계](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-## <a name="tag"></a>tag
+## <a name="tag"></a>태그
 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있도록 하는 인덱싱 용어입니다. 복잡한 리소스 컬렉션이 있는 경우 태그를 사용하여 이러한 자산을 가장 적합한 방식으로 시각화할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.  
 [태그를 사용하여 Azure 리소스 구성](./azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
@@ -153,7 +153,7 @@ Azure 서비스를 받을 수 있도록 하는, 고객과 Microsoft와의 계약
 ## <a name="web-app"></a>웹앱
 [App Service 앱](#app-service-app)의 다른 이름입니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure 시작](https://azure.microsoft.com/get-started/)
 * [클라우드 리소스 센터](https://azure.microsoft.com/resources/)  

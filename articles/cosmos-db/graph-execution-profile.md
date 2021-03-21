@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: chrande
 ms.openlocfilehash: 18cefb1dd80368a8ccdad9f6f3ffc30881a8a889
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087488"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>실행 프로필 단계를 사용하여 Gremlin 쿼리를 평가하는 방법
@@ -22,7 +22,7 @@ ms.locfileid: "93087488"
 
 이 단계를 사용 하려면 `executionProfile()` Gremlin 쿼리 끝에 함수 호출을 추가 하면 됩니다. **Gremlin 쿼리가 실행** 되 고 작업 결과가 쿼리 실행 프로필을 사용 하 여 JSON 응답 개체를 반환 합니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```java
     // Basic traversal
@@ -139,12 +139,12 @@ ms.locfileid: "93087488"
 ## <a name="execution-profile-response-objects"></a>실행 프로필 응답 개체
 
 ExecutionProfile () 함수의 응답은 다음 구조를 사용 하 여 JSON 개체의 계층 구조를 생성 합니다.
-  - **Gremlin operation 개체** : 실행 된 전체 Gremlin 작업을 나타냅니다. 에는 다음 속성이 포함 되어 있습니다.
+  - **Gremlin operation 개체**: 실행 된 전체 Gremlin 작업을 나타냅니다. 에는 다음 속성이 포함 되어 있습니다.
     - `gremlin`: 실행 된 명시적 Gremlin 문입니다.
     - `totalTime`: 단계 실행이에서 발생 한 시간 (밀리초)입니다. 
     - `metrics`: 쿼리를 수행 하기 위해 실행 된 각 Cosmos DB 런타임 연산자를 포함 하는 배열입니다. 이 목록은 실행 순서 대로 정렬 됩니다.
     
-  - **Cosmos DB 런타임 연산자** : 전체 Gremlin 작업의 각 구성 요소를 나타냅니다. 이 목록은 실행 순서 대로 정렬 됩니다. 각 개체에는 다음 속성이 포함 되어 있습니다.
+  - **Cosmos DB 런타임 연산자**: 전체 Gremlin 작업의 각 구성 요소를 나타냅니다. 이 목록은 실행 순서 대로 정렬 됩니다. 각 개체에는 다음 속성이 포함 되어 있습니다.
     - `name`: 운영자의 이름입니다. 이는 평가 되 고 실행 된 단계의 유형입니다. 아래 표를 참조 하세요.
     - `time`: 지정 된 연산자가 걸린 시간 (밀리초)입니다.
     - `annotations`: 실행 된 연산자와 관련 된 추가 정보를 포함 합니다.

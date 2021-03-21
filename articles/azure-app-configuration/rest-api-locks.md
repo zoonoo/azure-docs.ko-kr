@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: e99ce5595bae8ed64285317d9249da60e0fc1b83
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932526"
 ---
 # <a name="locks"></a>잠금
@@ -22,7 +22,7 @@ ms.locfileid: "96932526"
 
 있는 경우는 `label` 명시적 레이블 값 (와일드 카드 아님) 이어야 합니다. 모든 작업에는 선택적 매개 변수입니다. 생략 하는 경우 레이블이 없음을 의미 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 

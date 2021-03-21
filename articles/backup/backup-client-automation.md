@@ -4,10 +4,10 @@ description: 이 문서에서는 PowerShell을 사용 하 여 Windows Server 또
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90987096"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -42,7 +42,7 @@ ms.locfileid: "90987096"
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage), [GRS (지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 저장소) 또는 [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage)를 사용할 수 있습니다. 다음 예에서는 **GeoRedundant**로 설정 된 *testvault* 에 대 한 **-BackupStorageRedundancy** 옵션을 보여 줍니다.
+4. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage), [GRS (지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 저장소) 또는 [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage)를 사용할 수 있습니다. 다음 예에서는 **GeoRedundant** 로 설정 된 *testvault* 에 대 한 **-BackupStorageRedundancy** 옵션을 보여 줍니다.
 
    > [!TIP]
    > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이러한 이유로 인해 Backup Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
@@ -56,7 +56,7 @@ ms.locfileid: "90987096"
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
-**Get-AzRecoveryServicesVault**를 사용하여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용 하 여 새 자격 증명 모음이 만들어졌는지 확인 하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
+**Get-AzRecoveryServicesVault** 를 사용하여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용 하 여 새 자격 증명 모음이 만들어졌는지 확인 하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
 **Get-AzRecoveryServicesVault** 명령을 실행하면 구독의 모든 자격 증명 모음이 나열됩니다.
 
@@ -97,7 +97,7 @@ MARSAgentInstaller.exe /q
 
 그러면 에이전트가 모두 기본 옵션으로 설치됩니다. 설치는 백그라운드에서 몇 분 정도 소요됩니다. */Nu* 옵션을 지정 하지 않으면 설치 종료 시 **Windows 업데이트** 창이 열리고 업데이트가 있는지 확인할 수 있습니다. 설치되면 설치된 프로그램 목록에 에이전트가 표시됩니다.
 
-설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
+설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능** 으로 이동합니다.
 
 ![에이전트 설치됨](./media/backup-client-automation/installed-agent-listing.png)
 
@@ -209,7 +209,7 @@ Server properties updated successfully.
 
 Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보호하기 위해 암호화됩니다. 암호화 암호는 복원 시 데이터를 해독하기 위한 “암호"입니다.
 
-Azure Portal의 **Recovery Services 자격 증명 모음**에서 **설정** > **속성** > **보안 PIN** 아래의 **생성**을 선택하여 보안 PIN을 생성해야 합니다.
+Azure Portal의 **Recovery Services 자격 증명 모음** 에서 **설정** > **속성** > **보안 PIN** 아래의 **생성** 을 선택하여 보안 PIN을 생성해야 합니다.
 
 >[!NOTE]
 > 보안 PIN은 Azure Portal를 통해서만 생성할 수 있습니다.
@@ -659,7 +659,7 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 
 ### <a name="triggering-the-restore-process"></a>복원 프로세스 트리거
 
-복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](/powershell/module/msonlinebackup/new-obrecoveryoption) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\temp*로 복원 하려는 경우를 가정해 보겠습니다. 또한 대상 폴더 *C:\temp*에 이미 있는 파일을 건너뛸지를 가정해 보겠습니다. 이러한 복구 옵션을 만들려면 다음 명령을 사용 합니다.
+복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](/powershell/module/msonlinebackup/new-obrecoveryoption) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\temp* 로 복원 하려는 경우를 가정해 보겠습니다. 또한 대상 폴더 *C:\temp* 에 이미 있는 파일을 건너뛸지를 가정해 보겠습니다. 이러한 복구 옵션을 만들려면 다음 명령을 사용 합니다.
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -700,7 +700,7 @@ Azure Backup 에이전트 제거는 다음 명령을 사용하여 수행할 수 
 
 Azure Backup 에이전트, 정책, 데이터 원본과 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
 
-기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
+기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동* 으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running* 이어야 합니다.
 
 ```powershell
 Get-Service -Name WinRM
