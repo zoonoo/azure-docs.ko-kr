@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: automation
 author: mgoedtel
@@ -9,10 +9,10 @@ ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99974641"
 ---
 #### <a name="process-automation"></a>프로세스 자동화

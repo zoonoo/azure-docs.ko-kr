@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
 ms.openlocfilehash: 41d9962657aa81dbe34a52302d1b68ec655f2893
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095292"
 ---
 인증서가 아직 없는 경우 자체 서명 된 인증서를 사용할 수 있습니다. 자체 서명 된 인증서는 CA (인증 기관)에서 서명 하지 않은 보안 인증서 이며, CA에서 서명한 인증서의 보안 보장을 제공 하지 않습니다. 

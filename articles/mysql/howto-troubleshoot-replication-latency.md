@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
 ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249774"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Azure Database for MySQL의 복제 지연 문제 해결
@@ -95,7 +95,7 @@ mysql> SHOW SLAVE STATUS;
 
 출력에 많은 정보가 포함 되어 있습니다. 일반적으로 다음 표에서 설명 하는 행에만 초점을 맞춰야 합니다.
 
-|메트릭|Description|
+|메트릭|설명|
 |---|---|
 |Slave_IO_State| IO 스레드의 현재 상태를 나타냅니다. 원본 (마스터) 서버를 동기화 하는 경우 일반적으로 상태는 "마스터에서 이벤트를 보낼 때까지 대기 중입니다."입니다. "마스터에 연결"과 같은 상태는 복제본이 원본 서버에 대 한 연결을 잃어버린 것을 나타냅니다. 원본 서버가 실행 중인지 확인 하거나 방화벽에서 연결을 차단 하 고 있는지 확인 하십시오.|
 |Master_Log_File| 원본 서버에서 쓰고 있는 이진 로그 파일을 나타냅니다.|
@@ -177,7 +177,7 @@ Seconds_Behind_Master: There is latency and the value here is greater than 0
 
 #### <a name="no-primary-key-or-unique-key-on-a-table"></a>테이블에 기본 키 또는 고유 키가 없습니다.
 
-Azure Database for MySQL은 행 기반 복제를 사용 합니다. 원본 서버는 이진 로그에 이벤트를 기록 하 여 개별 테이블 행의 변경 내용을 기록 합니다. 그런 다음 SQL 스레드는 이러한 변경 내용을 복제 서버의 해당 테이블 행에 복제 합니다. 테이블에 기본 키 또는 고유 키가 없는 경우 SQL 스레드는 대상 테이블의 모든 행을 검색 하 여 변경 내용을 적용 합니다. 이 검색을 수행 하면 복제 대기 시간이 발생할 수 있습니다.
+Azure Database for MySQL은 행 기반 복제를 사용 합니다. 원본 서버는 이진 로그에 이벤트를 기록 하 여 개별 테이블 행의 변경 내용을 기록 합니다. 그런 다음 SQL 스레드는 이러한 변경 내용을 복제 서버의 해당 테이블 행에 복제 합니다. 테이블에 기본 키 또는 고유 키가 없는 경우 SQL 스레드는 대상 테이블의 모든 행을 검색 하 여 변경 내용을 적용 합니다. 이 검사를 수행하면 복제 지연이 발생할 수 있습니다.
 
 MySQL에서 기본 키는 NULL 값을 포함할 수 없기 때문에 쿼리 성능을 향상 시키는 연결 된 인덱스입니다. InnoDB 저장소 엔진을 사용 하는 경우 테이블 데이터는 매우 빠른 조회를 수행 하 고 기본 키를 기준으로 정렬 되도록 물리적으로 구성 됩니다.
 

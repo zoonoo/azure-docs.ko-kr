@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919210"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법

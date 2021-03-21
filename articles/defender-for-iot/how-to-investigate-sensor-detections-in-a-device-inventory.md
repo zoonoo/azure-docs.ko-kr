@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523994"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>디바이스 인벤토리에서 센서 감지 조사
@@ -30,9 +30,9 @@ ms.locfileid: "100523994"
 
 다음 특성은 장치 인벤토리 테이블에 표시 됩니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |--|--|
-| 속성 | 센서가 검색 한 장치 이름 이거나 사용자가 입력 한 장치 이름입니다. |
+| Name | 센서가 검색 한 장치 이름 이거나 사용자가 입력 한 장치 이름입니다. |
 | Type | 센서에 의해 결정 되거나 사용자가 입력 한 장치의 유형입니다. |
 | Vendor | MAC 주소에 정의 된 장치 공급 업체의 이름입니다. |
 | 운영 체제 | 검색 된 장치의 OS입니다. |
@@ -143,7 +143,7 @@ ms.locfileid: "100523994"
 
 - Windows 7
 
-- Windows 10
+- 윈도우 10
 
 - Windows Server 2003/2008/2012/2016
 
@@ -223,7 +223,7 @@ CSV 파일을 내보내려면:
 
 - 장치 인벤토리의 오른쪽 상단 메뉴에서를 선택 :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: 합니다. CSV 보고서가 생성 되어 다운로드 됩니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [디바이스 인벤토리에서 모든 엔터프라이즈 센서 감지 조사](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

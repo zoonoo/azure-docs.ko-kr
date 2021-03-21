@@ -13,10 +13,10 @@ ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
 ms.openlocfilehash: bef5942707c1ded22ba82bdb0d945b9fdb23fffa
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349353"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
@@ -64,7 +64,7 @@ AD FS에서 이동 된 앱에는 동일한 형식의 클레임이 필요 합니�
 
 ## <a name="prerequisites-for-using-group-attributes-synchronized-from-active-directory"></a>Active Directory에서 동기화 된 그룹 특성을 사용 하기 위한 필수 구성 요소
 
-ObjectId 형식을 사용 하는 경우 그룹 멤버 자격 클레임을 모든 그룹의 토큰으로 내보낼 수 있습니다. 그룹 ObjectId 이외의 형식으로 그룹 클레임을 사용 하려면 Azure AD Connect를 사용 하 여 Active Directory에서 그룹을 동기화 해야 합니다.
+ObjectId 형식을 사용하는 경우 그룹 구성원 클레임을 모든 그룹의 토큰으로 내보낼 수 있습니다. 그룹 ObjectId 이외의 형식으로 그룹 클레임을 사용 하려면 Azure AD Connect를 사용 하 여 Active Directory에서 그룹을 동기화 해야 합니다.
 
 Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active Directory를 구성 하는 단계는 두 단계로 구성 됩니다.
 
@@ -138,7 +138,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 2. GroupMembershipClaim를 변경 하 여 그룹 멤버 자격 클레임을 사용 하도록 설정
 
-유효한 값은 다음과 같습니다.
+유효한 값은
 
 | 선택 영역 | 설명 |
 |----------|-------------|
@@ -192,7 +192,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
    > [!NOTE]
    > "emit_as_roles"를 사용하는 경우 사용자가 할당되어 있는 모든 구성된 애플리케이션 역할이 역할 클레임에 표시되지 않습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 Dnsdomainnamenameformat 형식의 OAuth 액세스 토큰에서 그룹을 그룹 이름으로 내보냅니다.
 

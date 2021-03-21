@@ -4,10 +4,10 @@ description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99070647"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
@@ -18,7 +18,7 @@ Linux용 게스트 구성 정책을 만드는 방법에 대한 자세한 내용�
 
 Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/powershell/scripting/dsc/overview/overview)) 리소스 모듈을 사용하여 구성 파일을 만듭니다. DSC 구성은 컴퓨터가 충족해야 하는 조건을 정의합니다. 구성 평가에 실패하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터를 **비준수** 로 간주합니다.
 
-[Azure Policy 게스트 구성](../concepts/guest-configuration.md)은 컴퓨터 내의 설정을 감사하는 데만 사용할 수 있습니다. 컴퓨터 내에서 설정 수정은 아직 사용할 수 없습니다.
+[Azure Policy 게스트 구성](../concepts/guest-configuration.md)은 컴퓨터 내의 설정을 감사하는 데에만 사용할 수 있습니다. 컴퓨터 내 설정 수정은 아직 사용할 수 없습니다.
 
 다음 작업을 사용하여 Azure 또는 비 Azure 컴퓨터 상태의 유효성을 검사하는 고유한 구성을 만듭니다.
 
@@ -35,7 +35,7 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 게스트 구성 모듈은 다음과 같은 사용자 지정 콘텐츠를 만드는 프로세스를 자동화합니다.
 
 - 게스트 구성 콘텐츠 아티팩트 만들기(.zip)
-- 아티팩트의 자동화된 테스트
+- 자동화된 아티팩트 테스트
 - 정책 정의 만들기
 - 정책 게시
 
@@ -46,7 +46,7 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
-모듈을 설치할 수 있는 운영 체제:
+모듈을 설치할 수 있는 운영 체제는 다음과 같습니다.
 
 - Linux
 - macOS

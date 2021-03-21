@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
 ms.openlocfilehash: a8ea32d84da521c8a1af926c6cb5e26bc2738de2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054756"
 ---
-# <a name="audit-azure-sentinel-queries-and-activities"></a>Azure 센티널 쿼리 및 활동 감사
+# <a name="audit-azure-sentinel-queries-and-activities"></a>Azure Sentinel 쿼리 및 활동 감사
 
 이 문서에서는 보안 작업 (SOC) 작업 영역에서 내부 및 외부 규정 준수 요구 사항 등 Azure 센티널 작업 영역에서 수행 되는 쿼리 실행 및 작업에 대 한 감사 데이터를 보는 방법을 설명 합니다.
 

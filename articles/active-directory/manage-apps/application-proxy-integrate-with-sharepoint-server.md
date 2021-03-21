@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b5895d016e2d9d9b471218bc083ea7585254b45
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258684"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
@@ -188,7 +188,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 수�
 1. Azure AD 프록시 커넥터를 실행 하는 컴퓨터를 찾습니다. 이 예제에서는 SharePoint 서버 자체입니다.
 1. 컴퓨터를 두 번 클릭한 후 **위임** 탭을 선택합니다.
 1. 위임 옵션이 **지정 된 서비스에 대 한 위임용 으로만이 컴퓨터 트러스트** 로 설정 되어 있는지 확인 합니다. 그런 다음 **모든 인증 프로토콜 사용** 을 선택 합니다.
-1. **추가** 단추를 선택 하 고, **사용자 또는 컴퓨터** 를 선택 하 고, SharePoint 응용 프로그램 풀 계정을 찾습니다. 예: `Contoso\spapppool`
+1. **추가** 단추를 선택 하 고, **사용자 또는 컴퓨터** 를 선택 하 고, SharePoint 응용 프로그램 풀 계정을 찾습니다. 예를 들어 `Contoso\spapppool`을 참조하십시오.
 1. SPN 목록에서 서비스 계정에 대해 이전에 만든 SPN을 선택합니다.
 1. **확인** 을 선택 하 고 **확인** 을 다시 선택 하 여 변경 내용을 저장 합니다.
   

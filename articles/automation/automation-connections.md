@@ -7,10 +7,10 @@ ms.date: 12/22/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
 ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99054266"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
@@ -63,7 +63,7 @@ Azure Automation은 다음과 같은 기본 제공 연결 형식을 제공합니
 
 다음 표의 함수는 Python 2 및 3 runbook의 연결에 액세스 하는 데 사용 됩니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
 
-| 기능 | Description |
+| 함수 | Description |
 |:---|:---|
 | `automationassets.get_automation_connection` | 연결을 검색합니다. 연결의 속성이 있는 사전을 반환합니다. |
 

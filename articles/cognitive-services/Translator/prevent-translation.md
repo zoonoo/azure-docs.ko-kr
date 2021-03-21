@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.openlocfilehash: e89ff3f4c1f54d9e137d3dd51e325b908c826b03
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897479"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator"></a>변환기를 사용 하 여 콘텐츠 번역을 방지 하는 방법
@@ -25,7 +25,7 @@ ms.locfileid: "98897479"
 
 1. 콘텐츠에 `notranslate`를 태그로 지정합니다. 이는 입력 textType이 HTML로 설정 된 경우에만 작동 하도록 설계 된 것입니다.
 
-   예:
+   예제:
 
    ```html
    <span class="notranslate">This will not be translated.</span>
@@ -39,7 +39,7 @@ ms.locfileid: "98897479"
 
 2. 콘텐츠에 `translate="no"`를 태그로 지정합니다. 입력 textType이 HTML로 설정 된 경우에만 작동 합니다.
 
-   예:
+   예제:
 
    ```html
    <span translate="no">This will not be translated.</span>

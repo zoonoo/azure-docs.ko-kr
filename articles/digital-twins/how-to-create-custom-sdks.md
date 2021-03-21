@@ -1,5 +1,5 @@
 ---
-title: AutoRest를 사용 하 여 사용자 지정 언어 Sdk 만들기
+title: AutoRest를 사용하여 사용자 지정 언어 SDK 만들기
 titleSuffix: Azure Digital Twins
 description: AutoRest를 사용 하 여 게시 된 Sdk가 없는 다른 언어로 Azure 디지털 Twins 코드를 작성 하는 사용자 지정 언어 Sdk를 생성 하는 방법에 대해 알아봅니다.
 author: baanders
@@ -11,10 +11,10 @@ ms.custom:
 - devx-track-js
 - contperf-fy21q3
 ms.openlocfilehash: 35cf54199f8f2c187ad397c21fb941111f07c4a3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561843"
 ---
 # <a name="create-custom-language-sdks-for-azure-digital-twins-using-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 언어 Sdk 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "102561843"
 
 이 문서의 예제에서는 [데이터 평면 sdk](how-to-use-apis-sdks.md#overview-data-plane-apis)를 만드는 방법을 보여 주지만이 프로세스는  [제어 평면 sdk](how-to-use-apis-sdks.md#overview-control-plane-apis) 를 생성 하는 데에도 적용 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 SDK를 생성 하려면 먼저 로컬 컴퓨터에서 다음 설치를 완료 해야 합니다.
 * [**AutoRest**](https://github.com/Azure/autorest)설치, 버전 2.0.4413 (현재 지원 되지 않는 버전 3)
@@ -62,7 +62,7 @@ AutoRest에서 생성 된 파일을 .NET 솔루션에 직접 포함할 수 있�
 
 이 섹션에서는 SDK를 클래스 라이브러리로 빌드하는 방법에 대 한 지침을 제공 합니다 .이 라이브러리는 자체 프로젝트 이며 다른 프로젝트에 포함 될 수 있습니다. 이러한 단계는 **Visual Studio** 를 사용 합니다.
 
-실행할 단계는 다음과 같습니다.
+단계는 다음과 같습니다.
 
 1. 클래스 라이브러리에 대 한 새 Visual Studio 솔루션 만들기
 2. 프로젝트 이름으로 *DigitalTwinsApi* 사용

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 6ea28d61cc142c3191d591721b92e08d651c7ed5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014403"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성
@@ -51,7 +51,7 @@ ms.locfileid: "103014403"
 
 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```
 using System;

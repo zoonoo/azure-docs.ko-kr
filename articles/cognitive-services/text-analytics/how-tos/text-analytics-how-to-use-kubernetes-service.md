@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: fb33bd4fe70c51e1e2afffece10ba3b29dcb0450
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932434"
 ---
 # <a name="deploy-a-text-analytics-container-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 Text Analytics 컨테이너 배포
@@ -55,9 +55,9 @@ Azure Kubernetes 서비스 (AKS)에 Azure Cognitive Services [Text Analytics](./
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
-**_
+***
 
 ## <a name="next-steps"></a>다음 단계
 
-_ 추가 [Cognitive Services 컨테이너](../../cognitive-services-container-support.md) 사용
+* 더 많은 [Cognitive Services 컨테이너](../../cognitive-services-container-support.md) 사용
 * [Text Analytics 연결 된 서비스](../index.yml) 사용

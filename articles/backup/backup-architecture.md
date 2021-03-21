@@ -4,10 +4,10 @@ description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요�
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466414"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
@@ -43,8 +43,8 @@ Azure Backup는 자격 증명 모음 Recovery Services 자격 증명 모음 및 
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#geo-redundant-storage).
   - **ZRS (영역 중복 저장소)**: [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 

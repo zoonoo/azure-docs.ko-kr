@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
 ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101673952"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Azure 스팟 Virtual Machines 사용 
@@ -64,7 +64,7 @@ Azure 스팟 Virtual Machines는 중국 21Vianet Microsoft Azure를 제외 하 �
 - CSP (클라우드 서비스 공급자)의 경우 파트너에 게 문의 하세요.
 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 Azure 스폿 Virtual Machines의 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)에 대 한 VM 가격 책정을 참조 하세요. 
 

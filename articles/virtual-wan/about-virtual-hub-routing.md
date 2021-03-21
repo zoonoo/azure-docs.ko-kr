@@ -10,10 +10,10 @@ ms.date: 02/17/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: c1a2a54bf2d4c5de3e6cfca66256f60592fc1f3e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101737514"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
@@ -30,7 +30,7 @@ ms.locfileid: "101737514"
 
 가상 허브 경로 테이블은 하나 이상의 경로를 포함할 수 있습니다. 경로에는 라우팅할 패킷에 대 한 이름, 레이블, 대상 유형, 대상 접두사 목록, 다음 홉 정보 등이 포함 됩니다. 일반적으로 **연결** 에는 경로 테이블에 연결 하거나이를 전파 하는 라우팅 구성이 있습니다.
 
-### <a name="connections"></a><a name="connection"></a>Connections
+### <a name="connections"></a><a name="connection"></a>연결만
 
 연결은 라우팅 구성이 있는 리소스 관리자 리소스입니다. 연결의 네 가지 유형은 다음과 같습니다.
 

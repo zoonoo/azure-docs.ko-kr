@@ -4,10 +4,10 @@ description: 정보를 필터링하고 다양한 보기를 사용하여 Azure �
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101738636"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Azure 리소스 정보 보기 및 필터링

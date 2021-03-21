@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
 ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234208"
 ---
 # <a name="azure-for-network-engineers"></a>네트워크 엔지니어를 위한 Azure
@@ -54,7 +54,7 @@ Azure에서 가상 네트워크를 만들 때 IP 범위 (10.0.0.0/16)로 미리 
 
 두 가상 네트워크 간에 가상 네트워크 피어링을 만드는 경우 피어링이 만들어지는 각 가상 네트워크의 주소 공간 내의 각 주소 범위에 대한 경로가 추가됩니다.
 
-온-프레미스 네트워크 게이트웨이에서 Azure 가상 네트워크 게이트웨이와 BGP(Border Gateway Protocol) 경로를 교환하는 경우 온 프레미스 네트워크 게이트웨이에서 전파되는 각 경로에 대한 경로가 추가됩니다. 이러한 경로는 라우팅 테이블에 BGP 경로로 표시 됩니다.
+온-프레미스 네트워크 게이트웨이에서 Azure 가상 네트워크 게이트웨이와 BGP (border gateway protocol) 경로를 교환 하는 경우 온-프레미스 네트워크 게이트웨이에서 전파 되는 각 경로에 대 한 경로가 추가 됩니다. 이러한 경로는 라우팅 테이블에 BGP 경로로 표시 됩니다.
 
 서비스에 서비스 엔드포인트를 사용하도록 설정하면 Azure는 특정 서비스에 대한 공용 IP 주소를 경로 테이블에 추가합니다. 서비스 끝점은 가상 네트워크 내의 개별 서브넷에 대해 사용 하도록 설정 됩니다. 서비스 끝점을 사용 하도록 설정 하면이 서비스에 속하는 서브넷의 경로 테이블에만 경로가 추가 됩니다. 주소가 변경되면 Azure는 자동으로 경로 테이블의 주소를 관리합니다.
 

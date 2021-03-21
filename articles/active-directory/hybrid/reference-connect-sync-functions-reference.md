@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98246709"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
@@ -904,7 +904,7 @@ ItemOrNull 함수는 다중값 특성의 항목에 대한 인덱스를 반환하
 인덱스가 범위를 초과하는 경우 Null 값을 반환합니다.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>참여
 **설명:**  
 Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정된 구분 기호를 삽입하여 단일 값 문자열을 반환합니다.
 

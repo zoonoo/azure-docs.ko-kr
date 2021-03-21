@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: af5e0eeb808835fd4f36a0eda79618f831248ad9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e9a77ab0ac32d627d59e2cb0fa4a680f174a6833
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340773"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587239"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,17 +36,17 @@ TimestampToDateTime (<Timestamp>)
 
 UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합니다 `YYYY-MM-DDThh:mm:ss.fffffffZ` .
   
-  |서식|설명|
-  |-|-|
-  |YYYY|네 자리 연도|
-  |MM|두 자리 월 (01 = 1 월 등)|
-  |DD|월 (01-31)의 2 자리 숫자 일|
-  |T|시간 요소 시작에 대 한 signifier|
-  |hh|두 자리 시간 (00-23)|
-  |mm|두 자리 분 (00-59)|
-  |ss|두 자리 초 (00-59)|
-  |. fffffff|7 자리 소수 자릿수 초|
-  |Z|UTC (협정 세계시) 지정자||
+|서식|설명|
+|-|-|
+|YYYY|네 자리 연도|
+|MM|두 자리 월 (01 = 1 월 등)|
+|DD|월 (01-31)의 2 자리 숫자 일|
+|T|시간 요소 시작에 대 한 signifier|
+|hh|두 자리 시간 (00-23)|
+|MM|두 자리 분 (00-59)|
+|ss|두 자리 초 (00-59)|
+|. fffffff|7 자리 소수 자릿수 초|
+|Z|UTC (협정 세계시) 지정자|
   
   ISO 8601 형식에 대 한 자세한 내용은을 참조 하십시오 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -54,7 +54,7 @@ UTC 날짜 및 시간 ISO 8601 문자열 값을 다음 형식으로 반환 합�
 
 TimestampToDateTime는 `undefined` 지정 된 타임 스탬프 값이 잘못 된 경우를 반환 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
 다음 예에서는 타임 스탬프를 DateTime으로 변환 합니다.
 

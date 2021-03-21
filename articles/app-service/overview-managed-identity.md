@@ -8,10 +8,10 @@ ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: 16cd4685f513eb628372802cc158195b81bce72a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98736174"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
@@ -345,7 +345,7 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 > | expires_on    | 액세스 토큰이 만료되는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `exp` 클레임에 해당함).                                                                                |
 > | not_before    | 액세스 토큰이 적용되고 허용될 수 있는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `nbf` 클레임에 해당함).                                                      |
 > | resource      | 액세스 토큰이 요청되는 리소스는 요청의 `resource` 쿼리 문자열 매개 변수와 일치합니다.                                                                                                                               |
-> | token_type    | 토큰 형식 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
+> | token_type    | 토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 
 이 응답은 [Azure AD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.
 

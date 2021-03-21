@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b4d824386a7c14165697f4b93f2e93cf0182a855
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100524028"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>장치 인벤토리에서 모든 엔터프라이즈 센서 검색 조사
@@ -22,7 +22,7 @@ ms.locfileid: "100524028"
 
 다음 표에서는 장치 인벤토리의 테이블 열에 대해 설명 합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |--|--|
 | **승인 되지 않은 경고** | 이 장치와 연결 된 처리 되지 않은 경고의 수입니다. |
 | **비즈니스 단위** | 이 장치를 포함 하는 사업부입니다. |
@@ -225,6 +225,6 @@ IoT API 용 Defender를 사용 하 여이 정보를 검색 하 고 통합 합니
 
 - **업데이트 진행률**: 연결 된 센서를 업그레이드 하는 경우 업그레이드 상태가 표시 됩니다. 업그레이드 하는 동안 온-프레미스 관리 콘솔은 센서에서 장치 정보를 받지 않습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)

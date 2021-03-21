@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
 ms.openlocfilehash: ca36c35d859e651c0d949f4b7fbb28137d01af90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734964"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
@@ -20,7 +20,7 @@ Azure Monitor에서 Log Analytics Windows 또는 Linux 에이전트의 초기 �
 
 Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 메서드를 사용 하 여 에이전트를 업그레이드할 수 있습니다.
 
-| Environment | 설치 방법 | 업그레이드 방법 |
+| 환경 | 설치 방법 | 업그레이드 방법 |
 |--------|----------|-------------|
 | Azure VM | Windows/Linux 용 Log Analytics 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false** 로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. |
 | 사용자 지정 Azure VM 이미지 | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다.|

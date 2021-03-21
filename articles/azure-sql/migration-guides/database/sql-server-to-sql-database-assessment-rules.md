@@ -11,10 +11,10 @@ ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
 ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054732"
 ---
 # <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>SQL Server SQL Database 마이그레이션에 대 한 평가 규칙
@@ -383,7 +383,7 @@ Service Broker 기능은 Azure SQL Database에서 지원 되지 않습니다. �
 **범주**: 경고   
 
 **설명**   
-SQL Server 에이전트은 SQL Server에서 작업 이라고 하는 예약 된 관리 태스크를 실행 하는 Microsoft Windows 서비스입니다. SQL Server 에이전트 작업은 Azure SQL Database에서 사용할 수 없습니다. 
+SQL Server 에이전트는 SQL Server에서 ‘작업’이라고 하는 일정이 지정된 관리 작업을 실행하는 Microsoft Windows 서비스입니다. SQL Server 에이전트 작업은 Azure SQL Database에서 사용할 수 없습니다. 
 
 
 **권장 사항** Azure SQL Database에서 SQL Server 에이전트 작업에 대 한 대체 인 탄력적 작업 (미리 보기)을 사용 합니다. Azure SQL Database Elastic Database 작업를 사용 하면 자동으로 다시 시도 하는 동시에 여러 데이터베이스에 걸친 T-sql 스크립트를 안정적으로 실행할 수 있으며 최종 완료 보장을 제공할 수 있습니다. 또는 azure SQL Managed Instance로 또는 Azure Virtual Machines에서 SQL Server으로 마이그레이션하는 것이 좋습니다.

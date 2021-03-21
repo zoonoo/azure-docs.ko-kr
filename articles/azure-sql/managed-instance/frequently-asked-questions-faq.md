@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
 ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503201"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
@@ -72,7 +72,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 제품 오류 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 
 **공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?**
 

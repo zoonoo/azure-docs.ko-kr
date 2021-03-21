@@ -17,10 +17,10 @@ ms.author: inhenkel
 ms.reviewer: anilmur
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b94ec0b50182381d2a4e1bca09f4c8bc482d13ee
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014097"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩
@@ -75,7 +75,7 @@ MES를 사용하여 인코딩하는 방법을 보여 주는 샘플은 [여기](h
 
 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예 
+#### <a name="example"></a>예제 
 
 ```csharp
 using System;

@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.openlocfilehash: 74f8bdd26e000b89bfae84102077c241f85abf7e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933315"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Azure HDInsight 비즈니스 연속성
@@ -105,7 +105,7 @@ HDInsight는 기본 저장소 계층으로 Azure Data Lake Storage Gen2를 권�
 
 ### <a name="cost-optimizations"></a>비용 최적화
 
-|영역|비용 에스컬레이션 원인|최적화 전략|
+|영역형|비용 에스컬레이션 원인|최적화 전략|
 |----|------------------------|-----------------------|
 |데이터 스토리지|보조 지역의 주 데이터/테이블 복제|큐 레이트 데이터만 복제|
 |데이터 송신|아웃 바운드 교차 지역 데이터 전송은 한 가격으로 제공 됩니다. 대역폭 가격 책정 지침 검토|큐 레이트 데이터만 복제 하 여 지역 송신 공간 줄이기|
@@ -114,7 +114,7 @@ HDInsight는 기본 저장소 계층으로 Azure Data Lake Storage Gen2를 권�
 
 ### <a name="complexity-optimizations"></a>복잡성 최적화
 
-|영역|복잡성 에스컬레이션의 원인|최적화 전략|
+|영역형|복잡성 에스컬레이션의 원인|최적화 전략|
 |----|------------------------|-----------------------|
 |읽기 쓰기 패턴 |주 및 보조 복제본을 모두 읽고 쓸 수 있도록 요구 |보조 데이터베이스를 읽기 전용으로 디자인|
 |0 RPO & RTO |데이터 손실 (RPO = 0) 및 가동 중지 시간 0 (RTO = 0) 요구 |장애 조치 (failover)에 필요한 구성 요소 수를 줄이는 방식으로 RPO 및 RTO를 설계 합니다.|

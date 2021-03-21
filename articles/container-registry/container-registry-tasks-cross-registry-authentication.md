@@ -4,10 +4,10 @@ description: Azure 리소스에 대해 관리 ID를 사용하여 다른 프라�
 ms.topic: article
 ms.date: 07/06/2020
 ms.openlocfilehash: 789d2c141f8b7c3f2eb8daa31d99090e3d028a43
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915831"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure 관리 ID를 사용하는 ACR 작업의 레지스트리 간 인증 

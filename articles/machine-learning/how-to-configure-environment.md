@@ -12,10 +12,10 @@ ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
 ms.openlocfilehash: 7e493404e7a36b60e8f9e62cd4ac2f2b32845bb9
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501620"
 ---
 # <a name="set-up-a-python-development-environment-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Python 개발 환경 설정
@@ -37,7 +37,7 @@ Azure Machine Learning에 대 한 Python 개발 환경을 구성 하는 방법�
 
 * Visual Studio Code: Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Machine Learning 작업 영역입니다. 없는 경우 [Azure Portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace)및 [Azure Resource Manager 템플릿을](how-to-create-workspace-template.md)통해 Azure Machine Learning 작업 영역을 만들 수 있습니다.
 

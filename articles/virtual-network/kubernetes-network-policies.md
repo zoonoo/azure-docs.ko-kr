@@ -17,10 +17,10 @@ ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: a68e1a3f60930e290e97084ff2ec9350b18e2873
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594976"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Azure Kubernetes 네트워크 정책 개요
@@ -37,7 +37,7 @@ Azure NPM 구현은 컨테이너에 VNet 통합을 제공 하는 Azure CNI와 �
 ## <a name="using-azure-npm"></a>Azure NPM 사용
 Azure NPM는 다음과 같은 방법으로 pod에 대 한 마이크로 조각화를 제공 하는 데 사용할 수 있습니다.
 
-### <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
+### <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)
 NPM은 기본적으로 AKS에서 사용할 수 있으며 클러스터를 만들 때 사용할 수 있습니다. [Azure Kubernetes Service (AKS)에서 네트워크 정책을 사용 하 여 pod 간의 보안 트래픽](../aks/use-network-policies.md)에서 자세히 알아보세요.
 
 ### <a name="aks-engine"></a>AKS-엔진

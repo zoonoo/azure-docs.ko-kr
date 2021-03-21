@@ -7,10 +7,10 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
 ms.openlocfilehash: f5304e7634cfb7b4d5c3c05036c0606ba03295ae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589059"
 ---
 # <a name="dependency-analysis"></a>종속성 분석
@@ -79,8 +79,8 @@ ms.locfileid: "100589059"
 **지원** | VMware Vm에 대해서만 미리 보기 상태입니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 **에이전트** | 분석 하려는 컴퓨터에서 에이전트가 필요 하지 않습니다. | 분석 하려는 각 온-프레미스 컴퓨터에서 에이전트가 필요 합니다.
 **Log Analytics** | 필수 아님. | Azure Migrate는 종속성 분석을 위해 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md) 의 [서비스 맵](../azure-monitor/vm/service-map.md) 솔루션을 사용 합니다.<br/><br/> Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결 합니다. 작업 영역은 미국 동부, 동남 아시아 또는 서유럽 지역에 있어야 합니다. 작업 영역은 [서비스 맵 지원되는](../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions) 지역에 있어야 합니다.
-**Process** | TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 에이전트 서비스 맵는 TCP 프로세스에 대 한 데이터 및 각 프로세스에 대 한 인바운드/아웃 바운드 연결을 수집 합니다.
-**Data** | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
+**처리** | TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 에이전트 서비스 맵는 TCP 프로세스에 대 한 데이터 및 각 프로세스에 대 한 인바운드/아웃 바운드 연결을 수집 합니다.
+**데이터** | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 **시각화** | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/>  지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
 데이터 내보내기 | 지난 30 일간의 데이터는 CSV 형식으로 다운로드할 수 있습니다. | Log Analytics를 사용 하 여 데이터를 쿼리할 수 있습니다.
 

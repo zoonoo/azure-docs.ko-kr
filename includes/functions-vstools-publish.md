@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: functions
 author: ggailey777
@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100529681"
 ---
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택하고 **대상** 에서 **Azure** 를 선택한 다음, **다음** 을 선택합니다.

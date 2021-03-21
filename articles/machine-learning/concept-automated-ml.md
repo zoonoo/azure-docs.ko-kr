@@ -11,10 +11,10 @@ ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
 ms.openlocfilehash: e7038a4e06a96ac2df1a7f0918877db9c97cb71d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502538"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
@@ -275,7 +275,7 @@ AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있
 
  + **코드를 낮거나 사용 하지 않으려면** [자습서: Azure Machine Learning studio를 사용 하 여 자동화 된 ML 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조 하세요.
 
-방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예를 들면 다음과 같습니다. 
+방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예제: 
 
 + 자동 학습 실험에 대 한 설정 구성
     + Azure Machine Learning Studio의 경우 [이러한 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다. 

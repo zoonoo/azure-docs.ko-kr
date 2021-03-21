@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 32a6034f407bd81e5d2d2ab8227d08a67f034d4c
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258645"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>방법: Azure AD SAML 토큰 암호화 구성
@@ -55,7 +55,7 @@ SAML 토큰 암호화를 구성하려면 다음 단계를 수행합니다.
 
 Azure Portal 내의 애플리케이션 구성에 공용 인증서를 추가할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
 1. **Azure Active Directory > 엔터프라이즈 애플리케이션** 블레이드로 이동한 후 해당 토큰 암호화를 구성하려는 애플리케이션을 선택합니다.
 

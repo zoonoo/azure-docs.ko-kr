@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 86d1b9ec8a507a5cfaa5502efcb239bceabca665
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097349"
 ---
 # <a name="interact-with-the-map-android-sdk"></a>맵과 상호 작용 (Android SDK)
@@ -24,7 +24,7 @@ ms.locfileid: "102097349"
 
 맵은 해당 속성을 통해 모든 이벤트를 관리 합니다 `events` . 다음 표에서는 지원 되는 모든 맵 이벤트를 보여 줍니다.
 
-| 이벤트                  | 이벤트 처리기 형식 | 설명 |
+| 이벤트                  | 이벤트 처리기 형식 | Description |
 |------------------------|----------------------|-------------|
 | `OnCameraIdle`         | `()`                 | <p>맵이 "유휴" 상태가 되기 전에 렌더링된 마지막 프레임 후에 발생합니다.<ul><li>진행 중인 카메라 전환이 없습니다.</li><li>현재 요청된 모든 타일이 로드되었습니다.</li><li>모든 페이드/전환 애니메이션이 완료되었습니다.</li></ul></p> |
 | `OnCameraMove`         | `()`                 | 사용자 상호 작용이나 메서드의 결과로 한 보기에서 다른 보기로 애니메이션 전환이 수행되는 동안 반복적으로 발생합니다. |

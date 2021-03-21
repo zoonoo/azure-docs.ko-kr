@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: kumud
 ms.openlocfilehash: 5b10194d47a90abf9d2070f00b71b78d8796dde4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019757"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 연결 문제 해결
@@ -29,7 +29,7 @@ ms.locfileid: "98019757"
 
 연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 

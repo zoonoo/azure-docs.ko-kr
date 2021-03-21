@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98762849"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
@@ -28,7 +28,7 @@ ms.locfileid: "98762849"
 이 문서에서는 Azure AD 통과 인증과 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
 >[!IMPORTANT]
->통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../fundamentals/add-users-azure-active-directory.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+>통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../fundamentals/add-users-azure-active-directory.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="general-issues"></a>일반적인 문제
 
@@ -44,7 +44,7 @@ ms.locfileid: "98762849"
 
 사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
 
-|Error|Description|해결 방법
+|오류|설명|해결 방법
 | --- | --- | ---
 |AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.

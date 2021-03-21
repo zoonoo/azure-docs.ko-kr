@@ -7,10 +7,10 @@ ms.author: jife
 ms.topic: conceptual
 ms.date: 12/16/2020
 ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963682"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
@@ -31,7 +31,7 @@ Azure 데이터 공유는 다양 한 데이터 저장소에서 공유 하는 기
 | Azure SQL Database |✓ | | |
 | Azure Synapse Analytics(이전의 Azure SQL Data Warehouse) |✓ | | |
 | Azure Synapse Analytics (작업 영역) 전용 SQL 풀 |✓ | | |
-| Azure Data Explorer | | |✓ |
+| Azure 데이터 탐색기 | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>데이터 저장소 지원 매트릭스
 

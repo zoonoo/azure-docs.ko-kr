@@ -8,10 +8,10 @@ ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
 ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526292"
 ---
 # <a name="accelerate-alert-workflows"></a>경고 워크플로 가속화
@@ -85,7 +85,7 @@ ms.locfileid: "100526292"
 |--|--|--|
 | 비정상적인 통신 동작 | 사용자 지정 경고 | 원격 액세스 |
 | 비정상적인 HTTP 통신 동작 | 검색 | 다시 시작 및 중지 명령 |
-| 인증 | 펌웨어 변경 | 검색 |
+| 인증 | 펌웨어 변경 | 검사 |
 | 무단 통신 동작 | 잘못 된 명령 | 센서 트래픽 |
 | 대역폭 이상 | 인터넷 액세스 | 맬웨어 했는지에 |
 | 버퍼 오버플로 | 작업 실패 | 악의적인 활동의 했는지에 |
@@ -140,7 +140,7 @@ ms.locfileid: "100526292"
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="사용자가 추가한 사용자 지정 규칙의 스크린샷":::
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 
 [경고에 제공된 정보 보기](how-to-view-information-provided-in-alerts.md)
 

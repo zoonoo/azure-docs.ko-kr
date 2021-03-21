@@ -6,10 +6,10 @@ ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
 ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593984"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Azure App Service에 대 한 비용 계획 및 관리
@@ -51,7 +51,7 @@ App Service에 대 한 다른 비용 리소스 (자세한 내용은 [App Service
 
 App Service 계획의 모든 앱을 삭제 하는 경우 계획은 구성 된 가격 책정 계층 및 인스턴스 수에 따라 요금이 계속 청구 됩니다. 원치 않는 요금을 방지 하려면 계획을 삭제 하거나 **무료** 계층으로 축소 합니다.
 
-Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 다음은 그 예입니다. 
+Azure App Service 리소스를 삭제 한 후에는 관련 Azure 서비스의 리소스가 계속 존재할 수 있습니다. 삭제할 때까지 비용이 계속 해 서 계산 됩니다. 예를 들면 다음과 같습니다.
 
 - **격리** 된 계층 App Service 계획에 대해 만든 Virtual Network
 - 백업 또는 진단 로그를 저장 하기 위해 만든 저장소 계정

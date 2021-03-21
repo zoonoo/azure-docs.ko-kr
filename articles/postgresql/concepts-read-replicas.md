@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.openlocfilehash: 62ef47e7d8f98241009c1c1f3d8c111113be432c
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99220771"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
@@ -144,7 +144,7 @@ SELECT EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 읽기 복제본과 [논리적 디코딩](concepts-logical.md) 은 모두 정보에 대 한 Postgres write 미리 로그 (WAL)에 따라 달라 집니다. 이러한 두 기능에는 Postgres의 다른 로깅 수준이 필요 합니다. 논리적 디코딩에는 읽기 복제본 보다 높은 수준의 로깅이 필요 합니다.
 
 올바른 로깅 수준을 구성 하려면 Azure replication support 매개 변수를 사용 합니다. Azure 복제 지원에는 세 가지 설정 옵션이 있습니다.

@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3ae17ebce564de465a91739a210ae7f18f86a3b9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523552"
 ---
 # <a name="work-with-alerts-on-your-sensor"></a>센서에 대 한 경고 사용
@@ -48,7 +48,7 @@ ms.locfileid: "100523552"
 
 센서 엔진이 네트워크 트래픽 및 주의가 필요한 동작의 변경 내용을 검색할 때 경고가 트리거됩니다. 이 문서에서는 각 엔진이 트리거하는 경고의 종류를 설명 합니다.
 
-| 경고 유형 | Description |
+| 경고 유형 | 설명 |
 |-|-|
 | 정책 위반 경고 | 정책 위반 엔진이 이전에 학습 한 트래픽의 편차를 감지한 경우에 트리거됩니다. 예를 들면 다음과 같습니다. <br /> -새 장치가 검색 되었습니다.  <br /> -장치에서 새 구성이 검색 됩니다. <br /> -프로그래밍 장치로 정의 되지 않은 장치는 프로그래밍 변경을 수행 합니다. <br /> -펌웨어 버전이 변경 되었습니다. |
 | 프로토콜 위반 경고 | 프로토콜 위반 엔진이 프로토콜 사양을 따르지 않는 패킷 구조 또는 필드 값을 검색 하는 경우에 트리거됩니다. | 
@@ -68,9 +68,9 @@ ms.locfileid: "100523552"
 
   - 네트워크 장치에서 검색 된 맬웨어 이벤트는 위험 평가 보고서에 보고 됩니다. 맬웨어 이벤트에 대 한 경고가 *음소거* 되 면 위험 평가 보고서에서 영향을 받는 장치가 계산 되지 않습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
-[학습 및 스마트 IT 학습 모드](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes) 
- 경고에 제공 [된 정보 보기](how-to-view-information-provided-in-alerts.md) 
- [경고 이벤트 관리](how-to-manage-the-alert-event.md) 
- [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)
+- [학습 및 스마트 IT 학습 모드](how-to-control-what-traffic-is-monitored.md#learning-and-smart-it-learning-modes)
+- [경고에 제공된 정보 보기](how-to-view-information-provided-in-alerts.md)
+- [경고 이벤트 관리](how-to-manage-the-alert-event.md)
+- [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)

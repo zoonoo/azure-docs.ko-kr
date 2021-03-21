@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 7e6848fb49dd63fa67a639d09754a28dd5953a32
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013485"
 ---
 # <a name="encoding-error-codes"></a>Encoding 오류 코드
@@ -48,7 +48,7 @@ ms.locfileid: "103013485"
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [미디어 인코더 표준 사전 설정을 사용자 지정하여 고급 인코딩 작업 수행](media-services-custom-mes-presets-with-dotnet.md)
 * [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
 

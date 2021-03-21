@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596300"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
@@ -66,7 +66,7 @@ pgAudit를 사용 하면 세션 또는 개체 감사 로깅을 구성할 수 있
 
 > [!NOTE]
 > `pgaudit.log_client`을 ON으로 설정 하면 로그를 파일에 기록 하는 대신 클라이언트 프로세스 (예: psql)로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다. <br> <br>
-> `pgaudit.log_level``pgaudit.log_client`는가 on 인 경우에만 사용할 수 있습니다.
+> `pgaudit.log_level`은 `pgaudit.log_client`가 on인 경우에만 사용하도록 설정됩니다.
 
 > [!NOTE]
 > Azure Database for PostgreSQL에서는 `pgaudit.log` `-` pgaudit 설명서에 설명 된 대로 (빼기) 기호 바로 가기를 사용 하 여을 설정할 수 없습니다. 모든 필수 문 클래스(READ, WRITE 등)는 개별적으로 지정해야 합니다.

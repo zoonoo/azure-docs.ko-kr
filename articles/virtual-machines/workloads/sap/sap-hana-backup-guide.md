@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
 ms.openlocfilehash: 0004afb5895d7549e5db8ad5e53b52fa17991520
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667913"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
 ## <a name="getting-started"></a>시작하기
 
-Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서는 Azure 관련 항목만 설명합니다. 일반적인 SAP HANA 백업 관련 항목은 SAP HANA 설명서를 확인 하세요. 사용자는 주요 데이터베이스 백업 전략, 이유 및 동기를 사용 하 여 사운드 및 유효한 백업 전략에 대해 잘 알고 있어야 하며, 백업 절차, 백업 보존 기간 및 복원 절차에 대 한 회사의 요구 사항을 알고 있어야 합니다.
+Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서는 Azure 관련 항목만 설명합니다. 일반 SAP HANA 백업 관련 항목은 SAP HANA 설명서를 확인하세요. 사용자는 주요 데이터베이스 백업 전략, 이유 및 동기를 사용 하 여 사운드 및 유효한 백업 전략에 대해 잘 알고 있어야 하며, 백업 절차, 백업 보존 기간 및 복원 절차에 대 한 회사의 요구 사항을 알고 있어야 합니다.
 
 SAP HANA는 Azure M-Series와 같은 다양한 Azure VM 유형에서 공식적으로 지원됩니다. SAP HANA 인증 된 Azure Vm 및 HANA Large Instance 유닛의 전체 목록은 [인증 된 IaaS 플랫폼 찾기](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)를 확인 하세요. Microsoft Azure는 SAP HANA 물리적 서버에서 가상화 되지 않은를 실행 하는 여러 단위를 제공 합니다. 이 서비스를 [HANA Large Instances](hana-overview-architecture.md)라고 합니다. 이 가이드에서는 HANA Large Instances에 대 한 백업 프로세스 및 도구에 대해서는 다루지 않습니다. 하지만 Azure virtual machines로 제한 될 예정입니다. HANA Large Instances를 사용 하는 백업/복원 프로세스에 대 한 자세한 내용은 [Hli 백업 및 복원](./hana-backup-restore.md)문서를 참조 하세요.
 

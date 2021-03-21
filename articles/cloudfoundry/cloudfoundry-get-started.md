@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: d3b13dffcf251f79a04182d32f23fd40e6ed6044
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102562897"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
@@ -49,7 +49,7 @@ Cloud Foundry는 상태 비저장 애플리케이션 프로세스와 상태 저�
 
 Pivotal Cloud Foundry를 사용하는 경우 Service Broker는 Pivotal Network의 [타일로도 제공](https://docs.pivotal.io/azure-sb/installing.html)됩니다.
 
-## <a name="related-resources"></a>관련 리소스
+## <a name="related-resources"></a>관련 참고 자료
 
 ### <a name="azure-devops-services-plugin"></a>Azure DevOps Services 플러그인
 

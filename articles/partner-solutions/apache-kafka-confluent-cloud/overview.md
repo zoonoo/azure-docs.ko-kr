@@ -7,10 +7,10 @@ ms.service: partner-services
 ms.date: 01/15/2021
 ms.author: tomfitz
 ms.openlocfilehash: b4aa00b7a2cc7ca6bc968be70957c127a8e00738
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98253532"
 ---
 # <a name="what-is-apache-kafka-for-confluent-cloud"></a>Confluent 클라우드의 Apache Kafka은 무엇 인가요?
@@ -42,7 +42,7 @@ Azure에서 Confluent 클라우드 리소스를 프로 비전 하면 Confluent �
 
 청구를 위해 Marketplace에서 구매한 각 Confluent 클라우드 제품은 고유한 Confluent 조직에 매핑됩니다.
 
-## <a name="single-sign-on"></a>SSO(Single sign-on)
+## <a name="single-sign-on"></a>Single Sign-On
 
 Azure Portal에 로그인 할 때 자격 증명은 Confluent Cloud SaaS 포털에 로그인 하는 데에도 사용 됩니다. 이 환경에서는 [AZURE ad](../../active-directory/fundamentals/active-directory-whatis.md) 및 [azure ad SSO](../../active-directory/manage-apps/what-is-single-sign-on.md) 를 사용 하 여 안전 하 고 편리 하 게 로그인 할 수 있는 방법을 제공 합니다.
 

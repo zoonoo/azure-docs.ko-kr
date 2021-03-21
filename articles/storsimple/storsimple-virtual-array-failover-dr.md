@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99096426"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Azure Portal을 통해 StorSimple 가상 배열에 대한 재해 복구 및 디바이스 장애 조치
@@ -44,7 +44,7 @@ DR은 열 지도 기반 계층화 및 추적을 사용하여 전체 디바이스
 
 ## <a name="prerequisites-for-device-failover"></a>디바이스 장애 조치에 대한 필수 조건
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 모든 디바이스 장애 조치에 대해 다음과 같은 필수 조건을 충족했는지 확인합니다.
 

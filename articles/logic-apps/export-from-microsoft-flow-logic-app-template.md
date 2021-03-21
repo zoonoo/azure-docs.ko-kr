@@ -7,10 +7,10 @@ ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699099"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
@@ -68,7 +68,7 @@ ms.locfileid: "101699099"
 
    1. 템플릿에 대 한 입력 매개 변수 값을 선택 하거나 지정 합니다.
 
-      | 속성 | Description |
+      | 속성 | 설명 |
       |----------|-------------|
       | **구독** | 청구에 사용할 Azure 구독입니다. |
       | **리소스 그룹** | 논리 앱에 사용할 Azure 리소스 그룹입니다. 기존 그룹을 사용 하거나 새 그룹을 만들 수 있습니다. |
@@ -78,7 +78,7 @@ ms.locfileid: "101699099"
       | <*연결-이름*> | 논리 앱에서 다시 사용할 수 있는 이전에 만든 연결에 대 한 하나 또는 여러 이름 <p><p>**참고**:이 논리 앱이 첫 번째 이면 모든 연결이 새로 만들어지므로 기본 이름을 그대로 사용할 수 있습니다. 그렇지 않은 경우에는 여러 논리 앱에서 사용할 수 있는 이전에 만든 연결의 이름을 지정할 수 있습니다. |
       |||
 
-      다음은 그 예입니다. 
+      예를 들면 다음과 같습니다.
 
       ![템플릿에 대 한 입력 매개 변수 지정](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -158,7 +158,7 @@ ms.locfileid: "101699099"
 
    ![배포 매개 변수 편집](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 다음은 그 예입니다. 
+   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![출력 창](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

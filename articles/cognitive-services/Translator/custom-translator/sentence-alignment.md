@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 0c33d766bfd3dff47ddb151e8ce4ea7b25c37548
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897954"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>병렬 문서의 문장 페어링 및 정렬
@@ -36,10 +36,10 @@ Custom Translator는 한 번에 한 문장씩 문장의 번역을 학습합니�
 
 | 문서 형식   | 제안 된 최소 문장의 수 | 최대 문장의 수 |
 |------------|--------------------------------------------|--------------------------------|
-| 학습   | 10000                                     | 상한 없음                 |
+| 교육   | 10000                                     | 상한 없음                 |
 | 튜닝     | 500                                      | 2,500       |
 | 테스트    | 500                                      | 2,500  |
-| 사전 | 0                                          | 상한 없음                 |
+| Dictionary | 0                                          | 상한 없음                 |
 
 > [!NOTE]
 > - 1만 최소 문장의 학습 수가 충족 되지 않으면 교육이 시작 되지 않으며 실패 합니다. 

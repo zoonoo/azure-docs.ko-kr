@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/03/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5877db6b3bc7366f28e679882a2c784e6828b1c1
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 804cdbd6266f2e77b5562d914bac089fce80f645
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523586"
 ---
 # <a name="view-information-in-alerts"></a>경고 정보 보기
@@ -90,7 +90,7 @@ PCAP 파일을 다운로드 하려면 :::image type="content" source="media/how-
 
 경고의 **권장 사항** 영역에는 이벤트를 보다 잘 이해할 수 있도록 하는 정보가 표시 됩니다. 경고 이벤트를 관리 하거나 장치 또는 네트워크에서 작업을 수행 하기 전에이 정보를 검토 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [경고 워크플로 가속화](how-to-accelerate-alert-incident-response.md)
 
