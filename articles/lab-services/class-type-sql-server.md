@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659712"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>SQL Server를 사용 하 여 관리 및 개발 하기 위한 랩 설정
@@ -98,7 +98,7 @@ Visual Studio는 **웹 & 클라우드** 및 **데스크톱 & 모바일** 워크 
 4. **시작 메뉴 폴더 선택** 페이지에서 **다음** 을 클릭합니다.
 5. **추가 작업 선택** 페이지에서 바탕 화면 아이콘을 원하는 경우 **바탕 화면 아이콘 만들기** 를 선택 합니다.  **다음** 을 클릭합니다.
 6. **설치 준비** 에서 **다음** 을 클릭 합니다.
-7. 설치 관리자가 실행 될 때까지 기다립니다.  **Finish** 를 클릭합니다.
+7. 설치 관리자가 실행 될 때까지 기다립니다.  **마침** 을 클릭합니다.
 
 Azure Data Studio 설치 했으므로 Azure SQL Database에 대 한 연결을 설정 하겠습니다.
 

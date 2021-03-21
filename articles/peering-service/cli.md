@@ -11,17 +11,17 @@ ms.workload: Infrastructure-services
 ms.date: 05/2/2020
 ms.author: derekol
 ms.openlocfilehash: e7b696ba052b2aca9e14628327c07275845607ad
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540589"
 ---
 # <a name="register-a-peering-service-connection-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 합니다.
 
 Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대한 고객의 연결을 향상시키는 네트워킹 서비스입니다. 이 문서에서는 Azure CLI를 사용 하 여 피어 링 서비스 연결을 등록 하는 방법에 대해 알아봅니다.
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. [az version](/cli/azure/reference-index#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index#az_upgrade)를 실행합니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. [az version](/cli/azure/reference-index#az_version)을 실행하여 설치된 버전과 종속 라이브러리를 찾습니다. 최신 버전으로 업그레이드하려면 [az upgrade](/cli/azure/reference-index#az_upgrade)를 실행합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -39,7 +39,7 @@ Azure Peering Service는 Microsoft 365, Dynamics 365, SaaS(Software as a Service
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 이 문서에는 Azure CLI 버전 2.0.28 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ### <a name="1-select-your-subscription"></a>1. 구독을 선택 합니다.
 

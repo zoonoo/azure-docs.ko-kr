@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: duau
 ms.openlocfilehash: 432ecedbbb8965926499380eb1165fdf43018426
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680286"
 ---
 # <a name="reset-expressroute-circuit-peerings-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Express 경로 회로 피어 링 다시 설정

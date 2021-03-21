@@ -4,10 +4,10 @@ description: 자동 OS 업그레이드, NSG 규칙 등에 대해 Service Fabric 
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.openlocfilehash: 44b1b949fe314231cb44f190c31b53903e47a904
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732635"
 ---
 # <a name="service-fabric-managed-cluster-preview-configuration-options"></a>Service Fabric 관리 클러스터 (미리 보기) 구성 옵션
@@ -30,7 +30,7 @@ ms.locfileid: "101732635"
 * 클러스터의 속성을 `enableAutoOSUpgrade` *true* 로 설정 합니다.
 * 클러스터 nodeTypes의 리소스 속성 `vmImageVersion` 을 *최신* 으로 설정
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```json
     {

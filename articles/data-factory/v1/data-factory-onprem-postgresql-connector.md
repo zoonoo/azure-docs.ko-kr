@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 8ca8770944a12c6e0dd3e4f95d286758ebee5f9e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387277"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
@@ -27,7 +27,7 @@ ms.locfileid: "100387277"
 
 온-프레미스 PostgreSQL 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 PostgreSQL 데이터베이스로 데이터 이동이 아닌 PostgreSQL 데이터베이스에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 팩터리 서비스는 데이터 관리 게이트웨이를 사용하여 온-프레미스 PostgreSQL 원본에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 위치 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
@@ -67,14 +67,14 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **OnPremisesPostgreSql** |Yes |
+| type |형식 속성은 **OnPremisesPostgreSql** |예 |
 | 서버 |PostgreSQL 서버의 이름입니다. |예 |
 | 데이터베이스 |PostgreSQL 데이터베이스의 이름입니다. |예 |
 | 스키마 |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |예 |
 | authenticationType |PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다.
@@ -94,7 +94,7 @@ typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from \"MySchema\".\"MyTable\""` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `"query": "select * from \"MySchema\".\"MyTable\""`을 참조하십시오. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 `""`(큰따옴표)로 묶습니다.
@@ -312,7 +312,7 @@ PostgreSQL로 데이터를 이동하는 경우 PostgreSQL 형식에서 .NET 형�
 | cid | |String |
 | cidr | |String |
 | circle | |Byte[], String |
-| 날짜 | |DateTime |
+| date | |DateTime |
 | daterange | |String |
 | double precision |float8 |Double |
 | inet | |Byte[], String |

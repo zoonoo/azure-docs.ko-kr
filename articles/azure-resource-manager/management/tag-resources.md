@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896226"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성

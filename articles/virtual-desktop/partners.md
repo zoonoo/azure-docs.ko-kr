@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97802714"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
@@ -347,7 +347,7 @@ sepago의 혁신 및 개발 랩은 빅 데이터 및 AI 기술을 사용 하 여
 
 SSH2는 IT 팀이 소프트웨어를 사용 하 여 현재 플랫폼에서 Windows 가상 데스크톱으로의 응용 프로그램 배달 속도를 높이는 Windows 가상 데스크톱 부가 가치 서비스 공급자입니다. SSH2를 통해 응용 프로그램 캡처를 가속화 하 여 마이그레이션 프로세스를 간소화할 수 있습니다. SSH2's appCURE는 끝점에서 실행 되는 응용 프로그램을 캡처하여 업데이트 및 수정 기능을 사용 하 여 최종 사용자 환경을 실행 하는 속도에서 포괄적인 단계 변경을 만들 수 있습니다. 
 
-appCURE은 최종 사용자의 응용 프로그램에 영향을 줄 수 있는 모든 요소가 인식 되도록 실행 중인 응용 프로그램에서 응용 프로그램 세부 정보를 캡처합니다. 그런 다음 appCURE를 업데이트 하 고 새 Windows 가상 데스크톱에 전달 합니다. AppCURE는 현재 환경에 있는 모든 응용 프로그램 통합 요소를 캡처하여 IT 리소스를 최적화 하 고 이전 보다 더 빠르게 마이그레이션을 계획 하는 속도를 제공 하므로 조직에서 더 빠르게 프로덕션에 사용할 수 있습니다.
+appCURE는 실행 중인 애플리케이션에서 애플리케이션 세부 정보를 캡처하여 최종 사용자의 애플리케이션에 영향을 미칠 수 있는 모든 사항을 파악합니다. 그런 다음 appCURE를 업데이트 하 고 새 Windows 가상 데스크톱에 전달 합니다. appCURE는 현재 환경의 모든 애플리케이션 통합 지점을 캡처함으로써 IT 리소스를 최적화하고 마이그레이션을 이전보다 더 빠르고 효율적으로 계획할 수 있어 조직이 프로덕션으로 더 빠르게 전환할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38)하세요.
 - [파트너 페이지로 이동](#ssh2)합니다.

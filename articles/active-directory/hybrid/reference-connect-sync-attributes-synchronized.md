@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ec05c4160c6502904644bf7035bda0bed66cc33
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413193"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 동기화: Azure Active Directory에 동기화된 특성
@@ -64,7 +64,7 @@ ms.locfileid: "94413193"
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description | | |X | |
+| 설명 | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -185,7 +185,7 @@ ms.locfileid: "94413193"
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| 설명 |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -265,7 +265,7 @@ ms.locfileid: "94413193"
 | co |X |X | | |
 | company |X |X | | |
 | department |X |X | | |
-| description |X |X |X | |
+| 설명 |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
 | givenName |X |X | | |
@@ -325,7 +325,7 @@ ms.locfileid: "94413193"
 | accountEnabled |X | | |활성화된 계정을 정의합니다. |
 | c |X |X | | |
 | cn |X | |X | |
-| description |X |X |X | |
+| 설명 |X |X |X | |
 | displayName |X |X |X | |
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
@@ -346,7 +346,7 @@ ms.locfileid: "94413193"
 | co |X |X | | |
 | company |X |X | | |
 | countryCode |X |X | | |
-| description |X |X |X | |
+| 설명 |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X | | |
 | givenName |X |X | | |
@@ -396,7 +396,7 @@ ms.locfileid: "94413193"
 | usageLocation |X | | |기계적 속성입니다. 사용자의 국가/지역입니다. 라이선스 할당에 사용됩니다. |
 | userPrincipalName |X | | |UPN은 사용자의 로그인 ID입니다. 대부분 [mail] 값과 같습니다. |
 
-## <a name="windows-10"></a>Windows 10
+## <a name="windows-10"></a>윈도우 10
 Windows 10 도메인에 가입된 컴퓨터(디바이스)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../devices/hybrid-azuread-join-plan.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
 | 특성 이름 | 디바이스 | 의견 |

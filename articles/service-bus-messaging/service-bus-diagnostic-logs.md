@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585271"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
@@ -25,7 +25,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 작업 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| 속성 | Description |
+| Name | Description |
 | ------- | ------- |
 | ActivityId | 지정 된 작업을 식별 하는 데 사용 되는 내부 ID |
 | EventName | 작업 이름 |

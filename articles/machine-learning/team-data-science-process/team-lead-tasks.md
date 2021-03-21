@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000031"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>팀 데이터 과학 프로세스 팀에 대 한 팀 리더 작업
@@ -49,7 +49,7 @@ TDSP는 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적�
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure DevOps 및 DSVM을 사용 하 여 TDSP 팀 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 팀 리더 작업은 동일 하지만이를 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md)에 의해 다음과 같은 리소스 및 사용 권한이 설정 되어 있다고 가정 합니다.
 
@@ -226,7 +226,7 @@ git push
 ```
 
 > [!NOTE]
-> Git 리포지토리에 처음 커밋하는 경우 명령을 실행 하기 전에 전역 매개 변수 *user.name* 및 *user. email* 을 구성 해야 할 수 있습니다. `git commit` 다음 두 명령을 실행합니다.
+> Git 리포지토리에 처음 커밋하는 경우 명령을 실행 하기 전에 *user.name* 및 *user.email* 전역 매개 변수를 구성 해야 할 수 있습니다 `git commit` . 다음 두 명령을 실행합니다.
 > 
 > `git config --global user.name <your name>`
 > 

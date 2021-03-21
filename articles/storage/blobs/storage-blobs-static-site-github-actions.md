@@ -10,10 +10,10 @@ ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 ms.openlocfilehash: 2192cdb3072edba2e5597a697feef99ba4d2070d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102210260"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 배포하는 GitHub Actions 워크플로 설정
@@ -24,7 +24,7 @@ ms.locfileid: "102210260"
 > [Azure 정적 Web Apps](../../static-web-apps/index.yml)를 사용 하는 경우 GitHub 작업 워크플로를 수동으로 설정할 필요가 없습니다.
 > Azure 정적 Web Apps는 자동으로 GitHub 작업 워크플로를 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독 및 GitHub 계정. 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 4d6c77b3e8920cabc397cdcbc235baefa031e5ab
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97655495"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
@@ -93,9 +93,9 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
   - 전화 번호
   - 메일
   - 주소
-  - 구/군/시
+  - City
   - 우편 번호
-  - 주
+  - 시스템 상태
   - 국가/시/도/지역
   - 운송업체 계정 번호
   - 배송 추적 번호
@@ -111,7 +111,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 Data Box에서 구현되는 보안 지침은 다음과 같습니다.
 
-|지침   |Description   |
+|지침   |설명   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | 방수/방진         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 배송 중의 부적절한 취급으로부터 장치 보호          |

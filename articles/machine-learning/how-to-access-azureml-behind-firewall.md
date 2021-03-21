@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: 295228e9eaa3529b05055869bd46f9aefc938a6f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212776"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
@@ -82,7 +82,7 @@ UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를
     * MicrosoftContainerRegistry
     * AzureFrontDoor.FirstParty
 
-    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예들 들어 `keyvault.westus`입니다.
+    이 포함 된 항목의 경우 `region` 를 사용 중인 Azure 지역으로 바꿉니다. 예: `keyvault.westus`
 
     __프로토콜__ 에 대해를 선택 `TCP` 합니다. 원본 및 대상 __포트__ 의 경우를 선택 `*` 합니다.
 

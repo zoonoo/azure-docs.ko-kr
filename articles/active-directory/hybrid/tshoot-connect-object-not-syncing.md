@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413465"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Azure Active Directory와 동기화되지 않는 개체 문제 해결
@@ -106,7 +106,7 @@ Synchronization Service Manager의 **작업** 탭에서 문제 해결을 시작�
 
 Synchronization Service Manager에서 **커넥터** 를 선택하고 Active Directory Connector를 선택한 후 **커넥터 공간 검색** 을 선택합니다.
 
-**범위** 상자에서 **RDN** (CN 특성에 대해 검색하려는 경우) 또는 **DN 또는 앵커** ( **distinguishedName** 특성에 대해 검색하려는 경우)를 선택합니다. 값을 입력하고 **검색** 을 선택합니다. 
+**범위** 상자에서 **RDN**(CN 특성에 대해 검색하려는 경우) 또는 **DN 또는 앵커**(**distinguishedName** 특성에 대해 검색하려는 경우)를 선택합니다. 값을 입력하고 **검색** 을 선택합니다. 
  
 ![커넥터 공간 검색 스크린샷](./media/tshoot-connect-object-not-syncing/cssearch.png)  
 
@@ -158,7 +158,7 @@ CS 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 일반적으로는 원본 Active Directory 커넥터 공간에서 검색을 시작하는 것이 좋습니다. 하지만 메타버스에서 검색을 시작할 수도 있습니다.
 
 ### <a name="searching-for-an-object-in-the-mv"></a>MV에서 개체 검색
-다음 그림과 같이 Synchronization Service Manager에서 **메타버스 검색** 을 선택합니다. 사용자를 찾는 쿼리를 만듭니다. **accountName** ( **sAMAccountName** ) 및 **userPrincipalName** 등의 일반적인 특성을 검색합니다. 자세한 내용은 [Sync Service Manager 메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md)을 참조하세요.
+다음 그림과 같이 Synchronization Service Manager에서 **메타버스 검색** 을 선택합니다. 사용자를 찾는 쿼리를 만듭니다. **accountName**(**sAMAccountName**) 및 **userPrincipalName** 등의 일반적인 특성을 검색합니다. 자세한 내용은 [Sync Service Manager 메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md)을 참조하세요.
 
 ![메타버스 검색 탭이 선택된 Synchronization Service Manager 스크린샷](./media/tshoot-connect-object-not-syncing/mvsearch.png)  
 

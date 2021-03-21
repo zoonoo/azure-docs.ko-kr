@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Arc 사용 서버를 사용 하 여 에�
 ms.date: 10/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 07a00de9077378ce3e3f7a7578b66e93d1b04f2b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584947"
 ---
 # <a name="connect-hybrid-machines-to-azure-by-using-powershell"></a>PowerShell을 사용 하 여 Azure에 하이브리드 컴퓨터 연결
@@ -20,7 +20,7 @@ Azure Arc에서 사용 하도록 설정 된 서버의 경우 수동 단계를 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure PowerShell 있는 컴퓨터입니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.
 

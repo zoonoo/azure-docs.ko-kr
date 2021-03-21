@@ -11,10 +11,10 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2ff43408cfa6d95dbd5a235a950269c47d57a416
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97654033"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
@@ -42,7 +42,7 @@ ms.locfileid: "97654033"
 
 **ClaimType** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
@@ -66,7 +66,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DataType** 요소는 다음 값을 지원 합니다.
 
-| 형식 | Description |
+| Type | 설명 |
 | ------- | ----------- |
 |boolean|부울(`true` 또는 `false`) 값을 나타냅니다.|
 |date| 일반적으로 날짜로 표시 되는 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
@@ -90,7 +90,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
@@ -128,7 +128,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | `Type` | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
-| `Regex` | 예 | **`Type`** 가로 설정 된 경우 `Regex` 사용할 정규식을 지정 합니다.
+| `Regex` | 아니요 | **`Type`** 가로 설정 된 경우 `Regex` 사용할 정규식을 지정 합니다.
 
 다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.
 
@@ -165,13 +165,13 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Restriction** 요소는 다음 특성을 포함할 수 있습니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| MergeBehavior | 예 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
+| MergeBehavior | 아니요 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
 | 무늬 | 1:1 | 사용할 정규식입니다. |
@@ -182,11 +182,11 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
 |값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
-| SelectByDefault | 예 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
+| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
 다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
 
@@ -211,10 +211,10 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Pattern** 요소는 다음 특성을 포함할 수 있습니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
-| HelpText | 예 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
+| HelpText | 아니요 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.
 
@@ -243,7 +243,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 **Userinputtype** 요소 사용 가능한 사용자 입력 형식:
 
-| UserInputType | 지원 되는 ClaimType | Description |
+| UserInputType | 지원 되는 ClaimType | 설명 |
 | --------- | -------- | ----------- |
 |CheckboxMultiSelect| `string` |다중 선택 드롭다운 상자입니다. 클레임 값은 선택한 값의 쉼표 구분 기호 문자열로 표시 됩니다. |
 |DateTimeDropdown | `date`, `dateTime` |일, 월 및 연도를 선택 하는 드롭다운입니다. |

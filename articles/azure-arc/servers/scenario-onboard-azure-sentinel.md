@@ -4,17 +4,17 @@ description: Azure Arc 사용 서버를 Azure 센티널에 추가 하 고 해당
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2364ba72ac5b10ec4e1f433cc6d591c3ca389ecd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584735"
 ---
 # <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>Azure Arc 사용 서버를 Azure 센티널에 등록
 
 이 문서는 azure Arc 사용 서버를 [Azure 센티널](../../sentinel/overview.md) 에 등록 하 고 보안 관련 이벤트 수집을 시작 하는 데 도움을 주기 위해 작성 되었습니다. Azure 센티널은 엔터프라이즈 전체에서 경고 검색, 위협 가시성, 자동 관리 구하기 및 위협 대응을 위한 단일 솔루션을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 

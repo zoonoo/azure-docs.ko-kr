@@ -11,10 +11,10 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002003"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
@@ -54,7 +54,7 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 
   ![텍스트 - 화면 콘솔 쿼리 매개 변수](images/text-api-console-inputs.PNG)
 
-### <a name="content-type"></a>콘텐츠 유형
+### <a name="content-type"></a>내용 유형
 
 **Content-type** 의 경우 차단하려는 콘텐츠 유형을 선택합니다. 이 예제의 경우 기본 **텍스트/일반** 콘텐츠 형식을 사용합니다. **Ocp-Apim-Subscription-Key** 상자에 구독 키를 입력합니다.
 

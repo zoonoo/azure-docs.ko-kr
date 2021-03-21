@@ -12,10 +12,10 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
 ms.openlocfilehash: 91df89a69368056c1967e641562cf8515f44ade0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99582811"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI (회신 URL) 제한 사항 및 제한 사항
@@ -70,7 +70,7 @@ HTTP 스키마를 사용 하는 리디렉션 Uri를 회사 또는 학교 계정�
 
 #### <a name="prefer-127001-over-localhost"></a>Localhost를 통한 127.0.0.1 선호
 
-잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스에 의해 앱이 중단 되지 않도록 하려면 대신 리디렉션 URI에서 IP 리터럴 루프백 주소를 사용 `127.0.0.1` `localhost` 합니다. 예를 들어 `https://127.0.0.1`입니다.
+잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스에 의해 앱이 중단 되지 않도록 하려면 대신 리디렉션 URI에서 IP 리터럴 루프백 주소를 사용 `127.0.0.1` `localhost` 합니다. 예: `https://127.0.0.1`
 
 그러나 Azure Portal에서 **리디렉션 uri** 텍스트 상자를 사용 하 여 스키마를 사용 하는 루프백 기반 리디렉션 URI를 추가할 수는 없습니다 `http` .
 

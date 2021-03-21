@@ -1,5 +1,5 @@
 ---
-title: 리소스 제한
+title: 리소스 한계
 titleSuffix: Azure SQL Managed Instance
 description: 이 문서에서는 Azure SQL Managed Instance에 대 한 리소스 제한에 대 한 개요를 제공 합니다.
 services: sql-database
@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
-ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97770964"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요

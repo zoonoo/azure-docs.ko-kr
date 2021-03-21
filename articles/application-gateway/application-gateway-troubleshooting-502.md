@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: d44f9109540c3899ab50bd5c4c02afa19045bafb
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96182940"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
@@ -41,7 +41,7 @@ NSG, UDR 또는 사용자 지정 DNS로 인해 백 엔드에 대 한 액세스�
 
 마찬가지로 VNet에 사용자 지정 DNS가 있으면 문제가 발생할 수도 있습니다. 백 엔드 풀 구성원에 사용 되는 FQDN은 사용자가 VNet에 대해 구성 된 DNS 서버에 의해 올바르게 확인 되지 않을 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계를 통해 NSG, UDR 및 DNS 구성을 확인합니다.
 
@@ -89,7 +89,7 @@ DhcpOptions            : {
 | 시간 제한 |30 |프로브 시간 제한(초) |
 | 비정상 임계값 |3 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 * 기본 사이트를 구성하고 127.0.0.1에서 수신 대기 중인지를 확인합니다.
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
@@ -116,7 +116,7 @@ DhcpOptions            : {
 | 시간 제한 |프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브가 실패로 표시됩니다. |
 | 비정상 임계값 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 앞의 테이블처럼 사용자 지정 상태 프로브를 올바르게 구성했는지 유효성을 검사합니다. 앞의 문제 해결 단계 외에도 다음 사항을 확인합니다.
 
@@ -132,7 +132,7 @@ DhcpOptions            : {
 
 사용자 요청이 수신 되 면 응용 프로그램 게이트웨이에서 요청에 구성 된 규칙을 적용 하 여 백 엔드 풀 인스턴스로 라우팅합니다. 백 엔드 인스턴스의 응답에 대해 구성 가능한 시간 간격을 기다립니다. 기본적으로이 간격은 **20** 초입니다. Application gateway가이 간격의 백 엔드 응용 프로그램에서 응답을 받지 못하면 사용자 요청에서 502 오류를 가져옵니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 Application Gateway를 사용 하 여 BackendHttpSetting를 통해이 설정을 구성할 수 있습니다. 그런 다음 다른 풀에 적용할 수 있습니다. 다른 백 엔드 풀에는 서로 다른 BackendHttpSetting 및 다른 요청 시간 제한이 구성 되어 있을 수 있습니다.
 
@@ -146,7 +146,7 @@ Application Gateway를 사용 하 여 BackendHttpSetting를 통해이 설정을 
 
 응용 프로그램 게이트웨이에 백 엔드 주소 풀에 구성 된 Vm 또는 가상 머신 확장 집합이 없는 경우 고객 요청을 라우팅할 수 없고 잘못 된 게이트웨이 오류를 보낼 수 없습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 백 엔드 주소 풀이 비어 있지 않은지 확인 합니다. PowerShell, CLI 또는 포털을 통해 수행할 수 있습니다.
 
@@ -188,7 +188,7 @@ BackendAddressPoolsText:
 
 BackendAddressPool의 모든 인스턴스가 비정상 이면 응용 프로그램 게이트웨이에 사용자 요청을 라우팅할 백 엔드가 없습니다. 이는 백 엔드 인스턴스가 정상 이지만 필수 응용 프로그램을 배포 하지 않은 경우에도 가능 합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 인스턴스가 정상이고 애플리케이션이 올바르게 구성되어 있는지 확인합니다. 백 엔드 인스턴스가 동일한 VNet의 다른 VM에서 ping에 응답할 수 있는지 확인 합니다. 공용 끝점을 사용 하 여 구성 하는 경우 웹 응용 프로그램에 대 한 브라우저 요청을 서비스할 수 있는지 확인 합니다.
 

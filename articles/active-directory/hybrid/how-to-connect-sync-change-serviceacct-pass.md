@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996562"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
@@ -97,7 +97,7 @@ Azure AD Connect 동기화 서비스의 일부로 암호화 키를 사용 하 �
 </br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. **커넥터** 탭으로 이동합니다.
 3. 온-프레미스 AD에 해당하는 **AD 커넥터** 를 선택합니다. AD 커넥터가 둘 이상이면 각각에 대해 다음 단계를 반복합니다.
-4. **작업** 아래에서 **속성** 을 선택 합니다.
+4. **작업** 아래에서 **속성** 을 선택합니다.
 5. 팝업 대화 상자에서 **Active Directory 포리스트에 연결** 을 선택합니다.
 6. **암호** 텍스트 상자에 AD DS 계정의 암호를 입력합니다. 암호를 모르는 경우 이 단계를 수행하기 전에 알려진 값으로 설정해야 합니다.
 7. **확인** 을 클릭하여 새 암호를 저장하고 팝업 대화 상자를 닫습니다.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/17/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7e74a58a14bdcc2a6fe1e9f86305aae415c6abf7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97674517"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Azure CLI에서 읽기 복제본을 만들고 관리 REST API
@@ -34,7 +34,7 @@ ms.locfileid: "97674517"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 주 서버가 될 [Azure Database for PostgreSQL 서버](quickstart-create-server-up-azure-cli.md) 입니다.

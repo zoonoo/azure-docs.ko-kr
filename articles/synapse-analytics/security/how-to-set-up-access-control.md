@@ -10,10 +10,10 @@ ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472265"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Synapse 작업 영역에 대 한 액세스 제어를 설정 하는 방법 

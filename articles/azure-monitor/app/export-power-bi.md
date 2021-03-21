@@ -4,10 +4,10 @@ description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 4bdae09d193d5ae9c59fe9352e07b8219a76841d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584314"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급

@@ -12,27 +12,23 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 54caea62feed6ae7c082a979901999a5dcb3bd71
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f315f473c3ba9efd4e01f9424f01884a46011dbb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582250"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578376"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
 사용자가 로그인 하는 웹 앱에 대 한 코드를 구성 하는 방법을 알아봅니다.
 
-## <a name="libraries-for-protecting-web-apps"></a>웹 앱 보호를 위한 라이브러리
+## <a name="microsoft-libraries-supporting-web-apps"></a>웹 앱을 지 원하는 Microsoft 라이브러리
 
 <!-- This section can be in an include for web app and web APIs -->
-웹 앱 및 웹 API를 보호 하는 데 사용 되는 라이브러리는 다음과 같습니다.
+웹 앱 및 웹 API를 보호 하는 데 사용 되는 Microsoft 라이브러리는 다음과 같습니다.
 
-| 플랫폼 | 라이브러리 | 설명 |
-|----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_NET.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. 실제로 복잡성은 [Microsoft. Identity. 웹](https://aka.ms/ms-identity-web) 라이브러리에 캡슐화 됩니다. |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 웹 응용 프로그램에 대 한 지원 |
-| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 웹 응용 프로그램 지원 |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 관심 있는 플랫폼에 해당 하는 탭을 선택 합니다.
 
@@ -51,6 +47,12 @@ ms.locfileid: "99582250"
 # <a name="java"></a>[Java](#tab/java)
 
 이 문서의 코드 조각과 다음은 MSAL Java의 Microsoft graph 샘플을 호출 하는 [java 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-java-webapp) 에서 추출 되었습니다.
+
+전체 구현에 대 한 자세한 내용은이 샘플을 참조 하는 것이 좋습니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 문서의 코드 조각과 다음은 MSAL 노드의 샘플 [ 에서 웹 응용 프로그램 서명 사용자Node.js](https://github.com/Azure-Samples/ms-identity-node) 에서 추출 되었습니다.
 
 전체 구현에 대 한 자세한 내용은이 샘플을 참조 하는 것이 좋습니다.
 
@@ -177,6 +179,37 @@ aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 
 Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 하는 회신 uri는 `redirectUri` 응용 프로그램에서 정의 하는 인스턴스와 일치 해야 합니다. 즉, 및 여야 합니다 `http://localhost:8080/msal4jsample/secure/aad` `http://localhost:8080/msal4jsample/graph/me` .
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+여기에서 구성 매개 변수는에 있습니다. `index.js`
+
+```javascript
+
+const REDIRECT_URI = "http://localhost:3000/redirect";
+
+const config = {
+    auth: {
+        clientId: "Enter_the_Application_Id_Here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/",
+        clientSecret: "Enter_the_Client_Secret_Here"
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: msal.LogLevel.Verbose,
+        }
+    }
+};
+```
+
+Azure Portal에서 응용 프로그램에 대 한 인증 페이지에 등록 하는 회신 Uri는 응용 프로그램이 정의 하는 redirectUri 인스턴스와 일치 해야 합니다 ( `http://localhost:3000/redirect` ).
+
+> [!NOTE]
+> 이 빠른 시작은 간소화를 위해 클라이언트 암호를 구성 파일에 저장 하는 것을 제안 합니다. 프로덕션 앱에서 키 자격 증명 모음 또는 환경 변수와 같은 다른 방법을 사용 하 여 비밀을 저장 하려고 합니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 다음은 [app_config py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py)의 Python 구성 파일입니다.
@@ -207,7 +240,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-웹 앱 (및 web Api)에서 `[Authorize]` 컨트롤러 또는 컨트롤러 작업에 대 한 특성이 있으므로 응용 프로그램은 보호 됩니다. ASP.NET Core 이 특성은 사용자가 인증 되었는지 확인 합니다. 응용 프로그램을 초기화 하는 코드는 *Startup.cs* 파일에 있습니다.
+웹 앱 (및 web Api)에서 `[Authorize]` 컨트롤러 또는 컨트롤러 작업에 대 한 특성이 있으므로 응용 프로그램은 보호 됩니다. ASP.NET Core 이 특성은 사용자가 인증 되었는지 확인 합니다. 응용 프로그램을 초기화 하는 코드는 *시작 .cs* 파일에 있습니다.
 
 Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려면 다음 코드를 추가 해야 합니다. 코드의 주석은 설명이 필요 하지 않습니다.
 
@@ -246,7 +279,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
      }).AddMicrosoftIdentityUI();
     ```
 
-3. `Configure` *Startup.cs* 의 메서드에서를 호출 하 여 인증을 사용 하도록 설정 합니다.`app.UseAuthentication();`
+3. `Configure`Startup의 메서드에서 다음을 호출 하 여 인증을 사용 하도록 설정 *합니다.*`app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -267,7 +300,7 @@ Microsoft id 플랫폼 (이전의 Azure AD v2.0)으로 인증을 추가 하려�
   - 토큰 발급자의 유효성을 검사 합니다.
   - 이름에 해당 하는 클레임이 `preferred_username` ID 토큰의 클레임에서 매핑되는지 확인 합니다.
 
-- 구성 개체 외에도를 호출할 때 구성 섹션의 이름을 지정할 수 있습니다 `AddMicrosoftIdentityWebAppAuthentication` . 기본적으로 `AzureAd` 입니다.
+- 구성 개체 외에도를 호출할 때 구성 섹션의 이름을 지정할 수 있습니다 `AddMicrosoftIdentityWebAppAuthentication` . 기본적으로 `AzureAd`입니다.
 
 - `AddMicrosoftIdentityWebAppAuthentication` 고급 시나리오에 대 한 다른 매개 변수가 있습니다. 예를 들어 추적 Openid connect Connect 미들웨어 이벤트는 인증이 작동 하지 않는 경우 웹 응용 프로그램의 문제를 해결 하는 데 도움이 될 수 있습니다. 선택적 매개 변수 `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` 를로 설정 하면 `true` HTTP 응답에서 사용자 id로 진행 되는 ASP.NET Core 미들웨어 집합에서 정보를 처리 하는 방법을 보여 줍니다 `HttpContext.User` .
 
@@ -319,6 +352,15 @@ Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 각 HTTP �
 
 이 메서드가 트리거하는 인증 코드 흐름에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조 하세요.
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+```javascript
+const msal = require('@azure/msal-node');
+
+// Create msal application object
+const cca = new msal.ConfidentialClientApplication(config);
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python 샘플에서는 Flask를 사용 합니다. Flask 및 MSAL Python의 초기화는 [py # L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28)에서 수행 됩니다.
@@ -354,6 +396,10 @@ Session(app)
 # <a name="java"></a>[Java](#tab/java)
 
 이 시나리오의 다음 문서로 이동 하 여 [로그인 하 고 로그 아웃](./scenario-web-app-sign-user-sign-in.md?tabs=java)합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 시나리오의 다음 문서로 이동 하 여 [로그인](./scenario-web-app-sign-user-sign-in.md?tabs=nodejs)합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

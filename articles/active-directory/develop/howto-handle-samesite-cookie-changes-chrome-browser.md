@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c4f054259aa7c3f2a9fdfaeeadd64f26dd9bea
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "94444914"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Chrome 브라우저에서 SameSite 쿠키 변경 내용 처리
 
@@ -26,7 +26,7 @@ ms.locfileid: "88116974"
 
 `SameSite` 는 웹 응용 프로그램에서 CSRF (교차 사이트 요청 위조) 공격을 방지 하기 위해 HTTP 쿠키에 설정할 수 있는 속성입니다.
 
-- `SameSite`가 **느슨한**로 설정 되 면 쿠키는 동일한 사이트 내의 요청 및 다른 사이트의 GET 요청에서 전송 됩니다. 도메인 간 가져오기 요청에서 전송 되지 않습니다.
+- `SameSite`가 **느슨한** 로 설정 되 면 쿠키는 동일한 사이트 내의 요청 및 다른 사이트의 GET 요청에서 전송 됩니다. 도메인 간 가져오기 요청에서 전송 되지 않습니다.
 - 값이 **Strict** 이면 쿠키는 동일한 사이트 내 에서만 요청에서 전송 됩니다.
 
 기본적으로 `SameSite` 이 값은 브라우저에서 설정 되지 않으므로 요청에서 전송 되는 쿠키에 대 한 제한이 없습니다. 응용 프로그램은 요구 사항에 따라 **느슨한** 또는 **Strict** 를 설정 하 여 csrf 보호를 옵트인 (opt in) 해야 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "88116974"
 
 아래 표에서는 ASP.NET 및 ASP.NET Core 샘플에서 SameSite 변경 사항을 해결 한 끌어오기 요청을 보여 줍니다.
 
-| 예제 | 끌어오기 요청 |
+| 샘플 | 끌어오기 요청 |
 | ------ | ------------ |
 |  [ASP.NET Core 웹 앱 증분 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [동일한 사이트 쿠키 수정 #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
 |  [ASP.NET MVC 웹 앱 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [동일한 사이트 쿠키 수정 #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
@@ -64,13 +64,13 @@ ASP.NET 및 ASP.NET Core에서 SameSite 쿠키를 처리 하는 방법에 대 �
 
 # <a name="python"></a>[Python](#tab/python)
 
-| 예제 |
+| 샘플 |
 | ------ |
 |  [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp)  |
 
 # <a name="java"></a>[Java](#tab/java)
 
-| 예제 | 끌어오기 요청 |
+| 샘플 | 끌어오기 요청 |
 | ------ | ------------ |
 |  [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [동일한 사이트 쿠키 수정 #24](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
 |  [webapi--id](https://github.com/Azure-Samples/ms-identity-java-webapi)  | [동일한 사이트 쿠키 수정 #4](https://github.com/Azure-Samples/ms-identity-java-webapi/pull/4)
@@ -81,11 +81,8 @@ ASP.NET 및 ASP.NET Core에서 SameSite 쿠키를 처리 하는 방법에 대 �
 
 SameSite 및 웹 앱 시나리오에 대해 자세히 알아보세요.
 
-> [!div class="nextstepaction"]
-> [SameSite의 Google Chrome FAQ](https://www.chromium.org/updates/same-site/faq)
+- [SameSite의 Google Chrome FAQ](https://www.chromium.org/updates/same-site/faq)
 
-> [!div class="nextstepaction"]
-> [Chromium SameSite 페이지](https://www.chromium.org/updates/same-site)
+- [Chromium SameSite 페이지](https://www.chromium.org/updates/same-site)
 
-> [!div class="nextstepaction"]
-> [시나리오: 사용자에 게 로그인 하는 웹 앱](scenario-web-app-sign-user-overview.md)
+- [시나리오: 사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)

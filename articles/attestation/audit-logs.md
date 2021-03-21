@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 11/23/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 1fa4a458a4e3e1df1d84c343a32e3a41a4a25e75
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95758992"
 ---
 # <a name="audit-logs-for-azure-attestation"></a>Azure 증명에 대 한 감사 로그
@@ -47,7 +47,7 @@ Azure 증명은 코드를 사용 하 여 증명을 수행 하는 방식에 영�
 - 작업 성공
 - 작업 호출자 이며 다음 중 하나일 수 있습니다.
     - Azure AD UPN
-    - 개체 ID입니다.
+    - 개체 ID
     - 인증서
     - Azure AD 테넌트 ID
 - 작업 대상으로 다음 중 하나일 수 있습니다.

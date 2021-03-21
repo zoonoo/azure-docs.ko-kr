@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: e386db1ee2042d75a31d4a9de2a5174e904c6b5c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732975"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Azure VMware 솔루션 (AVS) 평가 만들기
@@ -23,7 +23,7 @@ ms.locfileid: "101732975"
 
 - Azure Migrate 프로젝트를 [만들었는지](./create-manage-projects.md) 확인 합니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- 평가를 만들려면 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 전송 하는 [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. [자세히 알아보기](migrate-appliance.md).
+- 평가를 만들려면 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 전송 하는 [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 해야 합니다. [자세한 정보를 알아보세요](migrate-appliance.md).
 - 쉼표로 구분 된 값 (CSV) 형식으로 [서버 메타 데이터를 가져올](./tutorial-discover-import.md) 수도 있습니다.
 
 

@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
 ms.openlocfilehash: 68b9b31cdfb55e8150b05e3efd35389320905cdc
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98034274"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>전용 호스트에 배포
@@ -18,7 +18,7 @@ ms.locfileid: "98034274"
 
 전용 sku는 물리적 서버 관점에서 작업을 격리 해야 하는 컨테이너 작업에 적합 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 > 일부 현재 제한으로 인해 모든 제한 증가 요청이 승인 되도록 보장 되는 것은 아닙니다.

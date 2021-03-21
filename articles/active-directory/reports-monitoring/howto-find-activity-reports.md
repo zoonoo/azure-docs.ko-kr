@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013034"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
@@ -147,7 +147,7 @@ ms.locfileid: "96013034"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 이유 
 
  ![작업 보고서의 다운로드 단추를 보여 주는 스크린샷](./media/troubleshoot-missing-data-download/01.png)
  
@@ -205,7 +205,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유 
 
  ![스크린샷 날짜 메뉴를 표시 합니다.](./media/troubleshoot-missing-audit-data/03.png)
 
