@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: cc87429f269fba5083b87e2c328f0e21de9707ff
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102454350"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware v m/물리적 서버에 대해 대규모 재해 복구 설정
@@ -95,13 +95,13 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 의미는 무엇 인가요? Azure VM을 시작 하려면 일부 드라이버가 부팅 시작 상태 여야 하 고 DHCP와 같은 서비스가 자동으로 시작 되도록 설정 되어야 합니다.
 - 를 준수 하는 컴퓨터에는 이러한 설정이 이미 적용 되어 있습니다.
-- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아보기](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세한 정보를 알아보세요](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
 - Linux 컴퓨터는 장애 조치 (failover) 시에만 준수 상태로 전환 됩니다.
 
 **컴퓨터가 Azure를 준수 하나요?** | **Azure VM 제한 (관리 디스크 장애 조치 (failover))**
 --- | --- 
 예 | 2000
-예 | 1000
+아니요 | 1000
 
 - 제한에는 구독에 대 한 대상 지역에서 최소한의 다른 작업이 진행 중 이라고 가정 합니다.
 - 일부 Azure 지역은 더 작으며 약간 낮은 제한이 있을 수 있습니다.

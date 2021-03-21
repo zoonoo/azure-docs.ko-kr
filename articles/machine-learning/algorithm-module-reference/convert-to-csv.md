@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93421926"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈로 변환
@@ -48,9 +48,9 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 
 **CSV로 변환** 의 오른쪽 패널에서 **출력** 탭을 선택 하 고 **포트 출력** 아래에서 이러한 아이콘 중 하나를 선택 합니다.  
 
-+ **데이터 집합 등록** : 아이콘을 선택 하 고 CSV 파일을 별도의 데이터 집합으로 Azure ML 작업 영역에 다시 저장 합니다. **내 데이터** 집합 섹션의 모듈 트리에서 데이터 집합을 모듈로 찾을 수 있습니다.
++ **데이터 집합 등록**: 아이콘을 선택 하 고 CSV 파일을 별도의 데이터 집합으로 Azure ML 작업 영역에 다시 저장 합니다. **내 데이터** 집합 섹션의 모듈 트리에서 데이터 집합을 모듈로 찾을 수 있습니다.
 
- + **출력 보기** : 눈동자 아이콘을 선택 하 고 지침에 따라 **Results_dataset** 폴더를 찾아보고 data.csv 파일을 다운로드 합니다.
+ + **출력 보기**: 눈동자 아이콘을 선택 하 고 지침에 따라 **Results_dataset** 폴더를 찾아보고 data.csv 파일을 다운로드 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

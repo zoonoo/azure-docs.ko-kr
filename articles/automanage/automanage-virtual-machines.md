@@ -10,10 +10,10 @@ ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
 ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101643537"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>가상 컴퓨터에 대 한 Azure Automanage
@@ -78,8 +78,8 @@ Automanage는 다음 지역에 있는 Vm만 지원 합니다.
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="지능적으로 서비스를 등록 합니다.":::
 
 지원 되는 환경 뿐만 아니라 참여 하는 Azure 서비스의 전체 목록은 다음을 참조 하세요.
-- [Linux 용 automanage](automanage-linux.md)
-- [Windows Server에 대 한 automanage](automanage-windows-server.md)
+- [Linux용 Automanage](automanage-linux.md)
+- [Windows Server용 Automanage](automanage-windows-server.md)
 
  이러한 참여 하는 서비스에 자동으로 등록 됩니다. [클라우드 채택 프레임 워크](/azure/cloud-adoption-framework/manage/azure-server-management)에서 찾을 수 있는 모범 사례 백서에 반드시 필요 합니다.
 
@@ -121,8 +121,8 @@ VM에 대해 Automanage를 처음 사용 하는 경우 **automanage – Azure vi
 > Automanage를 사용 하는 동안에는 VM에서 enivonrment 구성을 변경할 수 없습니다. 해당 VM에 대해 Automanage를 사용 하지 않도록 설정한 다음 원하는 환경 및 기본 설정으로 Automanage를 다시 사용 하도록 설정 해야 합니다.
 
 참여 하는 Azure 서비스의 전체 목록과 기본 설정이 지원 되는 경우 여기를 참조 하세요.
-- [Linux 용 automanage](automanage-windows-server.md)
-- [Windows Server에 대 한 automanage](automanage-windows-server.md)
+- [Linux용 Automanage](automanage-windows-server.md)
+- [Windows Server용 Automanage](automanage-windows-server.md)
 
 
 ## <a name="automanage-account"></a>계정 자동 관리

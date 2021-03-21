@@ -13,10 +13,10 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8f7357644639e1bdba07b9ad44533582fc66b600
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456078"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
@@ -93,7 +93,7 @@ CBCS (FairPlay)를 사용 하 여 HLS 스트림을 암호화 하려는 경우에
 
 |언어|API|
 |---|---|
-|REST (영문)|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
+|REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locator](/cli/azure/ams/asset#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|

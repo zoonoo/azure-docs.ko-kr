@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93073522"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket(Transact-SQL)
@@ -41,19 +41,19 @@ DATE_BUCKET (datePart, number, date, origin)
   
 |*datePart*|약어|  
 |---|---|
-|**day**|**dd** , **d**|  
-|**week**|**wk** , **ww**| 
-|**month**|**mm** , **m**|
-|**quarter**|**qq** , **q**|  
-|**year**|**yy** , **yyyy**|  
+|**day**|**dd**, **d**|  
+|**week**|**wk**, **ww**| 
+|**month**|**mm**, **m**|
+|**quarter**|**qq**, **q**|  
+|**year**|**yy**, **yyyy**|  
 |**hour**|**hh**|  
-|**minute**|**mi** , **n**|  
-|**second**|**ss** , **s**|  
+|**minute**|**mi**, **n**|  
+|**second**|**ss**, **s**|  
 |**millisecond**|**ms**|  
 
 *number*
 
-*datePart* 인수와 결합된 버킷의 너비를 결정하는 정수입니다. 원본 시간으로부터의 dataPart 버킷 너비를 나타냅니다. **`This argument cannot be a negative integer value`** . 
+*datePart* 인수와 결합된 버킷의 너비를 결정하는 정수입니다. 원본 시간으로부터의 dataPart 버킷 너비를 나타냅니다. **`This argument cannot be a negative integer value`**. 
 
 *date*
 
@@ -125,7 +125,7 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>datepart 인수
 
-**dayofyear** , **day** , **weekday** 는 동일한 값을 반환합니다. 각 *datepart* 와 해당 약어는 동일한 값을 반환합니다.
+**dayofyear**, **day**, **weekday** 는 동일한 값을 반환합니다. 각 *datepart* 와 해당 약어는 동일한 값을 반환합니다.
   
 ## <a name="number-argument"></a>number 인수
 
@@ -165,7 +165,7 @@ Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 + SELECT \<list>
 + WHERE
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>A. 원본 시간으로부터 1의 버킷 너비로 Date_Bucket을 계산
 

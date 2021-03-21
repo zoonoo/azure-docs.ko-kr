@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2021
 ms.author: Zhchia
 ms.openlocfilehash: 8acf65f1614c286e0996d1430c65d6c2d1e67618
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645605"
 ---
 # <a name="tutorial-configure-iris-intranet-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Iri 인트라넷 구성

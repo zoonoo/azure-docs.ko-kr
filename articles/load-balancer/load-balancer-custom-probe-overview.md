@@ -1,5 +1,5 @@
 ---
-title: 서비스에 대 한 HA를 확장 하 고 제공 하는 상태 프로브
+title: 서비스에 대한 HA의 크기를 조정하고 제공하는 상태 프로브
 titleSuffix: Azure Load Balancer
 description: 이 문서에서는 상태 프로브를 사용 하 여 인스턴스를 모니터링 하는 방법에 대해 알아봅니다 Azure Load Balancer
 services: load-balancer
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
 ms.openlocfilehash: a008d7b26738b9552a7a43ab026391bd9afe0aa8
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96780946"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브

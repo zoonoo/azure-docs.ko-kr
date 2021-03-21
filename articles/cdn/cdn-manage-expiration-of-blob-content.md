@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: 206ff6f888229356743bebb816cf03e4f7a7504b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778712"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure CDN에서 Azure Blob Storage의 만료 관리
@@ -47,7 +47,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 > [!NOTE] 
 > 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Verizon의 Azure CDN 프리미엄** 프로필은 유사한 기능을 위해 **관리** 포털에서 [Azure CDN 규칙 엔진](./cdn-verizon-premium-rules-engine.md)을 사용해야 합니다.
 
-**CDN 캐싱 규칙 페이지로 이동하려면** :
+**CDN 캐싱 규칙 페이지로 이동하려면**:
 
 1. Azure Portal에서 CDN 프로필을 선택한 다음, Blob용 엔드포인트를 선택합니다.
 

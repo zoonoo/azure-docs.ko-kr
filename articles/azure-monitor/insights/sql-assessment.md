@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: 0f2319ea6ba314c08a67651667837f05df5765a1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101723234"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Azure Monitor의 SQL Server Health Check 솔루션을 사용 하 여 SQL 환경을 최적화 합니다.
@@ -30,7 +30,7 @@ SQL Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경�
 
 ![SQL Health Check 대시보드의 이미지](./media/sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * SQL Health Check 솔루션을 사용 하려면 MMA (Microsoft Monitoring Agent)가 설치 된 각 컴퓨터에 지원 되는 .NET Framework 4.6.2 버전이 설치 되어 있어야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.  
 * 이 솔루션은 SQL Server 버전 2012, 2014, 2016, 2017 및 2019을 지원 합니다.

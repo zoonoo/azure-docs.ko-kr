@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786584"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
@@ -74,7 +74,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 
 ### <a name="about-the-created-memory-optimized-items"></a>생성된 메모리 최적화된 항목에 대한 정보
 
-**테이블** : 샘플은 다음과 같은 메모리 최적화 테이블을 포함합니다.
+**테이블**: 샘플은 다음과 같은 메모리 최적화 테이블을 포함합니다.
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -92,7 +92,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
     WHERE is_memory_optimized = 1;
 ```
 
-**고유하게 컴파일된 저장 프로시저** : 카탈로그 뷰 쿼리를 통해 SalesLT.usp_InsertSalesOrder_inmem을 검사할 수 있습니다.
+**고유하게 컴파일된 저장 프로시저**: 카탈로그 뷰 쿼리를 통해 SalesLT.usp_InsertSalesOrder_inmem을 검사할 수 있습니다.
 
 ```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition

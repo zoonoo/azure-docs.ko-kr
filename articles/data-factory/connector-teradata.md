@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jingwang
 ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381769"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Teradata 유리한에서 데이터 복사
@@ -39,7 +39,7 @@ Teradata 유리한에서 지원 되는 모든 싱크 데이터 저장소로 데�
 - **Basic**, **Windows** 또는 **LDAP** 인증을 사용 하 여 데이터를 복사 합니다.
 - Teradata 원본에서의 병렬 복사 자세한 내용은 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -71,7 +71,7 @@ Teradata 연결 된 서비스는 다음 속성을 지원 합니다.
 | UseDataEncryption | Teradata 데이터베이스와의 모든 통신을 암호화할지 여부를 지정 합니다. 허용 되는 값은 0 또는 1입니다.<br><br/>- **0 (사용 안 함, 기본값)**: 인증 정보만 암호화 합니다.<br/>- **1 (사용)**: 드라이버와 데이터베이스 간에 전달 되는 모든 데이터를 암호화 합니다. | `0` |
 | CharacterSet | 세션에 사용할 문자 집합입니다. `CharacterSet=UTF16`예:,.<br><br/>이 값은 사용자 정의 문자 집합 또는 미리 정의 된 다음 문자 집합 중 하나일 수 있습니다. <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-jis (Windows, DOS 호환, KANJISJIS_0S)<br/>-EUC (Unix 호환, KANJIEC_0U)<br/>-IBM 메인프레임 (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | `ASCII` |
 | MaxRespSize |SQL 요청에 대 한 응답 버퍼의 최대 크기 (kb)입니다 (Kb). `MaxRespSize=‭10485760‬`예:,.<br/><br/>Teradata 데이터베이스 버전 16.00 이상에서는 최대 값이 7361536입니다. 이전 버전을 사용 하는 연결의 경우 최대값은 1048576입니다. | `65536` |
-| MechanismName | LDAP 프로토콜을 사용 하 여 연결을 인증 하려면를 지정 `MechanismName=LDAP` 합니다. | N/A |
+| MechanismName | LDAP 프로토콜을 사용 하 여 연결을 인증 하려면를 지정 `MechanismName=LDAP` 합니다. | 해당 없음 |
 
 **기본 인증을 사용 하는 예제**
 
@@ -225,7 +225,7 @@ Teradata에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에�
 | partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>파티션 옵션이 `None`이 아닌 경우에 적용합니다. | 예 |
 | partitionColumnName | 병렬 복사를 위해 범위 파티션 또는 해시 파티션에서 사용할 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 주 인덱스가 자동으로 검색 되어 파티션 열로 사용 됩니다. <br>Partition 옵션이 또는 인 경우에 적용 됩니다 `Hash` `DynamicRange` . 쿼리를 사용 하 여 원본 데이터, 후크 `?AdfHashPartitionCondition` 또는  `?AdfRangePartitionColumnName` where 절을 검색 하는 경우 [Teradata의 Parallel copy](#parallel-copy-from-teradata) 섹션에서 예제를 참조 하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용합니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`을 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 예 |
-| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 예 |
+| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Teradata에서 Parallel 복사](#parallel-copy-from-teradata) 섹션을 참조 하세요. | 아니요 |
 
 > [!NOTE]
 >

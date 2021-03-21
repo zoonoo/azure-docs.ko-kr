@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/25/2019
 ms.openlocfilehash: 8b3036f09e41b20bc3c190f06842acd817fcece6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380953"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Google AdWords에서 데이터 복사
@@ -45,16 +45,16 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **GoogleAdWords** 로 설정해야 합니다. | Yes |
-| clientCustomerID | 보고서 데이터를 가져올 AdWords 계정의 클라이언트 고객 ID입니다.  | Yes |
+| type | 형식 속성은 **GoogleAdWords** 로 설정해야 합니다. | 예 |
+| clientCustomerID | 보고서 데이터를 가져올 AdWords 계정의 클라이언트 고객 ID입니다.  | 예 |
 | developerToken | AdWords API에 대한 액세스 권한을 부여하는 데 사용하는 관리자 계정과 연관된 개발자 토큰입니다.  이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
-| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 IR에서만 사용할 수 있습니다. <br/>허용되는 값은 **ServiceAuthentication**, **UserAuthentication** 입니다. | Yes |
-| refreshToken | UserAuthentication을 위한 애드워즈 액세스 권한을 부여하기 위해 Google에서 얻은 새로 고침 토큰입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
-| clientId | 새로 고침 토큰을 획득 하는 데 사용 되는 Google 응용 프로그램의 클라이언트 ID입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
-| clientSecret | 새로 고침 토큰을 얻는 데 사용되는 Google 애플리케이션의 클라이언트 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
-| 이메일 | ServiceAuthentication에 사용되는 서비스 계정 메일 ID이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 예 |
-| keyFilePath | 서비스 계정 메일 주소를 인증하는 데 사용되는 .p12 키 파일의 전체 경로이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 예 |
-| trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용할 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 예 |
+| authenticationType | 인증에 사용되는 OAuth 2.0 인증 메커니즘입니다. ServiceAuthentication은 자체 호스팅 IR에서만 사용할 수 있습니다. <br/>허용되는 값은 **ServiceAuthentication**, **UserAuthentication** 입니다. | 예 |
+| refreshToken | UserAuthentication을 위한 애드워즈 액세스 권한을 부여하기 위해 Google에서 얻은 새로 고침 토큰입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 아니요 |
+| clientId | 새로 고침 토큰을 획득 하는 데 사용 되는 Google 응용 프로그램의 클라이언트 ID입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 아니요 |
+| clientSecret | 새로 고침 토큰을 얻는 데 사용되는 Google 애플리케이션의 클라이언트 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 아니요 |
+| 이메일 | ServiceAuthentication에 사용되는 서비스 계정 메일 ID이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 아니요 |
+| keyFilePath | 서비스 계정 메일 주소를 인증하는 데 사용되는 .p12 키 파일의 전체 경로이며 자체 호스팅 IR에서만 사용할 수 있습니다.  | 아니요 |
+| trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용할 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
 | useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
 
 **예:**

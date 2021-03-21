@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92927756"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Azure Policy과 Key Vault 통합
@@ -29,9 +29,9 @@ ms.locfileid: "92927756"
 
 ## <a name="types-of-policy-effects-and-guidance"></a>정책 효과 및 지침의 유형
 
-**감사** : 정책의 영향을 감사로 설정하면, 정책은 환경을 파격적으로 변경하지 않습니다. 지정된 범위 내의 정책 정의를 따르지 않는 인증서와 같은 구성 요소만 정책 준수 대시보드에서 비규격으로 표시하여 경고가 발생하도록 합니다. 정책 효과를 선택하지 않은 경우 감사가 기본값입니다.
+**감사**: 정책의 영향을 감사로 설정하면, 정책은 환경을 파격적으로 변경하지 않습니다. 지정된 범위 내의 정책 정의를 따르지 않는 인증서와 같은 구성 요소만 정책 준수 대시보드에서 비규격으로 표시하여 경고가 발생하도록 합니다. 정책 효과를 선택하지 않은 경우 감사가 기본값입니다.
 
-**거부** : 정책의 영향을 거부로 설정하면 정책에서 인증서와 같은 새 구성 요소 생성을 차단하고 정책 정의를 따르지 않는 기존 구성 요소의 새 버전을 차단합니다. Key Vault 내의 기존 비규격 리소스는 영향을 받지 않습니다. '감사' 기능은 계속 작동합니다.
+**거부**: 정책의 영향을 거부로 설정하면 정책에서 인증서와 같은 새 구성 요소 생성을 차단하고 정책 정의를 따르지 않는 기존 구성 요소의 새 버전을 차단합니다. Key Vault 내의 기존 비규격 리소스는 영향을 받지 않습니다. '감사' 기능은 계속 작동합니다.
 
 ## <a name="available-built-in-policy-definitions"></a>사용 가능한 “기본 제공” 정책 정의
 

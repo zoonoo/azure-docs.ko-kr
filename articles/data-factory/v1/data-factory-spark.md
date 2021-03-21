@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: a7fcccad039ff6d737e10cfc57ba97f914645a9d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382670"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
@@ -47,7 +47,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 * Storage 연결된 서비스를 참조하는 데이터 세트를 만듭니다. 현재 생성 중인 출력이 없더라도 작업의 출력 데이터 세트를 지정해야 합니다.
 * 만든 HDInsight 연결된 서비스를 참조하는 Spark 작업이 있는 파이프라인을 만듭니다. 이 작업은 이전 단계에서 출력 데이터 세트로 만든 데이터 세트를 통해 구성됩니다. 출력 데이터 세트는 일정(매시간, 매일)을 구동하는 것입니다. 따라서 작업에서 실제로 출력을 생성하지 않더라도 출력 데이터 세트를 지정해야 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 1. [스토리지 계정 만들기](../../storage/common/storage-account-create.md)의 지침에 따라 범용 스토리지 계정을 만듭니다.
 
 1. [HDInsight에서 Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)의 지침에 따라 HDInsight에서 Spark 클러스터를 만듭니다. 1단계에서 만든 스토리지 계정을 이 클러스터와 연결합니다.
@@ -114,7 +114,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 편집기에서 다음 단계를 수행합니다.
 
-    1. HDInsight Spark 클러스터에 대한 URI를 지정합니다. 예: `https://<sparkclustername>.azurehdinsight.net/`
+    1. HDInsight Spark 클러스터에 대한 URI를 지정합니다. 예를 들어 `https://<sparkclustername>.azurehdinsight.net/`을 참조하십시오.
 
     1. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
 
@@ -270,7 +270,7 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 문제를 추가로 해결하려면 다음 단계를 수행합니다.
 
 
-1. [https://editor.swagger.io](`https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`) 로 이동합니다.
+1. `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`로 이동합니다.
 
     ![YARN UI 애플리케이션](media/data-factory-spark/yarnui-application.png)
 
@@ -326,14 +326,14 @@ getDebugInfo를 **Always** 로 설정했으므로 Blob 컨테이너의 pyFiles �
 | name | 파이프라인의 작업 이름입니다. | 예 |
 | description | 작업에서 수행하는 동작을 설명하는 텍스트입니다. | 예 |
 | type | 이 속성은 HDInsightSpark로 설정해야 합니다. | 예 |
-| linkedServiceName | Spark 프로그램이 실행되는 HDInsight 연결된 서비스의 이름입니다. | Yes |
+| linkedServiceName | Spark 프로그램이 실행되는 HDInsight 연결된 서비스의 이름입니다. | 예 |
 | rootPath | Spark 파일이 포함된 Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. | 예 |
 | entryFilePath | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. | 예 |
 | className | 애플리케이션의 Java/Spark main 클래스입니다. | 예 |
 | 인수 | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 예 |
 | proxyUser | Spark 프로그램을 실행하기 위해 가장하는 사용자 계정입니다. | 예 |
 | sparkConfig | [Spark 구성: 애플리케이션 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties)에 나열된 Spark 구성 속성에 대한 값을 지정합니다. | 예 |
-| getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 스토리지에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 예 |
+| getDebugInfo | HDInsight 클러스터에서 사용되거나 sparkJobLinkedService에서 지정된 스토리지에 Spark 로그 파일을 복사하는 시기를 지정합니다. 허용되는 값은 None, Always 또는 Failure입니다. 기본값은 None입니다. | 아니요 |
 | sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Storage 연결된 서비스입니다. 이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 스토리지가 사용됩니다. | 예 |
 
 ## <a name="folder-structure"></a>폴더 구조
@@ -345,11 +345,11 @@ HDInsight 연결된 서비스에서 참조하는 Blob Storage에 다음 폴더 �
 | ---- | ----------- | -------- | ---- |
 | . | 스토리지 연결된 서비스의 Spark 작업에 대한 루트 경로입니다. | 예 | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 입력 파일을 가리키는 경로입니다. | 예 | 파일 |
-| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 예 | 폴더 |
-| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 예 | 폴더 |
-| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 예 | 폴더 |
-| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 예 | 폴더 |
-| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 예 | 폴더 |
+| ./jars | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 Java classpath에 배치됩니다. | 아니요 | 폴더 |
+| ./pyFiles | 이 폴더 아래의 모든 파일이 업로드되고, 클러스터의 PYTHONPATH에 배치됩니다. | 아니요 | 폴더 |
+| ./files | 이 폴더 아래의 모든 파일이 업로드되고, 실행기 작업 디렉터리에 배치됩니다. | 아니요 | 폴더 |
+| ./archives | 이 폴더 아래의 모든 파일이 압축 해제됩니다. | 아니요 | 폴더 |
+| ./logs | Spark 클러스터의 로그가 저장되는 폴더| 아니요 | 폴더 |
 
 HDInsight 연결된 서비스에서 참조하는 Blob Storage에 있는 두 개의 Spark 작업 파일이 포함된 스토리지에 대한 예제는 다음과 같습니다.
 

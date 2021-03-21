@@ -18,10 +18,10 @@ ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 787cf922fcee0ee613fc0874a490830da9adf38a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455028"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification Hubs에서 삭제 된 알림 진단
@@ -200,7 +200,7 @@ Notification Hubs를 통해 알림을 보낼 때 알림은 처음에 큐에 대�
 
 푸시 알림 서비스 오류에 대한 정보를 얻으려면 [EnableTestSend] 속성을 사용합니다. 이 속성은 포털 또는 Visual Studio 클라이언트에서 테스트 메시지를 보낼 때 자동으로 활성화됩니다. 이 속성을 사용 하 여 자세한 디버깅 정보 및 Api를 통해 볼 수도 있습니다. 현재 이 속성은 .NET SDK에서 사용할 수 있습니다. 결국 모든 클라이언트 Sdk에 추가 됩니다.
 
-REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test* 라는 쿼리 문자열 매개 변수를 추가합니다. 다음은 그 예입니다.
+REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test* 라는 쿼리 문자열 매개 변수를 추가합니다. 예를 들면 다음과 같습니다.
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test

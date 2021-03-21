@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
 ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077254"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
 대부분의 API는 [OAuth 2.0](https://oauth.net/2/) 을 지원하여 API를 보호하고 유효한 사용자만 액세스 권한이 부여되고 자격이 있는 리소스에만 액세스할 수 있도록 합니다. 이러한 API와 함께 Azure API Management의 대화형 개발자 콘솔을 사용하기 위해 서비스에서 OAuth 2.0 사용 API로 작동하도록 서비스 인스턴스를 구성할 수 있습니다.
 
-## <a name="prerequisites"></a><a name="prerequisites"> </a>필수 조건
+## <a name="prerequisites"></a><a name="prerequisites"> </a>필수 구성 요소
 
 이 가이드에서는 개발자 계정에 대해 OAuth 2.0 권한 부여를 사용하도록 API Management 서비스 인스턴스를 구성하는 방법을 설명합니다. 그러나 OAuth 2.0 공급자를 구성하는 방법은 설명하지 않습니다. 각 OAuth 2.0 공급자의 구성은 서로 다르지만 구성 단계는 비슷하며, API Management 서비스 인스턴스에서 OAuth 2.0을 구성하는 데 사용되는 필수 정보도 동일합니다. 이 항목에서는 OAuth 2.0 공급자로서 Azure Active Directory를 사용하는 예제를 설명합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "93077254"
 
     ![OAuth 2.0 새 서버](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. 양식의 다음 섹션에는 **권한 부여 유형** , **권한 부여 엔드포인트 URL** 및 **권한 부여 요청 방법** 설정이 포함되어 있습니다.
+4. 양식의 다음 섹션에는 **권한 부여 유형**, **권한 부여 엔드포인트 URL** 및 **권한 부여 요청 방법** 설정이 포함되어 있습니다.
 
     원하는 유형을 선택하여 **권한 부여 유형** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "93077254"
 
     **권한 부여 요청 방법** 은 권한 부여 요청이 OAuth 2.0 서버로 전송되는 방법을 지정합니다. 기본적으로는 **GET** 이 선택됩니다.
 
-5. 그런 후에 **토큰 엔드포인트 URL** , **클라이언트 인증 방법** , **액세스 토큰 전송 방법** 및 **기본 범위** 를 지정해야 합니다.
+5. 그런 후에 **토큰 엔드포인트 URL**, **클라이언트 인증 방법**, **액세스 토큰 전송 방법** 및 **기본 범위** 를 지정해야 합니다.
 
     ![OAuth2 서비스 추가 화면을 보여 주는 스크린샷](./media/api-management-howto-oauth2/oauth-03.png)
 

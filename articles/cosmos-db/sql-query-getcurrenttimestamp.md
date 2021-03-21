@@ -9,10 +9,10 @@ ms.date: 02/03/2021
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: fa7d1ec2af12065fb7d761073cd982a561cf53c1
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99524264"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
@@ -37,7 +37,7 @@ GetCurrentTimestamp ()는 비결 정적 함수입니다. 반환 된 결과는 UT
 > [!NOTE]
 > 이 시스템 함수는 인덱스를 활용 하지 않습니다. 현재 시간에 대 한 값을 비교 해야 하는 경우 쿼리 실행 전 현재 시간을 가져온 다음 절에서 해당 상수 문자열 값을 사용 합니다 `WHERE` .
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 GetCurrentTimestamp () 기본 제공 함수를 사용 하 여 현재 타임 스탬프를 가져오는 방법을 보여 줍니다.
   

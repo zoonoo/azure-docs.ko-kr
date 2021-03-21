@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 5b91986d4f94861b87e413c9ff781107c3ed04a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92786601"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명
@@ -23,15 +23,15 @@ ms.locfileid: "92786601"
 
 [Elastic Database 클라이언트 라이브러리](elastic-database-client-library.md)는 세 가지 다른 종류의 자격 증명을 사용하여 [분할된 데이터베이스 맵 관리자](elastic-scale-shard-map-management.md)에 액세스합니다. 필요에 따라서 가능한 한 액세스 수준이 가장 낮은 자격 증명을 사용합니다.
 
-* **관리 자격 증명** : 분할된 데이터베이스 맵 관리자를 만들고 조작하는 데 사용됩니다. ( [용어집](elastic-scale-glossary.md)을 참조하세요.)
-* **액세스 자격 증명** : 분할된 데이터베이스에 대한 정보를 얻기 위해 기존의 분할된 데이터베이스 맵 관리자에 액세스하는 데 사용됩니다.
-* **연결 자격 증명** : 분할된 데이터베이스에 연결하는 데 사용됩니다.
+* **관리 자격 증명**: 분할된 데이터베이스 맵 관리자를 만들고 조작하는 데 사용됩니다. ( [용어집](elastic-scale-glossary.md)을 참조하세요.)
+* **액세스 자격 증명**: 분할된 데이터베이스에 대한 정보를 얻기 위해 기존의 분할된 데이터베이스 맵 관리자에 액세스하는 데 사용됩니다.
+* **연결 자격 증명**: 분할된 데이터베이스에 연결하는 데 사용됩니다.
 
 [Azure SQL Database에서 데이터베이스 및 로그인 관리](logins-create-manage.md)도 참조하세요.
 
 ## <a name="about-management-credentials"></a>관리 자격 증명 정보
 
-관리 자격 증명은 분할된 데이터베이스 맵을 조작하는 애플리케이션에 대한 **ShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 개체를 만드는 데 사용됩니다. (예를 들어 [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가](elastic-scale-add-a-shard.md) 및 [데이터 종속 라우팅](elastic-scale-data-dependent-routing.md)을 참조하세요.) 탄력적인 크기의 클라이언트 라이브러리 사용자는 SQL 사용자 및 SQL 로그인을 만들고 각각에 대해 글로벌 분할된 데이터베이스 맵 데이터베이스는 물론 모든 분할된 데이터베이스 맵에 대한 읽기/쓰기 권한을 부여합니다. 이러한 자격 증명은 분할된 데이터베이스 맵에 대한 변경을 수행할 때 전역 분할된 데이터베이스 맵 및 로컬 분할된 데이터베이스 맵을 유지 관리 하는 데 사용됩니다. 예를 들어 관리 자격 증명을 사용하여 분할된 데이터베이스 맵 관리자 개체를 만듭니다( **GetSqlShardMapManager** ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) 사용).
+관리 자격 증명은 분할된 데이터베이스 맵을 조작하는 애플리케이션에 대한 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 개체를 만드는 데 사용됩니다. (예를 들어 [Elastic Database 도구를 사용하여 분할된 데이터베이스 추가](elastic-scale-add-a-shard.md) 및 [데이터 종속 라우팅](elastic-scale-data-dependent-routing.md)을 참조하세요.) 탄력적인 크기의 클라이언트 라이브러리 사용자는 SQL 사용자 및 SQL 로그인을 만들고 각각에 대해 글로벌 분할된 데이터베이스 맵 데이터베이스는 물론 모든 분할된 데이터베이스 맵에 대한 읽기/쓰기 권한을 부여합니다. 이러한 자격 증명은 분할된 데이터베이스 맵에 대한 변경을 수행할 때 전역 분할된 데이터베이스 맵 및 로컬 분할된 데이터베이스 맵을 유지 관리 하는 데 사용됩니다. 예를 들어 관리 자격 증명을 사용하여 분할된 데이터베이스 맵 관리자 개체를 만듭니다(**GetSqlShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanagerfactory.getsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager) 사용).
 
 ```java
 // Obtain a shard map manager.
@@ -59,7 +59,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 
 ## <a name="connection-credentials"></a>연결 자격 증명
 
-**OpenConnectionForKey**  ( [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) 메서드를 사용하여 분할 키와 연결된 분할된 데이터베이스에 액세스할 때 추가 자격 증명이 필요합니다. 이러한 자격 증명은 분할된 데이터베이스에 있는 로컬 분할된 데이터베이스 맵 테이블에 대한 읽기 전용 액세스 권한을 제공해야 합니다. 이 권한은 분할된 데이터베이스의 데이터 종속 라우팅에 대한 연결 유효성 검사를 수행하는 데 필요합니다. 이 코드 조각은 데이터 종속 라우팅의 컨텍스트에서 데이터 액세스를 허용합니다.
+**OpenConnectionForKey**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.listshardmapper.openconnectionforkey), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)) 메서드를 사용하여 분할 키와 연결된 분할된 데이터베이스에 액세스할 때 추가 자격 증명이 필요합니다. 이러한 자격 증명은 분할된 데이터베이스에 있는 로컬 분할된 데이터베이스 맵 테이블에 대한 읽기 전용 액세스 권한을 제공해야 합니다. 이 권한은 분할된 데이터베이스의 데이터 종속 라우팅에 대한 연결 유효성 검사를 수행하는 데 필요합니다. 이 코드 조각은 데이터 종속 라우팅의 컨텍스트에서 데이터 액세스를 허용합니다.
 
 ```csharp
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))

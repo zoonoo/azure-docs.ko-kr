@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
 ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93089642"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>표준(수동) 및 자동 크기 조정 프로비저닝된 처리량 중에서 선택하는 방법 
@@ -55,12 +55,12 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 
 먼저 데이터베이스 또는 컨테이너의 [정규화된 요청 단위 사용 메트릭](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric)을 찾습니다. 정규화된 사용률은 현재 사용 중인 표준(수동) 프로비저닝된 처리량을 측정한 값입니다. 숫자가 100%에 가까울수록 프로비저닝된 초당 RU를 완전히 사용하는 경우가 많아집니다. 메트릭에 대해 [자세히 알아봅니다](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric).
 
-다음으로, 시간에 따라 정규화된 사용률이 어떻게 달라지는지 확인합니다. 각 시간에 대 한 가장 높은 정규화 된 사용률을 찾습니다. 그런 다음 모든 시간에 걸쳐 정규화 된 평균 사용률을 계산 합니다. 평균 사용률이 66% 미만인 경우에는 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용 하도록 설정 하는 것이 좋습니다. 반면 평균 사용률이 66% 보다 크면 표준 (수동) 프로 비전 된 처리량을 유지 하는 것이 좋습니다.
+다음으로, 시간에 따라 정규화된 사용률이 어떻게 달라지는지 확인합니다. 각 시간에 대 한 가장 높은 정규화 된 사용률을 찾습니다. 그런 다음 모든 시간에 걸쳐 정규화 된 평균 사용률을 계산 합니다. 평균 사용률이 66%보다 적은 것으로 확인되면 데이터베이스 또는 컨테이너에서 자동 크기 조정을 사용하도록 설정하는 것이 좋습니다. 반면 평균 사용률이 66%보다 크면 프로비저닝된 표준(수동) 처리량을 유지하는 것이 좋습니다.
 
 > [!TIP]
 > 계정이 다중 지역 쓰기를 사용 하도록 구성 되어 있고 지역이 둘 이상인 경우에는 수동 및 자동 크기 조정에 대해 100 r u/초 당 요금이 동일 합니다. 즉, 자동 크기 조정을 사용 하면 사용률에 관계 없이 추가 비용이 발생 하지 않습니다. 따라서 둘 이상의 지역이 있는 경우 다중 지역 쓰기에 자동 크기 조정을 사용 하 여 응용 프로그램의 크기를 조정 하는 데 필요한 경우에만 요금을 지불할 수 있습니다. 다중 지역 쓰기와 한 지역이 있는 경우 평균 사용량을 사용 하 여 자동 크기 조정으로 비용을 절감할 수 있는지 확인 합니다. 
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 두 가지 예제 작업을 살펴보고 수동 또는 자동 크기 조정 처리량에 적합 한지를 분석 해 보겠습니다. 일반적인 접근 방식을 설명 하기 위해 3 시간의 기록을 분석 하 여 수동 및 자동 크기 조정 사용 간의 비용 차이를 확인 합니다. 프로덕션 워크 로드의 경우 7 ~ 30 일 동안의 기록 (또는 사용 가능한 경우 더 오래 된)을 사용 하 여 사용 패턴을 설정 하는 것이 좋습니다.
 
@@ -95,7 +95,7 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 
 이 워크 로드는 트래픽이 안정적 이며, 72%에서 100%까지 정규화 된를 사용 합니다. 3만 r u/s가 프로 비전 되 면 21600에서 3만 r u/초 사이를 사용 하는 것입니다.
 
-:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="모든 시간에 대해 가변 트래픽 표준화 된 작업 (6% ~ 100%)":::
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="모든 시간에 대해 72%에서 100% 사이의 안정적으로 트래픽이 정규화 된 작업":::
 
 자동 크기 조정 최대 r u/초를 3만 (3000-3만 r u/초 사이)로 설정 하는 것과 비교 하 여 3만 r u/s 수동 처리량을 프로 비전 하는 비용을 비교해 보겠습니다.
 
@@ -123,14 +123,14 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 1. 가로 막대형 차트 옵션을 선택 합니다. 
 1. **공유** 에서 **Excel로 다운로드** 옵션을 선택 합니다. 생성 된 스프레드시트에서 모든 시간 동안의 평균 사용률을 계산 합니다. 
 
-:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="모든 시간에 대해 가변 트래픽 표준화 된 작업 (6% ~ 100%)":::
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="시간당 정규화 된 배 소비를 보려면 1) 시간 세분성을 1 시간으로 선택 합니다. 2) 차트 설정 편집; 3) 가로 막대형 차트 옵션을 선택 합니다. 4) 공유 아래에서 Excel로 다운로드 옵션을 선택 하 여 모든 시간 동안의 평균을 계산 합니다. ":::
 
 ## <a name="measure-and-monitor-your-usage"></a>사용량 측정 및 모니터링
 시간이 지남에 따라 처리량 유형을 선택한 후에는 애플리케이션을 모니터링하고 필요에 맞게 조정해야 합니다. 
 
-자동 크기 조정을 사용하는 경우 Azure Monitor를 사용하여 프로비저닝된 자동 크기 조정 최대 초당 RU( **자동 크기 조정 최대 처리량** ) 및 시스템이 현재 조정된 초당 RU( **프로비저닝된 처리량** )를 확인합니다. 다음은 자동 크기 조정을 사용하는 가변 또는 예측할 수 없는 워크로드의 예제입니다. 트래픽이 없는 경우 시스템은 초당 RU 크기를 초당 최대 RU 중 최소 10%로 조정합니다. 이 경우에는 각각 초당 5,000RU 및 초당 50,000RU입니다. 
+자동 크기 조정을 사용하는 경우 Azure Monitor를 사용하여 프로비저닝된 자동 크기 조정 최대 초당 RU(**자동 크기 조정 최대 처리량**) 및 시스템이 현재 조정된 초당 RU(**프로비저닝된 처리량**)를 확인합니다. 다음은 자동 크기 조정을 사용하는 가변 또는 예측할 수 없는 워크로드의 예제입니다. 트래픽이 없는 경우 시스템은 초당 RU 크기를 초당 최대 RU 중 최소 10%로 조정합니다. 이 경우에는 각각 초당 5,000RU 및 초당 50,000RU입니다. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="모든 시간에 대해 가변 트래픽 표준화 된 작업 (6% ~ 100%)":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="자동 크기 조정을 사용 하는 워크 로드의 예, 자동 크기 조정 최대 r u/5만 초/초 및 5000-5만 r u/초 범위의 처리량":::
 
 > [!NOTE]
 > 표준(수동) 프로비저닝된 처리량을 사용하는 경우 **프로비저닝된 처리량** 메트릭은 사용자가 설정한 크기를 나타냅니다. 자동 크기 조정 처리량을 사용하는 경우 이 메트릭은 시스템이 현재 조정된 초당 RU를 나타냅니다.

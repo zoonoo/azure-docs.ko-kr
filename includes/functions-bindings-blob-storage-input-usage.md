@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: functions
 author: craigshoemaker
@@ -10,10 +10,10 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 938f55ae0ba911ea3a97cd49e6424bf8aaefdc76
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381694"
 ---
 ### <a name="default"></a>기본값
@@ -39,15 +39,15 @@ Blob 입력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상의 저장소 확장 버전](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher) 을 사용 하는 앱은 [Azure SDK for .net](/dotnet/api/overview/azure/storage.blobs-readme)의 형식을 사용할 수도 있습니다. 이 버전은 `CloudBlobContainer` `CloudBlobDirectory` `ICloudBlob` `CloudBlockBlob` `CloudPageBlob` `CloudAppendBlob` 다음과 같은 형식으로 레거시,,,, 및 형식에 대 한 지원을 삭제 합니다.
+[5.0.0 이상 버전의 스토리지 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.blobs-readme)의 형식을 사용할 수도 있습니다. 이 버전은 `CloudBlobContainer` `CloudBlobDirectory` `ICloudBlob` `CloudBlockBlob` `CloudPageBlob` `CloudAppendBlob` 다음과 같은 형식으로 레거시,,,, 및 형식에 대 한 지원을 삭제 합니다.
 
 - [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient)
-- [Blobclient](/dotnet/api/azure.storage.blobs.blobclient)<sup>1</sup>
-- [Blockblobclient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<sup>1</sup>
-- [Pageblobclient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)<sup>1</sup>
-- [Appendblobclient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)<sup>1</sup>
+- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<sup>1</sup>
+- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<sup>1</sup>
+- [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)<sup>1</sup>
+- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)<sup>1</sup>
 - [BlobBaseClient](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient)<sup>1</sup>
 
 <sup>1</sup>*function.json* 에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.ReadWrite`의 “inout” 바인딩이 필요합니다.
 
-이러한 유형을 사용 하는 예제는 [확장에 대 한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples)를 참조 하세요.
+이러한 형식을 사용하는 예제는 [확장에 대한 GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples)를 참조하세요.

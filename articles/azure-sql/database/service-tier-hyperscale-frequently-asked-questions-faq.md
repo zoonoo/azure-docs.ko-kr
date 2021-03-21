@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: ''
 ms.date: 02/03/2021
 ms.openlocfilehash: c6faa1703b0935d66d291281f33027b3a66a59d4
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99526825"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
@@ -40,7 +40,7 @@ ms.locfileid: "99526825"
 
 VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터베이스 가용성 및 저장소 유형, 성능 및 최대 크기에 따라 구분 됩니다.
 
-| | 리소스 유형 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
+| | 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** |모두|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|대부분의 비즈니스 워크로드. 저장소 크기를 최대 100 TB, 빠른 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원으로 자동 크기 조정 합니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류** ||SQL Database/SQL Managed Instance | 단일 데이터베이스 | SQL Database/SQL Managed Instance |

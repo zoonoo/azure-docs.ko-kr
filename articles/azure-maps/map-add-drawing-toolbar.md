@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896398"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>지도에 드로잉 도구 모음 추가
@@ -39,7 +39,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="그리기 도구 모음 추가" src="//codepen.io/azuremaps/embed/ZEzLeRg/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen에서 Azure Maps ()를 기준으로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>그리기 추가 도구 모음</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+CodePen에서 Azure Maps ()를 기준으로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzLeRg/'>그리기 추가 도구 모음</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 
@@ -63,7 +63,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="다각형 그리기 도구 추가" src="//codepen.io/azuremaps/embed/OJLWWMy/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen에서 Azure Maps ()를 통해 펜 <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>polygon 그리기 도구 추가</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+CodePen에서 Azure Maps ()를 통해 펜 <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>polygon 그리기 도구 추가</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 
@@ -123,7 +123,7 @@ drawingManager.setOptions({
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="그리기 렌더링 스타일 변경" src="//codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>그리기 렌더링 스타일 변경</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> )를 <a href='https://codepen.io'>CodePen</a>참조 하세요.
+CodePen에서 펜으로 <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>그리기 렌더링 스타일 변경</a> Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> )를 <a href='https://codepen.io'></a>참조 하세요.
 </iframe>
 
 

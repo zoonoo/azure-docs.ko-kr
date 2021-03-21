@@ -9,10 +9,10 @@ ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576615"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Windows 가상 데스크톱 (미리 보기) 용어집에 대 한 Azure Monitor
@@ -182,7 +182,7 @@ Windows 이벤트 로그는 Windows 가상 컴퓨터의 Log Analytics 에이전�
 |애플리케이션|오류 및 경고|
 |Microsoft-windows-terminalservices-gateway-RemoteConnectionManager/Admin|오류, 경고 및 정보|
 |Microsoft-windows-terminalservices-gateway-LocalSessionManager/Operational|오류, 경고 및 정보|
-|시스템|오류 및 경고|
+|System|오류 및 경고|
 | Microsoft-FSLogix-앱/운영|오류, 경고 및 정보|
 |Microsoft-FSLogix-앱/관리자|오류, 경고 및 정보|
 

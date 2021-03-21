@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891039"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
@@ -99,7 +99,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="사용자 지정 된 팝업" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>사용자 지정 팝업</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>사용자 지정 팝업</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ## <a name="add-popup-templates-to-the-map"></a>맵에 팝업 템플릿 추가
@@ -252,7 +252,7 @@ CodePen 지도의 요소를 클릭 합니다. 지도에는 문자열 템플릿, 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> ()를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="reuse-popup-template"></a>팝업 템플릿 다시 사용
@@ -261,7 +261,7 @@ CodePen 지도의 요소를 클릭 합니다. 지도에는 문자열 템플릿, 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()를 통해 Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>Reusepopuptemplate</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()를 통해 Pen <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>Reusepopuptemplate</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="popup-events"></a>Popup 이벤트
@@ -271,7 +271,7 @@ CodePen 지도의 요소를 클릭 합니다. 지도에는 문자열 템플릿, 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Popup 이벤트" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
-CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>팝업 이벤트</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'></a>
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계
