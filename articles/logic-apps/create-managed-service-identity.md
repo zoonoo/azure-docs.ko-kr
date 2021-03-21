@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/09/2021
 ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556624"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
@@ -27,7 +27,7 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
 
 * Azure API Management
 * Azure App Services
-* Azure 기능
+* Azure Functions
 * HTTP
 * HTTP + Webhook
 
@@ -179,7 +179,7 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
    ![사용자가 할당한 관리 ID 만들기](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 사용할 리소스 그룹의 이름입니다. 새 그룹을 만들거나 기존 그룹을 선택합니다. 이 예에서는 라는 새 그룹을 만듭니다 `fabrikam-managed-identities-RG` . |

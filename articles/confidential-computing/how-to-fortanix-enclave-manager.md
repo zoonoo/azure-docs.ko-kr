@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
 ms.openlocfilehash: 5bc1ff4a288e492613f02a8b095c5ef80436d18e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102558749"
 ---
 # <a name="how-to-run-an-application-with-fortanix-confidential-computing-manager"></a>방법: Fortanix 기밀 컴퓨팅 관리자를 사용 하 여 응용 프로그램 실행
@@ -33,7 +33,7 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
  Fortanix에 대 한 지원은 [Fortanix 여유 커뮤니티](https://fortanix.com/community/) 에 가입 하 고 채널 #enclavemanager를 사용 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 1. Fortanix 기밀 컴퓨팅 관리자 계정이 없는 경우 시작 하기 전에 [등록](https://em.fortanix.com/auth/sign-up) 합니다.
 1. 변환 된 응용 프로그램 이미지를 푸시하는 개인 [Docker](https://docs.docker.com/) 레지스트리
@@ -73,7 +73,7 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
     - **Docker 허브**: [https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
     - **앱**: fortanix/python-flask
 
-        다음 명령 실행:
+        다음 명령을 실행합니다.
          ```bash
             sudo docker run fortanix/python-flask
          ```

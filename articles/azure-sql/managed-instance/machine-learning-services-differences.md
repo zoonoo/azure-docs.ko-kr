@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Services (미리 보기)의 주요 차이점
+title: Machine Learning Services의 주요 차이점
 description: 이 문서에서는 Azure SQL Managed Instance Machine Learning Services와 SQL Server Machine Learning Services 간의 주요 차이점을 설명 합니다.
 services: sql-database
 ms.service: sql-managed-instance
@@ -11,72 +11,77 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 10/26/2020
-ms.openlocfilehash: c806c0a13f9f5f13588b780054d1f285beb44802
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 03/17/2021
+ms.openlocfilehash: b5ad439a8e10fa9aa44e477ca35f45d65ae40803
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324536"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599547"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Azure SQL Managed Instance와 SQL Server의 Machine Learning Services에 대한 주요 차이점
 
-[AZURE SQL Managed Instance (미리 보기)의 Machine Learning Services](machine-learning-services-overview.md) 기능은 [SQL Server Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)와 거의 동일 합니다. 다음은 몇 가지 주요 차이점입니다.
-
-> [!IMPORTANT]
-> Azure SQL Managed Instance의 Machine Learning Services은 현재 공개 미리 보기로 제공 됩니다. 등록 하려면 [미리 보기 등록](machine-learning-services-overview.md#signup)을 참조 하세요.
-
-## <a name="preview-limitations"></a>미리 보기 제한 사항
-
-미리 보기 동안 서비스에는 다음과 같은 제한 사항이 있습니다.
-
-- 루프백 연결은 작동 하지 않습니다 ( [Python 또는 R 스크립트에서 SQL Server에 대 한 루프백 연결](/sql/machine-learning/connect/loopback-connection)참조).
-- 외부 리소스 풀은 지원되지 않습니다.
-- Python 및 R만 지원됩니다. Java와 같은 외부 언어를 추가할 수 없습니다.
-- MPI ( [메시지 전달 인터페이스](/message-passing-interface/microsoft-mpi) )를 사용 하는 시나리오는 지원 되지 않습니다.
-
-SLO (서비스 수준 목표)를 업데이트 하는 경우 SLO를 업데이트 하 고 지원 티켓을 제기 하 여 R/Python의 전용 리소스 제한을 다시 사용 하도록 설정 합니다.
+이 문서에서는 [AZURE SQL Managed Instance의 Machine Learning Services](machine-learning-services-overview.md) 와 [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)간의 기능에서 몇 가지 주요 차이점을 설명 합니다.
 
 ## <a name="language-support"></a>언어 지원
 
-SQL Managed Instance에서 Machine Learning Services 하 고 Python 및 R [확장성 프레임 워크](/sql/advanced-analytics/concepts/extensibility-framework)를 모두 지원 SQL Server. 주요 차이점은 다음과 같습니다.
+SQL Managed Instance에서 Machine Learning Services 하 고 SQL Server Python 및 R [확장성 프레임 워크](/sql/machine-learning/concepts/extensibility-framework)를 지원 합니다. SQL Managed Instance의 주요 차이점은 다음과 같습니다.
 
-- Python 및 R의 초기 버전은 SQL Managed Instance 및 SQL Server에서 Machine Learning Services 서로 다릅니다.
+- Python 및 R만 지원됩니다. Java와 같은 외부 언어를 추가할 수 없습니다.
 
-  | 시스템               | Python | R     |
-  |----------------------|--------|-------|
-  | SQL Managed Instance | 3.7.1  | 3.5.2 |
-  | SQL  Server           | 3.5.2  | 3.3.3 |
+- Python 및 R의 초기 버전은 다릅니다.
 
-- `sp_configure`를 통해 `external scripts enabled`를 구성할 필요가 없습니다. 미리 보기에 [등록](machine-learning-services-overview.md#signup) 한 후에는 Azure SQL Managed Instance에 대해 기계 학습을 사용할 수 있습니다.
+  | 플랫폼                   | Python 런타임 버전           | R 런타임 버전                   |
+  |----------------------------|----------------------------------|--------------------------------------|
+  | Azure SQL Managed Instance | 3.7.2                            | 3.5.2                                |
+  | SQL Server 2019            | 3.7.1                            | 3.5.2                                |
+  | SQL Server 2017            | 3.5.2 및 3.7.2 (CU22 이상) | 3.3.3 및 3.5.2 (CU22 이상)     |
+  | SQL Server 2016            | 사용할 수 없음                    | 3.2.2 및 3.5.2 (SP2 CU14 이상) |
 
-## <a name="packages"></a>패키지
+## <a name="python-and-r-packages"></a>Python 및 R 패키지
 
-Python 및 R 패키지 관리는 SQL Managed Instance와 SQL Server 간에 다르게 작동 합니다. 차이점은 다음과 같습니다.
-
-- 설치나 사용을 위해 OS API에 대한 액세스가 필요하거나 외부 런타임(예: Java)에 의존하는 패키지는 지원되지 않습니다.
-- 패키지는 아웃 바운드 네트워크 호출을 수행할 수 있습니다 (미리 보기의 이전에서 변경). [네트워크 보안 그룹](../../virtual-network/network-security-groups-overview.md) 수준에서 적절 한 아웃 바운드 보안 규칙을 설정 하 여 아웃 바운드 네트워크 호출을 사용 하도록 설정할 수 있습니다.
+외부 런타임 (예: Java)에 의존 하거나 설치 또는 사용을 위해 OS Api에 액세스 해야 하는 패키지에 대해서는 SQL Managed Instance 지원 되지 않습니다.
 
 Python 및 R 패키지를 관리 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Python 패키지 정보 가져오기](/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
-- [R 패키지 정보 가져오기](/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [Python 패키지 정보 가져오기](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
+- [R 패키지 정보 가져오기](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)
 
 ## <a name="resource-governance"></a>리소스 거버넌스
 
-[Resource Governor](/sql/relational-databases/resource-governor/resource-governor) 및 외부 리소스 풀을 통해 R 리소스를 제한할 수 없습니다.
+SQL Managed Instance에서는 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor?view=azuresqldb-mi-current&preserve-view=true)를 통해 R 리소스를 제한할 수 없으며 외부 리소스 풀은 지원 되지 않습니다.
 
-공개 미리 보기 중에 R 리소스는 SQL Managed Instance 리소스의 최대 20%로 설정되며, 선택한 서비스 계층에 따라 달라집니다. 자세한 내용은 [Azure SQL Database 구매 모델](../database/purchasing-models.md)을 참조하세요.
+확장성을 사용 하는 경우 기본적으로 R 리소스는 사용 가능한 SQL Managed Instance 리소스의 최대 20%로 설정 됩니다. 이 기본 백분율을 변경 하려면에서 Azure 지원 티켓을 만듭니다 [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/) .
+
+다음 SQL 명령을 사용 하 여 확장성을 사용할 수 있습니다 (SQL Managed Instance를 다시 시작 하 고 몇 초 동안 사용할 수 없음).
+
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
+
+확장성을 사용 하지 않도록 설정 하 고 메모리 및 CPU 리소스의 100%를 SQL Server으로 복원 하려면 다음 명령을 사용 합니다.
+
+```sql
+sp_configure 'external scripts enabled', 0;
+RECONFIGURE WITH OVERRIDE;
+```
+
+SQL Managed Instance에서 사용할 수 있는 총 리소스는 선택한 서비스 계층에 따라 달라 집니다. 자세한 내용은 [Azure SQL Database 구매 모델](/azure/sql-database/sql-database-service-tiers)을 참조하세요.
 
 ### <a name="insufficient-memory-error"></a>메모리 부족 오류
 
-R에 사용할 수 있는 메모리가 충분하지 않으면 오류 메시지가 표시됩니다. 일반적인 오류 메시지는 다음과 같습니다.
+메모리 사용량은 R 스크립트에서 사용되는 양 및 실행되는 병렬 쿼리 수에 따라 달라집니다. R에 사용할 수 있는 메모리가 충분 하지 않으면 오류 메시지가 표시 됩니다. 일반적인 오류 메시지는 다음과 같습니다.
 
 - `Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime`
 - `'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"`
 - `An external script error occurred: Error: cannot allocate vector of size.`
 
-메모리 사용량은 R 스크립트에서 사용되는 양 및 실행되는 병렬 쿼리 수에 따라 달라집니다. 위의 오류가 표시되면 데이터베이스를 더 높은 서비스 계층으로 확장하여 이 문제를 해결할 수 있습니다.
+이러한 오류 중 하나를 수신 하는 경우 데이터베이스를 더 높은 서비스 계층으로 확장 하 여 해결할 수 있습니다.
+
+## <a name="sql-managed-instance-pools"></a>SQL Managed Instance 풀
+
+Machine Learning Services 현재 [AZURE SQL Managed Instance 풀 (미리 보기)](instance-pools-overview.md)에서 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

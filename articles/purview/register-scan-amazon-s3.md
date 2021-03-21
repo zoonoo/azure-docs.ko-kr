@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/07/2021
 ms.custom: references_regions
 ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102438731"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Amazon S3 용 Azure 부서의 범위 커넥터
@@ -105,7 +105,7 @@ Amazon S3 버킷을 부서의 범위 데이터 원본으로 추가 하 고 S3 �
     |**인증 방법**     |역할 ARN을 사용 하 여 버킷에 액세스 하므로 **역할 arn** 을 선택 합니다.         |
     |**Microsoft 계정 ID**     |이 값을 클립보드에 복사 하려면 클릭 합니다. [AWS에서 역할 ARN을 만들](#create-a-new-aws-role-for-purview)때이 값을 **Microsoft 계정 ID** 로 사용 합니다.           |
     |**외부 ID**     |이 값을 클립보드에 복사 하려면 클릭 합니다. [AWS에서 역할 ARN을 만들](#create-a-new-aws-role-for-purview) 때이 값을 **외부 ID** 로 사용 합니다.        |
-    |**역할 ARN**     | [AMAZON iam 역할을 만들었으면](#create-a-new-aws-role-for-purview)iam 영역의 역할로 이동 하 여 **역할 arn** 값을 복사 하 고 여기에 입력 합니다. 예: `arn:aws:iam::284759281674:role/S3Role` <br><br>자세한 내용은 [새 역할 ARN 검색](#retrieve-your-new-role-arn)을 참조 하세요. |
+    |**역할 ARN**     | [AMAZON iam 역할을 만들었으면](#create-a-new-aws-role-for-purview)iam 영역의 역할로 이동 하 여 **역할 arn** 값을 복사 하 고 여기에 입력 합니다. 예를 들어 `arn:aws:iam::284759281674:role/S3Role`을 참조하십시오. <br><br>자세한 내용은 [새 역할 ARN 검색](#retrieve-your-new-role-arn)을 참조 하세요. |
     | | |
 
     자격 증명 만들기를 완료 하면 **만들기** 를 선택 합니다.
@@ -122,8 +122,8 @@ Amazon S3 버킷을 부서의 범위 데이터 원본으로 추가 하 고 S3 �
 
     |필드  |설명  |
     |---------|---------|
-    |**계정 ID**     |    Microsoft 계정 ID를 입력 합니다. 예: `615019938638`     |
-    |**외부 ID**     |   옵션에서 **외부 Id 필요**...를 선택한 다음 지정 된 필드에 외부 id를 입력 합니다. <br>예: `e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>사용자가이 외부 ID를 찾을 수 있습니다.  |
+    |**계정 ID**     |    Microsoft 계정 ID를 입력 합니다. `615019938638`     |
+    |**외부 ID**     |   옵션에서 **외부 Id 필요**...를 선택한 다음 지정 된 필드에 외부 id를 입력 합니다. <br>`e7e2b8a3-0a9f-414f-a065-afaf4ac6d994`    <br><br>사용자가이 외부 ID를 찾을 수 있습니다.  |
     | | |
 
     > [!NOTE]
@@ -248,7 +248,7 @@ AWS 버킷은 여러 암호화 유형을 지원 합니다. **AWS-KMS** 암호화
 
     버킷 이름을 보안 파일에 붙여넣고 `s3://` 여기에 접두사를 추가 하 여 버킷을 부서의 범위 리소스로 구성할 때 입력 해야 하는 값을 만듭니다.
 
-    예: `s3://purview-tutorial-bucket`
+    `s3://purview-tutorial-bucket`
 
 > [!NOTE]
 > 버킷의 루트 수준만 부서의 범위 데이터 원본으로 지원 됩니다. 예를 들어 하위 폴더가 포함 된 다음 URL은 지원 *되지 않습니다* . `s3://purview-tutorial-bucket/view-data`
