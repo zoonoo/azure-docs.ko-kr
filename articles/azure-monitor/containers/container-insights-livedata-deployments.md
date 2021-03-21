@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
 ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713918"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>실시간으로 배포 (미리 보기)를 보는 방법
@@ -20,7 +20,7 @@ ms.locfileid: "101713918"
 
 자세히 알아보려면 [배포](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)에 대 한 Kubernetes 설명서를 검토 하세요.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 라이브 데이터 (미리 보기) 기능은 Kubernetes API에 직접 액세스할 수 있으며 인증 모델에 대 한 추가 정보는 [여기](https://kubernetes.io/docs/concepts/overview/kubernetes-api/)에서 찾을 수 있습니다.
 

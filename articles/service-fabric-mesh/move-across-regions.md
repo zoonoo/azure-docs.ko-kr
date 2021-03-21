@@ -7,24 +7,24 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99626090"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>다른 Azure 지역으로 Service Fabric 메시 응용 프로그램 이동
 
 > [!IMPORTANT]
-> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
 > 
-> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 문서에서는 Service Fabric 메시 응용 프로그램 및 해당 리소스를 다른 Azure 지역으로 이동 하는 방법을 설명 합니다. 여러 가지 이유로 리소스를 다른 지역으로 이동할 수 있습니다. 예를 들어 가동 중단에 대 한 응답으로, 특정 지역 에서만 사용할 수 있는 기능 또는 서비스, 내부 정책 및 거 버 넌 스 요구 사항 또는 용량 계획 요구 사항에 대 한 응답으로 얻을 수 있습니다.
 
  [Service Fabric 메시](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) 는 Azure 지역에서 리소스를 직접 이동 하는 기능을 지원 하지 않습니다. 그러나 현재 Azure Resource Manager 템플릿의 복사본을 새 대상 영역에 배포한 다음, 수신 트래픽과 종속성을 새로 만든 Service Fabric 메시 응용 프로그램으로 리디렉션하는 방식으로 리소스를 간접적으로 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 클라이언트와 Service Fabric 메시 응용 프로그램 간의 트래픽 라우팅에 대 한 중개자 역할을 하는 수신 컨트롤러 (예: [Application Gateway](../application-gateway/index.yml))
 * 대상 Azure 지역 ( `westus` , `eastus` 또는 `westeurope` )에서 메시 (미리 보기) 가용성 Service Fabric

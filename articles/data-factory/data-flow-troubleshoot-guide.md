@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/15/2021
-ms.openlocfilehash: fe65a9528e35416d537f3aecd3a44f8b4e568afe
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.date: 03/18/2021
+ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467734"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593856"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑 문제 해결
 
@@ -26,12 +26,6 @@ ms.locfileid: "103467734"
 - **메시지**: 컨테이너가 없어 데이터 미리 보기, 디버그, 파이프라인 데이터 흐름 실행 실패
 - **원인**: 데이터 집합에 저장소에 없는 컨테이너가 포함 되어 있습니다.
 - **권장 사항**: 데이터 집합에서 참조 되는 컨테이너가 있고 액세스할 수 있는지 확인 합니다.
-
-### <a name="error-code-df-executor-systemimplicitcartesian"></a>오류 코드: DF-Executor-SystemImplicitCartesian
-
-- **메시지**: INNER 조인에 대한 암시적 카테시안 제품은 지원되지 않습니다. 대신 CROSS 조인을 사용하세요. 조인에 사용된 열은 행에 대해 고유 키를 만들어야 합니다.
-- **원인**: 논리 요금제 간의 내부 조인에 대 한 암시적 데카르트 제품은 지원 되지 않습니다. 조인에서 열을 사용 하는 경우 관계의 양쪽에서 하나 이상의 열이 있는 고유 키를 만듭니다.
-- **권장 사항**: 같지 않음 기반 조인의 경우 사용자 지정 크로스 조인을 사용 합니다.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>오류 코드: DF-Executor-SystemInvalidJson
 
@@ -82,11 +76,6 @@ ms.locfileid: "103467734"
 - **원인**: 선언 된 형식에 대 한 데이터 형식이 실제 매개 변수 값과 호환 되지 않습니다.
 - **권장 사항**: 데이터 흐름에 전달 된 매개 변수 값이 선언 된 형식과 일치 하는지 확인 합니다.
 
-### <a name="error-code-df-executor-columnunavailable"></a>오류 코드: DF-Executor-ColumnUnavailable 수 없음
-- **메시지**: 식에 사용 된 열 이름을 사용할 수 없거나 잘못 되었습니다.
-- **원인**: 식에 사용 되는 열 이름이 잘못 되었거나 사용할 수 없습니다.
-- **권장 사항**: 식에서 열 이름을 확인 합니다.
-
 ### <a name="error-code-df-executor-parseerror"></a>오류 코드: DF-실행자-ParseError
 - **메시지**: 식을 구문 분석할 수 없습니다.
 - **원인**: 잘못 된 형식으로 인해 식에서 구문 분석 오류가 발생 했습니다.
@@ -96,29 +85,6 @@ ms.locfileid: "103467734"
 - **메시지**: INNER 조인에 대한 암시적 카테시안 제품은 지원되지 않습니다. 대신 CROSS 조인을 사용하세요. 조인에 사용된 열은 행에 대해 고유 키를 만들어야 합니다.
 - **원인**: 논리 요금제 간의 내부 조인에 대 한 암시적 데카르트 제품은 지원 되지 않습니다. 조인에 열을 사용 하는 경우 고유 키를 만듭니다.
 - **권장 사항**: 같지 않음 기반 조인의 경우 CROSS JOIN을 사용 합니다.
-
-### <a name="error-code-df-executor-systeminvalidjson"></a>오류 코드: DF-Executor-SystemInvalidJson
-- **메시지**: JSON 구문 분석 오류, 지원되지 않는 인코딩 또는 여러 줄
-- **원인**: json 파일에 문제가 있을 수 있습니다. 지원 되지 않는 인코딩, 손상 된 바이트 또는 json 소스를 여러 중첩 된 줄에서 단일 문서로 사용할 수 있습니다.
-- **권장 사항**: JSON 파일의 인코딩이 지원 되는지 확인 합니다. JSON 데이터 집합을 사용 하는 원본 변환에서 **Json 설정** 을 확장 하 고 **단일 문서** 를 설정 합니다.
-
-
-
-### <a name="error-code-df-executor-conversion"></a>오류 코드: DF-Executor-Conversion
-- **메시지**: 잘못된 문자로 인해 날짜 또는 시간 변환 실패
-- **원인**: 데이터가 예상 된 형식이 아닙니다.
-- **권장 사항**: 올바른 데이터 형식을 사용 합니다.
-
-
-### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>오류 코드: DF-BlockCountExceedsLimitError
-- **메시지**: 커밋되지 않은 블록 수는 최대 제한인 10만 블록을 초과할 수 없습니다. Blob 구성을 확인 하세요.
-- **원인**: blob에서 커밋되지 않은 블록의 최대 수는 10만입니다.
-- **권장 사항**:이 문제에 대 한 자세한 내용은 Microsoft 제품 팀에 문의 하세요.
-
-### <a name="error-code-df-executor-partitiondirectoryerror"></a>오류 코드: DF
-- **메시지**: 지정 된 원본 경로에 분할 된 디렉터리가 여러 개 있습니다 (예: *<Source Path> /<Partition Root Directory 1>/a = 10/b = 20). <Source Path> /<파티션 루트 디렉터리 2>/c = 10/d = 30*) 또는 분할 된 디렉터리 (예: *<Source Path> /<파티션 루트 디렉터리 1>/A = 10/b = 20, <Source Path> /디렉터리 2/file1*), 소스 경로에서 파티션 루트 디렉터리를 제거 하 고 별도의 원본 변환을 통해 읽습니다.
-- **원인**: 소스 경로에 분할 된 디렉터리가 여러 개 있거나 분할 된 디렉터리에 다른 파일이 나 분할 되지 않은 디렉터리가 있습니다. 
-- **권장 사항**: 원본 경로에서 분할 된 루트 디렉터리를 제거 하 고 별도의 원본 변환을 통해 읽습니다.
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>오류 코드: GetCommand OutputAsync 실패
 - **메시지**: 데이터 흐름 디버그 및 데이터 미리 보기 중: GetCommand OutputAsync 실패 ...
@@ -137,22 +103,10 @@ ms.locfileid: "103467734"
 - **원인**: 계정 이름 또는 액세스 키가 잘못 되었습니다.
 - **권장 사항**: 연결 된 서비스에 지정 된 계정 이름 또는 액세스 키가 올바른지 확인 합니다. 
 
-### <a name="error-code-df-executor-invalidtype"></a>오류 코드: DF-InvalidType
-- **메시지**: 매개 변수 유형이 전달 된 값 유형과 일치 하는지 확인 하세요. 파이프라인에서 float 매개 변수를 전달 하는 것은 현재 지원 되지 않습니다.
-- **원인**: 선언 된 형식에 대 한 데이터 형식이 실제 매개 변수 값과 호환 되지 않습니다. 
-- **권장 사항**: 올바른 데이터 형식을 제공 합니다.
-
 ### <a name="error-code-df-executor-columnunavailable"></a>오류 코드: DF-Executor-ColumnUnavailable 수 없음
 - **메시지**: 식에 사용 된 열 이름을 사용할 수 없거나 잘못 되었습니다.
 - **원인**: 식에 잘못 되었거나 사용할 수 없는 열 이름이 사용 되었습니다.
 - **권장 사항**: 식에 사용 된 열 이름을 확인 합니다.
-
-
-### <a name="error-code-df-executor-parseerror"></a>오류 코드: DF-실행자-ParseError
-- **메시지**: 식을 구문 분석할 수 없습니다.
-- **원인**: 잘못 된 형식으로 인해 식에서 구문 분석 오류가 발생 했습니다. 
-- **권장 사항**: 식의 형식을 확인 합니다.
-
 
  ### <a name="error-code-df-executor-outofdiskspaceerror"></a>오류 코드: DF-OutOfDiskSpaceError
 - **메시지**: 내부 서버 오류

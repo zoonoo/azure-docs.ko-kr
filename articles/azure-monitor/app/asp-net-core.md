@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
 ms.openlocfilehash: be4cbe5f95fa6901ae4299662750c232d4700a8a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711504"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
@@ -31,7 +31,7 @@ ms.locfileid: "101711504"
 > [!NOTE]
 > ASP.NET Core 3.1 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상 이어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -110,7 +110,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
     * `ApplicationInsights:InstrumentationKey`
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -125,7 +125,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
 
-계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예들 들어 `services.AddApplicationInsightsTelemetry(Configuration);`입니다.
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`
 AspNetCore 버전 [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)부터를 호출 하면 `services.AddApplicationInsightsTelemetry()` 응용 프로그램에서 계측 키가 자동으로 읽힙니다 `Microsoft.Extensions.Configuration.IConfiguration` . 를 명시적으로 제공할 필요는 없습니다 `IConfiguration` .
 
 ## <a name="run-your-application"></a>애플리케이션 실행
@@ -213,7 +213,7 @@ public void ConfigureServices(IServiceCollection services)
 
 의 전체 설정 목록 `ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|설정 | 설명 | 기본값
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 사용/사용 안 함 `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | 사용/사용 안 함 `RequestTrackingTelemetryModule` | true

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/28/2020
-ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 03/19/2021
+ms.openlocfilehash: 90755aef66fa51084d83d036722187b61449a6fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421314"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656909"
 ---
 # <a name="export-data-module"></a>데이터 내보내기 모듈
 
@@ -51,7 +51,10 @@ ms.locfileid: "93421314"
 
     이 확인란이 선택 되어 있으면 시스템에서 모듈을 다시 실행 하 여 출력을 다시 생성 합니다.
 
-1. 데이터 저장소에서 데이터가 인 경로를 정의 합니다. 경로가 상대 경로입니다. 빈 경로 또는 URL 경로는 허용 되지 않습니다.
+1. 데이터 저장소에서 데이터가 인 경로를 정의 합니다. 경로가 상대 경로입니다. 를 `data/testoutput` 예로 들어 보겠습니다 .이는  `data/testoutput` 모듈의 **출력 설정** 에서 설정 하는 데이터 저장소에서 내보내기 데이터의 입력 데이터를로 내보낼 수 있음을 의미 합니다.
+
+    > [!NOTE]
+    > 빈 경로 또는 **URL 경로** 는 허용 되지 않습니다.
 
 
 1. **파일 형식** 에 대해 데이터를 저장할 형식을 선택 합니다.

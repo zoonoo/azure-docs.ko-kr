@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
 ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98786947"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
@@ -42,7 +42,7 @@ HR 봇을 작성 하는 경우 단일 응용 프로그램으로 그룹화 하는
 
 [제작 키](luis-how-to-azure-subscription.md) 는 앱을 작성 하는 데 사용 됩니다. 프로덕션 수준 엔드포인트 쿼리에는 사용되지 않습니다. 자세한 내용은 [키 제한](luis-limits.md#key-limits)을 참조하세요.
 
-### <a name="authoring-resource"></a>제작 리소스
+### <a name="authoring-resource"></a>작성 리소스
 
 LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) 는 Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스는 Azure 서비스의 연결 된 제작, 학습 및 게시 기능에 액세스할 수 있습니다. 리소스에는 연결 된 Azure 서비스에 액세스 하는 데 필요한 인증, 권한 부여 및 보안 정보가 포함 되어 있습니다.
 
@@ -70,7 +70,7 @@ LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-
 
 일괄 테스트에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
-### <a name="precision"></a>정밀도
+### <a name="precision"></a>전체 자릿수
 일괄 테스트에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발언 중에 관련된 발언의 일부입니다.
 
 동물 일괄 처리 테스트에 대 한 예는 총 동물 수 (양 및 하 한가)로 나누어 예측 된 양입니다.

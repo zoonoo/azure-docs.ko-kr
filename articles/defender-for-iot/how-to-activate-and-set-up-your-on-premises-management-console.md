@@ -1,18 +1,18 @@
 ---
 title: 온-프레미스 관리 콘솔 활성화 및 설정
-description: 관리 콘솔 정품 인증 및 설치 프로그램은 센서를 Azure에 등록 하 고 온-프레미스 관리 콘솔로 정보를 보내고 온-프레미스 관리 콘솔에서 연결 된 센서에 대 한 관리 작업을 수행 하도록 합니다.
+description: 관리 콘솔을 활성화 하면 센서가 Azure에 등록 되 고, 온-프레미스 관리 콘솔로 정보를 전송 하 고, 온-프레미스 관리 콘솔에서 연결 된 센서에 대 한 관리 작업을 수행 합니다.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.service: defender-for-iot
+ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522583"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602759"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>온-프레미스 관리 콘솔 활성화 및 설정 
 
@@ -30,24 +30,32 @@ ms.locfileid: "100522583"
 
 관리 콘솔에 로그인 하려면 다음을 수행 합니다.
 
-- 웹 브라우저를 열고 시스템 설치 중에 온-프레미스 관리 콘솔에 대해 받은 IP 주소와 암호를 입력 합니다. 암호를 잊은 경우 암호 **복구** 를 선택 하 고 [암호 복구](how-to-manage-the-on-premises-management-console.md#password-recovery)를 참조 하세요.
+1. 시스템 설치 중에 온-프레미스 관리 콘솔에 대해 받은 IP 주소로 이동 합니다.
+ 
+1. 시스템 설치 중에 온-프레미스 관리 콘솔에 대해 받은 사용자 이름 및 암호를 입력 합니다. 
 
-## <a name="upload-an-activation-file"></a>활성화 파일 업로드
 
-첫 번째 로그인 후에 Azure Defender for IoT 포털의 **가격 책정** 페이지에서 활성화 파일을 다운로드 하 여 온-프레미스 관리 콘솔을 활성화 합니다. 이 파일은 온 보 딩 프로세스 중에 정의 된 커밋된 집계 장치를 포함 합니다. **커밋됨 장치** 는 Defender for IoT에서 구독 당 모니터링할 장치의 수를 나타냅니다.
+암호를 잊은 **경우 암호 복구 옵션을**  선택 하 고 암호를 복구 하는 방법에 대 한 지침은 [암호 복구](how-to-manage-the-on-premises-management-console.md#password-recovery) 를 참조 하세요.
 
-활성화 파일을 업로드 하려면:
+## <a name="get-and-upload-an-activation-file"></a>활성화 파일 가져오기 및 업로드
 
-1. IoT 용 Defender **가격 책정** 페이지로 이동 합니다.
+처음으로 로그인 한 후에는 활성화 파일을 가져오고 업로드 하 여 온-프레미스 관리 콘솔을 활성화 해야 합니다. 
+
+활성화 파일을 가져오려면 다음을 수행 합니다.
+
+1. IoT 용 Azure Defender 포털의 **가격 책정** 페이지로 이동 합니다. 
+1. 온-프레미스 관리 콘솔을 연결할 구독을 선택 합니다.
 1. **관리 콘솔 탭의 활성화 파일 다운로드** 를 선택 합니다. 활성화 파일이 다운로드 됩니다.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="활성화 파일을 다운로드 합니다.":::
 
-1. 관리 콘솔에서 **시스템 설정** 을 선택 합니다.
-1. **활성화** 를 선택 합니다.
-1. **파일** 선택을 선택 하 고 저장 한 파일을 선택 합니다.
+활성화 파일을 업로드 하려면:
 
-초기 활성화 후 모니터링 되는 장치 수는 온 보 딩 중에 정의 된 커밋된 장치 수를 초과할 수 있습니다. 예를 들어 관리 콘솔에 추가 센서를 연결 하는 경우이 문제가 발생할 수 있습니다. 모니터링 되는 장치 수와 커밋된 장치 수 간에 불일치가 있는 경우 관리 콘솔에 경고가 표시 됩니다. 이 경우 새 활성화 파일을 업로드 해야 합니다.
+1. 온-프레미스 관리 콘솔에서 **시스템 설정** 페이지로 이동 합니다.
+1. **활성화** 아이콘을 선택 :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false"::: 합니다.
+1. **파일** 선택을 선택 하 고 다운로드 한 파일을 선택 합니다.
+
+초기 활성화 후 모니터링 되는 장치 수는 온 보 딩 중에 정의 된 커밋된 장치 수를 초과할 수 있습니다. 이는 더 많은 센서를 관리 콘솔에 연결 하는 경우에 발생 합니다. 모니터링 되는 장치 수와 커밋된 장치 수 간에 불일치가 있는 경우 관리 콘솔에 경고가 표시 됩니다. 이 경우 새 활성화 파일을 업로드 합니다.
 
 ## <a name="set-up-a-certificate"></a>인증서 설정
 
@@ -155,7 +163,7 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 액세스 그룹을 사용 하면 사용자가 IoT 플랫폼용 Defender에서 장치를 관리 하 고 분석 하는 위치를 보다 효과적으로 제어할 수 있습니다.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 각 사이트에 대해 사업부와 지역을 정의할 수 있습니다. 그런 다음 네트워크의 논리적 엔터티인 영역을 추가할 수 있습니다. 
 
@@ -223,9 +231,9 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 다음 표에서는 **사이트 관리** 창의 매개 변수에 대해 설명 합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |--|--|
-| 속성 | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
+| 이름 | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
 | IP | 센서 IP 주소입니다. |
 | 버전 | 센서 버전입니다. |
 | 연결 | 센서 연결 상태입니다. 상태를 연결 하거나 **연결** 을 **끊을** 수 있습니다. |
@@ -316,6 +324,6 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 3. 사이트에서 할당 되지 않은 센서를 삭제 하려면 할당 되지 않은 센서 목록에서 센서를 선택 하 고를 선택 :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [센서 및 온-프레미스 관리 콘솔 문제 해결](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

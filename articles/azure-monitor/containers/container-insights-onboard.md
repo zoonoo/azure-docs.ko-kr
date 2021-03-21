@@ -4,10 +4,10 @@ description: 이 문서에서는 컨테이너를 사용 하는 방법 및 식별
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708359"
 ---
 # <a name="enable-container-insights"></a>컨테이너 insights 사용
@@ -32,7 +32,7 @@ ms.locfileid: "101708359"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "101708359"
 
 컨테이너 insights를 사용 하도록 설정 하려면 다음 표에 설명 된 방법 중 하나를 사용 합니다.
 
-| 배포 상태 | 방법 | Description |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
 | 새 Kubernetes 클러스터 | [Azure CLI를 사용 하 여 AKS 클러스터 만들기](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Azure CLI를 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |
 | | [Terraform을 사용 하 여 AKS 클러스터 만들기](container-insights-enable-new-cluster.md#enable-using-terraform)| 오픈 소스 도구인 Terraform을 사용 하 여 만든 새 AKS 클러스터에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. |

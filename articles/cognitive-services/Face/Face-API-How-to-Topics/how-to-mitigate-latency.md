@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
 ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706812"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>방법: Face 서비스를 사용할 때 대기 시간 완화
@@ -42,7 +42,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 그러면 Face 서비스가 원격 서버에서 이미지를 다운로드 해야 합니다. Face 서비스에서 원격 서버로의 연결이 느리면 검색 방법의 응답 시간에 영향을 줍니다.
 
-이를 완화 하려면 [Azure Premium Blob Storage에 이미지를 저장 하는](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet)것이 좋습니다. 다음은 그 예입니다. 
+이를 완화 하려면 [Azure Premium Blob Storage에 이미지를 저장 하는](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet)것이 좋습니다. 예를 들면 다음과 같습니다.
 
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
@@ -62,7 +62,7 @@ System.Collections.Generic.IList<DetectedFace> faces = await client.Face.DetectW
 - 파일 크기에 비례하여 서비스를 처리 하는 데 더 많은 시간이 걸립니다.
 
 해결 방법:
-- [Azure Premium Blob Storage에 이미지를 저장 하는](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet)것이 좋습니다. 다음은 그 예입니다. 
+- [Azure Premium Blob Storage에 이미지를 저장 하는](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet)것이 좋습니다. 예를 들면 다음과 같습니다.
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
 ```

@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.openlocfilehash: 14760b4244d42e57aaed7f7d96f487a66147a554
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97359509"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Azure Portal를 사용 하 여 Azure VM의 SQL Server에 대 한 가용성 그룹 (미리 보기) 구성 
@@ -33,7 +33,7 @@ Azure Portal를 사용 하 여 새 클러스터를 만들거나 기존 클러스
 이 문서에서는 Azure Portal 사용 하 여 가용성 그룹 환경을 구성 하는 동안 [PowerShell 이나 Azure CLI](availability-group-az-commandline-configure.md), [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)또는 [수동으로](availability-group-manually-configure-tutorial.md) 를 사용 하는 것도 가능 합니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Portal를 사용 하 여 Always On 가용성 그룹을 구성 하려면 다음 필수 구성 요소가 있어야 합니다. 
 
@@ -42,7 +42,7 @@ Azure Portal를 사용 하 여 Always On 가용성 그룹을 구성 하려면 �
 - Azure에서 하나 이상의 도메인에 가입 된 Vm은 *동일한* 가용성 집합 또는 [전체 관리 모드에서 SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md) 되 고 각 VM의 SQL Server 서비스에 대해 동일한 도메인 계정을 사용 하는 *다른* 가용성 영역에서 [SQL Server 2016 이상 Enterprise edition을 실행](./create-sql-vm-portal.md) 합니다.
 - 2개의 사용 가능한(엔터티에서 사용하지 않음) IP 주소. 하나는 내부 부하 분산 장치용입니다. 다른 하나는 가용성 그룹과 동일한 서브넷 내의 가용성 그룹 수신기용입니다. 기존 부하 분산 장치를 사용 하는 경우 가용성 그룹 수신기에 대해 사용 가능한 IP 주소가 하나만 필요 합니다. 
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure Portal를 사용 하 여 가용성 그룹을 구성 하려면 다음 계정 권한이 필요 합니다. 
 
@@ -256,7 +256,7 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
    :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="에 대해 자세히 알아보려면 원하는 배포를 선택 합니다." :::
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 다음과 같은 일반적인 오류 및 해결 방법을 검토 합니다. 
 

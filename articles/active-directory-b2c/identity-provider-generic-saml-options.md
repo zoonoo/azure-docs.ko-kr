@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103488876"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 SAML id 공급자 옵션 구성
@@ -322,7 +322,7 @@ Azure AD B2C에는 들어오는 모든 어설션이 서명 되어야 합니다. 
 
 SAML 응답 어설션을 암호화하려면 다음 단계를 수행합니다.
 
-1. 고유 식별자를 사용 하 여 [정책 키를 만듭니다](identity-provider-generic-saml.md#create-a-policy-key) . 예들 들어 `B2C_1A_SAMLEncryptionCert`입니다.
+1. 고유 식별자를 사용 하 여 [정책 키를 만듭니다](identity-provider-generic-saml.md#create-a-policy-key) . 예: `B2C_1A_SAMLEncryptionCert`
 2. SAML 기술 프로필 **CryptographicKeys** 컬렉션에 있습니다. **StorageReferenceId** 를 첫 번째 단계에서 만든 정책 키의 이름으로 설정 합니다. `SamlAssertionDecryption`ID는 암호화 키를 사용 하 여 SAML 응답의 어설션을 암호화 하 고 암호 해독 하는 것을 나타냅니다.
 
     ```xml

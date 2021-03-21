@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
 ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101705656"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
@@ -22,7 +22,7 @@ Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분�
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="auto-key-rotation-for-customer-managed-key-encryption-at-rest"></a>미사용 고객 관리 키 암호화에 대 한 자동 키 회전
 이 릴리스부터는 고객이 휴지 상태의 고객이 관리 하는 키 암호화를 위해 Azure KeyValut 버전 감소 암호화 키 Url을 사용할 수 있습니다. HDInsight는 키가 만료 되거나 새 버전으로 바뀔 때 자동으로 키를 회전 합니다. 자세한 내용은 [여기](./disk-encryption.md)를 참조하세요.
 
@@ -50,7 +50,7 @@ HDInsight는 크기 조정 작업을 통해 NSGs (네트워크 보안 그룹) �
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="hdinsight-identity-broker-hib-is-now-ga"></a>이제 GA (HDInsight Identity Broker)는 GA입니다.
 이제이 릴리스에서는 ESP 클러스터에 대 한 OAuth 인증을 사용 하도록 설정 하는 이 릴리스 후에 생성 된 모든 클러스터는 최신 버전의 기능을 제공 합니다.
 - HA (고가용성)
@@ -94,7 +94,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="hdinsight-private-clusters-with-no-public-ip-and-private-link-preview"></a>공용 IP 및 개인 링크가 없는 HDInsight 개인 클러스터 (미리 보기)
 이제 HDInsight는 미리 보기에서 클러스터에 대 한 공용 IP 및 개인 링크 액세스 권한이 없는 클러스터 만들기를 지원 합니다. 고객은 새 고급 네트워킹 설정을 사용 하 여 공용 IP가 없는 완전히 격리 된 클러스터를 만들고 자신의 개인 끝점을 사용 하 여 클러스터에 액세스할 수 있습니다. 
 
@@ -124,7 +124,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>HDInsight 4.0를 사용 하 여 대화형 쿼리에 대 한 자동 크기 조정이 이제 일반 공급 됩니다.
 대화형 쿼리 클러스터 유형에 대 한 자동 크기 조정 기능은 이제 HDInsight 4.0에 대 한 GA (일반 공급)로 제공 됩니다. 27 2020 월 27 일 이후에 만들어진 모든 대화형 쿼리 4.0 클러스터는 자동 크기 조정에 대해 GA를 지원 합니다.
 
@@ -165,7 +165,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="support-for-sparkcruise"></a>SparkCruise 지원
 SparkCruise는 Spark의 자동 계산 재사용 시스템입니다. 이전 쿼리 워크 로드를 기준으로 구체화 하는 공통 부분식을 선택 합니다. SparkCruise는 이러한 하위 식을 쿼리 처리의 일부로 구체화 하 고 계산 재사용은 백그라운드에서 자동으로 적용 됩니다. Spark 코드를 수정 하지 않고 SparkCruise의 이점을 누릴 수 있습니다.
  
@@ -219,7 +219,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="support-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox 지원
 Azure HDInsight는 이제 Azure 고객 Lockbox을 지원 합니다. 고객이 고객 데이터 액세스 요청을 검토 하 고 승인 하거나 거부할 수 있는 인터페이스를 제공 합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스 해야 할 때 사용 됩니다. 자세한 내용은 [Microsoft Azure에 대 한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview)를 참조 하세요.
 
@@ -260,7 +260,7 @@ Zeppelin가 문자열 형식에 대 한 테이블 출력의 앞에 오는 0을 �
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
 HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 지금 프로 비전 합니다. 이 릴리스에서 새로 만든 HDInsight 클러스터는 Azure 가상 머신 확장 집합을 사용 하기 시작 합니다. 변경 내용이 점진적으로 롤아웃 됩니다. 주요 변경 내용은 필요 하지 않습니다. [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)에 대 한 자세한 내용을 참조 하세요.
  
@@ -377,7 +377,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="service-tags"></a>서비스 태그
 서비스 태그는 azure 서비스에 대 한 네트워크 액세스를 쉽게 제한할 수 있도록 하 여 Azure virtual machines 및 Azure virtual network에 대 한 보안을 간소화 합니다. NSG (네트워크 보안 그룹) 규칙에서 서비스 태그를 사용 하 여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공 합니다. NSGs (네트워크 보안 그룹)에 대 한 HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
@@ -436,7 +436,7 @@ HDInsight 3.6의 Apache Zeppelin: 0.7.0-->0.7.3.
 
 이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 #### <a name="hdinsight-identity-broker-hib-preview"></a>HDInsight Identity Broker (기타) (미리 보기)
 
@@ -613,7 +613,7 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
 ## <a name="release-date-04142019"></a>릴리스 날짜: 04/14/2019
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 새로운 업데이트와 기능은 다음 범주로 분류됩니다.
 
@@ -1978,7 +1978,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
         
       다음 예제에서는 태그가 \`tags-test\`인 정책을 만들고, 모든 Hive 구성 요소 권한(예: select, update, create, drop, alter, index, lock, all)을 선택하여 astags.attr\['type'\]=='abc' 정책 조건으로 해당 정책을 \`공용\` 그룹에 할당합니다.
         
-      **예:**
+      **예제:**
         
       ```bash
         curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'
@@ -1990,7 +1990,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
         
       REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
-      **예:**
+      **예제:**
         
       ```bash
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'

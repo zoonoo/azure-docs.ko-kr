@@ -2,7 +2,7 @@
 title: 백업 및 복원-스냅숏, 지역 중복
 description: Azure Synapse Analytics 전용 SQL 풀에서 백업 및 복원 작업을 수행 하는 방법에 대해 알아봅니다. 백업을 사용 하 여 데이터 웨어하우스를 주 지역의 복원 지점으로 복원 합니다. 지역 중복 백업을 사용하여 다른 지역에 복원합니다.
 services: synapse-analytics
-author: kevinvngo
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 866fe01e11ee53188cea6ea490304462acc1f6a2
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 0fa6777dc5b587150f630ed8ccc110d16448cc21
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103420003"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602250"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 

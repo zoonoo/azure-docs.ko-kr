@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/12/2021
 ms.openlocfilehash: 7907c81e45680de49f6653891fb4204a59db1002
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710552"
 ---
 # <a name="private-endpoints"></a>프라이빗 엔드포인트
@@ -18,7 +18,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 
 개인 끝점은 [Azure 개인 링크](../../private-link/private-link-overview.md)에서 별도 서비스로 제공 됩니다. 비용에 대 한 자세한 내용은 [가격 책정 페이지를 참조 하세요.](https://azure.microsoft.com/pricing/details/private-link/) 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 > [!div class="checklist"]
 > * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 > * Azure Portal에서 만든 QnA Maker [관리 되는 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) 입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.

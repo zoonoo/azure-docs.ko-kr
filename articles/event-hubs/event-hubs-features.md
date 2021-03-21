@@ -3,12 +3,12 @@ title: 기능 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 기능 및 용어에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 03/15/2021
-ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: da59d62cb7060389ea94b3af5e6f66a4b6347d7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601307"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602624"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Azure Event Hubs의 기능 및 용어
 
@@ -146,7 +146,7 @@ Azure Sdk에서 제공 하는 일부 클라이언트는 각 파티션에 단일 
 
 #### <a name="connect-to-a-partition"></a>파티션에 연결
 
-파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 해당 경고는 다음과 같습니다.
+파티션에 연결할 때 일반적으로 임대 메커니즘을 사용 하 여 판독기 연결을 특정 파티션으로 조정 하는 것이 좋습니다. 이러한 방식으로 소비자 그룹의 모든 파티션에는 활성 판독기가 하나만 있을 수 있습니다. Event Hubs Sdk 내의 클라이언트를 사용 하 여 판독기의 검사점, 임대 및 관리를 간소화 합니다 .이는 지능형 소비자 에이전트 역할을 합니다. 이러한 항목은 다음과 같습니다.
 
 - .NET 용 [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient)
 - Java 용 [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient)
@@ -174,7 +174,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
     - [.NET](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

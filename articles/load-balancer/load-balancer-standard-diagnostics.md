@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
 ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699082"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>메트릭, 경고 및 리소스 상태를 사용하는 표준 Load Balancer 진단
@@ -34,7 +34,7 @@ Azure Load Balancer는 Azure Portal의 Azure 메트릭을 통해 다차원 메�
 
 다양한 표준 Load Balancer 구성에서는 다음 메트릭을 제공합니다.
 
-| 메트릭 | 리소스 종류 | Description | 권장 집계 |
+| 메트릭 | 리소스 종류 | 설명 | 권장 집계 |
 | --- | --- | --- | --- |
 | 데이터 경로 가용성 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 지역 내에서 부하 분산 장치 프런트 엔드로, 마지막으로 VM을 지원하는 SDN 스택으로 데이터 경로를 연속적으로 실행합니다. 정상 인스턴스가 남아 있는 한 측정은 애플리케이션 부하가 분산된 트래픽과 동일한 경로를 따릅니다. 고객이 사용하는 데이터 경로의 유효성도 검사합니다. 측정은 애플리케이션에 표시되지 않으며 다른 작업을 방해하지 않습니다.| 평균 |
 | 상태 프로브 상태 | 공용 및 내부 부하 분산 장치 | 표준 Load Balancer는 구성 설정에 따라 애플리케이션 엔드포인트의 상태를 모니터링하는 분산된 상태 검색 서비스를 사용합니다. 이 메트릭은 부하 분산 장치 풀에서 각 인스턴스 엔드포인트의 집계 또는 엔드포인트당 필터링된 보기를 제공합니다. 상태 프로브 구성에 표시된 대로 Load Balancer에서 애플리케이션의 상태를 보는 방법을 확인할 수 있습니다. |  평균 |
@@ -247,7 +247,7 @@ Azure 표준 Load Balancer는 다차원 메트릭에 대해 쉽게 구성할 수
 
 표준 Load Balancer **리소스에 대한 상태는****모니터 > 서비스 상태** 아래의 기존 를 통해 표시됩니다. 프런트 엔드 부하 분산 끝점을 사용할 수 있는지 여부를 결정 하는 데이터 경로 가용성을 측정 하 여 **2 분** 마다 평가 됩니다.
 
-| Resource Health 상태 | Description |
+| Resource Health 상태 | 설명 |
 | --- | --- |
 | 사용 가능 | 표준 부하 분산 장치 리소스가 정상 상태이 고 사용할 수 있습니다. |
 | 성능 저하됨 | 표준 부하 분산 장치에는 성능에 영향을 주는 플랫폼 또는 사용자 시작 이벤트가 있습니다. 데이터 경로 가용성 메트릭은 최소 2분 동안 상태가 90% 미만이지만 25% 이상이라고 보고했습니다. 성능이 심각 하 게 저하 될 수 있습니다. [문제 해결 RHC 가이드에 따라](./troubleshoot-rhc.md) 가용성에 영향을 주는 사용자 시작 이벤트가 있는지 여부를 확인 합니다.

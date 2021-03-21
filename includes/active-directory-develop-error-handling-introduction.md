@@ -6,10 +6,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.openlocfilehash: 2ff600429cefbfe0c9a4f0522ee49274000029ca
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98760687"
 ---
 이 문서에서는 다양한 유형의 오류를 개략적으로 설명하고 일반적인 로그인 오류 처리를 위한 권장 사항을 제공합니다.

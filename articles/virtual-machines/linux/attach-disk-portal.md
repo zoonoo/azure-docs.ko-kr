@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.collection: linux
-ms.openlocfilehash: a6ef2cd62fc14958e8505a03e69e4b20cf6ce49f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0fe584ea8559c285ee7e25caca958ff56aa9454d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556828"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601848"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md)할 수도 있습니다. 
@@ -81,7 +81,7 @@ sdc     3:0:0:0       4G
 
 더 복잡 한 예는 포털에서 다음과 같은 여러 데이터 디스크가 표시 됩니다.
 
-:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="디스크 설정을 검토 합니다.":::
+:::image type="content" source="./media/attach-disk-portal/find-disk.png" alt-text="포털에 표시 된 여러 디스크의 스크린샷":::
 
 이미지에서 3 개의 데이터 디스크 (LUN 0에 4gb, lun 1에 16GB, LUN 2에 32G)가 있는지 확인할 수 있습니다.
 
@@ -227,6 +227,6 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용 및 디스크 문제 해결에 도움이 필요한 경우 [LINUX VM 장치 이름 변경 문제 해결](../troubleshooting/troubleshoot-device-names-problems.md)을 참조 하세요.
+자세한 내용 및 디스크 문제 해결에 도움이 필요한 경우 [LINUX VM 장치 이름 변경 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)을 참조 하세요.
 
 [Azure CLI를 사용해서도 데이터 디스크를 연결](add-disk.md)할 수 있습니다.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 216410d423a70037588a6fb596771a702a13c003
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472246"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>CSV의 데이터를 Azure SQL Database 또는 SQL Managed Instance (플랫 파일)로 로드
@@ -25,7 +25,7 @@ Bcp 명령줄 유틸리티를 사용 하 여 CSV 파일에서 Azure SQL Database
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 

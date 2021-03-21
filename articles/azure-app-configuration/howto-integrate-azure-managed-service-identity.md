@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102219043"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
@@ -96,7 +96,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     }
     ```
 
-1. *Program.cs* 을 열고 `Azure.Identity` 및 네임 스페이스에 대 한 참조를 추가 합니다 `Microsoft.Azure.Services.AppAuthentication` .
+1. *프로그램 .cs* 를 열고 `Azure.Identity` 및 `Microsoft.Azure.Services.AppAuthentication` 네임 스페이스에 대 한 참조를 추가 합니다.
 
     ```csharp-interactive
     using Azure.Identity;
@@ -148,7 +148,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     >[Azure 리소스에 대 한 관리 되는 Id faq](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명 된 것 처럼 사용 되는 관리 id를 확인 하는 기본 방법이 있습니다. 이 경우 Azure Id 라이브러리는 나중에 계층이 가능한 런타임 문제를 방지 하기 위해 원하는 id를 지정 합니다. 예를 들어 새 사용자 할당 관리 id가 추가 되거나 시스템 할당 관리 id가 사용 하도록 설정 된 경우입니다. 따라서 하나의 사용자 할당 관리 id만 정의 되 고 시스템 할당 관리 id가 없는 경우에도 clientId를 지정 해야 합니다.
 
 
-1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program.cs* 를 업데이트 합니다. 이 코드는 `SetCredential` 의 일부로를 호출 하 여 `ConfigureKeyVault` Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에 게 알립니다.
+1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program .cs* 를 업데이트 합니다. 이 코드는 `SetCredential` 의 일부로를 호출 하 여 `ConfigureKeyVault` Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에 게 알립니다.
 
     ### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 

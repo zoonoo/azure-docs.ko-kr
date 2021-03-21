@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
 ms.openlocfilehash: 79bcca688146b2c2382876b6a61bc0eee34382a1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040960"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
@@ -28,7 +28,7 @@ Azure RBAC 및 액세스 전략에 대 한 로그 개념을 이해 하려면 [Az
 
 Azure Portal 또는 Azure PowerShell에서 작업 영역에 구성 된 [액세스 제어 모드](../logs/design-logs-deployment.md) 를 볼 수 있습니다.  다음 지원 되는 방법 중 하나를 사용 하 여이 설정을 변경할 수 있습니다.
 
-* Azure Portal
+* Azure portal
 
 * Azure PowerShell
 
@@ -105,7 +105,7 @@ Azure Resource Manager 템플릿에서 액세스 모드를 구성 하려면 작�
 
 다음 활동에도 Azure 권한이 필요합니다.
 
-|작업 |필요한 Azure 권한 |메모 |
+|작업 |필요한 Azure 권한 |참고 |
 |-------|-------------------------|------|
 | 모니터링 솔루션 추가 및 제거 | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | 이러한 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다. |
 | 가격 책정 계층 변경 | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -190,7 +190,7 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 | 사용 권한 | 설명 |
 | ---------- | ----------- |
-| `Microsoft.Insights/logs/<tableName>/read`<br><br>예:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 리소스에 대 한 모든 로그 데이터를 볼 수 있습니다.  |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>예제:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | 리소스에 대 한 모든 로그 데이터를 볼 수 있습니다.  |
 | `Microsoft.Insights/diagnosticSettings/write` | 이 리소스에 대 한 로그를 설정할 수 있도록 진단 설정을 구성 하는 기능입니다. |
 
 `/read`사용 권한은 일반적으로 기본 제공 판독기 및 기여자 역할과 같은 사용 _\* /읽기 또는_ 사용 권한을 포함 하는 역할에서 부여 됩니다 _\*_ . [](../../role-based-access-control/built-in-roles.md#reader) [](../../role-based-access-control/built-in-roles.md#contributor) 특정 작업 또는 전용 기본 제공 역할을 포함 하는 사용자 지정 역할에는이 권한이 포함 되지 않을 수 있습니다.

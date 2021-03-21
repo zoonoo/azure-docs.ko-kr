@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 786e9b472d1f900e94e5d0cfa6a00e0f85547704
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037696"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
@@ -24,7 +24,7 @@ ms.locfileid: "102037696"
 > [!NOTE]
 > 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 로그 경고는 Log Analytics 데이터에 대해 쿼리를 실행 합니다. 먼저 [로그 데이터 수집](../essentials/resource-logs.md) 을 시작 하 고 문제에 대 한 로그 데이터를 쿼리 합니다. Log Analytics의 [경고 쿼리 예제 항목](../logs/example-queries.md) 을 사용 하 여 [사용자가 직접 쿼리를 작성](../logs/log-analytics-tutorial.md)하기 위해 검색 하거나 시작할 수 있는 항목을 이해할 수 있습니다.
 
@@ -101,7 +101,7 @@ requests
 
 ### <a name="aggregation-type"></a>집계 유형
 
-단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 다음은 그 예입니다. 
+단일 숫자 값으로 집계 하기 위해 여러 레코드에서 수행 되는 계산입니다. 예를 들면 다음과 같습니다.
 - **Count** 는 쿼리의 레코드 수를 반환 합니다.
 - **Average** 는 정의 된 측정값 열 [**집계 세분성**](#aggregation-granularity) 의 평균을 반환 합니다.
 

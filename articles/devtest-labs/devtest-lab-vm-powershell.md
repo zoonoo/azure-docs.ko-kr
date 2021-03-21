@@ -4,10 +4,10 @@ description: Azure DevTest Labs를 사용 하 여 Azure PowerShell에서 가상 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: f79b6ff92d633cf63477cddaabec918df352bec8
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499257"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 DevTest Labs를 사용 하 여 가상 머신 만들기

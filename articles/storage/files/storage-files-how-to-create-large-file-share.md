@@ -9,17 +9,17 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: c22b3f3164cbb7c1a7ed150d093f77777c7b1023
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501297"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
 
 저장소 계정에서 대용량 파일 공유를 사용 하도록 설정 하면 파일 공유는 최대 100 TiB 확장 될 수 있으며 표준 공유에 대 한 IOPS 및 처리량 한도를 늘릴 수 있습니다. 기존 파일 공유에 대 한 기존 저장소 계정에 이러한 크기 조정을 사용 하도록 설정할 수도 있습니다. 자세한 내용은 [파일 공유 및 파일 배율 목표](storage-files-scale-targets.md#azure-files-scale-targets) 를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.

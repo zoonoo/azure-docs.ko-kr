@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499699"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 Azure Functions에 machine learning 모델 배포 
@@ -23,7 +23,7 @@ Redis 용 Azure Cache는 매우 성능이 뛰어나고 확장 가능 합니다. 
 > Azure Machine Learning와 Azure Functions를 모두 사용할 수 있지만 함수에 대 한 Machine Learning 서비스에서 모델을 패키징하는 기능은 미리 보기 상태입니다.  
 >
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](../machine-learning/how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure CLI](/cli/azure/install-azure-cli)

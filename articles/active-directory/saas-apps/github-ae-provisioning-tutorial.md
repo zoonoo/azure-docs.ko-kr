@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102427014"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 GitHub AE 구성

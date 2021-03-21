@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Grid 사용 하 여 이벤트를 �
 ms.topic: reference
 ms.date: 07/07/2020
 ms.openlocfilehash: f6e33171cbba65cfeaca49ab6a8954be8bb89acb
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199954"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid 구독 스키마
@@ -28,21 +28,21 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
  
 ## <a name="event-subscription-properties"></a>이벤트 구독 속성
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | destination | 개체 | 엔드포인트를 정의하는 개체입니다. |
 | filter | 개체 | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
 
 ### <a name="destination-object"></a>대상 개체
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | endpointType | 문자열 | 구독(웹후크/HTTP, Event Hub 또는 큐)에 대한 엔드포인트의 형식입니다. | 
 | endpointUrl | 문자열 | 이 이벤트 구독에서 이벤트의 대상 URL입니다. | 
 
 ### <a name="filter-object"></a>필터 개체
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | 이벤트 메시지의 이벤트 유형이 이러한 이벤트 유형 이름 중 하나와 정확하게 일치할 때 일치합니다. 이벤트 이름이 이벤트 원본에 대해 등록된 이벤트 유형 이름과 일치하지 않는 경우 오류가 발생합니다. 기본값은 모든 이벤트 유형과 일치합니다. |
 | subjectBeginsWith | 문자열 | 이벤트 메시지의 제목 필드에 대한 접두사-일치 필터입니다. 기본값 또는 빈 문자열은 모두 일치합니다. | 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc631e4329c1df2cdcbfe57c2b43ccccf14afa85
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936450"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
@@ -38,7 +38,7 @@ Azure AD (Azure Active Directory)를 사용 하면 조직에서 장치 id 관리
 
 시작 하기 전에 [장치 id 관리 개요](overview.md)에 대해 잘 알고 있는지 확인 합니다.
 
-### <a name="benefits"></a>혜택
+### <a name="benefits"></a>이점
 
 장치에 Azure AD id를 제공 하는 주요 이점은 다음과 같습니다.
 

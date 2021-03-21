@@ -7,10 +7,10 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719052"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Automation 작업 (미리 보기)을 만들어 Azure 리소스를 관리 하 고 비용을 모니터링 합니다.
@@ -135,7 +135,7 @@ ms.locfileid: "101719052"
 
    실행에 대 한 가능한 상태는 다음과 같습니다.
 
-   | 상태 | Description |
+   | 상태 | 설명 |
    |--------|-------------|
    | **취소** | 작업을 실행 하는 동안 작업이 취소 되었습니다. |
    | **실패** | 작업에 실패 한 작업이 하나 이상 있지만 실패를 처리 하기 위해 후속 작업이 없었습니다. |
