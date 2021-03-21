@@ -8,10 +8,10 @@ ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100636563"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Defender for IoT CLI 명령 작업
@@ -35,11 +35,11 @@ alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| attribute | 설명 |
+| 특성 | 설명 |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | -n 이름 | 만들고 있는 규칙의 이름입니다. |
-| [-ts 시간] | 규칙이 활성화 되는 시간 범위입니다. 다음과 같이 지정 해야 합니다.<br />`xx:yy-xx:yy`<br />두 기간 사이에 쉼표를 사용 하 여 둘 이상의 기간을 정의할 수 있습니다. 예: `xx:yy-xx:yy, xx:yy-xx:yy` |
+| [-ts 시간] | 규칙이 활성화 되는 시간 범위입니다. 다음과 같이 지정 해야 합니다.<br />`xx:yy-xx:yy`<br />두 기간 사이에 쉼표를 사용 하 여 둘 이상의 기간을 정의할 수 있습니다. 예를 들어 `xx:yy-xx:yy, xx:yy-xx:yy`을 참조하십시오. |
 | [-dir DIRECTION] | 규칙이 적용 되는 방향입니다. 다음과 같이 지정 해야 합니다.<br />`both | src | dst` |
 | [-dev 장치] | 규칙에 의해 제외 될 장치의 IP 주소 및 주소 유형으로, 다음과 같이 지정 됩니다.<br />`ip-x.x.x.x`<br />`mac-xx:xx:xx:xx:xx:xx`<br />`subnet: x.x.x.x/x` |
 | [-a 경고] | 규칙이 제외 될 경고의 이름:<br />`0x00000`<br />`0x000001` |
@@ -75,7 +75,7 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| attribute | 설명|
+| 특성 | 설명|
 | --------- | ---------------------------------- |
 | -n 이름 | 삭제할 규칙의 이름입니다. |
 
@@ -107,13 +107,13 @@ ntp disable IP
 
 다음 표에서는 IoT 용 Azure Defender에 대 한 네트워크 옵션을 구성 하는 데 사용할 수 있는 명령을 설명 합니다.
 
-|속성|명령|설명|
+|Name|명령|설명|
 |-----------|-------|-----------|
 |Ping|`ping IP`| IoT 플랫폼용 Defender 외부에서 주소를 Ping 합니다.|
 |Blink|`network blink`| 인터페이스 표시등이 깜박이 게 하 여 연결을 찾습니다. |
 |네트워크 다시 구성 |`network edit-settings`| 네트워크 구성 매개 변수를 변경할 수 있습니다. |
 |네트워크 설정 표시 |`network list`|네트워크 어댑터 매개 변수를 표시 합니다. |
-|네트워크 구성의 유효성을 검사 합니다. |`network validate` |출력 네트워크 설정을 표시 합니다. <br /> <br />다음은 그 예입니다.  <br /> <br />현재 네트워크 설정: <br /> 인터페이스: eth0 <br /> ip: 10.100.100.1 <br />서브넷: 255.255.255.0 <br />기본 게이트웨이: 10.100.100.254 <br />dns: 10.100.100.254 <br />인터페이스 모니터링: eth1|
+|네트워크 구성의 유효성을 검사 합니다. |`network validate` |출력 네트워크 설정을 표시 합니다. <br /> <br />예를 들면 다음과 같습니다. <br /> <br />현재 네트워크 설정: <br /> 인터페이스: eth0 <br /> ip: 10.100.100.1 <br />서브넷: 255.255.255.0 <br />기본 게이트웨이: 10.100.100.254 <br />dns: 10.100.100.254 <br />인터페이스 모니터링: eth1|
 |인증서 가져오기 |`certificate import FILE` |HTTPS 인증서를 가져옵니다. .Crt 파일로 이어지는 전체 경로를 지정 해야 합니다. \* |
 |날짜 표시 |`date` |호스트에서 GMT 형식으로 현재 날짜를 반환 합니다. |
 
@@ -131,7 +131,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| attribute | 설명 |
+| 특성 | 설명 |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 포함 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 포함 합니다. |
@@ -147,7 +147,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| attribute | 설명 |
+| 특성 | 설명 |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 제외 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 제외 합니다. 즉, 두 장치 간의 모든 트래픽을 의미 합니다. |
@@ -214,7 +214,7 @@ network capture-filter
 > [!NOTE]
 > 선택 항목은 도구의 모든 필터에 사용 되며 세션에 종속 되지 않습니다. 즉, `internal`   일부 필터 및 다른 필터에 대해서는 선택할 수 없습니다  `all-connected`   .
 
-### <a name="comments"></a>주석
+### <a name="comments"></a>의견
 
 다음에서 필터를 볼 수 있습니다  ```/var/cyberx/properties/cybershark.properties``` .
 
@@ -245,7 +245,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 
 명령을 사용 하 여 다음 특성을 사용할 수 있습니다 `directions` .
 
-| attribute | 설명 |
+| 특성 | 설명 |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | [--식별자 식별자] | 서버 식별자입니다. |
@@ -258,7 +258,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 ## <a name="system-actions"></a>시스템 작업
 다음 표에서는 IoT 용 Defender 내에서 다양 한 시스템 작업을 수행 하는 데 사용할 수 있는 명령을 설명 합니다.
 
-|속성|코드|Description|
+|Name|코드|Description|
 |----|----|-----------|
 |날짜 표시|`date`|호스트에서 GMT 형식으로 현재 날짜를 반환 합니다.|
 |호스트 다시 부팅|`system reboot`|호스트 장치를 다시 부팅 합니다.|

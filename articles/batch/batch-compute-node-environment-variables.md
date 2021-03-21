@@ -3,12 +3,12 @@ title: 작업 런타임 환경 변수
 description: Azure Batch 분석을 위한 작업 런타임 환경 변수 가이드 및 참조입니다.
 ms.topic: conceptual
 ms.date: 12/30/2020
-ms.openlocfilehash: c1d9ffb3fe6775b061863656adcb7f45f8840997
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: dbdc13e28a3a0c772480d2602f147e0d3354ff48
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97830890"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669987"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 런타임 환경 변수
 
@@ -61,6 +61,8 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [Env
 | AZ_BATCH_TASK_ID                | 현재 태스크의 ID | 시작 태스크를 제외한 모든 태스크입니다. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | [다중 인스턴스 작업](batch-mpi.md)의 기본 작업 및 모든 하위 작업에서 동일한 디렉터리 경로입니다. 이 경로는 다중 인스턴스 태스크가 실행 되는 모든 노드에 존재 하며, 해당 노드에서 실행 중인 작업 명령 ( [조정 명령](batch-mpi.md#coordination-command) 및 [응용 프로그램 명령](batch-mpi.md#application-command)모두)에서 읽기/쓰기 액세스를 사용할 수 있습니다. 다른 노드에서 실행되는 하위 작업 또는 기본 작업은 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). | 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | 노드의 [태스크 작업 디렉터리](files-and-directories.md) 전체 경로입니다. 현재 실행 중인 태스크는 이 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. | 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_WORKING_DIR       | 노드의 [태스크 작업 디렉터리](files-and-directories.md) 전체 경로입니다. 현재 실행 중인 태스크는 이 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. | 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| AZ_BATCH_TASK_RESERVED_EPHEMERAL_DISK_SPACE_BYTES | VM이로 표시 되는 디스크 공간에 대 한 현재 임계값입니다 `DiskFull` . | 모든 태스크입니다. | 1000000 |
 | CCP_NODES                       | [다중 인스턴스 작업](batch-mpi.md)에 할당된 노드와 노드당 코어 수의 목록입니다. 노드 및 코어는 `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...` 형식으로 나열됩니다. 여기서 노드 수 뒤에 하나 이상의 노드 IP 주소와 각 노드의 코어 수가 옵니다. |  다중 인스턴스 기본 및 하위 태스크입니다. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 ## <a name="next-steps"></a>다음 단계

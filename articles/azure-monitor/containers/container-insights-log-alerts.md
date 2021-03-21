@@ -4,10 +4,10 @@ description: 이 문서에서는 컨테이너 정보에서 메모리 및 CPU 사
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711198"
 ---
 # <a name="how-to-create-log-alerts-from-container-insights"></a>컨테이너 정보에서 로그 경고를 만드는 방법
@@ -291,7 +291,7 @@ InsightsMetrics
 8. 이전에 제공 된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣습니다.
 9. 다음과 같이 경고를 구성 합니다.
 
-    1. **기준** 드롭다운 목록에서 **메트릭 측정** 을 선택 합니다. 메트릭 측정은 쿼리에서 지정 된 임계값 보다 높은 값을 갖는 각 개체에 대 한 경고를 생성 합니다.
+    1. **기준** 드롭다운 목록에서 **미터법** 을 선택합니다. 메트릭 측정은 쿼리에서 지정 된 임계값 보다 높은 값을 갖는 각 개체에 대 한 경고를 생성 합니다.
     1. **조건** 에 대해 **보다 큼** 을 선택 하 고 CPU 및 메모리 사용률 경고에 대 한 초기 기준 **임계값** 으로 **75** 을 입력 합니다. 디스크 공간 부족 경고에 대해 **90** 을 입력 합니다. 또는 조건을 충족 하는 다른 값을 입력 합니다.
     1. **경고 트리거 기준** 섹션에서 **연속 위반** 을 선택 합니다. 드롭다운 목록에서 **보다 큼** 을 선택 하 고 **2** 를 입력 합니다.
     1. 컨테이너 CPU 또는 메모리 사용률에 대 한 경고를 구성 하려면 **집계 설정** 에서 **ContainerName** 을 선택 합니다. 클러스터 노드 디스크 부족 경고에 대해 구성 하려면 **ClusterId** 를 선택 합니다.

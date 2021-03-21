@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8526d7c1c436074fbf6f838caf232e1abee06339
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201572"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670378"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>계획 된 유지 관리를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 (미리 보기)에 대 한 유지 관리 기간 예약
 
-AKS 클러스터는 자동으로 정기적으로 유지 관리를 수행 합니다. 기본적으로이 작업은 언제 든 지 발생할 수 있습니다. 계획 된 유지 관리를 통해 제어 평면을 업데이트 하 고 워크 로드의 영향을 최소화 하는 주간 유지 관리 기간을 예약할 수 있습니다. 예약 되 면 선택한 기간 동안 모든 유지 관리가 수행 됩니다. 특정 날짜에 날짜 또는 시간 범위를 지정 하 여 클러스터에서 하나 이상의 주 창을 예약할 수 있습니다. 유지 관리 기간은 Azure CLI를 사용 하 여 구성 됩니다.
+AKS 클러스터는 자동으로 정기적으로 유지 관리를 수행 합니다. 기본적으로이 작업은 언제 든 지 발생할 수 있습니다. 계획 된 유지 관리를 사용 하면 VMSS 인스턴스에서 kube 시스템 Pod 뿐만 아니라 제어 평면을 업데이트 하 고 워크 로드의 영향을 최소화 하는 주간 유지 관리 기간을 예약할 수 있습니다. 예약 되 면 선택한 기간 동안 모든 유지 관리가 수행 됩니다. 특정 날짜에 날짜 또는 시간 범위를 지정 하 여 클러스터에서 하나 이상의 주 창을 예약할 수 있습니다. 유지 관리 기간은 Azure CLI를 사용 하 여 구성 됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -107,7 +107,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T012:00:00Z"
+            "end": "2021-05-30T12:00:00Z"
           }
         ]
 }

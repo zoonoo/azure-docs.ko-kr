@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93e9d9a552ab1bff16ca15d6bb11faeb5d47a503
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c27916afb0d199bcb32db9d43202e552a4a04f53
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204455"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593138"
 ---
 # <a name="monitor-cloud-tiering"></a>클라우드 계층화 모니터링
 클라우드 계층화 정책을 모니터링 하는 방법에는 두 가지가 있습니다. 서버 끝점 속성 블레이드 및 Azure Monitor입니다.
@@ -55,7 +55,7 @@ ms.locfileid: "102204455"
  
 Azure 파일 동기화에 대 한 다양 한 유형의 메트릭과 사용 방법에 대 한 자세한 내용은 [Monitor Azure 파일 동기화](storage-sync-files-monitoring.md)를 참조 하세요.
 
-메트릭을 사용 하는 방법에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)하기를 참조 하세요.
+메트릭을 사용 하는 방법에 대 한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../azure-monitor/essentials/metrics-getting-started.md)하기를 참조 하세요.
 
 클라우드 계층화 정책을 변경 하려는 경우 [클라우드 계층화 정책 선택](storage-sync-choose-cloud-tiering-policies.md)을 참조 하세요.
 

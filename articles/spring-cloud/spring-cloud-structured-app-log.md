@@ -8,10 +8,10 @@ ms.date: 02/05/2021
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 844530c6d1650b5fddd27b10c775c4364a3f5147
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102124468"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 구조적 응용 프로그램 로그
@@ -28,11 +28,11 @@ ms.locfileid: "102124468"
 | timestamp     | 문자열      |     예   | AppTimestamp    | 타임 스탬프 (UTC 형식)  |
 | logger        | 문자열      |     No    | 로거          | logger                   |
 | 수준         | 문자열      |     No    | CustomLevel     | 로그 수준                |
-| 스레드(thread)        | 문자열      |     No    | 스레드          | 스레드(thread)                   |
+| 스레드        | 문자열      |     No    | 스레드          | 스레드                   |
 | message       | 문자열      |     No    | 메시지         | 로그 메시지              |
 | stackTrace    | 문자열      |     No    | StackTrace      | 예외 스택 추적    |
 | exceptionClass| 문자열      |     No    | ExceptionClass  | 예외 클래스 이름     |
-| mdc           | 중첩 된 JSON |     예    |                 | 매핑된 진단 컨텍스트|
+| mdc           | 중첩 된 JSON |     아니요    |                 | 매핑된 진단 컨텍스트|
 | mdc. traceId   | 문자열      |     No    | TraceId         |분산 추적의 추적 Id|
 | spanId    | 문자열      |     No    | SpanId          |분산 추적의 범위 Id |
 |               |             |           |                 |                          |

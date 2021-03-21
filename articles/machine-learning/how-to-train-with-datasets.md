@@ -13,10 +13,10 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
 ms.openlocfilehash: 15bad877be00e143ce6f6956a4e1f23378c275c0
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521784"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합을 사용 하 여 모델 학습 
@@ -27,7 +27,7 @@ Azure Machine Learning 데이터 집합은 [ScriptRunConfig](/python/api/azureml
 
 데이터를 모델 학습에 사용할 수 있도록 준비 하지 않았지만 데이터 탐색을 위해 데이터를 전자 필기장에 로드 하려는 경우 데이터 [집합에서 데이터를 탐색](how-to-create-register-datasets.md#explore-data)하는 방법을 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 

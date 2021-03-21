@@ -7,10 +7,10 @@ ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 7b39242a7d7208b33a070e86088b25e9414ead04
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101714632"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>AKS (Azure Kubernetes Service) 노드 풀의 노드 구성 사용자 지정 (미리 보기)
@@ -59,7 +59,7 @@ az extension update --name aks-preview
 
 지원 되는 Kubelet 매개 변수 및 허용 되는 값은 다음과 같습니다.
 
-| 매개 변수 | 허용 되는 값/간격 | 기본값 | Description |
+| 매개 변수 | 허용 되는 값/간격 | 기본값 | 설명 |
 | --------- | ----------------------- | ------- | ----------- |
 | `cpuManagerPolicy` | 없음, 정적 | 없음 | 정적 정책을 통해 [보장 된 pod](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 의 컨테이너는 노드의 배타 cpu에 대 한 액세스를 정수 CPU로 요청할 수 있습니다. |
 | `cpuCfsQuota` | true, false | true |  CPU 제한을 지정 하는 컨테이너에 대해 CPU CFS 할당량 적용을 사용 하거나 사용 하지 않도록 설정 합니다. | 
@@ -77,7 +77,7 @@ az extension update --name aks-preview
 
 많은 트래픽을 처리 하는 경우 서비스 트래픽이 많은 로컬 파일에서 제공 되는 것이 일반적입니다. 일부 시스템 메모리의 비용으로 더 많은 기능을 처리할 수 있도록 아래의 커널 설정과 기본 제공 제한을 조정할 수 있습니다.
 
-| 설정 | 허용 되는 값/간격 | 기본값 | Description |
+| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `fs.file-max` | 8192-12000500 | 709620 | Linux 커널이 할당할 최대 파일 핸들 수입니다 .이 값을 늘리면 허용 되는 열려 있는 파일의 최대 수를 늘릴 수 있습니다. |
 | `fs.inotify.max_user_watches` | 781250-2097152 | 1048576 | 시스템에서 허용 하는 최대 파일 감시 수입니다. 각 *조사식* 은 32 비트 커널의 약 90 바이트 및 64 비트 커널의 약 160 바이트입니다. | 
@@ -89,7 +89,7 @@ az extension update --name aks-preview
 
 매우 많은 수의 동시 세션을 처리할 것으로 예상 되는 에이전트 노드의 경우, 아래와 같은 TCP 및 네트워크 옵션의 하위 집합을 사용 하 여 노드 풀 별로 조정할 수 있습니다. 
 
-| 설정 | 허용 되는 값/간격 | 기본값 | Description |
+| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `net.core.somaxconn` | 4096-324만 | 16384 | 지정 된 수신 소켓에 대해 큐에 대기할 수 있는 최대 연결 요청 수입니다. [Listen (2)](http://man7.org/linux/man-pages/man2/listen.2.html) 함수에 전달 된 백로그 매개 변수의 값에 대 한 상한입니다. 백로그 인수가 보다 크면 `somaxconn` 자동으로이 제한으로 잘립니다.
 | `net.core.netdev_max_backlog` | 1000-324만 | 1000 | 패킷이 커널을 처리할 수 있는 것 보다 빨리 패킷을 수신 하는 경우 입력 쪽에서 큐에 대기 중인 최대 패킷 수입니다. |
@@ -114,7 +114,7 @@ az extension update --name aks-preview
 
 파일 설명자 제한과 마찬가지로 프로세스에서 만들 수 있는 작업자 또는 스레드 수는 커널 설정과 사용자 제한에 의해 제한 됩니다. AKS에 대 한 사용자 제한은 무제한입니다. 
 
-| 설정 | 허용 되는 값/간격 | 기본값 | Description |
+| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `kernel.threads-max` | 20 - 513785 | 55601 | 프로세스는 작업자 스레드를 실행 합니다. 생성할 수 있는 모든 스레드의 최대 수는 커널 설정을 사용 하 여 설정 됩니다 `kernel.threads-max` . | 
 
@@ -122,7 +122,7 @@ az extension update --name aks-preview
 
 아래 설정을 사용 하 여 Linux 커널의 VM (가상 메모리) 하위 시스템 및 더티 데이터의 작업을 디스크로 튜닝할 수 있습니다 `writeout` .
 
-| 설정 | 허용 되는 값/간격 | 기본값 | Description |
+| 설정 | 허용 되는 값/간격 | 기본값 | 설명 |
 | ------- | ----------------------- | ------- | ----------- |
 | `vm.max_map_count` |  65530-262144 | 65530 | 이 파일은 프로세스에 포함 될 수 있는 최대 메모리 맵 영역 수를 포함 합니다. 메모리 맵 영역은 호출의 부작용으로 사용 되며, 및에서 `malloc` 직접 `mmap` , `mprotect` `madvise` 공유 라이브러리를 로드 하는 경우에도 사용 됩니다. | 
 | `vm.vfs_cache_pressure` | 1 - 500 | 100 | 이 백분율 값은 디렉터리 및 inode 개체의 캐싱에 사용 되는 메모리를 확보 하기 위한 커널의 추세를 제어 합니다. |

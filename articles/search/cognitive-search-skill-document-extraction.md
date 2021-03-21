@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
 ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102547869"
 ---
 # <a name="document-extraction-cognitive-skill"></a>문서 추출 인식 기술
@@ -39,7 +39,7 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 
 | 구성 매개 변수   | 허용되는 값 | 설명 |
 |-------------------------|----------------|-------------|
-| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | `none`데이터 집합에 포함 된 이미지 또는 이미지 파일을 무시 하려면로 설정 합니다. 기본값입니다. <br/>[인지 기술을 사용 하는 이미지 분석](cognitive-search-concept-image-scenarios.md)의 경우 `generateNormalizedImages` 기술에서 문서 크랙의 일부로 정규화 된 이미지 배열을 만들도록 하려면로 설정 합니다. 이 작업을 수행 하려면 `parsingMode` 가로 설정 되 `default` 고 `dataToExtract` 가로 설정 되어야 `contentAndMetadata` 합니다. 정규화된 이미지는 시각적 검색 결과에 이미지를 포함할 때 일관된 렌더링을 위해 크기 및 회전이 지정되어 균일한 이미지를 출력하는 추가 처리를 의미합니다(예: [JFK 데모](https://github.com/Microsoft/AzureSearch_JFK_Files)에서 볼 수 있는 그래프 컨트롤의 동일 크기 사진). 이 옵션을 사용 하는 경우 각 이미지에 대해이 정보가 생성 됩니다.  <br/>를로 설정 하면 `generateNormalizedImagePerPage` PDF 파일이 포함 된 이미지를 추출 하는 대신 다른 방식으로 처리 됩니다. 각 페이지는 이미지로 렌더링 되 고 그에 따라 정규화 됩니다.  비 PDF 파일 형식은가 설정 된 것과 동일 하 게 처리 됩니다 `generateNormalizedImages` .
+| `imageAction`           | `none`<br/> `generateNormalizedImages`<br/> `generateNormalizedImagePerPage` | `none`데이터 집합에 포함 된 이미지 또는 이미지 파일을 무시 하려면로 설정 합니다. 이것이 기본값입니다. <br/>[인지 기술을 사용 하는 이미지 분석](cognitive-search-concept-image-scenarios.md)의 경우 `generateNormalizedImages` 기술에서 문서 크랙의 일부로 정규화 된 이미지 배열을 만들도록 하려면로 설정 합니다. 이 작업을 수행 하려면 `parsingMode` 가로 설정 되 `default` 고 `dataToExtract` 가로 설정 되어야 `contentAndMetadata` 합니다. 정규화된 이미지는 시각적 검색 결과에 이미지를 포함할 때 일관된 렌더링을 위해 크기 및 회전이 지정되어 균일한 이미지를 출력하는 추가 처리를 의미합니다(예: [JFK 데모](https://github.com/Microsoft/AzureSearch_JFK_Files)에서 볼 수 있는 그래프 컨트롤의 동일 크기 사진). 이 옵션을 사용 하는 경우 각 이미지에 대해이 정보가 생성 됩니다.  <br/>를로 설정 하면 `generateNormalizedImagePerPage` PDF 파일이 포함 된 이미지를 추출 하는 대신 다른 방식으로 처리 됩니다. 각 페이지는 이미지로 렌더링 되 고 그에 따라 정규화 됩니다.  비 PDF 파일 형식은가 설정 된 것과 동일 하 게 처리 됩니다 `generateNormalizedImages` .
 | `normalizedImageMaxWidth` | 50-10000 사이의 정수 | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. | 
 | `normalizedImageMaxHeight` | 50-10000 사이의 정수 | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다. |
 

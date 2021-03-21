@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 639bed3dcd8f3f443b73f51efb60e7c8aeaa00a0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a32b06163f446fe0df7f1f1581d741d889cf8e9f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504221"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583516"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "102504221"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -128,10 +128,6 @@ az ad sp create-for-rbac --skip-assignment
 ```
 
 다음 예제 출력에서는 서비스 주체의 애플리케이션 ID 및 암호를 보여 줍니다. 이러한 값은 서비스 주체에 역할을 할당한 다음, AKS 클러스터를 만드는 추가 단계에서 사용됩니다.
-
-```azurecli
-az ad sp create-for-rbac --skip-assignment
-```
 
 ```output
 {

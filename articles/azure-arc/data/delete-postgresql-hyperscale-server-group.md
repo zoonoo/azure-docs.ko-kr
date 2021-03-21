@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ac620909996b03a97a311e5f06c31d6dab8f1a60
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 7932ad3b30910e539acfbff2329a03f80a4d1a0b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218649"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670361"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 삭제 합니다.
 
@@ -37,6 +37,11 @@ Delete 명령의 일반적인 형식은 다음과 같습니다.
 ```console
 azdata arc postgres server delete -n <server group name>
 ```
+이 명령을 실행 하면 서버 그룹 삭제를 확인 하는 메시지가 표시 됩니다. 스크립트를 사용 하 여 삭제를 자동화 하는 경우에는--force 매개 변수를 사용 하 여 확인 요청을 무시 해야 합니다. 예를 들어 다음과 같은 명령을 실행 합니다. 
+```console
+azdata arc postgres server delete -n <server group name> --force
+```
+
 Delete 명령에 대 한 자세한 내용을 보려면 다음을 실행 하십시오.
 ```console
 azdata arc postgres server delete --help
@@ -60,7 +65,7 @@ Pvc를 나열 하려면 다음 명령을 실행 합니다.
 kubectl get pvc [-n <namespace name>]
 ```
 
-즉, 삭제 한 서버 그룹에 대 한 pvc, 특히 Pvc의 목록을 반환 합니다. 예를 들어:
+즉, 삭제 한 서버 그룹에 대 한 pvc, 특히 Pvc의 목록을 반환 합니다. 예를 들면 다음과 같습니다.
 
 ```output
 kubectl get pvc
@@ -86,7 +91,7 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa0
 kubectl delete pvc <name of pvc>  [-n <namespace name>]
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```console
 kubectl delete pvc data-few7hh0k4npx9phsiobdc3hq-postgres01-0
@@ -99,7 +104,7 @@ kubectl delete pvc logs-few7hh0k4npx9phsiobdc3hq-postgres01-2
 kubectl delete pvc logs-few7hh0k4npx9phsiobdc3hq-postgres01-3
 ```
 
-이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 예를 들어:
+이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
 
 ```output
 persistentvolumeclaim "data-postgres01-0" deleted

@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/02/2021
-ms.openlocfilehash: 4075552e2070eba653fba54c7db1d021016644c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 6a712ad1924fd73926ff0e62a7d1b9684eb5b1d9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369767"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583119"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Salesforce 서비스 클라우드에서 데이터 복사
 
@@ -36,7 +36,7 @@ Salesforce 서비스 클라우드에서 지원 되는 모든 싱크 데이터 �
 
 Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본적으로 Salesforce에서 데이터를 복사 하는 경우 커넥터는 [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) 을 사용 하 고 데이터 크기에 따라 REST 및 대량 api 간을 자동으로 선택 합니다. 결과 집합이 클 경우 대량 api를 사용 하 여 성능을 향상 시킬 수 있습니다. Salesforce에 데이터를 쓸 때 커넥터는 [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) 의 대량 API를 사용 합니다. 또한 연결 된 서비스의 [ `apiVersion` 속성](#linked-service-properties) 을 통해 데이터를 읽고 쓰는 데 사용 되는 API 버전을 명시적으로 설정할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Salesforce에서 API 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)을 참조하세요.
 
@@ -49,7 +49,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 두 시나리오 모두에서 "REQUEST_LIMIT_EXCEEDED" 오류 메시지가 나타날 수 있습니다. 자세한 내용은 [Salesforce 개발자 제한](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) 문서의 "API 요청 제한" 섹션을 참조하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -61,8 +61,8 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |Type 속성은 **SalesforceServiceCloud** 로 설정 해야 합니다. |Yes |
-| environmentUrl | Salesforce 서비스 클라우드 인스턴스의 URL을 지정 합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |예 |
+| type |Type 속성은 **SalesforceServiceCloud** 로 설정 해야 합니다. |예 |
+| environmentUrl | Salesforce 서비스 클라우드 인스턴스의 URL을 지정 합니다. <br> - 기본값은 `"https://login.salesforce.com"`입니다. <br> - 샌드박스에서 데이터를 복사하려면 `"https://test.salesforce.com"`을 지정합니다. <br> - 사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 `"https://[domain].my.salesforce.com"`을 지정합니다. |아니요 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다.<br/><br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. <br/><br/>일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. Salesforce의 신뢰할 수 있는 [ip 주소 목록](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) 에 INTEGRATION RUNTIME의 ip를 추가 하는 경우에만 보안 토큰을 건너뛸 수 있습니다. Azure IR를 사용 하는 경우 [AZURE INTEGRATION RUNTIME IP 주소](azure-integration-runtime-ip-addresses.md)를 참조 하세요.<br/><br/>보안 토큰을 가져오고 다시 설정 하는 방법에 대 한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm)를 참조 하세요. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
@@ -137,7 +137,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하려면 다음 속
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | Type 속성은 **SalesforceServiceCloudObject** 로 설정 해야 합니다.  | Yes |
+| type | Type 속성은 **SalesforceServiceCloudObject** 로 설정 해야 합니다.  | 예 |
 | objectApiName | 데이터를 검색할 Salesforce 개체 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 > [!IMPORTANT]
@@ -181,7 +181,7 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하기 위해 복사
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SalesforceServiceCloudSource** 로 설정 해야 합니다. | 예 |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. Query를 지정 하지 않으면 데이터 집합의 "objectApiName"에 지정 된 Salesforce 서비스 클라우드 개체의 모든 데이터가 검색 됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
-| readBehavior | 기존 레코드를 쿼리할지, 아니면 삭제된 항목을 포함하여 모든 레코드를 쿼리할지 여부를 나타냅니다. 지정하지 않으면 기본 동작은 전자입니다. <br>허용되는 값: **query**(기본값), **queryAll** 입니다.  | 예 |
+| readBehavior | 기존 레코드를 쿼리할지, 아니면 삭제된 항목을 포함하여 모든 레코드를 쿼리할지 여부를 나타냅니다. 지정하지 않으면 기본 동작은 전자입니다. <br>허용되는 값: **query**(기본값), **queryAll** 입니다.  | 아니요 |
 
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 **API 이름** 에 "__c" 부분이 필요합니다.
@@ -231,8 +231,9 @@ Salesforce 서비스 클라우드로 데이터를 복사 하기 위해 복사 �
 | externalIdFieldName | Upsert 작업의 외부 ID 필드 이름입니다. 지정 된 필드는 Salesforce 서비스 클라우드 개체에서 "외부 ID 필드"로 정의 되어야 합니다. 해당하는 입력 데이터에서 NULL 값을 가질 수 없습니다. | "Upsert"에서 예 |
 | writeBatchSize | 각 일괄 처리에서 Salesforce 서비스 클라우드에 기록 된 데이터의 행 수입니다. | 아니요(기본값: 5,000) |
 | ignoreNullValues | 쓰기 작업 중에 입력 데이터에서 NULL 값을 무시할지 여부를 나타냅니다.<br/>허용되는 값은 **true** 및 **false** 입니다.<br>- **True**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 변경하지 않고 유지합니다. 삽입 작업을 수행할 때 정의된 기본 값을 삽입합니다.<br/>- **False**: Upsert나 업데이트 작업을 수행할 때 대상 개체의 데이터를 NULL로 업데이트합니다. 삽입 작업을 수행할 때 NULL 값을 삽입합니다. | 아니요(기본값: false) |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예 |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -281,7 +282,7 @@ Salesforce 서비스 클라우드 휴지통에서 일시 삭제 된 레코드를
 
 Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 SOQL 쿼리 또는 SQL 쿼리를 사용할 수 있습니다. 이 두 가지 쿼리는 서로 다른 구문과 기능을 지원하므로 혼용하지 마세요. Salesforce 서비스 클라우드에서 기본적으로 지원 되는 SOQL 쿼리를 사용 하는 것이 좋습니다. 다음 표에는 주요 차이점이 나와 있습니다.
 
-| Syntax | SOQL 모드 | SQL 모드 |
+| 구문 | SOQL 모드 | SQL 모드 |
 |:--- |:--- |:--- |
 | 열 선택 | 쿼리에서 복사할 필드를 열거 해야 합니다 (예:). `SELECT field1, filed2 FROM objectname` | 열 선택 외에도 `SELECT *`이 지원됩니다. |
 | 따옴표 | 필드/개체 이름은 따옴표로 묶을 수 없습니다. | 필드/개체 이름은 따옴표로 묶을 수 있습니다. 예: `SELECT "id" FROM "Account"` |
@@ -309,10 +310,10 @@ Salesforce 서비스 클라우드에서 데이터를 복사 하는 경우 Salesf
 |:--- |:--- |
 | 자동 번호 |String |
 | 확인란 |부울 |
-| Currency |Decimal |
+| 통화 |Decimal |
 | Date |DateTime |
 | 날짜/시간 |DateTime |
-| 메일 |String |
+| Email |String |
 | ID |String |
 | 관계 조회 |String |
 | 다중 선택 선택 목록 |String |

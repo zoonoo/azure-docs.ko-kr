@@ -4,10 +4,10 @@ description: Durable Functions를 단위 테스트하는 방법을 알아봅니�
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 89b6419e95b3971b0d272490e19354f300204e1e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491047"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
@@ -17,7 +17,7 @@ ms.locfileid: "103491047"
 > [!NOTE]
 > 이 문서에서는 Durable Functions 2.x를 대상으로 하는 Durable Functions 앱에 대 한 단위 테스트에 대 한 지침을 제공 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 예제를 살펴보려면 다음과 같은 개념과 프레임워크에 대한 지식이 필요합니다.
 

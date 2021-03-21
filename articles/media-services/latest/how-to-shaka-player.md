@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 7b4bda5a439b1e0b35dc6d3af99e0273e4987568
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101091340"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Azure Media Services에서 Shaka 플레이어를 사용 하는 방법
@@ -26,13 +26,13 @@ ms.locfileid: "101091340"
 
 ## <a name="overview"></a>개요
 
-Shaka Player는 적응 미디어를 위한 오픈 소스 JavaScript 라이브러리입니다. 플러그 인 또는 플래시를 사용 하지 않고 브라우저에서 적응 미디어 형식 (예: 대시 및 HLS)을 재생 합니다. 대신, Shaka Player는 개방형 웹 표준 미디어 원본 확장 및 암호화 된 미디어 확장을 사용 합니다.
+Shaka Player는 적응형 미디어를 위한 오픈 소스 JavaScript 라이브러리입니다. 플러그 인 또는 플래시를 사용하지 않고 브라우저에서 적응형 미디어 형식(예: DASH 및 HLS)을 재생합니다. 대신, Shaka Player는 개방형 웹 표준 미디어 원본 확장 및 암호화된 미디어 확장을 사용합니다.
 
 [Mux.js](https://github.com/videojs/mux.js/) 사용 하지 않는 것이 좋습니다. Shaka player는 HLS CMAF 형식을 지원 하지만 hls TS는 지원 하지 않습니다.
 
 [Shaka player 설명서](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html)에서 공식 설명서를 찾을 수 있습니다.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 이 문서에 대 한 샘플 코드는 [Azure-samples/media services-3rdparty-플레이어-샘플](https://github.com/Azure-Samples/media-services-3rdparty-player-samples)에서 제공 됩니다.
 

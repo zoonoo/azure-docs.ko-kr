@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 2d2e7d403ab3e9cc7e8e17de53b6e821ec24caa1
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102438015"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 실행 되는 Vm에 사용자 지정 스크립트 확장 배포
@@ -149,7 +149,7 @@ VM 이름, 확장에 대 한 이름 및 실행 하려는 명령을 제공 합니
 ```
 #### <a name="deploy-template"></a>템플릿 배포
 
-템플릿을 배포 `addCSextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령 실행:
+템플릿을 배포 `addCSextensiontoVM.json` 합니다. 이 템플릿은 기존 VM에 확장을 배포 합니다. 다음 명령을 실행합니다.
 
 ```powershell
 $templateFile = "<Path to addCSExtensiontoVM.json file>"
@@ -339,7 +339,7 @@ Administrator@VM6:
 
 #### <a name="track-deployment-status"></a>배포 상태 추적    
     
-템플릿 배포는 장기 실행 작업입니다. 지정 된 VM에 대 한 확장의 배포 상태를 확인 하려면 다른 PowerShell 세션 (관리자 권한으로 실행)을 엽니다. 다음 명령 실행: 
+템플릿 배포는 장기 실행 작업입니다. 지정 된 VM에 대 한 확장의 배포 상태를 확인 하려면 다른 PowerShell 세션 (관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다. 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/14/2021
 ms.author: yalavi
 ms.openlocfilehash: bfa92a2fc58d479edd328dba9bf02d57ec66c0c9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041096"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
@@ -41,7 +41,7 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 
 특히, 사용 중지 범위는 Azure Portal의 [경고 (클래식) 섹션](./alerts-classic.overview.md) 에서 현재 사용할 수 있고 [microsoft insights/alertrules](/rest/api/monitor/alertrules) 리소스로 액세스할 수 있는 클래식 메트릭에 대 한 것입니다.
 
-이는 다음을 의미합니다.
+다시 말해,
 
 - 클래식 모니터링 및 경고 서비스는 사용 중지 되며 더 이상 새 경고 규칙을 만들 수 없습니다.
 - 경고 (클래식)에 계속 존재 하는 경고 규칙은 계속 실행 되 고 알림을 발생 시킵니다.

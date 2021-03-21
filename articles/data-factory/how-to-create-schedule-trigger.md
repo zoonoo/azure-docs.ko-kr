@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: f10dac4e70a1edb05f2f2c02c48b9ae16c4f6823
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177825"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
@@ -367,14 +367,14 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
+| JSON 속성 | Type | 필수 | 기본값 | 유효한 값 | 예제 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | 예 | 없음 | ISO-8601 날짜-시간 | UTC 표준 시간대 `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> 기타 표준 시간대 `"2013-01-09T09:30:00-08:00"` |
 | **표준** | String | 예 | 없음 | [표준 시간대 값](#time-zone-option)  | `"UTC"` |
 | **방법** | Object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **간격은** | 숫자 | No | 1 | 1~1,000 | `"interval":10` |
 | **endTime** | String | 예 | 없음 | 현재 이후의 시간을 나타내는 날짜-시간 값입니다. | UTC 표준 시간대 `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> 기타 표준 시간대 `"endTime" : "2013-02-09T09:30:00-08:00"`|
-| **일정과** | 개체 | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **일정과** | Object | 예 | None | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="time-zone-option"></a>표준 시간대 옵션
 
@@ -382,14 +382,14 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 | 표준 시간대 | UTC 오프셋 (비 일광 절약) | 표준 시간대 값 | 일광 절약 시간 관찰 | 타임 스탬프 형식 |
 | :--- | :--- | :--- | :--- | :--- |
-| 협정 세계시 | 0 | `UTC` | 예 | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| 협정 세계시 | 0 | `UTC` | 아니요 | `'yyyy-MM-ddTHH:mm:ssZ'`|
 | 태평양 표준시 (PT) | -8 | `Pacific Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 중부 시간 (CT) | -6 | `Central Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 동부 표준시 (ET) | -5 | `Eastern Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | GMT (그리니치 표준시) | 0 | `GMT Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
 | 중부 유럽 표준시 | +1 | `W. Europe Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
-| 인도 표준시 (IST) | + 5:30 | `India Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
-| 중국 표준시 | + 8 | `China Standard Time` | 예 | `'yyyy-MM-ddTHH:mm:ss'` |
+| 인도 표준시 (IST) | + 5:30 | `India Standard Time` | 아니요 | `'yyyy-MM-ddTHH:mm:ss'` |
+| 중국 표준시 | + 8 | `China Standard Time` | 아니요 | `'yyyy-MM-ddTHH:mm:ss'` |
 
 이 목록은 완전 하지 않습니다. 표준 시간대 옵션의 전체 목록을 보려면 Data Factory 포털 [트리거 만들기 페이지](#data-factory-ui) 에서 탐색 하세요.
 
@@ -421,7 +421,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 | JSON 요소 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |
-| **내** | 트리거가 실행될 시간(분)입니다. | <ul><li>정수</li><li>정수 배열</li></ul>
+| **minutes** | 트리거가 실행될 시간(분)입니다. | <ul><li>정수</li><li>정수 배열</li></ul>
 | **시간의** | 트리거가 실행될 일(시간)입니다. | <ul><li>정수</li><li>정수 배열</li></ul> |
 | **평일** | 트리거가 실행되는 요일입니다. 값은 빈도가 주인 경우에만 지정될 수 있습니다. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>날짜 값의 배열(최대 배열 크기는 7)</li><li>날짜 값은 대/소문자 구분 안 함</li></ul> |
 | **monthlyOccurrences** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. | <ul><li>**monthlyOccurrence** 개체의 배열: `{ "day": day,  "occurrence": occurrence }`.</li><li>**day** 특성은 트리거가 실행되는 요일입니다. 예를 들어 `{Sunday}`의 **day** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 매주 일요일을 의미합니다. **day** 특성은 필수입니다.</li><li>**occurrence** 특성은 월동안 지정된 **day** 의 되풀이입니다. 예를 들어 `{Sunday, -1}`의 **day** 및 **occurrence** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 마지막 일요일을 의미합니다. **occurrence** 특성은 선택 사항입니다.</li></ul> |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: 3d56fc73faeb0d48ba7e5b21449c61d6213afa40
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100549696"
 ---
 # <a name="azure-firewall-premium-preview-in-the-azure-portal"></a>Azure Portal에서 Azure 방화벽 프리미엄 미리 보기
@@ -20,7 +20,7 @@ ms.locfileid: "100549696"
 > Azure 방화벽 프리미엄은 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
- Azure 방화벽 프리미엄 미리 보기는 매우 중요 하 고 규정을 준수 하는 환경에 필요한 기능을 제공 하는 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
+ Azure Firewall 프리미엄 미리 보기는 매우 중요하고 규정을 준수하는 환경에 필요한 기능을 갖춘 차세대 방화벽입니다. 이 관리 팩에는 다음과 같은 기능이 포함되어 있습니다.
 
 - **TLS 검사** -아웃 바운드 트래픽을 해독 하 고, 데이터를 처리 한 다음 데이터를 암호화 하 고 대상에 보냅니다.
 - **Idps** -네트워크 침입 감지 및 방지 시스템 (idps)을 사용 하면 악의적인 활동의 네트워크 활동을 모니터링 하 고,이 활동에 대 한 정보를 기록 하 고, 보고 하 고, 선택적으로 차단할 수 있습니다.

@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 28a0c4d5f643b980d93df2592da38f5da12dd01a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520462"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670565"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -73,6 +73,7 @@ ms.locfileid: "100520462"
 
          ![백업 데이터 삭제 창](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
+   이 옵션은 예약 된 백업을 삭제 하 고 요청 시 백업도 삭제 합니다.
 3. 알림 아이콘 **:** 알림 아이콘을 선택 합니다. ![](./media/backup-azure-delete-vault/messages.png) 프로세스가 완료 되 면 서비스에서 "백업 항목 *"* 의 백업 *및 백업 데이터 삭제를 중지 하* 는 다음 메시지를 표시 합니다. *작업을 완료 했습니다*.
 4. **백업 항목 메뉴에서** **새로 고침** 을 선택 하 여 백업 항목이 삭제 되었는지 확인 합니다.
 

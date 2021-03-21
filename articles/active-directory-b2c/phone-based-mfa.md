@@ -12,10 +12,10 @@ ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cc9e0be90c138ba33e1b4dfe11ea6f9c8b7da297
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033557"
 ---
 # <a name="securing-phone-based-multi-factor-authentication-mfa"></a>전화 기반 MFA (multi-factor authentication) 보안
@@ -24,7 +24,7 @@ ms.locfileid: "102033557"
 
 Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA)를 사용 하 여 사용자는 확인을 위해 등록 하는 전화 번호에서 자동 음성 통화를 받도록 선택할 수 있습니다. 악의적인 사용자는 MFA 등록 프로세스를 완료 하지 않고 여러 계정을 만들고 전화 통화를 하 여이 방법을 활용할 수 있습니다. 이러한 많은 실패 한 등록 시도는 허용 된 등록 시도를 고갈 하 여 다른 사용자가 Azure AD B2C 테 넌 트의 새 계정에 등록 하지 못하게 할 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Monitor를 사용 하 여 전화 인증 오류를 모니터링 하 고 사기성 등록을 완화할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 [Log Analytics 작업 영역](azure-monitor.md)을 만듭니다.
 

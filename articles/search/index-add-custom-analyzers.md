@@ -1,35 +1,29 @@
 ---
 title: 문자열 필드에 사용자 지정 분석기 추가
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 전체 텍스트 검색 쿼리에서 사용 되는 텍스트 토크 나이저 및 문자 필터를 구성 합니다.
+description: 인덱싱 및 쿼리 중 문자열에 대해 텍스트 분석을 수행 하도록 텍스트 토크 나이저 및 문자 필터를 구성 합니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: fef73a9b98fef40aaceeacca43836d4b2f3c5de0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.date: 03/17/2021
+ms.openlocfilehash: 831e57a68c79c245b96baec0fc3d062c4c9112c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630210"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604443"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 사용자 지정 분석기 추가
 
-*사용자 지정 분석기* 는 기존 토크나이저 및 선택적 필터의 사용자 정의 조합으로 구성된 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 토크나이저와 필터를 새로운 방식으로 결합하면 특정 결과를 달성하도록 검색 엔진에서 처리하는 텍스트를 사용자 지정할 수 있습니다. 예를 들어, *문자 필터* 로 사용자 지정 분석기를 만들어 텍스트 입력이 토큰화되기 전에 HTML 태그를 제거할 수 있습니다.
+*사용자 지정 분석기* 는 토크의 조합, 하나 이상의 토큰 필터 및 검색 인덱스에 정의 하는 하나 이상의 문자 필터의 조합으로, 사용자 지정 분석을 수행 해야 하는 필드 정의에 대 한 참조입니다. 토크나이저는 텍스트를 토큰과 토크나이저에서 내보낸 토큰을 수정하는 토큰 필터로 구분합니다. 문자 필터는 토크에 의해 처리 되기 전에 입력 텍스트를 준비 합니다. 
 
- 필터의 조합을 다양하게 만드는 여러 사용자 지정 분석기를 정의할 수 있지만 각 필드는 분석을 인덱싱하는 분석기 하나와 검색 분석에 대한 분석기 하나만을 사용할 수 있습니다. 고객 분석기의 모양은 [사용자 지정 분석기 예제](search-analyzers.md#Custom-analyzer-example)를 참조하세요.
+사용자 지정 분석기를 사용 하면 호출할 분석 또는 필터링 유형과 발생 순서를 선택할 수 있도록 하 여 텍스트를 인덱싱 가능 하 고 검색 가능한 토큰으로 변환 하는 프로세스를 제어할 수 있습니다. 표준에서 maxTokenLength를 변경 하는 것과 같이 사용자 지정 옵션으로 기본 제공 분석기를 사용 하려는 경우 사용자 정의 이름을 사용 하 여 사용자 지정 분석기를 만들어 해당 옵션을 설정 합니다.
 
-## <a name="overview"></a>개요
+사용자 지정 분석기를 유용 하 게 사용할 수 있는 상황은 다음과 같습니다.
 
- [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)의 역할은 간단히 말해서 효율적인 쿼리 및 검색이 가능하도록 문서를 처리하고 저장하는 것입니다. 상위 수준에서 볼 때는 문서에서 중요한 단어를 추출하고, 인덱스에 추가한 후, 해당 인덱스를 사용하여 지정된 쿼리의 단어와 일치하는 문서를 찾는 것이 핵심입니다. 설명서 및 검색 쿼리에서 단어를 추출하는 프로세스를 *어휘 분석* 이라고 합니다. 어휘 분석을 수행하는 구성 요소를 *분석기* 라고 합니다.
-
- Azure Cognitive Search에서 [&#40;azure Cognitive Search service REST API&#41;언어 분석기 ](index-add-language-analyzers.md)에 나열 된 언어별 분석기 또는 [분석기](#AnalyzerTable) 테이블의 미리 정의 된 언어 관련 분석기 집합에서 선택할 수 있습니다. 사용자 고유의 사용자 지정 분석기를 정의하는 옵션도 제공됩니다.  
-
- 사용자 지정 분석기를 사용하여 텍스트를 인덱싱 가능하고 검색 가능한 토큰으로 변환하는 프로세스를 제어할 수 있습니다 이것은 미리 정의된 단일 토크나이저, 하나 이상의 토큰 필터 및 하나 이상의 문자 필터로 구성된 사용자 정의 구성입니다. 토크나이저는 텍스트를 토큰과 토크나이저에서 내보낸 토큰을 수정하는 토큰 필터로 구분합니다. 문자 필터는 토크나이저에서 처리되기 전의 입력 텍스트를 준비하기 위해 적용됩니다. 예를 들어, 문자 필터는 특정 문자 또는 기호를 대신할 수 있습니다.
-
- 사용자 지정 분석기에서 사용된 인기 있는 시나리오는 다음과 같습니다.  
+- 문자 필터를 사용 하 여 텍스트 입력을 토큰화 하기 전에 HTML 태그를 제거 하거나 특정 문자나 기호를 바꿉니다.
 
 - 음성 검색. 음성 필터를 추가하여 단어의 철자가 아닌 소리를 기반으로 검색을 사용합니다.  
 
@@ -41,21 +35,28 @@ ms.locfileid: "97630210"
 
 - ASCII 접기. 표준 ASCII 접기 필터를 추가하여 검색 용어에서 ö 또는 ê와 같은 분음 부호를 정규화합니다.  
 
-  이 페이지는 지원되는 분석기, 토크나이저, 토큰 필터 및 문자 필터의 목록을 제공합니다. 사용 예제에서 인덱스 정의에 대한 변경 설명을 확인할 수도 있습니다. Azure Cognitive Search 구현에서 활용 된 기본 기술에 대 한 자세한 배경 정보는 [Lucene (Analysis package summary)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html)를 참조 하세요. 분석기 구성의 예제는 [Azure Cognitive Search에서 분석기 추가](search-analyzers.md#examples)를 참조 하세요.
+사용자 지정 분석기를 만들려면 디자인 타임에 인덱스의 "분석기" 섹션에서 지정한 다음 "analyzer" 속성 또는 "indexAnalyzer" 및 "searchAnalyzer" 쌍을 사용 하 여 검색 가능한 Edm. 문자열 필드에서 참조 합니다.
 
-## <a name="validation-rules"></a>유효성 검사 규칙  
- 분석기, 토크나이저, 토큰 필터 및 문자 필터의 이름은 고유해야 하며 미리 정의된 분석기, 토크나이저, 토큰 필터 또는 문자 필터와 같을 수 없습니다. 이미 사용 중인 이름에 대해서는 [속성 참조](#PropertyReference)를 참조하세요.
+> [!NOTE]  
+> 만든 사용자 지정 분석기는 Azure 포털에서 노출되지 않습니다. 사용자 지정 분석기를 추가 하는 유일한 방법은 인덱스를 정의 하는 코드를 통하는 것입니다. 
 
-## <a name="create-custom-analyzers"></a>사용자 지정 분석기 만들기
- 인덱스를 만들 때 사용자 지정 분석기를 정의할 수 있습니다. 사용자 지정 분석기를 지정하는 구문은 이 섹션에 설명되어 있습니다. [Azure Cognitive Search에서 분석기 추가](search-analyzers.md#examples)에서 샘플 정의를 검토 하 여 구문을 익힐 수도 있습니다.  
+## <a name="create-a-custom-analyzer"></a>사용자 지정 분석기 만들기
 
- 분석기 정의에는 토큰화 후 처리를 위한 이름, 형식, 하나 이상의 문자 필터, 최대 하나의 토크나이저가 포함됩니다. 문자 필터는 토큰화 전에 적용됩니다. 토큰 필터 및 문자 필터는 왼쪽에서 오른쪽으로 적용됩니다.
+분석기 정의에는 이름, 형식, 하나 이상의 문자 필터, 최대 하나의 토크 및 사후 토큰화 처리를 위한 하나 이상의 토큰 필터가 포함 됩니다. 문자 필터는 토큰화 전에 적용 됩니다. 토큰 필터와 문자 필터를 왼쪽에서 오른쪽으로 적용 합니다.
 
- `tokenizer_name`은 토크나이저의 이름이고, `token_filter_name_1` 및 `token_filter_name_2`는 토큰 필터의 이름이고, `char_filter_name_1` 및 `char_filter_name_2`는 문자 필터의 이름입니다(유효한 값에 대해서는 [토크나이저](#Tokenizers), [토큰 필터](#TokenFilters) 및 문자 필터 테이블 참조).
+- 사용자 지정 분석기의 이름은 고유 해야 하며 기본 제공 분석기, 토크 나이저, 토큰 필터 또는 문자 필터와 동일할 수 없습니다. 문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다. 
 
-분석기 정의는 더 큰 인덱스의 일부입니다. 나머지 인덱스에 대한 내용은 [인덱스 만들기 API](/rest/api/searchservice/create-index)를 참조하세요.
+- 형식은 #Microsoft 이어야 합니다. CustomAnalyzer.
 
-```
+- "charFilters"는 제공 된 순서 대로 토큰화 전에 처리 되는 [문자 필터](#CharFilter)에서 하나 이상의 필터 일 수 있습니다. 일부 문자 필터에는 "charFilter 섹션에서 설정할 수 있는 옵션이 있습니다. 문자 필터는 선택 사항입니다.
+
+- "토크"는 정확히 하나의 [토크](#tokenizers)입니다. 값은 필수입니다. 둘 이상의 토크나이저가 필요한 경우 여러 사용자 지정 분석기를 만들고 인덱스 스키마에서 필드 별로 할당할 수 있습니다.
+
+- "tokenFilters"는 제공 된 순서 대로 토큰화 후에 처리 되는 [토큰 필터](#TokenFilters)에서 하나 이상의 필터 일 수 있습니다. 옵션이 있는 토큰 필터의 경우 "tokenFilter" 섹션을 추가 하 여 구성을 지정 합니다. 토큰 필터는 선택 사항입니다.
+
+분석기는 300 자 보다 긴 토큰을 생성 해서는 안 됩니다. 그렇지 않으면 인덱싱이 실패 합니다. 긴 토큰을 자르거나 제외 하려면 각각 **TruncateTokenFilter** 및 **LengthTokenFilter** 를 사용 합니다. 참조는 [**토큰 필터**](#TokenFilters) 를 참조 하세요.
+
+```json
 "analyzers":(optional)[
    {
       "name":"name of analyzer",
@@ -107,12 +108,9 @@ ms.locfileid: "97630210"
 ]
 ```
 
-> [!NOTE]  
->  만든 사용자 지정 분석기는 Azure 포털에서 노출되지 않습니다. 사용자 지정 분석기를 추가하는 유일한 방법은 인덱스를 정의할 때 API를 호출하는 코드를 통해서입니다.  
+인덱스 정의 내에서 인덱스 만들기 요청 본문의 아무 위치에나 이 섹션을 배치할 수 있지만 일반적으로는 맨 끝에 배치합니다.  
 
- 인덱스 정의 내에서 인덱스 만들기 요청 본문의 아무 위치에나 이 섹션을 배치할 수 있지만 일반적으로는 맨 끝에 배치합니다.  
-
-```
+```json
 {
   "name": "name_of_index",
   "fields": [ ],
@@ -127,18 +125,17 @@ ms.locfileid: "97630210"
 }
 ```
 
-문자 필터, 토크나이저 및 토큰 필터의 정의는 사용자 지정 옵션을 설정하는 경우에만 인덱스에 추가됩니다. 기존 필터 또는 토크나이저를 있는 그대로 사용하려면 분석기 정의에서 이름으로 지정합니다.
-
-<a name="Testing custom analyzers"></a>
+분석기 정의는 더 큰 인덱스의 일부입니다. 문자 필터, 토크나이저 및 토큰 필터의 정의는 사용자 지정 옵션을 설정하는 경우에만 인덱스에 추가됩니다. 기존 필터 또는 토크나이저를 있는 그대로 사용하려면 분석기 정의에서 이름으로 지정합니다. 자세한 내용은 [인덱스 만들기 (REST)](/rest/api/searchservice/create-index)를 참조 하세요. 더 많은 예제는 [Azure Cognitive Search에서 분석기 추가](search-analyzers.md#examples)를 참조 하세요.
 
 ## <a name="test-custom-analyzers"></a>사용자 지정 분석기 테스트
 
-[REST API](/rest/api/searchservice/test-analyzer)에서 **분석기 작업 테스트** 를 사용하여 분석기가 지정된 텍스트를 토큰으로 분할하는 방법을 확인할 수 있습니다.
+[테스트 분석기 (REST)](/rest/api/searchservice/test-analyzer) 를 사용 하 여 분석기에서 지정 된 텍스트를 토큰으로 분할 하는 방법을 확인할 수 있습니다.
 
 **요청**
-```
+
+```http
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
-  Content-Type: application/json
+    Content-Type: application/json
     api-key: [admin key]
 
   {
@@ -146,8 +143,10 @@ ms.locfileid: "97630210"
      "text": "Vis-à-vis means Opposite"
   }
 ```
+
 **응답**
-```
+
+```http
   {
     "tokens": [
       {
@@ -180,147 +179,77 @@ ms.locfileid: "97630210"
 
 ## <a name="update-custom-analyzers"></a>사용자 지정 분석기 업데이트
 
-분석기, 토크나이저, 토큰 필터 또는 문자 필터는 일단 정의한 후에는 수정할 수 없습니다. 인덱스 업데이트 요청에서 `allowIndexDowntime` 플래그가 true로 설정된 경우에만 이러한 새 항목을 기존 인덱스에 추가할 수 있습니다.
+분석기, 토크, 토큰 필터 또는 문자 필터를 정의한 후에는 수정할 수 없습니다. 인덱스 업데이트 요청에서 `allowIndexDowntime` 플래그가 true로 설정된 경우에만 이러한 새 항목을 기존 인덱스에 추가할 수 있습니다.
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
 이 작업 중에 인덱스가 몇 초 이상 오프라인 상태가 되면 인덱싱 및 쿼리 요청이 실패합니다. 인덱스의 성능 및 쓰기 가용성은 인덱스를 업데이트한 후 몇 분 동안, 인덱스가 아주 큰 경우에는 더 긴 시간 동안 제대로 작동하지 않을 수 있습니다. 그렇지만 이러한 효과는 일시적이며 결과적으로는 자체 해결됩니다.
 
- <a name="ReferenceIndexAttributes"></a>
+<a name="built-in-analyzers"></a>
 
-## <a name="analyzer-reference"></a>분석기 참조
+## <a name="built-in-analyzers"></a>기본 제공 분석기
 
-아래 표에는 인덱스 정의의 분석기, 토크나이저, 토큰 필터 및 문자 필터 섹션에 대한 구성 속성이 나와 있습니다. 인덱스의 분석기, 토크나이저 또는 필터의 구조는 이러한 특성으로 구성됩니다. 값 할당 정보에 대해서는 [속성 참조](#PropertyReference)를 참조하세요.
-
-### <a name="analyzers"></a>분석기
-
-분석기의 경우, 인덱스 특성은 미리 정의된 분석기를 사용하는지 또는 사용자 지정 분석기를 사용하는지에 따라 다릅니다.
-
-#### <a name="predefined-analyzers"></a>미리 정의된 분석기
-
-| 형식 | 설명 |
-| ---- | ----------- |  
-|속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|형식|지원되는 분석기 목록에 포함된 분석기 형식입니다. 아래의 [분석기](#AnalyzerTable) 표에서 **analyzer_type** 열을 참조하세요.|  
-|옵션|아래의 [분석기](#AnalyzerTable) 표에 나열된 미리 정의된 분석기의 유효한 옵션이어야 합니다.|  
-
-#### <a name="custom-analyzers"></a>사용자 지정 분석기
-
-| 형식 | 설명 |
-| ---- | ----------- |  
-|속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|형식|"#Microsoft.Azure.Search.CustomAnalyzer"여야 합니다.|  
-|CharFilters|[문자 필터](#char-filters-reference) 표에 나열된 미리 정의된 문자 필터 중 하나 또는 인덱스 정의에 지정된 사용자 지정 문자 필터로 설정합니다.|  
-|토크나이저|필수 요소. 아래의 [토크나이저](#Tokenizers) 표에 나열된 미리 정의된 토크나이저 중 하나 또는 인덱스 정의에 지정된 사용자 지정 토크나이저로 설정합니다.|  
-|TokenFilters|[토큰 필터](#TokenFilters) 표에 나열된 미리 정의된 토큰 필터 중 하나 또는 인덱스 정의에 지정된 사용자 지정 토큰 필터로 설정합니다.|  
-
-> [!NOTE]
-> 사용자 지정 분석기가 300자보다 긴 토큰을 생성하지 않도록 구성해야 합니다. 이러한 토큰이 있는 문서는 인덱싱이 실패합니다. 자르거나 무시하려면 **TruncateTokenFilter** 및 **LengthTokenFilter** 를 각각 사용합니다.  [**토큰 필터**](#TokenFilters) 에서 참조를 확인 합니다.
-
-<a name="CharFilter"></a>
-
-### <a name="char-filters"></a>문자 필터
-
- 문자 필터는 토크나이저에서 처리되기 전의 입력 텍스트를 준비하는 데 사용됩니다. 예를 들어, 특정 문자 또는 기호를 대신할 수 있습니다. 하나의 사용자 지정 분석기에서 여러 토큰 필터를 사용할 수 있습니다. 토큰 필터는 나열된 순서로 실행됩니다.  
-
-| 형식 | 설명 |
-| ---- | ----------- | 
-|속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|형식|지원되는 문자 필터 목록의 문자 필터 형식입니다. [문자 필터](#char-filters-reference) 표의 **char_filter_type** 열을 참조하세요.|  
-|옵션|지정된 [문자 필터](#char-filters-reference) 형식의 유효한 옵션이어야 합니다.|  
-
-### <a name="tokenizers"></a>토크나이저
-
- 문장을 단어로 분리하는 것처럼 토크나이저는 연속된 텍스트를 토큰의 시퀀스로 분리합니다.  
-
- 사용자 지정 분석기당 하나의 토크나이저를 지정할 수 있습니다. 둘 이상의 토크나이저가 필요한 경우 여러 사용자 지정 분석기를 만들고 인덱스 스키마에서 필드 별로 할당할 수 있습니다.  
-사용자 지정 분석기는 기본 또는 사용자 지정된 옵션 중 하나로 미리 정의된 토크나이저를 사용할 수 있습니다.  
-
-| 형식 | 설명 |
-| ---- | ----------- | 
-|속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|형식|지원되는 토크나이저 목록의 토크나이저 이름입니다. [토크나이저](#Tokenizers) 표의 **tokenizer_type** 열을 참조하세요.|  
-|옵션|아래의 [토크나이저](#Tokenizers) 표에 나열된 지정된 토크나이저 형식의 유효한 옵션이어야 합니다.|  
-
-### <a name="token-filters"></a>토큰 필터
-
- 토큰 필터는 토크나이저에서 생성된 토큰을 필터링하거나 수정하는 데 사용됩니다. 예를 들어, 모든 문자를 소문자로 변환하는 소문자 필터를 지정할 수 있습니다.   
-사용자 지정 분석기에서 여러 토큰 필터를 사용할 수 있습니다. 토큰 필터는 나열된 순서로 실행합니다.  
-
-| 형식 | 설명 |
-| ---- | ----------- |  
-|속성|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
-|형식|지원되는 토큰 필터 목록의 토큰 필터 이름입니다. [토큰 필터](#TokenFilters) 표의 **token_filter_type** 열을 참조하세요.|  
-|옵션|지정된 토큰 필터 형식의 [토큰 필터](#TokenFilters)여야 합니다.|  
-
-<a name="PropertyReference"></a>  
-
-## <a name="property-reference"></a>속성 참조
-
-이 섹션에서는 인덱스의 사용자 지정 분석기, 토크나이저, 문자 필터 또는 토큰 필터 정의에 지정된 특성의 유효한 값을 제공합니다. Apache Lucene을 사용하여 구현한 분석기, 토크나이저 및 필터에는 Lucene API 설명서에 대한 링크가 있습니다.
-
-<a name="AnalyzerTable"></a>
-
-###  <a name="predefined-analyzers-reference"></a>미리 정의된 분석기 참조
+사용자 지정 옵션을 포함 하는 기본 제공 분석기를 사용 하려는 경우 사용자 지정 분석기를 만드는 방법은 이러한 옵션을 지정 하는 메커니즘입니다. 이와 달리 기본 제공 분석기를 그대로 사용 하려면 필드 정의에서 [이름을 기준으로이](search-analyzers.md#how-to-specify-analyzers) 분석기를 참조 하기만 하면 됩니다.
 
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**설명 및 옵션**|  
-|-|-|-|  
+|-----------------|-------------------------------|---------------------------|  
 |[키워드로](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html)| (형식은 옵션이 사용 가능할 때만 적용됨) |필드의 전체 콘텐츠를 단일 토큰으로 처리합니다. 우편 번호, ID 및 일부 제품 이름과 같은 데이터에 유용합니다.|  
-|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|정규식 패턴을 통해 텍스트를 용어로 유연하게 구분합니다.<br /><br /> **Options**<br /><br /> lowercase (type: bool) - 용어를 소문자로 처리할지를 결정합니다. 기본값은 true입니다.<br /><br /> [pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - 일치하는 토큰 구분 기호를 검색하기 위한 정규식 패턴입니다. 기본값은입니다 `\W+` .이는 단어가 아닌 문자를 찾습니다.<br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
+|[pattern](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/PatternAnalyzer.html)|PatternAnalyzer|정규식 패턴을 통해 텍스트를 용어로 유연하게 구분합니다. </br></br>**Options** </br></br>lowercase (type: bool) - 용어를 소문자로 처리할지를 결정합니다. 기본값은 true입니다. </br></br>[pattern](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html?is-external=true) (type: string) - 일치하는 토큰 구분 기호를 검색하기 위한 정규식 패턴입니다. 기본값은입니다 `\W+` .이는 단어가 아닌 문자를 찾습니다. </br></br>[flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES </br></br>stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
 |[쉽게](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/SimpleAnalyzer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |비문자에서 텍스트를 나눈 후 소문자로 변환합니다. |  
-|[비표준](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) <br />(standard.lucene라고도 함)|StandardAnalyzer|표준 토크나이저, 소문자 필터 및 중지 필터로 구성된 표준 Lucene 분석기입니다.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값은 255입니다. 최대 길이보다 긴 토큰은 분할됩니다. 사용할 수 있는 최대 토큰 길이는 300자입니다.<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
+|[비표준](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) </br>(standard.lucene라고도 함)|StandardAnalyzer|표준 토크나이저, 소문자 필터 및 중지 필터로 구성된 표준 Lucene 분석기입니다. </br></br>**Options** </br></br>maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값은 255입니다. 최대 길이보다 긴 토큰은 분할됩니다. 사용할 수 있는 최대 토큰 길이는 300자입니다. </br></br>stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 빈 목록입니다.|  
 |standardasciifolding.lucene|(형식은 옵션이 사용 가능할 때만 적용됨) |ASCII 접기 필터가 있는 표준 분석기입니다. |  
-|[stop](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|비문자에서 텍스트를 나누고, 소문자 및 중지 단어 토큰 필터를 적용합니다.<br /><br /> **Options**<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 미리 정의된 영어 목록입니다. |  
+|[stop](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|비문자에서 텍스트를 나누고, 소문자 및 중지 단어 토큰 필터를 적용합니다. </br></br>**Options** </br></br>stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 미리 정의된 영어 목록입니다. |  
 |[공백](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |공백 토크나이저를 사용하는 분석기입니다. 255자보다 긴 토큰은 분할됩니다.|  
 
- <sup>1</sup> 분석기 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "PatternAnalyzer"는 실제로 "#Microsoft.Azure.Search.PatternAnalyzer"로 지정됩니다. 간단히 나타내기 위해 접두사를 제거했지만 코드에서는 필요합니다. 
- 
-사용자 지정할 수 있는 분석기에만 analyzer_type이 제공됩니다. 키워드 분석기를 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
+ <sup>1</sup> 분석기 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "PatternAnalyzer"는 실제로 "#Microsoft.Azure.Search.PatternAnalyzer"로 지정됩니다. 간단히 나타내기 위해 접두사를 제거했지만 코드에서는 필요합니다.
 
+사용자 지정할 수 있는 분석기에만 analyzer_type이 제공됩니다. 키워드 분석기를 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
 
 <a name="CharFilter"></a>
 
-###  <a name="char-filters-reference"></a>문자 필터 참조
+## <a name="character-filters"></a>문자 필터
 
 아래 표에서 Apache Lucene을 사용하여 구현한 문자 필터는 Lucene API 설명서로 연결됩니다.
 
 |**char_filter_name**|**char_filter_type** <sup>1</sup>|**설명 및 옵션**|  
-|-|-|-|
+|--------------------|---------------------------------|---------------------------|
 |[html_strip](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/HTMLStripCharFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |HTML 구문을 제거하려고 하는 문자 필터입니다.|  
-|[매핑](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|매핑 옵션을 사용하여 정의된 매핑을 적용하는 문자 필터입니다. 일치는 greedy 방식을 따릅니다(지정된 지점에서 가장 긴 패턴 일치가 검색됨). 빈 문자열로 대체될 수 있습니다.<br /><br /> **Options**<br /><br /> mappings (type: string array) - "a=>b" 형식의 매핑 목록입니다(문자 "a"가 나오는 모든 경우는 문자 "b"로 바뀜). 필수 요소.|  
-|[pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|입력 문자열에서 문자를 대체하는 문자 필터입니다. 정규식을 사용하여 보존할 문자 시퀀스를 식별하고, 대체 패턴을 사용하여 대체할 문자를 식별합니다. 예를 들어, 입력 텍스트 = "aa  bb aa bb", 패턴 ="(aa)\\\s+(bb)" 대체 ="$1#$2", 결과 = "aa#bb aa#bb"와 같습니다.<br /><br /> **Options**<br /><br /> pattern (type: string) - 필수 항목입니다.<br /><br /> replacement (type: string) - 필수 항목입니다.|  
+|[매핑으로](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|매핑 옵션을 사용하여 정의된 매핑을 적용하는 문자 필터입니다. 일치는 greedy 방식을 따릅니다(지정된 지점에서 가장 긴 패턴 일치가 검색됨). 빈 문자열로 대체될 수 있습니다.  </br></br>**Options**  </br></br> mappings (type: string array) - "a=>b" 형식의 매핑 목록입니다(문자 "a"가 나오는 모든 경우는 문자 "b"로 바뀜). 필수 요소.|  
+|[pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|입력 문자열에서 문자를 대체하는 문자 필터입니다. 정규식을 사용하여 보존할 문자 시퀀스를 식별하고, 대체 패턴을 사용하여 대체할 문자를 식별합니다. 예를 들어, 입력 텍스트 = "aa  bb aa bb", 패턴 ="(aa)\\\s+(bb)" 대체 ="$1#$2", 결과 = "aa#bb aa#bb"와 같습니다.  </br></br>**Options**  </br></br>pattern (type: string) - 필수 항목입니다.  </br></br>replacement (type: string) - 필수 항목입니다.|  
 
  <sup>1</sup> 문자 필터 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "MappingCharFilter"는 실제로 "#Microsoft.Azure.Search.MappingCharFilter"로 지정됩니다. 테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다. Char_filter_type은 사용자 지정할 수 있는 필터에 대해서만 제공 됩니다. html_strip을 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
 
-<a name="Tokenizers"></a>
+<a name="tokenizers"></a>
 
-###  <a name="tokenizers-reference"></a>토크나이저 참조
+## <a name="tokenizers"></a>토크나이저
 
-아래 표에서 Apache Lucene을 사용하여 구현한 토크나이저는 Lucene API 설명서로 연결됩니다.
+문장을 단어로 분리하는 것처럼 토크나이저는 연속된 텍스트를 토큰의 시퀀스로 분리합니다. 아래 표에서 Apache Lucene을 사용하여 구현한 토크나이저는 Lucene API 설명서로 연결됩니다.
 
 |**tokenizer_name**|**tokenizer_type** <sup>1</sup>|**설명 및 옵션**|  
-|-|-|-|  
-|[클래식](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|대부분의 유럽 언어 문서 처리에 적합한 문법 기반 토크나이저입니다.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
-|[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|에지의 입력을 지정된 크기의 n-gram으로 토큰화합니다.<br /><br /> **Options**<br /><br /> minGram (유형: int)-기본값: 1, 최대값: 300.<br /><br /> maxGram (유형: int)-기본값: 2, 최대값: 300. minGram보다 커야 합니다.<br /><br /> tokenChars (type: string array) - 토큰에 유지할 문자 클래스입니다. 허용되는 값은 다음과 같습니다. <br />"letter", "digit", "whitespace", "punctuation", "symbol". 기본값은 빈 배열로, 모든 문자를 유지합니다. |  
-|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|전체 입력을 단일 토큰으로 내보냅니다.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 256, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
+|------------------|-------------------------------|---------------------------|  
+|[기존](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicTokenizer.html)|ClassicTokenizer|대부분의 유럽 언어 문서 처리에 적합한 문법 기반 토크나이저입니다.  </br></br>**Options**  </br></br>maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
+|[edgeNGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html)|EdgeNGramTokenizer|에지의 입력을 지정된 크기의 n-gram으로 토큰화합니다.  </br></br> **Options**  </br></br>minGram (유형: int)-기본값: 1, 최대값: 300.  </br></br>maxGram (유형: int)-기본값: 2, 최대값: 300. minGram보다 커야 합니다.  </br></br>tokenChars (type: string array) - 토큰에 유지할 문자 클래스입니다. 허용되는 값은 다음과 같습니다. </br>"letter", "digit", "whitespace", "punctuation", "symbol". 기본값은 빈 배열로, 모든 문자를 유지합니다. |  
+|[keyword_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html)|KeywordTokenizerV2|전체 입력을 단일 토큰으로 내보냅니다.  </br></br>**Options**  </br></br>maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 256, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
 |[끝맺을](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LetterTokenizer.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |비문자에서 텍스트를 나눕니다. 255자보다 긴 토큰은 분할됩니다.|  
 |[구분](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseTokenizer.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |비문자에서 텍스트를 나눈 후 소문자로 변환합니다. 255자보다 긴 토큰은 분할됩니다.|  
-| microsoft_language_tokenizer| MicrosoftLanguageTokenizer| 언어별 규칙을 사용하여 텍스트를 구분합니다.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int)-최대 토큰 길이 이며 기본값: 255, 최대: 300. 최대 길이보다 긴 토큰은 분할됩니다. 300자보다 긴 토큰은 먼저 300자 길이의 토큰으로 분할된 후 각 토큰은 설정된 maxTokenLength를 기준으로 분할됩니다.<br /><br />isSearchTokenizer (type: bool) - 검색 토크나이저로 사용될 경우 true로 설정되고, 인덱싱 토크나이저로 사용될 경우 false로 설정됩니다. <br /><br /> language (type: string) - 사용할 언어로, 기본값은 "english"입니다. 허용되는 값은 다음과 같습니다.<br />"bangla", "bulgarian", "catalan", "chineseSimplified",  "chineseTraditional", "croatian", "czech", "danish", "dutch", "english",  "french", "german", "greek", "gujarati", "hindi", "icelandic", "indonesian", "italian", "japanese", "kannada", "korean", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovenian", "spanish", "swedish", "tamil", "telugu", "thai", "ukrainian", "urdu", "vietnamese" |
-| microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| 언어별 규칙을 사용하여 텍스트를 구분하고, 단어를 기본 형식으로 줄입니다.<br /><br /> **Options**<br /><br />maxTokenLength (type: int)-최대 토큰 길이 이며 기본값: 255, 최대: 300. 최대 길이보다 긴 토큰은 분할됩니다. 300자보다 긴 토큰은 먼저 300자 길이의 토큰으로 분할된 후 각 토큰은 설정된 maxTokenLength를 기준으로 분할됩니다.<br /><br /> isSearchTokenizer (type: bool) - 검색 토크나이저로 사용될 경우 true로 설정되고, 인덱싱 토크나이저로 사용될 경우 false로 설정됩니다.<br /><br /> language (type: string) - 사용할 언어로, 기본값은 "english"입니다. 허용되는 값은 다음과 같습니다.<br />"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
-|[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|입력을 지정된 크기의 n-gram으로 토큰화합니다.<br /><br /> **Options**<br /><br /> minGram (유형: int)-기본값: 1, 최대값: 300.<br /><br /> maxGram (유형: int)-기본값: 2, 최대값: 300. minGram보다 커야 합니다. <br /><br /> tokenChars (type: string array) - 토큰에 유지할 문자 클래스입니다. 허용되는 값: "letter", "digit", "whitespace", "punctuation", "symbol". 기본값은 빈 배열로, 모든 문자를 유지합니다. |  
-|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|경로와 같은 계층 구조의 토크나이저입니다.<br /><br /> **Options**<br /><br /> delimiter (type: string) - 기본값: '/.<br /><br /> replacement (type: string) - 설정하면 구분 기호 문자를 바꿉니다. 기본값은 구분 기호 값과 동일합니다.<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 300, 최대값: 300. maxTokenLength보다 긴 경로는 무시됩니다.<br /><br /> reverse (type: bool) - true인 경우 역순으로 토큰을 생성합니다. 기본값: false입니다.<br /><br /> skip (type: bool) - 건너뛸 초기 토큰입니다. 기본값은 0입니다.|  
-|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|이 토크나이저는 정규식 패턴 일치를 사용하여 고유 토큰을 생성합니다.<br /><br /> **Options**<br /><br /> [패턴](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (형식: 문자열)-토큰 구분 기호와 일치 하는 정규식 패턴입니다. 기본값은입니다 `\W+` .이는 단어가 아닌 문자를 찾습니다. <br /><br /> [flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES<br /><br /> group (type: int) - 토큰으로 추출할 그룹입니다. 기본값은 -1(분할)입니다.|
-|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|[유니코드 텍스트 구분 규칙](https://unicode.org/reports/tr29/)에 따라 텍스트를 구분합니다.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
-|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URL과 이메일을 하나의 토큰으로 토큰화합니다.<br /><br /> **Options**<br /><br /> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
+| microsoft_language_tokenizer| MicrosoftLanguageTokenizer| 언어별 규칙을 사용하여 텍스트를 구분합니다.  </br></br>**Options**  </br></br>maxTokenLength (type: int)-최대 토큰 길이 이며 기본값: 255, 최대: 300. 최대 길이보다 긴 토큰은 분할됩니다. 300자보다 긴 토큰은 먼저 300자 길이의 토큰으로 분할된 후 각 토큰은 설정된 maxTokenLength를 기준으로 분할됩니다.  </br></br>isSearchTokenizer (type: bool) - 검색 토크나이저로 사용될 경우 true로 설정되고, 인덱싱 토크나이저로 사용될 경우 false로 설정됩니다. </br></br>language (type: string) - 사용할 언어로, 기본값은 "english"입니다. 허용되는 값은 다음과 같습니다. </br>"bangla", "bulgarian", "catalan", "chineseSimplified",  "chineseTraditional", "croatian", "czech", "danish", "dutch", "english",  "french", "german", "greek", "gujarati", "hindi", "icelandic", "indonesian", "italian", "japanese", "kannada", "korean", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovenian", "spanish", "swedish", "tamil", "telugu", "thai", "ukrainian", "urdu", "vietnamese" |
+| microsoft_language_stemming_tokenizer | MicrosoftLanguageStemmingTokenizer| 언어별 규칙을 사용하여 텍스트를 구분하고, 단어를 기본 형식으로 줄입니다. </br></br>**Options** </br></br>maxTokenLength (type: int)-최대 토큰 길이 이며 기본값: 255, 최대: 300. 최대 길이보다 긴 토큰은 분할됩니다. 300자보다 긴 토큰은 먼저 300자 길이의 토큰으로 분할된 후 각 토큰은 설정된 maxTokenLength를 기준으로 분할됩니다. </br></br> isSearchTokenizer (type: bool) - 검색 토크나이저로 사용될 경우 true로 설정되고, 인덱싱 토크나이저로 사용될 경우 false로 설정됩니다. </br></br>language (type: string) - 사용할 언어로, 기본값은 "english"입니다. 허용되는 값은 다음과 같습니다. </br>"arabic", "bangla", "bulgarian", "catalan", "croatian", "czech", "danish", "dutch", "english", "estonian", "finnish", "french", "german", "greek", "gujarati", "hebrew", "hindi", "hungarian", "icelandic", "indonesian", "italian", "kannada", "latvian", "lithuanian", "malay", "malayalam", "marathi", "norwegianBokmaal", "polish", "portuguese", "portugueseBrazilian", "punjabi", "romanian", "russian", "serbianCyrillic", "serbianLatin", "slovak", "slovenian", "spanish", "swedish", "tamil", "telugu", "turkish", "ukrainian", "urdu" |
+|[nGram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenizer.html)|NGramTokenizer|입력을 지정된 크기의 n-gram으로 토큰화합니다. </br></br>**Options** </br></br>minGram (유형: int)-기본값: 1, 최대값: 300. </br></br>maxGram (유형: int)-기본값: 2, 최대값: 300. minGram보다 커야 합니다. </br></br>tokenChars (type: string array) - 토큰에 유지할 문자 클래스입니다. 허용되는 값: "letter", "digit", "whitespace", "punctuation", "symbol". 기본값은 빈 배열로, 모든 문자를 유지합니다. |  
+|[path_hierarchy_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/path/PathHierarchyTokenizer.html)|PathHierarchyTokenizerV2|경로와 같은 계층 구조의 토크나이저입니다. **Options** </br></br>delimiter (type: string) - 기본값: '/. </br></br>replacement (type: string) - 설정하면 구분 기호 문자를 바꿉니다. 기본값은 구분 기호 값과 동일합니다. </br></br>maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 300, 최대값: 300. maxTokenLength보다 긴 경로는 무시됩니다. </br></br>reverse (type: bool) - true인 경우 역순으로 토큰을 생성합니다. 기본값: false입니다. </br></br>skip (type: bool) - 건너뛸 초기 토큰입니다. 기본값은 0입니다.|  
+|[pattern](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternTokenizer.html)|PatternTokenizer|이 토크나이저는 정규식 패턴 일치를 사용하여 고유 토큰을 생성합니다. </br></br>**Options** </br></br> [패턴](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html) (형식: 문자열)-토큰 구분 기호와 일치 하는 정규식 패턴입니다. 기본값은입니다 `\W+` .이는 단어가 아닌 문자를 찾습니다. </br></br>[flags](https://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html#field_summary) (type: string) - 정규식 플래그입니다. 기본값은 빈 문자열입니다. 허용 되는 값: CANON_EQ, CASE_INSENSITIVE, 주석, DOTALL, LITERAL, MULTILINE, UNICODE_CASE, UNIX_LINES </br></br>group (type: int) - 토큰으로 추출할 그룹입니다. 기본값은 -1(분할)입니다.|
+|[standard_v2](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardTokenizer.html)|StandardTokenizerV2|[유니코드 텍스트 구분 규칙](https://unicode.org/reports/tr29/)에 따라 텍스트를 구분합니다. </br></br>**Options** </br></br>maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
+|[uax_url_email](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|URL과 이메일을 하나의 토큰으로 토큰화합니다. </br></br>**Options** </br></br> maxTokenLength (type: int) - 최대 토큰 길이입니다. 기본값: 255, 최대값: 300. 최대 길이보다 긴 토큰은 분할됩니다.|  
 |[공백](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |공백에서 텍스트를 나눕니다. 255자보다 긴 토큰은 분할됩니다.|  
 
  <sup>1</sup> 토크나이저 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "ClassicTokenizer"는 실제로 "#Microsoft.Azure.Search.ClassicTokenizer"로 지정됩니다. 테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다. Tokenizer_type은 사용자 지정할 수 있는 토크 나이저에 대해서만 제공 됩니다. 문자 토크나이저를 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
 
 <a name="TokenFilters"></a>
 
-###  <a name="token-filters-reference"></a>토큰 필터 참조
+## <a name="token-filters"></a>토큰 필터
+
+토큰 필터는 토크나이저에서 생성된 토큰을 필터링하거나 수정하는 데 사용됩니다. 예를 들어, 모든 문자를 소문자로 변환하는 소문자 필터를 지정할 수 있습니다. 사용자 지정 분석기에서 여러 토큰 필터를 사용할 수 있습니다. 토큰 필터는 나열된 순서로 실행합니다. 
 
 아래 표에서 Apache Lucene을 사용하여 구현한 토큰 필터는 Lucene API 설명서로 연결됩니다.
 
@@ -331,7 +260,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)|AsciiFoldingTokenFilter|처음 127개의 ASCII 문자("기본 라틴" 유니코드 블록)에 포함되지 않는 영문자, 숫자 및 기호 유니코드 문자를 해당 ASCII 문자로 변환합니다(있는 경우).<br /><br /> **Options**<br /><br /> preserveOriginal (type: bool) - true인 경우 원래 토큰이 유지됩니다. 기본값은 false입니다.|  
 |[cjk_bigram](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/cjk/CJKBigramFilter.html)|CjkBigramTokenFilter|StandardTokenizer에서 생성되는 CJK 용어의 바이그램을 형성합니다.<br /><br /> **Options**<br /><br /> ignoreScripts (type: string array) - 무시할 스크립트입니다. 사용할 수 있는 값은 "han", "hiragana", "katakana", "hangul"입니다. 기본값은 빈 목록입니다.<br /><br /> outputUnigrams (type: bool) - 항상 유니그램과 바이그램 둘 다를 출력하려는 경우 true로 설정합니다. 기본값은 false입니다.|  
 |[cjk_width](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/cjk/CJKWidthFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |CJK 너비 차이를 정규화합니다. 전자 ASCII 변형을 동급의 기본 라틴으로 접고 반자 가타카나 변형을 동급의 가나로 접습니다. |  
-|[클래식](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |머리 글자어에서 영어 소유격과 점을 제거합니다. |  
+|[기존](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/standard/ClassicFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |머리 글자어에서 영어 소유격과 점을 제거합니다. |  
 |[common_grams](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/commongrams/CommonGramsFilter.html)|CommonGramTokenFilter|인덱싱 동안 자주 발생하는 용어에 대한 바이그램을 생성합니다. 단일 단어도 바이그램이 오버레이된 상태로 계속 인덱싱됩니다.<br /><br /> **Options**<br /><br /> commonWords (type: string array) - 일반적인 단어 세트입니다. 기본값은 빈 목록입니다. 필수 요소.<br /><br /> ignoreCase (type: bool) - true인 경우 대/소문자를 구분하지 않고 검색합니다. 기본값은 false입니다.<br /><br /> queryMode (type: bool) - 바이그램을 생성한 후 일반 단어와 그 뒤에 나오는 단일 단어를 제거합니다. 기본값은 false입니다.|  
 |[dictionary_decompounder](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/compound/DictionaryCompoundWordTokenFilter.html)|DictionaryDecompounderTokenFilter|많은 게르만어파에 있는 복합 단어를 분해합니다.<br /><br /> **Options**<br /><br /> wordList (type: string array) - 일치하는지 검색할 단어의 목록입니다. 기본값은 빈 목록입니다. 필수 요소.<br /><br /> minWordSize (type: int) - 이보다 긴 단어만 처리합니다. 기본값은 5입니다.<br /><br /> minSubwordSize (type: int) - 이보다 긴 부분 단어만 출력합니다. 기본값은 2입니다.<br /><br /> maxSubwordSize (type: int) - 이보다 짧은 부분 단어만 출력합니다. 기본값은 15입니다.<br /><br /> onlyLongestMatch (type: bool) - 가장 긴 일치 부분 단어만 출력에 추가합니다. 기본값은 false입니다.|  
 |[edgeNGram_v2](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html)|EdgeNGramTokenFilterV2|입력 토큰의 맨 앞 또는 맨 뒤에서 시작해서 지정된 크기의 n-gram을 생성합니다.<br /><br /> **Options**<br /><br /> minGram (유형: int)-기본값: 1, 최대값: 300.<br /><br /> maxGram (유형: int)-기본값: 2, 최대 300. minGram보다 커야 합니다.<br /><br /> side (type: string) - n-gram 생성을 시작할 입력의 부분을 지정합니다. 사용할 수 있는 값은 "front", "back"입니다. |  
@@ -370,8 +299,8 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
  <sup>1</sup> 토큰 필터 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "ArabicNormalizationTokenFilter"는 실제로 "#Microsoft.Azure.Search.ArabicNormalizationTokenFilter"로 지정됩니다.  테이블 너비를 줄이기 위해 이 접두사를 제거했지만 코드에는 포함해야 합니다.  
 
+## <a name="see-also"></a>참고 항목
 
-## <a name="see-also"></a>참조  
- [Azure Cognitive Search REST Api](/rest/api/searchservice/)   
- [Azure Cognitive Search > 예제에서 분석기](search-analyzers.md#examples)    
- [Azure Cognitive Search REST API &#40;인덱스 만들기&#41;](/rest/api/searchservice/create-index)
+- [Azure Cognitive Search REST Api](/rest/api/searchservice/)
+- [Azure Cognitive Search의 분석기 (예제)](search-analyzers.md#examples)
+- [인덱스 만들기(REST)](/rest/api/searchservice/create-index)

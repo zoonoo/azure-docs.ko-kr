@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426827"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594600"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -42,7 +42,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
    - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker* 입니다.
 
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예들 들어 `mary@contoso.com`입니다.
+   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`
 
      사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 *\<yourdomainname> onmicrosoft.com* 을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 
@@ -75,7 +75,7 @@ Azure Active Directory(클라우드)와 Windows Server Active Directory(온-프�
 Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 있습니다.
 
 >[!Note]
->조직에서 사용자를 삭제 하려면 전역 관리자 또는 사용자 관리자 역할을 할당 해야 합니다. 전역 관리자는 다른 관리자를 비롯 한 모든 사용자를 삭제할 수 있습니다. 사용자 관리자는 관리자가 아닌 사용자, 기술 지원팀 관리자 및 기타 사용자 관리자를 삭제할 수 있습니다. 자세한 내용은 [AZURE AD의 관리자 역할 권한](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)을 참조 하세요.
+>조직에서 사용자를 삭제 하려면 전역 관리자 또는 사용자 관리자 역할을 할당 해야 합니다. 전역 관리자는 다른 관리자를 비롯 한 모든 사용자를 삭제할 수 있습니다. 사용자 관리자는 관리자가 아닌 사용자, 기술 지원팀 관리자 및 기타 사용자 관리자를 삭제할 수 있습니다. 자세한 내용은 [AZURE AD의 관리자 역할 권한](../roles/permissions-reference.md)을 참조 하세요.
 
 사용자를 삭제 하려면 다음 단계를 수행 합니다.
 

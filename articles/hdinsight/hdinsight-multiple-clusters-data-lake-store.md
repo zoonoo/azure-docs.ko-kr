@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 6e220592f53103320c3bdb586fcbd0106219bfed
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939533"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
@@ -29,7 +29,7 @@ Data Lake Storage는 많은 양의 데이터 호스팅뿐만 아니라 단일 Da
 
 HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려면 Data Lake Storage 관리자는 테이블에 설명된 대로 적절한 권한을 할당해야 합니다. 테이블에 표시된 사용 권한은 액세스-ACL에 해당하며 기본 ACL에 해당하지 않습니다.
 
-|폴더  |사용 권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
+|폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
 |---------|---------|---------|---------|---------|---------|---------|---------|
 |/ | rwxr-x--x  |관리자 |관리자  |서비스 사용자 |--x  |FINGRP   |r-x         |
 |/클러스터 | rwxr-x--x |관리자 |관리자 |서비스 사용자 |--x  |FINGRP |r-x         |
@@ -50,7 +50,7 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 - 다른 AAD 서비스 주체에서 **/클러스터/재무** 에 클러스터를 만들 수 있는 경우, 고정 비트(**재무** 폴더에서 설정된 경우)를 통해 하나의 서비스 주체에서 만든 폴더는 다른 서비스 주체에서 삭제할 수 없습니다.
 - 폴더 구조 및 사용 권한이 준비 되 면 HDInsight 클러스터 만들기 프로세스에서 **/clusters/finance/** 아래에 클러스터 관련 저장소 위치를 만듭니다. 예를 들어 fincluster01이라는 이름의 클러스터에 대한 스토리지는 **/클러스터/재무/fincluster01** 이 될 수 있습니다. HDInsight 클러스터에 의해 생성된 폴더에 대한 소유권 및 권한은 테이블에 표시됩니다.
 
-    |폴더  |사용 권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
+    |폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
     |---------|---------|---------|---------|---------|---------|---------|---------|
     |/클러스터/재무/fincluster01 | rwxr-x---  |서비스 주체 |FINGRP  |- |-  |-   |-  |
 
@@ -86,7 +86,7 @@ Resource XXXX is not publicly accessible and as such cannot be part of the publi
 
 계층을 통해 **다른 사용자** 에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [빠른 시작: HDInsight에서 클러스터 설정](./hdinsight-hadoop-provision-linux-clusters.md)
 - [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)
