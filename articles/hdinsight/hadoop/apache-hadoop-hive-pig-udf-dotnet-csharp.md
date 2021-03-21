@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
 ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946548"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 c # 사용자 정의 함수 사용
@@ -53,11 +53,11 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 2. **새 프로젝트 만들기** 를 선택합니다.
 
-3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. **다음** 을 선택합니다.
+3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 후 **다음** 을 선택합니다.
 
 4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *hivecsharp.exe* 를 입력 하 고 새 프로젝트를 저장할 **위치로** 이동 하거나 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
-5. Visual Studio IDE에서 *Program.cs* 의 내용을 다음 코드로 바꿉니다.
+5. Visual Studio IDE에서 프로그램의 내용을 다음 코드로 바꿉니다 *.*
 
     ```csharp
     using System;
@@ -120,11 +120,11 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 2. **시작** 창에서 **새 프로젝트 만들기** 를 선택합니다.
 
-3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. **다음** 을 선택합니다.
+3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 후 **다음** 을 선택합니다.
 
 4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *문은 pigudf.exe* 를 입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
-5. Visual Studio IDE에서 *Program.cs* 의 내용을 다음 코드로 바꿉니다.
+5. Visual Studio IDE에서 프로그램의 내용을 다음 코드로 바꿉니다 *.*
 
     ```csharp
     using System;

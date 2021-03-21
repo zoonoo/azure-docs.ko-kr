@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: yelevin
 ms.openlocfilehash: c554f3582e67622a5a1739c9e410328c902d491b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655904"
 ---
 # <a name="connect-data-from-azure-web-application-firewall-waf"></a>Azure WAF (웹 응용 프로그램 방화벽)에서 데이터 연결
@@ -21,7 +21,7 @@ ms.locfileid: "94655904"
 일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. Azure WAF (웹 응용 프로그램 방화벽)는 코드 삽입 및 사이트 간 스크립팅과 같은 일반적인 악용 및 위협 으로부터 웹 응용 프로그램에 대 한 중앙 집중식 보호를 제공 합니다. Azure WAF는 [Azure 애플리케이션 Gateway](../web-application-firewall/ag/ag-overview.md) 서비스, [azure Front 도어](../web-application-firewall/afds/afds-overview.md) 서비스 및 [azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) waf 정책 (현재 공개 미리 보기로 제공 됨)을 통해 배포할 수 있습니다.
 Azure WAF 로그를 Azure 센티널에 연결 하 여 통합 문서에서 로그 데이터를 확인 하 고이를 사용 하 여 사용자 지정 경고를 만든 다음이를 통합 하 여 조사를 개선할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

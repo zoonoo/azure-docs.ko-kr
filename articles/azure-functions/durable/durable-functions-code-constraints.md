@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726413"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Orchestrator 함수 코드 제약 조건
@@ -65,7 +65,7 @@ Orchestrator 함수는 대상 언어의 모든 API를 호출할 수 있습니다
 
 이 섹션의 런타임 동작에 대 한 설명은 오 케 스트레이 터 함수 `await` 에서 또는 내구성이 없는 작업에서 사용할 수 없는 이유를 이해 하는 데 도움이 됩니다 `yield` . 두 가지 이유는 다음과 같습니다. 디스패처 스레드는 작업이 완료 될 때까지 기다릴 수 없으며, 해당 태스크의 콜백은 오 케 스트레이 터 함수의 추적 상태가 손상 될 수 있습니다. 이러한 위반을 검색 하는 데 도움이 되는 몇 가지 런타임 검사가 준비 되어 있습니다.
 
-지 속성 작업 프레임 워크에서 orchestrator 함수를 실행 하는 방법에 대 한 자세한 내용은 [GitHub의 지 속성 작업 소스 코드](https://github.com/Azure/durabletask)를 참조 하세요. 특히 [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) 및 [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)를 참조 하세요.
+지 속성 작업 프레임 워크에서 orchestrator 함수를 실행 하는 방법에 대 한 자세한 내용은 [GitHub의 지 속성 작업 소스 코드](https://github.com/Azure/durabletask)를 참조 하세요. 특히 [TaskOrchestrationExecutor](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) 및 [TaskOrchestrationContext](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

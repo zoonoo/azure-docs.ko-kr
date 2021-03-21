@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -9,10 +9,10 @@ ms.date: 11/05/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 57b0bb9ab8ceb34021a38db0d0abf2c9c919e808
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94356655"
 ---
 ### <a name="can-i-still-deploy-multiple-bastion-hosts-across-peered-virtual-networks"></a>피어 링 가상 네트워크 간에 여러 개의 요새 호스트를 배포할 수 있나요?
@@ -34,7 +34,7 @@ ms.locfileid: "94356655"
 * Azure Bastion 리소스에 대한 읽기 권한자 역할
 * Virtual Network에 대 한 판독기 역할 (피어 링 Virtual Network가 없는 경우에는 필요 하지 않음)
 
-|사용 권한|설명|사용 권한 유형|
+|권한|Description|사용 권한 유형|
 |---|---| ---|
 |Microsoft.Network/bastionHosts/read |요새 호스트 가져오기|작업|
 |Microsoft.Network/virtualNetworks/BastionHosts/action |Virtual Network의 요새 호스트 참조를 가져옵니다.|작업|

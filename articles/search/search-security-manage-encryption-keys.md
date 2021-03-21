@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
 ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119291"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화를 위해 고객이 관리 하는 키 구성
@@ -41,7 +41,7 @@ Azure Cognitive Search [는 서비스 관리 키](../security/fundamentals/encry
 
 다른 지역 또는 8 월 1 일 이전에 만든 서비스를 사용 하는 경우 관리 키 암호화는 서비스에서 사용 하는 임시 디스크를 제외 하 고 데이터 디스크로만 제한 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 시나리오에서 사용 되는 도구 및 서비스는 다음과 같습니다.
 

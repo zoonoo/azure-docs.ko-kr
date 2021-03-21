@@ -8,10 +8,10 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ccc20f415d13356de755af5d1d3afc5b29de72f2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387056"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
@@ -29,7 +29,7 @@ ms.locfileid: "100387056"
 ## <a name="supported-versions"></a>지원되는 버전
 이 커넥터는 Salesforce Developer Edition, Professional Edition, Enterprise Edition 또는 Unlimited Edition을 지원합니다. 그리고 Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인에서 복사를 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * API 권한을 사용하도록 설정해야 합니다. [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정하는 방법](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Salesforce에서 온-프레미스 데이터 저장소로 데이터를 복사하려면 온-프레미스 환경에 데이터 관리 게이트웨이 2.0이 설치되어 있어야 합니다.
 
@@ -63,11 +63,11 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |형식 속성은 **Salesforce** 로 설정 되어야 합니다. |Yes |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https: \/ /login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |예 |
+| type |형식 속성은 **Salesforce** 로 설정 되어야 합니다. |예 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https: \/ /login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
-| password |사용자 계정으로 password를 지정합니다. |Yes |
-| securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |Yes |
+| password |사용자 계정으로 password를 지정합니다. |예 |
+| securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -92,7 +92,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예: `select * from MyTable__c` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예를 들어 `select * from MyTable__c`을 참조하십시오. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
@@ -112,7 +112,7 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 `{call "<report name>"}`과 같이 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있으며 그 예는 다음과 같습니다. `"query": "{call \"TestReport\"}"`.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Salesforce 휴지통에서 삭제된 레코드 검색
-임시 삭제된 쿼리를 Salesforce 휴지통에서 쿼리하려면 쿼리에 **"IsDeleted = 1"** 을 지정하면 됩니다. 예를 들면 다음과 같습니다.
+임시 삭제된 쿼리를 Salesforce 휴지통에서 쿼리하려면 쿼리에 **"IsDeleted = 1"** 을 지정하면 됩니다. 예제:
 
 * 삭제 된 레코드만 쿼리하려면 "select * from MyTable__c **Where IsDeleted = 1**"을 지정 합니다.
 * 기존 레코드와 삭제 된 레코드를 포함 하 여 모든 레코드를 쿼리하려면 "select * from MyTable__c **Where isdeleted = 0 Or isdeleted = 1**"을 지정 합니다.
@@ -282,7 +282,7 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | --- | --- |
 | 자동 번호 |String |
 | 확인란 |부울 |
-| Currency |Decimal |
+| 통화 |Decimal |
 | Date |DateTime |
 | 날짜/시간 |DateTime |
 | 메일 |String |

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
 ms.openlocfilehash: cc55cd17a547b9c63f2c26479d5797fae016d8d7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044071"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 Azure Monitor 배포
@@ -120,7 +120,7 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 ![이니셔티브 수정](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="vm-insights"></a>VM 정보
+## <a name="vm-insights"></a>VM 인사이트
 [VM 정보](vm/vminsights-overview.md) 는 가상 컴퓨터를 모니터링 하는 Azure Monitor의 기본 도구입니다. VM insights를 사용 하도록 설정 하면 Log Analytics 에이전트와 종속성 에이전트가 모두 설치 됩니다. 이러한 작업을 수동으로 수행 하는 대신 Azure Policy를 사용 하 여 각 가상 컴퓨터를 만들 때 구성 했는지 확인 합니다.
 
 > [!NOTE]
@@ -129,9 +129,9 @@ Azure Policy에는 Azure Monitor와 관련 된 몇 가지 미리 작성 된 정�
 
 VM insights에는 전체 모니터링을 사용 하기 위해 두 에이전트를 모두 설치 하는 다음과 같은 기본 제공 이니셔티브가 포함 되어 있습니다. 
 
-|속성 |설명 |
+|Name |설명 |
 |:---|:---|
-|VM insights 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
+|VM 인사이트 사용 | Azure Arc에 연결 된 Azure Vm 및 하이브리드 Vm에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
 |가상 머신 확장 집합에 대 한 Azure Monitor 사용 | Azure 가상 머신 확장 집합에 Log Analytics 에이전트 및 종속성 에이전트를 설치 합니다. |
 
 
@@ -142,7 +142,7 @@ Azure Policy 인터페이스를 사용 하 여 이러한 이니셔티브에 대 
 
 ![VM insights 정책](media/deploy-scale/vminsights-policy.png)
 
-### <a name="virtual-machine-scale-sets"></a>가상 머신 확장 집합
+### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
 Azure Policy를 사용 하 여 가상 머신 확장 집합에 대 한 모니터링을 사용 하도록 설정 하려면 모니터링할 리소스의 범위에 따라 **가상 머신 확장 집합에 대 한 Azure Monitor 사용** 이니셔티브를 Azure 관리 그룹, 구독 또는 리소스 그룹에 할당 합니다. [관리 그룹](../governance/management-groups/overview.md) 은 특히 조직에 여러 구독이 있는 경우 범위 지정 정책에 특히 유용 합니다.
 
 ![Azure Portal에서 이니셔티브 할당 페이지의 스크린샷 가상 머신 확장 집합에 대 한 Azure Monitor 사용 하도록 이니셔티브 정의가 설정 되었습니다.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
@@ -162,7 +162,7 @@ Log Analytics 에이전트를 설치 하지만 종속성 에이전트는 설치 
 > Log Analytics 에이전트가 Azure Monitor에 데이터를 전달 해야 하므로 종속성 에이전트를 자체에 배포할 이유가 없습니다.
 
 
-|속성 |설명 |
+|Name |설명 |
 |-----|------------|
 |감사 Log Analytics 에이전트 배포 – VM 이미지 (OS) 나열 되지 않음 |VM 이미지 (OS)가 목록에 정의 되어 있지 않고 에이전트가 설치 되어 있지 않은 경우 vm을 비규격으로 보고 합니다. |
 |Linux VM용 Log Analytics 에이전트 배포 |VM 이미지 (OS)가 목록에 정의 되어 있고 에이전트가 설치 되어 있지 않은 경우 Linux Vm에 대 한 Log Analytics 에이전트를 배포 합니다. |

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/23/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: a7d63fd76a88430495c9f55200308f63b11c89d4
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96494310"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 만들고 관리 하는 방법
@@ -27,7 +27,7 @@ ms.locfileid: "96494310"
 ## <a name="azure-cli"></a>Azure CLI
 Azure CLI를 사용 하 여 읽기 복제본을 만들고 관리할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)
 - 원본 서버로 사용 되는 [Azure Database for MySQL 유연한 서버](quickstart-create-server-cli.md) 입니다.

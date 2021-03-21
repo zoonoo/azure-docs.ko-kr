@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 1808070f374614ae6cac9a27098ddf2f4d9d2d12
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93332528"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
@@ -40,7 +40,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
   배열 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예제에서는를 사용 하 여 배열의 여러 조각을 가져오는 방법을 보여 줍니다 `ARRAY_SLICE` .  
   

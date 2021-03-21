@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92485378"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 백업 및 복원
@@ -44,7 +44,7 @@ Azure Database for PostgreSQL에서 Citus (Hyperscale) 클러스터를 복원 �
 ### <a name="point-in-time-restore-pitr"></a>지정 시간 복원 (PITR)
 
 클러스터를 최근 35 일 내의 특정 시점으로 복원할 수 있습니다.
-특정 시점 복원은 여러 시나리오에서 유용합니다. 예를 들어 사용자가 실수로 데이터를 삭제 하거나 중요 한 테이블이 나 데이터베이스를 삭제 하거나 응용 프로그램이 잘못 된 데이터를 사용 하 여 적절 한 데이터를 실수로 덮어쓰는 경우입니다.
+특정 시점 복원은 여러 시나리오에서 유용합니다. 예를 들어 사용자가 실수로 데이터를 삭제하거나, 중요한 테이블 또는 데이터베이스를 삭제하거나, 애플리케이션이 실수로 올바른 데이터를 잘못된 데이터로 덮어쓰는 경우입니다.
 
 복원 프로세스는 원래와 동일한 Azure 지역, 구독 및 리소스 그룹에 새 클러스터를 만듭니다. 클러스터에는 원래의 구성이 있습니다. 동일한 노드 수, vCores 수, 저장소 크기, 사용자 역할, PostgreSQL 버전 및 Citus 확장의 버전이 있습니다.
 

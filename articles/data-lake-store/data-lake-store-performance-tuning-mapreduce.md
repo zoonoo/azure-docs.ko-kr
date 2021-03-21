@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: twooley
 ms.openlocfilehash: 2549413241e422fb1e0e5e1f079c287e0b7cf005
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97723731"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 MapReduce 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
@@ -27,7 +27,7 @@ ms.locfileid: "97723731"
 
 MapReduce 작업을 실행할 때 Data Lake Storage Gen1에서 성능을 향상시키기 위해 구성할 수 있는 가장 중요한 매개 변수가 있습니다.
 
-|매개 변수      | Description  |
+|매개 변수      | 설명  |
 |---------|---------|
 |`Mapreduce.map.memory.mb`  |  각 매퍼에 할당할 메모리의 양입니다.  |
 |`Mapreduce.job.maps`     |  작업당 맵 태스크 수입니다.  |

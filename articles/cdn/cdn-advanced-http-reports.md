@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779325"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석
@@ -48,7 +48,7 @@ ms.locfileid: "92779325"
 
 맵 기반 지리 보고서의 각 유형에 대한 간략한 설명이 아래에 제공됩니다.
 
-| 보고서 이름 | Description |
+| 보고서 이름 | 설명 |
 | --- | --- |
 | 전 세계 맵 |이 보고서를 사용하면 CDN 콘텐츠에 대한 전 세계 수요를 볼 수 있습니다. 각 국가/지역은 세계 지도에서 색으로 구분 되어 해당 지역에서 시작 된 적중 항목의 백분율을 표시 합니다. |
 | 미국 맵 |이 보고서를 사용하면 미국에서 CDN 콘텐츠에 대한 수요를 볼 수 있습니다. 각 주가 이 맵에 색으로 지정되어 해당 지역에서 발생한 적중 항목의 백분율을 나타냅니다. |
@@ -71,7 +71,7 @@ ms.locfileid: "92779325"
 
 아래에서 두 가지 유형의 보고서에 대한 간략한 설명을 제공합니다.
 
-| 보고서 이름 | Description |
+| 보고서 이름 | 설명 |
 | --- | --- |
 | 상위 도시 |이 보고서는 해당 지역에서 발생한 적중 횟수에 따라 도시의 순위를 매깁니다. |
 | 상위 국가 |이 보고서는 해당 국가/지역에서 발생 한 적중 횟수에 따라 국가/지역 순위를 매깁니다. |

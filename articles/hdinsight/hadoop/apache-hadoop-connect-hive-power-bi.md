@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: a5732c2dc0a92bd5727eeff39a529630e45683d7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946688"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI와 Apache Hive 데이터 시각화
@@ -49,7 +49,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 1. **데이터 가져오기** 대화 상자의 왼쪽에서 **기타** 를 선택 하 고 오른쪽에서 **ODBC** 를 선택한 다음 아래쪽에서 **연결** 을 선택 합니다.
 
-1. **ODBC에서** 대화 상자의 드롭다운 목록에서 마지막 섹션에 만든 데이터 원본 이름을 선택 합니다. 그런 다음, **확인** 을 선택합니다.
+1. **ODBC에서** 대화 상자의 드롭다운 목록에서 마지막 섹션에 만든 데이터 원본 이름을 선택 합니다. 그런 다음 **확인** 을 선택합니다.
 
 1. 처음 사용 하는 경우 **ODBC 드라이버** 대화 상자가 열립니다. 왼쪽 메뉴에서 **기본값 또는 사용자 지정** 을 선택 합니다. 그런 다음 **연결** 을 선택 하 여 **탐색기** 를 엽니다.
 
@@ -69,7 +69,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Power BI를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 Power BI를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세한 내용은 다음 문서를 참조하세요.
 
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](./apache-hadoop-connect-excel-hive-odbc-driver.md)
 * [파워 쿼리를 사용 하 여 Apache Hadoop에 Excel을 연결](apache-hadoop-connect-excel-power-query.md)합니다.

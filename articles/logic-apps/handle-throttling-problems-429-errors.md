@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366056"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Azure Logic Apps에서 제한 문제 (429-"요청이 너무 많음" 오류)를 처리 합니다.
@@ -164,7 +164,7 @@ HTTP와 같은 일부 트리거 및 작업에는 예외 처리를 구현 하기 
 
 * 폴링 버전이 아닌 트리거 및 작업에 대 한 webhook 버전을 사용 합니다.
 
-  그 이유는 폴링 트리거는 특정 간격으로 대상 서비스 또는 시스템을 계속 검사 합니다. 1 초 간격으로 매우 자주 수행 되는 경우에는 제한 문제가 발생할 수 있습니다. 그러나 웹 후크 트리거 또는 동작 (예: [HTTP webhook](../connectors/connectors-native-webhook.md))은 구독 시에 발생 하는 대상 서비스 또는 시스템에 대 한 단일 호출만 만들며 이벤트가 발생 하는 경우에만 대상에서 트리거 또는 작업을 알립니다. 이렇게 하면 트리거 또는 작업에서 대상을 지속적으로 확인할 필요가 없습니다.
+  이유 폴링 트리거는 특정 간격으로 대상 서비스 또는 시스템을 계속 검사 합니다. 1 초 간격으로 매우 자주 수행 되는 경우에는 제한 문제가 발생할 수 있습니다. 그러나 웹 후크 트리거 또는 동작 (예: [HTTP webhook](../connectors/connectors-native-webhook.md))은 구독 시에 발생 하는 대상 서비스 또는 시스템에 대 한 단일 호출만 만들며 이벤트가 발생 하는 경우에만 대상에서 트리거 또는 작업을 알립니다. 이렇게 하면 트리거 또는 작업에서 대상을 지속적으로 확인할 필요가 없습니다.
   
   따라서 대상 서비스 또는 시스템이 웹 후크를 지원 하거나 webhook 버전이 있는 커넥터를 제공 하는 경우이 옵션은 폴링 버전을 사용 하는 것 보다 좋습니다. 웹 후크 트리거 및 작업을 식별 하려면 `ApiConnectionWebhook` 형식이 있거나 되풀이를 지정 하지 않아도 되는지 확인 합니다. 자세한 내용은 [APIConnectionWebhook trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) and [APIConnectionWebhook action](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-action)항목을 참조 하세요.
 

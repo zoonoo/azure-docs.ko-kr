@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 30c0a02c2cbc11002f8e0bf0295dab91de5d0365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96020588"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
@@ -27,7 +27,7 @@ ms.locfileid: "96020588"
 
 이 작업은 [TDSP(팀 데이터 과학 프로세스)](./index.yml)의 단계입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)
@@ -153,7 +153,7 @@ Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/conflue
 ## <a name="advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.
 
-1. **Java 힙 공간**: 대용량 데이터 세트를 조인하거나 긴 레코드 처리하는 것과 관련된 쿼리에서 발생하는 일반적인 오류 중 하나는 **힙 공간 부족** 입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이 오류를 피할 수 있습니다. 다음은 예제입니다.
+1. **Java 힙 공간**: 대용량 데이터 세트를 조인하거나 긴 레코드 처리하는 것과 관련된 쿼리에서 발생하는 일반적인 오류 중 하나는 **힙 공간 부족** 입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이 오류를 피할 수 있습니다. 예를 들면 다음과 같습니다.
    
     ```hiveql
     set mapreduce.map.java.opts=-Xmx4096m;

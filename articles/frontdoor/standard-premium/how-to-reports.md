@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 9670d8204d04fc770bf3fe98a270a3f6ccbf234b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101100269"
 ---
 # <a name="azure-front-door-standardpremium-preview-reports"></a>Azure Front 도어 표준/프리미엄 (미리 보기) 보고서
@@ -235,7 +235,7 @@ Azure 전면 도어 표준/프리미엄 분석 보고서는 Azure Front 도어�
 
 ## <a name="top-user-agent"></a>상위 사용자 에이전트
 
-이 보고서를 사용 하면 콘텐츠를 요청 하는 데 사용 된 상위 50 사용자 에이전트의 그래픽 및 통계 보기를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+이 보고서를 사용 하면 콘텐츠를 요청 하는 데 사용 된 상위 50 사용자 에이전트의 그래픽 및 통계 보기를 사용할 수 있습니다. 예제:
 * Mozilla/5.0 (Windows NT 10.0; 용 
 * AppleWebKit/537.36 (Gecko와 같은 KHTML) 
 * Chrome/86.0.4240.75 

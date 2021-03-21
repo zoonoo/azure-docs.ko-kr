@@ -4,10 +4,10 @@ description: Azure Backup Server를 사용 하 여 가상 머신을 백업 하�
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.openlocfilehash: e9204b9f86c7e9ef67d2e3d6b45ccf4248d00b32
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581485"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 Azure Backup Server 설정
@@ -134,7 +134,7 @@ Azure VM에 배포 된 Azure Backup Server는 Azure VMware 솔루션의 Vm에서
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위치를 저장 하는 저장소 엔터티입니다. 또한 보호 된 항목과 연결 된 백업 정책도 포함 됩니다.
+Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 스토리지 엔터티입니다. 또한 보호 된 항목과 연결 된 백업 정책도 포함 됩니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 구독에 로그인합니다.
 
@@ -150,7 +150,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
 
 1. **Recovery Services 자격 증명 모음** 대시보드에서 **추가** 를 선택합니다.
 
-   ![Recovery Services 자격 증명 모음을 추가 합니다.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Recovery Services 자격 증명 모음을 추가합니다.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    **Recovery Services 자격 증명 모음** 대화 상자가 열립니다.
 

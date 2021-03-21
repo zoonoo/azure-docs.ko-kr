@@ -8,10 +8,10 @@ ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 393495dabb77a5d177c97d37313433bb00ce5a36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726753"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 Azure 보안 기준
@@ -38,7 +38,7 @@ Azure Security Center의 적응 네트워크 강화 기능을 사용 하 여 외
 
 - [Windows 가상 데스크톱에 대 한 액세스를 허용 하는 데 필요한 Url 확인](safe-url-list.md)
 
-- [Azure Security Center의 적응 네트워크 강화](../security-center/security-center-adaptive-network-hardening.md) 
+- [Azure Security Center의 적응형 네트워크 강화](../security-center/security-center-adaptive-network-hardening.md) 
 
 - [Windows 가상 데스크톱에 대 한 Azure 방화벽 ](../firewall/protect-windows-virtual-desktop.md)
 

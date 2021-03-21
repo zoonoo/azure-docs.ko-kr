@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: b324d23ce9abc1eb3893f316365aff828de2063d
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932628"
 ---
 # <a name="real-time-consistency"></a>실시간 일관성
@@ -27,7 +27,7 @@ ms.locfileid: "96932628"
 Sync-Token: <id>=<value>;sn=<sn>
 ```
 
-|매개 변수|Description|
+|매개 변수|설명|
 |--|--|
 | `<id>` | 토큰 ID (불투명) |
 | `<value>` | 토큰 값 (불투명)입니다. Base64 인코딩 문자열을 허용 합니다. |

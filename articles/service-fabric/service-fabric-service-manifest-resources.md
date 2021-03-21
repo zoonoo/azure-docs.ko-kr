@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: 0ed5a4aa8993f52d42b97288cd143e6114ff36ff
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033309"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
@@ -199,7 +199,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-응용 프로그램을 배포 하는 동안 이러한 값을 ApplicationParameters로 전달할 수 있습니다.  예를 들어:
+응용 프로그램을 배포 하는 동안 이러한 값을 ApplicationParameters로 전달할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -207,7 +207,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 참고: 지정 된 ApplicationParameter에 제공 된 값이 비어 있으면 해당 EndPointName에 대해 Servicemanifest.xml에 제공 된 기본값으로 돌아갑니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ServiceManifest에서 다음을 지정했습니다.
 

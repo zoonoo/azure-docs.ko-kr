@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: cfcb3a5a601afadb9f3fcd71c24e18a9d7f27b9e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946410"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
@@ -75,7 +75,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 | 게이트웨이 이름 | vnet1gw |
 | 게이트웨이 유형 | Vpn |
 | 게이트웨이 VPN 유형 | 경로 기반 |
-| 게이트웨이 SKU | 기본 |
+| 게이트웨이 SKU | Basic |
 | 게이트웨이 IP | vnet1gwip |
 
 **VNet 2**
@@ -92,7 +92,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 | 게이트웨이 이름 | vnet2gw |
 | 게이트웨이 유형 | Vpn |
 | 게이트웨이 VPN 유형 | 경로 기반 |
-| 게이트웨이 SKU | 기본 |
+| 게이트웨이 SKU | Basic |
 | 게이트웨이 IP | vnet1gwip |
 
 ## <a name="setup-dns"></a>DNS 설정
@@ -306,7 +306,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|이름|Description|
+|Name|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -315,7 +315,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|이름|Description|
+|Name|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin** 입니다. |

@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042424"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 자동 등록
@@ -35,7 +35,7 @@ Azure Portal에서 자동 등록 기능을 사용 하 여 Azure Virtual Machines
 > [!IMPORTANT]
 > SQL IaaS 에이전트 확장은 Azure Virtual Machines 내에서 SQL Server를 사용 하는 경우 고객에 게 선택적 혜택을 제공 하기 위한 express 용도의 데이터를 수집 합니다. Microsoft는 고객의 사전 동의가 없는 라이선스 감사에는이 데이터를 사용 하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 취급 방침](/sql/sql-server/sql-server-privacy#non-personal-data) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 
@@ -93,7 +93,7 @@ PowerShell을 사용 하 여 여러 Azure 구독에 대 한 자동 등록 기능
 1. 스크립트를 실행 하 여 구독 Id를 매개 변수로 전달 합니다.   
    `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
 
-   다음은 그 예입니다.  
+   예를 들면 다음과 같습니다. 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb

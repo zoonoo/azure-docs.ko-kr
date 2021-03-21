@@ -12,10 +12,10 @@ ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645470"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>내 앱 구성 Azure Active Directory 계획
@@ -139,7 +139,7 @@ SSO에 대 한 SaaS (software as a service) 응용 프로그램을 구성 하는
 
 확장에 대 한 자세한 내용은 [My Apps browser 확장 설치](../user-help/my-apps-portal-end-user-access.md)를 참조 하세요.
 
-이러한 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 표시되는 옵션은 다음과 같습니다.
+이러한 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 다음 옵션을 사용할 수 있습니다.
 
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](../user-help/my-apps-portal-end-user-access.md)
 

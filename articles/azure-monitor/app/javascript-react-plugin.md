@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199342"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 플러그 인 반응
@@ -77,7 +77,7 @@ export default withAITracking(reactPlugin, MyComponent);
 
 ## <a name="configuration"></a>구성
 
-| 속성    | 기본값 | 설명                                                                                                    |
+| 속성    | 기본값 | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | history | null    | 라우터 기록에 반응 합니다. 자세한 내용은 [라우터 패키지 응답 설명서](https://reactrouter.com/web/api/history)를 참조 하세요. 구성 요소 외부에서 기록 개체에 액세스 하는 방법을 알아보려면 [라우터 응답 FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components) 를 참조 하세요.    |
 

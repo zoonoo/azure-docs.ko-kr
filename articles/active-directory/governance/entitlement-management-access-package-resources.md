@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 65f69cf492ec3e28d7f4aa86971dc6c91b34bdf5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644183"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경
@@ -93,7 +93,7 @@ ms.locfileid: "101644183"
     | 하위 유형 | 설명 |
     | --- | --- |
     | 보안 | 리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다. |
-    | 배포판 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
+    | 배포 | 사용자 그룹에 알림을 보내는 데 사용 됩니다. |
     | Microsoft 365 | 팀에서 사용 하도록 설정 되지 않은 Microsoft 365 그룹입니다. 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
     | 팀 | 팀에서 사용 하도록 설정 된 Microsoft 365 그룹입니다. 회사 내부와 외부의 사용자 간 공동 작업에 사용 됩니다. |
 

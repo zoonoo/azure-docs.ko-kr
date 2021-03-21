@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94338172"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Azure Portal을 사용하여 Data Box 관리
@@ -63,7 +63,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티�
 
 완료되거나 취소된 주문을 삭제할 수 있습니다. 주문을 삭제하려면 다음 단계를 수행합니다.
 
-1. **모든 리소스** 로 이동 합니다. 주문을 검색합니다.
+1. **모든 리소스** 로 이동합니다. 주문을 검색합니다.
 
     ![주문 검색](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 

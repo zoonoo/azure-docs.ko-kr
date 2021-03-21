@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467814"
 ---
 - Data Box Edge 서비스에 액세스 하려면 조직에 기업계약 (EA) 또는 CSP (클라우드 솔루션 공급자) 구독이 있어야 합니다. 자세한 내용은 [Azure 구독에 등록](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)을 참조 하세요.

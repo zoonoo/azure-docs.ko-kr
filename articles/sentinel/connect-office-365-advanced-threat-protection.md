@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/06/2020
 ms.author: yelevin
 ms.openlocfilehash: d5140bcd85606213f00185d4ba1f50dbe70dba63
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655497"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-office-365"></a>Microsoft Defender for Office 365에서 경고 연결 
@@ -49,7 +49,7 @@ ms.locfileid: "94655497"
 
 이러한 경고는 office **보안 및 규정 준수 센터** 의 office 고객이 볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 커넥터를 사용 하도록 설정 하는 경우 Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

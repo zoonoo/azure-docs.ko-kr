@@ -8,10 +8,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: 6cadadfb3623d05dd3ae3851acd5eaca13860023
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929846"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Azure 앱 구성에 전용 끝점 사용
@@ -57,7 +57,7 @@ Azure는 DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 구성 
 > [!TIP]
 > 사용자 지정 또는 온-프레미스 DNS 서버를 사용 하는 경우 하위 도메인의 저장소 이름을 `privatelink` 개인 끝점 IP 주소로 확인 하도록 DNS 서버를 구성 해야 합니다. 이렇게 하려면 하위 `privatelink` 도메인을 VNet의 개인 DNS 영역에 위임 하거나 dns 서버에서 dns 영역을 구성 하 고 Dns A 레코드를 추가 합니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 개인 끝점을 사용 하도록 설정 하려면 [표준 계층](https://azure.microsoft.com/pricing/details/app-configuration/) 앱 구성 저장소가 필요 합니다.  개인 링크 가격 정보에 대 한 자세한 내용은 [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link)을 참조 하세요.
 
@@ -67,7 +67,7 @@ Azure는 DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 구성 
 
 - [Azure Portal에서 개인 링크 센터를 사용 하 여 개인 끝점을 만듭니다.](../private-link/create-private-endpoint-portal.md)
 - [Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-cli.md)
-- [Azure PowerShell를 사용 하 여 개인 끝점 만들기](../private-link/create-private-endpoint-powershell.md)
+- [Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-powershell.md)
 
 개인 끝점을 사용 하 여 DNS 서버를 구성 하는 방법을 알아봅니다.
 
