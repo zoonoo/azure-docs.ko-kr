@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: cherylmc
 ms.openlocfilehash: 751d11fcd4b5d4c33145ee7f2b7b49971b8927ae
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048264"
 ---
 # <a name="manage-secure-access-to-resources-in-spoke-vnets-for-user-vpn-clients"></a>사용자 VPN 클라이언트용 스포크 Vnet의 리소스에 대 한 보안 액세스 관리
@@ -23,7 +23,7 @@ ms.locfileid: "102048264"
 
 :::image type="content" source="./media/manage-secure-access-resources-spoke-p2s/diagram.png" alt-text="다이어그램: 보안 된 가상 허브" :::
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
 
@@ -129,7 +129,7 @@ Azure 방화벽의 동작을 지시 하는 규칙을 만듭니다. 허브를 보
 1. VNet 연결 및 분기 연결 개인 트래픽이 Azure 방화벽으로 보호 되는지 확인 합니다.
 1. **저장** 을 선택합니다.
 
-## <a name="validate"></a><a name="validate"></a>유효성 검사
+## <a name="validate"></a><a name="validate"></a>유효화
 
 보안 허브의 설정을 확인 합니다.
 
