@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500549"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Azure Portal의 프로 비전 로그 개요 (미리 보기)
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 * Adobe에서 성공적으로 제거 된 사용자는 무엇입니까?
 * Active Directory에서 만든 Workday의 사용자는 무엇 인가요? 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 사용자는 프로 비전 로그의 데이터에 액세스할 수 있습니다.
 
@@ -104,7 +104,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - **ID**
 - **날짜**
 - **상태**
-- **동작**
+- **작업**
 
 
 ![필터 값을 보여 주는 스크린샷](./media/concept-provisioning-logs/default-filter.png "Assert")
@@ -138,7 +138,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 - **만들기** 
 - **업데이트**
-- **Delete**
+- **삭제**
 - **사용 안 함**
 - **기타**
 

@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/12/2021
 ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103420037"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
@@ -1136,14 +1136,14 @@ bool(<value>)
 
 | 반환 값 | Type | 설명 |
 | ------------ | ---- | ----------- |
-| `true` 또는 `false` | Boolean | 지정 된 값의 부울 버전입니다. |
+| `true` 또는 `false` | 부울 | 지정 된 값의 부울 버전입니다. |
 ||||
 
 *출력*
 
 다음 예에서는에 대해 지원 되는 다양 한 유형의 입력을 보여 줍니다 `bool()` .
 
-| 입력 값 | 유형 | 반환 값 |
+| 입력 값 | Type | 반환 값 |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | 정수 | `true` |
 | `bool(0)` | 정수    | `false` |
@@ -1704,7 +1704,7 @@ div(<dividend>, <divisor>)
 | <*quotient-result*> | 정수 또는 부동 소수점 수 | 첫 번째 숫자를 두 번째 숫자로 나눈 결과입니다. 피제수 또는 제 수가 Float 형식인 경우 결과에는 Float 형식이 있습니다. <p><p>**참고**: float 결과를 정수로 변환 하려면 논리 앱의 [Azure에서 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요. |
 ||||
 
-*예제 1*
+*예 1*
 
 두 예제 모두 정수 형식으로이 값을 반환 합니다. `2`
 
@@ -1713,7 +1713,7 @@ div(10,5)
 div(11,5)
 ```
 
-*예제 2*
+*예 2*
 
 두 예제 모두 Float 형식으로이 값을 반환 합니다. `2.2`
 
@@ -2554,7 +2554,7 @@ json(xml('value'))
 | <*JSON-result*> | JSON 네이티브 형식, 개체 또는 배열 | 입력 문자열 또는 XML에서 JSON 네이티브 형식 값, 개체 또는 개체의 배열입니다. <p><p>-루트 요소에 단일 자식 요소가 있는 XML을 전달 하는 경우이 함수는 해당 자식 요소에 대해 단일 JSON 개체를 반환 합니다. <p> -루트 요소에 여러 자식 요소가 있는 XML을 전달 하는 경우이 함수는 해당 자식 요소에 대 한 JSON 개체를 포함 하는 배열을 반환 합니다. <p>-문자열이 null 인 경우 함수는 빈 개체를 반환 합니다. |
 ||||
 
-*예제 1*
+*예 1*
 
 이 예제에서는이 문자열을 JSON 값으로 변환 합니다.
 
@@ -4711,13 +4711,13 @@ workflow().<property>
 | <*property*> | 예 | String | 해당 값을 원하는 워크플로 속성의 이름 <p><p>기본적으로 워크플로 개체에는,,,, `name` `type` `id` `location` `run` 및 `tags` 속성이 있습니다. <p><p>- `run` 속성 값은, 및 속성을 포함 하는 JSON 개체 `name` 입니다 `type` `id` . <p><p>- `tags` 속성은 [Azure Logic Apps에서 논리 앱과 연결 된 태그](../azure-resource-manager/management/tag-resources.md) 를 포함 하는 JSON 개체 또는 전원 자동화의 흐름 및 해당 태그에 대 한 값입니다. Azure 리소스의 태그에 대 한 자세한 내용은 [azure의 논리적 조직에 대 한 태그 리소스, 리소스 그룹 및 구독](../azure-resource-manager/management/tag-resources.md)을 검토 하세요. <p><p>**참고**: 기본적으로 논리 앱에는 태그가 없지만 전원 자동화 흐름에는 `flowDisplayName` 및 `environmentName` 태그가 있습니다. |
 |||||
 
-*예제 1*
+*예 1*
 
 이 예제는 워크플로의 현재 실행에 대한 이름을 반환합니다.
 
 `workflow().run.name`
 
-*예제 2*
+*예 2*
 
 전원 자동화를 사용 하 `@workflow()` 는 경우 출력 속성을 사용 하 여 `tags` 흐름의 또는 속성에서 값을 가져오는 식을 만들 수 `flowDisplayName` 있습니다 `environmentName` .
 

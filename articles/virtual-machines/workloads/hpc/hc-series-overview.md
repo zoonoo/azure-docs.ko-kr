@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e2f6fb167ec8b1ea15f7f08cf77720e705b2e4a3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666072"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721376"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
 
@@ -51,13 +51,13 @@ Intel Xeon Platinum, Gold 및 은색 Cpu는 또한 CPU 소켓 내부 및 외부�
 |-----------------------------|-----------------------|
 | 최대 MPI 작업 크기            | 13200 코어 (단일 가상 머신 확장 집합에서 단일 가상 머신 확장 집합의 300 Vm (Singleementgroup = true))  |
 | MPI 지원                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| 추가 프레임 워크       | 통합 통신 X,을 (를) |
+| 추가 프레임 워크       | 로 x,을 (를) |
 | 지원 Azure Storage       | Standard 및 Premium 디스크 (최대 4 개의 디스크) |
-| SRIOV RDMA에 대 한 OS 지원   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Orchestrator 지원        | CycleCloud, Batch  |
+| SRIOV RDMA에 대 한 OS 지원   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 이상  |
+| Orchestrator 지원        | CycleCloud, Batch, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)  |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Intel XEON SP 아키텍처](https://software.intel.com/content/www/us/en/develop/articles/intel-xeon-processor-scalable-family-technical-overview.html)에 대해 자세히 알아보세요.
-- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

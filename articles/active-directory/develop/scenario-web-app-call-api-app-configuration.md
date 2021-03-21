@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2109705116c323fd3632b7230a81ccd9158c1a64
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: aa377547f7f4961e199ec8d62bf0f1435296f983
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582324"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104669307"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -28,15 +28,11 @@ ms.locfileid: "99582324"
 
 [사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md) 시나리오에서는 첫 번째 단계에 대해서만 다룹니다. 사용자를 로그인할 뿐만 아니라 이제 웹 API를 호출하도록 웹앱을 수정하는 방법을 알아봅니다.
 
-## <a name="libraries-that-support-web-app-scenarios"></a>웹앱 시나리오를 지원하는 라이브러리
+## <a name="microsoft-libraries-supporting-web-apps"></a>웹 앱을 지 원하는 Microsoft 라이브러리
 
-MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 대한 인증 코드 흐름을 지원합니다.
+웹 앱을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
 
-| MSAL 라이브러리 | Description |
-|--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼을 지원합니다. UWP(유니버설 Windows 플랫폼), Xamarin.iOS 및 Xamarin.Android는 퍼블릭 클라이언트 애플리케이션을 빌드하는 데 사용되는 플랫폼이므로 지원되지 않습니다. <br/><br/>웹 앱 및 web Api ASP.NET Core MSAL.NET는 더 높은 수준의 라이브러리 ( [Microsoft. Identity. web](https://aka.ms/ms-identity-web))에 캡슐화 되어 있습니다. |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> Python용 MSAL | Python 웹 애플리케이션 지원. |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> Java용 MSAL | Java 웹 애플리케이션 지원. |
+[!INCLUDE [active-directory-develop-libraries-webapp](../../../includes/active-directory-develop-libraries-webapp.md)]
 
 관심 있는 플랫폼에 대한 탭을 선택합니다.
 
@@ -99,7 +95,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 
 ## <a name="startupcs"></a>Startup.cs
 
-웹 앱은 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러 및 페이지 작업에서 사용할 수 있는 서비스를 제공 합니다. 그러나 다음 두 가지 옵션에 표시 된 것 처럼 간단히 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs* 에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
+웹 앱은 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러 및 페이지 작업에서 사용할 수 있는 서비스를 제공 합니다. 그러나 다음 두 가지 옵션에 표시 된 것 처럼 간단히 수행할 수 있습니다. 또한 `.AddInMemoryTokenCaches()` *시작 .cs* 에서 토큰 캐시 구현을 선택 해야 합니다.
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -129,7 +125,7 @@ MSAL(Microsoft 인증 라이브러리)의 다음 라이브러리는 웹앱에 �
 Microsoft Graph *를 호출* 하려는 경우에는 `GraphServiceClient` API 작업에서 (Microsoft Graph SDK에 의해 노출 됨)를 직접 사용할 수 있습니다. Microsoft Graph를 노출 하려면:
 
 1. [Microsoft.azure.webjobs.extensions.microsoftgraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 프로젝트에 추가 합니다.
-1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *Startup.cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
+1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *시작 .cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
 
    ```csharp
    using Microsoft.Identity.Web;
@@ -179,7 +175,7 @@ Microsoft Graph 이외의 웹 API를 호출 하려면 토큰을  `.AddDownstream
 
 웹 Api와 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft Identity cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 을 참조 하세요.
 
-다음 이미지는 *Startup.cs* 파일에 대 한 다양 한 *Microsoft id* 및 해당 영향을 보여 줍니다.
+다음 이미지는 *Microsoft* 의 다양 한 가능성과 *시작 .cs* 파일에 미치는 영향을 보여 줍니다.
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출 하 고 토큰 캐시 구현을 지정 하는 시작 점 C의 서비스 구성 옵션을 보여 주는 블록 다이어그램":::
 

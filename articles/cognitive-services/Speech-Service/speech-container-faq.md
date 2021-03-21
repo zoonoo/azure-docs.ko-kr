@@ -12,10 +12,10 @@ ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573747"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
@@ -98,7 +98,7 @@ Microsoft에 부과 되는 유지 관리 비용은 서비스 수준 및 서비�
 
 **답변:** 는 `speech_recognition_language=<YOUR_LANGUAGE>` 요청에서 참조 클라이언트를 사용 하는 경우 명시적으로 구성 해야 합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```python
 if not recognize_once(
@@ -292,8 +292,8 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 
 | 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | Yes      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 예       |
+| `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | 예      |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 아니요       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Cognitive Services 온-프레미스 대화형 v1 websocket 끝점  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | 인식 서비스 온-프레미스 대화 v1 websocket 끝점 |     |          |
 
@@ -355,7 +355,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 문서는 다른 포트를 표시 하 고 있지만 LUIS 컨테이너는 여전히 포트 5000에서 수신 대기 하 고 있습니까?
 
-**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예들 들어 `-p 5001:5000`입니다.
+**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예: `-p 5001:5000`
 
 
 <br>

@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 738c573196629242a8bee183e89b3e0f1adf393a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e37ea5362598d2e399014e50096a9178b5bff7a5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331100"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612774"
 ---
 <!--Feature availability in region-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "93331100"
 
 | 기능 |  US DoD 중부 | US DoD 동부 | US Gov 애리조나 | US Gov 텍사스 | US Gov 버지니아 | <!-- USNat --> | <!-- USSec--> |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |<!-- US DoD Central -->  | <!-- US DoD East -->  |<!-- US Gov Arizona-->  |<!--US Gov Texas--> |<!-- US Gov Virginia--> |<!--USNat--> |<!--USSec--> |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset US DoD 중부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US DoD 동부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US Gov 애리조나 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US Gov 텍사스 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset US Gov 버지니아 일반 공급](../media/azure-clouds-regions/ga.svg) |<!-- ![StandardEncoderPreset USNat general availability](../media/azure-clouds-regions/ga.svg)--> |<!-- ![StandardEncoderPreset USSec general availability](../media/azure-clouds-regions/ga.svg)--> |

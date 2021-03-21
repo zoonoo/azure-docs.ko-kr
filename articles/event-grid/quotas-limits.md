@@ -2,13 +2,13 @@
 title: 할당량 및 제한 - Azure Event Grid | Microsoft Docs
 description: 이 문서에서는 Azure Event Grid에 대한 제한 및 할당량을 제공합니다. 예를 들어 항목에 대한 구독 수, 구독당 사용자 지정 항목 수 등이 있습니다.
 ms.topic: reference
-ms.date: 07/07/2020
-ms.openlocfilehash: 78fb18f579eb1fa0c032b72c6d32bf56a7f0c8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: a885ad45b2dcbcd5108249dc011f0f175e9991b9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120435"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104702459"
 ---
 # <a name="azure-event-grid-quotas-and-limits"></a>Azure Event Grid 할당량 및 제한
 이 문서에는 Azure Event Grid의 할당량 및 제한이 나열되어 있습니다. 

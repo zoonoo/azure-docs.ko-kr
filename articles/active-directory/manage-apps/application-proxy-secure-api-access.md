@@ -12,10 +12,10 @@ ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 9341646f32f6a2e05397b072d3f63186964fbd88
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258985"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 온-프레미스 Api에 안전 하 게 액세스
@@ -136,7 +136,7 @@ AppProxyNativeAppSample 네이티브 앱을 등록 하려면:
 
 ## <a name="configure-the-native-app-code"></a>네이티브 앱 코드 구성
 
-마지막 단계는 네이티브 앱을 구성 하는 것입니다. NativeClient 샘플 앱에 있는 *Form1.cs* 파일의 다음 코드 조각은 msal 라이브러리가 API 호출을 요청 하기 위한 토큰을 획득 하 고 앱 헤더에 전달자로 연결 되도록 합니다.
+마지막 단계는 네이티브 앱을 구성 하는 것입니다. NativeClient 샘플 앱의 *파일에 있는 다음* 코드 조각은 msal 라이브러리가 API 호출을 요청 하기 위한 토큰을 획득 하 고 앱 헤더에 전달자로 연결 합니다.
 
    ```
    // Acquire Access Token from AAD for Proxy Application

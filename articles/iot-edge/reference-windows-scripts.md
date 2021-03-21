@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
 ms.openlocfilehash: a919238e4a62ae8954e101cb21a2fd4943191f6a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489527"
 ---
 # <a name="powershell-scripts-for-iot-edge-with-windows-containers"></a>Windows 컨테이너를 사용 하는 IoT Edge에 대 한 PowerShell 스크립트
@@ -50,7 +50,7 @@ Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
 
 Deploy-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운로드 하 고 배포 합니다. 배포 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Deploy-IoTEdge -full` 합니다.  
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 운영 체제가 지정 되지 않은 경우 Windows가 기본값입니다.<br><br>Windows 컨테이너의 경우 IoT Edge는 설치에 포함 된 Moby 컨테이너 엔진을 사용 합니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
@@ -62,7 +62,7 @@ Deploy-IoTEdge 명령은 IoT Edge 보안 디먼 및 해당 종속성을 다운�
 
 Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를 사용 하 여 IoT Edge를 구성 합니다. 이 명령에 의해 생성 된 대부분의 정보는 iotedge\config.yaml 파일에 저장 됩니다. 초기화 명령은 이러한 공통 매개 변수를 허용 합니다. 전체 목록은 명령을 사용 `Get-Help Initialize-IoTEdge -full` 합니다.
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **ManualConnectionString** | 없음 | **스위치 매개 변수** 입니다. **기본값** 입니다. 프로 비전 유형이 지정 되지 않은 경우 연결 문자열을 사용한 수동 프로비저닝이 기본값입니다.<br><br>장치를 수동으로 프로 비전 하는 장치 연결 문자열을 제공 하도록 선언 합니다. |
 | **ManualX509** | 없음 | **스위치 매개 변수** 입니다. 프로 비전 유형이 지정 되지 않은 경우 연결 문자열을 사용한 수동 프로비저닝이 기본값입니다.<br><br>사용자가 장치를 수동으로 프로 비전 하기 위해 id 인증서 및 개인 키를 제공 하도록 선언 합니다.
@@ -87,7 +87,7 @@ Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 
 ## <a name="update-iotedge"></a>Update-IoTEdge
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
 | **ContainerOs** | **Windows** 또는 **Linux** | 컨테이너 OS가 지정 되지 않은 경우 기본값은 Windows입니다. Windows 컨테이너의 경우 컨테이너 엔진이 설치에 포함됩니다. Linux 컨테이너의 경우 설치를 시작하기 전에 컨테이너 엔진을 설치해야 합니다. |
 | **프록시** | 프록시 URL | 디바이스가 프록시 서버를 통해 인터넷에 연결해야 하는 경우 이 매개 변수를 포함합니다. 자세한 내용은 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)을 참조하세요. |
@@ -97,9 +97,9 @@ Initialize-IoTEdge 명령은 장치 연결 문자열 및 작업 세부 정보를
 
 ## <a name="uninstall-iotedge"></a>Uninstall-IoTEdge
 
-| 매개 변수 | 허용되는 값 | 주석 |
+| 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |
-| **Force** | 없음 | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다.
+| **설정** | 없음 | 이전 제거 시도가 실패 한 경우이 플래그는 제거를 강제로 수행 합니다.
 | **RestartIfNeeded** | 없음 | 필요한 경우이 플래그를 사용 하 여 컴퓨터를 다시 시작 하 라는 메시지를 표시 하지 않고 제거할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

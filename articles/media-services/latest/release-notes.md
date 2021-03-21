@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: d7cfb4cf9b6b061f5fb53667e968cb0403f22bfc
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103562572"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596742"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -84,7 +84,7 @@ Azure Media Services REST API 버전 3 및 .NET 및 Java 용 클라이언트 Sdk
  
 - 연중 무휴 라이브 이벤트 지원
 - ARM REST Api, .NET core 용 클라이언트 Sdk, Node.js, Python, Java, Go 및 Ruby.
-- 고객 관리 키, 신뢰할 수 있는 저장소 통합, 개인 링크 지원 [등](https://review.docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- 고객 관리 키, 신뢰할 수 있는 저장소 통합, 개인 링크 지원 [등](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
 
 #### <a name="action-required"></a>필요한 작업
 
@@ -123,7 +123,6 @@ HEVC (265) 인코딩에 추가 된 새로운 지원 외에도 이제 2020-05-01 
 - **[신뢰할 수 있는 저장소](concept-trusted-storage.md)**: Media Services 계정과 연결 된 관리 id를 사용 하 여 Azure Storage에 액세스 하도록 Media Services를 구성할 수 있습니다. 관리 Id를 사용 하 여 저장소 계정에 액세스 하는 경우 고객은 Media Services 시나리오를 차단 하지 않고 저장소 계정에서 더 제한적인 네트워크 Acl을 구성할 수 있습니다.
 
 - **[관리 id](concept-managed-identities.md)**: 고객은 키 자격 증명 모음 (고객 관리 키의 경우) 및 저장소 계정 (신뢰할 수 있는 저장소의 경우)에 대 한 액세스를 제공 하기 위해 Media Services 계정에 대해 시스템 할당 관리 id를 설정할 수 있습니다.
-
 
 ### <a name="updated-typescript-nodejs-samples-using-isomorphic-sdk-for-javascript"></a>Isomorphic SDK for JavaScript를 사용 하 여 Typescript Node.js 샘플 업데이트
 
@@ -373,7 +372,7 @@ Media Services 성능 개선을 포함하는 업데이트가 추가되었습니�
 
 이제 Media Services v3가 Azure 국가별 클라우드에서 지원됩니다. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
 
-Media Services에 대한 Azure Event Grid 스키마에 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) 이벤트가 추가되었습니다.
+Media Services에 대한 Azure Event Grid 스키마에 [Microsoft.Media.JobOutputProgress](monitoring/media-services-event-schemas.md#monitoring-job-output-progress) 이벤트가 추가되었습니다.
 
 ## <a name="january-2019"></a>2019년 1월
 

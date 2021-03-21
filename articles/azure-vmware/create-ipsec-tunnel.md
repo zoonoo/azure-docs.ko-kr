@@ -4,10 +4,10 @@ description: 가상 WAN 허브를 만들어 Azure VMware 솔루션으로의 IPSe
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.openlocfilehash: 21df674862b65ef6573a8a3fcfd7538b1053f04e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491851"
 ---
 # <a name="create-an-ipsec-tunnel-into-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 IPSec 터널 만들기

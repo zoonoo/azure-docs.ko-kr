@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
 ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101720939"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션 (미리 보기)
@@ -74,7 +74,7 @@ ms.locfileid: "101720939"
 >[!NOTE]
 >VM을 시작/중지 하거나 다시 시작 하는 경우 [안정적인 (B 시리즈) 계산 계층](../../virtual-machines/sizes-b-series-burstable.md) 의 경우 크레딧이 손실 될 수 있습니다. 자세한 내용은 [급수 안정적인 (B 시리즈) FAQ](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)를 참조 하세요.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로 비전 하는 저장소는 유연한 서버에서 사용할 수 있는 저장소 용량의 양입니다. 저장소는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 MySQL server 로그에 사용 됩니다. 모든 계산 계층에서 지원 되는 최소 저장소는 5 GiB이 고 최대값은 16 TiB입니다. 저장소는 1 GiB 증분 단위로 크기 조정 되며 서버를 만든 후에 확장할 수 있습니다.
 
@@ -156,7 +156,7 @@ Compute 크기별 최대 IOPS에 대 한 자세한 내용은 아래에 나와 �
 
 저장소 크기 조정 및 백업 보존 기간 변경은 온라인 작업 이며 서버를 다시 시작 하지 않아도 됩니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/MySQL/)를 참조하세요. 원하는 구성에 대 한 비용을 확인 하기 위해 [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) 는 선택한 옵션에 따라 **계산 + 저장소** 탭의 월별 비용을 보여 줍니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택 하 고, **데이터베이스** 범주를 확장 하 고, **Azure Database for MySQL**, **유연한 서버** 를 배포 유형으로 선택 하 여 옵션을 사용자 지정 합니다.
 

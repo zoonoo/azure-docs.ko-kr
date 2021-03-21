@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/25/2021
 ms.author: Zhchia
 ms.openlocfilehash: 1d1b2417750b917f5b09bb53ee980887218a785c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102616131"
 ---
 # <a name="tutorial-configure-getabstract-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 getAbstract 구성
@@ -35,7 +35,7 @@ ms.locfileid: "102616131"
 > * GetAbstract에서 그룹 및 그룹 멤버 자격을 프로 비전 합니다.
 > * GetAbstract에 [Single Sign-On (SSO)](getabstract-tutorial.md) 를 사용 하도록 설정 합니다 (권장).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

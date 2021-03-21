@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 94e4590c66cdee74555611302f4f9228a755c76a
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472865"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721180"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>HBv3 시리즈 가상 머신 개요 
 
@@ -63,13 +63,16 @@ NVMeDirect를 통해 형식이 지정 되지 않은 블록 NVMe 장치로 두 �
 |--------------------------------|-----------------------------------------------------------|
 | 최대 MPI 작업 크기               | 36000 코어 (단일 가상 머신 확장 집합에서 단일 가상 머신 확장 집합의 300 Vm (Singleementgroup = true)) |
 | MPI 지원                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |
-| 추가 프레임 워크          | 통합 통신 X,을 (를)                  |
+| 추가 프레임 워크          | 로 x,을 (를)                  |
 | 지원 Azure Storage          | Standard 및 Premium 디스크 (최대 32 디스크)              |
-| SRIOV RDMA에 대 한 OS 지원      | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +           |
+| SRIOV RDMA에 대 한 OS 지원      | CentOS/RHEL 7.6 +, Ubuntu 18.04 +, SLES 12 SP4 +, WinServer 2016 이상           |
 | 성능에 권장 되는 OS | CentOS 8.1, Windows Server 2019 +
-| Orchestrator 지원           | Azure CycleCloud, Azure Batch, Azure Kubernetes Service                      | 
+| Orchestrator 지원           | Azure CycleCloud, Azure Batch, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)                      | 
+
+> [!NOTE] 
+> Windows Server 2012 r 2는 HBv3 및 64 (가상 또는 실제) 코어가 있는 다른 Vm에서 지원 되지 않습니다. 자세한 내용은 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Compute 기술 커뮤니티 블로그의](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)최신 발표 및 일부 HPC 예제에 대해 읽어 보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

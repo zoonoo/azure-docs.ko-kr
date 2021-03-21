@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight에서 기본 Hive metastore를 외부 metastore로 마이그레이션
-description: Azure HDInsight에서 기본 Hive metastore를 외부 metastore로 마이그레이션
+title: Azure HDInsight에서 기본 Hive 메타스토어를 외부 메타스토어로 마이그레이션
+description: Azure HDInsight에서 기본 Hive 메타스토어를 외부 메타스토어로 마이그레이션
 author: kevxmsft
 ms.author: kevx
 ms.reviewer: ''
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
 ms.openlocfilehash: 825204fe40125a65e8e6f27c6973417813700a9e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745349"
 ---
 # <a name="migrate-default-hive-metastore-db-to-external-metastore-db"></a>기본 Hive metastore DB를 외부 metastore DB로 마이그레이션
@@ -30,7 +30,7 @@ ms.locfileid: "101745349"
 
 원본 및 대상 Db는 동일한 HDInsight 버전과 동일한 저장소 계정을 사용 해야 합니다. HDInsight 버전을 3.6에서 4.0로 업그레이드 하는 경우이 문서의 단계를 먼저 수행 합니다. 그런 다음 [여기](./apache-hive-migrate-workloads.md)에서 공식 업그레이드 단계를 따르세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md)사용 하는 경우 Hive 테이블 위치는 Azure Data Lake Storage Gen1에 대 한 클러스터의 HDFS 구성에 따라 달라질 수 있습니다. 다음 스크립트 작업을 실행 하 여 이러한 위치를 다른 클러스터로 이식할 수 있게 합니다. [실행 중인 클러스터에 대 한 동작 스크립팅을](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)참조 하세요.
 
@@ -94,7 +94,7 @@ QUERY="SELECT DBS.NAME, TBLS.TBL_NAME, SDS.LOCATION FROM SDS, TBLS, DBS WHERE TB
 sudo python "$SCRIPT" --query "$QUERY" > $OUTPUT_FILE
 ```
 
-## <a name="further-reading"></a>추가 참고 자료
+## <a name="further-reading"></a>추가 정보
 
 * [HDInsight 3.6에서 4.0로 워크 로드 마이그레이션](./apache-hive-migrate-workloads.md)
 * [저장소 계정 간 Hive 워크 로드 마이그레이션](./hive-migration-across-storage-accounts.md)

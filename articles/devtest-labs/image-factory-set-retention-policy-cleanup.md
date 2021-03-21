@@ -4,16 +4,16 @@ description: 보존 정책을 구성 하 고, 팩터리를 정리 하 고, DevTe
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 85384e88f8d456c7bf67302a57618d7a9703a5ee
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102550028"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Azure DevTest Labs에서 보존 정책 설정
 이 문서에서는 보존 정책을 설정 하 고, 팩터리를 정리 하 고, 조직의 다른 모든 DevTest 랩에서 이전 이미지를 사용 중지 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 계속 진행 하기 전에 다음 문서를 따랐는지 확인 합니다.
 
 - [이미지 팩터리 만들기](image-factory-create.md)

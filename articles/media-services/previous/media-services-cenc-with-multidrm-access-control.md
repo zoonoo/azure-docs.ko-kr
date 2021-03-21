@@ -16,10 +16,10 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1a4f151b597b57b77fa6517c6ea0d586c1106986
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103017140"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
@@ -64,7 +64,7 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **클라이언트 플랫폼** | **네이티브 DRM 지원** | **브라우저/앱** | **스트리밍 형식** |
 | --- | --- | --- | --- |
 | **스마트 TV, 연산자 STB, OTT STB** |주로 PlayReady 및/또는 Widevine 및/또는 기타 |Linux, Opera, WebKit, 기타 |다양한 형식 |
-| **Windows 10 장치 (Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>범용 Windows 플랫폼 |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
+| **Windows 10 장치 (Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>유니버설 Windows 플랫폼 |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH, HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
 
@@ -248,7 +248,7 @@ Azure AD에 대한 내용:
 
 * 애플리케이션의 **구성** 탭에서 Azure AD의 애플리케이션에 권한을 추가합니다. 각 애플리케이션(로컬 및 배포된 버전)에 사용 권한이 필요합니다.
 
-    ![사용 권한](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+    ![권한](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 
 * 동적 CENC 보호 설정에 올바른 발급자를 사용합니다.
 

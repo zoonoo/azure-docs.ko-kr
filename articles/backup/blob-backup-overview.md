@@ -4,10 +4,10 @@ description: Azure Blob에 대 한 운영 백업 (미리 보기)에 대해 알�
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745099"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Azure Blob에 대 한 운영 백업 개요 (미리 보기)
@@ -59,7 +59,7 @@ Blob의 운영 백업은 **로컬 백업** 솔루션입니다. 따라서 백업 
 
 운영 백업은 저장소 계정의 모든 블록 blob을 복원 하 고 특정 컨테이너를 찾아보거나 복원 하거나 접두사 일치를 사용 하 여 blob의 하위 집합을 복원 하는 옵션을 제공 합니다. 모든 복원은 원본 저장소 계정에만 수행할 수 있습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 Blob에 대 한 운영 백업을 사용 하는 경우 관리 요금 또는 인스턴스 요금이 발생 하지 않습니다. 그러나 다음과 같은 요금이 발생 합니다.
 

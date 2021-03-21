@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f2ed99af288b72a4c53f07d3cd7ba8b46974c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693631"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600159"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역 만들기
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Synapse 작업 영역을 만드는 단계를 설명합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "101693631"
 
 > [!NOTE]
 > Azure Synapse 작업 영역을 만든 후에는 작업 영역을 다른 Azure Active Directory 테넌트로 이동할 수 없습니다. 구독 마이그레이션 또는 기타 작업을 통해 작업을 수행하는 경우 작업 영역 내의 아티팩트에 액세스할 수 없게 될 수 있습니다.
-> 또한 현재는 [CSP(클라우드 솔루션 공급자)](https://docs.microsoft.com/partner-center/csp-overview) 구독에서 Synapse Analytics 작업 영역을 만들 수 없습니다.
+> 또한 현재는 [CSP(클라우드 솔루션 공급자)](/partner-center/csp-overview) 구독에서 Synapse Analytics 작업 영역을 만들 수 없습니다.
 
 ## <a name="open-synapse-studio"></a>Synapse Studio 열기
 

@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008436"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
@@ -254,7 +254,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | 형식              | 필수 | 설명                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임** 으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.                                              |
@@ -274,7 +274,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | 형식   | 필수 | Description                                                                |
+| 매개 변수   | Type   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | 작업      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -298,7 +298,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | 형식    | 필수 | Description                                                                |
+| 매개 변수   | Type    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API의 버전입니다.                                                    |
 | 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |

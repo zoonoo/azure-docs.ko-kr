@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: tyao
 ms.openlocfilehash: 805c3ba0360fcffe2bfd4217c0ef625fe61e5d64
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030582"
 ---
 # <a name="connect-azure-front-door-premium-to-a-web-app-origin-with-private-link"></a>개인 링크를 사용 하 여 Azure Front 문을 웹 앱 원본에 연결
 
 이 문서에서는 azure 개인 링크 서비스를 사용 하 여 개인적으로 웹 앱에 연결 하도록 Azure Front 도어 Premium SKU를 구성 하는 방법을 안내 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 원본 웹 서버에 대 한 [개인 링크](../../private-link/create-private-link-service-portal.md) 서비스를 만듭니다.

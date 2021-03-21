@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 3487e735e48cb5067515762d6276429ca81e43fe
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008742"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
@@ -37,7 +37,7 @@ ms.locfileid: "103008742"
 
   
  
-| **미디어 프로세서 이름** | **사용 중지 날짜** | **추가 참고 사항** |
+| **미디어 프로세서 이름** | **사용 중지 날짜** | **추가적인 참고 사항** |
 | --- | --- | ---|
 | Azure Media Indexer 2 | 2020 년 1 월 1 일 | 이 미디어 프로세서는 [Media Services V3 AudioAnalyzerPreset 기본 모드로](../latest/analyzing-video-audio-files-concept.md)바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요. |
 | Azure Media Indexer | 2023 년 3 월 1 일 | 이 미디어 프로세서는 [Media Services V3 AudioAnalyzerPreset 기본 모드로](../latest/analyzing-video-audio-files-concept.md)바뀝니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요. |

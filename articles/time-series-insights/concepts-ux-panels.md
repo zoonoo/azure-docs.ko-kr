@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
 ms.openlocfilehash: 77c6e8790451ef830b37cc5914ce9de8e92174f5
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464091"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
 이 문서에서는 Azure Time Series Insights Gen2 [Demo 환경](https://insights.timeseries.azure.com/preview/demo)에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Time Series Insights 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
@@ -219,7 +219,7 @@ Azure Time Series Insights Gen2 용어 편집기 패널에는 다음 매개 변�
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
-| `HAS` | 문자열 | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
+| `HAS` | String | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
 
 지원 되는 쿼리 작업 및 데이터 형식에 대해 자세히 알아보려면 [TSX (Time Series Expression)](/rest/api/time-series-insights/reference-time-series-expression-syntax)를 참조 하세요.
 
