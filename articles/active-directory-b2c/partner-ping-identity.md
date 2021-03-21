@@ -12,10 +12,10 @@ ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 94e7ae93d05ae8ee35028882e14d8da74814d833
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101650229"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>자습서: 보안 하이브리드 액세스를 위해 Azure Active Directory B2C를 사용 하 여 Ping Id 구성
@@ -179,7 +179,7 @@ Id 매핑을 만들려면 다음 단계를 수행 합니다.
 
 4. **헤더 Id 매핑의** Id 매핑 유형 선택
 
-5. **특성 매핑** 테이블에서 필요한 매핑을 지정 합니다. 예를 들면 다음과 같습니다.
+5. **특성 매핑** 테이블에서 필요한 매핑을 지정 합니다. 예제:
 
    특성 이름 | 헤더 이름 |
    |-------|--------|

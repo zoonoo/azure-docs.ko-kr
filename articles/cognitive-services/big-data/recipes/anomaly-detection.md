@@ -12,10 +12,10 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
 ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94366284"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 피가
@@ -33,11 +33,11 @@ ms.locfileid: "94366284"
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [서버 리스 Apache Spark 풀](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 로 구성 된 [Azure Synapse 작업 영역](../../../synapse-analytics/quickstart-create-workspace.md)
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용 하 여 번역기에 대 한 리소스를 만듭니다. 다음도 가능합니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용 하 여 번역기에 대 한 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
 - [Azure Portal](https://portal.azure.com/)에서 기존 리소스를 봅니다.
 

@@ -8,10 +8,10 @@ ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101733247"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
@@ -94,15 +94,15 @@ IoT 용 Azure Defender는 연속 ICS 위협 모니터링 및 장치 검색을 �
 
 조직 보안 정책에서 다음에 대 한 액세스를 허용 하는지 확인 합니다.
 
-| 프로토콜 | 전송 | 입/출력 | 포트 | 사용됨 | 목적 | 원본 | 대상 |
+| 프로토콜 | 전송 | 입/출력 | 포트 | 사용됨 | 용도 | 원본 | 대상 |
 |--|--|--|--|--|--|--|--|
 | HTTPS | TCP | IN/OUT | 443 | 센서 및 온-프레미스 관리 콘솔 웹 콘솔 | 웹 콘솔에 대 한 액세스 | 클라이언트 | 센서 및 온-프레미스 관리 콘솔 |
 | SSH | TCP | IN/OUT | 22 | CLI | CLI에 대 한 액세스 | 클라이언트 | 센서 및 온-프레미스 관리 콘솔 |
 | SSL | TCP | IN/OUT | 443 | 센서 및 온-프레미스 관리 콘솔 | CyberX 플랫폼과 중앙 관리 플랫폼 간 연결 | 센서 | 온-프레미스 관리 콘솔 |
 | NTP | UDP | IN | 123 | 시간 동기화 | 온-프레미스 관리 콘솔을 사용 하 여 센서에 NTP | 센서 | 온-프레미스 관리 콘솔 |
 | NTP | UDP | IN/OUT | 123 | 시간 동기화 | 온-프레미스 관리 콘솔이 설치 되어 있지 않은 경우 외부 NTP 서버에 연결 된 센서 | 센서 | NTP |
-| SMTP | TCP | OUT | 25 | Email | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
-| syslog | UDP | OUT | 514 | LEEF | 온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 | 온-프레미스 관리 콘솔 및 센서 | Syslog 서버 |
+| SMTP | TCP | OUT | 25 | 메일 | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
+| Syslog | UDP | OUT | 514 | LEEF | 온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 | 온-프레미스 관리 콘솔 및 센서 | Syslog 서버 |
 | DNS |  | IN/OUT | 53 | DNS | DNS 서버 포트 | 온-프레미스 관리 콘솔 및 센서 | DNS 서버 |
 | LDAP | TCP | IN/OUT | 389 | Active Directory | CyberX 플랫폼과 관리 플랫폼 간의 연결 Active Directory | 온-프레미스 관리 콘솔 및 센서 | LDAP 서버 |
 | LDAPS | TCP | IN/OUT | 636 | Active Directory | CyberX 플랫폼과 관리 플랫폼 간의 연결 Active Directory | 온-프레미스 관리 콘솔 및 센서 | LDAPS 서버 |
@@ -563,7 +563,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 
 산업용 네트워크 다이어그램의 개요를 통해 IoT 장비에 대 한 Defender의 적절 한 위치를 정의할 수 있습니다.
 
-1.  산업 OT 환경의 글로벌 네트워크 다이어그램을 봅니다. 다음은 그 예입니다. 
+1.  산업 OT 환경의 글로벌 네트워크 다이어그램을 봅니다. 예를 들면 다음과 같습니다.
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="글로벌 네트워크에 대 한 산업 OT 환경의 다이어그램입니다.":::
 
@@ -605,7 +605,7 @@ Wireshark 응용 프로그램을 통해 이미 구성 된 범위 포트에 노�
 
     해당 정책 이란? __________________________________ 
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     - Siemens
 

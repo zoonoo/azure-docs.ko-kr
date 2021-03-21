@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98681958"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Azure AD Connect 구성 설정 가져오기 및 내보내기 
@@ -77,10 +77,10 @@ Azure AD Connect 마법사에서 구성이 변경 될 때마다 새 시간 스�
 
    ![Azure AD Connect 디렉터리를 보여 주는 스크린샷](media/how-to-connect-import-export-config/migrate1.png)
 
-1. 여기에 표시 된 대로 스크립트를 실행 하 고 하위 수준 서버 구성 디렉터리 전체를 저장 합니다. 이 디렉터리를 새 준비 서버에 복사 합니다. **ServerConfiguration-** _ 폴더 전체를 새 서버에 복사 해야 합니다.
+1. 여기에 표시 된 대로 스크립트를 실행 하 고 하위 수준 서버 구성 디렉터리 전체를 저장 합니다. 이 디렉터리를 새 준비 서버에 복사 합니다. **ServerConfiguration-*** 폴더 전체를 새 서버에 복사 해야 합니다.
 
    ![Windows PowerShell ](media/how-to-connect-import-export-config/migrate2.png)
-    ![ 의 스크립트를 보여 주는 스크린샷 ServerConfiguration-_ 폴더를 복사 하는 방법을 보여 주는 스크린샷](media/how-to-connect-import-export-config/migrate3.png)
+    ![ 의 스크립트를 보여 주는 스크린샷 ServerConfiguration-* 폴더를 복사 하는 방법을 보여 주는 스크린샷](media/how-to-connect-import-export-config/migrate3.png)
 
 1. 바탕 화면에서 아이콘을 두 번 클릭 하 여 **Azure AD Connect** 를 시작 합니다. Microsoft 소프트웨어 사용 조건에 동의 하 고 다음 페이지에서 **사용자 지정** 을 선택 합니다.
 1. **동기화 설정 가져오기** 확인란을 선택 합니다. **찾아보기** 를 선택 하 여 복사 된 ServerConfiguration-* 폴더를 검색 합니다. 에서 MigratedPolicy.js를 선택 하 여 마이그레이션된 설정을 가져옵니다.

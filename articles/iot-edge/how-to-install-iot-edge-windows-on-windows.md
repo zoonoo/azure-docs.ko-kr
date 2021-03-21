@@ -11,10 +11,10 @@ ms.date: 12/18/2020
 ms.author: kgremban
 monikerRange: iotedge-2018-06
 ms.openlocfilehash: bb87d09b67658f9a3d7c68f635bfcd9a29de675c
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201642"
 ---
 # <a name="install-and-manage-azure-iot-edge-with-windows-containers"></a>Windows 컨테이너를 사용 하 여 Azure IoT Edge 설치 및 관리
@@ -32,7 +32,7 @@ IoT Edge 장치를 설정 하는 두 단계는 다음과 같습니다. 첫 번�
 >
 >Windows [에서 Linux 용 Azure IoT Edge](iot-edge-for-linux-on-windows.md)windows 장치에서 IoT Edge를 실행 하는 데 새 방법을 사용 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Windows 장치
 
@@ -144,10 +144,10 @@ Azure IoT Edge는 [Moby](https://github.com/moby/moby)와 같은 OCI 호환 컨�
 
 3. 메시지가 표시되면 다음 정보를 제공합니다.
 
-   * **IotHubHostName**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
+   * **IotHubHostName**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
    * **DeviceId**: 장치를 등록할 때 제공한 ID입니다.
-   * **X509IdentityCertificate**: 장치에서 id 인증서의 절대 경로입니다. 예들 들어 `C:\path\identity_certificate.pem`입니다.
-   * **X509IdentityPrivateKey**: 제공 된 id 인증서의 개인 키 파일에 대 한 절대 경로입니다. 예들 들어 `C:\path\identity_key.pem`입니다.
+   * **X509IdentityCertificate**: 장치에서 id 인증서의 절대 경로입니다. 예: `C:\path\identity_certificate.pem`
+   * **X509IdentityPrivateKey**: 제공 된 id 인증서의 개인 키 파일에 대 한 절대 경로입니다. 예: `C:\path\identity_key.pem`
 
 수동으로 장치를 프로 비전 할 때 추가 매개 변수를 사용 하 여 다음을 포함 하 여 프로세스를 수정할 수 있습니다.
 
@@ -187,7 +187,7 @@ Azure IoT Edge는 [Moby](https://github.com/moby/moby)와 같은 OCI 호환 컨�
 
 5. 오프 라인 구성 요소를 사용 하 여 설치 하려면 [도트 원본](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다.
 
-6. 매개 변수를 사용 하 여 [배포-IoTEdge](reference-windows-scripts.md#deploy-iotedge) 명령을 실행 합니다 `-OfflineInstallationPath` . 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
+6. 매개 변수를 사용 하 여 [배포-IoTEdge](reference-windows-scripts.md#deploy-iotedge) 명령을 실행 합니다 `-OfflineInstallationPath` . 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예제:
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1
@@ -219,7 +219,7 @@ Update-IoTEdge 명령을 실행 하면 두 개의 런타임 컨테이너 이미�
 
 다운로드 한 .cab 파일의 아키텍처 접미사가 있는 경우 파일 이름을 **Microsoft-Azure-IoTEdge.cab** 으로 바꿉니다.
 
-오프 라인 구성 요소로 업데이트 하려면 [도트 원본](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 명령의 일부로 사용 `Update-IoTEdge` 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예를 들면 다음과 같습니다.
+오프 라인 구성 요소로 업데이트 하려면 [도트 원본](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) 에 PowerShell 스크립트의 로컬 복사본을 사용 합니다. 그런 다음 `-OfflineInstallationPath` 매개 변수를 명령의 일부로 사용 `Update-IoTEdge` 하 고 파일 디렉터리에 대 한 절대 경로를 제공 합니다. 예제:
 
 ```powershell
 . <path>\IoTEdgeSecurityDaemon.ps1

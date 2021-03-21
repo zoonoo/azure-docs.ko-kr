@@ -7,10 +7,10 @@ ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b3348e5a999b507aa0d286528970beb0e03f26cd
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594375"
 ---
 # <a name="cut-planes"></a>평면 잘라내기
@@ -71,7 +71,7 @@ void CreateCutPlane(ApiHandle<RenderingSession> session, ApiHandle<Entity> owner
 * 잘라내기 평면 구성 요소의 비트 마스크는 속성을 통해 설정 됩니다. `ObjectFilterMask`
 * Geometry 하위 계층의 비트 마스크는 [HierarchicalStateOverrideComponent](override-hierarchical-state.md#features) 을 통해 설정 됩니다.
 
-예:
+예제:
 
 | 평면 필터 마스크 잘라내기 | 기 하 도형 필터 마스크  | 논리의 결과 `AND` | 자르기 평면은 기 하 도형에 영향을 줍니다.  |
 |--------------------|-------------------|-------------------|:----------------------------:|

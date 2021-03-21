@@ -12,10 +12,10 @@ ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: b817cfc347ee79ff7c9cbb4124e3f2b7e4d2b7ee
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101644258"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 키가 없는 구성
@@ -85,11 +85,11 @@ Id 공급자를 구성 하려면 다음 단계를 수행 합니다.
 
    |속성 | 값 |
    |:-----| :-----------|
-   | 속성   | Keyless |
+   | Name   | Keyless |
    | 메타데이터 URL | 호스트 된 키가 없는 인증 앱의 URI 뒤에 ' '과 같은 특정 경로를 삽입 합니다. https://keyless.auth/.well-known/openid-configuration |
    | 클라이언트 암호 | 키가 없는 인증 인스턴스와 연결 된 비밀입니다. 이전에 구성 된 것과 동일 하지 않습니다. 선택한 복합 문자열을 삽입 합니다. 이 비밀은 나중에 키가 없는 컨테이너 구성에서 사용 됩니다.|
    | 클라이언트 ID | 클라이언트의 ID입니다. 이 ID는 나중에 키가 없는 컨테이너 구성에서 사용 됩니다.|
-   | Scope | openid |
+   | 범위 | openid |
    | 응답 형식 | id_token |
    | 응답 모드 | form_post|
 

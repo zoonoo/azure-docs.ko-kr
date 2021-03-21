@@ -1,15 +1,15 @@
 ---
-title: VM insights 란?
+title: VM 인사이트란?
 description: Azure Vm의 상태와 성능을 모니터링 하 고 응용 프로그램 구성 요소와 해당 종속성을 자동으로 검색 하 고 매핑하는 VM 정보에 대 한 개요입니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
 ms.openlocfilehash: 18e1fdcdee347a057c452f6170f36ec7f1f43244
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046417"
 ---
 # <a name="overview-of-vm-insights"></a>VM 정보 개요
@@ -30,7 +30,7 @@ VM insights는 데이터를 Azure Monitor 로그에 저장 하며,이를 통해 
 ![Azure Portal의 가상 머신 인사이트 큐브 뷰](media/vminsights-overview/vminsights-azmon-directvm.png)
 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 VM insights에 대 한 직접적인 비용은 없지만 Log Analytics 작업 영역에서 해당 활동에 대 한 요금이 청구 됩니다. [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에 게시 된 가격 책정에 따라 VM 정보는 다음에 대해 청구 됩니다.
 
 - 데이터는 에이전트에서 수집 작업 영역에 저장 됩니다.

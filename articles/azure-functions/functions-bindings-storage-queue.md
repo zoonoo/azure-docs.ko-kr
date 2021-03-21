@@ -7,17 +7,17 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: a1b9d03da29b7c89055303fa97fc38c2ef734b23
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381480"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Queue storage 트리거 및 바인딩
 
 새 Azure 큐 저장소 메시지가 만들어지고 함수 내에서 큐 메시지를 작성할 수 Azure Functions.
 
-| 작업 | 형식 |
+| 작업 | Type |
 |---------|---------|
 | 큐 저장소 데이터 변경으로 함수 실행 | [트리거](./functions-bindings-storage-queue-trigger.md) |
 | 큐 저장소 메시지 쓰기 |[출력 바인딩](./functions-bindings-storage-queue-output.md) |

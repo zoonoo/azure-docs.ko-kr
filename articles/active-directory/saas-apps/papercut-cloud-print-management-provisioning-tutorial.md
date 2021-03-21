@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
 ms.openlocfilehash: c0738e7033f0aa39ca5f12a44c06d086175eb8fe
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98731469"
 ---
 # <a name="tutorial-configure-papercut-cloud-print-management-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 용지 자르기 클라우드 인쇄 관리 구성
@@ -33,7 +33,7 @@ ms.locfileid: "98731469"
 > * 용지에서 사용자 제거 더 이상 액세스할 필요가 없는 경우 클라우드 인쇄 관리 잘라내기
 > * Azure AD와 용지 잘라내기 클라우드 인쇄 관리 간에 사용자 특성을 동기화 상태로 유지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "98731469"
 
 
 
-## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 용지 추가 클라우드 인쇄 관리를 추가 합니다.
+## <a name="step-3-add-papercut-cloud-print-management-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 용지 추가 클라우드 인쇄 관리를 추가 합니다.
 
 Azure AD 응용 프로그램 갤러리에서 용지 잘림 클라우드 인쇄 관리를 추가 하 여 용지에 대 한 프로 비전 관리 클라우드 인쇄 관리를 시작 합니다. 이전에 설치 된 용지에 SSO에 대 한 클라우드 인쇄 관리를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 

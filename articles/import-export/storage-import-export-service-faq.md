@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: be6c48efc77880addf814b1609d4a371c7c5c73b
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706486"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답
@@ -72,7 +72,7 @@ Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전�
 하나의 가져오기 또는 내보내기 작업은 단일 작업에서 10개의 드라이브만을 참조할 수 있습니다. 10개가 넘는 드라이브를 운송하려면 여러 개의 작업을 만들어야 합니다. 동일한 작업과 연결된 드라이브는 동일한 패키지에 함께 발송되어야 합니다.
 데이터 용량이 여러 디스크 가져오기 작업의 범위에 포함 되는 경우에 대 한 자세한 내용 및 지침은 Microsoft 지원에 문의 하세요.
 
-### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>업로드된 Blob은 상태를 “임대 만료”로 표시합니다. 어떻게 해야 합니까?
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>업로드된 Blob은 상태를 “임대 만료”로 표시합니다.   어떻게 해야 합니까?
 
 "임대 만료" 필드는 무시 해도 됩니다. Import/Export 기능은 업로드 중에 Blob을 임대하여 다른 프로세스가 동시에 Blob을 업데이트할 수 없도록 합니다. 임대 만료는 Import/Export 기능이 더 이상 해당 Blob에 업로드하지 않으므로 사용자가 Blob을 사용할 수 있음을 의미합니다.
 
@@ -112,7 +112,7 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 - 보안을 위해 parcel에 Microsoft 데이터 센터 인바운드 ID 번호를 작성 해야 하는 오스트레일리아, 독일, 영국 남부 등의 몇 가지 사이트가 있습니다. 데이터 센터에 드라이브 또는 디스크를 배송 하기 전에 Azure DataBox 작업 ()에 문의 adbops@microsoft.com 하 여이 번호를 가져옵니다. 이 번호가 없으면 패키지가 거부 됩니다.
 - 인도 데이터 센터에는 정부 ID 카드 또는 증명 번호와 같은 드라이버의 개인 세부 정보가 필요 합니다. (예를 들어, PAN, AADHAR, DL), 이름, 연락처 및 자동차 플레이트 번호를 입력 하 여 게이트 진입 패스를 가져옵니다. 배달 지연 시간을 방지 하려면 회사에 이러한 요구 사항을 알려 주십시오.
 
-### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다. 어떻게 해야 합니까?
+### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 스토리지 계정 위치와는 다른 위치입니다.   어떻게 해야 합니까?
 
 일부 스토리지 계정 위치는 대체 배송 위치로 매핑됩니다. 이전에 사용 가능했던 배송 위치 또한 일시적으로 대체 위치로 매핑될 수 있습니다. 드라이브를 발송하기 전에 작업을 만들 때 제공한 배송지 주소를 항상 확인합니다.
 

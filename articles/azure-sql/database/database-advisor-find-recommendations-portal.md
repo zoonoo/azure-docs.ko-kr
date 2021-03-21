@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 748ac448ad8bf5c06e5be8b7a4a8b00a9b7af84b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500889"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
@@ -94,7 +94,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 > SQL Database [자동 조정](automatic-tuning-overview.md)을 사용하며 목록에서 권장 사항을 수동으로 삭제한 경우 해당 권장 사항은 자동으로 적용되지 않습니다. 권장 사항 삭제는 특정 권장 사항이 적용되지 않도록 해야 하는 경우 사용자가 자동 조정을 사용할 수 있는 편리한 방법입니다.
 > 삭제 취소 옵션을 선택하여 삭제된 권장 사항을 권장 사항 목록에 다시 추가하면 이 동작을 되돌릴 수 있습니다.
 
-### <a name="enable-automatic-tuning"></a>자동 조정 사용
+### <a name="enable-automatic-tuning"></a>자동 튜닝 사용
 
 권장 사항을 자동으로 구현 하도록 데이터베이스를 설정할 수 있습니다. 권장 구성은 사용할 수 있을 때 자동으로 적용됩니다. 서비스에서 관리되는 권장 사항처럼 권장 사항이 성능에 좋지 않은 영향을 주는 경우 되돌려집니다.
 
@@ -132,7 +132,7 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 | Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
-| 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
+| Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
 | 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |

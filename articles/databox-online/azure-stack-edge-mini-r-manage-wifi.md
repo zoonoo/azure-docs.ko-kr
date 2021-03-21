@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.author: alkohli
 ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467826"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>로컬 웹 UI를 사용 하 여 Azure Stack Edge 미니 R의 무선 연결 관리
@@ -25,7 +25,7 @@ Azure Stack Edge 미니 R 장치는 네트워크에 유선으로 또는 무선 �
 
 장치에 포트 1 ~ 포트 4와 다섯 번째 Wi-Fi 포트의 5 포트가 있습니다. 다음은 무선 네트워크에 연결 된 경우 미니 R 장치의 백 평면에 대 한 다이어그램입니다.
 
-![Wi-Fi에 대 한 케이블 연결](./media/azure-stack-edge-mini-r-deploy-install/wireless-cabled.png)
+![Wi-Fi용 케이블 연결](./media/azure-stack-edge-mini-r-deploy-install/wireless-cabled.png)
 
 
 ## <a name="add-connect-to-wi-fi-profile"></a>Wi-Fi 프로필 추가, 연결
@@ -34,48 +34,48 @@ Azure Stack Edge 미니 R 장치는 네트워크에 유선으로 또는 무선 �
 
 1. 디바이스의 로컬 웹 UI에서 **시작** 페이지로 이동합니다. **네트워크** 타일에서 **구성** 을 선택합니다.  
     
-    실제 장치에는 5 개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. 포트 3 및 포트 4는 모두 10gbps 네트워크 인터페이스입니다. 다섯 번째 포트는 Wi-Fi 포트입니다. 
+    물리적 디바이스에 5개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. PORT 3 및 PORT 4는 모두 10-Gbps 네트워크 인터페이스입니다. 다섯 번째 포트는 Wi-Fi 포트입니다. 
 
     [![로컬 웹 UI "네트워크 설정" 페이지 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png#lightbox)  
     
-    Wi-Fi 포트를 선택 하 고 포트 설정을 구성 합니다. 
+    Wi-Fi 포트를 선택하고 포트 설정을 구성합니다. 
     
     > [!IMPORTANT]
-    > Wi-Fi 포트의 고정 IP 주소를 구성 하는 것이 좋습니다.  
+    > Wi-Fi 포트의 고정 IP 주소를 구성하는 것이 좋습니다.  
 
     ![로컬 웹 UI "네트워크 설정" 페이지 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-2.png)
 
-    **네트워크** 페이지는 Wi-Fi 포트 설정을 적용 한 후에 업데이트 됩니다.
+    Wi-Fi 포트 설정을 적용한 후 **네트워크** 페이지를 업데이트합니다.
 
     ![로컬 웹 UI "네트워크 설정" 페이지 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-4.png)
 
    
-2. **Wi-Fi 프로필 추가** 를 선택 하 고 Wi-Fi 프로필을 업로드 합니다. 
+2. **Wi-Fi 프로필 추가** 를 선택하고 Wi-Fi 프로필을 업로드합니다. 
 
-    ![로컬 웹 UI "포트 WiFi 네트워크 설정" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
+    ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
-    무선 네트워크 프로필은 무선 네트워크에 연결할 수 있도록 SSID (네트워크 이름), 암호 키 및 보안 정보를 포함 합니다. 네트워크 관리자에 게 해당 환경에 대 한 Wi-Fi 프로필을 가져올 수 있습니다.
+    무선 네트워크 프로필은 무선 네트워크에 연결할 수 있도록 SSID(네트워크 이름), 암호 키 및 보안 정보를 포함합니다. 네트워크 관리자로부터 사용자 환경에 대한 Wi-Fi 프로필을 가져올 수 있습니다.
 
-    ![로컬 웹 UI "포트 WiFi 네트워크 설정" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
+    ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 
-    프로필을 추가 하면 Wi-Fi 프로필 목록이 새 프로필을 반영 하도록 업데이트 됩니다. 프로필은 **연결 상태** 를 **Disconnected** 로 표시 해야 합니다. 
+    프로필을 추가하면 새 프로필을 반영하도록 Wi-Fi 프로필 목록이 업데이트됩니다. 프로필에 **연결 상태** 가 **연결 끊김** 으로 표시됩니다. 
 
-    ![로컬 웹 UI "포트 WiFi 네트워크 설정" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
+    ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
     
-3. 무선 네트워크 프로필이 성공적으로 로드 되 면이 프로필에 연결 합니다. **Wi-Fi 프로필에 연결을** 선택 합니다. 
+3. 무선 네트워크 프로필이 성공적으로 로드되면 이 프로필에 연결합니다. **Wi-Fi 프로필에 연결** 을 선택합니다. 
 
     ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
-4. 이전 단계에서 추가한 Wi-Fi 프로필을 선택 하 고 **적용** 을 선택 합니다. 
+4. 이전 단계에서 추가한 Wi-Fi 프로필을 선택하고 **적용** 을 선택합니다. 
 
     ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
-    **연결 상태** 는 연결 **됨** 으로 업데이트 되어야 합니다. 신호의 품질을 나타내기 위해 신호 강도가 업데이트 됩니다. 
+    **연결 상태** 가 **연결됨** 으로 업데이트되어야 합니다. 신호의 품질을 나타내기 위해 신호 강도가 업데이트됩니다. 
 
     ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 6](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-6.png)
 
     > [!NOTE]
-    > 많은 양의 데이터를 전송 하려면 무선 네트워크 대신 유선 연결을 사용 하는 것이 좋습니다. 
+    > 많은 양의 데이터를 전송하려면 무선 네트워크 대신 유선 연결을 사용하는 것이 좋습니다. 
 
 
 ## <a name="download-wi-fi-profile"></a>Wi-Fi 프로필 다운로드

@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: fb4c4c5a0cf6610af17aabc562c42d2e0eb4e6a4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94409096"
 ---
 # <a name="security-control-incident-response"></a>보안 제어: 인시던트 응답
@@ -22,7 +22,7 @@ ms.locfileid: "94409096"
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 10.1 | 19.1, 19.2, 19.3 | Customer |
+| 10.1 | 19.1, 19.2, 19.3 | 고객 |
 
 조직에 대 한 인시던트 대응 가이드를 작성 합니다. 탐지에서 인시던트 사후 검토까지의 인시던트 처리/관리 단계뿐만 아니라 담당자의 모든 역할도 정의하는 인시던트 대응 계획이 작성되어 있는지 확인합니다.  
 
@@ -36,7 +36,7 @@ ms.locfileid: "94409096"
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 10.2 | 19.8 | Customer |
+| 10.2 | 19.8 | 고객 |
 
 Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있도록 합니다. 심각도는 Security Center에서 경고를 실행하는 데 사용된 결과 또는 분석의 신뢰도 및 경고가 발생된 활동의 배후에 악의적인 의도가 있었음에 대한 신뢰 수준을 기준으로 합니다. 
 
@@ -50,7 +50,7 @@ Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 10.3 | 19 | Customer |
+| 10.3 | 19 | 고객 |
 
 정기적으로 시스템의 인시던트 응답 기능을 테스트 하 여 Azure 리소스를 보호 하는 연습을 수행 합니다. 약점과 결함을 식별하고 필요에 따라 계획을 수정합니다.
 
@@ -60,7 +60,7 @@ Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 10.4 | 19.5 | Customer |
+| 10.4 | 19.5 | 고객 |
 
 Microsoft 보안 대응 센터 (MSRC)에서 불법적인 또는 권한이 없는 당사자가 데이터에 액세스 한 것을 발견 한 경우 Microsoft에서 사용자에 게 연락 하는 보안 인시던트 연락처 정보를 사용 합니다. 문제가 해결되었는지 확인하기 위해 사후에 인시던트를 검토합니다.
 
@@ -70,7 +70,7 @@ Microsoft 보안 대응 센터 (MSRC)에서 불법적인 또는 권한이 없는
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 10.5 | 19.6 | Customer |
+| 10.5 | 19.6 | 고객 |
 
 연속 내보내기 기능을 사용 하 여 Azure 리소스에 대 한 위험을 식별 하는 데 도움이 되는 Azure Security Center 경고 및 권장 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
 
@@ -82,7 +82,7 @@ Microsoft 보안 대응 센터 (MSRC)에서 불법적인 또는 권한이 없는
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 10.6 | 19 | Customer |
+| 10.6 | 19 | 고객 |
 
 Azure Security Center의 워크플로 자동화 기능을 사용 하 여 Azure 리소스를 보호 하기 위해 보안 경고 및 권장 사항에 대 한 "Logic Apps"를 통해 응답을 자동으로 트리거합니다.
 

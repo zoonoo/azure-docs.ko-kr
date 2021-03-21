@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946800"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
@@ -45,10 +45,10 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 1. 다음 값을 입력하거나 선택합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
-   |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. 예들 들어 `myHDICluster.azurehdinsight.net`입니다. 참고: `HDInsightClusterName-int.azurehdinsight.net` 는 클라이언트 VM이 동일한 가상 네트워크에 피어 링 지만 지원 됩니다. |
+   |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. 예: `myHDICluster.azurehdinsight.net` 참고: `HDInsightClusterName-int.azurehdinsight.net` 는 클라이언트 VM이 동일한 가상 네트워크에 피어 링 지만 지원 됩니다. |
    |  포트 |**443** 을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |**기본값** 을 사용 합니다. |
    |  메커니즘 |**Windows Azure HDInsight Service** 를 선택합니다. |
@@ -57,7 +57,7 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 1. 선택 사항: **고급 옵션** ...을 선택 합니다.  
 
-   | 매개 변수 | Description |
+   | 매개 변수 | 설명 |
    | --- | --- |
    |  Use Native Query |선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수한 HiveQL 문을 전송 하 고 있는지 100% 인 경우에만이를 사용 해야 합니다. SQL Server 또는 Azure SQL Database에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다. |
    |  Rows fetched per block |많은 수의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다. |

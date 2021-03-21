@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
 ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780957"
 ---
 # <a name="replication-to-azure-sql-database"></a>Azure SQL Database로 복제
@@ -127,7 +127,7 @@ Azure SQL Database의 모든 기능을 사용하려면 최신 버전의 [SQL Ser
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
 - [게시 만들기](/sql/relational-databases/replication/publish/create-a-publication)
-- 서버 이름 (예 **: n'azuresqldbdns.database.windows.net '** ) 및 대상 데이터베이스로 Azure SQL Database 이름 (예: **AdventureWorks** )을 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription/) .  
+- 서버 이름 (예 **: n'azuresqldbdns.database.windows.net '**) 및 대상 데이터베이스로 Azure SQL Database 이름 (예: **AdventureWorks**)을 사용 하 여 [밀어넣기 구독을 만듭니다](/sql/relational-databases/replication/create-a-push-subscription/) .  
 
 ## <a name="see-also"></a>참고 항목  
 

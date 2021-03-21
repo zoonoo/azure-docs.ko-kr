@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8aa45294de4ef644c20ef66b7163706dca9759d3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996528"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
@@ -162,7 +162,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
      ![DirSync에서 업그레이드 하기 위한 고급 구성 옵션을 보여 주는 스크린샷](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. **다음** 을 클릭합니다.
 8. **구성 준비 완료** 페이지에서 **구성이 완료되자마자 동기화 프로세스를 시작합니다.** 를 선택한 상태로 둡니다. 서버가 이제 [준비 모드](how-to-connect-sync-staging-server.md) 이므로 변경 내용을 Azure AD로 내보내지 않습니다.
-9. **설치** 를 클릭합니다.
+9. **Install** 을 클릭합니다.
 10. 설치가 완료된 후 로그아웃하고 Synchronization Service Manager, 동기화 규칙 편집기 또는 다른 구성의 변경을 시도하기 전에 Windows에 다시 로그인합니다.
 
 > [!NOTE]

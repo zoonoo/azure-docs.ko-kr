@@ -11,10 +11,10 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/20/2020
 ms.openlocfilehash: a079504872eaf3840416a99e784c4d33a6828b0c
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992032"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안 및 거 버 넌 스
@@ -61,7 +61,7 @@ Azure Virtual Machines 및 Azure Machine Learning 계산 클러스터에서 사�
 > * 필요에 따라 Azure Machine Learning 계산 인스턴스 및 계산 클러스터와 같은 계산 리소스에 대 한 __SSH__ 액세스를 사용 하도록 설정할 수 있습니다. SSH 액세스는 Azure AD가 아닌 공개/개인 키 쌍을 기반으로 합니다. SSH 액세스는 Azure RBAC의 적용을 받지 않습니다.
 > * __키__ 또는 __토큰__ 기반 인증을 사용 하 여 웹 서비스 (유추 끝점)로 배포 된 모델에 인증할 수 있습니다. 키는 정적 문자열이 고, 토큰은 Azure AD 보안 개체를 사용 하 여 검색 됩니다. 자세한 내용은 [웹 서비스로 배포 된 모델에 대 한 인증 구성](how-to-authenticate-web-service.md)을 참조 하세요.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 * [Azure Machine Learning 작업 영역에 대 한 인증](how-to-setup-authentication.md)
 * [Azure Machine Learning에 대 한 액세스 관리](how-to-assign-roles.md)
 * [저장소 서비스에 연결](how-to-access-data.md)
@@ -83,7 +83,7 @@ Azure Machine Learning 작업 영역에서는 [Azure 개인 링크](../private-l
 * [보안 작업 영역](how-to-secure-workspace-vnet.md)
 * [보안 교육 환경](how-to-secure-training-vnet.md)
 * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
-* [보안 가상 네트워크에서 studio 사용](how-to-enable-studio-virtual-network.md)
+* [보안 가상 네트워크에서 스튜디오 사용](how-to-enable-studio-virtual-network.md)
 * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 * [방화벽 구성](how-to-access-azureml-behind-firewall.md)
 
@@ -97,7 +97,7 @@ Azure Machine Learning는 Azure 플랫폼에서 다양 한 계산 리소스 및 
 
 ## <a name="vulnerability-scanning"></a>취약성 검색
 
-[Azure Security Center](../security-center/security-center-introduction.md) 는 하이브리드 클라우드 워크 로드에서 통합 보안 관리 및 고급 위협 방지 기능을 제공 합니다. Azure machine learning의 경우 [Azure Container Registry](../container-registry/container-registry-intro.md) 리소스 및 Azure Kubernetes Service 리소스에 대 한 검사를 사용 하도록 설정 해야 합니다. 자세한 내용은 [Azure Container Registry 이미지 검색 Security Center](../security-center/defender-for-container-registries-introduction.md) 및 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조 하세요.
+[Azure Security Center](../security-center/security-center-introduction.md)는 하이브리드 클라우드 워크로드에서 통합 보안 관리 및 지능형 위협 방지 기능을 제공합니다. Azure machine learning의 경우 [Azure Container Registry](../container-registry/container-registry-intro.md) 리소스 및 Azure Kubernetes Service 리소스에 대 한 검사를 사용 하도록 설정 해야 합니다. 자세한 내용은 [Azure Container Registry 이미지 검색 Security Center](../security-center/defender-for-container-registries-introduction.md) 및 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조 하세요.
 
 ## <a name="audit-and-manage-compliance"></a>규정 준수 감사 및 관리
 

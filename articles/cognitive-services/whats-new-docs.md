@@ -8,10 +8,10 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 03/08/2021
 ms.openlocfilehash: b5893ab7c616c30d4febf957c21da56caf7c9673
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102631373"
 ---
 # <a name="cognitive-services-docs-whats-new-for-february-1-2021---february-28-2021"></a>Cognitive Services docs: 2021 년 2 월 28 일 2021의 새로운 기능
@@ -42,7 +42,7 @@ ms.locfileid: "102631373"
 - [Form Recognizer란?](/azure/cognitive-services/form-recognizer/overview)
 - [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
-## <a name="text-analytics"></a>텍스트 분석
+## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>업데이트된 문서
 

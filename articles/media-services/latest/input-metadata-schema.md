@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 0acb882410d103cf6f6c34bbecf2006094437b04
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102634688"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
@@ -41,15 +41,15 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 > [!NOTE]
 > 다음 4개의 자식 요소가 순서대로 나타나야 합니다.
 
-| Name  | 설명 |
+| Name  | Description |
 | --- | --- | 
 | **VideoTracks**|각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 [Videotracks](#videotracks)같은 항목을 참조 하세요. |
 | **AudioTracks**|각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 자세한 내용은 [오디오 트랙](#audiotracks) 을 참조 하세요. |
-| **메타데이터**  |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. <br />예: `<Metadata key="language" value="eng" />` |
+| **메타데이터**  |key/value 문자열로 표시되는 자산 파일의 메타데이터입니다. <br />`<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>다른 자식 요소
 
-| Name | 설명 |
+| Name | Description |
 | --- | --- |
 | **이름**<br />필수 |자산 파일의 이름입니다. <br /><br />예: `"Name": "Ignite-short.mp4"` |
 | **Uri**<br />필수 |입력 자산이 있는 URL입니다. 출력 자산이 속한 입력 자산을 식별 하려면 `Uri` ID 대신 필드를 사용 합니다.|
@@ -63,7 +63,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Name | 설명 |
+| Name | Description |
 | --- | --- |
 | **FourCC**<br />필수 |비디오 코덱은 ffmpeg에서 보고 하는 코드를 FourCC 합니다.<br /><br />예: `"FourCC": "avc1" | "hev1" | "hvc1"` |
 | **프로필** |비디오 트랙의 프로필입니다. <br /><br />예: `"Profile": "Main"`|
@@ -90,7 +90,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 
 ## <a name="audiotracks"></a>AudioTracks
 
-| Name  | 설명 |
+| Name  | Description |
 | --- | --- | 
 | **SampleFormat** |샘플 형식입니다. <br /><br />예: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |채널 레이아웃입니다. <br /><br />예: `"ChannelLayout": "stereo"`|
