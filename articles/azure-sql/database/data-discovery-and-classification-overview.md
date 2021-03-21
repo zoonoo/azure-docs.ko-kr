@@ -14,16 +14,16 @@ ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
 ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690807"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-데이터 검색 & 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공 됩니다. 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 지정 및 보고 하는 기본 기능을 제공 합니다.
+데이터 검색 및 분류는 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 기본 제공됩니다. 데이터베이스에서 중요한 데이터의 검색, 분류, 레이블 지정 및 보고를 위한 기본 기능을 제공합니다.
 
 가장 중요 한 데이터에는 비즈니스, 금융, 의료 또는 개인 정보가 포함 될 수 있습니다. 이 데이터를 검색 하 고 분류 하면 조직의 정보 보호 방식에서 pivotal 역할을 수행할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
 
@@ -188,7 +188,7 @@ REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으
 ## <a name="faq---advanced-classification-capabilities"></a>FAQ-고급 분류 기능
 
 **질문**: [AZURE 부서의 범위](../../purview/overview.md) 는 Sql 데이터 검색 & 분류를 대체 하거나, Sql 데이터 검색 & 분류가 곧 사용 중지 되나요?
-**답변**: SQL 데이터 검색 & 분류를 계속 지원 하 고 고급 분류 기능 및 데이터 관리를 구동 하는 다양 한 기능을 갖춘 [Azure 부서의 범위](../../purview/overview.md) 를 채택 하는 것이 좋습니다. 서비스, 기능, API 또는 SKU를 사용 중지 하기로 결정 한 경우 마이그레이션 또는 전환 경로를 포함 하는 사전 통지를 받게 됩니다. Microsoft 수명 주기 정책에 대 한 자세한 내용은 여기를 참조 하세요.
+**답변**: SQL 데이터 검색 & 분류를 계속 지원 하 고 고급 분류 기능 및 데이터 관리를 구동 하는 다양 한 기능을 갖춘 [Azure 부서의 범위](../../purview/overview.md) 를 채택 하는 것이 좋습니다. 서비스, 기능, API 또는 SKU를 사용 중지하기로 결정되면 마이그레이션 또는 전환 경로가 포함된 사전 통지를 보내드립니다. 여기에서 Microsoft 수명 주기 정책에 대한 자세한 내용을 살펴봅니다.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>다음 단계

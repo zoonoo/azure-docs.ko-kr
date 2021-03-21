@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/04/2021
 ms.openlocfilehash: 4dc718f21f2ef3beabc31821bd60b571ac07be05
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98018754"
 ---
 # <a name="use-managed-identities-to-access-event-hubfrom-an-azure-stream-analytics-job-preview"></a>관리 되는 id를 사용 하 여 Azure Stream Analytics 작업에서 이벤트 허브에 액세스 (미리 보기)
@@ -32,7 +32,7 @@ Azure Stream Analytics는 Azure Event Hubs 입력 및 출력 모두에 대해 �
 
 1. 왼쪽 탐색 메뉴에서 구성 아래에 있는 **관리 id** 를 선택   합니다. ** 그런 다음 **시스템 할당 관리 Id 사용** 옆의 확인란을 선택 하   고 **저장** 을 선택 합니다.
 
-   :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="시스템 할당 관리 id":::  
+   :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="시스템 할당 관리 ID":::  
 
 1. Stream Analytics 작업 id의 서비스 사용자가 Azure Active Directory에 만들어집니다. 새로 만든 id의 수명 주기는 Azure에서 관리 됩니다. Stream Analytics 작업을 삭제하면 연결된 ID(즉, 서비스 주체)는 Azure에서 자동으로 삭제합니다.  
 

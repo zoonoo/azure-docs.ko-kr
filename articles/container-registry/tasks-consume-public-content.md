@@ -7,10 +7,10 @@ ms.author: stevelas
 ms.date: 10/29/2020
 ms.custom: ''
 ms.openlocfilehash: 4fba6290b4973e797c13943fc9be4fadb19f3274
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349285"
 ---
 # <a name="how-to-consume-and-maintain-public-content-with-azure-container-registry-tasks"></a>Azure Container Registry 작업을 사용 하 여 공용 콘텐츠를 사용 하 고 유지 관리 하는 방법
@@ -49,7 +49,7 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 연습�
    1. 이미지 빌드 및 배포 `hello-world`
 1. **ACR 작업 정의**(다음에 대 한 구성 포함)
 1. 키 자격 증명 모음에 대 한 포인터인 **레지스트리 자격 증명** 의 컬렉션입니다.
-1. **secrets** `acr-task.yaml` 키 자격 증명 모음에 대 한 포인터인 내에서 사용할 수 있는 비밀의 컬렉션입니다.
+1.  `acr-task.yaml` 키 자격 증명 모음에 대 한 포인터인 내에서 사용할 수 있는 비밀의 컬렉션입니다.
 1. 내에서 사용 되는 **구성 된 값** 의 컬렉션입니다. `acr-task.yaml`
 1. 모든 비밀을 보호 하는 **Azure key vault**
 1. 빌드 응용 프로그램을 호스트 하는 **Azure container instance** `hello-world`

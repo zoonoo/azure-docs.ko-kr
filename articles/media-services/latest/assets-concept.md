@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
 ms.openlocfilehash: 5159432107e60f6c21bcf70e0bbc9a9e2123a728
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98897699"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Azure Media Services v3의 자산
@@ -45,6 +45,6 @@ Media Services는 계정이 범용 v2(GPv2) 스토리지를 사용할 때 Blob �
 
 [Media Services 개요](media-services-overview.md)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 [Media Services v2와 v3의 차이점](migrate-v-2-v-3-migration-introduction.md)

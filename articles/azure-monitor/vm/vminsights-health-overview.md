@@ -1,24 +1,24 @@
 ---
-title: VM insights 게스트 상태 (미리 보기)
+title: VM 인사이트 게스트 상태(미리 보기)
 description: 가상 컴퓨터의 상태를 확인 하 고 가상 컴퓨터가 비정상 상태가 될 때 경고를 수신 하는 방법을 비롯 하 여 VM insights의 상태 기능 개요.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
 ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052129"
 ---
-# <a name="vm-insights-guest-health-preview"></a>VM insights 게스트 상태 (미리 보기)
+# <a name="vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태(미리 보기)
 VM insights 게스트 상태를 사용 하 여 게스트 운영 체제에서 일정 한 간격으로 샘플링 되는 성능 측정 집합을 기반으로 가상 컴퓨터의 상태를 볼 수 있습니다. 구독 또는 리소스 그룹의 모든 가상 컴퓨터 상태를 신속 하 게 확인 하 고, 특정 가상 컴퓨터의 세부 상태를 드릴 다운 하거나, 가상 컴퓨터가 비정상 상태가 되 면 사전에 통보 받을 수 있습니다. 
 
 ## <a name="enable-virtual-machine-health"></a>가상 컴퓨터 상태 사용
 게스트 상태 기능을 사용 하도록 설정 하 고 가상 머신을 온 보 딩 하는 방법에 대 한 자세한 내용은 [VM insights 게스트 상태 설정 (미리 보기)](vminsights-health-enable.md)
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 게스트 상태 기능에 대 한 직접적인 비용은 없지만 Log Analytics 작업 영역에서 성능 상태 데이터의 수집 및 저장에 대 한 비용이 있습니다. 모든 데이터는 *HealthStateChangeEvent* 테이블에 저장 됩니다. 가격 책정 모델 및 비용에 대 한 자세한 내용은 [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](../logs/manage-cost-storage.md) 를 참조 하세요.
 
 ## <a name="view-virtual-machine-health"></a>가상 컴퓨터 상태 보기
@@ -59,7 +59,7 @@ VM insights 게스트 상태를 사용 하 여 게스트 운영 체제에서 일
 | 위험 | 모니터가 위험 임계값 (정의 된 경우)을 초과 했습니다. |
 | 알 수 없음  | 상태를 확인 하기 위해 수집 된 데이터가 충분 하지 않습니다. |
 | 사용 안 함 | 모니터를 현재 사용할 수 없습니다. |
-| None     | 모니터가 시작 되었으며 아직 평가 되지 않았거나 모니터링 중인 개체가 더 이상 존재 하지 않습니다. |
+| 없음     | 모니터가 시작 되었으며 아직 평가 되지 않았거나 모니터링 중인 개체가 더 이상 존재 하지 않습니다. |
 
 
 
@@ -93,7 +93,7 @@ VM insights 게스트 상태를 사용 하 여 게스트 운영 체제에서 일
 
 [![모니터 정보 기록](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 선택한 VM에 대 한 모니터의 구성을 확인 하 고 수정 합니다. 자세한 내용은 [VM insights 게스트 상태에서 모니터링 구성 (미리 보기)](vminsights-health-enable.md) 을 참조 하세요.
 
 [![모니터 세부 정보 구성](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)

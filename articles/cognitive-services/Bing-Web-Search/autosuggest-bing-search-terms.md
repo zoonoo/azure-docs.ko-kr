@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/03/2019
 ms.author: aahi
 ms.openlocfilehash: 1a3f479fbbe68c8880cd7fefb3b57c77d4cfbbfe
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349574"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>애플리케이션의 Autosuggest Bing 검색어
@@ -46,6 +46,6 @@ ms.locfileid: "96349574"
 
 * 샘플 [Bing Web Search API 응답](search-responses.md)을 참조하세요.  
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 * [Bing Web Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

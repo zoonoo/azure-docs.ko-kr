@@ -9,10 +9,10 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
 ms.openlocfilehash: d1dc108ecec93dddeb768eb61af425ba67f23002
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393142"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-preview-feature-in-azure-cosmos-db"></a>Azure Cosmos DB의 지정 시간 복원 (미리 보기) 기능을 사용한 연속 백업
@@ -37,21 +37,21 @@ Azure Cosmos DB는 추가로 프로 비전 된 처리량 (RUs)을 사용 하거�
 
 공개 미리 보기에서는 [Azure Portal](continuous-backup-restore-portal.md), [Azure 명령줄 인터페이스](continuous-backup-restore-command-line.md) (az CLI), [Azure PowerShell](continuous-backup-restore-powershell.md)또는 [Azure Resource Manager](continuous-backup-restore-template.md)를 사용 하 여 SQL API에 대 한 Azure Cosmos DB 계정 또는 MongoDB 콘텐츠 지점을 다른 계정으로 복원할 수 있습니다.
 
-## <a name="what-is-restored"></a>복원 되는 항목
+## <a name="what-is-restored"></a>복원되는 항목
 
 안정적인 상태에서 원본 계정 (데이터베이스, 컨테이너 및 항목 포함)에서 수행 되는 모든 변경이은 100 초 이내에 비동기적으로 백업 됩니다. 백업 미디어 (Azure 저장소)가 다운 되었거나 사용할 수 없는 경우에는 미디어를 다시 사용할 수 있을 때까지 변경이가 로컬로 유지 되 고 복원 될 수 있는 작업의 충실도 손실을 방지 하기 위해 플러시됩니다.
 
-프로 비전 된 처리량 컨테이너, 공유 처리량 데이터베이스 또는 전체 계정 조합을 복원 하도록 선택할 수 있습니다. 복원 작업을 수행 하면 모든 데이터 및 해당 인덱스 속성이 새 계정으로 복원 됩니다. 복원 프로세스를 수행 하면 계정, 데이터베이스 또는 컨테이너에 복원 된 모든 데이터가 지정 된 복원 시간까지 일관 되도록 보장 됩니다. 복원 기간은 복원 해야 하는 데이터의 양에 따라 달라 집니다.
+프로비저닝된 처리량 컨테이너, 공유 처리량 데이터베이스 또는 전체 계정 조합을 복원하도록 선택할 수 있습니다. 복원 작업을 수행하면 모든 데이터 및 해당 인덱스 속성이 새 계정으로 복원됩니다. 복원 프로세스에 따라 계정, 데이터베이스 또는 컨테이너에 복원된 모든 데이터가 지정된 복원 시간까지 일관되도록 보장됩니다. 복원 기간은 복원해야 하는 데이터의 양에 따라 달라집니다.
 
 > [!NOTE]
 > 연속 백업 모드를 사용 하면 Azure Cosmos DB 계정을 사용할 수 있는 모든 지역에서 백업이 수행 됩니다. 계정에 해당 지역에 대 한 [가용성 영역](high-availability.md#availability-zone-support) 기능이 사용 하도록 설정 된 경우 각 지역 계정에 대해 수행 되는 백업은 기본적으로 로컬 중복 및 영역 중복입니다. 복원 작업은 항상 새 계정으로 데이터를 복원 합니다.
 
-## <a name="what-is-not-restored"></a>복원 되지 않는 항목
+## <a name="what-is-not-restored"></a>복원되지 않는 항목
 
 지정 시간 복구 후에는 다음 구성이 복원 되지 않습니다.
 
 * 방화벽, VNET, 개인 끝점 설정.
-* 일관성 설정. 기본적으로 계정은 세션 일관성을 사용 하 여 복원 됩니다.  
+* 일관성 설정 기본적으로 계정은 세션 일관성을 사용하여 복원됩니다.  
 * 영역만.
 * 저장 프로시저, 트리거, Udf
 
@@ -70,13 +70,13 @@ a. **삭제 된 계정 복원** -복원할 수 있는 삭제 된 모든 계정�
 
 b. **특정 지역에 있는 계정의 데이터를 복원** 합니다. 예를 들어 *ACCOUNT a* 가 *미국 동부* 와 미국 동부에 있는 두 지역에 존재 하는 경우에는 타임 스탬프가 T3로 복원 됩니다.  *미국 서 부* 에 계정 a의 복사본이 필요한 경우 미국 서 부를 대상 위치로 사용 하 여 [Azure Portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 특정 시점 복원을 수행할 수 있습니다.
 
-c. **알려진 복원 타임 스탬프를 사용 하 여 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구** 합니다. 예를 들어, *데이터베이스 1* 의 *컨테이너 1* 콘텐츠가 실수로 타임 스탬프가 T3로 수정 되었음을 **알** 수 있습니다. [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 타임 스탬프 T3의 다른 계정으로 지정 시간 복원을 수행 하 여 컨테이너의 원하는 상태를 복구할 수 있습니다.
+다. **알려진 복원 타임 스탬프를 사용 하 여 컨테이너 내에서 실수로 인 한 쓰기 또는 삭제 작업을 복구** 합니다. 예를 들어, *데이터베이스 1* 의 *컨테이너 1* 콘텐츠가 실수로 타임 스탬프가 T3로 수정 되었음을 **알** 수 있습니다. [Azure Portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)또는 [CLI](continuous-backup-restore-command-line.md#trigger-restore) 에서 타임 스탬프 T3의 다른 계정으로 지정 시간 복원을 수행 하 여 컨테이너의 원하는 상태를 복구할 수 있습니다.
 
 d. **데이터베이스를 실수로 삭제 하기 전 이전 시점으로 계정 복원** - [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)에서 이벤트 피드 창을 사용 하 여 데이터베이스가 삭제 된 시간을 확인 하 고 복원 시간을 찾을 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) 및 [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)을 사용 하면 데이터베이스 이벤트 피드를 열거 하 여 데이터베이스 삭제 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
 
 e. **컨테이너 속성을 실수로 삭제 하거나 수정 하기 전 이전 시점으로 계정을 복원 합니다.** - [Azure Portal](continuous-backup-restore-portal.md#restore-live-account)이벤트 피드 창을 사용 하 여 복원 시간을 찾기 위해 컨테이너가 생성, 수정 또는 삭제 된 시기를 확인할 수 있습니다. 마찬가지로 [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) 및 [PowerShell](continuous-backup-restore-powershell.md#trigger-restore)을 사용 하면 컨테이너 이벤트 피드를 열거 하 여 모든 컨테이너 이벤트를 검색 한 다음 필요한 매개 변수를 사용 하 여 restore 명령을 트리거할 수 있습니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Azure Cosmos DB를 사용 하면 연속 백업 계정에 대 한 복원 권한을 특정 역할 또는 보안 주체로 분리 하 고 제한할 수 있습니다. 계정의 소유자는 복원을 트리거하고 다른 보안 주체에 역할을 할당 하 여 복원 작업을 수행할 수 있습니다. 자세히 알아보려면 [사용 권한](continuous-backup-restore-permissions.md) 문서를 참조 하세요.
 
@@ -104,7 +104,7 @@ Azure Cosmos DB를 사용 하면 연속 백업 계정에 대 한 복원 권한�
 
 현재 특정 시점 복원 기능은 공개 미리 보기 상태 이며 다음과 같은 제한 사항이 있습니다.
 
-* SQL 및 MongoDB 용 Azure Cosmos DB Api만 연속 백업에 대해 지원 됩니다. Cassandra, Table 및 Gremlin Api는 아직 지원 되지 않습니다.
+* 지속적인 백업은 SQL 및 MongoDB에 대한 Azure Cosmos DB API만 지원됩니다. Cassandra, Table 및 Gremlin API는 아직 지원되지 않습니다.
 
 * 기본 정기 백업 정책을 사용 하는 기존 계정은 연속 백업 모드를 사용 하도록 변환할 수 없습니다.
 
@@ -116,23 +116,23 @@ Azure Cosmos DB를 사용 하면 연속 백업 계정에 대 한 복원 권한�
 
 * Synapse 링크가 설정 된 계정은 지원 되지 않습니다.
 
-* 복원 된 계정은 원본 계정이 있는 동일한 지역에 생성 됩니다. 계정을 원본 계정이 존재 하지 않는 지역으로 복원할 수는 없습니다.
+* 복원된 계정은 원본 계정이 있는 동일한 지역에 만들어집니다. 원본 계정이 존재하지 않는 지역으로 계정을 복원할 수는 없습니다.
 
 * 복원 기간은 30 일 이며 변경할 수 없습니다.
 
-* 백업은 지역 재해 방지를 자동으로 수행 하지 않습니다. 계정 및 백업에 대 한 복원 력을 갖도록 다른 지역을 명시적으로 추가 해야 합니다.
+* 백업은 지리적 재해 방지를 자동으로 수행하지 않습니다. 계정 및 백업에 대한 복원력을 갖도록 다른 지역을 명시적으로 추가해야 합니다.
 
 * 복원이 진행 중일 때 계정에 대 한 사용 권한을 부여 하거나 VNET, 방화벽 구성을 변경 하는 IAM (Id 및 액세스 관리) 정책을 수정 하거나 삭제 하지 마세요.
 
-* 컨테이너를 만든 후 고유 인덱스를 만드는 SQL 또는 MongoDB 계정에 대 한 Azure Cosmos DB API는 연속 백업에 대해 지원 되지 않습니다. 초기 컨테이너 생성의 일부로 고유 인덱스를 만드는 컨테이너만 지원 됩니다. MongoDB 계정의 경우 [확장 명령을](mongodb-custom-commands.md)사용 하 여 고유 인덱스를 만듭니다.
+* 컨테이너를 만든 후 고유 인덱스를 만드는 SQL 또는 MongoDB 계정에 대한 Azure Cosmos DB API는 지속적인 백업에 대해 지원되지 않습니다. 초기 컨테이너 생성의 일부로 고유 인덱스를 만드는 컨테이너만 지원됩니다. MongoDB 계정의 경우 [확장 명령을](mongodb-custom-commands.md)사용 하 여 고유 인덱스를 만듭니다.
 
-* 지정 시간 복원 기능은 항상 새 Azure Cosmos 계정으로 복원 됩니다. 기존 계정으로의 복원은 현재 지원 되지 않습니다. 내부 복원에 대 한 피드백을 제공 하려면 계정 담당자 또는 [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)를 통해 Azure Cosmos DB 팀에 문의 하세요.
+* 특정 시점 복원 기능은 항상 새 Azure Cosmos 계정으로 복원됩니다. 기존 계정으로의 복원은 현재 지원되지 않습니다. 내부 복원에 대 한 피드백을 제공 하려면 계정 담당자 또는 [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db)를 통해 Azure Cosmos DB 팀에 문의 하세요.
 
 * ,,, 등을 나열 하기 위해 제공 되는 모든 새 api는 `RestorableDatabaseAccount` `RestorableSqlDatabases` `RestorableSqlContainer` `RestorableMongodbDatabase` `RestorableMongodbCollection` 기능이 미리 보기 상태인 동안 변경 될 수 있습니다.
 
 * 복원 후에는 특정 컬렉션에 대해 일관 된 인덱스를 다시 작성할 수 있습니다. [IndexTransformationProgress](how-to-manage-indexing-policy.md) 속성을 통해 다시 작성 작업의 상태를 확인할 수 있습니다.
 
-* 복원 프로세스는 TTL 구성을 포함 하 여 컨테이너의 모든 속성을 복원 합니다. 따라서 해당 방법을 구성한 경우 복원 된 데이터를 즉시 삭제할 수 있습니다. 이러한 상황을 방지 하기 위해 TTL 속성이 컨테이너에 추가 되기 전에 복원 타임 스탬프가 있어야 합니다.
+* 복원 프로세스는 TTL 구성을 포함하여 컨테이너의 모든 속성을 복원합니다. 결과적으로 복원된 데이터는 그렇게 구성한 경우 즉시 삭제될 수 있습니다. 이러한 상황을 방지하기 위해 TTL 속성이 컨테이너에 추가되기 전에 복원 타임스탬프가 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

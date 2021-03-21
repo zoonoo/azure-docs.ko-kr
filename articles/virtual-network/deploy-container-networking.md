@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222924"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Azure Virtual Network 컨테이너 네트워크 인터페이스 플러그 인 배포
@@ -29,9 +29,9 @@ Azure 가상 머신에 설치되는 Azure Virtual Network CNI(컨테이너 네�
 
 ## <a name="deploy-plug-in-for-acs-engine-kubernetes-cluster"></a>ACS-Engine Kubernetes 클러스터용 플러그 인 배포
 
-ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 배포합니다. 클러스터 구성은 템플릿 생성 시 도구로 전달되는 JSON 파일에서 지정됩니다. 지원되는 클러스터 설정 및 해당 설명의 전체 목록을 자세히 확인하려면 [Microsoft Azure Container Service Engine - 클러스터 정의](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md)를 참조하세요. 플러그 인은 ACS-Engine을 사용하여 만드는 클러스터의 기본 네트워킹 플러그 인입니다. 플러그 인을 구성할 때 중요한 네트워크 구성 설정은 다음과 같습니다.
+ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 배포합니다. 클러스터 구성은 템플릿 생성 시 도구로 전달되는 JSON 파일에서 지정됩니다. 지원 되는 클러스터 설정 및 해당 설명의 전체 목록에 대 한 자세한 내용은 [컨테이너 서비스 엔진-클러스터 정의 Microsoft Azure](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md)를 참조 하세요. 플러그 인은 ACS-Engine을 사용하여 만드는 클러스터의 기본 네트워킹 플러그 인입니다. 플러그 인을 구성할 때 중요한 네트워크 구성 설정은 다음과 같습니다.
 
-  | 설정                              | Description                                                                                                           |
+  | 설정                              | 설명                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | 마스터 노드에 할당되는 IP 주소입니다. 필수 설정입니다.                                     |
   | kubernetesConfig 아래의 clusterSubnet | 클러스터가 배포되며 IP 주소가 Pod에 할당되는 가상 네트워크 서브넷의 CIDR입니다.   |
@@ -92,7 +92,7 @@ ACS-Engine은 Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러
 
 Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치하려면 다음 단계를 완료합니다.
 
-1. [플러그 인을 다운로드하여 설치합니다](#download-and-install-the-plug-in).
+1. [플러그 인을 다운로드 하 여 설치](#download-and-install-the-plug-in)합니다.
 2. Pod에 IP 주소를 할당할 모든 가상 머신에서 가상 네트워크 IP 주소 풀을 미리 할당합니다. 모든 Azure 가상 머신의 각 네트워크 인터페이스에서는 기본 가상 네트워크 개인 IP 주소가 제공됩니다. Pod용 IP 주소 풀은 다음 옵션 중 하나를 사용하여 가상 머신 네트워크 인터페이스에서 보조 주소(*ipconfigs*)로 추가됩니다.
 
    - **CLI**: [Azure CLI를 사용해 여러 IP 주소 할당](virtual-network-multiple-ip-addresses-cli.md)
@@ -118,7 +118,7 @@ Kubernetes 클러스터의 모든 Azure 가상 머신에 플러그 인을 설치
 
 ## <a name="deploy-plug-in-for-docker-containers"></a>Docker 컨테이너용 플러그 인 배포
 
-1. [플러그 인을 다운로드하여 설치합니다](#download-and-install-the-plug-in).
+1. [플러그 인을 다운로드 하 여 설치](#download-and-install-the-plug-in)합니다.
 2. 다음 명령을 사용하여 Docker 컨테이너를 만듭니다.
 
    ```
@@ -160,9 +160,9 @@ CNI 네트워크 구성 파일은 JSON 형식으로 기술되어 있습니다. �
 - **cniVersion**: Azure Virtual Network CNI 플러그 인은 [CNI 사양](https://github.com/containernetworking/cni/blob/master/SPEC.md) 버전 0.3.0 및 0.3.1을 지원합니다.
 - **name**: 네트워크의 이름입니다. 이 속성은 원하는 고유한 값으로 설정할 수 있습니다.
 - **type**: 네트워크 플러그 인의 이름입니다. *azure-vnet* 으로 설정됩니다.
-- **모드**: 작동 모드입니다. 이 필드는 선택 사항입니다. 지원되는 모드는 “bridge”뿐입니다. 자세한 내용은 [작동 모드](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)를 참조하세요.
-- **브리지**: 가상 네트워크에 컨테이너를 연결하는 데 사용할 브리지의 이름입니다. 이 필드는 선택 사항입니다. 이 필드에 내용을 입력하지 않으면 플러그 인은 마스터 인터페이스 인덱스를 기준으로 하여 고유한 이름을 자동으로 선택합니다.
-- **ipam 형식**: IPAM 플러그 인의 이름입니다. 항상 *azure-vnet-ipam* 으로 설정됩니다.
+- **mode**: 작동 모드입니다. 이 필드는 선택 사항입니다. 지원되는 모드는 “bridge”뿐입니다. 자세한 내용은 [작동 모드](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md)를 참조하세요.
+- **bridge**: 가상 네트워크에 컨테이너를 연결하는 데 사용할 브리지의 이름입니다. 이 필드는 선택 사항입니다. 이 필드에 내용을 입력하지 않으면 플러그 인은 마스터 인터페이스 인덱스를 기준으로 하여 고유한 이름을 자동으로 선택합니다.
+- **ipam type**: IPAM 플러그 인의 이름입니다. 항상 *azure-vnet-ipam* 으로 설정됩니다.
 
 ## <a name="download-and-install-the-plug-in"></a>플러그 인 다운로드 및 설치
 

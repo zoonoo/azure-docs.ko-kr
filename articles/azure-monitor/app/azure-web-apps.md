@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
 ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734726"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
@@ -395,7 +395,7 @@ PHP 및 WordPress 사이트는 지원 되지 않습니다. 현재 이러한 워�
 |문제 값|설명|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 이 값은 확장에서 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 감지 했음을 나타냅니다. `System.Diagnostics.DiagnosticSource`, 또는에 대 한 참조로 인 한 것일 수 있습니다. `Microsoft.AspNet.TelemetryCorrelation``Microsoft.ApplicationInsights`  | 참조를 제거 합니다. 이러한 참조 중 일부는 특정 Visual Studio 템플릿에서 기본적으로 추가 되며 이전 버전의 Visual Studio는에 대 한 참조를 추가할 수 있습니다 `Microsoft.ApplicationInsights` .
-|`AppAlreadyInstrumented:true` | 응용 프로그램이 ASP.NET Core 2.1 또는 2.2를 대상으로 하는 경우이 값은 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 검색 했음을 나타냅니다. | .NET Core 2.1, 2.2의 고객은 AspNetCore를 대신 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) . 또한 포털에서 "Application Insights SDK를 사용 하 여 상호 운용성"을 켭니다 (위의 지침 참조).|
+|`AppAlreadyInstrumented:true` | 응용 프로그램이 ASP.NET Core 2.1 또는 2.2를 대상으로 하는 경우이 값은 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 검색 했음을 나타냅니다. | .NET Core 2.1, 2.2의 고객은 대신 Microsoft.AspNetCore.App meta 패키지를 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) . 또한 포털에서 "Application Insights SDK를 사용 하 여 상호 운용성"을 켭니다 (위의 지침 참조).|
 |`AppAlreadyInstrumented:true` | 이 값은 이전 배포에서 앱 폴더에 위의 dll이 있는 경우에도 발생할 수 있습니다. | 이러한 dll이 제거 되도록 앱 폴더를 정리 합니다. 로컬 앱의 bin 디렉터리와 App Service의 wwwroot 디렉터리를 모두 확인 합니다. App Service 웹 앱의 wwwroot 디렉터리를 확인 하려면: 고급 도구 (Kudu) > 디버그 콘솔 > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 이 값은 확장 `Microsoft.AspNet.TelemetryCorrelation` 에서 응용 프로그램의에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다. | 참조를 제거합니다.
 |`AppContainsDiagnosticSourceAssembly**:true`|이 값은 확장 `System.Diagnostics.DiagnosticSource` 에서 응용 프로그램의에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다.| ASP.NET에 대 한 참조를 제거 합니다. 

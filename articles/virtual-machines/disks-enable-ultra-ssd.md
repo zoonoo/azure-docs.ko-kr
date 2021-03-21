@@ -4,16 +4,16 @@ description: Azure Vm의 ultra disks에 대해 알아보기
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 03/16/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9c3c1acbc2606d882ad45744457137be5014bc4c
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 43dac1692dd6ee4ed1ab67a9b18ca69738e0a0f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093488"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580506"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure ultra disks 사용
 
@@ -133,31 +133,31 @@ VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크�
 
 이 섹션에서는 데이터 디스크로 ultra 디스크를 사용 하는 가상 컴퓨터를 배포 하는 방법을 설명 합니다. 가상 컴퓨터를 배포 하는 방법을 잘 알고 있다고 가정 합니다. 그렇지 않은 경우 빠른 시작 [: Azure Portal에서 Windows 가상 컴퓨터 만들기](./windows/quick-create-portal.md)를 참조 하세요.
 
-- [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 가상 머신 (VM) 배포로 이동 합니다.
-- [지원 되는 VM 크기 및 지역을](#ga-scope-and-limitations)선택 해야 합니다.
-- **가용성 옵션** 에서 **가용성 영역** 을 선택 합니다.
-- 선택한 항목을 선택 하 여 나머지 항목을 입력 합니다.
-- **디스크** 를 선택합니다.
+1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 가상 머신 (VM) 배포로 이동 합니다.
+1. [지원 되는 VM 크기 및 지역을](#ga-scope-and-limitations)선택 해야 합니다.
+1. **가용성 옵션** 에서 **가용성 영역** 을 선택 합니다.
+1. 선택한 항목을 선택 하 여 나머지 항목을 입력 합니다.
+1. **디스크** 를 선택합니다.
 
-![Vm 생성 흐름, 기본 블레이드의 스크린샷](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-create.png" alt-text="Vm 만들기 흐름, 기본 사항 블레이드의 스크린샷" lightbox="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-create.png":::
 
-- 디스크 블레이드에서 **Ultra Disk 호환성 사용** 에 대해 **예** 를 선택 합니다.
-- **새 디스크 만들기 및 연결** 을 선택 하 여 지금 울트라 디스크를 연결 합니다.
+1. 디스크 블레이드에서 **Ultra Disk 호환성 사용** 에 대해 **예** 를 선택 합니다.
+1. **새 디스크 만들기 및 연결** 을 선택 하 여 지금 울트라 디스크를 연결 합니다.
 
-![Vm 만들기 흐름, 디스크 블레이드, ultra을 사용 하도록 설정 및 새 디스크 만들기 및 연결의 스크린샷 강조 표시 됩니다.](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-vm-disk-enable.png" alt-text="Vm 만들기 흐름, 디스크 블레이드, ultra을 사용 하도록 설정 및 새 디스크 만들기 및 연결의 스크린샷 강조 표시 됩니다." :::
 
-- **새 디스크 만들기** 블레이드에서 이름을 입력 하 고 **크기 변경** 을 선택 합니다.
+1. **새 디스크 만들기** 블레이드에서 이름을 입력 하 고 **크기 변경** 을 선택 합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-create-new-disk-flow.png" alt-text="새 디스크 만들기 블레이드 스크린샷, 강조 표시 된 크기 변경":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-create-disk.png" alt-text="새 디스크 만들기 블레이드 스크린샷, 강조 표시 된 크기 변경":::
 
 
-- **저장소 유형을** **Ultra Disk** 로 변경 합니다.
-- **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
-- 블레이드에서 **확인을** 선택 합니다.
+1. **디스크 SKU** 를 **울트라 디스크로** 변경 합니다.
+1. **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+1. 블레이드에서 **확인을** 선택 합니다.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-select-ultra-disk-size.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
 
-- VM 배포를 계속 하면 다른 VM을 배포할 때와 동일 하 게 유지 됩니다.
+1. VM 배포를 계속 하면 다른 VM을 배포할 때와 동일 하 게 유지 됩니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -230,7 +230,21 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal는 현재 512 바이트 섹터 크기의 ultra 디스크 만들기를 지원 하지 않습니다. Azure PowerShell 모듈 또는 Azure CLI를 사용 하 여 512 바이트 섹터 크기로 울트라 디스크를 만들 수 있습니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인 한 다음 **디스크** 를 검색 하 고 선택 합니다.
+1. **+ 새로** 만들기를 선택 하 여 새 디스크를 만듭니다.
+1. Ultra disks를 지 원하는 지역을 선택 하 고 가용성 영역을 선택 하 고 원하는 대로 나머지 값을 입력 합니다.
+1. **크기 변경** 을 선택합니다.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/create-managed-disk-basics-workflow.png" alt-text="디스크 만들기 블레이드, 지역, 가용성 영역 및 변경 내용 크기를 강조 표시 하는 스크린샷":::
+
+1. **디스크 SKU** 에 대해 **Ultra disk** 를 선택 하 고 원하는 성능에 대 한 값을 입력 한 다음 **확인** 을 선택 합니다.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-disk-size-ultra.png" alt-text="울트라 디스크를 만드는 스크린샷":::
+
+1. **기본 사항** 블레이드에서 **고급** 탭을 선택 합니다.
+1. **논리 섹터 크기** 에 대해 **512** 을 선택 하 고 **검토 + 만들기** 를 선택 합니다.
+
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-different-sector-size-ultra.png" alt-text="Ultra disk 논리 섹터 크기를 512으로 변경 하는 선택기의 스크린샷":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -303,32 +317,25 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 또는 ultra disks를 사용할 수 있는 지역/가용성 영역에 기존 VM이 있는 경우 새 VM을 만들지 않고도 ultra disks를 사용할 수 있습니다. 기존 VM에서 ultra disks를 사용 하도록 설정 하 고 데이터 디스크에 연결 합니다. Ultra disk 호환성을 사용 하려면 VM을 중지 해야 합니다. VM을 중지 한 후에는 호환성을 사용 하도록 설정한 후 VM을 다시 시작할 수 있습니다. 호환성을 사용 하도록 설정 하면 ultra disk를 연결할 수 있습니다.
 
-- VM으로 이동 하 여 중지 하 고 할당이 취소 될 때까지 기다립니다.
-- VM 할당이 취소 되 면 **디스크** 를 선택 합니다.
-- **편집** 을 선택합니다.
+1. VM으로 이동 하 여 중지 하 고 할당이 취소 될 때까지 기다립니다.
+1. VM 할당이 취소 되 면 **디스크** 를 선택 합니다.
+1. **추가 설정** 을 선택합니다.
 
-![기존 vm 디스크 블레이드의 스크린샷 편집이 강조 표시 됩니다.](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-ultra-disk-additional-settings.png" alt-text="추가 설정이 강조 표시 된 디스크 블레이드의 스크린샷":::
 
-- **Ultra Disk 호환성 사용** 에 대해 **예** 를 선택 합니다.
+1. **Ultra Disk 호환성 사용** 에 대해 **예** 를 선택 합니다.
 
-![Ultra disk 호환성 사용의 스크린샷](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/enable-ultra-disks-existing-vm.png" alt-text="Ultra disk 호환성 사용의 스크린샷":::
 
-- **저장** 을 선택합니다.
-- **데이터 디스크 추가** 를 선택한 다음 **이름** 드롭다운 목록에서 **디스크 만들기** 를 선택 합니다.
+1. **저장** 을 선택합니다.
+1. 새 디스크 **만들기 및 연결** 을 선택 하 고 새 디스크의 이름을 입력 합니다.
+1. **저장소 유형** 에 대해 **Ultra Disk** 를 선택 합니다.
+1. **Size (GiB)**, **최대 IOPS** 및 **최대 처리량** 값을 원하는 값으로 변경 합니다.
+1. 디스크의 블레이드에 반환 되 면 **저장** 을 선택 합니다.
 
-![새 디스크를 추가 하는 디스크 블레이드의 스크린샷](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/new-create-ultra-disk-existing-vm.png" alt-text="새 울트라 디스크를 추가 하는 디스크 블레이드의 스크린샷.":::
 
-- 새 디스크의 이름을 입력 한 다음 **크기 변경** 을 선택 합니다.
-- **계정 유형을** **Ultra Disk** 로 변경 합니다.
-- **사용자 지정 디스크 크기 (GiB)**, **디스크 IOPS** 및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
-
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="디스크 크기 선택 블레이드의 스크린샷, 저장소 형식으로 선택 된 ultra disk, 기타 값이 강조 표시 됩니다.":::
-
-- **확인을** 선택 하 고 **만들기** 를 선택 합니다.
-- 디스크의 블레이드에 반환 되 면 **저장** 을 선택 합니다.
-- VM을 다시 시작 합니다.
-
-![Vm의 디스크 블레이드 스크린샷](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+1. VM을 다시 시작 합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -444,15 +451,15 @@ Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 
 Ultra disks는 성능을 조정할 수 있는 고유한 기능을 제공 합니다. 디스크 자체의 Azure Portal에서 이러한 조정을 수행할 수 있습니다.
 
-- VM으로 이동 하 여 **디스크** 를 선택 합니다.
-- 성능을 수정할 ultra disk를 선택 합니다.
+1. VM으로 이동 하 여 **디스크** 를 선택 합니다.
+1. 성능을 수정할 ultra disk를 선택 합니다.
 
-![Vm의 디스크 블레이드 스크린샷, 울트라 디스크가 강조 표시 됩니다.](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/select-ultra-disk-to-modify.png" alt-text="Vm의 디스크 블레이드 스크린샷, 울트라 디스크가 강조 표시 됩니다.":::
 
-- **구성** 을 선택한 다음 수정 합니다.
-- **저장** 을 선택합니다.
+1. **크기 + 성능** 을 선택한 후 수정 합니다.
+1. **저장** 을 선택합니다.
 
-![Ultra disk의 구성 블레이드 스크린샷, 디스크 크기, iops 및 처리량이 강조 표시 되 면 저장이 강조 표시 됩니다.](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/modify-ultra-disk-performance.png" alt-text="Ultra disk의 구성 블레이드 스크린샷, 디스크 크기, iops 및 처리량이 강조 표시 되 면 저장이 강조 표시 됩니다.":::
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

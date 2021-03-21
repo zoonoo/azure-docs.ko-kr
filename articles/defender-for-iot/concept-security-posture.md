@@ -1,5 +1,5 @@
 ---
-title: 보안 상태-CIS 벤치 마크
+title: 보안 상태 - CIS 벤치마크
 titleSuffix: Azure Defender for IoT
 description: IoT 마이크로 에이전트에 대해 Defender를 사용 하 여 보안 규정 준수 및 상태를 개선 합니다.
 author: shhazam-ms
@@ -9,10 +9,10 @@ ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: azure
 ms.openlocfilehash: 8a3062d50d30c99ea2322bbff037a6f61e7b7b4c
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99809886"
 ---
 # <a name="security-posture--cis-benchmark"></a>보안 상태 – CIS 벤치 마크 

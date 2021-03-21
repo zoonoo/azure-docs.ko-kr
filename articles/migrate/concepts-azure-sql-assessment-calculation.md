@@ -6,10 +6,10 @@ ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
 ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054764"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>평가 개요 (Azure SQL로 마이그레이션)
@@ -17,7 +17,7 @@ ms.locfileid: "102054764"
 이 문서에서는 [Azure Migrate: 검색 및 평가 도구](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool)를 사용 하 여 VMware 환경에서 Azure SQL Database 또는 관리 되는 인스턴스로 온-프레미스 SQL Server 인스턴스를 마이그레이션하기 위한 평가의 개요를 제공 합니다.
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 ## <a name="whats-an-assessment"></a>평가는 무엇 인가요?
 검색 및 평가 도구를 사용한 평가는 데이터의 특정 시점 스냅숏으로, 준비를 측정 하 고 온-프레미스 서버를 Azure로 마이그레이션하는 효과를 예측 합니다.
@@ -93,7 +93,7 @@ Azure Migrate를 사용 하 여 평가를 만드는 방법에 대 한 [모범 �
 ## <a name="calculate-readiness"></a>준비 상태 계산
 
 > [!NOTE]
-> 평가에는 온라인 상태의 데이터베이스만 포함 됩니다. 데이터베이스가 다른 상태에 있는 경우 평가는 이러한 데이터베이스에 대 한 준비, 크기 조정 및 비용 계산을 무시 합니다. 이러한 데이터베이스를 평가 하려는 경우에는 데이터베이스의 상태를 변경 하 고 평가를 일정 시간 내에 다시 계산 하십시오.
+> 평가에는 온라인 상태의 데이터베이스만 포함 됩니다. 데이터베이스가 다른 상태에 있는 경우 평가는 이러한 데이터베이스에 대한 준비, 크기 조정 및 비용 계산을 무시합니다. 이러한 데이터베이스를 평가하려는 경우에는 데이터베이스의 상태를 변경하고 잠시 후 평가를 다시 계산하세요.
 
 ### <a name="azure-sql-readiness"></a>Azure SQL 준비
 
@@ -116,7 +116,7 @@ Azure SQL 평가 속성에서 **권장** 되는 대상 배포 유형을 선택 �
  준비 | 준비 | Azure SQL DB 또는 Azure SQL MI | 예
  준비 | 준비 되지 않음 또는 알 수 없음 | Azure SQL DB | 예
  준비 되지 않음 또는 알 수 없음 | 준비 | Azure SQL MI | 예
- 준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | No
+ 준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | 아니요
  준비 되지 않음 또는 알 수 없음 | 준비 되지 않음 또는 알 수 없음 | 알 수 없음 | 아니요
 
 > [!NOTE]
@@ -127,7 +127,7 @@ Azure SQL 평가 속성에서 **권장** 되는 대상 배포 유형을 선택 �
 SQL 인스턴스가 Azure SQL Database 및 Azure SQL Managed Instance에 대해 준비 되지 않은 경우 권장 되는 배포 유형은 *AZURE VM에 대해 잠재적으로 준비* 된 것으로 표시 됩니다.
 - 사용자는 "Azure VM"으로 평가 유형을 사용 하 여 Azure Migrate 평가를 만들어 인스턴스가 실행 되는 서버를 Azure VM으로 마이그레이션할 준비가 되었는지 확인 하는 것이 좋습니다. 다음 사항에 유의합니다.
     - Azure Migrate의 azure VM 평가는 현재 리프트 앤 시프트 이며 Azure 가상 머신에서 SQL 인스턴스 및 데이터베이스를 실행 하는 특정 성능 메트릭을 고려 하지 않습니다. 
-    - 서버에서 Azure VM 평가를 실행 하는 경우 서버에서 실행 되는 모든 인스턴스에 대해 권장 되는 크기 및 예상 비용을 계산 하 고 서버 마이그레이션 도구를 사용 하 여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure virtual machines의 SQL Server에 대 한 [성능 지침을 검토](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices) 합니다.
+    - 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices)합니다.
 
 
 ## <a name="calculate-sizing"></a>크기 계산 계산
@@ -172,11 +172,11 @@ SQL 인스턴스가 Azure SQL Database 및 Azure SQL Managed Instance에 대해 
 #### <a name="low-confidence-ratings"></a>낮은 신뢰 등급
 평가가 낮은 신뢰 등급을 얻을 수 있는 몇 가지 이유는 다음과 같습니다.
 - 평가를 생성 하는 기간에 대 한 환경을 프로 파일링 하지 않았습니다. 예를 들어 성능 기간이 1 일로 설정 된 평가를 만드는 경우 수집 되는 모든 데이터 요소에 대 한 검색을 시작한 후 적어도 하루 이상 기다려야 합니다.
-- 평가 기간에 일부 또는 모든 서버에 대 한 성능 데이터를 수집할 수 없습니다. 높은 신뢰 등급의 경우 다음을 확인 하세요.
+- 평가는 일부 또는 모든 서버에 대한 성능 데이터를 평가 기간에 수집할 수 없습니다. 높은 신뢰 등급의 경우 다음을 확인 하세요.
     - 평가 기간 동안 서버가 켜 집니다.
     - 포트 443에 대 한 아웃 바운드 연결이 허용 됩니다.
     - Azure Migrate에 있는 SQL 에이전트의 연결 상태가 ' 연결 됨 ' 인 경우 마지막 하트 비트를 확인 Azure Migrate 
-    - 검색 된 SQL 인스턴스 블레이드의 모든 SQL 인스턴스에 대 한 Azure Migrate 연결 상태가 "연결 됨" 인 경우
+    - 검색된 SQL 인스턴스 블레이드에서 모든 SQL 인스턴스에 대한 Azure Migrate 연결 상태가 "연결됨"인 경우
 
     신뢰 등급의 최신 변경 내용을 반영하려면 평가를 '다시 계산'하세요.
 - 평가가 계산 된 기간 동안 일부 데이터베이스 또는 인스턴스가 생성 되었습니다. 예를 들어 지난 달의 성능 기록에 대 한 평가를 만들었지만 일부 데이터베이스 또는 인스턴스가 일주일 전에만 생성 되었다고 가정 합니다. 이 경우 새 서버에 대 한 성능 데이터는 전체 기간 동안 사용할 수 없으며 신뢰 등급이 낮습니다.

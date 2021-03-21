@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.openlocfilehash: 52fc7b9c1229421fd46b8110857a0a7a8a4f916a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100520428"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑
@@ -228,7 +228,7 @@ CNAME 레코드가 DNS (도메인 이름 서버)를 통해 전파 된 후 사용
        
    - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint) 섹션에서 가져온 호스트 이름 
 
-     `asverify`호스트 이름에 하위 도메인을 추가 합니다. 예: `asverify.mystorageaccount.blob.core.windows.net`
+     `asverify`호스트 이름에 하위 도메인을 추가 합니다. 예를 들어 `asverify.mystorageaccount.blob.core.windows.net`을 참조하십시오.
 
 #### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>3 단계: Azure를 사용 하 여 사용자 지정 도메인 미리 등록
 

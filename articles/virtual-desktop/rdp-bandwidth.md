@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
 ms.openlocfilehash: c9ef72241ac62efd8555de59bb52949321364035
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325182"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>RDP (원격 데스크톱 프로토콜) 대역폭 요구 사항
@@ -26,7 +26,7 @@ RDP를 통해 전송 되는 데이터의 양은 사용자 활동에 따라 달�
 
 RDP는 다양 한 형식의 데이터에 대해 다양 한 압축 알고리즘을 사용 합니다. 다음 표에서는 데이터 전송의 예측을 안내 합니다.
 
-| 데이터의 형식 | 방향 | 예측 방법 |
+| 데이터의 형식 | Direction | 예측 방법 |
 |---|---|---|
 | 원격 그래픽 | 세션 호스트-클라이언트 | [자세한 지침을 참조 하세요.](#estimating-bandwidth-used-by-remote-graphics) |
 | 간에 | 양방향 | 5 초 마다 ~ 20 바이트  |

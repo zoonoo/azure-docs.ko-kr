@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/08/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447931"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581918"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -37,7 +38,7 @@ ms.locfileid: "102447931"
 
 사용자를 임의의 암호로 Azure AD B2C로 마이그레이션한 후의 일반적인 방법은 사용자가 전자 메일 주소를 확인 하 고 처음 로그인 할 때 암호를 다시 설정 하도록 하는 것입니다. 관리자가 암호를 변경한 후에도 사용자가 암호를 다시 설정 하도록 하는 것이 일반적입니다. 이 기능을 사용 하려면 [암호 재설정 강제](force-password-reset.md) 사용을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -186,7 +187,7 @@ ms.locfileid: "102447931"
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml* 을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 2 단계에서 복사한 **Userjourney** 요소의 전체 내용을 붙여넣어  요소의 자식 요소를 만듭니다.
-5. 사용자 경험의 Id 이름을 바꿉니다. 예들 들어 `Id="CustomSignUpSignIn"`입니다.
+5. 사용자 경험의 Id 이름을 바꿉니다. 예: `Id="CustomSignUpSignIn"`
 
 ### <a name="connect-the-forgot-password-link-to-the-forgot-password-sub-journey"></a>암호 찾기 링크를 잊어버린 암호 하위 여행에 연결 
 
@@ -301,7 +302,7 @@ ms.locfileid: "102447931"
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
-1. 만든 사용자 흐름을 선택 하 여 개요 페이지를 연 다음 **사용자 흐름 실행** 을 선택 합니다.
+1. 만든 사용자 흐름을 선택하여 해당 개요 페이지를 연 다음, **사용자 흐름 실행** 을 선택합니다.
 1. **애플리케이션** 으로 이전에 등록한 *webapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 을 클릭 하 고 이전에 만든 계정의 전자 메일 주소를 확인 한 다음 **계속** 을 선택 합니다.
 1. 이제 사용자에 대 한 암호를 변경할 수 있습니다. 암호를 변경하고, **계속** 을 선택합니다. 토큰이 `https://jwt.ms`로 반환되며 사용자에게 표시됩니다.

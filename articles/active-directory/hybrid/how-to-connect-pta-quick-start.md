@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792435"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581833"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -69,10 +69,11 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
      | --- | --- |
      | **80** | TLS/SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
      | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
-     | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
+     | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 사용자 로그인에는 포트 8080이 사용 _되지 않습니다_ . |
      
      방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이 나 프록시를 사용 하 여 allowlist에 DNS 항목을 추가할 수 있는 경우 **\* msappproxy.net** 및 **\* servicebus.windows.net** 에 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
+   - 나가는 HTTP 프록시가 있는 경우이 URL autologon.microsoftazuread-sso.com이 허용 목록 인지 확인 합니다. 와일드 카드를 사용할 수 없으므로이 URL을 명시적으로 지정 해야 합니다. 
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com** 에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
     - 인증서 유효성을 검사 하려면 다음 Url을 차단 해제 합니다. **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80** **, crl.microsoft.com:80** **, oneocsp.microsoft.com:80 및** **ocsp.msocsp.com:80**. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 
@@ -103,11 +104,11 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 다음 지침에 따라 통과 인증을 올바르게 설정했는지 확인합니다.
 
-1. 테넌트에 대한 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. 테 넌 트의 전역 관리자 자격 증명을 사용 하 여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
 2. 왼쪽 창에서 **Azure Active Directory** 를 선택합니다.
 3. **Azure AD Connect** 를 선택합니다.
 4. **통과 인증** 기능이 **사용** 으로 표시되는지 확인합니다.
-5. **통과 인증** 을 선택합니다. **통과 인증** 창에는 인증 에이전트가 설치된 서버가 나열됩니다.
+5. **통과 인증** 을 선택 합니다. **통과 인증** 창에는 인증 에이전트가 설치된 서버가 나열됩니다.
 
 ![Azure Active Directory 관리 센터: Azure AD Connect 창](./media/how-to-connect-pta-quick-start/pta7.png)
 

@@ -1,5 +1,5 @@
 ---
-title: 디스크 암호화가 사용된 풀 생성
+title: 디스크 암호화가 사용된 풀 만들기
 description: 디스크 암호화 구성을 사용 하 여 플랫폼 관리 키를 사용 하 여 노드를 암호화 하는 방법을 알아봅니다.
 author: pkshultz
 ms.topic: how-to
@@ -7,13 +7,13 @@ ms.date: 01/27/2021
 ms.author: peshultz
 ms.custom: references_regions
 ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99055317"
 ---
-# <a name="create-a-pool-with-disk-encryption-enabled"></a>디스크 암호화가 사용된 풀 생성
+# <a name="create-a-pool-with-disk-encryption-enabled"></a>디스크 암호화가 사용된 풀 만들기
 
 [가상 컴퓨터 구성을](nodes-and-pools.md#virtual-machine-configuration)사용 하 여 Azure Batch 풀을 만들 때 디스크 암호화 구성을 지정 하 여 플랫폼 관리 키를 사용 하 여 풀의 계산 노드를 암호화할 수 있습니다.
 
@@ -49,7 +49,7 @@ Azure Portal에서 Batch 풀을 만들 때 **디스크 암호화 구성** 에서
 
 :::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Azure Portal의 디스크 암호화 구성 대상을 보여 주는 스크린샷":::
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예에서는 batch .NET SDK, Batch REST API 및 Azure CLI를 사용 하 여 Batch 풀에서 OS 및 임시 디스크를 암호화 하는 방법을 보여 줍니다.
 

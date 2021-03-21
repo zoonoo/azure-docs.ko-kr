@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
 ms.openlocfilehash: e2cd8ee4095db235215a2beaa68975e819b474c1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102560687"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행
