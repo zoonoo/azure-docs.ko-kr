@@ -4,10 +4,10 @@ description: Azure Monitor 경고 개요
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038053"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
@@ -39,7 +39,7 @@ ms.locfileid: "102038053"
 
 대상 리소스에서 나가는 **신호** 입니다. 신호는 메트릭, 활동 로그, Application Insights 및 로그 유형 중 하나일 수 있습니다.
 
-**조건** -대상 리소스에 적용 되는 신호 및 논리의 조합입니다. 예: 
+**조건** -대상 리소스에 적용 되는 신호 및 논리의 조합입니다. 예제: 
 
 - 백분율 CPU > 70%
 - 서버 응답 시간 > 4 ms 
@@ -79,7 +79,7 @@ ms.locfileid: "102038053"
 |:---|:---|
 | 새로 만들기 | 문제가 검색 되었으며 아직 검토 되지 않았습니다. |
 | 승인됨 | 관리자가 경고를 검토하고 작업을 시작했습니다. |
-| 해결됨 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
+| 종결 | 문제가 해결되었습니다. 경고가 닫힌 후 다른 상태로 변경하면 경고를 다시 열 수 있습니다. |
 
 *경고 상태* 는 *모니터 조건* 과 다르며 독립적입니다. 경고 상태는 사용자가 설정합니다. 모니터 조건은 시스템에 의해 설정됩니다. 경고가 발생 하면 경고의 모니터 조건이 ' 실행 됨 *'* 으로 설정 되 고 경고를 발생 시킨 기본 조건이 지워집니다. 그러면 모니터 조건이 *' 해결 됨 '* 으로 설정 됩니다. 
 

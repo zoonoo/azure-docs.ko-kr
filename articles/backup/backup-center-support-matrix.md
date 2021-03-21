@@ -4,10 +4,10 @@ description: 이 문서에서는 백업 센터에서 각 워크 로드 유형에
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: d6e5d34e201edda4fd1e9fda85f210fb88211e28
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102504510"
 ---
 # <a name="support-matrix-for-backup-center"></a>백업 센터에 대 한 지원 매트릭스

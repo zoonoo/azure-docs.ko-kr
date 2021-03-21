@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: 1fe36dc7b3c04f033c1b693b657e07bcf42e3223
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715006"
 ---
 # <a name="connect-data-from-microsoft-defender-for-identity-formerly-azure-advanced-threat-protection"></a>Microsoft Defender에서 Id에 대 한 데이터 연결 (이전의 Azure Advanced Threat Protection)
@@ -31,7 +31,7 @@ ms.locfileid: "101715006"
 
 보안 경고 외에도 상태 경고를 전달 하려면 Id 용 Microsoft Defender를 Syslog 서버와 통합 합니다. 자세한 내용은 [Microsoft Defender For Identity 설명서](/defender-for-identity/setting-syslog)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
 - Id에 대 한 microsoft defender의 미리 보기 고객이 고 Id 및 Microsoft Cloud App Security에 대해 Microsoft Defender를 통합할 수 있도록 설정 해야 합니다. 자세한 내용은 [Id 통합을 위한 Microsoft Defender](https://www.microsoft.com/microsoft-365/identity/advance-threat-protection)를 참조 하세요.

@@ -78,7 +78,7 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 * [계정 만들기 - CLI](./create-account-howto.md)
 * [API 액세스 - CLI](./access-api-howto.md)
 * [HTTPS를 작업 입력으로 인코딩 - .NET](job-input-from-http-how-to.md)  
-* [이벤트 모니터링 - 포털](monitor-events-portal-how-to.md)
+* [이벤트 모니터링 - 포털](monitoring/monitor-events-portal-how-to.md)
 * [다중 DRM으로 동적으로 암호화 - .NET](protect-with-drm.md) 
 * [사용자 지정 변환을 사용하여 인코딩하는 방법 - CLI](custom-preset-cli-howto.md)
 

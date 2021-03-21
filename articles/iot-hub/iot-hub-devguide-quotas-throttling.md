@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595263"
+ms.locfileid: "104656994"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -87,7 +87,7 @@ IoT 플러그 앤 플레이 장치는 루트를 포함 하 여 각 인터페이�
 
 장치 id 레지스트리 작업은 장치 관리 및 프로 비전 시나리오에서 런타임 사용을 위한 것입니다. 많은 수의 디바이스 ID 읽기 또는 업데이트는 [가져오기 및 내보내기 작업](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)을 통해 지원됩니다.
 
-[대량 장치 작업](iot-hub-bulk-identity-mgmt.md)을 통해 id 작업을 시작 하는 경우 동일한 제한 한도가 적용 됩니다. 예를 들어 50 장치를 만들기 위해 대량 작업을 제출 하 고 1 단위를 사용 하는 S1 IoT Hub 있는 경우 두 개의 대량 요청만 1 분 마다 수락 됩니다. 이는 1 단위를 사용 하는 S1 IoT Hub에 대 한 id 연산이 100/분/단위 이기 때문입니다. 또한이 경우에는 한도에 이미 도달 했으므로 동일한 분의 세 번째 요청 (및 이후)이 거부 됩니다. 
+대량 [레지스트리 업데이트 작업](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) *(대량* 가져오기 및 내보내기 작업)을 통해 id 작업을 시작 하는 경우 동일한 제한 한도가 적용 됩니다. 예를 들어 50 장치를 만들기 위해 대량 작업을 제출 하 고 1 단위를 사용 하는 S1 IoT Hub 있는 경우 두 개의 대량 요청만 1 분 마다 수락 됩니다. 이는 1 단위를 사용 하는 S1 IoT Hub에 대 한 id 연산이 100/분/단위 이기 때문입니다. 또한이 경우에는 한도에 이미 도달 했으므로 동일한 분의 세 번째 요청 (및 이후)이 거부 됩니다. 
 
 ### <a name="device-connections-throttle"></a>장치 연결 제한
 

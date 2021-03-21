@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033780"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름을 설정 합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "102033780"
 
 암호 만료 정책이 설정 되 면이 문서에 설명 된 대로 강제 암호 재설정 흐름을 구성 해야 합니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -80,7 +80,7 @@ ms.locfileid: "102033780"
 ::: zone pivot="b2c-custom-policy"
 
 1. [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset)에서 암호 재설정 강제 실행의 예를 가져옵니다.
-1. 각 파일에서 문자열을 `yourtenant` Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c* 인 경우의 모든 인스턴스는가 됩니다 `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
+1. 각 파일에서 `yourtenant` 문자열을 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예를 들어 B2C 테넌트의 이름이 *contosob2c* 인 경우 모든 `yourtenant.onmicrosoft.com` 인스턴스는 `contosob2c.onmicrosoft.com`이 됩니다.
 1. 다음 순서로 정책 파일을 업로드 합니다. 확장 정책 `TrustFrameworkExtensionsCustomForcePasswordReset.xml` , 신뢰 당사자 정책 `SignUpOrSigninCustomForcePasswordReset.xml` .
 
 ### <a name="test-the-policy"></a>정책 테스트

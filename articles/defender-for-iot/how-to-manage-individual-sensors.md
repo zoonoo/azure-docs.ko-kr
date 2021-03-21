@@ -8,10 +8,10 @@ ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526921"
 ---
 # <a name="manage-individual-sensors"></a>개별 센서 관리
@@ -512,7 +512,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 다음 절차에서는 센서 콘솔을 사용 하 여 독립 실행형 센서를 업데이트 하는 방법을 설명 합니다. 업데이트 프로세스는 30 분 정도 걸립니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 2. IoT 용 Defender로 이동 합니다.
 
@@ -570,7 +570,7 @@ CLI를 사용 하 여 센서 콘솔에서 백업을 복원할 수 있습니다.
 
 3. **일반** 섹션에서 **시스템 속성** 을 선택 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [위협 인텔리전스 연구 및 패키지](how-to-work-with-threat-intelligence-packages.md)
 

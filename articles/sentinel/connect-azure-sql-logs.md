@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
 ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99807736"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Azure SQL database 진단 및 감사 로그 연결
@@ -27,7 +27,7 @@ Azure SQL database 커넥터를 사용 하 여 데이터베이스의 감사 및 
 
 [AZURE SQL database 모니터링](../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

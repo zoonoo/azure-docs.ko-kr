@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/18/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175654"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594245"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -162,11 +162,11 @@ Azure 리소스 템플릿 (ARM 템플릿)에서 배포 스크립트를 사용 �
   > [!NOTE]
   > Azure Portal는 여러 줄로 배포 스크립트를 구문 분석할 수 없습니다. Azure Portal에서 배포 스크립트를 사용 하 여 템플릿을 배포 하려면 세미콜론을 사용 하 여 PowerShell 명령을 한 줄로 연결 하거나 외부 스크립트 파일을 사용 하 여 속성을 사용 하면 `primaryScriptUri` 됩니다.
 
-- `primaryScriptUri`: 지원 되는 파일 확장명을 사용 하 여 기본 배포 스크립트에 공개적으로 액세스할 수 있는 Url을 지정 합니다.
-- `supportingScriptUris`: 또는 중 하나에서 호출 된 지원 파일에 공개적으로 액세스할 수 있는 Url 배열을 지정 `scriptContent` `primaryScriptUri` 합니다.
+- `primaryScriptUri`: 지원 되는 파일 확장명을 사용 하 여 기본 배포 스크립트에 공개적으로 액세스할 수 있는 URL을 지정 합니다. 자세한 내용은 [외부 스크립트 사용](#use-external-scripts)을 참조 하세요.
+- `supportingScriptUris`: 또는 중 하나에서 호출 된 지원 파일에 공개적으로 액세스할 수 있는 Url 배열을 지정 `scriptContent` `primaryScriptUri` 합니다. 자세한 내용은 [외부 스크립트 사용](#use-external-scripts)을 참조 하세요.
 - `timeout`: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D** 입니다.
 - `cleanupPreference`. 스크립트 실행이 터미널 상태가 되면 배포 리소스를 정리하는 기본 설정을 지정합니다. 기본 설정은 **항상** 이며 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 리소스를 삭제함을 의미합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
-- `retentionInterval`: 배포 스크립트 실행이 터미널 상태에 도달한 후 서비스에서 배포 스크립트 리소스를 유지 하는 간격을 지정 합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 보존 간격이 1 ~ 007e; 26 시간 (PT26H)입니다. 이 속성은 `cleanupPreference`가 **OnExpiration** 으로 설정된 경우에 사용됩니다. **Onexpiration** 속성은 현재 활성화 되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
+- `retentionInterval`: 배포 스크립트 실행이 터미널 상태에 도달한 후 서비스에서 배포 스크립트 리소스를 유지 하는 간격을 지정 합니다. 이 기간이 만료되면 배포 스크립트 리소스가 삭제됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 보존 간격이 1 ~ 007e; 26 시간 (PT26H)입니다. 이 속성은 `cleanupPreference`가 **OnExpiration** 으로 설정된 경우에 사용됩니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
 ### <a name="additional-samples"></a>추가 샘플
 
@@ -212,7 +212,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 자세한 내용은 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json)을 참조 하세요.
 
-외부 스크립트 파일에 액세스할 수 있어야 합니다. Azure Storage 계정에 저장된 스크립트 파일의 보안을 유지하려면 [SAS 토큰을 사용하여 개인 ARM 템플릿 배포](./secure-template-with-sas-token.md)를 참조하세요.
+외부 스크립트 파일에 액세스할 수 있어야 합니다. Azure storage 계정에 저장 된 스크립트 파일의 보안을 유지 하려면 SAS 토큰을 생성 하 여 템플릿의 URI에 포함 합니다. 배포를 완료할 만큼 충분한 여유를 두고 만료 기간을 설정합니다. 자세한 내용은 [SAS 토큰을 사용 하 여 개인 ARM 템플릿 배포](./secure-template-with-sas-token.md)를 참조 하세요.
 
 배포 스크립트에서 참조 하는 스크립트 (또는)의 무결성을 보장 해야 합니다 `primaryScriptUri` `supportingScriptUris` . 신뢰하는 스크립트만 참조하세요.
 
@@ -313,7 +313,7 @@ PowerShell 배포 스크립트와 달리 CLI/bash 지원은 스크립트 출력�
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>배포 스크립트에 보안 문자열 전달
 
-컨테이너 인스턴스에서 환경 변수(EnvironmentVariable)를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 배포 스크립트는 Azure Container Instance와 동일한 방식으로 비보안 환경 변수 및 보안 환경 변수를 처리합니다. 자세한 내용은 [컨테이너 인스턴스에서 환경 변수 설정](../../container-instances/container-instances-environment-variables.md#secure-values)을 참조하세요.
+컨테이너 인스턴스에서 환경 변수(EnvironmentVariable)를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 배포 스크립트는 Azure Container Instance와 동일한 방식으로 비보안 환경 변수 및 보안 환경 변수를 처리합니다. 자세한 내용은 [컨테이너 인스턴스에서 환경 변수 설정](../../container-instances/container-instances-environment-variables.md#secure-values)을 참조하세요. 예제는 [샘플 템플릿](#sample-templates)을 참조 하세요.
 
 환경 변수에 대해 허용 되는 최대 크기는 64 KB입니다.
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489460"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>IoT Edge 장치 문제 해결
@@ -278,7 +278,7 @@ IoT Edge 허브를 통과 하는 메시지를 보려면 `RuntimeLogLevel` `debug
 EdgeHub 및 edgeAgent 모듈에는 모두이 런타임 로그 환경 변수가 있으며 기본값은로 설정 `info` 됩니다. 이 환경 변수는 다음 값을 사용할 수 있습니다.
 
 * 심각한
-* 오류
+* error
 * warning
 * 정보
 * debug

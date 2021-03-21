@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/16/2021
 ms.author: shhazam
 ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491268"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>IoT 장치에 대 한 보안 권장 사항
@@ -32,7 +32,7 @@ Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권�
 
 장치 권장 사항은 장치 보안 상태를 개선 하기 위한 정보 및 제안을 제공 합니다.
 
-| Severity | 이름 | 데이터 원본 | Description |
+| 심각도 | Name | 데이터 원본 | Description |
 |--|--|--|--|
 | 중간 | 장치에서 포트 열기 | 클래식 Defender-마이크로 에이전트| 장치에서 수신 대기 끝점을 찾았습니다. |
 | 중간 | 체인 중 하나에서 허용 되는 방화벽 정책을 찾았습니다. | 클래식 Defender-마이크로 에이전트| 허용 되는 방화벽 정책을 찾았습니다 (입/출력). 방화벽 정책에서는 기본적으로 모든 트래픽을 거부 하 고 장치에 대 한 필요한 통신을 허용 하는 규칙을 정의 합니다. |
@@ -44,7 +44,7 @@ Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권�
 
 운영 권장 사항은 보안 에이전트 구성을 향상 시키기 위한 정보 및 제안을 제공 합니다.
 
-| Severity | 이름 | 데이터 원본 | Description |
+| 심각도 | Name | 데이터 원본 | Description |
 |--|--|--|--|
 | 낮음 | 에이전트가 미달 사용 메시지를 보냅니다. | 클래식 Defender-마이크로 에이전트| 지난 24 시간 동안 10% 이상의 보안 메시지가 4kb 보다 작습니다. |
 | 낮음 | 보안 쌍 구성이 최적이 아닙니다. | 클래식 Defender-마이크로 에이전트| 보안 쌍 구성이 최적이 아닙니다. |

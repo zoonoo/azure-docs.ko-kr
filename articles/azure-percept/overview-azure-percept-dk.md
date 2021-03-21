@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: ba960465ab0ca8d5124d5882e3578e61fee2cf14
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 74e7d1a54b1d760979dbf9833e85ec728b4e5e3a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490146"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595892"
 ---
 # <a name="azure-percept-dk-overview"></a>Azure Percept DK 개요
 
@@ -21,7 +21,12 @@ Azure Percept 진한은 비전 및 오디오 AI 개념 증명을 개발 하기 �
 > [!div class="nextstepaction"]
 > [지금 구입](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept 진한 장치.":::
+<!---
+:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept DK device.":::
+--->
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
 
 ## <a name="key-features"></a>주요 기능
 

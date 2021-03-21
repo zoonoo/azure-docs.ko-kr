@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 120bec65c92e2a13022682265b83bfe0f69d8ed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692269"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592089"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +33,10 @@ Azure Synapse 링크는 Azure Cosmos DB SQL (Core) API 및 MongoDB 용 Azure Cos
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>특정 지역에 대해서만 Azure Synapse 링크를 사용 하도록 선택할 수 있으며, 다중 지역 계정 설정의 모든 지역이 아닌 경우
 
 다중 지역 계정에 대해 Azure Synapse 링크를 사용 하도록 설정 하면 분석 저장소가 모든 지역에 생성 됩니다. 기본 데이터는 트랜잭션 저장소의 처리량 및 트랜잭션 일관성을 위해 최적화됩니다.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>분석 저장소는 모든 Azure Cosmos DB 지역에서 지원 되나요?
+
+예.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>Azure Synapse Link 활성화 계정에 대해 백업 및 복원이 지원 되나요?
 
@@ -165,6 +169,10 @@ Azure Synapse Link의 청구 모델은 Microsoft Azure Cosmos DB 분석 저장�
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>분석 저장소에서 Spark 구조적 스트리밍을 수행할 수 있나요?
 
 현재 Azure Cosmos DB에 대한 Spark 구조적 스트리밍 지원은 트랜잭션 저장소의 변경 피드 기능을 사용하여 구현되며 아직 분석 저장소에서는 지원되지 않습니다.
+
+### <a name="is-streaming-supported"></a>스트리밍이 지원 되나요?
+
+분석 저장소에서 데이터 스트리밍을 지원 하지 않습니다.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

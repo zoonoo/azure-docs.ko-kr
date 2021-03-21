@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699031"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 가격 책정 및 청구 모델
@@ -70,7 +70,7 @@ ms.locfileid: "101699031"
 
 고정 가격 책정 모델은 [ISE ( *integration service environment* )](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행 되는 논리 앱에 적용 됩니다. ISE는 생성 하는 [ise 수준 또는 *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) 에 따라 달라 지는 [통합 서비스 환경 가격](https://azure.microsoft.com/pricing/details/logic-apps)을 사용 하 여 청구 됩니다. 이 가격은 사용 여부에 관계 없이 예약 된 용량과 전용 리소스에 대 한 요금을 지불 하므로 다중 테 넌 트 가격 책정과 다릅니다.
 
-| ISE SKU | Description |
+| ISE SKU | 설명 |
 |---------|-------------|
 | **Premium** | 기본 단위는 [고정 된 용량](logic-apps-limits-and-config.md#integration-service-environment-ise) 을 가지 며 [Premium SKU에 대 한 시간당 요금으로 청구](https://azure.microsoft.com/pricing/details/logic-apps)됩니다. 더 많은 처리량이 필요한 경우 ISE를 만들 때 또는 나중에 [확장 단위를 추가할](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) 수 있습니다. 각 배율 단위는 [기본 단가의 약 절반에 해당 하는 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구 됩니다. <p><p>용량 및 제한 정보는 [Azure Logic Apps ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)을 참조 하세요. |
 | **개발자** | 기본 단위는 [고정 용량](logic-apps-limits-and-config.md#integration-service-environment-ise) 을 가지 며 [개발자 SKU에 대 한 시간당 요금으로 청구](https://azure.microsoft.com/pricing/details/logic-apps)됩니다. 그러나이 SKU에는 SLA (서비스 수준 계약), 확장 기능 또는 중복성을 제공 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다. 백 엔드 업데이트는 간헐적으로 서비스를 중단할 수 있습니다. <p><p>**중요**:이 SKU는 프로덕션 또는 성능 테스트가 아닌 탐색, 실험, 개발 및 테스트에만 사용 해야 합니다. <p><p>용량 및 제한 정보는 [Azure Logic Apps ISE 제한](logic-apps-limits-and-config.md#integration-service-environment-ise)을 참조 하세요. |
@@ -101,7 +101,7 @@ Azure Logic Apps는 논리 앱이 소비 기반 인지 ISE 기반 인지에 따�
 | 계층 | Description |
 |------|-------------|
 | **기본** | 메시지 처리만 하거나 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 수행 하려는 시나리오 <p><p>Logic Apps SLA에서 지원 됩니다. |
-| **표준** | 더 복잡 한 B2B 관계와 관리 해야 하는 엔터티 수가 증가 하는 시나리오 <p><p>Logic Apps SLA에서 지원 됩니다. |
+| **Standard** | 더 복잡 한 B2B 관계와 관리 해야 하는 엔터티 수가 증가 하는 시나리오 <p><p>Logic Apps SLA에서 지원 됩니다. |
 | **Free** | 프로덕션 시나리오가 아닌 예비 시나리오에 적합 합니다. 이 계층에는 지역 가용성, 처리량 및 사용에 대 한 제한이 있습니다. 예를 들어 무료 계층은 Azure의 공용 지역 (예: 미국 서 부 또는 동남 아시아)에 대해서만 사용할 수 있지만, [Azure 중국 21vianet](/azure/china/overview-operations) 또는 [Azure Government](../azure-government/documentation-government-welcome.md)는 사용할 수 없습니다. <p><p>**참고**: Logic Apps SLA에서 지원 되지 않습니다. |
 |||
 

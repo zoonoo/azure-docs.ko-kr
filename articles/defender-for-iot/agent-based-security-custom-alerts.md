@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/16/2021
 ms.author: shhazam
 ms.openlocfilehash: 5d0eeb046d7a4ba474a1ed4a2cfb07a07f1c3888
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493308"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>IoT 장치용 Defender 사용자 지정 보안 경고
@@ -31,7 +31,7 @@ IoT 경고에 대 한 다음 Defender 목록은 예상 IoT 장치 동작에 따�
 
 ## <a name="agent-based-security-custom-alerts"></a>에이전트 기반 보안 사용자 지정 경고
 
-| Severity | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항 |
+| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항 |
 |--|--|--|--|--|
 | 낮음 | 사용자 지정 경고-활성 연결 수가 허용 된 범위를 벗어남 | 클래식 Defender-마이크로 에이전트, Azure RTOS | 특정 시간 범위 내의 활성 연결 수가 현재 구성된 허용 범위를 벗어납니다. | 디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 연결 허용 목록에 추가합니다. |
 | 낮음 | 사용자 지정 경고-허용 되지 않는 IP에 생성 된 아웃 바운드 연결 | 클래식 Defender-마이크로 에이전트, Azure RTOS | 아웃바운드 연결이 IP 허용 목록을 벗어난 IP에 만들어졌습니다. | 디바이스 로그를 조사합니다. 연결이 시작된 위치를 알아보고, 무해하거나 악의적인 위치인지 확인합니다. 악의적인 위치이면 가능한 멀웨어를 제거하고 해당 원본을 파악합니다. 무해한 위치이면 해당 원본을 IP 허용 목록에 추가합니다. |

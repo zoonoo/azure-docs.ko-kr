@@ -4,13 +4,13 @@ description: Azure VM 및 Azure virtual machine scale sets에 대 한 응용 프
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711484"
 ---
-# <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure virtual machines 및 Azure virtual machine scale sets에 Azure Monitor Application Insights 에이전트 배포
+# <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 및 Azure 가상 머신 확장 집합에 Azure Monitor Application Insights 에이전트 배포
 
 이제 [azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) 및 [azure 가상 머신 확장 집합](../../virtual-machine-scale-sets/index.yml) 에서 실행 되는 .net 또는 Java 기반 웹 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하는 것이 이전 보다 쉬워졌습니다. 코드를 수정 하지 않고 Application Insights를 사용 하는 모든 혜택을 받으세요.
 

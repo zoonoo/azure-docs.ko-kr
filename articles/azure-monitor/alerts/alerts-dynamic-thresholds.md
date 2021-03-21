@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718066"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor에서 동적 임계값을 사용 하는 메트릭 경고
@@ -61,7 +61,7 @@ ms.locfileid: "101718066"
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>동적 임계값의 고급 설정은 무엇을 의미하나요?
 
-**실패 기간** -동적 임계값을 사용 하면 시스템에서 경고를 발생 시키기 위해 특정 기간 내에 필요한 최소한의 편차의 "경고를 트리거하기 위한 숫자 위반"을 구성할 수도 있습니다 (기본 기간은 20 분의 네 가지 편차 임). 사용자는 실패 기간 및 시간 범위를 변경하여 실패 기간을 구성하고, 경고할 대상을 선택할 수 있습니다. 이 기능은 일시적인 스파이크에 의해 생성된 경고 노이즈를 줄여줍니다. 다음은 그 예입니다. 
+**실패 기간** -동적 임계값을 사용 하면 시스템에서 경고를 발생 시키기 위해 특정 기간 내에 필요한 최소한의 편차의 "경고를 트리거하기 위한 숫자 위반"을 구성할 수도 있습니다 (기본 기간은 20 분의 네 가지 편차 임). 사용자는 실패 기간 및 시간 범위를 변경하여 실패 기간을 구성하고, 경고할 대상을 선택할 수 있습니다. 이 기능은 일시적인 스파이크에 의해 생성된 경고 노이즈를 줄여줍니다. 예를 들면 다음과 같습니다.
 
 문제가 주어진 5분씩 4번 연속해서 20분간 지속되는 경우 경고를 트리거하려면 다음 설정을 사용합니다.
 

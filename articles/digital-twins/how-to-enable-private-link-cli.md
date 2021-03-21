@@ -8,10 +8,10 @@ ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 5bd7ffda508980a9a56d86037887fc53a0fed640
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202946"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기): Azure CLI
@@ -26,7 +26,7 @@ ms.locfileid: "102202946"
 1. 개인 링크를 켜고 Azure Digital Twins 인스턴스에 대 한 개인 끝점을 구성 합니다.
 1. 공용 네트워크 액세스 플래그를 사용 하지 않거나 사용 하도록 설정 하 여 전용 링크 연결에 대 한 API 액세스만 제한 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 개인 끝점을 설정 하려면 먼저 끝점을 배포할 수 있는 [**Azure Virtual Network (VNet)**](../virtual-network/virtual-networks-overview.md) 가 필요 합니다. VNet이 아직 없는 경우 Azure Virtual Network 빠른 시작 중 하나를 수행 하 여이 [를 설정할](../virtual-network/quick-create-portal.md) 수 있습니다.
 
