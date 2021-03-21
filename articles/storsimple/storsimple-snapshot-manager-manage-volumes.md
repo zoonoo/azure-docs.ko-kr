@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 309fa85d0a4d877522a89dd8f1e6e71fb2074744
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96022941"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 보기 및 관리
@@ -91,7 +91,7 @@ ms.locfileid: "96022941"
    
     ![열 구성](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | 결과 열 | Description |
+   | 결과 열 | 설명 |
    |:--- |:--- |
    |  Name |**이름** 열에는 검색한 각 볼륨에 할당된 드라이브 문자가 포함되어 있습니다. |
    |  디바이스 |**디바이스** 열은 호스트 컴퓨터에 연결된 디바이스의 IP 주소를 포함합니다. |
@@ -130,7 +130,7 @@ ms.locfileid: "96022941"
 ## <a name="configure-and-back-up-a-basic-volume"></a>기본 볼륨 구성 및 백업
 다음 절차에 따라 기본 볼륨의 백업을 구성한 다음 백업을 즉시 시작하거나 예약된 백업에 대한 정책을 만들 수 있습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에
 
 * StorSimple 디바이스 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](./storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.
@@ -158,7 +158,7 @@ ms.locfileid: "96022941"
 * 1단계: 디스크 관리를 사용하여 동적 미러 볼륨을 만듭니다. 
 * 2단계: StorSimple Snapshot Manager를 사용하여 백업을 구성합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에
 
 * StorSimple 디바이스 및 호스트 컴퓨터가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [온-프레미스 StorSimple 디바이스 배포](storsimple-8000-deployment-walkthrough-u2.md)를 참조하세요.

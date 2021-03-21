@@ -6,10 +6,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
 ms.openlocfilehash: 0b005e46e9f9a740fee153e063bebf108c22b303
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101725699"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
@@ -25,7 +25,7 @@ ms.locfileid: "101725699"
 
 ![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
-## <a name="configuration"></a>Configuration 
+## <a name="configuration"></a>구성 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성** 을 선택합니다.
 
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 
@@ -111,7 +111,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 알림 코드를 확인하고 **LogAnalytics** 를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
 
-| 알림 코드(로그) | Description |
+| 알림 코드(로그) | 설명 |
 | --- | --- |
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |

@@ -12,10 +12,10 @@ ms.author: emtehran
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 88b63ce30000340a70811e9f623e4273ccbb272a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98117285"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용 하는 기본 키, 외래 키 및 고유 키
@@ -162,7 +162,7 @@ a1          total
 
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 기본 키를 사용 하 여 전용 SQL 풀 테이블을 만듭니다. 
 

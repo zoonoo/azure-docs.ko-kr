@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: 0d0a7d9060d751dbf05d39545b332c13010cbfae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553581"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치
@@ -29,7 +29,7 @@ Azure에서 일반적인 작업은 개발 및 테스트 환경입니다. 이 시
 
 Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 2017 이상, Visual Studio Community (무료로 다운로드 가능) 또는 Eclipse에서 실행 되는 엔터프라이즈 개발자입니다. 이 문서에서는 Visual Studio 2017 이상과 함께 제공 되는 Windows Server 2016 가상 컴퓨터를 사용 하 여 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 필수 구성 요소를 확인 하세요.
 

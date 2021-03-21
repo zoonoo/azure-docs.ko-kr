@@ -8,10 +8,10 @@ ms.workload: storage
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94842260"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
@@ -53,7 +53,7 @@ ms.locfileid: "94842260"
 
     a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재 합니다.  
     b. 볼륨에 `chmod 777` `chmod 775` 대해 또는 명령을 실행 합니다.  
-    c. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
+    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
     
 5. NFS Kerberos 볼륨을 탑재 하려면 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md) 에서 추가 정보를 참조 하세요. 
 

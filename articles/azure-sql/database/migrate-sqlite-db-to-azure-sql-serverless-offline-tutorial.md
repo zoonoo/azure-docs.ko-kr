@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790409"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>SQLite 데이터베이스를 Azure SQL Database 서버리스로 마이그레이션하는 방법
@@ -59,7 +59,7 @@ Azure SQL Database 서버리스는 워크로드 수요 및 초당 사용된 컴�
 
     ![Azure Data Factory에서 빈 연결된 서비스 블레이드를 보여 주는 스크린샷](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. **연결** , **연결된 서비스** 에서 **새로 만들기** 를 클릭합니다.
+6. **연결**, **연결된 서비스** 에서 **새로 만들기** 를 클릭합니다.
 
 7. "ODBC" 커넥터 검색 및 선택
 

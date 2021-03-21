@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 75a7da41e4f0d5356ca135eb3cb4cbe5f29e8116
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891454"
 ---
 # <a name="connect-to-a-wfs-service"></a>WFS 서비스에 연결
@@ -41,7 +41,7 @@ ms.locfileid: "92891454"
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Simple 워크플로 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>SIMPLE 워크플로 예제</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Simple 워크플로 예제' src='//codepen.io/azuremaps/embed/MWwvVYY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/MWwvVYY/'>SIMPLE 워크플로 예제</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ## <a name="supported-filters"></a>지원되는 필터
@@ -83,7 +83,7 @@ ms.locfileid: "92891454"
 
 <br/>
 
-<iframe height='500' scrolling='no' title= '워크플로 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>워크플로 필터 예</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title= '워크플로 필터 예제' src='//codepen.io/azuremaps/embed/NWqvYrV/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen의 Azure Maps ()에서 Pen <a href='https://codepen.io/azuremaps/pen/NWqvYrV/'>워크플로 필터 예</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ## <a name="wfs-service-explorer"></a>워크플로 서비스 탐색기
@@ -92,7 +92,7 @@ ms.locfileid: "92891454"
 
 <br/>
 
-<iframe height='700' style='width: 100%;' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' style='width: 100%;' scrolling='no' title= '워크플로 서비스 탐색기' src='//codepen.io/azuremaps/embed/bGdrvmG/?height=700&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/bGdrvmG/'>워크플로 서비스 탐색기</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 CORS를 사용 하지 않는 끝점에서 호스트 되는 워크플로 서비스에 액세스 하기 위해 다음과 같이 CORS 사용 프록시 서비스를 `proxyService` 워크플로 클라이언트의 옵션에 전달할 수 있습니다. 

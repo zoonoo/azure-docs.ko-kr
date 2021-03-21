@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 2058e5362a65b6cd5f3e5b7cb9c20ce32d020d30
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928701"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Experian 구성에 대 한 자습서
@@ -30,13 +30,13 @@ ms.locfileid: "96928701"
 - Middle Name
 - Surname
 - 주소
-- 구/군/시
+- City
 - 시/도
 - 우편 번호
 - 국가/지역
 - 전화 번호
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -58,7 +58,7 @@ Experian 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![experian에 대 한 스크린샷-다이어그램](media/partner-experian/experian-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -94,7 +94,7 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 응용 프로그램 설정은 [Azure의 App service에서 구성할](../app-service/configure-common.md#configure-app-settings)수 있습니다. 이 방법을 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에 대 한 다음 설정을 제공 해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 메모 |
+| 애플리케이션 설정 | 원본 | 참고 |
 | :-------- | :------------| :-----------|
 |CrossCoreConfig: TenantId | Experian 계정 구성 |     |
 |CrossCoreConfig:OrgCode | Experian 계정 구성 |     |

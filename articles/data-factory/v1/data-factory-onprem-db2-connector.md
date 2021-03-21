@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387362"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
@@ -27,7 +27,7 @@ ms.locfileid: "100387362"
 
 Data Factory는 현재 DB2 데이터베이스에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원하고, 다른 데이터 저장소에서 DB2 데이터베이스로 데이터를 이동하는 작업은 지원하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Data Factory는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 사용하여 온-프레미스 DB2 데이터베이스에 연결하는 작업을 지원합니다. 데이터를 이동하기 위해 게이트웨이 데이터 파이프라인을 설정하는 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 DB2가 Azure IaaS VM에 호스팅되는 경우에도 게이트웨이가 필요합니다. 데이터 저장소와 동일한 IaaS VM에 게이트웨이를 설치할 수 있습니다. 게이트웨이에서 데이터베이스에 연결할 수 있으면 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -75,14 +75,14 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| **type** |이 속성을 **OnPremisesDb2** 로 설정해야 합니다. |Yes |
-| **server** |DB2 서버의 이름입니다. |Yes |
-| **database** |DB2 데이터베이스의 이름입니다. |Yes |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |예 |
-| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |Yes |
-| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |예 |
-| **password** |사용자 계정의 암호입니다. |예 |
-| **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |Yes |
+| **type** |이 속성을 **OnPremisesDb2** 로 설정해야 합니다. |예 |
+| **server** |DB2 서버의 이름입니다. |예 |
+| **database** |DB2 데이터베이스의 이름입니다. |예 |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
+| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
+| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
+| **password** |사용자 계정의 암호입니다. |아니요 |
+| **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy** 과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob Storage, Azure Table Storage 등)에서 비슷합니다.
@@ -100,7 +100,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
+| **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.

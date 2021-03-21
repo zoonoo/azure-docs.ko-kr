@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7ae20b484b4c22c19b856c237d85efe31dc01407
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553547"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
@@ -98,7 +98,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 [메인프레임 저장소를 Azure로 이동](./concepts/mainframe-storage-azure.md)하는 방법을 알아봅니다.
 
-### <a name="backup-and-recovery"></a>백업 및 복구
+### <a name="backup-and-recovery"></a>Backup 및 복구
 
 자체 재해 복구 사이트를 유지 관리 하는 것은 비용이 많이 들 수 있습니다. Azure에는 로컬 또는 지역 수준에서 또는 지역 중복을 통해 [백업](../../../backup/backup-overview.md), [복구](../../../site-recovery/site-recovery-overview.md)및 [중복성](../../../storage/common/storage-redundancy.md) 을 위한 구현 하기 쉽고 비용 효율적인 옵션이 있습니다.
 

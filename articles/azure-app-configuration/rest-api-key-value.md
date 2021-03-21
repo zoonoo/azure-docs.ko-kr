@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 95081d6f8c2770d01f7836e08b6851860bf47ba8
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932560"
 ---
 # <a name="key-values"></a>키-값
@@ -24,9 +24,9 @@ ms.locfileid: "96932560"
 - 가져오기
 - 여러 개 나열
 - 설정
-- 삭제
+- DELETE
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
@@ -163,14 +163,14 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 
 ### <a name="supported-filters"></a>지원되는 필터
 
-|키 필터|효과|
+|키 필터|영향|
 |--|--|
 |`key`은 생략 또는 `key=*`|**모든** 키를 찾습니다.|
 |`key=abc`|**Abc** 라는 키를 찾습니다.|
 |`key=abc*`|**Abc** 로 시작 하는 키 이름과 일치|
 |`key=abc,xyz`|키 이름 **abc** 또는 **xyz** (CSV 5 개로 제한 됨)를 찾습니다.|
 
-|레이블 필터|효과|
+|레이블 필터|영향|
 |--|--|
 |`label`은 생략 또는 `label=*`|**모든** 레이블과 일치|
 |`label=%00`|레이블 없이 KV 일치|
@@ -178,13 +178,13 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 |`label=prod*`|**Prod** 로 시작 하는 레이블과 일치|
 |`label=prod,test`|레이블 **prod** 또는 **테스트** (5 개의 CSV로 제한 됨)와 일치|
 
-**_예약 된 문자_* _
+***예약 문자***
 
-`_`, `\`, `,`
+`*`, `\`, `,`
 
 예약 된 문자가 값의 일부인 경우를 사용 하 여 이스케이프 처리 해야 합니다 `\{Reserved Character}` . 예약 되지 않은 문자는 이스케이프할 수도 있습니다.
 
-***필터 유효성 검사** _
+***필터 유효성 검사***
 
 필터 유효성 검사 오류가 발생 하는 경우 응답은 HTTP 이며 `400` 오류 정보는 다음과 같습니다.
 
@@ -203,7 +203,7 @@ Content-Type: application/problem+json; charset=utf-8
 }
 ```
 
-_ *예**
+**예**
 
 - 모두
 
@@ -370,7 +370,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8
 HTTP/1.1 412 PreconditionFailed
 ```
 
-## <a name="delete"></a>삭제
+## <a name="delete"></a>DELETE
 
 - 필수: `{key}` , `{api-version}`
 - 선택 사항: `{label}` (지정 하지 않는 경우 또는 레이블 = %00, 레이블 없는 키-값을 의미 함)

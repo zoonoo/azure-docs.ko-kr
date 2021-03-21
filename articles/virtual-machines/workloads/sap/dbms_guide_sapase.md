@@ -16,10 +16,10 @@ ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 430af1dfcbd9c7faabfca2f3f5b80b3b3106a889
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675794"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포
@@ -80,7 +80,7 @@ Sap NetWeaver 응용 프로그램에 대 한 SAP ASE는 [sap support #1928533 no
 
 SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 의견 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E4s_v3 (4 개 vCPU/32gb RAM) | E4s_v3 (4 개 vCPU/32gb RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
@@ -101,7 +101,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 데이터베이스 크기가 250 GB – 750 GB (예: 작은 SAP Business Suite 시스템) 사이인 medium SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 의견 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E16s_v3 (16 vCPU/128gb RAM) | E16s_v3 (16 vCPU/128gb RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
@@ -121,7 +121,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 데이터베이스 크기가 750 GB – 2000 GB (예: 대형 SAP Business Suite 시스템) 사이인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 의견 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | E64s_v3 (64 vCPU/432 GB RAM) | E64s_v3 (64 vCPU/432 GB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|
@@ -142,7 +142,7 @@ SAP 솔루션 관리자와 같이 데이터베이스 크기가 50 GB-250 GB 사�
 
 전체적으로 사용 되는 더 큰 SAP Business Suite 시스템과 같이 데이터베이스 크기가 2tb 이상인 작은 SAP ASE DB 서버에 대 한 구성의 예는 다음과 같을 수 있습니다.
 
-| Configuration | Windows | Linux | 의견 |
+| 구성 | Windows | Linux | 의견 |
 | --- | --- | --- | --- |
 | VM 유형 | M 시리즈 (1.0 ~ 4.0 TB RAM)  | M 시리즈 (1.0 ~ 4.0 TB RAM) | --- |
 | 가속 네트워킹 | 사용 | 사용 | ---|

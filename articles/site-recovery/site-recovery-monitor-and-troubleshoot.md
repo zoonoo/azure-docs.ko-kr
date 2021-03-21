@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
 ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023570"
 ---
 # <a name="monitor-site-recovery"></a>Site Recovery 모니터링
@@ -51,7 +51,7 @@ ms.locfileid: "96023570"
 Healthy | 복제가 정상적으로 진행되고 있습니다. 오류 또는 경고 증상이 검색되지 않았습니다.
 경고 | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 검색되었습니다.
 위험 | 하나 이상의 중요한 복제 오류 증상이 검색되었습니다.<br/><br/> 이러한 오류 증상은 일반적으로 복제가 중단되거나 데이터 변경률만큼 빠르게 진행되지 않음을 나타내는 지표입니다.
-해당 없음 | 현재 복제되지 않을 것으로 예상되는 서버입니다. 여기에는 장애 조치(Failover)된 컴퓨터가 포함될 수 있습니다.
+해당 사항 없음 | 현재 복제되지 않을 것으로 예상되는 서버입니다. 여기에는 장애 조치(Failover)된 컴퓨터가 포함될 수 있습니다.
 
 ## <a name="monitor-test-failovers"></a>테스트 장애 조치(Failover) 모니터링
 
@@ -64,7 +64,7 @@ Healthy | 복제가 정상적으로 진행되고 있습니다. 오류 또는 경
 --- | ---
 테스트 권장 | 보호 기능을 사용하도록 설정한 후에 테스트 장애 조치(Failover)가 수행되지 않은 컴퓨터입니다.
 성공적으로 수행됨 | 테스트 장애 조치(Failover)가 여러 번 성공한 컴퓨터입니다.
-해당 없음 | 현재 테스트 장애 조치(Failover)에 적합하지 않은 컴퓨터입니다. 예를 들어, 장애 조치(Failover)되었으며 초기 복제/테스트 장애 조치(Failover)/장애 조치(Failover)가 진행 중인 컴퓨터입니다.
+해당 사항 없음 | 현재 테스트 장애 조치(Failover)에 적합하지 않은 컴퓨터입니다. 예를 들어, 장애 조치(Failover)되었으며 초기 복제/테스트 장애 조치(Failover)/장애 조치(Failover)가 진행 중인 컴퓨터입니다.
 
 ## <a name="monitor-configuration-issues"></a>구성 문제 모니터링
 
@@ -109,12 +109,12 @@ Healthy | 복제가 정상적으로 진행되고 있습니다. 오류 또는 경
 
     **시나리오** | **State**  | **보기 사용 가능 여부**
     --- |--- | ---
-    **온-프레미스 사이트 간 복제** | 모든 상태 | No 
-    **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | Yes
-    **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | No   
-    **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | Yes     
-    **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | No      
-    **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | No
+    **온-프레미스 사이트 간 복제** | 모든 상태 | 아니요 
+    **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예
+    **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요   
+    **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예     
+    **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요      
+    **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요
 
 - 단일 복제 컴퓨터에 대해 인프라 보기를 보려면 자격 증명 모음 메뉴에서 **복제된 항목** 을 클릭하고 서버를 선택합니다.  
 

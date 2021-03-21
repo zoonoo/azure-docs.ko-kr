@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 3ba0abe8510291351c10ba085ba7e42b8197d886
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553241"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
@@ -32,7 +32,7 @@ ms.locfileid: "102553241"
 
 API 버전부터 `2019-05-06` 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
 
-| 속성 | 설명 | 예제 |
+| 속성 | Description | 예제 |
 | --- | --- | --- |
 | key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https: \/ /coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e. n a m e. myIndexName myOutputFieldName |

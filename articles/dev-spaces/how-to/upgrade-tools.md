@@ -7,10 +7,10 @@ ms.custom: devx-track-azurecli
 description: Azure Dev Spaces 명령줄 도구, Visual Studio Code 확장 및 Visual Studio 확장을 업그레이드하는 방법 알아보기
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 ms.openlocfilehash: f17643e6130abbc9d5da8b484144c95b0e803f33
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199240"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Azure Dev Spaces 도구를 업그레이드하는 방법

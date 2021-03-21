@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: d36ed6a795c5fa2241ee71751053a4cb5986aaf0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576822"
 ---
 # <a name="security-control-data-protection"></a>보안 제어: 데이터 보호
@@ -22,7 +22,7 @@ ms.locfileid: "100576822"
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.1 | 13.1 | Customer |
+| 4.1 | 13.1 | 고객 |
 
 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Azure 리소스 추적을 지원 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "100576822"
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.2 | 13.2, 2.10 | Customer |
+| 4.2 | 13.2, 2.10 | 고객 |
 
 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다. 
 
@@ -46,7 +46,7 @@ ms.locfileid: "100576822"
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.3 | 13.3 | Shared |
+| 4.3 | 13.3 | 공유됨 |
 
 중요 한 정보를 무단으로 전송 하는 것을 모니터링 하 고 정보 보안 전문가를 경고 하는 동안 이러한 전송을 차단 하는 네트워크 경계의 Azure Marketplace에서 타사 솔루션을 활용 합니다.
 
@@ -58,7 +58,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.4. | 14.4 | Shared |
+| 4.4. | 14.4 | 공유됨 |
 
 전송 중인 모든 중요 한 정보를 암호화 합니다. Azure 리소스에 연결 하는 모든 클라이언트가 TLS 1.2 이상을 협상할 수 있는지 확인 합니다.
 
@@ -70,7 +70,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.5. | 14.5 | Shared |
+| 4.5 | 14.5 | 공유됨 |
 
 Azure에서 특정 서비스에 대 한 기능을 사용할 수 없는 경우 타사 활성 검색 도구를 사용 하 여 사이트 또는 원격 서비스 공급자를 비롯 하 여 조직의 기술 시스템에서 저장, 처리 또는 전송 하는 중요 한 정보를 모두 식별 하 고 조직의 중요 한 정보 인벤토리를 업데이트 합니다.
 
@@ -88,7 +88,7 @@ Azure SQL Information Protection를 사용 하 여 Azure SQL Database에 저장 
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.6 | 14.6 | Customer |
+| 4.6 | 14.6 | 고객 |
 
 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않으면 서비스별 액세스 제어 방법을 사용 합니다.
 
@@ -98,7 +98,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 데이터 및 리�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.7 | 14.7 | Shared |
+| 4.7 | 14.7 | 공유됨 |
 
 계산 리소스에 대 한 준수를 위해 필요한 경우 시스템에서 데이터를 복사 하는 경우에도 데이터에 대 한 액세스 제어를 적용 하기 위해 자동화 된 호스트 기반 데이터 손실 방지 솔루션과 같은 타사 도구를 구현 합니다.
 
@@ -110,7 +110,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.8 | 14.8 | Customer |
+| 4.8 | 14.8 | 고객 |
 
 모든 Azure 리소스에서 미사용 암호화를 사용 합니다. Azure에서 암호화 키를 관리 하도록 허용 하는 것이 좋지만 일부 인스턴스에서는 사용자 고유의 키를 관리할 수 있는 옵션이 있습니다. 
 
@@ -122,7 +122,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 4.9 | 14.9 | Customer |
+| 4.9 | 14.9 | 고객 |
 
 Azure 활동 로그에 Azure Monitor를 사용 하 여 중요 한 Azure 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 

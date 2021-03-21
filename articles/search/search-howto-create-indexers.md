@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
 ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676478"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 만들기
@@ -81,7 +81,7 @@ AI 보강는이 문서의 범위를 벗어났습니다. 자세한 내용은 [AI 
 
 원격 검색 서비스에서 인덱서를 만들 준비가 되 면 Azure Portal 또는 Postman과 같은 도구 형식 또는 인덱서 클라이언트를 인스턴스화하는 코드와 같은 검색 클라이언트가 필요 합니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 요청에 대 한 [관리 api 키](search-security-api-keys.md) 가 필요 합니다.
 

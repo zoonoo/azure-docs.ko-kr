@@ -10,10 +10,10 @@ ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0afe349473bcddcbf1ac35136f2991ffe82670c6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576061"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Azure Monitor 로그와 통합
@@ -134,7 +134,7 @@ Azure Automation 진단은 Azure Monitor 로그에 두 가지 범주의 레코�
 | 속성 | Description |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
-| OperationName |`DscNodeStatusData`입니다. |
+| OperationName |`DscNodeStatusData`. |
 | ResultType |노드가 준수인지 여부를 나타내는 값입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
 | NodeComplianceStatus_s |노드가 준수인지 여부를 지정하는 상태 값입니다. |
@@ -142,7 +142,7 @@ Azure Automation 진단은 Azure Monitor 로그에 두 가지 범주의 레코�
 | ConfigurationMode | 구성을 노드에 적용하는 데 사용되는 모드입니다. 가능한 값은 다음과 같습니다. <ul><li>`ApplyOnly`: DSC는 구성을 적용하며, 새 구성이 대상 노드에 푸시되지 않거나 서버에서 새 구성을 가져올 때 아무 작업도 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 `ApplyOnly` 값이 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다. </li><li>`ApplyAndMonitor`: 이것은 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 `ApplyAndMonitor` 값이 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다.</li><li>`ApplyAndAutoCorrect`: DSC에서 모든 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
-| Category | `DscNodeStatus`입니다. |
+| Category | `DscNodeStatus`. |
 | 리소스 | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g | 관리되는 노드를 식별하는 GUID입니다. |
@@ -165,7 +165,7 @@ Azure Automation 진단은 Azure Monitor 로그에 두 가지 범주의 레코�
 | 속성 | Description |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
-| OperationName |`DscResourceStatusData`입니다.|
+| OperationName |`DscResourceStatusData`.|
 | ResultType |리소스가 규정을 준수하는지 여부입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
 | Category | DscNodeStatus. |

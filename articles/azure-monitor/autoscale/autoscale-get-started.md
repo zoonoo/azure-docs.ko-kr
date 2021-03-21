@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726056"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
@@ -121,7 +121,7 @@ Azure 웹 앱이 여러 인스턴스로 확장 되는 경우 인스턴스에 대
 
 ## <a name="moving-autoscale-to-a-different-region"></a>자동 크기 조정을 다른 지역으로 이동
 이 섹션에서는 Azure 자동 크기 조정을 동일한 구독 및 리소스 그룹의 다른 지역으로 이동 하는 방법을 설명 합니다. REST API를 사용 하 여 자동 크기 조정 설정을 이동할 수 있습니다.
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 조건
 1. 구독 및 리소스 그룹을 사용할 수 있고 원본 및 대상 지역의 세부 정보가 동일한 지 확인 합니다.
 1. [이동 하려는 azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)에서 azure 자동 크기 조정을 사용할 수 있는지 확인 합니다.
 

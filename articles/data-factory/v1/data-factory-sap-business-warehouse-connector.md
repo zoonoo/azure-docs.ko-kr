@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 513d6b28908b99594eaa525e86690fa75bffb103
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100386971"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
@@ -58,12 +58,12 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | Yes
-systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | Yes
+서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | 예
+systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
 clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예
 사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
-password | 사용자에 대한 암호입니다. | 문자열 | Yes
-gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | Yes
+password | 사용자에 대한 암호입니다. | 문자열 | 예
+gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
 encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -81,7 +81,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | Yes |
+| Query | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | MDX 쿼리. | 예 |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON 샘플: SAP Business Warehouse에서 Azure Blob에 데이터 복사

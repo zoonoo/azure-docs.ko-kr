@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Machine Learning
+title: Apache Spark를 사용한 Machine Learning
 description: 이 문서에서는 Azure Synapse Analytics에서 Apache Spark를 통해 제공 되는 기계 학습 및 데이터 과학 기능에 대 한 개념적 개요를 제공 합니다.
 services: synapse-analytics
 author: midesa
@@ -10,10 +10,10 @@ ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.openlocfilehash: 0485f697b9360b0f2dfe94fdf07629978b5127c1
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98116928"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Apache Spark를 사용한 기계 학습

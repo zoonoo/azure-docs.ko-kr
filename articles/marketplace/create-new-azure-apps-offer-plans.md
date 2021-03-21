@@ -9,15 +9,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: fd5ee9085cf716128c5b3ae073f963c76d2bd17a
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370265"
 ---
 # <a name="how-to-create-plans-for-your-azure-application-offer"></a>Azure 응용 프로그램 제품에 대 한 계획을 만드는 방법
 
-Microsoft 상업적 marketplace를 통해 판매 되는 제품에는 상업적 marketplace에서 제품을 나열 하기 위한 계획이 하나 이상 있어야 합니다. 동일한 제품 내에서 다양 한 옵션을 사용 하 여 다양 한 계획을 만들 수 있습니다. 이러한 계획 (Sku 라고도 함)은 계획 유형 ( _솔루션 템플릿_ 또는 _관리 되는 응용 프로그램_ ), 수익 화 또는 대상의 측면에서 다를 수 있습니다. 요금제에 대 한 일반적인 지침은 [상용 marketplace 제품에 대 한 계획 및 가격 책정](plans-pricing.md)을 참조 하세요.
+Microsoft 상업적 marketplace를 통해 판매 되는 제품에는 상업적 marketplace에서 제품을 나열 하기 위한 계획이 하나 이상 있어야 합니다. 동일한 제품 내에서 다양 한 옵션을 사용 하 여 다양 한 계획을 만들 수 있습니다. 이러한 계획 (Sku 라고도 함)은 계획 유형 (_솔루션 템플릿_ 또는 _관리 되는 응용 프로그램_), 수익 화 또는 대상의 측면에서 다를 수 있습니다. 요금제에 대 한 일반적인 지침은 [상용 marketplace 제품에 대 한 계획 및 가격 책정](plans-pricing.md)을 참조 하세요.
 
 ## <a name="create-a-plan"></a>계획 만들기
 

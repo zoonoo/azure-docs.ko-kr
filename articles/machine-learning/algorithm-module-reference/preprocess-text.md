@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/16/2020
 ms.openlocfilehash: 366b30df677a5b74bc7d70e1aea60e05b4df0152
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659310"
 ---
 # <a name="preprocess-text"></a>텍스트 전처리
@@ -91,14 +91,14 @@ Studio (클래식) 및 디자이너의 **전처리 텍스트** 모듈은 다양 
 
 다음은 몇 가지 예제입니다.
 
-| Configuration | 출력 결과 |
+| 구성 | 출력 결과 |
 | --- | --- |
-|모든 옵션 선택 </br> 보고 </br> ' WC.EXE-3 3test 4test '의 ' 3test '와 같은 경우 디자이너는 전체 단어 ' 3test '를 제거 합니다 .이 컨텍스트에서는 음성 부분 태거는이 토큰 ' 3test '를 숫자로 지정 하 고 음성 부분에 따라 모듈을 제거 합니다.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="모든 옵션 선택" border="True"::: |
-|선택한 항목만 `Removing number` </br> 보고 </br> ' 3test ', ' 4-EC ' 등의 경우 디자이너 토크 백신는 이러한 경우를 분할 하지 않고 전체 토큰으로 처리 합니다. 따라서 이러한 단어에 있는 숫자는 제거 되지 않습니다.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="' 제거 번호 '만 선택 합니다." border="True"::: |
+|모든 옵션 선택 </br> 설명: </br> ' WC.EXE-3 3test 4test '의 ' 3test '와 같은 경우 디자이너는 전체 단어 ' 3test '를 제거 합니다 .이 컨텍스트에서는 음성 부분 태거는이 토큰 ' 3test '를 숫자로 지정 하 고 음성 부분에 따라 모듈을 제거 합니다.| :::image type="content" source="./media/module/preprocess-text-all-options-selected.png" alt-text="모든 옵션 선택" border="True"::: |
+|선택한 항목만 `Removing number` </br> 설명: </br> ' 3test ', ' 4-EC ' 등의 경우 디자이너 토크 백신는 이러한 경우를 분할 하지 않고 전체 토큰으로 처리 합니다. 따라서 이러한 단어에 있는 숫자는 제거 되지 않습니다.| :::image type="content" source="./media/module/preprocess-text-removing-numbers-selected.png" alt-text="' 제거 번호 '만 선택 합니다." border="True"::: |
 
 정규식을 사용 하 여 사용자 지정 된 결과를 출력할 수도 있습니다.
 
-| Configuration | 출력 결과 |
+| 구성 | 출력 결과 |
 | --- | --- |
 |모든 옵션 선택 </br> 사용자 지정 정규식: `(\s+)*(-|\d+)(\s+)*` </br> 사용자 지정 대체 문자열: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-all-options-selected.png" alt-text="모든 옵션이 선택 되 고 정규식 사용" border="True"::: |
 |선택한 항목만 `Removing number` </br> 사용자 지정 정규식: `(\s+)*(-|\d+)(\s+)*` </br> 사용자 지정 대체 문자열: `\1 \2 \3`| :::image type="content" source="./media/module/preprocess-text-regular-expression-removing-numbers-selected.png" alt-text="선택한 숫자 제거 및 정규식" border="True"::: |

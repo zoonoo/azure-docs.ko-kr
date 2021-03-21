@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/24/2020
 ms.openlocfilehash: ecb4550b218b069273cba2e3d70a9510c1cc74ca
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100387804"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
@@ -146,8 +146,8 @@ ms.locfileid: "100387804"
 | 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
-| linkedServiceName |임시 스테이징 저장소로 사용 하는 저장소 인스턴스를 참조 하는 [Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 연결 된 서비스의 이름을 지정 합니다. |N/A |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
-| path |준비 된 데이터를 포함할 경로를 지정 합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. |해당 없음 |예 |
+| linkedServiceName |임시 스테이징 저장소로 사용 하는 저장소 인스턴스를 참조 하는 [Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 연결 된 서비스의 이름을 지정 합니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
+| path |준비 된 데이터를 포함할 경로를 지정 합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. |해당 없음 |아니요 |
 | enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 >[!NOTE]

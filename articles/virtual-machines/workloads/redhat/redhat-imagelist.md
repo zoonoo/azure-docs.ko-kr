@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.openlocfilehash: 0a4d2ef5b7f367130151fabda3f1d97b65605931
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676034"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Azure에서 사용할 수 있는 Red Hat Enterprise Linux (RHEL) 이미지
@@ -27,7 +27,7 @@ Azure에서 사용할 수 있는 RHEL 이미지 목록입니다. 달리 명시 �
 > [!NOTE]
 > 원시 이미지는 LVM 분할 이미지를 위해 더 이상 생성 되지 않습니다. LVM은 훨씬 더 유연한 파티션 크기 조정 옵션을 포함 하 여 오래 된 원시 (LVM) 파티션 구성표에 비해 여러 가지 이점을 제공 합니다.
 
-제안| SKU | 분할 | 프로비전 | 메모
+제안| SKU | 분할 | 프로비전 | 참고
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 6.7      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
 |             | 6.8      | RAW    | Linux 에이전트 | 12 월 1 일부 터 사용 가능한 연장 된 수명 주기 지원. [자세한 내용은 여기를 참조 하세요.](redhat-extended-lifecycle-support.md)
