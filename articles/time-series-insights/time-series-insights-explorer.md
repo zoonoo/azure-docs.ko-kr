@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 639f2ef12d190a56e04a9b48d96ea0a6537d243c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95020115"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Gen1 탐색기 Azure Time Series Insights
@@ -40,7 +40,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >이전 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Azure Time Series Insights 시작"을 재생 합니다.</a>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Time Series Insights 탐색기를 사용 하려면 먼저 다음을 수행 해야 합니다.
 
@@ -74,7 +74,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
 
       - **조건자**: 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 하려면 조건자를 사용 합니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
-         |작업(Operation)  |지원되는 형식  |참고  |
+         |작업  |지원되는 형식  |참고  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
          |**=**, **!=**, **<>**     | **String**, **Bool**, **Double**, **DateTime**, **TimeSpan**, **NULL**        |         |
@@ -111,7 +111,7 @@ Azure Time Series Insights 환경에 이벤트 원본을 연결 하는 데 몇 �
 
 1. **열 지도** 를 사용 하 여 지정 된 쿼리에서 고유 하거나 비정상 데이터 계열을 빠르게 찾을 수 있습니다. 하나의 검색 기간만 열 지도로 시각화할 수 있습니다.
 
-    [Time Series Insights 탐색기 열 지도 차트](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (미디어/시간 계열-insights-탐색기/tsi-ga-example-heatmap-charting.png # 작게 보기)
+    [Time Series Insights 탐색기 열 지도 차트](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)] (미디어/시간 계열-insights-탐색기/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. 이벤트를 선택 하거나 마우스 오른쪽 단추로 클릭 하 여 이벤트를 탐색할 때 **이벤트** 패널을 사용할 수 있습니다. 여기에서 모든 원시 이벤트를 검토 하 고 이벤트를 JSON 또는 CSV 파일로 내보낼 수 있습니다. Azure Time Series Insights 모든 원시 데이터를 저장 합니다.
 

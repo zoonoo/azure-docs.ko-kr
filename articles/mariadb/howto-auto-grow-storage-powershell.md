@@ -3,15 +3,15 @@ title: 저장소 자동 증가-Azure PowerShell-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB에서 PowerShell을 사용 하 여 저장소 자동 증가를 사용 하도록 설정 하는 방법을 설명 합니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef495fc884b1930f8510b6b2443bde40e269a8f1
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 87438c406ea2b31942003d9211cf5e285628f15d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665160"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for MariaDB 서버에서 저장소 자동 증가

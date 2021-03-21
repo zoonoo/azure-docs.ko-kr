@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
 ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99575858"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Azure Stack Edge Blob 저장소 요구 사항
@@ -25,7 +25,7 @@ Azure Stack Edge Blob storage에 연결 하기 전에 정보를 신중 하 게 �
 
 |     기능                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File 스토리지                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
+|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
 |    스토리지 계정 유형                                 |    범용 및 Azure Blob storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
 |    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Stack Edge 용 4.75 TB (100 MB x 5만 블록)|

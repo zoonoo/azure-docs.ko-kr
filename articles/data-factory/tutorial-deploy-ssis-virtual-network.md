@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 1/10/2020
 ms.openlocfilehash: 3dbbce4adc44696fdd12f6ce948b48b34caaed75
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100391238"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>가상 네트워크에 가입 하기 위해 Azure SQL Server Integration Services (SSIS) IR (통합 런타임) 구성
@@ -24,7 +24,7 @@ ms.locfileid: "100391238"
 - 가상 네트워크를 구성 합니다.
 - Azure Data Factory 포털에서 가상 네트워크에 Azure-SSIS IR을 연결 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure-SSIS 통합 런타임**. Azure SSIS 통합 런타임이 없는 경우 시작 하기 전에 [Azure Data Factory에서 AZURE ssis 통합 런타임을 프로 비전](tutorial-deploy-ssis-packages-azure.md) 합니다.
 

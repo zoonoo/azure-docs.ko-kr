@@ -8,10 +8,10 @@ ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203898"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Azure SignalR Service와 Azure Digital Twins 통합
@@ -20,7 +20,7 @@ ms.locfileid: "102203898"
 
 이 문서에서 설명 하는 솔루션을 사용 하면 단일 웹 페이지 또는 모바일 응용 프로그램과 같은 연결 된 클라이언트에 디지털 쌍 원격 분석 데이터를 푸시할 수 있습니다. 따라서 클라이언트는 서버를 폴링하고 업데이트에 대 한 새 HTTP 요청을 제출 하지 않고도 IoT 장치에서 실시간 메트릭 및 상태를 사용 하 여 업데이트 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 계속 하기 전에 완료 해야 하는 필수 구성 요소는 다음과 같습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "102203898"
 
 Visual Studio (또는 원하는 다른 코드 편집기)를 시작 하 고 *ADTSampleApp 폴더 >* 에서 코드 솔루션을 엽니다. 그런 다음 함수를 만들려면 다음 단계를 수행 합니다.
 
-1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions.cs** 라는 새 c # 클래스를 만듭니다.
+1. *SampleFunctionsApp* 프로젝트에서 **SignalRFunctions** 라는 새 c # 클래스를 만듭니다.
 
 1. 클래스 파일의 내용을 다음 코드로 바꿉니다.
     

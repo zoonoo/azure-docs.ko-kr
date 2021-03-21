@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
 ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103562062"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Azure의 SQL 데이터 동기화은 무엇 인가요?
@@ -161,7 +161,7 @@ SQL 데이터 동기화은 사용자가 선택한 데이터를 온-프레미스�
 
 #### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
 
-데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들어:
+데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들면 다음과 같습니다.
 
 - 계산된 열입니다.
 - 임시 테이블에 대한 시스템에서 생성된 열입니다.

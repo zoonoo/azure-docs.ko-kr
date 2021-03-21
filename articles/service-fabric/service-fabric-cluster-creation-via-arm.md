@@ -4,10 +4,10 @@ description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabr
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791814"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
@@ -26,7 +26,7 @@ ms.locfileid: "98791814"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 문서에서는 Service Fabric RM Powershell 또는 Azure CLI 모듈을 사용하여 클러스터를 배포합니다.
 
 * [Azure PowerShell 4.1 이상][azure-powershell]

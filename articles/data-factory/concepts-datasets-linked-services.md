@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
 ms.openlocfilehash: 4dafb738fd7d44893705994baa962831c101804b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100390031"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
@@ -63,7 +63,7 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | Description | 필수 |
+속성 | 설명 | 필수 |
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 데이터 세트의 형식입니다. Data Factory에서 지 원하는 형식 (예: DelimitedText, AzureSqlTable) 중 하나를 지정 합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |

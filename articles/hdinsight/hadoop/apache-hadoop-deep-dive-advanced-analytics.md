@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946671"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
@@ -39,7 +39,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 * 자율-알고리즘이 학습 데이터를 요구 하지 않습니다.
 * 보충 - 알고리즘에서 소프트웨어 에이전트를 사용하여 특정 컨텍스트 내에서 이상적인 동작을 결정합니다(종종 로봇 공학에서 사용됨)
 
-| 알고리즘 범주| 기능 | 학습 유형 | 알고리즘 |
+| 알고리즘 범주| Windows Server Update Services와 함께 | 학습 유형 | 알고리즘 |
 | --- | --- | --- | -- |
 | 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독됨 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
 | Clustering | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |

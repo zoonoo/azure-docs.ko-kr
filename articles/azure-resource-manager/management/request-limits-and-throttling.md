@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563129"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
@@ -25,7 +25,7 @@ ms.locfileid: "97563129"
 
 시간당 기본 제한 제한은 다음 표에 나와 있습니다.
 
-| Scope | 작업 | 제한 |
+| 범위 | 작업 | 제한 |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |

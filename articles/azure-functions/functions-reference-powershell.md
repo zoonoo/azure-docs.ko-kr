@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 ms.openlocfilehash: 61ed3ed274505101c65e251260bd759fe78f7b31
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936790"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 속성   | 설명                                     | 형식     |
+| 속성   | 설명                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
 | MethodName | 트리거된 함수의 이름     | 문자열   |
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| Name | 유형 | 위치 | Description |
+| Name | Type | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -295,7 +295,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달 되는 request 개체의 형식은 `HttpRequestContext` 다음과 같습니다.
 
-| 속성  | 설명                                                    | 형식                      |
+| 속성  | 설명                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | 개체 |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송 해야 하는 응답 개체는 다음과 같은 속성을 포함 하는 형식입니다 `HttpResponseContext` .
 
-| 속성      | 설명                                                 | 형식                      |
+| 속성      | 설명                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |

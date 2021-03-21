@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.openlocfilehash: 0eebd0b62e973572a40b7b141ae908046700ba3c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020488"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>필드에 대 한 Azure Stream Analytics JobConfig.js
@@ -37,14 +37,14 @@ ms.locfileid: "98020488"
 }
 ```
 
-|Name|유형|필수|값|
+|Name|Type|필수|값|
 |----|----|--------|-----|
 |DataLocale|문자열|No|Stream analytics 작업의 데이터 로캘입니다. 값은 지원 되는의 이름 이어야 합니다. 지정 하지 않으면 기본적으로 ' en-us '로 설정 됩니다.|
 |OutputErrorPolicy|문자열|No|출력에 도착 하 고 형식이 잘못 되었기 때문에 외부 저장소에 쓸 수 없는 이벤트에 적용할 정책을 나타냅니다 (누락 된 열 값, 잘못 된 유형 또는 크기의 열 값). -Stop 또는 Drop|
-|EventsLateArrivalMaxDelayInSeconds|integer|아니요|이벤트가 늦게 도착 하는 최대 지속할 지연 시간 (초)입니다. 지원 되는 범위는-1에서 1814399 (20.23:59 일)이 고,-1은 무기한 대기를 지정 하는 데 사용 됩니다. 속성이 없으면 값이-1 인 것으로 해석 됩니다.|
-|EventsOutOfOrderMaxDelayInSeconds|integer|아니요|순서가 잘못 된 이벤트를 다시 순서 대로 조정할 수 있는 최대 지속할 지연 시간 (초)입니다.|
+|EventsLateArrivalMaxDelayInSeconds|정수|아니요|이벤트가 늦게 도착 하는 최대 지속할 지연 시간 (초)입니다. 지원 되는 범위는-1에서 1814399 (20.23:59 일)이 고,-1은 무기한 대기를 지정 하는 데 사용 됩니다. 속성이 없으면 값이-1 인 것으로 해석 됩니다.|
+|EventsOutOfOrderMaxDelayInSeconds|정수|아니요|순서가 잘못 된 이벤트를 다시 순서 대로 조정할 수 있는 최대 지속할 지연 시간 (초)입니다.|
 |EventsOutOfOrderPolicy|문자열|No|입력 이벤트 스트림에 잘못 된 순서로 도착 하는 이벤트에 적용할 정책을 나타냅니다. -조정 또는 삭제|
-|StreamingUnits|integer|예|스트리밍 작업에서 사용 하는 스트리밍 단위 수를 지정 합니다.|
+|StreamingUnits|정수|예|스트리밍 작업에서 사용 하는 스트리밍 단위 수를 지정 합니다.|
 |CompatibilityLevel|문자열|No|스트리밍 작업의 특정 런타임 동작을 제어 합니다. -허용 되는 값은 "1.0", "1.1", "1.2"입니다.|
 |UseSystemAssignedIdentity|boolean|아니요|관리 되는 Azure Active Directory Id를 사용 하 여 다른 Azure 서비스와 통신 하도록이 작업을 설정 하려면 true로 설정 합니다.|
 |GlobalStorage. AccountName|문자열|No|글로벌 저장소 계정은 SQL 참조 데이터 스냅숏과 같은 stream analytics 작업과 관련 된 콘텐츠를 저장 하는 데 사용 됩니다.|

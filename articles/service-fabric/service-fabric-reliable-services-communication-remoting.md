@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a0486a27d76c978a65c4a3cfd81df52a12e4ea1d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791580"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
@@ -267,7 +267,7 @@ V2_1 스택으로 변경하려면 다음 단계를 따르세요.
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>명시적 원격 클래스를 사용하여 V2(인터페이스 호환 가능) 버전에 대한 수신기/클라이언트 팩터리 만들기
 
-다음 단계를 수행하세요.
+다음 단계를 수행합니다.
 
 1. 서비스 매니페스트에서 Endpoint Resource를 “ServiceEndpointV2_1”이라는 이름으로 추가합니다.
 
@@ -356,7 +356,7 @@ V1에서 V2(인터페이스 호환 가능, V2_1이라고 함)로 업그레이드
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>원격 래핑된 메시지로 사용자 지정 serialization 사용
 
 원격 래핑된 메시지에서 모든 매개 변수를 필드로 사용하여 래핑된 단일 개체를 만듭니다.
-다음 단계를 수행하세요.
+다음 단계를 수행합니다.
 
 1. 사용자 지정 serialization에 대한 구현을 제공하기 위해 `IServiceRemotingMessageSerializationProvider` 인터페이스를 구현합니다.
     이 코드 조각은 구현 모습을 보여줍니다.

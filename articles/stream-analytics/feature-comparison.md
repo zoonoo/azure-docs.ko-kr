@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: 037bd8bc823cd8c77241d0ca25174e29d25149b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98020539"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure Stream Analytics 기능 비교
@@ -30,7 +30,7 @@ Azure Stream Analytics를 사용 하 여 클라우드 및 IoT Edge [Azure Portal
 |Intellisense 스크립팅     |구문 강조         |구문 강조</br>코드 완성</br>오류 표식         |구문 강조</br>코드 완성</br>오류 표식         |
 |모든 종류의 입력, 출력 및 작업 구성 정의     |예         |예         |예         |
 |원본 제어     |아니요         |예         |예         |
-|CI/CD 지원     |Partial         |예         |예         |
+|CI/CD 지원     |부분         |예         |예         |
 |여러 쿼리에서 입력 및 출력 공유     |아니요         |예         |예         |
 |샘플 파일을 사용 하 여 쿼리 테스트     |예         |예        |예         |
 |라이브 데이터 로컬 테스트     |아니요         |예       |예      |
@@ -42,7 +42,7 @@ Azure Stream Analytics를 사용 하 여 클라우드 및 IoT Edge [Azure Portal
 |리소스 로그     |예         |아니요         |아니요         |
 |사용자 지정 메시지 속성     |예         |예         |아니요       |
 |C # 사용자 지정 코드 함수 및 역직렬 변환기|읽기 전용 모드|예|아니요|
-|JavaScript UDF 및 UDA     |예         |예         |Windows만 해당         |
+|JavaScript UDF 및 UDA     |예         |예         |Windows만         |
 |Machine Learning Service     |예        |예         |아니요         |
 |Azure Machine Learning Studio (클래식)|예. 하지만 쿼리를 테스트할 수 없습니다.        |예 |아니요         |
 |호환성 수준     |1.0</br>1.1</br>1.2 (기본값)         |1.0</br>1.1</br>1.2 (기본값)           |1.0</br>1.1</br>1.2 (기본값)           |

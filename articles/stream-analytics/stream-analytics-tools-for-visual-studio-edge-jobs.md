@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 09151ea0fe3d419401d576149f6655b8cdc09f8e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019961"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
 이 자습서에서는 Visual Studio 용 Stream Analytics 도구를 사용 하는 방법에 대해 알아봅니다. Stream Analytics Edge 작업을 작성 하 고, 디버그 하 고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 디바이스에 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -64,7 +64,7 @@ Visual Studio에서 **파일**  >  **새로 만들기**  >  **프로젝트** 를
 Stream Analytics IoT Edge 환경에 배포 된 Stream Analytics 작업은 대부분의 [Stream Analytics 쿼리 언어 참조](/stream-analytics-query/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396)를 지원 합니다. 그러나 다음 작업은 Stream Analytics Edge 작업에 대해 아직 지원 되지 않습니다. 
 
 
-|**범주**  | **명령**  |
+|**범주**  | **Command**  |
 |---------|---------|
 |기타 연산자 | <ul><li>PARTITION BY</li><li>TIMESTAMP BY OVER</li><li>JavaScript UDF</li><li>UDA (사용자 정의 집계)</li><li>GetMetadataPropertyValue</li><li>단일 단계에서 14 개 이상의 집계 사용</li></ul>   |
 

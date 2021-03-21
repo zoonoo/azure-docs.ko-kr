@@ -4,10 +4,10 @@ description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터�
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579555"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
@@ -99,7 +99,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 다음은 사용할 수 있는 검색 식입니다.
 
-| 샘플 쿼리 | 효과 |
+| 샘플 쿼리 | 영향 |
 | --- | --- |
 | `apple` |지정된 시간 범위의 필드에 단어 "apple"이 포함된 모든 이벤트를 찾습니다. |
 | `apple AND banana` <br/>`apple banana` |두 단어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요. <br/>약식입니다. |

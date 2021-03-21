@@ -12,10 +12,10 @@ ms.custom: references_regions
 ms.date: 01/07/2021
 ms.author: alexeyo
 ms.openlocfilehash: f30b1f0f14bba54b8b4fcd7c5190f3c533f199a6
-ms.sourcegitcommit: 63caac7871df9d999ca5a5f1b8c036ae7014231c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98061755"
 ---
 # <a name="speech-services-in-sovereign-clouds"></a>소 버린 클라우드의 음성 서비스
@@ -31,7 +31,7 @@ ms.locfileid: "98061755"
   - US Gov 버지니아
 - **사용 가능한 가격 책정 계층:**
   - Free (F0) 및 Standard (S0). 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) 를 참조 하세요.
-- **지원 되는 기능:**
+- **지원되는 기능:**
   - 음성 텍스트 변환
     - 사용자 지정 음성 (AM (음향 모델) 및 LM (언어 모델) 적응)
       - [Speech Studio](https://speech.azure.us/)
@@ -84,10 +84,10 @@ spx recognize --host "usGovHost" --file myaudio.wav
 |--|--|
 | **US Gov 애리조나** | |
 | 음성 텍스트 변환 | `wss://usgovarizona.stt.speech.azure.us` |
-| 텍스트 음성 변환 | `https://usgovarizona.tts.speech.azure.us` |
+| Text to Speech | `https://usgovarizona.tts.speech.azure.us` |
 | **US Gov 버지니아** | |
 | 음성 텍스트 변환 | `wss://usgovvirginia.stt.speech.azure.us` |
-| 텍스트 음성 변환 | `https://usgovvirginia.tts.speech.azure.us` |
+| Text to Speech | `https://usgovvirginia.tts.speech.azure.us` |
 
 
 ## <a name="azure-china"></a>Azure 중국
@@ -101,7 +101,7 @@ spx recognize --host "usGovHost" --file myaudio.wav
   - 중국 동부 2
 - **사용 가능한 가격 책정 계층:**
   - Free (F0) 및 Standard (S0). 자세한 내용은 [여기](https://www.azure.cn/pricing/details/cognitive-services/index.html) 를 참조 하세요.
-- **지원 되는 기능:**
+- **지원되는 기능:**
   - 음성 텍스트 변환
     - 사용자 지정 음성 (AM (음향 모델) 및 LM (언어 모델) 적응)
       - [Speech Studio](https://speech.azure.cn/)
@@ -153,4 +153,4 @@ spx recognize --host "azCnHost" --file myaudio.wav
 |--|--|
 | **중국 동부 2** | |
 | 음성 텍스트 변환 | `wss://chinaeast2.stt.speech.azure.cn` |
-| 텍스트 음성 변환 | `https://chinaeast2.tts.speech.azure.cn` |
+| Text to Speech | `https://chinaeast2.tts.speech.azure.cn` |

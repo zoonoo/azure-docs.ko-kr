@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 3c9679f3d66d58c7a6c847b54c84438c979ecd39
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97936868"
 ---
 [Azure 프라이빗 엔드포인트](../articles/private-link/private-endpoint-overview.md)는 Azure Private Link를 기반으로 하는 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다.  프라이빗 엔드포인트는 가상 네트워크의 프라이빗 IP 주소를 사용하여 효과적으로 가상 네트워크에 서비스를 제공합니다.

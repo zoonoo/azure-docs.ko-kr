@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
 ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905141"
 ---
 # <a name="create-human-reviews-api-console"></a>사용자 리뷰 만들기 (API 콘솔)
@@ -135,7 +135,7 @@ ms.locfileid: "96905141"
 
 ### <a name="examine-the-new-review"></a>새 검토를 검토 합니다.
 
-[검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 **Review**  >  **Image** / **Text** / 사용 하는 내용에 따라 이미지 텍스트 **비디오** 검토를 선택 합니다. 업로드 한 콘텐츠는 사용자가 검토할 준비가 된 상태로 표시 되어야 합니다.
+[검토 도구](https://contentmoderator.cognitive.microsoft.com)에서   >   /  / 사용 하는 내용에 따라 이미지 텍스트 **비디오** 검토를 선택 합니다. 업로드 한 콘텐츠는 사용자가 검토할 준비가 된 상태로 표시 되어야 합니다.
 
 ![축구공 이미지 검토 도구](images/test-drive-review-5.PNG)
 

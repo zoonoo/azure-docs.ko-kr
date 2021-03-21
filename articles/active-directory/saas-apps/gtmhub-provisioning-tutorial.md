@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0e160def31a43bc94e4f6151b46efe72e585e953
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735727"
 ---
 # <a name="tutorial-configure-gtmhub-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Gtmhub 구성
@@ -36,7 +36,7 @@ ms.locfileid: "98735727"
 > * Azure AD와 Gtmhub 간에 사용자 특성을 동기화 된 상태로 유지 합니다.
 > * 사용자를 팀에 자동으로 매핑하고 정렬 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "98735727"
 
 3. 계정 ID를 가져오려면 **설정** 으로 이동한 다음, **API 토큰** 탭을 선택 하 고 계정 id:  ![ 계정 id를 복사 합니다.](media/gtmhub-provisioning-tutorial/account-id.png)
 
-## <a name="step-3-add-gtmhub-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Gtmhub 추가
+## <a name="step-3-add-gtmhub-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Gtmhub 추가
 
 Azure AD 응용 프로그램 갤러리에서 Gtmhub를 추가 하 여 Gtmhub에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO 용 Gtmhub를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 

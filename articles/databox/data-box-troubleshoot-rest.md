@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: alkohli
 ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98796047"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Azure Data Box Blob storage와 관련 된 문제 해결
@@ -55,7 +55,7 @@ ms.locfileid: "98796047"
 |오류 메시지  |권장 작업 |
 |---------|---------|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다. |Data Box에서 Python 용 Microsoft Azure Storage 라이브러리의 설치 된 버전이 지원 되지 않습니다. 지원 되는 버전에 대 한 Azure Data Box Blob 저장소 요구 사항을 참조 하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] ...|Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 TLS 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. <br>다음은 그 예입니다. <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. <br> 예를 들어 Ubuntu에서  <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] ...|Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 TLS 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](data-box-deploy-copy-data-via-rest.md#download-certificate)하는 방법을 참조 하세요. <br>예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. <br> 예를 들어 Ubuntu에서  <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>일반 오류

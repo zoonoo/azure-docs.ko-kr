@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 34e841a5f17d589c4fbef54a4a8674a99ac6c640
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96027522"
 ---
 장치 터널을 성공적으로 설정 하려면 다음 요구 사항을 충족 해야 합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "96027522"
 
 가상 네트워크 게이트웨이를 구성 하 고 Windows 10 클라이언트의 로컬 컴퓨터 저장소에 클라이언트 인증서를 설치한 후 클라이언트 장치 터널을 구성 하려면 다음 예제를 사용 합니다.
 
-1. 다음 텍스트를 복사 하 고 ***devicecert.ps1** _로 저장 합니다.
+1. 다음 텍스트를 복사 하 여 ***devicecert.ps1*** 로 저장 합니다.
 
    ```
    Param(
@@ -80,7 +80,7 @@ ms.locfileid: "96027522"
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. 다음 텍스트를 복사 하 여 _ * devicecert.ps1 * *와 같은 폴더에 _*_VPNProfile.xml_*_ 로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
+1. 다음 텍스트를 복사 하 여 _ * devicecert.ps1 * *와 동일한 폴더에 ***VPNProfile.xml** _로 저장 합니다. 다음 텍스트를 사용자 환경에 맞게 편집 합니다.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
