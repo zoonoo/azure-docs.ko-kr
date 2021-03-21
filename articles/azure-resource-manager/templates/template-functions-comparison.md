@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 비�
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99834003"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>ARM 템플릿의 비교 함수
@@ -31,7 +31,7 @@ ms.locfileid: "99834003"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, 문자열, 배열 또는 개체 |null인지 테스트할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |int, 문자열, 배열 또는 개체 |null인지 테스트할 추가 값입니다. |
@@ -119,7 +119,7 @@ output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| stringOutput | String | 기본값 |
+| stringOutput | String | default |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Array |  [1] |
@@ -133,7 +133,7 @@ output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
 | arg2 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
@@ -305,7 +305,7 @@ output checkNotEquals bool = ! (1 == 2)
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -317,7 +317,7 @@ output checkNotEquals bool = ! (1 == 2)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |greater 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 비교에 사용할 두 번째 값입니다. |
@@ -387,7 +387,7 @@ output checkStrings bool = firstString > secondString
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | 거짓 |
 | checkStrings | Bool | True |
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -398,7 +398,7 @@ output checkStrings bool = firstString > secondString
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |greater 또는 equal 비교에 사용할 두 번째 값입니다. |
@@ -468,7 +468,7 @@ output checkStrings bool = firstString >= secondString
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | False |
+| checkInts | Bool | 거짓 |
 | checkStrings | Bool | True |
 
 ## <a name="less"></a>less
@@ -479,7 +479,7 @@ output checkStrings bool = firstString >= secondString
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |less 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 비교에 사용할 두 번째 값입니다. |
@@ -550,7 +550,7 @@ output checkStrings bool = firstString < secondString
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | 거짓 |
 
 ## <a name="lessorequals"></a>lessOrEquals
 
@@ -560,7 +560,7 @@ output checkStrings bool = firstString < secondString
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 첫 번째 값입니다. |
 | arg2 |예 |int 또는 문자열 |less 또는 equals 비교에 사용할 두 번째 값입니다. |
@@ -631,7 +631,7 @@ output checkStrings bool = firstString <= secondString
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | False |
+| checkStrings | Bool | 거짓 |
 
 ## <a name="next-steps"></a>다음 단계
 

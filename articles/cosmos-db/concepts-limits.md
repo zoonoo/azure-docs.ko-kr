@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611035"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
@@ -63,14 +63,14 @@ Cosmos 컨테이너(또는 공유 처리량 데이터베이스)의 처리량이 
 **참고:** 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)에 적합 한 경우 저장소의 GB 당 최소 처리량 인 10 r u/초를 낮출 수 있습니다.
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>공유 처리량 데이터베이스의 최소 처리량 
-수동 처리량을 포함 하는 공유 처리량 데이터베이스에 필요한 최소 처리량을 예측 하려면 다음의 최대값을 찾습니다.
+수동 처리량을 포함하는 공유 처리량 데이터베이스에 필요한 최소 처리량을 예측하려면 다음의 최대값을 찾습니다.
 
 * 400RU/s 
 * 현재 저장소 (GB) * 10 r u/초
 * 데이터베이스에 프로 비전 된 최고 r u/초/100
 * 400 + 최대 (컨테이너 수-25, 0) * 100 r u/초
 
-예: 400 r u/초, 15gb의 저장소 및 10 개의 컨테이너로 프로 비전 된 데이터베이스가 있다고 가정 합니다. 최소 r u/s는 `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 r u/초입니다. 데이터베이스에 30 개 컨테이너가 있는 경우 최소 r u/초는 `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 r u/초입니다. 
+예제: 400RU/s, 15GB 스토리지 및 10개의 컨테이너로 프로비저닝된 데이터베이스가 있다고 가정합니다. 최소 r u/s는 `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 r u/초입니다. 데이터베이스에 30 개 컨테이너가 있는 경우 최소 r u/초는 `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 r u/초입니다. 
 
 **참고:** 계정이 ["높은 저장소/낮은 처리량" 프로그램](set-throughput.md#high-storage-low-throughput-program)에 적합 한 경우 저장소의 GB 당 최소 처리량 인 10 r u/초를 낮출 수 있습니다.
 

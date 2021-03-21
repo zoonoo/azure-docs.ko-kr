@@ -8,10 +8,10 @@ ms.date: 03/14/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465779"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>센서 및 온-프레미스 관리 콘솔 문제 해결
@@ -185,7 +185,7 @@ ms.locfileid: "103465779"
 
 1. IoT 사용자에 대 한 Defender로 센서 CLI에 로그인 하 고을 입력 `sudo cyberx-xsense-limit-interface-I eth0 -l value` 합니다.
 
-   예: `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
+   `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
 
    > [!NOTE]
    > 실제 어플라이언스의 경우 em1 인터페이스를 사용 합니다.
@@ -258,7 +258,7 @@ ms.locfileid: "103465779"
 
 1. 내보낼 데이터를 정의 하려면 데이터 범주를 선택 합니다.  
 
-    | 범주 내보내기 | 설명 |
+    | 범주 내보내기 | Description |
     |--|--|
     | **운영 체제 로그** | 운영 체제 상태에 대 한 정보를 가져오려면이 옵션을 선택 합니다. |
     | **설치/업그레이드 로그** | 설치 및 업그레이드 구성 매개 변수를 조사 하려면이 옵션을 선택 합니다. |

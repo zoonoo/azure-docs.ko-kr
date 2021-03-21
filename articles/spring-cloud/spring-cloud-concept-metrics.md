@@ -8,10 +8,10 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 8c375c3dc9f4c5fdb20270797eb55b3a20a6e214
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698283"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 메트릭 이해
@@ -87,15 +87,15 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 다음 표에서는 사용 가능한 메트릭 및 세부 정보를 보여 줍니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 >[!div class="mx-tdCol2BreakAll"]
->| 속성 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat | tomcat | 개수 | 처리 된 요청에서 발생 한 오류 수 |
 
 ### <a name="performance"></a>성능
 >[!div class="mx-tdCol2BreakAll"]
->| 속성 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| 시스템 cpu 사용량 | 시스템 cpu 사용량 | 백분율 | 전체 시스템에 대 한 최근 CPU 사용량 (사용 되지 않으며 사용 하지 않는 것이 좋습니다.) 이 값은 [0.0, 1.0] 간격의 double입니다. 0.0 값은 최근 관찰 된 기간 동안 모든 Cpu가 유휴 상태임을 의미 하 고, 값 1.0은 모든 Cpu가 최근 관찰 되는 기간 동안 100%를 적극적으로 실행 하 고 있음을 의미 합니다.|
 >| 프로세스. cpu 사용량 | 앱 CPU 사용 백분율 | 백분율 | Java Virtual Machine 프로세스에 대 한 최근 CPU 사용량 (사용 되지 않으며 사용 하지 않는 것이 좋습니다.) 이 값은 [0.0, 1.0] 간격의 double입니다. 0.0 값은 최근 관찰 된 기간 동안 JVM 프로세스에서 스레드를 실행 하 고 있던 Cpu가 없음을 의미 하 고, 값 1.0은 모든 Cpu가 최근 관찰 되는 시간 동안 JVM 100%에서 적극적으로 스레드를 실행 하 고 있음을 의미 합니다. JVM의 스레드는 응용 프로그램 스레드와 JVM 내부 스레드를 포함 합니다.|
@@ -113,7 +113,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 ### <a name="performance-net"></a>성능 (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| 속성 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|------|-----------------------------|------|---------|
 >| CPU 사용량       | cpu 사용량      | 백분율      | 모든 시스템 CPU 리소스 (0-100)를 기준으로 한 프로세스의 CPU 사용량 백분율입니다. |
 >| 작업 집합     | 작업 집합    | 메가바이트    | 프로세스에서 사용 하는 작업 집합의 양입니다. |
@@ -139,7 +139,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 ### <a name="request"></a>요청
 >[!div class="mx-tdCol2BreakAll"]
->| 속성 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat | tomcat | 바이트 | Tomcat 웹 서버에서 보낸 데이터의 양 |
 >| tomcat | tomcat | 바이트 | Tomcat 웹 서버에서 받은 데이터의 양 |
@@ -149,7 +149,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 ### <a name="request-net"></a>요청 (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| 속성 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|------|-----------------------------|------|---------|
 >| 초당 요청 | 초당 요청 수 | 개수 | 요청 률입니다. |
 >| 총 요청 수 | total-requests | 개수 | 총 요청 수입니다. |
@@ -160,7 +160,7 @@ Azure 스프링 클라우드는 1 분 마다 업데이트 되는 메트릭을 �
 
 ### <a name="session"></a>세션
 >[!div class="mx-tdCol2BreakAll"]
->| 속성 | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
+>| Name | 스프링 발동기 메트릭 이름 | 단위 | 세부 정보 |
 >|----|----|----|------------|
 >| tomcat. | tomcat. | 개수 | 동시에 활성화 된 최대 세션 수 |
 >| tomcat. | tomcat. | 밀리초 | 만료 된 세션이 활성 이었던 가장 긴 시간 (초) |

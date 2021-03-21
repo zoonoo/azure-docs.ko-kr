@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
 ms.openlocfilehash: 9eda0acc15badfe7bb2e754d887786aa990d6e24
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034968"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역의 상태를 모니터링 합니다.
@@ -54,20 +54,20 @@ Azure Monitor 로그는 문제가 발생 한 작업 영역의 [작업](/azure/az
 
 | 작업 | Level | 세부 정보 | 관련 문서 |
 |:---|:---|:---|:---|
-| 사용자 지정 로그 | Error   | 사용자 지정 필드 열 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 사용자 지정 로그 | Error   | 사용자 지정 로그를 수집 하지 못했습니다. | |
-| 메타데이터입니다. | Error | 구성 오류가 발생 했습니다. | |
-| 데이터 수집 | Error   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached)
+| 사용자 지정 로그 | 오류   | 사용자 지정 필드 열 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| 사용자 지정 로그 | 오류   | 사용자 지정 로그를 수집 하지 못했습니다. | |
+| 메타데이터입니다. | 오류 | 구성 오류가 발생 했습니다. | |
+| 데이터 수집 | 오류   | 요청이 설정 된 기간 (일) 보다 이전에 만들어졌으므로 데이터가 삭제 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | 데이터 수집 | 정보    | 수집 컴퓨터 구성이 검색 되었습니다.| |
 | 데이터 수집 | 정보    | 새 날로 인해 데이터 수집이 시작 되었습니다. | [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | 데이터 수집 | 경고 | 일일 한도에 도달 하 여 데이터 수집이 중지 되었습니다.| [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](./manage-cost-storage.md#alert-when-daily-cap-reached) |
-| 데이터 처리 | Error   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](../logs/data-collector-api.md#request-body) | 
+| 데이터 처리 | 오류   | JSON 형식이 잘못 되었습니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](../logs/data-collector-api.md#request-body) | 
 | 데이터 처리 | 경고 | 값이 최대 허용 크기로 잘렸습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
 | 데이터 처리 | 경고 | 크기 제한에 도달 하 여 필드 값이 잘립니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) | 
 | 수집 율 | 정보 | 수집 비율 제한이 70%에 근접 합니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
 | 수집 율 | 경고 | 수집 속도로 제한에 근접 하 고 있습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 수집 율 | Error   | 속도로 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
-| 스토리지 | Error   | 사용 된 자격 증명이 잘못 되었으므로 저장소 계정에 액세스할 수 없습니다.  |
+| 수집 율 | 오류   | 속도로 제한에 도달 했습니다. | [Azure Monitor 서비스 제한](../service-limits.md#log-analytics-workspaces) |
+| Storage | 오류   | 사용 된 자격 증명이 잘못 되었으므로 저장소 계정에 액세스할 수 없습니다.  |
 
 
 

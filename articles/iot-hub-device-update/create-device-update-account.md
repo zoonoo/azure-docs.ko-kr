@@ -7,19 +7,19 @@ ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.openlocfilehash: a0201882b74d2acf57c246d2dc63530ca8b1f010
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692716"
 ---
-# <a name="device-update-for-iot-hub-resource-management"></a>IoT Hub 리소스 관리용 장치 업데이트
+# <a name="device-update-for-iot-hub-resource-management"></a>IoT Hub 리소스 관리용 디바이스 업데이트
 
 장치 업데이트를 시작 하려면 장치 업데이트 계정 및 인스턴스를 만들고 액세스 제어 역할을 설정 해야 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* IoT Hub에 대 한 액세스. S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
+* IoT Hub에 대한 액세스 권한. S1(표준) 계층 이상을 사용하는 것이 좋습니다. 
 * 지원되는 브라우저:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
 ms.openlocfilehash: 37c24f2d785bbdd9847e0dadaa47969f5b090ef2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698096"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
@@ -97,12 +97,12 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 인스턴스는 **Timeseriesid**, **typeId**, **name**, **description**, **계층 id** 및 **instancefields** 에 의해 정의 됩니다. 각 인스턴스는 한 가지 *유형* 및 하나 이상의 *계층* 에 매핑됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | ---|
 | timeSeriesId | 인스턴스가 연결 된 시계열의 고유 ID입니다. 대부분의 경우 인스턴스는 deviceId 또는 assetId와 같은 속성으로 고유 하 게 식별 됩니다. 경우에 따라 최대 3 개의 속성을 결합 하는 보다 구체적인 복합 ID를 사용할 수 있습니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 유형의 고유 문자열 ID (대/소문자 구분)입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.
 | name | **Name** 속성은 선택 사항이 며 대/소문자를 구분 합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid** 로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](./concepts-ux-panels.md#4-time-series-well) |
-| description | 인스턴스에 대 한 텍스트 설명입니다. |
+| 설명 | 인스턴스에 대 한 텍스트 설명입니다. |
 | 계층 Id | 인스턴스가 속한 계층을 정의 합니다. |
 | instanceFields | 인스턴스 속성 및 인스턴스를 정의 하는 정적 데이터입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다. |
 
@@ -241,7 +241,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 | ---| ---|
 | id | 형식에 대 한 대/소문자를 구분 하는 고유 문자열 ID입니다. |
 | name | 형식의 이름을 제공 하는 데 사용 되는 문자열입니다. |
-| description | 형식에 대 한 문자열 설명입니다. |
+| 설명 | 형식에 대 한 문자열 설명입니다. |
 | variables | 형식과 연결 된 변수를 지정 합니다. |
 
 형식은 다음 JSON 예제를 따릅니다.

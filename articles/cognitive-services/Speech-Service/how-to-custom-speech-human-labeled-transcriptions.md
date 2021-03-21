@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
 ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700034"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>휴먼 레이블 작성 방법
@@ -37,7 +37,7 @@ ms.locfileid: "101700034"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체 | 메모 |
+| 피할 문자 | 대체 | 참고 |
 | ------------------- | ------------ | ----- |
 | "Hello 세계" | "Hello world" | 여는 따옴표와 닫는 따옴표를 적절 한 ASCII 문자로 대체 했습니다. |
 | John의 날 | John의 날 | 아포스트로피를 적절 한 ASCII 문자로 대체 했습니다. |
@@ -94,7 +94,7 @@ ms.locfileid: "101700034"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체   | 메모 |
+| 피할 문자 | 대체   | 참고 |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표를 적절 한 문자로 대체 했습니다. |
 | 需要什么帮助? | 需要什么帮助？| 물음표를 적절 한 문자로 대체 했습니다. |

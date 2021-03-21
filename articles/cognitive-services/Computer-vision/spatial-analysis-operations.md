@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
 ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99981785"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
@@ -23,7 +23,7 @@ ms.locfileid: "99981785"
 
 공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. PersonCount가 정확한 합계를 기록 하도록 하려면 단일 카메라에서 영역을 완전히 검사 해야 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "99981785"
 
 위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -43,7 +43,7 @@ ms.locfileid: "99981785"
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| 작업 식별자| Description|
+| 작업 식별자| 설명|
 |---------|---------|
 | cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
 | cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "99981785"
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
-| 조작 매개 변수| Description|
+| 조작 매개 변수| 설명|
 |---------|---------|
 | OperationID | 위의 테이블에 있는 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
@@ -87,7 +87,7 @@ ms.locfileid: "99981785"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다. do_calibration는 기본적으로 True로 설정 됩니다. |
@@ -95,7 +95,7 @@ ms.locfileid: "99981785"
 | `calibration_quality_check_frequency_seconds` | int | 보정할가 필요한 지 여부를 확인 하기 위해 각 품질 검사 사이의 최소 시간 (초)입니다. 기본값은 `86400` (24 시간)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
 | `calibration_quality_check_sampling_num` | int | 품질 검사 오류 측정 당 사용 하기 위해 임의로 선택 된 저장 된 데이터 샘플 수입니다. 기본값은 `80`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
 | `calibration_quality_check_sampling_times` | int | 품질 검사 당 임의로 선택 된 여러 데이터 샘플 집합에서 오류 측정이 수행 되는 횟수입니다. 기본값은 `5`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | 보정할 및 품질 검사를 위한 새 데이터 샘플 수집 사이의 최소 시간 (초)입니다. 기본값은 `300` (5 분)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | 보정할 및 품질 검사를 위한 새 데이터 샘플 수집 사이의 최소 시간 (초)입니다. 기본값은 `300`(5분)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 컬렉션의 라운드 당 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
 | `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정 될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
 | `recalibration_score` | int | 보정할을 시작 하기 위한 최대 품질 임계값입니다. 기본값은 `75`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다. 보정 품질은 이미지 대상 reprojection 오류와의 역 관계에 따라 계산 됩니다. 2D 이미지 프레임에서 검색 된 대상이 지정 된 경우 대상은 3D 공간에 투영 되 고 기존 카메라 보정 매개 변수를 사용 하 여 2D 이미지 프레임으로 다시 투영 됩니다. 재 프로젝션 오류는 검색 된 대상과 다시 프로젝션 된 대상 사이의 평균 거리 만큼 측정 됩니다.|
@@ -122,7 +122,7 @@ ms.locfileid: "99981785"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -167,7 +167,7 @@ ms.locfileid: "99981785"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `lines` | list| 줄 목록입니다.|
 | `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
@@ -213,7 +213,7 @@ ms.locfileid: "99981785"
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -247,7 +247,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 }
 ```
 
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역의 이름입니다.|
@@ -963,7 +963,7 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| 이름 | Type| Description|
+| Name | Type| 설명|
 |---------|---------|---------|
 | `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size` 해당 작업에 사용할 카메라 수로 설정 되 고, 그렇지 않으면 1로 설정 하 고, `batch_size` 일괄 처리가 지원 되지 않음을 나타내는 기본값 (1)으로 그대로 둡니다. |
 

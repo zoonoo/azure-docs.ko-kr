@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688368"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "101688368"
 
 현재 지원 되는 Kubernetes 서비스 및 배포 목록은 다음과 같습니다.
 
-- AKS(Azure Kubernetes Service)
+- Azure Kubernetes Service(AKS)
 - Azure Stack의 AKS 엔진 (Azure Kubernetes Service Engine)
 - Azure Stack HCI의 Azure Kubernetes Service
 - ARO(Azure RedHat OpenShift)

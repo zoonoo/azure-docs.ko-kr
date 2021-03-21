@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
 ms.openlocfilehash: d4034f889334bcf1e4eaa3710a32db60b6a9936b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94648024"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 교육 하는 랩 설정
@@ -85,7 +85,7 @@ Mac 또는 Chromebook를 사용 하는 학생은 다음 문서의 지침에 따�
 
 다음 섹션에서는 Jupyter 노트북에 연결 하는 이러한 방법에 대 한 세부 정보를 제공 합니다. 
 
-#### <a name="ssh-to-virtual-machine"></a>가상 컴퓨터에 대 한 SSH
+#### <a name="ssh-to-virtual-machine"></a>가상 머신에 SSH로 연결
 학생은 터미널 세션에서 SSH를 통해 Linux Vm에 연결할 수 있습니다. 자세한 단계는 [교실 랩에 액세스 하는 방법](how-to-use-classroom-lab.md)을 참조 하세요. Windows 클라이언트 컴퓨터를 사용 하는 경우 [PuTTY](https://www.putty.org/) 를 다운로드 하거나 명령 프롬프트에서 [windows의 OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse) 를 ssh로 사용 하도록 설정 하 여 ssh 클라이언트를 사용 하도록 설정 해야 합니다. 
 
 1.  VM을 시작합니다.

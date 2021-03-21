@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 9bcf256b6144702254bbff4a57e5ff402abaa962
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99834105"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Linux 또는 Windows에서 실행 되는 IoT 플러그 앤 플레이 bridge 샘플을 IoT Hub에 연결 하는 방법
@@ -20,7 +20,7 @@ ms.locfileid: "99834105"
 
 :::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="Iot 플러그 앤 플레이 bridge의 보고 된 원격 분석 (습도, 온도) 테이블이 있는 Azure IoT 탐색기를 보여 주는 스크린샷":::
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows 또는 Linux의 문서에서 샘플을 실행할 수 있습니다. 이 방법 가이드의 셸 명령은 경로 구분 기호 ' '에 대 한 Windows 규칙 `\` 을 따릅니다. Linux를 따라 이동 하는 경우 ' '에 대해 이러한 구분 기호를 교환 해야 `/` 합니다.
 

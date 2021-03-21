@@ -4,10 +4,10 @@ description: Azure VM 백업에서 파일 및 폴더를 복구할 때 발생 하
 ms.topic: troubleshooting
 ms.date: 07/12/2020
 ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700306"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Azure VM 백업의 파일 복구 문제 해결

@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523603"
 ---
 # <a name="track-sensor-activity"></a>센서 동작 추적
@@ -89,6 +89,6 @@ ms.locfileid: "100523603"
     
       PCAP 파일에는 네트워크 엔지니어가 이벤트의 정확한 매개 변수를 결정 하는 데 도움이 되는 기술 정보가 포함 되어 있습니다. 오픈 소스 응용 프로그램 Wireshark 같은 네트워크 프로토콜 분석기를 사용 하 여 PCAP 파일을 분석할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [경고 보기](how-to-view-alerts.md)
