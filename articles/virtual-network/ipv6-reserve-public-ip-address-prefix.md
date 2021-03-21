@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: ac79e1eb5c4f7448dc17804cd8aac3cba582497e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88509946"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>공용 IPv6 주소 접두사 예약
@@ -87,7 +87,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
- `-PublicIpPrefix`Azure PowerShell를 사용 하 여 공용 ip를 만들 때 인수를 추가 하 여 예약 된 접두사에서 고정 IPv6 공용 ip를 만듭니다. 다음 예에서는 접두사를 만들어 *$MyOwnIPv 6prefix*라는 PowerShell 변수에 저장 했다고 가정 합니다.
+ `-PublicIpPrefix`Azure PowerShell를 사용 하 여 공용 ip를 만들 때 인수를 추가 하 여 예약 된 접두사에서 고정 IPv6 공용 ip를 만듭니다. 다음 예에서는 접두사를 만들어 *$MyOwnIPv 6prefix* 라는 PowerShell 변수에 저장 했다고 가정 합니다.
 
 ```azurepowershell
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \
@@ -102,7 +102,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 
-다음 예에서는 접두사가 생성 되어 *IPv6PrefixWestUS*이라는 CLI 변수에 저장 되어 있다고 가정 합니다.
+다음 예에서는 접두사가 생성 되어 *IPv6PrefixWestUS* 이라는 CLI 변수에 저장 되어 있다고 가정 합니다.
 
 ```azurecli
 az network public-ip create \

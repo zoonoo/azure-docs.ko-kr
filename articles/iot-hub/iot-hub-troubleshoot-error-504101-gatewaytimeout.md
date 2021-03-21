@@ -10,10 +10,10 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
 ms.openlocfilehash: 373acc30ed652a7f540e840dfad5eeeda65ca179
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81759563"
 ---
 # <a name="504101-gatewaytimeout"></a>504101 GatewayTimeout
@@ -22,7 +22,7 @@ ms.locfileid: "81759563"
 
 ## <a name="symptoms"></a>증상
 
-IoT Hub에서 장치에 직접 메서드를 호출 하려고 하면 요청이 실패 하 고 **504101 Gtimeout**오류가 발생 합니다.
+IoT Hub에서 장치에 직접 메서드를 호출 하려고 하면 요청이 실패 하 고 **504101 Gtimeout** 오류가 발생 합니다.
 
 ## <a name="cause"></a>원인
 
@@ -34,7 +34,7 @@ IoT Hub 오류가 발생 하 여 시간 제한이 초과 되기 전에 직접 �
 
 이전 버전의 Azure IoT c # SDK (<1.19.0)를 사용 하는 경우 버그로 인해 장치와 IoT Hub 간의 AMQP 링크를 자동으로 삭제할 수 있습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 ### <a name="solution-1"></a>해결 방법 1
 

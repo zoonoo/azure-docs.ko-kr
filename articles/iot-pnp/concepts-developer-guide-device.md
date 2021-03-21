@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 339ae9a0a799a0a03f1fcf37dadf2e1ffa724243
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 0cca47269e632e1fcba1f8f9eb1c835f27e63059
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028685"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582842"
 ---
 # <a name="iot-plug-and-play-device-developer-guide"></a>IoT 플러그 앤 플레이 장치 개발자 가이드
 
@@ -26,7 +26,7 @@ IoT 플러그 앤 플레이를 사용 하 여 Azure IoT 응용 프로그램에 �
 IoT 플러그 앤 플레이 장치, 모듈 또는 IoT Edge 모듈을 빌드하려면 다음 단계를 수행 합니다.
 
 1. 장치가 MQTT 또는 Websocket을 통한 MQTT 프로토콜을 사용 하 여 Azure IoT Hub에 연결 하는지 확인 합니다.
-1. 장치를 설명 하는 [DTDL (디지털 Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 모델을 만듭니다. 자세히 알아보려면 [IoT 플러그 앤 플레이 모델의 구성 요소 이해](concepts-components.md)를 참조 하세요.
+1. 장치를 설명 하는 [DTDL (디지털 Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 모델을 만듭니다. 자세히 알아보려면 [IoT 플러그 앤 플레이 모델의 구성 요소 이해](concepts-modeling-guide.md)를 참조 하세요.
 1. 장치 연결의 일부로를 알리기 위해 장치 또는 모듈을 업데이트 `model-id` 합니다.
 1. [IoT 플러그 앤 플레이 규칙](concepts-convention.md) 을 사용 하 여 원격 분석, 속성 및 명령 구현
 
@@ -67,8 +67,8 @@ IoT 플러그 앤 플레이 장치, 모듈 또는 IoT Edge 모듈을 빌드하�
 이제 IoT 플러그 앤 플레이 장치 개발에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [DTDL(디지털 쌍 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C 디바이스 SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [C 장치 SDK](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
-- [모델 구성 요소](concepts-components.md)
+- [IoT 플러그 앤 플레이 모델의 구성 요소 이해](concepts-modeling-guide.md)
 - [DTDL authoring tools 설치 및 사용](howto-use-dtdl-authoring-tools.md)
 - [IoT 플러그 앤 플레이 서비스 개발자 가이드](concepts-developer-guide-service.md)

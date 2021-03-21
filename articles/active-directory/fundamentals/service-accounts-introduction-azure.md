@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 049025a5d871f1dd26e5dab498756aa44d2ebfe2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693167"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587868"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Azure 서비스 계정 보안 소개
 
@@ -31,20 +31,20 @@ Azure에서 호스트 되는 서비스의 경우 가능한 경우 관리 되는 
 
 | 서비스 호스팅| 관리 ID| 서비스 사용자| Azure 사용자 계정 |
 | - | - | - | - |
-|서비스는 Azure에서 호스팅됩니다.| 예. <br>서비스의 경우 권장 <br>관리 Id를 지원 합니다.| 예.| 권장되지 않습니다. |
-| 서비스는 Azure에서 호스팅되지 않습니다.| 아니요| 예. 권장됩니다.| 권장되지 않습니다. |
+|서비스는 Azure에서 호스팅됩니다.| 예. <br>서비스의 경우 권장 <br>관리 Id를 지원 합니다.| 예.| 이 옵션은 사용하지 않는 것이 좋습니다. |
+| 서비스는 Azure에서 호스팅되지 않습니다.| 아니요| 예. 권장됩니다.| 이 옵션은 사용하지 않는 것이 좋습니다. |
 | 서비스가 다중 테 넌 트입니다.| 아니요| 예. 권장됩니다.| 아니요. |
 
 
 ## <a name="managed-identities"></a>관리 ID
 
-관리 id는 Azure 리소스에 대 한 id를 제공 하기 위해 만든 보안 Azure Active Directory (Azure AD) id입니다. [관리 id에](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types)는 다음과 같은 두 가지 유형이 있습니다. 
+관리 id는 Azure 리소스에 대 한 id를 제공 하기 위해 만든 보안 Azure Active Directory (Azure AD) id입니다. [관리 id에](../managed-identities-azure-resources/overview.md#managed-identity-types)는 다음과 같은 두 가지 유형이 있습니다. 
  
 * 시스템 할당 관리 id는 서비스 인스턴스에 직접 할당 될 수 있습니다. 
 
 * 사용자 할당 관리 id는 독립 실행형 리소스로 만들 수 있습니다. 
 
-자세한 내용은 [관리 되는 Id 보안](service-accounts-managed-identities.md)을 참조 하세요. 관리 id에 대 한 일반 정보는 [Azure 리소스에 대 한 관리 되는 Id 란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 을 참조 하세요.
+자세한 내용은 [관리 되는 Id 보안](service-accounts-managed-identities.md)을 참조 하세요. 관리 id에 대 한 일반 정보는 [Azure 리소스에 대 한 관리 되는 Id 란?](../managed-identities-azure-resources/overview.md) 을 참조 하세요.
 
 ## <a name="service-principals"></a>서비스 주체
 
@@ -62,11 +62,8 @@ Azure에서 호스트 되는 서비스의 경우 가능한 경우 관리 되는 
 
 Azure 서비스 계정을 보호 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-[관리 되는 id 보안](service-accounts-managed-identities.md)
+[관리 ID 보안](service-accounts-managed-identities.md)
 
-[서비스 사용자 보안](service-accounts-principal.md)
+[서비스 주체 보안](service-accounts-principal.md)
 
 [Azure 서비스 계정 관리](service-accounts-governing-azure.md)
-
-
-

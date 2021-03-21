@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.openlocfilehash: 399e57377a779622aa3073dfd3313cee1db345f8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100583854"
 ---
 # <a name="supported-languages"></a>지원되는 언어
@@ -26,7 +26,7 @@ ms.locfileid: "100583854"
 * [Azure App Service](./azure-web-apps.md)
 * [ASP.NET - 이미 운영 중인 앱용](./monitor-performance-live-website-now.md)
 * 웹 및 작업자 역할을 모두 포함 하는 [Azure Cloud Services](./cloudservices.md)
-* [Azure 기능](../../azure-functions/functions-monitoring.md)
+* [Azure Functions](../../azure-functions/functions-monitoring.md)
 ### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측 (Sdk)
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)

@@ -13,27 +13,27 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
 ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92309675"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 
 지역 가용성 및 데이터 상주는 나머지 Azure에서 Azure AD B2C에 다르게 적용되는 두 가지 매우 다른 개념입니다. 이 문서에서는 이러한 두 개념 간의 차이점을 설명 하 고 Azure와 Azure AD B2C에 적용 되는 방식을 비교 합니다.
 
-Azure AD B2C는 **미국, 유럽 또는 아시아 태평양**의 **데이터 상주** 옵션을 사용 하 여 **전 세계에서 일반적으로 사용할 수 있습니다** .
+Azure AD B2C는 **미국, 유럽 또는 아시아 태평양** 의 **데이터 상주** 옵션을 사용 하 여 **전 세계에서 일반적으로 사용할 수 있습니다** .
 
 [지역 가용성](#region-availability)은 서비스를 사용할 수 있는 위치를 나타냅니다.
 
-[데이터 상주](#data-residency)는 사용자 데이터가 저장된 위치를 나타냅니다.
+[데이터 상주](#data-residency) 는 사용자 데이터가 저장 되는 위치를 나타냅니다.
 
 ## <a name="region-availability"></a>지역 가용성
 
 Azure AD B2C는 Azure 퍼블릭 클라우드를 통해 전 세계에서 사용할 수 있습니다.
 
-이는 일반적으로 *데이터 상주*을 사용 하는 몇 가지 다른 Azure 서비스 *와 모델* 의 차이가 있습니다. Azure의 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지 및 [Azure Active Directory B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에서 이와 같은 예제를 확인할 수 있습니다.
+이는 일반적으로 *데이터 상주* 을 사용 하는 몇 가지 다른 Azure 서비스 *와 모델* 의 차이가 있습니다. Azure의 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지 및 [Azure Active Directory B2C 가격](https://azure.microsoft.com/pricing/details/active-directory-b2c/)에서 이와 같은 예제를 확인할 수 있습니다.
 
 ## <a name="data-residency"></a>데이터 상주
 
@@ -69,13 +69,13 @@ Azure AD B2C는 미국, 유럽 또는 아시아 태평양 지역에 사용자 �
 
 ## <a name="preview-tenant"></a>미리 보기 테넌트
 
-Azure AD B2c의 미리 보기 기간 중에 B2C 테 넌 트를 만든 경우 테 넌 트 **형식이** **미리 보기 테 넌**트 라고 표시 될 수 있습니다.
+Azure AD B2c의 미리 보기 기간 중에 B2C 테 넌 트를 만든 경우 테 넌 트 **형식이** **미리 보기 테 넌** 트 라고 표시 될 수 있습니다.
 
 이 경우 테 넌 트를 개발 및 테스트 목적 으로만 사용 해야 합니다. 프로덕션 응용 프로그램에 미리 보기 테 넌 트를 사용 하지 마세요.
 
 Preview B2C 테 넌 트에서 프로덕션 규모 B2C 테 넌 트로의 **마이그레이션 경로가 없습니다** . 프로덕션 응용 프로그램에 대 한 새 B2C 테 넌 트를 만들어야 합니다.
 
-미리 보기 B2C 테 넌 트를 삭제 하 고 동일한 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들 때 알려진 문제가 있습니다. *다른 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들어야*합니다.
+미리 보기 B2C 테 넌 트를 삭제 하 고 동일한 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들 때 알려진 문제가 있습니다. *다른 도메인 이름으로 프로덕션 규모 B2C 테 넌 트를 만들어야* 합니다.
 
 ![미리 보기 테 넌 트 형식의 스크린샷.](./media/data-residency/preview-b2c-tenant.png)
 

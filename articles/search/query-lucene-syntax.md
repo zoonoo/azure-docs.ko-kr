@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516605"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
@@ -72,7 +72,7 @@ URL에서 안전하지 않은 문자 및 예약된 문자를 모두 인코딩하
 
 쿼리 문자열에 부울 연산자를 포함 하 여 일치 하는 항목의 전체 자릿수를 향상할 수 있습니다. 전체 구문은 문자 연산자 외에도 텍스트 연산자를 지원 합니다. 항상 텍스트 부울 연산자(AND, OR, NOT)는 모두 대문자로 지정합니다.
 
-|텍스트 연산자 | 문자 | 예제 | 사용 |
+|텍스트 연산자 | 문자 | 예제 | 사용량 |
 |--------------|----------- |--------|-------|
 | AND | `&`, `+` | `wifi + luxury` | 일치 항목에 포함 되어야 하는 용어를 지정 합니다. 이 예에서 쿼리 엔진은 및를 모두 포함 하는 문서를 `wifi` 찾습니다 `luxury` . 필요한 조건에는 더하기 문자 ( `+` )가 사용 됩니다. 예를 들어, `+wifi +luxury`는 두 용어가 단일 문서의 필드에 나타나야 한다고 명시합니다.|
 | 또는 | `|` | `wifi | luxury` | 용어 중 하나가 발견 될 때 일치 하는 항목을 찾습니다. 이 예제에서 쿼리 엔진은 또는 둘 다를 포함 하는 문서에 대해 일치 하는 항목을 반환 `wifi` `luxury` 합니다. OR은 기본 결합 연산자이므로 `wifi luxury`가 `wifi | luxury`와 동일한 것처럼 생략할 수도 있습니다.|

@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: e1b8c44f020d18066423eed236018308fe88b607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75650384"
 ---
 # <a name="custom-resource-cache-reference"></a>사용자 지정 리소스 캐시 참조
@@ -176,7 +176,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-요청은 **끝점**으로 전달 **되지** 않습니다.
+요청은 **끝점** 으로 전달 **되지** 않습니다.
 
 Azure 사용자 지정 리소스 공급자 응답:
 
@@ -207,7 +207,7 @@ Authorization: Bearer eyJ0e...
 Content-Type: application/json
 ```
 
-이 요청은 **끝점**으로 전달 **되지** 않습니다.
+이 요청은 **끝점** 으로 전달 **되지** 않습니다.
 
 Azure 사용자 지정 리소스 공급자 응답:
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 939ffc9e2a8fb8ce3a25dc212e3df34dc6bb2ec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88950360"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>방법: Azure AD ID 보호에서 위험 피드백 제공
@@ -33,7 +33,7 @@ Id 보호 검색은 id 위험 관점에서 의심 스러운 활동을 나타내�
 
 Azure AD 위험 피드백을 제공 해야 하는 이유는 여러 가지가 있습니다.
 
-- **AZURE AD의 사용자 또는 로그인 위험 평가가 잘못**되었습니다. 예를 들어 ' 위험한 로그인 ' 보고서에 표시 된 로그인이 무해 하 고 해당 로그인에 대 한 모든 검색은 가양성 이었습니다.
+- **AZURE AD의 사용자 또는 로그인 위험 평가가 잘못** 되었습니다. 예를 들어 ' 위험한 로그인 ' 보고서에 표시 된 로그인이 무해 하 고 해당 로그인에 대 한 모든 검색은 가양성 이었습니다.
 - **AZURE AD의 사용자 또는 로그인 위험 평가가 올바른지 유효성을 검사 했습니다**. 예를 들어 ' 위험한 로그인 ' 보고서에 표시 된 로그인은 정말 악성 이며, 해당 로그인에 대 한 모든 검색이 참 긍정 임을 Azure AD에서 알고 있어야 합니다.
 - **Azure AD ID 보호 외부에서 해당 사용자에 대 한 위험을 재구성** 하 고 사용자의 위험 수준을 업데이트 하려고 합니다.
 

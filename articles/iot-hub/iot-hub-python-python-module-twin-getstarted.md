@@ -10,10 +10,10 @@ ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
 ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92139405"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>IoT Hub 모듈 id 및 모듈 쌍 시작 (Python)
@@ -30,11 +30,11 @@ ms.locfileid: "92139405"
 
 * **UpdateModuleTwinDesiredProperties**-업데이트 된 모듈 쌍 desired 속성을 IoT Hub으로 보냅니다.
 
-* **ReceiveModuleTwinDesiredPropertiesPatch**는 장치에서 모듈 쌍 desired 속성 패치를 수신 합니다.
+* **ReceiveModuleTwinDesiredPropertiesPatch** 는 장치에서 모듈 쌍 desired 속성 패치를 수신 합니다.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
@@ -44,7 +44,7 @@ ms.locfileid: "92139405"
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 id 레지스트리에서 장치를 추가 하 고 해당 장치에 모듈을 추가 하는 백 엔드 서비스를 만듭니다. 이 서비스에는 레지스트리 **읽기**권한도 포함 된 **레지스트리 쓰기** 권한이 필요 합니다. 또한 새로 만든 모듈의 모듈 쌍에 원하는 속성을 추가 하는 서비스를 만듭니다. 이 서비스에는 **서비스 connect** 권한이 필요 합니다. 이러한 권한을 개별적으로 부여 하는 기본 공유 액세스 정책이 있지만이 섹션에서는 이러한 사용 권한을 모두 포함 하는 사용자 지정 공유 액세스 정책을 만듭니다.
+이 문서에서는 id 레지스트리에서 장치를 추가 하 고 해당 장치에 모듈을 추가 하는 백 엔드 서비스를 만듭니다. 이 서비스에는 레지스트리 **읽기** 권한도 포함 된 **레지스트리 쓰기** 권한이 필요 합니다. 또한 새로 만든 모듈의 모듈 쌍에 원하는 속성을 추가 하는 서비스를 만듭니다. 이 서비스에는 **서비스 connect** 권한이 필요 합니다. 이러한 권한을 개별적으로 부여 하는 기본 공유 액세스 정책이 있지만이 섹션에서는 이러한 사용 권한을 모두 포함 하는 사용자 지정 공유 액세스 정책을 만듭니다.
 
 [!INCLUDE [iot-hub-include-find-service-regrw-connection-string](../../includes/iot-hub-include-find-service-regrw-connection-string.md)]
 
@@ -129,7 +129,7 @@ ms.locfileid: "92139405"
     python CreateModule.py
     ```
 
-이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (장치 또는 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 장치 또는 모듈 정보를 검색 하기만 합니다.) 앱은 각 id에 대 한 ID 및 기본 키를 표시 합니다.
+이 앱은 ID가 **myFirstDevice** 인 디바이스 ID와 ID가 **myFirstModule** 인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. (장치 또는 모듈 ID가 이미 id 레지스트리에 있는 경우 코드는 기존 장치 또는 모듈 정보를 검색 하기만 합니다.) 앱은 각 id에 대 한 ID 및 기본 키를 표시 합니다.
 
 > [!NOTE]
 > IoT Hub ID 레지스트리는 디바이스 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 디바이스 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 디바이스에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 디바이스에 대한 enabled/disabled 플래그를 저장합니다. 애플리케이션이 다른 디바이스별 메타데이터를 저장해야 할 경우 애플리케이션별 스토리지를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT hub의 id 레지스트리 이해](iot-hub-devguide-identity-registry.md)를 참조 하세요.
@@ -187,7 +187,7 @@ ms.locfileid: "92139405"
 
 이 섹션에서는 Python 앱을 만들어 장치에서 모듈 쌍 desired 속성 업데이트를 가져옵니다.
 
-1. 모듈 연결 문자열을 가져옵니다. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동 하 고 왼쪽 창에서 **IoT 장치** 를 선택 합니다. 장치 목록에서 **Myfirstdevice** 를 선택 하 고 엽니다. **모듈 id**에서 **myfirstmodule**을 선택 합니다. 모듈 연결 문자열을 복사합니다. 다음 단계에서 필요 합니다.
+1. 모듈 연결 문자열을 가져옵니다. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동 하 고 왼쪽 창에서 **IoT 장치** 를 선택 합니다. 장치 목록에서 **Myfirstdevice** 를 선택 하 고 엽니다. **모듈 id** 에서 **myfirstmodule** 을 선택 합니다. 모듈 연결 문자열을 복사합니다. 다음 단계에서 필요 합니다.
 
    ![Azure Portal 모듈 세부 정보](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 

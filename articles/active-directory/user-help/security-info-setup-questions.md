@@ -12,10 +12,10 @@ ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: 0c55f15d12ddc51573f59f56c742a8cac525af0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83744429"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>보안 질문을 확인 방법으로 설정
@@ -59,15 +59,15 @@ ms.locfileid: "83744429"
 
     ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
+2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보** 를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가** 를 선택합니다.
 
     ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. **방법 추가** 페이지의 드롭다운 목록에서 **본인 확인 질문**을 선택한 다음, **추가**를 선택합니다.
+3. **방법 추가** 페이지의 드롭다운 목록에서 **본인 확인 질문** 을 선택한 다음, **추가** 를 선택합니다.
 
     ![본인 확인 질문이 선택된 방법 추가 상자](media/security-info/securityinfo-myprofile-addquestions.png)
 
-4. **본인 확인 질문** 페이지에서 본인 확인 질문을 선택하고 대답한 다음, **저장**을 선택합니다.
+4. **본인 확인 질문** 페이지에서 본인 확인 질문을 선택하고 대답한 다음, **저장** 을 선택합니다.
 
     ![전화 번호를 추가하고 전화 통화 선택](media/security-info/securityinfo-myprofile-securityquestions.png)
 
@@ -86,7 +86,7 @@ ms.locfileid: "83744429"
 
     ![보안 정보에서 전화 방법을 삭제하기 위한 링크](media/security-info/securityinfo-myprofile-questionsdelete.png)
 
-2. 확인 상자에서 **예**를 선택하여 **본인 확인 질문**을 삭제합니다. 본인 확인 질문이 삭제되면 방법이 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
+2. 확인 상자에서 **예** 를 선택하여 **본인 확인 질문** 을 삭제합니다. 본인 확인 질문이 삭제되면 방법이 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
 ## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 

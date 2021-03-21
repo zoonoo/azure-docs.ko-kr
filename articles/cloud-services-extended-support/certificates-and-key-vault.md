@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7357703af41afc913ef63dff6ecae3d230c9eca0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722656"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583295"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Azure Cloud Services에서 인증서 사용 (확장 지원)
 
@@ -41,7 +41,7 @@ Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하�
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="생성/가져오기 옵션을 선택 하는 이미지가 표시 됩니다.":::
 
-4.  인증서 업로드를 완료 하는 데 필요한 정보를 입력 합니다. 
+4.  인증서 업로드를 완료 하는 데 필요한 정보를 입력 합니다. 인증서가에 있어야 **합니다. PFX** 형식입니다.
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="이미지 Azure Portal의 가져오기 창을 보여 줍니다.":::
 

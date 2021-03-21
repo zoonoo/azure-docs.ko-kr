@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: f8d3dea970d07d951467a44661e12000ba413f72
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96753753"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>마이그레이션을 위해 Windows Server 2003 컴퓨터 준비
@@ -46,7 +46,7 @@ ms.locfileid: "96753753"
 3. VMware VM에 설치 폴더를 복사 합니다.
 4. VM의 명령줄에서를 실행 ```gpedit.msc``` 합니다.
 5. **컴퓨터 구성**  >  **Windows 설정**  >  **스크립트 (시작/종료)** 를 엽니다.
-6. **시작**  >  **Add**  >  **스크립트 이름** 추가에 setup.exe 주소를 입력 합니다.
+6. **시작**  >    >  **스크립트 이름** 추가에 setup.exe 주소를 입력 합니다.
 7. Azure로 마이그레이션한 후에 Azure VM이 처음 시작 될 때 스크립트가 실행 됩니다.
 8. Azure VM을 수동으로 다시 시작 합니다. 부팅 진단에는 다시 시작이 필요 함을 나타내는 팝업이 있습니다.
 9. 스크립트가 실행 되 고 Azure VM에 Hyper-v Integration Services 설치 된 후 시작에서 해당 스크립트를 제거할 수 있습니다.

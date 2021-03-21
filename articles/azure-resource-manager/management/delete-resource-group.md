@@ -2,14 +2,14 @@
 title: 리소스 그룹 및 리소스 삭제
 description: 리소스 그룹 및 리소스를 삭제 하는 방법을 설명 합니다. 리소스 그룹을 삭제할 때 Azure Resource Manager 리소스 삭제를 정렬 하는 방법을 설명 합니다. 응답 코드 및 Resource Manager가 응답 코드를 처리하여 삭제 성공 여부를 확인하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6c38169916cc6c47d6f05c88645fa435bbdb146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 244d59ffc096b5e219e27fd376b07baecde3670e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614413"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587664"
 ---
 # <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>리소스 그룹 및 리소스 삭제 Azure Resource Manager
 
@@ -77,7 +77,7 @@ az group delete --name ExampleResourceGroup
 
 1. [포털](https://portal.azure.com)에서 삭제하려는 리소스 그룹을 선택합니다.
 
-1. **리소스 그룹 삭제**를 선택합니다.
+1. **리소스 그룹 삭제** 를 선택합니다.
 
    ![리소스 그룹 삭제](./media/delete-resource-group/delete-group.png)
 
@@ -111,7 +111,7 @@ az resource delete \
 
 1. [포털](https://portal.azure.com)에서 삭제 하려는 리소스를 선택 합니다.
 
-1. **삭제**를 선택합니다. 다음 스크린샷에서는 가상 컴퓨터에 대 한 관리 옵션을 보여 줍니다.
+1. **삭제** 를 선택합니다. 다음 스크린샷에서는 가상 컴퓨터에 대 한 관리 옵션을 보여 줍니다.
 
    ![리소스 삭제](./media/delete-resource-group/delete-resource.png)
 
@@ -119,6 +119,13 @@ az resource delete \
 
 ---
 
+## <a name="required-access"></a>필요한 액세스
+
+리소스 그룹을 삭제 하려면 **Microsoft .resources/subscription/resourceGroups** 리소스에 대 한 삭제 작업에 대 한 액세스 권한이 있어야 합니다. 리소스 그룹의 모든 리소스에 대 한 삭제도 필요 합니다.
+
+작업 목록은 [Azure 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조 하세요. 기본 제공 역할 목록은 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+
+필요한 액세스 권한이 있지만 삭제 요청이 실패 하는 경우 리소스 그룹에 대 한 [잠금이](lock-resources.md) 있기 때문일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Resource Manager의 Azure Key Vault를 �
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78251810"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Windows에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화 사용 
@@ -27,7 +27,7 @@ ms.locfileid: "78251810"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 **자체 등록** 
 
@@ -37,7 +37,7 @@ ms.locfileid: "78251810"
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. 상태가 *등록*됨이 될 때까지 10 분 정도 기다립니다. 다음 명령을 실행 하 여 상태를 확인할 수 있습니다. 
+2. 상태가 *등록* 됨이 될 때까지 10 분 정도 기다립니다. 다음 명령을 실행 하 여 상태를 확인할 수 있습니다. 
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92103631"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 시작
@@ -29,7 +29,7 @@ Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들고 폴
 Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. 자세한 내용은 [Azure CLI 개요](/cli/azure)를 참조하세요. 전체 명령 및 구문 목록은 [Azure Data Lake Storage Gen1 CL 참조](/cli/azure/dls)에서 확인할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -38,7 +38,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="authentication"></a>인증
 
-이 문서에서는 최종 사용자로 로그인하는 Data Lake Storage Gen1에 보다 간단한 인증 방식을 사용합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 단, Data Lake Storage Gen1을 통해 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증**도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
+이 문서에서는 최종 사용자로 로그인하는 Data Lake Storage Gen1에 보다 간단한 인증 방식을 사용합니다. Data Lake Storage Gen1 계정 및 파일 시스템에 대한 액세스 수준은 로그인한 사용자의 액세스 수준에 따라 결정됩니다. 단, Data Lake Storage Gen1을 통해 인증하는 다른 방법인 **최종 사용자 인증** 또는 **서비스간 인증** 도 있습니다. 지침 및 인증 방법에 대한 자세한 내용은 [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md) 또는 [서비스 간 인증](./data-lake-store-service-to-service-authenticate-using-active-directory.md)을 참조하세요.
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
@@ -59,7 +59,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Azure Data Lake Storage Gen1 계정 만들기
 
-1. 새 리소스 그룹 만들기 다음 명령에서 사용하려는 매개 변수 값을 제공합니다. 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "East US 2"입니다. 
+1. 새 리소스 그룹을 만듭니다. 다음 명령에서 사용하려는 매개 변수 값을 제공합니다. 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "East US 2"입니다. 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
@@ -73,7 +73,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정에 폴더 만들기
 
-Azure Data Lake Storage Gen1 계정에서 폴더를 만들어서 데이터를 관리하고 저장할 수 있습니다. 다음 명령을 사용하여 Data Lake Storage Gen1 계정의 루트에 **mynewfolder**라는 폴더를 만듭니다.
+Azure Data Lake Storage Gen1 계정에서 폴더를 만들어서 데이터를 관리하고 저장할 수 있습니다. 다음 명령을 사용하여 Data Lake Storage Gen1 계정의 루트에 **mynewfolder** 라는 폴더를 만듭니다.
 
 ```azurecli
 az dls fs create --account mydatalakestoragegen1 --path /mynewfolder --folder
@@ -132,13 +132,13 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정에서 데이터 이름 바꾸기, 다운로드 및 삭제 
 
-* **파일의 이름을 바꾸려면**다음 명령을 사용 합니다.
+* **파일의 이름을 바꾸려면** 다음 명령을 사용 합니다.
   
     ```azurecli
     az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-* **파일을 다운로드 하려면**다음 명령을 사용 합니다. 이미 지정한 대상 경로가 있는지 확인합니다.
+* **파일을 다운로드 하려면** 다음 명령을 사용 합니다. 이미 지정한 대상 경로가 있는지 확인합니다.
   
     ```azurecli     
     az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
@@ -149,7 +149,7 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
     > 
     >
 
-* **파일을 삭제하려면**다음 명령을 사용합니다.
+* **파일을 삭제하려면** 다음 명령을 사용합니다.
   
     ```azurecli
     az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv

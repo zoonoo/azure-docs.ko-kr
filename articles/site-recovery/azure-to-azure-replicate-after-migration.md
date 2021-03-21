@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: a71e476a214c44514c7d57c54a09a38218ad6d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86135670"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
@@ -46,7 +46,7 @@ ms.locfileid: "86135670"
 에이전트가 설치 되어 있는지 확인 하려면 다음을 수행 합니다.
 
 1. Azure VM의 C:\WindowsAzure\Packages 폴더에 WaAppAgent.exe 파일이 표시되어야 합니다.
-2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성**에서 **세부 정보** 탭을 선택합니다.
+2. 파일을 마우스 오른쪽 단추로 클릭하고 **속성** 에서 **세부 정보** 탭을 선택합니다.
 3. **제품 버전** 필드에 2.6.1198.718 이상이 표시되는지 확인합니다.
 
 Windows 용 에이전트 설치에 대해 [자세히 알아보세요](../virtual-machines/extensions/agent-windows.md) .
@@ -72,11 +72,11 @@ Windows 용 에이전트 설치에 대해 [자세히 알아보세요](../virtual
 ## <a name="uninstall-the-mobility-service"></a>모바일 서비스 설치 제거
 
 1. 다음 방법 중 하나를 사용 하 여 Azure VM에서 모바일 서비스를 수동으로 제거 합니다. 
-    - Windows의 경우 제어판 > **프로그램 추가/제거**에서 **Microsoft Azure Site Recovery 모바일 서비스/마스터 대상 서버**를 제거합니다. 관리자 권한의 명령 프롬프트에서 다음을 실행합니다.
+    - Windows의 경우 제어판 > **프로그램 추가/제거** 에서 **Microsoft Azure Site Recovery 모바일 서비스/마스터 대상 서버** 를 제거합니다. 관리자 권한의 명령 프롬프트에서 다음을 실행합니다.
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - Linux의 경우 루트 사용자로 로그인합니다. 터미널에서 **/user/local/ASR**로 이동하여 다음 명령을 실행합니다.
+    - Linux의 경우 루트 사용자로 로그인합니다. 터미널에서 **/user/local/ASR** 로 이동하여 다음 명령을 실행합니다.
         ```
         ./uninstall.sh -Y
         ```

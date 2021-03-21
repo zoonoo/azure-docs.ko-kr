@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 4c1243d5d9122539466e94b6bbfdd5ced588e69a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934908"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Azure Cognitive Search의 OData 컬렉션 연산자- `any` 및 `all`
@@ -60,9 +60,9 @@ lambda_expression ::= identifier ':' boolean_expression
   - 를 사용 하는 식은 `any` `true` 컬렉션의 요소 중 하나 이상에 대해 조건자가 true 인 경우를 반환 합니다.
 - 컬렉션 필터의 세 번째 형태는 `any` 컬렉션 필드가 비어 있는지 여부를 테스트 하기 위해 람다 식 없이를 사용 합니다. 컬렉션에 요소가 있으면를 반환 `true` 합니다. 컬렉션이 비어 있으면를 반환 `false` 합니다.
 
-컬렉션 필터의 **람다 식은** 프로그래밍 언어의 루프 본문과 같습니다. 반복 하는 동안 컬렉션의 현재 요소를 보유 하는 **범위 변수**라고 하는 변수를 정의 합니다. 또한 컬렉션의 각 요소에 대 한 범위 변수에 적용할 필터 기준이 되는 또 다른 부울 식을 정의 합니다.
+컬렉션 필터의 **람다 식은** 프로그래밍 언어의 루프 본문과 같습니다. 반복 하는 동안 컬렉션의 현재 요소를 보유 하는 **범위 변수** 라고 하는 변수를 정의 합니다. 또한 컬렉션의 각 요소에 대 한 범위 변수에 적용할 필터 기준이 되는 또 다른 부울 식을 정의 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 해당 필드에 `tags` "wifi" 문자열이 정확히 포함 된 문서를 찾습니다.
 

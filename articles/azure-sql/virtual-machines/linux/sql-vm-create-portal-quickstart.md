@@ -11,10 +11,10 @@ ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: fd5c289f2b441b5862d863d9a390a1cd054acbfa
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92790154"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Azure Portal에서 SQL Server를 실행하는 Linux 가상 머신 프로비전
@@ -70,23 +70,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **가상 머신 이름** 에서 새 Linux VM에 사용할 이름을 입력합니다.
 1. 그런 다음, 다음 값을 입력하거나 선택합니다.
-   * **지역** : 적합한 Azure 지역을 선택합니다.
-   * **가용성 옵션** : 앱과 데이터에 가장 적합한 가용성 및 중복성 옵션을 선택합니다.
-   * **크기 변경** : 이 옵션을 선택하여 머신 크기를 고르고 완료하면 **선택** 을 누릅니다. VM 머신 크기에 대한 자세한 내용은 [VM 크기](../../../virtual-machines/sizes.md)를 참조하세요.
+   * **지역**: 적합한 Azure 지역을 선택합니다.
+   * **가용성 옵션**: 앱과 데이터에 가장 적합한 가용성 및 중복성 옵션을 선택합니다.
+   * **크기 변경**: 이 옵션을 선택하여 머신 크기를 고르고 완료하면 **선택** 을 누릅니다. VM 머신 크기에 대한 자세한 내용은 [VM 크기](../../../virtual-machines/sizes.md)를 참조하세요.
 
      ![VM 크기 선택](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
    > [!TIP]
    > 개발 및 기능 테스트의 경우 **DS2** 이상인 VM 크기를 사용합니다. 성능 테스트에 **DS13** 이상을 사용하는 것이 좋습니다.
 
-   * **인증 형식** : **SSH 공개 키** 를 선택합니다.
+   * **인증 형식**: **SSH 공개 키** 를 선택합니다.
 
      > [!Note]
      > 인증을 위해 SSH 공개 키를 사용할지 아니면 암호를 사용할지 선택할 수 있습니다. SSH는 더 안전합니다. SSH 키를 생성하는 방법에 대한 지침은 [Azure의 Linux VM용 Linux 및 Mac에서 SSH 키 만들기](../../../virtual-machines/linux/mac-create-ssh-keys.md)를 참조하세요.
 
-   * **사용자 이름** : VM에 사용할 관리자 이름을 입력합니다.
-   * **SSH 공개 키** : RSA 공개 키를 입력합니다.
-   * **공용 인바운드 포트** : **선택한 포트 허용** 을 선택하고 **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 포트를 선택합니다. 이 빠른 시작에서 SQL Server 구성을 연결하고 완료하려면 이 단계가 필요합니다. SQL Server에 원격으로 연결하려면 가상 머신을 만든 후 인터넷을 통한 연결을 위해 Microsoft SQL Server에서 사용하는 기본 포트(1433)로의 트래픽을 수동으로 허용해야 합니다.
+   * **사용자 이름**: VM에 사용할 관리자 이름을 입력합니다.
+   * **SSH 공개 키**: RSA 공개 키를 입력합니다.
+   * **공용 인바운드 포트**: **선택한 포트 허용** 을 선택하고 **공용 인바운드 포트 선택** 목록에서 **SSH(22)** 포트를 선택합니다. 이 빠른 시작에서 SQL Server 구성을 연결하고 완료하려면 이 단계가 필요합니다. SQL Server에 원격으로 연결하려면 가상 머신을 만든 후 인터넷을 통한 연결을 위해 Microsoft SQL Server에서 사용하는 기본 포트(1433)로의 트래픽을 수동으로 허용해야 합니다.
 
      ![인바운드 포트](./media/sql-vm-create-portal-quickstart/port-settings.png)
 

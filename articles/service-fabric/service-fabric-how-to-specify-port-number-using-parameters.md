@@ -4,10 +4,10 @@ description: 매개 변수를 사용하여 Service Fabric에서 애플리케이�
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: ba2fb459dc9c981ad168aca4d0edf969650ccf48
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96576709"
 ---
 # <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Service Fabric에서 매개 변수를 사용하여 서비스의 포트 번호를 지정하는 방법

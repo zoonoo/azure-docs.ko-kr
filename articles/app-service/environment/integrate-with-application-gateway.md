@@ -8,10 +8,10 @@ ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3b73d528802a8aa33c6122eaf5edfa9d046b6753
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962080"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
@@ -40,7 +40,7 @@ Application Gateway를 ILB App Service Environment와 통합하려면 다음이 
 * ILB App Service Environment
 * ILB App Service Environment에서 실행되는 앱
 * ILB App Service Environment의 앱에서 사용할 인터넷 라우팅 가능 도메인 이름
-* ILB App Service Environment에서 사용하는 ILB 주소 이 정보는 App Service Environment 포털의 **설정**  >  **IP 주소**아래에 있습니다.
+* ILB App Service Environment에서 사용하는 ILB 주소 이 정보는 App Service Environment 포털의 **설정**  >  **IP 주소** 아래에 있습니다.
 
     ![ILB App Service Environment에서 사용하는 IP 주소의 예제 목록][9]
     
@@ -56,49 +56,49 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
 ## <a name="configuration-steps"></a>구성 단계 ##
 
-1. Azure Portal에서 **새**  >  **네트워크**  >  **Application Gateway**로 이동 합니다.
+1. Azure Portal에서 **새**  >  **네트워크**  >  **Application Gateway** 로 이동 합니다.
 
 2. **기본 사항** 영역에서 다음을 수행합니다.
 
-   a. **이름**에 Application Gateway의 이름을 입력합니다.
+   a. **이름** 에 Application Gateway의 이름을 입력합니다.
 
-   b. **계층**에 대해 **WAF**를 선택합니다.
+   b. **계층** 에 대해 **WAF** 를 선택합니다.
 
-   다. **구독**에 대해 App Service Environment 가상 네트워크에서 사용하는 동일한 구독을 선택합니다.
+   다. **구독** 에 대해 App Service Environment 가상 네트워크에서 사용하는 동일한 구독을 선택합니다.
 
-   d. **리소스 그룹**에 대해 리소스 그룹을 만들거나 선택합니다.
+   d. **리소스 그룹** 에 대해 리소스 그룹을 만들거나 선택합니다.
 
-   e. **위치**에 대해 App Service Environment 가상 네트워크의 위치를 선택합니다.
+   e. **위치** 에 대해 App Service Environment 가상 네트워크의 위치를 선택합니다.
 
    ![새 Application Gateway 만들기 기본 사항][2]
 
 3. **설정** 영역에서 다음을 수행합니다.
 
-   a. **가상 네트워크**에 대해 App Service Environment 가상 네트워크를 선택합니다.
+   a. **가상 네트워크** 에 대해 App Service Environment 가상 네트워크를 선택합니다.
 
-   b. **서브넷**에 대해 Application Gateway를 배포해야 하는 서브넷을 선택합니다. VPN Gateway를 만들 수 없게 하므로 GatewaySubnet은 사용하지 마세요.
+   b. **서브넷** 에 대해 Application Gateway를 배포해야 하는 서브넷을 선택합니다. VPN Gateway를 만들 수 없게 하므로 GatewaySubnet은 사용하지 마세요.
 
-   다. **IP 주소 유형**으로 **공용**을 선택합니다.
+   다. **IP 주소 유형** 으로 **공용** 을 선택합니다.
 
-   d. **공용 IP 주소**에 대해 공용 IP 주소를 선택합니다. 공용 IP 주소가 없으면 하나 만듭니다.
+   d. **공용 IP 주소** 에 대해 공용 IP 주소를 선택합니다. 공용 IP 주소가 없으면 하나 만듭니다.
 
-   e. **프로토콜**로 **HTTP** 또는 **HTTPS**를 선택합니다. HTTPS를 구성하려면 PFX 인증서를 제공해야 합니다.
+   e. **프로토콜** 로 **HTTP** 또는 **HTTPS** 를 선택합니다. HTTPS를 구성하려면 PFX 인증서를 제공해야 합니다.
 
-   f. **웹 애플리케이션 방화벽**에 대해 방화벽을 사용하도록 설정하고, **검색** 또는 **방지**에 대해서도 적합하게 설정할 수 있습니다.
+   f. **웹 애플리케이션 방화벽** 에 대해 방화벽을 사용하도록 설정하고, **검색** 또는 **방지** 에 대해서도 적합하게 설정할 수 있습니다.
 
    ![새 Application Gateway 만들기 설정][3]
     
-4. **요약** 섹션에서 설정을 검토하고 **확인**을 선택합니다. Application Gateway에서 설정을 완료하는 데 30분 정도 걸릴 수 있습니다.  
+4. **요약** 섹션에서 설정을 검토하고 **확인** 을 선택합니다. Application Gateway에서 설정을 완료하는 데 30분 정도 걸릴 수 있습니다.  
 
-5. Application Gateway에서 설정을 완료하면 Application Gateway 포털로 이동합니다. **백 엔드 풀**을 선택합니다. ILB App Service Environment에 대한 ILB 주소를 추가합니다.
+5. Application Gateway에서 설정을 완료하면 Application Gateway 포털로 이동합니다. **백 엔드 풀** 을 선택합니다. ILB App Service Environment에 대한 ILB 주소를 추가합니다.
 
    ![백 엔드 풀 구성][4]
 
-6. 백 엔드 풀 구성 프로세스가 완료되면 **상태 프로브**를 선택합니다. 앱에 사용하려는 도메인 이름에 대한 상태 프로브를 만듭니다. 
+6. 백 엔드 풀 구성 프로세스가 완료되면 **상태 프로브** 를 선택합니다. 앱에 사용하려는 도메인 이름에 대한 상태 프로브를 만듭니다. 
 
    ![상태 프로브 구성][5]
     
-7. 상태 프로브 구성 프로세스가 완료되면 **HTTP 설정**을 선택합니다. 기존 설정을 편집하고, **사용자 지정 프로브 사용**을 선택한 후 구성한 프로브를 선택합니다.
+7. 상태 프로브 구성 프로세스가 완료되면 **HTTP 설정** 을 선택합니다. 기존 설정을 편집하고, **사용자 지정 프로브 사용** 을 선택한 후 구성한 프로브를 선택합니다.
 
    ![HTTP 설정 구성][6]
     
@@ -106,7 +106,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    ![Application Gateway 포털][7]
 
-9. ILB App Service Environment에서 앱에 대한 사용자 지정 도메인 이름을 설정합니다. 포털에서 앱으로 이동 하 고 **설정**아래에서 **사용자 지정 도메인**을 선택 합니다.
+9. ILB App Service Environment에서 앱에 대한 사용자 지정 도메인 이름을 설정합니다. 포털에서 앱으로 이동 하 고 **설정** 아래에서 **사용자 지정 도메인** 을 선택 합니다.
 
    ![앱에 사용자 지정 도메인 이름 설정][8]
 

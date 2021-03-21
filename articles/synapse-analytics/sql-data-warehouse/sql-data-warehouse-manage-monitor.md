@@ -12,17 +12,17 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
 ms.openlocfilehash: 62064eaae6aa7fb3438845170497035473227d30
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98685211"
 ---
 # <a name="monitor-your-azure-synapse-analytics-dedicated-sql-pool-workload-using-dmvs"></a>Dmv를 사용 하 여 Azure Synapse Analytics 전용 SQL 풀 워크 로드 모니터링
 
 이 문서에서는 Dmv (동적 관리 뷰)를 사용 하 여 SQL 풀에서 쿼리 실행을 조사 하는 작업을 비롯 한 작업을 모니터링 하는 방법을 설명 합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 이 문서에서 Dmv를 쿼리하려면 **VIEW DATABASE STATE** 또는 **CONTROL** 권한이 필요 합니다. 일반적으로 **뷰 데이터베이스 상태** 를 부여 하는 것은 매우 제한적 이기 때문에 기본 설정 된 사용 권한입니다.
 

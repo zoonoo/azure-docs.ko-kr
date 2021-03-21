@@ -2,21 +2,21 @@
 title: 관리 효율성 및 모니터링-개요
 description: Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 리소스 사용률, 로그 및 쿼리 작업, 권장 사항 및 데이터 보호 (백업 및 복원)에 대 한 모니터링 및 관리 효율성 개요.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/27/2018
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4792842eddac3e8082be2d3a67736824a02dfebd
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 56ec38140d53788de7cc94f3cb6046177ad2bed4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317502"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585471"
 ---
 # <a name="manageability-and-monitoring-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀을 사용한 관리 효율성 및 모니터링
 

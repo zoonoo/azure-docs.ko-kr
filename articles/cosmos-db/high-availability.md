@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: f22d97f8a4ab5e5b6e275c405cce523e8a7b8e72
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fd704d45aa7dc10835a205f12ce26fc01a7ea44f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656553"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584502"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Azure Cosmos DB에서 고가용성을 제공 하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -69,12 +69,14 @@ Azure Cosmos DB 처리량, 99 번째 백분위 수의 대기 시간, 일관성 �
 
 * Azure Cosmos 계정에 **자동 장애 조치 (failover)** 를 구성 하는 경우 azure Cosmos 계정은 쓰기 지역 가동 중단 중에 자동으로 보조 지역을 새 주 쓰기 지역으로 승격 합니다. 사용 하도록 설정 하면 지정한 지역 우선 순위에 따라 다른 지역으로 장애 조치 (failover)가 수행 됩니다.
 
+* 수동 장애 조치 (failover)는 트리거되지 않으며 원본 또는 대상 지역이 중단 되는 경우에는 성공 하지 않습니다. 이는 장애 조치 (failover) 절차에서 지역 간에 연결을 요구 하는 일관성 확인을 수행 하기 때문입니다.
+
 * 이전에 영향을 받은 지역이 다시 온라인 상태가 되 면 해당 지역이 실패 했을 때 복제 되지 않은 모든 쓰기 데이터는 [충돌 피드](how-to-manage-conflicts.md#read-from-conflict-feed)를 통해 사용할 수 있게 됩니다. 응용 프로그램은 충돌 피드를 읽고, 응용 프로그램별 논리에 따라 충돌을 해결 하 고, 업데이트 된 데이터를 적절 하 게 Azure Cosmos 컨테이너에 다시 쓸 수 있습니다.
 
 * 이전에 영향을 받는 쓰기 지역이 복구되고 나면, 자동으로 읽기 지역으로 사용할 수 있게 됩니다. 쓰기 지역으로 복구 된 지역으로 다시 전환할 수 있습니다. [PowerShell, Azure CLI 또는 Azure Portal](how-to-manage-database-account.md#manual-failover)를 사용 하 여 지역을 전환할 수 있습니다. 쓰기 지역을 전환 하 고 응용 프로그램의 가용성이 계속 유지 되기 전에는 **데이터 나 가용성 손실이 발생 하지** 않습니다.
 
 > [!IMPORTANT]
-> **자동 장애 조치 (failover)를 사용 하도록 설정** 하려면 프로덕션 워크 로드에 사용 되는 Azure Cosmos 계정을 구성 하는 것이 좋습니다. 장애 조치 (failover) 중에 데이터 손실이 발생 하지 않도록 수동 장애 조치 (failover)를 수행 하려면 보조 및 기본 쓰기 지역 간의 연결이 필요 합니다. 주 지역을 사용할 수 없는 경우이 일관성 검사를 완료할 수 없으며 수동 장애 조치 (failover)가 실패 하 여 지역 가동 중단 시간에 대 한 쓰기 가용성이 손실 됩니다.
+> **자동 장애 조치 (failover)를 사용 하도록 설정** 하려면 프로덕션 워크 로드에 사용 되는 Azure Cosmos 계정을 구성 하는 것이 좋습니다. 이를 통해 Cosmos DB는 계정 데이터베이스를 자동으로 사용 가능한 지역으로 장애 조치 (failover) 할 수 있습니다. 이 구성이 없는 경우 지역 연결이 부족 하 여 수동 장애 조치 (failover)가 성공 하지 않으므로 계정에 쓰기 지역 가동 중단 시간에 대 한 쓰기 가용성이 손실 됩니다.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>단일 쓰기 지역이 있는 다중 지역 계정 (읽기 영역 중단)
 
@@ -138,7 +140,22 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 
 * Azure Cosmos 계정을 항상 사용할 수 있는 경우에도 응용 프로그램이 항상 사용 가능한 상태로 유지 되도록 올바르게 설계 되지 않았을 수 있습니다. 응용 프로그램 테스트 또는 DR (재해 복구) 드릴의 일부로 응용 프로그램의 종단 간 고가용성을 테스트 하려면 계정에 대해 자동 장애 조치 (failover)를 일시적으로 사용 하지 않도록 설정 하 고 [PowerShell, Azure CLI 또는 Azure Portal를 사용 하 여 수동 장애](how-to-manage-database-account.md#manual-failover)조치 (failover)를 호출한 다음 응용 프로그램의 장애 조치 (failover)를 모니터링 합니다. 완료 되 면 주 지역으로 장애 복구 (failback) 하 고 계정에 대 한 자동 장애 조치 (failover)를 복원할 수 있습니다.
 
+> [!IMPORTANT]
+> 원본 또는 대상 지역에서 Cosmos DB 중단 시 수동 장애 조치 (failover)를 호출 하지 마십시오. 데이터 일관성을 유지 하기 위해 지역 연결이 필요 하 고 성공 하지 않습니다.
+
 * 전역적으로 분산 된 데이터베이스 환경 내에서는 지역 전체 중단이 발생 했을 때 일관성 수준 및 데이터 내 구성을 직접 관계가 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다. Azure Cosmos DB의 RPO 및 RTO를 확인하려면 [일관성 수준 및 데이터 내구성](./consistency-levels.md#rto)을 참조하세요.
+
+## <a name="what-to-expect-during-a-region-outage"></a>지역 가동 중단 중에 발생할 수 있는 작업
+
+단일 지역 계정의 경우 클라이언트에서 읽기 및 쓰기 가용성을 잃게 됩니다.
+
+다중 지역 계정은 다음 표에 따라 다양 한 동작을 발생 합니다.
+
+| 지역 쓰기 | 자동 장애 조치(automatic failover) | 필요한 항목 | 알아두어야 할 사항 |
+| -- | -- | -- | -- |
+| 단일 쓰기 지역 | 사용 안 함 | 읽기 지역에서 가동 중단이 발생 하는 경우 모든 클라이언트는 다른 지역으로 리디렉션됩니다. 읽기 또는 쓰기 가용성이 손실 되지 않습니다. 데이터가 손실되지 않습니다. <p/> 쓰기 지역에서 가동 중단이 발생 하는 경우 클라이언트는 쓰기 가용성 손실이 발생 합니다. 데이터 손실은 선택한 constistency 수준에 따라 달라 집니다. <p/> 가동 중단이 종료 되 면 자동으로 쓰기 가용성을 복원 Cosmos DB 합니다. | 가동 중단 중에는 읽기 트래픽을 지원 하기 위해 남은 지역에 프로 비전 된 용량이 충분 한지 확인 합니다. <p/> 장애 조치 (failover) 중에는 수동 장애 조치 (failover) *를 트리거하지 않습니다* . <p/> 중단이 발생 하면 프로 비전 된 용량을 적절 하 게 다시 조정 합니다. |
+| 단일 쓰기 지역 | 사용 | 읽기 지역에서 가동 중단이 발생 하는 경우 모든 클라이언트는 다른 지역으로 리디렉션됩니다. 읽기 또는 쓰기 가용성이 손실 되지 않습니다. 데이터가 손실되지 않습니다. <p/> 쓰기 지역에서 가동 중단이 발생 하는 경우 클라이언트는 기본 설정에 따라 새 영역을 새 쓰기 지역으로 자동으로 다시 입력 Cosmos DB 하기 전까지 쓰기 가용성 손실이 발생 합니다. 데이터 손실은 선택한 constistency 수준에 따라 달라 집니다. | 가동 중단 중에는 읽기 트래픽을 지원 하기 위해 남은 지역에 프로 비전 된 용량이 충분 한지 확인 합니다. <p/> 장애 조치 (failover) 중에는 수동 장애 조치 (failover) *를 트리거하지 않습니다* . <p/> 중단이 발생 하면 충돌 하는 지역에서 복제 되지 않은 데이터를 [충돌 피드에서](how-to-manage-conflicts.md#read-from-conflict-feed)복구 하 고, 쓰기 영역을 원래 지역으로 다시 이동 하 고, 프로 비전 된 용량을 적절 하 게 다시 조정할 수 있습니다. |
+| 여러 쓰기 지역 | 해당 사항 없음 | 읽기 또는 쓰기 가용성이 손실 되지 않습니다. <p/> 선택한 일관성 수준에 따라 데이터 손실이 발생 했습니다. | 가동 중단 중에 추가 트래픽을 지원 하기 위해 남은 지역에 충분 한 용량이 프로 비전 되어 있는지 확인 합니다. <p/> 중단이 발생 하면 충돌 하는 지역에서 복제 되지 않은 데이터를 [충돌 피드에서](how-to-manage-conflicts.md#read-from-conflict-feed) 복구 하 고 적절히 프로 비전 된 용량을 다시 조정할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

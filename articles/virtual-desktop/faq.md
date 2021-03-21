@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613972"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582139"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
@@ -110,7 +110,7 @@ Windows 가상 데스크톱은 현재 팀에 최적화 되어 있습니다. Micr
 
 FSLogix의 제한 또는 할당량은 사용자 프로필 VHD (X) 파일을 저장 하는 데 사용 되는 저장소 패브릭에 따라 다릅니다.
 
-다음 표에서는 FSLogix 프로필에서 각 사용자를 지 원하는 데 필요한 리소스의 예를 보여 줍니다. 요구 사항은 각 프로필의 사용자, 응용 프로그램 및 작업에 따라 크게 달라질 수 있습니다.
+다음 표에서는 FSLogix 프로필에서 각 사용자를 지 원하는 데 필요한 IOPS 수를 보여 줍니다. 요구 사항은 각 프로필의 사용자, 응용 프로그램 및 작업에 따라 크게 달라질 수 있습니다.
 
 | 리소스 | 요구 사항 |
 |---|---|
@@ -152,10 +152,10 @@ Vm에 사용 해야 하는 가용성 옵션은 이미지의 위치 및 관리 �
 | Availability 옵션 | 이미지 위치 | 관리 디스크 사용 옵션 단추 (라디오 단추) |
 |---|---|---|
 | 없음 | 갤러리 | 기본값으로 "예"를 사용 하지 않도록 설정 |
-| 없음 | Blob Storage | 기본값으로 "아니요" 사용 |
+| 없음 | Blob 스토리지 | 기본값으로 "아니요" 사용 |
 | 가용성 영역 | 갤러리 (blob 저장소 옵션 사용 안 함) | 기본값으로 "예"를 사용 하지 않도록 설정 |
 | 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | 갤러리 | 기본값으로 "예"를 사용 하지 않도록 설정 |
-| 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | Blob Storage | 기본값으로 "아니요" 사용 |
+| 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | Blob 스토리지 | 기본값으로 "아니요" 사용 |
 | 관리 되는 SKU를 사용 하는 가용성 집합 (관리 디스크) | Blob 저장소 (갤러리 옵션 사용 안 함) | 기본값으로 "아니요"를 사용 하 여 사용 안 함 |
 | 가용성 집합 (사용자가 새로 만듦) | 갤러리 | 기본값으로 "예"를 사용 하지 않도록 설정 |
-| 가용성 집합 (사용자가 새로 만듦) | Blob Storage | 기본값으로 "아니요" 사용 |
+| 가용성 집합 (사용자가 새로 만듦) | Blob 스토리지 | 기본값으로 "아니요" 사용 |
