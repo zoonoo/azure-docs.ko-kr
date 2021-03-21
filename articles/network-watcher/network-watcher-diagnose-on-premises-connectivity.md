@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: a5db1ac9c70429d4b6a0b690de1b29c3656b3cc8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3b8b53446799eec3473d63c89672393a35f9787a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016714"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670958"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
@@ -34,11 +34,11 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 온-프레미스 VPN Gateway로 FortiGate를 사용하여 Azure와 온-프레미스 간에 사이트 간 연결을 구성하려고 합니다. 이 시나리오를 달성하려면 다음 설치 프로그램이 필요합니다.
 
 1. Virtual Network 게이트웨이 - Azure의 VPN Gateway
-1. 로컬 네트워크 게이트웨이 - Azure 클라우드에서 [온-프레미스(FortiGate) VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 표현
-1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection)
+1. 로컬 네트워크 게이트웨이 - Azure 클라우드에서 [온-프레미스(FortiGate) VPN Gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway) 표현
+1. 사이트 간 연결(경로 기반) - [VPN Gateway와 온-프레미스 라우터 간의 연결](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection)
 1. [FortiGate 구성](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
-사이트 간 구성에 대한 자세한 단계별 지침은 [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 방문하여 찾을 수 있습니다.
+사이트 간 구성에 대한 자세한 단계별 지침은 [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/tutorial-site-to-site-portal.md)를 방문하여 찾을 수 있습니다.
 
 중요한 구성 단계 중 하나는 IPsec 통신 매개 변수를 구성하는 것이며 모든 잘못된 구성은 온-프레미스 네트워크와 Azure 간의 연결 손실로 이어집니다. 현재 Azure VPN Gateway는 1단계에 대해 다음 IPsec 매개 변수를 지원하도록 구성됩니다. 다음 표에서 볼 수 있듯이 Azure VPN Gateway에서 지원하는 암호화 알고리즘은 AES256, AES128 및 3DES입니다.
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 47e145c5d96ba54b02f5453ff97d16dec302eabd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493512"
 ---
 <!-- markdownlint-disable MD024 -->
@@ -51,7 +51,7 @@ ms.locfileid: "103493512"
 
 ## <a name="november-2020"></a>2020년 11월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 **이제 폼 인식기 v 2.1 공개 미리 보기 2를 사용할 수 있습니다.** 다음 기능을 포함 하 여 v 2.1-preview. 2가 릴리스 되었습니다. 
 
@@ -83,7 +83,7 @@ ms.locfileid: "103493512"
 
 ## <a name="august-2020"></a>2020년 8월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 **이제 폼 인식기 v 2.1 공개 미리 보기를 사용할 수 있습니다.** V 2.1-preview. 1은 다음과 같은 기능을 포함 하 여 릴리스 되었습니다. 
 
@@ -109,7 +109,7 @@ ms.locfileid: "103493512"
 
 ## <a name="july-2020"></a>2020년 7월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 <!-- markdownlint-disable MD004 -->
 * v2.0 **참조 사용 가능** - [.net](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme)및 [JavaScript](/javascript/api/overview/azure/)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 확인 합니다.
 * **테이블 향상 및 추출 향상** -향상 된 정확도 및 테이블 추출 향상 된 기능, 특히 _레이블 없이 사용자 지정 학습_ 에서 테이블 헤더와 구조를 학습 하는 기능을 포함 합니다. 
@@ -122,7 +122,7 @@ ms.locfileid: "103493512"
 
 ## <a name="june-2020"></a>2020년 6월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **클라이언트 sdk에 추가 된 Copymodel API** -이제 클라이언트 sdk를 사용 하 여 한 구독에서 다른 구독으로 모델을 복사할 수 있습니다. 이 기능에 대 한 일반 정보는 [모델 백업 및 복구](./disaster-recovery.md) 를 참조 하세요.
 * **Azure Active Directory 통합** -이제 Azure AD 자격 증명을 사용 하 여 Sdk에서 양식 인식기 클라이언트 개체를 인증할 수 있습니다.
@@ -134,7 +134,7 @@ ms.locfileid: "103493512"
 
 ## <a name="april-2020"></a>2020년 4월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **SDK 지원 양식 인식기 API V2.0 공개 미리 보기** -이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원이 확장 되었습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
@@ -156,7 +156,7 @@ ms.locfileid: "103493512"
 
 ## <a name="march-2020"></a>2020년 3월
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **레이블 지정을 위한 값 형식** 이제 폼 인식기 샘플 레이블 지정 도구를 사용 하 여 레이블을 지정 하는 값의 형식을 지정할 수 있습니다. 현재 지원되는 값 형식 및 변형은 다음과 같습니다.
   * `string`
@@ -201,7 +201,7 @@ ms.locfileid: "103493512"
 
 이 릴리스에는 폼 인식기 2.0 (미리 보기)가 도입 되었습니다. 아래 섹션에는 새로운 기능, 향상 된 기능 및 변경 내용에 대 한 자세한 내용이 나와 있습니다. 
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **사용자 지정 모델**
   * **레이블로 학습** 이제 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다. 이 방법을 사용 하면 더 나은 모델을 사용할 수 있고 키가 없는 값을 포함 하는 복잡 한 폼 또는 폼을 사용 하는 모델을 생성할 수 있습니다.

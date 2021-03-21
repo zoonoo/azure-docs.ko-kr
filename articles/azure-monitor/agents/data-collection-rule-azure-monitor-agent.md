@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586372"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721531"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 
@@ -73,6 +73,8 @@ Log Analytics 작업 영역에서 수집 된 데이터에 대 한 요금이 부�
 
 추가 필터를 지정 하려면 사용자 지정 구성을 사용 하 고 없는 이벤트를 필터링 하는 XPath를 지정 해야 합니다. XPath 항목은 폼으로 작성 됩니다 `LogName!XPathQuery` . 예를 들어 이벤트 ID가 1035 인 응용 프로그램 이벤트 로그에서 이벤트만 반환 하려고 할 수 있습니다. 이러한 이벤트에 대 한 XPathQuery은 `*[System[EventID=1035]]` 입니다. 응용 프로그램 이벤트 로그에서 이벤트를 검색 하려고 하므로 XPath는 다음과 같습니다. `Application!*[System[EventID=1035]]`
 
+Windows 이벤트 로그에서 지원 되는 XPath의 제한 사항 목록은 [xpath 1.0 제한 사항](/windows/win32/wes/consuming-events#xpath-10-limitations) 을 참조 하세요.
+
 > [!TIP]
 > PowerShell cmdlet을 `Get-WinEvent` `FilterXPath` 매개 변수와 함께 사용 하 여 XPathQuery의 유효성을 테스트 합니다. 다음 스크립트는 예제를 보여 줍니다.
 > 
@@ -87,7 +89,7 @@ Log Analytics 작업 영역에서 수집 된 데이터에 대 한 요금이 부�
 
 다음 표에서는 사용자 지정 XPath를 사용 하 여 이벤트를 필터링 하는 예제를 보여 줍니다.
 
-| 설명 |  XPath |
+| Description |  XPath |
 |:---|:---|
 | 이벤트 ID가 4648 인 시스템 이벤트만 수집 |  `System!*[System[EventID=4648]]`
 | 이벤트 ID가 4648이 고 프로세스 이름이 인 시스템 이벤트만 수집 consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`

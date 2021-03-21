@@ -8,10 +8,10 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149706"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
@@ -23,7 +23,7 @@ ms.locfileid: "103149706"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -216,7 +216,7 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리 되도록 
 
 ### <a name="delete-all-digital-twins"></a>모든 디지털 쌍 삭제
 
-한 번에 모든 쌍를 삭제 하는 방법에 대 한 예제는 [*자습서: 샘플 클라이언트 앱을 사용 하 여 기본 사항 탐색*](tutorial-command-line-app.md)에서 사용한 샘플 앱을 다운로드 합니다. *CommandLoop.cs* 파일은 함수에서이를 수행 `CommandDeleteAllTwins()` 합니다.
+한 번에 모든 쌍를 삭제 하는 방법에 대 한 예제는 [*자습서: 샘플 클라이언트 앱을 사용 하 여 기본 사항 탐색*](tutorial-command-line-app.md)에서 사용한 샘플 앱을 다운로드 합니다. *Commandloop .cs* 파일은 함수에서이를 수행 합니다. `CommandDeleteAllTwins()`
 
 ## <a name="runnable-digital-twin-code-sample"></a>실행 가능한 디지털 쌍 코드 샘플
 

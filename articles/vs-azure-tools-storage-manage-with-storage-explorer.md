@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 3a8fe3ded6608059cc6ad50901ffe6df5dcf1b08
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102441591"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
@@ -117,13 +117,13 @@ Storage 탐색기를 사용 하면 다양 한 인증 방법을 사용 하 여 Az
 
 | 리소스 종류    | Azure AD | 계정 이름 및 키 | 공유 액세스 서명(SAS)  | 공용 (익명) |
 |------------------|----------|----------------------|--------------------------------|--------------------|
-| Storage 계정 | 예      | 예                  | 예 (연결 문자열 또는 URL) | No                 |
-| Blob 컨테이너  | 예      | 예                   | 예 (URL)                      | 예                |
-| Gen2 컨테이너  | 예      | 예                   | 예 (URL)                      | 예                |
-| Gen2 디렉터리 | 예      | 예                   | 예 (URL)                      | 예                |
-| 파일 공유      | 예       | 예                   | 예 (URL)                      | No                 |
-| 큐           | 예      | 예                   | 예 (URL)                      | No                 |
-| 테이블           | 예       | 예                   | 예 (URL)                      | No                 |
+| Storage 계정 | 예      | 예                  | 예 (연결 문자열 또는 URL) | 아니요                 |
+| Blob 컨테이너  | 예      | 아니요                   | 예 (URL)                      | 예                |
+| Gen2 컨테이너  | 예      | 아니요                   | 예 (URL)                      | 예                |
+| Gen2 디렉터리 | 예      | 아니요                   | 예 (URL)                      | 예                |
+| 파일 공유      | 아니요       | 아니요                   | 예 (URL)                      | 아니요                 |
+| 큐           | 예      | 아니요                   | 예 (URL)                      | 아니요                 |
+| Tables           | 아니요       | 아니요                   | 예 (URL)                      | 아니요                 |
  
 Storage 탐색기 에뮬레이터의 구성 된 포트를 사용 하 여 [로컬 저장소 에뮬레이터](#local-storage-emulator) 에 연결할 수도 있습니다.
 

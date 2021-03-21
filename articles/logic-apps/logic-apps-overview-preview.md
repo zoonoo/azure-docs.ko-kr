@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636338"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>개요: Azure Logic Apps 미리 보기
@@ -69,7 +69,7 @@ Azure Logic Apps 미리 보기 런타임은 [Azure Functions](../azure-functions
 
 단일 테 넌 트 논리 앱 유형을 사용 하 여 동일한 논리 앱 내에서 이러한 워크플로 유형을 만들 수 있습니다.
 
-* *상태 저장*
+* *스테이트*
 
   이전 이벤트의 데이터를 유지, 검토 또는 참조 해야 할 때 상태 저장 워크플로를 만듭니다. 이러한 워크플로는 각 작업에 대 한 입력과 출력 및 해당 상태를 외부 저장소에 저장 하 여 각 실행이 완료 된 후 가능한 실행 정보 및 기록을 검토할 수 있게 합니다. 상태 저장 워크플로는 중단이 발생 하는 경우 높은 복원 력을 제공 합니다. 서비스 및 시스템이 복원 된 후에는 저장 된 상태에서 중단 된 실행을 다시 생성 하 고 워크플로를 다시 실행 하 여 완료할 수 있습니다. 상태 저장 워크플로는 최대 1 년 동안 계속 실행 될 수 있습니다.
 

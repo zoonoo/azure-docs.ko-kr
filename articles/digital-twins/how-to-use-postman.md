@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.openlocfilehash: 18ae21c4b1348a1690818f8c07a5b3fae45102cd
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232276"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Postman을 사용 하 여 Azure Digital Twins Api에 요청을 보내는 방법
@@ -25,7 +25,7 @@ ms.locfileid: "103232276"
 1. Postman collection을 설정 하 고 전달자 토큰을 사용 하 여 인증을 위해 Postman REST 클라이언트를 구성 합니다.
 1. 구성 된 Postman을 사용 하 여 Azure Digital Twins Api에 요청을 만들고 보냅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Postman을 사용 하 여 Azure Digital Twins Api에 액세스 하는 작업을 계속 하려면 Azure Digital Twins 인스턴스를 설정 하 고 Postman을 다운로드 해야 합니다. 이 섹션의 나머지 부분에서는 이러한 단계를 안내합니다.
 

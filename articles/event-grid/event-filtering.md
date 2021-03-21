@@ -4,10 +4,10 @@ description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419850"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
@@ -57,11 +57,11 @@ ms.locfileid: "103419850"
 * 키 - 필터링에 사용하는 이벤트 데이터의 필드입니다. 숫자, 부울, 문자열 또는 배열일 수 있습니다.
 * values-키와 비교할 값입니다.
 
-## <a name="key"></a>Key
+## <a name="key"></a>키
 키는 필터링에 사용 중인 이벤트 데이터의 필드입니다. 다음 유형 중 하나일 수 있습니다.
 
 - 숫자
-- Boolean
+- 부울
 - String
 - Array입니다. `enableAdvancedFilteringOnArrays`이 기능을 사용 하려면 속성을 true로 설정 해야 합니다. 현재 Azure Portal이 기능 사용을 지원 하지 않습니다. 
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98186025"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722704"
 ---
 # <a name="telemetry-and-troubleshooting"></a>원격 분석 및 문제 해결
 
@@ -60,7 +60,7 @@ Azure Monitor를 설정한 후에는 모듈이 원격 분석을 보낼 수 있�
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -103,18 +103,18 @@ Telegraf 모듈이 배포 되 면 Azure Monitor 서비스를 통해 또는 Azure
 
 ### <a name="system-health-events"></a>시스템 상태 이벤트
 
-| 이벤트 이름 | 설명|
+| 이벤트 이름 | Description|
 |------|---------|
-|archon_exit    |사용자가 공간 분석 모듈 상태를 *실행 중* 에서 *중지 됨* 으로 변경 하면 전송 됩니다.  |
-|archon_error   |컨테이너 내 프로세스가 충돌 하는 경우 전송 됩니다. 이것은 심각한 오류입니다.  |
-|InputRate  |그래프가 비디오 입력을 처리 하는 속도입니다. 5 분 마다 보고 됩니다. | 
+|archon_exit     |사용자가 공간 분석 모듈 상태를 *실행 중* 에서 *중지 됨* 으로 변경 하면 전송 됩니다.  |
+|archon_error     |컨테이너 내 프로세스가 충돌 하는 경우 전송 됩니다. 이것은 심각한 오류입니다.  |
+|InputRate     |그래프가 비디오 입력을 처리 하는 속도입니다. 5 분 마다 보고 됩니다. | 
 |OutputRate     |그래프가 AI 통찰력을 출력 하는 속도입니다. 5 분 마다 보고 됩니다. |
 |archon_allGraphsStarted | 모든 그래프가 시작을 완료 하면 전송 됩니다. |
-|archon_configchange    | 그래프 구성이 변경 될 때 전송 됩니다. |
+|archon_configchange     | 그래프 구성이 변경 될 때 전송 됩니다. |
 |archon_graphCreationFailed     |보고 된을 포함 하는 그래프가 `graphId` 시작 되지 않을 때 전송 됩니다. |
-|archon_graphCreationSuccess    |보고 된이 있는 그래프가 성공적으로 시작 될 때 전송 됩니다 `graphId` . |
-|archon_graphCleanup    | 보고 된이 있는 그래프가 정리 되 `graphId` 고 종료 될 때 전송 됩니다. |
-|archon_graphHeartbeat  |하트 비트는 기술 그래프 마다 1 분 마다 전송 됩니다. |
+|archon_graphCreationSuccess     |보고 된이 있는 그래프가 성공적으로 시작 될 때 전송 됩니다 `graphId` . |
+|archon_graphCleanup     | 보고 된이 있는 그래프가 정리 되 `graphId` 고 종료 될 때 전송 됩니다. |
+|archon_graphHeartbeat     |하트 비트는 기술 그래프 마다 1 분 마다 전송 됩니다. |
 |archon_apiKeyAuthFail |Computer Vision 리소스 키가 24 시간 넘게 컨테이너를 인증 하는 데 실패 하는 경우 (할당량 부족, 잘못 됨, 오프 라인)에 전송 됩니다. |
 |VideoIngesterHeartbeat     |비디오가 비디오 원본에서 스트리밍되는 시간을 표시 하기 위해 1 시간 마다 전송 됩니다. 각 그래프에 대해 보고 됩니다. |
 |VideoIngesterState | 비디오 스트리밍에 대해 *중지* 또는 *시작* 된 보고서입니다. 각 그래프에 대해 보고 됩니다. |
@@ -232,7 +232,7 @@ IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합�
 
 다음 표에서는 로그를 쿼리할 때 사용할 수 있는 매개 변수를 나열 합니다.
 
-| 키워드 | 설명 | 기본값 |
+| 키워드 | Description | 기본값 |
 |--|--|--|
 | StartTime | 원하는 로그 시작 시간 (밀리초)입니다. | `-1`컨테이너 런타임의 시작 부분입니다. `[-1.-1]`가 시간 범위로 사용 되는 경우 API는 최근 1 시간에서 로그를 반환 합니다.|
 | EndTime | 원하는 로그 종료 시간 (밀리초)입니다. | `-1`현재 시간입니다. `[-1.-1]`시간 범위를 사용 하는 경우 api는 최근 1 시간에서 로그를 반환 합니다. |
@@ -243,7 +243,7 @@ IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합�
 
 다음 표에서는 쿼리 응답의 특성을 나열 합니다.
 
-| 키워드 | 설명|
+| 키워드 | Description|
 |--|--|
 |DoPost| *True* 또는 *false* 입니다. 로그가 업로드 되었는지 여부를 나타냅니다. 로그를 업로드 하지 않도록 선택 하는 경우 api는 정보 ***동기적** _을 반환 합니다. 로그를 업로드 하도록 선택 하면이 api는 200을 반환 하 고, 요청이 유효한 경우 로그를 _비동기적_ 으로 업로드 하기 시작 합니다.|
 |TimeFilter| 로그에 적용 된 시간 필터입니다.|
@@ -363,7 +363,7 @@ Kubernetes 클러스터를 만든 후 명령줄 도구를 사용 하 여 `kubect
     New-HcsKubernetesUser -UserName
     ```
 
-3. 로컬 컴퓨터의 사용자 프로필에 있는 *kube* 폴더에 *구성* 파일을 추가 합니다.   
+3. 로컬 컴퓨터의 사용자 프로필에 있는 *kube* 폴더에 *구성* 파일을 추가 합니다.    
 
 4. 만든 사용자와 네임 스페이스를 연결 합니다.
 
@@ -395,11 +395,39 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ### <a name="useful-commands"></a>유용한 명령
 
-|명령  |설명  |
+|명령  |Description  |
 |---------|---------|
 |`Get-HcsKubernetesUserConfig -AseUser`     | Kubernetes 구성 파일을 생성 합니다. 명령을 사용 하는 경우이 정보를 *config* 라는 파일로 복사 합니다. 파일 확장명을 사용 하 여 파일을 저장 하지 않습니다.        |
 | `Get-HcsApplianceInfo` | 장치에 대 한 정보를 반환 합니다. |
 | `Enable-HcsSupportAccess` | 지원 세션을 시작 하기 위한 액세스 자격 증명을 생성 합니다. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>공간 분석을 위한 지원 티켓을 파일 하는 방법 
+
+공간 분석 컨테이너와 관련 된 문제에 대 한 솔루션을 찾을 때 더 많은 지원이 필요한 경우 다음 단계를 수행 하 여 지원 티켓을 작성 하 고 제출 하세요. 팀에서 추가 지침을 제공 해 드립니다. 
+
+### <a name="fill-out-the-basics"></a>기본 사항 입력 
+[새 지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 페이지에서 새 지원 티켓을 만듭니다. 프롬프트에 따라 다음 매개 변수를 입력 합니다.
+
+![지원 기본 사항](./media/support-ticket-page-1-final.png)
+
+1. **문제 유형을** 로 설정 `Technical` 합니다.
+2. 공간 분석 컨테이너를 배포 하는 데 사용할 구독을 선택 합니다.
+3. 을 선택 `My services` 하 고 `Cognitive Services` 서비스로 선택 합니다.
+4. 공간 분석 컨테이너를 배포 하는 데 사용할 리소스를 선택 합니다.
+5. 직면 한 문제를 자세히 설명 하는 간단한 설명을 작성 합니다. 
+6. `Spatial Analysis`문제 유형으로를 선택 합니다.
+7. 드롭다운에서 적절 한 하위 형식을 선택 합니다.
+8. 다음 **: 솔루션** 을 선택 하 여 다음 페이지로 이동 합니다.
+
+### <a name="recommended-solutions"></a>권장 솔루션
+다음 단계에서는 선택한 문제 유형에 대 한 권장 해결 방법을 제공 합니다. 이러한 솔루션은 가장 일반적인 문제를 해결 하지만 솔루션에 유용 하지 않은 경우 **다음: 세부 정보** 를 선택 하 여 다음 단계로 이동 합니다.
+
+### <a name="details"></a>세부 정보
+이 페이지에서 발생 한 문제에 대 한 추가 세부 정보를 추가 합니다. 최대한 많은 세부 정보를 포함 해야 합니다. 이렇게 하면 엔지니어가 문제를 더 잘 좁힐 수 있습니다. 적절 한 연락 방법 및 문제 심각도를 포함 하 여 사용자에 게 연락 하 고 **다음** 을 선택 하 여 다음 단계로 이동 합니다. 
+
+### <a name="review-and-create"></a>검토 후 만들기 
+지원 요청에 대 한 세부 정보를 검토 하 여 모든 것이 정확한 지 확인 하 고 문제를 효과적으로 나타냅니다. 준비가 되 면 **만들기** 를 선택 하 여 팀에 티켓을 보냅니다. 티켓이 수신 되 면 전자 메일 확인 메시지가 표시 되 고, 팀은 가능한 한 빨리 다시 시작 합니다. Azure Portal에서 티켓의 상태를 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

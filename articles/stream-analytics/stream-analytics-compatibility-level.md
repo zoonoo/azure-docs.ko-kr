@@ -5,29 +5,30 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 03/18/2021
+ms.openlocfilehash: a040aecbdee40832bd21256e26a140a986b65e39
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094089"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606245"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
-이 문서에서는 Azure Stream Analytics의 호환성 수준 옵션을 설명 합니다. Stream Analytics은 정기적인 기능 업데이트 및 성능 향상을 포함 하는 관리 되는 서비스입니다. 대부분의 서비스 런타임 업데이트는 최종 사용자가 자동으로 사용할 수 있게 됩니다. 
+이 문서에서는 Azure Stream Analytics의 호환성 수준 옵션을 설명 합니다.
 
-그러나 서비스의 일부 새로운 기능은 기존 작업의 동작에 대 한 변경 이나 실행 중인 작업에서 데이터가 사용 되는 방식 변경 등의 주요 변경 사항을 도입할 수 있습니다. 호환성 수준 설정을 낮추면 기존 Stream Analytics 작업을 중요 변경 없이 계속 실행할 수 있습니다. 최신 런타임 동작을 수행할 준비가 되 면 호환성 수준을 높여 옵트인 (opt in) 할 수 있습니다. 
+Stream Analytics는 관리 되는 서비스로, [정기적인 기능 업데이트 및 지속적인 성능 향상](https://azure.microsoft.com/updates/?product=stream-analytics)이 포함 되어 있습니다. 대부분의 서비스 런타임 업데이트는 호환성 수준과 별개로 최종 사용자가 자동으로 사용할 수 있게 됩니다. 그러나 새 기능에서 기존 작업의 동작을 변경 하거나 실행 중인 작업에서 데이터를 사용 하는 방식이 변경 되는 경우이 변경 내용은 새로운 호환성 수준에서 도입 되었습니다. 호환성 수준 설정을 낮추면 기존 Stream Analytics 작업을 중요 변경 없이 계속 실행할 수 있습니다. 최신 런타임 동작을 수행할 준비가 되 면 호환성 수준을 높여 옵트인 (opt in) 할 수 있습니다.
+
 
 ## <a name="choose-a-compatibility-level"></a>호환성 수준 선택
 
-호환성 수준은 스트림 분석 작업의 런타임 동작을 제어합니다. 
+호환성 수준은 스트림 분석 작업의 런타임 동작을 제어합니다.
 
 현재 Azure Stream Analytics는 다음과 같은 세 가지 호환성 수준을 지원 합니다.
 
-* 1.0-일반 공급 중에 Azure Stream Analytics 몇 년 전에 도입 된 원래 호환성 수준입니다.
-* 1.1-이전 동작
 * 1.2-최신 개선 사항에 대 한 최신 동작
+* 1.1-이전 동작
+* 1.0-일반 공급 중에 Azure Stream Analytics 몇 년 전에 도입 된 원래 호환성 수준입니다. 
 
 새 Stream Analytics 작업을 만들 때 최신 호환성 수준을 사용 하 여 만드는 것이 가장 좋습니다. 나중에 변경 및 복잡성이 추가 되지 않도록 하기 위해 최신 동작에 의존 하는 작업 설계를 시작 합니다.
 
@@ -125,7 +126,7 @@ Upsert 동작은 *insert 또는 replace* 입니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름의 대/소문자 구분 유지
 

@@ -16,19 +16,19 @@ ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
 ms.openlocfilehash: a37501498a9222025860702a7f29dccc9abfc8f7
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102450064"
 ---
-# <a name="commonly-used-azure-sentinel-workbooks"></a>일반적으로 사용 되는 Azure 센티널 통합 문서
+# <a name="commonly-used-azure-sentinel-workbooks"></a>일반적으로 사용되는 Azure Sentinel 통합 문서
 
 다음 표에서는 가장 일반적으로 사용 되는 기본 제공 Azure 센티널 통합 문서를 나열 합니다.
 
 왼쪽의 **위협 관리** 통합 문서에서 Azure 센티널의 통합 문서에 액세스 한  >   다음 사용 하려는 통합 문서를 검색 합니다. 자세한 내용은 [자습서: 데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)을 참조 하세요.
 
-|통합 문서 이름  |Description  |
+|통합 문서 이름  |설명  |
 |---------|---------|
 |**분석 효율성**     |  더 나은 SOC 성능을 실현 하는 데 도움이 되는 분석 규칙의 효율성에 대 한 통찰력을 제공 합니다. <br><br>자세한 내용은 [Data-Driven Soc 도구 키트](https://techcommunity.microsoft.com/t5/azure-sentinel/the-toolkit-for-data-driven-socs/ba-p/2143152)를 참조 하세요.|
 |**Azure 활동**     |     모든 사용자 작업 및 이벤트를 분석 하 고 상관 관계를 분석 하 여 조직의 Azure 활동에 대 한 광범위 한 통찰력을 제공 합니다. <br><br>자세한 내용은 [Azure 활동 로그를 사용 하 여 감사](audit-sentinel-data.md#auditing-with-azure-activity-logs)를 참조 하세요.    |

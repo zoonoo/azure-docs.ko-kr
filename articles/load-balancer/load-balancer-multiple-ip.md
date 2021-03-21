@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 3d28946aad263af635a0139e68d424a77a1eab25
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103417827"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
@@ -41,7 +41,7 @@ ms.locfileid: "103417827"
 - Azure Load Balancer는 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출하는 데 사용됩니다. 프런트 엔드 주소는 트래픽을 각 웹 사이트의 각 IP 구성에 분산하는 데 사용됩니다.
 - 프런트 엔드 IP 주소와 백 엔드 풀 IP 주소 모두에 동일한 포트 번호가 사용됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시나리오 예제에서는 다음과 같이 구성된 **contosofabrikam** 이라는 리소스 그룹이 있다고 가정합니다.
 

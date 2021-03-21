@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98854a4588b59cf0c19877da870e6124fa7c3b9a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151970"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674685"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 데이터 카탈로그에 대한 질문과 대답
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 이 문서는 Azure Data Catalog 서비스와 관련된 질문에 대한 대답을 제공합니다.
 
 ## <a name="what-is-azure-data-catalog"></a>Azure 데이터 카탈로그란?
@@ -57,7 +60,7 @@ ms.locfileid: "92151970"
 
 Power BI Pro 라이선스를 사용 하 여 Office 365 E5를 구매 하는 경우 Microsoft는 구독 지역에 자동으로 기본 카탈로그를 만듭니다. 이 카탈로그는 무료 SKU를 사용 합니다. Office 365/Power BI 사용자 라이선스는 관리 페이지에서 관리 됩니다. 
 
-그러나이 유형의 데이터 카탈로그에는 **관리자 옵션이** 없으며 **Azure Portal**에 표시 되지 않습니다. 이 유형의 데이터 카탈로그는 삭제할 수 없습니다. 마찬가지로, 데이터 카탈로그의 이름을 바꿀 수 없으며 다른 영역으로 이동할 수 없습니다. 
+그러나이 유형의 데이터 카탈로그에는 **관리자 옵션이** 없으며 **Azure Portal** 에 표시 되지 않습니다. 이 유형의 데이터 카탈로그는 삭제할 수 없습니다. 마찬가지로, 데이터 카탈로그의 이름을 바꿀 수 없으며 다른 영역으로 이동할 수 없습니다. 
 
 Power BI Pro 라이선스 자동으로 할당 된 사용자 계정은 Power BI Pro 라이선스를 사용 하 여 Office 365 E5에 등록할 때 사용권 계약으로 인해 데이터 카탈로그에 액세스할 수 있습니다. 이 유형의 사용자는 관리자 권한 없이 데이터 카탈로그 자산에 대 한 모든 권한을 가집니다. 이러한 종류의 사용자는 Azure Data Catalog의 **카탈로그 사용자** 역할에 포함 *되지 않습니다* .
 

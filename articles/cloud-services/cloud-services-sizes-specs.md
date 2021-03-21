@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: a31c9c4747ccc72f0552ebe2f8daf85ef5fba8a3
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103015304"
 ---
 # <a name="sizes-for-cloud-services-classic"></a>Cloud Services 크기 (클래식)
@@ -85,7 +85,7 @@ Azure SKU에서 컴퓨팅(CPU) 성능을 비교하는 방법을 제공하고 성
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
 | Small           | 1         | 1.75         | 225                  | 1/보통 |
 | 중간          | 2         | 3.5          | 490                  | 1/보통 |
-| 큼           | 4         | 7            | 1000                 | 2/높음 |
+| 대형           | 4         | 7            | 1000                 | 2/높음 |
 | 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
 | A5              | 2         | 14           | 490                  | 1/보통 |
 | A6              | 4         | 28           | 1000                 | 2/높음 |

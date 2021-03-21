@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612527"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>가상 네트워크 만들기, 변경 또는 삭제
@@ -138,7 +138,7 @@ ms.locfileid: "102612527"
 3. **설정** 아래에서 **DNS 서버** 를 선택 합니다.
 4. 다음 옵션 중 하나를 선택합니다.
    - **기본값 (Azure에서 제공)**: 모든 리소스 이름 및 개인 IP 주소는 Azure DNS 서버에 자동으로 등록 됩니다. 동일한 가상 네트워크에 연결된 모든 리소스 간에 이름을 확인할 수 있습니다. 이 옵션을 사용하면 가상 네트워크에서 이름을 확인할 수 없습니다. 가상 네트워크 전체에서 이름을 확인하려면 사용자 지정 DNS 서버를 사용해야 합니다.
-   - **사용자 지정:** 가상 네트워크에 대한 Azure 제한까지 하나 이상의 서버를 추가할 수 있습니다. DNS 서버 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic)을 참조하세요. 다음과 같은 옵션을 선택할 수 있습니다.
+   - **사용자 지정:** 가상 네트워크에 대한 Azure 제한까지 하나 이상의 서버를 추가할 수 있습니다. DNS 서버 제한에 대해 자세히 알아보려면 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic)을 참조하세요. 다음과 같은 옵션이 있습니다.
    - **주소 추가:** 가상 네트워크 DNS 서버 목록에 서버를 추가하고, 해당 DNS 서버를 Azure에 등록합니다. Azure에 DNS 서버를 이미 등록한 경우 목록에서 DNS 서버를 선택할 수 있습니다.
    - **주소 제거:** 제거하려는 서버 옆에 있는 **...** 를 선택한 다음 **제거** 를 선택합니다. 서버를 삭제하면 이 가상 네트워크 목록에서만 서버가 제거됩니다. DNS 서버는 다른 가상 네트워크에서 사용할 수 있도록 Azure에 등록된 상태로 유지됩니다.
    - **DNS 서버 주소 다시 정렬**: 사용자 환경에 맞게 올바른 순서로 DNS 서버를 나열하는지 확인하는 것이 중요합니다. DNS 서버 목록은 지정된 순서로 사용됩니다. 라운드 로빈 설정으로 작동하지 않습니다. 목록의 첫 번째 DNS 서버에 연결할 수 있으면 DNS 서버가 제대로 작동하는지 여부와 관계없이 클라이언트에서 해당 DNS 서버를 사용합니다. 나열된 모든 DNS 서버를 제거한 다음 원하는 순서로 다시 추가합니다.
@@ -166,7 +166,7 @@ ms.locfileid: "102612527"
 - Azure CLI: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 가상 네트워크에서 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 

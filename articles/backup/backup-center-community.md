@@ -4,10 +4,10 @@ description: Backup center를 사용 하 여 샘플 템플릿, 스크립트 및 
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.openlocfilehash: b5173f916341497620d521af1bc7e973e0b6e507
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506272"
 ---
 # <a name="access-community-resources-using-backup-center"></a>Backup center를 사용 하 여 커뮤니티 리소스 액세스

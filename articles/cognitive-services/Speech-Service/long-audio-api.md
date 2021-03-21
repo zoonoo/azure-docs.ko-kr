@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
 ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618409"
 ---
 # <a name="long-audio-api"></a>긴 오디오 API
@@ -48,7 +48,7 @@ ms.locfileid: "102618409"
   * 일반 텍스트의 경우 각 단락은 **Enter/Return** -View [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 에 따라 구분 됩니다.
   * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주 됩니다. [Ssml 부분은](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 다른 단락으로 구분 해야 합니다.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 이 페이지의 나머지 부분에서는 Python에 집중 하지만 긴 오디오 API에 대 한 샘플 코드는 GitHub에서 다음과 같은 프로그래밍 언어에 사용할 수 있습니다.
 
 * [샘플 코드: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
@@ -416,7 +416,7 @@ response.status_code: 204
 
 다음 표에서는 REST API의 HTTP 응답 코드 및 메시지에 대해 자세히 설명 합니다.
 
-| API | HTTP 상태 코드 | 설명 | 해결 방법 |
+| API | HTTP 상태 코드 | Description | 솔루션 |
 |-----|------------------|-------------|----------|
 | 생성 | 400 | 음성 합성은이 지역에서 사용할 수 없습니다. | 음성 구독 키를 지원 되는 지역으로 변경 합니다. |
 |        | 400 | 이 영역에 대 한 **표준** 음성 구독만 유효 합니다. | 음성 구독 키를 "표준" 가격 책정 계층으로 변경 합니다. |
@@ -431,14 +431,14 @@ response.status_code: 204
 |        | 404 | 음성 합성 정의에 선언 된 모델을 찾을 수 없습니다. {modelID}. | {ModelID}가 올바른지 확인 하세요. |
 |        | 429 | 활성 음성 합성 제한을 초과 합니다. 일부 요청이 완료 될 때까지 기다려 주세요. | 서버를 실행 하 고 각 Azure 계정에 대해 최대 120 개의 요청을 큐에 대기 시킬 수 있습니다. 잠시 기다렸다가 일부 요청이 완료 될 때까지 새 요청을 제출 하지 마세요. |
 | 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5 개의 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄이십시오. |
-| 삭제    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
+| DELETE    | 400 | 음성 합성 작업을 계속 사용 하 고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
 | GetByID   | 404 | 지정 된 엔터티를 찾을 수 없습니다. | 합성 ID가 올바른지 확인 합니다. |
 
 ## <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
 긴 오디오 API는 고유한 끝점을 사용 하 여 여러 지역에서 사용할 수 있습니다.
 
-| Region | 엔드포인트 |
+| 지역 | 엔드포인트 |
 |--------|----------|
 | 미국 동부 | `https://eastus.customvoice.api.speech.microsoft.com` |
 | 인도 중부 | `https://centralindia.customvoice.api.speech.microsoft.com` |

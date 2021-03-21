@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 5089a289e617aa8c2ec153320763647fc8afac9e
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489039"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
@@ -34,7 +34,7 @@ ms.locfileid: "103489039"
 
 이 문서에서는 Azure Active Directory (Azure AD)에 대 한 다중 테 넌 트 끝점을 사용 하 여 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 각 테 넌 트에 대해 id 공급자를 구성 하지 않고도 Azure AD B2C를 사용 하 여 여러 Azure AD 테 넌 트의 사용자가 로그인 할 수 있도록 허용 합니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 이렇게 하려면 [각 테넌트를 개별적으로 구성](identity-provider-azure-ad-single-tenant.md)해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -47,7 +47,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
 1. 조직 Azure AD 테 넌 트를 포함 하는 디렉터리 (예: contoso.com)를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독 필터** 를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스** 를 선택한 다음, **앱 등록** 을 검색하여 선택합니다.
 1. **새 등록** 을 선택합니다.
-1. 애플리케이션의 **이름** 을 입력합니다. 예들 들어 `Azure AD B2C App`입니다.
+1. 애플리케이션의 **이름** 을 입력합니다. 예: `Azure AD B2C App`
 1. 이 응용 프로그램에 대 한 **모든 조직 디렉터리 (모든 AZURE AD 디렉터리 – 다중 테 넌 트)의 계정을** 선택 합니다.
 1. **리디렉션 URI** 의 경우 **웹** 의 값을 그대로 사용 하 고 다음 URL을 소문자로 입력 합니다 `your-B2C-tenant-name` . 여기서은 Azure AD B2C 테 넌 트의 이름으로 바뀝니다.
 
@@ -55,7 +55,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    예들 들어 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`입니다.
+    예: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`
 
     [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. 을 `your-domain-name` 사용자 지정 도메인으로,를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다.
 
@@ -151,7 +151,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Azure AD 계정을 사용 하 �
 1. **ClaimsProvider** 요소 아래의 **Domain** 값을 다른 ID 공급자와 구분하는 데 사용할 수 있는 고유한 값으로 업데이트합니다.
 1. **TechnicalProfile** 요소 아래에서 **DisplayName** 의 값을 업데이트 합니다 (예:) `Contoso Employee` . 이 값은 로그인 페이지의 로그인 단추에 표시됩니다.
 1. **Client_id** 를 이전에 등록 한 Azure AD 다중 테 넌 트 응용 프로그램의 응용 프로그램 id로 설정 합니다.
-1. **CryptographicKeys** 에서 **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예들 들어 `B2C_1A_AADAppSecret`입니다.
+1. **CryptographicKeys** 에서 **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_AADAppSecret`
 
 ### <a name="restrict-access"></a>액세스 제한
 

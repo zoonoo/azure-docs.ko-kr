@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
 ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490333"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
@@ -298,7 +298,7 @@ Write-Host $myApp.AppRoles
 | 1 | 푸에르토리코 |
 | 40 | 루마니아 |
 | 65 | 싱가포르 |
-| 27 | 남아프리카 |
+| 27 | 남아프리카 공화국 |
 | 82 | 대한민국 |
 | 34 | 스페인 |
 | 41 | 스위스 |

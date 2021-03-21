@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 소프트웨어 정의 데이터 센터 및 
 ms.topic: conceptual
 ms.date: 03/13/2021
 ms.openlocfilehash: d1837ae7cf01fcb9642e0cafe4e0430e403b9899
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462521"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware 솔루션 사설 클라우드 및 클러스터 개념

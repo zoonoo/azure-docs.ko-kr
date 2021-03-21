@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b1d18982a4f2a9ee8ba585af56a5e9ded7c1c62
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036829"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
@@ -78,7 +78,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대 한 Privileged Identity Management
 
-| 속성 | 역할 | 작업 |
+| Name | 역할 | 작업 |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>조직의 핵심 id 관리 인프라와 이러한 변경을 맞추는 방법을 정의 하는 것을 담당 하는 id 관리 팀의 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 이는 의사 결정을 내리는 데 중요 하며, 팀의 Privileged Identity Management을 롤아웃 하는 데 도움이 됩니다. | SO/R/I |
@@ -88,7 +88,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>관련자: Azure 역할에 대 한 Privileged Identity Management
 
-| 속성 | 역할 | 작업 |
+| Name | 역할 | 작업 |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>Privileged Identity Management 배포 하려는 각 구독 또는 리소스의 IT 소유자 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
@@ -233,20 +233,20 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 | 역할 | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 전역 관리자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 기타 글로벌 관리자 | 1시간 | 응급 액세스 계정 |
-| Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2시간 | None |
-| 기술 지원팀 관리자 | :x: | :x: | :heavy_check_mark: | :x: | None | 8시간 | None |
+| Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | 없음 | 2시간 | 없음 |
+| 기술 지원팀 관리자 | :x: | :x: | :heavy_check_mark: | :x: | 없음 | 8시간 | 없음 |
 
 #### <a name="privileged-identity-management-settings-for-azure-roles"></a>Azure 역할에 대 한 Privileged Identity Management 설정
 
 | 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | None | 해당 없음 | 3개월 |
-| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1시간 | None | 해당 없음 | 3개월 |
-| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | None | 3시간 | None | 해당 없음 | 6개월 |
+| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
+| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
+| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | 해당 없음 | 6개월 |
 
 다음 테이블에서 각 설정을 설명합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 | --- | --- |
 | 역할 | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |

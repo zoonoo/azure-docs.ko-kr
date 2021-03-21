@@ -10,10 +10,10 @@ ms.date: 03/02/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 8e0d05d2cb960e760809ab35a8f9e4ca04acf250
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102442964"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>시나리오: 공유 서비스로 라우팅 Vnet
@@ -28,7 +28,7 @@ ms.locfileid: "102442964"
 
 **연결 매트릭스**
 
-| From             | 아래와 같이 변경합니다.   |*격리 된 Vnet*|*공유 VNet*|*분기*|
+| 시작             | 아래와 같이 변경합니다.   |*격리 된 Vnet*|*공유 VNet*|*분기*|
 |---|---|---|---|---|
 |**격리 된 Vnet**| ->|        | 직접 | 직접 |
 |**공유 Vnet**  |->| 직접 | 직접 | 직접 |
