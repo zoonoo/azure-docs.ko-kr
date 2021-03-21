@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93122846"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
     - **프로 비전 로그**  -  [프로 비전 로그](./concept-provisioning-logs.md) 를 통해 고객은 ServiceNow에서 그룹 만들기 또는 Workday에서 가져온 사용자와 같은 프로 비전 서비스의 작업을 모니터링할 수 있습니다. 
 - **보안** 
     - **위험한 로그인** - [위험한 로그인](../identity-protection/overview-identity-protection.md) 은 사용자 계정의 합법적인 소유자가 아닌 사용자의 로그인 시도에 대 한 표시기입니다.
-    - **위험 플래그가 지정된 사용자** - [위험한 사용자](../identity-protection/overview-identity-protection.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
+    - **위험 플래그가 지정** 된 사용자- [위험한 사용자](../identity-protection/overview-identity-protection.md) 는 손상 되었을 수 있는 사용자 계정에 대 한 표시기입니다.
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
@@ -125,7 +125,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **위치** -연결이 시작 된 위치입니다.
 
-- 구/군/시
+- City
 
 - 시/도
 
@@ -177,11 +177,11 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **조건부 액세스** -적용 된 조건부 액세스 규칙의 상태
 
-- **적용 되지 않음** : 로그인 하는 동안 사용자 및 응용 프로그램에 정책이 적용 되지 않습니다.
+- **적용 되지 않음**: 로그인 하는 동안 사용자 및 응용 프로그램에 정책이 적용 되지 않습니다.
 
-- **성공** : 로그인 하는 동안 사용자 및 응용 프로그램에 적용 되는 하나 이상의 조건부 액세스 정책 (반드시 다른 조건을 충족 하지는 않음)입니다. 
+- **성공**: 로그인 하는 동안 사용자 및 응용 프로그램에 적용 되는 하나 이상의 조건부 액세스 정책 (반드시 다른 조건을 충족 하지는 않음)입니다. 
 
-- **실패** : 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
+- **실패**: 로그인에서 하나 이상의 조건부 액세스 정책에 대 한 사용자 및 응용 프로그램 조건을 충족 하 고 grant 컨트롤이 충족 되지 않거나 액세스를 차단 하도록 설정 되었습니다.
 
 
 
@@ -235,7 +235,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 클라이언트
 - 위치
 - IP 주소
-- Date
+- 날짜
 - 필요한 MFA
 - 로그인 상태
 

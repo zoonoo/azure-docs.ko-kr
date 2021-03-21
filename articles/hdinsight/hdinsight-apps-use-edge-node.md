@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: 4061df2dfcfb4cf993e2312fb3438de66863a476
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942669"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight의 Apache Hadoop 클러스터에서 빈 에지 노드 사용
@@ -59,7 +59,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 > 에지 노드에 설치된 사용자 지정 구성 요소는 Microsoft에서 상업적으로 적절한 지원을 받습니다. 이를 통해 발생한 문제가 해결될 수도 있습니다. 또는 추가 지원을 위해 커뮤니티 리소스가 제공될 수 있습니다. 다음은 커뮤니티의 도움을 받을 수 있는 가장 활발한 사이트 중 일부입니다.
 >
 > * [Microsoft Q&HDInsight에 대 한 질문 페이지] (/answers/topics/azure-hdinsight.html
-> * [https://stackoverflow.com](https://stackoverflow.com))를 참조하세요.
+> * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Apache 기술을 사용하는 경우 [https://apache.org](https://apache.org)에서 [Apache Hadoop](https://hadoop.apache.org/) 사이트 등의 Apache 프로젝트 사이트를 통해 지원을 찾을 수도 있습니다.
 
@@ -76,7 +76,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 
 1. 다음 속성을 구성합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |Subscription|이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.|
     |Resource group|기존 HDInsight 클러스터에 사용되는 리소스 그룹을 선택합니다.|
@@ -100,7 +100,7 @@ HDInsight 클러스터에 빈 에지 노드를 추가하는 방법을 알아봅�
 
 1. 다음 속성을 구성합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |Subscription|이 클러스터를 만드는 데 사용되는 Azure 구독을 선택합니다.|
     |Resource group|클러스터에 사용되는 새 리소스 그룹을 만듭니다.|

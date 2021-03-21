@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
 ms.openlocfilehash: e34e1f589442be41e2a4eac3ac893f377675e4b5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379508"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "100379508"
 이 문서에서는 Windows 컨테이너에서 Self-Hosted Integration Runtime를 실행 하는 방법을 설명 합니다.
 Azure Data Factory은 Self-Hosted Integration Runtime의 공식 windows 컨테이너 지원을 제공 합니다. Docker 빌드 소스 코드를 다운로드 하 고 빌드 및 실행 중인 프로세스를 고유한 연속 배달 파이프라인에서 결합할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 - [Windows의 컨테이너 요구 사항](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker 버전 2.3 이상 
 - Self-Hosted Integration Runtime 버전 4.11.7512.1 이상 

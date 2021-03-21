@@ -9,10 +9,10 @@ ms.date: 03/04/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: b1f1560fc1a00577e1e4b30d922fc7d4cae0ab92
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181861"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
@@ -123,7 +123,7 @@ Azure Import/Export 서비스는 모든 Azure Storage 계정으로의 데이터 
 |미국 동부    | 북유럽        | 인도 중부        |US Gov 아이오와         |
 |미국 서부     |서유럽         | 인도 남부        | US DoD 동부        |
 |미국 동부 2    | 동아시아        |  인도 서부        | US DoD 중부        |
-|미국 서부 2     | 동남아시아        | 캐나다 중부        | 중국 동부         |
+|미국 서부 2     | 동남 아시아        | 캐나다 중부        | 중국 동부         |
 |미국 중부     | 오스트레일리아 동부        | 캐나다 동부        | 중국 북부        |
 |미국 중북부     |  오스트레일리아 남동부       | 브라질 남부        | 영국 남부        |
 |미국 중남부     | 일본 서부        |한국 중부         | 독일 중부        |
@@ -144,7 +144,7 @@ Azure Import/Export 서비스는 모든 Azure Storage 계정으로의 데이터 
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../includes/storage-import-export-delete-personal-info.md)]
 
-### <a name="pricing"></a>가격 책정
+### <a name="pricing"></a>가격
 
 **드라이브 취급 수수료**
 

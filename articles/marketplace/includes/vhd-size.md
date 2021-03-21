@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/09/2020
 ms.openlocfilehash: f4e34e850391696506beed9f6f386f85528dff24
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92284310"
 ---
 운영 체제와 함께 미리 구성 된 Vm 중 하나를 선택한 경우 (선택적 추가 서비스) 표준 Azure VM 크기를 이미 선택 했습니다. 사전 구성된 OS로 솔루션을 시작하는 것이 좋습니다. 그러나 OS를 수동으로 설치 하는 경우 VM 이미지에서 기본 VHD의 크기를 조정 해야 합니다. OS 디스크 크기가 Linux 또는 Windows에 대 한 제한 내에 있는지 확인 하세요.

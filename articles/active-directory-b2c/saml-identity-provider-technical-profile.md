@@ -12,10 +12,10 @@ ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2f16de49518e334f2f5e679ce24e24a262a1e231
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674946"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML id 공급자 기술 프로필 정의
@@ -154,7 +154,7 @@ SAML 어설션:
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | PartnerEntity | 예 | SAML ID 공급자의 메타데이터 URL입니다. ID 공급자 메타데이터를 복사하여 CDATA 요소 `<![CDATA[Your IDP metadata]]>` 내에 추가합니다. |
 | WantsSignedRequests | 아니요 | 기술 프로필에서 모든 발신 인증 요청에 서명을 해야 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 값을 `true`로 설정하는 경우에는 **SamlMessageSigning** 암호화 키를 지정하고 모든 발신 인증 요청에 서명을 해야 합니다. 값을 `false`로 설정하는 경우에는 **SigAlg** 및 **Signature** 매개 변수(쿼리 문자열 또는 게시 매개 변수)가 요청에서 생략됩니다. 이 메타데이터는 메타데이터 **AuthnRequestsSigned** 특성도 제어합니다. 해당 특성은 ID 공급자와 공유되는 Azure AD B2C 기술 프로필의 메타데이터 출력입니다. 기술 프로필 메타 데이터의 **WantsSignedRequests** 값이로 설정 되 `false` 고 id 공급자 메타 데이터 **WantAuthnRequestsSigned** 가로 설정 `false` 되었거나 지정 되지 않은 경우 Azure AD B2C는 요청에 서명 하지 않습니다. |
@@ -174,7 +174,7 @@ SAML 어설션:
 
 **CryptographicKeys** 요소는 다음 특성을 포함 합니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- | ----------- | ----------- |
 | SamlMessageSigning |예 | SAML 메시지에 서명을 하는 데 사용할 X509 인증서(RSA 키 집합)입니다. Azure AD B2C는 이 키를 사용해 요청에 서명을 한 다음 ID 공급자에 요청을 전송합니다. |
 | SamlAssertionDecryption |아니요 | X509 인증서 (RSA 키 집합)입니다. SAML id 공급자는 인증서의 공개 부분을 사용 하 여 SAML 응답의 어설션을 암호화 합니다. Azure AD B2C는 인증서의 비공개 부분을 사용 하 여 어설션을 해독 합니다. |

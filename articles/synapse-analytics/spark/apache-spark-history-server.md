@@ -10,10 +10,10 @@ ms.date: 10/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 4471fed7b423fe05147db30afe57f6c845fe640e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670696"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장 Apache Spark 기록 서버를 사용 하 여 Apache Spark 응용 프로그램 디버그 및 진단
@@ -143,7 +143,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 > [!NOTE]  
 > 각 작업을 재생할 수 있습니다. 완료 되지 않은 작업의 경우 재생이 지원 되지 않습니다.
 
-### <a name="zoom"></a>Zoom
+### <a name="zoom"></a>확대/축소
 
 마우스 스크롤을 사용 하 여 작업 그래프를 확대 및 축소 하거나 **크기에 맞게** 를 선택 하 여 화면에 맞게 확대 합니다.
 

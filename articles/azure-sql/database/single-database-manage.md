@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93319278"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 서버 및 단일 데이터베이스 만들기 및 관리
@@ -65,7 +65,7 @@ Azure PowerShell를 사용 하 여 서버, 단일 및 풀링된 데이터베이�
 > [!TIP]
 > Powershell 예제 스크립트는 powershell [을 사용 하 여 SQL Database에서 데이터베이스 만들기 및 서버 수준 방화벽 규칙 구성](scripts/create-and-configure-database-powershell.md) 및 [powershell을 사용 하 여 SQL Database에서 데이터베이스 모니터링 및 크기 조정](scripts/monitor-and-scale-database-powershell.md)을 참조 하세요.
 
-| cmdlet | 설명 |
+| Cmdlet | 설명 |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|데이터베이스 만들기 |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|하나 이상의 데이터베이스 가져오기|
@@ -90,7 +90,7 @@ Azure PowerShell를 사용 하 여 서버, 단일 및 풀링된 데이터베이�
 > Azure CLI 빠른 시작은 Azure CLI를 [사용 하 여 단일 Azure SQL Database 만들기](az-cli-script-samples-content-guide.md)를 참조 하세요. Azure CLI 예제 스크립트는 [cli를 사용 하 여 Azure SQL Database에서 데이터베이스 만들기 및 SQL Database 방화벽 규칙 구성](scripts/create-and-configure-database-cli.md) 및 [cli를 사용 하 여 Azure SQL Database에서 데이터베이스 모니터링 및 크기 조정](scripts/monitor-and-scale-database-cli.md)을 참조 하세요.
 >
 
-| cmdlet | 설명 |
+| Cmdlet | 설명 |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버의 모든 데이터베이스 및 데이터 웨어하우스 또는 탄력적 풀의 모든 데이터베이스 나열|
@@ -112,7 +112,7 @@ Azure PowerShell를 사용 하 여 서버, 단일 및 풀링된 데이터베이�
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|방화벽 규칙 업데이트|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|방화벽 규칙 삭제|
 
-## <a name="transact-sql-t-sql"></a>Transact-SQL(T-SQL)
+## <a name="transact-sql-t-sql"></a>T-SQL(Transact-SQL)
 
 Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 T-sql 명령을 사용 합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)또는 SQL Database의 서버에 연결 하 고 transact-sql 명령을 전달할 수 있는 다른 프로그램을 사용 하 여 이러한 명령을 실행할 수 있습니다. 탄력적 풀 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 

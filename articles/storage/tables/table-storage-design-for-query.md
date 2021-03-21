@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93316161"
 ---
 # <a name="design-for-querying"></a>쿼리를 위한 디자인
@@ -46,13 +46,13 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 
 [Azure Table Storage 개요](table-storage-overview.md) 아티클에서는 쿼리를 디자인하는 데 직접적인 영향을 주는 Azure Table service의 주요 기능 중 일부에 대해 설명합니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](/rest/api/storageservices/Query-Entities)참조).  
 
-* * **Point Query** _은 가장 효율적으로 사용할 수 있는 조회로, 고용량 조회 또는 가장 짧은 대기 시간을 요구 하는 조회에 사용 하는 것이 좋습니다. 이러한 쿼리는 _ *PartitionKey* * 및 **rowkey** 값을 모두 지정 하 여 인덱스를 사용 하 여 개별 엔터티를 매우 효율적으로 찾을 수 있습니다. 예: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
-* 두 번째 최상의 방법은 _ *PartitionKey* *를 사용 하는 * **range Query** _와 **rowkey** 값 범위에 대 한 필터를 사용 하 여 둘 이상의 엔터티를 반환 하는 것입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
-* 세 번째 가장 좋은 방법은 _ *PartitionKey* *를 사용 하 고 다른 키가 아닌 속성에서 필터를 사용 하 여 둘 이상의 엔터티를 반환할 수 있는 * **Partition Scan** _입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
-* * **Table Scan** _은 _ *PartitionKey* *를 포함 하지 않으며 테이블을 구성 하는 모든 파티션을 검색 하 여 일치 하는 모든 엔터티에 대해 수행 하므로 매우 비효율적입니다. 필터에서 **RowKey** 를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: $filter=LastName eq 'Jones'  
+* ***Point Query** _은 가장 효율적으로 사용할 수 있는 조회로, 고용량 조회 또는 가장 짧은 대기 시간을 요구 하는 조회에 사용 하는 것이 좋습니다. 이러한 쿼리는 _ *PartitionKey** 및 **rowkey** 값을 모두 지정 하 여 인덱스를 사용 하 여 개별 엔터티를 매우 효율적으로 찾을 수 있습니다. 예: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
+* 두 번째 최상의 방법은 _ *PartitionKey**를 사용 하는 ***range Query** _와 **rowkey** 값 범위에 대 한 필터를 사용 하 여 둘 이상의 엔터티를 반환 하는 것입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
+* 세 번째 가장 좋은 방법은 _ *PartitionKey**를 사용 하 고 다른 키가 아닌 속성에서 필터를 사용 하 여 둘 이상의 엔터티를 반환할 수 있는 ***Partition Scan** _입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
+* ***Table Scan** _은 _ *PartitionKey**를 포함 하지 않으며 테이블을 구성 하는 모든 파티션을 검색 하 여 일치 하는 모든 엔터티에 대해 수행 하므로 매우 비효율적입니다. 필터에서 **RowKey** 를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: $filter=LastName eq 'Jones'  
 * 여러 엔터티를 반환하는 쿼리는 **PartitionKey** 와 **RowKey** 순으로 정렬된 엔터티를 반환합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 **RowKey** 를 선택합니다.  
 
-" **or** "를 사용하여 **RowKey** 값을 기반으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 다음과 같은 필터를 사용하는 쿼리는 피해야 합니다. $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
+"**or**"를 사용하여 **RowKey** 값을 기반으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 다음과 같은 필터를 사용하는 쿼리는 피해야 합니다. $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
 Storage 클라이언트 라이브러리를 사용하여 효율적인 쿼리를 실행하는 클라이언트 쪽 코드의 예는 다음을 참조하세요.  
 

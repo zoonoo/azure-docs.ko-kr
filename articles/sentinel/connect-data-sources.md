@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
 ms.openlocfilehash: 3df78d6b53f8e8739307e9b870aa03d76bfd6771
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718610"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
@@ -102,7 +102,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - **방화벽, 프록시 및 끝점-CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Akamai Security Events](connect-akamai-security-events.md)
-        - [아루바 ClearPass](connect-aruba-clearpass.md)
+        - [Aruba ClearPass](connect-aruba-clearpass.md)
         - [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)

@@ -1,5 +1,5 @@
 ---
-title: 서버를 사용 하지 않는 SQL 풀에 대 한 비용 관리
+title: 서버리스 SQL 풀에 대한 비용 관리
 description: 이 문서에서는 서버 리스 SQL 풀의 비용을 관리 하는 방법 및 Azure storage에서 데이터를 쿼리할 때 처리 되는 데이터를 계산 하는 방법을 설명 합니다.
 services: synapse analytics
 author: filippopovic
@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94491572"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀에 대 한 Cost management
@@ -63,7 +63,7 @@ Parquet 열에 대 한 통계를 만들 때 파일에서 관련 열만 읽습니
 
 처리 된 데이터의 쿼리당 크기를 최적화 하 고 데이터를 Parquet 같은 압축 된 열 기반 형식으로 분할 및 변환 하 여 성능을 향상 시킬 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 3 개의 테이블을 가정 합니다.
 
@@ -71,23 +71,23 @@ Parquet 열에 대 한 통계를 만들 때 파일에서 관련 열만 읽습니
 - Population_parquet 테이블은 population_csv 테이블과 동일한 데이터를 포함 합니다. 1TB의 Parquet 파일에 의해 지원 됩니다. 데이터가 Parquet 형식으로 압축 되기 때문에이 테이블은 이전 테이블 보다 작습니다.
 - Very_small_csv 테이블은 100 KB의 CSV 파일에 의해 지원 됩니다.
 
-**쿼리 1** : POPULATION_CSV에서 합계 (채우기)를 선택 합니다.
+**쿼리 1**: POPULATION_CSV에서 합계 (채우기)를 선택 합니다.
 
 이 쿼리는 전체 파일을 읽고 구문 분석 하 여 모집단 열의 값을 가져옵니다. 노드는이 테이블의 조각을 처리 하 고 각 조각의 모집단 합계는 노드 간에 전송 됩니다. 최종 합계가 끝점으로 전송 됩니다. 
 
 이 쿼리는 5TB의 데이터를 처리 하 고 조각 합계를 전송 하기 위한 약간의 오버 헤드를 처리 합니다.
 
-**쿼리 2** : POPULATION_PARQUET에서 합계 (채우기) 선택
+**쿼리 2**: POPULATION_PARQUET에서 합계 (채우기) 선택
 
 Parquet와 같은 압축 및 열 기반 형식을 쿼리하면 쿼리 1 보다 더 작은 데이터를 읽을 수 있습니다. 서버를 사용 하지 않는 SQL 풀에서 전체 파일 대신 압축 된 단일 열을 읽기 때문에이 결과가 표시 됩니다. 이 경우 0.2 TB를 읽습니다. 동일한 크기의 열 5 개는 각각 0.2입니다. 노드는이 테이블의 조각을 처리 하 고 각 조각의 모집단 합계는 노드 간에 전송 됩니다. 최종 합계가 끝점으로 전송 됩니다. 
 
 이 쿼리는 0.2 TB를 처리 하 고 조각 합계를 전송 하기 위한 약간의 오버 헤드를 처리 합니다.
 
-**쿼리 3** : SELECT * FROM population_parquet
+**쿼리 3**: SELECT * FROM population_parquet
 
 이 쿼리는 모든 열을 읽고 압축 되지 않은 형식으로 모든 데이터를 전송 합니다. 압축 형식이 5:1 인 경우 쿼리는 1TB를 읽고 압축 되지 않은 데이터의 5tb를 전송 하기 때문에 6TB를 처리 합니다.
 
-**쿼리 4** : VERY_SMALL_CSV에서 COUNT (*)를 선택 합니다.
+**쿼리 4**: VERY_SMALL_CSV에서 COUNT (*)를 선택 합니다.
 
 이 쿼리는 전체 파일을 읽습니다. 이 테이블에 대 한 저장소에 있는 파일의 총 크기는 100 KB입니다. 노드는이 테이블의 조각을 처리 하 고 각 조각의 합계는 노드 간에 전송 됩니다. 최종 합계가 끝점으로 전송 됩니다. 
 

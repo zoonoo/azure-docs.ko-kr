@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: aeb90e8e064c44f4d17f920261ed58310f0e55f0
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025704"
 ---
 # <a name="debug-errors-when-authoring-a-custom-commands-application"></a>사용자 지정 명령 응용 프로그램을 제작할 때 디버그 오류
@@ -53,8 +53,8 @@ LUIS에는 기본 제공 예/아니요가 있습니다. "예", "아니요"만 �
 
 | 키워드 | 변형 | 
 | ------- | --------- | 
-| Yes | 확인 합니다. |
-| No | 맞습니다 | 
+| 예 | 확인 합니다. |
+| 아니요 | 맞습니다 | 
 
 ### <a name="common-sample-sentences"></a>일반적인 샘플 문장
 사용자 지정 명령은 여러 명령 간에 공유 되는 일반적인 샘플 문장을 허용 하지 않습니다. 한 명령의 일부 샘플 문장이 다른 명령에 이미 정의 되어 있으면 응용 프로그램의 교육이 실패할 수 있습니다. 

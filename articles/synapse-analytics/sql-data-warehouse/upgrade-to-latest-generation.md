@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b5a9d1781bd0498ac6ad74439b1572c52e3c345a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459258"
 ---
 # <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)을 업그레이드 하 여 성능 최적화
@@ -116,7 +116,7 @@ ms.locfileid: "96459258"
    > [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다.
    > [지원 티켓을 제출](sql-data-warehouse-get-started-create-support-ticket.md) 하 여 구독을 승인 하세요.
 
-3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. 전용 SQL 풀 (이전의 SQL DW)이 계산에 최적화 된 Gen2 계층 전용 SQL 풀 (이전의 SQL DW)로 다시 온라인 상태가 되기까지 몇 분 동안 가동 중지 시간이 발생 합니다. **업그레이드를 선택합니다**.
+3. 업그레이드 전에 워크로드가 실행되고 정지되었는지 확인합니다. 전용 SQL 풀 (이전의 SQL DW)이 계산에 최적화 된 Gen2 계층 전용 SQL 풀 (이전의 SQL DW)로 다시 온라인 상태가 되기까지 몇 분 동안 가동 중지 시간이 발생 합니다. **업그레이드 선택**:
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 

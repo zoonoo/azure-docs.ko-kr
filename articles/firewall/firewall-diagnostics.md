@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
 ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98788267"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
@@ -24,7 +24,7 @@ ms.locfileid: "98788267"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 azure 방화벽에 사용할 수 있는 진단 로그 및 메트릭에 대 한 개요는 [Azure 방화벽 로그 및 메트릭을](logs-and-metrics.md) 읽어 보아야 합니다.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305672"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 고객 승인 단계
@@ -34,13 +34,13 @@ ms.locfileid: "93305672"
 
 
 ## <a name="goal"></a>목표
-**프로젝트 결과물 마무리** : 프로덕션 환경의 파이프라인, 모델 및 배포가 고객의 목표를 충족 하는지 확인 합니다.
+**프로젝트 결과물 마무리**: 프로덕션 환경의 파이프라인, 모델 및 배포가 고객의 목표를 충족 하는지 확인 합니다.
 
 ## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 설명하는 두 가지 기본 작업은 다음과 같습니다.
 
-   * **시스템 유효성 검사** : 배포된 모델과 파이프라인이 고객 요구 사항을 충족하는지 확인합니다.
-   * **프로젝트 이전** : 프로덕션에서 시스템을 실행할 엔터티로 프로젝트를 이전합니다.
+   * **시스템 유효성 검사**: 배포된 모델과 파이프라인이 고객 요구 사항을 충족하는지 확인합니다.
+   * **프로젝트 이전**: 프로덕션에서 시스템을 실행할 엔터티로 프로젝트를 이전합니다.
 
 고객이 시스템에서 비즈니스 요구 사항을 충족하고 허용 가능한 정확도로 질문에 대답하는지 확인한 다음, 클라이언트 애플리케이션에서 사용할 수 있도록 시스템을 프로덕션에 배포합니다. 모든 문서를 완성하여 검토합니다. 프로젝트는 운영 담당 엔터티로 이전됩니다. 예를 들어 이 엔터티는 IT 팀, 고객 데이터 과학 팀 또는 운영 시스템을 운영할 책임이 있는 고객 담당자일 수 있습니다. 
 

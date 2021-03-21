@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 콘솔을 사용 하 여 NSX-T 네트워크 
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.openlocfilehash: 0478582a9bc4fb77a1784c27ec4f5c302d6b89fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716991"
 ---
 # <a name="configure-nsx-network-components-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 NSX 네트워크 구성 요소 구성
@@ -27,7 +27,7 @@ Azure VMware 솔루션 콘솔에서 NSX 구성 요소를 구성 하는 4 가지 
  
 :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking.png" alt-text="NSX 구성에 대 한 Azure VMware 솔루션 콘솔의 네 가지 옵션을 보여 주는 스크린샷":::
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 Azure VMware 솔루션 사설 클라우드로 만들어지거나 마이그레이션된 Vm (가상 머신)은 세그먼트에 연결 되어야 합니다. 
 
 ## <a name="create-an-nsx-t-segment-in-the-azure-portal"></a>Azure Portal에서 NSX-T 세그먼트를 만듭니다.
@@ -72,7 +72,7 @@ Azure VMware 솔루션 콘솔에서 포트 미러링을 설정 하려면 다음�
 
 * [2 단계. 포트 미러링 프로필 만들기](#step-2-create-a-port-mirroring-profile) – 원본 및 대상 VM 그룹의 트래픽 방향을 정의 합니다.
 
-### <a name="step-1-create-source-and-destination-vms-or-vm-groups"></a>1단계: 원본 및 대상 Vm 또는 VM 그룹 만들기
+### <a name="step-1-create-source-and-destination-vms-or-vm-groups"></a>1단계. 원본 및 대상 Vm 또는 VM 그룹 만들기
 
 이 단계에서는 원본 VM 그룹과 대상 VM 그룹을 만듭니다.
 
@@ -119,7 +119,7 @@ Azure VMware 솔루션 콘솔에서 DNS 전달자를 설정 하려면 다음을 
 
 * [2 단계. DNS 서비스 구성](#step-2-configure-dns-service) -dns 전달자 서비스를 구성 합니다.
 
-### <a name="step-1-configure-a-default-dns-zone-and-fqdn-zone"></a>1단계: 기본 DNS 영역 및 FQDN 영역 구성
+### <a name="step-1-configure-a-default-dns-zone-and-fqdn-zone"></a>1단계. 기본 DNS 영역 및 FQDN 영역 구성
 업스트림 서버에 DNS 쿼리를 보내도록 기본 DNS 영역 및 FQDN 영역을 구성 합니다.  Dns 쿼리를 받으면 DNS 전달자는 쿼리의 도메인 이름을 FQDN DNS 영역의 도메인 이름과 비교 합니다. 일치 하는 항목이 발견 되 면 쿼리가 FQDN DNS 영역에 지정 된 DNS 서버로 전달 됩니다. 일치 항목을 찾을 수 없는 경우 쿼리는 기본 DNS 영역에 지정 된 DNS 서버로 전달 됩니다.
 
 >[!NOTE]

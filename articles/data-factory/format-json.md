@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
 ms.openlocfilehash: ebac108388071ed3dc0eb2b7bfc0494f2f7bb481
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181366"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Azure Data Factory JSON 형식
@@ -29,10 +29,10 @@ Json **파일을 구문 분석 하거나 json 형식으로 데이터를 쓰려�
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Json** 으로 설정 해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
-| encodingName     | 테스트 파일을 읽고 쓰는 데 사용 되는 인코딩 형식입니다. <br>허용 되는 값은 다음과 같습니다. "UTF-8", "UTF-16", "UTF-16 be", "32 UTF-8", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "조합", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 예       |
+| encodingName     | 테스트 파일을 읽고 쓰는 데 사용 되는 인코딩 형식입니다. <br>허용 되는 값은 다음과 같습니다. "UTF-8", "UTF-16", "UTF-16 be", "32 UTF-8", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "조합", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 아니요       |
 | 압축 | 파일 압축을 구성 하는 속성의 그룹입니다. 작업 실행 중 압축/압축 해제를 수행 하려는 경우이 섹션을 구성 합니다. | 예 |
 | type<br/>(*아래 `compression`*) | JSON 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy** 또는 **lz4** 입니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate" "," TarGzip "및" Tar "를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 기본적으로 파일은 폴더로 추출 됩니다. 즉 `<path specified in dataset>/<folder named as source compressed file>/` , `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [복사 작업 원본](#json-as-source) 에서를 사용 하 여 압축 된 파일의 이름을 폴더 구조로 유지할지 여부를 제어 합니다.| 아니요.  |
-| 수준<br/>(*아래 `compression`*) | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
+| 수준<br/>(*아래 `compression`*) | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 아니요       |
 
 다음은 Azure Blob Storage에서 JSON 데이터 집합의 예입니다.
 
@@ -73,17 +73,17 @@ JSON 파일에서 데이터를 추출 하 고, 데이터를 싱크 데이터 저
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **JSONSource** 로 설정 해야 합니다. | 예      |
-| formatSettings | 속성 그룹입니다. 아래의 **JSON 읽기 설정** 표를 참조 하세요. | 예       |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 예       |
+| formatSettings | 속성 그룹입니다. 아래의 **JSON 읽기 설정** 표를 참조 하세요. | 아니요       |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 다음에서 지원 되는 **JSON 읽기 설정** `formatSettings` :
 
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | FormatSettings의 형식은 **JsonReadSettings** 로 설정 해야 합니다. | 예      |
-| compressionProperties | 지정 된 압축 코덱에 대 한 데이터의 압축을 푸는 방법에 대 한 속성 그룹입니다. | 예       |
-| preserveZipFileNameAsFolder<br>(*의 `compressionProperties` -> `type` 경우 `ZipDeflateReadSettings`*)  | **ZipDeflate** 압축을 사용 하 여 입력 데이터 집합을 구성할 때 적용 됩니다. 원본 zip 파일 이름을 복사 중에 폴더 구조로 유지할지 여부를 나타냅니다.<br>-True로 설정 하면 **(기본값)** Data Factory 압축을 푼 파일을에 씁니다 `<path specified in dataset>/<folder named as source zip file>/` .<br>- **False** 로 설정 하면 압축을 푼 파일을에 직접 Data Factory 씁니다 `<path specified in dataset>` . 경쟁 또는 예기치 않은 동작을 방지 하기 위해 다른 원본 zip 파일에 중복 된 파일 이름이 없는지 확인 합니다.  | 예 |
-| preserveCompressionFileNameAsFolder<br>(*`compressionProperties` -> `type` `TarGZipReadSettings` 또는 `TarReadSettings`*) | **TarGzip** / **Tar** 압축을 사용 하 여 입력 데이터 집합을 구성할 때 적용 됩니다. 원본 압축 파일 이름을 복사 중에 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True (기본값)** 로 설정 하면 압축 해제 되는 파일을에 Data Factory 씁니다 `<path specified in dataset>/<folder named as source compressed file>/` . <br>- **False** 로 설정 하면 압축 해제 한 파일을에 직접 쓸 Data Factory `<path specified in dataset>` . 경쟁 또는 예기치 않은 동작을 방지 하기 위해 다른 원본 파일에 중복 된 파일 이름이 없는지 확인 합니다. | 예 |
+| compressionProperties | 지정 된 압축 코덱에 대 한 데이터의 압축을 푸는 방법에 대 한 속성 그룹입니다. | 아니요       |
+| preserveZipFileNameAsFolder<br>(*의 `compressionProperties` -> `type` 경우 `ZipDeflateReadSettings`*)  | **ZipDeflate** 압축을 사용 하 여 입력 데이터 집합을 구성할 때 적용 됩니다. 원본 zip 파일 이름을 복사 중에 폴더 구조로 유지할지 여부를 나타냅니다.<br>-True로 설정 하면 **(기본값)** Data Factory 압축을 푼 파일을에 씁니다 `<path specified in dataset>/<folder named as source zip file>/` .<br>- **False** 로 설정 하면 압축을 푼 파일을에 직접 Data Factory 씁니다 `<path specified in dataset>` . 경쟁 또는 예기치 않은 동작을 방지 하기 위해 다른 원본 zip 파일에 중복 된 파일 이름이 없는지 확인 합니다.  | 아니요 |
+| preserveCompressionFileNameAsFolder<br>(*`compressionProperties` -> `type` `TarGZipReadSettings` 또는 `TarReadSettings`*) | **TarGzip** / **Tar** 압축을 사용 하 여 입력 데이터 집합을 구성할 때 적용 됩니다. 원본 압축 파일 이름을 복사 중에 폴더 구조로 유지할지 여부를 나타냅니다.<br>- **True (기본값)** 로 설정 하면 압축 해제 되는 파일을에 Data Factory 씁니다 `<path specified in dataset>/<folder named as source compressed file>/` . <br>- **False** 로 설정 하면 압축 해제 한 파일을에 직접 쓸 Data Factory `<path specified in dataset>` . 경쟁 또는 예기치 않은 동작을 방지 하기 위해 다른 원본 파일에 중복 된 파일 이름이 없는지 확인 합니다. | 아니요 |
 
 ### <a name="json-as-sink"></a>JSON을 싱크로
 
@@ -92,15 +92,15 @@ JSON 파일에서 데이터를 추출 하 고, 데이터를 싱크 데이터 저
 | 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **JSONSink** 로 설정 해야 합니다. | 예      |
-| formatSettings | 속성 그룹입니다. 아래의 **JSON 쓰기 설정** 표를 참조 하세요. | 예       |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 예       |
+| formatSettings | 속성 그룹입니다. 아래의 **JSON 쓰기 설정** 표를 참조 하세요. | 아니요       |
+| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 쓰기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 다음에서 지원 되는 **JSON 쓰기 설정** `formatSettings` :
 
 | 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | FormatSettings의 형식은 **JsonWriteSettings** 로 설정 해야 합니다. | 예                                                   |
-| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 허용 되는 값은 **Setofobjects** (JSON 줄) 및 **arrayofobjects** 입니다. **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |예 |
+| filePattern |각 JSON 파일에 저장된 데이터의 패턴을 나타냅니다. 허용 되는 값은 **Setofobjects** (JSON 줄) 및 **arrayofobjects** 입니다. **기본값** 은 **Setofobjects** 입니다. 이러한 패턴에 대한 자세한 내용은 [JSON 파일 패턴](#json-file-patterns) 섹션을 참조하세요. |아니요 |
 
 ### <a name="json-file-patterns"></a>JSON 파일 패턴
 

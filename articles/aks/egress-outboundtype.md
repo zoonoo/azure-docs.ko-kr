@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 06/29/2020
 ms.openlocfilehash: 72ba90510afb00ee001c97612e88f452039f53a4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182131"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>User-Defined 경로를 사용 하 여 클러스터 송신 사용자 지정

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: 98896b5b728a729a29f989b3b9a76f29131af8d7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93305970"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
@@ -93,7 +93,7 @@ ms.locfileid: "93305970"
     - 열 저장소가 있는 SQL Database를 사용하려면 **$DemoScenario** = **3** 을 설정합니다.  
 3. **F5** 키를 눌러 *Deploy-TenantAnalytics\<XX>.ps1* 스크립트를 호출하는 데모 스크립트를 실행하여 테넌트 분석 저장소를 만듭니다. 
 
-이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 로그인 = *developer* , 암호 = *P\@ssword1* 입니다. 자세한 내용은 [입문용 자습서](./saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+이렇게 해서 애플리케이션을 배포하고 애플리케이션에 유의미한 테넌트 데이터를 입력했습니다. 이번에는 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)에서 **tenants1-dpt-&lt;User&gt;** 서버와 **catalog-dpt-&lt;User&gt;** 서버를 연결합니다. 이때 로그인 = *developer*, 암호 = *P\@ssword1* 입니다. 자세한 내용은 [입문용 자습서](./saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![SQL Server에 연결하는 데 필요한 정보를 보여주는 스크린샷.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "93305970"
 SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 같은 데이터베이스 항목을 확인합니다.
 
 - **TicketsRawData** 테이블과 **EventsRawData** 테이블은 테넌트 데이터베이스에서 추출된 원시 데이터를 포함합니다.
-- 스타 스키마 테이블은 **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** , **dim_Dates** 입니다.
+- 스타 스키마 테이블은 **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, **dim_Dates** 입니다.
 - 스타 스키마 테이블에 원시 데이터 테이블을 입력하는 데 저장 프로시저가 사용됩니다.
 
 ![SSMS 개체 탐색기에 표시되는 데이터베이스 항목의 스크린샷.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
@@ -175,7 +175,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer* , 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택한 후 사용자 이름 = *developer*, 암호 = *P\@ssword1* 을 입력합니다. **연결** 을 클릭합니다.  
 
     ![사용자 이름 및 암호를 입력할 수 있는 SQL Server 데이터베이스 대화 상자를 보여 주는 스크린샷](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

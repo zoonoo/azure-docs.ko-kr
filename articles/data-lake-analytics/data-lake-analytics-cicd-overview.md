@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 09/14/2018
 ms.openlocfilehash: 95b638b85e0746d2995488f2a28a5fb2512b1063
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015267"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대해 CI/CD 파이프라인을 설정하는 방법  
@@ -93,7 +93,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 ![U-SQL 프로젝트에 대한 MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다.   >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
 
    ![U-SQL 프로젝트에 대한 NuGet 복원 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -332,7 +332,7 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
    ![U-SQL 프로젝트에 대한 CI/CD MSBuild 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png)
 
-1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다. **Advanced**  >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
+1. MSBuild에서 U-SQL 언어 대상을 찾을 수 있도록 NuGet 복원 작업을 추가하여 `Azure.DataLake.USQL.SDK`를 포함하는 솔루션 참조 NuGet 패키지를 가져옵니다.   >  2 단계에서 직접 MSBuild 인수 예제를 사용 하려면 고급 **대상 디렉터리** 를로 설정 `$(Build.SourcesDirectory)/packages` 합니다.
 
    ![U-SQL 프로젝트를 위한 CI/CD NuGet 작업](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -460,7 +460,7 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 
 #### <a name="common-parameters"></a>공통 매개 변수
 
-| 매개 변수 | Description | 기본값 | 필수 |
+| 매개 변수 | 설명 | 기본값 | 필수 |
 |---------|-----------|-------------|--------|
 |패키지|배포할 U-SQL 데이터베이스 배포 패키지의 경로입니다.|null|true|
 |데이터베이스|배포하거나 만들 데이터베이스 이름입니다.|master|false|
@@ -469,13 +469,13 @@ Azure Pipelines에서 데이터베이스 배포 작업을 설정하려면 다음
 
 #### <a name="parameter-for-local-deployment"></a>로컬 배포에 대한 매개 변수입니다.
 
-|매개 변수|Description|기본값|필수|
+|매개 변수|설명|기본값|필수|
 |---------|-----------|-------------|--------|
 |DataRoot|로컬 데이터 루트 폴더의 경로입니다.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Azure Data Lake Analytics 배포에 대한 매개 변수입니다.
 
-|매개 변수|Description|기본값|필수|
+|매개 변수|설명|기본값|필수|
 |---------|-----------|-------------|--------|
 |계정|계정 이름별로 배포할 Azure Data Lake Analytics 계정을 지정합니다.|null|true|
 |ResourceGroup|Azure Data Lake Analytics 계정에 대한 Azure 리소스 그룹 이름입니다.|null|true|

@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100573218"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>진단 로그-Azure Content Delivery Network
@@ -367,7 +367,7 @@ Microsoft 로그 데이터 지연 | Verizon 로그 데이터 지연 | Akamai 로
 
 ```
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure 진단 로그](../azure-monitor/essentials/platform-logs-overview.md)
 * [Azure CDN 보조 포털을 통한 핵심 분석](./cdn-analyze-usage-patterns.md)

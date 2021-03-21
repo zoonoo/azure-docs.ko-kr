@@ -11,10 +11,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
 ms.openlocfilehash: ab9e122ba0b2b50203a2d66ae14f03f3b6300f96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452344"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 IoT hub의 센서 데이터를 사용한 날씨 예측 (클래식)
@@ -133,7 +133,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
 ### <a name="create-a-stream-analytics-job"></a>Stream Analytics 작업 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** 를 선택 합니다. 검색 상자에 "stream analytics 작업"을 입력 하 고 결과 드롭다운에서 **Stream Analytics 작업** 을 선택 합니다. **Stream Analytics 작업** 창이 열리면 **만들기** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기** 를 선택합니다. 검색 상자에 "stream analytics 작업"을 입력 하 고 결과 드롭다운에서 **Stream Analytics 작업** 을 선택 합니다. **Stream Analytics 작업** 창이 열리면 **만들기** 를 선택 합니다.
 1. 작업에 대한 다음 정보를 입력합니다.
 
    **작업 이름**: 작업의 이름입니다. 이름은 전역적으로 고유해야 합니다.
@@ -231,7 +231,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 Azure IoT hub에서 
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
-Stream Analytics 작업의 왼쪽 창에서 **개요** 를 선택 합니다. 이제 시작 **시작** 을 선택  >  **Now**  >  **Start** 합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨** 에서 **실행 중** 으로 변경됩니다.
+Stream Analytics 작업의 왼쪽 창에서 **개요** 를 선택 합니다. 이제 시작 **시작** 을 선택  >    >  합니다. 작업이 성공적으로 시작되면 작업 상태가 **중지됨** 에서 **실행 중** 으로 변경됩니다.
 
 ![Stream Analytics 작업 실행](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 

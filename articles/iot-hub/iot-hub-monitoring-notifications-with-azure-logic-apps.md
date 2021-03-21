@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490325"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
@@ -70,7 +70,7 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
 ### <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에서 **+ 리소스**  >  **통합**만들기  >  **Service Bus**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 **+ 리소스**  >  **통합** 만들기  >  **Service Bus** 를 선택 합니다.
 
 1. **네임 스페이스 만들기** 창에서 다음 정보를 제공 합니다.
 
@@ -84,21 +84,21 @@ Service Bus 네임스페이스 및 큐를 만듭니다. 이 항목의 뒷부분�
 
    ![Azure Portal에서 Service Bus 네임스페이스 만들기](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-1. **만들기**를 선택합니다. 다음 단계로 이동 하기 전에 배포가 완료 될 때까지 기다립니다.
+1. **만들기** 를 선택합니다. 다음 단계로 이동 하기 전에 배포가 완료 될 때까지 기다립니다.
 
 ### <a name="add-a-service-bus-queue-to-the-namespace"></a>네임 스페이스에 Service Bus 큐 추가
 
 1. Service Bus 네임 스페이스를 엽니다. Service Bus 네임 스페이스를 가져오는 가장 쉬운 방법은 리소스 창에서 **리소스 그룹** 을 선택 하 고 리소스 그룹을 선택한 다음 리소스 목록에서 Service Bus 네임 스페이스를 선택 하는 것입니다.
 
-1. **Service Bus 네임 스페이스** 창에서 **+ 큐**를 선택 합니다.
+1. **Service Bus 네임 스페이스** 창에서 **+ 큐** 를 선택 합니다.
 
-1. 큐의 이름을 입력 한 다음 **만들기**를 선택 합니다. 큐가 성공적으로 만들어지면 **큐 만들기** 창이 닫힙니다.
+1. 큐의 이름을 입력 한 다음 **만들기** 를 선택 합니다. 큐가 성공적으로 만들어지면 **큐 만들기** 창이 닫힙니다.
 
    ![Azure Portal에서 Service Bus 큐 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. **Service Bus 네임 스페이스** 창으로 돌아가서 **엔터티**아래에서 **큐**를 선택 합니다. 목록에서 Service Bus 큐를 열고 **공유 액세스 정책**  >  **+ 추가**를 선택 합니다.
+1. **Service Bus 네임 스페이스** 창으로 돌아가서 **엔터티** 아래에서 **큐** 를 선택 합니다. 목록에서 Service Bus 큐를 열고 **공유 액세스 정책**  >  **+ 추가** 를 선택 합니다.
 
-1. 정책의 이름을 입력 하 고 **관리**를 선택한 다음 **만들기**를 선택 합니다.
+1. 정책의 이름을 입력 하 고 **관리** 를 선택한 다음 **만들기** 를 선택 합니다.
 
    ![Azure Portal에서 service bus 큐 정책 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
@@ -110,7 +110,7 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 1. IoT Hub를 엽니다. IoT hub를 가져오는 가장 쉬운 방법은 리소스 창에서 **리소스 그룹** 을 선택 하 고 리소스 그룹을 선택한 다음 리소스 목록에서 IoT hub를 선택 하는 것입니다.
 
-1. **메시징**에서 **메시지 라우팅**을 선택 합니다. **메시지 라우팅** 창에서 **사용자 지정 끝점** 탭을 선택 하 고 **+ 추가**를 선택 합니다. 드롭다운 목록에서 **Service bus 큐**를 선택 합니다.
+1. **메시징** 에서 **메시지 라우팅** 을 선택 합니다. **메시지 라우팅** 창에서 **사용자 지정 끝점** 탭을 선택 하 고 **+ 추가** 를 선택 합니다. 드롭다운 목록에서 **Service bus 큐** 를 선택 합니다.
 
    ![Service bus 큐 옵션을 강조 표시 하는 스크린샷](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
@@ -124,11 +124,11 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
    ![Azure Portal에서 IoT Hub에 엔드포인트 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
-1. **만들기**를 선택합니다. 끝점이 성공적으로 생성 되 면 다음 단계를 진행 합니다.
+1. **만들기** 를 선택합니다. 끝점이 성공적으로 생성 되 면 다음 단계를 진행 합니다.
 
 ### <a name="add-a-routing-rule"></a>라우팅 규칙 추가
 
-1. **메시지 라우팅** 창으로 돌아가서 **경로** 탭을 선택한 다음 **+ 추가**를 선택 합니다.
+1. **메시지 라우팅** 창으로 돌아가서 **경로** 탭을 선택한 다음 **+ 추가** 를 선택 합니다.
 
 1. **경로 추가** 창에서 다음 정보를 입력 합니다.
 
@@ -136,13 +136,13 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
    **엔드포인트**: 앞에서 만든 엔드포인트를 선택합니다.
 
-   **데이터 원본**: **장치 원격 분석 메시지**를 선택 합니다.
+   **데이터 원본**: **장치 원격 분석 메시지** 를 선택 합니다.
 
    **라우팅 쿼리**: `temperatureAlert = "true"` 를 입력 합니다.
 
    ![Azure Portal에서 라우팅 규칙 추가](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
-1. **저장**을 선택합니다. **메시지 라우팅** 창을 닫을 수 있습니다.
+1. **저장** 을 선택합니다. **메시지 라우팅** 창을 닫을 수 있습니다.
 
 ## <a name="create-and-configure-a-logic-app"></a>논리 앱 만들기 및 구성
 
@@ -150,7 +150,7 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 
-1. **리소스 만들기**  >  **통합**  >  **논리 앱**을 선택 합니다.
+1. **리소스 만들기**  >  **통합**  >  **논리 앱** 을 선택 합니다.
 
 1. 다음 정보를 입력합니다.
 
@@ -162,21 +162,21 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
    ![Azure Portal에서 논리 앱 만들기](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 ### <a name="configure-the-logic-app-trigger"></a>논리 앱 트리거 구성
 
 1. 논리 앱을 엽니다. 논리 앱을 가져오는 가장 쉬운 방법은 리소스 창에서 **리소스 그룹** 을 선택 하 고 리소스 그룹을 선택한 다음 리소스 목록에서 논리 앱을 선택 하는 것입니다. 논리 앱을 선택 하면 Logic Apps 디자이너가 열립니다.
 
-1. Logic Apps 디자이너에서 **템플릿으로** 스크롤하고 **빈 논리 앱**을 선택 합니다.
+1. Logic Apps 디자이너에서 **템플릿으로** 스크롤하고 **빈 논리 앱** 을 선택 합니다.
 
    ![Azure Portal에서 빈 논리 앱 시작](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
 
-1. **모두** 탭을 선택 하 고 **Service Bus**를 선택 합니다.
+1. **모두** 탭을 선택 하 고 **Service Bus** 를 선택 합니다.
 
    ![Service Bus를 선택하여 Azure Portal에서 논리 앱 만들기 시작](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. **트리거**아래에서 **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 를 선택 합니다.
+1. **트리거** 아래에서 **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 를 선택 합니다.
 
    ![Azure Portal에서 논리 앱에 대 한 트리거를 선택 합니다.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
@@ -185,11 +185,11 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
       ![큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성) 옵션을 강조 표시 하는 스크린샷](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   1. Service bus 정책 (RootManageSharedAccessKey)을 선택 합니다. 그런 다음  **만들기**를 선택 합니다.
+   1. Service bus 정책 (RootManageSharedAccessKey)을 선택 합니다. 그런 다음  **만들기** 를 선택 합니다.
 
       ![Azure Portal에서 논리 앱에 대한 Service Bus 연결 만들기](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. 마지막 화면에서 **큐 이름**에 대해 드롭다운에서 만든 큐를 선택 합니다. `175` **최대 메시지 수**에 대해를 입력 합니다.
+   1. 마지막 화면에서 **큐 이름** 에 대해 드롭다운에서 만든 큐를 선택 합니다. `175` **최대 메시지 수** 에 대해를 입력 합니다.
 
       ![논리 앱에서 Service Bus 연결의 최대 메시지 수 지정](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
@@ -199,13 +199,13 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 1. SMTP 서비스 연결을 만듭니다.
 
-   1. **새 단계**를 선택합니다. **작업 선택**에서 **모두** 탭을 선택 합니다.
+   1. **새 단계** 를 선택합니다. **작업 선택** 에서 **모두** 탭을 선택 합니다.
 
-   1. `smtp`검색 상자에을 입력 하 고 검색 결과에서 **SMTP** 서비스를 선택한 다음 **전자 메일 보내기**를 선택 합니다.
+   1. `smtp`검색 상자에을 입력 하 고 검색 결과에서 **SMTP** 서비스를 선택한 다음 **전자 메일 보내기** 를 선택 합니다.
 
       ![Azure Portal에서 논리 앱에 SMTP 연결 만들기](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
 
-   1. 사서함에 대 한 SMTP 정보를 입력 한 다음 **만들기**를 선택 합니다.
+   1. 사서함에 대 한 SMTP 정보를 입력 한 다음 **만들기** 를 선택 합니다.
 
       ![Azure Portal에서 논리 앱에 SMTP 연결 정보 입력](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
 
@@ -214,11 +214,11 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
       > [!NOTE]
       > TLS/SSL을 사용 하지 않도록 설정 하 여 연결을 설정 해야 할 수도 있습니다. 이 경우 연결이 설정 된 후 TLS를 다시 사용 하도록 설정 하려는 경우이 섹션의 끝에 있는 선택적 단계를 참조 하세요.
 
-   1. **전자 메일 보내기** 단계의 **새 매개 변수 추가** 드롭다운에서 **시작**, **받는**사람, **제목** 및 **본문**을 선택 합니다. 화면에서 아무 곳 이나 클릭 하거나 탭 하 여 선택 상자를 닫습니다.
+   1. **전자 메일 보내기** 단계의 **새 매개 변수 추가** 드롭다운에서 **시작**, **받는** 사람, **제목** 및 **본문** 을 선택 합니다. 화면에서 아무 곳 이나 클릭 하거나 탭 하 여 선택 상자를 닫습니다.
 
       ![SMTP 연결 전자 메일 필드 선택](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 
-   1. **보내는 사람** 및 **받는 사람**의 전자 메일 주소를 입력하고, **제목** 및 **본문**에 `High temperature detected`를 입력합니다. **이 흐름에서 사용 하는 앱 및 커넥터에서 동적 콘텐츠 추가** 대화 상자가 열리면 **숨기기** 를 선택 하 여 닫습니다. 이 자습서에서는 동적 콘텐츠를 사용 하지 않습니다.
+   1. **보내는 사람** 및 **받는 사람** 의 전자 메일 주소를 입력하고, **제목** 및 **본문** 에 `High temperature detected`를 입력합니다. **이 흐름에서 사용 하는 앱 및 커넥터에서 동적 콘텐츠 추가** 대화 상자가 열리면 **숨기기** 를 선택 하 여 닫습니다. 이 자습서에서는 동적 콘텐츠를 사용 하지 않습니다.
 
       ![SMTP 연결 전자 메일 필드 입력](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 
@@ -226,13 +226,13 @@ Service Bus 큐에 대 한 사용자 지정 끝점을 IoT hub에 추가 하 고,
 
 1. 필드 전자 메일 공급자와의 연결을 설정 하는 데 TLS를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-   1. **논리 앱** 창의 **개발 도구**아래에서 **API 연결**을 선택 합니다.
+   1. **논리 앱** 창의 **개발 도구** 아래에서 **API 연결** 을 선택 합니다.
 
    1. API 연결 목록에서 SMTP 연결을 선택 합니다.
 
-   1. **SMTP Api 연결** 창의 **일반**에서 **API 연결 편집**을 선택 합니다.
+   1. **SMTP Api 연결** 창의 **일반** 에서 **API 연결 편집** 을 선택 합니다.
 
-   1. **API 연결 편집** 창에서 **SSL 사용**을 선택 하 고 전자 메일 계정에 대 한 암호를 다시 입력 하 고 **저장**을 선택 합니다.
+   1. **API 연결 편집** 창에서 **SSL 사용** 을 선택 하 고 전자 메일 계정에 대 한 암호를 다시 입력 하 고 **저장** 을 선택 합니다.
 
       ![Azure Portal에서 논리 앱의 SMTP API 연결 편집](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

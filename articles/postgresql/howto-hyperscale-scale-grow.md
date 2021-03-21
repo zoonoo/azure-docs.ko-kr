@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.openlocfilehash: 59e6e73c99569b0a35c56d65c1a7ccdfcb394c0f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026423"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Citus (Hyperscale) 서버 그룹 크기 조정
@@ -27,14 +27,14 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 늘어난 부하를 처리 �
 **저장** 단추를 클릭 하 여 변경 된 값이 적용 되도록 합니다.
 
 > [!NOTE]
-> 증가 하 고 저장 한 후에는 슬라이더를 사용 하 여 작업자 노드 수를 줄일 수 없습니다.
+> 작업자 노드 수를 늘리고 저장한 다음에는 슬라이더를 사용하여 줄일 수 없습니다.
 
 > [!NOTE]
 > 새로 추가 된 노드를 활용 하려면 [분산 테이블 분할의 균형](howto-hyperscale-scale-rebalance.md)을 다시 조정 해야 합니다 .이는 일부 [분할](concepts-hyperscale-distributed-data.md#shards) 을 기존 노드에서 새 노드로 이동 하는 것을 의미 합니다.
 
-## <a name="increase-or-decrease-vcores-on-nodes"></a>노드에서 vCores 증가 또는 감소
+## <a name="increase-or-decrease-vcores-on-nodes"></a>노드에서 vCore 늘리기 또는 줄이기
 
-새 노드를 추가 하는 것 외에도 기존 노드의 기능을 늘릴 수 있습니다. 계산 용량을 늘리거나 줄일 수 있는 것은 성능 실험 뿐만 아니라 트래픽 요구에 대 한 단기 또는 장기 변경에 유용할 수 있습니다.
+새 노드를 추가할 뿐만 아니라 기존 노드의 기능을 향상할 수 있습니다. 계산 용량을 늘리거나 줄일 수 있는 것은 성능 실험 뿐만 아니라 트래픽 요구에 대 한 단기 또는 장기 변경에 유용할 수 있습니다.
 
 모든 작업자 노드에 대 한 vCores를 변경 하려면 **구성 (작업자 노드당)** 에서 **vcores** 슬라이더를 조정 합니다. 코디네이터 노드의 vCores는 독립적으로 조정할 수 있습니다. **구성 (코디네이터 노드)** 에서 **vcores** 슬라이더를 조정 합니다.
 

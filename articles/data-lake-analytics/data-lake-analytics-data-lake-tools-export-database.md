@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.openlocfilehash: 0a768990a33f0d60a3222bd3ad323edcc53c9ec0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219091"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL 데이터베이스 내보내기
@@ -27,7 +27,7 @@ ms.locfileid: "92219091"
 서버 탐색기에는 권한이 있는 모든 Data Lake Analytics 계정이 나열됩니다. 데이터베이스를 내보내려면
 
 1. 서버 탐색기에서 내보낼 데이터베이스가 포함된 계정을 펼칩니다.
-2. 해당 데이터베이스를 마우스 오른쪽 단추로 클릭한 다음 **내보내기**를 선택합니다. 
+2. 해당 데이터베이스를 마우스 오른쪽 단추로 클릭한 다음 **내보내기** 를 선택합니다. 
    
     ![서버 탐색기 - 데이터베이스 내보내기](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
@@ -43,11 +43,11 @@ ms.locfileid: "92219091"
 
 ### <a name="step-3-check-the-objects-list-and-other-configurations"></a>3단계: 개체 목록 및 기타 구성 확인
 
-이 단계에서는 **내보내기 개체 목록** 상자에서 선택한 개체를 확인할 수 있습니다. 오류가 있으면 **이전**을 선택하여 돌아가서 내보내려는 개체를 올바르게 구성합니다.
+이 단계에서는 **내보내기 개체 목록** 상자에서 선택한 개체를 확인할 수 있습니다. 오류가 있으면 **이전** 을 선택하여 돌아가서 내보내려는 개체를 올바르게 구성합니다.
 
 내보내기 대상에 대해 다른 설정을 구성할 수도 있습니다. 구성에 대한 설명은 다음 표에 나와 있습니다.
 
-|구성|Description|
+|구성|설명|
 |-------------|-----------|
 |대상 이름|내보내는 데이터베이스 리소스를 저장할 위치를 나타냅니다. 예를 들어 어셈블리, 추가 파일 및 샘플 데이터가 있습니다. 이 이름을 갖는 폴더가 로컬 데이터 루트 폴더 아래에 만들어집니다.|
 |프로젝트 디렉터리|내보내는 U-SQL 스크립트를 저장할 위치를 정의합니다. 모든 데이터베이스 개체 정의는 이 위치에 저장됩니다.|

@@ -11,10 +11,10 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014765"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Rigado Cascade 500 게이트웨이 장치를 Azure IoT Central 응용 프로그램에 연결
@@ -29,7 +29,7 @@ Cascade 500 IoT gateway는 Rigado에서 제공 하는 하드웨어 제품으로,
 
 Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등록할 수 있도록 Azure IoT 플러그 앤 플레이 (미리 보기)를 미리 인증 합니다. Cascade gateway를 사용 하면 게이트웨이 장치와 근접 한 다양 한 조건 모니터링 센서에 무선으로 연결할 수 있습니다. 이러한 센서는 게이트웨이 장치를 통해 IoT Central에 등록 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행 하려면 다음 리소스가 필요 합니다.
 
 * Rigado Cascade 500 장치입니다. 자세한 내용은 [Rigado](https://www.rigado.com/)를 참조 하세요.
@@ -42,14 +42,14 @@ Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등�
 캐스케이드 500 장치 템플릿을 추가 하려면: 
 
 1. 왼쪽 창에서 ***장치 템플릿** _ 탭으로 이동 하 여 _ * + 새로 만들기 * *: ![ 새 장치 템플릿 만들기를 선택 합니다.](./media/howto-connect-rigado-cascade-500/device-template-new.png)
-1. 이 페이지에서는 *_사용자 지정 템플릿 만들기_* _ 또는 _*_미리 구성 된 장치 템플릿 사용_*_ 옵션을 제공 합니다.
+1. 이 페이지에서는 **사용자 지정 템플릿 만들기** _ 또는 *_미리 구성 된 장치 템플릿 사용_* 에 대 한 옵션을 제공 합니다.*
 1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 C500 장치 템플릿을 선택 합니다. ![ C500 장치 템플릿 선택](./media/howto-connect-rigado-cascade-500/device-template-preconfigured.png)
-1. 다음 _*_: 사용자 지정_*_ 을 선택 하 여 다음 단계를 계속 합니다. 
-1. 다음 화면에서 _*_만들기_*_ 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
+1. 다음 ***: 사용자 지정*** 을 선택 하 여 다음 단계를 계속 합니다. 
+1. 다음 화면에서 ***만들기*** 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
 
 ## <a name="retrieve-application-connection-details"></a>응용 프로그램 연결 정보 검색
 
-이제 캐스케이드 500 장치를 연결 하기 위해 Azure IoT Central 응용 프로그램에 대 한 _ *범위 ID** 및 **기본 키** 를 검색 해야 합니다. 
+이제 캐스케이드 500 장치를 연결 하기 위해 Azure IoT Central 응용 프로그램에 대 한 **범위 ID** 및 **기본 키** 를 검색 해야 합니다. 
 
 1. 왼쪽 창에서 **관리**  로 이동 하 여 **장치 연결** 을 클릭 합니다. 
 2. IoT Central 응용 프로그램의 **범위 ID** 를 적어 둡니다.

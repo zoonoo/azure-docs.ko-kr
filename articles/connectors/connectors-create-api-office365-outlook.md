@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
 ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095466"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Office 365 Outlook에서 이메일, 연락처 및 일정 관리
@@ -98,7 +98,7 @@ ms.locfileid: "101095466"
 
   1. 논리 앱의 리소스 그룹 메뉴에서 **액세스 제어 (IAM)** 를 선택 합니다. **참가자** 역할을 사용 하 여 다른 계정을 설정 합니다. 
   
-     자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+     자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
   1. 이 역할을 설정한 후에는 현재 참가자 권한이 있는 계정으로 Azure Portal에 로그인 합니다. 이제이 계정을 사용 하 여 Outlook에 대 한 연결을 만들 수 있습니다.
 
