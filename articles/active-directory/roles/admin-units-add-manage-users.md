@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a9d80344a31023d174935e7f785e36102e99eba
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011562"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory 관리 단위에서 사용자 추가 및 관리
@@ -94,7 +94,7 @@ POST /administrativeUnits/{admin-unit-id}/members/$ref
 }
 ```
 
-예
+예제
 
 ```http
 {

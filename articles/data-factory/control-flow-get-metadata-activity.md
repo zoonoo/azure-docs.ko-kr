@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
 ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102178544"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
@@ -92,7 +92,7 @@ ms.locfileid: "102178544"
 > [!NOTE]
 > **구조** 필드 목록에서 구분 된 텍스트 및 Excel 형식 데이터 집합에 대 한 실제 데이터 구조를 제공 하려면 `First Row as Header` 이러한 데이터 원본에 대해서만 지원 되는 속성을 활성화 해야 합니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 **메타 데이터 가져오기 작업**
 
@@ -167,8 +167,8 @@ ms.locfileid: "102178544"
 -------- | ----------- | --------
 fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | 예 
 데이터 세트 | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#supported-capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | 예
-formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
-나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
+formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
+나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
 
 ## <a name="sample-output"></a>샘플 출력
 

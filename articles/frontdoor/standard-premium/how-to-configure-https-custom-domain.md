@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
 ms.openlocfilehash: c2edf11939996156c2b589b0b7876ae1b01466e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740820"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Front 도어 Standard/Premium SKU (미리 보기) 사용자 지정 도메인에서 HTTPS 구성
 
 > [!NOTE]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure Front 도어 Standard/Premium은 사용자 지정 도메인을 추가할 때 기본적으로 응용 프로그램에 대 한 보안 TLS 배달을 가능 하 게 합니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용 하 여 인터넷을 통해 전송 될 때 중요 한 데이터가 TLS/SSL 암호화를 통해 안전 하 게 배달 되도록 합니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 이 프로세스는 보안을 제공하며 공격으로부터 웹 애플리케이션을 보호합니다.
 
@@ -29,7 +29,7 @@ Azure Front 도어 Standard/Premium은 Azure 관리 되는 인증서 및 고객 
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [**Microsoft Azure Preview에 대한 추가 사용 약관**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 사용자 지정 도메인에 대해 HTTPS를 구성 하려면 먼저 Azure Front 도어 표준/프리미엄 프로필을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Front 도어 표준/프리미엄 프로필 만들기](create-front-door-portal.md)를 참조 하세요.
 

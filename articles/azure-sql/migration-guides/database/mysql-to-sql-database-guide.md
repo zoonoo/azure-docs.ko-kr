@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: d59a4fc2cbf52d95e6b5a5100b5ffe06c5dbed7e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ff7b2115b396bf42cdeffa9c58bffb1802e980d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565085"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721888"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>마이그레이션 가이드: MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -42,10 +42,18 @@ MySQL 데이터베이스를 Azure SQL Database로 마이그레이션하려면 �
 평가를 만들려면 다음 단계를 수행 합니다.
 
 1. MySQL에 대 한 SQL Server Migration Assistant를 엽니다. 
-1. 메뉴에서 **파일** 을 선택 하 고 **새 프로젝트** 를 선택 합니다. 프로젝트 이름, 프로젝트를 저장할 위치를 제공 합니다.
-1. 마이그레이션 대상으로 **Azure SQL Database** 를 선택 합니다. 
+1. 메뉴에서 **파일** 을 선택 하 고 **새 프로젝트** 를 선택 합니다. 프로젝트 이름, 프로젝트를 저장할 위치를 제공 합니다. 마이그레이션 대상으로 **Azure SQL Database** 를 선택 합니다. 
+
+   ![새 프로젝트](./media/mysql-to-sql-database-guide/new-project.png)
+
 1. Mysql **에 연결** 을 선택 하 고 연결 정보를 제공 하 여 mysql 서버에 연결 합니다. 
+
+   ![MySQL에 연결](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
+
 1. **Mysql 메타 데이터 탐색기** 에서 mysql 스키마를 마우스 오른쪽 단추로 클릭 하 고 **보고서 만들기** 를 선택 합니다. 또는 위쪽의 탐색 모음에서 **보고서 만들기** 를 선택할 수 있습니다. 
+
+   ![보고서 만들기](./media/mysql-to-sql-database-guide/create-report.png)
+
 1. 오류 및 경고 뿐만 아니라 변환 통계에 대 한 HTML 보고서를 검토 합니다. 분석 하 여 변환 문제 및 해결 방법을 파악 합니다. 
 
    이 보고서는 첫 번째 화면에서 선택한 것 처럼 SSMA 프로젝트 폴더에서 액세스할 수도 있습니다. 위의 예제에서 report.xml 파일을 찾습니다.
@@ -54,9 +62,19 @@ MySQL 데이터베이스를 Azure SQL Database로 마이그레이션하려면 �
  
    를 Excel에서 열어 MySQL 개체의 인벤토리 및 스키마 변환을 수행 하는 데 필요한 작업을 가져옵니다.
 
+    ![변환 보고서](./media/mysql-to-sql-database-guide/conversion-report.png)
+
 ### <a name="validate-data-types"></a>데이터 형식의 유효성 검사
 
-스키마 변환을 수행 하기 전에 기본 데이터 형식 매핑의 유효성을 검사 하거나 요구 사항에 따라 변경 합니다. "도구" 메뉴로 이동 하 고 "프로젝트 설정"을 선택 하거나 "MySQL 메타 데이터 탐색기"에서 테이블을 선택 하 여 각 테이블에 대 한 형식 매핑을 변경할 수 있습니다.
+기본 데이터 형식 매핑의 유효성을 검사하고 필요한 경우 요구 사항에 따라 해당 매핑을 변경합니다. 이렇게 하려면 다음 단계를 따르십시오. 
+
+1. 메뉴에서 **도구** 를 선택합니다. 
+1. **프로젝트 설정** 을 선택합니다. 
+1. **형식 매핑** 탭을 선택합니다. 
+
+   ![형식 매핑](./media/mysql-to-sql-database-guide/type-mappings.png)
+
+1. **MySQL 메타 데이터 탐색기** 에서 테이블을 선택 하 여 각 테이블에 대 한 형식 매핑을 변경할 수 있습니다. 
 
 ### <a name="convert-schema"></a>스키마 변환 
 
@@ -64,9 +82,22 @@ MySQL 데이터베이스를 Azure SQL Database로 마이그레이션하려면 �
 
 1. 필드 동적 또는 임시 쿼리를 변환 하려면 노드를 마우스 오른쪽 단추로 클릭 하 고 **문 추가** 를 선택 합니다. 
 1. 위쪽 줄 탐색 모음에서 **Azure SQL Database에 연결을** 선택 하 고 연결 정보를 제공 합니다. 기존 데이터베이스에 연결 하거나 새 이름을 제공 하도록 선택할 수 있습니다 .이 경우 대상 서버에 데이터베이스가 생성 됩니다.
+
+   ![SQL에 연결](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
+ 
 1. 스키마를 마우스 오른쪽 단추로 클릭 하 고 **스키마 변환** 을 선택 합니다. 
+
+   ![스키마 변환](./media/mysql-to-sql-database-guide/convert-schema.png)
+
 1. 스키마 변환이 완료 된 후 변환 된 코드를 원래 코드와 비교 하 여 잠재적인 문제를 식별 합니다. 
 
+   변환 된 개체를 원본 개체와 비교 합니다. 
+
+   ![ 개체 비교 및 검토 ](./media/mysql-to-sql-database-guide/table-comparison.png)
+
+   변환 된 프로시저를 원래 프로시저와 비교 합니다. 
+
+   ![개체 코드 비교 및 검토](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 
 ## <a name="migrate"></a>마이그레이션 
@@ -76,9 +107,25 @@ MySQL 데이터베이스를 Azure SQL Database로 마이그레이션하려면 �
 스키마를 게시 하 고 데이터를 마이그레이션하려면 다음 단계를 수행 합니다. 
 
 1. **Azure SQL Database 메타 데이터 탐색기** 에서 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스와 동기화** 를 선택 합니다. 이 작업을 수행 하면 MySQL 스키마가 Azure SQL Database에 게시 됩니다.
+
+   ![데이터베이스와 동기화](./media/mysql-to-sql-database-guide/synchronize-database.png)
+
+   원본 프로젝트와 대상 간의 매핑을 검토 합니다.
+
+   ![데이터베이스 검토와 동기화](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+
 1. **Mysql 메타 데이터 탐색기** 에서 mysql 스키마를 마우스 오른쪽 단추로 클릭 하 고 **데이터 마이그레이션** 을 선택 합니다. 또는 최상위 탐색에서 **데이터 마이그레이션** 을 선택할 수도 있습니다. 
+
+   ![데이터 마이그레이션](./media/mysql-to-sql-database-guide/migrate-data.png)
+
 1. 마이그레이션이 완료 되 면 **데이터 마이그레이션** 보고서를 확인 합니다. 
+
+   ![데이터 마이그레이션 보고서](./media/mysql-to-sql-database-guide/data-migration-report.png)
+
 1.  SSMS (SQL Server Management Studio)를 사용 하 여 Azure SQL Database의 데이터와 스키마를 검토 하 여 마이그레이션 유효성을 검사 합니다.
+
+    ![SSMA에서 유효성 검사](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
+
 
 
 ## <a name="post-migration"></a>마이그레이션 후 

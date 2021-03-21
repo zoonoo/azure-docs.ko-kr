@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955296"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598289"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>라이브 스트리밍 시나리오 기반 마이그레이션 지침
 
@@ -42,7 +42,7 @@ V 2에서 V3로 콘텐츠를 이동 하기 전에 Media Services을 사용 하 �
 - 라이브 이벤트의 빠른 시작이 필요한 경우 새 [대기 모드](live-events-outputs-concept.md#standby-mode) 기능을 탐색 합니다.
 - 라이브 이벤트가 발생 하는 동안 높여줄 하려면 새 [라이브](live-transcription.md) 기록 기능을 탐색 합니다.
 - 더 긴 스트리밍 기간이 필요한 경우 v3에서 연중 무휴 라이브 이벤트를 만듭니다.
-- [Event Grid](monitor-events-portal-how-to.md) 사용 하 여 라이브 이벤트를 모니터링 합니다.
+- [Event Grid](monitoring/monitor-events-portal-how-to.md) 사용 하 여 라이브 이벤트를 모니터링 합니다.
 
 특정 단계는 라이브 이벤트 개념, 자습서 및 아래 가이드를 참조 하세요.
 

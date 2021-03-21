@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182335"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
@@ -20,7 +20,7 @@ Linux Hybrid Runbook Worker는 Runbook을 승격이 필요한 명령을 실행�
 
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 다음이 있는지 확인 합니다.
 
@@ -93,9 +93,9 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 |Python 3 (미리 보기)|예, 다음에만 필요 합니다. SUSE LES 15, RHEL 8 및 CentOS 8|
 |Python 2 |예,<sup>Python 3이</sup> 필요 하지 않은 모든 배포판의 경우 |
 |PowerShell |예<sup>2</sup> |
-|PowerShell 워크플로 |예 |
-|그래픽 |예 |
-|그래픽 PowerShell 워크플로 |예 |
+|PowerShell 워크플로 |아니요 |
+|그래픽 |아니요 |
+|그래픽 PowerShell 워크플로 |아니요 |
 
 <sup>1</sup> [지원 되는 Linux 운영 체제](#supported-linux-operating-systems)를 참조 하세요.
 

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 11/10/2020
 ms.author: pafarley
 ms.openlocfilehash: 7fc1822c219c6c881e3d788f6b0e56675cecc466
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102444454"
 ---
 Python용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.

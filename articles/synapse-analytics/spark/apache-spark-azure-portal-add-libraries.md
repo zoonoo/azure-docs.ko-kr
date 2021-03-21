@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176419"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598017"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 라이브러리 관리
 라이브러리는 프로그램 또는 프로젝트에 포함 시킬 수 있는 재사용 가능한 코드를 제공 합니다. 
@@ -60,10 +60,6 @@ Azure Synapse Analytics 풀 관리 기능을 사용 하 여 지정 된 서버를
 대화형 데이터 분석 이나 기계 학습을 수행 하는 경우에는 종종 최신 패키지를 사용해 보거나 Apache Spark 풀에서 아직 사용할 수 없는 패키지가 필요할 수 있습니다. 이제 사용자는 풀 구성을 업데이트 하는 대신 세션 범위 패키지를 사용 하 여 세션 종속성을 추가, 관리 및 업데이트할 수 있습니다.
 
 세션 범위 패키지를 사용 하면 사용자가 세션을 시작할 때 패키지 종속성을 정의할 수 있습니다. 세션 범위 패키지를 설치 하는 경우 현재 세션에만 지정 된 패키지에 대 한 액세스 권한이 있습니다. 따라서 이러한 세션 범위 패키지는 동일한 Apache Spark 풀을 사용 하는 다른 세션 또는 작업에 영향을 주지 않습니다. 또한 이러한 라이브러리는 기본 런타임 및 풀 수준 패키지 위에 설치 됩니다. 
-
-이러한 패키지는 Python 환경에 자동으로 추가 됩니다. 패키지는 *requirements.txt* 파일에 언급 해서는 안 됩니다.
-
-이 메서드는 현재 파일에만 포트를 확인 `*.whl` 합니다. `*.tar.gz`컨테이너에 파일을 추가 하지 마세요.
 
 세션 범위 패키지를 관리 하는 방법에 대 한 자세한 내용을 보려면 다음 방법 가이드를 참조 하세요.
 

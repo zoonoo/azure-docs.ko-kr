@@ -8,10 +8,10 @@ ms.author: stkirk
 ms.service: azure-redhat-openshift
 keywords: encryption, byok, aro, cmk, openshift, red hat
 ms.openlocfilehash: fa84096dcc44e668a6cf7ebd0369c6d3631c28d2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102555621"
 ---
 # <a name="encrypt-persistent-volume-claims-with-a-customer-managed-key-cmk-on-azure-red-hat-openshift-aro-preview"></a>Azure Red Hat OpenShift (ARO) (미리 보기)에서 고객 관리 키 (CMK)를 사용 하 여 영구적 볼륨 클레임 암호화

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b0e8e2e0ee7ce730f6bf00d7e5ef4bd4eae65ce7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfaab3f095dbf2f1657f5ebb587a3de958d11cda
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666944"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721187"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>HB-시리즈 가상 머신 개요
 
@@ -51,13 +51,13 @@ VM 자체는 pNUMA 0이 지정 되지 않았음을 인식 하지 못합니다. V
 |-----------------------------|-----------------------|
 | 최대 MPI 작업 크기            | 18000 코어 (단일 가상 머신 확장 집합에서 단일 가상 머신 확장 집합의 300 Vm (Singleementgroup = true))  |
 | MPI 지원                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| 추가 프레임 워크       | 통합 통신 X,을 (를) |
+| 추가 프레임 워크       | 로 x,을 (를) |
 | 지원 Azure Storage       | Standard 및 Premium 디스크 (최대 4 개의 디스크) |
-| SRIOV RDMA에 대 한 OS 지원   | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +  |
-| Orchestrator 지원        | CycleCloud, Batch  |
+| SRIOV RDMA에 대 한 OS 지원   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 이상  |
+| Orchestrator 지원        | CycleCloud, Batch, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options) |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [AMD EPYC 아키텍처](https://bit.ly/2Epv3kC) 및 [다중 칩 아키텍처](https://bit.ly/2GpQIMb)에 대해 자세히 알아보세요. 자세한 내용은 [AMD EPYC 프로세서에 대 한 HPC 튜닝 가이드](https://bit.ly/2T3AWZ9)를 참조 하세요.
-- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

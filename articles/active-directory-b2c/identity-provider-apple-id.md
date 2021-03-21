@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489137"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Azure Active Directory B2C (미리 보기)를 사용 하 여 Apple ID로 등록 및 로그인 설정
@@ -30,7 +30,7 @@ ms.locfileid: "103489137"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -222,7 +222,7 @@ Azure function은 응답에서 적절 하 게 형식이 지정 되 고 서명 �
     </ClaimsProvider>
     ```
 
-4. **Client_id** 를 서비스 식별자로 설정 합니다. 예들 들어 `com.consoto.azure-ad-b2c-service`입니다.
+4. **Client_id** 를 서비스 식별자로 설정 합니다. 예: `com.consoto.azure-ad-b2c-service`
 5. 파일을 저장합니다.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]

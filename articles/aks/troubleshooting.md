@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 5a0e907ef27f125a9903b3d9e6079e3c8a288a97
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: adb6a28d8024c96d55c4e1bb8bc953d34a7c187e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714530"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605888"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -24,7 +24,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 
  [더 많은 코어를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>`insufficientSubnetSize`고급 네트워킹을 사용 하 여 AKS 클러스터를 배포 하는 동안 오류가 발생 합니다. 어떻게 해야 합니까?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>`insufficientSubnetSize`고급 네트워킹을 사용 하 여 AKS 클러스터를 배포 하는 동안 오류가 발생 합니다.   어떻게 해야 합니까?
 
 이 오류는 리소스를 성공적으로 할당 하기 위해 클러스터에 사용 중인 서브넷의 CIDR 내에 더 이상 사용 가능한 Ip가 없음을 나타냅니다. Kubenet 클러스터의 경우 클러스터의 각 노드에 대 한 충분 한 IP 공간이 요구 사항에 해당 합니다. Azure CNI 클러스터의 경우 클러스터의 각 노드 및 pod에 대해 충분 한 IP 공간이 필요 합니다.
 [Pod에 ip를 할당 하려면 Azure CNI 디자인](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)에 대해 자세히 알아보세요.
@@ -89,7 +89,7 @@ AKS에는 Slo (서비스 수준 목표) 및 Sla (서비스 수준 계약)를 보
 
 API 서버에 연결하기 위해 22, 9000 및 1194 포트가 열려 있는지 확인합니다. `kubectl get pods --namespace kube-system` 명령을 사용하여 `tunnelfront` 또는 `aks-link` Pod가 *kube-system* 네임스페이스에서 실행되고 있는지 확인합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
 
-## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>`"tls: client offered only unsupported versions"`AKS API에 연결할 때 내 클라이언트에서 가져옵니다. 어떻게 해야 합니까?
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>`"tls: client offered only unsupported versions"`AKS API에 연결할 때 내 클라이언트에서 가져옵니다.   어떻게 해야 합니까?
 
 AKS에서 지원 되는 최소 TLS 버전은 TLS 1.2입니다.
 
@@ -171,7 +171,7 @@ AKS 클러스터를 만드는 경우 사용자를 대신하여 리소스를 만�
 * 자동화 스크립트를 사용하는 경우 서비스 주체 만들기와 AKS 클러스터 만들기 사이의 시간 지연을 추가합니다.
 * Azure Portal을 사용하는 경우 만드는 중에 클러스터 설정으로 돌아가서 몇 분 후에 유효성 검사 페이지를 다시 시도합니다.
 
-## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>`"AADSTS7000215: Invalid client secret is provided."`AKS API를 사용 하는 경우 어떻게 해야 합니까?
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>`"AADSTS7000215: Invalid client secret is provided."`AKS API를 사용 하는 경우   어떻게 해야 합니까?
 
 이 문제는 서비스 주체 자격 증명이 만료 되었기 때문에 발생 합니다. [AKS 클러스터에 대 한 자격 증명을 업데이트 합니다.](update-credentials.md)
 
@@ -205,7 +205,7 @@ AKS 엔지니어링 팀의 권장 사항은 많은 향상 된 기능을 포함 �
 - GET 요청을 수행 하는 타사 응용 프로그램 (예: 응용 프로그램 모니터링 등)이 있습니다. 이러한 호출의 빈도를 줄이는 것이 좋습니다.
 - Virtual machine scale sets를 사용 하는 다양 한 AKS 클러스터/노드 풀이 있습니다. 클러스터 수를 다른 구독으로 분할 해 보세요. 특히, 활성 클러스터 autoscaler 같이 매우 활성 상태 이거나 여러 클라이언트 (예: rancher, terraform 등)가 있는 경우입니다.
 
-## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>작업을 수행 하거나 사용 하지 않고 클러스터의 프로 비전 상태가 준비에서 실패로 변경 되었습니다. 어떻게 해야 합니까?
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>작업을 수행 하거나 사용 하지 않고 클러스터의 프로 비전 상태가 준비에서 실패로 변경 되었습니다.   어떻게 해야 합니까?
 
 작업을 수행 하지 않고 클러스터의 프로 비전 상태가 *준비* 에서 *실패* 로 변경 되 고 클러스터의 응용 프로그램이 계속 실행 되는 경우이 문제는 서비스에서 자동으로 해결할 수 있으며 응용 프로그램에 영향을 주지 않습니다.
 
@@ -253,7 +253,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>

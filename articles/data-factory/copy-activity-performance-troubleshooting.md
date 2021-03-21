@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: 07be5d29ccb55fe97f38123ff4a850d28cd39ead
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ce7c97abfb879e9298edac5f38540bbc026274da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100387685"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584418"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -168,7 +168,7 @@ ms.locfileid: "100387685"
   - [병렬 복사](copy-activity-performance-features.md)를 점차적으로 조정 하는 것이 좋습니다. 병렬 복사본이 너무 많으면 성능이 저하 될 수 있습니다.
 
 
-## <a name="connector-and-ir-performance"></a>커넥터 및 IR 성능
+## <a name="connector-and-ir-performance"></a>커넥터 및 IR 성능 
 
 이 섹션에서는 특정 커넥터 형식 또는 통합 런타임에 대 한 몇 가지 성능 문제 해결 가이드를 살펴봅니다.
 
@@ -176,9 +176,11 @@ ms.locfileid: "100387685"
 
 작업 실행 시간은 데이터 집합이 다른 Integration Runtime를 기반으로 하는 경우에 다릅니다.
 
-- **증상**: 데이터 집합에서 연결 된 서비스 드롭다운을 전환 하는 것은 동일한 파이프라인 활동을 수행 하지만 실행 시간은 크게 다릅니다. 데이터 집합이 관리 되는 Virtual Network Integration Runtime를 기반으로 하는 경우 실행을 완료 하는 데는 평균적으로 2 분 넘게 걸리며 기본 Integration Runtime 기반으로 하는 경우 완료 하는 데 약 20 초가 걸립니다.
+- **증상**: 데이터 집합에서 연결 된 서비스 드롭다운을 전환 하는 것은 동일한 파이프라인 활동을 수행 하지만 실행 시간은 크게 다릅니다. 데이터 집합이 관리 되는 Virtual Network Integration Runtime를 기반으로 하는 경우에는 기본 Integration Runtime 기반으로 하는 경우 실행 보다 평균에 더 많은 시간이 걸립니다.  
 
-- **원인**: 파이프라인 실행의 세부 정보를 확인 하는 중 Virtual Network이 고 Azure IR에서 실행 되는 속도가 느려지는 것을 확인할 수 있습니다. 기본적으로 관리 되는 VNet IR은 데이터 팩터리에서 하나의 계산 노드를 예약 하지 않으므로 Azure IR 보다 큐 시간이 더 오래 걸립니다. 따라서 각 복사 작업을 시작 하는 데 2 분 정도 걸릴 수 있으며 주로 Azure IR 대신 VNet 조인에 발생 합니다.
+- **원인**: 파이프라인 실행의 세부 정보를 확인 하는 중 Virtual Network이 고 Azure IR에서 실행 되는 속도가 느려지는 것을 확인할 수 있습니다. 기본적으로 관리 되는 VNet IR은 데이터 팩터리에서 하나의 계산 노드를 예약 하지 않으므로 Azure IR 보다 큐 시간이 더 오래 걸립니다. 따라서 각 복사 작업을 시작할 준비를 하 고, 주로 Azure IR 아닌 VNet 조인에서 발생 합니다. 
+
+
 
     
 ### <a name="low-performance-when-loading-data-into-azure-sql-database"></a>Azure SQL Database으로 데이터를 로드할 때 성능이 낮습니다.

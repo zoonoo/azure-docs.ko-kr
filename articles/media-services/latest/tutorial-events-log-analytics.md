@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571866"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596708"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>자습서: Azure Log Analytics에 Azure Media Services 이벤트 저장
 
 ## <a name="azure-media-services-events"></a>Azure Media Services 이벤트
 
-Azure Media Services v3은 [Azure Event Grid](media-services-event-schemas.md)에서 이벤트를 내보냅니다. 다양한 방법으로 이벤트를 구독하고 데이터 저장소에 저장할 수 있습니다. 이 자습서에서는 [논리 앱 흐름](https://azure.microsoft.com/services/logic-apps/)을 사용하여 Media Services 이벤트를 구독합니다. 논리 앱은 각 이벤트에 대해 트리거되고 Azure Log Analytics에 이벤트의 본문을 저장합니다. 이벤트가 Azure Log Analytics에 있으면 다른 Azure 서비스를 사용하여 해당 이벤트에 대한 대시보드, 모니터링 및 경고를 만들 수 있지만 이 자습서에서는 다루지 않습니다.
+Azure Media Services v3은 [Azure Event Grid](monitoring/media-services-event-schemas.md)에서 이벤트를 내보냅니다. 다양한 방법으로 이벤트를 구독하고 데이터 저장소에 저장할 수 있습니다. 이 자습서에서는 [논리 앱 흐름](https://azure.microsoft.com/services/logic-apps/)을 사용하여 Media Services 이벤트를 구독합니다. 논리 앱은 각 이벤트에 대해 트리거되고 Azure Log Analytics에 이벤트의 본문을 저장합니다. 이벤트가 Azure Log Analytics에 있으면 다른 Azure 서비스를 사용하여 해당 이벤트에 대한 대시보드, 모니터링 및 경고를 만들 수 있지만 이 자습서에서는 다루지 않습니다.
 
 > [!NOTE]
 > 온-프레미스 인코더로 FFmpeg 사용에 이미 익숙하면 유용할 수 있습니다.  그렇지 않아도 괜찮습니다. 비디오 스트리밍을 위한 명령줄 및 지침은 아래에 포함되어 있습니다.

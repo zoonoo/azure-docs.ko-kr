@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db94a376112b3d715da9095acb05c0b4fd4ea02f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717471"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605803"
 ---
 # <a name="azure-monitor-for-networks"></a>Networks용 Azure Monitor
 
@@ -108,10 +108,12 @@ Application gateway, 모든 백 엔드 풀 리소스, 프런트 엔드 Ip에 대
 
 ![진단 도구 키트 탭을 보여 주는 스크린샷](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="onboarded-resources"></a>등록 리소스 
+
+등록 리소스에는 기본 제공 통합 문서와 종속성 뷰가 있습니다. 현재 등록 리소스는 가상 WAN, Application Gateway, Load Balancer 및 Express 경로입니다.
+
 ## <a name="troubleshooting"></a>문제 해결 
-
 일반적인 문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
-
 이 섹션에서는 네트워크에 대 한 Azure Monitor를 사용 하는 경우 발생할 수 있는 몇 가지 일반적인 문제를 진단 하 고 해결 하는 데 도움이 됩니다. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>성능 문제 또는 오류를 해결할 어떻게 할까요? 있습니까?

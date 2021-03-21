@@ -11,10 +11,10 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cae82072785838d410453b2eb83685905b0ba04e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553785"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Azure CLI를 사용 하 여 이미지 버전에 관리 되는 이미지 복제

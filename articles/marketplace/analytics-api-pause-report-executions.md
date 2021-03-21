@@ -1,5 +1,5 @@
 ---
-title: 보고서 실행 일시 중지 API
+title: 보고서 실행 API 일시 중지
 description: 이 API를 사용 하 여 상업적 marketplace 분석 보고서의 예약 된 실행을 일시 중지 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 39b535278fef42818f572631cfa1cb1f923930a6
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584031"
 ---
-# <a name="pause-report-executions-api"></a>보고서 실행 일시 중지 API
+# <a name="pause-report-executions-api"></a>보고서 실행 API 일시 중지
 
 실행 시이 API는 보고서의 예약 된 실행을 일시 중지 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "102584031"
 
 **요청 헤더**
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------------ | ------------- | ------------- |
 | 권한 부여 | 문자열 | 필수 요소. 양식의 Azure AD (Azure Active Directory) 액세스 토큰 `Bearer <token>` |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |

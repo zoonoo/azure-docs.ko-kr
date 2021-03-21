@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
 ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563779"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>상태 비저장 전용 노드 유형 (미리 보기)을 사용 하 여 Azure Service Fabric 클러스터 배포

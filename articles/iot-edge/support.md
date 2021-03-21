@@ -8,12 +8,12 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a3656d6dd81132a7fd10103fc0199d55d9288df3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: f1a2b821c5fd127f8b7bcda7b3a219be34cb8abb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489614"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598527"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -136,7 +136,7 @@ IoT Edge 구성 요소는 개별적으로 설치 또는 업데이트할 수 있�
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-<sup>1</sup> IoT Edge 1.1은 첫 번째 LTS (장기 지원) 릴리스 채널입니다. 이 버전은 새로운 기능을 제공 하지 않지만 버그 수정과 보안 패치를 수신 합니다. IoT Edge 1.1 LTS는 .NET Core 3.1를 사용 하며, 2022 년 12 월 3 일까지 지원 되며 [.Net core 및 .net 5 릴리스 수명 주기](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)를 일치 시킵니다.
+<sup>1</sup> IoT Edge 1.1은 첫 번째 LTS (장기 지원) 릴리스 채널입니다. 이 버전은 새로운 기능을 도입 하지 않았지만 재발에 대 한 보안 업데이트 및 픽스를 수신 합니다. IoT Edge 1.1 LTS는 .NET Core 3.1를 사용 하며, 2022 년 12 월 3 일까지 지원 되며 [.Net core 및 .net 5 릴리스 수명 주기](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)를 일치 시킵니다.
 
 >[!IMPORTANT]
 >장기적인 지원 채널의 릴리스를 통해 1.0. x를 실행 하는 모든 고객은 장치를 1.1. x로 업그레이드 하 여 지속적인 지원을 받을 것을 권장 합니다.

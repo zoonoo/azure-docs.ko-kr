@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614414"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
@@ -120,7 +120,7 @@ POA는 다음과 같은 하위 구성 요소로 구성 됩니다.
 > [!NOTE]
 > POA는 Service Fabric Repair Manager 서비스를 사용 하 여 노드를 사용 하지 않도록 설정 하거나 사용 하도록 설정 하 고 상태 검사를 수행 합니다. POA에서 만든 복구 작업은 각 노드에 대 한 Windows 업데이트 진행률을 추적 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]
 > 필요한 최소 .NET Framework 버전은 4.6입니다.
@@ -370,7 +370,7 @@ HResult | 0-성공<br> 기타-오류| UpdateID "7392acaf-6a85-427c-8a8d-058c25be
 
    문제가 계속 발생 하면 VM (가상 머신)에 로그인 하 고 Windows 이벤트 로그를 사용 하 여 해당 vm에 대해 알아보세요. 앞에서 언급 한 복구 작업은 다음 executor 하위 작업에만 존재할 수 있습니다.
 
-      ExecutorSubState 방법 | 설명
+      ExecutorSubState 방법 | Description
     -- | -- 
       없음 = 1 |  는 노드에서 진행 중인 작업이 없음을 의미 합니다. 상태가 전환 중일 수 있습니다.
       DownloadCompleted = 2 | 다운로드 작업이 성공, 부분 실패 또는 실패와 함께 완료 되었음을 의미 합니다.

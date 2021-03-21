@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 01/10/2021
+ms.date: 03/17/2021
 ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f2092c3f6402d5c6e7a0bc8c93015d3a900b9e38
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650994"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588010"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>복원 력을 위한 응용 프로그램 로그인 상태 모니터링
 
@@ -43,7 +43,7 @@ ms.locfileid: "101650994"
 
 이 문서에서는 사용자 로그인에 대 한 중단을 모니터링 하도록 로그인 상태 통합 문서를 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure AD 테넌트.
 
@@ -56,8 +56,6 @@ ms.locfileid: "101650994"
 * Azure Monitor 로그와 통합 된 Azure AD 로그
 
    * [AZURE AD 로그인 로그를 Azure Monitor 스트림과 통합](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) 하는 방법에 대해 알아봅니다.
-
- 
 
 ## <a name="configure-the-app-sign-in-health-workbook"></a>앱 로그인 상태 통합 문서 구성 
 
@@ -78,11 +76,11 @@ ms.locfileid: "101650994"
 
 **첫 번째 그래프는 시간별 사용량 (성공한 사용자 수)** 입니다. 사용자의 현재 수를 일반적인 사용 기간과 비교 하면 조사가 필요할 수 있는 사용에 대 한 삭제를 발견할 수 있습니다. 성공한 사용 속도의 삭제는 실패율이 성능 및 사용률 문제를 감지 하는 데 도움이 될 수 있습니다. 예를 들어 사용자가 로그인을 시도 하기 위해 응용 프로그램에 연결할 수 없는 경우에는 오류가 발생 하지 않고 사용 중인 삭제만 발생 합니다. 다음 섹션에서이 데이터에 대 한 샘플 쿼리를 찾을 수 있습니다.
 
-두 번째 그래프는 시간당 실패율입니다. 실패율이 급증 하면 인증 메커니즘과 관련 된 문제가 있음을 나타낼 수 있습니다. 사용자가 인증을 시도할 수 있는 경우에만 실패율을 측정할 수 있습니다. 사용자가 액세스 권한을 얻을 수 없는 경우 오류가 표시 되지 않습니다.
+**두 번째 그래프는 시간당 실패율** 입니다. 실패율이 급증 하면 인증 메커니즘과 관련 된 문제가 있음을 나타낼 수 있습니다. 사용자가 인증을 시도할 수 있는 경우에만 실패율을 측정할 수 있습니다. 사용자가 액세스 권한을 얻을 수 없는 경우 오류가 표시 되지 않습니다.
 
 사용량 또는 실패율이 지정 된 임계값을 초과 하는 경우 특정 그룹에 알리는 경고를 구성할 수 있습니다. 다음 섹션에서이 데이터에 대 한 샘플 쿼리를 찾을 수 있습니다.
 
- ## <a name="configure-the-query-and-alerts"></a>쿼리 및 경고 구성
+## <a name="configure-the-query-and-alerts"></a>쿼리 및 경고 구성
 
 Azure Monitor에서 경고 규칙을 만들고 정기적으로 저장 된 쿼리 또는 사용자 지정 로그 검색을 자동으로 실행할 수 있습니다.
 
@@ -96,116 +94,18 @@ Azure Monitor에서 경고 규칙을 만들고 정기적으로 저장 된 쿼리
 
 Azure Monitor를 사용 하 여 로그 경고를 만들고 보고 관리 하는 방법에 대 한 자세한 내용은 [로그 경고 관리](../../azure-monitor/alerts/alerts-log.md)를 참조 하세요.
 
- 
 1. 통합 문서에서 **편집** 을 선택한 다음 그래프의 오른쪽 바로 위에 있는 **쿼리 아이콘** 을 선택 합니다.   
 
    [![통합 문서 편집을 보여 주는 스크린샷](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)](./media/monitor-sign-in-health-for-resilience/edit-workbook.png)
 
    쿼리 로그가 열립니다.
 
-  [![쿼리 로그를 보여 주는 스크린샷](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![쿼리 로그를 보여 주는 스크린샷](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
-2. 새 Kusto 쿼리를 위한 다음 샘플 스크립트 중 하나를 복사 합니다.
-
-**사용 중인 삭제를 쿼리 하는 kusto 쿼리**
-
-```Kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1h)
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1h) - totimespan(2d))..(now() - totimespan(2d)))
-
-| project TimeGenerated, AppDisplayName, UserPrincipalName
-
-//| where AppDisplayName contains "Office 365 Exchange Online"
-
-| summarize usersPriorWeek = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join
-
-(
-
- lastWeek
-
-)
-
-on rn
-
-| project TimeGenerated, users, usersPriorWeek, difference = abs(users - usersPriorWeek), max = max_of(users, usersPriorWeek)
-
-| where (difference * 2.0) / max > 0.9
-
-```
-
- 
-
-**실패 율 증가를 쿼리 하는 kusto 쿼리**
-
-
-```kusto
-
-let thisWeek = SigninLogs
-
-| where TimeGenerated > ago(1 h)
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-let lastWeek = SigninLogs
-
-| where TimeGenerated between((ago(1 h) - totimespan(2d))..(ago(1h) - totimespan(2d)))
-
-| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
-
-| where AppDisplayName == **APP NAME**
-
-| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h)
-
-| project TimeGenerated, failureRatePriorWeek = (failure * 1.0) / ((failure + success) * 1.0)
-
-| sort by TimeGenerated desc
-
-| serialize rn = row_number();
-
-thisWeek
-
-| join (lastWeek) on rn
-
-| project TimeGenerated, failureRate, failureRatePriorWeek
-
-| where abs(failureRate – failureRatePriorWeek) > **THRESHOLD VALUE**
-
-```
+2. 새 Kusto 쿼리를 위한 샘플 스크립트 중 하나를 복사 합니다.  
+   * [실패 율 증가를 쿼리 하는 kusto 쿼리](#kusto-query-for-increase-in-failure-rate)
+   * [사용 중인 삭제를 쿼리 하는 kusto 쿼리](#kusto-query-for-drop-in-usage)
 
 3. 창에 쿼리를 붙여넣고 **실행** 을 선택 합니다. 아래 이미지에 표시 된 완료 된 메시지를 확인 하 고 해당 메시지 아래에 결과를 표시 합니다.
 
@@ -222,7 +122,7 @@ thisWeek
  
    * **임계값**: 0. 이 값은 모든 결과를 경고 합니다.
 
-   * **평가 기간 (분)**: 60. 이 값은 한 시간을 표시 합니다.
+   * **평가 기간 (분)**: 2880. 이 값은 한 시간을 표시 합니다.
 
    * **빈도 (분)**: 60. 이 값은 이전 시간에 대해 계산 기간을 시간당 한 번으로 설정 합니다.
 
@@ -254,9 +154,8 @@ thisWeek
 
    [![쿼리 저장 단추를 보여 주는 스크린샷](./media/monitor-sign-in-health-for-resilience/save-query.png)](./media/monitor-sign-in-health-for-resilience/save-query.png)
 
-
-
 ### <a name="refine-your-queries-and-alerts"></a>쿼리 및 경고 구체화
+
 최대의 효율성을 위해 쿼리 및 경고를 수정 합니다.
 
 * 경고를 테스트 해야 합니다.
@@ -267,11 +166,135 @@ thisWeek
 
 * Azure Monitor의 경고 쿼리는 지난 48 시간 동안의 결과만 포함할 수 있습니다. [이것은 설계상의 현재 제한 사항](https://github.com/MicrosoftDocs/azure-docs/issues/22637)입니다.
 
+## <a name="sample-scripts"></a>샘플 스크립트
+
+### <a name="kusto-query-for-increase-in-failure-rate"></a>실패 율 증가를 쿼리 하는 kusto 쿼리
+
+   아래쪽의 비율을 필요에 따라 조정 하 고 어제와 동일한 시간을 기준으로 지난 1 시간의 트래픽 변화를 나타낼 수 있습니다. 0.5는 트래픽에 50% 차이가 있음을 의미 합니다.
+
+```kusto
+
+let today = SigninLogs
+
+| where TimeGenerated > ago(1h) // Query failure rate in the last hour
+ 
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate
+
+| project TimeGenerated, failureRate = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+
+let yesterday = SigninLogs
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Query failure rate at the same time yesterday
+
+| project TimeGenerated, UserPrincipalName, AppDisplayName, status = case(Status.errorCode == "0", "success", "failure")
+
+// Optionally filter by a specific application
+
+//| where AppDisplayName == **APP NAME**
+
+| summarize success = countif(status == "success"), failure = countif(status == "failure") by bin(TimeGenerated, 1h) // hourly failure rate at same time yesterday
+
+| project TimeGenerated, failureRateYesterday = (failure * 1.0) / ((failure + success) * 1.0)
+
+| sort by TimeGenerated desc
+
+| serialize rowNumber = row_number();
+today
+| join (yesterday) on rowNumber // join data from same time today and yesterday
+
+| project TimeGenerated, failureRate, failureRateYesterday
+
+// Set threshold to be the percent difference in failure rate in the last hour as compared to the same time yesterday
+
+| where abs(failureRate - failureRateYesterday) > 0.5
+
+```
+
+### <a name="kusto-query-for-drop-in-usage"></a>사용 중인 삭제를 쿼리 하는 kusto 쿼리
+
+다음 쿼리에서는 지난 1 시간의 트래픽을 어제 같은 시간으로 비교 합니다.
+해당 일에 예상 되는 일에는 토요일, 일요일, 월요일을 제외 하 고 이전 날에 동시에 트래픽 변화를 발생 시킬 수 있습니다. 
+
+아래쪽의 비율을 필요에 따라 조정 하 고 어제와 동일한 시간을 기준으로 지난 1 시간의 트래픽 변화를 나타낼 수 있습니다. 0.5는 트래픽에 50% 차이가 있음을 의미 합니다.
+
+*비즈니스 운영 모델에 맞게 이러한 값을 조정 해야* 합니다.
+
+```Kusto
+ let today = SigninLogs // Query traffic in the last hour
+
+| where TimeGenerated > ago(1h)
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize users = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr) // Count distinct users in the last hour
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+let yesterday = SigninLogs // Query traffic at the same hour yesterday
+
+| where TimeGenerated between((ago(1h) - totimespan(1d))..(now() - totimespan(1d))) // Count distinct users in the same hour yesterday
+
+| project TimeGenerated, AppDisplayName, UserPrincipalName
+
+// Optionally filter by AppDisplayName to scope query to a single application
+
+//| where AppDisplayName contains "Office 365 Exchange Online"
+
+| summarize usersYesterday = dcount(UserPrincipalName) by bin(TimeGenerated, 1hr)
+
+| sort by TimeGenerated desc
+
+| serialize rn = row_number();
+
+today
+| join // Join data from today and yesterday together
+(
+yesterday
+)
+on rn
+
+// Calculate the difference in number of users in the last hour compared to the same time yesterday
+
+| project TimeGenerated, users, usersYesterday, difference = abs(users - usersYesterday), max = max_of(users, usersYesterday)
+
+ extend ratio = (difference * 1.0) / max // Ratio is the percent difference in traffic in the last hour as compared to the same time yesterday
+
+// Day variable is the number of days since the previous Sunday. Optionally ignore results on Sat, Sun, and Mon because large variability in traffic is expected.
+
+| extend day = dayofweek(now())
+
+| where day != time(6.00:00:00) // exclude Sat
+
+| where day != time(0.00:00:00) // exclude Sun
+
+| where day != time(1.00:00:00) // exclude Mon
+
+| where ratio > 0.7 // Threshold percent difference in sign-in traffic as compared to same hour yesterday
+
+```
+
 ## <a name="create-processes-to-manage-alerts"></a>경고를 관리 하는 프로세스 만들기
 
 쿼리 및 경고를 설정한 후에는 경고를 관리 하는 비즈니스 프로세스를 만듭니다.
 
 * 통합 문서를 모니터링 하는 사용자 및 시기
+
 * 경고가 생성 되 면 조사 하는 사람은 누구 인가요?
 
 * 통신 요구 사항 누구에 게 연락 하 고 누구를 받을 수 있나요?
@@ -281,8 +304,3 @@ thisWeek
 ## <a name="next-steps"></a>다음 단계
 
 [통합 문서에 대 한 자세한 정보](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
-
- 
-
- 
-

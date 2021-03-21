@@ -4,10 +4,10 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 09/15/2020
 ms.openlocfilehash: 6a09d435613a715d4ae4e162f42f59402d0bc5cd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102445225"
 ---
 .NET용 Custom Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 개체 검색 모델을 빌드하기 위한 예제 코드를 사용해 보세요. 프로젝트를 만들고, 태그를 추가하고, 샘플 이미지에서 프로젝트를 학습하고, 프로젝트의 예측 엔드포인트 URL을 사용하여 프로그래밍 방식으로 테스트합니다. 자체 이미지 인식 앱을 빌드하기 위한 템플릿으로 이 예제를 사용합니다.

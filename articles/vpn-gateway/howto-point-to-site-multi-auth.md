@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: cherylmc
 ms.openlocfilehash: d405f4b10808b7d39c0d116f2c9006c85532b4f9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745685"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-multiple-authentication-types-azure-portal"></a>여러 인증 유형을 사용 하 여 VNet에 지점 및 사이트 간 VPN 연결 구성: Azure Portal
@@ -23,7 +23,7 @@ ms.locfileid: "101745685"
 
 지점 및 사이트 간 VPN에 대 한 자세한 내용은 지점 및 [사이트 간 Vpn 정보](point-to-site-about.md)를 참조 하세요. Azure PowerShell를 사용 하 여이 구성을 만들려면 [Azure PowerShell를 사용 하 여 지점 및 사이트 간 VPN 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 

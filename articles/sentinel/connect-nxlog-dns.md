@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/02/2021
 ms.author: yelevin
 ms.openlocfilehash: 880aad438d98605d11e5a2a7c314d89bd8beb5c5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745988"
 ---
 # <a name="connect-your-nxlog-windows-dns-logs-to-azure-sentinel"></a>NXLog Windows DNS 로그를 Azure 센티널에 연결
@@ -37,7 +37,7 @@ NXLog를 구성 하 여 JSON 형식의 이벤트를 Azure 센티널로 직접 �
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **NXLOG DNS 로그** 커넥터를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. *Nxlog 사용자 가이드* 통합 항목에서 [센티널 Microsoft Azure](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) 의 단계별 지침에 따라 REST API를 통해 전달을 구성 합니다.
 

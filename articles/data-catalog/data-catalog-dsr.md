@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d68a9539420c77cc23722e1b7b7175d08459e9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439087"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674634"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 사용자는 공용 API를 사용하거나 등록 도구 클릭 한 번으로 Azure Data Catalog 웹 포털에 정보를 직접 입력하여 메타데이터를 게시할 수 있습니다. 다음 테이블은 현재 카탈로그로 지원되는 모든 데이터 원본 및 각각에 대한 게시 기능을 요약합니다. 또한 포털의 "열기" 경험에서 시작할 수 있는 각 데이터 원본에 대한 외부 데이터 도구가 나열되어 있습니다. 두 번째 테이블에는 각 데이터 원본 연결 속성의 자세한 기술 사양이 포함되어 있습니다.
 
@@ -450,7 +452,7 @@ ms.locfileid: "89439087"
 <table>
     <tr>
        <td><b>원본 유형</b></td>
-       <td><b>자산 유형</b></td>
+       <td><b>자산 형식</b></td>
        <td><b>개체 유형</b></td>
        <td><b>DSL 구조<b></td>
     </tr>

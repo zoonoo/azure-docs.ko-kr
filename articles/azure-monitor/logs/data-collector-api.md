@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
 ms.openlocfilehash: e32bf95ef52fdd081eeaa476f44bf5dab99657d6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452121"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
@@ -41,14 +41,14 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | 내용 유형 |application/json |
 
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |:--- |:--- |
 | CustomerID |Log Analytics 작업 영역에 대한 고유 식별자입니다. |
 | 리소스 |API 리소스 이름: /api/logs |
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
 ### <a name="request-headers"></a>요청 헤더
-| 헤더 | Description |
+| 헤더 | 설명 |
 |:--- |:--- |
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
 | Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 는 문자, 숫자 및 밑줄 (_)만 포함할 수 있으며 100 자를 초과할 수 없습니다. |
@@ -646,7 +646,7 @@ public class ApiExample {
 ## <a name="alternatives-and-considerations"></a>대안 및 고려 사항
 데이터 수집기 API는 Azure 로그에 자유 형식 데이터를 수집 하는 데 필요한 대부분의 요구를 충족 해야 하지만, API의 몇 가지 제한 사항을 해결 하기 위해 대안이 필요한 경우도 있습니다. 모든 옵션은 다음과 같은 주요 고려 사항을 포함 합니다.
 
-| 대체 | Description | 가장 적합한 용도 |
+| 대체 | 설명 | 가장 적합한 용도 |
 |---|---|---|
 | [사용자 지정 이벤트](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Application Insights의 네이티브 SDK 기반 수집 | 일반적으로 응용 프로그램 내에서 SDK를 통해 계측 되는 Application Insights는 사용자 지정 이벤트를 통해 사용자 지정 데이터를 보낼 수 있는 기능을 제공 합니다. | <ul><li> 응용 프로그램 내에서 생성 되었지만 기본 데이터 형식 (요청, 종속성, 예외 등) 중 하나를 통해 SDK에서 선택 하지 않은 데이터입니다.</li><li> Application Insights의 다른 응용 프로그램 데이터와 가장 자주 상호 연결 되는 데이터 </li></ul> |
 | Azure Monitor 로그의 데이터 수집기 API | Azure Monitor 로그의 데이터 수집기 API는 완전히 열려 있는 방식으로 데이터를 수집 하는 방법입니다. JSON 개체에 형식이 지정 된 모든 데이터는 여기에서 보낼 수 있습니다. 전송 되 고 나면 로그의 다른 데이터와 상관 관계를 지정 하거나 다른 Application Insights 데이터와 상관 관계를 지정할 수 있습니다. <br/><br/> 이러한 파일을 처리 하 고 Log Analytics 업로드 하는 위치에서 Azure Blob blob에 파일로 데이터를 업로드 하는 것이 매우 쉽습니다. 이러한 파이프라인의 샘플 구현에 대해서는 [이](./create-pipeline-datacollector-api.md) 문서를 참조 하세요. | <ul><li> Application Insights 내에 계측 된 응용 프로그램 내에서 생성 될 필요가 없는 데이터입니다.</li><li> 예를 들면 조회 및 팩트 테이블, 참조 데이터, 미리 집계 된 통계 등이 있습니다. </li><li> 다른 Azure Monitor 데이터 (Application Insights, 기타 로그 데이터 형식, Security Center, Container Insights/Vm 등)에 대해 상호 참조 되는 데이터를 위한 것입니다. </li></ul> |

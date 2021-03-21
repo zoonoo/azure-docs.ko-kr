@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2021
 ms.author: alkohli
 ms.openlocfilehash: dd72865e35318c7ff43dc17b7c92b9cc2f3e9790
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102436858"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-preview-release-notes"></a>GPU 미리 보기 릴리스 정보를 사용 하 여 Azure Stack Edge Pro
@@ -46,7 +46,7 @@ Azure Stack Edge 2008 릴리스에는 다음과 같은 새로운 기능이 추�
 |**3.**|제한|조정 하는 동안 장치에 새 쓰기가 허용 되지 않는 경우 NFS 클라이언트에서 수행 하는 쓰기가 "권한 거부" 오류로 인해 실패 합니다.| 오류는 다음과 같이 표시 됩니다.<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: ' test ' 디렉터리를 만들 수 없습니다. 사용 권한이 거부 되었습니다.|
 |**4.**|Blob Storage 수집|Blob storage 수집에 AzCopy 버전 10을 사용 하는 경우 다음 인수를 사용 하 여 AzCopy를 실행 합니다. `Azcopy <other arguments> --cap-mbps 2000`| AzCopy에 대해 이러한 제한을 제공 하지 않으면 잠재적으로 많은 수의 요청을 장치로 전송 하 여 서비스에 문제가 발생할 수 있습니다.|
 |**5.**|계층화 된 저장소 계정|계층화 된 저장소 계정을 사용 하는 경우 다음이 적용 됩니다.<ul><li> 블록 blob만 지원 됩니다. 페이지 Blob은 지원되지 않습니다.</li><li>스냅숏 또는 복사 API는 지원 되지 않습니다.</li><li> 에서 `distcp` 복사 작업을 많이 사용 하므로 Hadoop 워크 로드 수집은 지원 되지 않습니다.</li></ul>||
-|**6.**|NFS 공유 연결|여러 프로세스에서 동일한 공유로 복사 하 고 `nolock` 특성을 사용 하지 않는 경우 복사 하는 동안 오류가 표시 될 수 있습니다.|`nolock`NFS 공유에 파일을 복사 하려면 특성을 탑재 명령에 전달 해야 합니다. 예: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`|
+|**6.**|NFS 공유 연결|여러 프로세스에서 동일한 공유로 복사 하 고 `nolock` 특성을 사용 하지 않는 경우 복사 하는 동안 오류가 표시 될 수 있습니다.|`nolock`NFS 공유에 파일을 복사 하려면 특성을 탑재 명령에 전달 해야 합니다. 예를 들어 `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`을 참조하십시오.|
 |**7.**|Kubernetes 클러스터|Kubernetes 클러스터를 실행 하는 장치에 업데이트를 적용 하는 경우 kubernetes 가상 머신이 다시 시작 되 고 재부팅 됩니다. 이 인스턴스에서 지정 된 복제본과 함께 배포 되는 pod만 업데이트 후 자동으로 복원 됩니다.  |복제 세트를 지정 하지 않고 복제 컨트롤러 외부에서 개별 pod를 만든 경우 이러한 pod는 장치 업데이트 후 자동으로 복원 되지 않습니다. 이러한 pod를 복원 해야 합니다.<br>복제 세트는 노드 실패 또는 중단 노드 업그레이드와 같은 어떤 이유로 든 삭제 되었거나 종료 된 pod를 대체 합니다. 따라서 응용 프로그램에 단일 pod만 필요한 경우에도 복제본 집합을 사용 하는 것이 좋습니다.|
 |**8.**|Kubernetes 클러스터|Kubernetes on Azure Stack Edge Pro는 투구 v3 이상 에서만 지원 됩니다. 자세한 내용은 질문과 [대답: Tiller 제거](https://v3.helm.sh/docs/faq/)를 참조 하세요.|
 |**9.**|Azure Arc + Azure Stack Edge Pro|웹 프록시가 Azure Stack Edge Pro 장치에 구성 된 경우 Azure Arc 배포가 지원 되지 않습니다.||

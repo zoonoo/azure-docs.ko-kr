@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: 334af18b068f247d9566d6be926632b9f9670e6e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368424"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Oracle Responsys에서 데이터 복사(미리 보기)
@@ -45,12 +45,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Responsys** 로 설정해야 합니다. | Yes |
-| 엔드포인트(endpoint) | Responsys 서버의 엔드포인트입니다.  | Yes |
-| clientId | Responsys 애플리케이션과 연결된 클라이언트 ID입니다.  | Yes |
-| clientSecret | Responsys 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | Yes |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
+| type | 형식 속성은 **Responsys** 로 설정해야 합니다. | 예 |
+| 엔드포인트(endpoint) | Responsys 서버의 엔드포인트입니다.  | 예 |
+| clientId | Responsys 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
+| clientSecret | Responsys 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 예 |
 
 **예:**

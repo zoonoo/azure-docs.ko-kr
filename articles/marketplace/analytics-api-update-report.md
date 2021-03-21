@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 38680eb291417ded4c2f93539e8d1ae091b1d560
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583925"
 ---
 # <a name="update-report-api"></a>보고서 API 업데이트
@@ -27,7 +27,7 @@ ms.locfileid: "102583925"
 
 **요청 헤더**
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------------ | ------------- | ------------- |
 | 권한 부여 | 문자열 | 필수 요소. 양식의 Azure AD (Azure Active Directory) 액세스 토큰 `Bearer <token>` |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |
@@ -64,13 +64,13 @@ ms.locfileid: "102583925"
 
 | 매개 변수 | 필수 | Description | 허용되는 값 |
 | ------------ | ------------- | ------------- | ------------- |
-| `ReportName` | Yes | 보고서에 할당할 이름입니다. | 문자열 |
+| `ReportName` | 예 | 보고서에 할당할 이름입니다. | 문자열 |
 | `Description` | No | 만든 보고서에 대 한 설명 | 문자열 |
-| `StartTime` | Yes | 보고서 생성이 시작 되는 타임 스탬프 | 문자열 |
+| `StartTime` | 예 | 보고서 생성이 시작 되는 타임 스탬프 | 문자열 |
 | `RecurrenceInterval` | No | 보고서를 몇 시간 내에 생성 해야 하는 빈도입니다. 최소값은 4입니다. | 정수 |
-| `RecurrenceCount` | No | 생성할 보고서 수입니다. 기본값은 무한 | 정수 |
-| `Format` | Yes | 내보낸 파일의 파일 형식입니다. 기본값은 CSV입니다. | CSV/TSV |
-| `CallbackUrl` | Yes | 보고서 생성 시 호출할 https 콜백 URL입니다. | 문자열 |
+| `RecurrenceCount` | 아니요 | 생성할 보고서 수입니다. 기본값은 무한 | 정수 |
+| `Format` | 예 | 내보낸 파일의 파일 형식입니다. 기본값은 CSV입니다. | CSV/TSV |
+| `CallbackUrl` | 예 | 보고서 생성 시 호출할 https 콜백 URL입니다. | 문자열 |
 |||||
 
 **용어 설명**

@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 2d0baed53441893ec294784f0f8092fe89a347c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a8d8fcd0b9b9ee1ff918ead250c88b83f86cb7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523709"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674838"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 검색 저장 및 데이터 자산 고정
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>소개
 Azure Data Catalog는 데이터 원본 검색에 대한 기능을 제공합니다. 사용자는 신속하게 검색하고 카탈로그를 필터링하여 쉽게 당면한 작업에 대한 적절한 데이터를 찾을 수 있도록 데이터 원본을 찾고 원래 용도를 이해합니다.
 
@@ -24,11 +27,11 @@ Azure Data Catalog는 데이터 원본 검색에 대한 기능을 제공합니�
 
 ### <a name="create-a-saved-search"></a>저장된 검색 만들기
 저장된 검색을 만들려면 다음을 수행합니다.
-1. Azure Data Catalog 포털의 **현재 검색** 창에서 **저장**을 클릭합니다. 
+1. Azure Data Catalog 포털의 **현재 검색** 창에서 **저장** 을 클릭합니다. 
 
     ![현재 검색 설정 저장 링크](./media/data-catalog-how-to-save-pin/01-save-option.png) 
 
-2. 다시 사용하려는 검색 조건을 입력한 다음 **저장**을 클릭합니다.
+2. 다시 사용하려는 검색 조건을 입력한 다음 **저장** 을 클릭합니다.
 
     ![현재 검색 설정 저장된 검색 이름](./media/data-catalog-how-to-save-pin/02-name.png)
 
@@ -47,11 +50,11 @@ Azure Data Catalog는 데이터 원본 검색에 대한 기능을 제공합니�
 
     ![저장된 검색 관리에 대한 옵션](./media/data-catalog-how-to-save-pin/04-managing.png)
 
-* 저장된 검색에 대한 새 이름을 입력하려면 **이름 바꾸기**를 선택합니다. 검색 정의는 변경되지 않습니다.
+* 저장된 검색에 대한 새 이름을 입력하려면 **이름 바꾸기** 를 선택합니다. 검색 정의는 변경되지 않습니다.
 
-* 목록에서 저장된 검색을 제거하려면 **삭제**를 선택한 다음 삭제를 확인합니다.
+* 목록에서 저장된 검색을 제거하려면 **삭제** 를 선택한 다음 삭제를 확인합니다.
 
-* 기본 검색으로 저장된 검색을 표시하려면 **기본값으로 저장**을 선택합니다. Azure Data Catalog 홈 페이지에서 "빈" 검색을 수행하는 경우 사용자의 기본 검색이 실행됩니다. 또한, 기본 검색으로 표시된 검색이 **저장된 검색** 목록의 위쪽에 표시됩니다.
+* 기본 검색으로 저장된 검색을 표시하려면 **기본값으로 저장** 을 선택합니다. Azure Data Catalog 홈 페이지에서 "빈" 검색을 수행하는 경우 사용자의 기본 검색이 실행됩니다. 또한, 기본 검색으로 표시된 검색이 **저장된 검색** 목록의 위쪽에 표시됩니다.
 
 ### <a name="organizational-saved-searches"></a>조직 저장된 검색
 조직의 모든 사용자는 자신의 용도에 대한 검색을 저장할 수 있습니다. 데이터 카탈로그 관리자는 조직 내의 모든 사용자에 대한 검색을 저장할 수도 있습니다. 관리자가 검색을 저장하는 경우 **회사 내에서 공유** 옵션으로 제공됩니다. 이 옵션을 선택하면 조직의 모든 사용자에 대해 저장된 검색을 공유합니다.

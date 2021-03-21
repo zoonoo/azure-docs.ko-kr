@@ -4,10 +4,10 @@ description: Azure Backup에 대 한 보관 계층 지원에 대해 알아봅니
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102609855"
 ---
 # <a name="archive-tier-support-preview"></a>보관 계층 지원 (미리 보기)

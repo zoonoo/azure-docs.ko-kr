@@ -1,5 +1,5 @@
 ---
-title: Azure Arc Managed Instance 고가용성 사용
+title: Azure Arc 지원 Managed Instance 고가용성
 titleSuffix: Deploy Azure Arc enabled Managed Instance with high availability
 description: 고가용성을 사용 하 여 Azure Arc 사용 Managed Instance을 배포 하는 방법을 알아봅니다.
 author: vin-yu
@@ -11,13 +11,13 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.openlocfilehash: 92f5c900238fc5d40e22870e2f00f8adeb5d335f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032197"
 ---
-# <a name="azure-arc-enabled-managed-instance-high-availability"></a>Azure Arc Managed Instance 고가용성 사용
+# <a name="azure-arc-enabled-managed-instance-high-availability"></a>Azure Arc 지원 Managed Instance 고가용성
 
 Azure Arc enabled Managed Instance는 컨테이너 화 된 응용 프로그램으로 Kubernetes에 배포 되 고 상태 저장 집합 및 영구 저장소와 같은 Kubernetes 구문을 사용 하 여 기본 제공 상태 모니터링, 실패 검색 및 서비스 상태를 유지 하는 장애 조치 (failover) 메커니즘을 제공 합니다. 안정성을 높이기 위해 Azure Arc 사용 Managed Instance를 구성 하 여 고가용성 구성에서 추가 복제본으로 배포할 수도 있습니다. 모니터링, 실패 검색 및 자동 장애 조치 (failover)는 Arc data services 데이터 컨트롤러에 의해 관리 됩니다. 이 서비스는 사용자 개입 없이 가용성 그룹 설정, 데이터베이스 미러링 엔드포인트 구성에서 가용성 그룹에 데이터베이스 추가 또는 장애 조치(failover) 및 업그레이드 조정에 이르기까지 모든 기능을 제공합니다. 이 문서에서는 두 가지 유형의 고가용성을 모두 살펴봅니다.
 
@@ -29,7 +29,7 @@ Azure Arc enabled Managed Instance는 컨테이너 화 된 응용 프로그램�
 
 이 섹션에서는 Kubernetes에서 제공 하는 기본 제공 고가용성을 확인 합니다. 이 기능을 테스트 하는 단계를 수행 하는 경우 기존 관리 되는 인스턴스의 pod를 삭제 하 고 Kubernetes이이 작업에서 복구 되는지 확인 합니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - Kubernetes 클러스터에는 [공유 된 원격 저장소가](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration) 있어야 합니다. 
 - 단일 복제본을 사용 하 여 배포 된 Azure Arc Managed Instance (기본값)
@@ -137,7 +137,7 @@ user@pc:/#  azdata arc sql mi show -n sql2
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=NodePort
     ```
 
-    LoadBalancer 서비스의 경우 만들어진 서비스의 형식이 인 경우를 제외 하 고 동일한 명령을 실행 합니다 `LoadBalancer` . 다음은 그 예입니다.  
+    LoadBalancer 서비스의 경우 만들어진 서비스의 형식이 인 경우를 제외 하 고 동일한 명령을 실행 합니다 `LoadBalancer` . 예를 들면 다음과 같습니다. 
 
     ```bash
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=LoadBalancer

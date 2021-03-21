@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021931"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674974"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>소개
 **Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. 이 시나리오의 중요한 측면은 데이터를 사용하는 것입니다. 사용자가 데이터 원본을 검색하고 용도를 이해하면 다음 단계는 해당 데이터를 사용할 수 있도록 데이터 원본에 연결하는 것입니다.
 
@@ -59,5 +62,5 @@ Azure Data Catalog 포털에서 데이터 원본에 대한 "열기..." 메뉴를
 ## <a name="summary"></a>요약
 데이터 원본을 **Azure Data Catalog** 에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터를 검색할 수 있게 합니다. 데이터 원본이 등록되고 검색되면 사용자는 **Azure Data Catalog** 포털 "다음에서 열기..." "메뉴 또는 선택한 자신의 데이터 도구를 사용하여 데이터 원본에 연결할 수 있습니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [Azure Data Catalog 시작](data-catalog-get-started.md) 자습서.

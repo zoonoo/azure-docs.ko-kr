@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 01a5f4a947f0b89b5881eddb3c743b9a9b184b19
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495643"
 ---
 # <a name="client-libraries-and-rest-apis"></a>클라이언트 라이브러리 및 REST API
@@ -27,13 +27,13 @@ Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성
 
 | 어셈블리               | 프로토콜             |소스 및 닫힌 소스 열기| 네임스페이스                          | 기능                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST (영문) | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
-| 일반                 | REST (영문) | 열기               | Azure. 통신 Common          | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
-| ID         | REST (영문) | 열기               | Azure. 통신 Id  | 사용자 관리, 토큰 액세스 |
-| 전화 번호         | REST (영문) | 열기               | PhoneNumbers  | 전화 번호 관리 |
+| Azure Resource Manager | REST | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
+| 일반                 | REST | 열기               | Azure. 통신 Common          | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
+| ID         | REST | 열기               | Azure. 통신 Id  | 사용자 관리, 토큰 액세스 |
+| 전화 번호         | REST | 열기               | PhoneNumbers  | 전화 번호 관리 |
 | 채팅                   | 소유 신호를 포함 하는 REST | 닫힌 소스 신호 패키지를 사용 하 여 열기    | Azure. 통신 채팅            | 응용 프로그램에 실시간 텍스트 기반 채팅 추가  |
-| sms                    | REST (영문) | 열기              | Azure. 통신 SMS             | SMS 메시지 보내기 및 받기 |
-| 호출                | 소유 전송 | 닫힘 |Azure. 통신. 호출         | 음성, 비디오, 화면 공유 및 기타 실시간 데이터 통신 기능 활용          |
+| sms                    | REST | 열기              | Azure. 통신 SMS             | SMS 메시지 보내기 및 받기 |
+| 호출                | 소유 전송 | 종결 |Azure. 통신. 호출         | 음성, 비디오, 화면 공유 및 기타 실시간 데이터 통신 기능 활용          |
 
 Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 통합에 초점을 맞추고 있으며 이러한 기능을 최종 사용자 응용 프로그램에 통합 하는 경우 대부분의 경우 보안 문제가 발생 합니다. 공용 및 채팅 클라이언트 라이브러리는 서비스 및 클라이언트 응용 프로그램에 적합 합니다. 호출 하는 클라이언트 라이브러리는 클라이언트 응용 프로그램용으로 설계 되었습니다. 서비스 시나리오에 초점을 맞춘 클라이언트 라이브러리는 개발 과정에 있습니다.
 

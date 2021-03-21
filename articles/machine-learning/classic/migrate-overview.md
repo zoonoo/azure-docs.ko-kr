@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
 ms.openlocfilehash: fda34a7ee06d35846bcec571e904297d0421c38f
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103565112"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Azure Machine Learning으로 마이그레이션
@@ -103,7 +103,7 @@ Azure Machine Learning로 마이그레이션하려면 다음 방법을 사용 �
 | Python 언어 모듈| -Python 스크립트 실행| -Python 스크립트 실행  </br> -Python 모델 만들기 |
 | R 언어 모듈  | -R 스크립트 실행  </br> -R 모델 만들기| -R 스크립트 실행|
 | 통계 함수 | -수학 연산을 적용 합니다. </br>-계산 기본 통계  </br>-Compute 선형 상관 관계  </br>-Probability 함수를 계산 합니다.  </br>-불연속 값 바꾸기  </br>-데이터 요약  </br>-T-테스트를 사용 하 여 가설 테스트| -수학 연산을 적용 합니다.  </br>-데이터 요약|
-| 텍스트 분석| -검색 언어  </br>-텍스트에서 키 구를 추출 합니다.  </br>-텍스트에서 N-문법 기능 추출  </br>-기능 해시 </br>-잠재적인 Dirichlet 할당  </br>-명명 된 엔터티 인식 </br>-전처리 텍스트  </br>-점수 Vowpal Wabbit 버전 7-10 모델  </br>-점수 Vowpal Wabbit 버전 8 모델 </br>-Vowpal Wabbit 버전 7-10 모델 학습  </br>-Vowpal Wabbit 버전 8 모델 학습 |-Word를 벡터로 변환 </br> -텍스트에서 N-문법 기능 추출 </br>-기능 해시  </br>-잠재적인 Dirichlet 할당 </br>-전처리 텍스트  </br>-점수 Vowpal Wabbit 모델 </br> -Vowpal Wabbit 모델 학습|
+| Text Analytics| -검색 언어  </br>-텍스트에서 키 구를 추출 합니다.  </br>-텍스트에서 N-문법 기능 추출  </br>-기능 해시 </br>-잠재적인 Dirichlet 할당  </br>-명명 된 엔터티 인식 </br>-전처리 텍스트  </br>-점수 Vowpal Wabbit 버전 7-10 모델  </br>-점수 Vowpal Wabbit 버전 8 모델 </br>-Vowpal Wabbit 버전 7-10 모델 학습  </br>-Vowpal Wabbit 버전 8 모델 학습 |-Word를 벡터로 변환 </br> -텍스트에서 N-문법 기능 추출 </br>-기능 해시  </br>-잠재적인 Dirichlet 할당 </br>-전처리 텍스트  </br>-점수 Vowpal Wabbit 모델 </br> -Vowpal Wabbit 모델 학습|
 | 시계열| -시계열 변칙 검색 | |
 | 웹 서비스 | -입력 </br> -출력 | -입력 </br>  - 출력|
 | Computer Vision| | -이미지 변환 적용 </br> -이미지 디렉터리로 변환 </br> -초기화 이미지 변환 </br> -분할 이미지 디렉터리  </br> -DenseNet 이미지 분류   </br>-ResNet 이미지 분류 |
