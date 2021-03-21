@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 67153fa750fee765dcaa1072eec87a2f6169b918
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397283"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
@@ -26,7 +26,7 @@ Azure Portal를 사용 하 여 TLS 종료를 위한 인증서로 [응용 프로�
 * 수신기 및 리디렉션 규칙 추가
 * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -157,7 +157,7 @@ Export-PfxCertificate `
 4. **myAppGatewaymyvmss** 를 선택합니다.
 5. **백 엔드 풀에서 모든 대상 제거** 를 선택합니다.
 6. **저장** 을 선택합니다.
-7. 이 프로세스가 완료되면 **myAppGatewaymyvmss** 백 엔드 풀을 선택하고 **삭제** , **확인** 을 차례로 선택합니다.
+7. 이 프로세스가 완료되면 **myAppGatewaymyvmss** 백 엔드 풀을 선택하고 **삭제**, **확인** 을 차례로 선택합니다.
 8. **AppGatewayBackendPool** 를 선택 합니다.
 9. **대상** 아래에서 **VMSS** 를 선택합니다.
 10. **VMSS** 아래에서 **myvmss** 를 선택합니다.
@@ -214,7 +214,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 1. **myAppGateway** 를 선택합니다.
 2. **개요** 페이지에서 **프런트 엔드 공용 IP 주소** 아래의 IP 주소를 기록해 둡니다.
 
-3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예, http://52.170.203.149
+3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
 
    ![보안 경고](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

@@ -12,18 +12,19 @@ ms.date: 12/10/2019
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: a6cbabe35b223020528d1cf48aa9e0ef9b9f7c05
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256122"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
 기본적으로 Azure AD 프로 비전 엔진은 범위를 벗어난 사용자를 일시적으로 삭제 하거나 사용 하지 않도록 설정 합니다. 그러나 Workday에서 AD 사용자 인바운드 프로 비전과 같은 특정 시나리오의 경우이 동작이 예상과 다를 수 있으며이 기본 동작을 재정의 하는 것이 좋습니다.  
 
-이 문서에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 ***SkipOutOfScopeDeletions** _를 설정 하는 방법을 설명 합니다. _ If ***SkipOutOfScopeDeletions** _가 0 (false)으로 설정 되 면 범위에서 벗어난 계정은 대상에서 사용 하지 않도록 설정 됩니다.
-_ If ***SkipOutOfScopeDeletions** _가 1 (true)로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다. 이 플래그는 _Provisioning App * 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
+이 문서에서는 Microsoft Graph API 및 Microsoft Graph API 탐색기를 사용 하 여 범위를 벗어나는 계정 처리를 제어 하는 플래그 ***SkipOutOfScopeDeletions*** 설정 하는 방법을 설명 합니다. 
+* ***SkipOutOfScopeDeletions*** 가 0 (false)으로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다.
+* ***SkipOutOfScopeDeletions** _가 1 (true)로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다. 이 플래그는 _Provisioning App * 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
 
 이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷을 포함 합니다. 그러나 ServiceNow, Salesforce, Dropbox 등의 *다른 모든 앱* 에서도 구성을 사용할 수 있습니다.
 
@@ -68,9 +69,9 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
 
 ## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>4 단계: SkipOutOfScopeDeletions 플래그를 사용 하 여 비밀 끝점 업데이트
 
-그래프 탐색기에서 아래 명령을 실행 하 여 암호 끝점을 **_SkipOutOfScopeDeletions_* _ 플래그로 업데이트 합니다. 
+그래프 탐색기에서 아래 명령을 실행 하 여 비밀 끝점을 ***SkipOutOfScopeDeletions*** 플래그로 업데이트 합니다. 
 
-아래 URL에서 [servicePrincipalId]을 [1 단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출 된 _ *servicePrincipalId**로 바꿉니다. 
+아래 URL에서 [servicePrincipalId]을 [1 단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출한 **servicePrincipalId** 로 바꿉니다. 
 
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

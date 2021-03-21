@@ -4,10 +4,10 @@ description: DevTest Labs는 이제 Azure 방호와 통합 됩니다. 랩의 소
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 6d9d631c79c22f1f713cfc4ee7cdd766a4ad8f06
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96341175"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Azure DevTest Labs 가상 컴퓨터에서 브라우저 연결 사용 

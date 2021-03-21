@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780328"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
@@ -33,7 +33,7 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. **복제 또는 다운로드** 를 클릭합니다.
 3. **Zip 다운로드** 를 클릭 하 고 파일을 저장 합니다.
-4. 해당 zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. zip 파일 이름은 리포지토리 이름에 해당합니다. 예: _WingtipTicketsSaaS-DbPerTenant-master.zip_ )
+4. 해당 zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. zip 파일 이름은 리포지토리 이름에 해당합니다. 예: _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. **일반** 탭에서 **차단 해제** 를 선택합니다.
 6. **확인** 을 클릭합니다.
 7. 파일을 추출합니다.
@@ -57,7 +57,7 @@ zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>F5 키를 눌러 스크립트 실행
 
-여러 스크립트에서 *$PSScriptRoot* 를 사용하여 폴더를 탐색할 수 있으며 *$PSScriptRoot* 는 **F5** 키를 눌러 스크립트를 실행할 때만 평가됩니다.  선택 내용을 강조 표시하고 실행( **F8** )하면 오류가 발생할 수 있으므로 스크립트를 실행할 때는 **F5** 키를 누르세요.
+여러 스크립트에서 *$PSScriptRoot* 를 사용하여 폴더를 탐색할 수 있으며 *$PSScriptRoot* 는 **F5** 키를 눌러 스크립트를 실행할 때만 평가됩니다.  선택 내용을 강조 표시하고 실행(**F8**)하면 오류가 발생할 수 있으므로 스크립트를 실행할 때는 **F5** 키를 누르세요.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>스크립트를 단계별로 실행하여 구현 검사
 
@@ -87,14 +87,14 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 
 1. *SSMS* 를 열고 테넌트에 연결합니다. 서버 이름은 선택한 데이터베이스 테넌트 패턴에 따라 다릅니다(구체적인 내용은 아래 참조).
-    - **독립 실행형 애플리케이션:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net* )
+    - **독립 실행형 애플리케이션:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net*)
     - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *tenants1-mt-&lt;User&gt;.database.windows.net*
 2. **연결**  >  **데이터베이스 엔진 ...** 를 클릭 합니다.
 
    ![카탈로그 서버](./media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. 데모 자격 증명: Login = *developer* , Password = *P \@ ssword1*
+3. 데모 자격 증명: Login = *developer*, Password = *P \@ ssword1*
 
     아래 이미지는 *테넌트당 데이터베이스* 패턴의 로그인을 보여줍니다.
     ![연결](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

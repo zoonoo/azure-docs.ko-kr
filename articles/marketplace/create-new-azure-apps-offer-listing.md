@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 91b6d432042aa37a1b929f61e9742f814fb9dc40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370324"
 ---
 # <a name="how-to-configure-your-azure-application-offer-listing-details"></a>Azure 애플리케이션 제품 목록 정보를 구성 하는 방법
@@ -45,8 +45,8 @@ Azure 애플리케이션 제품에 대 한 **제품 목록** 페이지에 제공
 
 **연락처 정보** 에서 다음 연락처에 대 한 정보를 제공 합니다.
 
-- **지원 연락처** (필수) – 일반적인 지원 질문을 위한 연락처입니다.
-- **엔지니어링 연락처** (필수) - 기술 관련 질문을 위한 연락처입니다. 이 정보를 사용 하 여 인증 문제를 포함 하 여 제품에 문제가 있는 경우 사용자에 게 연락 합니다.
+- **지원 연락처**(필수) – 일반적인 지원 질문을 위한 연락처입니다.
+- **엔지니어링 연락처**(필수) - 기술 관련 질문을 위한 연락처입니다. 이 정보를 사용 하 여 인증 문제를 포함 하 여 제품에 문제가 있는 경우 사용자에 게 연락 합니다.
 - **CSP 프로그램 연락처** (선택 사항) – 지원 및 비즈니스 문제 이 정보는 CSP 파트너에만 표시 됩니다.
 
 각 연락처에 대해 이름, 전화 번호 및 전자 메일 주소를 제공 합니다 (공개적으로 표시 되지 않음). 지원 담당자에 게 지원 URL이 필요 합니다 (공개적으로 표시 됨).

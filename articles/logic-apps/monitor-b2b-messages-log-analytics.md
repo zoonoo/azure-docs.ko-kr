@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 765c15897bd5d435503d3bef07e76a93b148971c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100596856"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 메시지에 대한 Azure Monitor 로그 설정 및 진단 데이터 수집
@@ -104,7 +104,7 @@ Azure Monitor 로그에서 논리 앱에 대 한 B2B 메시지를 추적 하려�
 
    1. 완료되면 **저장** 을 선택합니다.
 
-   다음은 그 예입니다.  
+   예를 들면 다음과 같습니다. 
 
    ![Azure Monitor 로그를 설정 하 여 진단 데이터 수집](./media/monitor-b2b-messages-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 

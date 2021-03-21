@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 749829f641119273813d3c8ca826daf8b4dc4d11
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96742666"
 ---
 # <a name="enable-per-user-azure-ad-multi-factor-authentication-to-secure-sign-in-events"></a>사용자 단위 Azure AD Multi-Factor Authentication를 사용 하 여 로그인 이벤트 보호
@@ -41,7 +41,7 @@ Azure AD 라이선스에 조건부 액세스가 포함 되지 않고 보안 기�
 
 사용자의 상태는 관리자가 사용자별 Azure AD Multi-Factor Authentication에 등록 했는지 여부를 반영 합니다. Azure AD의 사용자 계정은 다음과 같은 3 가지 고유 상태를 갖습니다 Multi-Factor Authentication.
 
-| 주 | 설명 | 영향을 받는 레거시 인증 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
+| 시스템 상태 | 설명 | 영향을 받는 레거시 인증 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
 |:---:| --- |:---:|:--:|:--:|
 | 사용 안 함 | 사용자 단위 Azure AD Multi-Factor Authentication에 등록 되지 않은 사용자의 기본 상태입니다. | 아니요 | 아니요 | 예 |
 | 사용 | 사용자가 사용자 단위 Azure AD Multi-Factor Authentication에 등록 되어 있지만 레거시 인증에 암호를 계속 사용할 수 있습니다. 사용자가 MFA 인증 방법을 아직 등록 하지 않은 경우 다음에 최신 인증을 사용 하 여 로그인 할 때 등록 하 라는 메시지가 표시 됩니다 (예: 웹 브라우저를 통해). | 아니요. 레거시 인증은 등록 프로세스가 완료 될 때까지 계속 작동 합니다. | 예. 세션이 만료 된 후에는 Azure AD Multi-Factor Authentication 등록이 필요 합니다.| 예. 액세스 토큰이 만료 되 면 Azure AD Multi-Factor Authentication 등록이 필요 합니다. |

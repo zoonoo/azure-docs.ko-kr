@@ -3,14 +3,14 @@ title: 저장소 자동 증가-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는를 사용 하 여 Azure Database for MariaDB에 대 한 저장소 자동 증가를 사용 하도록 설정할 수 있는 방법을 설명 Azure Portal
 author: ambhatna
 ms.author: ambhatna
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: f6410f34a4bbfde0a7090222979b3c4c98673981
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 56bc6c0e7a294f80e946a2eb0c84e5d0bd49d0f5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663471"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB의 저장소 자동 증가

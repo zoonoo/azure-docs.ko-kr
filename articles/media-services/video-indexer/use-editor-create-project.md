@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/28/2020
 ms.author: juliako
 ms.openlocfilehash: 07e4b05e12a5994c707a171c5736aea04a9c9723
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98632929"
 ---
 # <a name="add-video-clips-to-your-projects"></a>프로젝트에 비디오 클립 추가

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs를 통해 스트리밍 이벤�
 ms.topic: article
 ms.date: 02/16/2021
 ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100595958"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
@@ -19,7 +19,7 @@ Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지
 Event Hubs 캡처를 사용하면 동일한 스트림에서 실시간 및 일괄 처리 기반 파이프라인을 처리할 수 있습니다. 즉, 시간이 지나면서 요구에 따라 확장되는 솔루션을 빌드할 수 있습니다. 향후 실시간 처리를 염두에 두고 현재 일괄 처리 기반 시스템을 빌드 중이든, 기존의 실시간 솔루션에 효율적인 콜드 경로를 추가하려는 경우든 간에 Event Hubs 캡처를 통해 스트리밍 데이터 작업이 더 쉬워집니다.
 
 > [!IMPORTANT]
-> 대상 저장소 (Azure Storage 또는 Azure Data Lake Storage) 계정은 이벤트 허브와 동일한 구독에 있어야 합니다. 
+> 대상 스토리지(Azure Storage 또는 Azure Data Lake Storage) 계정은 이벤트 허브와 동일한 구독에 있어야 합니다. 
 
 ## <a name="how-event-hubs-capture-works"></a>Event Hubs 캡처의 작동 방식
 

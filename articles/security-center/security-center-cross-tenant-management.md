@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
 ms.openlocfilehash: 493a06e85ad6c8260c342cf8167386394835b1c6
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102099491"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
@@ -41,7 +41,7 @@ Azure 위임 리소스 관리는 Azure Lighthouse의 주요 구성 요소 중 �
 
   ![테 넌 트 필터링](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-뷰와 작업은 기본적으로 동일 합니다. 다음은 몇 가지 예입니다.
+뷰와 작업은 기본적으로 동일 합니다. 몇 가지 예제는 다음과 같습니다.
 
 - **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다.
 - **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 가시성을 통해 모든 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](secure-score-security-controls.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 향상 시킬 수 있습니다.

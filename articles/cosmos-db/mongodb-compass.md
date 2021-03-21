@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 author: christopheranderson
 ms.author: chrande
 ms.openlocfilehash: 43bcd54955cb1a8aaf08785368faf13c14f8322c
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413057"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB Compass를 사용하여 Azure Cosmos DB의 API for MongoDB에 연결
@@ -40,7 +40,7 @@ Cosmos DB 계정을 Compass에 연결하려면 아래 단계를 따릅니다.
 
     :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="클립보드로 복사 단추의 스크린샷":::
 
-3. 데스크톱/머신에서 Compass를 열고 **연결** , **연결 대상...** 을 차례로 클릭합니다.
+3. 데스크톱/머신에서 Compass를 열고 **연결**, **연결 대상...** 을 차례로 클릭합니다.
 
 4. Compass는 클립보드에서 연결 문자열을 자동으로 검색하며 연결하는 데 이 연결 문자열을 사용할지 묻는 메시지를 표시합니다. 아래 스크린샷과 같이 **예** 를 클릭합니다.
 

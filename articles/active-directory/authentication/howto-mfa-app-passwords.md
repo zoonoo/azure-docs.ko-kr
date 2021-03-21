@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfb38f9fcdba6898b690d0af68b715fea07e80bb
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743108"
 ---
-# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용 하 여 레거시 응용 프로그램에서 Azure AD Multi-Factor Authentication 사용 및 사용
+# <a name="enable-and-use-azure-ad-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용하여 레거시 애플리케이션에서 Azure AD Multi-Factor Authentication 사용 설정 및 사용
 
 Office 2010 이전 및 iOS 11 이전 Apple 메일과 같은 일부 이전 브라우저 이외의 앱은 인증 프로세스의 일시 중지 또는 중단을 이해 하지 못합니다. 사용자가 Azure AD Multi-Factor Authentication에 대해 사용 하도록 설정 되어 있고 이러한 이전의 비 브라우저 앱 중 하나를 사용 하려고 하면 성공적으로 인증할 수 없습니다. 사용자 계정에 대해 사용 하도록 설정 된 Azure AD Multi-Factor Authentication를 사용 하 여 안전한 방법으로 이러한 응용 프로그램을 사용 하려면 앱 암호를 사용할 수 있습니다. 이러한 앱 암호는 기존 암호를 대체 하 여 앱이 multi-factor authentication을 바이패스 하 고 제대로 작동할 수 있도록 합니다.
 

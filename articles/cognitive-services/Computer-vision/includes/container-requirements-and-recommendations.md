@@ -9,10 +9,10 @@ ms.topic: include
 ms.date: 11/23/2020
 ms.author: aahi
 ms.openlocfilehash: 4697be519eee96778eecdf37f7b358a88ad886c6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006913"
 ---
 > [!NOTE]
@@ -23,7 +23,7 @@ ms.locfileid: "96006913"
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
 | 2.0 읽기-미리 보기 | 1 코어, 8gb 메모리 |  8 코어, 16-GB 메모리 |
-| 3.2 읽기-미리 보기 | 8 코어, 16-GB 메모리 | 8 코어, 24-GB 메모리 |
+| Read 3.2 미리 보기 | 8 코어, 16-GB 메모리 | 8 코어, 24-GB 메모리 |
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 
