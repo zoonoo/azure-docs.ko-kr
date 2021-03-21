@@ -1,15 +1,15 @@
 ---
 title: 기본 제공 정책 정의 목록
 description: Azure Policy에 대한 기본 제공 정책 정의를 나열합니다. 범주에는 태그, 규정 준수, Key Vault, Kubernetes, 게스트 구성 등이 포함됩니다.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 6c98b59c14dffff746aadd1cc4cb4cfcaa321813
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: cf7bafa624bfcd3c819d94f46cb5684b22455ebb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611022"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605358"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy 기본 제공 정책 정의
 
@@ -156,6 +156,10 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 링크의 이름입니
 ## <a name="managed-application"></a>관리형 애플리케이션
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## <a name="migrate"></a>Migrate
+
+[!INCLUDE [azure-policy-reference-policies-migrate](../../../../includes/policy/reference/bycat/policies-migrate.md)]
 
 ## <a name="monitoring"></a>모니터링
 

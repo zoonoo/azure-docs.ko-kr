@@ -1,18 +1,18 @@
 ---
 title: Azure SQL Database에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure SQL Database 및 SQL Managed Instance에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6c05be2a539044287815971c78345fb2f01d3307
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 5fdaceb9bccfa6c3f649cc41f2ee6cafa150eb62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631723"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583437"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대한 Azure Policy 규정 준수 컨트롤
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

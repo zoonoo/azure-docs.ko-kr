@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449614"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
@@ -107,7 +107,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 ### <a name="data-factory-copy-activity-support"></a>Data Factory 복사 작업 지원
 
-| 데이터 저장소 | 지원 여부 | 
+| 데이터 저장소 | 지원됨 | 
 | ------------------- | ------------------- | 
 | Azure Blob Storage | 예 |
 | Azure Cognitive Search | 예 | 
@@ -150,7 +150,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 ### <a name="data-factory-data-flow-support"></a>Data Factory 데이터 흐름 지원
 
-| 데이터 저장소 | 지원 여부 |
+| 데이터 저장소 | 지원됨 |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | 예 |
 | Azure Data Lake Storage Gen1 | 예 |
@@ -162,7 +162,7 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 
 ### <a name="data-factory-execute-ssis-package-support"></a>SSIS 패키지 지원 Data Factory 실행
 
-| 데이터 저장소 | 지원 여부 |
+| 데이터 저장소 | 지원됨 |
 | ------------------- | ------------------- |
 | Azure Blob Storage | 예 |
 | Azure Data Lake Storage Gen1 | 예 |

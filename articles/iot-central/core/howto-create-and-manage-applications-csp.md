@@ -5,19 +5,21 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f3293ada549351cc7273847cde48c0531f06f028
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123116"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675810"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리
 
 Microsoft CSP(클라우드 솔루션 공급자) 프로그램은 Microsoft 재판매인 프로그램입니다. 이의 의도는 모든 Microsoft 상용 온라인 서비스를 재판매하기 위한 원스톱 프로그램을 채널 파트너에게 제공하는 것입니다. [클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/cloud-solution-provider)을 자세히 알아봅니다.
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
 CSP로서 고객을 대신해 [Microsoft 파트너 센터](https://partnercenter.microsoft.com/partner/home)를 통해 Microsoft Azure IoT Central 애플리케이션을 만들고 관리할 수 있습니다. CSP가 고객을 대신해 Azure IoT Central 애플리케이션을 만들 경우 다른 CSP 관리 Azure 서비스와 마찬가지로 CSP가 고객에 대한 청구를 관리합니다. Azure IoT Central에 대한 요금은 Microsoft 파트너 센터의 총 청구서에 표시됩니다.
 
@@ -33,7 +35,7 @@ Azure IoT Central 애플리케이션 관리자 페이지로 이동합니다. Azu
 
 ![CSP를 위한 관리자 만들기](media/howto-create-and-manage-applications-csp/image3.png)
 
-Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드** 를 선택 합니다. 산업 템플릿 중 하나를 선택 하거나 응용 프로그램을 처음부터 만들려면 **사용자 지정 앱** 을 선택 합니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
+Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드** 를 선택 합니다. 산업 템플릿 중 하나를 선택 하거나 응용 프로그램을 처음부터 만들려면 **사용자 지정 앱** 을 선택 합니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기** 를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
 !["빌드" 단추가 선택 된 "IoT 응용 프로그램 빌드" 페이지를 보여 주는 스크린샷](media/howto-create-and-manage-applications-csp/image4.png)
 
@@ -75,7 +77,7 @@ Azure 구독이 없는 경우 Microsoft 파트너 센터에서 새로 만들 수
 
 ## <a name="location"></a>위치
 
-**Location** 은 응용 프로그램을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국**및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들**수 있습니다. 위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
+**Location** 은 응용 프로그램을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. 현재 **오스트레일리아**, **아시아 태평양**, **유럽** **, 미국, 영국** 및 **일본** 지역에서 IoT Central 응용 **프로그램을 만들** 수 있습니다. 위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
 
 ## <a name="application-template"></a>애플리케이션 템플릿
 

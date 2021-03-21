@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200707"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>IoT Edge 배포에서 로그 검색
@@ -76,7 +76,7 @@ IoT Edge agent 모듈에 포함 된 직접 메서드를 사용 하 여 장치에
     }
 ```
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | items | JSON 배열 | 및 튜플을 포함 하는 배열 `id` `filter` 입니다. |
@@ -185,7 +185,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 |-|-|-|
 | sasURL | 문자열 (URI) | [Azure Blob Storage 컨테이너에 대 한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer)입니다. |
 
@@ -199,7 +199,7 @@ az iot hub invoke-module-method \
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
@@ -302,7 +302,7 @@ Azure Portal에서 `UploadModuleLogs` sasURL을 사용자의 정보로 채운 �
     }
 ```
 
-| Name | 유형 | 설명 |
+| Name | Type | Description |
 |-|-|-|
 | schemaVersion | 문자열 | `1.0` |
 | sasURL | 문자열 (URI) | [Azure Blob Storage 컨테이너에 대 한 쓰기 권한이 있는 공유 액세스 서명 URL](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -323,7 +323,7 @@ Azure Portal에서 `UploadModuleLogs` sasURL을 사용자의 정보로 채운 �
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |
@@ -381,7 +381,7 @@ Azure Portal에서 `UploadSupportBundle` sasURL을 사용자의 정보로 채운
     }
 ```
 
-| Name | 유형 | Description |
+| Name | Type | Description |
 |-|-|-|
 | 상태 | 문자열 | `NotStarted`, `Running` , `Completed` , 또는 중 하나 `Failed` `Unknown` 입니다. |
 | message | 문자열 | 오류가 발생 하면 메시지이 고, 그렇지 않으면 빈 문자열입니다. |

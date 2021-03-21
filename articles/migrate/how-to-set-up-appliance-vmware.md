@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.openlocfilehash: bac82b2939e5b6a674c75be2cd330dd0fa4b8487
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035809"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
@@ -155,7 +155,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="서버 세부 정보에 대 한 어플라이언스 구성 관리자의 패널 3":::
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 이러한 기능을 활용 하려는 경우 다음 단계를 수행 하 여 서버 자격 증명을 제공할 수 있습니다. 어플라이언스는 검색 기능을 수행 하기 위해 자격 증명을 서버에 자동으로 매핑하도록 시도 합니다.
 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.openlocfilehash: d4be3983d70a1ca78d849e231b8cc55e2b5895d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033200"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>저장소 계정에 보관 된 Azure Monitor 플랫폼 로그의 형식 변경 준비

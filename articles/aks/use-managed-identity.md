@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/16/2020
 ms.openlocfilehash: 3ace7f1c93ab3918f460d245a863db43d98f1db5
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176096"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 관리 되는 id 사용
@@ -35,18 +35,18 @@ AKS는 기본 제공 서비스 및 추가 기능에 대해 여러 관리 되는 
 
 | ID                       | Name    | 사용 사례 | 기본 권한 | 사용자 고유의 id 가져오기
 |----------------------------|-----------|----------|
-| 컨트롤 플레인 | 표시 되지 않음 | AKS 제어 평면 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 되는 공용 Ip를 포함 하 여 클러스터 리소스를 관리 하는 데 사용 되며 클러스터 Autoscaler 작업 | 노드 리소스 그룹에 대 한 참가자 역할 | 지원됨
+| 제어 평면 | 표시 되지 않음 | AKS 제어 평면 구성 요소에서 수신 부하 분산 장치 및 AKS 관리 되는 공용 Ip를 포함 하 여 클러스터 리소스를 관리 하는 데 사용 되며 클러스터 Autoscaler 작업 | 노드 리소스 그룹에 대 한 참가자 역할 | 지원됨
 | Kubelet | AKS 클러스터 이름-agentpool | Azure Container Registry 인증 (ACR) | NA (kubernetes v 1.15 +의 경우) | 현재 지원되지 않음
-| 추가 기능 | AzureNPM | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | AzureCNI 네트워크 모니터링 | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | azure-정책 (게이트 키퍼) | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | azure-정책 | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | Calico | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | 대시보드 | Id가 필요 하지 않음 | 해당 없음 | 예
-| 추가 기능 | HTTPApplicationRouting | 필요한 네트워크 리소스를 관리 합니다. | 노드 리소스 그룹에 대 한 읽기 역할, DNS 영역에 대 한 참가자 역할 | 예
-| 추가 기능 | 수신 응용 프로그램 게이트웨이 | 필요한 네트워크 리소스를 관리 합니다.| 노드 리소스 그룹에 대 한 참가자 역할 | 예
-| 추가 기능 | omsagent | Azure Monitor에 AKS 메트릭을 전송 하는 데 사용 됩니다. | 모니터링 메트릭 게시자 역할 | 예
-| 추가 기능 | Virtual-Node (ACIConnector) | Azure Container Instances (ACI)에 필요한 네트워크 리소스를 관리 합니다. | 노드 리소스 그룹에 대 한 참가자 역할 | 예
+| 추가 기능 | AzureNPM | Id가 필요 하지 않음 | 해당 없음 | 아니요
+| 추가 기능 | AzureCNI 네트워크 모니터링 | Id가 필요 하지 않음 | 해당 없음 | 아니요
+| 추가 기능 | azure-정책 (게이트 키퍼) | Id가 필요 하지 않음 | 해당 없음 | 아니요
+| 추가 기능 | azure-정책 | Id가 필요 하지 않음 | 해당 없음 | 아니요
+| 추가 기능 | Calico | Id가 필요 하지 않음 | 해당 없음 | 아니요
+| 추가 기능 | 대시보드 | Id가 필요 하지 않음 | 해당 없음 | 아니요
+| 추가 기능 | HTTPApplicationRouting | 필요한 네트워크 리소스를 관리 합니다. | 노드 리소스 그룹에 대 한 읽기 역할, DNS 영역에 대 한 참가자 역할 | 아니요
+| 추가 기능 | 수신 응용 프로그램 게이트웨이 | 필요한 네트워크 리소스를 관리 합니다.| 노드 리소스 그룹에 대 한 참가자 역할 | 아니요
+| 추가 기능 | omsagent | Azure Monitor에 AKS 메트릭을 전송 하는 데 사용 됩니다. | 모니터링 메트릭 게시자 역할 | 아니요
+| 추가 기능 | Virtual-Node (ACIConnector) | Azure Container Instances (ACI)에 필요한 네트워크 리소스를 관리 합니다. | 노드 리소스 그룹에 대 한 참가자 역할 | 아니요
 | OSS 프로젝트 | aad-pod-id | 응용 프로그램이 AAD (Azure Active Directory)를 사용 하 여 클라우드 리소스에 안전 하 게 액세스할 수 있도록 합니다. | 해당 없음 | 에서 사용 권한을 부여 하는 단계 https://github.com/Azure/aad-pod-identity#role-assignment 입니다.
 
 ## <a name="create-an-aks-cluster-with-managed-identities"></a>관리 id를 사용 하 여 AKS 클러스터 만들기

@@ -4,25 +4,25 @@ description: Azure 공용 IP 보안 기준은 Azure 보안 벤치 마크에 지�
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7f8633d791e2dd0f0723b272aefcb343d758b248
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 26a92586d0f87f79436f17914455a82b50a17eab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612357"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606109"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Azure 공용 IP에 대 한 azure 보안 기준
 
-이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](../security/benchmarks/overview.md) 의 지침을 AZURE 공용 IP에 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 AZURE 공용 IP에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 공용 IP에 적용 되지 않는 **컨트롤** 은 제외 되었습니다.  참고 Azure 공용 Ip는 고객 데이터를 저장 하지 않습니다.
+이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](../security/benchmarks/overview-v1.md) 의 지침을 AZURE 공용 IP에 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 AZURE 공용 IP에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 공용 IP에 적용 되지 않는 **컨트롤** 은 제외 되었습니다.
 
 Azure 공용 IP가 Azure 보안 벤치 마크에 완전히 매핑되는 방식을 보려면 [전체 Azure 공용 ip 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 
-*자세한 내용은 [Azure 보안 벤치 마크: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 네트워크 보안](../security/benchmarks/security-control-network-security.md)을 참조하세요.
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: 트래픽 구성 규칙 문서화
 
@@ -30,15 +30,15 @@ Azure 공용 IP가 Azure 보안 벤치 마크에 완전히 매핑되는 방식�
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다. 
 
-- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md) 
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [Azure Virtual Network을 만드는 방법](quick-create-portal.md) 
 
 - [네트워크 보안 그룹 규칙을 사용 하 여 네트워크 트래픽을 필터링 하는 방법](tutorial-filter-network-traffic.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
@@ -56,29 +56,29 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Azure 리소스에 대한 감사 로깅 사용
 
 **지침**: Azure 활동 로그를 사용 하 여 공용 IP 인스턴스의 구성을 모니터링 하 고 변경 내용을 검색 합니다. 제어 평면 (예: Azure Portal) 외에도 공용 IP 자체는 감사 로그를 생성 하지 않습니다. 공용 IP는 Azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구를 제공 합니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
-
-**Azure Security Center 모니터링**: 예
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 **책임**: Customer
 
-### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 구성
+**Azure Security Center 모니터링**: 없음
+
+### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
 
 **지침**: Azure Monitor을 사용 하 여 조직의 규정 준수 의무에 따라 공용 IP 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정할 수 있습니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [로그 보존 매개 변수를 설정 하는 방법](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
@@ -88,11 +88,11 @@ Azure 활동 로그를 사용 하 여 구성을 모니터링 하 고 공용 IP �
 
 공용 IP 자체는 제어 평면이 아닌 네트워크 트래픽과 관련 된 로그를 생성 하지 않습니다 (예: Azure Portal).
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: 비정상적인 활동에 대해 경고를 사용 하도록 설정
 
@@ -100,27 +100,27 @@ Azure 활동 로그를 사용 하 여 구성을 모니터링 하 고 공용 IP �
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
 
-## <a name="identity-and-access-control"></a>ID 및 액세스 제어
+**Azure Security Center 모니터링**: 없음
 
-*자세한 내용은 [Azure 보안 벤치 마크: id 및 액세스 제어](../security/benchmarks/security-control-identity-access-control.md)를 참조 하세요.*
+## <a name="identity-and-access-control"></a>ID 및 Access Control
+
+*자세한 내용은 [Azure 보안 벤치 마크: id 및 Access Control](../security/benchmarks/security-control-identity-access-control.md)을 참조 하세요.*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 역할 할당을 사용 하는 공용 IP 인스턴스와 같은 azure 리소스에 대 한 액세스를 관리 합니다. 이러한 역할을 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당 합니다. 
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 역할 할당을 사용 하는 공용 IP 인스턴스와 같은 azure 리소스에 대 한 액세스를 관리 합니다. 이러한 역할을 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 할당 합니다.
 
 인벤토리 또는 쿼리 미리 정의 된 Azure 기본 제공 역할은 Azure CLI, Azure PowerShell, Azure Portal 등의 도구를 통해 특정 리소스에 존재 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
+- [PowerShell을 사용 하 여 Azure Active Directory (Azure AD)에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
 - [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: 전용 관리 계정 사용
 
@@ -128,35 +128,35 @@ Azure 활동 로그를 사용 하 여 구성을 모니터링 하 고 공용 IP �
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure Resource Manager를 사용 하 여 Just-in-time 액세스를 사용 하도록 설정 합니다. 
 
-- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
-
-**Azure Security Center 모니터링**: 예
+- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: 모든 Azure Active Directory 기반 액세스에 다단계 인증 사용
 
-**지침**: Azure Active Directory Multi-Factor Authentication를 사용 하도록 설정 하 고 Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
+**지침**: Azure Active Directory (Azure AD) 다단계 인증을 사용 하도록 설정 하 고 Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
-- [Azure에서 MFA를 사용하도록 설정하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Azure에서 다단계 인증을 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Azure Security Center 내에서 ID 및 액세스를 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: 모든 관리 작업에 전용 컴퓨터(Privileged Access Workstation) 사용
 
-**지침**: MFA (azure AD Multi-Factor Authentication)를 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성 합니다.
+**지침**: azure AD Multi-Factor Authentication 사용 하는 PAW (권한 있는 액세스 워크스테이션)를 사용 하 여 azure 센티널 관련 리소스에 로그인 하 고 구성할 수 있습니다.
 
-- [권한 있는 액세스 워크스테이션](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [권한 있는 액세스 워크스테이션](/security/compass/privileged-access-devices)
 
 - [클라우드 기반 Azure AD Multi-Factor Authentication 배포 계획](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: 관리 계정에서 의심 스러운 활동에 대 한 로그 및 경고
 
@@ -164,13 +164,13 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure
 
 위험한 사용자 동작에 대 한 경고 및 보고서에 대 한 Azure AD 위험 검색을 검토 하 고 작업 합니다.
 
-- [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
+- [PIM(Privileged Identity Management)을 배포하는 방법](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 - [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="38-manage-azure-resources-only-from-approved-locations"></a>3.8: 승인 된 위치 에서만 Azure 리소스 관리
 
@@ -178,9 +178,9 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure
 
 - [Azure에서 명명된 위치를 구성하는 방법](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
@@ -188,9 +188,9 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스 검토 및 조정
 
@@ -198,37 +198,37 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 및 Azure
 
 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스를 정기적으로 검토 하 여 사용자가 승인 하 고 계속 액세스할 수 있도록 할 수 있습니다.
 
-- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
+- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: 비활성화 되는 자격 증명에 대 한 액세스 시도를 모니터링 합니다.
 
 **지침**: Azure Active Directory (Azure AD) 로그인 활동, 감사 및 위험 이벤트 로그 소스에 대 한 액세스를 기반으로 하는 siem/모니터링 도구와의 통합을 구현 합니다.
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화 합니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성 합니다. 
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: 계정 로그인 동작 편차에 대한 경고
 
 **지침**: Azure Active Directory (Azure AD) id 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 비즈니스 요구 사항에 따라 필요에 따라 추가 조사를 위해 데이터를 Azure 센티널로 수집 합니다.
-- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md) 
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="inventory-and-asset-management"></a>인벤토리 및 자산 관리
 
@@ -246,9 +246,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: 자산 메타데이터 유지 관리
 
@@ -256,9 +256,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: 권한 없는 Azure 리소스 삭제
 
@@ -275,9 +275,9 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: 승인되지 않은 Azure 리소스 모니터링
 
@@ -289,24 +289,23 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: 승인된 Azure 서비스만 사용
 
 **지침**: Azure Policy을 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정할 수 있습니다.
-
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/index.md)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: 사용자가 Azure Resource Manager 상호 작용할 수 있도록 제한
 
@@ -314,9 +313,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Resource Manager에 대한 액세스를 차단하도록 조건부 액세스를 구성하는 방법](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="secure-configuration"></a>보안 구성
 
@@ -330,9 +329,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [정책 별칭을 사용 하 여 사용자 지정 정책을 만드는 방법](../governance/policy/tutorials/create-custom-policy-definition.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: 보안 Azure 리소스 구성 유지 관리
 
@@ -342,9 +341,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Policy 효과 이해](../governance/policy/concepts/effects.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Azure 리소스 구성을 안전하게 저장
 
@@ -352,11 +351,11 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos 설명서](/azure/devops/repos/index)
-
-**Azure Security Center 모니터링**: 해당 없음
+- [Azure Repos 설명서](/azure/devops/repos/)
 
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Azure 리소스에 대 한 구성 관리 도구 배포
 
@@ -366,9 +365,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [정책 별칭을 사용 하 여 사용자 지정 정책을 만드는 방법](../governance/policy/tutorials/create-custom-policy-definition.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Azure 리소스에 대 한 자동화 된 구성 모니터링 구현
 
@@ -376,13 +375,13 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="incident-response"></a>사고 대응
 
-*자세한 내용은 [Azure 보안 벤치 마크: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조 하세요.*
+자세한 내용은 [Azure Security Benchmark: 인시던트 응답](../security/benchmarks/security-control-incident-response.md)을 참조하세요.
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: 인시던트 대응 지침 만들기
 
@@ -396,13 +395,13 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [고객은 NIST의 컴퓨터 보안 인시던트 처리 가이드를 사용 하 여 고유한 인시던트 대응 계획을 만드는 데 도움을 받을 수도 있습니다.](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: 인시던트 점수 매기기 및 우선 순위 지정 절차 만들기
 
-**지침**: Security Center에서 심각도를 각 경고에 할당하여 먼저 조사해야 하는 경고에 대한 우선 순위를 지정합니다. 심각도는 Security Center에서 경고를 실행하는 데 사용된 결과 또는 분석의 신뢰도 및 경고가 발생된 활동의 배후에 악의적인 의도가 있었음에 대한 신뢰 수준을 기준으로 합니다.
+**지침**: Security Center에서 심각도를 각 경고에 할당하여 먼저 조사해야 하는 경고에 대한 우선 순위를 지정합니다. 심각도는 경고를 실행 하는 데 사용 되는 찾기 또는 분석에 사용 되는 것과 경고를 발생 시킨 활동의 악의적인 의도를 받은 신뢰 수준에 Security Center 따라 달라 집니다.
 
 또한 구독(예: 프로덕션, 비 프로덕션)을 명확하게 표시하고 Azure 리소스를 명확하게 식별하고 분류하는 명명 시스템을 만듭니다.
 
@@ -410,9 +409,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
-**Azure Security Center 모니터링**: 예
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="103-test-security-response-procedures"></a>10.3: 보안 대응 프로시저 테스트
 
@@ -420,9 +419,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [NIST의 게시물을 참조하세요. IT 계획 및 기능에 대한 테스트, 학습 및 연습 프로그램에 대한 안내](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: 보안 인시던트 연락처 세부 정보 제공 및 보안 인시던트에 대한 경고 알림 구성
 
@@ -430,21 +429,21 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Security Center 보안 연락처를 설정하는 방법](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: 보안 경고를 인시던트 대응 시스템에 통합
 
-**지침**: 연속 내보내기 기능을 사용 하 여 Security Center 경고 및 권장 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center 데이터 커넥터를 사용하여 경고를 Azure Sentinel로 스트림할 수 있습니다.
+**지침**: 연속 내보내기 기능을 사용 하 여 Security Center 경고 및 권장 사항을 내보냅니다. 연속 내보내기를 사용하면 경고 및 추천 사항을 수동으로 또는 지속적으로 내보낼 수 있습니다. Azure Security Center data connector를 사용 하 여 Azure 센티널 경고를 스트리밍할 수 있습니다.
 
 - [연속 내보내기를 구성하는 방법](../security-center/continuous-export.md)
 
 - [경고를 Azure Sentinel로 스트림하는 방법](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 
@@ -452,9 +451,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [워크플로 자동화와 Logic Apps를 구성하는 방법](../security-center/workflow-automation.md)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: Customer
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>침투 테스트 및 레드 팀 연습
 
@@ -468,11 +467,11 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Microsoft Cloud 레드 팀](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center 모니터링**: 해당 없음
-
 **책임**: 공유됨
+
+**Azure Security Center 모니터링**: 없음
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 보안 벤치마크](../security/benchmarks/overview.md)를 참조하세요.
-- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
+- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.

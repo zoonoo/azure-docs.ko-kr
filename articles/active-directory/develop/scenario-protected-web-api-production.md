@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bf8eb144ab23d45e57ee8d52f06363ea37b600ec
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 98be47200c12ab3097f9416b5647abf6465a89e7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375281"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675977"
 ---
 # <a name="protected-web-api---move-to-production"></a>보호 된 웹 API-프로덕션으로 이동
 
-이제 web API를 보호 하는 방법을 배웠으므로 프로덕션으로 이동할 수 있는 방법은 다음과 같습니다.
+이제 web API를 보호 하는 방법을 배웠으므로 응용 프로그램을 프로덕션 환경으로 이동할 때 고려해 야 할 몇 가지 사항이 있습니다.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

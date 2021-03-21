@@ -4,10 +4,10 @@ description: Azure VMware 솔루션에서 WSFC (Windows Server 장애 조치 (Fa
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518996"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSAN의 Windows Server 장애 조치 (Failover) 클러스터
@@ -62,7 +62,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 - 단일 가상 SCSI 어댑터에서 비공유 및 공유 디스크를 혼합 하는 것은 지원 되지 않습니다. 예를 들어 시스템 디스크 (드라이브 C:) SCSI0:0에 연결 된 경우 첫 번째 공유 디스크는 SCSI1:0에 연결 됩니다. WSFC의 VM 노드는 일반 VM과 최대 4 개의 가상 SCSI 컨트롤러와 동일한 가상 SCSI 컨트롤러를 가집니다.
 - 가상 디스크 SCSI Id는 동일한 WSFC의 노드를 호스트 하는 모든 Vm 간에 일치 해야 합니다.
 
-| **구성 요소** | **Requirements** |
+| **구성 요소** | **요구 사항** |
 | --- | --- |
 | VM 하드웨어 버전 | 11 이상에서 라이브 vMotion을 지원 합니다. |
 | 가상 NIC | VMXNET3 반 가상화 NIC (네트워크 인터페이스 카드) 가상 NIC에서 게스트 내 Windows 수신측 배율 (RSS)을 사용 하도록 설정 합니다. |
@@ -73,7 +73,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 ### <a name="wsfc-node---boot-disks-configuration-parameters"></a>WSFC 노드-부팅 디스크 구성 매개 변수
 
 
-| **구성 요소** | **Requirements** |
+| **구성 요소** | **요구 사항** |
 | --- | --- |
 | SCSI 컨트롤러 유형 | LSI 논리 SAS |
 | 디스크 모드 | 가상 |
@@ -83,7 +83,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 ### <a name="wsfc-node---shared-disks-configuration-parameters"></a>WSFC 노드-공유 디스크 구성 매개 변수
 
 
-| **구성 요소** | **Requirements** |
+| **구성 요소** | **요구 사항** |
 | --- | --- |
 | SCSI 컨트롤러 유형 | VMware Paravirtualize (PARAVIRTUAL) |
 | 디스크 모드 | 독립-영구적 (아래 그림의 2 단계). 이 설정을 사용 하 여 모든 디스크가 스냅숏에서 제외 되도록 합니다. WSFC 기반 Vm에 대해서는 스냅숏이 지원 되지 않습니다. |

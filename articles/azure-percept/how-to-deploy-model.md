@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 01bd3709050d8a2b57c1bf51920308188546fb31
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035486"
 ---
 # <a name="deploy-a-vision-ai-model-to-your-azure-percept-dk"></a>Azure Percept에 비전 AI 모델 배포
 
 이 가이드에 따라 Azure Percept Studio 내에서 Azure Percept 진한 비전 AI 모델을 배포 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)
-- [Azure Percept DK 설정 환경](./quickstart-percept-dk-set-up.md): Devkit를 Wi-Fi 네트워크에 연결하고, IoT Hub를 만들고, Devkit를 IoT Hub에 연결했습니다.
+- [Azure Percept DK 설정 환경](./quickstart-percept-dk-set-up.md): devkit를 Wi-Fi 네트워크에 연결하고, IoT Hub를 만들고, devkit를 IoT Hub에 연결
 
 ## <a name="model-deployment"></a>모델 배포
 

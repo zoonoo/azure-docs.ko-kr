@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
 ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102218726"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>가상 머신 확장 집합에서 사용 하는 부하 분산 장치 업데이트 또는 삭제

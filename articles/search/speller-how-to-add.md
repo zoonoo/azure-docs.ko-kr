@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
 ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232361"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Cognitive Search에서 쿼리에 맞춤법 검사 추가
@@ -23,7 +23,7 @@ ms.locfileid: "103232361"
 
 검색 엔진에 도달 하기 전에 개별 검색 쿼리 용어를 철자 수정 하 여 회수를 향상 시킬 수 있습니다. **맞춤법 검사기** 매개 변수는 모든 쿼리 유형 ( [단순](query-simple-syntax.md), [전체](query-lucene-syntax.md)및 현재 공개 미리 보기로 제공 되는 새 [의미](semantic-how-to-query-request.md) 옵션)에 대해 지원 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 + 영어 콘텐츠를 포함 하는 기존 검색 인덱스
 

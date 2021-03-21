@@ -8,10 +8,10 @@ ms.date: 03/5/2021
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 144b2f23e40f315441c3de2482ae8aeffe77ec75
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584070"
 ---
 # <a name="use-databox-to-migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>DataBox를 사용 하 여 NAS (네트워크 연결 저장소)에서 Azure 파일 동기화를 사용 하는 하이브리드 클라우드 배포로 마이그레이션

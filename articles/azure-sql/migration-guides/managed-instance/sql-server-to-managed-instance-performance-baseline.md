@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
 ms.openlocfilehash: 28eedd3a22a0a5adc6e9a37c9e0f0fa0214a4e47
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564442"
 ---
 # <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>마이그레이션 성능: SQL Server SQL Managed Instance 성능 분석

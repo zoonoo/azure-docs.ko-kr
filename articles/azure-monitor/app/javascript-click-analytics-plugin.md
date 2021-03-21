@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
 ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102429853"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK 용 분석 자동 수집 플러그 인을 클릭 합니다.
@@ -79,7 +79,7 @@ appInsights.loadAppInsights();
 
 ## <a name="configuration"></a>구성
 
-| 이름                  | Type                               | 기본값 | 설명                                                                                                                              |
+| Name                  | Type                               | 기본값 | 설명                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | autoCapture           | boolean                            | true    | 자동 캡처 구성.                                                                                                         |
 | 콜백(callback)              | [IValueCallback](#ivaluecallback)  | null    | 콜백 구성.                                                                                                                 |
@@ -93,7 +93,7 @@ appInsights.loadAppInsights();
 
 ### <a name="ivaluecallback"></a>IValueCallback
 
-| 이름               | Type     | 기본값 | 설명                                                                             |
+| Name               | Type     | 기본값 | 설명                                                                             |
 | ------------------ | -------- | ------- | --------------------------------------------------------------------------------------- |
 | pageName           | 함수 | null    | 기본 pageName 캡처 동작을 재정의 하는 함수입니다.                           |
 | pageActionPageTags | 함수 | null    | PageAction 이벤트 중에 수집 된 기본 pageTags를 확대 하는 콜백 함수입니다.  |
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| 이름                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   설명                                                                                |
+| Name                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   설명                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | 해당 없음         |특정 요소가 기본 customDataPrefix로 태그가 지정 되지 않은 경우 또는 사용자가 customDataPrefix를 제공 하지 않는 경우 contentName에 대 한 표준 HTML 특성을 수집 합니다. |
 | customDataPrefix          | 문자열  | `data-`   | `data-*`| 제공 된 접두사로 태그가 지정 된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다. 예를 들어,는 `data-*-id` `data-<yourcustomattribute>` HTML 태그에서 사용할 수 있습니다.   |
@@ -115,7 +115,7 @@ appInsights.loadAppInsights();
 
 BehaviorValidator 함수는 코드의 태그가 지정 된 동작이 미리 정의 된 목록에 맞는지 자동으로 확인 합니다. 이렇게 하면 태그가 지정 된 동작이 기업의 설정 분류와 일치 하 게 됩니다. 대부분의 Azure Monitor 고객은이 기능을 사용 하지만 고급 시나리오에 사용할 수 있는 것은 필수는 아닙니다. 이 확장의 일부로 노출 되는 세 가지 behaviorValidator 콜백 함수가 있습니다. 그러나 노출 된 함수에서 요구 사항을 해결 하지 못하면 사용자가 자신의 콜백 함수를 사용할 수 있습니다. 사용자 고유의 동작 데이터 구조를 가져오기 위해 플러그 인은 데이터 태그에서 동작을 추출 하는 동안이 유효성 검사기 함수를 사용 합니다.
 
-| 이름                   | 설명                                                                        |
+| Name                   | 설명                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
 | BehaviorValueValidator | 동작 데이터 구조가 문자열 배열인 경우이 콜백 함수를 사용 합니다.|
 | BehaviorMapValidator   | 동작 데이터 구조가 사전 인 경우이 콜백 함수를 사용 합니다.       |

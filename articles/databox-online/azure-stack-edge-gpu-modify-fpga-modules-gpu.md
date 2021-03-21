@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 660fbf7cc4dd28c800d8f49fd5d990c99f97c4c8
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102442998"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치의 Azure Stack Edge Pro FPGA Azure Stack 장치에서 기존 IoT Edge 모듈 실행
@@ -27,7 +27,7 @@ IoT Edge 구현은 edge pro FPGA 장치와 Edge Pro GPU 장치의 Azure Stack에
 
 FPGA 장치에서 GPU 장치로 워크 로드를 마이그레이션하는 경우 Kubernetes 플랫폼에서 성공적으로 실행 되도록 기존 IoT Edge 모듈을 변경 해야 합니다. 저장소, 네트워킹, 리소스 사용량 및 웹 프록시 요구 사항을 다르게 지정 해야 할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 IoT Edge 모듈의 저장소를 지정할 때 다음 정보를 고려 하십시오.
 

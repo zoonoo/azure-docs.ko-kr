@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563883"
 ---
 # <a name="develop-c-class-library-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 c # 클래스 라이브러리 함수 개발

@@ -9,10 +9,10 @@ ms.date: 03/09/2021
 ms.author: normesta
 ms.subservice: common
 ms.openlocfilehash: c0f030683954ede013f769bf8584e6cf82bab69f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555668"
 ---
 # <a name="copy-data-from-google-cloud-storage-to-azure-storage-by-using-azcopy-preview"></a>AzCopy (미리 보기)를 사용 하 여 Google Cloud Storage의 데이터를 Azure Storage에 복사 합니다.
@@ -36,7 +36,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 > [!NOTE] 
 > 이 문서의 예제에서는 Azure Active Directory (Azure AD)를 사용 하 여 권한 부여 자격 증명을 제공 했다고 가정 합니다.
 >
-> 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다. 예를 들어 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`을 참조하십시오.
 
 ### <a name="authorize-with-google-cloud-storage"></a>Google Cloud Storage를 사용 하 여 권한 부여
 
@@ -145,7 +145,7 @@ Google Cloud Storage 및 Azure는 개체 키 이름에 다른 문자 집합을 �
 
 AzCopy `copy` 명령의 일부로 `s2s-handle-invalid-metadata` 파일의 메타 데이터에 호환 되지 않는 키 이름이 포함 된 파일을 처리 하는 방법을 지정 하는 플래그 (옵션)에 대 한 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값에 대해 설명 합니다.
 
-| 플래그 값 | 설명  |
+| 플래그 값 | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (기본 옵션) 전송 된 개체에 메타 데이터가 포함 되어 있지 않습니다. AzCopy에서 경고를 기록 합니다. |
 | **FailIfInvalid** | 개체는 복사 되지 않습니다. AzCopy는 오류를 기록 하 고 전송 요약에 표시 되는 실패 횟수에 해당 오류를 포함 합니다.  |

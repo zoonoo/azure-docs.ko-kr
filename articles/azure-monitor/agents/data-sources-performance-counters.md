@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
 ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036782"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 및 Linux 성능 데이터 원본 수집
@@ -27,7 +27,7 @@ Log Analytics 작업 영역에 대 한 [에이전트 구성 메뉴](../agents/ag
 
 Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스턴스를 선택할 수 있습니다. Linux 성능 카운터의 경우, 선택하는 각 카운터의 인스턴스는 부모 카운터의 모든 자식 카운터에 적용됩니다. 다음 테이블은 Linux와 Windows 성능 카운터 모두에서 사용할 수 있는 공통 인스턴스를 보여줍니다.
 
-| 인스턴스 이름 | 설명 |
+| 인스턴스 이름 | Description |
 | --- | --- |
 | \_합계 |모든 인스턴스의 총계 |
 | \* |모든 인스턴스 |
@@ -76,7 +76,7 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 
 이 요소의 매개 변수를 다음 테이블에서 설명합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |:--|:--|
 | object\_name | 수집하는 개체의 이름입니다. |
 | instance\_regex |  수집할 인스턴스를 정의하는 *정규식* 입니다. `.*` 값은 모든 인스턴스를 지정합니다. \_Total 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `_Total`을 지정합니다. crond 또는 sshd 인스턴스에 대해서만 프로세서 메트릭을 수집하려면 `(crond\|sshd)`를 지정합니다. |
@@ -134,13 +134,13 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 프로세서 | % 권한이 부여된 시간 |
 | 프로세서 | % Processor Time |
 | 프로세서 | % 사용자 시간 |
-| 시스템 | 사용 가능한 실제 메모리 |
-| 시스템 | 페이징 파일에 사용 가능한 공간 |
-| 시스템 | 사용 가능한 가상 메모리 |
-| 시스템 | 프로세스 |
-| 시스템 | 페이징 파일에 저장된 크기 |
-| 시스템 | 작동 시간 |
-| 시스템 | 사용자 |
+| System | 사용 가능한 실제 메모리 |
+| System | 페이징 파일에 사용 가능한 공간 |
+| System | 사용 가능한 가상 메모리 |
+| System | 프로세스 |
+| System | 페이징 파일에 저장된 크기 |
+| System | 작동 시간 |
+| System | 사용자 |
 
 
 다음은 성능 메트릭에 대한 기본 구성입니다.

@@ -11,10 +11,10 @@ ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 03400173dd35660d6e7a98500b831a7c6aa4ebd7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521173"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
@@ -23,7 +23,7 @@ ms.locfileid: "102521173"
 
 Azure Machine Learning 기본 Docker 기본 이미지를 제공 합니다. Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [Azure Machine Learning 기본](https://github.com/Azure/AzureML-Containers) 이미지 중 하나 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)와 같은 다른 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 환경 중 하나에서 코드를 실행 합니다.
 
