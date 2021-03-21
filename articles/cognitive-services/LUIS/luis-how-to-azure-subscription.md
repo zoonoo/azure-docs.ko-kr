@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988152"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
@@ -51,7 +51,7 @@ LUIS 리소스와 같은 Azure 리소스는 리소스를 포함 하는 구독이
 * 구독의 [소유권](../../cost-management-billing/manage/billing-subscription-transfer.md) 을 양도 합니다.
 * LUIS 앱을 파일로 내보낸 다음 다른 구독에서 앱을 가져옵니다. 내보내기는 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.
 
-## <a name="resource-limits"></a>리소스 제한
+## <a name="resource-limits"></a>리소스 한계
 
 ### <a name="authoring-key-creation-limits"></a>작성 키 생성 제한
 

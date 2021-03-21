@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: wellee
 ms.openlocfilehash: e8e5a5a1b9325f40fdd51133155a0daffaa55a7b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99408496"
 ---
 # <a name="scenario-custom-isolation-for-virtual-networks-and-branches"></a>시나리오: 가상 네트워크 및 분기에 대 한 사용자 지정 격리
@@ -27,7 +27,7 @@ ms.locfileid: "99408496"
 
 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음과 같습니다.
 
-| From | 아래와 같이 변경합니다.| *파란색 Vnet* | *레드 Vnet* | *빨간색 분기*| *파란색 분기*| 
+| 시작 | 아래와 같이 변경합니다.| *파란색 Vnet* | *레드 Vnet* | *빨간색 분기*| *파란색 분기*| 
 |---|---|---|---|---|---|
 | **파란색 Vnet** |   &#8594;|   직접     |           |   |  AzFW|
 | **레드 Vnet**  |   &#8594;|              |   직접  |  AzFW  | 

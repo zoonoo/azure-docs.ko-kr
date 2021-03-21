@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 6385f03556d155941139b77333d6f4a25081fe67
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100103161"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 Api를 호출 하는 모바일 앱 등록
@@ -81,7 +81,7 @@ B2C 인증 및 정책을 통과 하는 소셜 id를 사용 하 여 사용자를 
 
 앱에서 사용자 이름-암호 인증만 사용 하는 경우 응용 프로그램에 대 한 리디렉션 URI를 등록할 필요가 없습니다. 이 흐름은 Microsoft id 플랫폼에 대 한 왕복을 수행 합니다. 응용 프로그램은 특정 URI에서 다시 호출 되지 않습니다.
 
-그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 합니다. 그러려면 다음을 수행합니다.
+그러나 응용 프로그램을 공용 클라이언트 응용 프로그램으로 식별 합니다. 이를 수행하려면:
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에서 **앱 등록** 의 앱을 선택한 다음 **인증** 을 선택 합니다.
 1. **고급 설정** 에서  >  **공용 클라이언트 흐름 허용** 에서  >  **다음과 같은 모바일 및 데스크톱 흐름을 사용 하도록 설정 합니다.** 에서 **예** 를 선택 합니다.

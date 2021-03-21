@@ -12,10 +12,10 @@ ms.date: 12/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: c45b819f9fc02fae40c2bf7fc5c2247c8c0a6147
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517483"
 ---
 # <a name="deploy-mlflow-models-as-azure-web-services-preview"></a>MLflow 모델을 Azure 웹 서비스로 배포 (미리 보기)
@@ -39,7 +39,7 @@ MLflow는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 �
 >[!NOTE]
 > 오픈 소스 라이브러리로 MLflow는 자주 변경 됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공 되는 기능은 미리 보기로 간주 해야 하며 Microsoft에서 완벽 하 게 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 기계 학습 모델입니다. 학습 된 모델이 없는 경우 [이 리포지토리의](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) 계산 시나리오에 가장 잘 맞는 노트북 예제를 찾고 해당 지침을 따르세요. 
 * [Azure Machine Learning 연결 하도록 MLflow 추적 URI를 설정](how-to-use-mlflow.md#track-local-runs)합니다.

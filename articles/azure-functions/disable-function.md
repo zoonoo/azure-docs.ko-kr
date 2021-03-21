@@ -2,14 +2,14 @@
 title: Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 description: Azure Functions에서 함수를 사용하지 않도록 설정하고 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cbb84308507ea15f1c44c00122a9a59472f12a88
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 1ad484804f66a2e2d4d0f1da4a37cf0d6c485f38
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551046"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584740"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Azure Functions에서 함수를 사용하지 않도록 설정하는 방법
 
@@ -20,13 +20,26 @@ ms.locfileid: "99551046"
 > [!NOTE]  
 > 이 문서에서 설명하는 방법을 사용하여 HTTP 트리거 함수를 사용하지 않도록 설정하면 로컬 컴퓨터에서 실행 중일 때도 엔드포인트에 계속 액세스할 수 있습니다.  
 
-## <a name="use-the-azure-cli"></a>Azure CLI 사용
+## <a name="disable-a-function"></a>기능 사용 안 함
 
-Azure CLI에서 [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령을 사용하여 앱 설정을 만들고 수정합니다. 다음 명령을 사용하여 `true`로 설정된 `AzureWebJobs.QueueTrigger.Disabled`라는 앱 설정을 만들어 `QueueTrigger`라는 함수를 사용하지 않도록 설정합니다. 
+# <a name="portal"></a>[포털](#tab/portal)
+
+함수의 **개요** 페이지에서 **사용** 및 **사용 안 함** 단추를 사용 합니다. 이러한 단추는 앱 설정 값을 변경 하는 방식으로 작동 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 합니다. 이 함수 관련 설정은 처음 사용 하지 않도록 설정할 때 생성 됩니다. 
+
+![함수 상태 스위치](media/disable-function/function-state-switch.png)
+
+로컬 프로젝트에서 함수 앱에 게시 하는 경우에도 포털을 사용 하 여 함수 앱에서 함수를 사용 하지 않도록 설정할 수 있습니다. 
+
+> [!NOTE]  
+> 포털 통합 테스트 기능은 `Disabled` 설정을 무시합니다. 즉, 사용하지 않도록 설정한 함수는 포털의 **테스트** 창에서 시작할 경우 계속 실행됩니다. 
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+Azure CLI에서 [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령을 사용하여 앱 설정을 만들고 수정합니다. 다음 명령은 `QueueTrigger` 이라는 앱 설정을 만들고로 설정 하 여 이라는 함수를 사용 하지 않도록 설정 합니다 `AzureWebJobs.QueueTrigger.Disabled` `true` . 
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <myFunctionApp> \
---resource-group <myResourceGroup> \
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
@@ -38,16 +51,55 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=false
 ```
 
-## <a name="use-the-portal"></a>포털 사용
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-함수의 **개요** 페이지에서 **사용** 및 **사용 안 함** 단추를 사용할 수도 있습니다. 이러한 단추는 앱 설정 값을 변경 하는 방식으로 작동 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 합니다. 이 함수 관련 설정은 처음 사용 하지 않도록 설정할 때 생성 됩니다. 
+[`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting)명령은 응용 프로그램 설정을 추가 하거나 업데이트 합니다. 다음 명령은 `QueueTrigger` 이라는 앱 설정을 만들고로 설정 하 여 이라는 함수를 사용 하지 않도록 설정 합니다 `AzureWebJobs.QueueTrigger.Disabled` `true` . 
 
-![함수 상태 스위치](media/disable-function/function-state-switch.png)
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "true"}
+```
 
-로컬 프로젝트에서 함수 앱에 게시 하는 경우에도 포털을 사용 하 여 함수 앱에서 함수를 사용 하지 않도록 설정할 수 있습니다. 
+이 함수를 다시 사용하도록 설정하려면 `false` 값을 사용하여 동일한 명령을 다시 실행합니다.
 
-> [!NOTE]  
-> 포털 통합 테스트 기능은 `Disabled` 설정을 무시합니다. 즉, 사용하지 않도록 설정한 함수는 포털의 **테스트** 창에서 시작할 경우 계속 실행됩니다. 
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"AzureWebJobs.QueueTrigger.Disabled" = "false"}
+```
+---
+
+## <a name="functions-in-a-slot"></a>슬롯의 함수
+
+기본적으로 앱 설정은 배포 슬롯에서 실행 되는 앱에도 적용 됩니다. 그러나 슬롯 특정 앱 설정을 설정 하 여 슬롯에서 사용 하는 앱 설정을 재정의할 수 있습니다. 예를 들어 함수를 프로덕션에서 활성화 하지만 배포 테스트 (타이머 트리거 함수)를 수행 하지 않을 수 있습니다. 
+
+스테이징 슬롯 에서만 함수를 사용 하지 않도록 설정 하려면:
+
+# <a name="portal"></a>[포털](#tab/portal)
+
+**배포** 아래에서 **배포 슬롯** 을 선택 하 고, 슬롯을 선택 하 고, 슬롯 인스턴스에서 **함수** 를 선택 하 여 함수 앱의 슬롯 인스턴스로 이동 합니다.  함수를 선택한 다음 함수의 **개요** 페이지에서 **사용** 및 **사용 안 함** 단추를 사용 합니다. 이러한 단추는 앱 설정 값을 변경 하는 방식으로 작동 `AzureWebJobs.<FUNCTION_NAME>.Disabled` 합니다. 이 함수 관련 설정은 처음 사용 하지 않도록 설정할 때 생성 됩니다. 
+
+`AzureWebJobs.<FUNCTION_NAME>.Disabled` `true` 슬롯 인스턴스의 **구성** 에서 값이 인 인 앱 설정을 직접 추가할 수도 있습니다. 슬롯 특정 앱 설정을 추가 하는 경우 **배포 슬롯 설정** 상자를 확인 해야 합니다. 이렇게 하면 교환 중에 슬롯을 사용 하 여 설정 값이 유지 됩니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
+
+```azurecli-interactive
+az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
+--resource-group <RESOURCE_GROUP_NAME> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=true
+```
+이 함수를 다시 사용하도록 설정하려면 `false` 값을 사용하여 동일한 명령을 다시 실행합니다.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <myFunctionApp> \
+--resource-group <myResourceGroup> --slot <SLOT_NAME> \
+--slot-settings AzureWebJobs.QueueTrigger.Disabled=false
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Azure PowerShell 현재이 기능을 지원 하지 않습니다.
+
+---
+
+자세히 알아보려면 [Azure Functions 배포 슬롯](functions-deployment-slots.md)을 참조 하세요.
 
 ## <a name="localsettingsjson"></a>local.settings.json
 

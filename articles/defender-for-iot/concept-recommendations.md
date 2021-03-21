@@ -1,5 +1,5 @@
 ---
-title: IoT Hub에 대 한 보안 권장 사항
+title: IoT Hub에 대한 보안 추천 사항
 description: 보안 권장 사항의 개념과 Defender for IoT Hub에 사용 되는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -14,13 +14,13 @@ ms.workload: na
 ms.date: 02/16/2021
 ms.author: shhazam
 ms.openlocfilehash: 4ae479fcff0514b42d46aef455d8a32d6ebfaf23
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100636546"
 ---
-# <a name="security-recommendations-for-iot-hub"></a>IoT Hub에 대 한 보안 권장 사항
+# <a name="security-recommendations-for-iot-hub"></a>IoT Hub에 대한 보안 추천 사항
 
 Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권장 사항을 제공 하 여 공격 노출 영역을 줄입니다.
 보안 권장 사항은 보안 모범 사례를 준수 하는 고객을 지원 하기 위해 조치를 취할 수 있는 목표입니다.
@@ -31,7 +31,7 @@ Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권�
 
 권장 사항 경고는 환경의 보안 상태를 개선 하기 위한 작업에 대 한 통찰력 및 제안을 제공 합니다.
 
-| 심각도 | 속성 | 데이터 원본 | Description |
+| 심각도 | Name | 데이터 원본 | Description |
 |--|--|--|--|
 | 높음 | 여러 장치에서 사용 하는 동일한 인증 자격 증명 | IoT Hub | IoT Hub 인증 자격 증명은 여러 장치에서 사용 됩니다. 이 프로세스는 합법적인 장치를 가장 하는 불법 장치를 나타낼 수 있습니다. 중복 자격 증명 사용은 악성 행위자에 의해 장치 가장의 위험을 늘립니다. |
 | 중간 | 기본 IP 필터 정책은 거부 되어야 합니다. | IoT Hub | IP 필터 구성에는 허용 되는 트래픽에 대해 정의 된 규칙이 있어야 하며 기본적으로 다른 모든 트래픽은 기본적으로 거부 해야 합니다. |

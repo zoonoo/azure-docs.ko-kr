@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: reference
 ms.date: 02/05/2021
 ms.openlocfilehash: 60aede65f8217d46844398d0199ff7edca7f36a9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200793"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Azure 부서의 범위에서 지원 되는 분류
@@ -407,7 +407,7 @@ tfn
 
 11 자리 및 구분 기호:
 
-- YY 형식의 6 자리 및 두 개의 선택적 마침표 생년월일에 대 한 MM.DD
+- YY 형식의 6 자리 및 두 개의 선택적 마침표 YYYY-MM-DD 날짜의 경우 yyyy-mm-dd
 - 점, 대시, 공백 등의 선택적 구분 기호
 - 세 개의 순차적 숫자 (세임의 경우 홀수,은 여성 많으며의 경우에도)
 - 점, 대시, 공백 등의 선택적 구분 기호
@@ -2972,7 +2972,7 @@ ad, ae, al, at, az, ba, be, bg, bh, ch, cr, cy, cz, de, dk, do, ee, es, fi, fo, 
 
 ### <a name="keywords"></a>키워드
 
-None
+없음
 
 ## <a name="ireland-personal-public-service-pps-number"></a>아일랜드 PPS (personal public service) 번호
 
@@ -3961,7 +3961,7 @@ RRN
 
 ### <a name="keywords"></a>키워드
 
-None
+없음
 
 ## <a name="sweden-national-id"></a>스웨덴 국가 ID
 

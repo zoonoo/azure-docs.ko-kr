@@ -17,10 +17,10 @@ ms.date: 12/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 842c56ef1fb6f68c3d8b82e2633d9a604db9fde2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101671629"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure 가용성 영역을 사용하는 SAP 워크로드 구성
@@ -153,7 +153,7 @@ SAP 아키텍처의 특성은 다르게 구성 하지 않는 한, 다른 응용 
 
 이 유형의 배포 아키텍처가 여러 영역에 있는 Azure 지역은 다음과 같은 것이 좋습니다.
 
-- 동남아시아
+- 동남 아시아
 - 오스트레일리아 동부
 - 브라질 남부
 - 독일 중서부

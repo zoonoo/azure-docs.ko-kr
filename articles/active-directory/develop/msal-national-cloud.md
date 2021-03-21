@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 09c4dadd7a6560bd5163d623dd8a7f247b57860e
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102498"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
@@ -34,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -122,12 +122,12 @@ const graphConfig = {
 const myMSALObj = new UserAgentApplication(msalConfig);
 ```
 
-해당 코드에서 다음을 수행 합니다.
+이 코드의 경우 다음과 같습니다.
 
 - `Enter_the_Application_Id_here` 등록 한 응용 프로그램에 대 한 **응용 프로그램 (클라이언트) ID** 값입니다.
 - `Enter_the_Tenant_Info_Here` 는 다음 옵션 중 하나로 설정됩니다.
     - 응용 프로그램이 **이 조직 디렉터리에서 계정을** 지 원하는 경우이 값을 테 넌 트 ID 또는 테 넌 트 이름 (예: contoso.microsoft.com)으로 바꿉니다.
-    - 응용 프로그램에서 **조직 디렉터리의 계정을** 지 원하는 경우이 값을로 바꿉니다 `organizations` .
+    - 애플리케이션에서 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꿉니다.
 
     모든 국가별 클라우드의 인증 끝점을 찾으려면 [AZURE AD 인증 끝점](./authentication-national-cloud.md#azure-ad-authentication-endpoints)을 참조 하세요.
 

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555236"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>로컬 계정 id 공급자 설정
@@ -61,7 +61,7 @@ Passwordless authentication은 사용자가 암호를 사용 하 여 로그인 �
 
 ![전화 등록 또는 로그인 환경](./media/identity-provider-local/local-account-phone-experience.png)
 
-### <a name="pricing"></a>가격 책정
+### <a name="pricing"></a>가격
 
 SMS 문자 메시지를 사용 하 여 일회용 암호를 사용자에 게 보냅니다. 모바일 네트워크 운영자에 따라 전송 되는 각 메시지에 대해 요금이 청구 될 수 있습니다. 가격 책정 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)의 **별도 요금** 섹션을 참조 하세요.
 
@@ -141,7 +141,7 @@ SMS 문자 메시지를 사용 하 여 일회용 암호를 사용자에 게 보�
 
 시작 팩을 다운로드 한 후
 
-1. 각 파일에서 문자열을 `yourtenant` Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c* 인 경우의 모든 인스턴스는가 됩니다 `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com` .
+1. 각 파일에서 `yourtenant` 문자열을 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예를 들어 B2C 테넌트의 이름이 *contosob2c* 인 경우 모든 `yourtenant.onmicrosoft.com` 인스턴스는 `contosob2c.onmicrosoft.com`이 됩니다.
 
 1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 예를 들어 `/phone-number-passwordless/` **`Phone_Email_Base.xml`** 필수 구성 요소 *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework* 를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 업데이트 합니다.
 1. 정책 파일을 업로드 합니다.

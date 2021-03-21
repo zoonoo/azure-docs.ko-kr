@@ -2,21 +2,21 @@
 title: VSTS를 사용 하 여 전용 SQL 풀 (이전의 SQL DW)에 연결
 description: Visual Studio를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)을 쿼리 합니다.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 08/15/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2b81ddedbcb254a840e85d41cf9d69c78b149bbd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 0baf2396b7c5af103f0b3aa223d0bccf725babbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584145"
 ---
 # <a name="connect-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용 하 여 Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW)에 연결
 
@@ -31,7 +31,7 @@ ms.locfileid: "98121399"
 
 Visual Studio를 사용 하 여 몇 분만에 Azure Synapse 내에서 전용 SQL 풀 (이전의 SQL DW)을 쿼리 합니다. 이 메서드는 Visual Studio 2019에서 SSDT(SQL Server Data Tools) 확장을 사용합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * 기존 전용 SQL 풀 (이전의 SQL DW) 하나를 만들려면 [전용 sql 풀 만들기 (이전의 SQL DW)](create-data-warehouse-portal.md)를 참조 하세요.

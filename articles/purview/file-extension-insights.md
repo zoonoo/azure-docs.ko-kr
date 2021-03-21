@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
 ms.openlocfilehash: 5cbfb41d50e055f745864e4d5f8bc15a55d925e7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101668572"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 파일 확장명 정보 
@@ -70,7 +70,7 @@ ms.locfileid: "101668572"
 
 데이터 공간에 있는 파일 형식에 대 한 개략적인 정보를 확인 한 후에는 해당 위치에 대 한 자세한 내용 및 중요 한 데이터를 검색할 수 있는지 여부를 드릴 다운 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/file-extension-insights/file-extension-drilldown-small.png" alt-text="파일 확장명 보고서-드릴 다운" lightbox="media/file-extension-insights/file-extension-drilldown.png":::
 

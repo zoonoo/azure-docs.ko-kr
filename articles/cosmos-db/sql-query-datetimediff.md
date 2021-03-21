@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 09b801c48bf2998a2d8926009cae76287c1ac9b6
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: aeea2905b6bae094c92bd8b5d46523225c745494
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342269"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595645"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -33,11 +33,11 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 | DateTimePart | 약어        |
 | ------------ | -------------------- |
 | Year         | "year", "yyyy", "yy" |
-| Month        | "month", "mm", "m"   |
+| 월        | "month", "mm", "m"   |
 | 일          | "day", "dd", "d"     |
 | 시간         | "시간", "hh"         |
 | Minute       | "minute", "mi", "n"  |
-| 초       | "second", "ss", "s"  |
+| Second       | "second", "ss", "s"  |
 | Millisecond  | "밀리초", "ms"  |
 | 마이크로초  | "마이크로초", "mcs" |
 | 나노초   | "나노초", "ns"   |
@@ -45,17 +45,17 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
 *StartDate*  
     UTC 날짜 및 시간 ISO 8601 문자열 값 (형식 `YYYY-MM-DDThh:mm:ss.fffffffZ` :
   
-  |서식|설명|
-  |-|-|
-  |YYYY|네 자리 연도|
-  |MM|두 자리 월 (01 = 1 월 등)|
-  |DD|월 (01-31)의 2 자리 숫자 일|
-  |T|시간 요소 시작에 대 한 signifier|
-  |hh|두 자리 시간 (00-23)|
-  |mm|두 자리 분 (00-59)|
-  |ss|두 자리 초 (00-59)|
-  |. fffffff|7 자리 소수 자릿수 초|
-  |Z|UTC (협정 세계시) 지정자||
+|서식|설명|
+|-|-|
+|YYYY|네 자리 연도|
+|MM|두 자리 월 (01 = 1 월 등)|
+|DD|월 (01-31)의 2 자리 숫자 일|
+|T|시간 요소 시작에 대 한 signifier|
+|hh|두 자리 시간 (00-23)|
+|MM|두 자리 분 (00-59)|
+|ss|두 자리 초 (00-59)|
+|. fffffff|7 자리 소수 자릿수 초|
+|Z|UTC (협정 세계시) 지정자|
   
   ISO 8601 형식에 대 한 자세한 내용은을 참조 하십시오 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
@@ -75,7 +75,7 @@ DateTimeDiff는 `undefined` 다음과 같은 이유로를 반환 합니다.
 
 DateTimeDiff는 항상 부호 있는 정수 값을 반환 하 고 시간 간격을 측정 하는 것이 아니라 DateTimePart 경계의 수를 측정 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
 다음 예에서는와 사이의 날짜 경계 수를 계산 합니다 `2020-01-01T01:02:03.1234527Z` `2020-01-03T01:02:03.1234567Z` .
 

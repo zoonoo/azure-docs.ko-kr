@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 02/09/2021
 ms.author: apimpm
 ms.openlocfilehash: 2bc9b1c5724fa7bab1fdf5ac9332d87ba03a6d11
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100545822"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Azure API Management 정책에서 명명 된 값 사용
@@ -25,7 +25,7 @@ ms.locfileid: "100545822"
 
 ## <a name="value-types"></a>값 형식
 
-|Type  |Description  |
+|Type  |설명  |
 |---------|---------|
 |제목     |  리터럴 문자열 또는 정책 식     |
 |비밀     |   API Management로 암호화 된 리터럴 문자열 또는 정책 식      |
@@ -100,7 +100,7 @@ ms.locfileid: "100545822"
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI 사용을 시작 하려면:
+Azure CLI 사용을 시작하려면 다음을 수행합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

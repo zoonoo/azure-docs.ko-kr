@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.openlocfilehash: 476355f41de5e0e6aaffdedea8947cab5221767a
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200740"
 ---
 # <a name="data-lineage-in-azure-purview-data-catalog-client"></a>Azure 부서의 범위 Data Catalog 클라이언트의 데이터 계보
@@ -53,7 +53,7 @@ ms.locfileid: "103200740"
 
 ### <a name="column-or-attribute-level-lineage"></a>열 또는 특성 수준 계보
 
-대상 엔터티에서 특성을 만들거나 파생 시키는 데 사용 되는 소스 엔터티의 특성을 식별 합니다. 원본 특성의 이름을 대상에서 유지 하거나 이름을 바꿀 수 있습니다. ADF와 같은 시스템은 온-프레미스 환경에서 클라우드로 일 대 일 복사를 수행할 수 있습니다. 예: `Table1/ColumnA -> Table2/ColumnA`.
+대상 엔터티에서 특성을 만들거나 파생 시키는 데 사용 되는 소스 엔터티의 특성을 식별 합니다. 원본 특성의 이름을 대상에서 유지 하거나 이름을 바꿀 수 있습니다. ADF와 같은 시스템은 온-프레미스 환경에서 클라우드로 일 대 일 복사를 수행할 수 있습니다. 예를 들어 `Table1/ColumnA -> Table2/ColumnA`을 참조하십시오.
 
 ### <a name="process-execution-status"></a>프로세스 실행 상태
 

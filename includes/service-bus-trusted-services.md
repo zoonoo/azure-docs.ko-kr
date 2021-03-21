@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
@@ -9,10 +9,10 @@ ms.date: 03/08/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: cd4d5de5d93e4aea862aaabd10fb5d3c6d45cb1c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510866"
 ---
 ## <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스

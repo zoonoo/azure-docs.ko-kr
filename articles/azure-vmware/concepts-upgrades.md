@@ -2,13 +2,13 @@
 title: 개념-사설 클라우드 업데이트 및 업그레이드
 description: Azure VMware 솔루션의 주요 업그레이드 프로세스 및 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/16/2021
-ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.date: 03/17/2021
+ms.openlocfilehash: 9810de40944f70a4efb7ec81d17868ffdf256c7d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634995"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586151"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Azure VMware 솔루션 사설 클라우드 업데이트 및 업그레이드
 
@@ -53,7 +53,9 @@ Azure VMware 솔루션은 다음 VMware 구성 요소에 대 한 구성 백업�
 
 오류가 발생 한 시점에 Azure VMware 솔루션은 구성 백업에서 이러한 구성 요소를 복원할 수 있습니다. 
 
-VMware 소프트웨어 버전에 대 한 자세한 내용은 [사설 클라우드 및 클러스터 개념 문서](concepts-private-clouds-clusters.md) 및 [FAQ](faq.yml)를 참조 하세요.
+## <a name="vmware-software-versions"></a>VMware 소프트웨어 버전
+[!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,10 +12,10 @@ author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: e2b5a3322f633ca8301357c2186d78d3ac437ae2
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521971"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>YAML에서 기계 학습 파이프라인 정의
@@ -26,23 +26,23 @@ ms.locfileid: "102521971"
 
 | 단계 유형 | 지원 여부 |
 | ----- | :-----: |
-| PythonScriptStep | Yes |
-| ParallelRunStep | Yes |
-| AdlaStep | Yes |
-| AzureBatchStep | Yes |
-| DatabricksStep | Yes |
-| DataTransferStep | Yes |
-| AutoMLStep | No |
-| HyperDriveStep | No |
-| ModuleStep | Yes |
-| MPIStep | No |
-| EstimatorStep | No |
+| PythonScriptStep | 예 |
+| ParallelRunStep | 예 |
+| AdlaStep | 예 |
+| AzureBatchStep | 예 |
+| DatabricksStep | 예 |
+| DataTransferStep | 예 |
+| AutoMLStep | 아니요 |
+| HyperDriveStep | 아니요 |
+| ModuleStep | 예 |
+| MPIStep | 아니요 |
+| EstimatorStep | 아니요 |
 
 ## <a name="pipeline-definition"></a>파이프라인 정의
 
 파이프라인 정의는 [파이프라인](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline) 클래스에 해당 하는 다음 키를 사용 합니다.
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `name` | 파이프라인에 대 한 설명입니다. |
 | `parameters` | 파이프라인에 대 한 매개 변수입니다. |
@@ -54,7 +54,7 @@ ms.locfileid: "102521971"
 
 이 `parameters` 섹션에서는 [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter) 클래스에 해당 하는 다음 키를 사용 합니다.
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ---- | ---- |
 | `type` | 매개 변수의 값 형식입니다. 유효한 유형은 `string` ,, `int` `float` , `bool` 또는 `datapath` 입니다. |
 | `default` | 기본값입니다. |
@@ -82,7 +82,7 @@ pipeline:
 
 이 `data_references` 섹션에서는 [datareference](/python/api/azureml-core/azureml.data.data_reference.datareference)에 해당 하는 다음 키를 사용 합니다.
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `datastore` | 참조할 데이터 저장소입니다. |
 | `path_on_datastore` | 데이터 참조에 대 한 지원 저장소의 상대 경로입니다. |
@@ -106,7 +106,7 @@ pipeline:
 
 단계는 환경에서 실행 되는 파일과 함께 계산 환경을 정의 합니다. 단계 유형을 정의 하려면 다음 키를 사용 합니다 `type` .
 
-| 단계 유형 | Description |
+| 단계 유형 | 설명 |
 | ----- | ----- |
 | `AdlaStep` | Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트를 실행 합니다. [Adlastep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep) 클래스에 해당 합니다. |
 | `AzureBatchStep` | Azure Batch를 사용 하 여 작업을 실행 합니다. [Azurebatchstep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) 클래스에 해당 합니다. |
@@ -117,7 +117,7 @@ pipeline:
 
 ### <a name="adla-step"></a>ADLA 단계
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `script_name` | 에 상대적인 U-SQL 스크립트의 이름 `source_directory` 입니다. |
 | `compute_target` | 이 단계에 사용할 Azure Data Lake 계산 대상입니다. |
@@ -168,7 +168,7 @@ pipeline:
 
 ### <a name="azure-batch-step"></a>Azure Batch 단계
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `compute_target` | 이 단계에 사용할 Azure Batch 계산 대상입니다. |
 | `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset)수 있습니다. |
@@ -222,7 +222,7 @@ pipeline:
 
 ### <a name="databricks-step"></a>Databricks 단계
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `compute_target` | 이 단계에 사용할 Azure Databricks 계산 대상입니다. |
 | `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset)수 있습니다. |
@@ -276,7 +276,7 @@ pipeline:
 
 ### <a name="data-transfer-step"></a>데이터 전송 단계
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `compute_target` | 이 단계에 사용할 Azure Data Factory 계산 대상입니다. |
 | `source_data_reference` | 데이터 전송 작업의 원본으로 사용 되는 입력 연결입니다. 지원 되는 값은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset)입니다. |
@@ -320,7 +320,7 @@ pipeline:
 
 ### <a name="python-script-step"></a>Python 스크립트 단계
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `inputs` | 입력은 [Inputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [datareference](#data-reference), [portdatareference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset)수 있습니다. |
 | `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding)중 하나일 수 있습니다. |
@@ -367,7 +367,7 @@ pipeline:
 
 ### <a name="parallel-run-step"></a>병렬 실행 단계
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `inputs` | 입력은 [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [datasetdefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition)또는 [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset)일 수 있습니다. |
 | `outputs` | 출력은 [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) 또는 [outputportbinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding)중 하나일 수 있습니다. |
@@ -419,7 +419,7 @@ pipeline:
 
 ### <a name="pipeline-with-multiple-steps"></a>여러 단계를 포함 하는 파이프라인 
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `steps` | 하나 이상의 PipelineStep 정의 시퀀스입니다. `destination`한 단계의 키는 다음 단계의에 대 한 `outputs` 키가 됩니다 `source` `inputs` .| 
 
@@ -480,7 +480,7 @@ pipeline:
 
 파이프라인에 대 한 일정을 정의 하는 경우 데이터 저장소는 일정 시간 간격에 따라 트리거하거나 반복 될 수 있습니다. 다음은 일정을 정의 하는 데 사용 되는 키입니다.
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `description` | 일정에 대한 설명입니다. |
 | `recurrence` | 일정이 반복 되는 경우 되풀이 설정을 포함 합니다. |
@@ -511,7 +511,7 @@ Schedule:
 
 **되풀이 일정** 을 정의할 때 다음 키를 사용 합니다 `recurrence` .
 
-| YAML 키 | Description |
+| YAML 키 | 설명 |
 | ----- | ----- |
 | `frequency` | 일정을 되풀이 하는 빈도입니다. 유효한 값은 `"Minute"` , `"Hour"` , `"Day"` , `"Week"` 또는 `"Month"` 입니다. |
 | `interval` | 일정이 발생 하는 빈도입니다. 정수 값은 일정이 다시 발생 될 때까지 대기 하는 시간 단위 수입니다. |

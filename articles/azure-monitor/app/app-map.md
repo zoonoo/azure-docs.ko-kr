@@ -6,10 +6,10 @@ ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
 ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100007111"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
@@ -128,7 +128,7 @@ ApplicationInsights.config:
     </ApplicationInsights>
 ```
 
-웹 앱을 ASP.NET 하는 다른 방법은 코드에서 이니셜라이저를 인스턴스화하는 것입니다 (예: Global.aspx.cs).
+웹 앱을 ASP.NET 하는 다른 방법은 코드에서 이니셜라이저를 인스턴스화하는 것입니다 (예: Global.asax. cs).
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -192,7 +192,7 @@ Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경
 
 스프링 부팅 스타터는 spring.application.name 속성에 대해 사용자가 입력 한 값에 클라우드 역할 이름을 자동으로 할당 합니다.
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
 var appInsights = require("applicationinsights");

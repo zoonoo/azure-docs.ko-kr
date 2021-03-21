@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098777"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586644"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark에 대 한 Python 라이브러리 관리
 
@@ -68,13 +68,13 @@ alabaster==0.7.10
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 이 환경에서 환경을 만드는 방법에 대 한 자세한 내용은 yml 파일 [에서 환경 만들기](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually)를 참조 하세요.
 
@@ -140,6 +140,11 @@ Python 휠 파일은 Python 라이브러리를 패키징하는 일반적인 방�
 
 ![작업 영역 패키지를 강조 표시 하는 스크린샷](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "작업 영역 패키지 보기")
 
+>[!WARNING]
+>- Azure Synapse 내에서 Apache Spark 풀은 작업 영역 패키지로 업로드 되거나 잘 알려진 Azure Data Lake Storage 경로 내에 업로드 된 사용자 지정 라이브러리를 활용할 수 있습니다. 그러나 이러한 두 옵션은 동일한 Apache Spark 풀 내에서 동시에 사용할 수 없습니다. 두 방법을 모두 사용 하 여 패키지를 제공 하면 작업 영역 패키지 목록에 지정 된 휠 파일만 설치 됩니다. 
+>
+>- 지정 된 Apache Spark 풀에 패키지를 설치 하는 데 작업 영역 패키지 (미리 보기)를 사용 하는 경우 동일한 풀에서 저장소 계정 경로를 사용 하 여 패키지를 더 이상 지정할 수 없다는 제한이 있습니다.  
+
 ### <a name="storage-account"></a>스토리지 계정
 Synapse 작업 영역에 연결 된 Azure Data Lake Storage (Gen2) 계정에 모든 휠 파일을 업로드 하 여 Apache Spark 풀에 사용자 지정 기반 휠 패키지를 설치할 수 있습니다. 
 
@@ -149,13 +154,12 @@ Synapse 작업 영역에 연결 된 Azure Data Lake Storage (Gen2) 계정에 모
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-폴더가 ```python``` 아직 없는 경우 폴더 내에 폴더를 추가 해야 할 수도 있습니다 ```libraries``` .
+>[!WARNING]
+> 아직 존재 하지 않는 경우 위의 구조를 기반으로 파일 경로를 만들어야 하는 경우도 있습니다. 예를 들어 폴더가 ```python``` 아직 없는 경우 폴더 내에 폴더를 추가 해야 할 수 있습니다 ```libraries``` .
 
 > [!IMPORTANT]
 > Azure DataLake 저장소 메서드를 사용 하 여 사용자 지정 라이브러리를 설치 하려면 Azure Synapse Analytics 작업 영역에 연결 된 기본 Gen2 저장소 계정에 대 한 **저장소 Blob 데이터 참가자** 또는 **저장소 blob 데이터 소유자** 권한이 있어야 합니다.
 
->[!WARNING]
-> 사용자 지정 휠 파일을 제공 하는 경우 사용자는 저장소 계정과 작업 영역 라이브러리 인터페이스 모두에서 휠 파일을 제공할 수 없습니다. 둘 다 제공 된 경우 작업 영역 패키지 목록에 지정 된 휠 파일만 설치 됩니다. 
 
 ## <a name="session-scoped-packages-preview"></a>세션 범위 패키지 (미리 보기)
 풀 수준 패키지 외에도 노트북 세션의 시작 부분에 세션 범위 라이브러리를 지정할 수 있습니다.  세션 범위 라이브러리를 사용 하면 노트북 세션 내에서 사용자 지정 Python 환경을 지정 하 고 사용할 수 있습니다. 

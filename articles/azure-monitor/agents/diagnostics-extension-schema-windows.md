@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
 ms.openlocfilehash: 70b27fec07d074dadb413d1debb098e23b4d33b3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102428731"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Windows 진단 확장 스키마
@@ -207,7 +207,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예들 들어 `\Processor(_Total)\% Processor Time`입니다. 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다. [(Unittype.pixel) 클래스](/dotnet/api/microsoft.azure.management.sql.models.unittype) 에서 값을 사용할 수 있습니다. |
+|**PerformanceCounterConfiguration**|다음과 같은 특성이 필요합니다.<br /><br /> - **counterSpecifier** - 성능 카운터의 이름입니다. 예: `\Processor(_Total)\% Processor Time` 호스트에서 성능 카운터의 목록을 가져오려면 명령 `typeperf`를 실행합니다.<br /><br /> - **sampleRate** - 카운터가 샘플링되는 주기입니다.<br /><br /> 선택적 특성:<br /><br /> **unit** - 카운터의 측정 단위입니다. [(Unittype.pixel) 클래스](/dotnet/api/microsoft.azure.management.sql.models.unittype) 에서 값을 사용할 수 있습니다. |
 |**sinks** | 1.5에 추가되었습니다. 선택 사항입니다. 또한 진단 데이터를 보내는 싱크 위치를 가리킵니다. 예를 들어 Azure Monitor 또는 Event Hubs입니다. 참고 Event Hubs에 업로드 된 이벤트를 리소스 ID를 갖도록 하려면 *메트릭* 요소 아래에 *resourceId* 속성을 추가 해야 합니다.|    
 
 
@@ -303,7 +303,7 @@ Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 �
 
  버전 1.3에 추가되었습니다.  
 
- Optional  
+ 선택 사항  
 
  스토리지 계정(이름, 키 및 엔드포인트)의 프라이빗 정보를 저장합니다. 이 정보는 가상 컴퓨터에 전송되지만 여기에서 검색할 수 없습니다.  
 

@@ -2,27 +2,27 @@
 title: 개념-Id 및 액세스
 description: Azure VMware 솔루션의 id 및 액세스 개념에 대해 알아보기
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/18/2021
+ms.openlocfilehash: 07a7ac8093524ef4240b8f7607d649520b9439e1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364888"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586253"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Azure VMware 솔루션 id 개념
 
-Azure VMware 솔루션 사설 클라우드는 vCenter server 및 NSX Manager를 사용 하 여 프로 비전 됩니다. VCenter를 사용 하 여 VM (가상 컴퓨터) 워크 로드를 관리 합니다. NSX-T 관리자를 사용 하 여 사설 클라우드를 확장 합니다.
+Azure VMware 솔루션 사설 클라우드는 vCenter server 및 NSX Manager를 사용 하 여 프로 비전 됩니다. VCenter를 사용 하 여 VM (가상 컴퓨터) 워크 로드를 관리 합니다. NSX-T 관리자를 사용 하 여 사설 클라우드 네트워크를 관리 하 고 확장할 수 있습니다.
 
-액세스 및 id 관리에서는 NSX-T 관리자에 대 한 vCenter 및 제한 된 관리자 권한으로 CloudAdmin 그룹 권한을 사용 합니다. 이를 통해 사설 클라우드 플랫폼은 최신 기능과 패치를 사용 하 여 자동으로 업그레이드 됩니다.  자세한 내용은 [사설 클라우드 업그레이드 개념 문서][concepts-upgrades]를 참조 하세요.
+VCenter 액세스 및 id 관리는 CloudAdmin 그룹 권한에서 buildin 사용 합니다. NSX Manager는 제한 된 관리자 권한을 사용 합니다. 이는 관리 되는 서비스의 특성을 기준으로 하며, 사설 클라우드 플랫폼이 최신 기능과 패치를 예상 대로 업그레이드 하는지 확인 합니다.  자세한 내용은 [사설 클라우드 업그레이드 개념 문서][concepts-upgrades]를 참조 하세요.
 
 ## <a name="vcenter-access-and-identity"></a>vCenter 액세스 및 id
 
-CloudAdmin 그룹은 vCenter에서 권한을 제공 합니다. VCenter에서 로컬로 그룹을 관리 합니다. 또 다른 옵션은 vCenter LDAP Single Sign-On Azure Active Directory 통합 하는 것입니다. 사설 클라우드를 배포한 후이 통합을 사용 하도록 설정 합니다. 
+VCenter CloudAdmin 그룹은 vCenter의 권한을 정의 하 고 제공 합니다. 또 다른 옵션은 vCenter LDAP Single Sign-On Azure Active Directory를 통합 하 여 액세스 및 id를 제공 하는 것입니다. 사설 클라우드를 배포한 후이 통합을 사용 하도록 설정 합니다. 
 
 이 표에는 **cloudadmin** 및 **cloudglobaladmin** 권한이 나와 있습니다.
 
-|  권한 집합           | CloudAdmin | CloudGlobalAdmin | 주석 |
+|  권한 집합           | CloudAdmin | CloudGlobalAdmin | 의견 |
 | :---                     |    :---:   |       :---:      |   :--:  |
 |  알람                  | CloudAdmin 사용자는 Compute-ResourcePool 및 Vm에서 알람에 대 한 모든 경보 권한을 가집니다.     |          --        |  -- |
 |  자동 배포             |  --  |        --        |  Microsoft는 호스트 관리를 수행 합니다.  |
@@ -49,7 +49,7 @@ CloudAdmin 그룹은 vCenter에서 권한을 제공 합니다. VCenter에서 로
 
 ## <a name="nsx-t-manager-access-and-identity"></a>NSX-T 관리자 액세스 및 id
 
-*관리자* 계정을 사용 하 여 NSX Manager에 액세스 합니다. 모든 권한을 가지 며 계층-1 (T1) 게이트웨이, 세그먼트 (논리 스위치) 및 모든 서비스를 만들고 관리할 수 있습니다. 권한은 NSX (T0) 게이트웨이에 대 한 액세스를 제공 합니다. T0 게이트웨이를 변경 하면 네트워크 성능이 저하 되거나 사설 클라우드 액세스가 저하 될 수 있습니다. Azure Portal에서 지원 요청을 열어 NSX-T T0 게이트웨이에 대 한 변경 내용을 요청 합니다.
+*관리자* 계정을 사용 하 여 NSX Manager에 액세스 합니다. 모든 권한을 가지 며 계층-1 (T1) 게이트웨이, 세그먼트 (논리 스위치) 및 모든 서비스를 만들고 관리할 수 있습니다. 이 계정은 NSX (T0) 게이트웨이에 대 한 액세스도 제공 합니다. 이러한 변경을 수행 하면 네트워크 성능이 저하 되거나 사설 클라우드 액세스가 mindfull 수 있습니다. Azure Portal에서 지원 요청을 열어 NSX-T T0 게이트웨이에 대 한 변경 내용을 요청 합니다.
   
 ## <a name="next-steps"></a>다음 단계
 

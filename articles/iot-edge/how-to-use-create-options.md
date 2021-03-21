@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200614"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>IoT Edge 모듈의 컨테이너 만들기 옵션을 구성 하는 방법
@@ -79,7 +79,7 @@ Visual Studio 또는 Visual Studio Code 용 Azure IoT Tools 확장을 사용 하
 >[!TIP]
 >이 포트 매핑은 동일한 장치에서 모듈 간 통신에 필요 하지 않습니다. 모듈 A가 모듈 B에서 호스트 되는 API를 쿼리해야 하는 경우에는 포트 매핑 없이이 작업을 수행할 수 있습니다. 모듈 B는 dockerfile에서 포트를 노출 해야 합니다 (예:) `EXPOSE 8080` . 그런 다음 모듈 A는 모듈 B의 이름 (예:)을 사용 하 여 API를 쿼리할 수 `http://ModuleB:8080/api` 있습니다.
 
-먼저 모듈 내의 포트가 연결을 수신 대기 하도록 노출 되는지 확인 합니다. Dockerfile에서 [노출](https://docs.docker.com/engine/reference/builder/#expose) 하는 명령을 사용 하 여이 작업을 수행할 수 있습니다. 예들 들어 `EXPOSE 8080`입니다. 지정 하지 않으면 기본적으로 표시 되는 명령은 TCP 프로토콜을 지정 하 고, 또는 UDP를 지정할 수 있습니다.
+먼저 모듈 내의 포트가 연결을 수신 대기 하도록 노출 되는지 확인 합니다. Dockerfile에서 [노출](https://docs.docker.com/engine/reference/builder/#expose) 하는 명령을 사용 하 여이 작업을 수행할 수 있습니다. 예: `EXPOSE 8080` 지정 하지 않으면 기본적으로 표시 되는 명령은 TCP 프로토콜을 지정 하 고, 또는 UDP를 지정할 수 있습니다.
 
 그런 다음 [Docker 컨테이너 만들기 옵션](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) 의 **Hostconfig** 그룹에서 **portbindings** 설정을 사용 하 여 모듈의 노출 된 포트를 호스트 장치의 포트에 매핑합니다. 예를 들어 모듈 내에서 포트 8080을 노출 하 고 호스트 장치의 포트 80에이를 매핑하려면 파일의 template.js에서 만들기 옵션은 다음 예제와 같습니다.
 

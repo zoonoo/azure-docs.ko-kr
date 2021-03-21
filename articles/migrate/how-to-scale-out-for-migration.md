@@ -6,28 +6,28 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612068"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607656"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 VMware 가상 컴퓨터의 에이전트 없는 마이그레이션 확장
 
-이 문서에서는 Azure Migrate Server Migration tool의 에이전트 없는 마이그레이션 기능을 사용 하 여 확장 어플라이언스를 사용 하 여 많은 수의 VMware Vm (가상 머신)을 Azure로 마이그레이션하는 방법을 이해 하는 데 도움을 줍니다. 
+이 문서에서는 VMware Vm의 마이그레이션에 대 한 Azure Migrate 서버 마이그레이션 도구의 에이전트 없는 메서드를 사용 하 여 확장 어플라이언스를 사용 하 여 많은 수의 VMware Vm (가상 머신)을 Azure로 마이그레이션하는 방법을 이해 하는 데 도움을 줍니다.
 
-서버 마이그레이션 도구의 VMware 가상 컴퓨터 기능에 대 한 에이전트 없는 마이그레이션 기능을 사용 하 여 다음을 수행할 수 있습니다.
+VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법을 사용 하면 다음을 수행할 수 있습니다.
 
 - Azure Migrate 어플라이언스 하나를 사용 하 여 단일 vCenter 서버에서 동시에 최대 300 Vm을 복제 합니다.
 - 마이그레이션을 위해 두 번째 스케일 아웃 어플라이언스를 배포 하 여 단일 vCenter 서버에서 동시에 최대 500 Vm을 복제 합니다.
 
 이 아티클에서는 다음 방법을 설명합니다.
 
-- VMware 마이그레이션을 위해 스케일 아웃 어플라이언스 배포
+- VMware 가상 컴퓨터의 에이전트 없는 마이그레이션을 위한 스케일 아웃 어플라이언스 추가
 - 스케일 아웃 어플라이언스를 사용 하 여 동시에 최대 500 Vm을 마이그레이션합니다.
 
-##  <a name="prerequisites"></a>사전 요구 사항
+##  <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음 단계를 수행 해야 합니다.
 
@@ -37,8 +37,9 @@ ms.locfileid: "102612068"
 > [!IMPORTANT]
 > 마이그레이션을 위해 스케일 아웃 어플라이언스를 추가 하려면 먼저 프로젝트에 복제 가상 컴퓨터가 하나 이상 있어야 합니다.
 
-## <a name="deploy-a-scale-out-appliance"></a>스케일 아웃 어플라이언스 배포
+위의 단계를 수행 하는 방법에 대 한 자세한 내용은 [에이전트 없는 마이그레이션 방법으로 VMware 가상 머신을 Azure로 마이그레이션](./tutorial-migrate-vmware.md)자습서를 참조 하세요.
 
+## <a name="deploy-a-scale-out-appliance"></a>스케일 아웃 어플라이언스 배포
 
 스케일 아웃 어플라이언스를 추가 하려면 아래에 설명 된 단계를 따르세요.
 

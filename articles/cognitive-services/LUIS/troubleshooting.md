@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.openlocfilehash: b5e25e9ed25ced96d38994928bcb6275ce79420f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612799"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
@@ -110,7 +110,7 @@ LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블
 * 사용량이 가장 높은 가격 책정 계층을 초과 하는 경우 부하 분산 장치 앞에 더 많은 Language Understanding 리소스를 추가 합니다. Kubernetes 또는 Docker Compose를 사용 하는 [Language Understanding 컨테이너](luis-container-howto.md) 는이를 지원할 수 있습니다.
 * 이 상태 코드가 표시 될 때 사용자가 직접 구현한 [다시 시도 정책을](/azure/architecture/best-practices/transient-faults#general-guidelines) 사용 하 여 클라이언트 응용 프로그램 요청을 게이트 할 수 있습니다.
 
-### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>내 엔드포인트 쿼리에서 예기치 않은 결과를 반환했습니다. 어떻게 해야 합니까?
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>내 엔드포인트 쿼리에서 예기치 않은 결과를 반환했습니다.   어떻게 해야 합니까?
 
 예기치 않은 쿼리 예측 결과는 게시된 모델의 상태를 기반으로 합니다. 모델을 수정하려면 모델을 변경하고, 학습하고, 다시 게시해야 할 수도 있습니다.
 
@@ -155,11 +155,11 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ### <a name="what-is-the-maximum-number-of-intents-and-entities-that-a-luis-app-can-support"></a>LUIS 앱이 지원할 수 있는 의도 및 엔터티의 최대 수는 몇 개인가요?
 [경계](luis-limits.md) 참조를 참조하세요.
 
-### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>최대 의도보다 많은 수의 의도로 LUIS 앱을 빌드하려고 합니다. 어떻게 해야 합니까?
+### <a name="i-want-to-build-a-luis-app-with-more-than-the-maximum-number-of-intents-what-should-i-do"></a>최대 의도보다 많은 수의 의도로 LUIS 앱을 빌드하려고 합니다.   어떻게 해야 합니까?
 
 [의도에 대한 모범 사례](luis-concept-intent.md#if-you-need-more-than-the-maximum-number-of-intents)를 참조하세요.
 
-### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>최대 엔터티보다 많은 수의 엔터티로 LUIS에서 앱을 빌드하려고 합니다. 어떻게 해야 합니까?
+### <a name="i-want-to-build-an-app-in-luis-with-more-than-the-maximum-number-of-entities-what-should-i-do"></a>최대 엔터티보다 많은 수의 엔터티로 LUIS에서 앱을 빌드하려고 합니다.   어떻게 해야 합니까?
 
 [엔터티에 대한 모범 사례](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)를 참조하세요.
 

@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093476"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>스트리밍 로케이터 생성 및 URL 빌드
@@ -27,7 +27,7 @@ Azure Media Services에서 스트리밍 URL을 작성 하려면 먼저 [스트�
 
 이 문서에서는 Java 및 .NET Sdk를 사용 하 여 스트리밍 로케이터를 만들고 스트리밍 URL을 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 [동적 패키징](dynamic-packaging-overview.md) 미리 보기
 

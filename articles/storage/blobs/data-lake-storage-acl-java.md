@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: e7d6156fe5cd8ab32ff159bda64e0c06cfbac406
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100654227"
 ---
 # <a name="use-java-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 관리
@@ -215,6 +215,6 @@ ACL 항목을 재귀적으로 제거 하려면 제거할 ACL 항목에 대 한 �
 - [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 - [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
+- [피드백 보내기](https://github.com/Azure/azure-sdk-for-java/issues)
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control.md)
 - [Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)](data-lake-storage-access-control.md)

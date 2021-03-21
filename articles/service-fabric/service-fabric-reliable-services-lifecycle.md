@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6ea8fa6933052374721d8d205d5b07386c807ae2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98784599"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
@@ -62,7 +62,7 @@ Azure Service Fabric Reliable Services의 수명 주기를 고려할 경우 수�
 상태 저장 서비스는 몇 가지를 변경한 상태 비저장 서비스 패턴과 비슷합니다. 상태 저장 서비스를 시작하면 이벤트의 순서는 다음과 같습니다.
 
 1. 서비스가 생성됩니다.
-2. `StatefulServiceBase.OnOpenAsync()`이 호출됩니다. 이 호출은 서비스에서 드물게 재정의됩니다.
+2. `StatefulServiceBase.OnOpenAsync()`을 호출합니다. 이 호출은 서비스에서 드물게 재정의됩니다.
 3. 다음과 같은 작업이 동시에 수행됩니다.
     - `StatefulServiceBase.CreateServiceReplicaListeners()`가 호출됩니다. 
       - 서비스가 주 서비스인 경우 반환된 모든 수신기가 열립니다. `ICommunicationListener.OpenAsync()`가 각 수신기에서 호출됩니다.

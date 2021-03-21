@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: d223d2c6a83b1389cd70344efdb48c357dda4ac4
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/17/2021
+ms.openlocfilehash: 998154376895d8bcfc7cf36665a6a36f5c43e3b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454591"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594991"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버의 PostgreSQL 확장
 
@@ -128,7 +128,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 
 
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
-[](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 보내는 서버는 수신 서버에 대 한 아웃 바운드 연결을 허용 해야 합니다. 수신 서버는 보내는 서버에서의 연결을 허용 해야 합니다.
+[](https://www.postgresql.org/docs/current/contrib-dblink-function.html) PostgreSQL 서버에서 다른 서버에 연결 하거나 동일한 서버의 다른 데이터베이스에 연결할 수 있습니다. [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) 유연한 서버는 PostgreSQL 서버에 들어오는 연결과 나가는 연결을 모두 지원 합니다. 보내는 서버는 수신 서버에 대 한 아웃 바운드 연결을 허용 해야 합니다. 마찬가지로 수신 서버는 보내는 서버에서의 연결을 허용 해야 합니다. 
 
 이러한 두 확장을 사용할 계획인 경우 [VNet 통합](concepts-networking.md) 을 사용 하 여 서버를 배포 하는 것이 좋습니다. 기본적으로 VNet 통합은 VNET의 서버 간 연결을 허용 합니다. [VNet 네트워크 보안 그룹](../../virtual-network/manage-network-security-group.md) 을 사용 하 여 액세스를 사용자 지정 하도록 선택할 수도 있습니다.
 

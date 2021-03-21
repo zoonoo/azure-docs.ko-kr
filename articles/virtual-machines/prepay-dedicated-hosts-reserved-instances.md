@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 1450f03ae72e79daca5a5ae2c04506e6bee5180b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2f90d3698156e27780bc57e0ac9355b6811d20d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672274"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607418"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Azure 전용 호스트 예약을 사용 하 여 비용 절감
 
@@ -29,7 +29,7 @@ Azure 전용 호스트의 예약 된 인스턴스로 커밋하는 경우 비용�
 
 다음으로, Azure 전용 호스트에서 지원 되는지 여부를 확인 합니다. [Azure 전용 호스트 가격](https://aka.ms/ADHPricing) 페이지에는 전용 호스트 sku의 전체 목록, CPU 정보 및 다양 한 가격 책정 옵션 (예약 인스턴스 포함)이 있습니다.
 
-VM 시리즈를 지 원하는 여러 Sku (다른 유형 포함)를 찾을 수 있습니다. 호스트의 용량 (vCPUs 수)을 비교 하 여 최상의 SKU를 식별 합니다. 동일한 VM 시리즈 (예: DSv3_Type1 및 DSv3_Type2)를 지 원하는 여러 개의 전용 호스트 Sku에 대 한 예약을 적용할 수 있지만 다른 VM 시리즈 (예: DSv3 및 ESv3) 간에는 적용 되지 않습니다.
+선택한 VM 시리즈를 지 원하는 여러 Sku (다른 유형 포함)를 찾을 수 있습니다. 호스트의 용량 (vCPUs 수)을 비교 하 여 최상의 SKU를 식별 합니다. 동일한 VM 시리즈 (예: DSv3_Type1 및 DSv3_Type2)를 지 원하는 여러 전용 호스트 Sku에 예약을 적용할 수 있지만 여러 VM 시리즈 (예: DSv3 및 ESv3) 간에는 적용 되지 않습니다.
 
 
 

@@ -12,10 +12,10 @@ ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939858"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Windows에서 음성 도우미 구현
@@ -78,7 +78,7 @@ ActivationSignalDetector 개체를 검색 한 후에는 `ActivationSignalDetecto
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>OnBackgroundActivated 및 OnSignalDetected의 두 가지 활성화 신호를 수신 대기 합니다.
 
-Windows는 두 가지 방법 중 하나로 키워드를 검색할 때 앱에 신호를 알립니다. 앱이 활성화 되지 않은 경우 (즉, 삭제 되지 않은 인스턴스에 대 한 참조가 없는 경우 `ConversationalAgentSession` ) 앱이 시작 되 고 응용 프로그램의 App.xaml.cs 파일에서 OnBackgroundActivated 메서드를 호출 합니다. 이벤트 인수의 `BackgroundActivatedEventArgs.TaskInstance.Task.Name` 필드가 "AgentBackgroundTrigger" 문자열과 일치 하는 경우 음성 활성화에 의해 응용 프로그램 시작이 트리거됩니다. 응용 프로그램은이 메서드를 재정의 하 고 ConversationalAgentSession의 인스턴스를 검색 하 여 현재 활성화 된 창에 신호를 보내야 합니다. 응용 프로그램이 활성화 되 면 Windows는 이벤트를 사용 하 여 음성 정품 인증 발생을 알립니다 `ConversationalAgentSession.OnSignalDetected` . 를 검색 하는 즉시이 이벤트에 이벤트 처리기를 추가 `ConversationalAgentSession` 합니다.
+Windows는 두 가지 방법 중 하나로 키워드를 검색할 때 앱에 신호를 알립니다. 앱이 활성화 되지 않은 경우 (즉, 삭제 되지 않은 인스턴스에 대 한 참조가 없는 경우 `ConversationalAgentSession` ) 응용 프로그램을 시작 하 고 응용 프로그램의 app.xaml 파일에서 OnBackgroundActivated 메서드를 호출 합니다. 이벤트 인수의 `BackgroundActivatedEventArgs.TaskInstance.Task.Name` 필드가 "AgentBackgroundTrigger" 문자열과 일치 하는 경우 음성 활성화에 의해 응용 프로그램 시작이 트리거됩니다. 응용 프로그램은이 메서드를 재정의 하 고 ConversationalAgentSession의 인스턴스를 검색 하 여 현재 활성화 된 창에 신호를 보내야 합니다. 응용 프로그램이 활성화 되 면 Windows는 이벤트를 사용 하 여 음성 정품 인증 발생을 알립니다 `ConversationalAgentSession.OnSignalDetected` . 를 검색 하는 즉시이 이벤트에 이벤트 처리기를 추가 `ConversationalAgentSession` 합니다.
 
 ## <a name="keyword-verification"></a>키워드 확인
 
@@ -122,9 +122,9 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 ### <a name="transitioning-above-lock"></a>위의 잠금 전환
 
-위의 활성화 잠금은 잠금의 활성화와 비슷합니다. 응용 프로그램의 활성 인스턴스가 없으면 백그라운드에서 새 인스턴스가 시작 되 고 `OnBackgroundActivated` App.xaml.cs가 호출 됩니다. 응용 프로그램의 인스턴스가 있는 경우 해당 인스턴스는 이벤트를 통해 알림을 받게 됩니다 `ConversationalAgentSession.SignalDetected` .
+위의 활성화 잠금은 잠금의 활성화와 비슷합니다. 응용 프로그램의 활성 인스턴스가 없으면 백그라운드에서 새 인스턴스가 시작 되 고 응용 프로그램에서 시작 됩니다. `OnBackgroundActivated` .cs가 호출 됩니다. 응용 프로그램의 인스턴스가 있는 경우 해당 인스턴스는 이벤트를 통해 알림을 받게 됩니다 `ConversationalAgentSession.SignalDetected` .
 
-응용 프로그램에서 위의 잠금을 아직 표시 하지 않는 경우를 호출 해야 `ConversationalAgentSession.RequestForegroundActivationAsync` 합니다. 이렇게 하면 `OnLaunched` App.xaml.cs에서 메서드가 트리거되고이는 잠금 위에 표시 되는 뷰로 이동 해야 합니다.
+응용 프로그램에서 위의 잠금을 아직 표시 하지 않는 경우를 호출 해야 `ConversationalAgentSession.RequestForegroundActivationAsync` 합니다. 이렇게 하면 `OnLaunched` 위의 잠금에 표시 되는 뷰로 이동 해야 하는 app.xaml의 메서드가 트리거됩니다.
 
 ### <a name="detecting-lock-screen-transitions"></a>잠금 화면 전환 감지
 

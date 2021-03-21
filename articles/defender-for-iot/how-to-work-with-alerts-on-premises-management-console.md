@@ -8,10 +8,10 @@ ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
 ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526326"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>온-프레미스 관리 콘솔의 경고 작업 
@@ -246,6 +246,6 @@ API를 사용 하 여 만든 규칙은 **제외 규칙** 창에 RO로 표시 됩
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="제외 규칙 편집 보기의 스크린샷":::
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [센서에 대 한 경고 사용](how-to-work-with-alerts-on-your-sensor.md)

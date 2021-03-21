@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: ac67e3cf8f057738b76b0de7cbcb821ef290e0cb
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98757579"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
@@ -66,7 +66,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 
 ## <a name="network-configuration---hostguest-vm"></a>네트워크 구성 - 호스트/게스트 VM
 
-**구성** | **지원됨**  
+**Configuration** | **지원됨**  
 --- | --- 
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
@@ -92,7 +92,7 @@ SAN(ISCSI) | 예
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 스토리지
 
-**구성** | **지원됨** 
+**Configuration** | **지원됨** 
 --- | --- 
 VMDK | 예 
 VHD/VHDX | 해당 없음 
@@ -112,7 +112,7 @@ RDM | 예
 
 ## <a name="vaults"></a>자격 증명 모음
 
-**동작** | **지원됨** 
+**작업** | **지원됨** 
 --- | --- 
 리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 
 리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요 

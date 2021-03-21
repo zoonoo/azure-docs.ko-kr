@@ -4,10 +4,10 @@ description: 풀 구성을 최신 및 권장 구성으로 업데이트 하는 �
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.openlocfilehash: a176c4df1737a340a546b4ab7926447cd821350d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200569"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machine"></a>Cloud Services에서 가상 머신으로 Batch 풀 구성 마이그레이션

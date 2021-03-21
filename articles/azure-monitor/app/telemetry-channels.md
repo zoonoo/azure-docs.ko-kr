@@ -6,10 +6,10 @@ ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
 ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98937355"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
@@ -61,7 +61,7 @@ Application Insights .NET 및 .NET Core Sdk는 두 개의 기본 제공 채널�
 
 ### <a name="configuration-in-code-for-aspnet-applications"></a>ASP.NET 응용 프로그램에 대 한 코드의 구성
 
-다음 코드는가 `StorageFolder` 사용자 지정 위치로 설정 된 ' ServerTelemetryChannel ' 인스턴스를 설정 합니다. 일반적으로 Global.aspx.cs의 메서드에서 응용 프로그램의 시작 부분에이 코드를 추가 `Application_Start()` 합니다.
+다음 코드는가 `StorageFolder` 사용자 지정 위치로 설정 된 ' ServerTelemetryChannel ' 인스턴스를 설정 합니다. 응용 프로그램의 시작 부분 (일반적으로 Global.asax의 메서드)에이 코드를 추가 `Application_Start()` 합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dde6af75b751037c10d7786fa5b0b03ae31d969e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222618"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584587"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -23,6 +23,7 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 
 * [Azure Cosmos DB 계정에 대해 Synapse 링크를 사용 하도록 설정](#enable-synapse-link)
 * [Azure Cosmos DB 컨테이너를 사용 하도록 설정 된 분석 저장소 만들기](#create-analytical-ttl)
+* [선택 사항-Azure Cosmos DB 컨테이너의 분석 저장소 ttl 업데이트](#update-analytical-ttl)
 * [Azure Cosmos DB 데이터베이스를 Synapse 작업 영역에 연결](#connect-to-cosmos-database)
 * [Synapse Spark를 사용하여 분석 저장소 쿼리](#query-analytical-store-spark)
 * [서버를 사용 하지 않는 SQL 풀을 사용 하 여 분석 저장소 쿼리](#query-analytical-store-sql-on-demand)
@@ -51,6 +52,21 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 > [!NOTE]
 > Synapse 링크를 켜면 분석 저장소가 자동으로 설정 되지 않습니다. Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정한 후에는 컨테이너를 만들 때 분석 저장소를 사용 하도록 설정 하 여 작업 데이터를 분석 저장소에 복제 하기 시작 합니다. 
 
+### <a name="azure-cli"></a>Azure CLI
+
+다음 링크는 Azure CLI을 사용 하 여 Synapse Link를 사용 하도록 설정 하는 방법을 보여 줍니다.
+
+* [Synapse 링크가 설정 된 새 Azure Cosmos DB 계정 만들기](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters&preserve-view=true)
+* [Synapse 링크를 사용 하도록 기존 Azure Cosmos DB 계정 업데이트](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+* [Synapse 링크가 설정 된 새 Azure Cosmos DB 계정 만들기](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description&preserve-view=true)
+* [Synapse 링크를 사용 하도록 기존 Azure Cosmos DB 계정 업데이트](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0&preserve-view=true)
+
+
+다음 링크는 PowerShell을 사용 하 여 Synapse Link를 사용 하도록 설정 하는 방법을 보여 줍니다.
+
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> 분석 저장소를 사용하여 Azure Cosmos 컨테이너 만들기
 
 컨테이너를 만드는 동안 Azure Cosmos 컨테이너에서 분석 저장소를 켤 수 있습니다. Azure Cosmos DB SDK를 사용하여 컨테이너를 만드는 동안 Azure Portal을 사용하거나 `analyticalTTL` 속성을 구성할 수 있습니다.
@@ -58,7 +74,7 @@ Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬
 > [!NOTE]
 > 현재 새 계정 및 기존 계정 모두 **새** 컨테이너에 대해 분석 저장소를 사용하도록 설정할 수 있습니다. [Azure Cosmos DB 마이그레이션 도구](cosmosdb-migrationchoices.md) 를 사용 하 여 기존의 컨테이너에서 새 컨테이너로 데이터를 마이그레이션할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos DB 탐색기](https://cosmos.azure.com/)에 로그인 합니다.
 
@@ -159,11 +175,27 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> 분석 저장소 시간을 실시간으로 업데이트
+### <a name="azure-cli"></a>Azure CLI
 
-특정 TTL 값으로 분석 저장소를 사용하도록 설정한 후 나중에 다른 유효한 값으로 업데이트할 수 있습니다. Azure Portal 또는 SDK를 사용하여 값을 업데이트할 수 있습니다. 다양한 분석 TTL 구성 옵션에 대한 자세한 내용은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조하세요.
+다음 링크는 Azure CLI을 사용 하 여 분석 저장소 사용 컨테이너를 만드는 방법을 보여 줍니다.
 
-#### <a name="azure-portal"></a>Azure portal
+* [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+다음 링크는 PowerShell을 사용 하 여 분석 저장소를 사용 하도록 설정 된 컨테이너를 만드는 방법을 보여 줍니다.
+
+* [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+
+
+## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> 선택 사항-분석 저장소 시간을 실시간으로 업데이트 합니다.
+
+특정 TTL 값을 사용 하 여 분석 저장소를 사용 하도록 설정한 후에는 나중에 다른 유효한 값으로 업데이트 하는 것이 좋습니다. Azure Portal, Azure CLI, PowerShell 또는 Cosmos DB Sdk를 사용 하 여 값을 업데이트할 수 있습니다. 다양한 분석 TTL 구성 옵션에 대한 자세한 내용은 [분석 TTL 지원 값](analytical-store-introduction.md#analytical-ttl) 문서를 참조하세요.
+
+
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 통해 분석 저장소를 사용하도록 설정된 컨테이너를 만든 경우 -1의 기본 분석 TTL이 포함됩니다. 다음 단계를 사용하여 이 값을 업데이트합니다.
 
@@ -178,7 +210,7 @@ Azure Portal을 통해 분석 저장소를 사용하도록 설정된 컨테이�
   * **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다.
   * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
-#### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>.NET SDK
 
 다음 코드는 .NET SDK를 사용하여 분석 저장소에 대한 TTL을 업데이트하는 방법을 보여 줍니다.
 
@@ -190,7 +222,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-#### <a name="java-v4-sdk"></a>Java V4 SDK
+### <a name="java-v4-sdk"></a>Java V4 SDK
 
 다음 코드에서는 Java V4 SDK를 사용하여 분석 저장소에 대한 TTL을 업데이트하는 방법을 보여 줍니다.
 
@@ -203,6 +235,26 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 // Update container settings
 container.replace(containerProperties).block();
 ```
+
+### <a name="python-v4-sdk"></a>Python V4 SDK
+
+현재 지원되지 않습니다.
+
+
+### <a name="azure-cli"></a>Azure CLI
+
+다음 링크는 Azure CLI을 사용 하 여 컨테이너 분석 TTL을 업데이트 하는 방법을 보여 줍니다.
+
+* [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+
+### <a name="powershell"></a>PowerShell
+
+다음 링크는 PowerShell을 사용 하 여 컨테이너 분석 TTL을 업데이트 하는 방법을 보여 줍니다.
+
+* [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Synapse 작업 영역에 연결
 

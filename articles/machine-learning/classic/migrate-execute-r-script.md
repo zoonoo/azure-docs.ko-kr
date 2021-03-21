@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
 ms.openlocfilehash: ac9ad296029451d624345d8b3bb365d881ba9a84
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103565032"
 ---
 # <a name="migrate-execute-r-script-modules-in-studio-classic"></a>Studio에서 R 스크립트 실행 모듈 마이그레이션 (클래식)
@@ -33,7 +33,7 @@ Studio (클래식)에서 **R 스크립트 실행** 모듈을 마이그레이션�
 |---|---|---|
 |스크립트 인터페이스|`maml.mapInputPort` 및 `maml.mapOutputPort`|Function 인터페이스|
 |플랫폼|Windows|Linux|
-|인터넷 액세스 가능 |예|예|
+|인터넷 액세스 가능 |아니요|예|
 |메모리|14 GB|계산 SKU에 종속|
 
 ### <a name="how-to-update-the-r-script-interface"></a>R 스크립트 인터페이스를 업데이트 하는 방법

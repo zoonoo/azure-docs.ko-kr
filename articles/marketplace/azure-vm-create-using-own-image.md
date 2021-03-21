@@ -8,10 +8,10 @@ author: krsh
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 4711ea76af83594ec529cfda13a308fbe6646398
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200454"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>사용자 고유의 이미지를 사용 하 여 가상 머신을 만드는 방법
@@ -158,7 +158,7 @@ Azure에 이미지를 가져오는 방법에는 세 가지가 있습니다.
 1. **저장** 을 선택합니다.
 1. 이 표의 매개 변수를 사용 하 여 다음 화면에서 필드를 완료 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | sourceStorageAccountResourceId | Blob vhd가 상주 하는 원본 저장소 계정의 리소스 ID입니다.<br><br>리소스 ID를 얻으려면 **Azure Portal** 의 **저장소 계정** 으로 이동 하 여 **속성** 으로 이동 하 고 **ResourceID** 값을 복사 합니다. |
 | sourceBlobUri | OS 디스크 vhd blob의 blob Uri (제공 된 저장소 계정에 있어야 함).<br><br>Blob URL을 가져오려면 **Azure Portal** 의 **저장소 계정** 으로 이동 하 고 **blob** 로 이동한 다음 **URL** 값을 복사 합니다. |

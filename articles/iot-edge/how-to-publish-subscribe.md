@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
 ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200681"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Azure IoT Edge 게시 및 구독
@@ -173,7 +173,7 @@ MQTT 클라이언트가 IoT Edge 허브에 인증 되 면 연결할 권한이 �
     - `{{iot:identity}}` 현재 연결 된 클라이언트의 id를 나타냅니다. 예를 들어 또는 같은 모듈 id와 같은 장치 id가 `myDevice` `myEdgeDevice/SampleModule` 있습니다.
     - `{{iot:device_id}}` 현재 연결 된 장치의 id를 나타냅니다. 예를 들어 또는와 같이 모듈을 실행 하는 장치 id와 같은 장치 id를 사용할 `myDevice` 수 `myEdgeDevice` 있습니다.
     - `{{iot:module_id}}` 현재 연결 된 모듈의 id를 나타냅니다. 이 변수는 연결 된 장치 또는와 같은 모듈 id에 대해 비어 `SampleModule` 있습니다.
-    - `{{iot:this_device_id}}` 권한 부여 정책을 실행 하는 IoT Edge 장치의 id를 나타냅니다. 예들 들어 `myIoTEdgeDevice`입니다.
+    - `{{iot:this_device_id}}` 권한 부여 정책을 실행 하는 IoT Edge 장치의 id를 나타냅니다. 예: `myIoTEdgeDevice`
 
 IoT hub에 대 한 권한 부여 항목은 사용자 정의 항목과 약간 다르게 처리 됩니다. 기억할 주요 사항은 다음과 같습니다.
 

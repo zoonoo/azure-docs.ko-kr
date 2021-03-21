@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 02/05/2021
 ms.openlocfilehash: 474b3123513e4b8acf19ba9cdb42c3384ea3ced2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100101587"
 ---
 # <a name="how-to-create-and-manage-files-in-your-workspace"></a>작업 영역에서 파일을 만들고 관리 하는 방법
 
 Azure Machine Learning 작업 영역에서 파일을 만들고 관리 하는 방법을 알아봅니다.  이러한 파일은 기본 작업 영역 저장소에 저장 됩니다. 파일 및 폴더는 작업 영역에 대 한 읽기 액세스 권한이 있는 다른 사용자와 공유 하 고 작업 영역의 모든 계산 인스턴스에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.

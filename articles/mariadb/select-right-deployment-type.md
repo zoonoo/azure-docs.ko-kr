@@ -3,14 +3,14 @@ title: 올바른 배포 유형 선택-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB을 IaaS (infrastructure as a service) 또는 PaaS (platform as a service)로 배포 하기 전에 고려해 야 하는 요인을 설명 합니다.
 author: mksuni
 ms.author: sumuth
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 921ad8d187f6c2478bdf92aab0ee0ec3c9e75bce
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664521"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Azure에서 적절 한 MariaDB 서버 옵션 선택
@@ -31,7 +31,7 @@ Azure를 사용 하는 경우에는 호스트 된 가상 머신 IaaS (infrastruc
 
 이러한 옵션들의 주요 차이점은 다음 표에 나와 있습니다.
 
-| attribute          | Azure Database for MariaDB | Azure Vm의 MariaDB    |
+| 특성          | Azure Database for MariaDB | Azure Vm의 MariaDB    |
 |:-------------------|:-----------------------------|:--------------------|
 | SLA(서비스 수준 계약)                | 99.99% 가용성의 SLA를 제공 합니다.| 동일한 가용성 집합에서 두 개 이상의 인스턴스를 사용 하 여 최대 99.95%의 가용성을 제공 합니다.<br/><br/>premium storage를 사용 하는 단일 인스턴스 VM의 99.9% 가용성.<br/><br/>99.99% 여러 가용성 집합에 여러 인스턴스가 있는 가용성 영역를 사용 합니다.<br/><br/>[VIRTUAL MACHINES SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 참조 하세요. |
 | 운영 체제 패치        | 자동  | 고객이 관리 |

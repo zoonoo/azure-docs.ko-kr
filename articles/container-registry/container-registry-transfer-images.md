@@ -4,12 +4,12 @@ description: Azure storage 계정을 사용 하 여 전송 파이프라인을 �
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 30e6c0fa7a33c7a83543fee297c582b15bce4c8b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935344"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606772"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -426,7 +426,8 @@ az resource delete \
   * 모든 아티팩트 또는 없음은 전송 되지 않습니다. 내보내기 실행에서 아티팩트의 철자와 내보내기 및 가져오기에서 blob의 이름을 확인 합니다. 최대 50 개의 아티팩트를 전송 하 고 있는지 확인 합니다.
   * 파이프라인 실행이 완료 되지 않았을 수 있습니다. 내보내기 또는 가져오기 실행에는 다소 시간이 걸릴 수 있습니다. 
   * 다른 파이프라인 문제의 경우 내보내기 실행 또는 가져오기 실행의 배포 [상관 관계 ID](../azure-resource-manager/templates/deployment-history.md) 를 Azure Container Registry 팀에 제공 합니다.
-
+* **물리적으로 격리 된 환경에서 이미지를 끌어오는 문제**
+  * 물리적으로 격리 된 환경에서 이미지를 끌어올 때 외부 계층에 대 한 오류가 표시 되거나 mcr.microsoft.com를 해결 하려고 시도 하는 경우 이미지 매니페스트에는 배포 불가능 계층이 있을 수 있습니다. 물리적으로 격리 된 환경의 특성으로 인해 이러한 이미지는 종종 끌어오는 데 실패 합니다. 이미지 매니페스트에서 외부 레지스트리에 대 한 참조를 확인 하 여이에 대 한 것임을 확인할 수 있습니다. 이 경우 해당 이미지에 대 한 내보내기 파이프라인을 배포 하기 전에 배포 되지 않은 계층을 공용 클라우드 ACR에 푸시 해야 합니다. 이 작업을 수행 하는 방법에 대 한 지침은 [배포 되지 않은 계층을 레지스트리에 푸시 어떻게 할까요?](./container-registry-faq.md#how-do-i-push-non-distributable-layers-to-a-registry) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

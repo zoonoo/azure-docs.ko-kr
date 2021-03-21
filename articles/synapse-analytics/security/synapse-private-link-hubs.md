@@ -1,19 +1,19 @@
 ---
 title: 개인 링크를 사용 하 여 Synapse Studio에 연결
 description: 이 문서에서는 개인 링크를 사용 하 여 Azure Synapse Studio에 연결 하는 방법을 설명 합니다.
-author: NanditaV
+author: nanditavalsan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49868199d8f9f2da97f08dd06f29afd8f553bd9
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: d39beca60264023c8eb7c1bc78cd1ac15c3b45dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97586978"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586627"
 ---
 # <a name="connect-to-azure-synapse-studio-using-azure-private-link-hubs"></a>Azure 개인 링크 허브를 사용 하 여 Azure Synapse Studio에 연결 
 
@@ -37,7 +37,9 @@ Synapse Studio에 대 한 종단 간 연결을 보호 하려면 Azure 가상 네
 
 :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-private-endpoint.png" alt-text="개인 끝점 연결 페이지를 보여 주는 스크린샷":::
 
-"리소스" 탭에서 "Synapse/privateLinkHubs" 리소스 종류를 선택 해야 합니다. ' :::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="리소스 종류 '가 강조 표시 된 ' 개인 끝점 만들기 ' 페이지가 표시 된 스크린샷":::
+"리소스" 탭에서 "Synapse/privateLinkHubs" 리소스 종류를 선택 해야 합니다.
+
+:::image type="content" source="./media/synapse-private-link-hubs/synapse-private-links-resource-type.png" alt-text="' 리소스 종류 '가 강조 표시 된 ' 개인 끝점 만들기 ' 페이지를 보여 주는 스크린샷":::
 
 "구성" 탭에서 가상 네트워크 및 개인 DNS 영역과 통합할 때 사설 DNS 영역에 대해 "privatelink.azuresynapse.net"를 선택 합니다.
 
