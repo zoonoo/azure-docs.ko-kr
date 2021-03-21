@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
 ms.openlocfilehash: d54c005ffb17571be172b5716723febb742253a3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945397"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
@@ -20,7 +20,7 @@ Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 저장소에 Data Lake Storage Gen2를 사용 하는 HDInsight 클러스터를 만들려면 다음 단계를 수행 하 여 계층적 네임 스페이스를 포함 하는 저장소 계정을 구성 합니다.
 
@@ -53,7 +53,7 @@ Azure Data Lake Storage Gen2와 함께 사용할 저장소 계정을 만듭니�
     1. **고급** 탭을 클릭 합니다.
     1. **Data Lake Storage Gen2** 에서 **계층적 네임 스페이스** 옆에 있는 **사용** 을 클릭 합니다.
     1. **검토 + 만들기** 를 클릭합니다.
-    1. **만들기**
+    1. **만들기** 를 클릭합니다.
 
 저장소 계정을 만드는 동안 기타 옵션에 대 한 자세한 내용은 [빠른 시작: Azure Data Lake Storage Gen2에 대 한 저장소 계정 만들기](../storage/blobs/create-data-lake-storage-account.md)를 참조 하세요.
 

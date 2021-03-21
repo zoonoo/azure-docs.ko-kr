@@ -4,10 +4,10 @@ description: 날짜 작업에 Azure Resource Manager 템플릿 (ARM 템플릿)�
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920503"
 ---
 # <a name="date-functions-for-arm-templates"></a>ARM 템플릿에 대 한 날짜 함수
@@ -27,7 +27,7 @@ ms.locfileid: "96920503"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | base | 예 | 문자열 | 더하기의 시작 날짜/시간 값입니다. [ISO 8601 타임 스탬프 형식을](https://en.wikipedia.org/wiki/ISO_8601)사용 합니다. |
 | duration | 예 | 문자열 | 밑에 더할 시간 값입니다. 음수 값일 수 있습니다. [ISO 8601 기간 형식을](https://en.wikipedia.org/wiki/ISO_8601#Durations)사용 합니다. |
@@ -94,7 +94,7 @@ output add1HourOutput string = add1Hour
 
 위의 템플릿이 기본 시간을 사용 하 여 배포 된 경우 `2020-04-07 14:53:14Z` 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | add3YearsOutput | String | 오후 4/7/2023 2:53:14 |
 | subtract9DaysOutput | String | 오후 3/29/2020 2:53:14 |
@@ -186,7 +186,7 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | format |예 |문자열 |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
 
@@ -261,7 +261,7 @@ output utcCustomOutput string = utcCustomValue
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | utcOutput | 문자열 | 20190305T175318Z |
 | utcShortOutput | 문자열 | 2019/03/05 |

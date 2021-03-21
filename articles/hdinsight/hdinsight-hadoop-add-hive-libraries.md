@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 02/14/2020
 ms.openlocfilehash: b6695e5e985a30d6f912095225c4899e1c910e34
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945960"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가
 
 HDInsight에서 [Apache Hive](https://hive.apache.org/) 라이브러리를 미리 로드 하는 방법을 알아봅니다. 이 문서에는 클러스터를 만드는 동안 스크립트 작업을 사용하여 라이브러리를 미리 로드하는 방법에 대한 정보가 포함되어 있습니다. 이 문서의 단계를 사용 하 여 추가한 라이브러리는 Hive에서 전역적으로 사용할 수 있습니다 .이를 로드 하기 위해 [JAR 추가](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 를 사용할 필요가 없습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 클러스터를 만들 때 스크립트 작업을 사용 하 여 클러스터 노드가 생성 될 때 해당 노드를 수정할 수 있습니다. 이 문서의 스크립트는 라이브러리의 위치인 단일 매개 변수를 허용합니다. 이 위치는 Azure Storage 계정에 있어야 하고 라이브러리는 jar 파일로 저장되어야 합니다.
 
@@ -59,7 +59,7 @@ HDInsight에서 [Apache Hive](https://hive.apache.org/) 라이브러리를 미�
     |속성|라이브러리 |
     |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |노드 유형|헤드, 작업자|
-    |매개 변수|jar을 포함하는 컨테이너 및 스토리지 계정에 WASB 주소를 입력합니다. 예들 들어 `wasbs://libs@mystorage.blob.core.windows.net/`입니다.|
+    |매개 변수|jar을 포함하는 컨테이너 및 스토리지 계정에 WASB 주소를 입력합니다. 예: `wasbs://libs@mystorage.blob.core.windows.net/`|
 
     > [!NOTE]
     > Apache Spark 2.1의 경우 bash 스크립트 URI를 사용 `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh` 합니다.

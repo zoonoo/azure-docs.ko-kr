@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780838"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 검색
@@ -48,8 +48,8 @@ ms.locfileid: "92780838"
 
 이 섹션의 단계에서 리소스 이름이 전역적으로 고유한지 확인하는 데 사용되는 사용자 값을 제공합니다. 또한 앱의 배포에 의해 생성된 모든 리소스를 포함하는 리소스 그룹에 대한 이름을 제공합니다. Ann Finley라는 사람의 경우 다음을 제안합니다.
 
-- **사용자** : *af1* 은 Ann Finley의 이니셜에 숫자를 더한 값으로 이루어집니다. 앱을 두 번째로 배포하는 경우 다른 값을 사용합니다. 예는 af2입니다.
-- **리소스 그룹** : *wingtip-dpt-af1* 은 테넌트당 데이터베이스 앱임을 나타냅니다. 사용자 이름 af1을 추가하여 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.
+- **사용자**: *af1* 은 Ann Finley의 이니셜에 숫자를 더한 값으로 이루어집니다. 앱을 두 번째로 배포하는 경우 다른 값을 사용합니다. 예는 af2입니다.
+- **리소스 그룹**: *wingtip-dpt-af1* 은 테넌트당 데이터베이스 앱임을 나타냅니다. 사용자 이름 af1을 추가하여 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.
 
 이제 이름을 선택하고, 기록합니다.
 
@@ -64,9 +64,9 @@ ms.locfileid: "92780838"
     > [!IMPORTANT]
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 새 리소스 그룹을 만드는 것이 좋습니다. 기존 리소스 그룹, 서버 또는 풀을 사용하지 마세요. 이 애플리케이션, 스크립트 또는 배포된 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 이 리소스 그룹을 삭제합니다.
 
-    - **리소스 그룹** : **새로 만들기** 를 선택하고 리소스 그룹에서 이전에 선택한 고유 이름을 입력합니다.
-    - **위치** : 드롭다운 목록에서 위치를 선택합니다.
-    - **사용자** : 앞에서 선택한 사용자 이름 값을 사용합니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹에서 이전에 선택한 고유 이름을 입력합니다.
+    - **위치**: 드롭다운 목록에서 위치를 선택합니다.
+    - **사용자**: 앞에서 선택한 사용자 이름 값을 사용합니다.
 
 1. 애플리케이션을 배포합니다.
 
@@ -74,7 +74,7 @@ ms.locfileid: "92780838"
 
     b. **구매** 를 선택합니다.
 
-1. 배포 상태를 모니터링하려면 **알림** (검색 상자 오른쪽의 벨 아이콘)을 선택합니다. Wingtip Tickets SaaS 앱을 배포하는 데는 5분 정도 걸립니다.
+1. 배포 상태를 모니터링하려면 **알림**(검색 상자 오른쪽의 벨 아이콘)을 선택합니다. Wingtip Tickets SaaS 앱을 배포하는 데는 5분 정도 걸립니다.
 
    ![배포 성공](./media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -130,7 +130,7 @@ Wingtip 애플리케이션에서는 [*Azure Traffic Manager*](../../traffic-mana
 
     | URL 부분        | 설명       |
     | :-------------- | :---------------- |
-    | events.wingtip-dpt | Wingtip 앱의 이벤트 부분입니다.<br /><br /> *-dpt* 는 Wingtip Tickets의 *테넌트당 데이터베이스* 구현을 다른 구현과 구분합니다. 다른 구현의 예로는 테넌트당 *단일* 앱( *-sa* ) 또는 *다중 테넌트 데이터베이스* ( *-mt* ) 구현 등이 있습니다. |
+    | events.wingtip-dpt | Wingtip 앱의 이벤트 부분입니다.<br /><br /> *-dpt* 는 Wingtip Tickets의 *테넌트당 데이터베이스* 구현을 다른 구현과 구분합니다. 다른 구현의 예로는 테넌트당 *단일* 앱(*-sa*) 또는 *다중 테넌트 데이터베이스*(*-mt*) 구현 등이 있습니다. |
     | . *&lt;user&gt;* | 예제에서 *af1* 입니다. |
     | .trafficmanager.net/ | Traffic Manager, 기준 URL입니다. |
     | fabrikamjazzclub | Fabrikam Jazz Club이라는 테넌트를 식별합니다. |
@@ -223,7 +223,7 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 테넌트 컬렉션에 대해 부하 실행을 시작했으므로 배포된 리소스 중 일부를 살펴보겠습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음, **catalog-dpt-&lt;USER&gt;** 서버를 엽니다.
-    - 카탈로그 서버에는 두 가지 데이터베이스인 **tenantcatalog** 및 **basetenantdb** (새 테넌트를 만들기 위해 복사한 템플릿 데이터베이스)가 포함됩니다.
+    - 카탈로그 서버에는 두 가지 데이터베이스인 **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 템플릿 데이터베이스)가 포함됩니다.
 
    ![데이터베이스 두 개가 있는 카탈로그 서버 개요 페이지를 보여 주는 스크린샷](./media/saas-dbpertenant-get-started-deploy/databases.png)
 

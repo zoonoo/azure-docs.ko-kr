@@ -4,10 +4,10 @@ description: Azure Monitor Application Insights 작업 영역 기반 리소스�
 ms.topic: conceptual
 ms.date: 05/09/2020
 ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575600"
 ---
 # <a name="workspace-based-resource-changes"></a>작업 영역 기반 리소스 변경
@@ -41,7 +41,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 가용성
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -85,7 +85,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: browserTimings
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -106,7 +106,7 @@ ms.locfileid: "100575600"
 |itemCount|int|ItemCount|int|
 |itemId|문자열|\_ItemId|문자열|
 |itemType|문자열|Type|문자열|
-|name|문자열|속성|Datetime|
+|name|문자열|Name|Datetime|
 |networkDuration|real|NetworkDurationMs|real|
 |operation_Id|문자열|OperationId|문자열|
 |operation_Name|문자열|OperationName|문자열|
@@ -129,7 +129,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 종속성
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -163,7 +163,7 @@ ms.locfileid: "100575600"
 |sdkVersion|문자열|SdkVersion|문자열|
 |session_Id|문자열|SessionId|문자열|
 |성공|문자열|Success|Bool|
-|대상|문자열|Target|문자열|
+|대상|문자열|대상|문자열|
 |timestamp|Datetime|TimeGenerated|Datetime|
 |형식|문자열|DependencyType|문자열|
 |user_AccountId|문자열|UserAccountId|문자열|
@@ -174,7 +174,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: customEvents
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -211,7 +211,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: customMetrics
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -252,7 +252,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: pageViews
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -293,7 +293,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: performanceCounters
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -332,7 +332,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 요청
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -376,7 +376,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 예외
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|
@@ -428,7 +428,7 @@ ms.locfileid: "100575600"
 
 레거시 테이블: 추적
 
-|ApplicationInsights|유형|LogAnalytics|유형|
+|ApplicationInsights|Type|LogAnalytics|Type|
 |:---|:---|:---|:---|
 |appId|문자열|\_ResourceGUID|문자열|
 |application_Version|문자열|AppVersion|문자열|

@@ -4,10 +4,10 @@ description: 이 문서에서는 세션을 사용하여 관련 메시지의 무�
 ms.topic: article
 ms.date: 01/20/2021
 ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98680756"
 ---
 # <a name="message-sessions"></a>메시지 세션
@@ -34,9 +34,9 @@ Service Bus의 세션 기능을 사용하면 C# 및 Java API의 [MessageSession]
 ![세션 사용 옵션이 선택 되 고 빨간색으로 표시 된 큐 만들기 대화 상자의 스크린샷][2]
 
 > [!NOTE]
-> 큐 또는 구독에서 세션을 사용 하는 경우 클라이언트 응용 프로그램은 더 이상 일반 메시지를 보내고 받을 수 **없습니다**. 모든 메시지는 세션 ID를 설정하여 세션의 일부로 보내고 세션을 수신하여 받아야 합니다.
+> 큐 또는 구독에서 세션을 사용하는 경우 클라이언트 애플리케이션은 ***더 이상 일반 메시지를 주고받을 수 없습니다***. 모든 메시지는 세션 ID를 설정하여 세션의 일부로 보내고 세션을 수신하여 받아야 합니다.
 
-세션용 API는 큐 및 구독 클라이언트에 있습니다. 세션과 메시지가 수신 되는 시기를 제어 하는 명령적 모델 및 _OnMessage *와 유사 하 게 수신 루프 관리의 복잡성을 숨기는 처리기 기반 모델이 있습니다.
+세션용 API는 큐 및 구독 클라이언트에 있습니다. 세션 및 메시지가 수신되는 시간을 제어하는 필수 모델과 수신 루프 관리의 복잡성을 숨기는 *OnMessage* 와 유사한 처리기 기반 모델이 있습니다.
 
 ### <a name="session-features"></a>세션 기능
 

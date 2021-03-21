@@ -8,15 +8,15 @@ author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
 ms.openlocfilehash: bcb334074d842fa5c35e4619f1c5d654405388a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459565"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure Container 제품 만들기
 
-이 문서에서는 컨테이너 제품을 만들고 Azure Marketplace에 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](./partner-center-portal/create-account.md)(계정이 없는 경우). 계정이 상업용 Marketplace 프로그램에 등록되어 있는지 확인합니다.
+이 문서에서는 컨테이너 제품을 만들고 Azure Marketplace에 게시하는 방법을 설명합니다. 시작하기 전에 [파트너 센터에서 상업용 마켓플레이스 계정을 만드세요](./partner-center-portal/create-account.md)(계정이 없는 경우). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "96459565"
 
 **제품 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다.
 
-- 이 ID는 Marketplace 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
+- 이 ID는 마켓플레이스 제품 및 Azure Resource Manager 템플릿의 웹 주소에서 고객에게 표시됩니다(해당하는 경우).
 - 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다. 예를 들어 **test-offer-1** 을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
 - **만들기** 를 선택한 후에는 제품 ID를 변경할 수 없습니다.
 
@@ -75,10 +75,10 @@ ms.locfileid: "96459565"
    > CRM 시스템이 위에 나열되지 않은 경우 [Azure Table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) 또는 [Https 엔드포인트](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md)를 사용하여 잠재 고객 데이터를 저장한 다음, CRM 시스템으로 데이터를 내보냅니다.
 
 2. 파트너 센터에 게시하는 동안 제품을 잠재 고객 대상에 연결합니다.
-3. 잠재 고객 대상에 대한 연결이 제대로 구성되었는지 확인합니다. 파트너 센터에 게시한 후에는 연결의 유효성을 검사하고 테스트 잠재 고객을 보냅니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
-4. 잠재 고객이 손실되지 않도록 잠재 고객 대상에 대한 연결이 업데이트된 상태로 유지되어야 합니다.
+3. 잠재 고객 대상에 대한 연결이 제대로 구성되었는지 확인합니다. 파트너 센터에 게시한 후에는 연결의 유효성을 검사하고 테스트 잠재 고객을 보냅니다. 제품을 라이브로 전환하기 전에 미리 볼 때 미리 보기 환경에서 직접 제품을 구매하여 잠재 고객 연결을 테스트할 수도 있습니다.
+4. 잠재 고객을 잃어버리는 경우가 없도록 잠재 고객 대상에 대한 연결을 업데이트된 상태로 유지해야 합니다.
 
-몇 가지 추가 잠재 고객 관리 리소스는 다음과 같습니다.
+다음은 몇 가지 추가 잠재 고객 관리 리소스입니다.
 
 - [상업용 Marketplace 제품의 잠재 고객](./partner-center-portal/commercial-marketplace-get-customer-leads.md)
 - [잠재 고객 관리에 대한 일반적인 질문](lead-management-faq.md#common-questions-about-lead-management)

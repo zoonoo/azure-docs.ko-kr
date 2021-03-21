@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043068"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
@@ -22,7 +22,7 @@ ms.locfileid: "102043068"
 - [서버 마이그레이션](common-questions-server-migration.md) 에 대 한 질문
 - [Azure Migrate 포럼](https://aka.ms/AzureMigrateForum) 에서 질문에 대 한 답변 받기
 
-## <a name="what-is-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 란 무엇 인가요?
+## <a name="what-is-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스란?
 
 Azure Migrate 어플라이언스는 Azure Migrate: 서버 평가 도구에서 온-프레미스 또는 클라우드에서 실제 또는 가상 서버를 검색 하 고 평가 하는 데 사용 하는 경량 어플라이언스입니다. Azure Migrate: 서버 마이그레이션 도구는 또한 온-프레미스 VMware Vm의 에이전트 없는 마이그레이션에 어플라이언스를 사용 합니다.
 

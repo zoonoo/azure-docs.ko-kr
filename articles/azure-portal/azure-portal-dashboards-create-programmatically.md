@@ -4,10 +4,10 @@ description: Azure Portal 대시보드를 템플릿으로 사용 하 여 프로�
 ms.topic: how-to
 ms.date: 12/4/2020
 ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095178"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
@@ -46,7 +46,7 @@ ms.locfileid: "101095178"
 
 ![대시보드 공유](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-**공유** 를 선택 하면 게시할 구독 및 리소스 그룹을 선택 하 라는 메시지가 표시 됩니다. 선택한 구독 및 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+**공유** 를 선택 하면 게시할 구독 및 리소스 그룹을 선택 하 라는 메시지가 표시 됩니다. 선택한 구독 및 리소스 그룹에 대 한 쓰기 권한이 있어야 합니다. 자세한 내용은 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ![공유 및 액세스 변경](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

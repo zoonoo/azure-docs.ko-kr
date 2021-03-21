@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
 ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92779767"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
@@ -81,7 +81,7 @@ ms.locfileid: "92779767"
 
 ## <a name="operations"></a>작업
 
-- [SQL Managed Instance에서 사용자가 시작한 수동 장애 조치](user-initiated-failover.md)
+- [SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)](user-initiated-failover.md)
 
 ## <a name="develop-applications"></a>애플리케이션 개발
 

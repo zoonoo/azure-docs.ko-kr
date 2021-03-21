@@ -32,7 +32,7 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 
 미사용 자산을 보호 하기 위해 자산을 저장소 쪽 암호화로 암호화 해야 합니다. 다음 표는 Media Services v3에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|Description|Media Services v3|
+|암호화 옵션|설명|Media Services v3|
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>1</sup>|
 |[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576534"
 ---
 # <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 애플리케이션에 액세스
@@ -85,7 +85,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 6. **레코드 집합 추가** 에서 다음 정보를 입력 하거나 선택 합니다.
 
-    |Setting     |값                                                                      |
+    |설정     |값                                                                      |
     |------------|---------------------------------------------------------------------------|
     |속성        |*\** 를 입력합니다.                                                                 |
     |Type        |선택                                                                |
@@ -93,7 +93,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
     |TTL 단위    |**시간** 선택                                                           |
     |IP 주소  |3 단계에서 복사한 IP 주소를 입력 합니다. 샘플에서 *10.1.0.7* 을 입력 합니다.    |
 
-    그런 다음, **확인** 을 선택합니다.
+    그런 다음 **확인** 을 선택합니다.
 
     ![개인 DNS 영역 레코드 추가](media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png)
 

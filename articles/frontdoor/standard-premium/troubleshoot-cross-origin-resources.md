@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: ee8f19aca62d2e331fcf59551d47c2dac93783b1
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099368"
 ---
 # <a name="using-azure-front-door-standardpremium-with-cross-origin-resource-sharing-cors"></a>CORS (원본 간 리소스 공유)에서 Azure Front 도어 Standard/Premium 사용
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 ## <a name="what-is-cors"></a>CORS는 무엇인가요?
 
@@ -40,7 +40,7 @@ CORS 요청에는 *간단한 요청* 과 *복잡한 요청* 의 두 가지 유�
 
 2. 서버는 다음으로 응답할 수 있습니다.
 
-   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 다음은 그 예입니다. 
+   * 허용되는 원본 사이트를 나타내는 응답의 **Access-Control-Allow-Origin** 헤더 예를 들면 다음과 같습니다.
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 

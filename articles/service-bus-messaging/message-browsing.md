@@ -4,10 +4,10 @@ description: Service Bus 메시지 찾아보기 및 피킹 Azure Service Bus 클
 ms.topic: article
 ms.date: 11/11/2020
 ms.openlocfilehash: c52c9c967d4eada1a931e188ed4d25f7691cfb91
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94553644"
 ---
 # <a name="message-browsing"></a>메시지 찾아보기
@@ -22,7 +22,7 @@ ms.locfileid: "94553644"
 
 ## <a name="peek-apis"></a>Peek API
 
-[Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 및 [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 메서드는 .net 및 Java 클라이언트 라이브러리와 수신자 개체: **MessageReceiver** , **messagesession** 에 있습니다. 피킹 (peeking)은 큐, 구독 및 각각의 배달 못 한 편지 큐에서 작동 합니다.
+[Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 및 [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 메서드는 .net 및 Java 클라이언트 라이브러리와 수신자 개체: **MessageReceiver**, **messagesession** 에 있습니다. 피킹 (peeking)은 큐, 구독 및 각각의 배달 못 한 편지 큐에서 작동 합니다.
 
 반복적으로 호출 되 면 **피킹 (peeking** )은 큐 또는 구독 로그의 모든 메시지를 순서 대로 사용 가능한 가장 낮은 시퀀스 번호에서 가장 높은 순서로 열거 합니다. 메시지가 최종적으로 검색 될 수 있는 순서가 아니라 메시지가 큐에 배치 되는 순서입니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '동의어 c # 예제'
+title: 동의어 C# 예
 titleSuffix: Azure Cognitive Search
 description: '이 c # 예제에서는 Azure Cognitive Search에서 동의어 기능을 인덱스에 추가 하는 방법에 대해 알아봅니다. 동의어 맵은 동일한 용어 목록입니다. 동의어를 지원하는 필드는 사용자가 제공한 용어 및 모든 관련 동의어를 포함하도록 쿼리를 확장합니다.'
 manager: nitinme
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 50d5d73e71b8129f061ec49b363a0ebb13d22bdf
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704659"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>예: C에 Azure Cognitive Search에 대 한 동의어 추가 #
@@ -45,7 +45,7 @@ Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매
 
 .NET 클라이언트 라이브러리에 익숙하지 않은 경우 [.net에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)에서이 예제에 사용 된 샘플 응용 프로그램의 전체 소스 코드를 찾을 수 있습니다.
 

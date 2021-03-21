@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.openlocfilehash: eecbcb817ad31480f8f6c3c7272328d06b17c081
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384064"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 QuickBooks Online에서 데이터 복사
@@ -45,12 +45,12 @@ QuickBooks Online에서 지원되는 모든 싱크 데이터 저장소로 데이
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **QuickBooks** 로 설정해야 합니다. | Yes |
-| connectionProperties | QuickBooks에 연결 하는 방법을 정의 하는 속성 그룹입니다. | Yes |
+| type | type 속성은 **QuickBooks** 로 설정해야 합니다. | 예 |
+| connectionProperties | QuickBooks에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
 | ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
-| 엔드포인트(endpoint) | QuickBooks Online 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | Yes |
-| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다. 회사 ID를 찾는 방법에 대 한 자세한 내용은 [어떻게 할까요? 회사 id 찾기](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)를 참조 하세요. | Yes |
-| consumerKey | OAuth 2.0 인증용 QuickBooks Online 응용 프로그램의 클라이언트 ID입니다. [여기](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app)에서 자세히 알아보세요. | Yes |
+| 엔드포인트(endpoint) | QuickBooks Online 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | 예 |
+| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다. 회사 ID를 찾는 방법에 대 한 자세한 내용은 [어떻게 할까요? 회사 id 찾기](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)를 참조 하세요. | 예 |
+| consumerKey | OAuth 2.0 인증용 QuickBooks Online 응용 프로그램의 클라이언트 ID입니다. [여기](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app)에서 자세히 알아보세요. | 예 |
 | consumerSecret | OAuth 2.0 인증용 QuickBooks Online 응용 프로그램의 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | refreshToken | QuickBooks 응용 프로그램과 연결 된 OAuth 2.0 새로 고침 토큰입니다. [여기](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app)에서 자세히 알아보세요. 참고 새로 고침 토큰은 180 일 후에 만료 됩니다. 고객은 새로 고침 토큰을 정기적으로 업데이트 해야 합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.| 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |

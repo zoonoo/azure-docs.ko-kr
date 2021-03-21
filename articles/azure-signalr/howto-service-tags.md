@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: aaa97c2cb062f30b1260ec7f80f85a3caccf932f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92152321"
 ---
 # <a name="use-service-tags-for-azure-signalr-service"></a>Azure SignalR Service에 서비스 태그 사용
@@ -27,21 +27,21 @@ Azure SignalR Service는 이러한 서비스 태그를 관리 합니다. 사용�
 
 1. 네트워크 보안 그룹으로 이동 합니다.
 
-1. **아웃 바운드 보안 규칙**이라고 하는 설정 메뉴를 클릭 합니다.
+1. **아웃 바운드 보안 규칙** 이라고 하는 설정 메뉴를 클릭 합니다.
 
 1. 위쪽의 단추 **+ 추가** 를 클릭 합니다.
 
-1. **대상**아래에서 **서비스 태그** 를 선택 합니다.
+1. **대상** 아래에서 **서비스 태그** 를 선택 합니다.
 
-1. **대상 서비스 태그**아래에서 **AzureSignalR** 을 선택 합니다.
+1. **대상 서비스 태그** 아래에서 **AzureSignalR** 을 선택 합니다.
 
-1. **대상 포트 범위**에 **443** 을 입력 합니다.
+1. **대상 포트 범위** 에 **443** 을 입력 합니다.
 
     ![아웃 바운드 보안 규칙 만들기](media/howto-service-tags/portal-add-outbound-security-rule.png)
 
 1. 필요에 따라 다른 필드를 조정 합니다.
 
-1. **추가**를 클릭합니다.
+1. **추가** 를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: qixwang
 ms.openlocfilehash: c912ebde5499ec2f9f68e5f5762af60823faefe1
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100233"
 ---
 # <a name="troubleshooting-azure-front-door-standardpremium-file-compression"></a>Azure Front 도어 표준/프리미엄 파일 압축 문제 해결
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 이 문서는 Azure Front 도어 표준/프리미엄 파일 압축 문제를 해결 하는 데 도움이 됩니다.
 

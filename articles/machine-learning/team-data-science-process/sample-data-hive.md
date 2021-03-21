@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321886"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Azure HDInsight Hive 테이블에서 데이터 샘플링
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 여기서 `<sample rate, 0-1>` 은 사용자가 샘플링할 레코드의 비율을 지정합니다.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> 그룹별 무작위 샘플링
-범주 데이터를 샘플링할 때 범주 변수의 일부 값 인스턴스를 모두 포함하거나 제외할 수 있습니다. 이러한 종류의 샘플링을 "그룹별 샘플링"이라고 합니다. 예를 들어 값이 NY, MA, CA, NJ, PA 등인 범주 변수 " *State* "가 있는 경우 샘플링 여부에 상관없이 각 state의 레코드를 항상 함께 유지할 수 있습니다.
+범주 데이터를 샘플링할 때 범주 변수의 일부 값 인스턴스를 모두 포함하거나 제외할 수 있습니다. 이러한 종류의 샘플링을 "그룹별 샘플링"이라고 합니다. 예를 들어 값이 NY, MA, CA, NJ, PA 등인 범주 변수 "*State*"가 있는 경우 샘플링 여부에 상관없이 각 state의 레코드를 항상 함께 유지할 수 있습니다.
 
 다음은 그룹별로 샘플링하는 예제 쿼리입니다.
 

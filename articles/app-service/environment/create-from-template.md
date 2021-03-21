@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 15cd0979fdc2468ab50451042cd99a8442470139
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148171"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
@@ -47,7 +47,7 @@ ASE를 만드는 Resource Manager 템플릿 및 관련 매개 변수 파일은 G
 ILB ASE를 만들려는 경우에는 이 Resource Manager 템플릿 [예제][quickstartilbasecreate]를 사용하세요. 해당 사용 사례를 제공합니다. *azuredeploy.parameters.json* 파일에 있는 대부분의 매개 변수는 ILB ASE와 외부 ASE 둘 다를 만들 때 공통적으로 적용됩니다. 아래 목록에는 ILB ASE를 만들 때 특히 주의해야 하는 매개 변수 또는 고유한 매개 변수가 나와 있습니다.
 
 * *internalLoadBalancingMode*: 대부분의 경우 이 속성을 3으로 설정합니다. 이것은 포트 80/443의 HTTP/HTTPS 트래픽과 ASE의 FTP 서비스에서 수신하는 컨트롤/데이터 채널 포트가 ILB 할당 가상 네트워크 내부 주소에 바인딩될 것임을 의미합니다. 이 속성을 2로 설정하면 FTP 서비스 관련 포트(컨트롤 채널과 데이터 채널 둘 다)만 ILB 주소로 바인딩됩니다. HTTP/HTTPS 트래픽은 공용 VIP에 그대로 유지됩니다.
-* *dnsSuffix*: 이 매개 변수는 ASE에 할당되는 기본 루트 도메인을 정의합니다. Azure App Service의 공용 변형에서 모든 웹앱용 기본 루트 도메인은 *azurewebsites.net*입니다. ILB ASE는 고객의 가상 네트워크 내부에 있으므로 공용 서비스의 기본 루트 도메인을 사용하는 것은 적합하지 않습니다. 대신, ILB ASE에는 회사의 내부 가상 네트워크 내에서 사용하기 적합한 기본 루트 도메인이 있어야 합니다. 예를 들어 Contoso Corporation은 Contoso의 가상 네트워크 내에서만 확인 가능하고 액세스할 수 있는 앱에 기본 루트 도메인 *internal-contoso.com*을 사용할 수 있습니다. 
+* *dnsSuffix*: 이 매개 변수는 ASE에 할당되는 기본 루트 도메인을 정의합니다. Azure App Service의 공용 변형에서 모든 웹앱용 기본 루트 도메인은 *azurewebsites.net* 입니다. ILB ASE는 고객의 가상 네트워크 내부에 있으므로 공용 서비스의 기본 루트 도메인을 사용하는 것은 적합하지 않습니다. 대신, ILB ASE에는 회사의 내부 가상 네트워크 내에서 사용하기 적합한 기본 루트 도메인이 있어야 합니다. 예를 들어 Contoso Corporation은 Contoso의 가상 네트워크 내에서만 확인 가능하고 액세스할 수 있는 앱에 기본 루트 도메인 *internal-contoso.com* 을 사용할 수 있습니다. 
 * *ipSslAddressCount*: 이 매개 변수는 *azuredeploy.json* 파일에서 자동으로 기본값인 0으로 지정됩니다. ILB ASE에는 ILB 주소가 하나뿐이기 때문입니다. ILB ASE용 명시적 IP-SSL 주소는 없습니다. 따라서 ILB ASE용 IP-SSL 주소 풀은 0으로 설정해야 합니다. 그렇지 않으면 프로비전 오류가 발생합니다. 
 
 *azuredeploy.parameters.json* 파일에 매개 변수를 입력한 후 PowerShell 코드 조각을 사용하여 ASE를 만듭니다. 컴퓨터의 Resource Manager 템플릿 파일 위치와 일치하도록 파일 경로를 변경합니다. Resource Manager 배포 이름 및 리소스 그룹 이름에 대해 고유한 값을 제공해야 합니다.
@@ -62,12 +62,12 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 ASE가 작성되려면 1시간 정도 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
 
 ## <a name="upload-and-configure-the-default-tlsssl-certificate"></a>"Default" TLS/SSL 인증서를 업로드 하 고 구성 합니다.
-TLS/SSL 인증서는 앱에 대 한 TLS 연결을 설정 하는 데 사용 되는 "기본" TLS/SSL 인증서로 ASE에 연결 되어야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*인 경우에는에 `https://some-random-app.internal-contoso.com` 대 한 연결에 **. internal-contoso.com*에 유효한 TLS/SSL 인증서가 필요 합니다. 
+TLS/SSL 인증서는 앱에 대 한 TLS 연결을 설정 하는 데 사용 되는 "기본" TLS/SSL 인증서로 ASE에 연결 되어야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com* 인 경우에는에 `https://some-random-app.internal-contoso.com` 대 한 연결에 **. internal-contoso.com* 에 유효한 TLS/SSL 인증서가 필요 합니다. 
 
 내부 인증 기관을 사용 하거나, 외부 발급자 로부터 인증서를 구입 하거나, 자체 서명 된 인증서를 사용 하 여 유효한 TLS/SSL 인증서를 얻습니다. TLS/SSL 인증서의 원본에 관계 없이 다음과 같은 인증서 특성을 올바르게 구성 해야 합니다.
 
-* **Subject**:이 특성은 **. your-root-domain-here.com*로 설정 해야 합니다.
-* **주체 대체 이름**:이 특성은 **. your-root-domain-here.com* 및 **. scm.your-root-domain-here.com*를 모두 포함 해야 합니다. 각 앱과 연결 된 SCM/Kudu 사이트에 대 한 TLS 연결은 *your-app-name.scm.your-root-domain-here.com*형식의 주소를 사용 합니다.
+* **Subject**:이 특성은 **. your-root-domain-here.com* 로 설정 해야 합니다.
+* **주체 대체 이름**:이 특성은 **. your-root-domain-here.com* 및 **. scm.your-root-domain-here.com* 를 모두 포함 해야 합니다. 각 앱과 연결 된 SCM/Kudu 사이트에 대 한 TLS 연결은 *your-app-name.scm.your-root-domain-here.com* 형식의 주소를 사용 합니다.
 
 유효한 TLS/SSL 인증서를 사용 하는 경우 두 가지 추가 준비 단계가 필요 합니다. TLS/SSL 인증서를 .pfx 파일로 변환/저장 합니다. .pfx 파일에는 모든 중간 인증서와 루트 인증서를 포함해야 합니다. 암호로 인증서를 보호합니다.
 
@@ -107,7 +107,7 @@ TLS/SSL 인증서가 성공적으로 생성 되 고 b a s e 64로 인코딩된 �
 * *certificateThumbprint*: 인증서의 지문입니다. PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint*) 값을 있는 그대로 사용할 수 있습니다. Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다. *CertificateThumbprint* 는 AF3143EB61D43F6727842115BB7F17BBCECAECAE와 같아야 합니다.
 * *Certificatename*: 인증서를 식별 하는 데 사용 되는 고유한 선택의 친숙 한 문자열 식별자입니다. 이 이름은 TLS/SSL 인증서를 나타내는 *Microsoft 웹/인증서* 엔터티에 대 한 고유 리소스 관리자 식별자의 일부로 사용 됩니다. 이름은 yourASENameHere_InternalLoadBalancingASE 접미사로 *끝나야 합니다.* \_ Azure Portal에서는 인증서가 ILB 지원 ASE를 보호하는 데 사용됨을 나타내는 표시기로 이 접미사를 사용합니다.
 
-*azuredeploy.parameters.json*을 축약한 예는 다음과 같습니다.
+*azuredeploy.parameters.json* 을 축약한 예는 다음과 같습니다.
 
 ```json
 {
@@ -147,7 +147,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 변경 내용이 적용되려면 ASE 프런트 엔드당 약 40분이 걸립니다. 예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기 ASE의 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다. 템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  
 
-템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 기본 TLS/SSL 인증서를 사용 하 여 연결을 보호 합니다. 기본 TLS/SSL 인증서는 응용 프로그램 이름과 기본 호스트 이름 조합을 사용 하 여 ILB ASE의 앱에 주소를 지정할 때 사용 됩니다. 예를 들어는 `https://mycustomapp.internal-contoso.com` **. internal-contoso.com*에 대 한 기본 TLS/SSL 인증서를 사용 합니다.
+템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 기본 TLS/SSL 인증서를 사용 하 여 연결을 보호 합니다. 기본 TLS/SSL 인증서는 응용 프로그램 이름과 기본 호스트 이름 조합을 사용 하 여 ILB ASE의 앱에 주소를 지정할 때 사용 됩니다. 예를 들어는 `https://mycustomapp.internal-contoso.com` **. internal-contoso.com* 에 대 한 기본 TLS/SSL 인증서를 사용 합니다.
 
 그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대 한 고유한 SNI TLS/SSL 인증서 바인딩을 구성할 수 있습니다.
 

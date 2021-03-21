@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 논리 값�
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920480"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿에 대 한 논리 함수
@@ -32,7 +32,7 @@ ms.locfileid: "96920480"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
@@ -82,7 +82,7 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
@@ -96,7 +96,7 @@ output notExampleOutput bool = !(bool('true'))
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
@@ -203,7 +203,7 @@ output falseOutput bool = false
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | falseOutput | Bool | 거짓 |
 
@@ -215,7 +215,7 @@ output falseOutput bool = false
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | condition(조건) |예 |boolean |True 인지 false 인지 확인 하는 값입니다. |
 | trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
@@ -270,11 +270,11 @@ output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('nul
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
 | noOutput | String | no |
-| objectOutput | 개체 | { "test": "value1" } |
+| objectOutput | Object | { "test": "value1" } |
 
 다음 [예제 템플릿에서는](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) 조건부로 유효한 식으로이 함수를 사용 하는 방법을 보여 줍니다.
 
@@ -341,7 +341,7 @@ output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('nul
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |변환할 값입니다. |
 
@@ -389,7 +389,7 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
@@ -424,7 +424,7 @@ output checkNotEquals bool = !(1 == 2)
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -436,7 +436,7 @@ output checkNotEquals bool = !(1 == 2)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |boolean |true인지 확인할 첫 번째 값입니다. |
 | arg2 |예 |boolean |true인지 확인할 두 번째 값입니다. |
@@ -486,7 +486,7 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | 거짓 |
 | orExampleOutput | Bool | True |
@@ -536,7 +536,7 @@ output trueOutput bool = true
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | trueOutput | Bool | True |
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 98c413f85fe556f5fb413716037163931753e1d7
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240735"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 데이터 암호화
@@ -35,18 +35,18 @@ Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 �
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
     ```
 
-* 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
+* 고객 관리형 키로 사용하려면 키에 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
   * 사용 안 함 없음
   * Get, wrap 키 및 래핑 해제 키 작업을 수행할 수 있습니다.
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대 한 올바른 사용 권한 설정
 
-1. Key Vault에서 액세스 정책 **Access policies**  >  **추가 액세스 정책** 을 선택 합니다.
+1. Key Vault에서 액세스 정책   >  **추가 액세스 정책** 을 선택 합니다.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="액세스 정책을 사용 하는 Key Vault의 스크린샷 강조 표시 된 액세스 정책 추가":::
 
-2. **키 사용 권한** 을 선택 하 고 **가져오기** , **래핑** , **래핑** 해제 및 PostgreSQL 서버의 이름인 **보안 주체** 를 선택 합니다. 기존 보안 주체 목록에서 서버 보안 주체를 찾을 수 없는 경우 등록 해야 합니다. 처음으로 데이터 암호화를 설정 하려고 할 때 서버 보안 주체를 등록 하 라는 메시지가 표시 되 고 실패 합니다.  
+2. **키 사용 권한** 을 선택 하 고 **가져오기**, **래핑**, **래핑** 해제 및 PostgreSQL 서버의 이름인 **보안 주체** 를 선택 합니다. 기존 보안 주체 목록에서 서버 보안 주체를 찾을 수 없는 경우 등록 해야 합니다. 처음으로 데이터 암호화를 설정 하려고 할 때 서버 보안 주체를 등록 하 라는 메시지가 표시 되 고 실패 합니다.  
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="액세스 정책 개요":::
 

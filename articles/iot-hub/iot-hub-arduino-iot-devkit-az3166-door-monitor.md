@@ -9,10 +9,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: e3649ac786c07459695a1e6ca6ad52620e23d59f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148803"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
@@ -73,7 +73,7 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
    * **이메일**: SendGrid 서비스에서는 이 이메일 주소로 확인을 보냅니다.
 
-이 애플리케이션을 나중에 쉽게 찾을 수 있도록 **대시보드에 고정** 옵션을 선택한 다음, **구매**를 클릭하여 등록 양식을 제출합니다.
+이 애플리케이션을 나중에 쉽게 찾을 수 있도록 **대시보드에 고정** 옵션을 선택한 다음, **구매** 를 클릭하여 등록 양식을 제출합니다.
  
 ### <a name="sendgrid-api-key-creation"></a>SendGrid API 키 생성
 
@@ -81,11 +81,11 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
 ![SendGrid 관리](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-SendGrid 페이지에서 **설정**  >  **api 키**  >  **api 키 만들기**를 클릭 합니다.
+SendGrid 페이지에서 **설정**  >  **api 키**  >  **api 키 만들기** 를 클릭 합니다.
 
 ![SendGrid API 처음 만들기](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
-**API 키 만들기** 페이지에서 **API 키 이름**을 입력하고 **만들기 및 보기**를 클릭합니다.
+**API 키 만들기** 페이지에서 **API 키 이름** 을 입력하고 **만들기 및 보기** 를 클릭합니다.
 
 ![SendGrid API 두 번째 만들기](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-second.png)
 
@@ -113,7 +113,7 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
    * **이메일에서**: 이 필드는 SendGrid 서비스를 설정할 때 사용한 것과 동일한 이메일 주소여야 합니다.
 
-이 애플리케이션을 나중에 쉽게 찾을 수 있도록 **대시보드에 고정** 옵션을 선택한 다음, 다음 단계를 계속할 준비가 되면 **구매**를 클릭합니다.
+이 애플리케이션을 나중에 쉽게 찾을 수 있도록 **대시보드에 고정** 옵션을 선택한 다음, 다음 단계를 계속할 준비가 되면 **구매** 를 클릭합니다.
  
 ## <a name="build-and-upload-the-code"></a>코드 빌드 및 업로드
 
@@ -130,11 +130,11 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
 ### <a name="open-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **DoorMonitor**를 선택합니다. 이 작업은 프로젝트 폴더가 있는 새 VS Code 창을 엽니다.
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT** 로 이동하여 **DoorMonitor** 를 선택합니다. 이 작업은 프로젝트 폴더가 있는 새 VS Code 창을 엽니다.
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-명령 팔레트에서 예제 앱을 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+명령 팔레트에서 예제 앱을 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino** 를 입력한 다음, **Arduino: 예제** 를 찾아서 선택합니다.
 
 ### <a name="provision-azure-services"></a>Azure 서비스 프로비전
 
@@ -157,7 +157,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
 
-2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에서는 DevKit ID 번호와 *구성*이라는 단어를 표시합니다.
+2. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에서는 DevKit ID 번호와 *구성* 이라는 단어를 표시합니다.
 
 #### <a name="macos"></a>macOS
 

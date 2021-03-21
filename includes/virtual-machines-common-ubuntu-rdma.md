@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016137"
 ---
 1. Dapl, rdmacm, ibverbs 및 mlx4 설치
@@ -28,7 +28,7 @@ ms.locfileid: "96016137"
    OS.UpdateRdmaDriver=y
    ```
 
-3. /etc/security/limits.conf 파일에서 다음 메모리 설정(KB)을 추가하거나 변경합니다. 이 파일을 편집하려면 루트 액세스가 필요합니다. 테스트를 위해 memlock을 unlimited로 설정할 수 있습니다. 예: `<User or group name>   hard    memlock   unlimited`
+3. /etc/security/limits.conf 파일에서 다음 메모리 설정(KB)을 추가하거나 변경합니다. 이 파일을 편집하려면 루트 액세스가 필요합니다. 테스트를 위해 memlock을 unlimited로 설정할 수 있습니다. 예를 들어 `<User or group name>   hard    memlock   unlimited`을 참조하십시오.
 
    ```
    <User or group name> hard    memlock <memory required for your application in KB>

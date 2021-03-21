@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 62eb4ab9eb6e4b0e7be0f7aadae1173950d21615
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98064490"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>MSAL.NET와 함께 Xamarin iOS 사용에 대 한 고려 사항
@@ -90,7 +90,7 @@ MSAL 2.x부터 키 집합 액세스 그룹을 지정 하 여 여러 응용 프�
 이 문서의 앞부분에서 MSAL이 API를 사용할 때마다 추가 된다는 것을 배웠습니다 `$(AppIdentifierPrefix)` `WithIosKeychainSecurityGroup()` . 팀 ID는 `AppIdentifierPrefix` 동일한 게시자가 만든 응용 프로그램만 키 집합 액세스를 공유할 수 있도록 하기 때문에 MSAL은이 요소를 추가 합니다.
 
 > [!NOTE]
-> `KeychainSecurityGroup`속성은 사용 되지 않습니다. 대신 `iOSKeychainSecurityGroup` 속성을 사용하세요. 을 `TeamId` 사용 하는 경우에는 접두사가 필요 하지 않습니다 `iOSKeychainSecurityGroup` .
+> `KeychainSecurityGroup` 속성은 더 이상 사용되지 않습니다. 대신 `iOSKeychainSecurityGroup` 속성을 사용하세요. 을 `TeamId` 사용 하는 경우에는 접두사가 필요 하지 않습니다 `iOSKeychainSecurityGroup` .
 
 ### <a name="use-microsoft-authenticator"></a>Microsoft Authenticator 사용
 
