@@ -4,10 +4,10 @@ description: Stream Analytics를 사용하여 Application Insights 데이터를 
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100587753"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
@@ -242,7 +242,7 @@ SELECT TOP 100 *
 FROM [dbo].[PageViewsTable]
 ```
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 * [Stream Analytics를 사용하여 Power BI로 내보내기](./export-power-bi.md)
 * [속성 형식 및 값에 대 한 자세한 데이터 모델 참조입니다.](./export-data-model.md)
 * [Application Insights에서 연속 내보내기](./export-telemetry.md)

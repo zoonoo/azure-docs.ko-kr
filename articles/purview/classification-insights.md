@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
 ms.openlocfilehash: b6ea3e762ad098e373baa8487d8926105820f226
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101666523"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 분류 통찰력
@@ -27,7 +27,7 @@ ms.locfileid: "101666523"
 > - 데이터에 대 한 분류 정보 보기
 > - 드릴 다운 하 여 데이터에 대 한 자세한 분류 정보
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -81,7 +81,7 @@ Azure 부서의 범위에서 분류는 subject 태그와 비슷하며 검색 중
 - **테이블에 대 한 상위 분류**
 - **분류 작업 > 분류 데이터**
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/insights/view-classifications-small.png" alt-text="모든 분류 보기" lightbox="media/insights/view-classifications.png":::
 

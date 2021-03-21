@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
 ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906151"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)에 대 한 연결 및 네트워킹 개념
@@ -114,7 +114,7 @@ MySQL Server 서비스의 Microsoft Azure Database에 대 한 액세스가 예�
 ## <a name="hostname"></a>호스트 이름
 선택한 네트워킹 옵션에 관계 없이 유연한 서버에 연결할 때 항상 FQDN (정규화 된 도메인 이름)을 호스트 이름으로 사용 하는 것이 좋습니다. 서버의 IP 주소는 정적으로 유지 되지 않을 수 있습니다. FQDN을 사용 하면 연결 문자열을 변경 하지 않아도 됩니다. 
 
-예
+예제
 * 바람직하지 `hostname = servername.mysql.database.azure.com`
 * 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 IP)를 사용 하지 마십시오.
 

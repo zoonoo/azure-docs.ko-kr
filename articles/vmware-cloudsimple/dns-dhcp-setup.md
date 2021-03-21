@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: cdcb3cd7afa660909fad416ca455c041dc50321e
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97896995"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드에서 DNS 및 DHCP 응용 프로그램 및 워크 로드 설정
 
 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다.  이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다.  사설 클라우드 환경에서 이러한 서비스를 제공 하도록 가상 컴퓨터를 구성할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * VLAN이 구성 된 분산 포트 그룹
 * 온-프레미스 또는 인터넷 기반 DNS 서버로 설정 라우팅

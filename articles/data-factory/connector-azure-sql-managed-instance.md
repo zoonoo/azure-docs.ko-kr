@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 91e383b746509000cef74e96c08d1b70316a0527
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.date: 03/17/2021
+ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225254"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597418"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Managed Instance에서 데이터 복사 및 변환
 
@@ -44,7 +44,7 @@ SQL Managed Instance [공용 끝점](../azure-sql/managed-instance/public-endpoi
 
 SQL Managed Instance 개인 끝점에 액세스 하려면 데이터베이스에 액세스할 수 있는 [자체 호스팅 통합 런타임을](create-self-hosted-integration-runtime.md) 설정 합니다. 자체 호스팅 통합 런타임을 관리 되는 인스턴스와 동일한 가상 네트워크에 프로 비전 하는 경우 통합 런타임 컴퓨터가 관리 되는 인스턴스와 다른 서브넷에 있는지 확인 합니다. 자체 호스팅 통합 런타임을 관리 되는 인스턴스가 아닌 다른 가상 네트워크에 프로 비전 하는 경우 가상 네트워크 피어 링 또는 가상 네트워크에서 가상 네트워크 연결을 사용할 수 있습니다. 자세한 내용은 [애플리케이션을 SQL Managed Instance에 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조하세요.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -54,7 +54,7 @@ SQL Managed Instance 개인 끝점에 액세스 하려면 데이터베이스에 
 
 SQL Managed Instance 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **AzureSqlMI** 로 설정 해야 합니다. | 예 |
 | connectionString |이 속성은 SQL 인증을 사용 하 여 SQL Managed Instance에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 자세한 내용은 다음 예를 참조하세요. <br/>기본 포트는 1433입니다. 공용 끝점을 사용 하 여 SQL Managed Instance를 사용 하는 경우 포트 3342을 명시적으로 지정 합니다.<br> Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 `password` 연결 문자열에서 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
@@ -62,7 +62,7 @@ SQL Managed Instance 연결 된 서비스에 대해 지원 되는 속성은 다�
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | tenant | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | azureCloudType | 서비스 주체 인증의 경우 Azure AD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부** 및 **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
-| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 관리 되는 인스턴스에 공용 끝점이 있고 Azure Data Factory에서 액세스할 수 있도록 허용 하는 경우 자체 호스팅 통합 런타임 또는 Azure integration runtime을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |Yes |
+| connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 관리 되는 인스턴스에 공용 끝점이 있고 Azure Data Factory에서 액세스할 수 있도록 허용 하는 경우 자체 호스팅 통합 런타임 또는 Azure integration runtime을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -224,7 +224,7 @@ SQL Managed Instance 연결 된 서비스에 대해 지원 되는 속성은 다�
 
 SQL Managed Instance 간에 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AzureSqlMITable** 로 설정 해야 합니다. | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -263,7 +263,7 @@ SQL Managed Instance 간에 데이터를 복사 하려면 다음 속성이 지�
 
 SQL Managed Instance에서 데이터를 복사 하려면 복사 작업 원본 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **Sql오 ource** 로 설정 해야 합니다. | 예 |
 | SqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `select * from MyTable`입니다. |예 |
@@ -376,9 +376,9 @@ GO
 
 SQL Managed Instance로 데이터를 복사 하려면 복사 작업 싱크 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 type 속성은 **Sql오 ink** 로 설정 되어야 합니다. | Yes |
+| type | 복사 작업 싱크의 type 속성은 **Sql오 ink** 로 설정 되어야 합니다. | 예 |
 | preCopyScript |이 속성은 SQL Managed Instance에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
 | tableOption | 원본 스키마에 따라 존재 하지 않는 경우 [싱크 테이블을 자동으로 만들지](copy-activity-overview.md#auto-create-sink-tables) 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하는 경우 자동 테이블 만들기가 지원 되지 않습니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
 | sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. <br/>이 저장 프로시저는 *배치마다 호출* 됩니다. 한 번만 실행 되 고 원본 데이터 (예: 삭제 또는 자르기)와 관련이 없는 작업의 경우 속성을 사용 `preCopyScript` 합니다.<br>[SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)의 예를 참조 하세요. | 아니요 |
@@ -386,7 +386,8 @@ SQL Managed Instance로 데이터를 복사 하려면 복사 작업 싱크 섹�
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |예 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예 |
 | writeBatchSize |*일괄* 처리당 SQL 테이블에 삽입할 행 수입니다.<br/>허용되는 값은 행 수에 해당하는 정수입니다. 기본적으로 Azure Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다.  |아니요 |
-| writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용 되는 값은 timespan입니다. 예를 들면 "00:30:00" 이며 30 분입니다. |아니요 |
+| writeBatchTimeout |이 속성은 시간이 초과되기 전에 완료하려는 배치 삽입 작업의 대기 시간을 지정합니다.<br/>허용 되는 값은 timespan입니다. 예를 들면 "00:30:00" 이며 30 분입니다. |예 |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 아니요 |
 
 **예제 1: 데이터 추가**
 
@@ -644,7 +645,7 @@ SQL Managed Instance로 데이터를 복사 하는 경우 원본 테이블의 �
 
 아래 표에서는 Azure SQL Managed Instance 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택 하는 경우 데이터 흐름은 데이터 집합에 지정 된 테이블에서 모든 데이터를 인출 합니다. | 아니요 | - |- |
 | 쿼리 | 쿼리를 입력으로 선택 하는 경우 데이터 집합에서 지정한 테이블을 재정의 하는 원본에서 데이터를 인출 하는 SQL 쿼리를 지정 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄일 수 있는 좋은 방법입니다.<br><br>**Order by** 절은 지원 되지 않지만 FULL SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환 하는 SQL의 UDF입니다.<br>쿼리 예제: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
@@ -667,9 +668,9 @@ source(allowSchemaDrift: true,
 
 아래 표에는 Azure SQL Managed Instance 싱크에 의해 지원 되는 속성이 나와 있습니다. **싱크 옵션** 탭에서 이러한 속성을 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Update 메서드 | 데이터베이스 대상에서 허용 되는 작업을 지정 합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | Yes | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
+| Update 메서드 | 데이터베이스 대상에서 허용 되는 작업을 지정 합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
 | 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정 하기 위해 키 열을 설정 해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용 됩니다. 따라서 싱크 매핑에 있는 열을 선택 해야 합니다. | 아니요 | Array | 키 |
 | 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 "키 열 작성 건너뛰기"를 선택 합니다. | 아니요 | `true` 또는 `false` | skipKeyWrites |
 | 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | 아니요 | `true` 또는 `false` | 다시<br/>truncate |
@@ -738,7 +739,7 @@ IncomingStream sink(allowSchemaDrift: true,
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |문자열 |
+| Xml |String |
 
 >[!NOTE]
 > Decimal 중간 형식에 매핑되는 데이터 형식의 경우 현재 복사 작업은 최대 28 까지의 전체 자릿수를 지원 합니다. 자릿수가 28자리를 초과하는 데이터가 있으면 SQL 쿼리에서 문자열로 변환하는 것이 좋습니다.

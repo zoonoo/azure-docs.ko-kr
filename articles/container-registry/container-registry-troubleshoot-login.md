@@ -4,10 +4,10 @@ description: Azure container registry에 로그인 할 때 발생 하는 일반�
 ms.topic: article
 ms.date: 08/11/2020
 ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99052081"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
@@ -145,7 +145,7 @@ Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트�
 
 * 다른 레지스트리 문제 해결 항목은 다음과 같습니다.
   * [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)
-  * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+  * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
 * [Microsoft Q&A](/answers/products/)
 * 제공 된 정보에 따라 [지원 티켓을 엽니다](https://azure.microsoft.com/support/create-ticket/) . 레지스트리에서 인증 오류에 대 한 빠른 진단을 실행할 수 있습니다.

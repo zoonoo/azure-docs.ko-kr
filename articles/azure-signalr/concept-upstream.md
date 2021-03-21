@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
 ms.openlocfilehash: 6752a9564dc0d9351d1c21f5be14eb626186ac0d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724060"
 ---
 # <a name="upstream-settings"></a>업스트림 설정
@@ -40,7 +40,7 @@ URL을 매개 변수화 하 여 다양 한 패턴을 지원할 수 있습니다.
 |범주| 범주는 다음 값 중 하나일 수 있습니다. <ul><li>**연결**: 연결 수명 이벤트입니다. 클라이언트 연결이 연결 되거나 연결이 끊어진 경우에 발생 합니다. 연결 된 이벤트와 연결이 끊어진 이벤트를 포함 합니다.</li><li>**메시지**: 클라이언트에서 허브 메서드를 호출할 때 발생 합니다. **연결** 범주에 있는 이벤트를 제외 하 고 다른 모든 이벤트를 포함 합니다.</li></ul>|
 |이벤트| **메시지** 범주의 경우 이벤트는 클라이언트가 보내는 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) 의 대상입니다. **연결** 범주에 대해서는 *연결* 된 연결 및 연결 *끊김* 만 사용 됩니다.|
 
-이러한 미리 정의 된 매개 변수는 URL 패턴에서 사용할 수 있습니다. 업스트림 URL을 평가 하는 경우 매개 변수가 지정 된 값으로 대체 됩니다. 예: 
+이러한 미리 정의 된 매개 변수는 URL 패턴에서 사용할 수 있습니다. 업스트림 URL을 평가 하는 경우 매개 변수가 지정 된 값으로 대체 됩니다. 예를 들면 다음과 같습니다. 
 ```
 http://host.com/{hub}/api/{category}/{event}
 ```
@@ -136,7 +136,7 @@ POST
 
 ### <a name="request-header"></a>요청 헤더
 
-|이름 |설명|
+|Name |설명|
 |---------|---------|
 |X ASRS-연결 Id |클라이언트 연결에 대 한 연결 ID입니다.|
 |X ASRS-허브 |클라이언트 연결이 속한 허브입니다.|
@@ -158,15 +158,15 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json`
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
-|Error |문자열 |닫힌 연결의 오류 메시지입니다. 연결이 오류 없이 닫힐 때 비어 있습니다.|
+|오류 |문자열 |닫힌 연결의 오류 메시지입니다. 연결이 오류 없이 닫힐 때 비어 있습니다.|
 
 #### <a name="invocation-message"></a>호출 메시지
 
 콘텐츠 형식: `application/json` 또는 `application/x-msgpack`
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |InvocationId |문자열 | 호출 메시지를 나타내는 선택적 문자열입니다. [호출](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations)에서 세부 정보를 찾습니다.|
 |대상 |문자열 | 이벤트와 동일 하며 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)의 대상과 동일 합니다. |

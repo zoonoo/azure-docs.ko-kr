@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
 ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694872"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공용 IP 주소 만들기
@@ -38,9 +38,9 @@ ms.locfileid: "101694872"
     | IP 버전              | IPv4 선택                 |    
     | SKU                     | **표준** 선택         |
     | 계층만                   | **지역** 선택         |
-    | 속성                    | **Mystandardzrpublicip** 를 입력 합니다.          |
+    | Name                    | **Mystandardzrpublicip** 를 입력 합니다.          |
     | IP 주소 할당   | 참고이 선택 항목은 "정적"으로 잠겨 있습니다.                                        |
-    | 라우팅 기본 설정      | **Microsoft 네트워크** 의 기본값을 그대로 둡니다. </br> 라우팅 기본 설정에 대 한 자세한 내용은 [라우팅 기본 설정 (미리 보기) 이란?](./routing-preference-overview.md)을 참조 하세요. |
+    | 라우팅 기본 설정      | **Microsoft 네트워크** 의 기본값을 그대로 둡니다. </br> 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정(미리 보기)이란?](./routing-preference-overview.md)을 참조하세요. |
     | 유휴 시간 제한 (분)  | 기본값인 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 값을 비워 둡니다.    |
     | Subscription            | 구독을 선택합니다.   |
@@ -73,7 +73,7 @@ ms.locfileid: "101694872"
     | ---                     | ---                         |
     | IP 버전              | IPv4 선택                 |    
     | SKU                     | **기본** 을 선택합니다.         |
-    | 속성                    | *Mybasicpublicip* 입력          |
+    | Name                    | *Mybasicpublicip* 입력          |
     | IP 주소 할당   | **정적** 선택 (아래 참고 참조)                                     |
     | 유휴 시간 제한 (분)  | 기본값인 **4** 를 그대로 둡니다.       |
     | DNS 이름 레이블          | 값을 비워 둡니다.    |

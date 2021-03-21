@@ -6,10 +6,10 @@ author: pharring
 ms.author: pharring
 ms.date: 11/10/2020
 ms.openlocfilehash: 4a787c6e2a9b59874f965a2bbcebea9ce02d8082
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97093263"
 ---
 # <a name="release-notes-for-microsoftapplicationinsightssnapshotcollector"></a>Microsoft.applicationinsights.snapshotcollector에 대 한 릴리스 정보입니다.
@@ -41,7 +41,7 @@ Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 �
 ## <a name="137"></a>[1.3.7](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.7)
 ### <a name="changes"></a>변경
 - Microsoft.applicationinsights.snapshotcollector의 netcoreapp1.0 2.0 대상은 AspNetCore >= 2.1.1 (다시)에 따라 달라 집니다. 이렇게 하면 1.3.5 전의 동작으로 되돌아갑니다. 1.3.6에서 업그레이드 하려고 했지만 일부 Azure App Service 시나리오는 중단 되었습니다.
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 - Snapshot Collector는 APPLICATIONINSIGHTS_CONNECTION_STRING 환경 변수 또는 TelemetryConfiguration에서 ConnectionString을 읽고 구문 분석 합니다. 주로이는 스냅숏 서비스에 연결 하기 위한 끝점을 설정 하는 데 사용 됩니다. 자세한 내용은 [연결 문자열 설명서](./sdk-connection-string.md)를 참조 하세요.
 ### <a name="bug-fixes"></a>버그 수정
 - 호환 되지 않는 SecurityProtocol (TLS 1.2 필요)으로 인해 일부 환경에서 WebRequest가 실패 했기 때문에 net45를 제외한 모든 대상에 대해 HttpClient를 사용 하도록 전환 되었습니다.
@@ -52,7 +52,7 @@ Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 �
 - 스냅숏 업 로더에서 TLS 1.0 및 1.1에 대 한 지원을 제거 합니다.
 - 이제 PDB 검색 기간에는 15 분이 아닌 24 시간이 기본값으로 설정 됩니다. SnapshotCollectorConfiguration의 PdbRescanInterval를 통해 구성할 수 있습니다.
 - PDB 검색은 재귀적이 아닌 최상위 폴더만 검색 합니다. 기호가 이진 폴더의 하위 폴더에 있는 경우에는이 변경 내용이 크게 바뀔 수 있습니다.
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 - 로그 폴더를 오래 된 파일로 채우지 않도록 SnapshotUploader의 로그 회전
 - .NET Core 3.0 응용 프로그램에 대 한 최적화 지원 (ReJIT on attach를 통해)
 - NuGet 패키지에 기호를 추가 합니다.
@@ -70,7 +70,7 @@ Azure App Service의 코드 없는 attach 시나리오 테스트에서 발견 �
 - AddSnapshotCollector ()를 사용 하 여 더 쉽게 스냅숏 수집기를 추가 했습니다. 자세한 내용은 [여기](./snapshot-debugger-appservice.md)를 참조하세요.
 - Blob 블록을 확인 하려면 FISMA MD5 설정을 사용 합니다. 이렇게 하면 OS가 FIPS 규격 모드로 설정 된 경우 사용할 수 없는 기본 .NET MD5 암호화 알고리즘이 방지 됩니다.
 - 함수 호출을 최적화할 때 .NET Framework 프레임을 무시 합니다. 이 동작은 DeoptimizeIgnoredModules 구성 설정으로 제어할 수 있습니다.
-- 둘 `DeoptimizeMethodCount` 이상의 함수 호출을 최적화할 수 있도록 하는 구성 설정을 추가 합니다. 자세한 내용은 여기를 참조하세요.
+- 둘 `DeoptimizeMethodCount` 이상의 함수 호출을 최적화할 수 있도록 하는 구성 설정을 추가 합니다. 자세한 내용은 여기를 참조 하세요.
 
 ## <a name="134"></a>[1.3.4](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.4)
 - 구조화 된 계측 키를 허용 합니다.

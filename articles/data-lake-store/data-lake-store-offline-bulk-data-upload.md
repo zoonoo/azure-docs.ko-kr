@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 940b7ac90f85e0254d59459b70ccc15312cd69f4
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98700842"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>데이터의 오프 라인 복사본에 대 한 Azure Import/Export 서비스를 사용 하 여 Data Lake Storage Gen1
@@ -19,7 +19,7 @@ ms.locfileid: "98700842"
 
 Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 제공하여 대량 데이터를 Azure Blob Storage로 더 안전하게 전송할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음이 있어야 합니다.
 

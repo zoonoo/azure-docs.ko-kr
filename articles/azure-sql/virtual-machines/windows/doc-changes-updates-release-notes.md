@@ -12,10 +12,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
 ms.openlocfilehash: ff4e6e0451b57046fb8f07f5a1051235e1f6d0f5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96325726"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure 가상 머신의 SQL Server 설명서 변경 내용
@@ -83,8 +83,8 @@ Azure에서는 SQL Server 이미지가 기본 제공된 VM(가상 머신)을 배
 | **Azure의 무료 DR 복제본** | [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)가 있는 경우 온-프레미스 SQL Server 인스턴스 재해 복구를 위한 [무료 수동 인스턴스](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure)를 Azure에서 호스트할 수 있습니다. | 
 | **대량 SQL IaaS 확장 등록** | 이제 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)을 사용 하 여 SQL Server 가상 컴퓨터를 [대량 등록할](sql-agent-extension-manually-register-vms-bulk.md) 수 있습니다. | 
 |**성능 최적화 저장소 구성** | 이제 새 SQL Server VM을 만들 때 [스토리지 구성를 완전히 사용자 지정](storage-configuration.md#new-vms)할 수 있습니다. |
-|**FCI용 프리미엄 파일 공유** | 이제 [스토리지 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md)의 원래 방법 대신 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스를 만들 수 있습니다. 
-| **Azure 전용 호스트** | [Azure 전용 호스트](dedicated-host.md)에서 SQL Server VM를 실행할 수 있습니다. | 
+|**FCI용 프리미엄 파일 공유** | 이제 [저장소 공간 다이렉트](failover-cluster-instance-storage-spaces-direct-manually-configure.md)의 원래 방법 대신 [프리미엄 파일 공유](failover-cluster-instance-premium-file-share-manually-configure.md) 를 사용 하 여 장애 조치 (failover) 클러스터 인스턴스를 만들 수 있습니다. 
+| **Azure Dedicated Host** | [Azure 전용 호스트](dedicated-host.md)에서 SQL Server VM를 실행할 수 있습니다. | 
 | **다른 지역으로 마이그레이션 SQL Server VM** | Azure Site Recovery를 사용하여 [SQL Server VM을 한 지역에서 다른 지역으로 마이그레이션](move-sql-vm-different-region.md)할 수 있습니다. |
 |  **새 SQL IaaS 설치 모드** | 이제 SQL Server 서비스를 다시 시작하지 않도록 SQL Server IaaS 확장을 [경량 모드](sql-server-iaas-agent-extension-automate-management.md)에서 설치할 수 있습니다.  |
 | **SQL Server 버전 수정** | 이제 SQL Server VM에 대한 [버전 속성](change-sql-server-edition.md)을 변경할 수 있습니다. |

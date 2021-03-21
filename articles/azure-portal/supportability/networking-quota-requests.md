@@ -7,10 +7,10 @@ ms.date: 01/23/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: e945dec2ce8514c3e4f1edecdecd13c5c43f7c75
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745454"
 ---
 # <a name="networking-limit-increase"></a>네트워킹 제한 증가
@@ -70,7 +70,7 @@ Azure Portal에서 **사용량 + 할당량** 을 사용 하 여 지원 요청을
 
 1. 에서 https://portal.azure.com **구독** 을 검색 하 고 선택 합니다.
 
-    ![구독](./media/networking-quota-request/search-for-suscriptions.png)
+    ![Subscriptions](./media/networking-quota-request/search-for-suscriptions.png)
 
 1. 할당량을 늘려야 하는 구독을 선택합니다.
 

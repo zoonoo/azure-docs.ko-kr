@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 292a244a4804f97e8622d6841c33b153af373290
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489171"
 ---
 # <a name="add-ad-fs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 SAML id 공급자로 AD FS 추가
@@ -36,7 +36,7 @@ ms.locfileid: "103489171"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 AD FS 사용자 계정에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다. 사용자 지정 정책에 [SAML id 공급자](identity-provider-generic-saml.md) 를 추가 하 여 로그인을 사용 하도록 설정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 
@@ -189,7 +189,7 @@ https://your-domain-name/your-tenant-name.onmicrosoft.com/your-policy/samlp/meta
     | Surname | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | 이메일 |
-    | Display-Name | 이름 |
+    | Display-Name | name |
 
     이러한 이름은 나가는 클레임 유형 드롭다운에서 표시 되지 않습니다. 수동으로 입력 해야 합니다. (드롭다운은 실제로 편집 가능 합니다.)
 

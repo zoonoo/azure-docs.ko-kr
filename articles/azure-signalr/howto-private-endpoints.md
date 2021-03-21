@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 92e93c3746308d2d6c1a489efc6b5c866b0ad2d9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98682633"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Azure SignalR Service에 대 한 개인 끝점 사용
@@ -57,7 +57,7 @@ Azure SignalR 서비스 소유자는 [Azure Portal](https://portal.azure.com)에
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 Azure SignalR 서비스 ' foobar '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| 속성                                                  | Type  | 값                                                 |
+| Name                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
@@ -66,7 +66,7 @@ Azure SignalR 서비스 소유자는 [Azure Portal](https://portal.azure.com)에
 
 ' Foobar '에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| 속성                                                  | Type  | 값                                                 |
+| Name                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |

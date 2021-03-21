@@ -9,10 +9,10 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: 3832175910f3a6d3e6a7de8da932b32436cc2452
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393023"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Azure Data Factory 버전 1 파이프라인에서 사용자 지정 작업 사용
@@ -38,18 +38,18 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 > - 사용자 지정 작업에서 데이터 관리 게이트웨이를 사용하여 온-프레미스 데이터 원본에 액세스할 수는 없습니다. 현재 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)에서는 Data Factory의 복사 작업 및 저장 프로시저 작업만 지원합니다.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 * Visual Studio 2012/2013/2015/2017
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
 이 연습에서는 Azure Batch를 컴퓨팅 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch** 는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션** 에서 실행되는 컴퓨팅 집약적 작업을 예약하고, 작업 요구에 맞게 컴퓨팅 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
 
-자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 실행할 단계는 다음과 같습니다.
+자습서를 위해 VM 풀과 함께 Azure Batch 계정을 만듭니다. 단계는 다음과 같습니다.
 
 1. [Azure Portal](https://portal.azure.com)를 사용 하 여 **Azure Batch 계정을** 만듭니다. 지침은 [Azure Batch 계정 만들기 및 관리][batch-create-account] 문서를 참조하세요.
 2. Azure Batch 계정 이름, 계정 키, URI 및 풀 이름을 적어둡니다. Azure Batch 연결된 서비스를 만드는 데 필요합니다.
-    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL** 이 표시됩니다. 이 예제에서 **myaccount** 는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예: `https://<region>.batch.azure.com`
+    1. Azure Batch 계정의 홈 페이지에서 `https://myaccount.westus.batch.azure.com` 형식의 **URL** 이 표시됩니다. 이 예제에서 **myaccount** 는 Azure Batch 계정 이름입니다. 연결된 서비스 정의에서 사용하는 URI는 계정 이름이 없는 URL입니다. 예를 들어 `https://<region>.batch.azure.com`을 참조하십시오.
     2. 왼쪽 메뉴에서 **키** 를 클릭하고 **기본 액세스 키** 를 복사합니다.
     3. 기존 풀을 사용하려면 메뉴에서 **풀** 을 클릭하고 풀의 **ID** 를 메모해둡니다. 기존 풀이 없는 경우 다음 단계로 이동합니다.
 2. **Azure Batch 풀** 을 만듭니다.

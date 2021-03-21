@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: justinha
 ms.openlocfilehash: 8cc5f5ebf389d35df02474d0561dc7827cde4d0b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620089"
 ---
 # <a name="benefits-of-migration-from-the-classic-to-resource-manager-deployment-model-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 이점
@@ -36,7 +36,7 @@ Azure Active Directory Domain Services (Azure AD DS)를 사용 하면 클래식 
 
 * [세분화 암호 정책 지원][password-policy].
 * Azure AD와 Azure AD Domain Services 간의 동기화 속도가 빨라집니다.
-* Azure AD 관리자와 employeeID [에서 동기화 되는][attributes]두 개의 새 특성  -  *manager* 입니다. *employeeID*
+* Azure AD 관리자와 employeeID [에서 동기화 되는][attributes]두 개의 새 특성  -   입니다. 
 * [SKU를 업그레이드할][skus]때 더 높은 수준의 도메인 컨트롤러에 액세스 합니다.
 * AD 계정 잠금 보호.
 * [관리 되는 도메인에 대 한 경고에 대 한 전자 메일 알림][email-alerts]

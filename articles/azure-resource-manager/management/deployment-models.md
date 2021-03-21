@@ -4,10 +4,10 @@ description: 리소스 관리자 배포 모델 및 기본(또는 서비스 관�
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.openlocfilehash: da260db84de0cc8bd092eb95491b7cc38df93a12
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96185847"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
@@ -101,7 +101,7 @@ SRP: Storage 리소스 공급자, CRP: Compute 리소스 공급자, NRP: 네트�
 
 다음 표에서 Compute, Network 및 Storage 리소스 공급자의 상호 작동 방식에 대한 변경 내용을 설명합니다.
 
-| 항목 | Classic | 리소스 관리자 |
+| 항목 | 클래식 | 리소스 관리자 |
 | --- | --- | --- |
 | Virtual Machines용 클라우드 서비스 |클라우드 서비스는 플랫폼 가용성 및 부하 분산이 필요한 가상 머신을 유지하는 컨테이너였습니다. |클라우드 서비스는 더 이상 새 모델을 사용하여 Virtual Machine을 만드는 데 필요한 개체가 아닙니다. |
 | 가상 네트워크 |가상 머신의 가상 네트워크는 선택 사항입니다. 포함 된 경우 리소스 관리자를 사용 하 여 가상 네트워크를 배포할 수 없습니다. |가상 머신에 Resource Manager에서 배포한 가상 네트워크가 필요합니다. |
@@ -113,7 +113,7 @@ SRP: Storage 리소스 공급자, CRP: Compute 리소스 공급자, NRP: 네트�
 | 예약된 IP 주소 |Azure에서 IP 주소를 예약하고 클라우드 서비스와 연결하여 IP 주소를 고정할 수 있습니다. |공용 IP 주소는 고정 모드에서 만들 수 있으며 예약된 IP 주소와 동일한 기능을 제공합니다. |
 | VM당 PIP(공용 IP 주소) |공용 IP 주소를 VM에 직접 연결할 수도 있습니다. |공용 IP 주소는 Microsoft.Network 공급자가 표시하는 리소스입니다. 공용 IP 주소는 고정(예약된) 또는 동적일 수 있습니다. |
 | 엔드포인트 |특정 포트에 대한 연결을 설정하려면 Virtual Machine에서 입력 엔드포인트를 구성해야 했습니다. 가상 머신에 연결하는 일반적인 모드 중 하나는 입력 엔드포인트를 설정하는 방식으로 수행되었습니다. |부하 분산 장치에서 인바운드 NAT 규칙을 구성하여 특정 포트의 엔드포인트에서 VM에 연결하도록 지원하는 동일한 기능을 실현할 수 있습니다. |
-| DNS 이름 |클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예: `mycoffeeshop.cloudapp.net` |DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN 형식 예: `<domainlabel>.<region>.cloudapp.azure.com` |
+| DNS 이름 |클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예를 들어 `mycoffeeshop.cloudapp.net`을 참조하십시오. |DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN 형식 예: `<domainlabel>.<region>.cloudapp.azure.com` |
 | 네트워크 인터페이스 |기본 및 보조 네트워크 인터페이스와 해당 속성이 가상 머신의 네트워크 구성으로 정의되었습니다. |네트워크 인터페이스는 Microsoft.Network 공급자가 표시하는 리소스입니다. 네트워크 인터페이스의 수명 주기는 가상 컴퓨터에 연결 되지 않습니다. 네트워크 인터페이스는 가상 머신의 할당된 IP 주소(필수), 가상 머신에 대한 가상 네트워크의 서브넷(필수) 및 네트워크 보안 그룹(선택)을 참조합니다. |
 
 다양한 배포 모델의 가상 네트워크를 연결하는 것에 대한 자세한 내용은 [포털에서 다양한 배포 모델의 가상 네트워크 연결](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.

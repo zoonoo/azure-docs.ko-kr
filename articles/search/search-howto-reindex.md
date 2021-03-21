@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.openlocfilehash: 47e9b80bb25b7ff14695cc67682265fe338ff76f
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119104"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
@@ -95,7 +95,7 @@ ms.locfileid: "98119104"
 
 필드를 추가 하거나 이름을 바꾼 경우 [$select](search-query-odata-select.md) 를 사용 하 여 해당 필드를 반환 합니다. `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [인덱서 개요](search-indexer-overview.md)
 + [대규모 데이터 집합 인덱싱](search-howto-large-index.md)

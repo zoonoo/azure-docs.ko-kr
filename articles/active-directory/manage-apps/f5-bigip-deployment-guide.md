@@ -12,13 +12,13 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730660"
 ---
-# <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위해 Azure IaaS에서 F5 빅 IP 가상 버전 VM을 배포 하는 방법에 대 한 자습서
+# <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>안전한 하이브리드 액세스를 위해 Azure IaaS에서 F5 BIG-IP Virtual Edition VM을 배포하는 방법에 대한 자습서
 
 이 자습서에서는 Azure IaaS에서 빅 IP Vitural Edition (VE)을 배포 하는 종단 간 프로세스를 안내 합니다. 이 자습서의 끝 부분에서는 다음을 수행 해야 합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "98730660"
 
 - 새 대규모 IP 시스템 업데이트 및 핫픽스를 테스트 하는 데 사용할 준비 인스턴스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이전에는 F5 큰 IP 환경이 나 지식이 필요 하지 않지만, [F5 큰 ip 용어로](https://www.f5.com/services/resources/glossary)익숙해질 하는 것이 좋습니다. SHA에 대해 Azure에서 큰 IP를 배포 하려면 다음이 필요 합니다.
 
@@ -79,7 +79,7 @@ VM 배포 및 기본 시스템 configs 30 분 정도 걸립니다 .이 시점에
 
  |  프로젝트 세부 정보     |  값     |
  |:-------|:--------|
- |구독|큰 IP VM 배포에 대 한 대상 구독|
+ |Subscription|큰 IP VM 배포에 대 한 대상 구독|
  |Resource group | 기존 Azure 리소스 그룹 대규모 IP VM을 배포 하거나 하나를 만듭니다. DC 및 IIS Vm의 동일한 리소스 그룹 이어야 합니다.|
  | **인스턴스 세부 정보**|  |
  |VM 이름| 예제 큰 IP-VM |
@@ -111,7 +111,7 @@ VM 배포 및 기본 시스템 configs 30 분 정도 걸립니다 .이 시점에
 
 10. **다음: 관리** 를 선택 하 고이 설정을 완료 합니다.
 
- |모니터링|    Value |
+ |모니터링|    값 |
  |:---------|:-----|
  |자세한 모니터링| 끄기|
  |부트 진단|사용자 지정 저장소 계정을 사용 하 여 사용 합니다. Azure Portal의 직렬 콘솔 옵션을 통해 SSH (빅 IP Secure Shell) 인터페이스에 연결할 수 있습니다. 사용 가능한 Azure storage 계정을 선택 합니다.|
@@ -214,9 +214,9 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
 
  | 필드 | 값 |
  |:-------|:-----------|
- |구독| 큰 IP VM과 동일한 구독|
+ |Subscription| 큰 IP VM과 동일한 구독|
  |DNS 영역| 게시 된 웹 사이트에서 사용 하는 확인 된 도메인 접미사에 대 한 권한이 있는 DNS 영역 (예: www.contoso.com) |
- |이름 | 지정한 호스트 이름이 선택한 보조 IP와 연결 된 공용 IP로 확인 됩니다. IP 매핑에 대 한 올바른 DNS를 정의 해야 합니다. Intranet.contoso.com > 13.77.148.215와 같은 네트워킹에서 마지막 이미지 configs 섹션을 참조 하세요.|
+ |Name | 지정한 호스트 이름이 선택한 보조 IP와 연결 된 공용 IP로 확인 됩니다. IP 매핑에 대 한 올바른 DNS를 정의 해야 합니다. Intranet.contoso.com > 13.77.148.215와 같은 네트워킹에서 마지막 이미지 configs 섹션을 참조 하세요.|
  | TTL | 1 |
  |TTL 단위 | 시간 |
 
@@ -250,7 +250,7 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
  |프로토콜| TCP |
  |작업| 허용|
  |우선 순위|100-4096 사이의 사용 가능한 최소값|
- |이름 | 설명이 포함 된 이름입니다. 예를 들면 다음과 같습니다. `BIG-IP-VM_Web_Services_80_443`|
+ |Name | 설명이 포함 된 이름입니다. 예를 들면 다음과 같습니다. `BIG-IP-VM_Web_Services_80_443`|
 
 3. **추가** 를 선택 하 여 변경 내용을 커밋하고 **네트워킹** 메뉴를 닫습니다.
 
@@ -270,7 +270,7 @@ VM 공용 IP와 개인 IP 간의이 1-1을 매핑하면 외부 트래픽이 VM�
 
 준비가 되 면 큰 IP VM의 웹 구성에 연결할 수 있는지 확인 하 고 VM 배포 중에 지정 된 자격 증명으로 로그인 합니다.
 
-- 내부 네트워크의 VM 또는 VPN을 통해 연결 하는 경우 BIG-IPs 기본 IP 및 웹 구성 포트에 직접 연결 합니다. 예들 들어 `https://<BIG-IP-VM_Primary_IP:8443`입니다. 브라우저에 안전 하지 않은 연결에 대 한 메시지가 표시 되지만, 큰 IP가 구성 될 때까지 확인 메시지는 무시 해도 됩니다. 브라우저에서 액세스를 차단 하는 경우 해당 캐시를 지운 후 다시 시도 insists.
+- 내부 네트워크의 VM 또는 VPN을 통해 연결 하는 경우 BIG-IPs 기본 IP 및 웹 구성 포트에 직접 연결 합니다. 예: `https://<BIG-IP-VM_Primary_IP:8443` 브라우저에 안전 하지 않은 연결에 대 한 메시지가 표시 되지만, 큰 IP가 구성 될 때까지 확인 메시지는 무시 해도 됩니다. 브라우저에서 액세스를 차단 하는 경우 해당 캐시를 지운 후 다시 시도 insists.
 
 - 응용 프로그램 프록시를 통해 웹 구성을 게시 한 경우 포트를 추가 하지 않고 외부에서 웹 구성에 액세스 하기 위해 정의 된 URL을 사용 합니다 (예:) `https://big-ip-vm.contoso.com` . 웹 구성 포트를 사용 하 여 내부 URL을 정의 해야 합니다 (예:). `https://big-ip-vm.contoso.com:8443` 
 

@@ -5,10 +5,10 @@ ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745828"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
@@ -97,7 +97,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 대시보드의 데이터는 지난 24 시간 동안의 활동을 자동으로 표시 합니다. 이 타일에 대해 다른 시간 범위를 표시 하려면 다음 단계를 수행 합니다.
 
-1. 상황 **Customize tile data** 에 맞는 메뉴 또는 ![ ](./media/azure-portal-dashboards/dashboard-filter.png) 타일의 왼쪽 위 모퉁이에 있는 필터 아이콘 필터에서 타일 데이터 사용자 지정을 선택 합니다.
+1. 상황  에 맞는 메뉴 또는 ![ ](./media/azure-portal-dashboards/dashboard-filter.png) 타일의 왼쪽 위 모퉁이에 있는 필터 아이콘 필터에서 타일 데이터 사용자 지정을 선택 합니다.
 
     ![타일 상황에 맞는 메뉴의 스크린샷](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -115,7 +115,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 대시보드에서 타일을 제거 하려면 다음 단계를 수행 합니다.
 
-* 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택한 다음 **대시보드에서 제거** 를 선택 합니다. 또는
+* 타일의 오른쪽 위 모퉁이에 있는 상황에 맞는 메뉴를 선택한 다음 **대시보드에서 제거** 를 선택 합니다. 또는,
 
 * ![편집 아이콘 ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **편집** 을 선택 하 여 사용자 지정 모드로 전환 합니다. 타일의 오른쪽 위 모서리를 마우스로 가리킨 다음 ![ 삭제 아이콘 삭제 아이콘을 선택 ](./media/azure-portal-dashboards/dashboard-delete-icon.png) 하 여 대시보드에서 타일을 제거 합니다.
 
@@ -127,7 +127,7 @@ Azure Portal는 기본 대시보드를 시작 지점으로 제공 합니다. 기
 
 1. 대시보드 보기에 복사 하려는 대시보드가 표시 되는지 확인 합니다.
 
-1. 페이지 머리글에서 ![ 복제 아이콘 복제를 선택 ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone** 합니다.
+1. 페이지 머리글에서 ![ 복제 아이콘 복제를 선택 ](./media/azure-portal-dashboards/dashboard-clone.png) 합니다.
 
 1. 대시보드 복사본 ( *대시보드 이름의* **복제본** )이 편집 모드에서 열립니다. 이 문서의 이전 단계를 사용 하 여 대시보드 이름을 바꾸고 사용자 지정 합니다.
 

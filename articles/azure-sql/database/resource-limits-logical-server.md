@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
 ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101691232"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
@@ -61,7 +61,7 @@ ms.locfileid: "101691232"
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 컴퓨팅 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](single-database-scale.md) 및 [탄력적 풀 리소스 확장](elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화 하 여 각 쿼리의 CPU 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](troubleshoot-common-errors-issues.md)가 표시됩니다. SELECT 및 DELETE 문은 계속 성공 합니다.
 
@@ -159,7 +159,7 @@ Azure Storage의 데이터 파일을 사용 하는 기본, 표준 및 범용 데
 
 로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 뷰에 노출 됨)을 통해 표시 됩니다.
 
-| 대기 유형 | 메모 |
+| 대기 유형 | 참고 |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | 데이터베이스 제한 |
 | POOL_LOG_RATE_GOVERNOR | 풀 제한 |

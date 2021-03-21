@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 48671e7558ea1bd613d33372c96fa3c563407e81
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017222"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 웹 프록시 구성
@@ -71,7 +71,7 @@ ms.locfileid: "96017222"
 4. 인증 유형을 **NTLM**, **기본** 또는 **없음** 중에서 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](https://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](https://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요. 
    
    > [!IMPORTANT]
-   > **StorSimple Device Manager 서비스에서 장치에 대 한 프록시 서버 구성에서 기본 또는 NTLM 인증을 사용 하도록 설정 하면 장치 모니터링 차트가 작동 하지 않습니다. 모니터링 차트가 작동 하려면 인증이 없음으로 설정 되어 있는지 확인 해야 합니다.**
+   > **StorSimple 장치 관리자 서비스에서 장치에 대 한 프록시 서버 구성에서 기본 또는 NTLM 인증을 사용 하도록 설정 하면 장치 모니터링 차트가 작동 하지 않습니다. 모니터링 차트가 작동 하려면 인증이 없음으로 설정 되어 있는지 확인 해야 합니다.**
   
 5. 인증을 사용하도록 설정한 경우 **웹 프록시 사용자 이름** 및 **웹 프록시 암호** 를 제공합니다. 또한 암호를 확인해야 합니다.
    
@@ -87,7 +87,7 @@ ms.locfileid: "96017222"
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>cmdlet를 통해 웹 프록시를 구성하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
    
@@ -109,7 +109,7 @@ ms.locfileid: "96017222"
 
 #### <a name="to-enable-web-proxy"></a>웹 프록시를 활성화하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인** 을 선택합니다. 메시지가 표시되면 **디바이스 관리자 암호** 를 제공합니다. 기본 암호는 `Password1`입니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
    
     `Enable-HcsWebProxy`
    

@@ -13,10 +13,10 @@ ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: ce7dd8d5398274b08eae887cf811e397a2797959
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98231974"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>응용 프로그램의 고가용성을 위해 트래픽 라우팅-Azure PowerShell

@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/19/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101737820"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
@@ -20,7 +20,7 @@ SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호�
 > [!NOTE]
 > Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
 >
-> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
+> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 아티클을 참조하세요.
 > - [Azure Active Directory를 사용 하 여 응용 프로그램을 인증 하 고 권한을 부여 하 여 Azure Service Bus 엔터티에 액세스](authenticate-application.md)합니다.
 > - [Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](service-bus-managed-service-identity.md)
 

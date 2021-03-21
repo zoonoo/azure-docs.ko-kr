@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: e8502b1d01e0f3fbf5d42e924511cc978690bce4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96342195"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
@@ -30,7 +30,7 @@ Azure에서 Microsoft Cognitive Services용 Bing Image Search API와 관련된 �
 
 Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
-| attribute           | 설명   |
+| 특성           | 설명   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |Bing에서 사용자에게 할당한 고유한 ID |
 | `BingAPIs-Market`   |요청을 이행하는 데 사용된 지역/국가 |
@@ -71,6 +71,6 @@ cors-proxy-server
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555907-bing-search)에서 요청하거나 투표하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

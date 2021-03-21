@@ -9,10 +9,10 @@ ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 746c7ec91c888d9a55722c00f8765915d0043a98
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666072"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요

@@ -8,20 +8,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 869bd7b02186873f490d324cec863c7f26ee8469
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 2de419885938b27ebce4a934db5ef966965b3dbd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555451"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580167"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 사용자 지정 도메인 사용
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에 대 한 리디렉션 Url에서 사용자 지정 도메인을 사용 하도록 설정 하는 방법을 설명 합니다. 응용 프로그램과 함께 사용자 지정 도메인을 사용 하면 보다 원활한 사용자 환경을 제공 합니다. 사용자의 관점에서 보면 Azure AD B2C 기본 도메인 *<테 넌 트 이름>. b2clogin.com* 로 리디렉션하는 대신 로그인 프로세스 중에 도메인에 남아 있습니다.
 
@@ -48,7 +50,7 @@ ms.locfileid: "103555451"
 
 - 여러 사용자 지정 도메인을 설정할 수 있습니다. 지원 되는 사용자 지정 도메인의 최대 수에 대 한 자세한 내용은 azure [AD 서비스 제한 및 제한](../active-directory/enterprise-users/directory-service-limits-restrictions.md) Azure AD B2C 및 azure [구독 및 서비스 제한, 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) 및 azure Front 문에 대 한 제약 조건을 참조 하세요.
 - Azure Front 도어가 별도의 Azure 서비스 이므로 추가 요금이 발생 합니다. 자세한 내용은 [Front 도어 가격 책정](https://azure.microsoft.com/pricing/details/frontdoor)을 참조 하세요.
-- 현재 Azure Front 도어 [웹 응용 프로그램 방화벽](../web-application-firewall/afds/afds-overview.md) 기능은 지원 되지 않습니다.
+- Azure Front 도어 [웹 응용 프로그램 방화벽](../web-application-firewall/afds/afds-overview.md)을 사용 하려면 방화벽 구성을 확인 하 고 Azure AD B2C 사용자 흐름에서 규칙이 올바르게 작동 하는지 확인 해야 합니다.
 - 사용자 지정 도메인을 구성한 후에도 사용자는 사용자 지정 정책을 사용 하지 않고 [액세스를 차단](#block-access-to-the-default-domain-name)하는 경우를 제외 하 고 사용자 지정 도메인 이름 Azure AD B2C 기본 도메인 이름 *><* 에 액세스할 수 있습니다.
 - 여러 응용 프로그램이 있는 경우 브라우저에서 현재 사용 중인 도메인 이름으로 Azure AD B2C 세션을 저장 하므로 사용자 지정 도메인으로 모두 마이그레이션합니다.
 
@@ -103,7 +105,7 @@ HTML 템플릿을 사용 하 여 [Azure AD B2C 사용자 인터페이스를 사�
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 1. 메뉴에서 **CORS** 를 선택합니다.
-1. **허용된 원본** 에 `https://your-domain-name`을 입력합니다. `your-domain-name`을 도메인 이름으로 바꿉니다. 예들 들어 `https://login.contoso.com`입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
+1. **허용된 원본** 에 `https://your-domain-name`을 입력합니다. `your-domain-name`을 도메인 이름으로 바꿉니다. 예: `https://login.contoso.com` 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
 1. **허용된 메소드** 에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 1. **허용된 헤더** 에 별표(*)를 입력합니다.
 1. **노출된 헤더** 에 별표(*)를 입력합니다.
@@ -193,7 +195,7 @@ https://<custom-domain-name>.b2clogin.com/<tenant-name>/<your-policy>/samlp/meta
 - **정책** 이름 (정책 이름 포함) [Azure AD B2C 정책에 대해 자세히 알아보세요](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 
-[SAML 서비스 공급자](connect-with-saml-service-providers.md) 메타 데이터는 다음과 같을 수 있습니다. 
+[SAML 서비스 공급자](./saml-service-provider.md) 메타 데이터는 다음과 같을 수 있습니다. 
 
 ```html
 https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
@@ -258,12 +260,10 @@ URL을 복사 하 고 도메인 이름을 수동으로 변경한 다음 브라�
 
 Azure Front 도어가 사용자의 원래 IP 주소를 전달 합니다. 감사 보고 나 사용자 지정 정책에 표시 되는 IP 주소입니다.
 
-### <a name="can-i-use-a-third-party-wab-application-firewall-waf-with-b2c"></a>B2C에서 타사 WAF (wab 응용 프로그램 방화벽)를 사용할 수 있나요?
+### <a name="can-i-use-a-third-party-web-application-firewall-waf-with-b2c"></a>B2C에서 타사 WAF (웹 응용 프로그램 방화벽)를 사용할 수 있나요?
 
-현재 Azure AD B2C는 Azure Front 도어를 사용 하 여 사용자 지정 도메인을 지원 합니다. Azure 전면 도어 앞에 다른 WAF를 추가 하지 마세요.
-
+Azure Front 도어 앞에서 사용자 고유의 웹 응용 프로그램 방화벽을 사용 하려면 Azure AD B2C 사용자 흐름에서 모든 것이 올바르게 작동 하는지 구성 하 고 유효성을 검사 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [OAuth 권한 부여 요청](protocols-overview.md)에 대해 알아봅니다.
-

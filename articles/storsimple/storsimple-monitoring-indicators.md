@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015403"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>StorSimple 모니터링 표시기를 사용하여 디바이스 관리
@@ -136,7 +136,7 @@ StorSimple 디바이스에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈�
 다음 표를 사용하여 컨트롤러 모듈이 올바르게 작동하는지 확인할 수 있습니다.  
 
 ### <a name="controller-indicator-leds"></a>컨트롤러 표시기 LED
-| LED | Description |
+| LED | 설명 |
 | --- | --- |
 | ID LED(파란색) |모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [디바이스의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
 | 오류 LED(주황색) |컨트롤러의 오류를 나타냅니다. |

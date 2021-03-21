@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: allensu
 ms.openlocfilehash: 391be596d890e05e6a8fdaf35d2cade371e468d6
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102213186"
 ---
 # <a name="get-load-balancer-usage-metrics-using-the-rest-api"></a>REST API를 사용 하 여 Load Balancer 사용 메트릭 가져오기
@@ -42,7 +42,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| 이름 | Description |
+| Name | Description |
 | :--- | :---------- |
 | subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli)을 참조합니다. |
 | resourceGroupName | 리소스를 포함하는 리소스 그룹의 이름입니다. Azure Resource Manager API, CLI 또는 포털에서 이 값을 얻을 수 있습니다. |

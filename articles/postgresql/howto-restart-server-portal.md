@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/20/2020
 ms.openlocfilehash: faa61ff477f44347755890dc59ebf4b917afda6f
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97882945"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버 다시 시작
@@ -21,7 +21,7 @@ ms.locfileid: "97882945"
 > [!NOTE] 
 > 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다. 검사점 빈도를 늘릴 수도 있습니다. 또한를 포함 하 여 검사점 관련 매개 변수 값을 튜닝할 수 있습니다 `max_wal_size` . 또한 `CHECKPOINT` 서버를 다시 시작 하기 전에 명령을 실행 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for PostgreSQL 서버](quickstart-create-server-database-portal.md)
 

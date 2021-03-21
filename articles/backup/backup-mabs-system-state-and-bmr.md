@@ -4,10 +4,10 @@ description: Azure Backup Server를 사용 하 여 시스템 상태를 백업 �
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: c5096158ca0e76ca03577347d8dd3e1419a33ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021625"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-by-using-azure-backup-server"></a>Azure Backup Server를 사용 하 여 시스템 상태 백업 및 운영 체제 미 설치로 복원
@@ -97,7 +97,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하십시오.
+1. **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
     * [System requirements for Azure Backup Server](/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 
@@ -233,7 +233,7 @@ Backup Server에서 복구를 실행 하려면 다음을 수행 합니다.
 
 Windows Server 백업를 실행 하려면:
 
-1. **작업**  >  **Recover**  >  **이 서버** 복구  >  **다음** 을 선택 합니다.
+1. **작업**  >    >  **이 서버** 복구  >  **다음** 을 선택 합니다.
 
 1. **다른 서버** 를 선택하고, **위치 유형 지정** 페이지를 선택하고 나서, **원격 공유 폴더** 를 선택합니다. 복구 지점이 포함된 폴더의 경로를 입력합니다.
 
