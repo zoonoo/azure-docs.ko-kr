@@ -9,10 +9,10 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 22cce2c620d23ab477de5d92bb8c6d4f5ef5a493
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102425127"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>찾을 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
@@ -20,7 +20,7 @@ ms.locfileid: "102425127"
 
 HTTP 상태 코드 404는 리소스가 더 이상 존재하지 않음을 나타냅니다.
 
-## <a name="expected-behavior"></a>예상 동작
+## <a name="expected-behavior"></a>예상되는 동작
 응용 프로그램에서 코드 404을 예상 하 고 시나리오를 올바르게 처리 하는 다양 한 시나리오를 사용할 수 있습니다.
 
 ## <a name="a-not-found-exception-was-returned-for-an-item-that-should-exist-or-does-exist"></a>존재 하거나 존재 해야 하는 항목에 대해 찾을 수 없는 예외가 반환 되었습니다.

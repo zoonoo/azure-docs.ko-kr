@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734624"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655854"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>응용 프로그램 변경 분석 (미리 보기)에 대 한 시각화
 
@@ -22,11 +22,11 @@ Azure Portal의 검색 창에서 변경 분석을 검색 하 여 환경을 시�
 
 ![Azure Portal에서 변경 분석 검색의 스크린샷](./media/change-analysis/search-change-analysis.png)
 
-지난 24 시간의 변경 내용과 함께 선택한 구독의 모든 리소스가 표시 됩니다. 페이지 로드 성능을 최적화 하기 위해 서비스는 한 번에 10 개의 리소스를 표시 합니다. 다음 페이지를 선택 하 여 더 많은 리소스를 봅니다. 이 제한을 제거 하기 위해 노력 하 고 있습니다.
+지난 24 시간의 변경 내용과 함께 선택한 구독의 모든 리소스가 표시 됩니다. 모든 변경 내용은 이전 값 및 새 값과 함께 표시 되어 한 눈에 파악할 수 있습니다.
 
 ![Azure Portal의 변경 분석 블레이드 스크린샷](./media/change-analysis/change-analysis-standalone-blade.png)
 
-리소스를 클릭 하 여 모든 변경 내용을 확인 합니다. 필요한 경우 변경 내용으로 드릴 다운 하 여 json 형식 변경 정보 및 정보를 확인 합니다.
+변경 내용을 클릭 하 여 전체 리소스 관리자 코드 조각 및 기타 속성을 볼 수 있습니다.
 
 ![변경 세부 정보 스크린샷](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ UI는 여러 구독을 선택 하 여 리소스 변경 내용을 볼 수 있도�
 
 ![여러 구독 선택을 지 원하는 구독 필터 스크린샷](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>웹 앱 문제 진단 및 해결
-
-Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결** 환경에도 기본적으로 제공 됩니다. App Service 응용 프로그램의 **개요** 페이지에서이 환경에 액세스 합니다.
-
-!["개요" 단추의 스크린샷 및 "문제 진단 및 해결" 단추](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>문제 진단 및 해결 도구의 응용 프로그램 변경 분석
 
@@ -69,6 +64,13 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 5. 변경 데이터는 **웹 앱 다운** 및 **응용 프로그램 크래시** 감지기 에서도 사용할 수 있습니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
 
      ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>문제 진단 및 해결 도구
+변경 분석은 문제 진단 및 해결 도구에서 통찰력 카드로 사용할 수 있습니다. 리소스에 문제가 발생 하 고 지난 72 시간 동안 검색 된 변경 내용이 있는 경우 정보 활용 카드에 변경 수가 표시 됩니다. 변경 내용 보기 링크를 클릭 하면 변경 분석 독립 실행형 UI의 필터링 된 보기가 표시 됩니다.
+
+![문제 진단 및 해결 도구에서 변경 정보를 보는 스크린샷](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>가상 컴퓨터 진단 및 문제 해결
 

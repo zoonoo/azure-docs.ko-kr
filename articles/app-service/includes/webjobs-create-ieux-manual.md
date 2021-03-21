@@ -6,10 +6,10 @@ ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102109342"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a>수동으로 트리거된 WebJob 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "102109342"
     
     | 설정      | 샘플 값   | 
     | ------------ | ----------------- | 
-   | <abbr title="App Service 앱 내에서 고유한 이름입니다. 는 문자 또는 숫자로 시작 해야 하며 및 이외의 특수 문자를 포함할 수 없습니다 `-` `_` .">속성</abbr> | myTriggeredWebJob | 
+   | <abbr title="App Service 앱 내에서 고유한 이름입니다. 는 문자 또는 숫자로 시작 해야 하며 및 이외의 특수 문자를 포함할 수 없습니다 `-` `_` .">Name</abbr> | myTriggeredWebJob | 
     | <abbr title="실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다.">파일 업로드</abbr> | ConsoleApp.zip |
     | <abbr title="연속, 트리거된 형식이 포함 됩니다.">Type</abbr> | 트리거 | 
     | <abbr title="형식에는 예약 또는 수동이 포함 됩니다.">트리거</a> | 수동 | |

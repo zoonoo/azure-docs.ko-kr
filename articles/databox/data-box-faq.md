@@ -10,10 +10,10 @@ ms.date: 02/25/2021
 ms.author: alkohli
 ms.custom: references_regions
 ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730578"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
@@ -96,7 +96,7 @@ A. 예. 분실 하거나 손상 된 장치에 대 한 요금이 부과 됩니다
 ### <a name="q-how-do-i-get-data-box"></a>17. Data Box를 얻으려면 어떻게 할까요? 
 A.  Azure Data Box를 가져오려면 Azure Portal에 로그인하고 Data Box 주문을 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문 후에는 가용성에 따라 10일 안에 Data Box가 배송됩니다. 자세한 내용은 [Data Box 주문](data-box-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 순서를 만들 수 없습니다. 그 이유는
+### <a name="q-i-couldnt-create-a-data-box-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 순서를 만들 수 없습니다. 이유
 A. Data Box 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box는 EA(기업계약), CSP(클라우드 솔루션 공급자) 구독 제품에서만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.
@@ -119,7 +119,7 @@ A. 주문 처리의 각 단계에 대 한 다음과 같은 예상 지연 시간�
 6. 데이터 센터에서 장치 처리: 1-2 영업일, 처리 보류 중인 다른 주문의 영향
 7. Azure에 데이터 업로드: 처리가 완료 되 고 장치가 연결 되는 즉시 시작 됩니다. 업로드 시간은 데이터의 특성, 크기 및 파일 수에 따라 달라 집니다.
 
-### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 그 이유는
+### <a name="q-i-ordered-a-couple-of-data-box-devices-i-cant-create-any-additional-orders-why"></a>17. Data Box 디바이스를 여러 개 주문했습니다. 추가 주문을 만들 수 없습니다. 이유
 A. 상거래 경계 (국가 및 지역 조합) 당 구독 당 최대 5 개의 활성 주문을 허용 합니다. 디바이스를 더 주문하려면 Microsoft 지원에 문의하여 구독 한도를 늘리세요.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>17. 주문을 만들 때 Data Box 서비스를 사용할 수 없다는 알림을 받았습니다. 무슨 의미인가요?
@@ -175,7 +175,7 @@ A. Data Box 맨 앞에 있는 전원 단추 아래에 LED 표시등이 2 개 있
 
 시스템 오류 표시기 표시등이 아직 켜져 있으면 [Microsoft 지원에 문의 하세요](data-box-disk-contact-microsoft-support.md).
 
-### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 그 이유는
+### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box 잠금 해제 암호에 액세스할 수 없습니다. 이유
 A. Azure Portal의 잠금 해제 암호에 액세스할 수 없는 경우 구독 및 저장소 계정에 대 한 사용 권한을 확인 합니다. 리소스 그룹 수준에서 기여자 또는 소유자 권한이 있는지 확인합니다. 액세스 자격 증명을 보려면 적어도 Data Box Operator 역할 권한이 있어야 합니다.
 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>17. Data Box에서 포트 채널 구성이 지원되나요? MPIO는 어떤가요?

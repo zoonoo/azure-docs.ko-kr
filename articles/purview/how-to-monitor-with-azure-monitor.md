@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101667733"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Azure Monitor Azure 부서의 범위 메트릭
@@ -67,7 +67,7 @@ Azure Portal에서 메트릭 섹션을 사용 하는 방법에 대 한 자세한
 | 검사 취소 됨 | 자동 검색 | 합계 <br> 개수 | 기간에 따라 취소 된 데이터 원본 검색 집계 |
 | 검사 완료 | 자동 검색 | 합계 <br> 개수 | 기간에 따라 완료 된 데이터 원본 검색 집계 |
 | 검사 실패 | 자동 검색 | 합계 <br> 개수 | 기간별로 실패 한 데이터 원본 검색 집계 |
-| 검색 된 시간 | 자동 검색 | 최소값 <br> 최대값 <br> 합계 <br> Avg | 검색 시간 동안 검색에 소요 된 총 시간 집계 |
+| 검색 된 시간 | 자동 검색 | 최소값 <br> 최대값 <br> 합계 <br> 평균 | 검색 시간 동안 검색에 소요 된 총 시간 집계 |
 
 ## <a name="diagnostic-logs-to-azure-storage-account"></a>Azure Storage 계정에 대 한 진단 로그
 

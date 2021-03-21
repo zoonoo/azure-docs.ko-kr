@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/07/2021
 ms.author: shhazam
 ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495099"
 ---
 # <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Azure RTOS (미리 보기)에 대 한 Defender-마이크로 에이전트 구성 및 사용자 지정
@@ -26,21 +26,21 @@ ms.locfileid: "103495099"
 
 디렉터리에서 확장명이 있는 대상 배포 파일을 선택 해야 합니다 `*.dist` `netxduo/addons/azure_iot/azure_iot_security_module/configs` .  
 
-CMake 컴파일 환경을 사용 하는 경우 `IOT_SECURITY_MODULE_DIST_TARGET` 선택한 값에 대 한 명령줄 매개 변수를로 설정 해야 합니다. 예들 들어 `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`입니다.
+CMake 컴파일 환경을 사용 하는 경우 `IOT_SECURITY_MODULE_DIST_TARGET` 선택한 값에 대 한 명령줄 매개 변수를로 설정 해야 합니다. 예: `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`
 
-IAR 또는 다른 비 CMake 컴파일 환경에서는 `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` 알려진 포함 경로에 대 한 경로를 추가 해야 합니다. 예들 들어 `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`입니다.
+IAR 또는 다른 비 CMake 컴파일 환경에서는 `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` 알려진 포함 경로에 대 한 경로를 추가 해야 합니다. 예: `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`
 
 다음 파일을 사용 하 여 장치 동작을 구성 합니다.
 
 **netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/ \<target distribution> /asc_config. h**
 
-CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경 해야 합니다 `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` . `set(ASC_XXX ON)` `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` 다른 모든 환경에 대해 다음의 ctoformat 또는 다음 파일을 사용 합니다. 예들 들어 `#define ASC_XXX`입니다.
+CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경 해야 합니다 `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` . `set(ASC_XXX ON)` `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` 다른 모든 환경에 대해 다음의 ctoformat 또는 다음 파일을 사용 합니다. 예: `#define ASC_XXX`
 
 각 구성의 기본 동작은 다음 표에 나와 있습니다. 
 
 ## <a name="general"></a>일반
 
-| 이름 | Type | 기본값 | 세부 정보 |
+| Name | Type | 기본값 | 세부 정보 |
 | - | - | - | - |
 | ASC_SECURITY_MODULE_ID | String | defender-마이크로 에이전트 | 디바이스의 고유 식별자입니다.  |
 | SECURITY_MODULE_VERSION_ (주) (부) (패치)  | 숫자 | 3.2.1 | 버전입니다. |
@@ -49,7 +49,7 @@ CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경
 
 ## <a name="collection"></a>컬렉션
 
-| 이름 | Type | 기본값 | 세부 정보 |
+| Name | Type | 기본값 | 세부 정보 |
 | - | - | - | - |
 | ASC_FIRST_COLLECTION_INTERVAL | 숫자  | 30  | 수집기의 시작 컬렉션 간격 오프셋입니다. 시작 하는 동안 여러 장치에서 동시에 메시지를 보내지 않도록 하기 위해 시스템의 컬렉션에 값이 추가 됩니다.  |
 | ASC_HIGH_PRIORITY_INTERVAL | 숫자 | 10 | 수집기의 높은 우선 순위 그룹 간격 (초)입니다. |
@@ -60,7 +60,7 @@ CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경
 
 수집기 네트워크 활동 구성을 사용자 지정 하려면 다음을 사용 합니다.
 
-| 이름 | Type | 기본값 | 세부 정보 |
+| Name | Type | 기본값 | 세부 정보 |
 | - | - | - | - |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_TCP_DISABLED | 부울 | false | `TCP`네트워크 활동을 필터링 합니다. |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_UDP_DISABLED | 부울 | false | `UDP`네트워크 활동 이벤트를 필터링 합니다. |
@@ -71,7 +71,7 @@ CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경
 | ASC_COLLECTOR_NETWORK_ACTIVITY_MAX_IPV6_OBJECTS_IN_CACHE | 숫자 | 64  | 메모리에 저장할 최대 IPv6 네트워크 이벤트 수입니다. |
 
 ### <a name="collectors"></a>To
-| 이름 | Type | 기본값 | 세부 정보 |
+| Name | Type | 기본값 | 세부 정보 |
 | - | - | - | - |
 | ASC_COLLECTOR_HEARTBEAT_ENABLED | 부울 | 켜기 | 하트 비트 수집기를 사용 하도록 설정 합니다. |
 | ASC_COLLECTOR_NETWORK_ACTIVITY_ENABLED  | 부울 | 켜기 | 네트워크 활동 수집기를 사용 하도록 설정 합니다. |

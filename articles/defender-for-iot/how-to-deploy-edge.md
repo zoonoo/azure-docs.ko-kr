@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495116"
 ---
 # <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>IoT Edge 장치에 Defender-IoT-마이크로 에이전트 배포
@@ -32,7 +32,7 @@ Defender-마이크로 에이전트는 운영 체제 및 컨테이너 시스템�
 
 다음 단계를 사용 하 여 IoT Edge 용 Defender Defender-IoT-마이크로 에이전트를 배포 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](../iot-edge/how-to-register-device.md#register-a-new-device)되어 있는지 확인 합니다.
 
@@ -179,7 +179,7 @@ Defender-마이크로 에이전트는 운영 체제 및 컨테이너 시스템�
 
 1. 다음 컨테이너가 실행 중인지 확인 합니다.
 
-   | 이름 | IMAGE |
+   | Name | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

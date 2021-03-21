@@ -4,10 +4,10 @@ description: 시스템 함수를 사용 하 여 Azure Monitor 로그에 사용�
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510552"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Azure Monitor 로그의 시스템 함수
@@ -72,7 +72,7 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
 | SubscriptionId | 자격 증명 모음이 존재 하는 구독의 ID입니다. |
 | 위치 | 자격 증명 모음이 있는 위치 |
 | VaultStore_StorageReplicationType | 자격 증명 모음과 연결 된 저장소 복제 유형 |
-| 태그들 | 자격 증명 모음의 태그 |
+| 태그 | 자격 증명 모음의 태그 |
 | TimeGenerated | 레코드의 타임 스탬프 |
 | Type |  자격 증명 모음의 유형 ("Microsoft RecoveryServices/자격 증명 모음")|
 
@@ -142,7 +142,7 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
 | -------------- | --------------- |
 | UniqueId | 작업의 고유 ID를 나타내는 기본 키입니다. |
 | OperationCategory | 수행 중인 작업의 범주입니다. 예: 백업, 복원 |
-| 작업(Operation) | 수행 중인 작업의 세부 정보입니다. 예: 로그 백업용|
+| 작업 | 수행 중인 작업의 세부 정보입니다. 예: 로그 백업용|
 | 상태 | 작업의 상태입니다. 예: Completed, Failed, CompletedWithWarnings |
 | ErrorTitle | 작업의 오류 코드 |
 | StartTime | 작업이 시작 된 날짜 및 시간 |
