@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 author: lrtoyou1223
 ms.service: data-factory
@@ -7,10 +7,10 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: lle
 ms.openlocfilehash: 24a541080b580eab967987fa7c92cea64b99d65c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389508"
 ---
 | 도메인 이름                                          | 아웃바운드 포트 | Description                |

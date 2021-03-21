@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.openlocfilehash: 1c34b673cd970a9e7577b7ff01d27eb0e4cc1ac1
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946432"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
@@ -77,7 +77,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
 
     |필드 |값 |
     |---|---|
-    |구독 |드롭다운 목록에서 Azure 구독을 선택 합니다.|
+    |Subscription |드롭다운 목록에서 Azure 구독을 선택 합니다.|
     |Resource group |드롭다운 목록에서 리소스 그룹을 선택 하거나 새 리소스 그룹을 만듭니다.|
     |위치 |드롭다운 목록에서 지역을 선택합니다.|
     |클러스터 이름 |Hadoop 클러스터에 사용할 이름을 입력합니다. 소문자만 사용 합니다.|

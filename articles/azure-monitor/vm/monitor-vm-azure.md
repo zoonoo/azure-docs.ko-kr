@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047046"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
@@ -55,14 +55,14 @@ Azure의 가상 머신은 [모니터링 데이터](../essentials/monitor-azure-r
 | 구성 단계 | 완료되는 작업 | 사용되는 기능 |
 |:---|:---|:---|
 | 구성 없음 | - 메트릭에 호스트 플랫폼 메트릭이 수집됨<br>- 활동 로그가 수집됨 | - 호스트의 메트릭 탐색기<br>- 호스트의 메트릭 경고<br>- 활동 로그 경고 |
-| [VM insights 사용](#enable-vm-insights) | - Log Analytics 에이전트가 설치됨<br>- 종속성 에이전트가 설치됨<br>- 게스트 성능 데이터가 로그에 수집됨<br>- 프로세스 및 종속성 세부 정보가 로그에 수집됨 | - 게스트 성능 데이터에 대한 성능 차트 및 통합 문서<br>- 게스트 성능 데이터에 대한 로그 쿼리<br>- 게스트 성능 데이터에 대한 로그 경고<br>- 종속성 맵 |
+| [VM 인사이트 사용](#enable-vm-insights) | - Log Analytics 에이전트가 설치됨<br>- 종속성 에이전트가 설치됨<br>- 게스트 성능 데이터가 로그에 수집됨<br>- 프로세스 및 종속성 세부 정보가 로그에 수집됨 | - 게스트 성능 데이터에 대한 성능 차트 및 통합 문서<br>- 게스트 성능 데이터에 대한 로그 쿼리<br>- 게스트 성능 데이터에 대한 로그 경고<br>- 종속성 맵 |
 | [진단 확장 및 telegraf 에이전트 설치](#enable-diagnostics-extension-and-telegraf-agent) | - 게스트 성능 데이터가 메트릭에 수집됨 | - 게스트의 메트릭 탐색기<br>- 게스트에 대한 메트릭 경고  |
 | [Log Analytics 작업 영역 구성](#configure-log-analytics-workspace) | - 게스트에서 이벤트가 수집됨 | - 게스트 이벤트에 대한 로그 쿼리<br>- 게스트 이벤트에 대한 로그 경고 |
 | [가상 머신에 대한 진단 설정 만들기](#collect-platform-metrics-and-activity-log) | - 로그에 플랫폼 메트릭이 수집됨<br>- 로그에 활동 로그가 수집됨 | -호스트 메트릭에 대 한 로그 쿼리<br>- 호스트 메트릭에 대한 로그 경고<br>- 활동 로그에 대한 로그 쿼리
 
 이러한 각 구성 단계는 다음 섹션에 설명되어 있습니다.
 
-### <a name="enable-vm-insights"></a>VM insights 사용
+### <a name="enable-vm-insights"></a>VM 인사이트 사용
 [VM 정보](../vm/vminsights-overview.md) 는 Azure Monitor에서 가상 컴퓨터를 모니터링 하는 기본 도구인 [Azure Monitor에 대 한](../monitor-reference.md) 정보입니다. 표준 Azure Monitor 기능에 외에 다음과 같은 추가 가치를 제공합니다.
 
 - 가상 머신 게스트 운영 체제 및 워크로드의 모니터링을 사용하도록 설정하는 Log Analytics 에이전트 및 종속성 에이전트를 간편하게 온보딩할 수 있습니다. 
@@ -76,7 +76,7 @@ Azure의 가상 머신은 [모니터링 데이터](../essentials/monitor-azure-r
 
 Azure Portal의 virtual machine 메뉴에 있는 **insights** 옵션에서 VM insights를 사용 하도록 설정 합니다. 세부 정보 및 기타 구성 방법에 대해서는 [VM insights 개요 사용](vminsights-enable-overview.md) 을 참조 하세요.
 
-![VM insights 사용](media/monitor-vm-azure/enable-vminsights.png)
+![VM 인사이트 사용](media/monitor-vm-azure/enable-vminsights.png)
 
 ### <a name="configure-log-analytics-workspace"></a>Log Analytics 작업 영역 구성
 VM insights에서 사용 하는 Log Analytics 에이전트는 데이터를 [Log Analytics 작업 영역](../logs/data-platform-logs.md)으로 보냅니다. Log Analytics 작업 영역을 구성하여 에이전트에서 추가 성능 데이터, 이벤트 및 기타 모니터링 데이터의 수집을 사용하도록 설정할 수 있습니다. 작업 영역에 연결하는 에이전트가 자동으로 구성을 다운로드하고 정의된 데이터 수집을 즉시 시작하므로 한 번만 구성하면 됩니다. 
@@ -162,7 +162,7 @@ VM insights를 사용 하면 *InsightsMetrics* 테이블에 기록 되는 미리
 
 | 데이터 원본 | 요구 사항 | 테이블 |
 |:---|:---|:---|
-| VM 정보 | 각 가상 머신에서 사용하도록 설정합니다. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>자세한 내용은 [VM 정보에서 로그를 쿼리 하는 방법을](../vm/vminsights-log-search.md) 참조 하세요. |
+| VM 인사이트 | 각 가상 머신에서 사용하도록 설정합니다. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>자세한 내용은 [VM 정보에서 로그를 쿼리 하는 방법을](../vm/vminsights-log-search.md) 참조 하세요. |
 | 활동 로그 | 구독에 대한 진단 설정입니다. | AzureActivity |
 | 호스트 메트릭 | 가상 머신에 대한 진단 설정입니다. | AzureMetrics |
 | 게스트 운영 체제의 데이터 원본입니다. | Log Analytics 에이전트를 사용하도록 설정하고 데이터 원본을 구성합니다. | 각 데이터 원본에 대한 설명서를 참조하세요. |

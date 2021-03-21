@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687569"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 컴퓨터의 Hotpatch (미리 보기)
@@ -34,7 +34,7 @@ Hotpatch은 먼저 Windows 업데이트 최신 누적 업데이트를 사용 하
 * **계획** 되지 않은 기준은 중요 한 업데이트 (예: 0 일 수정)가 출시 되 고 특정 업데이트를 Hotpatch 해제할 수 없을 때 릴리스됩니다.  계획 되지 않은 기준선이 릴리스되는 경우 hotpatch 릴리스가 해당 월에 계획 되지 않은 기준으로 교체 됩니다.  계획 되지 않은 기준에는 해당 월에 대 한 유사 _최신 누적 업데이트_ 의 모든 업데이트가 포함 되며 재부팅도 필요 합니다.
     * 위의 샘플 일정은 해당 월에 대 한 hotpatch 릴리스를 대체 하는 계획 되지 않은 두 개의 기준선을 보여 줍니다. 1 년에 계획 되지 않은 기준선의 실제 수는 미리 알려지지 않습니다.
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 Hotpatch는 미리 보기의 모든 글로벌 Azure 지역에서 사용할 수 있습니다. Azure Government 지역은 미리 보기에서 지원 되지 않습니다.
 
 ## <a name="how-to-get-started"></a>시작하는 방법

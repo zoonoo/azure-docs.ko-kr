@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 03bf92a2d77fb262ed6506bf18c0d27006e435a7
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201189"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장
@@ -70,7 +70,7 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 
 **분할된 데이터베이스** 에는 **shardlet** 이 포함되며, 분할된 데이터베이스에 대한 shardlet 매핑은 분할된 데이터베이스 맵을 통해 유지 관리됩니다. **목록 분할된 데이터베이스 맵** 은 shardlet을 식별하는 개별 키 값과 분할된 데이터베이스로 사용되는 데이터베이스 간의 연결입니다.  **목록 매핑** 은 동일한 데이터베이스에 매핑될 수 있는 명시적이고 서로 다른 키 값입니다. 예를 들어 키 값 1은 데이터베이스 A에 매핑되고, 키 값 3과 6은 데이터베이스 B에 매핑됩니다.
 
-| Key | 분할된 데이터베이스 위치 |
+| 키 | 분할된 데이터베이스 위치 |
 | --- | --- |
 | 1 |Database_A |
 | 3 |Database_B |
@@ -84,7 +84,7 @@ Elastic Scale은 분할 키로 다음의 형식을 지원합니다.
 
 예를 들어 **[0, 100)** 에는 0 이상 100 미만의 모든 정수가 포함됩니다. 여러 범위가 동일한 데이터베이스를 가리킬 수 있으며 연결되지 않은 범위도 지원됩니다. 예를 들어 아래 예제에서 [100, 200) 및 [400, 600)은 모두 데이터베이스 C를 가리킵니다.
 
-| Key | 분할된 데이터베이스 위치 |
+| 키 | 분할된 데이터베이스 위치 |
 | --- | --- |
 | [1,50) |Database_A |
 | [50,100) |Database_B |

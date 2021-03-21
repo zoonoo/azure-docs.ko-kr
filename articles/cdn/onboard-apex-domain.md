@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/07/2020
 ms.author: allensu
 ms.openlocfilehash: 8ab4f698c7149d8d57f790e221ccbe35ec090fe6
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370354"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>루트 또는 apex 도메인을 기존 Azure CDN 끝점에 등록
@@ -40,9 +40,9 @@ Azure Portal를 사용 하 여 CDN에서 apex 도메인을 등록 하 고 TLS �
     | 설정 | 값 |
     | ------- | ------|
     | Name | **@** 을 입력 합니다. |
-    | 유형 | **을** 선택 합니다. |
-    | 별칭 레코드 집합 | **예** 를 선택합니다. |
-    | 별칭 형식 | **Azure 리소스** 를 선택 합니다. |
+    | Type | **을** 선택 합니다. |
+    | 별칭 레코드 집합 | **Yes** 를 선택합니다. |
+    | 별칭 형식 | **Azure 리소스** 를 선택합니다. |
     | 구독을 선택합니다. | 구독을 선택합니다. |
     | Azure 리소스 | CDN 끝점을 선택 합니다. |
 
@@ -64,16 +64,16 @@ Azure Portal를 사용 하 여 CDN에서 apex 도메인을 등록 하 고 TLS �
     
 2. **CDN 프로필** 페이지에서 사용자 지정 도메인과 연결할 CDN 엔드포인트를 선택합니다.
 
-    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="CDN 끝점 선택" border="true":::
+    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="CDN 엔드포인트 선택" border="true":::
     
-3. **+ 사용자 지정 도메인** 을 선택 합니다. 
+3. **+ 사용자 지정 도메인** 을 선택합니다. 
 
    :::image type="content" source="media/onboard-apex-domain/cdn-custom-domain-button.png" alt-text="사용자 지정 도메인 추가 단추" border="true":::
 
-4. **사용자 지정 도메인 추가** 에서 **끝점 호스트** 이름이 미리 채워지고 CDN 끝점 URL: **\<endpoint-hostname>** . azureedge.net에서 파생 됩니다. 이는 변경할 수 없습니다.
+4. **사용자 지정 도메인 추가** 에서 **엔드포인트 호스트 이름** 은 미리 채워져 있으며 CDN 엔드포인트 URL **\<endpoint-hostname>** .azureedge.net에서 파생됩니다. 이는 변경할 수 없습니다.
 
 5. **사용자 지정 호스트 이름** 에 대해 CNAME 레코드의 원본 도메인으로 사용할 사용자 지정 root 또는 apex 도메인을 입력 합니다. 
-    1. 예를 들면 **contoso.com** 입니다. **Cdnverify 하위 도메인 이름을 사용 하지 마세요**.
+    1. 예를 들면 **contoso.com** 입니다. **cdnverify 하위 도메인 이름을 사용하지 마세요**.
 
     :::image type="content" source="media/onboard-apex-domain/cdn-add-custom-domain.png" alt-text="사용자 지정 도메인 추가" border="true":::
 

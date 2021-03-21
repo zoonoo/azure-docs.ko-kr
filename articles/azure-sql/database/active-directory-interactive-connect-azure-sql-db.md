@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841651"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
@@ -39,9 +39,9 @@ SQL tools에 대 한 Multi-Factor Authentication 지원에 대 한 자세한 내
 
 * 시스템이 휴대폰으로 보낸 Multi-Factor Authentication 확인 코드를 요청 하는 대화 상자입니다.
 
-Multi-Factor Authentication를 요구 하도록 Azure AD를 구성 하는 방법에 대 한 자세한 내용은 [클라우드에서 AZURE ad Multi-Factor Authentication 시작](../../active-directory/authentication/howto-mfa-getstarted.md)하기를 참조 하세요.
+Multi-Factor Authentication을 사용하도록 Azure AD를 구성하는 방법은 [클라우드에서 Azure AD Multi-Factor Authentication 시작](../../active-directory/authentication/howto-mfa-getstarted.md)을 참조하세요.
 
-이러한 대화 상자의 스크린샷 [SQL Server Management Studio 및 AZURE AD에 대 한 다단계 인증 구성](authentication-mfa-ssms-configure.md)을 참조 하세요.
+이러한 대화 상자의 스크린샷은 [SQL Server Management Studio 및 Azure AD에 대한 Multi-Factor Authentication 구성](authentication-mfa-ssms-configure.md)을 참조하세요.
 
 > [!TIP]
 > [.NET Api 브라우저 도구 페이지](/dotnet/api/)를 사용 하 여 .NET Framework api를 검색할 수 있습니다.
@@ -76,7 +76,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
     ![Azure SQL Database에 대한 API 액세스 추가](./media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. 권한 추가 user_impersonation 위임 된 **권한**  >  **user_impersonation**  >  **Add permissions** 을 선택 합니다.
+4. 권한 추가 user_impersonation 위임 된 **권한**  >    >  을 선택 합니다.
 
     ![Azure SQL Database에 대한 API에 권한 위임](./media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 

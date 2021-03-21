@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vC
 ms.topic: conceptual
 ms.date: 05/24/2020
 ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002956"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
@@ -517,7 +517,7 @@ VMware VM이 보호 되도록 구성 된 MABS 서버로 이동 하 여 디스크
       ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
       ```
 
-     **예제**:
+     **예**:
 
      TestVM4에 대 한 디스크 제외를 추가 하려면 다음 명령을 실행 합니다.
 

@@ -6,10 +6,10 @@ ms.author: aul
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043393"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>뷰 디자이너에서 통합 문서 변환 요약 및 액세스

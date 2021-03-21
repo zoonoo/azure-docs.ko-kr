@@ -8,10 +8,10 @@ ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
 ms.openlocfilehash: 26078c3757e42c3e290a5f4122461b287582fb80
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96518824"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기
@@ -37,7 +37,7 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
    |설정  |값  |
    |---------|---------|
    |정책     |지역 WAF (Application Gateway)|
-   |구독     |구독 이름 선택|
+   |Subscription     |구독 이름 선택|
    |리소스 그룹     |리소스 그룹 선택|
    |정책 이름     |WAF 정책의 고유한 이름을 입력 합니다.|
 3. **연결** 탭에서 다음 설정 중 하나를 입력 한 다음 **추가** 를 선택 합니다.

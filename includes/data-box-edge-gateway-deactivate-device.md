@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: c1b56cfb85595b8a17dc18f69a0b162d504c04ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026367"
 ---
 디바이스를 초기화하려면 데이터 디스크의 모든 데이터와 디바이스의 부팅 디스크를 안전하게 지워야 합니다. 
@@ -20,7 +20,7 @@ Cmdlet을 사용 `Reset-HcsAppliance` 하 여 데이터 디스크와 부팅 디�
 로컬 웹 UI에서 디바이스 초기화를 사용하는 경우 데이터 디스크만 안전하게 지워지고 부팅 디스크는 그대로 유지됩니다. 부팅 디스크에는 디바이스 구성이 포함되어 있습니다.
 
 1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에서 다음을 입력합니다.
 
     `Reset-HcsAppliance -ClearData -BootDisk`
 

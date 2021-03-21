@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
 ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102630965"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge 미니 R 장치에서 VPN 구성
@@ -145,7 +145,7 @@ P2S VPN gateway 연결을 사용 하면 개별 클라이언트 컴퓨터 또는 
     스크립트를 실행할 때 다음 정보를 입력 해야 합니다.
 
     
-    |매개 변수  |설명  |
+    |매개 변수  |Description  |
     |---------|---------|
     |위치     |Azure 리소스를 만들어야 하는 영역입니다.         |
     |AzureAppRuleFilePath     | 의 파일 경로입니다 `appRule.json` .       |

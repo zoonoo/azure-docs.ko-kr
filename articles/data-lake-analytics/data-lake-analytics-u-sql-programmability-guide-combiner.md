@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: a6c560cf4ec11197183711656d69024591e7008c
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512699"
 ---
-# <a name="use-user-defined-combiner"></a>사용자 정의 결합 자 사용
+# <a name="use-user-defined-combiner"></a>사용자 정의 결합자 사용
 
 ## <a name="u-sql-udo-user-defined-combiner"></a>U-SQL UDO: 사용자 정의 결합 자
 UDC(사용자 정의 결합자)를 사용하면 사용자 지정 논리를 기반으로 하여 왼쪽 및 오른쪽 행 집합의 행을 결합할 수 있습니다. UDC는 COMBINE 식으로 사용됩니다.

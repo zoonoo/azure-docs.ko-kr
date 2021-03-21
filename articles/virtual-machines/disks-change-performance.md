@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: af1509073248b46575881beef7b9800107e7fed7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101677305"
 ---
 # <a name="performance-tiers-for-managed-disks"></a>관리 디스크에 대 한 성능 계층
@@ -21,7 +21,7 @@ Azure 관리 디스크의 성능은 성능 계층의 형태로 디스크를 만�
 
 성능 계층을 변경 하면 디스크의 버스트 기능을 사용 하지 않고 더 높은 수요를 준비 하 고 충족할 수 있습니다. 추가 성능이 필요한 기간에 따라 버스트를 사용 하는 대신 성능 계층을 변경 하는 것이 더 비용 효율적일 수 있습니다. 이는 휴일 쇼핑, 성능 테스트 또는 교육 환경 실행과 같이 일관 되 게 높은 수준의 성능이 일시적으로 필요한 이벤트에 적합 합니다. 이러한 이벤트를 처리 하기 위해 필요할 때까지 더 높은 성능 계층을 사용할 수 있습니다. 그런 다음 추가 성능이 더 이상 필요 하지 않은 경우 원래 계층으로 돌아갈 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 디스크를 처음 배포 하거나 프로 비전 할 때 해당 디스크의 기준 성능 계층은 프로 비전 된 디스크 크기에 따라 설정 됩니다. 원래 기준선 보다 높은 성능 계층을 사용 하 여 더 높은 수요를 충족할 수 있습니다. 더 이상 해당 성능 수준이 필요 하지 않은 경우 초기 기준 성능 계층으로 돌아갈 수 있습니다.
 

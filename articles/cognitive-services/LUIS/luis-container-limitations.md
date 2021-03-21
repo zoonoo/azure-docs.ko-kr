@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5c76e45f09a0f432d2775eb19d3dcaa668294e6f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002348"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>LUIS (Language Understanding) 컨테이너 제한 사항
@@ -46,7 +46,7 @@ LUIS 컨테이너에는 몇 가지 주목할 만한 제한 사항이 있습니�
 
 LUIS 컨테이너는 LUIS에서 [지 원하는 언어](luis-language-support.md#languages-supported) 의 하위 집합을 지원 합니다. LUIS 컨테이너는 길이 발언를 이해 하는 데 사용할 수 있는 언어는 다음과 같습니다.
 
-| 언어 | 로캘 | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
+| 언어 | Locale | 미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 영어(미국) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | 아랍어 (미리 보기-최신 표준 아랍어) |`ar-AR`|❌|❌|❌|❌|

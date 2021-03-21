@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: alkemper
 ms.openlocfilehash: 84286df063994f3def15079cb9b190550d5bd977
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929619"
 ---
 # <a name="use-labels-to-enable-configurations-for-different-environments"></a>레이블을 사용하여 다양한 환경에 대한 구성을 사용할 수 있도록 설정

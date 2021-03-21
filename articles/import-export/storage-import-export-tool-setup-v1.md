@@ -9,10 +9,10 @@ ms.date: 01/14/2021
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8bfb55cbe8ba4876e94dc1622cbee33e4d471a65
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98706444"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Azure Import/Export 도구 v1 설정
@@ -24,7 +24,7 @@ Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스�
 
 -   완료된 내보내기 작업에서 드라이브를 받은 후에는 이 도구를 사용하여 드라이브에서 손상되거나 누락된 파일을 복구할 수 있습니다.  
 
-## <a name="prerequisites"></a>사전 요구 사항  
+## <a name="prerequisites"></a>필수 구성 요소  
 가져오기 작업을 위해 드라이브를 준비 하는 경우 다음 필수 구성 요소를 충족 해야 합니다.  
 
 -   활성 Azure 구독이 있어야 합니다.  

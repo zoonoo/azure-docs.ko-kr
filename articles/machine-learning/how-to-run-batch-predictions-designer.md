@@ -11,10 +11,10 @@ ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101657379"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
@@ -151,13 +151,13 @@ REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필�
 
 모델은 유추 파이프라인에서 업데이트 되지만 데이터 변환은 업데이트 되지 않습니다.
 
-유추 파이프라인에서 업데이트 된 변환을 사용 하려면 변환 모듈의 변환 출력을 데이터 집합으로 등록 해야 합니다.
+업데이트된 변환을 유추 파이프라인에서 사용하려면 변환 모듈의 변환 출력을 데이터 세트로 등록해야 합니다.
 
-![변환 데이터 집합을 등록 하는 방법을 보여 주는 스크린샷](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+![변환 데이터 세트를 등록하는 방법을 보여주는 스크린샷](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
 
-그런 다음 유추 파이프라인의 **TD** 모듈을 등록 된 데이터 집합으로 수동으로 바꿉니다.
+그런 다음, 수동으로 유추 파이프라인의 **TD** 모듈을 등록된 데이터 세트로 바꿉니다.
 
-![변환 모듈을 바꾸는 방법을 보여 주는 스크린샷](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
+![변환 모듈을 바꾸는 방법을 보여주는 스크린샷](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
 
 그런 다음 업데이트 된 모델 및 변환과 함께 유추 파이프라인을 제출 하 고 게시할 수 있습니다.
 

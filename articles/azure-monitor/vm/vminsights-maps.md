@@ -1,15 +1,15 @@
 ---
-title: VM insights를 사용 하 여 앱 종속성 보기
+title: VM 인사이트를 사용하여 앱 종속성 보기
 description: Map은 VM insights의 기능입니다. Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑합니다. 이 문서에서는 다양 한 시나리오에서 맵 기능을 사용 하는 방법에 대 한 세부 정보를 제공 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: 267ec0ed01fb85e9e29b0b8c9294d20d610db8fb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046570"
 ---
 # <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>VM insights의 Map 기능을 사용 하 여 응용 프로그램 구성 요소 이해

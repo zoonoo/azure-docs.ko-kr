@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
 ms.openlocfilehash: 28dfac7de8e73adf577b0a13e5fbd8740b1e3b06
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047420"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 감사 쿼리 (미리 보기)
@@ -19,7 +19,7 @@ ms.locfileid: "102047420"
 ## <a name="configure-query-auditing"></a>쿼리 감사 구성
 쿼리 감사는 Log Analytics 작업 영역에서 [진단 설정을](../essentials/diagnostic-settings.md) 사용 하 여 사용 하도록 설정 됩니다. 이를 통해 현재 작업 영역 또는 구독의 다른 작업 영역에 감사 데이터를 전송 하거나, azure Event Hubs에 azure 외부에서 보내거나 보관을 위해 Azure Storage으로 보낼 수 있습니다. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 다음 위치 중 하나에서 Azure Portal의 Log Analytics 작업 영역에 대 한 진단 설정에 액세스 합니다.
 
 - **Azure Monitor** 메뉴에서 **진단 설정** 을 선택 하 고 작업 영역을 찾아 선택 합니다.

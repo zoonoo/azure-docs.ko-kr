@@ -4,10 +4,10 @@ description: Azure CLI를 사용 하 여 기존 VM 백업 정책을 업데이트
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98728581"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>CLI를 사용 하 여 기존 VM 백업 정책 업데이트
@@ -20,7 +20,7 @@ Azure CLI를 사용 하 여 기존 VM 백업 정책을 업데이트할 수 있�
 
 1. [Az backup policy show](/cli/azure/backup/policy#az_backup_policy_show) 명령을 실행 하 여 업데이트 하려는 정책의 세부 정보를 검색 합니다.
 
-    예:
+    예제:
 
     ```azurecli
     az backup policy show --name testing123 --resource-group rg1234 --vault-name testvault
