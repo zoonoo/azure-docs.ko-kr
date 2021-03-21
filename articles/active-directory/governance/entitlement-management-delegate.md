@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577841"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
@@ -90,7 +90,7 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 
 다음 표에는 자격 관리 역할이 수행할 수 있는 작업이 나열 되어 있습니다.
 
-| Task | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
+| 작업 | Admin | 카탈로그 작성자 | 카탈로그 소유자 | 액세스 패키지 관리자 | 패키지 할당 관리자 액세스 |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [카탈로그 작성자에 게 위임](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [연결된 조직 추가](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -128,8 +128,8 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [Exchange 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [팀 서비스 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  |  |
 | [SharePoint 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
-| [클라우드 애플리케이션 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [응용 프로그램 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
+| [클라우드 응용 프로그램 관리자](../roles/permissions-reference.md) | 카탈로그 소유자 |  |  | :heavy_check_mark: |  |
 | 사용자 | 카탈로그 소유자 | 그룹 소유자 인 경우에만 | 그룹 소유자 인 경우에만 | 앱 소유자 인 경우에만 |  |
 
 태스크에 대 한 최소 권한 있는 역할을 확인 하려면 [Azure Active Directory에서 관리자 작업을 통해 관리자 역할](../roles/delegate-by-task.md#entitlement-management)을 참조할 수도 있습니다.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 0c0b3bd81e0f73a7879382e28516378bd722bc17
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498645"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 사용 권한을 사용 하는 방법
@@ -54,7 +54,7 @@ ms.locfileid: "96498645"
    ![권한 추가 시작](media/spring-cloud-permissions/add-permissions.png)
 
 ### <a name="search-for-azure-spring-cloud-permissions"></a>Azure 스프링 클라우드 권한 검색:
-7. 검색 상자에서 *Microsoft 앱* 을 검색 합니다.
+7. 검색 상자에서 *Microsoft.app* 를 검색 합니다.
 *Microsoft Azure 스프링 클라우드* 를 선택 합니다.
 
    ![Azure 스프링 클라우드 선택](media/spring-cloud-permissions/spring-cloud-permissions.png)

@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 16608facab27fc18924cf3a5c6da7e35db048f76
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675615"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
@@ -61,7 +61,7 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
 > 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
 
 
-**Database**
+**데이터베이스**
 
 - SAP HANA에 대한 라이선스 및 소프트웨어 설치 구성 요소(플랫폼 및 Enterprise 버전).
 

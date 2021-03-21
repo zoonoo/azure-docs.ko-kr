@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783762"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Azure Storage 탐색기 보안 가이드
@@ -81,7 +81,7 @@ Storage 탐색기에서 SAS를 사용 하는 경우 다음 지침을 따르는 �
 
 일부 Azure 역할은 저장소 계정 키를 검색할 수 있는 권한을 부여 합니다. 이러한 역할을 가진 개인은 Azure RBAC에서 부여 하거나 거부 한 권한을 효과적으로 피할 수 있습니다. 필요한 경우가 아니면이 사용 권한을 부여 하지 않는 것이 좋습니다.
 
-Storage 탐색기는 저장소 계정 키 (사용 가능한 경우)를 사용 하 여 요청을 인증 하려고 합니다. 설정 ( **서비스 > 저장소 계정 > 키 사용을 사용 하지 않도록** 설정)에서이 기능을 사용 하지 않도록 설정할 수 있습니다. 일부 기능은 클래식 저장소 계정으로 작업 하는 등의 Azure RBAC를 지원 하지 않습니다. 이러한 기능에는 키가 필요 하지만이 설정의 영향을 받지 않습니다.
+Storage 탐색기는 저장소 계정 키 (사용 가능한 경우)를 사용 하 여 요청을 인증 하려고 합니다. 설정 (**서비스 > 저장소 계정 > 키 사용을 사용 하지 않도록** 설정)에서이 기능을 사용 하지 않도록 설정할 수 있습니다. 일부 기능은 클래식 저장소 계정으로 작업 하는 등의 Azure RBAC를 지원 하지 않습니다. 이러한 기능에는 키가 필요 하지만이 설정의 영향을 받지 않습니다.
 
 키를 사용 하 여 저장소 리소스에 액세스 해야 하는 경우 다음 지침을 따르는 것이 좋습니다.
 

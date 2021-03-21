@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792398"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
@@ -24,7 +24,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- **Azure 구독** . 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
+- **Azure 구독**. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - **Visual Studio 2019 버전 16.3** 이상 [다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
 
 
@@ -32,7 +32,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 시작 하기 전에 Visual Studio에 로그인 했는지 확인 합니다. Azure 구독에 사용 하는 것과 동일한 계정으로 로그인 합니다. ASP.NET 4.7.1 이상 또는 ASP.NET Core 2.0 웹 프로젝트를 열고 다음 단계를 수행 합니다.
 
-1. **솔루션 탐색기** 에서 Key Vault 지원을 추가 하려는 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **Add**  >  **연결 된 서비스** 추가  >  **추가** 를 선택 합니다.
+1. **솔루션 탐색기** 에서 Key Vault 지원을 추가 하려는 프로젝트를 마우스 오른쪽 단추로 클릭 하 고   >  **연결 된 서비스** 추가  >  **추가** 를 선택 합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
 1. 사용 가능한 서비스 메뉴에서 **Azure Key Vault** 를 선택 하 고 **다음** 을 클릭 합니다.
 
@@ -40,13 +40,13 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 1. 사용할 구독을 선택한 다음 기존 Key Vault를 선택 하 고 **마침** 을 클릭 합니다. 
 
-   ![구독을 선택합니다.](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
+   ![구독 선택](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
 이제 Key Vault에 대 한 연결이 설정 되 고 코드에서 비밀에 액세스할 수 있습니다. 다음 단계는 ASP.NET 4.7.1 또는 ASP.NET Core를 사용하는지에 따라 달라집니다.
 
 ## <a name="access-your-secrets-in-code-aspnet-core"></a>코드에서 비밀에 액세스 (ASP.NET Core)
 
-1. *Index.cshtml.cs* 와 같은 페이지 파일 중 하나를 열고 다음 코드를 작성 합니다.
+1. 페이지 파일 중 하나를 열고 (예: *색인과* ) 다음 코드를 작성 합니다.
    1. 이 using 지시문을 사용 하 여에 대 한 참조를 포함 합니다 `Microsoft.Extensions.Configuration` .
 
        ```csharp
@@ -115,7 +115,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
          <add key="<secretNameInYourKeyVault>" value="dummy"/>
         ```
 
-1. `About` *HomeController.cs* 에서 메서드를 편집 하 여 확인 값을 표시 합니다.
+1. `About` *HomeController* 에서 메서드를 편집 하 여 확인 값을 표시 합니다.
 
    ```csharp
    public ActionResult About()
@@ -127,11 +127,11 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Key Vault Visual studio에 로그인 하는 것과 다른 Microsoft 계정에서 실행 중인 경우 (예: Key Vault 회사 계정에서 실행 중이지만 Visual Studio에서 개인 계정을 사용 하는 경우) Program.cs 파일에 오류가 표시 됩니다. Visual Studio에서 Key Vault에 대 한 액세스 권한을 얻을 수 없습니다. 이 문제를 해결하려면
+Key Vault Visual Studio에 로그인 하는 것과 다른 Microsoft 계정에서 실행 중인 경우 (예: Key Vault 회사 계정에서 실행 중이지만 Visual Studio에서 개인 계정을 사용 하는 경우) Program .cs 파일에 오류가 표시 됩니다. Visual Studio에서 Key Vault에 대 한 액세스 권한을 얻을 수 없습니다. 이 문제를 해결하려면
 
 1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 Key Vault를 엽니다.
 
-1. **액세스 정책** , **액세스 정책 추가** 를 차례로 선택 하 고 보안 주체로 로그인 한 계정을 선택 합니다.
+1. **액세스 정책**, **액세스 정책 추가** 를 차례로 선택 하 고 보안 주체로 로그인 한 계정을 선택 합니다.
 
 1. Visual Studio에서 **파일**  >  **계정 설정** 을 선택 합니다.
 **모든 계정** 섹션에서 **계정 추가** 를 선택 합니다. 액세스 정책의 보안 주체로 선택한 계정으로 로그인 합니다.

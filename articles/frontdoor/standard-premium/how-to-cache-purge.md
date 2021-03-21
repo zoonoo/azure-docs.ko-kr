@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: aacbf2ceab8580727b1885bf6533cd74a7c4e60a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099812"
 ---
 # <a name="cache-purging-in-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)의 캐시 제거
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure 전면 도어 표준/프리미엄은 자산의 TTL (time-to-live)이 만료 될 때까지 자산을 캐시 합니다. 클라이언트에서 TTL이 만료 된 자산을 요청할 때마다 Azure Front 도어 환경에서는 요청을 처리 하는 새로운 자산의 업데이트 된 복사본을 검색 한 후 새로 고친 캐시를 저장 합니다.
 

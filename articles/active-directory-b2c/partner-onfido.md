@@ -12,10 +12,10 @@ ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928633"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Onfido 구성에 대 한 자습서
@@ -24,7 +24,7 @@ ms.locfileid: "96928633"
 
 이 샘플에서는 등록 또는 로그인 흐름에 Onfido의 서비스를 연결 하 여 id 확인을 수행 합니다. 사용자가 액세스할 수 있는 제품 및 서비스에 대 한 의사 결정은 Onfido의 결과에 따라 결정 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 다음이 필요 합니다.
 
@@ -50,7 +50,7 @@ Onfido 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![onfido에 대 한 스크린샷-다이어그램](media/partner-onfido/onfido-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지에 도착 합니다. 사용자 등록 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다. Azure AD B2C에서 호스트 되는 Onfido 클라이언트 앱은 사용자 정보를 확인 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -84,7 +84,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 응용 프로그램 설정은 [Azure의 App service](../app-service/configure-common.md#configure-app-settings)에서 구성할 수 있습니다. App service를 사용 하면 설정을 리포지토리로 체크 인하지 않고도 안전 하 게 구성할 수 있습니다. Rest API에는 다음 설정이 필요 합니다.
 
-| 응용 프로그램 설정 이름 | 원본 | 메모 |
+| 응용 프로그램 설정 이름 | 원본 | 참고 |
 |:-------------------------|:-------|:-------|
 |OnfidoSettings: AuthToken| Onfido 계정 |
 
@@ -98,7 +98,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 3. 다음 지침에 따라 만든 저장소 컨테이너에 대 한 CORS 액세스를 허용 합니다.
 
-   a. **설정** 허용 된 원본으로 이동 하  > **Allowed Origin** 고를 입력 `https://{your_tenant_name}.b2clogin.com` 합니다. -테 넌 트 이름을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들면 https://fabrikam.b2clogin.com 입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
+   a. **설정** 허용 된 원본으로 이동 하  > 고를 입력 `https://{your_tenant_name}.b2clogin.com` 합니다. -테 넌 트 이름을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들면 https://fabrikam.b2clogin.com 입니다. 모든 소문자를 사용 하 여 테 넌 트 이름을 입력 합니다.
 
    b. **허용 되는 메서드의** 경우 `GET` 및를 선택 `PUT` 합니다.
 

@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: ad9e96433a7ee72476ae2251c684d17ec7a6d1ce
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930248"
 ---
 # <a name="keys-and-values"></a>키 및 값
@@ -67,7 +67,7 @@ App Configuration의 키 값은 레이블 특성을 선택할 수 있습니다. 
 
 각 키 값은 `\0`일 수 있는 레이블 및 해당 키로만 식별됩니다. 패턴을 지정 하 여 응용 프로그램 구성 저장소에서 키 값을 쿼리 합니다. 앱 구성 저장소는 해당 값과 특성을 포함 하 여 패턴과 일치 하는 모든 키 값을 반환 합니다. App Configuration에 대한 REST API 호출에서 사용하는 키 패턴은 다음과 같습니다.
 
-| 키 | Description |
+| 키 | 설명 |
 |---|---|
 | `key`은 생략 또는 `key=*` | 모든 키와 일치 |
 | `key=abc` | **abc** 키 이름과 정확하게 일치 |

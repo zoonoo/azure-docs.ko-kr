@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 63b63526333435387c3ff5b5c9d5599ec851c1a8
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467419"
 ---
 # <a name="use-synapse-studio-to-monitor-your-sql-pools"></a>Synapse Studio를 사용 하 여 SQL 풀 모니터링
@@ -48,7 +48,7 @@ SQL 풀 목록을 원하는 항목으로 필터링 할 수 있습니다. 화면 
 
 SQL 풀 중 하나에 대 한 세부 정보를 보려면 SQL 풀을 선택 하 여 세부 정보를 확인 합니다.
 
-![SQL 풀 정보](./media/how-to-monitor-sql-pools/sql-pool-details.png)
+![SQL 풀 세부 정보](./media/how-to-monitor-sql-pools/sql-pool-details.png)
 
 ## <a name="next-steps"></a>다음 단계
 

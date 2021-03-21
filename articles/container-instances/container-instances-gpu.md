@@ -4,10 +4,10 @@ description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 �
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93127011"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
@@ -27,9 +27,9 @@ Azure Container Instances에서 특정 계산 집약적인 작업을 실행 하�
 
 앞으로 더 많은 Azure 지역에 대한 지원이 추가될 것입니다.
 
-**지원 되는 OS 유형** : Linux만
+**지원 되는 OS 유형**: Linux만
 
-**추가 제한 사항** : 컨테이너 그룹을 [가상 네트워크](container-instances-vnet.md)에 배포 하는 경우 GPU 리소스를 사용할 수 없습니다.
+**추가 제한 사항**: 컨테이너 그룹을 [가상 네트워크](container-instances-vnet.md)에 배포 하는 경우 GPU 리소스를 사용할 수 없습니다.
 
 ## <a name="about-gpu-resources"></a>GPU 리소스 정보
 
@@ -37,8 +37,8 @@ Azure Container Instances에서 특정 계산 집약적인 작업을 실행 하�
 
 컨테이너 인스턴스에서 GPU를 사용하려면 다음 정보를 사용하여 *GPU 리소스* 를 지정해야 합니다.
 
-* **Count** -gpu 수: **1** , **2** 또는 **4** .
-* **Sku** -GPU Sku: **K80** , **P100** 또는 **V100** . 각 SKU는 다음 Azure GPU 지원 VM 제품군 중 하나의 NVIDIA Tesla GPU에 매핑됩니다.
+* **Count** -gpu 수: **1**, **2** 또는 **4**.
+* **Sku** -GPU Sku: **K80**, **P100** 또는 **V100**. 각 SKU는 다음 Azure GPU 지원 VM 제품군 중 하나의 NVIDIA Tesla GPU에 매핑됩니다.
 
   | SKU | VM 제품군 |
   | --- | --- |
@@ -209,7 +209,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 다음은 그 예입니다.
+GPU 리소스를 사용하면 많은 비용이 발생할 수 있으므로 컨테이너가 예기치 않게 오래 실행되지 않도록 주의해야 합니다. Azure Portal에서 컨테이너를 모니터링하거나 [az container show][az-container-show] 명령으로 컨테이너 그룹의 상태를 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: cfa117d1ed017170c279b7c4e0a146ae4edac108
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932475"
 ---
 # <a name="key-value-revisions"></a>키-값 수정 버전
@@ -23,7 +23,7 @@ ms.locfileid: "96932475"
 
 이 문서는 API 버전 1.0에 적용 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
@@ -94,7 +94,7 @@ GET /revisions?api-version={api-version} HTTP/1.1
 Range: items=0-2
 ```
 
-**Response**
+**응답**
 
 ```http
 HTTP/1.1 206 Partial Content
@@ -113,7 +113,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### <a name="supported-filters"></a>지원되는 필터
 
-|키 필터|효과|
+|키 필터|영향|
 |--|--|
 |`key`은 생략 또는 `key=*`|**모든** 키를 찾습니다.|
 |`key=abc`|**Abc** 라는 키를 찾습니다.|
@@ -122,7 +122,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=*abc*`|**Abc** 를 포함 하는 키 이름과 일치|
 |`key=abc,xyz`|키 이름 **abc** 또는 **xyz** (CSV 5 개로 제한 됨)를 찾습니다.|
 
-|레이블 필터|효과|
+|레이블 필터|영향|
 |--|--|
 |`label`은 생략 또는 `label=`|레이블이 없는 항목과 일치|
 |`label=*`|**모든** 레이블과 일치|

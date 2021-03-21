@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
 ms.openlocfilehash: a60a0291d6669b2a9115dffa8e0d4d63fae4a440
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724441"
 ---
 # <a name="connect-your-agari-phishing-defense-and-brand-protection-solutions-to-azure-sentinel"></a>Azure 센티널에 Agari 피싱 방어 및 브랜드 보호 솔루션 연결
@@ -33,7 +33,7 @@ Agari 피싱 방어 및 브랜드 보호 커넥터를 사용 하면 사용자가
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Agari의 피싱 방어 및 브랜드 보호 솔루션을 Azure 센티널에 연결 하려면 다음이 필요 합니다.
 

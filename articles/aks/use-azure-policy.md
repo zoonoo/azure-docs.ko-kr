@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 46e92e6842204cd323992a2561e71302bb9cc722
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102193442"
 ---
 # <a name="secure-your-cluster-with-azure-policy"></a>Azure Policy를 사용 하 여 클러스터 보호
@@ -18,7 +18,7 @@ AKS (Azure Kubernetes Service) 클러스터의 보안을 강화 하기 위해 Az
 
 이 문서에서는 클러스터에 정책 정의를 적용 하 고 해당 할당이 적용 되는지 확인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 기존 AKS 클러스터 AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 - AKS 클러스터에 설치 된 AKS 용 Azure Policy 추가 기능입니다. [Azure Policy 추가 기능을 설치 하려면 다음 단계를][azure-policy-addon]수행 합니다.

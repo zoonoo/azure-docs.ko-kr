@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: e0cfc47b546c31e6b93d224e64de20b79baacfd9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98891299"
 ---
 # <a name="media-reserved-units"></a>미디어 예약 단위
@@ -54,6 +54,6 @@ Azure Media Services를 사용 하면 Mru (미디어 예약 단위)를 관리 �
 [CLI를 사용 하 여 미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md) 
  [비디오 분석](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [할당량 및 제한](limits-quotas-constraints.md)

@@ -9,10 +9,10 @@ ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
 ms.openlocfilehash: 049ff6d14c3967481eb73037814082fa261154e3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96497931"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>다른 지역으로 Analysis Services 이동
@@ -37,7 +37,7 @@ ms.locfileid: "96497931"
 서버를 다른 지역으로 이동 하기 전에 자세한 계획을 만드는 것이 좋습니다. 이동 해야 할 수도 있는 게이트웨이 및 저장소와 같은 추가 리소스를 고려 합니다. 모든 계획을 사용 하는 경우 프로덕션 서버를 이동 하기 전에 테스트 서버를 사용 하 여 하나 이상의 평가판 이동 작업을 완료 하는 것이 중요 합니다.
 
 > [!IMPORTANT]
-> 클라이언트 응용 프로그램 및 연결 문자열은 서버가 있는 지역을 포함 하는 Uri 인 전체 서버 이름을 사용 하 여 Analysis Services에 연결 합니다. 예: `asazure://westcentralus.asazure.windows.net/advworks01`. 서버를 다른 지역으로 이동 하는 경우에는 서버 이름 Uri에서 다른 지역을 포함 하는 다른 지역에 새 서버 리소스를 효과적으로 만드는 것입니다. 스크립트에서 사용 되는 클라이언트 응용 프로그램 및 연결 문자열은 새 서버 이름 Uri를 사용 하 여 새 서버에 연결 해야 합니다. [서버 이름 별칭](analysis-services-server-alias.md) 을 사용 하면 서버 이름 Uri를 변경 해야 하는 위치 수를 줄일 수 있지만 지역 이동 전에는 구현 해야 합니다.
+> 클라이언트 응용 프로그램 및 연결 문자열은 서버가 있는 지역을 포함 하는 Uri 인 전체 서버 이름을 사용 하 여 Analysis Services에 연결 합니다. 예: `asazure://westcentralus.asazure.windows.net/advworks01` 서버를 다른 지역으로 이동 하는 경우에는 서버 이름 Uri에서 다른 지역을 포함 하는 다른 지역에 새 서버 리소스를 효과적으로 만드는 것입니다. 스크립트에서 사용 되는 클라이언트 응용 프로그램 및 연결 문자열은 새 서버 이름 Uri를 사용 하 여 새 서버에 연결 해야 합니다. [서버 이름 별칭](analysis-services-server-alias.md) 을 사용 하면 서버 이름 Uri를 변경 해야 하는 위치 수를 줄일 수 있지만 지역 이동 전에는 구현 해야 합니다.
 
 > [!IMPORTANT]
 > Azure 지역에서 서로 다른 IP 주소 범위를 사용 합니다. 서버 및/또는 저장소 계정이 있는 지역에 대해 방화벽 예외가 구성 된 경우 다른 IP 주소 범위를 구성 해야 할 수 있습니다. 자세히 알아보려면 [Analysis Services 네트워크 연결에 대 한 질문과 대답](analysis-services-network-faq.md)을 참조 하세요.
@@ -48,7 +48,7 @@ ms.locfileid: "96497931"
 > [!NOTE]
 > 온-프레미스 데이터 게이트웨이를 사용 하 여 데이터 원본에 연결 하는 경우에도 게이트웨이 리소스를 대상 서버 지역으로 이동 해야 합니다. 자세히 알아보려면 [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **Azure storage 계정**: .abf 백업 파일을 저장 하는 데 필요 합니다.
 - **SSMS (SQL Server Management Studio)**: model 데이터베이스를 백업 및 복원 하는 데 필요 합니다.

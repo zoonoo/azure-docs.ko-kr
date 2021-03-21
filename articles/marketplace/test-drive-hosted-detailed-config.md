@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 11/06/2020
 ms.openlocfilehash: 88779f67a2fa9b18f0177a1459b32c672343bb57
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462954"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>호스트 된 테스트 드라이브에 대 한 자세한 구성
@@ -37,7 +37,7 @@ ms.locfileid: "96462954"
     - **최대 동시 테스트 드라이브** 수 – 활성 테스트 드라이브가 동시에 실행 될 수 있는 동시 사용자 수입니다. 테스트 드라이브가 활성화 되어 있는 동안 각 사용자는 Dynamics 라이선스를 사용 하므로 테스트 드라이브 사용자에 게이 많은 Dynamics 라이선스를 사용할 수 있는지 확인 합니다. 3 ~ 5를 권장 합니다.
     - **시험 사용 기간** – 사용자의 테스트 드라이브가 활성 상태로 유지 되는 시간입니다. 시간이 만료 되 면 사용자는 테 넌 트에서 프로 비전 해제 됩니다. 응용 프로그램의 복잡성에 따라 2-24 시간을 권장 합니다. 사용자는 항상 다른 테스트 드라이브를 요청 하 고 테스트 드라이브에 다시 액세스할 수 있습니다.
     - **인스턴스 URL** – 테스트 드라이브 사용자가 테스트 드라이브를 시작할 때 전송 되는 테스트 드라이브 사용자의 url입니다. 일반적으로 앱 및 샘플 데이터가 설치 된 Dynamics 365 인스턴스의 URL입니다. 예제 `https://testdrive.crm.dynamics.com` 값:
-    - **인스턴스 웹 API url** – Dynamics 365 인스턴스의 웹 api url입니다. Microsoft Dynamics 365 인스턴스에 로그인 하 고 **Setting**  >  **사용자 지정** 개발자 리소스 인스턴스 웹 API 설정으로 이동 하 여이 값을 검색 하  >  **Developer Resources**  >  **Instance Web API** 고 주소 (URL)를 복사 합니다. 예를 들어 값:
+    - **인스턴스 웹 API url** – Dynamics 365 인스턴스의 웹 api url입니다. Microsoft Dynamics 365 인스턴스에 로그인 하 고   >  **사용자 지정** 개발자 리소스 인스턴스 웹 API 설정으로 이동 하 여이 값을 검색 하  >    >   고 주소 (URL)를 복사 합니다. 예를 들어 값:
 
         :::image type="content" source="./media/test-drive/sample-web-api-url.png" alt-text="인스턴스 웹 API의 예입니다.":::
 
@@ -46,7 +46,7 @@ ms.locfileid: "96462954"
         > [!IMPORTANT]
         > 보안 그룹 검사가 추가 되지 않았는지 확인 합니다. 이를 통해 사용자를 고객 Engagement 인스턴스와 동기화 할 수 있습니다.
 
-    - **Azure Active Directory 테 넌 트 id** – Dynamics 365 인스턴스에 대 한 Azure 테 넌 트의 id입니다. 이 값을 검색 하려면 Azure Portal에 로그인 하 고 **Azure Active Directory** 속성으로 이동 하 여  >  **Properties** 디렉터리 ID를 복사 합니다. 값 예: 172f988bf-86f1-41af.
+    - **Azure Active Directory 테 넌 트 id** – Dynamics 365 인스턴스에 대 한 Azure 테 넌 트의 id입니다. 이 값을 검색 하려면 Azure Portal에 로그인 하 고 **Azure Active Directory** 속성으로 이동 하 여  >   디렉터리 ID를 복사 합니다. 값 예: 172f988bf-86f1-41af.
     - **Azure Active Directory 테 넌 트 이름** – Dynamics 365 인스턴스의 Azure 테 넌 트 이름입니다. `<tenantname>.onmicrosoft.com` 형식을 사용합니다. 예제 `testdrive.onmicrosoft.com` 값:
     - **Azure Active Directory 응용 프로그램 id** – 5 단계에서 만든 AZURE ACTIVE DIRECTORY (AD) 앱의 id입니다. 예제 `53852862-a2ae-4e43-9461-faa49650a096` 값:
     - **Azure Active Directory 응용 프로그램 클라이언트 암호** – 5 단계에서 만든 Azure AD 앱에 대 한 암호입니다. 예제 `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` 값:
@@ -77,7 +77,7 @@ ms.locfileid: "96462954"
     - **최대 동시 테스트 드라이브** 수 – 활성 테스트 드라이브가 동시에 실행 될 수 있는 동시 사용자 수입니다. 테스트 드라이브가 활성화 되어 있는 동안 각 사용자는 Dynamics 라이선스를 사용 하므로 테스트 드라이브 사용자에 게이 많은 Dynamics 라이선스를 사용할 수 있는지 확인 합니다. 3 ~ 5를 권장 합니다.
     - **시험 사용 기간** – 사용자의 테스트 드라이브가 활성 상태로 유지 되는 시간입니다. 시간이 만료 되 면 사용자는 테 넌 트에서 프로 비전 해제 됩니다. 응용 프로그램의 복잡성에 따라 2-24 시간을 권장 합니다. 사용자는 항상 다른 테스트 드라이브를 요청 하 고 테스트 드라이브에 다시 액세스할 수 있습니다.
     - **인스턴스 URL** – 테스트 드라이브 사용자가 테스트 드라이브를 시작할 때 전송 되는 테스트 드라이브 사용자의 url입니다. 일반적으로 앱 및 샘플 데이터가 설치 된 Dynamics 365 인스턴스의 URL입니다. 예제 `https://testdrive.crm.dynamics.com` 값:
-    - **Azure Active Directory 테 넌 트 id** – Dynamics 365 인스턴스에 대 한 Azure 테 넌 트의 id입니다. 이 값을 검색 하려면 Azure Portal에 로그인 하 고 **Azure Active Directory** 속성으로 이동 하 여  >  **Properties** 디렉터리 ID를 복사 합니다. 값 예: 172f988bf-86f1-41af.
+    - **Azure Active Directory 테 넌 트 id** – Dynamics 365 인스턴스에 대 한 Azure 테 넌 트의 id입니다. 이 값을 검색 하려면 Azure Portal에 로그인 하 고 **Azure Active Directory** 속성으로 이동 하 여  >   디렉터리 ID를 복사 합니다. 값 예: 172f988bf-86f1-41af.
     - **Azure Active Directory 테 넌 트 이름** – Dynamics 365 인스턴스의 Azure 테 넌 트 이름입니다. `<tenantname>.onmicrosoft.com` 형식을 사용합니다. 예제 `testdrive.onmicrosoft.com` 값:
     - **Azure Active Directory 응용 프로그램 id** – 5 단계에서 만든 AZURE ACTIVE DIRECTORY (AD) 앱의 id입니다. 예제 `53852862-a2ae-4e43-9461-faa49650a096` 값:
     - **Azure Active Directory 응용 프로그램 클라이언트 암호** – 5 단계에서 만든 Azure AD 앱에 대 한 암호입니다. 예제 `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` 값:

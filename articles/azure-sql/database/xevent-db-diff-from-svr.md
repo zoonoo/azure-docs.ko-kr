@@ -12,10 +12,10 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96501212"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 데이터베이스의 확장 이벤트 
@@ -32,7 +32,7 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 - [빠른 시작: SQL Server의 확장 이벤트](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [확장 이벤트](/sql/relational-databases/extended-events/extended-events)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 

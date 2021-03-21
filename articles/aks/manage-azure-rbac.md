@@ -8,10 +8,10 @@ ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 9ce8bc71139b52d690893734435e6bfee090062d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184375"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
@@ -27,7 +27,7 @@ Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>전제 조건 
+### <a name="prerequisites"></a>필수 구성 요소 
 - Azure CLI 버전 2.9.0 이상 인지 확인 합니다.
 - `EnableAzureRBACPreview`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
 - `aks-preview` [CLI 확장][az-extension-add] v 0.4.55 이상을 설치 했는지 확인 합니다.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
 ms.openlocfilehash: 47891dfa7fc0c9b30ccdbf2ed7710125eb36e4a3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397810"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>PowerShell과 함께 Application Gateway를 사용하여 엔드투엔드 TLS 구성
@@ -20,7 +20,7 @@ ms.locfileid: "93397810"
 
 Azure Application Gateway는 트래픽의 엔드투엔드 암호화를 지원합니다. Application Gateway는 Application Gateway에서 TLS/SSL 연결을 종료합니다. 그러면 게이트웨이에서 트래픽에 라우팅 규칙을 적용하고, 패킷을 다시 암호화하고, 정의된 라우팅 규칙에 따라 적절한 백 엔드 서버에 패킷을 전달합니다. 웹 서버의 모든 응답은 동일한 프로세스를 거쳐 최종 사용자에게 돌아갑니다.
 
-Application Gateway가 사용자 지정 TLS 옵션 정의를 지원합니다. 또한 **TLSv1.0** / **TLSv1.1** / **TLSv1.2** 프로토콜 버전을 사용하지 않도록 설정할 수 있으며, 사용할 암호 그룹 및 기본 설정 순서도 정의할 수 있습니다. 구성 가능한 TLS 옵션에 대한 자세한 내용은 [TLS 정책 개요](application-gateway-SSL-policy-overview.md)를 참조하세요.
+Application Gateway가 사용자 지정 TLS 옵션 정의를 지원합니다. 또한 **TLSv1.0**/**TLSv1.1**/**TLSv1.2** 프로토콜 버전을 사용하지 않도록 설정할 수 있으며, 사용할 암호 그룹 및 기본 설정 순서도 정의할 수 있습니다. 구성 가능한 TLS 옵션에 대한 자세한 내용은 [TLS 정책 개요](application-gateway-SSL-policy-overview.md)를 참조하세요.
 
 > [!NOTE]
 > SSL 2.0 및 SSL 3.0은 기본적으로 사용할 수 없도록 설정되며 사용하도록 설정할 수 없습니다. 보안되지 않은 것으로 간주되며 Application Gateway와 함께 사용할 수 없습니다.
@@ -202,7 +202,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. 애플리케이션 게이트웨이의 인스턴스 크기를 구성합니다. 사용 가능한 크기는 **Standard\_Small** , **Standard\_Medium** 및 **Standard\_Large** 입니다.  용량의 경우 사용 가능한 값은 **1** 부터 **10** 까지입니다.
+10. 애플리케이션 게이트웨이의 인스턴스 크기를 구성합니다. 사용 가능한 크기는 **Standard\_Small**, **Standard\_Medium** 및 **Standard\_Large** 입니다.  용량의 경우 사용 가능한 값은 **1** 부터 **10** 까지입니다.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -219,7 +219,7 @@ Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다.
     - **TLSV1_1**
     - **TLSV1_2**
     
-    다음 예제에서는 최소 프로토콜 버전을 **TLSv1_2** 로 설정하고 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** 만 사용하도록 설정합니다.
+    다음 예제에서는 최소 프로토콜 버전을 **TLSv1_2** 로 설정하고 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** 만 사용하도록 설정합니다.
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -312,7 +312,7 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. TLS 정책을 정의합니다. 다음 예제에서 **TLSv1.0** 및 **TLSv1.1** 은 사용하지 않고 암호 그룹 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** 만 허용합니다.
+2. TLS 정책을 정의합니다. 다음 예제에서 **TLSv1.0** 및 **TLSv1.1** 은 사용하지 않고 암호 그룹 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 및 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** 만 허용합니다.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw

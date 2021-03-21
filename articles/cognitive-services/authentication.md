@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: c7aeb9e9f4de7b4de62f9b5a8da6d997e32a2399
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363326"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
@@ -24,7 +24,7 @@ Azure Cognitive Service에 대한 각 요청은 인증 헤더를 포함해야 �
 * [토큰](#authenticate-with-an-authentication-token) 을 사용 하 여 인증
 * [AAD (Azure Active Directory](#authenticate-with-azure-active-directory) 를 사용 하 여 인증
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 요청을 수행하기 전에 Azure 계정과 Azure Cognitive Services 구독이 필요합니다. 계정이 이미 있는 경우 다음 섹션으로 건너뜁니다. 계정이 없는 경우 몇 분 내에 [Azure에 대 한 Cognitive Services 계정 만들기](cognitive-services-apis-create-account.md)를 설정 하는 방법을 안내 합니다.
 
@@ -75,7 +75,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ### <a name="supported-regions"></a>지원되는 지역
 
-다중 서비스 구독 키를 사용하여 `api.cognitive.microsoft.com`에 대한 요청을 수행하는 경우 URL에 지역을 포함시켜야 합니다. 예: `westus.api.cognitive.microsoft.com`
+다중 서비스 구독 키를 사용하여 `api.cognitive.microsoft.com`에 대한 요청을 수행하는 경우 URL에 지역을 포함시켜야 합니다. 예를 들어 `westus.api.cognitive.microsoft.com`을 참조하십시오.
 
 Translator 서비스에서 다중 서비스 구독 키를 사용 하는 경우 헤더를 사용 하 여 구독 지역을 지정 해야 합니다 `Ocp-Apim-Subscription-Region` .
 

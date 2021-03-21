@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
 ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724356"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Azure 센티널 사용자 지정 커넥터를 만들기 위한 리소스
@@ -93,14 +93,14 @@ Azure [논리 앱](../logic-apps/index.yml) 을 사용 하 여 azure 센티널�
 
 1. **다음 트리거 중 하나를 사용 하 여 Logic Apps를 시작** 합니다.
 
-    |트리거  |Description  |
+    |트리거  |설명  |
     |---------|---------|
     |**되풀이 작업**     |   예를 들어 특정 파일, 데이터베이스 또는 외부 Api에서 정기적으로 데이터를 검색 하도록 논리 앱을 예약 합니다. <br>자세한 내용은 [Azure Logic Apps에서 되풀이 작업 및 워크플로 만들기, 예약 및 실행](../connectors/connectors-native-recurrence.md)을 참조 하세요.      |
     |**주문형 트리거**     | 수동 데이터 수집 및 테스트를 위해 요청 시 논리 앱을 실행 합니다. <br>자세한 내용은  [HTTPS 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조 하세요.        |
     |**HTTP/S 끝점**     |  스트리밍 및 원본 시스템이 데이터 전송을 시작할 수 있는 경우에 권장 됩니다. <br>자세한 내용은 [HTTP 또는 HTTPs를 통한 서비스 끝점 호출](../connectors/connectors-native-http.md)을 참조 하세요.       |
     |     |         |
 
-1. **정보를 읽는 논리 앱 커넥터를 사용 하 여 이벤트를 가져옵니다**. 다음은 그 예입니다. 
+1. **정보를 읽는 논리 앱 커넥터를 사용 하 여 이벤트를 가져옵니다**. 예를 들면 다음과 같습니다.
 
     - [REST API에 연결](/connectors/custom-connectors/)
     - [SQL Server에 연결](/connectors/sql/)
@@ -148,7 +148,7 @@ Import-Csv .\testcsv.csv
 
 [AzMonitorLog PowerShell 스크립트](https://www.powershellgallery.com/packages/Upload-AzMonitorLog/) 스크립트는 다음 매개 변수를 사용 합니다.
 
-|매개 변수  |Description  |
+|매개 변수  |설명  |
 |---------|---------|
 |**WorkspaceId**     |   데이터를 저장할 Azure 센티널 작업 영역 ID입니다.  [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
 |**WorkspaceKey**     |   데이터를 저장할 Azure 센티널 작업 영역에 대 한 기본 또는 보조 키입니다. [작업 영역 ID 및 키를 찾습니다](#find-your-workspace-id-and-key).  |
@@ -197,7 +197,7 @@ RESTful API와 함께 Azure Functions를 사용 하 고 [PowerShell](../azure-fu
 
 사용자 지정 커넥터의 기본 제공 구문 분석 기법을 사용 하 여 관련 정보를 추출 하 고 Azure 센티널의 관련 필드를 채울 수 있습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 - **Logstash 태를 사용한 경우** [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) 필터 플러그 인을 사용 하 여 데이터를 구문 분석 합니다.
 - **Azure 함수를 사용한 경우에는** 코드를 사용 하 여 데이터를 구문 분석 합니다. 자세한 내용은 [파서](normalization.md#parsers)를 참조 하세요.

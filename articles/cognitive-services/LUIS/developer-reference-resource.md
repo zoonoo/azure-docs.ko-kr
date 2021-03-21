@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 01/12/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 08a1965aadf8f50625e54d7c5e3b3f6a44c0bbd4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946167"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
@@ -47,7 +47,7 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 작성 및 예측 끝점 API는 REST Api에서 사용할 수 있습니다.
 
-|형식|버전|
+|Type|버전|
 |--|--|
 |작성|[[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |예측|[[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -69,7 +69,7 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 다음 표에서는 앞의 표에서 중괄호 `{}`로 표시된 매개 변수에 대해 설명합니다.
 
-|매개 변수|목적|
+|매개 변수|용도|
 |--|--|
 |`your-resource-name`|Azure 리소스 이름|
 |`q` 또는 `query`|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|
@@ -88,11 +88,11 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 |언어 |참조 설명서|패키지|빠른 시작|
 |--|--|--|--|
-|C#|[만들](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring)</br>[예측](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[만들](./client-libraries-rest-api.md?pivots=rest-api)<br>[쿼리 예측](./client-libraries-rest-api.md?pivots=rest-api)|
+|C#|[작성](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring)</br>[예측](/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[작성](./client-libraries-rest-api.md?pivots=rest-api)<br>[쿼리 예측](./client-libraries-rest-api.md?pivots=rest-api)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)||
 |Java|[작성 및 예측](/java/api/overview/azure/cognitiveservices/client/languageunderstanding)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|
-|JavaScript|[만들](/javascript/api/@azure/cognitiveservices-luis-authoring/)<br>[예측](/javascript/api/@azure/cognitiveservices-luis-runtime/)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[만들](./client-libraries-rest-api.md?pivots=rest-api)<br>[예측](./client-libraries-rest-api.md?pivots=rest-api)|
-|Python|[작성 및 예측](./client-libraries-rest-api.md?pivots=rest-api)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[만들](./client-libraries-rest-api.md?pivots=rest-api)<br>[예측](./client-libraries-rest-api.md?pivots=rest-api)|
+|JavaScript|[작성](/javascript/api/@azure/cognitiveservices-luis-authoring/)<br>[예측](/javascript/api/@azure/cognitiveservices-luis-runtime/)|[NPM 작성](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[작성](./client-libraries-rest-api.md?pivots=rest-api)<br>[예측](./client-libraries-rest-api.md?pivots=rest-api)|
+|Python|[작성 및 예측](./client-libraries-rest-api.md?pivots=rest-api)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](./client-libraries-rest-api.md?pivots=rest-api)<br>[예측](./client-libraries-rest-api.md?pivots=rest-api)|
 
 
 ### <a name="containers"></a>컨테이너

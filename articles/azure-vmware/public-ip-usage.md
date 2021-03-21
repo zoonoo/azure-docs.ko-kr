@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure 가상 WAN에서 공용 IP 기능을 사�
 ms.topic: how-to
 ms.date: 02/04/2021
 ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581383"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
@@ -29,7 +29,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 이 문서에서는 가상 WAN에서 공용 IP 기능을 사용할 수 있는 방법을 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure VMware 솔루션 환경
 - Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.

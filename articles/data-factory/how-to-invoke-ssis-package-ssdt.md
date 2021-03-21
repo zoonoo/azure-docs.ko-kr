@@ -8,10 +8,10 @@ author: swinarko
 ms.custom: seo-lt-2019
 ms.date: 09/06/2020
 ms.openlocfilehash: f11a3845e8644f3f60425538b2ef32cff668d88d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384931"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>SSDT에서 Azure에서 SSIS 패키지 실행
@@ -22,7 +22,7 @@ ms.locfileid: "100384931"
 
 이 기능을 사용 하 여 새로 만든/기존 Azure-SSIS IR을 SSIS 프로젝트에 연결한 다음 패키지를 실행할 수 있습니다.  Azure SQL Database 서버 또는 프로젝트 배포 모델의 관리 되는 인스턴스에서 호스팅하는 SSIS 카탈로그 (SSISDB)에 배포할 패키지 실행을 지원 합니다. 패키지 배포 모델에서 Azure SQL 관리 되는 인스턴스에 의해 호스트 되는 파일 시스템/Azure Files/SQL Server 데이터베이스 (MSDB)에 배포 되는 패키지 실행도 지원 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능을 사용 하려면 [여기](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)에서 Visual STUDIO 용 SSIS 프로젝트 확장 (VS)을 사용 하 여 최신 SSDT를 다운로드 하 여 설치 하세요. 또는 [여기](/sql/ssdt/download-sql-server-data-tools-ssdt#ssdt-for-vs-2017-standalone-installer)에서 최신 SSDT를 독립 실행형 설치 관리자로 다운로드 하 여 설치할 수도 있습니다.
 

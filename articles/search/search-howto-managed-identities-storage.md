@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358374"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정
@@ -61,7 +61,7 @@ ms.locfileid: "94358374"
 
     Azure 테이블 저장소에 대 한 예제:
 
-    ![읽기 권한자 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
+    ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
@@ -77,7 +77,7 @@ ms.locfileid: "94358374"
 * **credentials**
     * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식은 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 계정 키 또는 암호가 없는 ResourceId를 제공합니다. ResourceId는 스토리지 계정의 구독 ID, 스토리지 계정의 리소스 그룹 및 스토리지 계정 이름이 포함되어야 합니다.
     * 관리 ID 형식: 
-        * *ResourceId=/subscriptions/ **구독 ID** /resourceGroups/ **구독 이름** /providers/Microsoft.Storage/storageAccounts/ **스토리지 계정 이름** /;*
+        * *ResourceId=/subscriptions/**구독 ID**/resourceGroups/**구독 이름**/providers/Microsoft.Storage/storageAccounts/**스토리지 계정 이름**/;*
 * **container** 는 스토리지 계정에서 컨테이너 또는 테이블 이름을 지정합니다. 기본적으로 컨테이너 내의 모든 BLOB은 검색 가능합니다. 특정 가상 디렉터리의 BLOB만 인덱싱하려면 선택 사항인 **query** 매개 변수를 사용하여 해당 디렉터리를 지정할 수 있습니다,
 
 다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Blob 데이터 원본 개체를 만드는 방법의 예입니다.

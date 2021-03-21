@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 80b20b0b55219766872166685c0b1257f3c39c55
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932577"
 ---
 # <a name="headers"></a>헤더
@@ -33,7 +33,7 @@ ms.locfileid: "96932577"
 | **If-None-Match** | HTTP 요청 조건을 만드는 데 사용 됩니다. 이 요청은 대상 리소스의 ETag가이 헤더의 값과 일치 하지 않는 경우에만 성공 합니다. ' * ' 값은 모든 ETag와 일치 합니다. [섹션 14.26](https://tools.ietf.org/html/rfc2616#section-14.26) 을 참조 하세요. | `If-None-Match: "4f6dd610dd5e4deebc7fbaef685fb903"` |
 | **동기화 토큰** | 요청 시퀀스 중에 실시간 일관성을 설정 하는 데 사용 됩니다. | `Sync-Token: jtqGc1I4=MDoyOA==;sn=28` |
 | **x-ms-client-request-id** | 요청에 대 한 왕복을 추적 하는 데 사용 되는 클라이언트에서 제공 하는 고유 ID입니다. | `x-ms-client-request-id: 00000000-0000-0000-0000-000000000000` |
-| **x-m s----sha256** | HTTP 요청 본문의 sha256 다이제스트입니다. 이 헤더는 [HMAC 인증](./rest-api-authentication-hmac.md)에 사용 됩니다. | `x-ms-content-sha256: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=` |
+| **x-ms-content-sha256** | HTTP 요청 본문의 sha256 다이제스트입니다. 이 헤더는 [HMAC 인증](./rest-api-authentication-hmac.md)에 사용 됩니다. | `x-ms-content-sha256: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=` |
 | **x-ms-date** | 이 헤더는 `Date` 날짜 헤더에 액세스할 수 없는 경우 헤더 대신 설정 하 고 사용할 수 있습니다. 이 헤더는 [HMAC 인증](./rest-api-authentication-hmac.md)에 사용 됩니다. | `x-ms-date: Fri, 11 May 2018 18:48:36 GMT` |
 | **x-ms-return-client-request-id** | 헤더와 함께 사용 `x-ms-client-request-id` 됩니다. 이 헤더의 값이 ' t r u e ' 인 경우 요청 헤더의 값을 반환 하도록 서버에 지시 합니다 `x-ms-client-request-id` . | `x-ms-return-client-request-id: true` |
 

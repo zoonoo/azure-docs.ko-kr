@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945852"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
@@ -28,8 +28,8 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에�
 
 | 스토리지 서비스 | 계정 유형 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1 및 2.2을 제외한 모든|
-|Azure Storage| 범용 V2 | Object | Blob | 표준 | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1 및 2.2을 제외한 모든|
+|Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
 |Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 없음 | 모두 | 모두 |
 |Azure Storage| Blob Storage * * | Object | 블록 Blob | 표준 | 핫, 쿨, 보관 | 모두 | 모두 |
 |Azure Data Lake Storage Gen1| 해당 없음 | 계층 구조 (파일 시스템) | 해당 없음 | 해당 없음 | 해당 없음 | 3.6만 해당 | HBase를 제외한 모든 |

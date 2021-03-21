@@ -9,10 +9,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: 436dbac814197556385a33d956928f97fd4716bf
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93311920"
 ---
 # <a name="database-collation-support-for-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL에 대 한 데이터베이스 데이터 정렬 지원 
@@ -113,9 +113,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 
 ## <a name="next-steps"></a>다음 단계
 
-전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀의 모범 사례에 대 한 추가 정보는 다음 문서에서 찾을 수 있습니다.
+전용 SQL 풀 및 서버리스 SQL 풀의 모범 사례에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다.
 
-- [전용 SQL 풀에 대 한 모범 사례](best-practices-sql-pool.md)
-- [서버를 사용 하지 않는 SQL 풀에 대 한 모범 사례](best-practices-sql-on-demand.md)
+- [전용 SQL 풀에 대한 모범 사례](best-practices-sql-pool.md)
+- [서버리스 SQL 풀에 대한 모범 사례](best-practices-sql-on-demand.md)
 
 

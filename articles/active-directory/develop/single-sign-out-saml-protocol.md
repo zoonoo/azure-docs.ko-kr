@@ -13,10 +13,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97703418"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
@@ -72,5 +72,5 @@ Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 �
 
 `Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 
-### <a name="status"></a>Status
+### <a name="status"></a>상태
 Azure AD는 요소의 요소를 사용 하 여 `StatusCode` `Status` 로그 아웃 성공 또는 실패를 표시 합니다. 로그 아웃 시도가 실패 하면 `StatusCode` 요소에 사용자 지정 오류 메시지가 포함 될 수도 있습니다.
