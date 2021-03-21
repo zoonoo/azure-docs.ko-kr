@@ -10,10 +10,10 @@ ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
 ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101667347"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
@@ -136,7 +136,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 
 무료 평가판 및 MSDN 구독에는 Azure 전용 호스트에 대 한 할당량이 없습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 배포 되는 Vm 수에 관계 없이 사용자는 전용 호스트 별로 요금이 청구 됩니다. 월간 명세서에는 새로운 청구 가능한 리소스 종류의 호스트가 표시 됩니다. 전용 호스트의 Vm은 여전히 문에 표시 되지만 가격은 0이 됩니다.
 

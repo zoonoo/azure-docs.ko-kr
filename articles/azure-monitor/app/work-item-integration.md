@@ -4,13 +4,13 @@ description: Application Insights 데이터를 포함 하는 GitHub 또는 Azure
 ms.topic: conceptual
 ms.date: 02/9/2021
 ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731921"
 ---
-# <a name="work-item-integration-preview"></a>작업 항목 통합 (미리 보기)
+# <a name="work-item-integration-preview"></a>작업 항목 통합(미리 보기)
 
 작업 항목 통합 기능을 사용 하면 관련 Application Insights 데이터가 포함 된 GitHub 또는 Azure DevOps에서 작업 항목을 쉽게 만들 수 있습니다.
 

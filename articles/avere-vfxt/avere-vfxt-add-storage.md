@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: c17d3c7cd2cf6fe5bca725cf94344b2d2cb50bf2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001527"
 ---
 # <a name="configure-storage"></a>스토리지 구성
@@ -130,7 +130,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
    | 자격 증명 이름 | 설명이 포함된 이름 |
    | 서비스 유형 | (액세스 키 Azure Storage 선택) |
    | 테넌트 | 스토리지 계정 이름 |
-   | 구독 | 구독 ID |
+   | Subscription | 구독 ID |
    | 스토리지 액세스 키 | Azure Storage 계정 키(이전 단계에서 복사됨) |
 
    **제출** 을 클릭합니다.

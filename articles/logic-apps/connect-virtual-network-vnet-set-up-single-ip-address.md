@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.openlocfilehash: e88c4bf05d88007a6e19b568f1bc1085e24b0325
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102211059"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Azure Logic Apps에서 하나 이상의 통합 서비스 환경에 대해 단일 IP 주소를 설정 합니다.
@@ -19,7 +19,7 @@ Azure Logic Apps를 사용 하는 경우 [Azure 가상 네트워크](../virtual-
 
 이 항목에서는 Azure 방화벽을 통해 아웃 바운드 트래픽을 라우팅하는 방법을 보여 주지만, Azure Marketplace에서 타사 방화벽과 같은 네트워크 가상 어플라이언스에 비슷한 개념을 적용할 수 있습니다. 이 항목에서는 여러 ISE 인스턴스의 설치에 중점을 둔 반면, 시나리오에서 액세스 해야 하는 IP 주소의 수를 제한 해야 하는 경우 단일 ISE에 대해이 방법을 사용할 수도 있습니다. 방화벽 또는 가상 네트워크 어플라이언스에 대한 추가 비용이 시나리오에 적합한지 고려하십시오. [Azure Firewall 가격 책정](https://azure.microsoft.com/pricing/details/azure-firewall/)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * ISE와 동일한 가상 네트워크에서 실행 되는 Azure 방화벽. 방화벽이 없으면 먼저 가상 네트워크에 명명 된 [서브넷을 추가](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) `AzureFirewallSubnet` 합니다. 그런 다음 가상 네트워크에서 [방화벽을 만들고 배포할](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) 수 있습니다.
 

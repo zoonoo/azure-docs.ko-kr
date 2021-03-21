@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 80f30ae818b9e74ff97d2bc26552ed7d7124b499
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101662915"
 ---
 # <a name="how-to-set-up-azure-iot-hub-to-deploy-over-the-air-updates-to-your-azure-percept-dk"></a>무선 업데이트를 통해 Azure Percept에 배포 하도록 Azure IoT Hub를 설정 하는 방법
@@ -42,7 +42,7 @@ ms.locfileid: "101662915"
  
 1. **+ 만들기** 를 클릭 하 고, 인스턴스 이름을 지정 하 고, Azure Percept 장치와 연결 된 IoT Hub (즉, 온 보 딩 환경에서 만들어짐)를 선택 합니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
  
-1. **만들기**
+1. **만들기** 를 클릭합니다.
 
 ## <a name="configure-iot-hub"></a>IoT Hub 구성
 

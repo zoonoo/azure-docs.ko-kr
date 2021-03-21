@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 0b84e26962b00ee5b9d4c34cab7efbcc9aa0bf01
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100582803"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
@@ -24,7 +24,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 
 조직에서는 Azure Data Lake Storage Gen1 계정에 대 한 진단 로깅을 사용 하도록 설정 하 여 데이터에 액세스 하는 사용자 목록, 데이터에 액세스 하는 빈도, 계정에 저장 된 데이터의 양 등의 정보를 제공 하는 데이터 액세스 감사 내역을 수집할 수 있습니다. 사용 하도록 설정 하는 경우 진단 및/또는 요청은 최상의 노력을 기반으로 기록 됩니다. 서비스 엔드포인트에 대한 요청이 있는 경우에만 요청 및 진단 로그 항목이 만들어집니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -115,7 +115,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| 속성 | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -128,7 +128,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| 속성 | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | HttpMethod |String |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | 경로 |String |작업이 수행된 경로 |
@@ -167,7 +167,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 ```
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| 속성 | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | time |String |로그의 타임스탬프(UTC) |
 | resourceId |String |작업이 수행되는 리소스의 ID |
@@ -180,7 +180,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| 속성 | 유형 | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | StreamName |String |작업이 수행된 경로 |
 

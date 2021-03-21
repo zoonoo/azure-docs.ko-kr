@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 6d9abc67035b4581a028d8e59ef080b4f1ffa5b9
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519045"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
@@ -51,12 +51,12 @@ Azure CLI를 사용 하 여 Azure Database for MySQL 데이터 암호화를 설�
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
     ```
 
-* 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
+* 고객 관리형 키로 사용하려면 키에 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
   * 사용 안 함 없음
   * **가져오기**, **래핑**, **래핑** 해제 작업 수행
   * recoverylevel 특성이 **복구** 가능으로 설정 됨 (보존 기간이 90 일로 설정 된 일시 삭제를 사용 해야 함)
-  * 보호 제거 사용
+  * 제거 보호 사용
 
 다음 명령을 사용 하 여 위의 키 특성을 확인할 수 있습니다.
 

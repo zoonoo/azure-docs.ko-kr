@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6ef52e946edb5db8074a9b4e3ce5e4a81ae0bde5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97561055"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 ASP.NET Core Azure Linux 웹앱 프로파일링
@@ -48,7 +48,7 @@ ms.locfileid: "97561055"
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Program.cs에서 Application Insights를 사용 하도록 설정 합니다.
+1. 프로그램 .cs에서 Application Insights를 사용 하도록 설정 합니다.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -57,7 +57,7 @@ ms.locfileid: "97561055"
             .UseStartup<Startup>();
     ```
 
-1. Startup.cs에서 Profiler를 사용 하도록 설정 합니다.
+1. 시작 .cs에서 프로파일러를 사용 하도록 설정 합니다.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)

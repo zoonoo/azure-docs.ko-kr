@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.openlocfilehash: 204124240c6831ebb2c1df436736f475c48d98a8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048939"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
@@ -43,7 +43,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 1. VM 이름 (예: **MyTelegrafVM**)을 제공 합니다.  
 1. 디스크 유형은 **SSD** 로 그대로 둡니다. 그런 다음 **azureuser** 와 같은 **사용자 이름을** 제공 합니다. 
 1. **인증 유형** 으로 **암호** 를 선택 합니다. 나중에 이 VM에 대해 SSH를 수행할 때 사용할 암호를 입력합니다. 
-1. **새 리소스 그룹을 만들도록** 선택 합니다. 그런 다음 **Myresourcegroup** 과 같은 이름을 제공 합니다. **위치** 를 선택 합니다. 그런 다음, **확인** 을 선택합니다. 
+1. **새 리소스 그룹을 만들도록** 선택 합니다. 그런 다음 **Myresourcegroup** 과 같은 이름을 제공 합니다. **위치** 를 선택 합니다. 그런 다음 **확인** 을 선택합니다. 
 
     ![Ubuntu VM 만들기](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 

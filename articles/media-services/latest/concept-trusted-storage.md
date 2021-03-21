@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
 ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585401"
 ---
 # <a name="trusted-storage-for-media-services"></a>Media Services에 대 한 신뢰할 수 있는 저장소
@@ -21,7 +21,7 @@ ms.locfileid: "100585401"
 Media Services 계정을 만드는 경우 저장소 계정과 연결 해야 합니다. 시스템 인증 또는 관리 Id 인증을 사용 하 여 해당 저장소 계정에 액세스할 수 Media Services. Media Services Media Services 계정과 저장소 계정이 동일한 구독에 있는지 확인 하 고 연결을 추가 하는 사용자가 Azure Resource Manager RBAC를 사용 하 여 저장소 계정에 액세스 하는지 확인 합니다.
 
 >[!NOTE]
->신뢰할 수 있는 저장소는 API 에서만 사용할 수 있으며 현재 Azure Portal에서 사용 하도록 설정 되어 있지 않습니다.
+>신뢰할 수 있는 스토리지는 API에서만 사용할 수 있으며 현재 Azure Portal에서는 사용할 수 없습니다.
 
 ## <a name="trusted-storage-with-a-firewall"></a>방화벽이 있는 신뢰할 수 있는 저장소
 

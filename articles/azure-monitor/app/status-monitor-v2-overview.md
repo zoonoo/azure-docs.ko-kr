@@ -6,10 +6,10 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100583819"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
@@ -31,7 +31,7 @@ Application Insights 에이전트는에 https://www.powershellgallery.com/packag
 ![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 - 간결한 코드 샘플을 가져오려면 [시작 지침](status-monitor-v2-get-started.md) 을 참조 하세요.
 - 시작 하는 방법에 대 한 심층 [정보는 자세한 지침](status-monitor-v2-detailed-instructions.md) 을 참조 하세요.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
 ms.openlocfilehash: a7ab48759ac775c1195dedb4143d895bdcdec937
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98956529"
 ---
 # <a name="rest-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 REST 코드 샘플
@@ -30,7 +30,7 @@ REST 샘플은 일반적으로 Postman에서 개발 되 고 테스트 되지만 
 
 Cognitive Search 팀의 코드 샘플에서는 기능 및 워크플로를 보여 줍니다. 이러한 샘플은 대부분 자습서, 빠른 시작 및 방법 문서에서 참조 됩니다. 이러한 샘플은 GitHub의 [**azure-samples/azure-search-postman-샘플**](https://github.com/Azure-Samples/azure-search-postman-samples) 에서 찾을 수 있습니다.
 
-| 샘플 | 기사 |
+| 샘플 | 아티클 |
 |---------|---------|
 | [빠른 시작](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) | 빠른 시작에 대 한 소스 코드 [: REST api를 사용 하 여 검색 인덱스를 만듭니다](search-get-started-rest.md). 이 문서에서는 샘플 데이터를 사용 하 여 검색 인덱스를 만들고 로드 하 고 쿼리 하는 기본 워크플로를 다룹니다. |
 | [자습서](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Tutorial) | 자습서의 소스 코드 [: REST 및 AI를 사용 하 여 Azure blob에서 검색 가능한 콘텐츠를 생성](cognitive-search-tutorial-blob.md)합니다. 이 문서에서는 정보를 추출 하 고 구조를 유추 하기 위해 Azure blob을 반복 하는 기술를 만드는 방법을 보여 줍니다.|

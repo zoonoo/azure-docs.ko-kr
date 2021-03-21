@@ -6,10 +6,10 @@ ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99053570"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>원하는 상태로 머신 구성
@@ -160,9 +160,9 @@ PowerShell을 사용하여 Azure Automation State Configuration 서비스에서 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작하려면 [Azure Automation State Configuration 시작하기](automation-dsc-getting-started.md)를 참조하세요.
-- 노드를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Automation State Configuration 사용](automation-dsc-onboarding.md)을 참조 하세요.
+- 시작하려면 [Azure Automation 상태 구성 시작하기](automation-dsc-getting-started.md)를 참조하세요.
+- 노드를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Automation 상태 구성 사용](automation-dsc-onboarding.md)을 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation State Configuration에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
-- 지속적인 배포 파이프라인에서 Azure Automation State Configuration을 사용하는 예제는 [Chocolatey를 사용한 지속적인 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
+- 연속 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Chocolatey를 사용한 연속 배포 설정](automation-dsc-cd-chocolatey.md)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation State Configuration 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
 - PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation)을 참조하세요.

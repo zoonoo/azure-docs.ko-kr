@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.openlocfilehash: 6c287e168289082b2bd717a2706dd011c7115691
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98955669"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Media Services를 사용 하 여 인코딩할 때 비디오를 하위 클립-REST
@@ -26,7 +26,7 @@ ms.locfileid: "98955669"
 
 이 항목의 REST 예제에서는 인코딩 작업을 전송할 때 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 

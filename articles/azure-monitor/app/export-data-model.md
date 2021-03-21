@@ -4,10 +4,10 @@ description: JSON의 연속 내보내기에서 내보내고 필터로 사용하�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584227"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
@@ -114,7 +114,7 @@ ms.locfileid: "100584227"
 | context.data.eventTime |문자열 |UTC |
 | context.data.isSynthetic |boolean |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
 | context.data.samplingRate |숫자 |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
-| context.device |object |클라이언트 디바이스 |
+| context.device |개체 |클라이언트 디바이스 |
 | context.device.browser |문자열 |IE, Chrome, ... |
 | context.device.browserVersion |문자열 |Chrome 48.0, ... |
 | context.device.deviceModel |문자열 | |
@@ -129,7 +129,7 @@ ms.locfileid: "100584227"
 | context.device.roleName |문자열 | |
 | context.device.screenResolution |문자열 | |
 | context.device.type |문자열 |PC, 브라우저... |
-| context.location |object |`clientip`에서 파생됩니다. |
+| context.location |개체 |`clientip`에서 파생됩니다. |
 | context.location.city |문자열 |알려진 경우에서 파생 됩니다. `clientip` |
 | context.location.clientip |문자열 |마지막 팔각형이 0으로 익명 처리됩니다. |
 | context.location.continent |문자열 | |
@@ -294,7 +294,7 @@ TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -324,7 +324,7 @@ TrackMetric()에서 생성합니다.
 ```
 
 ## <a name="about-metric-values"></a>메트릭 값 정보
-메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 다음은 그 예입니다. 
+메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 "durationMetric": {

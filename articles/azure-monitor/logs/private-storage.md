@@ -6,10 +6,10 @@ author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
 ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047455"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용
@@ -25,7 +25,7 @@ Azure 진단 확장 에이전트 (Windows 및 Linux 에이전트에 대 한 WAD�
 [Azure Portal를](../agents/diagnostics-extension-logs.md#collect-logs-from-azure-storage) 사용 하거나 [storage Insights API](/rest/api/loganalytics/storage%20insights/createorupdate)를 호출 하 여 저장소 계정을 Log Analytics 작업 영역에 저장소 데이터 원본으로 연결 합니다.
 
 지원되는 데이터 형식은
-* syslog
+* Syslog
 * Windows 이벤트
 * Service Fabric
 * ETW 이벤트

@@ -4,10 +4,10 @@ description: 이 문서에서는 컨테이너 insights를 사용 하 여 Azure R
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: 09ca05a25ce9bb02b8a3d515acf060e2e9e7e8c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731802"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Azure 및 Red Hat OpenShift v4 클러스터의 모니터링을 중지 하는 방법

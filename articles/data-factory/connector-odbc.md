@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: jingwang
 ms.openlocfilehash: 9b73e10b0ed539879e9a32d3961b6375828cc153
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389623"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
@@ -32,7 +32,7 @@ ODBC 원본에서 지원되는 싱크 데이터 저장소로 또는 지원되는
 
 특히 이 ODBC 커넥터는 **Basic** 또는 **Anonymous** 인증을 사용하여 **ODBC 호환 데이터 저장소** 간의 데이터 복사를 지원합니다. **64 비트 ODBC 드라이버가** 필요 합니다. ODBC 싱크의 경우 ADF는 ODBC 버전 2.0 표준을 지원 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ODBC 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -57,7 +57,7 @@ ODBC 연결된 서비스에 다음 속성이 지원됩니다.
 | userName | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 예 |
 | password | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | 자격 증명(credential) | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `"RefreshToken=<secret refresh token>;"`. 이 필드를 SecureString으로 표시합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |Yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제 1: 기본 인증 사용**
 
@@ -191,10 +191,10 @@ ODBC 호환 데이터 저장소에 데이터를 복사하려면 복사 작업의
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 형식 속성은 **OdbcSink** 로 설정해야 합니다. | Yes |
+| type | 복사 작업 싱크의 형식 속성은 **OdbcSink** 로 설정해야 합니다. | 예 |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예제: "00:30:00"(30분). |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 0 - 자동 검색됨) |
-| preCopyScript |각 실행 시 데이터 저장소에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |예 |
+| preCopyScript |각 실행 시 데이터 저장소에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. |아니요 |
 
 > [!NOTE]
 > "WriteBatchSize"의 경우 (자동 검색) 설정 되지 않은 경우 복사 작업은 먼저 드라이버에서 일괄 처리 작업을 지원 하는지 여부를 검색 하 고,이를 1만로 설정 하 고, 그렇지 않은 경우 1로 설정 합니다. 0 이외의 값을 명시적으로 설정 하는 경우 복사 작업은 값을 인식 하 고 드라이버에서 일괄 처리 작업을 지원 하지 않는 경우 런타임에 실패 합니다.

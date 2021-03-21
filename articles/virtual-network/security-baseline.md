@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 420cd4a5b39f7c5864cf9802d02643e23c8ad24e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666568"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Virtual Network에 대 한 Azure 보안 기준
@@ -60,7 +60,7 @@ Security Center의 위협 방지 기능을 사용 하 여 알려진 악성 IP �
 
 - [Security Center에서 위협 방지](../security-center/azure-defender.md)
 
-- [Azure Security Center의 적응 네트워크 강화](../security-center/security-center-adaptive-network-hardening.md)
+- [Azure Security Center의 적응형 네트워크 강화](../security-center/security-center-adaptive-network-hardening.md)
 
 **Azure Security Center 모니터링**: 예
 

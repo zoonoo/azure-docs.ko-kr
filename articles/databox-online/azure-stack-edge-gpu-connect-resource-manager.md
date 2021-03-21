@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 27c0c211b9844a34b0cb43dcd05037ba4a548f3e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102638194"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
@@ -57,7 +57,7 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 다음 섹션에서는 Azure Resource Manager 연결에서 위의 각 단계에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge Pro 장치에 액세스](azure-stack-edge-gpu-configure-tls-settings.md)를 참조 하세요.
 
@@ -102,7 +102,7 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
     |Type |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Blob 스토리지|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 인증서에 대 한 자세한 내용은 [인증서를 관리](azure-stack-edge-gpu-manage-certificates.md)하는 방법을 참조 하세요.

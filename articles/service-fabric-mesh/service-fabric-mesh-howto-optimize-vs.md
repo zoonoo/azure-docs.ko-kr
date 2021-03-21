@@ -6,18 +6,18 @@ ms.author: gwallace
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: e676286dca852c94f94e8bd8ff2ab73ee92b1412
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99625755"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Service Fabric Mesh 프로젝트에서 Visual Studio 성능 최적화
 
 > [!IMPORTANT]
-> Azure Service Fabric 메시의 미리 보기가 사용이 중지 되었습니다. 새 배포는 Service Fabric 메시 API를 통해 더 이상 허용 되지 않습니다. 기존 배포에 대 한 지원은 2021 년 4 월 28 일까 지 계속 됩니다.
+> Azure Service Fabric Mesh의 미리 보기가 사용 중지되었습니다. 새 배포는 더이상 Service Fabric Mesh API를 통해 허용되지 않습니다. 기존 배포에 대한 지원은 2021년 4월 28일까지 계속됩니다.
 > 
-> 자세한 내용은 [Azure Service Fabric 메시 미리 보기](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)사용 중지를 참조 하세요.
+> 자세한 내용은 [Azure Service Fabric Mesh 미리 보기 사용 중지](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/)를 참조하세요.
 
 이 문서에서는 첫 번째 디버깅 실행(F5)이 더 신속하게 수행되도록 Service Fabric Mesh 프로젝트에서 Visual Studio 성능을 최적화하는 방법을 보여줍니다.  
 

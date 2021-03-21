@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
 ms.openlocfilehash: 09564bd149488d956586c8a0e349cd79eec358a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100582752"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>Go 용 HDInsight SDK (미리 보기)
@@ -22,7 +22,7 @@ HDInsight SDK for Go는 HDInsight 클러스터를 관리 하는 데 사용할 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [ `go get` 도구](https://github.com/golang/go/wiki/GoGetTools)입니다.
 * [이동](https://golang.org/dl/).

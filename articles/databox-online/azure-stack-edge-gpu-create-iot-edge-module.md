@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
 ms.openlocfilehash: d2ab96fcfa33301f0bd1212b23f9418fa39d0134
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102638234"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Edge Pro Azure Stack 파일을 이동 하는 c # IoT Edge 모듈 개발
@@ -42,7 +42,7 @@ Azure Stack Edge Pro 장치는 IoT Edge 모듈을 배포 하 고 실행할 수 �
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인합니다.
 
@@ -125,7 +125,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-1. VS Code 탐색기에서 **모듈 > FileCopyModule > Program.cs** 를 엽니다.
+1. VS Code 탐색기에서 **모듈 > FileCopyModule > Program .cs** 를 엽니다.
 2. **FileCopyModule 네임스페이스** 의 맨 위에서 나중에 사용되는 유형에 다음 using 문을 추가합니다. **Microsoft.Azure.Devices.Client.Transport.Mqtt** 는 IoT Edge Hub에 메시지를 보내는 프로토콜입니다.
 
     ```
@@ -240,7 +240,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     ```
 
 7. 이 파일을 저장합니다.
-8. 이 프로젝트에 대 한 [기존 코드 샘플을 다운로드할](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) 수도 있습니다. 그런 다음이 샘플의 **program.cs** 파일에 대해 저장 한 파일의 유효성을 검사할 수 있습니다.
+8. 이 프로젝트에 대 한 [기존 코드 샘플을 다운로드할](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) 수도 있습니다. 그런 다음이 샘플의 **program .cs** 파일에 대해 저장 한 파일의 유효성을 검사할 수 있습니다.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 

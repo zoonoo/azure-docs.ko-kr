@@ -8,10 +8,10 @@ ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735036"
 ---
 # <a name="app-service-environment-networking"></a>App Service Environment 네트워킹
@@ -27,7 +27,7 @@ ASEv3는 두 개의 서브넷을 사용 합니다.  하나의 서브넷은 인�
 ## <a name="addresses"></a>주소 
 ASE에는 만들 때 다음 주소가 있습니다.
 
-| 주소 유형 | description |
+| 주소 형식 | 설명 |
 |--------------|-------------|
 | 인바운드 주소 | 인바운드 주소는 ASE에서 사용 하는 개인 끝점 주소입니다. |
 | 아웃 바운드 서브넷 | 아웃 바운드 서브넷은 ASE 서브넷 이기도 합니다. 미리 보기 중이 서브넷은 아웃 바운드 트래픽에만 사용 됩니다. |

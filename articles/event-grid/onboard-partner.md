@@ -4,10 +4,10 @@ description: Azure Portal를 사용 하 여 Azure Event Grid 파트너를 등록
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: 44dece4d46a6d702d48fa49983818986fcd59f7b
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98050955"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Event Grid 파트너로 등록
@@ -25,7 +25,7 @@ ms.locfileid: "98050955"
 1. **이벤트 채널** 및 **파트너 항목** (단일 단계)을 만듭니다.
 1. 종단 간 파트너 이벤트 기능을 테스트 합니다.
 
-#4 단계에서는 제공 하려는 사용자 환경의 종류를 결정 해야 합니다. 다음과 같은 옵션을 선택할 수 있습니다.
+#4 단계에서는 제공 하려는 사용자 환경의 종류를 결정 해야 합니다. 다음과 같은 옵션이 있습니다.
 - SDK 및/또는 REST API를 사용 하 여 도메인에 호스트 되는 웹 GUI (그래픽 사용자 인터페이스) 환경에서 사용자 고유의 솔루션을 제공 하 여 이벤트 채널과 해당 하는 파트너 항목을 만듭니다. 이 옵션을 사용 하 여 파트너 토픽을 만들 구독 및 리소스 그룹을 사용자에 게 요청할 수 있습니다.
 - Azure Portal 또는 CLI를 사용 하 여 이벤트 채널과 연결 된 파트너 항목을 만듭니다. 이 옵션을 사용 하는 경우 사용자의 Azure 구독에 파트너 토픽을 만드는 일부 방법 및 리소스 그룹이 있어야 합니다. 
 
@@ -37,7 +37,7 @@ ms.locfileid: "98050955"
 ## <a name="communicate-your-interest-in-becoming-a-partner"></a>파트너에 대 한 관심을 전달 합니다.
 [이 양식을](https://aka.ms/gridpartnerform) 작성 하 고 Event Grid 팀에 문의 하세요 [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com) . 파트너 이벤트의 사용 사례, 가상 사용자, 온 보 딩 프로세스, 기능, 가격 및 기타에 대 한 자세한 정보를 제공 하는 대화가 제공 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 나머지 단계를 완료 하려면 다음을 수행 해야 합니다.
 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).

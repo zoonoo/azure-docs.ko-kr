@@ -7,10 +7,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594437"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
@@ -30,9 +30,9 @@ Hive Warehouse Connector에서 지원되는 작업은 다음과 같습니다.
 * 테이블 설명
 * ORC 형식의 데이터에 대한 테이블 만들기
 * Hive 데이터 선택 및 DataFrame 검색
-* DataFrame을 Hive에 일괄로 쓰기
+* Hive에 DataFrame 일괄 쓰기
 * Hive update 문 실행
-* Hive에서 테이블 데이터를 읽고 Spark에서 변환한 다음, 새 Hive 테이블에 쓰기
+* Hive에서 테이블 데이터 읽기, Spark에서 데이터 변환 및 새 Hive 테이블에 데이터 쓰기
 * HiveStreaming을 사용하여 Hive에 DataFrame 또는 Spark 스트림 쓰기
 
 ## <a name="hive-warehouse-connector-setup"></a>Hive Warehouse Connector 설정

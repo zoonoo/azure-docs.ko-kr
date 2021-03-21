@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209222"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>StorSimple 스냅샷 관리자를 사용하여 볼륨 그룹 만들기 및 관리

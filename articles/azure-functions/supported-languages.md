@@ -4,10 +4,10 @@ description: 지원 되는 언어 (GA) 및 미리 보기 상태인 언어와 함
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108554"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어

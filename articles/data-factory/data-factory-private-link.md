@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
 ms.openlocfilehash: 9e4d686f582a202dbc543620c7bf73dc4e7adb22
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389181"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure에서 다양 한 PaaS (platform as a service) 배포에 연결할 수 있습니다. 개인 끝점은 특정 가상 네트워크 및 서브넷의 개인 IP 주소입니다. 개인 링크 기능을 지 원하는 PaaS 배포 목록은 [개인 링크 설명서](../private-link/index.yml)를 참조 하세요. 
+Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure에서 다양 한 PaaS (platform as a service) 배포에 연결할 수 있습니다. 프라이빗 엔드포인트는 특정 가상 네트워크 및 서브넷 내의 개인 IP 주소입니다. 개인 링크 기능을 지 원하는 PaaS 배포 목록은 [개인 링크 설명서](../private-link/index.yml)를 참조 하세요. 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>고객 네트워크와 Azure Data Factory 간의 보안 통신 
 Azure 가상 네트워크를 클라우드에서 네트워크의 논리적 표현으로 설정할 수 있습니다. 이렇게 하면 다음과 같은 이점이 있습니다.
-* 공용 네트워크의 공격 으로부터 Azure 리소스를 보호 하는 데 도움이 됩니다.
-* 네트워크와 Data Factory는 서로 안전 하 게 통신할 수 있습니다. 
+* 공용 네트워크의 공격으로부터 Azure 리소스를 보호하는 데 도움이 됩니다.
+* 네트워크와 Data Factory가 서로 안전하게 통신하도록 합니다. 
 
-IPsec (인터넷 프로토콜 보안) VPN (사이트 간) 연결 또는 Azure Express 경로 (개인 피어 링) 연결을 설정 하 여 온-프레미스 네트워크를 가상 네트워크에 연결할 수도 있습니다. 
+IPsec(인터넷 프로토콜 보안) VPN(사이트 간) 연결 또는 Azure ExpressRoute(개인 피어링) 연결을 설정하여 온-프레미스 네트워크를 가상 네트워크에 연결할 수도 있습니다. 
 
 또한 온-프레미스 컴퓨터 또는 가상 네트워크의 가상 컴퓨터에 자체 호스팅 통합 런타임을 설치할 수 있습니다. 이렇게 하면 다음을 수행할 수 있습니다.
-* 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 작업을 실행 합니다.
-* 온-프레미스 네트워크 또는 Azure 가상 네트워크에서 계산 리소스에 대 한 변환 작업을 디스패치합니다. 
+* 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 활동을 실행합니다.
+* 온-프레미스 네트워크 또는 Azure 가상 네트워크의 컴퓨팅 리소스에 대해 변환 활동을 디스패치할 수 있습니다. 
 
 다음 표에 표시 된 것 처럼 Azure Data Factory와 고객 가상 네트워크 사이에 몇 가지 통신 채널이 필요 합니다.
 

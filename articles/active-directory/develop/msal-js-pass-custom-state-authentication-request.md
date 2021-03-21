@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 5c1fad96ea6e3b75b3afdfd4a4d3baac43308541
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063674"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL.js를 사용 하 여 인증 요청에서 사용자 지정 상태 전달
@@ -51,7 +51,7 @@ export type AuthenticationParameters = {
 > 캐시를 건너뛰는 것은 현재 캐시 된 데이터에 최신 정보가 없다는 것을 알고 있는 경우에만 사용 해야 합니다.
 > 업데이트 된 역할이 있는 새 토큰을 가져와야 하는 사용자에 게 역할을 추가 하는 관리 도구입니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```javascript
 let loginRequest = {

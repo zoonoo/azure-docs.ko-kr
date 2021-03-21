@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 83cce31d3eee9b5cca7b54e996e41a270fec0030
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896397"
 ---
 # <a name="upload-a-document"></a>문서 업로드
@@ -45,7 +45,7 @@ ms.locfileid: "98896397"
 
     b.  언어 쌍
 
-    c.  기존 문서 재정의: 동일한 이름을 갖는 기존 문서를 덮어쓰려면 이 확인란을 선택합니다.
+    다.  기존 문서 재정의: 동일한 이름을 갖는 기존 문서를 덮어쓰려면 이 확인란을 선택합니다.
 
     d.  병렬 데이터와 콤보 데이터 중 하나를 선택하여 입력합니다.
 

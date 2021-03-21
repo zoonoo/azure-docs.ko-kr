@@ -11,10 +11,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/21/2020
 ms.openlocfilehash: b675e72df4f128d0ce096b3ac398fab63c20557e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97930806"
 ---
 # <a name="service-limits-in-azure-machine-learning"></a>Azure Machine Learning의 서비스 제한
@@ -33,7 +33,7 @@ ms.locfileid: "97930806"
 | RunId/ParentRunId | 256자 |
 | DataContainerId | 261 문자 |
 | DisplayName |256자|
-| Description |5000 문자|
+| 설명 |5000 문자|
 | 속성 수 |50 |
 | 속성 키의 길이 |100 문자 |
 | 속성 값의 길이 |1000 문자 |
