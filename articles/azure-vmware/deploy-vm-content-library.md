@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 사설 클라우드에 VM을 배포 하는 �
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.openlocfilehash: a50b12ef8e139bf7de171398fd28f74fc3f310c9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382007"
 ---
 # <a name="create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 Vm을 배포 하는 콘텐츠 라이브러리 만들기
@@ -16,7 +16,7 @@ ms.locfileid: "100382007"
 
 이 문서에서는 콘텐츠 라이브러리를 만드는 절차를 안내 합니다.  그런 다음 콘텐츠 라이브러리의 ISO 이미지를 사용 하 여 VM을 배포 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료 하려면 NSX-T 세그먼트 (논리 스위치) 및 관리 되는 DHCP 서비스가 필요 합니다.  자세한 내용은 [Azure VMware 솔루션에서 DHCP를 관리 하는 방법](manage-dhcp.md) 문서를 참조 하세요.
 

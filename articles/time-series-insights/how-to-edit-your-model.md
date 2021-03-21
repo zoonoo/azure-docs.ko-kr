@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
 ms.openlocfilehash: 89efc1d4f34b250d211f9fd7492588bd2896eb6e
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016856"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 데이터 모델링
@@ -124,7 +124,7 @@ Azure Time Series Insights 탐색기는 브라우저 내에서 계층 **만들�
 
 1. **삭제** 를 선택 하 여 삭제를 확인 합니다.
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
 Azure Time Series Insights 탐색기는 브라우저 내에서 형식 **만들기**, **읽기**, **업데이트** 및 **삭제** 작업을 지원 합니다.
 

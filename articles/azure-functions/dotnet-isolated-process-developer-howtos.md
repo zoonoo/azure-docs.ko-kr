@@ -5,10 +5,10 @@ ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
 ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201356"
 ---
 # <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Azure Functions를 사용 하 여 .NET 5 함수 개발 및 게시 
@@ -20,7 +20,7 @@ ms.locfileid: "103201356"
 >[!NOTE]
 >Azure Portal에서 .NET 격리 프로세스 함수를 개발 하는 것은 현재 지원 되지 않습니다. Azure CLI 또는 Visual Studio Code 게시를 사용 하 여 Azure에서 out-of-process .NET 5.0 앱의 실행을 지 원하는 함수 앱을 만들어야 합니다.   
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -105,7 +105,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ``` 
 
-    `func new` HttpExample.cs 코드 파일을 만듭니다.
+    `func new` HttpExample .cs 코드 파일을 만듭니다.
 ::: zone-end  
 
 ::: zone pivot="development-environment-vscode"  

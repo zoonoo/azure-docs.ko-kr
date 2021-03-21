@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94380983"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
@@ -301,7 +301,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 |-|빼기|
 |/|사업부|
 |*|곱하기|
-|^|전력|
+|^|고급|
 |!|계승|
 |.|Decimal|
 |()|우선 순위 그룹화|
@@ -309,7 +309,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
-|기호|Description|
+|기호|설명|
 |------------|-----------------|
 |Pi|3.14159...|
 |도|도|
@@ -319,7 +319,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 함수를 포함할 수 있습니다.
 
-|기호|Description|
+|기호|설명|
 |------------|-----------------|
 |정렬|제곱근|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|삼각함수(인수 사용, 라디안 단위)|
@@ -424,7 +424,7 @@ Query: What time is it in the U.S.
 
 ## <a name="spellsuggestion-answer"></a>SpellSuggestion 응답
 
-Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우 응답은 [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) 개체를 포함합니다. 예를 들어, 사용자가 *carlos pen* 을 검색하는 경우 사용자가 대신에 Carlos Pena를 검색하려는 것 같다고 Bing이 판단할 수 있습니다( *carlos pen* 을 검색한 다른 사람들의 과거 검색을 기반으로). 다음은 예제 맞춤법 응답을 보여줍니다.
+Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우 응답은 [SpellSuggestions](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) 개체를 포함합니다. 예를 들어, 사용자가 *carlos pen* 을 검색하는 경우 사용자가 대신에 Carlos Pena를 검색하려는 것 같다고 Bing이 판단할 수 있습니다(*carlos pen* 을 검색한 다른 사람들의 과거 검색을 기반으로). 다음은 예제 맞춤법 응답을 보여줍니다.
 
 ```json
 "spellSuggestions": {
@@ -485,6 +485,6 @@ cors-proxy-server
 
 * [요청 제한](throttling-requests.md) 설명서를 검토합니다.  
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 * [Bing Web Search API 참조](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

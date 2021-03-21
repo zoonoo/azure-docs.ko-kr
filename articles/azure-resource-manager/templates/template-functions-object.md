@@ -4,10 +4,10 @@ description: 개체 작업을 위해 Azure Resource Manager 템플릿 (ARM 템�
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96920452"
 ---
 # <a name="object-functions-for-arm-templates"></a>ARM 템플릿에 대 한 개체 함수
@@ -25,7 +25,7 @@ ms.locfileid: "96920452"
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
-## <a name="contains"></a>contains
+## <a name="contains"></a>포함
 
 `contains(container, itemToFind)`
 
@@ -33,7 +33,7 @@ ms.locfileid: "96920452"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -145,7 +145,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | key1 |예 |문자열 |키의 이름입니다. |
 | value1 |아니요 |int, boolean, string, object 또는 array |키의 값입니다. |
@@ -219,7 +219,7 @@ output newObject object = {
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -300,7 +300,7 @@ output stringEmpty bool = empty(testString)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
@@ -394,8 +394,8 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | 개체 | {"one": "a", "three": "c"} |
-| arrayOutput | 배열 | ["two", "three"] |
+| objectOutput | Object | {"one": "a", "three": "c"} |
+| arrayOutput | Array | ["two", "three"] |
 
 <a id="json"></a>
 
@@ -407,7 +407,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열 이어야 합니다. |
 
@@ -523,12 +523,12 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
-| objectOutput | 개체 | {"a": "b"} |
+| objectOutput | Object | {"a": "b"} |
 | stringOutput | String | test |
 | booleanOutput | 부울 | True |
 | intOutput | 정수 | 3 |
-| arrayOutput | 배열 | [ 1, 2, 3 ] |
-| concatObjectOutput | 개체 | {"a": "demo 값"} |
+| arrayOutput | Array | [ 1, 2, 3 ] |
+| concatObjectOutput | Object | {"a": "demo 값"} |
 
 ## <a name="length"></a>length
 
@@ -538,7 +538,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
@@ -678,7 +678,7 @@ output emptyOutput bool = empty(null)
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | Type | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -690,7 +690,7 @@ output emptyOutput bool = empty(null)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
@@ -787,8 +787,8 @@ output arrayOutput array = union(firstArray, secondArray)
 
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
-| objectOutput | 개체 | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | 배열 | ["one", "two", "three", "four"] |
+| objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 

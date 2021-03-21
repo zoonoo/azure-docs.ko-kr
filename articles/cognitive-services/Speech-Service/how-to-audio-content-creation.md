@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
 ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100388586"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>오디오 콘텐츠 생성 도구를 사용 하 여 합성 향상
@@ -158,7 +158,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 1. 사용자의 Microsoft 계정 검색 하 고 사용자의 세부 정보 페이지로 이동 합니다. **할당 된 역할** 을 클릭 합니다.
 1. **할당 추가**  ->  **디렉터리 판독기** 를 클릭 합니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [긴 오디오 API](./long-audio-api.md)
 

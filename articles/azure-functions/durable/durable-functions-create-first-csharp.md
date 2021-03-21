@@ -7,10 +7,10 @@ ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.openlocfilehash: d5b6ecc12cee983cee0772da8b6f8f26a3b5a8ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008209"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
@@ -35,7 +35,7 @@ ms.locfileid: "96008209"
 
 * 최신 버전의 [Azure Functions Core Tools](../functions-run-local.md)가 있는지 확인합니다.
 
-* Durable Functions에는 Azure 스토리지 계정이 필요합니다. Azure 구독이 필요합니다.
+* Durable Functions를 사용하려면 Azure 스토리지 계정이 필요합니다. Azure 구독이 필요합니다.
 
 * 버전 3.1 이상의 [.NET Core SDK](https://dotnet.microsoft.com/download)가 설치되어 있는지 확인합니다.
 

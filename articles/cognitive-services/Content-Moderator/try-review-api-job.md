@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905176"
 ---
 # <a name="define-and-use-moderation-jobs-api-console"></a>중재 작업 정의 및 사용 (API 콘솔)
@@ -115,7 +115,7 @@ REST 호출의 본문은 **Contentvalue** 필드 하나를 포함 합니다. 텍
 
 ### <a name="examine-the-new-reviews"></a>새 검토를 검토 합니다.
 
-콘텐츠 작업에서 검토를 만든 경우 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 볼 수 있습니다. **Review**  >  **Image** / **Text** / 사용 하는 내용에 따라 이미지 텍스트 **비디오** 검토를 선택 합니다. 콘텐츠는 사람이 검토할 준비가 된 것으로 표시 되어야 합니다. 사용자 중재자가 자동 할당 된 태그 및 예측 데이터를 검토 하 고 최종 중재 결정을 제출한 후에는 작업 API가이 모든 정보를 지정 된 콜백 끝점으로 전송 합니다.
+콘텐츠 작업에서 검토를 만든 경우 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 볼 수 있습니다.   >   /  / 사용 하는 내용에 따라 이미지 텍스트 **비디오** 검토를 선택 합니다. 콘텐츠는 사람이 검토할 준비가 된 것으로 표시 되어야 합니다. 사용자 중재자가 자동 할당 된 태그 및 예측 데이터를 검토 하 고 최종 중재 결정을 제출한 후에는 작업 API가이 모든 정보를 지정 된 콜백 끝점으로 전송 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

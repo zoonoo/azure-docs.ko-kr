@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
 ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793282"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포 및 탐색합니다.
@@ -57,13 +57,13 @@ ms.locfileid: "92793282"
 2. 각각의 배포에 필요한 매개 변수 값을 입력합니다.
 
     > [!IMPORTANT]
-    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 애플리케이션 배포에 대한 **새 리소스 그룹을 만듭니다** .  기존 리소스 그룹을 사용하지 마세요. 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
+    > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 애플리케이션 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 애플리케이션이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 애플리케이션을 완료할 때 모든 리소스 그룹을 삭제합니다.
 
     리소스 이름에는 소문자, 숫자 및 하이픈만 사용하는 것이 가장 좋습니다.
-    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 공백이 없는 장소 이름으로 바꿉니다. \<user\>의 경우 아래의 사용자 값으로 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* , *wingtip-sa-fabrikamjazzclub-af1* 이 될 수 있습니다.
+    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 공백이 없는 장소 이름으로 바꿉니다. \<user\>의 경우 아래의 사용자 값으로 바꿉니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1* 이 될 수 있습니다.
     * 드롭다운 목록에서 **위치** 를 선택합니다.
 
-    * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1* ).
+    * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1*).
 
 
 3. **애플리케이션을 배포** 합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "92793282"
     * 사용 약관에 동의하려면 클릭합니다.
     * **구매** 를 클릭합니다.
 
-4. **알림** (검색 상자 오른쪽의 벨 아이콘)을 클릭하여 세 가지 전체 배포의 배포 상태를 모니터링합니다. 앱 배포에 약 5분이 걸립니다.
+4. **알림**(검색 상자 오른쪽의 벨 아이콘)을 클릭하여 세 가지 전체 배포의 배포 상태를 모니터링합니다. 앱 배포에 약 5분이 걸립니다.
 
 
 ## <a name="run-the-applications"></a>애플리케이션 실행

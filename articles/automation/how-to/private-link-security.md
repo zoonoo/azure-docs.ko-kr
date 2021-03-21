@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
 ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579803"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Azure 개인 링크를 사용 하 여 네트워크를 Azure Automation에 안전 하 게 연결
@@ -113,7 +113,7 @@ Automation 계정 리소스를 설정 하기 전에 네트워크 격리 요구 �
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
-    | 속성 | *PrivateEndpoint* 를 입력 합니다. |
+    | Name | *PrivateEndpoint* 를 입력 합니다. |
     | 지역 | **영역** 을 선택 합니다. |
     |||
 

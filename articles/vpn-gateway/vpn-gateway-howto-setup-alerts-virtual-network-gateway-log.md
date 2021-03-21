@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: alzam
 ms.openlocfilehash: 70cac6ef566ef52409cd9667708c2fc297e046f7
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97656617"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>VPN Gateway에서 리소스 로그 이벤트에 대 한 경고 설정
@@ -20,7 +20,7 @@ ms.locfileid: "97656617"
 
 Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
-|***이름** _ | _*_Description_*_ |
+|***이름** _ | _ *_설명_** |
 |--- | --- |
 |GatewayDiagnosticLog | 게이트웨이 구성 이벤트, 기본 변경 내용 및 유지 관리 이벤트에 대 한 리소스 로그를 포함 합니다. |
 |TunnelDiagnosticLog | 터널 상태 변경 이벤트를 포함 합니다. 해당 하는 경우 터널 연결/연결 끊기 이벤트에 상태 변경에 대 한 요약 된 이유가 있습니다. |
@@ -33,7 +33,7 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 다음 예제 단계는 사이트 간 VPN 터널이 포함 된 연결 끊기 이벤트에 대 한 경고를 만듭니다.
 
 
-1. Azure Portal의 **모든 서비스** 에서 _ *Log Analytics**를 검색 하 고 **Log Analytics 작업 영역** 을 선택 합니다.
+1. Azure Portal에서 **모든 서비스** 아래 **Log Analytics** 를 검색 하 고 **Log Analytics 작업 영역** 을 선택 합니다.
 
    ![Log Analytics 작업 영역으로 이동 하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "생성")
 

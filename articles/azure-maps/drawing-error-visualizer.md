@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96903584"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>작성자와 함께 오류 시각화 도우미를 사용 하 여 Azure Maps 그리기 (미리 보기)
 
 > [!IMPORTANT]
-> Azure Maps 작성자 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
@@ -30,7 +30,7 @@ ms.locfileid: "96903584"
 
 1. [Azure Maps 계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account)
 2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-3. [작성자 (미리 보기) 리소스 만들기](how-to-manage-creator.md)
+3. [Creator(미리 보기) 리소스 만들기](how-to-manage-creator.md)
 
 이 자습서에서는 [Postman](https://www.postman.com/) 애플리케이션을 사용하지만 다른 API 개발 환경을 선택할 수도 있습니다.
 

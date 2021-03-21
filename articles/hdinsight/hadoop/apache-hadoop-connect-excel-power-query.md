@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
 ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946694"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
@@ -54,7 +54,7 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
        **참고:** 또한 파워 쿼리를 사용 하면 **다른 원본에서** 선택 하 여 HDFS에서 데이터를 가져올 수 있습니다.
 
-1. **Azure HDInsight (HDFS)** 대화 상자의 **계정 이름 또는 URL** 텍스트 상자에 클러스터와 연결 된 Azure Blob storage 계정의 이름을 입력 합니다. 그런 다음, **확인** 을 선택합니다. 이 계정은 기본 스토리지 계정 또는 연결된 스토리지 계정이 될 수 있습니다.  형식은 `https://StorageAccountName.blob.core.windows.net/`입니다.
+1. **Azure HDInsight (HDFS)** 대화 상자의 **계정 이름 또는 URL** 텍스트 상자에 클러스터와 연결 된 Azure Blob storage 계정의 이름을 입력 합니다. 그런 다음 **확인** 을 선택합니다. 이 계정은 기본 스토리지 계정 또는 연결된 스토리지 계정이 될 수 있습니다.  형식은 `https://StorageAccountName.blob.core.windows.net/`입니다.
 
 1. **계정 키** 에 Blob 저장소 계정의 키를 입력 한 다음 **연결** 을 선택 합니다. (이 저장소에 처음 액세스할 때만 계정 정보를 입력하면 됩니다.)
 
@@ -70,7 +70,7 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 또한 HDInsight에 데이터를 업로드할 수 있습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
+이 문서에서는 파워 쿼리를 사용하여 HDInsight에서 Excel로 데이터를 가져오는 방법을 알아보았습니다. 마찬가지로 HDInsight에서 Azure SQL Database로 데이터를 가져올 수 있습니다. 또한 HDInsight에 데이터를 업로드할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure HDInsight에서 Microsoft Power BI를 사용 하 여 Apache Hive 데이터를 시각화](apache-hadoop-connect-hive-power-bi.md)합니다.
 * [Azure HDInsight에서 Power BI를 사용 하 여 대화형 쿼리 Hive 데이터 시각화](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)

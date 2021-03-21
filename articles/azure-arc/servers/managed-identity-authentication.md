@@ -4,10 +4,10 @@ description: 이 문서에서는 Arc 사용 서버에 대 한 Azure Instance Met
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.openlocfilehash: 49b70928ae972da8e0a0d14d711e4b6f246cca6a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96939157"
 ---
 # <a name="authenticate-against-azure-resources-with-arc-enabled-servers"></a>Arc 사용 서버를 사용 하 여 Azure 리소스에 대해 인증
@@ -38,7 +38,7 @@ Windows Arc 사용 서버에서 다음 변수를 사용 하 여 관리 되는 id
 
 시스템 환경 변수 **IDENTITY_ENDPOINT** 는 응용 프로그램에서 id 끝점을 검색 하는 데 사용 됩니다. 응용 프로그램은 **IDENTITY_ENDPOINT** 및 **IMDS_ENDPOINT** 값을 검색 하 여 사용 해야 합니다. 모든 액세스 수준의 응용 프로그램은 끝점에 대 한 요청을 수행할 수 있습니다. 메타 데이터 응답은 정상적으로 처리 되 고 컴퓨터의 모든 프로세스에 제공 됩니다. 그러나 토큰을 노출 하는 요청이 이루어지면 클라이언트는 더 높은 권한 있는 사용자만 사용할 수 있는 데이터에 액세스할 수 있음을 증명 하는 암호를 제공 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 관리 ID에 대한 이해.
 - 서버를 Arc 사용 서버에 연결 하 고 등록 했습니다.

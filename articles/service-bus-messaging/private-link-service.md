@@ -6,10 +6,10 @@ ms.author: spelluru
 ms.date: 10/07/2020
 ms.topic: article
 ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94427150"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>전용 끝점을 통해 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
@@ -257,11 +257,11 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>제한 사항 및 디자인 고려 사항
 
-**가격 책정** : 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
+**가격 책정**: 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
 
-**제한 사항** :  이 기능은 모든 Azure 퍼블릭 지역에서 사용할 수 있습니다.
+**제한 사항**:  이 기능은 모든 Azure 퍼블릭 지역에서 사용할 수 있습니다.
 
-**Service Bus 네임스페이스당 최대 프라이빗 엔드포인트 수** : 120.
+**Service Bus 네임스페이스당 최대 프라이빗 엔드포인트 수**: 120.
 
 자세한 내용은 [Azure Private Link 서비스: 제한 사항](../private-link/private-link-service-overview.md#limitations)을 참조하세요.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: 2fb03721baa80e77a5fd387600a272e6b1cfc7d3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95013645"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 Speech service로 마이그레이션
@@ -64,7 +64,7 @@ ms.locfileid: "95013645"
 * [음성 서비스를 무료로 사용해 보세요.](overview.md#try-the-speech-service-for-free)
 * [빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 * [음성 서비스는 무엇 인가요?](overview.md)
 * [Speech service 및 Speech SDK 설명서](./speech-devices-sdk-quickstart.md?pivots=platform-android)
