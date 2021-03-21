@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 0227fcebd6d5a136e3306573b7b5aa0d6e39ba1f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122802"
 ---
 # <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>스프링 클라우드 Resilience4J 회로 차단기 메트릭 (미리 보기) 수집
@@ -20,7 +20,7 @@ ms.locfileid: "102122802"
 
 [스프링-회로 차단기 데모](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo) 를 사용 하 여 작동 방식을 표시 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Java [In-Process agent for Application Insights 가이드](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 java In-Process 에이전트를 사용 하도록 설정 합니다. 
 

@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
 ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99500100"
 ---
 Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔터티 범주를 반환 합니다. 예를 들어 요청을 끝점으로 보내는 경우 `/entities/recognition/general` 입니다.
@@ -45,7 +45,7 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
     :::column span="":::
         **엔터티**
 
-        Person
+        사람
 
     :::column-end:::
     :::column span="2":::
@@ -348,7 +348,7 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
     :::column span="":::
         **엔터티**
 
-        Product
+        제품
 
     :::column-end:::
     :::column span="2":::
@@ -575,7 +575,7 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
     :::column span="":::
         **엔터티 하위 범주**
 
-        Date
+        날짜
 
     :::column-end:::
     :::column span="2":::
@@ -710,7 +710,7 @@ Text Analytics에 대 한 NER 기능은 다음과 같은 일반 (비 식별) 엔
     :::column span="":::
         **엔터티 하위 범주**
 
-        Number
+        숫자
 
     :::column-end:::
     :::column span="2":::

@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: cbc4bbf73c65d4d7eddad556f3776bc0bbd653ba
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cedf861594903cd160c24ea35545d388bf1f6ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431264"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582717"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -151,6 +151,8 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
+    필드에는 api-version을 포함 하는 것이 좋습니다. 그렇지 않으면 예기치 않은 동작이 발생할 수 있습니다. 
+    
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0eaa73fa7e0a9896a875af7e3a3aab22db2a37d0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036601"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657062"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 Windows 이벤트 로그 데이터 원본 수집
 Windows 이벤트 로그는 windows 이벤트 로그에 많은 응용 프로그램을 작성 하기 때문에 Windows 가상 컴퓨터의 Log Analytics 에이전트에 대 한 가장 일반적인 [데이터 원본](../agents/agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -28,6 +28,10 @@ Azure Monitor에서는 설정에 지정된 Windows 이벤트 로그에서만 이
 이벤트 로그 이름을 입력하면 Azure Monitor는 일반적인 이벤트 로그 이름을 제안합니다. 추가하려는 로그가 목록에 나타나지 않으면 로그의 전체 이름을 입력하여 추가할 수 있습니다. 이벤트 뷰어를 사용하여 로그의 전체 이름을 찾을 수 있습니다. 이벤트 뷰어에서 로그의 *속성* 을 열고 *전체 이름* 필드에서 문자열을 복사합니다.
 
 [![Windows 이벤트 구성](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
+
+> [!IMPORTANT]
+> 작업 영역에서 보안 이벤트 수집을 구성할 수 없습니다. [Azure Security Center](../../security-center/security-center-enable-data-collection.md) 또는 [Azure 센티널](../../sentinel/connect-windows-security-events.md) 을 사용 하 여 보안 이벤트를 수집 해야 합니다.
+
 
 > [!NOTE]
 > Windows 이벤트 로그의 중요 이벤트는 Azure Monitor 로그의 심각도 "오류"입니다.

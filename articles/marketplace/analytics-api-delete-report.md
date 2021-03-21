@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 7c39f8bc0db44f1d8aa885969ca09d90b0dcd332
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584111"
 ---
 # <a name="delete-report-api"></a>보고서 API 삭제
@@ -27,7 +27,7 @@ ms.locfileid: "102584111"
 
 **요청 헤더**
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------------ | ------------- | ------------- |
 | 권한 부여 | 문자열 | 필수 요소. 형식의 Azure AD 액세스 토큰 `Bearer <token>` |
 | 콘텐츠 유형 | 문자열 | `Application/JSON` |

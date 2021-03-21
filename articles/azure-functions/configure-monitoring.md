@@ -5,10 +5,10 @@ ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 5007009d9aabf9a1c1c6e1d5c2f286c0ba25b340
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493756"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Azure Functions에 대 한 모니터링을 구성 하는 방법
@@ -28,7 +28,7 @@ Azure Functions 로거에는 모든 로그에 대한 *범주* 가 포함되어 �
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
-| 범주 | 테이블 | Description |
+| 범주 | 테이블 | 설명 |
 | ----- | ----- | ----- |
 | **`Function.<YOUR_FUNCTION_NAME>`** | **관계도**| 일부 서비스의 경우 종속성 데이터가 자동으로 수집 됩니다. 성공적인 실행의 경우 이러한 로그는 수준에 있습니다 `Information` . 자세히 알아보려면 [종속성](functions-monitoring.md#dependencies)을 참조 하세요. 예외는 수준에서 기록 됩니다 `Error` . 또한 런타임은 `Warning` 큐 메시지가 [포이즌 큐](functions-bindings-storage-queue-trigger.md#poison-messages)로 전송 되는 경우와 같은 수준 로그를 만듭니다. | 
 | **`Function.<YOUR_FUNCTION_NAME>`** | **customMetrics**<br/>**customEvents** | C # 및 JavaScript Sdk를 사용 하면 사용자 지정 메트릭을 수집 하 고 사용자 지정 이벤트를 로그할 수 있습니다. 자세히 알아보려면 [사용자 지정 원격 분석 데이터](functions-monitoring.md#custom-telemetry-data)를 참조 하세요.|
