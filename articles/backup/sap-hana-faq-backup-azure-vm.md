@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup 서비스를 사용하여 SAP HANA
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95400210"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>자주 묻는 질문 – Azure VM의 SAP HANA 데이터베이스 백업

@@ -7,17 +7,17 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: cbf05245768a663e324e9bb6e1ad422eeee3ab1a
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96930520"
 ---
 # <a name="azure-active-directory-authentication"></a>Azure Active Directory 인증
 
 `Bearer`Azure Active Directory (AZURE AD)에서 획득 한 토큰으로 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. TLS (전송 계층 보안)를 통해 이러한 요청을 전송 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 해당 하는 [Azure 앱 구성 역할](./rest-api-authorization-azure-ad.md)중 하나에 Azure AD 토큰을 요청 하는 데 사용 되는 보안 주체를 할당 해야 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "96930520"
 | --------------- | ------------ |
 | `Authorization` | 체계에서 요구 하는 인증 정보 `Bearer` 입니다. |
 
-**예:**
+**예제:**
 
 ```http
 Host: {myconfig}.azconfig.io

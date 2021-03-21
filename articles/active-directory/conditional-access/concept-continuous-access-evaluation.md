@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99524671"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
@@ -159,7 +159,7 @@ Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있�
 | Office 업데이트 채널 | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
 | 반기 엔터프라이즈 채널 | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. | Enabled 또는 1로 설정 하면 CAE가 지원 되지 않습니다. |
-| 현재 채널 <br> or <br> 월별 엔터프라이즈 채널 | CAE는 설정에 상관 없이 지원 됩니다. | CAE는 설정에 상관 없이 지원 됩니다. |
+| 현재 채널 <br> 또는 <br> 월별 엔터프라이즈 채널 | CAE는 설정에 상관 없이 지원 됩니다. | CAE는 설정에 상관 없이 지원 됩니다. |
 
 Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 업데이트 채널 개요](/deployoffice/overview-update-channels)를 참조 하세요. 조직에서는 WAM (웹 계정 관리자)를 사용 하지 않도록 설정 하는 것이 좋습니다.
 
@@ -179,7 +179,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ(질문과 대답)
+## <a name="faqs"></a>FAQ
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

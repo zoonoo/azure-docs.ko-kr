@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 05c3cfc390fed905f4a1b09c221095b56867d540
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896177"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps 라우팅 적용 범위
@@ -37,7 +37,7 @@ ms.locfileid: "92896177"
 <br>  
 
 
-## <a name="africa"></a>Africa
+## <a name="africa"></a>아프리카
 
 | 국가/지역                 | 라우팅         | 트래픽 라우팅 | 트럭 라우팅 |
 |--------------------------------|:---------------:|:--------------------:|:------------:|

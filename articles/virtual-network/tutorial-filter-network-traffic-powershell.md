@@ -18,10 +18,10 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurepowershell
 ms.openlocfilehash: 8ab22e7960e233d6ae934fb52989aa73a494b33a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791513"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
@@ -277,7 +277,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 IIS 설치가 완료된 후 *myVmWeb* VM 연결을 끊으면 *myVmMgmt* VM 원격 데스크톱 연결이 종료됩니다. IIS 시작 화면을 보려면 인터넷 브라우저를 열고 http: \/ /Myvmweb. 이동 합니다.
 
-*myVmMgmt* VM과의 연결을 끊습니다.
+*MyVmMgmt* VM에서 연결을 끊습니다.
 
 컴퓨터에서 다음 PowerShell 명령을 입력하여 *myVmWeb* 서버의 공용 IP 주소를 검색합니다.
 

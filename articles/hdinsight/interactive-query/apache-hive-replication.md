@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.openlocfilehash: 2e57b7d8121ac0bd6fc9cb693750c41a0ef6a5bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101733060"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Apache Hive 복제를 사용 하는 방법
@@ -151,7 +151,7 @@ Azure AD DS 복제본 집합 기능을 사용 하 여 여러 지역에서 Azure 
   
 레인저 Import-Export 기능을 사용 하 여 주 데이터베이스에서 보조 데이터베이스로 정기적으로 백업 하 고 복제할 수 있습니다. 보조 클러스터에서 구현 하려는 권한 부여 수준에 따라 모든 또는 모든 레인저 정책의 하위 집합을 복제 하도록 선택할 수 있습니다.  
 
-## <a name="sample-code"></a>예제 코드  
+## <a name="sample-code"></a>샘플 코드  
 
 다음 코드 시퀀스는 이라는 예제 테이블에서 부트스트래핑 및 증분 복제를 구현 하는 방법을 보여 줍니다 `tpcds_orc` .  
 

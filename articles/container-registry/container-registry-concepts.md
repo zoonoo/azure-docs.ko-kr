@@ -4,10 +4,10 @@ description: Azure container registry, 리포지토리, 컨테이너 이미지 �
 ms.topic: article
 ms.date: 01/29/2021
 ms.openlocfilehash: 991be79b10b6061f2034eb19e4e139af65aef3cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578127"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>레지스트리, 리포지토리 및 아티팩트 정보
@@ -30,7 +30,7 @@ Docker 호환 컨테이너 이미지 외에도 Azure Container Registry는 투�
 - *acr-helloworld: v1*
 - *acr-helloworld: v2*
 
-리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 다음은 그 예입니다. 
+리포지토리 이름에 [네임스페이스](container-registry-best-practices.md#repository-namespaces)가 포함될 수도 있습니다. 네임 스페이스를 사용 하면 슬래시 (/)로 구분 된 이름을 사용 하 여 조직에서 관련 리포지토리 및 아티팩트 소유권을 식별할 수 있습니다. 그러나 레지스트리는 계층 구조가 아닌 독립적으로 모든 리포지토리를 관리 합니다. 예를 들면 다음과 같습니다.
 
 - *marketing/campaign10-18/웹: v2*
 - *marketing/campaign10-18/api: v3*
@@ -156,7 +156,7 @@ Docker 또는 다른 클라이언트 도구를 사용 하 여 아티팩트를 Az
    
 ### <a name="push-by-tag"></a>태그로 푸시
 
-예: 
+예제: 
 
    `docker push myregistry.azurecr.io/samples/myimage:20210106`
 

@@ -14,10 +14,10 @@ ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cd1cfb0cc8e1868e78b4d284d1b1f4e7e85aa318
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101677043"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Azure Virtual Machines에 대 한 Azure Large Instance 마이그레이션 SAP HANA
@@ -51,14 +51,14 @@ HLI 고객이 있는 일반적인 배포 모델은 다음 표에 요약 되어 �
 | --- | --- | --- | --- |
 | 1 | [SID가 1개인 단일 노드](./hana-supported-scenario.md#single-node-with-one-sid) | 예 | - |
 | 2 | [MCOS를 사용 하는 단일 노드](./hana-supported-scenario.md#single-node-mcos) | 예 | - |
-| 3 | [저장소 복제를 사용 하는 DR이 있는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | No | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
-| 4 | [저장소 복제를 사용 하는 DR (다목적)이 포함 된 단일 노드](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | No | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
+| 3 | [저장소 복제를 사용 하는 DR이 있는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | 아니요 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
+| 4 | [저장소 복제를 사용 하는 DR (다목적)이 포함 된 단일 노드](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | 아니요 | Azure 가상 플랫폼에서 저장소 복제를 사용할 수 없습니다. 현재 DR 솔루션을 HSR 또는 백업/복원으로 변경 하세요. |
 | 5 | [고가용성을 위한 STONITH가 있는 HSR](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability) | 예 | 대상 Vm에 대 한 미리 구성 된 SBD 없습니다.  STONITH 솔루션을 선택 하 고 배포 합니다.  가능한 옵션: Azure 펜스 에이전트 ( [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)모두에 지원 됨), SBD |
-| 6 | [HSR, 저장소 복제를 사용 하는 DR을 사용한 HA](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | No | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
+| 6 | [HSR, 저장소 복제를 사용 하는 DR을 사용한 HA](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | 아니요 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
 | 7 | [호스트 자동 장애 조치(Failover)(1+1)](./hana-supported-scenario.md#host-auto-failover-11) | 예 | Azure Vm에서 공유 저장소에 ANF 사용 |
 | 8 | [대기 상태로 스케일 아웃](./hana-supported-scenario.md#scale-out-with-standby) | 예 | M128s, M416s, M416ms Vm을 사용 하 여 저장소 전용으로 ANF를 사용 하는 BW/4HANA |
 | 9 | [대기 없이 스케일 아웃](./hana-supported-scenario.md#scale-out-without-standby) | 예 | M128s, M416s, M416ms Vm (저장소에 대해 ANF를 사용 하거나 사용 하지 않음)을 사용 하는 BW/4HANA |
-| 10 | [저장소 복제를 사용 하 여 DR 확장](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | No | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
+| 10 | [저장소 복제를 사용 하 여 DR 확장](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | 아니요 | HSR 또는 백업/복원 중 하나를 사용 하 여 DR 요구 사항에 대 한 저장소 복제를 바꿉니다. |
 | 11 | [HSR를 사용 하는 DR을 사용 하는 단일 노드](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | 예 | - |
 | 12 | [단일 노드 HSR에서 DR으로 (비용 최적화)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | 예 | - |
 | 13 | [HSR에서 HA 및 DR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | 예 | - |
@@ -115,7 +115,7 @@ HLI 콘텐츠를 백업 하는 것 외에도 롤백이 필요한 경우 SAP 가�
 ### <a name="vm-sizing-recommendation"></a>VM 크기 조정 권장 사항
 또한이 마이그레이션은 HANA 계산 엔진을 적절 하 게 크기를 조정 하는 기회입니다.  Hana [시스템 뷰](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) 를 hana Studio와 함께 사용 하 여 시스템 리소스 사용을 이해할 수 있으며,이를 통해 올바른 크기 조정으로 지출 효율성을 높일 수 있습니다.
 
-### <a name="storage"></a>스토리지 
+### <a name="storage"></a>Storage 
 저장소 성능은 SAP 응용 프로그램 사용자 환경에 영향을 주는 요인 중 하나입니다.  지정 된 VM SKU에 기반 하 여 [Azure 가상 머신 저장소 구성 SAP HANA](./hana-vm-operations-storage.md)게시 된 최소 저장소 레이아웃입니다. 새 HANA VM에 대 한 적절 한 IO 용량 및 성능을 보장 하기 위해 이러한 최소 사양과 기존 HLI 시스템 통계 비교를 검토 하는 것이 좋습니다.
 
 새 HANA VM 및 연결 된 서버에 대해 PPG를 구성 하는 경우 지원 티켓을 제출 하 여 저장소 및 VM의 공동 배치를 검사 하 고 확인 합니다. 백업 솔루션을 변경 해야 할 수 있으므로 운영 지출을 방지 하기 위해 저장소 비용도 검토 해야 합니다.

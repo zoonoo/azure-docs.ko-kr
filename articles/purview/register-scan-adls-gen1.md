@@ -8,10 +8,10 @@ ms.subservice: data-catalog-gen2
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.openlocfilehash: a831681f892de9f6aae50fa9a2fcf71e883fe6ba
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693714"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 등록 및 검색
@@ -120,7 +120,7 @@ Data Catalog의 MSI를 사용 하 여 검색을 설정 하려면 먼저 부서�
 데이터 카탈로그에 새 ADLS Gen1 계정을 등록 하려면 다음을 수행 합니다.
 
 1. 부서의 범위 Data Catalog로 이동 합니다.
-2. 왼쪽 탐색 영역에서 **소스** 를 선택 합니다.
+2. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
 3. **등록** 을 선택합니다.
 4. **소스 등록** 에서 **Azure Data Lake Storage Gen1** 를 선택 합니다. 
 5. **계속** 을 선택합니다.

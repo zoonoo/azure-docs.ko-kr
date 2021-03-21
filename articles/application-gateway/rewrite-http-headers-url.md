@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 81eaf95a4918590c6eaa2c17a45e6925a1a67992
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726515"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Application Gateway를 사용 하 여 HTTP 헤더 및 URL 다시 작성
@@ -104,7 +104,7 @@ Application Gateway 서버 변수를 사용 하 여 서버에 대 한 유용한 
 
 Application gateway는 다음 서버 변수를 지원 합니다.
 
-|   변수 이름    |                   Description                                           |
+|   변수 이름    |                   설명                                           |
 | ------------------------- | ------------------------------------------------------------ |
 | add_x_forwarded_for_proxy | `client_ip`I p 1, IP2, p 3 등의 형식으로 추가 된 (이 표의 뒷부분에 나오는 설명 참조) 변수와 함께 X로 전달 된 클라이언트 요청 헤더 필드입니다. X 전달-For 필드가 클라이언트 요청 헤더에 없으면 `add_x_forwarded_for_proxy` 변수는 `$client_ip` 변수와 같습니다.   이 변수는 헤더에 포트 정보가 없는 IP 주소만 포함 되도록 Application Gateway에 의해 설정 된 X 전달 된 헤더를 다시 작성 하려는 경우에 특히 유용 합니다. |
 | ciphers_supported         | 클라이언트에서 지 원하는 암호화 목록입니다.               |

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793248"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 애플리케이션 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
@@ -82,7 +82,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 * Azure 리소스 관리 템플릿을 사용하여 **카탈로그 데이터베이스를 프로비전** 합니다. 데이터베이스는 bacpac 파일을 가져와서 초기화됩니다.
 * 이전에 배포한 **샘플 테넌트 앱을 등록** 합니다.  각 테넌트는 테넌트 이름의 해시로 생성된 키를 사용하여 등록됩니다.  테넌트 이름은 카탈로그의 확장 테이블에도 저장됩니다.
 
-1. PowerShell ISE에서 *...\Learning Modules\UserConfig.psm* 을 열고 **\<user\>** 값을 세 가지 애플리케이션 예제를 배포할 때 사용한 값으로 업데이트합니다.  **파일을 저장합니다** .
+1. PowerShell ISE에서 *...\Learning Modules\UserConfig.psm* 을 열고 **\<user\>** 값을 세 가지 애플리케이션 예제를 배포할 때 사용한 값으로 업데이트합니다.  **파일을 저장합니다**.
 1. PowerShell ISE에서 *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* 을 열어서 **$Scenario = 1** 을 설정합니다. 테넌트 카탈로그를 배포하고 미리 정의된 테넌트를 등록합니다.
 
 1. `& $PSScriptRoot\New-Catalog.ps1`이라고 표시된 줄에 커서를 두고 중단점을 추가한 다음, **F9** 를 누릅니다.
@@ -118,10 +118,10 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 
 이 작업에서는 단일 테넌트 애플리케이션을 프로비전하는 방법을 알아봅니다. 다음을 수행합니다.
 
-* 테넌트에 대한 **새 리소스 그룹을 만듭니다** .
+* 테넌트에 대한 **새 리소스 그룹을 만듭니다**.
 * Azure 리소스 관리 템플릿을 사용하여 새 리소스 그룹에 **애플리케이션 및 데이터베이스를 프로비전** 합니다.  이 작업에는 bacpac 파일을 가져와서 일반 스키마 및 참조 데이터로 데이터베이스를 초기화하는 작업이 포함됩니다.
-* **기본 테넌트 정보로 데이터베이스를 초기화합니다** . 이 작업에는 이벤트 웹 사이트의 배경으로 사용되는 사진을 결정하는 장소 유형을 지정하는 작업이 포함됩니다.
-* **카탈로그 데이터베이스에 데이터베이스를 등록합니다** .
+* **기본 테넌트 정보로 데이터베이스를 초기화합니다**. 이 작업에는 이벤트 웹 사이트의 배경으로 사용되는 사진을 결정하는 장소 유형을 지정하는 작업이 포함됩니다.
+* **카탈로그 데이터베이스에 데이터베이스를 등록합니다**.
 
 1. PowerShell ISE에서 *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* 을 열어서 **$Scenario = 2** 를 설정합니다. 테넌트 카탈로그를 배포하고 미리 정의된 테넌트를 등록합니다.
 

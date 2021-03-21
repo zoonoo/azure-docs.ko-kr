@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: b-juche
 ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95249897"
 ---
 # <a name="delete-volume-replications-or-volumes"></a>볼륨 복제 또는 볼륨 삭제
@@ -34,10 +34,10 @@ ms.locfileid: "95249897"
     1. *대상* 볼륨을 선택 합니다. 저장소 서비스에서 **복제** 를 클릭 합니다.  
 
     2.  계속 하기 전에 다음 필드를 확인 하십시오.  
-        * 미러 상태가 ***미러된** _를 표시 하는지 확인 합니다.   
-            미러 상태가 _Uninitialized *로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.
-        * 관계 상태가 ***Idle** _을 표시 하는지 확인 합니다.   
-            관계 상태가 _Transferring *로 표시 되는 경우 복제 피어 링을 중단 하려고 하지 마세요.   
+        * 미러 상태가 ***미러된*** 것으로 표시 되는지 확인 합니다.   
+            미러 상태가 *초기화 되지 않음* 으로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.
+        * 관계 상태가 ***유휴*** 상태를 표시 하는지 확인 합니다.   
+            관계 상태가 *전송* 중으로 표시 되는 경우 복제 피어 링을 중단 하지 마십시오.   
 
         [복제 관계의 상태 표시를](cross-region-replication-display-health-status.md)참조 하세요. 
 

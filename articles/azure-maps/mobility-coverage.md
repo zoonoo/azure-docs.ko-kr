@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904757"
 ---
 # <a name="azure-maps-mobility-services-preview-coverage"></a>Azure Maps 모바일 서비스 (미리 보기) 검사
@@ -22,7 +22,7 @@ ms.locfileid: "96904757"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-Azure Maps [모바일 서비스](/rest/api/maps/mobility) 는 전송 라우팅 및 근접 한 공용 전송 중지와 같은 공개 전송 기능을 사용 하 여 응용 프로그램에 대 한 개발 시간을 향상 시킵니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 모바일 서비스를 사용 하면 사용자가 중지 및 선 기 하 도형, 중지, 줄 및 서비스 영역에 대 한 경고, 실시간 공용 전송 도착 한 및 서비스 경고를 검색할 수 있습니다. 또한 모바일 서비스는 다중 모달 여행 계획 옵션으로 라우팅 기능을 제공 합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
+Azure Maps [모바일 서비스](/rest/api/maps/mobility) 는 전송 라우팅 및 근접 한 공용 전송 중지와 같은 공개 전송 기능을 사용 하 여 응용 프로그램에 대 한 개발 시간을 향상 시킵니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 모바일 서비스를 사용 하면 사용자가 중지 및 선 기 하 도형, 중지, 줄 및 서비스 영역에 대 한 경고, 실시간 공용 전송 도착 한 및 서비스 경고를 검색할 수 있습니다. 또한 Mobility Services는 다중 모달 이동 계획 옵션이 있는 라우팅 기능을 제공합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
 
 Azure Maps는 모든 도시와 국가/지역에 대해 동일한 수준의 정보 및 정확도를 제공 하지 않습니다. 공용 전송 데이터를 호출 하는 기능은 metro 영역에 따라 달라 집니다. 또한 지도 데이터에는 metro 영역을 제공 하는 모든 공개 전송 옵션 및 기관이 포함 되지 않을 수 있습니다.
 

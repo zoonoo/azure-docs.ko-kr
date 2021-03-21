@@ -10,10 +10,10 @@ ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
 ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199852"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>로그 재생 서비스 (미리 보기)를 사용 하 여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
@@ -64,7 +64,7 @@ LRS에는 백업 파일에 대 한 특정 명명 규칙이 필요 하지 않습�
 
 :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="SQL Managed Instance에 대 한 로그 재생 서비스 오케스트레이션 단계를 설명 하는 다이어그램입니다." border="false":::
     
-| 작업(Operation) | 세부 정보 |
+| 작업 | 세부 정보 |
 | :----------------------------- | :------------------------- |
 | **1. SQL Server에서 Blob Storage으로 데이터베이스 백업을 복사** 합니다. | [Azcopy](/azure/storage/common/storage-use-azcopy-v10) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용 하 여 SQL Server에서 Blob Storage 컨테이너로 전체, 차등 및 로그 백업을 복사 합니다. <br /><br />모든 파일 이름을 사용 합니다. LRS에는 특정 파일 명명 규칙이 필요 하지 않습니다.<br /><br />여러 데이터베이스를 마이그레이션하는 경우 각 데이터베이스에 대해 별도의 폴더가 필요 합니다. |
 | **2. 클라우드에서 LRS을 시작** 합니다. | PowerShell ([azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) 또는 Azure CLI ([az_sql_midb_log_replay_start cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)) cmdlet을 선택 하 여 서비스를 다시 시작할 수 있습니다. <br /><br /> Blob Storage의 백업 폴더를 가리키는 각 데이터베이스에 대해 개별적으로 LRS을 시작 합니다. <br /><br /> 서비스를 시작한 후에는 Blob Storage 컨테이너에서 백업을 수행 하 고 SQL Managed Instance에서 복원을 시작 합니다.<br /><br /> 연속 모드에서 LRS를 시작한 경우 처음 업로드 된 모든 백업이 복원 된 후 서비스는 폴더에 업로드 된 새 파일을 감시 합니다. 서비스는 중지 될 때까지 LSN (로그 시퀀스 번호) 체인을 기반으로 로그를 지속적으로 적용 합니다. |
@@ -313,7 +313,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 
 연속 모드에서 LRS를 시작 하기 위한 PowerShell 및 CLI 클라이언트는 동기식입니다. 즉, 클라이언트는 API 응답에서 작업을 시작 하는 데 성공 또는 실패를 보고할 때까지 대기 합니다. 
 
-이 대기 중에 명령이 명령 프롬프트에 컨트롤을 반환 하지 않습니다. 마이그레이션 환경을 스크립팅 하는 경우 스크립트의 나머지 부분을 계속 하기 위해 LRS start 명령이 즉시 다시 제공 되도록 하려면 스위치를 사용 하 여 PowerShell을 백그라운드 작업으로 실행할 수 있습니다 `-AsJob` . 다음은 그 예입니다. 
+이 대기 중에 명령이 명령 프롬프트에 컨트롤을 반환 하지 않습니다. 마이그레이션 환경을 스크립팅 하는 경우 스크립트의 나머지 부분을 계속 하기 위해 LRS start 명령이 즉시 다시 제공 되도록 하려면 스위치를 사용 하 여 PowerShell을 백그라운드 작업으로 실행할 수 있습니다 `-AsJob` . 예를 들면 다음과 같습니다.
 
 ```PowerShell
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob

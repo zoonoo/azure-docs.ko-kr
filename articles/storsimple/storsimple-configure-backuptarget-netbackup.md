@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 4f71cf82b675222836a73eec12d68bd8f62a5538
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967281"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>NetBackup에서 백업 대상으로 StorSimple 구성
@@ -529,7 +529,7 @@ StorSimple 디바이스에서 복원하면 모든 블록 스토리지 디바이�
 
 재해는 다양한 요인으로 발생할 수 있습니다. 다음 표에서는 일반적인 재해 복구 시나리오를 나열합니다.
 
-| 시나리오 | 영향 | 복구 방법 | 메모 |
+| 시나리오 | 영향 | 복구 방법 | 참고 |
 |---|---|---|---|
 | StorSimple 디바이스 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 디바이스를 교체하고 [StorSimple 장애 조치 및 재해 복구](./storsimple-8000-device-failover-disaster-recovery.md)를 수행합니다. | 디바이스 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 디바이스로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
 | NetBackup 서버 오류 | Backup 및 복원 작업이 중단됩니다. | 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 NetBackup 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 NetBackup 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그가 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |

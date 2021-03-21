@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687977"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
@@ -118,7 +118,7 @@ select * from mysecrets;
 - 사용자 이름: 나
 - USERpassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 `mysecrets` 고, 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있으면 사용자 이름이 반환 됩니다. 다음은 그 예입니다. 
+응용 프로그램에 연결 하 고 암호를 전달 하면 테이블에서 조회 되 `mysecrets` 고, 응용 프로그램에 제공 된 암호와 테이블에 저장 된 암호 사이에 일치 하는 항목이 있으면 사용자 이름이 반환 됩니다. 예를 들면 다음과 같습니다.
 
 - 잘못 된 암호를 전달 합니다.
    ```console

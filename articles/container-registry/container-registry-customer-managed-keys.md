@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.custom: ''
 ms.openlocfilehash: aad9419fdb139ff615bfe07075be78a2ca4ee4ac
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489075"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
@@ -48,7 +48,7 @@ ms.locfileid: "102489075"
 
 자세한 내용은이 문서의 뒷부분에 나오는 키 [버전을 사용 하거나 사용 하지 않고 키 ID 선택](#choose-key-id-with-or-without-key-version) 및 키 [버전 업데이트](#update-key-version)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 Azure CLI 단계를 사용 하려면 버전이 2.2.0 이상 이거나 Azure Cloud Shell Azure CLI 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 

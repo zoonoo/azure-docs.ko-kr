@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
 ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728640"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
@@ -242,7 +242,7 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 
 대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 범위 및 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 경고를 나열합니다. 열 아래쪽의 모두 보기를 클릭하거나 열 머리글을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | Description |
+| 열 | 설명 |
 |:--|:--|
 | 작업 | 모니터링되는 모든 Office 365 구독의 활성 사용자에 대한 정보를 제공합니다. 시간에 따라 발생하는 활동의 수도 확인할 수 있습니다.
 | Exchange | Add-MailboxPermission, Set-Mailbox 등의 Exchange Server 활동이 자세히 구분되어 표시됩니다. |
@@ -260,7 +260,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
@@ -271,14 +271,14 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 | ResultStatus | Operation 속성에 지정된 작업이 성공했는지 여부를 나타냅니다. 가능한 값은 Succeeded, PartiallySucceeded 또는 Failed입니다. Exchange 관리자 활동의 경우 값은 True 또는 False입니다. |
 | UserId | 레코드가 기록된 원인인 작업을 수행한 사용자의 UPN(사용자 계정 이름)입니다. 예를 들면 my_name@my_domain_name과 같습니다. SHAREPOINT\system 또는 NTAUTHORITY\SYSTEM과 같은 시스템 계정이 수행한 활동에 대한 레코드도 포함됩니다. | 
 | UserKey | UserId 속성에 나와 있는 사용자의 대체 ID입니다.  예를 들어 SharePoint, 비즈니스용 OneDrive 및 Exchange에서 사용자가 수행한 이벤트의 경우에는 이 속성에 PUID(Passport 고유 ID)가 입력됩니다. 시스템 계정이 수행한 이벤트와 기타 서비스에서 발생하는 이벤트의 경우 이 속성이 UserID 속성과 같은 값을 지정할 수도 있습니다.|
-| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>Admin<br>애플리케이션<br>DcAdmin<br>Regular<br>예약됨<br>ServicePrincipal<br>시스템 |
+| UserType | 작업을 수행한 사용자의 유형입니다.<br><br>Admin<br>애플리케이션<br>DcAdmin<br>Regular<br>예약됨<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 기본 속성
 
 다음 속성은 모든 Azure Active Directory 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -290,7 +290,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Active Directory 사용자가 로그온을 시도할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | `OfficeWorkload` | AzureActiveDirectory |
 | `RecordType`     | AzureActiveDirectoryAccountLogon |
@@ -304,7 +304,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 이러한 레코드는 Azure Active Directory 개체를 추가하거나 변경할 때 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -322,7 +322,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 데이터 센터 보안 감사 데이터에서 생성됩니다.  
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | EffectiveOrganization | 권한 상승/cmdlet의 대상 테넌트 이름입니다. |
 | ElevationApprovedTime | 권한 상승이 승인된 시간에 해당하는 타임스탬프입니다. |
@@ -338,7 +338,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -353,7 +353,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 사서함을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -376,7 +376,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 사서함 감사 항목을 만들면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -391,7 +391,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 Exchange 그룹을 변경하거나 추가하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -410,7 +410,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 속성은 모든 SharePoint 레코드에 공통적으로 적용됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -427,7 +427,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint 구성을 변경하면 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -440,7 +440,7 @@ Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생�
 
 다음 레코드는 SharePoint의 파일 작업에 대한 응답으로 생성됩니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |

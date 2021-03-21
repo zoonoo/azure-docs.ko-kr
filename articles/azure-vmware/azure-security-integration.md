@@ -4,10 +4,10 @@ description: Azure Security Center 대시보드에서 Azure의 기본 보안 도
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578260"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Azure Security Center 통합을 사용 하 여 Azure VMware 솔루션 Vm 보호
@@ -159,7 +159,7 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 4. **일반** 탭에서 필요한 정보를 입력 합니다.
 
-    - 속성
+    - Name
     - 설명
     - 전술
     - 심각도
@@ -230,7 +230,7 @@ Azure 센티널을 사용 하 여 생성 된 인시던트를 볼 수 있습니�
 
 2. 다음 정보를 입력 하 여 사용자 지정 쿼리를 만듭니다.
 
-    - 속성
+    - Name
     - 설명
     - 사용자 지정 쿼리
     - 매핑 입력

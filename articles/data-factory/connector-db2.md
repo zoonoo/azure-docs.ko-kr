@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
 ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381123"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
@@ -62,7 +62,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 
 DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **Db2** | 예 |
 | connectionString | DB2 인스턴스에 연결하는 데 필요한 정보를 지정합니다.<br/> Azure Key Vault에 암호를 넣고, 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
@@ -70,7 +70,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
 연결 문자열 내부의 일반적인 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`).<br>DB2 커넥터는 DDM/DRDA 프로토콜을 사용하며, 포트를 지정하지 않으면 기본적으로 포트 50000을 사용합니다. 특정 DB2 데이터베이스에서 사용하는 포트는 버전 및 설정에 따라 다를 수 있습니다. 예를 들어, DB2 LUW의 경우 기본 포트는 50000이고, AS400의 경우 기본 포트는 446 또는 448(TLS를 사용하도록 설정한 경우)입니다. 일반적으로 포트를 구성하는 방법에 대해서는 DB2 문서 [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm) 및 [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html)를 참조하세요. |예 |
 | 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
@@ -159,7 +159,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 
 DB2의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **Db2Table** | 예 |
 | 스키마 | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
@@ -194,7 +194,7 @@ DB2의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩�
 
 DB2에서 데이터를 복사하기 위해 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **Db2Source** | 예 |
 | Query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |

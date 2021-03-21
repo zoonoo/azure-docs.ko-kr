@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.openlocfilehash: 42b0945de55775f55f20cefdeb547cb5d6492c06
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94657077"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>인증서 인증을 사용하여 지점 및 사이트 간 연결 구성(클래식)
@@ -217,7 +217,7 @@ Azure에서 신뢰할 수 있는 루트 인증서를 추가 및 제거할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml)를 참조 하세요.
 
 * 네트워킹 및 Linux 가상 머신에 대한 자세한 내용은 [Azure 및 Linux VM 네트워크 개요](../virtual-machines/network-overview.md)를 참조하세요.
 

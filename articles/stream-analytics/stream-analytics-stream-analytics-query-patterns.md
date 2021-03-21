@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 8fcda77858b3feb78a04971a7ad1f20c0ea51fa1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019995"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Azure Stream Analytics의 일반적인 쿼리 패턴
@@ -931,7 +931,7 @@ JOIN
 
 ## <a name="get-help"></a>도움말 보기
 
-추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 참조해 보세요.
+추가 지원이 필요한 경우 [Azure Stream Analytics용 Microsoft Q&A 질문 페이지](/answers/topics/azure-stream-analytics.html)를 사용해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)

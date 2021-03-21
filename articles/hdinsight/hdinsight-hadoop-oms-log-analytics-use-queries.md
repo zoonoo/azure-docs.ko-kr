@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
 ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576342"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 쿼리하여 HDInsight 클러스터 모니터링
@@ -21,7 +21,7 @@ Azure Monitor 로그를 사용 하 여 Azure HDInsight 클러스터를 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Monitor 로그를 사용 하도록 HDInsight 클러스터를 구성 하 고 작업 영역에 HDInsight 클러스터 관련 Azure Monitor 로그 모니터링 솔루션을 추가 해야 합니다. 지침은 [HDInsight 클러스터에서 Azure Monitor 로그 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조 하세요.
 
@@ -52,7 +52,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
     | where Type == "Heartbeat"
     ```
 
-1. 왼쪽 메뉴에서 제공 되는 옵션을 사용 하 여 더 자세히 알아볼 수 있습니다. 다음은 그 예입니다. 
+1. 왼쪽 메뉴에서 제공 되는 옵션을 사용 하 여 더 자세히 알아볼 수 있습니다. 예를 들면 다음과 같습니다.
 
     - 특정 노드에서 로그를 보려면 다음을 수행 합니다.
 

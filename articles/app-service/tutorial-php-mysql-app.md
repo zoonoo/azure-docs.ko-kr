@@ -8,10 +8,10 @@ ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: aaef3f28ea9b7e41bce35661e9515f6efcc9ade5
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184443"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>자습서: Azure App Service에서 PHP 및 MySQL 앱 빌드
@@ -42,7 +42,7 @@ ms.locfileid: "102184443"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

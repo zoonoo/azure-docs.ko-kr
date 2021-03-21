@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791141"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 가격 책정 계층 - 단일 서버
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 | 가격 책정 계층 | 대상 워크로드 |
 |:-------------|:-----------------|
-| 기본 | 간단한 컴퓨팅 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
+| Basic | 간단한 컴퓨팅 및 I/O 성능이 필요한 워크로드. 예를 들어 개발 또는 시험, 또는 자주 사용하지 않는 소규모 애플리케이션에 사용되는 서버가 이에 해당합니다. |
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 애플리케이션이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
@@ -39,7 +39,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 컴퓨팅 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 중국 동부 1, 중국 북부 1, US DoD 중부 및 US DoD 동부는 Intel E5 2673 v3 (Haswell) 2.4 g h z 프로세서를 기반으로 하는 Gen 4 논리 Cpu를 활용 합니다. 다른 모든 지역은 Intel E5-2673 v4 (Broadwell) 2.3 g h z 프로세서를 기반으로 하는 Gen 5 논리 Cpu를 활용 합니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 프로비전하는 스토리지는 Azure Database for PostgreSQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 PostgreSQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 
@@ -100,7 +100,7 @@ vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 �
 
 스토리지 크기 조정 및 백업 보존 기간 변경은 온라인 작업입니다. 가동 중지 시간이 없으며 애플리케이션은 영향을 받지 않습니다. IOPS가 프로비전된 스토리지 크기로 조정되면 스토리지를 확장하여 서버에서 사용할 수 있는 IOPS를 늘릴 수 있습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/PostgreSQL/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for PostgreSQL** 을 선택하여 옵션을 사용자 지정합니다.
 

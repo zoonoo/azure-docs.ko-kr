@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: ff86651d56abe090ca08c508a220362f9a011a3f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554703"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기

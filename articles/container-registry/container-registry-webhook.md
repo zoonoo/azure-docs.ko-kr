@@ -4,10 +4,10 @@ description: 레지스트리 리포지토리 중 하나에서 풀 또는 푸시 
 ms.topic: article
 ms.date: 05/24/2019
 ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101722248"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용

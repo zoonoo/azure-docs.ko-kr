@@ -6,10 +6,10 @@ author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
 ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734165"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
@@ -31,7 +31,7 @@ ms.locfileid: "101734165"
 ![서비스 연결 모니터](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
-## <a name="configuration"></a>Configuration 
+## <a name="configuration"></a>구성 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성** 을 선택합니다.
 
 ![네트워크 성능 모니터 구성](media/network-performance-monitor-service-endpoint/npm-configure-button.png)

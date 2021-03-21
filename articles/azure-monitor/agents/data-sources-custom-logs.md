@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
 ms.openlocfilehash: b66011ff41e1dd4a7439105862ca61355a95bd71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042711"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 에이전트를 사용하여 사용자 지정 로그 수집
@@ -49,7 +49,7 @@ Azure Monitor의 Log Analytics 에이전트에 대 한 사용자 지정 로그 �
 ## <a name="defining-a-custom-log"></a>사용자 지정 로그 정의
 다음 절차에 따라 사용자 지정 로그 파일을 정의합니다.  사용자 지정 로그를 추가하는 샘플에 대한 연습을 보려면 이 문서의 끝으로 스크롤합니다.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>1단계: Custom Log Wizard(사용자 지정 로그 마법사) 열기
+### <a name="step-1-open-the-custom-log-wizard"></a>1단계. Custom Log Wizard(사용자 지정 로그 마법사) 열기
 사용자 지정 로그 마법사는 Azure Portal에서 실행되며 수집할 새 사용자 지정 로그를 정의할 수 있습니다.
 
 1. Azure Portal에서 **Log Analytics 작업 영역** > 작업 영역 > **고급 설정** 을 선택합니다.

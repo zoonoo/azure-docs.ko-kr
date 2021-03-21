@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 382a4c040c7a519462ee3e35119b9471031e0724
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100007"
 ---
 # <a name="url-redirect-and-url-rewrite-with-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)을 사용 하 여 URL 리디렉션 및 URL 재작성
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 이 문서는 Azure Front 도어 Standard/Premium에서 규칙 집합에 사용 되는 URL 리디렉션 및 URL 재작성을 지 원하는 방법을 이해 하는 데 도움이 됩니다.
 
@@ -61,7 +61,7 @@ URL의 경로 세그먼트를 리디렉션의 일부로 바꾸려는 경우이 �
 ### <a name="destination-fragment"></a>대상 조각
 대상 조각은 브라우저에서 웹 페이지의 특정 섹션에 배치 하는 데 사용 되는 ' # ' 이후의 URL 부분입니다. 이 필드를 설정 하 여 리디렉션 URL에 조각을 추가할 수 있습니다.
 
-## <a name="url-rewrite"></a>URL 재작성
+## <a name="url-rewrite"></a>URL 다시 쓰기
 
 Azure 전면 도어는 URL 재작성을 지원 하 여 원본으로 라우팅하는 요청의 경로를 다시 작성 합니다. URL 재작성을 사용 하면 특정 조건이 충족 될 때만 URL 또는 지정 된 헤더를 다시 작성할 수 있도록 조건을 추가할 수 있습니다. 이러한 조건은 요청 및 응답 정보를 기반으로 합니다.
 

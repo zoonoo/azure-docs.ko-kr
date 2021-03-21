@@ -6,13 +6,13 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 0842a2cfa021ef8ea45c19ec885c7dec371730de
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96512640"
 ---
-# <a name="use-user-defined-applier"></a>사용자 정의 적용 자 사용 
+# <a name="use-user-defined-applier"></a>사용자 정의 적용자 사용 
 
 ## <a name="u-sql-udo-user-defined-applier"></a>U-SQL UDO: 사용자 정의 적용 자
 U-SQL 사용자 정의 적용자를 사용하면 쿼리의 외부 테이블 식에서 반환한 각 행에 대해 사용자 지정 C # 함수를 호출할 수 있습니다. 오른쪽 입력은 왼쪽 입력에서 각 행에 대해 평가되고, 생성된 행은 최종 출력을 위해 결합됩니다. APPLY 연산자에서 생성한 열 목록은 왼쪽 및 오른쪽 입력에 있는 열 집합의 조합입니다.

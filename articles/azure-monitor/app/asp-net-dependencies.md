@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045295"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
@@ -160,7 +160,7 @@ ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.
 
 ## <a name="logs-analytics"></a>로그(분석)
 
-[Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
+[Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 실패한 종속성 호출을 찾습니다.
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 57633df8c6482a9b0645813519991282bdbf22c1
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633515"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에 Azure Data Services 배포
@@ -26,7 +26,7 @@ Azure Arc Data Controller는 고객이 관리 하는 환경에서 Azure Data Ser
 데이터 컨트롤러를 만든 다음 SQL Managed Instance를 배포 하는 절차는 `kubectl` 장치에서 Kubernetes 클러스터에 대 한 명령줄 액세스를 제공 하는 PowerShell 및-네이티브 도구를 사용 하는 절차를 포함 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -147,7 +147,7 @@ Azure Arc Data Controller는 고객이 관리 하는 환경에서 Azure Data Ser
     
     |열1  |Column2  |
     |---------|---------|
-    |데이터 컨트롤러 이름     |데이터 컨트롤러에 대 한 설명이 포함 된 이름입니다. 예들 들어 `arctestdatacontroller`입니다.         |
+    |데이터 컨트롤러 이름     |데이터 컨트롤러에 대 한 설명이 포함 된 이름입니다. 예: `arctestdatacontroller`         |
     |데이터 컨트롤러 사용자 이름     |데이터 컨트롤러 관리자 사용자에 대 한 사용자 이름입니다. 데이터 컨트롤러의 사용자 이름 및 암호는 관리 기능을 수행 하기 위해 데이터 컨트롤러 API에 인증 하는 데 사용 됩니다.          |
     |데이터 컨트롤러 암호     |데이터 컨트롤러 관리자 사용자에 대 한 암호입니다. 보안 암호를 선택 하 고 클러스터 관리자 권한이 필요한 암호를 사용 하 여 공유 합니다.         |
     |Kubernetes 네임 스페이스의 이름     |데이터 컨트롤러를 만들려는 Kubernetes 네임 스페이스의 이름입니다.         |

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98107364"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
@@ -24,7 +24,7 @@ Windows 디바이스를 관리하려면 로컬 관리자 그룹의 구성원이 
 
 이 문서에서는 로컬 관리자 구성원 업데이트의 작동 방식 및 Azure AD 조인 중에이를 사용자 지정 하는 방법을 설명 합니다. 이 문서의 내용은 **하이브리드 AZURE AD 조인** 장치에는 적용 되지 않습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Azure ad 조인을 사용 하 여 Azure AD에 Windows 장치를 연결 하는 경우 Azure AD는 장치의 로컬 관리자 그룹에 다음 보안 주체를 추가 합니다.
 

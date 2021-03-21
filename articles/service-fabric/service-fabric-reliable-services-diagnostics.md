@@ -4,10 +4,10 @@ description: Azure Service Fabric 상태 저장 Reliable Services의 진단 기�
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.openlocfilehash: 774a771d0c9701076a5d6c070963bf6224a571dd
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98789333"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>상태 저장 Reliable Services의 진단 기능
@@ -25,7 +25,7 @@ EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 
 | StatefulRunAsyncCancellation |2 |정보 제공 |서비스 RunAsync 작업이 취소되면 내보내집니다. |
 | StatefulRunAsyncCompletion |3 |정보 제공 |서비스 RunAsync 작업이 완료되면 내보내집니다. |
 | StatefulRunAsyncSlowCancellation |4 |Warning |서비스 RunAsync 작업이 취소를 완료하는 데 너무 오래 걸리는 경우 내보내집니다. |
-| StatefulRunAsyncFailure |5 |Error |서비스 RunAsync 작업이 예외를 throw하면 내보내집니다. |
+| StatefulRunAsyncFailure |5 |오류 |서비스 RunAsync 작업이 예외를 throw하면 내보내집니다. |
 
 ## <a name="interpret-events"></a>이벤트 해석
 StatefulRunAsyncInvocation, StatefulRunAsyncCompletion 및 StatefulRunAsyncCancellation 이벤트는 서비스 작성자가 서비스 시작, 취소 또는 완료 타이밍과 서비스의 수명 주기를 이해하는 데 유용합니다. 이 정보는 서비스 문제를 디버깅하거나 서비스 수명 주기를 이해할 때 유용할 수 있습니다.
@@ -39,7 +39,7 @@ RunAsync 작업에 대한 취소 요청이 4초보다 오래 걸릴 경우 State
 ## <a name="performance-counters"></a>성능 카운터
 Reliable Services 런타임은 다음과 같은 성능 카운터 범주를 정의합니다.
 
-| 범주 | Description |
+| 범주 | 설명 |
 | --- | --- |
 | Service Fabric 트랜잭션 복제기 |Azure Service Fabric 트랜잭션 복제기 관련 카운터 |
 | Service Fabric TStore |Azure Service Fabric TStore 관련 카운터 |

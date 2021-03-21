@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96021523"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
@@ -58,12 +58,12 @@ ILB ASE를 만드는 과정은 일반적으로 ASE를 만드는 과정과 크게
 
 Virtual Network 창에 외부 VIP 또는 내부 VIP를 선택할 수 있는 VNet 구성 옵션이 있습니다. 기본값은 외부입니다. 외부로 설정하는 경우 ASE는 인터넷 액세스 가능 VIP를 사용합니다. 내부를 선택하는 경우 ASE가 VNet 내의 IP 주소에 있는 ILB로 구성됩니다. 
 
-내부를 선택하면 ASE에 더 많은 IP 주소를 추가하는 기능이 제거되고, 대신 ASE의 하위 도메인을 제공해야 합니다. 외부 VIP가 있는 ASE에서 ASE의 이름은 해당 ASE에서 만든 앱에 대한 하위 도메인에 사용됩니다. ASE 이름이 **_contosotest_* _이 고 해당 ase의 앱 이름이 _*_mytest_*_ 인 경우 하위 도메인은 _*_contosotest.p.azurewebsites.net_*_ 형식이 고 해당 앱의 URL은 _*_mytest.contosotest.p.azurewebsites.net_*_ 입니다. VIP 유형을 내부로 설정한 경우 ASE 이름은 해당 ASE의 하위 도메인에서 사용되지 않습니다. 하위 도메인을 명시적으로 지정해야 합니다. 하위 도메인이 _*_contoso.corp.net_*_ 이 고 해당 ASE에서 응용 _*_프로그램을 만든_*_ 후에는 해당 앱에 대 한 URL은 _*_timereporting.contoso.corp.net_*_ 입니다.
+내부를 선택하면 ASE에 더 많은 IP 주소를 추가하는 기능이 제거되고, 대신 ASE의 하위 도메인을 제공해야 합니다. 외부 VIP가 있는 ASE에서 ASE의 이름은 해당 ASE에서 만든 앱에 대한 하위 도메인에 사용됩니다. Ase 이름이 ***contosotest** _이 고 해당 ase의 앱 이름이 _*_mytest_*_ 인 경우 하위 도메인은 _*_contosotest.p.azurewebsites.net_*_ 형식이 고 해당 앱의 URL은 _* _mytest.contosotest.p.azurewebsites.net_* *입니다. VIP 유형을 Internal로 설정 하면 ase 이름이 ASE의 하위 도메인에서 사용 되지 않습니다. 하위 도메인을 명시적으로 지정 합니다. 하위 도메인이 ***contoso.corp.net** 이_ 고, 해당 ASE의 응용 프로그램 _*_을 지정 하_*_ 는 경우, 해당 앱의 URL은 _ *_timereporting.contoso.corp.net_* *입니다.
 
 ## <a name="apps-in-an-ilb-ase"></a>ILB ASE의 앱
 ILB ASE에서 앱을 만드는 과정은 일반적으로 ASE에서 앱을 만드는 과정과 같습니다. 
 
-1. Azure Portal에서 _ *리소스 만들기-> 웹 + 모바일-> 웹** 또는 **모바일** 또는 **API 앱** 을 선택 합니다.
+1. Azure Portal에서 **리소스 만들기 -> 웹 + 모바일 -> 웹** 또는 **모바일** 또는 **API 앱** 을 선택합니다.
 2. 앱의 이름을 입력합니다.
 3. 구독을 선택합니다.
 4. 리소스 그룹을 선택하거나 만듭니다.

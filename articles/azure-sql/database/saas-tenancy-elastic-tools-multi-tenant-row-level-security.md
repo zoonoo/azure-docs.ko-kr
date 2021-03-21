@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793214"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
@@ -54,8 +54,8 @@ ms.locfileid: "92793214"
 
 분할된 데이터베이스에서 아직 RLS를 설정하지 않았기 때문에 각 테스트에서 다음 문제가 발생합니다. 테넌트가 자신에게 속하지 않은 블로그를 볼 수 있으며 애플리케이션에서 잘못된 테넌트에 대한 블로그를 삽입할 수 있습니다. 이 문서의 나머지 부분에서는 RLS로 테넌트를 강제 격리하여 이러한 문제를 해결하는 방법을 설명합니다. 두 단계가 있습니다.
 
-1. **애플리케이션 계층** : 연결을 연 후 애플리케이션 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
-2. **데이터 계층** : 각 분할된 데이터베이스에서 SESSION\_CONTEXT에 저장된 TenantId에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
+1. **애플리케이션 계층**: 연결을 연 후 애플리케이션 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
+2. **데이터 계층**: 각 분할된 데이터베이스에서 SESSION\_CONTEXT에 저장된 TenantId에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. 애플리케이션 계층: SESSION\_CONTEXT에서 TenantId 설정
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>유지 관리
 
-- **새로운 분할된 데이터베이스 추가** : T-SQL 스크립트를 실행하여 모든 새로운 분할된 데이터베이스에서 RLS를 설정합니다. 그렇지 않으면 분할된 데이터베이스에 대한 쿼리가 필터링되지 않습니다.
-- **새 테이블 추가** : 새 테이블을 만들 때마다 모든 분할된 데이터베이스의 보안 정책에 FILTER 및 BLOCK 조건자를 추가합니다. 그렇지 않으면 새 테이블에 대한 쿼리가 필터링되지 않습니다. [새로 만든 테이블에 자동으로 행 수준 보안 적용(블로그)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393)에 설명된 것처럼 DDL 트리거를 사용하여 이 추가 작업을 자동화할 수 있습니다.
+- **새로운 분할된 데이터베이스 추가**: T-SQL 스크립트를 실행하여 모든 새로운 분할된 데이터베이스에서 RLS를 설정합니다. 그렇지 않으면 분할된 데이터베이스에 대한 쿼리가 필터링되지 않습니다.
+- **새 테이블 추가**: 새 테이블을 만들 때마다 모든 분할된 데이터베이스의 보안 정책에 FILTER 및 BLOCK 조건자를 추가합니다. 그렇지 않으면 새 테이블에 대한 쿼리가 필터링되지 않습니다. [새로 만든 테이블에 자동으로 행 수준 보안 적용(블로그)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393)에 설명된 것처럼 DDL 트리거를 사용하여 이 추가 작업을 자동화할 수 있습니다.
 
 ## <a name="summary"></a>요약
 
