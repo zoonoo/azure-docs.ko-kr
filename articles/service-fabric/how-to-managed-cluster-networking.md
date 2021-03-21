@@ -4,10 +4,10 @@ description: NSG 규칙, RDP 포트 액세스, 부하 분산 규칙 등에 대�
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.openlocfilehash: e17251523c0720665c4c6f5b7811304eebc9923e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745916"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters-preview"></a>Service Fabric 관리 클러스터에 대 한 네트워크 설정 구성 (미리 보기)
@@ -28,7 +28,7 @@ ms.locfileid: "101745916"
 
 [클러스터에 NSG (네트워크 보안 그룹) 규칙을 적용](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype)하려면 클래식 (관리 되지 않는) Service Fabric 클러스터를 사용 하 여 별도의 *Microsoft. network/networkSecurityGroups* 리소스를 선언 하 고 관리 해야 합니다. Service Fabric 관리 되는 클러스터를 사용 하 여 배포 템플릿의 클러스터 리소스 내에서 직접 NSG 규칙을 할당할 수 있습니다.
 
-*ServiceFabric/managedclusters* 리소스 (버전 이상)의 [networksecurityrules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) 속성을 사용 `2021-01-01-preview` 하 여 nsg 규칙을 할당 합니다. 다음은 그 예입니다. 
+*ServiceFabric/managedclusters* 리소스 (버전 이상)의 [networksecurityrules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) 속성을 사용 `2021-01-01-preview` 하 여 nsg 규칙을 할당 합니다. 예를 들면 다음과 같습니다.
 
 ```json
             "apiVersion": "2021-01-01-preview",

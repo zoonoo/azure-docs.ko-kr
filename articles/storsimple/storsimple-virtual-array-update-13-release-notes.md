@@ -4,14 +4,14 @@ description: 업데이트 1.3를 실행 하는 Azure StorSimple 가상 배열에
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e50f866c0bd44ca54c2f4df78b9507aa7077169
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452563"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657555"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>StorSimple 가상 배열 업데이트 1.3 릴리스 정보
 
@@ -31,6 +31,11 @@ ms.locfileid: "102452563"
 이 업데이트에는 다음과 같은 향상 된 기능이 포함 되어 있습니다. KB4540725
 
 - TLS (전송 계층 보안) 1.2는 필수 업데이트 이며 설치 해야 합니다. 이 릴리스에서는 TLS 1.2이 모든 Azure Portal 통신에 대 한 표준 프로토콜이 됩니다.
+  
+   다음 경고가 표시 되는 경우 계속 하기 전에 장치에서 소프트웨어를 업데이트 해야 합니다.
+
+   하나 이상의 StorSimple 장치에서 이전 버전의 소프트웨어를 실행 하 고 있습니다. TLS 1.2에 대해 사용 가능한 최신 업데이트는 필수 업데이트 이며, 이러한 장치에 즉시 설치 되어야 합니다. TLS 1.2는 모든 Azure Portal 통신에 사용 되며,이 업데이트 없이 장치는 StorSimple 서비스와 통신할 수 없습니다.
+
 - 가비지 수집 버그 수정은 장치 및 저장소 계정이 두 개의 장거리 지역에 있을 때 가비지 수집 주기의 성능을 향상 시킵니다.
 - Blob 시간 제한으로 인 한 백업 실패를 수정 합니다.
 - 업데이트 된 OS/.NET framework 보안 패치:
@@ -65,4 +70,4 @@ KB4575898를 다운로드 하 고 [로컬 웹 UI를 통해 업데이트를 적�
 - [StorSimple 가상 배열 업데이트 0.4 릴리스 정보](./storsimple-virtual-array-update-04-release-notes.md)
 - [StorSimple 가상 배열 업데이트 0.3 릴리스 정보](./storsimple-ova-update-03-release-notes.md)
 - [StorSimple 가상 배열 업데이트 0.1 및 0.2 릴리스 정보](./storsimple-ova-update-01-release-notes.md)
-- [StorSimple 가상 배열 일반 공급 릴리스 정보](/azure/storsimple/storsimple-ova-pp-release-notes)
+- [StorSimple 가상 배열 일반 공급 릴리스 정보](./storsimple-virtual-array-update-06-release-notes.md)

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
 ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035690"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>논리 앱을 사용 하 여 Log Analytics 작업 영역에서 Azure storage로 데이터 보관
@@ -38,7 +38,7 @@ SecurityEvent
 
 일정에 따라 데이터를 내보낼 때는 쿼리에 ingestion_time () 함수를 사용 하 여 지연 도착 데이터가 누락 되지 않도록 합니다. 네트워크 또는 플랫폼 문제로 인해 데이터가 지연 되는 경우 수집 시간을 사용 하면 다음 논리 앱 실행에 포함 될 수 있습니다. 예는 [Azure Monitor 로그 추가 작업](#add-azure-monitor-logs-action) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 다음은이 절차를 완료 하기 전에 완료 해야 하는 필수 구성 요소입니다.
 
 - Log Analytics 작업 영역. 논리 앱을 만드는 사용자에 게는 작업 영역에 대 한 읽기 이상의 권한이 있어야 합니다. 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489364"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
@@ -43,7 +43,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Azure Portal 또는 Postman과 같은 도구 또는 Api를 사용 하 여 쿼리 클라이언트를 인스턴스화하는 코드를 사용 해야 합니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 쿼리 요청을 비롯 한 모든 작업은 [관리 API 키](search-security-api-keys.md)로 작동 하지만 쿼리 요청은 선택적으로 [쿼리 API 키](search-security-api-keys.md#create-query-keys)를 사용할 수 있습니다. 쿼리 API 키를 적극 권장 합니다. 서비스 당 최대 50을 만들고 다른 응용 프로그램에 다른 키를 할당할 수 있습니다.
 
@@ -70,7 +70,7 @@ Postman과 Visual Studio Code (Azure Cognitive Search 용 확장 포함)는 모�
 
 Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능을 구현 합니다. 따라서 Sdk를 사용 하 여 인덱스를 쿼리할 수 있습니다. 모든 요소는 검색 문서를 사용 하 여 인덱스를 로드 하 여 쿼리 요청을 작성 하는 등 인덱스와 상호 작용 하는 메서드를 포함 하는 **Searchclient** 를 제공 합니다.
 
-| Azure SDK | 클라이언트 | 예 |
+| Azure SDK | 클라이언트 | 예제 |
 |-----------|--------|----------|
 | .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
 | Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |

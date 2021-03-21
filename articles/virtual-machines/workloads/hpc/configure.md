@@ -5,61 +5,60 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 94334e54865b3a3b603cbd0b3943899a375d894e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0c6f5dc55f7406aba7d6e3dc1a278b57fe4ec9ba
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101675668"
+ms.locfileid: "104721274"
 ---
 # <a name="configure-and-optimize-vms"></a>VM 구성 및 최적화
 
-이 문서에서는 InfiniBand 사용 가능한 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm for HPC를 구성 하 고 최적화 하는 알려진 기술을 공유 합니다.
+이 문서는 HPC 용 InfiniBand 사용 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm을 구성 하 고 최적화 하는 방법에 대 한 몇 가지 지침을 공유 합니다.
 
 ## <a name="vm-images"></a>VM 이미지
-InfiniBand 사용 Vm에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 적절 한 드라이버 및 구성을 사용 하 여 [사용자 지정 VM 이미지](../../linux/tutorial-custom-images.md) 를 만들고 해당 recurringly를 다시 사용 하는 것도 좋습니다.
+InfiniBand 사용 Vm에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다.
+- Marketplace의 [CENTOS VM 이미지](#centos-hpc-vm-images) 는 적절 한 IB 드라이버로 미리 구성 되며 시작 하는 가장 쉬운 방법입니다.
+- [UBUNTU VM 이미지](#ubuntu-vm-images) 는 올바른 IB 드라이버를 사용 하 여 구성할 수 있습니다. 적절 한 드라이버 및 구성을 사용 하 여 [사용자 지정 VM 이미지](../../linux/tutorial-custom-images.md) 를 만들고 이러한 recurringly를 다시 사용 하는 것이 좋습니다.
 
-> [!NOTE]
-> GPU 사용 [N 시리즈](../../sizes-gpu.md) Vm에서는 [vm 확장](../../extensions/hpccompute-gpu-linux.md) 을 통해 또는 [수동으로](../../linux/n-series-driver-setup.md)추가할 수 있는 적절 한 gpu 드라이버가 추가로 필요 합니다. Marketplace의 일부 VM 이미지는 Nvidia GPU 드라이버와 함께 미리 설치 되어 있습니다.
+GPU 사용 [N 시리즈](../../sizes-gpu.md) Vm에서는 [vm 확장](../../extensions/hpccompute-gpu-linux.md) 을 통해 또는 [수동으로](../../linux/n-series-driver-setup.md)추가할 수 있는 적절 한 gpu 드라이버가 추가로 필요 합니다. Marketplace의 일부 VM 이미지는 Nvidia의 일부 VM 이미지를 포함 하 여 Nvidia GPU 드라이버와 함께 미리 설치 되어 제공 됩니다.
 
 ### <a name="centos-hpc-vm-images"></a>CentOS-HPC VM 이미지
 
+#### <a name="sr-iov-enabled-vms"></a>SR-IOV 사용 Vm
+SR-IOV를 사용 하도록 설정 된 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)의 경우 Marketplace 버전 7.6 이상 [에서 CENTOS-HPC VM 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/openlogic.centos-hpc?tab=Overview) 를 사용 하는 것이 적합 합니다. 이러한 VM 이미지는 RDMA 용 OFED 드라이버 및 널리 사용 되는 다양 한 MPI 라이브러리 및 과학적 컴퓨팅 패키지를 사용 하 여 최적화 되 고 미리 로드 되며 시작 하는 가장 쉬운 방법입니다.
+- CentOS 버전 7.6 이상 VM 이미지에 포함 된 내용에 대 한 자세한 내용은 [TechCommunity 문서를 참조](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557)하세요.
+- 기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
+  
+> [!NOTE] 
+> 최신 Azure HPC marketplace 이미지에는 ConnectX3-Pro InfiniBand 카드를 지원 하지 않는 Mellanox OFED 5.1 이상이 있습니다. FDR InfiniBand (예: NCv3 및 이전 버전)에서 SR-IOV를 사용 하도록 설정 된 N 시리즈 VM 크기는 다음 CentOS HPC VM 이미지 또는 Marketplace의 이전 버전을 사용할 수 있습니다.
+>- OpenLogic: CentOS: 7.6:7.6.2020062900
+>- OpenLogic: CentOS: 7_6gen2:7.6.2020062901
+>- OpenLogic: CentOS: 7.7:7.7.2020062600
+>- OpenLogic: CentOS: 7_7-gen2:7.7.2020062601
+>- OpenLogic: CentOS: 8_1:8.1.2020062400
+>- OpenLogic: CentOS: 8_1-gen2:8.1.2020062401
+
 #### <a name="non-sr-iov-enabled-vms"></a>SR-IOV를 사용할 수 없는 Vm
-SR-IOV를 사용 하도록 설정 되지 않은 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances), CentOS 버전 6.5 이상 버전의 경우 Marketplace에서 최대 7.5까지 적합 합니다. 예를 들어 [H16 시리즈 vm](../../h-series.md)의 경우 7.1 ~ 7.5 버전을 권장 합니다. 이러한 VM 이미지는 RDMA 및 Intel MPI 버전 5.1에 대 한 네트워크 다이렉트 드라이버를 사용 하 여 미리 로드 됩니다.
+SR-IOV를 사용 하도록 설정 되지 않은 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances), CentOS 버전 6.5 이상 버전의 경우 Marketplace에서 최대 7.4까지 적합 합니다. 예를 들어 [H16 시리즈 vm](../../h-series.md)의 경우 7.1 ~ 7.4 버전을 권장 합니다. 이러한 VM 이미지는 RDMA 및 Intel MPI 버전 5.1에 대 한 네트워크 다이렉트 드라이버를 사용 하 여 미리 로드 됩니다.
 
 > [!NOTE]
 > SR-IOV를 사용할 수 없는 Vm에 대 한 이러한 CentOS 기반 HPC 이미지에서 커널 업데이트는 **yum** 구성 파일에서 사용할 수 없습니다. 이는 NetworkDirect Linux RDMA 드라이버가 RPM 패키지로 배포 되 고 커널이 업데이트 되는 경우 드라이버 업데이트가 작동 하지 않기 때문입니다.
 
-#### <a name="sr-iov-enabled-vms"></a>SR-IOV 사용 Vm
-  SR-IOV를 사용 하도록 설정 된 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)의 경우 Marketplace에서 [CentOS 버전 7.6 이상](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) 버전 VM 이미지가 적합 합니다. 이러한 VM 이미지는 RDMA 용 OFED 드라이버 및 널리 사용 되는 다양 한 MPI 라이브러리 및 과학적 컴퓨팅 패키지를 사용 하 여 최적화 되 고 미리 로드 되며 시작 하는 가장 쉬운 방법입니다.
-
-  기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
-  
-  > [!NOTE] 
-  > 최신 Azure HPC marketplace 이미지에는 ConnectX3-Pro InfiniBand 카드를 지원 하지 않는 Mellanox OFED 5.1 이상이 있습니다. FDR InfiniBand (예: NCv3)를 사용 하는 SR-IOV 사용 N 시리즈 VM 크기는 다음 CentOS HPC VM 이미지 버전을 사용할 수 있습니다.
-  >- OpenLogic: CentOS: 7.6:7.6.2020062900
-  >- OpenLogic: CentOS: 7_6gen2:7.6.2020062901
-  >- OpenLogic: CentOS: 7.7:7.7.2020062600
-  >- OpenLogic: CentOS: 7_7-gen2:7.7.2020062601
-  >- OpenLogic: CentOS: 8_1:8.1.2020062400
-  >- OpenLogic: CentOS: 8_1-gen2:8.1.2020062401
-
-
 ### <a name="rhelcentos-vm-images"></a>RHEL/CentOS VM 이미지
 Marketplace에서 RHEL 또는 CentOS 기반의 HPC가 아닌 VM 이미지는 SR-IOV 지원 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)에서 사용 하도록 구성할 수 있습니다. [InfiniBand를 사용 하도록](enable-infiniband.md) 설정 하 고 VM에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.
-
-  기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.
+- [Azhpc 리포지토리의](https://github.com/Azure/azhpc-images/tree/master/centos) 기본 CentOS Marketplace 이미지에서 CentOS 버전 7.6 이상의 VM 이미지를 만드는 데 사용 되는 스크립트를 사용할 수도 있습니다.
   
-  > [!NOTE]
-  > Mellanox OFED 5.1 이상에서는 FDR InfiniBand (예: NCv3)를 사용 하 여 SR-IOV 사용 N 시리즈 VM 크기에 대 한 ConnectX3-Pro InfiniBand 카드를 지원 하지 않습니다. ConnectX3-Pro 카드와 N 시리즈 VM의 LTS Mellanox OFED 버전 4.9-0.1.7.0 또는 이전 버전을 사용 하세요. 자세한 내용은 [여기](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조 하세요.
+> [!NOTE]
+> Mellanox OFED 5.1 이상에서는 FDR InfiniBand (예: NCv3)를 사용 하 여 SR-IOV 사용 N 시리즈 VM 크기에 대 한 ConnectX3-Pro InfiniBand 카드를 지원 하지 않습니다. ConnectX3-Pro 카드와 N 시리즈 VM의 LTS Mellanox OFED 버전 4.9-0.1.7.0 또는 이전 버전을 사용 하세요. 자세한 내용은 [여기](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed)를 참조 하세요.
 
 ### <a name="ubuntu-vm-images"></a>Ubuntu VM 이미지
 Marketplace의 Ubuntu Server 16.04 LTS, 18.04 LTS 및 20.04 LTS VM 이미지는 SR-IOV 및 비-sr-iov [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)모두에 대해 지원 됩니다. [InfiniBand를 사용 하도록](enable-infiniband.md) 설정 하 고 VM에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.
-
-  Ubuntu 18.04 LTS 기반 HPC VM 이미지를 만드는 데 사용할 수 있는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/ubuntu/ubuntu-18.x/ubuntu-18.04-hpc)에 있습니다.
+- Ubuntu VM 이미지에서 InfiniBand을 사용 하도록 설정 하는 지침은 [TechCommunity 문서](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 나와 있습니다.
+- 기본 Ubuntu Marketplace 이미지에서 Ubuntu 18.04 및 20.04 LTS 기반 HPC VM 이미지를 만드는 데 사용 되는 스크립트는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/ubuntu)에 있습니다.
 
 ### <a name="suse-linux-enterprise-server-vm-images"></a>SUSE Linux Enterprise Server VM 이미지
 Hpc에 대 한 SLES 12 SP3, hpc 용 SLES 12 SP3 (프리미엄), HPC 용 SLES 12 SP1, hpc 용 SLES 12 SP1 (Premium), SLES 12 SP4 및 SLES 15 VM 이미지 (Marketplace)가 지원 됩니다. 이러한 VM 이미지는 RDMA 및 Intel MPI 버전 5.1에 대 한 네트워크 다이렉트 드라이버를 사용 하 여 미리 로드 됩니다. Vm에서 [MPI를 설정](setup-mpi.md) 하는 방법에 대해 자세히 알아보세요.
@@ -126,6 +125,6 @@ sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
 
 - InfiniBand [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) vm에서 [InfiniBand을 사용 하도록 설정](enable-infiniband.md) 하는 방법에 대해 자세히 알아보세요.
 - 지원 되는 다양 한 [MPI 라이브러리](setup-mpi.md) 및 vm에 대 한 최적의 구성을 설치 하는 방법에 대해 자세히 알아보세요.
-- [HB 시리즈 개요](hb-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토하여 성능 및 확장성을 높일 수 있도록 워크로드를 최적으로 구성하는 방법을 알아보세요.
-- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- [HBv3 시리즈 개요](hbv3-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토 합니다.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

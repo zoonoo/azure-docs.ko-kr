@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: azfuncdf
 ms.openlocfilehash: ea4aaa1cdbe10e2db9cf619452558d104a2293ab
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449376"
 ---
 # <a name="data-persistence-and-serialization-in-durable-functions-azure-functions"></a>Durable Functions의 데이터 지 속성 및 serialization (Azure Functions)
@@ -26,7 +26,7 @@ Durable Functions는 Azure Storage 큐를 사용 하 여 모든 함수 실행을
 
 단일 [작업 허브](durable-functions-task-hubs.md)내에서 작업을 예약 하거나 다시 시작 하기 위해 이름이 지정 된 *작업 항목* 큐 `<taskhub>-workitem` 및 하나 이상의 *제어 큐* 에 대 한 메시지를 만들고 추가 Durable Functions `<taskhub>-control-##` 합니다. 제어 큐의 수는 응용 프로그램에 대해 구성 된 파티션 수와 같습니다. 큐 및 파티션에 대 한 자세한 내용은 [성능 및 확장성 설명서](durable-functions-perf-and-scale.md)를 참조 하세요.
 
-### <a name="tables"></a>테이블
+### <a name="tables"></a>Tables
 
 오케스트레이션이 메시지를 성공적으로 처리 하면 해당 결과 작업의 레코드가 이라는 *기록* 테이블에 유지 됩니다 `<taskhub>History` . 오케스트레이션 입력, 출력 및 사용자 지정 상태 데이터는 라는 *인스턴스* 테이블에도 유지 됩니다 `<taskhub>Instances` .
 

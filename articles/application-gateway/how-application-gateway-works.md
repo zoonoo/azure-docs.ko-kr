@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d2055bf812c3dc986a907d4358fa0e74e8af20fa
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397470"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599666"
 ---
 # <a name="how-an-application-gateway-works"></a>응용 프로그램 게이트웨이의 작동 원리
 
@@ -30,7 +30,7 @@ ms.locfileid: "93397470"
 
 4. WAF (웹 응용 프로그램 방화벽)를 사용 중인 경우 application gateway는 요청 헤더와 본문 (있는 경우)을 WAF 규칙에 대해 확인 합니다. 이 작업은 요청이 유효한 요청 인지 아니면 보안 위협 인지를 결정 합니다. 요청이 올바르면 백 엔드로 라우팅됩니다. 요청이 유효 하지 않고 WAF가 방지 모드 이면 보안 위협으로 차단 됩니다. 검색 모드에 있는 경우 요청이 평가 되 고 기록 되지만 백엔드 서버로 전달 됩니다.
 
-Azure 애플리케이션 게이트웨이를 내부 응용 프로그램 부하 분산 장치 또는 인터넷 연결 응용 프로그램 부하 분산 장치로 사용할 수 있습니다. 인터넷 연결 응용 프로그램 게이트웨이는 공용 IP 주소를 사용 합니다. 인터넷 연결 응용 프로그램 게이트웨이의 DNS 이름은 공용 IP 주소에 공개적으로 확인할 수 있습니다. 결과적으로 인터넷 연결 응용 프로그램 게이트웨이는 클라이언트 요청을 인터넷으로 라우팅할 수 있습니다.
+Azure 애플리케이션 게이트웨이를 내부 응용 프로그램 부하 분산 장치 또는 인터넷 연결 응용 프로그램 부하 분산 장치로 사용할 수 있습니다. 인터넷 연결 응용 프로그램 게이트웨이는 공용 IP 주소를 사용 합니다. 인터넷 연결 응용 프로그램 게이트웨이의 DNS 이름은 공용 IP 주소에 공개적으로 확인할 수 있습니다. 결과적으로 인터넷 연결 응용 프로그램 게이트웨이는 인터넷에서 클라이언트 요청을 라우팅할 수 있습니다.
 
 내부 응용 프로그램 게이트웨이는 개인 IP 주소만 사용 합니다. 사용자 지정 또는 [사설 DNS 영역](../dns/private-dns-overview.md)을 사용 하는 경우 Application Gateway의 개인 IP 주소에서 도메인 이름을 내부적으로 확인할 수 있어야 합니다. 따라서 내부 부하 분산 장치는 응용 프로그램 게이트웨이에 대 한 가상 네트워크에 대 한 액세스 권한이 있는 클라이언트의 요청만 라우팅할 수 있습니다.
 

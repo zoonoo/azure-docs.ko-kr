@@ -7,10 +7,10 @@ ms.author: daperlov
 author: djpmsft
 ms.date: 07/16/2020
 ms.openlocfilehash: db1816baf0ebc476a132b344d8db3cdbdd170e50
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100373932"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Azure Data Factory에서 Azure Machine Learning 파이프라인 실행
@@ -50,12 +50,12 @@ Azure Data Factory 파이프라인의 단계로 Azure Machine Learning 파이프
 -------- | ----------- | -------------- | --------
 name | 파이프라인의 작업 이름입니다. | String | 예
 type | 작업 유형이 ' AzureMLExecutePipeline '입니다. | String | 예
-linkedServiceName | Azure Machine Learning 연결 된 서비스 | 연결된 서비스 참조 | Yes
-mlPipelineId | 게시 된 Azure Machine Learning 파이프라인의 ID입니다. | 문자열(또는 resultType 문자열이 있는 식) | Yes
-experimentName | Machine Learning 파이프라인 실행의 실행 기록 실험 이름 | 문자열(또는 resultType 문자열이 있는 식) | 예
-mlPipelineParameters | 게시 된 Azure Machine Learning 파이프라인 끝점에 전달 되는 키, 값 쌍입니다. 키가 게시 된 Machine Learning 파이프라인에 정의 된 파이프라인 매개 변수의 이름과 일치 해야 합니다. | 키 값 쌍 (또는 resultType 개체가 있는 식)이 포함 된 개체입니다. | 예
-mlParentRunId | 부모 Azure Machine Learning 파이프라인 실행 ID | 문자열(또는 resultType 문자열이 있는 식) | 예
-continueOnStepFailure | 단계가 실패 하는 경우 Machine Learning 파이프라인 실행에서 다른 단계의 실행을 계속할지 여부 | boolean | 예
+linkedServiceName | Azure Machine Learning 연결 된 서비스 | 연결된 서비스 참조 | 예
+mlPipelineId | 게시 된 Azure Machine Learning 파이프라인의 ID입니다. | 문자열(또는 resultType 문자열이 있는 식) | 예
+experimentName | Machine Learning 파이프라인 실행의 실행 기록 실험 이름 | 문자열(또는 resultType 문자열이 있는 식) | 아니요
+mlPipelineParameters | 게시 된 Azure Machine Learning 파이프라인 끝점에 전달 되는 키, 값 쌍입니다. 키가 게시 된 Machine Learning 파이프라인에 정의 된 파이프라인 매개 변수의 이름과 일치 해야 합니다. | 키 값 쌍 (또는 resultType 개체가 있는 식)이 포함 된 개체입니다. | 아니요
+mlParentRunId | 부모 Azure Machine Learning 파이프라인 실행 ID | 문자열(또는 resultType 문자열이 있는 식) | 아니요
+continueOnStepFailure | 단계가 실패 하는 경우 Machine Learning 파이프라인 실행에서 다른 단계의 실행을 계속할지 여부 | boolean | 아니요
 
 > [!NOTE]
 > Machine Learning 파이프라인 이름 및 ID의 드롭다운 항목을 채우려면 사용자에 게 ML 파이프라인을 나열할 수 있는 권한이 있어야 합니다. ADF UX는 로그인 한 사용자의 자격 증명을 사용 하 여 AzureMLService Api를 직접 호출 합니다.  

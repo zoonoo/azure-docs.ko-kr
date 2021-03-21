@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Stack Edge에 라이브 비디오 분석�
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: d49167890009d58b21c3678cb89f608bad665abd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730272"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Live Video Analytics 배포
@@ -19,7 +19,7 @@ ms.locfileid: "101730272"
 > [!TIP]
 > 사용자 지정 배포에 Kubernetes (K8s) API를 사용 하는 것은 고급 사례입니다. 고객은 Kubernetes API를 사용 하는 대신 edge 모듈을 만들고 각 Azure Stack에 지 리소스에 IoT Hub를 통해 배포 하는 것이 좋습니다. 이 문서에서는 IoT Hub 사용 하 여 라이브 비디오 분석 모듈을 배포 하는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner)있는 Azure 구독입니다.
 * [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) 리소스

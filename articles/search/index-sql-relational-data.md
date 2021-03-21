@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 6c70b42e7d0f647a3b2b60d29b5098a791e4975f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88924523"
 ---
 # <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 가져오기 및 인덱싱을 위한 관계형 SQL 데이터를 모델링 하는 방법
@@ -113,7 +113,7 @@ ON Rooms$.HotelID = Hotels$.HotelID
 
 Azure Cognitive Search 쪽에서 중첩 된 JSON을 사용 하 여 일 대 다 관계를 모델링 하는 인덱스 스키마를 만듭니다. 이전 섹션에서 만든 결과 집합은 일반적으로 아래에 제공 된 인덱스 스키마에 해당 합니다 (간단히 하기 위해 일부 필드를 잘라내기).
 
-다음 예는 [복합 데이터 형식을 모델링 하는 방법](search-howto-complex-data-types.md#creating-complex-fields)의 예제와 비슷합니다. 이 문서에 중점을 둔 *방* 구조는 *호텔*이라는 인덱스의 fields 컬렉션에 있습니다. 또한이 예제에서는 컬렉션에서 허용 되는 여러 개의 항목이 아닌 여러 개의 항목이 있는 경우와는 달리 고정 된 항목 집합으로 구성 된다는 점에서 *대화방* 과는 다른 *Address*의 복합 형식을 보여 줍니다.
+다음 예는 [복합 데이터 형식을 모델링 하는 방법](search-howto-complex-data-types.md#creating-complex-fields)의 예제와 비슷합니다. 이 문서에 중점을 둔 *방* 구조는 *호텔* 이라는 인덱스의 fields 컬렉션에 있습니다. 또한이 예제에서는 컬렉션에서 허용 되는 여러 개의 항목이 아닌 여러 개의 항목이 있는 경우와는 달리 고정 된 항목 집합으로 구성 된다는 점에서 *대화방* 과는 다른 *Address* 의 복합 형식을 보여 줍니다.
 
 ```json
 {
@@ -152,7 +152,7 @@ Azure Cognitive Search 쪽에서 중첩 된 JSON을 사용 하 여 일 대 다 �
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 고유의 데이터 집합을 사용 하 여 [데이터 가져오기 마법사](search-import-data-portal.md) 를 사용 하 여 인덱스를 만들고 로드할 수 있습니다. 마법사는 *대화방*에 포함 된 것과 같은 포함 된 JSON 컬렉션을 검색 하 고 복합 형식 컬렉션을 포함 하는 인덱스 스키마를 유추 합니다. 
+사용자 고유의 데이터 집합을 사용 하 여 [데이터 가져오기 마법사](search-import-data-portal.md) 를 사용 하 여 인덱스를 만들고 로드할 수 있습니다. 마법사는 *대화방* 에 포함 된 것과 같은 포함 된 JSON 컬렉션을 검색 하 고 복합 형식 컬렉션을 포함 하는 인덱스 스키마를 유추 합니다. 
 
   ![데이터 가져오기 마법사에서 유추 된 인덱스](media/index-sql-relational-data/search-index-rooms-complex-collection.png "데이터 가져오기 마법사에서 유추 된 인덱스")
 

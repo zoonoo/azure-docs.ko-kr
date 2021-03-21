@@ -4,10 +4,10 @@ description: JSON 및 Bicep를 사용 하 여 개발 된 Azure Resource Manager 
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 225e52e9534a77a01502b762f043a4f34df19caa
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461797"
 ---
 # <a name="comparing-json-and-bicep-for-templates"></a>템플릿에 대 한 JSON 및 Bicep 비교
@@ -268,11 +268,11 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
 * Bicep의 경우 [모듈](bicep-tutorial-add-modules.md)을 사용 합니다.
 * JSON의 경우 [연결 된 템플릿을](linked-templates.md)사용 합니다.
 
-## <a name="recommendations"></a>권장 구성
+## <a name="recommendations"></a>권장 사항
 
 * 가능 하면 Bicep 파일에 [참조](template-functions-resource.md#reference) 및 [resourceId](template-functions-resource.md#resourceid) 함수를 사용 하지 마십시오. 동일한 Bicep 배포에서 리소스를 참조 하는 경우에는 리소스 식별자를 대신 사용 합니다. 예를 들어 리소스 식별자로를 사용 하 여 Bicep 파일에 리소스를 배포한 경우 `stg` 또는와 같은 구문을 사용 `stg.id` `stg.properties.primaryEndpoints.blob` 하 여 속성 값을 가져옵니다. 리소스 식별자를 사용 하 여 리소스 간에 암시적 종속성을 만듭니다. DependsOn 속성을 사용 하 여 종속성을 명시적으로 설정할 필요는 없습니다.
 * 리소스가 Bicep 파일에 배포 되지 않은 경우에도 **기존** 키워드를 사용 하 여 리소스에 대 한 기호화 된 참조를 가져올 수 있습니다.
-* 식별자에 대해 일관 된 대/소문자를 사용 합니다. 사용할 대/소문자 유형을 잘 모르겠으면 카멜식 대/소문자 구분을 시도 합니다. 예들 들어 `param myCamelCasedParameter string`입니다.
+* 식별자에 대해 일관 된 대/소문자를 사용 합니다. 사용할 대/소문자 유형을 잘 모르겠으면 카멜식 대/소문자 구분을 시도 합니다. 예: `param myCamelCasedParameter string`
 * 설명에서 사용자에 게 중요 한 정보를 제공 하는 경우에만 매개 변수에 대 한 설명을 추가 합니다. `//`일부 정보에는 주석을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

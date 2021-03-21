@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 2466b9b9b812ae9fb590a6678d840661c74f47bd
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: cdcb61249f6cb8f7b60c891dd4899d2e5cedbae6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439067"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612727"
 ---
 :::row:::
     :::column span="3":::
@@ -32,7 +32,7 @@ ms.locfileid: "103439067"
 > Linux ARM64 c #의 경우 .NET Core 3.x (dotnet-3.x 패키지)가 필요 합니다.
 
 > [!NOTE]
-> 알파인 Linux에서 Speech SDK를 사용 하려면의 알파인 Linux Wiki에 설명 된 대로 Debian chroot 환경을 만든 [https://wiki.alpinelinux.org/wiki/Running_glibc_programs](running glibc programs) 후 여기의 Debian 지침을 따르세요.
+> 알파인 Linux에서 Speech SDK를 사용 하려면 [glibc 프로그램 실행](https://wiki.alpinelinux.org/wiki/Running_glibc_programs)의 알파인 linux Wiki에 설명 된 대로 Debian chroot 환경을 만든 후 여기에 나오는 Debian 지침을 따르세요.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 

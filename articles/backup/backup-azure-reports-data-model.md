@@ -4,10 +4,10 @@ description: 이 데이터 모델은 Log Analytics (LA)로 진단 이벤트를 �
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: 0d75af6d2b41aad0b5f821dd1f6409b30f7ca531
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499597"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure Backup 진단 이벤트에 대 한 데이터 모델
@@ -237,7 +237,7 @@ ms.locfileid: "102499597"
 | CoreAzureBackup | 복구 지점 | 지정 된 백업 항목에 대 한 가장 오래 된 최근 복구 지점을 포함 하는 레코드를 나타냅니다. |
 | AddonAzureBackupJobs | 작업 |  지정 된 작업의 모든 세부 정보를 포함 하는 레코드를 나타냅니다. 예를 들어 작업 작업, 시작 시간, 상태 등이 있습니다. |
 | AddonAzureBackupAlerts | 경고 | 지정 된 경고의 모든 세부 정보를 포함 하는 레코드를 나타냅니다. 예를 들어 경고 생성 시간, 심각도, 상태 등이 있습니다.  |
-| AddonAzureBackupStorage | 스토리지 | 지정 된 저장소 엔터티에 대 한 모든 세부 정보를 포함 하는 레코드를 나타냅니다. 예를 들어 저장소 이름, 형식 등입니다. |
+| AddonAzureBackupStorage | Storage | 지정 된 저장소 엔터티에 대 한 모든 세부 정보를 포함 하는 레코드를 나타냅니다. 예를 들어 저장소 이름, 형식 등입니다. |
 | AddonAzureBackupStorage | StorageAssociation | 백업 항목에서 사용 하는 백업 항목과 총 클라우드 저장소 간의 매핑을 나타냅니다. |
 | AddonAzureBackupProtectedInstance | ProtectedInstance | 각 컨테이너 또는 백업 항목에 대 한 보호 된 인스턴스 수를 포함 하는 레코드를 나타냅니다. Azure VM 백업의 경우 보호 된 인스턴스 수는 백업 항목 수준에서 사용할 수 있으며, 다른 워크 로드의 경우 보호 된 컨테이너 수준에서 사용할 수 있습니다. |
 | AddonAzureBackupPolicy | 정책 |  백업 및 보존 정책의 모든 세부 정보를 포함 하는 레코드를 나타냅니다. 예를 들어 ID, 이름, 보존 설정 등이 있습니다. |

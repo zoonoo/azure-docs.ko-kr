@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: ffd3d5c09fe19482a69af2309d8e8d574689e712
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 6361a9c337f5d3897cf15d4739b0410d3e820e57
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199652"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600941"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)
 
@@ -32,7 +32,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 >
 >Windows에서 Linux에 대 한 IoT Edge windows 환경에서 Azure IoT Edge를 사용 하는 데 권장 되는 환경 이지만 Windows 컨테이너는 계속 사용할 수 있습니다. Windows 컨테이너를 사용 하려는 경우 [windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)에 대 한 방법 가이드를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -44,6 +44,9 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
   * Professional, Enterprise 또는 Server edition
   * 최소 RAM: 4gb (권장 8gb)
   * 최소 저장소: 10gb
+  * Windows 10을 사용 하 여 새 배포를 만드는 경우 Hyper-v를 사용 하도록 설정 해야 합니다. 자세한 내용은 [Windows 10에서 hyper-v를 설치](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md)하는 방법을 참조 하세요.
+  * Windows Server를 사용 하 여 새 배포를 만드는 경우 Hyper-v 역할을 설치 해야 합니다. 자세한 내용은 [Windows Server에서 hyper-v 역할을 설치](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md)하는 방법을 참조 하세요.
+  * VM을 사용 하 여 새 배포를 만드는 경우 중첩 된 가상화를 올바르게 구성 해야 합니다. 자세한 내용은 [중첩 된 가상화](nested-virtualization.md) 가이드를 참조 하세요.
 
 * Windows 관리 센터에 대 한 Azure IoT Edge 확장을 설치 하 여 Windows 관리 센터에 액세스:
 

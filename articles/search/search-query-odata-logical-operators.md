@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 27d5427d34de591f9cfeab2310d79a2fde217624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88917876"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Azure Cognitive Search의 OData 논리 연산자- `and` , `or` , `not`
@@ -89,7 +89,7 @@ logical_expression ::=
 
 부울 필드가 `b` 필터 식에 단독으로 표시 되 면 작성 된 것 처럼 동작 하 고,가 이면 `b eq true` `b` `null` 식이로 평가 됩니다 `false` . 마찬가지로는 `not b` 처럼 동작 `not (b eq true)` 하므로로 계산 `true` 됩니다. 이러한 방식으로 `null` 필드는와 동일 하 게 동작 합니다 `false` . 이는 `and` 위의 표에 표시 된 것 처럼 및를 사용 하 여 다른 식과 결합 될 때 동작 하는 방법과 일치 `or` 합니다. 이 경우에도 ()에 대 한 직접 비교는 `false` `b eq false` 로 평가 됩니다 `false` . 즉, `null` `false` 부울 식에서와 같이 동작 하더라도는와 같지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 `rating`필드가 3에서 5 사이인 문서를 찾습니다 (포함).
 

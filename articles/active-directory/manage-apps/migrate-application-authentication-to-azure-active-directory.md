@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db695b55fbef16cb67dce6dc2d3c81ad177c9db6
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601800"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
@@ -196,7 +196,7 @@ Azure AD에는 [완전 한 id 관리 기능이](../fundamentals/active-directory
 
 이렇게 하면 앱 소유자가 앱 마이그레이션 및 테스트 일정을 파악할 수 있으며, 그 결과는 이미 마이그레이션된 다른 앱의 결과를 확인할 수 있습니다. 또한 마이그레이션되는 앱에 대 한 문제를 해결 하기 위해 소유자를 위한 버그 추적 장치 데이터베이스에 대 한 링크를 제공 하는 것이 좋습니다.
 
-### <a name="best-practices"></a>최선의 구현 방법
+### <a name="best-practices"></a>모범 사례
 
 다음은 고객 및 파트너의 성공 사례와 권장 모범 사례입니다.
 

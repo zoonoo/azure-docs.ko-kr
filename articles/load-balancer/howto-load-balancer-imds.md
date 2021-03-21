@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
 ms.openlocfilehash: 9ec217cefb05929ed6f5c7395df5e68891e823ac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739783"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)를 사용 하 여 부하 분산 장치 메타 데이터 검색
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 요청에 대 한 [최신 API 버전](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#supported-api-versions) 을 사용 합니다.
 

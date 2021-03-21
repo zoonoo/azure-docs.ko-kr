@@ -4,10 +4,10 @@ description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.openlocfilehash: 31b9f4b41d741475a031efd4392c7df2fd2260c4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034339"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
@@ -275,7 +275,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | conditionType |항상 "Event"입니다. |
 | name |경고 규칙의 이름입니다. |
 | id |경고의 리소스 ID입니다. |
-| description |경고를 만들 때 설정하는 경고 설명입니다. |
+| 설명 |경고를 만들 때 설정하는 경고 설명입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 | timestamp |요청을 처리하는 Azure 서비스에서 이벤트를 생성한 시간입니다. |
 | resourceId |영향을 받는 리소스의 리소스 ID입니다. |

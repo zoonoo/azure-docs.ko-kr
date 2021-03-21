@@ -8,10 +8,10 @@ ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553938"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
@@ -106,7 +106,7 @@ Marketplace Insights **방문자** 차트에는 선택한 계산 기간에 대 �
 
 | 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식으로 열 이름<br>액세스 보고서 |
 | ------------ | ------------- | ------------- | ------------- |
-| Date | 방문한 날짜 | Azure Marketplace 및/또는 AppSource의 제품 페이지에서 페이지 방문 및/또는 CTA 클릭 이벤트 생성의 날짜입니다. | Date |
+| 날짜 | 방문한 날짜 | Azure Marketplace 및/또는 AppSource의 제품 페이지에서 페이지 방문 및/또는 CTA 클릭 이벤트 생성의 날짜입니다. | 날짜 |
 | 제품 이름 | 제품 이름 | 상용 marketplace 제품의 이름입니다. | OfferName |
 | 조회 도메인 | 조회 도메인 | 페이지가 방문 된 조회 도메인의 이름입니다. 페이지 방문에 대해 캡처된 조회 도메인이 없는 경우 해당 항목은 "조회 도메인 없음"입니다. |  ReferralDomain |
 | 국가 이름 | 국가 이름 | 페이지 방문이 발생 한 국가 이름입니다. | CountryName |

@@ -8,10 +8,10 @@ ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: 814a2f7e32f173111e45fff02f00c3e4d2a9a670
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601086"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Azure 파일 동기화로 StorSimple 8100 및 8600 마이그레이션
@@ -137,7 +137,7 @@ StorSimple은 볼륨 수준에서 차등 백업을 제공 합니다. Azure 파�
 > [!IMPORTANT]
 > 이제 저장소 계정에 대 한 네트워크 및 방화벽 설정을 구성 하지 마십시오. 이 시점에서 이러한 구성을 만들면 마이그레이션을 불가능 하 게 됩니다. 마이그레이션이 완료 된 후 이러한 Azure storage 설정을 구성 합니다.
 
-#### <a name="subscription"></a>구독
+#### <a name="subscription"></a>Subscription
 
 StorSimple 배포에 사용한 것과 동일한 구독 또는 다른 구독을 사용할 수 있습니다. 유일한 제한 사항은 구독이 StorSimple 구독과 동일한 Azure Active Directory 테 넌 트에 있어야 한다는 것입니다. 마이그레이션을 시작 하기 전에 StorSimple 구독을 적절 한 테 넌 트로 이동 하는 것이 좋습니다. 전체 구독만 이동할 수 있으며, 개별 StorSimple 리소스는 다른 테 넌 트 또는 구독으로 이동할 수 없습니다.
 

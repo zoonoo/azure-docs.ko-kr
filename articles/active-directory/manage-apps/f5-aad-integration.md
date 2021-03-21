@@ -12,10 +12,10 @@ ms.date: 11/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38b484bd67f3354132675f343dcc06bd7f9d48a0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499817"
 ---
 # <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>보안 하이브리드 액세스를 위한 F5 빅 IP 액세스 정책 관리자 및 Azure Active Directory 통합
@@ -38,7 +38,7 @@ Azure AD에서 대규모 IP 게시 된 서비스에 대 한 사전 인증 액세
 
 - [누출 자격 증명 검색](../identity-protection/concept-identity-protection-risks.md)
 
-- [SSPR(셀프 서비스 암호 재설정)](../authentication/tutorial-enable-sspr.md)
+- [SSPR (셀프 서비스 암호 재설정)](../authentication/tutorial-enable-sspr.md)
 
 - [파트너 공동 작업](../governance/entitlement-management-external-users.md) -관리 되는 게스트 액세스를 위한 자격 관리
 
@@ -101,7 +101,7 @@ Azure AD와 통합 하는 데 필요한 큰 IP의 기능을 통해 [암호 없�
 
 ![이미지에 모니터링 흐름이 표시 됩니다.](media/f5-aad-integration/azure-sentinel.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 F i s h i p s를 Azure AD와 통합 하는 데에는 다음과 같은 필수 구성 요소가 있습니다.
 

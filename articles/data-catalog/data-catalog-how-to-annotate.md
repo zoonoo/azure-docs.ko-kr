@@ -6,18 +6,20 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 61a91ca8a51886c28beee77853d1ae67911e00e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89fa1b542c54fc962f8c12a2142884c677afb259
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081239"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674651"
 ---
 # <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본에 주석을 추가하는 방법
 
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>소개
 
-**Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 데이터 카탈로그는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. 데이터 카탈로그를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다. 데이터 카탈로그를 통해 사용자는 설명 및 태그와 같은 설명이 포함된 자신의 메타데이터를 제공하여 데이터 원본에서 추출된 메타데이터를 보완하고 데이터 원본을 더 많은 사람들이 더 이해할 수 있도록 합니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 데이터 카탈로그는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. 데이터 카탈로그를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다. 데이터 카탈로그를 통해 사용자는 설명 및 태그와 같은 설명이 포함된 자신의 메타데이터를 제공하여 데이터 원본에서 추출된 메타데이터를 보완하고 데이터 원본을 더 많은 사람들이 더 이해할 수 있도록 합니다.
 
 ## <a name="annotation-and-crowdsourcing"></a>주석 및 크라우드소싱
 모든 사람은 의견이 있습니다. 이는 좋은 일입니다.
@@ -34,7 +36,7 @@ ms.locfileid: "87081239"
 ## <a name="different-types-of-annotations"></a>다양한 유형의 주석
 데이터 카탈로그는 다음과 같은 형식의 주석을 지원합니다.
 
-| Annotation | 메모 |
+| Annotation | 참고 |
 | --- | --- |
 | 식별 이름 |데이터 자산 수준에서 친숙한 이름을 제공하여 데이터 자산을 보다 쉽게 이해할 수 있도록 할 수 있습니다. 친숙한 이름은 기본 개체 이름이 수수께끼, 약식일 경우 가장 유용하며 그렇지 않은 경우 사용자에게 의미가 없습니다. |
 | 설명 |데이터 자산 및 특성 / 열 수준에서 설명을 제공할 수 있습니다. 설명은 데이터 자산에 대한 사용자의 관점 또는 사용을 설명하는 자유 형식의 짧은 텍스트 주석입니다. |

@@ -5,10 +5,10 @@ ms.date: 03/12/2021
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: 6b1d3048fdc0945e1ee64e211d2f7b1f9de5e6e6
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419867"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Linux에 대 한 Azure Policy 게스트 구성 기준
@@ -17,7 +17,7 @@ ms.locfileid: "103419867"
 
 ## <a name="general-security-controls"></a>일반 보안 컨트롤
 
-|이름<br /><sub>A-ID</sub> |세부 정보 |재구성 확인 |
+|Name<br /><sub>A-ID</sub> |세부 정보 |재구성 확인 |
 |---|---|---|
 |/Home partition에서 nodev 옵션을 설정 했는지 확인 합니다.<br /><sub>1.1.4</sub> |설명: 공격자가/home 파티션에 특수 장치 (예: 차단 또는 문자 장치)를 탑재할 수 있습니다. |/Etc/fstab 파일을 편집 하 고/home 파티션의 네 번째 필드 (탑재 옵션)를 편집 합니다. 자세한 내용은 fstab (5) 수동 페이지를 참조 하세요. |
 |/Tmp partition에서 nodev 옵션을 설정 했는지 확인 합니다.<br /><sub>1.1.5</sub> |설명: 공격자가/tmp 파티션에 특수 장치 (예: 차단 또는 문자 장치)를 탑재할 수 있습니다. |/Etc/fstab 파일을 편집 하 고/tmp 파티션의 네 번째 필드 (탑재 옵션)를 편집 합니다. 자세한 내용은 fstab (5) 수동 페이지를 참조 하세요. |

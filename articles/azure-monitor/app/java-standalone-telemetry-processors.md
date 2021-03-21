@@ -1,5 +1,5 @@
 ---
-title: 원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
+title: 원격 분석 프로세서(미리 보기) - Java용 Azure Monitor Application Insights
 description: Java에 대 한 Azure Monitor Application Insights에서 원격 분석 프로세서를 구성 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
@@ -7,13 +7,13 @@ author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
 ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734573"
 ---
-# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 (미리 보기)-Java 용 Azure Monitor Application Insights
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서(미리 보기) - Java용 Azure Monitor Application Insights
 
 > [!NOTE]
 > 원격 분석 프로세서 기능은 미리 보기 상태입니다.
@@ -36,7 +36,7 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
 
 원격 분석 프로세서의 경우 이러한 범위 구성 요소가 중요 합니다.
 
-* 속성
+* Name
 * 특성
 
 범위 이름은 Azure Portal의 요청 및 종속성에 대 한 기본 디스플레이입니다. Span 특성은 지정 된 요청 또는 종속성의 표준 및 사용자 지정 속성을 모두 나타냅니다.
@@ -335,7 +335,7 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
 |---|---|---|
 | `http.method` | 문자열 | HTTP 요청 메서드입니다.|
 | `http.url` | 문자열 | 형식의 전체 HTTP 요청 URL `scheme://host[:port]/path?query[#fragment]` 입니다. 조각은 일반적으로 HTTP를 통해 전송 되지 않습니다. 하지만 조각이 알려져 있는 경우이를 포함 해야 합니다.|
-| `http.status_code` | number | [HTTP 응답 상태 코드](https://tools.ietf.org/html/rfc7231#section-6)입니다.|
+| `http.status_code` | 숫자 | [HTTP 응답 상태 코드](https://tools.ietf.org/html/rfc7231#section-6)입니다.|
 | `http.flavor` | 문자열 | HTTP 프로토콜의 유형입니다. |
 | `http.user_agent` | 문자열 | 클라이언트에서 보낸 [HTTP 사용자 에이전트](https://tools.ietf.org/html/rfc7231#section-5.5.3) 헤더의 값입니다. |
 

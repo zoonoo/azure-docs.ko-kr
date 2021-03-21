@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601477"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600465"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Azure Storage에 대 한 개인 끝점 사용
 
@@ -53,6 +53,16 @@ VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만�
 
 ## <a name="creating-a-private-endpoint"></a>개인 끝점 만들기
 
+Azure Portal을 사용 하 여 개인 끝점을 만들려면 [Azure Portal의 저장소 계정 환경에서 저장소 계정에 개인 연결](../../private-link/tutorial-private-endpoint-storage-portal.md)을 참조 하세요.
+
+PowerShell 또는 Azure CLI를 사용 하 여 개인 끝점을 만들려면 이러한 문서 중 하나를 참조 하세요. 둘 다 Azure 웹 앱을 대상 서비스로 기능 하지만 개인 링크를 만드는 단계는 Azure Storage 계정에 대해 동일 합니다.
+
+- [Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기](../../private-link/create-private-endpoint-cli.md)
+
+- [Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 개인 끝점을 만들 때 저장소 계정 및 해당 끝점을 연결 하는 저장소 서비스를 지정 해야 합니다. 
 
 액세스 해야 하는 각 저장소 리소스 (즉, [blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [파일](../files/storage-files-introduction.md), [큐](../queues/storage-queues-introduction.md), [테이블](../tables/table-storage-overview.md)또는 [정적 웹 사이트](../blobs/storage-blob-static-website.md))에 대 한 별도의 개인 끝점이 필요 합니다. 개인 끝점에서 이러한 저장소 서비스는 연결 된 저장소 계정의 **대상 하위 리소스로** 정의 됩니다. 
@@ -64,13 +74,6 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 > 범용 v2 (Standard 또는 Premium) 저장소 계정을 만들어야 합니다.
 
 지역 중복 저장소에 대해 구성 된 저장소 계정을 사용 하 여 보조 지역에 대 한 읽기 액세스의 경우 서비스의 기본 및 보조 인스턴스에 대해 별도의 개인 끝점을 사용 해야 합니다. **장애 조치 (failover)** 를 위해 보조 인스턴스의 개인 끝점을 만들 필요가 없습니다. 장애 조치 (failover) 후 개인 끝점은 새 주 인스턴스에 자동으로 연결 됩니다. 저장소 중복성 옵션에 대 한 자세한 내용은 [Azure Storage 중복성](storage-redundancy.md)을 참조 하세요.
-
-저장소 계정에 대 한 개인 끝점을 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
-
-- [Azure Portal의 저장소 계정 환경에서 저장소 계정에 비공개로 연결](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Azure Portal에서 개인 링크 센터를 사용 하 여 개인 끝점을 만듭니다.](../../private-link/create-private-endpoint-portal.md)
-- [Azure CLI를 사용하여 Azure 프라이빗 엔드포인트 만들기](../../private-link/create-private-endpoint-cli.md)
-- [Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 
@@ -91,7 +94,7 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 
 위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name                                                  | 유형  | 값                                                 |
+| 이름                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
@@ -101,7 +104,7 @@ Data Lake Storage Gen2 저장소 리소스에 대 한 개인 끝점을 만드는
 
 StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| Name                                                  | 유형  | 값                                                 |
+| 이름                                                  | Type  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |

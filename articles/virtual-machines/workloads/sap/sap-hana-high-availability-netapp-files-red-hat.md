@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2021
+ms.date: 03/17/2021
 ms.author: radeltch
-ms.openlocfilehash: 2939e00d704f5c2799a1f16822cccdcc963fb73e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c5f94329920f8c850c0a47dd607ade8e83658b29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671565"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599921"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 SAP HANA 확장의 고가용성
 
@@ -599,6 +599,15 @@ Azure에서 [Red Hat Enterprise Linux 설정 Pacemaker](./high-availability-guid
     nc_HN1_03  (ocf::heartbeat:azure-lb):  Started hanadb1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
+
+## <a name="configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster"></a>Pacemaker 클러스터에서 HANA 활성/읽기 사용 시스템 복제 구성
+
+SAP HANA 2.0 SPS 01 s p 1을 사용 하 여 SAP HANA 시스템 복제에 대 한 활성/읽기 지원 설정 (SAP HANA 시스템 복제의 보조 시스템을 읽기 전용 작업에 적극적으로 사용할 수 있음) 클러스터에서 이러한 설정을 지원 하려면 클라이언트가 보조 읽기 가능 SAP HANA 데이터베이스에 액세스할 수 있도록 두 번째 가상 IP 주소가 필요 합니다. 인수 발생 한 후에도 보조 복제 사이트에 액세스할 수 있도록 하려면 클러스터에서 가상 IP 주소를 SAPHana 리소스의 보조로 이동 해야 합니다.
+
+두 번째 가상 IP를 사용 하는 Red Hat 고가용성 클러스터에서 HANA 활성/읽기 사용 시스템 복제를 관리 하는 데 필요한 추가 구성은 [Pacemaker 클러스터에서 Hana 활성/읽기 사용 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#configure-hana-activeread-enabled-system-replication-in-pacemaker-cluster)에 설명 되어 있습니다.  
+
+계속 하기 전에 설명서의 위 세그먼트에 설명 된 대로 SAP HANA 데이터베이스를 관리 하는 Red Hat 고가용성 클러스터를 완전히 구성 했는지 확인 합니다.    
+
 
 ## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 

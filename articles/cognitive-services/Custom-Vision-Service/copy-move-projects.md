@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
 ms.openlocfilehash: 7d58a8239c728f70efe3584c2649e196dffd791f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501093"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Custom Vision 프로젝트 복사 및 이동
@@ -26,7 +26,7 @@ Custom Vision 프로젝트를 만들고 학습 한 후에는 프로젝트를 다
 
 앱 또는 비즈니스가 Custom Vision 프로젝트 사용에 따라 달라 지는 경우 다른 지역의 다른 Custom Vision 계정으로 모델을 복사 하는 것이 좋습니다. 그런 다음 지역 중단이 발생 하면 복사 된 지역에서 프로젝트에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>사전 요구 사항
+##  <a name="prerequisites"></a>필수 구성 요소
 
 - 두 개의 Azure Custom Vision 리소스 없는 경우 Azure Portal으로 이동 하 여 [새 Custom Vision 리소스를 만듭니다](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - Custom Vision 리소스의 학습 키 및 끝점 Url입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.

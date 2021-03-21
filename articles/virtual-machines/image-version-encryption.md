@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
 ms.openlocfilehash: 258d8ab6ab23a95d73b8ed0c2549f373cf097674
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554091"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
@@ -23,7 +23,7 @@ ms.locfileid: "102554091"
 
 고객이 관리 하는 키를 통한 서버 쪽 암호화는 Azure Key Vault을 사용 합니다. [Rsa 키](../key-vault/keys/hsm-protected-keys.md) 를 주요 자격 증명 모음으로 가져오거나 Azure Key Vault에서 새 rsa 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 이미지를 복제 하려는 각 지역에 디스크 암호화가 설정 되어 있어야 합니다.
 

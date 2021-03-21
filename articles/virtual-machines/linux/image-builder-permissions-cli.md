@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201484"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607537"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 이미지 작성기 서비스 사용 권한 구성
 
@@ -239,7 +239,7 @@ az role assignment create \
 | \<Storage account container\> | 스토리지 계정 컨테이너 이름 |
 | \<Subscription ID\> | Azure 구독 |
 
-사용자 할당 관리 id를 사용 하는 방법에 대 한 자세한 내용은 [Azure User-Assigned 관리 id를 사용 하 여 Azure Storage 액세스 파일을 원활 하는 사용자 지정 이미지 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity)를 참조 하세요. 빠른 시작은 사용자 할당 관리 id를 만들고 구성 하 여 저장소 계정에 액세스 하는 방법을 안내 합니다.
+사용자 할당 관리 id를 사용 하는 방법에 대 한 자세한 내용은 [Azure User-Assigned 관리 id를 사용 하 여 Azure Storage 액세스 파일을 원활 하는 사용자 지정 이미지 만들기](./image-builder-user-assigned-identity.md)를 참조 하세요. 빠른 시작은 사용자 할당 관리 id를 만들고 구성 하 여 저장소 계정에 액세스 하는 방법을 안내 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

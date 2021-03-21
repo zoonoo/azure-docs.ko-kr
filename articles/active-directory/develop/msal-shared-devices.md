@@ -1,7 +1,7 @@
 ---
 title: 공유 장치 모드 개요
 titleSuffix: Microsoft identity platform | Azure
-description: Firstline 작업자에 대해 장치 공유를 사용 하도록 설정 하는 공유 장치 모드에 대해 알아봅니다.
+description: Frontline 작업자에 대 한 장치 공유를 사용 하도록 설정 하는 공유 장치 모드에 대해 알아봅니다.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,27 +13,27 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 3cd7074467332f89d4d6c60830be34f4e2a638c1
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 9e48d8f55efa8bc4c82eaa973a6feaeb42390064
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94562086"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578777"
 ---
 # <a name="overview-of-shared-device-mode"></a>공유 장치 모드 개요
 
-공유 장치 모드는 Firstline 작업자를 지 원하는 응용 프로그램을 작성 하 고 배포 된 장치에서 공유 장치 모드를 사용 하도록 설정 하는 Azure Active Directory의 기능입니다.
+공유 장치 모드는 Frontline 작업자를 지 원하는 응용 프로그램을 작성 하 고 배포 된 장치에서 공유 장치 모드를 사용 하도록 설정 하는 데 사용할 수 있는 Azure Active Directory의 기능입니다.
 
 >[!IMPORTANT]
-> 이 기능 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+> IOS 용 공유 장치 모드 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-## <a name="what-are-firstline-workers"></a>Firstline 작업자 란?
+## <a name="what-are-frontline-workers"></a>Frontline 작업자 란 무엇 인가요?
 
-Firstline 작업자는 컴퓨터 앞에 앉아 있지 않거나 회사 전자 메일을 사용 하 여 공동 작업할 수 없는 소매 직원, 유지 관리 및 현장 에이전트, 의료 담당자 및 기타 사용자입니다. 다음 섹션에서는 Firstline Worker를 지 원하는 데 필요한 측면과 과제를 소개 하 고, 조직의 Firstline Worker에서 응용 프로그램을 사용할 수 있도록 하는 Microsoft에서 제공 하는 기능에 대해 소개 합니다.
+Frontline 작업자는 컴퓨터 앞에 앉아 있지 않거나 회사 전자 메일을 사용 하 여 공동 작업할 수 없는 소매 직원, 유지 관리 및 현장 에이전트, 의료 담당자 및 기타 사용자입니다. 다음 섹션에서는 Frontline Worker를 지 원하는 데 필요한 측면과 과제를 소개 하 고, 조직의 Frontline Worker에서 응용 프로그램을 사용할 수 있도록 하는 Microsoft에서 제공 하는 기능에 대해 소개 합니다.
 
-### <a name="challenges-of-supporting-firstline-workers"></a>Firstline Worker 지원 문제
+### <a name="challenges-of-supporting-frontline-workers"></a>Frontline Worker 지원 문제
 
-Firstline Worker 워크플로를 사용 하도록 설정 하면 일반적으로 일반적인 정보 근로자가 제공 하지 않는 과제가 포함 됩니다. 이러한 과제는 높은 회전율을 포함 하 고 조직의 핵심 생산성 도구를 사용 하 여 더 익숙해질 수 있습니다. 여러 가지 전략을 채택 하는 데는 여러 가지 전략을 채택 하 고 있습니다. 일부는 직원이 개인 휴대폰에서 비즈니스 앱을 사용 하는 BYOD (사용자 소유-장치) 전략을 채택 하는 반면, 다른 장치는 직원에 게 Ipad 또는 Android 태블릿과 같은 공유 장치를 제공 합니다.
+Frontline Worker 워크플로를 사용 하도록 설정 하면 일반적으로 일반적인 정보 근로자가 제공 하지 않는 과제가 포함 됩니다. 이러한 과제는 높은 회전율을 포함 하 고 조직의 핵심 생산성 도구를 사용 하 여 더 익숙해질 수 있습니다. Frontline 작업자의 역량을 강화 하기 위해 조직에서는 다양 한 전략을 채택 하 고 있습니다. 일부는 직원이 개인 휴대폰에서 비즈니스 앱을 사용 하는 BYOD (사용자 소유-장치) 전략을 채택 하는 반면, 다른 장치는 직원에 게 Ipad 또는 Android 태블릿과 같은 공유 장치를 제공 합니다.
 
 ### <a name="supporting-multiple-users-on-devices-designed-for-one-user"></a>한 사용자 용으로 설계 된 장치에서 여러 사용자 지원
 
@@ -49,12 +49,12 @@ Azure Active Directory **공유 장치 모드** 라는 기능을 사용 하 여 
 
 앞서 언급 했 듯이 공유 장치 모드는 다음 작업을 수행할 수 있는 Azure Active Directory의 기능입니다.
 
-* Firstline Worker를 지 원하는 응용 프로그램 빌드
-* Firstline 작업자에 장치를 배포 하 고 공유 장치 모드 설정
+* Frontline Worker를 지 원하는 응용 프로그램 빌드
+* Frontline Worker에 장치 배포 및 공유 장치 모드 설정
 
-### <a name="build-applications-that-support-firstline-workers"></a>Firstline Worker를 지 원하는 응용 프로그램 빌드
+### <a name="build-applications-that-support-frontline-workers"></a>Frontline Worker를 지 원하는 응용 프로그램 빌드
 
-MSAL (Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 사용 하 여 *공유 장치 모드* 라는 장치 상태를 사용 하도록 설정 하 여 응용 프로그램의 firstline worker를 지원할 수 있습니다. 장치가 공유 장치 모드에 있는 경우 Microsoft는 장치에서 사용자의 상태에 따라 해당 동작을 수정 하 여 사용자 데이터를 보호 하는 정보를 응용 프로그램에 제공 합니다.
+MSAL (Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 사용 하 여 *공유 장치 모드* 라는 장치 상태를 사용 하도록 설정 하 여 응용 프로그램에서 Frontline worker를 지원할 수 있습니다. 장치가 공유 장치 모드에 있는 경우 Microsoft는 장치에서 사용자의 상태에 따라 해당 동작을 수정 하 여 사용자 데이터를 보호 하는 정보를 응용 프로그램에 제공 합니다.
 
 지원 되는 기능은 다음과 같습니다.
 
@@ -69,15 +69,15 @@ MSAL (Microsoft 인증 라이브러리) 및 [Microsoft Authenticator 앱](../use
 
 공유 장치 모드를 지원 하도록 응용 프로그램을 수정 하는 방법에 대 한 자세한 내용은이 문서의 끝에 있는 [다음 단계](#next-steps) 섹션을 참조 하세요.
 
-### <a name="deploy-devices-to-firstline-workers-and-turn-on-shared-device-mode"></a>Firstline 작업자에 장치를 배포 하 고 공유 장치 모드 설정
+### <a name="deploy-devices-to-frontline-workers-and-turn-on-shared-device-mode"></a>Frontline Worker에 장치 배포 및 공유 장치 모드 설정
 
-응용 프로그램이 공유 장치 모드를 지원 하 고 필요한 데이터 및 보안 변경 내용을 포함 하는 경우 Firstline Worker에서 사용할 수 있는 것으로 알릴 수 있습니다.
+응용 프로그램에서 공유 장치 모드를 지원 하 고 필요한 데이터 및 보안 변경 내용을 포함 한 후에는 Frontline Worker에서 사용할 수 있는 것으로 알릴 수 있습니다.
 
 조직의 장치 관리자는 Microsoft Intune와 같은 MDM (모바일 장치 관리) 솔루션을 통해 장치와 응용 프로그램을 자신의 저장소에 배포 하 고 작업 영역 등에 수 있습니다. 프로 비전 프로세스의 일부로 장치를 *공유 장치로* 표시 하 고 있습니다. 관리자는 [Microsoft Authenticator 앱](../user-help/user-help-auth-app-overview.md) 을 배포 하 고 구성 매개 변수를 통해 공유 장치 모드를 설정 하 여 공유 장치 모드를 구성 합니다. 이러한 단계를 수행한 후에는 공유 장치 모드를 지 원하는 모든 응용 프로그램에서 Microsoft Authenticator 응용 프로그램을 사용 하 여 사용자 상태를 관리 하 고 장치와 조직의 보안 기능을 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-공유 장치 모드에는 iOS 및 Android 플랫폼을 지원 합니다. 응용 프로그램에서 Firstline Worker 지원을 시작 하려면 아래 설명서를 검토 하세요.
+공유 장치 모드에는 iOS 및 Android 플랫폼을 지원 합니다. 응용 프로그램에서 Frontline Worker 지원을 시작 하려면 아래 설명서를 검토 하세요.
 
 * [IOS에 대 한 공유 장치 모드 지원](msal-ios-shared-devices.md)
 * [Android 용 공유 장치 모드 지원](msal-android-shared-devices.md)
