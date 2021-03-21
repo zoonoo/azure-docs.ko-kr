@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630269"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590622"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 함수 앱을 연결 하 여 데이터 처리
 
@@ -48,7 +48,7 @@ Visual Studio 2019에서 _파일 > 새 > 프로젝트_ 를 선택 하 고 _Azure
 
 :::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="새 Azure Functions 응용 프로그램을 만드는 대화 상자를 표시 하는 Visual Studio의 스크린샷 Event Grid 트리거 옵션이 강조 표시 됩니다.":::
 
-함수 앱이 만들어지면 Visual Studio는 프로젝트 폴더의 **Function1.cs** 파일에 코드 샘플을 생성 합니다. 이 short 함수는 이벤트를 기록 하는 데 사용 됩니다.
+함수 앱이 만들어지면 Visual Studio는 프로젝트 폴더의 **Function1** 파일에 코드 샘플을 생성 합니다. 이 short 함수는 이벤트를 기록 하는 데 사용 됩니다.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="새로 만든 프로젝트에 대 한 프로젝트 창에 있는 Visual Studio의 스크린샷 Function1 라는 샘플 함수에 대 한 코드가 있습니다." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
@@ -63,13 +63,13 @@ SDK를 사용 하려면 다음 패키지를 프로젝트에 포함 해야 합니
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure. 핵심](https://www.nuget.org/packages/Azure.Core/)
 
-그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1.cs_ 파일을 열고 `using` 이러한 패키지에 대 한 다음 문을 함수에 추가 합니다.
+그런 다음 Visual Studio 솔루션 탐색기에서 샘플 코드가 있는 _Function1_ 파일을 열고 `using` 이러한 패키지에 대 한 다음 문을 함수에 추가 합니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>함수에 인증 코드 추가
 
-이제 클래스 수준 변수를 선언 하 고 함수가 Azure Digital Twins에 액세스할 수 있게 하는 인증 코드를 추가 합니다. _Function1.cs_ 파일의 함수에 다음을 추가 합니다.
+이제 클래스 수준 변수를 선언 하 고 함수가 Azure Digital Twins에 액세스할 수 있게 하는 인증 코드를 추가 합니다. _Function1_ 파일의 함수에 다음을 추가 합니다.
 
 * Azure Digital Twins 서비스 URL을 **환경 변수로** 읽는 코드입니다. 함수에 하드 코딩 하는 대신 환경 변수에서 서비스 URL을 읽는 것이 좋습니다. 이 환경 변수의 값은이 [문서의 뒷부분에서](#set-up-security-access-for-the-function-app)설정 합니다. 환경 변수에 대 한 자세한 내용은 [*함수 앱 관리*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal)를 참조 하세요.
 
@@ -118,12 +118,14 @@ Azure CLI 또는 Azure Portal를 사용 하 여 함수 앱에 대 한 보안 액
 # <a name="cli"></a>[CLI](#tab/cli)
 
 [Azure Cloud Shell](https://shell.azure.com) 또는 [로컬 Azure CLI 설치](/cli/azure/install-azure-cli)에서 이러한 명령을 실행할 수 있습니다.
+함수 앱의 시스템 관리 id를 사용 하 여 Azure Digital Twins 인스턴스에 대 한 _**Azure 디지털 쌍 데이터 소유자**_ 역할을 제공할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
 
 ### <a name="assign-access-role"></a>액세스 역할 할당
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 이전 예의 함수 해골은 Azure 디지털 쌍으로 인증 하기 위해 전달자 토큰을 전달 해야 합니다. 이 전달자 토큰이 전달 되었는지 확인 하려면 Azure 디지털 쌍에 액세스 하도록 함수 앱에 대 한 [MSI (관리 서비스 ID](../active-directory/managed-identities-azure-resources/overview.md) ) 권한을 설정 해야 합니다. 이 작업은 각 함수 앱에 대해 한 번만 수행 해야 합니다.
 
-함수 앱의 시스템 관리 id를 사용 하 여 Azure Digital Twins 인스턴스에 대 한 _**Azure 디지털 쌍 데이터 소유자**_ 역할을 제공할 수 있습니다. 이렇게 하면 인스턴스에서 데이터 평면 작업을 수행할 수 있는 함수 앱 권한이 제공 됩니다. 그런 다음 환경 변수를 설정 하 여 함수에서 Azure Digital Twins 인스턴스의 URL에 액세스할 수 있도록 합니다.
 
 1. 다음 명령을 사용 하 여 함수에 대 한 시스템 관리 id의 세부 정보를 확인 합니다. 출력에서 _principalId_ 필드를 기록해 둡니다.
 
@@ -162,6 +164,8 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 완료 합니다.
 
 ### <a name="assign-access-role"></a>액세스 역할 할당
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 시스템 할당 관리 id를 사용 하면 Azure 리소스가 코드에 자격 증명을 저장 하지 않고도 클라우드 서비스 (예: Azure Key Vault)에 인증할 수 있습니다. 사용 하도록 설정 되 면 Azure 역할 기반 액세스 제어를 통해 필요한 모든 권한을 부여할 수 있습니다. 이 유형의 관리 되는 id의 수명 주기는이 리소스의 수명 주기에 연결 됩니다. 또한 각 리소스에는 하나의 시스템 할당 관리 id만 있을 수 있습니다.
 

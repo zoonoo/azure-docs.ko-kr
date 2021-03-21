@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.custom: devx-track-js
 ms.openlocfilehash: dfd1fe9db54925bc17a53a7686fa34d5ea53cd5a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013601"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Azure Service Fabric에서 Node.js 애플리케이션 호스트
 
 이 빠른 시작을 통해 Azure에서 실행되는 Service Fabric 클러스터에 기존 애플리케이션(이 예제에서는 Node.js)을 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 [개발 환경을 설정](service-fabric-get-started.md)하도록 합니다. Service Fabric SDK 및 Visual Studio 2019 또는 2015 설치를 포함 합니다.
 
@@ -116,7 +116,7 @@ Service Fabric 클러스터를 만들 때 **사용자 지정 엔드포인트** �
 
 먼저 Azure Portal을 열고 Service Fabric 서비스를 찾습니다.
 
-서비스 주소의 개요 블레이드를 확인합니다. _클라이언트 연결 엔드포인트_ 속성의 도메인 이름을 사용합니다. 예: `http://mysvcfab1.westus2.cloudapp.azure.com`.
+서비스 주소의 개요 블레이드를 확인합니다. _클라이언트 연결 엔드포인트_ 속성의 도메인 이름을 사용합니다. 예: `http://mysvcfab1.westus2.cloudapp.azure.com`
 
 ![Azure Portal에서 Service Fabric 개요 블레이드][overview]
 

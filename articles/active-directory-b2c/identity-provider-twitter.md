@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 397fff3fafad52b3b989049096fb2d3e1fa2cba1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 3699743c5d1b3330715984d2b6116cfebafe74f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488519"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579844"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인
 
@@ -48,9 +48,9 @@ Azure AD B2C에서 Twitter 계정을 사용 하는 사용자에 대 한 로그�
     1. **콜백 url** 에 대해를 입력 `https://your-tenant.b2clogin.com/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다.  [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` 합니다. Azure AD B2C에 대문자를 사용 하 여 정의한 경우에도 모든 소문자를 사용 하 여 테 넌 트 이름 및 사용자 흐름 id를 입력 합니다. 다음을
         - `your-tenant-name` 을 테 넌 트 이름의 이름으로 바꿉니다.
         - `your-domain-name` 사용자 지정 도메인을 사용 합니다.
-        - `your-user-flow-Id` 사용자 흐름의 식별자로 바꿉니다. 예들 들어 `b2c_1a_signup_signin_twitter`입니다. 
+        - `your-user-flow-Id` 사용자 흐름의 식별자로 바꿉니다. 예: `b2c_1a_signup_signin_twitter` 
     
-    1. **웹 사이트 URL** 에 대해를 입력 `https://your-tenant.b2clogin.com` 합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. 예들 들어 `https://contosob2c.b2clogin.com`입니다. [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name` 합니다.
+    1. **웹 사이트 URL** 에 대해를 입력 `https://your-tenant.b2clogin.com` 합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. 예: `https://contosob2c.b2clogin.com` [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name` 합니다.
     1. **서비스 약관** 에 대 한 URL을 입력 합니다 (예:) `http://www.contoso.com/tos` . 정책 URL은 응용 프로그램에 대 한 사용 약관을 제공 하기 위해 유지 관리 하는 페이지입니다.
     1. **개인 정보 취급 방침** 에 대 한 URL을 입력 합니다 (예:) `http://www.contoso.com/privacy` . 정책 URL은 애플리케이션에 대한 개인 정보를 제공하기 위해 유지 관리하는 페이지입니다.
     1. **저장** 을 선택합니다.
@@ -69,6 +69,8 @@ Azure AD B2C에서 Twitter 계정을 사용 하는 사용자에 대 한 로그�
 1. **저장** 을 선택합니다.
 
 ## <a name="add-twitter-identity-provider-to-a-user-flow"></a>사용자 흐름에 Twitter id 공급자 추가 
+
+이 시점에서 Twitter id 공급자가 설정 되었지만 아직 로그인 페이지에서 사용할 수 없습니다. 사용자 흐름에 Twitter id 공급자를 추가 하려면 다음을 수행 합니다.
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. Twitter id 공급자를 추가 하려는 사용자 흐름을 선택 합니다.

@@ -9,10 +9,10 @@ author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
 ms.openlocfilehash: a8e8e791f0dbe18322ad43364ae4ffd09b430caf
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790387"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>일시 삭제 및 보호 제거를 사용 하 여 복구 관리 Azure Key Vault
@@ -31,7 +31,7 @@ Key Vault에 대 한 자세한 내용은을 참조 하십시오.
 * Key Vault - [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 만들 수 있습니다.
 * 일시 삭제 된 자격 증명 모음에 대 한 작업을 수행 하려면 사용자에 게 구독 수준에서 다음 사용 권한이 필요 합니다.
 
-  | 사용 권한 | Description |
+  | 사용 권한 | 설명 |
   |---|---|
   |Microsoft.KeyVault/locations/deletedVaults/read|일시 삭제된 한 Key Vault의 속성을 봅니다.|
   |Microsoft.KeyVault/locations/deletedVaults/purge/action|일시 삭제된 Key Vault를 제거합니다.|

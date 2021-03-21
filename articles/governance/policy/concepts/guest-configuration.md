@@ -4,10 +4,10 @@ description: Azure Policy 게스트 구성 클라이언트를 사용 하 여 가
 ms.date: 01/14/2021
 ms.topic: conceptual
 ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702881"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
@@ -100,7 +100,7 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 개인 데이터 센터의 Arc 연결 된 서버에 대해 다음 패턴을 사용 하 여 트래픽을 허용 합니다.
 
 - 포트: 아웃바운드 인터넷 액세스에는 TCP 443만 필요
-- 전역 URL: `*.guestconfiguration.azure.com`
+- 글로벌 URL: `*.guestconfiguration.azure.com`
 
 ## <a name="managed-identity-requirements"></a>관리 ID 요구 사항
 

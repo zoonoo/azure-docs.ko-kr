@@ -13,17 +13,17 @@ ms.custom:
 - 'Role: Technical Support'
 - devx-track-csharp
 ms.openlocfilehash: 27fca7b76ab148fc355eb7d52ee0cbcbd3540458
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92548519"
 ---
 # <a name="check-iot-hub-service-and-resource-health"></a>IoT Hub 서비스 및 리소스 상태 확인
 
 Azure IoT Hub은 [Azure Service Health 서비스](../service-health/overview.md) 와 통합 되어 IoT Hub 서비스 및 개별 IoT hub의 서비스 수준 상태를 모니터링할 수 있는 기능을 제공 합니다. IoT Hub 서비스 또는 IoT Hub의 상태가 변경 될 때 알림을 받도록 경고를 설정할 수도 있습니다. Azure Service Health 서비스는 Azure Resource Health, Azure Service Health 및 Azure 상태 페이지의 세 가지 작은 서비스의 조합입니다. 이 문서의 섹션에서는 각 서비스 및 해당 관계에 대해 자세히 설명 하 고 IoT Hub.
 
-Azure Service Health 서비스는 IoT Hub 서비스 및 개별 IoT hub의 가용성에 영향을 줄 수 있는 중단 및 업그레이드와 같은 서비스 수준 이벤트를 모니터링 하는 데 도움이 됩니다. 또한 IoT Hub는 Azure Monitor와 통합 되어 특정 IoT Hub에서 발생 하는 작업 오류 및 상태를 모니터링 하는 데 사용할 수 있는 IoT Hub 플랫폼 메트릭과 IoT Hub 리소스 로그를 제공 합니다. 자세히 알아보려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조 하세요.
+Azure Service Health 서비스는 IoT Hub 서비스 및 개별 IoT hub의 가용성에 영향을 줄 수 있는 중단 및 업그레이드와 같은 서비스 수준 이벤트를 모니터링 하는 데 도움이 됩니다. 또한 IoT Hub는 Azure Monitor와 통합 되어 특정 IoT Hub에서 발생 하는 작업 오류 및 상태를 모니터링 하는 데 사용할 수 있는 IoT Hub 플랫폼 메트릭과 IoT Hub 리소스 로그를 제공 합니다. 자세히 알아보려면 [IoT Hub 모니터링](monitor-iot-hub.md)을 참조하세요.
 
 ## <a name="check-health-of-an-iot-hub-with-azure-resource-health"></a>Azure Resource Health IoT hub의 상태를 확인 합니다.
 

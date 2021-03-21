@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 19ec3ec95fbbccbaa5c646c8de16999b86349626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988972"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579453"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -26,14 +26,11 @@ ms.locfileid: "99988972"
 **Azure AD 프로비저닝 서비스** 는 애플리케이션 벤더에서 제공하는 SCIM(System for Cross-Domain Identity Management) 2.0 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱과 기타 시스템으로 사용자를 프로비저닝합니다. 이러한 SCIM 엔드포인트를 사용하여 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비저닝 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. Azure AD와 애플리케이션 사이에서 프로비저닝용으로 사용되는 채널은 HTTPS TLS 1.2 암호화를 사용하여 암호화됩니다.
 
 
-![Azure AD 프로비저닝 서비스](./media/how-provisioning-works/provisioning0.PNG)
-*그림 1: Azure AD Provisioning Service
+Azure AD 프로비저닝 서비스*그림 1: Azure AD Provisioning Service
 
-![아웃바운드 사용자 프로비저닝 워크플로](./media/how-provisioning-works/provisioning1.PNG)
-*그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로
+아웃바운드 사용자 프로비저닝 워크플로*그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로
 
-![인바운드 사용자 프로비저닝 워크플로](./media/how-provisioning-works/provisioning2.PNG)
-*그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로
+인바운드 사용자 프로비저닝 워크플로*그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로
 
 ## <a name="provisioning-using-scim-20"></a>SCIM 2.0을 사용한 프로비저닝
 
@@ -138,7 +135,7 @@ ServiceNow, G Suite, Box 등의 일부 애플리케이션은 사용자 프로비
 프로비저닝 서비스는 [각 애플리케이션과 관련된 자습서](../saas-apps/tutorial-list.md)에 정의된 간격마다 연속 증분 주기를 무기한 실행합니다. 증분 주기는 다음과 같은 이벤트 중 하나가 발생할 때까지 실행됩니다.
 
 - 서비스가 Azure Portal을 사용하여 수동으로 중지되거나 적절한 Microsoft Graph API 명령을 사용하여 중지됩니다.
-- Azure Portal의 **상태 지우기 및 다시 시작** 옵션을 사용하거나 적절한 Microsoft Graph API 명령을 사용하여 새 초기 주기가 트리거됩니다. 이 작업은 저장된 워터마크를 모두 지우고 모든 원본 개체를 다시 평가합니다.
+- Azure Portal에서 **다시 시작 프로 비전** 옵션을 사용 하거나 적절 한 Microsoft Graph API 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다. 이 작업은 저장된 워터마크를 모두 지우고 모든 원본 개체를 다시 평가합니다.
 - 특성 매핑 또는 범위 지정 필터가 변경되어 새 초기 주기가 트리거됩니다. 이 작업도 저장된 워터마크를 모두 지우고 모든 원본 개체를 다시 평가합니다.
 - 높은 오류 비율로 인해 프로비저닝 프로세스가 격리(아래 참조) 상태로 전환되고 4주 넘게 격리 상태로 유지됩니다. 이 이벤트가 발생하면 자동으로 서비스를 사용할 수 없게 됩니다.
 

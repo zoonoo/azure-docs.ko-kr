@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 523cb0d1a8e8f322c1936f1fe52a954399b2acc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88999770"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>로컬 Linux 컴퓨터 개발 설치에서 서비스 모니터링 및 진단
@@ -49,8 +49,8 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 
 이 구성으로 인해 로그가 순환 방식으로 `/tmp/servicefabric/logs/`에 수집됩니다. 이 경우의 로그 파일 이름은 mysfapp%u.%g.log입니다. 여기서,
-* **%u**는 동시 Java 프로세스 간에 충돌을 확인하기 위한 고유 번호입니다.
-* **%g**는 회전 로그를 구분하기 위한 세대 번호입니다.
+* **%u** 는 동시 Java 프로세스 간에 충돌을 확인하기 위한 고유 번호입니다.
+* **%g** 는 회전 로그를 구분하기 위한 세대 번호입니다.
 
 기본적으로 핸들러가 명시적으로 구성되지 않으면 콘솔 핸들러가 등록됩니다. /var/log/syslog 아래 syslog에서 로그를 볼 수 있습니다.
 
@@ -107,12 +107,12 @@ internal class ServiceEventListener : EventListener
                 using (StreamWriter Out = new StreamWriter( new FileStream("/tmp/MyServiceLog.txt", FileMode.Append)))
                 {
                         // report all event information
-                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
+                        Out.Write(" {0} ", Write(eventData.Task.ToString(), eventData.EventName, eventData.EventId.ToString(), eventData.Level,""));
                         if (eventData.Message != null)
                                 Out.WriteLine(eventData.Message, eventData.Payload.ToArray());
                         else
                         {
-                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
+                                string[] sargs = eventData.Payload != null ? eventData.Payload.Select(o => o.ToString()).ToArray() : null; 
                                 Out.WriteLine("({0}).", sargs != null ? string.Join(", ", sargs) : "");
                         }
                 }

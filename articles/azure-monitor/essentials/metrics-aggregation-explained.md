@@ -7,10 +7,10 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031398"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor 메트릭 메트릭 집계 및 표시 설명
@@ -140,7 +140,7 @@ Azure Monitor 경고는 리소스 공급자가 메트릭 데이터베이스에 �
 
 이전 시스템의 메트릭 차트는 서로 다른 유형의 집계 데이터를 표시 합니다. 시스템은 요청 된 차트가 많은 반복 계산 없이 빠르게 표시 될 수 있도록 데이터를 미리 집계 합니다.  
 
-이 예제에서:
+이 예제에서는 다음이 적용됩니다.
 
 - **HTTP 오류** 라고 하는 **가상** 의 트랜잭션 메트릭을 수집 합니다. 
 - *서버* 는 **HTTP 오류** 메트릭에 대 한 차원입니다.
@@ -265,7 +265,7 @@ Azure Monitor 경고는 리소스 공급자가 메트릭 데이터베이스에 �
 
 위의 분 6부터 계산 된 1 분 집계 유형은 다음과 같습니다. 
 
-| 집계 유형 | 값        | 메모 |
+| 집계 유형 | 값        | 참고 |
 |------------------|--------------|-------|
 | 합계              | 53 + 20 = 73 | |
 | 개수            | 2            | Null의 효과를 보여 줍니다.  서버를 온라인 상태로 설정한 경우 값은 3입니다.  |

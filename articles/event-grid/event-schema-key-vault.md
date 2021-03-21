@@ -4,10 +4,10 @@ description: Azure Key Vault 이벤트에 제공 되는 속성 및 스키마에 
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: ea8821b15000b74a10f28730ccf82b538e7819e5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363409"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 Azure Key Vault
@@ -94,14 +94,14 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | `eventType` | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | `eventTime` | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| `data` | object | 앱 구성 이벤트 데이터입니다. |
+| `data` | 개체 | 앱 구성 이벤트 데이터입니다. |
 | `dataVersion` | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | `metadataVersion` | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
@@ -110,14 +110,14 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | `type` | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | `time` | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| `data` | object | 앱 구성 이벤트 데이터입니다. |
+| `data` | 개체 | 앱 구성 이벤트 데이터입니다. |
 | `specversion` | 문자열 | CloudEvents 스키마 사양 버전입니다. |
 
 ---
@@ -125,7 +125,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | ---------- | ----------- |---|
 | `id` | 문자열 | 이 이벤트를 트리거한 개체의 ID입니다. |
 | `vaultName` | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름입니다. |

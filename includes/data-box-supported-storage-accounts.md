@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 02/21/2021
 ms.author: alkohli
 ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706041"
 ---
 다음은 Data Box 장치에 대해 지원 되는 저장소 계정 및 저장소 유형 목록입니다. 모든 유형의 저장소 계정에 대 한 모든 기능의 전체 목록은 [저장소 계정 유형](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts)을 참조 하세요.

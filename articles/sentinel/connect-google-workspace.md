@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/28/2021
 ms.author: yelevin
 ms.openlocfilehash: 4ada570502d913283ba9ee4cc4c65b7bdd853935
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745262"
 ---
 # <a name="connect-your-google-workspace-to-azure-sentinel"></a>Azure 센티널에 Google 작업 영역 연결
@@ -31,7 +31,7 @@ ms.locfileid: "101745262"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Google 작업 영역 데이터를 수집 하려면 다음 사용 권한 및 자격 증명이 있어야 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Managed Instance (미리 보기)의 Machine Learning Services
+title: Azure SQL Managed Instance의 Machine Learning Services
 description: 이 문서에서는 Azure SQL Managed Instance에서 개요 또는 Machine Learning Services을 제공 합니다.
 services: sql-database
 ms.service: sql-managed-instance
@@ -11,26 +11,17 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 06/03/2020
-ms.openlocfilehash: c805bacbd4a2219fb79168ad6426efd8b0a390df
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 03/17/2021
+ms.openlocfilehash: 94495144c64b3770995a5f67e9129b3ba86e741e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96324519"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599564"
 ---
-# <a name="machine-learning-services-in-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance (미리 보기)의 Machine Learning Services
+# <a name="machine-learning-services-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 Machine Learning Services
 
-Machine Learning Services은 Python 및 R 스크립트를 모두 지 원하는 데이터베이스 내 기계 학습 기능을 제공 하는 Azure SQL Managed Instance (미리 보기)의 기능입니다. 이 기능에는 고성능 예측 분석 및 기계 학습을 위한 Microsoft Python 및 R 패키지가 포함 됩니다. 관계형 데이터는 저장 프로시저, Python 또는 R 문을 포함 하는 T-sql 스크립트, T-sql을 포함 하는 Python 또는 R 코드를 통해 스크립트에서 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> Machine Learning Services는 현재 공개 미리 보기로 제공되는 Azure SQL Managed Instance의 기능입니다.
-> 이 미리 보기 기능은 미국, 아시아 유럽 및 오스트레일리아에서 제한 된 수의 지역에서 나중에 추가 되는 추가 지역을 제공 합니다.
->
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
-> 아래에서 [미리 보기에 등록](#signup)하세요.
+Machine Learning Services은 Python 및 R 스크립트를 모두 지 원하는 데이터베이스 내 기계 학습 기능을 제공 하는 Azure SQL Managed Instance의 기능입니다. 이 기능에는 고성능 예측 분석 및 기계 학습을 위한 Microsoft Python 및 R 패키지가 포함 됩니다. 관계형 데이터는 저장 프로시저, Python 또는 R 문을 포함 하는 T-sql 스크립트, T-sql을 포함 하는 Python 또는 R 코드를 통해 스크립트에서 사용할 수 있습니다.
 
 ## <a name="what-is-machine-learning-services"></a>Machine Learning Services란?
 
@@ -44,47 +35,32 @@ Azure SQL Managed Instance에서 R/Python 지원과 함께 Machine Learning Serv
 
 - **저장 프로시저에서 프로덕션에 모델 및 스크립트 배포** -스크립트 및 학습 된 모델은 단순히 t-sql 저장 프로시저에 포함 하 여 조작 가능한 수 있습니다. Azure SQL Managed Instance에 연결 하는 앱은 저장 프로시저를 호출 하 여 이러한 모델에서 예측 및 인텔리전스의 이점을 누릴 수 있습니다. 또한 네이티브 T-sql PREDICT 함수를 사용 하 여 매우 동시 실시간 점수 매기기 시나리오에서 빠른 점수 매기기를 위한 모델을 운영 수 있습니다.
 
-Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 있습니다. Microsoft 패키지 [revoscalepy](/sql/advanced-analytics/python/ref-py-revoscalepy) 및 [microsoftml](/sql/advanced-analytics/python/ref-py-microsoftml)(Python용), [RevoScaleR](/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](/sql/advanced-analytics/r/ref-r-olapr) 및 [sqlrutils](/sql/advanced-analytics/r/ref-r-sqlrutils)(R용) 외에 PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 패키지 및 프레임워크를 설치하고 사용할 수 있습니다.
+Python 및 R의 기본 배포판은 Machine Learning Services에 포함되어 있습니다. Microsoft 패키지 [revoscalepy](/sql/machine-learning/python/ref-py-revoscalepy) 및 [microsoftml](/sql/machine-learning/python/ref-py-microsoftml)(Python용), [RevoScaleR](/sql/machine-learning/r/ref-r-revoscaler), [MicrosoftML](/sql/machine-learning/r/ref-r-microsoftml), [olapR](/sql/machine-learning/r/ref-r-olapr) 및 [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils)(R용) 외에 PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 패키지 및 프레임워크를 설치하고 사용할 수 있습니다.
 
-<a name="signup"></a>
+## <a name="how-to-enable-machine-learning-services"></a>Machine Learning Services를 사용 하도록 설정 하는 방법
 
-## <a name="sign-up-for-the-preview"></a>미리 보기 등록
+다음 SQL 명령을 사용 하 여 확장성을 사용 하도록 설정 하 여 Azure SQL Managed Instance에서 Machine Learning Services를 사용 하도록 설정할 수 있습니다 (SQL Managed Instance 다시 시작 되 고 몇 초 동안 사용할 수 없음).
 
-이 제한 된 공개 미리 보기는 [Azure 미리 보기 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)의 적용을 받습니다. 
+```sql
+sp_configure 'external scripts enabled', 1;
+RECONFIGURE WITH OVERRIDE;
+```
 
-미리 보기 프로그램에 참여 하 고 이러한 조건에 동의 하는 경우에서 Azure 지원 티켓을 만들어 등록을 요청할 수 있습니다 [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/) . 
+이 명령이 SQL Managed Instance 리소스에 영향을 주는 방법에 대 한 자세한 내용은 [리소스 관리](machine-learning-services-differences.md#resource-governance)를 참조 하세요.
 
-1. **지원 티켓 만들기** 페이지에서 **인시던트 만들기** 를 클릭 합니다.
+### <a name="enable-machine-learning-services-in-a-failover-group"></a>장애 조치 (failover) 그룹에서 Machine Learning Services 사용
 
-1. **도움말 + 지원** 페이지에서 **새 지원 요청** 을 클릭 하 여 새 티켓을 만듭니다.
+[장애 조치 (failover) 그룹](failover-group-add-instance-tutorial.md)에서 시스템 데이터베이스는 보조 인스턴스에 복제 되지 않습니다. 자세한 내용은 [장애 조치 (failover) 그룹의 제한 사항](../database/auto-failover-group-overview.md#limitations-of-failover-groups) 을 참조 하세요.
 
-1. 다음 옵션을 선택합니다.
-   - 문제 유형- **기술**
-   - 구독- *구독 선택*
-   - 서비스- **SQL Managed Instance**
-   - 리소스- *관리 되는 인스턴스를 선택 합니다* .
-   - 요약-요청에 대 한 *간단한 설명을 입력 합니다* .
-   - 문제 유형- **SQL Managed Instance에 대 한 Machine Learning Services (미리 보기)**
-   - 문제 하위 유형- **기타 문제 또는 "방법" 질문**
+사용 중인 Managed Instance 장애 조치 (failover) 그룹의 일부인 경우 다음을 수행 합니다.
 
-1. **다음: 솔루션** 을 클릭 합니다.
+- `sp_configure` `RECONFIGURE` 장애 조치 (failover) 그룹의 각 인스턴스에 대해 및 명령을 실행 하 여 Machine Learning Services를 사용 하도록 설정 합니다.
 
-1. 미리 보기에 대 한 정보를 읽고 **다음: 세부 정보** 를 클릭 합니다.
-
-1. 이 페이지에서 다음을 수행합니다.
-   - **미리 보기에 등록 하려고** 하는 질문에 대해 **예** 를 선택 합니다. 
-   - 설명에는 미리 보기에 등록할 논리 서버 이름, 지역 및 구독 ID를 포함 하 여 요청에 대 한 세부 **정보** 를 입력 합니다. 다른 세부 정보를 적절 하 게 입력 합니다.
-   - 선호 하는 연락 방법을 선택 합니다. 
-
-1. 작업이 완료 되 면 **다음: 검토 + 만들기** 를 클릭 한 다음 **만들기** 를 클릭 합니다.
-
-프로그램에 등록되면 Microsoft에서 사용자가 공개 미리 보기에 온보딩되고 기존 또는 새 데이터베이스에 대해 Machine Learning Services를 사용하도록 설정됩니다.
-
-공개 미리 보기 동안에는 프로덕션 워크로드에 SQL Managed Instance의 Machine Learning Services를 사용하지 않는 것이 좋습니다.
+- Master 데이터베이스가 아니라 사용자 데이터베이스에 R/Python 라이브러리를 설치 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Server Machine Learning Services의 주요 차이점](machine-learning-services-differences.md)을 참조 하세요.
-- Machine Learning Services에서 Python을 사용 하는 방법에 대 한 자세한 내용은 [python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15)을 참조 하세요.
-- Machine Learning Services에서 R을 사용 하는 방법에 대 한 자세한 내용은 [r 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&view=sql-server-ver15)을 참조 하세요.
-- 다른 SQL 플랫폼의 기계 학습에 대 한 자세한 내용은 [sql machine learning 설명서](/sql/machine-learning/)를 참조 하세요.
+- Machine Learning Services에서 Python을 사용 하는 방법에 대 한 자세한 내용은 [python 스크립트 실행](/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)을 참조 하세요.
+- Machine Learning Services에서 R을 사용 하는 방법에 대 한 자세한 내용은 [r 스크립트 실행](/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true)을 참조 하세요.
+- 다른 SQL 플랫폼의 기계 학습에 대 한 자세한 내용은 [sql machine learning 설명서](/sql/machine-learning/index)를 참조 하세요.

@@ -6,15 +6,15 @@ metadata:
   description: Azure Kinect DK는 정교한 컴퓨터 비전과 음성 모델을 제공하는 고급 AI 센서가 포함된 개발자 키트입니다. Kinect에는 깊이 센서, 비디오 카메라가 장착된 공간 마이크 배열 그리고 여러 모드, 옵션, SDK가 포함된 일체형 소형 디바이스인 방향 센서가 포함되어 있습니다.
   ms.prod: kinect-dk
   ms.topic: landing-page
-  author: tesych
-  ms.author: tesych
-  ms.date: 03/11/2020
-  ms.openlocfilehash: f1691507d75d6de630f3c5a48cd59c8cc22b5999
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  author: qm13
+  ms.author: quentinm
+  ms.date: 03/18/2021
+  ms.openlocfilehash: bf23c59fb200135f6ac962fbb463295823225641
+  ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "85277903"
+  ms.lasthandoff: 03/19/2021
+  ms.locfileid: "104654750"
 landingContent:
 - title: Azure Kinect DK 정보
   linkLists:
@@ -75,7 +75,7 @@ landingContent:
     - text: 센서 SDK API
       url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
     - text: 신체 추적 SDK API
-      url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+      url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.1.0/index.html
     - text: 비전 서비스
       url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
     - text: Speech Services

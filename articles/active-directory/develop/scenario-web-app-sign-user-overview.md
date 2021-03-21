@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573050"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578297"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자를 로그인하는 웹앱
 
@@ -43,6 +43,12 @@ Java 개발자 인 경우 다음 빠른 시작을 시도 합니다.
 
 [빠른 시작: Java 웹앱에 Microsoft로 로그인 추가](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+Node.js 개발자 인 경우 다음 빠른 시작을 시도 합니다.
+
+[빠른 시작: Node.js 웹 앱에 Microsoft에 로그인 추가](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 보세요.
@@ -62,7 +68,7 @@ Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 
 두 번째 단계로 응용 프로그램에서 로그인 한 사용자 대신 웹 Api를 호출할 수 있도록 설정할 수 있습니다. 다음 단계는 웹 [api를 호출 하는 웹 앱](scenario-web-app-call-api-overview.md)에서 찾을 수 있는 다른 시나리오입니다.
 
 > [!NOTE]
-> 웹 앱에 로그인을 추가 하는 작업은 웹 앱을 보호 하 고  **미들웨어** 라이브러리인 사용자 토큰의 유효성을 검사 하는 것입니다. .NET의 경우이 시나리오에는 보호 된 Api를 호출 하는 토큰을 획득 하는 것에 대 한 MSAL (Microsoft Authentication Library)이 아직 필요 하지 않습니다. 웹 앱이 web Api를 호출 해야 하는 경우 추가 작업 시나리오에서 인증 라이브러리가 도입 됩니다.
+> 웹 앱에 로그인을 추가 하는 작업은 웹 앱을 보호 하 고  **미들웨어** 라이브러리인 사용자 토큰의 유효성을 검사 하는 것입니다. .NET의 경우이 시나리오에는 보호 된 Api를 호출 하는 토큰을 획득 하는 것에 대 한 MSAL (Microsoft Authentication Library)이 아직 필요 하지 않습니다. 웹 앱이 web Api를 호출 해야 하는 경우 추가 작업 시나리오에서 .NET 용 인증 라이브러리를 소개 합니다.
 
 ## <a name="specifics"></a>특수 적용 사항
 
@@ -87,6 +93,10 @@ Python을 사용 하 여 개발 하는 경우 다음 빠른 시작을 사용해 
 # <a name="java"></a>[Java](#tab/java)
 
 이 시나리오의 다음 문서 [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=java)으로 이동 합니다.
+
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+
+이 시나리오의 다음 문서 [앱 등록](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs)으로 이동 합니다.
 
 # <a name="python"></a>[Python](#tab/python)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f5865646200a783e7139bb5e22576ea404f58203
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216652"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596402"
 ---
 # <a name="enable-on-demand-bursting"></a>주문형 버스트 사용
 
@@ -61,7 +61,7 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-주문형 버스트 cmdlet은 2.19.0 이상 버전의 [Azure CLI 모듈](https://docs.microsoft.com/cli/azure/install-azure-cli)에서 사용할 수 있습니다. 또는 [Azure Cloud Shell](https://shell.azure.com/)를 사용할 수 있습니다.
+주문형 버스트 cmdlet은 2.19.0 이상 버전의 [Azure CLI 모듈](/cli/azure/install-azure-cli)에서 사용할 수 있습니다. 또는 [Azure Cloud Shell](https://shell.azure.com/)를 사용할 수 있습니다.
 
 ### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>주문형 버스트 데이터 디스크 만들기 및 연결
 
