@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 1/28/2021
 ms.openlocfilehash: 13cf315291cdf788951e352e430976851b30ce0c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102216720"
 ---
 # <a name="major-version-upgrade-in-azure-database-for-mysql-single-server"></a>단일 서버의 주 버전 업그레이드 Azure Database for MySQL

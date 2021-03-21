@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f670af1fca4b4638988e53075f092ca1bbac55b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584300"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578263"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자가 로그인 하는 웹 앱: 프로덕션으로 이동
 
@@ -48,6 +48,12 @@ SameSite NuGet 패키지는 가장 일반적인 문제를 처리 합니다.
 - 회사 또는 학교 계정 또는 개인 Microsoft 계정
 - [Azure AD B2C](../../active-directory-b2c/overview.md)
 - 국가별 클라우드
+
+## <a name="tutorial-nodejs-web-app"></a>자습서: 웹 앱 Node.js
+
+이 자습서의 Node.js 웹에 대해 자세히 알아보세요.
+
+[자습서: Node.js & Express 웹 앱에서 로그인 사용자](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
 
 ## <a name="sample-code-java-web-app"></a>샘플 코드: Java 웹 앱
 

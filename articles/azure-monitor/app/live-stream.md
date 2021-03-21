@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98679469"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
@@ -29,7 +29,7 @@ ms.locfileid: "98679469"
 
 라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 Node.js 앱에 대해 지원 됩니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. 언어별 지침에 따라 라이브 메트릭을 사용 하도록 설정 합니다.
    * [ASP.NET](./asp-net.md) -라이브 메트릭은 기본적으로 사용 하도록 설정 되어 있습니다.
@@ -115,7 +115,7 @@ namespace LiveMetricsDemo
 |**대기 시간**|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
 |**보존 없음**|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**요청 시**|라이브 메트릭 창이 열려 있는 동안에만 데이터가 스트리밍됩니다. |SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|**무료**|라이브 스트림 데이터 무료|[가격 책정](./pricing.md)에 따라 다름
+|**Free**|라이브 스트림 데이터 무료|[가격 책정](./pricing.md)에 따라 다름
 |**샘플링**|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 |이벤트가 [샘플링](./api-filtering-sampling.md)될 수 있음|
 |**컨트롤 채널**|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
 
@@ -185,7 +185,7 @@ applicationinsights.config 파일에서 QuickPulseTelemetryModule에 Authenticat
 
 [ASP.NET Core](./asp-net-core.md) 응용 프로그램의 경우 아래 지침을 따르세요.
 
-다음과 `ConfigureServices` 같이 Startup.cs 파일을 수정 합니다.
+다음과 `ConfigureServices` 같이 시작 .cs 파일을 수정 합니다.
 
 다음 네임 스페이스를 추가 합니다.
 

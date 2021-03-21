@@ -4,10 +4,10 @@ description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack 
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96016910"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
@@ -56,14 +56,14 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 7. 컴퓨터를 복제하는 작업은 복제 관리를 위해 구성 서버와 통신합니다(포트 HTTPS 443 인바운드). 컴퓨터는 복제 데이터를 프로세스 서버로 전달합니다(포트 HTTPS 9443 인바운드 - 수정 가능).
 8. 트래픽은 인터넷을 통해 Azure Storage 공용 엔드포인트에 복제됩니다. Azure ExpressRoute 공용 피어링을 사용할 수도 있습니다. 온-프레미스 사이트에서 Azure로의 사이트 간 VPN을 통한 트래픽 복제는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 시나리오 설정을 위해 필요한 사항은 다음과 같습니다.
 
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 구독 계정** | Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
-**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하십시오.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](site-recovery-role-based-linked-access-control.md)를 검토합니다.
+**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의합니다.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](site-recovery-role-based-linked-access-control.md)를 검토합니다.
 **Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다.
 
 
@@ -153,7 +153,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 2. **시작** 에서 Site Recovery를 선택합니다. 그런 다음, **인프라 준비** 를 선택합니다.
 3. **보호 목표** > **컴퓨터가 있는 위치** 에서 **온-프레미스** 를 선택합니다.
 4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure** 를 선택합니다.
-5. **컴퓨터가 가상화되어 있습니까?** 에서 **가상화되지 않음/기타** 를 선택합니다. 그런 다음, **확인** 을 선택합니다.
+5. **컴퓨터가 가상화되어 있습니까?** 에서 **가상화되지 않음/기타** 를 선택합니다. 그런 다음 **확인** 을 선택합니다.
 
     ![보호 목표](./media/azure-stack-site-recovery/protection-goal.png)
 
@@ -237,10 +237,10 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
     - 컴퓨터의 내부 IP 주소를 사용합니다.
     - 공용 IP 주소를 지정하는 경우 복제가 예상대로 작동하지 않을 수 있습니다.
 
-10. 속성 **Properties**  >  **속성 구성** 에서 프로세스 서버가 컴퓨터에 모바일 서비스를 자동으로 설치 하는 데 사용할 계정을 선택 합니다.
+10. 속성   >  **속성 구성** 에서 프로세스 서버가 컴퓨터에 모바일 서비스를 자동으로 설치 하는 데 사용할 계정을 선택 합니다.
 11. 복제 **설정**  >  **복제 설정 구성** 에서 올바른 복제 정책이 선택 되어 있는지 확인 합니다.
 12. **복제 사용** 을 클릭합니다.
-13. **Enable Protection** **설정**  >  **작업**  >  **Site Recovery 작업** 에서 보호 사용 작업의 진행률을 추적 합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+13.  **설정**  >  **작업**  >  **Site Recovery 작업** 에서 보호 사용 작업의 진행률을 추적 합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 > [!NOTE]
 > VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바일 서비스를 설치합니다.

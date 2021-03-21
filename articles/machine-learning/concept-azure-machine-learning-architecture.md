@@ -11,10 +11,10 @@ author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
 ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503694"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
@@ -255,7 +255,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 Azure Machine Learning는 다음과 같은 모니터링 및 로깅 기능을 제공 합니다.
 
-* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+* __데이터 과학자__ 경우 학습 실행에서 실험을 모니터링 하 고 정보를 기록할 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
    * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
    * [학습 실행에 대한 메트릭 로그](how-to-track-experiments.md)
    * [MLflow로 실험 추적](how-to-use-mlflow.md)

@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
 ms.openlocfilehash: 15c1f3a1731edf7b45061646d43688b4aacc6104
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96620310"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: 보안 LDAP 경고 Azure Active Directory Domain Services
@@ -56,7 +56,7 @@ LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Dire
 
 ### <a name="resolution"></a>해결 방법
 
-[보안 ldap에 대 한 인증서를 만드는](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap)단계를 수행 하 여 대체 보안 ldap 인증서를 만듭니다. 대체 인증서를 Azure AD DS에 적용 하 고 보안 LDAP를 사용 하 여 연결 하는 모든 클라이언트에 인증서를 배포 합니다.
+[보안 LDAP용 인증서를 생성](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap)하는 단계에 따라 대체 보안 LDAP 인증서를 만듭니다. 대체 인증서를 Azure AD DS에 적용 하 고 보안 LDAP를 사용 하 여 연결 하는 모든 클라이언트에 인증서를 배포 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

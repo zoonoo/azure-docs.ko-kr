@@ -1,5 +1,5 @@
 ---
-title: 이벤트 집계
+title: 이벤트 집계(미리 보기)
 titleSuffix: Azure Defender for IoT
 description: IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스템 이벤트를 수집 하 고 처리 및 분석을 위해 데이터를 Azure 클라우드에 보냅니다.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: azure
-ms.openlocfilehash: 53811c20330d96b279eeb24e1aa90248b60fcb32
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9ce24a44e48f090a0dc7d355952b3cf50dd4318c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102120048"
 ---
-# <a name="event-aggregation"></a>이벤트 집계 
+# <a name="event-aggregation-preview"></a>이벤트 집계(미리 보기)
 
 IoT 용 Defender 보안 에이전트는 로컬 장치에서 데이터 및 시스템 이벤트를 수집 하 고 처리 및 분석을 위해 데이터를 Azure 클라우드에 보냅니다. IoT 마이크로 에이전트의 Defender는 새 프로세스 및 모든 새 연결 이벤트를 포함 하 여 다양 한 유형의 장치 이벤트를 수집 합니다. 새 프로세스와 새 연결 이벤트는 장치에서 1 초 이내에 자주 발생할 수 있습니다. 이 기능은 포괄적인 보안을 위해 중요 하지만, 보안 에이전트에서 전송 하는 메시지 수가 빠르게 충족 되거나 IoT Hub 할당량 및 비용 제한을 초과할 수 있습니다. 그럼에도 불구 하 고 이러한 이벤트는 장치를 보호 하는 데 중요 한 매우 중요 한 보안 정보를 포함 합니다. 
 

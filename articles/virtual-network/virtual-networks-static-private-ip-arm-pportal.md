@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
 ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015947"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Azure Portal를 사용 하 여 VM에 대 한 개인 IP 주소 구성
@@ -34,7 +34,7 @@ ms.locfileid: "96015947"
 | ------- | ----- |
 | Name | *TestVNet* |
 | 주소 공간 | *192.168.0.0/16* |
-| 리소스 그룹 | **TestRG** (필요한 경우 새로 만들기를 선택 하 여 **새로** 만듭니다.) |
+| Resource group | **TestRG** (필요한 경우 새로 만들기를 선택 하 여 **새로** 만듭니다.) |
 | 서브넷 - 이름 | *FrontEnd* |
 | 서브넷 - 주소 범위 | *192.168.1.0/24* |
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
 ms.openlocfilehash: 324fde5198fe3469e3979cf5cd102715118a49aa
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467324"
 ---
 Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작동합니다.

@@ -9,10 +9,10 @@ ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
 ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526275"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Azure Synapse Analytics 작업 영역에 대한 암호화
@@ -57,7 +57,7 @@ Azure 서비스에 대 한 첫 번째 암호화 계층은 플랫폼 관리 키�
 
  작업 영역을 활성화 하려면 먼저 키 자격 증명 모음에 필요한 사용 권한을 작업 영역 관리 id에 부여 해야 합니다. 작업 영역 활성화에 대 한 이러한 단계적 접근 방식은 작업 영역의 데이터가 고객 관리 키로 암호화 되도록 합니다. 전용 SQL 풀에 대해 암호화를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 각 풀은 기본적으로 암호화를 사용 하도록 설정 되어 있지 않습니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 
 미사용 데이터를 암호화 하거나 암호를 해독 하려면 작업 영역 관리 id에 다음 사용 권한이 있어야 합니다.
 * WrapKey (새 키를 만들 때 Key Vault에 키를 삽입 하는 데 사용할 수 있습니다.)

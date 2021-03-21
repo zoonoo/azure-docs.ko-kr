@@ -8,11 +8,11 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523365"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>수평 소유 프로토콜 dissector
@@ -103,7 +103,7 @@ IoT 용 Defender는 일반적인 프로토콜에 대 한 기본 dissectors를 �
 
 - IoT 용 Defender 버전 3.0 이상
 
-### <a name="process"></a>프로세스
+### <a name="process"></a>Process
 
 1. C/c + + 개발자를 위한 Eclipse IDE를 [다운로드](https://www.eclipse.org/) 합니다. 선호 하는 다른 IDE를 사용할 수 있습니다. 이 문서에서는 Eclipse IDE를 사용 하 여 구성을 안내 합니다.
 
@@ -313,7 +313,7 @@ JSON 구성 파일은로 저장 해야 합니다 `config.json` .
 
 이 섹션에서는 기본 매개 변수를 설명 합니다.
 
-| 매개 변수 레이블 | Description | Type |
+| 매개 변수 레이블 | 설명 | Type |
 |--|--|--|
 | **ID** | 프로토콜의 이름입니다. 기본값을 삭제 하 고 표시 되는 프로토콜의 이름을 추가 합니다. | String |
 | **endianess** | 다중 바이트 데이터를 인코딩하는 방법을 정의 합니다. "사소한" 또는 "빅" 용어를 사용 합니다. 프로토콜 사양 또는 트래픽 기록에서 가져옵니다. | String |
@@ -326,7 +326,7 @@ JSON 구성 파일은로 저장 해야 합니다 `config.json` .
 
 이 섹션에서는 다른 필드에 대해 설명 합니다.
 
-| 매개 변수 레이블 | Description |
+| 매개 변수 레이블 | 설명 |
 |-----------------|--------|
 | **허용 목록** | 프로토콜 값을 인덱싱하고 데이터 마이닝 보고서에 표시할 수 있습니다. 이러한 보고서는 네트워크 기준선을 반영 합니다. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="데이터 마이닝 뷰의 샘플입니다."::: <br /> 자세한 내용은 [인덱싱 서비스에 연결 (기준)](#connect-to-an-indexing-service-baseline) 을 참조 하세요. |
 | **펌웨어입니다** | 펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 자세한 내용은 [펌웨어 데이터 추출](#extract-firmware-data) 항목을 참조 하세요. |
@@ -970,7 +970,7 @@ extern "C" {
 ```
 ## <a name="extract-firmware-data"></a>펌웨어 데이터 추출
 
-펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 예를 들면 다음과 같습니다.
+펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 예제:
 
 - 펌웨어 모델 또는 버전을 추출 합니다. 이 정보를 활용 하 여 CVEs를 식별할 수 있습니다.
 
@@ -1104,7 +1104,7 @@ extern "C" {
 
 장치에서 인벤토리, 데이터 마이닝 및 기타 보고서의 장치에 사용할 수 있는 정보를 향상할 수 있습니다.
 
-- 속성
+- Name
 
 - Type
 
@@ -1146,10 +1146,10 @@ JSON의 각 키는 패킷에서이 키를 추출할 때 수행 해야 하는 작
 
 ### <a name="fields"></a>필드
 
-| 필드 | Description |
+| 필드 | 설명 |
 |--|--|
 | key | 키를 나타냅니다. |
-| value | 데이터를 제공 하기 위해 사용할 구현 필드를 나타냅니다. |
+| 값 | 데이터를 제공 하기 위해 사용할 구현 필드를 나타냅니다. |
 | is_static_key | `key`필드가 패킷의 값으로 파생 되거나 미리 정의 된 값 인지 여부를 나타냅니다. |
 
 ### <a name="working-with-static-keys-only"></a>정적 키만 사용
@@ -1640,6 +1640,6 @@ dependency": { "field": "CyberXHorizonProtocol.function"  }}]
 
 개요에서 플러그 인의 모니터 단추를 선택 합니다.
 
-## <a name="next-steps"></a>다음 단계
+다음 단계
 
 [수평 API](references-horizon-api.md) 설정

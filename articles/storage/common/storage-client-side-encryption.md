@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718525"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588259"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault
 
@@ -132,7 +132,7 @@ Key Vault 통합에 필요한 두 개의 패키지가 있습니다.
 * Azure Core는 `IKeyEncryptionKey` 및 인터페이스를 포함 `IKeyEncryptionKeyResolver` 합니다. .NET 용 저장소 클라이언트 라이브러리는 이미이를 종속성으로 정의 합니다.
 * Azure. KeyVault. Keys (v4. x)는 클라이언트 쪽 암호화에 사용 되는 암호화 클라이언트 뿐만 아니라 Key Vault REST 클라이언트를 포함 합니다.
 
-키 자격증명모음은 고급 가치 마스터키로 고안되었으며 키 자격증명 모음당 스로틀 한계는 이것을 염두에 두고 만들어졌습니다. 4.1.0를 통해 `IKeyEncryptionKeyResolver` 키 캐싱을 지 원하는 구현이 없는 것입니다. 제한으로 인해 캐싱이 필요한 경우에는 [이 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) 을 수행 하 여 캐싱 계층을 인스턴스에 삽입할 수 있습니다 `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` .
+키 자격증명모음은 고급 가치 마스터키로 고안되었으며 키 자격증명 모음당 스로틀 한계는 이것을 염두에 두고 만들어졌습니다. 4.1.0를 통해 `IKeyEncryptionKeyResolver` 키 캐싱을 지 원하는 구현이 없는 것입니다. 제한으로 인해 캐싱이 필요한 경우에는 [이 샘플](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) 을 수행 하 여 캐싱 계층을 인스턴스에 삽입할 수 있습니다 `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` .
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 

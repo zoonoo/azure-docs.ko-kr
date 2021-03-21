@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: a0b357705de04ed4c2be3223f9dd07f61f75d970
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954583"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Azure Media Services에서 Video.js 플레이어를 사용 하는 방법
@@ -26,11 +26,11 @@ ms.locfileid: "98954583"
 
 ## <a name="overview"></a>개요
 
-Video.js는 HTML5 환경을 위해 작성 된 웹 비디오 플레이어입니다. 플러그 인 또는 플래시를 사용 하지 않고 브라우저에서 적응 미디어 형식 (예: 대시 및 HLS)을 재생 합니다. 대신 Video.js는 개방형 웹 표준 MediaSource 확장 및 암호화 된 미디어 확장을 사용 합니다. 또한 데스크톱 및 모바일 장치에서 비디오 재생을 지원 합니다.
+Video.js는 HTML5 환경을 위해 작성 된 웹 비디오 플레이어입니다. 플러그 인 또는 플래시를 사용하지 않고 브라우저에서 적응형 미디어 형식(예: DASH 및 HLS)을 재생합니다. 대신 Video.js는 개방형 웹 표준 MediaSource 확장 및 암호화 된 미디어 확장을 사용 합니다. 또한 데스크톱 및 모바일 장치에서 비디오 재생을 지원 합니다.
 
 공식 설명서는에서 찾을 수 있습니다 [https://docs.videojs.com/](https://docs.videojs.com/) .
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 이 문서에 대 한 샘플 코드는 [Azure-samples/media services-3rdparty-플레이어-샘플](https://github.com/Azure-Samples/media-services-3rdparty-player-samples)에서 제공 됩니다.
 
 ## <a name="implement-the-player"></a>플레이어 구현

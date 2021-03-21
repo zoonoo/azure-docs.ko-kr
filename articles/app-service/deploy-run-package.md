@@ -3,12 +3,12 @@ title: ZIP 패키지에서 앱 실행
 description: 원자성을 사용 하 여 앱의 ZIP 패키지를 배포 합니다. ZIP 배포 프로세스 중에 앱의 동작에 대 한 예측 가능성과 안정성을 향상 시킵니다.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 3440653455626af4e3705d89349a66d6bf2fbfc0
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 036dd8c86251af2ed5553939e74a0d85fc303ecb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008132"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577549"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>ZIP 패키지에서 직접 Azure App Service에서 앱 실행
 
@@ -41,7 +41,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>패키지 실행
 
-App Service에서 패키지를 실행 하는 가장 쉬운 방법은 Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) command를 사용 하는 것입니다. 예를 들어:
+App Service에서 패키지를 실행 하는 가장 쉬운 방법은 Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) command를 사용 하는 것입니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
@@ -67,10 +67,11 @@ Blob storage에 동일한 이름의 업데이트 된 패키지를 게시 하는 
 
 - 패키지에서 직접 실행 하면 `wwwroot` 읽기 전용으로 설정 됩니다. 응용 프로그램에서이 디렉터리에 파일을 쓰려고 하면 오류가 표시 됩니다.
 - TAR 및 GZIP 형식은 지원 되지 않습니다.
+- ZIP 파일은 최대 1GB가 될 수 있습니다.
 - 이 기능은 [로컬 캐시](overview-local-cache.md)와 호환 되지 않습니다.
 - 콜드 부팅 성능이 개선 되도록 하려면 로컬 Zip 옵션 ( `WEBSITE_RUN_FROM_PACKAGE` = 1)을 사용 합니다.
 
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
 - [Azure App Service에 대 한 연속 배포](deploy-continuous-deployment.md)
 - [ZIP 또는 WAR 파일을 사용 하 여 코드 배포](deploy-zip.md)

@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740031"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링
@@ -41,14 +41,14 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
 
-| 속성 | Description |
+| 속성 | 설명 |
 -------- | ------------- | 
-| 속성 | Azure 통합 런타임의 이름. |  
+| Name | Azure 통합 런타임의 이름. |  
 | 시스템 상태 | Azure 통합 런타임의 상태. | 
 | 위치 | Azure 통합 런타임의 위치. Azure 통합 런타임의 위치에 대한 자세한 내용은 [통합 런타임 소개](concepts-integration-runtime.md)를 참조하세요. |
 | DataFactoryName | Azure 통합 런타임이 속한 데이터 팩터리의 이름. | 
 | ResourceGroupName | 데이터 팩터리가 속한 리소스 그룹의 이름.  |
-| Description | 통합 런타임에 대한 설명.  |
+| 설명 | 통합 런타임에 대한 설명.  |
 
 ### <a name="status"></a>상태
 
@@ -70,9 +70,9 @@ Azure 통합 런타임의 컴퓨팅 리소스는 Azure에서 완전히 탄력적
 
 다음 테이블은 **각 노드** 의 속성 모니터링에 대한 설명을 제공합니다.
 
-| 속성 | Description | 
+| 속성 | 설명 | 
 | -------- | ----------- | 
-| 속성 | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
+| Name | 자체 호스팅 통합 런타임의 이름 및 이와 연결된 노드. 노드는 자체 호스팅 통합 런타임이 설치된 온-프레미스 Windows 컴퓨터입니다. |  
 | 상태 | 전반적인 자체 호스팅 통합 런타임 및 각 노드의 상태. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 다음 섹션을 참조 하세요. | 
 | 버전 | 자체 호스팅 통합 런타임 및 각 노드의 버전. 자체 호스팅 통합 런타임 버전은 그룹에 있는 노드의 대다수 버전을 기반으로 결정됩니다. 자체 호스팅 통합 런타임 설정에 다른 버전의 노드가 있는 경우 논리 자체 호스팅 통합 런타임과 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). | 
 | 사용 가능한 메모리 | 자체 호스팅 통합 런타임 노드에서 사용 가능한 메모리. 이 값은 거의 실시간 스냅샷입니다. | 
@@ -95,7 +95,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 | ------ | ------------------ | 
 | 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다. |
 | 오프라인 | 노드가 오프라인 상태입니다. |
@@ -109,7 +109,7 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 
 다음 테이블은 자체 호스팅 통합 런타임의 가능한 상태를 제공합니다. 이 상태는 런타임에 속한 모든 노드의 상태에 따라 달라집니다. 
 
-| 상태 | Description |
+| 상태 | 설명 |
 | ------ | ----------- | 
 | 등록 필요 | 자체 호스팅 통합 런타임에 등록된 노드가 아직 없습니다. |
 | 온라인 | 모든 노드가 온라인 상태입니다. |
@@ -171,7 +171,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 다음 표에서는 Azure-SSIS IR에 대해 위의 cmdlet에서 반환 하는 속성에 대해 설명 합니다.
 
-| 속성/상태              | Description                  |
+| 속성/상태              | 설명                  |
 | ---------------------------- | ---------------------------- |
 | CreateTime                   | Azure-SSIS IR를 만든 UTC 시간입니다. |
 | 노드                        | 노드 관련 상태 (시작/사용/재생/사용 불가)와 실행 가능한 오류를 사용 하 여 Azure-SSIS IR의 할당 된/사용 가능한 노드입니다. |
@@ -192,8 +192,8 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 | Type                         | Azure-SSIS IR IR 유형 (관리/자체 호스팅)입니다. |
 | ResourceGroupName            | ADF와 Azure-SSIS IR를 만든 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName              | ADF의 이름입니다. |
-| 속성                         | Azure-SSIS IR 이름입니다. |
-| Description                  | Azure-SSIS IR에 대 한 설명입니다. |
+| Name                         | Azure-SSIS IR 이름입니다. |
+| 설명                  | Azure-SSIS IR에 대 한 설명입니다. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>상태 (Azure-SSIS IR 노드당)
 
@@ -210,7 +210,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 다음 표에서는 가능한 Azure-SSIS IR의 전체 상태를 제공 합니다. 전체 상태는 Azure-SSIS IR에 속하는 모든 노드의 결합 된 상태에 따라 달라 집니다. 
 
-| 전반적인 상태 | Description | 
+| 전반적인 상태 | 설명 | 
 | -------------- | ----------- | 
 | Initial        | Azure-SSIS IR 노드가 할당/준비 되지 않았습니다. | 
 | 시작 중       | Azure-SSIS IR 노드를 할당/준비 하 고 청구를 시작 했습니다. |

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467394"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>양식 인식기 미리 빌드된 송장 모델
@@ -73,7 +73,7 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 송장 서비스는 text, tables 및 26 개의 송장 필드를 추출 합니다. 다음은 JSON 출력 응답의 청구서에서 추출 되는 필드입니다. 아래 출력은이 [샘플 송장을](media/sample-invoice.jpg)사용 합니다.
 
-|이름| 유형 | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | 문자열 | 송장이 청구 되는 고객 | Microsoft Corp |  |
 | CustomerId | 문자열 | 고객에 대 한 참조 ID | CID-12345 |  |
@@ -104,7 +104,7 @@ JSON 출력에는 3 가지 부분이 있습니다.
 
 다음은 JSON 출력 응답의 청구서에서 추출 된 품목입니다 (아래 출력은이 [샘플 송장을](./media/sample-invoice.jpg)사용).  
 
-|이름| 유형 | 설명 | 텍스트 (줄 항목 #1) | 값 (표준화 된 출력) |
+|Name| Type | Description | 텍스트 (줄 항목 #1) | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | 항목 | 문자열 | 줄 항목의 전체 문자열 텍스트 줄입니다. | 3/4/2021 A123 컨설팅 서비스 2 시간 $30.00 10% $60.00 | |
 | 금액 | number | 줄 항목의 양입니다. | $60.00 | 100 |

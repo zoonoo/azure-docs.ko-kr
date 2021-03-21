@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: b2d4eb75002474bbec57753bbf0255cc4c2b4a16
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96338642"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing Custom Search 환경 구성
@@ -32,8 +32,8 @@ Custom Search 인스턴스를 사용하면 사용자가 관심 있는 웹 사이
 
 | 조각 이름 | 설명                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예: `www.microsoft.com`. `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어를 지정 하는 경우 `microsoft.com` Bing은 또는에서 결과를 반환 합니다 `support.microsoft.com` `technet.microsoft.com` . |
-| 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예, `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| 도메인     | 도메인 조각에는 인터넷 도메인 내에서 찾은 모든 콘텐츠가 포함됩니다. 예: `www.microsoft.com` `www.`를 생략하면 Bing에서 도메인의 하위 도메인도 검색합니다. 예를 들어를 지정 하는 경우 `microsoft.com` Bing은 또는에서 결과를 반환 합니다 `support.microsoft.com` `technet.microsoft.com` . |
+| 하위 페이지    | 하위 페이지 조각에는 하위 페이지와 그 아래 경로에서 찾은 모든 콘텐츠가 포함됩니다. 경로에서 최대 두 개의 하위 페이지를 지정할 수 있습니다. 예를 들어 `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | 웹 페이지    | 웹 페이지 조각은 사용자 지정 검색에 해당 웹 페이지만 포함할 수 있습니다. 하위 페이지를 포함할지 여부를 선택적으로 지정할 수 있습니다.                                                                                                                                                                                  |
 
 > [!IMPORTANT]

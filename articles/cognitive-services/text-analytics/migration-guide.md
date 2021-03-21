@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/22/2021
 ms.author: aahi
 ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699898"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>텍스트 분석 API 버전 3(sp3)으로 마이그레이션
@@ -75,17 +75,17 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 다음 표에는 NER v 2.1에 대해 반환 된 엔터티 범주가 나와 있습니다.
 
-| 범주   | Description                          |
+| 범주   | 설명                          |
 |------------|--------------------------------------|
 | 사람   |   사람의 이름입니다.  |
 |위치    | 자연 스러운 랜드마크, 구조, 지리적 기능 및 지정 학적 엔터티 |
 |조직 | 회사, 정치적 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. Nationalities 및 religions는이 엔터티 형식에 포함 되지 않습니다. |
 | PhoneNumber | 전화 번호 (미국과 EU 전화 번호만 해당). |
-| Email | 전자 메일 주소. |
+| 메일 | 전자 메일 주소. |
 | URL | 웹 사이트에 대 한 Url입니다. |
 | IP | 네트워크 IP 주소. |
 | DateTime | 날짜 및 시간입니다.| 
-| Date | 일정 날짜 |
+| 날짜 | 일정 날짜 |
 | 시간 | 하루 중 시간 |
 | DateRange | 날짜 범위. |
 | TimeRange | 시간 범위. |
@@ -131,7 +131,7 @@ JSON 응답의 예제는 참조 설명서를 참조 하세요.
 
 #### <a name="rest-api"></a>REST API
 
-응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. 예: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+응용 프로그램에서 REST API 사용 하는 경우 키 구 추출을 위해 요청 끝점을 v3 끝점으로 업데이트 합니다. `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
 
 JSON 응답의 예제는 참조 설명서를 참조 하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)

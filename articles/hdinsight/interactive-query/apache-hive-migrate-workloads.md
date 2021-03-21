@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
 ms.openlocfilehash: b13e8e088eff95071247a53ad1a4a18879f94053
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101742197"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
@@ -131,7 +131,7 @@ STACK_VERSION=$(hdp-select status hive-server2 | awk '{ print $3; }')
 
 추가 변경 내용은 [HDInsight 4.0 알림](../hdinsight-version-release.md) 을 참조 하세요.
 
-## <a name="further-reading"></a>추가 참고 자료
+## <a name="further-reading"></a>추가 정보
 
 * [HDInsight 4.0 공지](../hdinsight-version-release.md)
 * [HDInsight 4.0 심층 이해](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

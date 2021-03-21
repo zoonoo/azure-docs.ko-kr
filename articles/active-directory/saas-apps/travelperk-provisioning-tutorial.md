@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/22/2021
 ms.author: Zhchia
 ms.openlocfilehash: 7e3e119c81f6417110d34b7b9b97af9fa1738d35
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054848"
 ---
 # <a name="tutorial-configure-travelperk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 TravelPerk 구성
@@ -35,7 +35,7 @@ ms.locfileid: "102054848"
 > - Azure AD와 TravelPerk 간에 사용자 특성을 동기화 상태로 유지
 > - TravelPerk에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/travelperk-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

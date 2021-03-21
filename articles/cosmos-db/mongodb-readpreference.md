@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96349047"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
@@ -174,4 +174,4 @@ MongoClient.connect(url, function(err, client) {
 
 * [Azure Cosmos DB로 MongoDB 데이터 가져오기](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)
 * [Azure Cosmos DB의 MongoDB용 API를 사용하여 전역 분산 데이터베이스 설정](tutorial-global-distribution-mongodb.md)합니다.
-* [Azure Cosmos DB 에뮬레이터를 사용 하 여 로컬로 개발](local-emulator.md)
+* [Azure Cosmos DB 에뮬레이터를 사용하여 로컬로 개발](local-emulator.md)

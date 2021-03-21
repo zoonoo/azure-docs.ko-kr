@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
 ms.openlocfilehash: a4303f43dffa98f842bd3daf9e3a0cd5214932b1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585374"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>1 단계: 로그 전달자 배포
@@ -34,7 +34,7 @@ ms.locfileid: "100585374"
     - TCP 포트 514의 보안 솔루션에서 Syslog 메시지 수신 대기
     - TCP 포트 25226를 사용 하 여 로컬 호스트의 Log Analytics 에이전트에 대 한 CEF로 식별 되는 메시지만 전달
  
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 지정 된 Linux 컴퓨터에 상승 된 권한 (sudo)이 있어야 합니다.
 

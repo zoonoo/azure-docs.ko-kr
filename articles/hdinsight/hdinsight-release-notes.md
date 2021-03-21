@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 3ea5168641f233f2e9580612a2f245fd8fef860f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699354"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
@@ -26,7 +26,7 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 이 릴리스는 HDInsight 3.6 및 HDInsight 4.0 모두에 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 ### <a name="dav4-series-support"></a>Dav4 시리즈 지원
 HDInsight는이 릴리스에서 Dav4 시리즈 지원을 추가 했습니다. [Dav4 시리즈](/azure/virtual-machines/dav4-dasv4-series)에 대 한 자세한 내용은 여기를 참조 하세요.
 

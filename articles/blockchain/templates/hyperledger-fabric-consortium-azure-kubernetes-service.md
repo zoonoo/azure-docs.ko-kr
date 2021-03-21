@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102101106"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
@@ -96,7 +96,7 @@ Azure Kubernetes Service (AKS) 템플릿의 Hyperledger 패브릭을 사용 하 
     - **Log Analytics 작업 영역**: 모니터링을 사용 하는 경우 Log Analytics 작업 영역이 생성 된 기본 작업 영역으로 채워집니다.
 
 8. **검토 및 만들기** 탭을 선택 합니다. 이 단계에서는 사용자가 제공한 값에 대 한 유효성 검사를 트리거합니다.
-9. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
+9. 유효성 검사를 통과하면 **만들기** 를 선택합니다.
 
     배포에는 일반적으로 10 ~ 12 분이 소요 됩니다. 시간은 지정 된 AKS 노드의 크기와 수에 따라 달라질 수 있습니다.
 10. 성공적으로 배포 된 후에는 오른쪽 위 모퉁이에 있는 Azure 알림을 통해 알림을 받습니다.
@@ -277,7 +277,7 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>` 는 앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 다음은 그 예입니다. 
+`<anchorPeersList>` 는 앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예를 들면 다음과 같습니다.
 
   - `<anchorPeersList>` `"peer1"` Peer1 노드만 앵커 피어로 설정 하려는 경우로 설정 합니다.
   - `<anchorPeersList>` `"peer1" "peer3"` Peer1 및 peer3 노드를 앵커 피어로 설정 하려는 경우로 설정 합니다.
@@ -334,7 +334,7 @@ CHANNEL_NAME=<channelName>
 
 플래그를 사용 하 여 컬렉션의 구성 JSON 파일을 전달할 수도 있습니다 `--collections-config` . 또는 `-t` 전용 트랜잭션에 사용 되는 chaincode를 인스턴스화하는 동안 플래그를 사용 하 여 임시 인수를 설정 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
@@ -342,7 +342,7 @@ CHANNEL_NAME=<channelName>
 ```
 
 `<collectionConfigJSONFilePath>`파트는 개인 데이터 chaincode의 인스턴스화에 대해 정의 된 컬렉션을 포함 하는 JSON 파일에 대 한 경로입니다. 다음 경로에서 *azhlfTool* 디렉터리에 상대적인 샘플 컬렉션의 구성 JSON 파일을 찾을 수 있습니다 `./samples/chaincode/src/private_marbles/collections_config.json` .
-`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+`<transientArgs>`유효한 JSON을 문자열 형식으로 전달 합니다. 특수 문자를 이스케이프 합니다. `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 명령을 한 번 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 전송 된 후 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 그런 다음 Chaincode은 채널에 있는 모든 피어 조직의 모든 피어 노드에서 인스턴스화됩니다.  
@@ -368,7 +368,7 @@ CHANNEL_NAME=<channelName>
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. `<endorsingPeers>`현재 피어 조직의 피어 노드 이름을 포함 하도록를 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예: `-p "peer1" "peer3"`
+보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. `<endorsingPeers>`현재 피어 조직의 피어 노드 이름을 포함 하도록를 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예를 들어 `-p "peer1" "peer3"`을 참조하십시오.
 
 *AzhlfTool* 를 사용 하 여 chaincode를 설치 하는 경우 피어 노드 이름을 보증 피어 인수에 값으로 전달 합니다. Chaincode는 해당 조직의 모든 피어 노드에 설치 됩니다. 
 

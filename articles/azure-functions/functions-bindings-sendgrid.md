@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94991233"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
@@ -359,14 +359,14 @@ Python에서는 특성을 지원하지 않습니다.
 
 | 속성 *function.js* | 특성/주석 속성 | 설명 | 선택 |
 |--------------------------|-------------------------------|-------------|----------|
-| 형식 |해당 없음| `sendGrid`로 설정해야 합니다.| No |
+| 형식 |해당 없음| `sendGrid`로 설정해야 합니다.| 아니요 |
 | direction |해당 없음| `out`로 설정해야 합니다.| 예 |
-| name |해당 없음| 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | No |
+| name |해당 없음| 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 아니요 |
 | apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey* 입니다.| 예 |
-| to| 대상 | 받는 사람의 이메일 주소입니다. | Yes |
-| 원본| From | 보낸 사람의 전자 메일 주소입니다. |  Yes |
-| subject| 제목 | 전자 메일의 제목입니다. | 예 |
-| text| 텍스트 | 전자 메일 내용입니다. | Yes |
+| to| 대상 | 받는 사람의 이메일 주소입니다. | 예 |
+| 원본| 시작 | 보낸 사람의 전자 메일 주소입니다. |  예 |
+| subject| 주체 | 전자 메일의 제목입니다. | 예 |
+| text| 텍스트 | 전자 메일 내용입니다. | 예 |
 
 선택적 속성은 바인딩에 정의 된 기본값을 포함 하 고 프로그래밍 방식으로 추가 또는 재정의 될 수 있습니다.
 
@@ -392,7 +392,7 @@ Python에서는 특성을 지원하지 않습니다.
 }
 ```  
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 

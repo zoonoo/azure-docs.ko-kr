@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896666"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭 글 링에 대 한 파워 쿼리의 변환 함수
@@ -87,7 +87,7 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 ## <a name="known-unsupported-functions"></a>지원 되지 않는 알려진 함수
 
-| 기능 | 상태 |
+| 함수 | 상태 |
 | -- | -- |
 | Table.PromoteHeaders | 지원되지 않습니다. 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
 | Table.CombineColumns | 이는 직접 지원 되지 않지만 지정 된 두 열을 연결 하는 새 열을 추가 하 여 달성할 수 있는 일반적인 시나리오입니다.  예: Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |

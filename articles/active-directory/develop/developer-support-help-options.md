@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 03/09/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 22f6e1c8049acd5dbe548bc49955881e05f0ef0e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462765"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579045"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -44,17 +44,17 @@ Microsoft 엔지니어, Azure Mvp (가장 귀중 한 전문가) 및 전문가 �
 
 [Microsoft Q&A](/answers/products/) 는 Azure에서 권장 하는 커뮤니티 지원 원본입니다.
 
-Microsoft Q&A를 검색 하 여 문제에 대 한 답변을 찾을 수 없는 경우 새 질문을 제출 합니다. 고품질의 [질문](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)을 할 때 다음 태그 중 하나를 사용 합니다.
+Microsoft Q&A를 검색 하 여 문제에 대 한 답변을 찾을 수 없는 경우 새 질문을 제출 합니다. 고품질의 [질문](/answers/articles/24951/how-to-write-a-quality-question.html)을 할 때 다음 태그 중 하나를 사용 합니다.
 
 | 구성 요소/영역| 태그  |
 |------------|---------------------------|
-| ADAL(Active Directory 인증 라이브러리)                              | [adal](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
-| MSAL(Microsoft 인증 라이브러리)                                     | [msal](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
-| OWIN (Open Web Interface for .NET) 미들웨어                               | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B/외부 Id](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-그래프]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
-| 다른 모든 인증 및 권한 부여 영역                            | [[azure-active directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| ADAL(Active Directory 인증 라이브러리)                              | [adal](/answers/topics/azure-ad-adal-deprecation.html)                |
+| MSAL(Microsoft 인증 라이브러리)                                     | [msal](/answers/topics/azure-ad-msal.html)                            |
+| OWIN (Open Web Interface for .NET) 미들웨어                               | [[azure-active directory]](/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B/외부 Id](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-그래프]](/answers/topics/azure-ad-graph.html)                 |
+| 다른 모든 인증 및 권한 부여 영역                            | [[azure-active directory]](/answers/topics/azure-active-directory.html) |
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
@@ -98,10 +98,8 @@ MSAL (Microsoft 인증 라이브러리) 중 하나를 사용 하 여 도움을 �
 
 - [Azure 업데이트](https://azure.microsoft.com/updates/?category=identity): 중요 한 제품 업데이트, 로드맵 및 공지에 대해 알아봅니다.
 
-- [문서의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Microsoft id 플랫폼 설명서의 새로운 기능에 대해 알아봅니다.
+- [문서의 새로운 기능](./whats-new-docs.md): Microsoft id 플랫폼 설명서의 새로운 기능에 대해 알아봅니다.
 
 - [Azure Active Directory Id 블로그](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Azure AD에 대 한 뉴스 및 정보를 가져옵니다.
 
 - [기술 커뮤니티](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): 경험을 공유 하 고 전문가에 게 참여 하 고 학습 합니다.
-
-

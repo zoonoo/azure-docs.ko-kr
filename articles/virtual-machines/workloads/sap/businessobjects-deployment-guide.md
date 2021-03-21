@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
 ms.openlocfilehash: 3b3c313df5704e49481c66ad682faccd48d180ea
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505905"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Azure의 SAP BusinessObjects BI 플랫폼 계획 및 구현 가이드
@@ -235,7 +235,7 @@ Azure는 모든 응용 프로그램 요구 사항에 맞는 다양 한 가상 �
 
 SAP BI 플랫폼 크기 조정에 따라 azure에서 SAP 제품에 대해 지원 되는 Azure Virtual Machine에 요구 사항을 매핑해야 합니다. SAP Note [1928533](https://launchpad.support.sap.com/#/notes/1928533) 는 Windows 및 LINUX에서 sap 제품에 대해 지원 되는 Azure VM 유형을 나열 하는 좋은 출발점입니다. 또한 지원 되는 VM 유형을 선택 하는 것 외에도 특정 지역에서 해당 VM 유형을 사용할 수 있는지 여부도 확인 해야 합니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지에서 VM 유형의 가용성을 확인할 수 있습니다. 가격 책정 모델을 선택 하는 경우 [SAP 워크 로드에 대 한 Azure virtual machines](planning-guide.md#azure-virtual-machines-for-sap-workload) 를 참조할 수 있습니다.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 Azure Storage는 고가용성, 보안, 내구성, 확장성 및 중복성을 제공 하는 저장소를 제공 하는 Azure로 관리 되는 클라우드 서비스입니다. 일부 저장소 유형은 SAP 시나리오에 대해 제한적으로 사용 됩니다. 하지만 몇 가지 Azure Storage 형식이 특정 SAP 워크 로드 시나리오에 적합 하거나 최적화 되어 있습니다. 자세한 내용은 sap에 적합 한 다양 한 저장소 옵션을 강조 표시 하는 [Sap 워크 로드 가이드에 대 한 Azure Storage 유형을](planning-guide-storage.md) 참조 하세요.
 

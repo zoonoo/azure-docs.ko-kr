@@ -14,10 +14,10 @@ ms.custom:
 - mqtt
 - devx-track-java
 ms.openlocfilehash: 5ae1850add94d83278b0fe1905dfa6e53c71fc8e
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102217893"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-디바이스 메시지 보내기

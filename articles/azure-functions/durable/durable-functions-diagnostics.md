@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
 ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584628"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
@@ -461,7 +461,7 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 > [!TIP]
 > Orchestrator 함수에서 중단점을 설정할 때 재생 되지 않는 실행 에서만 중단 하려면 "재생 하는 동안" 값이 인 경우에만 중단 되는 조건부 중단점을 설정할 수 있습니다 `false` .
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 이 동작은 [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같은 도구를 사용 하 여 오케스트레이션의 상태를 검사할 수 있음을 의미 합니다.
 

@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831553"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
@@ -134,8 +134,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 3 단계: 1 단계와 2 단계에서 문제가 해결 되지 않은 경우 제한 된 IOPS로 인해 VSS 기록기의 시간이 초과 되 면 오류가 발생할 수 있습니다.<br>
 
-확인 하려면 ***System 및 이벤트 뷰어 응용 프로그램 로그** _로 이동 하 고 다음 오류 메시지가 있는지 확인 합니다.<br>
-섀도 복사 되는 볼륨에 대 한 쓰기를 유지 하는 동안 _The 섀도 복사본 공급자 시간이 초과 되었습니다. 이는 응용 프로그램 또는 시스템 서비스에의 한 볼륨의 과도 한 작업으로 인해 발생할 수 있습니다. 볼륨에 대 한 작업이 줄어들면 나중에 다시 시도 하십시오. *<br>
+확인 하려면 시스템으로 이동한 후 ***응용 프로그램 로그를 이벤트 뷰어*** 하 고 다음 오류 메시지가 있는지 확인 합니다.<br>
+*섀도 복사본 공급자가 섀도 복사 되는 볼륨에 대 한 쓰기를 유지 하는 동안 시간이 초과 되었습니다. 이는 응용 프로그램 또는 시스템 서비스에의 한 볼륨의 과도 한 작업으로 인해 발생할 수 있습니다. 볼륨에 대 한 작업이 줄어들면 나중에 다시 시도 하세요.*<br>
 
 해결 방법:
 
@@ -331,7 +331,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 
 복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다.
 
-* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아보기](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세한 정보를 알아보세요](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
 * 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### <a name="usererrorinstantrpnotfound---restore-failed-because-the-snapshot-of-the-vm-was-not-found"></a>Usererroron Antrpnotfound-VM의 스냅숏을 찾을 수 없어서 복원에 실패 했습니다.

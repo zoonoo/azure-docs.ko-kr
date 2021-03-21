@@ -5,10 +5,10 @@ ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: de2efd75d07c3dc7df771aad1bd9c73453dad212
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745981"
 ---
 # <a name="share-azure-dashboards-by-using-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용 하 여 Azure 대시보드 공유

@@ -8,10 +8,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000405"
 ---
 # <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 파트너 간의 일괄 처리 또는 그룹으로 EDI 메시지 교환
@@ -30,7 +30,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 일괄 처리 수신자와 일괄 처리 발신자에서 동일한 Azure 구독 *및* Azure 지역을 공유하는지 확인합니다. 그렇지 않은 경우 서로 표시되지 않기 때문에 일괄 처리 발신자를 만들 때 일괄 처리 수신자를 선택할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 예제를 수행하려면 다음과 같은 항목이 필요합니다.
 
@@ -93,7 +93,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
    4. 일괄 처리 인코더 작업에 대해 이러한 속성을 설정합니다.
 
-      | 속성 | Description |
+      | 속성 | 설명 |
       |----------|-------------|
       | **X12 계약 이름** | 목록을 열고, 기존 계약을 선택합니다. <p>목록이 비어 있으면 원하는 계약이 있는 [통합 계정에 논리 앱을 연결했는지](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) 확인합니다. | 
       | **BatchName** | 이 상자 내부를 클릭하고, 동적 콘텐츠 목록이 나타나면 **일괄 처리 이름** 토큰을 선택합니다. | 
@@ -173,7 +173,7 @@ X12 메시지 일괄 처리는 다른 메시지를 일괄 처리하는 것처럼
 
 4. 일괄 처리 발신자의 속성을 설정합니다.
 
-   | 속성 | Description | 
+   | 속성 | 설명 | 
    |----------|-------------| 
    | **일괄 처리 이름** | 수신자 논리 앱에서 정의된 일괄 처리 이름입니다(이 예의 경우 "TestBatch"). <p>**중요**: 일괄 처리 이름은 런타임에 유효성이 검사되고 수신자 논리 앱에서 지정된 이름과 일치해야 합니다. 일괄 처리 이름을 변경하면 일괄 처리 발신자가 실패하게 됩니다. | 
    | **메시지 내용** | 보내려는 메시지에 대한 콘텐츠입니다. 이 예에서는 **본문** 토큰입니다. | 

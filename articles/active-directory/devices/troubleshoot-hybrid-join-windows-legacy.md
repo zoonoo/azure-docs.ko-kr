@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2611a29ffcfdeb805934eacc54181515ec44f38c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365806"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578042"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -39,7 +39,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 **알아야 할 사항:** 
 
 - 하위 수준 Windows 디바이스용 하이브리드 Azure AD 가입이 Windows 10의 경우와 약간 다르게 작동합니다. 대부분의 고객은 AD FS(페더레이션된 도메인용)가 필요한지 또는 Seamless SSO를 구성해야 하는지(관리되는 도메인용)를 잘 모릅니다.
-- Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다.
+- Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 되는 경우 또는 보안 강화 구성이 사용 하도록 설정 된 경우 Internet Explorer에서 작동 하지 않습니다.
 - 페더레이션된 도메인을 사용하는 고객의 경우 SCP(서비스 연결 지점)가 관리되는 도메인 이름(예: contoso.com 대신 contoso.onmicrosoft.com)을 가리키도록 구성된 경우 하위 수준 Windows 디바이스에 대한 하이브리드 Azure AD 가입이 작동하지 않습니다.
 - 여러 도메인 사용자가 하위 수준 하이브리드 Azure AD 가입 디바이스에 로그인하면 동일한 물리적 디바이스가 Azure AD에 여러 번 나타납니다.  예를 들어 *jdoe* 및 *jharnett* 가 디바이스에 로그인하는 경우 **사용자** 정보 탭에 각각에 대해 별도 등록(DeviceID)이 만들어집니다. 
 - 운영 체제 재설치 또는 수동 재등록으로 인해 사용자 정보 탭에 디바이스에 대한 여러 항목이 있을 수도 있습니다.

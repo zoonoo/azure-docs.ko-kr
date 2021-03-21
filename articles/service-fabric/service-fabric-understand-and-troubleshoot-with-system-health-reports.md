@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000660"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
@@ -27,7 +27,7 @@ Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 �
 > 
 > 
 
-시스템 구성 요소 보고서는 "**System.**" 접두사로 시작되는 원본에 의해 찾습니다. 잘못된 매개 변수가 있는 보고서가 거부되므로 Watchdogs는 소스에 대해 동일한 접두사를 사용할 수 없습니다.
+시스템 구성 요소 보고서는 "**System.**" 접두사로 시작되는 원본에 의해  접두사가 있는 번들 ID인 식별자가 있습니다. 잘못된 매개 변수가 있는 보고서가 거부되므로 Watchdogs는 소스에 대해 동일한 접두사를 사용할 수 없습니다.
 
 몇 가지 시스템 보고서를 검토하여 무엇이 해당 보고서를 트리거하는지 이해하고 보고서가 나타내는 가능한 문제의 해결 방법을 살펴봅니다.
 
@@ -647,7 +647,7 @@ HealthEvents          :
 
 - **Istatefulservicereplica.open. istatefulservicereplica.changerole (P)**: 가장 일반적인 경우는 서비스에서 작업을 반환 하지 않았기 때문입니다 `RunAsync` .
 
-정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예들 들어 다음과 같습니다.
+정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예를 들면 다음과 같습니다.
 
 - **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 
@@ -738,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication 시스템 상태 보고서
 **System.Hosting** 은 배포된 엔터티에 대한 권한입니다.
 
-### <a name="activation"></a>활성화
+### <a name="activation"></a>정품 인증
 System.Hosting은 애플리케이션이 노드에서 성공적으로 활성화되면 확인을 보고합니다. 그렇지 않으면 오류를 보고합니다.
 
 * **SourceId**: System.Hosting
