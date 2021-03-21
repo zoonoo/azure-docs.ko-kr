@@ -4,10 +4,10 @@ description: Azure VMware Solution의 네트워크 연결 및 네트워크 포�
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.openlocfilehash: 8cee5fa24aab8bd7fe6a9527f9c8e7cdff997511
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462068"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
