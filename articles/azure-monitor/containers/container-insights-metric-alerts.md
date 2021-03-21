@@ -4,10 +4,10 @@ description: 이 문서에서는 공개 미리 보기의 컨테이너 정보에�
 ms.topic: conceptual
 ms.date: 10/28/2020
 ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728895"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>컨테이너 정보에서 권장 되는 메트릭 경고 (미리 보기)
@@ -18,7 +18,7 @@ ms.locfileid: "101728895"
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../alerts/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../alerts/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음을 확인 합니다.
 
@@ -39,7 +39,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 중요 한 문제에 대해 경고 하기 위해 Container insights에는 AKS 및 Azure Arc enabled Kubernetes 클러스터에 대 한 다음과 같은 메트릭 경고가 포함 됩니다.
 
-|속성| Description |기본 임계값 |
+|Name| 설명 |기본 임계값 |
 |----|-------------|------------------|
 |평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산 합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우| 
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |
@@ -82,7 +82,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
 
-|메트릭 네임스페이스 |메트릭 |Description |
+|메트릭 네임스페이스 |메트릭 |설명 |
 |---------|----|------------|
 |정보. 컨테이너/노드 |cpuUsageMillicores |Millicores에서 호스트에의 한 CPU 사용률입니다.|
 |정보. 컨테이너/노드 |cpuUsagePercentage |노드당 CPU 사용량 백분율입니다.|

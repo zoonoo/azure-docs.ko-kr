@@ -9,10 +9,10 @@ ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.openlocfilehash: 6e5b5c021eb6a83de9ecfb31757855065b70c290
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103196956"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019을 사용 하 여 Azure IoT Edge에 대 한 모듈 개발 및 디버그
@@ -30,7 +30,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 이 문서에서는 Visual Studio 2019 용 Azure IoT Edge 도구를 사용 하 여 IoT Edge 모듈을 개발 하는 방법을 보여 줍니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다. 현재 Visual Studio 2019은 C 및 c #으로 작성 된 모듈을 지원 합니다. 지원 되는 장치 아키텍처는 Windows X64 및 Linux X64 또는 ARM32입니다. 지원 되는 운영 체제, 언어 및 아키텍처에 대 한 자세한 내용은 [언어 및 아키텍처 지원](module-development.md#language-and-architecture-support)을 참조 하세요.
   
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. Windows 컴퓨터에서는 Windows 또는 Linux 모듈을 개발할 수 있습니다. Windows 모듈을 개발 하려면 1809/build 17763 이상 버전을 실행 하는 Windows 컴퓨터를 사용 합니다. Linux 모듈을 개발 하려면 [Docker Desktop에 대 한 요구 사항을](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)충족 하는 Windows 컴퓨터를 사용 합니다.
 
@@ -114,7 +114,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공 되는 기본 모듈 코드는 **IotEdgeModule1**  >  **Program.cs** (c #의 경우) 또는 **main. c** (c)에 있습니다. 모듈 및 파일은 `deployment.template.json` 솔루션을 빌드하고 컨테이너 레지스트리에 푸시한 다음 장치에 배포 하 여 코드를 건드리지 않고도 테스트를 시작할 수 있도록 설정 됩니다. 모듈은 원본 (이 경우 데이터를 시뮬레이트하는 **SimulatedTemperatureSensor** 모듈)에서 입력을 가져와서 Azure IoT Hub로 파이프 하도록 빌드됩니다.
+솔루션과 함께 제공 되는 기본 모듈 코드는 **IotEdgeModule1**  >  (c #의 경우) 또는 **main. c** (c)에 **있습니다.** 모듈 및 파일은 `deployment.template.json` 솔루션을 빌드하고 컨테이너 레지스트리에 푸시한 다음 장치에 배포 하 여 코드를 건드리지 않고도 테스트를 시작할 수 있도록 설정 됩니다. 모듈은 원본 (이 경우 데이터를 시뮬레이트하는 **SimulatedTemperatureSensor** 모듈)에서 입력을 가져와서 Azure IoT Hub로 파이프 하도록 빌드됩니다.
 
 사용자 고유의 코드를 사용 하 여 모듈 템플릿을 사용자 지정할 준비가 되 면 [Azure IoT Hub sdk](../iot-hub/iot-hub-devguide-sdks.md) 를 사용 하 여 보안, 장치 관리 및 안정성과 같은 IoT 솔루션에 대 한 핵심 요구 사항을 해결 하는 모듈을 빌드 하세요.
 
@@ -149,7 +149,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
    ![실행 중인 모듈](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
 
-1. C #으로 개발 하는 경우 Program.cs의 함수에 중단점을 설정 하 `PipeMessage()` 고 C를 사용 하는 경우  `InputQueue1Callback()` **main** 의 함수에 중단점을 설정 합니다. 그런 다음 **Git bash** 또는 **wsl bash** 셸에서 다음 명령을 실행 하 여 메시지를 전송 하 여 테스트할 수 있습니다. (PowerShell 또는 명령 프롬프트에서는 `curl` 명령을 실행할 수 없습니다.)
+1. C #으로 개발 하는 경우 `PipeMessage()` 에는 **Program .cs** 의 함수에 중단점을 설정 합니다. c를 사용 하는 경우 `InputQueue1Callback()` 에는 **main** 의 함수에 중단점을 설정 합니다. 그런 다음 **Git bash** 또는 **wsl bash** 셸에서 다음 명령을 실행 하 여 메시지를 전송 하 여 테스트할 수 있습니다. (PowerShell 또는 명령 프롬프트에서는 `curl` 명령을 실행할 수 없습니다.)
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages

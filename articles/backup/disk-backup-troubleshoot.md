@@ -4,10 +4,10 @@ description: Azure Disk Backup에서 백업 실패 문제를 해결 하는 방�
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737730"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)의 백업 오류 문제 해결

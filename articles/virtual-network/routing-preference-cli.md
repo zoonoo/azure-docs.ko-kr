@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
 ms.openlocfilehash: 2291767c162953f8339fb8cc27e55b96290ef795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101665950"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Azure CLI를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성

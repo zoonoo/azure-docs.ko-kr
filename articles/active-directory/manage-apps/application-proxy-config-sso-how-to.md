@@ -12,10 +12,10 @@ ms.date: 10/07/2020
 ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.openlocfilehash: 10b722edbe8d70c92e617c78db3d2fb1d46da3a5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99254107"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 구성하는 방법

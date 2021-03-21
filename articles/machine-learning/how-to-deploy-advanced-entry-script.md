@@ -12,17 +12,17 @@ ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
 ms.openlocfilehash: f88b6bd79e1004c108ef868f910a4e5a974cc08a
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508540"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
 이 문서에서는 특수 한 사용 사례에 대 한 입력 스크립트를 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 하려는 학습 된 machine learning 모델이 이미 있다고 가정 합니다. 모델 배포에 대해 자세히 알아보려면 [이 자습서](how-to-deploy-and-where.md)를 참조 하세요.
 

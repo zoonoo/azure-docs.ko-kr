@@ -16,10 +16,10 @@ ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100557523"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>REST API를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
@@ -44,7 +44,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 필터 | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
@@ -71,7 +71,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 필터 | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
@@ -98,7 +98,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 1. *{Filter}* 를 역할의 표시 이름으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 필터 | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예: `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e302cb9da410487dbea4ec5c5b256c4cb5dd186f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a3ab3a801872cc20b4e41bbff02ad6474c3bab8c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566382"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655209"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Route Server 만들기 및 구성
 
@@ -40,8 +40,8 @@ ms.locfileid: "102566382"
 Azure Route Server를 만들려면 배포를 호스트하기 위한 가상 네트워크가 필요합니다. 다음 명령을 사용하여 리소스 그룹 및 가상 네트워크를 만듭니다. 가상 네트워크가 이미 있는 경우 다음 섹션으로 건너뛸 수 있습니다.
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name “RouteServerRG” -Location “West US”
-New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US” -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
+New-AzResourceGroup –Name "RouteServerRG” -Location “West US"
+New-AzVirtualNetwork –ResourceGroupName "RouteServerRG" -Location "West US" -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
 ```
 
 ### <a name="add-a-subnet"></a>서브넷 추가
@@ -49,15 +49,15 @@ New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US�
 1. Azure Route Server를 배포할 *RouteServerSubnet* 이라는 서브넷을 추가합니다. 이 서브넷은 Azure Route Server에 대한 전용 서브넷입니다. RouteServerSubnet은 /27 또는 더 짧은 접두사(예: /26, /25)여야 합니다. 그렇지 않으면 Azure Route Server를 추가할 때 오류 메시지가 표시됩니다.
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “myVirtualNetwork” - ResourceGroupName “RouteServerRG”
-    Add-AzVirtualNetworkSubnetConfig –Name “RouteServerSubnet” -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
+    $vnet = Get-AzVirtualNetwork –Name "myVirtualNetwork" - ResourceGroupName "RouteServerRG"
+    Add-AzVirtualNetworkSubnetConfig –Name "RouteServerSubnet" -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
     $vnet | Set-AzVirtualNetwork
     ```
 
 1. RouteServerSubnet ID를 확인합니다. 가상 네트워크의 모든 서브넷에 대한 리소스 ID를 보려면 다음 명령을 사용합니다.
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “vnet_name” -ResourceGroupName “
+    $vnet = Get-AzVirtualNetwork –Name "vnet_name" -ResourceGroupName "RouteServerRG"
     $vnet.Subnets
     ```
 
@@ -70,7 +70,7 @@ RouteServerSubnet ID는 다음과 같습니다.
 다음 명령을 사용하여 Route Server를 만듭니다.
 
 ```azurepowershell-interactive 
-New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US" -HostedSubnet "RouteServerSubnet_ID"
 ```
 
 위치는 가상 네트워크의 위치와 일치해야 합니다. HostedSubnet은 이전 섹션에서 얻은 RouteServerSubnet ID입니다.
@@ -137,7 +137,7 @@ Azure Route Server가 더 이상 필요하지 않은 경우 다음 명령을 사
 1. 다음 명령을 사용하여 Azure Route Server와 NVA 간의 BGP 피어링을 제거합니다.
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
+Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. 다음 명령을 사용하여 Azure Route Server를 제거합니다.

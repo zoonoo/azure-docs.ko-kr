@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.openlocfilehash: 10c06f5b36de880302f17dc17c1d47d5209dd902
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588474"
 ---
 # <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 컨설팅 서비스 제품을 계획 하는 방법
@@ -123,7 +123,7 @@ AppSource와 Azure Marketplace 간의 차이점에 대 한 자세한 내용은 [
 
 제품을 보다 쉽게 만들 수 있도록 이러한 항목 중 일부를 미리 준비 합니다. 별도로 언급 하지 않는 한 다음 항목이 필요 합니다.
 
-**이름**:이 이름은 상용 marketplace에서 제품의 제목으로 표시 됩니다. 이름은 상표로 등록될 수 있습니다. 이는 사용자가 상표 및 저작권 기호인 경우를 제외 하 고는이 모 지를 포함할 수 없으며 50 자로 제한 되어야 합니다. 이 이름에는 SEO (검색 엔진 최적화)를 최대화 하기 위한 제품의 기간 및 서비스 유형이 포함 되어야 합니다. 필요한 형식은 *이름: 기간 + 유형* 입니다. 제품 이름도 제외 하 고 회사 이름을 포함 하지 마세요. 다음은 몇 가지 예입니다.
+**이름**:이 이름은 상용 marketplace에서 제품의 제목으로 표시 됩니다. 이름은 상표로 등록될 수 있습니다. 이는 사용자가 상표 및 저작권 기호인 경우를 제외 하 고는이 모 지를 포함할 수 없으며 50 자로 제한 되어야 합니다. 이 이름에는 SEO (검색 엔진 최적화)를 최대화 하기 위한 제품의 기간 및 서비스 유형이 포함 되어야 합니다. 필요한 형식은 *이름: 기간 + 유형* 입니다. 제품 이름도 제외 하 고 회사 이름을 포함 하지 마세요. 몇 가지 예제는 다음과 같습니다.
 
 |말 안 함 |이라고 말합니다. |
 |---|---|

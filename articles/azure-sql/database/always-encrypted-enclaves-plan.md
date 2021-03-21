@@ -1,7 +1,7 @@
 ---
 title: Azure SQL Database에서 Intel SGX enclaves 및 증명 계획
 description: Azure SQL Database에서 secure enclaves를 사용 하 여 Always Encrypted 배포를 계획 합니다.
-keywords: 데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요 한 데이터, Always Encrypted, secure enclaves, SGX, 증명
+keywords: 데이터 암호화, SQL 암호화, 데이터베이스 암호화, 중요한 데이터, Always Encrypted, 보안 enclave, SGX, 증명
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,10 +12,10 @@ ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
 ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98732747"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Azure SQL Database에서 Intel SGX enclaves 및 증명 계획
@@ -23,7 +23,7 @@ ms.locfileid: "98732747"
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Always Encrypted secure enclaves for Azure SQL Database는 현재 **공개 미리 보기로** 제공 됩니다.
+> Azure SQL Database용 보안 enclave를 사용한 Always Encrypted는 현재 **공개 미리 보기** 상태입니다.
 
 Azure SQL Database의 [secure enclaves Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-enclaves) 는 intel [SGX (Software Guard Extensions)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves를 사용 하 고 [Microsoft Azure 증명이](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation)필요 합니다.
 

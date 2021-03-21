@@ -1,18 +1,18 @@
 ---
 title: Azure Kinect 알려진 문제 및 문제 해결
 description: Azure Kinect 진한에서 센서 SDK를 사용 하는 경우 알려진 문제 및 문제 해결 팁에 대해 알아봅니다.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 06/26/2019
+ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: 문제 해결, 업데이트, 버그, kinect, 피드백, 복구, 로깅, 팁
-ms.openlocfilehash: 5f13815b8f8b26f6a08da28181a4a6164b7b89a3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 32a86deb0b6ab70e42ae3d659504256baae76202
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038823"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654767"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect 알려진 문제 및 문제 해결
 
@@ -172,18 +172,54 @@ Linux의 Azure Kinect depth 엔진은 OpenGL을 사용 합니다. OpenGL을 사�
 
 1. 사용 하려는 사용자 계정에 대해 자동 로그인을 사용 하도록 설정 합니다. 자동 로그인을 사용 하는 방법에 대 한 지침은 [이](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) 문서를 참조 하세요.
 2. 시스템 전원을 끄고 모니터의 연결을 끊고 시스템 전원을 켭니다. 자동 로그인은 x 서버 세션을 강제로 만듭니다.
-2. Ssh를 통해 연결 하 고 디스플레이 env 변수를 설정 합니다. `export DISPLAY=:0`
-3. Azure Kinect 응용 프로그램을 시작 합니다.
+3. Ssh를 통해 연결 하 고 디스플레이 env 변수를 설정 합니다. `export DISPLAY=:0`
+4. Azure Kinect 응용 프로그램을 시작 합니다.
 
 [Xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) 유틸리티를 사용 하 여 자동 로그인 후 화면을 즉시 잠글 수 있습니다. 시작 응용 프로그램 또는 systemd 서비스에 다음 명령을 추가 합니다.
 
-`bash -c “xtrlock -b”` 
+`bash -c “xtrlock -b”`
 
 ## <a name="missing-c-documentation"></a>C # 설명서 누락
 
 센서 SDK c # 설명서는 [여기](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/namespace_microsoft_1_1_azure_1_1_kinect_1_1_sensor.html)에 있습니다.
 
 본문 추적 SDK c # 설명서는 [여기](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/namespace_microsoft_1_1_azure_1_1_kinect_1_1_body_tracking.html)에 있습니다.
+
+## <a name="specifying-onnx-runtime-execution-environment"></a>ONNX 런타임 실행 환경 지정
+
+본문 추적 SDK는 CPU, Azure (Windows 전용) 및 TensorRT 실행 환경을 지원 하 여 포즈 예측 모델을 유추 합니다. `K4ABT_TRACKER_PROCESSING_MODE_GPU`기본값은 Linux에서 및 Windows의 DirectML 실행에 대 한 모든 기본입니다. 특정 실행 환경 ( `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA` , 및)을 선택 하기 위한 세 가지 추가 모드가 추가 되었습니다. `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT`
+
+ONNX Runtime은 TensorRT 모델 캐싱을 제어 하는 환경 변수를 포함 합니다. 권장 값은 다음과 같습니다.
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
+- ORT_TENSORRT_ENGINE_CACHE_PATH = "pathname"
+
+본문 추적을 시작 하기 전에 폴더를 만들어야 합니다.
+
+TensorRT 실행 환경은 FP32 (기본값) 및 FP16를 모두 지원 합니다. 정확도를 최소화 하기 위해 FP16의 성능이 증가 합니다. FP16을 지정 하려면:
+- ORT_TENSORRT_FP16_ENABLE = 1
+
+## <a name="required-dlls-for-onnx-runtime-execution-environments"></a>ONNX 런타임 실행 환경에 필요한 Dll
+
+|Mode      | HODA 11.1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
+|----------|----------------------|----------------------|----------------------|
+| CPU      | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| CUDA     | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           | cudnn_ops_infer64_8  |                      |
+|          | cublas64_11          | cudnn_cnn_infer64_8  |                      |
+|          | cublasLt64_11        |                      |                      |
+| DirectML | cudart64_110         | cudnn64_8            | -                    |
+|          | cufft64_10           |                      |                      |
+|          | cublas64_11          |                      |                      |
+|          | cublasLt64_11        |                      |                      |
+| TensorRT | cudart64_110         | cudnn64_8            | nvinfer              |
+|          | cufft64_10           | cudnn_ops_infer64_8  | nvinfer_plugin       |
+|          | cublas64_11          | cudnn_cnn_infer64_8  | myelin64_1           |
+|          | cublasLt64_11        |                      |                      |
+|          | nvrtc64_111_0        |                      |                      |
+|          | nvrtc-builtins64_111 |                      |                      |
 
 ## <a name="next-steps"></a>다음 단계
 

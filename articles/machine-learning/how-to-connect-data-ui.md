@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to, data4ml
 ms.openlocfilehash: 0e2230bdcf2b2f4358db4a0d600506b711f39c45
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508234"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 데이터에 연결
@@ -35,7 +35,7 @@ Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](/python/api/o
 * [데이터 저장소를 사용 하 여 Azure storage 서비스에 연결](how-to-access-data.md)합니다. 
 * [Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md). 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -158,7 +158,7 @@ Azure storage 서비스에 안전 하 게 연결 하려면 해당 하는 데이�
 > * Azure Storage 계정 (계정 키 또는 SAS 토큰)에 대 한 액세스 키를 변경 해야 하는 경우 새 자격 증명과 해당 작업 영역에 연결 된 데이터 저장소를 동기화 해야 합니다. [업데이트 된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. <br> <br>
 > * 같은 이름으로 데이터 저장소의 등록을 취소 하 고 다시 등록 하는 경우 실패 하 고 작업 영역에 대 한 Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하지 않았을 수 있습니다. 기본적으로 일시 삭제는 작업 영역에서 만든 주요 자격 증명 모음 인스턴스에 대해 사용 하도록 설정 되지만 기존 키 자격 증명 모음을 사용 하거나 10 월 2020 일 이전에 만든 작업 영역을 사용 하는 경우에는 사용 하지 못할 수 있습니다. 일시 삭제를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [기존 키 자격 증명 모음에 대 한 일시 삭제]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)사용을 참조 하세요.
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 Azure blob 컨테이너 및 Azure Data Lake Gen 2 저장소의 경우 인증 자격 증명에 **저장소 Blob 데이터 판독기** 액세스 권한이 있는지 확인 합니다. [저장소 Blob 데이터 판독기](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
 * 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 최소한의 목록 및 컨테이너와 개체에 대 한 읽기 권한이 있어야 합니다. 

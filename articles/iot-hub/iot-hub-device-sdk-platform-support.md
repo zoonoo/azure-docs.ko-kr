@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588763"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
@@ -69,7 +69,7 @@ Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.
 
 [Azure IoT Hub .net (c #) 장치 SDK](https://github.com/Azure/azure-iot-sdk-csharp) 는로 테스트 되 고 다음과 같은 구성을 지원 합니다.
 
-| OS                                   | 표준                                                   |
+| OS                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop 및 Server Sku   | .NET Core 2.1, .NET Framework 4.5.1 또는 .NET Framework 4.7 |

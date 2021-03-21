@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
 ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98898073"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
@@ -32,7 +32,7 @@ Microsoft Translator Hub의 출시 예정에 따라 Microsoft는 현재 허브�
 * 마이그레이션은 발생 하면 모델은 배포 된 상태 여야 합니다.  
 * 모델의 언어 쌍은 사용자 지정 변환기에서 지원 되지 않는 언어 쌍 이어야 합니다.  언어가 영어에서 지원 되는 언어 쌍 이지만 쌍 자체에는 영어가 포함 되지 않으며 지원 되지 않는 언어 배포의 후보가 됩니다.  예를 들어 프랑스어에서 독일어로의 언어 쌍에 대 한 허브 모델은 지원 되는 언어 쌍으로 간주 됩니다.
 
-## <a name="process"></a>프로세스
+## <a name="process"></a>Process
 배포 후보가 되는 허브에서 모델을 마이그레이션한 후에는 작업 영역에 대 한 **설정** 페이지로 이동 하 여 **지원 되지 않는 Translator 허브 학습** 섹션이 표시 되는 페이지의 끝으로 스크롤하여 해당 모델을 찾을 수 있습니다.  이 섹션은 위에서 언급 한 필수 조건을 충족 하는 프로젝트가 있는 경우에만 표시 됩니다.
 
 ![지원 되지 않는 Translator 허브 학습 섹션을 강조 표시 하는 스크린샷](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)

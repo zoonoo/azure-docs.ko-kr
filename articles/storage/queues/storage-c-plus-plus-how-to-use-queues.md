@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.openlocfilehash: 44d64c54049c02b6602f01b97effcc33b03dbcfe
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97591330"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 Queue Storage를 사용하는 방법
@@ -278,7 +278,7 @@ queue.delete_queue_if_exists();
 
 Queue Storage의 기본 사항에 대해 알아보았습니다. Azure Storage에 대 한 자세한 내용은 다음 링크를 참조 하세요.
 
-- [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+- [C + +에서 Blob Storage를 사용 하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 - [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 - [C++에서 Azure Storage 리소스 나열](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 - [Azure Storage client library for c + + 참조](https://azure.github.io/azure-storage-cpp)

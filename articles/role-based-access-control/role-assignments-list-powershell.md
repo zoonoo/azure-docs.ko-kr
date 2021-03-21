@@ -15,10 +15,10 @@ ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bf5445f6ca04e56aab466e97967a58c3e4b735a4
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556931"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 역할 할당 나열
@@ -30,7 +30,7 @@ ms.locfileid: "100556931"
 > [!NOTE]
 > 조직에서 [Azure 위임 된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용 하는 서비스 공급자에 대해 아웃소싱 된 관리 기능을 사용 하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Cloud Shell 또는 [Azure PowerShell](/powershell/azure/install-az-ps) [의 PowerShell](../cloud-shell/overview.md)
 
@@ -188,4 +188,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure PowerShell를 사용 하 여 Azure 역할 할당](role-assignments-powershell.md)
+- [Azure PowerShell을 사용하여 Azure 역할 할당](role-assignments-powershell.md)
