@@ -4,10 +4,10 @@ description: 한 컴퓨터에서 수천 개의 컴퓨터에 이르는 클러스�
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.openlocfilehash: c907540c03788ab5f4087a96e301f18ab7ced4ca
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98787980"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 애플리케이션 관리

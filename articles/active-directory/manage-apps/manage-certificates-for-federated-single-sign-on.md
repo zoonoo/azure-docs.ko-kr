@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9b6e81fd090a625ec7ac86963cc9d5e66f5010e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259222"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604001"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 
@@ -89,6 +89,8 @@ Azure AD는 SAML 인증서가 만료 되기 전에 60, 30 및 7 일의 전자 �
 1. 추가 하려는 각 전자 메일 주소에 대해 이전 단계를 반복 합니다.
 1. 삭제 하려는 각 전자 메일 주소에 대해 전자 메일 주소 옆에 있는 **삭제** 아이콘 (가비지를 사용할 수 있음)을 선택 합니다.
 1. **저장** 을 선택합니다.
+
+알림 목록에 최대 5 개의 전자 메일 주소를 추가할 수 있습니다 (응용 프로그램을 추가한 관리자의 전자 메일 주소 포함). 더 많은 사용자에 게 알림이 필요한 경우 메일 그룹 메일을 사용 합니다.
 
 aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 스팸 메일로 전송 되는 전자 메일을 방지 하려면이 전자 메일을 연락처에 추가 합니다.
 

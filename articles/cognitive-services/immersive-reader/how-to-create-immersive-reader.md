@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: d7a8a598ab2d0c873cf07510cf40a08c22c0f1d4
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608600"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성
@@ -176,7 +176,7 @@ ms.locfileid: "102608600"
     | ResourceGroupName |리소스는 구독 내의 리소스 그룹에 만들어집니다. 기존 리소스 그룹의 이름을 제공 합니다. 리소스 그룹이 아직 없는 경우이 이름을 가진 새 리소스 그룹이 생성 됩니다. |
     | ResourceGroupLocation |리소스 그룹이 없는 경우 그룹을 만들 위치를 제공 해야 합니다. 위치 목록을 찾으려면를 실행 `az account list-locations` 합니다. 반환 된 결과의 *이름* 속성 (공백 없음)을 사용 합니다. 리소스 그룹이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
     | AADAppDisplayName |Azure Active Directory 응용 프로그램 표시 이름입니다. 기존 Azure AD 응용 프로그램을 찾을 수 없는 경우이 이름을 가진 새 응용 프로그램이 생성 됩니다. Azure AD 응용 프로그램이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
-    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. 예들 들어 `https://immersivereaderaad-mycompany`입니다. |
+    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. 예: `https://immersivereaderaad-mycompany` |
     | AADAppClientSecret |사용자가 만드는 암호는 나중에 몰입 형 판독기를 시작 하기 위해 토큰을 획득 하는 경우 나중에 인증 하는 데 사용 됩니다. 암호는 16 자 이상 이어야 하 고 하나 이상의 특수 문자를 포함 하 고 하나 이상의 숫자 문자를 포함 해야 합니다. 이 리소스를 만든 후 Azure AD 응용 프로그램 클라이언트 암호를 관리 하려면 https://portal.azure.com `[AADAppDisplayName]` 아래 "azure ad 응용 프로그램 비밀 관리" 스크린샷에서 볼 수 있는 것 처럼 azure ad 응용 프로그램 클라이언트 암호를 방문 하 여 > Azure Active Directory-> 앱 등록 >-> 인증서 및 비밀 블레이드-> 클라이언트 암호 섹션으로 이동 하세요. |
     | AADAppClientSecretExpiration |가 만료 되는 날짜 또는 날짜/시간 `[AADAppClientSecret]` 입니다 (예: ' 2020-12-31T11:59:59 + 00:00 ' 또는 ' 2020-12-31 '). |
 

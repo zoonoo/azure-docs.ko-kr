@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
 ms.openlocfilehash: 2b0f8a73a6852883f87ba9fc4333cb6fa8101a39
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703119"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
@@ -44,7 +44,7 @@ Azure DDoS protection은 고객 데이터를 저장 하지 않습니다.
 - **DDoS 신속한 응답**: 공격 조사 및 분석에 도움이 되도록 drr (DDoS Protection 빠른 응답) 팀에 참여 하세요. 자세히 알아보려면 [DDoS 신속한 응답](ddos-rapid-response.md)을 참조 하세요.
 - **비용 보장:** 문서화 된 DDoS 공격의 결과로 발생 하는 리소스 비용에 대 한 데이터 전송 및 응용 프로그램 확장 서비스 크레딧을 받습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 DDoS 보호 계획에는 최대 100 개의 공용 IP 주소를 포함 하는 월 $2944의 고정 된 월별 요금이 적용 됩니다. 추가 리소스에 대 한 보호는 월별 리소스 당 $30을 추가로 청구 합니다.
 

@@ -7,10 +7,10 @@ ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
 ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200349"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>IoT Hub 오류 코드에 대 한 장치 업데이트
@@ -46,7 +46,7 @@ Http 상태 코드에 [대해 자세히 알아보세요](https://www.w3.org/Prot
 
 예를 들면 다음과 같습니다.
 
-`ExtendedResultCode`가 `-536870781`인 경우
+`ExtendedResultCode`은 `-536870781`입니다.
 
 의 부호 없는 16 진수 표현은입니다 `-536870781` `FFFFFFFF E0000083` .
 
@@ -61,7 +61,7 @@ Http 상태 코드에 [대해 자세히 알아보세요](https://www.w3.org/Prot
 
 API 호출에 대 한 응답으로 throw 된 예외를 검사 하 여 DO error 코드를 가져올 수 있습니다. 모든 오류 코드는 0x80D0 접두사로 식별할 수 있습니다.
 
-| 오류 코드  | 문자열 오류                       | 유형                 | 설명 |
+| 오류 코드  | 문자열 오류                       | Type                 | 설명 |
 |-------------|------------------------------------|----------------------|-------------|
 | 0x80D01001L | DO_E_NO_SERVICE                    | 해당 없음                  | 배달 최적화에서 서비스를 제공할 수 없습니다. |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | 다운로드 작업         | 정의 된 기간 내에 진행 되지 않는 파일 다운로드 |

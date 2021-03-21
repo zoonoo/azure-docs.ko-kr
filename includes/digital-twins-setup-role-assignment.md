@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
 ms.openlocfilehash: a905bb3b4effb0381facfbfaa37c8ea412b81287
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100552272"
 ---
 Azure Digital Twins는 RBAC (역할 기반 액세스 제어)에 대 한 [Azure Active Directory (AZURE AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) 를 사용 합니다. 즉, 사용자가 Azure Digital Twins 인스턴스에 대 한 데이터 평면 호출을 수행 하기 전에 해당 사용자에 게 적절 한 권한이 있는 역할을 할당 해야 합니다.

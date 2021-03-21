@@ -8,10 +8,10 @@ ms.date: 02/11/2021
 ms.author: spelluru
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 658107bb74396891c8e6e05a9e8074a9416a5f6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100369665"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
@@ -33,7 +33,7 @@ ms.locfileid: "100369665"
 - Azure Portal. Azure Portal를 사용 하 여 Azure Logic Apps 및 Azure Functions를 처리기로 사용 하 여 Service Bus 이벤트에 대 한 Event Grid 구독을 만드는 방법을 알아보려면 다음 자습서를 참조 하세요. 
     - [Azure Logic Apps](service-bus-to-event-grid-integration-example.md#receive-messages-by-using-logic-apps)
     - [Azure Functions](service-bus-to-event-grid-integration-function.md#connect-the-function-and-namespace-via-event-grid)
-* Azure CLI. 다음 CLI 예제에서는 Service Bus 네임 스페이스로 만든 [시스템 항목](../event-grid/system-topics.md) 에 대 한 Azure Functions 구독을 만드는 방법을 보여 줍니다.
+* Azure CLI 다음 CLI 예제에서는 Service Bus 네임 스페이스로 만든 [시스템 항목](../event-grid/system-topics.md) 에 대 한 Azure Functions 구독을 만드는 방법을 보여 줍니다.
 
      ```azurecli-interactive
     namespaceid=$(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name "<service bus namespace>" --resource-group "<resource group that contains the service bus namespace>" --query id --output tsv

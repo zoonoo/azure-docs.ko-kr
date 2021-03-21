@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367999"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
@@ -70,10 +70,10 @@ Windows Server Core 설치는 지원 되지 않습니다.
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
-| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
-|  | 동기화 오류 보고서 | Yes |
-| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
-| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+|  | 동기화 오류 보고서 | 예 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 
 동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 
@@ -210,6 +210,6 @@ PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 �
 * [에이전트 설치 Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
-* [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
+* [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
-* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)

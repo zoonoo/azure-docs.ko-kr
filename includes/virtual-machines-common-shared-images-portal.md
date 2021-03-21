@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750206"
 ---
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기
@@ -29,7 +29,7 @@ ms.locfileid: "101750206"
 1. **이름** 에 갤러리 이름으로 *mygallery* 를 입력 합니다.
 1. **영역** 에 대 한 기본값을 그대로 둡니다.
 1. *테스트를 위해 이미지 갤러리* 와 같이 갤러리에 대 한 간단한 설명을 입력할 수 있습니다. **검토 + 만들기** 를 클릭 합니다.
-1. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
+1. 유효성 검사를 통과하면 **만들기** 를 선택합니다.
 1. 배포가 완료되면 **리소스로 이동** 을 선택합니다.
 
 

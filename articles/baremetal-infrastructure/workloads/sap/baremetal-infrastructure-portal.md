@@ -4,10 +4,10 @@ description: Azure Portal를 통해 BareMetal 인스턴스 단위를 식별 하 
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548168"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Azure Portal을 통해 BareMetal 인스턴스 관리
@@ -40,21 +40,21 @@ Azure Portal에서 구독을 나열 하 고 BareMetal 인스턴스 단위를 배
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI 사용을 시작 하려면:
+Azure CLI 사용을 시작하려면 다음을 수행합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Azure CLI를 통해 BareMetal 인스턴스 배포에 사용 하는 Azure 구독에 로그인 합니다. `BareMetalInfrastructure` [Az provider register](/cli/azure/provider#az_provider_register) 명령을 사용 하 여 리소스 공급자를 등록 합니다.
+Azure CLI를 통해 BareMetal 인스턴스 배포에 사용 하는 Azure 구독에 로그인 합니다. [az provider register](/cli/azure/provider#az_provider_register) 명령으로 `BareMetalInfrastructure` 리소스 제공자를 등록합니다.
 
 ```azurecli
 az provider register --namespace Microsoft.BareMetalInfrastructure
 ```
 
-[Az provider list](/cli/azure/provider#az_provider_list) 명령을 사용 하 여 사용 가능한 모든 공급자를 볼 수 있습니다.
+[az provider list](/cli/azure/provider#az_provider_list) 명령을 사용하여 사용 가능한 모든 공급자를 볼 수 있습니다.
 
 ---
 
-리소스 공급자에 대 한 자세한 내용은 [Azure 리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md)을 참조 하세요.
+리소스 공급자에 관한 자세한 내용은 [Azure 리소스 공급자 및 유형](../../../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
 
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>Azure Portal BareMetal Instance unit
  

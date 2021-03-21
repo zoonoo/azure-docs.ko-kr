@@ -1,19 +1,19 @@
 ---
 title: Azure Stack Edge에 대 한 기본 제공 정책 정의
 description: Azure Stack에 지에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 ms.subservice: edge
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: d1484e5af1999e3d75c47688f5e8a531cece76bf
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 18cfe3de2aec30f2ebf7562e3f4f3b38b642c2d4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102616998"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593590"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stack-edge"></a>Azure Stack에 지에 대 한 기본 제공 정의 Azure Policy
 

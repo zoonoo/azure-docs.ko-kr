@@ -11,10 +11,10 @@ ms.custom: subject-moving-resources
 ms.date: 08/12/2020
 ms.author: jgardner
 ms.openlocfilehash: 9787118b1912a5697c02e116be99b1f396748937
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100613804"
 ---
 # <a name="move-an-azure-workbook-template-to-another-region"></a>Azure 통합 문서 템플릿을 다른 지역으로 이동
@@ -23,7 +23,7 @@ ms.locfileid: "100613804"
 
 현재 통합 문서 템플릿 리소스를 만드는 데는 포털 UI가 없습니다. 이러한 리소스를 만드는 유일한 방법은 [Azure Resource Manager 템플릿 (ARM 템플릿) 배포를 통해](../visualize/workbooks-automate.md)서는 것입니다. 따라서 템플릿을 이동 하는 가장 쉬운 방법은 이전 ARM 템플릿을 다시 사용 하 여 새 지역에 배포 하도록 업데이트 하는 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 대상 지역에서 통합 문서 템플릿이 지원 되는지 확인 합니다.
 

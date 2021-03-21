@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,15 +9,15 @@ ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750970"
 ---
 Microsoft Intune를 사용 하 여 Azure VPN 클라이언트 (Windows 10)에 대 한 프로필을 배포할 수 있습니다. 이 문서는 사용자 지정 설정을 사용 하 여 Intune 프로필을 만드는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 장치가 Intune MDM에 이미 등록 되어 있습니다.
 * Windows 10 용 Azure VPN 클라이언트가 클라이언트 컴퓨터에 이미 배포 되어 있습니다.

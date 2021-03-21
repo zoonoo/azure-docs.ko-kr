@@ -2,21 +2,21 @@
 title: '빠른 시작: Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작'
 description: Azure Portal을 사용하여 전용 SQL 풀에 대한 컴퓨팅을 일시 중지하고 비용을 절감할 수 있습니다. 데이터 웨어하우스를 사용할 준비가 되면 컴퓨팅을 다시 시작합니다.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f9cc5083c4b515454b9d5cbc40ed3b48cba80211
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120294"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602165"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 전용 SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
 

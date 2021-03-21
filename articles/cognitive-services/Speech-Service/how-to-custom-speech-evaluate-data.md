@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634586"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Custom Speech 정확도 평가 및 개선
@@ -148,7 +148,7 @@ WER의 구성 요소 (삽입, 삭제 및 대체 오류 수)를 확인 하면 모
 
 * [모델 학습 및 배포](how-to-custom-speech-train-model.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [데이터 준비 및 테스트](./how-to-custom-speech-test-and-train.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

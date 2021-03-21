@@ -8,17 +8,83 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: cd52f6b9c0ab97132d328f3d9ca65564a4982540
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 8f3e8d72db6679a766991160c303948557719bb9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619089"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657742"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
+
+## <a name="speech-sdk-1160-2021-march-release"></a>Speech SDK 1.16.0:2021-3 월 릴리스
+
+**참고**: Windows의 Speech SDK는 Visual Studio 2015, 2017 및 2019에 대 한 공유 Microsoft Visual C++ 재배포 가능 패키지에 따라 달라 집니다. [여기](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)에서 다운로드하세요.
+
+**하이라이트 요약**
+- 메모리 및 디스크 공간을 줄여 SDK를 보다 효율적으로 만듭니다. 이번에는 Android에 집중 하 고 있습니다.
+- 음성-텍스트와 텍스트 음성 변환 모두에 대 한 압축 오디오 지원 기능이 향상 되어 보다 효율적인 클라이언트/서버 통신을 만들 수 있습니다.
+- 텍스트 음성 변환 음성을 말하는 애니메이션 문자는 이제 말하는 내용에 따라 lip와 얼굴을 자연스럽 게 이동할 수 있습니다.
+- 새 기능 및 향상 된 기능을 통해 더 많은 사용 사례와 더 많은 구성에서 음성 SDK를 활용할 수 있습니다.
+- 중요 한 고객의 문제를 해결 하기 위한 여러 버그 수정이 GitHub에 플래그를 지정 했습니다. 감사합니다! 의견을 보내 주시기 바랍니다.
+
+#### <a name="new-features"></a>새로운 기능
+
+- **C + +/c #/Java/Python**: GStreamer (1.18.3)의 최신 버전으로 이동 하 여 Windows, Linux 및 Android의 _모든_ 미디어 형식에 대 한 지원을 추가 합니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams)에서 설명서를 참조 하세요. 이전에는 SDK에서 지원 되는 GStreamer 형식의 하위 집합만 지원 했습니다. 이를 통해 사용 사례에 적합 한 오디오 형식을 유연 하 게 사용할 수 있습니다.
+- **C + +/c #/Java/Objective-C/Python**: 압축 된 TTS/합성 오디오를 SDK와 디코딩하는 지원을 추가 했습니다. 출력 오디오 형식을 PCM으로 설정 하 고 시스템에서 GStreamer를 사용할 수 있는 경우 SDK는 서비스에서 압축 된 오디오를 자동으로 요청 하 여 대역폭을 절약 하 고 클라이언트에서 오디오를 디코딩합니다. 이렇게 하면 사용 사례에 필요한 대역폭을 낮출 수 있습니다. `SpeechServiceConnection_SynthEnableCompressedAudioTransmission`을로 설정 `false` 하 여이 기능을 사용 하지 않도록 설정할 수 있습니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.propertyid?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.propertyid?view=azure-java-stable), [목표-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpropertyid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid?view=azure-python)에 대 한 세부 정보입니다.
+- **JavaScript** Node.js: 사용자는 이제 API를 사용할 수 있으며,이 [ `AudioConfig.fromWavFileInput` API](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_)를 통해 고객은 디스크의 경로를 .wav 파일로 wav 파일에 보낼 수 있습니다. 그러면 sdk가이를 인식할 수 있습니다. 이 [#252 GitHub 문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/252)를 해결 합니다.
+- **C + +/c #/Java/Objective-C/Python**: `GetVoicesAsync()` 사용 가능한 모든 합성 음성을 프로그래밍 방식으로 반환 하는 TTS에 대 한 메서드를 추가 했습니다. 이렇게 하면 응용 프로그램에서 사용 가능한 음성을 나열 하거나 프로그래밍 방식으로 다른 음성에서 선택할 수 있습니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet#methods), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable#methods), [목표-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoices)및 [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?view=azure-python#methods)에 대 한 세부 정보입니다.
+- **C + +/c #/Java/JavaScript/Objective-C/Python**: 지원 되 `VisemeReceived` 는 TTS/음성 합성 이벤트를 추가 하 여 동기 viseme 애니메이션을 반환 합니다. Visemes를 사용 하면 보다 자연 스런 뉴스 브로드캐스트 길잡이, 더 많은 대화형 게임 및 만화 문자 및 보다 직관적인 언어 교육 비디오를 만들 수 있습니다. 청각 장애가 있으면 음성 콘텐츠를 시각적으로 선택 하 고 "립-읽기" 할 수도 있습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme)에서 설명서를 참조 하세요.
+- **C + +/c #/Java/JavaScript/Objective-C/Python**: `BookmarkReached` TTS에 대 한 이벤트를 추가 했습니다. 입력 SSML에서 책갈피를 설정 하 고 각 책갈피에 대 한 오디오 오프셋을 가져올 수 있습니다. 응용 프로그램에서이를 사용 하 여 특정 단어가 텍스트를 음성으로 말할 때 작업을 수행할 수 있습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element)에서 설명서를 참조 하세요.
+- **Java**: java에서 스피커 인식을 사용할 수 있도록 하는 스피커 인식 api에 대 한 지원이 추가 되었습니다. 자세한 내용은 [여기](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-java-stable)를 참조 하세요.
+- **C + +/c #/Java/JavaScript/Objective-C/Python**: TTS 용 webm 컨테이너 (Webm16Khz16BitMonoOpus 및 Webm24Khz16BitMonoOpus)를 사용 하 여 두 개의 새로운 출력 오디오 형식을 추가 했습니다. 이러한 형식은 Opus 코덱으로 오디오를 스트리밍하는 데 더 적합 합니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest), [목표-c](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-python)에 대 한 세부 정보입니다.
+- **C + +/c #/Java/Python**: 인증서 해지 목록에 대 한 네트워크 액세스를 차단 하는 환경에서 연결이 성공 하도록 Linux에 대 한 지원이 추가 되었습니다. 이렇게 하면 클라이언트 컴퓨터에서 Azure Speech service에만 연결 하도록 선택할 수 있습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-openssl-linux)에서 설명서를 참조 하세요.
+- **C + +/c #/Java**: 앱이 스피커 데이터를 기존 음성 프로필과 비교할 수 있도록 스피커 인식 시나리오용 음성 프로필 검색에 대 한 지원이 추가 되었습니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/speakerrecognizer), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-dotnet)및 [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-java-stable)에 대 한 세부 정보입니다. 이 [#808 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/808)를 해결 합니다.
+- **목적-C/Swift**: 파라솔 헤더를 사용 하 여 모듈 프레임 워크에 대 한 지원이 추가 되었습니다. 이를 통해 iOS/Mac 목표-C/Swift apps에서 음성 SDK를 모듈로 가져올 수 있습니다. 이 [#452 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/452)를 해결 합니다.
+- **Python**: python [3.9](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python) 에 대 한 지원이 추가 되 고 python의 최신 [3.5 용 종료](https://devguide.python.org/devcycle/#end-of-life-branches)에 대 한 3.5 지원이 삭제 되었습니다.
+
+#### <a name="improvements"></a>향상 된 기능
+
+- **Java**: 음성 SDK의 메모리 사용량 및 디스크 공간을 줄이기 위한 다중 릴리스 노력의 일환으로 Android 바이너리가 이제 3%에서 5% 더 작습니다.
+- **C #**: c #에서 SDK의 [유용성을 개선 하기 위해](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet) c # 참조 설명서의 향상 된 정확도, 가독성 및 참조 섹션도 향상 되었습니다.
+- **C + +/c #/Java/Objective-C/Python**: 마이크 및 스피커 컨트롤을 별도의 공유 라이브러리로 이동 했습니다. 이렇게 하면 오디오 하드웨어가 필요 하지 않은 사용 사례에서 SDK를 사용할 수 있습니다. 예를 들어 Linux에서 사용 사례에 대 한 마이크나 스피커가 필요 하지 않은 경우 libasound를 설치할 필요가 없습니다.
+
+#### <a name="bug-fixes"></a>버그 수정
+
+- **JavaScript**: 이제 긴 WAV 파일 헤더가 올바르게 구문 분석 됩니다 (헤더 조각을 512 바이트로 늘립니다). 이 [#962 GitHub 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/962)를 해결 합니다.
+- **JavaScript**: 인식 중지 전에 mic 스트림이 종료 되어 Firefox에서 작동 하지 않는 음성 인식 문제를 해결 하는 경우 마이크 타이밍 문제가 수정 되었습니다.
+- **JavaScript**: 이제 turnOn 완료 되기 전에 브라우저에서 mic를 강제로 실행 하면 초기화 약속을 올바르게 처리 합니다.
+- **JavaScript**: url 종속성을 url 구문 분석으로 대체 했습니다. 이 [#264 GitHub 문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/264)를 해결 합니다.
+- **Android**: `minifyEnabled` 가 true로 설정 된 경우 콜백이 작동 하지 않는 문제를 수정 했습니다.
+- **C + +/c #/Java/Objective-C/Python**: `TCP_NODELAY` 대기 시간을 줄이기 위해 TTS의 기본 소켓 IO로 올바르게 설정 됩니다.
+- **C + +/c #/Java/Python/Objective-C/Go**: 인식을 시작한 후 인식기가 삭제 되었을 때 발생 하는 간헐적 충돌을 수정 했습니다.
+- **C + +/c #/Java**: 스피커 인식기가 소멸 될 때 가끔 충돌이 해결 되었습니다.
+
+#### <a name="samples"></a>샘플
+
+- **Javascript**: [브라우저 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser) 은 더 이상 별도 JavaScript 라이브러리 파일 다운로드를 요구 하지 않습니다.
+
+## <a name="speech-cli-also-known-as-spx-2021-march-release"></a>Speech CLI (SPX 라고도 함): 2021-3 월 릴리스
+
+**참고**: [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics)에서 Azure Speech service CLI (명령줄 인터페이스)를 시작 하세요. CLI를 사용 하면 코드를 작성 하지 않고도 Azure Speech service를 사용할 수 있습니다.
+
+#### <a name="new-features"></a>새로운 기능
+
+- `spx intent`의도 인식, 바꾸기 명령이 추가 되었습니다 `spx recognize intent` .
+- 이제를 사용 하 여 인식 및 의도가 Azure 함수를 사용 하 여 단어 오류 요금을 계산할 수 있습니다 `spx recognize --wer url <URL>` .
+- 이제 Recognize는를 사용 하 여 결과를 VTT 파일로 출력할 수 있습니다 `spx recognize --output vtt file <FILENAME>` .
+- 중요 한 키 정보는 이제 디버그/자세한 정보 출력에 가려져 있습니다.
+- 일괄 처리 기록 만들기의 콘텐츠 필드에 대 한 URL 검사 및 오류 메시지를 추가 했습니다.
+
+**Covid-19 요약 테스트**:
+
+진행 중인 전염병는 엔지니어가 집에서 작업 하는 데 계속 필요 하므로 사전 전염병 수동 확인 스크립트가 크게 줄었습니다. 구성 수가 더 적고 환경 특정 버그가 지연 될 가능성이 더 낮은 장치에서 테스트 합니다. 여전히 많은 자동화를 사용 하 여 엄격한 유효성 검사를 수행 합니다. 오류가 발생 하지 않은 경우 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
+정상 상태를 유지 하세요.
+
+
 
 ## <a name="speech-sdk-1150-2021-january-release"></a>Speech SDK 1.15.0:2021-1 월 릴리스
 
@@ -197,7 +263,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-september-release"></a>텍스트 음성 변환 2020-9 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **신경망** 
     * **18 개의 새로운 언어/로캘을 지원 하도록 확장 되었습니다.** 불가리아어, 체코어, 독일어 (오스트리아), 독일어 (스위스), 그리스어, 영어 (아일랜드), 프랑스어 (스위스), 히브리어, 크로아티아어, 헝가리어, 인도네시아어, 말레이어, 루마니아어, 슬로바키아어, 슬로베니아어, 타밀어, 텔루구어 및 베트남어입니다. 
@@ -210,7 +276,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **신경망: 새 말하기 스타일 `en-US` Aria 음성**. 뉴스는 뉴스를 읽을 때 AriaNeural 수 있습니다. ' Newscast-공식 ' 스타일은 더 심각 하 게 들리지만 ' newscast-일반 ' 스타일은 더 낮은 수준에서 비공식적입니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md)참조 하세요.
 
@@ -238,7 +304,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 * Vocoders는 다음과 같은 음성에 대해 향상 된 기능 및 전반적인 성능 속도를 40%로 업데이트 했습니다.
 
-    | 로캘 | 음성 |
+    | Locale | 음성 |
     |---|---|    
     | `en-GB` | Mia |
     | `es-MX` | Dalia |
@@ -257,7 +323,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>새 음성 텍스트 로캘: 2020-8 월 릴리스
 8 월에는 음성 텍스트에서 26 개의 새 로캘이 출시 되었습니다. 2 유럽 언어 `cs-CZ` 와 `hu-HU` , 영어 (미국) 로캘, 영어 (미국)를 포함 하는 스페인어 로캘이 모두 포함 됩니다. 다음은 새 로캘의 목록입니다. [여기](./language-support.md)에서 전체 언어 목록을 참조 하세요.
 
-| 로캘  | 언어                          |
+| Locale  | 언어                          |
 |---------|-----------------------------------|
 | `cs-CZ` | 체코어(체코)            | 
 | `en-HK` | 영어 (홍콩)               | 
@@ -318,7 +384,7 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 
 ## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), 힌디어 (인도), Swara의 `hi-IN` Colette, 네덜란드어 (네덜란드), 폴란드어 (폴란드어) `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` , Fernanda In 러시아어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (태국), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어 in 중국어 (HsiaoYu 대만) [지원 되](./language-support.md#neural-voices)는 모든 언어를 확인 합니다.  
 

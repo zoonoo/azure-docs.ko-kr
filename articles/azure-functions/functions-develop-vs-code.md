@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: d4353e6be313d61716933879efa930e22472781b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493952"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions 개발
@@ -138,7 +138,7 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-* 함수를 구현 하는 [HttpExample.cs 클래스 라이브러리 파일](functions-dotnet-class-library.md#functions-class-library-project) 입니다.
+* 함수를 구현 하는 [Httpexample .cs 클래스 라이브러리 파일](functions-dotnet-class-library.md#functions-class-library-project) 입니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -326,7 +326,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | 프롬프트 | 값 | Description |
+    | prompt | 값 | 설명 |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
@@ -373,9 +373,9 @@ Visual Studio Code에서 Azure의 함수를 실행 합니다.
 
 1. 목록에서 Azure의 함수 앱을 선택 합니다. 함수 앱이 표시 되지 않는 경우 올바른 구독에 로그인 했는지 확인 합니다. 
 
-1. 목록에서 실행할 함수를 선택 하 고 요청 **본문** 에 요청 메시지 본문을 입력 합니다. Enter 키를 눌러이 요청 메시지를 함수로 보냅니다. **Enter 요청 본문** 의 기본 텍스트는 본문의 형식을 나타내야 합니다. 함수 앱에 함수가 없으면이 오류와 함께 알림 오류가 표시 됩니다. 
+1. 목록에서 실행할 함수를 선택 하 고 요청 **본문** 에 요청 메시지 본문을 입력 합니다. Enter를 눌러 이 요청 메시지를 함수로 보냅니다. **Enter 요청 본문** 의 기본 텍스트는 본문의 형식을 나타내야 합니다. 함수 앱에 함수가 없으면이 오류와 함께 알림 오류가 표시 됩니다. 
 
-1. 함수가 Azure에서 실행 되 고 응답을 반환 하는 경우 Visual Studio Code에서 알림이 발생 합니다.
+1. 함수가 Azure에서 실행되고 응답을 반환하는 경우 Visual Studio Code에서 알림이 발생합니다.
  
 Azure 구독에서 함수 앱에서 실행 하려는 함수를 마우스 오른쪽 단추로 클릭 (Mac에서 Ctrl + 클릭) 하 고 **지금 함수 실행 ...** 을 선택 하 여 **azure: 함수** 영역에서 함수를 실행할 수도 있습니다.
 
@@ -409,9 +409,9 @@ Azure에서 함수를 실행할 때 확장은 Azure 계정을 사용 하 여 함
 
 1. 명령 팔레트에 Azure Functions를 입력 하 고 **지금 함수를 실행** 한 다음 **로컬 프로젝트** 를 선택 합니다. 
 
-1. 프로젝트에서 실행할 함수를 선택 하 고 **요청 본문 입력** 에 요청의 메시지 본문을 입력 합니다. Enter 키를 눌러이 요청 메시지를 함수로 보냅니다. **Enter 요청 본문** 의 기본 텍스트는 본문의 형식을 나타내야 합니다. 함수 앱에 함수가 없으면이 오류와 함께 알림 오류가 표시 됩니다. 
+1. 프로젝트에서 실행할 함수를 선택 하 고 **요청 본문 입력** 에 요청의 메시지 본문을 입력 합니다. Enter를 눌러 이 요청 메시지를 함수로 보냅니다. **Enter 요청 본문** 의 기본 텍스트는 본문의 형식을 나타내야 합니다. 함수 앱에 함수가 없으면이 오류와 함께 알림 오류가 표시 됩니다. 
 
-1. 함수가 로컬로 실행 되 고 응답이 수신 된 후에는 Visual Studio Code에서 알림이 발생 합니다. 함수 실행에 대 한 정보는 **터미널** 패널에 표시 됩니다.
+1. 함수가 로컬로 실행 되 고 응답이 수신 된 후에는 Visual Studio Code에서 알림이 발생 합니다. 기능 실행에 대한 정보는 **터미널** 패널에 표시됩니다.
 
 함수를 로컬로 실행 하려면 키를 사용 하지 않아도 됩니다. 
 
@@ -474,7 +474,7 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions: 원�
 > [!NOTE]
 > 스트리밍 로그는 함수 호스트의 단일 인스턴스만 지원 합니다. 함수를 여러 인스턴스로 확장 하는 경우 다른 인스턴스의 데이터가 로그 스트림에 표시 되지 않습니다. Application Insights [라이브 메트릭 스트림](../azure-monitor/app/live-stream.md) 는 여러 인스턴스를 지원 합니다. 또한 거의 실시간으로 스트리밍 분석은 [샘플링 된 데이터](configure-monitoring.md#configure-sampling)를 기반으로 합니다.
 
-### <a name="application-insights"></a>애플리케이션 정보
+### <a name="application-insights"></a>Application Insights
 
 함수 앱을 Application Insights와 통합 하 여 함수 실행을 모니터링 하는 것이 좋습니다. Azure Portal에서 함수 앱을 만들 때이 통합은 기본적으로 발생 합니다. Visual Studio를 게시 하는 동안 함수 앱을 만들 때 Application Insights 직접 통합 해야 합니다. 방법에 대 한 자세한 내용은 [Application Insights 통합 사용](configure-monitoring.md#enable-application-insights-integration)을 참조 하세요.
 
@@ -496,7 +496,7 @@ Application Insights를 사용 하 여 모니터링 하는 방법에 대 한 자
 
 Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 영역에서 유용한 그래픽 인터페이스를 제공 합니다. 명령 팔레트 (F1) 에서도 같은 기능을 명령으로 사용할 수 있습니다. 이러한 Azure Functions 명령을 사용할 수 있습니다.
 
-|Azure Functions 명령  | Description  |
+|Azure Functions 명령  | 설명  |
 |---------|---------|
 |**새 설정 추가**  |  Azure에서 새 응용 프로그램 설정을 만듭니다. 자세히 알아보려면 [응용 프로그램 설정 게시](#publish-application-settings)를 참조 하세요. [로컬 설정으로이 설정을 다운로드](#download-settings-from-azure)해야 할 수도 있습니다. |
 | **배포 원본 구성** | Azure의 함수 앱을 로컬 Git 리포지토리에 연결 합니다. 자세한 내용은 [Azure Functions에 대 한 연속 배포](functions-continuous-deployment.md)를 참조 하세요. |

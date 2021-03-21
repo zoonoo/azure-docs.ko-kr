@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 626e89d8d758d5fe31ef6c913076a9154274bb61
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100654232"
 ---
 # <a name="use-net-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 .NET을 사용 하 여 Acl 관리
@@ -234,6 +234,6 @@ Acl을 재귀적으로 수정할 때 런타임 또는 권한 오류가 발생할
 - [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)
 - [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-net/issues)
+- [피드백 보내기](https://github.com/Azure/azure-sdk-for-net/issues)
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control.md)
 - [Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)](data-lake-storage-access-control.md)

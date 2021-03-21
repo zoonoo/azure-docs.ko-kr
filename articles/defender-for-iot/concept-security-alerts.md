@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 2/16/2021
 ms.author: shhazam
 ms.openlocfilehash: ef33851600c576494e4e0903c6ab8ffefc9a1a59
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100636495"
 ---
 # <a name="defender-for-iot-hub-security-alerts"></a>Defender IoT Hub 보안 경고
@@ -30,9 +30,9 @@ IoT 용 Defender는 고급 분석 및 위협 인텔리전스를 사용 하 여 I
 기본 제공 경고 외에도 IoT 용 Defender를 사용 하면 예상 된 IoT Hub 및/또는 장치 동작에 따라 사용자 지정 경고를 정의할 수 있습니다.
 자세한 내용은 [사용자 지정 가능한 경고](concept-customizable-security-alerts.md)를 참조 하세요.
 
-## <a name="built-in-alerts-for-iot-hub"></a>IoT Hub에 대 한 기본 제공 경고
+## <a name="built-in-alerts-for-iot-hub"></a>IoT Hub에 대한 기본 제공 경고
 
-| 심각도 | 속성 | 설명 | 제안된 수정 사항 |
+| 심각도 | Name | 설명 | 제안된 수정 사항 |
 |--|--|--|--|
 | **중간** 심각도 |  |  |  |
 | IoT Hub에 추가 된 새 인증서 | 중간 | 이름이 \' % {DescCertificateName} 인 인증서가 \' IoT Hub \' % {DescIoTHubName}에 추가 되었습니다 \' . 권한이 없는 당사자가이 작업을 수행한 경우 악성 작업을 나타낼 수 있습니다. | 1. 인증 된 파티에서 인증서를 추가 했는지 확인 합니다. <br> 2. 권한이 부여 된 당사자가 추가 하지 않은 경우 인증서를 제거 하 고 조직 보안 팀에 경고를 에스컬레이션 합니다. |

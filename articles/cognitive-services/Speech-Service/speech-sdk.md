@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434523"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
@@ -126,7 +126,7 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 든 상관 없이 
 
 Speech SDK는 음성 서비스의 많은 기능을 다룹니다. 일부 시나리오에서는 REST API를 사용 하는 것이 좋습니다.
 
-### <a name="batch-transcription"></a>전사 일괄 처리
+### <a name="batch-transcription"></a>일괄 처리 기록
 
 [일괄 처리 기록을](batch-transcription.md) 사용 하면 대용량 데이터의 비동기 음성-텍스트 기록을 사용할 수 있습니다. 일괄 처리는 REST API 에서만 가능 합니다. 음성 오디오를 텍스트로 변환 하는 것 외에도 batch 음성-텍스트는 diarization 및 감정를 허용 합니다.
 

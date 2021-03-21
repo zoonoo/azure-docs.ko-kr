@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
 ms.openlocfilehash: b37cf33a96452f9f3e86f853d3d87fd3b4b3879c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102431853"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
@@ -61,7 +61,7 @@ Azure에서 게시 된 앱이 사용 하는 함수 런타임의 버전은 응용
 
 버전 2.x ()에서 실행 되는 .NET 함수 앱은 .net core `~2` 3의 장기 지원 버전인 .Net core 3.1에서 실행 되도록 자동으로 업그레이드 됩니다. .NET Core 3.1에서 .NET 함수를 실행 하면 최신 보안 업데이트 및 제품 개선 사항을 활용할 수 있습니다. 
 
-에 고정 된 모든 함수 앱 `~2.0` 은 더 이상 보안 및 기타 업데이트를 수신 하지 않는 .Net Core 2.2에서 계속 실행 됩니다. 자세히 알아보려면 [v2. x 고려 사항](functions-dotnet-class-library.md#functions-v2x-considerations)을 참조 하세요.   
+에 고정 된 모든 함수 앱 `~2.0` 은 더 이상 보안 및 기타 업데이트를 수신 하지 않는 .Net Core 2.2에서 계속 실행 됩니다. 자세히 알아보려면 [Functions v2.x 고려 사항](functions-dotnet-class-library.md#functions-v2x-considerations)을 참조하세요.   
 
 ## <a name="migrating-from-2x-to-3x"></a>2.x에서 2.x로 마이그레이션
 

@@ -7,10 +7,10 @@ ms.author: abnarain
 author: nabhishek
 ms.date: 02/10/2021
 ms.openlocfilehash: ccfe8fbf330e1c7f6f415b64a1f18d93a084a0ba
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100374017"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks에서 Jar 활동을 실행하여 데이터 변환
@@ -58,8 +58,8 @@ Databricks Jar 활동의 샘플 JSON 정의는 다음과 같습니다.
 |description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|예|
 |type|Databricks Jar 활동의 경우 활동 유형은 DatabricksSparkJar입니다.|예|
 |linkedServiceName|Jar 활동이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.|예|
-|mainClassName|실행될 main 메서드가 포함된 클래스의 전체 이름입니다. 이 클래스는 라이브러리로 제공된 JAR에 포함되어야 합니다. JAR 파일은 여러 클래스를 포함할 수 있습니다. 각 클래스는 main 메서드를 포함할 수 있습니다.|Yes|
-|매개 변수|main 메서드에 전달할 매개 변수이며, 이 속성은 문자열의 배열입니다.|예|
+|mainClassName|실행될 main 메서드가 포함된 클래스의 전체 이름입니다. 이 클래스는 라이브러리로 제공된 JAR에 포함되어야 합니다. JAR 파일은 여러 클래스를 포함할 수 있습니다. 각 클래스는 main 메서드를 포함할 수 있습니다.|예|
+|매개 변수|main 메서드에 전달할 매개 변수이며, 이 속성은 문자열의 배열입니다.|아니요|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|예(mainClassName 메서드가 하나 이상 포함되는 경우)|
 
 > [!NOTE]

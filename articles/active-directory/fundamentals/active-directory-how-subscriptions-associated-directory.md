@@ -1,6 +1,6 @@
 ---
 title: 기존 Azure 구독을 테 넌 트에 추가-Azure AD
-description: Azure Active Directory 테넌트에 기존 Azure 구독을 추가하는 방법에 대한 지침입니다.
+description: 기존 Azure 구독을 Azure Active Directory (Azure AD) 테 넌 트에 추가 하는 방법에 대 한 지침입니다.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperf-fy20q4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86395a91c1b2cbba6a93c7b1b7cad487129fff0a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b7ac9553660aace8242c81b41fa2cc9171d28219
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094292"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594634"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -44,8 +44,8 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 - 구독을 연결 하거나 추가한 후에 수행 되는 변경 내용 및 영향을 받는 방법에 대 한 다음 목록을 검토 하세요.
 
   - Azure RBAC를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다.
-  - 서비스 관리자 및 Co-Administrators 액세스할 수 없게 됩니다.
-  - 키 자격 증명 모음이 있는 경우 액세스할 수 없게 되며 연결 후 수정 해야 합니다.
+  - 서비스 관리자 및 Co-Administrators는 액세스 권한을 잃게 됩니다.
+  - 키 자격 증명 모음이 있는 경우 해당 자격 증명 모음에 액세스할 수 없으며 연결 후 수정 해야 합니다.
   - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 관리 id가 있는 경우 연결 후 다시 사용 하도록 설정 하거나 다시 만들어야 합니다.
   - 등록 된 Azure Stack 있는 경우 연결 후 다시 등록 해야 합니다.
   - 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
@@ -55,7 +55,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
   - 구독에 대 한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할 할당을 포함 합니다. 소유자 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
   - 는 현재 디렉터리와 새 디렉터리에 모두 있습니다. 현재 디렉터리는 구독과 연결 되어 있습니다. 새 디렉터리를 구독과 연결 합니다. 다른 디렉터리에 대 한 액세스 권한을 얻는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../external-identities/add-users-administrator.md)를 참조 하세요.
 
-- Azure CSP(클라우드 서비스 공급자) 구독(MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft 내부 구독(MS-AZR-0015P) 또는 Microsoft Imagine 구독(MS-AZR-0144P)을 사용하고 있지 않은지 확인합니다.
+- Azure CSP (클라우드 서비스 공급자) 구독 (MS-AZR-0017P-0145P, MS-AZR-0017P-0146P, MS-MS-AZR-0017P-159P), Microsoft 내부 구독 (MS-MS-AZR-0017P-0015P) 또는 Microsoft Azure for Students Starter 구독 (MS-MS-AZR-0017P-0145P)을 사용 하지 않는지 확인 합니다.
 
 ## <a name="associate-a-subscription-to-a-directory"></a>디렉터리에 구독 연결<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -65,17 +65,17 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 1. **디렉터리 변경** 을 선택 합니다.
 
-   ![디렉터리 변경 옵션이 강조 표시된 구독 페이지](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="디렉터리 변경 옵션이 강조 표시 된 구독 페이지를 보여 주는 스크린샷":::
 
 1. 표시 되는 경고를 검토 하 고 **변경** 을 선택 합니다.
 
-   ![디렉터리 페이지를 변경하여 변경 대상 디렉터리 표시](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="샘플 디렉터리와 변경 단추가 강조 표시 된 디렉터리 변경 페이지를 보여 주는 스크린샷":::
 
    구독에 대 한 디렉터리가 변경 된 후에는 성공 메시지가 표시 됩니다.
 
 1. 구독 페이지에서 **디렉터리 전환** 을 선택 하 여 새 디렉터리로 이동 합니다.
 
-   ![예제 정보가 포함 된 디렉터리 전환기 페이지](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="예제 정보가 포함 된 디렉터리 전환기 페이지를 보여 주는 스크린샷":::
 
    모든 것이 제대로 표시 되려면 몇 시간이 걸릴 수 있습니다. 너무 오래 걸리면 **전역 구독 필터** 를 확인 합니다. 이동 된 구독이 숨겨지지 않았는지 확인 합니다. Azure Portal 로그 아웃 했다가 다시 로그인 하 여 새 디렉터리를 확인 해야 할 수 있습니다.
 
@@ -89,7 +89,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 - 리소스에 대해 시스템 할당 관리 Id를 사용한 경우에는 이러한 id를 다시 사용 하도록 설정 해야 합니다. 사용자 할당 관리 Id를 사용한 경우에는 이러한 id를 다시 만들어야 합니다. 관리 되는 Id를 다시 사용 하도록 설정 하거나 다시 만든 후에는 해당 id에 할당 된 사용 권한을 다시 설정 해야 합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 
-- 이 구독을 사용 하 여 Azure Stack를 등록 한 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure를 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)을 참조 하세요.
+- 이 구독을 사용 하 여 Azure Stack를 등록 한 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure를 사용 하 여 Azure Stack 허브 등록](/azure-stack/operator/azure-stack-registration)을 참조 하세요.
 
 - 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 

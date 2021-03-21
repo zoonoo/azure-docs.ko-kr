@@ -6,16 +6,16 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 26a4692603d8e8a80a52ea77bdd56617131cea5d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699694"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593903"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>예약 된 용량 Azure Data Factory 데이터 흐름을 사용 하 여 리소스에 대 한 비용 절감
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 종 량 제 가격과 비교 하 여 계산 리소스에 대 한 예약을 커밋하여 Azure Data Factory 데이터 흐름 비용을 절감 하세요. 예약 된 용량을 사용 하면 1 년 또는 3 년 동안 ADF 데이터 흐름을 사용 하 여 계산 비용에 대 한 상당한 할인을 얻을 수 있습니다. 예약 된 용량을 구매 하려면 Azure 지역, 계산 유형, 코어 수 수량 및 용어를 지정 해야 합니다.
 

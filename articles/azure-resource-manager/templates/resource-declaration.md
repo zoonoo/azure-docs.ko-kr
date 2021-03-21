@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿 (ARM 템플릿)에 배포할 리�
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: 13f4a08162c40cbb36173627d88a4a8202a4ed26
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745652"
 ---
 # <a name="resource-declaration-in-arm-templates"></a>ARM 템플릿의 리소스 선언

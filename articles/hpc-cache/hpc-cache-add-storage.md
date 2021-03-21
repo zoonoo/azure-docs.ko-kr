@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
 ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563246"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
@@ -316,7 +316,7 @@ ADLS-NFS 저장소 대상은 NFS (네트워크 파일 시스템) 3.0 프로토�
 >
 > 최신 정보는 [NFS 3.0 프로토콜 지원](../storage/blobs/network-file-system-protocol-support.md) 을 참조 하세요.
 
-ADLS-NFS 저장소 대상은 Blob 저장소 대상 및 일부 NFS 저장소 대상과 약간의 유사성을 갖습니다. 예를 들어:
+ADLS-NFS 저장소 대상은 Blob 저장소 대상 및 일부 NFS 저장소 대상과 약간의 유사성을 갖습니다. 예를 들면 다음과 같습니다.
 
 * Blob storage 대상과 마찬가지로 [저장소 계정에 액세스](#add-the-access-control-roles-to-your-account)하려면 Azure HPC 캐시 권한을 제공 해야 합니다.
 * NFS 저장소 대상과 마찬가지로 캐시 [사용 모델](#choose-a-usage-model)을 설정 해야 합니다.

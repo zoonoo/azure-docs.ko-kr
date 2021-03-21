@@ -3,16 +3,16 @@ title: '빠른 시작: 서버 만들기 - Azure PowerShell - Azure Database for 
 description: 이 빠른 시작에서는 PowerShell을 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB 서버를 만드는 방법에 대해 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 91472d3f3cb39d34f560715f511f666079b1d1c0
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 05082ffa891b72b472ed5433282198c61080f073
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664667"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Database for MariaDB 서버 만들기

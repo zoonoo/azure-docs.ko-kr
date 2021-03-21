@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 8cf8fdfe0c8eb557946baa95d0d8beb2b388baa5
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 2af97206db00d683ab409710bc71a3b5048bf6ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674449"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104658468"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
@@ -22,6 +22,9 @@ ms.locfileid: "97674449"
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure Portal](https://portal.azure.com) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
 ## <a name="create-iot-central-applications"></a>IoT Central 애플리케이션 만들기
+
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
 
 응용 프로그램을 만들려면 [Azure Portal](https://ms.portal.azure.com) 로 이동 하 여 **리소스 만들기** 를 선택 합니다.
 
@@ -50,7 +53,7 @@ ms.locfileid: "97674449"
 Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure Portal의 다른 구독 또는 리소스 그룹으로 이동할 수 있습니다.
 
 > [!NOTE]
-> *무료* 요금제를 사용 하 여 만든 응용 프로그램에는 azure 구독이 필요 하지 않으므로 Azure Portal의 azure 구독에 나열 되지 않습니다. IoT Central 포털에서 무료 앱을 보고 관리할 수만 있습니다.
+> *무료* 요금제를 사용하여 만든 애플리케이션에는 Azure 구독이 필요하지 않으므로 Azure Portal의 Azure 구독에 나열되지 않습니다. IoT Central 포털에서만 무료 앱을 보고 관리할 수 있습니다.
 
 시작 하려면 포털에서 **모든 리소스** 를 선택 합니다. **숨겨진 형식 표시** 를 선택 하 고 **이름으로 필터** 에 응용 프로그램 이름을 입력 하 여 찾습니다. 그런 다음 관리 하려는 IoT Central 응용 프로그램을 선택 합니다.
 

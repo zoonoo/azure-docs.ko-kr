@@ -11,17 +11,17 @@ ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ms.openlocfilehash: ec0c7d64f2145cdaf594cb903c072984f4d376a9
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519132"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>환경 이미지 빌드 문제 해결
 
 Docker 환경 이미지 빌드 및 패키지 설치와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
