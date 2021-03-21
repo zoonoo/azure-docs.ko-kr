@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
 ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503830"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>데이터 랭 글 링 (미리 보기)에 대 한 Apache Spark 풀 (Azure Synapse Analytics에서 구동)을 연결 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "102503830"
 
 Azure Synapse Analytics와 Azure Machine Learning (미리 보기)를 통합 하면 Azure Synapse에서 지원 되는 Apache Spark 풀을 연결 하 여 대화형 데이터 탐색 및 준비를 수행할 수 있습니다. 이러한 통합을 통해 기계 학습 모델을 학습 하는 데 사용 하는 것과 동일한 Python 노트북 내에서 데이터 랭 글 링에 대 한 전용 계산을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python).
 

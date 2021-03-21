@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005064"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응 (미리 보기)
@@ -324,7 +324,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 다음은 지원 되는 이벤트 속성과 해당 유형 및 설명 목록입니다. 
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -337,14 +337,14 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | api | 문자열 | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated-허용 되는 값은 및입니다. `PutBlob``PutBlockList`</li><li>BlobDeleted-허용 되는 값은 `DeleteBlob` , `DeleteAfterUpload` 및 `AutoDelete` 입니다. <p>`DeleteAfterUpload`DeleteAfterUpload desired 속성이 true로 설정 되어 있으므로 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다. </p><p>`AutoDelete` deleteAfterMinutes desired 속성 값이 만료 되어 blob이 자동으로 삭제 되 면 이벤트가 생성 됩니다.</p></li></ul>|
 | clientRequestId | 문자열 | 저장소 API 작업에 대 한 클라이언트 제공 요청 ID입니다. 이 ID는 로그의 "클라이언트-요청 id" 필드를 사용 하 여 Azure Storage 진단 로그와 상호 연결 하는 데 사용할 수 있으며, "x-y-id" 헤더를 사용 하 여 클라이언트 요청에 제공할 수 있습니다. 자세한 내용은 [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조 하세요. |
 | requestId | 문자열 | 저장소 API 작업에 대 한 서비스 생성 요청 ID입니다. 로그의 "request-id-header" 필드를 사용하여 Azure Storage 진단 로그와의 상관 관계를 지정하는 데 사용할 수 있으며, 'x-ms-request-id' 헤더에서 API 호출을 시작하여 반환됩니다. [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |
 | eTag | 문자열 | 조건부로 작업을 수행하는 데 사용할 수 있는 값입니다. |
 | contentType | 문자열 | Blob에 대해 지정된 콘텐츠 형식입니다. |
-| contentLength | integer | Blob의 크기(바이트)입니다. |
+| contentLength | 정수 | Blob의 크기(바이트)입니다. |
 | blobType | 문자열 | Blob의 형식입니다. 유효한 값은 "BlockBlob" 또는 "PageBlob"입니다. |
 | url | 문자열 | Blob에 대한 경로입니다. <br>클라이언트에서 REST API Blob을 사용 하는 경우 url의 구조는 *\<storage-account-name\> . blob.core.windows.net/ \<container-name\> / \<file-name\>* 입니다. <br>클라이언트에서 Data Lake Storage REST API를 사용 하는 경우 url의 구조는 *\<storage-account-name\> . dfs.core.windows.net/ \<file-system-name\> / \<file-name\>* 입니다. |
 

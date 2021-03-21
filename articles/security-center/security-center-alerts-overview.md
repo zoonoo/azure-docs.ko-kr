@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: memildin
 ms.openlocfilehash: 5824457a9f2ce411a871b5e76802ecf2e2f106c3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102099508"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Azure Security Center의 보안 경고 및 인시던트
 
 Security Center는 Azure, 온-프레미스 및 하이브리드 클라우드 환경에 배포 된 리소스에 대 한 경고를 생성 합니다.
 
-보안 경고는 고급 검색에서 트리거되고 Azure Defender 에서만 사용할 수 있습니다. [빠른 시작: Azure Defender 사용](enable-azure-defender.md)에 설명 된 대로 **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. 30일 평가판을 사용할 수 있습니다. 선택한 통화와 해당 지역에 따라 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조 하세요.
+보안 경고는 고급 검색에서 트리거되고 Azure Defender 에서만 사용할 수 있습니다. [빠른 시작: Azure Defender 사용](enable-azure-defender.md)에 설명된 대로 **가격 책정 및 설정** 페이지에서 업그레이드할 수 있습니다. 30일 평가판을 사용할 수 있습니다. 선택한 통화와 지역에 따른 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
 ## <a name="what-are-security-alerts-and-security-incidents"></a>보안 경고 및 보안 인시던트란 무엇인가요? 
 

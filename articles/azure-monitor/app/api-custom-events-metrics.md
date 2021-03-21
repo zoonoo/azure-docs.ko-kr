@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d658d7e64f720a3fb700d157cd5194ff50a48c33
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471628"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
@@ -495,7 +495,7 @@ trackTrace({
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | 설명
+ 매개 변수 | Description
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
 `properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](#properties) 하는 데 사용 되는 추가 데이터입니다. 기본적으로 비어 있습니다.
@@ -943,7 +943,7 @@ SDK에서 전송하기 전에 원격 분석을 처리하는 코드를 작성할 
 
 [샘플링](./api-filtering-sampling.md)은 앱에서 포털로 전송되는 데이터의 양을 줄이는 패키지 솔루션입니다. 표시된 메트릭에 영향을 주지 않습니다. 예외, 요청 및 페이지 뷰와 같은 관련된 항목 간을 이동하여 문제를 진단하는 기능에 영향을 주지 않습니다.
 
-[자세히 알아보기](./api-filtering-sampling.md).
+[자세한 정보를 알아보세요](./api-filtering-sampling.md).
 
 ## <a name="disabling-telemetry"></a>원격 분석 사용 안 함
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466997"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기 미리 작성 한 비즈니스 카드 모델 
@@ -31,7 +31,7 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 
 ### <a name="fields-extracted"></a>추출 된 필드:
 
-|이름| 유형 | 설명 | 텍스트 | 
+|Name| Type | Description | 텍스트 | 
 |:-----|:----|:----|:----|
 | ContactNames | 개체의 배열 | 비즈니스 카드에서 추출 된 연락처 이름 | [{"FirstName": "John", "LastName": "Doe"}] |
 | FirstName | 문자열 | 연락처의 첫 번째 (지정 된) 이름 | "John" | 

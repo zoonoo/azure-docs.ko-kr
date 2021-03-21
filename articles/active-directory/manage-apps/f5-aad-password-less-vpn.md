@@ -12,13 +12,13 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 84e177f1ce55d803f54bb2553078441557e5c191
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730890"
 ---
-# <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>암호 없는 VPN의 경우 F5 빅 IP와 Azure Active Directory Single Sign-On 통합에 대 한 자습서
+# <a name="tutorial-for-azure-active-directory-single-sign-on-integration-with-f5-big-ip-for-password-less-vpn"></a>암호 없는 VPN용 F5 BIG-IP와 Azure Active Directory Single Sign-On 통합에 대한 자습서
 
 이 자습서에서는 SHA (Secure Hybrid Access)를 위해 F 5 bigip 빅 IP 기반 Secure sockets layer VPN (가상 사설망) 솔루션을 AD (Azure Active Directory)와 통합 하는 방법에 대해 알아봅니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "98730890"
 >[!NOTE]
 >이 가이드 전체에서 참조 되는 모든 예제 문자열 또는 값은 실제 환경에 대 한 값으로 바꾸어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 그러나 F5의 이전 경험 또는 지식은 필요 하지 않습니다. 그러나 다음이 필요 합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "98730890"
 
    - SAML 엔드포인트 경로를 포함 하 여 **회신 URL** 텍스트 상자를 사용 하 여 동일한 작업을 수행 합니다. 예를 들어 `https://ssl-vpn.contoso.com/saml/sp/profile/post/acs`
 
-   - 이 구성 에서만 응용 프로그램은 IDP 시작 모드에서 작동 합니다. 여기서 Azure AD는 빅 IP SAML 서비스로 리디렉션하기 전에 사용자에 게 SAML 어설션을 발급 합니다. IDP 시작 모드를 지원 하지 않는 앱의 경우 큰 IP SAML 서비스에 대 한 로그온 **URL** 을 지정 합니다. 예들 들어 `https://ssl-vpn.contoso.com`입니다.
+   - 이 구성 에서만 응용 프로그램은 IDP 시작 모드에서 작동 합니다. 여기서 Azure AD는 빅 IP SAML 서비스로 리디렉션하기 전에 사용자에 게 SAML 어설션을 발급 합니다. IDP 시작 모드를 지원 하지 않는 앱의 경우 큰 IP SAML 서비스에 대 한 로그온 **URL** 을 지정 합니다. 예: `https://ssl-vpn.contoso.com`
 
    - 로그 아웃 Url의 경우 게시 되는 서비스의 호스트 헤더를 통해 대규모 IP APM SLO (단일 로그 아웃) 끝점을 입력 합니다. 예를 들어 `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
 
@@ -165,7 +165,7 @@ Azure AD에서 만든 SAML 서명 인증서의 수명은 3 년 이며, 따라서
 
 1. **액세스**  >  **webtops**  >  **Webtop 목록** 으로 이동 하 고 **만들기** 를 선택 합니다.
 
-2. 포털에 이름을 지정 하 고 유형을 **Full** 로 설정 합니다. 예들 들어 `Contoso_webtop`입니다.
+2. 포털에 이름을 지정 하 고 유형을 **Full** 로 설정 합니다. 예: `Contoso_webtop`
 
 3. 나머지 기본 설정을 조정 하 고 **완료** 를 선택 합니다.
 

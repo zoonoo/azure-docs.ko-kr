@@ -7,17 +7,17 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: d5b5470b30848fd31be63f25c85c23f88cdaf0c6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732227"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>HMAC 인증-REST API 참조
 
 HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습니다. HMAC는 해시 기반 메시지 인증 코드를 나타냅니다. 이러한 요청은 TLS를 통해 전송 되어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - **증명서** - \<Access Key ID\>
 - **비밀** -Base64 디코딩된 액세스 키 값입니다. ``base64_decode(<Access Key Value>)``
@@ -34,7 +34,7 @@ HMAC-SHA256 인증 체계를 사용 하 여 HTTP 요청을 인증할 수 있습�
 | **x-ms-content-sha256** | 요청 본문의 b a s e 64로 인코딩된 SHA256 해시입니다. 본문이 없는 경우에도 제공 되어야 합니다. ```base64_encode(SHA256(body))```|
 | **권한 부여** | HMAC-SHA256 체계에서 요구 하는 인증 정보입니다. 형식 및 세부 정보는이 문서의 뒷부분에 설명 되어 있습니다. |
 
-**예:**
+**예제:**
 
 ```http
 Host: {myconfig}.azconfig.io
@@ -49,7 +49,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
-|  인수 | Description  |
+|  인수 | 설명  |
 | ------ | ------ |
 | **HMAC-SHA256** | 권한 부여 체계. _하다_ |
 | **자격 증명** | 서명을 계산 하는 데 사용 되는 선택 키의 ID입니다. _하다_ |
@@ -70,7 +70,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 다른 모든 HTTP 요청 헤더를 서명에 추가할 수도 있습니다. 인수에 추가 하기만 하면 ```SignedHeaders``` 됩니다.
 
-**예:**
+**예제:**
 
 x-y; host; host-a-sha256; ```Content-Type``` ;```Accept```
 
@@ -87,13 +87,13 @@ _문자열-서명 =_
 
 **HTTP_METHOD** + ' \n ' + **path_and_query** + ' \n ' + **signed_headers_values**
 
-|  인수 | Description  |
+|  인수 | 설명  |
 | ------ | ------ |
 | **HTTP_METHOD** | 요청에 사용 되는 대문자 HTTP 메서드 이름입니다. 자세한 내용은 [섹션 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)를 참조 하세요. |
 |**path_and_query** | 요청 절대 URI 경로 및 쿼리 문자열의 연결입니다. 자세한 내용은 [섹션 3.3](https://tools.ietf.org/html/rfc3986#section-3.3)을 참조 하세요.
 | **signed_headers_values** | 에 나열 된 모든 HTTP 요청 헤더의 세미콜론으로 구분 된 값입니다 `SignedHeaders` . 형식은 `SignedHeaders` 의미 체계를 따릅니다. |
 
-**예:**
+**예제:**
 
 ```js
 string-To-Sign=
@@ -545,7 +545,7 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 
 *필수 조건*:
 
-| 필수 요소 | 명령 | 테스트 된 버전 |
+| 필수 조건 | 명령 | 테스트 된 버전 |
 | ------------ | ------- | --------------- |
 | [Bash](https://www.gnu.org/software/bash/) | bash | 3.5.27, 4.4.23 |
 | [coreutils](https://www.gnu.org/software/coreutils/) | tr | 8.28 |

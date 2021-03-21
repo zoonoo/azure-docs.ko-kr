@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899272"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위한 CloudSimple 사설 클라우드 최적화
@@ -44,16 +44,16 @@ Oracle RAC 가상 컴퓨터에는 특정 기능에 사용 되는 여러 디스�
 
 다음 예에서는 아래 테이블에 정의 된 디스크를 사용 합니다.
 
-| 디스크                                      | 목적                                       | 공유 디스크 |
+| 디스크                                      | 용도                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| OS                                        | 운영 체제 디스크                         | No          |
-| 그리드에                                      | Oracle 그리드 소프트웨어의 설치 위치     | No          |
-| DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | No          |
-| ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | No          |
-| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장 되는 디스크   | Yes         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 로그 디스크 다시 실행                                | Yes         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | Yes         |
-| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | Yes         |
+| OS                                        | 운영 체제 디스크                         | 아니요          |
+| 그리드에                                      | Oracle 그리드 소프트웨어의 설치 위치     | 아니요          |
+| DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 아니요          |
+| ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 아니요          |
+| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장 되는 디스크   | 예         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 로그 디스크 다시 실행                                | 예         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | 예         |
+| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | 예         |
 
 ![Oracle 가상 머신 디스크 구성](media/oracle-vmdk.png)
 

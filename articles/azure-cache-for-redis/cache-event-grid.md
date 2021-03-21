@@ -7,10 +7,10 @@ ms.date: 12/21/2020
 ms.topic: conceptual
 ms.service: cache
 ms.openlocfilehash: 0a0809076367356739dfeadcf8dd63f88866a987
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99056073"
 ---
 # <a name="azure-cache-for-redis-event-grid-overview"></a>Redis 용 Azure Cache Event Grid 개요 
@@ -23,9 +23,9 @@ Redis 이벤트에 대 한 Azure Cache를 시도 하려면 다음 빠른 시작 
 
 |이 도구를 사용 하려면 다음을 수행 합니다.    |이 빠른 시작을 참조 하세요. |
 |--|-|
-|Azure portal    |[빠른 시작: Azure Portal을 사용 하 여 Redis 이벤트에 대 한 Azure Cache를 웹 끝점으로 라우팅합니다.](cache-event-grid-quickstart-portal.md)|
-|PowerShell    |[빠른 시작: PowerShell을 사용 하 여 Redis 이벤트에 대 한 Azure Cache를 웹 엔드포인트로 라우팅](cache-event-grid-quickstart-powershell.md)|
-|Azure CLI    |[빠른 시작: Azure CLI 사용 하 여 Redis 이벤트에 대 한 Azure Cache를 웹 엔드포인트로 라우팅](cache-event-grid-quickstart-cli.md)|
+|Azure portal    |[빠른 시작: Azure Portal을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅](cache-event-grid-quickstart-portal.md)|
+|PowerShell    |[빠른 시작: PowerShell을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅](cache-event-grid-quickstart-powershell.md)|
+|Azure CLI    |[빠른 시작: Azure CLI를 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅](cache-event-grid-quickstart-cli.md)|
 
 ## <a name="the-event-model"></a>이벤트 모델
 

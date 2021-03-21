@@ -4,10 +4,10 @@ description: 이 문서에서는 Kubernetes 클러스터를 사용 하 여 프�
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731734"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>컨테이너 insights를 사용 하 여 스크랩의 프로메테우스 구성
@@ -24,7 +24,7 @@ ms.locfileid: "101731734"
 
 스크랩에서 호스트 되는 Kubernetes 클러스터에서 지원 되는 프로메테우스 메트릭은 다음과 같습니다.
 
-- AKS(Azure Kubernetes Service)
+- Azure Kubernetes Service(AKS)
 - Azure Stack 또는 온-프레미스
 - Azure Red Hat OpenShift 버전 3(sp3)
 - Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x
@@ -36,7 +36,7 @@ ms.locfileid: "101731734"
 * 클러스터 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 예를 들어 kube와 같은 k8s 서비스 및 응용 프로그램과 관련 된 pod 주석을 사용할 수 있습니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[프로메테우스 data_collection_settings. cluster]* 에 정의 됩니다.
 * 노드 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[Prometheus_data_collection_settings. node]* 에 정의 됩니다.
 
-| 엔드포인트 | Scope | 예제 |
+| 엔드포인트 | 범위 | 예제 |
 |----------|-------|---------|
 | Pod 주석 | 클러스터 전체 | 달 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 서비스 | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -44,10 +44,10 @@ ms.locfileid: "101731734"
 
 URL을 지정 하면 컨테이너 insights는 끝점을 스크랩 합니다. Kubernetes service를 지정 하면 서비스 이름이 클러스터 DNS 서버를 통해 확인 되어 IP 주소를 가져온 다음 확인 된 서비스가 스크랩 됩니다.
 
-|Scope | 키 | 데이터 형식 | 값 | Description |
+|범위 | 키 | 데이터 형식 | 값 | 설명 |
 |------|-----|-----------|-------|-------------|
 | 클러스터 전체 | | | | 다음 세 가지 방법 중 하나를 지정 하 여 메트릭에 대 한 끝점을 스크랩. |
-| | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예: `urls=[$NODE_IP/metrics]` ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | | `kubernetes_services` | String | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 예를 들면 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`입니다.|
 | | `monitor_kubernetes_pods` | 부울 | true 또는 false | `true`클러스터 전체 설정에서로 설정 된 경우 컨테이너 insights 에이전트는 다음 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | 부울 | true 또는 false | Pod의 스크랩를 사용 하도록 설정 합니다. `monitor_kubernetes_pods`은 `true`로 설정해야 합니다. |
@@ -55,7 +55,7 @@ URL을 지정 하면 컨테이너 insights는 끝점을 스크랩 합니다. Kub
 | | `prometheus.io/path` | String | 쉼표로 구분 된 배열 | 메트릭을 페치할 HTTP 리소스 경로입니다. 메트릭 경로가이 아닌 경우에는 `/metrics` 이 주석을 사용 하 여 정의 합니다. |
 | | `prometheus.io/port` | String | 9102 | 스크랩 포트를 지정 합니다. 포트가 설정 되지 않은 경우 기본값은 9102입니다. |
 | | `monitor_kubernetes_pods_namespaces` | String | 쉼표로 구분 된 배열 | Kubernetes pod에서 메트릭을 스크랩 네임 스페이스 목록을 허용 합니다.<br> 예를 들어 `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| 노드 차원 | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예: `urls=[$NODE_IP/metrics]` ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| 노드 차원 | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | 노드 전체 또는 클러스터 전체 | `interval` | String | 60 초 | 컬렉션 간격 기본값은 1 분 (60 초)입니다. *[Prometheus_data_collection_settings]* 및/또는 *[prometheus_data_collection_settings]* 에 대 한 컬렉션을 시간 단위 (예: s, m, h)로 수정할 수 있습니다. |
 | 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| String | 쉼표로 구분 된 배열 | 허용 ( `fieldpass` ) 및 허용 안 함 () 목록을 설정 하 여 끝점에서 수집할 특정 메트릭을 지정할 수 있습니다 `fielddrop` . 먼저 허용 목록을 설정 해야 합니다. |
 
@@ -65,7 +65,7 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
 
 다음 단계를 수행 하 여 다음 클러스터에 대 한 ConfigMap 구성 파일을 구성 합니다.
 
-* AKS(Azure Kubernetes Service)
+* Azure Kubernetes Service(AKS)
 * Azure Stack 또는 온-프레미스
 * Azure Red Hat OpenShift 버전 4.x 및 Red Hat OpenShift 버전 4.x
 
@@ -162,7 +162,7 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
 >[!NOTE]
 >Azure Red Hat OpenShift. x의 경우 *openshift-Azure-로깅* 네임 스페이스에 템플릿 configmap 파일이 만들어집니다. 에이전트에서 메트릭 또는 데이터 수집을 적극적으로 스크랩 구성 되어 있지 않습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 컨테이너 화 된 agent 및 프로메테우스 스크랩 설정을 구성 하려면 Azure Red Hat OpenShift 클러스터의 고객 클러스터 관리자 역할의 구성원 인지 확인 합니다. 사용자가 *osa-고객-admins* 그룹의 구성원 인지 확인 하려면 다음 명령을 실행 합니다.
 
@@ -278,7 +278,7 @@ container-azm-ms-agentconfig   4         56m
 
 다음 Kubernetes 환경의 경우:
 
-- AKS(Azure Kubernetes Service)
+- Azure Kubernetes Service(AKS)
 - Azure Stack 또는 온-프레미스
 - Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x
 

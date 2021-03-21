@@ -4,10 +4,10 @@ description: Active Directory 도메인 컨트롤러를 백업 하 고 복원 �
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733556"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Active Directory 도메인 컨트롤러 백업 및 복원
@@ -19,7 +19,7 @@ Active Directory를 백업 하 고 손상, 손상 또는 재해가 발생 하는
 >[!NOTE]
 > 이 문서에서는 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)에서 항목을 복원 하는 방법에 대해서는 설명 하지 않습니다. Azure Active Directory 사용자 복원에 대 한 자세한 내용은 [이 문서](../active-directory/fundamentals/active-directory-users-restore.md)를 참조 하세요.
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 - 도메인 컨트롤러를 하나 이상 백업 했는지 확인 합니다. 둘 이상의 도메인 컨트롤러를 백업 하는 경우 [FSMO (신축 단일 마스터 작업) 역할](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) 을 포함 하는 모든 역할을 백업 해야 합니다.
 

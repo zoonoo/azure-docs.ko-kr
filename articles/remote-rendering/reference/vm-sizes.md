@@ -7,10 +7,10 @@ ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0e2687954fb05ce826e780ae0dbd3931d899885f
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594403"
 ---
 # <a name="server-sizes"></a>서버 크기
@@ -88,7 +88,7 @@ void CreateRenderingSession(ApiHandle<RemoteRenderingClient> client)
 * 모델 변환 쪽에서 [변환 출력 json 파일](../how-tos/conversion/get-information.md)을 검색 하 고 `numFaces` [ *inputstatistics* 섹션](../how-tos/conversion/get-information.md#the-inputstatistics-section) 의 항목을 확인 합니다.
 * 응용 프로그램에서 동적 콘텐츠를 처리 하는 경우 렌더링 된 다각형의 수를 런타임에 동적으로 쿼리할 수 있습니다. [성능 평가 쿼리](../overview/features/performance-queries.md#performance-assessment-queries) 를 사용 하 여 `polygonsRendered` 구조체의 멤버를 확인 `FrameStatistics` 합니다. `PolygonsRendered` `bad` 렌더러가 다각형 제한에 도달 하면 필드가로 설정 됩니다. 이 비동기 쿼리 후 사용자 작업을 수행할 수 있도록 바둑판 배경은 항상 약간의 지연 시간으로 페이드 인 됩니다. 사용자 작업은 인스턴스에서 모델 인스턴스를 숨기 거 나 삭제할 수 있습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 각 구성 유형에 대 한 가격 책정에 대 한 자세한 내용은 [원격 렌더링 가격 책정](https://azure.microsoft.com/pricing/details/remote-rendering) 페이지를 참조 하세요.
 

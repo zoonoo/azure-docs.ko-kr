@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467360"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>양식 인식기 미리 빌드된 수신 모델
@@ -36,7 +36,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 ### <a name="fields-extracted"></a>추출 된 필드
 
-|이름| 유형 | 설명 | 텍스트 | 값 (표준화 된 출력) |
+|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
 |:-----|:----|:----|:----| :----|
 | ReceiptType | 문자열 | 판매 확인 유형 | 항목별 |  |
 | MerchantName | 문자열 | 영수증을 발급 하는 판매자의 이름 | Contoso |  |

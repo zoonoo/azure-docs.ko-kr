@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
 ms.openlocfilehash: 26124f8f650e1006244b4871e26962d417d90fd4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054820"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>리소스를 사용 하 여 Azure 센티널 데이터에 대 한 액세스 관리
@@ -64,7 +64,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용 하도록 설정 합�
 
 |시나리오  |솔루션  |
 |---------|---------|
-|**자회사에는 전체 Azure 센티널 환경이 필요한 SOC 팀이** 있습니다.     |  이 경우 다중 작업 영역 아키텍처를 사용 하 여 데이터 권한을 구분 합니다. <br><br>자세한 내용은 다음을 참조하십시오. <br>- [작업 영역 및 테 넌 트에서 Azure 센티널 확장](extend-sentinel-across-workspaces-tenants.md)<br>    - [여러 작업 영역에서 한 번에 인시던트 사용](multiple-workspace-view.md)          |
+|**자회사에는 전체 Azure 센티널 환경이 필요한 SOC 팀이** 있습니다.     |  이 경우 다중 작업 영역 아키텍처를 사용 하 여 데이터 권한을 구분 합니다. <br><br>자세한 내용은 다음을 참조하세요. <br>- [작업 영역 및 테 넌 트에서 Azure 센티널 확장](extend-sentinel-across-workspaces-tenants.md)<br>    - [여러 작업 영역에서 한 번에 인시던트 사용](multiple-workspace-view.md)          |
 |**특정 유형의 이벤트에 대 한 액세스를 제공** 하려고 합니다.     |  예를 들어 Windows 관리자에 게 모든 시스템의 Windows 보안 이벤트에 대 한 액세스 권한을 제공 합니다. <br><br>이러한 경우 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 를 사용 하 여 각 테이블에 대 한 사용 권한을 정의 합니다.       |
 | **리소스를 기준으로 하지 않거나 이벤트에 있는 필드의 하위 집합에 대 한 액세스를 보다 세분화 된 수준으로 제한**   |   예를 들어 사용자의 자회사에 따라 Office 365 로그에 대 한 액세스를 제한할 수 있습니다. <br><br>이 경우 [Power BI 대시보드 및 보고서](/azure/azure-monitor/platform/powerbi)와의 기본 제공 통합을 사용 하 여 데이터에 대 한 액세스를 제공 합니다.      |
 | | |

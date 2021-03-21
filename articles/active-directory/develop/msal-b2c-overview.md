@@ -14,10 +14,10 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev devx-track-js
 ms.openlocfilehash: 53294a30b38bed7ab7516443277cac24e4fef4c1
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98063725"
 ---
 # <a name="use-the-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>JavaScript 용 Microsoft 인증 라이브러리를 사용 하 여 Azure AD B2C 작업
@@ -32,7 +32,7 @@ Id 관리 서비스로 Azure AD B2C를 사용 하 여 고객이 응용 프로그
 - SPA (단일 페이지 응용 프로그램)에서의 로그인을 지원 하 고 보호 *된* 웹 API를 호출 합니다.
 - 암호 재설정 지원 사용
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 아직 없는 경우 [Azure AD B2C 테 넌 트](../../active-directory-b2c/tutorial-create-tenant.md)를 만듭니다.
 

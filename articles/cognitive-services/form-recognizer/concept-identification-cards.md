@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467841"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>양식 인식기의 미리 빌드된 id (식별 카드) 모델
@@ -31,7 +31,7 @@ Azure 양식 인식기는 미리 빌드된 Id 모델을 사용 하 여 Id (정�
 
 ### <a name="fields-extracted"></a>추출 된 필드
 
-|이름| 유형 | 설명 | 값 | 
+|Name| Type | Description | 값 | 
 |:-----|:----|:----|:----|
 |  국가 | country | ISO 3166 표준을 준수 하는 국가 코드 | 인도네시아 | 
 |  DateOfBirth | date | YYYY-MM-DD 형식의 DOB | "1980-01-01" | 
@@ -41,10 +41,10 @@ Azure 양식 인식기는 미리 빌드된 Id 모델을 사용 하 여 Id (정�
 |  LastName | 문자열 | 추출 된 성 | "BROOKS" |   
 |  Nationality | country | ISO 3166 표준을 준수 하는 국가 코드 | 인도네시아 |
 |  성 | gender | 추출 가능한 값에는 "M", "F" 및 "X"가 포함 됩니다. | "F" | 
-|  MachineReadableZone | object | 두 줄의 44 문자를 포함 하 여 Passport MRZ을 추출 했습니다. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<<<<<<<<<<<<<<<<<<<<<<< 6 715816" |
+|  MachineReadableZone | 개체 | 두 줄의 44 문자를 포함 하 여 Passport MRZ을 추출 했습니다. | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<<<<<<<<<<<<<<<<<<<<<<< 6 715816" |
 |  DocumentType | 문자열 | 문서 유형 (예: Passport, 드라이버 라이선스) | passport |  
 |  주소 | 문자열 | 추출 된 주소 (드라이버의 라이선스에만 해당) | "123 주소에서 도시 WA 99999-1234"|
-|  Region | 문자열 | 추출 된 지역, 시/도, 구/군/시 (드라이버의 라이선스에만 해당) | 워싱턴 | 
+|  지역 | 문자열 | 추출 된 지역, 시/도, 구/군/시 (드라이버의 라이선스에만 해당) | 워싱턴 | 
 
 ### <a name="additional-features"></a>추가 기능
 

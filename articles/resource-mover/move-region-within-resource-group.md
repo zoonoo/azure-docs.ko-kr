@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
 ms.openlocfilehash: 79224c14fc5182df7a699864af3d78c9be36259f
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97797282"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>리소스 그룹에서 영역 간 리소스 이동
@@ -27,7 +27,7 @@ ms.locfileid: "97797282"
 - 이동 하려는 리소스가 있는 구독에 대 한 *소유자* 액세스 권한이 필요 합니다.
     - Azure 구독에서 특정 원본 및 대상 매핑에 대 한 리소스를 처음 추가 하는 경우 리소스 이동 기가 구독에서 신뢰 하는 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (이전에는 MSI (관리 서비스 식별)로 알려짐)를 만듭니다.
     - ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 리소스를 추가하는 데 사용하는 계정에 구독의 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
-- 구독에는 대상 지역에 원본 리소스를 만드는 데 충분 한 할당량이 필요 합니다. 그렇지 않으면 추가 제한을 요청 합니다. [자세히 알아보기](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- 구독에는 대상 지역에 원본 리소스를 만드는 데 충분 한 할당량이 필요 합니다. 그렇지 않으면 추가 제한을 요청 합니다. [자세한 정보를 알아보세요](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - 리소스를 이동하는 대상 지역과 관련된 가격 책정 및 요금을 확인하세요. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하면 도움이 됩니다.
 - 이동 하려는 리소스가 리소스 이동 기에서 지원 되는지 확인 합니다.
     - Azure VM 및 연결된 디스크

@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mathoma
 ms.openlocfilehash: 35fff49a53f5a0a9532fd0dff841356c5deaf3ea
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97724785"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server 백업 및 복원에 Azure Storage 사용
@@ -48,7 +48,7 @@ SQL Server를 백업할 때 발생하는 몇 가지 해결 과제는 다음과 �
 ## <a name="azure-blob-storage-components"></a>Azure Blob storage 구성 요소
 Azure Blob storage에 백업할 때 사용 되는 Azure 구성 요소는 다음과 같습니다.
 
-| 구성 요소 | Description |
+| 구성 요소 | 설명 |
 | --- | --- |
 | **스토리지 계정** |스토리지 계정은 모든 스토리지 서비스를 사용하기 위한 출발점입니다. Azure Blob storage에 액세스 하려면 먼저 Azure Storage 계정을 만듭니다. Azure Blob 저장소에 대 한 자세한 내용은 [Azure blob storage를 사용 하는 방법](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)을 참조 하세요. |
 | **컨테이너** |컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. Azure Blob storage에 SQL Server 백업을 쓰려면 적어도 루트 컨테이너가 만들어져 있어야 합니다. |

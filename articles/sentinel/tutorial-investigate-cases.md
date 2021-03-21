@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
 ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790989"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>자습서: Azure 센티널을 사용 하 여 인시던트 조사
@@ -36,8 +36,8 @@ ms.locfileid: "98790989"
 
 인시던트는 여러 경고를 포함할 수 있습니다. 특정 조사에 대 한 모든 관련 증거의 집계입니다. **분석** 페이지에서 만든 분석 규칙에 따라 인시던트가 생성 됩니다. 심각도 및 상태와 같은 경고와 관련 된 속성은 인시던트 수준에서 설정 됩니다. Azure 센티널에서 찾고 있는 위협 종류와이를 찾는 방법을 알 수 있게 되 면 인시던트를 조사 하 여 검색 된 위협을 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-- 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함 해야 합니다.
+## <a name="prerequisites"></a>필수 구성 요소
+- 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함해야 합니다.
 
 - 인시던트를 할당 해야 하는 게스트 사용자가 있는 경우 사용자에 게 Azure AD 테 넌 트의 [디렉터리 읽기 권한자](../active-directory/roles/permissions-reference.md#directory-readers) 역할이 할당 되어야 합니다. 일반 (비 게스트) 사용자는 기본적으로이 역할을 할당 합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "98790989"
 1. 인시던트를 선택 하 고 **조사** 를 선택 합니다. 그러면 조사 그래프로 이동 합니다. 그래프는 경고에 직접 연결 된 엔터티를 설명 하 고 각 리소스를 추가로 연결 합니다.
 
    > [!IMPORTANT] 
-   > - 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함 해야 합니다.
+   > - 분석 규칙을 설정할 때 엔터티 매핑 필드를 사용한 경우에만 인시던트를 조사할 수 있습니다. 조사 그래프에서 원본 인시던트에 엔터티를 포함해야 합니다.
    >
    > - Azure 센티널은 현재 **30 일 이전에 인시던트 조사를** 지원 합니다.
 

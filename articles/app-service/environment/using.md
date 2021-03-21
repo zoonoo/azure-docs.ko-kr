@@ -8,10 +8,10 @@ ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: d4cd673b5029d8379a699becd7339a265c787390
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100586404"
 ---
 # <a name="using-an-app-service-environment"></a>App Service Environment 사용
@@ -108,7 +108,7 @@ ASE를 사용 하 여 게시 끝점은 개인 끝점에서 사용 하는 인바�
 
 추가 변경 없이, 게시 끝점은 인터넷에 액세스할 수 없기 때문에 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 ILB ASE와 작동 하지 않습니다. ILB ASE가 포함 된 가상 네트워크에 자체 호스트 된 릴리스 에이전트를 설치 하 여 Azure DevOps에서 ILB ASE에 게시를 사용 하도록 설정할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 

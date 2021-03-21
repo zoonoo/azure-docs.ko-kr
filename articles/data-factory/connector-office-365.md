@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jingwang
 ms.openlocfilehash: a7df69e7c5701074b40d6fa8340d8a0e247f00de
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100393006"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Office 365에서 Azure로 데이터 복사
@@ -30,7 +30,7 @@ ADF Office 365 커넥터 및 Microsoft Graph data connect를 사용 하면 주�
 >- 복사 작업에 사용된 Azure Integration Runtime 지역 및 대상이 Office 365 테넌트 사용자의 사서함이 있는 곳과 동일한 지역에 있어야 합니다. Azure IR 위치가 결정되는 방식을 이해하려면 [여기](concepts-integration-runtime.md#integration-runtime-location)를 참조하세요. 지원되는 Office 지역 및 해당되는 Azure 지역 목록은 [여기 표](/graph/data-connect-datasets#regions)를 참조하세요.
 >- 서비스 사용자 인증은 Azure Blob Storage, Azure Data Lake Storage Gen1 및 Azure Data Lake Storage Gen2 대상 저장소로 지원 되는 유일한 인증 메커니즘입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Office 365에서 Azure로 데이터를 복사하려면 다음 필수 구성 요소 단계를 완료해야 합니다.
 
@@ -74,8 +74,8 @@ Office 365 연결된 서비스에 대해 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Office365** 로 설정해야 합니다. | Yes |
-| office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | Yes |
+| type | 형식 속성은 **Office365** 로 설정해야 합니다. | 예 |
+| office365TenantId | Office 365 계정이 속하는 Azure 테넌트 ID입니다. | 예 |
 | servicePrincipalTenantId | Azure AD 웹 애플리케이션이 상주하는 테넌트 정보를 지정합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. | 예 |
@@ -115,7 +115,7 @@ Office 365의 데이터를 복사하려는 경우 다음과 같은 속성이 지
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성은 **Office365Table** 로 설정해야 합니다. | 예 |
-| tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](/graph/data-connect-datasets#datasets)를 참조하세요. | Yes |
+| tableName | Office 365에서 추출할 데이터 세트의 이름입니다. 추출할 수 있는 Office 365 데이터 세트 목록은 [여기](/graph/data-connect-datasets#datasets)를 참조하세요. | 예 |
 
 `dateFilterColumn`데이터 집합에서,, 및를 설정 하는 경우 계속 해 서 `startTime` `endTime` 는 그대로 지원 되지만 `userScopeFilterUri` 활동 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
@@ -148,9 +148,9 @@ Office 365에서 데이터를 복사 하려면 복사 작업 **원본** 섹션�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **Office365Source** 로 설정 해야 합니다. | Yes |
-| allowedGroups | 그룹 선택 조건자입니다.  이 속성을 사용 하 여 데이터를 검색할 사용자 그룹을 최대 10 개까지 선택할 수 있습니다.  그룹이 지정 되지 않은 경우 전체 조직에 대 한 데이터가 반환 됩니다. | 예 |
-| userScopeFilterUri | `allowedGroups`속성이 지정 되지 않은 경우 전체 테 넌 트에 적용 되는 조건자 식을 사용 하 여 Office 365에서 추출할 특정 행을 필터링 할 수 있습니다. 조건자 형식은 Microsoft Graph Api의 쿼리 형식과 일치 해야 합니다 (예:) `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` . | 예 |
+| type | 복사 작업 원본의 type 속성은 **Office365Source** 로 설정 해야 합니다. | 예 |
+| allowedGroups | 그룹 선택 조건자입니다.  이 속성을 사용 하 여 데이터를 검색할 사용자 그룹을 최대 10 개까지 선택할 수 있습니다.  그룹이 지정 되지 않은 경우 전체 조직에 대 한 데이터가 반환 됩니다. | 아니요 |
+| userScopeFilterUri | `allowedGroups`속성이 지정 되지 않은 경우 전체 테 넌 트에 적용 되는 조건자 식을 사용 하 여 Office 365에서 추출할 특정 행을 필터링 할 수 있습니다. 조건자 형식은 Microsoft Graph Api의 쿼리 형식과 일치 해야 합니다 (예:) `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'` . | 아니요 |
 | dateFilterColumn | DateTime 필터 열의 이름입니다. 이 속성을 사용 하 여 Office 365 데이터가 추출 되는 시간 범위를 제한할 수 있습니다. | 데이터 집합에 하나 이상의 DateTime 열이 있는 경우 예입니다. 이 날짜/시간 필터를 필요로 하는 데이터 집합 목록을 [보려면 여기](/graph/data-connect-filtering#filtering) 를 참조 하세요. |
 | startTime | 필터링 할 시작 날짜/시간 값입니다. | `dateFilterColumn`이 지정 된 경우 예 |
 | endTime | 필터링 할 끝 날짜/시간 값입니다. | `dateFilterColumn`이 지정 된 경우 예 |

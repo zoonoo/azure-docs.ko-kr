@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: cherylmc
 ms.openlocfilehash: a5cda5d4d447bc04f853ea4a9abd15be75e7e177
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588717"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Azure 방호를 사용 하 여 Linux 가상 머신에 SSH를 사용 하 여 연결
@@ -25,7 +25,7 @@ Azure 방호를 사용 하 여 SSH를 통해 Linux 가상 머신에 연결할 �
 
 SSH 개인 키는로 시작 하 고로 끝나는 형식 이어야 합니다  `"-----BEGIN RSA PRIVATE KEY-----"` `"-----END RSA PRIVATE KEY-----"` .
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 VM이 상주 하는 가상 네트워크에 대 한 Azure 방호 호스트를 설정 했는지 확인 합니다. 자세한 내용은 [Azure 방호 호스트 만들기](./tutorial-create-host-portal.md)를 참조 하세요. 요새 서비스가 프로 비전 되 고 가상 네트워크에 배포 되 면이를 사용 하 여이 가상 네트워크의 VM에 연결할 수 있습니다. 
 

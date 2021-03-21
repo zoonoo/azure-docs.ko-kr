@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
 ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049851"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Azure Digital Twins 인스턴스를 다른 Azure 지역으로 이동
@@ -31,7 +31,7 @@ Azure Digital Twins 인스턴스를 한 지역에서 다른 지역으로 이동 
     - 연결 된 리소스를 다시 링크 합니다.
 1. 원본 리소스 정리: 원본 인스턴스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스의 구성 요소를 확인 하 여 다시 만들어야 하는 모든 부분을 명확 하 게 파악할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure Digital Twins 인스턴스를 다시 만들기 전에 원래 인스턴스�
 * 내 인스턴스가 *다른 Azure 서비스에 연결* 하는 위치 몇 가지 일반적인 통합 지점은 다음과 같습니다.
 
     - Azure Event Grid, Azure Event Hubs 또는 Azure Service Bus
-    - Azure 기능
+    - Azure Functions
     - Azure Logic Apps
     - Azure Time Series Insights
     - Azure Maps
@@ -91,7 +91,7 @@ Azure Digital Twins 탐색기를 계속 진행 하려면 먼저 샘플 응용 �
 
 이제 컴퓨터의 브라우저에서 Azure Digital Twins 탐색기 샘플 앱을 실행 해야 합니다. 이 샘플은 원래 Azure Digital Twins 인스턴스에 연결 해야 합니다.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Localhost: 3000에서 실행 중인 앱을 표시 하는 브라우저 창입니다. 앱을 Azure Digital Twins 탐색기 라고 하며 쿼리 탐색기, 모델 뷰, 그래프 뷰 및 속성 탐색기에 대 한 상자를 포함 합니다. 아직 화면 데이터는 없습니다." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 Azure Digital Twins Explorer라고 하며 쿼리 탐색기, 모델 보기, 그래프 보기 및 속성 탐색기에 대한 상자를 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 연결을 확인 하려면 **쿼리 실행** 단추를 선택 하 여 **그래프 탐색기** 상자에서 그래프의 모든 쌍 및 관계를 표시 하는 기본 쿼리를 실행 합니다.
 
@@ -157,7 +157,7 @@ Azure Digital Twins 탐색기를 계속 진행 하려면 먼저 샘플 응용 �
 
 파일 선택기 상자에서 다운로드 한 그래프로 이동 합니다. Graph **. json** 파일을 선택 하 고 **열기** 를 선택 합니다.
 
-몇 초 후에 Azure Digital Twins 탐색기에서 로드할 그래프의 미리 보기를 보여 주는 **가져오기** 보기가 열립니다.
+몇 초 후 Azure Digital Twins Explorer에서 **가져오기** 보기가 열리고 로드할 그래프의 미리 보기가 표시됩니다.
 
 그래프 업로드를 확인하려면 **그래프 보기** 상자의 오른쪽 위 모서리에서 **저장** 아이콘을 선택합니다.
 

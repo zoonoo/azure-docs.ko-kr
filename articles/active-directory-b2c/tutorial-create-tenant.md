@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518010"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579691"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>자습서: Azure Active Directory B2C 테넌트 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "102518010"
 > [!NOTE]
 > 구독당 최대 20개의 테넌트를 만들 수 있습니다. 이 제한 사항을 사용하면 서비스 거부 공격과 같은 리소스에 대한 위협을 방지하고 Azure Portal 및 기본 테넌트 생성 API 모두에 적용됩니다. 20개 이상의 테넌트를 만들어야 하는 경우 [Microsoft 지원](support-options.md)에 문의하세요.
 > 
-> 이전에 삭제하려고 했던 테넌트 이름을 다시 사용하려고 했지만 도메인 이름을 입력할 때 "다른 디렉터리에서 이미 사용 중입니다."라는 오류가 표시되는 경우 [먼저 다음 단계에 따라 테넌트를 먼저 완전히 삭제](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant)해야 합니다. 구독 관리자 이상의 역할이 필요합니다. 테넌트를 삭제한 후 도메인 이름을 다시 사용하기 전에 로그아웃했다가 다시 로그인해야 할 수도 있습니다.
+> 이전에 삭제하려고 했던 테넌트 이름을 다시 사용하려고 했지만 도메인 이름을 입력할 때 "다른 디렉터리에서 이미 사용 중입니다."라는 오류가 표시되는 경우 [먼저 다음 단계에 따라 테넌트를 먼저 완전히 삭제](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant)해야 합니다. 구독 관리자 이상의 역할이 필요합니다. 테넌트를 삭제한 후 도메인 이름을 다시 사용하기 전에 로그아웃했다가 다시 로그인해야 할 수도 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

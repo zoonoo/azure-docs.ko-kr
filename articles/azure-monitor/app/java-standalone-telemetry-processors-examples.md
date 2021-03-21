@@ -1,5 +1,5 @@
 ---
-title: 원격 분석 프로세서 예제-Java 용 Azure Monitor Application Insights
+title: 원격 분석 프로세서의 예 - Java용 Azure Monitor Application Insights
 description: Java 용 Azure Monitor Application Insights에서 원격 분석 프로세서를 표시 하는 예제를 살펴봅니다.
 ms.topic: conceptual
 ms.date: 12/29/2020
@@ -7,13 +7,13 @@ author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
 ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734590"
 ---
-# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서 예제-Java 용 Azure Monitor Application Insights
+# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서의 예 - Java용 Azure Monitor Application Insights
 
 이 문서에서는 Java 용 Application Insights의 원격 분석 프로세서 예제를 제공 합니다. 구성 포함 및 제외에 대 한 샘플을 찾을 수 있습니다. 또한 특성 프로세서 및 범위 프로세서에 대 한 샘플을 찾을 수 있습니다.
 ## <a name="include-and-exclude-samples"></a>Include 및 exclude 샘플
@@ -304,7 +304,7 @@ ms.locfileid: "101734590"
 }
 ```
 
-### <a name="hash"></a>Hash
+### <a name="hash"></a>해시
 
 다음 샘플에서는 기존 특성 값을 해시 하는 방법을 보여 줍니다.
 

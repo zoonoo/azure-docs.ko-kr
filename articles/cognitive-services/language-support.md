@@ -11,10 +11,10 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472053"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
@@ -28,7 +28,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
 
-## <a name="vision"></a>시각
+## <a name="vision"></a>Vision
 
 * [Computer Vision](./computer-vision/language-support.md)
 * [폼 인식기 (미리 보기)](./form-recognizer/language-support.md)

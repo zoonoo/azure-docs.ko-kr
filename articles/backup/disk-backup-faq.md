@@ -4,10 +4,10 @@ description: Azure Disk Backup에 대해 자주 묻는 질문에 대 한 답변 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734565"
 ---
 # <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Azure Disk Backup (미리 보기)에 대 한 질문과 대답
@@ -19,7 +19,7 @@ ms.locfileid: "98734565"
 
 이 문서에서는 Azure Disk Backup에 대해 자주 묻는 질문과 대답을 설명 합니다. [Azure Disk backup](disk-backup-overview.md) 지역 가용성, 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="can-i-back-up-the-disk-using-the-azure-disk-backup-solution-if-the-same-disk-is-backed-up-using-azure-virtual-machine-backup"></a>Azure 가상 머신 백업을 사용 하 여 동일한 디스크를 백업 하는 경우 Azure Disk Backup 솔루션을 사용 하 여 디스크를 백업할 수 있나요?
 
@@ -79,7 +79,7 @@ Azure Backup는 부모 디스크의 저장소 유형과 관계 없이 표준 HDD
 
 아니요, 가상 머신에 연결 된 여러 디스크의 지정 시간 스냅숏은 지원 되지 않습니다. 자세한 내용은 [백업 구성](backup-managed-disks.md#configure-backup) 및 제한 사항에 대 한 자세한 내용은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 
-### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>여러 구독에서 디스크를 백업 하는 옵션은 무엇입니까?
+### <a name="what-are-my-options-to-back-up-disks-across-multiple-subscriptions"></a>여러 구독에서 디스크를 백업하는 옵션은 무엇인가요?
 
 현재는 Azure Portal 사용 하 여 디스크 백업을 구성 하는 것은 동일한 구독의 최대 20 개의 디스크로 제한 됩니다.
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cc5227cb4b5de02cba65a60dd469da93d3767e5
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96744060"
 ---
 # <a name="how-it-works-azure-ad-multi-factor-authentication"></a>작동 방법: Azure AD Multi-Factor Authentication
@@ -48,7 +48,7 @@ Azure AD Multi-Factor Authentication와 함께 다음과 같은 추가 형태의
 
 * Microsoft Authenticator 앱
 * OATH 하드웨어 토큰
-* SMS
+* sms
 * 음성 통화
 
 ## <a name="how-to-enable-and-use-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication를 사용 하도록 설정 하 고 사용 하는 방법
