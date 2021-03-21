@@ -4,10 +4,10 @@ description: 이 지침에서는 Azure Policy에서 정책을 준수하지 않�
 ms.date: 02/17/2021
 ms.topic: how-to
 ms.openlocfilehash: e567bedf48393a36215c1ac3f3d11f467ae7badd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101742231"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정

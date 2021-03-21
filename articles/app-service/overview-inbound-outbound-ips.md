@@ -3,13 +3,13 @@ title: 인바운드/아웃 바운드 IP 주소
 description: Azure App Service에서 인바운드 및 아웃 바운드 IP 주소를 사용 하는 방법, 변경 될 때 그리고 앱에 대 한 주소를 찾는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18
+ms.openlocfilehash: 4237e51251a7ece05800aa7efa328a9c6cf65e76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746152"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591370"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -19,7 +19,7 @@ ms.locfileid: "92746152"
 
 ## <a name="how-ip-addresses-work-in-app-service"></a>App Service에서 IP 주소가 작동 하는 방식
 
-App Service 앱은 App Service 계획에서 실행 되 고 App Service 계획은 Azure 인프라의 배포 단위 중 하나 (내부적으로는 웹 공간 이라고 함)에 배포 됩니다. 각 배포 단위에는 하나의 공용 인바운드 IP 주소와 4 개의 아웃 바운드 IP 주소를 포함 하는 최대 5 개의 가상 IP 주소가 할당 됩니다. 동일한 배포 단위의 모든 App Service 계획과 이러한 계획에서 실행 되는 앱 인스턴스는 동일한 가상 IP 주소 집합을 공유 합니다. App Service Environment ( [격리 된 계층](https://azure.microsoft.com/pricing/details/app-service/)의 App Service 계획)의 경우 App Service 계획은 배포 단위 자체 이므로 가상 IP 주소는 결과적으로 전용입니다.
+App Service 앱은 App Service 계획에서 실행 되 고 App Service 계획은 Azure 인프라의 배포 단위 중 하나 (내부적으로는 웹 공간 이라고 함)에 배포 됩니다. 각 배포 단위에는 하나의 공용 인바운드 IP 주소와 [아웃 바운드 ip 주소](#find-outbound-ips)집합을 포함 하는 가상 ip 주소 집합이 할당 됩니다. 동일한 배포 단위의 모든 App Service 계획과 이러한 계획에서 실행 되는 앱 인스턴스는 동일한 가상 IP 주소 집합을 공유 합니다. App Service Environment ( [격리 된 계층](https://azure.microsoft.com/pricing/details/app-service/)의 App Service 계획)의 경우 App Service 계획은 배포 단위 자체 이므로 가상 IP 주소는 결과적으로 전용입니다.
 
 배포 단위 간에 App Service 계획을 이동할 수 없으므로 일반적으로 앱에 할당 된 가상 IP 주소는 동일 하 게 유지 되지만 예외가 있습니다.
 
@@ -51,7 +51,7 @@ nslookup <app-name>.azurewebsites.net
 
 - 앱을 삭제 하 고 다른 리소스 그룹에 다시 만듭니다 (배포 단위는 변경 될 수 있음).
 - 리소스 그룹 _및_ 지역 조합에서 마지막 앱을 삭제 하 고 다시 만듭니다 (배포 단위가 변경 될 수 있음).
-- 하위 계층 ( **기본** , **표준** 및 **프리미엄** )과 **프리미엄 V2** 계층 (IP 주소를 집합에 추가 하거나 집합에서 뺄 수 있음) 사이에 앱 크기를 조정 합니다.
+- 하위 계층 (**기본**, **표준** 및 **프리미엄**)과 **프리미엄 V2** 계층 (IP 주소를 집합에 추가 하거나 집합에서 뺄 수 있음) 사이에 앱 크기를 조정 합니다.
 
 가격 책정 계층에 관계 없이 응용 프로그램에서 사용할 수 있는 모든 아웃 바운드 IP 주소 집합을 찾을 수 있습니다 .이는 `possibleOutboundIpAddresses` Azure Portal의 **속성** 블레이드에서 속성 또는 **추가 아웃 바운드 ip 주소** 필드를 검색 합니다. [아웃바운드 IP 찾기](#find-outbound-ips)를 참조하세요.
 

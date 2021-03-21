@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100546060"
 ---
 # <a name="machine-learning-features"></a>기계 학습 기능
@@ -243,7 +243,7 @@ Utterance 텍스트가 필수 기능과 일치 하지 않으면 추출 되지 �
 올바른 레이블이 지정 된 예 길이 발언는 엔터티가 중첩 되는 방식을 표시 하는 방법으로 표시 됩니다. 
 
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 모범 [사례](luis-concept-best-practices.md)를 알아보세요.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467020"
 ---
 # <a name="form-recognizer-layout-service"></a>폼 인식기 레이아웃 서비스
@@ -95,7 +95,7 @@ JSON 출력에는 두 부분이 있습니다.
 
 Layout API는 여러 텍스트 각도 및 색을 사용 하 여 문서 (PDF, TIFF) 및 이미지 (JPG, PNG, BMP)에서 텍스트를 추출 합니다. 문서, 팩스, 인쇄 및/또는 필기 (영어 전용) 텍스트 및 혼합 모드의 사진을 허용 합니다. 텍스트는 줄, 단어, 경계 상자, 신뢰도 점수 및 스타일 (필기 또는 기타)에 제공 된 정보로 추출 됩니다. 모든 텍스트 정보는 `readResults` JSON 출력의 섹션에 포함 됩니다. 
 
-### <a name="tables"></a>테이블
+### <a name="tables"></a>Tables
 
 Layout API는 문서 (PDF, TIFF) 및 이미지 (JPG, PNG, BMP)에서 테이블을 추출 합니다. 문서는 검색, photographed 또는 디지털화 할 수 있습니다. 테이블은 병합 된 셀 또는 열을 사용 하 여 복잡할 수 있으며 테두리를 포함 하거나 포함 하지 않고 홀수를 사용할 수 있습니다. 추출 된 테이블 정보에는 열과 행, 행 범위 및 열 범위 수가 포함 됩니다. 각 셀은 경계 상자와 섹션에서 추출 된 텍스트에 대 한 참조를 사용 하 여 추출 됩니다 `readResults` . 테이블 정보는 `pageResults` JSON 출력의 섹션에 있습니다. 
 

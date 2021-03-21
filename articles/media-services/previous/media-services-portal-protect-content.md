@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: c6620158965271ba99f80c2fbd36504fdbea7ecf
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103010782"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
@@ -75,7 +75,7 @@ PlayReady 라이선스 템플릿을 PlayReady 라이선스에서 사용할 수 �
 ## <a name="widevine-license-template"></a>Widevine 라이선스 템플릿
 Widevine 라이선스 템플릿을 Widevine 라이선스에서 사용할 수 있도록 하는 기능을 설정합니다.
 
-### <a name="basic"></a>기본
+### <a name="basic"></a>Basic
 **기본** 을 선택하면 템플릿이 모든 기본값으로 만들어집니다.
 
 ### <a name="advanced"></a>고급
@@ -111,7 +111,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성** 을 �
 
     b. **MPEG-DASH를 사용하는 PlayReady 및 Widevine + HLS를 사용하는 FairPlay** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다. 이 옵션은 FairPlay의 HLS 스트림도 암호화합니다.
 
-    c. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
+    다. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
 
     d. **MPEG-DASH만 사용하는 Widevine** - Widevine DRM의 MPEG-DASH를 동적으로 암호화합니다.
     

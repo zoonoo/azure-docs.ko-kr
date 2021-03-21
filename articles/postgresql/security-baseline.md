@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d1ff047c44833a94ae9db0a410f501a1f23a369f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576240"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 용 Azure 보안 기준-단일 서버
@@ -574,7 +574,7 @@ Microsoft는 Azure Database for PostgreSQL에 대한 기본 인프라를 관리�
 
 CMK(고객 관리형 키)를 Azure Database for PostgreSQL 단일 서버에 사용하는 데이터 암호화를 사용하면 저장 데이터 보호에 대한 고유한 키(BYOK)를 가져올 수 있습니다. 현재 이 기능을 사용하려면 액세스를 요청해야 합니다. 이렇게 하려면 다음에 문의하세요.
 
-AskAzureDBforPostgreSQL@service.microsoft.com입니다.
+AskAzureDBforPostgreSQL@service.microsoft.com.
 
 - [Azure Database for PostgreSQL에 대 한 미사용 암호화 이해](concepts-security.md)
 

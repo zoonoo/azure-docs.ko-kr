@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
 ms.openlocfilehash: 78ec0af0acbb74436af16abba75d64de061d5268
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202168"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Azure Key Vault 인증서 가져오기 FAQ
@@ -87,4 +87,4 @@ PEM 파일의 내용이 UNIX 스타일의 줄 구분 기호를 사용 하는지 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [인증서 Azure Key Vault](./about-certificates.md)
+- [Azure Key Vault 인증서](./about-certificates.md)

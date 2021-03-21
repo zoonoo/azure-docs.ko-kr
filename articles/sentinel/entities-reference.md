@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 17a4df3037f9922d92fca924de0d246458cfa08e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456306"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Azure 센티널 엔터티 형식 참조
@@ -34,25 +34,25 @@ ms.locfileid: "102456306"
 
 | 엔터티 유형 | 식별자 | 필수 식별자 | 가장 강력한 식별자 |
 | - | - | - | - |
-| [**사용자 계정**](#user-account)<br>*계정일* | 이름<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined 됨<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>이름<br>AadUserId<br>PUID<br>ObjectGuid | 이름 + NTDomain<br>이름 + UPNSuffix<br>AADUserId<br>Sid |
+| [**사용자 계정**](#user-account)<br>*계정일* | Name<br>FullName<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined 됨<br>DisplayName<br>ObjectGuid | FullName<br>Sid<br>Name<br>AadUserId<br>PUID<br>ObjectGuid | 이름 + NTDomain<br>이름 + UPNSuffix<br>AADUserId<br>Sid |
 | [**호스트**](#host) | DnsDomain<br>NTDomain<br>HostName<br>FullName<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined 됨 | FullName<br>HostName<br>NetBiosName<br>AzureID<br>OMSAgentID | 호스트 이름 + NTDomain<br>호스트 이름 + DnsDomain<br>NetBiosName + NTDomain<br>NetBiosName + DnsDomain<br>AzureID<br>OMSAgentID |
 | [**IP 주소**](#ip-address)<br>*TCP/IP* | 주소 | 주소 | |
-| [**맬웨어**](#malware) | 속성<br>Category | 이름 | |
-| [**파일**](#file) | 디렉터리<br>속성 | 속성 | |
+| [**맬웨어**](#malware) | 속성<br>Category | Name | |
+| [**File**](#file) | 디렉터리<br>속성 | 속성 | |
 | [**Process**](#process) | ProcessId<br>명령줄<br>ElevationToken<br>CreationTimeUtc | 명령줄<br>ProcessId | |
-| [**클라우드 응용 프로그램**](#cloud-application)<br>*(CloudApplication)* | AppId<br>이름<br>InstanceName | AppId<br>이름 | |
+| [**클라우드 응용 프로그램**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name | |
 | [**도메인 이름**](#domain-name)<br>*DNS* | DomainName | DomainName | |
 | [**Azure 리소스**](#azure-resource) | ResourceId | ResourceId | |
 | [**파일 해시**](#file-hash)<br>*Get-filehash* | 알고리즘<br>값 | 알고리즘 + 값 | |
 | [**레지스트리 키**](#registry-key) | Hive<br>키 | Hive<br>키 | Hive + 키 |
-| [**레지스트리 값**](#registry-value) | 이름<br>값<br>ValueType | 이름 | |
+| [**레지스트리 값**](#registry-value) | Name<br>값<br>ValueType | Name | |
 | [**보안 그룹**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
 | [**URL**](#url) | Url | Url | |
 | [**IoT 장치**](#iot-device) | IoTHub<br>DeviceId<br>DeviceName<br>IoTSecurityAgentId<br>DeviceType<br>원본<br>SourceRef<br>제조업체<br>모델<br>OperatingSystem<br>IpAddress<br>MacAddress<br>프로토콜<br>SerialNumber | IoTHub<br>DeviceId | IoTHub + DeviceId |
 | [**편지함**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Upn<br>Msds-externaldirectoryobjectid<br>RiskLevel | MailboxPrimaryAddress | |
 | [**메일 클러스터**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>위협<br>쿼리<br>QueryTime<br>MailCount<br>IsVolumeAnomaly<br>원본<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>Get-clustergroup | 쿼리<br>원본 | 쿼리 + 소스 |
-| [**메일 메시지**](#mail-message) | 받는 사람<br>Urls<br>위협<br>보낸 사람<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>이름별<br>NetworkMessageId<br>InternetMessageId<br>제목<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>위조 방지<br>DeliveryAction<br>DeliveryLocation<br>언어<br>ThreatDetectionMethods | NetworkMessageId<br>받는 사람 | NetworkMessageId + 받는 사람 |
-| [**전송 메일**](#submission-mail) | SubmissionId<br>SubmissionDate<br>제출자<br>NetworkMessageId<br>타임스탬프<br>받는 사람<br>보낸 사람<br>SenderIp<br>제목<br>ReportType | SubmissionId<br>NetworkMessageId<br>받는 사람<br>제출자 |  |
+| [**메일 메시지**](#mail-message) | 받는 사람<br>Urls<br>위협<br>보낸 사람<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>이름별<br>NetworkMessageId<br>InternetMessageId<br>주체<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>위조 방지<br>DeliveryAction<br>DeliveryLocation<br>언어<br>ThreatDetectionMethods | NetworkMessageId<br>받는 사람 | NetworkMessageId + 받는 사람 |
+| [**전송 메일**](#submission-mail) | SubmissionId<br>SubmissionDate<br>제출자<br>NetworkMessageId<br>타임스탬프<br>받는 사람<br>보낸 사람<br>SenderIp<br>주체<br>ReportType | SubmissionId<br>NetworkMessageId<br>받는 사람<br>제출자 |  |
 |
 
 ## <a name="entity-type-schemas"></a>엔터티 형식 스키마
@@ -66,7 +66,7 @@ ms.locfileid: "102456306"
 
 *엔터티 이름: 계정*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 계정일 |
 | Name | String | 계정의 이름입니다. 이 필드에는 도메인을 추가 하지 않은 이름만 포함 해야 합니다. |
@@ -98,11 +98,11 @@ ms.locfileid: "102456306"
 
 계정 엔터티의 약한 식별자:
 
-- 이름
+- Name
 
 ## <a name="host"></a>호스트
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 호스팅하기 |
 | DnsDomain | String | 이 호스트가 속한 DNS 도메인입니다. 도메인에 대 한 전체 DNS 접미사 (알려진 경우)를 포함 해야 합니다. |
@@ -135,7 +135,7 @@ ms.locfileid: "102456306"
 
 *엔터티 이름: IP*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | tcp/ip |
 | 주소 | String | 문자열 (예: IPv4 또는 IPv6)의 IP 주소입니다. |
@@ -147,7 +147,7 @@ IP 엔터티의 강력한 식별자:
 
 ## <a name="malware"></a>맬웨어
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 악성 |
 | Name | String | 공급 업체의 맬웨어 이름 (예:) `Win32/Toga!rfn` 입니다. |
@@ -160,9 +160,9 @@ IP 엔터티의 강력한 식별자:
 
 - 이름 + 범주
 
-## <a name="file"></a>파일
+## <a name="file"></a>File
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 파일과 |
 | 디렉터리 | String | 파일의 전체 경로입니다. |
@@ -178,7 +178,7 @@ IP 엔터티의 강력한 식별자:
 
 ## <a name="process"></a>Process
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 프로세스 |
 | ProcessId | String | 프로세스 ID입니다. |
@@ -208,7 +208,7 @@ IP 엔터티의 강력한 식별자:
 
 *엔터티 이름: CloudApplication*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' 클라우드 응용 프로그램 ' |
 | AppId | Int | 응용 프로그램의 기술 식별자입니다. 이 값은 [클라우드 응용 프로그램 식별자](#cloud-application-identifiers)목록에 정의 된 값 중 하나 여야 합니다. AppId 필드의 값은 선택 사항입니다. |
@@ -226,7 +226,7 @@ IP 엔터티의 강력한 식별자:
 
 *엔터티 이름: DNS*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | dns |
 | DomainName | String | 경고와 연결 된 DNS 레코드의 이름입니다. |
@@ -243,7 +243,7 @@ DNS 엔터티의 약한 식별자:
 
 ## <a name="azure-resource"></a>Azure 리소스
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' azure-리소스 ' |
 | ResourceId | String | 리소스의 Azure 리소스 ID입니다. |
@@ -260,7 +260,7 @@ Azure 리소스 엔터티의 강력한 식별자:
 
 *엔터티 이름: FileHash*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | get-filehash |
 | 알고리즘 | 열거형 | 해시 알고리즘 유형입니다. 가능한 값은 다음과 같습니다.<li>알 수 없음<li>MD5<li>SHA1<li>SHA256<li>SHA256AC |
@@ -274,7 +274,7 @@ Azure 리소스 엔터티의 강력한 식별자:
 
 *엔터티 이름: RegistryKey*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' 레지스트리 키 ' |
 | Hive | 열거형? | 다음 값 중 하나입니다.<li>HKEY_LOCAL_MACHINE<li>HKEY_CLASSES_ROOT<li>HKEY_CURRENT_CONFIG<li>HKEY_USERS<li>HKEY_CURRENT_USER_LOCAL_SETTINGS<li>HKEY_PERFORMANCE_DATA<li>HKEY_PERFORMANCE_NLSTEXT<li>HKEY_PERFORMANCE_TEXT<li>HKEY_A<li>HKEY_CURRENT_USER |
@@ -288,13 +288,13 @@ Azure 리소스 엔터티의 강력한 식별자:
 
 *엔터티 이름: RegistryValue*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' registry-값 ' |
 | 키 | 엔터티 (RegistryKey) | 레지스트리 키 엔터티입니다. |
 | Name | String | 레지스트리 값 이름입니다. |
 | 값 | String | 값 데이터의 문자열 형식 표현입니다. |
-| ValueType | 열거형? | 다음 값 중 하나입니다.<li>String<li>이진<li>Dword<li>Qword<li>MultiString<li>ExpandString<li>None<li>알 수 없음<br>값은 RegistryValueKind 열거형을 따라야 합니다. |
+| ValueType | 열거형? | 다음 값 중 하나입니다.<li>String<li>이진<li>Dword<li>Qword<li>MultiString<li>ExpandString<li>없음<li>알 수 없음<br>값은 RegistryValueKind 열거형을 따라야 합니다. |
 |
 
 레지스트리 값 엔터티의 강력한 식별자:
@@ -307,7 +307,7 @@ Azure 리소스 엔터티의 강력한 식별자:
 
 *엔터티 이름: SecurityGroup*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' 보안 그룹 ' |
 | DistinguishedName | String | 그룹의 고유 이름입니다. |
@@ -322,7 +322,7 @@ Azure 리소스 엔터티의 강력한 식별자:
 
 ## <a name="url"></a>URL
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | url |
 | Url | URI | 엔터티가 가리키는 전체 URL입니다. |
@@ -338,7 +338,7 @@ URL 엔터티의 약한 식별자:
 
 *엔터티 이름: IoTDevice*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' iotdevice ' |
 | IoTHub | Entity (Remove-azureresource) | 장치가 속한 IoT Hub 나타내는 Remove-azureresource 엔터티입니다. |
@@ -365,13 +365,13 @@ IoT 장치 엔터티의 약한 식별자:
 
 ## <a name="mailbox"></a>사서함
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 편지함 |
 | MailboxPrimaryAddress | String | 사서함의 기본 주소입니다. |
 | DisplayName | String | 사서함의 표시 이름입니다. |
 | Upn | String | 사서함의 UPN입니다. |
-| RiskLevel | 열거형? | 이 사서함의 위험 수준입니다. 가능한 값은 다음과 같습니다.<li>None<li>낮음<li>중간<li>높음 |
+| RiskLevel | 열거형? | 이 사서함의 위험 수준입니다. 가능한 값은 다음과 같습니다.<li>없음<li>낮음<li>중간<li>높음 |
 | Msds-externaldirectoryobjectid | Eid? | 사서함의 AzureAD 식별자입니다. 계정 엔터티의 AadUserId와 유사 하지만이 속성은 사무실 측의 사서함 개체에만 적용 됩니다. |
 |
 
@@ -385,7 +385,7 @@ IoT 장치 엔터티의 약한 식별자:
 > [!NOTE]
 > **Mdo**  =  **Office 365 용 Microsoft Defender**(이전에는 Office 365 O365 ATP (Advanced Threat Protection)로 알려져 있습니다.
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' 메일-클러스터 ' |
 | NetworkMessageIds | IList &lt; 문자열&gt; | 메일 클러스터의 일부인 메일 메시지 Id입니다. |
@@ -412,7 +412,7 @@ IoT 장치 엔터티의 약한 식별자:
 
 *엔터티 이름: Send-mailmessage*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | ' 메일 메시지 ' |
 | 파일 | IList &lt; 파일&gt; | 이 메일 메시지의 첨부 파일에 대 한 파일 엔터티입니다. |
@@ -430,7 +430,7 @@ IoT 장치 엔터티의 약한 식별자:
 | 이름별 | DateTime | 이 메시지를 받은 날짜입니다. |
 | NetworkMessageId | Eid? | 이 메일 메시지의 네트워크 메시지 ID입니다. |
 | InternetMessageId | String | 이 메일 메시지의 인터넷 메시지 ID입니다. |
-| 제목 | String | 이 메일 메시지의 제목입니다. |
+| 주체 | String | 이 메일 메시지의 제목입니다. |
 | BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5 | 단위? | Microsoft Defender for Office 365에서 일치 하거나 비슷한 메일 메시지를 찾는 데 사용 됩니다. |
 | 위조 방지 | 열거형? | 이 메일 메시지의 방향입니다. 가능한 값은 다음과 같습니다.<li>알 수 없음<li>인바운드<li>아웃바운드<li>Intraorg (내부) |
 | DeliveryAction | 열거형? | 이 메일 메시지의 배달 동작입니다. 가능한 값은 다음과 같습니다.<li>알 수 없음<li>배달 Edas스팸<li>배달됨<li>차단<li>대체됨 |
@@ -446,7 +446,7 @@ IoT 장치 엔터티의 약한 식별자:
 
 *엔터티 이름: SubmissionMail*
 
-| 필드 | Type | Description |
+| 필드 | Type | 설명 |
 | ----- | ---- | ----------- |
 | Type | String | 'SubmissionMail' |
 | SubmissionId | Eid? | 제출 ID입니다. |
@@ -457,7 +457,7 @@ IoT 장치 엔터티의 약한 식별자:
 | 받는 사람 | String | 메일의 받는 사람입니다. |
 | 보낸 사람 | String | 메일을 보낸 사람입니다. |
 | SenderIp | String | 발신자의 IP입니다. |
-| 제목 | String | 제출 메일의 제목입니다. |
+| 주체 | String | 제출 메일의 제목입니다. |
 | ReportType | String | 지정 된 인스턴스의 전송 유형입니다. 정크, Phish, 맬웨어 또는 NotJunk에 매핑됩니다. |
 |
 
@@ -468,7 +468,7 @@ SubmissionMail 엔터티의 강력한 식별자:
 
 다음 목록에서는 알려진 클라우드 응용 프로그램에 대 한 식별자를 정의 합니다. 앱 ID 값은 [클라우드 응용 프로그램](#cloud-application) 엔터티 식별자로 사용 됩니다.
 
-|앱 ID|이름|
+|앱 ID|Name|
 |------|----|
 |10026|DocuSign|
 |10395|Anaplan|

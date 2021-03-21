@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102175314"
 ---
 # <a name="authentication-methods-activity"></a>인증 방법 작업 
@@ -42,7 +42,7 @@ ms.locfileid: "102175314"
 
  사용 및 정보에 액세스 하려면 Azure AD Premium P1 또는 P2 라이선스가 필요 합니다. Azure AD Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 인증 방법 사용 및 정보에 액세스 하려면:
 
@@ -121,7 +121,7 @@ ms.locfileid: "102175314"
 
 **등록 및 다시 설정 이벤트** 는 최근 24 시간, 최근 7 일 또는 최근 30 일 동안의 등록 및 다시 설정 이벤트를 표시 합니다.
 
-- Date
+- 날짜
 - 사용자 이름
 - 사용자 
 - 기능 (등록, 다시 설정)

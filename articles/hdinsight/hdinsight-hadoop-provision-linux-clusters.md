@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
 ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101741840"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
@@ -105,7 +105,7 @@ SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 * 최대 길이: 64
 * 예약 된 이름: hadoop, 사용자, oozie, hive, mapred, ambari-qa, 사육 사, tez, hdfs, sqoop, yarn, hcat, ams, hbase, 스톰, 관리자, 관리자, 사용자, user1, 테스트, 사용자 2, test1, user3, 1, 1, 123, a, actuser, adm, 2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ![클러스터 저장소 설정: HDFS 호환 끝점](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
 

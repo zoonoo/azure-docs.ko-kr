@@ -5,14 +5,14 @@ author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: a6a359888e782751892f2a034a8d92a014fd3a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdb971851ba678ce18f5a1c7954e5620740f3a4c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055846"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657572"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>StorSimple 8000 시리즈 업데이트 5.1 릴리스 정보
 
@@ -34,7 +34,11 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 업데이트 5.1에서는 다음과 같은 주요 향상 된 기능 및 버그 수정이 적용 되었습니다.
 
-* **Tls 1.2** -이 StorSimple 업데이트는 모든 클라이언트에서 TLS 1.2을 적용 합니다. 모든 StorSimple 8000 시리즈 장치에 대 한 필수 업데이트입니다.
+* **Tls 1.2** -이 StorSimple 업데이트는 모든 클라이언트에서 TLS 1.2을 적용 합니다. 이는 모든 StorSimple 8000 시리즈 디바이스에 대한 필수 업데이트입니다.
+
+   다음 경고가 표시 되는 경우 계속 하기 전에 장치에서 소프트웨어를 업데이트 해야 합니다.
+
+   하나 이상의 StorSimple 장치에서 이전 버전의 소프트웨어를 실행 하 고 있습니다. TLS 1.2에 대해 사용 가능한 최신 업데이트는 필수 업데이트 이며, 이러한 장치에 즉시 설치 되어야 합니다. TLS 1.2는 모든 Azure Portal 통신에 사용 되며,이 업데이트 없이 장치는 StorSimple 서비스와 통신할 수 없습니다.
 
 ## <a name="known-issues-in-update-51-from-previous-releases"></a>이전 릴리스의 업데이트 5.1의 알려진 문제
 

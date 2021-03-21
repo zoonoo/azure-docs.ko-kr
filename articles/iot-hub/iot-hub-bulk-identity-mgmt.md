@@ -10,10 +10,10 @@ ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92536082"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID 가져오기 및 내보내기
@@ -21,7 +21,7 @@ ms.locfileid: "92536082"
 각 IoT Hub에는 서비스에서 디바이스마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다. C #의 작업 샘플을 확인 하 고 허브를 다른 지역으로 복제할 때이 기능을 사용 하는 방법에 대 한 자세한 내용은 [IoT Hub를 복제 하는 방법](iot-hub-how-to-clone.md)을 참조 하세요.
 
 > [!NOTE]
-> IoT Hub는 제한 된 수의 지역에서 최근에 가상 네트워크 지원을 추가 했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호 하 고 인증을 위해 키를 전달 하지 않아도 됩니다.  처음에는 가상 네트워크 지원은 *WestUS2* , *Eastus* 및 *SouthCentralUS* 지역 에서만 사용할 수 있습니다. 가상 네트워크 지원 및이를 구현 하는 API 호출에 대 한 자세한 내용은 [virtual networks에 대 한 IoT Hub 지원](virtual-network-support.md)을 참조 하세요.
+> IoT Hub는 제한 된 수의 지역에서 최근에 가상 네트워크 지원을 추가 했습니다. 이 기능은 가져오기 및 내보내기 작업을 보호 하 고 인증을 위해 키를 전달 하지 않아도 됩니다.  처음에는 가상 네트워크 지원은 *WestUS2*, *Eastus* 및 *SouthCentralUS* 지역 에서만 사용할 수 있습니다. 가상 네트워크 지원 및이를 구현 하는 API 호출에 대 한 자세한 내용은 [virtual networks에 대 한 IoT Hub 지원](virtual-network-support.md)을 참조 하세요.
 
 가져오기 및 내보내기 작업은 사용자가 IoT Hub에 대해 대량 서비스 작업을 실행할 수 있는 *작업* 상황에서 이루어집니다.
 
@@ -220,13 +220,13 @@ ID 레지스트리에 새 디바이스를 프로비전할 뿐만 아니라 기�
 
 **ImportDevicesAsync** 메서드에 매개 변수 두 개를 선택합니다.
 
-* 작업에 대한 *입력* 으로 [Azure Storage](../storage/index.yml) Blob 컨테이너의 URI가 포함된 *문자열* . 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 디바이스 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 디바이스 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+* 작업에 대한 *입력* 으로 [Azure Storage](../storage/index.yml) Blob 컨테이너의 URI가 포함된 *문자열*. 이 URI는 컨테이너에 대한 읽기 액세스 권한을 부여하는 SAS 토큰을 포함해야 합니다. 이 컨테이너에는 ID 레지스트리에 가져올 직렬화된 디바이스 데이터가 포함된 **devices.txt** 이름의 Blob이 있어야 합니다. 가져오기 데이터는 **ExportImportDevice** 작업이 **devices.txt** Blob을 생성할 때 사용하는 것과 같은 JSON 형식의 디바이스 정보를 포함해야 합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
    SharedAccessBlobPermissions.Read
    ```
 
-* 작업에서 *출력* 으로 사용할 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열* . 작업은 이 컨테이너에 완료된 가져오기 **작업** 에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
+* 작업에서 *출력* 으로 사용할 [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) blob 컨테이너의 URI가 포함된 *문자열*. 작업은 이 컨테이너에 완료된 가져오기 **작업** 에서 나온 오류 정보를 저장하기 위한 블록 blob를 생성합니다. SAS 토큰은 이러한 사용 권한을 포함해야 합니다.
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -432,7 +432,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 Azure IoT Hub 관리에 대해 자세히 알아보려면 다음 문서를 확인 하세요.
 
-* [모니터 IoT Hub](monitor-iot-hub.md)
+* [IoT Hub 모니터링](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

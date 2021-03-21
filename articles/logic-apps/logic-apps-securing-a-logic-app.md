@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556386"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
@@ -1132,8 +1132,8 @@ Authorization: OAuth realm="Photos",
 
    | 속성(디자이너) | 필수 | 값 | 설명 |
    |---------------------|----------|-------|-------------|
-   | **연결 이름** | Yes | <*연결-이름*> ||
-   | **관리 ID** | Yes | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |
+   | **연결 이름** | 예 | <*연결-이름*> ||
+   | **관리 ID** | 예 | **시스템 할당 관리 ID** <br>또는 <br> <*사용자 할당 관리 id-이름*> | 사용할 인증 유형 |
    |||||
 
 

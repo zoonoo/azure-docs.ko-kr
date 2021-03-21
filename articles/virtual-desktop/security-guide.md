@@ -7,10 +7,10 @@ ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0ddbd4b798d37498af92cec40af6a80a88115fab
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014896"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
@@ -80,7 +80,7 @@ Windows 가상 데스크톱의 모든 사용자 및 관리자에 대해 multi-fa
 
 감사 로그 수집을 사용 하도록 설정 하면 Windows 가상 데스크톱과 관련 된 사용자 및 관리자 활동을 볼 수 있습니다. 키 감사 로그의 몇 가지 예는 다음과 같습니다.
 
--   [Azure 동작 로그](../azure-monitor/essentials/activity-log.md)
+-   [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)
 -   [활동 로그 Azure Active Directory](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [세션 호스트](../azure-monitor/agents/agent-windows.md)

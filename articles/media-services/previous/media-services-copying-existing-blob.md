@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6ee6af8726dbd0a7b564b442242572afec670f4d
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103016749"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>기존 Blob을 Media Services 자산으로 복사
@@ -45,7 +45,7 @@ Media Service API를 사용하지 않고 Media Services에서 생성된 Blob 컨
 
 ## <a name="copy-blobs-between-two-ams-accounts"></a>두 AMS 계정 간에 Blob 복사  
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 두 개의 Media Services 계정이 필요합니다. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
 
@@ -163,7 +163,7 @@ namespace CopyExistingBlobsIntoAsset
 
 ## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>스토리지 계정의 Blob을 AMS 계정으로 복사 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 - Blob를 복사할 Storage 계정 한 개가 필요합니다.
 - Blob를 복사해 넣을 AMS 계정 한 개가 필요합니다.

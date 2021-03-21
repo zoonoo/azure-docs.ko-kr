@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
-ms.date: 09/30/2020
-ms.openlocfilehash: 6b56da68b10bc40304097fbe9eeaf200d422b663
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 03/17/2021
+ms.openlocfilehash: 4c9edaea75215bc4b471cd2e0ac50c4e69546bb0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592689"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592135"
 ---
 # <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 모니터링 및 성능 튜닝
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,6 +35,10 @@ Azure Portal에서 Azure SQL Database 및 Azure SQL Managed Instance 리소스 �
 
 > [!NOTE]
 > 사용량이 매우 적은 데이터베이스는 포털에서 실제 사용량 보다 적게 표시 될 수 있습니다. Double 값을 가장 가까운 정수로 변환 하는 경우 원격 분석을 내보내는 방식 때문에 0.5 보다 작은 특정 사용 양은 0으로 반올림 되어 내보낸 원격 분석의 세분성이 손실 됩니다. 자세한 내용은 [낮은 데이터베이스 및 탄력적 풀 메트릭 반올림 (0)](#low-database-and-elastic-pool-metrics-rounding-to-zero)을 참조 하세요.
+
+### <a name="monitor-with-sql-insights"></a>SQL 정보를 사용 하 여 모니터링
+
+[AZURE MONITOR SQL insights](../../azure-monitor/insights/sql-insights-overview.md) 는 Azure sql vm에서 azure sql 관리 되는 인스턴스, azure sql 데이터베이스 및 SQL Server 인스턴스를 모니터링 하기 위한 도구입니다. 이 서비스는 원격 에이전트를 사용 하 여 Dmv (동적 관리 뷰)에서 데이터를 캡처하고 데이터를 Azure Log Analytics로 라우팅합니다 .이를 모니터링 하 고 분석할 수 있습니다. 제공 된 보기의 [Azure Monitor](../../azure-monitor/overview.md) 에서이 데이터를 보거나, 로그 데이터에 직접 액세스 하 여 쿼리를 실행 하 고 추세를 분석할 수 있습니다. Azure Monitor SQL insights 사용을 시작 하려면 [sql Insights 사용](../../azure-monitor/insights/sql-insights-enable.md)을 참조 하세요.
 
 ### <a name="azure-sql-database-and-azure-sql-managed-instance-resource-monitoring"></a>Azure SQL Database 및 Azure SQL Managed Instance 리소스 모니터링
 

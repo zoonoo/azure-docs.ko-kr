@@ -4,12 +4,12 @@ description: ASP.NET Core 및 콘솔 응용 프로그램과 함께 Azure 애플�
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 987d5b78c5fe680f43ff6a001e7a31a8ae9f6124
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e7d0bd6f7d93eac944e0d53a8e898463bf9887f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931464"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592271"
 ---
 # <a name="applicationinsightsloggerprovider-for-microsoftextensionlogging"></a>ApplicationInsightsLoggerProvider에 대 한 자세한 로깅
 
@@ -20,7 +20,7 @@ ms.locfileid: "91931464"
 
 `ApplicationInsightsLoggerProvider` 는 [코드](./asp-net-core.md) 또는 [코드](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) 를 사용 하지 않는 방법을 사용 하 여 applicationinsights를 구성할 때 ASP.NET Core 응용 프로그램에 대해 기본적으로 사용 하도록 설정 됩니다.
 
-*Warning* `ILogger` 기본적으로 모든 [범주의](/aspnet/core/fundamentals/logging/#log-category)경고 및 위의 로그만 Application Insights으로 전송 됩니다. 그러나 [이 동작을 사용자 지정할](./asp-net-core.md#how-do-i-customize-ilogger-logs-collection)수 있습니다. **Program.cs** 또는 **Startup.cs**에서 ILogger 로그를 캡처하려면 추가 단계가 필요 합니다. [ASP.NET Core 응용 프로그램에서 Startup.cs 및 Program.cs의 ILogger 로그 캡처](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)를 참조 하세요.
+ `ILogger` 기본적으로 모든 [범주의](/aspnet/core/fundamentals/logging/#log-category)경고 및 위의 로그만 Application Insights으로 전송 됩니다. 그러나 [이 동작을 사용자 지정할](./asp-net-core.md#how-do-i-customize-ilogger-logs-collection)수 있습니다. **프로그램 .cs** 또는 ILogger에서 로그를 캡처하려면 추가 단계가 필요 **합니다.** [ASP.NET Core 응용 프로그램의 ILogger 및 프로그램의 시작에서의 로그 캡처](#capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps)를 참조 하세요.
 
 `ApplicationInsightsLoggerProvider`다른 Application Insights 모니터링 없이만 사용 하려는 경우 다음 단계를 사용 합니다.
 
@@ -91,16 +91,16 @@ public class ValuesController : ControllerBase
 }
 ```
 
-### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>ASP.NET Core apps의 Startup.cs 및 Program.cs에서 ILogger 로그 캡처
+### <a name="capture-ilogger-logs-from-startupcs-and-programcs-in-aspnet-core-apps"></a>ILogger 및 프로그램의 시작. cs에서 로그 캡처 ASP.NET Core 앱
 
 > [!NOTE]
-> ASP.NET Core 3.0 이상에서는 더 이상 `ILogger` Startup.cs 및 Program.cs에 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353을 참조하십시오.
+> ASP.NET Core 3.0 이상에서는 더 이상 `ILogger` 시작 .cs 및 프로그램 .cs에 삽입할 수 없습니다. 자세한 내용은 https://github.com/aspnet/Announcements/issues/353를 참조하세요.
 
-`ApplicationInsightsLoggerProvider` 응용 프로그램 시작 초기부터 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider는 Application Insights (버전 2.7.1부터)에서 자동으로 사용 하도록 설정 되지만 파이프라인에서 나중에까지 계측 키를 설정 하지 않습니다. 따라서 **컨트롤러**/기타 클래스의 로그만 캡처됩니다. **Program.cs** 및 **Startup.cs** 자체에서 시작 하는 모든 로그를 캡처하려면 ApplicationInsightsLoggerProvider에 대 한 계측 키를 명시적으로 사용 하도록 설정 해야 합니다. 또한 **Program.cs** 또는 **Startup.cs** 자체에서 로그 하는 경우 *TelemetryConfiguration* 는 완전히 설정 되지 않습니다. 따라서 이러한 로그에는 [Inmemorychannel](./telemetry-channels.md), [샘플링](./sampling.md), 표준 [원격 분석 이니셜라이저 또는 프로세서](./api-filtering-sampling.md)를 사용 하지 않는 최소 구성이 포함 됩니다.
+`ApplicationInsightsLoggerProvider` 응용 프로그램 시작 초기부터 로그를 캡처할 수 있습니다. ApplicationInsightsLoggerProvider는 Application Insights (버전 2.7.1부터)에서 자동으로 사용 하도록 설정 되지만 파이프라인에서 나중에까지 계측 키를 설정 하지 않습니다. 따라서 **컨트롤러**/기타 클래스의 로그만 캡처됩니다. **프로그램 .cs** 와 **시작 .cs** 자체를 사용 하 여 모든 로그를 캡처하려면 ApplicationInsightsLoggerProvider에 대 한 계측 키를 명시적으로 사용 하도록 설정 해야 합니다. 또한 *TelemetryConfiguration* 또는 **시작 .cs** 자체에서 로그를 기록 하는 경우에는 완전 하 게 설정 되지 **않습니다.** 따라서 이러한 로그에는 [Inmemorychannel](./telemetry-channels.md), [샘플링](./sampling.md), 표준 [원격 분석 이니셜라이저 또는 프로세서](./api-filtering-sampling.md)를 사용 하지 않는 최소 구성이 포함 됩니다.
 
-다음 예에서는 **Program.cs** 및 **Startup.cs**를 사용 하 여이 기능을 보여 줍니다.
+다음 예에서는 **Program .cs** 및 **시작 .cs** 를 사용 하는이 기능을 보여 줍니다.
 
-#### <a name="example-programcs"></a>예 Program.cs
+#### <a name="example-programcs"></a>예제 프로그램 .cs
 
 ```csharp
 using Microsoft.AspNetCore;
@@ -143,7 +143,7 @@ public class Program
 }
 ```
 
-#### <a name="example-startupcs"></a>예 Startup.cs
+#### <a name="example-startupcs"></a>예제 시작 .cs
 
 ```csharp
 public class Startup
@@ -188,14 +188,14 @@ public class Startup
 2.7.1 이전 버전의 Microsoft SDK 버전은 이제 사용 되지 않는 로깅 공급자를 지원 합니다. 이 공급자는 ILoggerFactory의 **Addapplicationinsights ()** 확장 메서드를 통해 사용 하도록 설정 되었습니다. 다음 두 단계를 포함 하는 새 공급자로 마이그레이션하는 것이 좋습니다.
 
 1. 이중 로깅을 방지 하려면 **Startup.Config시 ()** 메서드에서 *ILoggerFactory ()* 호출을 제거 합니다.
-2. 모든 필터링 규칙은 새 공급자가 적용 하지 않으므로 코드에서 다시 적용 합니다. *ILoggerFactory. AddApplicationInsights ()* 의 오버 로드에는 최소 LogLevel 또는 필터 함수가 걸렸습니다. 새 공급자를 사용 하는 경우 필터링은 로깅 프레임 워크 자체의 일부입니다. Application Insights 공급자는이 작업을 수행 하지 않습니다. 따라서 *ILoggerFactory. AddApplicationInsights ()* 오버 로드를 통해 제공 되는 모든 필터를 제거 해야 합니다. 및 필터링 규칙은 [컨트롤 로깅 수준](#control-logging-level) 지침에 따라 제공 되어야 합니다. *에서appsettings.js* 를 사용 하 여 로깅을 필터링 하는 경우 둘 다 동일한 공급자 별칭인 *applicationinsights*를 사용 하기 때문에 새 공급자와 계속 작동 합니다.
+2. 모든 필터링 규칙은 새 공급자가 적용 하지 않으므로 코드에서 다시 적용 합니다. *ILoggerFactory. AddApplicationInsights ()* 의 오버 로드에는 최소 LogLevel 또는 필터 함수가 걸렸습니다. 새 공급자를 사용 하는 경우 필터링은 로깅 프레임 워크 자체의 일부입니다. Application Insights 공급자는이 작업을 수행 하지 않습니다. 따라서 *ILoggerFactory. AddApplicationInsights ()* 오버 로드를 통해 제공 되는 모든 필터를 제거 해야 합니다. 및 필터링 규칙은 [컨트롤 로깅 수준](#control-logging-level) 지침에 따라 제공 되어야 합니다. *에서appsettings.js* 를 사용 하 여 로깅을 필터링 하는 경우 둘 다 동일한 공급자 별칭인 *applicationinsights* 를 사용 하기 때문에 새 공급자와 계속 작동 합니다.
 
 이전 공급자를 계속 사용할 수 있습니다. 주 버전은 3으로 변경 될 때만 제거 됩니다. *xx*.) 그러나 다음과 같은 이유로 새 공급자로 마이그레이션하는 것이 좋습니다.
 
 - 이전 공급자는 [로그 범위](/aspnet/core/fundamentals/logging#log-scopes)를 지원 하지 않습니다. 새 공급자에서 범위의 속성은 수집 된 원격 분석에 자동으로 사용자 지정 속성으로 추가 됩니다.
 - 이제 응용 프로그램 시작 파이프라인에서 로그를 훨씬 일찍 캡처할 수 있습니다. 이제 **프로그램** 의 로그 및 **시작** 클래스를 캡처할 수 있습니다.
 - 새 공급자를 사용 하 여 필터링은 프레임 워크 수준 자체에서 수행 됩니다. 콘솔, 디버그 등의 기본 제공 공급자를 비롯 한 다른 공급자와 동일한 방식으로 로그를 Application Insights 공급자로 필터링 할 수 있습니다. 여러 공급자에 동일한 필터를 적용할 수도 있습니다.
-- ASP.NET Core (2.0 이상)에서  [로깅 공급자를 사용 하도록 설정](https://github.com/aspnet/Announcements/issues/255) 하는 권장 방법은 **Program.cs** 의 ILoggingBuilder에 대 한 확장 메서드를 사용 하는 것입니다.
+- ASP.NET Core (2.0 이상)에서  [로깅 공급자를 사용 하도록 설정](https://github.com/aspnet/Announcements/issues/255) 하는 데 권장 되는 방법은 **Program .cs** 의 ILoggingBuilder에서 확장 메서드를 사용 하는 것입니다.
 
 > [!Note]
 > 새 공급자는 NETSTANDARD 2.0 이상을 대상으로 하는 응용 프로그램에 사용할 수 있습니다. 2.14.0 [SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 버전부터: net461 이상을 .NET Framework 대상으로 하는 응용 프로그램 에서도 새 공급자를 사용할 수 있습니다. 응용 프로그램이 .NET Core 1.1 같은 이전 버전의 .NET Core를 대상으로 하거나 고 NET46 보다 작은 .NET Framework 대상으로 지정 하는 경우 이전 공급자를 계속 사용 합니다.
@@ -298,7 +298,7 @@ class Program
 
 ## <a name="control-logging-level"></a>제어 로깅 수준
 
-`ILogger` 에는 [로그 필터링](/aspnet/core/fundamentals/logging#log-filtering)을 적용 하는 기본 제공 메커니즘이 있습니다. 이렇게 하면 Application Insights 공급자를 포함 하 여 등록 된 각 공급자로 전송 되는 로그를 제어할 수 있습니다. 필터링은 구성에서 (일반적으로 파일 * 에appsettings.js* 를 사용 하 여) 또는 코드에서 수행할 수 있습니다.
+`ILogger` 에는 [로그 필터링](/aspnet/core/fundamentals/logging#log-filtering)을 적용 하는 기본 제공 메커니즘이 있습니다. 이렇게 하면 Application Insights 공급자를 포함 하 여 등록 된 각 공급자로 전송 되는 로그를 제어할 수 있습니다. 필터링은 구성에서 (일반적으로 파일 *에appsettings.js* 를 사용 하 여) 또는 코드에서 수행할 수 있습니다.
 
 다음 예에서는에 필터 규칙을 적용 하는 방법을 보여 줍니다 `ApplicationInsightsLoggerProvider` .
 
@@ -323,7 +323,7 @@ ApplicationInsightsLoggerProvider의 경우 공급자 별칭은 `ApplicationInsi
 
 ### <a name="create-filter-rules-in-code"></a>코드에서 필터 규칙 만들기
 
-다음 코드 조각에서는 모든 범주에서 *경고* 이상에 대 한 로그를 구성 하 고, "Microsoft"로 시작 하는 범주에서 *오류* 이상을 구성 `ApplicationInsightsLoggerProvider` 합니다. 이 구성은 *appsettings.js*의 이전 섹션과 동일 합니다.
+다음 코드 조각에서는 모든 범주에서 *경고* 이상에 대 한 로그를 구성 하 고, "Microsoft"로 시작 하는 범주에서 *오류* 이상을 구성 `ApplicationInsightsLoggerProvider` 합니다. 이 구성은 *appsettings.js* 의 이전 섹션과 동일 합니다.
 
 ```csharp
     WebHost.CreateDefaultBuilder(args)
@@ -416,7 +416,7 @@ Visual Studio에서 디버그할 때 이중 로깅이 발생 하 `EnableDebugLog
 
 ### <a name="why-do-some-ilogger-logs-not-have-the-same-properties-as-others"></a>일부 ILogger 로그가 다른 속성과 같은 속성을 포함 하지 않는 이유는 무엇 인가요?
 
-Application Insights는 다른 모든 원격 분석에 사용 되는 것과 동일한 TelemetryConfiguration를 사용 하 여 ILogger 로그를 캡처 및 보냅니다. 그러나 예외가 있습니다. 기본적으로 TelemetryConfiguration는 **Program.cs** 또는 **Startup.cs**에서 로그할 때 완전 하 게 설정 되지 않습니다. 이러한 위치의 로그에는 기본 구성이 없으므로 모든 TelemetryInitializers 및 TelemetryProcessors를 실행 하지 않습니다.
+Application Insights는 다른 모든 원격 분석에 사용 되는 것과 동일한 TelemetryConfiguration를 사용 하 여 ILogger 로그를 캡처 및 보냅니다. 그러나 예외가 있습니다. 기본적으로 TelemetryConfiguration 또는 **시작 .cs** 에서 로그를 기록 하는 경우에는 완전 하 게 설정 되지 **않습니다.** 이러한 위치의 로그에는 기본 구성이 없으므로 모든 TelemetryInitializers 및 TelemetryProcessors를 실행 하지 않습니다.
 
 ### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-i-want-to-log-some-additional-custom-telemetry-manually-how-should-i-do-that"></a>독립형 패키지를 사용 하 고 있습니다. Microsoft는 추가 사용자 지정 원격 분석을 수동으로 기록 하려고 합니다. 어떻게 해야 하나요?
 
@@ -451,10 +451,10 @@ ApplicationInsightsLoggerProvider는 ILogger 로그를 캡처하여 해당 로�
 
 Azure Web Apps의 Application Insights 확장은 새 공급자를 사용 합니다. 응용 프로그램에 대 한 *appsettings.js* 파일의 필터링 규칙을 수정할 수 있습니다.
 
-### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>독립 실행형 패키지를 사용 하 여 작성기를 호출 하 여 Application Insights 공급자를 사용 하도록 설정 합니다. ** AddApplicationInsights ("ikey")**. 구성에서 계측 키를 가져올 수 있는 옵션이 있나요?
+### <a name="im-using-the-standalone-package-microsoftextensionsloggingapplicationinsights-and-enabling-application-insights-provider-by-calling-builderaddapplicationinsightsikey-is-there-an-option-to-get-an-instrumentation-key-from-configuration"></a>독립 실행형 패키지를 사용 하 여 작성기를 호출 하 여 Application Insights 공급자를 사용 하도록 설정 합니다. **AddApplicationInsights ("ikey")**. 구성에서 계측 키를 가져올 수 있는 옵션이 있나요?
 
 
-Program.cs를 수정 하 고 다음과 같이 appsettings.js합니다.
+프로그램 .cs를 수정 하 고 다음과 같이 appsettings.js합니다.
 
    ```csharp
    public class Program
@@ -484,13 +484,13 @@ Program.cs를 수정 하 고 다음과 같이 appsettings.js합니다.
    }
    ```
 
-이 코드는 독립 실행형 로깅 공급자를 사용 하는 경우에만 필요 합니다. 일반 Application Insights 모니터링의 경우 계측 키는 구성 경로 *Applicationinsights: Instrumentationkey*에서 자동으로 로드 됩니다. Appsettings.js은 다음과 같습니다.
+이 코드는 독립 실행형 로깅 공급자를 사용 하는 경우에만 필요 합니다. 일반 Application Insights 모니터링의 경우 계측 키는 구성 경로 *Applicationinsights: InstrumentationKey* 에서 자동으로 로드 됩니다. Appsettings.js은 다음과 같습니다.
 
    ```json
    {
      "ApplicationInsights":
        {
-           "Instrumentationkey":"putrealikeyhere"
+           "InstrumentationKey":"putrealikeyhere"
        }
    }
    ```

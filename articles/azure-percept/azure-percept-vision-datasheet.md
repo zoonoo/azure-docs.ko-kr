@@ -7,10 +7,10 @@ ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ms.openlocfilehash: 7bbb3a88bbc3011ec5dd917cdb0c1e49f7556aab
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177167"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Azure Percept Vision 데이터시트
@@ -19,7 +19,7 @@ ms.locfileid: "102177167"
 
 |제품 사양           |값     |
 |--------------------------------|---------------------|
-|대상 산업               |제조업 <br> 스마트 빌딩 <br> 자동 <br> 소매 |
+|대상 산업               |제조업 <br> 스마트 빌딩 <br> 자동 <br> Retail |
 |주인공 시나리오                  |구매자 분석 <br> 상용 가용성 <br> 축소 축소 <br> 작업 공간 모니터링|
 |차원                      |42mm x 42mm x 40mm (하우징를 사용 하는 Azure Percept 비전 SoM 어셈블리) <br> 42mm x 42mm x 6mm (비전 SoM 칩)|
 |관리 제어 평면        |Azure 장치 업데이트 (ADU)          |

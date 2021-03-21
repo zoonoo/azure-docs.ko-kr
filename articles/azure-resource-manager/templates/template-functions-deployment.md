@@ -4,10 +4,10 @@ description: 배포 정보를 검색 하기 위해 Azure Resource Manager 템플
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: a9a073284c62efac4e77f8f9b35e8730c350e5f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101722724"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>ARM 템플릿에 대 한 배포 함수
@@ -470,7 +470,7 @@ output crossOutput string = crossParameter
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | variableName |예 |String |반환할 변수의 이름입니다. |
 

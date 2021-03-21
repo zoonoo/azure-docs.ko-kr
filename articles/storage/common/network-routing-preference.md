@@ -12,10 +12,10 @@ ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
 ms.openlocfilehash: bf2270fe6f71dfe5be31db8e82f6c44696f28074
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601494"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Azure Storage에 대 한 네트워크 라우팅 기본 설정
@@ -67,7 +67,7 @@ Microsoft 글로벌 네트워크와 인터넷 라우팅 중에서 저장소 계�
 
 게시된 경로별 엔드포인트의 연결 문자열은 [Azure Portal](https://portal.azure.com)을 통해 복사할 수 있습니다. 이러한 연결 문자열은 기존의 모든 Azure Storage SDK 및 API를 사용한 공유 키 권한 부여에 사용할 수 있습니다.
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 Azure Storage의 라우팅 기본 설정은 다음 지역에서 제공됩니다.
 

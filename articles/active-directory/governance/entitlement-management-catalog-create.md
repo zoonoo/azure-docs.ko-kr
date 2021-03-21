@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6f37a1b5cc16c80af8316cfeae164d58ea9796
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d21783f0ef32289aad4b7d136dc8200d61fc0852
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552170"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592934"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 리소스 카탈로그 만들기 및 관리
 
@@ -83,7 +83,7 @@ Microsoft Graph를 사용 하 여 카탈로그를 만들 수도 있습니다.  �
 
 ### <a name="add-a-multi-geo-sharepoint-site"></a>다중 지역 SharePoint 사이트 추가
 
-1. [여러 지역](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) 에서 SharePoint를 사용 하도록 설정한 경우 사이트를 선택할 환경을 선택 합니다.
+1. [여러 지역](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) 에서 SharePoint를 사용 하도록 설정한 경우 사이트를 선택할 환경을 선택 합니다.
     
     :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="액세스 패키지-리소스 역할 추가-SharePoint 다중 지역 사이트 선택":::
 

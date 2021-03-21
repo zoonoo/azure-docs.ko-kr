@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, 업데이트 다운로드, 최신, 사용 가능, 설치
 ms.openlocfilehash: 591fcba4c887e298cf667c5d95c19184bc213ffe
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102179632"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Azure Kinect 센서 SDK 다운로드

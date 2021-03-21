@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2e77bbd6e82d0d4a48b72e13e60b60608f2d7674
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419594"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오에서 이미지의 정보를 처리 하 고 추출 하는 방법
@@ -285,7 +285,7 @@ def base64EncodeImage(image):
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 + [인덱서 만들기 (REST)](/rest/api/searchservice/create-indexer)
 + [이미지 분석 기술](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)

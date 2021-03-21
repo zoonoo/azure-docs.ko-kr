@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034747"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 기술 사양 및 규정 준수 
@@ -65,7 +65,7 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네트워크 하드웨어가 
 
 다음은 Mellanox 카드에 대 한 세부 정보입니다.
 
-| 매개 변수           | 설명                 |
+| 매개 변수           | Description                 |
 |-------------------------|----------------------------|
 | 모델    | Connectx-3®-4 Lx 네트워크 인터페이스 카드                      |
 | 모델 설명               | 25 GbE 이중 포트 SFP28; PCIe 3.0 x8; ROHS R6                    |

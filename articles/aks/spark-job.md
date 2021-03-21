@@ -7,17 +7,17 @@ ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 74a3fe79291f3a5c7f5bbd664bf6d55a5fb77eae
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181196"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS에서 Apache Spark 작업 실행
 
 [Apache Spark][apache-spark] 는 대규모 데이터 처리를 위한 고속 엔진입니다. [Spark 2.3.0 릴리스][spark-kubernetes-earliest-version]부터 Apache Spark는 Kubernetes 클러스터와의 네이티브 통합을 지원합니다. AKS(Azure Kubernetes Service)는 Azure에서 실행되는 관리 Kubernetes 환경입니다. 이 문서에서는 Apache Spark 작업을 준비하고 AKS(Azure Kubernetes Service) 클러스터에서 실행하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 

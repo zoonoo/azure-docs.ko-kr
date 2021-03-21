@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: c89427f83600d3b8091d5293b1757fa6f1a15ef1
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202487"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>IoT 플러그 앤 플레이 브리지를 빌드하고 배포 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "102202487"
 
 |플랫폼  |지원되는 버전  |
 |---------|---------|
-|Windows 10 |     모든 Windows Sku가 지원 됩니다. 예: IoT Enterprise, Server, Desktop, IoT Core. *카메라 상태 모니터링 기능을 위해 20H1 이상 빌드를 권장 합니다. 모든 다른 기능은 모든 Windows 10 빌드에서 사용할 수 있습니다.*  |
+|윈도우 10 |     모든 Windows Sku가 지원 됩니다. 예: IoT Enterprise, Server, Desktop, IoT Core. *카메라 상태 모니터링 기능을 위해 20H1 이상 빌드를 권장 합니다. 모든 다른 기능은 모든 Windows 10 빌드에서 사용할 수 있습니다.*  |
 |Linux     |Ubuntu 18.04에서 테스트 되 고 지원 되는 다른 배포판의 기능은 테스트 되지 않았습니다.         |
 ||
 

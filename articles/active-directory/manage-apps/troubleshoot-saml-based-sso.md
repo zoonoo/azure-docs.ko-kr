@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.openlocfilehash: b169616042892c379196dd1d38c2343704aa1030
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99257529"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On 문제 해결
@@ -46,7 +46,7 @@ ms.locfileid: "99257529"
     * 패턴이 지원되지 않으면 텍스트 상자에 값을 입력하려 할 때 빨간색 느낌표가 표시됩니다. 빨간색 느낌표 위에 마우스를 놓으면 지원되는 패턴이 표시됩니다.
     * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
 
-값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음 작업을 수행할 수 있습니다.
+값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 할 수 있습니다.
 -   애플리케이션 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 -   또는 <aadapprequest@microsoft.com>으로 Azure AD 팀에 문의하거나 자습서에 애플리케이션에서 지원되는 패턴으로 업데이트해 달라는 요청을 남길 수 있습니다.
 

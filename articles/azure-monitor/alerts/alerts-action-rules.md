@@ -4,10 +4,10 @@ description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471686"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
@@ -53,7 +53,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>범위
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -116,9 +116,9 @@ _참고-CLI에서 경고 규칙을 나열 하거나 포털에서 특정 경고 �
 ### <a name="action-rule-details"></a>작업 규칙 세부 정보
 
 마지막으로, 작업 규칙에 대 한 다음 세부 정보를 구성 합니다.
-* 이름
+* Name
 * 저장 된 리소스 그룹
-* 설명
+* Description
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
