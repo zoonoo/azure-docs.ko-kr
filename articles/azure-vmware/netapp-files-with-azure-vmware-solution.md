@@ -4,10 +4,10 @@ description: Azure VMware 솔루션 Vm과 Azure NetApp Files를 사용 하 여 �
 ms.topic: how-to
 ms.date: 02/10/2021
 ms.openlocfilehash: 2f2e8fdeb777e7e4b2b4e89c1bb36b51c3083257
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575430"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure VMware 솔루션으로 Azure NetApp Files
@@ -37,7 +37,7 @@ Azure NetApp Files은 많은 Azure 지역에서 사용할 수 있으며 지역 �
 
 이 문서에서는 Azure VMware 솔루션 Vm에 대 한 파일 공유로 Azure NetApp Files 볼륨을 설정, 테스트 및 확인 하는 지침을 설명 합니다. 이 시나리오에서는 NFS 프로토콜을 사용 했습니다. Azure NetApp Files와 Azure VMware 솔루션은 동일한 Azure 지역에 생성 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 > [!div class="checklist"]
 > * Azure NetApp Files 사용 하도록 설정 된 Azure 구독

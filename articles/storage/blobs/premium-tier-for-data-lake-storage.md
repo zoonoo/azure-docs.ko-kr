@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
 ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324222"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Azure Data Lake Storage에 대 한 프리미엄 계층
@@ -71,11 +71,11 @@ AI/ML은 시각적 개체, 음성 및 텍스트와 같은 다양 한 데이터 �
 > [!div class="mx-imgBorder"]
 > ![계층 구조 네임 스페이스 설정](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 Azure Data Lake Storage에 대 한 프리미엄 계층은 다음 지역에서 제공 됩니다.
 
-|Azure 지역|중복성|
+|지역|중복|
 |--|--|
 |미국 동부|LRS, ZRS|
 |미국 동부 2|LRS, ZRS|

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: ff612b7c052ead5658ea4bbfafd7aace51ba3c02
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017443"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
@@ -20,7 +20,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 아래 표에는 온-프레미스 구성 서버 컴퓨터 배포를 위한 필수 구성 요소가 요약되어 있습니다.
 
@@ -71,7 +71,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
      ![방화벽](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. **필수 조건 확인** 에서 설치 프로그램은 설치가 실행될 수 있는지 확인합니다. **글로벌 시간 동기화 확인** 에 대한 경고가 표시되면 시스템 시계의 시간(**날짜 및 시간** 설정)이 표준 시간대와 같은지 확인합니다.
 
-    ![필수 조건](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![필수 구성 요소](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. **MySQL 구성** 에서 설치된 MySQL 서버 인스턴스에 로그온하기 위한 자격 증명을 만듭니다.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -108,7 +108,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| 형식 | Description| 값|
+|매개 변수 이름| Type | 설명| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|
@@ -158,7 +158,7 @@ ProxyPassword="Password"
    ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. 새 프록시 세부 정보를 제공하고 **등록** 단추를 클릭합니다.
 6. 관리자 PowerShell 명령 창을 엽니다.
-7. 다음 명령 실행:
+7. 다음 명령을 실행합니다.
 
    ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
@@ -217,7 +217,7 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>구성 서버 업그레이드
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예들 들어 다음과 같습니다.
+구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
@@ -242,7 +242,7 @@ ProxyPassword="Password"
 
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>Azure Portal에서 구성 서버 삭제
-1. Azure Portal **Site Recovery Infrastructure**  >  자격 증명 모음 메뉴에서 Site Recovery 인프라 **구성 서버** 로 이동 합니다.
+1. Azure Portal   >  자격 증명 모음 메뉴에서 Site Recovery 인프라 **구성 서버** 로 이동 합니다.
 2. 서비스를 해제하려는 구성 서버를 클릭합니다.
 3. 구성 서버의 세부 정보 페이지에서 **삭제** 단추를 클릭합니다.
 4. **예** 를 클릭하여 서버 삭제를 확인합니다.

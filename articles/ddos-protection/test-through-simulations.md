@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
 ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719239"
 ---
 # <a name="test-through-simulations"></a>시뮬레이션을 통해 테스트
@@ -32,7 +32,7 @@ Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoin
 > [!NOTE]
 > 이 클라우드는 공용 클라우드에 대해서만 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이 자습서의 단계를 완료 하려면 먼저 보호 된 공용 IP 주소를 사용 하 여 [Azure DDoS Standard 보호 계획](manage-ddos-protection.md) 을 만들어야 합니다.
 - 먼저이 [클라우드](http://breakingpoint.cloud/)를 사용 하 여 계정을 만들어야 합니다. 
@@ -57,7 +57,7 @@ Microsoft는 [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoin
 
 1. 에 로그인 하 여 https://portal.azure.com 구독으로 이동 합니다.
 1. 공격을 테스트 한 공용 IP 주소를 선택 합니다.
-1. **모니터링** 아래에서 **메트릭** 을 선택합니다.
+1. **모니터링** 에서 **메트릭** 을 선택합니다.
 1. **메트릭에** 대해 _DDoS 공격_ 을 선택 합니다.
 
 리소스가 공격을 받고 있으면 다음 그림과 같이 값이 **0** 에서 **1** 로 변경 되는 것을 볼 수 있습니다.

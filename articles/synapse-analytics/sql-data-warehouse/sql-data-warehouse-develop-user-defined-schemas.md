@@ -12,10 +12,10 @@ ms.author: emtehran
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460451"
 ---
 # <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 사용자 정의 스키마
@@ -54,7 +54,7 @@ ms.locfileid: "96460451"
 > 
 > 
 
-### <a name="examples"></a>예:
+### <a name="examples"></a>예제:
 데이터베이스 이름에 따라 사용자 정의 스키마를 구현 합니다.
 
 ```sql

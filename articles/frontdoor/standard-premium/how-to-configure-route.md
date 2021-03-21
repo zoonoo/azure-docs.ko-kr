@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: 94c22ffd423c32ba5f489298267464ca36abaecd
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099536"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Azure Front 도어 표준/프리미엄 경로 구성
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 이 문서에서는 기존 끝점에 대 한 Azure Front 도어 (AFD) 경로를 만드는 데 사용 되는 각 설정에 대해 설명 합니다. 기존 Azure 프런트 도어 끝점에 사용자 지정 도메인 및 원본을 추가한 후에는 도메인 및 원본 간의 트래픽을 라우팅하도록 경로를 구성 해야 합니다.
 
@@ -54,7 +54,7 @@ Azure 프런트 도어 경로를 구성 하기 전에 현재 끝점 내에서 �
 
     | 설정 | 값 |
     | --- | --- |
-    | 이름 | 새 경로에 대 한 고유한 이름을 입력 합니다. |   
+    | Name | 새 경로에 대 한 고유한 이름을 입력 합니다. |   
     | 도메인| 유효성을 검사 하 고 다른 경로에 연결 되지 않은 도메인을 하나 이상 선택 합니다. |
     | 일치 시킬 패턴  | 이 경로에 허용 되는 모든 URL 경로 패턴을 구성 합니다. 예를 들어이를로 설정 하 여 `/images/*` URL에 대 한 모든 요청을 허용할 수 있습니다 `www.contoso.com/images/*` . AFD는 정확히 일치 하는 경로를 기반으로 하는 트래픽을 먼저 확인 한 다음 일치 하는 와일드 카드 경로를 찾습니다. 일치하는 경로가 있는 회람 규칙이 없을 경우 요청을 거부하고 400: 잘못된 요청 오류 HTTP 응답을 반환합니다. |
     | 수락 된 프로토콜 | 클라이언트가 요청할 때 Azure Front 도어가 허용할 프로토콜을 지정 합니다. |

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459665"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
@@ -231,7 +231,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
        - [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
-       - [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql)
+       - [CREATE USER](/sql/t-sql/statements/create-user-transact-sql)
     1. 사용자를 역할에 멤버로 추가
        - [ALTER_ROLE](/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -255,7 +255,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다.
   - 보안 배포
   - 관리자
-  - Developer
+  - 개발자
   - 지원 담당자
   - 감사자
   - 자동화 된 프로세스
@@ -283,7 +283,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 **구현 방법**:
 
-- 필요한 의무의 분리 수준을 식별 합니다. 예:
+- 필요한 의무의 분리 수준을 식별 합니다. 예제:
   - 개발/테스트 및 프로덕션 환경 간
   - 보안에 중요 한 작업은 DBA (데이터베이스 관리자) 관리 수준 작업과 개발자 작업을 비교 합니다.
     - 예: 감사자, RLS (역할 수준 보안)에 대 한 보안 정책 만들기, DDL 권한으로 개체 SQL Database 구현
@@ -643,7 +643,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
   - SQL 삽입 공격입니다.
   - 자격 증명 도난/유출.
   - 권한 남용.
-  - 데이터 exfiltration.
+  - 데이터 반출.
 
 **모범 사례**:
 

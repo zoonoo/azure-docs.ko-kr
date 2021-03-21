@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 30a8208babab2991c9d9e86cc419ac50e1530d7b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100089"
 ---
 # <a name="azure-front-door-standardpremium-preview-health-probe-monitoring"></a>Azure 전면 도어 표준/프리미엄 (미리 보기) 상태 프로브 모니터링
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure 전면 도어는 각 백 엔드에 대 한 HTTP 또는 HTTPS 요청을 주기적으로 보냅니다. 이러한 요청은 Azure Front 도어가 백 엔드 풀에 있는 각 끝점의 상태를 확인할 수 있도록 합니다. 그러면 Front 도어가 프로브의 이러한 응답을 사용 하 여 클라이언트 요청을 라우팅하는 "최상의" 백 엔드 리소스를 결정 합니다. 
 

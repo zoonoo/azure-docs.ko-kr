@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Lab Services에서 아티팩트를 관리
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4f990b35a41f040d34fab156d3f3d450ad7561a2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94646528"
 ---
 # <a name="azlabservices-powershell-module-preview"></a>Az.LabServices PowerShell 모듈(미리 보기)

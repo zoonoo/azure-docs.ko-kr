@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 3d67ac9474704fac39dbe7eb91aead5c4babc4ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383945"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>정규화된 데이터베이스 스키마를 Azure SQL Database에서 Azure CosmosDB 비정규화 컨테이너로 마이그레이션
@@ -68,7 +68,7 @@ FROM SalesLT.SalesOrderHeader o;
 
 10. 이 시점까지 결과를 볼 수 있도록 추가한 새 조인에서 데이터 미리 보기 탭을 클릭 합니다. 정보 행과 조인 된 모든 머리글 행이 표시 되어야 합니다. 에서 형성 된 조인의 결과입니다 ```SalesOrderID``` . 다음으로 일반 행의 세부 정보를 세부 정보 구조체로 결합 하 고 공통 행을 집계 합니다.
 
-![Join](media/data-flow/cosmosb4.png)
+![참여](media/data-flow/cosmosb4.png)
 
 11. 이러한 행을 비 정규화 배열을 만들려면 먼저 불필요 한 열을 제거 하 고 데이터 값이 CosmosDB 데이터 형식과 일치 하는지 확인 해야 합니다.
 

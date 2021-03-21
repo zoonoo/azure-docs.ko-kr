@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: c916be9a54d62e16f488c94f4fa88a2207fb8788
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100101"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview-endpoint-manager"></a>Azure Front 도어 표준/프리미엄 (미리 보기) 끝점 관리자 란?
 
 > [!NOTE]
-> * 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [Azure 전방 도어 문서](../front-door-overview.md)를 봅니다.
+> * 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [Azure 전방 도어 문서](../front-door-overview.md)를 봅니다.
 
 끝점 관리자는 Azure Front 문에 대해 구성한 끝점에 대 한 개요를 제공 합니다. 끝점은 도메인 및 연결 된 구성의 논리적 그룹화입니다. Endpoint Manager를 사용 하면 CRUD (만들기, 읽기, 업데이트 및 삭제) 작업을 위한 끝점 컬렉션을 관리할 수 있습니다. 끝점 관리자를 통해 끝점에 대 한 다음 요소를 관리할 수 있습니다.
 

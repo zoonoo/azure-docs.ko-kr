@@ -11,10 +11,10 @@ ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575681"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
@@ -26,7 +26,7 @@ ms.locfileid: "100575681"
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속 하기 전에 필요한 서비스 주체를 만들고 적절 한 역할에 할당 했는지 확인 합니다. 자세한 내용은 다음을 참조하세요.
 * [서비스 주체를 만듭니다](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
@@ -126,7 +126,7 @@ Azure arc 사용 설정 SQL 관리 되는 인스턴스 및 Azure Arc 사용 Post
    >[!NOTE]
    >첫 번째 업로드에 대해 Azure Arc 사용 데이터 인스턴스를 만든 후 30 분 이상 기다립니다.
    >
-   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세히 알아보기](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
+   >`upload`Azure Monitor 후에 바로 메트릭이 `export` 지난 30 분 동안의 메트릭을 허용 하는지 확인 합니다. [자세한 정보를 알아보세요](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
 내보내기 중에 "메트릭 가져오기 실패"를 나타내는 오류가 표시 되는 경우 `true` 다음 명령을 실행 하 여 데이터 수집이로 설정 되었는지 확인 합니다.

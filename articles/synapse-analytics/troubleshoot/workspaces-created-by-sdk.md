@@ -8,10 +8,10 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.date: 11/24/2020
 ms.openlocfilehash: f5d0aae975d476da47510a1f2fd164cbc5f32945
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96466947"
 ---
 # <a name="troubleshoot-azure-synapse-analytics-workspaces-created-using-sdk"></a>SDK를 사용 하 여 만든 Azure Synapse Analytics 작업 영역 문제 해결
@@ -19,7 +19,7 @@ ms.locfileid: "96466947"
 이 문서에서는 SDK (software development kit)를 사용 하 여 만든 Synapse 작업 영역에서 Synapse Studio를 시작 하기 위한 문제 해결 단계를 제공 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - SDK를 사용 하 여 만든 Synapse 작업 영역
 

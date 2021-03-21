@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
 ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996131"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용하여 여러 컨테이너 배포
@@ -25,7 +25,7 @@ ms.locfileid: "95996131"
 
 단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 읽기 및 폼 인식기 컨테이너를 함께 가져옵니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 절차를 수행 하려면 로컬에 설치 하 고 실행 해야 하는 여러 도구가 필요 합니다.
 

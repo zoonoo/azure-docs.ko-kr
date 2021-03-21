@@ -1,5 +1,5 @@
 ---
-title: 자동 조정 사용
+title: 자동 튜닝 사용
 description: Azure Portal를 사용 하 여 데이터베이스에 대 한 자동 조정을 쉽게 설정할 수 있습니다.
 services: sql-database
 ms.service: sql-db-mi
@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
 ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042524"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure Portal에서 자동 조정 기능을 사용 하 여 쿼리를 모니터링 하 고 워크 로드 성능을 향상 시킵니다.
@@ -46,7 +46,7 @@ Azure SQL Database는 쿼리를 지속적으로 모니터링 하 고 워크 로�
 > - 자동 조정 기본 설정이 없는 기존 서버는 Azure 기본값을 상속 하도록 자동으로 구성 됩니다. 이는 정의 되지 않은 상태에서 자동 조정을 위한 서버 설정이 현재 있는 모든 고객에 게 적용 됩니다.
 > - 새로 만든 서버는 Azure 기본값을 상속 하도록 자동으로 구성 됩니다 (이전에는 새 서버를 만들 때 자동 튜닝 구성이 정의 되지 않은 상태에 있는 경우와 다름).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure SQL Database [서버](logical-servers.md) 에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal에서 서버로 이동한 다음 메뉴에서 **자동 조정** 을 선택 합니다.
 
@@ -70,7 +70,7 @@ Azure SQL Database를 사용 하 여 각 데이터베이스에 대 한 자동 �
 > [!TIP]
 > 일반적으로 **서버 수준** 에서 자동 조정 구성을 관리 하 여 모든 데이터베이스에 동일한 구성 설정을 자동으로 적용할 수 있도록 하는 것이 좋습니다. 데이터베이스가 동일한 서버에서 설정을 상속하는 다른 데이터베이스와 다른 설정을 가지도록 해야 하는 경우에만 개별 데이터베이스에서 자동 조정을 구성합니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 **단일 데이터베이스** 에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal의 데이터베이스로 이동 하 고 **자동 조정** 을 선택 합니다.
 
@@ -129,7 +129,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
   - 저장소 캡처 모드를 자동으로 변경
   - 크기 기반 정리 모드를 자동으로 변경
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 자동 튜닝은 Azure 기능 이므로,이 기능을 사용 하려면 Azure의 기본 제공 역할을 사용 해야 합니다. SQL 인증을 사용 하는 경우에만 Azure Portal 기능을 사용할 수 있는 것은 아닙니다.
 

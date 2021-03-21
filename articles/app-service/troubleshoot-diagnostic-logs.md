@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452257"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | None |
+|**사용 안 함** | 없음 |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -108,9 +108,9 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 다음은 그 예입니다.
+응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 예를 들면 다음과 같습니다.
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 다음은 그 예입니다.
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -141,7 +141,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-HTTP와 같은 특정 로그 유형을 필터링 하려면 **--Provider** 매개 변수를 사용 합니다. 다음은 그 예입니다.
+HTTP와 같은 특정 로그 유형을 필터링 하려면 **--Provider** 매개 변수를 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --provider http
@@ -183,7 +183,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |

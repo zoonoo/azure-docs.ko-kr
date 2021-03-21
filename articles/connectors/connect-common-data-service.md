@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 tags: connectors
 ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382357"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service (Microsoft Dataverse)에서 레코드 만들기 및 관리
@@ -23,7 +23,7 @@ ms.locfileid: "100382357"
 
 이 문서에서는 새 잠재 고객 레코드를 만들 때마다 작업 레코드를 만드는 논리 앱을 빌드하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -54,9 +54,9 @@ ms.locfileid: "100382357"
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **환경** | Yes | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
-   | **엔터티 이름** | Yes | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
-   | **범위** | Yes | 새 레코드를 만든 원본 (예: 조직 내 사용자 또는 사업부의 사용자)입니다. 이 예에서는 "비즈니스 단위"를 사용 합니다. |
+   | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
+   | **엔터티 이름** | 예 | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
+   | **범위** | 예 | 새 레코드를 만든 원본 (예: 조직 내 사용자 또는 사업부의 사용자)입니다. 이 예에서는 "비즈니스 단위"를 사용 합니다. |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Common Data Service 작업 추가
@@ -75,8 +75,8 @@ ms.locfileid: "100382357"
 
    | 속성 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **조직 이름** | Yes | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
-   | **엔터티 이름** | Yes | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
+   | **조직 이름** | 예 | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
+   | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
    | **제목** | 예,이 예제에서 선택한 엔터티를 기반으로 합니다. | 이 작업의 목표에 대 한 간단한 설명입니다. |
    ||||
 
@@ -194,7 +194,7 @@ ms.locfileid: "100382357"
 
       | 이벤트 유형 | 메시지 정수 |
       |------------|-----------------|
-      | 만들기 | 1 |
+      | 생성 | 1 |
       | 삭제 | 2 |
       | 업데이트 | 3 |
       | CreateOrUpdate | 4 |

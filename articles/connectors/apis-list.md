@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 02/12/2021
 ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100382891"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
@@ -66,7 +66,7 @@ Azure 가상 네트워크의 리소스에 직접 액세스 해야 하는 논리 
 > [!NOTE]
 > ISE와 해당 커넥터에서 실행 되는 논리 앱은 이러한 커넥터가 실행 되는 위치에 관계 없이 고정 요금제 및 소비 기반 요금제를 따릅니다. 자세한 내용은 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 및 [Logic Apps 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/logic-apps/)를 참조 하세요.
 
-| 레이블 | 예제 | 설명 |
+| label | 예제 | 설명 |
 |-------|---------|-------------|
 | **CORE** | ![핵심 커넥터 예](./media/apis-list/example-core-connector.png) | 이 레이블을 사용 하는 기본 제공 트리거 및 동작은 논리 앱과 동일한 ISE에서 실행 됩니다. |
 | **ISE** | ![ISE 커넥터 예](./media/apis-list/example-ise-connector.png) | 이 레이블이 있는 관리 커넥터는 논리 앱과 동일한 ISE에서 실행 됩니다. Azure 가상 네트워크에 연결 된 온-프레미스 시스템이 있는 경우 ISE를 사용 하면 논리 앱 [에서 온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)없이 해당 시스템에 직접 액세스할 수 있습니다. 대신, 사용 가능한 경우 해당 시스템의 **ISE** 커넥터를 사용 하거나, HTTP 작업을 사용 하거나, [사용자 지정 커넥터](#custom)를 사용할 수 있습니다. **ISE** 커넥터가 없는 온-프레미스 시스템의 경우 온-프레미스 데이터 게이트웨이를 사용 합니다. 사용 가능한 ISE 커넥터를 검토 하려면 [ise 커넥터](#ise-connectors)를 참조 하세요. |

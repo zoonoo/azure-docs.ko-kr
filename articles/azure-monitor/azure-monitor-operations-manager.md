@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
 ms.openlocfilehash: 6d92b7c2f01a7e9ef12bc2bb422cfb6ed0076f73
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102039379"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>기존 Operations Manager 고객에 대 한 Azure Monitor
@@ -20,7 +20,7 @@ ms.locfileid: "102039379"
 > [!IMPORTANT]
 > 여기에 설명 된 여러 Azure Monitor 기능을 구현 하는 데 비용이 듭니다. 따라서 전체 환경에서 배포 하기 전에 해당 값을 평가 해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 이미 [Operations Manager](/system-center/scom) 를 사용 하 고 있으며 최소한 [Azure Monitor](overview.md)에 대 한 기본적인 지식이 있다고 가정 합니다. 둘 간의 전체 비교는 [클라우드 모니터링 가이드: 플랫폼 모니터링 개요](/azure/cloud-adoption-framework/manage/monitor/platform-overview)를 참조 하세요. 이 문서에서는 여기에 설명 된 몇 가지 권장 사항을 이해 하는 데 도움이 되는 두 가지 간의 특정 기능 차이점에 대해 자세히 설명 합니다. 
 
 

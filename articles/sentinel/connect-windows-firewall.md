@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
 ms.openlocfilehash: cf7e389fc4a8a8dfa88691dc034611cae3471731
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655343"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>고급 보안이 포함 된 Windows Defender 방화벽을 Azure 센티널에 연결
@@ -33,11 +33,11 @@ ms.locfileid: "94655343"
 >
 > - Azure Security Center의 Azure Defender 경고가 이미 Azure 센티널 작업 영역에 수집 된 경우이 커넥터를 통해 Windows 방화벽 솔루션을 사용 하도록 설정할 필요가 없습니다. 그러나이 기능을 사용 하도록 설정 하면 중복 된 데이터가 발생 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 모니터링할 컴퓨터가 연결 된 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
-- **Azure 센티널** 역할 외에도 해당 작업 영역에서 securityinsights 솔루션에 대 한 **Log Analytics 참가자** 역할을 할당 받아야 합니다. [자세한 정보](../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+- **Azure 센티널** 역할 외에도 해당 작업 영역에서 securityinsights 솔루션에 대 한 **Log Analytics 참가자** 역할을 할당 받아야 합니다. [자세히 알아보기](../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="enable-the-connector"></a>커넥터 사용 
 

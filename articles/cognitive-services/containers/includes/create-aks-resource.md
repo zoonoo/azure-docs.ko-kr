@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e7f5b6f3685a94b5497784360f8f12b22fb95012
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017875"
 ---
 ## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Azure Kubernetes Service 클러스터 리소스 만들기
@@ -24,7 +24,7 @@ ms.locfileid: "96017875"
 
     |설정|값|
     |--|--|
-    |구독|적합한 구독을 선택합니다.|
+    |Subscription|적합한 구독을 선택합니다.|
     |리소스 그룹|사용 가능한 리소스 그룹을 선택합니다.|
     |Kubernetes 클러스터 이름|이름 (소문자)을 입력 합니다.|
     |지역|근처 위치를 선택합니다.|
@@ -39,13 +39,13 @@ ms.locfileid: "96017875"
 
     |설정|값|
     |--|--|
-    |HTTP 애플리케이션 라우팅|No|
+    |HTTP 애플리케이션 라우팅|아니요|
     |네트워킹 구성|Basic|
 
 1. **통합** 탭에서 **컨테이너 모니터링** 이 **사용** 으로 설정 되어 있는지 확인 하 고 **Log Analytics 작업 영역** 을 기본값으로 둡니다.
 1. **태그** 탭에서 이름/값 쌍을 비워 둡니다.
 1. **검토 및 만들기를** 선택 합니다.
-1. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
+1. 유효성 검사를 통과하면 **만들기** 를 선택합니다.
 
 > [!NOTE]
 > 유효성 검사가 실패 하는 경우 "서비스 주체" 오류 때문일 수 있습니다. **인증** 탭으로 돌아가서 유효성 검사를 실행 하 고를 전달 하는 **검토 + 만들기** 로 돌아갑니다.

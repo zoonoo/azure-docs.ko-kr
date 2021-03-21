@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
 ms.openlocfilehash: 31298be4d50c7f562e2e2b9adbf889b165b197e5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96461856"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
@@ -37,7 +37,7 @@ Key Vault에서 TDE 보호기를 삭제 한 후에는 최대 10 분 내에 모�
 - Azure SQL Database/Azure Synapse Analytics의 데이터베이스에 **액세스할 수** 없게 합니다.
 - Azure SQL Database/Azure Azure Synapse Analytics의 데이터베이스에 **액세스할 수** 없도록 설정 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 - Azure PowerShell 설치 되 고 실행 중 이어야 합니다.

@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: b-juche
 ms.openlocfilehash: 6d9d56a7f6d1e265508081f735e2dbc379f195fb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552034"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
@@ -188,7 +188,7 @@ Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory 
 
 SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
 
-### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다. 어떻게 해야 합니까?
+### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다.   어떻게 해야 합니까?
 
 컴퓨터 클록 동기화에 대 한 최대 허용 오차를 5 분으로 설정 하는 것이 가장 좋습니다. 자세한 내용은 [컴퓨터 클록 동기화에 대 한 최대 허용 오차](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11))를 참조 하세요. 
 

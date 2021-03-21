@@ -10,10 +10,10 @@ ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
 ms.openlocfilehash: 90f86a198ad36c2961f77336092d863953ee45ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101673889"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Azure Backup를 사용 하 여 Azure Linux VM에서 Oracle Database 19c 데이터베이스 백업 및 복구
@@ -277,7 +277,7 @@ Azure Backup를 사용 하 여 데이터베이스를 백업 하려면 다음 단
    > 1. 이전 형식의 암호 파일을 새 이름으로 이동 합니다.
    > 1. 암호 파일을 마이그레이션합니다.
    > 1. 이전 파일을 제거 합니다.
-   > 1. 다음 명령 실행:
+   > 1. 다음 명령을 실행합니다.
    >
    >    ```bash
    >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
