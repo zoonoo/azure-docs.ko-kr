@@ -7,10 +7,10 @@ ms.date: 04/04/2018
 ms.reviewer: nicking
 ms.custom: seodec18
 ms.openlocfilehash: f7edb632559dc8da2de32c58d994a7c51b1b09e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169976"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅샷에서 Azure의 앱 복원
@@ -35,7 +35,7 @@ ms.locfileid: "86169976"
 
 ## <a name="restore-an-app-from-a-snapshot"></a>스냅샷에서 앱 복원
 
-1. [Azure Portal](https://portal.azure.com)의 앱 **설정** 페이지에서 **백업** 을 클릭 하 여 **백업** 페이지를 표시 합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)의 앱 **설정** 페이지에서 **백업** 을 클릭 하 여 **백업** 페이지를 표시 합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원** 을 클릭합니다.
    
     ![스냅숏 백업에서 앱을 복원 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/1.png)
 
@@ -43,12 +43,12 @@ ms.locfileid: "86169976"
    
     ![복원할 스냅숏을 선택 하는 방법을 보여 주는 스크린샷 ](./media/app-service-web-restore-snapshots/2.png)
    
-3. **복원 대상**에서 앱 복원 대상을 지정합니다.
+3. **복원 대상** 에서 앱 복원 대상을 지정합니다.
    
     ![복원 대상을 지정 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/3.png)
    
    > [!WARNING]
-   > **덮어쓰기**를 선택하면 앱의 현재 파일 시스템에 있는 기존 데이터를 모두 지우고 덮어씁니다. **확인**을 클릭하기 전에 수행하려는 작업이 맞는지 확인하세요.
+   > **덮어쓰기** 를 선택하면 앱의 현재 파일 시스템에 있는 기존 데이터를 모두 지우고 덮어씁니다. **확인** 을 클릭하기 전에 수행하려는 작업이 맞는지 확인하세요.
    > 
    > 
       
@@ -57,10 +57,10 @@ ms.locfileid: "86169976"
    > 
    > 
    
-    **기존 앱**을 선택하여 슬롯에 복원할 수 있습니다. 이 옵션을 사용하려면 먼저 앱에 슬롯을 만들어야 합니다.
+    **기존 앱** 을 선택하여 슬롯에 복원할 수 있습니다. 이 옵션을 사용하려면 먼저 앱에 슬롯을 만들어야 합니다.
 
 4. 사이트 구성을 복원하도록 선택할 수 있습니다.
    
     ![사이트 구성을 복원 하는 방법을 보여 주는 스크린샷](./media/app-service-web-restore-snapshots/4.png)
 
-5. **확인**을 클릭합니다.
+5. **확인** 을 클릭합니다.

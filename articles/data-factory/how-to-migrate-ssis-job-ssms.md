@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/7/2020
 ms.openlocfilehash: ec10abfd6f2fc221a9e86203b2faa0d173d67675
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379593"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>SSMS를 사용 하 여 ADF로 SQL Server 에이전트 작업 마이그레이션
@@ -34,7 +34,7 @@ Ssis ( [온-프레미스 SQL Server Integration Services) 워크 로드를 ADF�
 
 - 로컬 출력 폴더에 Azure Resource Manager (ARM) 템플릿을 생성 하 고 직접 또는 나중에 데이터 팩터리에 직접 배포 합니다. ADF 리소스 관리자 템플릿에 대 한 자세한 내용은 [DataFactory 리소스 유형](/azure/templates/microsoft.datafactory/allversions)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서 설명 하는 기능을 사용 하려면 SQL Server Management Studio 버전 18.5 이상이 필요 합니다. SSMS의 최신 버전을 다운로드하려면 [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)(SSMS(SQL Server Management Studio) 다운로드)를 참조하세요.
 

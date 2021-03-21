@@ -11,10 +11,10 @@ ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
 ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200259"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
@@ -45,7 +45,7 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 1. **IoT Edge 배포** 탭을 선택합니다.
 1. 배포 목록을 검사합니다.  각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
 
-    | 열 | 설명 |
+    | 열 | Description |
     | --- | --- |
     | ID | 배포의 이름입니다. |
     | Type | 배포 유형(**배포** 또는 **계층화된 배포**)입니다. |

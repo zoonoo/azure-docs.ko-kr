@@ -8,10 +8,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380069"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 OData 원본에서 데이터 이동
@@ -63,7 +63,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 | 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | authorizedCredential |OAuth를 사용하는 경우 Data Factory Copy Wizard 또는 Editor에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 이 속성의 값이 자동으로 생성됩니다. |예(OAuth 인증을 사용하는 경우에만) |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |예 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |아니요 |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 ```json
@@ -142,7 +142,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| path |OData 리소스에 대한 경로 |예 |
+| path |OData 리소스에 대한 경로 |아니요 |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
@@ -153,7 +153,7 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 
 | 속성 | 설명 | 예 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |예 |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |"?$select=Name, Description&$top=5" |아니요 |
 
 ## <a name="type-mapping-for-odata"></a>OData에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에 설명 된 것 처럼 복사 작업은 다음 2 단계 접근 방법을 사용 하 여 소스 형식에서 싱크 형식으로 자동 형식 변환을 수행 합니다.

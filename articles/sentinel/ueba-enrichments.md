@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 01/04/2021
 ms.author: yelevin
 ms.openlocfilehash: daba8fc1f645b51dc8668c806be63744b6ae0842
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97901728"
 ---
 # <a name="azure-sentinel-ueba-enrichments-reference"></a>Azure 센티널 UEBA 강화 참조
@@ -55,7 +55,7 @@ ms.locfileid: "97901728"
 | **디바이스 패밀리**<br>*(DeviceFamily)* | 작업에 사용 되는 장치 패밀리입니다. | Windows |
 | **디바이스 유형**<br>*DeviceType* | 작업에 사용 되는 클라이언트 장치 유형입니다. | 데스크톱 |
 | **P**<br>*P* | 작업에 사용 되는 인터넷 서비스 공급자입니다. |  |
-| **운영 체제**<br>*OperatingSystem* | 작업에 사용 된 운영 체제입니다. | Windows 10 |
+| **운영 체제**<br>*OperatingSystem* | 작업에 사용 된 운영 체제입니다. | 윈도우 10 |
 | **위협에 대 한 기술 지표 설명**<br>*(ThreatIntelIndicatorDescription)* | 작업에 사용 된 IP 주소에서 확인 된 관찰 된 위협 표시기의 설명입니다. | 호스트는 봇 넷: azorult의 멤버입니다. |
 | **위협 intel 표시기 유형**<br>*(ThreatIntelIndicatorType)* | 작업에 사용 된 IP 주소에서 확인 된 위협 표시기의 유형입니다. | 봇 넷, C2, CryptoMining, Darknet, Ddos, MaliciousUrl, 맬웨어, 피싱, 프록시, PUA, 관심 목록 |
 | **사용자 에이전트**<br>*UserAgent* | 작업에 사용 되는 사용자 에이전트입니다. | Microsoft Azure Graph Client Library 1.0,<br>Swagger-Codegen/1.4.0.0/csharp,<br>EvoSTS |

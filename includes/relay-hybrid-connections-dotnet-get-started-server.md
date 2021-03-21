@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
 ms.openlocfilehash: 2684f89088854ecf05c547c77852155168baa38d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "67182438"
 ---
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
@@ -21,11 +21,11 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
 
 ### <a name="add-the-relay-nuget-package"></a>릴레이 NuGet 패키지 추가
 
-1. 마우스 오른쪽 단추로 새로 만든 프로젝트를 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
+1. 마우스 오른쪽 단추로 새로 만든 프로젝트를 클릭한 다음 **NuGet 패키지 관리** 를 선택합니다.
 2. **시험판 포함** 옵션을 선택합니다. 
-3. **찾아보기**를 선택한 다음 **Microsoft.Azure.Relay**를 검색합니다. 검색 결과에서 **Microsoft Azure Relay**를 선택합니다.
-4. 버전은 **2.0.0-preview1-20180523**을 선택합니다. 
-5. **설치**을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
+3. **찾아보기** 를 선택한 다음 **Microsoft.Azure.Relay** 를 검색합니다. 검색 결과에서 **Microsoft Azure Relay** 를 선택합니다.
+4. 버전은 **2.0.0-preview1-20180523** 을 선택합니다. 
+5. **설치** 을 선택하여 설치를 완료합니다. 대화 상자를 닫습니다.
 
 ### <a name="write-code-to-receive-messages"></a>메시지를 받는 코드 작성
 

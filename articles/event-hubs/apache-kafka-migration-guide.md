@@ -4,16 +4,16 @@ description: 이 문서에서는 Apache Kafka에서 Azure Event Hubs로 클라�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90061447"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Apache Kafka 에코시스템용 Azure Event Hubs로 마이그레이션
 Azure Event Hubs는 Kafka 프로토콜을 사용 하 여 Event Hubs에 연결 하는 데 사용할 수 있는 Apache Kafka 엔드포인트를 노출 합니다. 기존 Kafka 응용 프로그램을 최소한으로 변경 하 여 Azure Event Hubs에 연결 하 고 Azure 에코 시스템의 이점을 누릴 수 있습니다. Event Hubs MirrorMaker를 포함 하 여 기존의 여러 Kafka 응용 프로그램에서 작동 합니다. 자세한 내용은 [Event Hubs Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 를 참조 하세요.
 
-## <a name="pre-migration"></a>사전 마이그레이션 
+## <a name="pre-migration"></a>마이그레이션 전 
 
 ### <a name="create-an-azure-account"></a>Azure 계정 만들기
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
@@ -49,7 +49,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 `sasl.jaas.config`에서 프레임 워크의 구성이 지원 되지 않는 경우 SASL 사용자 이름 및 암호를 설정 하는 데 사용 되는 구성을 찾아 대신 사용 합니다. 사용자 이름을로 설정 하 `$ConnectionString` 고 암호를 Event Hubs 연결 문자열로 설정 합니다.
 
-## <a name="post-migration"></a>마이그레이션 후 작업
+## <a name="post-migration"></a>마이그레이션 후
 이벤트 허브로 이벤트를 전송 하는 Kafka 응용 프로그램을 실행 합니다. 그런 다음 이벤트 허브가 Azure Portal를 사용 하 여 이벤트를 수신 하는지 확인 합니다. Event Hubs 네임 스페이스의 **개요** 페이지에서 **메트릭** 섹션의 **메시지** 뷰로 전환 합니다. 페이지를 새로 고쳐 차트를 업데이트합니다. 메시지가 수신되었다는 내용이 표시될 때까지 몇 초 정도 걸릴 수 있습니다. 
 
 [![이벤트 허브에서 메시지를 수신했는지 확인](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)

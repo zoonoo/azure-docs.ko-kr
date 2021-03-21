@@ -4,17 +4,17 @@ description: 이 문서에서는 Windows 관리 센터에서 Azure Arc 사용 �
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 5fa7a61b1e3b22503377cbcbe308a82be89dac72
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584779"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-windows-admin-center"></a>Windows 관리 센터에서 Azure에 하이브리드 컴퓨터 연결
 
 일련의 단계를 수동으로 수행 하 여 사용자 환경에서 하나 이상의 Windows 컴퓨터에 대해 Azure Arc 사용 서버를 사용 하도록 설정할 수 있습니다. 또는 [Windows 관리 센터](/windows-server/manage/windows-admin-center/understand/what-is) 를 사용 하 여 연결 된 컴퓨터 에이전트를 배포 하 고이 도구 외부에서 단계를 수행 하지 않고도 온-프레미스 서버를 등록할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Arc 사용 서버- [필수 구성 요소](agent-overview.md#prerequisites) 를 검토 하 고 구독, Azure 계정 및 리소스가 요구 사항을 충족 하는지 확인 합니다.
 

@@ -6,19 +6,19 @@ author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
 ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041028"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리
-Azure Monitor 로그는 Azure 데이터 탐색기를 기반으로 하며 로그 쿼리는 동일한 Kusto 쿼리 언어 (KQL)를 사용 하 여 작성 됩니다. 이는 쉽게 읽고 제작할 수 있도록 설계 된 풍부한 언어 이므로 몇 가지 기본 지침을 사용 하 여 쿼리 작성을 시작할 수 있어야 합니다.
+Azure Monitor 로그는 Azure 데이터 탐색기를 기반으로 하며 로그 쿼리는 동일한 Kusto 쿼리 언어 (KQL)를 사용 하 여 작성 됩니다. 쉽게 읽고 제작할 수 있도록 설계된 풍부한 언어이므로 몇 가지 기본 지침에 따라 쿼리 작성을 시작할 수 있어야 합니다.
 
 쿼리를 사용 하는 Azure Monitor 영역은 다음과 같습니다.
 
-- [Log Analytics](../logs/log-analytics-overview.md). 로그 쿼리를 편집 하 고 대화형으로 결과를 분석 하기 위한 Azure Portal의 기본 도구입니다. Azure Monitor의 다른 곳에서 로그 쿼리를 사용 하려는 경우에도 일반적으로 Log Analytics를 최종 위치로 복사 하기 전에이를 작성 하 고 테스트 합니다.
-- [로그 경고 규칙](../alerts/alerts-overview.md)입니다. 작업 영역에서 데이터의 문제를 사전에 식별 합니다.  각 경고 규칙은 일정 한 간격으로 자동 실행 되는 로그 쿼리를 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
+- [Log Analytics](../logs/log-analytics-overview.md). 로그 쿼리를 편집 하 고 대화형으로 결과를 분석 하기 위한 Azure Portal의 기본 도구입니다. Azure Monitor의 다른 위치에서 로그 쿼리를 사용하려는 경우에도 일반적으로 로그 쿼리를 최종 위치로 복사하기 전에 Log Analytics에서 작성한 후 테스트합니다.
+- [로그 경고 규칙](../alerts/alerts-overview.md)입니다. 작업 영역에서 데이터의 문제를 사전에 식별 합니다.  각 경고 규칙은 일정한 간격으로 자동 실행되는 로그 쿼리를 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
 - [통합 문서](../visualize/workbooks-overview.md). Azure Portal의 대화형 시각적 보고서에 다양 한 시각화를 사용 하 여 로그 쿼리의 결과를 포함 합니다.
 - [Azure 대시보드](../visualize/tutorial-logs-dashboards.md). 모든 쿼리 결과를 Azure 대시보드에 고정 하 여 로그 및 메트릭 데이터를 함께 시각화 하 고 필요에 따라 다른 Azure 사용자와 공유할 수 있습니다.
 - [Logic Apps](../logs/logicapp-flow-connector.md).  Logic Apps를 사용 하 여 자동화 된 워크플로에서 로그 쿼리 결과를 사용 합니다.
@@ -28,9 +28,9 @@ Azure Monitor 로그는 Azure 데이터 탐색기를 기반으로 하며 로그 
 ## <a name="getting-started"></a>시작
 KQL를 사용 하 여 로그 쿼리를 작성 하는 방법을 배우는 가장 좋은 방법은 사용 가능한 자습서와 샘플을 활용 하는 것입니다.
 
-- [Log Analytics 자습서](./log-analytics-tutorial.md) -Azure Portal에서 쿼리를 편집 및 실행 하는 데 사용 하는 도구인 Log Analytics 기능 사용에 대 한 자습서입니다. 또한 쿼리 언어를 직접 사용 하지 않고도 간단한 쿼리를 작성할 수 있습니다. 이전에 Log Analytics를 사용 하지 않은 경우 여기에서 시작 하 여 다른 자습서 및 샘플에서 사용할 도구를 이해할 수 있습니다.
+- [Log Analytics 자습서](./log-analytics-tutorial.md) -Azure Portal에서 쿼리를 편집 및 실행 하는 데 사용 하는 도구인 Log Analytics 기능 사용에 대 한 자습서입니다. Log Analytics를 사용하면 쿼리 언어를 직접 사용하지 않고도 간단한 쿼리를 작성할 수 있습니다. 이전에 Log Analytics를 사용해 본 적이 없는 경우 여기서 시작하여 다른 자습서 및 샘플에서 사용할 도구를 이해할 수 있습니다.
 - [KQL 자습서](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) -기본 KQL 개념 및 일반 연산자를 통해 안내 합니다. 이는 언어 자체와 로그 쿼리 구조를 최대한 활용 하기 시작 하는 가장 좋은 장소입니다. 
-- [예제 쿼리](../logs/example-queries.md) -Log Analytics에서 사용할 수 있는 쿼리 예제에 대 한 설명입니다. 쿼리를 수정 하지 않고 사용 하거나 샘플로 사용 하 여 KQL를 배울 수 있습니다.
+- [예제 쿼리](../logs/example-queries.md) -Log Analytics에서 사용할 수 있는 쿼리 예제에 대 한 설명입니다. 쿼리를 수정하지 않고 사용하거나 샘플로 활용하여 KQL를 배울 수 있습니다.
 - [쿼리 샘플](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) -다양 한 개념을 보여 주는 샘플 쿼리입니다.
 
 
@@ -49,11 +49,11 @@ Azure Monitor Azure 데이터 탐색기와 동일한 KQL를 사용 하지만 몇
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 함수
 
-* [cluster()](/azure/kusto/query/clusterfunction)
+* [cluster ()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
+* [데이터베이스 ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)

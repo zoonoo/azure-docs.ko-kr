@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c4871c3de8028eec1b6184c1d03ac2180b50f57d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881353"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Azure 스프링 클라우드의 Application Insights Java In-Process 에이전트 (미리 보기)
@@ -140,7 +140,7 @@ az spring-cloud app-insights update --disable –name "assignedName" –resource
 
 ```
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 * [Azure Spring Cloud에서 분산 추적 사용](spring-cloud-tutorial-distributed-tracing.md)
 * [로그 및 메트릭 분석](diagnostic-services.md)
 * [실시간으로 로그 스트리밍](spring-cloud-howto-log-streaming.md)

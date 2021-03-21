@@ -11,10 +11,10 @@ ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
 ms.openlocfilehash: b21f53f8ec76257fc19e0e30cd025ecc46ad2188
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102218284"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Azure Machine Learning에서 GitHub Actions 사용
@@ -24,7 +24,7 @@ Azure Machine Learning에서 모델을 학습 하려면 [GitHub 작업](https://
 > [!NOTE]
 > Azure Machine Learning에 대 한 GitHub 작업은 있는 그대로 제공 되며 Microsoft에서 완벽 하 게 지원 되지 않습니다. 특정 작업에 문제가 발생 하는 경우 작업에 대 한 리포지토리에서 문제를 엽니다. 예를 들어 aml-배포 작업에 문제가 발생 하는 경우 리포지토리의 문제를 보고 [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - GitHub 계정. 없는 경우 [평가판](https://github.com/join)에 등록하세요.  

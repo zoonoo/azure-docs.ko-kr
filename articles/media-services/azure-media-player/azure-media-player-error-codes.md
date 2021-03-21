@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: error-reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 89f063ab50cfd880552e80a77ba798e4d06de5b3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101709583"
 ---
 # <a name="error-codes"></a>오류 코드 #
@@ -44,7 +44,7 @@ ms.locfileid: "101709583"
 오류에 대 한 세부 정보를 설명 하 고 bits 27-20는 높은 수준의 정보 19-0를 제공 합니다.
 
 
-| amp. errorCode. 이름의 | 코드, 비트 [27-0] (28 비트) | Description |
+| amp. errorCode. 이름의 | 코드, 비트 [27-0] (28 비트) | 설명 |
 |---|---:|---|
 | **MEDIA_ERR_ABORTED 오류 범위 (0x0100000-0x01FFFFF)** | | |
 | abortedErrUnknown | 0x0100000 | 일반 중단 오류 |

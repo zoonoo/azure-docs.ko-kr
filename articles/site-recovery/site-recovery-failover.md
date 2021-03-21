@@ -5,10 +5,10 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 6737f64773f91ede1631d42cd7f28c7d961c0454
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92368624"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 실행
@@ -32,7 +32,7 @@ ms.locfileid: "92368624"
 
 **장애 조치(failover) 후** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용**에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스 하려면 컴퓨터에서 rdp를 사용 하도록 설정 하 고, **Windows Firewall**  ->  **도메인 및 개인** 네트워크의 Windows 방화벽 허용 되는**앱 및 기능**에서 rdp를 허용 해야 합니다.<br/><br/> <br/><br/> 정적 영구 경로 및 WinHTTP 프록시를 제거 합니다. 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
+**Windows를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | 인터넷을 통해 Azure VM에 액세스하려면 RDP를 활성화하고, TCP 및 UDP 규칙이 **공용** 에 추가되었는지 그리고 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.<br/><br/> 사이트 간 연결을 통해 Azure VM에 액세스 하려면 컴퓨터에서 rdp를 사용 하도록 설정 하 고,   ->  **도메인 및 개인** 네트워크의 Windows 방화벽 허용 되는 **앱 및 기능** 에서 rdp를 허용 해야 합니다.<br/><br/> <br/><br/> 정적 영구 경로 및 WinHTTP 프록시를 제거 합니다. 운영 체제의 SAN 정책이 **OnlineAll** 로 설정되어 있는지 확인합니다. [자세한 정보를 알아보세요](https://support.microsoft.com/kb/3031135).<br/><br/> 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없는지 확인합니다. 장애 조치 시 Windows 업데이트가 시작될 수 있으며, 업데이트를 완료할 때까지 VM에 로그인할 수 없습니다.
 **Linux를 실행하는 Azure VM** | 장애 조치(Failover) 전에 온-프레미스 컴퓨터에서 | VM의 보안 셸 서비스가 시스템 부팅 시 자동으로 시작되도록 설정되어 있는지 확인합니다.<br/><br/> 방화벽 규칙이 SSH 연결을 허용하는지 확인합니다.
 
 
@@ -43,17 +43,17 @@ ms.locfileid: "92368624"
 
 다음과 같이 복구 계획 장애 조치 (failover)를 실행 합니다.
 
-1. Site Recovery 자격 증명 모음에서 **복구 계획**  >  *recoveryplan_name*을 선택 합니다.
-2. **장애 조치**를 클릭합니다.
+1. Site Recovery 자격 증명 모음에서 **복구 계획**  >  *recoveryplan_name* 을 선택 합니다.
+2. **장애 조치** 를 클릭합니다.
 
     ![추가 메뉴에서 장애 조치 (Failover)가 선택 된 ADRP 창을 보여 주는 Azure Site Recovery의 스크린샷](./media/site-recovery-failover/Failover.png)
 
-3. 장애 조치 ( **failover**  >  **) 방향**에서 Azure에 복제 하는 경우 기본값을 그대로 둡니다.
+3. 장애 조치 ( **failover**  >  **) 방향** 에서 Azure에 복제 하는 경우 기본값을 그대로 둡니다.
 4. **장애 조치 (Failover)** 에서 장애 조치 (failover) 할 **복구 지점을** 선택 합니다.
 
     - **최신**: 최신 지점을 사용 합니다. Site Recovery 서비스에 전송 된 모든 데이터를 처리 하 고 각 컴퓨터에 대 한 복구 지점을 만듭니다. 장애 조치 (failover) 후 생성 된 VM에는 장애 조치 (failover)가 트리거될 때 Site Recovery로 복제 된 모든 데이터가 있으므로이 옵션은 가장 낮은 RPO (복구 지점 목표)를 제공 합니다.
     원본 지역이 다운 되 면 더 이상 로그를 처리할 수 없습니다. 따라서 처리 된 최신 복구 지점으로 장애 조치 (failover) 해야 합니다. 자세한 내용은 다음 단계를 참조 하세요.
-   - **가장 최근에 처리**됨: Site Recovery에서 이미 처리 한 최신 복구 지점으로 vm을 장애 조치 (failover) 하려면이 옵션을 사용 합니다. VM **최신 복구 지점**에서 가장 최근에 처리 된 복구 지점을 볼 수 있습니다. 이 옵션은 처리 되지 않은 데이터를 처리 하는 데 시간을 소비 하지 않으므로 낮은 RTO를 제공 합니다.
+   - **가장 최근에 처리** 됨: Site Recovery에서 이미 처리 한 최신 복구 지점으로 vm을 장애 조치 (failover) 하려면이 옵션을 사용 합니다. VM **최신 복구 지점** 에서 가장 최근에 처리 된 복구 지점을 볼 수 있습니다. 이 옵션은 처리 되지 않은 데이터를 처리 하는 데 시간을 소비 하지 않으므로 낮은 RTO를 제공 합니다.
    - **최신 앱 일치**: Site Recovery에 의해 처리 된 최신 응용 프로그램 일치 복구 지점으로 vm을 장애 조치 (failover) 하려면이 옵션을 사용 합니다.
    - **최신 다중 vm 처리**:이 옵션을 사용 하면 복제 그룹의 일부인 vm이 최신의 일반적인 다중 vm 일치 복구 지점으로 장애 조치 (failover) 됩니다. 다른 가상 머신은 가장 최근에 처리 된 복구 지점으로 장애 조치 (failover) 됩니다. 이 옵션은 다중 VM 일관성을 사용 하도록 설정 된 하나 이상의 VM이 있는 복구 계획에만 사용 됩니다.
    - **최신 다중 vm 앱 일치**:이 옵션을 사용 하면 복제 그룹의 일부인 vm이 가장 일반적인 다중 vm 응용 프로그램 일치 복구 지점으로 장애 조치 (failover) 됩니다. 다른 가상 머신은 최근의 애플리케이션 일치 복구 지점으로 장애 조치(failover)됩니다. 다중 VM 일관성을 사용 하도록 설정 된 하나 이상의 VM이 있는 복구 계획에만 해당 합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "92368624"
 
 6. **작업** 페이지에서 장애 조치 (failover) 진행률을 따릅니다. 오류가 발생 하더라도 복구 계획은 완료 될 때까지 실행 됩니다.
 7. 장애 조치 (failover) 후 VM에 로그인 하 여 유효성을 검사 합니다. 
-8. 장애 조치 (failover)에 사용할 다른 복구 지점으로 전환 하려면 **복구 지점 변경**을 사용 합니다.
+8. 장애 조치 (failover)에 사용할 다른 복구 지점으로 전환 하려면 **복구 지점 변경** 을 사용 합니다.
 9. 준비가 되 면 장애 조치 (failover)를 커밋할 수 있습니다. **커밋** 작업은 서비스에서 사용할 수 있는 모든 복구 지점이 삭제 됩니다. **복구 지점 변경** 옵션을 더 이상 사용할 수 없습니다.
 
 ## <a name="run-a-planned-failover-hyper-v"></a>계획 된 장애 조치 (failover) 실행 (Hyper-v)
@@ -127,8 +127,8 @@ RDP 또는 SSH를 사용 하 여 장애 조치 (failover) 후 생성 된 Azure V
 
 **장애 조치(Failover)** | **위치** | **actions**
 --- | --- | ---
-**Windows를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단**을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인 하 고 이러한 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토 합니다.
-**Linux를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> **부트 진단**에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
+**Windows를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM |  VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> 장애 조치된 VM 및 해당 VM이 연결된 Azure 서브넷에 대한 네트워크 보안 그룹 규칙에서 RDP 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> **부트 진단** 을 확인하여 VM에 대한 스크린샷을 검토합니다.<br/><br/> 연결할 수 없는 경우 VM이 실행 중인지 확인 하 고 이러한 [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토 합니다.
+**Linux를 실행하는 Azure VM** | 장애 조치(failover) 후 Azure VM | 장애 조치(Failover)된 VM 그리고 해당 VM이 연결된 Azure 서브넷의 네트워크 보안 그룹 규칙이 SSH 포트로 들어오는 연결을 허용해야 합니다.<br/><br/> VM에 대한 [공용 IP 주소를 추가](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr)합니다.<br/><br/> **부트 진단** 에서 VM에 대한 스크린샷을 검토합니다.<br/><br/>
 
 [여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 

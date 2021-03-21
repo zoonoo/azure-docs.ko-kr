@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 3551327f9aa07fe218d3b05f73057e36f92abcad
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97895566"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>CloudSimple의 VMware 솔루션에 대 한 질문과 대답
@@ -114,7 +114,7 @@ CloudSimple은 다음과 같은 호스트 유형을 제공 합니다.
 
 모든 CloudSimple 인프라는 CloudSimple 플랫폼과 서비스 운영 팀에서 지속적으로 모니터링 합니다.  하드웨어 오류가 검색 되 면 사설 클라우드에 새 노드가 추가 되 고 실패 한 노드가 제거 됩니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 **사설 클라우드에서 지원 되는 저장소 유형은 무엇 인가요?**
 

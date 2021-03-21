@@ -4,10 +4,10 @@ description: 이 문서에서는 Apache Kafka에 대 한 Azure Event Hubs와 상
 ms.topic: reference
 ms.date: 03/03/2021
 ms.openlocfilehash: be009aae41b2cb26ab02fdbe14bc4e18311ad235
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042354"
 ---
 # <a name="recommended-configurations-for-apache-kafka-clients"></a>Apache Kafka 클라이언트에 대 한 권장 구성
@@ -17,7 +17,7 @@ ms.locfileid: "102042354"
 
 ### <a name="producer-and-consumer-configurations"></a>생산자 및 소비자 구성
 
-속성 | 권장 값 | 허용 된 범위 | 메모
+속성 | 권장 값 | 허용 된 범위 | 참고
 ---|---:|-----:|---
 `metadata.max.age.ms` | 18만 (근사치) | < 24만 | 더 낮출 수 있습니다.
 `connections.max.idle.ms`   | 180000 | < 24만 | Azure는 인바운드 TCP 유휴 > 24만 밀리초를 닫음 .이로 인해 비활성 연결 (보내기 시간 제한으로 인해 만료 된 일괄 처리로 표시 됨)에서 전송 될 수 있습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "102042354"
 ### <a name="producer-configurations-only"></a>생산자 구성만
 생산자 configs는 [여기](https://kafka.apache.org/documentation/#producerconfigs)에서 찾을 수 있습니다.
 
-속성 | 권장 값 | 허용 된 범위 | 메모
+속성 | 권장 값 | 허용 된 범위 | 참고
 ---|---:|---:|---
 `max.request.size` | 1000000 | < 1046528 | 1046528 바이트 보다 큰 요청이 전송 되 면 서비스에서 연결을 닫습니다.  *이 값은 변경 **해야** 하며 처리량이 큰 생성 시나리오에서 문제가 발생 합니다.*
 `retries` | > 0 | | Delivery.timeout.ms 값을 늘려야 할 수 있습니다. 설명서를 참조 하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "102042354"
 ### <a name="consumer-configurations-only"></a>소비자 구성만
 소비자 configs는 [여기](https://kafka.apache.org/documentation/#consumerconfigs)에서 찾을 수 있습니다.
 
-속성 | 권장 값 | 허용 된 범위 | 메모
+속성 | 권장 값 | 허용 된 범위 | 참고
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 | | 3000는 기본값이 며 변경할 수 없습니다.
 `session.timeout.ms` | 30000 |6000. 300000| 3만부터 하트 비트 누락으로 인해 자주 균형 조정이 표시 되는 경우 증가 합니다.
@@ -49,14 +49,14 @@ ms.locfileid: "102042354"
 
 ### <a name="producer-and-consumer-configurations"></a>생산자 및 소비자 구성
 
-속성 | 권장 값 | 허용 된 범위 | 메모
+속성 | 권장 값 | 허용 된 범위 | 참고
 ---|---:|-----:|---
 `socket.keepalive.enable` | true | | 연결이 유휴 상태가 될 것으로 예상 되는 경우에 필요 합니다.  Azure는 인바운드 TCP 유휴 > 24만 밀리초를 닫습니다.
 `metadata.max.age.ms` | ~ 18만| < 24만 | 더 낮출 수 있습니다.
 
 ### <a name="producer-configurations-only"></a>생산자 구성만
 
-속성 | 권장 값 | 허용 된 범위 | 메모
+속성 | 권장 값 | 허용 된 범위 | 참고
 ---|---:|-----:|---
 `retries` | > 0 | | 기본값은 2입니다. 이 값을 유지 하는 것이 좋습니다. 
 `request.timeout.ms` | 3만. 60000 | > 2만| EH는 내부적으로 최소 2만 밀리초로 기본값을 만듭니다.  `librdkafka` 기본값은 5000입니다 .이 값은 문제가 될 수 있습니다. *제한 시간 값이 낮은 요청은 수락 되지만 클라이언트 동작은 보장 되지 않습니다.*
@@ -65,7 +65,7 @@ ms.locfileid: "102042354"
 
 ### <a name="consumer-configurations-only"></a>소비자 구성만
 
-속성 | 권장 값 | 허용 된 범위 | 메모
+속성 | 권장 값 | 허용 된 범위 | 참고
 ---|---:|-----:|---
 `heartbeat.interval.ms` | 3000 || 3000는 기본값이 며 변경할 수 없습니다.
 `session.timeout.ms` | 30000 |6000. 300000| 3만부터 하트 비트 누락으로 인해 자주 균형 조정이 표시 되는 경우 증가 합니다.

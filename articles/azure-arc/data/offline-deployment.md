@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 5fa0b6ca41349d20614a64006536e78d8ee71844
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97955368"
 ---
 # <a name="offline-deployment-overview"></a>오프 라인 배포 개요
@@ -29,7 +29,7 @@ Azure Arc 사용 데이터 서비스에 대 한 월별 업데이트를 제공 �
 
 이 스크립트는 다음 정보를 대화형으로 표시 합니다.  또는 대화형 프롬프트 없이 스크립트를 실행 하려는 경우 스크립트를 실행 하기 전에 해당 환경 변수를 설정할 수 있습니다.
 
-|prompt|환경 변수|메모|
+|prompt|환경 변수|참고|
 |---|---|---|
 |소스 컨테이너 레지스트리 제공-를 사용 하려면 ENTER 키를 누릅니다. `mcr.microsoft.com`|SOURCE_DOCKER_REGISTRY|일반적으로 Microsoft Container Registry에서 이미지를 끌어올 수 있지만 다른 레지스트리를 사용 하 여 비공개 미리 보기에 참여 하는 경우에는 미리 보기 프로그램의 일부로 제공 된 정보를 사용할 수 있습니다.|
 |소스 컨테이너 레지스트리 리포지토리 제공-를 사용 하려면 ENTER 키를 누릅니다 `arcdata` .|SOURCE_DOCKER_REPOSITORY|Microsoft Container Registry에서 끌어오는 경우 리포지토리는이 됩니다 `arcdata` .|

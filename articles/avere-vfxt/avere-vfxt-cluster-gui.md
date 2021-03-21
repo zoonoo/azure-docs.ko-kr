@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
 ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92342436"
 ---
 # <a name="access-the-vfxt-cluster"></a>vFXT 클러스터에 액세스
@@ -57,13 +57,13 @@ SSH 공개 키를 사용하여 클러스터를 만들고 일치하는 키가 클
 
 * VPN 또는 ExpressRoute를 사용하여 클러스터에 도달하는 경우 브라우저에서 클러스터 관리 IP 주소로 이동합니다. 예: ``https://203.0.113.51``
 
-브라우저에 따라 **고급**을 클릭하고 페이지로 계속 진행하는 것이 안전한지 확인해야 할 수 있습니다.
+브라우저에 따라 **고급** 을 클릭하고 페이지로 계속 진행하는 것이 안전한지 확인해야 할 수 있습니다.
 
 클러스터를 만들 때 입력한 `admin` 사용자 이름과 관리 암호를 입력합니다.
 
 !['admin' 사용자 이름과 암호로 채워진 Avere 로그인 페이지의 스크린샷](media/avere-vfxt-gui-login.png)
 
-**로그인**을 클릭하거나 키보드에서 Enter 키를 누릅니다.
+**로그인** 을 클릭하거나 키보드에서 Enter 키를 누릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

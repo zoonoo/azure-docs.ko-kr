@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95972762"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성
@@ -143,7 +143,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
     | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
     | 속성 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
-    | Description | *사용자 지정 설명 제공* |  |
+    | 설명 | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **사용자** |  |
     | 메타버스 개체 유형 | **Person** |  |

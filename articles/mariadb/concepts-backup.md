@@ -3,14 +3,14 @@ title: 백업 및 복원-Azure Database for MariaDB
 description: Azure Database for MariaDB 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 1d5fc158d2e37223e048c4106206ddba4602fabb
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98659940"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 백업 및 복원
@@ -21,7 +21,7 @@ Azure Database for MariaDB는 자동으로 서버 백업을 만들어 사용자�
 
 Azure Database for MariaDB는 전체, 차등 및 트랜잭션 로그 백업을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
-이러한 백업 파일은 사용자에 게 노출 되지 않으므로 내보낼 수 없습니다. 이러한 백업은 Azure Database for MariaDB 복원 작업에만 사용할 수 있습니다. [Mysqldump](howto-migrate-dump-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
+이러한 백업 파일은 사용자에게 노출되지 않으며 내보낼 수 없습니다. 이러한 백업은 Azure Database for MariaDB 복원 작업에만 사용할 수 있습니다. [Mysqldump](howto-migrate-dump-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
 
 ### <a name="backup-frequency"></a>Backup 주기
 

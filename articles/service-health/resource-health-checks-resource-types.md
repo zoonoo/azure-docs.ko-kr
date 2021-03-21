@@ -4,10 +4,10 @@ description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 1b0958732a96786b2fb86b2b145f5cb8d36c0c5a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97883370"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
@@ -139,7 +139,7 @@ ms.locfileid: "97883370"
 |---|
 |<ul><li>HDInsight 클러스터에서 핵심 서비스를 사용할 수 있나요?</li><li>HDInsight 클러스터가 휴지 상태의 BYOK 암호화 키에 액세스할 수 있나요?</li></ul>|
 
-## <a name="microsoftiotcentraliotapps"></a>Microsoft 응용 프로그램
+## <a name="microsoftiotcentraliotapps"></a>Microsoft.IoTCentral/IoTApps
 |실행된 검사|
 |---|
 |<ul><li>IoT Central 응용 프로그램을 사용할 수 있나요?</li></ul>|

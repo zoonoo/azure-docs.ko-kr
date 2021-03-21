@@ -15,10 +15,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380307"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
@@ -153,7 +153,7 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 작업 | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)).
-카탈로그에 SharePoint Online 사이트 추가 | 글로벌 관리자
+카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자
 
 
 ## <a name="groups"></a>그룹
@@ -196,7 +196,7 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 라이선스 할당 | 라이선스 관리자 | 사용자 관리자
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](../fundamentals/users-default-permissions.md))
 라이선스 해지 | 라이선스 관리자 | 사용자 관리자
-구독 체험 또는 구입 | 청구 관리자 | 
+구독 체험 또는 구입 | 대금 청구 관리자 | 
 
 
 ## <a name="monitoring---audit-logs"></a>모니터링 - 감사 로그

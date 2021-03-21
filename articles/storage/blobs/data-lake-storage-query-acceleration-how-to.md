@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: a925d3f55395d094c7f19f65de4b72fd20a11a41
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102213677"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링
@@ -32,7 +32,7 @@ ms.locfileid: "102213677"
 
   ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-  해당 없음
+  해당 사항 없음
 
   ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -236,7 +236,7 @@ pip install azure-storage-blob==12.4.0
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-해당 없음
+해당 사항 없음
 
 #### <a name="net"></a>[.NET](#tab/dotnet)
 

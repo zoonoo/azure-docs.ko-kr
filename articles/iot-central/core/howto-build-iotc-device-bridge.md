@@ -10,10 +10,10 @@ ms.topic: how-to
 manager: peterpr
 ms.custom: device-developer
 ms.openlocfilehash: fc8ea41e804344735cfa2400d5d763622d8811c8
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95026253"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>다른 IoT 클라우드를 IoT Central에 연결하는 IoT Central 디바이스 브리지 빌드
@@ -39,7 +39,7 @@ IoT Central 앱에서 디바이스를 전달된 메시지에 있는 디바이스
 ## <a name="how-do-i-set-it-up"></a>설정하려면 어떻게 해야 하나요?
 GitHub 리포지토리의 README 파일에 지침이 자세히 나열되어 있습니다. 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 Azure 리소스를 Azure 구독에서 호스트합니다. [README 파일](https://aka.ms/iotcentralgithubdevicebridge)에서 가격 책정에 대한 자세한 정보를 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
