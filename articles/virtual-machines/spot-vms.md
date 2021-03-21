@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: 0ed079dbfef50ae74914998c6b2e558b7e41aeae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb53fc37227e040ed7bd7fc8e47de9aed538bc2e
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/20/2021
-ms.locfileid: "101673952"
+ms.locfileid: "104721395"
 ---
 # <a name="use-azure-spot-virtual-machines"></a>Azure 스팟 Virtual Machines 사용 
 
@@ -58,9 +58,9 @@ Azure 스팟 Virtual Machines는 중국 21Vianet Microsoft Azure를 제외 하 �
 
 현재 지원 되는 [제품 유형은](https://azure.microsoft.com/support/legal/offer-details/) 다음과 같습니다.
 
--   기업 계약
--   종 량 제 제품 코드 003P
--   후원
+-   기업 계약 
+-   종 량 제 제품 코드 (003P)
+-   후원 (0036P 및 0136P)
 - CSP (클라우드 서비스 공급자)의 경우 파트너에 게 문의 하세요.
 
 

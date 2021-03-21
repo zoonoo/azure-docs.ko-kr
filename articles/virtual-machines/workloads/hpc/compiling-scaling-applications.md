@@ -5,19 +5,25 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470747"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721284"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 응용 프로그램 크기 조정
 
 Azure에서 HPC 응용 프로그램의 최적의 확장 및 확장 성능을 위해서는 특정 워크 로드에 대 한 성능 조정 및 최적화 실험이 필요 합니다. 이 섹션과 VM 시리즈 관련 페이지에서는 응용 프로그램 크기 조정에 대 한 일반적인 지침을 제공 합니다.
+
+## <a name="application-setup"></a>애플리케이션 설정
+[Azurehpc](https://github.com/Azure/azurehpc) 리포지토리에는 다음과 같은 많은 예제가 포함 되어 있습니다.
+- 최적으로 [응용 프로그램](https://github.com/Azure/azurehpc/tree/master/apps) 설정 및 실행
+- [파일 시스템 및 클러스터](https://github.com/Azure/azurehpc/tree/master/examples)구성
+- 몇 가지 일반적인 응용 프로그램 워크플로를 사용 하 여 쉽게 시작 하는 방법에 대 한 [자습서](https://github.com/Azure/azurehpc/tree/master/tutorials) 입니다.
 
 ## <a name="optimally-scaling-mpi"></a>MPI를 최적으로 확장 
 
@@ -48,6 +54,9 @@ Azure에서 HPC 응용 프로그램의 최적의 확장 및 확장 성능을 위
 - 크기를 크게 증가 시키려면 UD 또는 하이브리드 RC + UD 전송을 사용 하는 것이 좋습니다. 대부분의 MPI 라이브러리/런타임 라이브러리는 내부적으로이 작업을 수행 합니다 (예: 작업 x 또는 MVAPICH2). 대량 실행에 대 한 전송 구성을 확인 합니다.
 
 ## <a name="compiling-applications"></a>응용 프로그램 컴파일
+<br>
+<details>
+<summary>확장 하려면 클릭 하십시오.</summary>
 
 필요 하지는 않지만 적절 한 최적화 플래그를 사용 하 여 응용 프로그램을 컴파일하면 HB 및 HC 시리즈 Vm에서 최상의 확장 성능을 제공 합니다.
 
@@ -96,6 +105,7 @@ HPC의 경우 AMD는 GCC 컴파일러 7.3 이상 버전을 권장 합니다. RHE
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+</details>
 
 ## <a name="next-steps"></a>다음 단계
 

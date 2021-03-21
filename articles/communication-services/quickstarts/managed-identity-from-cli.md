@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
 ms.openlocfilehash: e708536395807fc74dc5bfd73836e050832cca39
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493342"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>개발 환경에서 관리 id를 사용 하 여 통신 리소스에 대 한 액세스 권한 부여
@@ -22,7 +22,7 @@ Azure Id 클라이언트 라이브러리는 azure SDK에 대 한 Azure Active Di
 
 Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개발 환경에서 실행 되 든 Azure에서 실행 되는지에 관계 없이 동일한 코드를 사용 하 여 여러 서비스에서 인증할 수 있다는 점입니다. Azure Id 클라이언트 라이브러리는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다. 개발 환경에서 관리 id가 존재 하지 않으므로 클라이언트 라이브러리는 테스트 목적으로 사용자 또는 등록 된 응용 프로그램을 인증 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
  - Azure CLI [설치 가이드](https://docs.microsoft.com/cli/azure/install-azure-cli)
  - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free)

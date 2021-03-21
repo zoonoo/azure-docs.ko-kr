@@ -5,10 +5,10 @@ ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: d61813e723992f4381c5ea82121da8bbb70016dc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032938"
 ---
 컨테이너에 대 한 쿼리는에 사용 되는 Azure 리소스의 가격 책정 계층에서 청구 됩니다 `ApiKey` .
@@ -23,7 +23,7 @@ Azure Cognitive Services 컨테이너는 계량/청구 끝점에 연결 하지 �
 
 이 명령은 다음 중 세 가지 옵션을 모두 유효한 값으로 제공 하면 컨테이너를 시작 합니다. <a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank"> `docker run` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 
-| 옵션 | 설명 |
+| 옵션 | Description |
 |--------|-------------|
 | `ApiKey` | 청구 정보를 추적 하는 데 사용 되는 Cognitive Services 리소스의 API 키입니다.<br/>이 옵션의 값은에 지정 된 프로 비전 된 리소스에 대 한 API 키로 설정 되어야 합니다 `Billing` . |
 | `Billing` | 청구 정보를 추적 하는 데 사용 되는 Cognitive Services 리소스의 끝점입니다.<br/>이 옵션의 값은 프로비저닝된 Azure 리소스의 엔드포인트 URI로 설정해야 합니다.|

@@ -4,10 +4,10 @@ description: DevTest Labs 리소스를 개발 하기 위한 분산 및 공동 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: caf4bd13f2ec9c45db392a027db269b492cbd802
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102550079"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Azure DevTest Labs 리소스의 분산 및 공동 작업 개발에 대 한 모범 사례

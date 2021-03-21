@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: storage
 author: roygara
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 09/16/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 06db7bcb5698f152dd5062762fdb3d59ae326e22
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102603373"
 ---
 Azure 파일 공유에 대 한 SMB 다중 채널에는 현재 다음과 같은 제한 사항이 있습니다.

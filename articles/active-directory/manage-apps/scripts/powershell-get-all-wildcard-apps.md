@@ -12,10 +12,10 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 944fe9606963c4d4fb9ec41e4d1a87ab62d1bc6b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102548980"
 ---
 # <a name="get-all-application-proxy-apps-using-wildcard-publishing"></a>와일드카드 게시를 사용하여 모든 애플리케이션 프록시 앱 가져오기

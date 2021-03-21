@@ -13,17 +13,17 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033625"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 
 Microsoft Graph를 사용 하 여 Azure AD B2C 디렉터리에서 리소스를 관리할 수 있습니다. 다음 Microsoft Graph API 작업은 사용자, id 공급자, 사용자 흐름, 사용자 지정 정책 및 정책 키를 비롯 한 Azure AD B2C 리소스 관리에 대해 지원 됩니다. 다음 섹션의 각 링크는 해당 작업에 대 한 Microsoft Graph API 참조 내의 해당 페이지를 대상으로 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 작용 하려면 권한을 부여 하는 응용 프로그램 등록이 필요 합니다. 관리 응용 프로그램에서 사용할 수 있는 응용 프로그램 등록을 만들려면 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md) 문서의 단계를 수행 합니다. 
 
@@ -43,7 +43,7 @@ MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 �
 - [목록](/graph/api/authentication-list-phonemethods)
 - [가져오기](/graph/api/phoneauthenticationmethod-get)
 - [업데이트](/graph/api/phoneauthenticationmethod-update)
-- [Delete](/graph/api/phoneauthenticationmethod-delete)
+- [삭제](/graph/api/phoneauthenticationmethod-delete)
 
 [목록](/graph/api/authentication-list-phonemethods) 작업은 사용 하도록 설정 된 전화 번호만 반환 합니다. 목록 작업과 함께 사용 하려면 다음 전화 번호를 사용 하도록 설정 해야 합니다. 
 
@@ -57,7 +57,7 @@ MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 �
 - [목록](/graph/api/emailauthenticationmethod-list)
 - [가져오기](/graph/api/emailauthenticationmethod-get)
 - [업데이트](/graph/api/emailauthenticationmethod-update)
-- [Delete](/graph/api/emailauthenticationmethod-delete)
+- [삭제](/graph/api/emailauthenticationmethod-delete)
 
 ## <a name="identity-providers"></a>ID 공급자
 
@@ -181,7 +181,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 
 Microsoft Graph API에 대 한 모든 요청에는 인증을 위한 액세스 토큰이 필요 합니다. 이 솔루션은 Microsoft Graph SDK에 사용할 MSAL (Microsoft 인증 라이브러리)의 인증 시나리오 기반 래퍼를 제공 하는 [Microsoft Graph. Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet 패키지를 사용 합니다.
 
-`RunAsync` _Program.cs_ 파일의 메서드는 다음과 같습니다.
+`RunAsync` _Program .cs_ 파일의 메서드는 다음과 같습니다.
 
 1. 파일 _의appsettings.js_ 에서 응용 프로그램 설정을 읽습니다.
 1. [OAuth 2.0 클라이언트 자격 증명 부여](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) 흐름을 사용 하 여 인증 공급자를 초기화 합니다. 클라이언트 자격 증명 부여 흐름을 사용 하 여 앱은 Microsoft Graph API를 호출 하는 액세스 토큰을 가져올 수 있습니다.
@@ -203,7 +203,7 @@ Microsoft Graph API에 대 한 모든 요청에는 인증을 위한 액세스 �
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-그러면 초기화 된 *GraphServiceClient* 가 _UserService.cs_ 에서 사용자 관리 작업을 수행 하는 데 사용 됩니다. 예를 들어 테 넌 트의 사용자 계정 목록을 가져오는 중입니다.
+그런 다음 초기화 된 *GraphServiceClient* 사용자 관리 작업을 수행 하기 위해 _userservice. cs_ 에 사용 됩니다. 예를 들어 테 넌 트의 사용자 계정 목록을 가져오는 중입니다.
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)

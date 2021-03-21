@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: 80fe9f03f2c57eab8527e553153f3e65315a54bf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034849"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
@@ -30,7 +30,7 @@ ms.locfileid: "102034849"
 
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 

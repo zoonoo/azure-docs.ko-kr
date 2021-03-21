@@ -10,10 +10,10 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
 ms.openlocfilehash: ba864aa1aa2462f21e05ab5e779c8e715d6bb973
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100654222"
 ---
 # <a name="use-python-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 Acl 관리
@@ -211,6 +211,6 @@ def remove_permission_recursively(is_default_scope):
 - [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 - [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
+- [피드백 보내기](https://github.com/Azure/azure-sdk-for-python/issues)
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control.md)
 - [Azure Data Lake Storage Gen2의 Acl (액세스 제어 목록)](data-lake-storage-access-control.md)

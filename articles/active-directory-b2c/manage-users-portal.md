@@ -11,10 +11,10 @@ ms.date: 03/03/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ace0ccb8372ff21a2d3e8721baf09bab539846c2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033678"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Azure Portal를 사용 하 여에서 소비자 사용자를 만들고 삭제 Azure AD B2C
@@ -50,7 +50,7 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 
 **로그인 차단** 을 선택 하지 않은 경우 사용자는 지정한 로그인 방법 (전자 메일 또는 사용자 이름)을 사용 하 여 로그인 할 수 있습니다.
 
-## <a name="reset-a-users-password"></a>사용자의 암호 다시 설정
+## <a name="reset-a-users-password"></a>사용자의 암호 재설정
 
 관리자는 사용자가 암호를 잊어버린 경우 사용자의 암호를 다시 설정할 수 있습니다. 사용자 암호를 다시 설정 하면 사용자에 대 한 임시 암호가 자동으로 생성 됩니다. 임시 암호는 만료되지 않습니다. 임시 암호가 생성된 이후 얼마나 시간이 경과했는지와 상관없이 다음에 사용자가 로그인할 때에도 암호는 계속 작동합니다. 그런 다음 사용자가 암호를 영구적으로 다시 설정 해야 합니다. 
 

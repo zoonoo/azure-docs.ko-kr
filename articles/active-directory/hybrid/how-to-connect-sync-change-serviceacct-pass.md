@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/02/2019
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8778e50dcb881647696c6e901bf1058b9d6ac43
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95996562"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720341"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
 ADSync 서비스 계정 암호를 변경 하는 경우 암호화 키를 중단 하 고 ADSync 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
+
+>[!IMPORTANT]
+> Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계정의 암호를 재설정하지 말아야 합니다. 보안상의 이유로 Windows에서 암호화 키를 제거하기 때문입니다. Azure AD Connect를 다시 설치하지 않고는 계정을 다른 계정으로 변경할 수 없습니다. 2017 4 월 이후의 빌드로 업그레이드 하는 경우 서비스 계정에서 암호를 변경 하는 것이 지원 되지만 사용 된 계정은 변경할 수 없습니다. 
 
 Azure AD Connect 동기화 서비스의 일부로 암호화 키를 사용 하 여 AD DS 커넥터 계정 및 ADSync 서비스 계정의 암호를 저장 합니다.  이러한 계정은 데이터베이스에 저장되기 전에 암호화됩니다. 
 

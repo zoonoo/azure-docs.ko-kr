@@ -12,10 +12,10 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 ms.openlocfilehash: a894a46ce7c78b65dde80c52f9516fcbe4d27bcb
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521002"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 Azure Databricks ML 실험 추적 (미리 보기)
@@ -32,7 +32,7 @@ MLflow를 [사용 하 여 실험 실행 추적 및](how-to-use-mlflow.md) 추가
 > [!TIP]
 > 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링하려는 데이터 과학자와 개발자를 위한 것입니다. 할당량, 완료된 학습 실행 또는 완료된 모델 배포와 같이 Azure Machine Learning의 리소스 사용과 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * `azureml-mlflow` 패키지를 설치합니다. 
     * 이 패키지는 `azureml-core` 작업 영역에 액세스 하기 위해 MLflow에 대 한 연결을 제공 하는 [AZURE MACHINE LEARNING Python SDK](/python/api/overview/azure/ml/install)를 자동으로 가져옵니다.

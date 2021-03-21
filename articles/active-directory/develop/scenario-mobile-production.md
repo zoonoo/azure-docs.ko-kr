@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08243fd06de289941d8e6a9197ccb349614af056
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88121037"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675960"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>프로덕션을 위해 모바일 앱 준비
 
@@ -34,18 +34,9 @@ ms.locfileid: "88121037"
 - [MSAL iOS wiki](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigate-and-investigate-issues"></a>문제 완화 및 조사
-
-앱에서 문제를 더 잘 진단 하려면 데이터를 수집 합니다. 수집할 수 있는 데이터의 종류에 대 한 자세한 내용은 [MSAL 응용 프로그램의 로깅](./msal-logging.md)을 참조 하세요.
-
-다음은 데이터 수집에 대 한 몇 가지 제안 사항입니다.
-
-- 사용자는 문제가 발생할 때 도움을 요청할 수 있습니다. 로그를 캡처하고 일시적으로 저장 하는 것이 가장 좋습니다. 사용자가 로그를 업로드할 수 있는 위치를 제공 합니다. MSAL은 인증에 대 한 자세한 정보를 캡처하기 위해 로깅 확장을 제공 합니다.
-
-- 원격 분석을 사용할 수 있는 경우 MSAL을 통해 사용 하도록 설정 하 여 사용자가 앱에 로그인 하는 방법에 대 한 데이터를 수집 합니다.
-
-## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## <a name="next-steps"></a>다음 단계
 
 추가 샘플을 보려면 [데스크톱 및 모바일 공용 클라이언트 앱](sample-v2-code.md#desktop-and-mobile-public-client-apps)을 참조 하세요.

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564408"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720154"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -136,14 +136,16 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](/rest/api/batchservic
 
 다른 파일은 stdout, stderr 등의 노드에서 실행되는 각 태스크에 대해 기록됩니다. 동일한 노드에서 많은 작업을 실행하거나 태스크 파일이 너무 클 경우 임시 드라이브가 가득 찰 수 있습니다.
 
-임시 드라이브의 크기는 VM 크기에 따라 달라집니다. VM 크기를 선택할 때는 임시 드라이브에 충분한 공간이 있는지 확인해야 합니다.
+또한 노드가 시작 된 후 사용자를 만들기 위해 운영 체제 디스크에 작은 공간이 필요 합니다.
+
+임시 드라이브의 크기는 VM 크기에 따라 달라집니다. VM 크기를 선택할 때 고려해 야 할 한 가지 사항은 임시 드라이브에 계획 된 워크 로드를 위한 충분 한 공간이 있는지 확인 하는 것입니다.
 
 - Azure Portal에서 풀을 추가하면 VM 크기의 전체 목록이 표시되는데, 여기에는 '리소스 디스크 크기' 열이 있습니다.
 - 모든 VM 크기를 설명하는 문서에는 '임시 스토리지' 열이 있는 테이블이 있습니다(예: [컴퓨팅 최적화 VM 크기](../virtual-machines/sizes-compute.md)).
 
 각 태스크에 의해 기록된 파일의 경우 태스크 파일이 자동으로 정리되기 전에 유지되는 기간을 결정하는 보존 기간을 각 태스크별로 지정할 수 있습니다. 보존 기간을 축소하면 스토리지 요구량을 줄일 수 있습니다.
 
-임시 디스크의 공간이 부족하거나 공간이 얼마 남지 않은 경우 노드가 [Unusable](/rest/api/batchservice/computenode/get#computenodestate) 상태로 전환되고 디스크가 가득 찼다는 노드 오류가 보고됩니다.
+임시 또는 운영 체제 디스크의 공간이 부족 하거나 (공간이 부족 하 여 디스크의 공간이 부족 한 경우) 노드가 [사용할](/rest/api/batchservice/computenode/get#computenodestate) 수 없는 상태로 전환 되 고 디스크가 꽉 차서 노드 오류가 보고 됩니다.
 
 노드에서 공간을 차지 하 고 있는지 확실 하지 않은 경우에는 노드에 대 한 원격 기능을 사용해 보고 공간이 사라진 위치를 수동으로 조사 합니다. 또한 [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode)를 사용하여 Batch 관리형 폴더의 파일(예: 태스크 출력)을 살펴볼 수도 있습니다. 이 API는 Batch 관리 디렉터리의 파일만 나열 합니다. 작업에서 다른 곳으로 파일을 만든 경우에는 표시 되지 않습니다.
 

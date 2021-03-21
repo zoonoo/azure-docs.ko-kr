@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199495"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607894"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
 
@@ -90,6 +90,8 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 | EnqueuedTime | 허브에서 피드백 메시지를 받은 시간을 나타내는 타임 스탬프입니다. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+
+일괄 처리가 64 메시지에 도달 하거나 마지막으로 15 초 이내에 발생 하는 경우 시스템에서 피드백을 보냅니다. 
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 

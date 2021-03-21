@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
 ms.openlocfilehash: 983cdab0c5f5b856537c661c7427a83099f30ed4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181434"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 SQL Server VM 등록
@@ -41,7 +41,7 @@ SQL IaaS 에이전트 확장을 사용 하려면 먼저 [ **SqlVirtualMachine** 
 > [!IMPORTANT]
 > SQL IaaS 에이전트 확장은 Azure Virtual Machines 내에서 SQL Server를 사용 하는 경우 고객에 게 선택적 혜택을 제공 하기 위한 express 용도의 데이터를 수집 합니다. Microsoft는 고객의 사전 동의가 없는 라이선스 감사에는이 데이터를 사용 하지 않습니다. 자세한 내용은 [SQL Server 개인 정보 취급 방침](/sql/sql-server/sql-server-privacy#non-personal-data) 을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
 

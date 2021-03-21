@@ -1,17 +1,17 @@
 ---
-title: 호스트 할당량 요청 및 Azure VMware 솔루션 사용
+title: 호스트 할당량 요청 및 Azure VMware Solution 사용
 description: 호스트 할당량/용량을 요청 하 고 Azure VMware 솔루션 리소스 공급자를 사용 하도록 설정 하는 방법을 알아봅니다. 기존 Azure VMware 솔루션 사설 클라우드에서 더 많은 호스트를 요청할 수도 있습니다.
 ms.topic: how-to
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
 ms.openlocfilehash: 5d154f5c63ffccdbf1729e641133b54be478d884
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653172"
 ---
-# <a name="request-host-quota-and-enable-azure-vmware-solution"></a>호스트 할당량 요청 및 Azure VMware 솔루션 사용
+# <a name="request-host-quota-and-enable-azure-vmware-solution"></a>호스트 할당량 요청 및 Azure VMware Solution 사용
 
 이 방법에서는 호스트 할당량/용량을 요청 하 고 서비스를 활성화 하는 [Azure VMware 솔루션](introduction.md) 리소스 공급자를 사용 하도록 설정 하는 방법을 알아봅니다. Azure VMware 솔루션을 사용 하도록 설정 하기 전에 호스트를 할당 하기 위해 지원 티켓을 제출 해야 합니다. 기존 Azure VMware 솔루션 사설 클라우드가 있고 더 많은 호스트를 할당 하려는 경우 동일한 프로세스를 따릅니다.
 

@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608005"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>범위가 지정 된 리소스 집합 구성 규칙 만들기
@@ -83,7 +83,7 @@ Static replacers는 범위 지정 리소스 집합 규칙과 일치 하는 자�
 | time | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정 된 선택적 구분 기호 (HHMM, hh: Mm, HHMMSS, hh: mm: ss)를 사용 하는 일련의 4 또는 6 0-9 ASCII 문자입니다. |
 | timestamp | 선택적 구분 기호를 사용 하는 일련 12 또는 14 0-9 ASCII 문자 (yyyy-mm-Yyyy-mm-ddthh: mm, yyyymmddhhmm, yyyy-mm-dd-Yyyy-mm-ddthh: mm: ss, yyyymmddHHmmss는 [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정 되어 있습니다. |
 | boolean | 대/소문자를 구분 하지 않고 ' true ' 또는 ' f a l l '을 포함할 수 있습니다. |
-| number | 0부터 시작 하는 일련의 0-9 ASCII 문자, 0부터 시작 하는 (예: 0001), 선택적으로 점 '. ', 일련 1 이상의 0-9 ASCII 문자 (예: 100)를 사용할 수 있습니다. |
+| 숫자 | 0부터 시작 하는 일련의 0-9 ASCII 문자, 0부터 시작 하는 (예: 0001), 선택적으로 점 '. ', 일련 1 이상의 0-9 ASCII 문자 (예: 100)를 사용할 수 있습니다. |
 | hex | 집합 0-1 및 A-f의 일련의 1 개 이상의 ASCII 문자 값은 0 접두사가 될 수 있습니다. |
 | locale | [RFC 5646](https://tools.ietf.org/html/rfc5646)에 지정 된 구문과 일치 하는 문자열입니다. |
 

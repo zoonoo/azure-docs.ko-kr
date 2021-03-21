@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
 ms.openlocfilehash: 7302f61fce6763fdbb41c2b4899dea749ac3225f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031075"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
@@ -18,7 +18,7 @@ Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여
 > [!IMPORTANT]
 > Configuration Manager 버전 2010부터이 기능은 더 이상 사용 되지 않습니다.<!-- 8269855 --> 자세한 내용은 [Configuration Manager에서 제거되는 기능과 이후 지원되지 않는 기능](/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 

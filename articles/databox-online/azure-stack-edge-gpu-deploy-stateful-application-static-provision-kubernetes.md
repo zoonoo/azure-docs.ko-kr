@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102610487"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "102610487"
 Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, MySQL에 대 한 여기에 설명 된 것과 비슷한 방식으로 배포할 수 있습니다. 자세한 내용은 [AZURE SQL Edge](../azure-sql-edge/overview.md)를 참조 하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
 

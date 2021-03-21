@@ -4,13 +4,14 @@ description: 가상 컴퓨터의 게스트 운영 체제에서 모니터링 데�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608217"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요 (미리 보기)
 Azure Monitor 에이전트 (AMA)는 가상 컴퓨터의 게스트 운영 체제에서 모니터링 데이터를 수집 하 여 Azure Monitor에 전달 합니다. 이 문서에서는 Azure Monitor 에이전트를 설치 하는 방법 및 데이터 수집을 구성 하는 방법을 비롯 하 여 에이전트에 대 한 개요를 제공 합니다.
@@ -60,6 +61,35 @@ Azure Monitor 에이전트의 공개 미리 보기 중에는 다음과 같은 �
   - *. control.monitor.azure.com
 
 
+## <a name="supported-regions"></a>지원되는 지역
+Azure Monitor 에이전트는 현재 다음 지역에서 리소스를 지원 합니다.
+
+- 동아시아
+- 동남아시아
+- 오스트레일리아 중부
+- 오스트레일리아 동부
+- 오스트레일리아 남동부
+- 캐나다 중부
+- 북유럽
+- 서유럽
+- 프랑스 중부
+- 독일 중서부
+- 인도 중부
+- 일본 동부
+- 한국 중부
+- 남아프리카 북부
+- 스위스 북부
+- 영국 남부
+- 영국 서부
+- 미국 중부
+- 미국 동부
+- 미국 동부 2
+- 미국 중북부
+- 미국 중남부
+- 미국 서부
+- 미국 서부 2
+- 미국 중서부
+
 ## <a name="coexistence-with-other-agents"></a>다른 에이전트와의 공존
 Azure Monitor 에이전트는 기존 에이전트와 함께 사용할 수 있으므로 평가 또는 마이그레이션 중에 기존 기능을 계속 사용할 수 있습니다. 이는 기존 솔루션 지원에서 공개 미리 보기의 제한 사항 때문에 특히 중요 합니다. 중복 데이터를 수집 하는 경우 쿼리 결과를 왜곡 하 고 데이터 수집 및 보존에 대 한 추가 요금이 발생할 수 있으므로 주의 해야 합니다.
 
@@ -79,7 +109,7 @@ Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로�
 |:---|:---|:---|
 | 성능        | Azure Monitor 메트릭<br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값입니다. |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
-| syslog             | Log Analytics 작업 영역 | Linux 이벤트 로깅 시스템으로 전송되는 정보입니다. |
+| Syslog             | Log Analytics 작업 영역 | Linux 이벤트 로깅 시스템으로 전송되는 정보입니다. |
 
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제

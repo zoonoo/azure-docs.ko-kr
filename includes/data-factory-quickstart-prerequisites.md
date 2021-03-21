@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: data-factory
 author: linda33wj
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: include
 ms.custom: include file
 ms.date: 06/27/2019
-ms.openlocfilehash: a979cd0a4c2ee6466edebadf61e8a98b8f17c9f3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0c21c576cbb99ccc96bf7edf733769a9b28b9344
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013380"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612545"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -59,7 +59,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. *\<Account name>*  - **컨테이너** 페이지의 도구 모음에서 **컨테이너** 를 선택합니다.
 3. **새 컨테이너** 대화 상자에서 **adftutorial** 을 이름으로 입력한 다음 **확인** 을 선택합니다. *\<Account name>*  - **컨테이너** 페이지가 컨테이너 목록에 **adftutorial** 을 포함하도록 업데이트됩니다.
 
-   ![컨테이너 목록](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/list-of-containers.png" alt-text="컨테이너 목록":::
+
 
 #### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Blob 컨테이너에 대한 입력 폴더 및 파일 추가
 
@@ -82,7 +83,8 @@ Jane, Doe
 3. **Blob 업로드** 페이지에서 **파일** 상자를 선택한 다음, **emp.txt** 파일을 선택합니다.
 4. **고급** 제목을 펼칩니다. 이제 페이지가 다음과 같이 표시됩니다.
 
-   ![고급 링크 선택](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+   :::image type="content" source="media/data-factory-quickstart-prerequisites/upload-blob-advanced.png" alt-text="고급 링크 선택":::
+
 5. **폴더에 업로드** 상자에서 **입력** 을 입력합니다.
 6. **업데이트** 단추를 선택합니다. 목록에서 **emp.txt** 파일 및 업로드 상태를 참조하세요.
 7. **닫기** 아이콘(**X**)을 선택하여 **Blob 업로드** 페이지를 닫습니다.

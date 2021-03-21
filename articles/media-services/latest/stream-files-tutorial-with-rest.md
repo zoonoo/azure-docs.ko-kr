@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/12/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 21f7203af267f53d37e26390ea73c896ea9db76e
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: c8f76c74c951de77d5d5c213be3698ec2b175ead
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99821591"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596776"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -259,7 +259,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
         }
         ```
 
-작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 작업 진행률을 보려면 Event Grid를 사용하는 것이 좋습니다. Event Grid는 고가용성, 일관된 성능 및 동적 크기 조정을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다.  [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
+작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 작업 진행률을 보려면 Event Grid를 사용하는 것이 좋습니다. Event Grid는 고가용성, 일관된 성능 및 동적 크기 조정을 위해 설계되었습니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 간단한 HTTP 기반 반응형 이벤트 처리는 이벤트의 지능형 필터링 및 라우팅을 통해 효율적인 솔루션을 구축하는 데 도움이 됩니다.  [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](monitoring/job-state-events-cli-how-to.md)을 참조하세요.
 
 **작업** 은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고 완료되면 **취소됨** 이 표시됩니다.
 

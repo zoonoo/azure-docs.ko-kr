@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433253"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
@@ -142,7 +142,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 
 인스턴스의 모든 모델을 한 번에 삭제 하거나 개별적으로 수행할 수 있습니다.
 
-모든 모델을 삭제 하는 방법에 대 한 예제는 [*자습서: 샘플 클라이언트 앱을 사용 하 여 기본 사항 탐색*](tutorial-command-line-app.md)에서 사용한 샘플 앱을 다운로드 합니다. *CommandLoop.cs* 파일은 함수에서이를 수행 `CommandDeleteAllModels` 합니다.
+모든 모델을 삭제 하는 방법에 대 한 예제는 [*자습서: 샘플 클라이언트 앱을 사용 하 여 기본 사항 탐색*](tutorial-command-line-app.md)에서 사용한 샘플 앱을 다운로드 합니다. *Commandloop .cs* 파일은 함수에서이를 수행 합니다. `CommandDeleteAllModels`
 
 이 섹션의 나머지 부분에서는 모델 삭제를 자세히 설명 하 고 개별 모델에 대해이 작업을 수행 하는 방법을 보여 줍니다.
 

@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8487743efd4f18806ae03ed7529927736314988b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505072"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595692"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Python SDK: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,19 +36,28 @@ ms.locfileid: "102505072"
 > * [REST 리소스 공급자](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](./sql-query-getting-started.md)
 > * [대량 실행자-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk Executor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [대량 실행기 - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| 페이지| 링크 |
 |---|---|
 |**SDK 다운로드**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API 설명서**|[Python API 참조 설명서](/python/api/azure-cosmos/)|
+|**API 설명서**|[Python API 참조 설명서](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**SDK 설치 지침**|[Python SDK 설치 지침](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**시작**|[Python SDK 시작](create-sql-api-python.md)|
 |**현재 지원되는 플랫폼**|[Python 2.7](https://www.python.org/downloads/) 및 [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>릴리스 기록
 
-### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+## <a name="420"></a>4.2.0
+
+**버그 수정**
+- 페이지 별로 결과를 가져오는 데 query_iterable를 사용할 때 연속 토큰이 적용 되지 않는 버그가 수정 되었습니다.
+- 리소스 토큰이 문서 읽기 및 삭제에 대해 허용 되지 않는 버그를 수정 했습니다. 
+
+**새로운 기능**
+- `partitionKey`변경 피드를 쿼리 하는 동안 전달에 대 한 지원이 추가 되었습니다.
+
+## <a name="410"></a>4.1.0
 
 - "지연" 인덱싱 모드에 대 한 사용 중단 경고가 추가 되었습니다. 백 엔드는이 모드를 사용 하 여 컨테이너를 만드는 것을 허용 하지 않으며 대신 일관 되도록 설정 합니다.
 
@@ -56,13 +65,14 @@ ms.locfileid: "102505072"
 - 새 컨테이너를 만들 때 분석 저장소 TTL을 설정 하는 기능이 추가 되었습니다.
 
 **버그 수정**
-- Get_client Api에 대 한 입력으로 dicts에 대 한 지원이 수정 되었습니다.
+- `dicts`Get_client api에 대 한 입력으로에 대 한 지원이 수정 되었습니다.
 - 쿼리 반복기에서 Python 2/3 호환성이 수정 되었습니다.
-- 형식 힌트 오류 (문제 #12570)를 수정 했습니다.
-- 옵션 헤더가 upsert_item 함수에 추가 되지 않은 버그를 수정 했습니다. 문제 #11791-감사 @aalapatirvbd 합니다.
-- 항목에서 문자열이 아닌 ID를 사용할 때 발생 하는 오류를 수정 했습니다. 이제 AttributeError (Issue #11793)가 아닌 TypeError이 발생 합니다.
+- 형식 힌트 오류가 수정 되었습니다.
+- 옵션 헤더가 upsert_item 함수에 추가 되지 않은 버그를 수정 했습니다. 
+- 항목에서 문자열이 아닌 ID를 사용할 때 발생 하는 오류를 수정 했습니다. 이제 AttributeError 대신 TypeError이 발생 합니다.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * 안정적인 릴리스.
 * 요청 및 응답 헤더에 대해 사용자 지정 로커를 전달하도록 파이프라인에 HttpLoggingPolicy가 추가되었습니다.
@@ -80,8 +90,8 @@ ms.locfileid: "102505072"
 * 쿼리에 대한 Distinct, Offset 및 Limit 지원이 추가되었습니다.
 * 이제 기본 문서 쿼리 실행 컨텍스트가 다음 쿼리에 대해 사용됩니다.
 
-  * ChangeFeed 쿼리
-  * 단일 파티션 쿼리(partitionkey, partitionKeyRangeId가 옵션에 제공됨)
+  * 변경 피드 쿼리
+  * 단일 파티션 쿼리 ( `partitionkey` `partitionKeyRangeId` 는 옵션에 있음)
   * 비문서 쿼리
 
 * enable cross partition query가 true로 설정되었지만 "value" 키워드가 제공되지 않은 다중 파티션에서의 집계에 대한 오류
@@ -324,6 +334,8 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [4.2.0](#420) |2020 년 10 월 9 일 |--- |
+| [4.1.0](#410) |8 월 10 일, 2020 |--- |
 | [4.0.0](#400) |2020년 5월 20일 |--- |
 | [3.0.2](#302) |2018년 11월 15일 |--- |
 | [3.0.1](#301) |2018년 10월 4일 |--- |
