@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652023"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Azure Active Directory 암호 보호를 사용 하 여 잘못 된 암호 제거
@@ -125,7 +125,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
    | $               | 초                  |
    | \@              | a                  |
 
-다음 예제를 살펴보겠습니다.
+다음 예제를 참조하세요.
 
 * 암호 "blank"는 금지 됩니다.
 * 사용자가 암호를 "" (으)로 변경 하려고 Bl@nK 합니다.
@@ -140,7 +140,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 
 유사 일치는 정규화된 암호가 전역 또는 사용자 지정 금지된 암호 목록에 있는 암호를 포함하는지를 확인하는 데 사용됩니다. 일치 프로세스는 편집 거리 1 비교를 기준으로 합니다.
 
-다음 예제를 살펴보겠습니다.
+다음 예제를 참조하세요.
 
 * 암호 "abcdef"는 금지 되어 있습니다.
 * 사용자는 암호를 다음 중 하나로 변경 하려고 합니다.
@@ -161,7 +161,7 @@ Azure AD 암호 보호는 암호 스프레이 공격에 사용 될 가능성이 
 > [!IMPORTANT]
 > 부분 문자열 일치는 4 자 이상으로 된 이름 및 기타 조건에만 적용 됩니다.
 
-다음 예제를 살펴보겠습니다.
+다음 예제를 참조하세요.
 
 * 자신의 암호를 "p0LL23fb"로 다시 설정 하려는 설문 이라는 사용자입니다.
 * 정규화 후이 암호는 "poll23fb"이 됩니다.

@@ -9,10 +9,10 @@ ms.author: tcare
 description: 이 문서에서는 GitOps를 사용 하 여 CI/CD 워크플로에 대 한 개념적 개요를 제공 합니다.
 keywords: GitOps, Kubernetes, K8s, Azure, 투구, Arc, AKS, Azure Kubernetes Service, 컨테이너, CI, CD, Azure DevOps
 ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121782"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>GitOps를 사용 하는 CI/CD 워크플로-Azure Arc enabled Kubernetes
@@ -21,7 +21,7 @@ ms.locfileid: "102121782"
 
 이 개념적 개요에서는 Azure Arc, Azure Repos 및 Azure Pipelines를 사용 하 여 전체 응용 프로그램 변경 수명 주기의 현실로 GitOps를 설명 합니다. GitOps 제어 Kubernetes 환경에 대 한 단일 응용 프로그램 변경의 [예로 이동](#example-workflow) 합니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 하나 이상의 Kubernetes 환경에 배포 된 응용 프로그램을 고려 합니다.
 

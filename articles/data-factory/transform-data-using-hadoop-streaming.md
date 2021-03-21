@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
 ms.openlocfilehash: e2a9bc9d664ba15da3cdefa5cf28519ab703d6ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361437"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
@@ -66,7 +66,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 속성          | Description                              | 필수 |
+| 속성          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | 작업의 이름                     | 예      |
 | description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 예       |

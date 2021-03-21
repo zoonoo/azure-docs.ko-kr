@@ -12,10 +12,10 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
 ms.openlocfilehash: ef9c03b687bbc9b8fe736c872bbde14b8daba899
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519387"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
@@ -24,7 +24,7 @@ Azure Machine Learning를 사용 하 여 AKS (Azure Kubernetes Service)에서 �
 
 - __빠른 응답 시간__
 - 배포 __된 서비스의 자동__ 크기 조정
-- __로깅__
+- __Logging__
 - __모델 데이터 수집__
 - __인증__
 - __TLS 종료__

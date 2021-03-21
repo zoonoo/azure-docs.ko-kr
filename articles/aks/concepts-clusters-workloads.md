@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.openlocfilehash: 2a1718d906ab5f51ea71be9b304028576c9fffa0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122445"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
@@ -36,7 +36,7 @@ Kubernetes 클러스터는 다음 두 가지 구성 요소로 구분됩니다.
 
 ![Kubernetes 제어 평면 및 노드 구성 요소](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="control-plane"></a>컨트롤 플레인
+## <a name="control-plane"></a>제어 평면
 
 AKS 클러스터를 만들면 컨트롤 평면이 자동으로 만들어지고 구성 됩니다. 이 컨트롤 평면은 사용자 로부터 추상화 된 관리 되는 Azure 리소스로 제공 됩니다. 제어 평면에 대 한 비용은 없으며 AKS 클러스터의 일부인 노드만 있습니다. 제어 평면과 해당 리소스는 클러스터를 만든 지역에만 있습니다.
 

@@ -10,10 +10,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 740080d742f535f868b2ae194b24bebe5ac6ac24
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906032"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-services-preview"></a>Azure Maps 모바일 서비스를 사용 하 여 공용 전송 데이터 요청 (미리 보기) 

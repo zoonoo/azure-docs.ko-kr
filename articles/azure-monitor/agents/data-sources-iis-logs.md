@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 87cb19daa23c9fcca601771a9fe168b98be02627
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050735"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586270"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Log Analytics 에이전트를 사용 하 여 IIS 로그 수집 Azure Monitor
 인터넷 정보 서비스 (IIS)는 Log Analytics 에이전트가 수집 하 고 [Azure Monitor 로그](../data-platform.md)에 저장할 수 있는 로그 파일에 사용자 작업을 저장 합니다.
@@ -60,6 +60,8 @@ IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있�
 | sSiteName |IIS 사이트의 이름입니다. |
 | TimeGenerated |항목이 로깅된 날짜 및 시간입니다. |
 | TimeTaken |요청을 처리할 시간의 길이(밀리초)입니다. |
+| csHost | 호스트 이름입니다. |
+| csBytes | 서버에서 받은 바이트 수입니다. |
 
 ## <a name="log-queries-with-iis-logs"></a>IIS 로그를 사용한 로그 쿼리
 다음 표에는 IIS 로그 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.

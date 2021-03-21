@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
 ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518724"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter 노트북 실행
@@ -24,7 +24,7 @@ Azure Machine Learning studio의 작업 영역에서 직접 Jupyter 노트북을
 
 전자 필기장을 포함 하 여 파일을 만들고 관리 하는 방법에 대 한 자세한 내용은 [작업 영역에서 파일 만들기 및 관리](how-to-manage-files.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.

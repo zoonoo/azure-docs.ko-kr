@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 8bc9773fa7e1b3db2e249e803f4d2a3cf39edb48
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102549"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Microsoft Id 웹 인증 라이브러리
@@ -82,14 +82,14 @@ Microsoft Identity Web에는 기본 ASP.NET 3.1 프로젝트 템플릿을 사용
 |------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | 웹 앱에서 [사용자 로그인](scenario-web-app-sign-user-app-configuration.md)             | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
 | [웹 Api 보호](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>회사 또는 학교 계정<li>소셜 id (Azure AD B2C) | <li>회사 또는 학교 계정<li>개인 Microsoft 계정<li>소셜 id (Azure AD B2C)     |
-| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | 예                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](../../active-directory-b2c/index.yml) |
-| 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 예                                                                   | 예                                                                                                     |
-| 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 예                                                                   | 예                                                                                                     |
-| 인증서 자격 증명 지원                                                         | 예                                                                   | 예, Azure Key Vault 포함                                                                          |
-| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | 예                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
-| 웹 Api의 토큰 암호화 인증서                                                | 예                                                                   | 예                                                                                                     |
-| [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 예                                                                   | 예                                                                                                     |
-| `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 예                                                                   | 예                                                                                                     |
+| 다중 테 넌 트 앱의 발급자 유효성 검사                                                   | 아니요                                                                   | 예, [모든 클라우드](authentication-national-cloud.md) 및 [Azure AD B2C](../../active-directory-b2c/index.yml) |
+| 웹 앱/a p i [Microsoft graph 호출] [시나리오-api-호출 그래프]                             | 아니요                                                                   | 예                                                                                                     |
+| 웹 앱/a p i [웹 API 호출] [시나리오-api 호출]                                       | 아니요                                                                   | 예                                                                                                     |
+| 인증서 자격 증명 지원                                                         | 아니요                                                                   | 예, Azure Key Vault 포함                                                                          |
+| 웹 앱의 증분 승인 및 조건부 액세스 지원                           | 아니요                                                                   | 예, MVC, Razor 페이지 및 Blazor                                                                    |
+| 웹 Api의 토큰 암호화 인증서                                                | 아니요                                                                   | 예                                                                                                     |
+| [범위/앱 역할 유효성 검사] [시나리오-api-유효성 검사] 웹 Api                        | 아니요                                                                   | 예                                                                                                     |
+| `WWW-Authenticate` 웹 Api의 헤더 생성                                         | 아니요                                                                   | 예                                                                                                     |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418184"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587902"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Azure AD 서비스 계정 관리
 
@@ -35,7 +35,7 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
 | 데이터| Description| 세부 정보 |
 | - | - | - |
 | 소유자| 서비스 계정을 관리 하 고 모니터링 하는 데 책임이 있는 사용자 또는 그룹입니다.| 계정을 모니터링 하 고 문제를 완화 하는 방법을 구현 하는 데 필요한 권한으로 소유자를 프로 비전 합니다. 문제 완화는 소유자 또는 요청을 통해 수행할 수 있습니다. |
-| 목적| 계정이 사용 되는 방법입니다.| 서비스 계정을 특정 서비스, 응용 프로그램 또는 스크립트에 매핑합니다. 다중 사용 서비스 계정을 만들지 마십시오. |
+| 용도| 계정이 사용 되는 방법입니다.| 서비스 계정을 특정 서비스, 응용 프로그램 또는 스크립트에 매핑합니다. 다중 사용 서비스 계정을 만들지 마십시오. |
 | 사용 권한 (범위)| 예상 사용 권한 집합입니다.| 액세스 하는 리소스 및 해당 리소스에 대 한 사용 권한을 문서화 합니다. |
 | CMDB 링크| 액세스할 리소스 및 서비스 계정이 사용 되는 스크립트에 대 한 링크입니다.| 필요한 업스트림 및 다운스트림 변경의 영향을 받을 수 있도록 리소스 및 스크립트 소유자를 문서화 해야 합니다. |
 | 위험 평가| 계정이 손상 된 경우의 위험 및 비즈니스 영향.| 이 정보를 사용 하 여 사용 권한 범위를 좁히고 계정 정보에 대 한 액세스 권한이 있는 사용자를 결정 합니다. |
@@ -53,7 +53,7 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
 
 * 서비스 계정에 기본 제공 역할을 할당 하지 마십시오. 대신 [Microsoft Graph에 대해 OAuth2 권한 부여 모델](/graph/api/resources/oauth2permissiongrant)을 사용 합니다.
 
-* 서비스 사용자에 게 권한 있는 역할을 할당 해야 하는 경우 시간 제한 방식으로 특정 하 고 필요한 권한으로 [사용자 지정 역할](https://docs.microsoft.com/azure/active-directory/roles/custom-create) 을 할당 하는 것이 좋습니다.
+* 서비스 사용자에 게 권한 있는 역할을 할당 해야 하는 경우 시간 제한 방식으로 특정 하 고 필요한 권한으로 [사용자 지정 역할](../roles/custom-create.md) 을 할당 하는 것이 좋습니다.
 
 * 관리자 권한으로 서비스 계정을 그룹의 멤버로 포함 하지 마십시오. 
 
@@ -63,10 +63,10 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
    또는 사용  
 `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [OAuth 2.0 범위를 사용](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 하 여 서비스 계정에서 리소스에 액세스할 수 있는 기능을 제한 합니다.
+* [OAuth 2.0 범위를 사용](../develop/v2-permissions-and-consent.md) 하 여 서비스 계정에서 리소스에 액세스할 수 있는 기능을 제한 합니다.
 * 서비스 사용자 및 관리 되는 id는 로그온 한 사용자를 가장 하는 위임 된 컨텍스트에서 또는 응용 프로그램 컨텍스트의 서비스 계정으로 OAuth 2.0 범위를 사용할 수 있습니다. 응용 프로그램 컨텍스트에는 로그온이 없습니다.
 
-* 리소스가 적절 한지 확인 하기 위해 범위 서비스 계정 요청을 확인 합니다. 예를 들어, 계정에서 파일을 요청 하는 경우에는 실제로 파일만 필요한 경우를 평가 합니다. 모두 읽기. 모두. 사용 권한에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
+* 리소스가 적절 한지 확인 하기 위해 범위 서비스 계정 요청을 확인 합니다. 예를 들어, 계정에서 파일을 요청 하는 경우에는 실제로 파일만 필요한 경우를 평가 합니다. 모두 읽기. 모두. 사용 권한에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](/graph/permissions-reference)를 참조 하세요.
 
 * 리소스에 요청 된 액세스를 사용 하 여 응용 프로그램 또는 API의 개발자를 신뢰 하는지 확인 합니다.
 
@@ -78,9 +78,9 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
 
 목적, 범위 및 필요한 권한을 명확 하 게 이해 했으면 서비스 계정을 만듭니다. 
 
-[관리 id 만들기 및 사용](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[관리 id 만들기 및 사용](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[서비스 사용자 만들기 및 사용](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[서비스 사용자 만들기 및 사용](../develop/howto-create-service-principal-portal.md)
 
 가능 하면 관리 되는 id를 사용 합니다. 관리 id를 사용할 수 없는 경우 서비스 주체를 사용 합니다. 서비스 주체를 사용할 수 없는 경우에만 Azure AD 사용자 계정을 사용 합니다.
 
@@ -100,7 +100,7 @@ Azure AD (Azure Active Directory)에는 서비스 계정으로 사용 [되는 �
 
 * Azure ad 포털에서 Azure AD Sign-In 로그 사용
 
-* Azure AD Sign-In 로그를 [Azure Storage](https://docs.microsoft.com/azure/storage/), [azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)또는 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs)로 내보냅니다.
+* Azure AD Sign-In 로그를 [Azure Storage](../../storage/index.yml), [azure Event Hubs](../../event-hubs/index.yml)또는 [Azure Monitor](../../azure-monitor/logs/data-platform-logs.md)로 내보냅니다.
 
 
 ![서비스 사용자 로그인 화면을 보여 주는 스크린샷](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ Microsoft의 free PowerShell 샘플은 서비스 주체의 OAuth2 권한 부여 
 
 **프로 비전 해제에 대 한 프로세스에는 다음 태스크가 포함 됩니다.**
 
-1. 연결 된 응용 프로그램 또는 스크립트가 프로 비전 해제 면 서비스 계정에서 로그인 및 리소스 액세스를 [모니터링](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) 합니다.
+1. 연결 된 응용 프로그램 또는 스크립트가 프로 비전 해제 면 서비스 계정에서 로그인 및 리소스 액세스를 [모니터링](../reports-monitoring/concept-sign-ins.md#sign-ins-report) 합니다.
 
    * 계정이 아직 활성 상태인 경우 후속 단계를 수행 하기 전에 해당 계정이 사용 되는 방법을 확인 합니다.
  
@@ -196,4 +196,3 @@ Azure 서비스 계정을 보호 하는 방법에 대 한 자세한 내용은 �
 
  
 
- 

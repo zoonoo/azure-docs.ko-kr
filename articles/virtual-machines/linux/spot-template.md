@@ -10,10 +10,10 @@ ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 04319066c59dda5d240f527d86894674a505eaed
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101669350"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure 스팟 Virtual Machines 배포

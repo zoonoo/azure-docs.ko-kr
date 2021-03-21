@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 11/16/2020
 ms.openlocfilehash: f8eb18b190b72381f1a93575eb39b3d19d8d431b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96010676"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>VS Code 확장을 사용 하 여 Azure Machine Learning 리소스 관리 (미리 보기)
@@ -24,7 +24,7 @@ VS Code 확장을 사용 하 여 Azure Machine Learning 리소스를 관리 하�
 
 ![Azure Machine Learning VS Code 확장](media/how-to-manage-resources-vscode/azure-machine-learning-vscode-extension.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 동작합니다. 구독이 없는 경우 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)에 가입하여 사용해 보세요.
 - Visual Studio Code. 없는 경우 [설치](https://code.visualstudio.com/docs/setup/setup-overview)합니다.

@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
 ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563847"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>마이그레이션 가이드: SQL Database SQL Server
@@ -34,7 +34,7 @@ ms.locfileid: "103563847"
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 SQL Server을 Azure SQL Database로 마이그레이션하려면 다음 필수 구성 요소가 있는지 확인 합니다. 
 
@@ -102,7 +102,7 @@ Data Migration Assistant에서는 분석을 위해 평가 보고서의 확장 �
 > [!IMPORTANT]
 > 여러 데이터베이스, 특히 대규모 데이터베이스에 대해 대규모 평가를 실행 하는 것은 [DMA 명령줄 유틸리티](/sql/dma/dma-commandline) 를 사용 하 여 자동화 하 고 추가 분석 및 대상 준비를 위해 [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) 에 업로드할 수도 있습니다.
 
-## <a name="migrate"></a>마이그레이션
+## <a name="migrate"></a>Migrate
 
 마이그레이션 전 단계와 관련 된 작업을 완료 하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 

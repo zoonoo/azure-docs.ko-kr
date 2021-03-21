@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
 ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519200"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
@@ -47,7 +47,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 합니다. 예들 들어 `https://myservice.azureml.net/score`입니다.
+* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 합니다. 예: `https://myservice.azureml.net/score`
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 
@@ -55,7 +55,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 * 요청은 Triton 서버로 직접 이동 합니다.
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __TRITON URI__ 를 사용 하 여 요청을 수행 합니다. 예들 들어 `https://myservice.azureml.net/v2/models/${MODEL_NAME}/versions/${MODEL_VERSION}/infer`입니다.
+* 클라이언트는 __TRITON URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myservice.azureml.net/v2/models/${MODEL_NAME}/versions/${MODEL_VERSION}/infer`
 
 :::image type="content" source="./media/how-to-deploy-with-triton/triton-deploy.png" alt-text="Triton only를 사용 하 여 Inferenceconfig 배포 및 Python 미들웨어 없음":::
 
@@ -64,7 +64,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 요청은 **Triton 서버로** 전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예들 들어 `https://myservice.azureml.net/score`입니다.
+* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myservice.azureml.net/score`
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inference-config-deploy.png" alt-text="Triton 및 Python 미들웨어를 사용 하 여 배포":::
 

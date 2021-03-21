@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713629"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
@@ -58,7 +58,7 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> Windows [에 대 한 Log Analytics 에이전트](../agents/agent-windows.md)외에도 windows 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](../vm/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> Linux [에 대 한 Log Analytics 에이전트](../vm/quick-collect-linux-computer.md)외에도 linux 에이전트에는 Microsoft 종속성 에이전트가 필요 합니다. 운영 체제 버전의 전체 목록은 [지원 되는 운영 체제](../vm/vminsights-enable-overview.md#supported-operating-systems) 를 참조 하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../agents/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
-| Azure Storage 계정 | No | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서는 Microsoft Monitoring Agent (MMA)를 사용 하 여 데이터를 수집 하 고 전송 하기 위해 System Center Operations Manager와 Azure Monitor 모두 사용 합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공 합니다. 이러한 버전은 각각 System Center Operations Manager, Azure Monitor 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -75,7 +75,7 @@ Azure Monitor에 연결 된 관리 그룹이 있는 System Center Operations Man
 
 Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 경우 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 연결 하도록 Log Analytics 에이전트를 구성 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 Log Analytics 게이트웨이를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
 - 이전 버전의 Wire Data 솔루션을 사용하는 경우 먼저 이전 버전을 제거해야 합니다. 그러나 원래 Wire Data 솔루션을 통해 캡처된 모든 데이터는 Wire Data 2.0 및 로그 검색에서 계속 사용할 수 있습니다.
@@ -155,14 +155,14 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 ### <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 
-| 파일 | OS | 버전 | SHA-256 |
+| File | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 단계를 수행하여 작업 영역에 대해 Wire Data 솔루션을 구성합니다.
 

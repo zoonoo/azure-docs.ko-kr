@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122870"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 문제를 자체 진단 하 고 해결 하는 방법
@@ -20,7 +20,7 @@ ms.locfileid: "102122870"
 
 Azure 스프링 클라우드 진단은 구성 없이 앱 문제를 해결 하는 대화형 환경입니다. Azure 스프링 클라우드 진단은 문제를 식별 하 고 문제를 해결 하 고 문제를 해결 하는 데 도움이 되는 정보를 안내 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.

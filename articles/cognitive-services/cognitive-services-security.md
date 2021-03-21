@@ -11,10 +11,10 @@ ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102425297"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
@@ -60,7 +60,7 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-**명령 프롬프트** 의 새 인스턴스에서 환경 변수를 읽습니다.
+명령 프롬프트의 ‘새’ 인스턴스에서 환경 변수를 읽습니다.
 
 ```CMD
 :: Prints the env var value
@@ -105,7 +105,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 ---
 
 > [!TIP]
-> 환경 변수를 설정한 후에는 IDE (통합 개발 환경)를 다시 시작 하 여 새로 추가 된 환경 변수를 사용할 수 있는지 확인 합니다.
+> 환경 변수를 설정한 후에는 IDE(통합 개발 환경)를 다시 시작하여 새로 추가된 환경 변수를 사용할 수 있는지 확인하세요.
 
 ### <a name="get-environment-variable"></a>환경 변수 가져오기
 
@@ -201,11 +201,11 @@ NSString* value =
 
 이 인식 서비스에 대해 고객 Lockbox를 사용할 수 있습니다.
 
-* 변환기
+* Translator
 
 다음 서비스의 경우 Microsoft 엔지니어가 E0 계층의 고객 데이터에 액세스 하지 않습니다. 
 
-* 언어 이해
+* Language Understanding
 * Face
 * Content Moderator
 * Personalizer

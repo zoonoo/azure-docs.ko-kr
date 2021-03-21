@@ -11,10 +11,10 @@ ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 34aef5bd880e3ef080676fb9e90e62796d499e7b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102429819"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>대량 실행자 .NET 라이브러리를 사용 하 여 Azure Cosmos DB에서 대량 작업을 수행 합니다.

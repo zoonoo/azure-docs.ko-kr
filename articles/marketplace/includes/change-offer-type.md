@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 02/03/2021
 ms.openlocfilehash: d9e98a6a689fcab341ddb2c5193f06149fc2c8b0
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097258"
 ---
 제품 유형을 변경 하려면 간단한 편집 및 다시 게시를 수행 해야 하거나 여기에 나열 된 대로 새 제품을 만들어야 할 수 있습니다.

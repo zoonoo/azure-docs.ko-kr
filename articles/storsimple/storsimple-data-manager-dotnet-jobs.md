@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: b18627d2806662d6d966af95d51873d5623b2393
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015539"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
@@ -26,7 +26,7 @@ ms.locfileid: "96015539"
  
   이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있어야 합니다.
 *   다음을 실행하는 컴퓨터:

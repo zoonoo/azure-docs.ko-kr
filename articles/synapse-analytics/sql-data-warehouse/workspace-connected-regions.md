@@ -12,10 +12,10 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: references_regions
 ms.openlocfilehash: 4ecf8a578343a10e7c1ddb0ac5e9345a652bc9af
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97511708"
 ---
 # <a name="enabling-synapse-workspace-features-on-a-dedicated-sql-pool-formerly-sql-dw-in-your-region"></a>해당 지역의 전용 SQL 풀 (이전의 SQL DW)에서 Synapse 작업 영역 기능을 사용 하도록 설정 합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "97511708"
 
 \*은 해당 지역의 특정 일정을 현재 사용할 수 없음을 나타냅니다.
 
-| Azure 지역 | Synapse 작업 영역 가용성 |
+| 지역 | Synapse 작업 영역 가용성 |
 |:--- |:--- |:--- |
 | 오스트레일리아 중부 1 |\* |
 | 오스트레일리아 중부 2 |\* |

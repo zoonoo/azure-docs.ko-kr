@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
 ms.openlocfilehash: 61076b49d396c83a67635e46eb4f1b928b3f9e1d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933972"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
@@ -191,11 +191,11 @@ Azure에서 제공하는 DNS를 사용한 테넌트 간 이름 확인에 대한 
 ## <a name="azure-services-that-connect-to-vnets"></a>VNet에 연결하는 Azure 서비스
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>VNet에 Azure App Service Web Apps를 사용할 수 있습니까?
-예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 문서를 참조하세요.
+예. ASE (App Service Environment)를 사용 하 여 VNet 내부에 Web Apps을 배포 하 고, VNet 통합을 사용 하 여 Vnet에 앱 백 엔드를 연결 하 고, 서비스 끝점을 사용 하 여 앱에 대 한 인바운드 트래픽을 잠글 수 있습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 * [App Service 네트워킹 기능](../app-service/networking-features.md)
 * [App Service 환경에서 Web Apps 만들기](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Azure Virtual Network와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Azure Virtual Network에 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service 액세스 제한](../app-service/app-service-ip-restrictions.md)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>VNet에서 웹 및 작업자 역할(PaaS)을 사용하여 Cloud Services를 배포할 수 있습니까?

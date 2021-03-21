@@ -5,10 +5,10 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
 ms.openlocfilehash: 647226091c3e15a19bf8262c23e62d95018488b3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831209"
 ---
 IoT 플러그 앤 플레이 추가 문서를 계속 진행하려는 경우 이 문서에서 사용한 리소스를 유지하고 재사용할 수 있습니다. 그렇지 않으면 이 문서에서 만든 리소스를 삭제하여 추가 요금을 방지할 수 있습니다.

@@ -2,21 +2,21 @@
 title: 전용 SQL 풀의 columnstore 인덱스 성능 향상
 description: 전용 SQL 풀에서 각 행 그룹 내의 행 수를 최대화 하기 위해 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘리십시오.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/22/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d668c3e505d6849d3cde52d52698a95c1c5647d9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b15f71698af8c340b58f3399390857790313b8ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676165"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585488"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore-indexes-in-dedicated-sql-pool"></a>전용 SQL 풀에서 columnstore 인덱스에 대 한 행 그룹 품질 최대화 
 

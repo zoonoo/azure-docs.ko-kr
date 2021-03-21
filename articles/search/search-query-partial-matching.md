@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/03/2020
-ms.openlocfilehash: 79ba186351cc145e012658abc30572e99b123dbb
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 2e2625fff802e71f797bf6970e763f2bf11c393e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573989"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584179"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-hyphens-wildcard-regex-patterns"></a>특수 문자 (하이픈, 와일드 카드, regex, 패턴)를 사용 하는 부분 용어 검색 및 패턴
 
@@ -85,7 +85,7 @@ Azure Cognitive Search는 인덱스에서 전체 토큰화 된 용어를 검색 
 | [언어 분석기](index-add-language-analyzers.md) | 복합 단어 또는 문자열, 모음 변경이 및 동사 폼에서 하이픈을 유지 합니다. 쿼리 패턴에 대시가 포함 되어 있으면 언어 분석기를 사용 하는 것으로 충분할 수 있습니다. |
 | [키워드로](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | 전체 필드의 콘텐츠는 단일 용어로 토큰화 됩니다. |
 | [공백](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | 공백만을 구분 합니다. 대시 또는 다른 문자를 포함 하는 용어는 단일 토큰으로 처리 됩니다. |
-| [사용자 지정 분석기](index-add-custom-analyzers.md) | 바람직하지 사용자 지정 분석기를 만들면 토크 및 token 필터를 모두 지정할 수 있습니다. 이전 분석기를 있는 그대로 사용 해야 합니다. 사용자 지정 분석기를 사용 하 여 사용할 토크 나이저 및 토큰 필터를 선택할 수 있습니다. <br><br>권장 되는 조합은 [소문자 토큰 필터](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)를 사용 하는 [키워드 토크](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) 를 사용 하는 것입니다. 미리 정의 된 [키워드인 analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 는 단독으로 소문자 텍스트를 따르지 않으므로 쿼리가 실패할 수 있습니다. 사용자 지정 분석기는 소문자 토큰 필터를 추가 하는 메커니즘을 제공 합니다. |
+| [사용자 지정 분석기](index-add-custom-analyzers.md) | 바람직하지 사용자 지정 분석기를 만들면 토크 및 token 필터를 모두 지정할 수 있습니다. 이전 분석기를 있는 그대로 사용 해야 합니다. 사용자 지정 분석기를 사용 하 여 사용할 토크 나이저 및 토큰 필터를 선택할 수 있습니다. <br><br>권장 되는 조합은 [소문자 토큰 필터](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html)를 사용 하는 [키워드 토크](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) 를 사용 하는 것입니다. 기본적으로 기본 제공 [키워드인 analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) 는 사례가 대문자 텍스트가 아닌 경우를 발생 시켜 쿼리가 실패할 수 있습니다. 사용자 지정 분석기는 소문자 토큰 필터를 추가 하는 메커니즘을 제공 합니다. |
 
 Postman과 같은 웹 API 테스트 도구를 사용 하는 경우 [테스트 분석기 REST 호출](/rest/api/searchservice/test-analyzer) 을 추가 하 여 토큰화 된 출력을 검사할 수 있습니다.
 
@@ -160,9 +160,9 @@ Postman과 같은 웹 API 테스트 도구를 사용 하는 경우 [테스트 �
 
 ### <a name="use-built-in-analyzers"></a>기본 제공 분석기 사용
 
-기본 제공 되거나 미리 정의 된 분석기는 `analyzer` 인덱스에 추가 구성이 필요 없는 필드 정의의 속성에 이름으로 지정할 수 있습니다. 다음 예에서는 필드에서 분석기를 설정 하는 방법을 보여 줍니다 `whitespace` . 
+기본 제공 분석기는 `analyzer` 인덱스에 추가 구성이 필요 없는 필드 정의의 속성에 이름으로 지정할 수 있습니다. 다음 예에서는 필드에서 분석기를 설정 하는 방법을 보여 줍니다 `whitespace` . 
 
-다른 시나리오와 기타 기본 제공 분석기에 대 한 자세한 내용은 [미리 정의 된 분석기 목록](./index-add-custom-analyzers.md#predefined-analyzers-reference)을 참조 하십시오. 
+다른 시나리오의 경우 기본 제공 분석기에 대해 자세히 알아보려면 [기본 제공 분석기](./index-add-custom-analyzers.md#built-in-analyzers)를 참조 하세요. 
 
 ```json
     {

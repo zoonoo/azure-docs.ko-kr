@@ -13,15 +13,15 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
 ms.openlocfilehash: 2658c088304eba457b25bb3dc421b356ba70b57f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100102481"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 권한 및 동의
 
-Microsoft id 플랫폼과 통합 되는 응용 프로그램은 사용자와 관리자에 게 데이터에 액세스할 수 있는 방법을 제어 하는 권한 부여 모델을 따릅니다. 권한 부여 모델의 구현이 Microsoft id 플랫폼에서 업데이트 되었습니다. 앱이 Microsoft id 플랫폼과 상호 작용 해야 하는 방식을 변경 합니다. 이 문서에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
+Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리자가 데이터 액세스 방법을 제어할 수 있는 권한 부여 모델을 따릅니다. 권한 부여 모델의 구현이 Microsoft id 플랫폼에서 업데이트 되었습니다. 앱이 Microsoft id 플랫폼과 상호 작용 해야 하는 방식을 변경 합니다. 이 문서에서는 범위, 사용 권한 및 동의를 포함하여 이 권한 부여 모델의 기본 개념에 대해 설명합니다.
 
 ## <a name="scopes-and-permissions"></a>범위 및 사용 권한
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 93b8ab0ce53202402e86b059abe3c600590d549e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101662922"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-serial"></a>직렬를 통해 Azure Percept에 연결
@@ -25,7 +25,7 @@ ms.locfileid: "101662922"
 
 - [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - 호스트 PC
-- Azure Percept 진한
+- Azure Percept DK
 - [USB-TTL 직렬 케이블](https://www.adafruit.com/product/954)
 
     :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/usb-serial-cable.png" alt-text="USB에서 TTL 직렬 케이블로 연결 합니다.":::

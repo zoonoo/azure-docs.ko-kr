@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101715040"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
@@ -116,7 +116,7 @@ Site Recovery:
 
 자세한 정보:
 
-* [Azure Site Recovery 이란?](../../site-recovery/site-recovery-overview.md)
+* [Azure Site Recovery란?](../../site-recovery/site-recovery-overview.md)
 * [Azure Site Recovery 작동 방식](../../site-recovery/azure-to-azure-architecture.md)
 * [Azure Site Recovery에서 보호 하는 작업은 무엇입니까?](../../site-recovery/site-recovery-workload.md)
 

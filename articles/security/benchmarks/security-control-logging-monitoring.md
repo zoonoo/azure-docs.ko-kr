@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: ccfbb585ccf50366721925b0b31b17088fd36371
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612425"
 ---
 # <a name="security-control-logging-and-monitoring"></a>보안 제어: 로깅 및 모니터링
@@ -34,7 +34,7 @@ Microsoft는 Azure 리소스에 대 한 시간 원본을 유지 관리 하지만
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.2 | 6.5, 6.6 | Customer |
+| 2.2 | 6.5, 6.6 | 고객 |
 
 Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리소스 및 기타 보안 시스템에 의해 생성 된 보안 데이터를 집계 합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용하여 분석을 쿼리 및 수행하고, Azure Storage 계정을 장기/보관 스토리지에 사용할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.3 | 6.2, 6.3 | Customer |
+| 2.3 | 6.2, 6.3 | 고객 |
 
 감사, 보안 및 진단 로그에 액세스 하기 위해 Azure 리소스에 대 한 진단 설정을 사용 하도록 설정 합니다. 자동으로 사용할 수 있는 활동 로그에는 이벤트 원본, 날짜, 사용자, 타임스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소가 포함됩니다.
 
@@ -64,7 +64,7 @@ Azure Monitor를 통해 로그를 수집 하 여 끝점 장치, 네트워크 리
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.4 | 6.2, 6.3 | Customer |
+| 2.4 | 6.2, 6.3 | 고객 |
 
 Microsoft에서 계산 리소스를 소유 하는 경우 Microsoft는 모니터링을 담당 합니다. 조직에서 계산 리소스를 소유 하 고 있는 경우이를 모니터링 하는 것은 사용자의 책임입니다. Azure Security Center를 사용 하 여 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
@@ -76,7 +76,7 @@ Microsoft에서 계산 리소스를 소유 하는 경우 Microsoft는 모니터�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.5 | 6.4 | Customer |
+| 2.5 | 6.4 | 고객 |
 
 Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
@@ -88,7 +88,7 @@ Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.6 | 6.7 | Customer |
+| 2.6 | 6.7 | 고객 |
 
 비정상적인 동작에 대 한 로그를 분석 및 모니터링 하 고 정기적으로 결과를 검토 합니다. Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 로그를 검토 하 고 로그 데이터에 대 한 쿼리를 수행 합니다.
 
@@ -104,7 +104,7 @@ Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.7 | 6.8 | Customer |
+| 2.7 | 6.8 | 고객 |
 
 보안 로그 및 이벤트에 있는 비정상적인 활동을 모니터링 하 고 경고 하기 위해 Log Analytics 작업 영역에서 Azure Security Center를 사용 합니다.
 
@@ -120,7 +120,7 @@ Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.8 | 8.6 | Customer |
+| 2.8 | 8.6 | 고객 |
 
 Azure Virtual Machines 및 Cloud Services에 대해 맬웨어 방지 이벤트 수집을 사용 하도록 설정 합니다.
 
@@ -134,7 +134,7 @@ Azure Virtual Machines 및 Cloud Services에 대해 맬웨어 방지 이벤트 �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.9 | 8.7 | Customer |
+| 2.9 | 8.7 | 고객 |
 
 조직에 필요한 대로 DNS 로깅 솔루션에 대 한 Azure Marketplace에서 타사 솔루션을 구현 합니다.  
 
@@ -142,7 +142,7 @@ Azure Virtual Machines 및 Cloud Services에 대해 맬웨어 방지 이벤트 �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 2.10 | 8.8 | Customer |
+| 2.10 | 8.8 | 고객 |
 
 지원 되는 모든 Azure Windows 가상 머신에서 Microsoft Monitoring Agent를 사용 하 여 프로세스 생성 이벤트와 CommandLine 필드를 로깅합니다.   지원 되는 Azure Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구성 하 고 Syslog를 사용 하 여 데이터를 저장할 수 있습니다.  또한 Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 Azure Virtual machines에서 로그를 검토 하 고 기록 되는 데이터에 대 한 쿼리를 수행 합니다. 
 
