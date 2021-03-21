@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: bb10fb337972db2696960b530f2d7538bd36a2fb
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101099389"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Azure 전면 도어 표준/프리미엄의 실시간 모니터링
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure 전면 도어 표준/프리미엄은 Azure Monitor와 통합 되며, Azure Front 도어 표준/프리미엄을 실시간으로 모니터링 하 여 문제를 추적 하 고 문제를 해결 하 고 디버그할 수 있습니다.  
 

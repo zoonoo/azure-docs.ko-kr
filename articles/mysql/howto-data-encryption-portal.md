@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 00670746c1686bca354adc989ddce6c9dd336491
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96519062"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화
@@ -40,12 +40,12 @@ Azure Portal를 사용 하 여 Azure Database for MySQL 데이터 암호화를 �
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --retention-days 90
     ```
 
-* 키에는 고객 관리 키로 사용할 다음 특성이 있어야 합니다.
+* 고객 관리형 키로 사용하려면 키에 다음 특성이 있어야 합니다.
   * 만료 날짜 없음
   * 사용 안 함 없음
   * **가져오기**, **래핑**, **래핑** 해제 작업 수행
   * recoverylevel 특성이 **복구** 가능으로 설정 됨 (보존 기간이 90 일로 설정 된 일시 삭제를 사용 해야 함)
-  * 보호 제거 사용
+  * 제거 보호 사용
 
 다음 명령을 사용 하 여 위의 키 특성을 확인할 수 있습니다.
 
@@ -55,7 +55,7 @@ az keyvault key show --vault-name <key_vault_name> -n <key_name>
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>키 작업에 대 한 올바른 사용 권한 설정
 
-1. Key Vault에서 액세스 정책 **Access policies**  >  **추가 액세스 정책** 을 선택 합니다.
+1. Key Vault에서 액세스 정책   >  **추가 액세스 정책** 을 선택 합니다.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="액세스 정책을 사용 하는 Key Vault의 스크린샷 강조 표시 된 액세스 정책 추가":::
 

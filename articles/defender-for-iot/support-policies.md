@@ -1,5 +1,5 @@
 ---
-title: IoT 용 Azure Defender에 대 한 지원 정책
+title: Azure Defender for IoT에 대한 지원 정책
 titleSuffix: Azure Defender for IoT
 description: 이 문서에서는 지원, IoT 용 Defender의 주요 변경 정책 및 현재 사용할 수 있는 IoT 용 Azure Defender의 버전을 설명 합니다.
 author: shhazam-ms
@@ -9,10 +9,10 @@ ms.date: 2/8/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 17ef357ebc78b63cbaf473cb6449cb89ccf0963e
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100188"
 ---
 # <a name="versioning-and-support-for-azure-defender-for-iot"></a>IoT 용 Azure Defender에 대 한 버전 관리 및 지원 

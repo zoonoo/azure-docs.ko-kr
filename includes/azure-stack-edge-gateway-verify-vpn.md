@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/27/2020
 ms.author: alkohli
 ms.openlocfilehash: efa9e996cbfbc8954c294b4da8900b1d5bcbeeed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96467383"
 ---
 VPN을 확인 하려면 만든 가상 네트워크 에서만 액세스할 수 있는 저장소 계정을 만들 수 있습니다. 이 저장소 계정을 만들고 만든 가상 네트워크에 연결 하려면 다음 단계를 수행 합니다.

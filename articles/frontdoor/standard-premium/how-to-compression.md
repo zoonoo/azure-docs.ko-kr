@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 4b526d82465862b1c0d27aed6443c6d7199bfb5b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099677"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에서 파일을 압축 하 여 성능 향상
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 파일 압축은 파일 전송 속도를 개선 하 고 페이지 로드 성능을 높이는 효과적인 방법입니다. 압축은 서버에서 전송 되기 전에 파일 크기를 줄입니다. 파일 압축은 대역폭 비용을 줄이고 사용자에 게 더 나은 환경을 제공할 수 있습니다.
 

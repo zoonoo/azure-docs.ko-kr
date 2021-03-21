@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: 4690a513494d794377ee0c2e8cfb101e8fd66a0f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100200"
 ---
 # <a name="troubleshooting-common-routing-problems-with-azure-front-door-standardpremium"></a>Azure Front 도어 표준/프리미엄의 일반적인 라우팅 문제 해결
@@ -72,7 +72,7 @@ Azure 전면 도어에는 HTTP를 HTTPS로 리디렉션하는 라우팅 규칙�
 
 Azure Front 도어 표준/프리미엄 인스턴스를 만들고 프런트 엔드 호스트, 해당 호스트에 하나 이상의 원본 그룹, 프런트 엔드 호스트를 원본 그룹에 연결 하는 라우팅 규칙을 구성 했습니다. HTTP 411 상태 코드가 반환 되기 때문에 구성 된 프런트 엔드 호스트로 요청이 이동할 때 콘텐츠를 사용할 수 없는 것 같습니다.
 
-이러한 요청에 대 한 응답에는 설명 문을 포함 하는 HTML 오류 페이지가 응답 본문에 포함 될 수도 있습니다. 예: `HTTP Error 411. The request must be chunked or have a content length`
+이러한 요청에 대 한 응답에는 설명 문을 포함 하는 HTML 오류 페이지가 응답 본문에 포함 될 수도 있습니다. 예를 들어 `HTTP Error 411. The request must be chunked or have a content length`을 참조하십시오.
 
 ### <a name="cause"></a>원인
 

@@ -3,12 +3,12 @@ title: 패키지에서 Azure Functions 실행
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad6991d0ddd5c439d03e41adec63837a21db87b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639888"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581595"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -63,6 +63,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 - 패키지에서 실행은 `wwwroot` 읽기 전용 이므로이 디렉터리에 파일을 쓸 때 오류가 발생 합니다.
 - Tar 및 gzip 형식은 지원 되지 않습니다.
+- ZIP 파일은 최대 1GB가 될 수 있습니다.
 - 이 기능은 로컬 캐시로 구성 되지 않습니다.
 - 콜드 부팅 성능이 개선 되도록 하려면 로컬 Zip 옵션 ( `WEBSITE_RUN_FROM_PACKAGE` = 1)을 사용 합니다.
 - 패키지에서 실행은 배포 사용자 지정 옵션 ()과 호환 되지 않으므로 `SCM_DO_BUILD_DURING_DEPLOYMENT=true` 배포 중에 빌드 단계가 무시 됩니다.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: alkohli
 ms.openlocfilehash: ebd0e48c9f197439e838efbc936537ca5da3520f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96583092"
 ---
 - **주문 세부 정보** 입니다. 주문이 만들어지면 사용자의 배달 주소, 전자 메일 주소 및 연락처 정보가 Azure Portal에 저장 됩니다. 저장되는 정보는 다음과 같습니다.
@@ -16,9 +16,9 @@ ms.locfileid: "96583092"
   - 전화 번호
   - 메일 주소
   - 주소
-  - 구/군/시
+  - City
   - 우편 번호/우편 번호
-  - 주
+  - 시스템 상태
   - 국가/시/지역
   - 배송 추적 번호
 

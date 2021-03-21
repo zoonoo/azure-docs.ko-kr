@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694260"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
@@ -170,7 +170,7 @@ ms.locfileid: "101694260"
     | **대상** | 다음 중 하나:<ul><li>**임의**</li><li>**IP 주소**</li><li>**서비스 태그** (아웃 바운드 보안 규칙) 또는 **VirtualNetwork** (인바운드 보안 규칙)</li><li>**응용 프로그램 &nbsp; 보안 &nbsp; 그룹**</li></ul> | <p>**Ip 주소** 를 선택 하는 경우 **대상 ip 주소/c i d 범위** 도 지정 합니다.</p><p>**VirtualNetwork** 를 선택 하는 경우 가상 네트워크의 주소 공간 내의 모든 IP 주소에 대 한 트래픽이 허용 됩니다. **VirtualNetwork** 는 서비스 태그입니다.</p><p>**응용 프로그램 보안 그룹** 을 선택 하는 경우 기존 응용 프로그램 보안 그룹을 선택 해야 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다.</p> |
     | **대상 IP 주소/c i d/CIDR 범위** | 쉼표로 구분 된 IP 주소 목록 및 CIDR 범위 | <p>**대상** **IP 주소** 를 변경 하는 경우이 설정이 표시 됩니다. **원본** 및 **원본 IP 주소/c i d/CIDR 범위** 와 마찬가지로 단일 또는 여러 개의 주소 또는 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.</p><p>지정 하는 IP 주소를 Azure VM에 할당 하는 경우 공용 IP 주소가 아니라 개인 IP를 지정 해야 합니다. Azure는 공용 IP 주소를 인바운드 보안 규칙에 대 한 개인 IP 주소로 변환 하 고 나 서 Azure가 개인 IP 주소를 아웃 바운드 규칙에 대 한 공용 IP 주소로 변환 하기 전에 보안 규칙을 처리 합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](./public-ip-addresses.md)을 참조합니다.</p> |
     | **대상 서비스 태그** | 드롭다운 목록의 서비스 태그 | 이 선택적 설정은 아웃 바운드 보안 규칙에 대 한 **대상** **서비스 태그** 를 변경 하는 경우에 나타납니다. 서비스 태그는 IP 주소 범주에 대한 사전 정의된 식별자입니다. 사용 가능한 서비스 태그와 각 태그가 나타내는 항목에 대 한 자세한 내용은 [서비스 태그](./network-security-groups-overview.md#service-tags)를 참조 하세요. |
-    | **대상 응용 프로그램 보안 그룹** | 기존 응용 프로그램 보안 그룹 | 이 설정은 **대상** 을 **응용 프로그램 보안 그룹** 으로 설정 하는 경우 나타납니다. 네트워크 인터페이스와 동일한 지역에 있는 응용 프로그램 보안 그룹을 선택 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. |
+    | **대상 애플리케이션 보안 그룹** | 기존 응용 프로그램 보안 그룹 | 이 설정은 **대상** 을 **응용 프로그램 보안 그룹** 으로 설정 하는 경우 나타납니다. 네트워크 인터페이스와 동일한 지역에 있는 응용 프로그램 보안 그룹을 선택 합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. |
     | **대상 포트 범위** | 다음 중 하나:<ul><li>단일 포트 (예:) `80`</li><li>와 같은 포트 범위 `1024-65535`</li><li>단일 포트 및/또는 포트 범위 (예:)의 쉼표로 구분 된 목록입니다. `80, 1024-65535`</li><li>`*`모든 포트에서 트래픽을 허용 하는 별표 ()</li></ul> | **원본 포트 범위** 와 마찬가지로 단일 또는 여러 포트와 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요. |
     | **프로토콜** | **모든**, **TCP**, **UDP** 또는 **ICMP** | 규칙을 TCP (전송 제어 프로토콜), UDP (사용자 데이터 그램 프로토콜) 또는 ICMP (Internet Control Message Protocol)로 제한할 수 있습니다. 모든 프로토콜에 적용 되는 규칙의 기본값은입니다. |
     | **작업** | **허용** 또는 **거부** | 이 설정은이 규칙이 제공 된 원본 및 대상 구성에 대 한 액세스를 허용 하거나 거부 하는지 여부를 지정 합니다. |
@@ -264,9 +264,9 @@ ms.locfileid: "101694260"
 
 1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈** 페이지에서 **리소스 만들기** 를 선택합니다.
 
-2. 검색 상자에 *응용 프로그램 보안 그룹* 을 입력 합니다.
+2. 검색 상자에서 *애플리케이션 보안 그룹* 을 입력합니다.
 
-3. **응용 프로그램 보안 그룹** 페이지에서 **만들기** 를 선택 합니다.
+3. **애플리케이션 보안 그룹** 페이지에서 **만들기** 를 선택합니다.
 
 4. **응용 프로그램 보안 그룹 만들기** 페이지의 **기본 사항** 탭에서 다음 설정에 대 한 값을 설정 합니다.
 
@@ -349,13 +349,13 @@ ms.locfileid: "101694260"
 | Azure CLI | [az network asg delete](/cli/azure/network/asg#az-network-asg-delete) |
 | PowerShell | [AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup) |
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 네트워크 보안 그룹, 보안 규칙 및 응용 프로그램 보안 그룹에 대 한 작업을 수행 하려면 다음 표에 나열 된 적절 한 사용 권한이 할당 된 [네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 계정을 할당 해야 합니다.
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 
-| 작업                                                        |   속성                                                                |
+| 작업                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   네트워크 보안 그룹 가져오기                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
@@ -369,7 +369,7 @@ ms.locfileid: "101694260"
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 
-| 작업                                                        |   속성                                                                |
+| 작업                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   규칙 가져오기                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   규칙 만들기 또는 업데이트                                               |
@@ -377,7 +377,7 @@ ms.locfileid: "101694260"
 
 ### <a name="application-security-group"></a>애플리케이션 보안 그룹
 
-| 작업                                                                     | 속성                                                     |
+| 작업                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 애플리케이션 보안 그룹에 조인|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인    |

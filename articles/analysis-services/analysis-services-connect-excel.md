@@ -8,10 +8,10 @@ ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: fccb919a7eac79080fefeac70326b8aa7a967622
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499473"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
@@ -26,7 +26,7 @@ ms.locfileid: "96499473"
 
 Excel 2016 이상에서 Get Data를 사용하여 Excel에서 서버에 연결합니다. 파워 피벗에서 테이블 가져오기 마법사를 사용하여 연결하는 작업은 지원되지 않습니다. 
 
-1. Excel의 **데이터** 리본에서 **Get Data**  >  Analysis Services의 **데이터베이스에서** 데이터 가져오기를 클릭  >  **From Analysis Services** 합니다.
+1. Excel의 **데이터** 리본에서   >  Analysis Services의 **데이터베이스에서** 데이터 가져오기를 클릭  >  합니다.
 
 2. 데이터 연결 마법사에서 **서버 이름** 에 프로토콜 및 URI를 포함하여 서버 이름을 입력합니다. 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다. 그런 다음 **로그온 자격 증명** 에서 **다음 사용자 이름 및 암호 사용** 을 선택하고 조직 사용자 이름(예: nancy@adventureworks.com 및 암호)을 입력합니다.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099970"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에 대 한 규칙 집합은 무엇 인가요?
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 규칙 집합은 여러 경로에 연결할 수 있는 단일 집합으로 규칙 조합을 그룹화 하는 사용자 지정 규칙 엔진입니다. 규칙 집합을 사용 하 여에 지에서 요청을 처리 하는 방법과 Azure Front 도어가 해당 요청을 처리 하는 방법을 사용자 지정할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "101099970"
 
 * 서버 변수를 지원 하 여 요청/응답 헤더 또는 URL 재작성 경로/쿼리 문자열 (예: 새 페이지 로드 또는 양식이 게시 된 경우)을 동적으로 변경 합니다. 서버 변수는 현재 **[규칙 집합 작업](concept-rule-set-actions.md)** 에서만 지원 됩니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 규칙 집합은에 지에서 요청을 처리 합니다. 요청이 Azure Front 도어 표준/프리미엄 끝점에 도착 하면 WAF가 먼저 실행 되 고 그 다음에 경로에 구성 된 설정이 적용 됩니다. 이러한 설정에는 경로와 연결 된 규칙 집합이 포함 됩니다. 규칙 집합은 경로의 위쪽에서 아래쪽으로 처리 됩니다. 규칙 집합 내의 규칙에도 동일 하 게 적용 됩니다. 각 규칙의 모든 작업이 실행되도록 하려면 규칙 내의 모든 일치 조건이 충족되어야 합니다. 요청이 규칙 집합 구성의 조건과 일치 하지 않으면 경로의 구성만 실행 됩니다.
 
