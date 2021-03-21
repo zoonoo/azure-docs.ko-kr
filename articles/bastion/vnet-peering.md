@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101710586"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>VNet 피어 링 및 Azure 방호 (미리 보기)
@@ -23,7 +23,7 @@ Azure 방호는 다음과 같은 피어 링 유형을 사용 합니다.
 * **가상 네트워크 피어 링:** 동일한 Azure 지역 내에서 가상 네트워크를 연결 합니다.
 * **글로벌 가상 네트워크 피어 링:** Azure 지역에서 가상 네트워크 연결
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 VNet 피어 링이 구성 되 면 Azure 방호를 허브 및 스포크 또는 전체 메시 토폴로지에 배포할 수 있습니다. Azure Bastion 배포는 구독/계정 또는 가상 머신이 아닌 가상 네트워크별로 수행됩니다.
 

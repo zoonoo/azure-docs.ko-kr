@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: amverma
 ms.openlocfilehash: 81720c18ce858cd5667413a9d39afdadc95acb23
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102559701"
 ---
 # <a name="infiniband-driver-extension-for-windows"></a>Windows 용 InfiniBand 드라이버 확장
@@ -35,7 +35,7 @@ ms.locfileid: "102559701"
 
 | 배포 | InfiniBand NIC 드라이버 |
 |---|---|
-| Windows 10 | CX5, CX6 |
+| 윈도우 10 | CX5, CX6 |
 | Windows Server 2019 | CX5, CX6 |
 | Windows Server 2016 | CX3-Pro, CX5, CX6 |
 | Windows Server 2012 R2 | CX3-Pro, CX5, CX6 |

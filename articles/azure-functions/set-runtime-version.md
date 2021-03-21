@@ -4,10 +4,10 @@ description: Azure Functions는 여러 버전의 런타임을 지원합니다. A
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: e9aa5546b5f07b724fe22bc1e20a2e97feb2aec2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102435565"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
@@ -40,7 +40,7 @@ Azure Functions를 사용 하면 `FUNCTIONS_EXTENSION_VERSION` 함수 앱의 응
 런타임 버전을 변경하면 함수 앱을 다시 시작하게 됩니다.
 
 >[!NOTE]
->.Net Core 3.1로 자동 업그레이드를 옵트아웃 하기 위해 .NET 함수 앱을 고정 `~2.0` 했습니다. 자세히 알아보려면 [v2. x 고려 사항](functions-dotnet-class-library.md#functions-v2x-considerations)을 참조 하세요.  
+>.Net Core 3.1로 자동 업그레이드를 옵트아웃 하기 위해 .NET 함수 앱을 고정 `~2.0` 했습니다. 자세히 알아보려면 [Functions v2.x 고려 사항](functions-dotnet-class-library.md#functions-v2x-considerations)을 참조하세요.  
 
 ## <a name="view-and-update-the-current-runtime-version"></a>현재 런타임 버전 확인 및 업데이트
 

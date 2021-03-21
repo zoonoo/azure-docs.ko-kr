@@ -4,10 +4,10 @@ description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.openlocfilehash: 4a20f6efde9c3b01b4a2d7a1f111de23aec87647
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177922"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경

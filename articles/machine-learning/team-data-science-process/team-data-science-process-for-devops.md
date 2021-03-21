@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614074"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>개발자 작업용 팀 데이터 과학 프로세스
@@ -25,7 +25,7 @@ ms.locfileid: "102614074"
 ## <a name="lesson-path"></a>단원 경로
 다음 표에서는 Azure에서 데이터 과학 솔루션을 구현 하기 위한 DevOps 목표를 완료 하는 데 도움이 되는 수준 기반 지침을 제공 합니다.
 
-| Objective | 항목 | **리소스** | **기술** | **수준** | **필수 구성 요소** |
+| Objective | 항목 | **리소스** | **기술** | **수준** | **전제 조건** |
 |--|--|--|--|--|--|
 | 고급 분석 이해 | 팀 데이터 과학 프로세스 수명 주기 | [이 기술 연습은 팀 데이터 과학 프로세스를 설명합니다.](overview.md) | 데이터 과학 | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, IT 프로젝트 및 솔루션 구현 사용 경험 |
 | 고급 분석을 위해 Microsoft Azure 플랫폼 이해 | 정보 관리 |
@@ -74,7 +74,7 @@ ms.locfileid: "102614074"
 |  |  | [이 참조는 "패키지"로 JSON 템플릿으로 저장할 수 있는 솔루션에 대한 데이터 파이프라인을 만드는 방법을 설명합니다.](../../data-factory/v1/data-factory-introduction.md) | Azure 데이터 팩터리 | 중급 | 일반 컴퓨팅 배경, 데이터 프로젝트 경험 |
 |  |  | [이 항목에서는 Azure Resource Manager 템플릿의 구조에 대해 설명 합니다.](../../azure-resource-manager/templates/template-syntax.md) | Azure Resource Manager | 중급 | Microsoft Azure 플랫폼 사용 경험 |
 |  |  | [DSC는 패키지로 저장 되는 코드로 구성 하 여 IT 및 개발 인프라를 관리할 수 있게 해 주는 PowerShell의 관리 플랫폼입니다. 이 참조는 해당 항목에 대 한 개요입니다.](/powershell/scripting/dsc/overview/overview) | PowerShell Desired State Configuration | 중급 | PowerShell 코딩, 엔터프라이즈 아키텍처 사용 경험, 스크립팅 |
-|  | Release | [이 헤드 참조 문서는 CI/CD 환경에 대한 빌드, 테스트 및 릴리스를 위한 개념을 포함합니다.](/azure/devops/pipelines/) | Visual Studio Codespace | 경험함 | 소프트웨어 개발, CI/CD 환경 사용 경험, SDLC 사용 경험 |
+|  | 해제 | [이 헤드 참조 문서는 CI/CD 환경에 대한 빌드, 테스트 및 릴리스를 위한 개념을 포함합니다.](/azure/devops/pipelines/) | Visual Studio Codespace | 경험함 | 소프트웨어 개발, CI/CD 환경 사용 경험, SDLC 사용 경험 |
 |  |  | [System Center를 사용하여 릴리스 관리를 자동화하기 위해 Runbook에 대해 이 이전 참조를 사용합니다.](/system-center/orchestrator/automate-runbooks) | System Center | 경험함 | System Center 오케스트레이터 사용 경험 |
 |  |  | [이 문서는 Azure App Service에 웹앱용 파일, 모바일 앱 백엔드 또는 API 앱을 배포하는 최선의 방법을 결정하는 방법을 설명한 다음 선호하는 옵션에 해당하는 지침으로 적절한 리소스를 안내합니다.](../../app-service/deploy-local-git.md) | Microsoft Azure 배포 | 중급 | 소프트웨어 개발, Microsoft Azure 플랫폼 경험 |
 |  | 모니터 | [이 참조는 Application Insights 및 고급 분석 솔루션에 추가할 수 있는 방법에 대해 설명합니다.](../../azure-monitor/app/app-insights-overview.md) | Application Insights | 중급 | 소프트웨어 개발, Microsoft Azure 플랫폼 사용 경험 |

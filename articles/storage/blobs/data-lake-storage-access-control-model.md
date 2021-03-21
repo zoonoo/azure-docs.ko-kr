@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102439292"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어 모델
@@ -73,7 +73,7 @@ Acl을 사용 하면 디렉터리 및 파일에 대 한 "세분화 된" 수준�
 
 다음 표에서는 보안 주체가 **작업** 열에 나열 된 작업을 수행할 수 있도록 Azure 역할 및 ACL 항목을 결합 하는 방법을 보여 줍니다. 다음 표에서는 가상 디렉터리 계층 구조의 각 수준을 나타내는 열을 보여 줍니다. 컨테이너 ()의 루트 디렉터리에 대 한 열, `/` **Oregon** 라는 하위 디렉터리, **포틀랜드** 라는 Oregon 디렉터리의 하위 디렉터리 및 **Data.txt** 라는 포틀랜드 디렉터리의 텍스트 파일이 있습니다. 이러한 열에는 사용 권한을 부여 하는 데 필요한 ACL 항목의 [약식](data-lake-storage-access-control.md#short-forms-for-permissions) 표현이 표시 됩니다.  작업을 수행 하는 데 ACL 항목이 필요 하지 않은 경우 _해당 없음 (해당 없음_)이 열에 표시 됩니다.
 
-|    작업(Operation)             | 할당 된 Azure 역할               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    작업             | 할당 된 Azure 역할               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Read Data.txt            |   Storage Blob 데이터 소유자        | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |  
 |                          |   Storage Blob 데이터 기여자  | 해당 없음      | 해당 없음      | 해당 없음       | 해당 없음    |

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
 ms.openlocfilehash: 55f8d37d435aa8adeb4d97246ce7b2c7811140be
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102558001"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
@@ -140,7 +140,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 
 ### <a name="the-data-model-of-the-schema"></a>스키마의 데이터 모델
 
-|필드|설명|
+|필드|Description|
 |----|----|
 |**채널이**|상수, "Operation"|
 |**correlationId**|Azure Security Center 경고 ID|
@@ -149,7 +149,7 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 |**eventName**|Value 및 localizedValue 하위 필드에는 경고 표시 이름이 포함 됩니다.|
 |**category**|Value 및 localizedValue 하위 필드는 상수 "보안"입니다.|
 |**eventTimestamp**|경고가 생성 된 시간에 대 한 UTC 타임 스탬프|
-|**id**|정규화 된 경고 ID|
+|**ID**|정규화 된 경고 ID|
 |**level**|상수, "정보"|
 |**operationId**|CorrelationId 참조|
 |**operationName**|값 필드는 상수-"Microsoft. 보안/위치/경고/활성화/동작" 이며, 지역화 된 값은 "경고 활성화" (잠재적으로 사용자 로캘과 함께 지역화 될 수 있음)입니다.|

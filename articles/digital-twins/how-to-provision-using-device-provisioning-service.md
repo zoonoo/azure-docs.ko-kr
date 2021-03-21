@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2e7c9c96f237512d7f28f7243707b097c034aab
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: acaab347d56d320f2287bb8f548fd832f52efece
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198458"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595365"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>DPS (장치 프로 비전 서비스)를 사용 하 여 Azure Digital Twins의 장치 자동 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "102198458"
 
 _프로 비전_ 및 사용 _중지_ 단계에 대 한 자세한 내용 및 모든 엔터프라이즈 IoT 프로젝트에 공통적인 일반적인 장치 관리 단계 집합을 보다 잘 이해 하려면 IoT Hub의 장치 관리 설명서에서 [ *장치 수명 주기* 섹션](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 프로 비전을 설정 하려면 먼저 모델 및 쌍을 포함 하는 **Azure Digital twins 인스턴스가** 있어야 합니다. 또한이 인스턴스는 데이터를 기반으로 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 합니다. 
 
@@ -99,7 +99,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-종단 간 자습서에서 [*함수 앱에 대 한 사용 권한 할당*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) 섹션에 설명 된 대로 함수 앱에 대 한 권한 및 관리 id 역할 할당이 올바르게 구성 되어 있는지 확인 합니다.
+종단 간 자습서에서 [*함수 앱에 대 한 사용 권한 할당*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) 섹션에 설명 된 대로 함수 앱에 대 한 권한 및 관리 id 역할 할당이 올바르게 구성 되어 있는지 확인 합니다.
 
 ### <a name="create-device-provisioning-enrollment"></a>장치 프로 비전 등록 만들기
 
@@ -202,7 +202,7 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-종단 간 자습서에서 [*함수 앱에 대 한 사용 권한 할당*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) 섹션에 설명 된 대로 함수 앱에 대 한 권한 및 관리 id 역할 할당이 올바르게 구성 되어 있는지 확인 합니다.
+종단 간 자습서에서 [*함수 앱에 대 한 사용 권한 할당*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) 섹션에 설명 된 대로 함수 앱에 대 한 권한 및 관리 id 역할 할당이 올바르게 구성 되어 있는지 확인 합니다.
 
 ### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>수명 주기 이벤트에 대 한 IoT Hub 경로 만들기
 

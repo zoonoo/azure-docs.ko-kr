@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: e31ad0734630fbd0b4960c26f8d562cea66ae675
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434869"
 ---
 # <a name="allowed-certificate-authorities-for-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에 대해 허용 된 인증 기관

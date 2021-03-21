@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.openlocfilehash: 8887243f953a7bb000033a2e56b4655b93cd7ca8
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519795"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
@@ -21,7 +21,7 @@ Azure 파일 공유에 대해 온-프레미스 Active Directory Domain Services 
 
 Azure 파일 공유에 대해 Azure AD DS 인증을 사용 하도록 설정 하는 방법을 알아보려면 [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)을 참조 하세요.
 
-## <a name="glossary"></a>용어집 
+## <a name="glossary"></a>용어 
 Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증과 관련 된 몇 가지 주요 용어를 이해 하는 것이 유용 합니다.
 
 -   **Kerberos 인증**
@@ -92,7 +92,7 @@ Azure Files에 대 한 id 기반 인증은 공유 키 인증 사용에 대 한 �
 -   **데이터와 함께 Windows Acl (NTFS 라고도 함) 백업**  
     Azure 파일 공유를 사용 하 여 기존 온-프레미스 파일 공유를 백업할 수 있습니다. Azure Files은 SMB를 통해 Azure 파일 공유에 파일 공유를 백업할 때 데이터와 함께 Acl을 유지 합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Azure 파일 공유는 온-프레미스 AD DS 또는 Azure AD DS를 사용 하 여 인증 하기 위해 Kerberos 프로토콜을 활용 합니다. 클라이언트에서 실행 되는 사용자 또는 응용 프로그램과 연결 된 id가 Azure 파일 공유의 데이터에 액세스 하려고 하면 요청은 AD DS 또는 Azure AD DS에서 id를 인증 하는 도메인 서비스로 전송 됩니다. 인증에 성공 하면 Kerberos 토큰을 반환 합니다. 클라이언트는 Kerberos 토큰을 포함 하는 요청을 보내고, Azure 파일 공유는 해당 토큰을 사용 하 여 요청에 권한을 부여 합니다. Azure 파일 공유는 액세스 자격 증명이 아닌 Kerberos 토큰만 받습니다.
 
@@ -141,7 +141,7 @@ Azure 파일 공유는 루트 디렉터리를 포함 하 여 디렉터리와 파
 
 Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 또는 파일 수준 Acl 유지를 지원 합니다. Azure 파일 동기화 또는 공통 파일 이동 도구 집합을 사용 하 여 디렉터리 또는 파일의 Acl을 Azure 파일 공유에 복사할 수 있습니다. 예를 들어, [robocopy](/windows-server/administration/windows-commands/robocopy) 를 플래그와 함께 사용 `/copy:s` 하 여 Azure 파일 공유에 대 한 acl 뿐만 아니라 데이터를 복사할 수 있습니다. Acl은 기본적으로 유지 되므로 저장소 계정에서 Acl을 유지 하기 위해 id 기반 인증을 사용 하도록 설정할 필요는 없습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 저장소 계정에서 SMB를 통한 id 기반 인증을 사용 하도록 설정 하는 추가 서비스 요금은 없습니다. 가격 책정에 대 한 자세한 내용은 [Azure Files 가격](https://azure.microsoft.com/pricing/details/storage/files/) 책정 및 [Azure AD Domain Services 가격](https://azure.microsoft.com/pricing/details/active-directory-ds/)책정을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계

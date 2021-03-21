@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 5b9b0c6a0fe08ccff9da59539b926270cd0e1d44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032857"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606959"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -606,7 +606,7 @@ OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-teleme
 [OpenCensus](https://opencensus.io/) 은 [OpenTelemetry](https://opentelemetry.io/)의 기반이입니다. Microsoft에서는 [OpenTracing](https://opentracing.io/) 및 OpenCensus를 통합 하 여 전 세계에 단일 관찰성 표준으로 OpenTelemetry를 만듭니다. Azure Monitor의 현재 [프로덕션-권장 되는 PYTHON SDK](app/opencensus-python.md) 는 OpenCensus을 기반으로 하지만 결국 모든 Azure Monitor의 Sdk는 OpenTelemetry를 기반으로 합니다.
 
 
-## <a name="container-insights"></a>컨테이너 정보
+## <a name="container-insights"></a>컨테이너 인사이트
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>[노드] 보기 아래의 *기타 프로세스* 에서 나타내는 것은 무엇인가요?
 
@@ -705,6 +705,10 @@ kube-system 네임스페이스에 포함된 컨테이너의 로그 수집은 기
 
 에이전트를 업그레이드하는 방법을 알아보려면 [에이전트 관리](containers/container-insights-manage-agent.md)를 참조하세요.
 
+### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>로그 줄이 Log Analytics의 여러 레코드로 분할 된 16KB 보다 큰 이유는 무엇입니까?
+
+에이전트는 [DOCKER JSON 파일 로깅 드라이버](https://docs.docker.com/config/containers/logging/json-file/) 를 사용 하 여 컨테이너의 stdout 및 stderr을 캡처합니다. 이 로깅 드라이버는 stdout 또는 stderr에서 파일로 복사할 때 [16KB 보다 큰](https://github.com/moby/moby/pull/22982) 로그 줄을 여러 줄로 분할 합니다.
+
 ### <a name="how-do-i-enable-multi-line-logging"></a>여러 줄 로깅을 사용하도록 설정하려면 어떻게 하나요?
 
 현재 Container insights는 여러 줄 로깅을 지원 하지 않지만 사용 가능한 해결 방법이 있습니다. JSON 형식으로 쓰도록 모든 서비스를 구성하면 Docker/Moby가 해당 데이터를 한 줄에 씁니다.
@@ -742,7 +746,7 @@ AKS 클러스터에 대 한 컨테이너 insights를 사용 하도록 설정한 
 Azure, Azure US Government 및 Azure 중국 21Vianet 클라우드를 사용하여 컨테이너화된 에이전트에 필요한 프록시 및 방화벽 구성 정보는 [네트워크 방화벽 요구 사항](containers/container-insights-onboard.md#network-firewall-requirements)을 참조하세요.
 
 
-## <a name="vm-insights"></a>VM 정보
+## <a name="vm-insights"></a>VM 인사이트
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>기존 작업 영역에 온보딩할 수 있나요?
 가상 컴퓨터가 이미 Log Analytics 작업 영역에 연결 되어 있는 경우 지원 되는 [지역](vm/vminsights-configure-workspace.md#supported-regions)중 하나에 있는 경우 VM insights에 등록 하는 경우 해당 작업 영역을 계속 사용할 수 있습니다.
@@ -821,6 +825,29 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 
 이 조건에서는 VM을 열고 이미 해당 VM에 설치된 후에도 왼쪽 창에서 **인사이트** 를 선택하면 **지금 사용해 보기** 옵션이 포함된 메시지가 표시됩니다.  그러나이 VM이 VM insights에 등록 되지 않은 경우 일반적으로 발생 하는 옵션을 묻는 메시지가 표시 되지 않습니다. 
 
+## <a name="sql-insights-preview"></a>SQL insights (미리 보기)
+
+### <a name="what-versions-of-sql-server-are-supported"></a>지원 되는 SQL Server 버전은 무엇 인가요?
+지원 되는 SQL 버전은 [지원 되는 버전](insights/sql-insights-overview.md#supported-versions) 을 참조 하세요.
+
+### <a name="what-sql-resource-types-are-supported"></a>지원 되는 SQL 리소스 종류는 무엇 인가요?
+
+- Azure SQL Database. 단일 데이터베이스만 Elastic Pool 데이터베이스는 그렇지 않습니다.
+- Azure SQL Managed Instance 
+- SQL Server 되는 azure SQL 가상 컴퓨터 ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) 및 azure 가상 컴퓨터.
+
+### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>SQL Server를 실행 하는 컴퓨터의 운영 체제는 무엇이 지원 되나요?
+지원 되는 SQL 버전의 실행을 지 원하는 모든 OS
+
+### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>원격 모니터링 서버에 대해 지원 되는 운영 체제는 무엇 인가요?
+
+Ubuntu 18.04은 현재 유일 하 게 지원 되는 운영 체제입니다.
+
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>모니터링 데이터는 Log Analytics에 저장 됩니다. 
+모든 모니터링 데이터는 **InsightsMetrics** 테이블에 저장 됩니다. **원본** 열에는 *solutions.azm.ms/telegraf/SqlInsights* 값이 있습니다. **네임 스페이스** 열에 *sqlserver_* 로 시작 하는 값이 있습니다.
+
+### <a name="how-often-is-data-collected"></a>데이터를 얼마나 자주 수집 하나요? 
+다른 데이터를 수집 하는 빈도에 대 한 자세한 내용은 [SQL insights에서 수집한 데이터](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 질문에 대한 대답이 여기에 없으면 다음 포럼에서 추가 질문 및 대답을 참조할 수 있습니다.

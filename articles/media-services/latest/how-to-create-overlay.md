@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.openlocfilehash: 69930e06e2ce7f2679feec74ca8ccbc93bdb8d30
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101721126"
 ---
 # <a name="how-to-create-an-overlay-with-media-encoder-standard"></a>Media Encoder Standard를 사용 하 여 오버레이를 만드는 방법
@@ -20,7 +20,7 @@ ms.locfileid: "101721126"
 Media Encoder Standard를 사용 하 여 이미지, 오디오 파일 또는 다른 비디오를 다른 비디오에 오버레이 할 수 있습니다. 입력은 파일을 하나만 지정 해야 합니다. 이미지 파일은 JPG, PNG, GIF 또는 BMP 형식 또는 오디오 파일 (예: WAV, MP3, WMA 또는 M4A 파일) 또는 비디오 파일에 지정할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 샘플에서 파일 *에appsettings.js* 를 구성 하는 데 필요한 계정 정보를 수집 합니다. 이 작업을 수행 하는 방법을 잘 모르는 경우 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](../../active-directory/develop/quickstart-register-app.md)을 참조 하세요. 파일의 *appsettings.js* 에는 다음 값이 필요 합니다.
 

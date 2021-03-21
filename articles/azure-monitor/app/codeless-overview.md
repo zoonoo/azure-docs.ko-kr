@@ -7,13 +7,13 @@ ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9ead123338a410daf53569ff577dfc8c728a8ddf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708495"
 ---
-# <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 Azure Monitor Application Insights 이란?
+# <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>자동 계측 또는 코드 없는 연결이란? - Azure Monitor Application Insights
 
 자동 계측 또는 코드 없는 attach를 사용 하면 코드를 변경 하지 않고 Application Insights로 응용 프로그램 모니터링을 사용 하도록 설정할 수 있습니다.  
 
@@ -67,7 +67,7 @@ Windows에서 App Service의 Java 응용 프로그램 모니터링에 대 한 �
 #### <a name="python"></a>Python
 SDK를 사용 하 여 [Python 앱 모니터링](./opencensus-python.md) 
 
-## <a name="azure-functions"></a>Azure 기능
+## <a name="azure-functions"></a>Azure Functions
 
 기본적으로 Azure Functions에 대 한 기본 모니터링을 사용 하 여 로그, 성능, 오류 데이터 및 HTTP 요청을 수집 합니다. Java 응용 프로그램의 경우 분산 추적을 통해 다양 한 모니터링을 사용 하도록 설정 하 고 종단 간 트랜잭션 세부 정보를 얻을 수 있습니다. Java 용이 기능은 공개 미리 보기 상태 이며 [Azure Portal에서 사용 하도록 설정할](./monitor-functions.md)수 있습니다.
 

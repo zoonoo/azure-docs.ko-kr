@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/12/2017
 ms.author: rclaus
 ms.openlocfilehash: 2084d79ecbbc53ef9e3c75bae0664eae7de0eccb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102559633"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Azure 리소스 관리용 일반 Azure CLI 명령
@@ -23,14 +23,14 @@ Azure CLI를 사용하면 macOS, Linux 및 Windows에서 Azure 리소스를 만�
 특정 명령줄 스위치와 옵션에 대해 자세한 도움말은 `az <command> <subcommand> --help`를 입력하여 온라인 명령 도움말과 옵션을 사용할 수 있습니다.
 
 ### <a name="create-vms"></a>VM 만들기
-| Task | Azure CLI 명령 |
+| 작업 | Azure CLI 명령 |
 | --- | --- |
 | 리소스 그룹 만들기 | `az group create --name myResourceGroup --location eastus` |
 | Linux VM 만들기 | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Windows VM 만들기 | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>VM 상태 관리
-| Task | Azure CLI 명령 |
+| 작업 | Azure CLI 명령 |
 | --- | --- |
 | VM 시작 | `az vm start --resource-group myResourceGroup --name myVM` |
 | VM 중지 | `az vm stop --resource-group myResourceGroup --name myVM` |
@@ -40,7 +40,7 @@ Azure CLI를 사용하면 macOS, Linux 및 Windows에서 Azure 리소스를 만�
 | VM 삭제 | `az vm delete --resource-group myResourceGroup --name myVM` |
 
 ### <a name="get-vm-info"></a>VM 정보 가져오기
-| Task | Azure CLI 명령 |
+| 작업 | Azure CLI 명령 |
 | --- | --- |
 | VM 나열 | `az vm list` |
 | VM에 대한 정보 가져오기 | `az vm show --resource-group myResourceGroup --name myVM` |
@@ -48,7 +48,7 @@ Azure CLI를 사용하면 macOS, Linux 및 Windows에서 Azure 리소스를 만�
 | 모든 사용 가능한 VM 크기 가져오기 | `az vm list-sizes --location eastus` |
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
-| Task | Azure CLI 명령 |
+| 작업 | Azure CLI 명령 |
 | --- | --- |
 | VM에 데이터 디스크 추가 | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | VM에서 데이터 디스크 제거 | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |

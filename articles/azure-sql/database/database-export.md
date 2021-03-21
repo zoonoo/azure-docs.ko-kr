@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
 ms.openlocfilehash: 866500e9cd9e3fe6aac6a5bfded0dbb21ab137fc
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614278"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일 Azure SQL Database 및 Azure SQL Managed Instance로 내보내기
@@ -73,7 +73,7 @@ Azure Portal를 사용 하 여 [AZURE SQL Managed Instance](../managed-instance/
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)
+## <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio(SSMS)
 
 최신 버전의 SQL Server Management Studio에서는 Azure SQL Database 또는 SQL Managed Instance 데이터베이스의 데이터베이스를 BACPAC 파일로 내보내는 마법사를 제공 합니다. [데이터 계층 애플리케이션 내보내기](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)를 참조하세요.
 

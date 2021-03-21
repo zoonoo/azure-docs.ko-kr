@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102609688"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
@@ -67,7 +67,7 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인�
 ### <a name="intent-limits-in-dispatch-model"></a>디스패치 모델의 의도 제한
 디스패치 애플리케이션에는 최댓값으로 500개 의도에 해당하는 500개 디스패치 원본이 있습니다. 
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 * [Bot framework SDK](https://github.com/Microsoft/botframework)
 * [모델 디스패치 자습서](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)

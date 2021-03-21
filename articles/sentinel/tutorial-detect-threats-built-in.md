@@ -1,6 +1,6 @@
 ---
-title: Azure 센티널을 사용 하 여 경고 조사 | Microsoft Docs
-description: 의심 스러운 상황이 발생 했을 때 사용자에 게 알리는 기본 제공 Azure 위협 검색 템플릿 템플릿을 사용 하는 방법을 알아봅니다.
+title: Azure 센티널에서 기본 제공 분석 규칙을 사용 하 여 위협 감지 | Microsoft Docs
+description: 의심 스러운 상황이 발생할 때 사용자에 게 알리는 기본 제공 템플릿을 기반으로 하는 기본 위협 검색 규칙을 사용 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b8a304d523052f1fe839f94608806df51d35fdf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726974"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589925"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>자습서: 처음부터 위협 감지
 
@@ -78,4 +78,3 @@ ms.locfileid: "101726974"
 이 자습서에서는 Azure 센티널을 사용 하 여 위협 감지를 시작 하는 방법을 배웠습니다. 
 
 위협에 대 한 응답을 자동화 하는 방법을 알아보려면 [Azure 센티널에서 자동화 된 위협 응답을 설정](tutorial-respond-threats-playbook.md)합니다.
-

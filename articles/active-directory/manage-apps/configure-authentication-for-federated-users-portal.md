@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21b6f5e7d2976bda0efd37577b7cca90469aea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ed101282a69120162d6e3b526693c0a83df45b6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686447"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607112"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -91,7 +91,7 @@ Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 �
 
 ### <a name="home-realm-discovery-policy-to-prevent-auto-acceleration"></a>자동 가속을 방지 하는 홈 영역 검색 정책
 
-일부 Microsoft 및 SaaS 응용 프로그램은 domain_hints를 자동으로 포함 `https://outlook.com/contoso.com` 합니다. 예를 들어 추가 된 로그인 요청이 발생 하면 `&domain_hint=contoso.com` FIDO와 같은 관리 되는 자격 증명의 롤아웃이 중단 될 수 있습니다.  관리 되는 자격 증명을 롤아웃하는 동안 [홈 영역 검색 정책을](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) 사용 하 여 특정 앱 또는 특정 도메인에서 도메인 힌트를 무시할 수 있습니다.  
+일부 Microsoft 및 SaaS 응용 프로그램은 domain_hints를 자동으로 포함 `https://outlook.com/contoso.com` 합니다. 예를 들어 추가 된 로그인 요청이 발생 하면 `&domain_hint=contoso.com` FIDO와 같은 관리 되는 자격 증명의 롤아웃이 중단 될 수 있습니다.  관리 되는 자격 증명을 롤아웃하는 동안 [홈 영역 검색 정책을](/graph/api/resources/homeRealmDiscoveryPolicy) 사용 하 여 특정 앱 또는 특정 도메인에서 도메인 힌트를 무시할 수 있습니다.  
 
 ## <a name="enable-direct-ropc-authentication-of-federated-users-for-legacy-applications"></a>레거시 응용 프로그램에 대해 페더레이션된 사용자의 직접 ROPC 인증 사용
 
@@ -129,7 +129,7 @@ Azure Active Directory PowerShell cmdlet을 사용 하 여 HRD 정책을 만들�
    }
 ```
 
-정책 형식은 "[HomeRealmDiscoveryPolicy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy)"입니다.
+정책 형식은 "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)"입니다.
 
 **AccelerateToFederatedDomain** 은 선택 사항입니다. **AccelerateToFederatedDomain** 이 false인 경우 정책이 자동 가속에 영향을 주지 않습니다. **AccelerateToFederatedDomain** 이 true이고 테넌트에 확인되고 페더레이션된 도메인이 하나만 있는 경우, 사용자가 페더레이션된 IdP로 바로 이동되어 로그인할 수 있습니다. true이고 테넌트에 확인된 도메인이 둘 이상 있는 경우 **PreferredDomain** 을 지정해야 합니다.
 
@@ -169,7 +169,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 
 - 정책이 구성된 애플리케이션 나열
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음 예제에서는 Azure AD에서 애플리케이션 서비스 주체에 대해 정책을 생성, 업데이트, 연결 및 삭제합니다.
 

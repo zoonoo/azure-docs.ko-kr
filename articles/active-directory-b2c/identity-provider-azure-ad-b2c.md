@@ -14,10 +14,10 @@ ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 4b357213f4e552fd791fb575d8b7a287b924c7f9
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489073"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>다른 Azure AD B2C 테 넌 트에서 Azure AD B2C 계정으로 등록 및 로그인 설정
@@ -37,7 +37,7 @@ ms.locfileid: "103489073"
 ![다른 Azure AD B2C 테 넌 트와 Azure AD B2C 페더레이션](./media/identity-provider-azure-ad-b2c/azure-ad-b2c-federation.png)
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -62,7 +62,7 @@ ms.locfileid: "103489073"
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    예들 들어 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`입니다.
+    예: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`
 
     [사용자 지정 도메인](custom-domain.md)을 사용 하는 경우을 입력 `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` 합니다. 을 `your-domain-name` 사용자 지정 도메인으로,를 `your-tenant-name` 테 넌 트의 이름으로 바꿉니다.
 
@@ -199,8 +199,8 @@ ms.locfileid: "103489073"
     |ClaimsProvider\Domain  | [직접 로그인](direct-signin.md?pivots=b2c-custom-policy#redirect-sign-in-to-a-social-provider)에 사용 되는 도메인 이름입니다. 직접 로그인에 사용 하려는 도메인 이름을 입력 합니다. 예를 들면 *fabrikam.com* 입니다. |
     |TechnicalProfile\DisplayName|이 값은 로그인 화면의 로그인 단추에 표시됩니다. 예: *Fabrikam*. |
     |메타 데이터 \ client_id|ID 공급자의 애플리케이션 식별자입니다. 다른 Azure AD B2C 테 넌 트에서 이전에 만든 응용 프로그램 ID를 사용 하 여 클라이언트 ID를 업데이트 합니다.|
-    |Metadata\METADATA|Openid connect 잘 알려진 구성 끝점이 라고도 하는 Openid connect Connect id 공급자 구성 문서를 가리키는 URL입니다. `{tenant}`다른 Fabrikam (Azure AD B2C 테 넌 트)의 도메인 이름으로 대체 하는 다음 URL을 입력 합니다. 을 `{tenant}` 다른 테 넌 트에서 구성한 정책 이름으로 바꾸고을 `{policy]` 정책 이름으로 바꿉니다 `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . 예들 들어 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`입니다.|
-    |CryptographicKeys| **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예들 들어 `B2C_1A_FabrikamAppSecret`입니다.| 
+    |Metadata\METADATA|Openid connect 잘 알려진 구성 끝점이 라고도 하는 Openid connect Connect id 공급자 구성 문서를 가리키는 URL입니다. `{tenant}`다른 Fabrikam (Azure AD B2C 테 넌 트)의 도메인 이름으로 대체 하는 다음 URL을 입력 합니다. 을 `{tenant}` 다른 테 넌 트에서 구성한 정책 이름으로 바꾸고을 `{policy]` 정책 이름으로 바꿉니다 `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . 예: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`|
+    |CryptographicKeys| **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트 합니다. 예: `B2C_1A_FabrikamAppSecret`| 
     
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]

@@ -6,14 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 9d035417b613c81487c493bde90cdcc461f04412
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0182f744e038bc8080b9fb96bfdb1eeda16b86c0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017290"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674855"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 자산 관리
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## <a name="introduction"></a>소개
 Azure Data Catalog는 사용자가 분석을 수행하고 결정을 내리는 데 필요한 데이터 원본을 쉽게 검색하고 이해할 수 있도록 데이터 원본 검색을 위해 설계되었습니다. 이러한 검색 기능은 모든 사용자가 가장 넓은 범위의 사용 가능한 데이터 원본을 이해하고 찾을 수 있는 경우 엄청난 영향을 가집니다. 이러한 요소를 고려하여 데이터 카탈로그의 기본 동작은 모든 등록된 데이터 원본을 모든 카탈로그 사용자에게 표시하며 검색할 수 있게 합니다.
 

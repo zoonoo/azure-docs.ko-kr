@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490979"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Azure Digital Twins의 쿼리 언어 정보
@@ -59,7 +59,7 @@ Azure 디지털 쌍에 대 한 쿼리를 작성 하는 경우 다음 사항을 �
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 기능 | 설명 |
+| 함수 | Description |
 | -------- | ----------- |
 | `IS_DEFINED` | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . `DateTime`, 개체 형식 및 배열은 지원 되지 않습니다. |
 | `IS_OF_MODEL` | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -72,7 +72,7 @@ Azure 디지털 쌍에 대 한 쿼리를 작성 하는 경우 다음 사항을 �
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 기능 | 설명 |
+| 함수 | Description |
 | -------- | ----------- |
 | `STARTSWITH(x, y)` | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
 | `ENDSWITH(x, y)` | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |

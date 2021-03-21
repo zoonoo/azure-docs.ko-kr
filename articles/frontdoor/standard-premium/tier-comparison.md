@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
 ms.openlocfilehash: 1753f2bb649e73d7a5fe6c1cc32361a418ea7f63
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102181808"
 ---
 # <a name="overview-of-azure-front-door-standardpremium-sku-preview"></a>Azure 전면 도어 표준/프리미엄 SKU 개요 (미리 보기)
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure Front 도어가 3 개의 다른 Sku, [Azure Front 도어](../front-door-overview.md), Azure Front 도어 Standard (미리 보기) 및 Azure Front 도어 프리미엄 (미리 보기)에 대해 제공 됩니다. Azure Front 도어 Standard/Premium Sku는 Azure 프런트 도어의 기능, Microsoft Azure WAF의 기능 Azure CDN을 지능형 위협 보호를 갖춘 단일 보안 클라우드 CDN 플랫폼으로 결합 합니다.
 
@@ -58,12 +58,12 @@ Azure Front 도어가 3 개의 다른 Sku, [Azure Front 도어](../front-door-ov
 | 계층 7 라우팅 | 예 | 예 |
 | URL 다시 쓰기 | 예 | 예 |
 | 규칙 엔진 | 예 | 예 |
-| 개인 원본 (개인 링크) | 예 | 예 |
+| 개인 원본 (개인 링크) | 아니요 | 예 |
 | WAF | 사용자 지정 규칙만 | 예 |
-| Bot 보호 | 예 | 예 |
+| Bot 보호 | 아니요 | 예 |
 | 향상 된 메트릭 및 진단 | 예 | 예 |
 | 트래픽 보고서 | 예 | 예 |
-| 보안 보고서 | 예 | 예 | 
+| 보안 보고서 | 아니요 | 예 | 
 
 ## <a name="next-steps"></a>다음 단계
 

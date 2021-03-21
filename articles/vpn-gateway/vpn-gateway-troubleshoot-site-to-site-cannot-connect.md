@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 674b8ab8266921a4eef8bbf212f3c556b1e587d7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4454afbe543f374ebd745af7cd59be1ab745036f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658352"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670890"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 
@@ -70,7 +70,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -Resource
 Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 ```
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계. VPN 피어 IP 확인
+### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계: VPN 피어 IP 확인
 
 -   Azure의 **로컬 네트워크 게이트웨이** 개체에 있는 IP 정의가 온-프레미스 디바이스 IP와 일치해야 합니다.
 -   온-프레미스 디바이스에 설정된 Azure 게이트웨이 IP 정의는 Azure 게이트웨이 IP와 일치해야 합니다.
@@ -110,5 +110,5 @@ PFS(Perfect Forward Secrecy) 기능은 연결 끊김 문제를 일으킬 수 있
 
 ## <a name="next-steps"></a>다음 단계
 
--   [가상 네트워크에 대 한 사이트 간 연결 구성](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-   [가상 네트워크에 대 한 사이트 간 연결 구성](./tutorial-site-to-site-portal.md)
 -   [사이트 간 VPN 연결에 대한 IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md)

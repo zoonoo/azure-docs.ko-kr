@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463037"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606993"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -81,34 +81,15 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱에 공유 �
 
 ## <a name="connect-to-service-endpoint-secured-resources"></a>서비스 엔드포인트 보안 리소스에 연결
 
-높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 함수 앱을 통합하여 리소스에 액세스해야 합니다. 이 구성은 가상 네트워크 통합을 지원하는 모든 계획에서 지원됩니다.
+높은 수준의 보안을 제공하기 위해 서비스 엔드포인트를 사용하여 여러 Azure 서비스를 가상 네트워크로 제한할 수 있습니다. 그런 다음 해당 가상 네트워크와 함수 앱을 통합하여 리소스에 액세스해야 합니다. 이 구성은 가상 네트워크 통합을 지 원하는 모든 [요금제](functions-scale.md#networking-features) 에서 지원 됩니다.
 
 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>가상 네트워크에 대한 스토리지 계정 제한 
 
-함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다. 이 기능은 현재 Standard 및 Premium을 포함 하는 모든 Windows 가상 네트워크 지원 sku에 대해 작동 합니다. 단, Premium sku에 대해서만 가상 네트워크를 사용할 수 있는 플렉스 스탬프의 경우는 제외 됩니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하려면 다음을 수행 합니다.
+함수 앱을 만들 때 Blob, 큐 및 Table Storage을 지원하는 범용 Azure Storage 계정을 만들거나 연결해야 합니다. 이 저장소 계정은 서비스 끝점이 나 개인 끝점으로 보안이 유지 되는 계정으로 바꿀 수 있습니다. 
 
-1. 서비스 끝점이 사용 하도록 설정 되지 않은 저장소 계정을 사용 하 여 함수를 만듭니다.
-1. 가상 네트워크에 연결 하도록 함수를 구성 합니다.
-1. 다른 저장소 계정을 만들거나 구성 합니다.  서비스 끝점을 사용 하 여 보안을 설정 하 고 함수를 연결 하는 저장소 계정입니다.
-1. 보안 저장소 계정에서 [파일 공유를 만듭니다](../storage/files/storage-how-to-create-file-share.md#create-file-share) .
-1. 저장소 계정에 대 한 서비스 끝점 또는 개인 끝점을 사용 하도록 설정 합니다.  
-    * 개인 끝점 연결을 사용 하는 경우 저장소 계정에는 및 하위 리소스에 대 한 개인 끝점이 필요 합니다 `file` `blob` .  Durable Functions와 같은 특정 기능을 사용 하는 경우 `queue` `table` 개인 끝점 연결을 통해 액세스 하 고 액세스할 수도 있습니다.
-    * 서비스 끝점을 사용 하는 경우 저장소 계정에 대 한 함수 앱 전용 서브넷을 사용 하도록 설정 합니다.
-1. 함수 앱 저장소 계정에서 보안 저장소 계정 및 파일 공유로 파일 및 blob 콘텐츠를 복사 합니다.
-1. 이 저장소 계정에 대 한 연결 문자열을 복사 합니다.
-1. 함수 앱에 대 한 **구성** 아래의 **응용 프로그램 설정을** 다음으로 업데이트 합니다.
-    - `AzureWebJobsStorage` 보안 저장소 계정에 대 한 연결 문자열입니다.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 보안 저장소 계정에 대 한 연결 문자열입니다.
-    - `WEBSITE_CONTENTSHARE` 보안 저장소 계정에 생성 된 파일 공유의 이름입니다.
-    - 의 이름과 값을 사용 하 여 새 설정을 만듭니다 `WEBSITE_CONTENTOVERVNET` `1` .
-    - 저장소 계정이 개인 끝점 연결을 사용 하는 경우 다음 설정을 확인 하거나 추가 합니다.
-        - `WEBSITE_VNET_ROUTE_ALL` 값을 가진 `1` 입니다.
-        - `WEBSITE_DNS_SERVER` 값이 `168.63.129.16` 
-1. 응용 프로그램 설정을 저장 합니다.  
-
-함수 앱이 다시 시작 되 고 이제 보안 저장소 계정에 연결 됩니다.
+이 기능은 현재 전용 (App Service) 계획의 모든 Windows 가상 네트워크 지원 Sku와 프리미엄 요금제에 대해 작동 합니다. 소비 계획은 지원 되지 않습니다. 개인 네트워크로 제한 된 저장소 계정을 사용 하 여 함수를 설정 하는 방법을 알아보려면 [저장소 계정을 가상 네트워크로 제한](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network)을 참조 하세요.
 
 ## <a name="use-key-vault-references"></a>Key Vault 참조 사용
 
@@ -174,7 +155,9 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 
 프리미엄 계획 또는 App Service 계획에서 함수 앱과 가상 네트워크를 통합하는 경우 앱에서 기본적으로 인터넷에 아웃바운드 호출을 수행할 수 있습니다. 애플리케이션 설정 `WEBSITE_VNET_ROUTE_ALL=1`을 추가하여 모든 아웃바운드 트래픽이 트래픽 제한에 네트워크 보안 그룹 규칙을 사용할 수 있는 가상 네트워크로 전송되도록 합니다.
 
-## <a name="automation"></a>Automation
+가상 네트워크를 사용 하 여 아웃 바운드 IP를 제어 하는 방법을 알아보려면 [자습서: Azure virtual NETWORK NAT 게이트웨이를 사용 하 여 아웃 바운드 Ip 제어 Azure Functions](functions-how-to-use-nat-gateway.md)를 참조 하세요. 
+
+## <a name="automation"></a>자동화
 다음 Api를 사용 하면 프로그래밍 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
 + **Azure CLI**: 명령을 사용 [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 하 여 지역 가상 네트워크 통합을 추가, 나열 또는 제거 합니다.  

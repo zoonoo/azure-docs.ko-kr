@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
 ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103010962"
 ---
 Azure Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이라는 두 가지 리소스 유형을 지원합니다. 다음 두 섹션에서는 이들 각각에 대한 서비스 제한을 설명합니다.

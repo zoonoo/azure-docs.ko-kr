@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 31659f4e8e4f9e25a997be54223b8856edfa8abe
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612986"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 구성 및 관리 문제: Faq (질문과 대답)
@@ -109,7 +109,7 @@ Get-AzurePublishSettingsFile
 
 이 인증서는 Azure Web Roles에서 컴퓨터 키를 암호화하기 위해 사용됩니다. 자세히 알아보려면 [이 권고](/security-updates/securityadvisories/2018/4092731)를 확인 하세요.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 - [클라우드 서비스에 대 한 시작 작업을 구성 하 고 실행 하는 방법](./cloud-services-startup-tasks.md)
 - [일반적인 클라우드 서비스 시작 작업](./cloud-services-startup-tasks-common.md)
 
@@ -210,7 +210,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 
 자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Cloud Services에 역할 기반 액세스를 구현하려면 어떻게 할까요?
 Azure Resource Manager 기반 서비스는 아니므로 Cloud Services는 azure RBAC (역할 기반 액세스 제어) 모델을 지원 하지 않습니다.

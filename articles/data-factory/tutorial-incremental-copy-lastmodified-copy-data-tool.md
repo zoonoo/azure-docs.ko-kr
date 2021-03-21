@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fda76fd16787c01b9fc35ef63473be215a2c126d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 25e39d3fc9c56a282714bafb630fee65421fb5ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740055"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606670"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 
@@ -32,7 +32,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**: 원본 및 싱크 데이터 저장소에 Blob 저장소를 사용 합니다. Azure Storage 계정이 없으면 [저장소 계정 만들기](../storage/common/storage-account-create.md)의 지침을 따르세요.
@@ -55,7 +55,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 
    데이터 팩터리 이름은 전역적으로 고유해야 합니다. 다음 오류 메시지가 표시 될 수 있습니다.
 
-   ![이름을 사용할 수 없음 오류 메시지](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복 된 이름에 대 한 새 data factory 오류 메시지입니다.":::
 
    이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory** 를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
 3. **구독** 아래에서 새 데이터 팩터리를 만들 Azure 구독을 선택 합니다.
@@ -73,7 +73,7 @@ Azure Data Factory 여기에 나와 있는 단계를 완료 한 후에는 원본
 9. 데이터 팩터리를 만든 후에는 데이터 팩터리 홈 페이지가 나타납니다.
 10. 별도의 탭에서 Azure Data Factory UI (사용자 인터페이스)를 열려면 **작성자 & 모니터** 타일을 선택 합니다.
 
-    ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 & 모니터 타일이 있는 Azure Data Factory 홈 페이지입니다.":::
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>데이터 복사 도구를 사용하여 파이프라인 만들기
 
