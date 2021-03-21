@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047505"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>지도에 타일 계층 추가 (Android SDK)
@@ -39,7 +39,7 @@ ms.locfileid: "102047505"
 * `{subdomain}` -하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
 * `azmapsdomain.invalid` -맵에 사용 되는 것과 동일한 값을 사용 하 여 도메인 및 타일 요청의 인증을 정렬 하는 자리 표시자입니다. Azure Maps에서 호스트 하는 타일 서비스를 호출할 때이를 사용 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
 

@@ -12,10 +12,10 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug
 keywords: 사용자 지정 버전
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 5eb910ed4f7c15a4755dd8f494771a56c4c64230
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184235"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-client-library"></a>빠른 시작: Custom Vision 클라이언트 라이브러리를 사용하여 개체 검색 프로젝트 만들기

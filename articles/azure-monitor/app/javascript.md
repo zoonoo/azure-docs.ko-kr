@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 9b8824a0f73f3a79ab70810c529cb0ed9331a797
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102485489"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
@@ -108,7 +108,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 사용 가능한 구성 옵션은
 
-| 이름 | Type | 설명
+| Name | Type | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -168,7 +168,7 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
 | 속성 | 기본값 | 설명 |
@@ -331,7 +331,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/Azure-Samples?q=applicationinsights-js-demo)을 참조 하세요.
 

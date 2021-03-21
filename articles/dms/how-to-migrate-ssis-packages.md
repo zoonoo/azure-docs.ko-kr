@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94962997"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 SSIS 패키지를 Azure SQL Database 다시 배포
@@ -34,7 +34,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 > * 원본 SSIS 프로젝트/패키지를 평가합니다.
 > * Azure에 SSIS 프로젝트/패키지를 마이그레이션합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -87,7 +87,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database로 마이그레이션하려면
 
     ![배포 마법사 대상 선택 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
 
-    c. **찾아보기** 를 선택 하 여 SSISDB에서 대상 폴더를 지정 하 고 **다음을 선택 합니다.**
+    다. **찾아보기** 를 선택 하 여 SSISDB에서 대상 폴더를 지정 하 고 **다음을 선택 합니다.**
 
     > [!NOTE]
     > **연결** 을 선택한 후에만 **다음** 단추가 활성화됩니다.

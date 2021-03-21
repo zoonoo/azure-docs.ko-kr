@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: jgao
 ms.openlocfilehash: b2e1ffb3cbd513766945864e33589c46284bf942
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102200940"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트에 대 한 개발 환경 구성
 
 배포 스크립트 이미지를 사용 하 여 ARM 템플릿 배포 스크립트를 개발 하 고 테스트 하기 위한 개발 환경을 만드는 방법에 대해 알아봅니다. [Azure container instance](../../container-instances/container-instances-overview.md) 를 만들거나 [Docker](https://docs.docker.com/get-docker/)를 사용할 수 있습니다. 이 문서에서는 두 옵션을 모두 다룹니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="azure-powershell-container"></a>Azure PowerShell 컨테이너
 

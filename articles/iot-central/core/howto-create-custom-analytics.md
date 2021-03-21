@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102551320"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
@@ -27,7 +27,7 @@ ms.locfileid: "102551320"
 * *연속 데이터 내보내기를* 사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 장치 원격 분석을 분석 하 고 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 설정 | 값 |
 | ------- | ----- |
-| 요금제 | 표준 |
+| 요금제 | Standard |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource group
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCentralAnalysis** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -78,7 +78,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스�
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
 | 위치 | 미국 동부 |
-| 가격 책정 계층 | 표준 |
+| 가격 책정 계층 | Standard |
 
 필요한 리소스를 만든 경우 **IoTCentralAnalysis** 리소스 그룹은 다음 스크린샷 처럼 보입니다.
 
@@ -133,10 +133,10 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 | 설정 | 값 |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
-| 클러스터 모드 | 표준 |
+| 클러스터 모드 | Standard |
 | Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.5) |
 | Python 버전 | 3 |
-| 자동 크기 조정 사용 | No |
+| 자동 크기 조정 사용 | 아니요 |
 | 비활성 시간 (분) 후 종료 | 30 |
 | 작업자 유형 | Standard_DS3_v2 |
 | 작업자 | 1 |

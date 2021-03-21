@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
 ms.openlocfilehash: 571314009b6f58e5c2ab6aac02cfebc82c53f42f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351864"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
@@ -58,7 +58,7 @@ Bing에서 반환 된 대답을 필터링 하려면 API를 호출할 때 아래 
 
 응답이 [필터](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수 (예: 이미지, 비디오, 뉴스)를 사용 하 여 Bing에서 응답에 포함 하는 응답 유형 (예: 이미지, 비디오 및 뉴스)을 필터링 할 수 있습니다 .이 매개 변수는 쉼표로 구분 된 대답 목록입니다. Bing에서 관련 콘텐츠를 찾은 경우 응답에 답변이 포함 됩니다. 
 
-이미지와 같은 응답에서 특정 대답을 제외 하려면 `-` 응답 형식에 문자를 추가 합니다. 예:
+이미지와 같은 응답에서 특정 대답을 제외 하려면 `-` 응답 형식에 문자를 추가 합니다. 예를 들면 다음과 같습니다.
 
 ```
 &responseFilter=-images,-videos

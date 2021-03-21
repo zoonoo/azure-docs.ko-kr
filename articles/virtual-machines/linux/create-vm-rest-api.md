@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554567"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
@@ -129,7 +129,7 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| Name        | 유형                                                                              | 설명 |
+| Name        | Type                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 정상          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 생성일     |

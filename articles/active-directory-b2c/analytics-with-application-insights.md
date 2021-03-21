@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 92da0b12a3119b048866eef5b18f658916595294
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645928"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-by-using-application-insights"></a>Application Insights를 사용 하 여 Azure AD B2C에서 사용자 동작 추적
@@ -118,7 +118,7 @@ Azure AD B2C에서 Application Insights를 사용 하는 경우 리소스를 만
 
 기술 프로필은 사용자 지정 정책에서 함수로 간주 될 수 있습니다. 이러한 함수는 기술 프로필 [포함 방법을 사용 합니다.](technicalprofiles.md#include-technical-profile) 여기서 기술 프로필은 다른 기술 프로필을 포함 하 고 설정을 변경 하거나 새 기능을 추가 합니다. 다음 표에서는 세션을 열고 이벤트를 게시 하는 데 사용 되는 기술 프로필을 정의 합니다.
 
-| 기술 프로필 | Task |
+| 기술 프로필 | 작업 |
 | ----------------- | -----|
 | AppInsights-Common | 일반적인 구성이 포함 된 일반적인 기술 프로필입니다. 여기에는 Application Insights 계측 키, 기록할 클레임 컬렉션, 개발자 모드 등이 포함 됩니다. 다른 기술 프로필은 일반적인 기술 프로필을 포함 하 고 이벤트 이름과 같은 클레임을 추가 합니다. |
 | AppInsights-SignInRequest | 로그인 요청을 받았을 때 클레임 집합을 사용 하 여 **SignInRequest** 이벤트를 기록 합니다. |

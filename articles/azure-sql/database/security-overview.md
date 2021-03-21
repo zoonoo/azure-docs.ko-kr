@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
 ms.openlocfilehash: 39119f62fa938f5f4f6529539d4ca9a84bdf8fd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94989193"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
@@ -140,7 +140,7 @@ Azure에서 새로 만든 모든 데이터베이스는 기본적으로 암호화
 
 ### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
 
-데이터 검색 및 분류 (현재 미리 보기 상태)는 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위해 Azure SQL Database 및 SQL Managed Instance에 기본 제공 되는 고급 기능을 제공 합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
+데이터 검색 및 분류 (현재 미리 보기 상태)는 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위해 Azure SQL Database 및 SQL Managed Instance에 기본 제공 되는 고급 기능을 제공 합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
 
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 액세스 제어 및 보안 강화.

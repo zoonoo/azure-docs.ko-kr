@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
 ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102623592"
 ---
 ## <a name="disk-level-bursting"></a>디스크 수준 버스트
@@ -27,7 +27,7 @@ ms.locfileid: "102623592"
 
 [!INCLUDE [managed-disk-bursting-regions-limitations](managed-disk-bursting-regions-limitations.md)]
 
-#### <a name="regional-availability"></a>국가별 가용성
+#### <a name="regional-availability"></a>지역별 가용성
 
 [!INCLUDE [managed-disk-bursting-availability](managed-disk-bursting-availability.md)]
 

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
 ms.openlocfilehash: e3339f883d177366a64187e0c090752527802c8d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94968777"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 디바이스 관리
@@ -25,7 +25,7 @@ ms.locfileid: "94968777"
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Azure Resource Manager SDK 기반 예제 스크립트 표
 
-| Azure Resource Manager 스크립트                    | Description                                                                                                                                                                                                       |
+| Azure Resource Manager 스크립트                    | 설명                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | 이 스크립트를 사용하여 StorSimple 디바이스에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | 이 스크립트는 8010 또는 8020 StorSimple Cloud Appliance를 만듭니다. 이 클라우드 어플라이언스를 구성하고 StorSimple 데이터 관리자 서비스에 등록할 수 있습니다.                                                       |
@@ -49,7 +49,7 @@ ms.locfileid: "94968777"
 
 이 섹션은 예제 스크립트를 작성하고 스크립트를 실행하는 데 필요한 다양한 단계를 자세히 설명합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있어야 합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -8,10 +8,10 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.openlocfilehash: b2b405e7f6babf84ef8297310a5a7a34c3f2dc11
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102623421"
 ---
 Cognitive Services는 두 가지 자연어 처리 서비스, [Language Understanding](../luis/what-is-luis.md) 및 [QnA Maker](../qnamaker/overview/overview.md)를 제공 하며 각각 다른 용도로 사용 됩니다. 각 서비스를 사용 해야 하는 시기와 각 서비스를 어떻게 서로 어떻게 보완 하는지 이해 합니다.

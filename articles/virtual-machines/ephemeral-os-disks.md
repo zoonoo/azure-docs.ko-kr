@@ -9,10 +9,10 @@ ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
 ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102485761"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
@@ -240,7 +240,7 @@ A: 예, REST, 템플릿, PowerShell 및 CLI를 사용 하 여 사용 후 삭제 
 A: 임시 디스크는 다음을 지원 하지 않습니다.
 - VM 이미지 캡처
 - 디스크 스냅샷 
-- Azure 디스크 암호화 
+- Azure Disk Encryption 
 - Azure Backup
 - Azure Site Recovery  
 - OS 디스크 교환 

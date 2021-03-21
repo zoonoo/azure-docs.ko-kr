@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95016754"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
@@ -32,11 +32,11 @@ ms.locfileid: "95016754"
 > * *변경할* 수 없는 속성: 만든 후에는 변경할 수 없습니다.
 
 > [!TIP]
-> 이벤트 원본이 IoT hub 인 경우 시계열 ID는 ***iothub** _가 될 가능성이 높습니다.
+> 이벤트 원본이 IoT hub 인 경우 시계열 ID는 ***iothub*** 가 될 수 있습니다.
 
 주요 모범 사례는 다음과 같습니다.
 
-_ 고유 값이 많은 파티션 키를 선택 합니다 (예: 수백 또는 수천). 대부분의 경우 JSON의 장치 ID, 센서 ID 또는 태그 ID 일 수 있습니다.
+* 고유 값이 많은 파티션 키를 선택 합니다 (예: 수백 또는 수천). 대부분의 경우 JSON의 장치 ID, 센서 ID 또는 태그 ID 일 수 있습니다.
 * 시계열 ID는 [시계열 모델](./concepts-model-overview.md)의 리프 노드 수준에서 고유해야 합니다.
 * 시계열 ID의 속성 이름 문자열에 대 한 문자 제한은 128입니다. 시계열 ID의 속성 값에 대 한 문자 제한은 1024입니다.
 * 시계열 ID의 고유한 속성 값이 누락 된 경우 null 값으로 처리 되 고 고유성 제약 조건의 동일한 규칙을 따릅니다.

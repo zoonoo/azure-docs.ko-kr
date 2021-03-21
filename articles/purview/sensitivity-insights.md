@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/17/2021
 ms.openlocfilehash: bb8ac82b2e59ec86db89c7eba0ce607fcfc0ac2d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676558"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Azure 부서의 범위에서 데이터에 대 한 민감도 레이블 정보
@@ -32,7 +32,7 @@ ms.locfileid: "101676558"
 >
 > Power BI 자산의 민감도 레이블을 보려면 [부서의 범위 Data Catalog](how-to-search-catalog.md)에서 자산을 확인 하세요.
 > 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 부서의 범위 insights를 시작 하기 전에 다음 단계를 완료 했는지 확인 합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "101676558"
 - **테이블에 적용 되는 상위 레이블**
 - **레이블 작업 > 레이블 데이터**
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 :::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="민감도 레이블 드릴 다운" lightbox="media/insights/sensitivity-label-drilldown.png":::
 

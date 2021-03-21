@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
 ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578527"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions 사용자 지정 처리기
@@ -64,7 +64,7 @@ ms.locfileid: "100578527"
 
 응용 프로그램은 *host.js* 를 통해 구성 되 고 파일 *에local.settings.js* 됩니다.
 
-#### <a name="hostjson"></a>host.json
+#### <a name="hostjson"></a>host.js
 
 *host.js* 은 HTTP 이벤트를 처리할 수 있는 웹 서버를 가리켜 요청을 보낼 위치를 함수 호스트에 알려 줍니다.
 
@@ -188,7 +188,7 @@ ms.locfileid: "100578527"
 
 | <nobr>페이로드 키</nobr>   | 데이터 형식 | 설명                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | object    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. <br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
+| `Outputs`     | 개체    | function.js에서 배열에 정의 된 응답 값을 포함 `bindings` 합니다. <br /><br />예를 들어 함수가 "myQueueOutput" 이라는 큐 출력 바인딩으로 구성 된 경우에는 `Outputs` `myQueueOutput` 사용자 지정 처리기에 의해 큐에 전송 되는 메시지에 설정 되는 라는 키가 포함 됩니다. |
 | `Logs`        | array     | 메시지는 함수 호출 로그에 표시 됩니다.<br /><br />Azure에서 실행 하는 경우 메시지가 Application Insights 표시 됩니다. |
 | `ReturnValue` | 문자열    | function.js파일에서로 출력을 구성할 때 응답을 제공 하는 데 사용 됩니다 `$return` .  |
 

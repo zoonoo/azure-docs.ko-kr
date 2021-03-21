@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
 ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730374"
 ---
 # <a name="azure-resource-manager-test-drive"></a>시험 드라이브 Azure Resource Manager
@@ -73,7 +73,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 
 ### <a name="accepted-parameter-metadata-types"></a>허용되는 매개 변수 메타데이터 유형
 
-| 메타데이터 유형   | 매개 변수 유형  | Description     | 샘플 값    |
+| 메타데이터 유형   | 매개 변수 유형  | 설명     | 샘플 값    |
 |---|---|---|---|
 | **baseuri**     | 문자열          | 배포 패키지의 기본 URI| `https://<..>.blob.core.windows.net/<..>` |
 | **username**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
@@ -348,7 +348,7 @@ ARM 템플릿이 무엇 인지 잘 모르는 경우 [Azure Resource Manager?](..
 1. Azure Portal 내에서 Azure 구독을 엽니다.
 1. 테스트 드라이브가 올바르게 배포 되는지 확인 합니다.
 
-   ![Azure Portal](media/test-drive/azure-portal.png)
+   ![Azure portal](media/test-drive/azure-portal.png)
 
 고객에 대해 프로 비전 된 테스트 드라이브 인스턴스를 삭제 하지 마세요. 사용자가 작업을 완료 한 후에는 test drive 서비스에서 이러한 리소스 그룹을 자동으로 정리 합니다.
 

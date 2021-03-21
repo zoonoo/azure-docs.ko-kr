@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
 ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101722316"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>사용자 지정 음성을 만들기 위한 음성 샘플 녹음
@@ -112,7 +112,7 @@ Microsoft Word에서 스크립트를 작성할 수 있습니다. 스크립트는
 
 다행히도 이러한 문제는 완전히 방지할 수 있습니다. 권한 또는 라이선스 없이 사용할 수 있는 텍스트 원본이 많이 있기 때문입니다.
 
-|텍스트 원본|Description|
+|텍스트 원본|설명|
 |-|-|
 |[CMU Arctic corpus](http://festvox.org/cmu_arctic/)|저작권 없는 작품 중에서 음성 합성 프로젝트에 고유하게 사용할 1100개 정도의 문장을 선택했습니다. 이 원본으로 시작하면 좋습니다.|
 |저작권이<br>없는 작품|일반적으로 1923년 이전에 출판된 작품입니다. 영어의 경우 [Project Gutenberg](https://www.gutenberg.org/)에 이러한 수만 가지 작품을 제공하고 있습니다. 언어는 최신 영어에 더 가까우므로 최신 작품에 좀 더 주력하려고 할 수 있습니다.|

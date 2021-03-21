@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/11/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8a16ecd2ee6ed939b2afd0e51e9cf531e419c8af
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101656400"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
@@ -126,7 +126,7 @@ User user = await database.CreateUserAsync("User 1");
 > [!NOTE]
 > 각 Cosmos DB 사용자에 게는 사용자와 연결 된 [사용 권한](#permissions) 목록을 검색 하는 데 사용할 수 있는 ReadAsync () 메서드가 있습니다.
 
-### <a name="permissions"></a>사용 권한<a id="permissions"></a>
+### <a name="permissions"></a>권한<a id="permissions"></a>
 
 권한 리소스는 사용자와 연결 되며 컨테이너 및 파티션 키 수준에서 할당 됩니다. 각 사용자는 0 개 이상의 권한을 포함할 수 있습니다. 권한 리소스는 특정 파티션 키의 특정 컨테이너 또는 데이터에 액세스 하려고 할 때 사용자가 필요로 하는 보안 토큰에 대 한 액세스를 제공 합니다. 권한 리소스에서 제공될 수 있는 사용 가능한 액세스 수준은 다음 두 가지입니다.
 
@@ -170,7 +170,7 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 
 ## <a name="differences-between-rbac-and-resource-tokens"></a>RBAC와 리소스 토큰의 차이점
 
-| 제목 | RBAC | 리소스 토큰 |
+| 주체 | RBAC | 리소스 토큰 |
 |--|--|--|
 | 인증  | With Azure Active Directory (Azure AD). | 네이티브 Azure Cosmos DB 사용자 기반<br>리소스 토큰을 Azure AD와 통합 하려면 Azure AD id 및 Azure Cosmos DB 사용자를 연결 하기 위한 추가 작업이 필요 합니다. |
 | 권한 부여 | 역할 기반: 역할 정의는 허용 되는 작업을 매핑하고 여러 id에 할당할 수 있습니다. | 권한 기반: 각 Azure Cosmos DB 사용자에 대해 데이터 액세스 권한을 할당 해야 합니다. |

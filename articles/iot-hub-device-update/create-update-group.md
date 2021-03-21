@@ -7,10 +7,10 @@ ms.date: 2/17/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.openlocfilehash: a0894047db1ed7687a1a0f5f87fc4020ddf7c694
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101679519"
 ---
 # <a name="create-device-groups-in-device-update-for-iot-hub"></a>IoT Hub에 대 한 장치 업데이트에서 장치 그룹 만들기
@@ -44,7 +44,7 @@ IoT Hub에 대 한 장치 업데이트를 통해 IoT 장치 그룹에 업데이�
 
 ### <a name="using-jobs"></a>작업 사용
 
-[이러한](../iot-hub/iot-hub-devguide-jobs.md) 예제를 수행 하 여 장치 업데이트 태그를 추가 하거나 업데이트 하기 위해 여러 장치에서 작업을 예약할 수 있습니다. [자세히 알아보기](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
+[이러한](../iot-hub/iot-hub-devguide-jobs.md) 예제를 수행 하 여 장치 업데이트 태그를 추가 하거나 업데이트 하기 위해 여러 장치에서 작업을 예약할 수 있습니다. [자세한 정보를 알아보세요](../iot-hub/iot-hub-csharp-csharp-schedule-jobs.md).
 
   > [!NOTE] 
   > 이 작업은 현재 IOT Hub 메시지 할당량을 기반으로 하며, 한 번에 최대 5만 개의 장치 쌍 태그만 변경 하는 것이 좋습니다. 그렇지 않으면 일일 IoT Hub 메시지 할당량을 초과 하는 경우 IoT Hub 단위를 추가로 구입 해야 할 수 있습니다. 자세한 내용은 [할당량 및 제한](../iot-hub/iot-hub-devguide-quotas-throttling.md#quotas-and-throttling)에서 찾을 수 있습니다.
@@ -55,11 +55,11 @@ IoT Hub에 대 한 장치 업데이트를 통해 IoT 장치 그룹에 업데이�
 
 1. [Azure Portal](https://portal.azure.com) 에 로그인 하 여 IoT Hub으로 이동 합니다.
 
-2. 왼쪽 탐색 창의 ' IoT 장치 ' 또는 ' IoT Edge '에서 IoT 장치를 찾아 장치 쌍으로 이동 합니다.
+2. 왼쪽 탐색 창의 'IoT 디바이스' 또는 'IoT Edge'에서 IoT 디바이스를 찾아 디바이스 쌍으로 이동합니다.
 
-3. 장치 쌍에서 기존 장치 업데이트 태그 값을 null로 설정 하 여 삭제 합니다.
+3. 디바이스 쌍에서 기존 디바이스 업데이트 태그 값을 null로 설정하여 삭제합니다.
 
-4. 아래와 같이 새 장치 업데이트 태그 값을 추가 합니다. [태그가 있는 장치 쌍 JSON 문서 예제입니다.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
+4. 아래와 같이 새 디바이스 업데이트 태그 값을 추가합니다. [태그가 있는 장치 쌍 JSON 문서 예제입니다.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
 
 ```JSON
     "tags": {
@@ -82,12 +82,12 @@ IoT Hub에 대 한 장치 업데이트를 통해 IoT 장치 그룹에 업데이�
 
 2. 장치 업데이트 인스턴스에 이전에 연결한 IoT Hub를 선택 합니다.
 
-3. 왼쪽 탐색 모음에서 장치 자동 관리 아래에 있는 장치 업데이트 옵션을 선택 합니다.
+3. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
 
-4. 페이지 위쪽의 그룹 탭을 선택 합니다. 아직 그룹화 되지 않은 장치 업데이트에 연결 된 장치 수를 확인할 수 있습니다.
+4. 페이지 맨 위에서 그룹 탭을 선택합니다. 아직 그룹화 되지 않은 장치 업데이트에 연결 된 장치 수를 확인할 수 있습니다.
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="그룹화 되지 않은 장치의 스크린샷" lightbox="media/create-update-group/ungrouped-devices.png":::
 
-5. 추가 단추를 선택 하 여 새 그룹을 만듭니다.
+5. 추가 단추를 선택하여 새 그룹을 만듭니다.
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="장치 그룹 추가의 스크린샷" lightbox="media/create-update-group/add-group.png":::
 
 6. 목록에서 IoT Hub 태그를 선택 하 고 업데이트 그룹 만들기를 선택 합니다.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: menchi
 ms.openlocfilehash: d22a01bab81fc330484e7715a65c89a1cfd7802c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94967179"
 ---
 # <a name="encryption-of-data-at-rest-with-customer-managed-keys-for-device-provisioning-service"></a>장치 프로 비전 서비스에 대 한 고객 관리 키를 사용 하 여 미사용 데이터 암호화
@@ -28,4 +28,4 @@ DPS (장치 프로 비전 서비스)는 CMK (고객이 관리 하는 키)를 사
 
 * [장치 프로 비전 서비스에 대 한 자세한 정보](./index.yml)
 
-* [Azure Key Vault에 대 한 자세한 정보](../key-vault/general/overview.md)
+* [Azure Key Vault에 대해 자세히 알아보기](../key-vault/general/overview.md)

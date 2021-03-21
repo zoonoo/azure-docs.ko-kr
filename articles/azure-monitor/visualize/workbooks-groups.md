@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
 ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731360"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>통합 문서에서 그룹을 사용 하는 방법
@@ -22,7 +22,7 @@ ms.locfileid: "101731360"
 
 통합 문서에 있는 그룹은 다음과 같은 몇 가지 경우에 유용 합니다.
 
-- 레이아웃
+- Layout
   - 항목을 세로로 구성 하려는 시나리오에서는 모든 개별 항목에 대해 백분율 너비를 설정 하는 대신 모든 항목을 스택에 표시 하 고 그룹의 스타일을 백분율 너비로 설정 하는 항목 그룹을 만들 수 있습니다.
 - 표시 유형
   - 여러 항목을 숨기 거 나 표시 하려는 시나리오에서는 각 개별 항목에 대 한 표시 유형 설정을 설정 하는 대신 전체 항목 그룹의 표시 유형을 설정할 수 있습니다. 이는 그룹을 탭의 콘텐츠로 사용할 수 있고 선택 된 탭으로 설정 된 매개 변수를 기반으로 전체 그룹을 숨기 거 나 표시할 수 있으므로 탭을 사용 하는 템플릿에서 유용할 수 있습니다.

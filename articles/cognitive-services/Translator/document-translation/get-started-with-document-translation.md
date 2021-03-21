@@ -7,17 +7,17 @@ ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
 ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102486661"
 ---
 # <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
 
  이 문서에서는 HTTP REST API 메서드를 사용 하 여 문서 번역을 사용 하는 방법을 배웁니다. 문서 변환은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  문서 변환 API를 사용 하면 소스 문서 구조와 텍스트 서식을 유지 하면서 전체 문서를 변환할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 > 일반적으로 Azure Portal에서 인지 서비스 리소스를 만들 때 다중 서비스 구독 키 또는 단일 서비스 구독 키를 만드는 옵션이 있습니다. 그러나 문서 변환은 현재 Translator (단일 서비스) 리소스 에서만 지원 되며 Cognitive Services (다중 서비스) 리소스에는 포함 **되지** 않습니다.
@@ -92,7 +92,7 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 
 * 새 프로젝트를 만듭니다.
 * Program.cs를 아래에 표시된 C# 코드로 바꿉니다.
-* 끝점을 설정 합니다. Program.cs의 구독 키 및 컨테이너 URL 값입니다.
+* 끝점을 설정 합니다. subscription 키, 그리고 Program .cs의 컨테이너 URL 값입니다.
 * JSON 데이터를 처리 하려면 [ .NET CLI를 사용 하 여 패키지에Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/)를 추가 합니다.
 * 프로젝트 디렉터리에서 프로그램을 실행 합니다.
 
@@ -1248,7 +1248,7 @@ func main() {
 
 다음 표에서는 문서 번역에 보내는 데이터의 제한을 나열 합니다.
 
-|attribute | 제한|
+|특성 | 제한|
 |---|---|
 |문서 크기| ≤ 40 |
 |총 파일 수입니다.|≤ 1000 |

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
 ms.openlocfilehash: 670460759a9495de735da35ae9f3d8388e59e0e5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350622"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Bing Search API 결과를 페이징 하는 방법
@@ -27,7 +27,7 @@ ms.locfileid: "96350622"
 
 Bing Web, Custom, Image, News 또는 Video Search Api에 대 한 호출을 보내면 Bing에서 쿼리와 관련이 있을 수 있는 총 결과 수의 하위 집합을 반환 합니다. 사용 가능한 총 예상 결과 수를 가져오려면 응답 개체의 필드에 액세스 합니다 `totalEstimatedMatches` . 
 
-예: 
+예를 들면 다음과 같습니다. 
 
 ```json
 {

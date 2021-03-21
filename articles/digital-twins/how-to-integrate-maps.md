@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
 ms.openlocfilehash: 990a0ee73bd91ccb748c948b5fcf0e6124d84a03
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102201433"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트
@@ -25,7 +25,7 @@ ms.locfileid: "102201433"
 2. Azure Maps 실내 지도 기능 stateset을 업데이트 하는 함수를 만듭니다.
 3. Azure Digital Twins 그래프에서 지도 ID와 기능 stateset ID를 저장 하는 방법입니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * Azure Digital Twins [*자습서: 종단 간 솔루션 연결*](./tutorial-end-to-end.md)을 참조 하세요.
     * 추가 끝점 및 경로를 사용 하 여이 쌍을 확장 합니다. 또한이 자습서의 함수 앱에 다른 함수를 추가 합니다. 

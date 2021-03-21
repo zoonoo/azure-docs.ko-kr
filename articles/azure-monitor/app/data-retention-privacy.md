@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579575"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
@@ -178,7 +178,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384)에 있는 정적 변수 `Sender.TEMPDIR_PREFIX`의 런타임 값을 변경하여 폴더 접두사 `appInsights-node`을(를) 재정의할 수 있습니다.
 
-### <a name="javascript-browser"></a>JavaScript (브라우저)
+### <a name="javascript-browser"></a>JavaScript(브라우저)
 
 [HTML5 세션 저장소](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 는 데이터를 유지 하는 데 사용 됩니다. 및의 두 가지 별도 버퍼를 사용 `AI_buffer` `AI_sent_buffer` 합니다. 일괄 처리 되 고 전송 대기 중인 원격 분석은에 저장 됩니다 `AI_buffer` . 방금 보낸 원격 분석은 수집 `AI_sent_buffer` 서버가 성공적으로 수신 되었음을 응답할 때까지에 배치 됩니다. 원격 분석이 성공적으로 수신 되 면 모든 버퍼에서 제거 됩니다. 일시적 오류가 발생 하는 경우 (예: 사용자가 네트워크 연결을 잃은 경우) 원격 분석은 `AI_buffer` 성공적으로 수신 될 때까지 또는 수집 서버에서 원격 분석이 잘못 된 것으로 응답 합니다 (예: 잘못 된 스키마 또는 너무 오래 됨).
 
@@ -262,7 +262,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | [호출 TrackMetric][api] |숫자 값<br/>**속성** |
 | [호출 추적*][api] |이벤트 이름<br/>**속성** |
 | [호출 TrackException][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 다음은 그 예입니다.  <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 예를 들면 다음과 같습니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼에 대한 SDK][platforms]의 경우 해당 문서를 참조하세요.
 

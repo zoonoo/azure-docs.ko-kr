@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
 ms.openlocfilehash: ff22010f12a7d76e60b629c4c1c4e24946d4af5a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102552969"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
@@ -25,7 +25,7 @@ ms.locfileid: "102552969"
 
 이 섹션에서는 Hyper-v 관리자를 사용 하 여 [RHEL 6](#rhel-6-using-hyper-v-manager), [RHEL 7](#rhel-7-using-hyper-v-manager)또는 [RHEL 8](#rhel-8-using-hyper-v-manager) 가상 머신을 준비 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 이 섹션은 RedHat 웹 사이트에서 ISO 파일을 확보했으며 VHD(가상 하드 디스크)에 RHEL 이미지를 이미 설치한 것으로 가정합니다. Hyper-V 관리자를 사용하여 운영 체제 이미지를 설치하는 방법에 대한 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하세요.
 
 **RHEL 설치 참고 사항**
@@ -942,7 +942,7 @@ ms.locfileid: "102552969"
 
 이 섹션에서는 VMware에서 [RHEL 6](#rhel-6-using-vmware) 또는 [RHEL 7](#rhel-6-using-vmware)  배포판을 준비 하는 방법을 보여 줍니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 이 섹션은 VMWare에 RHEL 가상 머신이 이미 설치되어 있다고 가정합니다. VMWare에서 운영 체제를 설치하는 자세한 방법은 [VMWare 게스트 운영 체제 설치 가이드](https://partnerweb.vmware.com/GOSIG/home.html)를 참조하세요.
 
 * Linux 운영 체제를 설치하는 경우 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결을 위해 운영 체제 디스크를 다른 가상 머신에 연결해야 하는 경우, 복제된 가상 머신과 LVM 이름이 충돌하는 것을 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 RAID를 사용할 수 있습니다.

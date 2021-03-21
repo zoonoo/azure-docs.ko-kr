@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94963184"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 디바이스 배포
@@ -42,11 +42,11 @@ Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배
 ## <a name="deployment-steps"></a>배포 단계
 StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다. 필수 단계 외에 선택적 단계 및 배포하는 동안 완료해야 할 수도 있는 절차가 있습니다. 단계별 배포 지침은 각 선택적 단계를 수행해야 하는 시기를 나타냅니다.
 
-| 단계 | Description |
+| 단계 | 설명 |
 | --- | --- |
 | **사전** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |
-| [배포 필수 구성 요소](#deployment-prerequisites) |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
+| [배포 필수 조건](#deployment-prerequisites) |배포할 준비가 되어 있는 환경인지 유효성을 검사합니다. |
 |  | |
 | **단계별 배포** |프로덕션 환경에서 StorSimple 디바이스를 배포하려면 다음 단계가 필요합니다. |
 | [1 단계: 새 서비스 만들기](#step-1-create-a-new-service) |StorSimple 디바이스에 대한 클라우드 관리 및 스토리지를 설정합니다. *다른 StorSimple 디바이스에 대해 기존 서비스가 있는 경우 이 단계를 건너뜁니다*. |
@@ -198,4 +198,4 @@ StorSimple 디바이스에서 단일 볼륨에 대한 주문형 수동 백업을
 
 ## <a name="next-steps"></a>다음 단계
 * [가상 디바이스](storsimple-8000-cloud-appliance-u2.md)를 구성합니다.
-* Storsimple [Device Manager 서비스](storsimple-8000-manager-service-administration.md) 를 사용 하 여 storsimple 장치를 관리 합니다.
+* Storsimple [장치 관리자 서비스](storsimple-8000-manager-service-administration.md) 를 사용 하 여 storsimple 장치를 관리 합니다.

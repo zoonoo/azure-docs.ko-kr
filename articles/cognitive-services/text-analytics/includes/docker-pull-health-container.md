@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
 ms.openlocfilehash: a0b2c9548f9c1289ae0abd61a72d7146a3bbca29
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94965158"
 ---
 상태 공개 미리 보기에 대 한 Text Analytics에 대 한 액세스를 요청 하는 [Cognitive Services 요청 양식을](https://aka.ms/csgate) 작성 하 고 제출 합니다.  이 응용 프로그램은 컨테이너와 호스트 된 web API 공개 미리 보기 모두에 적용 됩니다.

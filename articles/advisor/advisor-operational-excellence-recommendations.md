@@ -4,10 +4,10 @@ description: Azure Advisor를 사용 하 여 Azure 구독에 대 한 운영 뛰�
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: 0b938a0c7a42182bb8d2a50b48d65a0844d952a6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579958"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 뛰어난 운영 효율성 얻기
@@ -61,7 +61,7 @@ Advisor는 고객이 모범 사례를 채택 하 여 뛰어난 운영을 달성�
 
 
 ## <a name="no-validation-environment-enabled"></a>유효성 검사 환경을 사용하지 않음
-Azure Advisor 현재 구독에서 유효성 검사 환경을 사용 하도록 설정 하지 않은 것을 확인 합니다. 호스트 풀을 만들 때 \" \" \" 속성 탭에서 유효성 검사 환경에 대해 아니요를 선택 했습니다 \" . 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀이 하나 이상 있으면 잠재적인 문제를 조기에 검색 하 여 Windows 가상 데스크톱 서비스 배포를 통해 비즈니스 연속성을 보장 합니다. [자세한 정보](../virtual-desktop/create-validation-host-pool.md)
+Azure Advisor 현재 구독에서 유효성 검사 환경을 사용 하도록 설정 하지 않은 것을 확인 합니다. 호스트 풀을 만들 때 \" \" \" 속성 탭에서 유효성 검사 환경에 대해 아니요를 선택 했습니다 \" . 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀이 하나 이상 있으면 잠재적인 문제를 조기에 검색 하 여 Windows 가상 데스크톱 서비스 배포를 통해 비즈니스 연속성을 보장 합니다. [자세히 알아보기](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>안정적인 기능의 혜택에 대한 프로덕션(유효성 검사 아님) 환경 확인
 Azure Advisor는 유효성 검사 환경이 활성화 된 호스트 풀이 너무 많은 것을 감지 합니다. 유효성 검사 환경이 용도에 가장 적합 하 게 하려면 유효성 검사 환경에서 하나 이상의 호스트 풀이 필요 하지 않습니다. 유효성 검사 환경을 사용 하도록 설정 된 호스트 풀과 사용 하지 않도록 설정 된 호스트 풀 간에 정상적인 균형을 유지 하 여 Windows 가상 데스크톱이 특정 업데이트를 제공 하는 다단계 배포의 이점을 최대한 활용할 수 있습니다. 이 문제를 해결 하려면 호스트 풀의 속성을 열고 \" \" 유효성 검사 환경 설정 옆에 있는 아니요를 선택 \" \" 합니다.

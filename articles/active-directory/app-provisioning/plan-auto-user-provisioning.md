@@ -12,10 +12,10 @@ ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 9f2b5bf1195682b200b5840459194506e29bcdc6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645091"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 * **비용 절감**. 자동 사용자 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 사용자 지정 개발 된 사용자 프로 비전 솔루션, 스크립트 및 감사 로그의 필요성을 줄여 줍니다.
 
-### <a name="licensing"></a>라이선스
+### <a name="licensing"></a>라이선싱
 
 Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사용 하 여 모든 응용 프로그램의 셀프 서비스 통합을 제공 합니다. 라이선스 요구 사항에 대 한 전체 목록은 [AZURE AD 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 

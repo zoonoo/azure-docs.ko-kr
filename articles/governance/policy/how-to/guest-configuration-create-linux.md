@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 352c8b1936c38c9b5f706ac88bd4fd06e008b892
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525350"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Linux용 게스트 구성 정책을 만드는 방법
@@ -26,7 +26,7 @@ Linux를 감사할 때 게스트 구성은 [Chef InSpec](https://www.inspec.io/)
 > [!IMPORTANT]
 > Azure Government 및 Azure 중국 환경에서 게스트 구성을 사용 하는 사용자 지정 정책 정의는 미리 보기 기능입니다.
 >
-> 게스트 구성 확장은 Azure Virtual Machine에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다. 모든 Linux 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 > 
 > 사용자 지정 콘텐츠 패키지에서 비밀 또는 기밀 정보를 사용 하지 마세요.
 

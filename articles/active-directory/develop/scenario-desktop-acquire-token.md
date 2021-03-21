@@ -13,10 +13,10 @@ ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 4a244c543aa83ae84891e3f942995dc340a7209d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99582658"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
@@ -218,7 +218,7 @@ WithParentActivityOrWindow(object parent).
 클래스는 다음과 같은 상수를 정의합니다.
 
 - ``SelectAccount``는 사용자가 세션을 보유한 계정을 포함하는 계정 선택 대화 상자를 제시하도록 STS를 강제합니다. 이 옵션은 애플리케이션 개발자가 여러 ID 중에서 사용자가 선택할 수 있도록 하려는 경우에 유용합니다. 이 옵션은 MSAL이 ID 공급자에게 ``prompt=select_account``를 보내도록 유도합니다. 이 옵션이 기본값입니다. 이 옵션은 계정, 사용자의 세션 유무와 같은 사용 가능한 정보를 기반으로 최상의 환경을 제공합니다. 이 옵션은 반드시 변경해야 할 이유가 있지 않은 한 변경하지 마세요.
-- ``Consent``는 애플리케이션 개발자가 이전에 동의가 부여된 경우에도 사용자에게 동의를 묻는 프롬프트를 강제로 표시할 수 있도록 지원합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=consent`을 보냅니다. 이 옵션은 조직 거버넌스에서 애플리케이션이 사용될 때마다 사용자에게 동의 대화 상자를 표시하도록 요구하는 일부 보안 우선 애플리케이션에서 사용할 수 있습니다.
+- ``Consent``는 애플리케이션 개발자가 이전에 동의가 부여된 경우에도 사용자에게 동의를 묻는 프롬프트를 강제로 표시할 수 있도록 지원합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=consent`를 보냅니다. 이 옵션은 조직 거버넌스에서 애플리케이션이 사용될 때마다 사용자에게 동의 대화 상자를 표시하도록 요구하는 일부 보안 우선 애플리케이션에서 사용할 수 있습니다.
 - ``ForceLogin``은 애플리케이션 개발자가 사용자 프롬프트가 필요하지 않은 경우에도 서비스가 사용자에게 자격 증명 프롬프트를 표시하도록 설정하는 것을 지원합니다. 이 옵션은 토큰 획득에 실패한 경우 사용자가 다시 로그인하도록 할 때 유용합니다. 이 경우 MSAL이 ID 공급자에게 `prompt=login`을 보냅니다. 이 옵션은 조직 거버넌스에서 사용자가 애플리케이션의 특정 부분에 액세스할 때마다 다시 로그인하도록 요구하는 보안 우선 애플리케이션에서 사용되기도 합니다.
 - ``Never``(.NET 4.5 및 WinRT만 해당)는 사용자에게 프롬프트를 표시하지 않으며 그 대신 숨겨진 임베디드 웹 보기에 저장된 쿠키를 사용하려고 합니다. 자세한 내용은 MSAL.NET의 웹 보기를 참조하세요. 이 옵션을 사용하는 것은 실패할 수 있습니다. 실패하는 경우 `AcquireTokenInteractive`가 UI 상호 작용이 필요함을 알리기 위해 예외를 발생시킵니다. 이 경우 다른 `Prompt` 매개 변수를 사용해야 합니다.
 - ``NoPrompt``는 ID 공급자에게 어떤 프롬프트도 보내지 않습니다. 이 옵션은 Azure AD(Azure Active Directory) B2C 프로필 편집 정책에서만 유용합니다. 자세한 내용은 [Azure AD B2C specifics](https://aka.ms/msal-net-b2c-specificities)(Azure AD B2C 관련 사항)를 참조하세요.

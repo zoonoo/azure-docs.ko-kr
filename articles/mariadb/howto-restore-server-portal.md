@@ -3,14 +3,14 @@ title: 백업 및 복원-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MariaDB에서 서버를 복원하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 06da58b5c82af39abbaa1cbc15a217c25d7808f9
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 4a5f2cc4cbf73f5c13533a94f1454022d3538880
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98664820"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
@@ -89,7 +89,7 @@ Azure Database for MariaDB를 사용하면 특정 시점의 서버를 서버의 
 
 3. **데이터 원본** 으로 **백업** 을 선택 합니다. 이 작업은 지역 중복 백업을 사용 하도록 설정 된 서버 목록을 제공 하는 드롭다운을 로드 합니다.
    
-   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="데이터 원본을 선택합니다.":::
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="데이터 원본을 선택 합니다.":::
     
    > [!NOTE]
    > 서버가 처음 생성될 때는 지역 복원에 즉시 사용 가능하지 않을 수 있습니다. 필요한 메타데이터를 채우는 데 몇 시간 정도 걸릴 수 있습니다.

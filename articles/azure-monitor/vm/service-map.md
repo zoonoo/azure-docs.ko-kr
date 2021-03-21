@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047012"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
@@ -153,7 +153,7 @@ Azure Site Recovery를 사용 중이고 애플리케이션 환경에 대한 복�
 
 특정 프로세스는 컴퓨터에서 웹 서버, 애플리케이션 서버, 데이터베이스 등과 같은 특정 역할을 담당합니다. 서비스 맵은 역할 아이콘이 있는 프로세스 및 컴퓨터 상자에 주석을 달아서 한 눈에 프로세스나 서버가 맡은 역할을 식별할 수 있습니다.
 
-| 역할 아이콘 | 설명 |
+| 역할 아이콘 | Description |
 |:--|:--|
 | ![웹 서버](media/service-map/role-web-server.png) | 웹 서버 |
 | ![앱 서버](media/service-map/role-application-server.png) | 애플리케이션 서버 |
@@ -325,7 +325,7 @@ Linux:
 
 비용 및 복잡성을 관리하기 위해 연결 레코드는 개별 물리적 네트워크 연결을 나타내지 않습니다. 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다. 그런 다음, 각 테이블에 반영됩니다.  즉, *VMConnection* 테이블의 레코드는 관찰되는 개별 물리적 연결이 아닌 논리적 그룹화를 나타냅니다. 지정된 1분 간격 동안 다음 특성에 대해 동일한 값을 공유하는 물리적 네트워크 연결이 *VMConnection* 의 단일 논리적 레코드에 집계됩니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `Direction` |연결 방향으로 값은 *인바운드* 또는 *아웃바운드* 입니다. |
 | `Machine` |컴퓨터 FQDN |
@@ -337,7 +337,7 @@ Linux:
 
 그룹화의 영향을 고려하기 위해 그룹화된 물리적 연결 수에 대한 정보가 다음과 같은 레코드 속성에서 제공됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `LinksEstablished` |보고 기간 동안 설정된 물리적 네트워크 연결의 수 |
 | `LinksTerminated` |보고 기간 동안 종료된 물리적 네트워크 연결의 수 |
@@ -348,7 +348,7 @@ Linux:
 
 연결 수 메트릭 외에도 지정된 논리적 연결 또는 네트워크 포트에 전송 및 수신된 데이터의 볼륨에 대한 정보도 다음과 같은 레코드 속성에 포함됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `BytesSent` |보고 기간 동안 전송된 총 바이트 수 |
 | `BytesReceived` |보고 기간 동안 수신된 총 바이트 수 |
@@ -376,7 +376,7 @@ Linux:
 
 또한 *VMConnection* 은 다음과 같은 레코드 속성에서 각 연결 레코드의 원격 끝에 대한 지리적 위치 정보를 포함합니다. 
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `RemoteCountry` |RemoteIp를 호스트 하는 국가/지역의 이름입니다.  예: *미국* |
 | `RemoteLatitude` |지리적 위치 위도입니다.  예: *47.68* |
@@ -386,7 +386,7 @@ Linux:
 
 *VMConnection* 테이블의 모든 RemoteIp 속성을 알려진 악의적인 활동의 IP 집합에 대해 검사합니다. RemoteIp가 악성으로 식별되면 다음과 같은 속성이 다음과 같은 레코드 속성에서 채워집니다(IP가 악성으로 간주되지 않으면 비어 있음).
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `MaliciousIp` |RemoteIp 주소 |
 | `IndicatorThreadType` |검색된 위협 표시기가 *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist* 값 중 하나입니다.   |
@@ -404,7 +404,7 @@ Linux:
 
 *ServiceMapComputer_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -430,7 +430,7 @@ Linux:
 
 *ServiceMapProcess_CL* 형식의 레코드는 서비스 맵 에이전트가 있는 서버에서 TCP 연결 프로세스에 대한 인벤토리 데이터를 포함합니다. 이러한 레코드는 다음 표의 속성을 가집니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |

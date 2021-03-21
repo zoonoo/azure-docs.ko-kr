@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.openlocfilehash: a114cb24d79189f9e370fae1962f60ca97241d90
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96351370"
 ---
 # <a name="news-search-api-upgrade-guide"></a>News Search API 업그레이드 가이드
@@ -30,7 +30,7 @@ ms.locfileid: "96351370"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/news/search`.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: `https://api.cognitive.microsoft.com/bing/v7.0/news/search`
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 

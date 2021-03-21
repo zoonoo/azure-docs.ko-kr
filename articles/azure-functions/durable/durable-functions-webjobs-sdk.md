@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 826e475eb71563b52d687903aeac4ec936e267f6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009503"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 Durable Functions를 실행 하는 방법
@@ -21,7 +21,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 구현 `IHost` 이며, 버전 2.
 
 연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고, *v1* 분기를 체크 아웃 하 고 *samples \\ \\ webjobss00stststststststststststststststststst*
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 사용자가 WebJobs SDK의 기본 사항, Azure Functions에 대한 C# 클래스 라이브러리 개발 및 지속성 함수에 대해 익숙한 것으로 가정합니다. 이러한 항목에 대한 소개가 필요한 경우 다음 리소스를 참조하세요.
 
@@ -119,7 +119,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 WebJobs의 컨텍스트에서 Durable Functions는 Azure Functions 컨텍스트에서 Durable Functions는 약간 다릅니다. 코드를 작성할 때의 차이점을 파악 하는 것이 중요 합니다.
 

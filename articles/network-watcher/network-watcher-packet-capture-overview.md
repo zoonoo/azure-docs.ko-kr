@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 1c458508dbf8d98349ec8549af32e3dd48bbd09b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966431"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Network Watcher에서 변수 패킷 캡처 소개
@@ -31,7 +31,7 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 
 **캡처 구성**
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |**패킷당 최대 바이트(bytes)** | 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다. 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다. IPv4 헤더만 필요한 경우 여기서 34를 나타냅니다. |
 |**세션당 최대 바이트(bytes)** | 값이 세션 끝에 도달할 때까지 캡처된 총 바이트 수입니다.|
@@ -39,7 +39,7 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 
 **필터링 (선택 사항)**
 
-|속성|Description|
+|속성|설명|
 |---|---|
 |**프로토콜** | 패킷 캡처에 대해 필터링할 프로토콜입니다. 사용 가능한 값은 TCP, UDP 및 모두입니다.|
 |**로컬 IP 주소** | 이 값은 패킷 캡처를 로컬 IP 주소가 이 필터 값과 일치하는 패킷으로 필터링합니다.|

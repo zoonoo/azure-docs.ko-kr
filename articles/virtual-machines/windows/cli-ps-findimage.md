@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.openlocfilehash: 45e6b157dba5ef7410d8a5c0223fd3ecb52f39d0
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96906270"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure Marketplace VM 이미지 찾기 및 사용     
@@ -242,7 +242,7 @@ DataDiskImages   : []
 
 ```
 
-아래 예제에서는 *Data Science Virtual Machine - Windows 2016* `PurchasePlan` `name` , `product` 및 속성을 포함 하는 Data Science Virtual Machine Windows 2016 이미지에 대 한 유사한 명령을 보여 `publisher` 줍니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
+아래 예제에서는  `PurchasePlan` `name` , `product` 및 속성을 포함 하는 Data Science Virtual Machine Windows 2016 이미지에 대 한 유사한 명령을 보여 `publisher` 줍니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"

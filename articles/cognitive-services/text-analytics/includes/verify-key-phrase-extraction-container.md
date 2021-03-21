@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 5dca4828a5c1127133461ddf9fc06099fc176b68
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009910"
 ---
 ### <a name="verify-the-key-phrase-extraction-container-instance"></a>핵심 구 추출 컨테이너 인스턴스 확인

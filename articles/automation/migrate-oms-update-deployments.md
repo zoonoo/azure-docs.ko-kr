@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2e94191e80d39e28d7ff0ffc9aa22b522fda68c1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576035"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Azure Portal로 Azure Monitor 로그 업데이트 배포 마이그레이션
@@ -55,9 +55,9 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 3. **업데이트할 컴퓨터** 로 OMS 배포에서 사용하는 저장된 검색을 선택합니다.
 
-    | 속성 | Description |
+    | 속성 | 설명 |
     | --- | --- |
-    |속성 |업데이트 배포를 식별하는 고유 이름입니다. |
+    |Name |업데이트 배포를 식별하는 고유 이름입니다. |
     |운영 체제| **Linux** 또는 **Windows** 를 선택합니다.|
     |업데이트할 컴퓨터 |저장된 검색의 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신** 을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/logs/computer-groups.md)을 참조하세요. |
     |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다. CentOS는 기본적으로 이 기능을 지원하지 않습니다.|

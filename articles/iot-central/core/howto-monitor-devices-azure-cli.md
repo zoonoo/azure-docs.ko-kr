@@ -10,10 +10,10 @@ ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
 ms.openlocfilehash: 62981686c7aadc713c4abc78075be8613fe0af45
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199309"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
@@ -24,7 +24,7 @@ Azure CLI IoT 확장을 사용 하 여 장치가 IoT Central으로 전송 하는
 
 [자세한 내용은 Azure CLI 확장 참조를 참조 하세요.](/cli/azure/ext/azure-iot/iot/central)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + Azure CLI 설치 되어 있으며 버전 합니다 이상입니다. 을 실행 하 여 Azure CLI 버전을 확인 `az --version` 합니다. [Azure CLI 문서](/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
 + IoT Central 응용 프로그램에서 사용자로 추가 된 Azure의 회사 또는 학교 계정

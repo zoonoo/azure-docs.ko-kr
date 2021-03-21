@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/09/2018
 ms.openlocfilehash: 01f9a3c74c555338e99776490ceb4828503cef23
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96009258"
 ---
 **Q:**: 내 기존 게이트웨이에 대한 위치가 변경된 이유가 무엇입니까? <br/>
