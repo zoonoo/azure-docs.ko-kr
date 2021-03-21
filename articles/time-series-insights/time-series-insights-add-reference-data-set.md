@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: d80d97a609aa3a464b9b114439fe7f4058e287c3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001833"
 ---
 # <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Time Series Insights Gen1 환경에 대 한 참조 데이터 집합 만들기
@@ -41,7 +41,7 @@ ms.locfileid: "96001833"
 
 1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스** 를 선택합니다. Azure Time Series Insights 환경을 선택 합니다.
 
-1. **개요** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
+1. **Overview** 페이지를 선택합니다. 페이지 맨 위 근처의 **Essentials** 섹션을 확장 하 여 **Time Series Insights 탐색기 URL** 을 찾고 링크를 엽니다.  
 
    [![Essentials 섹션 확장](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 

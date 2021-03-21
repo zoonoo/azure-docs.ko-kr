@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013213"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
@@ -221,12 +221,12 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 | 비트 전송률 | 너비 | 높이 | MaxFPS | 프로필 | 출력 스트림 이름 |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |높은 |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |높은 |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |높은 |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |높은 |Video_512x288_850kbps |
-| 550 |384 |216 |30 |높은 |Video_384x216_550kbps |
-| 200 |340 |192 |30 |높은 |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |높음 |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |높음 |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |높음 |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |높음 |Video_512x288_850kbps |
+| 550 |384 |216 |30 |높음 |Video_384x216_550kbps |
+| 200 |340 |192 |30 |높음 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>출력 오디오 스트림
 
@@ -242,7 +242,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 다음은 광고를 신호로 보낼 때 설정할 수 있는 속성입니다. 
 
-### <a name="duration"></a>기간
+### <a name="duration"></a>Duration
 중간 광고의 기간(초)입니다. 중간 광고를 시작하려면 이 값이 0이 아닌 양수여야 합니다. 중간 광고가 진행 중인 경우 기간이 0으로 설정되어 있고 CueId가 진행 중인 중간 광고와 일치하면 해당 중간 광고가 취소됩니다.
 
 ### <a name="cueid"></a>CueId
@@ -258,7 +258,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 중간 광고 시간과 같은 특정한 상황에 슬레이트 이미지로 전환하고 들어오는 비디오 신호를 숨기도록 라이브 인코더를 구성할 수 있습니다. 이러한 슬레이트를 구성하지 않는 경우 입력 비디오가 해당 중간 광고 중에 마스킹되지 않습니다.
 
-### <a name="duration"></a>기간
+### <a name="duration"></a>Duration
 슬레이트의 기간(초)입니다. 슬레이트를 시작하려면 이 값이 0이 아닌 양수여야 합니다. 진행 중인 슬레이트가 있는 경우 기간을 0으로 지정하면 진행 중인 슬레이트가 종료됩니다.
 
 ### <a name="insert-slate-on-ad-marker"></a>광고 표식에서 슬레이트 삽입

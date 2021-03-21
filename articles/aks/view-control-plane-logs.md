@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 01/27/2020
 ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735134"
 ---
 # <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 Kubernetes 제어 평면 로그를 사용 하도록 설정 하 고 검토 합니다.
@@ -155,7 +155,7 @@ AKS는 다음 이벤트를 로깅합니다.
 
 ## <a name="log-roles"></a>로그 역할
 
-| 역할                     | Description |
+| 역할                     | 설명 |
 |--------------------------|-------------|
 | *aksService*             | HcpService의 제어 평면 작업에 대 한 감사 로그의 표시 이름입니다. |
 | *masterclient*           | MasterClientCertificate에 대 한 감사 로그의 표시 이름, az aks get 자격 증명에서 가져온 인증서 |

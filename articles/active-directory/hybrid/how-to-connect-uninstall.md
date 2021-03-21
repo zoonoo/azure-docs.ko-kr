@@ -1,5 +1,5 @@
 ---
-title: 제거 Azure AD Connect
+title: Azure AD Connect 제거
 description: 이 문서에서는 Azure AD Connect를 제거 하는 방법을 설명 합니다.
 services: active-directory
 author: billmath
@@ -12,18 +12,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5eb537a70c69745c8067ffb71cfb895a0875945
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96934186"
 ---
-# <a name="uninstall-azure-ad-connect"></a>제거 Azure AD Connect
+# <a name="uninstall-azure-ad-connect"></a>Azure AD Connect 제거
 
 이 문서에서는 Azure AD Connect를 올바르게 제거 하는 방법을 설명 합니다.
 
 ## <a name="uninstall-azure-ad-connect-from-the-server"></a>서버에서 Azure AD Connect 제거
-가장 먼저 수행 해야 하는 작업은 실행 중인 서버에서 Azure AD Connect를 제거 하는 것입니다.  다음 단계를 따르십시오.
+가장 먼저 수행 해야 하는 작업은 실행 중인 서버에서 Azure AD Connect를 제거 하는 것입니다.  다음 단계를 사용합니다.
 
  1. Azure AD Connect를 실행 하는 서버에서 **제어판** 으로 이동 합니다.
  2. **프로그램 제거** 프로그램 제거 

@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.openlocfilehash: e5b42d6102737b778ea5d19cd7da3c2f64881b1b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100585933"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Runbook에서 변경 내용 추적 및 인벤토리 사용
@@ -24,7 +24,7 @@ ms.locfileid: "100585933"
 * **Enable-multiplesolution** -구성 정보를 묻는 메시지를 표시 하 고, 지정 된 VM을 쿼리하고, 기타 유효성 검사를 수행 하는 기본 runbook입니다. 그런 다음 지정 된 리소스 그룹 내의 각 vm에 대 한 변경 내용 추적 및 인벤토리를 구성 하는 **사용 안 함 솔루션** runbook을 호출 합니다.
 * **사용-AutomationSolution** -대상 리소스 그룹에 지정 된 하나 이상의 vm에 대 한 변경 내용 추적 및 인벤토리를 사용 하도록 설정 합니다. 필수 구성 요소가 충족 되는지 확인 하 고, VM 확장이 설치 되어 있는지 Log Analytics 확인 하 고, 찾을 수 없는 경우 설치 하 고, 자동화 계정에 연결 된 지정 된 Log Analytics 작업 영역의 범위 구성에 Vm을 추가 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * 컴퓨터를 관리하기 위한 [Automation 계정](../automation-security-overview.md)

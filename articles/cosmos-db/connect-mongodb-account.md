@@ -13,10 +13,10 @@ adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./connect-mongodb-account-experimental
 ms.openlocfilehash: b3e10931307914f1471b8a6fbffd38953ee4717b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101659480"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
@@ -29,7 +29,7 @@ MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연�
 - [빠른 시작 방법](#get-the-mongodb-connection-string-by-using-the-quick-start) - .NET, Node.js, MongoDB Shell, Java 및 Python 드라이버와 함께 사용
 - 다른 드라이버에 사용할 [사용자 지정 연결 문자열 방법](#get-the-mongodb-connection-string-to-customize)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 계정. Azure 계정이 없으면 지금 [무료 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Cosmos 계정입니다. 지침은 [Azure Cosmos DB의 API for MongoDB 및 .NET SDK를 사용하여 웹앱 빌드](create-mongodb-dotnet.md)를 참조하세요.

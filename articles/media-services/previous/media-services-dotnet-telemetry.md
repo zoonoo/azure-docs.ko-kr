@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6bd7b472d8f42bd7872aeacf8b78aac8b249f4bd
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013738"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성
@@ -78,7 +78,7 @@ ms.locfileid: "103013738"
         <add key="StorageAccountName" value="storage_name" />
     ```
  
-## <a name="example"></a>예  
+## <a name="example"></a>예제  
     
 다음 예제에서는 지정된 AMS 계정에 대해 원격 분석을 사용하도록 설정하고 Azure Media Services .NET SDK를 사용하여 메트릭을 쿼리하는 방법을 보여 줍니다.  
 

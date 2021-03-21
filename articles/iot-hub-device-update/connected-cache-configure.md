@@ -8,10 +8,10 @@ ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 2903407f88b57a7be948cdeb0610e6d65df975b0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101663162"
 ---
 # <a name="configure-microsoft-connected-cache-for-device-update-for-azure-iot-hub"></a>Azure IoT Hub에 대 한 장치 업데이트에 대 한 Microsoft 연결 캐시 구성
@@ -29,13 +29,13 @@ Microsoft 연결 된 캐시 Azure IoT Edge 모듈 환경 변수는 기본 모듈
 | CUSTOMER_ID                   | Azure 구독 ID GUID             | 필수          | 이는 보안을 제공 하는 고객의 키입니다.<br>배달 최적화에 대 한 캐시 노드 인증<br>권한 부여. 모듈이 작동 하기 위해 필요 합니다. |
 | CACHE_NODE_ID                 | 캐시 노드 ID GUID                     | 필수          | Microsoft 연결 캐시를 고유 하 게 식별 합니다.<br>배달 최적화 서비스에 대 한 노드입니다. 순서 대로 필요<br> 모듈이 작동 합니다. |
 | CUSTOMER_KEY                  | 고객 키 GUID                     | 필수          | 이는 보안을 제공 하는 고객의 키입니다.<br>배달 최적화 서비스에 대 한 캐시 노드의 인증입니다.<br>모듈이 작동 하기 위해 필요 합니다.|
-| STORAGE_ *N* _SIZE_GB           | 여기서 N은 필요한 GB 수입니다.   | 필수          | 콘텐츠를 캐시 하는 데 최대 9 개의 드라이브를 지정 하 고 다음을 지정 합니다.<br>각 캐시 드라이브의 콘텐츠에 할당할 최대 공간 (Gb)입니다. 예:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>드라이브 번호는 지정 된 캐시 드라이브 바인딩 값과 일치 해야 합니다.<br>컨테이너 만들기 옵션 MicrosoftConnectedCache *N* 값|
-| UPSTREAM_HOST                 | FQDN/IP                                | Optional          | 이 값은 업스트림 Microsoft 연결을 지정할 수 있습니다.<br>연결 된 캐시 노드가 있는 경우 프록시 역할을 하는 캐시 노드입니다.<br> 인터넷에서 연결이 끊어졌습니다. 이 설정은를 지 원하는 데 사용 됩니다.<br> 중첩 된 IoT 시나리오입니다.<br>**참고:** Microsoft 연결 된 캐시는 http 기본 포트 80에서 수신 합니다.|
-| UPSTREAM_PROXY                | FQDN/IP: 포트                           | Optional          | 아웃 바운드 인터넷 프록시입니다.<br>ISA 95 네트워크 인 경우에도이 프록시를 사용할 수 있습니다. |
-| CACHEABLE_CUSTOM_ *N* _HOST     | 호스트/I P<br>FQDN                        | Optional          | 사용자 지정 패키지 리포지토리를 지 원하는 데 필요 합니다.<br>리포지토리는 로컬로 또는 인터넷에서 호스팅될 수 있습니다.<br>구성할 수 있는 사용자 지정 호스트 수에는 제한이 없습니다.<br><br>예:<br>이름 = CACHEABLE_CUSTOM_1_HOST 값 = packages.foo.com<br> 이름 = CACHEABLE_CUSTOM_2_HOST 값 = packages.bar.com    |
-| CACHEABLE_CUSTOM_ *N* _CANONICAL| Alias                                  | Optional          | 사용자 지정 패키지 리포지토리를 지 원하는 데 필요 합니다.<br>이 값은 별칭으로 사용할 수 있으며 캐시 서버에서 참조 하는 데 사용 됩니다.<br>DNS 이름이 다릅니다. 예를 들어 리포지토리 콘텐츠 호스트 이름이 packages.foo.com 일 수 있습니다.<br>그러나 다른 지역의 경우 호스트 이름에 추가 되는 추가 접두사가 있을 수 있습니다.<br>예: westuscdn.packages.foo.com 및 eastuscdn.packages.foo.com.<br>정식 별칭을 설정 하 여 콘텐츠가 중복 되지 않도록 합니다.<br>동일한 호스트에서 가져온 콘텐츠는 다른 CDN 원본입니다.<br>정식 값의 형식은 중요 하지 않지만 호스트에서 고유 해야 합니다.<br>호스트 값과 일치 하도록 값을 설정 하는 것이 가장 쉽습니다.<br><br>위의 사용자 지정 호스트 예제를 기반으로 하는 예제:<br>Name = CACHEABLE_CUSTOM_1_CANONICAL Value = opopackages<br> 이름 = CACHEABLE_CUSTOM_2_CANONICAL 값 = packages.bar.com  |
-| IS_SUMMARY_PUBLIC             | True 또는 False                          | Optional          | 로컬 네트워크 또는 인터넷에서 요약 보고서를 볼 수 있습니다.<br>True로 설정 된 경우 요약 보고서를 보려면 API 키 (뒷부분에서 설명)를 사용 해야 합니다. |
-| IS_SUMMARY_ACCESS_UNRESTRICTED| True 또는 False                          | Optional          | 다음을 사용 하지 않고 로컬 네트워크 또는 인터넷에서 요약 보고서를 볼 수 있습니다.<br>네트워크에 있는 모든 장치에서 API 키를 사용 합니다. 액세스를 잠그지 않으려면 사용<br>브라우저를 통해 캐시 서버 요약 데이터를 볼 수 있습니다. |
+| STORAGE_ *N* _SIZE_GB           | 여기서 N은 필요한 GB 수입니다.   | 필수          | 콘텐츠를 캐시 하는 데 최대 9 개의 드라이브를 지정 하 고 다음을 지정 합니다.<br>각 캐시 드라이브의 콘텐츠에 할당할 최대 공간 (Gb)입니다. 예제:<br>STORAGE_1_SIZE_GB = 150<br>STORAGE_2_SIZE_GB = 50<br>드라이브 번호는 지정 된 캐시 드라이브 바인딩 값과 일치 해야 합니다.<br>컨테이너 만들기 옵션 MicrosoftConnectedCache *N* 값|
+| UPSTREAM_HOST                 | FQDN/IP                                | 선택 사항          | 이 값은 업스트림 Microsoft 연결을 지정할 수 있습니다.<br>연결 된 캐시 노드가 있는 경우 프록시 역할을 하는 캐시 노드입니다.<br> 인터넷에서 연결이 끊어졌습니다. 이 설정은를 지 원하는 데 사용 됩니다.<br> 중첩 된 IoT 시나리오입니다.<br>**참고:** Microsoft 연결 된 캐시는 http 기본 포트 80에서 수신 합니다.|
+| UPSTREAM_PROXY                | FQDN/IP: 포트                           | 선택 사항          | 아웃 바운드 인터넷 프록시입니다.<br>ISA 95 네트워크 인 경우에도이 프록시를 사용할 수 있습니다. |
+| CACHEABLE_CUSTOM_ *N* _HOST     | 호스트/I P<br>FQDN                        | 선택 사항          | 사용자 지정 패키지 리포지토리를 지 원하는 데 필요 합니다.<br>리포지토리는 로컬로 또는 인터넷에서 호스팅될 수 있습니다.<br>구성할 수 있는 사용자 지정 호스트 수에는 제한이 없습니다.<br><br>예제:<br>이름 = CACHEABLE_CUSTOM_1_HOST 값 = packages.foo.com<br> 이름 = CACHEABLE_CUSTOM_2_HOST 값 = packages.bar.com    |
+| CACHEABLE_CUSTOM_ *N* _CANONICAL| Alias                                  | 선택 사항          | 사용자 지정 패키지 리포지토리를 지 원하는 데 필요 합니다.<br>이 값은 별칭으로 사용할 수 있으며 캐시 서버에서 참조 하는 데 사용 됩니다.<br>DNS 이름이 다릅니다. 예를 들어 리포지토리 콘텐츠 호스트 이름이 packages.foo.com 일 수 있습니다.<br>그러나 다른 지역의 경우 호스트 이름에 추가 되는 추가 접두사가 있을 수 있습니다.<br>예: westuscdn.packages.foo.com 및 eastuscdn.packages.foo.com.<br>정식 별칭을 설정 하 여 콘텐츠가 중복 되지 않도록 합니다.<br>동일한 호스트에서 가져온 콘텐츠는 다른 CDN 원본입니다.<br>정식 값의 형식은 중요 하지 않지만 호스트에서 고유 해야 합니다.<br>호스트 값과 일치 하도록 값을 설정 하는 것이 가장 쉽습니다.<br><br>위의 사용자 지정 호스트 예제를 기반으로 하는 예제:<br>Name = CACHEABLE_CUSTOM_1_CANONICAL Value = opopackages<br> 이름 = CACHEABLE_CUSTOM_2_CANONICAL 값 = packages.bar.com  |
+| IS_SUMMARY_PUBLIC             | True 또는 False                          | 선택 사항          | 로컬 네트워크 또는 인터넷에서 요약 보고서를 볼 수 있습니다.<br>True로 설정 된 경우 요약 보고서를 보려면 API 키 (뒷부분에서 설명)를 사용 해야 합니다. |
+| IS_SUMMARY_ACCESS_UNRESTRICTED| True 또는 False                          | 선택 사항          | 다음을 사용 하지 않고 로컬 네트워크 또는 인터넷에서 요약 보고서를 볼 수 있습니다.<br>네트워크에 있는 모든 장치에서 API 키를 사용 합니다. 액세스를 잠그지 않으려면 사용<br>브라우저를 통해 캐시 서버 요약 데이터를 볼 수 있습니다. |
             
 ## <a name="microsoft-connected-cache-azure-iot-edge-module-container-create-options"></a>Microsoft 연결 된 캐시 Azure IoT Edge 모듈 컨테이너 만들기 옵션
 

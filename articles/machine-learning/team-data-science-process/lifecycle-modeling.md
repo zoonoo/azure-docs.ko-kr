@@ -12,10 +12,10 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4719bd21bc6299373f9dabfe4733541c6fa27b94
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94740184"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
@@ -45,7 +45,7 @@ ms.locfileid: "94740184"
   * **모델 학습**: 성공 메트릭을 비교하여 질문에 가장 정확하게 대답하는 모델을 찾습니다.
   * **프로덕션에 적합한** 모델인지 확인합니다.
 
-### <a name="feature-engineering"></a>기능 엔지니어링
+### <a name="feature-engineering"></a>특징 엔지니어링
 기능 엔지니어링은 원시 변수의 포함, 집계 및 변환을 포함하여 분석에 사용되는 기능을 만듭니다. 모델에 영향을 주는 요인들에 대한 통찰력을 원하면 기능이 서로 어떻게 관련되어 있고 Machine Learning 알고리즘에서 이러한 기능을 어떻게 사용하는지를 이해해야 합니다. 
 
 이 단계에서 도메인 전문지식과 데이터 탐색 단계에서 얻은 통찰력을 창의적으로 결합해야 합니다. 기능 엔지니어링은 관련이 없는 변수를 상당히 많이 제거하면서 유용한 정보를 제공하는 변수를 찾아 포함합니다. 정보 제공 변수는 결과를 향상시키지만 관련이 없는 변수는 모델에 불필요한 혼란만 가져옵니다. 또한 점수 매기기 중에 가져온 새로운 데이터에 대해 이러한 기능을 생성해야 합니다. 따라서 이러한 기능은 점수를 매길 때 사용할 수 있는 데이터에만 기반하여 생성할 수 있습니다. 

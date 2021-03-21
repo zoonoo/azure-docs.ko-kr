@@ -9,10 +9,10 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: fa5dd61c0764be45cdba68b73a4f55745ee5e55a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585508"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Azure 클라우드 서비스 (클래식)에 대 한 성능 카운터 수집
@@ -289,7 +289,7 @@ counterServiceUsed.Increment();
 </DiagnosticsConfiguration>
 ```
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 - [Azure Cloud Services에 대 한 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)

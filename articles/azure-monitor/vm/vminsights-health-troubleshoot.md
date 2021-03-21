@@ -1,18 +1,18 @@
 ---
-title: VM insights 게스트 상태 (미리 보기) 문제 해결
+title: VM 인사이트 게스트 상태 문제 해결(미리 보기)
 description: VM insights 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
 ms.openlocfilehash: d8b37569ebaa8e75be601a1efd65a23a61aeaa75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051942"
 ---
-# <a name="troubleshoot-vm-insights-guest-health-preview"></a>VM insights 게스트 상태 (미리 보기) 문제 해결
+# <a name="troubleshoot-vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태 문제 해결(미리 보기)
 이 문서에서는 VM insights 상태와 관련 된 문제가 있을 때 수행할 수 있는 문제 해결 단계를 설명 합니다.
 
 ## <a name="error-message-that-no-data-is-available"></a>데이터를 사용할 수 없다는 오류 메시지 

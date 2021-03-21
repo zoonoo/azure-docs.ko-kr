@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: service-bus-messaging, event-hubs
 author: spelluru
 ms.service: service-bus-messaging, event-hubs
@@ -9,10 +9,10 @@ ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98901068"
 ---
 Azure Functions를 사용 하 여 미리 작성 된 진입점에 대 한 구성 전용 복제 작업을 만들 수 있습니다. [Azure Functions에 대 한 구성 기반 복제 샘플](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) 에서는 [미리 작성 된 도우미](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) 를 사용자 코드에서 활용 하거나 코드를 모두 처리 하지 않고 구성을 사용 하는 방법을 보여 줍니다.

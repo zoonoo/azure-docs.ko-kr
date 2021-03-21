@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466918"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>양식 인식기 모델 백업 및 복구
@@ -26,7 +26,7 @@ Azure Portal에서 양식 인식기 리소스를 만들 때는 지역을 지정 
 
 앱 또는 비즈니스가 양식 인식기 사용자 지정 모델 사용에 따라 달라 지는 경우 다른 지역의 다른 폼 인식기 계정으로 모델을 복사 하는 것이 좋습니다. 지역 가동 중단이 발생 하면 복사 된 지역에서 모델에 액세스할 수 있습니다.
 
-##  <a name="prerequisites"></a>필수 구성 요소
+##  <a name="prerequisites"></a>필수 조건
 
 1. 서로 다른 Azure 지역에 있는 두 가지 양식 인식기 Azure 리소스입니다. 없는 경우 Azure Portal로 이동 하 여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title=" 새 양식 인식기 리소스를 만듭니다 " target="_blank"> . 새 양식 인식기 리소스를 만듭니다 </a> .
 1. 양식 인식기 리소스의 구독 키, 끝점 URL 및 구독 ID입니다. Azure Portal의 리소스 **개요** 탭에서 이러한 값을 찾을 수 있습니다.

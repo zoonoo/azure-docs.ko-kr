@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466425"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Azure DevOps를 사용 하 여 Stream Analytics 작업에 대 한 CI/CD 파이프라인 만들기
@@ -182,7 +182,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
    |표시 이름| *MyASAProject 배포*|
    |Azure 구독| 구독을 선택합니다.|
    |작업| *리소스 그룹을 만들기 또는 업데이트*|
-   |리소스 그룹| Stream Analytics 작업을 포함할 테스트 리소스 그룹의 이름을 선택 합니다.|
+   |Resource group| Stream Analytics 작업을 포함할 테스트 리소스 그룹의 이름을 선택 합니다.|
    |위치|테스트 리소스 그룹의 위치를 선택 합니다.|
    |템플릿 위치| 연결 된 아티팩트|
    |템플릿| $ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.js |
@@ -199,7 +199,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
    |표시 이름| *MyASAProject 배포*|
    |Azure 구독| 구독을 선택합니다.|
    |작업| *리소스 그룹을 만들기 또는 업데이트*|
-   |리소스 그룹| Stream Analytics 작업을 포함할 프로덕션 리소스 그룹의 이름을 선택 합니다.|
+   |Resource group| Stream Analytics 작업을 포함할 프로덕션 리소스 그룹의 이름을 선택 합니다.|
    |위치|프로덕션 리소스 그룹의 위치를 선택 합니다.|
    |템플릿 위치| *연결 된 아티팩트*|
    |템플릿| $ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.js |

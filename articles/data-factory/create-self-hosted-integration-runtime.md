@@ -7,10 +7,10 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 02/10/2021
 ms.openlocfilehash: 3e61b6a0f17d2d21aaaebc5ff42b0221cf851a4b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389509"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
@@ -19,7 +19,7 @@ ms.locfileid: "100389509"
 
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다. IR에 대 한 자세한 내용은 [Integration runtime 개요](concepts-integration-runtime.md)를 참조 하세요.
 
-자체 호스팅 integration runtime은 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 작업을 실행할 수 있습니다. 또한 온-프레미스 네트워크 또는 Azure 가상 네트워크의 계산 리소스에 대해 변환 작업을 디스패치할 수 있습니다. 자체 호스팅 통합 런타임을 설치 하는 경우에는 온-프레미스 컴퓨터 또는 개인 네트워크 내의 가상 컴퓨터가 필요 합니다.  
+자체 호스팅 통합 런타임은 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 작업을 실행할 수 있습니다. 또한 온-프레미스 네트워크 또는 Azure 가상 네트워크의 컴퓨팅 리소스에 대해 변환 작업을 디스패치할 수 있습니다. 자체 호스팅 통합 런타임을 설치하려면 온-프레미스 머신이나 개인 네트워크 내부의 가상 머신이 필요합니다.  
 
 이 문서에서는 자체 호스팅 IR을 만들고 구성 하는 방법을 설명 합니다.
 
@@ -54,7 +54,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 5. 자체 호스팅 통합 런타임은 온-프레미스 저장소와 클라우드 저장소 간에 데이터를 복사 합니다. 복사 방향은 데이터 파이프라인에서 복사 작업을 구성 하는 방법에 따라 달라 집니다. 이 단계에서 자체 호스팅 통합 런타임은 보안 HTTPS 채널을 통해 Azure Blob 저장소와 같은 클라우드 기반 저장소 서비스와 직접 통신 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   - Windows 8.1

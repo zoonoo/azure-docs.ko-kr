@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
 ms.openlocfilehash: 2da614fe829d0aa82bfa57337baf44491993c68f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895546"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3.0:가 중 문장
@@ -36,7 +36,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 | 쿼리 매개 변수 | 설명 |
 | -------| ----------- |
 | api-version <img width=200/>   | **필수 쿼리 매개 변수** 입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
-| language | **선택적 쿼리 매개 변수** 입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
+| 언어 | **선택적 쿼리 매개 변수** 입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다. |
 | 스크립트    | **선택적 쿼리 매개 변수** 입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.  | 
 
 요청 헤더에는 다음이 포함됩니다.
@@ -143,7 +143,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](./v3-0-reference.md#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제에서는 단일 문장에 대한 문장 경계를 가져오는 방법을 보여 줍니다. 문장의 언어는 서비스에서 자동으로 검색됩니다.
 

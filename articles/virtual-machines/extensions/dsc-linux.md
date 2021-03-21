@@ -9,10 +9,10 @@ ms.author: magoedte
 ms.collection: linux
 ms.date: 06/12/2018
 ms.openlocfilehash: 3a9478f93a2a6f8e31be39a58a18e0e394b9d5c2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102560109"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
@@ -293,7 +293,7 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 [Azure Resource 
 
 DSCForLinux 확장을 배포 하기 전에 `public.json` `protected.json` 섹션 3의 다른 시나리오에 따라 및를 구성 합니다.
 
-#### <a name="classic"></a>Classic
+#### <a name="classic"></a>클래식
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
@@ -338,7 +338,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 
 ### <a name="use-azure-powershellazure-powershell"></a>[Azure PowerShell] [Azure-PowerShell] 사용
 
-#### <a name="classic"></a>Classic
+#### <a name="classic"></a>클래식
 
 다음을 실행 하 여 Azure 서비스 관리 모드에서 Azure 계정에 로그인 할 수 있습니다.
 

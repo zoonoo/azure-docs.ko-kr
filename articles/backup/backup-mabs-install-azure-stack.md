@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98987008"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
@@ -91,7 +91,7 @@ Azure Backup Server 가상 머신을 도메인에 조인해야 합니다. 관리
 
 Azure Backup Server에 사용할 서버를 선택할 때 Windows Server 2012 R2 Datacenter 또는 Windows Server 2016 Datacenter 갤러리 이미지로 시작하는 것이 좋습니다. [Azure Portal에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json) 문서는 권장 가상 머신을 시작하는 방법에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
 
-Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](./backup-mabs-protection-matrix.md)는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
+Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](./backup-mabs-protection-matrix.md)는 이와 같은 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. 에 Azure Backup Server을 설치할 수 없습니다.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: rogarana
 ms.openlocfilehash: 698b4ebedfc9b41e8c5732a0a81226a971d65585
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470768"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>3 부: SMB를 통한 디렉터리 및 파일 수준 권한 구성 

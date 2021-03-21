@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: virtual-network
 author: KumudD
@@ -9,10 +9,10 @@ ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
 ms.openlocfilehash: defcce3a00a38c88e1bff944075f0987fbdedd4b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98225599"
 ---
  Azure 프라이빗 링크에는 다음과 같은 한도가 적용됩니다.

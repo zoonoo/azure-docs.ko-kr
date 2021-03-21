@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: lajanuar
 ms.openlocfilehash: 88a76a16de43853a001f5db895d6ad418940de0f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895495"
 ---
 # <a name="translator-30-dictionary-lookup"></a>Translator 3.0: 사전 조회
@@ -112,7 +112,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
     > [!NOTE]
     > 조회되는 용어가 사전에 없는 경우 응답은 200(정상)이지만 `translations` 목록은 빈 목록이 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이 예제에서는 영어 용어인 `fly`의 스페인어 대체 번역을 조회하는 방법을 보여 줍니다.
 

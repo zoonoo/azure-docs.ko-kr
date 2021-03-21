@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: article
 keywords: azure, kinect, rgb, IR, 기록, 센서, sdk, 액세스, 깊이, 비디오, 카메라, imu, 동작, 센서, 오디오, 마이크, matroska, 센서 sdk, 다운로드, 본문, 추적, 지원
 ms.openlocfilehash: 9bb6e0ad8ebbb763389f13e317036eacc5c7d074
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97587097"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Azure Kinect 지원 옵션 및 리소스

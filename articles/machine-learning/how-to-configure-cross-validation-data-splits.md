@@ -12,10 +12,10 @@ author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 02/23/2021
 ms.openlocfilehash: 31d3dc2c2d8194541ba1fe7d0865e6c939d75f73
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501585"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화된 Machine Learning에서 데이터 분할 및 교차 유효성 검사 구성
@@ -31,7 +31,7 @@ Azure Machine Learning에서 자동화 된 ML을 사용 하 여 여러 ML 모델
 > [!NOTE]
 > 스튜디오는 현재 학습 및 유효성 검사 데이터 분할 뿐만 아니라 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대해 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다.
 

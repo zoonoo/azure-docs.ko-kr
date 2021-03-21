@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688300"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에서 PostgreSQL 확장 사용
@@ -46,11 +46,11 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 
 |확장   |Shared_preload_libraries에 추가 해야 합니다.  |만들어야 함 |
 |-------------|--------------------------------------------------|---------------------- |
-|`pg_cron`      |예       |예        |
+|`pg_cron`      |아니요       |예        |
 |`pg_audit`     |예       |예        |
 |`plpgsql`      |예       |예        |
-|`postgis`      |예       |예        |
-|`plv8`      |예       |예        |
+|`postgis`      |아니요       |예        |
+|`plv8`      |아니요       |예        |
 
 ## <a name="add-extensions-to-the-shared_preload_libraries"></a>Shared_preload_libraries에 확장 추가
 Shared_preload_libraries에 대 한 자세한 내용은 [여기](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES)에서 PostgreSQL 설명서를 참조 하세요.
@@ -76,7 +76,7 @@ azdata arc postgres server edit -n <name of your postgresql server group> --exte
 ```console
 azdata arc postgres server show -n <server group name>
 ```
-출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 다음은 그 예입니다. 
+출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 ```console
 "engine": {
       "extensions": [
@@ -93,7 +93,7 @@ azdata arc postgres server show -n <server group name>
 ```console
 kubectl describe postgresql-12s/postgres02
 ```
-출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 다음은 그 예입니다. 
+출력에서 스크롤하고 서버 그룹의 사양에 engine\extensions 섹션이 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 ```console
 Engine:
     Extensions:

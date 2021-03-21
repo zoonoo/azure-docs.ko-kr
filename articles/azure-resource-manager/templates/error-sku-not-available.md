@@ -4,10 +4,10 @@ description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737153"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU 사용할 수 없음 오류 해결

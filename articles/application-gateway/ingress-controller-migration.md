@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/02/2021
 ms.author: caya
 ms.openlocfilehash: e83834fd5f8ca95826118c952f7884a494c7abbb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050837"
 ---
 # <a name="migrate-from-agic-helm-to-agic-add-on"></a>AGIC 투구에서 AGIC 추가 기능으로 마이그레이션 
 
 AGIC를 이미 배포 했지만 AKS 추가 기능으로 배포 된 AGIC로 마이그레이션하려는 경우 다음 단계를 통해 마이그레이션 프로세스를 안내할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 마이그레이션 프로세스를 시작 하기 전에 확인 해야 할 몇 가지 사항이 있습니다. 
   - [현재 AGIC 추가 기능에서 지원 되지](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)않는 AGIC 투구의 기능을 사용 하 고 있나요?
   - AKS 클러스터당 둘 이상의 AGIC 투구 배포를 사용 하 고 있나요? 

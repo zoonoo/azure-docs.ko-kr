@@ -12,10 +12,10 @@ author: Anurzeuii
 ms.date: 12/21/2020
 ms.custom: references_regions
 ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97725023"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소 버린 클라우드 패리티
@@ -56,7 +56,7 @@ ms.locfileid: "97725023"
 | 작업 영역 노트북 및 파일 공유                                        | GA                   | YES                | YES         |
 | R 및 Python 지원                                                       | GA                   | YES                | YES         |
 | Virtual Network 지원                                                    | 공개 미리 보기       | 아니요                 | 아니요          |
-| **계산 인스턴스** |   |  | | 
+| **컴퓨팅 인스턴스** |   |  | | 
 | 통합 전자 필기장에 대 한 관리 되는 계산 인스턴스                         | GA                   | YES                | YES         |
 | Jupyter, JupyterLab 통합                                            | GA                   | YES                | YES         |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기       | YES                | YES         |
@@ -169,7 +169,7 @@ ms.locfileid: "97725023"
 | 작업 영역 노트북 및 파일 공유                                        | GA               | YES       | 해당 없음        |
 | R 및 Python 지원                                                       | GA               | YES       | 해당 없음        |
 | Virtual Network 지원                                                    | 공개 미리 보기   | 아니요        | 해당 없음        |
-| **계산 인스턴스** |    | | |
+| **컴퓨팅 인스턴스** |    | | |
 | 통합 전자 필기장에 대 한 관리 되는 계산 인스턴스                         | GA               | 아니요        | 해당 없음        |
 | Jupyter, JupyterLab 통합                                            | GA               | YES       | 해당 없음        |
 | 가상 네트워크(VNet) 지원                                             | 공개 미리 보기   | YES       | 해당 없음        |
@@ -229,7 +229,7 @@ ms.locfileid: "97725023"
 * Azure 중국에는 특히 GPU SKU에 대 한 VM SKU가 제한 되어 있습니다. NCv3 제품군 (V100)만 있습니다.
 * REST API 끝점은 글로벌 Azure와 다릅니다. 다음 표를 사용 하 여 Azure 중국 지역에 대 한 REST API 끝점을 찾습니다.
 
-    | REST 끝점                 | 글로벌 Azure                                 | China-Government                           |
+    | REST 엔드포인트                 | 글로벌 Azure                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | 관리 평면 | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | 데이터 평면       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |

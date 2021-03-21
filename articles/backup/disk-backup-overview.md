@@ -4,10 +4,10 @@ description: Azure Disk backup 솔루션에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98915511"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Azure Disk Backup 개요 (미리 보기)
@@ -69,7 +69,7 @@ Azure Disk backup 솔루션은 다음과 같은 시나리오에서 유용 합니
 
 - 현재 Azure Disk Backup은 관리 디스크의 운영 백업을 지원 하 고 백업 자격 증명 모음 저장소에 백업을 복사 하지 않습니다. 지원 되는 시나리오 및 지원 되지 않는 시나리오 및 지역 가용성에 대 한 자세한 목록은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 Azure Backup는 Azure 디스크를 보호 하기 위한 스냅숏 수명 주기 관리 솔루션을 제공 합니다. Azure Backup에서 만든 디스크 스냅숏은 Azure 구독 내의 리소스 그룹에 저장 되 고 **스냅숏 저장소** 요금이 발생 합니다. 스냅숏 가격에 대 한 자세한 내용은 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요. 스냅숏은 백업 자격 증명 모음에 복사 되지 않으므로 Azure Backup **보호 된 인스턴스** 요금을 청구 하지 않으며 **백업 저장소** 비용이 적용 되지 않습니다. 또한 증분 스냅숏은 마지막 스냅숏 이후의 델타 변경 내용을 차지 하며, 부모 관리 디스크의 저장소 유형과 관계 없이 항상 표준 저장소에 저장 되며 standard storage의 가격 책정에 따라 요금이 청구 됩니다. 이렇게 하면 Azure Disk Backup에서 비용 효율적인 솔루션을 만들 수 있습니다.
 
