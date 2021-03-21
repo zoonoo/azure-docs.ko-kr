@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus 메시지 엔터티 (큐, 토
 ms.topic: article
 ms.date: 09/29/2020
 ms.openlocfilehash: ea1acab3d0a86b0064f8b3eef7bfd1496bd17041
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94543054"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>메시징 엔터티 일시 중단 및 다시 활성화(사용 안 함)
@@ -21,15 +21,15 @@ ms.locfileid: "94543054"
 ## <a name="queue-status"></a>큐 상태 
 **큐** 에 대해 설정할 수 있는 상태는 다음과 같습니다.
 
--   **Active** : 큐가 활성 상태입니다. 큐에서 메시지를 보내고 받을 수 있습니다. 
--   **Disabled** : 큐가 일시 중단되었습니다. **Senddisabled** 및 **ReceiveDisabled** 를 모두 설정 하는 것과 같습니다. 
--   **Senddisabled** : 큐에 메시지를 보낼 수 없지만 메시지에서 메시지를 받을 수 있습니다. 큐에 메시지를 전송 하려고 하면 예외가 발생 합니다. 
--   **ReceiveDisabled** : 큐에 메시지를 보낼 수 있지만 메시지에서 메시지를 받을 수는 없습니다. 큐에 메시지를 수신 하려고 하면 예외가 발생 합니다.
+-   **Active**: 큐가 활성 상태입니다. 큐에서 메시지를 보내고 받을 수 있습니다. 
+-   **Disabled**: 큐가 일시 중단되었습니다. **Senddisabled** 및 **ReceiveDisabled** 를 모두 설정 하는 것과 같습니다. 
+-   **Senddisabled**: 큐에 메시지를 보낼 수 없지만 메시지에서 메시지를 받을 수 있습니다. 큐에 메시지를 전송 하려고 하면 예외가 발생 합니다. 
+-   **ReceiveDisabled**: 큐에 메시지를 보낼 수 있지만 메시지에서 메시지를 받을 수는 없습니다. 큐에 메시지를 수신 하려고 하면 예외가 발생 합니다.
 
 
 ### <a name="change-the-queue-status-in-the-azure-portal"></a>Azure Portal에서 큐 상태를 변경 합니다. 
 
-1. Azure Portal에서 Service Bus 네임 스페이스로 이동 합니다. 
+1. Azure Portal에서 Service Bus 네임스페이스로 이동합니다. 
 1. 상태를 변경 하려는 큐를 선택 합니다. 가운데의 아래쪽 창에 큐가 표시 됩니다. 
 1. **Service Bus 큐** 페이지에서 큐의 현재 상태를 하이퍼링크로 표시 합니다. 왼쪽 메뉴에서 개요를 선택 하지 않은 경우 해당 **개요** 를 선택 하 여 큐의 상태를 확인 합니다. 큐의 현재 상태를 선택 하 여 변경 합니다. 
 
@@ -57,9 +57,9 @@ Azure Portal에서 토픽 상태를 변경할 수 있습니다. 항목의 현재
 :::image type="content" source="./media/entity-suspend/topic-state-change.png" alt-text="항목 상태 변경":::
 
 **토픽** 에 대해 설정할 수 있는 상태는 다음과 같습니다.
-- **활성** : 항목이 활성 상태입니다. 항목에 메시지를 보낼 수 있습니다. 
-- **사용 안 함** : 항목이 일시 중단 됩니다. 토픽에 메시지를 보낼 수 없습니다. 
-- **Senddisabled** : **disabled** 와 동일 하 게 적용 됩니다. 토픽에 메시지를 보낼 수 없습니다. 토픽에 메시지를 전송 하려고 하면 예외가 발생 합니다. 
+- **활성**: 항목이 활성 상태입니다. 항목에 메시지를 보낼 수 있습니다. 
+- **사용 안 함**: 항목이 일시 중단 됩니다. 토픽에 메시지를 보낼 수 없습니다. 
+- **Senddisabled**: **disabled** 와 동일 하 게 적용 됩니다. 토픽에 메시지를 보낼 수 없습니다. 토픽에 메시지를 전송 하려고 하면 예외가 발생 합니다. 
 
 ## <a name="subscription-status"></a>구독 상태
 Azure Portal에서 구독 상태를 변경할 수 있습니다. 구독의 현재 상태를 선택 하 여 상태를 변경할 수 있는 다음 페이지를 표시 합니다. 
@@ -67,9 +67,9 @@ Azure Portal에서 구독 상태를 변경할 수 있습니다. 구독의 현재
 :::image type="content" source="./media/entity-suspend/subscription-state-change.png" alt-text="구독 상태 변경":::
 
 **구독** 에 대해 설정할 수 있는 상태는 다음과 같습니다.
-- **활성** : 구독이 활성 상태입니다. 구독 signature.frm 메시지를 받을 수 있습니다.
-- **사용 안 함** : 구독이 일시 중단 됩니다. 구독에서 메시지를 받을 수 없습니다. 
-- **ReceiveDisabled** : **Disabled** 와 동일 하 게 적용 됩니다. 구독에서 메시지를 받을 수 없습니다. 구독에 메시지를 수신 하려고 하면 예외가 발생 합니다.
+- **활성**: 구독이 활성 상태입니다. 구독 signature.frm 메시지를 받을 수 있습니다.
+- **사용 안 함**: 구독이 일시 중단 됩니다. 구독에서 메시지를 받을 수 없습니다. 
+- **ReceiveDisabled**: **Disabled** 와 동일 하 게 적용 됩니다. 구독에서 메시지를 받을 수 없습니다. 구독에 메시지를 수신 하려고 하면 예외가 발생 합니다.
 
 | 토픽 상태 | 구독 상태 | 동작 | 
 | ------------ | ------------------- | -------- | 

@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94518127"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
@@ -146,7 +146,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **참조**              | [MSDN: 자동 완성 특성](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [HTML에서 자동 완성 기능 사용](/previous-versions/windows/internet-explorer/ie-developer/), [HTML 삭제 취약점](/security-updates/SecurityBulletins/2010/ms10-071), [자동 완성., 다시?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **단계** | 자동 완성 특성은 양식이 자동 완성을 사용해야 할지 여부를 지정합니다. 자동 완성이 켜져 있으면 브라우저는 사용자가 이전에 입력한 값을 기반으로 값을 자동으로 완성합니다. 예를 들어 양식에 새 이름 및 암호를 입력하고 양식을 제출하면 브라우저는 암호를 저장해야 하는지 묻습니다. 이후로 양식이 표시되면 이름 및 암호가 자동으로 채워지거나 이름을 입력하는 대로 완성합니다. 로컬 액세스 권한이 있는 공격자는 브라우저 캐시에서 일반 텍스트 암호를 얻을 수 있습니다. 기본적으로 자동 완성은 활성화되어 있으므로 명시적으로 비활성화되어야 합니다. |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 ```csharp
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
@@ -231,7 +231,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **참조**              | 해당 없음  |
 | **단계** | <p>특정 구현에서 Web API의 인증과 관련된 중요한 아티팩트는 브라우저의 로컬 스토리지에 저장됩니다. 예를 들어, adal.idtoken, adal.nonce.idtoken, adal.access.token.key, adal.token.keys, adal.state.login, adal.session.state, adal.expiration.key 등과 같은 Azure AD 인증 아티팩트입니다.</p><p>이러한 아티팩트는 모두 로그아웃 또는 브라우저가 닫힌 후에도 사용할 수 있습니다. 악의적 사용자가 이러한 아티팩트에 대한 액세스 권한을 가져온 경우 보호된 리소스(API)에 액세스하기 위해 다시 사용할 수 있습니다. Web API와 관련된 중요한 아티팩트가 모두 브라우저의 스토리지에 저장되지 않았는지 확인합니다. 클라이언트 쪽 스토리지를 피할 수 없는 경우(예: 암시적 OpenIdConnect/OAuth 흐름을 활용하는 SPA(단일 페이지 애플리케이션)는 액세스 토큰을 로컬로 저장함) 스토리지 선택 항목 사용은 지속성을 갖지 않습니다. 예를 들어, LocalStorage보다 SessionStorage를 선호합니다.</p>| 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 아래 JavaScript 코드 조각은 로컬 스토리지에 인증 아티팩트를 저장하는 사용자 지정 인증 라이브러리에서 비롯됩니다. 이렇게 구현하지 않아야 합니다. 
 ```javascript
 ns.AuthHelper.Authenticate = function () {
@@ -354,7 +354,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **참조**              | [Microsoft Intune 정책을 사용하여 디바이스에서 설정 및 기능 관리](/mem/intune/configuration/), [키 집합 Valet](https://components.xamarin.com/view/square.valet) |
 | **단계** | <p>애플리케이션이 모바일의 파일 시스템에 사용자의 PII(이메일, 전화 번호, 이름, 성, 선호도 등)와 같은 중요한 정보를 기록하는 경우 로컬 파일 시스템에 쓰기 전에 암호화되어야 합니다. 엔터프라이즈 애플리케이션인 애플리케이션을 사용하는 경우 Windows Intune을 사용하여 애플리케이션을 게시하는 가능성을 탐색합니다.</p>|
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 Intune은 중요한 데이터를 보호하는 다음과 같은 보안 정책을 사용하여 구성될 수 있습니다. 
 ```csharp
 Require encryption on mobile device    
@@ -362,7 +362,7 @@ Require encryption on storage cards
 Allow screen capture
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 엔터프라이즈 애플리케이션이 아닌 애플리케이션을 사용하는 경우 파일 시스템에서 수행될 수 있는 암호화 작업을 사용하여 플랫폼 제공 키 스토리지, 키 집합을 사용하여 암호화 키를 저장합니다. 다음 코드 조각에서는 xamarin을 사용하는 키 집합에서 키에 액세스하는 방법을 보여 줍니다. 
 ```csharp
         protected static string EncryptionKey
@@ -415,7 +415,7 @@ Allow screen capture
 | **참조**              | [강화](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **단계** | 암호화되지 않은 채널을 통해 일반 텍스트 암호를 사용한 UsernameToken를 사용하면 SOAP 메시지를 찾아낼 수 있는 공격자에게 암호를 노출하게 됩니다. UsernameToken를 사용하는 서비스 공급자는 일반 텍스트로 전송된 암호를 허용할 수 있습니다. 암호화되지 않은 채널을 통해 일반 텍스트 암호는 보내면 SOAP 메시지를 찾아낼 수 있는 공격자에게 자격 증명을 노출할 수 있습니다. | 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 WCF 서비스 공급자 구성에서는 UsernameToken을 사용합니다. 
 ```
 <security mode="Message"> 
@@ -434,7 +434,7 @@ clientCredentialType을 인증서 또는 Windows로 설정
 | **참조**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [보안 강화](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [WCF 보안 CoDe Magazine의 기본 사항](https://www.codemag.com/article/0611051) |
 | **단계** | 전송 또는 메시지 보안이 거부되지 않았습니다. 전송 또는 메시지 보안 없이 메시지를 전송하는 애플리케이션은 메시지의 무결성이나 기밀성을 보장할 수 없습니다. WCF 보안 바인딩이 없음으로 설정되면 전송 및 메시지 보안이 모두 비활성화됩니다. |
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음 구성에서는 보안 모드를 없음으로 설정합니다. 
 ```
 <system.serviceModel> 
@@ -447,7 +447,7 @@ clientCredentialType을 인증서 또는 Windows로 설정
 </system.serviceModel> 
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 5개의 가능한 보안 모드가 있는 모든 서비스 바인딩에 대한 보안 모드는 다음과 같습니다. 
 * 없음 보안 해제. 
 * 전송. 상호 인증과 메시지 보호를 위해 전송 보안 사용. 

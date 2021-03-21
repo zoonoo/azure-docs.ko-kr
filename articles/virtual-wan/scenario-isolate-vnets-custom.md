@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92461824"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>시나리오: Vnet에 대 한 사용자 지정 격리
@@ -23,7 +23,7 @@ ms.locfileid: "92461824"
 
 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음과 같습니다.
 
-| From | 아래와 같이 변경합니다.| *파란색 Vnet* | *레드 Vnet* | *분기*|
+| 시작 | 아래와 같이 변경합니다.| *파란색 Vnet* | *레드 Vnet* | *분기*|
 |---|---|---|---|---|
 | **파란색 Vnet** |   &#8594;|   직접     |           |  직접 |
 | **레드 Vnet**  |   &#8594;|              |   직접  |  직접 |
@@ -55,15 +55,15 @@ ms.locfileid: "92461824"
 
 ## <a name="workflow"></a><a name="architecture"></a>워크플로
 
-**그림 1**에는 파란색 및 빨강 VNet 연결이 있습니다.
+**그림 1** 에는 파란색 및 빨강 VNet 연결이 있습니다.
 
 * 파란색으로 연결 된 Vnet는 서로 연결 될 수 있을 뿐만 아니라 모든 분기 (VPN/ER/P2S) 연결에 도달할 수 있습니다.
 * Red Vnet는 서로 연결 될 수 있을 뿐만 아니라 모든 분기 (VPN/ER/P2S) 연결에 도달할 수 있습니다.
 
 라우팅을 설정 하는 경우 다음 단계를 고려 하십시오.
 
-1. Azure Portal, **RT_BLUE** 및 **RT_RED**에서 두 개의 사용자 지정 경로 테이블을 만듭니다.
-2. 경로 테이블 **RT_BLUE**의 경우 다음 설정에 대해:
+1. Azure Portal, **RT_BLUE** 및 **RT_RED** 에서 두 개의 사용자 지정 경로 테이블을 만듭니다.
+2. 경로 테이블 **RT_BLUE** 의 경우 다음 설정에 대해:
    * **연결**: 모든 Blue vnet를 선택 합니다.
    * **전파**: 분기의 경우 분기에 대 한 옵션을 선택 합니다. (VPN/ER/P2S) 연결은 경로를이 경로 테이블에 전파 합니다.
 3. Red Vnet 및 분기 (VPN/ER/P2S)에 대 한 **RT_RED** 경로 테이블에 대해 동일한 단계를 반복 합니다.

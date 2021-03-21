@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 08cd0e9d33dd88b9bdc418f3d1bbd382b2d80632
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038767"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
@@ -44,7 +44,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 다음 표에는 VMware에 대한 Azure Migrate 어플라이언스 요구 사항이 요약되어 있습니다.
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 **요구 사항** | **VMware** 
 --- | ---
@@ -84,7 +84,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **프로젝트 제한** |  어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록 된 기기가 여러 개 있을 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
 **지원되는 배포** | PowerShell 설치 관리자 스크립트를 사용 하 여 Windows Server 2016를 실행 하는 기존 서버에 배포 합니다.
-**PowerShell 스크립트** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 파일의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
+**PowerShell 스크립트** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 파일의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세한 정보를 알아보세요](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
 **스크립트 확인** | 해시 값을 확인 하 여 프로젝트에서 다운로드 한 PowerShell 설치 관리자 스크립트를 [확인](tutorial-discover-physical.md#verify-security) 합니다.
 **하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs가 포함 된 서버에서 실행 되어야 합니다 (80 g b의 디스크 저장소).<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
 
@@ -213,7 +213,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 응용 프로그램 데이터입니다.
 
-**Data** | **레지스트리 위치** | **키**
+**데이터** | **레지스트리 위치** | **키**
 --- | --- | ---
 애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
@@ -223,9 +223,9 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 기능 데이터입니다.
 
-**Data**  | **PowerShell cmdlet** | **속성**
+**데이터**  | **PowerShell cmdlet** | **속성**
 --- | --- | ---
-속성  | Get-WindowsFeature  | 속성
+Name  | Get-WindowsFeature  | Name
 기능 유형 | Get-WindowsFeature  | FeatureType
 Parent  | Get-WindowsFeature  | Parent
 
@@ -233,9 +233,9 @@ Parent  | Get-WindowsFeature  | Parent
 
 다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 SQL Server 데이터입니다.
 
-**Data**  | **레지스트리 위치**  | **키**
+**데이터**  | **레지스트리 위치**  | **키**
 --- | --- | ---
-속성  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
+Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
 서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
@@ -246,17 +246,17 @@ Parent  | Get-WindowsFeature  | Parent
 
 **Data**  | **WMI 클래스**  | **WMI 클래스 속성**
 --- | --- | ---
-속성  | Win32_operatingsystem  | 캡션
+Name  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
-Architecture  | Win32_operatingsystem  | OSArchitecture
+아키텍처  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-server-application-data"></a>Linux 서버 응용 프로그램 데이터
 
 다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 응용 프로그램 데이터입니다. 서버의 운영 체제에 따라 하나 이상의 명령이 실행 됩니다.
 
-**Data**  | **명령**
+**데이터**  | **명령**
 --- | --- 
-속성 | rpm, dpkg, snap
+Name | rpm, dpkg, snap
 버전 | rpm, dpkg, snap
 공급자 | rpm, dpkg, snap
 
@@ -264,17 +264,17 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 운영 체제 데이터입니다.
 
-**Data**  | **명령**
+**데이터**  | **명령**
 --- | --- 
-속성 <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-Architecture | uname
+Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+아키텍처 | uname
 
 ### <a name="sql-server-instances-and-databases-data"></a>SQL Server 인스턴스 및 데이터베이스 데이터
 
 어플라이언스는 SQL Server 인스턴스 및 데이터베이스에서 데이터를 수집 합니다.
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 #### <a name="sql-database-metadata"></a>SQL 데이터베이스 메타 데이터
 
@@ -351,7 +351,7 @@ SQL 메모리 사용률 비율| sys.dm_os_process_memory | 사용 안 함
 
 다음은 기기가 각 Windows 서버에서 수집 하는 연결 데이터 이며 에이전트 없는 종속성 분석에 사용 됩니다.
 
-**Data** | **명령** 
+**데이터** | **명령** 
 --- | --- 
 로컬 포트 | netstat
 로컬 IP 주소 | netstat
@@ -373,7 +373,7 @@ TCP 연결 상태 | netstat
 
 다음은 기기가 에이전트 없는 종속성 분석에 사용 하도록 설정 된 각 Linux 서버에서 수집 하는 연결 데이터입니다.
 
-**Data** | **명령** 
+**데이터** | **명령** 
 --- | ---
 로컬 포트 | netstat 
 로컬 IP 주소 | netstat 
@@ -472,7 +472,7 @@ NIC MAC 주소 | Win32_NetworkAdapterConfiguration | MACAddress
 
 어플라이언스에서 수집하여 Azure에 보내는 Linux 서버 메타데이터의 전체 목록은 다음과 같습니다.
 
-**Data** | **명령** 
+**데이터** | **명령** 
 --- | --- 
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 프로세서 코어 수 |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l

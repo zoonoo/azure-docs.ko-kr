@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d9cbfc30b10373ad2a4f4304987dac426b5dcabe
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101643578"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>PostgreSQL database를 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹으로 마이그레이션
@@ -36,7 +36,7 @@ Azure Arc enabled PostgreSQL Hyperscale 서버 그룹은 PostgreSQL의 커뮤니
 - 서버 매개 변수 다시 설정
 - 보안 컨텍스트 다시 설정: 사용자, 역할 및 권한 다시 설정 ...
 
-이 백업/복원 작업을 수행 하기 위해 Postgres에 대해 백업/복원을 수행할 수 있는 모든 도구를 사용할 수 있습니다. 다음은 그 예입니다. 
+이 백업/복원 작업을 수행 하기 위해 Postgres에 대해 백업/복원을 수행할 수 있는 모든 도구를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 - Azure Data Studio 및 해당 Postgres 확장
 - `pgcli`
 - `pgAdmin`

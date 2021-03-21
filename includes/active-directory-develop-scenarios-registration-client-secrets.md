@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 기밀 클라이언트 시나리오 방문 페이지 (디먼, 웹 앱, web API)에 대 한 포함 파일
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,10 +13,10 @@ ms.workload: identity
 ms.date: 08/14/2020
 ms.author: jmprieur
 ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996012"
 ---
 ## <a name="add-a-client-secret-or-certificate"></a>클라이언트 암호 또는 인증서 추가

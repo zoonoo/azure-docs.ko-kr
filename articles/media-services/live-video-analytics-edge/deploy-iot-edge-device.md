@@ -4,10 +4,10 @@ description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석�
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718933"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
@@ -18,13 +18,13 @@ ms.locfileid: "101718933"
 > ARM64 장치에 대 한 지원은 IoT Edge 빌드 이상에서 라이브 비디오 분석에 제공 됩니다 `1.0.4` .
 > ARM64 디바이스에서 Azure IoT Edge 런타임을 실행하는 것에 대한 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
 * [IoT Hub 만들기 및 설정](../../iot-hub/iot-hub-create-through-portal.md)
 * [IoT Edge 장치 등록](../../iot-edge/how-to-register-device.md)
-* [Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)
+* [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md)
 * [Azure Media Services 계정 만들기](../latest/create-account-howto.md)
 
     * 미국 동부 2, 미국 동부, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부, 미국 서 부 2, 미국 서 부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 지역 중 하나를 사용 합니다.
@@ -105,7 +105,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 1. 페이지의 **IoT Edge 모듈** 섹션에서 **추가** 드롭다운을 클릭 하 고 **IoT Edge 모듈** 을 선택 하 여 **IoT Edge 모듈 추가** 페이지를 표시 합니다.
 1. **모듈 설정** 탭에서 모듈의 이름을 입력 한 다음 컨테이너 이미지 URI를 지정 합니다.   
-    예:
+    예제:
     
     * **IoT Edge 모듈 이름**: lvaEdge
     * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:2.0    

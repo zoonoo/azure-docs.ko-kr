@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: 96931d2dd94a8a31021ebe62caaefc54f643b007
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94649265"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성
@@ -34,8 +34,9 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 > [!IMPORTANT]
 > 1. IPsec/IKE 정책은 다음 게이트웨이 SKU에만 작동합니다.
->    * ***VpnGw1, VpnGw2, VpnGw3** _ (경로 기반) _ ***Standard** _ 및 _*_highperformance_*_ (경로 기반)
-> 2. 지정 된 연결에 대해 _*_하나의_*_ 정책 조합만 지정할 수 있습니다.
+>    * ***VpnGw1, VpnGw2, VpnGw3***(경로 기반)
+>    * ***표준** _ 및 _ *_highperformance_** (경로 기반)
+> 2. 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
 > 3. IKE(주 모드)와 IPsec(빠른 모드) 둘 다에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
 > 4. 해당 VPN 디바이스 공급업체 사양을 참조하여 정책이 해당 온-프레미스 VPN 디바이스에서 지원되는지 확인하세요. 정책이 호환되지 않는 경우 S2S 또는 VNet 간 연결을 설정할 수 없습니다.
 
@@ -55,7 +56,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 
 다음 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다.
 
-| _ *IPsec/IKEv2**  | **옵션**    |
+| **IPsec/IKEv2**  | **옵션**    |
 | ---  | --- 
 | IKEv2 암호화 | AES256, AES192, AES128, DES3, DES  
 | IKEv2 무결성  | SHA384, SHA256, SHA1, MD5  |

@@ -8,10 +8,10 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655201"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
@@ -141,17 +141,17 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
 5. **유효성 검사** 를 클릭합니다.
 
-    ![구성 서버 탐색](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![구성 서버로 이동](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-6. 유효성 검사가 완료 되 면 **적용** 을 클릭 하 여 변경 내용을 저장 합니다.
+6. 유효성 검사가 완료되면 **적용** 을 클릭하여 변경 내용을 저장합니다.
 
     ![구성 서버 유효성 검사](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
-7. 구성을 업데이트 하려면 몇 분 정도 걸릴 수 있습니다.
+7. 구성을 업데이트하는 데 몇 분 정도 걸릴 수 있습니다.
  
-    ![구성 서버를 업데이트 하는 중](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+    ![구성 서버 업데이트](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
 
-8. 구성이 완료 되 면 알림을 받게 됩니다.
+8. 구성이 완료되면 알림을 받게 됩니다.
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Azure Portal에 리포지토리 정보 직접 입력
 
@@ -201,7 +201,7 @@ YAML 파일의 정보가 Azure Portal에 표시됩니다. **적용** 을 선택�
 
 ## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Azure 스프링 클라우드 구성에 Azure Repos 사용
 
-Azure 스프링 클라우드는 공용, SSH로 보호 또는 HTTP 기본 인증을 사용 하 여 보호 되는 Git 리포지토리에 액세스할 수 있습니다. Azure Repos를 사용 하 여 쉽게 만들고 관리할 수 있으므로 해당 마지막 옵션을 사용 합니다.
+Azure Spring Cloud는 퍼블릭 Git 리포지토리, SSH로 보호된 Git 리포지토리 또는 HTTP 기본 인증을 사용하여 보호된 Git 리포지토리에 액세스할 수 있습니다. Azure Repos를 사용 하 여 쉽게 만들고 관리할 수 있으므로 해당 마지막 옵션을 사용 합니다.
 
 ### <a name="get-repo-url-and-credentials"></a>리포지토리 url 및 자격 증명 가져오기
 1. 프로젝트에 대 한 Azure Repos 포털에서 "복제" 단추를 클릭 합니다.

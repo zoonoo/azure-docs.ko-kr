@@ -4,10 +4,10 @@ description: 일반적인 경고 스키마를 활용 하 여 모든 경고를 �
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 459ac43a6260e046befbe58d3531bac494903d51
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038342"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Logic Apps와 공통 경고 스키마를 통합 하는 방법
@@ -19,7 +19,7 @@ ms.locfileid: "102038342"
 [일반적인 경고 스키마](./alerts-common-schema.md) 는 다양 한 경고 유형에 대해 표준화 되 고 확장 가능한 JSON 스키마를 제공 합니다. 일반적인 경고 스키마는 웹 후크, runbook 및 논리 앱을 통해 프로그래밍 방식으로 활용할 때 가장 유용 합니다. 이 문서에서는 모든 경고를 처리 하도록 단일 논리 앱을 작성할 수 있는 방법을 보여 줍니다. 다른 프로그래밍 방법에도 동일한 원칙이 적용 될 수 있습니다. 이 문서에서 설명 하는 논리 앱은 [' 필수 ' 필드](alerts-common-schema-definitions.md#essentials)에 대 한 잘 정의 된 변수를 만들고 [경고 유형별](alerts-common-schema-definitions.md#alert-context) 논리를 처리 하는 방법에 대해서도 설명 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 이 문서에서는 독자가 다음에 대해 잘 알고 있다고 가정 합니다. 
 * 경고 규칙 설정 ([메트릭](../alerts/alerts-metric.md), [로그](./alerts-log.md), [활동 로그](./alerts-activity-log.md))

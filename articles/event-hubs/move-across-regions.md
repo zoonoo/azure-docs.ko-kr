@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs 네임 스페이스를 현재 
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96019925"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Azure Event Hubs 네임 스페이스를 다른 지역으로 이동
@@ -15,7 +15,7 @@ ms.locfileid: "96019925"
  
 Azure 리소스 그룹에 Event Hubs 네임 스페이스가 포함 된 다른 리소스가 있는 경우 모든 관련 된 리소스를 한 번에 새 지역으로 이동할 수 있도록 리소스 그룹 수준에서 템플릿을 내보내야 할 수 있습니다. 이 문서의 단계에서는 **네임 스페이스** 를 템플릿으로 내보내는 방법을 보여 줍니다. **리소스 그룹** 을 템플릿으로 내보내는 단계는 비슷합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
 - 네임 스페이스에서 event hubs에 대해 **캡처 기능** 을 사용 하도록 설정한 경우 Event Hubs 네임 스페이스를 이동 하기 전에 [Azure Storage 또는 Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) 또는 [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) 계정을 이동 합니다. 이 문서에서 설명 하는 것과 유사한 단계를 수행 하 여 저장소 및 Event Hubs 네임 스페이스를 포함 하는 리소스 그룹을 다른 지역으로 이동할 수도 있습니다. 
@@ -40,14 +40,14 @@ Azure 리소스 그룹에 Event Hubs 네임 스페이스가 포함 된 다른 �
 템플릿을 배포 하 여 대상 지역에 Event Hubs 네임 스페이스를 만듭니다. 
 
 
-1. Azure Portal에서 **리소스 만들기** 를 선택 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
 2. **Marketplace 검색** 에서 **템플릿 배포** 를 입력 하 고 **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)** 을 선택 합니다.
 5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 6. **파일 로드** 를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 파일 **에template.js** 를 로드 합니다.
 1. `location`새 영역을 가리키도록 속성의 값을 업데이트 합니다. 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요. 영역에 대 한 코드는 공백을 사용 하지 않는 지역 이름입니다 (예: `West US` ) `westus` .
 1. **저장** 을 선택 하 여 템플릿을 저장 합니다. 
 1. **사용자 지정 배포** 페이지에서 다음 단계를 수행 합니다. 
-    1. Azure **구독** 을 선택 합니다. 
+    1. Azure **구독** 을 선택합니다. 
     2. 기존 **리소스 그룹** 을 선택하거나 리소스 그룹을 만듭니다. 원본 네임 스페이스가 Event Hubs 클러스터에 있는 경우 대상 지역에서 클러스터가 포함 된 리소스 그룹을 선택 합니다. 
     3. 대상 **위치** 또는 지역을 선택 합니다. 기존 리소스 그룹을 선택한 경우이 설정은 읽기 전용입니다. 
     4. **설정** 섹션에서 다음 단계를 수행 합니다.    

@@ -11,10 +11,10 @@ ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
 ms.openlocfilehash: 9c9af6e3bc3dfd798f4b3f0cad9319aa573c425d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96455994"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 관리
@@ -80,7 +80,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update)|탄력적 풀을 업데이트합니다.|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-delete)|탄력적 풀을 삭제합니다.|
 
-## <a name="transact-sql-t-sql"></a>Transact-SQL(T-SQL)
+## <a name="transact-sql-t-sql"></a>T-SQL(Transact-SQL)
 
 기존 탄력적 풀 내에서 데이터베이스를 만들고 이동하거나, Transact-SQL을 사용하여 SQL Database 탄력적 풀에 대한 정보를 반환하려면 다음 T-SQL 명령을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs)또는 서버에 연결 하 고 transact-sql 명령을 전달할 수 있는 다른 프로그램을 사용 하 여 이러한 명령을 실행할 수 있습니다. T-SQL을 사용하여 방화벽 규칙을 만들고 관리하려면 [T-SQL을 사용하여 방화벽 규칙 관리](firewall-configure.md#use-transact-sql-to-manage-ip-firewall-rules)를 참조하세요.
 

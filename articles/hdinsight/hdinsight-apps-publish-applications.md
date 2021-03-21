@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
 ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942657"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 애플리케이션 게시
@@ -41,7 +41,7 @@ Marketplace에 애플리케이션을 게시하는 데에는 두 단계가 있습
 }
 ```
 
-| 필드 | Description | 가능한 값 |
+| 필드 | 설명 | 가능한 값 |
 | --- | --- | --- |
 | types |애플리케이션과 호환되는 클러스터 종류입니다. |Hadoop, HBase, Storm, Spark(또는 이러한 클러스터의 조합) |
 | versions |애플리케이션과 호환되는 HDInsight 클러스터 종류입니다. |3.4 |

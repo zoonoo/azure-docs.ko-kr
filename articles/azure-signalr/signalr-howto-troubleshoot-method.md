@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: yajin1
 ms.openlocfilehash: 2e22777b747ae24c3e643cbd43bfdb0604d453a2
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97707659"
 ---
 # <a name="how-to-troubleshoot-connectivity-and-message-delivery-issues"></a>연결 및 메시지 배달 문제를 해결 하는 방법
@@ -197,7 +197,7 @@ Azure SignalR service에 대 한 [진단 로그를 사용 하도록 설정할](.
 
 * 응답 상태 코드:
   * 200: 정상입니다.
-  * 503: 서비스가 비정상 상태입니다. 다음 작업을 수행할 수 있습니다.
+  * 503: 서비스가 비정상 상태입니다. 다음을 할 수 있습니다.
     * 자동으로 몇 분 정도 기다립니다.
     * Ip 주소가 포털의 ip와 동일한 지 확인 합니다.
     * 또는 인스턴스를 다시 시작 합니다.

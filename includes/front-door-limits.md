@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: frontdoor
 author: duongau
@@ -9,10 +9,10 @@ ms.date: 02/18/2021
 ms.author: duau
 ms.custom: include file
 ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101102940"
 ---
 | 리소스 | 제한 |

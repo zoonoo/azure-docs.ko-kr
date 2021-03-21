@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 02/04/2021
 ms.author: rishjai
 ms.openlocfilehash: efd5c1ab3e23348373be76c79d1b9689bc5f4941
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101720531"
 ---
 # <a name="azure-resource-manager-templates-for-azure-site-recovery"></a>Azure Site Recovery에 대 한 Azure Resource Manager 템플릿
 
 다음 표에는 Azure Site Recovery 기능을 사용 하기 위한 Azure Resource Manager 템플릿에 대 한 링크가 포함 되어 있습니다.
 
-| 템플릿 | Description |
+| 템플릿 | 설명 |
 |---|---|
 |**Azure 간** | |
 | [Recovery Services 자격 증명 모음 만들기](./quickstart-create-vault-template.md)| Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음은 Azure Backup 및 Azure Site Recovery에 사용할 수 있습니다. |

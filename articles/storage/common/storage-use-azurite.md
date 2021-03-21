@@ -9,10 +9,10 @@ ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92490784"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
@@ -30,7 +30,7 @@ Azurite는 향후 저장소 에뮬레이터 플랫폼입니다. Azurite는 [Azur
 
 ## <a name="install-and-run-the-azurite-visual-studio-code-extension"></a>Azurite Visual Studio Code 확장을 설치 하 고 실행 합니다.
 
-Visual Studio Code 내에서 **확장** 창을 선택 하 고 **확장: MARKETPLACE**에서 *Azurite* 를 검색 합니다.
+Visual Studio Code 내에서 **확장** 창을 선택 하 고 **확장: MARKETPLACE** 에서 *Azurite* 를 검색 합니다.
 
 ![Visual Studio Code 확장 마켓플레이스](media/storage-use-azurite/azurite-vs-code-extension.png)
 
@@ -48,7 +48,7 @@ Visual Studio Code 내에서 **확장** 창을 선택 하 고 **확장: MARKETPL
    - **Azurite: Blob service** 시작-blob service 시작
    - **Azurite: 큐 서비스 시작** -큐 서비스 시작
 
-Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 합니다. **Azurite**에 대 한 **관리** (기어) 아이콘을 선택 합니다. **확장 설정**을 선택 합니다.
+Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 합니다. **Azurite** 에 대 한 **관리** (기어) 아이콘을 선택 합니다. **확장 설정** 을 선택 합니다.
 
 ![Azurites 확장 설정 구성](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
@@ -57,7 +57,7 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
    - **Azurite: Blob Host** -Blob service 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
    - **Azurite: Blob port** -Blob service 수신 대기 포트입니다. 기본 포트는 1만입니다.
    - **Azurite: Cert** -HTTPS 모드를 사용 하도록 설정 하기 위해 로컬에서 신뢰할 수 있는 PEM 또는 PFX 인증서 파일 경로에 대 한 경로입니다.
-   - **Azurite: debug** -디버그 로그를 Azurite 채널에 출력 합니다. 기본 값은 **false**입니다.
+   - **Azurite: debug** -디버그 로그를 Azurite 채널에 출력 합니다. 기본 값은 **false** 입니다.
    - **Azurite: 키** -로컬에서 신뢰할 수 있는 pem 키 파일에 대 한 경로입니다. **Azurite: Cert** 가 PEM 파일을 가리킬 때 필요 합니다.
    - **Azurite: location** -작업 영역 위치 경로입니다. 기본값은 Visual Studio Code 작업 폴더입니다.
    - **Azurite:** 지원 되지 않는 헤더와 매개 변수를 무시 하는 느슨한 사용 느슨한 모드입니다.
@@ -65,8 +65,8 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
    - **Azurite: Pwd** -PFX 파일의 암호입니다. **Azurite: Cert** 가 PFX 파일을 가리킬 때 필요 합니다.
    - **Azurite: Queue Host** -큐 서비스 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
    - **Azurite: Queue port** -큐 서비스 수신 포트입니다. 기본 포트는 10001입니다.
-   - **Azurite: 자동** -자동 모드에서 액세스 로그를 사용 하지 않도록 설정 합니다. 기본 값은 **false**입니다.
-   - **Azurite: Api 버전 확인 건너뛰기** -요청 Api 버전 검사를 건너뜁니다. 기본 값은 **false**입니다.
+   - **Azurite: 자동** -자동 모드에서 액세스 로그를 사용 하지 않도록 설정 합니다. 기본 값은 **false** 입니다.
+   - **Azurite: Api 버전 확인 건너뛰기** -요청 Api 버전 검사를 건너뜁니다. 기본 값은 **false** 입니다.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>NPM를 사용 하 여 Azurite 설치 및 실행
 
@@ -97,7 +97,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 
 **작업 영역 위치 지정**:
 
-다음 예제에서 `-v c:/azurite:/data` 매개 변수는 azurite 지속형 데이터 위치로 *c:/azurite* 를 지정 합니다. Docker 명령을 실행 하기 전에 디렉터리 *c:/azurite*를 만들어야 합니다.
+다음 예제에서 `-v c:/azurite:/data` 매개 변수는 azurite 지속형 데이터 위치로 *c:/azurite* 를 지정 합니다. Docker 명령을 실행 하기 전에 디렉터리 *c:/azurite* 를 만들어야 합니다.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -136,19 +136,19 @@ Azurite를 설치 하 고 빌드한 후 [명령줄에서 Azurite 실행](#run-az
 > [!NOTE]
 > Visual Studio Code 확장명만 설치한 경우 명령줄에서 Azurite를 실행할 수 없습니다. 대신 Visual Studio Code 명령 팔레트를 사용 합니다. 자세한 내용은 [Azurite Visual Studio Code 확장 설치 및 실행](#install-and-run-the-azurite-visual-studio-code-extension)을 참조 하세요.
 
-명령줄을 사용 하 여 즉시 시작 하려면 *c:\azurite*라는 디렉터리를 만든 후 다음 명령을 실행 하 여 azurite를 시작 합니다.
+명령줄을 사용 하 여 즉시 시작 하려면 *c:\azurite* 라는 디렉터리를 만든 후 다음 명령을 실행 하 여 azurite를 시작 합니다.
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-이 명령은 Azurite에 게 *c:\azurite*의 특정 디렉터리에 모든 데이터를 저장 하도록 지시 합니다. `--location`이 옵션을 생략 하면 현재 작업 디렉터리가 사용 됩니다.
+이 명령은 Azurite에 게 *c:\azurite* 의 특정 디렉터리에 모든 데이터를 저장 하도록 지시 합니다. `--location`이 옵션을 생략 하면 현재 작업 디렉터리가 사용 됩니다.
 
 ## <a name="command-line-options"></a>명령줄 옵션
 
 이 섹션에서는 Azurite를 시작할 때 사용할 수 있는 명령줄 스위치에 대해 자세히 설명 합니다.
 
-### <a name="help"></a>도움말
+### <a name="help"></a>Help
 
 **선택 사항** -또는 스위치를 사용 하 여 명령줄 도움말을 가져옵니다 `-h` `--help` .
 
@@ -271,7 +271,7 @@ azurite --debug path/debug.log
 azurite -L
 azurite --loose
 ```
-### <a name="version"></a>Version
+### <a name="version"></a>버전
 
 **선택 사항** -또는 스위치를 사용 하 여 설치 된 Azurite 버전 번호를 표시 `-v` `--version` 합니다.
 
@@ -364,7 +364,7 @@ Azurite는 기본적으로 분 마다 사용자 지정 계정 이름과 키를 �
 
 ### <a name="connection-strings"></a>연결 문자열
 
-응용 프로그램에서 Azurite에 연결 하는 가장 쉬운 방법은 *UseDevelopmentStorage = true*바로 가기를 참조 하는 응용 프로그램의 구성 파일에서 연결 문자열을 구성 하는 것입니다. *app.config* 파일에 있는 연결 문자열의 예는 다음과 같습니다.
+응용 프로그램에서 Azurite에 연결 하는 가장 쉬운 방법은 *UseDevelopmentStorage = true* 바로 가기를 참조 하는 응용 프로그램의 구성 파일에서 연결 문자열을 구성 하는 것입니다. *app.config* 파일에 있는 연결 문자열의 예는 다음과 같습니다.
 
 ```xml
 <appSettings>
@@ -473,19 +473,19 @@ Storage 탐색기에서 다음 단계를 수행 하 여 Azurite에 연결 합니
  1. **계정 관리** 아이콘을 선택 합니다.
  1. **계정 추가를 선택 합니다** .
  1. **로컬 에뮬레이터에 연결을 선택 합니다** .
- 1. **다음**을 선택합니다.
+ 1. **다음** 을 선택합니다.
  1. **표시 이름** 필드를 원하는 이름으로 편집 합니다.
  1. 다시 **다음** 을 선택 합니다.
  1. **연결** 선택
 
 #### <a name="connect-to-azurite-using-https"></a>HTTPS를 사용 하 여 Azurite에 연결
 
-기본적으로 Storage 탐색기 자체 서명 된 인증서를 사용 하는 HTTPS 끝점은 열리지 않습니다. HTTPS를 사용 하 여 Azurite를 실행 하는 경우 자체 서명 된 인증서를 사용할 가능성이 높습니다. Storage 탐색기에서 ssl 인증서 **편집**  ->  **SSL Certificates**  ->  **인증서 가져오기** 대화 상자를 통해 ssl 인증서를 가져옵니다.
+기본적으로 Storage 탐색기 자체 서명 된 인증서를 사용 하는 HTTPS 끝점은 열리지 않습니다. HTTPS를 사용 하 여 Azurite를 실행 하는 경우 자체 서명 된 인증서를 사용할 가능성이 높습니다. Storage 탐색기에서 ssl 인증서 **편집**  ->    ->  **인증서 가져오기** 대화 상자를 통해 ssl 인증서를 가져옵니다.
 
 ##### <a name="import-certificate-to-storage-explorer"></a>인증서를 Storage 탐색기 가져오기
 
 1. 로컬 컴퓨터에서 인증서를 찾습니다.
-1. Storage 탐색기에서 **Edit**  ->  **SSL 인증서**편집  ->  **인증서 가져오기** 로 이동 하 여 인증서를 가져옵니다.
+1. Storage 탐색기에서   ->  **SSL 인증서** 편집  ->  **인증서 가져오기** 로 이동 하 여 인증서를 가져옵니다.
 
 인증서를 가져오지 않으면 오류가 발생 합니다.
 
@@ -497,12 +497,12 @@ Storage 탐색기에 Azurite HTTPS를 추가 하려면 다음 단계를 수행 �
 
 1. **탐색기 설정/해제** 를 선택 합니다.
 1. **로컬 & 연결** 됨을 선택 합니다.
-1. **저장소 계정** 을 마우스 오른쪽 단추로 클릭 하 고 **Azure Storage에 연결을**선택 합니다.
+1. **저장소 계정** 을 마우스 오른쪽 단추로 클릭 하 고 **Azure Storage에 연결을** 선택 합니다.
 1. **연결 문자열 사용을 선택 합니다** .
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 1. **표시 이름** 필드에 값을 입력 합니다.
 1. 이 문서의 이전 섹션에서 [HTTPS 연결 문자열](#https-connection-strings) 을 입력 합니다.
-1. **다음**을 선택합니다.
+1. **다음** 을 선택합니다.
 1. **연결** 선택
 
 ## <a name="workspace-structure"></a>작업 영역 구조

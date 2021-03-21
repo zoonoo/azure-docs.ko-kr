@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: cb57e424642141e73588a61d026d1ff2f1a8b096
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905301"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure Maps에서 적절한 가격 책정 계층 선택
@@ -48,7 +48,7 @@ S0 및 S1 가격 책정 계층이 처리할 수 있는 데이터 처리량은 �
 | 모바일 (미리 보기)                       |                     | ✓        |
 | 날씨 (미리 보기)                        |✓                    |✓        |
 |  작성자 (미리 보기)                         |                   |✓        |
-|  권한 상승 (미리 보기)                        |                   |✓        |
+|  권한 상승(미리 보기)                        |                   |✓        |
 
 다음과 같은 추가 사항을 고려 합니다.
 

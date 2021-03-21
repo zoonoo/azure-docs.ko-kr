@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97703435"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 변칙 탐지기 API 사용  
@@ -71,4 +71,4 @@ ms.locfileid: "97703435"
 ## <a name="next-steps"></a>다음 단계
 
 * [Anomaly Detector API란?](../overview.md)
-* [빠른 시작: 변칙 탐지기를 사용 하 여 시계열 데이터의 변칙 검색](../quickstarts/client-libraries.md)
+* [빠른 시작: Anomaly Detector를 사용하여 시계열 데이터에서 변칙 검색](../quickstarts/client-libraries.md)

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
 ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94654986"
 ---
-# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure 방화벽을 사용하여 Windows 가상 데스크톱 배포 보호
+# <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure Firewall을 사용하여 Windows 가상 데스크톱 배포 보호
 
 Windows 가상 데스크톱은 Azure에서 실행 되는 데스크톱 및 앱 가상화 서비스입니다. 최종 사용자가 Windows 가상 데스크톱 환경에 연결 하는 경우 해당 세션은 호스트 풀에 의해 실행 됩니다. 호스트 풀은 Windows 가상 데스크톱에 세션 호스트로 등록 하는 Azure 가상 컴퓨터의 컬렉션입니다. 이러한 가상 머신은 가상 네트워크에서 실행 되 고 가상 네트워크 보안 제어에 적용 됩니다. Windows 가상 데스크톱 서비스에 대 한 아웃 바운드 인터넷 액세스가 필요 하며, 최종 사용자에 대 한 아웃 바운드 인터넷 액세스가 필요할 수도 있습니다. Azure 방화벽을 통해 사용자 환경을 잠그고 아웃 바운드 트래픽을 필터링 할 수 있습니다.
 
@@ -22,7 +22,7 @@ Windows 가상 데스크톱은 Azure에서 실행 되는 데스크톱 및 앱 �
 
 이 문서의 지침에 따라 Azure 방화벽을 사용 하 여 Windows 가상 데스크톱 호스트 풀에 대 한 추가 보호를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 
  - 배포 된 Windows 가상 데스크톱 환경 및 호스트 풀.

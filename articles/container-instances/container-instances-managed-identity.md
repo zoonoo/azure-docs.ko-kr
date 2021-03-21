@@ -4,10 +4,10 @@ description: 다른 Azure 서비스를 사용 하 여 인증할 수 있는 Azure
 ms.topic: article
 ms.date: 07/02/2020
 ms.openlocfilehash: a0d029e39122ca7bb858103f4d7f88e2536850d5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198322"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
@@ -49,7 +49,7 @@ Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 �
 
 - 이 문서에는 Azure CLI 버전 2.0.49 이상이 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-## <a name="create-an-azure-key-vault"></a>Azure key vault 만들기
+## <a name="create-an-azure-key-vault"></a>Azure 키 자격 증명 모음 만들기
 
 이 문서의 예제에서는 Azure Container Instances에서 관리 되는 id를 사용 하 여 Azure key vault 비밀에 액세스 합니다. 
 

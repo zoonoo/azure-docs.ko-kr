@@ -4,10 +4,10 @@ description: 이 가이드는 Azure Lab Services를 사용 하 여 랩 계정을
 ms.topic: article
 ms.date: 10/20/2020
 ms.openlocfilehash: 3ad3ee38a6c08a6af85822d76012cc6dfc34ff4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462476"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services - 관리자 가이드
@@ -150,11 +150,11 @@ Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스트 하�
     
   - **피어 링 가상 네트워크가 없고 랩 작성자 *가 랩 위치* 를 선택할 수 없습니다.**
   
-    랩 계정으로 피어 링 되는 가상 네트워크가 *없고* [랩 작성자가 랩 위치 *not allowed* 를 선택할](./allow-lab-creator-pick-lab-location.md)수 없는 경우 랩을 사용 가능한 VM 용량이 있는 지역에 자동으로 생성 됩니다.  특히 Azure Lab Services는 [랩 계정과 동일한 지리적 위치 내에 있는 지역](https://azure.microsoft.com/global-infrastructure/regions)에서 가용성을 찾습니다.
+    랩 계정으로 피어 링 되는 가상 네트워크가 *없고* [랩 작성자가 랩 위치  를 선택할](./allow-lab-creator-pick-lab-location.md)수 없는 경우 랩을 사용 가능한 VM 용량이 있는 지역에 자동으로 생성 됩니다.  특히 Azure Lab Services는 [랩 계정과 동일한 지리적 위치 내에 있는 지역](https://azure.microsoft.com/global-infrastructure/regions)에서 가용성을 찾습니다.
 
   - ***피어 링 가상 네트워크가 없고 랩 작성자* 가 랩 위치를 선택할 수 있습니다.**
        
-    피어 링 가상 네트워크가 *없고* 랩 작성자가 [랩 위치를 선택할 *are allowed*](./allow-lab-creator-pick-lab-location.md)수 있는 경우 랩 작성자가 선택할 수 있는 위치는 사용 가능한 용량에 따라 달라 집니다.
+    피어 링 가상 네트워크가 *없고* 랩 작성자가 [랩 위치를 선택할](./allow-lab-creator-pick-lab-location.md)수 있는 경우 랩 작성자가 선택할 수 있는 위치는 사용 가능한 용량에 따라 달라 집니다.
 
 > [!NOTE]
 > 지역에 VM 용량이 충분 한지 확인 하려면 랩을 만들 때 랩 계정을 통해 용량을 먼저 요청 하는 것이 중요 합니다.
@@ -170,7 +170,7 @@ Azure Lab Services 리소스를 설정 하는 경우 리소스를 호스트 하�
 | 작음| <ul><li>2 &nbsp; 코어</li><li>3.5 기가바이트 (GB) RAM</li> | [Standard_A2_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 명령줄에 가장 적합 하며, 웹 브라우저, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스를 엽니다. |
 | 중간 | <ul><li>4 &nbsp; 코어</li><li>&nbsp;7gb &nbsp; RAM</li> | [Standard_A4_v2](../virtual-machines/av2-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. |
 | 중간 (중첩 된 가상화) | <ul><li>4 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul> | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다.
-| 큼 | <ul><li>8 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다.  이 크기는 중첩된 가상화도 지원합니다. |
+| 대형 | <ul><li>8 &nbsp; 코어</li><li>16gb &nbsp; &nbsp; RAM</li></ul>  | [Standard_A8_v2](../virtual-machines/av2-series.md) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다.  이 크기는 중첩된 가상화도 지원합니다. |
 | 큼 (중첩 된 가상화) | <ul><li>8 &nbsp; 코어</li><li>32 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#dsv3-series) | 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 대량 데이터베이스, 많은 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. |
 | 소형 GPU (시각화) | <ul><li>6 &nbsp; 코어</li><li>56 &nbsp; GB &nbsp; RAM</li>  | [Standard_NV6](../virtual-machines/nv-series.md) | OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임 및 인코딩에 가장 적합 합니다. |
 | 소형 GPU(컴퓨팅) | <ul><li>6 &nbsp; 코어</li><li>56 &nbsp; GB &nbsp; RAM</li></ul>  | [Standard_NC6](../virtual-machines/nc-series.md) |AI 및 심층 학습 등 컴퓨터를 많이 사용 하는 응용 프로그램에 가장 적합 합니다. |

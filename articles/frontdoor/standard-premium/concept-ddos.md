@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: jodowns
 ms.openlocfilehash: 9c67944717888439c0d6bd84e1615f51dd91fcac
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100149"
 ---
 # <a name="ddos-protection-on-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에 대 한 DDoS 보호
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure Front 문에는 DDoS (분산 서비스 거부) 공격을 방지 하는 데 도움이 될 수 있는 몇 가지 기능과 특징이 있습니다. 이러한 기능을 통해 공격자는 응용 프로그램에 도달 하지 못하게 하 고 응용 프로그램의 가용성 및 성능에 영향을 줄 수 있습니다.
 

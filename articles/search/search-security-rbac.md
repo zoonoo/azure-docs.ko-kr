@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: ee122727100ec0abad0dfe93b9e5f1be0276cb8e
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519502"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 관리 액세스를 위한 Azure 역할 설정
@@ -26,7 +26,7 @@ Azure에서는 포털 또는 Resource Manager API를 통해 관리되는 모든 
 
 Azure Cognitive Search의 경우 역할은 다음 관리 작업을 지 원하는 사용 권한 수준과 연결 됩니다.
 
-| Role | Task |
+| 역할 | 작업 |
 | --- | --- |
 | 소유자 |api-key, 인덱스, 인덱서, 인덱서 데이터 원본 및 인덱서 일정 등 서비스 또는 해당 서비스의 개체를 만들거나 삭제합니다.<p>개수 및 스토리지 크기를 포함하여 서비스 상태를 봅니다.<p>역할 멤버 자격을 추가하거나 삭제합니다(소유자만 역할 멤버 자격을 관리할 수 있음).<p>구독 관리자 및 서비스 소유자는 소유자 역할의 자동 멤버 자격을 갖습니다. |
 | 참가자 | Azure 역할 관리를 뺀 소유자와 동일한 액세스 수준입니다. 예를 들어, 참여자는 개체를 만들거나 삭제하거나, [api-keys](search-security-api-keys.md)를 보고 다시 생성할 수 있지만 역할 멤버 자격을 수정할 수는 없습니다.<br><br>[Search Service 참여자](../role-based-access-control/built-in-roles.md#search-service-contributor) 는 일반 기여자 기본 제공 역할에 해당 합니다. |
@@ -40,7 +40,7 @@ Azure Cognitive Search의 경우 역할은 다음 관리 작업을 지 원하는
 
 Azure RBAC 권한은 포털 작업 및 서비스 관리 (서비스 또는 해당 API 키 만들기, 삭제 또는 변경)에 적용 됩니다. API 키는 서비스가 존재 하 고 서비스의 콘텐츠 작업에 적용 된 후에 생성 됩니다. 또한 포털의 콘텐츠 관련 작업 (예: 개체 생성 또는 삭제)의 경우 Azure RBAC 소유자 또는 참가자가 묵시적 관리 API 키를 사용 하 여 서비스와 상호 작용 합니다.
 
-| 작업(Operation) | 제어 |
+| 작업 | 제어 |
 |-----------|-------------------------|
 | 서비스 만들기 | Azure RBAC 권한: 소유자 또는 참가자 |
 | 서비스 크기 조정 | Azure RBAC 권한: 소유자 또는 참가자|

@@ -7,10 +7,10 @@ ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 2ec166c1df9727052d4980f5d5758ece8c499880
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99526605"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
@@ -27,7 +27,7 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 |--------|-----------|------------------|---------------------|
 |사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서의 Ultra 성능 또는 마이그레이션|플랫폼 간|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
-|국가별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
+|지역별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
 |중복|로컬 중복/영역 중복/지역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
 |계층 및 성능| Standard (트랜잭션 최적화)<br>Premium<br>공유 당 최대 10만 IOPS (약 3 밀리초 대기 시간)|Standard<br>Premium<br>Ultra<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>저장소 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
 |용량|100 TiB-공유 당 5 개의 PiB (범용 계정 기준) |볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
@@ -38,7 +38,7 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 
 |기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
-|액세스 권한|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
+|Access|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
 |Backup|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Azure Active Directory 통합|[네이티브 Active Directory 및 Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|

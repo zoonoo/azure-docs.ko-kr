@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575121"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사 합니다.
@@ -101,7 +101,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 >[!NOTE]
 > 타사 NVA 또는 Azure 방화벽을 사용 하 여이 시나리오를 구현 하려면 개인 끝점으로 향하는 트래픽을 SNAT 하기 위해 응용 프로그램 규칙이 아닌 네트워크 규칙이 필요 합니다. 그렇지 않으면 가상 컴퓨터와 개인 끝점 간의 통신에 실패 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독
 * Log Analytics 작업 영역.  
@@ -111,7 +111,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 
@@ -173,7 +173,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. 이전 섹션에서 이 리소스 그룹을 만들었습니다.  |
     | **인스턴스 세부 정보** |  |
-    | 가상 머신 이름 | **Myvm** 을 입력 합니다. |
+    | 가상 머신 이름 | **myVM** 을 입력합니다. |
     | 지역 | **(US) 남부 중부 US** 를 선택 합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다** 를 그대로 둡니다. |
     | 이미지 | **Ubuntu Server 18.04 LTS-Gen1** 을 선택 합니다. |
@@ -222,7 +222,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다.  |
     | **인스턴스 세부 정보** |  |
-    | 속성 | **Myazurefirewall** 을 입력 합니다. |
+    | 이름 | **Myazurefirewall** 을 입력 합니다. |
     | 지역 | **남부 중부 US** 를 선택 합니다. |
     | 가용성 영역 | 기본값인 **없음** 을 그대로 둡니다. |
     | 가상 네트워크 선택    |    **기존 사용** 을 선택 합니다.    |
@@ -308,7 +308,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | Subscription | 구독을 선택합니다. |
     | Resource group | **myResourceGroup** 을 선택합니다. |
     | **인스턴스 세부 정보** | |
-    | 속성 | **SQLPrivateEndpoint** 를 입력 합니다. |
+    | 이름 | **SQLPrivateEndpoint** 를 입력 합니다. |
     | 지역 | **(US) 남부 중부 US를 선택 합니다.** |
 
 6. **리소스** 탭을 선택 하거나 페이지 맨 아래에 있는 **다음: 리소스** 를 선택 합니다.
@@ -456,21 +456,21 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **SQLPrivateEndpoint** 를 입력 합니다. |
+    | Name | **SQLPrivateEndpoint** 를 입력 합니다. |
     | 우선 순위 | **100** 을 입력합니다. |
     | 작업 | **허용** 을 입력 합니다. |
     | **규칙.** |  |
     | **FQDN 태그** | |
-    | 속성  | 비워 둡니다.  |
+    | Name  | 비워 둡니다.  |
     | 소스 형식 | 기본 **IP 주소** 를 그대로 둡니다.    |
     | 원본 | 비워 둡니다. |
     | FQDN 태그 | 기본값 0을 **선택** 된 상태로 둡니다. |
-    | **대상 Fqdn** | |
-    | 속성 | **SQLPrivateEndpoint** 를 입력 합니다.    |
+    | **대상 FQDN** | |
+    | Name | **SQLPrivateEndpoint** 를 입력 합니다.    |
     | 소스 형식 | 기본 **IP 주소** 를 그대로 둡니다. |
     | 원본 | **10.1.0.0/16** 을 입력 합니다. |
     | 프로토콜: 포트 | **Mssql: 1433** 을 입력 합니다. |
-    | 대상 Fqdn | **Mydbserver.database.windows.net** 를 입력 합니다. |
+    | 대상 FQDN | **Mydbserver.database.windows.net** 를 입력 합니다. |
     |||
 
 7. **추가** 를 선택합니다.
@@ -498,7 +498,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
     | Resource group | **myResourceGroup** 을 선택합니다.  |
     | **인스턴스 세부 정보** |  |
     | 지역 | **남부 중부 US** 를 선택 합니다. |
-    | 속성 | **VMsubnet 대 AzureFirewall을** 입력 합니다. |
+    | Name | **VMsubnet 대 AzureFirewall을** 입력 합니다. |
     | 게이트웨이 경로 전파 | **아니오** 를 선택합니다. |
 
 5. **검토 + 만들기** 를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.

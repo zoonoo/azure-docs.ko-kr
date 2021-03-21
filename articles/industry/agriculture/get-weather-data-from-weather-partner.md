@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
 ms.openlocfilehash: bb28c517e353af6b8c1ee0cad788ff41b971918c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96460875"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>날씨 파트너의 날씨 데이터 가져오기
@@ -151,7 +151,7 @@ FarmBeats REST API를 사용 하 여 날씨 데이터를 쿼리하려면:
 
 1. FarmBeats Datahub [Swagger](https://yourdatahub.azurewebsites.net/swagger)에서/WeatherDataLocation API로 이동 하 여 GET 요청을 수행 합니다. 응답에는 작업 실행에 지정 된 위치 (위도 및 경도)에 대해 만들어진/WeatherDataLocation 개체가 포함 됩니다. 개체의 **ID** 와 **weatherDataModelId** 를 적어 둡니다.
 
-2. 이전 처럼 **weatherDataModelId** 에 대 한/WeatherDataModel API에서 GET/{id} 요청을 만듭니다. 날씨 데이터 모델은 수집 날씨 데이터에 대 한 모든 메타 데이터 및 세부 정보를 표시 합니다. 예를 들어 날씨 데이터 모델 개체에서 날씨 측정은 지원 되는 날씨 정보 및 종류와 단위에 대해 자세히 설명 합니다. 다음은 그 예입니다. 
+2. 이전 처럼 **weatherDataModelId** 에 대 한/WeatherDataModel API에서 GET/{id} 요청을 만듭니다. 날씨 데이터 모델은 수집 날씨 데이터에 대 한 모든 메타 데이터 및 세부 정보를 표시 합니다. 예를 들어 날씨 데이터 모델 개체에서 날씨 측정은 지원 되는 날씨 정보 및 종류와 단위에 대해 자세히 설명 합니다. 예를 들면 다음과 같습니다.
 
    ```json
    {
@@ -227,7 +227,7 @@ FarmBeats REST API를 사용 하 여 날씨 데이터를 쿼리하려면:
 | DockerDetails-파트너 자격 증명 | Docker에서 파트너 API를 호출 하기 위한 자격 증명입니다. 파트너는 지원 되는 권한 부여 메커니즘을 기반으로이 정보를 제공 합니다. 예: 사용자 이름 및 암호 또는 API 키. |
 | partnerType | "날씨". FarmBeats의 다른 파트너 유형은 "센서" 및 "이미지"입니다.  |
 |  name   |   FarmBeats 시스템에서 원하는 파트너의 이름입니다.   |
-|  description |  설명   |
+|  설명 |  설명   |
 
 ## <a name="next-steps"></a>다음 단계
 
