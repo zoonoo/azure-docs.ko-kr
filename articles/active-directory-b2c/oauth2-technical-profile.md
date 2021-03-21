@@ -12,10 +12,10 @@ ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f79360269c19f6770fa12120ec34497b29015e7e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99050688"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
@@ -102,13 +102,13 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 | ResolveJsonPathsInJsonTokens  | 아니요 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#output-claims)에서을 `PartnerClaimType` 출력 하려는 JSON 경로 요소로 설정 합니다. 예를 들면 `firstName.localized` , 또는 `data.0.to.0.email` 입니다.|
 |token_endpoint_auth_method| 아니요| Azure AD B2C 인증 헤더를 토큰 끝점으로 전송 하는 방법을 지정 합니다. 가능한 값: `client_secret_post` (기본값) 및 `client_secret_basic` (공개 미리 보기). 자세한 내용은 [Openid connect Connect 클라이언트 인증 섹션](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조 하세요. |
 |SingleLogoutEnabled| 아니요| 로그인 중에 기술 프로필에서 페더레이션 id 공급자에 대 한 로그 아웃을 시도 하는지 여부를 나타냅니다. 자세한 내용은 [Azure AD B2C 세션 로그 아웃](session-behavior.md#sign-out)을 참조 하세요. 가능한 값은 `true` (기본값) 또는 `false` 입니다.|
-| UsePolicyInRedirectUri | 아니요 | 리디렉션 URI를 구성할 때 정책을 사용할지 여부를 나타냅니다. ID 공급자에서 애플리케이션을 구성할 때 리디렉션 URI를 지정해야 합니다. 리디렉션 URI는 Azure AD B2C을 가리킵니다 `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` . `true`를 지정하는 경우 사용하는 각 정책에 대해 리디렉션 URI를 추가해야 합니다. 예: `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp` |
+| UsePolicyInRedirectUri | 아니요 | 리디렉션 URI를 구성할 때 정책을 사용할지 여부를 나타냅니다. ID 공급자에서 애플리케이션을 구성할 때 리디렉션 URI를 지정해야 합니다. 리디렉션 URI는 Azure AD B2C을 가리킵니다 `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp` . `true`를 지정하는 경우 사용하는 각 정책에 대해 리디렉션 URI를 추가해야 합니다. 예를 들어 `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`을 참조하십시오. |
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타 데이터가로 설정 된 경우 `id_token` 암호화 키를 생략할 수 있습니다. |
 

@@ -11,10 +11,10 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: 2eda67e377a3b61e696e732b916d788c00a18eae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95908781"
 ---
 # <a name="query-acceleration-sql-language-reference"></a>쿼리 가속 SQL 언어 참조
@@ -55,7 +55,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 ## <a name="data-types"></a>데이터 형식
 
-|데이터 형식|Description|
+|데이터 형식|설명|
 |---------|-------------------------------------------|
 |INT      |부호 있는 64비트 정수.                     |
 |FLOAT    |64 비트 ("배정밀도") 부동 소수점입니다.|
@@ -77,7 +77,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 지원 되는 표준 SQL 연산자는 다음과 같습니다.
 
-|연산자|Description|
+|연산자|설명|
 |--|--|
 |[=](/sql/t-sql/language-elements/equals-transact-sql)    |두 식이 같은지 비교합니다(비교 연산자).|
 |[!=](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |식이 다른 식과 같지 않은지 테스트합니다(비교 연산자).|
@@ -114,7 +114,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 쿼리 가속 SQL 언어는 다음과 같은 표준 SQL 문자열 함수를 지원 합니다.
 
-|기능|Description|
+|함수|설명|
 |--|--|
 |CHAR_LENGTH    | 문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHARACTER_LENGTH 함수와 동일 합니다.|
 |CHARACTER_LENGTH    |문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHAR_LENGTH 함수와 동일 합니다.|
@@ -122,8 +122,8 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |소문자 데이터를 대문자로 변환한 문자 식을 반환합니다.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |SQL Server에서 문자, 이진, 텍스트 또는 이미지 식의 일부를 반환 합니다.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |문자열의 시작과 끝에서 공백 문자 char (32) 또는 기타 지정 된 문자를 제거 합니다.|
-|LEADING    |Description|
-|TRAILING    |Description|
+|LEADING    |설명|
+|TRAILING    |설명|
 
 다음은 몇 가지 예입니다.
 
@@ -148,7 +148,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 쿼리 가속 SQL 언어는 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 ``DATE_ADD`` 합니다.
 
-예:
+예제:
 
 ' ' sql DATE_ADD (datepart, quantity, timestamp) DATE_ADD (' minute ', 1, CAST (' 2017-01-02T03:04:05.006 Z ' 타임 스탬프)
 ```
@@ -166,7 +166,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 함수에 대해 지원 되는 날짜 부분이 아닌 추출의 경우 ``DATE_ADD`` 쿼리 가속 SQL 언어는 날짜 부분으로 timezone_hour 및 timezone_minute를 지원 합니다.
 
-예:
+예제:
 
 ```sql
 EXTRACT(datepart FROM timestampstring)
@@ -175,7 +175,7 @@ EXTRACT(YEAR FROM '2010-01-01T')
 
 #### <a name="to_string-function"></a>TO_STRING 함수
 
-예:
+예제:
 
 ```sql
 TO_STRING(TimeStamp , format)
@@ -201,7 +201,7 @@ TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 |H                |하루 중 시간 (0-23)                   |
 |HH               |0으로 채워진 시간 (00-23)      |
 |분                |시간의 분 (0-59)                |
-|mm               |0으로 채워진 분 (00-59)           |
+|MM               |0으로 채워진 분 (00-59)           |
 |초                |분의 초 (0-59)             |
 |ss               |0으로 채워진 초 (00-59)          |
 |S                |초의 비율 (0.1-0.9)        |
@@ -218,7 +218,7 @@ TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 
 IS08601 형식만 지원 됩니다.
 
-예:
+예제:
 
 ```sql
 TO_TIMESTAMP(string)
@@ -233,7 +233,7 @@ TO_TIMESTAMP('2007T')
 
 SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 포함 될 수 있습니다.  다음 집계 식이 지원 됩니다.
 
-|식|Description|
+|식|설명|
 |--|--|
 |[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |조건자 식과 일치 하는 레코드 수를 반환 합니다.|
 |[COUNT (식)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |식이 null이 아닌 레코드 수를 반환 합니다.|
@@ -250,7 +250,7 @@ SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 �
 
 ## <a name="table-descriptors"></a>테이블 설명자
 
-CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  예들 들어 다음과 같습니다.
+CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  예를 들면 다음과 같습니다.
 
 ```sql
 SELECT * FROM BlobStorage
@@ -302,7 +302,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 쿼리가 모든 필드를 가져오지만 위도만 선택 합니다.
 
-JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 예들 들어 다음과 같습니다.
+JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -336,7 +336,7 @@ CSV 데이터 레코드를 다운로드 한 다음 일괄 처리로 처리 하�
 >[!NOTE]
 > Split_size는 10mb (10485760) 이상 이어야 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage 쿼리 가속](data-lake-storage-query-acceleration.md)
 - [Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)

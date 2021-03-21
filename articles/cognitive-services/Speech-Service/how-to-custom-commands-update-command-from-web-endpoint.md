@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: nitinme
 ms.openlocfilehash: d0b77e6af36f0a71405f6c032bfdd121abeb0071
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97560273"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>웹 엔드포인트에서 명령 업데이트
@@ -50,7 +50,7 @@ ms.locfileid: "97560273"
 
 이 입력의 주요 특성을 검토해 보겠습니다.
 
-| attribute | 설명 |
+| 특성 | 설명 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **conversationId** | 대화의 고유 식별자입니다. 클라이언트 앱에서이 ID를 생성할 수 있습니다. |
 | **currentCommand** | 대화에서 현재 활성화 된 명령입니다. |

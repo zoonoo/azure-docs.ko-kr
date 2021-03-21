@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119087"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Azure IoT Central 솔루션에서 속성 사용
@@ -214,8 +214,8 @@ hubClient.getTwin((err, twin) => {
 | ----- | ----- | ----------- |
 | `'ac': 200` | Completed | 속성 변경 작업을 성공적으로 완료 했습니다. |
 | `'ac': 202` 또는 `'ac': 201` | Pending | 속성 변경 작업이 보류 중이거나 진행 중입니다. |
-| `'ac': 4xx` | Error | 요청 된 속성 변경이 올바르지 않거나 오류가 발생 했습니다. |
-| `'ac': 5xx` | Error | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
+| `'ac': 4xx` | 오류 | 요청 된 속성 변경이 올바르지 않거나 오류가 발생 했습니다. |
+| `'ac': 5xx` | 오류 | 장치에서 요청 된 변경을 처리 하는 동안 예기치 않은 오류가 발생 했습니다. |
 
 장치 쌍에 대 한 자세한 내용은 [백 엔드 서비스에서 장치 구성](../../iot-hub/tutorial-device-twins.md)을 참조 하세요.
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
 ms.openlocfilehash: 2c0c4bec93b8fa61275c376fbae2a3a063e72a6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785535"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>네트워크 격리를 위해 가상 네트워크와 Azure 서비스 통합

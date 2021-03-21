@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: ebc71ea2d354caf0c8f31b1231ecc1487237dd29
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101741891"
 ---
 # <a name="set-up-an-azure-front-door-standardpremium-preview-origin"></a>Azure Front 도어 표준/프리미엄 (미리 보기) 원본 설정
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 이 문서에서는 기존 원본 그룹에서 Azure Front 도어 표준/프리미엄 원본을 만드는 방법을 보여 줍니다. 
 
@@ -46,7 +46,7 @@ Azure Front 도어 Standard/Premium 원본을 만들려면 먼저 하나 이상�
   
     | 설정 | 값 |
     | --- | --- |
-    | 속성 | 새 Azure 전면 도어 원본에 대 한 고유한 이름을 입력 합니다. |   
+    | Name | 새 Azure 전면 도어 원본에 대 한 고유한 이름을 입력 합니다. |   
     | 원본 형식 | 추가 하려는 리소스의 형식입니다. Azure Front 도어 Standard/Premium은 app service, cloud service 또는 storage에서 앱 원본의 자동 검색을 지원 합니다. Azure 또는 비 Azure 백엔드에서 다른 리소스를 원하는 경우 **사용자 지정 호스트** 를 선택 합니다. |
     | 호스트 이름  | 원본 호스트 유형으로 **사용자 지정 호스트** 를 선택 하지 않은 경우 드롭다운에서 원본 호스트 이름을 선택 하 여 백 엔드를 선택 합니다. |
     | 원본 호스트 헤더 | 각 요청에 대 한 백 엔드로 전송 되는 호스트 헤더 값을 입력 합니다. 자세한 내용은 [원본 호스트 헤더](concept-origin.md#hostheader)를 참조 하세요. |

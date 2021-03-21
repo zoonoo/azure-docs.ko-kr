@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/20/2021
 ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98663988"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 오프 로드
@@ -85,7 +85,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
 
 일반적으로 사용 되는 보기는 다음과 같습니다.
 
-| 속성 | 목적 |
+| Name | 목적 |
 |:---|:---|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| CPU, 데이터 IO 및 서비스 목표 제한과 관련 된 로그 쓰기 사용률을 포함 하 여 지난 1 시간 동안 리소스 사용률 메트릭을 제공 합니다.|
 |[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| 데이터베이스 엔진 인스턴스에 대 한 집계 대기 통계를 제공 합니다. |

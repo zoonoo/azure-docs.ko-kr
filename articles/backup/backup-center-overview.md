@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure에 대 한 백업 센터의 개요를 제
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: b42bb2719d03108212f62428dc97ed814899c63c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506057"
 ---
 # <a name="overview-of-backup-center"></a>백업 센터 개요
@@ -25,7 +25,7 @@ ms.locfileid: "102506057"
 * 백업 센터는 현재 azure vm 백업, azure vm 백업에서의 SQL, Azure VM 백업, Azure Files 백업, azure Blob 백업, Azure Managed Disks 백업 및 Azure Database for PostgreSQL 서버 백업에 대 한 SAP HANA 지원 됩니다.
 * 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 Backup center를 사용 하 여 시작 하려면 Azure Portal에서 **백업 센터** 를 검색 하 고 **backup 센터** 대시보드로 이동 합니다.
 

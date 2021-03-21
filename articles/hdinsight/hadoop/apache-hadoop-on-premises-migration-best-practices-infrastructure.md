@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 309053c2d7a0f9482016f1bd83e0c61dcd31bec5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740667"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
@@ -46,7 +46,7 @@ Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 �
 
 온-프레미스 클러스터에서 사용할 수 있지만 HDInsight 클러스터의 일부가 아닌 응용 프로그램이 나 구성 요소는에 지 노드 또는 HDInsight 클러스터와 동일한 VNet의 VM에 추가할 수 있습니다. Azure HDInsight에서 사용할 수 없는 타사 Hadoop 애플리케이션을 HDInsight 클러스터에서 "애플리케이션" 옵션을 사용하여 설치할 수 있습니다. 사용자 지정 Hadoop 애플리케이션을 "스크립트 동작"을 사용하여 HDInsight 클러스터에 설치할 수 있습니다. 다음 표는 일반적인 애플리케이션 및 해당 HDInsight 통합 옵션 중 일부를 나열합니다.
 
-|**응용 프로그램**|**통합**
+|**애플리케이션**|**통합**
 |---|---|
 |기류|IaaS 또는 HDInsight에 지 노드
 |Alluxio|IaaS  
@@ -98,7 +98,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 스크립트 작업을 Azure Marketplace에 HDInsight 애플리케이션으로 게시할 수도 있습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [HDInsight에 타사 Apache Hadoop 애플리케이션 설치](../hdinsight-apps-install-applications.md)
 - [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)
@@ -149,7 +149,7 @@ Azure Portal을 통해 에지 노드를 만들거나 삭제할 수 있으며 클
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>클러스터의 확장 및 축소 기능 사용
 
-HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
+HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 클러스터 크기 조정](../hdinsight-scaling-best-practices.md)
 * [클러스터 크기 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters)
@@ -169,7 +169,7 @@ HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니�
 > [!Note]  
 > HDInsight는 현재 강제 터널링을 지원하지 않습니다. 강제 터널링은 검사 및 로깅을 위해 디바이스에 아웃바운드 인터넷 트래픽을 적용하는 서브넷 설정입니다. 서브넷에 HDInsight를 설치하기 전에 강제 터널링을 제거하거나 HDInsight에 대해 새 서브넷을 만듭니다. HDInsight는 또한 아웃바운드 네트워크 연결 제한을 지원하지 않습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [Azure 가상 네트워크 개요](../../virtual-network/virtual-networks-overview.md)
 - [Azure Virtual Network를 사용하여 Azure HDInsight 확장](../hdinsight-plan-virtual-network-deployment.md)
@@ -178,7 +178,7 @@ HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니�
 
 HDInsight는 Azure Blob Storage, Azure Data Lake Storage Gen2, Cosmos DB 및 SQL 데이터베이스에 안전 하 게 연결할 수 있도록 하는 [가상 네트워크 서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)을 지원 합니다. Azure HDInsight에 대한 서비스 엔드포인트를 활성화하여 트래픽은 Azure 데이터 센터 내에서 보안된 경로를 통해 흐릅니다. 네트워킹 계층에서 이 향상된 수준의 보안을 사용하여 빅 데이터 스토리지 계정을 지정된 VNET(Virtual Network)으로 잠글 수 있으며 여전히 HDInsight 클러스터를 원활하게 사용하여 해당 데이터에 액세스하고 처리할 수 있습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [가상 네트워크 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)
 - [서비스 엔드포인트를 사용하여 HDInsight 보안 강화](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)

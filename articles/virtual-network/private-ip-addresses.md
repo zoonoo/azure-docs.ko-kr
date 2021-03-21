@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223264"
 ---
 # <a name="private-ip-addresses"></a>개인 IP 주소
@@ -38,7 +38,7 @@ ms.locfileid: "98223264"
 
 Azure는 리소스가 인 가상 네트워크 서브넷의 주소 범위에서 리소스에 개인 IP 주소를 할당 합니다.
 
-Azure는 각 서브넷 주소 범위에서 처음 4 개 주소를 예약 합니다. 주소를 리소스에 할당할 수 없습니다. 예를 들어 서브넷의 주소 범위가 10.0.0.0/16 인 경우 주소 10.0.0.0-10.0.0.3 및 10.0.255.255을 사용할 수 없습니다. 서브넷 주소 범위 내의 IP 주소는 한 번에 하나의 리소스에만 할당할 수 있습니다. 
+Azure는 각 서브넷 주소 범위에서 처음 네 개의 주소를 사용하도록 설정합니다. 주소를 리소스에 할당할 수 없습니다. 예를 들어 서브넷의 주소 범위가 10.0.0.0/16 인 경우 주소 10.0.0.0-10.0.0.3 및 10.0.255.255을 사용할 수 없습니다. 서브넷 주소 범위 내의 IP 주소는 한 번에 하나의 리소스에만 할당할 수 있습니다. 
 
 개인 IP 주소가 제공 되는 방법에는 다음 두 가지가 있습니다.
 
@@ -74,7 +74,7 @@ Azure 가상 머신은 기본적으로 [azure 관리 DNS 서버](virtual-network
 
 * 여러 네트워크 인터페이스
 * 여러 IP 주소
-* 모두
+* 둘 다
 
 Azure 관리 DNS로 구성 된 Vm은 동일한 가상 네트워크 내에서 호스트 이름을 확인 합니다. 사용자 지정 DNS 서버를 사용 하 여 연결 된 가상 네트워크에서 Vm의 호스트 이름을 확인 합니다.
 

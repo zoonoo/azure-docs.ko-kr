@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: aahi
 ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97955045"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Text Analytics API에 대한 FAQ(질문과 대답)
@@ -55,13 +55,13 @@ ms.locfileid: "97955045"
 
 ### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Text Analytics 서비스를 영역 복원 력이 되도록 구성 어떻게 할까요?
 
-영역 복원 력을 사용 하도록 설정 하는 데 필요한 고객 구성은 없습니다. 영역-Text Analytics 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다.
+영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. 영역-Text Analytics 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 요청하거나 투표하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
  * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

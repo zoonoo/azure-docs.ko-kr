@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
 ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100535242"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>빠른 시작: Azure DDoS Protection Standard 만들기 및 구성
@@ -30,10 +30,10 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다. 계정이 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용 권한에](manage-permissions.md)대 한 방법 가이드에 나열 된 적절 한 작업에 할당 된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 할당 되었는지 확인 합니다.
+- https://portal.azure.com 에서 Azure Portal에 로그인합니다. 계정이 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용 권한에](manage-permissions.md)대 한 방법 가이드에 나열 된 적절 한 작업에 할당 된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 할당 되었는지 확인 합니다.
 
 ## <a name="create-a-ddos-protection-plan"></a>DDoS 보호 계획 만들기
 
@@ -89,10 +89,10 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 _Myvnet_ 가상 네트워크가 나열 됩니다. 
 
-### <a name="view-protected-resources"></a>보호 된 리소스 보기
+### <a name="view-protected-resources"></a>보호된 리소스 보기
 **보호 된 리소스** 에서 보호 된 가상 네트워크 및 공용 IP 주소를 보거나 DDoS 보호 계획에 가상 네트워크를 더 추가할 수 있습니다.
 
-![보호 된 리소스 보기](./media/manage-ddos-protection/ddos-protected-resources.png)
+![보호된 리소스 보기](./media/manage-ddos-protection/ddos-protected-resources.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

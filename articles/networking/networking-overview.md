@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
 ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234191"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
@@ -53,7 +53,7 @@ VPN Gateway를 사용 하 여 온-프레미스 위치에서 가상 네트워크�
 
 여러 VPN 연결 유형에 대 한 자세한 내용은 [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조 하세요.
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>가상 WAN
 Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공하는 네트워킹 서비스입니다. Azure 지역은 분기를 연결하도록 선택할 수 있는 허브 역할을 합니다. 또한 Azure 백본을 활용하여 분기를 연결하고 분기 및 VNet 간 연결을 설정할 수 있습니다. Azure 가상 WAN은 사이트 간 VPN, Express 경로, 지점 및 사이트 간 사용자 VPN과 같은 여러 Azure 클라우드 연결 서비스를 단일 운영 인터페이스로 제공 합니다. Azure VNet에 대한 연결은 가상 네트워크 연결을 사용하여 설정합니다. 자세한 내용은 [Azure 가상 WAN 이란?](../virtual-wan/virtual-wan-about.md)을 참조 하세요.
 
 :::image type="content" source="./media/networking-overview/virtualwan1.png" alt-text="Virtual WAN 다이어그램":::
@@ -106,7 +106,7 @@ Azure 방화벽에 대 한 자세한 내용은 [Azure 방화벽 설명서](../fi
 
 :::image type="content" source="./media/networking-overview/firewall-threat.png" alt-text="방화벽 개요":::
 
-### <a name="web-application-firewall"></a><a name="waf"></a>웹 응용 프로그램 방화벽
+### <a name="web-application-firewall"></a><a name="waf"></a>웹 애플리케이션 방화벽
 Azure waf ( [웹 응용 프로그램 방화벽](../web-application-firewall/overview.md) )는 SQL 삽입, 사이트 간 스크립팅 등의 일반적인 웹 익스플로잇 및 취약성 으로부터 웹 응용 프로그램에 대 한 보호를 제공 합니다. Azure WAF는 관리 되는 규칙을 통해 OWASP 상위 10 개 취약점 으로부터 제공 되는 기본 보호 기능을 제공 합니다. 또한 고객은 사용자 지정 규칙을 구성할 수 있습니다 .이 규칙은 원본 IP 범위에 따라 추가 보호를 제공 하 고 헤더, 쿠키, 양식 데이터 필드 또는 쿼리 문자열 매개 변수와 같은 특성을 요청 하는 고객 관리 규칙입니다.
 
 고객은 공용 및 개인 주소 공간에서 엔터티에 대 한 지역 보호를 제공 하는 [Application Gateway으로 Azure WAF](../web-application-firewall/ag/ag-overview.md) 를 배포 하도록 선택할 수 있습니다. 또한 고객은 네트워크에 지에서 공용 끝점에 대 한 보호를 제공 하는 [프런트 도어를 사용 하 여 Azure WAF](../web-application-firewall/afds/afds-overview.md) 를 배포 하도록 선택할 수 있습니다.

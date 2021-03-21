@@ -17,10 +17,10 @@ ms.date: 11/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 6ba30436b363353ad183396e07111b33ca912dbf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98737441"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
@@ -54,7 +54,7 @@ Azure Virtual Machines에서 SQL Server를 실행 하는 동안 온-프레미스
 이러한 최적화를 수행하는 *방법* 및 *이유* 에 대한 자세한 내용은 다음 섹션에 나와 있는 세부 정보 및 지침을 참조하세요.
 <br/><br/>
 
-## <a name="getting-started"></a>시작하기
+## <a name="getting-started"></a>시작
 
 Azure VM에 새 SQL Server를 만들고 현재 원본 시스템을 마이그레이션하지 않는 경우 공급 업체 요구 사항에 따라 새 SQL Server VM을 만듭니다.  SQL Server VM에 대 한 공급 업체 요구 사항은 온-프레미스에서 배포 하는 것과 동일 합니다. 
 
@@ -77,7 +77,7 @@ Azure VM에 새 SQL Server를 만들고 현재 원본 시스템을 마이그레�
 
 작업 (OLTP 또는 데이터 웨어하우스)을 기반으로 SQL Server 성능에 가장 적합 한 [메모리 최적화](../../../virtual-machines/sizes-memory.md), [범용](../../../virtual-machines/sizes-general.md), [저장소 최적화](../../../virtual-machines/sizes-storage.md)또는 [제한 된 vcore](../../../virtual-machines/constrained-vcpu.md) 가상 머신 크기를 선택 합니다. 
 
-### <a name="memory-optimized"></a>메모리 최적화
+### <a name="memory-optimized"></a>메모리에 최적화
 
 메모리 액세스에 [최적화 된 가상 머신 크기](../../../virtual-machines/sizes-memory.md) 는 SQL Server vm의 기본 목표 이며 Microsoft에서 권장 하는 선택입니다. 메모리 액세스에 최적화 된 가상 머신은 더 강력한 메모리와 CPU 비율을 제공 하 고 중간 규모에서 크게 캐시 옵션을 제공 합니다. 
 

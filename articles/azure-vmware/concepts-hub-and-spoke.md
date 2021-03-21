@@ -4,10 +4,10 @@ description: Azure의 허브 및 스포크 아키텍처에서 Azure VMware 솔�
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99062748"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
@@ -21,7 +21,7 @@ ms.locfileid: "99062748"
 * Azure VMware 솔루션 
 * 온-프레미스의 vSphere
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 *허브* 는 온-프레미스 및 Azure VMware 솔루션 사설 클라우드에 대 한 중앙 연결의 역할을 하는 azure Virtual Network입니다. *스포크* 는 가상 네트워크를 허브와 피어 링 하 여 가상 네트워크 간 통신을 가능 하 게 합니다.
 

@@ -15,10 +15,10 @@ ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102216431"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결-Node.js
@@ -27,7 +27,7 @@ ms.locfileid: "102216431"
 
 이 문서에서는 서비스 사용자 로그인 방법을 사용 하 여 Azure Media Services v3 node.js SDK에 연결 하는 방법을 보여 줍니다. *미디어 서비스-v3-자습서* 샘플 리포지토리에서 파일을 사용 합니다. *HelloWorld-listassets* 샘플은 계정에 연결 하 여 자산을 나열 하는 코드를 포함 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Visual Studio Code 설치.
 - [Node.js](https://nodejs.org/en/download/)를 설치합니다.
@@ -137,7 +137,7 @@ DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
 cd AMSv3Samples
 ```
 
-2. 파일 *의packages.js* 에 사용 되는 패키지를 설치 합니다.
+2. *packages.json* 파일에서 사용되는 패키지를 설치합니다.
 
 ```
 npm install 
@@ -149,7 +149,7 @@ npm install
 cd HelloWorld-ListAssets
 ```
 
-4. AMSv3Samples 폴더에서 Visual Studio Code를 시작 합니다. "Vscode" 폴더와 파일에 대 한 tsconfig.js있는 폴더에서을 시작 하려면이를 실행 해야 합니다.
+4. AMSv3Samples 폴더에서 Visual Studio Code를 시작합니다. "Vscode" 폴더와 파일에 대 한 tsconfig.js있는 폴더에서을 시작 하려면이를 실행 해야 합니다.
 
 ```dotnetcli
 cd ..
@@ -158,7 +158,7 @@ code .
 
 *HelloWorld-listassets* 의 폴더를 열고 Visual Studio Code 편집기 *에서 해당 파일을 엽니다* .
 
-Node.js 파일에 있는 동안 F5 키를 눌러 디버거를 시작 *합니다.* 계정에 자산이 이미 있는 경우 표시 되는 자산 목록이 표시 됩니다. 계정이 비어 있으면 빈 목록이 표시 됩니다.  
+*index.ts* 파일에서 F5 키를 눌러 디버거를 시작합니다. 계정에 자산이 이미 있는 경우 표시 되는 자산 목록이 표시 됩니다. 계정이 비어 있으면 빈 목록이 표시 됩니다.  
 
 표시 된 자산을 신속 하 게 확인 하려면 포털을 사용 하 여 몇 가지 비디오 파일을 업로드 합니다. 자산은 자동으로 하나씩 생성 되 고이 스크립트를 다시 실행 하면 해당 이름이 반환 됩니다.
 
@@ -225,13 +225,13 @@ main().catch((err) => {
 ## <a name="see-also"></a>참고 항목
 
 - [Node.jsAzure Media Services 모듈에 대 한 참조 설명서 ](/javascript/api/overview/azure/media-services)
-- [개발자 Node.js JavaScript & Azure](/azure/developer/javascript/)
-- [@azure/azure-sdk-for-jsGit 허브 리포지토리의 Media Services 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [JavaScript 및 Node.js 개발자용 Azure](/azure/developer/javascript/)
+- [@azure/azure-sdk-for-js GitHub 리포지토리의 Media Services 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 - [Node.js 개발자를 위한 Azure 패키지 설명서](/javascript/api/overview/azure/)
 - [Media Services 개념](concepts-overview.md)
-- [npm 설치 @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [개발자 Node.js JavaScript & Azure](/azure/developer/javascript/)
-- [리포지토리의 소스 코드 Media Services @azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [JavaScript 및 Node.js 개발자용 Azure](/azure/developer/javascript/)
+- [@azure/azure-sdk-for-js 리포지토리의 Media Services 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>다음 단계
 

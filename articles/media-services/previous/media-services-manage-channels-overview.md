@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 195333f5f06145a1dfa84f0de2c5984190e3d7ca
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014828"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services를 사용하는 라이브 스트리밍 개요
@@ -74,7 +74,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 
 다음 표에서는 Media Services에서 지원되는 두 개의 채널 형식을 비교하는 지침을 제공합니다.
 
-| 특징 | 통과 채널 | 표준 채널 |
+| 기능 | 통과 채널 | 표준 채널 |
 | --- | --- | --- |
 | 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |예 |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |

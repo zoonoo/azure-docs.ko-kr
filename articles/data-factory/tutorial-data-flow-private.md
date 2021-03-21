@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249444"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>매핑 데이터 흐름을 사용 하 여 데이터를 안전 하 게 변환
@@ -33,14 +33,14 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 > * 파이프라인 실행 테스트
 > * 데이터 흐름 작업을 모니터링 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Storage 계정**. Data Lake Storage를 *원본* 및 *싱크* 데이터 저장소로 사용 합니다. 스토리지 계정이 없는 경우 [Azure Storage 계정 만들기](../storage/common/storage-account-create.md?tabs=azure-portal)를 참조하세요. *스토리지 계정이 선택한 네트워크에서만 액세스를 허용하는지 확인합니다.* 
 
 이 자습서에서 변형할 파일은이 [GitHub 콘텐츠 사이트](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv)에서 찾을 수 있는 moviesDB.csv입니다. GitHub에서 파일을 검색 하려면 콘텐츠를 원하는 텍스트 편집기에 복사 하 여 로컬에 .csv 파일로 저장 합니다. 저장소 계정에 파일을 업로드 하려면 [Azure Portal을 사용 하 여 Blob 업로드](../storage/blobs/storage-quickstart-blobs-portal.md)를 참조 하세요. 예제는 **샘플 데이터** 라는 컨테이너를 참조 합니다.
 
-## <a name="create-a-data-factory"></a>Data Factory 만들기
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 이 단계에서는 데이터 팩터리를 만들고 Data Factory UI를 열어 데이터 팩터리에 파이프라인을 만듭니다.
 
@@ -71,8 +71,8 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](./i
 1. Data Factory 포털에서 **관리** 로 이동 하 고 **새로** 만들기를 선택 하 여 새 Azure IR을 만듭니다.
 
    ![새 Azure IR을 만드는 과정을 보여 주는 스크린샷](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. **Integration runtime 설정** 페이지에서 필요한 기능에 따라 만들 integration runtime을 선택 합니다. 이 자습서에서는 **Azure, 자체 호스팅** 을 차례로 선택 하 고 **계속** 을 클릭 합니다. 
-1. Azure **를 선택 하** 고 **계속** 을 클릭 하 여 azure Integration runtime을 만듭니다.
+1. **통합 런타임 설정** 페이지에서 필요한 기능을 기반으로 만들 통합 런타임을 선택합니다. 이 자습서에서는 **Azure, 자체 호스팅** 을 선택한 다음, **계속** 을 클릭합니다. 
+1. **Azure** 를 선택한 다음, **계속** 을 클릭하여 Azure 통합 런타임을 만듭니다.
 
    ![새 Azure IR을 보여 주는 스크린샷](./media/tutorial-copy-data-portal-private/azure-ir.png)
 

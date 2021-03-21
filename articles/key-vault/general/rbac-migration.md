@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: e7a8fd53e78e1aeab9db5af0432d0c3f1d786823
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526955"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-permission-model"></a>자격 증명 모음 액세스 정책에서 Azure 역할 기반 액세스 제어 권한 모델로 마이그레이션
@@ -76,19 +76,19 @@ Azure RBAC에는 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 
 | 비밀 관리 | 비밀: 모든 작업| Key Vault 비밀 책임자|
 | 인증서 관리 | 인증서: 모든 작업 | Key Vault 인증서 담당자|
 | SQL Server 커넥터 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto Service 암호화 사용자|
-| Azure Data Lake Storage 또는 Azure Storage | 키: get, list, 래핑 해제 키 | N/A<br> 사용자 지정 역할 필요|
-| Azure Backup | 키: get, list, backup<br> 인증서: get, list, backup | N/A<br> 사용자 지정 역할 필요|
+| Azure Data Lake Storage 또는 Azure Storage | 키: get, list, 래핑 해제 키 | 해당 없음<br> 사용자 지정 역할 필요|
+| Azure Backup | 키: get, list, backup<br> 인증서: get, list, backup | 해당 없음<br> 사용자 지정 역할 필요|
 | Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto Service 암호화 사용자|
 | Exchange Online 고객 키 | 키: 가져오기, 나열, 키 래핑, 키 래핑 해제 | Key Vault Crypto Service 암호화 사용자|
-| Azure 정보 BYOK | 키: get, 암호 해독, 서명 | N/A<br>사용자 지정 역할 필요|
+| Azure 정보 BYOK | 키: get, 암호 해독, 서명 | 해당 없음<br>사용자 지정 역할 필요|
 
 
 ## <a name="assignment-scopes-mapping"></a>할당 범위 매핑  
 
 Key Vault에 대 한 Azure RBAC를 사용 하면 다음 범위에서 역할을 할당할 수 있습니다.
 - 관리 그룹
-- 구독
-- 리소스 그룹
+- Subscription
+- Resource group
 - Key Vault 리소스
 - 개별 키, 암호 및 인증서
 

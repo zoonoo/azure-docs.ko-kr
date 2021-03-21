@@ -14,10 +14,10 @@ ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 1035f43642f3884e7cc0f6ab47e9c9afd1f29170
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107515"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
@@ -71,8 +71,8 @@ SAML 응용 프로그램 및 연결 된 메타 데이터 끝점이 아직 없는
 
 | 사용량 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| SAML 요청 서명  | No | 웹 앱에 저장 된 개인 키가 포함 된 인증서입니다 .이 인증서는 응용 프로그램에서 Azure AD B2C에 전송 된 SAML 요청에 서명 하는 데 사용 됩니다. 웹 앱은 SAML 메타 데이터 끝점을 통해 공개 키를 노출 해야 합니다. Azure AD B2C는 응용 프로그램 메타 데이터의 공개 키를 사용 하 여 SAML 요청 서명의 유효성을 검사 합니다.|
-| SAML 어설션 암호화  | No | 웹 앱에 저장 된 개인 키가 있는 인증서입니다. 웹 앱은 SAML 메타 데이터 끝점을 통해 공개 키를 노출 해야 합니다. Azure AD B2C 공개 키를 사용 하 여 응용 프로그램에 어설션을 암호화할 수 있습니다. 응용 프로그램은 개인 키를 사용 하 여 어설션을 해독 합니다.|
+| SAML 요청 서명  | 아니요 | 웹 앱에 저장 된 개인 키가 포함 된 인증서입니다 .이 인증서는 응용 프로그램에서 Azure AD B2C에 전송 된 SAML 요청에 서명 하는 데 사용 됩니다. 웹 앱은 SAML 메타 데이터 끝점을 통해 공개 키를 노출 해야 합니다. Azure AD B2C는 응용 프로그램 메타 데이터의 공개 키를 사용 하 여 SAML 요청 서명의 유효성을 검사 합니다.|
+| SAML 어설션 암호화  | 아니요 | 웹 앱에 저장 된 개인 키가 있는 인증서입니다. 웹 앱은 SAML 메타 데이터 끝점을 통해 공개 키를 노출 해야 합니다. Azure AD B2C 공개 키를 사용 하 여 응용 프로그램에 어설션을 암호화할 수 있습니다. 응용 프로그램은 개인 키를 사용 하 여 어설션을 해독 합니다.|
 
 **Azure AD B2C 인증서**
 
@@ -424,7 +424,7 @@ SAML 테스트 응용 프로그램을 사용 하 여 다음과 같이 설정 된
 일반적으로 다음 중 일부 또는 전부가 필요합니다.
 
 * **메타 데이터**: 형식을 사용 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/Samlp/metadata` 합니다.
-* **발급자**: SAML 요청 `issuer` 값은 `identifierUris` 응용 프로그램 등록 매니페스트의 요소에 구성 된 uri 중 하 나와 일치 해야 합니다. SAML 요청 `issuer` 이름이 요소에 없으면 `identifierUris` [응용 프로그램 등록 매니페스트에 추가](#add-the-identifier)합니다. 예들 들어 `https://contoso.onmicrosoft.com/app-name`입니다. 
+* **발급자**: SAML 요청 `issuer` 값은 `identifierUris` 응용 프로그램 등록 매니페스트의 요소에 구성 된 uri 중 하 나와 일치 해야 합니다. SAML 요청 `issuer` 이름이 요소에 없으면 `identifierUris` [응용 프로그램 등록 매니페스트에 추가](#add-the-identifier)합니다. 예: `https://contoso.onmicrosoft.com/app-name` 
 * **로그인 Url/saml 끝점/Saml Url**: XML 요소에 대 한 Azure AD B2C SAML 정책 메타 데이터 파일의 값을 확인 합니다 `<SingleSignOnService>` .
 * **인증서**:이 인증서는 *B2C_1A_SamlIdpCert* 되지만 개인 키가 없습니다. 인증서의 퍼블릭 키를 가져오려면:
 

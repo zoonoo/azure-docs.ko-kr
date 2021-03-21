@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: b4b5b3eedb2e63686e1bb26580ea653e3a50a910
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102507826"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
@@ -102,7 +102,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 가상 네트워크와 서브넷 또는 공용 IP 주소가 다른 리소스 그룹에 있는 고급 네트워킹을 사용할 수 있습니다. 가상 네트워크 내의 서브넷에서 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당 합니다. 또는 해당 리소스 그룹의 네트워크 리소스에 액세스할 수 있는 권한이 있는 [사용자 지정 역할][rbac-custom-role] 을 만들 수 있습니다. 자세한 내용은 [AKS service 사용 권한][aks-permissions] 을 참조 하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 다른 리소스 그룹에 있는 기존 디스크 리소스에 액세스해야 할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
 

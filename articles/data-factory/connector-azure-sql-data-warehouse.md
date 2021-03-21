@@ -5,13 +5,13 @@ ms.author: jingwang
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/10/2021
-ms.openlocfilehash: 38306b2fb3c0a51aeedbf1ebd9079dd787783093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/17/2021
+ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364293"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597524"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에서 데이터 복사 및 변환
 
@@ -265,13 +265,13 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
 | SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 예       |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 예       |
 | storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예       |
-| isolationLevel | SQL 원본에 대한 트랜잭션 잠금 동작을 지정합니다. 허용 되는 값은 **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot** 입니다. 지정 하지 않으면 데이터베이스의 기본 격리 수준이 사용 됩니다. 자세한 내용은 [isolationlevel](/dotnet/api/system.data.isolationlevel)를 참조 하세요. | 예 |
+| isolationLevel | SQL 원본에 대한 트랜잭션 잠금 동작을 지정합니다. 허용 되는 값은 **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot** 입니다. 지정 하지 않으면 데이터베이스의 기본 격리 수준이 사용 됩니다. 자세한 내용은 [isolationlevel](/dotnet/api/system.data.isolationlevel)를 참조 하세요. | 아니요 |
 | partitionOptions | Azure Synapse Analytics에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange** 입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Azure Synapse Analytics에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
-| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 예 |
+| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
 | ***에서 `partitionSettings` 다음을 수행 합니다.*** | | |
 | partitionColumnName |  `int` `smallint` `bigint` `date` `smalldatetime` `datetime` `datetime2` `datetimeoffset` 병렬 복사를 위해 범위 분할에서 사용할 정수 또는 날짜/시간 형식 (,,,,,, 또는)으로 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfDynamicRangePartitionCondition ` WHERE 절에 후크 합니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 파티션 범위 분할에 대 한 파티션 열의 최대값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.  <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 예 |
-| partitionLowerBound | 파티션 범위 분할에 대 한 파티션 열의 최소값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 예 |
+| partitionLowerBound | 파티션 범위 분할에 대 한 파티션 열의 최소값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-azure-synapse-analytics) 섹션을 참조 하세요. | 아니요 |
 
 **다음 사항에 유의 하세요.**
 
@@ -390,6 +390,7 @@ Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크
 | preCopyScript     | 각 실행에서 Azure Synapse Analytics로 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
 | tableOption | 원본 스키마에 따라 존재 하지 않는 경우 [싱크 테이블을 자동으로 만들지](copy-activity-overview.md#auto-create-sink-tables) 여부를 지정 합니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
 | disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Azure Synapse Analytics DWUs와 같은 메트릭을 수집 하 여 추가 master DB 액세스를 도입 합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 아니요 |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Azure Synapse Analytics 싱크 예제
 
@@ -520,7 +521,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
    4. `nullValue`는 기본값으로 남아 있거나 **빈 문자열**("")로 설정되며, `treatEmptyAsNull`는 기본값으로 남아 있거나 true로 설정됩니다.
    5. `encodingName`는 기본값으로 남아 있거나 **utf-8** 로 설정됩니다.
    6. `quoteChar`, `escapeChar` 및 `skipLineCount`는 지정되지 않습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 헤더 행을 건너뜁니다.
-   7. `compression`은 **no compression**, **GZip** 또는 **Deflate** 일 수 있습니다.
+   7. `compression`**압축**, **``GZip``** 또는 **Deflate** 일 수 없습니다.
 
 3. 원본이 폴더인 경우 복사 작업의 `recursive`을 true로 설정해야 합니다.
 
@@ -615,7 +616,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
 
 ### <a name="best-practices-for-using-polybase"></a>PolyBase를 사용하는 모범 사례
 
-다음 섹션에서는 [Azure Synapse Analytics 모범 사례](../synapse-analytics/sql/best-practices-sql-pool.md)에 설명 된 방법 외에도 모범 사례를 제공 합니다.
+다음 섹션에서는 [Azure Synapse Analytics 모범 사례](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md)에 설명 된 방법 외에도 모범 사례를 제공 합니다.
 
 #### <a name="required-database-permission"></a>필수 데이터베이스 권한
 
@@ -709,7 +710,7 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 
 2. 형식 설정에는 다음이 포함됩니다.
 
-   1. **Parquet** 의 경우: `compression`는 **압축 안 함**, **Snappy** 또는 **GZip** 일 수 있습니다.
+   1. **Parquet** 의 경우: `compression` **압축**, **Snappy** 또는가 없을 수 있습니다 **``GZip``** .
    2. **ORC** 의 경우: `compression`은 **압축 안 함**, **```zlib```** 또는 **Snappy** 일 수 있습니다.
    3. **구분 된 텍스트** 의 경우:
       1. `rowDelimiter`는 **단일 문자** 또는 " **\r\n**"으로 명시적으로 설정됩니다. 기본값은 지원되지 않습니다.
@@ -717,7 +718,7 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
       3. `encodingName`는 기본값으로 남아 있거나 **utf-8 또는 utf-16** 으로 설정됩니다.
       4. `escapeChar`는 `quoteChar`와 동일해야 하며 비어 있지 않습니다.
       5. `skipLineCount`는 기본값으로 남아 있거나 0으로 설정됩니다.
-      6. `compression`는 **압축 안 함** 또는 **GZip** 일 수 있습니다.
+      6. `compression`**압축 되지** 않을 수도 있고 그렇지 않을 수도 있습니다 **``GZip``** .
 
 3. 원본이 폴더인 경우 복사 작업의 `recursive`를 true로 설정해야 하며 `wildcardFilename`는 `*`이어야 합니다. 
 
@@ -821,7 +822,7 @@ Azure Synapse Analytics에 특정한 설정은 싱크 변환의 **설정** 탭�
 - 다시 만들기: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.
 - 자르기: 대상 테이블의 모든 행이 제거됩니다.
 
-**준비 사용:** Azure Synapse Analytics에 쓸 때 [PolyBase](/sql/relational-databases/polybase/polybase-guide) 를 사용할지 여부를 결정 합니다. 스테이징 저장소는 [데이터 흐름 실행 작업](control-flow-execute-data-flow-activity.md)에서 구성 됩니다. 
+**준비 사용:** 이렇게 하면 복사 명령을 사용 하 여 Azure Synapse Analytics SQL 풀로 로드할 수 있으며, 대부분의 Synpase 싱크에 대해 권장 됩니다. 스테이징 저장소는 [데이터 흐름 실행 작업](control-flow-execute-data-flow-activity.md)에서 구성 됩니다. 
 
 - 저장소 연결 된 서비스에 대해 관리 id 인증을 사용 하는 경우 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) 에 대해 필요한 구성을 각각 알아보세요.
 - Azure Storage VNet 서비스 끝점을 사용 하 여 구성 된 경우 저장소 계정에서 "신뢰할 수 있는 Microsoft 서비스 허용"이 설정 된 관리 id 인증을 사용 해야 합니다. [Azure storage에서 VNet 서비스 끝점 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조 하세요.
