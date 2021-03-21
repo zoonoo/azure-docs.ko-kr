@@ -14,10 +14,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008687"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
@@ -62,7 +62,7 @@ Windows 업데이트 오류 및 해당 문제 해결에 대 한 자세한 내용
     - 지정 된 여러 대상을 세미콜론 (;)으로 구분 해야 합니다.
     - 지정자는 단일 파일 이거나 와일드 카드를 포함할 수 있습니다.
     - 디렉터리 사양은 항상 *로 끝나야 합니다 \\ .
-    - 예:
+    - 예제:
 
 ```binskim-targets
            *.dll;*.exe

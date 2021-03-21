@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
 ms.openlocfilehash: 4b379bb76eaf7587c53ec55972ccee3f54a55f22
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94534248"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.6 설치
@@ -64,7 +64,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 3. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드하려는 핫픽스의 KB(기술 자료) 번호를 입력합니다. 업데이트 0.6의 경우 **4023268** 을 입력하고 **검색** 을 클릭합니다.
    
-    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 0.6** )이 나타납니다.
+    핫픽스 목록(예: **StorSimple 가상 배열 업데이트 0.6**)이 나타납니다.
    
     ![카탈로그 검색](./media/storsimple-virtual-array-install-update-06/download1.png)
 
@@ -114,11 +114,11 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 디바이스�
 5. 다시 시작이 완료된 후 **로그인** 페이지가 열립니다. 장치 소프트웨어가 업데이트 되었는지 확인 하려면 로컬 웹 UI에서 **유지 관리**  >  **소프트웨어 업데이트** 로 이동 합니다. 표시된 소프트웨어 버전은 업데이트 0.6의 경우 **10.0.0.0.0.10293** 이어야 합니다.
    
    > [!NOTE]
-   > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10293** , Azure Portal은 **10.0.10293.0** 을 보고합니다.
+   > 로컬 웹 UI 및 Azure Portal에서 약간 다른 방법으로 소프트웨어 버전을 보고합니다. 예를 들어 같은 버전에 대해 로컬 웹 UI는 **10.0.0.0.0.10293**, Azure Portal은 **10.0.10293.0** 을 보고합니다.
    
     ![스크린샷 현재 소프트웨어 버전을 포함 하는 소프트웨어 업데이트 페이지를 표시 합니다.](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
-6. 이 업데이트를 적용하기 전에 StorSimple 가상 배열 업데이트 0.5( **10.0.10290.0** )를 실행하고 있다면 이 단계를 건너뜁니다. 업데이트를 시작하기 전에 1단계에서 소프트웨어 버전을 기록했습니다. 업데이트 0.5가 실행 중이면 MDS 에이전트는 이미 최신 상태입니다.
+6. 이 업데이트를 적용하기 전에 StorSimple 가상 배열 업데이트 0.5(**10.0.10290.0**)를 실행하고 있다면 이 단계를 건너뜁니다. 업데이트를 시작하기 전에 1단계에서 소프트웨어 버전을 기록했습니다. 업데이트 0.5가 실행 중이면 MDS 에이전트는 이미 최신 상태입니다.
 
     업데이트 0.5 이전의 소프트웨어 버전을 실행 중이면 다음 단계는 MDS 에이전트를 업데이트하는 것입니다. **소프트웨어 업데이트** 페이지에는 **업데이트 파일 경로** 로 이동한 후 `GenevaMonitoringAgentPackageInstaller.msi` 파일을 찾습니다. 2-4단계를 반복합니다. 가상 배열이 다시 시작되면 로컬 웹 UI에 로그인합니다.
 

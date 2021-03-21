@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
 ms.openlocfilehash: 466fac524601e2d569bfa0ccf90179fe9419210d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942902"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase 성능 문제 해결
@@ -54,7 +54,7 @@ Yahoo!와 같은 벤치 마크를 사용 하는 경우 클라우드를 제공 �
 
 ## <a name="migration-issues"></a>마이그레이션 문제
 
-Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매우 효율적이 고 정확 하 게 마이그레이션을 수행 해야 합니다. 수동 마이그레이션을 피합니다. 다음 사항을 확인합니다.
+Azure HDInsight로 마이그레이션하는 경우에는 자동화를 통해 매우 효율적이 고 정확 하 게 마이그레이션을 수행 해야 합니다. 수동 마이그레이션을 피합니다. 확인할 사항은 다음과 같습니다.
 
 - 테이블 특성은 정확 하 게 마이그레이션됩니다. 특성에는 압축, 블 룸 필터 등이 포함 될 수 있습니다.
 

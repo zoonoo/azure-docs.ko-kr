@@ -4,10 +4,10 @@ description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 �
 ms.topic: conceptual
 ms.date: 07/08/2020
 ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716740"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리형 키를 사용하여 백업 데이터 암호화

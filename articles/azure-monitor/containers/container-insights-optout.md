@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/19/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: eab34f27d1e33b166971203082cce99fb2b0e106
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101723540"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-container-insights"></a>컨테이너 insights를 사용 하 여 Azure Kubernetes 서비스 (AKS) 모니터링을 중지 하는 방법

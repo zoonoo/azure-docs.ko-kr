@@ -14,10 +14,10 @@ ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a9024bc9fbd460f403db2da8a65af1e9bd2e771b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101645619"
 ---
 # <a name="introduction-to-active-directory-service-accounts"></a>Active Directory 서비스 계정 소개
@@ -67,11 +67,11 @@ MSA를 사용할 수 없는 경우 [사용자 계정을](service-accounts-user-o
 | 조건| gMSA| sMSA| 컴퓨터 계정| 사용자 계정 |
 | - | - | - | - | - |
 | 단일 서버에서 실행 되는 앱| 예| 예. 가능 하면 gMSA 사용| 예. 가능 하면 MSA 사용| 예. 가능 하면 MSA를 사용 합니다. |
-| 앱이 여러 서버에서 실행 됨| 예| 예| 아니요. 계정이 서버에 연결 되어 있습니다.| 예. 가능 하면 MSA를 사용 합니다. |
-| 앱이 부하 분산 장치 뒤에서 실행 됨| 예| 예| 아니요| 예. GMSA를 사용할 수 없는 경우에만 사용 |
-| Windows Server 2008 r 2에서 실행 되는 앱| 예| 예| 예. 가능 하면 MSA를 사용 합니다.| 예. 가능 하면 MSA를 사용 합니다. |
+| 앱이 여러 서버에서 실행 됨| 예| 아니요| 아니요. 계정이 서버에 연결 되어 있습니다.| 예. 가능 하면 MSA를 사용 합니다. |
+| 앱이 부하 분산 장치 뒤에서 실행 됨| 예| 아니요| 아니요| 예. GMSA를 사용할 수 없는 경우에만 사용 |
+| Windows Server 2008 r 2에서 실행 되는 앱| 아니요| 예| 예. 가능 하면 MSA를 사용 합니다.| 예. 가능 하면 MSA를 사용 합니다. |
 | Windows server 2012에서 실행| 예| 예. 가능 하면 gMSA 사용| 예. 가능 하면 MSA 사용| 예. 가능 하면 MSA를 사용 합니다. |
-| 단일 서버로 서비스 계정을 제한 하기 위한 요구 사항| 예| 예| 예. 가능 하면 sMSA 사용| 아니요. |
+| 단일 서버로 서비스 계정을 제한 하기 위한 요구 사항| 아니요| 예| 예. 가능 하면 sMSA 사용| 아니요. |
 
 
  

@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드�
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: b5c99e5dc21c2b93f1c9da3977302a2dd311277f
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99491506"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 구독 배포

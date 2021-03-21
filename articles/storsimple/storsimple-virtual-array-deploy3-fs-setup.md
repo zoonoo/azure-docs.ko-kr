@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 244fdbf7cb723fe85e0987d176a13242f0bff064
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005931"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
@@ -45,7 +45,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>1단계: 로컬 웹 UI 설정을 완료하고 디바이스를 등록
 #### <a name="to-complete-the-setup-and-register-the-device"></a>설정을 완료하고 디바이스를 등록하려면
-1. 브라우저 창을 열고 로컬 웹 UI에 연결합니다. 형식:
+1. 브라우저 창을 열고 로컬 웹 UI에 연결합니다. 유형:
    
    `https://<ip-address of network interface>`
    
@@ -115,7 +115,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
        ![클라우드 설정 페이지의 스크린샷 등록 키 및 암호화 키 상자가 채워져 있지만 값은 교정 된입니다.](./media/storsimple-virtual-array-deploy3-fs-setup/image13.png)
 12. Azure Portal로 돌아갑니다. **모든 리소스** 로 이동하여 StorSimple 디바이스 관리자 서비스를 검색합니다.
     
-    ![Azure Portal의 모든 리소스 페이지 스크린샷 Device Manager 서비스가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
+    ![Azure Portal의 모든 리소스 페이지 스크린샷 장치 관리자 서비스가 강조 표시 됩니다.](./media/storsimple-virtual-array-deploy3-fs-setup/searchdevicemanagerservice1.png) 
 13. 필터링된 목록에서 StorSimple 디바이스 관리자 서비스를 선택한 다음 **관리 &gt; 디바이스** 로 이동합니다. **디바이스** 블레이드에서 디바이스가 서비스에 성공적으로 연결되었는지와 **설정할 준비 완료** 상태인지 확인합니다.
     
     ![배포](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png)
@@ -124,7 +124,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 필요한 디바이스 설정을 완료하려면 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 
 #### <a name="to-configure-the-device-as-file-server"></a>파일 서버로 디바이스를 구성하려면
-1. StorSimple Device Manager 서비스로 이동한 다음  **관리 > 장치로** 이동 합니다. **디바이스** 블레이드에서 방금 만든 디바이스를 선택합니다. 이 디바이스는 **설정할 준비 완료** 로 표시됩니다.
+1. StorSimple 장치 관리자 서비스로 이동한 다음  **관리 > 장치로** 이동 합니다. **디바이스** 블레이드에서 방금 만든 디바이스를 선택합니다. 이 디바이스는 **설정할 준비 완료** 로 표시됩니다.
    
    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs2m.png) 
 2. 디바이스를 클릭하고 디바이스를 설치할 준비가 되었음을 나타내는 배너 메시지가 표시됩니다.

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232837"
 ---
 # <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Azure Cognitive Search에서 유사성 순위 알고리즘 구성
@@ -78,7 +78,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 BM25 유사성은 계산 된 관련성 점수를 제어 하기 위해 두 개의 사용자 지정 가능 매개 변수를 추가 합니다. 인덱스를 만드는 동안 BM25 매개 변수를 설정 하거나 인덱스를 만드는 동안 BM25 알고리즘이 지정 된 경우 인덱스 업데이트로 설정할 수 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 |----------|------|-------------|
 | k1 | number | 각 일치 조건의 용어 빈도와 문서 쿼리 쌍의 최종 관련성 점수 사이의 크기 조정 함수를 제어 합니다. 값은 일반적으로 0.0 ~ 3.0 이며 기본값은 1.2입니다. </br></br>값 0.0은 "이진 모델"을 나타냅니다 .이는 단어가 텍스트에 표시 되는 횟수에 관계 없이 일치 하는 모든 문서에 대해 일치 하는 단일 용어에 대 한 기여는 동일 하지만, 더 큰 k1 값을 사용 하면 동일한 용어의 인스턴스가 문서에서 모두 발견 될 때 점수를 계속 증가 시킬 수 있습니다. </br></br>여러 용어가 검색 쿼리의 일부가 될 것으로 생각 되는 경우 더 높은 k1 값을 사용 하는 것이 중요할 수 있습니다. 이러한 경우에는 여러 다른 쿼리 용어와 일치 하는 문서를 한 번만 일치 하는 문서를 여러 번 검색 하는 것이 좋습니다. 예를 들어 "아폴로 Spaceflight" 라는 용어가 포함 된 문서에 대 한 인덱스를 쿼리할 때 "아폴로" 및 "Spaceflight"를 모두 명확 하 게 설명 하는 다른 문서와 비교 하 여 "Spaceflight" 라는 용어를 포함 하 여 "아폴로" 라는 용어를 포함 하는 문서 점수를 낮출 수 있습니다. |
 | b | number | 문서의 길이가 관련성 점수에 미치는 영향을 제어 합니다. 값은 0에서 1 사이 이며 기본값은 0.75입니다. </br></br>0.0 값은 문서의 길이가 점수에 영향을 주지 않음을 의미 하는 반면, 1.0 값은 문서 길이로 관련성 점수에 대 한 용어 빈도의 영향을 정규화 함을 의미 합니다. </br></br>문서 길이의 용어 빈도를 정규화 하는 것은 긴 문서를 penalize 하는 경우에 유용 합니다. 경우에 따라 긴 문서에 비해 긴 문서 (예: 전체 novel)에 관련성이 많은 용어가 포함 될 가능성이 높습니다. |
@@ -98,7 +98,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## <a name="see-also"></a>참조  
+## <a name="see-also"></a>참고 항목  
 
 + [REST API 참조](/rest/api/searchservice/)
 + [인덱스에 점수 매기기 프로필 추가](index-add-scoring-profiles.md)

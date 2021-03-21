@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.date: 08/17/2020
 ms.openlocfilehash: d9febb4efba85d47abe1cc11a3cb52dc0393c036
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101671998"
 ---
-# <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal를 사용 하 여 SAP 솔루션에 대 한 Azure Monitor 배포
+# <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Azure Portal을 사용하여 SAP 솔루션을 위한 Azure Monitor 배포
 
 SAP 솔루션에 대 한 Azure Monitor 리소스는 [Azure Portal](https://azure.microsoft.com/features/azure-portal)를 통해 만들 수 있습니다. 이 메서드는 SAP 솔루션에 대 한 Azure Monitor를 배포 하 고 공급자를 구성 하기 위한 브라우저 기반 사용자 인터페이스를 제공 합니다.
 

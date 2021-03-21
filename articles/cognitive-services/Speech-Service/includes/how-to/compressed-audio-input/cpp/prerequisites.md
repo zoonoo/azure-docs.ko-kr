@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: d555322c0fd4067a4232e53387d811de7b50a8f5
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103417716"
 ---
 압축 된 오디오 처리는 [GStreamer](https://gstreamer.freedesktop.org)을 사용 하 여 구현 됩니다. 라이선스 때문에 GStreamer 이진이 컴파일되지 않고 음성 SDK로 연결 되지 않습니다. 개발자는 여러 종속성 및 플러그 인을 설치 해야 합니다.

@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
 ms.openlocfilehash: 5cc1025528959f8c81aa80703e3fc26d59c5266f
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618103"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 전용 Python 패키지 사용
@@ -29,7 +29,7 @@ ms.locfileid: "102618103"
 
 [환경](/python/api/azureml-core/azureml.core.environment.environment) 클래스를 통해 개인 패키지를 사용 합니다. 환경 내에서 개인용 패키지를 포함 하 여 사용할 Python 패키지를 선언 합니다. 일반적인 Azure Machine Learning 환경에 대해 알아보려면 [환경을 사용 하는 방법](how-to-use-environments.md)을 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
  * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install)
  * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)

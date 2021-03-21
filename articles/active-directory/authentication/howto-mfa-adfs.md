@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42f920726d4b3046ab0c292e1090f5217e8b1f9
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96743244"
 ---
 # <a name="securing-cloud-resources-with-azure-ad-multi-factor-authentication-and-ad-fs"></a>Azure AD Multi-Factor Authentication 및 AD FS를 사용 하 여 클라우드 리소스 보안 유지
@@ -67,7 +67,7 @@ ms.locfileid: "96743244"
 6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들어 InsideCorpNet입니다.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부** 를 선택합니다.
    ![회사 네트워크 클레임 내부 추가](./media/howto-mfa-adfs/trustedip4.png)
-8. **Finish** 를 클릭합니다.
+8. **마침** 을 클릭합니다.
 9. 발급 변환 규칙에서 **규칙 추가** 를 클릭 합니다.
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기** 를 선택하고 **다음** 을 클릭합니다.
 11. 클레임 규칙 이름 아래에 있는 상자에 *로그인한 사용자 유지* 를 입력합니다.
@@ -79,9 +79,9 @@ ms.locfileid: "96743244"
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
 ```
 
-13. **Finish** 를 클릭합니다.
+13. **마침** 을 클릭합니다.
 14. **적용** 을 클릭합니다.
-15. **확인** 을 클릭합니다.
+15. **Ok** 를 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
 ### <a name="configure-azure-ad-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션된 사용자를 사용 하 여 Azure AD Multi-Factor Authentication 신뢰할 수 있는 Ip 구성
@@ -97,4 +97,4 @@ ms.locfileid: "96743244"
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP** 에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기** 를 선택합니다.  
 5. **저장** 을 클릭합니다.
 
-간단하죠. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.
+이것으로 끝입니다. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.

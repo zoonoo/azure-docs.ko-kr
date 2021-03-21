@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
 ms.openlocfilehash: 9481b6d2740d27b8c3d1309e205edda6017868fa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005755"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
@@ -28,7 +28,7 @@ ms.locfileid: "96005755"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: IP 주소 168.63.129.16 | Microsoft Docs
+title: IP 주소 168.63.129.16 | Microsoft 문서
 description: 특히 Azure platform 리소스에 대 한 통신 채널을 용이 하 게 하는 데 사용 되는 IP 주소 168.63.129.16에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
 ms.openlocfilehash: 1e304bc30a48c92fdff576723dae6af1e26ef3da
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222584"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 주소 168.63.129.16

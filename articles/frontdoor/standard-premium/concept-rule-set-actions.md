@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: c9995df0f292c5e528156a3280df5484db017fca
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101100047"
 ---
 # <a name="azure-front-door-standardpremium-rule-set-actions"></a>Azure Front 도어 표준/프리미엄 규칙 집합 작업
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure 전면 도어 [규칙 집합](concept-rule-set.md) 은 일치 조건 및 작업의 조합을 포함 하는 규칙으로 구성 됩니다. 이 문서에서는 규칙 집합에서 사용할 수 있는 작업에 대 한 자세한 설명을 제공 합니다. 작업은 일치 조건에서 식별 하는 요청 형식에 적용 되는 동작을 정의 합니다. Azure Front 도어 규칙 집합에서 규칙은 최대 5 개의 작업을 포함할 수 있습니다. 서버 변수는 모든 동작에서 지원 됩니다.
 

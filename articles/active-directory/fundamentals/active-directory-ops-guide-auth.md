@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
 ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96859524"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
 
 |리소스 | 사용 권한 |
 | :- | :- |

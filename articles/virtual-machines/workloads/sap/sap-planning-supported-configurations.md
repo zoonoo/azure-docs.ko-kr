@@ -17,10 +17,10 @@ ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 274db058f9f291d720fc350bb23f7bfdde2791e9
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670942"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Azure 가상 머신의 SAP 워크로드 지원 시나리오
@@ -286,7 +286,7 @@ Azure 아키텍처에서 SAP 워크 로드에 대해 지원 되지 않는 시나
 
 지원 되지 않는 다른 시나리오는 다음과 같은 시나리오입니다.
 
-- Sap 응용 프로그램 계층과 sap의 공통 아키텍처에서 sap DBMS 계층 사이에 더 큰 네트워크 대기 시간을 도입 하는 배포 시나리오 (NetWeaver, S/4HANA 및 예:) `Hybris` 여기에는 다음이 포함됩니다.
+- Sap 응용 프로그램 계층과 sap의 공통 아키텍처에서 sap DBMS 계층 사이에 더 큰 네트워크 대기 시간을 도입 하는 배포 시나리오 (NetWeaver, S/4HANA 및 예:) `Hybris` 다음 내용이 포함됩니다.
     - 계층 중 하나를 온-프레미스에 배포 하는 반면 다른 계층은 Azure에 배포 됩니다.
     - DBMS 계층이 아닌 다른 Azure 지역에 있는 시스템의 SAP 응용 프로그램 계층 배포
     - Azure에 공동 배치 되는 데이터 센터에서 한 계층을 배포 하는 방법 (이러한 아키텍처 패턴이 Azure native service에서 제공 되는 경우 제외)

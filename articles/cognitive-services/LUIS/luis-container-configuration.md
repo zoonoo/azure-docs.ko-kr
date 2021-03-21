@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: a4f2b07edc6c290fa030621a4dc400ab50890bba
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001186"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
@@ -26,16 +26,16 @@ LUIS **Language Understanding** 컨테이너 런타임 환경은 `docker run` �
 
 이 컨테이너에는 다음 구성 설정을 사용합니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
-|Yes|[ApiKey](#apikey-setting)|청구 정보를 추적하는 데 사용됩니다.|
-|No|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
-|Yes|[Billing](#billing-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
-|Yes|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
-|No|[Fluentd](#fluentd-settings)|로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 씁니다.|
-|No|[Http 프록시](#http-proxy-credentials-settings)|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
-|No|[로깅](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
-|Yes|[Mounts](#mount-settings)|호스트 컴퓨터에서 컨테이너로 데이터를 읽고 쓰고, 컨테이너에서 호스트 컴퓨터로 다시 데이터를 읽고 씁니다.|
+|예|[ApiKey](#apikey-setting)|청구 정보를 추적하는 데 사용됩니다.|
+|아니요|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
+|예|[Billing](#billing-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
+|예|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
+|아니요|[Fluentd](#fluentd-settings)|로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 씁니다.|
+|아니요|[Http 프록시](#http-proxy-credentials-settings)|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
+|아니요|[Logging](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
+|예|[Mounts](#mount-settings)|호스트 컴퓨터에서 컨테이너로 데이터를 읽고 쓰고, 컨테이너에서 호스트 컴퓨터로 다시 데이터를 읽고 씁니다.|
 
 > [!IMPORTANT]
 > [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) 및 [`Eula`](#eula-setting) 설정이 함께 사용 되며, 그 중 세 가지 모두에 대해 유효한 값을 제공 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](luis-container-howto.md#billing)를 참조하세요.
@@ -64,7 +64,7 @@ LUIS **Language Understanding** 컨테이너 런타임 환경은 `docker run` �
 * Azure Portal: **Cognitive Services** 개요, 레이블 `Endpoint`
 * LUIS portal: **키 및 끝점 설정** 페이지를 끝점 URI의 일부로 포함 합니다.
 
-| 필수 | Name | 데이터 형식 | Description |
+| 필수 | Name | 데이터 형식 | 설명 |
 |----------|------|-----------|-------------|
 | 예      | `Billing` | 문자열 | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
@@ -94,7 +94,7 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 다음 테이블은 지원되는 설정을 설명합니다.
 
-|필수| Name | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
 |예| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다. LUIS 패키지 파일의 위치입니다. <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
 |예| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|

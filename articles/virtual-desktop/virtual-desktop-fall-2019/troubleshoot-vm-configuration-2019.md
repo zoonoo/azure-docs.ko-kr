@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008630"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows 가상 데스크톱 (클래식) 세션 호스트 가상 컴퓨터 구성
@@ -82,8 +82,8 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 
 다음 지침에 따라 구성 요소가 설치 되었는지 확인 하 고 오류 메시지를 확인 합니다.
 
-1. **제어판**  >  **프로그램**  >  **프로그램 및 기능**을 검사 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
-2. **파일 탐색기** 를 열고 **C:\Windows\Temp\ScriptLog.log**로 이동 합니다. 파일이 없는 경우 두 구성 요소를 설치한 PowerShell DSC가 제공 된 보안 컨텍스트에서 실행 될 수 없음을 나타냅니다.
+1. **제어판**  >  **프로그램**  >  **프로그램 및 기능** 을 검사 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
+2. **파일 탐색기** 를 열고 **C:\Windows\Temp\ScriptLog.log** 로 이동 합니다. 파일이 없는 경우 두 구성 요소를 설치한 PowerShell DSC가 제공 된 보안 컨텍스트에서 실행 될 수 없음을 나타냅니다.
 3. **C:\Windows\Temp\ScriptLog.log** 파일이 있는 경우이 파일을 열고 오류 메시지를 확인 합니다.
 
 ### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>오류: Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 에이전트 부팅 로더가 없습니다. C:\Windows\Temp\ScriptLog.log도 없습니다.
@@ -178,7 +178,7 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Windows 가상 데스크톱 side-by-side 스택과 관련 된 문제 해결
 
-Windows 가상 데스크톱 side-by-side 스택은 Windows Server 2019와 함께 자동으로 설치 됩니다. Microsoft Installer (MSI)를 사용 하 여 Microsoft Windows Server 2016 또는 Windows Server 2012 r 2에 side-by-side 스택을 설치 합니다. Microsoft Windows 10의 경우 Windows 가상 데스크톱 side-by-side 스택은 **enablesxstackrs.ps1**에서 사용 하도록 설정 됩니다.
+Windows 가상 데스크톱 side-by-side 스택은 Windows Server 2019와 함께 자동으로 설치 됩니다. Microsoft Installer (MSI)를 사용 하 여 Microsoft Windows Server 2016 또는 Windows Server 2012 r 2에 side-by-side 스택을 설치 합니다. Microsoft Windows 10의 경우 Windows 가상 데스크톱 side-by-side 스택은 **enablesxstackrs.ps1** 에서 사용 하도록 설정 됩니다.
 
 Side-by-side 스택은 세션 호스트 풀 Vm에서 설치 또는 사용 하도록 설정 하는 세 가지 주요 방법이 있습니다.
 
@@ -316,7 +316,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>원격 데스크톱 라이선싱 모드 그룹 정책 설정 사용 안 함
 
-VM에서 그룹 정책 편집기를 열고 **Administrative Templates**  >  **Windows 구성 요소**원격 데스크톱 세션 호스트 원격 데스크톱 서비스 관리 템플릿 이동 하 여  >  **Remote Desktop Services**  >  **Remote Desktop Session Host**  >  **Licensing**  >  **원격 데스크톱 라이선싱 모드를 설정**하 여 그룹 정책 설정을 확인 합니다. 그룹 정책 설정을 **사용**하는 경우 **사용 안 함**으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
+VM에서 그룹 정책 편집기를 열고   >  **Windows 구성 요소** 원격 데스크톱 세션 호스트 원격 데스크톱 서비스 관리 템플릿 이동 하 여  >    >    >    >  **원격 데스크톱 라이선싱 모드를 설정** 하 여 그룹 정책 설정을 확인 합니다. 그룹 정책 설정을 **사용** 하는 경우 **사용 안 함** 으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
 
 >[!NOTE]
 >도메인을 통해 그룹 정책을 설정 하는 경우 이러한 Windows 10 Enterprise 다중 세션 Vm을 대상으로 하는 정책에서이 설정을 사용 하지 않도록 설정 합니다.
@@ -327,7 +327,7 @@ VM에서 그룹 정책 편집기를 열고 **Administrative Templates**  >  **Wi
 
 1. 관리자 계정으로 로그인 합니다.
 2. 시작 메뉴 옆의 검색 표시줄에 "About"을 입력 합니다.
-3. **PC 정보를**선택 합니다.
+3. **PC 정보를** 선택 합니다.
 4. "버전" 옆에 있는 숫자를 확인 합니다. 다음 그림에 표시 된 것 처럼 숫자는 "1809" 또는 "1903" 중 하나 여야 합니다.
 
     > [!div class="mx-imgBorder"]

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: 241f4a61e8d8c8de7a5573e8de534cb927a71b30
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099668"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-preview-endpoint-with-endpoint-manager"></a>Endpoint Manager를 사용 하 여 Azure Front 도어 표준/프리미엄 (미리 보기) 끝점 구성
 
 > [!NOTE]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? **[Azure 전방 도어 문서](../front-door-overview.md)** 를 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? **[Azure 전방 도어 문서](../front-door-overview.md)** 를 봅니다.
 
 이 문서에서는 끝점 관리자를 사용 하 여 기존 Azure Front 도어 Standard/Premium 프로필에 대 한 끝점을 만드는 방법을 보여 줍니다.
 
@@ -46,7 +46,7 @@ Azure Front 도어 프로필을 만들려면 [새 Azure Front 도어 표준/프�
 
     | 설정 | 값 |
     | -------- | ----- |
-    | 이름 | 새 Azure Front 도어 표준/프리미엄 끝점에 대 한 고유한 이름을 입력 합니다. 이 이름은 도메인의 캐시 된 리소스에 액세스 하는 데 사용 됩니다. `<endpointname>.az01.azurefd.net` |
+    | Name | 새 Azure Front 도어 표준/프리미엄 끝점에 대 한 고유한 이름을 입력 합니다. 이 이름은 도메인의 캐시 된 리소스에 액세스 하는 데 사용 됩니다. `<endpointname>.az01.azurefd.net` |
     | 원본 응답 시간 제한 (초) | 원본에 대 한 연결을 고려 하기 전에 Azure Front 도어가 대기 하는 시간 제한 값 (초)을 입력 합니다. |
     | 상태 | 이 끝점을 사용 하도록 설정 하려면 확인란을 선택 합니다. |
 

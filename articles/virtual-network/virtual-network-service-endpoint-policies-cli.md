@@ -18,10 +18,10 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: 9ce1e320a93a834a938ce95f3931d885d2214faa
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216872"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 계정을 Azure Storage 하는 데이터 반출 관리
@@ -152,7 +152,7 @@ az network nsg rule create \
 
 이 섹션에서는 서비스 끝점을 통해 가상 네트워크의 지정 된 서브넷에서 Azure Storage 계정에 대 한 네트워크 액세스를 제한 하는 단계를 나열 합니다.
 
-### <a name="create-a-storage-account"></a>저장소 계정 만들기
+### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 [Az storage account create](/cli/azure/storage/account)를 사용 하 여 두 개의 Azure storage 계정을 만듭니다.
 

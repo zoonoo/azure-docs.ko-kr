@@ -8,10 +8,10 @@ ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433321"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용 하 여 디지털 쌍의 그래프 관리
@@ -188,8 +188,8 @@ Azure Digital Twins에는 지정 된 쌍으로 **들어오는** 모든 관계를
 
 |  모델 ID    | 쌍 ID (고유 해야 함) | 관계 이름  | 대상 쌍 ID  | 쌍 초기화 데이터 |
 | --- | --- | --- | --- | --- |
-| dtmi: 예: 밑면; 1    | Floor1 | contains | Room1 | |
-| dtmi: 예: 밑면; 1    | Floor0 | contains | Room0 | |
+| dtmi: 예: 밑면; 1    | Floor1 | 포함 | Room1 | |
+| dtmi: 예: 밑면; 1    | Floor0 | 포함 | Room0 | |
 | dtmi: 예: Room; 1    | Room1 | | | {"온도": 80} |
 | dtmi: 예: Room; 1    | Room0 | | | {"온도": 70} |
 
