@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2d589d6c3394556499daf033c4c1d528a214b0e3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93319303"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
@@ -113,14 +113,14 @@ ms.locfileid: "93319303"
    
     b.  필요한 경우 데이터를 정리 된 테이블 형식으로 변환 합니다.
    
-    c.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
+    다.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. Azure VM에서 실행되는 SQL Server 데이터베이스에 데이터를 로드 합니다.
    
     a.  SQL Server VM에 로그인 합니다.
    
     b.  데이터가 아직 저장 되지 않은 경우 Azure storage 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드 합니다.
    
-    c.  SQL Server Management Studio를 실행합니다.
+    다.  SQL Server Management Studio를 실행합니다.
    
     d.  데이터베이스 및 대상 테이블을 만듭니다.
    
@@ -156,7 +156,7 @@ ms.locfileid: "93319303"
    
    b.  Azure Storage 컨테이너의 데이터 파일을 로컬 VM 폴더로 다운로드 합니다.
    
-   c.  SQL Server Management Studio를 실행합니다.
+   다.  SQL Server Management Studio를 실행합니다.
    
    d.  데이터베이스 및 대상 테이블을 만듭니다.
    
@@ -198,7 +198,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    b.  필요한 경우 데이터를 정리 된 테이블 형식으로 변환 합니다.
    
-   c.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
+   다.  VM 로컬 파일에 데이터 저장합니다(IPython Notebook이 VM에서 실행되고, 로컬 드라이브가 VM 드라이브를 참조).
 1. 2단계에서 선택한 Hadoop 클러스터의 기본 컨테이너에 데이터를 업로드합니다.
 1. Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스에 데이터를 로드합니다.
    
@@ -206,7 +206,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    b.  Hadoop 명령줄을 엽니다.
    
-   c.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
+   다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    
    d.  Hive 쿼리를 실행하여 데이터베이스 및 테이블을 만들고 Blob Storage에서 Hive 테이블로 데이터를 로드합니다.
    
@@ -220,7 +220,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
    
    b.  Hadoop 명령줄을 엽니다.
    
-   c.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
+   다.  Hadoop 명령줄의 명령 `cd %hive_home%\bin` 로 Hive 루트 디렉터리를 입력합니다.
    
    d.  Hadoop 클러스터의 헤드 노드에 있는 Hadoop 명령줄에서 Hive 쿼리를 실행하여 필요에 따라 데이터를 탐색하고 기능을 만듭니다.
 1. 필요하거나 원하는 경우, Azure Machine Learning Studio에 맞게 데이터를 샘플링합니다.

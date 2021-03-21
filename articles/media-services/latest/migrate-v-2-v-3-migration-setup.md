@@ -15,10 +15,10 @@ ms.workload: media
 ms.date: 1/14/2021
 ms.author: inhenkel
 ms.openlocfilehash: 792f4f81d84b61f0f78c53e62168921221b4f330
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503167"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>3 단계-V3 REST API 또는 클라이언트 SDK로 마이그레이션하도록 설정
@@ -130,7 +130,7 @@ class Program
 
 문서를 읽고 [Azure Media Services V3 API에 연결-Python](configure-connect-python-howto.md) 을 설정 하 여 환경을 설정 합니다.
 
-## <a name="nodejs"></a>[Node.js](#tab/nodejs)
+## <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 [Azure Media Services V3 API에 연결](configure-connect-nodejs-howto.md) 문서를 읽고 환경을 설정 Node.js.
 

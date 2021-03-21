@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ms.openlocfilehash: c882e3e4d0cd6ba594a700f4fd53c14103a8d1d1
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94381255"
 ---
 # <a name="web-search-endpoint"></a>Web Search 엔드포인트
@@ -30,7 +30,7 @@ ms.locfileid: "94381255"
 
 Bing API를 사용하여 웹 검색 결과를 가져오려면 `GET` 요청을 다음 엔드포인트로 전송합니다. 헤더 및 URL 매개 변수는 추가 사양을 정의합니다.
 
-**엔드포인트** : `?q=""`에서 정의한 사용자의 검색 쿼리와 관련된 웹 결과를 반환합니다.
+**엔드포인트**: `?q=""`에서 정의한 사용자의 검색 쿼리와 관련된 웹 결과를 반환합니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search

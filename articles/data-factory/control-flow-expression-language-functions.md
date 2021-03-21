@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.openlocfilehash: 829afda7ba49d60e51f3a074d38e5a1d0ca924a4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050055"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
@@ -556,7 +556,7 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 and(<expression1>, <expression2>)
 ```
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||
@@ -2412,7 +2412,7 @@ not(equals(1, 1))
 or(<expression1>, <expression2>)
 ```
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*expression1*>, <*식 2*> | 예 | 부울 | 검사할 식 |
 |||||

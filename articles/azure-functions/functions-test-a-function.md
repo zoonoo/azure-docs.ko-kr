@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
 ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674153"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
@@ -32,7 +32,7 @@ ms.locfileid: "98674153"
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "98674153"
 
 `ListLogger`테스트 중에 평가할 메시지의 내부 목록을 보유 하는 라는 새 클래스를 만듭니다. 필요한 인터페이스를 구현 하려면 `ILogger` 클래스에 범위가 필요 합니다. 다음 클래스는 클래스에 전달할 테스트 사례에 대 한 범위를 모의으로 만듭니다 `ListLogger` .
 
-**NullScope.cs** 라는 *테스트* 프로젝트에서 새 클래스를 만들고 다음 코드를 입력 합니다.
+함수에서 새 클래스를 만듭니다. 이름이 **Nullscope. cs** 인 프로젝트를 테스트 하 고 다음 코드를 입력 *합니다* .
 
 ```csharp
 using System;
@@ -69,7 +69,7 @@ namespace Functions.Tests
 }
 ```
 
-그런 다음 **ListLogger.cs** 이라는 프로젝트를 테스트 하 고 다음 코드를 입력 합니다 *.*
+그런 다음 함수에 새 클래스를 만들고, **Listlogger** 이라는 프로젝트를 *테스트* 하 고, 다음 코드를 입력 합니다.
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -115,7 +115,7 @@ namespace Functions.Tests
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
-그런 다음 **LoggerTypes.cs** *이라는 프로젝트에* 새 파일을 만들고 다음 코드를 입력 합니다.
+그런 다음 **LoggerTypes** *이라는 프로젝트에* 새 파일을 만들고 다음 코드를 입력 합니다.
 
 ```csharp
 namespace Functions.Tests
@@ -130,7 +130,7 @@ namespace Functions.Tests
 
 이 열거형은 테스트에서 사용하는 로거 형식을 지정합니다.
 
-이제 **TestFactory.cs** 라는 테스트 프로젝트를 만들고 다음 코드를 입력 *합니다.*
+이제 함수에 새 클래스를 만듭니다. **Testfactory** 라는 프로젝트를 *테스트* 하 고 다음 코드를 입력 합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -201,7 +201,7 @@ namespace Functions.Tests
 
 - **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
-마지막으로 **FunctionsTests.cs** *이라는 프로젝트에서* 새 클래스를 만들고 다음 코드를 입력 합니다.
+마지막으로 **FunctionsTests** *이라는 프로젝트에서* 새 클래스를 만들고 다음 코드를 입력 합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -269,7 +269,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설치 프로그램
+### <a name="setup"></a>설정
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 

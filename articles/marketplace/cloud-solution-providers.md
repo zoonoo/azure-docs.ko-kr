@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
 ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93131176"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
@@ -64,7 +64,7 @@ ms.locfileid: "93131176"
 
 ![CSP 선택 메뉴](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-**국가** , **역량** , **기술** 등의 검색 필터를 적용할 수 있습니다.
+**국가**, **역량**, **기술** 등의 검색 필터를 적용할 수 있습니다.
 
 ![파트너 검색에 대한 국가/지역, 역량 및 기술 필터](media/marketplace-publishers-guide/csp-add-resellers.png)
 

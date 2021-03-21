@@ -4,10 +4,10 @@ description: Event Grid 파트너로 등록 하는 방법에 대 한 개요를 �
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: 2a2e33395cabd368d5d5d870dd0461e4cbd37e0d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081198"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>파트너 온 보 딩 개요 (Azure Event Grid)
@@ -102,7 +102,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 1.  게시 서비스가 `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`에 대한 HTTP POST를 수행합니다.
 1.  요청에 인증을 위한 키를 포함하며 이름이 aeg-sas-key인 헤더를 포함합니다. 이 키는 파트너 네임 스페이스를 만드는 동안 프로 비전 됩니다. 예를 들어 유효한 헤더 값은 aeg-sas-key (VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==)입니다.
 1.  콘텐츠 형식 헤더를 "application/cloudevents-batch + json;으로 설정 합니다. charset = 8a ".
-1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 대 한 HTTP POST 쿼리를 실행 합니다. 다음은 그 예입니다.
+1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 대 한 HTTP POST 쿼리를 실행 합니다. 예를 들면 다음과 같습니다.
 
 ``` json
 [

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
 ms.openlocfilehash: dde3b95c7997a7f742a9d48a964f4275169f6e9c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92106929"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Functions 2.x 이상의 개요에 대 한 Azure Cosmos DB 트리거 및 바인딩
@@ -20,7 +20,7 @@ ms.locfileid: "92106929"
 
 이 문서 집합에서는 Azure Functions 2.x 이상에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩으로 작업 하는 방법을 설명 합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
-| 작업 | 형식 |
+| 작업 | Type |
 |---------|---------|
 | Azure Cosmos DB 문서를 만들거나 수정할 때 함수를 실행 합니다. | [트리거](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Azure Cosmos DB 문서 읽기 | [입력 바인딩](./functions-bindings-cosmosdb-v2-input.md) |

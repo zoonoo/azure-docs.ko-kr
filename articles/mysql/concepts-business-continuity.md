@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 15fde6e7558c685537d36f45bcc7e3ff341544ff
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94542496"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 비즈니스 연속성 이해
@@ -23,7 +23,7 @@ Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복�
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **기본** | **범용** | **메모리에 최적화** |
+| **기능** | **기본** | **범용** | **메모리 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |

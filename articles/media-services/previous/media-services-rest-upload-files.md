@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103012941"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
@@ -176,7 +176,7 @@ SAS URL의 형식은 다음과 같습니다.
 
 ### <a name="overview"></a>개요
 
-이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
+이제 업로드 URL이 있으므로 Azure Blob API로 일부 코드를 직접 작성하여 SAS 컨테이너에 파일을 업로드해야 합니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 - [Azure Storage REST API 사용](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 - [Blob 배치](/rest/api/storageservices/put-blob)

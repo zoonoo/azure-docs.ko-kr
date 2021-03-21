@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/12/2020
 ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94555586"
 ---
 # <a name="convert-to-image-directory"></a>이미지 디렉터리로 변환
@@ -71,13 +71,13 @@ ms.locfileid: "94555586"
 
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| Name          | Type                  | Description   |
+| Name          | Type                  | 설명   |
 | ------------- | --------------------- | ------------- |
 | 입력 데이터 세트 | AnyDirectory, ZipFile | 입력 데이터 세트 |
 
 ###  <a name="output"></a>출력  
 
-| Name                   | Type           | Description            |
+| Name                   | Type           | 설명            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 

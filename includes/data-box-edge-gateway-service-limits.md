@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 7eb9a6b157b0ab5d723a90a464151895506c4980
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96026929"
 ---
 - 스토리지 계정은 디바이스가 배포된 지역(서비스가 배포된 지역과 다를 수 있음)에 물리적으로 가장 가까운 곳에 있어야 합니다.

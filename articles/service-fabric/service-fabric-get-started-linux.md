@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93086893"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux에서 개발 환경 준비
@@ -298,7 +298,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 설치 된 구성 요소의 버전을 확인  >  **Installation Details** 합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다.   >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 설치 된 구성 요소의 버전을 확인  >  합니다. [Eclipse Buildship: Gradle용 Eclipse 플러그 인(영문)][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 
 2. Service Fabric 플러그 인을 설치 하려면 **도움말**  >  **새 소프트웨어 설치** 를 선택 합니다.
 
@@ -312,7 +312,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 6. 설치 단계를 수행합니다. 최종 사용자 라이선스 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **Help**  >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 확인  >  **Installation Details** 합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다.   >  **Eclipse 설치 정보에 대 한** 도움말을 선택 하 여 확인  >  합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
 
 자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 

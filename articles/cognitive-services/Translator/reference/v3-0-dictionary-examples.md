@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: lajanuar
 ms.openlocfilehash: e7f0e106c1ca154dcd54990395430b3e0f6c536f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895512"
 ---
 # <a name="translator-30-dictionary-examples"></a>Translator 3.0: 사전 예제
@@ -94,7 +94,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     > [!NOTE]
     > 사전에 예제가 없는 경우 응답은 200(정상)이지만 `examples` 목록은 빈 목록이 됩니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이 예제에서는 영어 용어 `fly` 및 해당 스페인어 번역 `volar`로 구성된 쌍의 예제를 조회하는 방법을 보여 줍니다.
 

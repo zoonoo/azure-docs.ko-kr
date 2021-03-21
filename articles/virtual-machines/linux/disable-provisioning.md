@@ -11,10 +11,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 7c797957c292b9859ca41951b15f58c3d0be40b2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561072"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Vm 및 이미지에서 Linux 에이전트를 사용 하지 않도록 설정 하거나 제거 합니다.

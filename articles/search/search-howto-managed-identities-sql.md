@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358425"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
@@ -103,7 +103,7 @@ ms.locfileid: "94358425"
 * **credentials**
     * 관리 ID를 사용하여 인증하는 경우 **자격 증명** 형식이 관리 ID를 사용하지 않는 경우와 다릅니다. 여기서는 초기 카탈로그 또는 데이터베이스 이름 및 계정 키 또는 암호가 없는 ResourceID를 제공합니다. ResourceId는 Azure SQL Database 구독 ID, SQL Database 리소스 그룹 및 SQL 데이터베이스의 이름을 포함 해야 합니다. 
     * 관리 ID 연결 문자열 형식:
-        * *Initial Catalog|Database= **database name** ;ResourceId=/subscriptions/ **구독 ID** /resourceGroups/ **리소스 그룹 이름** /providers/Microsoft.Sql/servers/ **SQL Server 이름** /;Connection Timeout= **connection timeout length** ;*
+        * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
 * **container** 에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
 
 다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Azure SQL 데이터 원본 개체를 만드는 방법의 예입니다.

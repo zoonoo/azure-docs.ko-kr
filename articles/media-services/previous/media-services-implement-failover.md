@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1636e49099851337d82494ebe168b8ec5194fa20
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011938"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Media Services v2를 사용 하 여 장애 조치 스트리밍 구현
@@ -53,7 +53,7 @@ ms.locfileid: "103011938"
 * 자산을 암호화한 스토리지(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
 * 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태인지 확인합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
@@ -68,7 +68,7 @@ ms.locfileid: "103011938"
 2. **파일과** 프로젝트 파일과 동일한 수준에 **supportfiles** 폴더를 만듭니다. **Supportfiles** 폴더에서 **Outputfiles** 및 **MP4Files** 폴더를 만듭니다. .mp4 파일을 **MP4Files** 폴더에 복사합니다. 이 예제에서는 **ignite.mp4** 파일이 사용 됩니다. 
 3. **NuGet** 을 사용 하 여 Media Services와 관련 된 dll에 대 한 참조를 추가 합니다. **Visual Studio 주 메뉴** 에서 **도구**  >  **NuGet 패키지 관리자**  >  **패키지 관리자 콘솔** 을 선택 합니다. 콘솔 창에서 **windowsazure.servicebus windowsazure.mediaservices** 를 입력 하 고 enter 키를 누릅니다.
 4. 이 프로젝트에 필요한 다른 참조를 추가 합니다 (예: System.object 및 system.web).
-5. 기본적으로 **Programs.cs** 파일에 추가 된 **using** 문을 다음과 같이 바꿉니다.
+5. 기본적으로 **프로그램 .cs** 파일에 추가 된 **using** 문을 다음과 같이 바꿉니다.
 
 ```csharp
 using System;

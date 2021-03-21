@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686583"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
@@ -88,7 +88,7 @@ Microsoft. Identity는 구성 또는 코드를 통해 인증서를 설명 하는
 
 ## <a name="startupcs"></a>Startup.cs
 
-Web API는 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러/페이지 동작에서 사용할 수 있는 서비스를 노출 합니다. 그러나 다음 두 가지 글머리 기호에서 볼 수 있듯이 훨씬 더 간단 하 게 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs* 에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
+Web API는 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러/페이지 동작에서 사용할 수 있는 서비스를 노출 합니다. 그러나 다음 두 가지 글머리 기호에서 볼 수 있듯이 훨씬 더 간단 하 게 수행할 수 있습니다. 또한 `.AddInMemoryTokenCaches()` *시작 .cs* 에서 토큰 캐시 구현을 선택 해야 합니다.
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -116,7 +116,7 @@ public class Startup
 Microsoft Graph를 호출 하려는 경우에는 `GraphServiceClient` API 작업에서 (MICROSOFT GRAPH SDK에 의해 노출 됨)를 직접 사용할 수 있습니다. Microsoft Graph를 노출 하려면:
 
 1. [Microsoft.azure.webjobs.extensions.microsoftgraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 프로젝트에 추가 합니다.
-1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *Startup.cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
+1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *시작 .cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -164,7 +164,7 @@ public class Startup
 
 웹 앱과 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft id 웹 토큰 캐시 serialization](https://aka.ms/ms-id-web/token-cache-serialization) 을 참조 하세요.
 
-다음 이미지는 *Startup.cs* 파일에 대 한 다양 한 *Microsoft id* 및 해당 영향을 보여 줍니다.
+다음 이미지는 *Microsoft* 의 다양 한 가능성과 *시작 .cs* 파일에 미치는 영향을 보여 줍니다.
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="웹 API를 호출 하 고 토큰 캐시 구현을 지정 하는 시작 점 C의 서비스 구성 옵션을 보여 주는 블록 다이어그램":::
 

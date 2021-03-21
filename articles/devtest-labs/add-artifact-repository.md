@@ -4,10 +4,10 @@ description: 공용 아티팩트 리포지토리에서 사용할 수 없는 도�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502198"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs에서 랩에 아티팩트 리포지토리 추가
@@ -19,7 +19,7 @@ DevTest Labs에서 유지 관리 하는 [공용 아티팩트 리포지토리](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 랩에 리포지토리를 추가하려면 먼저 리포지토리에서 특정 정보를 가져옵니다. 다음 섹션에서는 **GitHub** 또는 **Azure devops** 에서 호스트 되는 리포지토리에 필요한 정보를 가져오는 방법을 설명 합니다.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>GitHub 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기

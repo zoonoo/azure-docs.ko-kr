@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735508"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
@@ -26,7 +26,7 @@ ms.locfileid: "101735508"
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 IIS(인터넷 정보 서비스)를 기반으로 하는 웹 애플리케이션을 보호하는 방법에 대해 설명합니다. 그리고 3계층 IIS 기반 웹 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -62,7 +62,7 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 --- | --- | ---
 Hyper-V | 예 | 예
 VMware | 예 | 예
-실제 서버 | 예 | 예
+실제 서버 | 아니요 | 예
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
@@ -144,7 +144,7 @@ TLS/SSL 인증서는 다음 구성 요소에 대해 발급할 수 있습니다.
 
 1. Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2. IIS 웹 팜에 대해 만든 복구 계획을 선택합니다.
-3. **테스트 장애 조치** 를 선택합니다.
+3. **테스트 장애 조치 (Failover)** 를 선택 합니다.
 4. 테스트 장애 조치(failover) 프로세스를 시작하려면 복구 지점과 Azure 가상 네트워크를 선택합니다.
 5. 보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
 6. 유효성 검사가 완료되면 테스트 장애 조치 환경을 정리하기 위해 **유효성 검사 완료** 를 선택합니다.

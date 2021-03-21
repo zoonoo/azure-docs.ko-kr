@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/18/2021
 ms.author: mimart
 ms.openlocfilehash: 4f6ba0892438d49dcc982a01a6b30dfa36ed43b5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674240"
 ---
 ## <a name="add-a-user-journey"></a>사용자 경험 추가 
@@ -20,7 +20,7 @@ ms.locfileid: "98674240"
 1. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 1. *TrustFrameworkExtensions.xml* 을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-1. 사용자 경험의 Id 이름을 바꿉니다. 예들 들어 `Id="CustomSignUpSignIn"`입니다.
+1. 사용자 경험의 Id 이름을 바꿉니다. 예: `Id="CustomSignUpSignIn"`
 
 ## <a name="add-the-identity-provider-to-a-user-journey"></a>사용자 경험에 id 공급자 추가 
 

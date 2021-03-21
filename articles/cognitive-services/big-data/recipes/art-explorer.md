@@ -12,17 +12,17 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
 ms.openlocfilehash: 5a65ff28a38e42e05844063a330c0325f16b2247
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94363292"
 ---
 # <a name="recipe-intelligent-art-exploration-with-the-cognitive-services-for-big-data"></a>레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 레 커
 
 이 예제에서는 빅 데이터에 대 한 Cognitive Services를 사용 하 여 대도시 박물관 (충족)에서 개방형 액세스 컬렉션에 지능형 주석을 추가 합니다. 이렇게 하면 수동 주석을 사용 하지 않아도 Azure Search를 사용 하 여 지능형 검색 엔진을 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Computer Vision 및 Cognitive Search에 대 한 구독 키가 있어야 합니다. [Cognitive Services 계정 만들기](../../cognitive-services-apis-create-account.md) 의 지침에 따라 Computer Vision를 구독 하 고 키를 가져옵니다.
   > [!NOTE]

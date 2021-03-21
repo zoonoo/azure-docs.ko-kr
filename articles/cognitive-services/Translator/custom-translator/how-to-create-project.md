@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 9e3aa52323f44e6c1407fe2a542e40ee06370043
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895801"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "98895801"
 
     b.  설명: 프로젝트에 대한 간단한 요약입니다. 설명은 Custom Translator나 사용자 지정 시스템에 영향을 주지 않지만, 여러 프로젝트를 구분하는 데 도움이 될 수 있습니다.
 
-    c.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
+    다.  언어 쌍(필수): 번역할 원본 언어와 대상 언어를 선택합니다.
 
     d.  범주(필수): 프로젝트에 해당하는 카테고리를 선택합니다. 범주는 번역하려는 문서의 스타일과 용어를 설명합니다.
 

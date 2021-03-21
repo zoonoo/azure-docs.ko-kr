@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86ad698793d562f93f9972903ca21e50c209c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580012"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 로그 분석 보기 설치 및 사용
@@ -31,7 +31,7 @@ Azure Active Directory 로그 분석 보기를 통해 Azure AD 테넌트에서 A
 * 감사 로그: [감사 로그 작업 보고서](concept-audit-logs.md) 는 테 넌 트에서 수행 된 모든 작업의 기록에 대 한 액세스를 제공 합니다.
 * 로그인 로그: [로그인 활동 보고서](concept-sign-ins.md)를 사용 하 여 감사 로그에 보고 되는 태스크를 수행한 사용자를 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 로그 분석 보기를 사용하려면 다음이 필요합니다.
 

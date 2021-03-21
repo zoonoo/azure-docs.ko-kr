@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95995287"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
@@ -103,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 Azure에서 Azure Database for PostgreSQL 서버를 만듭니다. 
 
-1. Azure Portal 화면의 왼쪽 위에서 Azure Database for PostgreSQL **리소스 데이터베이스 만들기** 를 선택  >  **Databases**  >  **Azure Database for PostgreSQL** 합니다.
+1. Azure Portal 화면의 왼쪽 위에서 Azure Database for PostgreSQL **리소스 데이터베이스 만들기** 를 선택  >    >  합니다.
 
 1. **Azure Database for PostgreSQL 배포 옵션** 에서 **단일 서버** 를 선택 하 고 다음 정보를 제공 합니다.
 

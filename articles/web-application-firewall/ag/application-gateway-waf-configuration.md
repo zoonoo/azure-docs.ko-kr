@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93040249"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록
@@ -38,11 +38,11 @@ WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 �
 
 지원되는 일치 기준 연산자는 다음과 같습니다.
 
-- **equals** : 정확한 일치에 사용됩니다. 예를 들어 **bearerToken** 이라는 헤더를 선택하는 경우 선택기가 **bearerToken** 으로 설정된 equals 연산자를 사용합니다.
-- **starts with** : 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
-- **ends with** : 이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
-- **contains** : 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
-- **같음 any** :이 연산자는 모든 요청 필드와 일치 합니다. *는 선택기 값이 됩니다.
+- **equals**: 정확한 일치에 사용됩니다. 예를 들어 **bearerToken** 이라는 헤더를 선택하는 경우 선택기가 **bearerToken** 으로 설정된 equals 연산자를 사용합니다.
+- **starts with**: 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
+- **ends with**: 이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
+- **contains**: 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
+- **같음 any**:이 연산자는 모든 요청 필드와 일치 합니다. *는 선택기 값이 됩니다.
 
 어떤 경우에서든 일치는 대/소문자를 구분하지 않으며, 정규식은 선택기로 사용할 수 없습니다.
 

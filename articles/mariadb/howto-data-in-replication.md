@@ -3,14 +3,14 @@ title: 데이터에서 복제 구성-Azure Database for MariaDB
 description: 이 문서에서는 Azure Database for MariaDB에서 입력 데이터 복제를 설정 하는 방법을 설명 합니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/18/2021
-ms.openlocfilehash: ed1031bd45ca4f1223de9c0bce2053a393e3a2c6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98665126"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 입력 데이터 복제 구성
@@ -80,7 +80,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
       ping <output of step 2b>
       ```
 
-      다음은 그 예입니다. 
+      예를 들면 다음과 같습니다.
 
       ```bash
       C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
@@ -239,7 +239,7 @@ Azure Database for MariaDB 서비스에서 복제본을 만들기 위해는 온-
 
     * Master_ssl_ca 매개 변수를 변수로 전달 하는 것이 좋습니다. 자세한 내용은 다음 예를 참조하세요.
 
-   **예제**
+   **예**
 
    - SSL을 사용한 복제
 

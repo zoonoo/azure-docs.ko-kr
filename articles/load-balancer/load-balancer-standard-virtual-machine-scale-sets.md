@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
 ms.openlocfilehash: 7a2e0531427343a2ec267de54cee05b5eb25889f
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592282"
 ---
 # <a name="add-rules-for-azure-load-balancer-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 사용 하 여 Azure Load Balancer에 대 한 규칙 추가

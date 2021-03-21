@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: e7585880b98f62f819ff344c82846c2cfb1fd620
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98019825"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
@@ -87,7 +87,7 @@ Network Watcher 리소스는 Network Watcher에 대 한 백 엔드 서비스를 
 예. Network Watcher 서비스는 기본적으로 영역 복원 가능 합니다. 
 
 ### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Network Watcher 서비스를 영역 복원 력이 되도록 구성 어떻게 할까요? 
-영역 복원 력을 사용 하도록 설정 하는 데 필요한 고객 구성은 없습니다. 영역-Network Watcher 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다. 
+영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. 영역-Network Watcher 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다. 
 
 ## <a name="nsg-flow-logs"></a>NSG 흐름 로그
 

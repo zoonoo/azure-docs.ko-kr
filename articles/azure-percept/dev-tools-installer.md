@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 66498fabadc0784a4a4ab1c3762daaaa9a5738c4
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503218"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>개발자 도구 팩 설치 관리자 개요
@@ -87,7 +87,7 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
         > 
         - 설치 관리자는 Apple M1에서 지원 되지 않습니다.
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 
 1. [Windows](https://go.microsoft.com/fwlink/?linkid=2132187), [Linux](https://go.microsoft.com/fwlink/?linkid=2132186)및 [Mac](https://go.microsoft.com/fwlink/?linkid=2132296)용 개발 도구 팩 설치 관리자를 다운로드 합니다.
 
@@ -99,13 +99,13 @@ Dev Tools Pack Installer는 지능형에 지 솔루션을 개발 하는 데 필�
         
     1. Mac:
     
-        1. 다운로드 한 후 Dev-Tools-Pack-Installer 파일을 응용 프로그램 폴더로 이동 합니다.
+        1. 다운로드 한 후 Dev-Tools-Pack-Installer.app 파일을 응용 프로그램 폴더로 이동 합니다.
         
-        1. **Dev-Tools-Pack-Installer** 를 클릭 하 여 설치 마법사를 엽니다.
+        1. **Dev-Tools-Pack-Installer.app** 를 클릭 하 여 설치 마법사를 엽니다.
         
         1. "미확인 개발자" 보안 대화 상자가 표시 되는 경우:
         
-            1. 시스템 기본 설정-> 보안 & 개인 정보-> 일반으로 이동 하 고 "Dev-Tools-Pack-Installer" 옆의 "열기" 단추를 클릭 합니다.
+            1. 시스템 기본 설정-> 보안 & 개인 정보-> 일반으로 이동 하 고 "Dev-Tools-Pack-Installer.app" 옆의 "열기" 단추를 클릭 합니다.
         
             1. 항구에서 전자 아이콘을 다시 클릭 합니다.
         

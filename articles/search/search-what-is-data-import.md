@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049324"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>데이터 가져오기 개요-Azure Cognitive Search
@@ -52,7 +52,7 @@ REST API에서 Azure Cognitive Search 인덱스의 끝점 URL에 대 한 JSON �
 .NET SDK에서 개체에 데이터를 패키지 `IndexBatch` 합니다. 는 `IndexBatch` 개체의 컬렉션을 캡슐화 하며 `IndexAction` , 각 개체에는 문서 및 속성을 포함 하 여 해당 문서에 대해 수행할 작업을 Cognitive Search 합니다. 코드 예제는 [c # 빠른](search-get-started-dotnet.md)시작을 참조 하세요.
 
 
-| @search.action | 설명 | 각 문서에 대해 필요한 필드 | 메모 |
+| @search.action | Description | 각 문서에 대해 필요한 필드 | 참고 |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |`upload` 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. |키, 더하기 정의하려는 기타 필드 |기존 문서를 업데이트/교체하는 경우 요청에 지정되지 않은 필드는 해당 필드를 `null`로 설정합니다. 필드가 이전에 null이 아닌 값으로 설정된 경우에 발생합니다. |
 | `merge` |기존 문서를 지정한 필드로 업데이트합니다. 인덱스에 문서가 없으면 병합이 실패합니다. |키, 더하기 정의하려는 기타 필드 |문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. .NET SDK에서 여기에는 형식의 필드가 포함 됩니다 `DataType.Collection(DataType.String)` . REST API에는 형식의 필드가 포함 됩니다 `Collection(Edm.String)` . 예를 들어 값이 `["budget"]`인 `tags` 필드가 포함되어 있는 문서에서 `tags`에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 `tags` 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 아닙니다. |

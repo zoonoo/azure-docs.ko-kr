@@ -17,10 +17,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371616"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 사용자 지정 역할 활성화
@@ -39,7 +39,7 @@ Azure AD 사용자 지정 역할을 활성화 해야 하는 경우 Privileged Id
 1. [Azure Portal](https://portal.azure.com)에 로그인 합니다.
 1. Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart)를 엽니다.
 
-1. **Azure AD 사용자 지정 역할**을 선택하면 적격 Azure AD 사용자 지정 역할이 표시됩니다.
+1. **Azure AD 사용자 지정 역할** 을 선택하면 적격 Azure AD 사용자 지정 역할이 표시됩니다.
 
    ![적격 Azure AD 사용자 지정 역할 할당 목록 보기](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
@@ -47,16 +47,16 @@ Azure AD 사용자 지정 역할을 활성화 해야 하는 경우 Privileged Id
 > 역할을 할당 하기 전에 역할을 만들거나 구성 해야 합니다. AAD 사용자 지정 역할을 구성 하는 방법에 대 한 자세한 내용은 [Privileged Identity Management에서 AZURE AD 사용자 지정 역할 구성](azure-ad-custom-roles-configure.md)을 참조 하세요.
 
 1. **Azure AD 사용자 지정 역할(미리 보기)** 페이지에서 필요한 할당을 찾습니다.
-1. **역할 활성화**를 선택하여 **활성화** 페이지를 엽니다.
-1. 다단계 인증이 필요한 역할은 **진행하기 전에 ID 확인**을 클릭합니다. 세션당 한 번만 인증해야 합니다.
-1. **ID 확인**을 선택하고 지침에 따라 추가 보안 확인을 제공합니다.
-1. 사용자 지정 애플리케이션 범위를 지정하려면 **범위**를 선택하여 필터 창을 엽니다. 역할에 대한 액세스는 필요한 최소 범위에서 요청해야 합니다. 할당이 특정 애플리케이션 범위에 있으면 해당 범위에서만 활성화할 수 있습니다.
+1. **역할 활성화** 를 선택하여 **활성화** 페이지를 엽니다.
+1. 다단계 인증이 필요한 역할은 **진행하기 전에 ID 확인** 을 클릭합니다. 세션당 한 번만 인증해야 합니다.
+1. **ID 확인** 을 선택하고 지침에 따라 추가 보안 확인을 제공합니다.
+1. 사용자 지정 애플리케이션 범위를 지정하려면 **범위** 를 선택하여 필터 창을 엽니다. 역할에 대한 액세스는 필요한 최소 범위에서 요청해야 합니다. 할당이 특정 애플리케이션 범위에 있으면 해당 범위에서만 활성화할 수 있습니다.
 
    ![역할 할당에 Azure AD 리소스 범위 할당](./media/azure-ad-custom-roles-activate/assign-scope.png)
 
 1. 필요한 경우 사용자 지정 활성화 시작 시간을 지정합니다. 사용하면 지정된 시간에 역할 멤버가 활성화됩니다.
 1. **이유** 상자에 활성화 요청의 이유를 입력합니다. 이 항목은 역할 설정에서 필수 여부를 설정할 수 있습니다.
-1. **활성화**를 선택합니다.
+1. **활성화** 를 선택합니다.
 
 역할에 승인이 필요하지 않으면 설정에 따라 활성화되고 활성 역할 목록에 추가됩니다. 활성화된 역할을 사용하려면 [Privileged Identity Management에서 Azure AD 사용자 지정 역할 할당](azure-ad-custom-roles-assign.md)의 단계부터 시작합니다.
 
