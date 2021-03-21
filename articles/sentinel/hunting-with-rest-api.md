@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98795690"
 ---
-# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>REST API를 사용 하 여 Azure 센티널에서 구하기 및 라이브 스트림 쿼리 관리
+# <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>REST API를 사용하여 Azure Sentinel에서 헌팅 및 실시간 스트리밍 쿼리 관리
 
 Azure Monitor Log Analytics에 포함 되는 Azure 센티널은 Log Analytics ' REST API를 사용 하 여 구하기 및 라이브 스트림 쿼리를 관리할 수 있습니다. 이 문서에서는 REST API를 사용 하 여 구하기 쿼리를 만들고 관리 하는 방법을 보여 줍니다.  이러한 방식으로 만들어진 쿼리는 Azure 센티널 UI에 표시 됩니다.
 
@@ -44,7 +44,7 @@ Azure Monitor Log Analytics에 포함 되는 Azure 센티널은 Log Analytics ' 
 | **쿼리입니다** | 쿼리에 대 한 쿼리 식입니다. |
 |  
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 이 예에서는 지정 된 Azure 센티널 작업 영역에 대 한 구하기 쿼리를 만들거나 업데이트 하는 방법을 보여 줍니다.  라이브 스트림 쿼리의 경우 **요청 본문** 에서 " *category": "* 라이브 스트림 queries"를 "Category": " *queries"* 로 바꿉니다. 
 
@@ -79,7 +79,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId} _
 }
 ```
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 이 예에서는 지정 된 Azure 센티널 작업 영역에 대 한 구하기 또는 라이브 스트림 쿼리를 삭제 하는 방법을 보여 줍니다.
 

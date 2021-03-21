@@ -13,16 +13,16 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
 ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98795327"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 데이터베이스 백업을 사용 하 여 복구-SQL Managed Instance & Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음 작업을 수행할 수 있습니다.
+[자동화 된 데이터베이스 백업을](automated-backups-overview.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 할 수 있습니다.
 
 - 동일한 서버에 새 데이터베이스를 만들어 보존 기간 내의 지정 된 특정 시점으로 복구 합니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 되는 동일한 서버에 데이터베이스를 만듭니다.
@@ -168,7 +168,7 @@ Azure Portal에서 새 단일 또는 관리 되는 인스턴스 데이터베이�
 
 #### <a name="sql-managed-instance"></a>SQL Managed Instance
 
-Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 다음 단계를 수행하세요.
+Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 지역에 있는 기존 관리 되는 인스턴스로 지역 복원 하려면 데이터베이스를 복원할 관리 되는 인스턴스를 선택 합니다. 다음 단계를 수행합니다.
 
 1. **새 데이터베이스** 를 선택 합니다.
 2. 원하는 데이터베이스 이름을 입력 합니다.

@@ -4,10 +4,10 @@ description: Azure container instance를 배포할 때 컨테이너 이미지의
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: 23221de3dc91c37c2e6fb96489539d3954efcd87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86169632"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>컨테이너 인스턴스에서 명령줄을 설정 하 여 기본 명령줄 작업을 재정의 합니다.
@@ -50,7 +50,7 @@ ms.locfileid: "86169632"
 
   [Dockerfile](https://docs.docker.com/engine/reference/builder/) 구문에 익숙한 경우이 형식은 CMD 명령의 *exec* 형식과 비슷합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 |    |  Azure CLI   | 포털 | 템플릿 | 
 | ---- | ---- | --- | --- |
@@ -59,7 +59,7 @@ ms.locfileid: "86169632"
 
 ## <a name="azure-cli-example"></a>Azure CLI 예제
 
-예를 들어 셰익스피어의 *Hamlet* 텍스트를 분석 하 여 가장 자주 발생 하는 단어를 찾는 [microsoft/aci-wordcount][aci-wordcount] 컨테이너 이미지의 동작을 수정 합니다. *Hamlet*을 분석 하는 대신 다른 텍스트 원본을 가리키는 명령줄을 설정할 수 있습니다.
+예를 들어 셰익스피어의 *Hamlet* 텍스트를 분석 하 여 가장 자주 발생 하는 단어를 찾는 [microsoft/aci-wordcount][aci-wordcount] 컨테이너 이미지의 동작을 수정 합니다. *Hamlet* 을 분석 하는 대신 다른 텍스트 원본을 가리키는 명령줄을 설정할 수 있습니다.
 
 기본 텍스트를 분석할 때 [microsoft/aci-wordcount][aci-wordcount] 컨테이너의 출력을 보려면 다음 [az container create][az-container-create] 명령을 사용 하 여 실행 합니다. 시작 명령줄이 지정 되지 않았으므로 기본 컨테이너 명령이 실행 됩니다. 설명을 위해이 예제에서는 [환경 변수](container-instances-environment-variables.md) 를 설정 하 여 5 자 이상의 상위 3 개 단어를 찾습니다.
 
@@ -84,9 +84,9 @@ az container logs --resource-group myResourceGroup --name mycontainer1
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
-이제 다른 명령줄을 지정 하 여 다른 텍스트를 분석 하는 두 번째 예제 컨테이너를 설정 합니다. *Wordcount.py*컨테이너에서 실행 되는 Python 스크립트는 URL을 인수로 수락 하 고 기본값 대신 해당 페이지의 콘텐츠를 처리 합니다.
+이제 다른 명령줄을 지정 하 여 다른 텍스트를 분석 하는 두 번째 예제 컨테이너를 설정 합니다. *Wordcount.py* 컨테이너에서 실행 되는 Python 스크립트는 URL을 인수로 수락 하 고 기본값 대신 해당 페이지의 콘텐츠를 처리 합니다.
 
-예를 들어 *Romeo 및 Juliet*에서 5 자 이상의 상위 3 개 단어를 확인 하려면 다음을 수행 합니다.
+예를 들어 *Romeo 및 Juliet* 에서 5 자 이상의 상위 3 개 단어를 확인 하려면 다음을 수행 합니다.
 
 ```azurecli-interactive
 az container create \
@@ -98,7 +98,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-다시 한번 컨테이너가 *Terminated*가 되면 컨테이너의 로그를 표시하여 출력을 봅니다.
+다시 한번 컨테이너가 *Terminated* 가 되면 컨테이너의 로그를 표시하여 출력을 봅니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2

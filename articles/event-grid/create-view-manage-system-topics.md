@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 기존 시스템
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 2dbb0893668d72cfebf2d64e6515ff6ab6fed9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86115114"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Azure Portal에서 Event Grid 시스템 항목을 만들고, 확인 하 고, 관리 합니다.
@@ -20,25 +20,25 @@ ms.locfileid: "86115114"
 - **Event Grid 시스템 항목** 페이지를 사용 합니다. 다음 단계는 **Event Grid 시스템 항목** 페이지를 사용 하 여 시스템 항목을 만들기 위한 것입니다. 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 위쪽의 검색 상자에 **Event Grid 시스템 항목**을 입력 한 다음 **enter**키를 누릅니다. 
+2. 위쪽의 검색 상자에 **Event Grid 시스템 항목** 을 입력 한 다음 **enter** 키를 누릅니다. 
 
     ![시스템 항목 검색](./media/create-view-manage-system-topics/search-system-topics.png)
 3. **Event Grid 시스템 항목** 페이지의 도구 모음에서 **+ 추가** 를 선택 합니다.
 
     ![시스템 추가 항목-도구 모음 단추](./media/create-view-manage-system-topics/add-system-topic-menu.png)
 4. **Event Grid 시스템 항목 만들기** 페이지에서 다음 단계를 수행 합니다.
-    1. **항목 유형을**선택 합니다. 다음 예제에서는 **저장소 계정** 옵션을 선택 합니다. 
+    1. **항목 유형을** 선택 합니다. 다음 예제에서는 **저장소 계정** 옵션을 선택 합니다. 
     2. 저장소 계정 리소스를 포함 하는 **Azure 구독** 을 선택 합니다. 
     3. 저장소 계정이 있는 **리소스 그룹** 을 선택 합니다. 
-    4. **저장소 계정**을 선택합니다. 
+    4. **저장소 계정** 을 선택합니다. 
     5. 만들 시스템 항목의 **이름을** 입력 합니다. 
     
         > [!NOTE]
         > 이 시스템 항목 이름을 사용 하 여 메트릭 및 진단 로그를 검색할 수 있습니다.
-    6. **검토 + 만들기**를 선택합니다.
+    6. **검토 + 만들기** 를 선택합니다.
 
         ![시스템 항목 만들기](./media/create-view-manage-system-topics/create-event-grid-system-topic-page.png)
-    5. 설정을 검토 하 고 **만들기**를 선택 합니다. 
+    5. 설정을 검토 하 고 **만들기** 를 선택 합니다. 
         
         ![시스템 항목 검토 및 만들기](./media/create-view-manage-system-topics/system-topic-review-create.png)
     6. 배포에 성공한 후 **리소스로 이동** 을 선택 하 여 만든 시스템 항목에 대 한 **Event Grid 시스템 항목** 페이지를 표시 합니다. 
@@ -50,7 +50,7 @@ ms.locfileid: "86115114"
 기존 Event Grid 시스템 항목을 모두 보려면 다음 단계를 따르세요. 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 위쪽의 검색 상자에 **Event Grid 시스템 항목**을 입력 한 다음 **enter**키를 누릅니다. 
+2. 위쪽의 검색 상자에 **Event Grid 시스템 항목** 을 입력 한 다음 **enter** 키를 누릅니다. 
 
     ![시스템 항목 검색](./media/create-view-manage-system-topics/search-system-topics.png)
 3. **Event Grid 시스템 항목** 페이지에 모든 시스템 항목이 표시 됩니다. 
@@ -83,7 +83,7 @@ ms.locfileid: "86115114"
 2. **Event Grid 시스템 항목** 페이지의 도구 모음에서 **+ 이벤트 구독** 을 선택 합니다. 
 
     ![시스템 항목-이벤트 구독 추가 단추](./media/create-view-manage-system-topics/add-event-subscription-button.png)
-3. **토픽 유형**, **원본 리소스**및 **토픽 이름이** 자동으로 채워지는지 확인 합니다. 이름을 입력 하 고, **끝점 유형을**선택 하 고, **끝점**을 지정 합니다. 그런 다음 **만들기** 를 선택 하 여 이벤트 구독을 만듭니다. 
+3. **토픽 유형**, **원본 리소스** 및 **토픽 이름이** 자동으로 채워지는지 확인 합니다. 이름을 입력 하 고, **끝점 유형을** 선택 하 고, **끝점** 을 지정 합니다. 그런 다음 **만들기** 를 선택 하 여 이벤트 구독을 만듭니다. 
 
     ![시스템 항목-이벤트 구독 만들기](./media/create-view-manage-system-topics/create-event-subscription.png)
 

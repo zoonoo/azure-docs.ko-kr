@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6252e33631fb07a61ed3c1ac2be65762b290600b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: cf32274a49cb1b790e9d872efe36f2e1cb188d1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753223"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104675943"
 ---
 # <a name="a-web-app-that-calls-web-apis-move-to-production"></a>웹 Api를 호출 하는 웹 앱: 프로덕션으로 이동
 
-이제 web Api를 호출 하는 토큰을 획득 하는 방법을 배웠으므로 프로덕션으로 이동 하는 방법을 알아보세요.
+이제 웹 Api를 호출 하는 토큰을 획득 하는 방법을 배웠으므로 응용 프로그램을 프로덕션 환경으로 이동할 때 고려해 야 할 몇 가지 사항이 있습니다.
 
 [!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 

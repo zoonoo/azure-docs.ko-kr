@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 2/5/2020
 ms.author: ramamill
 ms.openlocfilehash: 2159ab8c2639f0f87fd53e8559dad518a3daa663
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92544820"
 ---
 # <a name="automate-mobility-service-installation"></a>모바일 서비스 설치 자동화
@@ -18,9 +18,9 @@ ms.locfileid: "92544820"
 
 Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 Site Recovery를 배포할 때 복제 하려는 각 컴퓨터에 모바일 서비스 에이전트를 설치 합니다. 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 복제를 위해 Site Recovery 프로세스 서버에 전달 합니다. 다음과 같은 몇 가지 방법으로 모바일 서비스를 배포할 수 있습니다.
 
-- **강제 설치** : Azure Portal에서 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 경우 모바일 서비스 에이전트를 설치 Site Recovery 수 있습니다.
-- **수동 설치** : 각 컴퓨터에 모바일 서비스를 수동으로 설치 합니다. 푸시 및 수동 설치에 [대해 자세히 알아보세요](vmware-physical-mobility-service-overview.md) .
-- **자동 배포** : Microsoft Endpoint Configuration Manager와 같은 소프트웨어 배포 도구 또는 JetPatch와 같은 타사 도구를 사용 하 여 설치를 자동화 합니다.
+- **강제 설치**: Azure Portal에서 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 경우 모바일 서비스 에이전트를 설치 Site Recovery 수 있습니다.
+- **수동 설치**: 각 컴퓨터에 모바일 서비스를 수동으로 설치 합니다. 푸시 및 수동 설치에 [대해 자세히 알아보세요](vmware-physical-mobility-service-overview.md) .
+- **자동 배포**: Microsoft Endpoint Configuration Manager와 같은 소프트웨어 배포 도구 또는 JetPatch와 같은 타사 도구를 사용 하 여 설치를 자동화 합니다.
 
 자동 설치 및 업데이트는 다음과 같은 경우에 솔루션을 제공 합니다.
 
@@ -31,7 +31,7 @@ Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복�
 - 에이전트 설치를 여러 서버에 동시에 확장 해야 합니다.
 - 계획 된 유지 관리 기간 동안 설치 및 업그레이드를 예약 하려고 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 설치를 자동화 하려면 다음 항목이 필요 합니다.
 
@@ -342,7 +342,7 @@ cd /tmp
 1. **패키지**  >  **패키지 만들기** 를 마우스 오른쪽 단추로 클릭 합니다.
 1. 이름, 설명, 제조업체, 언어, 버전 등 패키지 정보를 제공 합니다.
 1. **이 패키지에 소스 파일이 포함 되어** 있습니다 .를 선택 합니다.
-1. **찾아보기** 를 클릭 하 고 관련 설치 관리자 ( _MobSvcWindows_ 또는 _MobSvcLinux_ )를 포함 하는 네트워크 공유 및 폴더를 선택 합니다. 그다음에 **다음** 을 선택합니다.
+1. **찾아보기** 를 클릭 하 고 관련 설치 관리자 (_MobSvcWindows_ 또는 _MobSvcLinux_)를 포함 하는 네트워크 공유 및 폴더를 선택 합니다. 그다음에 **다음** 을 선택합니다.
 
    ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
@@ -374,7 +374,7 @@ cd /tmp
 
    ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 
-1. 패키지를 복사할 위치에 배포 지점을 선택합니다. [자세히 알아보기](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
+1. 패키지를 복사할 위치에 배포 지점을 선택합니다. [자세한 정보를 알아보세요](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points).
 1. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 1. 패키지 배포가 완료 된 후 패키지 > **배포** 를 마우스 오른쪽 단추로 클릭 합니다.
 
@@ -386,7 +386,7 @@ cd /tmp
 
    ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-1. **이 배포에 대 한 일정 지정** 에서 일정을 설정 합니다. [자세히 알아보기](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
+1. **이 배포에 대 한 일정 지정** 에서 일정을 설정 합니다. [자세한 정보를 알아보세요](/sccm/apps/deploy-use/deploy-applications#bkmk_deploy-sched).
 
    - 모바일 서비스는 지정 된 일정에 따라 설치 됩니다.
    - 불필요한 재부팅을 방지하려면 매월 유지 관리 시간 또는 소프트웨어 업데이트 시간에 패키지 설치를 예약합니다.

@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -9,17 +9,17 @@ ms.date: 02/04/2021
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 49e35687820679a1c06cf19e7a26b3b04a1e1318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363250"
 ---
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
 Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
-| 이벤트 유형 | 설명 |
+| 이벤트 유형 | Description |
 | ---------- | ----------- |
 | Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | 큐 또는 구독에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
 | Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener | 배달 못한 편지 큐에 활성 메시지가 있고 수신 대기 중인 수신기가 없는 경우 발생합니다. |
@@ -223,7 +223,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -238,7 +238,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -252,7 +252,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `namespaceName` | 문자열 | 리소스가 있는 Service Bus 네임스페이스입니다. |
 | `requestUri` | 문자열 | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: a02bd5519b776a063646c11be2a34366fe429f99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89392394"
 ---
-# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>P2S VPN 클라이언트에 대 한 사용자 지정 경로 보급
+# <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>P2S VPN 클라이언트에 대한 사용자 지정 경로 보급
 
 모든 지점 및 사이트 간 VPN 클라이언트에 사용자 지정 경로를 보급 하는 것이 좋습니다. 예를 들어 VNet에서 저장소 끝점을 사용 하도록 설정 하 고 원격 사용자가 VPN 연결을 통해 이러한 저장소 계정에 액세스할 수 있도록 하려고 합니다. 저장소 계정에 대 한 트래픽이 공용 인터넷이 아닌 VPN 터널을 통과 하도록 저장소 끝점의 IP 주소를 모든 원격 사용자에 게 알릴 수 있습니다.
 

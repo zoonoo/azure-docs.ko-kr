@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
 ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102632036"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R에 대 한 보안 및 데이터 보호
@@ -66,7 +66,7 @@ Azure Stack Edge 서비스는 Azure에서 호스트 되는 관리 서비스입�
 
 암호는 권한 있는 사용자만 데이터에 액세스할 수 있도록 합니다. Edge Pro R 장치가 잠긴 상태에서 부팅 Azure Stack 합니다.
 
-다음과 같습니다.
+다음을 할 수 있습니다.
 
 - 브라우저를 통해 장치의 로컬 웹 UI에 연결 하 고 장치에 로그인 하는 데 암호를 제공 합니다.
 - HTTP를 통해 장치 PowerShell 인터페이스에 원격으로 연결 합니다. 원격 관리는 기본적으로 설정 되어 있습니다. 또한 원격 관리는 사용자가 수행할 수 있는 작업을 제한 하기 위해 충분 한 관리 (JEA)를 사용 하도록 구성 됩니다. 그런 다음 장치 암호를 제공 하 여 장치에 로그인 할 수 있습니다. 자세한 내용은 [장치에 원격으로 연결](azure-stack-edge-gpu-connect-powershell-interface.md)을 참조 하세요.

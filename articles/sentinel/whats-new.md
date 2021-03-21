@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/11/2021
+ms.openlocfilehash: 31ba96e0f8772877d7b4881c6bab0561cbe7956e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503126"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604256"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Azure 센티널의 새로운 기능
 
@@ -32,10 +32,54 @@ ms.locfileid: "102503126"
 
 ## <a name="march-2021"></a>2021년 3월
 
-- [Microsoft 365 Defender 인시던트 통합](#microsoft-365-defender-incident-integration) (공개 미리 보기)
+- [Automation 규칙 및 인시던트-트리거된 플레이 북](#automation-rules-and-incident-triggered-playbooks) (모든 새 플레이 북 설명서 포함)
+- [새 경고 강화: 향상 된 엔터티 매핑 및 사용자 지정 세부 정보](#new-alert-enrichments-enhanced-entity-mapping-and-custom-details)
+- [Azure 센티널 통합 문서를 인쇄 하거나 PDF로 저장](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [현재 세션에 저장 된 인시던트 필터 및 정렬 기본 설정 (공개 미리 보기)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Microsoft 365 Defender 인시던트 통합 (공개 미리 보기)](#microsoft-365-defender-incident-integration-public-preview)
 - [Azure Policy를 사용 하는 새 Microsoft 서비스 커넥터](#new-microsoft-service-connectors-using-azure-policy)
+ 
+### <a name="automation-rules-and-incident-triggered-playbooks"></a>Automation 규칙 및 인시던트에 대해 트리거된 플레이 북
 
-### <a name="microsoft-365-defender-incident-integration"></a>Microsoft 365 Defender 인시던트 통합
+Automation 규칙은 인시던트 처리의 자동화를 중앙에서 관리할 수 있도록 하는 Azure 센티널의 새로운 개념입니다. 이전 처럼 경고가 아닌 인시던트에 플레이 북을 할당 하는 것 외에도, 자동화 규칙을 사용 하 여 한 번에 여러 분석 규칙에 대 한 응답을 자동화 하 고, 플레이 북이 없어도 자동으로 인시던트를 태그 지정, 할당 또는 종결 하 고, 실행 되는 작업의 순서를 제어할 수 있습니다. Automation 규칙은 Azure 센티널에서 automation 사용을 간소화 하 고 인시던트 오케스트레이션 프로세스에 대 한 복잡 한 워크플로를 단순화할 수 있습니다.
+
+이에 [대 한 자세한 내용은 자동화 규칙의 전체 설명을](automate-incident-handling-with-automation-rules.md)확인 하세요.
+
+위에서 설명한 것 처럼 이제는 경고 트리거와 함께 인시던트 트리거를 사용 하 여 플레이 북을 활성화할 수 있습니다. 인시던트 트리거는 플레이 북에 작업에 사용할 수 있는 더 큰 입력 집합을 제공 하 여 (인시던트는 모든 경고 및 엔터티 데이터를 포함 하기 때문에) 응답 워크플로에 더 많은 기능과 유연성을 제공 합니다. 인시던트 트리거 플레이 북은 automation 규칙에서 호출 하 여 활성화 됩니다.
+
+[플레이 북의 향상](automate-responses-with-playbooks.md)된 기능에 대해 자세히 알아보고, 자동화 규칙과 함께 플레이 북을 사용 하 여 [응답 워크플로를](tutorial-respond-threats-playbook.md) 만드는 방법에 대해 알아보세요.
+
+### <a name="new-alert-enrichments-enhanced-entity-mapping-and-custom-details"></a>새 경고 강화: 향상 된 엔터티 매핑 및 사용자 지정 세부 정보
+
+새로운 두 가지 방법으로 경고를 보강 하 여 더 쉽게 사용할 수 있으며 더 많은 정보를 제공 합니다.
+
+먼저 다음 수준으로 엔터티 매핑을 수행 합니다. 이제 사용자, 호스트 및 IP 주소, 파일 및 프로세스, 사서함, Azure 리소스 및 IoT 장치에 거의 20 가지의 엔터티를 매핑할 수 있습니다. 각 엔터티에 대해 여러 식별자를 사용 하 여 고유한 id를 강화할 수도 있습니다. 이를 통해 더 광범위 한 상관 관계를 제공 하 고 더 강력한 조사를 제공 하 여 사용자 인시던트에 훨씬 더 다양 한 데이터 집합을 제공 합니다. 경고에서 [엔터티를 매핑하는 새로운 방법에 대해 알아봅니다](map-data-fields-to-entities.md) .
+
+[엔터티에 대 한 자세한 내용을 읽고](entities-in-azure-sentinel.md) [사용 가능한 엔터티 및 해당 식별자의 전체 목록을](entities-reference.md)확인 하세요.
+
+원시 이벤트의 정보를 노출 하는 경고를 사용자 지정 하 여 조사 및 대응 기능을 훨씬 더 향상 시킬 수 있습니다. 사건에 대 한 이벤트 콘텐츠 가시성을 제공 하 여 보안 위협에 대처 하 고 조사 하는 기능과 유연성을 향상 시킬 수 있습니다. 경고에서 [사용자 지정 세부 정보를 노출 하는 방법을 알아봅니다](surface-custom-details-in-alerts.md) .
+
+
+
+### <a name="print-your-azure-sentinel-workbooks-or-save-as-pdf"></a>Azure 센티널 통합 문서를 인쇄 하거나 PDF로 저장
+
+이제 Azure 센티널 통합 문서를 인쇄 하 여 Pdf로 내보내고 로컬 또는 공유로 저장할 수 있습니다.
+
+통합 문서에서 :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **콘텐츠 인쇄**> 옵션 메뉴를 선택 합니다. 그런 다음 프린터를 선택 하거나 필요에 따라 **PDF로 저장** 을 선택 합니다.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="통합 문서를 인쇄 하거나 PDF로 저장 합니다.":::
+
+자세한 내용은 [자습서: 데이터 시각화 및 모니터링](tutorial-monitor-your-data.md)을 참조 하세요.
+
+### <a name="incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview"></a>현재 세션에 저장 된 인시던트 필터 및 정렬 기본 설정 (공개 미리 보기)
+
+이제 인시던트 필터 및 정렬이 제품의 다른 영역으로 이동 하는 동안에도 Azure 센티널 세션 전체에 저장 됩니다.
+계속 해 서 동일한 세션에 있는 한 Azure 센티널의 [인시던트](tutorial-investigate-cases.md) 영역으로 다시 이동 하면 필터와 정렬을 표시 합니다.
+
+> [!NOTE]
+> Azure 센티널을 종료 하거나 브라우저를 새로 고치면 인시던트 필터 및 정렬이 저장 되지 않습니다.
+
+### <a name="microsoft-365-defender-incident-integration-public-preview"></a>Microsoft 365 Defender 인시던트 통합 (공개 미리 보기)
 
 Azure 센티널의 [M365D (Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 인시던트 통합을 사용 하면 모든 M365D 인시던트를 Azure 센티널로 스트리밍하 고 두 포털 간에 동기화 된 상태를 유지할 수 있습니다. M365D의 인시던트 (이전에는 Microsoft Threat Protection 또는 MTP)에는 연결 된 모든 경고, 엔터티 및 관련 정보가 포함 되어 있으므로 Azure 센티널에서 심사 및 예비 조사를 수행 하는 데 충분 한 컨텍스트를 제공 합니다. 센티널에서 인시던트는 M365D와 양방향 동기화 된 상태로 유지 되므로 인시던트 조사에서 두 포털의 이점을 활용할 수 있습니다.
 
@@ -60,8 +104,8 @@ Azure 센티널과 Microsoft 365 Defender를 함께 사용 하면 두 세계 모
 
 - [CMMC (사이버 보안 성숙도 모델 인증) 통합 문서](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [타사 데이터 커넥터](#third-party-data-connectors)
-- [엔터티 페이지의 UEBA 정보](#ueba-insights-in-the-entity-page)
-- [향상 된 인시던트 검색](#improved-incident-search)
+- [엔터티 페이지의 UEBA 정보 (공개 미리 보기)](#ueba-insights-in-the-entity-page-public-preview)
+- [향상 된 인시던트 검색 (공개 미리 보기)](#improved-incident-search-public-preview)
 
 ### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>CMMC (사이버 보안 성숙도 모델 인증) 통합 문서
 
@@ -117,7 +161,7 @@ Microsoft의 타사 통합 컬렉션은 지난 2 개월 동안 30 개의 커넥�
 - [추세 마이크로 XDR](connect-data-sources.md)
 - [VMware ESXi](connect-vmware-esxi.md)
 
-### <a name="ueba-insights-in-the-entity-page"></a>엔터티 페이지의 UEBA 정보
+### <a name="ueba-insights-in-the-entity-page-public-preview"></a>엔터티 페이지의 UEBA 정보 (공개 미리 보기)
 
 Azure 센티널 엔터티 세부 정보 페이지는 엔터티에 대 한 동작 정보를 표시 하 고 변칙 및 보안 위협을 빠르게 식별 하는 데 도움이 되는 [정보 창을](identify-threats-with-entity-behavior-analytics.md#entity-insights)제공 합니다.
 
@@ -131,7 +175,7 @@ Azure 센티널 엔터티 세부 정보 페이지는 엔터티에 대 한 동작
 |**사용자와 관련 된 위협 지표**     |  사용자의 활동에 표시 되는 IP 주소와 관련 된 알려진 위협의 컬렉션을 나열 합니다. 위협은 위협 유형 및 제품군에 의해 나열 되며 Microsoft의 위협 인텔리전스 서비스에 의해 보강 됩니다.       |
 |     |         |
 
-### <a name="improved-incident-search"></a>향상 된 인시던트 검색
+### <a name="improved-incident-search-public-preview"></a>향상 된 인시던트 검색 (공개 미리 보기)
 
 Azure 센티널 인시던트 검색 환경을 개선 하 여 특정 위협을 조사할 때 인시던트를 통해 더 빠르게 탐색할 수 있습니다.
 
@@ -148,7 +192,7 @@ Azure 센티널에서 인시던트를 검색할 때 이제 다음 인시던트 �
 - [분석 규칙 마법사: 향상 된 쿼리 편집 환경 (공개 미리 보기)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az. SecurityInsights PowerShell 모듈 (공개 미리 보기)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database 커넥터](#sql-database-connector)
-- [Dynamics 365 커넥터](#dynamics-365-connector)
+- [Dynamics 365 커넥터 (공개 미리 보기)](#dynamics-365-connector-public-preview)
 - [향상 된 인시던트 설명](#improved-incident-comments)
 - [전용 Log Analytics 클러스터](#dedicated-log-analytics-clusters)
 - [논리 앱 관리 id](#logic-apps-managed-identities)
@@ -183,7 +227,7 @@ Azure SQL은 사용자 개입 없이 업그레이드, 패치, 백업 및 모니�
 
 자세한 내용은 [AZURE SQL database 진단 및 감사 로그 연결](connect-azure-sql-logs.md)을 참조 하세요.
 
-### <a name="dynamics-365-connector"></a>Dynamics 365 커넥터
+### <a name="dynamics-365-connector-public-preview"></a>Dynamics 365 커넥터 (공개 미리 보기)
 
 이제 azure 센티널은 Dynamics 365 응용 프로그램의 사용자, 관리자 및 지원 활동 로그를 Azure 센티널로 수집할 수 있는 Microsoft Dynamics 365 용 커넥터를 제공 합니다. 이 데이터를 사용 하 여 전체 데이터 처리 작업을 감사 하 고 가능한 보안 위반을 분석 하는 데 도움을 줍니다.
 

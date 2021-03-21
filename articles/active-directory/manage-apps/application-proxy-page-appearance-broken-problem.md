@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 99b09e7b15427eb33e1e85edd89f4c8a37c4a3eb
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99254657"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>애플리케이션 페이지가 애플리케이션 프록시 애플리케이션에 올바르게 표시되지 않음

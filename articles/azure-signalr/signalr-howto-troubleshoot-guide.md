@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: bdda89483661eb6f6d006c3d8ea42b46d162de05
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201657"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589183"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR Service의 일반적인 문제에 대 한 문제 해결 가이드
 
@@ -19,14 +19,14 @@ ms.locfileid: "98201657"
 
 ## <a name="access-token-too-long"></a>액세스 토큰이 너무 깁니다.
 
-### <a name="possible-errors"></a>가능한 오류:
+### <a name="possible-errors"></a>가능한 오류
 
 * 클라이언트 쪽 `ERR_CONNECTION_`
 * 414 URI가 너무 김
 * 413 페이로드가 너무 큼
 * 액세스 토큰은 4K 보다 길면 안 됩니다. 413 요청 엔터티가 너무 큼
 
-### <a name="root-cause"></a>근본 원인:
+### <a name="root-cause"></a>근본 원인
 
 HTTP/2의 경우 단일 헤더의 최대 길이는 **4 K** 이므로 브라우저를 사용 하 여 Azure 서비스에 액세스 하는 경우 `ERR_CONNECTION_` 에는이 제한에 대 한 오류가 발생 합니다.
 
@@ -34,7 +34,7 @@ HTTP/1.1 또는 c # 클라이언트의 경우 최대 URI 길이는 **12 k** 이 
 
 SDK 버전 **1.0.6** 이상에서는 생성 된 `/negotiate` `413 Payload Too Large` 액세스 토큰이 **4 K** 보다 큰 경우이 throw 됩니다.
 
-### <a name="solution"></a>해결 방법:
+### <a name="solution"></a>솔루션
 
 기본적으로에서 클레임 `context.User.Claims` 은 **asrs**(z) **S** ignal **R** **s** ervice)로 JWT 액세스 토큰을 생성할 때 포함 되므로 클라이언트가에 연결할 때 클레임은 유지 되 고 **asrs** 에서로 전달 될 수 있습니다 `Hub` `Hub` .
 
@@ -45,7 +45,8 @@ SDK 버전 **1.0.6** 이상에서는 생성 된 `/negotiate` `413 Payload Too La
 `ClaimsProvider`액세스 토큰 내에서 **asrs** 로 전달 되는 클레임을 사용자 지정할 수 있습니다.
 
 ASP.NET Core:
-```cs
+
+```csharp
 services.AddSignalR()
         .AddAzureSignalR(options =>
             {
@@ -55,7 +56,8 @@ services.AddSignalR()
 ```
 
 ASP.NET의 경우:
-```cs
+
+```csharp
 services.MapAzureSignalR(GetType().FullName, options =>
             {
                 // pick up necessary claims
@@ -67,13 +69,13 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 ## <a name="tls-12-required"></a>TLS 1.2 필요
 
-### <a name="possible-errors"></a>가능한 오류:
+### <a name="possible-errors"></a>가능한 오류
 
 * ASP.NET "서버를 사용할 수 없음" 오류 [#279](https://github.com/Azure/azure-signalr/issues/279)
 * ASP.NET "연결이 활성 상태가 아닙니다. 데이터를 서비스로 보낼 수 없습니다." 오류 [#324](https://github.com/Azure/azure-signalr/issues/324)
 * "Https://에 대 한 HTTP 요청을 만드는 동안 오류가 발생 했습니다 <API endpoint> . 이 오류는 HTTPS 사례에서 서버 인증서가 HTTP.SYS를 사용 하 여 제대로 구성 되지 않았기 때문일 수 있습니다. 클라이언트와 서버 간의 보안 바인딩이 일치 하지 않기 때문에이 오류가 발생할 수도 있습니다. "
 
-### <a name="root-cause"></a>근본 원인:
+### <a name="root-cause"></a>근본 원인
 
 Azure 서비스는 보안 문제에 대 한 TLS 1.2만 지원 합니다. .NET framework에서는 TLS 1.2가 기본 프로토콜이 아닐 수 있습니다. 따라서 ASRS에 대 한 서버 연결을 설정할 수 없습니다.
 
@@ -93,16 +95,18 @@ Azure 서비스는 보안 문제에 대 한 TLS 1.2만 지원 합니다. .NET fr
         :::image type="content" source="./media/signalr-howto-troubleshoot-guide/tls-throws.png" alt-text="예외 throw":::
 
 2. ASP.NET에서 다음 코드를 추가 하 여 `Startup.cs` 자세한 추적을 사용 하도록 설정 하 고 로그에서 오류를 확인할 수도 있습니다.
-```cs
-app.MapAzureSignalR(this.GetType().FullName);
-// Make sure this switch is called after MapAzureSignalR
-GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
-```
 
-### <a name="solution"></a>해결 방법:
+    ```cs
+    app.MapAzureSignalR(this.GetType().FullName);
+    // Make sure this switch is called after MapAzureSignalR
+    GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
+    ```
+
+### <a name="solution"></a>솔루션
 
 시작에 다음 코드를 추가 합니다.
-```cs
+
+```csharp
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
@@ -158,13 +162,13 @@ ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_conne
 
 다음 두 가지 경우가 있습니다.
 
-### <a name="concurrent-connection-count-exceeds-limit"></a>**동시** 연결 수가 한도를 초과 합니다.
+### <a name="concurrent-connection-count-exceeds-limit"></a>**동시** 연결 수가 제한을 초과 합니다.
 
 **무료** 인스턴스의 경우에는 **동시** 연결 수 제한이 **표준** 인스턴스의 경우 20이 고 **단위당** **동시** 연결 수 제한은 1 K입니다. 즉, Unit100에서 100-K 동시 연결을 허용 합니다.
 
 연결에는 클라이언트 연결과 서버 연결이 모두 포함 됩니다. 연결 수를 계산 하는 방법은 [여기](./signalr-concept-messages-and-connections.md#how-connections-are-counted) 를 참조 하세요.
 
-### <a name="too-many-negotiate-requests-at-the-same-time"></a>동시에 negotiate 요청 수가 너무 많습니다.
+### <a name="too-many-negotiate-requests-at-the-same-time"></a>동시에 너무 많은 negotiate 요청
 
 다시 연결 하기 전에 임의 지연이 발생 하는 것이 좋습니다. 다시 시도 샘플은 [여기](#restart_connection) 를 확인 하세요.
 
@@ -180,18 +184,21 @@ ASP.NET SignalR의 경우 [클라이언트 연결이 떨어지면](#client_conne
 
 서버 쪽 추적을 사용 하도록 설정 하 여 서버에서 Azure SignalR Service에 연결 하려고 할 때 오류 세부 정보를 확인 합니다.
 
-#### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>ASP.NET Core SignalR에 대 한 서버 쪽 로깅 사용
+### <a name="enable-server-side-logging-for-aspnet-core-signalr"></a>ASP.NET Core SignalR에 대 한 서버 쪽 로깅 사용
 
-ASP.NET Core SignalR에 대 한 서버 쪽 로깅은 `ILogger` ASP.NET Core framework에 제공 된 기반 [로깅과](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) 통합 됩니다. 다음과 같이 샘플 사용을 사용 하 여 서버 쪽 로깅을 사용 하도록 설정할 수 있습니다 `ConfigureLogging` .
-```cs
+ASP.NET Core SignalR에 대 한 서버 쪽 로깅은 `ILogger` ASP.NET Core framework에 제공 된 기반 [로깅과](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1&preserve-view=true) 통합 됩니다. 다음과 같이 샘플 사용을 사용 하 여 서버 쪽 로깅을 사용 하도록 설정할 수 있습니다 `ConfigureLogging` .
+
+```csharp
 .ConfigureLogging((hostingContext, logging) =>
         {
             logging.AddConsole();
             logging.AddDebug();
         })
 ```
+
 Azure SignalR에 대 한로 거 범주는 항상로 시작 `Microsoft.Azure.SignalR` 합니다. Azure SignalR에서 자세한 로그를 사용 하도록 설정 하려면 `Debug` 아래와 같이 파일 **의appsettings.js** 에서 이전 접두사를 수준으로 구성 합니다.
-```JSON
+
+```json
 {
     "Logging": {
         "LogLevel": {
@@ -206,6 +213,7 @@ Azure SignalR에 대 한로 거 범주는 항상로 시작 `Microsoft.Azure.Sign
 #### <a name="enable-server-side-traces-for-aspnet-signalr"></a>ASP.NET SignalR에 대 한 서버 쪽 추적 사용
 
 SDK 버전 >=를 사용 하 `1.0.0` 는 경우 `web.config` ([세부 정보](https://github.com/Azure/azure-signalr/issues/452#issuecomment-478858102))에 다음을 추가 하 여 추적을 사용 하도록 설정할 수 있습니다.
+
 ```xml
 <system.diagnostics>
     <sources>
@@ -242,7 +250,7 @@ SDK 버전 >=를 사용 하 `1.0.0` 는 경우 `web.config` ([세부 정보](htt
 * `{"type":7,"error":"Connection closed with an error."}`
 * `{"type":7,"error":"Internal server error."}`
 
-### <a name="root-cause"></a>근본 원인:
+### <a name="root-cause"></a>근본 원인
 
 클라이언트 연결은 다양 한 상황에서 삭제 될 수 있습니다.
 * `Hub`에서 들어오는 요청과 함께 예외를 throw 하는 경우
@@ -268,13 +276,13 @@ SDK 버전 >=를 사용 하 `1.0.0` 는 경우 `web.config` ([세부 정보](htt
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-guide/client-connection-increasing-constantly.jpg" alt-text="클라이언트 연결이 지속적으로 늘어납니다.":::
 
-### <a name="root-cause"></a>근본 원인:
+### <a name="root-cause"></a>근본 원인
 
 SignalR 클라이언트 연결 `DisposeAsync` 을 호출할 수 없습니다. 연결이 계속 열려 있습니다.
 
 ### <a name="troubleshooting-guide"></a>문제 해결 가이드
 
-1. SignalR **클라이언트가 닫히지** 않았는지 확인 합니다.
+SignalR client가 종료 **되지** 않았는지 확인 합니다.
 
 ### <a name="solution"></a>솔루션
 
@@ -282,7 +290,7 @@ SignalR 클라이언트 연결 `DisposeAsync` 을 호출할 수 없습니다. �
 
 예를 들면 다음과 같습니다.
 
-```C#
+```csharp
 var connection = new HubConnectionBuilder()
     .WithUrl(...)
     .Build();
@@ -324,21 +332,95 @@ finally
 
 이 섹션에서는 서버 연결 삭제에 대 한 몇 가지 가능성을 설명 하 고 근본 원인을 식별 하는 방법에 대 한 몇 가지 지침을 제공 합니다.
 
-### <a name="possible-errors-seen-from-server-side"></a>서버 쪽에서 볼 수 있는 오류:
+### <a name="possible-errors-seen-from-the-server-side"></a>서버 쪽에서 볼 수 있는 오류
 
 * `[Error]Connection "..." to the service was dropped`
 * `The remote party closed the WebSocket connection without completing the close handshake`
 * `Service timeout. 30.00ms elapsed without receiving a message from service.`
 
-### <a name="root-cause"></a>근본 원인:
+### <a name="root-cause"></a>근본 원인
 
 **Asrs**( **z\s** ignal **R** **s** ervice **)에 의해** 서버 서비스 연결이 닫혔습니다.
+
+Ping 시간 제한의 경우 높은 CPU 사용량 또는 서버 쪽의 스레드 풀 고갈로 인해 발생할 수 있습니다.
+
+ASP.NET SignalR의 경우 SDK 1.6.0에서 알려진 문제가 해결 되었습니다. SDK를 최신 버전으로 업그레이드 합니다.
+
+## <a name="thread-pool-starvation"></a>스레드 풀 고갈
+
+서버가 함으로써 인 경우에는 스레드가 메시지 처리 작업을 수행 하 고 있지 않은 것입니다. 모든 스레드가 특정 메서드에서 지연 됩니다.
+
+일반적으로이 시나리오는 비동기 또는 `Task.Result` / `Task.Wait()` 비동기 메서드에의 한 비동기에 의해 발생 합니다.
+
+[ASP.NET Core 성능 모범 사례](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls)를 참조 하세요.
+
+[스레드 풀 고갈](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)에 대해 자세히 알아봅니다.
+
+### <a name="how-to-detect-thread-pool-starvation"></a>스레드 풀 고갈를 검색 하는 방법
+
+스레드 수를 확인 합니다. 해당 시간에 급증 하는 경우 다음 단계를 수행 합니다.
+* Azure App Service 사용 하는 경우 메트릭에서 스레드 수를 확인 합니다. 집계를 확인 합니다 `Max` .
+    
+  :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Azure App Service의 최대 스레드 수 창 스크린샷":::
+
+* .NET Framework 사용 하는 경우 서버 VM의 성능 모니터에서 [메트릭을](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) 찾을 수 있습니다.
+* 컨테이너에서 .NET Core를 사용 하는 경우 [컨테이너에서 진단 수집](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers)을 참조 하세요.
+
+또한 코드를 사용 하 여 스레드 풀 고갈를 검색할 수 있습니다.
+
+```csharp
+public class ThreadPoolStarvationDetector : EventListener
+{
+    private const int EventIdForThreadPoolWorkerThreadAdjustmentAdjustment = 55;
+    private const uint ReasonForStarvation = 6;
+
+    private readonly ILogger<ThreadPoolStarvationDetector> _logger;
+
+    public ThreadPoolStarvationDetector(ILogger<ThreadPoolStarvationDetector> logger)
+    {
+        _logger = logger;
+    }
+
+    protected override void OnEventSourceCreated(EventSource eventSource)
+    {
+        if (eventSource.Name == "Microsoft-Windows-DotNETRuntime")
+        {
+            EnableEvents(eventSource, EventLevel.Informational, EventKeywords.All);
+        }
+    }
+
+    protected override void OnEventWritten(EventWrittenEventArgs eventData)
+    {
+        // See: https://docs.microsoft.com/en-us/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
+        if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
+            eventData.Payload[3] as uint? == ReasonForStarvation)
+        {
+            _logger.LogWarning("Thread pool starvation detected!");
+        }
+    }
+}
+```
+    
+서비스에 추가 합니다.
+    
+```csharp
+service.AddSingleton<ThreadPoolStarvationDetector>();
+```
+
+그런 다음 ping 시간 제한으로 서버 연결의 연결을 끊을 때 로그를 확인 합니다.
+
+### <a name="how-to-find-the-root-cause-of-thread-pool-starvation"></a>스레드 풀 고갈의 근본 원인을 찾는 방법
+
+스레드 풀 고갈의 근본 원인을 확인 하려면 다음을 수행 합니다.
+
+* 메모리를 덤프 한 다음 호출 스택을 분석 합니다. 자세한 내용은 [메모리 덤프 수집 및 분석](https://devblogs.microsoft.com/dotnet/collecting-and-analyzing-memory-dumps/)을 참조 하세요.
+* 스레드 풀 고갈이 감지 되 면 [clrmd](https://github.com/microsoft/clrmd) 를 사용 하 여 메모리를 덤프 합니다. 그런 다음 호출 스택을 기록 합니다.
 
 ### <a name="troubleshooting-guide"></a>문제 해결 가이드
 
 1. 앱 서버 쪽 로그를 열어 비정상적인 작업이 발생 하는지 확인 합니다.
 2. 앱 서버 쪽 이벤트 로그를 확인 하 여 앱 서버를 다시 시작 했는지 확인 합니다.
-3. 시간 프레임을 제공 하는 문제를 만들고 리소스 이름을 전자 메일로 보내 주세요.
+3. 문제를 만듭니다. 시간 프레임을 제공 하 고 리소스 이름을 microsoft에 전자 메일로 보냅니다.
 
 [문제 해결에 대 한 문제 또는 피드백이 있나요? 알려주세요.](https://aka.ms/asrs/survey/troubleshooting)
 

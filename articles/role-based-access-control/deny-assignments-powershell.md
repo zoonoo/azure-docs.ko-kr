@@ -14,10 +14,10 @@ ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 6cf379b051ba42be2d7df7d288f07cdc2a0002a1
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94657638"
 ---
 # <a name="list-azure-deny-assignments-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 거부 할당 나열
@@ -27,7 +27,7 @@ ms.locfileid: "94657638"
 > [!NOTE]
 > 사용자 고유의 거부 할당을 직접 만들 수는 없습니다. 거부 할당을 만드는 방법에 대 한 자세한 내용은 [Azure 거부 할당](deny-assignments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 거부 할당에 대 한 정보를 가져오려면 다음이 있어야 합니다.
 

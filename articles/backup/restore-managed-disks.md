@@ -4,10 +4,10 @@ description: Azure Portal에서 Azure Managed Disks를 복원 하는 방법을 �
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703752"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Azure Managed Disks 복원 (미리 보기)

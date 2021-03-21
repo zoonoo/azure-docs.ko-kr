@@ -4,10 +4,10 @@ description: 이 문서에서는 VM 창에서 Azure virtual machines의 SQL Serv
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88891660"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>VM 창에서 SQL Server 백업
@@ -42,11 +42,11 @@ VM의 **백업** 창에서 SQL Server VM에 대 한 백업을 사용 하도록 �
     - 보호 하 고 있는 SQL Server VM와 동일한 구독 및 지역에 생성 됩니다.
     - 모든 백업에 대 한 GRS (지역 중복 저장소) 설정을 사용 하 여 생성 됩니다. 중복성 유형을 변경 하려는 경우 VM을 보호 하기 전에 수행 해야 합니다. 자세한 내용은 [이 문서](backup-create-rs-vault.md#set-storage-redundancy)를 참조하세요.
 
-3. **백업 정책을**선택 합니다. 기본 정책 또는 자격 증명 모음에서 만든 다른 기존 정책에서 선택할 수 있습니다. 새 정책을 만들려면 [이 문서](backup-sql-server-database-azure-vms.md#create-a-backup-policy) 를 참조 하 여 단계별 가이드를 참조 하세요.
+3. **백업 정책을** 선택 합니다. 기본 정책 또는 자격 증명 모음에서 만든 다른 기존 정책에서 선택할 수 있습니다. 새 정책을 만들려면 [이 문서](backup-sql-server-database-azure-vms.md#create-a-backup-policy) 를 참조 하 여 단계별 가이드를 참조 하세요.
 
     ![백업 정책 선택](./media/backup-sql-server-vm-from-vm-pane/backup-policy.png)
 
-4. **백업 사용**을 선택합니다. 작업을 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
+4. **백업 사용** 을 선택합니다. 작업을 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
 
     ![백업 사용 선택](./media/backup-sql-server-vm-from-vm-pane/enable-backup.png)
 

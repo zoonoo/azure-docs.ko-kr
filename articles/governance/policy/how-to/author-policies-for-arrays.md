@@ -3,12 +3,12 @@ title: 리소스의 배열 속성에 대한 작성자 정책
 description: 배열 매개 변수 및 배열 언어 식을 사용하고, [*] 별칭을 평가하고, Azure Policy 정의 규칙을 사용하여 요소를 추가하는 방법을 알아봅니다.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75f4fcfb88bd4cb1ac0c8bfeac236b452479b8c6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98220748"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721616"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대한 작성자 정책
 
@@ -448,7 +448,8 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수
       "field": "tags.env",
       "equals": "prod"
     }
-  }
+  },
+  "equals": 0
 }
 ```
 
@@ -457,40 +458,60 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수
 | 1 | `tags.env` => `"prod"` | `true` |
 | 2 | `tags.env` => `"prod"` | `true` |
 
-중첩 된 개수 식도 사용할 수 있습니다.
+중첩 된 개수 식은 중첩 된 배열 필드에 조건을 적용 하는 데 사용할 수 있습니다. 예를 들어 다음 조건은 배열에 하나 이상의 `objectArray[*]` 멤버가 포함 된와 정확히 2 개의 멤버가 있는지 확인 합니다 `nestedArray[*]` .
 
 ```json
 {
   "count": {
     "field": "Microsoft.Test/resourceType/objectArray[*]",
     "where": {
-      "allOf": [
-        {
-          "field": "Microsoft.Test/resourceType/objectArray[*].property",
-          "equals": "value2"
-        },
-        {
-          "count": {
-            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-            "where": {
-              "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
-              "equals": 3
-            },
-            "greater": 0
-          }
-        }
-      ]
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]"
+      },
+      "greaterOrEquals": 1
     }
-  }
+  },
+  "equals": 2
 }
 ```
- 
-| 외부 루프 반복 | 선택한 값 | 내부 루프 반복 | 선택한 값 |
-|:---|:---|:---|:---|
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1` |
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
+
+| 반복 | 선택한 값 | 중첩 된 개수 평가 결과 |
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` 2 개 멤버 => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` 2 개 멤버 => `true` |
+
+의 두 멤버에는 두 개의 `objectArray[*]` 멤버가 있는 자식 배열이 있으므로 `nestedArray[*]` 외부 개수 식은를 반환 `2` 합니다.
+
+더 복잡 한 예제: 배열에 `objectArray[*]` `nestedArray[*]` 또는와 동일한 멤버와 함께 정확히 2 개의 멤버가 있는지 `2` 확인 `3` 합니다.
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+      "count": {
+        "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+        "where": {
+            "field": "Microsoft.Test/resourceType/objectArray[*].nestedArray[*]",
+            "in": [ 2, 3 ]
+        }
+      },
+      "greaterOrEquals": 1
+    }
+  },
+  "equals": 2
+}
+```
+
+| 반복 | 선택한 값 | 중첩 된 개수 평가 결과
+|:---|:---|:---|
+| 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `nestedArray[*]` 에서는 `2` => `true` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | `nestedArray[*]` 에서는 `3` => `true` |
+
+의 두 멤버에 `objectArray[*]` `nestedArray[*]` 는 또는 중 하나를 포함 하는 자식 배열이 있으므로 `2` `3` 외부 개수 식은를 반환 `2` 합니다.
+
+> [!NOTE]
+> 중첩 된 필드 개수 식은 중첩 된 배열만 참조할 수 있습니다. 예를 들어를 참조 하는 개수 식에 중첩 된 배열을 대상으로 하는 `Microsoft.Test/resourceType/objectArray[*]` 중첩 된 개수가 있을 수 `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` 있지만이 경우 중첩 된 개수 식을 대상으로 지정할 수 없습니다 `Microsoft.Test/resourceType/stringArray[*]` .
 
 #### <a name="accessing-current-array-member-with-template-functions"></a>템플릿 함수를 사용 하 여 현재 배열 멤버 액세스
 

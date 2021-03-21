@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
 ms.openlocfilehash: 1a99fbd3d3163808a364e8b26e770563a901dc18
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371331"
 ---
 # <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
@@ -25,7 +25,7 @@ ms.locfileid: "100371331"
 
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
-Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concepts-pipelines-activities.md)를 만듭니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다.
+Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concepts-pipelines-activities.md)를 만듭니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다.
 
 Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서비스는 [전역적으로 지원](concepts-integration-runtime.md#integration-runtime-location)되며 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 보장합니다.
 

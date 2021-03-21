@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 36c7078a79cf8b0b7414c5031acb79b9a2c2453c
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102630489"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Azure PowerShell 스크립트를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
@@ -21,7 +21,7 @@ ms.locfileid: "102630489"
 
 이 자습서에서는 Azure PowerShell 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 스크립트를 사용 하 여 Azure Stack Edge Pro 장치에서 VM 만들기 및 관리를 시작 하기 전에 다음 단계에 나열 된 필수 구성 요소를 완료 했는지 확인 해야 합니다.
 

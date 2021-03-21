@@ -8,16 +8,16 @@ ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: ''
-ms.openlocfilehash: 215abb1ce8d65b5ecdd25aeb78c17c70e801a9d2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 9d40bbd7e08d8d3869166827a22f3f08536532bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555628"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590707"
 ---
 # <a name="generate-arm-template-for-cloud-services-extended-support-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Cloud Services (확장 지원)에 대 한 ARM 템플릿 생성
 
-이 문서에서는 클라우드 서비스 (확장 지원)를 배포한 후 [Azure Portal](https://portal.azure.com) 에서 ARM 템플릿 및 매개 변수 파일을 가져오는 방법을 설명 합니다. ARM 템플릿 및 매개 변수 파일은 클라우드 서비스를 업그레이드 하거나 업데이트 하기 위해 이후 배포에서 사용할 수 있습니다 (확장 지원).
+이 문서에서는 클라우드 서비스 (확장 지원)를 배포한 후 [Azure Portal](https://portal.azure.com) 에서 ARM 템플릿 및 매개 변수 파일을 다운로드 하는 방법을 설명 합니다. ARM 템플릿 및 매개 변수 파일은 클라우드 서비스를 업그레이드 하거나 업데이트 하기 위해 이후 배포에서 사용할 수 있습니다 (확장 지원).
 
 ## <a name="get-arm-template-via-portal"></a>포털을 통해 ARM 템플릿 가져오기
 

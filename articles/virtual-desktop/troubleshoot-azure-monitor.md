@@ -7,10 +7,10 @@ ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101709175"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor 문제 해결

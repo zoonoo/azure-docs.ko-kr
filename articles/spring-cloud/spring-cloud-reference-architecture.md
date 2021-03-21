@@ -6,12 +6,12 @@ title: Azure 스프링 클라우드 참조 아키텍처
 ms.author: akaleshian
 ms.service: spring-cloud
 description: 이 참조 아키텍처는 Azure 스프링 클라우드를 사용 하기 위한 일반적인 엔터프라이즈 허브 및 스포크 설계를 사용 하는 기반입니다.
-ms.openlocfilehash: c87462c8d6ab86299b6202acaa23f93d19240e0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74183ca2decf8487e5c41cf36d5784538021077f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735491"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604171"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Azure 스프링 클라우드 참조 아키텍처
 
@@ -265,5 +265,5 @@ ARM, Terraform 및 [Azure 스프링 클라우드 참조 아키텍처][10] 리포
 [17]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [18]: https://cloudsecurityalliance.org/
 [19]: https://cloudsecurityalliance.org/research/working-groups/cloud-controls-matrix
-[20]: https://azure.microsoft.com/resources/cis-microsoft-azure-foundations-security-benchmark/
+[20]: /azure/security/benchmarks/v2-cis-benchmark
 [21]: https://www.cisecurity.org/

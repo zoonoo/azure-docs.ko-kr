@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f17d851e517e1ea0297bf8169c42496068e57533
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371263"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
@@ -44,13 +44,13 @@ ms.locfileid: "100371263"
 | 속성 | 설명 | 필수
 -------- | ----------- | --------
 | name | 파이프라인의 이름입니다. 작업 또는 파이프라인이 수행되도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
-| description |작업 또는 파이프라인이 무엇에 사용되는지 설명하는 텍스트입니다. | 예 |
-| 작업 | 활동의 목록을 포함합니다. | Yes |
-| start |파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41 <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |예<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 파이프라인을 만들 때 시작 및 종료 시간을 지정 하지 않으면 나중에 Set-AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
-| end |파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예: 2014-10-14T17:32:41 <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. |예 <br/><br/>시작 속성에 대한 값을 지정하는 경우 반드시 끝 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다. |
-| isPaused |파이프라인을 true로 설정하면 실행되지 않습니다. 기본값 = false입니다. 이 속성을 사용하여 활성화 또는 비활성화할 수 있습니다. |예 |
-| pipelineMode |파이프라인에 대한 실행을 예약하는 메서드입니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 시간 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. 일회성 설정에 대한 세부 정보는 [일회성 파이프라인](data-factory-create-pipelines.md#onetime-pipeline)을 참조하세요. |예 |
-| expirationTime |생성 후에 파이프라인이 유효하고 프로비전된 상태로 유지해야 하는 시간입니다. 활성 작업, 실패한 작업 또는 보류 중인 작업이 없는 경우 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. |예 |
+| description |작업 또는 파이프라인이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요 |
+| 작업 | 활동의 목록을 포함합니다. | 예 |
+| start |파이프라인에 대한 시작 날짜-시간입니다. [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)에 있어야 합니다. 예: 2014-10-14T16:32:41 <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>start 및 end 속성은 함께 파이프라인의 활성 기간을 지정합니다. 출력 조각은 이 활성 기간에만 생성됩니다. |아니요<br/><br/>end 속성에 대한 값을 지정하는 경우 반드시 start 속성에 대한 값도 지정해야 합니다.<br/><br/>파이프라인을 만들 때에는 시작 및 종료 시간을 비워 둘 수 있습니다. 파이프라인을 실행할 활성 기간을 설정하려면 두 값 모두를 지정해야 합니다. 파이프라인을 만들 때 시작 및 종료 시간을 지정 하지 않으면 나중에 Set-AzDataFactoryPipelineActivePeriod cmdlet을 사용 하 여 설정할 수 있습니다. |
+| end |파이프라인에 대한 종료 날짜-시간입니다. 지정된 경우 ISO 형식에 있어야 합니다. 예: 2014-10-14T17:32:41 <br/><br/>예를 들어 EST 시간처럼 현지 시간을 지정할 수 있습니다. 예: `2016-02-27T06:00:00**-05:00`(오전 6시 동부 표준시)<br/><br/>파이프라인을 무기한 실행하려면 end 속성 값으로 9999-09-09를 지정합니다. |아니요 <br/><br/>시작 속성에 대한 값을 지정하는 경우 반드시 끝 속성에 대한 값도 지정해야 합니다.<br/><br/>**start** 속성에 대한 참조를 확인합니다. |
+| isPaused |파이프라인을 true로 설정하면 실행되지 않습니다. 기본값 = false입니다. 이 속성을 사용하여 활성화 또는 비활성화할 수 있습니다. |아니요 |
+| pipelineMode |파이프라인에 대한 실행을 예약하는 메서드입니다. 허용되는 값은 scheduled(기본), onetime입니다.<br/><br/>‘Scheduled’는 파이프라인이 활성 기간(시작 및 종료 시간)에 따라 지정된 시간 간격으로 실행된다는 것을 나타냅니다. ‘Onetime’은 파이프라인이 한 번만 실행된다는 것을 나타냅니다. 현재는, Onetime 파이프라인이 생성된 후에 수정/업데이트가 불가능합니다. 일회성 설정에 대한 세부 정보는 [일회성 파이프라인](data-factory-create-pipelines.md#onetime-pipeline)을 참조하세요. |아니요 |
+| expirationTime |생성 후에 파이프라인이 유효하고 프로비전된 상태로 유지해야 하는 시간입니다. 활성 작업, 실패한 작업 또는 보류 중인 작업이 없는 경우 만료 시간이 되면 파이프라인은 자동으로 삭제됩니다. |아니요 |
 
 
 ## <a name="activity"></a>활동
@@ -83,13 +83,13 @@ ms.locfileid: "100371263"
 | --- | --- | --- |
 | name |활동의 이름입니다. 활동을 수행하도록 구성된 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 260</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |예 |
 | description |활동의 용도를 설명하는 텍스트입니다. |예 |
-| type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |Yes |
+| type |작업의 유형을 지정합니다. 다른 유형의 작업에 대해서는 [데이터 저장소](#data-stores) 및 [데이터 변환 작업](#data-transformation-activities) 섹션을 참조하세요. |예 |
 | 입력 |작업에서 사용하는 입력 테이블<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |HDInsightStreaming 및 SqlServerStoredProcedure 작업의 경우 아니요 <br/> <br/> 다른 모든 사용자의 경우 예 |
 | outputs |활동에서 사용하는 출력 테이블입니다.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |예 |
 | linkedServiceName |작업에서 사용하는 연결된 서비스의 이름입니다. <br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. |예를 들면 HDInsight 활동, Azure Machine Learning Studio (클래식) 활동 및 저장 프로시저 활동이 있습니다. <br/><br/>다른 모든 사용자의 경우 아니요 |
-| typeProperties |typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. |예 |
-| policy |작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. |예 |
-| scheduler |"scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 세트에서 가용성 속성](data-factory-create-datasets.md#dataset-availability)에 있는 속성과 같습니다. |예 |
+| typeProperties |typeProperties 섹션의 속성은 작업의 종류에 따라 달라 집니다. |아니요 |
+| policy |작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본 정책이 사용됩니다. |아니요 |
+| scheduler |"scheduler" 속성은 작업에 원하는 일정을 정의하는 데 사용됩니다. 하위 속성은 [데이터 세트에서 가용성 속성](data-factory-create-datasets.md#dataset-availability)에 있는 속성과 같습니다. |아니요 |
 
 ### <a name="policies"></a>정책
 정책은 특히 테이블의 조각을 처리할 때 활동의 런타임 동작에 영향을 줍니다. 다음 테이블에서는 자세한 내용을 제공합니다.
@@ -241,7 +241,7 @@ typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| name | 연결된 서비스의 이름입니다. | Yes |
+| name | 연결된 서비스의 이름입니다. | 예 |
 | properties - type | 연결된 서비스의 형식입니다. 예: Azure Storage, Azure SQL Database. |
 | typeProperties | typeProperties 섹션에는 각 데이터 저장소 또는 컴퓨팅 환경마다 다른 요소가 있습니다. 모든 데이터 저장소 연결 서비스는 데이터 저장소 섹션을, 모든 컴퓨팅 연결 서비스는 [컴퓨팅 환경](#compute-environments)을 참조하세요. |
 
@@ -280,13 +280,13 @@ Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| name | 데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |Yes |해당 없음 |
+| name | 데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
 | type | 데이터 세트의 형식입니다. Azure Data Factory에서 지원되는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. Data Factory에서 지원하는 모든 데이터 저장소 및 데이터 세트 유형에 대해서는 [데이터 저장소](#data-stores) 섹션을 참조하세요. |
-| structure | 데이터 세트의 스키마입니다. 열, 해당 형식 등을 포함합니다. | 예 |해당 없음 |
-| typeProperties | 선택한 형식에 해당하는 속성입니다. 지원되는 형식 및 해당 속성은 [데이터 저장소](#data-stores) 섹션을 참조하세요. |Yes |해당 없음 |
-| external | 데이터 세트가 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. |예 |false |
-| availability | 데이터 세트 생성에 대한 처리 창 또는 조각화 모델을 정의합니다. 데이터 세트 조각화 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. |Yes |해당 없음 |
-| policy |데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다. <br/><br/>세부 정보는 데이터 세트 정책을 참조하세요. |예 |해당 없음 |
+| structure | 데이터 세트의 스키마입니다. 열, 해당 형식 등을 포함합니다. | 아니요 |해당 없음 |
+| typeProperties | 선택한 형식에 해당하는 속성입니다. 지원되는 형식 및 해당 속성은 [데이터 저장소](#data-stores) 섹션을 참조하세요. |예 |해당 없음 |
+| external | 데이터 세트가 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. |아니요 |false |
+| availability | 데이터 세트 생성에 대한 처리 창 또는 조각화 모델을 정의합니다. 데이터 세트 조각화 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. |예 |해당 없음 |
+| policy |데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다. <br/><br/>세부 정보는 데이터 세트 정책을 참조하세요. |아니요 |해당 없음 |
 
 **structure** 섹션의 각 열에는 다음과 같은 속성이 포함됩니다.
 
@@ -295,7 +295,7 @@ Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 | name |열의 이름입니다. |예 |
 | type |열의 데이터 형식입니다.  |예 |
 | culture |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 .NET 기반 culture입니다. 기본값은 `en-us`입니다. |예 |
-| format |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 형식 문자열입니다. |예 |
+| format |지정된 형식이 .NET 형식 `Datetime` 또는 `Datetimeoffset`일 때 사용할 형식 문자열입니다. |아니요 |
 
 다음 예제에서는 데이터 세트에 3개의 열 `slicetimestamp`, `projectname` 및 `pageviews`가 있으며 형식은 각각 문자열, 문자열 및 10진수입니다.
 
@@ -312,11 +312,11 @@ structure:
 
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |Yes |해당 없음 |
-| interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고:</b> 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |Yes |해당 없음 |
-| 스타일 |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |예 |EndOfInterval |
-| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/><b>참고</b>: AnchorDateTime에 빈도 보다 더 세분화 된 날짜 부분이 있는 경우 더 세분화 된 부분은 무시 됩니다. <br/><br/>예를 들어 <b>간격</b> 이 <b>매시간</b> (frequency: hour 및 interval: 1)이 고 <b>AnchorDateTime</b> 에 <b>분과 초</b> 를 포함 하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시 됩니다. |예 |01/01/0001 |
-| offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고</b>: anchorDateTime 및 offset이 모두 지정 된 경우 결과는 결합 된 이동입니다. |예 |해당 없음 |
+| frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
+| interval |빈도 승수를 지정합니다.<br/><br/>"빈도 x 간격"은 조각을 생성하는 빈도를 결정합니다.<br/><br/>데이터 세트를 시간 단위로 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/><b>참고:</b> 빈도를 Minute(분)으로 지정하면 15 이상으로 간격을 설정하는 것이 좋습니다. |예 |해당 없음 |
+| 스타일 |간격의 시작/끝에 조각을 생성해야 하는지를 지정합니다.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Frequency를 Month로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 월의 마지막 날에 생성합니다. style을 StartOfInterval로 설정하는 경우 조각을 달의 첫 번째 날에 생성합니다.<br/><br/>frequency를 Day로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 일의 마지막 시간에 생성합니다.<br/><br/>Frequency를 Hour로 설정하고 style을 EndOfInterval로 설정하는 경우 조각을 시간의 끝에 생성합니다. 예를 들어 오후 1~2시 기간에 대한 조각은 오후 2시에 생성됩니다. |아니요 |EndOfInterval |
+| anchorDateTime |스케줄러에서 사용하는 시간에 절대 위치를 정의하여 데이터 세트 조각 경계를 컴퓨팅합니다. <br/><br/><b>참고</b>: AnchorDateTime에 빈도 보다 더 세분화 된 날짜 부분이 있는 경우 더 세분화 된 부분은 무시 됩니다. <br/><br/>예를 들어 <b>간격</b> 이 <b>매시간</b> (frequency: hour 및 interval: 1)이 고 <b>AnchorDateTime</b> 에 <b>분과 초</b> 를 포함 하는 경우 AnchorDateTime의 <b>분 및 초</b> 부분은 무시 됩니다. |아니요 |01/01/0001 |
+| offset |모든 데이터 세트 조각의 시작과 끝이 이동에 의한 Timespan입니다. <br/><br/><b>참고</b>: anchorDateTime 및 offset이 모두 지정 된 경우 결과는 결합 된 이동입니다. |아니요 |해당 없음 |
 
 다음 availability 섹션에서는 출력 데이터 세트를 시간마다 생성하거나 (또는) 입력 데이터 세트를 시간마다 사용할 수 있도록 지정합니다.
 
@@ -332,8 +332,8 @@ structure:
 
 | 정책 이름 | Description | 에 적용 | 필수 | 기본값 |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |**Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |예 |해당 없음 |
-| minimumRows |**Azure SQL Database** 또는 **Azure 테이블** 의 데이터가 최소 행 수를 포함 하는지 확인 합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |예 |해당 없음 |
+| minimumSizeMB |**Azure Blob** 에서 데이터가 최소 크기 요구 사항(메가바이트)을 충족하는지 확인합니다. |Azure Blob |아니요 |해당 없음 |
+| minimumRows |**Azure SQL Database** 또는 **Azure 테이블** 의 데이터가 최소 행 수를 포함 하는지 확인 합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |
 
 **예제:**
 
@@ -352,10 +352,10 @@ structure:
 
 | Name | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
-| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 확인을 지연하는 시간입니다. 예를 들어 데이터를 매시간 사용할 수 있는 경우 외부 데이터를 볼 수 있고 해당 조각이 준비(Ready) 상태인지 확인하기 위한 검사는 dataDelay를 사용하여 지연시킬 수 있습니다.<br/><br/>를 사용하여 지연할 수 있습니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이 설정은 과거의 조각(조각 종료 시간 + dataDelay < Now를 사용한 조각)에는 영향을 주지 않아 아무런 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |예 |0 |
-| retryInterval |오류 발생과 다음 다시 시도 사이의 대기 시간입니다. 시도가 실패하는 경우 다음 시도는 retryInterval 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 기간이 1분이고 작업이 실패하는 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |예 |00:01:00 (1분) |
-| retryTimeout |각 재시도에 대한 제한 시간입니다.<br/><br/>이 속성이 10분으로 설정한 경우 유효성 검사를 10분 내에 완료해야 합니다. 유효성 검사를 수행하는 데 10분 보다 오래 걸리는 경우 재시도는 제한 시간을 초과합니다.<br/><br/>유효성 검사에 대한 모든 시도의 시간이 초과되면 조각에 TimedOut이 표시됩니다. |예 |00:10:00 (10분) |
-| maximumRetry |외부 데이터의 가용성을 검사한 횟수입니다. 허용되는 최대값은 10입니다. |예 |3 |
+| dataDelay |지정된 조각에 대한 외부 데이터의 가용성 확인을 지연하는 시간입니다. 예를 들어 데이터를 매시간 사용할 수 있는 경우 외부 데이터를 볼 수 있고 해당 조각이 준비(Ready) 상태인지 확인하기 위한 검사는 dataDelay를 사용하여 지연시킬 수 있습니다.<br/><br/>를 사용하여 지연할 수 있습니다.  예를 들어 현재 오후 1시이고 이 값이 10 분이라면 유효성 검사는 오후 1시 10분에 시작합니다.<br/><br/>이 설정은 과거의 조각(조각 종료 시간 + dataDelay < Now를 사용한 조각)에는 영향을 주지 않아 아무런 지연 없이 처리됩니다.<br/><br/>23:59보다 큰 시간은 `day.hours:minutes:seconds` 형식을 사용하여 지정해야 합니다. 예를 들어 24시간을 지정하려면 24:00:00을 사용하는 대신 1.00:00:00을 사용합니다. 24:00:00을 사용하면 24일(24.00:00:00)로 처리됩니다. 1일 4시간의 경우 1:04:00:00을 지정합니다. |아니요 |0 |
+| retryInterval |오류 발생과 다음 다시 시도 사이의 대기 시간입니다. 시도가 실패하는 경우 다음 시도는 retryInterval 이후입니다. <br/><br/>오후 1시가 되면 첫 번째 시도를 시작합니다. 첫 번째 유효성 검사를 완료하는 데 걸리는 기간이 1분이고 작업이 실패하는 경우 다음 다시 시도는 1시 + 1분(기간) + 1분(다시 시도 간격) = 오후 1시 2분입니다. <br/><br/>과거 조각의 경우 지연이 없습니다. 재시도는 곧바로 이뤄집니다. |아니요 |00:01:00 (1분) |
+| retryTimeout |각 재시도에 대한 제한 시간입니다.<br/><br/>이 속성이 10분으로 설정한 경우 유효성 검사를 10분 내에 완료해야 합니다. 유효성 검사를 수행하는 데 10분 보다 오래 걸리는 경우 재시도는 제한 시간을 초과합니다.<br/><br/>유효성 검사에 대한 모든 시도의 시간이 초과되면 조각에 TimedOut이 표시됩니다. |아니요 |00:10:00 (10분) |
+| maximumRetry |외부 데이터의 가용성을 검사한 횟수입니다. 허용되는 최대값은 10입니다. |아니요 |3 |
 
 
 ## <a name="data-stores"></a>데이터 저장소
@@ -454,9 +454,9 @@ Azure Blob 데이터 세트를 정의하려면 데이터 세트의 **type** 을 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
-| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 다음과 같은 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |예 |
+| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 다음과 같은 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
 
 #### <a name="example"></a>예제
@@ -493,7 +493,7 @@ Azure Blob Storage에서 데이터를 복사하는 경우 복사 활동의 **sou
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |예 |
+| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
 
 #### <a name="example-blobsource"></a>예제: **BlobSource**
 ```json
@@ -536,7 +536,7 @@ Azure Blob Storage에 데이터를 복사하는 경우 복사 활동의 **sink t
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지 합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><br/><b>MergeFiles(기본값):</b> 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |예 |
+| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지 합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일은 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><br/><b>MergeFiles(기본값):</b> 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
 
 #### <a name="example-blobsink"></a>예제: BlobSink
 
@@ -637,9 +637,9 @@ Azure Data Lake Store 데이터 세트를 정의하려면 데이터 세트의 **
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | folderPath |Azure 데이터 레이크 저장소의 컨테이너 및 폴더에 대한 경로입니다. |예 |
-| fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 다음과 같은 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |예 |
+| fileName |Azure 데이터 레이크 저장소에 있는 파일의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 파일을 포함합니다.<br/><br/>FileName이 출력 데이터 집합에 대해 지정 되지 않은 경우 생성 된 파일의 이름은 다음과 같은 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
 
 #### <a name="example"></a>예제
@@ -683,7 +683,7 @@ Azure Data Lake Store에서 데이터를 복사하는 경우 복사 활동의 **
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |예 |
+| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True(기본값), False |아니요 |
 
 #### <a name="example-azuredatalakestoresource"></a>예제: AzureDataLakeStoreSource
 
@@ -730,7 +730,7 @@ Azure Data Lake Store에 데이터를 복사하는 경우 복사 활동의 **sin
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| copyBehavior |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지 합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>Mergefiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합 합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |예 |
+| copyBehavior |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지 합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>Mergefiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합 합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다. |아니요 |
 
 #### <a name="example-azuredatalakestoresink"></a>예제: AzureDataLakeStoreSink
 ```json
@@ -833,7 +833,7 @@ Azure Cosmos DB에서 데이터를 복사하는 경우 복사 활동의 **source
 
 | **속성** | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
-| Query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |예 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| Query |데이터를 읽는 쿼리를 지정합니다. |Azure Cosmos DB에서 지원하는 쿼리 문자열입니다. <br/><br/>예: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |문서가 중첩됨을 나타내는 특수 문자 |임의의 문자. <br/><br/>Azure Cosmos DB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator, 즉 위 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다. |예 |
 
 #### <a name="example"></a>예제
@@ -1045,8 +1045,8 @@ Azure SQL Database에 데이터를 복사하는 경우 복사 활동의 **sink t
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |예 |
-| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |예 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
+| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
 | sqlWriterStoredProcedureName |대상 테이블에 대한 데이터 Upsert(업데이트/삽입)를 수행하는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |예 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |예 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. |테이블 유형 이름 |예 |
@@ -1165,7 +1165,7 @@ Azure Synapse Analytics에서 데이터를 복사 하는 경우 복사 작업의
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |예 |
+| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |예 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |예 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |예 |
 
@@ -1219,9 +1219,9 @@ Azure Synapse Analytics로 데이터를 복사 하는 경우 복사 작업의 **
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |예 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | allowPolyBase |BULKINSERT 메커니즘 대신 PolyBase(있는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> **Azure Synapse Analytics로 데이터를 로드 하는 권장 방법은 PolyBase를 사용 하는 것입니다.** |True <br/>False(기본값) |예 |
-| polyBaseSettings |**allowPolybase** 속성이 **true** 로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |예 |
+| polyBaseSettings |**allowPolybase** 속성이 **true** 로 설정된 경우 지정될 수 있는 속성의 그룹입니다. |&nbsp; |아니요 |
 | rejectValue |쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다. <br/><br/>**외부 테이블 만들기(Transact-SQL)** 토픽의 [인수](/sql/t-sql/statements/create-external-table-transact-sql) 섹션에 있는 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. |0(기본값), 1, 2, … |예 |
 | rejectType |rejectValue 옵션을 리터럴 값 또는 백분율로 지정할지 여부를 지정합니다. |값(기본값), 백분율 |예 |
 | rejectSampleValue |PolyBase가 거부된 행의 비율을 다시 계산하기 전에 검색할 행 수를 결정합니다. |1, 2, … |예. **rejectType** 이 **백분율** 인 경우 |
@@ -1282,7 +1282,7 @@ Azure Cognitive Search 연결 된 서비스를 정의 하려면 연결 된 서�
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| url | 검색 서비스에 대 한 URL입니다. | Yes |
+| url | 검색 서비스에 대 한 URL입니다. | 예 |
 | key | 검색 서비스에 대 한 관리 키입니다. | 예 |
 
 #### <a name="example"></a>예제
@@ -1307,7 +1307,7 @@ Azure Cognitive Search 데이터 집합을 정의 하려면 데이터 집합의 
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearchIndex** 로 설정되어야 합니다.| Yes |
+| type | 형식 속성은 **AzureSearchIndex** 로 설정되어야 합니다.| 예 |
 | indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
 #### <a name="example"></a>예제
@@ -1336,7 +1336,7 @@ Azure Cognitive Search 데이터 집합을 정의 하려면 데이터 집합의 
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. | 병합(기본값)<br/>업로드| 예 |
+| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. | 병합(기본값)<br/>업로드| 아니요 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. | 1~1,000입니다. 기본값은 1,000입니다. | 예 |
 
 #### <a name="example"></a>예제
@@ -1442,7 +1442,7 @@ Azure Table 데이터 세트를 정의하려면 데이터 세트의 **type** 을
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Azure 테이블 데이터베이스 인스턴스에서 테이블의 이름입니다. |예. azureTableSourceQuery 없이 tableName을 지정하면 테이블의 모든 레코드를 대상에 복사합니다. 또한 azureTableSourceQuery를 지정하면 쿼리를 만족 하는 테이블의 레코드를 대상에 복사합니다. |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1536,7 +1536,7 @@ Azure Table Storage에 데이터를 복사하는 경우 복사 활동의 **sink 
 | writeBatchSize |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |정수(행 수) |아니요(기본값: 10000) |
 | writeBatchTimeout |WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. |timespan<br/><br/>예: "00:20:00"(20분) |No (기본적으로 스토리지 클라이언트 기본 시간 제한 값인 90초로 설정) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1622,7 +1622,7 @@ Amazon Redshift 데이터 세트를 정의하려면 데이터 세트의 **type**
 | tableName |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1648,9 +1648,9 @@ Amazon Redshift에서 데이터를 복사하는 경우 복사 활동의 **source
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1705,7 +1705,7 @@ IBM DB2 연결된 서비스를 정의하려면 연결된 서비스의 **type** �
 | 스키마 |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |예 |
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 DB2 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름 |예 |
 
 #### <a name="example"></a>예제
@@ -1735,7 +1735,7 @@ DB2 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **Relat
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 DB2 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우)
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "Db2DataSet",
@@ -1767,9 +1767,9 @@ IBM DB2에서 데이터를 복사하는 경우 복사 활동의 **source type** 
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `"query": "select * from "MySchema"."MyTable""`을 참조하십시오. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "CopyDb2ToBlob",
@@ -1821,7 +1821,7 @@ MySQL 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을
 | 스키마 |데이터베이스에서 스키마의 이름입니다. |예 |
 | authenticationType |MySQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 `Basic`입니다. |예 |
 | userName |MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password |지정한 사용자 계정의 암호를 지정합니다. |Yes |
+| password |지정한 사용자 계정의 암호를 지정합니다. |예 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 MySQL 데이터 베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -1853,7 +1853,7 @@ MySQL 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **Rel
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 MySQL 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -1885,10 +1885,10 @@ MySQL 데이터베이스에서 데이터를 복사하는 경우 복사 활동의
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "CopyMySqlToBlob",
@@ -1938,8 +1938,8 @@ Oracle 연결된 서비스를 정의하려면 연결된 서비스의 **type** �
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 지원되는 버전 및 설치 섹션을 참조하세요. | 예 |
-| connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | Yes |
+| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 지원되는 버전 및 설치 섹션을 참조하세요. | 아니요 |
+| connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -1966,7 +1966,7 @@ Oracle 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **Or
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. |아니요(**OracleSource** 의 **oracleReaderQuery** 가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2001,9 +2001,9 @@ Oracle 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select * from MyTable` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| oracleReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. `select * from MyTable` <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select * from MyTable` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2055,7 +2055,7 @@ Oracle 데이터베이스에 데이터를 복사하는 경우 복사 활동의 *
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/>  예: “00:30:00”(30분). |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 100) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |예 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. |쿼리 문입니다. |아니요 |
 | sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -2112,7 +2112,7 @@ PostgreSQL 연결된 서비스를 정의하려면 연결된 서비스의 **type*
 | 스키마 |데이터베이스에서 스키마의 이름입니다. schema 이름은 대/소문자를 구분합니다. |예 |
 | authenticationType |PostgreSQL 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -2143,7 +2143,7 @@ PostgreSQL 데이터 세트를 정의하려면 데이터 세트의 **type** 을 
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 PostgreSQL 데이터베이스 인스턴스에서 테이블의 이름입니다. tableName은 대/소문자를 구분합니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "PostgreSqlDataSet",
@@ -2176,7 +2176,7 @@ PostgreSQL 데이터베이스에서 데이터를 복사하는 경우 복사 활�
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: "query": "select * from \"MySchema\".\"MyTable\"". |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2226,13 +2226,13 @@ SAP BW(Business Warehouse) 연결된 서비스를 정의하려면 연결된 서�
 
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | Yes
-systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | Yes
+서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | 예
+systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
 clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예
 사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
-password | 사용자에 대한 암호입니다. | 문자열 | Yes
-gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | Yes
-encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
+password | 사용자에 대한 암호입니다. | 문자열 | 예
+gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
+encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 #### <a name="example"></a>예제
 
@@ -2258,7 +2258,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
 ### <a name="dataset"></a>데이터 세트
 SAP BW 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **RelationalTable** 로 설정합니다. **RelationalTable** 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2339,9 +2339,9 @@ SAP HANA 연결된 서비스를 정의하려면 연결된 서비스의 **type** 
 서버 | SAP HANA 인스턴스가 상주하는 서버의 이름. 서버에서 사용자 지정된 포트를 사용하는 경우 `server:port`를 지정합니다. | 문자열 | 예
 authenticationType | 인증 유형입니다. | 문자열을 생성할 수 있습니다. "Basic" 또는 "Windows" | 예
 사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
-password | 사용자에 대한 암호입니다. | 문자열 | Yes
-gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | Yes
-encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
+password | 사용자에 대한 암호입니다. | 문자열 | 예
+gatewayName | Data Factory 서비스가 온-프레미스 SAP HANA 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
+encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 #### <a name="example"></a>예제
 
@@ -2366,7 +2366,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 예
 ### <a name="dataset"></a>데이터 세트
 SAP HANA 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **RelationalTable** 로 설정합니다. **RelationalTable** 형식의 SAP HANA 데이터 세트에 대해 지원되는 type별 속성은 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2449,10 +2449,10 @@ SAP HANA 데이터 저장소에서 데이터를 복사하는 경우 복사 활�
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성은 **OnPremisesSqlServer** 로 설정해야 합니다. |예 |
-| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |Yes |
+| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |예 |
 | gatewayName |Data Factory 서비스에서 SQL Server 데이터베이스에 연결 하는 데 사용 해야 하는 게이트웨이의 이름입니다. |예 |
 | 사용자 이름 |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: **domainname\\username**. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 
 **AzDataFactoryEncryptValue** cmdlet을 사용 하 여 자격 증명을 암호화 하 고 다음 예제 (**encryptedcredential** 속성)와 같이 연결 문자열에서 사용할 수 있습니다.
 
@@ -2537,7 +2537,7 @@ SQL Server 데이터베이스에서 데이터를 복사하는 경우 복사 활�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` 입력 데이터 세트에 의해 참조되는 데이터베이스의 여러 테이블을 참조할 수 있습니다. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. |예 |
+| SqlReaderQuery |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. 입력 데이터 세트에 의해 참조되는 데이터베이스의 여러 테이블을 참조할 수 있습니다. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. |예 |
 | sqlReaderStoredProcedureName |원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |예 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |예 |
 
@@ -2551,7 +2551,7 @@ sqlReaderQuery 또는 sqlReaderStoredProcedureName을 지정하지 않으면 str
 > **sqlReaderStoredProcedureName** 을 사용하는 경우에도 데이터 세트 JSON에서 **tableName** 속성 값을 지정해야 합니다. 그러나 이 테이블에 대해 수행되는 유효성 검사는 없습니다.
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "SamplePipeline",
@@ -2606,8 +2606,8 @@ SQL Server 데이터베이스에 데이터를 복사하는 경우 복사 활동�
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예: “00:30:00”(30분). |예 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 반복성 섹션을 참조하세요. |쿼리 문입니다. |예 |
-| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 반복성 섹션을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |예 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 반복성 섹션을 참조하세요. |쿼리 문입니다. |아니요 |
+| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 반복성 섹션을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
 | sqlWriterStoredProcedureName |대상 테이블에 대한 데이터 Upsert(업데이트/삽입)를 수행하는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |예 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |예 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. |테이블 유형 이름 |예 |
@@ -2670,7 +2670,7 @@ Sybase 연결된 서비스를 정의하려면 연결된 서비스의 **type** �
 | 스키마 |데이터베이스에서 스키마의 이름입니다. |예 |
 | authenticationType |Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Sybase 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -2701,7 +2701,7 @@ Sybase 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **Re
 | --- | --- | --- |
 | tableName |연결된 서비스가 참조하는 Sybase 데이터베이스 인스턴스에서 테이블의 이름입니다. |아니요(**RelationalSource** 의 **쿼리** 가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2734,9 +2734,9 @@ Sybase 데이터베이스에서 데이터를 복사하는 경우 복사 활동�
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2788,7 +2788,7 @@ Teradata 연결된 서비스를 정의하려면 연결된 서비스의 **type** 
 | 서버 |Teradata 서버의 이름입니다. |예 |
 | authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
 | 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 | gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -2813,7 +2813,7 @@ Teradata 연결된 서비스를 정의하려면 연결된 서비스의 **type** 
 ### <a name="dataset"></a>데이터 세트
 Teradata Blob 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **RelationalTable** 로 설정합니다. 현재 Teradata 데이터 세트에 대해 지원되는 형식 속성은 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 ```json
 {
     "name": "TeradataDataSet",
@@ -2844,7 +2844,7 @@ Teradata 데이터베이스에서 데이터를 복사하는 경우 복사 활동
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |예 |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |예 |
 
 #### <a name="example"></a>예제
 
@@ -2904,7 +2904,7 @@ Cassandra 연결된 서비스를 정의하려면 연결된 서비스의 **type**
 | authenticationType |Basic 또는 Anonymous |예 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | password |사용자 계정으로 password를 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
-| gatewayName |온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용되는 게이트웨이 이름입니다. |Yes |
+| gatewayName |온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 | encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |예 |
 
 #### <a name="example"></a>예제
@@ -2936,7 +2936,7 @@ Cassandra 데이터 세트를 정의하려면 데이터 세트의 **type** 을 *
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource** 의 **query** 가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource** 의 **query** 가 정의되지 않은 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -2974,7 +2974,7 @@ Cassandra에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 tableName 및 keyspace가 정의된 경우) |
 | consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |아니요. 기본값은 ONE입니다. |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3032,11 +3032,11 @@ MongoDB 연결된 서비스를 정의하려면 연결된 서비스의 **type** �
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | password |사용자에 대한 암호입니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |선택 사항(기본 인증을 사용하는 경우). 기본값: 관리자 계정 및 databaseName 속성을 사용하는 지정된 데이터베이스를 사용합니다. |
-| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |Yes |
-| gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |Yes |
+| databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
+| gatewayName |데이터 저장소에 액세스하는 게이트웨이의 이름입니다. |예 |
 | encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |선택 사항 |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3093,9 +3093,9 @@ MongoDB에서 데이터를 복사하는 경우 복사 활동의 **source type** 
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예: `select * from MyTable` |아니요(**데이터 세트** 의 **collectionName** 이 지정된 경우) |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 문자열입니다. 예를 들어 `select * from MyTable`을 참조하십시오. |아니요(**데이터 세트** 의 **collectionName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3175,8 +3175,8 @@ Amazon S3 데이터 세트를 정의하려면 데이터 세트의 **type** 을 *
 | key |S3 개체 키입니다. |String |예 |
 | 접두사 |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |String |예 |
 | 버전 |S3 버전 관리를 사용하도록 설정되면 S3 개체의 버전입니다. |String |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 | |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 | |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 | |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 | |
 
 
 > [!NOTE]
@@ -3316,7 +3316,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | userId |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
 | password |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
 | encryptedCredential |New-AzDataFactoryEncryptValue cmdlet을 실행 하 여 가져올 수 있는 암호화 된 자격 증명을 지정 합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
-| gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |Yes |
+| gatewayName |Data Factory에서 온-프레미스 파일 서버에 연결하는 데 사용해야 하는 게이트웨이의 이름을 지정하고 있습니다. |예 |
 
 #### <a name="sample-folder-path-definitions"></a>샘플 폴더 경로 정의
 
@@ -3367,16 +3367,16 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |예 |
-| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2016-1-?.txt"<br/><br/>fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. |예 |
+| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2016-1-?.txt"<br/><br/>fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. |아니요 |
 | partitionedBy |partitionedBy를 사용하면 시계열 데이터의 동적 folderPath/fileName을 지정할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수를 포함하는 folderPath가 있습니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원 되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 및 지원 되는 수준은 **최적** 및 **가장 빠름** 입니다. [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원 되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 및 지원 되는 수준은 **최적** 및 **가장 빠름** 입니다. [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 > [!NOTE]
 > fileName 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3490,11 +3490,11 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지 합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**Mergefiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합 합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |예 |
+| copyBehavior |원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. |**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지 합니다. 즉, 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/>**Mergefiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합 합니다. 병합되는 파일 이름은 지정된 파일 이름/Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. |아니요 |
 
 auto-
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3547,14 +3547,14 @@ FTP 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 *
 | 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | 호스트 |FTP 서버의 이름 또는 IP 주소 |예 |&nbsp; |
-| authenticationType |인증 유형 지정 |Yes |기본, 익명 |
+| authenticationType |인증 유형 지정 |예 |기본, 익명 |
 | 사용자 이름 |FTP 서버에 액세스하는 사용자 |예 |&nbsp; |
-| password |사용자(사용자 이름) 암호 |예 |&nbsp; |
-| encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명 |예 |&nbsp; |
-| gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. |예 |&nbsp; |
-| 포트 |FTP 서버가 수신 대기하는 포트 |예 |21 |
-| enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부 |예 |true |
-| enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 TLS/SSL 인증서 유효성 검사를 사용 하도록 설정할지 여부를 지정 합니다. |예 |true |
+| password |사용자(사용자 이름) 암호 |아니요 |&nbsp; |
+| encryptedCredential |FTP 서버 액세스를 위한 암호화된 자격 증명 |아니요 |&nbsp; |
+| gatewayName |온-프레미스 FTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. |아니요 |&nbsp; |
+| 포트 |FTP 서버가 수신 대기하는 포트 |아니요 |21 |
+| enableSsl |SSL/TLS 채널을 통해 FTP를 사용할지 여부 |아니요 |true |
+| enableServerCertificateValidation |SSL/TLS 채널을 통해 FTP를 사용할 때 서버 TLS/SSL 인증서 유효성 검사를 사용 하도록 설정할지 여부를 지정 합니다. |아니요 |true |
 
 #### <a name="example-using-anonymous-authentication"></a>예제: 익명 인증 사용
 
@@ -3633,17 +3633,17 @@ FTP 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **FileS
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예
-| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |예 |
-| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |예 |
+| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원 되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 및 지원 되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
-| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값은 True입니다. 이 속성은 연결된 서비스 유형이 FtpServer인 경우에만 사용할 수 있습니다. |예 |
+| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값은 True입니다. 이 속성은 연결된 서비스 유형이 FtpServer인 경우에만 사용할 수 있습니다. |아니요 |
 
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3724,13 +3724,13 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |유형 속성은 **Hdfs** 로 설정 해야 합니다. |Yes |
+| type |유형 속성은 **Hdfs** 로 설정 해야 합니다. |예 |
 | Url |HDFS에 대한 URL |예 |
 | authenticationType |익명 또는 Windows입니다. <br><br> HDFS 커넥터에 **Kerberos 인증** 을 사용하려면 이 섹션을 참조하여 온-프레미스 환경을 적절히 설정합니다. |예 |
 | userName |Windows 인증에 대한 사용자 이름. |예(Windows 인증에 대한) |
 | password |Windows 인증에 대한 암호. |예(Windows 인증에 대한) |
-| gatewayName |데이터 팩터리 서비스가 HDFS에 연결하는 데 사용해야 하는 게이트웨이의 이름. |Yes |
-| encryptedCredential |[AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) access 자격 증명의 출력입니다. |예 |
+| gatewayName |데이터 팩터리 서비스가 HDFS에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
+| encryptedCredential |[AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) access 자격 증명의 출력입니다. |아니요 |
 
 #### <a name="example-using-anonymous-authentication"></a>예제: 익명 인증 사용
 
@@ -3775,15 +3775,15 @@ HDFS 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **File
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |파일의 경로입니다. 예: `myfolder`<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예: 폴더\하위 폴더의 경우 폴더\\\\하위 폴더를 지정하고 d:\samplefolder의 경우 d:\\\\samplefolder를 지정합니다.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |예 |
+| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대해 매개 변수화됩니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -3862,7 +3862,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 | --- | --- | --- |
 | host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | 포트 |SFTP 서버가 수신하는 포트입니다. 기본값은 21입니다. |예 |
-| authenticationType |인증 유형을 지정합니다. 허용되는 값은 **기본** 및 **SshPublicKey** 입니다. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 기본 인증 사용 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |Yes |
+| authenticationType |인증 유형을 지정합니다. 허용되는 값은 **기본** 및 **SshPublicKey** 입니다. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 기본 인증 사용 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 아니요. 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
@@ -3875,7 +3875,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | 사용자 이름 | SFTP 서버에 액세스하는 사용자. |예 |
-| password | 사용자(사용자 이름) 암호. | Yes |
+| password | 사용자(사용자 이름) 암호. | 예 |
 
 ```json
 {
@@ -3975,17 +3975,17 @@ SFTP 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **File
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |예 |
-| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |예 |
+| fileName |테이블이 폴더의 특정 파일을 참조하도록 하려는 경우 **folderPath** 에 파일 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. |예 |
-| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |예 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사** 하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
-| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값은 True입니다. 이 속성은 연결된 서비스 유형이 FtpServer인 경우에만 사용할 수 있습니다. |예 |
+| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값은 True입니다. 이 속성은 연결된 서비스 유형이 FtpServer인 경우에만 사용할 수 있습니다. |아니요 |
 
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4068,7 +4068,7 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | url | 웹 서버에 대한 기본 URL입니다. | 예 |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | Yes |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
 | enableServerCertificateValidation | 원본이 HTTPS 웹 서버인 경우 서버 TLS/SSL 인증서 유효성 검사를 사용 하도록 설정할지 여부를 지정 합니다. | 아니요. 기본값은 True입니다. |
 | gatewayName | 온-프레미스 HTTP 소스에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에는 필수입니다. |
 | encryptedCredential | HTTP 엔드포인트 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 인증 정보를 구성할 때 자동 생성됩니다. | 아니요. 온-프레미스 HTTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
@@ -4079,7 +4079,7 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | 사용자 이름 | HTTP 엔드포인트 액세스를 위한 사용자 이름입니다. | 예 |
-| password | 사용자(사용자 이름) 암호. | Yes |
+| password | 사용자(사용자 이름) 암호. | 예 |
 
 ```json
 {
@@ -4104,7 +4104,7 @@ HTTP 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 | --- | --- | --- |
 | embeddedCertData | PFX(개인 정보 교환) 파일의 이진 데이터에 대해 Base64로 인코딩된 콘텐츠 | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
 | certThumbprint | 게이트웨이 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에만 적용됩니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
-| password | 인증서와 연결된 암호입니다. | 예 |
+| password | 인증서와 연결된 암호입니다. | 아니요 |
 
 인증에 `certThumbprint`를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 게이트웨이 서비스에 읽기 권한을 부여해야 합니다.
 
@@ -4155,12 +4155,12 @@ HTTP 데이터 세트를 정의하려면 데이터 세트의 **type** 을 **Http
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [데이터 팩터리 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"` | 예 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [데이터 팩터리 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"` | 아니요 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 또는 **POST** 입니다. | 아니요. 기본값은 `GET`입니다. |
-| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
 | requestBody | HTTP 요청의 본문입니다. | 예 |
-| format | 데이터를 구문 분석하지 않고 **HTTP 엔드포인트에서 데이터를 그대로 검색** 하려면 이 서식 설정을 건너뜁니다. <br><br> 복사 중에 HTTP 응답 내용을 구문 분석하려면 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. |예 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |예 |
+| format | 데이터를 구문 분석하지 않고 **HTTP 엔드포인트에서 데이터를 그대로 검색** 하려면 이 서식 설정을 건너뜁니다. <br><br> 복사 중에 HTTP 응답 내용을 구문 분석하려면 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat** 과 같은 서식 유형이 지원됩니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate** 입니다. 지원되는 수준은 **최적** 및 **가장 빠름** 입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 #### <a name="example-using-the-get-default-method"></a>예제: GET(기본) 메서드 사용
 
@@ -4214,7 +4214,7 @@ HTTP 소스에서 데이터를 복사하는 경우 복사 활동의 **source typ
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. | 아니요. 기본값: 00:01:40 |
 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4270,7 +4270,7 @@ OData 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을
 | 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예(기본 인증을 사용하는 경우에만) |
 | authorizedCredential |OAuth를 사용하는 경우 Data Factory Copy Wizard 또는 Editor에서 **권한 부여** 단추를 클릭하고 자격 증명을 입력합니다. 그러면 이 속성의 값이 자동으로 생성됩니다. |예(OAuth 인증을 사용하는 경우에만) |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |예 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 OData 서비스에 연결하는 데 사용해야 하는 게이트웨이의 이름 온-프레미스 OData 원본에서 데이터를 복사 하는 경우에만를 지정 합니다. |아니요 |
 
 #### <a name="example---using-basic-authentication"></a>예제: 기본 인증 사용
 ```json
@@ -4435,12 +4435,12 @@ ODBC 연결된 서비스를 정의하려면 연결된 서비스의 **type** 을 
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. |Yes |
+| connectionString |선택적 암호화된 자격 증명 및 연결 문자열의 비 액세스 자격 증명 부분입니다. 다음 섹션의 예제를 참조하십시오. |예 |
 | 자격 증명(credential) |드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 예: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |예 |
 | authenticationType |ODBC 데이터 저장소에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명 및 기본입니다. |예 |
 | 사용자 이름 |기본 인증을 사용하는 경우 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
-| gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |Yes |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
+| gatewayName |데이터 팩터리 서비스가 ODBC 데이터 저장소에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
 
 #### <a name="example---using-basic-authentication"></a>예제: 기본 인증 사용
 
@@ -4535,7 +4535,7 @@ ODBC 데이터 저장소에서 데이터를 복사하는 경우 복사 활동의
 
 | 속성 | Description | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `select * from MyTable` |예 |
+| Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예를 들어 `select * from MyTable`을 참조하십시오. |예 |
 
 #### <a name="example"></a>예제
 
@@ -4589,9 +4589,9 @@ Salesforce 연결된 서비스를 정의하려면 연결된 서비스의 **type*
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https: \/ /login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |예 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https: \/ /login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
-| password |사용자 계정으로 password를 지정합니다. |Yes |
+| password |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
 
 #### <a name="example"></a>예제
@@ -4619,7 +4619,7 @@ Salesforce 데이터 세트를 정의하려면 데이터 세트의 **type** 을 
 | --- | --- | --- |
 | tableName |Salesforce에 있는 테이블의 이름입니다. |아니요(**RelationalSource** 의 **query** 가 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4655,7 +4655,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 | --- | --- | --- | --- |
 | Query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예제: `select * from MyTable__c` |아니요(**데이터 세트** 의 **tableName** 이 지정된 경우) |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 
 
@@ -4769,7 +4769,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 ### <a name="web-source-in-copy-activity"></a>복사 활동의 웹 소스
 웹 테이블에서 데이터를 복사하는 경우 복사 활동의 **source type** 을 **WebSource** 로 설정합니다. 현재 복사 작업의 원본이 **WebSource** 형식인 경우 추가 속성이 지원되지 않습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```json
 {
@@ -4834,12 +4834,12 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 | --- | --- | --- |
 | type |형식 속성은 **HDInsightOnDemand** 로 설정해야 합니다. |예 |
 | clusterSize |클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. Standard_D3 계층에 대한 자세한 내용은 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. |예 |
-| timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다. |Yes |
+| timetolive |주문형 HDInsight 클러스터에 대한 허용된 유휴 시간입니다. 클러스터에 다른 활성 작업이 없으면 작업이 완료된 후에 주문형 HDInsight 클러스터가 유지될 기간을 지정합니다.<br/><br/>예를 들어 활동 실행에 6분이 걸리고 timetolive이 5분으로 설정된 경우 클러스터는 활동을 처리하는 6분 동안 실행된 후에 5분 동안 유지됩니다. 다른 활동 실행이 6분 창을 실행하는 경우 동일한 클러스터에 의해 처리됩니다.<br/><br/>주문형 HDInsight 클러스터를 만드는 데는 많은 시간이 걸려 값 비싼 작업이 되므로 필요할 때마다 이 설정을 사용하여 주문형 HDInsight 클러스터를 다시 사용함으로써 데이터 팩터리의 성능을 향상시킵니다.<br/><br/>timetolive 값을 0으로 설정한 경우 클러스터는 활동이 처리되는 즉시 삭제됩니다. 반면 높은 값을 설정하는 경우 클러스터는 불필요하게 많은 비용이 발생하는 유휴 상태에 머무를 수 있습니다. 따라서 필요에 따라 적절한 값을 설정하는 것이 중요합니다.<br/><br/>timetolive 속성 값이 적절하게 설정되는 경우 여러 파이프라인은 주문형 HDInsight 클러스터의 동일한 인스턴스를 공유할 수 있습니다. |예 |
 | 버전 |HDInsight 클러스터의 버전입니다. 자세한 내용은 [Azure Data Factory에서 지원되는 HDInsight 버전](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)을 참조하세요. |예 |
-| linkedServiceName |데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. <p>현재 Azure Data Lake Store를 스토리지로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다.</p>  | Yes |
+| linkedServiceName |데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결 서비스입니다. <p>현재 Azure Data Lake Store를 스토리지로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Azure Data Lake Store에 저장하려면 복사 작업을 사용하여 Azure Blob Storage의 데이터를 Azure Data Lake Store로 복사합니다.</p>  | 예 |
 | additionalLinkedServiceNames |HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정하므로 데이터 팩터리 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. |예 |
 | osType |운영 체제 유형입니다. 허용되는 값은 Windows(기본값) 및 Linux입니다. |예 |
-| hcatalogLinkedServiceName |HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 metastore로 Azure SQL Database를 사용 하 여 만듭니다. |예 |
+| hcatalogLinkedServiceName |HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 metastore로 Azure SQL Database를 사용 하 여 만듭니다. |아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 다음 JSON는 Linux 기반 주문형 HDInsight 연결된 서비스를 정의합니다. Data Factory 서비스는 데이터 조각을 처리하는 경우 **Linux 기반** HDInsight 클러스터를 자동으로 만듭니다.
@@ -4874,7 +4874,7 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 | clusterUri |HDInsight 클러스터의 URI입니다. |예 |
 | 사용자 이름 |기존 HDInsight 클러스터에 연결하는데 사용할 사용자의 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다. |예 |
-| linkedServiceName | HDInsight 클러스터에서 사용하는 Azure Blob Storage를 참조하는 Azure Storage 연결된 서비스의 이름입니다. <p>현재 이 속성에 대한 Azure Data Lake Store 연결된 서비스를 지정할 수 없습니다. HDInsight 클러스터가 Data Lake Store에 액세스할 경우 Hive/Pig 스크립트의 Azure Data Lake Store에 있는 데이터에 액세스할 수 있습니다. </p>  |Yes |
+| linkedServiceName | HDInsight 클러스터에서 사용하는 Azure Blob Storage를 참조하는 Azure Storage 연결된 서비스의 이름입니다. <p>현재 이 속성에 대한 Azure Data Lake Store 연결된 서비스를 지정할 수 없습니다. HDInsight 클러스터가 Data Lake Store에 액세스할 경우 Hive/Pig 스크립트의 Azure Data Lake Store에 있는 데이터에 액세스할 수 있습니다. </p>  |예 |
 
 지원되는 HDInsight 클러스터 버전은 [지원되는 HDInsight 버전](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory)을 참조하세요.
 
@@ -4907,7 +4907,7 @@ Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 머�
 | accountName |Azure Batch 계정의 이름 |예 |
 | accessKey |Azure Batch 계정에 대한 선택키 |예 |
 | poolName |가상 머신의 풀 이름입니다. |예 |
-| linkedServiceName |Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. |Yes |
+| linkedServiceName |Azure Batch 연결된 서비스와 관련된 Azure Storage 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. |예 |
 
 
 #### <a name="json-example"></a>JSON 예제
@@ -4969,7 +4969,7 @@ Azure Batch 연결된 서비스를 만들어 데이터 팩터리에 가상 머�
 | 권한 부여 |Data Factory 편집기에서 **권한 부여** 단추를 클릭하고 OAuth 로그인을 완료하면 인증 코드가 자동으로 검색됩니다. |예 |
 | subscriptionId |Azure 구독 ID입니다. |아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
 | resourceGroupName |Azure 리소스 그룹 이름 |아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
-| sessionID |OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유 하며 한 번만 사용할 수 있습니다. Data Factory 편집기를 사용하면 이 ID가 자동으로 생성됩니다. |Yes |
+| sessionID |OAuth 권한 부여 세션의 세션 ID입니다. 각 세션 ID는 고유 하며 한 번만 사용할 수 있습니다. Data Factory 편집기를 사용하면 이 ID가 자동으로 생성됩니다. |예 |
 
 
 #### <a name="json-example"></a>JSON 예제
@@ -5004,10 +5004,10 @@ SQL Server 연결된 서비스를 만들고 [저장 프로시저 활동](data-fa
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type |type 속성은 **OnPremisesSqlServer** 로 설정해야 합니다. |예 |
-| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |Yes |
+| connectionString |SQL 인증 또는 Windows 인증을 사용하여 SQL Server 데이터베이스에 연결하는 데 필요한 connectionString 정보를 지정합니다. |예 |
 | gatewayName |Data Factory 서비스에서 SQL Server 데이터베이스에 연결 하는 데 사용 해야 하는 게이트웨이의 이름입니다. |예 |
 | 사용자 이름 |Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. 예: **domainname\\username**. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |예 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
 
 **AzDataFactoryEncryptValue** cmdlet을 사용 하 여 자격 증명을 암호화 하 고 다음 예제 (**encryptedcredential** 속성)와 같이 연결 문자열에서 사용할 수 있습니다.
 
@@ -5072,9 +5072,9 @@ Hive 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| 스크립트 |Hive 스크립트 인라인 지정 |예 |
+| 스크립트 |Hive 스크립트 인라인 지정 |아니요 |
 | script path |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
-| defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
+| defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
 이러한 type 속성은 Hive 활동에만 적용됩니다. typeProperties 섹션 외부의 다른 속성은 모든 활동에서 지원됩니다.
 
@@ -5118,9 +5118,9 @@ Pig 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| 스크립트 |Pig 스크립트 인라인 지정 |예 |
+| 스크립트 |Pig 스크립트 인라인 지정 |아니요 |
 | script path |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
-| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
+| defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
 이러한 type 속성은 Pig 활동에만 적용됩니다. typeProperties 섹션 외부의 다른 속성은 모든 활동에서 지원됩니다.
 
@@ -5170,10 +5170,10 @@ MapReduce 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| jarLinkedService | JAR 파일이 포함된 Azure Storage에 대한 연결된 서비스의 이름입니다. | Yes |
+| jarLinkedService | JAR 파일이 포함된 Azure Storage에 대한 연결된 서비스의 이름입니다. | 예 |
 | jarFilePath | Azure Storage의 JAR 파일에 대한 경로입니다. | 예 |
-| className | JAR 파일의 주 클래스 이름입니다. | Yes |
-| 인수 | MapReduce 프로그램에 대해 쉼표로 구분된 인수 목록입니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수로 사용자 인수를 구분하려면 다음 예제와 같이 인수로 옵션과 값을 모두 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임). | 예 |
+| className | JAR 파일의 주 클래스 이름입니다. | 예 |
+| 인수 | MapReduce 프로그램에 대해 쉼표로 구분된 인수 목록입니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수로 사용자 인수를 구분하려면 다음 예제와 같이 인수로 옵션과 값을 모두 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임). | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 
@@ -5299,7 +5299,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 | proxyUser | Spark 프로그램 실행을 가장하는 사용자 계정 | 예 |
 | sparkConfig | Spark 구성 속성입니다. | 예 |
 | getDebugInfo | sparkJobLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 Spark 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음 | 예 |
-| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 스토리지가 사용됩니다. | 예 |
+| sparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 스토리지가 사용됩니다. | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 
@@ -5349,8 +5349,8 @@ Azure Machine Learning Studio (클래식) Batch 실행 활동 JSON 정의에서 
 -------- | ----------- | --------
 webServiceInput | Studio (클래식) 웹 서비스에 대 한 입력으로 전달 될 데이터 집합입니다. 이 데이터 세트는 활동의 입력에도 포함되어야 합니다. |webServiceInput 또는 webServiceInputs를 사용합니다. |
 webServiceInputs | Studio (클래식) 웹 서비스에 대 한 입력으로 전달할 데이터 집합을 지정 합니다. 웹 서비스에서 여러 입력을 사용하는 경우 webServiceInput 속성 대신 webServiceInputs 속성을 사용합니다. **webServiceInputs** 에서 참조하는 데이터 세트는 또한 **입력** 작업에 포함되어야 합니다. | webServiceInput 또는 webServiceInputs를 사용합니다. |
-webServiceOutputs | Studio (클래식) 웹 서비스에 대 한 출력으로 할당 된 데이터 집합입니다. 웹 서비스는 이 데이터 세트의 출력 데이터를 반환합니다. | Yes |
-globalParameters | 이 섹션에서 웹 서비스 매개 변수의 값을 지정합니다. | 예 |
+webServiceOutputs | Studio (클래식) 웹 서비스에 대 한 출력으로 할당 된 데이터 집합입니다. 웹 서비스는 이 데이터 세트의 출력 데이터를 반환합니다. | 예 |
+globalParameters | 이 섹션에서 웹 서비스 매개 변수의 값을 지정합니다. | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 이 예제의 활동에는 입력으로 **MLSqlInput** 데이터 세트가, 출력으로 **MLSqlOutput** 이 있습니다. **MLSqlInput** 은 **webServiceInput** JSON 속성을 사용하여 입력으로 웹 서비스에 전달됩니다. **MLSqlOutput** 은 **webServiceOutputs** JSON 속성을 사용하여 출력으로 웹 서비스에 전달됩니다.
@@ -5403,8 +5403,8 @@ Azure Machine Learning Studio (클래식) 리소스 업데이트 작업 JSON 정
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-trainedModelName | 다시 학습된 모델의 이름입니다. | Yes |
-trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 가리키는 데이터 세트입니다. | Yes |
+trainedModelName | 다시 학습된 모델의 이름입니다. | 예 |
+trainedModelDatasetName | 재학습 작업으로 반환된 iLearner 파일을 가리키는 데이터 세트입니다. | 예 |
 
 ### <a name="json-example"></a>JSON 예제
 파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource** 라는 두 활동이 있습니다. Studio (클래식) Batch 실행 작업은 학습 데이터를 입력으로 사용 하 고 iLearner 파일을 출력으로 생성 합니다. 이 작업은 입력 교육 데이터와 함께 학습 웹 서비스(웹 서비스로 노출된 학습 실험)를 호출하고 웹 서비스로부터 ilearner 파일을 수신합니다. placeholderBlob는 Azure 데이터 팩터리 서비스가 파이프라인을 실행하기 위해 필요로 하는 더미 출력 데이터 세트입니다.
@@ -5475,7 +5475,7 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 | 스크립트 |scriptPath 및 scriptLinkedService를 지정하는 대신 인라인 스크립트를 지정합니다. 예: "script" : "CREATE DATABASE test" |아니요(scriptPath 및 scriptLinkedService를 사용하는 경우) |
 | degreeOfParallelism |작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. |예 |
 | priority |대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. |예 |
-| 매개 변수 |U-SQL 스크립트의 매개 변수 |예 |
+| 매개 변수 |U-SQL 스크립트의 매개 변수 |아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 
@@ -5543,8 +5543,8 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| storedProcedureName |출력 테이블에서 사용 하는 연결 된 서비스로 표시 되는 Azure SQL Database 또는 Azure Synapse Analytics의 저장 프로시저 이름을 지정 합니다. |Yes |
-| storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |예 |
+| storedProcedureName |출력 테이블에서 사용 하는 연결 된 서비스로 표시 되는 Azure SQL Database 또는 Azure Synapse Analytics의 저장 프로시저 이름을 지정 합니다. |예 |
+| storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
 
 입력 데이터 세트를 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 세트를 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. 저장 프로시저 작업에 대한 출력 데이터 세트를 지정해야 합니다.
 
@@ -5583,11 +5583,11 @@ U-SQL 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| AssemblyName | 어셈블리의 이름입니다. 예제에서는 **MyDotnetActivity.dll** 입니다. | Yes |
-| EntryPoint |IDotNetActivity 인터페이스를 구현하는 클래스의 이름입니다. 예제에서는 **MyDotNetActivityNS.MyDotNetActivity** 이며, 여기서 MyDotNetActivityNS는 네임스페이스이고, MyDotNetActivity는 클래스입니다.  | Yes |
-| PackageLinkedService | 사용자 지정 활동 zip 파일이 포함된 Blob 스토리지를 가리키는 Azure Storage 연결된 서비스의 이름입니다. 예제에서는 **AzureStorageLinkedService** 입니다.| Yes |
-| PackageFile | zip 파일의 이름입니다. 예제에서는 **customactivitycontainer/MyDotNetActivity.zip** 입니다. | Yes |
-| extendedProperties | 정의하고 .NET 코드에 전달할 수 있는 확장된 속성입니다. 예제에서 **SliceStart** 변수는 SliceStart 시스템 변수에 기반한 값으로 설정됩니다. | 예 |
+| AssemblyName | 어셈블리의 이름입니다. 예제에서는 **MyDotnetActivity.dll** 입니다. | 예 |
+| EntryPoint |IDotNetActivity 인터페이스를 구현하는 클래스의 이름입니다. 예제에서는 **MyDotNetActivityNS.MyDotNetActivity** 이며, 여기서 MyDotNetActivityNS는 네임스페이스이고, MyDotNetActivity는 클래스입니다.  | 예 |
+| PackageLinkedService | 사용자 지정 활동 zip 파일이 포함된 Blob 스토리지를 가리키는 Azure Storage 연결된 서비스의 이름입니다. 예제에서는 **AzureStorageLinkedService** 입니다.| 예 |
+| PackageFile | zip 파일의 이름입니다. 예제에서는 **customactivitycontainer/MyDotNetActivity.zip** 입니다. | 예 |
+| extendedProperties | 정의하고 .NET 코드에 전달할 수 있는 확장된 속성입니다. 예제에서 **SliceStart** 변수는 SliceStart 시스템 변수에 기반한 값으로 설정됩니다. | 아니요 |
 
 ### <a name="json-example"></a>JSON 예제
 

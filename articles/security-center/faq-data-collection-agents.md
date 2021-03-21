@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
 ms.openlocfilehash: 4ef01045d1ca16d0101cdd9ccfcd118231cd28de
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456116"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
@@ -33,7 +33,7 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 - **Azure Defender on** – Security Center 기본 작업 영역에서 "보안" 솔루션을 사용 하도록 설정 합니다.
 
-선택한 통화와 해당 지역에 따라 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조 하세요.
+선택한 통화와 지역에 따른 가격 정보는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
 > [!NOTE]
 > Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.

@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/07/2020
+ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a19babffa63667b0d2deb954d432421a2b7868b8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376363"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722143"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -56,6 +56,86 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](./how-to-upgrade-previous-version.md)를 참조하세요.
 >
 >사용 중지 된 버전에 대 한 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md) 을 참조 하세요.
+
+
+## <a name="1623"></a>1.6.2.3
+
+>[!NOTE]
+> - 이 릴리스는 다운로드 전용으로 제공 됩니다.
+> - 이 릴리스로 업그레이드 하려면 동기화 규칙 변경으로 인해 전체 동기화가 필요 합니다.
+> - 이 릴리스는 AADConnect 서버를 새 V2 끝점으로 기본 설정 합니다. 이 끝점은 독일어 국가, 중국어 (미국) 및 미국 정부 클라우드에서 지원 되지 않으며, 이러한 클라우드에이 버전을 배포 해야 하는 경우 [다음 지침](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) 에 따라 다시 V1 끝점으로 전환 해야 합니다. 실패 하면 동기화 오류가 발생 합니다.
+
+### <a name="release-status"></a>릴리스 상태
+3/17/2021: 다운로드를 위해 릴리스 됨
+
+### <a name="functional-changes"></a>기능 변경 내용
+
+ - 기록 된 백 그룹의 멤버 자격을 50k 멤버로 제한 하는 기본 동기화 규칙을 업데이트 했습니다.
+   - 그룹 쓰기 저장 (Out to AD-그룹 쓰기 저장 (Writeback)) 및 그룹 동기화에서 구성원 수를 제한 하는 새로운 기본 동기화 규칙을 추가 하 여 Azure Active Directory (AAD-그룹 Writeup 구성원 제한) 그룹을 추가 했습니다.
+   - ' Out to AD-Group SOAInAAD ' 규칙에 멤버 특성을 추가 하 여 기록 된 백 그룹의 멤버를 50k로 제한 합니다.
+ - 그룹 쓰기 저장 v2를 지원 하도록 동기화 규칙을 업데이트 했습니다. "SOAInAAD from AAD-Group" 규칙이 복제 되 고 AADConnect가 업그레이드 된 경우
+     -업데이트 된 규칙이 기본적으로 사용 하지 않도록 설정 되므로 targetWritebackType은 null입니다.
+     - AADConnect는 모든 클라우드 그룹 (쓰기 저장을 사용 하도록 설정 된 Azure Active Directory 보안 그룹 포함)을 메일 그룹으로 쓰기 저장 합니다.
+   -"Out to AD-Group SOAInAAD" 규칙이 복제 되 고 AADConnect가 업그레이드 된 경우
+     - 업데이트 된 규칙은 기본적으로 사용 하지 않도록 설정 됩니다. 그러나 추가 된 새 동기화 규칙 "Out to AD-Group SOAInAAD"은 사용 하도록 설정 됩니다.
+     - 복제 된 사용자 지정 동기화 규칙의 우선 순위에 따라 AADConnect는 메일과 Exchange 특성을 전달 합니다.
+     - 복제 된 사용자 지정 동기화 규칙에서 일부 메일 및 Exchange 특성을 전달 하지 않으면 새 Exchange 동기화 규칙에서 해당 특성을 추가 합니다.
+ - [선택적 암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization) 에 대 한 지원 추가
+ - 새 [단일 개체 동기화 cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync)을 추가 했습니다. 이 cmdlet을 사용 하 여 Azure AD Connect 동기화 구성 문제를 해결할 수 있습니다. 
+ - AADConnectHealth agent를 3.1.83.0로 업데이트 함
+ - 몇 가지 새롭고 향상 된 cmdlet이 포함 된 [Adsynctools PowerShell 모듈](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools)의 새 버전입니다. 
+ 
+   - Clear-ADSyncToolsMsDsConsistencyGuid
+   - ConvertFrom-ADSyncToolsAadDistinguishedName
+   - ConvertFrom-ADSyncToolsImmutableID
+   - ConvertTo-ADSyncToolsAadDistinguishedName
+   - ConvertTo-ADSyncToolsCloudAnchor
+   - ConvertTo-ADSyncToolsImmutableID
+   - Export-ADSyncToolsAadDisconnectors
+   - Export-ADSyncToolsObjects
+   - Export-ADSyncToolsRunHistory
+   - Get-ADSyncToolsAadObject
+   - Get-ADSyncToolsMsDsConsistencyGuid
+   - Import-ADSyncToolsObjects
+   - Import-ADSyncToolsRunHistory
+   - Remove-ADSyncToolsAadObject
+   - Search-ADSyncToolsADobject
+   - Set-ADSyncToolsMsDsConsistencyGuid
+   - Trace-ADSyncToolsADImport
+   - Trace-ADSyncToolsLdapQuery
+
+ - 토큰 획득 오류에 대 한 오류 로깅이 업데이트 되었습니다.
+ - 연결 된 정보에 대 한 자세한 정보를 제공 하기 위해 구성 페이지에서 ' 자세한 정보 ' 링크를 업데이트 했습니다.
+ - 이전 동기화 UI의 CS 검색 페이지에서 명시적 열을 제거 했습니다.
+ - 이전 단계에서 자격 증명이 아직 제공 되지 않은 경우 사용자에 게 자격 증명을 묻는 메시지를 표시 하거나 ADSyncConfig 모듈을 사용 하 여 고유한 권한을 구성 하기 위해 그룹 쓰기 저장 흐름에 추가 UI가 추가 되었습니다.
+ - DC에서 ADSync 서비스 계정에 대 한 MSA를 자동으로 만듭니다. 
+ -  기존 cmdlet에서 DirSync 기능 그룹 쓰기 저장 (Writeback)을 설정 하 고 가져오는 기능을 추가 Azure Active Directory.
+    - Set-ADSyncAADCompanyFeature
+    - Get-ADSyncAADCompanyFeature
+ - AWS API 버전을 읽기 위한 2 개의 cmdlet을 추가 했습니다.
+    - Get-ADSyncAADConnectorImportApiVersion-가져오기 AWS API 버전 가져오기
+    - Get-ADSyncAADConnectorExportApiVersion-export AWS API 버전 가져오기
+
+ - 이제 동기화 규칙에 대 한 변경 내용을 추적 하 여 서비스의 변경 사항을 해결할 수 있습니다. "ADSyncRuleAudit" cmdlet은 추적 된 변경 내용을 검색 합니다.
+ - [Adsyncconfig PowerShell 모듈](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module) 의 Add-ADSyncADDSConnectorAccount cmdlet이 업데이트 되어 Adsyncconfig 그룹의 사용자가 AD DS 커넥터 계정을 변경할 수 있도록 합니다. 
+
+### <a name="bug-fixes"></a>버그 수정
+ - 흰색 배경의 광도 요구 사항을 충족 하기 위해 사용 하지 않도록 설정 된 전경색을 업데이트 했습니다. 밝기 요구 사항을 충족 하기 위해 비활성화 된 페이지를 선택 하면 전경 텍스트 색을 흰색으로 설정 하기 위한 추가 조건이 추가 되었습니다.
+ - 선택적 "ADobjectDN" 매개 변수를 포함 하도록 Set-ADSyncPasswordHashSyncPermissions cmdlet-업데이트 된 PHS 권한 스크립트 (ADSyncPasswordHashSyncPermissions)에 대 한 세분성을 늘립니다. 
+ - 내게 필요한 옵션 버그 수정. 이제 화면 판독기는 "**포리스트 목록 목록**" 대신 포리스트 목록을 "포리스트 **목록**"으로 포함 하는 UX 요소를 설명 합니다.
+ - Azure AD Connect 마법사의 일부 항목에 대해 업데이트 된 화면 판독기 출력입니다. 대비 요구 사항을 충족 하도록 업데이트 된 단추 가리키기 색입니다. 대비 요구 사항을 충족 하도록 업데이트 된 Synchronization Service Manager 제목 색입니다.
+ - 사용자 지정 확장 특성이 있는 내보낸 구성에서 AADConnect를 설치 하는 문제를 수정 했습니다. 동기화 규칙을 적용 하는 동안 대상 스키마의 확장 특성에 대 한 확인을 건너뛰는 조건을 추가 했습니다.
+ - 그룹 쓰기 저장 기능을 사용 하도록 설정한 경우 설치 시 적절 한 권한이 추가 됩니다.
+ - 가져올 때 중복 된 기본 동기화 규칙 우선 순위 수정
+ - 상태 포털을 통해 복구 된 충돌 하는 개체에 대해 V2 API 델타 가져오기 작업을 수행 하는 동안 준비 오류를 발생 시킨 문제를 해결 했습니다.
+ - 동기화 엔진에서 CS 개체가 일관 되지 않은 링크 상태를 갖도록 하는 문제를 해결 함
+ - Get-ADSyncConnectorStatistics 출력에 가져오기 카운터를 추가 했습니다.
+ - Pass2 마법사를 진행 하는 동안 일부 모퉁이의 경우에는 연결할 수 없는 도메인 선택 취소 (이전에 선택) 문제가 해결 되었습니다.
+ - 사용자 지정 규칙에 중복 된 우선 순위가 있는 경우 수정 된 정책 가져오기 및 내보내기 실패 
+ - 도메인 선택 논리에서 버그를 수정 했습니다.
+ - Msds-consistencyguid를 원본 앵커로 사용 하 고 In from AD-Group Join 규칙을 복제 한 경우 build 1.5.18.0의 문제를 해결 합니다.
+ - 새 AADConnect 설치는 클라우드에 저장 된 내보내기 삭제 임계값을 사용 하는 경우이를 사용 하 고 다른 항목은 전달 되지 않습니다.
+ - AADConnect가 하이브리드 조인 장치의 AD displayName 변경을 읽지 않는 문제 해결
 
 ## <a name="15450"></a>1.5.45.0
 

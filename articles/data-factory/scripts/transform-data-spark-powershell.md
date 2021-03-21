@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/12/2017
 ms.openlocfilehash: 2e1178f91344038fc86f1411fca1beafbe901d05
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389827"
 ---
 # <a name="powershell-script---transform-data-in-cloud-using-azure-data-factory"></a>PowerShell 스크립트 - Azure Data Factory를 사용하여 클라우드의 데이터 변환
@@ -52,7 +52,7 @@ ms.locfileid: "100389827"
     if __name__ == "__main__":
         main()
     ```
-2. **&lt; Storageaccountname &gt;** 을 Azure Storage 계정의 이름으로 바꿉니다. 그런 다음, 파일을 저장합니다. 
+2. **&lt;storageAccountName&gt;** 을 Azure Storage 계정 이름으로 바꿉니다. 그런 다음 파일을 저장합니다. 
 3. Azure Blob Storage에 아직 없는 경우 **adftutorial** 이라는 컨테이너를 만듭니다. 
 4. **spark** 라는 폴더를 만듭니다.
 5. **spark** 폴더 아래에 **script** 라는 하위 폴더를 만듭니다. 

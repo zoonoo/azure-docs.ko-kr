@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 8e0c7324f5b73b3a2ac5e5fd6fa256202035077a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790972"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
@@ -137,7 +137,7 @@ Pod 관리 id를 사용 하려면 [Azure Kubernetes Service (미리 보기)에�
 
 AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를 참조하세요.
 
-* [다중 테넌트 지원 및 클러스터 격리][aks-best-practices-cluster-isolation]
+* [다중 테 넌 트 및 클러스터 격리][aks-best-practices-cluster-isolation]
 * [기본 Kubernetes 스케줄러 기능][aks-best-practices-scheduler]
 * [고급 Kubernetes 스케줄러 기능][aks-best-practices-advanced-scheduler]
 

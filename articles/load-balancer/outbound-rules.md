@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 6b73eb51831238f23400ef60d0a6162bca38ea85
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 2fc703e0532c86bfc0874c8dccbb17c6142aeed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033156"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590214"
 ---
 # <a name="outbound-rules-azure-load-balancer"></a><a name="outboundrules"></a>아웃 바운드 규칙 Azure Load Balancer
 
@@ -36,11 +36,11 @@ ms.locfileid: "97033156"
 아웃바운드 규칙을 통해 제어할 수 있는 항목은 다음과 같습니다.
 
 * **공용 IP 주소로 변환 되는 가상 컴퓨터**
-     * 두 규칙은 백 엔드 풀 A는 IP 주소 A와 B를 사용 하 고 백 엔드 풀 B는 IP 주소 C 및 D를 사용 합니다.
+     * 백 엔드 풀 1은 파란색 IP 주소 1과 2를 사용 하 고 백 엔드 풀 2는 노란색 IP 접두사를 사용 하는 두 가지 규칙을 사용 합니다.
 * **아웃 바운드 SNAT 포트를 할당 하는 방법입니다.**
-     * 백 엔드 풀 B는 아웃 바운드 연결을 만드는 유일한 풀 이며 백 엔드 풀 B에 모든 SNAT 포트를 제공 하 고 백 엔드 풀 A에는 none을 제공 합니다.
+     * 백 엔드 풀 2가 아웃 바운드 연결을 만드는 유일한 풀 인 경우 백 엔드 풀 2에 모든 SNAT 포트를 제공 하 고 백 엔드 풀 1에는 none을 제공 합니다.
 * **아웃 바운드 변환을 제공할 프로토콜입니다.**
-     * 백 엔드 풀 B에는 아웃 바운드를 위한 UDP 포트가 필요 합니다. 백 엔드 풀 A에는 TCP가 필요 합니다. A 및 UDP 포트에 TCP 포트를 B에 게 제공 합니다.
+     * 백 엔드 풀 2에 아웃 바운드에 대 한 UDP 포트가 필요 하 고 백 엔드 풀 1에 TCP가 필요한 경우 TCP 포트를 1 개 및 UDP 포트를 2로 지정 합니다.
 * **아웃 바운드 연결 유휴 시간 제한 (4-120 분)에 사용할 기간입니다.**
      * Keepalives를 사용 하는 장기 실행 연결이 있는 경우 최대 120 분 동안 장기 실행 연결에 대 한 유휴 포트를 예약 합니다. 새 연결에 대해 오래 된 연결이 중단 되 고 4 분 후에 포트를 해제 한다고 가정 합니다. 
 * **유휴 시간 제한 시 TCP 다시 설정을 보낼지 여부입니다.**

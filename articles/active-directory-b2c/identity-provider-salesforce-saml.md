@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103488723"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 SAML 프로토콜을 사용 하 여 Salesforce SAML 공급자로 로그인 설정
@@ -35,7 +35,7 @@ ms.locfileid: "103488723"
 
 이 문서에서는 Azure AD B2C(Azure Active Directory B2C)의 [사용자 지정 정책](custom-policy-overview.md)을 사용하여 사용자가 Salesforce 조직에서 로그인할 수 있도록 설정하는 방법을 설명합니다. 사용자 지정 정책에 [SAML id 공급자](identity-provider-generic-saml.md) 를 추가 하 여 로그인을 사용 하도록 설정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 - [Developer Edition 평가판 계정](https://developer.salesforce.com/signup)을 아직 등록하지 않았으면 등록합니다. 이 문서에서는 [Salesforce Lightning 환경](https://developer.salesforce.com/page/Lightning_Experience_FAQ)을 사용합니다.

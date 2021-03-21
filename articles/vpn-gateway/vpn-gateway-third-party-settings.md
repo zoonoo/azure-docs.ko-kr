@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/10/2021
 ms.author: delhan
 ms.openlocfilehash: 0448cb5442746e5e8fced13be13dbebfc0fe32fd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389317"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Azure VPN Gateway에 대해 커뮤니티에서 제안한 타사 VPN 또는 방화벽 디바이스 설정
@@ -22,7 +22,7 @@ ms.locfileid: "100389317"
 > [!Note]
 > 타사 VPN 또는 방화벽 디바이스에 대한 기술 지원은 디바이스 공급업체에서 제공합니다. 
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 다음 표에는 몇 가지 일반적인 디바이스 및 관련 도움말이 나열되어 있습니다.
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 11/11/2020
 ms.author: baanders
 ms.openlocfilehash: 02f6c59a76a3fdb7bd4360570b29d7b40a1aff8d
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102473808"
 ---
 이 문서에서는 [Azure Digital Twins .net (c #) **SDK**](/dotnet/api/overview/azure/digitaltwins/management)를 사용 하 여 다양 한 관리 작업을 완료 하는 방법을 중점적으로 설명 합니다. [*방법: Azure Digital Twins api 및 Sdk 사용*](../articles/digital-twins/how-to-use-apis-sdks.md)에 설명 된 다른 언어 sdk를 사용 하 여 동일한 관리 호출을 만들 수도 있습니다.

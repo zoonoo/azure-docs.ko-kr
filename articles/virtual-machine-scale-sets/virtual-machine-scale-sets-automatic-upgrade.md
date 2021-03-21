@@ -10,10 +10,10 @@ ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
 ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98684613"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
@@ -53,7 +53,7 @@ ms.locfileid: "98684613"
 
 현재 지원 되는 플랫폼 Sku는 다음과 같습니다 .이는 주기적으로 추가 됩니다.
 
-| Publisher               | OS 제품      |  SKU               |
+| 게시자               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |

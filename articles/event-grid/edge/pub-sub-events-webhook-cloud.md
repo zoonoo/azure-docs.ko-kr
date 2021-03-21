@@ -9,10 +9,10 @@ ms.date: 07/08/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ec7ecb77d37ed1cdf1d13aa7191f5d50e0008c20
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98790802"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 게시, 클라우드에서 이벤트 구독
@@ -21,7 +21,7 @@ ms.locfileid: "98790802"
 
 진행 하기 전에 Event Grid 토픽 및 구독을 이해 하려면 [Event Grid 개념](concepts.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 

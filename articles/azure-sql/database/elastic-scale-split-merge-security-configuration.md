@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92793435"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
@@ -437,7 +437,7 @@ MyID.pvk and MyID.cer with the filename for the encryption certificate
 * 클라이언트 인증서 구성
 
 ## <a name="find-certificate"></a>인증서를 찾습니다.
-다음 단계를 수행하세요.
+다음 단계를 수행합니다.
 
 1. Mmc.exe를 실행합니다.
 2. 파일-> 스냅인 추가/제거로 이동합니다.
