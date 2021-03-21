@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103224597"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Azure Blob storage에서 NFS (네트워크 파일 시스템) 3.0 프로토콜 지원 (미리 보기)
@@ -134,7 +134,7 @@ Linux 클라이언트는 Azure VM (가상 머신) 또는 온-프레미스 컴퓨
 
 - NFS 용 Windows 클라이언트
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 미리 보기 중에 저장소 계정에 저장 된 데이터는 월별 GB 당 blob 저장소 요금이 청구 되는 것과 동일한 용량 속도로 청구 됩니다. 
 

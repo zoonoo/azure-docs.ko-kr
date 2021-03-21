@@ -5,17 +5,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2019
 ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101705707"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 후 Excel 및 ODBC 드라이버를 사용 하 여 HDInsight의 Hive 테이블에 연결 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Enterprise Security Package가 포함된 HDInsight 클러스터. [ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 * 엔터프라이즈, Office 2016, Office 2013 Professional Plus, Excel 2013 독립 실행형 또는 Office 2010 Professional Plus 용 Microsoft 365 apps를 사용 하는 워크스테이션
@@ -55,7 +55,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |테이블|hivesampletable|
     |Hive 열|*|
     |사용자 선택|hiveuser1|
-    |사용 권한|선택|
+    |권한|선택|
 
     ![HDInsight ESP 레인저 Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -73,13 +73,13 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |테이블|hivesampletable|
     |Hive 열|clientid, devicemake|
     |사용자 선택|hiveuser2|
-    |사용 권한|선택|
+    |권한|선택|
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |Description |
+ | 속성  |설명 |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
  | 호스트 | CLUSTERNAME.azurehdinsight.net를 입력 합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |

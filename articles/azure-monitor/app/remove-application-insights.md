@@ -4,10 +4,10 @@ description: Visual Studio에서 ASP.NET 및 ASP.NET Core에 대 한 Application
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 1d70413fa6a47e2d41693db6eb705f31b2a2b1b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704313"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Visual Studio에서 Application Insights를 제거 하는 방법
@@ -72,7 +72,7 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
     
     ![스크린샷을 제거할 종속성이 있는 대화 상자를 보여 줍니다.](./media/remove-application-insights/preview-uninstall-framework.png)
     
-1.  모든 항목을 제거한 후에도 *솔루션 탐색기* 에서 "ApplicationInsights.config" 및 "AiHandleErrorAttribute.cs"가 표시 될 수 있습니다. 두 파일을 수동으로 삭제할 수 있습니다.
+1.  모든 항목을 제거한 후에도 *솔루션 탐색기* 에서 "ApplicationInsights.config" 및 "AiHandleErrorAttribute"가 표시 될 수 있습니다. 두 파일을 수동으로 삭제할 수 있습니다.
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -97,7 +97,7 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
 Visual Studio ASP.NET 프로젝트에 Application Insights 원격 분석를 추가 하면 다음 파일이 추가 됩니다.
 
 - ApplicationInsights.config
-- AiHandleErrorAttribute.cs
+- AiHandleErrorAttribute
 
 다음과 같은 코드 조각이 추가 됩니다.
 

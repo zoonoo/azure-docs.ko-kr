@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.custom: references_regions
 ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634450"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>가상 노드를 사용 하 여 AKS (Azure Kubernetes Services) 클러스터 만들기 및 구성
@@ -21,7 +21,7 @@ AKS에 대 한 가상 노드 추가 기능은 오픈 소스 프로젝트 [가상
 
 이 문서에서는 가상 노드 사용에 대 한 지역 가용성 및 네트워킹 요구 사항 뿐만 아니라 알려진 제한 사항에 대 한 개요를 제공 합니다.
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 ACI에서 VNET Sku를 지 원하는 모든 지역은 가상 노드 배포에 대해 지원 됩니다.
 

@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 57024d6cb23ab273aa69bf59f4ec436a6f873a05
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193497"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593648"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>파이프라인 실행의 참조 트리거 메타 데이터
 
@@ -22,7 +22,7 @@ ms.locfileid: "102193497"
 
 파이프라인은 경우에 따라 호출 하는 트리거에서 메타 데이터를 이해 하 고 읽어 야 합니다. 예를 들어, 창 시작 및 종료 시간을 기반으로 하는 연속 창 트리거 실행을 사용 하면 파이프라인이 다른 데이터 조각 또는 폴더를 처리 합니다. Azure Data Factory에서 매개 변수화 및 [시스템 변수](control-flow-system-variables.md) 를 사용 하 여 트리거에서 파이프라인으로 메타 데이터를 전달 합니다.
 
-이 패턴은 [연속 창 트리거에서](how-to-create-tumbling-window-trigger.md)특히 유용 합니다. 여기서 Trigger는 창 시작 및 종료 시간을 제공 합니다.
+이 패턴은 [연속 창 트리거에서](how-to-create-tumbling-window-trigger.md)특히 유용 합니다. 여기서 trigger는 창 시작 및 종료 시간을 제공 하 고, [사용자 지정 이벤트 트리거](how-to-create-custom-event-trigger.md)는 트리거에서 [사용자 지정 정의 된 _데이터_ 필드](../event-grid/event-schema.md)의 값을 구문 분석 하 고 처리 합니다.
 
 > [!NOTE]
 > 다른 트리거 유형은 서로 다른 메타 데이터 정보를 제공 합니다. 자세한 내용은 [시스템 변수](control-flow-system-variables.md) 를 참조 하세요.

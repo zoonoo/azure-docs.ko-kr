@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
 ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200825"
 ---
 # <a name="understanding-resource-sets"></a>리소스 집합 이해
@@ -64,7 +64,7 @@ Azure 부서의 범위는 단일 스키마 및 분류 외에도 리소스 집합
 Azure 부서의 범위는 다음과 같은 리소스 집합 패턴을 지원 합니다. 이러한 패턴은 디렉터리의 이름 또는 파일 이름의 일부로 표시 될 수 있습니다.
 ### <a name="regex-based-patterns"></a>Regex 기반 패턴
 
-| 패턴 이름 | 표시 이름 | 설명 |
+| 패턴 이름 | 표시 이름 | Description |
 |--------------|--------------|-------------|
 | Guid         | EID       | [RFC 4122](https://tools.ietf.org/html/rfc4122) 에 정의 된 guid (globally unique identifier) |
 | 숫자       | 개의          | 하나 이상의 숫자 |
@@ -74,7 +74,7 @@ Azure 부서의 범위는 다음과 같은 리소스 집합 패턴을 지원 합
 
 ### <a name="complex-patterns"></a>복합 패턴
 
-| 패턴 이름 | 표시 이름 | 설명 |
+| 패턴 이름 | 표시 이름 | Description |
 |--------------|--------------|-------------|
 | SparkPath    | {SparkPartitions} | Spark 파티션 파일 식별자 |
 | Date (yyyy/mm/dd) InPath  | {Year}/{1}/{day} | 여러 폴더에 걸쳐 있는 년/월/일 패턴 |

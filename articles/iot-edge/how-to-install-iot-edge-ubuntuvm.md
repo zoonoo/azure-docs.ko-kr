@@ -11,10 +11,10 @@ ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201084"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
@@ -42,39 +42,39 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
 
     [![iotedge-vm-deploy를 위한 Azure에 배포하기 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
-1. 새로 시작 된 창에서 사용 가능한 양식 필드를 입력 합니다.
+1. 새로 시작된 창에서 사용 가능한 양식 필드를 채웁니다.
 
     > [!div class="mx-imgBorder"]
     > [![iotedge-vm-deploy 템플릿을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
     **구독**: 가상 머신을 배포할 활성 Azure 구독입니다.
 
-    **리소스 그룹**: 가상 컴퓨터와 연결 된 리소스를 포함 하는 기존 또는 새로 만든 리소스 그룹입니다.
+    **리소스 그룹**: 가상 머신과 연결된 리소스를 포함하는 기존 리소스 그룹 또는 새로 만든 리소스 그룹입니다.
 
-    **DNS 레이블 접두사**: 가상 컴퓨터의 호스트 이름에 접두사를 추가할 때 사용 하는 필수 값입니다.
+    **DNS 레이블 접두사**: 가상 머신의 호스트 이름을 접두사로 지정하는 데 사용되는 선택 항목의 필수 값입니다.
 
-    **관리자 사용자 이름**: 배포에 대 한 루트 권한이 제공 되는 사용자 이름입니다.
+    **관리자 사용자 이름**: 배포에 대한 루트 권한이 제공되는 사용자 이름입니다.
 
-    **장치 연결 문자열**: 의도 한 [IoT Hub](../iot-hub/about-iot-hub.md)내에 생성 된 장치에 대 한 [장치 연결 문자열](./how-to-register-device.md) 입니다.
+    **디바이스 연결 문자열**: 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에 만들어진 디바이스에 대한 [디바이스 연결 문자열](./how-to-register-device.md)입니다.
 
-    **VM 크기**: 배포할 가상 컴퓨터의 [크기](../cloud-services/cloud-services-sizes-specs.md) 입니다.
+    **VM 크기**: 배포할 가상 머신의 [크기](../cloud-services/cloud-services-sizes-specs.md)입니다.
 
-    **UBUNTU Os 버전**: 기본 가상 머신에 설치할 ubuntu os 버전입니다.
+    **Ubuntu OS 버전**: 기본 가상 머신에 설치할 Ubuntu OS 버전입니다.
 
-    **위치**: 가상 머신을 배포할 [지리적 지역](https://azure.microsoft.com/global-infrastructure/locations/) 입니다 .이 값은 기본적으로 선택 된 리소스 그룹의 위치로 설정 됩니다.
+    **위치**: 가상 머신을 배포할 [지리적 지역](https://azure.microsoft.com/global-infrastructure/locations/)이며, 이 값은 기본적으로 선택한 리소스 그룹의 위치로 설정됩니다.
 
-    **인증 유형**: 기본 설정에 따라 **sshPublicKey** 또는 **password** 를 선택 합니다.
+    **인증 유형**: 기본 설정에 따라 **sshPublicKey** 또는 **password** 를 선택합니다.
 
-    **관리자 암호 또는 키**: 인증 유형 선택에 따라 SSH 공개 키의 값 또는 암호 값입니다.
+    **관리자 암호 또는 키**: 선택한 인증 유형에 따라 SSH 공개 키 또는 암호의 값입니다.
 
-    모든 필드가 채워져 있으면 페이지 맨 아래에 있는 확인란을 선택 하 여 약관에 동의한 다음 **구매** 를 선택 하 여 배포를 시작 합니다.
+    모든 필드가 채워지면 페이지 아래쪽의 확인란을 선택하여 약관에 동의하고, **구매** 를 선택하여 배포를 시작합니다.
 
-1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
+1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  머신 이름을 적어 둡니다. 이는 `vm-0000000000000` 형식이어야 합니다. 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
 
     **DNS 이름** 은 Azure Portal 내에 새로 배포된 가상 머신의 **개요** 섹션에서 가져올 수 있습니다.
 
     > [!div class="mx-imgBorder"]
-    > [![Iotedge vm의 dns 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+    > [![IoT Edge VM의 DNS 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
 1. 설치 후에이 VM으로 SSH 하려면 다음 명령을 사용 하 여 연결 된 **DNS 이름을** 사용 합니다.  `ssh <adminUsername>@<DNS_Name>`
 
@@ -144,7 +144,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  컴퓨터 이름을 기록해 둡니다 .이 이름은 형식 이어야 합니다 `vm-0000000000000` . 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
+1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  머신 이름을 적어 둡니다. 이는 `vm-0000000000000` 형식이어야 합니다. 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
 
     **DNS 이름은** 이전 단계의 JSON 형식 출력에서 가져올 수 있으며,이는 **공용 SSH** 항목의 일부로 **출력** 섹션 내에서 가져올 수 있습니다.  이 항목의 값을 사용 하 여 새로 배포 된 컴퓨터에 SSH를 수행할 수 있습니다.
 
@@ -160,7 +160,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     Azure Portal 내에 새로 배포 된 가상 머신의 **개요** 섹션에서 **DNS 이름을** 가져올 수도 있습니다.
 
     > [!div class="mx-imgBorder"]
-    > [![Iotedge vm의 dns 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+    > [![IoT Edge VM의 DNS 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
 1. 설치 후에이 VM으로 SSH 하려면 다음 명령을 사용 하 여 연결 된 **DNS 이름을** 사용 합니다.  `ssh <adminUsername>@<DNS_Name>`
 

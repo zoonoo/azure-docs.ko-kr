@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
 ms.openlocfilehash: d148509af45b93dce8dbd99b9afc674276b149b6
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493975"
 ---
 # <a name="connectivity-modes-and-requirements"></a>연결 모드 및 요구 사항
@@ -55,7 +55,7 @@ Azure Arc 사용 데이터 서비스는 두 가지 *연결 모드* 에서 azure�
 |**재고 관리**|지원됨<br/>인벤토리 데이터는 주기적으로 내보내고 Azure로 전송 됩니다.<br/><br/>Azure Data Studio, Azure Data CLI와 같은 클라이언트 도구를 사용 하거나 `kubectl` 로컬에서 인벤토리를 보고 관리 합니다.|지원됨<br/>인벤토리 데이터는 자동으로 Azure로 전송 되 고 거의 실시간으로 반영 됩니다. 따라서 Azure Portal에서 직접 인벤토리를 관리할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**자동 업그레이드 및 패치**|지원됨<br/>데이터 컨트롤러는 MCR (Microsoft Container Registry)에 직접 액세스 하거나, MCR에서 컨테이너 이미지를 가져와서 데이터 컨트롤러에서 액세스할 수 있는 로컬 개인 컨테이너 레지스트리로 푸시 해야 합니다.|지원됨<br/>**직접 연결 모드의 보류 중인 가용성**|
 |**자동 백업 및 복원**|지원됨<br/>자동 로컬 백업 및 복원|지원됨<br/>자동 로컬 백업 및 복원 외에도 장기 오프 사이트 보존을 위해 _필요에 따라_ Azure Backup에 백업을 보낼 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
-|**모니터링**|지원됨<br/>Grafana 및 Kibana 대시보드를 사용 하 여 로컬 모니터링|지원됨<br/>로컬 모니터링 대시보드 외에도 _선택적_ 으로 모니터링 데이터와 로그를 전송 하 여 한 곳에서 여러 사이트에 대 한 규모 규모 모니터링을 Azure Monitor 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
+|**Monitoring**|지원됨<br/>Grafana 및 Kibana 대시보드를 사용 하 여 로컬 모니터링|지원됨<br/>로컬 모니터링 대시보드 외에도 _선택적_ 으로 모니터링 데이터와 로그를 전송 하 여 한 곳에서 여러 사이트에 대 한 규모 규모 모니터링을 Azure Monitor 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**인증**|데이터 컨트롤러 및 대시보드 인증에 로컬 사용자 이름/암호를 사용 합니다. SQL 및 Postgres 로그인 또는 Active Directory를 사용 하 여 데이터베이스 인스턴스에 연결 합니다.  Kubernetes API에 대 한 인증에 K8s 인증 공급자를 사용 합니다.|간접적으로 연결 된 모드에 대 한 인증 방법 외에도 _선택적_ 으로 Azure Active Directory를 사용할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**RBAC(역할 기반 액세스 제어)**|Kubernetes API에서 Kubernetes RBAC를 사용 합니다. 데이터베이스 인스턴스에 SQL 및 Postgres RBAC를 사용 합니다.|필요에 따라 Azure Active Directory 및 Azure RBAC와 통합할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**Azure Defender**|지원되지 않음|미래 예정|
@@ -71,12 +71,12 @@ Azure Arc 사용 데이터 서비스는 두 가지 *연결 모드* 에서 azure�
 |**컨테이너 이미지**|Microsoft Container Registry-> 고객|필수|예|간접 또는 직접|컨테이너 이미지는 소프트웨어를 배포 하는 방법입니다.  인터넷을 통해 MCR (Microsoft Container Registry)에 연결할 수 있는 환경에서는 MCR에서 직접 컨테이너 이미지를 끌어올 수 있습니다.  배포 환경에 직접 연결 되지 않은 경우 MCR에서 이미지를 가져와서 배포 환경의 개인 컨테이너 레지스트리로 푸시할 수 있습니다.  만든 시간에 MCR 대신 개인 컨테이너 레지스트리에서 가져오도록 생성 프로세스를 구성할 수 있습니다. 이는 자동화 된 업데이트에도 적용 됩니다.|
 |**리소스 인벤토리**|고객 환경-Azure >|필수|예|간접 또는 직접|데이터 컨트롤러, 데이터베이스 인스턴스 (PostgreSQL 및 SQL)의 인벤토리는 청구를 위해 Azure에 유지 되며, 모든 데이터 컨트롤러 및 데이터베이스 인스턴스의 인벤토리를 한 곳에 만드는 목적으로 azure Arc data services를 사용 하는 환경이 둘 이상인 경우에 특히 유용 합니다.  인스턴스가 프로 비전 되 면 프로 비전 해제, 규모 확장/축소, Azure에서 인벤토리가 업데이트 됩니다.|
 |**청구 원격 분석 데이터**|고객 환경-Azure >|필수|예|간접 또는 직접|청구를 위해 데이터베이스 인스턴스 사용률을 Azure로 보내야 합니다.  미리 보기 기간에는 Azure Arc 사용 데이터 서비스에 대 한 비용이 없습니다.|
-|**데이터 및 로그 모니터링**|고객 환경-Azure >|Optional|데이터 볼륨에 따라 달라질 수도 있습니다 ( [Azure Monitor 가격 책정](https://azure.microsoft.com/en-us/pricing/details/monitor/)참조).|간접 또는 직접|여러 환경에서 데이터를 한 곳으로 집계 하는 Azure Monitor에 로컬로 수집 되는 모니터링 데이터와 로그를 전송 하 고 Azure Machine Learning의 데이터를 사용 하 여 경고와 같은 Azure Monitor 서비스를 사용할 수도 있습니다.|
+|**데이터 및 로그 모니터링**|고객 환경-Azure >|선택 사항|데이터 볼륨에 따라 달라질 수도 있습니다 ( [Azure Monitor 가격 책정](https://azure.microsoft.com/en-us/pricing/details/monitor/)참조).|간접 또는 직접|여러 환경에서 데이터를 한 곳으로 집계 하는 Azure Monitor에 로컬로 수집 되는 모니터링 데이터와 로그를 전송 하 고 Azure Machine Learning의 데이터를 사용 하 여 경고와 같은 Azure Monitor 서비스를 사용할 수도 있습니다.|
 |**Azure 역할 기반 Access Control (Azure RBAC)**|고객 환경-Azure > 고객 환경 >|선택 사항|아니요|직접만|Azure RBAC를 사용 하려는 경우 항상 Azure를 사용 하 여 연결을 설정 해야 합니다.  Azure RBAC를 사용 하지 않으려는 경우 로컬 Kubernetes RBAC를 사용할 수 있습니다.  **직접 연결 모드의 보류 중인 가용성**|
-|**Azure AD(Active Directory)**|고객 환경-Azure > 고객 환경 >|Optional|가능 하지만 Azure AD에 대 한 비용을 이미 지불 했을 수 있습니다.|직접만|인증에 Azure AD를 사용 하려는 경우 항상 Azure를 사용 하 여 연결을 설정 해야 합니다. 인증에 Azure AD를 사용 하지 않으려는 경우 Active Directory를 통해 ADFS (Active Directory Federation Services)를 사용할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
+|**Azure AD(Active Directory)**|고객 환경-Azure > 고객 환경 >|선택 사항|가능 하지만 Azure AD에 대 한 비용을 이미 지불 했을 수 있습니다.|직접만|인증에 Azure AD를 사용 하려는 경우 항상 Azure를 사용 하 여 연결을 설정 해야 합니다. 인증에 Azure AD를 사용 하지 않으려는 경우 Active Directory를 통해 ADFS (Active Directory Federation Services)를 사용할 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 |**Backup 및 복원**|고객 환경-고객 환경 >|필수|예|직접 또는 간접|백업 및 복원 서비스는 로컬 저장소 클래스를 가리키도록 구성할 수 있습니다. |
-|**Azure 백업-장기 보존**| 고객 환경-Azure > | Optional| Azure storage의 경우 예 | 직접만 |장기 오프 사이트 백업의 경우에는 Azure Backup 로컬로 사용 되는 백업을 전송 하 고 복원에 대 한 로컬 환경으로 다시 가져올 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
-|**Azure Defender 보안 서비스**|고객 환경-Azure > 고객 환경 >|Optional|예|직접만|**직접 연결 모드의 보류 중인 가용성**|
+|**Azure 백업-장기 보존**| 고객 환경-Azure > | 선택 사항| Azure storage의 경우 예 | 직접만 |장기 오프 사이트 백업의 경우에는 Azure Backup 로컬로 사용 되는 백업을 전송 하 고 복원에 대 한 로컬 환경으로 다시 가져올 수 있습니다. **직접 연결 모드의 보류 중인 가용성**|
+|**Azure Defender 보안 서비스**|고객 환경-Azure > 고객 환경 >|선택 사항|예|직접만|**직접 연결 모드의 보류 중인 가용성**|
 |**Azure Portal에서 프로 비전 및 구성 변경**|고객 환경-Azure > 고객 환경 >|선택 사항|아니요|직접만|Azure Data Studio 또는를 사용 하 여 로컬에서 프로 비전 및 구성 변경을 수행할 수 있습니다 [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] .  직접 연결 모드에서는 Azure Portal를 프로 비전 하 고 구성을 변경할 수도 있습니다. **직접 연결 모드의 보류 중인 가용성**|
 
 
@@ -118,7 +118,7 @@ HTTPS
 
 #### <a name="authentication"></a>인증
 
-None
+없음
 
 ### <a name="azure-resource-manager-apis"></a>Azure Resource Manager API
 Azure Data Studio [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] 일부 기능을 위해 Azure Resource Manager api에 연결 하 여 Azure에서 데이터를 보내고 검색 Azure CLI.

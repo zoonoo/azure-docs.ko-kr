@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup을 사용하여 Recovery Services 자격 증명 모음에 Azure VM을 백업하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "92172742"
+ms.locfileid: "104670429"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -117,6 +117,8 @@ ms.locfileid: "92172742"
 4. **보존 범위** 에서 유지하려는 기간을 매일 또는 매주 백업 지점으로 지정할 수 있습니다.
 5. **월별 백업 지점** 및 **매년 백업 지점** 보존에서 매일 또는 매주 백업을 매월 또는 매년 백업 하도록 유지할지 여부를 지정 합니다.
 6. **확인** 을 선택 하 여 정책을 저장 합니다.
+    > [!NOTE]
+    > 백업 서비스는 복원 지점 컬렉션 (RPC)을 저장 하기 위해 별도의 리소스 그룹 (RG)을 만듭니다. 이 RG는 VM의 RG와는 다릅니다. [자세한 정보를 알아보세요](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![새로운 백업 정책](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

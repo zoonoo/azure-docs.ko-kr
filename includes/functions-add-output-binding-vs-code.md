@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/30/2020
 ms.author: glenga
 ms.openlocfilehash: 3759dce2ab527cab5b2d2afe8eae30461cbc9031
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493951"
 ---
 Visual Studio Code를 사용 하면 편리한 프롬프트를 따라 파일의 function.js에 바인딩을 추가할 수 있습니다. 
@@ -17,7 +17,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트를 따라 파일의 f
 
 다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
 
-| 프롬프트 | 값 | Description |
+| prompt | 값 | Description |
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |

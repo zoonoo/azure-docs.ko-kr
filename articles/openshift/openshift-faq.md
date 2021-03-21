@@ -7,10 +7,10 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.openlocfilehash: a3721083e48774963cd761178abdb552c93b15c7
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634348"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
@@ -159,7 +159,7 @@ Azure Red Hat OpenShift에서 만든 VNet은 보호 되 고 구성 변경을 허
 
 Azure Red Hat OpenShift는 표준 Azure Load Balancer를 사용 하며 구성할 수 없습니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 ### <a name="can-an-admin-manage-users-and-quotas"></a>관리자가 사용자 및 할당량을 관리할 수 있나요?
 
@@ -202,7 +202,7 @@ oc adm policy \
 
 3.11 클러스터의 경우 Azure AD 통합을 사용할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ### <a name="is-data-on-my-cluster-encrypted"></a>내 클러스터의 데이터가 암호화 되나요?
 

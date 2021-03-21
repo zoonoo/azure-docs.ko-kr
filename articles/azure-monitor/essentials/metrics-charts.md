@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031480"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
@@ -87,7 +87,7 @@ Azure 메트릭 탐색기에서 여러 메트릭 선을 표시 하거나 여러 
 
 메트릭 탐색기의 [시간 선택 패널](./metrics-getting-started.md#select-a-time-range)을 사용 하 여 시간 수준 크기를 선택 합니다. 시간 수준을 명시적으로 선택 하지 않으면 기본적으로 현재 선택한 시간 범위가 사용 됩니다. 시간 수준을 결정 한 후에는 각 시간 세분화 중에 캡처된 메트릭 값이 차트에서 집계 되 고 한 가지 데이터 요소는 시간 세분화 됩니다.
 
-예를 들어 차트에 *서버 응답 시간* 메트릭이 표시 되어 있다고 가정 합니다. *최근 24 시간* 동안의 시간 범위에 대 한 *평균* 집계를 사용 합니다. 이 예제에서:
+예를 들어 차트에 *서버 응답 시간* 메트릭이 표시 되어 있다고 가정 합니다. *최근 24 시간* 동안의 시간 범위에 대 한 *평균* 집계를 사용 합니다. 이 예제에서는 다음이 적용됩니다.
 
 - 시간 세분성이 30 분으로 설정 된 경우 차트는 48 집계 데이터 요소에서 그려집니다. 즉, 꺾은선형 차트는 차트 그림 영역에서 48 점을 연결 합니다 (시간당 24 시간 x 2 데이터 요소). 각 데이터 요소는 각 관련 30 분 기간 동안 발생 한 서버 요청에 대해 캡처된 모든 응답 시간의 *평균* 을 나타냅니다.
 - 시간 세분성을 15 분으로 전환 하는 경우 96 집계 데이터 요소를 얻게 됩니다.  즉, 시간당 24 시간 x 4의 데이터 요소를 얻을 수 있습니다.
@@ -245,7 +245,7 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 * Application Insights 
 * 자동 크기 조정 
 * App Services  
-* 스토리지  
+* Storage  
 
 다음은 Application Insights 리소스 공급자에 대 한 샘플 환경입니다.
 

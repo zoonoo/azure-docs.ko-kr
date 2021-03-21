@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: bf5da120072f49421b6f2194626178048b044f6a
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 6ebec78d5a9e82cc8a2f6ceb020a8b9552d6311e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564699"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604018"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -262,7 +262,7 @@ LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음의 모든 예제
 
 1. 이러한 디스크를 포맷하고, 탑재하고, fstab 파일에 추가합니다.
 
-1. 파티션 표준을 선택하고 전체 드라이브에 걸쳐 있는 파티션을 만든 다음, 파티션을 포맷합니다. 여기서는 Azure에서 생성한 바로 가기 링크를 사용합니다. 바로 가기 링크를 사용하면 디바이스 이름 변경과 관련된 문제를 방지할 수 있습니다. 자세한 내용은 [디바이스 이름 문제 해결](../troubleshooting/troubleshoot-device-names-problems.md) 문서를 참조하세요.
+1. 파티션 표준을 선택하고 전체 드라이브에 걸쳐 있는 파티션을 만든 다음, 파티션을 포맷합니다. 여기서는 Azure에서 생성한 바로 가기 링크를 사용합니다. 바로 가기 링크를 사용하면 디바이스 이름 변경과 관련된 문제를 방지할 수 있습니다. 자세한 내용은 [디바이스 이름 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems) 문서를 참조하세요.
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt

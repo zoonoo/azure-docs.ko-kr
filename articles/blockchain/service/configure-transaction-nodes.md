@@ -5,10 +5,10 @@ ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
 ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101091264"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain 서비스 트랜잭션 노드 구성
@@ -37,7 +37,7 @@ ms.locfileid: "101091264"
 
     | 설정 | 설명 |
     |---------|-------------|
-    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com`. 노드 이름을 만든 후에는 변경할 수 없습니다. |
+    | Name | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com` 노드 이름을 만든 후에는 변경할 수 없습니다. |
     | 암호 | 강력한 암호를 설정 합니다. 기본 인증을 사용 하 여 트랜잭션 노드 끝점에 액세스 하려면 암호를 사용 합니다.
 
 1. **만들기** 를 선택합니다.
@@ -121,7 +121,7 @@ URL을 사용 하려면를 \<password\> 노드가 프로 비전 될 때 설정 �
 
 ![연결 문자열](./media/configure-transaction-nodes/connection-strings.png)
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 Web3, Nethereum, Web3js 및 Truffle를 통해 트랜잭션 노드에 대 한 연결을 신속 하 게 설정 하기 위해 샘플 코드가 제공 됩니다.
 

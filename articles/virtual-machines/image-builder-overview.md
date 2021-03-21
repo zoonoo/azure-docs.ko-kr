@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 0e72c35af1f1990527b0154d2ba47a45d3f8b8c9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 20bb6925f859d497046eb42bbafb5264826b77b7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425630"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604069"
 ---
 # <a name="preview-azure-image-builder-overview"></a>미리 보기: Azure 이미지 작성기 개요
 
@@ -70,7 +70,7 @@ Azure VM 이미지 빌더는 Azure 리소스 공급자가 액세스할 수 있�
 
 PowerShell, Az CLI, ARM 템플릿을 사용 하 여 템플릿 구성을 전달 하 고, Azure VM 이미지 빌더 DevOps 작업을 사용 하 여 서비스에 제출할 때 이미지 템플릿 리소스를 만들 수 있습니다. 이미지 템플릿 리소스가 만들어지면 구독에서 생성 된 준비 리소스 그룹이 IT_ GUID) 형식으로 표시 됩니다 \<DestinationResourceGroup> _\<TemplateName>_ \( . 준비 리소스 그룹에는 ScriptURI 속성의 File, Shell, PowerShell 사용자 지정에서 참조 되는 파일 및 스크립트가 포함 됩니다.
 
-이미지 템플릿 리소스에서 호출 하는 빌드를 실행 하기 위해 `Run` 서비스는 VM, 네트워크, 디스크, 네트워크 어댑터 등 빌드에 대 한 추가 리소스를 배포 합니다. 기존 VNET을 사용 하지 않고 이미지를 작성 하는 경우에도 공용 IP 및 NSG가 배포 됩니다. 서비스는 SSH 또는 WinRM을 사용 하 여 빌드 VM에 연결 합니다. 기존 VNET을 선택 하는 경우 서비스는 Azure 개인 링크를 사용 하 여 배포 되며, 공용 IP 주소는 필요 하지 않습니다. 이미지 작성기 네트워킹에 대 한 자세한 내용은 [세부 정보](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking)를 검토 하세요.
+이미지 템플릿 리소스에서 호출 하는 빌드를 실행 하기 위해 `Run` 서비스는 VM, 네트워크, 디스크, 네트워크 어댑터 등 빌드에 대 한 추가 리소스를 배포 합니다. 기존 VNET을 사용 하지 않고 이미지를 작성 하는 경우에도 공용 IP 및 NSG가 배포 됩니다. 서비스는 SSH 또는 WinRM을 사용 하 여 빌드 VM에 연결 합니다. 기존 VNET을 선택 하는 경우 서비스는 Azure 개인 링크를 사용 하 여 배포 되며, 공용 IP 주소는 필요 하지 않습니다. 이미지 작성기 네트워킹에 대 한 자세한 내용은 [세부 정보](./linux/image-builder-networking.md)를 검토 하세요.
 
 빌드를 완료 하면 준비 리소스 그룹 및 저장소 계정을 제외 하 고 모든 리소스가 삭제 되 고, 제거 하려면 이미지 템플릿 리소스를 삭제 하거나, 다시 빌드를 실행 하기 위해 해당 리소스를 그대로 둘 수 있습니다.
 
@@ -84,7 +84,7 @@ PowerShell, Az CLI, ARM 템플릿을 사용 하 여 템플릿 구성을 전달 �
 
 Azure VM Image Builder에서 관리형 이미지 또는 공유 이미지 갤러리에 이미지를 배포하도록 허용하려면 이미지를 읽고 쓸 수 있는 권한이 있는 Azure 사용자 할당 ID를 만들어야 합니다. Azure storage에 액세스 하는 경우 개인 및 공용 컨테이너를 읽을 수 있는 권한이 필요 합니다.
 
-사용 권한은 [PowerShell](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-powershell)및 [AZ CLI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-permissions-cli)에 대해 자세히 설명 합니다.
+사용 권한은 [PowerShell](./linux/image-builder-permissions-powershell.md)및 [AZ CLI](./linux/image-builder-permissions-cli.md)에 대해 자세히 설명 합니다.
 
 ## <a name="costs"></a>비용
 Azure Image Builder를 사용하여 이미지를 만들고, 빌드하고, 저장하는 경우 컴퓨팅, 네트워킹 및 스토리지 비용이 일부 발생합니다. 이러한 비용은 사용자 지정 이미지를 수동으로 만들 때 발생하는 비용과 비슷합니다. 리소스의 경우 Azure 요금에 청구됩니다. 
@@ -101,4 +101,3 @@ Azure Image Builder에서는 선택한 지역에 이미지를 배포하므로 �
 ## <a name="next-steps"></a>다음 단계 
  
 Azure Image Builder를 사용해 보려면 [Linux](./linux/image-builder.md) 또는 [Windows](./windows/image-builder.md) 이미지 빌드에 대한 문서를 참조하세요.
-

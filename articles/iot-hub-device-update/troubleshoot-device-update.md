@@ -7,10 +7,10 @@ ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030633"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>IoT Hub 문제 해결 가이드에 대 한 장치 업데이트
@@ -41,14 +41,14 @@ _장치 업데이트 실패에 대 한 근본 원인에는 여러 가지가 있�
 
 ## <a name="deploying-an-update"></a><a name="deploy"></a> 업데이트 배포
 
-### <a name="q-ive-deployed-an-update-to-my-devices-but-the-compliance-status-says-it-isnt-on-the-latest-update-what-should-i-do"></a>Q: 내 장치에 업데이트를 배포 했지만 준수 상태가 최신 업데이트가 아닙니다. 라고 표시 됩니다. 어떻게 해야 합니까?
+### <a name="q-ive-deployed-an-update-to-my-devices-but-the-compliance-status-says-it-isnt-on-the-latest-update-what-should-i-do"></a>Q: 내 장치에 업데이트를 배포 했지만 준수 상태가 최신 업데이트가 아닙니다. 라고 표시 됩니다.   어떻게 해야 합니까?
 _장치 준수 상태를 새로 고치는 데 최대 5 분이 걸릴 수 있습니다. 잠시 기다렸다가 다시 확인 하세요._
 ### <a name="q-my-devices-deployment-status-shows-incompatible-what-should-i-do"></a>Q: 장치의 배포 상태가 호환 되지 않는 것으로 표시 되 면 어떻게 해야 하나요?
 _장치를 IoT Hub에 연결한 후 장치를 현재 배포의 업데이트 콘텐츠와 호환 되지 않는 것으로 간주 하기 때문에 대상 장치의 제조업체 및 모델 속성이 변경 되었을 수 있습니다._
 
 _[ADU Core 인터페이스](./device-update-plug-and-play.md) 를 확인 하 여 장치가 장치 업데이트 서비스에 보고 하는 제조업체 및 모델을 확인 하 고 배포 되는 업데이트 콘텐츠의 [가져오기 매니페스트에](./import-concepts.md) 지정한 제조업체 및 모델과 일치 하는지 확인 합니다. [장치 업데이트 구성 파일](./device-update-configuration-file.md)을 사용 하 여 지정 된 장치에 대 한 이러한 속성을 변경할 수 있습니다._
 
-### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>Q: 내 배포가 "활성" 단계 이지만 업데이트가 포함 된 장치가 "진행 중" 상태에 있지 않습니다. 어떻게 해야 합니까?
+### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>Q: 내 배포가 "활성" 단계 이지만 업데이트가 포함 된 장치가 "진행 중" 상태에 있지 않습니다.   어떻게 해야 합니까?
 _나중에 배포 시작 날짜를 설정 하지 않았는지 확인 합니다. 새 배포를 만들 때 명시적으로 변경 하지 않는 한 배포 시작 날짜는 기본적으로 다음 날로 설정 됩니다. 배포 시작 날짜가 도착할 때까지 기다리거나 진행 중인 배포를 취소 하 고 원하는 시작 날짜로 새 배포를 만들 수 있습니다._
 
 ### <a name="q-im-trying-to-group-my-devices-but-i-dont-see-the-tag-in-the-drop-down-when-creating-a-group"></a>Q: 내 장치를 그룹화 하려고 하지만 그룹을 만들 때 드롭다운에 태그가 표시 되지 않습니다.

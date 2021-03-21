@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리에 대 한 업데이트 배포를 �
 description: 이 문서에서는 업데이트 배포를 예약 하 고 해당 상태를 검토 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575887"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669681"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>업데이트를 배포 하 고 결과를 검토 하는 방법
 
@@ -21,6 +21,9 @@ ms.locfileid: "100575887"
 * 운영 체제는 컴퓨터의 OS에 따라 자동으로 미리 선택 됩니다.
 * 업데이트할 대상 컴퓨터가 자동으로 대상 자신으로 설정 됩니다.
 * 일정을 구성할 때 **지금 업데이트** 를 지정 하거나 한 번만 수행 하거나 되풀이 일정을 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> 업데이트 배포를 만들면 해당 운영 체제에 대 한 회사 제품 업데이트에서 제공 하는 소프트웨어 사용 조건 (EULA)의 조건에 동의 하는 것입니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

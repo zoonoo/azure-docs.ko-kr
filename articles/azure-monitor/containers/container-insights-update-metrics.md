@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708274"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>메트릭을 사용 하도록 컨테이너 정보를 업데이트 하는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "101708274"
 
 이 기능의 일부로 사용할 수 있는 메트릭은 다음과 같습니다.
 
-| 메트릭 네임스페이스 | 메트릭 | Description |
+| 메트릭 네임스페이스 | 메트릭 | 설명 |
 |------------------|--------|-------------|
 | 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | *노드* 메트릭에는 *호스트가* 차원으로 포함 됩니다. 또한<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
 | Pod/ | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | *Pod* 메트릭에는 ControllerName, Kubernetes namespace, name, phase로 다음이 포함 됩니다. |
@@ -35,7 +35,7 @@ ms.locfileid: "101708274"
 > [!IMPORTANT]
 > Azure Arc 사용 Kubernetes 클러스터에는 필요한 최소 에이전트 버전이 이미 있기 때문에 업그레이드가 필요 하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 클러스터를 업데이트 하기 전에 다음을 확인 합니다.
 

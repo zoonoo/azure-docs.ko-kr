@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: twooley
@@ -9,10 +9,10 @@ ms.date: 02/22/2021
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f4f7490e93e5b0ea94d22f4959ecfd8b911e3e09
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750779"
 ---
 > [!NOTE]

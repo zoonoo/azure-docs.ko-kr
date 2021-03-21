@@ -13,10 +13,10 @@ ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
 ms.openlocfilehash: 5e593202a8cd68dfc4a92f991d573b4b06051b36
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434318"
 ---
 # <a name="what-is-speech-to-text"></a>음성 텍스트 변환이란?
@@ -34,11 +34,11 @@ ms.locfileid: "102434318"
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 음성 텍스트를 시작 하려면 [빠른](get-started-speech-to-text.md) 시작을 참조 하세요. 이 서비스는 [음성 SDK](speech-sdk.md), [REST API](rest-speech-to-text.md#pronunciation-assessment-parameters)및 [음성 CLI](spx-overview.md)를 통해 사용할 수 있습니다.
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 이 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 파일 또는 스트림에서 오디오 읽기, 연속 및 1단계 인식 및 사용자 지정 모델 사용과 같은 일반적인 시나리오를 다룹니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "102434318"
 
 표준 음성 서비스 모델 외에도 사용자 지정 모델을 만들 수 있습니다. 사용자 지정은 말하는 스타일, 어휘 및 배경 소음과 같은 음성 인식 장벽을 극복 하는 데 도움이 됩니다 [Custom Speech](./custom-speech-overview.md)를 참조 하세요. 언어/로캘에 따라 사용자 지정 옵션은 지원 [되는 언어](./language-support.md) 를 참조 하세요.
 
-## <a name="batch-transcription"></a>전사 일괄 처리
+## <a name="batch-transcription"></a>일괄 처리 기록
 
 일괄 처리는 저장소에서 많은 양의 오디오를 높여줄 수 있도록 하는 REST API 작업 집합입니다. SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기적으로 전사 결과를 받을 수 있습니다. Batch 기록 API를 사용 하는 방법에 대 한 자세한 내용은 [방법을](batch-transcription.md) 참조 하세요.
 
