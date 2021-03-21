@@ -9,17 +9,17 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 851305775d14ed371440434b2fbe9334ec0a21b9
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899323"
 ---
 # <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>온-프레미스 vCenter에서 사설 클라우드 vCenter 환경으로 워크 로드 Vm 마이그레이션
 
 온-프레미스 데이터 센터에서 CloudSimple 사설 클라우드로 Vm을 마이그레이션하려면 몇 가지 옵션을 사용할 수 있습니다.  사설 클라우드는 VMware vCenter에 대 한 기본 액세스를 제공 하며 VMware에서 지원 되는 도구는 워크 로드 마이그레이션에 사용할 수 있습니다. 이 문서에서는 몇 가지 vCenter 마이그레이션 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 온-프레미스 데이터 센터에서 Vm 및 데이터를 마이그레이션하려면 데이터 센터에서 사설 클라우드 환경으로 네트워크를 연결 해야 합니다.  다음 방법 중 하나를 사용 하 여 네트워크 연결을 설정 합니다.
 

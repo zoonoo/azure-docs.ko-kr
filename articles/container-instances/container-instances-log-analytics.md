@@ -4,10 +4,10 @@ description: Azure Container Instances의 컨테이너 그룹에서 리소스 �
 ms.topic: article
 ms.date: 07/13/2020
 ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579331"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
@@ -23,7 +23,7 @@ Log Analytics 작업 영역은 Azure 리소스 뿐만 아니라 다른 클라우
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 

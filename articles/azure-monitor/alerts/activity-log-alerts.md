@@ -4,10 +4,10 @@ description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 2762a9fbeef516d62067b670b14ea54f4363d7fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045499"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고
@@ -48,7 +48,7 @@ ms.locfileid: "102045499"
 > [!NOTE]
 > 한 구독에서, 단일 리소스, 리소스 그룹의 모든 리소스 또는 전체 구독 수준 범위의 활동에 대해 최대 100개의 경고 규칙을 만들 수 있습니다.
 
-활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
+활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음을 할 수 있습니다.
 
 * 활동 로그 경고에서 기존 작업 그룹을 사용합니다.
 * 새 작업 그룹을 만듭니다.

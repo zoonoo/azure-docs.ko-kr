@@ -13,10 +13,10 @@ ms.date: 07/15/2019
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 89923bbbb6f1745a4efe033d795a6ee90d1e4d32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223196"
 ---
 # <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>표준 Load Balancer를 사용 하 여 가상 네트워크 스크립트 샘플에서 IPv6 프런트 엔드 구성 (미리 보기)
@@ -27,7 +27,7 @@ Azure [Cloud Shell](https://shell.azure.com/powershell) 또는 로컬 PowerShell
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell 사용 하 여이 미리 보기 기능에 대해 구독을 한 번만 구성 해야 합니다.
 
 다음과 같이 등록 합니다.

@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
 ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94375930"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>승격 된 의사 결정 트리 모듈 Two-Class
@@ -38,9 +38,9 @@ ms.locfileid: "94375930"
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.
   
-    + **단일 매개 변수** : 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공할 수 있습니다.
+    + **단일 매개 변수**: 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공할 수 있습니다.
   
-    + **매개 변수 범위** : 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.
+    + **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.
   
 3.  **트리 당 최대 리프 수** 에 대해 모든 트리에서 만들 수 있는 최대 터미널 노드 (리프) 수를 지정 합니다.
   

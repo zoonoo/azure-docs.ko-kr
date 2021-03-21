@@ -4,10 +4,10 @@ description: 이 문서에서는 미디어 그래프에서 신호 게이트를 �
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.openlocfilehash: afcec7c03f1353f08b58311278f5a533e0c911bc
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410796"
 ---
 # <a name="configure-a-signal-gate-for-event-based-video-recording"></a>이벤트 기반 비디오 녹화를 위한 신호 게이트 구성
@@ -34,7 +34,7 @@ ms.locfileid: "94410796"
 도어 센서의 대기 시간이 *K* 초 임을 알고 있습니다. 이벤트가 지연 도착 한 무시 되는 가능성을 줄이려면 이벤트가 도착할 때까지 최소 *K* 초를 허용 하려고 합니다.
 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 문제를 해결 하려면 신호 게이트 프로세서 매개 변수를 수정 합니다.
 
@@ -58,35 +58,35 @@ ms.locfileid: "94410796"
 
 ### <a name="parameters-based-on-the-physical-time-that-events-arrive-at-the-signal-gate"></a>매개 변수는 이벤트가 신호 게이트에 도착 하는 실제 시간을 기반으로 합니다.
 
-* **minimumActivationTime (기록의 가능한 최단 시간)** : maximumActivationTime에 의해 중단 된 경우를 제외 하 고 새 이벤트를 수신 하기 위해 트리거된 후 신호 게이트 프로세서를 열어 놓은 최소 시간 (초)입니다.
-* **maximumActivationTime (기록의 가장 긴 기간)** : 받은 이벤트에 관계 없이 새 이벤트를 수신 하기 위해 트리거된 후 신호 게이트 프로세서에서 열린 상태로 유지 되는 초기 이벤트의 최대 시간 (초)입니다.
-* **activationSignalOffset** : 신호 게이트 프로세서를 활성화 하는 시간과 비디오 녹화 시작 사이의 시간 (초)입니다. 일반적으로이 값은 트리거 이벤트 이전에 기록을 시작 하기 때문에 음수입니다.
-* **activationEvaluationWindow** : 초기 트리거 이벤트에서 시작 하 여 미디어 시간에 초기 이벤트 이전에 발생 한 이벤트가 무시 되 고 늦게 도착 한 것으로 간주 되기 전에 신호 게이트 프로세서에 도착 해야 하는 시간 (초)입니다.
+* **minimumActivationTime (기록의 가능한 최단 시간)**: maximumActivationTime에 의해 중단 된 경우를 제외 하 고 새 이벤트를 수신 하기 위해 트리거된 후 신호 게이트 프로세서를 열어 놓은 최소 시간 (초)입니다.
+* **maximumActivationTime (기록의 가장 긴 기간)**: 받은 이벤트에 관계 없이 새 이벤트를 수신 하기 위해 트리거된 후 신호 게이트 프로세서에서 열린 상태로 유지 되는 초기 이벤트의 최대 시간 (초)입니다.
+* **activationSignalOffset**: 신호 게이트 프로세서를 활성화 하는 시간과 비디오 녹화 시작 사이의 시간 (초)입니다. 일반적으로이 값은 트리거 이벤트 이전에 기록을 시작 하기 때문에 음수입니다.
+* **activationEvaluationWindow**: 초기 트리거 이벤트에서 시작 하 여 미디어 시간에 초기 이벤트 이전에 발생 한 이벤트가 무시 되 고 늦게 도착 한 것으로 간주 되기 전에 신호 게이트 프로세서에 도착 해야 하는 시간 (초)입니다.
 
 > [!NOTE]
 > *지연 도착* 은 활성화 평가 기간이 경과 된 후에 발생 하는 이벤트 이지만 미디어 시간에서 초기 이벤트 앞에 도착 합니다.
 
 ### <a name="limits-of-parameters"></a>매개 변수 제한
 
-* **activationEvaluationWindow** : 0 초 ~ 10 초
-* **activationSignalOffset** :-1 분 ~ 1 분
-* **minimumActivationTime** : 1 초 ~ 1 시간
-* **maximumActivationTime** : 1 초 ~ 1 시간
+* **activationEvaluationWindow**: 0 초 ~ 10 초
+* **activationSignalOffset**:-1 분 ~ 1 분
+* **minimumActivationTime**: 1 초 ~ 1 시간
+* **maximumActivationTime**: 1 초 ~ 1 시간
 
 
 사용 사례에서 다음과 같이 매개 변수를 설정 합니다.
 
-* **activationEvaluationWindow** : *K* 초
-* **activationSignalOffset** : *-X* 초
-* **minimumActivationWindow** : *Y* 초
-* **maximumActivationWindow** : *Z* 초
+* **activationEvaluationWindow**: *K* 초
+* **activationSignalOffset**: *-X* 초
+* **minimumActivationWindow**: *Y* 초
+* **maximumActivationWindow**: *Z* 초
 
 
 다음은 **신호 게이트 프로세서** 노드 섹션에서 다음 매개 변수 값에 대 한 미디어 그래프 토폴로지를 확인 하는 방법의 예입니다.
-* **activationEvaluationWindow** : 1 초
-* **activationSignalOffset** :-5 초
-* **minimumActivationTime** : 20 초
-* **maximumActivationTime** : 40 초
+* **activationEvaluationWindow**: 1 초
+* **activationSignalOffset**:-5 초
+* **minimumActivationTime**: 20 초
+* **maximumActivationTime**: 40 초
 
 > [!IMPORTANT]
 > 각 매개 변수 값에 [ISO 8601 기간 형식이](https://en.wikipedia.org/wiki/ISO_8601#Durations
@@ -120,7 +120,7 @@ ms.locfileid: "94410796"
 
 ### <a name="recording-scenarios"></a>시나리오 기록
 
-**한 소스의 한 이벤트 ( *일반 정품 인증* )**
+**한 소스의 한 이벤트 (*일반 정품 인증*)**
 
 하나의 이벤트를 수신 하는 신호 게이트 프로세서는 이벤트가 게이트에 도착 하기 전에 5 초 (활성화 신호 = 5 초)를 시작 하는 기록을 생성 합니다. 최소 활성화 시간이 끝나기 전에 다른 이벤트가 도착 하지 않으므로 나머지 기록은 20 초 (최소 활성화 시간 = 20 초)가 됩니다.
 
@@ -131,7 +131,7 @@ ms.locfileid: "94410796"
 * 기록 기간 =-offset + minimumActivationTime = [E1 + offset, E1 + minimumActivationTime]
 
 
-**한 소스의 두 이벤트 ( *retriggered activation* )**
+**한 소스의 두 이벤트 (*retriggered activation*)**
 
 두 이벤트를 수신 하는 신호 게이트 프로세서는 이벤트가 게이트에 도착 하기 전에 5 초 (활성화 신호 오프셋 = 5 초)를 시작 하는 기록을 생성 합니다. 또한 이벤트 2는 이벤트 1 다음에 5 초 후에 도착 합니다. 이벤트 2는 이벤트 1의 최소 활성화 시간 (20 초)의 끝에 도달 하기 때문에 게이트는 retriggered 됩니다. 기록의 나머지 부분은 20 초 (최소 활성화 시간 = 20 초)입니다. 이벤트 2의 최소 활성화 시간이 끝나기 전에 다른 이벤트가 도착 하지 않으므로 다시 트리거할.
 
@@ -142,7 +142,7 @@ ms.locfileid: "94410796"
 * 기록 기간 =-오프셋 + (이벤트 2 도착-이벤트 1 도착) + minimumActivationTime
 
 
-**한 원본의 이벤트 *N* 개 ( *최대 활성화* )**
+**한 원본의 이벤트 *N* 개 (*최대 활성화*)**
 
 *N 개* 이벤트를 수신 하는 신호 게이트 프로세서는 첫 번째 이벤트가 게이트에서 도착 하기 전에 5 초 (활성화 신호 오프셋 = 5 초)를 시작 하는 기록을 생성 합니다. 이전 이벤트에서 최대 활성화 시간이 20 초인 후에 각 이벤트가 도착 하면이 게이트는 지속적으로 retriggered 됩니다. 첫 번째 이벤트 이후 40 초의 최대 활성화 시간이 될 때까지 열린 상태로 유지 됩니다. 그러면 게이트가 닫히고 새 이벤트를 더 이상 수락 하지 않습니다.
 

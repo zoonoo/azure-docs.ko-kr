@@ -4,10 +4,10 @@ description: 배열 매개 변수 및 배열 언어 식을 사용하고, [*] 별
 ms.date: 10/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98220748"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대한 작성자 정책
@@ -348,7 +348,7 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수
 
 ### <a name="field-count-expressions"></a>필드 개수 식
 
-[필드 수](../concepts/definition-structure.md#field-count) 식은 조건을 충족 하는 배열 멤버 수를 계산 하 고 해당 개수를 대상 값과 비교 합니다. `Count` 는 조건과 비교 하 여 배열을 보다 직관적이 고 다양 하 게 평가할 수 `field` 있습니다. 구문은 다음과 같습니다.
+[필드 수](../concepts/definition-structure.md#field-count) 식은 조건을 충족 하는 배열 멤버 수를 계산 하 고 해당 개수를 대상 값과 비교 합니다. `Count` 는 조건과 비교 하 여 배열을 보다 직관적이 고 다양 하 게 평가할 수 `field` 있습니다. 사용되는 구문은 다음과 같습니다.
 
 ```json
 {
@@ -573,7 +573,7 @@ Azure CLI, Azure PowerShell 또는 REST API를 사용하는 경우 매개 변수
 > [!NOTE]
 > 별칭에 효과를 사용 하 `modify` 는 것은 현재 **미리 보기** 상태입니다.
 
-|Alias |효과 | 결과 |
+|Alias |영향 | 결과 |
 |-|-|-|
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy는 효과 세부 정보에 지정 된 전체 배열을 누락 된 경우 추가 합니다. |
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `add` 작업 | Azure Policy는 효과 세부 정보에 지정 된 전체 배열을 누락 된 경우 추가 합니다. |

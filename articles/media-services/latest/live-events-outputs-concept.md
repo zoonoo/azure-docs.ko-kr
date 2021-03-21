@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
 ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102454790"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
@@ -147,14 +147,14 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
     |언어|베 니 티 URL 사용|액세스 토큰 설정|
     |---|---|---|
-    |REST (영문)|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
+    |REST|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--베 니 티](/cli/azure/ams/live-event#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event#optional-parameters)|
     |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예들 들어 `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`입니다.
+* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
 * *스트림 이름*: 특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-vanity-url"></a>비베니티 URL

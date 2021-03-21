@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: b-juche
 ms.openlocfilehash: c1cdeaa41dda11f2ab520cf8d31ddb2116587082
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94409572"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
@@ -46,7 +46,7 @@ ms.locfileid: "94409572"
 
 1. `/etc/resolv.conf`적절 한 DNS 서버를 사용 하 여를 구성 합니다.  
 
-    예를 들어:  
+    예를 들면 다음과 같습니다.  
 
     `[root@reddoc cbs]# cat /etc/resolv.conf`   
     `search contoso.com`   
@@ -72,7 +72,7 @@ ms.locfileid: "94409572"
 
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
 
-    예를 들어: 
+    예를 들면 다음과 같습니다. 
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
     
@@ -91,7 +91,7 @@ ms.locfileid: "94409572"
  
     `sudo kinit $SERVICEACCOUNT@DOMAIN`  
 
-    예를 들어:   
+    예를 들면 다음과 같습니다.   
 
     `sudo kinit ad_admin@CONTOSO.COM`
 
@@ -206,14 +206,14 @@ ms.locfileid: "94409572"
  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou="OU=$YOUROU"`
  
-    예를 들어:    
+    예를 들면 다음과 같습니다.    
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
 
 7. `kinit`사용자를 사용 하 여 티켓 가져오기: 
  
     `sudo kinit $SERVICEACCOUNT`   
  
-    예를 들어:    
+    예를 들면 다음과 같습니다.    
     `sudo kinit ad_admin`  
 
 ### <a name="ubuntu-configuration-if-you-are-using-dual-protocol"></a>이중 프로토콜을 사용 하는 경우 Ubuntu 구성  

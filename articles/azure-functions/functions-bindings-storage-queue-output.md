@@ -7,10 +7,10 @@ ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
 ms.openlocfilehash: 5d94625e3eb121e556b28038cf59626be1332966
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455808"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 출력 바인딩
@@ -366,7 +366,7 @@ public class HttpTriggerQueueOutput {
 }
 ```
 
-| 속성    | Description |
+| 속성    | 설명 |
 |-------------|-----------------------------|
 |`name`       | 함수 시그니처의 매개 변수 이름을 선언 합니다. 함수가 트리거되면이 매개 변수의 값에 큐 메시지의 내용이 포함 됩니다. |
 |`queueName`  | 저장소 계정에서 큐 이름을 선언 합니다. |
@@ -398,7 +398,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 큐를 나타내는 변수의 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**queueName** |**QueueName** | 큐의 이름입니다. |
-|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다.<br><br>예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열 대신 [버전 4.x 이상의 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용 하는 경우 연결을 정의 하는 구성 섹션에 대 한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조 하세요.|
+|**connection** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다.<br><br>예를 들어를 `connection` "mystorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

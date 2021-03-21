@@ -7,10 +7,10 @@ ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
 ms.openlocfilehash: cd69e89954fab2256ffc7c23e22d3b8d44ab2a11
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455876"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob 저장소 입력 바인딩
@@ -262,7 +262,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 속성은 사용 되는 `dataType` 바인딩을 결정 합니다. 다음 값은 다양 한 바인딩 전략을 지 원하는 데 사용할 수 있습니다.
 
-| 바인딩 값 | 기본값 | Description | 예제 |
+| 바인딩 값 | 기본값 | 설명 | 예제 |
 | --- | --- | --- | --- |
 | `undefined` | Y | 풍부한 바인딩을 사용 합니다. | `def main(input: func.InputStream)` |
 | `string` | N | 제네릭 바인딩을 사용 하 고 입력 형식을로 캐스팅 합니다. `string` | `def main(input: str)` |
@@ -349,7 +349,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
-|**connection** |**연결**| 이 바인딩에 사용할 [저장소 연결 문자열](../storage/common/storage-configure-connection-string.md) 을 포함 하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "MyStorage"로 설정 하는 경우 함수 런타임은 "AzureWebJobsMyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 4.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용 하는 경우 연결을 정의 하는 구성 섹션에 대 한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조 하세요.|
+|**connection** |**연결**| 이 바인딩에 사용할 [저장소 연결 문자열](../storage/common/storage-configure-connection-string.md) 을 포함 하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어를 `connection` "MyStorage"로 설정 하는 경우 함수 런타임은 "AzureWebJobsMyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.<br><br>연결 문자열 대신 [버전 5.x 이상의 확장](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 경우 연결을 정의하는 구성 섹션에 대한 참조를 제공할 수 있습니다. [연결](./functions-reference.md#connections)을 참조하세요.|
 |**dataType**| 해당 없음 | 동적으로 형식화 된 언어의 경우에는 기본 데이터 형식을 지정 합니다. 가능한 값은 `string`, `binary` 또는 `stream`입니다. 자세한 내용은 [트리거 및 바인딩 개념](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions)을 참조 하세요. |
 |해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 

@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e09dd6a127bd04ae698cb6cad2ffd7f35e3b51c3
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94413431"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원 력은 Microsoft의 동기화 도구 중 하나를 실행할 때 **UserPrincipalName** 및 SMTP **proxyaddress** 충돌로 인 한 마찰을 제거 하는 Azure Active Directory의 기능입니다.
 
-이 두 특성은 일반적으로 지정된 Azure Active Directory 테넌트의 모든 **사용자** , **그룹** 또는 **연락처** 개체에 고유해야 합니다.
+이 두 특성은 일반적으로 지정된 Azure Active Directory 테넌트의 모든 **사용자**, **그룹** 또는 **연락처** 개체에 고유해야 합니다.
 
 > [!NOTE]
 > 사용자만 UPN을 가질 수 있습니다.
@@ -140,34 +140,34 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 다음 문서에서는 다양한 문제 해결 및 해결 방법을 간략하게 설명합니다. [Office 365에서 중복되거나 잘못된 특성이 디렉터리 동기화를 방해할 경우](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>알려진 문제
-이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 “ *사전 복원력* ” 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
+이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 “*사전 복원력*” 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
 
 **핵심 동작:**
 
 1. 특정 특성 구성이 있는 개체는 격리되는 중복 특성과 달리 내보내기 오류가 계속 수신됩니다.  
-   예를 들어:
+   예를 들면 다음과 같습니다.
    
     a. 새 사용자는 **joe \@ Contoso.com** 및 proxyaddress **smtp: Joe \@ contoso.com** 의 UPN을 사용 하 여 AD에서 만들어집니다.
    
     b. 이 개체의 속성이 기존 그룹과 충돌 합니다. 여기서 ProxyAddress는 **SMTP: Joe \@ contoso.com** 입니다.
    
-    c. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
+    다. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
 2. 두 그룹이 동일한 SMTP 주소로 온-프레미스가 생성되는 경우 하나는 첫 번째 시도에서 표준 중복 **ProxyAddress** 오류로 프로비전하지 못합니다. 그러나 다음 동기화 주기 시 중복 값은 제대로 격리됩니다.
 
-**Office 포털 보고서** :
+**Office 포털 보고서**:
 
 1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
-2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예를 들어:
+2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예를 들면 다음과 같습니다.
    
     a. **사용자 A는** 먼저 **UPN = User \@ contoso.com** 를 사용 하 여 동기화 됩니다.
    
     b. **사용자 B** 는 **UPN = User \@ contoso.com** 다음에 동기화 하려고 시도 합니다.
    
-    c. **사용자 B** UPN이 **User1234 \@ contoso.onmicrosoft.com** 로 변경 되 고 **사용자 \@ contoso.com** 가 **DirSyncProvisioningErrors** 에 추가 됩니다.
+    다. **사용자 B** UPN이 **User1234 \@ contoso.onmicrosoft.com** 로 변경 되 고 **사용자 \@ contoso.com** 가 **DirSyncProvisioningErrors** 에 추가 됩니다.
    
     d. 사용자 **b** 의 오류 메시지에는 사용자 **A** 가 이미 UPN으로 **사용자 \@ contoso.com** 있음을 표시 하지만 **사용자 b의** 고유한 displayName이 표시 됩니다.
 
-**ID 동기화 오류 보고서** :
+**ID 동기화 오류 보고서**:
 
 *이 문제를 해결하는 방법에 대한 단계* 의 링크가 잘못되었습니다.  
     ![활성 사용자](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "활성 사용자")  

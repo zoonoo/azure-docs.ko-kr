@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
 ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579339"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>지역 간 복제 사용을 위한 요구 사항 및 고려 사항 

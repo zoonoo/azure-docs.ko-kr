@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222346"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database에 대한 Query Performance Insight
@@ -30,14 +30,14 @@ Query Performance Insight는 단일 및 풀링된 데이터베이스에 대한 �
 
 ![쿼리](./media/query-performance-insight-use/opening-title.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 가 활성 상태여야 합니다. 기본적으로 Azure SQL Database의 모든 데이터베이스에 대해 자동으로 사용 하도록 설정 됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
 
 > [!NOTE]
 > 포털에서 “쿼리 저장소가 이 데이터베이스에서 올바르게 구성되지 않음” 메시지가 표시되는 경우 [쿼리 저장소 구성 최적화](#optimize-the-query-store-configuration)를 참조하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 Query Performance Insight를 사용 하려면 다음 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 권한이 필요 합니다.
 

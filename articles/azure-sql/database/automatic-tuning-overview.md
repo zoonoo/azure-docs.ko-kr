@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/30/2020
 ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96500872"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 자동 조정
@@ -52,7 +52,7 @@ Azure SQL Database의 데이터베이스에 적용 되는 튜닝 작업은 가�
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-automatic-tuning/player]
 
-## <a name="enable-automatic-tuning"></a>자동 조정 사용
+## <a name="enable-automatic-tuning"></a>자동 튜닝 사용
 
 - Azure Portal 또는 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) t-sql 문을 사용 하 여 [Azure SQL Database에 대해 자동 조정을 사용 하도록 설정](automatic-tuning-enable.md) 합니다.
 - [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) t-sql 문을 사용 하 여 Azure SQL Managed Instance에 대 한 자동 조정을 사용 하도록 설정 합니다.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101677930"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Azure 부서의 범위에서 지원 되는 데이터 원본 및 파일 형식
@@ -30,7 +30,7 @@ Azure 부서의 범위는 다음 소스를 지원 합니다.
 | Azure SQL Database (DB)                  | SQL 인증, 서비스 주체, MSI               | UX |
 | Azure SQL Database Managed Instance      | SQL 인증, 서비스 주체, MSI               | UX    |
 | Azure Blob Storage                       | 계정 키, 서비스 주체, MSI | UX            |
-| Azure Data Explorer                      | 서비스 주체                              | UX            |
+| Azure 데이터 탐색기                      | 서비스 주체                              | UX            |
 | Azure Data Lake Storage Gen1 (ADLS Gen1) | 서비스 사용자, MSI                              | UX            |
 | Azure Data Lake Storage Gen2 (ADLS Gen2) | 계정 키, 서비스 주체, MSI            | UX            |
 | Azure Cosmos DB                          | 계정 키                                    | UX            |

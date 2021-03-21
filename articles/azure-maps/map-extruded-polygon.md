@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044088"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
@@ -44,7 +44,7 @@ CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/eYY
 
 ## <a name="add-a-circle-to-the-map"></a>맵에 원 추가
 
-Azure Maps에는 [여기](./extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터** 단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 다음은 그 예입니다. 
+Azure Maps에는 [여기](./extend-geojson.md#circle)에 나와 있는 것 처럼 원에 대 한 정의를 제공 하는 GeoJSON 스키마의 확장 된 버전이 사용 됩니다. `point`의 속성을 사용 하 여 기능을 만들고 `subType` `Circle` 미터를 `Radius` **미터** 단위로 나타내는 번호가 매겨진 속성을 사용 하 여 입체 원을 렌더링할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 {

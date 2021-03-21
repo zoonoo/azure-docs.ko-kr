@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: dc8db3f1eccce2bb85f03d51fcfd1c4113823d49
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98222669"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
@@ -140,7 +140,7 @@ ms.locfileid: "98222669"
 - 가상 네트워크 피어링이 성공적으로 구성된 후 지점 및 사이트 간 VPN 클라이언트를 다시 다운로드하여 새 경로가 클라이언트에 다운로드되는지 확인해야 합니다.
 - 가상 네트워크 피어링을 활용하는 수신 및 송신 트래픽에 대한 명목 요금이 부과됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-network)를 참조하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 가상 네트워크 피어링 작업에 사용하는 계정을 다음 역할에 할당해야 합니다.
 
@@ -161,7 +161,7 @@ ms.locfileid: "98222669"
 
 - 가상 네트워크 피어링은 동일하거나 다른 구독에 존재하는 동일하거나 다른 배포 모델을 통해 만든 가상 네트워크 간에 만들어집니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-  |Azure 배포 모델             | 구독  |
+  |Azure 배포 모델             | Subscription  |
   |---------                          |---------|
   |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[다름](create-peering-different-subscriptions.md)|

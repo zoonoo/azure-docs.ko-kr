@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94376655"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
@@ -27,7 +27,7 @@ ms.locfileid: "94376655"
 사용자 쿼리의 경우 각 사용자에 게 `When is your birthday?` 다음과 같은 스타일의 응답이 있습니다.
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|개성|예|
+|개성|예제|
 |--|--|
 |Professional|나이는 전혀 적용 되지 않습니다.|
 |친숙한|나의 나이가 없습니다.|
@@ -60,11 +60,11 @@ Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
 ## <a name="add-chit-chat-to-an-existing-kb"></a>기존 KB에 잡담 추가
 KB를 선택하고 **설정** 페이지로 이동합니다. 적절한 **.tsv** 형식으로 된 모든 잡담 데이터 세트에 대한 링크가 있습니다. 원하는 성격을 다운로드한 다음, 파일 원본으로 업로드하세요. 파일을 다운로드하고 업로드할 때 형식 또는 메타데이터를 편집하지 않도록 하세요.
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (안정적인 릴리스)](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 ![기존 KB에 잡담 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리 (미리 보기 릴리스)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
 ![Chit-기존 KB 미리 보기 릴리스에 대 한 채팅을 추가 합니다.](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 
@@ -92,6 +92,6 @@ KB를 선택하고 **설정** 페이지로 이동합니다. 특정 잠담 원본
 > [!div class="nextstepaction"]
 > [기술 자료 가져오기](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [QnA Maker 개요](../Overview/overview.md)

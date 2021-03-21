@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: b49e780714bd5e0662c6cb7ef208c473a8b45ccc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498152"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
@@ -49,7 +49,7 @@ Azure Storage 플랫폼은 다음과 같은 데이터 서비스를 포함 합니
 | **Azure 큐** | 응용 프로그램 구성 요소 간의 비동기 메시지 큐를 허용 합니다. | 응용 프로그램 구성 요소를 분리 하 고 비동기 메시징을 사용 하 여 서로 통신 하려고 합니다.<br><br>큐 저장소와 Service Bus 큐를 사용 하는 경우에 대 한 지침은 [저장소 큐 및 Service Bus 큐-비교 및 대조](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)를 참조 하세요. |
 | **Azure Tables** | 구조화 된 NoSQL 데이터를 클라우드에 저장 하 여 스키마 없는 디자인에 키/특성 저장소를 제공할 수 있습니다. | 웹 응용 프로그램, 주소록, 장치 정보 또는 서비스에 필요한 다른 유형의 메타 데이터에 대 한 사용자 데이터와 같은 유연한 데이터 집합을 저장 하려고 합니다. <br/><br/>테이블 저장소와 Azure Cosmos DB Table API를 사용 하는 경우에 대 한 지침은 [Azure Cosmos DB Table API 및 Azure Table storage](../../cosmos-db/table-support.md)를 사용 하 여 개발을 참조 하세요. |
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blob 스토리지
 
 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 데이터를 저장하는 데 최적화되어 있습니다.
 
@@ -83,7 +83,7 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](../files/storage-
 
 일부 SMB 기능은 클라우드에 적용되지 않습니다. 자세한 내용은 [Azure File 서비스에서 지원되지 않는 기능](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)을 참조하세요.
 
-## <a name="queue-storage"></a>Queue Storage
+## <a name="queue-storage"></a>Queue 스토리지
 
 Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니다. 큐 메시지의 크기는 최대 64KB일 수 있고 큐에는 수 많은 메시지가 포함될 수 있습니다. 큐는 일반적으로 비동기적으로 처리할 메시지의 목록을 저장하는 데 사용됩니다.
 
@@ -137,7 +137,7 @@ Azure Storage 클라이언트 라이브러리는 네트워크를 통해 전송 �
 
 Azure Storage에서 데이터를 이동하는 몇 가지 옵션이 있습니다. 선택하는 옵션은 데이터 세트의 크기와 네트워크 대역폭에 따라 달라집니다. 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](storage-choose-data-transfer-solution.md)을 참조하세요.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 데이터가 저장 및 액세스되는 방식을 결정할 때 관련 비용도 고려해야 합니다. 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조 하세요.
 

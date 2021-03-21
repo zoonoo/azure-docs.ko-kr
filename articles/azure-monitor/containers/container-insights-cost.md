@@ -4,10 +4,10 @@ description: 이 문서에서는 고객이 사용 및 관련 비용을 관리 �
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728912"
 ---
 # <a name="understand-monitoring-costs-for-container-insights"></a>컨테이너 정보에 대 한 모니터링 비용 이해

@@ -8,10 +8,10 @@ ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101729643"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
@@ -26,7 +26,7 @@ Azure 파일 동기화는 Windows Server, Azure 파일 공유 및 일부 기타 
 
 - Azure Storage
 - Azure 파일 동기화
-- Azure 리소스 관리자
+- Azure Resource Manager
 - 인증 서비스
 
 > [!Note]  
@@ -143,7 +143,7 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 | 공용 | 캐나다 동부 | https: \/ /canadaeast01.afs.azure.net<br>https: \/ /kailani-cae.one.microsoft.com | 캐나다 중부 | https: \/ /tm-canadaeast01.afs.azure.net<br>https: \/ /tm-kailani.cae.one.microsoft.com |
 | 공용 | 인도 중부 | https: \/ /centralindia01.afs.azure.net<br>https: \/ /kailani-cin.one.microsoft.com | 인도 남부 | https: \/ /tm-centralindia01.afs.azure.net<br>https: \/ /tm-kailani-cin.one.microsoft.com |
 | 공용 | 미국 중부 | https: \/ /centralus01.afs.azure.net<br>https: \/ /kailani-cus.one.microsoft.com | 미국 동부 2 | https: \/ /tm-centralus01.afs.azure.net<br>https: \/ /tm-kailani-cus.one.microsoft.com |
-| 공용 | 동아시아 | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | 동남아시아 | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
+| 공용 | 동아시아 | https: \/ /eastasia01.afs.azure.net<br>https: \/ /kailani11.one.microsoft.com | 동남 아시아 | https: \/ /tm-eastasia01.afs.azure.net<br>https: \/ /tm-kailani11.one.microsoft.com |
 | 공용 | 미국 동부 | https: \/ /eastus01.afs.azure.net<br>https: \/ /kailani1.one.microsoft.com | 미국 서부 | https: \/ /tm-eastus01.afs.azure.net<br>https: \/ /tm-kailani1.one.microsoft.com |
 | 공용 | 미국 동부 2 | https: \/ /eastus201.afs.azure.net<br>https: \/ /kailani-ess.one.microsoft.com | 미국 중부 | https: \/ /tm-eastus201.afs.azure.net<br>https: \/ /tm-kailani-ess.one.microsoft.com |
 | 공용 | 독일 북부 | https: \/ /germanynorth01.afs.azure.net | 독일 중서부 | https: \/ /tm-germanywestcentral01.afs.azure.net |
@@ -156,7 +156,7 @@ BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 스�
 | 공용 | 북유럽 | https: \/ /northeurope01.afs.azure.net<br>https: \/ /kailani7.one.microsoft.com | 서유럽 | https: \/ /tm-northeurope01.afs.azure.net<br>https: \/ /tm-kailani7.one.microsoft.com |
 | 공용 | 미국 중남부 | https: \/ /southcentralus01.afs.azure.net | 미국 중북부 | https: \/ /tm-southcentralus01.afs.azure.net |
 | 공용 | 인도 남부 | https: \/ /southindia01.afs.azure.net<br>https: \/ /kailani-sin.one.microsoft.com | 인도 중부 | https: \/ /tm-southindia01.afs.azure.net<br>https: \/ /tm-kailani-sin.one.microsoft.com |
-| 공용 | 동남아시아 | https: \/ /southeastasia01.afs.azure.net<br>https: \/ /kailani10.one.microsoft.com | 동아시아 | https: \/ /tm-southeastasia01.afs.azure.net<br>https: \/ /tm-kailani10.one.microsoft.com |
+| 공용 | 동남 아시아 | https: \/ /southeastasia01.afs.azure.net<br>https: \/ /kailani10.one.microsoft.com | 동아시아 | https: \/ /tm-southeastasia01.afs.azure.net<br>https: \/ /tm-kailani10.one.microsoft.com |
 | 공용 | 스위스 북부 | https: \/ /switzerlandnorth01.afs.azure.net<br>https: \/ /tm-switzerlandnorth01.afs.azure.net | 스위스 서부 | https: \/ /switzerlandwest01.afs.azure.net<br>https: \/ /tm-switzerlandwest01.afs.azure.net |
 | 공용 | 스위스 서부 | https: \/ /switzerlandwest01.afs.azure.net<br>https: \/ /tm-switzerlandwest01.afs.azure.net | 스위스 북부 | https: \/ /switzerlandnorth01.afs.azure.net<br>https: \/ /tm-switzerlandnorth01.afs.azure.net |
 | 공용 | 영국 남부 | https: \/ /uksouth01.afs.azure.net<br>https: \/ /kailani-uks.one.microsoft.com | 영국 서부 | https: \/ /tm-uksouth01.afs.azure.net<br>https: \/ /tm-kailani-uks.one.microsoft.com |

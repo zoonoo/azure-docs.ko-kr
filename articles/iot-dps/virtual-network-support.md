@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
 ms.openlocfilehash: f1409a931195d236b2729e629e4603c606137593
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94959784"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>가상 네트워크에 대 한 DPS (Azure IoT Hub 장치 프로 비전 서비스) 지원
@@ -43,7 +43,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
 개인 끝점은 Azure 리소스에 액세스할 수 있는 고객 소유의 VNET 내에 할당 된 개인 IP 주소입니다. DPS 리소스에 대 한 개인 끝점을 사용 하 여 VNET 내에서 작동 하는 장치가 공용 끝점에 대 한 트래픽을 허용 하지 않고 DPS 리소스에의 한 프로 비전을 요청할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 다음과 같은 전제 조건을 충족하는지 확인하세요.
 
@@ -129,7 +129,7 @@ DPS가 VNET을 사용 하 여 구성 된 대부분의 시나리오에서는 동�
     | :---- | :-----|
     | **리소스 ID 또는 별칭** | DPS 리소스의 리소스 ID를 입력 합니다. |
     | **대상 하위 리소스** | **Iotdps** 입력 |
-    | **요청 메시지** | DPS 리소스 소유자에 대 한 요청 메시지를 입력 합니다.<br>예를 들면 다음과 같습니다. <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
+    | **요청 메시지** | DPS 리소스 소유자에 대 한 요청 메시지를 입력 합니다.<br>예제: <br>`Please approve this new private endpoint`<br>`for IoT devices in site 23 to access this DPS instance`  |
 
     **다음: 구성** 을 클릭 하 여 개인 끝점에 대 한 VNET을 구성 합니다.
 

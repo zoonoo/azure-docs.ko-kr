@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: bf7a17d96d31fd4214d5465a5739acc9ce9a9d53
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455504"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널의 UEBA (사용자 및 엔터티 동작 분석)를 사용 하 여 고급 위협 식별
@@ -121,7 +121,7 @@ Entity insights는 분석가가 더 효율적이 고 효과적으로 조사 하�
 
 ### <a name="behavior-analytics-table"></a>동작 분석 테이블
 
-| 필드                     | Description                                                         |
+| 필드                     | 설명                                                         |
 |---------------------------|---------------------------------------------------------------------|
 | TenantId                  | 테 넌 트의 고유 ID 번호                                      |
 | SourceRecordId            | EBA 이벤트의 고유 ID 번호                                   |

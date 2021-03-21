@@ -7,10 +7,10 @@ ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101679590"
 ---
 # <a name="device-update-apt-manifest"></a>장치 업데이트 APT 매니페스트
@@ -63,11 +63,11 @@ APT 매니페스트 파일은 버전이 지정 된 스키마가 있는 JSON 파�
 
 ### <a name="name"></a>name
 
-이 APT 매니페스트의 이름입니다. 시나리오에 적합 한 이름 또는 ID는 무엇이 든 될 수 있습니다. 예들 들어 `contoso-iot-edge`입니다.
+이 APT 매니페스트의 이름입니다. 시나리오에 적합 한 이름 또는 ID는 무엇이 든 될 수 있습니다. 예: `contoso-iot-edge`
 
 ### <a name="version"></a>버전
 
-이 APT 매니페스트에 대 한 버전 번호입니다. 예들 들어 `1.0.0.0`입니다.
+이 APT 매니페스트에 대 한 버전 번호입니다. 예: `1.0.0.0`
 
 
 ### <a name="packages"></a>패키지
@@ -76,11 +76,11 @@ APT 매니페스트 파일은 버전이 지정 된 스키마가 있는 JSON 파�
 
 #### <a name="name"></a>name
 
-패키지의 이름 또는 ID입니다. 예들 들어 `iotedge`입니다.
+패키지의 이름 또는 ID입니다. 예: `iotedge`
 
 #### <a name="version"></a>버전
 
-패키지에 대 한 원하는 버전 조건입니다. 예들 들어 `1.0.8-2`입니다.
+패키지에 대 한 원하는 버전 조건입니다. 예: `1.0.8-2`
 
 현재 정확한 버전 번호는 지원 됩니다. 버전 번호는 [epoch:] upstream_version [-debian_revision] 형식의 원하는 Debian 패키지 버전입니다.
 
@@ -129,7 +129,7 @@ Apt 매니페스트를 사용 하 여 장치에서 설치 된 패키지를 제�
 
 ## <a name="recommended-value-for-installed-criteria"></a>설치 된 조건에 권장 되는 값
 
-APT 매니페스트에 설치 된 기준은입니다 `<name>-<version>` `<name>` . 여기서는 APT 매니페스트의 이름이 고 `<version>` 는 APT manifest의 버전입니다. 예들 들어 `contoso-iot-edge-1.0.0.0`입니다. 
+APT 매니페스트에 설치 된 기준은입니다 `<name>-<version>` `<name>` . 여기서는 APT 매니페스트의 이름이 고 `<version>` 는 APT manifest의 버전입니다. 예: `contoso-iot-edge-1.0.0.0` 
 
 ## <a name="guidelines-on-creating-an-apt-manifest"></a>APT 매니페스트를 만드는 방법에 대 한 지침
 
@@ -143,7 +143,7 @@ APT 매니페스트를 만드는 동안 다음과 같은 몇 가지 지침을 �
 - 특정 버전의 패키지를 설치 하는 경우 (예: `iotedge 1.0.9-1` ) APT 매니페스트에 설치 될 종속 패키지의 명시적 버전 (예:)도 포함 하는 것이 좋습니다. `libiothsm 1.0.9-1`
 - 반드시 필요한 것은 아니지만 APT 매니페스트가 누적 되어 장치가 알 수 없는 상태로 전환 되는 것을 방지 해야 합니다. 누적 업데이트를 사용 하는 경우 장치에서 설치에 실패 하거나 오프 라인으로 전환 하는 APT 업데이트 배포를 건너뛴 경우에도 관심 있는 모든 패키지의 desired 버전이 있는지 확인할 수 있습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 **기본 APT 매니페스트**
 

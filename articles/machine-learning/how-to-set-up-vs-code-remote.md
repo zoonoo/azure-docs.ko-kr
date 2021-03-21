@@ -11,10 +11,10 @@ ms.author: luquinta
 author: luisquintanilla
 ms.date: 11/16/2020
 ms.openlocfilehash: 3f3794ed4748eda44e863ff4627dedc0a34691af
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98070102"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 계산 인스턴스에 연결 (미리 보기)
@@ -135,7 +135,7 @@ Host azmlci1
 |호스트|계산 인스턴스에 대해 원하는 약어를 사용 합니다. |
 |HostName|계산 인스턴스의 IP 주소입니다. |
 |포트|위의 SSH 대화 상자에 표시 되는 포트입니다. |
-|User|다음이 필요 합니다. `azureuser` |
+|사용자|다음이 필요 합니다. `azureuser` |
 |IdentityFile|는 개인 키를 저장 한 파일을 가리켜야 합니다. |
 
 이제 위에서 사용한 약어를 사용 하 여 계산 인스턴스로 ssh를 실행할 수 있습니다 `ssh azmlci1` .

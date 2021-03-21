@@ -11,15 +11,15 @@ ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js
 ms.openlocfilehash: dc6c7bd9e38aa21ab10f55fca2500b0c12194d43
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102620169"
 ---
 # <a name="integrate-multiple-immersive-reader-resources"></a>여러 몰입형 판독기 리소스 통합
 
-[개요](./overview.md)에서는 몰입형 판독기란 무엇이며 어떻게 언어 학습자, 신흥 독자 및 학습 차이가 있는 사람들의 독해력 향상을 위해 입증된 기술을 구현하는지에 대해 알아보았습니다. [빠른](./quickstarts/client-libraries.md)시작에서는 단일 리소스에서 몰입 형 판독기를 사용 하는 방법을 알아보았습니다. 이 자습서에서는 여러 개의 몰입형 판독기 리소스를 같은 애플리케이션에 통합하는 방법에 대해 설명합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+[개요](./overview.md)에서는 몰입형 판독기란 무엇이며 어떻게 언어 학습자, 신흥 독자 및 학습 차이가 있는 사람들의 독해력 향상을 위해 입증된 기술을 구현하는지에 대해 알아보았습니다. [빠른](./quickstarts/client-libraries.md)시작에서는 단일 리소스에서 몰입 형 판독기를 사용 하는 방법을 알아보았습니다. 이 자습서에서는 여러 개의 몰입형 판독기 리소스를 같은 애플리케이션에 통합하는 방법에 대해 설명합니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 기존 리소스 그룹에 여러 몰입형 판독기 리소스 만들기
@@ -27,7 +27,7 @@ ms.locfileid: "102620169"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [빠른 시작](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)을 수행하여 Node.js를 사용하여 몰입형 판독기를 시작하는 웹앱을 만듭니다. 이 빠른 시작에서는 단일 몰입형 판독기 리소스를 구성합니다. 이 자습서의 첫 부분에서 빌드합니다.
 

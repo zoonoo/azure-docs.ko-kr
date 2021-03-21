@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
 ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499138"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech service로 마이그레이션
@@ -25,7 +25,7 @@ ms.locfileid: "96499138"
 
 단일 Speech service 구독 키는 다음 기능에 대 한 액세스 권한을 부여 합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
-* [음성 텍스트](speech-to-text.md)
+* [음성 텍스트 변환](speech-to-text.md)
 * [사용자 지정 음성 텍스트](https://cris.ai)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](./how-to-custom-voice-create-voice.md)

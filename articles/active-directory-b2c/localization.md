@@ -12,10 +12,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
 ms.openlocfilehash: 3a5afcd8c0ef0c31353cd2369ead332675c9877f
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102453124"
 ---
 # <a name="localization-element"></a>Localization 요소
@@ -40,13 +40,13 @@ ms.locfileid: "102453124"
 
 **Localization** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 사용 | 예 | 가능한 값은 `true` 또는 `false`입니다. |
+| 사용 | 아니요 | 가능한 값은 `true` 또는 `false`입니다. |
 
 **Localization** 요소에는 다음 XML 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | SupportedLanguages | 1:n | 지원되는 언어 목록입니다. |
 | LocalizedResources | 0:n | 지역화된 리소스 목록입니다. |
@@ -55,16 +55,16 @@ ms.locfileid: "102453124"
 
 **SupportedLanguages** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | DefaultLanguage | 예 | 지역화된 리소스의 기본값으로 사용할 언어입니다. |
-| MergeBehavior | 예 | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
+| MergeBehavior | 아니요 | 동일한 식별자를 가진, 부모 정책에 있는 모든 ClaimType과 함께 병합되는 값의 열거형 값입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 부모 정책에 지정된 컬렉션의 끝에 데이터 컬렉션을 추가하도록 지정합니다. `Prepend` 값은 부모 정책에 지정된 컬렉션 앞에 데이터 컬렉션을 추가하도록 지정합니다. `ReplaceAll` 값은 부모 정책에 정의된 데이터 컬렉션을 무시하고 현재 정책에 정의된 데이터를 대신 사용하도록 지정합니다. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
 
 **SupportedLanguages** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | SupportedLanguage | 1:n | RFC 5646 - 언어 식별 태그를 기준으로 언어 태그를 준수하는 콘텐츠를 표시합니다. |
 
@@ -72,13 +72,13 @@ ms.locfileid: "102453124"
 
 **LocalizedResources** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 지역화된 리소스를 고유하게 식별하는 데 사용되는 식별자입니다. |
 
 **LocalizedResources** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | LocalizedCollections | 0:n | 다양한 문화권에서 전체 컬렉션을 정의합니다. 컬렉션은 문화권마다 여러 항목과 다른 문자열을 포함할 수 있습니다. 컬렉션의 예로는 클레임 유형에 표시되는 열거형이 있습니다. 예를 들어 국가/지역 목록이 드롭다운 목록을 통해 사용자에게 표시됩니다. |
 | LocalizedStrings | 0:n | 다양한 문화권에서 컬렉션에 표시되는 문자열을 제외한 모든 문자열을 정의합니다. |
@@ -87,7 +87,7 @@ ms.locfileid: "102453124"
 
 **LocalizedCollections** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | LocalizedCollection | 1:n | 지원되는 언어 목록입니다. |
 
@@ -95,7 +95,7 @@ ms.locfileid: "102453124"
 
 **LocalizedCollection** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ElementType | 예 | 정책 파일의 ClaimType 요소 또는 사용자 인터페이스 요소를 참조합니다. |
 | ElementId | 예 | **ElementType** 이 ClaimType으로 설정된 경우 사용하는 ClaimsSchema 섹션에 이미 정의된 클레임 유형에 대한 참조를 포함하는 문자열입니다. |
@@ -109,11 +109,11 @@ ms.locfileid: "102453124"
 
 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | 텍스트 | 예 | 사용자 인터페이스에서 이 옵션에 대해 사용자에게 표시되어야 하는 사용자에게 친숙한 표시 문자열입니다. |
 | 값 | 예 | 이 옵션 선택과 연결된 문자열 클레임 값입니다. |
-| SelectByDefault | 예 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
+| SelectByDefault | 아니요 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
 다음 예제는 **LocalizedCollections** 요소의 사용을 보여 줍니다. 각각 영어와 스페인어로 된 두 개의 **LocalizedCollection** 요소를 포함합니다. 둘 다 영어 및 스페인어 항목 목록을 사용하여 `Gender` 클레임의 **Restriction** 컬렉션을 설정합니다.
 
@@ -139,13 +139,13 @@ ms.locfileid: "102453124"
 
 **LocalizedStrings** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | LocalizedString | 1:n | 지역화된 문자열입니다. |
 
 **LocalizedString** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ElementType | 예 | 가능한 값은 [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [FormatLocalizedStringTransformationClaimType](#formatlocalizedstringtransformationclaimtype), [Predicate](#predicate), [inputvalidation](#inputvalidation)또는 [UxElement](#uxelement)입니다.   | 
 | ElementId | 예 | **ElementType** 을, 또는로 설정 하면 `ClaimType` `Predicate` `InputValidation` 이 요소는 ClaimsSchema 섹션에 이미 정의 된 클레임 형식에 대 한 참조를 포함 합니다. |
@@ -368,7 +368,7 @@ DisplayControl 값은 [표시 컨트롤](display-controls.md) 사용자 인터�
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
 ```
 
-자체 어설션된 기술 프로필의 메타 데이터 섹션에서 참조 된 ContentDefinition에는 [페이지 레이아웃 버전](page-layout.md) 2.1.0 이상으로 설정 된 datauri가 있어야 합니다. 다음은 그 예입니다.
+자체 어설션된 기술 프로필의 메타 데이터 섹션에서 참조 된 ContentDefinition에는 [페이지 레이아웃 버전](page-layout.md) 2.1.0 이상으로 설정 된 datauri가 있어야 합니다. 예를 들면 다음과 같습니다.
 
 ```xml
 <ContentDefinition Id="api.selfasserted">

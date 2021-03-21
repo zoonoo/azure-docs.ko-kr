@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
 ms.openlocfilehash: 0af41127577c172cdab74ae908f0645733d49a42
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735761"
 ---
 # <a name="tutorial-configure-grouptalk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 GroupTalk 구성
@@ -34,7 +34,7 @@ ms.locfileid: "98735761"
 > * Azure AD와 GroupTalk 간에 사용자 특성을 동기화 상태로 유지
 > * GroupTalk에서 그룹 및 그룹 멤버 자격 프로 비전
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "98735761"
 3. Azure AD 통합 구성 항목이 표시 됩니다. 이를 클릭 하 여 **테 넌 트 이름** 및 **ID**  를 확인 하 여 **JWT (비밀 토큰)** 를 가져옵니다. 
 4. GroupTalk 테 넌 트 URL은 `https://api.grouptalk.com/api/scim/` 입니다. 이전 단계에서 검색 된 **테 넌 트 URL** 및 **암호 토큰** 은 Azure Portal에서 Grouptalk 응용 프로그램의 프로 비전 탭에 입력 됩니다. 
 
-## <a name="step-3-add-grouptalk-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 GroupTalk 추가
+## <a name="step-3-add-grouptalk-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 GroupTalk 추가
 
 Azure AD 응용 프로그램 갤러리에서 **Grouptalk** 를 추가 하 여 grouptalk에 대 한 프로 비전 관리를 시작 합니다.
 
