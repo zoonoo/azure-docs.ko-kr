@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 22be45403a7863328c5f6f2c883886296b734914
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d510fa35163a4c4a79352f5f35af9c384bf85304
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102549093"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596317"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux Virtual Machines에 대한 질문과 대답
 이 문서에서는 Azure에서 Resource Manager 배포 모델을 사용하여 만든 Linux 가상 머신에 대한 일반적인 질문을 일부 해결합니다. 이 항목의 Windows 버전에 대해서는 [Windows Virtual Machines에 대한 질문과 대답](../windows/faq.md)
@@ -31,7 +31,7 @@ Azure Stroage 계정은 운영 체제 디스크 및 모든 데이터 디스크�
 ## <a name="how-can-i-access-my-virtual-machine"></a>나의 가상 머신에 액세스 하려면 어떻게 해야 합니까?
 Secure Shell (SSH)를 사용 하 여 가상 머신에 로그온 하는 원격 연결을 설정 합니다. [Windows에서](ssh-from-windows.md) 또는 [Linux 및 Mac에서](mac-create-ssh-keys.md) 연결하는 방법은 지침을 참조하세요. 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
-문제가 있는 경우 [SSH(Secure Shell) 연결 문제 해결](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json)을 확인하세요.
+문제가 있는 경우 [SSH(Secure Shell) 연결 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 확인하세요.
 
 ## <a name="can-i-use-the-temporary-disk-devsdb1-to-store-data"></a>임시 디스크(/dev/sdb1)를 데이터 저장에 사용할 수 있나요?
 임시 디스크(/dev/sdb1)를 데이터 저장에 사용하지 마세요. 임시 디스크는 임시 스토리지로만 사용해야 합니다. 복구할 수 없는 데이터는 손실될 위험이 있습니다.

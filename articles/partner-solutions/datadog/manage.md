@@ -7,10 +7,10 @@ ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745296"
 ---
 # <a name="manage-the-datadog-resource"></a>Datadog 리소스 관리
@@ -77,7 +77,7 @@ Azure Portal은 API 키에 대 한 읽기 전용 보기를 제공 합니다. 키
 
 Azure Datadog 통합은 가상 머신 또는 app service에 Datadog 에이전트를 설치 하는 기능을 제공 합니다. 기본 키를 선택 하지 않으면 Datadog 에이전트 설치에 실패 합니다.
 
-## <a name="monitor-virtual-machines-using-the-datadog-agent"></a>Datadog 에이전트를 사용 하 여 가상 머신 모니터링
+## <a name="monitor-virtual-machines-using-the-datadog-agent"></a>Datadog 에이전트를 사용하여 가상 머신 모니터링
 
 가상 컴퓨터에 Datadog 에이전트를 확장으로 설치할 수 있습니다. 왼쪽 창의 Datadog org 구성에서 **가상 컴퓨터 에이전트로** 이동 합니다. 이 화면에는 구독에 있는 모든 가상 컴퓨터의 목록이 표시 됩니다.
 

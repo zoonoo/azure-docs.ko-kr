@@ -14,10 +14,10 @@ ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: ajburnle
 ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176963"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Azure AD (Azure Active Directory) Id 거 버 넌 스를 사용 하 여 더 이상 리소스 액세스가 없는 외부 사용자를 검토 하 고 제거 합니다.

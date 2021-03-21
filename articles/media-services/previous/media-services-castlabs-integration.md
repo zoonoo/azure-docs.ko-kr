@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewer: willzhan
 ms.openlocfilehash: 576ac636f166e2daebbb9919d6666fea913a17be
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103017055"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공
@@ -71,7 +71,7 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 
 다음 표에서는 castLabs의 JWT 토큰을 설명합니다. 
 
-| Name | 설명 |
+| Name | Description |
 | --- | --- |
 | optData |사용자에 대한 정보가 포함된 JSON 문자열. |
 | crt |자산, 해당 자산의 라이선스 정보 및 재생 권한에 대한 정보가 포함된 JSON 문자열. |

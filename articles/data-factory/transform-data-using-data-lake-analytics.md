@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 94b584f0bea01754a4e955d1418a7a9a2e9aeace
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100373915"
 ---
 # <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행 하 여 데이터 처리 
@@ -31,7 +31,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 
 
-| 속성                 | Description                              | 필수                                 |
+| 속성                 | 설명                              | 필수                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | 형식 속성은 **AzureDataLakeAnalytics** 로 설정해야 합니다. | 예                                      |
 | **accountName**          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
@@ -50,7 +50,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | Description                              | 필수 |
+| 속성                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
@@ -114,7 +114,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | Description                              | 필수 |
+| 속성            | 설명                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | 파이프라인의 작업 이름입니다.     | 예      |
 | description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |

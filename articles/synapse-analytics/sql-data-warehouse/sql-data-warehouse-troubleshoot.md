@@ -2,21 +2,21 @@
 title: 전용 SQL 풀 문제 해결 (이전의 SQL DW)
 description: Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW) 문제 해결
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/13/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: de6c7e47af3019d034d457f43334aad1aeafabdc
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 949a89dd4e84bdb44ad15eaff9ca160fdd21b395
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99254277"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602131"
 ---
 # <a name="troubleshooting-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 (이전의 SQL DW) 문제 해결
 

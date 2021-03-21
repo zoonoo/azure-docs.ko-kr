@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
 ms.openlocfilehash: d414b86ff81a33f9e818a0a28031e73d88cabec2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202266"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
@@ -32,7 +32,7 @@ ms.locfileid: "102202266"
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-[Az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 다음은 그 예입니다. 
+[Az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application

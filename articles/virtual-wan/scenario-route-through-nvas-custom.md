@@ -10,10 +10,10 @@ ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036897"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>시나리오: 사용자 지정 설정을 사용 하 여 Nva를 통해 트래픽 라우팅
@@ -29,7 +29,7 @@ Azure 가상 WAN 가상 허브 라우팅을 사용 하는 경우 다양 한 옵�
 
 다음 표에서는이 시나리오에서 지원 되는 연결을 요약 합니다.
 
-| From          | 대상|스포크|서비스 VNet|분기|인터넷|
+| 시작          | 대상|스포크|서비스 VNet|분기|인터넷|
 |---|:---:|:---:|:---:|:---:|:---:|
 | **스포크**| ->| 직접 제출 |직접 제출 | 서비스 VNet을 통해 |경계 VNet을 통해 |
 | **서비스 VNet**| ->| 직접 제출 |해당 없음| 직접 제출 | |
@@ -78,7 +78,7 @@ Azure 가상 WAN 가상 허브 라우팅을 사용 하는 경우 다양 한 옵�
 
 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조 하세요.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 다음 다이어그램에서는이 문서의 앞부분에서 설명한 아키텍처를 보여 줍니다.
 

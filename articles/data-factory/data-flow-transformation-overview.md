@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367914"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593869"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
 
@@ -31,8 +31,9 @@ ms.locfileid: "100367914"
 | [Join](data-flow-join.md) | 여러 입력/출력 |  두 원본 또는 스트림의 데이터를 결합 합니다. |
 | [조회](data-flow-lookup.md) | 여러 입력/출력 | 다른 소스에서 데이터를 참조 합니다. |
 | [새 분기](data-flow-new-branch.md) | 여러 입력/출력 | 동일한 데이터 스트림에 대해 여러 작업 및 변환 집합을 적용 합니다. |
+| [Parse](data-flow-new-branch.md) | 포맷터 | JSON, 구분 기호로 분리 된 텍스트 또는 XML 형식 텍스트의 문자열인 데이터 스트림에서 텍스트 열을 구문 분석 합니다. |
 | [피벗](data-flow-pivot.md) | Schema 한정자 | 하나 이상의 그룹화 열에 개별 열로 변환 된 고유 행 값이 있는 집계입니다. |
-| [순위](data-flow-rank.md) | Schema 한정자 | 정렬 조건에 따라 정렬 된 순위 생성 |
+| [배열](data-flow-rank.md) | Schema 한정자 | 정렬 조건에 따라 정렬 된 순위 생성 |
 | [Select](data-flow-select.md) | Schema 한정자 | 열 및 스트림 이름 별칭을 만들고 열을 삭제 하거나 순서를 변경 합니다. |
 | [싱크](data-flow-sink.md) | - | 데이터의 최종 대상 |
 | [Sort](data-flow-sort.md) | Row 한정자 | 현재 데이터 스트림의 들어오는 행 정렬 |

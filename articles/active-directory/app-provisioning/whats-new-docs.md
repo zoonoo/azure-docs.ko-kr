@@ -10,10 +10,10 @@ ms.author: kenwith
 author: kenwith
 manager: daveba
 ms.openlocfilehash: abee58607a5492548e4d64f44c15fd365876f3f5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102453685"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory 응용 프로그램 프로 비전: 새로운 기능
@@ -83,7 +83,7 @@ Azure Active Directory 응용 프로그램 프로 비전 설명서의 새로운 
 
 ### <a name="new-articles"></a>새 문서
 
-- [Docs의 새로운 기능](whats-new-docs.md)
+- [문서의 새로운 기능](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 - [격리 상태의 응용 프로그램 프로 비전](application-provisioning-quarantine-status.md)

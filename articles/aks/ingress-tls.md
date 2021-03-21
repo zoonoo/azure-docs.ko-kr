@@ -5,12 +5,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 1faabdda869bbaba8027df121d080b0fb421e9f1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: aa03558196527e320ecba249dd22af19fec7a90c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728895"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592339"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "98728895"
 
 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. [cert-manager][cert-manager] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-다음도 가능합니다.
+또한 다음을 수행할 수 있습니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
@@ -128,7 +128,6 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version v0.16.1 \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set webhook.nodeSelector."kubernetes\.io/os"=linux \
@@ -144,7 +143,7 @@ cert-manager 구성에 대한 자세한 내용은 [cert-manager 프로젝트][ce
 다음 예제 매니페스트를 사용하여 클러스터 발급자(예: `cluster-issuer.yaml`)를 만듭니다. 조직의 유효한 주소로 메일 주소를 업데이트합니다.
 
 ```yaml
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
@@ -415,7 +414,7 @@ kubectl delete namespace ingress-basic
 - [NGINX 수신 컨트롤러][nginx-ingress]
 - [인증서 관리자][cert-manager]
 
-다음도 가능합니다.
+또한 다음을 수행할 수 있습니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
 ms.openlocfilehash: 85773ec66dbe567afcfd1afca1d14aa0119fb8f6
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464023"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Azure Time Series insights 환경에 IoT hub 이벤트 원본 추가
@@ -25,7 +25,7 @@ ms.locfileid: "103464023"
 > [!NOTE]
 > 이 문서의 지침은 Azure Time Series Insights Gen 1 및 Azure Time Series insights Gen 2 환경에 모두 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Time Series Insights 환경을](./tutorial-set-up-environment.md)만듭니다.
 * [Azure Portal을 사용하여 IoT Hub](../iot-hub/iot-hub-create-through-portal.md)를 만듭니다.
@@ -72,9 +72,9 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
        [![새 이벤트 원본 창 - 사용 가능한 구독에서 IoT Hub 사용에서 설정하는 속성](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-create-configure-confirm.png#lightbox)
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
-       | 구독 | 원하는 iot hub가 속한 구독입니다. |
+       | Subscription | 원하는 iot hub가 속한 구독입니다. |
        | IoT Hub 이름 | 선택한 iot hub의 이름입니다. |
        | IoT Hub 정책 이름 | 공유 액세스 정책을 선택합니다. IoT hub 설정 탭에서 공유 액세스 정책을 찾을 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다. |
        | IoT Hub 정책 키 | 키는 미리 채워져 있습니다. |
@@ -86,14 +86,14 @@ IoT Hub에 새 소비자 그룹을 추가하려면
        | 속성 | 설명 |
        | --- | --- |
        | 구독 ID | 원하는 iot hub가 속한 구독입니다. |
-       | 리소스 그룹 | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다. |
+       | Resource group | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다. |
        | IoT Hub 이름 | IoT Hub의 이름입니다. IoT Hub를 만들 때 IoT Hub에 대해 입력한 이름입니다. |
        | IoT Hub 정책 이름 | 공유 액세스 정책입니다. IoT hub 설정 탭에서 공유 액세스 정책을 만들 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. 이벤트 원본에 대한 공유 액세스 정책에는 **서비스 연결** 사용 권한이 *반드시* 있어야 합니다. |
        | IoT Hub 정책 키 | Azure Service Bus 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다. 기본 키 또는 보조 키를 여기에 입력합니다. |
 
    * 두 옵션 모두 다음 구성 옵션을 공유 합니다.
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | IoT Hub 소비자 그룹 | IoT Hub에서 이벤트를 읽는 소비자 그룹입니다. 이벤트 원본에 대한 전용 소비자 그룹을 사용하는 것이 좋습니다. |
        | 이벤트 직렬화 형식 | 현재, JSON이 사용 가능한 유일한 직렬화 형식입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |

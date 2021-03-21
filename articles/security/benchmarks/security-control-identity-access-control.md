@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: dda3dcd3cd1234b2d0830010297e760201ed6160
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549280"
 ---
 # <a name="security-control-identity-and-access-control"></a>보안 제어: Id 및 Access Control
@@ -22,7 +22,7 @@ Id 및 액세스 관리 권장 사항은 id 기반 액세스 제어와 관련 �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.1 | 4.1 | Customer |
+| 3.1 | 4.1 | 고객 |
 
 Azure AD에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
@@ -34,7 +34,7 @@ Azure AD에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기�
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.2 | 4.2 | Customer |
+| 3.2 | 4.2 | 고객 |
 
 Azure AD에는 기본 암호 개념이 없습니다. 암호를 요구 하는 다른 Azure 리소스는 복잡성 요구 사항과 최소 암호 길이를 사용 하 여 암호를 강제로 만들도록 합니다 .이는 서비스에 따라 다릅니다. 기본 암호를 사용할 수 있는 타사 응용 프로그램 및 marketplace 서비스를 담당 합니다.
 
@@ -42,7 +42,7 @@ Azure AD에는 기본 암호 개념이 없습니다. 암호를 요구 하는 다
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.3 | 4.3 | Customer |
+| 3.3 | 4.3 | 고객 |
 
 전용 관리 계정 사용과 관련 하 여 표준 운영 절차를 만듭니다. Azure Security Center ID와 액세스 관리를 사용하여 관리 계정 수를 모니터링합니다.
 
@@ -54,7 +54,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.4 | 4.4. | Customer |
+| 3.4 | 4.4. | 고객 |
 
 가능 하면 서비스 별로 개별 독립 실행형 자격 증명을 구성 하는 대신 Azure Active Directory SSO를 사용 합니다. Azure Security Center Id 및 액세스 관리 권장 사항을 사용 합니다.
 
@@ -64,7 +64,7 @@ Microsoft 서비스에 대해 Azure AD Privileged Identity Management 권한 있
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.5 | 4.5, 11.5, 12.11, 16.3 | Customer |
+| 3.5 | 4.5, 11.5, 12.11, 16.3 | 고객 |
 
 Azure AD MFA를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
@@ -76,7 +76,7 @@ Azure AD MFA를 사용 하도록 설정 하 고 Azure Security Center Id 및 액
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.6 | 4.6, 11.6, 12.12 | Customer |
+| 3.6 | 4.6, 11.6, 12.12 | 고객 |
 
 MFA가 구성 된 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 Azure 리소스에 로그인 하 고 구성 합니다.
 
@@ -88,7 +88,7 @@ MFA가 구성 된 Paw (권한 있는 액세스 워크스테이션)를 사용 하
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.7 | 4.8, 4.9 | Customer |
+| 3.7 | 4.8, 4.9 | 고객 |
 
 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고 생성에 Azure Active Directory 보안 보고서를 사용 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
@@ -100,7 +100,7 @@ MFA가 구성 된 Paw (권한 있는 액세스 워크스테이션)를 사용 하
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.8 | 11.7 | Customer |
+| 3.8 | 11.7 | 고객 |
 
 조건부 액세스 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 액세스할 수 있도록 합니다.
 
@@ -110,7 +110,7 @@ MFA가 구성 된 Paw (권한 있는 액세스 워크스테이션)를 사용 하
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.9 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
+| 3.9 | 16.1, 16.2, 16.4, 16.5, 16.6 | 고객 |
 
 Azure Active Directory를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
@@ -120,7 +120,7 @@ Azure Active Directory를 중앙 인증 및 권한 부여 시스템으로 사용
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.10 | 16.9, 16.10 | Customer |
+| 3.10 | 16.9, 16.10 | 고객 |
 
 Azure AD는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다. 
 
@@ -132,7 +132,7 @@ Azure AD는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.11 | 16.12 | Customer |
+| 3.11 | 16.12 | 고객 |
 
 SIEM/모니터링 도구와 통합할 수 있도록 하는 Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세스할 수 있습니다.
 
@@ -144,7 +144,7 @@ Azure Active Directory 사용자 계정에 대한 진단 설정을 만들고 감
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.12 | 16.13 | Customer |
+| 3.12 | 16.13 | 고객 |
 
 Azure AD 위험 및 Id 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
@@ -158,7 +158,7 @@ Azure AD 위험 및 Id 보호 기능을 사용 하 여 사용자 id와 관련 �
 
 | Azure ID | CIS Id | 책임 |
 |--|--|--|
-| 3.13 | 16 | Customer |
+| 3.13 | 16 | 고객 |
 
 Microsoft에서 고객 데이터에 액세스 해야 하는 지원 시나리오에서는 고객 데이터 액세스 요청을 검토 하 고 승인 또는 거부할 수 있는 인터페이스를 제공 고객 Lockbox 합니다.
 

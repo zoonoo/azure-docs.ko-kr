@@ -10,10 +10,10 @@ ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
 ms.openlocfilehash: bf809b695e8df14288c2c55e580ee76d37f487d4
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102550776"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
@@ -35,7 +35,7 @@ ms.locfileid: "102550776"
 | Standard_A2m_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 21 | 28.4 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 27 | 56.6 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 13 | 52.8 | 2.0 | 
-| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 52.1 | 4.5. | 
+| Standard_A4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 52.1 | 4.5 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 17 | 56.4 | 1.8 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 6 | 53.4 | 1.9 | 
 | Standard_A4m_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 23 | 57.1 | 3.6 | 
@@ -107,7 +107,7 @@ ms.locfileid: "102550776"
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 38.6 | 1.8 | 
 | Standard_D2_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 24 | 41.8 | 3.3 | 
 | Standard_D4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 77.8 | 1.3 | 
-| Standard_D4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 4.5. | 
+| Standard_D4_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 4.5 | 
 | Standard_D8_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 146.7 | 10.4 | 
 | Standard_D8_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 159.9 | 8.3 | 
 | Standard_D16_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 10 | 274.1 | 3.8 | 
@@ -189,9 +189,9 @@ ms.locfileid: "102550776"
 | Standard_E8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 29 | 156.3 | 5.1 | 
 | Standard_E8-2s_v3 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 57 | 41.8 | 2.6 | 
 | Standard_E8-4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.9 | 3.0 | 
-| Standard_E16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 295.7 | 4.5. | 
+| Standard_E16s_v3 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 295.7 | 4.5 | 
 | Standard_E16-4s_v3 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 45 | 82.7 | 3.8 | 
-| Standard_E16-8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 158.3 | 4.5. | 
+| Standard_E16-8s_v3 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 39 | 158.3 | 4.5 | 
 | Standard_E20s_v3 | 20 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 369.7 | 3.2 | 
 | Standard_E32s_v3 | 32 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 577.9 | 9.4 | 
 | Standard_E32-8s_v3 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 31 | 163.4 | 6.8 | 
@@ -246,9 +246,9 @@ ms.locfileid: "102550776"
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 18 | 63.7 | 1.8 | 
 | Standard_F2s | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 21 | 66.6 | 3.8 | 
 | Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 14 | 128.4 | 2.9 | 
-| Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 127.7 | 4.5. | 
+| Standard_F4s | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 127.7 | 4.5 | 
 | Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 11 | 234.9 | 3.7 | 
-| Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 19 | 251.2 | 4.5. | 
+| Standard_F8s | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 19 | 251.2 | 4.5 | 
 | Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 9 | 413.9 | 3.6 | 
 | Standard_F16s | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 36 | 471.8 | 7.5 | 
 
@@ -326,7 +326,7 @@ ms.locfileid: "102550776"
 | Standard_M64-32ms | 32 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 586.8 | 5.4 | 
 | Standard_M64m | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1005.5 | 12.3 | 
 | Standard_M64ms | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.9 | 12.5 | 
-| Standard_M64s | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.5 | 4.5. | 
+| Standard_M64s | 64 | 2 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1012.5 | 4.5 | 
 | Standard_M128 | 128 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 11 | 1777.3 | 15.6 | 
 | Standard_M128-32ms | 32 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 13 | 620.5 | 2.5 | 
 | Standard_M128-64ms | 64 | 4 | Intel(R) Xeon(R) CPU E7-8890 v3 @ 2.50GHz | 12 | 1140.8 | 2.9 | 

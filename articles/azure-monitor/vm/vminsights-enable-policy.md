@@ -1,18 +1,18 @@
 ---
-title: Azure Policy를 사용 하 여 VM insights 사용
+title: Azure Policy를 사용하여 VM 인사이트 사용
 description: Azure Policy를 사용 하 여 여러 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031959"
 ---
-# <a name="enable-vm-insights-by-using-azure-policy"></a>Azure Policy를 사용 하 여 VM insights 사용
+# <a name="enable-vm-insights-by-using-azure-policy"></a>Azure Policy를 사용하여 VM 인사이트 사용
 이 문서에서는 Azure Policy를 사용 하 여 azure Arc (미리 보기)와 연결 된 Azure virtual machines 또는 하이브리드 가상 머신에 대해 VM insights를 사용 하도록 설정 하는 방법을 설명 합니다. Azure Policy를 사용 하면 Azure 환경에서 VM 정보에 필요한 에이전트를 설치 하는 정책 정의를 할당 하 고 각 가상 머신이 만들어질 때 자동으로 Vm에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. VM insights는 사용자 환경에서 비규격 Vm을 검색 및 재구성 하는 데 사용할 수 있는 기능을 제공 합니다. Azure Policy에서 직접 작업 하는 대신이 기능을 사용 합니다.
 
 Azure Policy에 익숙하지 않은 경우 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md)에서 간략하게 소개 하세요.
@@ -20,7 +20,7 @@ Azure Policy에 익숙하지 않은 경우 [Azure Policy를 사용 하 여 대�
 > [!NOTE]
 > Azure 가상 머신 확장 집합에 Azure Policy를 사용 하거나 Azure virtual machines를 사용 하도록 Azure Policy 직접 작업 하려면 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md#vm-insights)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 
@@ -47,7 +47,7 @@ VM insights는 Azure virtual machines에 Log Analytics 에이전트 및 종속�
    > [!NOTE]
    > 작업 영역이 할당 범위를 벗어나는 경우 *Log Analytics 기여자* 권한을 정책 할당의 Principal ID에 부여합니다. 이렇게 하지 않으면 다음과 같은 배포 실패가 표시 될 수 있습니다. `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![환경이](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![작업 영역](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 **만들기를 클릭** 하 여 할당에 대 한 세부 정보를 검토 하려면 **검토 + 만들기** 를 클릭 합니다. 기존 가상 컴퓨터를 사용 하도록 설정 하는 데 여러 가지 수정 작업이 필요할 수 있으므로이 시점에서 수정 작업을 만들지 마십시오. 아래의 [준수 결과](#remediate-compliance-results) 수정을 참조 하세요.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 048a089209ef7c5f20c96f77593e2cf39590147e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586720"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600529"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>자습서: 데이터 시각화 및 모니터링
 
@@ -76,6 +76,17 @@ ms.locfileid: "100586720"
 
    ![통합 문서 전환](./media/tutorial-monitor-data/switch-workbooks.png)
 
+
+## <a name="print-a-workbook-or-save-as-pdf"></a>통합 문서 인쇄 또는 PDF로 저장
+
+통합 문서를 인쇄 하거나 PDF로 저장 하려면 통합 문서 제목 오른쪽에 있는 옵션 메뉴를 사용 합니다.
+
+1. :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **콘텐츠 > 인쇄** 옵션을 선택 합니다. 
+2. 인쇄 화면에서 필요에 따라 인쇄 설정을 조정 하거나 **PDF로 저장** 을 선택 하 여 로컬에 저장 합니다.
+
+예를 들면 다음과 같습니다.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="통합 문서를 인쇄 하거나 PDF로 저장 합니다.":::
 
 ## <a name="how-to-delete-workbooks"></a>통합 문서를 삭제하는 방법
 

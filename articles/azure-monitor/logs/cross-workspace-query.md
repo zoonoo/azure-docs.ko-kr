@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
 ms.openlocfilehash: 57ed43b25c9031138a91f0870d316e1ae7a07a5b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030970"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
@@ -57,7 +57,7 @@ Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또�
 
 * Azure Resource ID – Azure에서 정의한 작업 영역의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다.  작업 영역의 형: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -88,7 +88,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
 
 * Azure Resource ID – Azure에서 정의한 앱의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다. 형식은 */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName* 입니다.  
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```

@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: e074043cb685f60027d3c09ae7ad8dc17dded0df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443406"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Azure Stack Edge Pro 주문 문제 해결
@@ -21,7 +21,7 @@ ms.locfileid: "102443406"
 
 이 문서에서는 Edge Pro 주문 문제 Azure Stack 문제를 해결 하는 방법을 설명 합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 >

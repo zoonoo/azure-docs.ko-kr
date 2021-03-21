@@ -4,10 +4,10 @@ description: 이 문서에서는 이벤트 도메인을 사용하여 다양한 �
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 46a50a8ecc50bd1b80efcba41228564df1c36c9f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198679"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
@@ -96,7 +96,7 @@ Event Grid에는 Azure RBAC를 사용 하 여 이벤트 도메인 작업을 용�
 
 이러한 제한에 맞지 않는 경우 지원 티켓을 열거나로 전자 메일을 보내 제품 팀에 연락 [askgrid@microsoft.com](mailto:askgrid@microsoft.com) 하세요. 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 이벤트 도메인은 Event Grid의 다른 모든 기능에서 사용 하는 것과 동일한 [작업 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/) 을 사용 합니다.
 
 작업은 이벤트 도메인에서도 사용자 지정 토픽과 동일한 방식으로 작동합니다. 각 이벤트가 이벤트 도메인에 수신되는 것도 작업이고, 각 이벤트 전달 시도도 작업입니다.

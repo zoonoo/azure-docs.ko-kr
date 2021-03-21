@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: ec9f99d0a13b5b92bc267f184d364ebabe36a050
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bdd897e76df941130e3acdf9c30ea8edd41147e9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566110"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601927"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화 된 장치에서 LVM 및 RAID 구성
 
@@ -261,7 +261,7 @@ lsblk
 LVM의 일부로 사용 될 디스크에서 파일 시스템을 분리 합니다.
 
 ```bash
-for disk in c d e f; do unmount /tempdata${disk}; done
+for disk in c d e f; do umount /tempdata${disk}; done
 ```
 /Etc/fstab 항목을 제거 합니다.
 
@@ -423,6 +423,9 @@ mkfs.ext4 /dev/md10
 ```
 
 파일 시스템에 대 한 새 탑재 지점을 만들고/etc/fstab에 새 파일 시스템을 추가 하 고 탑재 합니다.
+
+>[!NOTE] 
+>이 주기는이 특정 예제에 대해 하나의 장치 에서만 반복 되며, 필요한 경우 여러 md 장치에 사용 되는이 방식으로 빌드됩니다.
 
 ```bash
 for device in md10; do diskuuid="$(blkid -s UUID -o value /dev/${device})"; \

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 19de94db517afb2a8eeb855e76f2381096f8d7c0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: e0c3e331dba08fc95f471e3ad40dfcbb10cc2f0c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609110"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670633"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -18,6 +18,7 @@ ms.locfileid: "102609110"
 
 이 문서를 사용 하 여 다음 시나리오를 지원할 수 있습니다.
 
+* [Azure Migrate](../migrate/migrate-services-overview.md) 사용 하 여 특정 응용 프로그램을 컨테이너 화 AKS로 마이그레이션
 * [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 으로 지원 되는 AKS 클러스터를 [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) 로 마이그레이션
 * [표준 SKU 부하 분산 장치](./load-balancer-standard.md) 를 사용 하도록 AKS 클러스터 마이그레이션
 * [Azure Container Service (ACS)에서 마이그레이션-2020 년 1 월 31 일 사용 중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/) AKS
@@ -38,6 +39,7 @@ ms.locfileid: "102609110"
 이 문서에서는 다음에 대 한 마이그레이션 세부 정보를 요약 합니다.
 
 > [!div class="checklist"]
+> * Azure Migrate를 통해 응용 프로그램 컨테이너 화 
 > * 표준 Load Balancer 및 Virtual Machine Scale Sets AKS
 > * 기존에 연결 된 Azure 서비스
 > * 유효한 할당량 확인
@@ -45,6 +47,13 @@ ms.locfileid: "102609110"
 > * 상태 비저장 응용 프로그램에 대 한 고려 사항
 > * 상태 저장 응용 프로그램에 대 한 고려 사항
 > * 클러스터 구성 배포
+
+## <a name="use-azure-migrate-to-migrate-your-applications-to-aks"></a>Azure Migrate를 사용 하 여 응용 프로그램을 AKS로 마이그레이션
+
+Azure Migrate는 Azure 온-프레미스 서버, 인프라, 응용 프로그램 및 데이터를 평가 하 고 마이그레이션하기 위한 통합 플랫폼을 제공 합니다. AKS의 경우 다음에 Azure Migrate를 사용할 수 있습니다.
+
+* [컨테이너 화 ASP.NET 응용 프로그램을 AKS로 마이그레이션](../migrate/tutorial-containerize-aspnet-kubernetes.md)
+* [Java 웹 응용 프로그램을 컨테이너 화 AKS로 마이그레이션](../migrate/tutorial-containerize-java-kubernetes.md)
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>표준 Load Balancer 및 Virtual Machine Scale Sets AKS
 
