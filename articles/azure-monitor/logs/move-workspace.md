@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
 ms.openlocfilehash: 8f48ed1aa7422d6925c3a7b0ad30b59a479e4614
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034951"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
@@ -97,7 +97,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
 ## <a name="move-your-workspace"></a>작업 영역 이동
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 다음 절차에 따라 Azure Portal를 사용 하 여 작업 영역을 이동할 수 있습니다.
 
 1. **Log Analytics 작업 영역** 메뉴를 열고 작업 영역을 선택 합니다.

@@ -8,10 +8,10 @@ ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466272"
 ---
 # <a name="about-defender-for-iot-console-users"></a>IoT 콘솔 사용자를 위한 Defender 정보
@@ -185,7 +185,7 @@ Active Directory를 구성 하려면:
 
 4. 다음과 같이 Active Directory 서버 매개 변수를 설정 합니다.
 
-   | 서버 매개 변수 | 설명 |
+   | 서버 매개 변수 | Description |
    |--|--|
    | 도메인 컨트롤러 FQDN | FQDN (정규화 된 도메인 이름)은 LDAP 서버에 표시 된 대로 정확 하 게 설정 합니다. 예를 들어 다음과 같이 입력합니다. `host1.subdomain.domain.com` |
    | 도메인 컨트롤러 포트 | LDAP가 구성 된 포트를 정의 합니다. |

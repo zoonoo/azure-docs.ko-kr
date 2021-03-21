@@ -8,10 +8,10 @@ ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449835"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>센서 활성화 및 설정
@@ -44,7 +44,7 @@ ms.locfileid: "102449835"
 
 센서가 특정 관리 모드에서 IoT 용 Azure Defender로 등록 되었습니다.
 
-| 모드 유형 | Description |
+| 모드 유형 | 설명 |
 |--|--|
 | **클라우드 연결 모드** | 센서가 감지한 정보는 센서 콘솔에 표시 됩니다. 또한 경고 정보는 IoT hub를 통해 제공 되며, Azure 센티널과 같은 다른 Azure 서비스와 공유할 수 있습니다. |
 | **로컬 연결 모드** | 센서가 감지한 정보는 센서 콘솔에 표시 됩니다. 또한 검색 정보는 온-프레미스 관리 콘솔과 공유 됩니다 (센서가 연결 된 경우). |
@@ -142,7 +142,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 센서의 시스템 설정을 검토 하 여 센서가 최적으로 검색 하 고 경고 하도록 구성 되었는지 확인 합니다.
 
-센서의 시스템 설정을 정의 합니다. 다음은 그 예입니다.
+센서의 시스템 설정을 정의 합니다. 예를 들면 다음과 같습니다.
 
 - ICS (또는 IoT) 및 분리 서브넷을 정의 합니다.
 
@@ -177,7 +177,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **탐색** 
 
-| 시간 범위 | 아이콘 | Description |
+| 시간 범위 | 아이콘 | 설명 |
 | -----------|--|--|
 | 대시보드 | :::image type="icon" source="media/concept-sensor-console-overview/dashboard-icon-azure.png" border="false"::: | 네트워크 보안 상태의 직관적인 스냅숏을 표시 합니다. |
 | 장치 맵 | :::image type="icon" source="media/concept-sensor-console-overview/asset-map-icon-azure.png" border="false"::: | 지도에서 네트워크 장치, 장치 연결 및 장치 속성을 봅니다. 다양 한 확대/축소, 강조 표시 및 필터 옵션을 사용 하 여 네트워크를 표시할 수 있습니다. |
@@ -187,13 +187,13 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **분석**
 
-| 시간 범위| 아이콘 | Description |
+| 시간 범위| 아이콘 | 설명 |
 |---|---|---|
 | 이벤트 타임 라인 | :::image type="icon" source="media/concept-sensor-console-overview/event-timeline-icon-azure.png" border="false"::: | 경고, 네트워크 이벤트 (정보) 및 사용자 작업 (예: 사용자 로그인 및 사용자 삭제)에 대 한 정보가 포함 된 타임 라인을 봅니다.|
 
 **탐색**
 
-| 시간 범위 | 아이콘 | Description |
+| 시간 범위 | 아이콘 | 설명 |
 |---|---|---|
 | 데이터 마이닝 | :::image type="icon" source="media/concept-sensor-console-overview/data-mining-icon-azure.png" border="false"::: | 다양 한 계층에서 네트워크 장치에 대 한 포괄적이 고 세부적인 정보를 생성 합니다. |
 | 조사 | :::image type="icon" source="media/concept-sensor-console-overview/trends-and-statistics-icon-azure.jpg" border="false"::: | 광범위 한 위젯에서 추세와 통계를 봅니다. |
@@ -201,7 +201,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **관리자**
 
-| 시간 범위 | 아이콘 | Description |
+| 시간 범위 | 아이콘 | 설명 |
 |---|---|---|
 | 사용자 | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | 다양 한 액세스 수준을 사용 하 여 사용자 및 역할을 정의 합니다. |
 | 전송 | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | 파트너에 게 경고 정보를 전달 하 고, 내부 원본 (예: Azure 센티널)을 IoT 용 Defender와 통합, 전자 메일 주소, webhook 서버 등에 전달 합니다. <br /> 자세한 내용은 [경고 정보 전달](how-to-forward-alert-information-to-partners.md) 을 참조 하세요. |
@@ -210,7 +210,7 @@ CA 서명 인증서를 업로드 한 후 화면을 새로 고쳐야 할 수도 �
 
 **지원**
 
-| 시간 범위| 아이콘 | Description |
+| 시간 범위| 아이콘 | 설명 |
 |----|---|---|
 | 지원 | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | 도움이 필요 하면 [Microsoft 지원](https://support.microsoft.com/) 문의 하세요. |
 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
 ms.openlocfilehash: a91329d3bd0247932614233ef5b1ec71bf4d2a6b
-ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465466"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL server에 대해 Azure Defender 사용 
@@ -45,7 +45,7 @@ ms.locfileid: "103465466"
 [2 단계. Security Center의 가격 책정 및 설정 페이지에서 선택적 계획을 사용 하도록 설정 합니다.](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
 
-### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계: SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
+### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>1단계. SQL server의 호스트에 Log Analytics 에이전트를 프로 비전 합니다.
 
 - **AZURE vm에서 SQL Server** -SQL 컴퓨터가 azure vm에서 호스트 되는 경우 [Log Analytics 에이전트 <a name="auto-provision-mma"></a> 의 자동 프로 비전을 사용 하도록 설정할](security-center-enable-data-collection.md#auto-provision-mma)수 있습니다. 또는 [Azure Stack 허브 vm](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms)을 등록 하는 수동 절차를 따를 수 있습니다.
 - **Azure arc에서 SQL Server** -SQL Server [azure arc](../azure-arc/index.yml) 사용 서버를 통해 관리 되는 경우 Security Center 권장 사항을 사용 하 여 Log Analytics 에이전트를 배포할 수 있습니다. "Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다. 또는 [Azure Arc 설명서](../azure-arc/servers/manage-vm-extensions.md)에 설명 된 설치 방법을 따를 수 있습니다.

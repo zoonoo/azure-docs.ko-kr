@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: d9088e5c6302c41c64f2a2e9034e7c3d659e37eb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 09fa10e7f7751321601c5c4871b2cf36ccf6f01f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615638"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720900"
 ---
 # <a name="use-private-endpoints-for-your-purview-account"></a>부서의 범위 계정에 대 한 개인 끝점 사용
 
@@ -24,13 +24,16 @@ ms.locfileid: "102615638"
 
 1. 기본 정보를 채우고 **네트워킹** 탭에서 연결 방법을 개인 끝점으로 설정 합니다. 개인 끝점과 페어링 하려는 **구독, Vnet 및 서브넷** 에 대 한 세부 정보를 제공 하 여 수집 개인 끝점을 설정 합니다.
 
+    > [!NOTE]
+    > Azure 및 온-프레미스 소스 모두에 대해 종단 간 검색 시나리오에서 네트워크 격리를 사용 하도록 설정 하려는 경우에만 수집 개인 끝점을 만듭니다. 현재 AWS 원본에서 작동 하는 개인 끝점 수집을 지원 하지 않습니다.
+
     :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Azure Portal에서 개인 끝점을 만듭니다.":::
 
 1. 필요에 따라 각 수집 개인 끝점에 대 한 **사설 DNS 영역** 을 설정 하도록 선택할 수도 있습니다.
 
 1. 추가를 클릭 하 여 부서의 범위 계정에 대 한 개인 끝점을 추가 합니다.
 
-1. 개인 끝점 만들기 페이지에서 부서의 범위 하위 리소스를 **계정** 으로 설정 하 고, 가상 네트워크 및 서브넷을 선택 하 고, dns를 등록할 사설 DNS 영역을 선택 합니다. 또한 사용자의 가상 컴퓨터에서 호스트 파일을 사용 하 여 해당 dns 서버를 활용 하거나 dns 레코드를 만들 수 있습니다.
+1. 개인 끝점 만들기 페이지에서 부서의 범위 하위 리소스를 **계정** 으로 설정 하 고, 가상 네트워크 및 서브넷을 선택 하 고, dns를 등록할 사설 DNS 영역을 선택 합니다. 또한 사용자 고유의 dns 서버를 활용 하거나 가상 컴퓨터의 호스트 파일을 사용 하 여 dns 레코드를 만들 수 있습니다.
 
     :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="개인 끝점 만들기 선택 항목":::
 
@@ -89,6 +92,20 @@ ms.locfileid: "102615638"
 6. 새 규칙이 만들어지면 VM으로 다시 이동 하 여 AAD 자격 증명을 사용 하 여 로그인을 다시 시도 합니다. 로그인이 성공 하면 부서의 범위 포털을 사용할 준비가 된 것입니다. 그러나 경우에 따라 AAD는 고객의 계정 유형에 따라 로그인 할 다른 도메인으로 리디렉션됩니다. 예를 들어 live.com 계정의 경우 AAD는 live.com로 리디렉션하여 로그인 합니다. 그러면 해당 요청은 다시 차단 됩니다. Microsoft 직원 계정의 경우 AAD는 로그인 정보에 대 한 msft.sts.microsoft.com에 액세스 합니다. 브라우저 네트워킹 탭의 네트워킹 요청을 확인 하 여 차단 된 도메인의 요청을 확인 하 고, 이전 단계를 다시 실행 하 여 해당 IP에 대 한 요청을 허용 합니다 (가능한 경우 url 및 IP를 VM의 호스트 파일에 추가 하 여 DNS 확인을 수정). 정확한 로그인 도메인의 IP 범위를 알고 있으면 네트워킹 규칙에 직접 추가할 수도 있습니다.
 
 7. 이제 AAD에 로그인 해야 합니다. 부서의 범위 포털은 로드 되지만 모든 부서의 범위 계정은 특정 부서의 범위 계정에만 액세스할 수 있으므로 작동 하지 않습니다. *부서의 범위/resource/{PurviewAccountName}* 를 입력 하 여에 대 한 개인 끝점을 성공적으로 설정 하는 부서의 범위 계정을 직접 방문 합니다.
+ 
+## <a name="ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints"></a>개인 끝점을 수집 하 고 개인 네트워크에서 소스를 검색 하 고 개인 끝점을 Vnet 및 뒤에 검색 합니다.
+
+부서의 범위 DataMap로 검색 되는 원본에서 전송 되는 메타 데이터에 대 한 네트워크 격리를 확인 하려면 다음 단계를 수행 해야 합니다.
+1. [이](#creating-an-ingestion-private-endpoint) 섹션의 단계를 수행 하 여 수집 **개인 끝점** 을 사용 하도록 설정 합니다.
+1. **자체 호스팅 IR** 을 사용 하 여 소스를 검색 합니다.
+ 
+    1. SQL server, Oracle, SAP 및 기타와 같은 모든 온-프레미스 원본 유형은 현재 자체 호스팅 IR 기반 검사를 통해서만 지원 됩니다. 자체 호스팅 IR은 개인 네트워크 내에서 실행 된 다음 Azure에서 Vnet과 피어 링 합니다. 그런 다음 [아래](#creating-an-ingestion-private-endpoint) 단계를 수행 하 여 수집 개인 끝점에서 Azure vnet을 사용 하도록 설정 해야 합니다. 
+    1. Azure blob storage, Azure SQL Database 및 기타와 같은 모든 **azure** 원본 유형의 경우, 자체 호스팅 IR을 사용 하 여 검색 실행을 명시적으로 선택 하 여 네트워크 격리를 보장 해야 합니다. 자체 호스팅 IR을 설정 하려면 [여기](manage-integration-runtimes.md) 의 단계를 따르세요. 그런 다음, **integration runtime을 통해 연결** 드롭다운에서 자체 호스트 IR을 선택 하 여 Azure 원본에서 검색을 설정 하 여 네트워크 격리를 보장 합니다. 
+    
+    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="자체 호스팅 IR을 사용 하 여 Azure 검색 실행":::
+
+> [!NOTE]
+> 현재는 자체 호스팅 IR을 사용 하 여 Azure 원본을 검색할 때 MSI 자격 증명 방법을 지원 하지 않습니다. 해당 Azure 원본에 대해 지원 되는 다른 자격 증명 방법 중 하나를 사용 해야 합니다.
 
 ## <a name="enable-private-endpoint-on-existing-purview-accounts"></a>기존 부서의 범위 계정에 대해 개인 끝점 사용
 
@@ -101,7 +118,7 @@ ms.locfileid: "102615638"
 
 1. Azure Portal에서 부서의 범위 계정으로 이동 하 고 **설정** 의 **네트워킹** 섹션에서 개인 끝점 연결을 선택 합니다.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="포털 개인 끝점 만들기":::
+    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="계정 개인 끝점 만들기":::
 
 1. + 개인 끝점을 클릭 하 여 새 개인 끝점을 만듭니다.
 
@@ -115,6 +132,20 @@ ms.locfileid: "102615638"
 
 > [!NOTE]
 > **포털로** 선택 된 대상 하위 리소스에 대해서도 위와 동일한 단계를 수행 해야 합니다.
+
+#### <a name="creating-an-ingestion-private-endpoint"></a>수집 개인 끝점 만들기
+
+1. Azure Portal에서 부서의 범위 계정으로 이동 하 고 **설정** 의 **네트워킹** 섹션에서 개인 끝점 연결을 선택 합니다.
+1. 수집 **전용 끝점 연결** 탭으로 이동 하 고 **+ 새로** 만들기를 클릭 하 여 새 수집 개인 끝점을 만듭니다.
+
+1. 기본 정보 및 Vnet 세부 정보를 입력 합니다.
+ 
+    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="개인 끝점 채우기 세부 정보":::
+
+1. **만들기** 를 클릭 하 여 설정을 마칩니다.
+
+> [!NOTE]
+> 수집 전용 끝점은 위에서 설명한 부서의 범위 Azure Portal 환경을 통해서만 만들 수 있습니다. 개인 링크 센터에서 만들 수 없습니다.
 
 ### <a name="using-the-private-link-center"></a>개인 링크 센터 사용
 
@@ -132,6 +163,15 @@ ms.locfileid: "102615638"
 
 > [!NOTE]
 > **포털로** 선택 된 대상 하위 리소스에 대해서도 위와 동일한 단계를 수행 해야 합니다.
+
+## <a name="firewalls-to-restrict-public-access"></a>공용 액세스를 제한 하는 방화벽
+
+공용 인터넷에서 부서의 범위 계정에 대 한 액세스를 완전히 차단 하려면 아래 단계를 수행 합니다. 이 설정은 개인 끝점 및 수집 개인 끝점 연결에 모두 적용 됩니다.
+
+1. Azure Portal에서 부서의 범위 계정으로 이동 하 고 **설정** 의 **네트워킹** 섹션에서 개인 끝점 연결을 선택 합니다.
+1. 방화벽 탭으로 이동 하 여 설정/해제가 **거부** 로 설정 되어 있는지 확인 합니다.
+
+    :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="개인 끝점 방화벽 설정":::
 
 ## <a name="next-steps"></a>다음 단계
 

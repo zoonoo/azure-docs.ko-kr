@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461711"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Azure 부서의 범위에서 원본 인증에 대 한 자격 증명
 
 이 문서에서는 Azure 부서의 범위에서 자격 증명을 만드는 방법을 설명 합니다. 이러한 저장 된 자격 증명을 사용 하면 저장 된 인증 정보를 신속 하 게 다시 사용 하 고 데이터 원본 검색에 적용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 키 자격 증명 모음. 새로 만드는 방법을 알아보려면 [빠른 시작: Azure Portal 사용 하 여 key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조 하세요.
 

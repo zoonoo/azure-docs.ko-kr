@@ -9,10 +9,10 @@ ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601188"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>가용성 영역을 지원하는 Azure 서비스
@@ -122,14 +122,14 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 | Azure Bastion                                   |      : large_blue_diamond:  |
 | Azure Cache for Redis                           |      : large_blue_diamond:  |
 | Azure Cognitive Services: Text Analytics        |      : large_blue_diamond:  |
-| Azure Data Explorer                             |      : large_blue_diamond:  |
+| Azure 데이터 탐색기                             |      : large_blue_diamond:  |
 | Azure Database for MySQL – 유연한 서버      |      : large_blue_diamond:  |
 | Azure Database for PostgreSQL – 유연한 서버 |      : large_blue_diamond:  |
 | Azure DDoS Protection                           |      : large_blue_diamond:  |
 | Azure Disk Encryption                           |      : large_blue_diamond:  |
 | Azure Firewall                                  |      : large_blue_diamond:  |
 | Azure Firewall Manager                          |      : large_blue_diamond:  |
-| AKS(Azure Kubernetes Service)                  |      : large_blue_diamond:  |
+| Azure Kubernetes Service(AKS)                  |      : large_blue_diamond:  |
 | Azure Private Link                              |      : large_blue_diamond:  |
 | Azure Red Hat OpenShift                         |      : large_blue_diamond:  |
 | Azure Site Recovery                             |      : large_blue_diamond:  |

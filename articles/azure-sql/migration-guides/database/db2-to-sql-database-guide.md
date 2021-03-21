@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563949"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>마이그레이션 가이드: DB2 to SQL Database
@@ -24,7 +24,7 @@ ms.locfileid: "103563949"
 
 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 DB2 데이터베이스를 SQL Database로 마이그레이션하려면 다음이 필요 합니다.
 

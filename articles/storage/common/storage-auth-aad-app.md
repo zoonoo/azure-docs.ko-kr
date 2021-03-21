@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574631"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
@@ -151,7 +151,7 @@ Install-Package Azure.Storage.Blobs
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
-그런 다음 HomeController.cs 파일에 다음 using 문을 추가 합니다.
+그런 다음 HomeController 파일에 다음 using 문을 추가 합니다.
 
 ```csharp
 using Microsoft.Identity.Web; //MSAL library for getting the access token
@@ -165,7 +165,7 @@ Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
-그런 다음 HomeController.cs 파일에 다음 using 문을 추가 합니다.
+그런 다음 HomeController 파일에 다음 using 문을 추가 합니다.
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
@@ -284,7 +284,7 @@ public async Task<IActionResult> Blob()
 
 ### <a name="update-the-storage-account-and-container-name"></a>저장소 계정 및 컨테이너 이름 업데이트
 
-*HomeController.cs* 파일에서 블록 blob을 참조 하는 URI를 업데이트 하 여 저장소 계정 및 컨테이너의 이름을 사용 하 고 꺾쇠 괄호의 값을 고유한 값으로 바꿉니다.
+*HomeController* 파일에서 블록 blob을 참조 하는 URI를 업데이트 하 여 저장소 계정 및 컨테이너의 이름을 사용 하 고 꺾쇠 괄호의 값을 고유한 값으로 바꿉니다.
 
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt

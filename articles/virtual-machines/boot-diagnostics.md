@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 030f19d61e19349de7e2d3416a3aee1385fd03c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98738121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607525"
 ---
 # <a name="azure-boot-diagnostics"></a>Azure 부팅 진단
 
@@ -106,9 +106,9 @@ API 버전 2020-06-01 이후의 모든 항목은 관리 부트 진단을 지원 
 - 관리 되는 부팅 진단은 관리 되지 않는 OS 디스크를 사용 하는 Vm을 지원 하지 않습니다.
 - 부팅 진단은 premium storage 계정을 지원 하지 않습니다. premium storage 계정이 부팅 진단에 사용 되 면 `StorageAccountTypeNotSupported` VM을 시작할 때 오류가 발생 합니다. 
 - 관리 되는 저장소 계정은 리소스 관리자 API 버전 "2020-06-01" 이상에서 지원 됩니다.
-- 현재 Azure 직렬 콘솔은 부트 진단을 위해 관리 되는 저장소 계정과 호환 되지 않습니다. [Azure 직렬 콘솔](./troubleshooting/serial-console-overview.md)에 대해 자세히 알아보세요.
+- 현재 Azure 직렬 콘솔은 부트 진단을 위해 관리 되는 저장소 계정과 호환 되지 않습니다. [Azure 직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-overview)에 대해 자세히 알아보세요.
 - 포털은 단일 인스턴스 Vm에 대 한 관리 되는 저장소 계정으로 부팅 진단을 사용 하도록 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 직렬 콘솔](./troubleshooting/serial-console-overview.md) 에 대 한 자세한 내용과 부팅 진단을 사용 하 여 [azure의 가상 컴퓨터 문제를 해결](./troubleshooting/boot-diagnostics.md)하는 방법을 알아보세요.
+[Azure 직렬 콘솔](/troubleshoot/azure/virtual-machines/serial-console-overview) 에 대 한 자세한 내용과 부팅 진단을 사용 하 여 [azure의 가상 컴퓨터 문제를 해결](/troubleshoot/azure/virtual-machines/boot-diagnostics)하는 방법을 알아보세요.

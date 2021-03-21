@@ -13,10 +13,10 @@ ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418082"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 FAQ (질문과 대답)
@@ -35,7 +35,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 
 ### <a name="error-adding-account"></a>계정 추가 중 오류 발생
 
-**Q**: 내 계정을 추가 하려고 하면 "추가 하려는 계정이 현재 유효 하지 않음" 이라는 오류 메시지가 표시 됩니다. 이 문제를 해결 하려면 관리자에 게 문의 하십시오 (고유성 유효성 검사). " 어떻게 해야 합니까?
+**Q**: 내 계정을 추가 하려고 하면 "추가 하려는 계정이 현재 유효 하지 않음" 이라는 오류 메시지가 표시 됩니다. 이 문제를 해결 하려면 관리자에 게 문의 하십시오 (고유성 유효성 검사). "   어떻게 해야 합니까?
 
 **A**: 관리자에 게 연락 하 여 고유성 유효성 검사 문제로 인해 인증자에 게 계정을 추가할 수 없습니다. 관리자가 조직에서 볼 수 있도록 로그인 사용자 이름을 제공 해야 합니다.
 
@@ -159,7 +159,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체 했으며 Azure
 
 ### <a name="one-time-passcodes"></a>일회성 암호
 
-**Q**: 내 일회성 암호 작동 하지 않습니다. 어떻게 해야 합니까?
+**Q**: 내 일회성 암호 작동 하지 않습니다.   어떻게 해야 합니까?
 
 **A**: 장치의 날짜와 시간이 올바르고 자동으로 동기화 되 고 있는지 확인 합니다. 날짜 및 시간이 잘못되었거나 동기화되지 않으면 코드가 작동하지 않습니다.
 

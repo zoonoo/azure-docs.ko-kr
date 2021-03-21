@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: memildin
 ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102453770"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
-Microsoft Defender for Endpoint는 클라우드로 제공 되는 전체적인 끝점 보안 솔루션입니다. 주요 기능은 다음과 같습니다.
+Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 엔드포인트 보안 솔루션입니다. 주요 기능은 다음과 같습니다.
 
 - 위험 기반 취약성 관리 및 평가 
 - 공격 노출 영역 축소

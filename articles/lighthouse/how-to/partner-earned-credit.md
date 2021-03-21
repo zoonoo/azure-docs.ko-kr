@@ -4,15 +4,15 @@ description: Azure Lighthouse를 통해 관리 하는 고객 리소스에서 파
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100372096"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>파트너 ID를 연결 하 여 위임 된 리소스에 대 한 영향 추적 
 
-사용자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/)구성원 인 경우 위임 된 고객 리소스를 관리 하는 데 사용 되는 자격 증명과 파트너 ID를 연결 하 여 Microsoft가 Azure 고객 성공을 구동 하는 파트너를 식별 하 고 인식할 수 있도록 합니다. 이 링크를 통해 [CSP (클라우드 솔루션 공급자)](/partner-center/csp-overview) 파트너는 [Microsoft 고객 계약 (MCA)에 서명](/partner-center/confirm-customer-agreement) 하 고 [Azure 요금제](/partner-center/azure-plan-get-started)에 있는 고객에 대해 [PEC (관리 서비스)의 파트너 획득 크레딧을](/partner-center/partner-earned-credit) 받을 수 있습니다.
+사용자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/)구성원 인 경우 위임 된 고객 리소스를 관리 하는 데 사용 되는 자격 증명과 파트너 ID를 연결 하 여 Microsoft가 Azure 고객 성공을 구동 하는 파트너를 식별 하 고 인식할 수 있도록 합니다. 또한 이 링크를 통해 [CSP(클라우드 솔루션 공급자)](/partner-center/csp-overview) 파트너는 [관리 서비스에 대한 PEC(파트너 획득 크레딧)](/partner-center/partner-earned-credit)를 받을 수 있습니다. 대상 고객은 [MCA(Microsoft 고객 계약)에 서명한 고객](/partner-center/confirm-customer-agreement)이며 [Azure 플랜](/partner-center/azure-plan-get-started) 중에 있습니다.
 
 Azure Lighthouse 활동에 대 한 인식을 획득 하려면 관리 테 넌 트의 사용자 계정 하나 이상과 [MPN ID를 연결](../../cost-management-billing/manage/link-partner-id.md) 하 고 연결 된 계정에 각 등록 구독에 대 한 액세스 권한이 있는지 확인 해야 합니다.
 

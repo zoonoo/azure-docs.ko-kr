@@ -10,18 +10,26 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 75e187369eccefb255ae2bbd88de79afbc4fd4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a47982012dcaa2eabda93c93508b23f30525812d
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669477"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720392"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀에 대 한 모범 사례
 
 이 문서에서는 서버 리스 SQL 풀 사용에 대 한 모범 사례 모음을 찾을 수 있습니다. 서버를 사용 하지 않는 SQL 풀은 Azure Synapse Analytics의 리소스입니다.
 
 서버를 사용 하지 않는 SQL 풀을 사용 하면 Azure storage 계정에서 파일을 쿼리할 수 있습니다. SQL 주문형은 로컬 스토리지 또는 수집 기능이 없습니다. 따라서 쿼리가 대상으로 하는 모든 파일은 서버를 사용 하지 않는 SQL 풀의 외부에 있습니다. 스토리지에서 파일 읽기와 관련된 모든 작업이 쿼리 성능에 영향을 줄 수 있습니다.
+
+## <a name="client-applications-and-network-connections"></a>클라이언트 응용 프로그램 및 네트워크 연결
+
+최적의 연결을 사용 하 여 클라이언트 응용 프로그램이 가능한 가장 가까운 Synapse 작업 영역에 연결 되어 있는지 확인 합니다.
+- Synapse 작업 영역을 사용 하 여 클라이언트 응용 프로그램을 찾습니다. Power BI 또는 Azure Analysis Service와 같은 응용 프로그램을 사용 하는 경우에는 Synapse 작업 영역을 배치한 동일한 지역에 있는지 확인 합니다. 필요한 경우 클라이언트 응용 프로그램과 쌍을 이루는 별도의 작업 영역을 만듭니다. 클라이언트 응용 프로그램과 Synapse 작업 영역을 다른 지역에 배치 하면 대기 시간이 커지고 결과 스트리밍이 느려질 수 있습니다.
+- 온-프레미스 응용 프로그램에서 데이터를 읽는 경우 Synapse 작업 영역이 사용자의 위치에 가까운 지역에 있는지 확인 합니다.
+- 많은 양의 데이터를 읽는 동안 네트워크 대역폭 문제가 발생 하지 않았는지 확인 합니다.
+- Synapse studio를 사용 하 여 많은 양의 데이터를 반환 하지 마십시오. Synapse studio는 HTTPS 프로토콜을 사용 하 여 데이터를 전송 하는 웹 도구입니다. Azure Data Studio 또는 SQL Server Management Studio를 사용 하 여 많은 양의 데이터를 읽습니다.
 
 ## <a name="storage-and-content-layout"></a>저장소 및 콘텐츠 레이아웃
 
@@ -55,6 +63,10 @@ ms.locfileid: "104669477"
 - CSV 파일 크기를 100 m b에서 10gb로 유지 해 보세요.
 - 단일 OPENROWSET 경로 또는 외부 테이블 LOCATION에 대해 크기가 동일한 파일을 지정하는 것이 좋습니다.
 - 파티션을 다른 폴더 또는 파일 이름에 저장하여 데이터를 분할합니다. [ 및 filepath 함수를 사용하여 특정 파티션을 대상으로 지정](#use-filename-and-filepath-functions-to-target-specific-partitions)을 참조하세요.
+
+### <a name="colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool"></a>CosmosDB 분석 저장소 및 서버를 사용 하지 않는 SQL 풀 공동 배치
+
+CosmosDB 분석 저장소가 Synapse 작업 영역과 동일한 지역에 배치 되어 있는지 확인 합니다. 영역 간 쿼리를 수행 하면 대기 시간이 길어질 수 있습니다.
 
 ## <a name="csv-optimizations"></a>CSV 최적화
 

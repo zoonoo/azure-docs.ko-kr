@@ -2,26 +2,26 @@
 title: Azure Managed Disks의 서버 쪽 암호화
 description: Azure Storage는 미사용 데이터를 암호화한 후 저장소 클러스터에 보관하여 데이터를 보호합니다. 고객 관리 키를 사용 하 여 사용자 고유의 키로 암호화를 관리 하거나, Microsoft 관리 키를 사용 하 여 관리 디스크를 암호화할 수 있습니다.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103014386"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721854"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
-SSE(서버 쪽 암호화)는 데이터를 보호하고 조직의 보안 및 규정 준수 노력에 부합하는 데 도움이 됩니다. SSE는 기본적으로 Azure 관리 디스크 (OS 및 데이터 디스크)에 저장 된 데이터를 클라우드에 유지할 때 자동으로 암호화 합니다. 
+대부분의 Azure 관리 디스크는 SSE (서버 쪽 암호화)를 사용 하 여 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 Azure Storage 암호화를 사용 하 여 암호화 됩니다. Azure Storage 암호화는 Azure 관리 디스크 (OS 및 데이터 디스크)에 저장 된 데이터를 클라우드에 유지할 때 기본적으로 자동으로 암호화 합니다. 그러나 호스트에서 암호화가 설정 된 디스크는 Azure Storage를 통해 암호화 되지 않습니다. 호스트에서 암호화가 설정 된 디스크의 경우 VM을 호스트 하는 서버에서 데이터에 대 한 암호화를 제공 하 고 암호화 된 데이터가 Azure Storage로 흐릅니다.
 
 Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 투명하게 암호화되며 FIPS 140-2 규격입니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
 
-서버 쪽 암호화는 관리 디스크의 성능에 영향을 주지 않으며 추가 비용이 없습니다. 
+Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으며 추가 비용이 없습니다. Azure Storage 암호화에 대 한 자세한 내용은 [Azure Storage 암호화](/azure/storage/common/storage-service-encryption)를 참조 하세요.
 
 > [!NOTE]
 > 호스트에서 암호화를 사용 하도록 설정 하지 않으면 임시 디스크는 관리 디스크가 아니고 SSE로 암호화 되지 않습니다.

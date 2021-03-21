@@ -4,12 +4,12 @@ description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일�
 ms.topic: article
 ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6005a51314cff19883fc2a07e4810bd24eb94b24
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6cd446cf86c22b851bae9cb9d8535a8e5234e08b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600958"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722534"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 이 문서에서는 Azure Event Hubs에서 지 원하는 가용성 및 일관성에 대 한 정보를 제공 합니다. 
@@ -43,7 +43,7 @@ Azure Event Hubs는 개별 컴퓨터의 치명적인 오류에 대 한 위험을
 이 섹션에서는 다양 한 프로그래밍 언어를 사용 하 여 특정 파티션에 이벤트를 보내는 방법에 대해 알아봅니다. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
-특정 파티션에 이벤트를 보내려면 [](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) `PartitionId` `PartitionKey` [createbatchasync](//dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions)에서 또는를 지정 하 여 EventHubProducerClient을 사용 하 여 일괄 처리를 만듭니다. 다음 코드에서는 파티션 키를 지정 하 여 이벤트 일괄 처리를 특정 파티션으로 보냅니다. Event Hubs 파티션 키 값을 공유 하는 모든 이벤트가 함께 저장 되 고 도착 순서 대로 배달 되도록 합니다.
+특정 파티션에 이벤트를 보내려면 [](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) `PartitionId` `PartitionKey` [createbatchasync](/dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions?view=azure-dotnet)에서 또는를 지정 하 여 EventHubProducerClient을 사용 하 여 일괄 처리를 만듭니다. 다음 코드에서는 파티션 키를 지정 하 여 이벤트 일괄 처리를 특정 파티션으로 보냅니다. Event Hubs 파티션 키 값을 공유 하는 모든 이벤트가 함께 저장 되 고 도착 순서 대로 배달 되도록 합니다.
 
 ```csharp
 var batchOptions = new CreateBatchOptions { PartitionKey = "cities" };

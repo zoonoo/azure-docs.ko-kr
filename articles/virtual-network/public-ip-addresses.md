@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
 ms.openlocfilehash: ffdd673cc8a357a7156fb3b3e932c524c831db15
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418065"
 ---
 # <a name="public-ip-addresses"></a>퍼블릿 IP 주소
@@ -46,7 +46,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 >[!IMPORTANT]
 > 부하 분산 장치 및 공용 IP 리소스에 대해 일치 하는 Sku가 필요 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
-### <a name="standard"></a>표준
+### <a name="standard"></a>Standard
 
 표준 SKU 공용 IP 주소:
 
@@ -66,7 +66,7 @@ SKU 업그레이드에 대 한 자세한 내용은 [공용 IP 업그레이드](.
 > [!NOTE]
 > 표준 SKU 공용 IP 주소를 사용 하는 경우 리소스 블레이드에서 진단 설정이 표시 되지 않습니다. 표준 공용 IP 주소 리소스에 대 한 로깅을 사용 하도록 설정 하려면 Azure Monitor 블레이드에서 진단 설정으로 이동 하 고 IP 주소 리소스를 선택 합니다.
 
-### <a name="basic"></a>기본
+### <a name="basic"></a>Basic
 
 SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주소입니다. 
 
@@ -199,7 +199,7 @@ IP 주소 지정에 대 한 제한은 Azure에서 [네트워킹에 대 한 전�
 
 제한은 지역별, 구독별로 적용됩니다. 비즈니스 요구에 따라 기본 제한을 최대 제한까지 늘리려면 [지원 담당자에 게 문의 하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 공용 IP 주소에는 명목 요금이 부과될 수 있습니다. Azure의 IP 주소 가격 책정에 대한 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses) 페이지를 참조하세요.
 

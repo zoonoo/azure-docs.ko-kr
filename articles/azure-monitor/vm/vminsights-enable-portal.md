@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 076fcab7b0747a7993407edd65f9d08efc27309f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035588"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 단일 가상 머신 또는 가상 머신 확장 집합에 대한 Azure Monitor 사용
@@ -19,12 +19,12 @@ ms.locfileid: "102035588"
 - Azure 가상 머신 확장 집합
 - Azure Arc와 연결 된 하이브리드 가상 컴퓨터
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - [Log Analytics 작업 영역을 만들고 구성](./vminsights-configure-workspace.md)합니다. 또는이 프로세스 중에 새 작업 영역을 만들 수 있습니다.
 - 지원 되는 [운영 체제](./vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 
-## <a name="enable-vm-insights"></a>VM insights 사용
+## <a name="enable-vm-insights"></a>VM 인사이트 사용
 
 Azure Portal에서 **가상** 머신, **가상 머신 확장 집합** 또는 **서버-Azure Arc** 를 선택 하 고 목록에서 리소스를 선택 합니다. 메뉴의 **모니터링** 섹션에서 **Insights** 를 선택 하 고 **사용** 을 선택 합니다. 다음 예제에서는 azure 가상 컴퓨터를 보여 주지만 azure virtual machine scale set 또는 Azure Arc의 메뉴는 유사 합니다.
 

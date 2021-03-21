@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: ce4917f968ef1664a1d41f4eaff162df116bda4f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035087"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Microsoft id 플랫폼의 서명 키 롤오버
@@ -68,7 +68,7 @@ Azure App Services의 인증/권한 부여(EasyAuth) 기능에는 이미 키 롤
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>.NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용하여 리소스를 보호하는 웹 애플리케이션/API
 애플리케이션에서 .NET OWIN OpenID Connect, WS-Fed 또는 WindowsAzureActiveDirectoryBearerAuthentication 미들웨어를 사용 하는 경우, 자동으로 키 롤오버를 처리하는 데 필요한 논리가 이미 있는 것입니다.
 
-응용 프로그램의 Startup.cs 또는 Startup.Auth.cs 파일에서 다음 코드 조각을 검색 하 여 응용 프로그램에서 이러한 방법 중 하나를 사용 하 고 있는지 확인할 수 있습니다.
+응용 프로그램의 시작 .cs 또는 시작. s c a s 파일에서 다음 코드 조각을 검색 하 여 응용 프로그램에서 이러한 기능을 사용 하 고 있는지 확인할 수 있습니다.
 
 ```csharp
 app.UseOpenIdConnectAuthentication(

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 93812cf2b0db7fc3557e31c8d9e8053831c7b90f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011003"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608149"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Azure Percept 진한 (dev kit) 문제 해결
 
@@ -29,6 +29,12 @@ Azure Percept에 대 한 일반적인 문제 해결 팁은 아래 지침을 참�
 
 ```console
 sudo [command] > [file name].txt
+```
+
+복사할 수 있도록 .txt 파일의 사용 권한을 변경 합니다.
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 .Txt 파일에 출력을 리디렉션하는 경우 SCP를 통해 호스트 PC에 파일을 복사 합니다.

@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3be01c304a40317e0d21baf6789ef1376cd89b80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691895"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608081"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 SQL 에이전트 작업을 사용 하 여 관리 작업 자동화
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -81,7 +81,7 @@ SQL 에이전트 작업 단계는 SQL 에이전트가 실행해야 하는 작업
 SQL 에이전트를 사용 하면 데이터베이스에 대해 단일 Transact-sql 일괄 처리를 실행 하는 Transact-sql 작업 단계, SSIS 런타임을 사용 하 여 데이터를 로드 하는 데 사용할 수 있는 [ssis 작업 단계](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) , 데이터베이스의 변경 내용을 다른 데이터베이스로 게시할 수 있는 [복제](../managed-instance/replication-transactional-overview.md) 단계 등 다양 한 유형의 작업 단계를 만들 수 있습니다.
 
 > [!Note]
-> Azure SQL Managed Instance에서 호스트 하는 SSISDB를 사용 하 여 Azure SSIS Integration Runtime를 활용 하는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 AZURE sql Managed Instance SQL Server Integration Services (SSIS) 사용](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md)을 참조 하세요.
+> Azure SQL Managed Instance에서 호스트 하는 SSISDB를 사용 하 여 Azure SSIS Integration Runtime를 활용 하는 방법에 대 한 자세한 내용은 [Azure Data Factory에서 AZURE sql Managed Instance SQL Server Integration Services (SSIS) 사용](../../data-factory/how-to-use-sql-managed-instance-with-ir.md)을 참조 하세요.
 
 [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) 는 테이블의 변경 내용을 Azure SQL Managed Instance, Azure SQL Database 또는 SQL Server의 다른 데이터베이스로 복제할 수 있습니다. 자세한 내용은 [AZURE SQL Managed Instance에서 복제 구성](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조 하세요. 
 
@@ -97,7 +97,7 @@ SQL 에이전트를 사용 하면 데이터베이스에 대해 단일 Transact-s
 
 일정은 작업이 실행되는 시기에 대해 다음 조건을 정의할 수 있습니다.
 
-- SQL Server 에이전트 시작 될 때마다. 작업은 모든 장애 조치(failover) 후 활성화됩니다.
+- SQL Server 에이전트가 시작될 때마다 작업은 모든 장애 조치(failover) 후 활성화됩니다.
 - 특정 날짜 및 시간에 한 번 - 일부 작업의 지연된 실행에 유용합니다.
 - 되풀이 일정.
 

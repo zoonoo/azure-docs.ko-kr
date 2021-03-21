@@ -3,18 +3,21 @@ title: 가상 네트워크를 사용 하는 시나리오
 description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 65d7fa46ebbb9b072b50731bff68b9b88809075d
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 20c2b4fe2f19402d6647f398a9696b7e16550d8e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033832"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606891"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)는 Azure 및 온-프레미스 리소스를 위한 안전한 프라이빗 네트워킹 기능을 제공합니다. 컨테이너 그룹을 Azure Virtual Network에 배포하면 컨테이너가 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다. 
 
 이 문서에서는 가상 네트워크 시나리오, 제한 사항 및 리소스에 대 한 배경 정보를 제공 합니다. Azure CLI 사용 하는 배포 예제는 [Azure virtual network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조 하세요.
+
+> [!IMPORTANT]
+> 가상 네트워크에 대 한 컨테이너 그룹 배포는 Azure Container Instances을 사용할 수 있는 대부분의 지역에서 일반적으로 Linux 컨테이너에 사용할 수 있습니다. 자세한 내용은 [지역 및 리소스 가용성](container-instances-region-availability.md)을 참조 하세요. 
 
 ## <a name="scenarios"></a>시나리오
 
@@ -45,12 +48,6 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 * 컨테이너 그룹을 Azure Storage 계정에 연결 하는 경우 해당 리소스에 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 추가 해야 합니다.
 
 [!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
-
-## <a name="where-to-deploy"></a>배포할 위치
-
-Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 데 사용할 수 있는 지역 및 최대 리소스는 다음과 같습니다.
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="required-network-resources"></a>필요한 네트워크 리소스
 

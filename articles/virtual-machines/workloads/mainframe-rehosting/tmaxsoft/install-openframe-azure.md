@@ -10,10 +10,10 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.openlocfilehash: 01a053745ad0b2b280e214af8284113a02458a27
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549178"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Azure에 TmaxSoft OpenFrame 설치
@@ -97,7 +97,7 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 필요한 모든 소프트웨어를 조합 하 고 모든 수동 프로세스를 완료 하는 데 며칠의 비용을 계획 합니다.
 
@@ -780,13 +780,13 @@ TACF Manager는 RACF security를 통해 시스템 및 리소스에 대 한 사�
      TACF_TABLE_CREATE=YES
      ```
 
-4. TACF 설치 관리자를 완료 한 후 TACF 환경 변수를 적용 합니다. 명령 프롬프트에 다음을 입력합니다.
+4. TACF 설치 관리자를 완료 한 후 TACF 환경 변수를 적용 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      source \~/.bash\_profile
      ```
 
-5. TACF 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
+5. TACF 설치 관리자를 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      ./OpenFrame_Tacf7_0_Fix2_Linux_x86_64.bin -f tacf.properties
@@ -912,13 +912,13 @@ ProSort는 일괄 처리 트랜잭션에서 데이터를 정렬 하는 데 사�
 
 1. 일괄 설치에 성공 했는지 확인 한 다음 **prosort-bin-prosort \_ 2sp3-linux64-2123-opt. release.tar.gz** 설치 관리자 파일이 있는지 확인 합니다.
 
-2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
+2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      tar -zxvf prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz
      ```
 
-3. Prosort 디렉터리를 홈 위치로 이동 합니다. 명령 프롬프트에 다음을 입력합니다.
+3. Prosort 디렉터리를 홈 위치로 이동 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
      mv prosort /opt/tmaxapp/prosort
@@ -1019,7 +1019,7 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
      ```
 
 5. Vi ()에서 bash 프로필을 열고 `vi .bash_profile` 이 OFCOBOL 변수로 업데이트 되었는지 확인 합니다.
-6. Bash 프로필을 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
+6. Bash 프로필을 실행 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
      ```
       source ~/.bash_profile

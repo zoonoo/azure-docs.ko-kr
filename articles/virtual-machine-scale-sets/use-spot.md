@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596419"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722568"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 Azure 스팟 Virtual Machines 
 
@@ -23,7 +23,7 @@ ms.locfileid: "104596419"
 사용 가능한 용량의 크기는 크기, 지역, 시간 등에 따라 달라질 수 있습니다. 확장 집합에 Azure 스폿 가상 머신 인스턴스를 배포 하는 경우 Azure는 사용 가능한 용량이 있는 경우에만 인스턴스를 할당 하지만 이러한 인스턴스에 대 한 SLA는 없습니다. Azure 스폿 가상 머신 확장 집합은 단일 장애 도메인에 배포 되 고 고가용성 보장을 제공 하지 않습니다.
 
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 Azure 스폿 가상 머신 인스턴스에 대 한 가격은 지역 및 SKU에 따라 가변적입니다. 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)가격 책정을 참조 하세요. 
 
@@ -44,8 +44,8 @@ Azure 스폿 가상 머신은 Microsoft Azure 중국 21Vianet을 제외 하 고 
 현재 지원 되는 [제품 유형은](https://azure.microsoft.com/support/legal/offer-details/) 다음과 같습니다.
 
 -   기업 계약
--   종 량 제 제품 코드 003P
--   후원
+-   종 량 제 제품 코드 (003P)
+-   후원 (0036P 및 0136P)
 - CSP (클라우드 서비스 공급자)의 경우 [파트너 센터](/partner-center/azure-plan-get-started) 를 참조 하거나 파트너에 게 직접 문의 하세요.
 
 ## <a name="eviction-policy"></a>제거 정책
@@ -168,7 +168,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## <a name="resource-manager-templates"></a>리소스 관리자 템플릿

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
 ms.openlocfilehash: b9238d099c7b33e904c2fc8de3c4fc08369f1f36
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102489840"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps에서 SAP 시스템에 연결
@@ -1305,7 +1305,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. Action **Initialize 변수에** 대 한 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
 
-    1. **이름** 에 변수의 이름을 입력 합니다. 예: `IDOCtransferID`.
+    1. **이름** 에 변수의 이름을 입력 합니다. 예: `IDOCtransferID`
 
     1. **유형** 에 대해 **문자열** 을 변수 유형으로 선택 합니다.
 
@@ -1323,7 +1323,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
     1. **TID 확인** 에 대해 **아니요** 를 선택 합니다.
 
-    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID** 추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예: `IDOCtransferID`.
+    1. **새 매개 변수 목록**  >  **트랜잭션 ID GUID** 추가를 선택 합니다. 텍스트 상자를 선택 하 여 동적 콘텐츠 메뉴를 엽니다. **변수** 탭에서 사용자가 만든 변수의 이름을 선택 합니다. 예: `IDOCtransferID`
 
 1. Action **SEND IDOC** 의 제목 표시줄에서 **...**  >  를 선택 합니다. **설정**. **재시도 정책** 에 대해 **기본** 완료를 선택 하는 것이 좋습니다 &gt; . 그러나 특정 요구에 맞게 사용자 지정 정책을 구성할 수 있습니다. 사용자 지정 정책의 경우 일시적인 네트워크 중단을 극복 하기 위해 하나 이상의 재시도를 구성 하는 것이 좋습니다.
 
@@ -1331,7 +1331,7 @@ Logic Apps에서 SAP로 트랜잭션을 보낼 때이 exchange는 SAP 문서 [�
 
 1. **트랜잭션 ID 확인** 작업의 편집기에서 다음 설정을 구성 합니다. 그런 다음 변경 내용을 저장 합니다.
 
-    1. **트랜잭션 ID** 에 변수 이름을 다시 입력 합니다. 예: `IDOCtransferID`.
+    1. **트랜잭션 ID** 에 변수 이름을 다시 입력 합니다. 예: `IDOCtransferID`
 
 1. 필요에 따라 테스트 환경에서 중복 제거의 유효성을 검사 합니다. 이전 단계에서 사용한 것과 동일한 **트랜잭션 ID** GUID를 사용 하 여 **Send idoc** 작업을 반복 합니다. 동일한 IDoc를 두 번 보내면 SAP에서 tRFC 호출의 중복을 식별할 수 있는지 확인 하 고 단일 인바운드 IDoc 메시지에 대 한 두 호출을 확인할 수 있습니다.
 
