@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/16/2020
 ms.openlocfilehash: ce5dc74dc3625b2b1fed447c4e6480308267d32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578675"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal"></a>Azure Portal에서 Kubernetes 리소스에 액세스
@@ -17,7 +17,7 @@ Azure Portal에는 AKS (Azure Kubernetes Service) 클러스터의 Kubernetes 리
 
 Azure Portal의 Kubernetes 리소스 뷰가 더 이상 사용 되지 않는 [AKS dashboard 추가 기능][kubernetes-dashboard]을 대체 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Portal에서 Kubernetes 리소스를 보려면 AKS 클러스터가 필요 합니다. 모든 클러스터가 지원 되지만 Azure Active Directory (Azure AD) 통합을 사용 하는 경우 클러스터에서 [AKS로 관리 되는 AZURE ad 통합][aks-managed-aad]을 사용 해야 합니다. 클러스터에서 레거시 Azure AD를 사용 하는 경우 포털에서 또는 [Azure CLI][cli-aad-upgrade]를 사용 하 여 클러스터를 업그레이드할 수 있습니다. [Azure Portal를 사용][portal-cluster] 하 여 새 AKS 클러스터를 만들 수도 있습니다.
 

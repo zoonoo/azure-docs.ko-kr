@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123023"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589330"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -197,13 +197,13 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 
 
 ## <a name="blocking-consumer-applications-public-preview"></a>소비자 응용 프로그램 차단 (공개 미리 보기)
 
-소비자 계정 및 조직 계정 (예: [OneDrive](https://onedrive.live.com/) 또는 [Microsoft Learn](https://docs.microsoft.com/learn/))을 모두 지 원하는 Microsoft 응용 프로그램은 경우에 따라 동일한 URL에서 호스팅될 수 있습니다.  즉, 해당 URL에 대 한 액세스 권한이 필요한 사용자는 개인 용도로도 액세스할 수 있으며,이는 사용자의 운영 지침에 따라 허용 되지 않을 수 있습니다.
+소비자 계정 및 조직 계정 (예: [OneDrive](https://onedrive.live.com/) 또는 [Microsoft Learn](/learn/))을 모두 지 원하는 Microsoft 응용 프로그램은 경우에 따라 동일한 URL에서 호스팅될 수 있습니다.  즉, 해당 URL에 대 한 액세스 권한이 필요한 사용자는 개인 용도로도 액세스할 수 있으며,이는 사용자의 운영 지침에 따라 허용 되지 않을 수 있습니다.
 
 일부 조직에서는 개인 계정이 인증 되지 않도록 차단 하 여이 문제를 해결 하려고 `login.live.com` 합니다.  여기에는 몇 가지 단점이 있습니다.
 
 1. 차단은 `login.live.com` B2B 게스트 시나리오에서 개인 계정의 사용을 차단 하므로 방문자와 공동 작업을 방해가 수 있습니다.
-1. [Autopilot를 사용 하려면 다음 `login.live.com` 을 사용 해야 합니다](https://docs.microsoft.com/mem/autopilot/networking-requirements) . 을 배포 합니다. 이 차단 되 면 Intune 및 Autopilot 시나리오가 실패할 수 있습니다 `login.live.com` .
-1. 장치 Id에 대해 login.live.com 서비스를 사용 하는 조직 원격 분석 및 Windows 업데이트의 [작동이 중단 됩니다](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot를 사용 하려면 다음 `login.live.com` 을 사용 해야 합니다](/mem/autopilot/networking-requirements) . 을 배포 합니다. 이 차단 되 면 Intune 및 Autopilot 시나리오가 실패할 수 있습니다 `login.live.com` .
+1. 장치 Id에 대해 login.live.com 서비스를 사용 하는 조직 원격 분석 및 Windows 업데이트의 [작동이 중단 됩니다](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>소비자 앱에 대 한 구성
 
@@ -216,7 +216,7 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 
 `restrict-msa`이 정책은 소비자 응용 프로그램의 사용을 차단 하지만 다음과 같은 다양 한 유형의 트래픽 및 인증을 허용 합니다.
 
 1. 사용자가 없는 장치 트래픽  여기에는 Autopilot, Windows 업데이트 및 조직 원격 분석에 대 한 트래픽이 포함 됩니다.
-1. 소비자 계정의 B2B 인증. [테 넌 트와 공동 작업을 위해 초대](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) 된 Microsoft 계정을 가진 사용자는 리소스 테 넌 트에 액세스 하기 위해 login.live.com에 인증 합니다.
+1. 소비자 계정의 B2B 인증. [테 넌 트와 공동 작업을 위해 초대](../external-identities/redemption-experience.md#invitation-redemption-flow) 된 Microsoft 계정을 가진 사용자는 리소스 테 넌 트에 액세스 하기 위해 login.live.com에 인증 합니다.
     1. 이 액세스는 `Restrict-Access-To-Tenants` 리소스 테 넌 트에 대 한 액세스를 허용 하거나 거부 하는 헤더를 사용 하 여 제어 됩니다.
 1. 여러 Azure 앱과 Office.com에 사용 되는 "통과" 인증. 앱은 Azure AD를 사용 하 여 소비자 컨텍스트에서 소비자 사용자를 로그인 합니다.
     1. 또한이 액세스는 `Restrict-Access-To-Tenants` 특정 "통과" 테 넌 트 ()에 대 한 액세스를 허용 하거나 거부 하는 헤더를 사용 하 여 제어 됩니다 `f8cdef31-a31e-4b4a-93e4-5f571e91255a` .  이 테 넌 트가 `Restrict-Access-To-Tenants` 허용 된 도메인 목록에 표시 되지 않으면 AZURE AD에서 이러한 앱에 로그인 하지 못하도록 소비자 계정이 차단 됩니다.

@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 09/12/2019
 ms.openlocfilehash: 2a23fc0b769727cab5a28d3d313a7791bcfa6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91617709"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 가상 네트워크 만들기
@@ -52,7 +52,7 @@ Azure SQL Managed Instance는 Azure [virtual network](../../virtual-network/virt
    이 단추를 클릭 하면 SQL Managed Instance를 배포할 수 있는 네트워크 환경을 구성 하는 데 사용할 수 있는 양식이 열립니다.
 
    > [!Note]
-   > 이 Azure Resource Manager 템플릿은 두 개의 서브넷이 있는 가상 네트워크를 배포합니다. **Managedinstances**라는 하나의 서브넷은 SQL Managed Instance 예약 되며 미리 구성 된 경로 테이블을 포함 합니다. **기본값**이라고 하는 다른 서브넷은 SQL Managed Instance (예: Azure Virtual Machines)에 액세스 해야 하는 다른 리소스에 사용 됩니다.
+   > 이 Azure Resource Manager 템플릿은 두 개의 서브넷이 있는 가상 네트워크를 배포합니다. **Managedinstances** 라는 하나의 서브넷은 SQL Managed Instance 예약 되며 미리 구성 된 경로 테이블을 포함 합니다. **기본값** 이라고 하는 다른 서브넷은 SQL Managed Instance (예: Azure Virtual Machines)에 액세스 해야 하는 다른 리소스에 사용 됩니다.
 
 3. 네트워크 환경을 구성합니다. 다음 양식에서 네트워크 환경의 매개 변수를 구성할 수 있습니다.
 

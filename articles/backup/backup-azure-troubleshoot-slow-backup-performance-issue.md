@@ -4,10 +4,10 @@ description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.openlocfilehash: b3f2ac343ef4a703f347ec8a57f242a636bb32d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88824018"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
@@ -27,9 +27,9 @@ ms.locfileid: "88824018"
 
 ## <a name="cause-backup-job-running-in-unoptimized-mode"></a>원인: 최적화되지 않은 모드에서 실행 중인 백업 작업
 
-* MARS 에이전트는 USN(업데이트 시퀀스 번호) 변경 저널을 사용하여 **최적화된 모드**에서 백업 작업을 실행하거나 전체 볼륨 검색을 통해 디렉터리 또는 파일의 변경 내용을 확인하여 **최적화되지 않은 모드**에서 백업 작업을 실행할 수 있습니다.
+* MARS 에이전트는 USN(업데이트 시퀀스 번호) 변경 저널을 사용하여 **최적화된 모드** 에서 백업 작업을 실행하거나 전체 볼륨 검색을 통해 디렉터리 또는 파일의 변경 내용을 확인하여 **최적화되지 않은 모드** 에서 백업 작업을 실행할 수 있습니다.
 * 최적화되지 않은 모드에서는 에이전트가 볼륨의 각 파일을 검색하고 메타데이터와 비교하여 변경된 파일을 확인해야 하므로 속도가 느립니다.
-* 이를 확인하려면 아래와 같이 MARS 에이전트 콘솔에서 **작업 세부 정보**를 열고 상태가 **데이터를 전송하는 중(최적화되지 않았으므로 시간이 더 걸릴 수 있음)** 인지 확인합니다.
+* 이를 확인하려면 아래와 같이 MARS 에이전트 콘솔에서 **작업 세부 정보** 를 열고 상태가 **데이터를 전송하는 중(최적화되지 않았으므로 시간이 더 걸릴 수 있음)** 인지 확인합니다.
 
     ![최적화되지 않은 모드에서 실행](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
 
