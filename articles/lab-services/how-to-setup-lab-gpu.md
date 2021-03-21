@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96452369"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>GPU virtual machines를 사용 하 여 랩 설정
@@ -66,7 +66,7 @@ ms.locfileid: "96452369"
 
    a. 브라우저에서 [NVIDIA 드라이버 다운로드 페이지로](https://www.nvidia.com/Download/index.aspx)이동 합니다.  
    b. **제품 유형을** **Tesla** 로 설정 합니다.  
-   c. **제품 시리즈** 를 **K 시리즈** 로 설정 합니다.  
+   다. **제품 시리즈** 를 **K 시리즈** 로 설정 합니다.  
    d. 랩을 만들 때 선택한 기본 이미지 유형에 따라 **운영 체제** 를 설정 합니다.  
    e. 필요한 verda 드라이버의 버전으로 **Verda Toolkit** 을 설정 합니다.  
    f. **검색** 을 선택 하 여 드라이버를 찾습니다.  

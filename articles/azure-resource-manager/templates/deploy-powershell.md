@@ -4,10 +4,10 @@ description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 784f17566ce4fb19a7ec5e3fd4a504d7c25f90fe
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521631"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포
@@ -16,7 +16,7 @@ ms.locfileid: "102521631"
 
 Bicep 파일을 배포 하려면 [Azure PowerShell 버전 5.6.0 이상이](/powershell/azure/install-az-ps)필요 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용 된 로컬 파일 이름은 _C:\MyTemplates\azuredeploy.js_ 됩니다.
 

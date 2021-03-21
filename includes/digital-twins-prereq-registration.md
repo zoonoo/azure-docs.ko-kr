@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 2ce534972cf6509cdc1ca026f4b29efd3df91afd
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96303591"
 ---
 이 문서에 사용 된 모든 리소스를 인증 하려면 **[Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) 앱 등록을 설정** 해야 합니다. [*방법: 앱 등록 만들기*](../articles/digital-twins/how-to-create-app-registration.md)의 지침에 따라 설정합니다. 

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: sideeksh
 ms.openlocfilehash: 42d3c74229ab7eeec0ac716073a9e631775fd002
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96187343"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제에서 모바일 서비스의 자동 업데이트
@@ -57,7 +57,7 @@ Site Recovery는 확장 업데이트를 관리할 수 있는 여러 가지 방�
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>자격 증명 모음 내에서 확장 업데이트 설정 전환
 
 1. Recovery Services 자격 증명 모음에서 **관리**  >  **Site Recovery 인프라** 로 이동 합니다.
-1. **Azure Virtual Machines**  >  **확장 업데이트 설정** 에서  >  **관리 Site Recovery 허용** 을 선택 합니다. **On**
+1. **Azure Virtual Machines**  >  **확장 업데이트 설정** 에서  >  **관리 Site Recovery 허용** 을 선택 합니다. 
 
    확장을 수동으로 관리 하려면 **끄기** 를 선택 합니다.
 

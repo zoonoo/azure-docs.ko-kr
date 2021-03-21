@@ -4,10 +4,10 @@ description: 2021년 2월 1일 ~ 2021년 2월 28일 자 Azure Monitor 문서의 
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 9842c5e64a590c940b08a4830a3ecee93fb3672a
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102430448"
 ---
 # <a name="azure-monitor-docs-whats-new-for-february-1-2021---february-28-2021"></a>Azure Monitor 문서: 2021년 2월 1일 ~ 2021년 2월 28일 자 새로운 소식

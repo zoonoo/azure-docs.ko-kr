@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
 ms.openlocfilehash: a85c5b2333418367742678a529b69c95164eda53
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350486"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>썸네일 이미지 크기 조정 및 자르기
@@ -25,7 +25,7 @@ ms.locfileid: "96350486"
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
 > 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다. 예:
+Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다. 예를 들면 다음과 같습니다.
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`
 

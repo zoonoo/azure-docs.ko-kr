@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 3383af447f40ea984bce9cbc956f22ee6c5af200
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584050"
 ---
 # <a name="get-report-api"></a>보고서 API 가져오기
@@ -41,7 +41,7 @@ ms.locfileid: "102584050"
 | --- | --- | --- | --- |
 | `reportId` | 예 | 문자열 | 이 인수에 지정 된를 사용 하 여 보고서의 세부 정보만 가져오도록 필터링 합니다. `reportId` |
 | `reportName` | 예 | 문자열 | 이 인수에 지정 된를 사용 하 여 보고서의 세부 정보만 가져오도록 필터링 합니다. `reportName` |
-| `queryId` | No | boolean | 응답에 미리 정의 된 시스템 쿼리 포함 |
+| `queryId` | 아니요 | boolean | 응답에 미리 정의 된 시스템 쿼리 포함 |
 
 **용어 설명**
 

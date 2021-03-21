@@ -13,10 +13,10 @@ ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
 ms.openlocfilehash: c63b71ad00a5621babe07597720a1e9ea87f1e4a
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99260251"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
@@ -125,7 +125,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 | */25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 메일을 보내기 위해 SMTP 릴레이에 연결                    | 외부 및 내부  |
 | * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [캐시](api-management-caching-policies.md) 정책에 대 한 Redis 서비스 액세스         | 외부 및 내부  |
 | */4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [요율 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대 한 동기화 카운터         | 외부 및 내부  |
-| * / \*                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
+| * / *                        | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure 인프라 부하 분산 장치                          | 외부 및 내부  |
 
 >[!IMPORTANT]
 > API Management 서비스를 성공적으로 배포하려면 *목적* 이 **볼드** 인 포트가 필요합니다. 그러나 다른 포트를 차단 하면 실행 중인 서비스를 사용 하 고 모니터링 하는 기능이 **저하** **되며 커밋된 SLA가 제공** 됩니다.

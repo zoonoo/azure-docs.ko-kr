@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/06/2020
 ms.openlocfilehash: 1d41e9dc39b50b92351fe38a86587a67811c5eec
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94370253"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-azure-application-offer"></a>Azure 애플리케이션 제품에 대 한 미리 보기 대상을 추가 하는 방법

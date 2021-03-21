@@ -11,10 +11,10 @@ ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 03/19/2021
 ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563218"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 가이드: SQL Server에서 Azure VM의 SQL Server로 
@@ -33,7 +33,7 @@ ms.locfileid: "103563218"
 
 :::image type="content" source="media/sql-server-to-sql-on-azure-vm-migration-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Vm에서 SQL Server로 마이그레이션하려면 다음을 수행 해야 합니다. 
 
@@ -111,7 +111,7 @@ DMA 평가 결과에 따라 사용자 데이터베이스가 마이그레이션 �
 > 모든 SQL Server 버전에서 모든 호환성 모드를 지 원하는 것은 아닙니다. [대상 SQL Server 버전](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) 에서 선택한 데이터베이스 호환성을 지원 하는지 확인 합니다. 예를 들어 SQL Server 2019는 수준 90 호환성 (SQL Server 2005)을 포함 하는 데이터베이스를 지원 하지 않습니다. 이러한 데이터베이스는 최소한 호환성 수준 100로 업그레이드 해야 합니다.
 >
 
-## <a name="migrate"></a>마이그레이션
+## <a name="migrate"></a>Migrate
 
 마이그레이션 전 단계를 완료 한 후에는 사용자 데이터베이스 및 구성 요소를 마이그레이션할 준비가 된 것입니다. 기본 설정 [마이그레이션 방법을](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)사용 하 여 데이터베이스를 마이그레이션합니다.  
 

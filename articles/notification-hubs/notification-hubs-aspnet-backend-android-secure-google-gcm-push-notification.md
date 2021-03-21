@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: f2d5d618fabbe7400ce825f984ace1622a524f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88004022"
 ---
 # <a name="send-secure-push-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용 하 여 보안 푸시 알림 보내기
@@ -146,4 +146,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 간편하게 사용할 수 있
 1. **AppBackend** 가 Azure에 배포되었는지 확인합니다. Visual Studio를 사용할 경우 **AppBackend** Web API 애플리케이션을 실행합니다. ASP.NET 웹 페이지가 표시됩니다.
 2. Eclipse에서는 실제 Android 디바이스나 에뮬레이터에서 앱을 실행합니다.
 3. Android 앱 UI에서 사용자 이름과 암호를 입력합니다. 이는 임의 문자열일 수 있지만 같은 값이어야 합니다.
-4. Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
+4. Android 앱 UI에서 **로그인** 을 클릭합니다. 그리고 나서 **푸시 보내기** 를 클릭합니다.

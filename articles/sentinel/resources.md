@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
 ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048236"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
@@ -28,7 +28,7 @@ ms.locfileid: "102048236"
 
 ## <a name="learn-more-about-creating-queries"></a>쿼리 만들기에 대 한 자세한 정보
 
-Azure 센티널은 Azure Monitor Log Analytics의 Kusto 쿼리 언어 (KQL)를 사용 하 여 쿼리를 작성 합니다. 자세한 내용은 다음을 참조하십시오.
+Azure 센티널은 Azure Monitor Log Analytics의 Kusto 쿼리 언어 (KQL)를 사용 하 여 쿼리를 작성 합니다. 자세한 내용은 다음을 참조하세요.
 
 - [KQL 개념](/azure/data-explorer/kusto/concepts/)
 - [KQL 쿼리](/azure/data-explorer/kusto/query/)

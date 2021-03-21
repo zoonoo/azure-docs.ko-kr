@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
 ms.openlocfilehash: c5404c026385f9ebf06c4f0289a4db0bf944d172
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341240"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 Table API에 대한 질문과 대답
@@ -197,7 +197,7 @@ Table API는 Azure Cosmos DB라는 세계적으로 분산된 플랫폼을 활용
 
 예, 인덱스 정의를 제공하여 인덱싱 정책을 변경할 수 있습니다. 설정을 적절하게 인코딩 및 이스케이프해야 합니다.
 
-**데이터 탐색기** 의 포털에서만 인덱싱 정책을 설정할 수 있는 비 .NET SDK의 경우 변경하려는 특정 테이블로 이동한 다음, **규모 및 설정** ->인덱싱 정책으로 이동하여 필요한 내용을 변경한 다음, **저장** 합니다.
+**데이터 탐색기** 의 포털에서만 인덱싱 정책을 설정할 수 있는 비 .NET SDK의 경우 변경하려는 특정 테이블로 이동한 다음, **규모 및 설정**->인덱싱 정책으로 이동하여 필요한 내용을 변경한 다음, **저장** 합니다.
 
 .NET SDK에서 app.config 파일에 제출할 수 있습니다.
 

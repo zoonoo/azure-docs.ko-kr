@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337511"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Azure Data Box 및 Azure Data Box Heavy 내보내기 주문에 대 한 추적 및 이벤트 로깅
@@ -26,10 +26,10 @@ Data Box 또는 Data Box Heavy 내보내기 순서는 순서, 설정, 데이터 
 | Data Box 내보내기 주문 단계       | 추적 및 감사 도구                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 주문 만들기               | [Azure RBAC를 통해 주문에 대 한 액세스 제어 설정](#set-up-access-control-on-the-order) <br> [자세한 로그를 순서 대로 사용](#enable-verbose-log-in-the-order)                                                    |
-| 처리 된 주문            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송 업체 웹 사이트 </li><li>이메일 알림</ul> |
+| 주문 처리            | [주문 추적](#track-the-order) <ul><li> Azure portal </li><li> 운송업체 웹 사이트 </li><li>이메일 알림</ul> |
 | 디바이스 설정              | 장치 자격 증명 액세스는 [활동 로그](#query-activity-logs-during-setup) 에 기록 됩니다.              |
 | 장치에서 데이터 복사        | [복사 로그 검토](#copy-log) <br> 데이터를 복사 하기 전에 [자세한 정보 표시 로그 검토](#verbose-log)            |
-| 장치에서 데이터 지우기   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
+| 디바이스에서 데이터 삭제   | 감사 로그 및 주문 기록을 포함 하 [는 관리 권의 로그의 체인 보기](#get-chain-of-custody-logs-after-data-erasure)                |
 
 
 ## <a name="set-up-access-control-on-the-order"></a>주문에 대 한 액세스 제어 설정
@@ -252,7 +252,7 @@ Azure Portal에서 주문 기록을 사용할 수 있습니다. 주문이 완료
 
 - 장치에 대 한 반송파 추적 정보입니다.
 - *Secureerase* 작업을 사용 하는 이벤트입니다. 이러한 이벤트는 디스크의 데이터를 지울 때 해당 됩니다.
-- 로그 링크를 Data Box 합니다. *감사 로그* , *복사 로그* 및 *BOM* 파일의 경로가 표시 됩니다.
+- 로그 링크를 Data Box 합니다. *감사 로그*, *복사 로그* 및 *BOM* 파일의 경로가 표시 됩니다.
 
 다음은 Azure Portal의 주문 기록 로그 샘플입니다.
 

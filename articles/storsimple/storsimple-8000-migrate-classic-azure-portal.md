@@ -1,6 +1,6 @@
 ---
-title: StorSimple Device Manager storage 계정, 구독 마이그레이션
-description: StorSimple Device Manager 서비스에 대 한 구독 및 저장소 계정을 마이그레이션하는 방법에 대해 알아봅니다.
+title: StorSimple 장치 관리자 storage 계정, 구독 마이그레이션
+description: StorSimple 장치 관리자 서비스에 대 한 구독 및 저장소 계정을 마이그레이션하는 방법에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 523788dc727fc5fa32b2f57250fb738352ff6d31
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96491523"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스와 연결된 구독 및 스토리지 계정 마이그레이션

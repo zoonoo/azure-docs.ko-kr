@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: fd7abb4364cf10e01008b980211949a65027d6a2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335401"
 ---
 # <a name="sin-azure-cosmos-db"></a>SIN (Azure Cosmos DB)
@@ -35,7 +35,7 @@ SIN(<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 지정 된 `SIN` 각도의를 계산 합니다.  
   

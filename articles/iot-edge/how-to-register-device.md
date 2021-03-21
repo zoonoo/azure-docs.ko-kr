@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
 ms.openlocfilehash: d75f184a324a9d418b0af2e3cf5790205af0fa42
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200710"
 ---
 # <a name="register-an-iot-edge-device-in-iot-hub"></a>IoT Hub에 IoT Edge 장치 등록
@@ -42,7 +42,7 @@ IoT hub에 연결 하는 모든 장치에는 클라우드-장치 또는 장치-�
 * [TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-linux.md)
 * [대칭 키를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-symmetric-keys.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

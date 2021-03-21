@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Stack 또는 다른 환경에서 호스�
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: d2692b4a634d60ef62339f68277591d711260712
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711249"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>컨테이너 insights를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
@@ -32,7 +32,7 @@ ms.locfileid: "101711249"
 
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -347,7 +347,7 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-예: `omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
+`omsagent.proxy=http://user01:password@proxy01.contoso.com:8080`
 
 프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 

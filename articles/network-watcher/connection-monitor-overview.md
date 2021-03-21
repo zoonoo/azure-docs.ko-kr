@@ -16,10 +16,10 @@ ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
 ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101712320"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>연결 모니터를 사용 하 여 네트워크 연결 모니터링
@@ -287,7 +287,7 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 메트릭을 사용 하는 경우 리소스 종류를 Microsoft. Network/networkWatchers/connectionMonitors로 설정 합니다.
 
-| 메트릭 | 표시 이름 | 단위 | 집계 유형 | Description | 차원 |
+| 메트릭 | 표시 이름 | 단위 | 집계 유형 | 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent (클래식) | % 프로브 실패 (클래식) | 백분율 | 평균 | 연결 모니터링 프로브 비율이 실패 했습니다. | 차원 없음 |
 | AverageRoundtripMs (클래식) | 평균 왕복 시간 (밀리초) (클래식) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 연결 모니터링 프로브에 대 한 평균 네트워크 RTT입니다. |             차원 없음 |

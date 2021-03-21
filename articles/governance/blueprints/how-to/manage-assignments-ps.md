@@ -4,10 +4,10 @@ description: 공식 Azure 청사진 PowerShell 모듈인 Az. 청사진을 사용
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: d60fb887e07b4697b8e86a4e2fd74a735ac0bb58
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919379"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell을 사용 하 여 할당을 관리 하는 방법

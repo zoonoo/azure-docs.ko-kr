@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 9791d99598fe3d043c42a37e2f4993edd6c5b3ba
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96487136"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
@@ -76,7 +76,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 요청에 다음과 같은 쿼리 매개 변수를 포함할 수 있습니다. 필수 매개 변수는 필수 열을 참조하세요. 쿼리 매개 변수는 URL로 인코드해야 합니다.  
   
   
-|Name|값|형식|필수|  
+|Name|값|Type|필수|  
 |----------|-----------|----------|--------------|
 |<a name="count"></a>count|매개 변수로 지정 된 인덱스부터 시작 하 여 반환할 결과 수입니다 `offset` .|String|아니요|   
 |<a name="localCategories"></a>localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|String|아니요|  
@@ -100,7 +100,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="error"></a>오류  
 발생한 오류를 정의합니다.  
   
-|요소|설명|형식|  
+|요소|설명|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code"></a>code|오류 범주를 식별하는 오류 코드입니다. 가능한 코드 목록은 [오류 코드](#error-codes)를 참조하세요.|String|  
 |<a name="error-message"></a>message|오류에 대한 설명입니다.|String|  
@@ -113,7 +113,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="errorresponse"></a>ErrorResponse  
 요청이 실패할 경우 응답에 포함되는 최상위 개체입니다.  
   
-|Name|값|형식|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|String|  
 |<a name="errors"></a>errors|요청이 실패한 이유를 설명하는 오류 목록입니다.|[오류](#error)[]|  
@@ -123,7 +123,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="license"></a>라이선스  
 텍스트 또는 사진을 사용할 수 있는 라이선스를 정의합니다.  
   
-|Name|값|형식|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |name|라이선스의 이름입니다.|String|  
 |url|사용자가 라이선스에 대한 자세한 정보를 얻을 수 있는 웹 사이트의 URL입니다.<br /><br /> 하이퍼링크를 만들려면 이름 및 URL을 사용합니다.|String|  
@@ -132,7 +132,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="link"></a>링크  
 하이퍼링크의 구성 요소를 정의합니다.  
   
-|Name|값|형식|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |_type|유형 힌트입니다.|String|  
 |text|표시 텍스트입니다.|String|  
@@ -146,7 +146,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
   
 게시자는 자신의 이름, 웹 사이트 또는 둘 다를 제공할 수 있습니다.  
   
-|Name|값|형식|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |name|게시자의 이름입니다.|String|  
 |url|게시자 웹 사이트의 URL입니다.<br /><br /> 게시자가 웹 사이트를 제공하지 않을 수도 있습니다.|String|  
@@ -156,7 +156,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="place"></a>위치  
 식당 또는 호텔과 같은 로컬 비즈니스에 대한 정보를 정의합니다.  
   
-|Name|값|형식|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |_type|다음 중 하나로 설정할 수 있는 힌트를 입력합니다.<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>식당</ul><li>|String|  
 |address|엔터티가 위치한 우편 주소입니다.|PostalAddress|  
@@ -170,7 +170,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 ### <a name="querycontext"></a>QueryContext  
 Bing이 요청에 사용한 쿼리 컨텍스트를 정의합니다.  
   
-|요소|설명|형식|  
+|요소|설명|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|지정한 쿼리에 성인 의도가 있는지 여부를 나타내는 부울 값입니다. 쿼리에 성인 의도가 있으면 값이 **true** 이고, 없으면 **false** 입니다.|부울|  
 |alterationOverrideQuery|Bing에서 원래 문자열을 사용하도록 강제하는 데 사용할 쿼리 문자열입니다. 예를 들어 쿼리 문자열이 *saling downwind* 인 경우 대체 쿼리 문자열은 *+saling downwind* 가 됩니다. 쿼리 문자열을 인코드하여 *%2Bsaling+downwind* 로 만들어야 합니다.<br /><br /> 이 필드는 원래 쿼리 문자열에 오타가 있는 경우에만 포함됩니다.|String|  
@@ -180,21 +180,21 @@ Bing이 요청에 사용한 쿼리 컨텍스트를 정의합니다.
 
 ### <a name="identifiable"></a>Identifiable
 
-|Name|값|형식|  
+|Name|값|Type|  
 |-------------|-----------------|----------|
 |id|리소스 식별자|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 mainline과 같은 검색 결과 그룹을 정의합니다.
 
-|Name|값|형식|  
+|Name|값|Type|  
 |-------------|-----------------|----------|
 |items|그룹에 표시할 검색 결과 목록입니다.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 표시할 검색 결과 항목을 정의합니다.
 
-|Name|값|형식|  
+|Name|값|Type|  
 |-------------|-----------------|----------|
 |resultIndex|답변에서 표시할 항목의 0부터 시작 인덱스입니다. 항목에 이 필드가 없는 경우 답변에 있는 모든 항목을 표시합니다. 예를 들어 뉴스 답변에 있는 모든 뉴스 기사를 표시합니다.|정수|
 |answerType|표시할 항목이 포함된 답변입니다. 예를 들어 뉴스입니다.<br /><br />유형을 사용하여 SearchResponse 개체에서 답변을 찾습니다. 유형은 SearchResponse 필드의 이름입니다.<br /><br /> 그러나 이 개체에 value 필드가 포함된 경우에만 답변 유형을 사용합니다. value 필드가 없으면 무시합니다.|String|
@@ -215,7 +215,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
   
 서비스에서 서비스 거부 공격을 의심할 경우 요청이 성공하지만(HTTP 상태 코드는 200 OK) 응답의 본문이 비어 있습니다.  
   
-|Name|값|형식|  
+|Name|값|Type|  
 |----------|-----------|----------|  
 |_type|SearchResponse로 설정되는 유형 힌트입니다.|String|  
 |장소|검색 쿼리와 관련 있는 엔터티 목록입니다.|JSON 개체|  
@@ -226,7 +226,7 @@ mainline과 같은 검색 결과 그룹을 정의합니다.
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다.  
   
-|상태 코드|Description|  
+|상태 코드|설명|  
 |-----------------|-----------------|  
 |200|성공.|  
 |400|쿼리 매개 변수 중 하나가 없거나 잘못되었습니다.|  

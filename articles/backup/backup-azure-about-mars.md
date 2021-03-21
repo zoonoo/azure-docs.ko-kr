@@ -4,13 +4,13 @@ description: MARS 에이전트가 백업 시나리오를 지 원하는 방법 �
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.openlocfilehash: 8e4ace0c17dbe75e989981db56583ed9477b3716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87562602"
 ---
-# <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 정보
+# <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 소개
 
 이 문서에서는 Azure Backup 서비스가 MARS (Microsoft Azure Recovery Services) 에이전트를 사용 하 여 온-프레미스 컴퓨터에서 Azure로 파일, 폴더 및 볼륨 또는 시스템 상태를 백업 및 복원 하는 방법을 설명 합니다.
 
@@ -28,7 +28,7 @@ MARS 에이전트는 다음과 같은 백업 시나리오를 지원 합니다.
 
 - **Azure 가상 머신 내에서 특정 파일 및 폴더 백업**: azure vm (가상 머신)을 백업 하는 기본 방법은 vm에서 Azure Backup 확장을 사용 하는 것입니다. 확장은 전체 VM을 백업 합니다. VM 내의 특정 파일 및 폴더를 백업 하려면 Azure Vm에 MARS 에이전트를 설치 하면 됩니다. 자세한 내용은 [아키텍처: 기본 제공 AZURE VM 백업](./backup-architecture.md#architecture-built-in-azure-vm-backup)을 참조 하세요.
 
-- **오프 라인 시드**: Azure에 대 한 데이터의 초기 전체 백업은 일반적으로 많은 양의 데이터를 전송 하 고 더 많은 네트워크 대역폭을 요구 합니다. 후속 백업에서는 델타 또는 증분 분량의 데이터만 전송 합니다. Azure Backup은 초기 백업을 압축합니다. *오프 라인 시드*프로세스를 통해 디스크를 사용 하 여 오프 라인으로 압축 된 초기 백업 데이터를 Azure에 업로드할 수 Azure Backup. 자세한 내용은 [Azure Data Box를 사용 하 여 오프 라인 백업 Azure Backup](offline-backup-azure-data-box.md)를 참조 하세요.
+- **오프 라인 시드**: Azure에 대 한 데이터의 초기 전체 백업은 일반적으로 많은 양의 데이터를 전송 하 고 더 많은 네트워크 대역폭을 요구 합니다. 후속 백업에서는 델타 또는 증분 분량의 데이터만 전송 합니다. Azure Backup은 초기 백업을 압축합니다. *오프 라인 시드* 프로세스를 통해 디스크를 사용 하 여 오프 라인으로 압축 된 초기 백업 데이터를 Azure에 업로드할 수 Azure Backup. 자세한 내용은 [Azure Data Box를 사용 하 여 오프 라인 백업 Azure Backup](offline-backup-azure-data-box.md)를 참조 하세요.
 
 ## <a name="restore-scenarios"></a>복원 시나리오
 
@@ -48,7 +48,7 @@ MARS 에이전트는 다음 복원 시나리오를 지원 합니다.
 
 ## <a name="backup-process"></a>백업 프로세스
 
-1. Azure Portal에서 [Recovery Services 자격 증명 모음](install-mars-agent.md#create-a-recovery-services-vault)을 만들고 **백업 목표**에서 파일, 폴더 및 시스템 상태를 선택 합니다.
+1. Azure Portal에서 [Recovery Services 자격 증명 모음](install-mars-agent.md#create-a-recovery-services-vault)을 만들고 **백업 목표** 에서 파일, 폴더 및 시스템 상태를 선택 합니다.
 2. [Recovery Services 자격 증명 모음 자격 증명 및 에이전트 설치 관리자](./install-mars-agent.md#download-the-mars-agent) 를 온-프레미스 컴퓨터에 다운로드 합니다.
 
 3. [에이전트를 설치](./install-mars-agent.md#install-and-register-the-agent) 하 고 다운로드 한 자격 증명 모음을 사용 하 여 Recovery Services 자격 증명 모음에 컴퓨터를 등록 합니다.

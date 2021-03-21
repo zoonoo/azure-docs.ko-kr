@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
 ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96000252"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Azure 가상 머신 장애 복구에서 가속화된 네트워킹
@@ -24,7 +24,7 @@ ms.locfileid: "96000252"
 
 Azure Site Recovery를 사용하면 다른 Azure 지역에 장애 조치된 Azure 가상 머신에 대한 가속화된 네트워킹의 이점을 활용할 수 있습니다. 이 문서에서는 Azure Site Recovery를 사용하여 복제된 Azure 가상 머신에 대해 가속화된 네트워킹을 사용하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 이해해야 합니다.
 -   Azure 가상 머신 [복제 아키텍처](azure-to-azure-architecture.md)

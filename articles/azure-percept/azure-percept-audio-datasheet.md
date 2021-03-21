@@ -7,10 +7,10 @@ ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ms.openlocfilehash: 3e72aea657b82c2111bea1493b5654ec667c491b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102425280"
 ---
 # <a name="azure-percept-audio-datasheet"></a>Azure Percept Audio 데이터시트
@@ -18,7 +18,7 @@ ms.locfileid: "102425280"
 |제품 사양           |값     |
 |--------------------------------|--------|
 |성능                     |4m, 63dB의에서 먼 180  |
-|대상 산업               |접객 <br> 의료 <br> 스마트 빌딩 <br> 자동차 <br> 소매 <br> 제조업  |
+|대상 산업               |접객 <br> 의료 <br> 스마트 빌딩 <br> 자동차 <br> Retail <br> 제조업  |
 |주인공 시나리오                  |대화방 가상 Concierge <br> 차량 음성 도우미 및 명령/제어 <br> Pos (Point of Sale) 서비스 및 품질 제어 <br> 웨어하우스 작업 추적|
 |Box에 포함 됨  |1x Azure Percept Audio SoM <br> 1x 개발자 (장착) 보드 <br> 1x FPC 케이블 <br> 1x USB 2.0 유형 A-마이크로 USB 케이블 <br> 1x 기계 갑옷|
 |외부 차원             |90mm x170mm x 25mm   |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87543455"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
@@ -32,7 +32,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>PowerShell에서 AzureAD cmdlet 실행 중 오류 발생
 
 - **세부 정보**: Cloud Shell와 같은 AzureAD cmdlet `Get-AzureADUser` 을 실행 하면 다음과 같은 오류가 표시 될 수 있습니다. `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` . 
-- **해결**방법: cmdlet을 실행 `Connect-AzureAD` 합니다. 이전에는 PowerShell을 시작 하는 동안이 cmdlet을 자동으로 실행 Cloud Shell. 시작 시간을 단축 하기 위해 cmdlet이 더 이상 자동으로 실행 되지 않습니다. `Connect-AzureAD`PowerShell에서 $PROFILE 파일에를 추가 하 여 이전 동작을 복원 하도록 선택할 수 있습니다.
+- **해결** 방법: cmdlet을 실행 `Connect-AzureAD` 합니다. 이전에는 PowerShell을 시작 하는 동안이 cmdlet을 자동으로 실행 Cloud Shell. 시작 시간을 단축 하기 위해 cmdlet이 더 이상 자동으로 실행 되지 않습니다. `Connect-AzureAD`PowerShell에서 $PROFILE 파일에를 추가 하 여 이전 동작을 복원 하도록 선택할 수 있습니다.
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox의 조기 시간 초과
 
@@ -42,12 +42,12 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
 
 - **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 도메인에 대 한 액세스를 활용 하 여 `ux.console.azure.com` 거부 될 수 있으며, portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com를 포함 하 여 Cloud Shell 진입점에 대 한 액세스를 중지 합니다. 미국 정부 클라우드에서 entrypoint는 이며 해당 하는 `ux.console.azure.us` shell.azure.us 없습니다.
-- **해결**방법: `ux.console.azure.com` `ux.console.azure.us` 네트워크 설정을 통해 또는 사용자 환경으로의 액세스를 제한 합니다. Cloud Shell 아이콘은 계속 Azure Portal에 있지만 서비스에 성공적으로 연결 되지 않습니다.
+- **해결** 방법: `ux.console.azure.com` `ux.console.azure.us` 네트워크 설정을 통해 또는 사용자 환경으로의 액세스를 제한 합니다. Cloud Shell 아이콘은 계속 Azure Portal에 있지만 서비스에 성공적으로 연결 되지 않습니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 
 - **세부 정보**: Cloud Shell을 통해 저장소 계정을 만들 때 관리자가 Azure Policy 할당으로 인해 실패 합니다. 오류 메시지에는 다음이 포함 됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **해결**방법: 저장소 만들기를 거부 하는 Azure Policy 할당을 제거 하거나 업데이트 하려면 Azure 관리자에 게 문의 하세요.
+- **해결** 방법: 저장소 만들기를 거부 하는 Azure Policy 할당을 제거 하거나 업데이트 하려면 Azure 관리자에 게 문의 하세요.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>스토리지 대화 상자 - 오류: 400 DisallowedOperation
 

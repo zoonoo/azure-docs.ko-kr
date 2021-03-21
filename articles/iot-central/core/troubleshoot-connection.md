@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
 ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98673237"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>디바이스의 데이터가 Azure IoT Central에 표시되지 않는 문제 해결 
@@ -130,7 +130,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 장치 프로 비전 상태 | Description | 가능한 완화 방법 |
+| 장치 프로 비전 상태 | 설명 | 가능한 완화 방법 |
 | - | - | - |
 | 프로비전됨 | 바로 인식할 때 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 장치가 IoT Central에 아직 연결 되지 않았습니다. | 연결 문제에 대 한 장치 로그를 확인 합니다. |

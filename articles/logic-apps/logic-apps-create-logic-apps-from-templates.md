@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100593094"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>미리 빌드된 템플릿에서 논리 앱 워크플로 만들기
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에
 
    ![논리 앱 세부 정보 제공](./media/logic-apps-create-logic-apps-from-templates/logic-app-settings.png)
 
-   | 설정 | 값 | Description | 
+   | 설정 | 값 | 설명 | 
    | ------- | ----- | ----------- | 
    | **이름** | *your-logic-app-name* | 고유한 논리 앱 이름을 제공합니다. | 
    | **구독** | *your-Azure-subscription-name* | 사용할 Azure 구독을 선택합니다. | 

@@ -9,10 +9,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 02fceb8ac594a8caff8942b8a7cb0c6bcd2a47e3
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93339614"
 ---
 # <a name="sign-azure-cosmos-db"></a>기호 (Azure Cosmos DB)
@@ -35,7 +35,7 @@ SIGN(<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 `SIGN` -2에서 2 까지의 숫자 값을 반환 합니다.  
   

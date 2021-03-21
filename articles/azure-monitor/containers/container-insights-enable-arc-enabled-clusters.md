@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에서 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 307f9d9928042410dc9b4443aba5c019c592980c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711300"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터의 모니터링 사용
@@ -30,7 +30,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 
 - 지원 되는 마스터 및 작업자 노드에 대 한 Linux OS 릴리스는 Ubuntu (18.04 LTS 및 16.04 LTS)입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -154,7 +154,7 @@ $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $service
 $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```powershell
 .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
@@ -239,7 +239,7 @@ servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
 tenantId=$(echo $servicePrincipal | jq -r '.tenant')
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```bash
 bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
@@ -262,13 +262,13 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-예: `http://user01:password@proxy01.contoso.com:3128`
+`http://user01:password@proxy01.contoso.com:3128`
 
 프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
 ### <a name="configure-using-powershell"></a>PowerShell을 사용한 구성
 
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 다음은 그 예입니다. 
+프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>

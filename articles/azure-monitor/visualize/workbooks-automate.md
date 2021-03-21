@@ -7,10 +7,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.openlocfilehash: 77190b85da08d09cf05a02dcc5787f0c24229948
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100618974"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
@@ -198,9 +198,9 @@ ms.locfileid: "100618974"
 | `serializedData` | 통합 문서에 사용할 콘텐츠나 페이로드를 포함 합니다. 통합 문서 UI의 리소스 관리자 템플릿을 사용 하 여 값을 가져옵니다. |
 
 ### <a name="workbook-types"></a>통합 문서 유형
-통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 표시되는 옵션은 다음과 같습니다.
+통합 문서 유형 새 통합 문서 인스턴스가 표시 될 통합 문서 갤러리 유형을 지정 합니다. 다음 옵션을 사용할 수 있습니다.
 
-| 유형 | 갤러리 위치 |
+| Type | 갤러리 위치 |
 | :------------- |:-------------|
 | `workbook` | Application Insights, Azure Monitor 등의 통합 문서 갤러리를 비롯 하 여 대부분의 보고서에 사용 되는 기본값입니다.  |
 | `tsg` | Application Insights 문제 해결 가이드 갤러리 |

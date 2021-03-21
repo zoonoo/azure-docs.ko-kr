@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
 ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96183161"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하는 API Management에 대 한 CI/CD
@@ -43,7 +43,7 @@ ms.locfileid: "96183161"
 
 이 제안 된 방법의 핵심은 [Azure Resource Manager 템플릿의](../azure-resource-manager/templates/template-syntax.md)모든 API Management 구성을 유지 하는 것입니다. 조직에서는 이러한 템플릿을 Git와 같은 원본 제어 시스템에 보관 해야 합니다. 이미지에 설명 된 것 처럼 게시자 리포지토리에는 템플릿 컬렉션에 있는 프로덕션 API Management 인스턴스의 모든 구성이 포함 됩니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |서비스 템플릿     | 가격 책정 계층 및 사용자 지정 도메인과 같은 API Management 인스턴스의 서비스 수준 구성입니다.         |
 |공유 템플릿     |  그룹, 제품 및로 거와 같은 API Management 인스턴스 전체에서 리소스를 공유 합니다.    |

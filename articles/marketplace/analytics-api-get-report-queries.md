@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: e2be43e8402e5179fb62d810fe7b9f41e704c49d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584091"
 ---
 # <a name="get-report-queries-api"></a>보고서 쿼리 API 가져오기
@@ -43,8 +43,8 @@ ms.locfileid: "102584091"
 | --- | --- | --- | --- |
 | `queryId` | 문자열 | No | 필터를 사용 하 여 인수에 지정 된 ID를 가진 쿼리만 세부 정보를 가져옵니다. |
 | `queryName` | 문자열 | No | 인수에 지정 된 이름의 쿼리만 자세히 가져오도록 필터링 합니다. |
-| `IncludeSystemQueries` | boolean | No | 응답에 미리 정의 된 시스템 쿼리 포함 |
-| `IncludeOnlySystemQueries` | boolean | No | 응답에 시스템 쿼리만 포함 |
+| `IncludeSystemQueries` | boolean | 아니요 | 응답에 미리 정의 된 시스템 쿼리 포함 |
+| `IncludeOnlySystemQueries` | boolean | 아니요 | 응답에 시스템 쿼리만 포함 |
 |||||
 
 **요청 페이로드**

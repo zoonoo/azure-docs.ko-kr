@@ -1,5 +1,5 @@
 ---
-title: 몰입 형 판독기 시작 단추를 편집 합니다.
+title: 몰입형 리더 시작 단추 편집
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 몰입 형 판독기를 시작 하는 단추를 사용자 지정 하는 방법을 보여 줍니다.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: metang
 ms.openlocfilehash: d60e37a437cacda8afbe88a901089f9478a53c16
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608617"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>몰입 형 판독기 단추를 사용자 지정 하는 방법

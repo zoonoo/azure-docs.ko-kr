@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: d47b4847a12b63532e44a8a1a47101dd065f811b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96446600"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 기능을 위한 디자인 결정 및 코딩 기술
@@ -48,7 +48,7 @@ ms.locfileid: "96446600"
 | ------- | -------- | ------------- |
 | [저장 프로시저](develop-stored-procedures.md)  | 예                | 아니요                      |
 | [레이블](develop-label.md)                           | 예                | 아니요                      |
-| [Views](develop-views.md)                             | 예                | 예                     |
+| [뷰](develop-views.md)                             | 예                | 예                     |
 | [임시 테이블](develop-tables-temporary.md)       | 예                | 예                     |
 | [동적 SQL](develop-dynamic-sql.md)                 | 예                | 예                     |
 | [반복](develop-loops.md)                         | 예                | 예                     |
