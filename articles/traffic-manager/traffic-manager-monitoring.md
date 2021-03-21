@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2021
 ms.author: duau
 ms.openlocfilehash: 455eeb83ef5a9608c077de24b8d3d4722d26a822
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98742712"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 엔드포인트 모니터링
@@ -201,10 +201,10 @@ Traffic Manager는 비정상 엔드포인트를 포함하는 모든 엔드포인
 
 ## <a name="next-steps"></a>다음 단계
 
-[Traffic Manager 작동 방식](traffic-manager-how-it-works.md)
+[Traffic Manager 작동 방법](traffic-manager-how-it-works.md) 알아보기
 
 Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
 
-[Traffic Manager 프로필을 만드는](traffic-manager-manage-profiles.md)
+[Traffic Manager 프로필을 만드는](traffic-manager-manage-profiles.md) 방법 알아보기
 
 Traffic Manager 엔드포인트에서 [Degraded 상태 문제를 해결](traffic-manager-troubleshooting-degraded.md)합니다.

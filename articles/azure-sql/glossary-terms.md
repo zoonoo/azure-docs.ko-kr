@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/09/2020
 ms.openlocfilehash: 8bd1e312463cf89ae30d54bc4a32a497fc7a9a78
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98249655"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
@@ -24,7 +24,7 @@ ms.locfileid: "98249655"
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-|Context|용어|추가 정보|
+|Context|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스|Azure SQL Database 또는 SQL Database|[Azure SQL Database](database/sql-database-paas-overview.md)|
 |구매 모델|DTU 기반 구매 모델|[DTU 기반 구매 모델](database/service-tiers-dtu.md)|
@@ -41,7 +41,7 @@ ms.locfileid: "98249655"
 
 ## <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
 
-|Context|용어|추가 정보|
+|Context|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스|Azure SQL Managed Instance|[SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md)|
 |구매 모델|vCore 기반 구매 모델|[vCore 기반 구매 모델](database/service-tiers-vcore.md)|

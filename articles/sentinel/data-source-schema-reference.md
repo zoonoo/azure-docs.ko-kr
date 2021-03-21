@@ -11,10 +11,10 @@ ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
 ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698351"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
@@ -30,7 +30,7 @@ ms.locfileid: "101698351"
 | **Azure**                            | Azure Active Directory | AzureActivity          | [Azure Monitor AzureActivity 참조](/azure/azure-monitor/reference/tables/azureactivity) |
 | **Azure**                            | Office                 | OfficeActivity         | Office 365 관리 활동 API 스키마: <br>- [공용 스키마 ](/office/office-365-management-api/office-365-management-activity-api-schema#common-schema)   <br>- [Exchange 관리 스키마 ](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-admin-schema) <br>- [Exchange 사서함 스키마](/office/office-365-management-api/office-365-management-activity-api-schema#exchange-mailbox-schema)  <br>- [SharePoint 기본 스키마](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-base-schema)   <br>- [SharePoint 파일 작업](/office/office-365-management-api/office-365-management-activity-api-schema#sharepoint-file-operations) |
 | **Azure**                            | Azure Key Vault         | AzureDiagnostics       | [Azure Monitor AzureDiagnostics 참조](/azure/azure-monitor/reference/tables/azurediagnostics) |
-| **Host**                             | Linux                  | syslog                 | [Azure Monitor Syslog 참조](/azure/azure-monitor/reference/tables/syslog) |
+| **Host**                             | Linux                  | Syslog                 | [Azure Monitor Syslog 참조](/azure/azure-monitor/reference/tables/syslog) |
 | **Network**                          | IIS 로그               | W3CIISLog              | [Azure Monitor W3CIISLog 참조](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | VMinsights             | VMConnection           | [VMConnection 참조 Azure Monitor](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | 실시간 데이터 솔루션     | WireData               | [Azure Monitor WireData 참조](/azure/azure-monitor/reference/tables/wiredata) |

@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
 ms.openlocfilehash: 366be37135808a6d3d5cc1a277e2de3e3d6da8ae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102566405"
 ---
 # <a name="quickstart-create-a-private-link-service-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Private Link 서비스 만들기

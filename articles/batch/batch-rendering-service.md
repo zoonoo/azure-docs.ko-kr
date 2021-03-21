@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 01/14/2021
 ms.topic: how-to
 ms.openlocfilehash: 1cd07f9322837c03e15aaeabec993820deb3170a
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98232117"
 ---
 # <a name="rendering-using-azure"></a>Azure를 사용한 렌더링
@@ -43,7 +43,7 @@ ms.locfileid: "98232117"
 
 가장 일반적인 경우는 PipelineFX, 선명한 렌더링, Thinkbox 최종 기한 또는 사용자 지정 응용 프로그램과 같은 렌더링 관리 응용 프로그램에 의해 관리 되는 기존 온-프레미스 렌더링 팜이 있는 경우입니다.  Azure VM을 사용하여 온-프레미스 렌더링 팜 용량을 확장하기 위한 요구 사항입니다.
 
-Azure 인프라 및 서비스는 Azure를 사용 하 여 온-프레미스 용량을 보완 하는 하이브리드 환경을 만드는 데 사용 됩니다. 예를 들어 다음과 같습니다.
+Azure 인프라 및 서비스는 Azure를 사용 하 여 온-프레미스 용량을 보완 하는 하이브리드 환경을 만드는 데 사용 됩니다. 예를 들면 다음과 같습니다.
 
 * [Virtual Network](../virtual-network/virtual-networks-overview.md) 를 사용 하 여 Azure 리소스를 온-프레미스 렌더링 팜과 동일한 네트워크에 저장 합니다.
 * Azure 또는 azure [HPC 캐시용](../hpc-cache/hpc-cache-overview.md) [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) 를 사용 하 여 대역폭 사용 및 대기 시간을 줄이고 성능을 극대화 하는 azure의 원본 파일을 캐시 합니다.

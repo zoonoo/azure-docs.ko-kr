@@ -12,10 +12,10 @@ ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.openlocfilehash: 813e360ffc6c78b52151af5b9867560ae6d58f2f
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103198248"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용 하는 온-프레미스 앱에 대 한 헤더 기반 Single Sign-On
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 인증에 헤
 > [!NOTE] 
 > 이 문서에서는 응용 프로그램 프록시를 사용 하 여 헤더 기반 인증 응용 프로그램을 Azure AD에 연결 하는 기능을 권장 합니다. 또는 Azure AD와 함께 Azure AD에 대 한 액세스를 사용 하 여 헤더 기반 인증을 사용 하는 통합 패턴도 있습니다. 자세한 내용은 [응용 프로그램 프록시를 사용 하는 Single Sign-On에 대 한 헤더 기반 인증 및 액세스](application-proxy-ping-access-publishing-guide.md)를 참조 하세요.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="헤더 기반 Single Sign-On 응용 프로그램 프록시와 작동 하는 방법입니다." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
 

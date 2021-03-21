@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 11a3d386eae9b77a5f53b7e8d2dbcf012edd9386
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: f00740de5a327858fd250a0cb561b07c32f3b726
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103565088"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655574"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>마이그레이션 가이드: Oracle to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -51,11 +51,27 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 1. [Oracle에 대 한 SQL Server Migration Assistant를](https://www.microsoft.com/en-us/download/details.aspx?id=54258)엽니다. 
 1. **파일** 을 선택한 다음, **새 프로젝트** 를 선택합니다. 
 1. 프로젝트 이름, 프로젝트를 저장할 위치를 입력 한 다음 드롭다운에서 마이그레이션 대상으로 Azure SQL Database를 선택 합니다. **확인** 을 선택합니다.
-1. Oracle **에 연결** 대화 상자에서 oracle 연결 정보에 대 한 값을 입력 합니다.
+
+   ![새 프로젝트](./media/oracle-to-sql-database-guide/new-project.png)
+
+
+1. **Oracle에 연결을** 선택 합니다. Oracle **에 연결** 대화 상자에서 oracle 연결 정보에 대 한 값을 입력 합니다.
+
+   ![Oracle에 연결](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
+
+   마이그레이션할 Oracle 스키마를 선택 합니다. 
+
+   ![Oracle 스키마 선택](./media/oracle-to-sql-database-guide/select-schema.png)
+
 1. **Oracle 메타 데이터 탐색기** 에서 마이그레이션할 oracle 스키마를 마우스 오른쪽 단추로 클릭 한 다음 **보고서 만들기** 를 선택 합니다. 그러면 HTML 보고서가 생성됩니다. 또는 데이터베이스를 선택한 후 탐색 모음에서 **보고서 만들기** 를 선택할 수 있습니다.
+
+   ![보고서 만들기](./media/oracle-to-sql-database-guide/create-report.png)
+
 1. HTML 보고서를 검토하여 변환 통계와 오류 또는 경고를 파악합니다. 또한 Excel에서 보고서를 열어 Oracle 개체의 인벤토리를 가져오고 스키마를 변환 하는 데 필요한 작업을 수행할 수 있습니다. 보고서의 기본 위치는 SSMAProjects 내의 보고서 폴더에 있습니다.
 
-   예: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
+   `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
+
+   ![평가 보고서](./media/oracle-to-sql-database-guide/assessment-report.png) 
 
 
 
@@ -66,6 +82,9 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 1. 메뉴에서 **도구** 를 선택합니다. 
 1. **프로젝트 설정** 을 선택합니다. 
 1. **형식 매핑** 탭을 선택합니다. 
+
+   ![형식 매핑](./media/oracle-to-sql-database-guide/type-mappings.png)
+
 1. **Oracle 메타 데이터 탐색기** 에서 테이블을 선택 하 여 각 테이블에 대 한 형식 매핑을 변경할 수 있습니다.
 
 ### <a name="convert-schema"></a>스키마 변환
@@ -78,8 +97,21 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
     1. 드롭다운에서 대상 SQL Database를 선택 합니다.
     1. **연결** 을 선택합니다.
 
-1. 스키마를 마우스 오른쪽 단추로 클릭한 다음, **스키마 변환** 을 선택합니다. 또는 스키마를 선택한 후 맨 위 탐색 모음에서 **스키마 변환** 을 선택할 수 있습니다.
+    ![SQL Database에 연결](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
+
+
+1. **Oracle 메타 데이터 탐색기** 에서 oracle 스키마를 마우스 오른쪽 단추로 클릭 한 다음 **스키마 변환** 을 선택 합니다. 또는 스키마를 선택한 후 맨 위 탐색 모음에서 **스키마 변환** 을 선택할 수 있습니다.
+
+   ![스키마 변환](./media/oracle-to-sql-database-guide/convert-schema.png)
+
 1. 변환이 완료 된 후에는 변환 된 개체를 비교 하 여 원본 개체와 비교 하 여 잠재적인 문제를 식별 하 고 권장 사항에 따라 문제를 해결 합니다.
+
+   ![권장 사항 스키마 검토](./media/oracle-to-sql-database-guide/table-mapping.png)
+
+   변환 된 Transact-sql 텍스트를 원래 저장 프로시저와 비교 하 고 권장 사항을 검토 합니다. 
+
+   ![권장 사항 검토](./media/oracle-to-sql-database-guide/procedure-comparison.png)
+
 1. 오프라인 스키마 수정 연습을 위해 프로젝트를 로컬로 저장합니다. **파일** 메뉴에서 **프로젝트 저장** 을 선택합니다.
 
 ## <a name="migrate"></a>마이그레이션
@@ -89,11 +121,26 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 스키마를 게시하고 데이터를 마이그레이션하려면 다음 단계를 따릅니다.
 
 1. 스키마 게시: **Azure SQL Database 메타 데이터 탐색기** **의 데이터베이스 노드에서 데이터베이스** 를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스와 동기화** 를 선택 합니다.
-1. 데이터 마이그레이션: **Oracle 메타 데이터 탐색기** 에서 스키마를 마우스 오른쪽 단추로 클릭 하 고 **데이터 마이그레이션** 을 선택 합니다. 
+
+   ![데이터베이스와 동기화](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
+
+   원본 프로젝트와 대상 간의 매핑을 검토 합니다.
+
+   ![데이터베이스 검토와 동기화](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
+
+
+1. 데이터 마이그레이션: **Oracle 메타 데이터 탐색기** 에서 스키마를 마우스 오른쪽 단추로 클릭 하 고 **데이터 마이그레이션** 을 선택 합니다. 또는 스키마를 선택한 후 맨 위 줄 탐색 모음에서 **데이터 마이그레이션** 을 선택할 수 있습니다. 
+
+   ![데이터 마이그레이션](./media/oracle-to-sql-database-guide/migrate-data.png)
+
 1. Oracle 및 Azure SQL Database에 대 한 연결 정보를 제공 합니다.
 1. **데이터 마이그레이션 보고서** 를 확인합니다.
+
+   ![데이터 마이그레이션 보고서](./media/oracle-to-sql-database-guide/data-migration-report.png)
+
 1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 Azure SQL Database에 연결 하 고 데이터 및 스키마를 검토 하 여 마이그레이션 유효성을 검사 합니다.
 
+   ![SSMA에서 유효성 검사](./media/oracle-to-sql-database-guide/validate-data.png)
 
 또는 SSIS (SQL Server Integration Services)를 사용 하 여 마이그레이션을 수행할 수도 있습니다. 자세한 내용은 다음을 참조하세요. 
 

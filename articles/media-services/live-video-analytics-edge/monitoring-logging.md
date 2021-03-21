@@ -4,10 +4,10 @@ description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석�
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730248"
 ---
 # <a name="monitoring-and-logging"></a>모니터링 및 로깅
@@ -26,7 +26,7 @@ IoT Edge의 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원
 * 작업: 사용자의 작업 또는 [미디어 그래프](media-graph-concept.md) 를 실행 하는 동안 생성 된 이벤트
    
    * 볼륨: 낮을 것으로 예상 됨 (몇 분 또는 그 미만)
-   * 예:
+   * 예제:
 
       - 기록 시작 (다음 예제에 표시)
       - 기록 중지 됨
@@ -49,7 +49,7 @@ IoT Edge의 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원
 * 진단: 성능 문제를 진단 하는 데 도움이 되는 이벤트
 
    * 볼륨: 높을 수 있습니다 (1 분에 여러 번).
-   * 예:
+   * 예제:
    
       - RTSP [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) 정보 (다음 예제에 표시 됨) 
       - 들어오는 비디오 피드의 간격
@@ -71,7 +71,7 @@ IoT Edge의 Live Video Analytics는 다음 분류에 따라 이벤트 또는 원
 * 분석: 비디오 분석의 일부로 생성 된 이벤트
 
    * 볼륨: 높을 수 있습니다 (1 분 이상 여러 번).
-   * 예:
+   * 예제:
       
       - 동작이 검색 됨 (다음 예제에서 표시 됨) 
       - 유추 결과
@@ -216,7 +216,7 @@ IoT Hub를 통해 관찰 되는 모든 이벤트에는 공용 속성 집합이 �
 
 이벤트 유형은 각 이벤트 클래스에 대해 고유 합니다.
 
-예:
+예제:
 
 * `Microsoft.Media.Graph.Analytics.Inference`
 * `Microsoft.Media.Graph.Diagnostics.AuthorizationError`

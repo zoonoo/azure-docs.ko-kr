@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: aa0da5721c577957b101ac8a2d9346c0536f0a88
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424141"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
@@ -39,11 +39,11 @@ Azure Data Lake Storage Gen1은 HDFS에서 파생된 액세스 제어 모델을 
 >
 >
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 파일 시스템 개체에 대한 권한은 **읽기**, **쓰기** 및 **실행** 이며 아래 표에서 보여 주듯이 파일과 폴더에 사용할 수 있습니다.
 
-|            |    파일     |   폴더 |
+|            |    File     |   폴더 |
 |------------|-------------|----------|
 | **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 폴더의 내용을 나열 하려면 **읽기** 및 **실행** 이 필요 합니다.|
 | **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 폴더에 자식 항목을 만들려면 **쓰기** 및 **실행** 이 필요합니다. |
@@ -69,7 +69,7 @@ Data Lake Storage Gen1에서 사용하는 POSIX 스타일 모델에서 항목에
 
 Data Lake Storage Gen1 계정에서 특정 작업을 수행하는 데 필요한 권한을 이해하는 데 도움이 되는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-| 작업(Operation) | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| 작업 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | 읽기      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | 추가 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `-W-`          |

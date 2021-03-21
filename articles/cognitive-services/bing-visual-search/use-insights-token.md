@@ -12,10 +12,10 @@ ms.date: 4/26/2019
 ms.author: scottwhi
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 161266a69308175637f5967b2ded48621d4d9c53
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102424073"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Insights 토큰을 사용 하 여 이미지에 대 한 통찰력 얻기
@@ -95,7 +95,7 @@ Insights 토큰을 사용 하는 예제는 다음을 참조 하세요.
 이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
 
 1. Visual Studio에서 콘솔 솔루션을 만듭니다.
-2. Program.cs의 내용을이 빠른 시작에 표시 된 코드로 바꿉니다.
+2. Program .cs의 내용을이 빠른 시작에 표시 된 코드로 바꿉니다.
 3. `accessKey` 값을 구독 키로 바꿉니다.
 4. `insightsToken` 값을 /images/search 응답의 인사이트 토큰으로 바꿉니다.
 5. 프로그램을 실행합니다.

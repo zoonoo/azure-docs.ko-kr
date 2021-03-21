@@ -7,13 +7,13 @@ ms.date: 01/27/2020
 ms.topic: how-to
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 ms.openlocfilehash: 5db3e538a64e275313e1e0ab01f6cc6350eabb77
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745437"
 ---
-# <a name="standard-quota-increase-limits-by-vm-series"></a>표준 할당량: VM 시리즈별 제한 늘리기
+# <a name="standard-quota-increase-limits-by-vm-series"></a>표준 할당량: VM 시리즈별 제한 늘리기 
 
 Azure Resource Manager는 가상 컴퓨터에 대 한 두 가지 유형의 vCPU 할당량을 지원 합니다.
 

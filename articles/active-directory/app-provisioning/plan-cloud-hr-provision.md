@@ -12,10 +12,10 @@ ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 ms.openlocfilehash: 9c896d4cccf898b8818b4c363c5bc891a8734ca5
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99256714"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
@@ -73,7 +73,7 @@ HR 기반 IT 프로비저닝의 이 기능은 다음과 같은 중요한 비즈�
 - **주소 규정 준수 및 거버넌스:** Azure AD는 원본 및 대상 시스템 모두의 앱에서 수행하는 사용자 프로비저닝 요청에 대한 기본 감사 로그를 지원합니다. 감사를 사용하면 단일 화면에서 앱에 액세스할 수 있는 사용자를 추적할 수 있습니다.
 - **비용 관리:** 자동 프로비저닝은 수동 프로비저닝과 관련된 비효율성 및 인간 오류를 방지하여 비용을 절감합니다. 레거시 플랫폼 및 오래된 플랫폼을 사용하여 시간이 지남에 따라 빌드되는 사용자 지정 개발 사용자 프로비저닝 솔루션에 대한 필요성을 줄입니다.
 
-### <a name="licensing"></a>라이선스
+### <a name="licensing"></a>라이선싱
 
 클라우드 HR 앱을 Azure AD 사용자 프로 비전 통합에 구성 하려면 Workday 또는 SuccessFactors와 같은 클라우드 HR 앱에 대 한 유효한 [Azure AD Premium 라이선스](https://azure.microsoft.com/pricing/details/active-directory/) 및 라이선스가 필요 합니다.
 
@@ -257,7 +257,7 @@ Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합�
 
 Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
-| 프로세스 | 요구 사항 |
+| Process | 요구 사항 |
 | - | - |
 | **Joiners** | Id 수명 주기 관점에서 rehires을 어떻게 처리 하나요? 이전 직원 Id를 계속 고용 하나요? |
 | | 향후에는 고용를 처리 하 고 사전에 Active Directory 계정을 만들어야 하나요? 이러한 계정은 사용 또는 사용 안 함 상태로 생성 되나요? |
@@ -276,7 +276,7 @@ Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수
 
 Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
-| 프로세스 | 요구 사항 |
+| Process | 요구 사항 |
 | - | - |
 | **Joiners** | Active Directory 계정 생성 프로세스 수동, 자동화 또는 부분적으로 자동화 되었습니까? |
 | | 클라우드 HR 앱에서 Active Directory로 사용자 지정 특성을 전파할 계획 입니까? |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: fb2cc0b81083936a67bcd465e0408b9f4b53996b
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603552"
 ---
 # <a name="iot-hub-mqtt-5-support-overview-preview"></a>IoT Hub MQTT 5 지원 개요 (미리 보기)
@@ -20,7 +20,7 @@ ms.locfileid: "96603552"
 
 이 문서는 MQTT 버전 5.0 프로토콜을 통해 IoT Hub 데이터 평면 API를 정의 합니다. 이 API의 전체 정의에 대 한 [Api 참조](iot-hub-mqtt-5-reference.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 새 IoT hub에서 [미리 보기 모드를 사용 하도록 설정](iot-hub-preview-mode.md) 하 여 mqtt 5를 시도 합니다.
 - [Mqtt 5 사양](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html) 에 대 한 사전 지식이 필요 합니다.

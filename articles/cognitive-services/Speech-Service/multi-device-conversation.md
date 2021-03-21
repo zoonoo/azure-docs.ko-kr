@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 7b38bc390b28788003c2de757f45e8ecdfd5c89a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932415"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>다중 장치 대화 (미리 보기) 란?
@@ -34,7 +34,7 @@ ms.locfileid: "98932415"
 >[!IMPORTANT]
 > 다중 장치 대화에서는 클라이언트 간에 오디오 파일 전송을 지원 **하지** 않습니다. 기록 및/또는 번역이 있습니다.
 
-## <a name="key-features"></a>주요 기능
+## <a name="key-features"></a>주요 특징
 
 - **실시간 기록** -모든 사용자가 대화에 대 한 기록을 받게 되므로 실시간으로 텍스트를 따라 팔 로우 하거나 나중에 저장할 수 있습니다.
 - **실시간 변환** – 텍스트 번역에 대해 [지원 되는 언어](language-support.md#text-languages) 를 70 개 이상 사용 하 여 사용자는 대화를 기본 설정 언어로 변환할 수 있습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "98932415"
 
 화면과 대상 그룹 구성원의 장치에서 프레젠테이션 및 강의의 캡션을 제공할 수도 있습니다. 사용자가 대화 코드와 조인한 후에는 자신의 장치에서 선호 하는 언어로 기록을 볼 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 모든 클라이언트는 음성 SDK를 사용 하 여 대화를 만들거나 조인 합니다. Speech SDK는 참가자 목록, 각 클라이언트의 선택 된 언어 및 전송 된 메시지를 포함 하 여 대화의 수명을 관리 하는 다중 장치 대화 서비스와 상호 작용 합니다.  
 

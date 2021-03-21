@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.author: alkohli
 ms.openlocfilehash: 27503d1d60d961bac6dd41ebfe4fb083948cb251
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96581934"
 ---
 디바이스의 성능을 모니터링하거나 일부 인스턴스에서 디바이스 문제를 해결하기 위해 메트릭을 볼 수도 있습니다.

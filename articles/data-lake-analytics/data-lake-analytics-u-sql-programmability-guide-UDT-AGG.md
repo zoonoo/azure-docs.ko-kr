@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: 10fcce9a667d9a08318f5adab804f482387052ff
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97606660"
 ---
 # <a name="u-sql-programmability-guide---udt-and-udagg"></a>U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG
@@ -535,7 +535,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 * T2: 누적 시킬 두 번째 매개 변수
 * TResult: Terminate의 반환 형식
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```csharp
 public class GuidAggregate : IAggregate<string, int, int>

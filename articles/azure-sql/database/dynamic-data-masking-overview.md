@@ -13,10 +13,10 @@ ms.reviewer: vanto
 ms.date: 01/25/2021
 tags: azure-synpase
 ms.openlocfilehash: b10b00e724324779eb753bfefccce77a5eb2a39d
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98918097"
 ---
 # <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
@@ -80,7 +80,7 @@ REST API를 사용하여 데이터 마스킹 정책 및 규칙을 프로그래�
 - [만들기 또는 업데이트](/rest/api/sql/datamaskingrules/createorupdate): 데이터베이스 데이터 마스킹 규칙을 만들거나 업데이트합니다.
 - [데이터베이스별 목록](/rest/api/sql/datamaskingrules/listbydatabase): 데이터베이스 데이터 마스킹 규칙 목록을 가져옵니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 동적 데이터 마스킹은 Azure SQL Database 관리자, 서버 관리자 또는 RBAC (역할 기반 액세스 제어) [SQL 보안 관리자](../../role-based-access-control/built-in-roles.md#sql-security-manager) 역할을 통해 구성할 수 있습니다.
 

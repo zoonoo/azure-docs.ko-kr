@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
 ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98932635"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Azure HDInsight의 Apache Storm에 대 한 SCP 프로그래밍 가이드
@@ -160,7 +160,7 @@ SCP.NET은 Java에서 수행 하는 폭풍이와 마찬가지로 각 **StormTxAt
 
 SCP.NET에서는 개발자가 프로그래밍에 사용할 수 있는 주요 개체의 간단한 집합도 제공합니다. 개체는 **Context**, **StateStore** 및 **scpruntime은** 입니다. 이러한 항목에 대해서는이 섹션에서 설명 합니다.
 
-### <a name="context"></a>컨텍스트
+### <a name="context"></a>Context
 
 **컨텍스트** 개체는 응용 프로그램에 실행 중인 환경을 제공 합니다. **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** 또는 **ISCPBatchBolt** 의 각 **ISCPPlugin** 인스턴스에는 해당 하는 **컨텍스트** 인스턴스가 있습니다. **Context** 에서 제공 하는 기능은 다음과 같은 두 부분으로 구분 됩니다.
 
@@ -431,7 +431,7 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명 하 고 구성 하기 위�
 
 SCP.NET는 다음과 같은 함수를 추가 하 여 트랜잭션 토폴로지를 정의 합니다.
 
-| 새 함수 | 매개 변수 | Description |
+| 새 함수 | 매개 변수 | 설명 |
 | --- | --- | --- |
 | **tx-topolopy** |*topology-name*<br />*spout-map*<br />*bolt-map* |토폴로지 이름, spout 정의 맵 및 볼트 정의 맵으로 트랜잭션 토폴로지를 정의 합니다. |
 | **scp-tx-spout** |*exec-name*<br />*args*<br />*필드* |트랜잭션 spout를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args* 를 사용 합니다.<br /><br />*Fields* 매개 변수는 spout의 출력 필드를 지정 합니다. |
@@ -443,7 +443,7 @@ SCP.NET는 다음과 같은 함수를 추가 하 여 트랜잭션 토폴로지�
 
 SCP.NET는 다음 키워드를 정의 합니다.
 
-| 키워드 | Description |
+| 키워드 | 설명 |
 | --- | --- |
 | **: 이름** |토폴로지 이름 |
 | **: 토폴로지** |이전 테이블 및 기본 제공 함수의 함수를 사용 하는 토폴로지 |
@@ -453,7 +453,7 @@ SCP.NET는 다음 키워드를 정의 합니다.
 
 또한 SCP.NET는 이러한 자주 사용 되는 매개 변수를 정의 합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | "plugin.name" |C # 플러그 인의 .exe 파일 이름입니다. |
 | "plugin.args" |플러그 인 인수 |

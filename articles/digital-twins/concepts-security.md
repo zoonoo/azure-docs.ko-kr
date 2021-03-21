@@ -8,10 +8,10 @@ ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730510"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
@@ -108,7 +108,7 @@ Azure digital twins 인스턴스에 대 한 개인 끝점을 구성 하면 azure
 
 Azure Digital Twins에 대해 개인 링크를 설정 하는 방법에 대 한 지침은 [*방법: 개인 링크를 사용 하 여 개인 액세스 사용 (미리 보기)*](./how-to-enable-private-link-portal.md)을 참조 하세요.
 
-### <a name="design-considerations"></a>디자인 고려 사항 
+### <a name="design-considerations"></a>설계 고려 사항 
 
 Azure Digital Twins의 개인 링크를 사용 하 여 작업할 때 고려해 야 할 몇 가지 요소는 다음과 같습니다.
 * **가격** 책정에 대 한 자세한 내용은  [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link)을 참조 하세요. 

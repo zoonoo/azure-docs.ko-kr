@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 27d1d9e54838d9f45a28d634fa1c24fb8785aee1
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97899238"
 ---
 # <a name="connect-from-on-premises-to-cloudsimple-using-expressroute"></a>Express 경로를 사용 하 여 온-프레미스에서 CloudSimple로 연결
@@ -25,7 +25,7 @@ ms.locfileid: "97899238"
 
 온-프레미스에서 Global Reach 연결을 설정 하려면 **/29** 네트워크 주소 블록이 필요 합니다.  /29 주소 공간은 Express 경로 회로 간의 전송 네트워크에 사용 됩니다.  전송 네트워크는 Azure 가상 네트워크, 온-프레미스 네트워크 또는 CloudSimple 사설 클라우드 네트워크와 겹치면 안 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 회로와 CloudSimple 사설 클라우드 네트워크 간의 연결을 설정 하려면 Azure Express 경로 회로가 필요 합니다.
 * 사용자는 Express 경로 회로에서 인증 키를 만들 수 있는 권한이 필요 합니다.

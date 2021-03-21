@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: d06fe64ddc0475b5ca7d9c16876c8dfc9acda544
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101729371"
 ---
 # <a name="analyze-azure-functions-telemetry-in-application-insights"></a>Application Insights에서 Azure Functions 원격 분석 분석 
@@ -144,7 +144,7 @@ traces
 
 Application Insights에 의해 수집 된 원격 분석 데이터 외에도 [Azure Monitor 메트릭에](../azure-monitor/essentials/data-platform-metrics.md)함수 앱이 실행 되는 방법에 대 한 데이터를 가져올 수 있습니다. [앱을 App Service 하는 데 사용할 수](../app-service/web-sites-monitor.md#understand-metrics)있는 일반적인 메트릭과 함께 관심 있는 함수와 관련 된 두 가지 메트릭이 있습니다.
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | ---- | ---- |
 | **FunctionExecutionCount** | 함수 실행 횟수는 함수 앱이 실행 된 횟수를 나타냅니다. 이는 응용 프로그램에서 함수가 실행 되는 횟수와 관련이 있습니다. 이 메트릭은 Linux에서 실행 되는 프리미엄 및 전용 (App Service) 요금제에 대해 현재 지원 되지 않습니다. |
 | **FunctionExecutionUnits** | 함수 실행 단위는 실행 시간 및 메모리 사용의 조합입니다.  메모리 데이터는 현재 Azure Monitor를 통해 사용할 수 있는 메트릭이 아닙니다. 그러나 앱의 메모리 사용을 최적화 하려는 경우는 Application Insights에서 수집 된 성능 카운터 데이터를 사용할 수 있습니다. 이 메트릭은 Linux에서 실행 되는 프리미엄 및 전용 (App Service) 요금제에 대해 현재 지원 되지 않습니다.|

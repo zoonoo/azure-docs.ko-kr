@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: d8cf3dbe9d1dc2ad329a0b5ab8fa9554c85ae55c
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199087"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>데모 인증서를 만들어 IoT Edge 디바이스 기능 테스트
@@ -38,7 +38,7 @@ IoT Edge 시나리오를 테스트 하기 위한 데모 인증서를 만들려�
    * 게이트웨이 시나리오에서 IoT Edge 장치에 대 한 [IoT Edge 장치 CA 인증서를 만듭니다](#create-iot-edge-device-ca-certificates) .
    * 게이트웨이 시나리오에서 다운스트림 장치를 인증 하기 위한 [다운스트림 장치 인증서를 만듭니다](#create-downstream-device-certificates) .
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Git가 설치 된 개발 컴퓨터.
 

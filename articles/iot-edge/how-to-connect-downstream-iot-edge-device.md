@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 monikerRange: '>=iotedge-2020-11'
 ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199131"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>다운스트림 IoT Edge 장치를 Azure IoT Edge 게이트웨이 (미리 보기)에 연결
@@ -43,7 +43,7 @@ ms.locfileid: "103199131"
 * **게이트웨이 검색**: 자식 장치가 로컬 네트워크에서 해당 부모 장치를 찾을 수 있는지 확인 합니다.
 * **보안 연결**: 동일한 체인에 포함 된 신뢰할 수 있는 인증서를 사용 하 여 보안 연결을 설정 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 무료 또는 표준 IoT hub
 * 두 개 이상의 **IoT Edge 장치**, 하나는 최상위 계층 장치 및 하나 이상의 하위 계층 장치입니다. IoT Edge 장치를 사용할 수 없는 경우 [Ubuntu 가상 머신에서 Azure IoT Edge을 실행할](how-to-install-iot-edge-ubuntuvm.md)수 있습니다.
@@ -305,7 +305,7 @@ API 프록시 모듈은 가장 일반적인 게이트웨이 시나리오를 처�
    1. **모듈 설정** 탭에서 **이미지 URI**:`registry:latest`
    1. **환경 변수** 탭에서 다음 환경 변수를 추가 합니다.
 
-      * **이름**: `REGISTRY_PROXY_REMOTEURL` **값**:이 레지스트리 모듈이 매핑될 컨테이너 레지스트리의 URL입니다. 예들 들어 `https://myregistry.azurecr`입니다.
+      * **이름**: `REGISTRY_PROXY_REMOTEURL` **값**:이 레지스트리 모듈이 매핑될 컨테이너 레지스트리의 URL입니다. 예: `https://myregistry.azurecr`
 
         레지스트리 모듈은 하나의 컨테이너 레지스트리에만 매핑할 수 있으므로 모든 컨테이너 이미지를 단일 개인 컨테이너 레지스트리에 포함 하는 것이 좋습니다.
 

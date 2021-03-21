@@ -7,10 +7,10 @@ ms.date: 1/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: e72ff144a56f44ccaa695b7dab328e42052fce39
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101679583"
 ---
 # <a name="ports-used-with-device-update-for-iot-hub"></a>IoT Hub에 대 한 장치 업데이트에 사용 되는 포트
@@ -18,7 +18,7 @@ ADU는 다양 한 용도로 다양 한 네트워크 포트를 사용 합니다.
 
 ## <a name="default-ports"></a>기본 포트
 
-목적|포트 번호 |
+용도|포트 번호 |
 ---|---
 Networks/CDNs에서 다운로드  | 80 (HTTP 프로토콜)
 MCC/CDNs에서 다운로드 | 80 (HTTP 프로토콜)

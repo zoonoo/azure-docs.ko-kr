@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 12/03/2020
 ms.custom: references_regions
 ms.openlocfilehash: 45791cd69772be97ca6768184ed17179e04ad9dc
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96576811"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry-preview"></a>Azure Event Hubs 스키마 레지스트리 만들기 (미리 보기)
@@ -19,7 +19,7 @@ ms.locfileid: "96576811"
 > - 이 기능은 **기본** 계층이 아닌 **표준** 및 **전용** 계층에서만 사용할 수 있습니다.
 > - 이벤트 허브가 **가상 네트워크** 에 있는 경우 동일한 가상 네트워크의 VM에서 포털에 액세스 하지 않는 한 Azure Portal에서 스키마를 만들 수 없습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 [Event Hubs 네임 스페이스를 만듭니다](event-hubs-create.md#create-an-event-hubs-namespace). 기존 네임 스페이스를 사용할 수도 있습니다. 
 
 ## <a name="create-a-schema-group"></a>스키마 그룹 만들기

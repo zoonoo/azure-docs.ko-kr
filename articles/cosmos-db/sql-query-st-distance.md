@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: f01f5faf68821fe9f85657c74111efdbb02bd204
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100559924"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
@@ -35,7 +35,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
   거리가 포함된 숫자 식을 반환합니다. 기본 참조 시스템의 경우 미터 단위로 표현됩니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 기본 제공 함수를 사용 하 여 지정 된 위치에서 30km 이내에 있는 모든 패밀리 문서를 반환 하는 방법을 보여 줍니다 `ST_DISTANCE` . .  
   

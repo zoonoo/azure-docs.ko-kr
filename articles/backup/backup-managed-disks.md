@@ -4,10 +4,10 @@ description: Azure Portal에서 Azure Managed Disks를 백업 하는 방법에 �
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98738155"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Azure Managed Disks 백업(미리 보기 상태)

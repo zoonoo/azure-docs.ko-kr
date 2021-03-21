@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 - devx-track-js
 ms.openlocfilehash: dc2d2d3e92435c7a028b43a095f456c2c383ecb4
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199627"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>다운스트림 디바이스를 Azure IoT Edge 게이트웨이에 연결
@@ -39,7 +39,7 @@ ms.locfileid: "103199627"
 
 이 문서에서 *게이트웨이* 및 *IoT Edge 게이트웨이* 라는 용어는 투명한 게이트웨이로 사용되는 IoT Edge 디바이스를 의미합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * 장치 CA 인증서를 생성 하는 데 사용 된 루트 CA 인증서 파일을 사용 하 여 다운스트림 장치에서 사용할 수 있는 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 데모 인증서를 사용 하는 경우 루트 CA 인증서를 **azure-iot-test-only** 라고 합니다.
 * [Azure IoT Hub에 대 한 다운스트림 장치 인증](how-to-authenticate-downstream-device.md)에 설명 된 대로 게이트웨이 장치를 가리키는 수정 된 연결 문자열이 있어야 합니다.
@@ -141,7 +141,7 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
-    예들 들어 `<path>/azure-iot-test-only.root.ca.cert.pem`입니다.
+    예: `<path>/azure-iot-test-only.root.ca.cert.pem`
 
 ### <a name="nodejs"></a>NodeJS
 

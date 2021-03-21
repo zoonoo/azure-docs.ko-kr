@@ -7,10 +7,10 @@ ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: b44279f31aea8fc02130f1c3d7520f42c648bd4c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97607952"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
@@ -23,7 +23,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 
 ## <a name="supported-features"></a>지원되는 기능
 
-| Azure 기능                   | V1            | V2 & V3 | 
+| Azure Functions                   | V1            | V2 & V3 | 
 |-----------------------------------|---------------|------------------|
 | | | | 
 | **자동 컬렉션**        |               |                  |

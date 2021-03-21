@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 198702f619e490e8000e4430aab23a7f6bfb6d85
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107712"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Security Center 데이터에 대 한 풍부한 대화형 보고서 만들기
@@ -22,7 +22,7 @@ ms.locfileid: "102107712"
 
 Azure Security Center 내에서 기본 제공 보고서에 액세스 하 여 조직의 보안 상태를 추적할 수 있습니다. 또한 사용자 지정 보고서를 빌드하여 Security Center 또는 지원 되는 다른 데이터 원본에서 광범위 한 데이터를 볼 수 있습니다.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간에 따른 보안 점수 보고서":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="시간 경과에 따른 보안 점수 보고서":::
 
 ## <a name="availability"></a>가용성
 
@@ -38,9 +38,9 @@ Azure Security Center 내에서 기본 제공 보고서에 액세스 하 여 조
 
 통합 된 Azure 통합 문서 기능을 사용 하 여 Azure Security Center 사용자 지정 대화형 보고서를 쉽게 빌드할 수 있습니다. 또한 Security Center에는 사용자 지정에 사용할 수 있는 다음 보고서를 포함 하는 통합 문서 갤러리가 포함 되어 있습니다.
 
-- **시간에 따른 보안 점수** -구독의 점수를 추적 하 고 리소스에 대 한 권장 사항을 변경 합니다.
-- **시스템 업데이트** -리소스, OS, 심각도 등의 누락 된 시스템 업데이트를 봅니다.
-- **취약성 평가 결과** -Azure 리소스의 취약성 검색 결과 보기
+- **시간 경과에 따른 보안 점수** - 구독의 점수와 리소스에 대한 권장 사항의 변경 내용 추적
+- **시스템 업데이트** - 리소스, OS, 심각도 등에 따라 누락된 시스템 업데이트 보기
+- **취약성 평가 결과** - Azure 리소스의 취약성 검사 결과 보기
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Azure Security Center의 기본 제공 통합 문서 갤러리":::
 
@@ -95,7 +95,7 @@ Security Center에는 컴퓨터에 대 한 취약성 스캐너, 컨테이너 레
 
 다음 스캐너 사용에 대해 자세히 알아보세요.
 
-- [통합 VA 스캐너를 사용 하 여 컴퓨터 검색](deploy-vulnerability-assessment-vm.md)
+- [통합 VA 스캐너로 머신 검사](deploy-vulnerability-assessment-vm.md)
 - [취약성에 대한 레지스트리 이미지 스캔](defender-for-container-registries-usage.md)
 - [SQL 리소스에서 취약성 검색](defender-for-sql-on-machines-vulnerability-assessment.md)
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a58fbf874339bf287ce1af62e1edb39ec6227d99
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99257105"
 ---
 # <a name="frequently-asked-questions-about-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication에 대 한 질문과 대답
@@ -190,7 +190,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스트리 키를 설정하여 시간 제한 설정을 구성할 수 있습니다. MFA 클라우드 서비스가 텍스트 메시지를 보내면 확인 코드(또는 일회용 암호)가 MFA 서버에 반환됩니다. MFA 서버는 코드를 기본적으로 300초 동안 메모리에 저장합니다. 300초가 경과하기 전에 사용자가 코드를 입력하지 않으면 인증이 거부됩니다. 기본 시간 제한 설정을 변경하려면 다음 단계를 사용합니다.
 
-1. [https://editor.swagger.io](`HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`) 로 이동합니다.
+1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`로 이동합니다.
 2. *Pfsvc_pendingSmsTimeoutSeconds* 라는 **DWORD** 레지스트리 키를 만들고 Azure MFA 서버에서 일회성 암호을 저장 하는 시간 (초)을 설정 합니다.
 
 >[!TIP]

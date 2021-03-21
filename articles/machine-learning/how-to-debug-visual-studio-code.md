@@ -10,10 +10,10 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
 ms.openlocfilehash: 783b5afdaef369582614cde3525f7968fdb5e567
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508642"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
@@ -26,7 +26,7 @@ Visual Studio Code (VS Code) 및 [debugpy](https://github.com/microsoft/debugpy/
 
 Azure Machine Learning 확장을 사용 하 여 클라우드로 전송 하기 전에 Machine Learning 실험의 유효성을 검사, 실행 및 디버그할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * VS Code 확장 (미리 보기)을 Azure Machine Learning 합니다. 자세한 내용은 [VS Code 확장 Azure Machine Learning 설정](tutorial-setup-vscode-extension.md)을 참조 하세요.
 * [Docker](https://www.docker.com/get-started)
@@ -84,7 +84,7 @@ Azure Machine Learning 확장을 사용 하 여 클라우드로 전송 하기 �
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. VS Code 및 debugpy를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 * __Azure Virtual Network__ 를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
@@ -100,7 +100,7 @@ Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 �
 > [!TIP]
 > 가상 네트워크 뒤에 있지 않은 Azure Machine Learning 리소스를 사용할 수 있지만 가상 네트워크를 사용 하는 것이 좋습니다.
 
-### <a name="how-it-works"></a>작동 방식
+### <a name="how-it-works"></a>작동 방법
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
 

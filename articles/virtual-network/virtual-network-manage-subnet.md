@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
 ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100558592"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
@@ -48,7 +48,7 @@ ms.locfileid: "100558592"
 
 4. **서브넷 추가** 대화 상자에서 다음 설정에 대 한 값을 입력 합니다.
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     | --- | --- |
     | **이름** | 이름은 가상 네트워크 내에서 고유해야 합니다. 다른 Azure 서비스와의 호환성을 극대화하기 위해 이름의 첫 문자는 글자를 사용하는 것이 좋습니다. 예를 들어 Azure Application Gateway는 이름이 숫자로 시작하는 서브넷에는 배포되지 않습니다. |
     | **주소 범위** | <p>범위는 가상 네트워크의 주소 공간 내에서 고유해야 합니다. 범위는 가상 네트워크 내의 다른 서브넷 주소 범위와 겹칠 수 없습니다. CIDR(Classless Inter-Domain Routing) 표기법을 사용하여 주소 공간을 지정해야 합니다.</p><p>예를 들어 주소 공간이 *10.0.0.0/16* 인 가상 네트워크에서 서브넷 주소 공간을 *10.0.0.0/22* 로 정의할 수 있습니다. 지정할 수 있는 가장 작은 범위는 */29* 이며, 서브넷에 8 개의 IP 주소를 제공 합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 따라서 */29* 주소 범위를 사용 하 여 서브넷을 정의 하면 서브넷에 사용 가능한 3 개의 IP 주소가 생성 됩니다.</p><p>가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서는 서브넷을 추가한 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 설정 변경](#change-subnet-settings)을 참조하세요.</p> |
@@ -78,7 +78,7 @@ ms.locfileid: "100558592"
 
 5. 서브넷 페이지에서 다음 설정 중 하나를 변경 합니다.
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     | --- | --- |
     | **주소 범위** | 서브넷 내에 배포된 리소스가 없는 경우 주소 범위를 변경할 수 있습니다. 서브넷에 리소스가 있으면 먼저 다른 서브넷으로 리소스를 이동하거나 서브넷에서 삭제해야 합니다. 리소스 이동 또는 삭제를 수행하는 단계는 리소스에 따라 다릅니다. 서브넷에 있는 리소스를 이동 하거나 삭제 하는 방법에 대 한 자세한 내용은 각 리소스 종류에 대 한 설명서를 참조 하세요. [서브넷 추가](#add-a-subnet)의 4 단계에서 **주소 범위** 에 대 한 제약 조건을 참조 하세요. |
     | **사용자** | 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할 및 사용자를 할당 하 여 서브넷에 액세스 하는 방법에 대 한 자세한 내용은 [Azure 역할 할당](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조 하세요. |
@@ -116,7 +116,7 @@ ms.locfileid: "100558592"
 | Azure CLI | [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) |
 | PowerShell | [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 서브넷에 대 한 작업을 수행 하려면 다음 표에 나와 있는 적절 한 작업이 할당 된 [네트워크 참가자 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 또는 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 계정을 할당 해야 합니다.
 

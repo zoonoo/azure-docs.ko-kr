@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight에 대 한 기본 제공 정책 정의
 description: Azure HDInsight에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ad47253b32ca0f66a46157796a48793aac052698
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 03942b22d2566a220f312bd1671f338957df91b1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102610158"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581436"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Azure HDInsight에 대 한 기본 제공 정의 Azure Policy
 

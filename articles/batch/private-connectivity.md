@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920006"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Azure Batch 계정으로 프라이빗 엔드포인트 사용
@@ -24,7 +24,7 @@ ms.locfileid: "98920006"
 
 이 문서에서는 개인 일괄 처리 계정을 만들고 개인 끝점을 사용 하 여 액세스 하는 단계를 설명 합니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 사용 하 여 개인 배치 계정을 만들려면 다음 단계를 수행 합니다.
 
@@ -95,7 +95,7 @@ Azure Portal에서 IP 주소를 보려면 다음을 수행 합니다.
 
 개인 끝점을 만들 때 Azure의 [개인 DNS 영역과](../dns/private-dns-privatednszone.md) 통합할 수 있습니다. 대신 [사용자 지정 도메인](../dns/dns-custom-domain.md)을 사용 하도록 선택 하는 경우 개인 끝점에 예약 된 모든 개인 IP 주소에 대 한 DNS 레코드를 추가 하도록 구성 해야 합니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 개인 끝점과 관련 된 비용에 대 한 자세한 내용은 [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조 하세요.
 

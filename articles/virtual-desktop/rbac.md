@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f0151fd4be7505cf7beea0eeb54f8e34404997
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1120db685c54ff062f03aca9002bf77af549bc26
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97577702"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582122"
 ---
 # <a name="built-in-roles-for-windows-virtual-desktop"></a>Windows 가상 데스크톱의 기본 제공 역할
 
@@ -146,7 +146,7 @@ Windows 가상 데스크톱에는 특정 소유자 역할이 없습니다. 그�
 
 ## <a name="session-host-operator"></a>세션 호스트 운영자
 
-세션 호스트 참여자 역할을 사용 하면 세션 호스트를 보고 제거할 수 있을 뿐만 아니라 드레이닝 모드를 변경할 수 있습니다. 호스트 풀 개체에 대 한 쓰기 권한이 없기 때문에 Azure Portal를 사용 하 여 세션 호스트를 추가할 수 없습니다. 등록 토큰이 유효한 경우 (생성 되 고 만료 되지 않음)이 역할을 사용 하 여 관리자에 게 가상 컴퓨터 참가자 역할을 통해 계산 권한이 있는 경우이 역할을 사용 하 여 Azure Portal 외부의 호스트 풀에 세션 호스트를 추가할 수 있습니다.
+세션 호스트 운영자 역할을 사용 하면 세션 호스트를 보고 제거할 수 있을 뿐만 아니라 드레이닝 모드를 변경할 수 있습니다. 호스트 풀 개체에 대 한 쓰기 권한이 없기 때문에 Azure Portal를 사용 하 여 세션 호스트를 추가할 수 없습니다. 등록 토큰이 유효한 경우 (생성 되 고 만료 되지 않음)이 역할을 사용 하 여 관리자에 게 가상 컴퓨터 참가자 역할을 통해 계산 권한이 있는 경우이 역할을 사용 하 여 Azure Portal 외부의 호스트 풀에 세션 호스트를 추가할 수 있습니다.
 
 다음 목록에서는이 역할에 액세스할 수 있는 권한을 설명 합니다.
 

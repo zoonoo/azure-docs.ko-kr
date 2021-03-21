@@ -4,10 +4,10 @@ description: 를 사용 하 여 Container Registry 이벤트에 제공 되는 �
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 7e19b223e43f30a532c1cd8bdc86f9a29220f5aa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100363579"
 ---
 # <a name="azure-container-registry-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Container Registry
@@ -273,7 +273,7 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -288,7 +288,7 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -302,18 +302,18 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `id` | 문자열 | 이벤트 ID입니다. |
 | `timestamp` | 문자열 | 이벤트가 발생한 시간입니다. |
 | `action` | 문자열 | 제공된 이벤트를 포함하는 동작입니다. |
-| `target` | object | 이벤트의 대상입니다. |
-| `request` | object | 이벤트를 생성한 요청입니다. |
+| `target` | 개체 | 이벤트의 대상입니다. |
+| `request` | 개체 | 이벤트를 생성한 요청입니다. |
 
 
 대상 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `mediaType` | 문자열 | 참조된 개체의 MIME 형식입니다. |
 | `size` | 정수 | 콘텐츠의 바이트 수입니다. 길이 필드와 동일합니다. |
@@ -326,7 +326,7 @@ Azure Container Registry는 다음과 같은 이벤트 유형을 내보냅니다
 
 요청 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `id` | 문자열 | 이벤트를 시작한 요청의 ID입니다. |
 | `addr` | 문자열 | IP 또는 호스트 이름 및 가능한 경우 이벤트를 시작한 클라이언트 연결의 포트입니다. 이 값은 표준 http 요청에서 온 RemoteAddr입니다. |

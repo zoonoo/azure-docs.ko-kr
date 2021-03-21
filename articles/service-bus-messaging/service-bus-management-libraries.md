@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98539874"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 
 Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 엔터티를 동적으로 프로비전할 수 있습니다. 이를 통해 복잡한 배포 및 메시지 시나리오가 가능하며, 어떤 엔터티를 프로비전할 것인지 프로그래밍 방식으로 결정할 수 있습니다. 이러한 라이브러리는 현재 .NET에서 사용할 수 있습니다.
 
 ## <a name="overview"></a>개요
-Service Bus 엔터티를 만들고 관리 하는 데 사용할 수 있는 세 가지 관리 라이브러리가 있습니다. 관련 토폴로지는 다음과 같습니다.
+Service Bus 엔터티를 만들고 관리 하는 데 사용할 수 있는 세 가지 관리 라이브러리가 있습니다. 핵심 원리는 다음과 같습니다.
 
 - [ServiceBus. 관리](#azuremessagingservicebusadministration)
 - [ServiceBus. 관리](#microsoftazureservicebusmanagement)
@@ -156,7 +156,7 @@ namespace SBusManagementClient
 ## <a name="microsoftazuremanagementservicebus"></a>Microsoft.Azure.Management.ServiceBus 
 이 라이브러리는 Azure Resource Manager 기반 컨트롤 평면 SDK의 일부입니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 이 라이브러리를 사용 하기 시작 하려면 Azure Active Directory (Azure AD) 서비스를 사용 하 여 인증 해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 

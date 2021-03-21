@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 11/19/2020
 ms.author: jlian
 ms.openlocfilehash: 5f0af7d6bf16a05fad1ca9df5db1729abd088010
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96603565"
 ---
 # <a name="iot-hub-data-plane-mqtt-5-api-reference"></a>IoT Hub 데이터 평면 MQTT 5 API 참조
@@ -40,7 +40,7 @@ ms.locfileid: "96603565"
 
 #### <a name="alternative-responses"></a>대체 응답
 
-| 상태 | Name | Description |
+| 상태 | Name | 설명 |
 | :----- | :--- | :---------- |
 | 0100 |  잘못된 요청 | 작업 메시지의 형식이 잘못 되어 처리할 수 없습니다. |
 | 0101 |  권한 없음 | 클라이언트에 작업을 수행할 수 있는 권한이 없습니다. |
@@ -74,7 +74,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | -version | u64 | no |  |
 
@@ -92,7 +92,7 @@ ms.locfileid: "96603565"
 
 #### <a name="alternative-responses"></a>대체 응답
 
-| 상태 | Name | Description |
+| 상태 | Name | 설명 |
 | :----- | :--- | :---------- |
 | 0104 |  사전 조건 실패 | 사전 조건이 충족 되지 않아 요청이 취소 되었습니다. |
 | 0100 |  잘못된 요청 | 작업 메시지의 형식이 잘못 되어 처리할 수 없습니다. |
@@ -128,7 +128,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 시퀀스-아니요 | u64 | 예 | 메시지의 시퀀스 번호 |
 | 큐에 넣은 시간 | time | 예 | 메시지가 시스템에 입력 된 시간에 대 한 타임 스탬프입니다. |
@@ -152,7 +152,7 @@ ms.locfileid: "96603565"
 
 #### <a name="alternative-acknowledgments"></a>대체 승인
 
-| 이유 코드 | 상태 | Name | Description |
+| 이유 코드 | 상태 | Name | 설명 |
 | :---------- | :----- | :--- | :---------- |
 | 131 | 0603 | 중단 | 지금은 명령이 처리 되지 않으며 앞으로 다시 배달 되어야 함을 나타냅니다. |
 | 131 | 0100 | 거부 | 명령이 클라이언트에 의해 거부 되었음을 나타내며 다시 시도 하면 안 됩니다. |
@@ -190,7 +190,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 응답-코드 | u32 | 예 |  |
 
@@ -198,7 +198,7 @@ ms.locfileid: "96603565"
 
 #### <a name="alternative-responses"></a>대체 응답
 
-| 상태 | Name | Description |
+| 상태 | Name | 설명 |
 | :----- | :--- | :---------- |
 | 06A0 |  Unavailable | 이 연결을 통해 클라이언트에 연결할 수 없음을 나타냅니다. |
 
@@ -281,7 +281,7 @@ ms.locfileid: "96603565"
 
 #### <a name="alternative-acknowledgments"></a>대체 승인
 
-| 이유 코드 | 상태 | Name | Description |
+| 이유 코드 | 상태 | Name | 설명 |
 | :---------- | :----- | :--- | :---------- |
 | 131 | 0100 | 잘못된 요청 | 작업 메시지의 형식이 잘못 되어 처리할 수 없습니다. |
 | 135 | 0101 | 권한 없음 | 클라이언트에 작업을 수행할 수 있는 권한이 없습니다. |
@@ -321,7 +321,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
 
@@ -337,7 +337,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 추적 id | 문자열 | no | 오류에 대 한 추가 진단과의 상관 관계에 대 한 추적 ID |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
@@ -354,7 +354,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
 
@@ -370,7 +370,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 추적 id | 문자열 | no | 오류에 대 한 추가 진단과의 상관 관계에 대 한 추적 ID |
 
@@ -386,7 +386,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
 
@@ -438,7 +438,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
 
@@ -454,7 +454,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 추적 id | 문자열 | no | 오류에 대 한 추가 진단과의 상관 관계에 대 한 추적 ID |
 
@@ -470,7 +470,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 추적 id | 문자열 | no | 오류에 대 한 추가 진단과의 상관 관계에 대 한 추적 ID |
 
@@ -486,7 +486,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
 
@@ -502,7 +502,7 @@ ms.locfileid: "96603565"
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 추적 id | 문자열 | no | 오류에 대 한 추가 진단과의 상관 관계에 대 한 추적 ID |
 | reason | 문자열 | no | 메시지에 대해 잘못 된 정보에 대 한 정보를 포함 합니다. |
@@ -543,7 +543,7 @@ SKU 당 요청 비율이 너무 높습니다.
 
 **속성**:
 
-| Name | Type | 필수 | Description |
+| Name | Type | 필수 | 설명 |
 | :--- | :--- | :------- | :---------- |
 | 추적 id | 문자열 | no | 오류에 대 한 추가 진단과의 상관 관계에 대 한 추적 ID |
 

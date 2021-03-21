@@ -4,10 +4,10 @@ description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup�
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102509372"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
@@ -156,7 +156,7 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 
 ![백업 인스턴스에의 한 정책 준수](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
-###### <a name="email-azure-backup-reports"></a>전자 메일 Azure Backup 보고서
+###### <a name="email-azure-backup-reports"></a>Azure Backup 보고서 이메일 보내기
 
 백업 보고서에서 사용할 수 있는 **전자 메일 보고서** 기능을 사용 하면 자동화 된 작업을 만들어 전자 메일을 통해 정기적으로 보고서를 받을 수 있습니다. 이 기능은 사용자가 제공 하는 입력에 따라 LA (선택한 Log Analytics) 작업 영역에서 데이터를 쿼리 하는 논리 앱을 Azure 환경에 배포 하는 방식으로 작동 합니다.
 

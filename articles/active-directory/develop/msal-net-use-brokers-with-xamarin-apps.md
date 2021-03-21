@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199570"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Intune 회사 포털 사용
@@ -65,7 +65,7 @@ var builder = PublicClientApplicationBuilder
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>3 단계: 콜백을 처리 하도록 AppDelegate 업데이트
 
-MSAL.NET가 broker를 호출 하면 broker는 클래스의 메서드를 통해 응용 프로그램을 다시 호출 합니다 `OpenUrl` `AppDelegate` . MSAL이 broker의 응답을 대기 하므로 응용 프로그램은 MSAL.NET를 다시 호출 해야 합니다. 이 협력을 사용 하도록 설정 하려면 *AppDelegate.cs* 파일을 업데이트 하 여 다음 메서드를 재정의 합니다.
+MSAL.NET가 broker를 호출 하면 broker는 클래스의 메서드를 통해 응용 프로그램을 다시 호출 합니다 `OpenUrl` `AppDelegate` . MSAL이 broker의 응답을 대기 하므로 응용 프로그램은 MSAL.NET를 다시 호출 해야 합니다. 이 협력을 사용 하도록 설정 하려면 *AppDelegate* 파일을 업데이트 하 여 다음 메서드를 재정의 합니다.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -91,23 +91,23 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 ### <a name="step-4-set-uiviewcontroller"></a>4 단계: UIViewController () 설정
 
-여전히 *AppDelegate.cs* 파일에서 개체 창을 설정 합니다. 일반적으로 Xamarin iOS에 대 한 개체 창을 설정 하지 않아도 되지만 broker에서 응답을 보내고 받으려면 개체 창이 필요 합니다.
+*AppDelegate* 파일에서 개체 창을 설정 합니다. 일반적으로 Xamarin iOS에 대 한 개체 창을 설정 하지 않아도 되지만 broker에서 응답을 보내고 받으려면 개체 창이 필요 합니다.
 
 개체 창을 설정 하려면 다음을 수행 합니다.
 
-1. *AppDelegate.cs* 파일에서를 새으로 설정 `App.RootViewController` `UIViewController()` 합니다. 이렇게 할당 하면 broker에 대 한 호출에이 포함 됩니다 `UIViewController` . 이 설정이 잘못 할당 되 면 다음과 같은 오류가 발생할 수 있습니다.
+1. *AppDelegate* 파일에서를 `App.RootViewController` 새으로 설정 `UIViewController()` 합니다. 이렇게 할당 하면 broker에 대 한 호출에이 포함 됩니다 `UIViewController` . 이 설정이 잘못 할당 되 면 다음과 같은 오류가 발생할 수 있습니다.
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. 호출에서를 사용 하 여 `AcquireTokenInteractive` `.WithParentActivityOrWindow(App.RootViewController)` 사용할 개체 창에 대 한 참조를 전달 합니다.
 
-    *App.cs*:
+    *응용 프로그램 .cs*:
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    *AppDelegate.cs*:
+    *AppDelegate* 에서:
 
     ```csharp
        LoadApplication(new App());

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c6ec162ceb51c3bf19be42219b054d8371ff221
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98247355"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
@@ -227,7 +227,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 2. `Set-ExecutionPolicy RemoteSigned` 또는 `Set-ExecutionPolicy Unrestricted`를 실행합니다.
 
-3. `Import-Module ADSyncDiagnostics`를 실행합니다.
+3. `Import-Module ADSyncDiagnostics`을 실행합니다.
 
 4. 다음 cmdlet을 실행합니다.
 
@@ -316,7 +316,7 @@ Azure AD와 연결되어 있나요?
 
     b. **커넥터** 를 클릭합니다.
 
-    c. 사용자가 있는 **Active Directory Connector** 를 선택합니다.
+    다. 사용자가 있는 **Active Directory Connector** 를 선택합니다.
 
     d. **커넥터 공간 검색** 을 선택합니다.
 
@@ -326,7 +326,7 @@ Azure AD와 연결되어 있나요?
 
     f. 원하는 사용자를 찾은 후 **속성** 을 클릭하여 모든 특성을 확인합니다. 해당 사용자가 검색 결과에 없으면 [필터링 규칙](how-to-connect-sync-configure-filtering.md)을 확인하고 [변경 내용 적용 및 확인](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes)을 실행하여 사용자가 Connect에 표시되도록 합니다.
 
-    예: 지난주에 대한 개체의 암호 동기화 정보를 보려면 **로그** 를 클릭합니다.  
+    g. 지난주에 대한 개체의 암호 동기화 정보를 보려면 **로그** 를 클릭합니다.  
 
     ![개체 로그 정보](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
@@ -354,7 +354,7 @@ Azure AD와 연결되어 있나요?
 
 상태 열에는 다음과 같은 값을 포함할 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 | --- | --- |
 | Success |암호가 성공적으로 동기화되었습니다. |
 | FilteredByTarget |**다음 로그인할 때 반드시 암호 변경** 으로 암호가 설정됩니다. 암호가 동기화되지 않았습니다. |

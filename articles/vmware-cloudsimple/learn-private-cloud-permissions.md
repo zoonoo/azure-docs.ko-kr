@@ -9,10 +9,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97898048"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 사설 클라우드 권한 모델
@@ -32,7 +32,7 @@ CloudSimple은 사설 클라우드 환경에 대 한 모든 관리 액세스를 
 
 ### <a name="pre-created-groups"></a>미리 만든 그룹
 
-| 그룹 이름 | 목적 | 역할 |
+| 그룹 이름 | 용도 | 역할 |
 | -------- | ------- | ------ |
 | 클라우드 소유자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter에 대 한 관리 권한을 가집니다. | [클라우드 소유자-역할](#cloud-owner-role) |
 | 클라우드-글로벌-클러스터 관리자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter 클러스터에 대 한 관리 권한을 가집니다. | [클라우드-클러스터-관리자-역할](#cloud-cluster-admin-role) |
@@ -54,7 +54,7 @@ CloudSimple은 사설 클라우드 환경에 대 한 모든 관리 액세스를 
 | **알람** | 알람 수신 확인 <br> 알람 만들기 <br> 알람 동작 사용 안 함 <br> 경보 수정 <br> 알람 제거 <br> 알람 상태 설정 |
 | **권한** | 권한 수정 |
 | **콘텐츠 라이브러리** | 라이브러리 항목 추가 <br> 로컬 라이브러리 만들기 <br> 구독 된 라이브러리 만들기 <br> 라이브러리 항목 삭제 <br> 로컬 라이브러리 삭제 <br> 구독 된 라이브러리 삭제 <br> 파일 다운로드 <br> 라이브러리 항목 제거 <br> 구독 라이브러리 제거 <br> 저장소 가져오기 <br> 프로브 구독 정보 <br> 저장소 읽기 <br> 라이브러리 항목 동기화 <br> 구독 된 라이브러리 동기화 <br> 검사 입력 <br> 구성 설정 업데이트 <br> 업데이트 파일 <br> 업데이트 라이브러리 <br> 라이브러리 항목 업데이트 <br> 로컬 라이브러리 업데이트 <br> 구독 된 라이브러리 업데이트 <br> 구성 설정 보기 |
-| **암호화 작업** | 디스크 추가 <br> 복제 <br> 암호 해독 <br> 직접 액세스 <br> Encrypt <br> 새 암호화 <br> KMS 관리 <br> 암호화 정책 관리 <br> 키 관리 <br> 마이그레이션 <br> Recrypt <br> VM 등록 <br> 호스트 등록 |
+| **암호화 작업** | 디스크 추가 <br> 복제 <br> 암호 해독 <br> 직접 액세스 <br> Encrypt <br> 새 암호화 <br> KMS 관리 <br> 암호화 정책 관리 <br> 키 관리 <br> Migrate <br> Recrypt <br> VM 등록 <br> 호스트 등록 |
 | **dvPort 그룹** | 생성 <br> DELETE <br> 수정 <br> 정책 작업 <br> 범위 작업 |
 | **Datastore** | 공간 할당 <br> 데이터 저장소 찾아보기 <br> 데이터 저장소 구성 <br> 하위 수준 파일 작업 <br> 데이터 저장소 이동 <br> 데이터 저장소 제거 <br> 파일 제거 <br> 데이터 저장소 이름 바꾸기 <br> 가상 머신 파일 업데이트 <br> 가상 컴퓨터 메타 데이터 업데이트 |
 | **ESX 에이전트 관리자** | Config <br> 수정 <br> 보기 |

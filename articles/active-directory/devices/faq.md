@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199707"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
@@ -69,7 +69,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ---
 
-### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>Q: Azure Portal에서 또는 Windows PowerShell을 사용 하 여 장치를 사용 하지 않도록 설정 하거나 삭제 했습니다. 하지만 디바이스의 로컬 상태는 여전히 등록된 것으로 표시됩니다. 어떻게 해야 합니까?
+### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>Q: Azure Portal에서 또는 Windows PowerShell을 사용 하 여 장치를 사용 하지 않도록 설정 하거나 삭제 했습니다. 하지만 디바이스의 로컬 상태는 여전히 등록된 것으로 표시됩니다.   어떻게 해야 합니까?
 
 **A:** 이 작업은 의도 된 것입니다. 이 경우 장치는 클라우드의 리소스에 액세스할 수 없습니다. 관리자는 부실 하거나 분실 하거나 도난당 한 장치에 대해이 작업을 수행 하 여 무단 액세스를 방지할 수 있습니다. 이 작업을 실수로 수행한 경우 아래 설명 된 대로 장치를 다시 사용 하도록 설정 하거나 다시 등록 해야 합니다.
 
