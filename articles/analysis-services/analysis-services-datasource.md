@@ -8,10 +8,10 @@ ms.date: 02/08/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 03f4d151fc948e4c060989a7d101ad91aecdecb6
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99981496"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
@@ -70,7 +70,7 @@ Analysis Services 프로젝트를 통해 Visual Studio에서 데이터 가져오
 |SharePoint 목록      |   예 | 예 | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
 |SQL Server |예   | 예  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |SQL Server 데이터 웨어하우스 |예   | 예  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
-|Sybase 데이터베이스     |  예 | 예 |  |
+|Sybase 데이터베이스     |  예 | 아니요 |  |
 |Teradata | 예  | 예  | <sup>[10](#teradata)</sup> |
 |TXT 파일  |예 | 예 |  |
 |XML 테이블    |  예 | 예 | <sup>[6](#tab1400b)</sup> |

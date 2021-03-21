@@ -10,10 +10,10 @@ ms.custom:
 - fasttrack-edit
 - devx-track-azurecli
 ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708716"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
@@ -187,7 +187,7 @@ az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-inst
 |노르웨이 동부| 100 | 20 |
 |미국 중남부| 100 | 20 |
 |인도 남부 | 100 | 사용할 수 없음 |
-|동남아시아| 100 | 20 |
+|동남 아시아| 100 | 20 |
 |스위스 북부| 100 | 사용할 수 없음 |
 |스위스 서부| 100 | 사용할 수 없음 |
 |영국 남부| 100 | 20 |

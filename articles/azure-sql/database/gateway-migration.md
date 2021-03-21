@@ -11,10 +11,10 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
 ms.openlocfilehash: 588c6548afb07fb8ee3de5152c240ddd9ea2293b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102430193"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
@@ -30,7 +30,7 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
 
-## <a name="april-2021"></a>4 월 2021
+## <a name="april-2021"></a>2021년 4월
 새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
 - 노르웨이 동부: 51.120.96.33
 - 남부 동아시아: 13.67.16.193

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: bced45474a3a851bc5785f662c0b2e50ae3a380c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491081"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>IoT 기준 및 사용자 지정 검사를 위한 Azure Defender
@@ -66,7 +66,7 @@ ms.locfileid: "103491081"
 
 ## <a name="baseline-custom-check-properties"></a>기준 사용자 지정 검사 속성
 
-| 이름| 상태 | 유효한 값| 기본값| 설명 |
+| Name| 상태 | 유효한 값| 기본값| Description |
 |------|-----|------|-----|-----|
 |baselineCustomChecksEnabled|필수: true |유효한 값: **Boolean** |기본값: **false** |우선 순위가 높은 메시지가 전송 되기 전의 최대 시간 간격입니다.|
 |baselineCustomChecksFilePath |필수: true|유효한 값: **String**, **null** |기본값: **null** |기본 xml 구성의 전체 경로입니다.|

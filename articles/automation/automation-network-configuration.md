@@ -5,10 +5,10 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
 ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708886"
 ---
 # <a name="azure-automation-network-configuration-details"></a>네트워크 구성 세부 정보 Azure Automation
@@ -20,7 +20,7 @@ ms.locfileid: "101708886"
 Hybrid Runbook Worker에는 다음 포트 및 Url이 필요 하며, [자동화 상태 구성은](automation-dsc-overview.md) Azure Automation와 통신 합니다.
 
 * 포트: 아웃 바운드 인터넷 액세스에는 443만 필요
-* 전역 URL: `*.azure-automation.net`
+* 글로벌 URL: `*.azure-automation.net`
 * US Gov 버지니아의 글로벌 URL: `*.azure-automation.us`
 * 에이전트 서비스: `https://<workspaceId>.agentsvc.azure-automation.net`
 

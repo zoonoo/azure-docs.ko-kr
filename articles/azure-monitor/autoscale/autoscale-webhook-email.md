@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100617559"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
@@ -17,7 +17,7 @@ ms.locfileid: "100617559"
 ## <a name="webhooks"></a>Webhook
 Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. 예를 들어, 들어오는 웹 Request to Send SMS를 처리 하 고, 버그를 기록 하거나, 채팅 또는 메시징 서비스를 사용 하 여 팀에 알릴 수 있는 서비스로 경고를 라우팅합니다. Webhook URI는 올바른 HTTP 또는 HTTPS 끝점 이어야 합니다.
 
-## <a name="email"></a>Email
+## <a name="email"></a>메일
 모든 유효한 전자 메일 주소로 전자 메일을 보낼 수 있습니다. 규칙이 실행되고 있는 구독의 관리자와 공동 관리자도 알림을 받습니다.
 
 ## <a name="cloud-services-and-app-services"></a>Cloud Services 및 App Services

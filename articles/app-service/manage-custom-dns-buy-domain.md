@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704857"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
@@ -18,7 +18,7 @@ App Service 도메인은 Azure에서 직접 관리 되는 사용자 지정 도�
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -47,7 +47,7 @@ App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Service 
 
 1. **기본 사항** 탭에서 다음 표를 사용 하 여 설정을 구성 합니다.  
 
-   | 설정  | Description |
+   | 설정  | 설명 |
    | -------- | ----------- |
    | **구독** | 도메인을 구입 하는 데 사용할 구독입니다. |
    | **리소스 그룹** | 도메인을 배치할 리소스 그룹입니다. 예를 들어 앱이 있는 리소스 그룹입니다. |
@@ -72,7 +72,7 @@ App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Service 
 
 1. **고급** 탭에서 옵션 설정을 구성 합니다.  
 
-   | 설정  | Description |
+   | 설정  | 설명 |
    | -------- | ----------- |
    | **자동 갱신** | 기본적으로 사용하도록 설정되어 있습니다. App Service 도메인은 1 년 단위로 사용자에 게 등록 됩니다. 자동 갱신은 도메인 등록이 만료 되지 않고 도메인의 소유권을 유지 하도록 합니다. 갱신할 때 Azure 구독에 연간 도메인 등록 요금이 자동으로 청구 됩니다. 옵트아웃 하려면 **사용 안 함** 을 선택 합니다. 자동 갱신을 사용 하지 않도록 설정한 경우 [수동으로 갱신할](#renew-the-domain)수 있습니다. |
    | **개인 정보 보호** | 기본적으로 사용하도록 설정되어 있습니다. 개인 정보 보호는 WHOIS 데이터베이스에서 도메인 등록 담당자 정보를 숨깁니다. 개인 정보 보호는 매년 도메인 등록 요금에 이미 포함 되어 있습니다. 옵트아웃 하려면 **사용 안 함** 을 선택 합니다. |

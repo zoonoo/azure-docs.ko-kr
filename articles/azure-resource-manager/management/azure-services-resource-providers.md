@@ -2,17 +2,17 @@
 title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: ee8cb054f3f10c3b33d5235b2b03cdfeac266139
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008708"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592164"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
-이 문서에서는 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법을 보여 줍니다.
+이 문서에서는 리소스 공급자 네임 스페이스를 Azure 서비스에 매핑하는 방법을 보여 줍니다. 리소스 공급자를 모르는 경우 [리소스 공급자 찾기](#find-resource-provider)를 참조 하세요.
 
 ## <a name="match-resource-provider-to-service"></a>리소스 공급자를 서비스에 매칭
 
@@ -192,6 +192,42 @@ ms.locfileid: "103008708"
 
 > [!IMPORTANT]
 > 사용할 준비가 된 경우에만 리소스 공급자를 등록 합니다. 등록 단계를 통해 구독 내에서 최소의 권한을 유지할 수 있습니다. 악의적인 사용자는 등록 되지 않은 리소스 공급자를 사용할 수 없습니다.
+
+## <a name="find-resource-provider"></a>리소스 공급자 찾기
+
+Azure에 기존 인프라가 있지만 사용 되는 리소스 공급자가 확실 하지 않은 경우 Azure CLI 또는 PowerShell을 사용 하 여 리소스 공급자를 찾을 수 있습니다. 찾을 리소스를 포함 하는 리소스 그룹의 이름을 지정 합니다.
+
+다음 예에서는 Azure CLI를 사용 합니다.
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+결과에는 리소스 종류가 포함 됩니다. 리소스 공급자 네임 스페이스는 리소스 형식의 첫 번째 부분입니다. 다음 예제에서는 **Microsoft KeyVault** 리소스 공급자를 보여 줍니다.
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+다음 예제에서는 PowerShell을 사용 합니다.
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+결과에는 리소스 종류가 포함 됩니다. 리소스 공급자 네임 스페이스는 리소스 형식의 첫 번째 부분입니다. 다음 예제에서는 **Microsoft KeyVault** 리소스 공급자를 보여 줍니다.
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/26/2021
 ms.author: yelevin
 ms.openlocfilehash: c66205ffd9bd5a742d645cbf2f9251a44329a16e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700873"
 ---
 # <a name="connect-your-sophos-cloud-optix-to-azure-sentinel"></a>Sophos Cloud Optix를 Azure 센티널에 연결
@@ -37,7 +37,7 @@ Sophos Cloud Optix는 로그를 Azure 센티널로 직접 통합 하 고 내보�
 
 1. Azure 센티널 포털에서 **데이터 커넥터** 를 클릭 하 고 **Sophos Cloud Optix (미리 보기)** 를 선택 합니다.
 
-1. **커넥터 페이지 열기** 를 선택 합니다.
+1. **커넥터 페이지 열기** 를 선택합니다.
 
 1. 커넥터 페이지에서 **작업 영역 ID** 및 **기본 키** 를 복사 하 여 저장 합니다.
 

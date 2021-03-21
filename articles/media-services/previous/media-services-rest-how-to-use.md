@@ -16,10 +16,10 @@ ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: johndeu
 ms.openlocfilehash: 9f147e333e4d1b95a14dd3121d7ab304b6166248
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103010051"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services Operations REST API 개요
@@ -62,7 +62,7 @@ REST를 사용할 때 적용되는 고려 사항은 다음과 같습니다.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Media Services에서 지원하는 표준 HTTP 요청 헤더
 Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해야 하는 필수 헤더 집합이 있으며 포함할 수도 있는 선택적 헤더 집합도 있습니다. 아래 표에서는 필수 헤더를 나열합니다.
 
-| header | 유형 | 값 |
+| 헤더 | Type | 값 |
 | --- | --- | --- |
 | 권한 부여 |전달자 |전달자는 승인된 유일한 권한 부여 메커니즘입니다. 이 값은 Azure Active Directory에서 제공한 액세스 토큰도 포함해야 합니다. |
 | x-ms-version |Decimal |2.17(또는 최신 버전)|
@@ -76,7 +76,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 
 다음은 선택적 헤더의 집합입니다.
 
-| header | 유형 | 값 |
+| 헤더 | Type | 값 |
 | --- | --- | --- |
 | 날짜 |RFC 1123 날짜 |요청 타임스탬프 |
 | 동의함 |내용 유형 |다음과 같은 응답에 대해 요청된 콘텐츠 형식:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Blob 인출과 같이 다른 콘텐츠 유형이 응답에 있을 수 있습니다. 여기서 성공적인 응답은 Blob 스트림을 페이로드로 포함합니다. |
@@ -90,7 +90,7 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 응답 헤더
 다음은 요청한 리소스 및 수행하려는 작업에 따라 사용자에게 반환될 수 있는 헤더 집합입니다.
 
-| header | 유형 | 값 |
+| 헤더 | Type | 값 |
 | --- | --- | --- |
 | request-id |String |현재 작업에 대한 고유 식별자로 서비스를 생성합니다. |
 | client-request-id |String |호출자가 원래 요청을 통해 지정한 식별자입니다(있는 경우). |
@@ -101,12 +101,12 @@ Media Services에서 작성한 모든 호출에는 귀하의 요청에 포함해
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Media Services에서 지원되는 표준 HTTP 동사
 다음은 HTTP 요청을 만들 때 사용할 수 있는 HTTP 동사의 전체 목록입니다.
 
-| 동사 | 설명 |
+| 동사 | Description |
 | --- | --- |
 | GET |개체의 현재 값을 반환합니다. |
 | POST |제공된 데이터를 기반으로 개체를 만들거나 명령을 제출합니다. |
 | PUT |개체를 바꾸거나 명명된 개체(있는 경우)를 만듭니다. |
-| DELETE |개체를 삭제합니다. |
+| Delete |개체를 삭제합니다. |
 | MERGE |명명된 속성 변경 내용으로 기존 개체를 업데이트합니다. |
 | HEAD |GET 응답에 대한 개체의 메타데이터를 반환합니다. |
 

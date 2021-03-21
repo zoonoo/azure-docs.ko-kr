@@ -11,17 +11,17 @@ ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.openlocfilehash: a0d8532d19aff41bc5e7defb3b58462e81018749
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101712932"
 ---
 # <a name="create-a-translator-resource"></a>Translator 리소스 만들기
 
 이 문서에서는 Azure Portal에서 변환기 리소스를 만드는 방법에 대해 알아봅니다. [Azure Translator](translator-info-overview.md) 는 [Azure Cognitive Services](../what-are-cognitive-services.md) REST api 제품군의 일부인 클라우드 기반 기계 번역 서비스입니다. Azure 리소스는 사용자가 만드는 서비스의 인스턴스입니다. Azure 서비스에 대 한 모든 API 요청에는 액세스 인증을 위한 **끝점** URL 및 읽기 전용 **구독 키** 가 필요 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하려면 활성 [**Azure 계정이**](https://azure.microsoft.com/free/cognitive-services/)필요 합니다.  없는 경우 [**12 개월 무료 구독을 만들**](https://azure.microsoft.com/free/)수 있습니다.
 

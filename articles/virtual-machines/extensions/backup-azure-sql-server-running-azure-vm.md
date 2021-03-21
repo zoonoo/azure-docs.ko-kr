@@ -9,10 +9,10 @@ ms.author: dacurwin
 ms.collection: windows
 ms.date: 07/05/2019
 ms.openlocfilehash: 46cc4b23ca7dd70da3f917a3399406480dc9fdbd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102557100"
 ---
 # <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Azure VM에서 실행 되는 SQL Server에 대 한 Azure Backup
@@ -20,7 +20,7 @@ ms.locfileid: "102557100"
 Azure Backup는 다른 서비스에서 Azure Vm에서 실행 되는 SQL Server와 같은 워크 로드를 백업 하는 기능을 제공 합니다. SQL 응용 프로그램은 Azure VM 내에서 실행 되므로 backup 서비스에는 응용 프로그램에 액세스 하 고 필요한 세부 정보를 가져올 수 있는 권한이 필요 합니다.
 이렇게 하려면 Azure Backup 사용자가 트리거한 등록 프로세스 중에 SQL Server 실행 중인 VM에 **Azurebackupwindowsworkload 로드** 확장을 설치 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 지원 되는 시나리오 목록은 Azure Backup에서 지 원하는 지원 [가능성 매트릭스](../../backup/sql-support-matrix.md#scenario-support) 를 참조 하세요.
 

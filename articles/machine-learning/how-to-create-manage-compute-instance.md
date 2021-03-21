@@ -12,10 +12,10 @@ author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
 ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009966"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
@@ -40,7 +40,7 @@ Azure Machine Learning 작업 영역에서 [계산 인스턴스](concept-compute
 
 * Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 
-## <a name="create"></a>만들기
+## <a name="create"></a>생성
 
 **예상 시간**: 약 5 분.
 
@@ -161,7 +161,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* 삭제
+* DELETE
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -196,7 +196,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
     자세한 내용은 [az ml computetarget restart 확인 einstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조 하세요.
 
-* 삭제
+* DELETE
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v

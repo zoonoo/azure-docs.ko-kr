@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Red Hat OpenShift 버전 3 이상에서 �
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: b46dfda0bdb0f3b582aa751786187a4d74524f75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708376"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-container-insights"></a>컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift v3 구성
@@ -39,7 +39,7 @@ ms.locfileid: "101708376"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Log Analytics 작업 영역](../logs/design-logs-deployment.md)
 

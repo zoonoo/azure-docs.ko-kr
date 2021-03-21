@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 201a7d1fce00323ef3f8eec1bdd415c4064d49ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68879548"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674991"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>Azure Data Catalog 문제 해결
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 이 문서에서는 Azure Data Catalog 리소스에 대 한 일반적인 문제 해결 문제를 설명 합니다. 
 
@@ -31,7 +33,7 @@ Azure Data Catalog를 사용 하는 경우 다음 기능이 제한 됩니다.
 
 Azure Data Catalog 포털에 로그인할 수 있는 상황이 발생할 수 있지만, 데이터 원본 등록 도구에 로그인을 시도할 때 로그인하지 않도록 하는 오류 메시지가 발생합니다. 회사 네트워크에 있거나 회사 네트워크 외부에서 연결 하는 경우이 오류가 발생할 수 있습니다.
 
-등록 도구가 *폼 인증* 을 사용하여 Azure Active Directory에 대한 사용자 로그인의 유효성 검사를 수행합니다. 로그인이 성공하려면 Azure Active Directory 관리자가 *전역 인증 정책*에서 폼 인증을 사용할 수 있도록 해야 합니다.
+등록 도구가 *폼 인증* 을 사용하여 Azure Active Directory에 대한 사용자 로그인의 유효성 검사를 수행합니다. 로그인이 성공하려면 Azure Active Directory 관리자가 *전역 인증 정책* 에서 폼 인증을 사용할 수 있도록 해야 합니다.
 
 전역 인증 정책을 사용하면 다음 이미지에 나와 있는 것처럼 인트라넷 및 엑스트라넷 연결에 대해 개별 인증을 사용하도록 설정할 수 있습니다. 연결 중인 네트워크에서 폼 인증을 사용 하도록 설정 하지 않은 경우 로그인 오류가 발생할 수 있습니다.
 

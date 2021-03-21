@@ -10,10 +10,10 @@ ms.date: 03/02/2021
 ms.author: alkohli
 ms.custom: references_regions
 ms.openlocfilehash: 88aedb7daa375ae6b4a9107dceed1d25ed72ed92
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102039107"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
@@ -98,7 +98,7 @@ A. Data Box 디스크에 문제가 발생 하는 경우 [Microsoft 지원에 문
 ### <a name="q-how-do-i-get-data-box-disk"></a>17. Data Box Disk를 가져올 어떻게 할까요? 있나요? 
 A.  Azure Data Box Disk를 얻으려면 Azure Portal에 로그인 하 고 Data Box Disk 순서를 만듭니다. 연락처 정보 및 알림 세부 정보를 제공합니다. 주문을 입력 한 후에는 사용 가능 여부에 따라 10 일 이내에 Data Box Disk 제공 됩니다. 자세한 내용은 [Data Box 주문](data-box-disk-deploy-ordered.md)을 참조하세요.
 
-### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 그 이유는
+### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>17. Azure Portal에서 Data Box Disk 순서를 만들 수 없습니다. 이유
 A. Data Box Disk 순서를 만들 수 없는 경우 구독 형식 또는 액세스에 문제가 있습니다.
 
 구독을 확인합니다. Data Box Disk는 EA (기업계약) 및 CSP (클라우드 솔루션 공급자) 구독 제안에만 사용할 수 있습니다. 이러한 구독 유형 중 하나가 없는 경우 Microsoft 지원에 문의 하 여 구독을 업그레이드 합니다.

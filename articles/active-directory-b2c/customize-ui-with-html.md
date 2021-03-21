@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 03/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050552"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104675828"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 HTML 템플릿으로 사용자 인터페이스 사용자 지정
 
@@ -116,7 +116,7 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 1. 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 1. 사용자 지정 정책 콘텐츠 URI에 대 한 정책을 가리킵니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -266,7 +266,7 @@ UI 사용자 지정을 구성 하려면 **Contentdefinition** 및 해당 자식 
 1. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. **BuildingBlocks** 요소의 자식으로 복사한 **contentdefinitions** 요소의 전체 내용을 붙여넣습니다.
 1. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예들 들어 `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`입니다.
+1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`
 
     사용자 지정 정책은 다음 코드 조각과 같이 표시 됩니다.
 
@@ -363,26 +363,31 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 UI 사용자 지정을 위한 샘플 템플릿은 다음에서 찾을 수 있습니다.
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 이 프로젝트에는 다음 템플릿이 포함 되어 있습니다.
-- [바다색](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [슬레이트 회색](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [바다색](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [슬레이트 회색](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [클래식](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [템플릿 리소스](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 샘플을 사용 하려면 다음을 수행 합니다.
 
-1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. 템플릿 폴더 또는를 `/ocean_blue` 선택 `/slate_gray` 합니다.
-1. `/assets`이전 섹션에 설명 된 대로 템플릿 폴더 및 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다.
-1. 그런 다음 `\*.html` 또는의 루트에 있는 각 파일 `/ocean_blue` 을 열고 `/slate_gray` 상대 url의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 url로 바꿉니다. 예를 들면 다음과 같습니다.
+1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. 템플릿 폴더, 또는를 선택 `/AzureBlue` `/MSA` `/classic` 합니다.
+1. `/src`이전 섹션에 설명 된 대로 템플릿 폴더 및 폴더 아래의 모든 파일을 Blob 저장소에 업로드 합니다.
+1. 그런 다음 `\*.html` 템플릿 폴더에서 각 파일을 엽니다. 그런 다음 url의 모든 인스턴스 `https://login.microsoftonline.com` 를 2 단계에서 업로드 한 url로 바꿉니다. 예를 들면 다음과 같습니다.
+    
+    원본:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    대상
+    대상:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
+    
 1. 파일을 저장 하 `\*.html` 고 Blob 저장소에 업로드 합니다.
 1. 이제 앞에서 설명한 것 처럼 HTML 파일을 가리키는 정책을 수정 합니다.
 1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 .html 파일의 참조를 확인 합니다. \*

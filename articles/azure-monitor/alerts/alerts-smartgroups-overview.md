@@ -4,10 +4,10 @@ description: 스마트 그룹은 경고 노이즈를 줄이는 데 도움이 되
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: 8a164fe6e5fd5be58da969d9266329755705ea82
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037968"
 ---
 # <a name="smart-groups"></a>스마트 그룹
@@ -30,7 +30,7 @@ ms.locfileid: "102037968"
 |:---|:---|
 | 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 승인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
-| 해결됨 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
+| 종결 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 
 [스마트 그룹의 상태를 변경하는 방법을 알아보세요.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 

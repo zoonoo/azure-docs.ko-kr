@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
 ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102430941"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
@@ -122,7 +122,7 @@ Azure Blob Storage용 변경 불가능한 스토리지는 두 가지 유형의 W
 > [!IMPORTANT]
 > [URL에 대 한 SQL 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)등의 일부 작업은 blob을 만들고 추가 합니다. 컨테이너에 활성 시간 기반 보존 정책이 나 법적 보류가 있는 경우이 패턴은 성공 하지 않습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경할 수 없는 데이터는 변경 가능한 데이터와 동일한 방식으로 가격이 책정 됩니다. Azure Blob 저장소에 대 한 가격 정보는 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조 하세요.
 

@@ -12,10 +12,10 @@ ms.date: 02/03/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 682549b5b99169060437c8c91d465121002edc6e
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259607"
 ---
 # <a name="cloud-app-visibility-and-control"></a>클라우드 앱 표시 유형 및 제어
@@ -24,7 +24,7 @@ ms.locfileid: "99259607"
 
 ## <a name="discover-and-manage-shadow-it-in-your-network"></a>네트워크의 섀도 IT 검색 및 관리
 
-IT 관리자에게 직원들이 사용하는 클라우드 앱이 몇 개일 것 같냐고 물으면 평균적으로 30개 또는 40개라고 답합니다. 실제로 조직의 직원들이 평균적으로 사용하는 앱은 1,000개 이상입니다. 섀도 IT는 사용 중인 앱과 위험 수준을 파악하고 식별하는 데 도움이 됩니다. 80%의 직원은 아무도 검토하지 않은 비사용 권한 앱을 사용하고 보안 및 규정 준수 정책을 준수하지 않을 수 있습니다. 직원들이 회사 네트워크 외부에서 리소스와 앱에 액세스할 수 있으므로 방화벽에 규칙 및 정책을 지정하는 것만으로는 더 이상 충분하지 않습니다.
+직원들이 사용하는 것으로 의심되는 클라우드 앱의 수를 IT 관리자에게 물어보면 평균 30개에서 40개라고 말하지만, 실제로는 평균 1,000개 이상의 개별 앱을 조직의 직원들이 사용하고 있습니다. 섀도 IT는 사용 중인 앱과 위험 수준을 파악하고 식별하는 데 도움이 됩니다. 80%의 직원은 아무도 검토하지 않은 비사용 권한 앱을 사용하고 보안 및 규정 준수 정책을 준수하지 않을 수 있습니다. 직원들이 회사 네트워크 외부에서 리소스와 앱에 액세스할 수 있으므로 더 이상 방화벽에 대한 규칙 및 정책을 사용하는 것만으로는 충분하지 않습니다.
 
 Microsoft Cloud App Discovery(Azure Active Directory Premium P1 기능)를 사용하여 사용 중인 앱을 검색하고, 이러한 앱의 위험을 살펴보고, 위험한 새 앱을 식별하는 정책을 구성하고, 이러한 앱을 미승인하여 프록시 또는 방화벽 어플라이언스를 통해 기본적으로 차단합니다.
 
@@ -32,7 +32,7 @@ Microsoft Cloud App Discovery(Azure Active Directory Premium P1 기능)를 사�
 - 평가 및 분석
 - 앱 관리
 - 고급 섀도 IT 검색 보고
-- 비사용 권한 앱 제어
+- 사용 권한 앱 제어
  
 ### <a name="learn-more"></a>자세한 정보
 

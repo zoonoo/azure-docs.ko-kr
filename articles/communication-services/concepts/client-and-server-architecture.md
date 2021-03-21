@@ -10,10 +10,10 @@ ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: 74a48b05e7e3b00d331da4fcf66092490ae70374
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103490673"
 ---
 # <a name="client-and-server-architecture"></a>클라이언트 및 서버 아키텍처
@@ -81,7 +81,7 @@ Azure 통신 서비스는 Azure 통신 서비스 데이터 평면에 직접 액�
 > [!div class="nextstepaction"]
 > [사용자 액세스 토큰 만들기](../quickstarts/access-tokens.md)
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [인증](../concepts/authentication.md) 에 대 한 자세한 정보
 - [전화 번호 형식](../concepts/telephony-sms/plan-solution.md) 에 대 한 자세한 정보
