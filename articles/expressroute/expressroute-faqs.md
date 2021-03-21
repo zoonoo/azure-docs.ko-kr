@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 417a6a55f0114ec35554e598b456f4fb67eb1c1b
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: da293f15ba070fc9a00ad37defd6a76175ded2f2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574461"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587282"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -204,7 +204,7 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 예. 같거나 다른 서비스 공급자로 여러 ExpressRoute 회로를 포함할 수 있습니다. 메트로에 여러 개의 ExpressRoute 피어링 위치가 있고 다른 피어링 위치에 회로가 만들어지는 경우 이러한 회로를 동일한 가상 네트워크에 연결할 수 있습니다. 회로가 동일한 피어 링 위치에 만들어지면 최대 4 개의 회로를 동일한 가상 네트워크에 연결할 수 있습니다.
 
-### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 ExpressRoute 회로에 연결하려면 어떻게 해야 하나요?
+### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>가상 네트워크를 Express 경로 회로에 연결 어떻게 할까요??
 
 기본 단계는 다음과 같습니다.
 
@@ -298,6 +298,15 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 ### <a name="how-do-i-change-the-bandwidth-of-an-expressroute-circuit"></a>ExpressRoute 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
 
 REST API 및 PowerShell cmdlet을 사용하여 ExpressRoute 회로의 대역폭을 업데이트할 수 있습니다.
+
+### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>Express 경로 회로에서 유지 관리에 대 한 알림을 받았습니다. 이러한 유지 관리의 기술적 영향은 무엇 인가요?
+
+[활성-활성 모드로](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections)회로를 운영 하는 경우 유지 관리 중에는 영향을 최소화 해야 합니다. 회로의 기본 및 보조 연결에 대해 개별적으로 유지 관리를 수행 합니다. 예약 된 유지 관리는 일반적으로 피어 링 위치의 표준 시간대에서 업무 외 시간에 수행 되며 유지 관리 시간을 선택할 수 없습니다.
+
+### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>Express 경로 게이트웨이에서 소프트웨어 업그레이드 또는 유지 관리에 대 한 알림을 받았습니다. 이러한 유지 관리의 기술적 영향은 무엇 인가요?
+
+게이트웨이에서 소프트웨어를 업그레이드 하거나 유지 관리 하는 동안 영향을 최소화 해야 합니다. Express 경로 게이트웨이는 여러 인스턴스로 구성 되며, 업그레이드 하는 동안 인스턴스는 한 번에 하나씩 오프 라인으로 전환 됩니다. 이로 인해 게이트웨이는 가상 네트워크에 대 한 낮은 네트워크 처리량을 일시적으로 지원할 수 있지만, 게이트웨이 자체에는 가동 중지 시간이 발생 하지 않습니다.
+
 
 ## <a name="expressroute-premium"></a>ExpressRoute Premium
 

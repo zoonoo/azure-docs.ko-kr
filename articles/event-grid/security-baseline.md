@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 80b630bb2f06d3eb634b9d9d32649ea8a47c0b0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739146"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Event Grid에 대 한 Azure 보안 기준
@@ -74,7 +74,7 @@ Azure 가상 머신은 Event Grid 리소스에 액세스 하 고, NSG (네트워
 
 선택한 가상 네트워크 에서만 액세스를 제한 하도록 개인 끝점을 구성할 수 있습니다.
 
-DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 문서를 참조하세요. 
+DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 아티클을 참조하세요. 
 
 - [Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법](configure-private-endpoints.md)
 

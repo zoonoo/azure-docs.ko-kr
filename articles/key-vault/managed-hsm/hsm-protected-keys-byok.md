@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
 ms.openlocfilehash: dd5b38a858ceba12f5d48f1782da5b85228c4b06
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212113"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>HSM 보호 된 키를 관리 되는 HSM으로 가져오기 (BYOK)
@@ -40,7 +40,7 @@ ms.locfileid: "102212113"
 * BYOK 파일이 관리 되는 HSM에 업로드 되 면 관리 되는 HSM은 KEK 개인 키를 사용 하 여 대상 키 자료를 해독 하 고 HSM 키로 가져옵니다. 이 작업은 HSM 내에서 완전히 발생 합니다. 대상 키는 항상 HSM 보호 경계에 남아 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서 Azure CLI 명령을 사용하려면 다음 항목이 있어야 합니다.
 
@@ -82,7 +82,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 |대상 키|
 ||RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
 ||EC|P-256<br />P-384<br />P-521|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
-||대칭 키 (oct-HSM)|128비트<br />192 비트<br />256 비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
+||대칭 키 (oct-HSM)|128비트<br />192비트<br />256비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
 ||||
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>키를 생성 하 고 관리 되는 HSM으로 전송
 

@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈 디바이스 비활성화 및 삭제 | Microsoft Docs
-description: StorSimple Device Manager 서비스에 연결 된 StorSimple 장치를 비활성화 및 삭제 하는 방법에 대해 알아봅니다.
+description: StorSimple 장치 관리자 서비스에 연결 된 StorSimple 장치를 비활성화 및 삭제 하는 방법에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 07d108306fdca9bfe8f793b61660550e43151d71
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017188"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 디바이스 비활성화 및 삭제

@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175110"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579742"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
@@ -29,7 +29,7 @@ Single Sign-On를 통해 사용자는 단일 계정으로 한 번 로그인 하 
 
 사용자가 응용 프로그램에 처음으로 로그인 하면 Azure AD B2C 쿠키 기반 세션을 유지 합니다. 후속 인증 요청 시 Azure AD B2C은 쿠키 기반 세션을 읽고 유효성을 검사 하며, 사용자에 게 다시 로그인 하 라는 메시지를 표시 하지 않고 액세스 토큰을 발급 합니다. 쿠키 기반 세션이 만료 되거나 유효 하지 않게 되 면 사용자에 게 다시 로그인 하 라는 메시지가 표시 됩니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -81,7 +81,7 @@ Azure AD B2C와의 통합에는 세 가지 유형의 SSO 세션이 포함 됩니
   - **테넌트** - 이 설정은 기본값입니다. 이 설정을 사용하여 B2C 테넌트의 여러 애플리케이션 및 사용자 흐름이 동일한 사용자 세션을 공유할 수 있습니다. 예를 들어 사용자가 응용 프로그램에 로그인 하면 사용자는 액세스할 때 다른 사용자에 게 원활 하 게 로그인 할 수 있습니다.
   - **애플리케이션** - 이 설정을 통해 다른 애플리케이션과 독립적으로 애플리케이션에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 사용자가 Contoso 잡화에 이미 로그인 했는지 여부에 관계 없이 사용자가 Contoso Pharmacy에 로그인 할 수 있도록 하려면이 설정을 사용할 수 있습니다.
   - **정책** - 이 설정을 통해 이를 사용하는 애플리케이션과 독립적으로 사용자 흐름에 대한 독점적인 사용자 세션을 유지할 수 있습니다. 예를 들어 사용자가 이미 로그인 하 고 MFA (multi-factor authentication) 단계를 완료 한 경우 사용자 흐름에 연결 된 세션이 만료 되지 않는 한 사용자에 게 여러 응용 프로그램의 더 높은 보안 부분에 대 한 액세스 권한을 부여할 수 있습니다.
-  - **사용 안 함** -이 설정은 사용자가 정책을 실행할 때마다 전체 사용자 흐름을 통해 실행 되도록 합니다.
+  - 표시 안 **함-이** 설정은 사용자가 모든 정책 실행 시 전체 사용자 흐름을 통해 실행 되도록 합니다.
 - **로그인 유지 (KMSI)** -영구 쿠키를 사용 하 여 세션 수명을 확장 합니다. 이 기능을 사용 하도록 설정 하 고 사용자가이 기능을 선택 하면 사용자가 브라우저를 닫고 다시 여는 경우에도 세션이 활성 상태로 유지 됩니다. 사용자가 로그 아웃 하는 경우에만 세션이 해지 됩니다. KMSI 기능은 로컬 계정으로 로그인 하는 경우에만 적용 됩니다. KMSI 기능이 세션 수명 보다 우선적으로 적용 됩니다.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ SessionExpiryInSeconds의 값을 짧은 기간 (1200 초)으로 설정 하는 �
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. 페더레이션된 id 공급자에서 로그 아웃 하려고 합니다.
-   - Openid connect Connect-id 공급자의 잘 알려진 구성 끝점이 위치를 지정 하는 경우 `end_session_endpoint` 입니다.
+   - Openid connect Connect-id 공급자의 잘 알려진 구성 끝점이 위치를 지정 하는 경우 `end_session_endpoint` 입니다. 로그 아웃 요청은 매개 변수를 전달 하지 않습니다 `id_token_hint` . 페더레이션된 id 공급자에이 매개 변수가 필요한 경우에는 로그 아웃 요청이 실패 합니다.
    - OAuth2- [id 공급자 메타 데이터](oauth2-technical-profile.md#metadata) 에 위치가 포함 된 경우 `end_session_endpoint`
    - SAML- [id 공급자 메타 데이터](identity-provider-generic-saml.md) 에 위치가 포함 된 경우 `SingleLogoutService`
 4. 필요에 따라 다른 응용 프로그램에서 로그 아웃 합니다. 자세한 내용은 [Single sign-on](#single-sign-out) 섹션을 참조 하세요.

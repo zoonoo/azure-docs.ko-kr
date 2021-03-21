@@ -4,10 +4,10 @@ description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98985617"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
@@ -179,7 +179,7 @@ Windows 7| 1,700GB
 
 다음은 다양 한 복구 시점에 대해 설정할 수 있는 최소 보존 기간입니다.
 
-|복구 지점 |기간  |
+|복구 지점 |Duration  |
 |---------|---------|
 |일별 복구 지점    |   7 일      |
 |주별 복구 지점     |    4주     |
@@ -192,7 +192,7 @@ Windows 7| 1,700GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 
-**Type** | **지원**
+**유형** | **지원**
 --- | ---
 됨<sup>*</sup>| 지원됨.
 Compressed | 지원됨.

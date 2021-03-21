@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: tamram
@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 193cd8ff83eeabcf155dba91dd69a6eba72febd6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996822"
 ---
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기

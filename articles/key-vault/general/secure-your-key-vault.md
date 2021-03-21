@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
 ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212470"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
@@ -146,7 +146,7 @@ Azure 서비스에 대 한 개인 링크 사용에 대 한 일반적인 시나�
 
 개인 끝점에 대 한 자세한 내용은 [Azure 개인 링크를 사용 하 여 Key Vault](./private-link-service.md) 을 참조 하세요.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 이 예제에서는 TLS/SSL에 인증서를 사용 하는 응용 프로그램을 개발 하 고, Azure Storage 데이터를 저장 하 고, Azure Storage 데이터를 암호화 하기 위한 RSA 2048 비트 키를 개발 합니다. 애플리케이션은 Azure VM(Virtual Machine)(또는 가상 머신 확장 집합)에서 실행됩니다. Key Vault를 사용하여 애플리케이션 비밀을 저장할 수 있습니다. 애플리케이션이 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 

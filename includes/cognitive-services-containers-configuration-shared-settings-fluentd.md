@@ -5,10 +5,10 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: b08516b35a864eae6d15c4c5c928f0550c64c239
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96001190"
 ---
 Fluentd는 통합된 로깅에 대한 오픈 소스 데이터 수집기입니다. `Fluentd` 설정은 [Fluentd](https://www.fluentd.org) 서버에 컨테이너의 연결을 관리합니다. 컨테이너에는 Fluentd 로깅 공급자가 포함되어 있어 컨테이너에서 로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 쓸 수 있습니다.

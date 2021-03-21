@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: victorh
 ms.openlocfilehash: f7196c7715ad5d2c02759040b780b96218e1655e
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94695948"
 ---
 # <a name="use-fqdn-filtering-in-network-rules"></a>네트워크 규칙에서 FQDN 필터링 사용
@@ -21,7 +21,7 @@ FQDN (정규화 된 도메인 이름)은 호스트 또는 IP 주소의 도메인
 > [!NOTE]
 > 기본적으로 FQDN 필터링은 와일드 카드를 지원 하지 않습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 조직에 필요한 DNS 서버 (Azure DNS 또는 사용자 지정 DNS)를 정의 하 고 나면 Azure 방화벽은 선택한 DNS 서버를 기반으로 FQDN을 IP 주소로 변환 합니다. 이러한 변환은 응용 프로그램 및 네트워크 규칙 처리 모두에서 발생 합니다.
 

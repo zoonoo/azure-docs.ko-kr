@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jakartaee, javaee, 마이크로 프로필, liberty, websphere-liberty, aro, openshift, red hat
 ms.openlocfilehash: 08fd3ab112498a983b438d5ba1f1f100816cbf5d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212997"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Open Liberty/WebSphere Liberty를 사용 하 여 Java 응용 프로그램 배포
@@ -20,7 +20,7 @@ ms.locfileid: "102212997"
 
 [!INCLUDE [aro-support](includes/aro-support.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드를 성공적으로 진행 하려면 다음 필수 구성 요소를 완료 합니다.
 

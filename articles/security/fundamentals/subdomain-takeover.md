@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
 ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100389453"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현 수 DNS 항목을 방지 하 고 하위 도메인 인수 방지
@@ -86,7 +86,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 도구는 다음 표에 나열 된 Azure 리소스를 지원 합니다. 도구는 모든 테 넌 트의 CNAMEs를 추출 하거나 입력으로 사용 합니다.
 
 
-| 서비스                   | 형식                                        | FQDNproperty                               | 예                         |
+| 서비스                   | Type                                        | FQDNproperty                               | 예제                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Azure Front Door          | microsoft.network/frontdoors                | 속성. cName                           | `abc.azurefd.net`               |
 | Azure Blob Storage        | microsoft.storage/storageaccounts           | 속성. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -100,7 +100,7 @@ CNAMEs가 다른 DNS 서비스에 있고 Azure 리소스를 가리키는 경우 
 
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 다음을 가진 사용자로 쿼리를 실행 합니다.
 

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96002224"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>실행 중인 팀 데이터 과학 프로세스: Azure HDInsight Hadoop 클러스터 사용
@@ -117,23 +117,23 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
-* ***\<path_to_data_folder>** _ 압축을 푼 데이터 파일이 들어 있는 컴퓨터의 디렉터리 (경로 포함)입니다.  
-_ * **\<storage account name of Hadoop cluster>** _ HDInsight 클러스터와 연결 된 저장소 계정입니다.
-_ * **\<default container of Hadoop cluster>** _ 클러스터에서 사용 하는 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 동일 합니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
-_ * **\<storage account key>** _ 클러스터에서 사용 하는 저장소 계정의 키입니다.
+* ***\<path_to_data_folder>*** 압축을 푼 데이터 파일이 들어 있는 컴퓨터의 디렉터리 (경로 포함)입니다.  
+* ***\<storage account name of Hadoop cluster>*** HDInsight 클러스터와 연결 된 저장소 계정입니다.
+* ***\<default container of Hadoop cluster>*** 클러스터에서 사용 하는 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 동일 합니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
+* ***\<storage account key>*** 클러스터에서 사용 하는 저장소 계정의 키입니다.
 
 명령 프롬프트 또는 Windows PowerShell 창에서 다음 두 AzCopy 명령을 실행합니다.
 
-이 명령은 Hadoop 클러스터의 기본 컨테이너에 있는 _*_있는 nyctaxitripraw_*_ 디렉터리에 여행 데이터를 업로드 합니다.
+이 명령은 여정 데이터를 Hadoop 클러스터의 기본 컨테이너에 있는 ***nyctaxitripraw*** 디렉터리에 업로드합니다.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 ```
 
-이 명령은 Hadoop 클러스터의 기본 컨테이너에 있는 ***있는 nyctaxifareraw** _ 디렉터리에 요금 데이터를 업로드 합니다.
+이 명령은 요금 데이터를 Hadoop 클러스터의 기본 컨테이너에 있는 ***nyctaxifareraw*** 디렉터리에 업로드합니다.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 ```
 
 이제 데이터가 Blob Storage에 있고 HDInsight 클러스터 내에서 사용할 수 있도록 준비됩니다.
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-이 두 명령은이 연습에서 필요한 모든 '. hql ' 파일을 헤드 노드의 로컬 디렉터리 ***C:\temp&#92;** _에 다운로드 합니다.
+이 두 명령은이 연습에서 필요한 모든 '. hql ' 파일을 헤드 노드의 로컬 디렉터리 ***C:\temp&#92;*** 다운로드 합니다.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 > [!NOTE]
@@ -182,7 +182,7 @@ Hive 디렉터리 프롬프트에서 Hive 데이터베이스 및 테이블을 �
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-다음은 Hive 데이터베이스 **nyctaxidb** 및 테이블 **트립** 및 요금을 만드는 _ *C:\temp\sample \_ hive \_ create \_ db \_ 및 \_ hql** 파일의 내용 **입니다.**
+다음은 Hive 데이터베이스 **nyctaxidb** 및 테이블 **트립** 및 요금을 만드는 **C:\temp\sample \_ hive \_ create \_ db \_ 및 \_ hql** 파일의 내용 **입니다.**
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -273,7 +273,7 @@ hive -e "show tables in nyctaxidb;"
 hive -e "show partitions nyctaxidb.trip;"
 ```
 
-예상된 출력은 다음과 같습니다.
+예상되는 출력은 다음과 같습니다.
 
 ```output
 month=1
@@ -297,7 +297,7 @@ Time taken: 2.075 seconds, Fetched: 12 row(s)
 hive -e "show partitions nyctaxidb.fare;"
 ```
 
-예상된 출력은 다음과 같습니다.
+예상되는 출력은 다음과 같습니다.
 
 ```output
 month=1

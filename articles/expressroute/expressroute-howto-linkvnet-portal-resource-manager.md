@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95998773"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>자습서: 포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
@@ -27,13 +27,13 @@ ms.locfileid: "95998773"
 
 이 자습서는 Azure Portal을 사용하여 Azure ExpressRoute 회로에 가상 네트워크를 연결하는 데 도움이 됩니다. Azure ExpressRoute 회로에 연결한 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독의 일부일 수도 있습니다.
 
-이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > - 동일한 구독에 있는 회로에 가상 네트워크를 연결합니다.
 > - 다른 구독에 있는 회로에 가상 네트워크를 연결합니다.
 > - 가상 네트워크와 ExpressRoute 회로 간의 연결을 삭제합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "95998773"
 
 2. 구성이 저장되면 **리소스 ID** 및 **권한 부여 키** 를 복사합니다.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="권한 부여 키":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/authorization-key.png" alt-text="인증 키":::
 
 **연결 권한 부여를 삭제하려면**
 

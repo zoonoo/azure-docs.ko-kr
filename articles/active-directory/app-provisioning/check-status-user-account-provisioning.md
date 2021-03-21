@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: e6839026c83a10a4acebd7b7a6ab55b210e7ef14
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256680"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579487"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -48,7 +48,7 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 ## <a name="provisioning-progress-bar"></a>프로비저닝 진행률 표시줄
 
-[프로 비전 진행률 표시줄이](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) 지정 된 응용 프로그램의 **프로 비전** 탭에 표시 됩니다. **설정** 아래의 **현재 상태** 섹션에 있으며 현재 초기 또는 증분 주기의 상태를 표시 합니다. 이 섹션에는 다음도 나와 있습니다.
+[프로 비전 진행률 표시줄](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar) 은 지정 된 응용 프로그램에 대 한 **프로 비전** 탭에서 볼 수 있습니다. **현재 상태** 섹션에 있으며 현재 초기 또는 증분 주기의 상태를 표시 합니다. 이 섹션에는 다음도 나와 있습니다.
 
 * 동기화되어 현재의 원본 시스템과 대상 시스템 간 프로비전에 해당하는 범위에 포함된 총 사용자 및/또는 그룹 수
 * 동기화가 마지막으로 실행된 시간 - 일반적으로 동기화는 [초기 순환이](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 완료 된 후 20-40 분 마다 발생 합니다.

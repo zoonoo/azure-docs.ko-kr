@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 ms.custom: references_regions
 ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101737038"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
@@ -36,7 +36,7 @@ ms.locfileid: "101737038"
 
 연속 내보내기는 다음 지역에서 지원 됩니다.
 
-* 동남아시아
+* 동남 아시아
 * 캐나다 중부
 * 인도 중부
 * 북유럽

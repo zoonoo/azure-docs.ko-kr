@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: e152d9c242a44fe869eb7bfe7a16fbd7dfc8049d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489154"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580123"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인
 
@@ -64,6 +64,8 @@ Azure Active Directory B2C (Azure AD B2C)에서 Amazon 계정이 있는 사용�
 1. **저장** 을 선택합니다.
 
 ## <a name="add-amazon-identity-provider-to-a-user-flow"></a>사용자 흐름에 Amazon id 공급자 추가 
+
+이 시점에서 Amazon id 공급자가 설정 되었지만 아직 로그인 페이지에서 사용할 수 없습니다. 사용자 흐름에 Amazon id 공급자를 추가 하려면 다음을 수행 합니다.
 
 1. Azure AD B2C 테넌트에서 **사용자 흐름** 을 선택합니다.
 1. Amazon id 공급자를 추가 하려는 사용자 흐름을 클릭 합니다.

@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054772"
 ---
 # <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>서버 자격 증명을 제공 하 여 응용 프로그램, 종속성 및 SQL Server 인스턴스 및 데이터베이스 검색
@@ -18,7 +18,7 @@ ms.locfileid: "102054772"
 이 문서에 따라 어플라이언스 구성 관리자에서 소프트웨어 인벤토리 (설치 된 응용 프로그램 검색), 에이전트 없는 종속성 분석을 수행 하 고 SQL Server 인스턴스와 데이터베이스를 검색 하는 여러 서버 자격 증명을 추가 하는 방법을 알아봅니다.
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 [Azure Migrate 어플라이언스](migrate-appliance.md) 는 Azure Migrate: 서버 평가에서 VMware 환경에서 실행 되는 온-프레미스 서버를 검색 하 고 서버 구성 및 성능 메타 데이터를 Azure에 전송 하는 데 사용 하는 경량 어플라이언스입니다. 어플라이언스를 사용 하 여 소프트웨어 인벤토리, 에이전트 없는 종속성 분석 및 SQL Server 인스턴스 및 데이터베이스 검색을 수행할 수도 있습니다.
 

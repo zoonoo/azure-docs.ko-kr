@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101657539"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Azure Cosmos DB 및 Power BI를 사용 하 여 실시간 대시보드 만들기
@@ -25,7 +25,7 @@ ms.locfileid: "101657539"
 Azure Cosmos DB에 저장 된 데이터에 대 한 보고 대시보드를 설정 하는 방법에는 여러 가지가 있습니다. 다음 표에서는 부실 요구 사항 및 데이터의 크기에 따라 각 시나리오에 대 한 보고 설정에 대해 설명 합니다.
 
 
-|시나리오 |설치 프로그램 |
+|시나리오 |설정 |
 |---------|---------|
 |1. 임시 보고서 생성 (새로 고침 안 함)    |  [가져오기 모드를 사용 하는 Power BI Azure Cosmos DB 커넥터](powerbi-visualize.md)       |
 |2. 정기적인 새로 고침을 사용 하 여 임시 보고서 생성   |  [가져오기 모드를 사용 하 Azure Cosmos DB 커넥터 Power BI (정기 새로 고침 예약 됨)](powerbi-visualize.md)       |

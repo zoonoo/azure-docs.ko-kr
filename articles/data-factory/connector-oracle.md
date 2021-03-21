@@ -4,14 +4,14 @@ description: Data Factory를 사용 하 여 지원 되는 원본 저장소에서
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/20/2021
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: ebafac024593767e884be908acbf0efb9ead50e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9e6be88af13d5dd7ddceba32ec08cab54ca5e3a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703306"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587290"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 
@@ -48,7 +48,7 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 > [!Note]
 > Oracle 프록시 서버는 지원되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
@@ -64,7 +64,7 @@ Oracle 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 Oracle 연결 된 서비스는 다음 속성을 지원 합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Oracle** 로 설정해야 합니다. | 예 |
 | connectionString | Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>Azure Key Vault에 암호를 입력 하 고 연결 문자열에서 구성을 끌어올 수도 있습니다 `password` . 자세한 내용은 다음 샘플을 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md) 하세요. <br><br>**지원되는 연결 유형**: 데이터베이스를 식별하기 위해 **Oracle SID** 또는 **Oracle 서비스 이름** 을 사용할 수 있습니다.<br>- SID를 사용하는 경우: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- 서비스 이름을 사용하는 경우: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>고급 Oracle 기본 연결 옵션의 경우 Tnsnames에 항목을 추가 하도록 선택할 수 있습니다 [. ](http://www.orafaq.com/wiki/Tnsnames.ora) Oracle 서버에 있는 ORA 파일을 선택 하 고 ADF oracle 연결 된 서비스에서 Oracle 서비스 이름 연결 유형을 사용 하도록 선택 하 고 해당 하는 서비스 이름을 구성 합니다. | 예 |
@@ -120,7 +120,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
         ```
 
     3.  `truststore`자체 호스팅 IR 컴퓨터에 파일을 저장 합니다. 예를 들어 파일을 C:\mytrustfilefilefilefilefilefilefile.
-    4.  Azure Data Factory에서 및 해당 값을 사용 하 여 Oracle 연결 문자열을 구성 합니다 `EncryptionMethod=1` `TrustStore` / `TrustStorePassword` . 예들 들어 `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`입니다.
+    4.  Azure Data Factory에서 및 해당 값을 사용 하 여 Oracle 연결 문자열을 구성 합니다 `EncryptionMethod=1` `TrustStore` / `TrustStorePassword` . 예: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`
 
 **예:**
 
@@ -171,7 +171,7 @@ Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가�
 
 Oracle 간에 데이터를 복사 하려면 데이터 집합의 type 속성을로 설정 합니다 `OracleTable` . 다음과 같은 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성을로 설정 해야 합니다 `OracleTable` . | 예 |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -210,16 +210,16 @@ Oracle 간에 데이터를 복사 하려면 데이터 집합의 type 속성을�
 
 Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 설정 `OracleSource` 합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을로 설정 해야 합니다 `OracleSource` . | 예 |
-| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | No |
+| oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제는 `"SELECT * FROM MyTable"`입니다.<br>분할 된 로드를 사용 하도록 설정 하는 경우 쿼리에 해당 하는 기본 제공 파티션 매개 변수를 후크 해야 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
 | partitionOptions | Oracle에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable** 및 **dynamicrange** 입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Oracle 데이터베이스에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
-| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | No |
+| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
 | 파티션 이름 | 복사 해야 하는 실제 파티션 목록입니다. <br>파티션 옵션이 `PhysicalPartitionsOfTable`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfTabularPartitionName`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용되는 **정수 형식으로** 원본 열의 이름을 지정합니다. 지정 하지 않으면 테이블의 기본 키가 자동으로 검색 되 고 파티션 열로 사용 됩니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfRangePartitionColumnName` WHERE 절에 후크 합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 데이터를 복사할 파티션 열의 최댓값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionUpbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 예 |
-| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | No |
+| partitionLowerBound | 데이터를 복사할 파티션 열의 최솟값입니다. <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용하여 원본 데이터를 검색하는 경우 WHERE 절에서 `?AdfRangePartitionLowbound`를 후크합니다. 예제는 [Oracle에서 병렬 복사](#parallel-copy-from-oracle) 섹션을 참조 하세요. | 아니요 |
 
 **예: 파티션이 없는 기본 쿼리를 사용 하 여 데이터 복사**
 
@@ -257,12 +257,13 @@ Oracle에서 데이터를 복사 하려면 복사 작업의 원본 형식을로 
 
 Oracle에 데이터를 복사 하려면 복사 작업의 싱크 형식을로 설정 `OracleSink` 합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 type 속성은로 설정 해야 합니다 `OracleSink` . | 예 |
 | writeBatchSize | 버퍼 크기가에 도달 하면 SQL 테이블에 데이터를 삽입 `writeBatchSize` 합니다.<br/>허용되는 값은 정수(행 수)입니다. |아니요(기본값: 10,000) |
-| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | No |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다.<br/>허용되는 값은 시간 범위입니다. 예를 들어 "00:30:00"(30분)입니다. | 아니요 |
 | preCopyScript | 각 실행 시 Oracle에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리할 수 있습니다. | 예 |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예 |
 
 **예:**
 

@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98724274"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory의 기본 사용자 권한이란?
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory)의 모든 사용자에게는 기본 권한 집�
 디바이스</li></ul> | <ul><li>모든 장치의 목록 열거<li>모든 디바이스 속성 읽기<li>소유한 디바이스의 모든 속성 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
 디렉터리 | <ul><li>모든 회사 정보 읽기<li>모든 도메인 읽기<li>모든 파트너 계약 읽기</li></ul> | <ul><li>회사 표시 이름 읽기<li>모든 도메인 읽기</li></ul> | <ul><li>회사 표시 이름 읽기<li>모든 도메인 읽기</li></ul>
 역할 및 범위 | <ul><li>모든 관리 역할 및 멤버 자격 읽기<li>관리 단위의 모든 속성 및 멤버 자격 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
-구독 | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사용하도록 설정</li></ul> | 사용 권한 없음 | 사용 권한 없음
+Subscriptions | <ul><li>모든 구독 읽기<li>서비스 계획 멤버를 사용하도록 설정</li></ul> | 사용 권한 없음 | 사용 권한 없음
 정책 | <ul><li>모든 정책 속성 읽기<li>소유한 정책의 모든 속성 읽기</li></ul> | 사용 권한 없음 | 사용 권한 없음
 
 ## <a name="restrict-member-users-default-permissions"></a>구성원 사용자의 기본 권한 제한 

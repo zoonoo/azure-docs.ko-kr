@@ -8,10 +8,10 @@ ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
 ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98986465"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
@@ -94,7 +94,7 @@ Transact-sql 게시 시나리오의 경우 구독에 따라 30 ~ 120 일간 소�
 
 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 솔루션에 적용 됩니다. Microsoft 팀 앱 하나 또는 두 개 이상의 Microsoft 365 추가 기능 (Excel, PowerPoint, Word, Outlook, SharePoint)과 관련 된 유료 SaaS 제품 및이 할인을 받을 Microsoft AppSource에 게시 됩니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 **사용량 기반** 
 

@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
 ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101691249"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
@@ -170,7 +170,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 Key Vault의 키를 사용 하 여 데이터베이스가 TDE로 암호화 되 면 새로 생성 된 백업도 동일한 TDE 보호기를 사용 하 여 암호화 됩니다. TDE 보호기가 변경 되 면 데이터베이스의 이전 백업은 최신 TDE 보호기를 사용 하도록 **업데이트 되지 않습니다** .
 
-Key Vault에서 TDE 보호기로 암호화 된 백업을 복원 하려면 대상 서버에서 키 자료를 사용할 수 있는지 확인 합니다. 따라서 모든 이전 버전의 TDE 보호기를 key vault에 보관 하 여 데이터베이스 백업을 복원할 수 있도록 하는 것이 좋습니다.
+Key Vault에서 TDE 보호기로 암호화 된 백업을 복원 하려면 대상 서버에서 키 자료를 사용할 수 있는지 확인 합니다. 따라서 데이터베이스 백업을 복원할 수 있도록 이전 버전의 TDE 보호기를 모두 키 자격 증명 모음에서 유지하는 것이 좋습니다.
 
 > [!IMPORTANT]
 > 언제 든 지 서버에 대해 둘 이상의 TDE 보호기를 설정할 수 있습니다. Azure Portal 블레이드의 "키를 기본 TDE 보호기로 설정"으로 표시 된 키입니다. 그러나 여러 추가 키를 TDE 보호기로 표시 하지 않고 서버에 연결할 수 있습니다. 이러한 키는 DEK를 보호 하는 데 사용 되지 않지만 백업 파일이 해당 지 문으로 키를 사용 하 여 암호화 된 경우 백업에서 복원 하는 동안 사용할 수 있습니다.

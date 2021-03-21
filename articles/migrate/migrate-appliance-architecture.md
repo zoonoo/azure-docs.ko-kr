@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102096193"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
@@ -51,7 +51,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 - **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타 데이터를 Azure에 보냅니다.
 
 > [!Note]
-> 지난 3 서비스는 VMware 환경에서 실행 중인 서버를 검색 하 고 평가 하는 데 사용 되는 어플라이언스 에서만 사용할 수 있습니다.<br/> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL) 를 사용 하 여 **오스트레일리아 동부** 지역에 프로젝트를 만드세요. 오스트레일리아 동부에 이미 프로젝트가 있고이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
+> 지난 3 서비스는 VMware 환경에서 실행 중인 서버를 검색 하 고 평가 하는 데 사용 되는 어플라이언스 에서만 사용할 수 있습니다.<br/> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 
 ## <a name="discovery-and-collection-process"></a>검색 및 수집 프로세스

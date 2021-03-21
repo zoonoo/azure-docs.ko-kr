@@ -10,10 +10,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
 ms.openlocfilehash: 24bee926d84c7a5be3f19c39d39285c2cd486824
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102211025"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
@@ -32,7 +32,7 @@ Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 �
 
 이러한 세 가지 옵션에 대 한 자세한 내용은 [Azure Files 배포 계획](storage-files-planning.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](/powershell/azure/install-az-ps)하세요.
 - Azure CLI를 사용하려면 [최신 버전을 설치](/cli/azure/install-azure-cli)하세요.
@@ -84,7 +84,7 @@ FileStorage 저장소 계정을 만들려면 **성능** 라디오 단추가 *프
 > [!Important]  
 > Blob 액세스 계층을 선택 해도 파일 공유의 계층에는 영향을 주지 않습니다.
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>태그
 태그는 동일한 태그를 여러 개의 리소스 및 리소스 그룹에 적용하여 리소스를 범주화하고 통합된 청구를 볼 수 있는 이름/값 쌍입니다. 이러한 항목은 선택 사항이 며 저장소 계정을 만든 후에 적용할 수 있습니다.
 
 #### <a name="review--create"></a>검토 + 만들기

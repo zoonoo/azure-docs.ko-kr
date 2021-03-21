@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169684"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579096"
 ---
 # <a name="building-a-conditional-access-policy"></a>조건부 액세스 정책 빌드
 
@@ -26,7 +26,7 @@ ms.locfileid: "96169684"
 
 ![조건부 액세스 (신호 + 결정 + 적용 = 정책)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-언제 든 지 개별 사용자에 게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA (multi-factor authentication)가 필요 하 고 다른 정책에 준수 장치가 필요한 경우 MFA를 완료 하 고 규격 장치를 사용 해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 하나를 초과하여 할당을 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.
+언제든지 개별 사용자에게 여러 조건부 액세스 정책을 적용할 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA (multi-factor authentication)가 필요 하 고 다른 정책에 준수 장치가 필요한 경우 MFA를 완료 하 고 규격 장치를 사용 해야 합니다. 모든 할당은 논리적으로 **and** 가 적용됩니다. 하나를 초과하여 할당을 구성한 경우 모든 할당이 충족되어야 정책을 트리거할 수 있습니다.
 
 모든 정책은 다음 두 단계로 적용됩니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "96169684"
 
 할당 부분은 조건부 액세스 정책의 사용자, 대상 및 위치를 제어 합니다.
 
-### <a name="users-and-groups"></a>개요
+### <a name="users-and-groups"></a>사용자 및 그룹
 
 [사용자 및 그룹](concept-conditional-access-users-groups.md) 은 정책에 포함 하거나 제외할 사용자를 할당 합니다. 이 할당에는 모든 사용자, 특정 사용자 그룹, 디렉터리 역할 또는 외부 게스트 사용자가 포함 될 수 있습니다. 
 
@@ -106,6 +106,8 @@ Grant 컨트롤은 하나 이상의 컨트롤에 대 한 적용을 트리거할 
 - 하이브리드 Azure AD 조인된 디바이스 필요
 - 승인된 클라이언트 앱 필요
 - 앱 보호 정책 필요
+- 암호 변경 필요
+- 사용 약관 필요
 
 관리자는 다음 옵션을 사용 하 여 이전 컨트롤 또는 모든 선택 된 컨트롤 중 하나를 요구 하도록 선택할 수 있습니다. 여러 컨트롤의 기본값은 모두 필요 합니다.
 

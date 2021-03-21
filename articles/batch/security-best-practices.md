@@ -4,10 +4,10 @@ description: Azure Batch 솔루션을 사용 하 여 보안을 강화 하기 위
 ms.date: 12/18/2020
 ms.topic: conceptual
 ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98723815"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Batch 보안 및 규정 준수 모범 사례
@@ -53,7 +53,7 @@ Batch 계정을 만들 때 두 가지 [풀 할당 모드](accounts.md#batch-acco
 
  Batch 계정이 만들어지면 [REST API](/rest/api/batchservice/)를 사용 하 여 계정에 대 한 대부분의 작업을 호출 하는 데 사용 되는 공용 끝점이 만들어집니다. 계정 끝점에는 형식을 사용 하는 기본 URL이 `https://{account-name}.{region-id}.batch.azure.com` 있습니다. 일괄 처리 계정에 대 한 액세스는 HTTPS를 사용 하 여 암호화 되는 계정 끝점과의 통신 및 공유 키 또는 Azure Active Directory (Azure AD) 인증을 사용 하 여 인증 된 각 요청에 대 한 통신을 통해 보안이 유지 됩니다.
 
-### <a name="azure-resource-manager"></a>Azure 리소스 관리자
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 
 일괄 처리 계정과 관련 된 작업 외에도 [관리 작업](/rest/api/batchmanagement/) 은 단일 및 다중 배치 계정에 적용 됩니다. 이러한 관리 작업은 Azure Resource Manager를 통해 액세스 됩니다.
 

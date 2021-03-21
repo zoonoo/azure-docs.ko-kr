@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98703278"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
@@ -75,7 +75,7 @@ SSPR을 시작 하려면 다음 자습서를 완료 하세요.
 Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용자가 SSPR 등록을 완료 하도록 요구 하는 옵션을 사용 하도록 설정할 수 있습니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
 * Microsoft 365
-* Azure 포털
+* Azure portal
 * 액세스 패널
 * 페더레이션된 애플리케이션
 * Azure AD를 사용하여 애플리케이션 사용자 지정

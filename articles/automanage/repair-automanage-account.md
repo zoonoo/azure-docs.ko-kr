@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: alsin
 ms.openlocfilehash: 4694fa679c7bbff309a0452219ff39bacf2488c4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96183705"
 ---
 # <a name="repair-an-automanage-account"></a>Automanage 계정 복구
@@ -21,7 +21,7 @@ ms.locfileid: "96183705"
 ## <a name="step-1-reset-the-automanage-account-identity-type"></a>1 단계: Automanage 계정 id 유형 다시 설정
 다음 Azure Resource Manager (ARM) 템플릿을 사용 하 여 자동 관리 계정 id 유형을 다시 설정 합니다. 파일을 armdeploy.js또는 유사한 이름으로 로컬에 저장 합니다. 계정 이름 및 위치는 ARM 템플릿에서 필수 매개 변수 이므로 Automanage 계정 이름 및 위치를 확인 합니다.
 
-1. 다음 템플릿을 사용 하 여 리소스 관리자 배포를 만듭니다. `identityType = None`을 사용하세요.
+1. 다음 템플릿을 사용 하 여 리소스 관리자 배포를 만듭니다. `identityType = None`을 사용합니다.
     * 을 사용 하 여 Azure CLI에서 배포를 만들 수 있습니다 `az deployment sub create` . 자세한 내용은 [az deployment sub](/cli/azure/deployment/sub)를 참조 하세요.
     * 모듈을 사용 하 여 PowerShell에서 배포를 만들 수 있습니다 `New-AzDeployment` . 자세한 내용은 [AzDeployment](/powershell/module/az.resources/new-azdeployment)를 참조 하세요.
 
@@ -67,7 +67,7 @@ ARM 템플릿 또는 Azure CLI를 사용 하는 경우 Automanage 계정의 보�
 
 - Azure Portal: **Azure Active Directory** 로 이동 하 여 이름으로 Automanage 계정을 검색 합니다. **엔터프라이즈 응용 프로그램** 에서 표시 되는 경우 계정 이름 자동 관리를 선택 합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 1. **구독** 에서 Automanaged vm이 포함 된 구독으로 이동 합니다.
 1. **액세스 제어 (IAM)** 로 이동 합니다.
 1. **역할 할당 추가** 를 선택 합니다.

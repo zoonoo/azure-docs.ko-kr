@@ -14,10 +14,10 @@ ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e4b06cbcbef79e243116bddb33adbcf6476fac8a
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102213371"
 ---
 # <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>HLI (Azure의 SAP HANA(대규모 인스턴스) 용 kdump)
@@ -61,7 +61,7 @@ Kdump를 구성 하 고 사용 하도록 설정 하는 것은 명백한 원인�
 |   형식 II                   |  SuSE        |   SLES 12 SP3         |  S576m      |
 |   형식 II                   |  SuSE        |   SLES 12 SP4         |  S576m      |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Kdump 서비스는 디렉터리를 사용 하 여 `/var/crash` 덤프를 쓰고,이 디렉터리에 해당 하는 파티션에 덤프를 수용할 수 있는 충분 한 공간이 있는지 확인 합니다.
 

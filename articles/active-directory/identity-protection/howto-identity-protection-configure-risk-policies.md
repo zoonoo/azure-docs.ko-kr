@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 366d68be1a7f115980973015e363da6095876754
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95997633"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>방법: 위험 정책 구성 및 사용
@@ -31,7 +31,7 @@ ms.locfileid: "95997633"
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 사용자가 위험 검색 시 자체 재구성을 허용 하려는 경우 셀프 서비스 암호 재설정 및 Azure AD Multi-Factor Authentication 모두에 대해 사용자를 등록 해야 합니다. 최상의 환경을 위해 [결합 된 보안 정보 등록 환경을 사용 하는](../authentication/howto-registration-mfa-sspr-combined.md) 것이 좋습니다. 사용자가 직접 수정할 수 있도록 하면 관리자의 개입 없이도 신속 하 게 생산적인 상태로 다시 전환할 수 있습니다. 관리자는 이러한 이벤트를 계속 확인 하 고 팩트 후에 조사할 수 있습니다. 
 
@@ -82,4 +82,4 @@ Microsoft는 사용자 위험 정책 임계값을 **높음** 으로, 로그인 �
 
 - [위험 검색 조사](howto-identity-protection-investigate-risk.md)
 
-- [위험 검색 시뮬레이션](howto-identity-protection-simulate-risk.md)
+- [위험 감지 시뮬레이션](howto-identity-protection-simulate-risk.md)

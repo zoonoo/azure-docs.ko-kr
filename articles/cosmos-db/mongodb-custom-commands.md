@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
 ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101658489"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB 확장 명령을 사용 하 여 Azure Cosmos DB의 MongoDB API에 저장 된 데이터를 관리 합니다. 
@@ -217,7 +217,7 @@ db.runCommand({customAction: "GetDatabase"});
 |---------|---------|---------|---------|
 | `customAction` | `string` | 필수 | 사용자 지정 명령의 이름입니다. "CreateCollection" 이어야 합니다.|
 | `collection` | `string` | 필수 | 컬렉션의 이름입니다. 특수 문자나 공백은 허용 되지 않습니다.|
-| `offerThroughput` | `int` | Optional | 데이터베이스에 설정할 프로 비전 된 처리량입니다. 이 매개 변수를 지정 하지 않으면 기본값은 최소, 400 r u/초입니다. * 1만 r u/초를 초과 하는 처리량을 지정 하려면 `shardKey` 매개 변수가 필요 합니다.|
+| `offerThroughput` | `int` | 선택 사항 | 데이터베이스에 설정할 프로 비전 된 처리량입니다. 이 매개 변수를 지정 하지 않으면 기본값은 최소, 400 r u/초입니다. * 1만 r u/초를 초과 하는 처리량을 지정 하려면 `shardKey` 매개 변수가 필요 합니다.|
 | `shardKey` | `string` | 처리량이 많은 컬렉션에 필요 합니다. | 분할 된 collection에 대 한 분할 키의 경로입니다. 이 매개 변수는에서 1만 이상/s를 설정 하는 경우에 필요 `offerThroughput` 합니다.  지정 된 경우에는 삽입 된 모든 문서에이 키와 값이 필요 합니다. |
 | `autoScaleSettings` | `Object` | [자동 크기 조정 모드](provision-throughput-autoscale.md) 에 필요 | 이 개체에는 자동 크기 조정 용량 모드와 관련 된 설정이 포함 됩니다. `maxThroughput`컬렉션이 동적으로 증가 하는 가장 많은 요청 단위를 설명 하는 값을 설정할 수 있습니다. |
 
@@ -236,7 +236,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 다음은 그 예입니다.  
+그러면 400 r u/s를 포함 하는 새로운 고정 된 unsharded 컬렉션 및 `_id` 자동으로 생성 된 필드의 인덱스가 생성 됩니다. 이 유형의 구성은 함수를 통해 새 컬렉션을 만들 때도 적용 됩니다 `insert()` . 예를 들면 다음과 같습니다. 
 
 ```javascript
 use test

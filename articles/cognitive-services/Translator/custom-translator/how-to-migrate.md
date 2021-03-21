@@ -10,10 +10,10 @@ ms.date: 05/26/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98895714"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
@@ -84,7 +84,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
     b. 모든 성공적인 학습: 이 옵션을 선택하면 성공적인 학습 및 관련된 문서가 모두 마이그레이션됩니다.
 
-    c. Custom Translator의 대상 작업 영역 ID를 입력합니다.
+    다. Custom Translator의 대상 작업 영역 ID를 입력합니다.
 
     ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub-screen.png)
 
