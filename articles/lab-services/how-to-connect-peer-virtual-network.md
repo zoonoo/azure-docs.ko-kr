@@ -4,10 +4,10 @@ description: 랩 네트워크를 다른 네트워크와 피어로 연결하는 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434246"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Azure Lab Services에서 랩의 네트워크를 피어 가상 네트워크에 연결

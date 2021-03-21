@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dca888bf9e3dc75e80764949a11d95efe3514635
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861819"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
@@ -104,7 +104,7 @@ Azure AD Connect는 기본 설정 또는 사용자 지정 설치를 사용하여
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예:
+예제:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *

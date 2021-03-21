@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
 ms.openlocfilehash: 2ef63eded5403c1cf5faddec71ed3503c3ae2138
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384812"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
@@ -37,7 +37,7 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 
 Sybase IQ 및 ASE는 지원 되지 않습니다. 대신 Sybase 드라이버와 일반 ODBC 커넥터를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 Sybase 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -56,7 +56,7 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **Sybase** 로 설정되어야 합니다. | Yes |
+| type | 형식 속성은 **Sybase** 로 설정되어야 합니다. | 예 |
 | 서버 | Sybase 서버의 이름입니다. |예 |
 | 데이터베이스 | Sybase 데이터베이스의 이름입니다. |예 |
 | authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows** 입니다. |예 |

@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: bff20468e8185073f5c192c1e115bc405dd089eb
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693616"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
@@ -141,7 +141,7 @@ ms.locfileid: "97693616"
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. Description
+10. 설명
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성

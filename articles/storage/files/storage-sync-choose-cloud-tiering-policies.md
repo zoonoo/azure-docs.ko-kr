@@ -8,10 +8,10 @@ ms.date: 1/24/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 2ed1b8162c49ccc26cb98dd02897a9c40f809d14
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204479"
 ---
 # <a name="choose-cloud-tiering-policies"></a>클라우드 계층화 정책 선택
@@ -49,7 +49,7 @@ Azure 파일 동기화는 Windows Server 2012 R2 이상 버전의 NTFS 볼륨에
 |64TB – 128 TB  | 32KB               |
 |128TB – 256 TB | 64KB(이전 최대) |
 |256 TB – 512 TB| 128KB              |
-|512 TB – 1 PB  | 256 KB              |
+|512 TB – 1 PB  | 256KB              |
 |1 PB – 2 PB    | 512KB              |
 |2TB-4 PB    | 1024KB             |
 |4TB – 8TB    | 2048KB(최대 크기)  |

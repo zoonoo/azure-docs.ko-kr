@@ -12,10 +12,10 @@ ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
 ms.openlocfilehash: 7a257b4c2bea3bd3384a55c0a6b85d7fdd2ca583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84871403"
 ---
 # <a name="onboarding-peering-service-model"></a>온 보 딩 서비스 모델
@@ -28,7 +28,7 @@ ms.locfileid: "84871403"
 
 위에 나열 된 모델에 대 한 작업 계획은 아래와 같이 설명 됩니다.
 
-| **Step** | **동작**| **수신 항목**|
+| **Step** | **작업**| **수신 항목**|
 |-----------|---------|---------|---------|
 |1|고객은 연결 파트너의 연결을 프로 비전 할 수 있습니다 (Microsoft와의 상호 작용 없음). |Microsoft에 연결 하 고 안정적이 고 신뢰할 수 있는 Microsoft 연결에 대 한 기술 요구 사항을 충족 하는 인터넷 공급자입니다.  |
 |2 (선택 사항)|고객은 Azure Portal에 위치를 등록 합니다. 위치는 ISP/IXP 이름, 고객 사이트의 물리적 위치 (상태 수준), 서비스 공급자나 엔터프라이즈가 위치에 지정 된 IP 접두사에 의해 정의 됩니다.  |원격 분석: 인터넷 경로 모니터링, Microsoft에서 사용자의 가장 가까운 가장자리 POP 위치에 대 한 트래픽 우선 순위 지정. |

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
 ms.openlocfilehash: c0d8783c4b07c8c87e57ccd9a5d65983825347c9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384098"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 PostgreSQL에서 데이터 복사
@@ -33,7 +33,7 @@ PostgreSQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장�
 
 특히 이 PostgreSQL 커넥터는 PostgreSQL **버전 7.4 이상** 을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -59,7 +59,7 @@ PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예: `EncryptionMethod=<0/1/6>;`| 0(암호화 없음)**(기본값)** / 1(SSL) / 6(RequestSSL) | 예 |
+| EncryptionMethod(EM)| 드라이버와 데이터베이스 서버 간에 전송되는 데이터를 암호화하기 위해 드라이버에서 사용하는 메서드입니다. 예: `EncryptionMethod=<0/1/6>;`| 0(암호화 없음)**(기본값)** / 1(SSL) / 6(RequestSSL) | 아니요 |
 | ValidateServerCertificate(VSC) | SSL 암호화를 사용할 때(암호화 메서드=1) 데이터베이스 서버에서 보내는 인증서의 유효성을 드라이버가 검사하는지 여부를 결정합니다. 예: `ValidateServerCertificate=<0/1>;`| 0(사용 안 함)**(기본값)** / 1(사용) | 예 |
 
 **예:**

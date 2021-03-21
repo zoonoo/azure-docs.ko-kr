@@ -8,10 +8,10 @@ ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580988"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Hybrid Runbook Worker 문제 해결
@@ -160,7 +160,7 @@ Runbook이 실행 되려고 할 때 실패 `Set-AzStorageBlobContent` 하 고 �
 </configuration>
 ```
 
-이 파일을 실행 파일과 동일한 폴더에 저장 `OrchestratorSandbox.exe` 합니다. 예를 들면 다음과 같습니다.
+이 파일을 실행 파일과 동일한 폴더에 저장 `OrchestratorSandbox.exe` 합니다. 예제:
 
 `%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
 

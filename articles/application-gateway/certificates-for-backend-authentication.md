@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
 ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397725"
 ---
-# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 백 엔드를 허용 하는 인증서 만들기
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure Application Gateway를 사용하여 백 엔드를 허용하기 위한 인증서 만들기
 
 종단 간 TLS를 수행 하려면 인증/신뢰할 수 있는 루트 인증서를 업로드 하 여 백 엔드 인스턴스가 허용 되도록 Application Gateway 해야 합니다. V1 SKU의 경우 인증 인증서가 필요 하지만 v2 SKU의 경우 인증서를 허용 하는 데 신뢰할 수 있는 루트 인증서가 필요 합니다.
 

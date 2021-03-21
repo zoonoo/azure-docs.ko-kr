@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/13/2020
 ms.author: yelevin
 ms.openlocfilehash: 018368b6284cf39edec01f0a9a943b8ea15c85d0
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98104183"
 ---
 # <a name="connect-dynamics-365-activity-logs-to-azure-sentinel"></a>Dynamics 365 활동 로그를 Azure 센티널에 연결
@@ -29,7 +29,7 @@ ms.locfileid: "98104183"
 >
 > Dynamics 365 Common Data Service (CD) 작업 커넥터는 현재 **미리 보기로** 제공 됩니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

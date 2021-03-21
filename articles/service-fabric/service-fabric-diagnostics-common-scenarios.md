@@ -4,10 +4,10 @@ description: Azure Service Fabric 애플리케이션 내에서 일반적인 모�
 ms.topic: article
 ms.date: 02/25/2019
 ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580483"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단

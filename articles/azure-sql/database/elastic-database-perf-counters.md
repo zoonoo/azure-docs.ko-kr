@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92781263"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>분할 된 맵 관리자의 성능을 추적 하는 성능 카운터 만들기
@@ -42,16 +42,16 @@ ms.locfileid: "92781263"
 [이](https://gallery.technet.microsoft.com/scriptcenter/Elastic-DB-Tools-for-Azure-17e3d283) PowerShell 스크립트를 사용하여 메서드를 실행할 수도 있습니다.
 메서드는 다음과 같은 성능 카운터를 만듭니다.  
 
-* **캐시된 매핑** : 분할된 맵에 대해 캐시된 매핑의 수.
-* **DDR 작업/초** : 분할된 맵에 대한 데이터 종속 라우팅 작업의 속도. 이 카운터는 [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)에 대한 호출이 대상 분할에 대한 성공적인 연결로 이어지면 업데이트됩니다.
-* **매핑 조회 캐시 적중/초** : 분할된 맵의 매핑에 대한 성공적인 캐시 조회 작업의 속도.
-* **매핑 조회 캐시 누락/초** : 분할된 맵의 매핑에 대해 실패한 캐시 조회 작업의 속도.
-* **캐시에 추가되거나 업데이트된 매핑/초** : 분할된 맵에 대해 캐시에 매핑이 추가되거나 업데이트된 속도.
-* **캐시에서 제거된 매핑/초** : 분할된 맵에 대해 캐시에서 매핑이 제거되는 속도.
+* **캐시된 매핑**: 분할된 맵에 대해 캐시된 매핑의 수.
+* **DDR 작업/초**: 분할된 맵에 대한 데이터 종속 라우팅 작업의 속도. 이 카운터는 [OpenConnectionForKey()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey)에 대한 호출이 대상 분할에 대한 성공적인 연결로 이어지면 업데이트됩니다.
+* **매핑 조회 캐시 적중/초**: 분할된 맵의 매핑에 대한 성공적인 캐시 조회 작업의 속도.
+* **매핑 조회 캐시 누락/초**: 분할된 맵의 매핑에 대해 실패한 캐시 조회 작업의 속도.
+* **캐시에 추가되거나 업데이트된 매핑/초**: 분할된 맵에 대해 캐시에 매핑이 추가되거나 업데이트된 속도.
+* **캐시에서 제거된 매핑/초**: 분할된 맵에 대해 캐시에서 매핑이 제거되는 속도.
 
 성능 카운터는 프로세스마다 각각의 캐시된 분할 맵에 생성됩니다.  
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 다음 이벤트는 성능 카운터 생성을 트리거합니다.  
 

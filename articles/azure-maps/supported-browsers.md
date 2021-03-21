@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100384472"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
@@ -73,7 +73,7 @@ CodePen에서 Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure Maps 
 
 Leaflet에서 Azure Maps를 사용 하는 추가 코드 샘플은 [여기](https://azuremapscodesamples.azurewebsites.net/?search=leaflet)에서 찾을 수 있습니다.
 
-Azure Maps 팀에서 플러그 인의를 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음과](open-source-projects.md#third-part-map-control-plugins) 같습니다.
+Azure Maps 팀에서 플러그 인을 만든 몇 가지 인기 있는 오픈 소스 맵 컨트롤은 [다음](open-source-projects.md#third-part-map-control-plugins)과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

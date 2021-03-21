@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
 ms.openlocfilehash: 141abea0c0946c98b6dfe627f32f01682a18be44
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581026"
 ---
 # <a name="bring-your-own-key-specification"></a>사용자 고유 키 사양 가져오기
@@ -134,7 +134,7 @@ RSA 키를 가져오려면 다음 명령을 사용 합니다.
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
 ```
-EC 키를 가져오려면 키 유형과 곡선 이름을 지정 해야 합니다.
+EC 키를 가져오려면 키 유형과 곡선 이름을 지정해야 합니다.
 
 ```azurecli
 az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify

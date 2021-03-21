@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100581555"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
@@ -163,7 +163,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 | db_id | oid | pg_database.oid | 문이 실행된 데이터베이스의 OID |
 | query_id | bigint |  | 문의 구문 분석 트리에서 계산된 내부 해시 코드 |
 | event_type | text |  | 백 엔드가 대기 중인 이벤트 유형 |
-| 이벤트 | text |  | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름 |
+| event | text |  | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름 |
 | calls | 정수 |  | 캡처된 동일한 이벤트 수 |
 
 ### <a name="functions"></a>Functions

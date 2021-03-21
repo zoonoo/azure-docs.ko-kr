@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
 ms.openlocfilehash: 73a9d9c7ab321aebd615922e5d4395c0318e809c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580447"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>POD (Proofpoint on demand On Demand Email Security) 솔루션을 Azure 센티널에 연결
@@ -31,7 +31,7 @@ ms.locfileid: "100580447"
 > [!NOTE]
 > 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

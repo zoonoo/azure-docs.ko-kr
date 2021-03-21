@@ -17,10 +17,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3f8f9357fff4773467dd93046ece8533514eb444
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313895"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용 하 여 플랫폼 간 알림 보내기
@@ -41,7 +41,7 @@ ms.locfileid: "92313895"
 
 템플릿을 사용 하 여 플랫폼 간 알림을 보내려면 다음을 수행 합니다.
 
-1. **솔루션 탐색기**의 Visual Studio에서 **컨트롤러** 폴더를 확장 한 다음 *RegisterController.cs* 파일을 엽니다.
+1. **솔루션 탐색기** 의 Visual Studio에서 **컨트롤러** 폴더를 확장 한 다음 *registercontroller .cs* 파일을 엽니다.
 
 1. `Put` 메서드에서 새 등록을 만드는 코드 블록을 찾은 다음, `switch`의 내용을 다음 코드로 바꿉니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "92313895"
 
     이 코드는 플랫폼 특정 메서드를 호출하여 기본 등록이 아니라 템플릿 등록을 만듭니다. 템플릿 등록은 기본 등록에서 파생되므로 기존 등록을 수정할 필요는 없습니다.
 
-1. **솔루션 탐색기**의 **Controllers** 폴더에서 **NotificationsController.cs** 파일을 엽니다. `Post` 메서드를 다음 코드로 바꿉니다.
+1. **솔루션 탐색기** 의 **Controllers** 폴더에서 **NotificationsController** 파일을 엽니다. `Post` 메서드를 다음 코드로 바꿉니다.
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

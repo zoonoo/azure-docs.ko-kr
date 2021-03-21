@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: e1409b43f0ce1fc0d8c622dda79e857ac6abdd33
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854566"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
@@ -23,7 +23,7 @@ ms.locfileid: "96854566"
 
 이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 방법 가이드의 단계에서는 Azure 구독에 디바이스 시뮬레이션 솔루션 가속기를 배포했다고 가정합니다. 아직 장치 시뮬레이션을 배포 하지 않은 경우 GitHub에서 [장치 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) 를 참조 하세요.
+이 방법 가이드의 단계에서는 Azure 구독에 디바이스 시뮬레이션 솔루션 가속기를 배포했다고 가정합니다. 아직 디바이스 시뮬레이션을 배포하지 않은 경우 GitHub의 [디바이스 시뮬레이션 배포](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md)를 참조하세요.
 
 이 문서에서는 솔루션 가속기의 이름이 **contoso-simulation** 이라고 가정합니다. **contoso-simulation** 을 다음 단계를 완료할 때 솔루션 가속기의 이름으로 바꿉니다.
 

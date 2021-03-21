@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
 ms.openlocfilehash: 4a25d7a23d486c8ce22fa433cc1ead390726facc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048865"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Logic Apps 및 파워 자동화를 위한 Azure Monitor Logs 커넥터
@@ -35,7 +35,7 @@ Azure Monitor Logs 커넥터에는 다음과 같은 제한이 있습니다.
 > Azure Monitor Logs 커넥터는 [Azure Log Analytics 커넥터](/connectors/azureloganalytics/) 및 [Azure 애플리케이션 Insights 커넥터](/connectors/applicationinsights/)를 대체 합니다. 이 커넥터는 다른 사용자와 동일한 기능을 제공 하며, Log Analytics 작업 영역 또는 Application Insights 응용 프로그램에 대해 쿼리를 실행 하는 기본 방법입니다.
 
 
-| 작업 | 설명 |
+| 작업 | Description |
 |:---|:---|
 | [쿼리를 실행 하 고 결과를 나열 합니다.](/connectors/azuremonitorlogs/#run-query-and-list-results) | 각 행을 자체 개체로 반환 합니다. 워크플로의 나머지 부분에서 각 행에 대해 개별적으로 작업 하려는 경우이 작업을 사용 합니다. 작업은 일반적으로 [각 작업에 대 한](../../logic-apps/logic-apps-control-flow-loops.md#foreach-loop)입니다. |
 | [쿼리 실행 및 결과 시각화](/connectors/azuremonitorlogs/#run-query-and-visualize-results) | 결과 집합의 모든 행을 형식이 지정 된 단일 개체로 반환 합니다. 워크플로의 나머지 부분에서 결과 집합을 함께 사용 하려는 경우이 작업을 사용 합니다 (예: 결과를 메일로 보내기).  |

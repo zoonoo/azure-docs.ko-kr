@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
 ms.openlocfilehash: 66df23466694fe8b9caea4e56565cde6d8fd7416
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018959"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>주제 도메인 및 데이터 추출을 사용 하 여 LUIS 앱 스키마 계획

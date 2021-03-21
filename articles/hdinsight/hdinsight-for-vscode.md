@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946141"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
@@ -298,13 +298,13 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark batch** 또는 **Synapse: PySpark batch** _를 선택 합니다.
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark batch** 또는 * * Synapse: PySpark batch * * *를 선택 합니다.
 
 6. PySpark 작업을 제출할 클러스터/spark 풀을 선택 하세요.
 
    ![Python 작업 결과 출력 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Python 작업을 제출한 후 제출 로그는 Visual Studio Code의 _ *출력** 창에 표시 됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
+Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로그가 표시됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>HIB(HDInsight Identity Broker)와 통합
 
@@ -351,7 +351,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
   | name | description | 형식 |
   | --- | --- | --- |
-  | file | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
+  | 파일 | 실행할 애플리케이션이 포함된 파일 | Path (필수) |
   | proxyUser | 작업을 실행할 때 가장할 사용자 | String |
   | className | 애플리케이션 Java/Spark 주 클래스 | String |
   | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |

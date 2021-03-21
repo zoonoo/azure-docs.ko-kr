@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 2d64766c754c0ea104ae83fde799a514e9da6d68
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97693727"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>기존 Application Gateway를 사용 하 여 AGIC (Application Gateway 수신 컨트롤러) 설치
@@ -20,7 +20,7 @@ AGIC (Application Gateway 수신 컨트롤러)는 Kubernetes 클러스터 내의
 AGIC는 Kubernetes [수신](https://kubernetes.io/docs/concepts/services-networking/ingress/) 리소스를 모니터링 하 고 Kubernetes 클러스터의 상태에 따라 Application Gateway 구성을 만들고 적용 합니다.
 
 ## <a name="outline"></a>아웃
-- [필수 구성 요소](#prerequisites)
+- [전제 조건](#prerequisites)
 - [ARM (Azure Resource Manager 인증)](#azure-resource-manager-authentication)
     - 옵션 1: [aad-pod-Id 설정](#set-up-aad-pod-identity) 및 Arm에서 Azure id 만들기
     - 옵션 2: [서비스 주체 사용](#using-a-service-principal)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: ff3f3ab65df2d801b7c962de7cce645e9fc00b30
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94358612"
 ---
 # <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Visitly 구성

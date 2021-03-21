@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686872"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Microsoft 365 및 Azure Active Directory에 대 한 페더레이션 인증서 갱신
@@ -107,8 +107,8 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 작업 |
 |:---:|:---:|:---:|:---:|:---:|
 | 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| 예 |예 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| No |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 예 |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 아니요 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
 

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: 236e82ab97244e1428441f83295f6a5d4ed56350
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99581995"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
@@ -67,7 +67,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 다음은 그 예입니다. 
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 > *이미 Microsoft 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> <your_app_name 부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 

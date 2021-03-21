@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8c6d26de62364b6aca671d1e4283a01c1b78c397
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95014835"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에서 테 넌 트 및 호스트 풀 만들기
@@ -26,7 +26,7 @@ ms.locfileid: "95014835"
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Windows 10 Enterprise 다중 세션 이미지 가져오기
 
-Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketplace으로 이동 하 여 **Get Started**  >  [가상 데스크톱, 버전 1809에 대해](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)**Microsoft windows 10** > 및 Windows 10 Enterprise 시작을 선택 합니다.
+Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketplace으로 이동 하 여   >  [가상 데스크톱, 버전 1809에 대해](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice)**Microsoft windows 10** > 및 Windows 10 Enterprise 시작을 선택 합니다.
 
 > [!div class="mx-imgBorder"]
 > ![가상 데스크톱에 대 한 Windows 10 Enterprise 버전 1809을 선택 하는 스크린샷](../media/AzureMarketPlace.png)

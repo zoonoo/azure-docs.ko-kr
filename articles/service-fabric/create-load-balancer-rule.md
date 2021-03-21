@@ -4,10 +4,10 @@ description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azu
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 7e09c7b0b3e2bfa5a5ff834e243f5098cbbd947b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319897"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
@@ -35,7 +35,7 @@ Load Balancer 규칙을 만들려면 다음 정보를 수집해야 합니다.
 - 내부 포트
 
 ## <a name="azure-cli"></a>Azure CLI
-**Azure CLI**에서 부하 분산 장치 규칙을 만들려면 명령 1개만 사용하면 됩니다. 새 규칙을 만들려는 경우 부하 분산 장치 이름 및 리소스 그룹을 알고 있으면 됩니다.
+**Azure CLI** 에서 부하 분산 장치 규칙을 만들려면 명령 1개만 사용하면 됩니다. 새 규칙을 만들려는 경우 부하 분산 장치 이름 및 리소스 그룹을 알고 있으면 됩니다.
 
 >[!NOTE]
 >부하 분산 장치의 이름을 확인해야 할 경우 다음 명령을 사용하여 모든 부하 분산 장치 및 연결된 리소스 그룹의 목록을 빠르게 표시합니다.

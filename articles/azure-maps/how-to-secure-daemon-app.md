@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2dd04f404330a6c86e2df09da610e16ba9b721f3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895650"
 ---
 # <a name="secure-a-daemon-application"></a>디먼 응용 프로그램 보안
@@ -100,7 +100,7 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
     * 응용 프로그램에서 서버 또는 응용 프로그램 인증을 사용 하는 경우 앱 등록 페이지에서 **인증서 & 암호** 로 이동 합니다. 그런 다음, 공개 키 인증서를 업로드 하거나 **새 클라이언트** 암호를 선택 하 여 암호를 만듭니다.
 
         > [!div class="mx-imgBorder"]
-        > ![클라이언트 비밀 만들기](./media/how-to-manage-authentication/app-keys.png)
+        > ![클라이언트 암호 만들기](./media/how-to-manage-authentication/app-keys.png)
 
     * **추가** 를 선택한 후 암호를 복사 하 고 Azure Key Vault와 같은 서비스에 안전 하 게 저장 합니다. [Azure Key Vault 개발자 가이드](../key-vault/general/developers-guide.md) 를 검토 하 여 인증서 또는 암호를 안전 하 게 저장 합니다. 이 암호를 사용 하 여 Azure AD에서 토큰을 가져옵니다.
 

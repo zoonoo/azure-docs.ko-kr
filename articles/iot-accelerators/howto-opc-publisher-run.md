@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f7d6581a1892ebd74a1adba5c09c0af9d3cf9d43
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92079006"
 ---
 # <a name="run-opc-publisher"></a>OPC 게시자 실행
@@ -344,7 +344,7 @@ Options:
 
 ## <a name="run-natively-on-windows"></a>Windows에서 기본적으로 실행
 
-Visual Studio에서 **opcpublisher.sln** 프로젝트를 열고, 솔루션을 빌드하고, 이를 게시합니다. 다음과 같이 게시한 **대상 디렉터리**에서 애플리케이션을 시작할 수 있습니다.
+Visual Studio에서 **opcpublisher.sln** 프로젝트를 열고, 솔루션을 빌드하고, 이를 게시합니다. 다음과 같이 게시한 **대상 디렉터리** 에서 애플리케이션을 시작할 수 있습니다.
 
 ```cmd
 dotnet opcpublisher.dll <applicationname> [<IoT Hubconnectionstring>] [options]
@@ -370,14 +370,14 @@ docker run mcr.microsoft.com/iotedge/opc-publisher <applicationname> [<IoT Hubco
 
 ## <a name="run-as-an-azure-iot-edge-module"></a>Azure IoT Edge 모듈로 실행
 
-OPC 게시자는 [Azure IoT Edge](../iot-edge/index.yml) 모듈로 사용할 준비가 되었습니다. OPC 게시자를 IoT Edge 모듈로 사용하는 경우 지원되는 전송 프로토콜은 **Amqp_Tcp_Only** 및 **Mqtt_Tcp_Only**뿐입니다.
+OPC 게시자는 [Azure IoT Edge](../iot-edge/index.yml) 모듈로 사용할 준비가 되었습니다. OPC 게시자를 IoT Edge 모듈로 사용하는 경우 지원되는 전송 프로토콜은 **Amqp_Tcp_Only** 및 **Mqtt_Tcp_Only** 뿐입니다.
 
 OPC 게시자를 모듈로 IoT Edge 배포에 추가하려면 Azure Portal에서 IoT Hub 설정으로 이동하여 다음 단계를 완료합니다.
 
-1. **IoT Edge**로 이동하여 IoT Edge 디바이스를 만들거나 선택합니다.
-1. **모듈 설정**을 선택 합니다.
-1. **배포 모듈** 아래에서 **추가**를 선택한 다음, **IoT Edge 모듈**을 선택합니다.
-1. **이름** 필드에서 **publisher**를 입력합니다.
+1. **IoT Edge** 로 이동하여 IoT Edge 디바이스를 만들거나 선택합니다.
+1. **모듈 설정** 을 선택 합니다.
+1. **배포 모듈** 아래에서 **추가** 를 선택한 다음, **IoT Edge 모듈** 을 선택합니다.
+1. **이름** 필드에서 **publisher** 를 입력합니다.
 1. **이미지 URI** 필드에서 `mcr.microsoft.com/iotedge/opc-publisher:<tag>`를 입력합니다.
 1. 사용 가능한 태그는 [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)에서 찾을 수 있습니다.
 1. 다음 JSON을 **컨테이너 만들기 옵션** 필드에 붙여넣습니다.
@@ -391,9 +391,9 @@ OPC 게시자를 모듈로 IoT Edge 배포에 추가하려면 Azure Portal에서
     }
     ```
 
-    이 구성은 OPC 게시자 이미지를 사용하여 **publisher**라는 컨테이너를 시작하도록 IoT Edge를 구성합니다. 컨테이너 시스템의 호스트 이름이 **publisher**로 설정되어 있습니다. OPC 게시자는 `--aa` 명령줄 인수로 호출됩니다. 이 옵션을 사용하면 OPC 게시자에서 연결하는 OPC UA 서버의 인증서를 신뢰합니다. OPC 게시자 명령줄 옵션은 모두 사용할 수 있습니다. 유일한 제한 사항은 IoT Edge에서 지원되는 **컨테이너 만들기 옵션**의 크기입니다.
+    이 구성은 OPC 게시자 이미지를 사용하여 **publisher** 라는 컨테이너를 시작하도록 IoT Edge를 구성합니다. 컨테이너 시스템의 호스트 이름이 **publisher** 로 설정되어 있습니다. OPC 게시자는 `--aa` 명령줄 인수로 호출됩니다. 이 옵션을 사용하면 OPC 게시자에서 연결하는 OPC UA 서버의 인증서를 신뢰합니다. OPC 게시자 명령줄 옵션은 모두 사용할 수 있습니다. 유일한 제한 사항은 IoT Edge에서 지원되는 **컨테이너 만들기 옵션** 의 크기입니다.
 
-1. 다른 설정은 변경하지 않고 **저장**을 선택합니다.
+1. 다른 설정은 변경하지 않고 **저장** 을 선택합니다.
 1. 다른 IoT Edge 모듈에서 OPC 게시자의 출력을 로컬로 처리하려면 **모듈 설정** 페이지로 돌아갑니다. 그런 다음, **경로 지정** 탭으로 이동하여 다음 JSON과 같은 새 경로를 추가합니다.
 
     ```json
@@ -405,13 +405,13 @@ OPC 게시자를 모듈로 IoT Edge 배포에 추가하려면 Azure Portal에서
     }
     ```
 
-1. **모듈 설정** 페이지로 돌아가서 구성의 마지막 페이지에 도달할 때까지 **다음**을 선택합니다.
-1. **제출**을 선택하여 구성을 IoT Edge로 보냅니다.
+1. **모듈 설정** 페이지로 돌아가서 구성의 마지막 페이지에 도달할 때까지 **다음** 을 선택합니다.
+1. **제출** 을 선택하여 구성을 IoT Edge로 보냅니다.
 1. 에지 디바이스에서 IoT Edge를 시작했고 **publisher** Docker 컨테이너가 실행 중이면, `docker logs -f publisher`를 사용하거나 로그 파일을 확인하여 OPC 게시자의 로그 출력을 확인할 수 있습니다. 이전 예제에서 로그 파일은 `d:\iiotegde\publisher-publisher.log`보다 큽니다. 또한 [iot-edge-opc-publisher-diagnostics 도구](https://github.com/Azure-Samples/iot-edge-opc-publisher-diagnostics)도 사용할 수 있습니다.
 
 ### <a name="make-the-configuration-files-accessible-on-the-host"></a>호스트에서 구성 파일에 액세스할 수 있도록 설정
 
-호스트 파일 시스템에서 IoT Edge 모듈 구성 파일에 액세스할 수 있도록 하려면 다음 **컨테이너 만들기 옵션**을 사용합니다. Windows용 Linux 컨테이너를 사용하는 배포의 예제는 다음과 같습니다.
+호스트 파일 시스템에서 IoT Edge 모듈 구성 파일에 액세스할 수 있도록 하려면 다음 **컨테이너 만들기 옵션** 을 사용합니다. Windows용 Linux 컨테이너를 사용하는 배포의 예제는 다음과 같습니다.
 
 ```json
 {

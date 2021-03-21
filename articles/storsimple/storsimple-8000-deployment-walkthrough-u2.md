@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: 2c9feb1131f6d2d0eb75ac71e27dc46c226c52c1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94961059"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>온-프레미스 StorSimple 디바이스(업데이트 3 이상) 배포
@@ -34,7 +34,7 @@ Microsoft Azure StorSimple 디바이스 배포를 시작합니다. 이러한 배
 ## <a name="deployment-steps"></a>배포 단계
 StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다. 필수 단계 외에 선택적 단계 및 배포하는 동안 필요할 수도 있는 절차가 있습니다. 단계별 배포 지침은 각 선택적 단계를 수행해야 하는 시기를 나타냅니다.
 
-| 단계 | Description |
+| 단계 | 설명 |
 | --- | --- |
 | **사전** |향후 배포 준비 과정에서 완료해야 합니다. |
 | [배포 구성 검사 목록](#deployment-configuration-checklist) |이 검사 목록을 사용하여 배포 이전 및 배포하는 동안 정보를 수집하고 기록합니다. |

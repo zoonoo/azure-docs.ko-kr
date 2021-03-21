@@ -10,13 +10,13 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: 6642e59c2957b298d54bc587853752b9fce74686
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95019146"
 ---
-# <a name="prebuilt-models"></a>미리 작성된 모델
+# <a name="prebuilt-models"></a>미리 빌드된 모델
 
 미리 빌드된 모델은 도메인, 의도, 발언 및 엔터티를 제공합니다. 미리 빌드된 모델을 사용 하 여 앱을 시작 하거나 나중에 앱에 관련 모델을 추가할 수 있습니다. 
 

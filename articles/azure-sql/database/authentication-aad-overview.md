@@ -12,10 +12,10 @@ ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ms.openlocfilehash: a636c0e2a41b636f30ada14d4f16a022f2890b71
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96454297"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용
@@ -49,7 +49,7 @@ Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsof
 - Azure AD는 Active Directory 대화형 인증을 사용하는 유사한 SSDT(SQL Server Data Tools) 연결을 지원합니다. 자세한 내용은 [Azure Active Directory support in SQL Server Data Tools (SSDT) (](/sql/ssdt/azure-active-directory) 영문으로 표시 될 수 있습니다.
 
 > [!NOTE]  
-> Azure VM (가상 컴퓨터)에서 실행 되는 SQL Server 인스턴스에 연결 하는 것은 Azure Active Directory 계정을 사용 하 여 지원 되지 않습니다. 대신 도메인 Active Directory 계정을 사용합니다.  
+> Azure VM(가상 머신)에서 실행되는 SQL Server 인스턴스 연결은 Azure Active Directory 계정으로는 지원되지 않습니다. 대신 도메인 Active Directory 계정을 사용합니다.  
 
 구성 단계에는 Azure Active Directory 인증의 구성 및 사용을 위한 다음 절차가 포함됩니다.
 
@@ -140,7 +140,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 - Multi-Factor Authentication Azure Active Directory Universal
 - 애플리케이션 토큰 인증 사용
 
-Azure AD 서버 보안 주체 (로그인)에 대해 지원 되는 인증 방법은 다음과 같습니다.
+Azure AD 서버 보안 주체(로그인)에 대해 지원되는 인증 방법은 다음과 같습니다.
 
 - Azure Active Directory 암호
 - Azure Active Directory 통합

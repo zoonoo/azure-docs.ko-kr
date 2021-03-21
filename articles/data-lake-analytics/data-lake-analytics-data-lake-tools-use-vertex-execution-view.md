@@ -5,10 +5,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 10/13/2016
 ms.openlocfilehash: 3fba7bdaa5db1d812fbcd479e5f1eab50c8d1032
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92215861"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake Tools의 Vertex Execution View 사용
@@ -16,7 +16,7 @@ Data Lake Analytics 작업을 검사하기 위해 Vertex Execution View를 사�
 
 
 ## <a name="open-the-vertex-execution-view"></a>Vertex Execution View 열기
-Data Lake Tools for Visual Studio에서 U-SQL 작업을 엽니다. 왼쪽 아래 모서리에서 **Vertex Execution View**를 클릭합니다. 먼저 프로필을 로드하라는 메시지가 나타날 것이며 네트워크 연결 상태에 따라 약간의 시간이 걸릴 수 있습니다.
+Data Lake Tools for Visual Studio에서 U-SQL 작업을 엽니다. 왼쪽 아래 모서리에서 **Vertex Execution View** 를 클릭합니다. 먼저 프로필을 로드하라는 메시지가 나타날 것이며 네트워크 연결 상태에 따라 약간의 시간이 걸릴 수 있습니다.
 
 ![Data Lake Analytics 도구 꼭 짓 점 실행 보기를 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
@@ -25,11 +25,11 @@ Vertex Execution View는 다음 세 가지로 구성됩니다.
 
 !["꼭 짓 점 선택기" 및 가운데 위쪽 및 가운데 아래쪽 창이 강조 표시 된 꼭 짓 점 실행 보기를 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
-왼쪽의 **꼭짓점 선택기**를 통해 기능별로(예: 상위 데이터 10개 읽기, 또는 단계별 선택) 꼭짓점을 선택할 수 있습니다. 가장 일반적으로 사용되는 필터 중 하나는 **중요 경로 상의 꼭짓점**을 보는 것입니다. **중요 경로**는 U-SQL 작업의 꼭짓점 중에서 가장 긴 체인입니다. 중요 경로를 이해하는 것은 어떤 꼭짓점이 가장 긴 시간이 걸리는지 확인하여 작업을 최적화하는 데 유용합니다.
+왼쪽의 **꼭짓점 선택기** 를 통해 기능별로(예: 상위 데이터 10개 읽기, 또는 단계별 선택) 꼭짓점을 선택할 수 있습니다. 가장 일반적으로 사용되는 필터 중 하나는 **중요 경로 상의 꼭짓점** 을 보는 것입니다. **중요 경로** 는 U-SQL 작업의 꼭짓점 중에서 가장 긴 체인입니다. 중요 경로를 이해하는 것은 어떤 꼭짓점이 가장 긴 시간이 걸리는지 확인하여 작업을 최적화하는 데 유용합니다.
   
 !["모든 정점의 실행 상태"를 표시 하는 꼭 짓 점 실행 보기의 위쪽 가운데 창을 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
-위쪽 가운데 창은 **모든 꼭짓점의 실행 상태**를 보여 줍니다.
+위쪽 가운데 창은 **모든 꼭짓점의 실행 상태** 를 보여 줍니다.
   
 ![각 꼭 짓 점에 대 한 정보를 표시 하는 꼭 짓 점 실행 보기 아래쪽 가운데 창을 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 

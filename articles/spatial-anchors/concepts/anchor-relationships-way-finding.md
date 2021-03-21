@@ -9,10 +9,10 @@ ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: ce79fe88b33659241a226af7bbb7a966ede41abb
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97696159"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Azure 공간 앵커에서 앵커 관계 및 방법 찾기
@@ -22,7 +22,7 @@ ms.locfileid: "97696159"
 * 근처에 앵커가 있나요?
 * 얼마나 멀리 떨어져 있나요?
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음과 같은 경우에 연결 된 앵커를 사용할 수 있습니다.
 

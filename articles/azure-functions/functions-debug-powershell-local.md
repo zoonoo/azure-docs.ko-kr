@@ -7,10 +7,10 @@ ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
 ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93422963"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>로컬로 PowerShell Azure Functions 디버그
@@ -94,7 +94,7 @@ if($name) {
 
 Visual Studio Code에서 PowerShell 함수를 디버깅 하려면 다음이 설치 되어 있어야 합니다.
 
-* [Visual Studio Code에 대 한 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
+* [Visual Studio Code용 PowerShell 확장](/powershell/scripting/components/vscode/using-vscode)
 * [Visual Studio Code용 Azure Functions 확장](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6.2 이상](/powershell/scripting/install/installing-powershell-core-on-windows)
 

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 21c0a7a3fe6d5be9d99ea53dbfa74cf72e163272
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780668"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 Azure SQL Database의 성능 모니터링 및 관리
@@ -51,7 +51,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 ### <a name="performance-management-strategies"></a>성능 관리 전략
 
 * 수동으로 성능을 모니터링할 필요가 없도록 하려면 **데이터베이스 또는 풀이 정상 범위를 벗어난 경우 트리거되는 경고를 설정** 하는 것이 가장 효과적입니다.
-* 풀의 집계 컴퓨팅 크기의 단기적 변동에 대응하기 위해 **풀 eDTU 수준을 확장하거나 축소할 수 있습니다** . 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **풀 크기 조정을 자동으로 일어나도록 예약** 할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
+* 풀의 집계 컴퓨팅 크기의 단기적 변동에 대응하기 위해 **풀 eDTU 수준을 확장하거나 축소할 수 있습니다**. 이러한 변동이 정기적으로 또는 예측 가능한 단위로 발생하는 경우 **풀 크기 조정을 자동으로 일어나도록 예약** 할 수 있습니다. 예를 들어 워크로드가 가볍다고 알고 있는 경우 야간 또는 주말 중으로 규모를 축소할 수 있습니다.
 * 더 장기적인 변동 또는 데이터베이스 수 변화에 대응하기 위해 **개별 데이터베이스를 다른 풀로 이동** 할 수 있습니다.
 * *개별* 데이터베이스 부하의 단기적 증가에 대응하기 위해 **개별 데이터베이스를 풀에서 제외하고 개별 컴퓨팅 크기를 할당** 할 수 있습니다. 부하가 감소한 후 데이터베이스를 풀에 반환할 수 있습니다. 이러한 상황을 미리 안다면 데이터베이스에 언제나 필요한 리소스가 있도록 하고 풀에 있는 다른 데이터베이스에 영향을 미치지 않도록 데이터베이스를 선제적으로 이동할 수 있습니다. 이 요구 사항이 예측 가능하다면 인기 있는 이벤트에 대한 티켓 판매의 급격한 증가를 경험한 영역을 애플리케이션에 통합할 수 있습니다.
 
@@ -70,12 +70,12 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 이미 이전 자습서에서 테넌트의 배치를 프로비전한 경우 [모든 테넌트 데이터베이스에 대한 사용량 시뮬레이션](#simulate-usage-on-all-tenant-databases) 섹션을 건너뛸 수 있습니다.
 
 1. **PowerShell ISE** 에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1* 을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
-1. **$DemoScenario** = **1** , **Provision a batch of tenants** 설정
+1. **$DemoScenario** = **1**, **Provision a batch of tenants** 설정
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 
 이 스크립트는 테넌트 17개를 5분 이내에 배포합니다.
 
-*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../../azure-resource-manager/index.yml) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **basetenantdb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *basetenantdb* 에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스( *basetenantdb* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](saas-tenancy-schema-management.md)를 참조하세요.
+*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../../azure-resource-manager/index.yml) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **basetenantdb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *basetenantdb* 에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스(*basetenantdb* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](saas-tenancy-schema-management.md)를 참조하세요.
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>모든 테넌트 데이터베이스에 대한 사용 시뮬레이션
 
@@ -122,8 +122,8 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 
 풀에 대해 다음과 같이 사용률 \>75%일 때 트리거되는 경고를 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 *Pool1* ( *tenants1-dpt-\<user\>* 서버에 있음)을 엽니다.
-1. **경고 규칙** , **+ 경고 추가** 를 차례로 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)에서 *Pool1*(*tenants1-dpt-\<user\>* 서버에 있음)을 엽니다.
+1. **경고 규칙**, **+ 경고 추가** 를 차례로 클릭합니다.
 
    ![경고 추가](./media/saas-dbpertenant-performance-monitoring/add-alert.png)
 
@@ -131,7 +131,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 1. 다음 값을 설정합니다.
    * **메트릭 = eDTU 백분율**
    * **조건 = 보다 큼**
-   * **임계값 = 75** .
+   * **임계값 = 75**.
    * **기간 = 지난 30분 동안**
 1. *추가 관리자 전자 메일* 상자에 메일 주소를 추가하고 **확인** 을 클릭합니다.
 
@@ -185,7 +185,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 
 풀을 만들고 데이터베이스를 해당 풀로 이동하는 데 몇 분이 걸립니다. 이동 중인 데이터베이스는 열려 있는 모든 연결이 닫히는 시점인 마지막 순간까지 온라인이고 완전히 액세스할 수 있는 상태로 남아 있습니다. 몇 가지 다시 시도 논리가 있는 경우 클라이언트는 새 풀의 데이터베이스에 연결합니다.
 
-**Pool2** ( *tenants1-dpt-\<user\>* 서버)로 이동하여 풀을 열고 성능을 모니터링합니다. 표시되지 않는 경우 새 풀의 프로비전이 완료될 때까지 기다립니다.
+**Pool2**(*tenants1-dpt-\<user\>* 서버)로 이동하여 풀을 열고 성능을 모니터링합니다. 표시되지 않는 경우 새 풀의 프로비전이 완료될 때까지 기다립니다.
 
 이제 *Pool1* 의 리소스 사용량이 떨어지고 *Pool2* 에 유사한 부하가 걸려 있는 것으로 나타나야 합니다.
 

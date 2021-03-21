@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: sausin
 ms.openlocfilehash: 77ade17803a35491712ec6df70aed9eb7b4883eb
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025877"
 ---
 # <a name="export-custom-commands-application-as-a-remote-skill"></a>사용자 지정 명령 응용 프로그램을 원격 기술로 내보내기
 
 이 문서에서는 사용자 지정 명령 응용 프로그램을 원격 기술로 내보내는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 > [!div class="checklist"]
 > * [Bot Framework 기술 이해](/azure/bot-service/skills-conceptual)
 > * [기술 매니페스트 이해](https://aka.ms/speech/cc-skill-manifest)
@@ -64,7 +64,7 @@ ms.locfileid: "95025877"
     > [!div class="mx-imgBorder"]
     > ![기술에 대해 사용 하도록 설정 된 명령 편집](media/custom-commands/skill-edit-enabled-command.png)
 
-1. 그런 다음 생략 하려는 문장 예제에서 **right click**  >  **사용 안 함 예제 문장** 을 마우스 오른쪽 단추로 클릭 합니다.
+1. 그런 다음 생략 하려는 문장 예제에서   >  **사용 안 함 예제 문장** 을 마우스 오른쪽 단추로 클릭 합니다.
     > [!div class="mx-imgBorder"]
     > ![예 사용 안 함](media/custom-commands/skill-disable-example-sentences.png)
 

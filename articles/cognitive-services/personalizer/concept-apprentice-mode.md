@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385033"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>기존 응용 프로그램에 영향을 주지 않고 Personalizer를 학습 하려면 수련 한 모드를 사용 합니다.
@@ -59,7 +59,7 @@ Personalizer를 학습 하 여 다음과 같은 시나리오에서 효율성을 
 
 다음과 같은 방법으로, 수련 여가 온라인 모드와 다른 경우를 학습 합니다.
 
-|영역|실습생 모드|온라인 모드|
+|영역형|실습생 모드|온라인 모드|
 |--|--|--|
 |사용자 경험에 미치는 영향|기존 사용자 동작을 사용 하 여 **기본 작업이** 수행 된 것과 획득 한 보상을 관찰 (영향을 주지 않음) 하도록 하 여 Personalizer를 교육할 수 있습니다. 즉, 사용자의 경험과 비즈니스 결과는 영향을 받지 않습니다.|사용자 동작에 영향을 주기 위해 Rank 호출에서 반환 된 상위 작업을 표시 합니다.|
 |학습 속도|Personalizer은 온라인 모드로 학습 하는 경우를 제외 하 고는 더 느리게 설명 합니다. 수련 여은 탐색이 수행 될 수 없으므로 학습 속도를 제한 하는 **기본 작업** 에서 얻은 보상을 관찰 하 여 학습할 수 있습니다.|는 현재 모델을 활용 하 고 새로운 추세를 탐색할 수 있기 때문에 더 빠르게 학습 합니다.|

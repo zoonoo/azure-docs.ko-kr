@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
 ms.openlocfilehash: aa19cf6b59b1efa4b14501fbf64e319da3e4c0b3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048644"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>저장소 공간 다이렉트를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
@@ -51,7 +51,7 @@ ms.locfileid: "102048644"
    > 템플릿을 사용하여 Azure에 전체 솔루션을 만들 수 있습니다. 템플릿의 예는 GitHub [Azure 빠른 시작 템플릿](https://github.com/MSBrett/azure-quickstart-templates/tree/master/sql-server-2016-fci-existing-vnet-and-ad) 페이지에서 사용할 수 있습니다. 이 예제는 특정 워크로드에 대해 설계되거나 테스트되지 않았습니다. 템플릿을 실행하여 도메인에 연결된 스토리지 공간 다이렉트 스토리지를 사용하여 SQL Server FCI를 만들 수 있습니다. 템플릿을 평가하고 용도에 맞게 수정할 수 있습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 

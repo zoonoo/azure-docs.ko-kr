@@ -4,10 +4,10 @@ description: Azure Monitor 및 Application Insights 데이터를 라우팅하여
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: decd0353bcb2cf048fd5591ea8c895cf22944809
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048661"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
@@ -23,7 +23,7 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Azure Marketplace를 통해 Azure에서 Grafana 설정
 1. Azure Marketplace로 이동하여 Grafana Labs에서 Grafana를 선택합니다.
 
-2. 이름 및 세부 정보를 입력합니다. 새 리소스 그룹 만들기 VM 사용자 이름, VM 암호 및 Grafana 서버 관리자 암호에 대해 선택한 값을 추적합니다.  
+2. 이름 및 세부 정보를 입력합니다. 새 리소스 그룹을 만듭니다. VM 사용자 이름, VM 암호 및 Grafana 서버 관리자 암호에 대해 선택한 값을 추적합니다.  
 
 3. VM 크기 및 스토리지 계정을 선택합니다.
 

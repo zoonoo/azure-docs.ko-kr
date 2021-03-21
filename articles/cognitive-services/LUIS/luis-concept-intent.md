@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025911"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
@@ -27,7 +27,7 @@ ms.locfileid: "95025911"
  BookFlight     |   “Book me a flight to Rio next week” <br/> “Fly me to Rio on the 24th” <br/> “I need a plane ticket next Sunday to Rio de Janeiro”    |
  Greeting     |   “Hi” <br/>"Hello" <br/>“Good morning”  |
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
- None         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
+ 없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
 모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent)"이 함께 제공 됩니다.
 

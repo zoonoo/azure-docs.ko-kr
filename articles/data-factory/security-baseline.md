@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d1cbd314861a4d5079a5c8e5213f45c7164344f0
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204170"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
@@ -866,11 +866,11 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Firewall이란?](../firewall/overview.md)
 
-- [Azure 웹 응용 프로그램 방화벽 이란?](../web-application-firewall/overview.md)
+- [Azure 웹 애플리케이션 방화벽이란?](../web-application-firewall/overview.md)
 
 - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
-- [Azure Virtual Network 이란?](../virtual-network/virtual-networks-overview.md)
+- [Azure Virtual Network란?](../virtual-network/virtual-networks-overview.md)
 
 - [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/overview.md)
 

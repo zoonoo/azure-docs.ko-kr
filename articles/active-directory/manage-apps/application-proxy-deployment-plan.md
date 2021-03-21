@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580065"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 애플리케이션 프록시 배포 계획
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음 섹션에서는 효율적인 배포 환경에 맞게 설정 하는 주요 계획 요소를 광범위 하 게 보여 줍니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 구현을 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다. 이러한 필수 구성 요소를 포함 하 여 환경을 설정 하는 방법에 대 한 자세한 내용은이 [자습서](application-proxy-add-on-premises-application.md)에서 확인할 수 있습니다.
 

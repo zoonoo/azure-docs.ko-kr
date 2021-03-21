@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.openlocfilehash: c5f536295bce07e70606f1ff286b08f8465d59f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048953"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
@@ -244,7 +244,7 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령 실행: 
+1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령을 실행합니다. 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 

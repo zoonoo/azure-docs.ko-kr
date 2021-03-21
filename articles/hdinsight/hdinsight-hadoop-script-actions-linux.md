@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
 ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945483"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
@@ -23,7 +23,7 @@ Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하�
 
 | 이 방법을 사용하여 스크립트를 적용... | 클러스터를 생성하는 동안... | 실행 중인 클러스터에서... |
 | --- |:---:|:---:|
-| Azure Portal |✓ |✓ |
+| Azure portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure 클래식 CLI |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
@@ -232,7 +232,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 스크립트에서 사용하기 위해 다음 도우미를 사용할 수 있습니다.
 
-| 도우미 사용 | Description |
+| 도우미 사용 | 설명 |
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |원본 URI에서 지정된 파일 경로로 파일을 다운로드합니다. 기본적으로 기존 파일을 덮어쓰지 않습니다. |
 | `untar_file TARFILE DESTDIR` |(`-xf`를 사용하여) 대상 디렉터리에 tar 파일을 추출합니다. |
@@ -314,9 +314,9 @@ Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면
 
 스크립트 작업을 사용하여 다음 메서드를 사용하여 HDInsight 클러스터를 사용자 지정할 수 있습니다.
 
-* Azure Portal
+* Azure portal
 * Azure PowerShell
-* Azure Resource Manager 템플릿
+* Azure 리소스 관리자 템플릿
 * HDInsight .NET SDK
 
 각 메서드 사용에 대한 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.

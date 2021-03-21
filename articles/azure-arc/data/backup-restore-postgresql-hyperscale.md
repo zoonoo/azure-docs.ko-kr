@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.openlocfilehash: 8b3304c673e8606667246a7d0df9ad8f3be11d9b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686702"
 ---
 # <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 백업 및 복원
@@ -30,20 +30,20 @@ Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 백업 하거나 복원
 ```console
 azdata arc postgres backup create [--name <backup name>] --server-name <server group name> [--no-wait] 
 ```
-위치:
+여기서 다음이 적용됩니다.
 - __이름__ 백업 이름을 나타냅니다.
 - __서버 이름__ 은 서버 그룹을 나타냅니다.
 - __대기 안 함__ 은 명령줄에서이 명령줄 창을 계속 사용할 수 있도록 백업이 완료 될 때까지 기다리지 않음을 나타냅니다.
 
 이 명령은 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 노드에서 분산 된 전체 백업을 조정 합니다. 즉, 코디네이터 및 작업자 노드의 모든 데이터를 백업 합니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres backup create --name backup12082020-0250pm --server-name postgres01
 ```
 
-백업이 완료 되 면 백업의 ID, 이름, 크기, 상태 및 타임 스탬프가 반환 됩니다. 다음은 그 예입니다. 
+백업이 완료 되 면 백업의 ID, 이름, 크기, 상태 및 타임 스탬프가 반환 됩니다. 예를 들면 다음과 같습니다.
 ```console
 {
   "ID": "8085723fcbae4aafb24798c1458f4bb7",
@@ -68,7 +68,7 @@ azdata arc postgres backup create --name backup12082020-0250pm --server-name pos
 azdata arc postgres backup list --server-name <servergroup name>
 ```
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres backup list --server-name postgres01
@@ -100,11 +100,11 @@ azdata arc postgres backup restore -sn <target server group name> [-ssn <source 
 ```
 <!--To read the general format of restore command, run: azdata arc postgres backup restore --help -->
 
-위치:
+여기서 다음이 적용됩니다.
 - __backup-id__ 는 위에 표시 된 백업 나열 명령에 표시 된 백업의 id입니다.
 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 노드에서 분산 된 전체 복원을 조정 합니다. 즉, 코디네이터와 작업자 노드의 모든 데이터를 복원 합니다.
 
-#### <a name="examples"></a>예:
+#### <a name="examples"></a>예제:
 
 __Postgres01 서버 그룹을 자체로 복원 합니다.__
 
@@ -149,7 +149,7 @@ azdata arc postgres backup restore -sn <target server group name> -ssn <source s
 
 여기서 `time` 는를 복원 하는 시점입니다. 타임 스탬프 또는 숫자와 접미사 ( `m` 분, `h` 시간, `d` 일 또는 `w` 주)를 제공 합니다. 예를 들면 `1.5h` 90 분 뒤로 돌아갑니다.
 
-#### <a name="examples"></a>예:
+#### <a name="examples"></a>예제:
 __Postgres01 서버 그룹의 특정 시점 복원을 수행 합니다.__
 
 서버 그룹에 대 한 특정 시점 복원은 아직 수행할 수 없습니다.
@@ -161,7 +161,7 @@ azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "2020-12-08
 
 이 예에서는 서버 그룹 postgres01가 2020 년 12 월 8 일에 년 12 월 8 일에 postgres02 상태를 서버 그룹으로 복원 합니다. "+ 00"은 지정 된 특정 시점의 표준 시간대를 나타냅니다. 표준 시간대를 지정 하지 않으면 복원 작업을 실행 하는 클라이언트의 표준 시간대가 사용 됩니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 - `2020-12-08 04:23:48.751326+00`UTC로 해석 됩니다. `2020-12-08 04:23:48.751326`
 - 태평양 표준 시간대 (PST = UTC + 08)에 있는 경우 `2020-12-08 04:23:48.751326` 는 UTC로 해석 됩니다 `2020-12-08 12:23:48.751326` .이 작업은 PostgreSQL 버전 11 버전의 모든 버전에서 지원 됩니다. 대상 서버 그룹은 복원 작업 전에 만들어야 하며 원본 서버 그룹과 동일한 백업 PVC를 사용 해야 합니다.
 
@@ -195,7 +195,7 @@ azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
 > [!NOTE]
 > `--name` 및 `-id` 는 함께 사용할 수 없습니다.
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 ```console
 azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Hubs 인증 및 권한 부여 문�
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92329613"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>인증 및 권한 부여 문제 해결-Azure Event Hubs
@@ -41,7 +41,7 @@ Azure AD (Azure Active Directory)를 사용 하 여 Azure Event Hubs 인증 하 
 - 사용 중인 SAS 키가 올바른지 확인 하세요. 그렇지 않으면 올바른 SAS 키를 사용 합니다.
 - 키에 올바른 사용 권한 (보내기, 받기 또는 관리)이 있는지 확인 합니다. 그렇지 않은 경우 필요한 권한이 있는 키를 사용 합니다. 
 - 키가 만료 되었는지 확인 합니다. 만료 되기 전에 SAS를 갱신 하는 것이 좋습니다. 클라이언트와 Event Hubs 서비스 노드 사이에 클록 오차가 있는 경우 클라이언트에서 인식 하기 전에 인증 토큰이 만료 될 수 있습니다. 현재 구현 계정 클록 속도는 5 분이 됩니다. 즉, 클라이언트는 만료 되기까지 5 분 전에 토큰을 갱신 합니다. 따라서 클록 오차가 5 분 보다 큰 경우 클라이언트는 간헐적인 인증 오류를 관찰할 수 있습니다.
-- **SAS 시작 시간이** **지금**으로 설정 된 경우 클럭 오차 (다른 컴퓨터에서 현재 시간의 차이)로 인해 처음 몇 분 동안 간헐적 오류가 표시 될 수 있습니다. 시작 시간을 15 분 이상으로 설정 하거나 전혀 설정 하지 마세요. 이는 만료 시간에도 일반적으로 적용 됩니다. 
+- **SAS 시작 시간이** **지금** 으로 설정 된 경우 클럭 오차 (다른 컴퓨터에서 현재 시간의 차이)로 인해 처음 몇 분 동안 간헐적 오류가 표시 될 수 있습니다. 시작 시간을 15 분 이상으로 설정 하거나 전혀 설정 하지 마세요. 이는 만료 시간에도 일반적으로 적용 됩니다. 
 
 자세한 내용은 다음 아티클을 참조하세요. 
 
