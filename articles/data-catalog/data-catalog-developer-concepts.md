@@ -6,25 +6,28 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: b65697c224f612a1bc9d5bfa193355832cafd73f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddeab4838feb07d1101993cab4ebc86581b4d8b1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799250"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674702"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 데이터 카탈로그 개발자 개념
-Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그**를 성공적으로 통합하는 데 중요합니다.
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
+Microsoft **Azure 데이터 카탈로그** 는 데이터 원본 검색 및 크라우드소싱 데이터 원본 메타데이터에 대한 기능을 제공하는 완전히 관리되는 클라우드 서비스입니다. 개발자는 REST API를 통해 서비스를 사용할 수 있습니다. 서비스에서 구현되는 개념을 이해 하는 것은 개발자가 **Azure 데이터 카탈로그** 를 성공적으로 통합하는 데 중요합니다.
 
 ## <a name="key-concepts"></a>주요 개념 
-**Azure Data Catalog** 개념적 모델은 **카탈로그**, **사용자**, **자산** 및 **주석**의 4개의 주요 개념에 기반합니다.
+**Azure Data Catalog** 개념적 모델은 **카탈로그**, **사용자**, **자산** 및 **주석** 의 4개의 주요 개념에 기반합니다.
 
 ![Azure Data Catalog 개념적 모델 그림](./media/data-catalog-developer-concepts/concept2.png)
 
 ### <a name="catalog"></a>카탈로그
-**카탈로그** 는 조직에서 저장 하는 모든 메타 데이터에 대 한 최상위 컨테이너입니다. Azure 계정당 하나의 **카탈로그**가 허용합니다. 카탈로그는 Azure 구독에 연결되어 있지만, 계정에 여러 구독이 있을 수 있더라도 지정된 Azure 계정에 대해 **카탈로그**를 한 개만 만들 수 있습니다.
+**카탈로그** 는 조직에서 저장 하는 모든 메타 데이터에 대 한 최상위 컨테이너입니다. Azure 계정당 하나의 **카탈로그** 가 허용합니다. 카탈로그는 Azure 구독에 연결되어 있지만, 계정에 여러 구독이 있을 수 있더라도 지정된 Azure 계정에 대해 **카탈로그** 를 한 개만 만들 수 있습니다.
 
-카탈로그에는 **사용자** 및 **자산**이 포함됩니다.
+카탈로그에는 **사용자** 및 **자산** 이 포함됩니다.
 
 ### <a name="users"></a>사용자
 사용자는 카탈로그에서 작업(카탈로그 검색, 항목 추가, 편집 또는 제거 등)을 수행할 권한이 있는 보안 주체입니다.
@@ -36,13 +39,13 @@ Microsoft **Azure 데이터 카탈로그**는 데이터 원본 검색 및 크라
 Azure 데이터 카탈로그는 관리를 식별하고 액세스하기 위해 Azure Active Directory를 사용합니다. 각 카탈로그 사용자는 계정에 대해 Active Directory의 구성원이어야 합니다.
 
 ### <a name="assets"></a>자산
-**카탈로그**에는 데이터 자산이 포함됩니다. **자산**은 카탈로그에서 관리하는 세분성의 단위입니다.
+**카탈로그** 에는 데이터 자산이 포함됩니다. **자산** 은 카탈로그에서 관리하는 세분성의 단위입니다.
 
 자산의 세분성은 데이터 소스에 따라 다릅니다. SQL Server 또는 Oracle 데이터베이스에서 자산은 테이블 또는 뷰가 될 수 있습니다. SQL Server Analysis Services에서 자산은 측정값, 차원, 또는 KPI(주요 성능 표시기)가 될 수 있습니다. SQL Server Reporting Services에서 자산은 보고서입니다.
 
-**자산**은 카탈로그에서 추가하거나 제거합니다. 자산은 **검색**에서 얻게 되는 결과의 단위입니다.
+**자산** 은 카탈로그에서 추가하거나 제거합니다. 자산은 **검색** 에서 얻게 되는 결과의 단위입니다.
 
-**자산**은 이름, 위치, 형식과 자산을 자세히 설명하는 주석으로 구성됩니다.
+**자산** 은 이름, 위치, 형식과 자산을 자세히 설명하는 주석으로 구성됩니다.
 
 ### <a name="annotations"></a>주석
 주석은 자산에 대한 메타데이터를 나타내는 항목입니다.
@@ -74,7 +77,7 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 주요 개념 섹션에 소개된 것처럼 **Azure 데이터 카탈로그** 개체 모델에는 자산 또는 주석일 수 있는 항목이 포함됩니다. 항목에는 선택 또는 필수가 될 수 있는 속성이 있습니다. 일부 속성은 모든 항목에 적용 됩니다. 일부 속성은 모든 자산에 적용 됩니다. 일부 속성은 특정 자산 형식에만 적용 됩니다.
 
 ### <a name="system-properties"></a>시스템 속성
-<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>마지막으로 항목이 수정된 시간. 이 필드는 항목을 삽입하고 항목이 업데이트될 때마다 서버에서 생성됩니다. 게시 작업의 입력에서 이 속성의 값은 무시됩니다.</td></tr><tr><td>ID</td><td>URI</td><td>항목의 절대 url입니다(읽기 전용). 항목에 대한 고유한 주소 지정 가능 URI입니다.  게시 작업의 입력에서 이 속성의 값은 무시됩니다.</td></tr><tr><td>type</td><td>String</td><td>자산의 유형입니다(읽기 전용).</td></tr><tr><td>etag</td><td>String</td><td>카탈로그에서 항목을 업데이트하는 작업을 수행할 때 낙관적 동시성 제어에 사용할 수 있는 항목의 버전에 해당하는 문자열입니다. "*"은 값을 일치시키는 데 사용할 수 있습니다.</td></tr></table>
+<table><tr><td><b>속성 이름</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>timestamp</td><td>DateTime</td><td>마지막으로 항목이 수정된 시간. 이 필드는 항목을 삽입하고 항목이 업데이트될 때마다 서버에서 생성됩니다. 게시 작업의 입력에서 이 속성의 값은 무시됩니다.</td></tr><tr><td>ID</td><td>URI</td><td>항목의 절대 url입니다(읽기 전용). 항목에 대한 고유한 주소 지정 가능 URI입니다.  게시 작업의 입력에서 이 속성의 값은 무시됩니다.</td></tr><tr><td>형식</td><td>String</td><td>자산의 유형입니다(읽기 전용).</td></tr><tr><td>etag</td><td>String</td><td>카탈로그에서 항목을 업데이트하는 작업을 수행할 때 낙관적 동시성 제어에 사용할 수 있는 항목의 버전에 해당하는 문자열입니다. "*"은 값을 일치시키는 데 사용할 수 있습니다.</td></tr></table>
 
 ### <a name="common-properties"></a>공용 속성
 이러한 속성은 모든 루트 자산 형식 및 모든 주석 형식에 적용 됩니다.
@@ -169,20 +172,20 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 <tr><td></td><td>objectType</td><td>문자열</td><td>데이터 원본에서 개체의 형식을 설명합니다. 예: 테이블, SQL Server용 뷰.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>문자열</td><td>필수 사항입니다. 데이터 원본과 통신하는 데 사용되는 프로토콜을 설명합니다. 예: `tds` SQL Server, Oracle 등의 경우 `oracle` 현재 지원 되는 프로토콜 목록은 [데이터 원본 참조 사양-DSL 구조](data-catalog-dsr.md) 를 참조 하세요.</td></tr>
-<tr><td></td><td>address</td><td>사전 &lt; 문자열, 개체&gt;</td><td>필수 사항입니다. 주소는 참조되는 데이터 원본을 식별하는 데 사용되는 프로토콜에 해당하는 데이터 집합입니다. 주소 데이터는 특정 프로토콜로 범위가 지정됩니다. 즉, 프로토콜을 모르면 의미가 없습니다.</td></tr>
+<tr><td></td><td>protocol</td><td>문자열</td><td>필수 요소. 데이터 원본과 통신하는 데 사용되는 프로토콜을 설명합니다. 예: `tds` SQL Server, Oracle 등의 경우 `oracle` 현재 지원 되는 프로토콜 목록은 [데이터 원본 참조 사양-DSL 구조](data-catalog-dsr.md) 를 참조 하세요.</td></tr>
+<tr><td></td><td>address</td><td>사전 &lt; 문자열, 개체&gt;</td><td>필수 요소. 주소는 참조되는 데이터 원본을 식별하는 데 사용되는 프로토콜에 해당하는 데이터 집합입니다. 주소 데이터는 특정 프로토콜로 범위가 지정됩니다. 즉, 프로토콜을 모르면 의미가 없습니다.</td></tr>
 <tr><td></td><td>인증</td><td>문자열</td><td>(선택 사항) 데이터 원본과의 통신에 사용되는 인증 체계입니다. 예: windows, oauth, 등.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>사전 &lt; 문자열, 개체&gt;</td><td>(선택 사항) 데이터 원본에 연결하는 방법에 대한 추가적인 정보입니다.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>사전 &lt; 문자열, 개체&gt;</td><td>선택 사항입니다. 데이터 원본에 연결하는 방법에 대한 추가적인 정보입니다.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>백 엔드는 게시 하는 동안 Azure Active Directory에 대해 제공 된 속성의 유효성 검사를 수행 하지 않습니다.</td></tr>
 <tr><td></td><td>upn</td><td>문자열</td><td>사용자의 고유한 전자 메일 주소입니다. objectId가 제공되지 않거나 "lastRegisteredBy" 속성의 컨텍스트에 있는 경우 지정되어야 합니다. 그렇지 않은 경우 선택 사항입니다.</td></tr>
-<tr><td></td><td>objectId</td><td>GUID</td><td>사용자 또는 보안 그룹 Azure Active Directory id입니다. (선택 사항) upn이 제공되지 않은 경우 지정해야 합니다. 그렇지 않은 경우 선택 사항입니다.</td></tr>
-<tr><td></td><td>firstName</td><td>문자열</td><td>사용자의 이름(표시 용). (선택 사항) "lastRegisteredBy" 속성의 컨텍스트에서만 유효합니다. "역할", "권한" 및 "전문가"에 대한 보안 주체를 제공할 때 지정할 수 없습니다.</td></tr>
-<tr><td></td><td>lastName</td><td>문자열</td><td>사용자 성(표시 용). (선택 사항) "lastRegisteredBy" 속성의 컨텍스트에서만 유효합니다. "역할", "권한" 및 "전문가"에 대한 보안 주체를 제공할 때 지정할 수 없습니다.</td></tr>
+<tr><td></td><td>objectId</td><td>Guid</td><td>사용자 또는 보안 그룹 Azure Active Directory id입니다. 선택 사항입니다. upn이 제공되지 않은 경우 지정해야 합니다. 그렇지 않은 경우 선택 사항입니다.</td></tr>
+<tr><td></td><td>firstName</td><td>문자열</td><td>사용자의 이름(표시 용). 선택 사항입니다. "lastRegisteredBy" 속성의 컨텍스트에서만 유효합니다. "역할", "권한" 및 "전문가"에 대한 보안 주체를 제공할 때 지정할 수 없습니다.</td></tr>
+<tr><td></td><td>lastName</td><td>문자열</td><td>사용자 성(표시 용). 선택 사항입니다. "lastRegisteredBy" 속성의 컨텍스트에서만 유효합니다. "역할", "권한" 및 "전문가"에 대한 보안 주체를 제공할 때 지정할 수 없습니다.</td></tr>
 
 <tr><td>열</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>문자열</td><td>열 또는 특성의 이름입니다.</td></tr>
-<tr><td></td><td>type</td><td>문자열</td><td>열 또는 특성의 데이터 형식입니다. 허용되는 형식은 자산의 데이터 소스 형식에 따라 달라집니다.  형식의 하위 집합만 지원됩니다.</td></tr>
+<tr><td></td><td>형식</td><td>문자열</td><td>열 또는 특성의 데이터 형식입니다. 허용되는 형식은 자산의 데이터 소스 형식에 따라 달라집니다.  형식의 하위 집합만 지원됩니다.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>열 또는 특성에 허용되는 최대 길이입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
 <tr><td></td><td>정밀도</td><td>byte</td><td>열 또는 특성에 대한 자릿수입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
 <tr><td></td><td>isNullable</td><td>부울</td><td>열에 null 값의 허용 여부. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr>
@@ -190,8 +193,8 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>문자열</td><td>열 이름</td></tr>
-<tr><td></td><td>type </td><td>문자열</td><td>열의 형식입니다.</td></tr>
-<tr><td></td><td>min </td><td>문자열</td><td>데이터 집합의 최소값입니다.</td></tr>
+<tr><td></td><td>형식 </td><td>문자열</td><td>열의 형식입니다.</td></tr>
+<tr><td></td><td>분 </td><td>문자열</td><td>데이터 집합의 최소값입니다.</td></tr>
 <tr><td></td><td>max </td><td>문자열</td><td>데이터 집합의 최대값입니다.</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>데이터 집합의 평균 값입니다.</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>데이터 집합의 표준 편차입니다.</td></tr>
@@ -207,7 +210,7 @@ Azure Data Catalog에는 몇 가지 데이터 원본 프로토콜이 기본으�
 
 ### <a name="custom-data-source-protocol-specification"></a>사용자 지정 데이터 원본 프로토콜 사양
 <table>
-<tr><td><b>형식</b></td><td><b>속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr>
+<tr><td><b>유형</b></td><td><b>속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>namespace</td><td>문자열</td><td>프로토콜의 네임스페이스입니다. 네임스페이스의 길이는 1~255자 사이여야 하고, 점(.)으로 구분된 비지 않은 부분을 하나 이상 포함해야 합니다. 각 부분의 길이는 1~255자 사이여야 하고, 문자로 시작하고 문자와 숫자만 포함해야 합니다.</td></tr>
@@ -217,7 +220,7 @@ Azure Data Catalog에는 몇 가지 데이터 원본 프로토콜이 기본으�
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>name</td><td>문자열</td><td>속성의 이름입니다. 이름의 길이는 1~100자 사이여야 하고, 문자로 시작해야 하고 문자와 숫자만 포함할 수 있습니다.</td></tr>
-<tr><td></td><td>type</td><td>문자열</td><td>속성의 형식입니다. 지원되는 값: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
+<tr><td></td><td>형식</td><td>문자열</td><td>속성의 형식입니다. 지원되는 값: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>속성 값을 사용할 때 대/소문자를 무시할지 여부를 나타냅니다. "string" 형식의 속성에 대해서만 지정할 수 있습니다. 기본값은 false입니다.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>URL 경로의 각 세그먼트에 대해 대/소문자를 무시할지 여부를 나타냅니다. "url" 형식의 속성에 대해서만 지정할 수 있습니다. 기본값은 [false]입니다.</td></tr>
 
@@ -245,12 +248,12 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>소유자</td>
 ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참가자</td><td>각 개별 자산 및 주석</td><td>읽기/업데이트/삭제/권한보기/참고(Read Update Delete ViewRoles Note): 항목에서 읽기(Read) 권한을 참여자가 해지하는 경우 모든 권한이 취소 됩니다.</td></tr></table>
 
 > [!NOTE]
-> **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions**는 루트 자산에만 적용됩니다.
+> **읽기**, **업데이트**, **삭제**, **역할 보기** 권한은 모든 항목 (자산 또는 주석)에 적용할 수 있으며, 반면에 **TakeOwnership**, **ChangeOwnership**, **ChangeVisibility**, **ViewPermissions** 는 루트 자산에만 적용됩니다.
 > 
 > **삭제** 권한은 항목뿐만 그 아래에 있는 모든 하위 항목 또는 단일 항목에 적용됩니다. 예를 들어, 자산을 삭제하면 해당 자산에 대한 모든 주석도 삭제됩니다.
 > 
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 권한은 액세스 제어 항목의 목록입니다. 각 액세스 제어 항목은 보안 주체에 대한 권한의 집합을 할당합니다. 권한은 자산(즉, 루트 항목)에만 지정할 수 있으며 자산 및 모든 하위 항목에 적용됩니다.
 
 **Azure Data Catalog** 미리 보기 중에 권한 목록에서 **읽기** 권한만이 지원되어 자산의 표시를 제한하는 시나리오를 사용합니다.
@@ -258,17 +261,17 @@ ChangeOwnership ChangeVisibility ViewPermissions</td></tr><tr><td>참가자</td>
 기본적으로 모든 인증된 사용자는 권한의 주체 집합에 표시를 제한하지 않는 한 카탈로그에 있는 모든 항목에 대해 **읽기** 권한이 있습니다.
 
 ## <a name="rest-api"></a>REST API
-**PUT** 및 **POST** 보기 항목 요청은 역할 및 권한을 제어하는 데 사용할 수 있습니다. 항목 페이로드 외에도 두 시스템 속성은 **roles** 및 **permissions**를 지정할 수 있습니다.
+**PUT** 및 **POST** 보기 항목 요청은 역할 및 권한을 제어하는 데 사용할 수 있습니다. 항목 페이로드 외에도 두 시스템 속성은 **roles** 및 **permissions** 를 지정할 수 있습니다.
 
 > [!NOTE]
-> **permissions**은 루트 항목에만 적용됩니다.
+> **permissions** 은 루트 항목에만 적용됩니다.
 > 
 > **소유자** 역할은 루트 항목에만 적용됩니다.
 > 
-> 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 누구나 항목을 업데이트할 수 있도록 하려면 항목을 처음 게시할 때 **역할** 속성에서 **참여자**를 &lt;Everyone&gt; 특수 보안 주체로 설정해야 합니다(다음 예를 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 &lt;Everyone&gt;입니다. **참여자**는 항목 또는 &lt;Everyone&gt;을 만든 사용자로만 설정할 수 있습니다.
+> 기본적으로 카탈로그에서 항목을 만들면 **참여자** 는 현재 인증된 사용자로 설정됩니다. 누구나 항목을 업데이트할 수 있도록 하려면 항목을 처음 게시할 때 **역할** 속성에서 **참여자** 를 &lt;Everyone&gt; 특수 보안 주체로 설정해야 합니다(다음 예를 참조). **참여자** 는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. **관리자** 나 **소유자** 도 **참여자** 를 변경할 수 있는 권한은 없습니다. **참여자** 의 명시적 설정에 지원되는 유일한 값은 &lt;Everyone&gt;입니다. **참여자** 는 항목 또는 &lt;Everyone&gt;을 만든 사용자로만 설정할 수 있습니다.
 > 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 **항목을 게시할 때 참여자를 &lt;Everyone&gt;으로 설정합니다.**
 특수 보안 주체 &lt;Everyone&gt;에는 objectId "00000000-0000-0000-0000-000000000201"이 있습니다.
   Https **게시** : \/ /api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30

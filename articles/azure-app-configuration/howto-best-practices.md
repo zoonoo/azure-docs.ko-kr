@@ -12,10 +12,10 @@ ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 33661eafee6b180819b18d9a9a980eff1e2aeceb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371552"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure 앱 구성 모범 사례
@@ -41,7 +41,7 @@ ms.locfileid: "100371552"
 
 앱 구성은이를 사용 하 여 저장 된 모든 키를 독립적인 엔터티로 처리 합니다. 앱 구성은 키 간의 관계를 유추 하거나 해당 계층 구조를 기반으로 키 값을 상속 하지 않습니다. 그러나 응용 프로그램 코드에서 적절 한 구성 스태킹와 결합 된 레이블을 사용 하 여 여러 키 집합을 집계할 수 있습니다.
 
-예제를 살펴보겠습니다. **Asset1** 라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1** 의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
+예를 살펴보겠습니다. **Asset1** 라는 설정이 있는 경우 해당 값은 개발 환경에 따라 달라질 수 있습니다. 빈 레이블과 "Development" 라는 레이블이 있는 "Asset1" 라는 키를 만듭니다. 첫 번째 레이블에서 **Asset1** 의 기본값을 입력 하 고, 후자에 "Development"에 대 한 특정 값을 입력 합니다.
 
 코드에서 먼저 레이블 없이 키 값을 검색 한 다음 "개발" 레이블을 사용 하 여 동일한 키 값 집합을 두 번 검색 합니다. 값을 두 번째로 검색할 때 키의 이전 값을 덮어씁니다. .NET Core 구성 시스템을 사용 하면 여러 구성 데이터 집합을 서로 "스택" 할 수 있습니다. 하나 이상의 집합에 키가 있는 경우 해당 키를 포함 하는 마지막 집합이 사용 됩니다. .NET Core와 같은 최신 프로그래밍 프레임 워크를 사용 하면 네이티브 구성 공급자를 사용 하 여 앱 구성에 액세스 하는 경우이 스택 기능을 무료로 이용할 수 있습니다. 다음 코드 조각에서는 .NET Core 응용 프로그램에서 스태킹를 구현할 수 있는 방법을 보여 줍니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 방화벽 프리미엄 미리 보기 배포 및 구성
+title: Azure Firewall 프리미엄 미리 보기 배포 및 구성
 description: Azure 방화벽 프리미엄을 배포 하 고 구성 하는 방법에 대해 알아봅니다.
 author: vhorne
 ms.service: firewall
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721789"
 ---
-# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Azure 방화벽 프리미엄 미리 보기 배포 및 구성
+# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Azure Firewall 프리미엄 미리 보기 배포 및 구성
 
 > [!IMPORTANT]
 > Azure 방화벽 프리미엄은 현재 공개 미리 보기로 제공 됩니다.
@@ -40,7 +40,7 @@ ms.locfileid: "101721789"
 
 작업자 가상 머신은 방화벽을 통해 HTTP/S 요청을 전송 하는 클라이언트입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -121,7 +121,7 @@ IDPS를 테스트 하려면 적절 한 서버 인증서를 사용 하 여 자체
 
 #### <a name="to-test-idps-for-https-traffic"></a>IDPS를 HTTPS 트래픽에 대해 테스트 하려면
 
-HTTP 대신 HTTPS를 사용 하 여 이러한 말아 넘기기 테스트를 반복 합니다. 다음은 그 예입니다. 
+HTTP 대신 HTTPS를 사용 하 여 이러한 말아 넘기기 테스트를 반복 합니다. 예를 들면 다음과 같습니다.
 
 `curl --ssl-no-revoke -A "BlackSun" <your web server address>`
 
@@ -141,9 +141,9 @@ URL 필터링을 사용 하 여 TLS 검사를 테스트 하려면 다음 단계�
 일부 HTML 페이지는 거부 된 다른 Url을 참조 하므로 불완전 하 게 보일 수 있습니다. 이 문제를 해결 하려면 다음 방법을 사용할 수 있습니다.
 
 - HTML 페이지에 다른 도메인에 대 한 링크가 포함 되어 있는 경우 이러한 Fqdn에 대 한 액세스를 허용 하는 새 응용 프로그램 규칙에 이러한 도메인을 추가할 수 있습니다.
-- HTML 페이지에 하위 Url에 대 한 링크가 포함 되어 있는 경우 규칙을 수정 하 고 URL에 별표를 추가할 수 있습니다. 예: `targetURLs=www.nytimes.com/section/world*`
+- HTML 페이지에 하위 Url에 대 한 링크가 포함 되어 있는 경우 규칙을 수정 하 고 URL에 별표를 추가할 수 있습니다. `targetURLs=www.nytimes.com/section/world*`
 
-   또는 규칙에 새 URL을 추가할 수 있습니다. 다음은 그 예입니다.  
+   또는 규칙에 새 URL을 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
 
    `www.nytimes.com/section/world, www.nytimes.com/section/world/*`
 

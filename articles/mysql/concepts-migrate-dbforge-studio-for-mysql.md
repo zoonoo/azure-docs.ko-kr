@@ -6,16 +6,16 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 5138e542d1cc744a23fa1017dfec1f24b2ec1a5b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d5d694820c2ffd09868d81693d4f98f839a139d7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107640"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591880"
 ---
 # <a name="connect-to-azure-database-for-mysql-using-dbforge-studio-for-mysql"></a>MySQL 용 dbForge Studio를 사용 하 여 Azure Database for MySQL에 연결
 
-MySQL 용 dbForge Studio를 사용 하 여 Azure Database for MySQL에 연결 하려면:
+[MySQL 용 Dbforge Studio](https://www.devart.com/dbforge/mysql/studio/)를 사용 하 여 Azure Database for MySQL에 연결 하려면:
 
 1. 데이터베이스 메뉴에서 새 연결을 선택 합니다.
 

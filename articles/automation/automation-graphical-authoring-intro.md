@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: bbac794263fec176e03c7148d860c479a2ed9d39
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501231"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Azure Automation에서 그래픽 Runbook 작성
@@ -254,7 +254,7 @@ Runbook을 작성할 때 Runbook 도구 모음에서 **입력 및 출력** 을 �
 
 각 입력 매개 변수는 다음 표의 속성으로 정의됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 속성 | 필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 합니다. 문자로 시작해야 하며, 문자, 숫자, 밑줄만 사용할 수 있습니다. 이름은 공백을 포함할 수 없습니다. |
 | Description |(선택 사항) 입력 매개 변수의 용도에 대한 설명입니다. |

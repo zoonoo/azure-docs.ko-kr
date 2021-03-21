@@ -4,14 +4,14 @@ description: Azure Data Factory 파이프라인의 복사 작업을 사용하여
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/17/2021
 ms.author: jingwang
-ms.openlocfilehash: f3184602bad8aabf654c8fa94d33372d08c11a66
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 247bec30e9933dfd75b7c31cbce15ff043959243
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573203"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588888"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 엔드포인트에서 데이터 복사
 
@@ -61,19 +61,20 @@ HTTP 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 
 HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **HttpServer** 로 설정해야 합니다. | 예 |
-| url | 웹 서버의 기본 URL입니다. | Yes |
-| enableServerCertificateValidation | HTTP 끝점에 연결할 때 서버 TLS/SSL 인증서 유효성 검사를 사용할지 여부를 지정 합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false** 로 설정합니다. | No<br /> 기본값은 **true** 입니다. |
-| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate** 입니다. <br><br> 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
+| url | 웹 서버의 기본 URL입니다. | 예 |
+| enableServerCertificateValidation | HTTP 끝점에 연결할 때 서버 TLS/SSL 인증서 유효성 검사를 사용할지 여부를 지정 합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 이 속성을 **false** 로 설정합니다. | 아니요<br /> 기본값은 **true** 입니다. |
+| authenticationType | 인증 유형을 지정합니다. 허용되는 값은 **Anonymous**, **Basic**, **Digest**, **Windows** 및 **ClientCertificate** 입니다. 사용자 기반 OAuth는 지원 되지 않습니다. 속성에서 인증 헤더를 추가로 구성할 수 있습니다 `authHeader` . 이러한 인증 형식의 더 많은 속성 및 JSON 샘플은 이 표 뒤의 섹션을 참조하세요. | 예 |
+| authHeaders | 인증을 위한 추가 HTTP 요청 헤더입니다.<br/> 예를 들어 API 키 인증을 사용 하려면 인증 유형을 "Anonymous"로 선택 하 고 헤더에서 API 키를 지정할 수 있습니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |예 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Basic, Digest 또는 Windows 인증 사용
 
 **authenticationType** 속성을 **Basic**, **Digest** 또는 **Windows** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | userName | HTTP 엔드포인트에 액세스하는 데 사용할 사용자 이름입니다. | 예 |
 | password | 사용자(**userName** 값)의 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 예 |
@@ -106,11 +107,11 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **ClientCertificate** 로 설정합니다. 앞 섹션에서 설명한 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64로 인코딩된 인증서 데이터입니다. | **embeddedCertData** 또는 **certThumbprint** 를 지정합니다. |
 | certThumbprint | 자체 호스팅 통합 런타임 머신의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅 형식의 통합 런타임이 **connectVia** 속성에 지정된 경우에만 적용됩니다. | **embeddedCertData** 또는 **certThumbprint** 를 지정합니다. |
-| password | 인증서와 연결된 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | No |
+| password | 인증서와 연결된 암호입니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아니요 |
 
 인증에 **certThumbprint** 를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 자체 호스팅 통합 런타임에 읽기 권한을 부여합니다.
 
@@ -163,6 +164,35 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 }
 ```
 
+### <a name="using-authentication-headers"></a>인증 헤더 사용
+
+또한 기본 제공 인증 유형과 함께 인증에 대 한 요청 헤더를 구성할 수 있습니다.
+
+**예: API 키 인증 사용**
+
+```json
+{
+    "name": "HttpLinkedService",
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+            "url": "<HTTP endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
@@ -171,10 +201,10 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 형식 기반 데이터 집합의 설정에서 HTTP에 대해 지원 되는 속성은 다음과 `location` 같습니다.
 
-| 속성    | Description                                                  | 필수 |
+| 속성    | 설명                                                  | 필수 |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | 데이터 집합의 아래에 있는 type 속성은 `location` **Httpserverlocation** 으로 설정 되어야 합니다. | Yes      |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service][relative URL specified in dataset]` 합니다.   | No       |
+| type        | 데이터 집합의 아래에 있는 type 속성은 `location` **Httpserverlocation** 으로 설정 되어야 합니다. | 예      |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service][relative URL specified in dataset]` 합니다.   | 아니요       |
 
 > [!NOTE]
 > 지원되는 HTTP 요청 페이로드 크기는 약 500KB입니다. 웹 엔드포인트에 전달하려는 페이로드 크기가 500KB보다 큰 경우 더 작은 청크로 페이로드를 일괄 처리하는 것이 좋습니다.
@@ -217,14 +247,14 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 형식 기반 복사 원본의 설정에서 HTTP에 대해 지원 되는 속성은 다음과 `storeSettings` 같습니다.
 
-| 속성                 | Description                                                  | 필수 |
+| 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | 아래의 type 속성은 `storeSettings` **HttpReadSettings** 로 설정 해야 합니다. | Yes      |
-| requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | No       |
-| additionalHeaders         | 추가 HTTP 요청 헤더입니다.                             | No       |
+| type                     | 아래의 type 속성은 `storeSettings` **HttpReadSettings** 로 설정 해야 합니다. | 예      |
+| requestMethod            | HTTP 메서드입니다. <br>허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | 아니요       |
+| additionalHeaders         | 추가 HTTP 요청 헤더입니다.                             | 아니요       |
 | requestBody              | HTTP 요청의 본문입니다.                               | 예       |
 | httpRequestTimeout           | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다. | 예       |
-| maxConcurrentConnections | 스토리지 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대한 동시 연결 수를 제한하려는 경우에만 지정합니다. | 예       |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예       |
 
 **예:**
 
@@ -278,15 +308,15 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 **type** 속성을 **httpfile** 로 설정 해야 합니다. | Yes |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | No |
-| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | No |
-| additionalHeaders | 추가 HTTP 요청 헤더입니다. | No |
+| type | 데이터 집합의 **type** 속성을 **httpfile** 로 설정 해야 합니다. | 예 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니요 |
+| requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post** 입니다. | 아니요 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
 | requestBody | HTTP 요청의 본문입니다. | 예 |
-| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 과 같은 파일 형식 유형이 지원됩니다. **형식** 에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format)을 참조하세요. |No |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/><br/>지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**.<br/>지원되는 수준: **Optimal** 및 **Fastest**. |No |
+| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 과 같은 파일 형식 유형이 지원됩니다. **형식** 에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs-legacy.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs-legacy.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs-legacy.md#parquet-format)을 참조하세요. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs-legacy.md#compression-support)을 참조하세요.<br/><br/>지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**.<br/>지원되는 수준: **Optimal** 및 **Fastest**. |아니요 |
 
 > [!NOTE]
 > 지원되는 HTTP 요청 페이로드 크기는 약 500KB입니다. 웹 엔드포인트에 전달하려는 페이로드 크기가 500KB보다 큰 경우 더 작은 청크로 페이로드를 일괄 처리하는 것이 좋습니다.
@@ -332,9 +362,9 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **형식** 속성을 **httpsource** 로 설정 해야 합니다. | Yes |
+| type | 복사 작업 원본의 **형식** 속성을 **httpsource** 로 설정 해야 합니다. | 예 |
 | httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |
 
 **예제**

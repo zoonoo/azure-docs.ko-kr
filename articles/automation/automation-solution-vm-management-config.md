@@ -3,14 +3,14 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 구성
 description: 이 문서에서는 작업 시간 외 VM 시작/중지 기능을 구성하여 다양한 사용 사례 또는 시나리오를 지원하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/01/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: b52b51133f059f028baf470515e886d17077af6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dfabb3ef521b496a073d502efd4fd672cfcf3b8c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593930"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597743"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 구성
 
@@ -38,21 +38,21 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. `External_Stop_ResourceGroupNames` 및 `External_ExcludeVMNames` 변수를 구성하여 대상 VM을 지정합니다.
 
-2. **Scheduled-StartVM** 및 **Scheduled-StopVM** 일정을 설정하고 업데이트합니다.
+1. **Scheduled-StartVM** 및 **Scheduled-StopVM** 일정을 설정하고 업데이트합니다.
 
-3. **ACTION** 매개 변수 필드를 **start** 로 설정하고 **WHATIF** 매개 변수 필드를 True로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
+1. **ACTION** 매개 변수 필드를 **start** 로 설정하고 **WHATIF** 매개 변수 필드를 True로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
 1. **작업** 을 **시작** 으로 설정 하 여 **ScheduledStartStop_Parent** runbook을 실행 합니다.
 
-2. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
+1. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-3. **WHATIF** 매개 변수 필드를 True로 설정 하 여 변경 내용을 미리 봅니다.
+1. **WHATIF** 매개 변수 필드를 True로 설정 하 여 변경 내용을 미리 봅니다.
 
-4. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록 (VM1, v m 2, v m 3)으로 변수를 구성 합니다.
+1. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록 (VM1, v m 2, v m 3)으로 변수를 구성 합니다.
 
-5. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
+1. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
 
     > [!NOTE]
     > **Target ResourceGroup Names** 의 값은 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 모두에 대한 값으로 저장됩니다. 추가 세분성을 위해 각기 다른 리소스 그룹을 대상으로 하도록 이러한 각 변수를 수정할 수 있습니다. 시작 작업의 경우 `External_Start_ResourceGroupNames`를 사용하고, 중지 작업의 경우 `External_Stop_ResourceGroupNames`를 사용합니다. VM이 시작 및 중지 일정에 자동으로 추가됩니다.
@@ -65,27 +65,27 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. 양의 정수 값을 가진 `sequencestart` 및 `sequencestop` 태그를 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupNames` 변수를 대상으로 하는 VM에 추가합니다. 시작 및 중지 작업은 오름차순으로 수행됩니다. VM에 태그를 지정하는 방법을 알아보려면 [Azure에서 Windows 가상 머신에 태그 지정](../virtual-machines/tag-portal.md) 및 [Azure에서 Linux 가상 머신에 태그 지정](../virtual-machines/tag-cli.md)을 참조하세요.
 
-2. 요구 사항을 충족하는 날짜 및 시간으로 일정 **Sequenced-StartVM** 및 **Sequenced StopVM** 을 수정하고 일정을 사용하도록 설정합니다.
+1. 요구 사항을 충족하는 날짜 및 시간으로 일정 **Sequenced-StartVM** 및 **Sequenced StopVM** 을 수정하고 일정을 사용하도록 설정합니다.
 
-3. **ACTION** 을 **start** 로, **WHATIF** 를 True로 설정하여 **SequencedStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
+1. **ACTION** 을 **start** 로, **WHATIF** 를 True로 설정하여 **SequencedStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
 
-4. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False** 로 설정하여 Runbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM** 이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
+1. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False** 로 설정하여 Runbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM** 이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
 
 ### <a name="target-the-start-and-stop-actions-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
 1. 양의 정수 값을 가진 `sequencestart` 및 `sequencestop` 태그를 `VMList` 매개 변수에 추가할 VM에 추가합니다.
 
-2. **작업** 을 **시작** 으로 설정 하 여 **SequencedStartStop_Parent** runbook을 실행 합니다.
+1. **작업** 을 **시작** 으로 설정 하 여 **SequencedStartStop_Parent** runbook을 실행 합니다.
 
-3. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
+1. **Vmlist** 매개 변수 필드에 쉼표로 구분 된 vm 목록 (공백 없음)을 추가 합니다. 예제 목록은 `vm1,vm2,vm3` 입니다.
 
-4. **WHATIF** 를 True로 설정 하 여 변경 내용을 미리 봅니다. 
+1. **WHATIF** 를 True로 설정 하 여 변경 내용을 미리 봅니다. 
 
-5. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록으로 변수를 구성 합니다.
+1. 쉼표로 `External_ExcludeVMNames` 구분 된 값 사이에 공백이 없는 쉼표로 구분 된 vm 목록으로 변수를 구성 합니다.
 
-6. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
+1. 이 시나리오에서는 `External_Start_ResourceGroupNames` 및 `External_Stop_ResourceGroupnames` 변수를 따르지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](shared-resources/schedules.md)을 참조하세요.
 
-7. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False** 로 설정하여 **monitoring-and-diagnostics/monitoring-action-groupsrunbook** 을 수동으로 실행합니다. 또는 지정된 일정에 따라 Automation이 **Sequenced-StartVM** 및 **Sequenced-StopVM** 일정을 자동으로 실행하도록 합니다.
+1. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False** 로 설정하여 **monitoring-and-diagnostics/monitoring-action-groupsrunbook** 을 수동으로 실행합니다. 또는 지정된 일정에 따라 Automation이 **Sequenced-StartVM** 및 **Sequenced-StopVM** 일정을 자동으로 실행하도록 합니다.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>시나리오 3: CPU 사용률에 따라 자동으로 시작 또는 중지
 
@@ -112,23 +112,23 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. `External_Stop_ResourceGroupNames` 변수가 비어 있거나 *(와일드 카드)로 설정되어 있는지 확인합니다.
 
-2. [선택 사항] 자동 중지 작업에서 일부 VM을 제외하려는 경우 쉼표로 구분된 VM 이름 목록을 `External_ExcludeVMNames` 변수에 추가할 수 있습니다.
+1. [선택 사항] 자동 중지 작업에서 일부 VM을 제외하려는 경우 쉼표로 구분된 VM 이름 목록을 `External_ExcludeVMNames` 변수에 추가할 수 있습니다.
 
-3. **Schedule_AutoStop_CreateAlert_Parent** 일정을 사용하여 구독의 모든 VM에 필요한 VM 중지 메트릭 경고 규칙을 만듭니다. 이 유형의 일정을 실행하면 새 VM이 구독에 추가될 때 새 메트릭 경고 규칙을 만들 수 있습니다.
+1. **Schedule_AutoStop_CreateAlert_Parent** 일정을 사용하여 구독의 모든 VM에 필요한 VM 중지 메트릭 경고 규칙을 만듭니다. 이 유형의 일정을 실행하면 새 VM이 구독에 추가될 때 새 메트릭 경고 규칙을 만들 수 있습니다.
 
 ### <a name="target-the-autostop-action-against-all-vms-in-a-resource-group-or-multiple-resource-groups"></a>리소스 그룹 또는 여러 리소스 그룹의 모든 VM에 대해 자동 중지 작업을 대상으로 지정합니다.
 
 1. 쉼표로 구분된 리소스 그룹 이름 목록을 `External_Stop_ResourceGroupNames` 변수에 추가합니다.
 
-2. 자동 중지에서 일부 VM을 제외하려는 경우 쉼표로 구분된 VM 이름 목록을 `External_ExcludeVMNames` 변수에 추가할 수 있습니다.
+1. 자동 중지에서 일부 VM을 제외하려는 경우 쉼표로 구분된 VM 이름 목록을 `External_ExcludeVMNames` 변수에 추가할 수 있습니다.
 
-3. **Schedule_AutoStop_CreateAlert_Parent** 일정을 사용하여 리소스 그룹의 모든 VM에 필요한 VM 중지 메트릭 경고 규칙을 만듭니다. 일정에 따라 이 작업을 실행하면 새 VM이 리소스 그룹에 추가될 때 새 메트릭 경고 규칙을 만들 수 있습니다.
+1. **Schedule_AutoStop_CreateAlert_Parent** 일정을 사용하여 리소스 그룹의 모든 VM에 필요한 VM 중지 메트릭 경고 규칙을 만듭니다. 일정에 따라 이 작업을 실행하면 새 VM이 리소스 그룹에 추가될 때 새 메트릭 경고 규칙을 만들 수 있습니다.
 
 ### <a name="target-the-autostop-action-to-a-list-of-vms"></a>VM 목록에 대해 자동 중지 작업을 대상으로 지정합니다.
 
 1. 새 [일정](shared-resources/schedules.md#create-a-schedule)을 만들어 **AutoStop_CreateAlert_Parent** Runbook에 연결하여 쉼표로 구분된 VM 이름 목록을 `VMList` 매개 변수에 추가합니다.
 
-2. 필요에 따라 autostop 작업에서 일부 Vm을 제외 하려는 경우 쉼표로 구분 된 VM 이름 목록 (공백 없음)을 변수에 추가할 수 있습니다 `External_ExcludeVMNames` .
+1. 필요에 따라 autostop 작업에서 일부 Vm을 제외 하려는 경우 쉼표로 구분 된 VM 이름 목록 (공백 없음)을 변수에 추가할 수 있습니다 `External_ExcludeVMNames` .
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
@@ -137,19 +137,19 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 > [!NOTE]
 > Azure Government 클라우드의 구독은 이 기능의 메일 기능을 지원하지 않습니다.
 
-1. Azure Portal에서 **모니터**, **작업 그룹** 으로 차례로 이동합니다. **StartStop_VM_Notication** 이라는 작업 그룹을 선택합니다.
+1. Azure Portal의 **모니터링** 아래에서 **경고** 를 클릭 한 다음 **작업 관리** 를 클릭 합니다. **작업 관리** 페이지에서 **작업 그룹** 탭에 있는지 확인 합니다. **StartStop_VM_Notification** 이라는 작업 그룹을 선택 합니다.
 
-    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="모니터-작업 그룹 페이지의 스크린샷":::
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="모니터-작업 그룹 페이지의 스크린샷" lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 
-2. StartStop_VM_Notification 페이지의 **세부 정보** 아래에서 **세부 정보 편집** 을 클릭합니다. 그러면 메일/SMS/푸시/음성 페이지가 열립니다. 메일 주소를 업데이트하고 **확인** 을 클릭하여 변경 내용을 저장합니다.
+1. **StartStop_VM_Notification** 페이지에서 **기본** 섹션은 사용자를 위해 입력 되며 **표시 이름** 필드를 제외 하 고는 편집할 수 없습니다. 이름을 편집 하거나 제안 된 이름을 적용 합니다. **알림** 섹션에서 연필 아이콘을 클릭 하 여 작업 세부 정보를 편집 합니다. 그러면 **전자 메일/SMS 메시지/푸시/음성** 창이 열립니다. 메일 주소를 업데이트하고 **확인** 을 클릭하여 변경 내용을 저장합니다.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="업데이트 된 예제 전자 메일 주소를 보여 주는 전자 메일/SMS/푸시/음성 페이지의 스크린샷":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="업데이트 된 예제 전자 메일 주소를 보여 주는 전자 메일/SMS 메시지/푸시/음성 페이지의 스크린샷":::
 
-    또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../azure-monitor/alerts/action-groups.md)을 참조하세요.
+    작업 그룹에 작업을 더 추가할 수 있습니다. 작업 그룹에 대 한 자세한 내용은 [작업 그룹](../azure-monitor/platform/action-groups.md) 을 참조 하세요.
 
 기능이 가상 머신을 종료할 때 전송되는 예제 메일은 다음과 같습니다.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="기능이 가상 컴퓨터를 종료할 때 전송 되는 예제 전자 메일의 스크린샷":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="기능이 가상 컴퓨터를 종료할 때 전송 되는 예제 전자 메일의 스크린샷" lightbox="media/automation-solution-vm-management/email.png":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>VM 추가 또는 제외
 
@@ -175,13 +175,13 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. `External_Stop_ResourceGroupNames` 변수에서 종료할 VM에 대한 리소스 그룹을 추가했는지 확인합니다.
 
-2. VM을 종료하려는 경우 시간에 대한 고유한 일정을 만듭니다.
+1. VM을 종료하려는 경우 시간에 대한 고유한 일정을 만듭니다.
 
-3. **ScheduledStartStop_Parent** Runbook으로 이동하고 **일정** 을 클릭합니다. 이 옵션을 사용하면 이전 단계에서 만든 일정을 선택할 수 있습니다.
+1. **ScheduledStartStop_Parent** Runbook으로 이동하고 **일정** 을 클릭합니다. 이 옵션을 사용하면 이전 단계에서 만든 일정을 선택할 수 있습니다.
 
-4. **매개 변수 및 실행 설정** 을 선택하고 **ACTION** 필드를 **Stop** 으로 설정합니다.
+1. **매개 변수 및 실행 설정** 을 선택하고 **ACTION** 필드를 **Stop** 으로 설정합니다.
 
-5. **확인** 을 선택하여 변경 내용을 저장합니다.
+1. **확인** 을 선택하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

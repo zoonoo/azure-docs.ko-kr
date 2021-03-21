@@ -12,10 +12,10 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491572"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>OWIN 기반 웹 API를 b2clogin.com 또는 사용자 지정 도메인으로 마이그레이션
@@ -26,7 +26,7 @@ API에서 b2clogin.com, login.microsoftonline.com 또는 사용자 지정 도메
 
 다음 섹션에서는 Katana ( [MICROSOFT OWIN][katana] 미들웨어 구성 요소)를 사용 하는 web API에서 여러 발급자를 사용 하도록 설정 하는 방법의 예를 제공 합니다. 코드 예제는 Microsoft OWIN 미들웨어와 관련 되어 있지만 일반적인 기술은 다른 OWIN 라이브러리에 적용 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 계속 하기 전에 다음 Azure AD B2C 리소스를 준비 해야 합니다.
 
@@ -85,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 이 섹션에서는 두 토큰 발급자 끝점이 유효함을 지정 하도록 코드를 업데이트 합니다.
 
 1. Visual Studio에서 B2C-WebAPI-DotNet 솔루션을 엽니다 **.**
-1. **Taskservice** 프로젝트에서 편집기의 *taskservice \\ App_Start \\ * * Startup.Auth.cs** * 파일을 엽니다.
+1. **Taskservice** 프로젝트에서 편집기의 *taskservice \\ App_Start \\ * * 시작.* s a s * * 파일을 엽니다.
 1. 다음 `using` 지시문을 파일의 맨 위에 추가합니다.
 
     `using System.Collections.Generic;`
@@ -105,7 +105,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     };
     ```
 
-`TokenValidationParameters` 는 MSAL.NET에서 제공 되 고 *Startup.Auth.cs* 의 다음 코드 섹션에 있는 OWIN 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
+`TokenValidationParameters` 는 MSAL.NET에서 제공 되며, *OWIN의 다음* 코드 섹션에 있는 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions

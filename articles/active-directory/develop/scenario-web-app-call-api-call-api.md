@@ -13,10 +13,10 @@ ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98753288"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
@@ -37,7 +37,7 @@ ms.locfileid: "98753288"
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>옵션 1: SDK를 사용 하 여 Microsoft Graph 호출
 
-Microsoft Graph를 호출 하려고 합니다. 이 시나리오에서는 `AddMicrosoftGraph` [코드 구성](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph)에 지정 된 대로 *Startup.cs* 에를 추가 했으며, `GraphServiceClient` 작업에 사용할 컨트롤러 또는 페이지 생성자에를 직접 삽입할 수 있습니다. 다음 예제 Razor 페이지는 로그인 한 사용자의 사진을 표시 합니다.
+Microsoft Graph를 호출 하려고 합니다. 이 시나리오에서는 `AddMicrosoftGraph` [코드 구성](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph)에 지정 된 대로 *시작 .cs* 에를 추가 했으며, `GraphServiceClient` 작업에 사용할 컨트롤러 또는 페이지 생성자에를 직접 삽입할 수 있습니다. 다음 예제 Razor 페이지는 로그인 한 사용자의 사진을 표시 합니다.
 
 ```CSharp
 [Authorize]
@@ -73,7 +73,7 @@ public class IndexModel : PageModel
 
 #### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>옵션 2: 도우미 클래스를 사용 하 여 다운스트림 웹 API 호출
 
-Microsoft Graph 아닌 웹 API를 호출 하려고 합니다. 이 경우 `AddDownstreamWebApi` [코드 구성](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)에 지정 된 대로 *Startup.cs* 에를 추가 하 고 `IDownstreamWebApi` 컨트롤러 또는 페이지 생성자에서 서비스를 직접 삽입 하 고 작업에 사용할 수 있습니다.
+Microsoft Graph 아닌 웹 API를 호출 하려고 합니다. 이 경우에는 `AddDownstreamWebApi` [코드 구성](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)에 지정 된 대로 *시작 .cs* 에를 추가 하 고 `IDownstreamWebApi` 컨트롤러 또는 페이지 생성자에서 서비스를 직접 삽입 하 고 작업에 사용할 수 있습니다.
 
 ```CSharp
 [Authorize]

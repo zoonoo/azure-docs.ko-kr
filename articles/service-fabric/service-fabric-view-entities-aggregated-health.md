@@ -7,10 +7,10 @@ ms.date: 2/28/2018
 ms.author: gwallace
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7127d9906cfe1ba87241bd3810a9567e77bf0391
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98785501"
 ---
 # <a name="view-service-fabric-health-reports"></a>서비스 패브릭 상태 보고서 보기
@@ -225,7 +225,7 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-cluster) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy)를 사용하여 클러스터 상태를 가져올 수 있습니다.
 
 ## <a name="get-node-health"></a>노드 상태 가져오기
@@ -294,7 +294,7 @@ _Node_1                     Ok
 _Node_0                     Ok
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-node) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy)를 사용하여 노드 상태를 가져올 수 있습니다.
 
 ## <a name="get-application-health"></a>애플리케이션 상태 가져오기
@@ -440,7 +440,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-an-application) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy)를 사용하여 애플리케이션 상태를 가져올 수 있습니다.
 
 ## <a name="get-service-health"></a>서비스 상태 가져오기
@@ -512,7 +512,7 @@ HealthStatistics      :
                         Partition             : 0 Ok, 1 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-service) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy)를 사용하여 서비스 상태를 가져올 수 있습니다.
 
 ## <a name="get-partition-health"></a>파티션 상태 가져오기
@@ -604,7 +604,7 @@ HealthStatistics      :
                         Replica               : 5 Ok, 0 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/sfclient-api-getpartitionhealth) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy)를 사용하여 파티션 상태를 가져올 수 있습니다.
 
 ## <a name="get-replica-health"></a>복제본 상태 가져오기
@@ -647,7 +647,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-replica) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy)를 사용하여 복제본 상태를 가져올 수 있습니다.
 
 ## <a name="get-deployed-application-health"></a>배포된 애플리케이션 상태 가져오기
@@ -706,7 +706,7 @@ HealthStatistics                   :
                                      DeployedServicePackage : 2 Ok, 0 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-deployed-application) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy)를 사용하여 배포된 애플리케이션 상태를 가져올 수 있습니다.
 
 ## <a name="get-deployed-service-package-health"></a>배포된 서비스 패키지 상태 가져오기
@@ -776,7 +776,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-service-package) 또는 [POST 요청](/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy)를 사용하여 배포된 서비스 패키지 상태를 가져올 수 있습니다.
 
 ## <a name="health-chunk-queries"></a>상태 청크 쿼리
@@ -1007,7 +1007,7 @@ ApplicationHealthStateChunks :
                                     HealthState           : Ok
 ```
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책 및 고급 필터를 포함하는 [GET 요청](/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) 또는 [POST 요청](/rest/api/servicefabric/health-of-cluster)를 사용하여 클러스터 상태 청크를 가져올 수 있습니다.
 
 ## <a name="general-queries"></a>일반 쿼리

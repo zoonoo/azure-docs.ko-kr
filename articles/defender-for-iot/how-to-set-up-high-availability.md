@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 8b647d5e97439db4805a7346a02db3f845dc9e37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: eb5f2c6293042f44de5e3c061c6d379bee6e5b06
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523892"
 ---
 # <a name="about-high-availability"></a>고가용성 정보
@@ -74,7 +74,7 @@ ms.locfileid: "100523892"
 
 조직 보안 정책을 사용 하 여 기본 및 보조 온-프레미스 관리 콘솔에서 다음 서비스에 액세스할 수 있는지 확인 해야 합니다. 이러한 서비스를 통해 센서와 보조 온-프레미스 관리 콘솔 간에 연결할 수 있습니다.
 
-|포트|서비스|Description|
+|포트|서비스|설명|
 |----|-------|-----------|
 |**443 또는 TCP**|HTTPS|온-프레미스 관리 콘솔 웹 콘솔에 대 한 액세스 권한을 부여 합니다.|
 |**22 또는 TCP**|SSH|기본 및 보조 온-프레미스 관리 콘솔 어플라이언스 간에 데이터를 동기화 합니다.|
@@ -149,6 +149,6 @@ cyberx-management-deploy-ssh-key <Primary ip>
 
 3. 센서를 업데이트 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [온-프레미스 관리 콘솔 활성화 및 설정](how-to-activate-and-set-up-your-on-premises-management-console.md)

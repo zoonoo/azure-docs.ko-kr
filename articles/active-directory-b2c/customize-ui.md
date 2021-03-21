@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: ecece3a00a788b67f6c831804bf5b00372fef93d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99055863"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
@@ -49,7 +49,7 @@ ms.locfileid: "99055863"
 
 ![슬레이트 회색 템플릿 스크린샷](media/customize-ui/template-slate-gray.png)
 
-### <a name="classic"></a>Classic
+### <a name="classic"></a>클래식
 
 등록 로그인 페이지에서 렌더링 되는 클래식 템플릿의 예는 다음과 같습니다.
 

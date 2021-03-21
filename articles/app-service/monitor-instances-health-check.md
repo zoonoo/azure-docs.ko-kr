@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714479"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596028"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용 하 여 App Service 인스턴스 모니터링
 
@@ -44,7 +44,7 @@ ms.locfileid: "101714479"
 > 상태 검사 구성 변경 내용으로 앱을 다시 시작 합니다. 프로덕션 앱에 대 한 영향을 최소화 하려면 [스테이징 슬롯을 구성](deploy-staging-slots.md) 하 고 프로덕션으로 교환 하는 것이 좋습니다.
 >
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 상태 검사 옵션을 구성 하는 것 외에도 다음과 같은 [앱 설정을](configure-common.md)구성할 수 있습니다.
 
@@ -62,6 +62,10 @@ ms.locfileid: "101714479"
 ## <a name="monitoring"></a>모니터링
 
 응용 프로그램의 상태 검사 경로를 제공한 후 Azure Monitor를 사용 하 여 사이트의 상태를 모니터링할 수 있습니다. 포털의 **상태 검사** 블레이드에서 상단 도구 모음에 있는 **메트릭을** 클릭 합니다. 그러면 사이트의 기록 상태를 확인 하 고 새 경고 규칙을 만들 수 있는 새 블레이드가 열립니다. 사이트 모니터링에 대 한 자세한 내용은 [Azure Monitor 가이드를 참조](web-sites-monitor.md)하세요.
+
+## <a name="limitations"></a>제한 사항
+
+프리미엄 함수 사이트에서 상태 검사를 사용 하도록 설정 하면 안 됩니다. 프리미엄 기능의 빠른 크기 조정으로 인해 상태 검사 요청으로 인해 HTTP 트래픽이 불필요 하 게 변동 될 수 있습니다. 프리미엄 기능에는 확장 결정을 알리는 데 사용 되는 자체 내부 상태 프로브가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

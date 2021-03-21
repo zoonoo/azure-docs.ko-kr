@@ -8,17 +8,17 @@ ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: c05abc6b761b9839df83f3170ce295d4480ca96a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577911"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 Azure 보안 기준
 
 Azure Database for MySQL에 대한 Azure 보안 기준에는 배포의 보안 태세를 개선하는 데 도움이 되는 권장 사항이 포함되어 있습니다.
 
-이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
+이 서비스에 대한 기준은 [Azure Security Benchmark 버전 1.0](../security/benchmarks/overview.md)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다.
 
 자세한 내용은 [Azure 보안 기준 개요](../security/benchmarks/security-baselines-overview.md)를 참조하세요.
 
@@ -28,11 +28,11 @@ Azure Database for MySQL에 대한 Azure 보안 기준에는 배포의 보안 �
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: 가상 네트워크 내에서 Azure 리소스 보호
 
-**지침**: 프라이빗 엔드포인트로 Azure Database for MySQL에 대한 Private Link를 구성합니다. Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. 가상 네트워크와 MySQL 인스턴스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다.
+**지침**: 프라이빗 엔드포인트로 Azure Database for MySQL에 대한 Private Link를 구성합니다. Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Azure Private Link는 기본적으로 프라이빗 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. 가상 네트워크와 MySQL 인스턴스 사이의 트래픽은 Microsoft 백본 네트워크를 통해 이동합니다.
 
 또는 가상 네트워크 서비스 엔드포인트를 사용하여 Azure Database for MySQL 구현에 대한 네트워크 액세스를 보호하고 제한할 수 있습니다. 가상 네트워크 규칙은 Azure Database for MySQL 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다.
 
-방화벽 규칙을 사용하여 Azure Database for MySQL 서버를 보호할 수도 있습니다. 서버 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 차단합니다. 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 수준의 방화벽 규칙을 만들 수 있습니다.
+방화벽 규칙을 사용하여 Azure Database for MySQL 서버를 보호할 수도 있습니다. 서버 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽을 구성하려면 허용 가능한 IP 주소 범위를 지정하는 방화벽 규칙을 생성해야 합니다. 서버 수준의 방화벽 규칙을 만들 수 있습니다.
 
 - [Azure Database for MySQL에 대 한 개인 링크를 구성 하는 방법](howto-configure-privatelink-portal.md)
 
@@ -46,7 +46,7 @@ Azure Database for MySQL에 대한 Azure 보안 기준에는 배포의 보안 �
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: 가상 네트워크, 서브넷 및 네트워크 인터페이스의 구성 및 트래픽을 모니터링 하 고 기록 합니다.
 
-**지침**: Azure Database for MySQL 인스턴스를 프라이빗 엔드포인트로 보호하는 경우 동일한 가상 네트워크에 가상 머신을 배포할 수 있습니다. 데이터 반출의 위험을 줄이기 위해 NSG(네트워크 보안 그룹)를 사용할 수 있습니다. NSG 흐름 로그를 사용하도록 설정하고, 트래픽 감사를 위해 로그를 스토리지 계정에 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
+**지침**: Azure Database for MySQL 인스턴스를 프라이빗 엔드포인트로 보호하는 경우 동일한 가상 네트워크에 가상 머신을 배포할 수 있습니다. NSG(네트워크 보안 그룹)를 사용하여 데이터 반출의 위험을 줄일 수 있습니다. NSG 흐름 로그를 사용하도록 설정하고, 트래픽 감사를 위해 로그를 스토리지 계정에 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
 - [Azure Database for MySQL에 대 한 개인 링크를 구성 하는 방법](howto-configure-privatelink-portal.md)
 
@@ -68,9 +68,9 @@ Azure Database for MySQL에 대한 Azure 보안 기준에는 배포의 보안 �
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: 알려진 악성 IP 주소와의 통신 거부
 
-**지침**: Azure Database for MySQL용 Advanced Threat Protection을 사용합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다.
+**지침**: Azure Database for MySQL용 Advanced Threat Protection을 사용합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
 
-DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴스에 연결된 Virtual Network에서 DDoS Protection 표준을 사용하도록 설정합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
+DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴스에 연결된 Virtual Network에서 DDoS Protection 표준을 사용하도록 설정합니다. Azure Security Center에 통합된 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
 - [Azure Database for MySQL에 대 한 Advanced Threat Protection을 구성 하는 방법](howto-database-threat-protection-portal.md)
 
@@ -82,7 +82,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴�
 
 ### <a name="15-record-network-packets"></a>1.5: 네트워크 패킷을 기록 합니다.
 
-**지침**: Azure Database for MySQL 인스턴스를 프라이빗 엔드포인트로 보호하는 경우 동일한 가상 네트워크에 가상 머신을 배포할 수 있습니다. 그런 다음, 데이터 반출의 위험을 줄이기 위해 NSG(네트워크 보안 그룹)를 구성할 수 있습니다. NSG 흐름 로그를 사용하도록 설정하고, 트래픽 감사를 위해 로그를 스토리지 계정에 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
+**지침**: Azure Database for MySQL 인스턴스를 프라이빗 엔드포인트로 보호하는 경우 동일한 가상 네트워크에 가상 머신을 배포할 수 있습니다. 그런 다음 데이터 반출의 위험을 줄이기 위해 NSG(네트워크 보안 그룹)를 구성할 수 있습니다. NSG 흐름 로그를 사용하도록 설정하고, 트래픽 감사를 위해 로그를 스토리지 계정에 보냅니다. 또한 NSG 흐름 로그를 Log Analytics 작업 영역에 보내고, 트래픽 분석을 사용하여 Azure 클라우드의 트래픽 흐름에 대한 인사이트를 제공할 수 있습니다. 트래픽 분석의 장점 중 일부는 네트워크 활동을 시각화하고, 핫 스폿을 식별하며, 보안 위협을 식별하고, 트래픽 흐름 패턴을 이해하며, 잘못된 네트워크 구성을 파악할 수 있다는 것입니다.
 
 - [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -94,7 +94,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴�
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: 네트워크 기반 침입 감지/침입 방지 시스템 (IDS/IPS) 배포
 
-**지침**: Azure Database for MySQL용 Advanced Threat Protection을 사용합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다.
+**지침**: Azure Database for MySQL용 Advanced Threat Protection을 사용합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
 
 - [Azure Database for MySQL에 대 한 Advanced Threat Protection을 구성 하는 방법](howto-database-threat-protection-portal.md)
 
@@ -112,7 +112,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴�
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: 네트워크 보안 규칙의 복잡성 및 관리 오버헤드 최소화
 
-**지침**: Azure Database for MySQL 인스턴스에 액세스해야 하는 리소스의 경우 Virtual Network 서비스 태그를 사용하여 NSG 또는 Azure Firewall에서 네트워크 액세스 제어를 정의합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 서비스 태그 이름(예: SQL.WestUs)을 규칙의 적절한 원본 또는 대상 필드에 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
+**지침**: Azure Database for MySQL 인스턴스에 액세스해야 하는 리소스의 경우 Virtual Network 서비스 태그를 사용하여 NSG 또는 Azure Firewall에서 네트워크 액세스 제어를 정의합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 서비스 태그 이름(예: SQL.WestUs)을 규칙의 적절한 원본 또는 대상 필드에 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트합니다.
 
 참고: Azure Database for MySQL은 "Microsoft.Sql" 서비스 태그를 사용합니다.
 
@@ -124,7 +124,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴�
 
 **책임**: Customer
 
-### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지 관리
+### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 디바이스에 대한 표준 보안 구성 유지
 
 **지침**: Azure Policy를 사용하여 Azure Database for MySQL 인스턴스에 연결된 네트워크 설정 및 네트워크 리소스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.DBforMySQL" 및 "Microsoft.Network" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure Database for MySQL 인스턴스의 네트워크 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다. 다음과 같은 네트워킹 또는 Azure Database for MySQL 인스턴스와 관련된 기본 제공 정책 정의를 사용할 수도 있습니다.
 
@@ -142,7 +142,7 @@ DDoS 공격으로부터 보호하기 위해 Azure Database for MySQL 인스턴�
 
 **책임**: Customer
 
-### <a name="110-document-traffic-configuration-rules"></a>1.10: 트래픽 구성 규칙 문서화
+### <a name="110-document-traffic-configuration-rules"></a>1.10: 문서 트래픽 구성 규칙
 
 **지침**: Azure Database for MySQL 인스턴스에 대한 네트워크 보안 및 트래픽 흐름에 관련된 리소스를 위해 태그를 사용하여 메타데이터 및 논리적 조직을 제공합니다.
 
@@ -158,7 +158,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: 자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
-**지침**: Azure 활동 로그를 사용하여 네트워크 리소스 구성을 모니터링하고 Azure Database for MySQL 인스턴스 관련 네트워크 리소스에 대한 변경 내용을 검색합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
+**지침**: Azure 활동 로그를 사용하여 네트워크 리소스 구성을 모니터링하고 Azure Database for MySQL 인스턴스 관련 네트워크 리소스에 대한 변경 내용을 검색합니다. 중요한 네트워크 리소스에 변경 내용이 발생하는 경우 트리거하는 Azure Monitor 내에서 경고를 만듭니다.
 
 - [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
@@ -172,7 +172,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 *자세한 내용은 [Azure 보안 벤치 마크: 로깅 및 모니터링](../security/benchmarks/security-control-logging-monitoring.md)을 참조 하세요.*
 
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 원본 사용
+### <a name="21-use-approved-time-synchronization-sources"></a>2.1: 승인된 시간 동기화 소스 사용
 
 **지침**: Microsoft는 로그의 타임스탬프에 Azure Database for MySQL과 같은 Azure 리소스에 사용되는 시간 소스를 유지 관리합니다.
 
@@ -182,7 +182,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
-**지침**: 진단 설정 및 서버 로그를 사용하도록 설정하고 로그를 수집하여 Azure Database for MySQL 인스턴스에 의해 생성된 보안 데이터를 집계합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용하여 분석을 쿼리 및 수행하고, Azure Storage 계정을 장기/보관 스토리지에 사용할 수 있습니다. 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
+**지침**: 진단 설정 및 서버 로그를 사용하도록 설정하고 로그를 수집하여 Azure Database for MySQL 인스턴스에 의해 생성된 보안 데이터를 집계합니다. Azure Monitor 내에서 Log Analytics 작업 영역을 사용하여 분석을 쿼리 및 수행하고 장기/보관 스토리지에 Azure Storage 계정을 사용할 수 있습니다. 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
 - [Azure Database for MySQL에 대 한 서버 로그 이해](concepts-monitoring.md#server-logs)
 
@@ -216,9 +216,9 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **책임:** 해당 없음
 
-### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
+### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 구성
 
-**지침**: Azure Monitor 내에서 조직의 준수 규정에 따라 Azure Database for MySQL 로그를 보관하는 데 사용되는 Log Analytics 작업 영역에 대한 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
+**지침**: Azure Monitor 내에서 조직의 준수 규정에 따라 Azure Database for MySQL 로그를 보관하는 데 사용되는 Log Analytics 작업 영역에 대한 보존 기간을 설정합니다. 장기/보관 스토리지에 Azure Storage 계정을 사용합니다.
 
 - [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -230,7 +230,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그를 모니터링 하 고 검토 합니다.
 
-**지침**: 비정상 동작에 대한 Azure Database for MySQL 인스턴스의 로그를 분석하고 모니터링합니다. Azure Monitor의 Log Analytics를 사용하여 로그를 검토하고 로그 데이터에 대한 쿼리를 수행합니다. 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
+**지침**: 비정상 동작에 대한 Azure Database for MySQL 인스턴스의 로그를 분석하고 모니터링합니다. Azure Monitor의 Log Analytics를 사용하여 로그를 검토하고 로그 데이터에 쿼리를 수행합니다. 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -244,7 +244,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: 비정상적인 활동에 대해 경고를 사용 하도록 설정
 
-**지침**: Azure Database for MySQL용 Advanced Threat Protection을 사용하도록 설정합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다.
+**지침**: Azure Database for MySQL용 Advanced Threat Protection을 사용하도록 설정합니다. Advanced Threat Protection은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
 
 또한 MySQL에 대한 서버 로그 및 진단 설정을 사용하도록 설정하고 Log Analytics 작업 영역으로 로그를 보낼 수 있습니다. Log Analytics 작업 영역을 Azure Sentinel에 등록하여 SOAR(보안 오케스트레이션 자동화 응답) 솔루션을 제공합니다. 이를 통해 플레이북(자동화된 솔루션)을 만들어 보안 문제를 수정하는 데 사용할 수 있습니다.
 
@@ -448,7 +448,7 @@ Azure Database for MySQL에 로그인하려면 Azure AD에서 Azure AD 토큰을
 
 **지침**: Azure Database for MySQL에 대한 Advanced Threat Protection을 사용하여 의심스러운 활동에 대한 경고를 생성합니다.
 
-Azure Active Directory의 ID 보호 및 위험 검색 기능을 사용하여 탐지된 의심스러운 작업에 대해 자동화된 대응을 구성할 수 있습니다. 조직의 보안 대응을 구현하기 위해 Azure Sentinel을 통해 자동화된 대응을 사용하도록 설정할 수 있습니다.
+Azure Active Directory의 ID 보호 및 위험 검색 기능을 사용하여 검색된 의심스러운 작업에 대한 자동화 응답을 구성할 수 있습니다. 조직의 보안 대응을 구현하기 위해 Azure Sentinel을 통해 자동화된 대응을 사용하도록 설정할 수 있습니다.
 
 추가 조사를 위해 로그를 Azure Sentinel로 수집할 수도 있습니다.
 
@@ -464,7 +464,7 @@ Azure Active Directory의 ID 보호 및 위험 검색 기능을 사용하여 탐
 
 **책임**: Customer
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: 지원 시나리오에서 관련 고객 데이터에 대한 액세스 권한을 Microsoft에 제공
+### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: 지원 시나리오 중 관련 고객 데이터에 대한 액세스 권한을 Microsoft에 제공
 
 **지침**: 해당 없음. 고객 Lockbox는 아직 Azure Database for MySQL에서 지원되지 않습니다.
 
@@ -530,11 +530,11 @@ Microsoft는 Azure Database for MySQL에 대한 기본 인프라를 관리하고
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
-**책임**: 공유됨
+**책임:** 공유됨
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: 활성 검색 도구를 사용하여 중요한 데이터 식별
 
-**지침**: 데이터 식별, 분류 및 손실 방지 기능은 아직 Azure Database for MySQL에서 사용할 수 없습니다. 규정 준수를 위해 필요한 경우 타사 솔루션을 구현합니다.
+**지침**: 데이터 식별, 분류 및 손실 방지 기능은 아직 Azure Database for MySQL에서 사용할 수 없습니다. 규정 준수 목적으로 필요한 경우 타사 솔루션을 구현합니다.
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
@@ -542,7 +542,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **Azure Security Center 모니터링**: 사용할 수 없음
 
-**책임**: 공유됨
+**책임:** 공유됨
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
@@ -558,7 +558,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: 호스트 기반 데이터 손실 방지를 사용하여 액세스 제어 적용
 
-**지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다.
+**지침**: 해당 없음. 이 권장 사항은 컴퓨팅 리소스를 위한 것입니다.
 
 Microsoft는 Azure Database for MySQL에 대한 기본 인프라를 관리하고, 고객 데이터의 손실 또는 노출을 방지하기 위해 엄격한 제어를 구현했습니다.
 
@@ -570,9 +570,9 @@ Microsoft는 Azure Database for MySQL에 대한 기본 인프라를 관리하고
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
-**지침**: Azure Database for MySQL 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터는 디스크에서 암호화되며, 쿼리를 실행하는 동안 만든 임시 파일은 제외됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
+**지침**: Azure Database for MySQL 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업을 포함한 데이터는 쿼리를 실행하는 동안 생성된 임시 파일을 제외하고 디스크에서 암호화됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
-Azure Database for MySQL에 대한 고객 관리 키를 사용한 데이터 암호화를 통해 미사용 데이터 보호에 대한 BYOK(Bring Your Own Key)를 적용할 수 있습니다. 현재 이 기능을 사용하려면 액세스를 요청해야 합니다. 이렇게 하려면 다음에 문의하세요.
+Azure Database for MySQL에 대한 고객 관리 키를 사용한 데이터 암호화를 통해 미사용 데이터 보호에 대한 BYOK(Bring Your Own Key)를 적용할 수 있습니다. 이때 이 기능을 사용하기 위해 액세스를 요청해야 합니다. 이렇게 하려면 다음에 문의하세요.
 
 AskAzureDBforMySQL@service.microsoft.com
 
@@ -890,7 +890,7 @@ MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 �
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: 안전하게 Azure 비밀 관리
 
-**지침**: Azure Database for MySQL 인스턴스에 액세스하는 데 사용되는 Azure App Service에서 실행되는 Azure Virtual Machines 또는 웹 애플리케이션의 경우 Azure Key Vault와 관리되는 서비스 ID를 함께 사용하여 Azure Database for MySQL 비밀 관리를 간소화하고 보호합니다. Key Vault 일시 삭제를 사용하도록 설정되어 있는지 확인합니다.
+**지침**: Azure Database for MySQL 인스턴스에 액세스하는 데 사용되는 Azure App Service에서 실행되는 Azure Virtual Machines 또는 웹 애플리케이션의 경우 Azure Key Vault와 관리되는 서비스 ID를 함께 사용하여 Azure Database for MySQL 비밀 관리를 간소화하고 보호합니다. Key Vault 일시 삭제를 사용하도록 설정했는지 확인합니다.
 
 - [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
@@ -904,9 +904,9 @@ MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 �
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: 안전하게 자동으로 ID 관리
 
-**지침**: Azure Database for MySQL 인스턴스는 데이터베이스에 액세스하기 위한 Azure Active Directory 인증을 지원합니다.  Azure Database for MySQL 인스턴스를 만드는 동안 관리자에 대한 자격 증명을 제공합니다. 이 관리자는 추가 데이터베이스 사용자를 만드는 데 사용할 수 있습니다.  
+**지침**: Azure Database for MySQL 인스턴스는 데이터베이스에 액세스하기 위한 Azure Active Directory 인증을 지원합니다.  Azure Database for MySQL 인스턴스를 만드는 동안 관리자에 대한 자격 증명을 제공합니다. 이 관리자를 사용하여 데이터베이스 사용자를 추가로 만들 수 있습니다.  
 
-Azure Database for MySQL 인스턴스에 액세스하는 데 사용되는 Azure App Service에서 실행되는 Azure Virtual Machines 또는 웹 애플리케이션의 경우 Azure Key Vault와 관리되는 서비스 ID를 함께 사용하여 Azure Database for MySQL 인스턴스에 대한 자격 증명을 저장하고 검색합니다. Key Vault 일시 삭제를 사용하도록 설정되어 있는지 확인합니다.
+Azure Database for MySQL 인스턴스에 액세스하는 데 사용되는 Azure App Service에서 실행되는 Azure Virtual Machines 또는 웹 애플리케이션의 경우 Azure Key Vault와 관리되는 서비스 ID를 함께 사용하여 Azure Database for MySQL 인스턴스에 대한 자격 증명을 저장하고 검색합니다. Key Vault 일시 삭제를 사용하도록 설정했는지 확인합니다.
 
 관리 ID를 사용하여 Azure AD(Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 관리 ID를 사용하면 코드에 자격 증명 없이 Key Vault를 포함하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있습니다.
 
@@ -934,7 +934,7 @@ Azure Database for MySQL 인스턴스에 액세스하는 데 사용되는 Azure 
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙에서 관리 하는 맬웨어 방지 소프트웨어 사용
 
-**지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다.
+**지침**: 해당 없음. 이 권장 사항은 컴퓨팅 리소스를 위한 것입니다.
 
 Microsoft 맬웨어 방지는 Azure 서비스(예: Azure Database for SQL)를 지원하는 기본 호스트에서 사용하도록 설정되어 있지만 고객 콘텐츠에서는 실행되지 않습니다.
 
@@ -954,7 +954,7 @@ Microsoft 맬웨어 방지는 Azure 서비스(예: Azure Database for SQL)를 �
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: 맬웨어 방지 소프트웨어 및 서명이 업데이트되었는지 확인
 
-**지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다.
+**지침**: 해당 없음. 이 권장 사항은 컴퓨팅 리소스를 위한 것입니다.
 
 Microsoft 맬웨어 방지는 Azure 서비스(예: Azure Database for MySQL)를 지원하는 기본 호스트에서 사용하도록 설정되어 있지만 고객 콘텐츠에서는 실행되지 않습니다.
 
@@ -994,7 +994,7 @@ Azure Key Vault를 사용하여 Azure Database for MySQL 인스턴스의 자격 
 
 ### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: 고객 관리 키를 비롯 한 모든 백업 유효성 검사
 
-**지침**: Azure Database for MySQL에서 복원을 수행하면 원래 서버의 백업에서 새 서버가 만들어집니다. 사용할 수 있는 두 가지 유형의 복원으로 특정 시점 복원 및 지리적 복원이 있습니다. 특정 시점 복원은 백업 중복 옵션을 통해 사용할 수 있으며, 새 서버를 원본 서버와 동일한 지역에 만듭니다. 지리적 복원은 서버를 지역 중복 스토리지로 구성하고, 이 서버를 다른 지역으로 복원할 수 있는 경우에만 사용할 수 있습니다.
+**지침**: Azure Database for MySQL에서 복원을 수행하면 원래 서버의 백업에서 새 서버가 만들어집니다. 사용할 수 있는 두 가지 유형의 복원이 있습니다. 특정 시점 복원 및 지리적 복원. 특정 시점 복원은 백업 중복 옵션을 통해 사용할 수 있으며, 새 서버를 원본 서버와 동일한 지역에 만듭니다. 지리적 복원은 서버를 지역 중복 스토리지로 구성하고, 이 서버를 다른 지역으로 복원할 수 있는 경우에만 사용할 수 있습니다.
 
 예상 복구 시간은 데이터베이스 크기, 트랜잭션 로그 크기, 네트워크 대역폭 및 동일한 지역에서 동시에 복구되는 데이터베이스의 총 수를 포함한 여러 요소에 따라 달라집니다. 복구 시간은 일반적으로 12시간 미만입니다.
 

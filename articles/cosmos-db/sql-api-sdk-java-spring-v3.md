@@ -10,10 +10,10 @@ ms.date: 03/15/2021
 ms.author: kuthapar
 ms.custom: devx-track-java
 ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493614"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core 용 스프링 데이터 Azure Cosmos DB v3 (SQL) API: 릴리스 정보 및 리소스
@@ -79,7 +79,7 @@ Core (SQL)에 대 한 스프링 데이터 Azure Cosmos DB 버전 3을 통해 개
 
 ## <a name="helpful-content"></a>유용한 내용
 
-| Content | 링크 |
+| 콘텐츠 | 링크 |
 |---|---|
 |**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
 |**API 설명서** | [Java API 참조 설명서](/java/api/com.azure.spring.data.cosmos) |

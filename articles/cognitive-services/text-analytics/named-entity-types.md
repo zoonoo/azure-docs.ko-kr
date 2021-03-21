@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/11/2021
 ms.author: aahi
-ms.openlocfilehash: 883c5a20612f4dab44c0d06776ee287b27174ab9
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8b596a5e54c0b59c4c0b49aa5cdc4fd6477d46dc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097306"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599336"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>텍스트 분석 API v3에서 지원 되는 엔터티 범주
 
@@ -39,8 +39,8 @@ NER v 3.1의 미리 보기를 사용할 수도 있습니다. 여기에는 개인
 
 [!INCLUDE [biomedical entity types](./includes/entity-types/health-entities.md)]
 
-**_
+***
 
 ## <a name="next-steps"></a>다음 단계
 
-_ [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](how-tos/text-analytics-how-to-entity-linking.md)
+* [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](how-tos/text-analytics-how-to-entity-linking.md)

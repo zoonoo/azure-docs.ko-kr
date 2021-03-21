@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
 ms.openlocfilehash: 537163b4a78954443eeb7799dc624837ba03e2bd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036625"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
@@ -93,7 +93,7 @@ Azure [활동 로그](../essentials/platform-logs-overview.md) 에는 azure 구�
 
 | 대상 | Description | 참조 |
 |:---|:---|:---|
-| Azure Monitor 메트릭 | 플랫폼 메트릭은 구성 없이 Azure Monitor 메트릭 데이터베이스에 기록 합니다. 메트릭 탐색기에서 플랫폼 메트릭에 액세스 합니다.  | [Azure 메트릭 탐색기 시작](../essentials/metrics-getting-started.md)<br>[Azure Monitor에서 지원 되는 메트릭](../essentials/metrics-supported.md) |
+| Azure Monitor 메트릭 | 플랫폼 메트릭은 구성 없이 Azure Monitor 메트릭 데이터베이스에 기록 합니다. 메트릭 탐색기에서 플랫폼 메트릭에 액세스 합니다.  | [Azure 메트릭 탐색기 시작](../essentials/metrics-getting-started.md)<br>[Azure Monitor에서 지원되는 메트릭](../essentials/metrics-supported.md) |
 | Azure Monitor 로그 | Log Analytics를 사용 하 여 추세 및 기타 분석을 위해 플랫폼 메트릭을 로그에 복사 합니다. | [Azure 진단에서 Log Analytics로 직접 연결](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
 | Event Hubs | Event Hubs를 사용 하 여 다른 위치로 메트릭을 스트림 합니다. |[Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../essentials/stream-monitoring-data-event-hubs.md) |
 
@@ -105,7 +105,7 @@ Azure [활동 로그](../essentials/platform-logs-overview.md) 에는 azure 구�
 | 대상 | Description | 참조 |
 |:---|:---|:---|
 | Azure Monitor 로그 | 다른 수집 된 로그 데이터를 사용 하 여 분석을 위해 Azure Monitor 로그에 리소스 로그를 보냅니다. | [Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.](../essentials/resource-logs.md#send-to-azure-storage) |
-| 스토리지 | 보관을 위해 Azure Storage로 리소스 로그를 보냅니다. | [Azure 리소스 로그 보관](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Storage | 보관을 위해 Azure Storage로 리소스 로그를 보냅니다. | [Azure 리소스 로그 보관](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
 | Event Hubs | Event Hubs를 사용 하 여 리소스 로그를 다른 위치로 스트림 합니다. |[이벤트 허브로 Azure 리소스 로그 스트림](../essentials/resource-logs.md#send-to-azure-event-hubs) |
 
 ## <a name="operating-system-guest"></a>운영 체제 (게스트)
@@ -118,7 +118,7 @@ Azure Virtual machines에 대해 Azure 진단 확장을 사용 하도록 설정 
 
 | 대상 | Description | 참조 |
 |:---|:---|:---|
-| 스토리지 | Azure 진단 확장은 항상 Azure Storage 계정에 기록 합니다. | [WAD(Windows Azure Diagnostics) 확장 설치 및 구성](./diagnostics-extension-windows-install.md)<br>[Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Storage | Azure 진단 확장은 항상 Azure Storage 계정에 기록 합니다. | [WAD(Windows Azure Diagnostics) 확장 설치 및 구성](./diagnostics-extension-windows-install.md)<br>[Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Azure Monitor 메트릭 | 성능 카운터를 수집 하도록 진단 확장을 구성 하면 Azure Monitor 메트릭 데이터베이스에 기록 됩니다. | [Windows 가상 머신에 대 한 리소스 관리자 템플릿을 사용 하 여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
 | Event Hubs | Event Hubs를 사용 하 여 다른 위치로 데이터를 스트리밍하는 진단 확장을 구성 합니다.  | [Event Hubs를 사용 하 여 스트리밍 Azure 진단 데이터](./diagnostics-extension-stream-event-hubs.md)<br>[Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Application Insights 로그 | 다른 응용 프로그램 데이터를 사용 하 여 분석할 응용 프로그램을 지 원하는 계산 리소스에서 로그 및 성능 카운터를 수집 합니다. | [Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기](./diagnostics-extension-to-application-insights.md) |
@@ -133,7 +133,7 @@ Windows 또는 Linux 가상 머신에 대 한 포괄적인 모니터링 및 관�
 | VM 저장소 | VM insights는 Log Analytics 에이전트를 사용 하 여 사용자 지정 위치에 heath 상태 정보를 저장 합니다. 자세한 내용은 다음 섹션을 참조하세요.  |
 
 
-### <a name="vm-insights"></a>VM 정보 
+### <a name="vm-insights"></a>VM 인사이트 
 [VM insights](../vm/vminsights-overview.md) 는 코어 Azure Monitor 기능 이상의 기능을 제공 하는 가상 머신에 대 한 사용자 지정 모니터링 환경을 제공 합니다. 가상 컴퓨터 및 외부 프로세스 종속성에서 실행 되는 프로세스에 대 한 검색 된 데이터를 수집 하기 위해 Log Analytics 에이전트와 통합 되는 Windows 및 Linux 가상 컴퓨터에 대 한 Dependency Agent 필요 합니다.
 
 | 대상 | Description | 참조 |
@@ -172,7 +172,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 | Azure Monitor 로그 | 모니터링 솔루션은 데이터를 Azure Monitor 로그에 수집 합니다 .이 로그는 일반적으로 솔루션에 포함 되어 있는 쿼리 언어나 [뷰](../visualize/view-designer.md) 를 사용 하 여 분석할 수 있습니다. | [Azure의 모니터링 솔루션에 대 한 데이터 수집 세부 정보](../monitor-reference.md) |
 
 
-### <a name="container-insights"></a>컨테이너 정보
+### <a name="container-insights"></a>컨테이너 인사이트
 [컨테이너 정보](../containers/container-insights-overview.md) 는 [Azure KUBERNETES 서비스 (AKS)](../../aks/index.yml)에 대 한 사용자 지정 모니터링 환경을 제공 합니다. 다음 표에서 설명 하는 해당 리소스에 대 한 추가 데이터를 수집 합니다.
 
 | 대상 | Description | 참조 |
@@ -181,7 +181,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 | Azure Monitor 메트릭 | 메트릭 데이터는 시각화 및 경고를 구동 하기 위해 메트릭 데이터베이스에 저장 됩니다. | [메트릭 탐색기에서 컨테이너 메트릭 보기](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
 | Azure Kubernetes Service | 포털에서 AKS (Azure Kubernetes Service) 컨테이너 로그 (stdout/stderror), 이벤트 및 pod 메트릭에 대 한 직접 액세스를 제공 합니다. | [Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법 ](../containers/container-insights-livedata-overview.md) |
 
-### <a name="vm-insights"></a>VM 정보
+### <a name="vm-insights"></a>VM 인사이트
 [VM insights](../vm/vminsights-overview.md) 는 가상 머신을 모니터링 하기 위한 사용자 지정 된 환경을 제공 합니다. VM insights에서 수집 된 데이터에 대 한 설명은 위의 [운영 체제 (게스트)](#operating-system-guest) 섹션에 포함 되어 있습니다.
 
 ## <a name="custom-sources"></a>사용자 지정 원본
@@ -189,7 +189,7 @@ Azure Monitor의 자세한 응용 프로그램 모니터링은 다양 한 플랫
 
 ![사용자 지정 컬렉션](media/data-sources/custom.png)
 
-| 대상 | 방법 | 설명 | 참조 |
+| 대상 | 메서드 | 설명 | 참조 |
 |:---|:---|:---|:---|
 | Azure Monitor 로그 | 데이터 수집기 API | 모든 REST 클라이언트에서 로그 데이터를 수집 하 고 Log Analytics 작업 영역에 저장 합니다. | [HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)](../logs/data-collector-api.md) |
 | Azure Monitor 메트릭 | 사용자 지정 메트릭 API | 모든 REST 클라이언트에서 메트릭 데이터를 수집 하 고 Azure Monitor 메트릭 데이터베이스에 저장 합니다. | [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기](../essentials/metrics-store-custom-rest-api.md) |

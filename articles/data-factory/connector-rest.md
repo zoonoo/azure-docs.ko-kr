@@ -4,14 +4,14 @@ description: Azure Data Factory 파이프라인에서 복사 작업을 사용 �
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/08/2020
+ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 45e71b636d43633d5b157db2815ddd19c31395b3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369886"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608132"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 REST 끝점에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ REST 원본에서 지원되는 모든 싱크 데이터 저장소로 데이터를
 > [!TIP]
 > Data Factory에서 REST 커넥터를 구성하기 전에 데이터 검색을 위한 요청을 테스트하려면 헤더 및 본문 요구 사항의 API 사양을 알아봅니다. Postman 또는 웹 브라우저와 같은 도구를 사용하여 유효성을 검사할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -55,10 +55,11 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **Type** 속성은 **RestService** 로 설정 해야 합니다. | 예 |
-| url | REST 서비스의 기본 URL입니다. | Yes |
-| enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 예<br /> 기본값은 **true** 입니다. |
-| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용 되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity** 입니다. 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |예 |
+| url | REST 서비스의 기본 URL입니다. | 예 |
+| enableServerCertificateValidation | 끝점에 연결할 때 서버 쪽 TLS/SSL 인증서의 유효성을 검사할지 여부입니다. | 아니요<br /> 기본값은 **true** 입니다. |
+| authenticationType | REST 서비스에 연결하는 데 사용되는 인증 형식입니다. 허용 되는 값은 **Anonymous**, **Basic**, **AadServicePrincipal** 및 **ManagedServiceIdentity** 입니다. 사용자 기반 OAuth는 지원 되지 않습니다. 속성에서 인증 헤더를 추가로 구성할 수 있습니다 `authHeader` . 추가 속성 및 예제를 보려면 아래 해당 섹션을 참조하세요.| 예 |
+| authHeaders | 인증을 위한 추가 HTTP 요청 헤더입니다.<br/> 예를 들어 API 키 인증을 사용 하려면 인증 유형을 "Anonymous"로 선택 하 고 헤더에서 API 키를 지정할 수 있습니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [필수 구성 요소](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 이 속성은 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
@@ -102,7 +103,7 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 | servicePrincipalId | Azure Active Directory 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
-| aadResourceId | 권한 부여를 요청 하는 AAD 리소스 (예:)를 지정 `https://management.core.windows.net` 합니다.| Yes |
+| aadResourceId | 권한 부여를 요청 하는 AAD 리소스 (예:)를 지정 `https://management.core.windows.net` 합니다.| 예 |
 | azureCloudType | 서비스 주체 인증의 경우 AAD 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부** 및 **AzureGermany** 입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
 
 **예제**
@@ -159,6 +160,35 @@ REST 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
+### <a name="using-authentication-headers"></a>인증 헤더 사용
+
+또한 기본 제공 인증 유형과 함께 인증에 대 한 요청 헤더를 구성할 수 있습니다.
+
+**예: API 키 인증 사용**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 이 섹션에서는 REST 데이터 세트에서 지원하는 속성의 목록을 제공합니다. 
@@ -169,8 +199,8 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 **type** 속성을 **RestResource** 로 설정해야 합니다. | Yes |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service]/[relative URL specified in dataset]` 합니다. | 예 |
+| type | 데이터 세트의 **type** 속성을 **RestResource** 로 설정해야 합니다. | 예 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. HTTP 커넥터는 결합 된 URL ()에서 데이터를 복사 `[URL specified in linked service]/[relative URL specified in dataset]` 합니다. | 아니요 |
 
 데이터 집합에서, 및를 설정 하는 경우 계속 해 서 `requestMethod` 는 그대로 지원 되지만 앞으로 `additionalHeaders` `requestBody` `paginationRules` 작업에서 새 모델을 사용 하는 것이 좋습니다.
 
@@ -205,13 +235,13 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **RestSource** 로 설정해야 합니다. | Yes |
-| requestMethod | HTTP 메서드입니다. 허용 되는 값은 **GET** (기본값) 및 **POST** 입니다. | 예 |
-| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
-| requestBody | HTTP 요청의 본문입니다. | 예 |
+| type | 복사 작업 원본의 **type** 속성은 **RestSource** 로 설정해야 합니다. | 예 |
+| requestMethod | HTTP 메서드입니다. 허용 되는 값은 **GET** (기본값) 및 **POST** 입니다. | 아니요 |
+| additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
+| requestBody | HTTP 요청의 본문입니다. | 아니요 |
 | paginationRules | 다음 페이지 요청을 작성하기 위한 페이지 매김 규칙입니다. 자세한 내용은 [페이지 매김 지원](#pagination-support)을 참조하세요. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 예 |
-| requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01** 입니다. |  예 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 기본값은 **00:01:40** 입니다.  | 아니요 |
+| requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01** 입니다. |  아니요 |
 
 >[!NOTE]
 >REST 커넥터는에 지정 된 "Accept" 헤더를 무시 `additionalHeaders` 합니다. REST 커넥터는 JSON의 응답만 지원 하므로의 헤더를 자동으로 생성 `Accept: application/json` 합니다.
@@ -294,13 +324,13 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 **type** 속성은 **RestSink** 로 설정 해야 합니다. | Yes |
-| requestMethod | HTTP 메서드입니다. 허용 되는 값은 **POST** (기본값), **PUT** 및 **PATCH** 입니다. | 예 |
+| type | 복사 작업 싱크의 **type** 속성은 **RestSink** 로 설정 해야 합니다. | 예 |
+| requestMethod | HTTP 메서드입니다. 허용 되는 값은 **POST** (기본값), **PUT** 및 **PATCH** 입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 데이터를 쓸 수 있는 시간 제한이 아니라 응답을 가져오기 위한 제한 시간입니다. 기본값은 **00:01:40** 입니다.  | 예 |
-| requestInterval | 여러 요청 간의 간격 시간 (밀리초)입니다. 요청 간격 값은 [10, 6만] 사이의 숫자 여야 합니다. |  예 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 데이터를 쓸 수 있는 시간 제한이 아니라 응답을 가져오기 위한 제한 시간입니다. 기본값은 **00:01:40** 입니다.  | 아니요 |
+| requestInterval | 여러 요청 간의 간격 시간 (밀리초)입니다. 요청 간격 값은 [10, 6만] 사이의 숫자 여야 합니다. |  아니요 |
 | httpCompressionType | 최적의 압축 수준으로 데이터를 전송 하는 동안 사용할 HTTP 압축 유형입니다. 허용 되는 값은 **none** 및 **gzip** 입니다. | 예 |
-| writeBatchSize | 일괄 처리당 REST 싱크에 쓸 레코드 수입니다. 기본값은 10000입니다. | 예 |
+| writeBatchSize | 일괄 처리당 REST 싱크에 쓸 레코드 수입니다. 기본값은 10000입니다. | 아니요 |
 
 싱크로 사용 되는 REST 커넥터는 JSON을 허용 하는 REST Api와 함께 작동 합니다. 데이터는 다음 패턴을 사용 하 여 JSON으로 전송 됩니다. 필요에 따라 복사 작업 [스키마 매핑을](copy-activity-schema-and-type-mapping.md#schema-mapping) 사용 하 여 REST API에서 필요한 페이로드를 따르도록 원본 데이터의 모양을 변경할 수 있습니다.
 
@@ -466,7 +496,7 @@ Facebook Graph API는 다음 구조의 응답을 반환합니다. 이 경우 다
     | 속성 | 설명 |
     |:--- |:--- |:--- |
     | URL |OAuth 전달자 토큰을 검색할 url을 지정 합니다. 예를 들어 여기 샘플에서는 https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
-    | 방법 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get** 입니다. | 
+    | 메서드 | HTTP 메서드입니다. 허용 되는 값은 **Post** 및 **Get** 입니다. | 
     | 헤더 | 헤더는 HTTP 요청에서 헤더 이름을 하나 참조 하는 사용자 정의입니다. | 
     | 본문 | HTTP 요청의 본문입니다. | 
 

@@ -8,10 +8,10 @@ ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618256"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
@@ -226,7 +226,7 @@ CLI 명령을 사용 하는 경우:
 
 다음 명령을 사용 하 여 인증서를 관리 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 새 개인 키 및 인증서 서명 요청 생성 | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | 자체 서명된 인증서 생성 | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -236,7 +236,7 @@ CLI 명령을 사용 하는 경우:
 
 인증서, CSR 또는 개인 키 내의 정보를 확인 해야 하는 경우 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | CSR (인증서 서명 요청) 확인 | `openssl req -text -noout -verify -in CSR.csr` |
 | 개인 키 확인 | `openssl rsa -in privateKey.key -check` |
@@ -244,13 +244,13 @@ CLI 명령을 사용 하는 경우:
 
 개인 키가 인증서와 일치 하지 않거나 사이트에 설치한 인증서를 신뢰할 수 없다는 오류가 표시 되 면 다음 명령을 사용 하 여 오류를 해결 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | 공개 키의 MD5 해시를 확인 하 여 CSR 또는 개인 키에 있는 항목과 일치 하는지 확인 합니다. | 1(sp1). `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 인증서와 키를 다른 형식으로 변환 하 여 특정 유형의 서버 또는 소프트웨어와 호환 되도록 하려면 다음 명령을 사용 합니다.
 
-| 설명 | CLI 명령 |
+| Description | CLI 명령 |
 |--|--|
 | DER 파일 (.crt. .cer)을 PEM으로 변환  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | PEM 파일을 DER로 변환 | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |

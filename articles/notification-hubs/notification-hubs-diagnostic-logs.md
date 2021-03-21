@@ -7,10 +7,10 @@ ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
 ms.openlocfilehash: b98a04a70062461cec603bea83052c4f1224819e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736239"
 ---
 # <a name="enable-diagnostics-logs-for-notification-hubs"></a>Notification Hubs에 대 한 진단 로그 사용
@@ -28,7 +28,7 @@ Azure Notification Hubs는 현재 Azure Notification Hubs 네임 스페이스에
 
 진단 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| 속성 | Description |
+| Name | 설명 |
 | ------- | ------- |
 | time | 로그의 UTC 타임 스탬프 |
 | resourceId | Azure 리소스에 대 한 상대 경로 |
@@ -87,7 +87,7 @@ REST API Notification Hubs에 대 한 호출의 경우 `identity` 이 필드에�
 
 다음 관리 작업은 작업 로그에 캡처됩니다. 
 
-| Scope | 작업 이름 | 작업 설명 |
+| 범위 | 작업 이름 | 작업 설명 |
 | :-- | :-- | :-- |
 | 네임스페이스 | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | 권한 부여 규칙 나열 |
 | 네임스페이스 | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | 권한 부여 규칙 삭제 |

@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 6474cb10cdb516bae0386b92e40ecd6f17250691
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: b559ce31aff7040a61f6a2f788652ffd192420c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225462"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593801"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>저장소 이벤트에 대 한 응답으로 파이프라인을 실행 하는 트리거 만들기
 
@@ -49,7 +49,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
    > 저장소 이벤트 트리거는 현재 Azure Data Lake Storage Gen2 및 범용 버전 2 저장소 계정만 지원 합니다. Azure Event Grid 제한으로 인해 Azure Data Factory는 저장소 계정 당 최대 500 개의 저장소 이벤트 트리거만 지원 합니다.
 
    > [!NOTE]
-   > 새 저장소 이벤트 트리거를 만들고 수정 하려면 Data Factory에 로그인 하 고 저장소 이벤트 트리거를 게시 하는 데 사용 되는 Azure 계정에 저장소 계정에 대 한 적절 한 역할 기반 액세스 제어 (Azure RBAC) 권한이 있어야 합니다. 추가 권한이 필요 하지 않습니다. Azure Data Factory에 대 한 서비스 주체에는 저장소 계정 또는 Event Grid에 대 한 특별 한 권한이 필요 _하지_ 않습니다. 액세스 제어에 대 한 자세한 내용은 [역할 기반 액세스 제어](#role-based-access-control) 섹션을 참조 하세요.
+   > 새 저장소 이벤트 트리거를 만들거나 수정 하려면 Data Factory에 로그인 하 고 저장소 이벤트 트리거를 게시 하는 데 사용 되는 Azure 계정에 저장소 계정에 대 한 적절 한 역할 기반 액세스 제어 (Azure RBAC) 권한이 있어야 합니다. 추가 권한이 필요 하지 않습니다. Azure Data Factory에 대 한 서비스 주체에는 저장소 계정 또는 Event Grid에 대 한 특별 한 권한이 필요 _하지_ 않습니다. 액세스 제어에 대 한 자세한 내용은 [역할 기반 액세스 제어](#role-based-access-control) 섹션을 참조 하세요.
 
 1. **Blob 경로 시작 문자** 및 **Blob 경로 마지막 문자** 속성을 통해 이벤트를 수신할 컨테이너, 폴더 및 Blob 이름을 지정할 수 있습니다. 저장소 이벤트 트리거에는 이러한 속성 중 하나 이상이 정의 되어 있어야 합니다. **Blob path begins with**(Blob 경로 시작 문자) 및 **Blob path ends with**(Blob 경로 마지막 문자) 속성 모두에 대해 이 문서의 뒷부분에 나오는 예제와 같이 다양한 패턴을 사용할 수 있습니다.
 
@@ -67,12 +67,12 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="저장소 이벤트 트리거 미리 보기 페이지의 스크린샷":::
 
-1. 파이프라인을 이 트리거에 연결하려면 파이프라인 캔버스로 이동하고 **트리거 추가** 를 클릭한 다음, **새로 만들기/편집** 을 선택합니다. 측면 탐색이 나타나면 **트리거 선택...** 드롭다운을 클릭하고 사용자가 만든 트리거를 선택합니다. **다음: 데이터 미리 보기** 를 클릭하여 구성이 정확한지 확인하고 **다음** 을 클릭하여 데이터 미리 보기가 올바른지 유효성을 검사합니다.
+1. 파이프라인을이 트리거에 연결 하려면 파이프라인 캔버스로 이동 하 여 **트리거** 를 클릭 하 고 **새로 만들기/편집** 을 선택 합니다. 측면 탐색이 나타나면 **트리거 선택...** 드롭다운을 클릭하고 사용자가 만든 트리거를 선택합니다. **다음: 데이터 미리 보기** 를 클릭하여 구성이 정확한지 확인하고 **다음** 을 클릭하여 데이터 미리 보기가 올바른지 유효성을 검사합니다.
 
 1. 파이프라인에 매개 변수가 있는 경우 트리거 실행 매개 변수 측 탐색에서 지정할 수 있습니다. Storage 이벤트 트리거는 blob의 폴더 경로 및 파일 이름을 속성 및에 캡처합니다 `@triggerBody().folderPath` `@triggerBody().fileName` . 파이프라인에서 이러한 속성 값을 사용하려면 속성을 파이프라인 매개 변수에 매핑해야 합니다. 속성을 매개 변수에 매핑한 후 파이프라인 전체에서 `@pipeline().parameters.parameterName` 식을 통해 트리거가 캡처한 값에 액세스할 수 있습니다. 자세한 설명은 [파이프라인의 참조 트리거 메타 데이터](how-to-use-trigger-parameterization.md) 를 참조 하세요.
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="파이프라인 매개 변수에 대 한 저장소 이벤트 트리거 매핑 속성의 스크린샷":::
-    
+
     위의 예제에서 트리거는 컨테이너 _샘플 데이터_ 의 폴더 _이벤트 테스트_ 에서 .csv로 끝나는 blob 경로를 만들 때 발생 하도록 구성 됩니다. **folderPath** 및 **fileName** 속성은 새 Blob의 위치를 캡처합니다. 예를 들어 MoviesDB.csv가 sample-data/event-testing 경로에 추가된 경우 `@triggerBody().folderPath` 값은 `sample-data/event-testing`, `@triggerBody().fileName` 값은 `moviesDB.csv`가 됩니다. 이러한 값은 예제에서 파이프라인 매개 변수 및에 매핑되고 `sourceFolder` `sourceFile` 각각 파이프라인 전체에서 사용할 수 있습니다 `@pipeline().parameters.sourceFolder` `@pipeline().parameters.sourceFile` .
 
 1. 마쳤으면 **마침** 을 클릭합니다.
