@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00291907ddea75ba4507779d1226502dc8343aea
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100365704"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 명명 정책 적용
@@ -70,7 +70,7 @@ ms.locfileid: "100365704"
 ### <a name="roles-and-permissions"></a>역할 및 권한
 
 명명 정책을 구성 하려면 다음 역할 중 하나가 필요 합니다.
-- 글로벌 관리자
+- 전역 관리자
 - 그룹 관리자
 - 디렉터리 기록기
 
@@ -172,7 +172,7 @@ PowerShell 명령을 실행하기 전에 Windows PowerShell용 그래프 모듈�
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-이제 끝났습니다! 명명 정책을 설정하고 차단된 단어를 추가했습니다.
+정말 간단하죠. 명명 정책을 설정하고 차단된 단어를 추가했습니다.
 
 ## <a name="export-or-import-custom-blocked-words"></a>사용자 지정 차단 된 단어 내보내기 또는 가져오기
 

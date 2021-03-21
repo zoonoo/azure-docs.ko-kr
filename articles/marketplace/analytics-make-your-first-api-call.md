@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 2d0c0e7322ecb92fd371f5bf7924a370dd29fe85
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583981"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>상용 marketplace 분석 데이터에 액세스 하기 위한 첫 번째 API 호출 만들기
@@ -338,4 +338,4 @@ Curl
 ## <a name="next-steps"></a>다음 단계
 
 - [SWAGGER API URL](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html) 을 통해 api를 사용해 볼 수 있습니다.
-- [프로그래밍 방식 액세스 패러다임](analytics-programmatic-access.md)
+- [프로그래밍 방식 액세스 페러다임](analytics-programmatic-access.md)

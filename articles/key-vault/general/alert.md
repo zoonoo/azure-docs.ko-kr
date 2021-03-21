@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 523f24a7d8131dda67244e4d48510d9e1cb7cdb4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070664"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582632"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault에 대 한 모니터링 및 경고
 
@@ -27,6 +27,8 @@ ms.locfileid: "99070664"
 + 모니터링할 기본 Key Vault 메트릭
 + 메트릭을 구성 하 고 대시보드를 만드는 방법
 + 지정 된 임계값에 대 한 경고를 만드는 방법
+
+Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. [여기에서 Key Vualt에 대 한 Azure Monitor에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>모니터링할 기본 Key Vault 메트릭
 

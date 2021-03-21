@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - contperf-fy21q1
 ms.openlocfilehash: 888761bb976b9d7a87211a77cb6504a44f108bbd
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200052"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
@@ -87,7 +87,7 @@ Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예제:
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -308,7 +308,7 @@ EdgeAgent 및 edgeHub 모듈 외에도 다른 모듈에는 프록시 구성이 �
 
 다음 절차는 IoT Edge 장치의 수명 내내 적용 됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 **모듈 설정** 마법사를 사용 하 여 IoT Edge 장치에 대 한 배포를 만드는 경우 모든 모듈에는 프록시 서버 연결을 구성할 수 있는 **환경 변수** 섹션이 있습니다.
 

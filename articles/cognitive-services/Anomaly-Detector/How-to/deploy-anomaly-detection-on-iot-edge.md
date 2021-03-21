@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2020
 ms.author: mbullwin
 ms.openlocfilehash: b4153b07b153a9ee0b16dc032ab5e7810e236d7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98936277"
 ---
 # <a name="deploy-an-anomaly-detector-module-to-iot-edge"></a>IoT Edge에 변칙 탐지기 모듈 배포
@@ -23,7 +23,7 @@ IoT Edge 장치에 Cognitive Services [변칙 탐지기](../anomaly-detector-con
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독을 사용합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
+* Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 * [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) 및 [IoT Edge](../../../iot-edge/quickstart-linux.md) 장치
 

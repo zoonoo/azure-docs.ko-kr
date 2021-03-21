@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 4be063342a6c46d73c86f2d9dff1da5395328389
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584021"
 ---
 # <a name="custom-query-specification"></a>사용자 지정 쿼리 사양
@@ -165,6 +165,6 @@ ms.locfileid: "102584021"
 
 사양은 완전히 대/소문자를 구분 하지 않습니다. 미리 정의 된 키워드, 열 이름 및 값은 대문자나 소문자를 사용 하 여 지정할 수 있습니다.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [시스템 쿼리 목록](analytics-system-queries.md)

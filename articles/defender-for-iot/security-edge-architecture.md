@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 4b7377f74e24660945555c112fed4d77d2c5ddcc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495949"
 ---
 # <a name="azure-defender-for-iot-edge-defender-iot-micro-agent"></a>IoT Edge 용 Azure Defender Defender-마이크로 에이전트
@@ -56,7 +56,7 @@ Defender for IoT Defender-IoT-마이크로 에이전트 IoT Edge는 현재 Linux
 
 이 문서에서는 IoT Edge에 대 한 IoT Defender-IoT-마이크로 에이전트의 아키텍처 및 기능에 대해 알아보았습니다.
 
-IoT 배포용 Defender를 계속 시작 하려면 다음 문서를 사용 합니다.
+Defender for IoT 개발을 계속 시작하려면 다음 문서를 사용합니다.
 
 - [IoT Edge에 대 한 Defender-IoT-마이크로 에이전트](how-to-deploy-edge.md) 배포
 - [Defender-마이크로 에이전트를 구성](how-to-agent-configuration.md) 하는 방법 알아보기

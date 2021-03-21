@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
 ms.openlocfilehash: 07a959d4e8ba41652ba4e31ad59cf852659a5926
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199761"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
@@ -20,7 +20,7 @@ ms.locfileid: "103199761"
 
 **저장** 을 클릭한 후, 다음 표의 정보를 지정하여 Azure Portal에서 Log Analytics로 함수를 만듭니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:---|:---|
 | 속성           | **쿼리 탐색기** 에 나타나는 쿼리의 표시 이름입니다. |
 | 다른 이름으로 저장        | 함수 |

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103496527"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>IoT 장치에서 보안 에이전트 선택 및 배포
@@ -42,7 +42,7 @@ C 기반 보안 에이전트는 메모리 사용 공간이 적고 사용 가능�
 | --- | ----------- | --------- |
 | **오픈 소스** | [GitHub](https://aka.ms/iot-security-github-c) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 | [GitHub](https://aka.ms/iot-security-github-cs) 의 [MIT 라이선스](https://en.wikipedia.org/wiki/MIT_License) 에서 사용 가능 |
 | **개발 언어**    | C | C# |
-| **지원 되는 Windows 플랫폼** | 예 | 예 |
+| **지원 되는 Windows 플랫폼** | 아니요 | 예 |
 | **Windows 필수 조건** | --- | [WMI](/windows/desktop/wmisdk/) |
 | **지원 되는 Linux 플랫폼 인가요?** | 예, x64 및 x86 | 예, x64만 |
 | **Linux 필수 구성 요소** | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인 | libunwind8, libcurl3, uuid-runtime, auditd, audispd-플러그 인, sudo, netstat, iptables |

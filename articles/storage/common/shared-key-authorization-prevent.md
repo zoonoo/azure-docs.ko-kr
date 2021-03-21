@@ -10,10 +10,10 @@ ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199925"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Azure Storage 계정에 대 한 공유 키 권한 부여 방지 (미리 보기)
@@ -223,7 +223,7 @@ resources
 
 | Azure 도구 | Azure Storage에 대 한 Azure AD 권한 부여 |
 |-|-|
-| Azure Portal | 지원됨. Azure Portal에서 Azure AD 계정을 사용 하 여 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-data-operations-portal.md)을 참조 하세요. |
+| Azure portal | 지원됨. Azure Portal에서 Azure AD 계정을 사용 하 여 권한을 부여 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-data-operations-portal.md)을 참조 하세요. |
 | AzCopy | Blob 저장소에 대해 지원 됩니다. AzCopy 작업에 권한을 부여 하는 방법에 대 한 자세한 내용은 AzCopy 설명서에서 [권한 부여 자격 증명을 제공 하는 방법 선택](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) 을 참조 하세요. |
 | Azure Storage Explorer | Blob 저장소 및 Azure Data Lake Storage Gen2에만 지원 됩니다. 큐 저장소에 대 한 Azure AD 액세스는 지원 되지 않습니다. 올바른 Azure AD 테 넌 트를 선택 해야 합니다. 자세한 내용은 [Storage 탐색기 시작](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) 을 참조 하세요. |
 | Azure PowerShell | 지원됨. Azure AD를 사용 하 여 blob 또는 큐 작업에 대 한 PowerShell 명령에 권한을 부여 하는 방법에 대 한 자세한 내용은 [AZURE ad 자격 증명을 사용 하 여 powershell 명령을 실행 하 여 blob 데이터에 액세스](../blobs/authorize-data-operations-powershell.md) 또는 [azure ad 자격 증명을 사용 하 여 powershell 명령 실행](../queues/authorize-data-operations-powershell.md) |

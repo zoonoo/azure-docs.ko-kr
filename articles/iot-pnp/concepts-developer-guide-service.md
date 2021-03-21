@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: df913716ff34a61e5bde4c0771ea8b7599db3d30
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5889be88dfd0870a2eee868c97787ff354cff68
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521399"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582734"
 ---
 # <a name="iot-plug-and-play-service-developer-guide"></a>IoT 플러그 앤 플레이 서비스 개발자 가이드
 
@@ -62,7 +62,7 @@ Iot hub에 연결 된 iot 플러그 앤 플레이 장치를 사용 하려면 IoT
 이제 장치 모델링에 대해 알아보았습니다. 몇 가지 추가 리소스는 다음과 같습니다.
 
 - [DTDL(디지털 쌍 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl)
-- [C 디바이스 SDK](/azure/iot-hub/iot-c-sdk-ref/)
+- [C 장치 SDK](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
-- [모델 구성 요소](./concepts-components.md)
+- [IoT 플러그 앤 플레이 모델링 가이드](concepts-modeling-guide.md)
 - [DTDL authoring tools 설치 및 사용](howto-use-dtdl-authoring-tools.md)

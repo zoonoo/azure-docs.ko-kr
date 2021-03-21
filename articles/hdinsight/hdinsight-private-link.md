@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.openlocfilehash: bc7834a0f8272da3f8954c7dd9f3e18163795cba
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98939365"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>개인 링크를 사용 하 여 Azure HDInsight 클러스터 보호 및 격리 (미리 보기)
@@ -47,7 +47,7 @@ Azure Key Vault에 대 한 전용 끝점 사용은 지원 되지 않습니다. �
 <clustername-ssh>    A   10.0.0.2
 ```
 
-## <a name="enable-private-link"></a>개인 링크 사용
+## <a name="enable-private-link"></a>Private Link 사용
 
 기본적으로 사용 하지 않도록 설정 된 개인 링크에는 클러스터를 만들기 전에 UDR (사용자 정의 경로) 및 방화벽 규칙을 제대로 설정 하는 데 필요한 광범위 한 네트워킹 정보가 필요 합니다. 이 설정은 선택 사항 이지만 `resourceProviderConnection` 이전 섹션에서 설명한 대로 네트워크 속성이 *아웃 바운드* 로 설정 된 경우에만 사용할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 9894da7486ec3c0dfb92c94c7c7f4db2247ebeb7
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 70d0fc456b3697e3c74a5ec45cc936a02b77e591
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210208"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657657"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Vowpal Wabbit 모델 학습
 이 문서에서는 Azure Machine Learning designer에서 **Vowpal Wabbit 모델 학습** 모듈을 사용 하 여 Vowpal Wabbit를 사용 하 여 기계 학습 모델을 만드는 방법을 설명 합니다.  
@@ -91,6 +91,13 @@ Vowpal Wabbit는 기존 모델에 새 데이터를 추가 하 여 증분 학습�
 
 6. 파이프라인을 제출합니다.  
 7. 모듈을 선택 하 고 오른쪽 창의 **출력 + 로그** 탭에서 **데이터 집합 등록** 을 선택 하 여 Azure Machine Learning 작업 영역에서 업데이트 된 모델을 유지 합니다.  새 이름을 지정 하지 않은 경우 업데이트 된 모델은 기존에 저장 된 모델을 덮어씁니다.
+
+## <a name="results"></a>결과
+
++ 모델에서 점수를 생성 하려면 [Vowpal Wabbit 모델 점수](score-vowpal-wabbit-model.md)를 사용 합니다.
+
+> [!NOTE]
+> 디자이너에서 학습 된 모델을 배포 해야 하는 경우 **모델 점수 매기기** 대신 [Vowpal wabbit 모델 점수가](score-vowpal-wabbit-model.md) 유추 파이프라인에서 [웹 서비스 출력 모듈](web-service-input-output.md) 의 입력에 연결 되어 있는지 확인 합니다.
 
 ## <a name="technical-notes"></a>기술 정보
 

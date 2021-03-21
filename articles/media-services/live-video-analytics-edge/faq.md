@@ -4,10 +4,10 @@ description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석�
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702252"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>IoT Edge FAQ의 Live Video Analytics
@@ -18,7 +18,7 @@ ms.locfileid: "101702252"
 
 **그래프 토폴로지 정의에서 사용할 수 있는 시스템 변수는 무엇 인가요?**
 
-| 변수   |  Description  | 
+| 변수   |  설명  | 
 | --- | --- | 
 | [System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | UTC 시간의 인스턴트를 나타냅니다. 일반적으로 다음과 같은 형식으로 날짜와 시간으로 표현 됩니다.<br>*yyyyMMddTHHmmssZ* | 
 | PreciseDateTime | 밀리초를 사용 하는 ISO8601 파일 호환 형식의 UTC (협정 세계시) 날짜/시간 인스턴스를 다음 형식으로 나타냅니다.<br>*yyyyMMddTHHmmss* | 

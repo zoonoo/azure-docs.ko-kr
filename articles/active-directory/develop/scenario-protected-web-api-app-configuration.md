@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5206c2295ee7c01b4a2908e59da1cfdd8782bccd
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517721"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
@@ -123,7 +123,7 @@ Microsoft. Identity. 웹 프로젝트 템플릿을 사용 하 여 웹 API를 처
 
 #### <a name="starting-from-an-existing-aspnet-core-31-application"></a>기존 ASP.NET Core 3.1 응용 프로그램에서 시작
 
-현재 ASP.NET Core 3.1은 AspNetCore 라이브러리를 사용 합니다. 미들웨어는 Startup.cs 파일에서 초기화 됩니다.
+현재 ASP.NET Core 3.1은 AspNetCore 라이브러리를 사용 합니다. 미들웨어는 시작 .cs 파일에서 초기화 됩니다.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 *Startup.cs* 에서 코드 [를 대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web) 플랫폼을 사용 하도록 템플릿을 변경할 수 있습니다.
+ 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 microsoft id 플랫폼을 사용 하도록 템플릿을 변경 하려면 다음을 사용 하 여 *시작 .cs* 의 코드 [를 바꿉니다.](https://www.nuget.org/packages/Microsoft.Identity.Web)
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -195,7 +195,7 @@ services.AddControllers();
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| 유효성 검사기 | Description |
+| 유효성 검사기 | 설명 |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |
@@ -210,7 +210,7 @@ services.AddControllers();
 
 대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테 넌 트가 아닌 앱은 예외입니다. 이러한 웹 앱은 모든 조직이 나 개인 Microsoft 계정의 사용자를 허용 합니다. 이 경우 발급자의 유효성을 검사 해야 합니다. Microsoft. Identity는 발급자 유효성 검사도 처리 합니다. 자세한 내용은 [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs)를 참조 하세요.
 
-ASP.NET Core에서 토큰 유효성 검사 매개 변수를 사용자 지정 하려는 경우 *Startup.cs* 에서 다음 코드 조각을 사용 합니다.
+ASP.NET Core에서 토큰 유효성 검사 매개 변수를 사용자 지정 하려는 경우 *시작 .cs* 에서 다음 코드 조각을 사용 합니다.
 
 ```c#
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

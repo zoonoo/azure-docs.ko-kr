@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98661105"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
@@ -51,9 +51,9 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 활동 세부 정보 패널에는 다음과 같은 관련 정보가 포함 되어 있습니다.
 
-|섹션|필드|Description|
+|섹션|필드|설명|
 |-------|-----|-----------|
-| 활동 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에* 대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 활동 | Name | 발생 한 작업입니다. 예를 들어 *응용 프로그램에* 대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |

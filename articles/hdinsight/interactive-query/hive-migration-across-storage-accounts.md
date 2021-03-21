@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/11/2020
 ms.openlocfilehash: 0d62bebddb7751c168ba2e487b2391a40bbc6e67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101746101"
 ---
 # <a name="hive-workload-migration-to-new-account-in-azure-storage"></a>Azure Storage의 새 계정으로 Hive 워크 로드 마이그레이션
@@ -20,7 +20,7 @@ ms.locfileid: "101746101"
 
 HDInsight 4.0에서 개별 Hive 테이블을 수동으로 복사 하려면 [Hive 내보내기/가져오기](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 다음 구성을 포함 하는 새 HDInsight 클러스터:
   * 기본 파일 시스템은 대상 저장소 계정에 있습니다. [Azure HDInsight 클러스터에서 azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조 하세요.
@@ -33,7 +33,7 @@ HDInsight 4.0에서 개별 Hive 테이블을 수동으로 복사 하려면 [Hive
   * 원본 저장소 계정을 새 클러스터에 추가 합니다.
   * 중간 저장소 계정을 원래 클러스터와 새 클러스터에 추가 합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 원래 클러스터에서 지정 된 HDFS 디렉터리로 Hive 테이블을 내보내는 스크립트 작업을 실행 합니다. [실행 중인 클러스터에 대 한 동작 스크립팅을](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)참조 하세요.
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: bd04c692655161a2ba8d4ff51a8ff07e9b9bd374
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695854"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593019"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>자습서: Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
 
@@ -176,7 +176,7 @@ curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
 
 ### <a name="2-list-running-applications-in-the-azure-synapse-workspace"></a>2. Azure Synapse 작업 영역에서 실행 중인 애플리케이션 나열
 
-Synapse 작업 영역에 대 한 spark 애플리케이션 목록을 가져오려면 이 문서 [모니터링 - Spark 작업 목록 가져오기](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist)을 따라 이동하면 됩니다.
+Synapse 작업 영역에 대 한 spark 애플리케이션 목록을 가져오려면 이 문서 [모니터링 - Spark 작업 목록 가져오기](/rest/api/synapse/data-plane/monitoring/getsparkjoblist)을 따라 이동하면 됩니다.
 
 
 ### <a name="3-collect-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Prometheus 또는 REST API를 사용하여 spark 애플리케이션 메트릭 수집

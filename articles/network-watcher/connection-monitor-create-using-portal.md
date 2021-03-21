@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
 ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702167"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 연결 모니터에서 모니터 만들기
@@ -35,7 +35,7 @@ ms.locfileid: "101702167"
 
 * **연결 모니터 리소스** 입니다. 지역별 Azure 리소스입니다. 다음 모든 엔터티는 연결 모니터 리소스의 속성입니다.
 * **끝점**. 연결 확인에 참여 하는 원본 또는 대상입니다. 끝점의 예는 다음과 같습니다.
-    * Azure Vm.
+    * Azure VM.
     * Azure 가상 네트워크.
     * Azure 서브넷.
     * 온-프레미스 에이전트.

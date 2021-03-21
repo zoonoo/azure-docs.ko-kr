@@ -17,10 +17,10 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 783de636d4520f48f624f3380f811f1f18366330
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259239"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화
@@ -33,8 +33,8 @@ ms.locfileid: "99259239"
 1. **모든 서비스** 를 선택하고 텍스트 상자에 **Azure Active Directory** 를 입력한 다음, **입력** 을 선택합니다.
 1. **Azure Active Directory**  -   **_directoryname_*_ 창 (즉, 관리 중인 디렉터리에 대 한 Azure AD 창)에서 _* 엔터프라이즈 응용 프로그램을 선택** 합니다.
 1. **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 창에서 관리할 수 있는 앱 목록이 표시 됩니다. 앱을 선택합니다.
-1. **_Appname_*_ 창 (즉, 제목에서 선택한 앱의 이름이 있는 창)에서 _ 속성을 선택*** 합니다.
-1. **_Appname_*_-_* 속성** 창에서 **사용자가 로그인 할 수 있습니까?** 에서 **아니요** 를 선택 합니다.
+1. ***Appname** _ 창 (즉, 제목에서 선택한 앱의 이름이 있는 창)에서 _ * 속성 * *을 선택 합니다.
+1. ***Appname** _-_ *속성** 창에서 **사용자가 로그인 할 수 있습니까?** 에서 **아니요** 를 선택 합니다.
 1. **저장** 명령을 선택합니다.
 
 ## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Azure AD PowerShell을 사용 하 여 목록에 없는 앱을 사용 하지 않도록 설정

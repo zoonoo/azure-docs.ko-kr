@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
 ms.openlocfilehash: 05a6665a985ef8b229ee58082dc9b2c10cdcece3
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102121459"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale"></a>Azure Policy를 사용하여 대규모로 클러스터 구성 적용
@@ -28,7 +28,7 @@ Azure Policy를 사용 하려면 기존 정책 정의를 선택 하 고 정책 �
 
 여러 정책 할당을 사용 하 여 각각 서로 다른 Git 리포지토리를 가리키는 여러 구성을 만들 수 있습니다. 예를 들어 중앙 IT/클러스터 운영자를 위한 리포지토리와 응용 프로그램 팀을 위한 다른 리포지토리가 있습니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 `Microsoft.Authorization/policyAssignments/write`이 정책 할당을 만들 범위 (구독 또는 리소스 그룹)에 대 한 권한이 있는지 확인 합니다.
 

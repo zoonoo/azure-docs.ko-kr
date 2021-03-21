@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 4a11783b28352cb62c5a3c0d38e45dcdc47a8d86
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583935"
 ---
 # <a name="resume-report-executions-api"></a>보고서 실행 API 다시 시작
@@ -27,7 +27,7 @@ ms.locfileid: "102583935"
 
 **요청 헤더**
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------------ | ------------- | ------------- |
 | 권한 부여 | 문자열 | 필수 요소. 양식의 Azure AD (Azure Active Directory) 액세스 토큰 `Bearer <token>` |
 | 콘텐츠 형식 | 문자열 | `Application/JSON` |

@@ -7,18 +7,21 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 59aa395db27c26a7c94eebdc0e3b34d7776ee75f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361488"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591999"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Azure Data Factory의 Webhook 활동
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 웹 후크 작업은 사용자 지정 코드를 통해 파이프라인의 실행을 제어할 수 있습니다. 웹 후크 활동을 사용 하 여 고객 코드는 끝점을 호출 하 고 콜백 URL을 전달할 수 있습니다. 파이프라인 실행은 다음 작업을 진행 하기 전에 콜백 호출을 기다립니다.
+
+> [!IMPORTANT]
+> 이제 WebHook 활동을 사용 하 여 오류 상태와 사용자 지정 메시지를 활동 및 파이프라인에 다시 표시할 수 있습니다. _Reportstatusoncallback_ 을 true로 설정 하 고 콜백 페이로드에 _StatusCode_ 및 _Error_ 를 포함 합니다. 자세한 내용은 [추가 참고 사항](#additional-notes) 섹션을 참조 하세요.
 
 ## <a name="syntax"></a>구문
 
@@ -37,6 +40,7 @@ ms.locfileid: "100361488"
             "key": "value"
         },
         "timeout": "00:03:00",
+        "reportStatusOnCallBack": false,
         "authentication": {
             "type": "ClientCertificate",
             "pfx": "****",
@@ -53,13 +57,13 @@ ms.locfileid: "100361488"
 -------- | ----------- | -------------- | --------
 **name** | Webhook 활동의 이름입니다. | String | 예 |
 **type** | "WebHook"로 설정 해야 합니다. | String | 예 |
-**방법이** | 대상 끝점에 대 한 REST API 메서드입니다. | 문자열입니다. 지원 되는 형식은 "POST"입니다. | Yes |
-**url** | 대상 끝점과 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | Yes |
+**방법이** | 대상 끝점에 대 한 REST API 메서드입니다. | 문자열입니다. 지원 되는 형식은 "POST"입니다. | 예 |
+**url** | 대상 끝점과 경로입니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예 |
 **머리글과** | 요청에 전송되는 헤더입니다. 요청에 대 한 언어 및 형식을 설정 하는 예제는 다음과 같습니다 `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예. `Content-Type`같은 헤더가 `"headers":{ "Content-Type":"application/json"}` 필요 합니다. |
-**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 **resultType** 값이 json 인 식입니다. 요청 페이로드의 스키마에 대 한 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema) 를 참조 하세요. | Yes |
-**인증은** | 끝점을 호출 하는 데 사용 되는 인증 방법입니다. 지원 되는 형식은 "Basic" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 하지 않은 경우이 속성을 제외 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 예 |
-**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d* 입니다. *hh*:*mm*:*ss*. | String | 예 |
-**콜백에 대 한 보고서 상태** | 사용자가 webhook 활동의 실패 상태를 보고할 수 있습니다. | 부울 | 예 |
+**body** | 엔드포인트에 전송된 페이로드를 나타냅니다. | 유효한 JSON 또는 **resultType** 값이 json 인 식입니다. 요청 페이로드의 스키마에 대 한 [요청 페이로드 스키마](./control-flow-web-activity.md#request-payload-schema) 를 참조 하세요. | 예 |
+**인증은** | 끝점을 호출 하는 데 사용 되는 인증 방법입니다. 지원 되는 형식은 "Basic" 및 "ClientCertificate"입니다. 자세한 내용은 [인증](./control-flow-web-activity.md#authentication)을 참조하세요. 인증이 필요 하지 않은 경우이 속성을 제외 합니다. | 문자열 또는 문자열의 **resultType** 값이 포함 된 식입니다. | 아니요 |
+**timeout** | 작업에서 **Callbackuri** 로 지정 된 콜백이 호출 될 때까지 대기 하는 시간입니다. 기본값은 10 분 ("00:10:00")입니다. 값의 TimeSpan 형식은 *d* 입니다. *hh*:*mm*:*ss*. | String | 아니요 |
+**콜백에 대 한 보고서 상태** | 사용자가 webhook 활동의 실패 상태를 보고할 수 있습니다. | 부울 | 아니요 |
 
 ## <a name="authentication"></a>인증
 
@@ -69,7 +73,7 @@ Webhook 활동은 다음 인증 유형을 지원 합니다.
 
 인증이 필요 하지 않은 경우에는 **authentication** 속성을 포함 하지 마세요.
 
-### <a name="basic"></a>기본
+### <a name="basic"></a>Basic
 
 기본 인증에 사용할 사용자 이름 및 암호를 지정 합니다.
 
@@ -107,7 +111,7 @@ PFX 파일의 Base64 인코딩 콘텐츠 및 암호를 지정 합니다.
 > [!NOTE]
 > 데이터 팩터리가 Git 리포지토리로 구성 된 경우 기본 또는 클라이언트 인증서 인증을 사용 하도록 Azure Key Vault에 자격 증명을 저장 해야 합니다. Azure Data Factory는 Git에 암호를 저장 하지 않습니다.
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 Data Factory는 URL 끝점으로 전송 된 본문에서 추가 속성 **Callbackuri** 를 전달 합니다. Data Factory 지정 된 시간 제한 값 이전에이 URI를 호출할 것으로 예상 합니다. URI가 호출 되지 않은 경우 작업은 "TimedOut" 상태와 함께 실패 합니다.
 

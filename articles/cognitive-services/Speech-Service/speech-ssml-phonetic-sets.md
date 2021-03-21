@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 580de0112c99eef4ba22ba946f6a2b81bc326001
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102432046"
 ---
 # <a name="speech-service-phonetic-sets"></a>음성 서비스 음성 서비스 음성 설정
@@ -25,7 +25,7 @@ ms.locfileid: "102432046"
 
 ### <a name="english-suprasegmentals"></a>영어 suprasegmentals
 
-| 예제 1 (자음의 경우 하기 시작 하면, 모음에 대 한 단어 초기) | 예 2 (자음의 경우 Intervocalic, word 중성 핵심 이기 for 모음) | 예 3 (자음 용 Coda, 모음에 대 한 단어 최종) | 주석 |
+| 예제 1 (자음의 경우 하기 시작 하면, 모음에 대 한 단어 초기) | 예 2 (자음의 경우 Intervocalic, word 중성 핵심 이기 for 모음) | 예 3 (자음 용 Coda, 모음에 대 한 단어 최종) | 의견 |
 |--|--|--|--|
 | 먹으며 즐길/b er **1** r-g ax r/ | 비 afel/f ax-l aa **1** -f ax l/ | 기타/g 항목-t aa **1** r/ | 음성 서비스 전화 번호 설정 스트레스 음절의 모음 뒤에 스트레스 배치 |
 | 리디렉션하거나/ih **2** -n aa-p ax r-t uw 1 n/ | dissimilarity/d 항목-s 항목 **2**-m ax-l eh 1-r ax-t 항목/ | 직원/w er 1 r k-f ao **2** r s/ | 음성 서비스 전화 번호 설정 스트레스가 낮은 음절의 모음 뒤에 스트레스 배치 |
@@ -185,7 +185,7 @@ Speech service phone 집합은 스트레스 음절의 모음 뒤에 스트레스
 
 ### <a name="german-suprasegmentals"></a>독일어 suprasegmentals
 
-| 예제 1 (자음의 경우 하기 시작 하면, 모음에 대 한 단어 초기) | 예 2 (자음의 경우 Intervocalic, word 중성 핵심 이기 for 모음) | 예 3 (자음 용 Coda, 모음에 대 한 단어 최종) | 주석 |
+| 예제 1 (자음의 경우 하기 시작 하면, 모음에 대 한 단어 초기) | 예 2 (자음의 경우 Intervocalic, word 중성 핵심 이기 for 모음) | 예 3 (자음 용 Coda, 모음에 대 한 단어 최종) | 의견 |
 |--|--|--|--|
 | anders/a **1** n-d ax r s/ | Multiplikationszeichen/m \_l-t iy-p l iy-k a-ts y ow **1** n s-ts ay-c n/ | Biologie/b iy-ow-l ow-g iy **1**/ | 음성 서비스 전화 번호 설정 스트레스 음절의 모음 뒤에 스트레스 배치 |
 | Allgemeinwissen/a **2** l-g ax-m ay 1 n-v 항목-s n/ | Abfallentsorgungsfirma/a 1 p-f a l-^ eh n t-z **n2** ax r-g. s-f 항목 ax r-m a/ | Computertomographie/k sm-p y uw 1-t ax r-t ow-m ow-g r a-f iy **2**/ | 음성 서비스 전화 번호 설정 스트레스가 낮은 음절의 모음 뒤에 스트레스 배치 |

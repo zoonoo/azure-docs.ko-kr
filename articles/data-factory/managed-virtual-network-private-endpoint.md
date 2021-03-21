@@ -10,10 +10,10 @@ ms.custom:
 - references_regions
 ms.date: 07/15/2020
 ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699637"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
@@ -102,7 +102,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - 북유럽
 - 서유럽
 - 영국 남부
-- 동남아시아
+- 동남 아시아
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
 

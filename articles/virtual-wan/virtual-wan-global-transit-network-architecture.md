@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
 ms.openlocfilehash: cfb75b6383d8ca449b4bc54b9d21cb16b3a4ad40
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99428186"
 ---
-# <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
+# <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 Virtual WAN
 
 최신 기업은 클라우드 및 온-프레미스에서 하이퍼 분산 응용 프로그램, 데이터 및 사용자 간에 다양 한 연결이 필요 합니다. 기업에서 글로벌 전송 네트워크 아키텍처를 채택 하 여 클라우드 중심의 최신 글로벌 엔터프라이즈 IT 공간을 통합 하 고, 연결 하 고, 제어할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure 가상 WAN은 Microsoft에서 관리 하는 클라우드 네트워킹 서�
 
 Azure 가상 WAN은 Vnet, 분기 사이트, SaaS 및 PaaS 응용 프로그램, 사용자 등의 전 세계적으로 분산 된 클라우드 작업 집합 간에 다양 한 연결을 가능 하 게 하 여 글로벌 전송 네트워크 아키텍처를 허용 합니다.
 
-![Azure 가상 WAN](./media/virtual-wan-global-transit-network-architecture/figure2.png)
+![Azure Virtual WAN](./media/virtual-wan-global-transit-network-architecture/figure2.png)
 
 **그림 2: 글로벌 전송 네트워크 및 가상 WAN**
 

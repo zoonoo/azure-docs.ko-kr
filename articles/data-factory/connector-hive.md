@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
 ms.openlocfilehash: 8f6e85d82c01663e404f7046f84706feb209ba5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100367030"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Hive에서 데이터 복사 및 변환 
@@ -29,7 +29,7 @@ Hive에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -47,20 +47,20 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | type | type 속성은 **Hive** 로 설정해야 합니다. | 예 |
 | host | 여러 호스트에 대해 '; '로 구분 된 Hive 서버의 IP 주소 또는 호스트 이름입니다 (serviceDiscoveryMode를 사용 하는 경우에만).  | 예 |
-| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | Yes |
-| serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 **HiveServer1**, **HiveServer2**, **HiveThriftServer** 입니다. | 예 |
+| 포트 | Hive 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 예 |
+| serverType | Hive 서버의 유형입니다. <br/>허용되는 값은 **HiveServer1**, **HiveServer2**, **HiveThriftServer** 입니다. | 아니요 |
 | thriftTransportProtocol | Thrift 계층에서 사용할 전송 프로토콜입니다. <br/>허용되는 값은 **Binary**, **SASL**, **HTTP** 입니다. | 예 |
-| authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용 되는 값은 **Anonymous**, **Username**, **UsernameAndPassword**, **windowsazurehdinsightservice입니다.** 입니다. Kerberos 인증은 지금은 지원 되지 않습니다. | Yes |
-| serviceDiscoveryMode | true이면 ZooKeeper 서비스 사용을 나타내고, false이면 그렇지 않습니다.  | 예 |
-| zooKeeperNameSpace | ZooKeeper에서 Hive 서버 2 노드가 추가되는 네임스페이스입니다.  | 예 |
-| useNativeQuery | 드라이버가 네이티브 HiveQL 쿼리를 사용 하는지 여부를 지정 하거나 HiveQL에서 해당 형식으로 변환 합니다.  | 예 |
+| authenticationType | Hive 서버에 액세스하는 데 사용되는 인증 방법입니다. <br/>허용 되는 값은 **Anonymous**, **Username**, **UsernameAndPassword**, **windowsazurehdinsightservice입니다.** 입니다. Kerberos 인증은 지금은 지원 되지 않습니다. | 예 |
+| serviceDiscoveryMode | true이면 ZooKeeper 서비스 사용을 나타내고, false이면 그렇지 않습니다.  | 아니요 |
+| zooKeeperNameSpace | ZooKeeper에서 Hive 서버 2 노드가 추가되는 네임스페이스입니다.  | 아니요 |
+| useNativeQuery | 드라이버가 네이티브 HiveQL 쿼리를 사용 하는지 여부를 지정 하거나 HiveQL에서 해당 형식으로 변환 합니다.  | 아니요 |
 | 사용자 이름 | Hive 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
 | password | 사용자에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | httpPath | Hive 서버에 해당하는 부분 URL입니다.  | 예 |
-| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 false입니다.  | 예 |
-| trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용할 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 예 |
-| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
-| allowHostNameCNMismatch | TLS를 통해 연결할 때 CA에서 발급 한 TLS/SSL 인증서 이름이 서버의 호스트 이름과 일치 하도록 할지 여부를 지정 합니다. 기본값은 false입니다.  | 예 |
+| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 false입니다.  | 아니요 |
+| trustedCertPath | TLS를 통해 연결할 때 서버를 확인 하는 데 사용할 신뢰할 수 있는 CA 인증서를 포함 하는 pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 TLS를 사용 하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
+| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
+| allowHostNameCNMismatch | TLS를 통해 연결할 때 CA에서 발급 한 TLS/SSL 인증서 이름이 서버의 호스트 이름과 일치 하도록 할지 여부를 지정 합니다. 기본값은 false입니다.  | 아니요 |
 | allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 | storageReference | 매핑 데이터 흐름에서 데이터를 준비 하는 데 사용 되는 저장소 계정의 연결 된 서비스에 대 한 참조입니다. 이는 데이터 흐름 매핑에 Hive 연결 된 서비스를 사용 하는 경우에만 필요 합니다. | 예 |
@@ -178,8 +178,8 @@ Hive 커넥터는 데이터 흐름 매핑에서 [인라인 데이터 집합](dat
 | 쿼리 | Format이 이면 `query` Hive 연결 된 서비스에 대 한 원본 쿼리 | 예, 형식이 인 경우 `query` | String | Query |
 | 상태의 | Hive 테이블은 항상 준비 됩니다. | 예 | `true` | 상태의 |
 | 스토리지 컨테이너 | Hive에서 읽거나 Hive에 쓰기 전에 데이터를 준비 하는 데 사용 되는 저장소 컨테이너입니다. Hive 클러스터에는이 컨테이너에 대 한 액세스 권한이 있어야 합니다. | 예 | String | storageContainer |
-| 준비 데이터베이스 | 연결 된 서비스에 지정 된 사용자 계정에 액세스할 수 있는 스키마/데이터베이스입니다. 준비 후에 외부 테이블을 만드는 데 사용 되며 나중에 삭제 됩니다. | 아니요 | `true` 또는 `false` | stagingDatabaseName |
-| SQL 스크립트 이전 | 데이터를 읽기 전에 Hive 테이블에서 실행 하는 SQL 코드 | 아니요 | String | 보도 Qls |
+| 준비 데이터베이스 | 연결 된 서비스에 지정 된 사용자 계정에 액세스할 수 있는 스키마/데이터베이스입니다. 준비 후에 외부 테이블을 만드는 데 사용 되며 나중에 삭제 됩니다. | no | `true` 또는 `false` | stagingDatabaseName |
+| SQL 스크립트 이전 | 데이터를 읽기 전에 Hive 테이블에서 실행 하는 SQL 코드 | no | String | 보도 Qls |
 
 #### <a name="source-example"></a>원본 예제
 

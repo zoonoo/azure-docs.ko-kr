@@ -4,10 +4,10 @@ description: Azure VMware Solution 리소스 공급자를 등록하는 단계입
 ms.topic: include
 ms.date: 02/17/2021
 ms.openlocfilehash: d2363ca2672f7f668d8f9b3816447f316d8b7347
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555820"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->

@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
 ms.openlocfilehash: 3ec94543a53e3e5b7709801de8f4cf1dde3fc3d9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99428118"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>토큰 수명 정책 구성 (미리 보기)
@@ -25,7 +25,7 @@ Microsoft id 플랫폼에서 발급 한 액세스, SAML 또는 ID 토큰의 수�
 
 이 섹션에서는 토큰 수명에 대 한 새 규칙을 적용 하는 데 도움이 될 수 있는 일반적인 정책 시나리오를 안내 합니다. 예제에서는 사용자가 웹 앱에서 더 자주 인증 하도록 요구 하는 정책을 만드는 방법에 대해 알아봅니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 시작하려면 다음 단계를 수행합니다.
 
 1. 최신 [AZURE AD PowerShell 모듈 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview)를 다운로드 합니다.
