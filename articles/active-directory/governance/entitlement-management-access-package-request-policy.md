@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102426963"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 변경 요청 설정
@@ -43,9 +43,9 @@ ms.locfileid: "102426963"
 | --- | --- |
 | 내 디렉터리의 모든 사용자에 게 액세스 패키지에 대 한 동일한 요청 및 승인 설정을 포함 하려고 합니다. | 하나 |
 | 연결 된 특정 조직의 모든 사용자가 액세스 패키지를 요청할 수 있도록 하려고 합니다. | 하나 |
-| 내 디렉터리의 사용자와 내 디렉터리의 사용자가 액세스 패키지를 요청 하도록 허용 합니다. | 여러 |
-| 일부 사용자에 대해 다른 승인 설정을 지정 하려고 합니다. | 여러 |
-| 일부 사용자가 패키지 할당을 액세스 하 여 다른 사용자가 액세스를 확장할 수 있도록 하려고 합니다. | 여러 |
+| 내 디렉터리의 사용자와 내 디렉터리의 사용자가 액세스 패키지를 요청 하도록 허용 합니다. | 여러 접두사 |
+| 일부 사용자에 대해 다른 승인 설정을 지정 하려고 합니다. | 여러 접두사 |
+| 일부 사용자가 패키지 할당을 액세스 하 여 다른 사용자가 액세스를 확장할 수 있도록 하려고 합니다. | 여러 접두사 |
 
 여러 정책이 적용 될 때 사용 되는 우선 순위 논리에 대 한 자세한 내용은 [여러 정책](entitlement-management-troubleshoot.md#multiple-policies
 )을 참조 하세요.

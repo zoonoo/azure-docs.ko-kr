@@ -12,10 +12,10 @@ ms.date: 09/27/2019
 ms.author: kenwith
 ms.reviewer: arvindh
 ms.openlocfilehash: 0d3f1cab0637c7409cbc45f4f5a5374b2b5b6a77
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99259256"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
@@ -72,5 +72,5 @@ Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 �
 ## <a name="next-steps"></a>다음 단계
 
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
-* [Single Sign-On 이란?](what-is-single-sign-on.md)
+* [Single Sign-On이란?](what-is-single-sign-on.md)
 * [애플리케이션과 Azure Active Directory 통합 시작 가이드](plan-an-application-integration.md)

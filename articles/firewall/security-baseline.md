@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: f7766b57b5a3b9ffc73691303b5d8bcaa63fce4c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721670"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Azure 방화벽에 대 한 azure 보안 기준
@@ -546,7 +546,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 Azure 방화벽 리
 
 **지침**: 비즈니스 운영에 필요할 수 있는 응용 프로그램 또는 조직에 대 한 위험 프로필이 다른 환경을 격리 하 고 별도의 Azure 방화벽 인스턴스와 분리 해야 합니다.
 
-- [Azure Portal을 사용하여 Azure Firewall 배포 및 구성](deploy-cli.md)
+- [Azure Portal를 사용 하 여 Azure 방화벽 배포 및 구성](deploy-cli.md)
 
 - [가상 네트워크를 만드는 방법](../virtual-network/quick-create-portal.md)
 

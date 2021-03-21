@@ -10,10 +10,10 @@ ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 32b4cf1555a2d0e074ae1551a5c0085f2758fa2b
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102609144"
 ---
 # <a name="shared-image-galleries-overview"></a>공유 이미지 갤러리 개요
@@ -35,7 +35,7 @@ Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하�
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다.
 
-| 리소스 | 설명|
+| 리소스 | Description|
 |----------|------------|
 | **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전** 을 만드는 데 사용할 수 있는 리소스입니다. 이미지 소스는 [일반화 또는 특수화](#generalized-and-specialized-images)된 기존 Azure VM, 관리형 이미지, 스냅샷, VHD 또는 다른 이미지 갤러리의 이미지 버전일 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리** 는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |

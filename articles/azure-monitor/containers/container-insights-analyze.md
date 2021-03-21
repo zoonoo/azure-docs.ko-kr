@@ -4,10 +4,10 @@ description: 이 문서에서는 컨테이너 정보를 사용 하 여 Kubernete
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102124315"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>컨테이너 정보를 사용 하 여 Kubernetes 클러스터 성능 모니터링
@@ -71,17 +71,17 @@ Azure Monitor는 구독에서 리소스 그룹에 배포 된 Linux 및 Windows S
 |**사용자 pod**| | |
 | |정상 |100% |
 | |경고 |90-99% |
-| |중요 |<90% |
+| |위험 |<90% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**시스템 pod**| | |
 | |정상 |100% |
-| |경고 |N/A |
-| |중요 |<100% |
+| |경고 |해당 없음 |
+| |위험 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 |**Node** | | |
 | |정상 |>85% |
 | |경고 |60 - 84% |
-| |중요 |<60% |
+| |위험 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
 클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 **선택 합니다.** 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.

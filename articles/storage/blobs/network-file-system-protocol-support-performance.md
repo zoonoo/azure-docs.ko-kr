@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 28fb5ffc0ce9c554294eaca9e460694856cb95a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614329"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589874"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>NFS (네트워크 파일 시스템) 3.0 Azure Blob storage의 성능 고려 사항 (미리 보기)
 
@@ -46,7 +46,7 @@ Azure Blob Storage 최대 저장소 계정 송신 및 수신 제한에 도달할
 > [!div class="mx-imgBorder"]
 > ![상대적 성능](./media/network-file-system-protocol-support-performance/relative-performance.png)
 
-## <a name="avoid-frequent-overwrites-on-date"></a>자주 덮어쓰는 일을 방지 합니다.
+## <a name="avoid-frequent-overwrites-on-data"></a>데이터에 대 한 자주 덮어쓰기 방지
 
 새 쓰기 작업 보다는 덮어쓰기 작업을 완료 하는 데 시간이 더 오래 걸립니다. NFS 덮어쓰기 작업, 특히 부분 내부 파일 편집은 몇 가지 기본 blob 작업 (읽기, 수정 및 쓰기 작업)의 조합 이기 때문입니다. 그러므로 자주 사용 하는 편집이 필요한 응용 프로그램은 NFS 사용 blob storage 계정에 적합 하지 않습니다. 
 

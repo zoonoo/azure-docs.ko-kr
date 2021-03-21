@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/15/2021
 ms.author: zarhoads
 ms.openlocfilehash: 4f5232920853908aa5ad714313ead201494caa0d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493082"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>빠른 시작: 투구를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
@@ -19,7 +19,7 @@ ms.locfileid: "103493082"
 
 이 빠른 시작에서는 AKS에서 응용 프로그램을 패키지 하 고 실행 하는 투구를 사용 합니다. 투구를 사용 하 여 기존 응용 프로그램을 설치 하는 방법에 대 한 자세한 내용은 AKS 방법 가이드 [에서 기존 응용 프로그램을 투구와 함께 설치][helm-existing] 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli)

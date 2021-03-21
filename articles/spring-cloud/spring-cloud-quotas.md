@@ -8,10 +8,10 @@ ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: b02ccb3acb4546e08e7d58159ab9d85bca2d0eed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711878"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 할당량 및 서비스 계획
@@ -22,7 +22,7 @@ ms.locfileid: "101711878"
 
 ## <a name="azure-spring-cloud-service-tiers-and-limits"></a>Azure 스프링 클라우드 서비스 계층 및 제한
 
-| 리소스 | Scope | Basic | Standard
+| 리소스 | 범위 | Basic | Standard
 ------- | ------- | -------
 vCPU | 앱 인스턴스당 | 1 | 4
 메모리 | 앱 인스턴스당 | 2GB | 8GB

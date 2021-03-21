@@ -4,10 +4,10 @@ description: Application Insights 리소스 및 Azure 구독 전체에서 단일
 ms.topic: conceptual
 ms.date: 02/8/2021
 ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101714054"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>가동 중지 시간, SLA 및 중단 통합 문서

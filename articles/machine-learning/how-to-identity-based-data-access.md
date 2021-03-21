@@ -12,10 +12,10 @@ ms.reviewer: nibaccam
 ms.date: 02/22/2021
 ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 ms.openlocfilehash: 68d07481e228b1d1b2f4571a783f925add261cff
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102520016"
 ---
 # <a name="connect-to-storage-with-identity-based-data-access-preview"></a>Id 기반 데이터 액세스를 사용 하 여 저장소에 연결 (미리 보기)
@@ -57,7 +57,7 @@ Id 기반 데이터 액세스를 사용 하는 경우 데이터 저장소에 자
 특정 기계 학습 시나리오는 개인 데이터를 포함 하는 학습 모델을 포함 합니다. 이러한 경우 데이터 과학자는 기밀 입력 데이터를 노출 하지 않고 학습 워크플로를 실행 해야 합니다. 이 시나리오에서는 데이터 액세스 인증에 학습 계산의 관리 id가 사용 됩니다. 이러한 방식으로 저장소 관리자는 교육 계산에서 개별 데이터 과학자 아니라 교육 작업을 실행 하는 데 사용 하는 관리 id에 **저장소 Blob 데이터 판독기** 액세스 권한을 부여할 수 있습니다. [계산에서 관리 id를 설정](how-to-create-attach-compute-cluster.md#managed-identity)하는 방법에 대해 알아봅니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 

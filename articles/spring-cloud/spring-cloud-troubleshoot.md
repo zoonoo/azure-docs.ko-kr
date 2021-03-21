@@ -8,10 +8,10 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: 7c4dbeae0cfb76063fdca70b3ad1d264b59f9ace
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634246"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
@@ -172,7 +172,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 > [!WARNING]
 > 이 프로시저는 테스트 끝점을 사용 하 여 환경 변수를 노출 합니다.  테스트 엔드포인트에 공개적으로 액세스할 수 있거나 애플리케이션에 도메인 이름을 할당한 경우에는 더이상 진행하지 마십시오.
 
-1. [https://editor.swagger.io](`https://<your application test endpoint>/actuator/health`) 로 이동합니다.  
+1. `https://<your application test endpoint>/actuator/health`로 이동합니다.  
     - `{"status":"UP"}`과 유사한 응답은 엔드포인트가 사용하도록 설정되었음을 나타냅니다.
     - 응답이 음수 이면 *POM.xml* 파일에 다음 종속성을 포함 합니다.
 

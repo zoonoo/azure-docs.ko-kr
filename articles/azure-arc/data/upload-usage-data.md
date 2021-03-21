@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 578f0d1ca742fe4445b8aeed6876d1a73fd3f79e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378121"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669511"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Azure Monitor에 사용 현황 데이터 업로드
 
@@ -36,7 +36,7 @@ ms.locfileid: "92378121"
 * [서비스 주체를 만듭니다](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 * [서비스 사용자에 게 역할 할당](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
-## <a name="upload-usage-data"></a>사용 현황 데이터 업로드
+## <a name="upload-usage-data"></a>사용량 데이터 업로드
 
 인벤토리 및 리소스 사용량과 같은 사용 정보는 다음과 같은 두 단계를 통해 Azure에 업로드할 수 있습니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "92378121"
 
 일정에 따라 메트릭과 로그를 업로드 하려는 경우 몇 분 마다 스크립트를 만들어 타이머에서 실행할 수 있습니다. 다음은 Linux shell 스크립트를 사용 하 여 업로드를 자동화 하는 예제입니다.
 
-자주 사용 하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가 하 고 스크립트 실행 파일 (예: sh (Linux/Mac) 또는 .cmd, .bat, ps1)로 저장 합니다.
+자주 사용 하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가 하 고 `.sh` (Linux/Mac) 또는, 또는와 같은 스크립트 실행 파일로 `.cmd` 저장 `.bat` `.ps1` 합니다.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

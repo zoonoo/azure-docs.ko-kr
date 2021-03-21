@@ -10,44 +10,44 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 83c5595dc64b46e1c30f3c36866e0efbbd8d3c7f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27cc53c3eef1bb2a9962d2c21ae80db3c8b0383d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674138"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585437"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL을 사용 하 여 테이블 디자인
 
 이 문서에는 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀을 사용 하 여 테이블을 디자인 하기 위한 주요 개념이 포함  
 
-서버를 사용 하지 않는 [SQL 풀](on-demand-workspace-overview.md) 은 data lake의 데이터에 대 한 쿼리 서비스입니다. 데이터 수집을 위한 로컬 저장소가 없습니다. [전용 sql 풀](best-practices-sql-pool.md) 은 Synapse sql을 사용 하는 경우 프로 비전 되는 분석 리소스의 컬렉션을 나타냅니다. 전용 SQL 풀의 크기는 DWU(Data Warehousing Unit)로 결정됩니다.
+서버를 사용 하지 않는 [SQL 풀](on-demand-workspace-overview.md) 은 data lake의 데이터에 대 한 쿼리 서비스입니다. 데이터 수집을 위한 로컬 저장소가 없습니다. [전용 sql 풀](best-practices-dedicated-sql-pool.md) 은 Synapse sql을 사용 하는 경우 프로 비전 되는 분석 리소스의 컬렉션을 나타냅니다. 전용 SQL 풀의 크기는 DWU(Data Warehousing Unit)로 결정됩니다.
 
 다음 표에서는 전용 SQL 풀 및 서버를 사용 하지 않는 SQL 풀과 관련 된 항목을 보여 줍니다.
 
 | 항목                                                        | 전용 SQL 풀 | 서버리스 SQL 풀 |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [테이블 범주 확인](#determine-table-category)        | 예                | 예                      |
+| [테이블 범주 확인](#determine-table-category)        | 예                | 아니요                      |
 | [스키마 이름](#schema-names)                                | 예                | 예                     |
-| [테이블 이름](#table-names)                                  | 예                | 예                      |
-| [테이블 지속성](#table-persistence)                      | 예                | 예                      |
-| [일반 테이블](#regular-table)                              | 예                | 예                      |
+| [테이블 이름](#table-names)                                  | 예                | 아니요                      |
+| [테이블 지속성](#table-persistence)                      | 예                | 아니요                      |
+| [일반 테이블](#regular-table)                              | 예                | 아니요                      |
 | [임시 테이블](#temporary-table)                          | 예                | 예                     |
 | [외부 테이블](#external-table)                            | 예                | 예                     |
 | [데이터 형식](#data-types)                                    | 예                | 예                     |
-| [분산 테이블](#distributed-tables)                    | 예                | 예                      |
-| [해시 분산 테이블](#hash-distributed-tables)          | 예                | 예                      |
-| [복제된 테이블](#replicated-tables)                      | 예                | 예                      |
-| [라운드 로빈 테이블](#round-robin-tables)                    | 예                | 예                      |
-| [테이블에 대한 일반적인 분산 방법](#common-distribution-methods-for-tables) | 예                | 예                      |
+| [분산 테이블](#distributed-tables)                    | 예                | 아니요                      |
+| [해시 분산 테이블](#hash-distributed-tables)          | 예                | 아니요                      |
+| [복제된 테이블](#replicated-tables)                      | 예                | 아니요                      |
+| [라운드 로빈 테이블](#round-robin-tables)                    | 예                | 아니요                      |
+| [테이블에 대한 일반적인 분산 방법](#common-distribution-methods-for-tables) | 예                | 아니요                      |
 | [파티션](#partitions)                                    | 예                | 예                     |
-| [columnstore 인덱스](#columnstore-indexes)                  | 예                | 예                      |
+| [columnstore 인덱스](#columnstore-indexes)                  | 예                | 아니요                      |
 | [통계](#statistics)                                    | 예                | 예                     |
-| [기본 키 및 고유 키](#primary-key-and-unique-key)    | 예                | 예                      |
-| [테이블을 만드는 명령](#commands-for-creating-tables) | 예                | 예                      |
-| [원본 데이터를 데이터 웨어하우스에 맞춤](#align-source-data-with-the-data-warehouse) | 예                | 예                      |
-| [지원 되지 않는 테이블 기능](#unsupported-table-features)    | 예                | 예                      |
-| [테이블 크기 쿼리](#table-size-queries)                    | 예                | 예                      |
+| [기본 키 및 고유 키](#primary-key-and-unique-key)    | 예                | 아니요                      |
+| [테이블을 만드는 명령](#commands-for-creating-tables) | 예                | 아니요                      |
+| [원본 데이터를 데이터 웨어하우스에 맞춤](#align-source-data-with-the-data-warehouse) | 예                | 아니요                      |
+| [지원 되지 않는 테이블 기능](#unsupported-table-features)    | 예                | 아니요                      |
+| [테이블 크기 쿼리](#table-size-queries)                    | 예                | 아니요                      |
 
 ## <a name="determine-table-category"></a>테이블 범주 확인
 
@@ -115,7 +115,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 전용 SQL 풀의 기본 기능은 [배포](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions)를 통해 테이블에 저장 하 고 작업할 수 있는 방법입니다.  전용 SQL 풀은 데이터를 배포 하는 세 가지 방법을 지원 합니다.
 
 - 라운드 로빈(기본값)
-- Hash
+- 해시
 - 복제됨
 
 ### <a name="hash-distributed-tables"></a>해시 분산 테이블

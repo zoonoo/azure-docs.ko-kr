@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 3/5/2021
 ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556539"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
@@ -75,7 +75,7 @@ az aks create \
 - "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"을 사용 하려면 azure global cloud에 대 한 사설 DNS 영역을이 형식으로 만들어야 `privatelink.<region>.azmk8s.io` 합니다. 앞으로 사설 DNS 영역의 리소스 Id가 필요 합니다.  또한 최소한의 역할을 가진 사용자 할당 id 또는 서비스 주체가 필요 합니다 `private dns zone contributor` .
 - "fqdn-하위 도메인"은 "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"와 함께 사용 하 여 하위 도메인 기능을 제공할 수 있습니다. `privatelink.<region>.azmk8s.io`
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 * AKS Preview 버전 0.5.3 이상
 * Api 버전 2020-11-01 이상

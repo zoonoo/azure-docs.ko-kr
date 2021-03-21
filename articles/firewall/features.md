@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: victorh
 ms.openlocfilehash: 21bb1856409b7fbea1eeffb8b3769dd63119da50
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612850"
 ---
 # <a name="azure-firewall-features"></a>Azure Firewall 기능
@@ -36,7 +36,7 @@ Azure 방화벽에는 다음과 같은 기능이 포함 되어 있습니다.
 - Azure Monitor 로깅
 - 강제 터널링
 - 웹 범주 (미리 보기)
-- 인증서
+- 인증
 
 ## <a name="built-in-high-availability"></a>기본 제공되는 고가용성
 

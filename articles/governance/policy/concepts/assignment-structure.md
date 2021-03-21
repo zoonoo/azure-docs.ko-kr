@@ -1,14 +1,14 @@
 ---
 title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581948"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604868"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -67,7 +67,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|모드 |JSON 값 |유형 |수동으로 재구성 |활동 로그 항목 |설명 |
+|Mode |JSON 값 |Type |수동으로 재구성 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
 |사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
 |사용 안 함 |DoNotEnforce |문자열 |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
@@ -89,6 +89,9 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 ## <a name="non-compliance-messages"></a>비호환 메시지
 
 리소스가 정책 또는 이니셔티브 정의와 호환 되지 않는 이유를 설명 하는 사용자 지정 메시지를 설정 하려면 `nonComplianceMessages` 할당 정의에서를 설정 합니다. 이 노드는 항목의 배열입니다 `message` . 이 사용자 지정 메시지는 비준수에 대 한 기본 오류 메시지 외에도 선택적입니다.
+
+> [!IMPORTANT]
+> 비호환에 대 한 사용자 지정 메시지는 [리소스 관리자 모드](./definition-structure.md#resource-manager-modes) 정의를 사용 하는 정의 또는 이니셔티브 에서만 지원 됩니다.
 
 ```json
 "nonComplianceMessages": [

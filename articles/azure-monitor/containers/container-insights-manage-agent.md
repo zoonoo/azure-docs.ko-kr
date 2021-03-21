@@ -4,10 +4,10 @@ description: 이 문서에서는 컨테이너 insights에서 사용 하는 컨�
 ms.topic: conceptual
 ms.date: 07/21/2020
 ms.openlocfilehash: 2a0c32ef797a953eca794e16fe0ace5e967f339f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713799"
 ---
 # <a name="how-to-manage-the-container-insights-agent"></a>컨테이너 insights 에이전트를 관리 하는 방법

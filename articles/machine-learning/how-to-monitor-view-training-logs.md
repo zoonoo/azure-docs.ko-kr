@@ -12,10 +12,10 @@ ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 47531da9c1e508281a57074df7aa10ffffe78810
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518741"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
@@ -127,7 +127,7 @@ metrics.get('metric-name')
 
 #### <a name="azureml-logs-folder"></a>`azureml-logs` 폴더
 
-|파일  |Description  |
+|파일  |설명  |
 |---------|---------|
 |20_image_build_log.txt     | 훈련 환경에 대 한 Docker 이미지 빌드 로그 (선택 사항, 실행 당 하나) 환경을 업데이트할 때만 적용 됩니다. 그렇지 않으면 AML에서 캐시 된 이미지를 다시 사용 합니다. 성공 하는 경우 해당 이미지에 대 한 이미지 레지스트리 세부 정보를 포함 합니다.         |
 |55_azureml 실행-<node_id # C1.txt     | 호스트 도구의 stdout/stderr 로그가 노드당 하나입니다. 이미지를 계산 대상으로 끌어옵니다. 이 로그는 계산 리소스를 보호 한 경우에만 표시 됩니다.         |
@@ -140,7 +140,7 @@ metrics.get('metric-name')
 
 #### <a name="logs--azureml-folder"></a>`logs > azureml` 폴더
 
-|파일  |Description  |
+|파일  |설명  |
 |---------|---------|
 |110_azureml .log      |         |
 |job_prep_azureml .log     |   작업 준비에 대 한 시스템 로그        |
@@ -150,7 +150,7 @@ metrics.get('metric-name')
 
 사이드카를 사용 하도록 설정 하면 사이드카 컨테이너 내에서 작업 준비 및 작업 해제 스크립트가 실행 됩니다.  각 노드에 대해 하나의 폴더가 있습니다. 
 
-|파일  |Description  |
+|파일  |설명  |
 |---------|---------|
 |start_cms.txt     |  사이드카 컨테이너가 시작 될 때 시작 되는 프로세스의 로그       |
 |prep_cmd.txt      |   가 실행 될 때 입력 한 ContextManagers 로그 `job_prep.py` (이 중 일부는로 스트리밍 됨 `azureml-logs/65-job_prep` )       |

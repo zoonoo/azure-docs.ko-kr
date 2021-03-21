@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
 ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721262"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Azure Monitor 로그 설정 및 Azure Logic Apps에 대 한 진단 데이터 수집
@@ -21,7 +21,7 @@ ms.locfileid: "101721262"
 
 이 문서에서는 새 논리 앱과 기존 논리 앱에 대 한 Log Analytics를 사용 하도록 설정 하는 방법, Logic Apps 관리 솔루션을 설치 및 설정 하는 방법, Azure Monitor 로그에 대 한 쿼리를 설정 하 고 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 [Log Analytics 작업 영역이](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)필요 합니다. 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/logs/quick-create-workspace.md)에 대해 알아봅니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "101721262"
 
    1. 완료되면 **저장** 을 선택합니다.
 
-   다음은 그 예입니다. 
+   예를 들면 다음과 같습니다.
 
    ![로깅에 대한 Log Analytics 작업 영역 및 데이터 선택](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -178,7 +178,7 @@ Azure Monitor 로그를 사용 하 여 논리 앱의 진단 데이터를 다른 
 * [스토리지 계정에 Azure 리소스 로그 보관](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 * [Azure 플랫폼 로그를 Azure Event Hubs로 스트림](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/visualize/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 다음은 그 예입니다. 
+그런 다음 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 및 [Power BI](../azure-monitor/visualize/powerbi.md)와 같은 다른 서비스의 원격 분석 및 분석을 사용하여 실시간으로 모니터링할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * [Event Hub에서 Stream Analytics로 데이터 스트림](../stream-analytics/stream-analytics-define-inputs.md)
 * [Stream Analytics를 사용하여 스트리밍 데이터 분석 및 Power BI에서 실시간 분석 대시보드 만들기](../stream-analytics/stream-analytics-power-bi-dashboard.md)

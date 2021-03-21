@@ -7,10 +7,10 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: f0bf28d61d4c9ad95a485fb4b60e370c16ace16c
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100633328"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합
@@ -36,7 +36,7 @@ Red Hat OpenShift Microsoft Azure 클러스터 대신 작업을 수행할 수 �
 1. [사용자-모든 사용자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 블레이드로 이동 합니다.
 2. **+ 새 사용자** 를 클릭 하 여 **사용자** 창을 엽니다.
 3. 이 사용자의 **이름을** 입력 합니다.
-4. 만든 테 넌 트의 이름을 기준으로 **사용자 이름을** 만들고  `.onmicrosoft.com` 끝에를 추가 합니다. 예들 들어 `yourUserName@yourTenantName.onmicrosoft.com`입니다. 이 사용자 이름을 적어 씁니다. 클러스터에 로그인 하는 데 필요 합니다.
+4. 만든 테 넌 트의 이름을 기준으로 **사용자 이름을** 만들고  `.onmicrosoft.com` 끝에를 추가 합니다. 예: `yourUserName@yourTenantName.onmicrosoft.com` 이 사용자 이름을 적어 씁니다. 클러스터에 로그인 하는 데 필요 합니다.
 5. 디렉터리 **역할** 을 클릭 하 여 디렉터리 역할 창을 열고 **소유자** 를 선택한 다음 창 맨 아래에서 **확인** 을 클릭 합니다.
 6. **사용자** 창에서 **암호 표시** 를 클릭 하 고 임시 암호를 기록 합니다. 처음 로그인 하면 다시 설정 하 라는 메시지가 표시 됩니다.
 7. 창 맨 아래에서 **만들기** 를 클릭 하 여 사용자를 만듭니다.

@@ -1,22 +1,22 @@
 ---
 title: Azure Kinect 센서 SDK 시스템 요구 사항
 description: Windows 및 Linux에서 Azure Kinect 센서 SDK에 대 한 시스템 요구 사항을 이해 합니다.
-author: tesych
-ms.author: tesych
+author: qm13
+ms.author: quentinm
 ms.custom:
 - CI 115266
 - CSSTroubleshooting
 manager: dcscontentpm
 ms.prod: kinect-dk
-ms.date: 03/12/2020
+ms.date: 03/05/2021
 ms.topic: article
 keywords: azure, kinect, 시스템 요구 사항, CPU, GPU, USB, 설정, 설정, 최소, 요구 사항
-ms.openlocfilehash: 5cf313114b62532ee3f2b3d7a5142f79218954c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 558c1b9ca264874fa808aeba5f1e8a809a8f722d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277076"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656977"
 ---
 # <a name="azure-kinect-sensor-sdk-system-requirements"></a>Azure Kinect 센서 SDK 시스템 요구 사항
 
@@ -52,7 +52,7 @@ Windows/Linux 운영 체제와 사용 중인 그래픽 드라이버 사이에도
 
 - 일곱 번째 Gen Intel &reg; coretm I5 프로세서 (쿼드 코어 2.4 g h z 이상)
 - 4gb 메모리
-- NVIDIA GEFORCE GTX 1070 이상
+- NVIDIA GEFORCE GTX 1050 또는 동급
 - 전용 USB3 포트
 
 권장 되는 최소 구성은 30fps 추적 5 명에서 K4A_DEPTH_MODE_NFOV_UNBINNED 깊이 모드를 가정 합니다. 사용 사례에 따라 낮은 종료 Cpu 및 NVIDIA Gpu도 작동할 수 있습니다.

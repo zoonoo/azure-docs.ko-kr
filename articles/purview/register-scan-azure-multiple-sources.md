@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
 ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102123567"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Azure 여러 소스 등록 및 검색
@@ -22,7 +22,7 @@ ms.locfileid: "102123567"
 
 Azure 다중 소스는 부서의 범위에서 지 원하는 대부분의 Azure 리소스 유형에 대 한 메타 데이터 및 스키마를 캡처하기 위한 검색을 지원 합니다. 또한 시스템 및 사용자 지정 분류 규칙을 기반으로 데이터를 자동으로 분류 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 데이터 원본을 등록 하기 전에 Azure 부서의 범위 계정을 만듭니다. 부서의 범위 계정을 만드는 방법에 대 한 자세한 내용은 [빠른 시작: Azure 부서의 범위 계정 만들기](create-catalog-portal.md)를 참조 하세요.
 - Azure 부서의 범위 데이터 원본 관리자 여야 합니다.

@@ -5,14 +5,14 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 03/16/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3f8f7744e07abb56d825ce44d5bb30190e7e87c4
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f632c916c3de61b94532e96be23da511ad5863ea
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020420"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593036"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics에서 자주 발생하는 거래 시뮬레이션
 SQL 언어와 JavaScript UDF(사용자 정의 함수) 및 UDA(사용자 정의 집계)를 Azure Stream Analytics에 결합하면 사용자가 고급 분석을 수행할 수 있습니다. 고급 분석에는 온라인 기계 학습 교육 및 점수 매기기와 상태 저장 프로세스 시뮬레이션이 포함될 수 있습니다. 이 문서는 자주 발생하는 거래 시나리오에서 연속 학습 및 평가를 수행하는 Azure Stream Analytics 작업에서 선형 회귀를 수행하는 방법을 설명합니다.
@@ -349,7 +349,7 @@ JavaScript UDA는 `init` 함수에서 모든 누적기를 초기화하고, 모�
 - 매도 신호가 발생하고 보유 중인 주식이 있으면 매도합니다.
 - 보유 중인 주식이 없으면 숏 포지션으로 갑니다. 
 
-현재 숏 포지션이고 매수 신호가 발생하면 숏 커버링합니다. 이 시뮬레이션에서는 어떤 경우에도 주식 10주를 보유하거나 공매도하지 않습니다. 거래 비용은 균일하게 $8입니다.
+현재 숏 포지션이고 매수 신호가 발생하면 숏 커버링합니다. 이 시뮬레이션에서 재고의 10 개 공유를 보유 하 고 있습니다. 거래 비용은 균일하게 $8입니다.
 
 ```javascript
 function main() {

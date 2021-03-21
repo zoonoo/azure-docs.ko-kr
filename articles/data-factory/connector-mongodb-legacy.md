@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
 ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100368849"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Azure Data Factory를 사용 하 여 MongoDB에서 데이터 복사 (레거시)
@@ -35,7 +35,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - MongoDB **버전 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6**
 - **Basic** 또는 **Anonymous** 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -53,7 +53,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |형식 속성은 **MongoDb** 로 설정해야 합니다. |Yes |
+| type |형식 속성은 **MongoDb** 로 설정해야 합니다. |예 |
 | 서버 |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 27017) |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
@@ -61,7 +61,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
-| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 false입니다.  | 예 |
+| enableSsl | TLS를 사용 하 여 서버에 대 한 연결을 암호화할지 여부를 지정 합니다. 기본값은 false입니다.  | 아니요 |
 | allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -96,7 +96,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 **MongoDbCollection** 으로 설정해야 합니다. | Yes |
+| type | 데이터 세트의 type 속성을 **MongoDbCollection** 으로 설정해야 합니다. | 예 |
 | collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
 
 **예:**
@@ -183,7 +183,7 @@ MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Az
 | NumberLong |Int64 |
 | ObjectID |String |
 | String |String |
-| UUID |GUID |
+| UUID |Guid |
 | Object |중첩 구분 기호로 "_"를 사용한 평면화된 열에 다시 정규화 |
 
 > [!NOTE]
@@ -200,7 +200,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 가상 테이블은 실제 테이블의 데이터를 나타내며, 드라이버가 정규화되지 않은 데이터에 액세스할 수 있도록 합니다. 가상 테이블을 쿼리 및 조인하여 MongoDB 배열의 콘텐츠에 액세스할 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 예를 들어 여기 ExampleTable은 MongoDB 테이블로, 각 셀의 개체 배열이 있는 하나의 열(송장)과 스칼라 형식의 배열이 있는 하나의 열(등급)이 있습니다.
 

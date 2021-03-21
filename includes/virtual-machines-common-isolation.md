@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: virtual-machines
 author: rishabv90
 ms.service: virtual-machines
@@ -9,10 +9,10 @@ ms.date: 11/05/2020
 ms.author: risverma
 ms.custom: include file
 ms.openlocfilehash: fc61c111291f9862f71f9a81828fa0fa828ab2ad
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510801"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다. 격리 된 크기는 라이브 및 특정 하드웨어 생성에 대해 작동 하며 하드웨어 생성이 사용 중지 되 면 사용 되지 않습니다.
@@ -69,7 +69,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>Q: D15_v2 또는 DS15_v2 격리 사용 중지에 대 한 마일스 톤은 무엇 인가요? 
 **A**: 
  
-| Date | 작업 |
+| 날짜 | 작업 |
 |---|---| 
 | 5 월 15 일, 2020<sup>1</sup> | D/DS15_v2 격리 사용 중지 알림| 
 | 5 월 15 일, 2021 | D/DS15_v2 격리 보장 제거| 
@@ -79,7 +79,7 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 ### <a name="q-what-are-the-milestones-for-g5-gs5-e64i_v3-and-e64is_v3-isolation-retirement"></a>Q: G5, Gs5, E64i_v3 및 E64is_v3 격리 사용 중지에 대 한 마일스 톤은 무엇 인가요? 
 **A**: 
  
-| Date | 작업 |
+| 날짜 | 작업 |
 |---|---|
 | 2 월 15 일, 2021<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 격리 사용 중지 알림 |
 | 2 월 15 일 2022 | G5/GS5/E64i_v3/E64is_v3 격리 보장 제거 됨 |

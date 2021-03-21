@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711946"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
@@ -24,7 +24,7 @@ Site Recovery의 기능은 다음과 같습니다.
 
 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 SAP NetWeaver 응용 프로그램 배포를 보호할 수 있습니다. 이 문서에서는 Site Recovery를 사용 하 여 다른 Azure 데이터 센터에 복제 하는 경우 Azure에서 3 계층 SAP NetWeaver 배포를 보호 하기 위한 모범 사례를 설명 합니다. 이 문서에서는 지원 되는 시나리오 및 구성을 설명 하 고 테스트 장애 조치 (failover) 및 실제 장애 조치 (failover)를 수행 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -150,7 +150,7 @@ Site Recovery를 사용 하 여 Azure 지역에서 전체 SAP 배포의 장애 �
 
 1. Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 1. SAP 애플리케이션용으로 생성한 복구 계획을 선택합니다.
-1. **테스트 장애 조치** 를 선택합니다.
+1. **테스트 장애 조치 (Failover)** 를 선택 합니다.
 1. 테스트 장애 조치(failover) 프로세스를 시작하려면 복구 지점과 Azure 가상 네트워크를 선택합니다.
 1. 보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
 1. 유효성 검사가 완료 되 면 **테스트 장애 조치 정리** 를 선택 하 여 장애 조치 (failover) 환경을 정리 합니다.

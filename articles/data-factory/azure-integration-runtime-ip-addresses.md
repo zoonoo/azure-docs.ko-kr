@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ms.openlocfilehash: 7b663c8d6e5849d39bb8366c82f45e0fd66d77dd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371399"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Azure Integration Runtime IP 주소
@@ -27,7 +27,7 @@ Azure Integration Runtime 사용 하는 IP 주소는 Azure Integration Runtime�
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime IP 주소: 특정 지역
 
-리소스가 있는 특정 Azure 지역에서 Azure Integration runtime에 대해 나열 된 IP 주소의 트래픽을 허용 합니다. 서비스 태그 [ip 범위 다운로드 링크](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)에서 서비스 태그의 ip 범위 목록을 가져올 수 있습니다. 예를 들어 Azure 지역이 **AustraliaEast** 인 경우 **DATAFACTORY AustraliaEast** 에서 IP 범위 목록을 가져올 수 있습니다.
+리소스가 있는 특정 Azure 지역에서 Azure Integration runtime에 대해 나열 된 IP 주소의 트래픽을 허용 합니다. [서비스 태그 IP 범위 다운로드 링크](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)에서 서비스 태그의 IP 범위 목록을 가져올 수 있습니다. 예를 들어 Azure 지역이 **AustraliaEast** 인 경우 **DATAFACTORY AustraliaEast** 에서 IP 범위 목록을 가져올 수 있습니다.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Azure Storage의 알려진 문제

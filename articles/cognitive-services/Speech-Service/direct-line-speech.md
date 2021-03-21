@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 6eb689c2e93b5a9cac932e428245410ba35e77d6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102611796"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
@@ -41,7 +41,7 @@ ms.locfileid: "102611796"
 | Java | Windows, macOS, Linux | [찾아보기](/java/api/com.microsoft.cognitiveservices.speech) |
 | Java | Android | [찾아보기](/java/api/com.microsoft.cognitiveservices.speech) |
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 몇 가지 인기 있는 프로그래밍 언어로 도우미에 연결 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
 
