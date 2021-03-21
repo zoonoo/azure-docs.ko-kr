@@ -8,10 +8,10 @@ ms.date: 1/28/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 8010581667354f2e8484bc7341227ec41713d10f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99072722"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-original-version-2018"></a>새로운 Azure Digital Twins란? 원래 버전과 어떻게 다른가 (2018)?
@@ -38,7 +38,7 @@ Azure Digital Twins의 첫 번째 공개 미리 보기는 2018년 10월에 릴�
 
 ## <a name="service-limits"></a>서비스 제한
 
-Azure Digital Twins 제한 목록은 [*Azure 디지털 쌍 서비스 제한*](reference-service-limits.md)을 참조 하세요.
+Azure Digital Twins 제한 목록은 [*Azure Digital Twins 서비스 제한*](reference-service-limits.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

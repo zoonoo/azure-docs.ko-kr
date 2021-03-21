@@ -4,10 +4,10 @@ description: 관리 중인 고객 테 넌 트에서 확장 가능한 방식으�
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101742588"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>대규모로 위임 된 리소스 모니터링

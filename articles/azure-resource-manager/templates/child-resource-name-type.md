@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 자식 리�
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: a950d72751b829c0a2aa3ba5ca27316a0544d9cc
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97963915"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>자식 리소스의 이름 및 형식 설정

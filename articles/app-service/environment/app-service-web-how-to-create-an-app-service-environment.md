@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 543050bc899c257c4ad5e0d0c399a1de6f0f58f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005211"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>App Service Environment v1을 만드는 방법 
@@ -36,7 +36,7 @@ ASE(App Service Environment)는 다중 테넌트 증명(stamp)에서 사용할 �
 VNet을 선택하고 서브넷을 지정하는 경우 향후 성장을 수용하기에 충분한지 확인합니다. 
 
 ### <a name="creating-an-app-service-environment-v1"></a>App Service Environment v1 만들기
-App Service Environment v1을 만들려면 ***App Service Environment v1** _에 대 한 Azure Marketplace를 검색 하거나 _ *리소스 만들기**-> 웹 + 모바일 App Service Environment으로 이동할 수 있습니다 **Web + Mobile**  ->  **App Service Environment**. ASE v1을 만들려면 다음을 수행합니다.
+App Service Environment v1을 만들려면 ***App Service Environment v1** _에 대 한 Azure Marketplace를 검색 하거나 _ *리소스 만들기**-> 웹 + 모바일 App Service Environment으로 이동할 수 있습니다   ->  . ASE v1을 만들려면 다음을 수행합니다.
 
 1. ASE의 이름을 제공합니다. 지정한 ASE 이름은 ASE에서 만드는 앱에 사용됩니다. ASE 이름이 appsvcenvdemo인 경우 하위 도메인 이름은 *appsvcenvdemo.p.azurewebsites.net* 입니다. 따라서 *mytestapp* 이라는 앱을 만든 경우 해당 주소는 *mytestapp.appsvcenvdemo.p.azurewebsites.net* 으로 지정될 수 있습니다. ASE의 이름에 공백을 사용할 수 없습니다. 이름에 대문자를 사용한 경우 전체 도메인 이름은 해당 이름의 소문자 버전이 됩니다. ILB를 사용하는 경우 ASE 이름이 하위 도메인에서 사용되지 않는 대신 ASE를 만드는 동안에 명시적으로 지정됩니다.
    

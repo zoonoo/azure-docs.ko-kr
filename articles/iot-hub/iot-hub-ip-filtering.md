@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: jlian
-ms.openlocfilehash: 62292a2ee51f8e1838e9cf3376367a02964cad47
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 2a76cede4bc72da9f30564f98ab9bb84028680f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418745"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581493"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -85,10 +85,6 @@ IP 필터 규칙은 IoT Hub 서비스 수준에 적용됩니다. 따라서 IP �
 IP 필터 규칙은 순서 없이 *허용* 규칙 및 적용 됩니다. 추가한 IP 주소만 IoT Hub에 연결할 수 있습니다. 
 
 예를 들어 범위에서 주소를 수락 하 `192.168.100.0/22` 고 다른 모든 항목을 거부 하려는 경우에는 주소 범위가 있는 표에 규칙을 하나 추가 하기만 하면 `192.168.100.0/22` 됩니다.
-
-### <a name="azure-portal"></a>Azure portal 
-
-IP 필터 규칙은 Azure Portal를 통해 IoT Hub를 사용 하는 경우에도 적용 됩니다. 이는 IoT Hub 서비스에 대 한 API 호출이 다른 Azure 서비스와 일치 하는 자격 증명을 사용 하 여 직접 브라우저를 사용 하기 때문입니다. IP 필터를 사용 하는 경우 Azure Portal를 사용 하 여 IoT Hub에 액세스 하려면 컴퓨터의 IP 주소를 허용 목록에 추가 합니다. 
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI를 사용하여 IP 필터 검색 및 업데이트
 

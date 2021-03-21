@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ffdd27b67a122f82cc5fdb5568f11c85387955e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98660799"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-sync"></a>Azure AD Connect 클라우드 동기화에 대 한 새 구성 만들기
@@ -107,4 +107,4 @@ Azure AD Connect 클라우드 동기화를 사용 하면 이러한 변경 사항
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)

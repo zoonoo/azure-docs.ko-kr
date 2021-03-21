@@ -9,10 +9,10 @@ ms.workload: infrastructure-services
 ms.date: 3/8/2021
 ms.author: cynthn
 ms.openlocfilehash: daf844870670c14db5208f45fbd9c9adf46be985
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102504629"
 ---
 # <a name="create-a-proximity-placement-group-using-the-azure-portal"></a>Azure Portal를 사용 하 여 근접 배치 그룹 만들기

@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 9c42acb69e13cc1eb0fbba3fcafaec1451bc4d77
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97589222"
 ---
 # <a name="features-and-capabilities-of-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance의 기능 및 기능
@@ -85,7 +85,7 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 |--|--|
 | 행 수준 보안 | 예 |
 | Always Encrypted | 예 |
-| 보안 Enclave를 사용한 Always Encrypted | 예 |
+| 보안 Enclave를 사용한 Always Encrypted | 아니요 |
 | 동적 데이터 마스킹 | 예 |
 | 기본 감사 | 예 |
 | 미세 감사 | 예 |
@@ -129,8 +129,8 @@ Azure Arc 사용 SQL Managed Instance은 안정적인 최신 버전의 SQL Serve
 | Service Broker(메시징) | 예 |  |
 | Transact-SQL 엔드포인트 | 예 |  |
 | 그래프 | 예 |  |
-| Machine Learning Services | 예 |  |
-| PolyBase | 예 |
+| Machine Learning Services | 아니요 |  |
+| PolyBase | 아니요 |
 
 
 ### <a name="tools"></a>도구
@@ -139,8 +139,8 @@ Azure Arc 사용 SQL Managed Instance은 데이터를 관리 하는 데 도움�
 
 | **도구** | Azure Arc 지원 SQL Managed Instance|
 | --- | --- | --- |
-| Azure Portal <sup>1</sup> | 예 |
-| Azure CLI | 예 |
+| Azure Portal <sup>1</sup> | 아니요 |
+| Azure CLI | 아니요 |
 | [Azure Data Studio](/sql/azure-data-studio/what-is) | 예 |
 | Azure PowerShell | 예 |
 | [BACPAC 파일(내보내기)](/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 예 |

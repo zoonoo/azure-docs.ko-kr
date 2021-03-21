@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699303"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
@@ -177,7 +177,7 @@ Vm을 도메인에 가입 시키려면 도메인 컨트롤러가 있어야 합�
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>AAD DS secure LDAP 설정에서 자체 서명 된 인증서를 사용 하 고 ESP 클러스터를 프로 비전 할 수 있나요?
 
-인증 기관에서 발급 한 인증서를 사용 하는 것이 좋습니다. 하지만 자체 서명 된 인증서를 사용 하는 것은 ESP 에서도 지원 됩니다. 자세한 내용은 다음을 참조하십시오.
+인증 기관에서 발급 한 인증서를 사용 하는 것이 좋습니다. 하지만 자체 서명 된 인증서를 사용 하는 것은 ESP 에서도 지원 됩니다. 자세한 내용은 다음을 참조하세요.
 
 - [Azure Active Directory Domain Services 활성화](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -212,7 +212,7 @@ LLAP은 보안상의 이유로 활성화 됩니다 (Apache 레인저). 대규모
 이러한 목표를 달성 하는 방법에는 다음 두 가지가 있습니다. 1-클러스터를 만들 때 클러스터를 다시 만들고 추가 그룹을 추가할 수 있습니다. AAD에서 범위 동기화를 사용 하는 경우 그룹 B가 범위 지정 동기화에 포함 되어 있는지 확인 합니다.
 2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹을 사용 하 여 ESP 클러스터를 만든 경우 `A` 나중에 그룹을 중첩 된 하위 그룹으로 추가 하 `B` `A` 고 약 1 시간 후에 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>기존 HDInsight 클러스터에 Azure Data Lake Storage Gen2 추가 저장소 계정으로 추가할 수 있나요?
 
@@ -254,7 +254,7 @@ done
 
 현재 blob storage 및 Azure Data Lake Storage Gen1 또는 Gen2에 대 한 레인저 플러그 인이 없습니다. ESP 클러스터의 경우 Azure Data Lake Storage를 사용 해야 합니다. 최소한 HDFS 도구를 사용 하 여 파일 시스템 수준에서 미세 사용 권한을 수동으로 설정할 수 있습니다. 또한 Azure Data Lake Storage 사용 하는 경우 ESP 클러스터는 클러스터 수준에서 Azure Active Directory을 사용 하 여 파일 시스템 액세스 제어 중 일부를 수행 합니다. 
 
-Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다. 자세한 내용은 다음을 참조하십시오.
+Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이터 액세스 정책을 할당할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [Hive 또는 다른 서비스를 사용 하 여 Data Lake Storage Gen2에서 데이터를 쿼리할 수 있도록 Azure AD 사용자에 대 한 권한을 설정 어떻게 할까요??](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](../storage/blobs/data-lake-storage-explorer.md)

@@ -10,10 +10,10 @@ ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 24d955b0d1c53f57f5927f9e893b6ecd75fb3ca8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561894"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
@@ -129,7 +129,7 @@ FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을
 | 범용 V1 | 표준, 프리미엄<sup>1</sup> |
 | BlockBlobStorage | Premium |
 | FileStorage | Premium |
-| BlobStorage | 표준 |
+| BlobStorage | Standard |
 
 <sup>1</sup> 범용 v2 및 범용 v1 계정에 대 한 프리미엄 성능은 디스크 및 페이지 blob에만 사용할 수 있습니다. 블록 또는 추가 Blob에 대한 프리미엄 성능은 BlockBlobStorage 계정에서만 사용할 수 있습니다. 파일에 대한 프리미엄 성능은 FileStorage 계정에서만 사용할 수 있습니다.
 
@@ -187,7 +187,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 
 | 스토리지 서비스 | 엔드포인트 |
 |--|--|
-| Blob Storage | `https://<storage-account>.blob.core.windows.net` |
+| Blob 스토리지 | `https://<storage-account>.blob.core.windows.net` |
 | Azure Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
 | Azure 파일 | `https://<storage-account>.file.core.windows.net` |
 | Queue Storage | `https://<storage-account>.queue.core.windows.net` |

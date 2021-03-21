@@ -8,10 +8,10 @@ ms.date: 12/07/2020
 ms.service: azure
 ms.topic: how-to
 ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526904"
 ---
 # <a name="manage-alert-events"></a>경고 이벤트 관리
@@ -75,13 +75,13 @@ ms.locfileid: "100526904"
 
 음소거 되는 장치는 경고에 이미지로 표시 됩니다. 두 장치를 표시 하는 경우 해당 장치 간의 특정 경고 트래픽이 음소거 됩니다.
 
-**예제 1**
+**예 1**
 
 이벤트가 음소거 되 면 주 (원본)가 공급 업체에서 정의한 대로 잘못 된 함수 코드를 보조 (원본)에서 보낼 때마다 무시 됩니다.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/secondary-device-connected.png" alt-text="보조 장치가 수신 되었습니다.":::
 
-**예제 2**
+**예 2**
 
 이벤트가 음소거 되 면 소스에서 대상에 관계 없이 잘못 된 콘텐츠가 포함 된 HTTP 헤더를 보낼 때마다 무시 됩니다.
 
@@ -126,6 +126,6 @@ ms.locfileid: "100526904"
 1. 내보내기를 선택합니다.
 1. 여러 장치를 포함 하는 각 경고에 대해 별도의 행으로 경고 정보를 내보내려면 확장 된 경고 내보내기를 선택 합니다. 확장 된 경고 내보내기를 선택 하는 경우 .csv 파일은 각 행의 고유한 항목을 사용 하 여 경고 이벤트의 중복 행을 만듭니다. 이 옵션을 사용 하면 내보낸 경고 이벤트를 보다 쉽게 조사할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [모니터링된 트래픽 제어](how-to-control-what-traffic-is-monitored.md)

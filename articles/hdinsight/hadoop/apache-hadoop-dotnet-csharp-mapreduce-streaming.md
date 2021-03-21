@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
 ms.openlocfilehash: 6e2758fd650547978924c25f8f3faf1e3e7194f6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699388"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
@@ -215,7 +215,7 @@ namespace reducer
 
    다음 목록에서는 각 매개 변수 및 옵션이 나타내는 내용에 대해 설명 합니다.
 
-   |매개 변수 | Description |
+   |매개 변수 | 설명 |
    |---|---|
    |hadoop-streaming.jar|스트리밍 MapReduce 기능을 포함 하는 jar 파일을 지정 합니다.|
    |-파일|이 작업에 대 한 *mapper.exe* 및 *reducer.exe* 파일을 지정 합니다. `wasbs:///` `adl:///` `abfs:///` 각 파일 앞의, 또는 프로토콜 선언은 클러스터의 기본 저장소 루트에 대 한 경로입니다.|

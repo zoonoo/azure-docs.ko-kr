@@ -9,10 +9,10 @@ ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 0854e5d2c323df695460908c45714673756328c2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99971911"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-forbidden-exceptions"></a>사용할 수 없는 예외 Azure Cosmos DB 진단 및 문제 해결
@@ -31,7 +31,7 @@ Request originated from client IP {...} through public internet. This is blocked
 Request is blocked. Please check your authorization token and Cosmos DB account firewall settings
 ```
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 현재 [방화벽 설정이](how-to-configure-firewall.md) 올바른지 확인 하 고 연결 하려는 ip 또는 네트워크를 포함 합니다.
 최근 업데이트 한 경우 변경 내용을 **적용 하는 데 최대 15 분** 이 걸릴 수 있다는 점에 유의 하세요.
 

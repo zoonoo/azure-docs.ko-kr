@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
 ms.openlocfilehash: 757ce9b7502316bbc8a5b8f27ba672048b7bbace
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563424"
 ---
 # <a name="fortanix-confidential-computing-manager-in-an-azure-managed-application"></a>Azure 관리 되는 응용 프로그램의 Fortanix 기밀 컴퓨팅 관리자
@@ -24,7 +24,7 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
 > [!NOTE]
 >이 문서에서 참조 하는 제품은 Microsoft에서 제어 하 고 있지 않습니다. Microsoft는 편의를 위해서만이 정보를 제공 하 고, 이러한 타사 제품에 대 한 참조는 Microsoft의 보증을 암시 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 변환 된 응용 프로그램 이미지를 푸시하는 개인 Docker 레지스트리
 - Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).

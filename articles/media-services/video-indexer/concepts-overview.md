@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/19/2021
 ms.author: juliako
 ms.openlocfilehash: 41c9dfe9251da3bddb16ff507ebd512713c3b88a
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98633983"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer 개념
@@ -27,7 +27,7 @@ Video Indexer에 비디오를 업로드하면 Video Indexer는 다양한 AI 모�
 
 ## <a name="confidence-scores"></a>신뢰도 점수 
 
-신뢰성 점수는 정보에 대 한 신뢰도를 나타냅니다. 0.0에서 1.0 사이의 숫자입니다. 이 점수가 높을수록 응답의 신뢰도가 높습니다. 예를 들면 다음과 같습니다. 
+신뢰성 점수는 정보에 대 한 신뢰도를 나타냅니다. 0.0에서 1.0 사이의 숫자입니다. 이 점수가 높을수록 응답의 신뢰도가 높습니다. 예제: 
 
 ```json
 "transcript":[

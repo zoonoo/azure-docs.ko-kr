@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: yelevin
 ms.openlocfilehash: 00e634ec62d1fda4b1f2763a8c69b8e950d54beb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102505191"
 ---
 # <a name="connect-azure-key-vault-diagnostics-logs"></a>Azure Key Vault 진단 로그에 연결
@@ -23,7 +23,7 @@ Azure Key Vault는 비밀을 안전 하 게 저장 하 고 액세스 하는 클�
 
 [모니터링 Azure Key Vault](../azure-monitor/insights/key-vault-insights-overview.md) 및 [Azure Key Vault 진단 원격 분석](../key-vault/general/logging.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Key Vault 로그를 Azure 센티널에 수집 하려면:
 

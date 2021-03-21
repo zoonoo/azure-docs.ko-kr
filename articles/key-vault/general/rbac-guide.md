@@ -10,13 +10,13 @@ ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 886b87adeabdc0aadde04c189b78739435aabede
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100527026"
 ---
-# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
+# <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공
 
 > [!NOTE]
 > Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm** 이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어는 **자격 증명 모음** 에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [관리 되는 hsm 액세스 제어](../managed-hsm/access-control.md)를 참조 하세요.
@@ -65,7 +65,7 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 
 키 자격 증명 모음에 대 한 새 Azure RBAC 권한 모델은 자격 증명 모음 액세스 정책 권한 모델에 대 한 대안을 제공 합니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당을 추가하려면 다음이 필요합니다.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
 ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99063266"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Azure Cognitive Search 인덱서 상태 및 결과를 모니터링 하는 방법
@@ -25,7 +25,7 @@ Azure Portal에서 또는 REST 호출 또는 Azure SDK를 통해 프로그래밍
 
    ![인덱서 목록](media/search-monitor-indexers/indexers-list.png "인덱서 목록")
 
-| 상태 | Description |
+| 상태 | 설명 |
 |--------|-------------|
 | **진행 중** | 활성 실행을 나타냅니다. 포털에서 부분 정보를 보고 합니다. 인덱싱이 진행 됨에 따라 성공 값이 응답으로 증가 하는 **문서** 를 볼 수 있습니다. 대량의 데이터를 처리 하는 인덱서를 실행 하는 데 시간이 오래 걸릴 수 있습니다. 예를 들어 수백만 개의 소스 문서를 처리 하는 인덱서는 24 시간 동안 실행 된 다음 거의 즉시 다시 시작할 수 있습니다. 고용량 인덱서의 상태는 항상 포털에서 **진행** 중 이라고 말할 수 있습니다. 인덱서를 실행 하는 경우에도 진행 중인 진행 상황과 이전 실행에 대 한 세부 정보를 사용할 수 있습니다. |
 | **Success** | 실행이 성공 했음을 나타냅니다. 오류 수가 인덱서의 **최대 실패 항목** 설정 보다 적으면 개별 문서에 오류가 있어도 인덱서 실행이 성공할 수 있습니다. |

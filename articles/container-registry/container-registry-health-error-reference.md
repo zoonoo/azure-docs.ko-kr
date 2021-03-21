@@ -4,10 +4,10 @@ description: Azure Container Registry에서 az acr check 상태 진단 명령을
 ms.topic: article
 ms.date: 01/25/2021
 ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99061871"
 ---
 # <a name="health-check-error-reference"></a>상태 검사 오류 참조

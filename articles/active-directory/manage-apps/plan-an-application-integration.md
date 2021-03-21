@@ -12,10 +12,10 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258469"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
@@ -41,7 +41,7 @@ ms.locfileid: "99258469"
   * Azure AD
   * 사용자가 소유한 별도 애플리케이션 데이터베이스 내에서
   * 허용되지 않은 애플리케이션에서
-  * 위 항목 모두
+  * 위 항목 모두 해당
 * 개별 사용자는 현재 어떤 사용 권한 및 역할 할당을 가지고 있습니까? 액세스를 검토해야 하거나 사용자 액세스 및 역할 할당이 적절하다고 생각합니까?
 * 그룹은 온-프레미스 Active Directory 내에 만들어 집니까?
   * 그룹을 어떻게 구성합니까?

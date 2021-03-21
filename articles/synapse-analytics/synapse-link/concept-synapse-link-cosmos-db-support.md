@@ -10,10 +10,10 @@ ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: cb2cadadacd914bfa5473b512255c1ab0f856150
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666316"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link 지원 기능
@@ -37,7 +37,7 @@ Synapse 링크를 사용 하지 않고 Azure Cosmos DB 컨테이너에 연결할
 | **Azure Cosmos DB API 지원** | 지원 되는 Azure Cosmos DB API 종류 | SQL / MongoDB | SQL / MongoDB |
 | **Object**  |Azure Cosmos DB 컨테이너를 직접 가리키면서 만들 수 있는 테이블과 같은 개체| 데이터 프레임, View, Table | 보기 |
 | **읽기**    | 읽을 수 있는 Azure Cosmos DB 컨테이너의 유형입니다. | OLTP / HTAP | HTAP  |
-| **쓰기**   | Azure Synapse 런타임을 사용 하 여 Azure Cosmos DB 컨테이너에 데이터를 쓸 수 있습니다. | 예 | 예 |
+| **쓰기**   | Azure Synapse 런타임을 사용 하 여 Azure Cosmos DB 컨테이너에 데이터를 쓸 수 있습니다. | 예 | 아니요 |
 
 * Spark에서 Azure Cosmos DB 컨테이너에 데이터를 작성 하는 경우이 프로세스는 Azure Cosmos DB의 트랜잭션 저장소를 통해 수행 됩니다. 요청 단위를 사용 하 여 Azure Cosmos DB의 트랜잭션 성능에 영향을 줍니다.
 * 외부 테이블을 통한 전용 SQL 풀 통합은 현재 지원 되지 않습니다.

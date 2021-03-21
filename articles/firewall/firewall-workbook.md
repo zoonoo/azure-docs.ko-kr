@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: victorh
 ms.openlocfilehash: e63336b0e84d303b51eda56f90ca6fb453d8ae0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831844"
 ---
 # <a name="monitor-logs-using-azure-firewall-workbook"></a>Azure 방화벽 통합 문서를 사용 하 여 로그 모니터링
@@ -20,7 +20,7 @@ Azure 방화벽 통합 문서는 Azure 방화벽 데이터 분석을 위한 유�
 
 Azure 방화벽 이벤트에 대 한 통찰력을 얻고, 응용 프로그램 및 네트워크 규칙에 대해 알아보고, Url, 포트 및 주소에서 방화벽 작업에 대 한 통계를 확인할 수 있습니다. Azure 방화벽 통합 문서를 사용 하면 방화벽과 리소스 그룹을 필터링 할 수 있으며, 로그의 문제를 조사할 때 데이터 집합을 쉽게 읽을 수 있도록 범주별로 동적 필터링 할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 Azure Portal에서 [진단 로깅을 사용 하도록 설정](firewall-diagnostics.md#enable-diagnostic-logging-through-the-azure-portal) 해야 합니다. 또한 azure 방화벽에 사용할 수 있는 진단 로그 및 메트릭에 대 한 개요는 [Azure 방화벽 로그 및 메트릭을](logs-and-metrics.md) 읽어 보세요.
 

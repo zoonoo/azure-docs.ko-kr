@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472313"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services 배포를 위한 필수 구성 요소 (확장 지원)
@@ -92,7 +92,7 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 | 이전 크기 이름 | 업데이트 된 크기 이름 | 
 |---|---|
 | 매우 작음 | Standard_A0 | 
-| 소형 | Standard_A1 |
+| Small | Standard_A1 |
 | 중간 | Standard_A2 | 
 | 대형 | Standard_A3 | 
 | 매우 큼 | Standard_A4 | 

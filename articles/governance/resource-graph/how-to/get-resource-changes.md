@@ -4,10 +4,10 @@ description: 리소스가 변경된 시기를 찾고 변경된 속성의 목록�
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594647"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기

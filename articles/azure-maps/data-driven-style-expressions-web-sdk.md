@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 41a117c9ea8b47afcedaa1714abc2031d3be6c21
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97680060"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
@@ -41,7 +41,7 @@ ms.locfileid: "97680060"
 
 Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자체적으로 사용 하거나 다른 식과 함께 사용할 수 있습니다.
 
-| 식 형식 | Description |
+| 식 형식 | 설명 |
 |---------------------|-------------|
 | [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고의 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다 `clusterProperties` `DataSource` . |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
@@ -90,18 +90,18 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 |------------|-------------|-------------|
 | `['at', number, array]` | 값 | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `['get', string]` | value | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
-| `['get', string, object]` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `['id']` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |
-| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | number | 배열에서 항목을 찾을 수 있는 첫 번째 위치를 반환 하거나 문자열에서 하위 문자열을 찾을 수 있는 경우를 반환 하 고, 입력을 찾을 수 없는 경우을 반환 합니다 `-1` . 검색을 시작할 위치에서 선택적 인덱스를 허용 합니다. |
-| `['length', string | array]` | number | 문자열이 나 배열의 길이를 가져옵니다. |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | 숫자 | 배열에서 항목을 찾을 수 있는 첫 번째 위치를 반환 하거나 문자열에서 하위 문자열을 찾을 수 있는 경우를 반환 하 고, 입력을 찾을 수 없는 경우을 반환 합니다 `-1` . 검색을 시작할 위치에서 선택적 인덱스를 허용 합니다. |
+| `['length', string | array]` | 숫자 | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | 문자열 \| 배열 | 지정 된 시작 인덱스의 문자열 또는 시작 인덱스와 설정 된 경우 시작 인덱스 사이에서 항목을 반환 합니다. 반환 값은 시작 인덱스의 포함 이지만 끝 인덱스는 포함 되지 않습니다. |
 
-**예제**
+**예**
 
 식을 사용 하 여 식에서 직접 기능의 속성에 액세스할 수 있습니다 `get` . 이 예에서는 기능 값을 사용 하 여 `zoneColor` 거품형 계층의 color 속성을 지정 합니다. 
 
@@ -181,32 +181,32 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | number | 지정 된 숫자의 합계를 계산 합니다. |
-| `['-', number]` | number | 지정 된 수 만큼 0을 뺍니다. |
-| `['-', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
-| `['*', number, number, …]` | number | 지정 된 숫자를 곱합니다. |
-| `['/', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 나눕니다. |
-| `['%', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. |
-| `['^', number, number]` | number | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
-| `['abs', number]` | number | 지정된 숫자의 절대 값을 계산합니다. |
-| `['acos', number]` | number | 지정 된 숫자의 아크코사인을 계산 합니다. |
-| `['asin', number]` | number | 지정 된 숫자의 아크사인을 계산 합니다. |
-| `['atan', number]` | number | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
-| `['ceil', number]` | number | 숫자를 다음 정수 정수로 반올림 합니다. |
-| `['cos', number]` | number | 지정 된 수의 cos를 계산 합니다. |
-| `['e']` | number | 수학 상수를 반환 합니다 `e` . |
-| `['floor', number]` | number | 숫자를 이전 정수 정수로 내림 합니다. |
-| `['ln', number]` | number | 지정 된 숫자의 자연 로그를 계산 합니다. |
-| `['ln2']` | number | 수학 상수를 반환 합니다 `ln(2)` . |
-| `['log10', number]` | number | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
-| `['log2', number]` | number | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
-| `['max', number, number, …]` | number | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
-| `['min', number, number, …]` | number | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
-| `['pi']` | number | 수학 상수를 반환 합니다 `PI` . |
-| `['round', number]` | number | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어은 `['round', -1.5]` 로 계산 `-2` 됩니다. |
-| `['sin', number]` | number | 지정 된 숫자의 사인을 계산 합니다. |
-| `['sqrt', number]` | number | 지정된 숫자의 제곱근을 계산합니다. |
-| `['tan', number]` | number | 지정 된 숫자의 탄젠트를 계산 합니다. |
+| `['+', number, number, …]` | 숫자 | 지정 된 숫자의 합계를 계산 합니다. |
+| `['-', number]` | 숫자 | 지정 된 수 만큼 0을 뺍니다. |
+| `['-', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
+| `['*', number, number, …]` | 숫자 | 지정 된 숫자를 곱합니다. |
+| `['/', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눕니다. |
+| `['%', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. |
+| `['^', number, number]` | 숫자 | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
+| `['abs', number]` | 숫자 | 지정된 숫자의 절대 값을 계산합니다. |
+| `['acos', number]` | 숫자 | 지정 된 숫자의 아크코사인을 계산 합니다. |
+| `['asin', number]` | 숫자 | 지정 된 숫자의 아크사인을 계산 합니다. |
+| `['atan', number]` | 숫자 | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
+| `['ceil', number]` | 숫자 | 숫자를 다음 정수 정수로 반올림 합니다. |
+| `['cos', number]` | 숫자 | 지정 된 수의 cos를 계산 합니다. |
+| `['e']` | 숫자 | 수학 상수를 반환 합니다 `e` . |
+| `['floor', number]` | 숫자 | 숫자를 이전 정수 정수로 내림 합니다. |
+| `['ln', number]` | 숫자 | 지정 된 숫자의 자연 로그를 계산 합니다. |
+| `['ln2']` | 숫자 | 수학 상수를 반환 합니다 `ln(2)` . |
+| `['log10', number]` | 숫자 | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
+| `['log2', number]` | 숫자 | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
+| `['max', number, number, …]` | 숫자 | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
+| `['min', number, number, …]` | 숫자 | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
+| `['pi']` | 숫자 | 수학 상수를 반환 합니다 `PI` . |
+| `['round', number]` | 숫자 | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어은 `['round', -1.5]` 로 계산 `-2` 됩니다. |
+| `['sin', number]` | 숫자 | 지정 된 숫자의 사인을 계산 합니다. |
+| `['sqrt', number]` | 숫자 | 지정된 숫자의 제곱근을 계산합니다. |
+| `['tan', number]` | 숫자 | 지정 된 숫자의 탄젠트를 계산 합니다. |
 
 ## <a name="aggregate-expression"></a>집계 식
 
@@ -224,7 +224,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 - initialValue: 첫 번째 계산 된 값이 집계 되는 초기 값입니다.
 - mapExpression: 데이터 집합의 각 지점에 대해 적용 되는 식입니다.
 
-**예제**
+**예**
 
 데이터 집합의 모든 기능에 숫자로 된 속성이 있는 경우 `revenue` 그런 다음 데이터 집합에서 만들어진 클러스터의 모든 점에 대 한 총 수익을 계산할 수 있습니다. 이 계산은 다음 집계 식을 사용 하 여 수행 됩니다. `['+', 0, ['get', 'revenue']]`
 
@@ -232,7 +232,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 `accumulated`식은 지금까지 누적 된 클러스터 속성 값을 가져옵니다. 클러스터형 소스의 옵션에만 사용할 수 있습니다 `clusterProperties` `DataSource` .
 
-**사용법**
+**사용 현황**
 
 ```javascript
 ["accumulated"]
@@ -323,7 +323,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ]
 ```
 
-**예제**
+**예**
 
 다음 예에서는 `entityType` 거품형 계층에서 Point 기능의 속성을 검색 하 여 일치 하는 항목을 찾습니다. 일치 하는 항목이 발견 되 면 지정 된 값이 반환 되거나 대체 (fallback) 값이 반환 됩니다.
 
@@ -426,19 +426,19 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 형식 식은 문자열, 숫자, 부울 값 등의 다양 한 데이터 형식을 테스트 하 고 변환 하는 도구를 제공 합니다.
 
-| 식 | 반환 형식 | Description |
+| 식 | 반환 형식 | 설명 |
 |------------|-------------|-------------|
 | `['array', value]` \| `['array', type: "string" | "number" | "boolean", value]` | Object [] | 입력이 배열 임을 어설션 합니다. |
 | `['boolean', value]` \| `["boolean", value, fallback: value, fallback: value, ...]` | boolean | 입력 값이 부울 임을 어설션 합니다. 여러 값을 제공 하는 경우 각 값은 부울을 가져올 때까지 순서 대로 평가 됩니다. 부울 인 입력이 없으면 식이 오류입니다. |
 | `['collator', { 'case-sensitive': boolean, 'diacritic-sensitive': boolean, 'locale': string }]` | 병합기 | 로캘 종속 비교 작업에 사용할 병합기를 반환 합니다. 대/소문자 구분 및 분음 부호 구분 옵션은 기본적으로 false로 설정 됩니다. Locale 인수는 사용할 로캘의 IETF 언어 태그를 지정 합니다. 제공 된 항목이 없으면 기본 로캘이 사용 됩니다. 요청한 로캘을 사용할 수 없는 경우 병합기는 시스템 정의 대체 로캘을 사용 합니다. 해결 된 로캘을 사용 하 여 로캘 대체 동작의 결과를 테스트 합니다. |
 | `['literal', array]`<br/><br/>`['literal', object]` | array \| 개체 | 리터럴 배열 또는 개체 값을 반환 합니다. 배열이 나 개체가 식으로 계산 되지 않도록 하려면이 식을 사용 합니다. 배열 또는 개체를 식에서 반환 해야 하는 경우이 작업이 필요 합니다. |
 | `['image', string]` | 문자열 | 지정 된 이미지 ID가 맵 이미지 스프라이트에 로드 되는지 확인 합니다. 인 경우 ID가 반환 되 고, 그렇지 않으면 null이 반환 됩니다. |
-| `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | number | 입력 값이 숫자 임을 어설션 합니다. 여러 값을 제공 하는 경우 각 값은 숫자를 얻을 때까지 순서 대로 평가 됩니다. 숫자로 된 입력이 없으면 식이 오류입니다. |
+| `['number', value]` \| `["number", value, fallback: value, fallback: value, ...]` | 숫자 | 입력 값이 숫자 임을 어설션 합니다. 여러 값을 제공 하는 경우 각 값은 숫자를 얻을 때까지 순서 대로 평가 됩니다. 숫자로 된 입력이 없으면 식이 오류입니다. |
 | `['object', value]`  \| `["object", value, fallback: value, fallback: value, ...]` | Object | 입력 값이 개체 임을 어설션 합니다.  여러 값을 제공 하는 경우 각 값은 개체를 가져올 때까지 순서 대로 평가 됩니다. 개체가 아닌 입력도 있으면 식이 오류입니다. |
 | `['string', value]` \| `["string", value, fallback: value, fallback: value, ...]` | 문자열 | 입력 값이 문자열 임을 어설션 합니다. 여러 값을 제공 하는 경우 각 값은 문자열을 가져올 때까지 순서 대로 평가 됩니다. 문자열이 아닌 입력도 있으면 식이 오류입니다. |
 | `['to-boolean', value]` | boolean | 입력 값을 부울로 변환 합니다. `false`입력이 빈 문자열인,, 또는 이면이 고, `0` `false` `null` `NaN` 그렇지 않으면입니다 `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | 색 | 입력 값을 색으로 변환 합니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | 숫자 | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
 | `['to-string', value]` | 문자열 | 입력 값을 문자열로 변환 합니다. 입력이 이면 `null` 결과는 `""` 입니다. 입력이 부울 이면 결과는 `"true"` 또는 `"false"` 입니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열로 변환 됩니다 `"rgba(r,g,b,a)"` . 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
 | `['typeof', value]` | 문자열 | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
 
@@ -468,7 +468,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다.
 
-| 식 | 반환 형식 | Description |
+| 식 | 반환 형식 | 설명 |
 |------------|-------------|-------------|
 | `['rgb', number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색* 및 *파랑* 구성 요소 `0` `255` 와의 알파 구성 요소에서 색 값을 만듭니다 `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
 | `['rgba', number, number, number, number]` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색*, *파랑* 구성 요소 `0` `255` 와 및 범위 내의 알파 구성 요소에서 색 값을 만듭니다 `0` `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |

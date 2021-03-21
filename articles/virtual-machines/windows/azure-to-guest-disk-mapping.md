@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: tibasham
 ms.openlocfilehash: 7a4fad066af37217eb42060d5fc5a7ef716770c6
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102560993"
 ---
 # <a name="how-to-map-azure-disks-to-windows-vm-guest-disks"></a>Windows VM 게스트 디스크에 Azure 디스크를 매핑하는 방법

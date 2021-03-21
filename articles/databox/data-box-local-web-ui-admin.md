@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97678926"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
@@ -122,8 +122,8 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
     |utSAC1_202006051000_BlockBlob-BOM.txt     |블록 Blob         |SMB/NFS         |
     |utSAC1_202006051000_PageBlob-BOM.txt     |페이지 Blob         |SMB/NFS         |
     |utSAC1_202006051000_AzFile-BOM.txt    |Azure 파일         |SMB/NFS         |
-    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST (영문)        |
-    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST (영문)         |
+    |utsac1_PageBlock_Rest-BOM.txt     |페이지 Blob         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |블록 Blob         |REST         |
 
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 

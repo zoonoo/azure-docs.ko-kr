@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a820f7efc39af8c6ab66c883d285b507c7bc7368
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563271"
 ---
 # <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Blob 인덱스 태그 (미리 보기)를 사용 하 여 Azure Blob Storage에서 데이터 관리 및 찾기
@@ -25,7 +25,7 @@ Blob 인덱스 태그는 키-값 태그 특성을 사용 하 여 저장소 계�
 
 알려진 문제 및 제한과 함께이 기능에 대해 자세히 알아보려면 [Blob 인덱스 태그를 사용 하 여 Azure blob 데이터 관리 및 찾기 (미리 보기)](storage-manage-find-blobs.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

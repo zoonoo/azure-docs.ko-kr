@@ -4,10 +4,10 @@ description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대�
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215071"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
@@ -76,7 +76,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name** 이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>형식
+## <a name="type"></a>Type
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 
@@ -188,7 +188,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
+`metadata` 속성 안에 **strongType** 을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType** 은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType** 에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예: `Microsoft.Network/virtualNetworks/subnets`
 
 **Get-AzResourceProvider** 에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -501,16 +501,16 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 **값 개수 사용**
 
-- `current(<index name defined in count.name>)`. 예: `current('arrayMember')`
+- `current(<index name defined in count.name>)`. 예를 들어 `current('arrayMember')`을 참조하십시오.
 - `current()`. **값 개수** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용 됩니다. 위와 같은 값을 반환 합니다.
 
-호출에서 반환 된 값이 개체 이면 속성 접근자가 지원 됩니다. 예: `current('objectArrayMember').property`
+호출에서 반환 된 값이 개체 이면 속성 접근자가 지원 됩니다. 예를 들어 `current('objectArrayMember').property`을 참조하십시오.
 
 **필드 수 사용**
 
-- `current(<the array alias defined in count.field>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*]')`입니다.
+- `current(<the array alias defined in count.field>)`. 예: `current('Microsoft.Test/resource/enumeratedArray[*]')`
 - `current()`. **필드 개수** 식이 다른 **count** 식의 자식이 아닌 경우에만 허용 됩니다. 위와 같은 값을 반환 합니다.
-- `current(<alias of a property of the array member>)`. 예들 들어 `current('Microsoft.Test/resource/enumeratedArray[*].property')`입니다.
+- `current(<alias of a property of the array member>)`. 예: `current('Microsoft.Test/resource/enumeratedArray[*].property')`
 
 #### <a name="field-count-examples"></a>필드 수 예
 

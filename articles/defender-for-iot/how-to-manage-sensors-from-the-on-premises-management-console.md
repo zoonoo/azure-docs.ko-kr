@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523960"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>관리 콘솔에서 센서 관리
@@ -72,7 +72,7 @@ ms.locfileid: "100523960"
 
 여러 센서를 업데이트 하려면:
 
-1. [Azure Portal](https://portal.azure.com/)로 이동합니다.
+1. [Azure 포털](https://portal.azure.com/)로 이동합니다.
 
 2. IoT 용 Azure Defender로 이동 합니다.
 
@@ -144,7 +144,7 @@ IoT 포털의 **업데이트** 페이지에서이 파일을 수동으로 업로�
 
 센서는 IoT 엔진에 대해 5 개의 Defender에 의해 보호 됩니다. 연결 된 센서에 대해 엔진을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-| 엔진 | Description | 예제 시나리오 |
+| 엔진 | 설명 | 예제 시나리오 |
 |--|--|--|
 | 프로토콜 위반 엔진 | 패킷 구조 또는 필드 값이 프로토콜 사양을 따르지 않으면 프로토콜 위반이 발생 합니다. | "잘못 된 MODBUS 작업 (함수 코드 0)" 경고입니다. 이 경고는 기본 장치에서 함수 코드가 0 인 요청을 보조 장치로 보냈음을 나타냅니다. 이는 프로토콜 사양에 따라 허용 되지 않으며, 보조 장치에서 입력을 올바르게 처리 하지 못할 수 있습니다. |
 | 정책 위반 엔진 | 정책 위반은 학습 또는 구성 된 정책에 정의 된 기준 동작의 편차를 사용 하 여 발생 합니다. | "권한이 없는 HTTP 사용자 에이전트" 경고입니다. 이 경고는 정책에 의해 학습 또는 승인 되지 않은 응용 프로그램이 장치에서 HTTP 클라이언트로 사용 됨을 나타냅니다. 이는 해당 장치의 새 웹 브라우저 또는 응용 프로그램 일 수 있습니다. |
@@ -215,7 +215,7 @@ IoT 포털의 **업데이트** 페이지에서이 파일을 수동으로 업로�
 
 정의 된 백업 수를 초과 하면 가장 오래 된 백업 파일이 삭제 되어 새 백업 파일이 적용 됩니다.
 
-센서 백업 파일은 자동으로 이름이로 지정 `<sensor name>-backup-version-<version>-<date>.tar` 됩니다. 예: `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar` 
+센서 백업 파일은 자동으로 이름이로 지정 `<sensor name>-backup-version-<version>-<date>.tar` 됩니다. 예를 들어 `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`을 참조하십시오. 
 
 센서를 백업 하려면:
 
@@ -315,6 +315,6 @@ CLI를 사용 하 여 복원 하려면:
 
 9. `Backup.shared_location`를 `<backup_folder_name_on_cyberx_server>`로 설정합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="see-also"></a>참고 항목
 
 [개별 센서 관리](how-to-manage-individual-sensors.md)

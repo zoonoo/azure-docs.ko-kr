@@ -4,10 +4,10 @@ description: 백업 센터에서 기록 추세를 분석 하 고 백업에 대 �
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506017"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Backup center를 사용 하 여 정보 얻기
@@ -28,7 +28,7 @@ ms.locfileid: "102506017"
 
 - 지원 되는 시나리오 및 지원 되지 않는 시나리오에 대 한 자세한 목록은 [지원 매트릭스](backup-center-support-matrix.md) 를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 ### <a name="configure-your-vaults-to-send-data-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 데이터를 보내도록 자격 증명 모음 구성
 

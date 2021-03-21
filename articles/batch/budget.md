@@ -4,10 +4,10 @@ description: Batch 워크 로드를 실행 하는 데 사용 되는 기본 계�
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.openlocfilehash: d1fc2d15a7037e56a8056efa67d2017badb77ffd
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99091330"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Azure Batch에 대 한 비용 분석 및 예산 설정
@@ -24,7 +24,7 @@ ms.locfileid: "99091330"
 
 [가상 컴퓨터 구성](nodes-and-pools.md#virtual-machine-configuration) 으로 만든 풀의 각 VM에는 Azure에서 관리 되는 디스크를 사용 하는 연결 된 OS 디스크가 있습니다. Azure 관리 디스크에는 추가 비용이 부과되며 다른 디스크 성능 계층에도 다른 비용이 부과됩니다.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 [애플리케이션 패키지](batch-application-packages.md)를 사용하여 Batch 노드(VM)에 애플리케이션을 배포하는 경우 애플리케이션 패키지에서 사용하는 Azure Storage 리소스에 대한 요금이 청구됩니다. 또한 리소스 파일 및 기타 로그 데이터와 같은 입력 또는 출력 파일의 저장소에 대 한 요금이 청구 됩니다.
 

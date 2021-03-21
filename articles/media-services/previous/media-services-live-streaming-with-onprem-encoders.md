@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 316372f091833519f0479d07355d2845c82743b6
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103014845"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
@@ -121,7 +121,7 @@ TLS 연결을 통해 조각화 된 MP4 (부드러운 스트리밍) 라이브 스
 
 다음 테이블에서는 세그먼트 기간이 계산되는 방법을 보여 줍니다.
 
-| 키프레임 간격 | HLS 세그먼트 패키징 비율(FragmentsPerSegment) | 예 |
+| 키프레임 간격 | HLS 세그먼트 패키징 비율(FragmentsPerSegment) | 예제 |
 | --- | --- | --- |
 | 3초보다 작거나 같음 |3:1 |KeyFrameInterval(또는 GOP)이 2초인 경우 기본 HLS 세그먼트 패키징 비율은 3 대 1입니다. 그러면 6초 HLS 세그먼트를 만듭니다. |
 | 3~5초 |2:1 |KeyFrameInterval(또는 GOP)이 4초인 경우 기본 HLS 세그먼트 패키징 비율은 2 대 1입니다. 그러면 8초 HLS 세그먼트를 만듭니다. |

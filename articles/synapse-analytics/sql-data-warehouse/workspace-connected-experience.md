@@ -11,10 +11,10 @@ ms.date: 11/23/2020
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 6d71d9889701ec834747e4bec1dd111157c3206e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694617"
 ---
 # <a name="enabling-synapse-workspace-features-on-an-existing-dedicated-sql-pool-formerly-sql-dw"></a>기존 전용 SQL 풀에서 Synapse 작업 영역 기능 사용 (이전의 SQL DW)
