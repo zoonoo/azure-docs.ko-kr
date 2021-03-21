@@ -4,10 +4,10 @@ description: Azure Event Grid를 사용하여 Auth0에서 Azure 서비스로 이
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101292"
 ---
 # <a name="auth0-partner-topics"></a>좋아하게 되었습니다 partner 항목
@@ -38,7 +38,7 @@ ms.locfileid: "93101292"
 ### <a name="manage-user-data"></a>사용자 데이터 관리
 사용자 동작을 유지하고 감사하는 것은 보안을 유지 관리하고 업계 규정을 준수하는 데 매우 중요합니다. 사용자 데이터를 편집, 제거 또는 내보내는 기능은 유럽 연합 일반 데이터 보호 규정 (GDPR)와 같은 개인 정보 보호법에 따라 점점 더 중요 합니다.
 
-### <a name="secure-your-application"></a>응용 프로그램 보안
+### <a name="secure-your-application"></a>애플리케이션 보안
 분산 시스템을 보호 하는 경우 보안 모니터링 및 인시던트 대응 절차를 조합 하는 것이 중요 합니다. 따라서 모든 데이터를 한 곳에 유지하고 전체 스택을 모니터링해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계

@@ -6,10 +6,10 @@ ms.topic: article
 ms.author: danlep
 ms.date: 11/20/2020
 ms.openlocfilehash: 0c92899528d417f9c91f8f8930ca4932dc74e850
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95024741"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Azure Container Registry를 사용 하 여 공용 콘텐츠 관리
@@ -44,7 +44,7 @@ Docker 허브는 docker 허브에 인증할 때 Docker 암호의 대 안으로 [
 
 ### <a name="authenticate-from-azure-services"></a>Azure 서비스에서 인증
 
-App Service 및 Azure Container Instances를 비롯 한 몇 가지 Azure 서비스는 컨테이너 배포를 위해 Docker 허브와 같은 공용 레지스트리에서 이미지를 끌어올 수 있도록 지원 합니다. Docker 허브에서 이미지를 배포 해야 하는 경우 Docker 허브 계정을 사용 하 여 인증 하는 설정을 구성 하는 것이 좋습니다. 예:
+App Service 및 Azure Container Instances를 비롯 한 몇 가지 Azure 서비스는 컨테이너 배포를 위해 Docker 허브와 같은 공용 레지스트리에서 이미지를 끌어올 수 있도록 지원 합니다. Docker 허브에서 이미지를 배포 해야 하는 경우 Docker 허브 계정을 사용 하 여 인증 하는 설정을 구성 하는 것이 좋습니다. 예제:
 
 **App Service**
 

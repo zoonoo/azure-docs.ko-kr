@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
 ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574054"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Azure API Management 자체 호스팅 게이트웨이에 대 한 클라우드 메트릭 및 로그 구성
@@ -32,7 +32,7 @@ ms.locfileid: "100574054"
 
 | 필드  | 기본값 | 설명 |
 | ------------- | ------------- | ------------- |
-| 원격 분석. 메트릭 클라우드  | `true` | Azure Monitor를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `true` `false` . |
+| telemetry.metrics.cloud  | `true` | Azure Monitor를 통해 로깅을 사용 하도록 설정 합니다. 값은, 일 수 있습니다 `true` `false` . |
 
 
 다음은 샘플 구성입니다.

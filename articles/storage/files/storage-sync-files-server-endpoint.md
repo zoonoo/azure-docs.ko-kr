@@ -1,6 +1,6 @@
 ---
 title: Azure 파일 동기화 서버 엔드포인트 추가/제거 | Microsoft Docs
-description: Azure File Sync를 사용 하 여 서버 끝점을 추가 하거나 제거 하는 방법을 알아봅니다. 서버 끝점은 서버 볼륨의 폴더와 같이 등록 된 서버의 특정 위치입니다.
+description: Azure 파일 동기화를 사용 하 여 서버 끝점을 추가 하거나 제거 하는 방법을 알아봅니다. 서버 끝점은 서버 볼륨의 폴더와 같이 등록 된 서버의 특정 위치입니다.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,10 +8,10 @@ ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: f75f0d1ae12db11590f8ce62f3c7b4c0f3e12817
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013941"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Azure 파일 동기화 서버 엔드포인트 추가/제거
@@ -21,7 +21,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 엔드투엔드 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 서버 엔드포인트를 만들려면 먼저 다음 조건이 충족되는지 확인해야 합니다. 
 - 서버에 Azure 파일 동기화 에이전트가 설치되고 등록되어 있습니다. Azure 파일 동기화 에이전트를 설치하기 위한 지침은 [Azure 파일 동기화에서 서버 등록/등록 취소](storage-sync-files-server-registration.md) 문서를 참조하세요. 
 - 스토리지 동기화 서비스가 배포되었는지 확인합니다. 스토리지 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요. 

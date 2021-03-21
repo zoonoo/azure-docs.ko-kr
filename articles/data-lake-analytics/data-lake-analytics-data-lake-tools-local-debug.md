@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 1c7218deac9efba6df6c1284f2578a744e768284
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221029"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Azure Data Lake Analytics 코드를 로컬로 디버그
@@ -34,7 +34,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
 
 ### <a name="debug-local-code-in-a-referenced-c-project"></a>참조되는 C# 프로젝트의 로컬 코드 디버그
 
-1. C# 어셈블리 프로젝트를 만들고 빌드하여 출력 **DLL**을 생성합니다.
+1. C# 어셈블리 프로젝트를 만들고 빌드하여 출력 **DLL** 을 생성합니다.
 2. U-SQL 문을 사용하여 **DLL** 파일을 등록합니다.
 
    ```sql
@@ -42,7 +42,7 @@ Azure 데이터 레이크 분석 서비스에 C# 어셈블리를 제출하고 �
    ```
    
 3. C# 코드에 중단점을 설정합니다.
-4. **F5** 키를 눌러 C# **DLL**을 로컬로 참조하여 스크립트를 디버그합니다.
+4. **F5** 키를 눌러 C# **DLL** 을 로컬로 참조하여 스크립트를 디버그합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

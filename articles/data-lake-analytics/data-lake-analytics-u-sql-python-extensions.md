@@ -7,20 +7,20 @@ ms.topic: how-to
 ms.date: 06/20/2017
 ms.custom: devx-track-python
 ms.openlocfilehash: d81e529d7073e8200c5a1d1fa8f51504b1dc9259
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218445"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 Python 코드로 U-SQL 스크립트 확장
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 Azure Data Lake Analytics 계정에 Python 확장이 설치되어 있는지 확인하세요.
 
 * Azure Portal에서 Data Lake Analytics 계정으로 이동합니다.
-* 왼쪽 메뉴의 **시작**에서 **샘플 스크립트**를 클릭합니다.
+* 왼쪽 메뉴의 **시작** 에서 **샘플 스크립트** 를 클릭합니다.
 * **U-SQL Extensions 설치**, **확인** 순으로 클릭합니다.
 
 ## <a name="overview"></a>개요

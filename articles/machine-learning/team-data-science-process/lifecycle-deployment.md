@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c3bf8e5f81ae7bf35ff34039fa1e81c9fd4a406b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93324538"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 배포 단계
@@ -39,7 +39,7 @@ ms.locfileid: "93324538"
 ## <a name="how-to-do-it"></a>작업 방법
 이 단계에서 처리되는 주요 작업은 다음과 같습니다.
 
-**모델 운영** : 모델 및 파이프라인을 프로덕션 또는 이와 유사한 환경에 애플리케이션을 사용하도록 배포합니다.
+**모델 운영**: 모델 및 파이프라인을 프로덕션 또는 이와 유사한 환경에 애플리케이션을 사용하도록 배포합니다.
 
 ### <a name="operationalize-a-model"></a>모델 운영
 성능이 우수한 일단의 모델을 확보했으면 다른 애플리케이션에서 사용하도록 운영할 수 있습니다. 비즈니스 요구 사항에 따라 예측을 실시간 또는 배치 방식으로 수행합니다. 모델을 배포하려면 열린 API 인터페이스를 사용하여 공개합니다. 이 인터페이스를 사용하면 다음과 같은 다양한 애플리케이션에서 모델을 쉽게 사용할 수 있습니다.

@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 08/30/2019
 ms.openlocfilehash: d3812cb27d2d9ea7a49038f566f8b4cc5d779172
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95241695"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
@@ -31,7 +31,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 >    - [Visual Studio 2017 및 2019의 경우](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Visual Studio 2013 및 2015의 경우](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Visual Studio**: Express를 제외한 모든 버전이 지원됩니다.
 
@@ -51,7 +51,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 
 1. Visual Studio를 엽니다.
 
-1. **보기** Data Lake Analytics 탐색기를 선택 하 여 **Data Lake Analytics 탐색기** 를 엽니다  >  **Data Lake Analytics Explorer**.
+1. **보기** Data Lake Analytics 탐색기를 선택 하 여 **Data Lake Analytics 탐색기** 를 엽니다  >  .
 
 1. **Azure** 를 마우스 오른쪽 단추로 클릭 한 다음 **Microsoft Azure 구독에 연결을** 선택 합니다. **계정에 로그인** 에서 지침을 따릅니다.
 

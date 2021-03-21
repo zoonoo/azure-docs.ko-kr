@@ -6,17 +6,17 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/30/2017
 ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92218020"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
 
 U-SQL은 C#을 사용하는 확장성 모델을 제공합니다. U-SQL 스크립트에서는 간단하게 C# 함수를 호출하고 선언적 SQL 유사 언어를 지원하지 않는 분석 기능을 수행할 수 있습니다. U-SQL 확장성에 대한 자세한 내용은 [U-SQL 프로그래밍 기능 가이드](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf)를 참조하세요. 
 
-실제로 모든 코드에는 디버깅이 필요하지만 제한된 로그 파일을 사용하여 클라우드에서 사용자 지정 코드를 포함하는 분산된 작업을 디버그하기 어렵습니다. [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)는 **실패한 꼭짓점 디버그**라는 기능을 제공합니다. 이를 통해 사용자 지정 코드에서 발생한 실패를 간단하게 디버그할 수 있습니다. U-SQL 작업에 실패하면 서비스는 오류 상태를 유지하며 해당 도구를 통해 클라우드 오류 환경을 디버깅할 로컬 컴퓨터에 다운로드할 수 있습니다. 로컬 다운로드는 모든 입력 데이터와 사용자 코드를 비롯한 전체 클라우드 환경을 캡처합니다.
+실제로 모든 코드에는 디버깅이 필요하지만 제한된 로그 파일을 사용하여 클라우드에서 사용자 지정 코드를 포함하는 분산된 작업을 디버그하기 어렵습니다. [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)는 **실패한 꼭짓점 디버그** 라는 기능을 제공합니다. 이를 통해 사용자 지정 코드에서 발생한 실패를 간단하게 디버그할 수 있습니다. U-SQL 작업에 실패하면 서비스는 오류 상태를 유지하며 해당 도구를 통해 클라우드 오류 환경을 디버깅할 로컬 컴퓨터에 다운로드할 수 있습니다. 로컬 다운로드는 모든 입력 데이터와 사용자 코드를 비롯한 전체 클라우드 환경을 캡처합니다.
 
 다음 비디오에서는 Azure Data Lake Tools for Visual Studio의 실패한 꼭짓점 디버그를 보여 줍니다.
 
@@ -31,16 +31,16 @@ U-SQL은 C#을 사용하는 확장성 모델을 제공합니다. U-SQL 스크립
 
 Azure Data Lake Tools for Visual Studio에서 실패한 작업을 열면 오류 탭에 자세한 오류 메시지가 있는 노란 경고 막대를 볼 수 있습니다.
 
-1. **다운로드** 를 클릭하여 모든 필수 리소스 및 입력 스트림을 다운로드합니다. 다운로드가 완료되지 않으면 **다시 시도**를 클릭합니다.
+1. **다운로드** 를 클릭하여 모든 필수 리소스 및 입력 스트림을 다운로드합니다. 다운로드가 완료되지 않으면 **다시 시도** 를 클릭합니다.
 
-2. 다운로드가 완료되면 **열기**를 클릭하여 로컬 디버깅 환경을 생성합니다. 새 디버깅 솔루션이 공개될 예정이며, Visual Studio에서 기존 솔루션을 연 경우에는 디버깅하기 전에 저장했는지 확인하고 닫아야 합니다.
+2. 다운로드가 완료되면 **열기** 를 클릭하여 로컬 디버깅 환경을 생성합니다. 새 디버깅 솔루션이 공개될 예정이며, Visual Studio에서 기존 솔루션을 연 경우에는 디버깅하기 전에 저장했는지 확인하고 닫아야 합니다.
 
 ![Azure Data Lake Analytics U-SQL 디버그 Visual Studio 정점 다운로드](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
 ## <a name="configure-the-debugging-environment"></a>디버깅 환경 구성
 
 > [!NOTE]
-> 디버깅 전에 예외 설정 창(**Ctrl + Alt + E**)에서 **공용 언어 런타임 예외**를 선택했는지 확인해야 합니다.
+> 디버깅 전에 예외 설정 창(**Ctrl + Alt + E**)에서 **공용 언어 런타임 예외** 를 선택했는지 확인해야 합니다.
 
 ![Azure Data Lake Analytics U-SQL 디버그 Visual Studio 설정](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
@@ -56,7 +56,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 1. 사용자 코드는 코드 숨김 파일에 정의됩니다(일반적으로 U-SQL 프로젝트에서 `Script.usql.cs`라고 명명).
 
-2. 사용자 코드는 U-SQL 애플리케이션의 C# 클래스 라이브러리 프로젝트에서 정의되고 **디버그 정보**를 포함하는 어셈블리로 등록됩니다.
+2. 사용자 코드는 U-SQL 애플리케이션의 C# 클래스 라이브러리 프로젝트에서 정의되고 **디버그 정보** 를 포함하는 어셈블리로 등록됩니다.
 
 소스 코드를 솔루션에 가져오는 경우 Visual Studio 디버깅 도구(조사식, 변수 등)를 사용하여 문제를 해결할 수 있습니다.
 
@@ -68,7 +68,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 ### <a name="source-code-is-not-included-in-debugging-solution"></a>소스 코드는 솔루션 디버깅에 포함되지 않습니다.
 
-사용자 코드가 코드 숨김 파일에 포함되어 있지 않거나 **디버그 정보**를 포함하는 어셈블리를 등록하지 않은 경우 소스 코드는 디버깅 솔루션에 자동으로 포함되지 않습니다. 이 경우에 소스 코드를 추가하는 추가 단계가 필요합니다.
+사용자 코드가 코드 숨김 파일에 포함되어 있지 않거나 **디버그 정보** 를 포함하는 어셈블리를 등록하지 않은 경우 소스 코드는 디버깅 솔루션에 자동으로 포함되지 않습니다. 이 경우에 소스 코드를 추가하는 추가 단계가 필요합니다.
 
 1. **솔루션 'VertexDebug' > 추가 > 기존 프로젝트...** 를 마우스 오른쪽 단추로 클릭하여 어셈블리 소스 코드를 찾고 프로젝트를 디버깅 솔루션에 추가합니다.
 
@@ -76,7 +76,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 2. **FailedVertexDebugHost** 프로젝트에 프로젝트 폴더 경로를 가져옵니다. 
 
-3. **추가된 어셈블리 소스 코드 프로젝트 > 속성**을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로**에 붙여넣습니다. 최종 출력 경로는와 유사 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` 합니다.
+3. **추가된 어셈블리 소스 코드 프로젝트 > 속성** 을 마우스 오른쪽 단추로 클릭하고, 왼쪽의 **빌드** 탭을 선택하고, \bin\debug로 끝나는 복사된 경로를 **출력 > 출력 경로** 에 붙여넣습니다. 최종 출력 경로는와 유사 `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\` 합니다.
 
     ![Azure Data Lake Analytics U-SQL 디버그 - pdb 경로 설정](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

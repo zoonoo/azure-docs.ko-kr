@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207175"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Azure 원격 렌더링 지원 옵션
@@ -20,11 +20,11 @@ Azure 원격 렌더링을 위한 Azure Portal 내에서 기술 지원 티켓을 
 
 1. [Azure Portal](https://ms.portal.azure.com) 열기
 
-1. 메뉴 모음에서 물음표 아이콘을 선택 하 고 **도움말 + 지원**을 클릭 합니다.
+1. 메뉴 모음에서 물음표 아이콘을 선택 하 고 **도움말 + 지원** 을 클릭 합니다.
 
     ![Azure Portal 도움말 및 지원](media/portal-help.png)
 
-1. **새 지원 요청**을 선택합니다.
+1. **새 지원 요청** 을 선택합니다.
 
     ![새 지원 요청 Azure Portal](media/portal-new-request.png)
 

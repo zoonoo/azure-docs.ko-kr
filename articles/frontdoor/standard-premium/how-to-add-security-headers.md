@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: c08ba57f43969bb2f0ee9c66b6cb4e92879ed258
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101099900"
 ---
 # <a name="configure-security-headers-with-azure-front-door-standardpremium-preview-rule-set"></a>Azure Front 도어 표준/프리미엄 (미리 보기) 규칙 집합을 사용 하 여 보안 헤더 구성
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 이 문서에서는 보안 헤더를 구현 하 여 HSTS (HTTP Strict-Transport-보안), X-XSS 보호, 콘텐츠 보안 정책 또는 X 프레임 옵션과 같은 브라우저 기반 취약성을 방지 하는 방법을 보여 줍니다. 쿠키를 사용하여 보안 기반 특성을 정의할 수도 있습니다.
 

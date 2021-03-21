@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.openlocfilehash: 4ec21086ee94610be1d9cf5da7b64c837b5311a9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100381531"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions 개요에 대 한 Azure Blob storage 바인딩
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Storage](../storage/index.yml) 와 통합 됩니다. Blob storage와 통합 하면 blob 데이터의 변경 내용 및 읽기/쓰기 값에 반응 하는 함수를 작성할 수 있습니다.
 
-| 작업 | 형식 |
+| 작업 | Type |
 |---------|---------|
 | Blob storage 데이터 변경으로 함수 실행 | [트리거](./functions-bindings-storage-blob-trigger.md) |
 | 함수에서 blob 저장소 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-blob-input.md) |

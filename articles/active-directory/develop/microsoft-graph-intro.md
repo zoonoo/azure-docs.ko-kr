@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
 ms.openlocfilehash: a799d7c32ad632303931adf838ca8e2e715b2adc
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96860187"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
@@ -36,7 +36,7 @@ Microsoft Graph는 REST Api 및 클라이언트 라이브러리를 노출 하 �
 
 V1.0 Api 사용을 시작 하려면 [Microsoft Graph REST API v1.0 참조](/graph/api/overview) 를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 사용자 또는 전자 메일 메시지와 같은 리소스를 읽거나 쓰려면 다음과 같은 요청을 생성 합니다.
 

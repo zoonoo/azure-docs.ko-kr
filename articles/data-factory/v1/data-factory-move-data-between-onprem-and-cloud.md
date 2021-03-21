@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100380290"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -366,7 +366,7 @@ ms.locfileid: "100380290"
 3. 명령 모음에서 **배포** 를 클릭하여 데이터 세트를 배포합니다(테이블은 사각형 데이터 세트임). **파이프라인** 노드의 트리 보기에서 파이프라인이 표시되는지 확인합니다.  
 4. 이제 **X** 를 두 번 클릭하여 페이지를 닫고 **ADFTutorialOnPremDF** 의 **데이터 팩터리** 페이지로 돌아갑니다.
 
-**축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
+**축하합니다!** Azure 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>다이어그램 뷰에서 데이터 팩터리 보기
 1. **Azure Portal** 에서 **ADFTutorialOnPremDF** 데이터 팩터리의 홈페이지에 있는 **다이어그램** 타일을 클릭합니다. :

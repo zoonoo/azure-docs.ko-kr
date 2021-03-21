@@ -6,10 +6,10 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.openlocfilehash: bc3e77b560a94b45acf1ae696551dbefbabbdf0a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038206"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>단일 메트릭 경고 규칙에서 여러 시간 계열 모니터링
@@ -20,7 +20,7 @@ ms.locfileid: "102038206"
 
 메트릭 시계열은 일정 기간 동안 캡처된 일련의 측정값 (또는 "메트릭 값")입니다. 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 - 가상 컴퓨터의 CPU 사용률
 - 저장소 계정에 대 한 수신 바이트 (수신)
@@ -86,7 +86,7 @@ ms.locfileid: "102038206"
 
 단일 메트릭 경고 규칙은 경고 규칙에 따라 최대 5 개의 조건을 모니터링할 수도 있습니다. 
 
-다음은 그 예입니다. 
+예를 들면 다음과 같습니다.
 
 - 대상 리소스: *myVM1*
 - Condition1

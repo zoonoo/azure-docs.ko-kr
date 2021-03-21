@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Azure Dev Spaces 사용 하 여 Azure Kubernetes Service에서 코드를 실행 하는 프로세스를 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: 1cace325f9415d46210636e5c04cc2d75589cc11
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96014434"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Azure Dev Spaces 작업을 사용 하 여 코드를 실행 하는 방법
@@ -134,11 +134,11 @@ install:
 
 생성 된 투구 차트에서 컨테이너 이미지는 {{로 설정 됩니다 *. Values. repository}}: {{. Values. tag}}*. `azds.yaml`이 파일은 기본적으로 *$ (tag)로 설정 하 여 $ (tag)* 로 *설정* 합니다 .이 속성은 {{에 대 한 값으로 사용 됩니다. *Values. tag}}*. 이렇게 하면 *install.* .. tag 속성을 설정 하 여 Azure Dev Spaces 실행 될 때 응용 프로그램에 대 한 컨테이너 이미지를 고유한 방식으로 태그를 지정할 수 있습니다. 이 특정 사례에서 이미지는 *\<value from image.repository> $ (tag)* 로 태그가 지정 됩니다. 개발 공간을 인식 하 고 AKS 클러스터에서 컨테이너를 찾기 위해 *$ (tag)* 변수를   *install.* 값으로 사용 해야 합니다.
 
-위의 예제에서는 install... `azds.yaml` *install.set.ingress.hosts* *Install. ingress* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성은 컨트롤러에서 제공 하는 값인 *$ (spacePrefix)*, *$ (rootSpacePrefix)* 및 *$ (hostsuffix)* 도 사용 합니다.
+위의 예제에서는 install... `azds.yaml`  *Install. ingress* 속성은 공용 끝점에 대 한 호스트 이름 형식을 정의 합니다. 이 속성은 컨트롤러에서 제공 하는 값인 *$ (spacePrefix)*, *$ (rootSpacePrefix)* 및 *$ (hostsuffix)* 도 사용 합니다.
 
 *$ (SpacePrefix)* 는 *SPACENAME* 형식으로 사용 되는 자식 개발 공간의 이름입니다. *$ (RootSpacePrefix)* 는 부모 공간의 이름입니다. 예를 들어 *azureuser* 가 *기본값* 의 하위 공간이 면 *$ (rootSpacePrefix)* 에 대 한 값은 *기본값이* 고 *$ (spacePrefix)* 의 값은 *azureuser. s* 입니다. 공간이 하위 공간이 아니면 *$ (spacePrefix)* 가 비어 있습니다. 예를 들어 *기본* 공간에 부모 공간이 없으면 *$ (rootSpacePrefix)* 에 대 한 값이 *기본값이* 고 *$ (spacePrefix)* 의 값이 비어 있습니다. *$ (Hostsuffix)* 는 AKS 클러스터에서 실행 되는 Azure Dev Spaces 수신 컨트롤러를 가리키는 DNS 접미사입니다. 이 DNS 접미사는 와일드 카드 DNS 항목에 해당 합니다 (예:) *\* . RANDOM_VALUE* AKS 클러스터에 Azure Dev Spaces 컨트롤러를 추가할 때 생성 된 azds입니다.
 
-위의 파일에서 `azds.yaml` update-help를 업데이트 하 여 응용 *install.set.ingress.hosts* 프로그램의 호스트 이름을 변경할 수도 있습니다. 예를 들어 *$ (spacePrefix) $ (rootSpacePrefix) webfrontend 엔드 $ (hostSuffix)* 에서 *$ (spacePrefix) $ (rootSpacePrefix) 웹 $ (hostsuffix)* 로 응용 프로그램의 호스트 이름을 간소화 하려는 경우를 예로 들 수 있습니다.
+위의 파일에서 `azds.yaml` update-help를 업데이트 하 여 응용  프로그램의 호스트 이름을 변경할 수도 있습니다. 예를 들어 *$ (spacePrefix) $ (rootSpacePrefix) webfrontend 엔드 $ (hostSuffix)* 에서 *$ (spacePrefix) $ (rootSpacePrefix) 웹 $ (hostsuffix)* 로 응용 프로그램의 호스트 이름을 간소화 하려는 경우를 예로 들 수 있습니다.
 
 응용 프로그램에 대 한 컨테이너를 빌드하기 위해 컨트롤러는 구성 파일의 아래 섹션을 사용 합니다 `azds.yaml` .
 

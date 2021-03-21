@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/16/2016
 ms.openlocfilehash: 0b82ce187c06afa69e54ea93931e1745f0d52674
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219193"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Azure Data Lake Tools for Visual Studio를 사용하여 데이터 기울이기 문제 해결
@@ -33,11 +33,11 @@ Azure Data Lake Tools for Visual Studio는 작업에 데이터 기울이기 문�
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>옵션 2: 다른 파티션 또는 배포 키 선택
 
-앞의 예제에서 해당 국가/지역에 대 한 세금 감사 작업만 확인 하려면 ID 번호를 키로 선택 하 여 데이터 배포를 향상 시킬 수 있습니다. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
+앞의 예제에서 해당 국가/지역에 대 한 세금 감사 작업만 확인 하려면 ID 번호를 키로 선택 하 여 데이터 배포를 향상 시킬 수 있습니다. 다른 파티션/배포 키를 선택하면 때때로 데이터를 보다 고르게 배포할 수 있지만 이로 인해 비즈니스 논리에 영향을 주지 않도록 해야 합니다. 예를 들어, 각 주의 세금 합계를 계산하려면 _주_ 를 파티션 키로 지정하는 것이 좋습니다. 이러한 문제가 계속되면 옵션 3을 사용해 보세요.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>옵션 3: 더 많은 파티션 또는 배포 키 추가
 
-_주_만 파티션 키로 사용하는 대신 두 개 이상의 키를 분할에 사용할 수 있습니다. 예를 들어, 데이터 파티션 크기를 줄이고 데이터를 더 고르게 배포하려면 _우편 번호_를 추가 파티션 키로 추가하는 것이 좋습니다.
+_주_ 만 파티션 키로 사용하는 대신 두 개 이상의 키를 분할에 사용할 수 있습니다. 예를 들어, 데이터 파티션 크기를 줄이고 데이터를 더 고르게 배포하려면 _우편 번호_ 를 추가 파티션 키로 추가하는 것이 좋습니다.
 
 ### <a name="option-4-use-round-robin-distribution"></a>옵션 4: 라운드 로빈 배포 사용
 

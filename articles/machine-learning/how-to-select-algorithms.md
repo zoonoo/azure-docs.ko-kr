@@ -12,10 +12,10 @@ ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
 ms.openlocfilehash: 27b18fdc2dda40f8361483e6ecce28d0ccbd0310
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93308227"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 알고리즘을 선택 하는 방법
@@ -50,19 +50,19 @@ Azure Machine Learning Algorithm 참고 자료 시트의 지침과 함께 솔루
 | **알고리즘** | **정확도(Accuracy)** | **학습 시간** | **선형성** | **매개 변수** | **참고** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **분류 패밀리** | | | | | |
-| [2 클래스 로지스틱 회귀](./algorithm-module-reference/two-class-logistic-regression.md?WT.mc_id=docs-article-lazzeri) |좋음  |빠름 |예 |4 | |
+| [2 클래스 로지스틱 회귀](./algorithm-module-reference/two-class-logistic-regression.md?WT.mc_id=docs-article-lazzeri) |좋음  |Fast |예 |4 | |
 | [2 클래스 의사 결정 포리스트](./algorithm-module-reference/two-class-decision-forest.md?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |5 |더 느린 점수 매기기 시간을 표시 합니다. 누적 트리 예측의 디 어 지 잠금으로 인 한 더 느린 점수 매기기 시간 때문에 일대다 다중 클래스를 사용 하지 않는 것이 좋습니다. |
 | [2 클래스 승격 된 의사 결정 트리](./algorithm-module-reference/two-class-boosted-decision-tree.md?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |6 |큰 메모리 공간 |
 | [2 클래스 신경망](./algorithm-module-reference/two-class-neural-network.md?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
 | [2 클래스 평균 퍼셉트론](./algorithm-module-reference/two-class-averaged-perceptron.md?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |예 |4 | |
-| [2 클래스 지원 벡터 컴퓨터](./algorithm-module-reference/two-class-support-vector-machine.md?WT.mc_id=docs-article-lazzeri) |좋음 |빠름 |예 |5 |큰 기능 집합의 적합 |
-| [다중 클래스 로지스틱 회귀](./algorithm-module-reference/multiclass-logistic-regression.md?WT.mc_id=docs-article-lazzeri) |좋음 |빠름 |예 |4 | |
+| [2 클래스 지원 벡터 컴퓨터](./algorithm-module-reference/two-class-support-vector-machine.md?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |5 |큰 기능 집합의 적합 |
+| [다중 클래스 로지스틱 회귀](./algorithm-module-reference/multiclass-logistic-regression.md?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
 | [다중 클래스 의사 결정 포리스트](./algorithm-module-reference/multiclass-decision-forest.md?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |5 |더 느린 점수 매기기 시간 표시 |
 | [다중 클래스 승격 된 의사 결정 트리](./algorithm-module-reference/multiclass-boosted-decision-tree.md?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |6 | 적용 범위가 적은 몇 가지 위험으로 정확도를 향상 시키는 경향이 있습니다. |
 | [다중 클래스 신경망](./algorithm-module-reference/multiclass-neural-network.md?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
 | [One-vs-all 다중 클래스](./algorithm-module-reference/one-vs-all-multiclass.md?WT.mc_id=docs-article-lazzeri) | - | - | - | - |선택된 2클래스 메서드의 속성을 참조하세요. |
 | **회귀 제품군** | | | | | |
-| [선형 회귀](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |좋음 |빠름 |예 |4 | |
+| [선형 회귀](./algorithm-module-reference/linear-regression.md?WT.mc_id=docs-article-lazzeri) |좋음 |Fast |예 |4 | |
 | [의사 결정 포리스트 회귀](./algorithm-module-reference/decision-forest-regression.md?WT.mc_id=docs-article-lazzeri)|우수 |보통 |아니요 |5 | |
 | [승격 된 의사 결정 트리 회귀](./algorithm-module-reference/boosted-decision-tree-regression.md?WT.mc_id=docs-article-lazzeri) |우수 |보통 |아니요 |6 |큰 메모리 공간 |
 | [신경망 회귀](./algorithm-module-reference/neural-network-regression.md?WT.mc_id=docs-article-lazzeri) |좋음 |보통 |아니요 |8 | |
@@ -123,7 +123,7 @@ Machine Learning 디자이너에서 기계 학습 모델을 만들고 사용 하
 
 ![비선형 클래스 경계](./media/how-to-select-algorithms/nonlinear-class-boundary.png)
 
-**_비선형 클래스 경계_* _: 선형 분류 알고리즘에서 _Relying 하면 정확도가 낮아집니다. *
+***비선형 클래스 경계** _: 선형 분류 알고리즘에서 _Relying 하면 정확도가 낮아집니다. *
 
 ![비선형 추세 반영 데이터](./media/how-to-select-algorithms/nonlinear-trend.png)
 

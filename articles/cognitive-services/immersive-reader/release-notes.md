@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/12/2020
 ms.author: dylankil
 ms.openlocfilehash: 6b041916c6fa446732e95d49391d9ead63eb1b17
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93133596"
 ---
 # <a name="immersive-reader-javascript-sdk-release-notes"></a>몰입 형 판독기 JavaScript SDK 릴리스 정보
@@ -32,7 +32,7 @@ ms.locfileid: "93133596"
 * 첫 실행 환경을 사용 하지 않도록 설정 하는 기능 추가
 * UWP 용 ImmersiveReaderView 추가
 
-#### <a name="improvements"></a>개선 사항
+#### <a name="improvements"></a>향상 된 기능
 
 * 최신 SDK를 사용 하도록 Android 코드 샘플 HTML 업데이트
 * 처리 된 문자 수를 반환 하는 시작 응답 업데이트
@@ -66,7 +66,7 @@ ms.locfileid: "93133596"
 * Android Java 빠른 시작 코드 추가 샘플
 * Node.js 빠른 시작 코드 샘플 추가
 
-#### <a name="improvements"></a>개선 사항
+#### <a name="improvements"></a>향상 된 기능
 
 * Node.js advanced README.md 업데이트
 * 고급에서 빠른 시작으로 Python 코드 샘플 변경
@@ -94,7 +94,7 @@ ms.locfileid: "93133596"
 * 몰입 형 판독기를 종료할 때 호스트 응용 프로그램에서 사용할 수 있는 콜백 함수를 추가 합니다.
 * Azure Active Directory 인증을 사용 하도록 코드 샘플 업데이트
 
-#### <a name="improvements"></a>개선 사항
+#### <a name="improvements"></a>향상 된 기능
 
 * Word 문서를 포함 하도록 c # 고급 코드 샘플 업데이트
 * V 0.0.3를 사용 하도록 코드 샘플 업데이트
@@ -118,7 +118,7 @@ ms.locfileid: "93133596"
 * Java 빠른 시작 코드 추가 샘플
 * 간단한 코드 샘플 추가
 
-#### <a name="improvements"></a>개선 사항
+#### <a name="improvements"></a>향상 된 기능
 
 * 도메인 이름을 cogSvcsSubdomain 도메인으로 바꿉니다.
 * 코드에서 비밀을 이동 하 고 환경 변수 사용

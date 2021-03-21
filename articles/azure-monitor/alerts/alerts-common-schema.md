@@ -4,10 +4,10 @@ description: 일반적인 경고 스키마 이해, 사용 해야 하는 이유 �
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 39ea469b4109f4715db0d0a73ad069121058a46f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038260"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
@@ -32,8 +32,8 @@ ms.locfileid: "102038260"
 
 | 작업 | 개선 사항|
 |:---|:---|
-| SMS | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
-| Email | 일관 되 고 자세한 전자 메일 템플릿으로, 문제를 한눈에 쉽게 진단할 수 있습니다. 포함 된 딥-포털의 경고 인스턴스와 영향을 받는 리소스에 대 한 링크를 통해 신속 하 게 재구성 프로세스로 이동할 수 있습니다. |
+| sms | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
+| 메일 | 일관 되 고 자세한 전자 메일 템플릿으로, 문제를 한눈에 쉽게 진단할 수 있습니다. 포함 된 딥-포털의 경고 인스턴스와 영향을 받는 리소스에 대 한 링크를 통해 신속 하 게 재구성 프로세스로 이동할 수 있습니다. |
 | 웹 후크/논리 앱/a p i/Azure 함수/자동화 Runbook | 모든 경고 유형에 대해 일관 된 JSON 구조를 사용 하 여 다양 한 경고 유형에 서 통합을 쉽게 빌드할 수 있습니다. |
 
 새 스키마를 사용 하 여 Azure Portal 및 Azure 모바일 앱에 대 한 보다 다양 한 경고 소비 환경을 제공할 수도 있습니다. 

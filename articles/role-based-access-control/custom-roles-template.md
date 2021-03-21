@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
 ms.openlocfilehash: 0626a9e36d05ac9cb51f62652dbe6f3133bbc6d7
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095900"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>ARM 템플릿을 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트
@@ -117,7 +117,7 @@ ms.locfileid: "101095900"
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
-    다음과 비슷한 결과가 나타나야 합니다.
+    다음과 비슷한 내용이 출력됩니다.
 
     ```azurepowershell-interactive
     {

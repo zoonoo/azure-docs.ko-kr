@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101224"
 ---
 # <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>KeyVaultCertificateSelector UI 요소
@@ -24,11 +24,11 @@ ms.locfileid: "93101224"
 
 **인증서 선택** 을 선택 하면 사용자가 키 자격 증명 모음에서 키 자격 증명 모음 및 인증서를 지정할 수 있습니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="KeyVaultCertificateSelector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="KeyVaultCertificateSelector 인증서 선택":::
 
 선택한 키 자격 증명 모음 및 인증서 이름을 표시 하도록 컨트롤이 업데이트 됩니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="KeyVaultCertificateSelector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="KeyVaultCertificateSelector 선택한 인증서를 표시 합니다.":::
 
 ## <a name="schema"></a>스키마
 

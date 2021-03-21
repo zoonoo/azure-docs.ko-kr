@@ -10,10 +10,10 @@ ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99525791"
 ---
 # <a name="scenario-any-to-any"></a>시나리오: 임의의 위치
@@ -24,7 +24,7 @@ ms.locfileid: "99525791"
 
 가상 WAN 시나리오에서 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 여기서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타냅니다.
 
-| From |   대상 |  *Vnet* | *분기* |
+| 시작 |   대상 |  *Vnet* | *분기* |
 | -------------- | -------- | ---------- | ---|
 | VNet     | &#8594;| 직접 | 직접 |
 | 분기   | &#8594;| 직접  | 직접 |

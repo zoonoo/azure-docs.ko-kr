@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.openlocfilehash: 70407d726b697dd6c4dfb6777cf6c445092d3b73
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206328"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
@@ -121,7 +121,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
     ```azurepowershell
     Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
     ```
-4. <a name="gw"></a>ExpressRoute 게이트웨이를 만듭니다. GatewaySKU를 *Standard*, *HighPerformance* 또는 *UltraPerformance*로 지정하고 GatewayType을 *DynamicRouting*으로 지정해야 합니다.
+4. <a name="gw"></a>ExpressRoute 게이트웨이를 만듭니다. GatewaySKU를 *Standard*, *HighPerformance* 또는 *UltraPerformance* 로 지정하고 GatewayType을 *DynamicRouting* 으로 지정해야 합니다.
    
     다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
@@ -133,7 +133,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
     ```azurepowershell
     New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
     ```
-6. <a name="vpngw"></a>그런 다음 사이트 간 VPN Gateway를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
+6. <a name="vpngw"></a>그런 다음 사이트 간 VPN Gateway를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance* 이어야 하고 GatewayType은 *DynamicRouting* 이어야 합니다.
    
     ```azurepowershell
     New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
@@ -238,7 +238,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
       <AddressPrefix>10.17.159.224/27</AddressPrefix>
     </Subnet>
     ```
-5. 이전 게이트웨이가 사이트 간 VPN인 경우 연결 형식을 **전용**으로 변경해야 합니다.
+5. 이전 게이트웨이가 사이트 간 VPN인 경우 연결 형식을 **전용** 으로 변경해야 합니다.
    
     ```xml
     <Gateway>

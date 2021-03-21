@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: d2821a16e0b72b32cc392b7ae626d782734458a6
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674204"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
@@ -40,7 +40,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
     :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Queue Storage 출력 바인딩을 Azure Portal의 함수에 추가합니다." border="true":::
     
-    | 설정      |  제안 값   | Description                              |
+    | 설정      |  제안 값   | 설명                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **메시지 매개 변수 이름** | outputQueueItem | 출력 바인딩 매개 변수의 이름입니다. | 
     | **큐 이름**   | outqueue  | Storage 계정에서 연결할 큐의 이름입니다. |

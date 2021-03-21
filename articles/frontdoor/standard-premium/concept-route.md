@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: db026c4903aa30a0a4c8154af8ad6eeb4b72b706
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101100050"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview-route"></a>Azure Front 도어 표준/프리미엄 (미리 보기) 경로 란?
 
 > [!Note]
-> 이 설명서는 Azure Front 도어 Standard/Premium (미리 보기)에 대 한 것입니다. Azure Front 문에 대 한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [여기](../front-door-overview.md)에서 봅니다.
 
 Azure 전면 도어 표준/프리미엄 경로는 들어오는 요청이 Azure Front 도어 환경에 도착할 때 트래픽이 처리 되는 방식을 정의 합니다. 경로 설정을 통해 연결은 도메인과 백 엔드 원본 그룹 간에 정의 됩니다. March-o 바이너리도에 대 한 패턴, 규칙 집합 등의 고급 기능을 설정 하 여 트래픽에 대 한 보다 세부적인 제어를 달성할 수 있습니다.
 

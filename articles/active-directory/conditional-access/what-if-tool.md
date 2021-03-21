@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077645"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용하여 문제 해결
@@ -24,13 +24,13 @@ ms.locfileid: "93077645"
 
 이 문서에서는이 도구를 사용 하 여 조건부 액세스 정책을 테스트 하는 방법을 설명 합니다.
 
-## <a name="what-it-is"></a>정의
+## <a name="what-it-is"></a>의미
 
 **조건부 액세스 What If 정책 도구** 를 사용 하 여 사용자 환경에 대 한 조건부 액세스 정책의 영향을 이해할 수 있습니다. 여러 번의 로그인을 수동으로 수행하여 정책을 시험 사용해보는 대신, 이 도구를 사용하여 사용자의 시뮬레이트된 로그인을 평가할 수 있습니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고, 시뮬레이션 보고서를 생성합니다. 이 보고서에는 적용 된 조건부 액세스 정책 뿐만 아니라 [기존 정책](policy-migration.md#classic-policies) (있는 경우)도 나열 됩니다.    
 
 **What If** 도구는 특정 사용자에 게 적용 되는 정책을 신속 하 게 결정 하는 방법을 제공 합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 **조건부 액세스 What If 도구** 에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "93077645"
 
 이 섹션에서는 시뮬레이션 실행의 설정에 대한 정보를 제공합니다.
 
-:::image type="content" source="./media/what-if-tool/02.png" alt-text="Azure Portal에서 조건부 액세스-정책 페이지의 스크린샷 도구 모음에서 항목을 강조 표시 합니다." border="false":::
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="사용자, 클라우드 앱, I P 주소, 장치 플랫폼, 클라이언트 앱 및 로그인 위험에 대 한 필드를 포함 하는 Azure Portal What If 페이지의 스크린샷" border="false":::
 
 ### <a name="user"></a>사용자
 
@@ -79,8 +79,8 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 이 설정은 [클라이언트 앱 조건](concept-conditional-access-conditions.md#client-apps)을 모방합니다.
 기본적으로 이 설정을 사용하면 **브라우저** 또는 **모바일 앱 및 데스크톱 클라이언트** 가 따로 또는 둘 다 선택되어 있는 모든 정책이 평가됩니다. 또한 **EAS(Exchange ActiveSync)** 를 적용하는 정책도 감지됩니다. 다음을 선택하여 이 설정의 범위를 좁힐 수 있습니다.
 
-- **브라우저** : 하나 이상의 **브라우저** 가 선택된 모든 정책을 평가합니다. 
-- **모바일 앱 및 데스크톱 클라이언트** : 적어도 **모바일 앱 및 데스크톱 클라이언트** 가 선택된 모든 정책을 평가합니다. 
+- **브라우저**: 하나 이상의 **브라우저** 가 선택된 모든 정책을 평가합니다. 
+- **모바일 앱 및 데스크톱 클라이언트**: 적어도 **모바일 앱 및 데스크톱 클라이언트** 가 선택된 모든 정책을 평가합니다. 
 
 ### <a name="sign-in-risk"></a>로그인 위험
 
@@ -90,7 +90,7 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 **What If** 를 클릭 하 여 평가를 시작 합니다. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
 
-:::image type="content" source="./media/what-if-tool/03.png" alt-text="Azure Portal에서 조건부 액세스-정책 페이지의 스크린샷 도구 모음에서 항목을 강조 표시 합니다." border="false":::
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="평가 보고서의 스크린샷 텍스트는 하나 이상의 클래식 정책이 구성 되어 있음을 나타냅니다. 탭은 정책을 볼 수 있습니다." border="false":::
 
 - 클래식 정책이 환경에 있는지 여부 표시
 - 사용자에게 적용되는 정책

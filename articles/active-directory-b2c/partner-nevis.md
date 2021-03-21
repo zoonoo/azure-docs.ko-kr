@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98674996"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>암호 없는 인증을 위해 Azure Active Directory B2C를 구성 하는 자습서
@@ -46,7 +46,7 @@ ms.locfileid: "98674996"
 
 ![Azure AD B2C 및 네비스를 사용 하는 상위 수준의 암호 로그인 흐름](./media/partner-nevis/nevis-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 하 고 Azure AD B2C 로그인 정책을 통해 응용 프로그램에 로그인 하거나 로그인을 시도 합니다.
 | 2. | 등록 하는 동안 네비스 Access 앱은 QR 코드를 사용 하 여 사용자 장치에 등록 됩니다. 사용자 장치에 개인 키가 생성 되 고 사용자 요청에 서명 하는 데 사용 됩니다.

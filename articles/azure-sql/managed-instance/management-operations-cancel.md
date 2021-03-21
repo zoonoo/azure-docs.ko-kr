@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 342491178d55dacbdc68e6c9042623d381dff898
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96861547"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 취소
@@ -36,7 +36,7 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 
 다음 표에서는 관리 작업을 취소할 수 있는지 여부와 일반적인 전체 지속 시간을 요약 하 여 보여 줍니다.
 
-범주  |연산  |취소  |예상 취소 기간  |
+범주  |작업  |취소  |예상 취소 기간  |
 |---------|---------|---------|---------|
 |배포 |인스턴스 만들기 |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 저장소 확장/축소 (범용) |아니요 |  |
@@ -44,8 +44,8 @@ Azure SQL Managed Instance는 새 관리 되는 인스턴스를 배포 하거나
 |업데이트 |인스턴스 컴퓨팅(vCore) 확장 및 축소(범용) |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 컴퓨팅(vCore) 확장 및 축소(중요 비즈니스용) |예 |작업의 90%가 5분 후에 완료됩니다. |
 |업데이트 |인스턴스 서비스 계층 변경(범용에서 중요 비즈니스용으로 및 그 반대로) |예 |작업의 90%가 5분 후에 완료됩니다. |
-|삭제 |인스턴스 삭제 |아니요 |  |
-|삭제 |가상 클러스터 삭제(사용자 시작 작업) |아니요 |  |
+|DELETE |인스턴스 삭제 |아니요 |  |
+|DELETE |가상 클러스터 삭제(사용자 시작 작업) |아니요 |  |
 
 ## <a name="cancel-management-operation"></a>관리 작업 취소
 

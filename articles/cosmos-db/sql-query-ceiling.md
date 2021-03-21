@@ -9,10 +9,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 8c5fdda416aca698b9ad0a68ef050957f32aef31
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93332409"
 ---
 # <a name="ceiling-azure-cosmos-db"></a>상한 (Azure Cosmos DB)
@@ -35,7 +35,7 @@ CEILING (<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
   
   다음 예에서는 함수를 사용 하 여 양수, 음수 및 0 값을 보여 줍니다 `CEILING` .  
   

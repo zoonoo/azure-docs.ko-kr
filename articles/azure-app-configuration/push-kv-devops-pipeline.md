@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: alkemper
 ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718185"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 앱 구성에 설정 푸시
 
 [Azure 앱 구성 푸시](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push) 작업은 구성 파일의 키-값을 앱 구성 저장소로 푸시합니다. 이 작업을 통해 앱 구성 저장소에서 설정을 끌어올 수 있을 뿐만 아니라 앱 구성 저장소에 대 한 푸시 설정을 사용할 수 있기 때문에 파이프라인 내에서 전체 서클 기능을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - 앱 구성 리소스- [Azure Portal](https://portal.azure.com)에서 무료로 무료로 만듭니다.

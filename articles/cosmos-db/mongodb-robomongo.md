@@ -8,10 +8,10 @@ ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
 ms.openlocfilehash: e096de5eea9bf5bbd47b976976192e62eb6aa33e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096413"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API에서 Robo 3T 사용
@@ -38,14 +38,14 @@ Cosmos 계정을 Robo 3T 연결 관리자에 추가하려면 다음 단계를 �
 
 4. **연결 설정** 창에서 이름을 선택합니다. 그런 다음 1단계의 연결 정보에서 **호스트** 및 **포트** 를 찾아 **주소** 및 **포트** 에 각각 입력합니다.
 
-    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="연결 문자열 블레이드의 스크린샷":::
-5. **인증** 탭에서 **인증 수행** 을 클릭합니다. 그런 다음 데이터베이스(기본값은 *관리자* ), **사용자 이름** 및 **암호** 를 입력합니다.
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Robomongo 관리 연결의 스크린샷":::
+5. **인증** 탭에서 **인증 수행** 을 클릭합니다. 그런 다음 데이터베이스(기본값은 *관리자*), **사용자 이름** 및 **암호** 를 입력합니다.
 **사용자 이름** 및 **암호** 는 모두 1단계의 연결 정보에서 찾을 수 있습니다.
 
-    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="연결 문자열 블레이드의 스크린샷":::
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Robomongo 인증 탭의 스크린샷":::
 6. **SSL** 탭에서 **SSL 프로토콜 사용** 을 선택한 다음 **인증 방법** 을 **자체 서명된 인증서** 로 변경합니다.
 
-    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="연결 문자열 블레이드의 스크린샷":::
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Robomongo SSL 탭의 스크린샷":::
 7. 마지막으로 **테스트** 를 클릭하여 연결할 수 있는지 확인한 다음 **저장** 을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

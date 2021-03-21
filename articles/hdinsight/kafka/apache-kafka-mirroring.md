@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940848"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
@@ -22,7 +22,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 이 예제에서 미러링은 두 HDInsight 클러스터 간에 항목을 복제하는 데 사용됩니다. 두 클러스터는 서로 다른 데이터 센터에 있는 서로 다른 가상 네트워크에 있습니다.
 
 > [!WARNING]  
-> 미러링이 내결함성을 달성하는 수단으로 간주되어서는 안됩니다. 항목 내의 항목에 대 한 오프셋은 주 클러스터와 보조 클러스터 간에 차이가 있으므로 클라이언트는 두 가지를 서로 바꿔 사용할 수 없습니다.
+> 미러링이 내결함성을 달성하는 수단으로 간주되어서는 안됩니다. 토픽 내의 항목에 대한 오프셋은 기본 및 보조 클러스터 간에 서로 다르므로 클라이언트에서는 이 두 가지를 서로 교환하여 사용할 수 없습니다.
 >
 > 내결함성이 염려되는 경우 클러스터 내의 토픽에 대한 복제를 설정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 
@@ -30,25 +30,25 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
 미러링은 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 도구 (Apache Kafka의 일부)를 사용 하 여 주 클러스터에 있는 항목의 레코드를 사용 하 고 보조 클러스터에 로컬 복사본을 만드는 방식으로 작동 합니다. MirrorMaker는 주 클러스터에서 읽은 하나 이상의 *소비자* 와 로컬 (보조) 클러스터에 쓰는 *생산자* 를 사용 합니다.
 
-재해 복구를 위한 가장 유용한 미러링 설정은 여러 Azure 지역에서 Kafka 클러스터를 활용 합니다. 이를 위해 클러스터가 있는 가상 네트워크는 함께 피어 링 됩니다.
+재해 복구에 가장 유용한 미러링 설정은 여러 Azure 지역에서 Kafka 클러스터를 활용하는 것입니다. 이를 위해 클러스터가 있는 가상 네트워크는 함께 피어링됩니다.
 
-다음 다이어그램에서는 미러링 프로세스와 클러스터 간 통신 흐름을 보여 줍니다.
+다음 다이어그램에서는 미러링 프로세스와 클러스터 간 통신 흐름을 보여줍니다.
 
 ![미러링 프로세스 다이어그램](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
 
-기본 및 보조 클러스터는 노드 및 파티션 수와 다를 수 있으며 항목 내의 오프셋도 서로 다릅니다. 미러링은 분할에 사용되는 키 값을 유지하므로 레코드 순서는 키 기준으로 유지됩니다.
+기본 및 보조 클러스터는 노드와 파티션 수에 따라 다를 수 있으며 토픽 내의 오프셋도 다릅니다. 미러링은 분할에 사용되는 키 값을 유지하므로 레코드 순서는 키 기준으로 유지됩니다.
 
 ### <a name="mirroring-across-network-boundaries"></a>네트워크 경계를 넘은 미러링
 
 다른 네트워크의 Kafka 클러스터 간에 미러링해야 하는 경우 다음과 같은 추가 고려 사항이 있습니다.
 
-* **게이트웨이**: 네트워크에서 tcp/ip 수준으로 통신할 수 있어야 합니다.
+* **게이트웨이**: 네트워크는 TCP/IP 수준에서 통신할 수 있어야 합니다.
 
-* **서버 주소 지정**: IP 주소 또는 정규화 된 도메인 이름을 사용 하 여 클러스터 노드의 주소를 지정 하도록 선택할 수 있습니다.
+* **서버 주소 지정**: IP 주소 또는 정규화된 도메인 이름을 사용하여 클러스터 노드의 주소를 지정하도록 선택할 수 있습니다.
 
-    * **Ip 주소**: ip 주소 광고를 사용 하도록 Kafka 클러스터를 구성 하는 경우 브로커 노드의 IP 주소 및 사육 아웃 노드의 ip 주소를 사용 하 여 미러링 설정을 진행할 수 있습니다.
+    * **IP 주소**: IP 주소 광고를 사용하도록 Kafka 클러스터를 구성하는 경우 broker 노드의 IP 주소 및 zookeeper 노드의 IP 주소를 사용하여 미러링 설정을 진행할 수 있습니다.
     
-    * **도메인 이름**: IP 주소 광고에 대해 Kafka 클러스터를 구성 하지 않으면 클러스터에서 fqdn (정규화 된 도메인 이름)을 사용 하 여 서로 연결할 수 있어야 합니다. 이렇게 하려면 다른 네트워크에 요청을 전달 하도록 구성 된 각 네트워크에 DNS (Domain Name System) 서버가 필요 합니다. Azure Virtual Network를 만들 때 네트워크에서 제공되는 자동 DNS를 사용하는 대신 사용자 지정 DNS 서버와 해당 서버의 IP 주소를 지정해야 합니다. 가상 네트워크를 만든 후에는 해당 IP 주소를 사용하는 Azure Virtual Machine을 만든 다음 DNS 소프트웨어를 설치하고 구성해야 합니다.
+    * **도메인 이름**: IP 주소 광고에 대해 Kafka 클러스터를 구성하지 않으면 클러스터는 FQDN(정규화된 도메인 이름)을 사용하여 서로 연결할 수 있어야 합니다. 이렇게 하려면 요청을 다른 네트워크로 전달하도록 구성된 Domain Name System(DNS)서버가 각 네트워크에 필요할 수 있습니다. Azure Virtual Network를 만들 때 네트워크에서 제공되는 자동 DNS를 사용하는 대신 사용자 지정 DNS 서버와 해당 서버의 IP 주소를 지정해야 합니다. 가상 네트워크를 만든 후에는 해당 IP 주소를 사용하는 Azure Virtual Machine을 만든 다음 DNS 소프트웨어를 설치하고 구성해야 합니다.
 
     > [!WARNING]  
     > HDInsight를 Virtual Network에 설치하기 전에 사용자 지정 DNS 서버를 만들고 구성합니다. Virtual Network에 구성된 DNS 서버를 사용하기 위해 HDInsight를 추가로 구성할 필요는 없습니다.
@@ -268,7 +268,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     이 예제에 사용된 매개 변수는 다음과 같습니다.
 
-    |매개 변수 |Description |
+    |매개 변수 |설명 |
     |---|---|
     |--consumer.config|소비자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *기본* kafka 클러스터에서 읽는 소비자를 만드는 데 사용 됩니다.|
     |--producer.config|생산자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *보조* kafka 클러스터에 쓰는 생산자를 만드는 데 사용 됩니다.|

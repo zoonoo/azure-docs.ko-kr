@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101096466"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 관리
@@ -64,8 +64,8 @@ Azure Automation는 하나의 구독에서 단일 Automation 계정을 사용 �
 
 역할 할당을 추가 하는 방법에 대 한 자세한 단계는 사용 하려는 방법에 따라 다음 문서를 참조 하세요.
 
-* [Azure Portal를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
-* [Azure PowerShell를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-powershell.md)
+* [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
+* [Azure PowerShell을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-powershell.md)
 * [Azure CLI를 사용 하 여 Azure 역할 할당](../role-based-access-control/role-assignments-cli.md)
 * [REST API를 사용 하 여 Azure 역할 할당](..//role-based-access-control/role-assignments-rest.md)
 
