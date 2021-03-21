@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 84ee65b05af4393f49696875bda41df39e283d5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85980092"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Azure Storage Blob에서 Azure Data Lake Storage Gen1로 데이터 복사
@@ -31,7 +31,7 @@ Data Lake Storage Gen1는 다음 원본에서 데이터를 복사할 수 있는 
 * **독립 실행형**, 여기서 도구는 Data Lake Storage Gen1 리소스를 사용하여 작업을 수행합니다.
 * **데이터 레이크 분석 계정 사용**, 여기서 데이터 레이크 분석 계정에 할당된 단위는 복사 작업을 수행하는 데 사용됩니다. 예측 가능한 방식으로 복사 작업을 수행하려는 경우 이 옵션을 사용 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -39,7 +39,7 @@ Data Lake Storage Gen1는 다음 원본에서 데이터를 복사할 수 있는 
 * 일부 데이터를 사용 하 여 blob 컨테이너를 **Azure Storage** 합니다.
 * **Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
 * **Data Lake Analytics 계정 (선택 사항)** -Data Lake Analytics 계정을 만드는 방법에 대 한 지침은 [Azure Data Lake Analytics 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md) 을 참조 하세요.
-* **Adlcopy 도구**입니다. [Adlcopy 도구](https://www.microsoft.com/download/details.aspx?id=50358)를 설치 합니다.
+* **Adlcopy 도구** 입니다. [Adlcopy 도구](https://www.microsoft.com/download/details.aspx?id=50358)를 설치 합니다.
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>AdlCopy 도구 구문
 
@@ -58,7 +58,7 @@ AdlCopy /Source <Blob or Data Lake Storage Gen1 source> /Dest <Data Lake Storage
 | SourceKey |Azure Storage Blob 원본에 대한 스토리지 액세스 키를 지정합니다. 원본이 Blob 컨테이너 또는 Blob인 경우에만 필요합니다. |
 | 계정 |**선택 사항입니다**. 복사 작업을 실행하기 위해 Azure 데이터 레이크 분석 계정을 사용하려는 경우 사용합니다. 구문에서 /Account 옵션을 사용하지만 데이터 레이크 분석 계정을 지정하지 않으면 AdlCopy는 기본 계정을 사용하여 작업을 실행합니다. 또한 이 옵션을 사용하는 경우 원본(Azure Storage Blob) 및 대상(Azure Data Lake Storage Gen1)을 Data Lake Analytics 계정에 대한 데이터 원본으로 추가해야 합니다. |
 | 단위 |복사 작업에 사용할 데이터 레이크 분석 단위의 수를 지정합니다. 이 옵션은 **/Account** 옵션을 사용하여 데이터 레이크 분석 계정을 지정하는 경우 필수입니다. |
-| 패턴 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 지정 된 패턴이 없는 경우의 기본 패턴은 모든 항목을 복사 하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
+| 무늬 |복사할 Blob 또는 파일을 나타내는 regex 패턴을 지정합니다. AdlCopy는 대/소문자 구분 일치를 사용합니다. 지정 된 패턴이 없는 경우의 기본 패턴은 모든 항목을 복사 하는 것입니다. 여러 파일 패턴을 지정할 수는 없습니다. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>AdlCopy(독립 실행형)를 사용하여 Azure Storage Blob에서 데이터 복사
 

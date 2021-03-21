@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102119878"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
@@ -58,11 +58,11 @@ ms.locfileid: "102119878"
 다음 클레임 변환은 SendGrid (타사 전자 메일 공급자)로 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
 
 - 입력 클레임:
-  - **전자 메일**, 변환 클레임 유형 개인 설정을. 0.  **to. 0. 전자 메일**: " someone@example.com "
+  - **전자 메일**, 변환 클레임 유형  **personalizations.0.to.0.email**: " someone@example.com "
   - **otp**, 변환 클레임 유형 **personalizations.0.dynamic_template_data otp** "346349"
 - 입력 매개 변수:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **보낸 사람: 전자 메일**: " service@contoso.com "
+  - **from.email**: " service@contoso.com "
   - **개인 설정은. 0. 제목** "Contoso 계정 전자 메일 확인 코드"
 - 출력 클레임:
   - **Requestbody**: JSON 값
@@ -115,7 +115,7 @@ ms.locfileid: "102119878"
 다음 클레임 변환은 REST API 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
 
 - 입력 클레임:
-  - **전자 메일**, 변환 클레임 유형  **customerentity. 전자 메일**: " john.s@contoso.com "
+  - **전자 메일**, 변환 클레임 유형  **customerEntity.email**: " john.s@contoso.com "
   - **objectId**, 변환 클레임 유형 **Customerentity. userobjectid** "01234567-89ab-cdef-0123-456789abcdef"
   - **givenName** 변환 클레임 유형 **Customerentity. firstName** "John"
   - **성**, 변환 클레임 유형 **Customerentity. lastName** "Smith"
@@ -357,7 +357,7 @@ XML 데이터를 JSON 형식으로 변환합니다.
 
 다음 예제에서는 클레임 변환이 다음 XML 데이터를 JSON 형식으로 변환합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 입력 클레임:
 
 ```xml

@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 및 Azure AD Connect Health 설치 로드맵. | Microsoft Docs
+title: Azure AD Connect 및 Azure AD Connect Health 설치 로드맵. | Microsoft 문서
 description: 이 문서에서는 Azure AD Connect 및 Connect Health에 사용할 수 있는 설치 옵션 및 경로를 간단히 살펴봅니다.
 services: active-directory
 author: billmath
@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae575aa6544a174a70eb8ea4749566e8660280e2
-ms.sourcegitcommit: 642988f1ac17cfd7a72ad38ce38ed7a5c2926b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94873270"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
@@ -29,7 +29,7 @@ ms.locfileid: "94873270"
 
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
-| 해결 방법 | 시나리오 |
+| 솔루션 | 시나리오 |
 | --- | --- |
 | 시작하기 전에 - [하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md) |<li>Azure AD Connect 설치를 시작하기 전에 완료할 단계입니다.</li> |
 | [Express 설정](how-to-connect-install-express.md) |<li>단일 포리스트 AD가 있는 경우 사용하도록 권장되는 옵션입니다.</li> <li>사용자가 암호 동기화를 사용하여 동일한 암호로 로그인합니다.</li> |
@@ -53,7 +53,7 @@ ms.locfileid: "94873270"
 
 |항목 |링크|  
 | --- | --- |
-|지원되는 토폴로지 | [Azure AD Connect에 대한 토폴로지](plan-connect-topologies.md)|
+|지원되는 토폴로지 | [Azure AD Connect에 대 한 토폴로지](plan-connect-topologies.md)|
 |설계 개념 | [Azure AD Connect 디자인 개념](plan-connect-design-concepts.md)|
 |설치에 사용되는 계정 | [Azure AD Connect 자격 증명 및 사용 권한에 대한 자세한 정보](reference-connect-accounts-permissions.md)|
 |운영 계획 | [Azure AD Connect Sync: 운영 작업 및 고려 사항](./how-to-connect-sync-staging-server.md)|
@@ -101,7 +101,7 @@ Azure AD Connect 동기화는 대부분의 고객 및 토폴로지에 대해 작
 |기술 개념 | [Azure AD Connect 동기화: 기술 개념](how-to-connect-sync-technical-concepts.md)|
 |기본 구성 이해 | [Azure AD Connect 동기화: 기본 구성 이해](concept-azure-ad-connect-sync-default-configuration.md)|
 |사용자 및 연락처 이해 | [Azure AD Connect Sync: 사용자 및 연락처 이해](concept-azure-ad-connect-sync-user-and-contacts.md)|
-|선언적 프로비전 | [Azure AD Connect Sync: 선언적 프로비전 식 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
+|선언적 프로비전 | [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)|
 |기본 구성 변경 | [기본 구성 변경에 대한 모범 사례](how-to-connect-sync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>페더레이션 기능 구성

@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 09/08/2020
 ms.author: yelevin
 ms.openlocfilehash: 4cd97aef5d8c959aeb2e0314e051790fd0421585
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99806938"
 ---
 # <a name="azure-sentinel-data-normalization-schema-reference"></a>Azure 센티널 데이터 정규화 스키마 참조
@@ -52,25 +52,25 @@ Azure 센티널 스키마에서 사용 되는 용어는 다음과 같습니다.
 | **경도** | Double | ISO 6709 좌표 표현 (부호 있는 10 진수) |
 | **위도** | Double | ISO 6709 좌표 표현 (부호 있는 10 진수) |
 | **해시 알고리즘** | String | 다음 4 개의 해시 열이 지원 됩니다.<ul><li>MD5</li><li>SHA1</li><li>SHA256</li><li>SHA512</li></ul> |
-| **파일 유형** | String | 파일 형식의 형식입니다.<ul><li>확장명</li><li>인스턴스</li><li>NamedType</li></ul> |
+| **파일 형식** | String | 파일 형식의 형식입니다.<ul><li>내선 번호</li><li>클래스</li><li>NamedType</li></ul> |
 | 
 
 ## <a name="network-sessions-table-schema"></a>네트워크 세션 테이블 스키마
 
 다음은 네트워크 세션 테이블, 버전 1.0.0의 스키마입니다.
 
-| 필드 이름 | 값 유형 | 예제 | 설명 | 연결 된 OSSEM 엔터티 |
+| 필드 이름 | 값 형식 | 예제 | 설명 | 연결 된 OSSEM 엔터티 |
 |-|-|-|-|-|
 | EventType | String | 트래픽 | 수집 되는 이벤트의 유형입니다. | 이벤트 |
 | EventSubType 형식 | String | 인증 | 해당 하는 경우 형식의 추가 설명 | 이벤트 |
 | EventCount | 정수  | 10 | 집계 된 이벤트의 수입니다 (해당 하는 경우). | 이벤트 |
 | EventEndTime | 날짜/시간 | "데이터 형식"을 참조 하세요. | 이벤트가 종료 된 시간입니다. | 이벤트 |
-| EventMessage | string |  액세스 거부 | 에 포함 되었거나 레코드에서 생성 된 일반 메시지 또는 설명입니다. | 이벤트 |
+| EventMessage | 문자열 |  액세스 거부 | 에 포함 되었거나 레코드에서 생성 된 일반 메시지 또는 설명입니다. | 이벤트 |
 | DvcIpAddr | IP 주소 |  23.21.23.34 | 레코드를 생성 하는 장치의 IP 주소입니다. | 디바이스<br>IP |
 | DvcMacAddr | String | 06:10:9f: eb: 8f: 14 | 이벤트를 보낸 보고 장치의 네트워크 인터페이스에 대 한 MAC 주소입니다. | 디바이스<br>Mac |
 | DvcHostname | 장치 이름 (문자열) | syslogserver1.contoso.com | 메시지를 생성 하는 장치의 장치 이름입니다. | 디바이스 |
 | EventProduct | String | OfficeSharepoint | 이벤트를 생성 하는 제품입니다. | 이벤트 |
-| EventProductVersion | string | 9.0 |  이벤트를 생성 하는 제품의 버전입니다. | 이벤트 |
+| EventProductVersion | 문자열 | 9.0 |  이벤트를 생성 하는 제품의 버전입니다. | 이벤트 |
 | EventResourceId | 장치 ID (문자열) | /subscriptions/3c1bb38c-82e3-4f8d-a115-a7110ba70d05/resourcegroups/contoso77/providers/microsoft.compute/virtualmachines/syslogserver1 | 메시지를 생성 하는 장치의 리소스 ID입니다. | 이벤트 |
 | EventReportUrl | String | https://192.168.1.1/repoerts/ae3-56.htm | 보고 장치에서 만든 전체 보고서에 대 한 링크 | 이벤트 |
 | EventVendor | String | Microsoft | 이벤트를 생성 하는 제품의 공급 업체입니다. | 이벤트 |
@@ -92,9 +92,9 @@ Azure 센티널 스키마에서 사용 되는 용어는 다음과 같습니다.
 | DstGeoCountry | Country (문자열) | 미국 | 원본 IP 주소와 연결 된 국가 | 대상이<br>지역 |
 | DstDvcHostname | 장치 이름 (문자열) |  victim_pc | 대상 장치의 장치 이름 | 대상<br>디바이스 |
 | DstDvcFqdn | String | victim_pc. contoso.com | 로그가 생성 된 호스트의 정규화 된 도메인 이름 | 대상이<br>디바이스 |
-| DstDomainHostname | string | CONTOSO | 대상 도메인, 대상 호스트의 도메인 (웹 사이트, 도메인 이름 등) (예: DNS 조회 또는 NS 조회) | 대상 |
-| DstInterfaceName | string | 네트워크 어댑터 Microsoft Hyper-V | 대상 장치에서 연결 또는 세션에 사용 되는 네트워크 인터페이스입니다. | 대상 |
-| Dst인터페이스 Guid | string | 2BB33827-6BB6-48DB-8DE6-DB9E0B9F9C9B | 인증 요청에 사용 된 네트워크 인터페이스의 GUID입니다.  | 대상 |
+| DstDomainHostname | 문자열 | CONTOSO | 대상 도메인, 대상 호스트의 도메인 (웹 사이트, 도메인 이름 등) (예: DNS 조회 또는 NS 조회) | 대상 |
+| DstInterfaceName | 문자열 | 네트워크 어댑터 Microsoft Hyper-V | 대상 장치에서 연결 또는 세션에 사용 되는 네트워크 인터페이스입니다. | 대상 |
+| Dst인터페이스 Guid | 문자열 | 2BB33827-6BB6-48DB-8DE6-DB9E0B9F9C9B | 인증 요청에 사용 된 네트워크 인터페이스의 GUID입니다.  | 대상 |
 | DstIpAddr | IP 주소 | 2001: db8:: ff00:42:8329 | 네트워크 패킷에서 가장 일반적으로 대상 IP로 참조 되는 연결 또는 세션 대상의 IP 주소입니다. | 대상이<br>IP |
 | DstDvcIpAddr | IP 주소 | 75.22.12.2 | 네트워크 패킷과 직접 연결 되지 않은 장치의 대상 IP 주소 | 대상이<br>디바이스<br>IP
 | DstGeoLatitude | 위도 (Double) | 44.475833 | 대상 IP 주소와 연결 된 지리적 좌표의 위도입니다. | 대상이<br>지역 |
@@ -109,8 +109,8 @@ Azure 센티널 스키마에서 사용 되는 용어는 다음과 같습니다.
 | DstUserSid | 사용자 SID |  S-12-1445 | 세션 대상에 연결 된 id의 사용자 ID입니다. 일반적으로 서버를 인증 하는 데 사용 되는 id입니다. 자세한 내용은 "데이터 형식"을 참조 하세요. | 대상이<br>사용자 |
 | DstUserAadId | 문자열 (guid) | ae92b0b4-cfba-4b42-85a0-fbd862f4df54 | 세션의 대상 끝에 있는 사용자의 Azure AD 계정 개체 ID입니다. | 대상이<br>사용자 |
 | DstUserName | 사용자 이름 (문자열) | johnd | 세션 대상에 연결 된 id의 사용자 이름입니다.  | 대상이<br>사용자 |
-| DstUserUpn | string | johnd@anon.com | 세션 대상에 연결 된 id의 UPN입니다. | 대상이<br>사용자 |
-| DstUserDomain | string | 작업 그룹 | 세션 대상의 계정 도메인 또는 컴퓨터 이름 | 대상이<br>사용자 |
+| DstUserUpn | 문자열 | johnd@anon.com | 세션 대상에 연결 된 id의 UPN입니다. | 대상이<br>사용자 |
+| DstUserDomain | 문자열 | 작업 그룹 | 세션 대상의 계정 도메인 또는 컴퓨터 이름 | 대상이<br>사용자 |
 | DstZone | String | Dmz | 보고 장치에 정의 된 대상의 네트워크 영역입니다. | 대상 |
 | DstGeoLongitude | 경도 (Double) | -73.211944 | 대상 IP 주소와 연결 된 지리적 좌표의 경도입니다. | 대상이<br>지역 |
 | DvcAction | 다중 값: Allow, Deny, Drop (string) | 허용 | 방화벽과 같은 중간 장치에서 보고 한 경우 장치에서 수행 하는 작업입니다. | 디바이스 |
@@ -126,12 +126,12 @@ Azure 센티널 스키마에서 사용 되는 용어는 다음과 같습니다.
 | HttpResponseTime | 정수 | 800 | 서버에서 응답을 수신 하는 데 걸린 시간입니다 (해당 하는 경우). | Http |
 | NetworkRuleName | String | AnyAnyDrop | DeviceAction이 결정 된 규칙의 이름 또는 ID입니다. | 네트워크 |
 | NetworkRuleNumber | int |  23 | 일치 하는 규칙 번호  | 네트워크 |
-| NetworkSessionId | string | 172_12_53_32_4322__123_64_207_1_80 | 보고 장치에서 보고 하는 세션 식별자입니다. 예를 들어 인증 후 특정 응용 프로그램에 대 한 L7 세션 식별자 | 네트워크 |
+| NetworkSessionId | 문자열 | 172_12_53_32_4322__123_64_207_1_80 | 보고 장치에서 보고 하는 세션 식별자입니다. 예를 들어 인증 후 특정 응용 프로그램에 대 한 L7 세션 식별자 | 네트워크 |
 | SrcGeoCity | String | 벌링턴 | 원본 IP 주소와 연결 된 도시입니다. | 원본<br>지역 |
 | SrcGeoCountry | Country (문자열) | 미국 | 원본 IP 주소와 연결 된 국가 | 원본<br>지역 |
 | SrcDvcHostname | 장치 이름 (문자열) |  villain | 원본 장치의 장치 이름 | 원본<br>디바이스 |
-| SrcDvcFqdn | string | Villain.malicious.com | 로그가 생성 된 호스트의 정규화 된 도메인 이름 | 원본<br>디바이스 |
-| SrcDvcDomain | string | EVILORG | 세션이 시작 된 장치의 도메인 | 원본<br>디바이스 |
+| SrcDvcFqdn | 문자열 | Villain.malicious.com | 로그가 생성 된 호스트의 정규화 된 도메인 이름 | 원본<br>디바이스 |
+| SrcDvcDomain | 문자열 | EVILORG | 세션이 시작 된 장치의 도메인 | 원본<br>디바이스 |
 | SrcDvcOs | String | iOS | 원본 장치의 OS | 원본<br>디바이스 |
 | SrcDvcModelName | String | Samsung Galaxy 참고 사항 | 원본 장치의 모델 이름입니다. | 원본<br>디바이스 |
 | SrcDvcModelNumber | String | 10.0 | 원본 장치의 모델 번호 | 원본<br>디바이스 |
@@ -152,23 +152,23 @@ Azure 센티널 스키마에서 사용 되는 용어는 다음과 같습니다.
 | SrcUserSid | 사용자 ID (문자열) | S-15-1445 | 세션 원본과 연결 된 id의 사용자 ID입니다. 일반적으로 사용자는 클라이언트에서 작업을 수행 합니다. 자세한 내용은 "데이터 형식"을 참조 하세요. | 원본<br>사용자 |
 | SrcUserAadId | 문자열 (guid) | 16c8752c-7dd2-4cad-9e03-fb5d1cee5477 | 세션의 원본 끝에 있는 사용자의 Azure AD 계정 개체 ID입니다. | 원본<br>사용자 |
 | SrcUserName | 사용자 이름 (문자열) | 게 | 세션 소스와 연결 된 id의 사용자 이름입니다. 일반적으로 사용자는 클라이언트에서 작업을 수행 합니다. 자세한 내용은 "데이터 형식"을 참조 하세요. | 원본<br>사용자 |
-| SrcUserUpn | string | bob@alice.com | 세션을 시작 하는 계정의 UPN | 원본<br>사용자 |
-| SrcUserDomain | string | 데스크톱 | 세션을 시작 하는 계정의 도메인 | 원본<br>사용자 |
+| SrcUserUpn | 문자열 | bob@alice.com | 세션을 시작 하는 계정의 UPN | 원본<br>사용자 |
+| SrcUserDomain | 문자열 | 데스크톱 | 세션을 시작 하는 계정의 도메인 | 원본<br>사용자 |
 | SrcZone | String | 탭 | 보고 장치에서 정의한 원본 네트워크 영역입니다. | 원본 |
 | NetworkProtocol | String | TCP | 연결 또는 세션에서 사용 하는 IP 프로토콜입니다. 일반적으로 TCP, UDP 또는 ICMP | 네트워크 |
 | CloudAppName | String | Facebook | 프록시로 식별 되는 HTTP 응용 프로그램에 대 한 대상 응용 프로그램의 이름입니다. | 클라우드 |
 | CloudAppId | String | 124 | 프록시로 식별 되는 HTTP 응용 프로그램에 대 한 대상 응용 프로그램의 ID입니다. 이 값은 일반적으로 사용 되는 프록시와 관련 됩니다. | 클라우드 |
 | CloudAppOperation | String | DeleteFile | 프록시에 의해 식별 되는 HTTP 응용 프로그램에 대 한 대상 응용 프로그램의 컨텍스트에서 사용자가 수행한 작업입니다. 이 값은 일반적으로 사용 되는 프록시와 관련 됩니다. | 클라우드 |
 | CloudAppRiskLevel | String | 3 | 프록시에 의해 식별 되는 HTTP 응용 프로그램과 관련 된 위험 수준입니다. 이 값은 일반적으로 사용 되는 프록시와 관련 됩니다. | 클라우드 |
-| FileName | String | ImNotMalicious.exe | FTP와 같은 프로토콜 및 파일 이름 정보를 제공 하는 HTTP의 네트워크 연결을 통해 전송 되는 파일 이름입니다. | 파일 |
-| FilePath | String | C:\Malicious\ImNotMalicious.exe | 파일 이름을 포함 하는 파일의 전체 경로입니다. | 파일 |
-| FileHashMd5 | String | 51BC68715FC7C109DCEA406B42D9D78F | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 MD5 해시 값입니다. | 파일 |
-| FileHashSha1 | String | 491AE3... C299821476F4 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 SHA1 해시 값입니다. | 파일 |
-| FileHashSha256 | String | 9B8F8EDB ... C129976F03 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 SHA256 해시 값입니다. | 파일 |
-| FileHashSha512 | String | 5E127D ... F69F73F01F361 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 SHA512 해시 값입니다. | 파일 |
-| FileExtension |  String | exe | FTP 및 HTTP와 같은 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 유형입니다. | 파일
-| FileMimeType | String | 응용 프로그램/msword | FTP 및 HTTP와 같은 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 MIME 형식입니다. | 파일 |
-| FileSize | 정수 | 23500 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 크기 (바이트)입니다. | 파일 |
+| FileName | String | ImNotMalicious.exe | FTP와 같은 프로토콜 및 파일 이름 정보를 제공 하는 HTTP의 네트워크 연결을 통해 전송 되는 파일 이름입니다. | File |
+| FilePath | String | C:\Malicious\ImNotMalicious.exe | 파일 이름을 포함 하는 파일의 전체 경로입니다. | File |
+| FileHashMd5 | String | 51BC68715FC7C109DCEA406B42D9D78F | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 MD5 해시 값입니다. | File |
+| FileHashSha1 | String | 491AE3... C299821476F4 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 SHA1 해시 값입니다. | File |
+| FileHashSha256 | String | 9B8F8EDB ... C129976F03 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 SHA256 해시 값입니다. | File |
+| FileHashSha512 | String | 5E127D ... F69F73F01F361 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 SHA512 해시 값입니다. | File |
+| FileExtension |  String | exe | FTP 및 HTTP와 같은 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 유형입니다. | File
+| FileMimeType | String | 응용 프로그램/msword | FTP 및 HTTP와 같은 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 MIME 형식입니다. | File |
+| FileSize | 정수 | 23500 | 프로토콜에 대 한 네트워크 연결을 통해 전송 되는 파일의 크기 (바이트)입니다. | File |
 | HttpVersion | String | 2.0 | HTTP/HTTPS 네트워크 연결에 대 한 HTTP 요청 버전입니다. | Http |
 | HttpRequestMethod | String | GET | HTTP/HTTPS 네트워크 세션에 대 한 HTTP 메서드입니다. | Http |
 | HttpStatusCode | String | 404 | HTTP/HTTPS 네트워크 세션에 대 한 HTTP 상태 코드입니다. | Http |

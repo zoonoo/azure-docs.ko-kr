@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
 ms.openlocfilehash: a54397fe7cfecef6813105645b7f2b218894875e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91367855"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>사용자 VPN OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 준비
@@ -38,7 +38,7 @@ Azure AD 테 넌 트가 있는지 확인 합니다. Azure AD 테 넌 트가 없�
 
 그런 다음, 새로 만든 Azure AD 테 넌 트, 하나의 전역 관리자 계정 및 하나의 사용자 계정에 두 개의 사용자 계정을 만듭니다. 사용자 계정은 OpenVPN 인증을 테스트 하는 데 사용할 수 있으며 전역 관리자 계정은 Azure VPN 앱 등록에 대 한 동의를 부여 하는 데 사용 됩니다. Azure AD 사용자 계정을 만든 후 관리 권한을 위임 하기 위해 사용자에 게 **디렉터리 역할** 을 할당 합니다.
 
-[이 문서의](../active-directory/fundamentals/add-users-azure-active-directory.md) 단계를 사용 하 여 Azure AD 테 넌 트에 대해 두 명의 사용자를 만듭니다. 만든 계정 중 하나의 **디렉터리 역할** 을 **전역 관리자**에 게 변경 해야 합니다.
+[이 문서의](../active-directory/fundamentals/add-users-azure-active-directory.md) 단계를 사용 하 여 Azure AD 테 넌 트에 대해 두 명의 사용자를 만듭니다. 만든 계정 중 하나의 **디렉터리 역할** 을 **전역 관리자** 에 게 변경 해야 합니다.
 
 ## <a name="3-grant-consent-to-the-azure-vpn-app-registration"></a><a name="enable-authentication"></a>3. Azure VPN 앱 등록에 동의를 부여 합니다.
 
@@ -74,11 +74,11 @@ Azure AD 테 넌 트가 있는지 확인 합니다. Azure AD 테 넌 트가 없�
 
     ![디렉터리 ID](./media/openvpn-create-azure-ad-tenant/pick.png)
 
-4. 메시지가 표시되면 **수락**을 선택합니다.
+4. 메시지가 표시되면 **수락** 을 선택합니다.
 
     ![사용자의 조직에 대 한 동의를 요청한 메시지 권한이 있는 대화 상자와 추가 정보를 보여 주는 스크린샷](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-5. Azure AD의 **엔터프라이즈 응용 프로그램**에는 이제 **azure VPN** 이 나열 되어 있습니다.
+5. Azure AD의 **엔터프라이즈 응용 프로그램** 에는 이제 **azure VPN** 이 나열 되어 있습니다.
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 

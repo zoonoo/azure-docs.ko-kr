@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710342"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계
@@ -44,7 +44,7 @@ ms.locfileid: "76710342"
    * **데이터 원본 식별**: 프로젝트 목표를 정의하는 질문에 답하는 데 도움이 되는 관련 데이터를 찾습니다.
 
 ### <a name="define-objectives"></a>목표 정의
-1. 이 단계의 주요 목적은 분석에서 예측해야 하는 주요 비즈니스 변수를 식별하는 것입니다. 이러한 변수를 *모델 대상*이라고 하며, 관련 메트릭을 사용하여 프로젝트의 성공 여부를 결정합니다. 판매 예측이나 사기성 주문의 확률이 이러한 대상의 두 가지 예입니다.
+1. 이 단계의 주요 목적은 분석에서 예측해야 하는 주요 비즈니스 변수를 식별하는 것입니다. 이러한 변수를 *모델 대상* 이라고 하며, 관련 메트릭을 사용하여 프로젝트의 성공 여부를 결정합니다. 판매 예측이나 사기성 주문의 확률이 이러한 대상의 두 가지 예입니다.
 
 2. 적절하고 명확하며 모호하지 않은 "예리한" 질문을 요청하고 수정하여 프로젝트 목표를 정의합니다. 데이터 과학은 이러한 질문에 대답하기 위해 이름과 숫자를 사용하는 프로세스입니다. 데이터 과학 또는 Machine Learning은 일반적으로 다음과 같은 다섯 가지 유형의 질문에 대답하는 데 사용합니다.
  
@@ -58,13 +58,13 @@ ms.locfileid: "76710342"
 
 3. 구성원의 역할과 책임을 지정하여 프로젝트 팀을 정의합니다. 더 많은 정보를 찾아내면 반복하는 높은 수준의 획기적인 계획을 개발합니다. 
 
-4. 성공 메트릭을 정의합니다. 예를 들어 다음 고객 변동 예측을 수행하려고 할 수 있습니다. 이 3개월 프로젝트가 끝날 때까지 "x"%의 정확도가 필요합니다. 이 데이터를 바탕으로 고객 프로모션을 통해 변동을 줄일 수 있습니다. 메트릭은 **SMART**여야 합니다. 
+4. 성공 메트릭을 정의합니다. 예를 들어 다음 고객 변동 예측을 수행하려고 할 수 있습니다. 이 3개월 프로젝트가 끝날 때까지 "x"%의 정확도가 필요합니다. 이 데이터를 바탕으로 고객 프로모션을 통해 변동을 줄일 수 있습니다. 메트릭은 **SMART** 여야 합니다. 
 
-   * **S**p) 
-   * **M**easurable(측정 가능)
-   * **A**chievable(달성 가능) 
-   * **R**elevant 
-   * **T**ime-bound(시간 제한) 
+   * **S** p) 
+   * **M** easurable(측정 가능)
+   * **A** chievable(달성 가능) 
+   * **R** elevant 
+   * **T** ime-bound(시간 제한) 
 
 ### <a name="identify-data-sources"></a>데이터 원본 식별
 예리한 질문에 대한 답변의 알려진 예가 들어있는 데이터 원본을 확인합니다. 다음 데이터를 찾습니다.

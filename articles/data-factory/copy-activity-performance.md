@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
 ms.openlocfilehash: cba248d3f254c9bb97c66ff7a3d39275b4b912c4
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102616080"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
@@ -69,7 +69,7 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 �
 | 데이터 크기/ <br/> bandwidth | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1GB**                    | 2.7 분    | 1.4 분   | 0.3 분   | 0.1 분  | 0.03 분 | 0.01 분 | 0.0 분   |
-| **10gb**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
+| **10GB**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
 | **100GB**                  | 4.6 시간    | 2.3 시간   | 0.5 시간   | 0.2 시간  | 0.05 시간 | 0.02 시간 | 0.0 시간   |
 | **1TB**                    | 46.6 시간   | 23.3 시간  | 4.7 시간   | 2.3 시간  | 0.5 시간  | 0.2 시간  | 0.05 시간  |
 | **10TB**                   | 19.4 일  | 9.7 일  | 1.9 일  | 0.9 일 | 0.2 일 | 0.1 일 | 0.02 일 |
@@ -166,7 +166,7 @@ DIU (데이터 통합 단위)는 Azure Data Factory에서 단일 단위의 기�
 
 ### <a name="parallel-copy"></a>병렬 복사
 
-속성을 설정 `parallelCopies` 하 여 복사 작업에 사용할 병렬 처리를 나타낼 수 있습니다. 이 속성은 복사 작업 내의 최대 스레드 수로 간주 합니다. 스레드가 병렬로 작동 합니다. 스레드는 원본에서 읽거나 싱크 데이터 저장소에 기록 합니다. [자세히 알아보기](copy-activity-performance-features.md#parallel-copy).
+속성을 설정 `parallelCopies` 하 여 복사 작업에 사용할 병렬 처리를 나타낼 수 있습니다. 이 속성은 복사 작업 내의 최대 스레드 수로 간주 합니다. 스레드가 병렬로 작동 합니다. 스레드는 원본에서 읽거나 싱크 데이터 저장소에 기록 합니다. [자세한 정보를 알아보세요](copy-activity-performance-features.md#parallel-copy).
 
 ### <a name="staged-copy"></a>준비된 복사
 

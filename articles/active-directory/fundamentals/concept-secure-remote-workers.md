@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c4301a61a79ab2351c18af0c76cccc3d07dd202
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836685"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
@@ -34,7 +34,7 @@ ms.locfileid: "94836685"
 - 클라우드 인텔리전스를 활용합니다.
 - 최종 사용자 셀프 서비스를 사용하도록 설정합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드에서는 Azure AD에서 클라우드 전용 또는 하이브리드 id가 이미 설정 되어 있다고 가정 합니다. Id 유형 선택에 대 한 도움말은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 문서를 참조 하세요. 
 

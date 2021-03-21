@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100104181"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 응용 프로그램의 게시자 도메인 구성
@@ -49,7 +49,7 @@ ms.locfileid: "100104181"
 앱의 게시자 도메인을 설정 하려면 다음 단계를 수행 합니다.
 
 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-1. 여러 테 넌 트에 액세스할 수 있는 경우 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: 하 여 앱이 등록 된 테 넌 트를 선택 합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 앱이 등록된 테넌트를 선택합니다.
 1. [Azure Active Directory > 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 으로 이동 하 여 구성 하려는 앱을 찾아 선택 합니다.
 
    앱을 선택 하면 앱의 **개요** 페이지가 표시 됩니다.

@@ -9,10 +9,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/10/2021
 ms.openlocfilehash: f8ddcbef6d2ce4a9cba625374db9908335954424
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102630897"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>상용 marketplace에 제품을 검토 하 고 게시 하는 방법
@@ -235,7 +235,7 @@ ms.locfileid: "102630897"
 네 가지 필터가 있습니다.
 * 이벤트
 * 사용자
-* Date
+* 날짜
 * 페이지
 
 **페이지** 필터를 선택 하면 제품 유형에 적용 되는 파트너 센터 페이지를 선택할 수 있습니다. **페이지** 필터를 적용 하면 선택한 페이지에 대 한 변경 내용으로 이벤트 **를 미리 볼 수 있는 제출** 된 모든 제안이 표시 됩니다.

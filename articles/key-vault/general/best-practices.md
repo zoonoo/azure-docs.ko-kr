@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
 ms.openlocfilehash: e81cbd7e6584f4a280ab9507a989b52d3b188f2d
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99072710"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault 사용에 대 한 모범 사례
@@ -39,13 +39,13 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 ### <a name="azure-powershell-backup-commands"></a>Azure PowerShell 백업 명령
 
 * [인증서 백업](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [백업 키](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
+* [키 백업](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
 * [백업 비밀](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
 
 ### <a name="azure-cli-backup-commands"></a>Azure CLI 백업 명령
 
 * [인증서 백업](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [백업 키](/cli/azure/keyvault/key#az-keyvault-key-backup)
+* [키 백업](/cli/azure/keyvault/key#az-keyvault-key-backup)
 * [백업 비밀](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
 
 

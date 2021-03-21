@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
 ms.openlocfilehash: 9d1c22b9ac6912f99838733a4326cb4082f49a6c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100369699"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Azure Data Factory 데이터 중복성**
@@ -44,7 +44,7 @@ Azure Data Factory를 사용 하 여 온-프레미스 및 클라우드에 있는
 
  
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [Azure 지역 쌍](../best-practices-availability-paired-regions.md)
-- [Azure의 데이터 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)
+- [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)

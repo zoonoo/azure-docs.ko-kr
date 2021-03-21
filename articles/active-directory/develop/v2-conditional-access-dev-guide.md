@@ -15,10 +15,10 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99584233"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
@@ -65,11 +65,11 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph에는 조건부 액세스 환경에서 앱을 빌드할 때 특별히 고려해야 할 사항이 있습니다. 일반적으로 조건부 액세스의 메커니즘은 동일하게 작동하지만 사용자에게 표시되는 정책은 앱이 그래프에서 요청하는 기본 데이터를 기반으로 합니다.
+Microsoft Graph는 조건부 액세스 환경에서 앱을 빌드할 때 특별히 고려해야 할 사항이 있습니다. 일반적으로 조건부 액세스의 메커니즘은 동일하게 작동하지만 사용자에게 표시되는 정책은 앱이 그래프에서 요청하는 기본 데이터를 기반으로 합니다.
 
 특히, 모든 Microsoft Graph 범위는 개별적으로 정책을 적용할 수 있는 일부 데이터 세트를 나타냅니다. 조건부 액세스 정책에는 특정 데이터 세트가 할당되기 때문에 Azure AD는 그래프 자체가 아니라 그래프 뒤에 있는 데이터를 기반으로 조건부 액세스 정책을 적용합니다.
 
-예를 들어 앱이 다음 Microsoft Graph 범위를 요청하는 경우,
+예를 들어 앱이 다음 Microsoft Graph 범위를 요청하는 경우
 
 ```
 scopes="Bookings.Read.All Mail.Read"

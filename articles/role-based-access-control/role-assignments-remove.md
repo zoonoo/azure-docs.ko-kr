@@ -10,17 +10,17 @@ ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
 ms.openlocfilehash: 7a3e4853d6dffa7eb2c5cf80846f6f1bd6beba03
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100561507"
 ---
 # <a name="remove-azure-role-assignments"></a>Azure 역할 할당 제거
 
 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../articles/role-based-access-control/overview.md)는 Azure 리소스에 대한 액세스를 관리하는 데 사용하는 권한 부여 시스템입니다. Azure 리소스에서 액세스 권한을 제거 하려면 역할 할당을 제거 합니다. 이 문서에서는 Azure Portal, Azure PowerShell, Azure CLI 및 REST API를 사용 하 여 역할 할당을 제거 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 역할 할당을 제거 하려면 다음을 수행 해야 합니다.
 

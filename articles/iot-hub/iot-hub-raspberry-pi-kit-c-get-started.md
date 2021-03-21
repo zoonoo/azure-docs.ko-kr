@@ -11,10 +11,10 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 52da3c28faa375f8b308e3fe78329fec4f996af9
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97804057"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
@@ -53,7 +53,7 @@ ms.locfileid: "97804057"
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
 
-* 활성 Azure 구독 Azure 계정이 없는 경우 몇 분만에 [무료 azure 평가판 계정을 만듭니다](https://azure.microsoft.com/free/) .
+* 활성화된 Azure 구독. Azure 계정이 없는 경우 몇 분만에 [무료 azure 평가판 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 

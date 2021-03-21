@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: dd39b7ecd51902f5035b4cd17d59dea964d0c962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91708835"
 ---
 # <a name="best-practices-for-query-store"></a>쿼리 저장소의 모범 사례
@@ -24,14 +24,14 @@ ms.locfileid: "91708835"
 
 |**pg_qs.query_capture_mode** | **시나리오**|
 |---|---|
-|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 작업에서 새 쿼리를 식별합니다. 임시 쿼리가 사용자 또는 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되는지 검색 합니다. _모두_는 리소스 사용 비용이 증가합니다. |
+|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 작업에서 새 쿼리를 식별합니다. 임시 쿼리가 사용자 또는 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되는지 검색 합니다. _모두_ 는 리소스 사용 비용이 증가합니다. |
 |_상위_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
-|_없음_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_ 은 테스트 및 도구 표시 환경에 적합 합니다. _없음_을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
+|_없음_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_ 은 테스트 및 도구 표시 환경에 적합 합니다. _없음_ 을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
 
-쿼리 저장소 역시 대기 통계에 대한 저장소를 포함할 수 있습니다. 대기 통계를 제어하는 추가 캡처 모드 쿼리 **pgms_wait_sampling.query_capture_mode**가 있으며 _없음_ 또는 _모두_로 설정할 수 있습니다. 
+쿼리 저장소 역시 대기 통계에 대한 저장소를 포함할 수 있습니다. 대기 통계를 제어하는 추가 캡처 모드 쿼리 **pgms_wait_sampling.query_capture_mode** 가 있으며 _없음_ 또는 _모두_ 로 설정할 수 있습니다. 
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode**는 **pgms_wait_sampling.query_capture_mode**를 대체합니다. pg_qs.query_capture_mode가 _없음_인 경우 pgms_wait_sampling.query_capture_mode 설정은 영향을 미치지 않습니다. 
+> **pg_qs.query_capture_mode** 는 **pgms_wait_sampling.query_capture_mode** 를 대체합니다. pg_qs.query_capture_mode가 _없음_ 인 경우 pgms_wait_sampling.query_capture_mode 설정은 영향을 미치지 않습니다. 
 
 
 ## <a name="keep-the-data-you-need"></a>필요한 데이터 유지

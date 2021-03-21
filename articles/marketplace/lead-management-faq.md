@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 10/01/2020
 ms.openlocfilehash: 681498073a5f111e3babd50443623589ffeec02f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330923"
 ---
 # <a name="common-questions-and-troubleshooting-for-lead-configuration"></a>일반적인 질문 및 리드 구성 문제 해결
@@ -22,11 +22,11 @@ ms.locfileid: "92330923"
 
 #### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>잠재 고객 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?
 
-상업적 marketplace 제품에 CRM 시스템을 연결 하는 방법에 대 한 개요는 [상업적 marketplace 제품의 고객 리드](partner-center-portal/commercial-marketplace-get-customer-leads.md) 를 참조 하세요. 오류가 있는 경우 아래 문제 해결 지침을 검토 합니다. 추가 지원이 필요한 경우 [파트너 센터 도움말 및 지원을](https://aka.ms/marketplacepublishersupport)통해 지원 티켓을 제출 합니다. 그런 다음, **제품 만들기** > **제품 유형** > **잠재 고객 관리 구성**을 선택합니다.
+상업적 marketplace 제품에 CRM 시스템을 연결 하는 방법에 대 한 개요는 [상업적 marketplace 제품의 고객 리드](partner-center-portal/commercial-marketplace-get-customer-leads.md) 를 참조 하세요. 오류가 있는 경우 아래 문제 해결 지침을 검토 합니다. 추가 지원이 필요한 경우 [파트너 센터 도움말 및 지원을](https://aka.ms/marketplacepublishersupport)통해 지원 티켓을 제출 합니다. 그런 다음, **제품 만들기** > **제품 유형** > **잠재 고객 관리 구성** 을 선택합니다.
 
 #### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>상업용 Marketplace에서 제품을 게시하기 위해 잠재 고객 대상을 구성해야 하나요?
 
-답변은 게시하는 제품의 유형에 따라 달라집니다. SaaS(Software as a Service) 및 Dynamics 365 Customer Engagement에서는 **연락처**를 사용하여 Dynamics 365 for Finance and Operations 제품, 모든 Dynamics 365 Business Central 제품 및 모든 컨설팅 서비스 제품을 나열합니다. 따라서 이러한 제품은 잠재 고객 대상에 연결되어야 합니다. 제품 유형이 나열되지 않은 경우에는 잠재 고객 대상에 대한 연결이 필요하지 않습니다. 비즈니스 기회를 놓치지 않도록 잠재 고객 대상을 구성하는 것이 좋습니다.
+답변은 게시하는 제품의 유형에 따라 달라집니다. SaaS(Software as a Service) 및 Dynamics 365 Customer Engagement에서는 **연락처** 를 사용하여 Dynamics 365 for Finance and Operations 제품, 모든 Dynamics 365 Business Central 제품 및 모든 컨설팅 서비스 제품을 나열합니다. 따라서 이러한 제품은 잠재 고객 대상에 연결되어야 합니다. 제품 유형이 나열되지 않은 경우에는 잠재 고객 대상에 대한 연결이 필요하지 않습니다. 비즈니스 기회를 놓치지 않도록 잠재 고객 대상을 구성하는 것이 좋습니다.
 
 #### <a name="how-can-i-find-the-test-lead"></a>테스트 잠재 고객을 찾으려면 어떻게 해야 하나요?
 
@@ -52,7 +52,7 @@ ms.locfileid: "92330923"
 
 #### <a name="i-have-a-live-offer-but-why-am-i-not-seeing-any-leads"></a>라이브 제품이 있지만 잠재 고객이 보이지 않는 이유는 무엇인가요?
 
-잠재 고객 대상에 대한 연결이 올바른지 확인합니다. Microsoft는 파트너 센터에서 제품에 대해 **게시**를 선택한 후에 테스트 잠재 고객을 보내 드립니다. 테스트 잠재 고객이 표시되면 연결이 올바른 것입니다. 미리 보기 단계에서 제품 미리 보기를 가져와 잠재 고객 연결을 테스트할 수도 있습니다. 상업용 Marketplace의 목록에서 **지금 가져오기**, **연락처** 또는 **평가판**을 선택합니다.
+잠재 고객 대상에 대한 연결이 올바른지 확인합니다. Microsoft는 파트너 센터에서 제품에 대해 **게시** 를 선택한 후에 테스트 잠재 고객을 보내 드립니다. 테스트 잠재 고객이 표시되면 연결이 올바른 것입니다. 미리 보기 단계에서 제품 미리 보기를 가져와 잠재 고객 연결을 테스트할 수도 있습니다. 상업용 Marketplace의 목록에서 **지금 가져오기**, **연락처** 또는 **평가판** 을 선택합니다.
 
 또한 올바른 데이터를 검색하고 있는지 확인합니다. 잠재 고객 데이터에 대 한 설명은 잠재 고객 [데이터 이해](partner-center-portal/commercial-marketplace-get-customer-leads.md) 를 참조 하세요.
 
@@ -84,11 +84,11 @@ Azure Portal에서 Azure 테이블에 저장된 잠재 고객 데이터에 액�
 
 잠재 고객 생성 데이터가 부족합니다. 거의 모든 게시자에서 1GB 미만입니다. 비용은 받은 잠재 고객 수에 따라 달라집니다. 예를 들어 1달에 1,000명의 잠재 고객이 수신되면 비용은 50센트입니다. 스토리지 가격 책정에 대한 자세한 내용은 [Azure Storage 개요 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
-질문에 대한 답변을 얻지 못할 경우 [파트너 센터 도움말 및 지원](https://aka.ms/marketplacepublishersupport)을 통해 Microsoft 지원 서비스에 문의하세요. 그런 다음, **제품 만들기** > **제품 유형** > **잠재 고객 관리 구성**을 선택합니다.
+질문에 대한 답변을 얻지 못할 경우 [파트너 센터 도움말 및 지원](https://aka.ms/marketplacepublishersupport)을 통해 Microsoft 지원 서비스에 문의하세요. 그런 다음, **제품 만들기** > **제품 유형** > **잠재 고객 관리 구성** 을 선택합니다.
 
 #### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>새 잠재 고객이 수신되면 메일 알림이 수신됩니다. 다른 사람이 이러한 메일을 받도록 구성하려면 어떻게 해야 하나요?
 
-파트너 센터에서 제품에 액세스하고 **제품 설정** 페이지 > **잠재 고객 관리** > **편집**으로 이동합니다. **연락처 메일** 필드에서 메일 주소를 업데이트합니다.
+파트너 센터에서 제품에 액세스하고 **제품 설정** 페이지 > **잠재 고객 관리** > **편집** 으로 이동합니다. **연락처 메일** 필드에서 메일 주소를 업데이트합니다.
 
 ## <a name="troubleshooting-lead-configuration-errors"></a><a id="publishing-config-errors"></a> 리드 구성 오류 문제 해결
 

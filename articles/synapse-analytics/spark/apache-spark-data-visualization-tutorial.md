@@ -9,13 +9,13 @@ ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
 ms.openlocfilehash: 56af49b6fa862c93822293056752182b534ac442
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942270"
 ---
-# <a name="analyze-data-with-apache-spark"></a>Apache Spark를 사용 하 여 데이터 분석
+# <a name="analyze-data-with-apache-spark"></a>Apache Spark를 사용하여 데이터 분석
 
 이 자습서에서는 Azure Open 데이터 집합 및 Apache Spark를 사용 하 여 예비 데이터 분석을 수행 하는 방법을 알아봅니다. 그런 다음 Azure Synapse Analytics에서 Synapse Studio 노트북의 결과를 시각화할 수 있습니다.
 

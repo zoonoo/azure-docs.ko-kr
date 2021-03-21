@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: b2471ccd2a412c7cbae9d4e59412ac055697e3d7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102180363"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
@@ -46,10 +46,10 @@ Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 [
 | 키 관리 매개 변수 | Microsoft 관리형 키 | 고객 관리형 키 | 고객이 제공한 키 |
 |--|--|--|--|
 | 암호화/암호 해독 작업 | Azure | Azure | Azure |
-| 지원 되는 Azure Storage 서비스 | 모두 | Blob storage, Azure Files<sup>1, 2</sup> | Blob Storage |
+| 지원 되는 Azure Storage 서비스 | 모두 | Blob storage, Azure Files<sup>1, 2</sup> | Blob 스토리지 |
 | 키 스토리지 | Microsoft 키 저장소 | HSM Azure Key Vault 또는 Key Vault | 고객의 고유 키 저장소 |
-| 키 회전 책임 | Microsoft | Customer | Customer |
-| 키 컨트롤 | Microsoft | Customer | Customer |
+| 키 회전 책임 | Microsoft | 고객 | 고객 |
+| 키 컨트롤 | Microsoft | 고객 | 고객 |
 
 <sup>1</sup> 큐 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [큐에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조 하세요.<br />
 <sup>2</sup> 테이블 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [테이블에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)를 참조 하세요.

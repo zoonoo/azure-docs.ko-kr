@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330617"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Azure DevTest Labs의 구현 오케스트레이션
@@ -26,10 +26,10 @@ ms.locfileid: "92330617"
 ## <a name="milestone-1-establish-initial-network-topology-and-design"></a>중요 시점 1: 초기 네트워크 토폴로지 및 디자인 설정
 Azure DevTest Labs 솔루션 배포 시 처음으로 확인해야 하는 주요 분야는 가상 머신에 대해 계획된 연결을 설정하는 것입니다. 아래 단계에서는 필요한 절차를 대략적으로 설명합니다.
 
-1. Azure에서 DevTest Labs 구독에 할당되는 **IP 초기 IP 주소 범위**를 정의합니다. 이 단계에서는 이후 확장에 대비해 충분히 큰 블록을 제공할 수 있도록 VM 수의 예상 사용량을 예측해야 합니다.
-2. DevTest Labs에 대해 **원하는 액세스 방법**을 확인합니다(예: 외부/내부 액세스). 이 단계에서는 가상 머신에 공용 IP 주소를 사용할지(인터넷에서 해당 가상 머신에 직접 액세스할 수 있는지) 여부를 결정해야 합니다.
-3. 나머지 Azure 클라우드 환경 및 온-프레미스와의 **연결 방법**을 확인하고 설정합니다. Express 경로를 통한 강제 라우팅을 사용하는 경우 가상 머신에는 회사 방화벽을 통과할 수 있는 적절한 프록시 구성이 필요할 가능성이 많습니다.
-4. VM을 **도메인에 가입**시키려는 경우에는 클라우드 기반 도메인(예: AAD Directory Services)에 가입할지 아니면 온-프레미스 도메인에 가입할지를 결정합니다. 온-프레미스의 경우 가상 머신이 가입하는 Active Directory 내 OU(조직 구성 단위)를 결정합니다. 또한 사용자에게 VM이 가입된 도메인 액세스 권한이 있는지를 확인하거나 도메인에서 컴퓨터 레코드를 만들 수 있는 서비스 계정을 설정합니다.
+1. Azure에서 DevTest Labs 구독에 할당되는 **IP 초기 IP 주소 범위** 를 정의합니다. 이 단계에서는 이후 확장에 대비해 충분히 큰 블록을 제공할 수 있도록 VM 수의 예상 사용량을 예측해야 합니다.
+2. DevTest Labs에 대해 **원하는 액세스 방법** 을 확인합니다(예: 외부/내부 액세스). 이 단계에서는 가상 머신에 공용 IP 주소를 사용할지(인터넷에서 해당 가상 머신에 직접 액세스할 수 있는지) 여부를 결정해야 합니다.
+3. 나머지 Azure 클라우드 환경 및 온-프레미스와의 **연결 방법** 을 확인하고 설정합니다. Express 경로를 통한 강제 라우팅을 사용하는 경우 가상 머신에는 회사 방화벽을 통과할 수 있는 적절한 프록시 구성이 필요할 가능성이 많습니다.
+4. VM을 **도메인에 가입** 시키려는 경우에는 클라우드 기반 도메인(예: AAD Directory Services)에 가입할지 아니면 온-프레미스 도메인에 가입할지를 결정합니다. 온-프레미스의 경우 가상 머신이 가입하는 Active Directory 내 OU(조직 구성 단위)를 결정합니다. 또한 사용자에게 VM이 가입된 도메인 액세스 권한이 있는지를 확인하거나 도메인에서 컴퓨터 레코드를 만들 수 있는 서비스 계정을 설정합니다.
 
 ## <a name="milestone-2-deploy-the-pilot-lab"></a>중요 시점 2: 파일럿 랩 배포
 네트워크 토폴로지를 구축한 후에는 다음 단계를 수행하여 첫 번째/파일럿 랩을 만들 수 있습니다.
