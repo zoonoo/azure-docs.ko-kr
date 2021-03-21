@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 657cb6a86122d267b86e82b6f02eb58e968cddd3
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904740"
 ---
 # <a name="weather-services-preview-in-azure-maps"></a>Azure Maps의 날씨 서비스 (미리 보기)
 
 > [!IMPORTANT]
-> Azure Maps 날씨 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 이 문서에서는 Azure Maps [날씨 서비스](/rest/api/maps/weather)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다.
@@ -27,7 +27,7 @@ ms.locfileid: "96904740"
 
 일부 날씨 서비스 (미리 보기) Api를 사용 하면 사용자가 메트릭이 나 왕정 단위로 데이터가 반환 되는지 여부를 지정할 수 있습니다. 이러한 Api에 대해 반환 된 응답에는 단위 번역에 사용할 수 있는 (Unittype.pixel) 및 숫자 값이 포함 됩니다. 이러한 값을 해석 하려면 아래 표를 참조 하세요.
 
-|(Unittype.pixel)|Description         |
+|(Unittype.pixel)|설명         |
 |--------|--------------------|
 |0       |발                |
 |1       |x              |
@@ -51,7 +51,7 @@ ms.locfileid: "96904740"
 |19      |kelvin              |
 |20      |percent             |
 |21      |float               |
-|22      |integer             |
+|22      |정수             |
 
 
 ## <a name="weather-icons"></a>날씨 아이콘
@@ -589,7 +589,7 @@ ms.locfileid: "96904740"
   ----------------|--------------|------------
   낮음                |  0         |        1.99
   보통           |  2         |        3.99
-  높은               |  4         |        5.99
+  높음               |  4         |        5.99
   매우 높음          |  6         |        7.99
   극단            |  8         |        10
 
@@ -599,7 +599,7 @@ ms.locfileid: "96904740"
   ----------------|--------------|------------
   낮음                |  0            |      2.99
   보통           |  3            |      4.99
-  높은               |  5            |      6.99
+  높음               |  5            |      6.99
   매우 높음          |  7            |      8.99
   극단            |  9            |      10
 
@@ -630,7 +630,7 @@ ms.locfileid: "96904740"
   많지         |  0     |          2.99
   보기            |  3     |          4.99
   권고         |  5     |          6.99
-  Warning          |  7     |          8.99
+  경고          |  7     |          8.99
   응급        |  9     |          10
 
 ### <a name="beneficial-at-extreme-risk"></a>심각한 위험 Beneficial-At

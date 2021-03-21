@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
 ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688419"
 ---
 # <a name="api-management-cross-domain-policies"></a>도메인 정책 간 API Management
@@ -130,19 +130,19 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 |cors|루트 요소입니다.|예|해당 없음|
 |allowed-origins|도메인 간 요청에 대해 허용되는 원본을 설명하는 `origin` 요소를 포함합니다. `allowed-origins`는 모든 원본을 허용하도록 `*`를 지정하는 단일 `origin` 요소 또는 URI를 포함하는 하나 이상의 `origin` 요소를 포함할 수 있습니다.|예|해당 없음|
 |원본|값은 모든 원본을 허용하는 `*`이거나 단일 원본을 지정하는 URI일 수 있습니다. URI에는 체계, 호스트 및 포트가 포함되어야 합니다.|예|URI에서 포트를 생략하면 HTTP에 포트 80이 사용되고 HTTPS에 포트 443이 사용됩니다.|
-|allowed-methods|GET 또는 POST 이외의 메서드가 허용되는 경우 이 요소가 필요합니다. 지원되는 HTTP 동사를 지정하는 `method`를 포함합니다. 값은 `*` 모든 메서드를 나타냅니다.|No|이 섹션이 없으면 GET 및 POST가 지원됩니다.|
+|allowed-methods|GET 또는 POST 이외의 메서드가 허용되는 경우 이 요소가 필요합니다. 지원되는 HTTP 동사를 지정하는 `method`를 포함합니다. 값은 `*` 모든 메서드를 나타냅니다.|아니요|이 섹션이 없으면 GET 및 POST가 지원됩니다.|
 |method|HTTP 동사를 지정합니다.|`allowed-methods` 섹션이 있는 경우 하나 이상의 `method` 요소가 필요합니다.|해당 없음|
-|allowed-headers|이 요소는 요청에 포함할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|예|해당 없음|
-|expose-headers|이 요소는 클라이언트가 액세스할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|예|해당 없음|
+|allowed-headers|이 요소는 요청에 포함할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|아니요|해당 없음|
+|expose-headers|이 요소는 클라이언트가 액세스할 수 있는 헤더 이름을 지정하는 `header` 요소를 포함합니다.|아니요|해당 없음|
 |header|헤더 이름을 지정합니다.|섹션이 있는 경우 `allowed-headers` 또는 `expose-headers`에 하나 이상의 `header` 요소가 필요합니다.|해당 없음|
 
 ### <a name="attributes"></a>특성
 
-|속성|설명|필수|기본값|
+|Name|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|No|false|
-|종료-일치 하지 않는 요청|이 특성은 CORS 정책 설정과 일치 하지 않는 크로스-원본 요청 처리를 제어 합니다. OPTIONS 요청이 미리 비행 된 요청으로 처리 되 고 CORS 정책 설정과 일치 하지 않는 경우: 특성이로 설정 되 면 `true` 빈 200 OK 응답을 사용 하 여 즉시 요청을 종료 합니다. 특성이로 설정 된 경우 인바운드 `false` 요소의 직계 자식인 다른 범위 내 CORS 정책에 대 한 인바운드를 확인 하 고 적용 합니다.  CORS 정책을 찾지 못한 경우 빈 200 OK 응답을 사용 하 여 요청을 종료 합니다. GET 또는 HEAD 요청에 원본 헤더가 포함 된 경우 (따라서 원본 간 요청으로 처리 됨) CORS 정책 설정과 일치 하지 않습니다. 특성이로 설정 된 경우 `true` 빈 200 OK 응답을 사용 하 여 즉시 요청을 종료 합니다. 특성이로 설정 된 경우 `false` 요청을 정상적으로 계속할 수 있으며 응답에 CORS 헤더를 추가 하지 않습니다.|No|true|
-|preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|No|0|
+|allow-credentials|실행 `Access-Control-Allow-Credentials` 전 응답의 헤더는이 특성의 값으로 설정 되 고 도메인 간 요청에서 자격 증명을 제출 하는 클라이언트의 기능에 영향을 줍니다.|아니요|false|
+|종료-일치 하지 않는 요청|이 특성은 CORS 정책 설정과 일치 하지 않는 크로스-원본 요청 처리를 제어 합니다. OPTIONS 요청이 미리 비행 된 요청으로 처리 되 고 CORS 정책 설정과 일치 하지 않는 경우: 특성이로 설정 되 면 `true` 빈 200 OK 응답을 사용 하 여 즉시 요청을 종료 합니다. 특성이로 설정 된 경우 인바운드 `false` 요소의 직계 자식인 다른 범위 내 CORS 정책에 대 한 인바운드를 확인 하 고 적용 합니다.  CORS 정책을 찾지 못한 경우 빈 200 OK 응답을 사용 하 여 요청을 종료 합니다. GET 또는 HEAD 요청에 원본 헤더가 포함 된 경우 (따라서 원본 간 요청으로 처리 됨) CORS 정책 설정과 일치 하지 않습니다. 특성이로 설정 된 경우 `true` 빈 200 OK 응답을 사용 하 여 즉시 요청을 종료 합니다. 특성이로 설정 된 경우 `false` 요청을 정상적으로 계속할 수 있으며 응답에 CORS 헤더를 추가 하지 않습니다.|아니요|true|
+|preflight-result-max-age|실행 전 `Access-Control-Max-Age` 응답의 헤더는이 특성의 값으로 설정 되 고, 사전 진행 된 응답을 캐시 하는 사용자 에이전트의 기능에 영향을 줍니다.|아니요|0|
 
 ### <a name="usage"></a>사용량
 이 정책은 다음과 같은 정책 [섹션](./api-management-howto-policies.md#sections) 및 [범위](./api-management-howto-policies.md#scopes)에서 사용할 수 있습니다.
@@ -177,7 +177,7 @@ CORS를 통해 브라우저와 서버가 상호 작용하여 특정 원본 간 �
 
 ### <a name="attributes"></a>특성
 
-|속성|설명|필수|기본값|
+|Name|설명|필수|기본값|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|함수가 상주하는 정규화된 도메인 이름이 접두사로 지정된 도메인 간 JavaScript 함수 호출|예|해당 없음|
 

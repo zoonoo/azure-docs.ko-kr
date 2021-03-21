@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996545"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype와 같은 Microsoft 365 작업을 사용 하는 사용자는 전자 메일을 보내고 모든 사용자를 호출할 수 있도록 전체 전체 주소 목록을 활용 하는 것이 좋습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
 
-경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 다음은 몇 가지 예입니다.
+경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 몇 가지 예제는 다음과 같습니다.
 
 * [여러 Azure AD 디렉터리 토폴로지](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant)를 사용할 계획입니다. 그러면 필터를 적용하여 특정 Azure AD 디렉터리에 동기화할 개체를 제어해야 합니다.
 * Azure 또는 Microsoft 365에 대 한 파일럿을 실행 하 고 Azure AD에서 사용자의 하위 집합만 사용할 수 있습니다. 작은 파일럿에서는 해당 기능을 보여 주기 위해 완전한 전체 주소 목록이 필요하지 않습니다.
@@ -177,7 +177,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
    * 디바이스 쓰기 저장 기능을 사용하도록 설정한 경우 **RegisteredDevices** OU를 선택해야 합니다. 그룹 쓰기 저장 등 다른 쓰기 저장 기능을 사용하는 경우 이러한 위치를 선택해야 합니다.
    * 사용자, iNetOrgPersons, 그룹, 연락처 및 컴퓨터가 있는 다른 OU를 선택합니다. 그림에서 이러한 모든 OU가 ManagedObjects OU에 있습니다.
    * 그룹 기반 필터링을 사용하는 경우 그룹이 위치한 OU가 포함되어야 합니다.
-   * 필터링 구성을 완료한 후에 추가된 새로운 OU를 동기화할지 여부를 구성할 수 있습니다. 자세한 내용은 다음 섹션을 참조하십시오.
+   * 필터링 구성을 완료한 후에 추가된 새로운 OU를 동기화할지 여부를 구성할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 7. 완료하면 **확인** 을 클릭하여 **속성** 대화 상자를 닫습니다.
 8. 구성을 완료 하려면 **전체 가져오기** 및 **델타 동기화** 를 실행 해야 합니다. [변경 내용 적용 및 확인](#apply-and-verify-changes)섹션을 계속 읽습니다.
 

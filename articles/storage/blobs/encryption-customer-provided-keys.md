@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: fcc5c02c4a37e205622470260d3c620ad76d07d8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694702"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage"></a>Blob 저장소에 대 한 요청에 암호화 키 제공
@@ -41,7 +41,7 @@ Azure Storage는 클라이언트가 요청과 함께 보내는 암호화 키를 
 
 REST 호출의 경우 클라이언트는 다음 헤더를 사용 하 여 요청에 대 한 암호화 키 정보를 Blob 저장소에 안전 하 게 전달할 수 있습니다.
 
-|요청 헤더 | Description |
+|요청 헤더 | 설명 |
 |---------------|-------------|
 |`x-ms-encryption-key` |쓰기 및 읽기 요청 모두에 필요 합니다. B A s e 64로 인코딩된 AES-256 암호화 키 값입니다. |
 |`x-ms-encryption-key-sha256`| 쓰기 및 읽기 요청 모두에 필요 합니다. 암호화 키의 b a s e 64로 인코딩된 SHA256입니다. |

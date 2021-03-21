@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: fe80a5c117e8c94e5df946813a1c025747ff40e8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050701"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Azure Monitor에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
@@ -21,7 +21,7 @@ Linux용 Log Analytics 에이전트를 사용하여 [Azure Monitor](../data-plat
 > [!NOTE]
 > 사용자 지정 JSON 데이터에 Linux용 Log Analytics 에이전트 v1.1.0-217+가 필요합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="configure-input-plugin"></a>입력 플러그 인 구성
 

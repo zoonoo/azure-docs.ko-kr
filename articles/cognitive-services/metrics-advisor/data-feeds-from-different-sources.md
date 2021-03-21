@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
 ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348622"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
@@ -37,19 +37,19 @@ ms.locfileid: "96348622"
 
 | 데이터 원본 | 인증 유형 |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  기본 |
-|[**Azure Blob Storage (JSON)**](#blob) | 기본<br>ManagedIdentity|
-|[**Azure Cosmos DB (SQL)**](#cosmosdb) | 기본 |
-|[**Azure 데이터 탐색기 (Kusto)**](#kusto) | 기본<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | 기본<br>DataLakeGen2SharedKey<br>서비스 사용자<br>Key vault의 서비스 사용자<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | 기본<br>ManagedIdentity<br>서비스 사용자<br>Key vault의 서비스 사용자<br>AzureSQLConnectionString
-|[**Azure Table Storage**](#table) | 기본 | 
-|[**ElasticSearch**](#es) | 기본 |
-|[**Http 요청**](#http) | 기본 | 
-|[**InfluxDB (InfluxQL)**](#influxdb) | 기본 |
-|[**MongoDB**](#mongodb) | 기본 |
-|[**MySQL**](#mysql) | 기본 |
-|[**PostgreSQL**](#pgsql)| 기본|
+|[**Azure 애플리케이션 정보**](#appinsights)|  Basic |
+|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
+|[**Azure Data Explorer(Kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>서비스 사용자<br>Key vault의 서비스 사용자<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>서비스 사용자<br>Key vault의 서비스 사용자<br>AzureSQLConnectionString
+|[**Azure Table Storage**](#table) | Basic | 
+|[**ElasticSearch**](#es) | Basic |
+|[**Http 요청**](#http) | Basic | 
+|[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
+|[**MongoDB**](#mongodb) | Basic |
+|[**MySQL**](#mysql) | Basic |
+|[**PostgreSQL**](#pgsql)| Basic|
 
 **자격 증명 엔터티** 를 만들어 데이터 원본에 인증 하는 데 사용 합니다. 다음 섹션에서는 *기본* 인증에에 필요한 매개 변수를 지정 합니다. 
 
@@ -82,7 +82,7 @@ ms.locfileid: "96348622"
 
 * **컨테이너**: 메트릭 관리자는 단일 컨테이너 아래에 blob 파일 (타임 스탬프 당 하나의 blob)로 저장 된 시계열 데이터를 예상 합니다. 컨테이너 이름 필드입니다.
 
-* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예를 들면 `/%Y/%m/X_%Y-%m-%d-%h-%M.json`과 다음과 같습니다. 지원 되는 매개 변수는 다음과 같습니다.
+* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예를 들어 `/%Y/%m/X_%Y-%m-%d-%h-%M.json`을 참조하십시오. 지원되는 매개 변수는 다음과 같습니다.
   * `%Y` 는로 서식이 지정 된 연도입니다. `yyyy`
   * `%m` 는로 형식이 지정 된 월입니다. `MM`
   * `%d` 날짜 형식이 `dd`
@@ -93,7 +93,7 @@ ms.locfileid: "96348622"
   
   * v1 (기본값)
 
-      메트릭 *이름과* *값* 만 허용 됩니다. 예:
+      메트릭 *이름과* *값* 만 허용 됩니다. 예를 들면 다음과 같습니다.
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ ms.locfileid: "96348622"
 
   * v2
 
-      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예:
+      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예를 들면 다음과 같습니다.
       
       ``` JSON
       [
@@ -131,7 +131,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure 데이터 탐색기 (Kusto)</span>
+## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Azure Data Explorer(Kusto)</span>
 
 * **연결 문자열**: 메트릭 관리자는 azure AD 응용 프로그램 인증을 사용 하 여 azure 데이터 탐색기 (Kusto)에 액세스할 수 있도록 지원 합니다. Azure AD 응용 프로그램을 만들고 등록 한 다음 Azure 데이터 탐색기 데이터베이스에 액세스 하도록 권한을 부여 해야 합니다. 연결 문자열을 가져오려면 [Azure 데이터 탐색기](/azure/data-explorer/provision-azure-ad-app) 설명서를 참조 하세요.
 
@@ -145,21 +145,21 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
 
 * **파일 시스템 이름 (컨테이너)**: 메트릭 관리자는 단일 컨테이너 아래에 blob 파일로 저장 된 시계열 데이터 (타임 스탬프 당 하나의 blob)를 필요로 합니다. 컨테이너 이름 필드입니다. Azure storage 계정 (Azure Data Lake Storage Gen2) 인스턴스에서 찾을 수 있으며 ' Blob Service ' 섹션에서 ' 컨테이너 '를 클릭 합니다.
 
-* **디렉터리 템플릿**: Blob 파일의 디렉터리 템플릿입니다. 예: */%Y/%m/%d*. 지원 되는 매개 변수는 다음과 같습니다.
+* **디렉터리 템플릿**: Blob 파일의 디렉터리 템플릿입니다. 예: */%Y/%m/%d*. 지원되는 매개 변수는 다음과 같습니다.
   * `%Y` 는로 서식이 지정 된 연도입니다. `yyyy`
   * `%m` 는로 형식이 지정 된 월입니다. `MM`
   * `%d` 날짜 형식이 `dd`
   * `%h` 는로 서식이 지정 된 시간입니다. `HH`
   * `%M` 는로 서식이 지정 된 분입니다. `mm`
 
-* **파일 템플릿**: Blob 파일의 파일 템플릿입니다. 예: *X_% Y-% m-% d-% h-% M.json*. 지원 되는 매개 변수는 다음과 같습니다.
+* **파일 템플릿**: Blob 파일의 파일 템플릿입니다. 예: *X_% Y-% m-% d-% h-% M.json*. 지원되는 매개 변수는 다음과 같습니다.
   * `%Y` 는로 서식이 지정 된 연도입니다. `yyyy`
   * `%m` 는로 형식이 지정 된 월입니다. `MM`
   * `%d` 날짜 형식이 `dd`
   * `%h` 는로 서식이 지정 된 시간입니다. `HH`
   * `%M` 는로 서식이 지정 된 분입니다. `mm`
 
-현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예:
+현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예를 들면 다음과 같습니다.
 
 ``` JSON
 [
@@ -232,7 +232,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">HTTP 요청</span>
 
-* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예를 들면 `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`과 다음과 같습니다.
+* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예를 들어 `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`을 참조하십시오.
 * **요청 HTTP 메서드**: GET 또는 POST를 사용 합니다.
 * **요청 헤더**: 기본 인증을 추가할 수 있습니다. 
 * **요청 페이로드**: JSON 페이로드만 지원 됩니다. 페이로드에서 자리 표시 자가 @StartTime 지원 됩니다. 응답은 다음과 같은 JSON 형식 이어야 합니다. [{"timestamp": "2018-01-01T00:00:00Z", "market": "en-us", "count": 11, "수익": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market": "zh-cn-cn", "count": 22, "수익": 4.56}]. (예: 2020-06-21T00:00:00Z의 데이터가 수집, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

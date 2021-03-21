@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
 ms.openlocfilehash: 82ea47037902ce3a9449f71a9edf62cb80863d4b
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655989"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Azure Information Protection에서 데이터 연결
@@ -35,14 +35,14 @@ Azure Information Protection 데이터 커넥터를 구성 하 여 [Azure Inform
     
     작업 영역을 변경 하는 경우 Azure Information Protection에 대 한 새 보고 데이터가 이제 Azure 센티널에 사용 하는 작업 영역에 저장 되며, Azure 센티널에서 기록 데이터를 사용할 수 없습니다. 또한 사용자 지정 쿼리, 경고 또는 REST Api에 대해 이전 작업 영역을 구성 하는 경우 Azure Information Protection에 사용 하려면 Azure 센티널 작업 영역에 대해 이러한 작업 영역을 다시 구성 해야 합니다. Azure Information Protection를 사용 하는 클라이언트와 서비스에는 재구성이 필요 하지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 다음은 테 넌 트에 대 한 Azure AD 관리자 역할 중 하나입니다. 
     - Azure Information Protection 관리자
     - 보안 관리자
     - 규정 준수 관리자
     - 규정 준수 데이터 관리자
-    - 글로벌 관리자
+    - 전역 관리자
     
     > [!NOTE]
     > 테 넌 트가 [통합 레이블 지정 플랫폼](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있는 경우 Azure Information Protection 관리자 역할을 사용할 수 없습니다.
@@ -59,7 +59,7 @@ Azure Information Protection에 대 한 Log Analytics 작업 영역을 구성 �
 
 1. Azure 센티널에서 **데이터 커넥터**  >  **Azure Information Protection (미리 보기)** 를 선택 합니다.
 
-2. **커넥터 페이지 열기** 를 선택 합니다.
+2. **커넥터 페이지 열기** 를 선택합니다.
 
 3. **구성** 아래에서 **연결 Azure Information Protection 로그** 를 선택 합니다.
 

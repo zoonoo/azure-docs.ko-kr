@@ -10,10 +10,10 @@ ms.date: 09/23/2020
 ms.author: apimpm
 ms.custom: contperf-fy21q1
 ms.openlocfilehash: face4beab450e92be76b2bb90e45625e025de6ee
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97027920"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-by-using-oauth-20-authorization-with-azure-ad"></a>Azure AD에서 OAuth 2.0 권한 부여를 사용 하 여 Azure API Management에서 web API 백 엔드 보호 
@@ -165,7 +165,7 @@ OAuth 2.0 권한 부여 서버를 구성했으므로 개발자 콘솔에서 Azur
 
 1. API Management 인스턴스로 이동하고 **API** 로 이동합니다.
 
-1. 보호하려는 API를 선택합니다. 예들 들어 `Echo API`입니다.
+1. 보호하려는 API를 선택합니다. 예: `Echo API`
 
 1. **설정** 으로 이동합니다.
 

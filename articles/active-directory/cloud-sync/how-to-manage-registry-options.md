@@ -17,10 +17,10 @@ ms.reviewer: chmutali
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1f39ef611e2ea15ef3bc3dbfcf09e9624cbcf8b3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98678224"
 ---
 # <a name="manage-agent-registry-options"></a>에이전트 레지스트리 옵션 관리
@@ -95,5 +95,5 @@ System.DirectoryServices.Protocols.LdapException: The operation was aborted beca
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)
 

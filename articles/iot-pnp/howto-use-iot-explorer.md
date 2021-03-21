@@ -9,17 +9,17 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: b0a86a32148086a3b644d0bf147d12be0d812536
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97030318"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Azure IoT 탐색기 설치 및 사용
 
 Azure IoT 탐색기는 IoT hub에 연결 된 및 장치와 상호 작용 하는 그래픽 도구입니다. 이 문서에서는 도구를 사용 하 여 IoT 플러그 앤 플레이 장치를 테스트 하는 방법을 집중적으로 설명 합니다. 로컬 컴퓨터에 도구를 설치한 후 허브에 연결 하는 데 사용할 수 있습니다. 도구를 사용 하 여 장치에서 보내는 원격 분석을 보고, 장치 속성을 사용 하 고, 명령을 호출할 수 있습니다.
 
-이 아티클에서는 다음을 수행하는 방법을 보여줍니다.
+이 문서에서는 다음 방법을 보여 줍니다.
 
 - Azure IoT 탐색기 도구를 설치 하 고 구성 합니다.
 - 도구를 사용 하 여 IoT 플러그 앤 플레이 장치와 상호 작용 하 고 테스트 합니다.
@@ -33,7 +33,7 @@ Azure IoT 탐색기 도구를 사용 하려면 다음이 필요 합니다.
 
 ## <a name="install-azure-iot-explorer"></a>Azure IoT 탐색기 설치
 
-[Azure IoT explorer 릴리스](https://github.com/Azure/azure-iot-explorer/releases) 로 이동 하 여 최신 릴리스에 대 한 자산 목록을 확장 합니다. 최신 버전의 응용 프로그램을 다운로드 하 여 설치 합니다.
+[Azure IoT 탐색기 릴리스](https://github.com/Azure/azure-iot-explorer/releases)로 이동하여 최신 릴리스의 자산 목록을 확장하세요. 최신 버전의 응용 프로그램을 다운로드 하 여 설치 합니다.
 
 >[!Important]
 > 을 기반으로 하는 모든 리포지토리에서 모델을 확인 하려면 버전 0.13. x로 업데이트 합니다. [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)

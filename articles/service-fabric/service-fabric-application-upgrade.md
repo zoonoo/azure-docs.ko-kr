@@ -4,10 +4,10 @@ description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98792017"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드

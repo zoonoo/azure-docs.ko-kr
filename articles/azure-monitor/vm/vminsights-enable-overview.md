@@ -7,10 +7,10 @@ ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102634161"
 ---
 # <a name="enable-vm-insights-overview"></a>VM 인사이트 사용 개요
@@ -91,7 +91,7 @@ VM 정보를 사용 하려면 모니터링할 가상 머신 또는 가상 머신
 
 다음은 이러한 에이전트를 배포 하는 여러 가지 방법입니다. 
 
-| 메서드 | Description |
+| 방법 | Description |
 |:---|:---|
 | [Azure Portal](../vm/vminsights-enable-portal.md) | 단일 가상 머신, 가상 머신 확장 집합 또는 Azure Arc와 연결 된 하이브리드 가상 머신에 두 에이전트를 모두 설치 합니다. |
 | [리소스 관리자 템플릿](../vm/vminsights-enable-resource-manager.md) | 지원 되는 방법 중 하나를 사용 하 여 CLI 및 PowerShell을 비롯 한 리소스 관리자 템플릿을 배포 하는 두 에이전트를 모두 설치 합니다. |

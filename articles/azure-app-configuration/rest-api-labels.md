@@ -7,10 +7,10 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
 ms.openlocfilehash: 5a59f5910d44f2a2b4cd75e7a1d51c2ed5dd51a4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932509"
 ---
 # <a name="labels"></a>레이블
@@ -31,7 +31,7 @@ api-version: 1.0
 
 모든 작업에 ``name`` 는 선택적 필터 매개 변수가 있습니다. 생략 하는 경우 **모든** 레이블을 의미 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 모든 HTTP 요청을 인증 해야 합니다. [인증](./rest-api-authentication-index.md) 섹션을 참조 하세요.
 - 모든 HTTP 요청은 explicit를 제공 해야 합니다 `api-version` . [버전 관리](./rest-api-versioning.md) 섹션을 참조 하세요.
@@ -97,7 +97,7 @@ GET /labels?name={label-name}&api-version={api-version}
 
 ### <a name="supported-filters"></a>지원되는 필터
 
-|키 필터|효과|
+|키 필터|영향|
 |--|--|
 |`name`은 생략 또는 `name=*`|**모든** 레이블과 일치|
 |`name=abc`|**Abc** 라는 레이블을 찾습니다.|

@@ -5,10 +5,10 @@ ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
 ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633770"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
@@ -91,7 +91,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Hive 스트리밍/서비스 (Hive 스트리밍)
 - incapsula.waf/accounts
 - LiveArena/서비스 (LiveArena 브로드캐스트)
-- Mailjet. Email/services (Mailjet Email Service)
+- Mailjet.Email/services (Mailjet 전자 메일 서비스)
 - Microsoft AAD/domainServices (Azure AD Domain Services)
 - aadiam/azureadmetrics
 - aadiam/privateLinkForAzureAD (Azure AD에 대 한 개인 링크)
@@ -639,7 +639,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - providers.test/statelessresources
 - RavenHq/데이터베이스 (RavenHQ)
 - Raygun/apps (Raygun)
-- Sendgrid/accounts (SendGrid Accounts)
+- Sendgrid.Email/accounts (SendGrid 계정)
 - Sparkpost/서비스 (SparkPost)
 - stackify/서비스 (Stackify)
 - test.shoebox/testresources

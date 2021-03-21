@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98805280"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
@@ -57,8 +57,8 @@ Event Hubs 리소스에 역할을 할당 하려면 Azure Portal에서 해당 리
 1. Azure Portal에서 Event Hubs 네임 스페이스로 이동 하 여 네임 스페이스에 대 한 **개요** 를 표시 합니다. 
 1. 왼쪽 메뉴에서 **Access Control (IAM)** 을 선택 하 여 이벤트 허브에 대 한 액세스 제어 설정을 표시 합니다.
 1.  **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
-3.  **추가** 를 선택한 다음 **역할 할당 추가** _를 선택 합니다.
-4.  _ *역할 할당 추가** 페이지에서 다음 단계를 수행 합니다.
+3.  **추가** 를 선택한 다음 * * 역할 할당 추가 * * *를 선택 합니다.
+4.  **역할 할당 추가** 페이지에서 다음 단계를 수행 합니다.
     1. **역할** 에 대해 할당 하려는 Event Hubs 역할을 선택 합니다. 이 예제에서는 **Azure Event Hubs 데이터 소유자** 입니다.
     1. 에 대 한 **액세스 할당** 필드의 경우 **시스템 할당 관리 id** 에서 **App Service** 를 선택 합니다. 
     1. 웹 앱에 대 한 관리 id를 만든 **구독** 을 선택 합니다.
@@ -150,7 +150,7 @@ Apache Kafka 응용 프로그램을 사용 하 여 관리 되는 id OAuth를 통
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조 하세요.
+    이러한 샘플은 이전 **Microsoft.Azure.EventHubs** 라이브러리를 사용하지만 최신 **Azure.Messaging.EventHubs** 라이브러리를 사용하여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용하는 샘플을 새 라이브러리로 이동하려면 [Microsoft.Azure.EventHubs에서 Azure.Messaging.EventHubs로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)를 참조하세요.
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.
 - [Kafka에 대 한 Event Hubs-관리 id OAuth를 사용 하 여 메시지 보내기 및 받기](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

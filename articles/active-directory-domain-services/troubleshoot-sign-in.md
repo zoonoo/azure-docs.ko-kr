@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
 ms.openlocfilehash: 85b261b8754f35c7705690d15671144b858c0a43
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96618572"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 계정 로그인 문제 해결
@@ -59,7 +59,7 @@ Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화
     * [계정에 대 한 암호를 변경][enable-user-accounts] 하 여 필요한 암호 해시를 생성 한 다음, 다시 로그인을 시도 하기 전에 15 분 동안 기다립니다.
     * Azure AD DS을 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 하면 각 계정에서 단계를 다시 수행 하 여 암호를 변경 하 고 필요한 암호 해시를 생성 해야 합니다.
 * **예, 암호가 변경 되었습니다.**
-    * 와 같은 SAMAccountName 형식 대신 *UPN* 형식을 사용 하 여 로그인을 시도 `driley@aaddscontoso.com` *SAMAccountName* `AADDSCONTOSO\deeriley` 합니다.
+    * 와 같은 SAMAccountName 형식 대신 *UPN* 형식을 사용 하 여 로그인을 시도 `driley@aaddscontoso.com`  `AADDSCONTOSO\deeriley` 합니다.
     * UPN 접두사가 너무 길거나 관리 되는 도메인의 다른 사용자와 동일한 사용자에 대해 *SAMAccountName* 이 자동으로 생성 될 수 있습니다. *UPN* 형식은 Azure AD 테 넌 트 내에서 고유 하도록 보장 됩니다.
 
 ## <a name="the-account-is-locked-out"></a>계정이 잠겼습니다.

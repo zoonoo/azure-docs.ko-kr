@@ -8,10 +8,10 @@ ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 3020737e91e1fe5c4af3e23a147fa0ea16037d3b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204432"
 ---
 # <a name="cloud-tiering-policies"></a>클라우드 계층화 정책
@@ -28,7 +28,7 @@ ms.locfileid: "102204432"
 
 |파일 이름 |마지막 액세스 시간  |파일 크기  |저장 된 |
 |----------|------------------|-----------|----------|
-|파일 1    | 2일 전  | 10 GB | 서버 및 Azure 파일 공유
+|파일 1    | 2일 전  | 10GB | 서버 및 Azure 파일 공유
 |파일 2    | 10일 전 | 30GB | 서버 및 Azure 파일 공유
 |파일 3    | 1 년 전 | 200GB | 서버 및 Azure 파일 공유
 |파일 4    | 1 년, 2 일 전 | 130 GB | 서버 및 Azure 파일 공유
@@ -43,7 +43,7 @@ ms.locfileid: "102204432"
 |파일 이름 |마지막 액세스 시간  |파일 크기  |저장 된 |
 |----------|------------------|-----------|----------|
 |파일 5    | 2시간 전 | 140GB | 서버 및 Azure 파일 공유
-|파일 1    | 2일 전  | 10 GB | 서버 및 Azure 파일 공유
+|파일 1    | 2일 전  | 10GB | 서버 및 Azure 파일 공유
 |파일 2    | 10일 전 | 30GB | 서버 및 Azure 파일 공유
 |파일 3    | 1 년 전 | 200GB | 서버 및 Azure 파일 공유
 |파일 4    | 1 년, 2 일 전 | 130 GB | 로컬로 계층화 된 Azure 파일 공유
@@ -55,7 +55,7 @@ ms.locfileid: "102204432"
 |파일 이름 |마지막 액세스 시간  |파일 크기  |저장 된 |
 |----------|------------------|-----------|----------|
 |파일 5    | 1 시간 전  | 140GB | 서버 및 Azure 파일 공유
-|파일 1    | 2일 전  | 10 GB | 서버 및 Azure 파일 공유
+|파일 1    | 2일 전  | 10GB | 서버 및 Azure 파일 공유
 |파일 2    | 10일 전 | 30GB | 서버 및 Azure 파일 공유
 |파일 3    | 1 년 전 | 200GB | 로컬로 계층화 된 Azure 파일 공유
 |파일 4    | 1 년, 2 일 전 | 130 GB | 로컬로 계층화 된 Azure 파일 공유

@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 01/25/2021
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3c76988557bfa338bcfb606f568036422a536c1d
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798537"
 ---
 퍼블릭 엔드포인트를 특정 가상 네트워크로 제안하려는 스토리지 계정으로 이동합니다. 스토리지 계정의 목차에서 **네트워킹** 을 선택합니다. 

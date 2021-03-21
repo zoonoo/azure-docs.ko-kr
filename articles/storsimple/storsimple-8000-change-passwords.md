@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96023757"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 암호 변경
@@ -36,11 +36,11 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 디바이스에 �
 
 2. 디바이스를 나열하는 테이블에서 해당 암호를 변경하려는 디바이스를 클릭합니다.
 
-    ![StorSimple Device Manager 서비스를 보여 주는 스크린샷 관리 아래에서 장치를 선택 합니다. 장치 목록에서 장치 하나를 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![StorSimple 장치 관리자 서비스를 보여 주는 스크린샷 관리 아래에서 장치를 선택 합니다. 장치 목록에서 장치 하나를 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. **설정** 블레이드에서 **디바이스 설정 &gt; 보안** 으로 이동합니다.
 
-    ![Device Manager 서비스의 설정 블레이드를 보여 주는 스크린샷 장치 설정에서 보안을 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![장치 관리자 서비스의 설정 블레이드를 보여 주는 스크린샷 장치 설정에서 보안을 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. **보안 설정** 블레이드에서 **암호** 를 클릭하여 디바이스 관리자 암호를 변경합니다.
 
@@ -70,11 +70,11 @@ Azure Portal을 통해 StorSimple Snapshot Manager에 대한 암호를 설정하
 
 2. 디바이스를 나열하는 테이블에서 해당 StorSimple Snapshot Manager 암호를 설정하거나 변경하려는 디바이스를 클릭하여 선택합니다.
 
-     ![StorSimple Device Manager 서비스를 보여 주는 스크린샷 관리 아래에서 장치를 선택 합니다. 장치 목록에서 장치 하나를 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![StorSimple 장치 관리자 서비스를 보여 주는 스크린샷 관리 아래에서 장치를 선택 합니다. 장치 목록에서 장치 하나를 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. **설정** 블레이드에서 **디바이스 설정 &gt; 보안** 으로 이동합니다.
 
-     ![Device Manager 서비스의 설정 블레이드를 보여 주는 스크린샷 장치 설정에서 보안을 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![장치 관리자 서비스의 설정 블레이드를 보여 주는 스크린샷 장치 설정에서 보안을 선택 합니다.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. **보안 설정** 블레이드에서 **암호** 를 클릭하여 StorSimple Snapshot Manager 암호를 설정하거나 변경합니다.
 

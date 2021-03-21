@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688266"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용 하 여 Azure VM 확장 사용
@@ -381,7 +381,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ## <a name="deploy-azure-key-vault-vm-extension-preview"></a>Azure Key Vault VM 확장 (미리 보기) 배포
 
-다음 JSON은 Key Vault VM 확장 (미리 보기)에 대 한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 구체적으로는 다음과 같습니다.
+다음 JSON은 Key Vault VM 확장 (미리 보기)에 대 한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 특히:
 
 ### <a name="template-file-for-linux"></a>Linux 용 템플릿 파일
 

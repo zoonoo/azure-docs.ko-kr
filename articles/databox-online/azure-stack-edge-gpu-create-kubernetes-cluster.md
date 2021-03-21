@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102631962"
 ---
 # <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 하 고 관리 합니다.
@@ -24,7 +24,7 @@ Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클�
 이 문서에서는 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 하 고 *kubectl* 를 사용 하 여 관리 하는 방법을 설명 합니다. 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 

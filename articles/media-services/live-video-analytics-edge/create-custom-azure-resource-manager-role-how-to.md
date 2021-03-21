@@ -4,10 +4,10 @@ description: 이 문서에서는 사용자 지정 Azure Resource Manager 역할�
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: 80974c111dd451314635d06334766322bc68e437
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102210447"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
@@ -16,7 +16,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
 
 이 문서에서는 Azure Cloud Shell를 사용 하 여 사용자 지정 Azure Resource Manager 역할을 만들고이를 사용 하 여 서비스 주체를 만드는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항  
+## <a name="prerequisites"></a>필수 구성 요소  
 
 이 문서의 필수 구성 요소는 다음과 같습니다.
 

@@ -9,10 +9,10 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
 ms.openlocfilehash: 0362c9ed4f736474dbd49e1bfaf1373e0f48acd6
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94992712"
 ---
 # <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Azure Logic Apps의 맵으로 액체 템플릿을 사용 하 여 JSON 및 XML 변환
@@ -28,7 +28,7 @@ ms.locfileid: "94992712"
 * 사용자의 논리 앱에 액체 변형 작업을 추가 합니다.
 * 사용 하려는 맵으로 템플릿을 선택 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "94992712"
 
 1. **지도** 창에서 **추가** 를 선택 하 고 맵에 대 한 세부 정보를 제공 합니다.
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **이름** | `JsonToJsonTemplate` | 맵의 이름이며, 이 예제에서는 "JsonToJsonTemplate"입니다. |
    | **지도 유형** | **liquid** | 맵의 형식입니다. JSON부터 JSON 변환의 경우 **Liquid** 를 선택해야 합니다. |

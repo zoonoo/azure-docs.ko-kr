@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
 ms.openlocfilehash: d23b376384262c208fed70306e62634592d0b46b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946770"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
@@ -84,7 +84,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 | 값 |
     |---|---|
-    |이름|Hive|
+    |Name|Hive|
     |URL 예|`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`|
     |추가 클래스 경로|**추가** 단추를 사용 하 여 앞에서 다운로드 한 모든 jar 파일을 추가 합니다.|
     |클래스 이름|HiveDriver입니다.|
@@ -101,7 +101,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 |값 |
     |---|---|
-    |이름|HDInsight의 Hive|
+    |Name|HDInsight의 Hive|
     |드라이버|드롭다운을 사용 하 여 **Hive** 드라이버를 선택 합니다.|
     |URL|`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`. **CLUSTERNAME** 을 HDInsight 클러스터의 이름으로 바꿉니다.|
     |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **admin** 입니다.|

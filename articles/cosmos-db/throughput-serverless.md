@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.openlocfilehash: 3f5c3400f319a3f9d5f1544457b009f90d479634
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98049833"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>프로 비전 된 처리량과 서버 리스 서버 중에서 선택 하는 방법
@@ -26,7 +26,7 @@ Azure Cosmos DB는 [프로 비전 된 처리량](set-throughput.md) 및 [서버]
 | --- | --- | --- |
 | 상태 | 일반 공급 | 미리 보기 |
 | 가장 적합한 용도 | 예측 가능한 성능이 필요한 지속적인 트래픽이 있는 워크 로드 | 간헐적 이거나 예기치 않은 트래픽이 있고 평균 대 최고 트래픽 비율이 낮은 워크 로드 |
-| 작동 방식 | 각 컨테이너에 대해 초당 [요청 단위로](request-units.md) 표현 된 처리량을 프로 비전 합니다. 초 마다이 요청 단위를 데이터베이스 작업에 사용할 수 있습니다. 프로 비전 된 처리량을 수동으로 업데이트 하거나 자동 [크기 조정을](provision-throughput-autoscale.md)사용 하 여 자동으로 조정할 수 있습니다. | 용량을 프로 비전 하지 않고도 컨테이너에 대해 데이터베이스 작업을 실행할 수 있습니다. |
+| 작동 방법 | 각 컨테이너에 대해 초당 [요청 단위로](request-units.md) 표현 된 처리량을 프로 비전 합니다. 초 마다이 요청 단위를 데이터베이스 작업에 사용할 수 있습니다. 프로 비전 된 처리량을 수동으로 업데이트 하거나 자동 [크기 조정을](provision-throughput-autoscale.md)사용 하 여 자동으로 조정할 수 있습니다. | 용량을 프로 비전 하지 않고도 컨테이너에 대해 데이터베이스 작업을 실행할 수 있습니다. |
 | 지역 배포 | 사용 가능 (Azure 지역 수 제한 없음) | 사용할 수 없음 (서버 리스 계정은 1 개의 Azure 지역 에서만 실행할 수 있음) |
 | 컨테이너당 최대 스토리지 | 제한 없음 | 50GB |
 | 성능 | SLA가 적용 되는 지점 읽기 및 쓰기에 대해 10 밀리초의 대기 시간 < | SLO에서 적용 되는 쓰기에 대 한 지점 읽기 및 < 30ms 대기 시간 < |

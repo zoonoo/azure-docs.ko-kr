@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456303"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Azure 센티널에서 엔터티를 사용 하 여 데이터 분류 및 분석
@@ -49,7 +49,7 @@ Azure 센티널은 다양 한 엔터티 형식을 지원 합니다. 각 형식�
 - 호스트
 - IP 주소
 - 맬웨어
-- 파일
+- File
 - Process
 - 클라우드 응용 프로그램
 - 도메인 이름

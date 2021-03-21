@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101689031"
 ---
-# <a name="two-way-sms-unsupported"></a>양방향 SMS가 지원 되지 않음
+# <a name="two-way-sms-unsupported"></a>양방향 SMS가 지원되지 않음
 
 MFA (Azure AD Multi-Factor Authentication) 서버용 양방향 SMS는 원래 2018에서 더 이상 사용 되지 않으며 2021 년 2 월 24 일 이후에는 더 이상 지원 되지 않습니다. 관리자는 양방향 SMS를 계속 사용 하는 사용자에 게 다른 방법을 사용 하도록 설정 해야 합니다.
 

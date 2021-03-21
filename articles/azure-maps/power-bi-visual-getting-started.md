@@ -10,15 +10,15 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: a563a7776e84289e38743057778e8fe10fd17503
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96904706"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체 시작
 
-<Token>**적용 대상:** ![ 녹색 확인 표시입니다. ](media/power-bi-visual/yes.png) **_소비자_* _ 녹색 확인 표시에 대 한 Power BI 서비스 ![ 입니다. ](media/power-bi-visual/yes.png) 디자이너 & 개발자 ![ 녹색 확인 표시를 Power BI 서비스 합니다. ](media/power-bi-visual/yes.png) ![아니요를 나타내는 X Power BI Desktop입니다. ](media/power-bi-visual/no.png) Pro 또는 프리미엄 라이선스가 필요 합니다.</Token>
+<Token>**적용 대상:** ![ 녹색 확인 표시입니다. ](media/power-bi-visual/yes.png) **_소비자_** ![ 녹색 확인 표시에 대 한 Power BI 서비스입니다. ](media/power-bi-visual/yes.png) 디자이너 & 개발자 ![ 녹색 확인 표시를 Power BI 서비스 합니다. ](media/power-bi-visual/yes.png) ![아니요를 나타내는 X Power BI Desktop입니다. ](media/power-bi-visual/no.png) Pro 또는 프리미엄 라이선스가 필요 합니다.</Token>
 
 이 문서에서는 Power BI에 대 한 Microsoft Azure Maps 시각적 개체를 사용 하는 방법을 보여 줍니다.
 
@@ -47,7 +47,7 @@ Azure Maps와 관련 된 개인 정보 및 사용 약관에 대해 자세히 알
 
 ## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Azure Maps 시각적 개체 (미리 보기) 동작 및 요구 사항
 
-_ *Azure Maps** 시각적 개체에 대 한 몇 가지 고려 사항 및 요구 사항이 있습니다. :
+**Azure Maps** 시각적 개체에 대 한 몇 가지 고려 사항 및 요구 사항이 있습니다. :
 
 -   Power BI Desktop에서 **Azure Maps** 시각적 개체 (미리 보기)를 사용 하도록 설정 해야 합니다. 시각적 개체 **Azure Maps** 를 사용 하도록 설정 하려면 **파일** &gt; **옵션 및 설정** &gt; **옵션** &gt; **미리 보기 기능** 을 선택한 다음 **Azure Maps 시각적 개체** 확인란을 선택 합니다. 이 작업을 수행한 후 Azure Maps 시각적 개체를 사용할 수 없는 경우 관리 포털에서 테 넌 트 관리자 스위치를 사용 하도록 설정 해야 할 수 있습니다.
 -   데이터 집합에는 **위도** 및 **경도** 정보를 포함 하는 필드가 있어야 합니다. 지 오 코딩 of location 필드는 이후 업데이트에서 추가 될 예정입니다.
@@ -92,7 +92,7 @@ Azure Maps 시각적 개체를 로드 하려면 다음 단계를 수행 합니�
 
 다음 데이터 버킷은 Azure Maps 시각적 개체의 **필드** 창에서 사용할 수 있습니다.
 
-| 필드     | Description  |
+| 필드     | 설명  |
 |-----------|--------------|
 | 위도  | 데이터 요소의 위도 값을 지정 하는 데 사용 되는 필드입니다. 위도 값은-90과 90 사이의 10 진수도 형식 이어야 합니다.  |
 | 경도 | 데이터 요소의 경도 값을 지정 하는 데 사용 되는 필드입니다. 경도 값은-180과 180 사이의 10 진수도 형식 이어야 합니다.  |
@@ -104,7 +104,7 @@ Azure Maps 시각적 개체를 로드 하려면 다음 단계를 수행 합니�
 
 서식 창의 **맵 설정** 섹션에는 지도가 표시 되 고 업데이트에 반응 하는 방식을 사용자 지정 하는 옵션이 제공 됩니다.
 
-| 설정             | Description  |
+| 설정             | 설명  |
 |---------------------|--------------|
 | 자동 확대/축소           | 시각적 개체의 **필드** 창을 통해 로드 된 데이터로 자동으로 지도를 확대/축소 합니다. 데이터가 변경 되 면 지도는 그에 따라 해당 위치를 업데이트 합니다. 슬라이더가 **Off** 위치에 있으면 기본 지도 보기에 대 한 추가 지도 보기 설정이 표시 됩니다. |
 | 세계 줄 바꿈          | 사용자가 맵을 무한히 세로로 이동할 수 있습니다. |
@@ -116,9 +116,9 @@ Azure Maps 시각적 개체를 로드 하려면 다음 단계를 수행 합니�
 
 **자동 확대/축소** 슬라이더가 **Off** 위치에 있으면 다음 설정이 표시 되 고 사용자가 기본 지도 보기 정보를 지정할 수 있습니다.
 
-| 설정          | Description   |
+| 설정          | 설명   |
 |------------------|---------------|
-| Zoom             | 지도의 기본 확대/축소 수준입니다. 0에서 22 사이의 숫자가 될 수 있습니다. |
+| 확대/축소             | 지도의 기본 확대/축소 수준입니다. 0에서 22 사이의 숫자가 될 수 있습니다. |
 | 중심 위도  | 지도의 가운데에 있는 기본 위도입니다. |
 | 가운데 경도 | 지도의 가운데에 있는 기본 경도입니다. |
 | 제목          | 지도의 기본 방향 (도)입니다. 여기서 0은 북부, 90은 동부, 180는 남부, 270는 서 부입니다. 0에서 360 사이의 숫자가 될 수 있습니다. |

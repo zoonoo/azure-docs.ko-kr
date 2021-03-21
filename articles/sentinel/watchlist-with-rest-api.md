@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
 ms.openlocfilehash: ea571f9b033ba82709a13c6d32649f3228ee04b1
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98798464"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>REST API를 사용 하 여 Azure 센티널에서 watchlists 관리
@@ -33,15 +33,15 @@ Azure Monitor Log Analytics에 포함 되는 Azure 센티널은 Log Analytics ' 
 
 다음은 모든 관심 목록 API 명령에 대 한 일반적인 URI 매개 변수입니다.
 
-| 이름 | In(다음 안에) | 필수 | Type | 설명 |
+| Name | In(다음 안에) | 필수 | Type | 설명 |
 |-|-|-|-|-|
-| **구독** | 경로 | yes | GUID | Azure 구독 ID |
-| **ResourceGroupName** | 경로 | yes | 문자열 | 구독 내 리소스 그룹의 이름 |
-| **WorkspaceName** | 경로 | yes | 문자열 | Log Analytics 작업 영역의 이름입니다. |
-| **{watchlistAlias}** | 경로 | 예* | 문자열 | 지정 된 관심 목록의 이름입니다.<br>\* 모든 watchlists를 검색할 때 필요 하지 않음 |
-| **{watchlistItemId}** | 경로 | 예 * * | GUID | 관심 목록에서 만들거나, 추가 하거나, 삭제할 항목의 ID입니다.<br>\*\* 관심 목록 item 명령에만 필요 합니다. |
-| **{api-version}** | Query | yes | 문자열 | 이 요청을 수행 하는 데 사용 되는 프로토콜의 버전입니다. 2020 년 10 월 29 일, 관심 목록 API 버전은 *2019-01-01-미리 보기* 입니다. |
-| **{bearerToken}** | 권한 부여 | yes | token | 전달자 권한 부여 토큰 |
+| **구독** | path | 예 | GUID | Azure 구독 ID |
+| **ResourceGroupName** | path | 예 | 문자열 | 구독 내 리소스 그룹의 이름 |
+| **WorkspaceName** | path | 예 | 문자열 | Log Analytics 작업 영역의 이름입니다. |
+| **{watchlistAlias}** | path | 예* | 문자열 | 지정 된 관심 목록의 이름입니다.<br>\* 모든 watchlists를 검색할 때 필요 하지 않음 |
+| **{watchlistItemId}** | path | 예 * * | GUID | 관심 목록에서 만들거나, 추가 하거나, 삭제할 항목의 ID입니다.<br>\*\* 관심 목록 item 명령에만 필요 합니다. |
+| **{api-version}** | Query | 예 | 문자열 | 이 요청을 수행 하는 데 사용 되는 프로토콜의 버전입니다. 2020 년 10 월 29 일, 관심 목록 API 버전은 *2019-01-01-미리 보기* 입니다. |
+| **{bearerToken}** | 권한 부여 | 예 | token | 전달자 권한 부여 토큰 |
 |  
 
 ## <a name="retrieve-all-watchlists"></a>모든 watchlists 검색

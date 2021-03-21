@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
 ms.openlocfilehash: d8bcc4b68082fdf0d1f86dc341c3313f9d8788c4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050684"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure Monitor에서 Linux 애플리케이션에 대한 성능 카운터 수집 
@@ -115,7 +115,7 @@ Azure Monitor에 데이터를 보내도록 Linux용 Log Analytics 에이전트�
 | 개체 이름 | 카운터 이름 |
 |:--|:--|
 | MySQL 데이터베이스 | 디스크 공간(바이트) |
-| MySQL 데이터베이스 | 테이블 |
+| MySQL 데이터베이스 | Tables |
 | MySQL Server | 중단된 연결 Pct |
 | MySQL Server | 연결 사용 Pct |
 | MySQL Server | 디스크 공간 사용(바이트) |

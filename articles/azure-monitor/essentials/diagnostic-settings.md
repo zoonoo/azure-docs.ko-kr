@@ -7,10 +7,10 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 254d403adc687074eae772bcdcc55793bb25b336
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048916"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
@@ -180,7 +180,7 @@ az monitor diagnostic-settings create  \
 
    "메트릭 범주 '*xxxx*'는 지원 되지 않습니다."
 
-다음은 그 예입니다.  
+예를 들면 다음과 같습니다. 
 
    "메트릭 범주 ' 활동 실패 '는 지원 되지 않습니다."
 

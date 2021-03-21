@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: justinha
 ms.openlocfilehash: ebfc2476b7955b926f86094de03973155386eb8f
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619970"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 온-프레미스 도메인에 대 한 Azure Active Directory Domain Services 리소스 포리스트 및 아웃 바운드 포리스트 트러스트 만들기
@@ -102,7 +102,7 @@ New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
 1. 스크립트에 필요한 다음 매개 변수를 검토 `New-AzureAaddsForest` 합니다. 필수 구성 요소 **Azure PowerShell** 및 **Azure AD PowerShell** 모듈도 있는지도 확인 합니다. 응용 프로그램 및 온-프레미스 연결을 제공 하기 위한 가상 네트워크 요구 사항을 계획 했는지 확인 합니다.
 
-    | 이름                         | 스크립트 매개 변수          | 설명 |
+    | Name                         | 스크립트 매개 변수          | 설명 |
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | Azure AD DS 청구에 사용 되는 구독 ID입니다. [Get-azurermsubscription][Get-AzureRMSubscription] cmdlet을 사용 하 여 구독 목록을 가져올 수 있습니다. |
     | 리소스 그룹               | *-aaddsResourceGroupName* | 관리 되는 도메인 및 관련 리소스에 대 한 리소스 그룹의 이름입니다. |
@@ -112,7 +112,7 @@ New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 
     `New-AzureAaddsForest`이러한 리소스가 아직 없는 경우 스크립트는 azure 가상 네트워크 및 azure AD DS 서브넷을 만들 수 있습니다. 이 스크립트는 다음과 같이 지정 된 경우 작업 서브넷을 선택적으로 만들 수 있습니다.
 
-    | 이름                              | 스크립트 매개 변수                  | 설명 |
+    | Name                              | 스크립트 매개 변수                  | 설명 |
     |:----------------------------------|:----------------------------------|:------------|
     | 가상 네트워크 이름              | *-aaddsVnetName*                  | 관리 되는 도메인에 대 한 가상 네트워크의 이름입니다.|
     | 주소 공간                     | *-aaddsVnetCIDRAddressSpace*      | 가상 네트워크의 주소 범위가 CIDR 표기법으로 되어 있습니다 (가상 네트워크를 만드는 경우).|
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 이제 스크립트에 다음 정보를 제공 합니다.
 
-| 이름                               | 스크립트 매개 변수     | 설명 |
+| Name                               | 스크립트 매개 변수     | 설명 |
 |:-----------------------------------|:---------------------|:------------|
 | Azure AD DS 도메인 이름            | *-ManagedDomainFqdn* | 관리 되는 도메인의 FQDN (예: *aaddscontoso.com* ) |
 | 온-프레미스 AD DS 도메인 이름      | *-TrustFqdn*         | 트러스트 된 포리스트의 FQDN (예: *onprem.contoso.com* ) |
