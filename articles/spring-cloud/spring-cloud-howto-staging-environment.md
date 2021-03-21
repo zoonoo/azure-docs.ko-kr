@@ -8,10 +8,10 @@ ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 0a8536deac0103215cf362c07eb54bbf84701a6b
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103016579"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 스테이징 환경 설정
@@ -20,7 +20,7 @@ ms.locfileid: "103016579"
 
 이 문서에서는 Azure 스프링 클라우드의 파랑-녹색 배포 패턴을 사용 하 여 스테이징 배포를 설정 하는 방법을 설명 합니다. 파랑-녹색 배포는 기존 (파란색) 버전을 라이브 상태로 유지 하 고 새로운 (녹색) 버전을 배포 하는 Azure DevOps 연속 배달 패턴입니다. 이 문서에서는 프로덕션 배포를 변경 하지 않고 스테이징 배포를 프로덕션에 배치 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 표준 가격 책정 계층의 Azure 스프링 클라우드 인스턴스
 * Azure CLI에 대 한 [Azure 스프링 클라우드 확장](/cli/azure/azure-cli-extensions-overview)

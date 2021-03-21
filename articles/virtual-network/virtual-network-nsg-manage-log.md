@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
 ms.openlocfilehash: bb078b9738e995a1c507f7934a7dd64f075d5fe0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596533"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대 한 리소스 로깅
@@ -47,7 +47,7 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
     | 설정                                                                                     | 값                                                          |
     | ---------                                                                                   |---------                                                       |
-    | 속성                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
+    | Name                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
     | **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 및 **Log Analytics에 보내기** | 여러 대상을 선택할 수 있습니다. 각각에 대해 자세히 알아보려면 [로그 대상](#log-destinations)을 참조하세요.                                                                                                                                           |
     | LOG                                                                                         | 둘 중 하나 또는 두 로그 범주를 선택합니다. 각 범주에 대해 기록된 데이터에 대해 자세히 알아보려면 [로그 범주](#log-categories)를 참조하세요.                                                                                                                                             |
 6. 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.

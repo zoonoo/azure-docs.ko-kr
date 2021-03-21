@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 75f797c40a276323cea9983c5340d2d854160c83
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97368480"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
@@ -109,7 +109,7 @@ Azure AD Connect를 사용 하 여 암호 해시 동기화에서 통과 인증�
 
 통과 인증 에이전트는 실행되는 동안 활성 상태를 유지하며, 지속적으로 사용자 로그인 요청을 처리합니다. 인증 에이전트를 제거하려는 경우 **제어판 -> 프로그램 -> 프로그램 및 기능** 으이로 동한 후 **Microsoft Azure AD Connect Authentication Agent** 및 **Microsoft Azure AD Connect Agent Updater** 프로그램을 둘 다 제거합니다.
 
-위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. 이는 _예상_ 된 것입니다. 인증 에이전트는 10 일 후에 목록에서 자동으로 삭제 됩니다.
+위의 단계를 완료한 후 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에서 통과 인증 블레이드를 확인하는 경우 인증 에이전트가 **비활성** 상태로 표시됩니다. _예상된_ 동작입니다. 인증 에이전트는 10 일 후에 목록에서 자동으로 삭제 됩니다.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>이미 AD FS를 사용하여 Azure AD에 로그인하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 
@@ -140,7 +140,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>통과 인증을 사용하도록 설정하기 위해 클라우드 전용 글로벌 관리자 계정이 필요한 이유는 무엇인가요?
 
-클라우드 전용 글로벌 관리자 계정을 사용하여 통과 인증을 사용하도록 설정하거나 사용하지 않도록 설정하는 것이 좋습니다. [클라우드 전용 전역 관리자 계정을 추가 하는](../fundamentals/add-users-azure-active-directory.md)방법에 대해 알아봅니다. 이 단계는 테넌트가 잠기지 않도록 합니다.
+클라우드 전용 글로벌 관리자 계정을 사용하여 통과 인증을 사용하도록 설정하거나 사용하지 않도록 설정하는 것이 좋습니다. [클라우드 전용 전역 관리자 계정 추가](../fundamentals/add-users-azure-active-directory.md)에 대해 자세히 알아봅니다. 이 단계는 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>통과 인증을 사용하지 않도록 설정하려면 어떻게 하나요?
 

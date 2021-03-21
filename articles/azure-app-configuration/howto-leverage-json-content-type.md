@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122156"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>콘텐츠 형식을 활용 하 여 앱 구성에 JSON 키-값 저장
@@ -55,7 +55,7 @@ ms.locfileid: "102122156"
 > [!NOTE]
 > 이 문서의 나머지 부분에서는 유효한 JSON content-type 및 유효한 JSON 값을 포함 하는 앱 구성의 키-값을 **json 키-값** 이라고 합니다. 
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서 학습할 방법은 다음과 같습니다.
 > [!div class="checklist"]
 > * 앱 구성에서 JSON 키-값을 만듭니다.
 > * Json 파일에서 JSON 키-값을 가져옵니다.

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: trbye
 ms.openlocfilehash: 1a002b6efbe2603ae254c19f9e3cc7377198cea2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97935821"
 ---
 # <a name="develop-custom-commands-applications"></a>사용자 지정 명령 응용 프로그램 개발
@@ -242,7 +242,7 @@ turn something
 **저장** 을 선택합니다.
 
 > [!TIP]
-> 예제-문장 편집기에서 중괄호를 사용 하 여 매개 변수를 참조 합니다. 예들 들어 `turn {OnOff} the {SubjectDevice}`입니다.
+> 예제-문장 편집기에서 중괄호를 사용 하 여 매개 변수를 참조 합니다. 예: `turn {OnOff} the {SubjectDevice}`
 > 이전에 만든 매개 변수에서 지원 되는 자동 완성 기능에 대 한 탭을 사용 합니다.
 
 #### <a name="modify-completion-rules-to-include-parameters"></a>매개 변수를 포함 하도록 완료 규칙 수정
@@ -284,7 +284,7 @@ turn something
 | **이름**               | `Temperature`           |
 | **필수**           | 선택됨         |
 | **필수 매개 변수에 대 한 응답**      | **간단한 편집기** > `What temperature would you like?`
-| **형식**               | `Number`          |
+| **유형**               | `Number`          |
 
 
 예제 길이 발언를 편집 하 여 다음 값을 사용 합니다.
@@ -312,7 +312,7 @@ change the temperature
    | **이름**                              | `DateTime`                               |
    | **필수**                          | 선택됨                                 |
    | **필수 매개 변수에 대 한 응답**   | **간단한 편집기** > `For what time?`            | 
-   | **형식**                              | **DateTime**                                |
+   | **유형**                              | **DateTime**                                |
    | **날짜 기본값**                     | 날짜가 누락 된 경우 today를 사용 합니다.            |
    | **시간 기본값**                     | 시간이 누락 된 경우 날짜의 시작을 사용 합니다.     |
 

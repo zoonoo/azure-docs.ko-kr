@@ -6,10 +6,10 @@ ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 33dc766643355a5f5ebb6138e000595fd1bfe6fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101745661"
 ---
 ## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a>연속 WebJob 만들기
@@ -30,7 +30,7 @@ ms.locfileid: "101745661"
 
    | 설정      | 샘플 값   | 
    | ------------ | ----------------- | 
-   | <abbr title="App Service 앱 내에서 고유한 이름입니다. 는 문자 또는 숫자로 시작 해야 하며 및 이외의 특수 문자를 포함할 수 없습니다 `-` `_` .">속성</abbr> | myContinuousWebJob | 
+   | <abbr title="App Service 앱 내에서 고유한 이름입니다. 는 문자 또는 숫자로 시작 해야 하며 및 이외의 특수 문자를 포함할 수 없습니다 `-` `_` .">Name</abbr> | myContinuousWebJob | 
    | <abbr title=" 실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다.">파일 업로드</abbr> | ConsoleApp.zip |
    | <abbr title="연속, 트리거된 형식이 포함 됩니다.">Type</abbr> | 계속 | 
    | <abbr title="연속 WebJobs에 대해서만 사용할 수 있습니다. 프로그램 또는 스크립트가 모든 인스턴스 또는 하나의 인스턴스에서 실행되는지를 결정합니다. 여러 인스턴스에서 실행하는 옵션은 무료 또는 공유 가격 책정 계층에 적용되지 않습니다.">확장</abbr> | 다중 인스턴스 | 

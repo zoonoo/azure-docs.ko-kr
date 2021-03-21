@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
 ms.openlocfilehash: 26485c84749b7d4c91159476b3f683c2b0f3831b
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103555678"
 ---
 # <a name="azure-private-link-availability"></a>Azure 개인 링크 가용성
@@ -40,7 +40,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [Azure Monitor에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../azure-monitor/logs/private-link-security.md)   |
 |Azure 데이터 팩터리 | 모든 공용 지역<br/> Azure Government 지역<br/>모든 중국 지역    | 자격 증명을 Azure key vault에 저장해야 합니다.| GA   <br/> [Azure Data Factory에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../data-factory/data-factory-private-link.md)   |
 
-### <a name="compute"></a>컴퓨팅
+### <a name="compute"></a>Compute
 
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
@@ -91,7 +91,7 @@ Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드�
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure Key Vault         | 모든 공용 지역<br/> Azure Government 지역      |  | GA   <br/> [Azure Key Vault에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](../key-vault/general/private-link-service.md)   |
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역<br/> Azure Government 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [Blob 스토리지에 대한 프라이빗 엔드포인트를 만드는 방법을 알아봅니다.](tutorial-private-endpoint-storage-portal.md)  |

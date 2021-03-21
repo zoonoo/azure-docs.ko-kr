@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100572640"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 관리
@@ -161,8 +161,8 @@ ms.locfileid: "100572640"
 
 |쿼리  |Description  |
 |---------|---------|
-|`ConfigurationData`<br> &#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br> &#124; `where SvcState == "Stopped"`<br> &#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | 자동으로 설정되었지만 중지됨으로 보고된 Microsoft 서비스에 대한 최근의 인벤토리 레코드를 표시합니다. 결과는 지정된 소프트웨어 이름 및 컴퓨터에 대한 최신 레코드로 제한됩니다.    |
-|`ConfigurationChange`<br> &#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br> &#124; `order by TimeGenerated desc`|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | 자동으로 설정되었지만 중지됨으로 보고된 Microsoft 서비스에 대한 최근의 인벤토리 레코드를 표시합니다. 결과는 지정된 소프트웨어 이름 및 컴퓨터에 대한 최신 레코드로 제한됩니다.    |
+|`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

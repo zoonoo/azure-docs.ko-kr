@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
 ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463513"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
@@ -88,7 +88,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 |   | RDS PostgreSQL | ✔ | GA |
 
 > [!IMPORTANT]
-> "Oracle을 Azure Database for PostgreSQL로" 마이그레이션 시나리오(현재 미리 보기 상태)는 2021년 5월 1일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공하고 Oracle에서 PostgreSQL로의 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle to Azure Database for PostgreSQL 마이그레이션 가이드](https://aka.ms/OracletoPGguide)를 참조 하세요.
+> "Oracle을 Azure Database for PostgreSQL로" 마이그레이션 시나리오(현재 미리 보기 상태)는 2021년 5월 1일 이후에는 더 이상 사용할 수 없습니다. Ora2pg와 같은 대체 도구를 통해 계속 지원을 제공하고 Oracle에서 PostgreSQL로의 마이그레이션을 위한 최상의 마이그레이션 환경을 제공할 예정입니다. 마이그레이션 모범 사례는 [Oracle을 Azure Database for PostgreSQL로 마이그레이션 가이드](https://aka.ms/OracletoPGguide)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

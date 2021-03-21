@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: rogarana
 ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472147"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요-Azure 파일 공유에 대 한 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
@@ -42,7 +42,7 @@ SMB를 통해 Azure 파일 공유에 대 한 AD DS를 사용 하도록 설정 �
 | [![동영상 가이드 온-프레미스 파일 서버 교체 비디오-클릭 하 여 재생 합니다.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![동영상 가이드을 프로필 컨테이너로 사용 Azure Files 하는를 클릭 하 여 재생 합니다.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다. 
 
@@ -64,7 +64,7 @@ Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 �
 
 - Azure 파일 공유에 대 한 AD DS 인증을 설정 하 고 구성 하기 전에 관련 네트워킹 구성을 수행 합니다. 자세한 내용은 [Azure Files 네트워킹 고려 사항](storage-files-networking-overview.md) 을 참조 하세요.
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 AD DS를 사용 하 여 Azure Files 인증은 [모든 Azure 공용, 중국 및 .gov 지역](https://azure.microsoft.com/global-infrastructure/locations/)에서 사용할 수 있습니다.
 

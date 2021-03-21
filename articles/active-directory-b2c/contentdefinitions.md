@@ -12,10 +12,10 @@ ms.date: 02/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 62bae22b6a4bb06b1e97c18e52ad614fd2439902
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489324"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
@@ -61,13 +61,13 @@ ms.locfileid: "103489324"
 
 **ContentDefinition** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Id | 예 | 콘텐츠 정의의 식별자입니다. 값은 이 페이지의 뒷부분에 있는 **콘텐츠 정의 ID** 섹션에서 지정된 값입니다. |
 
 **ContentDefinition** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | 콘텐츠 정의에 대한 HTML5 페이지의 URL을 포함하는 문자열입니다. |
 | RecoveryUri | 1:1 | 콘텐츠 정의와 관련된 오류를 표시하기 위한 HTML 페이지의 URL을 포함하는 문자열입니다. 현재 사용 되지 않습니다. 값은 이어야 합니다 `~/common/default_page_error.html` . |
@@ -79,7 +79,7 @@ ms.locfileid: "103489324"
 
 **DataUri** 요소는 페이지 식별자를 지정하는 데 사용됩니다. Azure AD B2C에서는 페이지 식별자를 사용하여 UI 요소 및 클라이언트 쪽 JavaScript를 로드하고 시작합니다. 값의 형식은 `urn:com:microsoft:aad:b2c:elements:page-name:version`입니다. 다음 표에서는 사용할 수 있는 페이지 식별자를 보여 줍니다.
 
-| 페이지 식별자 | 설명 |
+| 페이지 식별자 | Description |
 | ----- | ----------- |
 | `globalexception` | 예외 또는 오류가 발생할 때 오류 페이지를 표시합니다. |
 | `providerselection`, `idpselection` | 로그인 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다.  |
@@ -90,7 +90,7 @@ ms.locfileid: "103489324"
 
 ### <a name="select-a-page-layout"></a>페이지 레이아웃 선택
 
-와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-and-page-layout.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . 예들 들어 `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`입니다.
+와 페이지 형식을 삽입 하 여 [JavaScript 클라이언트 쪽 코드](javascript-and-page-layout.md) 를 사용 하도록 설정할 수 있습니다 `contract` `elements` . 예: `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -174,7 +174,7 @@ ms.locfileid: "103489324"
 
 **Metadata** 요소의 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | Description |
 | --------- | -------- | ----------- |
 | 키 | 예 | 메타데이터 키입니다.  |
 
@@ -184,19 +184,19 @@ ms.locfileid: "103489324"
 
 | 키 | 필수 | Description |
 | --------- | -------- | ----------- |
-| DisplayName | No | 콘텐츠 정의의 이름을 포함 하는 문자열입니다. |
+| DisplayName | 아니요 | 콘텐츠 정의의 이름을 포함 하는 문자열입니다. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
 **LocalizedResourcesReferences** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | 콘텐츠 정의에 대한 지역화된 리소스 참조 목록입니다. |
 
 **LocalizedResourcesReference** 요소는 다음 특성을 포함 합니다.
 
-| attribute | 필수 | 설명 |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | Language | 예 | RFC 5646 - 언어 식별 태그를 기준으로 정책에 대해 지원되는 언어를 포함하는 문자열입니다. |
 | LocalizedResourcesReferenceId | 예 | **LocalizedResources** 요소의 식별자입니다. |
@@ -225,7 +225,7 @@ ms.locfileid: "103489324"
 
 **ContentDefinition** 요소의 ID 특성은 콘텐츠 정의에 관련된 페이지의 형식을 지정합니다. 이 요소는 사용자 지정 HTML5/CSS 템플릿을 적용할 컨텍스트를 정의합니다. 다음 표에서는 ID 경험 프레임워크가 인식하는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 형식을 설명합니다. 임의 ID로 고유한 콘텐츠 정의를 만들 수 있습니다.
 
-| ID | 기본 템플릿 | 설명 |
+| ID | 기본 템플릿 | Description |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지** - 예외 또는 오류가 발생할 때 오류 페이지를 표시합니다. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **ID 공급자 선택 페이지** - 로그인 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |

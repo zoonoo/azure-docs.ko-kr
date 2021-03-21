@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517874"
 ---
 # <a name="cloud-sync-troubleshooting"></a>클라우드 동기화 문제 해결
@@ -22,7 +22,7 @@ ms.locfileid: "102517874"
 
 ## <a name="common-troubleshooting-areas"></a>일반적인 문제 해결 영역
 
-|Name|Description|
+|Name|설명|
 |-----|-----|
 |[에이전트 문제](#agent-problems)|에이전트가 올바르게 설치 되었으며 Azure Active Directory (Azure AD)와 통신 하는지 확인 합니다.|
 |[개체 동기화 문제](#object-synchronization-problems)|프로 비전 로그를 사용 하 여 개체 동기화 문제를 해결 합니다.|
@@ -176,7 +176,7 @@ Azure Portal에서 프로 비전 로그를 사용 하 여 개체 동기화 문�
 
 
 ### <a name="resolve-a-quarantine"></a>격리 해결
-두 가지 방법으로 격리를 해결할 수 있습니다.  다음 창이 여기에 포함됩니다.
+두 가지 방법으로 격리를 해결할 수 있습니다.  핵심 원리는 다음과 같습니다.
 
   - 격리 지우기-워터 마크를 지우고 델타 동기화를 실행 합니다.
   - 프로 비전 작업 다시 시작-워터 마크를 지우고 초기 동기화를 실행 합니다.

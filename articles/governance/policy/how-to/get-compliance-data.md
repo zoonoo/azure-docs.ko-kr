@@ -1,14 +1,14 @@
 ---
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 3c1c128b414444c6004f32f3f3173548f81a82e1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577113"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598544"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -26,7 +26,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
-완료된 평가 주기의 결과는 `PolicyStates` 및 `PolicyEvents` 작업을 통해 `Microsoft.PolicyInsights` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API의 작업에 대한 자세한 내용은 [Azure Policy Insights](/rest/api/policy-insights/)를 참조하세요.
+완료된 평가 주기의 결과는 `PolicyStates` 및 `PolicyEvents` 작업을 통해 `Microsoft.PolicyInsights` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API의 작업에 대한 자세한 내용은 [Azure Policy Insights](/rest/api/policy/)를 참조하세요.
 
 할당된 정책 및 이니셔티브의 평가는 다양한 이벤트의 결과로 발생합니다.
 
@@ -237,13 +237,13 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 ## <a name="command-line"></a>명령 줄
 
-포털에서 사용할 수 있는 정보는 REST API (with [ARMClient](https://github.com/projectkudu/ARMClient)포함), Azure PowerShell 및 Azure CLI를 사용 하 여 검색할 수 있습니다. REST API에 대한 자세한 전체 내용은 [Azure Policy Insight](/rest/api/policy-insights/) 참조를 참조하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.
+포털에서 사용할 수 있는 정보는 REST API (with [ARMClient](https://github.com/projectkudu/ARMClient)포함), Azure PowerShell 및 Azure CLI를 사용 하 여 검색할 수 있습니다. REST API에 대 한 자세한 내용은 [Azure Policy](/rest/api/policy/) 참조를 참조 하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.
 
 ARMClient 또는 유사 도구를 사용하여 REST API 예제에 대한 Azure 인증을 처리합니다.
 
 ### <a name="summarize-results"></a>결과 요약
 
-REST API를 사용하여 컨테이너, 정의 또는 할당별로 요약을 수행할 수 있습니다. Azure Policy Insight의 [구독에 대한 요약](/rest/api/policy-insights/policystates/summarizeforsubscription)을 사용하여 구독 수준에서 요약의 예제는 다음과 같습니다.
+REST API를 사용하여 컨테이너, 정의 또는 할당별로 요약을 수행할 수 있습니다. Azure Policy Insight의 [구독에 대한 요약](/rest/api/policy/policystates/summarizeforsubscription)을 사용하여 구독 수준에서 요약의 예제는 다음과 같습니다.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -353,7 +353,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
-정책 이벤트를 쿼리하는 방법에 대한 자세한 내용은 [Azure Policy 이벤트](/rest/api/policy-insights/policyevents) 참조 문서를 참조합니다.
+정책 이벤트를 쿼리하는 방법에 대한 자세한 내용은 [Azure Policy 이벤트](/rest/api/policy/policyevents) 참조 문서를 참조합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 

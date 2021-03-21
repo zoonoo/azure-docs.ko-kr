@@ -10,10 +10,10 @@ author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
 ms.openlocfilehash: 81956a16142f314f54afd9d5a1b9055a559e906c
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103565080"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>마이그레이션 가이드: SAP ASE to Azure SQL Database
@@ -69,7 +69,7 @@ SAP SE 데이터베이스를 Azure SQL Database로 마이그레이션하려면 �
 자세히 알아보려면 [스키마 변환](/sql/ssma/sybase/converting-sybase-ase-database-objects-sybasetosql) 을 참조 하세요.
 
 
-## <a name="migrate"></a>마이그레이션 
+## <a name="migrate"></a>Migrate 
 
 필요한 필수 구성 요소를 준비 하 고 **마이그레이션 전** 단계와 관련 된 작업을 완료 한 후에는 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다.
 

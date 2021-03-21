@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.reviewer: sngun
 ms.openlocfilehash: 9279dddc92629b17a2a73f3a41fe261d322d677e
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103463683"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 끌어오기 모델
@@ -41,7 +41,7 @@ ms.locfileid: "103463683"
 
 변경 피드 프로세서와 끌어오기 모델의 주요 차이는 다음과 같습니다.
 
-|특징  | 변경 피드 프로세서| 끌어오기 모델 |
+|기능  | 변경 피드 프로세서| 끌어오기 모델 |
 | --- | --- | --- |
 | 처리 중인 변경 피드의 현재 지점 추적 | 임대(Azure Cosmos DB 컨테이너에 저장됨) | 연속 토큰(메모리에 저장되거나 수동으로 유지됨) |
 | 이전 변경 내용 재생 가능 여부 | 예, 밀어넣기 모델 사용 | 예, 끌어오기 모델 사용|

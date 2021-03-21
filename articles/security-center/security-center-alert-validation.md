@@ -1,24 +1,18 @@
 ---
 title: Azure Security Center의 경고 유효성 검사 | Microsoft Docs
 description: 에서 보안 경고가 올바르게 구성 되었는지 확인 하는 방법에 대해 알아봅니다 Azure Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b90ca39d7bf01b84400464240bb581a5e7bc922a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099525"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602386"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -39,7 +33,7 @@ ms.locfileid: "102099525"
 
 샘플 경고를 만들려면 다음을 수행 합니다.
 
-1. 경고 페이지의 도구 모음에서 **샘플 경고 만들기** 를 선택 합니다. 
+1. 역할 **보안 관리자** 또는 **구독 참가자** 가 있는 사용자는 경고 페이지의 도구 모음에서 **샘플 경고 만들기** 를 선택 합니다.
 1. 구독을 선택합니다.
 1. 경고를 보려는 관련 Azure Defender 계획/s를 선택 합니다. 
 1. **샘플 경고 만들기** 를 선택 합니다.

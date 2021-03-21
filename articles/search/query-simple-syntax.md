@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.openlocfilehash: f679d6fbab57bcbcccc09b722f6b2f670df49eb2
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97516591"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 단순 쿼리 구문
@@ -60,7 +60,7 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 
 쿼리 문자열에 부울 연산자를 포함 하 여 일치 하는 항목의 전체 자릿수를 향상할 수 있습니다. 단순 구문에서 부울 연산자는 문자 기반입니다. 단어 및와 같은 텍스트 연산자는 지원 되지 않습니다.
 
-| 문자 | 예제 | 사용 |
+| 문자 | 예제 | 사용량 |
 |----------- |--------|-------|
 | `+` | `pool + ocean` | AND 작업입니다. 예를 들어 `pool + ocean` 문서에 두 용어를 모두 포함 해야 하도록 규정.|
 | `|` | `pool | ocean` | 또는 작업 중 하나가 발견 되 면 일치 하는 항목을 찾습니다. 이 예제에서 쿼리 엔진은 또는 둘 다를 포함 하는 문서에 대해 일치 하는 항목을 반환 `pool` `ocean` 합니다. OR은 기본 결합 연산자이므로 `pool ocean`가 `pool | ocean`와 동일한 것처럼 생략할 수도 있습니다.|
@@ -72,7 +72,7 @@ POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs
 
 "시작" 쿼리의 경우 `*` 나머지 용어에 대 한 자리 표시자로 접미사 연산자 ()를 추가 합니다. 접미사 연산자를 추가 하려면 접두사 쿼리를 하나 이상의 영숫자 문자로 시작 해야 합니다.
 
-| 문자 | 예제 | 사용 |
+| 문자 | 예제 | 사용량 |
 |----------- |--------|-------|
 | `*` | `lingui*` "언어적" 또는 "linguini"에서 일치 합니다. | 별표 ( `*` )는 대/소문자를 무시 하 고 임의의 길이의 문자를 하나 이상 나타냅니다.  |
 

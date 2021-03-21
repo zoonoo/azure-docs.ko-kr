@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a212975817eefe75443bad98ccb72e0a8c3bf58c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5ab23b9c2ba4b4ef3c20188b2207d7718c30cfe6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038631"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599887"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -82,7 +82,8 @@ SAP 응용 프로그램 계층 및 DBMS의 고가용성은 [Sap NetWeaver에 대
 
 
 ## <a name="change-log"></a>로그 변경
-
+- 03/17/2021: [SLES에서 Azure vm의 SAP HANA에 대 한 ha](./sap-hana-high-availability.md)의 변경, [RHEL의 azure vm에 대 한 SAP HANA HA](./sap-hana-high-availability-rhel.md) [SAP HANA 및 RHEL에서 anf를 사용 하 여 확장을 사용 하 여](./sap-hana-high-availability-netapp-files-red-hat.md) Pacemaker 클러스터의 HANA 활성/읽기 가능 시스템 복제에 대 한 지침 추가
+- 03/15/2021: [wsfc 및 파일 공유를 사용 하 여 SAP ASCS/scs 인스턴스](./sap-high-availability-guide-wsfc-file-share.md)를 변경 하 고 wsfc 및 파일 공유를 사용 하 여 sap ascs/scs[인스턴스를 설치](./sap-high-availability-installation-wsfc-file-share.md) 하 고 [wsfc 및 파일 공유](./sap-ascs-ha-multi-sid-wsfc-file-share.md) 에 SAP ascs/scs 다중 SID를 설치 하 여 SAP ascs/scs 인스턴스와 SOFS 공유를 별도의 클러스터에 배포 해야 함을 명시 합니다.
 - 03/03/2021: sap 시스템을 설치 하는 동안 SWPM을 실행 하는 사용자에 게 상승 된 권한으로 요구 하는 설명 문을 추가 하려면 [WSFC 및 Azure NetApp Files (SMB)를 사용 하 여 SAP ASCS/SCS에 대 한 HA 가이드](./high-availability-guide-windows-netapp-files-smb.md) 를 변경 합니다.
 - 02/11/2021: [Red Hat Enterprise Linux 서버의 Azure vm에서 IBM DB2 LUW의 고가용성](./high-availability-guide-rhel-ibm-db2-luw.md) 을 변경 하 여 RHEL 8.x의 pacemaker 클러스터 명령을 수정 합니다.
 - 02/03/2021: stonith create 명령의 pcmk_host_map를 업데이트 하려면 [Azure에서 RHEL의 Pacemaker 설정](./high-availability-guide-rhel-pacemaker.md) 변경

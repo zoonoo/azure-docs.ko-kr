@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 3985564d49ce8a5c62b15f9537364418c0a8f5da
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97509923"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>강화 셰이프 및 내보내기 방법
@@ -29,9 +29,9 @@ ms.locfileid: "97509923"
 
 [투영](knowledge-store-projection-overview.md)에는 다음 세 가지 유형이 있습니다.
 
-+ 테이블
++ Tables
 + 개체
-+ Files
++ 파일
 
 테이블 프로젝션은 Azure Table storage에 저장 됩니다. 개체 및 파일 프로젝션은 blob 저장소에 기록 되 고, 개체 프로젝션이 JSON 파일로 저장 되며, 원본 문서의 콘텐츠 뿐만 아니라 기술 출력 또는 강화 포함 될 수 있습니다. 또한 보강 파이프라인은 이미지와 같은 이진 파일을 추출할 수 있습니다. 이러한 이진 파일은 파일 프로젝션으로 프로젝션 됩니다. 이진 개체를 개체 프로젝션으로 프로젝션 하면 연결 된 메타 데이터만 JSON blob으로 저장 됩니다. 
 

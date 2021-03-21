@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: ab1da88899ba2b90e303da107631e3878b3a8b58
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102635878"
 ---
 # <a name="synchronize-with-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10를 사용 하 여 Azure Blob storage와 동기화
@@ -33,7 +33,7 @@ AzCopy v10 명령줄 유틸리티를 사용 하 여 Azure Blob 저장소와 로�
 > [!NOTE] 
 > 이 문서의 예제에서는 Azure Active Directory (Azure AD)를 사용 하 여 권한 부여 자격 증명을 제공 했다고 가정 합니다.
 >
-> 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다. 예를 들어 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`을 참조하십시오.
 
 ## <a name="guidelines"></a>지침
 

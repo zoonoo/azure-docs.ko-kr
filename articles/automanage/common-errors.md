@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
 ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561868"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>일반적인 Automanage 등록 오류 문제 해결
@@ -34,7 +34,7 @@ Automanage에 컴퓨터를 온 보 딩 하면 Azure Resource Manager 배포가 �
 
 ## <a name="common-deployment-errors"></a>일반적인 배포 오류
 
-Error |  완화 방법
+오류 |  완화 방법
 :-----|:-------------|
 계정 권한 부족 자동 관리 오류 | 이는 최근에 새 Automanage 계정이 포함 된 구독을 새 테 넌 트로 이동한 경우에 발생할 수 있습니다. 이 문제를 해결 하는 단계는 [여기](./repair-automanage-account.md)에 있습니다.
 영역 매핑 요구 사항이 일치 하지 않는 작업 영역 영역 | Automanage에서 컴퓨터를 온보드 할 수 없지만 컴퓨터가 현재 연결 되어 있는 Log Analytics 작업 영역이 지원 되는 자동화 지역에 매핑되지 않았습니다. 기존 Log Analytics 작업 영역 및 Automation 계정이 지원 되는 [지역 매핑에](../automation/how-to/region-mappings.md)있는지 확인 합니다.

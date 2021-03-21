@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8dd84a0c4eb1fd74ef850cb6de4530f50b3bb409
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 54eead8daa6367f9e4869d0d6a19d96c32a2fe3a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93331012"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612340"
 ---
 <!--Feature availability in region-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "93331012"
 
 | 기능 | 미국 중부 | 미국 동부 | 미국 동부 2 | 미국 중북부 | 미국 중남부 | 미국 서부 | 미국 서부 2 | 미국 중서부|
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) | ![Azure EventGrid 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 동부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 동부 2 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 중 북부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 남부 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 서 부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 서 부 2 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![Azure EventGrid 서 중앙 일반 공급](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | ![Azure EventGrid 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 동부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 동부 2 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 중 북부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 남부 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 서 부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid 미국 서 부 2 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![Azure EventGrid 서 중앙 일반 공급](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![VideoAnalyzerPreset Central 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset 미국 동부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset 미국 동부 2 일반 공급](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset 미국 중 북부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset 남부 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![미국 VideoAnalyzerPreset 일반 공급](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset 미국 서 부 2 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![VideoAnalyzerPreset 서 중앙 일반 공급](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![AudioAnalyzerPreset Central 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset 미국 동부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset 미국 동부 2 일반 공급](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset 미국 중 북부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset 남부 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![미국 AudioAnalyzerPreset 일반 공급](../media/azure-clouds-regions/ga.svg) | ![AudioAnalyzerPreset 미국 서 부 2 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![AudioAnalyzerPreset 서 중앙 일반 공급](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset Central 미국 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset 미국 동부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset 미국 동부 2 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset 미국 중 북부 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset 남부 중부 미국 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![미국 StandardEncoderPreset 일반 공급](../media/azure-clouds-regions/ga.svg) | ![StandardEncoderPreset 미국 서 부 2 일반 공급](../media/azure-clouds-regions/ga.svg) |  ![StandardEncoderPreset 서 중앙 일반 공급](../media/azure-clouds-regions/ga.svg) |

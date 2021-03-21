@@ -1,22 +1,22 @@
 ---
-title: VM insights 게스트 상태에서 모니터링 구성 (미리 보기)
+title: VM 인사이트 게스트 상태에서 모니터링 구성(미리 보기)
 description: Azure Portal를 사용 하 여 VM insights 게스트 상태 (미리 보기)에 대 한 기본 모니터링을 수정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6bda6c9e5f6e23e9e15c12fd507645fc72159302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052214"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583448"
 ---
-# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>VM insights 게스트 상태에서 모니터링 구성 (미리 보기)
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>VM 인사이트 게스트 상태에서 모니터링 구성(미리 보기)
 VM insights 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 이 문서에서는 Azure Portal를 사용 하 여 기본 모니터링을 수정 하는 방법을 설명 합니다. 또한 [데이터 수집 규칙을 사용 하 여 모니터링을 구성 하는](vminsights-health-configure-dcr.md)데 필요한 모니터의 기본 개념을 설명 합니다.
 
 ## <a name="open-monitor-configuration"></a>모니터 구성 열기
-모니터 구성 bin 열기 모니터를 선택 하 고 **구성** 탭을 선택 하 여 Azure Portal 합니다.
+모니터를 선택 하 고 **구성** 탭을 선택 하 여 Azure Portal 모니터 구성을 엽니다.
 
 [![모니터 세부 정보 구성](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 

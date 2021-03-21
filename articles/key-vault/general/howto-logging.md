@@ -9,16 +9,26 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 7b71fc2f3afb67d766bfe267888674b55af6a3a5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 62035b2fe6c3db71e392a05946ea3f230dfa030e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503916"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604629"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>키 자격 증명 모음 로깅을 사용하는 방법
 
 하나 이상의 키 자격 증명 모음을 만든 후에는 키 자격 증명 모음에 액세스하는 방법, 시기 및 사용자를 모니터링하려고 할 수도 있습니다. 기능에 대 한 자세한 내용은 [Key Vault 로깅](logging.md)을 참조 하세요.
+
+기록 되는 내용:
+
+* 인증된 모든 REST API 요청(예: 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청)
+* 키 자격 증명 모음 자체에 대한 작업(예: 키 자격 증명 모음 액세스 정책 만들기, 삭제, 설정 및 태그와 같은 키 자격 증명 모음 특성 업데이트)
+* 다음을 포함하여 키 자격 증명 모음의 키 및 비밀에 대한 작업
+  * 이러한 키 또는 비밀 만들기, 수정 또는 삭제
+  * 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
+* 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.  
+* 곧 만료되는 정책, 만료된 정책 및 자격 증명 모음 액세스 정책에 대한 Event Grid 알림 이벤트가 변경되었습니다(새 버전 이벤트가 기록되지 않음). 키 자격 증명 모음에 생성된 이벤트 구독이 있는지 여부에 관계 없이 이벤트가 기록됩니다. 자세한 내용은 [Key Vault에 대한 Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -58,7 +68,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 또한 저장소 계정 이름을 제공 해야 합니다. 저장소 계정 이름은 길이가 3 자에서 24 자 사이이 고 숫자 및 소문자만 사용 해야 합니다.  마지막으로 "Standard_LRS" SKU의 저장소 계정을 만듭니다.
 
-Azure CLI를 사용 하 여 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용 합니다.
+Azure CLI를 사용 하 여 [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용 합니다. 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -100,15 +110,31 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 키 자격 증명 모음에 대 한 리소스 ID는 "/subscriptions/<>/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<.-ID>" 형식입니다. 다음 단계를 확인 합니다.
 
-## <a name="enable-logging-using-azure-powershell"></a>Azure PowerShell을 통해 로깅 사용
+## <a name="enable-logging"></a>로깅 사용
 
-Key Vault에 대 한 로깅을 사용 하도록 설정 하려면 저장소 계정 ID 및 키 자격 증명 모음 리소스 ID와 함께 Azure CLI [az monitor 진단-설정 create](/cli/azure/monitor/diagnostic-settings) 명령 또는 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다.
+Azure CLI, Azure PowerShell 또는 Azure Portal를 사용 하 여 Key Vault에 대 한 로깅을 사용 하도록 설정할 수 있습니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+### <a name="azure-cli"></a>Azure CLI
+
+저장소 계정 ID 및 키 자격 증명 모음 리소스 ID와 함께 Azure CLI [az monitor 진단-settings create](/cli/azure/monitor/diagnostic-settings) 명령을 사용 합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-Azure PowerShell에서는 **-Enabled** 플래그가 **$true** 로 설정 되 고 범주가로 설정 된 [](/powershell/module/az.monitor/set-azdiagnosticsetting) `AuditEvent` (Key Vault 로깅의 유일한 범주) AzDiagnosticSetting cmdlet을 사용 합니다.
+필요에 따라 로그에 대 한 보존 정책을 설정 하 여 오래 된 로그가 지정 된 시간 후에 자동으로 삭제 되도록 할 수 있습니다. 예를 들어 90 일 보다 오래 된 로그를 자동으로 삭제 하는 보존 정책을 설정할 수 있습니다.
+
+Azure CLI를 사용 하 여 [az monitor 진단-설정 업데이트](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) 명령을 사용 합니다. 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+[AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다. **-Enabled** 플래그는 **$true** 로 설정 되 고 범주는 `AuditEvent` (Key Vault 로깅의 유일한 범주)로 설정 됩니다.
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
@@ -116,28 +142,35 @@ Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId 
 
 필요에 따라 로그에 대 한 보존 정책을 설정 하 여 오래 된 로그가 지정 된 시간 후에 자동으로 삭제 되도록 할 수 있습니다. 예를 들어 90 일 보다 오래 된 로그를 자동으로 삭제 하는 보존 정책을 설정할 수 있습니다.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-Azure PowerShell를 사용 하 여 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다. 
+Azure PowerShell를 사용 하 여 [AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet을 사용 합니다.
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-기록 되는 내용:
+# <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
-* 인증된 모든 REST API 요청(예: 액세스 권한, 시스템 오류 또는 잘못된 요청으로 인해 실패한 요청)
-* 키 자격 증명 모음 자체에 대한 작업(예: 키 자격 증명 모음 액세스 정책 만들기, 삭제, 설정 및 태그와 같은 키 자격 증명 모음 특성 업데이트)
-* 다음을 포함하여 키 자격 증명 모음의 키 및 비밀에 대한 작업
-  * 이러한 키 또는 비밀 만들기, 수정 또는 삭제
-  * 서명, 확인, 암호화, 암호 해독, 키 래핑 및 래핑 해제, 비밀 가져오기, 키 및 비밀(및 해당 버전) 나열
-* 401 응답이 발생하는 인증되지 않은 요청. 예를 들어 전달자 토큰이 없거나, 형식이 잘못되었거나 만료되었거나, 잘못된 토큰이 있는 요청입니다.  
-* 곧 만료되는 정책, 만료된 정책 및 자격 증명 모음 액세스 정책에 대한 Event Grid 알림 이벤트가 변경되었습니다(새 버전 이벤트가 기록되지 않음). 키 자격 증명 모음에 생성된 이벤트 구독이 있는지 여부에 관계 없이 이벤트가 기록됩니다. 자세한 내용은 [Key Vault에 대한 Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)를 참조하세요.
+포털에서 진단 설정을 구성 하려면 다음 단계를 수행 합니다.
+
+1. 리소스 블레이드 메뉴에서 진단 설정을 선택 합니다.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="진단 포털 1":::
+
+1. "+ 진단 설정 추가"를 클릭 합니다.
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="진단 포털 2":::
+ 
+1. 진단 설정을 호출할 이름을 선택 합니다. Key Vault에 대 한 Azure Monitor 로깅을 구성 하려면 "AuditEvent" 옵션 및 "Log Analytics 작업 영역으로 보내기"를 선택 합니다. 그런 다음 로그를 보내려는 구독 및 Log Analytics 작업 영역을 선택 합니다.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="진단 포털 3":::
+
+    그렇지 않으면 선택 하려는 로그와 관련 된 옵션을 선택 합니다.
+
+1. 원하는 옵션을 선택한 후 저장을 선택 합니다.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="진단 포털 4":::
+
+---
 
 ## <a name="access-your-logs"></a>로그에 액세스
 

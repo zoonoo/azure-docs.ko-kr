@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
-ms.openlocfilehash: bd28fa9f20775be659de6cef99f9ceda29fe52cc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bae7980137c1da5e1755450863af4f9029d6ed62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049137"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583465"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
 
@@ -95,9 +95,11 @@ availabilityResults
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>브라우저 페이지 로드 시간 (browserTimings/totalDuration)
 
+사용자가 요청한 때부터 DOM, 스타일시트, 스크립트 및 이미지가 로드될 때까지 소요된 시간입니다.
+
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -111,9 +113,11 @@ browserTimings
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>클라이언트 처리 시간 (browserTiming/processingDuration)
 
+DOM을 로드할 때부터 문서의 마지막 바이트를 받는 사이의 시간입니다. 비동기 요청은 계속 처리 중일 수 있습니다.
+
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -127,9 +131,11 @@ browserTimings
 
 ### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>페이지 로드 네트워크 연결 시간 (browserTimings/networkDuration)
 
+사용자 요청과 네트워크 연결 사이의 시간입니다. DNS 조회 및 전송 연결을 포함합니다.
+
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -143,9 +149,11 @@ browserTimings
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>수신 응답 시간 (browserTimings/receiveDuration)
 
+첫 번째 및 마지막 바이트 사이 또는 연결 끊기까지의 시간입니다.
+
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -159,9 +167,11 @@ browserTimings
 
 ### <a name="send-request-time-browsertimingssendduration"></a>전송 요청 시간 (browserTimings/sendDuration)
 
+네트워크 연결과 첫 번째 바이트 받기 사이의 시간입니다.
+
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|None|
+|밀리초|평균, 최소값, 최대값|없음|
 
 ```Kusto
 browserTimings
@@ -181,9 +191,9 @@ browserTimings
 
 이 메트릭은 브라우저에서 실행 중인 응용 프로그램 코드에서 throw 된 예외 수를 반영 합니다. Application Insights API 호출로 추적 되는 예외만 ```trackException()``` 메트릭에 포함 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
-|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 exceptions
@@ -196,9 +206,9 @@ exceptions
 
 실패 한 종속성 호출 수입니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
-|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 dependencies
@@ -211,7 +221,7 @@ dependencies
 
 Application Insights에 대 한 예외를 기록할 때마다 SDK의 지 수 [예외 () 메서드가](../app/api-custom-events-metrics.md#trackexception) 호출 됩니다. 예외 메트릭에는 로깅된 예외의 수가 표시 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스, 장치 유형|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -225,7 +235,7 @@ exceptions
 
 *실패로* 표시 된 추적 된 서버 요청 수입니다. 기본적으로 Application Insights SDK는 HTTP 응답 코드 5xx 또는 4xx를 반환한 각 서버 요청을 실패 한 요청으로 자동으로 표시 합니다. [사용자 지정 원격 분석 이니셜라이저에서](../app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)요청 원격 분석 항목의 *success* 속성을 수정 하 여이 논리를 사용자 지정할 수 있습니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|클라우드 역할 인스턴스, 클라우드 역할 이름, 실제 또는 가상 트래픽, 요청 성능, 응답 코드|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -240,7 +250,7 @@ requests
 
 이 메트릭은 서버 예외의 수를 표시 합니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|참고|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030784"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604409"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
@@ -66,7 +66,7 @@ Azure Cognitive Search에서 "검색 형식"은 *확인 기* 를 통해 사용 �
 
 분석기를 평가할 때는 [텍스트 분석 API](/rest/api/searchservice/test-analyzer) 를 사용 하 여 용어를 처리 하는 방법을 파악 하는 것이 좋습니다. 인덱스를 작성 한 후에는 문자열에 대해 다양 한 분석기를 시도 하 여 토큰 출력을 볼 수 있습니다.
 
-[사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [미리 정의 된 분석기](index-add-custom-analyzers.md#predefined-analyzers-reference) (표준 Lucene 제외)를 사용 하는 필드는 잘못 된 결과를 방지 하기 위해 명시적으로 허용 되지 않습니다.
+[사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [기본 제공 분석기](index-add-custom-analyzers.md#built-in-analyzers) (표준 Lucene 제외)를 사용 하는 필드는 잘못 된 결과를 방지 하기 위해 명시적으로 허용 되지 않습니다.
 
 > [!NOTE]
 > 분석기 제약 조건을 해결 해야 하는 경우, 예를 들어 특정 쿼리 시나리오에 키워드 또는 ngram 분석기가 필요한 경우 동일한 콘텐츠에 대해 두 개의 개별 필드를 사용 해야 합니다. 이렇게 하면 필드 중 하나에 확인 기를 사용할 수 있고 다른 하나는 사용자 지정 분석기 구성으로 설정할 수 있습니다.
@@ -140,7 +140,7 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |Description      |
+|속성      |설명      |
 |--------------|-----------------|
 |`name`        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
 |`sourceFields`| 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
@@ -169,7 +169,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 }
 ```
 
-## <a name="sample-code"></a>예제 코드
+## <a name="sample-code"></a>샘플 코드
 
 + [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가) 샘플은](tutorial-csharp-type-ahead-and-suggestions.md) 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되 고 이미 생성 된 확인 기를 사용 하 여 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
 

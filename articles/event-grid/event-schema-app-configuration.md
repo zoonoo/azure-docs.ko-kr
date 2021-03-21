@@ -4,10 +4,10 @@ description: 이 문서에서는 Event Grid 이벤트 원본으로 Azure 앱 구
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: a64c6fead5e6d95ba11bc98d7e9a52e3021c3be2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100366775"
 ---
 # <a name="azure-app-configuration-as-an-event-grid-source"></a>Event Grid 소스로 Azure 앱 구성
@@ -107,14 +107,14 @@ Azure 앱 구성은 다음과 같은 이벤트 유형을 내보냅니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | `eventType` | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | `eventTime` | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| `data` | object | 앱 구성 이벤트 데이터입니다. |
+| `data` | 개체 | 앱 구성 이벤트 데이터입니다. |
 | `dataVersion` | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
 | `metadataVersion` | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
@@ -123,21 +123,21 @@ Azure 앱 구성은 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
 | `type` | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | `time` | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | `id` | 문자열 | 이벤트에 대한 고유 식별자입니다. |
-| `data` | object | 앱 구성 이벤트 데이터입니다. |
+| `data` | 개체 | 앱 구성 이벤트 데이터입니다. |
 | `specversion` | 문자열 | CloudEvents 스키마 사양 버전입니다. |
 
 ---
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 형식 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `key` | 문자열 | 수정 되거나 삭제 된 키-값의 키입니다. |
 | `label` | 문자열 | 수정 되거나 삭제 된 키-값의 레이블 (있는 경우)입니다. |

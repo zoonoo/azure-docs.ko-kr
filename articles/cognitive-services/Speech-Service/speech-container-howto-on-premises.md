@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: aahi
 ms.openlocfilehash: 78ac9ae4aa8611f50caa94c84d3e6c95e58fc91c
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102200736"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Kubernetes 및 투구와 함께 Speech service 컨테이너 사용
 
 음성 컨테이너 온-프레미스를 관리 하는 한 가지 옵션은 Kubernetes 및 투구를 사용 하는 것입니다. Kubernetes 및 투구를 사용 하 여 음성 텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스와 다양 한 구성 옵션을 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Speech service 컨테이너 설치 및 실행](speech-container-howto.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 온-프레미스에서 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
-| 필수 | 목적 |
+| 필수 | 용도 |
 |----------|---------|
 | Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
 | Container Registry 액세스 | Kubernetes가 docker 이미지를 클러스터로 가져오기 위해 컨테이너 레지스트리에 액세스 해야 합니다. |

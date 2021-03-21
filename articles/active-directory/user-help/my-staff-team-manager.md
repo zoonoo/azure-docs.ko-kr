@@ -1,5 +1,5 @@
 ---
-title: 내 직원(미리 보기)을 사용하여 암호와 전화 번호 관리 - Azure AD | Microsoft Docs
+title: 내 직원을 사용 하 여 암호 및 전화 번호 관리-Azure AD | Microsoft Docs
 description: 내 직원을 사용하여 사용자의 암호와 전화 번호 관리하기
 services: active-directory
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/14/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 56ee7df52abf97c920dfe2fa4ba5d1d858975f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b435c56f53001275fbdb1a3b3cfae25536a9a63
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537093"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583601"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>내 직원(미리 보기)을 사용하여 사용자 관리 위임
+# <a name="delegate-user-management-with-my-staff"></a>내 직원과 사용자 관리 위임
 
-조직에서는 **내 직원**을 사용하여 사용자 관리 업무를 매장 관리자, 팀 리더와 같은 권한 있는 담당자에게 위임하여 직원들이 여러 애플리케이션에 액세스할 수 있도록 지원할 수 있습니다. 팀원이 암호를 잊어버려서 애플리케이션에 액세스할 수 없다면 생산성이 떨어집니다. 지원 비용이 증가하고 관리 프로세스에서 병목 현상이 발생하는 원인이 되기도 합니다.  내 직원을 사용하면, 계정에 액세스할 수 없는 팀원은 관리자의 도움 없이도 클릭 몇 번으로 액세스 권한을 회복할 수 있습니다.
+조직에서는 **내 직원** 을 사용하여 사용자 관리 업무를 매장 관리자, 팀 리더와 같은 권한 있는 담당자에게 위임하여 직원들이 여러 애플리케이션에 액세스할 수 있도록 지원할 수 있습니다. 팀원이 암호를 잊어버려서 애플리케이션에 액세스할 수 없다면 생산성이 떨어집니다. 지원 비용이 증가하고 관리 프로세스에서 병목 현상이 발생하는 원인이 되기도 합니다.  내 직원을 사용하면, 계정에 액세스할 수 없는 팀원은 관리자의 도움 없이도 클릭 몇 번으로 액세스 권한을 회복할 수 있습니다.
 
 ## <a name="manage-your-staff-in-my-staff"></a>내 직원에서 직원 관리
 
@@ -50,7 +50,7 @@ ms.locfileid: "91537093"
 
 1. [내 직원을 엽니다](https://aka.ms/mystaff).
 1. 직원의 프로필을 엽니다.
-1. **암호 다시 설정**을 선택합니다.
+1. **암호 다시 설정** 을 선택합니다.
 
     ![내 직원에서 사용자 암호 다시 설정](media/my-staff-team-manager/resetpassword1.png)
 
@@ -68,11 +68,11 @@ ms.locfileid: "91537093"
 
 1. [내 직원을 엽니다](https://aka.ms/mystaff).
 1. 직원의 프로필을 엽니다.
-1. **전화 번호 추가**를 선택합니다.
+1. **전화 번호 추가** 를 선택합니다.
 
     ![내 직원에서 사용자 전화 번호 추가](media/my-staff-team-manager/addphone1.png)
 
-1. 전화 번호를 추가하고 **저장**을 선택합니다.
+1. 전화 번호를 추가하고 **저장** 을 선택합니다.
 
     ![내 직원에서 추가한 사용자 전화 번호 저장](media/my-staff-team-manager/addphone2.png)
 
@@ -84,11 +84,11 @@ ms.locfileid: "91537093"
 
 1. [내 직원을 엽니다](https://aka.ms/mystaff).
 1. 직원의 프로필을 엽니다.
-1. **전화 번호 편집**을 선택합니다.
+1. **전화 번호 편집** 을 선택합니다.
 
     ![내 직원의 사용자 프로필에서 편집 선택](media/my-staff-team-manager/editphone2.png)
 
-1. 새 전화 번호를 입력하고 **저장**을 선택합니다.
+1. 새 전화 번호를 입력하고 **저장** 을 선택합니다.
 
     ![내 직원에서 직원 전화 번호 편집](media/my-staff-team-manager/editphone1.png)
 
@@ -98,11 +98,11 @@ ms.locfileid: "91537093"
 
 1. [내 직원을 엽니다](https://aka.ms/mystaff).
 1. 직원의 프로필을 엽니다.
-1. 화면 맨 아래에 전화 번호를 사용자 이름으로 사용하여 로그인하는 방법을 사용할 수 있다는 메시지가 표시되는 경우, **사용**을 선택하여 프로세스를 시작합니다. 이 메시지는 이 사용자에 대해 전화 번호를 사용하여 로그인하는 기능이 사용하도록 설정된 경우에 표시됩니다.
+1. 화면 맨 아래에 전화 번호를 사용자 이름으로 사용하여 로그인하는 방법을 사용할 수 있다는 메시지가 표시되는 경우, **사용** 을 선택하여 프로세스를 시작합니다. 이 메시지는 이 사용자에 대해 전화 번호를 사용하여 로그인하는 기능이 사용하도록 설정된 경우에 표시됩니다.
 
     ![내 직원에서 전화 번호 로그인이 지원되는 경우 표시되는 메시지 보기](media/my-staff-team-manager/enableforms1.png)
 
-1. 완료되면 **확인**을 선택합니다.
+1. 완료되면 **확인** 을 선택합니다.
 
     !["로그인에 전화 번호를 사용 하도록 설정 하 시겠습니까?"를 보여 주는 스크린샷 "확인" 단추가 선택 된 창입니다.](media/my-staff-team-manager/enableforms2.png)
 
@@ -110,7 +110,7 @@ ms.locfileid: "91537093"
 
 1. [내 직원을 엽니다](https://aka.ms/mystaff).
 1. 직원의 프로필을 엽니다.
-1. **전화 번호 제거**를 선택합니다.
-1. 완료되면 **삭제**를 선택합니다.
+1. **전화 번호 제거** 를 선택합니다.
+1. 완료되면 **삭제** 를 선택합니다.
 
     ![내 직원에서 직원 전화 번호 제거](media/my-staff-team-manager/deletephone1.png)

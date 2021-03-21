@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 00ddc7cd806a9275de7b4ec579bdef62bdf8062d
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102603290"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
@@ -16,7 +16,7 @@ ms.locfileid: "102603290"
 ### <a name="remotely-connect-from-a-windows-client"></a>Windows 클라이언트에서 원격으로 연결
 
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "102603290"
 Windows 클라이언트에서 원격으로 연결 하려면 다음 단계를 수행 합니다.
 
 1. 관리자 권한으로 Windows PowerShell 세션을 실행 합니다.
-2. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에 다음을 입력합니다.
+2. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에서 다음을 입력합니다.
 
     `winrm quickconfig`
 

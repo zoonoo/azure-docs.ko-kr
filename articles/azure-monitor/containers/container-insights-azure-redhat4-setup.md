@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 �
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.openlocfilehash: 02cb794463b965ebafef0b6861477dbf69227511
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506415"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>컨테이너 insights를 사용 하 여 Azure Red Hat OpenShift v4 .x 구성
@@ -29,7 +29,7 @@ ms.locfileid: "102506415"
 - 라이브 데이터 (미리 보기)
 - 클러스터 노드 및 pod에서 [메트릭을 수집](container-insights-update-metrics.md) 하 고 Azure Monitor 메트릭 데이터베이스에 저장
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure CLI 버전 2.0.72 이상  
 
@@ -127,7 +127,7 @@ ms.locfileid: "102506415"
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ' bash enable-monitoring.sh--리소스 id $azureAroV 4ClusterResourceId 
 

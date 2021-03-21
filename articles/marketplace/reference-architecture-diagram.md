@@ -3,16 +3,17 @@ title: 참조 아키텍처 다이어그램 | Azure Marketplace
 description: Microsoft 상업적 marketplace에서 제품에 대 한 참조 아키텍처 다이어그램을 만드는 방법입니다.
 author: mingshen-ms
 ms.author: mingshen
+ms.reviewer: stmummer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 02/18/2021
-ms.openlocfilehash: 0331bdd8f928b52e56a709fdadbc95892d437cf4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 66e4d498ff7584188d680e35c89c6f10cc43c9cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101745243"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604494"
 ---
 # <a name="reference-architecture-diagram"></a>참조 아키텍처 다이어그램
 

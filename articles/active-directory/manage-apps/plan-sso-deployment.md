@@ -14,10 +14,10 @@ ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: a7949324cd4ad0459aa5ba111037b2f580da9cf8
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103601715"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
@@ -60,7 +60,7 @@ Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이�
 
 ### <a name="considerations-for-password-based-sso"></a>암호 기반 SSO에 대 한 고려 사항
 
-암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 표시되는 옵션은 다음과 같습니다.
+암호 기반 SSO에 Azure AD를 사용 하려면 자격 증명을 안전 하 게 검색 하 고 로그인 양식을 작성 하는 브라우저 확장을 배포 해야 합니다. [지원 되는 브라우저](../user-help/my-apps-portal-end-user-access.md)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 합니다. 다음 옵션을 사용할 수 있습니다.
 
 - [Internet Explorer에 대 한 그룹 정책](my-apps-deployment-plan.md)
 - [Internet Explorer에 대 한 Configuration Manager](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)

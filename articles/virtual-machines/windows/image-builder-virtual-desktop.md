@@ -10,10 +10,10 @@ ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
 ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103602021"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM 이미지 작성기 및 PowerShell을 사용 하 여 Windows 가상 데스크톱 이미지 만들기
@@ -46,7 +46,7 @@ Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 
       "runAsSystem": true,
     ```
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
     ```json
       {

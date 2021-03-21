@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
 ms.openlocfilehash: bdfb5f65106f3f8843b4aa52b752f5e563ab03f0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102620121"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>IoT Edge 투명 게이트웨이를 통해 장치를 연결 하는 방법
@@ -23,7 +23,7 @@ IoT Edge는 [ *투명* 및 *변환* 게이트웨이 패턴](../../iot-edge/iot-e
 
 이 문서에서는 가상 컴퓨터를 사용 하 여 다운스트림 장치 및 게이트웨이를 호스팅합니다. 실제 시나리오에서 다운스트림 장치 및 게이트웨이는 로컬 네트워크의 물리적 장치에서 실행 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 

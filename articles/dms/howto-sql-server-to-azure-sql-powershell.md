@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
 ms.openlocfilehash: a8f7e14500fb377b46f651b53e2704d8477aea7a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102520662"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure SQL Database SQL Server 데이터베이스 마이그레이션
@@ -31,7 +31,7 @@ ms.locfileid: "102520662"
 > * Azure Database Migration Service 인스턴스에서 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 

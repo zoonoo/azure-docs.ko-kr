@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
 ms.openlocfilehash: ee2e4fca697c086b95e83feb9d40ce8e07dc344c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102611898"
 ---
 # <a name="configure-read-ocr-docker-containers"></a>읽기 OCR Docker 컨테이너 구성
@@ -31,7 +31,7 @@ ms.locfileid: "102611898"
 
 컨테이너에는 다음과 같은 컨테이너 관련 구성 설정도 있습니다.
 
-|필수|설정|목적|
+|필수|설정|용도|
 |--|--|--|
 |아니요|ReadEngineConfig:ResultExpirationPeriod| v2.0 컨테이너에만 해당 합니다. 결과 만료 기간 (시간)입니다. 기본값은 48시간입니다. 설정은 시스템이 인식 결과를 지워야 하는 경우를 지정 합니다. 예를 들어 인 경우 `resultExpirationPeriod=1` 시스템은 프로세스 후 1 시간 후에 인식 결과를 지웁니다. 이면 `resultExpirationPeriod=0` 결과가 검색 된 후 시스템이 인식 결과를 지웁니다.|
 |아니요|캐시: Redis| v2.0 컨테이너에만 해당 합니다. 결과를 저장 하는 Redis 저장소를 사용 하도록 설정 합니다. 여러 읽기 컨테이너를 부하 분산 장치 뒤에 배치 하는 경우 캐시가 *필요* 합니다.|
@@ -64,7 +64,7 @@ ms.locfileid: "102611898"
 
 `vision/v1.0`다음 표와 같이 끝점 URI에 라우팅을 추가 해야 합니다. 
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예제:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 

@@ -9,10 +9,10 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102617406"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>AnchorLocateCriteria 클래스 이해
@@ -62,7 +62,7 @@ AnchorDataCategory 열거형 값 | 반환된 데이터
 
 전략은 앵커가 배치 되는 방법을 정의 합니다. 전략 속성은 LocateStrategy 열거를 사용 하 여 지정할 수 있습니다.
 
-LocateStrategy 열거형 값 | 설명
+LocateStrategy 열거형 값 | Description
 ---------------|------------
 AnyStrategy | 이 전략을 사용 하면 시스템에서 VisualInformation 및 Relationship 전략 조합을 사용 하 여 앵커를 찾을 수 있습니다. 
 VisualInformation|이 전략은 현재 주변의 시각적 정보를 앵커의 시각적 발자국과 일치 시켜 앵커를 찾으려고 시도 합니다. 앵커의 시각적 공간은 현재 앵커와 연결 된 시각적 정보를 나타냅니다. 일반적으로이 시각적 정보는 앵커를 만드는 동안에는 독점적으로 수집 되지 않습니다. 현재이 전략은 NearDevice 또는 Identifier 속성과 함께만 사용할 수 있습니다.
