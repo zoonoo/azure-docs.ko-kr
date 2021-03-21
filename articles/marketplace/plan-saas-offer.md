@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e24e1afa0116bc1f240bddef47783b06f4f800d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879261"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581306"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
-이 문서에서는 Microsoft 상업적 marketplace에 SaaS (software as a service) 제품을 게시 하기 위한 다양 한 옵션 및 요구 사항을 설명 합니다. SaaS 제품을 사용 하면 개별 컴퓨터에서 로컬 설치 대신 온라인 구독을 통해 고객에 게 소프트웨어 솔루션을 제공 하 고 라이선스를 제공할 수 있습니다. 이 문서는 파트너 센터를 사용 하 여 상업적 marketplace에 게시할 제품을 준비 하는 데 도움이 됩니다.
+이 문서에서는 Microsoft 상업적 marketplace에 SaaS (software as a service) 제품을 게시 하기 위한 다양 한 옵션 및 요구 사항을 설명 합니다. SaaS 제품을 사용 하면 온라인 구독을 통해 고객에 게 소프트웨어 솔루션을 제공 하 고 라이선스를 제공할 수 있습니다. SaaS 게시자는 고객의 제품 사용을 지 원하는 데 필요한 인프라를 관리 하 고 비용을 지불 해야 합니다. 이 문서는 파트너 센터를 사용 하 여 상업적 marketplace에 게시할 제품을 준비 하는 데 도움이 됩니다.
 
 ## <a name="listing-options"></a>나열 옵션
 
@@ -79,7 +79,7 @@ _지금 가져오기 (무료)_, _무료 평가판_ 및 Microsoft 목록 옵션�
   제공 하는 웹 후크는 24/7을 실행 해야 합니다. 이 방법은 상용 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
 
   > [!NOTE]
-  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Azure Portal 내에서 단일 Azure 앱 ID를 사용 하 여 두 서비스 간의 연결을 인증할 수 있도록 하는 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱](../active-directory/develop/howto-create-service-principal-portal.md) 을 만들어야 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`
 
 - **Azure Active Directory 테 넌 트 id**: (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
@@ -150,7 +150,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 11. 문서
 
@@ -161,7 +161,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 
@@ -202,7 +202,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - Name
+  - 이름
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 

@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98896531"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Azure Automation State Configuration 문제 해결
@@ -107,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 이 문제는 잘못되거나 만료된 인증서로 인해 발생합니다. [노드 다시 등록](../automation-dsc-onboarding.md#re-register-a-node)을 참조하세요.
 
-프록시 구성에서 **_. azure-automation.net_* 에 대 한 액세스를 허용 하지 않는 경우에도이 문제가 발생할 수 있습니다. 자세한 내용은 [개인 네트워크 구성](../automation-dsc-overview.md#network-planning)을 참조하세요. 
+이 문제는 * **.azure-automation.net** 에 대한 액세스를 허용하지 않는 프록시 구성으로 인해 발생할 수도 있습니다. 자세한 내용은 [개인 네트워크 구성](../automation-dsc-overview.md#network-planning)을 참조하세요. 
 
 ### <a name="resolution"></a>해결 방법
 

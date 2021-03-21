@@ -1,18 +1,18 @@
 ---
-title: VM insights 게스트 상태 경고 (미리 보기)
+title: VM 인사이트 게스트 상태 경고(미리 보기)
 description: VM을 사용 하도록 설정 하 고 알림을 구성 하는 방법을 비롯 하 여 VM insights 게스트 상태에서 생성 된 경고에 대해 설명 합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
 ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052265"
 ---
-# <a name="vm-insights-guest-health-alerts-preview"></a>VM insights 게스트 상태 경고 (미리 보기)
+# <a name="vm-insights-guest-health-alerts-preview"></a>VM 인사이트 게스트 상태 경고(미리 보기)
 VM insights 게스트 상태를 사용 하면 일정 한 간격으로 샘플링 되는 성능 측정 집합에 정의 된 대로 가상 컴퓨터의 상태를 볼 수 있습니다. 가상 컴퓨터 또는 모니터가 비정상 상태로 변경 되 면 경고를 만들 수 있습니다. [Azure Monitor의 경고 규칙에 의해 생성](../alerts/alerts-overview.md) 된 경고를 보고 관리할 수 있으며 새 경고가 생성 될 때 사전에 알림을 받도록 선택할 수 있습니다.
 
 ## <a name="configure-alerts"></a>경고 구성
@@ -42,7 +42,7 @@ Azure Portal에서 가상 컴퓨터에 대 한 구성의 **경고 상태** 설�
 ### <a name="properties-in-the-azure-portal"></a>Azure Portal의 속성
 다음 표에서는 Azure Portal에서 볼 때 경고 속성을 설명 합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
 | 경고를 만들기 전의 모니터 상태 | 이 경고가 처음 발생 하기 전의 모니터 또는 가상 컴퓨터의 상태입니다. |
 | 경고를 만든 상태를 모니터링 합니다. | 처음으로 경고가 발생 한 모니터 또는 가상 머신의 상태입니다. 경고가 발생 하는 상태입니다. |
@@ -60,7 +60,7 @@ Azure Portal에서 가상 컴퓨터에 대 한 구성의 **경고 상태** 설�
 ### <a name="properties-in-notifications"></a>알림의 속성
 알림에 포함 된 경고의 속성은 다음 표에 설명 되어 있습니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:---|:---|
 | 이전 모니터 상태 | 상태를 변경 하기 전의 모니터 또는 가상 컴퓨터 상태입니다. 경고 심각도 업데이트가이 알림을 트리거하는 경우이 속성은 심각도 업데이트 직전의 상태를 나타냅니다. |
 | 현재 모니터 상태 | 상태를 변경 하는 모니터 또는 가상 머신의 상태입니다. 경고 심각도 업데이트가이 알림을 트리거하는 경우이 속성은 새 상태를 나타냅니다. |

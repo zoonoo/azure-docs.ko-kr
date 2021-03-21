@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Service Bus 메시징 엔터티 (큐, 토
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101096336"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
@@ -55,7 +55,7 @@ Service Bus 메시지를 수신 하는 두 가지 모드를 지정할 수 있습
 
 가능한 필터 값에 대한 자세한 내용은 [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) 및 [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) 클래스에 대한 설명서를 참조하세요.
 
-## <a name="java-message-service-jms-20-entities"></a>JMS (Java message service) 2.0 엔터티
+## <a name="java-message-service-jms-20-entities"></a>JMS(Java Message Service) 2.0 엔터티
 다음 엔터티는 JMS (Java message service) 2.0 API를 통해 액세스할 수 있습니다.
 
   * 임시 큐

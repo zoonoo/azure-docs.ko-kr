@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
 ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018667"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어
@@ -86,7 +86,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 
 - 사용자 지정 캐싱 규칙은 적용되는 위치에서 전역 캐싱 규칙보다 우선합니다. 사용자 지정 캐싱 규칙은 위에서 아래로 순서로 처리됩니다. 즉, 요청이 두 조건과 일치하면 목록 맨 아래에 있는 규칙이 목록 맨 위에 있는 규칙보다 우선합니다. 따라서, 보다 구체적인 규칙을 목록의 아래쪽에 넣어야 합니다.
 
-**예제**:
+**예**:
 - 전역 캐싱 규칙: 
    - 캐싱 동작: **재정의**
    - 캐시 만료 기간: 1일
@@ -113,7 +113,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 > - **Verizon의 Azure CDN Standard** 프로필의 경우 일반적으로 10분 후 전파가 완료됩니다.  
 >
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참고 항목
 
 - [캐싱 동작 방식](cdn-how-caching-works.md)
 - [자습서: Azure CDN 캐싱 규칙 설정](cdn-caching-rules-tutorial.md)

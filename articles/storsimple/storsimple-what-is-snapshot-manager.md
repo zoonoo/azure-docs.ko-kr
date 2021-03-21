@@ -1,5 +1,5 @@
 ---
-title: StorSimple 스냅샷 관리자란? | Microsoft Docs
+title: StorSimple 스냅샷 관리자란? | Microsoft 문서
 description: StorSimple 스냅샷 관리자와 그 아키텍처, 해당 기능을 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2214f085c30419cefb3f6f84139d5592873173f7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017987"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager 소개

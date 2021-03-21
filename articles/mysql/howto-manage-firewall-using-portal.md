@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 032db324f9dd2f0d6a5dce5c4fd5c64342fed59f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540487"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
@@ -50,7 +50,7 @@ Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 �
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 통해 기존 서버 수준 방화벽 규칙 관리
 방화벽 규칙을 관리하는 단계를 반복합니다.
 * 현재 컴퓨터를 추가하려면 **+ 내 IP 추가** 를 클릭합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
-* 추가 IP 주소를 추가하려면 **규칙 이름** , **시작 IP** 및 **끝 IP** 를 입력합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
+* 추가 IP 주소를 추가하려면 **규칙 이름**, **시작 IP** 및 **끝 IP** 를 입력합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 수정하려면 규칙의 필드 중 하나를 클릭한 후 수정합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 삭제하려면 줄임표[...]를 클릭하고 **삭제** 를 클릭합니다. **저장** 을 클릭하여 변경 내용을 저장합니다.
 

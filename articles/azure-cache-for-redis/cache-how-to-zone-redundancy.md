@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 0623f47528d0530838f62c28cf5546e1e66c187b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508268"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis (미리 보기)에 대 한 영역 중복성 사용
@@ -18,7 +18,7 @@ ms.locfileid: "102508268"
 
 Redis Standard, Premium 및 Enterprise 계층 용 Azure Cache는 두 개의 전용 Vm (가상 머신)에서 각 캐시를 호스팅하여 중복성을 제공 합니다. 이러한 Vm은 별도의 [Azure 장애 및 업데이트 도메인](../virtual-machines/availability.md) 에 있고 항상 사용 가능 하더라도 데이터 센터 수준 오류에 취약 합니다. 또한 Azure Cache for Redis는 프리미엄 및 엔터프라이즈 계층에서 영역 중복성을 지원 합니다. 영역 중복 캐시는 여러 [가용성 영역](../availability-zones/az-overview.md)에 걸쳐 분산 된 vm에서 실행 됩니다. 더 높은 복원 력 및 가용성을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 
 > [!NOTE]

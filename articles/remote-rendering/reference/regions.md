@@ -7,17 +7,17 @@ ms.date: 02/11/2020
 ms.topic: reference
 ms.custom: references_regions
 ms.openlocfilehash: 1b20f7134f1b39853a78ee5b709e732ccf35acac
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571116"
 ---
 # <a name="regions"></a>영역
 
 이 페이지에는 Azure 원격 렌더링과 함께 사용할 수 있는 현재 지역이 나열 되어 있습니다. 최상의 결과를 위해서는 항상 실제 위치에 가장 가까운 지역을 사용 하세요.
 
-| 이름 | 지역 | URL |
+| Name | 지역 | URL |
 |-----------|:-----------|:-----------|
 | 오스트레일리아 동부 | australiaeast | `https://remoterendering.australiaeast.mixedreality.azure.com` |
 | 미국 동부 | eastus | `https://remoterendering.eastus.mixedreality.azure.com` |

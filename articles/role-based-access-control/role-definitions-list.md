@@ -15,10 +15,10 @@ ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555960"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
@@ -356,7 +356,7 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
 1. *{Filter}* 를 역할 정의 목록 필터에 적용 하려는 조건으로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 필터 | Description |
+    > | Assert | 설명 |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | 지정 된 범위 및 모든 하위 범위에 대 한 역할 정의를 나열 합니다. |
     > | `$filter=type+eq+'{type}'` | 지정 된 형식의 역할 정의를 나열 합니다. 역할의 형식은 또는 일 수 있습니다 `CustomRole` `BuiltInRole` . |
@@ -479,4 +479,4 @@ GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitio
 - [Azure 기본 제공 역할](built-in-roles.md)
 - [Azure 사용자 지정 역할](custom-roles.md)
 - [Azure Portal을 사용하여 Azure 역할 할당을 나열](role-assignments-list-portal.md)합니다.
-- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)

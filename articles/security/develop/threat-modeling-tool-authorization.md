@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101094005"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
@@ -28,7 +28,7 @@ ms.locfileid: "101094005"
 | --------------- | ------- |
 | **컴퓨터 신뢰 경계** | <ul><li>[적절 한 Acl이 장치의 데이터에 대 한 무단 액세스를 제한 하도록 구성 되어 있는지 확인 합니다.](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포 된 응용 프로그램이 최소 권한으로 실행 되는지 확인](#deployed-privileges)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절 한 권한 부여가 준비 되어 있고 최소 권한 원칙을 준수 하는지 확인 합니다.](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
-| **Database** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
+| **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결](#cloud-least-privileged)</li></ul> |
 | **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 대 한 직접 액세스를 제공 하는 액세스 토큰을 사용 하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 Azure Cosmos DB에 연결](#resource-docdb)</li></ul> |

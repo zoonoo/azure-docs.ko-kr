@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
 ms.openlocfilehash: b3b5679b254a07b275cc7fd1295ba4ca5b405fbc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100362015"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사

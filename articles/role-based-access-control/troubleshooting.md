@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
 ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555882"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
@@ -249,5 +249,5 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 ## <a name="next-steps"></a>다음 단계
 
 - [게스트 사용자에 대 한 문제 해결](role-assignments-external-users.md#troubleshoot)
-- [Azure Portal를 사용 하 여 Azure 역할 할당](role-assignments-portal.md)
+- [Azure Portal을 사용하여 Azure 역할 할당](role-assignments-portal.md)
 - [Azure RBAC 변경 내용에 대 한 활동 로그 보기](change-history-report.md)

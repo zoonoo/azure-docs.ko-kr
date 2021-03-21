@@ -17,10 +17,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
 ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94832533"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화
@@ -181,7 +181,7 @@ ms.locfileid: "94832533"
 | **SDL 단계**               | 배포 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure AD Multi-Factor Authentication 이란?](../../active-directory/authentication/concept-mfa-howitworks.md) |
+| **참조**              | [Azure AD Multi-Factor Authentication이란?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **단계** | <p>Multi-Factor Authentication(MFA)에는 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.</p><ul><li>사용자가 알고 있는 사항(일반적으로 암호)</li><li>사용자의 소유물(전화기처럼 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)</li><li>사용자의 신원 정보(생체 인식)</li><ul>|
 
 ## <a name="restrict-anonymous-access-to-service-fabric-cluster"></a><a id="anon-access-cluster"></a>Service Fabric 클러스터에 익명 액세스 제한

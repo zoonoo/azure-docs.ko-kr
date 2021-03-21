@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
 ms.openlocfilehash: ea9ddd05fe6fc745a3eefc29ab4f1d6aababc936
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94564704"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Azure Virtual WAN을 사용한 SD-WAN 연결 아키텍처
@@ -22,7 +22,7 @@ Azure Virtual WAN은 단일 운영 인터페이스를 사용하여 여러 클라
 Azure 가상 WAN 자체는 SD-WAN(Software Defined WAN)이지만 프레미스 기반 SD-WAN 기술 및 서비스와 원활하게 상호 연결할 수 있도록 설계되었습니다. 이러한 서비스는 [가상 WAN](virtual-wan-locations-partners.md) 에코시스템과 Azure 네트워킹 [MSP(관리 서비스 파트너)](../networking/networking-partners-msp.md)에서 제공합니다. 프라이빗 WAN을 SD-WAN으로 변환하는 엔터프라이즈에는 프라이빗 SD-WAN을 Azure 가상 WAN과 상호 연결하는 옵션이 있습니다. 엔터프라이즈는 다음 옵션 중에서 선택할 수 있습니다.
 
 * 직접 상호 연결 모델
-* NVA-VWAN-허브와 직접 상호 연결 모델
+* NVA-in-VWAN 허브를 사용하는 직접 상호 연결 모델
 * 간접 상호 연결 모델
 * 즐겨 사용하는 관리 서비스 공급자 [MSP](../networking/networking-partners-msp.md)를 사용하여 관리되는 하이브리드 WAN 모델
 
@@ -42,7 +42,7 @@ SD-WAN CPE는 트래픽 최적화 및 경로 선택이 구현되고 적용되는
 
 가상 WAN을 사용하면 지점 CPE에서 Virtual WAN VPN 게이트웨이에 이르는 여러 ISP 링크에서 정책 기반 경로 선택인 Azure 경로 선택을 얻을 수 있습니다. 가상 WAN을 사용하면 동일한 SD-WAN 분기 CPE에서 여러 링크(경로)를 설정할 수 있으며, 각 링크는 SD-WAN CPE의 고유한 공용 IP에서 두 개의 다른 Azure Virtual WAN VPN 게이트웨이 인스턴스로 이중 터널 연결을 나타냅니다. SD-WAN 공급업체는 CPE 링크에서 정책 엔진이 설정한 트래픽 정책을 기반으로 가장 최적의 Azure 경로를 구현할 수 있습니다. Azure end에서 들어오는 모든 연결은 동일 하 게 처리 됩니다.
 
-## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>NVA-VWAN-허브와 직접 상호 연결 모델
+## <a name="direct-interconnect-model-with-nva-in-vwan-hub"></a><a name="direct"></a>NVA-in-VWAN 허브를 사용하는 직접 상호 연결 모델
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="NVA-VWAN-허브와 직접 상호 연결 모델":::
 

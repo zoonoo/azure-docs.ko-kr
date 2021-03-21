@@ -4,10 +4,10 @@ description: 클러스터 업데이트 모드를 설정 하 고, 인증서를 �
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 028c91f85a6e318f7ea686c1bcd50262eb7c6bf1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96571031"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트

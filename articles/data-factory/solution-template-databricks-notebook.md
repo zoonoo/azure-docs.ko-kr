@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: ee663423071458605f37f07293693dbc91f592bb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100362117"
 ---
 # <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
@@ -30,7 +30,7 @@ ms.locfileid: "100362117"
 
 ![파이프라인 다이어그램](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 싱크로 사용 하기 위해 라는 컨테이너가 있는 Azure Blob storage 계정 `sinkdata` .
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 523c9e0064d8b78698f1a0dd3544bda58436800c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575723"
 ---
 # <a name="service-fabric-programming-model-overview"></a>서비스 패브릭 프로그래밍 모델 개요
@@ -27,7 +27,7 @@ Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제�
 
 [Windows 또는 Linux에서 서비스를 컨테이너화하는 방법에 대해 자세히 알아보기](./service-fabric-get-started-containers.md)
 
-## <a name="reliable-services"></a>신뢰할 수 있는 서비스
+## <a name="reliable-services"></a>Reliable Services
 
 Reliable Services는 서비스 패브릭 플랫폼과 통합하여 전체 플랫폼 기능을 활용하는 서비스 작성을 위한 간단한 프레임워크입니다. Reliable Services는 서비스 패브릭 런타임이 서비스의 수명 주기를 관리하고 서비스가 런타임과 상호 작용할 수 있도록 하는 최소한의 API 집합을 제공합니다. 애플리케이션 프레임워크는 최소한의 부담으로 완전한 설계 및 구현 제어를 제공하며, 이를 통해 ASP.NET Core 등의 다른 애플리케이션 프레임워크를 호스팅할 수 있습니다.
 

@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: 3732189c1d2e09b648a2fba0a39e7e4113a76d48
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675956"
 ---
-# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>SAP 솔루션에 대 한 Azure Monitor FAQ (미리 보기)
+# <a name="azure-monitor-for-sap-solutions-faq-preview"></a>SAP 솔루션을 위한 Azure Monitor FAQ(미리 보기)
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 이 문서에서는 SAP 솔루션에 대 한 Azure Monitor FAQ (질문과 대답)를 제공 합니다.  

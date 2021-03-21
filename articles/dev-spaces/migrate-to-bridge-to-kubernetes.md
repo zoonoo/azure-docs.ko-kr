@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Azure Dev Spaces에서 Kubernetes로의 마이그레이션 프로세스에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Kubernetes에 브리지
 ms.openlocfilehash: d48814df30c17f9b51d8642efa0960a26bbd24f4
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888524"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Bridge to Kubernetes로 마이그레이션
@@ -41,30 +41,30 @@ Kubernetes에 연결 하면 개발자가 나머지 클러스터와 상호 작용
 
 Kubernetes에는 비슷한 기능이 포함 되어 있으며, 다음과 같은 여러 영역에서 차이가 있습니다. Azure Dev Spaces
 
-| 요구 사항  | Azure Dev Spaces  | Kubernetes에 대한 브리지  |
+| 요구 사항  | Azure Dev 공간  | Bridge to Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Azure Kubernetes Service | Azure 지역 15 개 | 모든 AKS 서비스 지역    |
 | **보안** |
 | 클러스터에 필요한 보안 액세스  | AKS 클러스터 기여자  | Kubernetes RBAC-배포 업데이트   |
 | 개발 컴퓨터에 필요한 보안 액세스  | 해당 없음  | 로컬 관리자/sudo   |
 | **유용성** |
-| Kubernetes 및 Docker 아티팩트와 독립적  | 예  | 예   |
-| 변경 내용 자동 롤백, 사후 디버그  | 예  | 예   |
+| Kubernetes 및 Docker 아티팩트와 독립적  | 아니요  | 예   |
+| 변경 내용 자동 롤백, 사후 디버그  | 아니요  | 예   |
 | **지원 되는 클라이언트 도구** |
 | Visual Studio 2019에서 작동  | 예  | 예   |
 | Visual Studio Code에서 작동  | 예  | 예   |
-| CLI에서 작동  | 예  | 예   |
+| CLI에서 작동  | 예  | 아니요   |
 | **운영 체제 호환성** |
 | Windows 10에서 작동  | 예  | 예  |
 | Linux에서 작동  | 예  | 예  |
 | MacOS에서 작동  | 예  | 예  |
 | **Capabilities** |
 | 개발자 격리 또는 팀 개발  | 예  | 예  |
-| 선택적으로 환경 변수 덮어쓰기  | 예  | 예  |
-| Dockerfile 및 투구 차트 만들기  | 예  | 예  |
-| Kubernetes에 코드를 지속적으로 배포  | 예  | 예  |
-| Kubernetes pod에서 원격 디버깅  | 예  | 예  |
-| Kubernetes에 연결 된 로컬 디버깅  | 예  | 예  |
+| 선택적으로 환경 변수 덮어쓰기  | 아니요  | 예  |
+| Dockerfile 및 투구 차트 만들기  | 예  | 아니요  |
+| Kubernetes에 코드를 지속적으로 배포  | 예  | 아니요  |
+| Kubernetes pod에서 원격 디버깅  | 예  | 아니요  |
+| Kubernetes에 연결 된 로컬 디버깅  | 아니요  | 예  |
 | 동일한 워크스테이션에서 동시에 여러 서비스 디버깅  | 예  | 예  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Kubernetes inner 루프 개발

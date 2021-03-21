@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
 ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98216753"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
@@ -93,11 +93,11 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 자세한 내용은 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 지원 되는 피어 링 수에 대 한 자세한 내용은 [네트워킹 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 가상 네트워크 피어 링을 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 [사용 권한](virtual-network-manage-peering.md#permissions)을 참조 하세요.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 가상 네트워크 피어 링 연결을 사용 하는 수신 및 송신 트래픽에 대 한 명목 요금이 부과 됩니다. 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)을 참조 하세요.
 
@@ -110,7 +110,7 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 * 두 가상 네트워크 간에 피어 링을 만들 수 있습니다. 네트워크는 동일한 구독, 동일한 구독에 있는 다른 배포 모델 또는 다른 구독에 속할 수 있습니다. 다음 시나리오 중 하나에 대한 자습서를 완료합니다.
 
-    |Azure 배포 모델             | 구독  |
+    |Azure 배포 모델             | Subscription  |
     |---------                          |---------|
     |둘 다 Resource Manager              |[동일](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[다름](create-peering-different-subscriptions.md)|

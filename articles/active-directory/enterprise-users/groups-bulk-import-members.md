@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96547749"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Azure Active Directory에서 대량으로 그룹 구성원 추가
@@ -26,24 +26,24 @@ Azure AD(Azure Active Directory) 포털에서 CSV(쉼표로 구분된 값) 파�
 
 ## <a name="understand-the-csv-template"></a>CSV 템플릿의 이해
 
-대량 업로드 CSV 템플릿을 다운로드하고 작성하여 대량으로 Azure AD 그룹 구성원을 추가합니다. CSV 템플릿은 다음 예와 비슷합니다.
+대량 업로드 CSV 템플릿을 다운로드하고 작성하여 대량으로 Azure AD 그룹 멤버를 추가합니다. CSV 템플릿은 다음 예와 비슷합니다.
 
-![업로드를 위한 스프레드시트 및 각 행과 열의 용도와 값을 설명하는 콜아웃](./media/groups-bulk-import-members/template-with-callouts.png)
+![각 행과 열에 대한 용도와 값을 설명하는 업로드 및 콜아웃용 스프레드시트](./media/groups-bulk-import-members/template-with-callouts.png)
 
 ### <a name="csv-template-structure"></a>CSV 템플릿 구조
 
-다운로드한 CSV 템플릿의 행은 다음과 같습니다.
+다운로드된 CSV 템플릿의 행은 다음과 같습니다.
 
-- **버전 번호**: 버전 번호가 포함된 첫 번째 행은 CSV 업로드에 포함해야 합니다.
-- **열 머리글**: 열 머리글의 형식은 &lt;항목 이름&gt; [PropertyName] &lt;필수 또는 비워 둠&gt;입니다.  `Member object ID or user principal name [memberObjectIdOrUpn] Required`)을 입력합니다. 일부 이전 버전의 템플릿은 약간 다를 수 있습니다. 그룹 구성원 자격을 변경하려면 구성원 개체 ID와 사용자 계정 이름 중 원하는 식별자를 사용하면 됩니다.
-- **예제 행**: 템플릿에는 각 열의 허용되는 값을 보여 주는 예제 행이 포함되어 있습니다. 예제 행을 제거하고 원하는 항목으로 바꾸어야 합니다.
+- **버전 번호**: 버전 번호가 포함된 첫 번째 행은 CSV 업로드에 포함되어야 합니다.
+- **열 머리글**: 열 머리글의 형식은 &lt;*항목 이름*&gt; [PropertyName] &lt;*필수 또는 비워 둠*&gt;입니다. `Member object ID or user principal name [memberObjectIdOrUpn] Required`)을 입력합니다. 템플릿의 일부 이전 버전은 약간 다를 수 있습니다. 그룹 멤버 자격을 변경하는 경우 멤버 개체 ID와 사용자 계정 이름 중 원하는 식별자를 사용할 수 있습니다.
+- **예제 행**: 템플릿에는 각 열에 대해 허용 가능한 값의 예제 행이 포함되어 있습니다. 예제 행을 제거하고 원하는 항목으로 바꾸어야 합니다.
 
 ### <a name="additional-guidance"></a>추가 지침
 
-- 업로드 템플릿의 처음 두 행은 제거하거나 수정하면 안 됩니다. 제거하거나 수정하면 업로드를 처리할 수 없습니다.
-- 필수 열이 먼저 나열되어 있습니다.
-- 템플릿에는 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
-- 가능한 한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
+- 업로드 템플릿의 처음 두 행은 제거하거나 수정하면 안 됩니다. 이렇게 하면 업로드를 처리할 수 없습니다.
+- 필수 열이 먼저 나열됩니다.
+- 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
+- 가능한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
 - 파일을 성공적으로 업로드 하려면 사용자의 Upn 또는 개체 Id를 두 개 이상 추가 합니다.
 
 ## <a name="to-bulk-import-group-members"></a>그룹 구성원을 대량으로 가져오려면

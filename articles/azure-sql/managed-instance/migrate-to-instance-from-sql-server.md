@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102565825"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
@@ -45,7 +45,7 @@ ms.locfileid: "102565825"
 
 먼저 SQL Managed Instance 응용 프로그램의 데이터베이스 요구 사항과 호환 되는지 확인 합니다. SQL Managed Instance는 SQL Server를 사용 하는 대부분의 기존 응용 프로그램에 대 한 간편한 리프트 및 이동 마이그레이션을 제공 하도록 설계 되었습니다. 그러나 아직 지원 되지 않는 기능 또는 기능을 필요로 하는 경우가 있으며 해결 방법을 구현 하는 비용이 너무 높습니다.
 
-[Data Migration Assistant](/sql/dma/dma-overview) 를 사용 하 여 Azure SQL Database의 데이터베이스 기능에 영향을 주는 잠재적 호환성 문제를 검색 합니다. 일부 보고 된 차단 문제가 있는 경우 [AZURE VM의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해 야 할 수 있습니다. 다음은 몇 가지 예입니다.
+[Data Migration Assistant](/sql/dma/dma-overview) 를 사용 하 여 Azure SQL Database의 데이터베이스 기능에 영향을 주는 잠재적 호환성 문제를 검색 합니다. 일부 보고 된 차단 문제가 있는 경우 [AZURE VM의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해 야 할 수 있습니다. 몇 가지 예제는 다음과 같습니다.
 
 - 운영 체제 또는 파일 시스템에 직접 액세스 해야 하는 경우 (예를 들어 SQL Server를 사용 하 여 동일한 가상 컴퓨터에 타사 또는 사용자 지정 에이전트를 설치 하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원 되지 않는 기능에 대해 엄격한 종속성이 있는 경우

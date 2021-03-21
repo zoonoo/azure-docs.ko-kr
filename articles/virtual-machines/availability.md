@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.reviewer: cynthn
 ms.openlocfilehash: 1ea87d40430dbf3edabd557b80ab1456b49f4605
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102507877"
 ---
 # <a name="availability-options-for-azure-virtual-machines"></a>Azure Virtual Machines에 대 한 가용성 옵션
@@ -54,7 +54,7 @@ Azure Storage는 항상 계획된 이벤트 그리고 일시적인 하드웨어 
 
 Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 - Azure 지역 간에 Azure VM 복제
-- 온-프레미스 Vm, Azure Stack Vm 및 물리적 서버.
+- 온-프레미스 VM, Azure Stack VM 및 실제 서버.
 
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역에서 가상 머신 만들기](/linux/create-cli-availability-zone.md)

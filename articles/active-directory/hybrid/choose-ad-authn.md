@@ -11,10 +11,10 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
 ms.openlocfilehash: 15d62f40b50617fd1f6e543cb404a0d38361d3bd
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94836498"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택
@@ -177,7 +177,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |인증은 어디서 수행되나요?|클라우드|클라우드에서 온-프레미스 인증 에이전트와 보안 암호 확인을 교환한 후|온-프레미스|
 |프로비저닝 시스템인 Azure AD Connect 이외의 온-프레미스 서버 요구 사항은 무엇인가요?|None|각 추가 인증 에이전트마다 서버 1개|둘 이상의 AD FS 서버<br><br>경계/DMZ 네트워크에 둘 이상의 WAP 서버|
 |프로비저닝 시스템 이외의 온-프레미스 인터넷 및 네트워킹 요구 사항은 무엇인가요?|None|인증 에이전트를 실행하는 서버의[아웃바운드 인터넷 액세스](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)|경계에 있는 WAP 서버에 대한 [인바운드 인터넷 액세스](/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>경계에 있는 WAP 서버에서 AD FS 서버로의 인바운드 네트워크 액세스<br><br>네트워크 부하 분산|
-|TLS/SSL 인증서 요구 사항이 있나요?|예|예|예|
+|TLS/SSL 인증서 요구 사항이 있나요?|예|아니요|예|
 |상태 모니터링 솔루션이 있나요?|필요하지 않음|[Azure Active Directory 관리 센터](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)에서 제공한 에이전트 상태|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|예|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|

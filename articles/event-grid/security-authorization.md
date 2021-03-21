@@ -3,12 +3,12 @@ title: Azure Event Grid 보안 및 인증
 description: Azure Event Grid 및 해당 개념을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e9bcf00e832e4deaaf9c5f81ba5af51609a1c412
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100371723"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601043"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Event Grid 리소스에 대 한 액세스 권한 부여
 Azure Event Grid를 사용 하면 다양 한 사용자가 이벤트 구독 나열, 새 구독 만들기 및 키 생성과 같은 다양 한 **관리 작업** 을 수행 하는 데 지정 된 액세스 수준을 제어할 수 있습니다. Azure RBAC (역할 기반 액세스 제어)를 사용 하 Event Grid입니다.
@@ -31,80 +31,23 @@ az provider operation show --namespace Microsoft.EventGrid
 
 
 ## <a name="built-in-roles"></a>기본 제공 역할
+Event Grid는 다음과 같은 세 가지 기본 제공 역할을 제공 합니다. 
 
-Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 역할을 제공합니다. 이벤트 도메인의 토픽을 구독 하는 데 필요한 사용 권한을 사용자에 게 부여 하므로 [이벤트 도메인](event-domains.md) 을 구현 하는 경우 중요 합니다. 이러한 역할은 이벤트 구독에 중점을 두며, 토픽 만들기와 같은 작업에 대한 액세스 권한을 부여하지 않습니다.
+Event Grid 구독 판독기 및 Event Grid 구독 참가자 역할은 이벤트 구독을 관리 하는 데 사용할 수 있습니다. 이벤트 도메인의 토픽을 구독 하는 데 필요한 사용 권한을 사용자에 게 부여 하므로 [이벤트 도메인](event-domains.md) 을 구현 하는 경우 중요 합니다. 이러한 역할은 이벤트 구독에 중점을 두며, 토픽 만들기와 같은 작업에 대한 액세스 권한을 부여하지 않습니다.
 
-[사용자 또는 그룹에 이러한 역할을 할당](../role-based-access-control/quickstart-assign-role-user-portal.md)할 수 있습니다.
+Event Grid 참여자 역할을 사용 하 여 Event Grid 리소스를 만들고 관리할 수 있습니다. 
 
-**Eventgrid Eventgrid 참여자**: Event Grid 구독 작업 관리
 
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+| 역할 | 설명 |
+| ---- | ----------- | 
+| [Event Grid 구독 판독기](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Event Grid 이벤트 구독 작업을 관리할 수 있습니다. |
+| [Event Grid 구독 기여자](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Event Grid 이벤트 구독을 읽을 수 있습니다. |
+| [Event Grid 참가자](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Event Grid 리소스를 만들고 관리할 수 있습니다. |
 
-**Eventgrid Eventgrid Reader**: Event Grid 구독 읽기
 
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+> [!NOTE]
+> 첫 번째 열에서 링크를 선택 하 여 역할에 대 한 자세한 정보를 제공 하는 문서로 이동 합니다. RBAC 역할에 사용자 또는 그룹을 할당 하는 방법에 대 한 지침은 [이 문서](../role-based-access-control/quickstart-assign-role-user-portal.md)를 참조 하세요.
+
 
 ## <a name="custom-roles"></a>사용자 지정 역할
 

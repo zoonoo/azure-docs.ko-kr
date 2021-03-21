@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: af8ec9e0aac38240c7da92edd614892ff65712e2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96553965"
 ---
 # <a name="understand-search-features-in-azure-purview"></a>Azure 부서의 범위의 검색 기능 이해
@@ -58,6 +58,6 @@ Azure 부서의 범위에서 검색의 목표는 중요 한 데이터를 신속 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Azure Portal에서 Azure 부서의 범위 계정 만들기](create-catalog-portal.md)
-* [빠른 시작: Azure PowerShell/Azure CLI를 사용 하 여 Azure 부서의 범위 계정 만들기](create-catalog-powershell.md)
+* [빠른 시작: Azure Portal에서 Azure Purview 계정 만들기](create-catalog-portal.md)
+* [빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기](create-catalog-powershell.md)
 * [빠른 시작: 부서의 범위 Studio 사용](use-purview-studio.md)

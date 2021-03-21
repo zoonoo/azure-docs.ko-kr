@@ -14,10 +14,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3f89f218c82505fd6bc261d41938d4619b32bf8a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101675970"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 IBM DB2 Azure Virtual Machines DBMS 배포
@@ -87,7 +87,7 @@ Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 �
 | VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/db2/ <SID> 형식이 며/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/ <SID> 형식이 며/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256KB |ReadOnly |
 |RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
 | |/db2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64KB ||
 | |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
@@ -96,7 +96,7 @@ Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 �
 | VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 16 |/db2/ <SID> 형식이 며/sapdata |P15 |4 |4400  |500  |1.024  |14,000  |680  |256 KB |ReadOnly |
+|vCPU: 16 |/db2/ <SID> 형식이 며/sapdata |P15 |4 |4400  |500  |1.024  |14,000  |680  |256KB |ReadOnly |
 |RAM: 128 GiB |/db2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128KB ||
 | |/db2/ <SID> /log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64KB ||
 | |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
@@ -105,7 +105,7 @@ Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 �
 | VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 32 |/db2/ <SID> 형식이 며/sapdata |P30 |2 |10000  |400  |2.048  |10000  |400  |256 KB |ReadOnly |
+|vCPU: 32 |/db2/ <SID> 형식이 며/sapdata |P30 |2 |10000  |400  |2.048  |10000  |400  |256KB |ReadOnly |
 |RAM: 256 GiB |/db2/ <SID> /saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128KB ||
 | |/db2/ <SID> /log_dir |P20 |2 |4600  |300  |1.024  |7,000  |340  |64KB ||
 | |/db2/ <SID> /offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
@@ -114,7 +114,7 @@ Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 �
 | VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 64 |/db2/ <SID> 형식이 며/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256 KB |ReadOnly |
+|vCPU: 64 |/db2/ <SID> 형식이 며/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256KB |ReadOnly |
 |RAM: 504 GiB |/db2/ <SID> /saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128KB ||
 | |/db2/ <SID> /log_dir |P20 |4 |9200  |600  |2.048  |14,000  |680  |64KB ||
 | |/db2/ <SID> /offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
@@ -123,7 +123,7 @@ Sap NetWeaver 용 IBM Db2 응용 프로그램은 SAP support note [1928533]에 �
 | VM 이름/크기 |Db2 탑재 지점 |Azure Premium Disk |디스크의 NR |IOPS |처리량 [MB/s] |크기 [GB] |버스트 IOPS |버스트 Thr [GB] | 스트라이프 크기 | 캐싱 |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
-|vCPU: 128 |/db2/ <SID> 형식이 며/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256 KB |ReadOnly |
+|vCPU: 128 |/db2/ <SID> 형식이 며/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256KB |ReadOnly |
 |RAM: 2048 GiB |/db2/ <SID> /saptmp |P20 |2 |4600  |300  |1.024  |7,000  |340  |128KB ||
 | |/db2/ <SID> /log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64KB |WriteAccelerator |
 | |/db2/ <SID> /offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |

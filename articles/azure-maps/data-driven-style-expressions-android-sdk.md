@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097417"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>데이터 기반 스타일 식 (Android SDK)
@@ -28,7 +28,7 @@ Azure Maps Android SDK Azure Maps 웹 SDK와 거의 동일한 스타일 식을 �
 |---------------------|-------------|
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
 | [색 식](#color-expressions) | 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다. |
-| [조건부 식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
+| [조건식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
 | [데이터 식](#data-expressions) | 기능에서 속성 데이터에 대 한 액세스를 제공 합니다. |
 | [보간 및 단계 식](#interpolate-and-step-expressions) | 보간 및 단계 식은 보간된 곡선이 나 step 함수를 따라 값을 계산 하는 데 사용할 수 있습니다. |
 | [JSON 기반 식](#json-based-expressions) | Android SDK를 사용 하 여 웹 SDK에 대해 만든 스타일 원시 JSON 기반 식을 쉽게 다시 사용할 수 있습니다. |  
@@ -221,14 +221,14 @@ val exp = Expression.raw("['get','title']")
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `accumulated()` | number | 지금까지 누적 된 클러스터 속성 값을 가져옵니다. |
+| `accumulated()` | 숫자 | 지금까지 누적 된 클러스터 속성 값을 가져옵니다. |
 | `at(number | Expression, Expression)` | 값 | 배열에서 항목을 검색 합니다. |
 | `geometryType()` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
 | `get(string | Expression)` \| `get(string | Expression, Expression)` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `has(string | Expression)` \| `has(string | Expression, Expression)` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `id()` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `in(string | number | Expression, Expression)` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
-| `length(string | Expression)` | number | 문자열이 나 배열의 길이를 가져옵니다. |
+| `length(string | Expression)` | 숫자 | 문자열이 나 배열의 길이를 가져옵니다. |
 | `properties()`| 값 | 기능 속성 개체를 가져옵니다. |
 
 다음 웹 SDK 스타일 식은 Android SDK 지원 되지 않습니다.
@@ -382,32 +382,32 @@ has("fillColor", get("_style"))
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `abs(number | Expression)` | number | 지정된 숫자의 절대 값을 계산합니다. |
-| `acos(number | Expression)` | number | 지정 된 숫자의 아크코사인을 계산 합니다. |
-| `asin(number | Expression)` | number | 지정 된 숫자의 아크사인을 계산 합니다. |
-| `atan(number | Expression)` | number | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
-| `ceil(number | Expression)` | number | 숫자를 다음 정수 정수로 반올림 합니다. |
-| `cos(number | Expression)` | number | 지정 된 수의 cos를 계산 합니다. |
-| `division(number, number)` \| `division(Expression, Expression)` | number | 첫 번째 숫자를 두 번째 숫자로 나눕니다. 웹 SDK 동급 식: `/` |
-| `e()` | number | 수학 상수를 반환 합니다 `e` . |
-| `floor(number | Expression)` | number | 숫자를 이전 정수 정수로 내림 합니다. |
-| `log10(number | Expression)` | number | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
-| `log2(number | Expression)` | number | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
-| `ln(number | Expression)` | number | 지정 된 숫자의 자연 로그를 계산 합니다. |
-| `ln2()` | number | 수학 상수를 반환 합니다 `ln(2)` . |
-| `max(numbers... | expressions...)` | number | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
-| `min(numbers... | expressions...)` | number | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
-| `mod(number, number)` \| `mod(Expression, Expression)` | number | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. 웹 SDK 동급 식: `%` |
-| `pi()` | number | 수학 상수를 반환 합니다 `PI` . |
-| `pow(number, number)` \| `pow(Expression, Expression)` | number | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
-| `product(numbers... | expressions...)` | number | 지정 된 숫자를 곱합니다. 웹 SDK 동급 식: `*` |
-| `round(number | Expression)` | number | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어은 `round(-1.5)` 로 계산 `-2` 됩니다. |
-| `sin(number | Expression)` | number | 지정 된 숫자의 사인을 계산 합니다. |
-| `sqrt(number | Expression)` | number | 지정된 숫자의 제곱근을 계산합니다. |
-| `subtract(number | Expression` | number | 지정 된 수 만큼 0을 뺍니다. |
-| `subtract(number | Expression, number | Expression)` | number | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
-| `sum(numbers... | expressions...)` | number | 지정 된 숫자의 합계를 계산 합니다. |
-| `tan(number | Expression)` | number | 지정 된 숫자의 탄젠트를 계산 합니다. |
+| `abs(number | Expression)` | 숫자 | 지정된 숫자의 절대 값을 계산합니다. |
+| `acos(number | Expression)` | 숫자 | 지정 된 숫자의 아크코사인을 계산 합니다. |
+| `asin(number | Expression)` | 숫자 | 지정 된 숫자의 아크사인을 계산 합니다. |
+| `atan(number | Expression)` | 숫자 | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
+| `ceil(number | Expression)` | 숫자 | 숫자를 다음 정수 정수로 반올림 합니다. |
+| `cos(number | Expression)` | 숫자 | 지정 된 수의 cos를 계산 합니다. |
+| `division(number, number)` \| `division(Expression, Expression)` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눕니다. 웹 SDK 동급 식: `/` |
+| `e()` | 숫자 | 수학 상수를 반환 합니다 `e` . |
+| `floor(number | Expression)` | 숫자 | 숫자를 이전 정수 정수로 내림 합니다. |
+| `log10(number | Expression)` | 숫자 | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
+| `log2(number | Expression)` | 숫자 | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
+| `ln(number | Expression)` | 숫자 | 지정 된 숫자의 자연 로그를 계산 합니다. |
+| `ln2()` | 숫자 | 수학 상수를 반환 합니다 `ln(2)` . |
+| `max(numbers... | expressions...)` | 숫자 | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
+| `min(numbers... | expressions...)` | 숫자 | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
+| `mod(number, number)` \| `mod(Expression, Expression)` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. 웹 SDK 동급 식: `%` |
+| `pi()` | 숫자 | 수학 상수를 반환 합니다 `PI` . |
+| `pow(number, number)` \| `pow(Expression, Expression)` | 숫자 | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
+| `product(numbers... | expressions...)` | 숫자 | 지정 된 숫자를 곱합니다. 웹 SDK 동급 식: `*` |
+| `round(number | Expression)` | 숫자 | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어은 `round(-1.5)` 로 계산 `-2` 됩니다. |
+| `sin(number | Expression)` | 숫자 | 지정 된 숫자의 사인을 계산 합니다. |
+| `sqrt(number | Expression)` | 숫자 | 지정된 숫자의 제곱근을 계산합니다. |
+| `subtract(number | Expression` | 숫자 | 지정 된 수 만큼 0을 뺍니다. |
+| `subtract(number | Expression, number | Expression)` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
+| `sum(numbers... | expressions...)` | 숫자 | 지정 된 숫자의 합계를 계산 합니다. |
+| `tan(number | Expression)` | 숫자 | 지정 된 숫자의 탄젠트를 계산 합니다. |
 
 ## <a name="boolean-expressions"></a>부울 식
 
@@ -686,12 +686,12 @@ val layer = SymbolLayer(source,
 | `bool(Expression)` | boolean | 입력 값이 부울 임을 어설션 합니다. |
 | `collator(boolean caseSensitive, boolean diacriticSensitive)` \| `collator(boolean caseSensitive, boolean diacriticSensitive, java.util.Locale locale)` \| `collator(Expression caseSensitive, Expression diacriticSensitive)` \| `collator(Expression caseSensitive, Expression diacriticSensitive, Expression locale)` | 병합기 | 로캘 종속 비교 작업에 사용할 병합기를 반환 합니다. 대/소문자 구분 및 분음 부호 구분 옵션은 기본적으로 false로 설정 됩니다. Locale 인수는 사용할 로캘의 IETF 언어 태그를 지정 합니다. 제공 된 항목이 없으면 기본 로캘이 사용 됩니다. 요청한 로캘을 사용할 수 없는 경우 병합기는 시스템 정의 대체 로캘을 사용 합니다. 해결 된 로캘을 사용 하 여 로캘 대체 동작의 결과를 테스트 합니다.  |
 | `literal(boolean \| number \| string \| Object \| Object[])` | 부울 \| 숫자 \| 문자열 \| 개체 \| 개체 [] | 리터럴 배열 또는 개체 값을 반환 합니다. 배열이 나 개체가 식으로 계산 되지 않도록 하려면이 식을 사용 합니다. 배열 또는 개체를 식에서 반환 해야 하는 경우이 작업이 필요 합니다. |
-| `number(Expression)` | number | 입력 값이 숫자 임을 어설션 합니다. |
+| `number(Expression)` | 숫자 | 입력 값이 숫자 임을 어설션 합니다. |
 | `object(Expression)` | Object | 입력 값이 개체 임을 어설션 합니다. |
 | `string(Expression)` | 문자열 | 입력 값이 문자열 임을 어설션 합니다. |
 | `toArray(Expression)` | Object [] | 식을 JSON 개체 배열로 변환 합니다. |
 | `toBool(Expression)` | boolean | 입력 값을 부울로 변환 합니다. |
-| `toNumber(Expression)` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. |
+| `toNumber(Expression)` | 숫자 | 가능한 경우 입력 값을 숫자로 변환 합니다. |
 | `toString(Expression)` | 문자열 | 입력 값을 문자열로 변환 합니다. |
 | `typeoOf(Expression)` | 문자열 | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
 
@@ -699,7 +699,7 @@ val layer = SymbolLayer(source,
 
 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다.
 
-| 식 | 반환 형식 | Description |
+| 식 | 반환 형식 | 설명 |
 |------------|-------------|-------------|
 | `color(int)` | 색 | 색 정수 값을 색 식으로 변환 합니다. |
 | `rgb(Expression red, Expression green, Expression blue)` \| `rgb(number red, number green, number blue)` | 색 | 와 사이에 있어야 하는 *빨강*, *녹색* 및 *파랑* 구성 요소 `0` `255` 와의 알파 구성 요소에서 색 값을 만듭니다 `1` . 구성 요소가 범위를 벗어난 경우 식에 오류가 발생 합니다. |
@@ -755,7 +755,7 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-모든 색 매개 변수가 숫자인 경우 식으로 래핑할 필요가 없습니다 `literal` . 다음은 그 예입니다. 
+모든 색 매개 변수가 숫자인 경우 식으로 래핑할 필요가 없습니다 `literal` . 예를 들면 다음과 같습니다.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -810,7 +810,7 @@ val layer = BubbleLayer(source,
 |------------|-------------|-------------|
 | `concat(string...)` \| `concat(Expression...)` | 문자열 | 여러 문자열을 연결 합니다. 각 값은 문자열 이어야 합니다. `toString`필요한 경우 형식 식을 사용 하 여 다른 값 형식을 문자열로 변환 합니다. |
 | `downcase(string)` \| `downcase(Expression)` | 문자열 | 지정된 문자열을 소문자로 변환합니다. |
-| `isSupportedScript(string)` \| `isSupportedScript(Expression)`| boolean | 입력 문자열이 현재 글꼴 스택에서 지 원하는 문자 집합을 사용 하는지 여부를 확인 합니다. 예: `isSupportedScript("ಗೌರವಾರ್ಥವಾಗಿ")` |
+| `isSupportedScript(string)` \| `isSupportedScript(Expression)`| boolean | 입력 문자열이 현재 글꼴 스택에서 지 원하는 문자 집합을 사용 하는지 여부를 확인 합니다. `isSupportedScript("ಗೌರವಾರ್ಥವಾಗಿ")` |
 | `resolvedLocale(Expression collator)` | 문자열 | 제공 된 병합기에서 사용 하는 로캘의 IETF 언어 태그를 반환 합니다. 이는 기본 시스템 로캘을 확인 하거나 요청 된 로캘이 성공적으로 로드 되었는지 여부를 확인 하는 데 사용할 수 있습니다. |
 | `upcase(string)` \| `upcase(Expression)` | 문자열 | 지정된 문자열을 대문자로 변환합니다. |
 
@@ -874,7 +874,7 @@ interpolate(Expression.Interpolator interpolation, Expression number, Expression
 
 식에 사용할 수 있는 보간 방법에는 다음 세 가지 유형이 있습니다 `interpolate` .
 
-| 속성 | 설명 |
+| Name | 설명 |
 |------|-------------|
 | `linear()` | 중지점의 쌍 사이를 선형으로 보간합니다.  |
 | `exponential(number)` \| `exponential(Expression)` | 정지 사이에 지를 보간합니다. "Base"가 지정 되 고 출력이 늘어나는 속도를 제어 합니다. 값이 높을수록 출력이 범위의 높은 쪽 끝에서 증가 합니다. 1에 가까운 "기본" 값은 보다 선형적으로 향상 되는 출력을 생성 합니다.|

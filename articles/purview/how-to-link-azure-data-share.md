@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
 ms.openlocfilehash: edea881d67d5a677339c6ff357c1ac45f5dfd420
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96555359"
 ---
 # <a name="how-to-connect-azure-data-share-and-azure-purview"></a>Azure 데이터 공유 및 Azure 부서의 범위를 연결 하는 방법
@@ -50,7 +50,7 @@ Azure 데이터 공유 및 Azure 부서의 범위 계정을 연결 하려면 다
 1. Azure 데이터 공유에서 스냅숏을 실행 합니다.
 
     - Azure 부서의 범위를 사용 하 여 Azure 데이터 공유 연결을 설정 하면 기존 공유에 대 한 스냅숏을 실행할 수 있습니다. 
-    - 기존 공유가 없는 경우 Azure 데이터 공유 포털로 이동 하 여 데이터를 공유 하 [share your data](../data-share/share-your-data.md) [고 데이터 공유를 구독](../data-share/subscribe-to-data-share.md)합니다.
+    - 기존 공유가 없는 경우 Azure 데이터 공유 포털로 이동 하 여 데이터를 공유 하 [](../data-share/share-your-data.md) [고 데이터 공유를 구독](../data-share/subscribe-to-data-share.md)합니다.
     - 공유 스냅숏이 완료 되 면 부서의 범위에서 연결 된 데이터 공유 자산 및 계보를 볼 수 있습니다.
 
 1. 부서의 범위 계정에서 데이터 공유 계정을 검색 하 고 정보를 공유 합니다.

@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b57d675003c1ebeb29927b86338f95cf7dd68090
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96574466"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 삭제
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) 포털을 사용 하 여 쉼표로 구분 된 
 
 ## <a name="understand-the-csv-template"></a>CSV 템플릿 이해
 
-CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대량으로 쉽게 삭제할 수 있습니다. 다운로드한 CSV 템플릿은 다음 예제와 같이 표시됩니다.
+CSV 템플릿을 다운로드 하 고 입력 하 여 Azure AD 사용자를 대량으로 쉽게 삭제할 수 있습니다. 다운로드한 CSV 템플릿은 다음 예제와 같이 표시될 수 있습니다.
 
 ![업로드용 스프레드시트 및 각 행과 열의 용도 및 값에 대한 설명](./media/users-bulk-delete/understand-template.png)
 

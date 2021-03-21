@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573921"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>정기적 데이터 전송을 위한 솔루션
@@ -48,11 +48,11 @@ ms.locfileid: "96573921"
 | 초기 일회성 설치     | 최소                                | 보통, 가변 개발 작업    |
 | 데이터 형식                 | Azure Blob, Azure Files, Azure 테이블 | Azure Blob, Azure Files, Azure 테이블   |
 | 성능                 | 이미 최적화됨                      | 개발 시 최적화                  |
-| 가격 책정                     | 무료, 데이터 송신 요금 적용      | 무료, 데이터 송신 요금 적용        |
+| 가격                     | 무료, 데이터 송신 요금 적용      | 무료, 데이터 송신 요금 적용        |
 
 ### <a name="continuous-data-ingestion-over-network"></a>네트워크를 통한 지속적인 데이터 수집
 
-| 특징                                       | Data Box Gateway | Data Box Edge   | Azure 데이터 팩터리        |
+| 기능                                       | Data Box Gateway | Data Box Edge   | Azure 데이터 팩터리        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | 폼 팩터                                   | 가상 디바이스             | 물리적 디바이스          | Azure Portal의 서비스, 온-프레미스의 에이전트                                                            |
 | 하드웨어                                      | 하이퍼바이저            | Microsoft 제공    | 해당 없음                                                            |

@@ -4,10 +4,10 @@ description: Azure DevTest Labs에서 고객이 관리 하는 키를 사용 하 
 ms.topic: article
 ms.date: 09/01/2020
 ms.openlocfilehash: 26ef4ff1529483da9956c6dcc43807af0ffd6463
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96341211"
 ---
 # <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Azure DevTest Labs에서 고객 관리 키를 사용 하 여 운영 체제 (OS) 디스크 암호화
@@ -47,7 +47,7 @@ DevTest Labs 내에서 랩의 일부로 생성 된 모든 OS 디스크 및 데�
     1. 도구 모음에서 **저장** 을 선택합니다. 
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="역할 할당 저장":::
-3. **구독** 액세스 제어 (IAM) 페이지를 사용 하 여 랩의 **시스템 할당 id** 를 **가상 머신 참가자** 역할에 추가  ->  **Access control (IAM)** 합니다. 단계는 이전 단계에서 설명한 것과 비슷합니다. 
+3. **구독** 액세스 제어 (IAM) 페이지를 사용 하 여 랩의 **시스템 할당 id** 를 **가상 머신 참가자** 역할에 추가  ->   합니다. 단계는 이전 단계에서 설명한 것과 비슷합니다. 
 
     
     1. Azure Portal의 **구독** 페이지로 이동 합니다. 
