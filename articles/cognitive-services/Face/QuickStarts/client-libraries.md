@@ -14,10 +14,10 @@ ms.author: pafarley
 ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 이미지, 얼굴 인식 검색, 얼굴 인식, 얼굴 인식 앱으로 얼굴 검색
 ms.openlocfilehash: ae3a5571019fedce4c255b942b1a5139c2f9795b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102555162"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>빠른 시작: Face 클라이언트 라이브러리 사용

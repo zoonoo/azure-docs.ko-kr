@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f47a8f1edb4afed41587eac3d539b5ad7cb8180f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655991"
 ---
 # <a name="quickstart-handle-sms-events"></a>빠른 시작: SMS 이벤트 처리
 
@@ -27,7 +27,7 @@ Communication Services SMS 이벤트를 처리하기 위해 Azure Event Grid를 
 
 ## <a name="about-azure-event-grid"></a>Azure Event Grid 정보
 
-[Azure Event Grid](../../../event-grid/overview.md)는 클라우드 기반 이벤트 서비스입니다. 이 문서에서는 [Communication Services 이벤트](../../concepts/event-handling.md)에 대한 이벤트를 구독하고, 이벤트를 트리거하여 결과를 확인하는 방법에 대해 알아봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
+[Azure Event Grid](../../../event-grid/overview.md)는 클라우드 기반 이벤트 서비스입니다. 이 문서에서는 [Communication Services 이벤트](../../../event-grid/event-schema-communication-services.md)에 대한 이벤트를 구독하고, 이벤트를 트리거하여 결과를 확인하는 방법에 대해 알아봅니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 이 문서에서는 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -68,7 +68,7 @@ Azure Portal에서 다음을 수행합니다.
 
 **시스템 항목 이름** 을 제공하라는 메시지가 표시되면 고유한 문자열을 자유롭게 제공합니다. 이 필드는 사용자 환경에 영향을 주지 않으며 내부 원격 분석 용도로 사용됩니다.
 
-[Azure Communication Services에서 지원하는 이벤트](../../concepts/event-handling.md)의 전체 목록을 확인하세요.
+[Azure Communication Services에서 지원하는 이벤트](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)의 전체 목록을 확인하세요.
 
 :::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="선택한 SMS 받음 및 SMS 전송 보고서 받음 이벤트 유형을 보여 주는 스크린샷":::
 
@@ -93,7 +93,7 @@ Azure Portal에서 다음을 수행합니다.
 - Communication Services 전화 번호에서 문자 메시지를 받으면 `SMS Received` 이벤트가 생성됩니다. 이벤트를 트리거하려면 메시지를 휴대폰에서 Communication Services 리소스에 연결된 전화 번호로 보내기만 하면 됩니다.
 - Communication Services 전화 번호를 사용하여 사용자에게 SMS를 보내면 `SMS Delivery Report Received` 이벤트가 생성됩니다. 이벤트를 트리거하려면 [SMS 보냄](../telephony-sms/send.md) 옵션에서 `Delivery Report`를 사용하도록 설정해야 합니다. `Delivery Report`를 사용하여 메시지를 휴대폰에 보내보세요. 이 작업이 완료되면 Azure 계정에서 몇 USD 센트 이하의 작은 비용이 발생합니다.
 
-[Azure Communication Services에서 지원하는 이벤트](../../concepts/event-handling.md)의 전체 목록을 확인하세요.
+[Azure Communication Services에서 지원하는 이벤트](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)의 전체 목록을 확인하세요.
 
 ### <a name="receiving-sms-events"></a>SMS 이벤트 받기
 
@@ -103,7 +103,7 @@ Azure Portal에서 다음을 수행합니다.
 
 :::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="SMS 전송 보고서 이벤트에 대한 Event Grid 스키마가 표시된 스크린샷":::
 
-[이벤트 스키마 및 기타 이벤트 개념](../../concepts/event-handling.md)에 대해 자세히 알아보세요.
+[이벤트 스키마 및 기타 이벤트 개념](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services)에 대해 자세히 알아보세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -118,5 +118,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 다음을 수행할 수도 있습니다.
 
- - [이벤트 처리 개념에 대해 알아보기](../../concepts/event-handling.md)
+ - [이벤트 처리 개념에 대해 알아보기](../../../event-grid/event-schema-communication-services.md)
  - [Event Grid에 대해 알아보기](../../../event-grid/overview.md)

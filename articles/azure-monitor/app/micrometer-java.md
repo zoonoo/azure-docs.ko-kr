@@ -7,10 +7,10 @@ ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 11/01/2018
 ms.openlocfilehash: 8dba7280f6abd6026fabdde500dc76b73129d557
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589756"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Azure 애플리케이션 Insights Java SDK에서 마이크로 측정기를 사용 하는 방법 (권장 하지 않음)

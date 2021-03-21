@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 279d432dbc5770cc89486c517b8fcbe6392b03d1
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/17/2021
+ms.openlocfilehash: c1e0dffafafa76e90ec57ce1a00fb8e155ff4edf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103012193"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608098"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 데이터 복사 및 변환
 
@@ -389,7 +389,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
 | Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true** 입니다. | 아니요                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/>-접두사를 사용 하는 경우 파티션 루트 경로는 마지막 "/" 앞의 하위 경로입니다. <br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 아니요                                            |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 아니요                                            |
 
 > [!NOTE]
 > Parquet/구분 된 텍스트 형식의 경우 다음 섹션에 언급 된 복사 작업 원본에 대 한 **blobsource** 형식은 이전 버전과의 호환성을 위해 계속 지원 됩니다. Data Factory 작성 UI가 이러한 새 형식을 생성 하도록 전환 될 때까지 새 모델을 사용 하는 것이 좋습니다.
@@ -449,7 +449,7 @@ Azure Blob Storage 연결된 서비스에 지원되는 속성은 다음과 같�
 | type                     | `type`아래의 속성은 `storeSettings` 로 설정 해야 합니다 `AzureBlobStorageWriteSettings` . | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
 | blockSizeInMB | 블록 blob에 데이터를 쓰는 데 사용 되는 블록 크기 (mb)를 지정 합니다. [블록 Blob에 대한](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 자세한 내용을 알아보세요. <br/>허용 되는 값은 *4mb에서 100 mb 사이* 입니다. <br/>기본적으로 Data Factory는 원본 저장소 형식 및 데이터를 기반으로 블록 크기를 자동으로 결정 합니다. Blob storage로 복사 하는 이진이 아닌의 경우 기본 블록 크기는 100 이며 최대 4.95 TB의 데이터에 맞출 수 있습니다. 특히 작업 시간 초과 또는 성능 문제를 초래 하는 네트워크 연결이 좋지 않은 자체 호스팅 통합 런타임을 사용 하는 경우 데이터가 크지 않은 경우에는 최적이 아닐 수 있습니다. 블록 크기를 명시적으로 지정 하는 동시에 `blockSizeInMB*50000` 데이터를 저장 하기에 충분 한 크기를 보장할 수 있습니다. 그렇지 않으면 복사 작업 실행이 실패 합니다. | 예 |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예       |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예       |
 
 **예:**
 
@@ -681,7 +681,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 |:--- |:--- |:--- |
 | type | `type`복사 작업 원본의 속성은로 설정 해야 합니다 `BlobSource` . | 예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. `recursive`가로 설정 되 `true` 고 싱크가 파일 기반 저장소 인 경우에는 빈 폴더나 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용 되는 값은 `true` (기본값) 및 `false` 입니다. | 예 |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예 |
 
 **예:**
 
@@ -721,7 +721,7 @@ Amazon S3, Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 Azure Da
 |:--- |:--- |:--- |
 | type | `type`복사 작업 싱크의 속성은로 설정 해야 합니다 `BlobSink` . | 예 |
 | copyBehavior | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예 |
-| maxConcurrentConnections | 저장소에 대 한 동시 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만를 지정 합니다. | 예 |
+| maxConcurrentConnections |작업을 실행 하는 동안 데이터 저장소에 설정 된 동시 연결의 상한입니다. 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다.| 예 |
 
 **예:**
 

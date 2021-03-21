@@ -5,39 +5,45 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 0a0eaa18f5b120fcc9cbf0e4da470ee46772c925
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: e8d191dfed5b33116dadaf34b17d5f6525060e13
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470407"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721203"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
-이 문서에서는 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) HPC 및 GPU vm을 사용 하는 경우 가장 일반적인 문제 및 해결 방법을 제공 합니다.
+이 문서에서는 [H 시리즈](../../sizes-hpc.md) 및 [N 시리즈](../../sizes-gpu.md) HPC 및 GPU vm을 사용 하는 경우 최근 일반적인 문제 및 해당 솔루션을 나열 하려고 시도 합니다.
+
+## <a name="mofed-installation-on-ubuntu"></a>Ubuntu에 설치 하는 MOFED
+Ubuntu-18.04에서 커널 버전 5.4.0-azure는 MOFED 버전 5.2-2 및 5.2-1.0.4.0와 호환 되지 않습니다. 커널을 업데이트 하지 않고 커널 버전 5.4.0-1040로 롤백하는 것이 좋습니다. 이전 커널에서 Marketplace 이미지를 사용 하는 것이 좋습니다. 이 문제는 최신 MOFED (TBD)로 해결 될 예정입니다.
 
 ## <a name="known-issues-on-hbv3"></a>HBv3의 알려진 문제
-- InfiniBand은 현재 120-코어 VM (Standard_HB120rs_v3) 에서만 지원 됩니다. 다른 Vm 크기에 대 한 지원이 곧 활성화 됩니다.
-- Azure 가속화 된 네트워킹은 모든 지역의 HBv3 시리즈에서 지원 되지 않습니다. 이 기능은 곧 사용할 수 있게 될 예정입니다.
+- 현재 InfiniBand는 120-코어 VM (Standard_HB120rs_v3) 에서만 지원 됩니다.
+- 현재 Azure 가속화 된 네트워킹은 모든 지역의 HBv3 시리즈에서 지원 되지 않습니다.
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>HB, HC, HBv2 및 NDv2의 가속화 네트워킹
 
-이제 RDMA 및 InfiniBand 지원 및 SR-IOV 지원 VM 크기 [Hb](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)및 [NDv2](../../ndv2-series.md)에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용할 수 있습니다. 이제이 기능을 통해 (최대 30gbps) Azure 이더넷 네트워크에서 대기 시간을 향상 시킬 수 있습니다. InfiniBand 네트워크를 통한 RDMA 기능과는 별개 이지만, InfiniBand를 통해 작업을 실행할 때이 기능에 대 한 일부 플랫폼 변경이 특정 MPI 구현의 동작에 영향을 줄 수 있습니다. 특히 일부 Vm의 InfiniBand 인터페이스에는 약간 다른 이름 (mlx5_1 이전 mlx5_0와 반대)이 포함 될 수 있으며,이로 인해 특히 (일반적으로 OpenMPI 및 HPC-X를 사용 하 여)를 사용 하는 경우 MPI 명령줄을 조정 해야 할 수 있습니다.
-이에 대 한 자세한 내용은이 [블로그 문서](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) 에서 관찰 된 문제를 해결 하는 방법에 대 한 지침을 제공 합니다.
+이제 RDMA 및 InfiniBand 지원 및 SR-IOV 지원 VM 크기 [Hb](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md)및 [NDv2](../../ndv2-series.md)에서 [Azure 가속화 된 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) 을 사용할 수 있습니다. 이제이 기능을 통해 (최대 30gbps) Azure 이더넷 네트워크에서 대기 시간을 향상 시킬 수 있습니다. InfiniBand 네트워크를 통한 RDMA 기능과는 별개 이지만, InfiniBand를 통해 작업을 실행할 때이 기능에 대 한 일부 플랫폼 변경이 특정 MPI 구현의 동작에 영향을 줄 수 있습니다. 특히 일부 Vm의 InfiniBand 인터페이스에는 약간 다른 이름 (mlx5_1 이전 mlx5_0와 반대)이 포함 될 수 있으며,이로 인해 특히 (일반적으로 OpenMPI 및 HPC-X를 사용 하 여)를 사용 하는 경우 MPI 명령줄을 조정 해야 할 수 있습니다. 가장 간단한 솔루션은 현재 CentOS-HPC VM 이미지에서 최신 HPC-X를 사용 하거나 필요 하지 않은 경우 가속화 된 네트워킹을 사용 하지 않도록 설정할 수 있습니다.
+이에 대 한 자세한 내용은이 [TechCommunity 문서](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) 에서 관찰 된 문제를 해결 하는 방법에 대 한 지침을 제공 합니다.
 
-## <a name="infiniband-driver-installation-on-n-series-vms"></a>N 시리즈 Vm에 InfiniBand 드라이버 설치
+## <a name="infiniband-driver-installation-on-non-sr-iov-vms"></a>비 SR-IOV Vm에 InfiniBand 드라이버 설치
 
-NC24r_v3 및 ND40r_v2는 sr-iov를 사용 하도록 설정 되어 있지만 NC24r 및 NC24r_v2는 SR-IOV를 사용 하도록 설정 되어 있지 않습니다. 분기에 대 한 자세한 내용은 [여기](../../sizes-hpc.md#rdma-capable-instances)를 참조 하세요.
-InfiniBand (IB)는 OFED 드라이버를 사용 하 여 SR-IOV 지원 VM 크기에 구성할 수 있지만 SR-IOV VM이 아닌 VM 크기에는 ND 드라이버가 필요 합니다. 이 IB 지원은 [CentOS](configure.md)에서 적절 하 게 사용할 수 있습니다. Ubuntu의 경우 [문서](enable-infiniband.md#vm-images-with-infiniband-drivers)에 설명 된 대로 OFED 및 ND 드라이버를 모두 설치 하려면 [여기의 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) 을 참조 하세요.
+현재 H16r, H16mr 및 NC24r는 SR-IOV를 사용 하도록 설정 되어 있지 않습니다. InfiniBand stack 분기에 대 한 자세한 내용은 [여기](../../sizes-hpc.md#rdma-capable-instances)를 참조 하세요.
+Sr-iov를 사용 하도록 설정 된 VM 크기에서 OFED 드라이버를 사용 하 여 InfiniBand를 구성할 수 있지만 sr-iov가 아닌 VM 크기에는 ND 드라이버가 필요 합니다. 이 IB 지원은 [CentOS, RHEL 및 Ubuntu](configure.md)에서 적절 하 게 사용할 수 있습니다.
 
 ## <a name="duplicate-mac-with-cloud-init-with-ubuntu-on-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 Vm에서 Ubuntu로 클라우드 init를 사용 하 여 MAC 복제
 
-Ubuntu VM 이미지에서 IB 인터페이스를 표시 하려고 할 때 알려진 문제는 알려진 문제입니다. 이는 VM을 다시 부팅 하거나 일반화 후 VM 이미지를 만들려고 할 때 발생할 수 있습니다. VM 부팅 로그에 다음과 같은 오류가 표시 될 수 있습니다. "네트워크 서비스를 시작 하는 중 ... RuntimeError: 중복 된 mac이 있습니다. ' eth1 ' 및 ' ib0 '에는 mac이 모두 있습니다.
+Ubuntu VM 이미지에서 IB 인터페이스를 표시 하려고 할 때 알려진 문제는 알려진 문제입니다. 이는 VM을 다시 부팅 하거나 일반화 후 VM 이미지를 만들려고 할 때 발생할 수 있습니다. VM 부팅 로그에 다음과 같은 오류가 표시 될 수 있습니다.
+```console
+“Starting Network Service...RuntimeError: duplicate mac found! both 'eth1' and 'ib0' have mac”.
+```
 
-이 ' Ubuntu에서 클라우드 초기화를 사용 하는 MAC 중복 "은 알려진 문제입니다. 해결 방법은 다음과 같습니다.
+이 ' Ubuntu에서 클라우드 초기화를 사용 하는 MAC 중복 "은 알려진 문제입니다. 이는 최신 커널에서 해결 될 예정입니다. 문제가 발생 하는 경우 해결 방법은 다음과 같습니다.
 1) (Ubuntu 18.04) marketplace VM 이미지 배포
 2) IB를 사용 하도록 설정 하는 데 필요한 소프트웨어 패키지 설치 ([지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351))
 3) Waagent를 편집 하 여 EnableRDMA = y를 변경 합니다.
@@ -56,13 +62,13 @@ Ubuntu VM 이미지에서 IB 인터페이스를 표시 하려고 할 때 알려�
     EOF
     ```
 
-## <a name="dram-on-hb-series"></a>HB 시리즈의 DRAM
-
-HB-시리즈 Vm은 현재 게스트 Vm에 228 GB의 RAM만 노출할 수 있습니다. 마찬가지로 HBv2의 경우 458, HBv3 Vm의 경우 448 GB입니다. 이는 게스트 VM에 예약 된 AMD CCX의 로컬 DRAM (NUMA 도메인)에 페이지가 할당 되지 않도록 방지 하기 위해 Azure 하이퍼바이저의 알려진 제한 때문입니다.
-
 ## <a name="qp0-access-restriction"></a>qp0 액세스 제한
 
 보안 취약성을 유발할 수 있는 낮은 수준의 하드웨어 액세스를 방지 하기 위해 게스트 Vm에서는 큐 쌍 0을 액세스할 수 없습니다. 이는 일반적으로 Connectx-3 NIC의 관리와 관련 된 작업에만 영향을 주며 ibdiagnet와 같은 일부 InfiniBand 진단을 실행 하지만 최종 사용자 응용 프로그램 자체는 실행 하지 않습니다.
+
+## <a name="dram-on-hb-series-vms"></a>HB 시리즈 Vm의 DRAM
+
+HB-시리즈 Vm은 현재 게스트 Vm에 228 GB의 RAM만 노출할 수 있습니다. 마찬가지로 HBv2의 경우 458, HBv3 Vm의 경우 448 GB입니다. 이는 게스트 VM에 예약 된 AMD CCX의 로컬 DRAM (NUMA 도메인)에 페이지가 할당 되지 않도록 방지 하기 위해 Azure 하이퍼바이저의 알려진 제한 때문입니다.
 
 ## <a name="gss-proxy"></a>GSS 프록시
 

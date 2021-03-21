@@ -4,10 +4,10 @@ description: Azure에서 제공하는 두 가지 유형의 큐 사이의 차이�
 ms.topic: article
 ms.date: 11/04/2020
 ms.openlocfilehash: 31992aa2012009c51cbeae78010ae8ced65fc872
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928310"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
@@ -42,7 +42,7 @@ Azure는 **Storage 큐** 및 **Service Bus 큐** 의 두 가지 큐 유형을 �
 * 애플리케이션이 메시지를 병렬 장기 실행 스트림(메시지의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 속성을 사용하여 메시지가 스트림과 연결됨)으로 처리하는 것이 좋습니다. 이 모델에서는 소비 애플리케이션의 각 노드가 메시지가 아니라 스트림에 대해 경쟁합니다. 소비 노드에 스트림이 전달되면 해당 노드는 트랜잭션을 사용하여 애플리케이션 스트림 상태를 검사할 수 있습니다.
 * 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
 * 응용 프로그램은 64 KB를 초과할 수 있는 메시지를 처리 하지만 256 KB 제한에 해당 하는 것은 아닙니다.
-* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 문서를 참조하세요.
+* 큐에 대한 역할 기반 액세스 모델, 보낸 사람과 받는 사람에 대해 서로 다른 권한을 제공해야 하는 조건을 처리해야 합니다. 자세한 내용은 다음 아티클을 참조하세요.
     - [관리되는 ID를 사용하여 인증](service-bus-managed-service-identity.md)
     - [애플리케이션에서 인증](authenticate-application.md)
 * 큐 크기는 80 GB 보다 크게 증가 하지 않습니다.
@@ -128,7 +128,7 @@ Azure는 **Storage 큐** 및 **Service Bus 큐** 의 두 가지 큐 유형을 �
 | 비교 기준 | Storage 큐 | Service Bus 큐 |
 | --- | --- | --- |
 | 최대 큐 크기 |**500TB**<br/><br/>( [단일 저장소 계정 용량](../storage/common/storage-introduction.md#queue-storage)으로 제한 됨) |**1GB-80GB**<br/><br/>(큐 생성 및 [분할 사용](service-bus-partitioning.md) 시에 정의됨 – “추가 정보” 섹션 참조) |
-| 최대 메시지 크기 |**64KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
+| 최대 메시지 크기 |**64 KB**<br/><br/>(**Base64** 인코딩을 사용할 때 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다. |**256KB** 또는 **1MB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)<br/><br/>[서비스 계층](service-bus-premium-messaging.md)에 따라 달라 집니다. |
 | 최대 메시지 TTL |**Infinite** (api-version 2017-07-27 이상) |**TimeSpan.Max** |
 | 최대 큐 수 |**무제한** |**1만**<br/><br/>(서비스 네임스페이스당) |
 | 최대 동시 클라이언트 수 |**무제한** |**5,000** |
@@ -162,7 +162,7 @@ Azure는 **Storage 큐** 및 **Service Bus 큐** 의 두 가지 큐 유형을 �
 * Storage 큐는 이름/값 쌍의 형식으로 큐 설명에 적용할 수 있는 임의 특성을 지원합니다.
 * 두 큐 기술 모두 메시지를 잠그지 않고도 엿볼 수 있는 기능을 제공하며, 이는 큐 탐색기/브라우저 도구를 구현할 때 유용할 수 있습니다.
 * Service Bus .NET 조정 된 메시징 Api는 HTTP를 통한 REST에 비해 향상 된 성능을 위해 전이중 TCP 연결을 사용 하 고 AMQP 1.0 표준 프로토콜을 지원 합니다.
-* Storage 큐 이름은 3 ~ 63자로 지정할 수 있으며, 소문자, 숫자, 하이픈이 포함될 수 있습니다. 자세한 내용은 [큐 및 메타데이터 명명](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)을 참조하세요.
+* Storage 큐 이름은 3 ~ 63자로 지정할 수 있으며, 소문자, 숫자, 하이픈이 포함될 수 있습니다. 자세한 내용은 [큐 및 메타 데이터 이름 지정](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)을 참조 하세요.
 * Service Bus 큐 이름은 최대 260자로 지정할 수 있으며 명명 규칙이 덜 제한적입니다. Service Bus 큐 이름에는 문자, 숫자, 마침표, 하이픈, 밑줄이 포함될 수 있습니다.
 
 ## <a name="authentication-and-authorization"></a>인증 및 권한 부여

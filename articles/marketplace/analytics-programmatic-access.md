@@ -1,5 +1,5 @@
 ---
-title: 프로그래밍 방식 액세스 패러다임
+title: 프로그래밍 방식 액세스 페러다임
 description: 프로그래밍 분석에 대 한 API 호출 패턴의 상위 수준 흐름을 이해 합니다. Microsoft 상업적 marketplace의 분석 보고서에 액세스 하는 Api에 대해서도 설명 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 8e0b94a46e96dd8ba16040e16b421520eb67de19
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102584090"
 ---
-# <a name="programmatic-access-paradigm"></a>프로그래밍 방식 액세스 패러다임
+# <a name="programmatic-access-paradigm"></a>프로그래밍 방식 액세스 페러다임
 
 이 다이어그램에서는 새 보고서 템플릿을 만들고, 사용자 지정 보고서를 예약 하 고, 오류 데이터를 검색 하는 데 사용 되는 API 호출 패턴을 보여 줍니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "102584090"
 
 *요청 헤더*
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------------- | ------------- | ------------- |
 | 권한 부여 | 문자열 | 필수 요소. Azure Active Directory (Azure AD) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 콘텐츠 형식 | `string` | `application/JSON` |
@@ -82,9 +82,9 @@ ms.locfileid: "102584090"
 
 | 매개 변수 | 필수 | Description | 허용되는 값 |
 | ------------ | ------------- | ------------- | ------------- |
-| `Name` | Yes | 쿼리의 이름 | 문자열 |
+| `Name` | 예 | 쿼리의 이름 | 문자열 |
 | `Description` | No | 쿼리가 반환 하는 내용에 대 한 설명 | 문자열 |
-| `Query` | Yes | 보고서 쿼리 문자열 | 데이터 형식: 문자열<br>비즈니스 요구를 기반으로 하는 [사용자 지정 쿼리](analytics-sample-queries.md) |
+| `Query` | 예 | 보고서 쿼리 문자열 | 데이터 형식: 문자열<br>비즈니스 요구를 기반으로 하는 [사용자 지정 쿼리](analytics-sample-queries.md) |
 |||||
 
 > [!NOTE]
@@ -148,7 +148,7 @@ ms.locfileid: "102584090"
 
 *요청 헤더*
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------ | ---- | ----------- |
 | 권한 부여 | 문자열 | 필수 요소. Azure Active Directory (Azure AD) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 콘텐츠 유형 | 문자열 | `application/JSON` |
@@ -183,17 +183,17 @@ ms.locfileid: "102584090"
 
 | 매개 변수 | 필수 | Description | 허용되는 값 |
 | ------------ | ------------- | ------------- | ------------- |
-| `ReportName` | Yes | 보고서에 할당 된 이름 | 문자열 |
+| `ReportName` | 예 | 보고서에 할당 된 이름 | 문자열 |
 | `Description` | No | 만든 보고서에 대 한 설명 | 문자열 |
-| `QueryId` | Yes | 보고서 쿼리 ID | 문자열 |
-| `StartTime` | Yes | 보고서 생성이 시작 되는 UTC 타임 스탬프입니다.<br>형식: yyyy-mm-dd: mm-Yyyy-mm-ddthh: MM: ssZ | 문자열 |
-| `RecurrenceInterval` | Yes | 보고서를 생성 해야 하는 빈도입니다.<br>최소값은 4이 고 최대값은 90입니다. | 정수 |
-| `RecurrenceCount` | No | 생성할 보고서 수입니다. | 정수 |
-| `Format` | No | 내보낸 파일의 파일 형식입니다.<br>기본 형식은입니다. CSV. | CSV/TSV |
-| `CallbackUrl` | No | 필요에 따라 콜백 대상으로 구성할 수 있는 공개적으로 연결할 수 있는 URL입니다. | 문자열 (http URL) |
-| `ExecuteNow` | No | 이 매개 변수는 한 번만 실행 되는 보고서를 만드는 데 사용 해야 합니다. `StartTime``RecurrenceInterval` `RecurrenceCount` 로 설정 된 경우, 및는 무시 됩니다 `true` . 보고서는 비동기 방식으로 즉시 실행 됩니다. | true/false |
-| `QueryStartTime` | No | 필요에 따라 데이터를 추출 하는 쿼리의 시작 시간을 지정 합니다. 이 매개 변수는가로 설정 된 일회성 실행 보고서에만 적용 됩니다 `ExecuteNow` `true` . 서식 지정은 yyyy-mm-dd: mm: Yyyy-mm-ddthh: MM: ssZ | 문자열로 된 타임 스탬프 |
-| `QueryEndTime` | No | 필요에 따라 데이터를 추출 하는 쿼리의 종료 시간을 지정 합니다. 이 매개 변수는가로 설정 된 일회성 실행 보고서에만 적용 됩니다 `ExecuteNow` `true` . 서식 지정은 yyyy-mm-dd: mm: Yyyy-mm-ddthh: MM: ssZ | 문자열로 된 타임 스탬프 |
+| `QueryId` | 예 | 보고서 쿼리 ID | 문자열 |
+| `StartTime` | 예 | 보고서 생성이 시작 되는 UTC 타임 스탬프입니다.<br>형식: yyyy-mm-dd: mm-Yyyy-mm-ddthh: MM: ssZ | 문자열 |
+| `RecurrenceInterval` | 예 | 보고서를 생성 해야 하는 빈도입니다.<br>최소값은 4이 고 최대값은 90입니다. | 정수 |
+| `RecurrenceCount` | 아니요 | 생성할 보고서 수입니다. | 정수 |
+| `Format` | 아니요 | 내보낸 파일의 파일 형식입니다.<br>기본 형식은입니다. CSV. | CSV/TSV |
+| `CallbackUrl` | 아니요 | 필요에 따라 콜백 대상으로 구성할 수 있는 공개적으로 연결할 수 있는 URL입니다. | 문자열 (http URL) |
+| `ExecuteNow` | 아니요 | 이 매개 변수는 한 번만 실행 되는 보고서를 만드는 데 사용 해야 합니다. `StartTime``RecurrenceInterval` `RecurrenceCount` 로 설정 된 경우, 및는 무시 됩니다 `true` . 보고서는 비동기 방식으로 즉시 실행 됩니다. | true/false |
+| `QueryStartTime` | 아니요 | 필요에 따라 데이터를 추출 하는 쿼리의 시작 시간을 지정 합니다. 이 매개 변수는가로 설정 된 일회성 실행 보고서에만 적용 됩니다 `ExecuteNow` `true` . 서식 지정은 yyyy-mm-dd: mm: Yyyy-mm-ddthh: MM: ssZ | 문자열로 된 타임 스탬프 |
+| `QueryEndTime` | 아니요 | 필요에 따라 데이터를 추출 하는 쿼리의 종료 시간을 지정 합니다. 이 매개 변수는가로 설정 된 일회성 실행 보고서에만 적용 됩니다 `ExecuteNow` `true` . 서식 지정은 yyyy-mm-dd: mm: Yyyy-mm-ddthh: MM: ssZ | 문자열로 된 타임 스탬프 |
 |||||
 
 *샘플 응답*
@@ -271,7 +271,7 @@ ms.locfileid: "102584090"
 
 *요청 헤더*
 
-| header | 유형 | Description |
+| 헤더 | Type | Description |
 | ------ | ------ | ------ |
 | 권한 부여 | 문자열 | 필수 요소. Azure Active Directory (Azure AD) 액세스 토큰입니다. 형식은 `Bearer <token>`입니다. |
 | 내용 유형 | 문자열 | `application/json` |
@@ -287,8 +287,8 @@ ms.locfileid: "102584090"
 | ------------ | ------------- | ------------- | ------------- |
 | `reportId` | 예 | 문자열 | 이 인수에 지정 된를 사용 하는 보고서에 대 한 실행 세부 정보를 가져오려면 필터를 사용 `reportId` 합니다. Multiple은 `reportIds` 세미콜론 ";"으로 구분 하 여 지정할 수 있습니다. |
 | `executionId` | 예 | 문자열 | 이 인수에 지정 된를 사용 하 여 보고서의 세부 정보만 가져오도록 필터링 `executionId` 합니다. Multiple은 `executionIds` 세미콜론 ";"으로 구분 하 여 지정할 수 있습니다. |
-| `executionStatus` | No | 문자열/열거형 | 이 인수에 지정 된를 사용 하 여 보고서의 세부 정보만 가져오도록 필터링 `executionStatus` 합니다.<br>유효한 값은 `Pending` ,, `Running` `Paused` 및입니다. `Completed` <br>기본값은 `Completed`입니다. 여러 상태를 세미콜론 (";")으로 구분 하 여 지정할 수 있습니다. |
-| `getLatestExecution` | No | boolean | API는 최신 보고서 실행에 대 한 세부 정보를 반환 합니다.<br>이 매개 변수는 기본적으로 `true`로 설정됩니다. 이 매개 변수의 값을로 전달 하도록 선택 하는 경우 `false` API는 최근 90 일 실행 인스턴스를 반환 합니다. |
+| `executionStatus` | 아니요 | 문자열/열거형 | 이 인수에 지정 된를 사용 하 여 보고서의 세부 정보만 가져오도록 필터링 `executionStatus` 합니다.<br>유효한 값은 `Pending` ,, `Running` `Paused` 및입니다. `Completed` <br>기본값은 `Completed`입니다. 여러 상태를 세미콜론 (";")으로 구분 하 여 지정할 수 있습니다. |
+| `getLatestExecution` | 아니요 | boolean | API는 최신 보고서 실행에 대 한 세부 정보를 반환 합니다.<br>이 매개 변수는 기본적으로 `true`로 설정됩니다. 이 매개 변수의 값을로 전달 하도록 선택 하는 경우 `false` API는 최근 90 일 실행 인스턴스를 반환 합니다. |
 |||||
 
 *요청 페이로드*

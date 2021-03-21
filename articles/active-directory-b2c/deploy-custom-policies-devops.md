@@ -12,10 +12,10 @@ ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 13f5f8da0bd58cef0974e8ea8f5f3c5172daa0ba
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96928735"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
@@ -31,7 +31,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 > [!IMPORTANT]
 > Azure 파이프라인을 사용 하 여 사용자 지정 정책 Azure AD B2C 관리는 현재 Microsoft Graph API 끝점에서 사용할 수 있는 **미리 보기** 작업을 사용 `/beta` 합니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다. 자세한 내용은 [Microsoft Graph REST API beta 끝점 참조](/graph/api/overview?toc=.%2fref%2ftoc.json&view=graph-rest-beta)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [B2C IEF 정책 관리자](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
@@ -46,7 +46,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 
 [필수 구성 요소](#prerequisites)에 설명 된 대로, Azure Pipelines에서 실행 되는 PowerShell 스크립트가 테 넌 트의 리소스에 액세스 하는 데 사용할 수 있는 응용 프로그램 등록이 필요 합니다.
 
-자동화 작업에 사용 하는 응용 프로그램 등록이 이미 있는 경우 **Microsoft Graph**  >  **Policy**  >  앱 등록의 **API 권한** 내에서 Microsoft Graph 정책 **정책. ReadWrite. trustframework** 권한이 부여 되었는지 확인 합니다.
+자동화 작업에 사용 하는 응용 프로그램 등록이 이미 있는 경우   >    >  앱 등록의 **API 권한** 내에서 Microsoft Graph 정책 **정책. ReadWrite. trustframework** 권한이 부여 되었는지 확인 합니다.
 
 관리 응용 프로그램을 등록 하는 방법에 대 한 지침은 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md)를 참조 하세요.
 

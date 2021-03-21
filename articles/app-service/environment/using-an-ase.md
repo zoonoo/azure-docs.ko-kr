@@ -8,10 +8,10 @@ ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: a7fa9ece3728214fad31f0bae769e1e50206df7e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594058"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
@@ -161,7 +161,7 @@ ILB ASE를 사용 하 여 게시 끝점은 ILB를 통해서만 사용할 수 있
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 앱의 게시 프로필과 앱의 포털 창 ( **개요**  >  **필수** 및 **속성**)에서 볼 수 있습니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ASE에는 ASE의 모든 앱에 대해 1TB의 저장소가 있습니다. 격리 가격 SKU의 App Service 요금제는 250 GB로 제한 됩니다. ASE에서 250 GB의 저장소는 1TB 제한까지 App Service 계획 마다 추가 됩니다. 4 개 보다 많은 App Service 요금제를 사용할 수 있지만 1TB 제한을 초과 하는 저장소는 더 이상 추가 되지 않습니다.
 
@@ -226,7 +226,7 @@ Ase 여러 개 있는 경우 일부 Ase을 다른 사용자 보다 먼저 업그
 
 업그레이드 **기본 설정** 기능을 사용 하면 "초기" Ase "Ase" ase 이전에 업그레이드 되기 때문에 여러 개의이 있는 경우에 가장 적합 합니다. 여러 Ase이 있는 경우 개발 및 테스트 Ase를 "초기"로 설정 하 고 프로덕션 Ase "후기"로 설정 해야 합니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 *격리* 라고 불리는 가격 책정 SKU는 ase 사용 하기 위한 것입니다. ASE에서 호스트 되는 모든 App Service 계획은 격리 가격 책정 SKU에 있습니다. App Service 요금제에 대 한 격리 된 요금은 지역별로 다를 수 있습니다.
 

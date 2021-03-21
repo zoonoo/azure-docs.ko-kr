@@ -1,5 +1,5 @@
 ---
-title: 대상 그룹에 대 한 기능의 스테이징 된 롤아웃 사용
+title: 대상 그룹에 대한 기능 단계적 롤아웃 사용
 titleSuffix: Azure App Configuration
 description: 대상 그룹에 대해 준비 된 기능 롤아웃을 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 ms.service: azure-app-configuration
@@ -8,13 +8,13 @@ ms.author: alkemper
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.openlocfilehash: c415eaeab2edd0a1b324bba4266266201cb50cbf
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96929687"
 ---
-# <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>대상 그룹에 대 한 기능의 스테이징 된 롤아웃 사용
+# <a name="enable-staged-rollout-of-features-for-targeted-audiences"></a>대상 그룹에 대한 기능 단계적 롤아웃 사용
 
 기능 플래그를 사용 하면 응용 프로그램의 기능을 동적으로 활성화 하거나 비활성화할 수 있습니다. 기능 필터는 평가할 때마다 기능 플래그의 상태를 결정 합니다. `Microsoft.FeatureManagement`라이브러리에는 `TargetingFilter` 지정 된 사용자 및 그룹 목록에 대 한 기능 플래그를 사용 하도록 설정 하거나 지정 된 사용자 비율을 나타내는가 포함 됩니다. `TargetingFilter` "고정" 됩니다. 즉, 개별 사용자가 기능을 받은 후에는 이후의 모든 요청에서 해당 기능을 계속 확인할 수 있습니다. `TargetingFilter`를 사용 하 여 데모 중에 특정 계정에 대해 기능을 사용 하도록 설정 하 여 다른 그룹 또는 "링" 등의 사용자에 게 새 기능을 점진적으로 롤아웃할 수 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "96929687"
    dotnet add package Microsoft.FeatureManagement.AspNetCore
    ```
 
-1. *TestTargetingContextAccessor.cs* 파일을 추가 합니다.
+1. *Testtargetingcontextaccessor .cs* 파일을 추가 합니다.
 
     ```csharp
     using Microsoft.AspNetCore.Http;
@@ -91,7 +91,7 @@ ms.locfileid: "96929687"
     }
     ```
 
-1. *Startup.cs* 에서 다음과 같이 참조를 추가 합니다 *.*
+1. *시작 .cs* 에서 다음과 같이 *Microsoft Featuremanagement. featuremanagement* 네임 스페이스에 대 한 참조를 추가 합니다.
 
     ```csharp
     using Microsoft.FeatureManagement.FeatureFilters;
@@ -155,8 +155,8 @@ ms.locfileid: "96929687"
 
     이러한 설정으로 인해 다음과 같은 동작이 발생 합니다.
 
-    - 사용자 `test@contoso.com` `test@contoso.com` 섹션에가 표시 _Users_ 되기 때문에 기능 플래그는 항상 사용자에 대해 사용 하도록 설정 됩니다.
-    - _Contoso.com_ _50_ 가 _contoso.com_ 그룹에 있는 다른 사용자의 50%에 대해 기능 플래그를 사용 하도록 설정 되어 있습니다 _Groups_ . _Percentage_
+    - 사용자 `test@contoso.com` `test@contoso.com` 섹션에가 표시  되기 때문에 기능 플래그는 항상 사용자에 대해 사용 하도록 설정 됩니다.
+    - _Contoso.com_ _50_ 가 _contoso.com_ 그룹에 있는 다른 사용자의 50%에 대해 기능 플래그를 사용 하도록 설정 되어 있습니다  . 
     - _기본 백분율이_ _0_ 으로 설정 되어 있기 때문에 다른 모든 사용자에 대해서는이 기능을 항상 사용할 수 없습니다.
 
 1. **적용** 을 선택 하 여 이러한 설정을 저장 하 고 **기능 관리자** 화면으로 돌아갑니다.
@@ -167,7 +167,7 @@ ms.locfileid: "96929687"
 
 이 기능 플래그의 효과를 확인 하려면 응용 프로그램을 빌드하고 실행 합니다. 처음에는 _기본 백분율_ 옵션이 0으로 설정 되어 있으므로 *베타* 항목이 도구 모음에 표시 되지 않습니다.
 
-이제 `test@contoso.com` 등록할 때 설정한 암호를 사용 하 여로 로그인 합니다. *Beta* `test@contoso.com` 가 대상 사용자로 지정 되어 있으므로 이제 베타 항목이 도구 모음에 표시 됩니다.
+이제 `test@contoso.com` 등록할 때 설정한 암호를 사용 하 여로 로그인 합니다.  `test@contoso.com` 가 대상 사용자로 지정 되어 있으므로 이제 베타 항목이 도구 모음에 표시 됩니다.
 
 다음 비디오에서는 이러한 동작을 보여 줍니다.
 

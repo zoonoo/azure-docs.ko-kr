@@ -9,10 +9,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700578"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
@@ -48,7 +48,7 @@ Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을
 
 ![Azure 리소스 그래프 KQL 쿼리 스크린샷](./media/workbooks-data-sources/azure-resource-graph.png)
 
-## <a name="azure-resource-manager"></a>Azure 리소스 관리자
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 
 통합 문서는 Azure Resource Manager REST 작업을 지원 합니다. 이렇게 하면 고유한 권한 부여 헤더 토큰을 제공할 필요 없이 management.azure.com 끝점을 쿼리할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure 리소스는 통합 문서를 통해 액세스할 수 있는 [메트릭을
 > [!NOTE]
 > `GET`, `POST` 및 `HEAD` 작업만 현재 지원 됩니다.
 
-## <a name="azure-data-explorer"></a>Azure Data Explorer
+## <a name="azure-data-explorer"></a>Azure 데이터 탐색기
 
 이제 통합 문서에서 강력한 [Kusto](/azure/kusto/query/index) 쿼리 언어를 사용 하 여 [Azure 데이터 탐색기](/azure/data-explorer/) 클러스터에서 쿼리를 지원 합니다.
 

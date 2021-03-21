@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
 ms.openlocfilehash: 3f3e945a00ec7bba75deebb56118d45aa7ff571d
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100530725"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Azure 센티널에서 사용자 및 엔터티 동작 분석 (UEBA) 사용 
@@ -27,7 +27,7 @@ ms.locfileid: "100530725"
 >
 > - UEBA 및 엔터티 페이지 기능은 이제 **_모든_** Azure 센티널 지역 및 지역에서 **일반** 공급으로 제공 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 기능을 사용 하거나 사용 하지 않도록 설정 하려면 (이러한 필수 구성 요소는 기능을 사용 하는 데 필요 하지 않음):
 

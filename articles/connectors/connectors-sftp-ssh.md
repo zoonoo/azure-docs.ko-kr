@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/08/2021
 tags: connectors
 ms.openlocfilehash: 983e0d34692d67302e11c35abac590fefd610b2e
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102449631"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
@@ -55,15 +55,15 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
   |--------|------------------|-----------------------------|
   | **파일 복사** | 아니요 | 해당 없음 |
   | **파일 만들기** | 예 | 예 |
-  | **폴더 만들기** | 해당 없음 | 해당 없음 |
-  | **파일 삭제** | 해당 없음 | 해당 없음 |
-  | **폴더에 보관 추출** | 해당 없음 | 해당 없음 |
+  | **폴더 만들기** | 해당 사항 없음 | 해당 사항 없음 |
+  | **파일 삭제** | 해당 사항 없음 | 해당 사항 없음 |
+  | **폴더에 보관 추출** | 해당 사항 없음 | 해당 사항 없음 |
   | **파일 콘텐츠 가져오기** | 예 | 예 |
   | **경로를 사용하여 파일 콘텐츠 가져오기** | 예 | 예 |
-  | **파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
-  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
-  | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
-  | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
+  | **파일 메타데이터 가져오기** | 해당 사항 없음 | 해당 사항 없음 |
+  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 사항 없음 | 해당 사항 없음 |
+  | **폴더의 파일 나열** | 해당 사항 없음 | 해당 사항 없음 |
+  | **파일 이름 바꾸기** | 해당 사항 없음 | 해당 사항 없음 |
   | **파일 업데이트** | 아니요 | 해당 없음 |
   ||||
 
@@ -87,7 +87,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -148,7 +148,7 @@ SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 

@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 monikerRange: '>=iotedge-2020-11'
 ms.openlocfilehash: 1070a4c8daecfedae513f2fd8738c27abfb33078
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200575"
 ---
 # <a name="configure-the-api-proxy-module-for-your-gateway-hierarchy-scenario-preview"></a>게이트웨이 계층 시나리오에 대 한 API 프록시 모듈 구성 (미리 보기)
@@ -111,7 +111,7 @@ API 프록시 모듈은 일반적인 시나리오를 지원 하 고 사용자 �
 
 API 프록시 모듈의 일반적인 사용 사례는 하위 계층의 IoT Edge 장치가 컨테이너 이미지를 끌어올 수 있도록 하는 것입니다. 이 시나리오에서는 [Docker 레지스트리 모듈](https://hub.docker.com/_/registry) 을 사용 하 여 클라우드에서 컨테이너 이미지를 검색 하 고 최상위 계층에 캐시 합니다. API 프록시는 모든 HTTPS 요청을 릴레이 하 여 하위 계층에서 컨테이너 이미지를 다운로드 하 고 최상위 계층의 레지스트리 모듈에서 제공 합니다.
 
-이 시나리오에서 다운스트림 IoT Edge 장치는 `$upstream` 이미지의 컨테이너 레지스트리 대신 도메인 이름과 API 프록시 모듈 포트 번호를 차례로 가리켜야 합니다. 예: `$upstream:8000/azureiotedge-api-proxy:1.0`.
+이 시나리오에서 다운스트림 IoT Edge 장치는 `$upstream` 이미지의 컨테이너 레지스트리 대신 도메인 이름과 API 프록시 모듈 포트 번호를 차례로 가리켜야 합니다. 예를 들어 `$upstream:8000/azureiotedge-api-proxy:1.0`을 참조하십시오.
 
 이 사용 사례는 자습서에서 [게이트웨이를 사용 하 여 IoT Edge 장치 계층 구조 만들기](tutorial-nested-iot-edge.md)에 설명 되어 있습니다.
 
@@ -125,8 +125,8 @@ API 프록시 모듈의 일반적인 사용 사례는 하위 계층의 IoT Edge 
 
     | Name | 값 |
     | ---- | ----- |
-    | `DOCKER_REQUEST_ROUTE_ADDRESS` | 레지스트리 모듈 이름 및 열린 포트입니다. 예들 들어 `registry:5000`입니다. |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `DOCKER_REQUEST_ROUTE_ADDRESS` | 레지스트리 모듈 이름 및 열린 포트입니다. 예: `registry:5000` |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예: `8000` |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -151,7 +151,7 @@ API 프록시 모듈의 일반적인 사용 사례는 하위 계층의 IoT Edge 
 
     | Name | 값 |
     | ---- | ----- |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예: `8000` |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -183,8 +183,8 @@ API 프록시 모듈의 또 다른 사용 사례는 더 낮은 계층에서 IoT 
 
     | Name | 값 |
     | ---- | ----- |
-    | `BLOB_UPLOAD_ROUTE_ADDRESS` | Blob 저장소 모듈 이름 및 열린 포트입니다. 예들 들어 `azureblobstorageoniotedge:1102`입니다. |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `BLOB_UPLOAD_ROUTE_ADDRESS` | Blob 저장소 모듈 이름 및 열린 포트입니다. 예: `azureblobstorageoniotedge:1102` |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예: `8000` |
 
   * 다음 createOptions를 구성 합니다.
 
@@ -209,7 +209,7 @@ API 프록시 모듈의 또 다른 사용 사례는 더 낮은 계층에서 IoT 
 
     | Name | 값 |
     | ---- | ----- |
-    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예들 들어 `8000`입니다. |
+    | `NGINX_DEFAULT_PORT` | Nginx 프록시가 다운스트림 장치에서 요청을 수신 대기 하는 포트입니다. 예: `8000` |
 
   * 다음 createOptions를 구성 합니다.
 

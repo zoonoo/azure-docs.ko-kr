@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
 ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564514"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
@@ -119,7 +119,7 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 
 이러한 추적 이벤트의 수집을 사용하기 위해 IIS 7에서 경과 시간 또는 오류 응답 코드를 기반으로 하는 특정 요청에 대해 XML 형식의 전체 추적 로그를 자동으로 캡처하도록 구성할 수 있습니다.
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 이 섹션에서는 Azure Storage 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)
@@ -292,7 +292,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 
 [Azure Security Center](../../security-center/security-center-introduction.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
-## <a name="compute"></a>컴퓨팅
+## <a name="compute"></a>Compute
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신

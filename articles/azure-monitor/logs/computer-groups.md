@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031092"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
@@ -20,7 +20,7 @@ Azure Monitor의 컴퓨터 그룹을 사용 하 여 [로그 쿼리의](./log-que
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 방법 | 설명 |
+| 메서드 | 설명 |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
@@ -49,7 +49,7 @@ Heartbeat | where Computer contains "srv" | distinct Computer
 
 | 속성 | 설명 |
 |:---|:---|
-| 속성   | 포털에 표시할 쿼리의 이름입니다. |
+| Name   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
 | 범주       | 포털에서 쿼리를 구성할 범주입니다. |
 

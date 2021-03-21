@@ -9,10 +9,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/12/2020
 ms.openlocfilehash: 57cb1c405e00acb346421d64190a71e9211d21ff
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96938837"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-purview"></a>Azure 부서의 범위를 사용 하 여 리소스에 대 한 할당량 관리 및 늘리기

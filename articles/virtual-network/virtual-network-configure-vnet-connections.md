@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 9a0d06a8f8fa8f68f063404f2b483b817eb0563f
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452104"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>가상 네트워크 또는 VPN 연결 구성 및 유효성 검사
@@ -258,7 +258,7 @@ SKU를 확인 하면 20 분에서 30 분의 가동 중지 시간이 발생 합�
 
 ### <a name="validate-the-bgp-configuration"></a>BGP 구성 유효성 검사
 
-BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 다음은 그 예입니다.
+BGP가 올바르게 구성 되어 있는지 확인 하려면 `get-AzureRmVirtualNetworkGateway` 및 commandlets을 실행할 수 있습니다 `get-AzureRmLocalNetworkGateway` . 그런 다음 파트에서 BGP 관련 출력을 확인할 수 있습니다 `BgpSettingsText` . 예를 들면 다음과 같습니다.
 
 ```
 {

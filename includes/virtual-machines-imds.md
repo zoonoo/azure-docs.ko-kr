@@ -9,10 +9,10 @@ ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
 ms.openlocfilehash: 357223751112af03bf797ae9a0e6352a10132ab9
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464970"
 ---
 IMDS (Azure Instance Metadata Service)는 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 합니다. 가상 컴퓨터를 관리 하 고 구성 하는 데 사용할 수 있습니다.
@@ -23,7 +23,7 @@ IMDS는 Vm (가상 머신) 및 가상 머신 확장 집합 인스턴스의 인�
 IMDS는 잘 알려진 라우팅할 수 없는 IP 주소 ()에서 사용할 수 있는 REST API입니다 `169.254.169.254` . VM 내 에서만 액세스할 수 있습니다. VM과 IMDS 간의 통신은 호스트를 유지 하지 않습니다.
 IMDS를 쿼리할 때 HTTP 클라이언트가 VM 내에서 웹 프록시를 우회 하도록 하 고와 동일 하 게 처리 `169.254.169.254` [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md) 합니다.
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 ### <a name="access-azure-instance-metadata-service"></a>Azure Instance Metadata Service 액세스
 
@@ -96,7 +96,7 @@ IMDS는 프록시 뒤에서 사용 하기 위한 것이 **아니며** 지원 되
 
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
-IMDS 끝점은 HTTP 쿼리 문자열 매개 변수를 지원 합니다. 예를 들어: 
+IMDS 끝점은 HTTP 쿼리 문자열 매개 변수를 지원 합니다. 예를 들면 다음과 같습니다. 
 
 ```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
@@ -104,7 +104,7 @@ http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=j
 
 매개 변수를 지정 합니다.
 
-| 이름 | 값 |
+| Name | 값 |
 |------|-------|
 | `api-version` | `2019-06-04`
 | `format` | `json`
@@ -252,7 +252,7 @@ IMDS는 버전이 지정 되며 HTTP 요청에서 API 버전을 지정 하는 �
 
 IMDS에 대 한 전체 Swagger 정의는 다음 위치에서 제공 됩니다. https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 서비스는 일반적으로 모든 Azure 클라우드에서 **사용할 수** 있습니다.
 
@@ -264,7 +264,7 @@ IMDS에 대 한 전체 Swagger 정의는 다음 위치에서 제공 됩니다. h
 
 IMDS API에는 서로 다른 데이터 소스를 나타내는 여러 끝점 범주가 포함 되어 있으며, 각 끝점에는 하나 이상의 끝점이 포함 되어 있습니다. 자세한 내용은 각 범주를 참조 하세요.
 
-| 범주 루트 | 설명 | 도입된 버전 |
+| 범주 루트 | Description | 도입된 버전 |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 | `/metadata/identity` | [IMDS를 통한 관리 되는 id](#managed-identity) 참조 | 2018-02-01
@@ -911,7 +911,7 @@ GET /metadata/attested/document
 | 속성 | 필수/선택 | 설명 |
 |------|-------------------|-------------|
 | `api-version` | 필수 | 요청을 처리 하는 데 사용 되는 버전입니다.
-| `nonce` | Optional | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
+| `nonce` | 선택 사항 | 암호화 nonce 역할을 하는 10 자리 문자열입니다. 값을 제공 하지 않으면 IMDS는 현재 UTC 타임 스탬프를 사용 합니다.
 
 #### <a name="response"></a>응답
 
@@ -1169,7 +1169,7 @@ IMDS를 사용 하 여 예약 된 이벤트의 상태를 가져올 수 있습니
 
     ### <a name="windows"></a>[Windows](#tab/windows/)
 
-    1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들어:
+    1. 로컬 라우팅 테이블을 덤프 하 고 IMDS 항목을 찾습니다. 예를 들면 다음과 같습니다.
         ```console
         > route print
         IPv4 Route Table

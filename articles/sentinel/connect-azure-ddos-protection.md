@@ -10,17 +10,17 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: yelevin
 ms.openlocfilehash: 8089b1e74e88db81c1c15ad2cbf2072abcfff241
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98621348"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Azure DDoS Protection에서 데이터 연결
 
 DDoS (배포 된 서비스 거부) 공격은 응용 프로그램의 리소스를 고갈 시켜 합법적인 사용자가 응용 프로그램을 사용할 수 없게 합니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다. 응용 프로그램 설계 모범 사례와 결합 된 [Azure DDoS protection](../ddos-protection/ddos-protection-overview.md)은 DDoS 공격에 대 한 강력한 방어를 제공 합니다. Azure DDoS Protection 로그를 Azure 센티널에 연결 하 여 통합 문서에서 로그 데이터를 보고,이를 사용 하 여 사용자 지정 경고를 만들고,이를 통합 하 여 조사를 개선할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 

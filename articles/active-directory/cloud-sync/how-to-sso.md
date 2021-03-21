@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c052b0f2ac822de20cf543152f56d4956015a935
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98613686"
 ---
 # <a name="using-single-sign-on-with-cloud-sync"></a>클라우드 동기화에 단일 Sign-On 사용
@@ -30,4 +30,4 @@ ms.locfileid: "98613686"
 ## <a name="next-steps"></a>다음 단계 
 
 - [프로비저닝이란?](what-is-provisioning.md)
-- [Azure AD Connect 클라우드 동기화 란?](what-is-cloud-sync.md)
+- [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)

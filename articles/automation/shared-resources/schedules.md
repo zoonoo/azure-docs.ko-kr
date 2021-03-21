@@ -3,14 +3,14 @@ title: Azure Automation의 일정 관리
 description: 이 문서에서는 Azure Automation에서 일정을 만들고 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149480"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669562"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Azure Automation의 일정 관리
 
@@ -38,7 +38,7 @@ Azure Automation에서 Runbook이 지정된 시간에 시작되도록 예약하�
 
 ## <a name="create-a-schedule"></a>일정 만들기
 
-Azure Portal에서 또는 PowerShell을 사용하여 Runbook에 대한 새 일정을 만들 수 있습니다. 자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 먼저 테스트 전용 Automation 계정으로 일정을 연결한 모든 Runbook을 테스트해야 합니다. 테스트는 예약된 Runbook이 계속 올바르게 작동하는지 검증합니다. 문제가 표시되면 업데이트된 Runbook 버전을 프로덕션으로 마이그레이션하기 전에 문제를 해결하고 필요한 변경 내용을 적용할 수 있습니다.
+Azure Portal PowerShell을 사용 하거나 Azure Resource Manager (ARM) 템플릿을 사용 하 여 runbook에 대 한 새 일정을 만들 수 있습니다. 자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 먼저 테스트 전용 Automation 계정으로 일정을 연결한 모든 Runbook을 테스트해야 합니다. 테스트는 예약된 Runbook이 계속 올바르게 작동하는지 검증합니다. 문제가 표시되면 업데이트된 Runbook 버전을 프로덕션으로 마이그레이션하기 전에 문제를 해결하고 필요한 변경 내용을 적용할 수 있습니다.
 
 > [!NOTE]
 > **모듈** 에서 [Azure 모듈 업데이트](../automation-update-azure-modules.md) 옵션을 선택하여 수동으로 업데이트하지 않는 한 Automation 계정에서 새 버전의 모듈을 자동으로 가져오지 않습니다. Azure Automation은 예약된 새 작업이 실행될 때 Automation 계정의 최신 모듈을 사용합니다. 

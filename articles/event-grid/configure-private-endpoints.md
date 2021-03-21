@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: f8a9ac46596b1c2611ce9df387ac995e8149e7b9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102425348"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
@@ -44,7 +44,7 @@ ms.locfileid: "102425348"
 
             !["개인 끝점-리소스 만들기" 페이지를 보여 주는 스크린샷](./media/configure-private-endpoints/resource-page.png)
     2. **리소스 ID 또는 별칭을 사용 하 여 리소스에 연결** 을 선택 하는 경우 다음 단계를 수행 합니다.
-        1. 리소스의 ID를 입력 합니다. 예: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`  
+        1. 리소스의 ID를 입력 합니다. 예를 들어 `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`을 참조하십시오.  
         2. **리소스** 에 대해 **토픽** 또는 **도메인** 을 입력 합니다. 
         3. 필드 요청 메시지를 추가 합니다. 
         4. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 
@@ -310,7 +310,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>PowerShell 사용
 이 섹션에서는 PowerShell을 사용 하 여 토픽 또는 도메인에 대 한 개인 끝점을 만드는 방법을 보여 줍니다. 
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 조건
 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기를 사용](../active-directory/develop/howto-create-service-principal-portal.md) 하 여 Azure Active Directory 응용 프로그램을 만들고 **디렉터리 (테 넌 트) id**, **응용 프로그램 (클라이언트) id** 및 **응용 프로그램 (클라이언트) 암호** 에 대 한 값을 적어 둡니다. 
 
 ### <a name="prepare-token-and-headers-for-rest-api-calls"></a>REST API 호출에 대 한 토큰 및 헤더 준비 
