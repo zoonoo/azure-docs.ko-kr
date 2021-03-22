@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 1e8d13e7cf302c486bab291ef6482216122b62a3
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 10aa9b06af439fe701c53ef736ec691167560f95
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681077"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102109070"
 ---
 Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보호되도록 하기 위해 다음과 같은 기본 제한이 적용되는 다중 테넌트 서비스입니다. 구독에 대한 최대 제한 값을 높이려면 고객 지원에 문의하세요.
 
@@ -58,7 +58,7 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 | -------- | ------ |
 | 지역 그룹 1 | 미국 중부, 미국 동부, 미국 동부 2, 북유럽, 서유럽, 미국 서부, 미국 서부 2 |
 | 지역 그룹 2 | 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 인도 중부, 일본 동부, 미국 중북부, 미국 중남부, 동남 아시아, 미국 중서부 |
-| 지역 그룹 3 | 캐나다 중부, 동아시아, 프랑스 중부, 한국 중부, 영국 남부 |
+| 지역 그룹 3 | 다른 지역 |
 
 <sup>3</sup> 파이프라인, 데이터 세트 및 연결된 서비스 개체에서 워크로드의 논리적 그룹화를 나타냅니다. 이러한 개체에 대한 제한은 Azure Data Factory를 사용하여 이동 및 처리할 수 있는 데이터 양과는 관련이 없습니다. Data Factory는 크기를 조정하여 페타바이트 규모의 데이터를 처리할 수 있도록 설계되었습니다.
 

@@ -1,20 +1,23 @@
 ---
-title: 빠른 시작 - Teams 모임 참가
+title: 빠른 시작 - 웹앱에서 Teams 모임에 조인
+description: 이 자습서에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 author: chpalm
 ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: fa7f279e13e5dbb59af7eb3a7939be1edf0f7d5d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d022d90aa4558ef5a4973668d4966a30f477a1da
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552846"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660097"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+이 빠른 시작에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
-- 작동하는 [Communication Services 호출 앱](../getting-started-with-calling.md)
+## <a name="prerequisites"></a>필수 구성 요소
+
+- 작동하는 [Communication Services 통화 웹앱](../getting-started-with-calling.md).
 - [Teams 배포](/deployoffice/teams-install)
 
 
@@ -35,6 +38,7 @@ index.html의 코드를 다음 코드 조각으로 바꿉니다.
     <input id="teams-link-input" type="text" placeholder="Teams meeting link"
         style="margin-bottom:1em; width: 300px;" />
         <p>Call state <span style="font-weight: bold" id="call-state">-</span></p>
+        <p><span style="font-weight: bold" id="recording-state"></span></p>
     <div>
         <button id="join-meeting-button" type="button" disabled="false">
             Join Teams Meeting
@@ -55,6 +59,7 @@ client.js 파일의 콘텐츠를 다음 코드 조각으로 바꿉니다.
 
 ```javascript
 import { CallClient } from "@azure/communication-calling";
+import { Features } from "@azure/communication-calling";
 import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
@@ -63,6 +68,7 @@ const meetingLinkInput = document.getElementById('teams-link-input');
 const hangUpButton = document.getElementById('hang-up-button');
 const teamsMeetingJoinButton = document.getElementById('join-meeting-button');
 const callStateElement = document.getElementById('call-state');
+const recordingStateElement = document.getElementById('recording-state');
 
 async function init() {
     const callClient = new CallClient();
@@ -86,9 +92,18 @@ teamsMeetingJoinButton.addEventListener("click", () => {
     // join with meeting link
     call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
     
-    call.on('callStateChanged', () => {
+    call.on('stateChanged', () => {
         callStateElement.innerText = call.state;
     })
+
+    call.api(Features.Recording).on('isRecordingActiveChanged', () => {
+        if (call.api(Features.Recording).isRecordingActive) {
+            recordingStateElement.innerText = "This call is being recorded";
+        }
+        else {
+            recordingStateElement.innerText = "";
+        }
+    });
     // toggle button states
     hangUpButton.disabled = false;
     teamsMeetingJoinButton.disabled = true;

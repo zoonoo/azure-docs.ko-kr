@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: 407bd5679c6afebf26c2e6b768e0f8513ac39123
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: b0ab3cbd2891ef1677c0d4ba7a00821d67714b6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397589"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708954"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -29,27 +29,28 @@ Azure Portal을 사용하여 [애플리케이션 게이트웨이](./overview.md)
 
 ![URL 라우팅 예제](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
 이 예제에서는 애플리케이션 게이트웨이의 백 엔드 서버로 사용될 세 개의 가상 머신을 만듭니다. 또한 가상 머신에 IIS를 설치하여 애플리케이션 게이트웨이가 예상대로 작동하는지 확인합니다.
 
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 1. Azure Portal에서 **리소스 만들기** 를 선택합니다.
 2. 인기 목록에서 **Windows Server 2016 Datacenter** 를 선택합니다.
 3. 가상 머신에 대해 다음 값을 입력합니다.
 
-    - **리소스 그룹** , **새로 만들기** 를 선택한 다음, *myResourceGroupAG* 를 입력합니다.
-    - **가상 머신 이름** : *myVM1*
-    - **지역** : *(미국) 미국 동부*
-    - **사용자 이름** : *azureuser*
-    - **암호** : *Azure123456!* -
+    - **구독** - 해당 구독을 선택합니다.
+    - **리소스 그룹**, **새로 만들기** 를 선택한 다음, *myResourceGroupAG* 를 입력합니다.
+    - **가상 머신 이름**: *myVM1*
+    - **지역**: *(미국) 미국 동부*
+    - **사용자 이름**: 사용자 이름 입력
+    - **암호**: 암호 입력
 
 
 4. **다음: 디스크** 를 선택합니다.
@@ -64,9 +65,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - *10.0.0.0/24* - 서브넷 주소 공간
 7. **확인** 을 선택합니다.
 
-8. **네트워크 인터페이스** 아래에서 서브넷에 대해 **myBackendSubnet** 이 선택되었는지 확인한 다음, **다음: 관리** 를 선택합니다.
-9. **끄기** 를 선택하여 부팅 진단을 사용하지 않도록 설정합니다.
-10. **검토 + 만들기** 를 클릭하고, 요약 페이지에서 설정을 검토한 다음, **만들기** 를 선택합니다.
+8. **서브넷** 아래에서 서브넷에 대해 **myBackendSubnet** 이 선택되었는지 확인한 후, **다음: 관리** 를 선택합니다.
+9. **사용 안 함** 을 선택하여 부팅 진단을 비활성화합니다.
+10. **검토 + 만들기** 를 선택하고 요약 페이지에서 설정을 검토한 다음, **만들기** 를 선택합니다.
 11. *myVM2* 및 *myVM3* 의 가상 머신을 두 개 더 만들고 *MyVNet* 가상 네트워크 및 *myBackendSubnet* 서브넷에 배치합니다.
 
 ### <a name="install-iis"></a>IIS 설치
@@ -91,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
          -Settings $publicSettings
     ```
 
-3. 가상 머신을 두 개 더 만들고 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzVMExtension에서 VMName의 이름과 값으로 *myVM2* 및 *myVM3* 를 입력합니다.
+3. 방금 완료한 단계를 사용하여 다른 가상 머신에 IIS를 설치합니다. Set-AzVMExtension의 VMName 값에 *myVM2* 및 *myVM3* 를 사용합니다.
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
@@ -103,8 +104,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **기본 사항** 탭에서 다음 애플리케이션 게이트웨이 설정에 대한 값을 입력합니다.
 
-   - **리소스 그룹** : 리소스 그룹으로 **myResourceGroupAG** 를 선택합니다.
-   - **애플리케이션 게이트웨이 이름** : 애플리케이션 게이트웨이의 이름으로 *myAppGateway* 를 입력합니다.
+   - **구독**: 구독을 선택합니다.
+   - **리소스 그룹**: 리소스 그룹으로 **myResourceGroupAG** 를 선택합니다.
+   - **애플리케이션 게이트웨이 이름**: 애플리케이션 게이트웨이의 이름에 *myAppGateway* 를 입력합니다.
    - **지역** - **(미국) 미국 동부** 를 선택합니다.
 
         ![새 애플리케이션 게이트웨이 만들기: 기본 사항](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
@@ -120,19 +122,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    > [!NOTE]
    > Application Gateway v2 SKU의 경우 **공용** 프런트 엔드 IP 구성만 선택할 수 있습니다. 프라이빗 프런트 엔드 IP 구성은 현재 v2 SKU에서 사용할 수 없습니다.
 
-2. **퍼블릭 IP 주소** 에 대해 **새로 만들기** 를 선택하고 퍼블릭 IP 주소 이름으로 *myAGPublicIPAddress* 를 입력한 후 **확인** 을 선택합니다. 
+2. **공용 IP 주소** 에 대해 **새로 추가** 를 선택하고 공용 IP 주소 이름으로 *myAGPublicIPAddress* 를 입력한 다음, **확인** 을 선택합니다. 
 3. 완료되면 **다음: 백 엔드** 를 선택합니다.
 
 ### <a name="backends-tab"></a>백 엔드 탭
 
 백 엔드 풀은 요청을 처리하는 백 엔드 서버로 요청을 라우팅하는 데 사용됩니다. 백 엔드 풀은 NIC, 가상 머신 확장 집합, 공용 IP, 내부 IP, FQDN(정규화된 도메인 이름) 및 다중 테넌트 백 엔드(예: Azure App Service)로 구성될 수 있습니다.
 
-1. **백 엔드** 탭에서 **+백 엔드 풀 추가** 를 선택합니다.
+1. **백 엔드** 탭에서 **백 엔드 풀 추가** 를 선택합니다.
 
 2. 열리는 **백 엔드 풀 추가** 창에서 다음 값을 입력하여 빈 백 엔드 풀을 만듭니다.
 
-    - **Name** : 백 엔드 풀의 이름으로 *myBackendPool* 을 입력합니다.
-3. **백 엔드 대상** , **대상 유형** 아래의 드롭다운 목록에서 **가상 머신** 을 선택합니다.
+    - **Name**: 백 엔드 풀의 이름으로 *myBackendPool* 을 입력합니다.
+3. **대상 유형** 아래의 드롭다운 목록에서 **가상 머신** 을 선택합니다.
 
 5. **대상** 에서 **myVM1** 에 대한 네트워크 인터페이스를 선택합니다.
 6. **추가** 를 선택합니다.
@@ -145,26 +147,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **구성** 탭에서 라우팅 규칙을 사용하여 만든 프런트 엔드 및 백 엔드 풀을 연결합니다.
 
-1. **라우팅 규칙** 열에서 **규칙 추가** 를 선택합니다.
+1. **라우팅 규칙** 열에서 **라우팅 규칙 추가** 를 선택합니다.
 
 2. 열리는 **라우팅 규칙 추가** 창에서 **규칙 이름** 으로 *myRoutingRule* 을 입력합니다.
 
 3. 라우팅 규칙에는 수신기가 필요합니다. **라우팅 규칙 추가** 창 내의 **수신기** 탭에서 수신기에 대해 다음 값을 입력합니다.
 
-    - **수신기 이름** : 수신기 이름으로 *myListener* 를 입력합니다.
-    - **프런트 엔드 IP** : **퍼블릭** 을 선택하여 프런트 엔드에 대해 만든 퍼블릭 IP를 선택합니다.
-    - **포트** : 유형 *8080*
+    - **수신기 이름**: 수신기 이름으로 *myListener* 를 입력합니다.
+    - **프런트 엔드 IP**: **퍼블릭** 을 선택하여 프런트 엔드에 대해 만든 퍼블릭 IP를 선택합니다.
+    - **포트**: 유형 *8080*
   
         **수신기** 탭에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **백 엔드 대상** 탭을 선택하여 나머지 라우팅 규칙을 구성합니다.
 
 4. **백 엔드 대상** 탭에서 **백 엔드 대상** 으로 **myBackendPool** 을 선택합니다.
 
-5. **Http 설정** 에서 **새로 만들기** 를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 
+5. **HTTP 설정** 의 경우 **새로 추가** 를 선택하여 새 HTTP 설정을 만듭니다. HTTP 설정에 따라 라우팅 규칙의 동작이 결정됩니다. 
 
 6. 열리는 **HTTP 설정 추가** 창에서 **HTTP 설정 이름** 으로 *myHTTPSetting* 을 입력합니다. **HTTP 설정 추가** 창에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **추가** 를 선택하여 **라우팅 규칙 추가** 창으로 돌아옵니다.
 7. **경로 기반 라우팅** 에서 **경로 기반 규칙을 만들려면 여러 대상을 추가합니다** 를 선택합니다.
 8. **경로** 에 */images/* \*를 입력합니다.
-9. **경로 규칙 이름** 에 *이미지* 를 입력합니다.
+9. **대상 이름** 에 *이미지* 를 입력합니다.
 10. **HTTP 설정** 에 대해 **myHTTPSetting** 을 선택합니다.
 11. **백 엔드 대상** 에 대해 **이미지** 를 선택합니다.
 12. **추가** 를 선택하여 경로 규칙을 저장하고 **라우팅 규칙 추가** 탭으로 돌아갑니다.

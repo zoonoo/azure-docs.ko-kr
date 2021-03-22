@@ -8,18 +8,22 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 6424fc0ff49566fad949b3fba4718acb2bad4cd3
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: c3ee643d525cb5394369aba3b0e803bd1a94c852
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362777"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036239"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>청구 계정을 사용자 지정하여 비용 구성
 
 Microsoft 고객 계약의 청구 계정은 부서, 프로젝트 또는 개발 환경에 대한 요구 사항에 따라 비용을 유연하게 구성할 수 있는 유연성을 제공합니다.
 
 이 문서에서는 Azure Portal을 사용하여 비용을 구성하는 방법에 대해 설명합니다. 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-customer-agreement).
+
+[Microsoft 고객 계약 청구 계정을 사용자 지정하여 비용 구성](https://www.youtube.com/watch?v=7RxTfShGHwU) 비디오를 시청하여 청구 계정에 대한 비용을 구성하는 방법을 알아봅니다.
+
+>[!VIDEO https://www.youtube.com/embed/7RxTfShGHwU]
 
 ## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>청구 프로필 및 청구서 섹션을 사용하여 계정 구성
 
@@ -69,19 +73,19 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 ## <a name="create-a-new-invoice-section"></a>새 청구서 섹션 만들기
 
-청구서 섹션을 만들려면 **청구 프로필 소유자**이거나 **청구 프로필 기여자**여야 합니다. 자세한 내용은 [청구 프로필에 대한 청구서 섹션 관리](understand-mca-roles.md#manage-invoice-sections-for-billing-profile)를 참조하세요.
+청구서 섹션을 만들려면 **청구 프로필 소유자** 이거나 **청구 프로필 기여자** 여야 합니다. 자세한 내용은 [청구 프로필에 대한 청구서 섹션 관리](understand-mca-roles.md#manage-invoice-sections-for-billing-profile)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-section-invoice/search-cmb.png)
 
-3. 왼쪽 창에서 **청구 프로필**을 선택합니다. 목록에서 청구 프로필을 선택합니다. 새 섹션이 선택한 청구 프로필의 청구서에 표시됩니다.
+3. 왼쪽 창에서 **청구 프로필** 을 선택합니다. 목록에서 청구 프로필을 선택합니다. 새 섹션이 선택한 청구 프로필의 청구서에 표시됩니다.
 
    [![청구 프로필 목록을 보여 주는 스크린샷](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-4. 왼쪽 창에서 **청구서 섹션**을 선택한 다음, 페이지 맨 위에서 **추가**를 선택합니다.
+4. 왼쪽 창에서 **청구서 섹션** 을 선택한 다음, 페이지 맨 위에서 **추가** 를 선택합니다.
 
    [![청구서 추가를 보여주는 스크린샷](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
@@ -89,11 +93,11 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
    [![청구서 섹션 만들기 페이지를 보여주는 스크린샷](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
-6. **만들기**를 선택합니다.
+6. **만들기** 를 선택합니다.
 
 ## <a name="create-a-new-billing-profile"></a>새 청구 프로필 만들기
 
-청구 프로필을 만들려면 **청구 계정 소유자**이거나 **청구 계정 기여자**여야 합니다. 자세한 내용은 [청구 계정에 대한 청구 프로필 관리](understand-mca-roles.md#manage-billing-profiles-for-billing-account)를 참조하세요.
+청구 프로필을 만들려면 **청구 계정 소유자** 이거나 **청구 계정 기여자** 여야 합니다. 자세한 내용은 [청구 계정에 대한 청구 프로필 관리](understand-mca-roles.md#manage-billing-profiles-for-billing-account)를 참조하세요.
 
 > [!IMPORTANT]
 >
@@ -101,11 +105,11 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-section-invoice/search-cmb.png)
 
-3. 왼쪽 창에서 **청구 프로필**을 선택한 다음, 페이지 맨 위에서 **추가**를 선택합니다.
+3. 왼쪽 창에서 **청구 프로필** 을 선택한 다음, 페이지 맨 위에서 **추가** 를 선택합니다.
 
    [!['추가'가 선택된 청구 프로필 목록을 보여 주는 스크린샷](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
@@ -113,7 +117,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
     >
     > 청구 프로필 페이지에 추가 단추가 표시되지 않으면 해당 기능은 사용자 계정에서 사용할 수 없습니다. 현재는 Microsoft 담당자와 협력하는 동안 설정된 계정에만 사용할 수 있습니다.
 
-4. 양식을 채우고 **만들기**를 클릭합니다.
+4. 양식을 채우고 **만들기** 를 클릭합니다.
 
    [![청구 프로필 만들기 페이지를 보여주는 스크린샷](./media/mca-section-invoice/mca-add-profile.png)](./media/mca-section-invoice/mca-add-profile-zoomed-in.png#lightbox)
 
@@ -124,7 +128,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
     |청구 주소   | 청구 주소는 청구 프로필에 대해 생성된 청구서에 표시됩니다. |
     |이메일 청구서   | 이메일 청구서 상자를 선택하면 이 청구 프로필에 대한 청구서를 이메일로 받습니다. 옵트인하지 않은 경우 Azure Portal에서 청구서를 보고 다운로드할 수 있습니다.|
 
-5. **만들기**를 선택합니다.
+5. **만들기** 를 선택합니다.
 
 ## <a name="link-charges-to-invoice-sections-and-billing-profiles"></a>청구서 섹션 및 청구 프로필에 요금 연결
 
@@ -134,11 +138,11 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **구독**을 검색합니다.
+2. **구독** 을 검색합니다.
 
    [![Azure Portal의 구독 검색을 보여 주는 스크린샷](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
-3. 페이지 맨 위에서 **추가**를 선택합니다.
+3. 페이지 맨 위에서 **추가** 를 선택합니다.
 
    ![구독 보기의 새 구독 추가 단추를 보여 주는 스크린샷](./media/mca-section-invoice/subscription-add.png)
 
@@ -152,7 +156,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 7. Azure 플랜을 선택하고 구독에 사용할 친숙한 이름을 입력합니다.
 
-9. **만들기**를 클릭합니다.  
+9. **만들기** 를 클릭합니다.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>기존 구독 및 제품 연결
 
@@ -164,21 +168,21 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Cost Management + 청구**를 검색합니다.
+2. **Cost Management + 청구** 를 검색합니다.
 
    ![Cost Management + Billing에 대한 Azure Portal 내 검색을 보여 주는 스크린샷](./media/mca-section-invoice/search-cmb.png)
 
-3. 구독을 새 청구서 섹션에 연결하려면 화면 왼쪽에서 **Azure 구독**을 선택합니다. Azure Marketplace 및 앱 원본 리소스와 같은 다른 제품의 경우 **반복 청구 요금**을 선택합니다.
+3. 구독을 새 청구서 섹션에 연결하려면 화면 왼쪽에서 **Azure 구독** 을 선택합니다. Azure Marketplace 및 앱 원본 리소스와 같은 다른 제품의 경우 **반복 청구 요금** 을 선택합니다.
 
    [![청구서 섹션을 변경하는 옵션을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
 
-4. 페이지에서 새 청구서 섹션에 연결하려는 구독 또는 제품에 대한 줄임표(...)를 클릭합니다. **청구서 섹션 변경**을 선택합니다.
+4. 페이지에서 새 청구서 섹션에 연결하려는 구독 또는 제품에 대한 줄임표(...)를 클릭합니다. **청구서 섹션 변경** 을 선택합니다.
 
 5. 드롭다운에서 새 청구서 섹션을 선택합니다. 드롭다운에는 기존 청구서 섹션과 동일한 청구 프로필에 연결된 청구서 섹션만 표시됩니다.
 
     [![새 청구서 섹션 선택을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
 
-6. **저장**을 선택합니다.
+6. **저장** 을 선택합니다.
 
 ## <a name="things-to-consider-when-adding-new-billing-profiles"></a>새 청구 프로필을 추가할 때 고려해야 할 사항
 
@@ -198,7 +202,7 @@ Azure 블록 Blob 스토리지를 사용하고 있다고 가정합니다. 이 �
 |다음 450TB/월에 대해 TB당 1.77    |  50TB         | 88.5   |
 |합계     |     100TB  | 180.5
 
-이 시나리오에서 100TB의 데이터를 사용하는 데 대한 총 요금은 **180.5**입니다.
+이 시나리오에서 100TB의 데이터를 사용하는 데 대한 총 요금은 **180.5** 입니다.
 
 #### <a name="you-have-multiple-billing-profiles"></a>청구 프로필이 여러 개 있는 경우입니다.
 

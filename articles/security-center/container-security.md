@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 3b5204f1d390388c2dc9a10ac2ca0234f6b0499b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007819"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102101344"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -42,7 +42,7 @@ Security Center가 컨테이너 보안의 이러한 주요 측면에 어떤 도�
 
 다음 스크린샷에서는 자산 인벤토리 페이지와 Security Center로 보호되는 다양한 컨테이너 리소스 종류를 보여줍니다.
 
-:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Security Center 자산 인벤토리 페이지의 컨테이너 관련 리소스" lightbox="./media/container-security/container-security-tab.png":::
+:::image type="content" source="./media/container-security/inventory-container-resources.png" alt-text="Security Center 자산 인벤토리 페이지의 컨테이너 관련 리소스" lightbox="./media/container-security/inventory-container-resources.png":::
 
 ## <a name="vulnerability-management---scanning-container-images"></a>취약성 관리 - 컨테이너 이미지 검사
 
@@ -92,7 +92,7 @@ Security Center에서 수신하고 분석한 항목에 다음이 포함된 것�
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Kubernetes 허용 제어를 사용하여 워크로드 보호 모범 사례
 
-Kubernetes 컨테이너의 워크로드를 보호하기 위한 권장 사항 번들을 보려면 **Kubernetes용 Azure Policy 추가 기능** 을 설치합니다. [확장 자동 프로비저닝 사용](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions)에 설명된 대로 이 추가 기능을 자동 배포할 수도 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
+Kubernetes 컨테이너의 워크로드를 보호하기 위한 권장 사항 번들을 보려면 **Kubernetes용 Azure Policy 추가 기능** 을 설치합니다. [Log Analytics 에이전트 및 확장의 자동 프로비저닝 사용](security-center-enable-data-collection.md#auto-provision-mma)에 설명된 대로 이 추가 기능을 자동 배포할 수도 있습니다. 추가 기능에 대한 자동 프로비저닝이 "켜기"로 설정하면 모든 기존 및 향후 클러스터(추가 기능 설치 요구 사항 충족)에서 확장이 기본적으로 사용하도록 설정됩니다.
 
 [Kubernetes용 Azure Policy 페이지](../governance/policy/concepts/policy-for-kubernetes.md)에 설명된 것처럼, 이 추가 기능은  [Open Policy Agent](https://www.openpolicyagent.org/)에 대한 오픈 소스 [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) 허용 컨트롤러 웹후크를 확장합니다. Kubernetes 허용 컨트롤러는 클러스터 사용 방법을 강제 적용하는 플러그 인입니다. 추가 기능은 Kubernetes 허용 제어의 webhook로 등록되며, 일관적인 중앙 집중식 방식으로 클러스터에 대규모 규약 및 세이프가드를 적용할 수 있습니다. 
 

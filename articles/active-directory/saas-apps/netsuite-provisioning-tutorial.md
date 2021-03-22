@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
-ms.translationtype: MT
+ms.openlocfilehash: b1c03bafd6d97dd6a60defee00d4efe854315631
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696492"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101648087"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 NetSuite 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 NetSuite로 자동으로 프로비저닝 및 프로비저닝 해제를 하도록 NetSuite OneWorld 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
 > [!WARNING]
-> Microsoft에서 NetSuite에 사용자를 프로 비전 하는 데 사용 하는 NetSuite Api의 변경으로 인해이 프로 비전 통합은 2 월 2020에 작동을 중지 합니다. 이로 인해 Azure Active Directory Enterprise 앱 갤러리에서 NetSuite 응용 프로그램의 프로 비전 기능이 곧 제거 될 예정입니다. 응용 프로그램의 SSO 기능은 그대로 유지 됩니다. Microsoft에서 NetSuite를 사용 하 여 새 현대화 프로 비전 통합을 빌드 했지만이 작업이 완료 될 때 현재는 에타가 없습니다.
+> 이 프로비저닝 통합은 사용자를 NetSuite에 사용자를 프로비저닝하기 위해 Microsoft에서 사용하는 NetSuite API의 변경으로 인해 NetSuite의 Spring 2021 업데이트 릴리스에서 작동하지 않습니다.  이 업데이트는 2021년 2월과 4월 사이에 NetSuite 고객에게 제공됩니다. 이로 인해 Azure Active Directory Enterprise 앱 갤러리에서 NetSuite 애플리케이션의 프로비저닝 기능이 곧 제거됩니다. 애플리케이션의 SSO 기능은 그대로 유지됩니다. Microsoft는 NetSuite를 사용하여 새 현대화된 프로비저닝 통합을 빌드했지만, 현재 이 작업이 언제 완료될지에 대한 ETA는 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

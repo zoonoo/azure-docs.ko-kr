@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 766136731cb92b1bd4f0965d4929b1ac5eda14dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 996c974473c53833dd26abae2fb61585999f33b4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690496"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050446"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-invoice"></a>Microsoft 고객 계약 청구서의 용어
 
@@ -22,9 +22,13 @@ ms.locfileid: "88690496"
 
 청구서에는 요금에 대한 요약과 결제 지침이 제공됩니다. [Azure Portal](https://portal.azure.com/)에서 .pdf(Portable Document Format)로 다운로드하고 전자 메일을 통해 전송할 수 있습니다. 자세한 내용은 [Microsoft Azure 청구서 보기 및 다운로드](download-azure-invoice.md)를 참조하세요.
 
+[Microsoft 고객 계약 청구서 비디오 이해](https://www.youtube.com/watch?v=e2LGZZ7GubA)를 시청하여 청구서와 청구서의 요금을 분석하는 방법에 대해 알아봅니다.
+
+>[!VIDEO https://www.youtube.com/embed/e2LGZZ7GubA]
+
 ## <a name="billing-period"></a>청구 기간
 
-청구서는 월 단위로 제공됩니다. [Azure Portal](https://portal.azure.com/)의 청구 프로필 속성 아래에서 *청구서 날짜*를 확인하면 매달 청구서를 받는 날짜를 알 수 있습니다. 청구 기간 종료 날짜와 청구서 날짜 사이에 발생하는 요금은 다음 청구 기간에 속하기 때문에 다음 달 청구서에 포함됩니다. 각 청구서의 청구 기간 시작 및 종료 날짜는 **청구 요약** 위의 청구서 PDF에 나열됩니다.
+청구서는 월 단위로 제공됩니다. [Azure Portal](https://portal.azure.com/)의 청구 프로필 속성 아래에서 *청구서 날짜* 를 확인하면 매달 청구서를 받는 날짜를 알 수 있습니다. 청구 기간 종료 날짜와 청구서 날짜 사이에 발생하는 요금은 다음 청구 기간에 속하기 때문에 다음 달 청구서에 포함됩니다. 각 청구서의 청구 기간 시작 및 종료 날짜는 **청구 요약** 위의 청구서 PDF에 나열됩니다.
 
 ## <a name="invoice-terms-and-descriptions"></a>청구서 용어 및 설명
 
@@ -32,7 +36,7 @@ ms.locfileid: "88690496"
 
 ### <a name="invoice-summary"></a>청구서 요약
 
-**청구서 요약**은 첫 페이지 맨 위에 있고 청구 프로필 및 지불 방법에 대한 정보를 표시합니다.
+**청구서 요약** 은 첫 페이지 맨 위에 있고 청구 프로필 및 지불 방법에 대한 정보를 표시합니다.
 
 ![청구서 요약 섹션](./media/mca-understand-your-invoice/invoicesummary.png)
 
@@ -44,15 +48,15 @@ ms.locfileid: "88690496"
 | P.O. number |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
 | 청구서 번호 |추적 용도로 사용하는 Microsoft에서 생성한 고유 청구서 번호 |
 | 청구서 날짜 |청구서가 생성된 날짜이며 일반적으로 청구 주기 종료 날짜에서 5~12일 후입니다. 청구서 날짜는 청구 프로필 속성에서 확인할 수 있습니다.|
-| 지불 조건 |Microsoft 청구서 지불 방법입니다. *30일*은 청구서 날짜로부터 30일 내에 지불한다는 의미입니다. |
+| 지급 조건 |Microsoft 청구서 지불 방법입니다. *30일* 은 청구서 날짜로부터 30일 내에 지불한다는 의미입니다. |
 
 ### <a name="billing-summary"></a>청구 요약
 
-**청구 요약**에는 이전 청구 기간 이후 청구 프로필에 대한 요금과, 적용된 크레딧, 세금 및 지불 총액이 표시됩니다.
+**청구 요약** 에는 이전 청구 기간 이후 청구 프로필에 대한 요금과, 적용된 크레딧, 세금 및 지불 총액이 표시됩니다.
 
 ![청구 요약 섹션](./media/mca-understand-your-invoice/billingsummary.png)
 
-| 용어 | Description |
+| 용어 | 설명 |
 | --- | --- |
 | Charges|마지막 청구 기간 이후 청구 프로필에 대한 총 Microsoft 요금 수 |
 | 크레딧 |반품에서 받은 크레딧 |
@@ -71,12 +75,12 @@ ms.locfileid: "88690496"
 
 세부 정보에는 각 청구서 섹션에 대한 비용이 제품 주문별로 분류되어 표시됩니다. 각 제품 주문 내에 서비스 유형별로 비용이 분류됩니다. 제품 및 서비스에 대한 일별 요금은 Azure Portal과 Azure 사용량 및 요금 CSV에서 찾을 수 있습니다. 자세한 내용은 [Microsoft 고객 계약에 대한 청구서의 요금 이해](review-customer-agreement-bill.md)를 참조하세요.
 
-각 서비스 제품군에 대한 지불 총액은 *크레딧/요금*에서 *Azure 크레딧*을 빼고 *세금*을 추가하여 계산됩니다.
+각 서비스 제품군에 대한 지불 총액은 *크레딧/요금* 에서 *Azure 크레딧* 을 빼고 *세금* 을 추가하여 계산됩니다.
 
 
 ![청구서 섹션별 세부 정보](./media/mca-understand-your-invoice/invoicesectiondetails.png)
 
-| 용어 |Description |
+| 용어 |설명 |
 | --- | --- |
 | 단가 | 사용량을 평가하는 데 사용되는 서비스의 유효 단가(가격 책정 통화 단위)입니다. 제품, 서비스 제품군, 미터 및 제안에 대해 고유합니다. |
 | 수량 | 청구 기간 동안 구매 또는 소비한 수량 |
@@ -104,6 +108,6 @@ ms.locfileid: "88690496"
 ## <a name="next-steps"></a>다음 단계
 
 - [청구 프로필 청구서의 요금 이해](review-customer-agreement-bill.md)
-- [Azure 청구서 및 일간 사용량 현황 데이터를 가져오는 방법](../manage/download-azure-invoice-daily-usage-date.md)
+- [Azure 청구서 및 일간 사용량 현황 데이터를 받는 방법](../manage/download-azure-invoice-daily-usage-date.md)
 - [조직의 Azure 가격 책정 보기](../manage/ea-pricing.md)
 - [청구 프로필에 대한 세금 문서 보기](mca-download-tax-document.md)

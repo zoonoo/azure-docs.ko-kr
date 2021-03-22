@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0155ed4df9ee2c22d1461633ac9efe225b53f9ca
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 627c6bcd01a11356d1f207aa079c75d4b6194c59
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530513"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093264"
 ---
 # <a name="azure-security-baseline-for-cost-management"></a>Cost Management에 대한 Azure 보안 기준
 
@@ -174,7 +174,7 @@ Azure Cost Management는 기본 제공 역할, 읽기 권한자 및 기여자를
 
 Azure RBAC(역할 기반 액세스 제어)란? ../role-based-access-control/overview.md 
 
-- [Azure에서 RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 

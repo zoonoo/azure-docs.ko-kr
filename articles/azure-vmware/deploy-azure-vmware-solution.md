@@ -4,12 +4,12 @@ description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware S
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652737"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703864"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
@@ -62,7 +62,14 @@ Azure VMware Solution을 배포한 후 vCenter 및 NSX에 연결하는 가상 �
 
 이전 단계에서 만든 점프 상자에 로그인합니다. 로그인되면 웹 브라우저를 열고, vCenter 및 NSX-T Manager로 이동하여 로그인합니다.  
 
-Azure Portal에서 vCenter 및 NSX-T Manager 콘솔의 IP 주소와 자격 증명을 식별할 수 있습니다.  프라이빗 클라우드를 선택한 다음, **개요** 보기에서 **ID > 기본값** 을 차례로 선택합니다. 
+Azure Portal에서 vCenter 및 NSX-T Manager 콘솔의 IP 주소와 자격 증명을 식별할 수 있습니다.  프라이빗 클라우드를 선택한 다음, **관리** > **ID** 를 선택합니다.
+
+>[!TIP]
+>**새 암호 생성** 을 선택하여 새 vCenter 및 NSX-T 암호를 생성합니다.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true":::
+
+
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Azure VMware Solution에서 네트워크 세그먼트 만들기
 

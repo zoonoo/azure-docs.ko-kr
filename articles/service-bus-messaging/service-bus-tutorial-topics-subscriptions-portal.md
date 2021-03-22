@@ -6,12 +6,12 @@ ms.author: spelluru
 ms.date: 10/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2c8d107c6de4965472c3fb04ff626841fb1f6ea
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: d0a94f346f9d3cf7a05a1ca6e1b37d4d008f3e75
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95810732"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179666"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 네임스페이스와 큐를 삭제합니다. 이렇게 하려면 포털에서 이러한 리소스를 선택하고 **삭제** 를 클릭합니다.
+더 이상 필요하지 않은 경우 네임스페이스와 항목을 삭제합니다. 이렇게 하려면 포털에서 이러한 리소스를 선택하고 **삭제** 를 클릭합니다.
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
 

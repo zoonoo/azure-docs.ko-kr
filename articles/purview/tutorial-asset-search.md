@@ -6,13 +6,13 @@ ms.author: daperlov
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: f778a55c206e012884b44c1fea0a63e2de6b481a
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 02/22/2020
+ms.openlocfilehash: 5285d5b2c7cbe6845fb6043fa1096f94254602e7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693340"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677838"
 ---
 # <a name="tutorial-navigate-the-azure-purview-preview-home-page-and-search-for-an-asset"></a>자습서: Azure Purview(미리 보기) 홈 페이지 탐색 및 자산 검색
 
@@ -45,7 +45,7 @@ Azure Purview 홈 페이지를 안내하는 단계는 다음과 같습니다.
 
 1. Azure Portal에서 Azure Purview 리소스로 이동하여 **Purview Studio 열기** 를 선택합니다. Purview Studio 홈 페이지로 자동으로 이동합니다.
 
-   홈 페이지의 위쪽에 카탈로그 이름과 카탈로그 분석 세트가 표시되며, 여기에는 사용자, 데이터 자산 및 용어집 용어의 수가 포함됩니다. 요약에서 총 200개가 넘는 자산과 113개의 용어집 용어가 있음을 확인할 수 있습니다. 이 개수는 조직에서 검사하고 더 많은 용어를 Azure Purview에 추가함에 따라 업데이트됩니다.
+   홈 페이지의 위쪽에 카탈로그 이름과 카탈로그 분석 세트가 표시되며, 여기에는 원본, 데이터 자산 및 용어집 용어의 수가 포함됩니다. 요약에서 총 200개가 넘는 자산과 113개의 용어집 용어가 있음을 확인할 수 있습니다. 이 개수는 조직에서 검사하고 더 많은 용어를 Azure Purview에 추가함에 따라 업데이트됩니다.
 
    :::image type="content" source="./media/tutorial-asset-search/purview-home-page.png" alt-text="Azure Purview 홈 페이지를 보여 주는 스크린샷":::
 

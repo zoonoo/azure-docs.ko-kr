@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 8c69f477f363654b8bd707949f0a5b4c46a4e8df
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 477dff9db28672f8231710af34786ac387f43b71
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561107"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050344"
 ---
 # <a name="view-azure-reservations"></a>Azure 예약 보기
 
@@ -47,8 +47,15 @@ ms.locfileid: "97561107"
 
 ### <a name="how-billing-administrators-view-or-manage-reservations"></a>청구 관리자가 예약을 보거나 관리하는 방법
 
-1. **Cost Management + Billing** 으로 이동한 다음, 페이지 왼쪽에서 **예약 트랜잭션** 을 선택합니다.
-2. 필요한 청구 권한이 있는 경우 예약을 보고 관리할 수 있습니다. 예약이 표시되지 않으면 예약이 생성된 Azure AD 테넌트를 사용하여 로그인했는지 확인합니다.
+Azure RBAC 액세스 권한으로 예약 또는 예약 주문에 액세스할 수 있는 경우 예약으로 이동할 때 예약 트랜잭션의 하위 집합만 표시되거나 아무것도 표시되지 않을 수 있습니다. 다음 단계에 따라 모든 예약 및 예약 트랜잭션을 보고 관리할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Cost Management + Billing** 으로 이동합니다.
+    - EA 관리자인 경우 왼쪽 메뉴에서 **청구 범위** 를 선택한 다음, 청구 범위 목록에서 하나를 선택합니다.
+    - Microsoft 고객 계약 청구 프로필 소유자인 경우 왼쪽 메뉴에서 **청구 프로필** 을 선택합니다. 청구 프로필 목록에서 하나를 선택합니다.
+1. 왼쪽 메뉴에서 **예약 트랜잭션** 을 선택합니다. 예약 트랜잭션 목록이 표시됩니다.
+1. 페이지 상단에 있는 배너에서 *지금 청구 관리자가 예약을 관리할 수 있습니다. 예약을 관리하려면 여기를 클릭합니다.* 를 읽습니다. 배너를 선택합니다.
+1. EA 등록 또는 청구 프로필에 대한 전체 예약 목록이 표시됩니다.
+1. 예약 소유권을 가져오려면 해당 예약을 선택합니다. 그런 다음, 권한 설정 페이지에서 **액세스 권한 부여** 를 선택합니다. 예약 및 예약 주문에 대한 소유자 액세스 권한이 부여됩니다.
 
 ## <a name="view-reservation-and-utilization-in-the-azure-portal"></a>Azure Portal에서 예약 및 사용률 보기
 

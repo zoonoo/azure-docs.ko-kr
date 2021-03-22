@@ -1,5 +1,5 @@
 ---
-title: 에이전트 포트폴리오 개요 및 OS 지원(미리 보기)
+title: 에이전트 포트폴리오 개요 및 OS 지원
 description: Azure Defender for IoT는 디바이스 유형을 기반으로 하는 에이전트의 많은 포트폴리오를 제공합니다.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: f731b034b5d4f795bae51107e9ff4e2e90788d7d
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: e2897018d1695bde665e1d1aca180e5268851a0b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810109"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120150"
 ---
-# <a name="agent-portfolio-overview-and-os-support-preview"></a>에이전트 포트폴리오 개요 및 OS 지원(미리 보기)
+# <a name="agent-portfolio-overview-and-os-support"></a>에이전트 포트폴리오 개요 및 OS 지원 
 
 Azure Defender for IoT는 디바이스 유형을 기반으로 하는 에이전트의 많은 포트폴리오를 제공합니다. 
 
@@ -38,4 +38,4 @@ Azure Defender for IoT 마이크로 에이전트는 Azure RTOS NetX 듀어 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-[독립 실행형 마이크로 에이전트 개요(미리 보기)](concept-standalone-micro-agent-overview.md)에 대해 자세히 알아보세요.
+[독립 실행형 마이크로 에이전트 개요](concept-standalone-micro-agent-overview.md)에 대해 자세히 알아보세요.

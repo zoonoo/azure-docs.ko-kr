@@ -6,15 +6,15 @@ ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 7bc15b369bfa4964384d4f7910d6953bdfeaa664
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 506982a22fd53dfb4f8f3d94735c11fc491469eb
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094168"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097281"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,6 +61,8 @@ Private Link를 사용하면 고객이 [ExpressRoute](../../expressroute/express
 클라이언트는 동일한 가상 네트워크에서 프라이빗 엔드포인트에 연결할 수 있고, 동일한 지역의 가상 네트워크를 피어링 하거나, 가상 네트워크를 통해 지역간 가상 네트워크 연결을 통해 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
 
  ![연결 옵션 다이어그램][1]
+
+또한 가상 네트워크에서 직접 실행되지는 않지만 가상 네트워크와 통합된 서비스(예: App Service 웹앱 또는 함수)는 데이터베이스에 대한 프라이빗 연결을 달성할 수도 있습니다. 이 특정 사용 사례에 대한 자세한 내용은 [Azure SQL 데이터베이스에 대한 프라이빗 연결을 사용하는 웹앱](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) 아키텍처 시나리오를 참조하세요.
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>동일한 가상 네트워크의 Azure VM에서 SQL Database로의 연결 테스트
 
@@ -183,6 +185,7 @@ PolyBase 및 COPY 문은 일반적으로 Azure Storage 계정에서 Azure Synaps
 
 - Azure SQL Database 보안 개요는 [데이터베이스 보안 설정](security-overview.md)을 참조하세요.
 - Azure SQL Database 연결에 대한 개요는 [Azure SQL 연결 아키텍처](connectivity-architecture.md)를 참조하세요.
+- 가상 네트워크 외부의 웹 애플리케이션을 데이터베이스의 프라이빗 엔드포인트에 연결하는 [Azure SQL 데이터베이스에 대한 프라이빗 연결이 있는 웹앱](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) 아키텍처 시나리오에 관심이 있을 수도 있습니다.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

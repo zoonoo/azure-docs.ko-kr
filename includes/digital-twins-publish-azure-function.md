@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 63b393f519ad29baa05fef046ee1e8ba9e5330d8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750398"
 ---
 프로젝트를 Azure의 함수 앱에 게시하려면 *솔루션 탐색기* 에서 프로젝트를 마우스 오른쪽 단추로 선택하고 **게시** 를 선택합니다.
 
@@ -19,15 +19,13 @@ ms.locfileid: "98701165"
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="오른쪽 선택 솔루션 메뉴를 보여주는 Visual Studio의 스크린샷. 메뉴에 게시가 강조 표시됩니다.":::
 
-다음에 나오는 *게시* 페이지에서 기본 대상 선택 항목인 **Azure** 를 그대로 두고 *다음* 을 누릅니다. 
+다음에 나오는 *게시* 페이지에서 기본 대상 선택 항목인 **Azure** 를 그대로 두고 *다음* 을 선택합니다. 
 
-특정 대상에 대해 **Azure 함수 앱(Windows)** 을 선택하고 *다음* 을 누릅니다.
+특정 대상에 대해 **Azure 함수 앱(Windows)** 을 선택하고 *다음* 을 선택합니다.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Azure 함수 게시 대화 상자에서 Visual Studio의 스크린샷. 특정 대상 페이지에서 Azure 함수 앱(Windows)이 선택되었습니다.":::
 
-*Functions 인스턴스* 페이지에서 구독을 선택합니다. 그러면 구독의 *리소스 그룹* 으로 상자가 채워집니다.
-
-인스턴스의 리소스 그룹을 선택하고 *+* 를 눌러 새 Azure 함수를 만듭니다.
+*Functions 인스턴스* 페이지에서 구독을 선택합니다. 그런 다음, *+* 아이콘을 선택하여 새 Azure 함수를 만듭니다.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Azure 함수 게시 대화 상자에서 Visual Studio의 스크린샷. 새 함수를 만드는 + 단추가 함수 인스턴스 페이지에 강조 표시됩니다.":::
 
@@ -37,13 +35,13 @@ ms.locfileid: "98701165"
 * **리소스 그룹** 이 사용하려는 리소스 그룹과 일치하는지 확인합니다.
 * **계획 유형** 을 *소비* 로 둡니다.
 * 리소스 그룹의 위치와 일치하는 **위치** 를 선택합니다.
-* *새로 만들기...* 링크를 사용하여 새 **Azure Storage** 리소스를 만듭니다. 리소스 그룹에 맞게 위치를 설정하고, 다른 기본값을 사용한 다음, "확인"을 누릅니다.
+* *새로 만들기...* 링크를 사용하여 새 **Azure Storage** 리소스를 만듭니다. 리소스 그룹에 맞게 위치를 설정하고, 다른 기본값을 사용하고, "확인"을 선택합니다.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Azure 함수 게시 대화 상자에서 Visual Studio의 스크린샷. 이름, 구독, 리소스 그룹, 계획 유형, 위치 및 Azure Storage를 포함하여 새 함수 앱의 세부 정보가 채워집니다.":::
 
 그런 다음 **만들기** 를 선택합니다.
 
-그러면 이제 리소스 그룹 아래에 새 함수 앱이 표시되는 *Functions 인스턴스* 페이지로 돌아갑니다. *마침* 을 누릅니다.
+앱 서비스를 만드는 동안 잠시 기다린 후 대화 상자가 *Functions 인스턴스* 페이지로 돌아가 새 함수 앱이 리소스 그룹 아래 중첩된 **함수 앱** 영역에 표시됩니다. *마침* 을 선택합니다.
 
 :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Visual Studio에서 Azure 함수 게시: Functions 인스턴스(함수 앱 후)":::
 
@@ -59,4 +57,6 @@ ms.locfileid: "98701165"
 >
 > 프롬프트에 따라 최신 Azure Functions 런타임 버전으로 업그레이드합니다. 이전 버전의 Visual Studio를 사용하는 경우 이 문제가 발생할 수 있습니다.
 
-함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 시스템 관리 ID가 있어야 하며 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있어야 합니다. 이는 다음에 설정하게 됩니다.
+이제 함수 앱이 Azure에 게시됩니다. 
+
+함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있는 시스템 관리 ID가 있어야 합니다. 이는 다음에 설정하게 됩니다.

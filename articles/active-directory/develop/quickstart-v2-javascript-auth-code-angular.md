@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 27064ecfce0114f7d80e464e2a51928a24919856
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: fb7479f7e3b9ac631c164bbddf65ed8be3bab438
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653408"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122649"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-an-angular-spa-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 Angular SPA에 로그인하고 액세스 토큰을 가져옵니다.
 
@@ -27,7 +27,10 @@ ms.locfileid: "101653408"
 
 이 빠른 시작에서는 인증 코드 흐름과 함께 MSAL Angular v2를 사용합니다. 암시적 흐름과 함께 MSAL Angular 1.x를 사용하는 유사한 빠른 시작은 [빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인](./quickstart-v2-angular.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!IMPORTANT]
+> MSAL Angular v2 [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)

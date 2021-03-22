@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 858f006de7425a9fa8bea25e356a148b877aa30d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389538"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040603"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -37,7 +37,7 @@ Azure Migrate 허브에는 다음 도구가 포함되어 있습니다.
 --- | --- | ---
 **Azure Migrate: Server Assessment** | 서버를 평가합니다. | Azure로 마이그레이션하기 위한 준비 과정으로 온-프레미스 VMware VM, Hyper-V VM 및 물리적 서버를 검색하고 평가합니다.
 **Azure Migrate: Server Migration** | 서버를 마이그레이션합니다. | VMware VM, Hyper-V VM, 물리적 서버, 기타 가상화된 머신 및 퍼블릭 클라우드 VM을 Azure로 마이그레이션합니다.
-**데이터 Migration Assistant** | Azure SQL Database, Azure SQL Managed Instance 또는 SQL Server를 실행하는 Azure VM으로 마이그레이션할 SQL Server 데이터베이스를 평가합니다. | Data Migration Assistant는 마이그레이션을 차단하는 잠재적인 문제를 파악하는 데 도움이 됩니다. 이는 지원되지 않는 기능, 마이그레이션 후 유용할 수 있는 새로운 기능, 데이터베이스 마이그레이션의 올바른 경로를 식별합니다. [자세히 알아보기](/sql/dma/dma-overview?view=sql-server-2017).
+**데이터 Migration Assistant** | Azure SQL Database, Azure SQL Managed Instance 또는 SQL Server를 실행하는 Azure VM으로 마이그레이션할 SQL Server 데이터베이스를 평가합니다. | Data Migration Assistant는 마이그레이션을 차단하는 잠재적인 문제를 파악하는 데 도움이 됩니다. 이는 지원되지 않는 기능, 마이그레이션 후 유용할 수 있는 새로운 기능, 데이터베이스 마이그레이션의 올바른 경로를 식별합니다. [자세히 알아보기](/sql/dma/dma-overview).
 **Azure Database Migration Service** | 온-프레미스 데이터베이스를 SQL Server, Azure SQL Database 또는 SQL Managed Instance를 실행하는 Azure VM으로 마이그레이션합니다. | Database Migration Service에 대해 [자세히 알아보기](../dms/dms-overview.md)
 **Movere** | 서버를 평가합니다. | Movere에 대해 [자세히 알아보세요](#movere).
 **Web App Migration Assistant** | 온-프레미스 웹앱을 평가하고 Azure로 마이그레이션합니다. |  Azure App Service Migration Assistant를 사용하여 Azure App Service으로 마이그레이션하기 위한 온-프레미스 웹 사이트를 평가합니다.<br/><br/> 이 Migration Assistant를 사용하여 .NET 및 PHP 웹앱을 Azure로 마이그레이션합니다. Azure App Service Migration Assistant에 대해 [자세히 알아보세요](https://appmigration.microsoft.com/).
@@ -78,6 +78,9 @@ Server Assessment는 온-프레미스에 배포되는 경량 [Azure Migrate 어�
 - 어플라이언스는 온-프레미스 컴퓨터를 검색합니다. 또한 지속적으로 머신 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.
 - 어플라이언스 검색은 에이전트 없이 수행됩니다. 검색된 머신에는 아무 것도 설치되지 않습니다.
 - 어플라이언스 검색 후에는 검색된 머신을 그룹으로 수집하고, 각 그룹에 대한 평가를 실행합니다.
+
+> [!Note]
+> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://go.microsoft.com/fwlink/?linkid=2155668)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate: 서버 마이그레이션 도구
 

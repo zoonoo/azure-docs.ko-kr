@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 21f937d95c6cd0dafa27daae50d7a74648af7bdc
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: acebc75b579b13ebb2cfad0e18057245781165ad
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006109"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175280"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Azure CLI를 사용하여 App Service 앱 만들기 및 프라이빗 엔드포인트 배포
 
@@ -52,7 +52,7 @@ az appservice plan create \
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
 App Service 계획이 있으면 웹앱을 배포할 수 있습니다.
-[az appservice plan create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create를 사용하여 웹앱을 만듭니다.
+[az appservice plan create](/cli/azure/webapp#az-webapp-create를 사용하여 웹앱을 만듭니다.
 다음 예제에서는 *myAppServicePlan* 이라는 계획에 *mySiteName* 이라는 웹앱을 만듭니다.
 
 ```azurecli-interactive

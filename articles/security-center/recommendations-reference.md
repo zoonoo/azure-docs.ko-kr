@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574480"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100409"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
@@ -57,5 +57,5 @@ Security Center 권장 사항은 [Azure 보안 벤치마크](../security/benchma
 
 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)
-- [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
+- [보안 정책, 이니셔티브 및 권장 사항은 무엇인가요?](security-policy-concept.md)
+- [보안 권장 사항 검토](security-center-recommendations.md)

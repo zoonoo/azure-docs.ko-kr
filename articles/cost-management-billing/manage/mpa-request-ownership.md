@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203265"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091480"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -174,4 +174,4 @@ SaaS 제품은 구독과 함께 전송되지 않습니다. [Azure 지원에 문�
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 구독의 청구 소유권이 사용자에게 이전됩니다. [Azure Portal](https://portal.azure.com)에서 이러한 구독에 대한 요금을 추적합니다.
-* 전송된 Azure 구독에 대한 액세스 권한을 얻으려면 고객에게 문의하세요. [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)
+* 전송된 Azure 구독에 대한 액세스 권한을 얻으려면 고객에게 문의하세요. [Azure Portal을 사용하여 Azure 역할을 할당](../../role-based-access-control/role-assignments-portal.md)합니다.

@@ -8,12 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: b527cd7b3f841b6cb3dcf2dce6930f3bd9bcc184
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+zone_pivot_groups: azure-maps-android
+ms.openlocfilehash: 8300a7c120ce816c8068a88fa69f4f978fa664ca
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681245"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034509"
 ---
 # <a name="tutorial-load-geojson-data-into-azure-maps-android-sdk"></a>자습서: GeoJSON 데이터를 Azure Maps Android SDK로 로드
 
@@ -31,13 +32,16 @@ ms.locfileid: "97681245"
 
 ### <a name="import-geojson-data-from-web-or-assets-folder"></a>웹 또는 자산 폴더에서 GeoJSON 데이터 가져오기
 
-대부분의 GeoJSON 파일은 `FeatureCollection` 내에 모든 데이터를 래핑합니다. 이로 인해 GeoJSON 파일이 애플리케이션에 문자열로 로드될 경우, 지도에 추가할 수 있는 GeoJSON `FeatureCollection` 개체로 문자열을 역직렬화하는 기능 컬렉션의 정적 `fromJson` 메서드로 전달될 수 있습니다.
+대부분의 GeoJSON 파일은 `FeatureCollection` 내에 모든 데이터를 래핑합니다. 이로 인해 GeoJSON 파일이 애플리케이션에 문자열로 로드되면 맵에 추가할 수 있는 GeoJSON `FeatureCollection` 개체로 문자열을 역직렬화하는 기능 컬렉션의 정적 `fromJson` 메서드로 전달될 수 있습니다.
 
 다음 단계에서는 GeoJSON 파일을 애플리케이션으로 가져와서 GeoJSON `FeatureCollection` 개체로 역직렬화하는 방법을 보여 줍니다.
 
 1. [빠른 시작: Android 앱 만들기](quick-android-map.md)를 완료하세요. 다음 단계는 이 애플리케이션을 기반으로 합니다.
 2. Android Studio의 프로젝트 패널에서 **app** 폴더를 마우스 오른쪽 단추로 클릭하고 `New > Folder > Assets Folder`로 이동합니다.
 3. [샘플 관심 지점](https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/data/geojson/SamplePoiDataSet.json) GeoJSON 파일을 자산 폴더로 끌어서 놓습니다.
+
+::: zone pivot="programming-language-java-android"
+
 4. **Utils.java** 라는 새 파일을 만들고, 다음 코드를 해당 파일에 추가합니다. 이 코드는 애플리케이션의 `assets` 폴더 또는 웹(문자열로 된 URL 사용)에서 비동기적으로 파일을 가져오는 `importData`라는 정적 메서드를 제공하고, 간단한 콜백 메서드를 사용하여 UI 스레드로 다시 반환합니다.
 
     ```java
@@ -248,7 +252,7 @@ ms.locfileid: "97681245"
         });
     ```
 
-6. 이제 데이터 원본을 사용하여 지도에 GeoJSON 데이터를 로드하는 코드가 있으므로 지도에 데이터가 표시되는 방법을 지정해야 합니다. 점 데이터의 렌더링 레이어는 여러 가지가 있습니다. 가장 일반적으로 사용되는 레이어는 [거품형 레이어](map-add-bubble-layer-android.md), [기호 레이어](how-to-add-symbol-to-android-map.md) 및 [열 지도 레이어](map-add-heat-map-layer-android.md)입니다. `mapControl.onReady` 이벤트에 대한 콜백에서 데이터를 가져오는 코드 뒤에 데이터를 거품형 레이어에 렌더링하는 다음 코드를 추가합니다.
+6. 이제 코드를 사용해 GeoJSON 데이터를 데이터 원본으로 로드하여 해당 데이터를 맵에 표시하는 방법을 지정해야 합니다. 점 데이터의 렌더링 레이어는 여러 가지가 있습니다. 가장 일반적으로 사용되는 레이어는 [거품형 레이어](map-add-bubble-layer-android.md), [기호 레이어](how-to-add-symbol-to-android-map.md) 및 [열 지도 레이어](map-add-heat-map-layer-android.md)입니다. `mapControl.onReady` 이벤트에 대한 콜백에서 데이터를 가져오는 코드 뒤에 데이터를 거품형 레이어에 렌더링하는 다음 코드를 추가합니다.
 
     ```java
     //Create a layer and add it to the map.
@@ -256,10 +260,122 @@ ms.locfileid: "97681245"
     map.layers.add(layer);
     ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+4. **Utils.kt** 라는 새 파일을 만들고 다음 코드를 해당 파일에 추가합니다. 이 코드는 애플리케이션의 `assets` 폴더 또는 웹(문자열로 된 URL 사용)에서 비동기적으로 파일을 가져오는 `importData`라는 정적 메서드를 제공하고, 간단한 콜백 메서드를 사용하여 UI 스레드로 다시 반환합니다.
+
+    ```kotlin
+    //Modify the package name as needed to align with your application.
+    package com.example.myapplication;
+
+    import android.content.Context
+    import android.os.Handler
+    import android.os.Looper
+    import android.webkit.URLUtil
+    import java.net.URL
+    import java.util.concurrent.ExecutorService
+    import java.util.concurrent.Executors
+    
+    class Utils {
+        companion object {
+    
+            /**
+             * Imports data from a web url or asset file name and returns it to a callback.
+             * @param urlOrFileName A web url or asset file name that points to data to load.
+             * @param context The context of the app.
+             * @param callback The callback function to return the data to.
+             */
+            fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit) {
+                importData(urlOrFileName, context, callback, null)
+            }
+    
+            /**
+             * Imports data from a web url or asset file name and returns it to a callback.
+             * @param urlOrFileName A web url or asset file name that points to data to load.
+             * @param context The context of the app.
+             * @param callback The callback function to return the data to.
+             * @param error A callback function to return errors to.
+             */
+            public fun importData(urlOrFileName: String?, context: Context, callback: (String?) -> Unit, error: ((String?) -> Unit)?) {
+                if (urlOrFileName != null && callback != null) {
+                    val executor: ExecutorService = Executors.newSingleThreadExecutor()
+                    val handler = Handler(Looper.getMainLooper())
+                    executor.execute {
+                        var data: String? = null
+                        
+                        try {
+                            data = if (URLUtil.isNetworkUrl(urlOrFileName)) {
+                                URL(urlOrFileName).readText()
+                            } else { //Assume file is in assets folder.
+                                context.assets.open(urlOrFileName).bufferedReader().use{
+                                    it.readText()
+                                }
+                            }
+    
+                            handler.post {
+                                //Ensure the resulting data string is not null or empty.
+                                if (data != null && !data.isEmpty()) {
+                                    callback(data)
+                                } else {
+                                    error!!("No data imported.")
+                                }
+                            }
+                        } catch (e: Exception) {
+                            error!!(e.message)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+5. **MainActivity.kt** 파일로 이동하고 `mapControl.onReady` 이벤트에 대한 콜백 내부에 다음 코드를 추가합니다. 이는 `onCreate` 메서드 내부에 있습니다. 이 코드는 import 유틸리티를 사용하여 **SamplePoiDataSet.json** 파일을 문자열로 읽은 다음, `FeatureCollection` 클래스의 정적 `fromJson` 메서드를 사용하여 기능 컬렉션으로 역직렬화합니다. 또한 이 코드는 기능 컬렉션에 있는 모든 데이터의 경계 상자 영역을 계산하고 이를 사용하여 지도의 카메라를 데이터에 집중하도록 설정합니다.
+
+    ```kotlin
+    //Create a data source and add it to the map.
+    DataSource source = new DataSource();
+    map.sources.add(source);
+    
+    //Import the GeoJSON data and add it to the data source.
+    Utils.importData("SamplePoiDataSet.json", this) { 
+        result: String? ->
+            //Parse the data as a GeoJSON Feature Collection.
+             val fc = FeatureCollection.fromJson(result!!)
+    
+            //Add the feature collection to the data source.
+            source.add(fc)
+    
+            //Optionally, update the maps camera to focus in on the data.
+    
+            //Calculate the bounding box of all the data in the Feature Collection.
+            val bbox = MapMath.fromData(fc);
+
+            //Update the maps camera so it is focused on the data.
+            map.setCamera(
+                bounds(bbox),
+
+                //Padding added to account for pixel size of rendered points.
+                padding(20)
+            )
+        }
+    ```
+
+6. 이제 코드를 사용해 GeoJSON 데이터를 데이터 원본으로 로드하여 해당 데이터를 맵에 표시하는 방법을 지정해야 합니다. 점 데이터의 렌더링 레이어는 여러 가지가 있습니다. 가장 일반적으로 사용되는 레이어는 [거품형 레이어](map-add-bubble-layer-android.md), [기호 레이어](how-to-add-symbol-to-android-map.md) 및 [열 지도 레이어](map-add-heat-map-layer-android.md)입니다. `mapControl.onReady` 이벤트에 대한 콜백에서 데이터를 가져오는 코드 뒤에 데이터를 거품형 레이어에 렌더링하는 다음 코드를 추가합니다.
+
+    ```kotlin
+    //Create a layer and add it to the map.
+    val layer = new BubbleLayer(source)
+    map.layers.add(layer)
+    ```
+
+::: zone-end
+
 7. 애플리케이션을 실행합니다. 미국을 중심으로 GeoJSON 파일의 각 위치에 원이 오버레이된 지도가 표시됩니다.
 
     ![GeoJSON 파일의 데이터가 표시된 미국 지도](media/tutorial-load-geojson-file-android/android-import-geojson.png)
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

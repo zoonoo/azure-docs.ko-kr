@@ -12,12 +12,12 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
-ms.openlocfilehash: 51b7f6e814a9fad286a934466daeb1ffced225c1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cbe4942b63389faab00861438a0149b68c0e89c0
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968063"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177303"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 Java IoT Edge 모듈 개발
 
@@ -56,7 +56,7 @@ ms.locfileid: "94968063"
 Java에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를 개발 머신에 설치합니다. 
 
 * Visual Studio Code용 [Java 확장 팩](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-* [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) 설정)
+* [Java SE Development Kit 11](/azure/developer/java/fundamentals/java-jdk-long-term-support)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수 설정](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)).
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]

@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 3f1e3fd360197310a89a67d43053649d904aeb18
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d125bca5ed67476897eec7cd32a586776d8b1ea8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677616"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176623"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>자습서: Synapse Studio에서 Apache Spark 작업 정의 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "101677616"
 
 * Azure Synapse Analytics 작업 영역. 지침은 [Azure Synapse Analytics 작업 영역 만들기](../../machine-learning/how-to-manage-workspace.md)를 참조하세요.
 * 서버리스 Apache Spark 풀.
-* ADLS Gen2 스토리지 계정 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 소유자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
+* ADLS Gen2 스토리지 계정 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 기여자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
 * 작업 영역 기본 스토리지를 사용하지 않으려면 Synapse Studio에서 필요한 ADLS Gen2 스토리지 계정을 연결합니다. 
 
 ## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>PySpark(Python)에 대한 Apache Spark 작업 정의 만들기
@@ -162,7 +162,7 @@ ms.locfileid: "101677616"
 
 ## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>일괄 작업으로 Apache Spark 작업 정의 제출
 
-Apache Spark 작업 정의를 만든 후에 Apache Spark 풀에 제출할 수 있습니다. 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 소유자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
+Apache Spark 작업 정의를 만든 후에 Apache Spark 풀에 제출할 수 있습니다. 작업하려는 ADLS Gen2 파일 시스템의 **Storage Blob 데이터 기여자** 여야 합니다. 그렇지 않으면, 권한을 수동으로 추가해야 합니다.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>시나리오 1: Apache Spark 작업 정의 제출
  1. Apache Spark 작업 정의 창을 선택하여 엽니다.

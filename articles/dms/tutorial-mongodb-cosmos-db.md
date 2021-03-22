@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 02/03/2021
-ms.openlocfilehash: 1ba6a45062f4018c59f5b41ab616f7a04f87140a
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
-ms.translationtype: MT
+ms.openlocfilehash: b669870537ffb58d9ae7e8a5c65276d310ba6a7e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575574"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101722027"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
 
@@ -31,7 +31,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
 
-이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 데이터 세트를 Azure Cosmos DB의 API for MongoDB로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](../virtual-machines/windows/install-mongodb.md) 문서를 참조하세요.
+이 자습서에서는 Azure Database Migration Service를 사용하여 Azure Virtual Machine에서 호스트되는 MongoDB의 데이터 세트를 Azure Cosmos DB의 API for MongoDB로 마이그레이션합니다. MongoDB 원본을 설정하지 않은 경우 [Azure의 Windows VM에서 MongoDB 설치 및 구성](/previous-versions/azure/virtual-machines/windows/install-mongodb) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -54,15 +54,15 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 * Azure Database Migration Service에서 기본적으로 27017 TCP 포트인 원본 MongoDB 서버에 액세스할 수 있도록 Windows 방화벽을 엽니다.
 * 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우 Azure Database Migration Service에서 원본 데이터베이스에 액세스하여 마이그레이션할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
 
-## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>효율적인 마이그레이션을 위해 Azure Cosmos DB 서버 쪽 재시도 구성
+## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>효율적인 마이그레이션을 위해 Azure Cosmos DB 서버 쪽 다시 시도 구성
 
-MongoDB에서 Azure Cosmos DB로 마이그레이션하는 고객은 프로 비전 된 r u/초를 완전히 활용 하는 기능을 보장 하는 리소스 거 버 넌 스 기능을 활용 합니다. 해당 요청이 프로 비전 된 컨테이너를 초과 하는 경우 마이그레이션 과정에서 지정 된 데이터 마이그레이션 서비스 요청을 제한할 수 Azure Cosmos DB. 그런 다음 요청을 다시 시도해 야 합니다. 데이터 마이그레이션 서비스는 다시 시도를 수행할 수 있지만 데이터 마이그레이션 서비스와 Azure Cosmos DB 간의 네트워크 홉과 관련 된 왕복 시간은 해당 요청의 전체 응답 시간에 영향을 줍니다. 제한 된 요청에 대 한 응답 시간을 향상 시키면 마이그레이션에 필요한 총 시간을 단축할 수 있습니다. Azure Cosmos DB의 *서버 쪽 다시 시도* 기능을 사용 하면 서비스에서 제한 오류 코드를 가로채 고 요청 응답 시간을 대폭 향상 시켜 왕복 시간을 훨씬 더 줄일 수 있습니다.
+MongoDB에서 Azure Cosmos DB로 마이그레이션하는 고객은 프로비저닝된 RU/s의 처리량을 완전히 활용할 수 있는 능력을 보장하는 리소스 거버넌스 기능의 혜택을 받습니다. Azure Cosmos DB는 해당 요청이 컨테이너 프로비저닝된 RU/s를 초과하는 경우 마이그레이션 과정에서 지정된 Data Migration Service 요청을 제한할 수 있습니다. 그런 다음, 해당 요청을 다시 시도해야 합니다. Data Migration Service는 다시 시도를 수행할 수 있지만 데이터 마이그레이션 서비스와 Azure Cosmos DB 간의 네트워크 홉과 관련된 왕복 시간은 해당 요청의 전체 응답 시간에 영향을 줍니다. 제한된 요청에 대한 응답 시간을 개선하면 마이그레이션에 필요한 총 시간을 단축할 수 있습니다. Azure Cosmos DB의 *서버 측 다시 시도* 기능을 통해 서비스는 스로틀 오류 코드를 가로채고 훨씬 낮은 왕복 시간으로 다시 시도할 수 있으므로 요청 응답 시간이 크게 단축됩니다.
 
 Azure Cosmos DB 포털의 *기능* 블레이드에서 서버 쪽 다시 시도 기능을 찾을 수 있습니다.
 
 ![MongoDB SSR 기능](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
 
-사용 *하지 않도록* 설정 된 경우 아래와 같이 사용 하도록 설정 하는 것이 좋습니다.
+*사용 안 함* 인 경우 아래와 같이 사용하도록 설정하는 것이 좋습니다.
 
 ![MongoDB SSR 사용](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 

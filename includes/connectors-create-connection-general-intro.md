@@ -3,18 +3,20 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 06/06/2020
-ms.openlocfilehash: 1113201941ce0757b58e361c08c9d79d7dd374cc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 03/08/2021
+ms.openlocfilehash: 252117d21da199ef702dd090686ac17789d8ebcb
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999582"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102510796"
 ---
 서비스 또는 시스템에 연결하는 트리거 또는 작업을 처음으로 추가하면 Logic App Designer는 연결에 따라 달라지는 필요한 정보를 제공하여 *연결* 을 만들라는 메시지를 표시합니다. 예를 들면 다음과 같습니다.
 
 * 새 연결에 사용할 이름
-* 서버 또는 시스템 이름
+
+* 시스템 또는 서버의 이름
+
 * 사용자 또는 계정 자격 증명
+
 * 사용할 인증 유형
-* 온-프레미스 데이터 원본에 연결할 때 이전에 만든 데이터 게이트웨이의 Azure 구독 및 이름

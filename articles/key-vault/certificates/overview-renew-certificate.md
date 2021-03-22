@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 0720e6b55cec8150eea9d41ca89b2c9b21a0bc94
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287688"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102487188"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -73,7 +73,10 @@ Azure Key Vault를 사용하면 CA에서 인증서를 가져올 수 있으며, �
 Azure Key Vault는 자체 서명된 인증서의 자동 갱신도 처리합니다. 발급 정책 변경 및 인증서의 수명 주기 특성 업데이트에 대한 자세한 내용은 [Key Vault에서 인증서 자동 순환 구성](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate)을 참조하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
-발급된 인증서가 Azure Portal에서 *사용 안 함* 상태이면 **인증서 작업** 으로 이동하여 인증서의 오류 메시지를 확인합니다.
+* 발급된 인증서가 Azure Portal에서 *사용 안 함* 상태이면 **인증서 작업** 으로 이동하여 인증서의 오류 메시지를 확인합니다.
+* 오류 유형 "인증서를 가져오는 데 사용된 CSR이 이미 사용되었습니다. 새 CSR을 사용하여 새 인증서를 생성해 보세요."
+  인증서의 '고급 정책' 섹션으로 이동하여 **'갱신 시 키 다시 사용'** 옵션이 해제되어 있는지 확인합니다.
+
 
 ## <a name="frequently-asked-questions"></a>자주 묻는 질문
 

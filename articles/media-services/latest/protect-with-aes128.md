@@ -2,7 +2,7 @@
 제목: AES-128로 비디오 암호화 : Azure Media Services 설명: AES 128비트 암호화를 사용하여 비디오를 암호화하는 방법 및 Azure Media Services에서 키 배달 서비스를 사용하는 방법을 알아봅니다.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel
+ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 03/17/2021 ms.author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>자습서: AES-128을 사용하여 비디오를 암호화하고 키 배달 서비스 사용
@@ -89,7 +89,7 @@ Media Services에서는 128비트 암호화 키를 사용하여 AES로 암호화
 
 ## <a name="wait-for-the-job-to-complete"></a>작업이 완료될 때까지 대기
 
-작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. 아래 코드 샘플은 [Job](/rest/api/media/jobs)의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 대기 시간이 발생할 가능성이 있기 때문에 프로덕션 앱에 권장하는 방법이 아닙니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. 자세한 내용은 [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
+작업이 완료될 때까지 시간이 조금 걸립니다. 적업이 완료될 때 알림을 받을 수 있습니다. 아래 코드 샘플은 [Job](/rest/api/media/jobs)의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 대기 시간이 발생할 가능성이 있기 때문에 프로덕션 앱에 권장하는 방법이 아닙니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. 자세한 내용은 [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](monitoring/job-state-events-cli-how-to.md)을 참조하세요.
 
 **작업** 은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고, 취소가 완료되면 **취소됨** 이 표시됩니다.
 

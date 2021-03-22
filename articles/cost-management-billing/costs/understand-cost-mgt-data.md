@@ -3,18 +3,18 @@ title: Azure Cost Management 데이터 이해
 description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 데이터의 처리, 수집, 표시 및 마감 빈도를 파악하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 01/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 568f3d811876073dc899204cb8ca4d1753d9cfd0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964153"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499300"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -31,6 +31,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **범주**  | **제품 이름** | **할당량 ID** | **제품 번호** | **사용 가능한 데이터** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014년 5월<sup>1</sup> |
+| **Azure Government** | Azure Government 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2018년 10월 2일<sup>2</sup> |
 | **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014년 5월<sup>1</sup> |
 | **EA(기업 계약)** | Microsoft Azure 엔터프라이즈 | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014년 5월<sup>1</sup> |
 | **Microsoft 고객 계약** | Microsoft Azure 계획 | EnterpriseAgreement_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
@@ -51,7 +52,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 
 _<sup>**1**</sup> 2014년 5월 이전의 데이터는 [Azure Enterprise Portal](https://ea.azure.com)을 방문하세요._
 
-_<sup>**2**</sup> 2018년 10월 2일 이전의 데이터는 [Azure 계정 센터](https://account.azure.com/subscriptions)를 방문하세요._
+_<sup> **2**</sup> 2018년 10월 2일 이전 데이터의 경우 글로벌 계정에 대한 [Azure 계정 센터](https://account.azure.com/subscriptions) 및 Azure 정부 계정에 대한 [Azure 계정 센터 Gov](https://account.windowsazure.us/subscriptions)를 방문하세요._
 
 _<sup>**3**</sup> Microsoft 고객 계약은 2019년 3월에 시작했으며 이 시점 이전의 기록 데이터가 없습니다._
 
@@ -62,7 +63,6 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 | 범주  | **제품 이름** | **할당량 ID** | **제품 번호** |
 | --- | --- | --- | --- |
 | **Azure 독일** | Azure 독일 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
@@ -130,6 +130,7 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 질문을 
     - Data Factory
     - Databricks
     - 부하 분산 장치
+    - Machine Learning 작업 영역 컴퓨팅 인스턴스
     - Network Watcher
     - Notification Hubs
     - Service Bus
@@ -161,7 +162,7 @@ Cost Management + Billing에서 비용 및 사용량 데이터를 사용할 수 
 
 ### <a name="rerated-data"></a>데이터 재평가
 
-Cost Management API, Power BI 또는 Azure Portal을 사용하여 데이터를 검색하든 상관없이, 청구서가 마감될 때까지 현재 청구 기간의 요금이 재평가되고 그에 따라 변경될 수 있습니다.
+Cost Management API, Power BI 또는 Azure Portal을 사용하여 데이터를 검색하는지 여부와 상관없이 현재 청구 기간의 요금이 재평가될 것으로 예상됩니다. 청구서가 마감될 때까지 요금이 변경될 수 있습니다.
 
 ## <a name="cost-rounding"></a>비용 반올림
 
@@ -175,7 +176,7 @@ Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 �
 
 ## <a name="historical-data-might-not-match-invoice"></a>기록 데이터가 청구서와 일치하지 않을 수 있음
 
-크레딧 기반 및 사전 지불 제품에 대한 기록 데이터는 청구서와 일치하지 않을 수 있습니다. 일부 Azure 종량제, MSDN 및 Visual Studio 제품에는 청구서에 적용되는 Azure 크레딧 및 고급 지불이 있을 수 있습니다. 그러나 Cost Management에 표시되는 기록 데이터는 예상 사용량 요금에 따라 결정됩니다. Cost Management 기록 데이터는 지불액과 크레딧을 포함하지 않습니다. 따라서 다음 제품에 대해 표시된 기록 데이터가 청구서와 정확히 일치하지 않을 수 있습니다.
+크레딧 기반 및 사전 지불 제품에 대한 기록 데이터는 청구서와 일치하지 않을 수 있습니다. 일부 Azure 종량제, MSDN 및 Visual Studio 제품에는 청구서에 적용되는 Azure 크레딧 및 고급 지불이 있을 수 있습니다. Cost Management에 표시되는 기록 데이터는 예상 사용량 요금에 따라 결정됩니다. Cost Management 기록 데이터는 지불액과 크레딧을 포함하지 않습니다. 다음 제품에 대해 표시된 기록 데이터가 청구서와 정확히 일치하지 않을 수 있습니다.
 
 - Azure for Students(MS-AZR-0170P)
 - Azure in Open(MS-AZR-0111P)

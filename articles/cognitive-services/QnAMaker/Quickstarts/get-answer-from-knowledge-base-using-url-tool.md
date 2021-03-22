@@ -1,22 +1,22 @@
 ---
-title: '빠른 시작: URL 도구를 사용하여 기술 자료에서 답변 가져오기 - QnA Maker'
+title: URL 도구를 사용하여 기술 자료에서 답변 가져오기 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 cURL 또는 Postman과 같은 URL 테스트 도구를 사용하여 기술 자료에서 답변을 가져오는 과정을 안내합니다.
+description: 이 문서에서는 cURL 또는 Postman과 같은 URL 테스트 도구를 사용하여 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: eddae69c0946ab135540b77d3cc89937079e6293
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 46657cfaf513cdd2dd0ecfd284602d2277781626
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103016256"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583074"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>빠른 시작: 기술 자료에서 답변 가져오기
+# <a name="get-an-answer-from-a-knowledge-base"></a>기술 자료에서 답변 가져오기
 
 
 ::: zone pivot="url-test-tool-curl"

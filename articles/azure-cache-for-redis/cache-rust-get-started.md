@@ -7,18 +7,22 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: b55a706aa25b21620226690c172c996fe10a84fa
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 17f38d79b75179d7a54ca5ed1d20dff18d0a0363
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203498"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121102"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>빠른 시작: Rust에서 Azure Cache for Redis 사용
 
 이 문서에서는 [Rust 프로그래밍 언어](https://www.rust-lang.org/)를 사용하여 [Azure Cache for Redis](./cache-overview.md)와 상호 작용하는 방법에 대해 알아봅니다. Redis용 [redis-rs](https://redis.io/topics/data-types-intro#redis-strings) 라이브러리를 사용하여 [String](https://github.com/mitsuhiko/redis-rs), Hash, List 등과 같이 일반적으로 사용되는 Redis 데이터 구조의 예를 보여 줍니다. 이 클라이언트는 상위 및 하위 수준 API를 모두 공개하며, 이 문서에서 제공하는 샘플 코드의 도움말을 사용하여 이러한 스타일을 모두 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="skip-to-the-code-on-github"></a>GitHub의 코드로 건너뛰기
+
+코드로 바로 건너뛰려면 GitHub의 [Rust 빠른 시작](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/)을 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Rust](https://www.rust-lang.org/tools/install)(버전 1.39 이상)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368335"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740786"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -133,12 +133,7 @@ Azure Key Vault 계정의 인증서에 액세스하기 위한 Azure Front Door �
     Azure Front Door는 다음과 같은 정보를 나열합니다. 
     - 구독 ID에 대한 키 자격 증명 모음 계정 
     - 선택한 키 자격 증명 모음의 인증서(비밀) 
-    - 사용 가능한 인증서 버전 
-
-> [!NOTE]
-> 인증서 버전을 공백으로 두면 다음과 같은 결과가 발생합니다.
-> - 선택된 인증서의 최신 버전입니다.
-> - Key Vault에서 최신 버전의 인증서를 사용할 수 있는 경우 인증서를 최신 버전으로 자동 교체합니다.
+    - 사용 가능한 인증서 버전
  
 5. 사용자 고유의 인증서를 사용할 경우 도메인 유효성 검사가 필요하지 않습니다. [전파 대기](#wait-for-propagation)를 진행합니다.
 
@@ -278,7 +273,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 * Key Vault에 인증서를 업로드합니다.
 * 도메인의 유효성을 검사합니다.
-* 사용자 지정 도메인에 HTTPS를 활성화합니다.
+* 사용자 지정 도메인에 HTTPS를 사용하도록 설정합니다.
 
 Front Door에 대한 지역 필터링 정책을 설정하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 

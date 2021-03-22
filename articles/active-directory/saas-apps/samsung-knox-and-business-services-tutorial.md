@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: e1cf12d676de84bc18a123fbdf05b1170725eda8
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 3c1ec38e792987f4bd7208c3bf57a882a05f4f46
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99821704"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648053"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsung-knox-and-business-services"></a>자습서: Samsung Knox and Business Services와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "99821704"
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Samsung Knox and Business Services SSO(Single Sign-On)를 사용하도록 설정된 구독
+* Samsung Knox 계정.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -55,7 +55,7 @@ Samsung Knox and Business Services가 Azure AD에 통합되도록 구성하려�
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsung-knox-and-business-services"></a>Samsung Knox and Business Services에 대한 Azure AD SSO 구성 및 테스트
 
-**B.Simon** 이라는 테스트 사용자를 사용하여 Samsung Knox and Business Services에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Samsung Knox and Business Services의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Samsung Knox and Business Services에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 [SamsungKnox.com](https://samsungknox.com/)의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 Samsung Knox and Business Services에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
@@ -78,7 +78,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    **로그온 URL** 텍스트 상자에 URL `https://www.samsungknox.com`을 입력합니다.
+    * **로그온 URL** 텍스트 상자에 `https://www.samsungknox.com` URL을 입력합니다.
+    * **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 `https://central.samsungknox.com/ams/ad/saml/acs` URL을 입력합니다.
+    
+    ![기본 SAML 구성 값](https://docs.samsungknox.com/assets/merge/ad-sso/basic-saml-configuration.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
@@ -110,7 +113,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-samsung-knox-and-business-services-sso"></a>Samsung Knox and Business Services SSO 구성
 
-1. 다른 웹 브라우저 창에서 관리자 권한으로 Samsung Knox and Business Services 회사 사이트에 로그인합니다.
+1. 다른 웹 브라우저 창에서 [SamsungKnox.com](https://samsungknox.com/)에 관리자로 로그인합니다.
 
 1. 오른쪽 위 모서리에서 **아바타** 를 클릭합니다.
 
@@ -118,7 +121,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 왼쪽 사이드바에서 **ACTIVE DIRECTORY SETTINGS(Active Directory 설정)** 를 클릭하고, 다음 단계를 수행합니다.
 
-    ![ACTIVE DIRECTORY SETTINGS](./media/samsung-knox-and-business-services-tutorial/sso-settings.png)
+    ![ACTIVE DIRECTORY SETTINGS](https://docs.samsungknox.com/assets/merge/ad-sso/ad-5.png)
 
     a. Azure Portal에서 입력한 **식별자** 값을 **Identifier(entity ID)(식별자(엔터티 ID))** 텍스트 상자에 붙여넣습니다.
 
@@ -128,21 +131,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-samsung-knox-and-business-services-test-user"></a>Samsung Knox and Business Services 테스트 사용자 만들기
 
-이 섹션에서는 Samsung Knox and Business Services에서 Britta Simon이라는 사용자를 만듭니다. [Samsung Knox and Business Services 지원 팀](mailto:noreplyk.sec@samsung.com)과 협력하여 사용자를 Samsung Knox and Business Services 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Samsung Knox and Business Services에서 Britta Simon이라는 사용자를 만듭니다. 하위 관리자 또는 테스트 사용자를 Samsung Knox 조직에 초대하는 방법에 대한 지침은 [Knox 구성](https://docs.samsungknox.com/admin/knox-configure/Administrators.htm) 또는 [Knox Mobile 등록](https://docs.samsungknox.com/admin/knox-mobile-enrollment/kme-add-an-admin.htm) 관리자 가이드를 참조하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Samsung Knox and Business Services 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 [SamsungKnox.com](https://samsungknox.com/)으로 리디렉션됩니다. 
 
-* Samsung Knox and Business Services 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* [SamsungKnox.com](https://samsungknox.com/)으로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Samsung Knox and Business Services 타일을 클릭하면 Samsung Knox and Business Services 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
-
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Samsung Knox 및 Business Services 타일을 클릭하면 [SamsungKnox.com](https://samsungknox.com/)으로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Samsung Knox and Business Services가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Samsung Knox and Business Services가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

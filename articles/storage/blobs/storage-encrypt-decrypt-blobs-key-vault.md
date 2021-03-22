@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddc9dbf77c04ea95e5b873c45de4c0df109514c7
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c2daed4a8df89ed176749900dc75eb231c00af87
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544448"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049273"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
@@ -49,7 +49,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
 
-이 자습서를 계속하려면 자습서 [빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)에 요약된 다음 단계를 수행해야 합니다.
+이 자습서를 진행하려면 자습서 [빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/secrets/quick-create-net.md)에 설명된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.
@@ -90,6 +90,12 @@ AppSettings를 App.Config에 추가합니다.
 
 다음 `using` 지시문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Configuration;
@@ -101,10 +107,17 @@ using Microsoft.Azure.KeyVault;
 using System.Threading;
 using System.IO;
 ```
+---
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>콘솔 애플리케이션에 토큰을 가져오는 메서드 추가
 
 다음 메서드는 사용자 키 자격 증명 모음에 대한 액세스를 인증해야 하는 키 자격 증명 모음 클래스에 의해 사용됩니다.
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -121,10 +134,17 @@ private async static Task<string> GetToken(string authority, string resource, st
     return result.AccessToken;
 }
 ```
+---
 
 ## <a name="access-azure-storage-and-key-vault-in-your-program"></a>프로그램에서 Azure Storage 및 Key Vault 액세스
 
 Main() 메서드에서 다음 코드를 추가합니다.
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -141,6 +161,7 @@ contain.CreateIfNotExists();
 // This is where the GetToken method from above is used.
 KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
+---
 
 > [!NOTE]
 > 키 자격 증명 모음 개체 모델
@@ -156,6 +177,12 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ## <a name="encrypt-blob-and-upload"></a>Blob 암호화 및 업로드
 
 Blob을 암호화하고 Azure Storage 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -175,9 +202,11 @@ CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
     blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
+---
 
 > [!NOTE]
 > BlobEncryptionPolicy 생성자를 살펴보면 키 및/또는 해결 프로그램을 사용할 수 있다는 것을 알 수 있습니다. 현재 해결 프로그램은 기본 키를 지원하지 않기 때문에 암호화에 사용할 수 없다는 데 유의해야 합니다.
+
 
 ## <a name="decrypt-blob-and-download"></a>Blob 암호 해독 및 다운로드
 
@@ -186,6 +215,12 @@ using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
 RSA 키의 프라이빗 키는 키 자격 증명 모음에 남아 있으므로 해독을 실행하려면 CEK를 포함하고 있는 Blob 메타데이터의 암호화 키를 해독하기 위해 키 자격 증명 모음에 보냅니다.
 
 방금 업로드한 Blob을 암호 해독하려면 다음을 추가합니다.
+
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ```csharp
 // In this case, we will not pass a key and only pass the resolver because
@@ -196,6 +231,7 @@ BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = polic
 using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
     blob.DownloadToStream(np, null, options, null);
 ```
+---
 
 > [!NOTE]
 > 키 관리를 더 쉽게 해 주는 다른 종류의 두 확인 프로그램 AggregateKeyResolver 및 CachingKeyResolver가 있습니다.
@@ -226,13 +262,18 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret
 
 사용자의 콘솔 애플리케이션에서는 이전과 동일한 호출을 사용하여 SymmetricKey로 이 비밀을 검색할 수 있습니다.
 
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
-
-이것으로 끝입니다. 마음껏 즐기세요!
+---
 
 ## <a name="next-steps"></a>다음 단계
 

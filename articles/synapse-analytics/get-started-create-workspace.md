@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 3a2636ec73d20f3011d8413c794e68ef41b1829c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 94d069a283249f2880743ba911c32bf3821d28c8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209188"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171486"
 ---
 # <a name="creating-a-synapse-workspace"></a>Synapse 작업 영역 만들기
 
@@ -27,15 +27,21 @@ ms.locfileid: "98209188"
 
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Azure Portal에서 Synapse 작업 영역 만들기
 
-1. [Azure Portal](https://portal.azure.com)을 열고, 위쪽에서 **Synapse** 를 검색합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 검색 창에서 enter 키를 누르지 않고 **Synapse** 를 입력합니다.
 1. **서비스** 아래의 검색 결과에서 **Azure Synapse Analytics** 를 선택합니다.
 1. **추가** 를 선택하여 작업 영역을 만듭니다.
-1. **기본 사항** 탭의 프로젝트 세부 정보에서 원하는 **구독**, **리소스 그룹**, **지역** 을 입력한 다음, 작업 영역 이름을 선택합니다. 이 자습서에서는 **myworkspace** 를 사용합니다.
-1. **Data Lake Storage Gen 2를 선택** 하여 **구독 위치** 에 대한 단추를 클릭합니다.
-1. **계정 이름** 별로 **새로 만들기** 를 클릭하고 새 스토리지 계정의 이름을 **contosolake** 로 지정하고, 이 이름은 고유해야 합니다.
-1. **파일 시스템 이름** 별로 **새로 만들기** 를 클릭하고 **사용자** 이름을 지정합니다. 이렇게 하면 **users** 라는 스토리지 컨테이너가 생성됩니다.
-1. 작업 영역에서는 이 스토리지 계정을 Spark 테이블 및 Spark 애플리케이션 로그에 대한 "기본" 스토리지 계정으로 사용합니다.
-1. "Data Lake Storage Gen2 계정에 Storage Blob 데이터 기여자 역할 할당" 상자를 선택합니다. 
+1. **기본 사항** 탭의 **프로젝트 세부 정보** 아래에서 다음 필드를 입력합니다.
+      1. **구독** - 구독을 선택합니다.
+      2. **리소스 그룹** - 리소스 그룹을 사용합니다.
+      3. **리소스 그룹** - 비워 둡니다.
+1. **기본 사항** 탭의 **작업 영역 정보** 에서 다음 필드를 입력합니다.
+      1. **작업 영역 이름** - 전역적으로 고유한 이름을 선택합니다. 이 자습서에서는 **myworkspace** 를 사용합니다.
+      1. **지역** - 지역을 선택합니다.
+      1. **Data Lake Storage Gen 2 선택**
+        1. **구독 시작** 의 단추를 클릭합니다.
+        1. **계정 이름** 별로 **새로 만들기** 를 클릭하고 새 스토리지 계정의 이름을 **contosolake** 로 지정하고, 이 이름은 고유해야 합니다.
+        1. **파일 시스템 이름** 별로 **새로 만들기** 를 클릭하고 **사용자** 이름을 지정합니다. 이렇게 하면 **users** 라는 스토리지 컨테이너가 생성됩니다. 작업 영역에서는 이 스토리지 계정을 Spark 테이블 및 Spark 애플리케이션 로그에 대한 "기본" 스토리지 계정으로 사용합니다.
+        1. "Data Lake Storage Gen2 계정에 Storage Blob 데이터 기여자 역할 할당" 상자를 선택합니다. 
 1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 작업 영역이 준비됩니다.
 
 > [!NOTE]

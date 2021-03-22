@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: f70116847a8743cf8b3cb56ff35f9d913f13f359
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: de179ab2fe1c02b3912262ee57fbb41a23d56164
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715465"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -68,7 +68,7 @@ Azure Portal을 사용하여 Azure Load Balancer를 시작하여 내부 부하 �
     | 리소스 그룹   | **CreateIntLBQS-rg** 선택 |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **서유럽** 을 선택합니다. |
+    | 지역           | **(유럽) 서유럽** 선택 |
 
 3. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -106,16 +106,17 @@ Azure Portal을 사용하여 Azure Load Balancer를 시작하여 내부 부하 �
 
 ## <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer** 를 선택합니다.
-
-2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
+1. **리소스 만들기** 를 선택합니다. 
+2. 검색 상자에 **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
+3. **부하 분산 장치** 페이지에서 **만들기** 를 선택합니다.
+4. **부하 분산 장치 만들기** 페이지에서 다음 정보를 입력하거나 선택합니다. 
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | 이전 단계에서 만든 **CreateIntLBQS-rg** 를 선택합니다.|
     | Name                   | **myLoadBalancer** 를 입력합니다.                                   |
-    | 지역         | **서유럽** 를 선택합니다.                                        |
+    | 지역         | **(유럽) 서유럽** 을 선택합니다.                                        |
     | Type          | **내부** 를 선택합니다.                                        |
     | SKU           | **표준** 선택 |
     | 가상 네트워크 | 이전 단계에서 만든 **myVNet** 을 선택합니다. |
@@ -163,7 +164,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
@@ -191,7 +192,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
@@ -228,7 +229,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 리소스 그룹 | **CreateIntLBQS-rg** 선택 |
     | **인스턴스 세부 정보** |  |
     | 가상 머신 이름 | **myVM1** 을 입력합니다. |
-    | 지역 | **서유럽** 을 선택합니다. |
+    | 지역 | **(유럽) 서유럽** 선택 |
     | 가용성 옵션 | **가용성 영역** 을 선택합니다. |
     | 가용성 영역 | **1** 을 선택합니다. |
     | 이미지 | **Windows Server 2019 Datacenter** 를 선택합니다. |
@@ -303,7 +304,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 리소스 그룹   | **CreateIntLBQS-rg** 선택 |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
-    | 지역           | **서유럽** 을 선택합니다. |
+    | 지역           | **(유럽) 서유럽** 선택 |
 
 3. **IP 주소** 탭을 선택하거나 페이지 하단의 **다음: IP 주소** 단추를 선택합니다.
 
@@ -350,7 +351,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | 이전 단계에서 만든 **CreateIntLBQS-rg** 를 선택합니다.|
     | Name                   | **myLoadBalancer** 를 입력합니다.                                   |
-    | 지역         | **서유럽** 를 선택합니다.                                        |
+    | 지역         | **(유럽) 서유럽** 을 선택합니다.                                        |
     | Type          | **내부** 를 선택합니다.                                        |
     | SKU           | **기본** 을 선택합니다. |
     | 가상 네트워크 | 이전 단계에서 만든 **myVNet** 을 선택합니다. |
@@ -405,7 +406,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
@@ -433,7 +434,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |

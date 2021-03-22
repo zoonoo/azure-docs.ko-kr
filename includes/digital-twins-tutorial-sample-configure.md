@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: f5b332415f1abf7d4c1002bdd4f3bfcef12f1267
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023267"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036177"
 ---
 ## <a name="configure-the-sample-project"></a>샘플 프로젝트 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "96023267"
 
 Visual Studio에서 _SampleClientApp > **appsettings.json**_ 파일을 선택하여 편집 창에서 엽니다. 이 파일은 프로젝트를 실행하는 데 필요한 구성 변수와 함께 미리 설정된 JSON 파일 역할을 합니다.
 
-파일 본문에서 `instanceUrl`을 Azure Digital Twins 인스턴스 *hostName* URL로 변경합니다(아래에 표시된 대로 앞에 *https://* 를 붙임).
+파일 본문에서 `instanceUrl`을 Azure Digital Twins 인스턴스 *hostName URL* 로 변경합니다(아래에 표시된 대로 *hostName* 앞에 **_https://_** 추가).
 
 ```json
 {
@@ -32,7 +32,7 @@ Visual Studio에서 _SampleClientApp > **appsettings.json**_ 파일을 선택하
 
 파일을 저장하고 닫습니다. 
 
-다음으로, *appsettings.json* 파일을 구성하여 *SampleClientApp* 을 빌드할 때 출력 디렉터리로 복사되도록 합니다. 이렇게 하려면 *appsettings.json* 파일을 마우스 오른쪽 단추로 선택하고 *속성* 을 선택합니다. *속성* 검사기에서 *출력 디렉터리로 복사* 속성의 값을 *변경된 내용만 복사* 로 변경합니다.
+다음으로, *appsettings.json* 파일을 구성하여 *SampleClientApp* 을 빌드할 때 출력 디렉터리로 복사되도록 합니다. 이렇게 하려면 *appsettings.json* 파일을 마우스 오른쪽 단추로 선택하고 **속성** 을 선택합니다. **속성** 검사기에서 *출력 디렉터리로 복사* 속성을 찾습니다. 아직 설정되어 있지 않은 경우 **새 버전이면 복사** 로 값을 변경합니다.
 
 :::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="appsettings.json이 강조 표시된 솔루션 탐색기 창과 '출력 디렉터리로 복사' 속성이 '변경된 내용만 복사'로 설정된 속성 창을 보여주는 Visual Studio 창에서 발췌" border="false" lightbox="../articles/digital-twins/media/includes/copy-config.png":::
 

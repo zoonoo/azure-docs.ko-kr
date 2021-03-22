@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 02/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 625058b131ef5cb6180873806185a3202a766118
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 0f800d2d42d0d8815021f1582b04750d87aa5abc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675569"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651442"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -37,11 +37,11 @@ ms.locfileid: "92675569"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Salesforce가 **SP** 에서 시작된 SSO를 지원
+* Salesforce에서 **SP** 시작 SSO를 지원합니다.
 
-* Salesforce가 [**자동** 사용자 프로비저닝 및 프로비전 해제(권장)](salesforce-provisioning-tutorial.md) 지원
+* Salesforce에서 [**자동** 사용자 프로비저닝 및 프로비저닝 해제](salesforce-provisioning-tutorial.md)(권장)를 지원합니다.
 
-* Salesforce가 **JIT(Just-in-time)** 사용자 프로비전을 지원
+* Salesforce에서 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
 * 이제 Salesforce 모바일 애플리케이션을 Azure AD에서 SSO가 가능하도록 설정할 수 있습니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
@@ -80,27 +80,27 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
-
-    a. **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
+    
+    a. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
 
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 값을 입력합니다.
 
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
 
-    다. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
+    다. **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
 
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Salesforce 클라이언트 지원 팀](https://help.salesforce.com/support)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Salesforce 클라이언트 지원 팀](https://help.salesforce.com/support)에 문의하세요.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -114,11 +114,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -173,7 +173,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-On 선택 파일 구성](./media/salesforce-tutorial/xmlchoose.png)
 
-1. **SAML Single Sign-On 설정** 페이지에서 필드에 내용이 자동으로 입력되면 **사용자 프로비저닝 사용** 을 선택한 다음, **저장** 을 클릭합니다.
+1. **SAML Single Sign-On 설정** 페이지에서 필드가 자동으로 채워집니다. SAML JIT를 사용하려면 **사용자 프로비저닝 사용** 을 선택하고, **어설션에 사용자 개체의 페더레이션 ID가 포함** 되어 있으므로 **SAML ID 형식** 을 선택합니다. 그렇지 않으면 **사용자 프로비저닝 사용** 을 선택 취소하고, **어설션에 사용자의 Salesforce 사용자 이름이 포함** 되어 있으므로 **SAML ID 형식** 을 선택합니다. **저장** 을 클릭합니다.
 
     ![Single Sign-On 사용자 프로비저닝을 사용하도록 구성](./media/salesforce-tutorial/salesforcexml.png)
 
@@ -185,9 +185,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Single Sign-On 인증 구성 구성](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-1. **인증 구성** 섹션에서 SAML SSO 구성의 **인증 서비스** 로 **AzureSSO** 를 선택한 다음, **저장** 을 클릭합니다.
+1. **인증 구성** 섹션에서 SAML SSO 구성의 **인증 서비스** 로 **로그인 페이지** 및 **AzureSSO** 를 선택한 다음, **저장** 을 클릭합니다.
 
-    ![Single Sign-On 인증 서비스 구성](./media/salesforce-tutorial/sf-auth-config.png)
+    ![Single Sign-On 인증 서비스 구성](./media/salesforce-tutorial/authentication.png)
 
     > [!NOTE]
     > 둘 이상의 인증 서비스를 선택하는 경우 사용자가 Salesforce 환경으로 Single Sign-On을 시작하면 로그인하려는 인증 서비스를 선택하라는 메시지가 표시됩니다. 이 메시지가 표시되지 않도록 하려면 **다른 모든 인증 서비스를 선택하지 않은 상태로 유지** 해야 합니다.
@@ -200,11 +200,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Salesforce 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Salesforce 로그온 URL로 리디렉션됩니다. 
 
-2. Salesforce 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Salesforce 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Salesforce 타일을 클릭하면, SSO를 설정한 Salesforce에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Salesforce 타일을 클릭하면 SSO를 설정한 Salesforce에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="test-sso-for-salesforce-mobile"></a>Salesforce에 대한 SSO 테스트(모바일)
 

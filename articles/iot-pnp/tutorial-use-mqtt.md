@@ -7,18 +7,25 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e56142dfc68767945cd0d08c87f14e19551a156e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831266"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741466"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>자습서 - MQTT를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트 개발
 
 가급적이면 Azure IoT 디바이스 SDK 중 하나를 사용하여 IoT 플러그 앤 플레이 디바이스 클라이언트를 빌드해야 합니다. 그러나 메모리가 제한된 디바이스를 사용하는 시나리오에서는 MQTT 라이브러리를 사용하여 IoT 허브와 통신해야 할 수도 있습니다.
 
 이 자습서의 샘플에서는 [Eclipse Mosquitto](http://mosquitto.org/) MQTT 라이브러리 및 Visual Studio를 사용합니다. 이 자습서의 단계에서는 개발 머신에서 Windows를 사용한다고 가정합니다.
+
+이 자습서에서는 다음 작업 방법을 알아봅니다.
+
+> [!div class="checklist"]
+> * Eclipse Mosquitto 라이브러리를 다운로드하고 빌드합니다.
+> * C 기반 MQTT 샘플 코드를 수정하여 디바이스를 IoT 플러그 앤 플레이 디바이스로 만듭니다.
+> * IoT 플러그 앤 플레이 디바이스에서 사용하는 MQTT 항목을 식별합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

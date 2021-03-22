@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 9a7e02955d7784feb57d7e9ccc7e337b6a939380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8409a4d897ea9b20528a5b30273819e6962774cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651555"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184494"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kendis---azure-ad-integration"></a>자습서: Kendis - Azure AD Integration과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -123,13 +123,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-kendis-azure-ad-integration-sso"></a>Kendis-Azure AD Integration SSO 구성
 
-1. 다른 웹 브라우저 창에서 관리자 권한으로 Kendis - Azure AD Integration 회사 사이트에 로그인합니다.
+1. Kendis - Azure AD Integration 내에서 구성을 자동화하려면 **확장 설치** 를 클릭하여 **내 앱 보안 로그인 브라우저 확장** 을 설치해야 합니다.
 
-1. **Settings(설정) > SAML Configurations(SAML 구성)** 로 차례로 이동합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+2. 브라우저에 확장을 추가한 후 **Kendis - Azure AD Integration 설정** 을 클릭하면 Kendis - Azure AD Integration 애플리케이션으로 연결됩니다. 여기에서 Kendis - Azure AD Integration에 로그인하기 위한 관리자 자격 증명을 제공합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+3. Kendis - Azure AD Integration을 수동으로 설정하려면 다른 웹 브라우저 창에서 Kendis - Azure AD Integration 회사 사이트에 관리자 권한으로 로그인합니다.
+
+4. **Settings(설정) > SAML Configurations(SAML 구성)** 로 차례로 이동합니다.
 
     ![SAML Configurations 설정](./media/kendis-scaling-agile-platform-tutorial/settings.png)
 
-1. 페이지 아래쪽에서 **Edit(편집)** 단추를 클릭하고, 다음 단계를 수행합니다.
+5. 페이지 아래쪽에서 **Edit(편집)** 단추를 클릭하고, 다음 단계를 수행합니다.
 
     ![SAML Configurations](./media/kendis-scaling-agile-platform-tutorial/saml-configuration-settings.png)
 

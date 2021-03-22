@@ -1,5 +1,5 @@
 ---
-title: '자습서: Everbridge와 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: Everbridge와 Azure Active Directory 통합 | Microsoft 문서'
 description: Azure Active Directory 및 Everbridge 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 37a59d6da6fdc844b0b3647c029d716429b50ef6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
-ms.translationtype: MT
+ms.openlocfilehash: 6e281931eb4646e09bb9aa3226ed7d0735c84e3f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430844"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101643782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 
@@ -27,7 +27,7 @@ Azure AD와 Everbridge를 통합하는 경우 다음을 수행할 수 있습니�
 * 사용자가 자신의 Azure AD 계정으로 Everbridge에 자동으로 로그인할 수 있도록 합니다. 이 액세스 제어를 SSO(Single Sign-On)라고 합니다.
 * Azure Portal을 사용하여 중앙의 한 위치에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Everbridge와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -48,27 +48,27 @@ Everbridge의 Azure AD 통합을 구성하려면 갤러리의 Everbridge를 관�
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
-1. **갤러리에서 추가** 섹션의 검색 상자에 **Everbridge** 를 입력 합니다.
-1. 결과 패널에서 **Everbridge** 를 선택 하 고 앱을 추가 합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. **갤러리에서 추가** 섹션의 검색 상자에 **Everbridge** 를 입력합니다.
+1. 결과 패널에서 **Everbridge** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-sso-for-everbridge"></a>Everbridge에 대 한 Azure AD SSO 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-everbridge"></a>Everbridge에 대한 Azure AD SSO 구성 및 테스트
 
-**Simon** 이라는 테스트 사용자를 사용 하 여 Everbridge에서 AZURE AD SSO를 구성 하 고 테스트 합니다. SSO가 작동 하려면 Azure AD 사용자와 Everbridge의 관련 사용자 간에 연결 관계를 설정 해야 합니다.
+**B.Simon** 이라는 테스트 사용자를 사용하여 Everbridge에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Everbridge의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Everbridge에서 Azure AD SSO를 구성 하 고 테스트 하려면 다음 단계를 수행 합니다.
+Everbridge에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-1. **[EVERBRIDGE SSO 구성](#configure-everbridge-sso)** -응용 프로그램 쪽에서 Single Sign-On 설정을 구성 합니다.
-    1. **[Everbridge 테스트 사용자 만들기](#create-everbridge-test-user)** -Simon의 Azure AD 표현과 연결 된 해당 사용자를 Everbridge에 만듭니다.
+1. **[Everbridge SSO 구성](#configure-everbridge-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[Everbridge 테스트 사용자 만들기](#create-everbridge-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Everbridge에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 **Everbridge** 응용 프로그램 통합 페이지에서 **관리** 섹션을 찾아 **Single sign-on** 을 선택 합니다.
+1. Azure Portal의 **Everbridge** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
@@ -81,10 +81,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Everbridge 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 상자에 패턴 뒤에 오는 URL을 입력 합니다.
+    a. **식별자** 상자에 패턴을 따르는 URL을 입력합니다.
     `https://sso.everbridge.net/<API_Name>`
 
-    b. **회신 url** 상자에 패턴 뒤에 오는 url을 입력 합니다.
+    b. **회신 URL** 상자에 패턴을 따르는 URL을 입력합니다.
     `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
 
     > [!NOTE]
@@ -131,10 +131,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Everbridge에 대 한 액세스 권한을 부여 하 여 Simon에서 Azure Single Sign-On를 사용 하도록 설정 합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Everbridge 대한 액세스 권한을 부여합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
-1. 응용 프로그램 목록에서 **Everbridge** 를 선택 합니다.
+1. 애플리케이션 목록에서 **Everbridge** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
@@ -147,7 +147,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
 1. 다른 웹 브라우저 창에서 Everbridge에 관리자 권한으로 로그인합니다.
 
-1. 위쪽의 메뉴에서 **설정** 탭을 선택 합니다. **보안** 아래에서 **Single sign-on** 을 선택 합니다.
+1. 위쪽 메뉴에서 **설정** 탭을 선택합니다. **보안** 에서 **Single Sign-on** 을 선택합니다.
    
      ![Single Sign-On 구성](./media/everbridge-tutorial/sso.png)
    
@@ -165,7 +165,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
      g. **저장** 을 선택합니다.
 
-### <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Everbridge을 Everbridge member portal SSO로 구성
+### <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Everbridge를 Everbridge 멤버 포털 SSO로 구성
 
 **Everbridge** 의 Single Sign-On을 **EverBridge 멤버 포털** 로 구성하려면 다운로드한 **페더레이션 메타데이터 XML** 을 [Everbridge 지원 팀](mailto:support@everbridge.com)에 보냅니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
@@ -177,10 +177,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-* Azure Portal에서이 응용 프로그램 테스트를 클릭 하면 SSO를 설정 하는 Everbridge에 자동으로 로그인 됩니다.
+* Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Everbridge에 자동으로 로그인됩니다.
 
-* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Everbridge 타일을 클릭 하면 SSO를 설정 하는 Everbridge에 자동으로 로그인 됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Everbridge 타일을 클릭하면 SSO를 설정한 Everbridge에 자동으로 로그인되어야 합니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Everbridge를 구성한 후에는 세션 제어를 적용 하 여 조직에서 중요 한 데이터의 반출 및 침입를 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Everbridge가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

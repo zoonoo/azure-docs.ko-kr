@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 8a61ad1599a2d4d1aeaf8b36d2f92d95ec1896a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573044"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651989"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
 [Azure Cognitive Search](search-what-is-azure-search.md)는 사용자 지정 앱에 전체 텍스트 검색 환경을 추가하는 데 사용되는 Azure 리소스입니다. 데이터 또는 추가 처리를 제공하는 다른 Azure 서비스, 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 쉽게 통합할 수 있습니다.
 
-이 문서에서 설명하는 [Azure Portal](https://portal.azure.com/)을 사용하여 검색 서비스를 만들 수 있습니다. [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search) 또는 [Azure Resource Manager 서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용할 수도 있습니다.
+이 문서에서 설명하는 [Azure Portal](https://portal.azure.com/)을 사용하여 검색 서비스를 만들 수 있습니다. [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), [관리 REST API](/rest/api/searchmanagement/) 또는 [Azure Resource Manager 서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용할 수도 있습니다.
 
 [![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -85,7 +85,7 @@ ms.locfileid: "100573044"
 
 Azure Cognitive Search는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search)에 설명된 대로 대부분의 지역에서 사용할 수 있습니다. 일반적으로 여러 Azure 서비스를 사용하는 경우 데이터 또는 애플리케이션 서비스도 호스팅하는 지역을 선택합니다. 아웃바운드 데이터에 대한 대역폭 요금을 최소화 하거나 무효로 합니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금은 없음).
 
-+ [AI 보강](cognitive-search-concept-intro.md)은 Cognitive Services가 Azure Cognitive Search와 동일한 물리적 지역에 있어야 합니다. 따라서 일부 지역에서는 두 기능을 모두 제공하지 않습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지는 두 개의 누적 확인 표시를 표시하여 이중 가용성을 나타냅니다. 사용할 수 없는 조합에 확인 표시가 없습니다.
++ [AI 보강](cognitive-search-concept-intro.md)은 Cognitive Services가 Azure Cognitive Search와 동일한 물리적 지역에 있어야 합니다. 둘 다 제공하지 않는 지역은 몇 개만 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지는 두 개의 누적 확인 표시를 표시하여 이중 가용성을 나타냅니다. 사용할 수 없는 조합에 확인 표시가 없습니다.
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="국가별 가용성" border="true":::
 

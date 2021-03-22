@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: cf1e71d67424258ccae6794f28d37399cd68996e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503592"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654326"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>자습서: VMware Horizon - Unified Access Gateway와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -39,7 +39,7 @@ ms.locfileid: "92503592"
 
 * VMware Horizon - Unified Access Gateway는 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-vmware-horizon---unified-access-gateway-from-the-gallery"></a>갤러리에서 VMware Horizon - Unified Access Gateway 추가
+## <a name="add-vmware-horizon---unified-access-gateway-from-the-gallery"></a>갤러리에서 VMware Horizon - Unified Access Gateway 추가
 
 VMware Horizon - Unified Access Gateway의 Azure AD 통합을 구성하려면 갤러리의 VMware Horizon - Unified Access Gateway를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -70,7 +70,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **VMware Horizon - Unified Access Gateway** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -99,7 +99,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -145,4 +145,4 @@ Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이�
 
 ## <a name="next-steps"></a>다음 단계
 
-VMware Horizon - Unified Access Gateway를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+VMware Horizon - Unified Access Gateway를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

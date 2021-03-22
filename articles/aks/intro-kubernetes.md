@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: mvc
-ms.openlocfilehash: 1505366d9a91eac596b21804f93abb8245a84605
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 009244322b7c6625523bf46382a170577593f4e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718372"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -104,9 +104,7 @@ HTTP 애플리케이션 라우팅 추가 기능을 사용하면 AKS 클러스터
 
 Kubernetes에는 AKS와 원활하게 작동하는 풍부한 개발 및 관리 도구 에코시스템이 있습니다. 이러한 도구에는 Helm과 Visual Studio Code용 Kubernetes 확장이 포함되어 있습니다. 이러한 도구는 AKS를 사용하여 원활하게 작동합니다.  
 
-또한 Azure는 Azure Dev Spaces 및 DevOps Starter와 같이 Kubernetes를 간소화하는 데 도움이 되는 여러 도구를 제공합니다.  
-
-Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 구성을 통해 AKS에서 바로 컨테이너를 실행하고 디버그할 수 있습니다. 시작하려면 [Azure Dev Spaces][azure-dev-spaces]를 참조하세요.
+또한 Azure는 DevOps Starter와 같이 Kubernetes를 간소화하는 데 도움이 되는 여러 도구를 제공합니다.  
 
 DevOps Starter는 기존 코드 및 Git 리포지토리를 Azure로 가져오는 간단한 솔루션을 제공합니다. DevOps Starter는 자동으로 다음을 수행합니다.
 * Azure 리소스(예: AKS)를 만듭니다. 
@@ -157,7 +155,7 @@ Azure CLI 빠른 시작을 사용하여 AKS를 배포하고 관리하는 방법�
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../azure-monitor/containers/container-insights-overview.md
-[aks-master-logs]: view-master-logs.md
+[aks-master-logs]: ./view-control-plane-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-kubernetes-rbac

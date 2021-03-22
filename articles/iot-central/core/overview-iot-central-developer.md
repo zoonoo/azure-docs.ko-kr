@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 326fed659be43be3115cae1d7c2b14d0708f4a96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f69bbecfc2acc24cd63b87212197342b28723a9f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377808"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043102"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 
@@ -68,7 +68,7 @@ DPS를 사용하면 다음과 같은 장점이 있습니다.
 - 사용자의 고유한 디바이스 ID를 사용하여 IoT Central에서 디바이스를 등록할 수 있습니다. 사용자의 고유한 디바이스 ID를 사용하면 기존 백 오피스 시스템과 간편하게 통합할 수 있습니다.
 - 디바이스를 IoT Central에 연결하는 한 가지 일관적인 방법이 있습니다.
 
-자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
+자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md) 및 [모범 사례](concepts-best-practices.md)를 참조하세요.
 
 ### <a name="security"></a>보안
 

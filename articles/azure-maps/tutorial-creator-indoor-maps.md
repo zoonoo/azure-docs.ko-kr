@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
-ms.translationtype: MT
+ms.openlocfilehash: 9ac53dab29feddd36a95b8b2b041caaf5c3598d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625018"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101720140"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>자습서: Creator(미리 보기)를 사용하여 실내 맵 만들기
 
@@ -116,6 +116,7 @@ ms.locfileid: "98625018"
 
     >[!IMPORTANT]
     > 이 문서의 API URL은 Creator 리소스의 위치에 따라 조정해야 할 수 있습니다. 자세한 내용은 [Creator 서비스(미리 보기)에 대한 액세스](how-to-manage-creator.md#access-to-creator-services)를 참조하세요.
+    > 코드 `"RequiresCreatorResource"` 오류가 발생하는 경우 Azure Maps 계정에서 [Azure Maps Creator 리소스를 프로비저닝](how-to-manage-creator.md)했는지 확인합니다.
 
 3. **보내기** 단추를 클릭하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동하여 **위치** 키를 찾습니다. 변환 요청에 대한 `status URL`인 **위치** 키의 값을 복사합니다. 이 값은 다음 단계에서 사용합니다.
 
@@ -314,7 +315,7 @@ ms.locfileid: "98625018"
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. `occupied` 및 `temperature` *상태* 에 대한 변경 내용을 반영하려면 **본문** 에서 아래 스타일을 제공합니다. 완료되면 **보내기** 를 클릭합니다.
+3. **POST** 요청의 **헤더** 에서 `Content-Type`을 `application/json`으로 설정합니다. `occupied` 및 `temperature` *상태* 에 대한 변경 내용을 반영하려면 **본문** 에서 아래의 원시 json 스타일을 제공합니다. 완료되면 **보내기** 를 클릭합니다.
 
     ```json
     {

@@ -1,14 +1,14 @@
 ---
 title: Azure Security Benchmark Foundation 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 Azure Security Benchmark Foundation 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740684"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플 배포
 
@@ -92,6 +92,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - **Network Watcher 이름**: Network Watcher 리소스에 대한 이름
      - **Network Watcher 리소스 그룹 이름**: Network Watcher 리소스 그룹에 대한 이름
      - **DDoS Protection 사용**: 가상 네트워크에서 DDoS 보호를 사용할지 여부를 지정하려면 'true' 또는 'false'를 입력합니다.
+     
+    > [!NOTE] 
+    > Network Watcher가 이미 사용하도록 설정된 경우 기존 Network Watcher 리소스 그룹을 사용하는 것이 좋습니다. 또한 아티팩트 매개 변수 **Network Watcher 리소스 그룹 위치** 에 대한 기존 Network Watcher 리소스 그룹의 위치를 제공해야 합니다.
 
    - 아티팩트 매개 변수
 
@@ -132,8 +135,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Azure Virtual Network 스포크 템플릿|Resource Manager 템플릿|서브넷 주소 이름(선택 사항)|허브 가상 네트워크에 배포할 서브넷 이름 배열(예: "subnet1", "subnet2")|
 |Azure Virtual Network 스포크 템플릿|Resource Manager 템플릿|서브넷 주소 접두사(선택 사항)|스포크 가상 네트워크의 선택적 서브넷에 대한 IP 주소 접두사의 배열(예: "10.0.7.0/24", "10.0.8.0/24")|
 |Azure Virtual Network 스포크 템플릿|Resource Manager 템플릿|스포크 배포|할당이 아키텍처의 스포크 구성 요소를 배포하는지 여부를 지정하려면 'true' 또는 'false'를 입력합니다.|
-|Azure Network Watcher 템플릿|Resource Manager 템플릿|Network Watcher 위치|Network Watcher가 이미 사용하도록 설정된 경우 이 매개 변수 값은 기존 Network Watcher 리소스 그룹의 위치와 일치 **해야 합니다**.|
-|Azure Network Watcher 템플릿|Resource Manager 템플릿|Network Watcher 리소스 그룹 위치|Network Watcher가 이미 사용하도록 설정된 경우 이 매개 변수 값은 기존 Network Watcher 리소스 그룹의 이름과 일치 **해야 합니다**.|
+|Azure Network Watcher 템플릿|Resource Manager 템플릿|Network Watcher 위치|Network Watcher 리소스의 위치|
+|Azure Network Watcher 템플릿|Resource Manager 템플릿|Network Watcher 리소스 그룹 위치|Network Watcher가 이미 사용하도록 설정된 경우 이 매개 변수 값은 기존 Network Watcher 리소스 그룹의 위치와 일치 **해야 합니다**.|
+
+## <a name="troubleshooting"></a>문제 해결
+
+`The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.` 오류가 발생하면 청사진 매개 변수 **Network Watcher 리소스 그룹 이름** 이 기존 Network Watcher 리소스 그룹 이름을 지정하고 아티팩트 매개 변수 **Network Watcher 리소스 그룹 위치** 가 기존 Network Watcher 리소스 그룹 위치를 지정하는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

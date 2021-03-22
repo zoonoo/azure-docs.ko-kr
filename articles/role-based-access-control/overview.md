@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559344"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650867"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Azure RBAC(Azure 역할 기반 액세스 제어)란?
 
@@ -86,7 +86,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="multiple-role-assignments"></a>여러 역할 할당
 
-따라서 여러 겹치는 역할 할당이 있는 경우 어떻게 되나요? Azure RBAC는 추가 모델이므로 유효 권한은 역할 할당의 합계입니다. 사용자가 구독 범위에서 기여자 역할에 부여되고 리소스 그룹에서 읽기 권한자 역할에 부여되는 다음 예제를 고려해 봅니다. 기여자 권한 및 Reader 권한의 합계는 사실상 리소스 그룹에 대한 기여자 역할입니다. 따라서 이 경우 판독기 역할 할당은 영향을 주지 않습니다.
+따라서 여러 겹치는 역할 할당이 있는 경우 어떻게 되나요? Azure RBAC는 추가 모델이므로 유효 권한은 역할 할당의 합계입니다. 사용자가 구독 범위에서 기여자 역할에 부여되고 리소스 그룹에서 읽기 권한자 역할에 부여되는 다음 예제를 고려해 봅니다. 기여자 권한과 리더 권한의 합계는 사실상 구독에 대한 기여자 역할입니다. 따라서 이 경우 판독기 역할 할당은 영향을 주지 않습니다.
 
 ![여러 역할 할당](./media/overview/rbac-multiple-roles.png)
 

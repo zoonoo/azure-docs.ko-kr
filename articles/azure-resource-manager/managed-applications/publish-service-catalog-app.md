@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650649"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093637"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -27,9 +27,9 @@ ms.locfileid: "91650649"
 
 ## <a name="create-the-arm-template"></a>ARM 템플릿 만들기
 
-모든 관리되는 애플리케이션 정의에는 _mainTemplate.json_이라는 파일이 포함됩니다. 여기에서 표시할 Azure 리소스를 정의합니다. 템플릿은 일반 ARM 템플릿과 차이가 없습니다.
+모든 관리되는 애플리케이션 정의에는 _mainTemplate.json_ 이라는 파일이 포함됩니다. 여기에서 표시할 Azure 리소스를 정의합니다. 템플릿은 일반 ARM 템플릿과 차이가 없습니다.
 
-이름이 _mainTemplate.json_인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
+이름이 _mainTemplate.json_ 인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
 
 파일에 다음 JSON을 추가합니다. 스토리지 계정을 만들기 위한 매개 변수를 정의하고 스토리지 계정의 속성을 지정합니다.
 
@@ -80,7 +80,7 @@ _mainTemplate.json_ 파일을 저장합니다.
 
 게시자는 관리형 애플리케이션을 만들기 위한 포털 환경을 정의합니다. _createUiDefinition.json_ 파일은 포털 인터페이스를 생성합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소](create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
 
-이름이 _createUiDefinition.json_인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
+이름이 _createUiDefinition.json_ 인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
 
 다음 시작 JSON을 파일에 추가하고 저장합니다.
 
@@ -137,7 +137,7 @@ _mainTemplate.json_ 파일을 저장합니다.
 
 ## <a name="package-the-files"></a>파일을 패키지로 만들기
 
-이름이 _app.zip_인 _.zip_ 파일에 두 개의 파일을 추가합니다. 두 파일은 _.zip 파일_의 루트 수준에 있어야 합니다. 폴더에 배치하는 경우 관리되는 애플리케이션 정의를 만들 때 필요한 파일이 없음을 나타내는 오류가 나타납니다.
+이름이 _app.zip_ 인 _.zip_ 파일에 두 개의 파일을 추가합니다. 두 파일은 _.zip 파일_ 의 루트 수준에 있어야 합니다. 폴더에 배치하는 경우 관리되는 애플리케이션 정의를 만들 때 필요한 파일이 없음을 나타내는 오류가 나타납니다.
 
 패키지를 사용할 수 있는 액세스 가능한 위치에 패키지를 업로드합니다. 스토리지 계정의 고유한 이름을 제공해야 합니다.
 
@@ -314,8 +314,8 @@ az managedapp definition create \
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 1. **액세스 제어(IAM)** 를 선택하여 스토리지 계정에 대한 액세스 제어 설정을 표시합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
 1. **역할 할당 추가** 창에서 **기여자** 역할을 선택합니다.
-1. **액세스 할당** 필드에서 **Azure AD 사용자, 그룹 또는 서비스 주체**를 선택합니다.
-1. **선택**에서 **어플라이언스 리소스 공급자** 역할을 검색하여 선택합니다.
+1. **액세스 할당** 필드에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 를 선택합니다.
+1. **선택** 에서 **어플라이언스 리소스 공급자** 역할을 검색하여 선택합니다.
 1. 역할 할당을 저장합니다.
 
 ### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>ARM 템플릿을 사용하여 관리형 애플리케이션 정의 배포
@@ -401,7 +401,7 @@ az managedapp definition create \
 
 ## <a name="make-sure-users-can-see-your-definition"></a>사용자가 정의를 볼 수 있는지 확인합니다.
 
-사용자가 관리되는 애플리케이션 정의에 액세스할 수 있지만 조직의 다른 사용자도 액세스할 수 있는 것이 좋습니다. 정의에서 최소한 읽기 역할을 부여합니다. 구독 또는 리소스 그룹에서 이 수준의 액세스를 상속받을 수 있습니다. 정의에 대한 액세스 권한이 있는 사용자를 확인하고 사용자 또는 그룹을 추가하려면 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+사용자가 관리되는 애플리케이션 정의에 액세스할 수 있지만 조직의 다른 사용자도 액세스할 수 있는 것이 좋습니다. 정의에서 최소한 읽기 역할을 부여합니다. 구독 또는 리소스 그룹에서 이 수준의 액세스를 상속받을 수 있습니다. 정의에 대한 액세스 권한이 있는 사용자를 확인하고 사용자 또는 그룹을 추가하려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

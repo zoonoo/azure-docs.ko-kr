@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 10/15/2020
+ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 325f39b695d80c14ed7097d071380b937458546c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8aeba13954283ca35c3eb0060a0e588ba6a7adbe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021489"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707184"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>빠른 시작: 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결
 
@@ -46,21 +46,21 @@ Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 
 |**이름** | **값** |
 | --- | --- |
 | 가상 머신| TestVM |
-| 리소스 그룹 | TestRG |
+| 리소스 그룹 | TestRG1 |
 | Azure 지역 | 미국 동부 |
-| 가상 네트워크 | TestVNet1 |
-| 주소 공간 | 10.0.0.0/16 |
-| 서브넷 | 프런트 엔드: 10.0.0.0/24 |
+| 가상 네트워크 | VNet1 |
+| 주소 공간 | 10.1.0.0/16 |
+| 서브넷 | FrontEnd: 10.1.0.0/24 |
 
 **Azure Bastion 값:**
 
 |**이름** | **값** |
 | --- | --- |
-| Name | TestVNet1-bastion |
+| 속성 | VNet1-bastion |
 | + 서브넷 이름 | AzureBastionSubnet |
-| AzureBastionSubnet 주소 | VNet 주소 공간 내에서 /27 서브넷 마스크를 사용하는 서브넷입니다. 예: 10.0.1.0/27.  |
+| AzureBastionSubnet 주소 | VNet 주소 공간 내에서 /27 서브넷 마스크를 사용하는 서브넷입니다. 예: 10.1.1.0/27.  |
 | 공용 IP 주소 |  새로 만들기 |
-| 공용 IP 주소 이름 | VNet1BastionPIP  |
+| 공용 IP 주소 이름 | VNet1-ip  |
 | 공용 IP 주소 SKU |  Standard  |
 | 할당  | 정적 |
 
@@ -71,34 +71,34 @@ Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 연결하려는 VM으로 이동한 다음, **연결** 을 선택합니다.
 
-   :::image type="content" source="./media/quickstart-host-portal/vm-settings.png" alt-text="가상 머신 설정" lightbox="./media/quickstart-host-portal/vm-settings.png":::
+   :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="가상 머신 설정의 스크린 샷." lightbox="./media/quickstart-host-portal/vm-connect.png":::
 1. 드롭다운에서 **Bastion** 을 선택합니다.
+
+   :::image type="content" source="./media/quickstart-host-portal/bastion.png" alt-text="Bastion 드롭다운의 스크린샷." lightbox="./media/quickstart-host-portal/bastion.png":::
 1. **TestVM | 연결 페이지** 에서 **Bastion 사용** 을 선택합니다.
 
-   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Bastion 선택" border="false":::
+   :::image type="content" source="./media/quickstart-host-portal/select-bastion.png" alt-text="Bastion 사용의 스크린샷.":::
 
-1. **Bastion** 페이지에서 다음 설정 필드를 작성합니다.
+1. **Azure Bastion을 사용하여 연결** 페이지에서 값을 구성합니다.
+
+   * **1단계:** VM에서 직접 베스천 호스트를 만들기 때문에 값이 미리 채워져 있습니다.
+
+   * **2단계:** 주소 공간은 제안된 주소 공간으로 미리 채워집니다. AzureBastionSubnet의 주소 공간은 /27 이상(/26, /25 등)이어야 합니다.
+
+   :::image type="content" source="./media/quickstart-host-portal/create-subnet.png" alt-text="Bastion 서브넷 만들기의 스크린샷.":::
+
+1. **서브넷 만들기** 를 클릭하여 AzureBastionSubnet을 만듭니다.
+1. 서브넷이 생성되면 페이지가 자동으로 **3단계** 로 이동합니다. 3단계의 경우 다음 값을 사용합니다.
 
    * **이름**: 베스천 호스트의 이름을 지정합니다.
-   * **서브넷**: Bastion 리소스가 배포될 가상 네트워크 주소 공간입니다. **AzureBastionSubnet** 이름을 사용하여 서브넷을 만들어야 합니다. 최소 /27 이상(/27, /26, /25 등)의 서브넷을 사용합니다.
-   * **서브넷 구성 관리** 를 선택합니다.
-1. **서브넷** 페이지에서 **+서브넷** 을 선택합니다.
-
-   :::image type="content" source="./media/quickstart-host-portal/subnet.png" alt-text="+ 서브넷":::
-    
-1. **서브넷 추가** 페이지에서 **이름** 으로 **AzureBastionSubnet** 을 입력합니다.
-   * 서브넷 주소 범위로는 가상 네트워크 주소 공간 내에 있는 서브넷 주소를 선택합니다.
-   * 다른 설정은 조정하지 않습니다. **확인** 을 선택하여 서브넷 변경 내용을 수락하고 저장합니다.
-
-   :::image type="content" source="./media/quickstart-host-portal/add-subnet.png" alt-text="서브넷 추가":::
-1. 브라우저에서 [뒤로] 단추를 클릭하여 **Bastion** 페이지로 돌아간 다음, 값을 계속 지정합니다.
-   * **공용 IP 주소**: **새로 만들기** 를 유지합니다.
+   * **공용 IP 주소:****새로 만들기** 를 선택합니다.
    * **공용 IP 주소 이름**: 공용 IP 주소 리소스의 이름입니다.
-   * **할당**: 기본값은 [정적]입니다. Azure Bastion에는 동적 할당을 사용할 수 없습니다.
+   * **공용 IP 주소 SKU:** **표준** 으로 미리 구성됩니다.
+   * **할당:** **정적** 으로 미리 구성됩니다. Azure Bastion에는 동적 할당을 사용할 수 없습니다.
    * **리소스 그룹**: VM과 동일한 리소스 그룹입니다.
 
-   :::image type="content" source="./media/quickstart-host-portal/validate.png" alt-text="베스천 호스트 만들기":::
-1. **만들기** 를 선택하여 베스천 호스트를 만듭니다. Azure에서 설정의 유효성을 검사한 다음, 호스트를 만듭니다. 호스트와 해당 리소스를 만들고 및 배포하는 데 약 5분 정도 걸립니다.
+   :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="3단계의 스크린샷.":::
+1. 값을 완료한 후에는 **기본값을 사용하여 Azure Bastion 만들기** 를 선택합니다. Azure에서 설정의 유효성을 검사한 다음, 호스트를 만듭니다. 호스트와 해당 리소스를 만들고 및 배포하는 데 약 5분 정도 걸립니다.
 
 ## <a name="connect"></a><a name="connect"></a>연결
 
@@ -106,7 +106,7 @@ Bastion이 가상 네트워크에 배포되면 화면이 연결 페이지로 바
 
 1. 가상 머신의 사용자 이름과 암호를 입력합니다. 그런 다음, **연결** 을 선택합니다.
 
-   :::image type="content" source="./media/quickstart-host-portal/connect-vm.png" alt-text="Azure Bastion을 사용하여 연결 대화 상자를 보여 주는 스크린샷":::
+   :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Azure Bastion을 사용하여 연결 대화 상자를 보여 주는 스크린샷":::
 1. 이 가상 머신에 대한 RDP 연결은 HTML5를 통해 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP 연결":::

@@ -7,18 +7,22 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: de7bdc22b4bfdf9ef5865b1b601b32672eb868d1
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 04b582b5ef31e61039c5513ea2a4aa60f1c638e7
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165130"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121340"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>빠른 시작: Go에서 Azure Cache for Redis 사용
 
 이 문서에서는 [Azure Cache for Redis](./cache-overview.md)에서 [HASH](https://redis.io/topics/data-types-intro#redis-hashes) 데이터 구조가 지원하는 사용자 정보를 저장하고 검색하는 REST API를 Go에서 빌드하는 방법을 알아봅니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="skip-to-the-code-on-github"></a>GitHub의 코드로 건너뛰기
+
+코드로 바로 건너뛰려면 GitHub의 [Go 빠른 시작](https://github.com/Azure-Samples/azure-redis-cache-go-quickstart/)을 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Go](https://golang.org/doc/install)(버전 1.13 이상 권장)

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 02/18/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: dfb7e7c7c93a8af2b59f6d3d7049e2c14b8f382a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0d597f0742cfc43f1c7fb38568b2a2bbda352beb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611052"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049341"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
@@ -35,22 +35,34 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > * 연결 문자열 설정
 > * 콘솔 애플리케이션 실행
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 * **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
   ![Azure Development(웹 및 클라우드 아래)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 * [Python 설치](https://www.python.org/downloads/)
 * [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 * [Node.js](https://nodejs.org)를 설치합니다.
 
@@ -85,7 +97,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 [샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)하고, storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드할 수 있습니다. 샘플 프로젝트는 콘솔 애플리케이션을 포함합니다.
 
@@ -93,7 +109,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 [샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)하고, storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Python 애플리케이션이 포함되어 있습니다.
 
@@ -101,7 +121,11 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 [샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs)하고 파일 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 애플리케이션 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Node.js 애플리케이션이 포함되어 있습니다.
 
@@ -113,7 +137,11 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 ## <a name="configure-the-sample"></a>샘플 구성
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 애플리케이션에서 스토리지 계정에 대한 연결 문자열을 제공해야 합니다. 애플리케이션을 실행하는 로컬 컴퓨터의 환경 변수 내에 이 연결 문자열을 저장할 수 있습니다. 운영 체제에 따라 아래 예제 중 하나를 따라 환경 변수를 만듭니다.
 
@@ -131,7 +159,11 @@ export storageconnectionstring=<yourconnectionstring>
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 애플리케이션에서 스토리지 계정 자격 증명을 반드시 제공해야 합니다. 애플리케이션을 실행하는 로컬 머신의 환경 변수에 이 정보를 저장할 수 있습니다. 운영 체제에 따라 아래 예제 중 하나를 참고하여 환경 변수를 만듭니다.
 
@@ -151,7 +183,11 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 이 샘플을 실행하려면 `.env.example` 파일에 스토리지 계정 자격 증명을 추가한 다음, `.env`로 이름을 변경해야 합니다.
 
@@ -168,7 +204,11 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 ## <a name="run-the-console-application"></a>콘솔 애플리케이션 실행
 
-# <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Visual Studio에서 **F5** 키를 누르거나 **시작** 을 클릭하여 애플리케이션 디버깅을 시작합니다. Visual Studio는 구성된 경우 누락된 NuGet 패키지를 자동으로 복원합니다. 자세한 내용은 [패키지 복원으로 패키지 설치 및 다시 설치](/nuget/consume-packages/package-restore#package-restore-overview)에서 확인하세요.
 
@@ -178,7 +218,11 @@ Visual Studio에서 **F5** 키를 누르거나 **시작** 을 클릭하여 애�
 
 샘플 코드에서 `Program.cs` 파일의 `RunCircuitBreakerAsync` 작업은 [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync) 메서드를 사용하여 스토리지 계정에서 이미지를 다운로드하는 데 사용합니다. 다운로드하기 전에 [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext)가 정의됩니다. 작업 컨텍스트는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도하는 경우 생성되는 이벤트 처리기를 정의합니다.
 
-# <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 터미널 또는 명령 프롬프트에서 애플리케이션을 실행하려면 **circuitbreaker.py** 디렉터리로 이동한 다음, `python circuitbreaker.py`를 입력합니다. 애플리케이션은 **HelloWorld.png** 이미지를 솔루션에서 스토리지 계정으로 업로드합니다. 애플리케이션은 해당 이미지를 보조 RA-GZRS 엔드포인트로 복제했는지 확인합니다. 그런 다음, 이미지를 최대 999회까지 다운로드를 시작합니다. 읽기는 각각 **P** 또는 **S** 로 나타납니다. 여기서 **P** 는 기본 엔드포인트을 나타내고 **S** 는 보조 엔드포인트을 나타냅니다.
 
@@ -190,7 +234,11 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
 
 다운로드하기 전에 Service 개체 [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) 및 [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 샘플을 실행하려면 명령 프롬프트를 열고 샘플 폴더로 이동한 다음, `node index.js`을 입력합니다.
 
@@ -221,7 +269,11 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>샘플 코드 이해
 
-### <a name="net"></a>[.NET](#tab/dotnet)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
@@ -272,7 +324,11 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-### <a name="python"></a>[Python](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ### <a name="retry-event-handler"></a>이벤트 처리기 다시 시도
 
@@ -315,7 +371,11 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs-v12"></a>[Node.js v12](#tab/nodejs)
+
+현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
+
+# <a name="nodejs-v11"></a>[Node.js v11](#tab/nodejs11)
 
 Node.js V10 SDK를 사용하면 콜백 처리기가 필요하지 않습니다. 대신, 샘플이 다시 시도 옵션과 보조 엔드포인트로 구성된 파이프라인을 작성합니다. 그러면 애플리케이션이 기본 파이프라인을 통해 데이터에 도달하지 못하면 보조 파이프라인으로 자동 전환될 수 있습니다.
 

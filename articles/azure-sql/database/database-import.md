@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8d246f06db9fc9f4e6916ea69ec49ddaf8cf0667
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040165"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519778"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일을 가져옵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "93040165"
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
-The <bpt id="p1">[</bpt>Azure portal<ept id="p1">](https://portal.azure.com)</ept> <bpt id="p2">*</bpt>only<ept id="p2">*</ept> supports creating a single database in Azure SQL Database and <bpt id="p3">*</bpt>only<ept id="p3">*</ept> from a BACPAC file stored in Azure Blob storage.
+[Azure Portal은 Azure SQL Database에서 Azure Blob Storage에 저장된 BACPAC 파일을 통해 단일 데이터베이스를 만드는 기능 *만* 지원합니다.](https://portal.azure.com) 
 
 BACPAC 파일을 사용하여 [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)로 데이터베이스를 마이그레이션하려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다. 현재는 Azure Portal 또는 Azure PowerShell 사용이 지원되지 않습니다.
 
@@ -144,6 +144,15 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 > [!TIP]
 > 다른 스크립트 예제는 [BACPAC 파일에서 데이터베이스 가져오기](scripts/import-from-bacpac-powershell.md)를 참조하세요.
+
+## <a name="cancel-the-import-request"></a>가져오기 요청 취소
+
+[데이터베이스 작업 - 취소 API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) 또는 Powershell [Stop-AzSqlDatabaseActivity 명령](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0)(여기에서는 powershell 명령의 예)을 사용합니다.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
+```
+
 
 ## <a name="limitations"></a>제한 사항
 

@@ -2,13 +2,13 @@
 title: Service Fabric 관리형 클러스터(미리 보기)
 description: Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다.
 ms.topic: overview
-ms.date: 09/28/2020
-ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.date: 02/15/2021
+ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91410400"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041232"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Service Fabric 관리형 클러스터(미리 보기)
 
@@ -62,17 +62,22 @@ Service Fabric 관리형 클러스터는 기본 및 표준 SKU에서 모두 사�
 | 노드 형식 추가/제거 | 예 | 예 |
 | 영역 중복 | 예 | 예 |
 
-## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Service Fabric 관리형 클러스터 기능 로드맵
-이는 Service Fabric 관리형 클러스터의 초기 미리 보기 버전이므로 알아야 할 몇 가지 차이가 있습니다. 이러한 기능은 이후 릴리스에서 제공될 예정입니다. 
+## <a name="whats-new-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터의 새로운 기능
 
-* Visual Studio에서 직접 클러스터에 애플리케이션 게시
-* 관리 ID 
-* ARM 애플리케이션 배포 
-* 가용성 영역 
-* 역방향 프록시 
-* 자동 크기 조정 
-* NSG 규칙 업데이트 
-* 자동 OS 업그레이드
+Service Fabric 관리형 클러스터 미리 보기의 최신 기능에는 다음에 대한 지원이 포함됩니다.
+
+* [ARM 템플릿을 사용하여 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
+* [자동 OS 업그레이드](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md)
+* [NSG 규칙 적용](how-to-managed-cluster-networking.md)
+
+향후 릴리스에 추가될 기능은 다음과 같습니다.
+
+* Visual Studio를 사용하여 애플리케이션 배포
+* 관리 ID 지원
+* 가용성 영역
+* 역방향 프록시
+* 자동 확장
 
 ## <a name="next-steps"></a>다음 단계
 

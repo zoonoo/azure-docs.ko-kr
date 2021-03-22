@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: 파일 포함
+description: 파일 포함
 services: active-directory
 author: eross-msft
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 5bcc770c730b53a9523415a4978b439ac0079410
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6cbdf96571ece4f714affb13aa97d495cc84dab3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95974065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102109353"
 ---
->[!Note]
->개인 데이터를 보기 또는 삭제하는 데 관심이 있는 경우 [GDPR에 대한 Windows 데이터 제목 요청](/microsoft-365/compliance/gdpr-data-subject-requests) 사이트에서 Microsoft의 지침을 검토하십시오. GDPR에 대한 일반 정보를 찾는 경우 [서비스 신뢰 포털의 GDPR 섹션](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)을 참조합니다.
+> [!NOTE]
+> 개인 데이터 보기 또는 삭제에 대한 자세한 내용은 [GDPR에 대한 Windows 데이터 제목 요청](/microsoft-365/compliance/gdpr-dsr-windows) 사이트에서 Microsoft의 지침을 검토하세요. GDPR에 대한 일반정인 정보는 [Microsoft Trust Center의 GDPR 섹션](https://www.microsoft.com/trust-center/privacy/gdpr-overview) 및 [Service Trust 포털의 GDPR 섹션](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)을 참조하세요.

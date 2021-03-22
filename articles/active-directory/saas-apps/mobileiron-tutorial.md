@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 5561a4cdeef725eba7e48d7767aa0ee5d3c6d9cf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c47092b1488a79805db69308bcb9a8efde1c0d58
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99822097"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>자습서: MobileIron과 Azure Active Directory 통합
 
@@ -26,12 +26,12 @@ ms.locfileid: "99822097"
 * 사용자가 해당 Azure AD 계정으로 MobileIron에 자동으로 로그온(Single Sign-On)하도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-MobileIron과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
-* MobileIron Single Sign-On을 사용하도록 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* MobileIron SSO(Single Sign-On)가 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -131,7 +131,7 @@ MobileIron에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계�
     ![Single Sign-On 관리 메타데이터 구성 단추](./media/MobileIron-tutorial/tutorial_MobileIron_adminmetadata.png)
 
 
-##  <a name="create-mobileiron-test-user"></a>MobileIron 테스트 사용자 만들기
+### <a name="create-mobileiron-test-user"></a>MobileIron 테스트 사용자 만들기
 
 Azure AD 사용자가 MobileIron에 로그인할 수 있도록 하려면 MobileIron으로 프로비전되어야 합니다.  
 MobileIron의 경우 프로비전은 수동 작업입니다.
@@ -157,15 +157,16 @@ MobileIron의 경우 프로비전은 수동 작업입니다.
     d. **Done** 을 클릭합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
+
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-## <a name="sp-initiated"></a>SP 시작:
+### <a name="sp-initiated"></a>SP 시작:
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 MobileIron 로그온 URL로 리디렉션됩니다.  
 
 * MobileIron 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-##  <a name="idp-initiated"></a>IDP 시작:
+### <a name="idp-initiated"></a>IDP 시작:
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 SSO를 설정한 MobileIron에 자동으로 로그인됩니다.
 

@@ -7,31 +7,43 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2a3253d1ed8b0814fc20b3256a0f98d3aa0949f6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec4ac5d355266a46b33d89fd25c2665493773f5d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393312"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100817"
 ---
-# <a name="introduction-to-azure-defender-for-app-service"></a>Azure Defender for App Service 소개
+# <a name="protect-your-web-apps-and-apis"></a>웹앱 및 API 보호
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+Security Center는 기본적으로 App Service와 통합되므로 배포 및 탑재 필요 없이 자동 통합이 이루어집니다.
+
+Azure Defender for App Service를 사용하여 Azure App Service 요금제를 보호하려면 다음이 필요합니다.
+
+- 전용 머신과 연결된 지원되는 App Service 요금제. 지원되는 요금제는 [가용성](#availability)에 나열되어 있습니다.
+
+- [빠른 시작: Azure Defender 사용](enable-azure-defender.md)에 설명된 대로 구독에서 Azure Defender를 사용하도록 설정합니다.
+
+    > [!TIP]
+    > Azure Defender(예: Azure Defender for App Service)에서 개별 계획을 선택적으로 사용하도록 설정할 수 있습니다.
+
+## <a name="availability"></a>가용성
+
+| 양상                       | 세부 정보                                                                                                                                                                                        |
+|------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 릴리스 상태:               | GA(일반 공급)                                                                                                                                                                      |
+| 가격 책정:                     | [Azure Defender for App Service](azure-defender.md)는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.<br>모든 요금제의 총 컴퓨팅 인스턴스에 따라 청구됩니다.       |
+| 지원되는 App Service 요금제: | [소비 계획에 대한 Azure Functions](../azure-functions/functions-scale.md)를 제외한 [모든 App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)가 지원됩니다. |
+| 클라우드:                      | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)                                                     |
+|                              |                                                                                                                                                                                                |
+
+## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Azure Defender for App Service의 이점은?
 
 Azure App Service는 웹앱 및 API를 빌드하고 호스팅하기 위한 완전 관리형 플랫폼입니다. 플랫폼은 완전 관리형이기 때문에 인프라에 대해 걱정할 필요가 없습니다. 엔터프라이즈급 성능, 보안 및 규정 준수 요구 사항을 충족하는 관리, 모니터링 및 운영 인사이트를 제공합니다. 자세한 내용은 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 참조하세요.
 
 **Azure Defender for App Service** 는 클라우드 규모를 사용하여 App Service를 통해 실행되는 애플리케이션을 대상으로 하는 공격을 식별합니다. 공격자는 웹 애플리케이션을 검색하여 약점을 찾아 악용합니다. 특정 환경으로 라우팅되기 전에 Azure에서 실행되는 애플리케이션에 대한 요청은 여러 게이트웨이를 통과하면서 검사 및 기록됩니다. 그런 다음, 이 데이터는 악용 및 공격자를 식별하고, 나중에 사용할 새 패턴을 학습하는 데 사용됩니다.
-
-
-## <a name="availability"></a>가용성
-
-| 양상                       | 세부 정보                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-|------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 릴리스 상태:               | GA(일반 공급)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| 가격 책정:                     | [Azure Defender for App Service](azure-defender.md)는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.<br>모든 요금제의 총 컴퓨팅 인스턴스에 따라 청구됩니다.|
-| 지원되는 App Service 요금제: | 모든 App Service 요금제가 지원됩니다(한 가지 예외는 아래 참조). [App Service 요금제에 대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/app-service/plans/).<br>사용 계획에 대한 Azure Functions는 지원되지 않습니다. [Azure Functions 호스팅 옵션에 대해 자세히 알아보세요](../azure-functions/functions-scale.md).                                                                                                                                                                                                                                                                   |
-| 클라우드:                      | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)                                                                                                                                                                                                                                                                                                                                                                                 |
-|                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-
-## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Azure Defender for App Service의 이점은?
 
 Azure Defender for App Service를 사용하도록 설정하면 이 Azure Defender 계획에서 제공하는 다음과 같은 서비스를 즉시 이용할 수 있습니다.
 
@@ -77,19 +89,6 @@ Azure App Service 경고의 전체 목록은 [경고 참조 테이블](alerts-re
 > [!NOTE]
 > 사용자 지정 도메인이 App Service 리소스를 직접 가리키지 않거나 현수 DNS 보호가 실행된 이후 Defender가 웹 사이트에 대한 트래픽을 모니터링하지 않은 경우(사용자 정의 도메인을 식별하는 데 도움이 되는 로그가 없기 때문), Defender는 현수 DNS 경고를 트리거하지 않을 수 있습니다.
 
-## <a name="how-to-protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹앱 및 API를 보호하는 방법
-
-Azure Defender for App Service를 사용하여 Azure App Service 요금제를 보호하려면 다음을 수행합니다.
-
-1. 전용 머신과 연결된 지원되는 App Service 요금제가 있는지 확인합니다. 지원되는 요금제는 위의 [가용성](#availability)에 나열되어 있습니다.
-
-2. [Azure Security Center 가격 책정](security-center-pricing.md)에 설명된 대로 구독에서 **Azure Defender** 를 사용합니다.
-
-    Azure Defender(예: Azure Defender for App Service)에서 개별 계획을 선택적으로 사용하도록 설정할 수 있습니다.
-
-    Security Center는 기본적으로 App Service와 통합되므로 배포 및 탑재 필요 없이 자동 통합이 이루어집니다.
-
-
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure Defender for App Service에 대해 알아보았습니다. 
@@ -100,4 +99,4 @@ Azure Defender for App Service를 사용하여 Azure App Service 요금제를 �
 - Azure Defender for App Service 경고 목록은 [경고 참조 테이블](alerts-reference.md#alerts-azureappserv)를 참조하세요.
 - App Service 요금제에 대한 자세한 내용은 [App Service 요금제](https://azure.microsoft.com/pricing/details/app-service/plans/)를 참조하세요.
 > [!div class="nextstepaction"]
-> [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)
+> [Azure Defender 사용](enable-azure-defender.md)

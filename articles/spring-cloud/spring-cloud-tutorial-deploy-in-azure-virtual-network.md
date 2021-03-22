@@ -4,15 +4,15 @@ description: Azure Spring Cloud를 Azure 가상 네트워크에 배포합니다(
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99821474"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102031806"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>가상 네트워크에 Azure Spring Cloud 배포
 
@@ -50,7 +50,7 @@ Azure Spring Cloud 인스턴스를 배포하는 가상 네트워크는 다음 �
     * Spring Boot 마이크로서비스 애플리케이션용 서브넷
     * 이러한 서브넷과 Azure Spring Cloud 인스턴스 간에는 일대일 관계가 있습니다. 새 서브넷을 배포하는 각 서비스 인스턴스에 사용합니다. 각 서브넷은 단일 서비스 인스턴스만 포함할 수 있습니다.
 * **주소 공간**: CIDR은 서비스 런타임 서브넷과 Spring Boot 마이크로서비스 애플리케이션 서브넷 모두에 대해 최대 */28* 까지 차단합니다.
-* **경로 테이블**: 서브넷에는 연결된 기존 경로 테이블이 없어야 합니다.
+* **경로 테이블**: 기본적으로 서브넷에는 연결된 기존 경로 테이블이 필요하지 않습니다. [사용자 고유의 경로 테이블을 가져올](#bring-your-own-route-table) 수 있습니다.
 
 다음 절차에서는 Azure Spring Cloud 인스턴스를 포함하도록 가상 네트워크를 설정하는 방법에 대해 설명합니다.
 
@@ -179,6 +179,26 @@ Azure Spring Cloud 인스턴스를 가상 네트워크에 배포하려면 다음
 서브넷의 경우 Azure에서 5개의 IP 주소를 예약하며, Azure Spring Cloud에는 4개 이상의 주소가 필요합니다. 따라서 9개 이상의 IP 주소가 필요하므로 /29 및 /30은 작동하지 않습니다.
 
 서비스 런타임 서브넷의 경우 최소 크기는 /28입니다. 이 크기는 앱 인스턴스 수와 관련이 없습니다.
+
+## <a name="bring-your-own-route-table"></a>사용자 고유의 경로 테이블 가져오기
+
+Azure Spring Cloud는 기존 서브넷 및 경로 테이블 사용을 지원합니다.
+
+사용자 지정 서브넷에 경로 테이블이 포함되어 있지 않은 경우 Azure Spring Cloud는 각 서브넷에 대해 테이블을 만들고 인스턴스 수명 주기 동안 규칙을 추가합니다. 사용자 지정 서브넷에 경로 테이블이 포함되어 있는 경우 Azure Spring Cloud는 인스턴스 작업 중에 기존 경로 테이블을 확인하고 작업에 따라 추가/업데이트 및/또는 규칙을 추가합니다.
+
+> [!Warning] 
+> 사용자 지정 규칙을 사용자 지정 경로 테이블에 추가하고 업데이트할 수 있습니다. 그러나 규칙은 Azure Spring Cloud에서 추가되며 업데이트하거나 제거하면 안됩니다. 0\.0.0.0/0과 같은 규칙은 항상 지정된 경로 테이블에 존재해야 하며 NVA 또는 다른 송신 게이트웨이와 같은 인터넷 게이트웨이의 대상에 매핑되어야 합니다. 사용자 지정 규칙만 수정되는 경우 규칙을 업데이트할 때 주의해야 합니다.
+
+
+### <a name="route-table-requirements"></a>경로 테이블 요구 사항
+
+사용자 지정 vnet이 연결된 경로 테이블은 다음 요구 사항을 충족해야 합니다.
+
+* 새 Azure Spring Cloud 서비스 인스턴스를 만드는 경우에만 Azure 경로 테이블을 vnet과 연결할 수 있습니다. Azure Spring Cloud를 만든 후에는 다른 경로 테이블을 사용하도록 변경할 수 없습니다.
+* 마이크로서비스 애플리케이션 서브넷과 서비스 런타임 서브넷은 모두 다른 경로 테이블과 연결되거나 둘 다에 연결되지 않아야 합니다.
+* 인스턴스를 만들기 전에 권한을 할당해야 합니다. Azure *Spring Cloud 소유자* 권한을 경로 테이블에 부여해야 합니다.
+* 클러스터를 만든 후에는 연결된 경로 테이블 리소스를 업데이트할 수 없습니다. 경로 테이블 리소스를 업데이트할 수 없지만 경로 테이블에서 사용자 지정 규칙을 수정할 수 있습니다.
+* 잠재적으로 충돌하는 라우팅 규칙으로 인해 여러 인스턴스에서 경로 테이블을 재사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

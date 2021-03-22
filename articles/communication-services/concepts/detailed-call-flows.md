@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659310"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174294"
 ---
 # <a name="call-flow-topologies"></a>호출 흐름 토폴로지
 이 문서에서는 Azure Communication Services 전화 흐름 토폴로지를 설명합니다. 현재 관리하는 네트워크 내에서 Communication Services를 통합하는 엔터프라이즈 고객이라면 이 문서를 검토하는 것이 좋습니다. Communication Services 전화 흐름에 대한 소개는 [전화 흐름 개념 설명서](./call-flows.md)를 참조하세요.
@@ -152,7 +152,7 @@ Communication Services 전화 흐름의 기반이 되는 네 가지 일반적인
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>VPN 사용자에서 내부 사용자로(직접 미디어)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="직접 미디어를 통해 VPN 사용자와 일대일 전화 흐름":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="직접 미디어를 통해 VPN 사용자와 일대일 전화 흐름(내부 사용자)":::
 
 *그림 6 - VPN 사용자에서 내부 사용자로(직접 미디어)*
 
@@ -162,7 +162,7 @@ Communication Services 전화 흐름의 기반이 되는 네 가지 일반적인
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>VPN 사용자에서 외부 사용자로(직접 미디어)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="직접 미디어를 통해 VPN 사용자와 일대일 전화 흐름":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="직접 미디어를 통해 VPN 사용자와 일대일 전화 흐름(외부 사용자)":::
 
 *그림 7 - VPN 사용자에서 외부 사용자로(직접 미디어)*
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908fb1ac869ec2b22085af2e07ced6ff64229308
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cd28ee509dc76ea0b2aca9264c591a7176ae2661
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97592486"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093812"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
 
@@ -32,11 +32,11 @@ ms.locfileid: "97592486"
 > * VM에 Azure Data Lake Store에 대한 액세스 권한 부여
 > * VM ID를 사용하여 액세스 토큰 가져오기 및 Azure Data Lake Store에 액세스하는 데 사용하기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 관리 ID에 대한 이해. Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](overview.md)를 참조하세요. 
 - Azure 계정, [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
-- 적절한 범위(사용자 구독 또는 리소스 그룹)에서 필요한 리소스 생성 및 역할 관리 단계를 수행할 수 있는 "소유자" 권한. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+- 적절한 범위(사용자 구독 또는 리소스 그룹)에서 필요한 리소스 생성 및 역할 관리 단계를 수행할 수 있는 "소유자" 권한. 역할 할당에 관한 도움이 필요한 경우 [Azure 역할을 할당하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 - 시스템 할당 관리 ID가 활성화된 Windows 가상 머신도 필요합니다.
   - 이 자습서에 대한 가상 머신을 만들어야 하는 경우 [시스템 할당 ID가 설정된 가상 머신 만들기](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)라는 제목의 문서를 수행하면 됩니다.
 
@@ -60,12 +60,12 @@ Data Lake Store에서 새 폴더를 만들고, 해당 폴더에서 파일을 읽
 3. 명령 모음에서 **데이터 탐색기** 를 클릭합니다.
 4. Data Lake Store의 루트 폴더를 선택합니다.  명령 모음에서 **액세스** 를 클릭합니다.
 5. **추가** 를 클릭합니다.  **선택** 필드에서 VM의 이름을 입력합니다(예: **DevTestVM**).  검색 결과에서 VM을 선택하도록 클릭한 다음 **선택** 을 클릭합니다.
-6. **사용 권한 선택** 을 클릭합니다.  **읽기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 전용** 으로 추가합니다.  **확인** 을 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
+6. **사용 권한 선택** 을 클릭합니다.  **읽기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 전용** 으로 추가합니다.  **Ok** 를 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
 7. **액세스** 블레이드를 닫습니다.
-8. 이 자습서에서는 새 폴더를 만듭니다.  명령 모음에서 **새 폴더** 를 클릭하고 새 폴더에 이름을 입력합니다(예: **TestFolder**).  **확인** 을 클릭합니다.
+8. 이 자습서에서는 새 폴더를 만듭니다.  명령 모음에서 **새 폴더** 를 클릭하고 새 폴더에 이름을 입력합니다(예: **TestFolder**).  **Ok** 를 클릭합니다.
 9. 사용자가 만든 폴더를 클릭한 다음 명령 모음에서 **액세스** 를 클릭합니다.
 10. 5단계와 유사하게 **선택** 필드에서 **추가** 를 클릭하고, VM의 이름을 입력하고, 선택하고, **선택** 을 클릭합니다.
-11. 6단계와 유사하게 **사용 권한 선택** 을 클릭하고, **읽기**, **쓰기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 항목 및 기본 권한 항목** 으로 추가합니다.  **확인** 을 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
+11. 6단계와 유사하게 **사용 권한 선택** 을 클릭하고, **읽기**, **쓰기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 항목 및 기본 권한 항목** 으로 추가합니다.  **Ok** 를 클릭합니다.  사용 권한은 성공적으로 추가되어야 합니다.
 
 VM의 시스템 할당 관리 ID는 사용자가 만든 폴더에 있는 파일에서 모든 작업을 수행할 수 있습니다.  Data Lake Store에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Data Lake Store의 액세스 제어](../../data-lake-store/data-lake-store-access-control.md)에서 이 문서를 참고하세요.
 

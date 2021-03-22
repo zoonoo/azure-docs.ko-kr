@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: networking
 author: anavinahar
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256518"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101734100"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 **Azure Resource Manager** 를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
@@ -69,7 +69,7 @@ ms.locfileid: "98256518"
 | 리소스                                | 제한         |
 |-----------------------------------------|-------------------------------|
 | 부하 분산 장치                          | 1,000                         |
-| 리소스당 규칙                      | 1,500                         |
+| 리소스당 규칙(Load Balancer + 인바운드 NAT)                      | 1,500                         |
 | NIC당 규칙(NIC의 모든 IP에서) | 300                           |
 | 프런트 엔드 IP 구성              | 600                           |
 | 백 엔드 풀 크기                       | 1,000 IP 구성, 단일 가상 네트워크 |
@@ -78,7 +78,7 @@ ms.locfileid: "98256518"
 | Load Balancer당 아웃바운드 규칙        | 600                           |
 | VM당 Load Balancer 수                   | 2개(공용 1개 및 내부용 1개)   |
 
-<sup>1</sup>독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 배치 조합에서 최대 150개의 리소스를 제공합니다.
+<sup>1</sup> 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 배치 조합에서 최대 150개의 리소스로 제한됩니다.
 
 **기본 Load Balancer**
 
@@ -87,10 +87,12 @@ ms.locfileid: "98256518"
 | 부하 분산 장치                          | 1,000                        |
 | 리소스당 규칙                      | 250                          |
 | NIC당 규칙(NIC의 모든 IP에서) | 300                          |
-| 프런트 엔드 IP 구성              | 200                          |
+| 프런트 엔드 IP 구성 <sup>2<sup>  | 200                          |
 | 백 엔드 풀 크기                       | 300 IP 구성, 단일 가용성 집합 |
 | Load Balancer당 가용성 집합     | 1                            |
 | VM당 Load Balancer 수                   | 2개(공용 1개 및 내부용 1개)  |
+
+<sup>2</sup> 백 엔드 풀의 단일 불연속 리소스(독립 실행형 가상 머신, 가용성 집합 또는 가상 머신 확장 집합 배치 그룹)에 대한 제한은 단일 기본 공용 Load Balancer와 기본 내부 Load Balancer에 걸쳐 최대 250개의 프런트 엔드 IP 구성을 갖는 것입니다.
 
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 **클래식** 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 634f09c7862f6e3e2f147094503f5a574476ef91
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511844"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034390"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -49,26 +49,29 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 
 공용 부하 분산 장치를 만드는 경우 부하 분산 장치의 프런트 엔드(기본적으로 이름이 **LoadBalancerFrontend** 임)로 구성된 새 공용 IP 주소를 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer** 를 선택합니다.
-
-2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
+1. **리소스 만들기** 를 선택합니다. 
+2. 검색 상자에 **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
+3. **부하 분산 장치** 페이지에서 **만들기** 를 선택합니다.
+4. **부하 분산 장치 만들기** 페이지에서 다음 정보를 입력하거나 선택합니다. 
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Subscription               | 구독을 선택합니다.    |    
     | Resource group         | **새로 만들기** 를 선택하고 텍스트 상자에 **CreatePubLBQS-rg** 를 입력합니다.|
     | Name                   | **myLoadBalancer** 를 입력합니다.                                   |
-    | 지역         | **서유럽** 를 선택합니다.                                        |
+    | 지역         | **(유럽) 서유럽** 을 선택합니다.                                        |
     | Type          | **공용** 을 선택합니다.                                        |
-    | SKU           | **표준** 선택 |
+    | SKU           | 기본값인 **표준** 을 그대로 둡니다. |
+    | 계층          | 기본 **지역** 을 그대로 둡니다. |
     | 공용 IP 주소 | **새로 만들기** 를 선택합니다. 사용하려는 기존 공용 IP가 있는 경우 **기존 항목 사용** 을 선택합니다. |
     | 공용 IP 주소 이름 | 텍스트 상자에 **myPublicIP** 를 입력합니다.|
     | 가용성 영역 | **영역 중복** 을 선택하여 복원력 있는 부하 분산 장치를 만듭니다. 영역 부하 분산 장치를 만들려면 1, 2 또는 3에서 특정 영역을 선택합니다. |
     | 공용 IPv6 주소 추가 | **아니오** 를 선택합니다. </br> IPv6 주소 및 부하 분산 장치에 대한 자세한 내용은 [Azure Virtual Network용 IPv6이란?](../virtual-network/ipv6-overview.md)을 참조하세요.  |
+    | 라우팅 기본 설정 | **Microsoft 네트워크** 의 기본값을 그대로 둡니다. </br> 라우팅 기본 설정에 대한 자세한 내용은 [라우팅 기본 설정(미리 보기)이란?](../virtual-network/routing-preference-overview.md)을 참조하세요. |
 
-3. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
+5. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
 
-4. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.   
+6. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="표준 부하 분산 장치 만들기" border="true":::
  
@@ -106,7 +109,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
@@ -134,7 +137,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
@@ -334,9 +337,10 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 공용 부하 분산 장치를 만드는 경우 부하 분산 장치의 프런트 엔드(기본적으로 이름이 **LoadBalancerFrontend** 임)로 구성된 새 공용 IP 주소를 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer** 를 선택합니다.
-
-2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다. 
+1. **리소스 만들기** 를 선택합니다. 
+2. 검색 상자에 **부하 분산 장치** 를 입력합니다. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
+3. **부하 분산 장치** 페이지에서 **만들기** 를 선택합니다.
+4. **부하 분산 장치 만들기** 페이지에서 다음 정보를 입력하거나 선택합니다. 
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
@@ -351,9 +355,9 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     | 할당 | **동적** 을 선택합니다. |
     | 공용 IPv6 주소 추가 | **아니오** 를 선택합니다. </br> IPv6 주소 및 부하 분산 장치에 대한 자세한 내용은 [Azure Virtual Network용 IPv6이란?](../virtual-network/ipv6-overview.md)을 참조하세요.  |
 
-3. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
+5. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
 
-4. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.   
+6. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="기본 부하 분산 장치 만들기" border="true":::
 
@@ -448,7 +452,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | **myHealthProbe** 를 입력합니다. |
+    | 속성 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
@@ -476,7 +480,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHTTPRule** 을 입력합니다. |
+    | 속성 | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: e3b3b7a058fbd1235619c01e0dca24a3de9036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ca039a449e355e47563b689f5f44cced164fea
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231438"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101724152"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Front Door의 Azure 웹 애플리케이션 방화벽
 
@@ -23,6 +23,8 @@ Front Door의 WAF는 글로벌 중앙 집중식 솔루션입니다. 전 세계 A
 WAF는 공격 소스에 가까운 악의적인 공격이 가상 네트워크에 침입하기 전에 차단합니다. 성능을 저하시키지 않으면서 대규모로 글로벌 보호를 받을 수 있습니다. WAF 정책은 구독의 Front Door 프로필에 쉽게 연결됩니다. 몇 분 내에 새로운 규칙을 배포할 수 있기 때문에 변화하는 위협 패턴에 신속하게 대응할 수 있습니다.
 
 ![Azure 웹 애플리케이션 방화벽](../media/overview/wafoverview.png)
+
+Azure Front Door는 Front Door Standard 및 Front Door Premium SKU의 [두 가지 새로운 SKU를 미리 보기](https://docs.microsoft.com/azure/frontdoor/standard-premium/overview)로 소개합니다. WAF는 기본적으로 모든 기능을 갖춘 Front Door Premium SKU와 통합됩니다. Front Door Standard SKU의 경우 [사용자 지정 규칙](https://docs.microsoft.com/azure/web-application-firewall/afds/afds-overview#custom-authored-rules)만 지원됩니다.
 
 ## <a name="waf-policy-and-rules"></a>WAF 정책 및 규칙
 

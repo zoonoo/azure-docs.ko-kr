@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878175"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604579"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -135,12 +135,7 @@ Hyper-V VM을 마이그레이션하는 경우 Azure Migrate:Server Migration은 
 ## <a name="provision-for-the-first-time"></a>처음으로 프로비전
 
 Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migrate: 서버 마이그레이션에서 프로젝트와 동일한 리소스 그룹에서 이러한 리소스를 자동으로 프로비저닝합니다.
-
-- **서비스 버스**: Azure Migrate: 서버 마이그레이션은 Service Bus를 사용하여 복제 오케스트레이션 메시지를 어플라이언스에 보냅니다.
-- **게이트웨이 스토리지 계정**: Azure Migrate: 서버 마이그레이션은 게이트웨이 스토리지 계정을 사용하여 복제되는 VM에 대한 상태 정보를 저장합니다.
-- **로그 스토리지 계정**: Azure Migrate 어플라이언스는 VM에 대한 복제 로그를 로그 스토리지 계정에 업로드합니다. Azure Migrate는 복제 정보를 복제본 관리 디스크에 적용합니다.
-- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. Hyper-V VM 평가 및 마이그레이션을 위해 [Azure를 준비](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account)할 때 Key Vault가 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. 
-
+- **캐시 스토리지 계정**: Hyper-V 호스트에 설치된 Azure Site Recovery 공급자 소프트웨어는 복제를 위해 구성된 VM에 대한 복제 데이터를 구독의 스토리지 계정(캐시 스토리지 계정 또는 로그 스토리지 계정이라고 함)에 업로드합니다. 그런 다음, Azure Migrate 서비스는 업로드된 복제 데이터를 스토리지 계정에서 VM에 해당하는 복제본 관리 디스크로 복사합니다. VM에 대한 복제를 구성하는 동안 캐시 스토리지 계정을 지정해야 하며 Azure Migrate 포털은 프로젝트에서 처음으로 복제를 구성할 때 Azure Migrate 프로젝트에 대한 계정을 자동으로 만듭니다.
 
 ## <a name="track-and-monitor"></a>추적 및 모니터링
 

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 849127ed0846928a77795ac0a1ea3f7a091468b5
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218537"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635951"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
 Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구성 요소입니다. VNet을 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. VNet은 자체 데이터 센터에서 운영하는 기존 네트워크와 유사하지만, 확장, 가용성 및 격리와 같은 Azure 인프라 이점을 추가로 활용할 수 있습니다.
 
 ## <a name="why-use-an-azure-virtual-network"></a>Azure 가상 네트워크를 사용하는 이유는?
-Azure 가상 네트워크를 사용하면 Azure 리소스가 상호 간, 인터넷 및 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. 가상 네트워크를 수행할 수 있는 주요 시나리오에는 인터넷을 통한 Azure 리소스 통신, Azure 리소스 간 통신, 온-프레미스 리소스와의 통신, 네트워크 트래픽 필터링, 네트워크 트래픽 라우팅 및 Azure 서비스와의 통합 등이 있습니다.
+Azure 가상 네트워크를 사용하면 Azure 리소스가 상호 간, 인터넷 및 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. 가상 네트워크로 수행할 수 있는 주요 시나리오에는 인터넷을 통한 Azure 리소스 통신, Azure 리소스 간 통신, 온-프레미스 리소스와의 통신, 네트워크 트래픽 필터링, 네트워크 트래픽 라우팅 및 Azure 서비스와의 통합 등이 있습니다.
 
 ### <a name="communicate-with-the-internet"></a>인터넷 통신
 

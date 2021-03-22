@@ -7,14 +7,14 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b2b17cffb8abd748315c437f46000995c4cb598a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 5446f8481439dabffe67f9b00b5f65b1da495746
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831912"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101742656"
 ---
-# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>빠른 시작 - IoT 플러그 앤 플레이 빠른 시작 및 자습서에 사용할 환경 설정
+# <a name="quickstart-set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>빠른 시작: IoT 플러그 앤 플레이 빠른 시작 및 자습서에 사용할 환경 설정
 
 IoT 플러그 앤 플레이 빠른 시작 및 자습서를 완료하려면 먼저 Azure 구독에서 IoT 허브 및 DPS(Device Provisioning Service)를 구성해야 합니다. 또한 샘플 애플리케이션과 Azure IoT 탐색기 도구에서 사용하는 모델 파일의 로컬 복사본이 필요합니다.
 

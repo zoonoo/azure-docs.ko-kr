@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8642f4284770df54704a4e7066054d3bb4640486
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: a75896dde7a23ea346e0af73ed145094e78812ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545873"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101654496"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 
@@ -47,8 +47,16 @@ ms.locfileid: "96545873"
 
 | 샘플 | Description |
 |--------| ----------- |
-| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Web API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다. |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Web API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 암시적 흐름을 사용합니다.|
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | 웹 API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다. |
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Microsoft Graph를 호출하여 B2C 디렉터리의 사용자를 관리하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다.|
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | 웹 API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 암시적 흐름을 사용합니다.|
+
+## <a name="consoledaemon-apps"></a>콘솔/디먼 앱
+
+| 샘플 | Description |
+|--------| ----------- |
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2) | B2C 디렉터리에서 사용자를 관리하기 위해 자체 ID를 사용하여 Microsoft Graph를 호출하는 Node.js 및 express 콘솔 데몬 애플리케이션입니다. 인증은 MSAL 노드를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 권한 부여 코드 흐름을 사용합니다.|
+| [dotnetcore-b2c-account-management](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) | B2C 디렉터리에서 사용자를 관리하기 위해 자체 ID를 사용하여 Microsoft Graph를 호출하는 .NET Core 콘솔 애플리케이션입니다. 인증은 MSAL.NET을 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 권한 부여 코드 흐름을 사용합니다.|
 
 ## <a name="saml-test-application"></a>SAML 테스트 애플리케이션
 

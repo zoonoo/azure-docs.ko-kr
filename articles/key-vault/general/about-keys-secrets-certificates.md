@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327086"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183933"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Azure Key Vault 키, 비밀 및 인증서 개요
 
@@ -44,7 +44,7 @@ HSM 보호 키|/keys|지원됨|지원됨
 **기타 개체 유형**||
 비밀|/secrets|지원됨|지원되지 않음
 인증서|/certificates|지원됨|지원되지 않음
-Storage 계정 키|/storageaccount|지원됨|지원되지 않음
+Storage 계정 키|/storage|지원됨|지원되지 않음
 |||
 - **암호화 키**: 여러 키 형식 및 알고리즘을 지원하고 소프트웨어 보호 및 HSM 보호 키를 사용할 수 있도록 합니다. 자세한 내용은 [키 정보](../keys/about-keys.md)를 참조하세요.
 - **비밀**: 암호, 데이터베이스 연결 문자열 등의 비밀을 안전하게 스토리지합니다. 자세한 내용은 [비밀 정보](../secrets/about-secrets.md)를 참조하세요.

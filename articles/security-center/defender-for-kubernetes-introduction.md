@@ -7,12 +7,12 @@ ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0878686e203960a0b7f33c19cc64e82319997684
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83d0215ebca9d60d61937cb20bb82c7ccb30aac1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590450"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102100630"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -29,7 +29,7 @@ Kubernetes 클러스터에 대한 위협 탐지를 사용하려면 **Azure Defen
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
-|가격 책정:|**Azure Defender for Kubernetes** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
+|가격 책정:|**Azure Defender for Kubernetes** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
 |필요한 역할 및 권한:|**보안 관리자** 는 경고를 해제할 수 있습니다.<br>**보안 읽기 권한자** 는 발견 사항을 볼 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
@@ -79,7 +79,7 @@ Azure Defender에서 AKS 노드를 모니터링하려면 Log Analytics 에이전
 이 문서에서는 Azure Defender for Kubernetes를 비롯한 Security Center의 Kubernetes 보호에 대해 알아보았습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)
+> [Azure Defender 사용](enable-azure-defender.md)
 
 관련 자료는 다음 문서를 참조하세요. 
 

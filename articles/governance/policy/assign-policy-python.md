@@ -1,15 +1,15 @@
 ---
 title: '빠른 시작: Python을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Python을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
-ms.date: 10/14/2020
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: aa67b3a2bae2beb62daa6e64871411ee760f802b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832202"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742333"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>빠른 시작: Python을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -40,7 +40,7 @@ Python이 Azure Policy와 작업할 수 있도록 하려면 라이브러리를 �
    az login
    ```
 
-1. 선택한 Python 환경에서 Azure Resource Graph에 필요한 라이브러리를 설치합니다.
+1. 선택한 Python 환경에서 Azure Policy에 필요한 라이브러리를 설치합니다.
 
    ```bash
    # Add the Python library for Python

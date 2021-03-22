@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2021
 ms.author: duau
-ms.openlocfilehash: 09b82eed5ad6a9ad121ca56d197eb9c003d027f5
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 8c8897218b153c8584c89abab98934268ccd555d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624912"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182165"
 ---
 # <a name="what-is-traffic-manager"></a>Traffic Manager란?
 Azure Traffic Manager는 DNS 기반 트래픽 부하 분산 장치입니다. 이 서비스를 사용하면 글로벌 Azure 지역에서 공용 연결 애플리케이션에 트래픽을 배포할 수 있습니다. 또한 Traffic Manager는 고가용성과 빠른 응답성을 갖춘 퍼블릭 엔드포인트를 제공합니다.
@@ -24,8 +24,12 @@ Azure Traffic Manager는 DNS 기반 트래픽 부하 분산 장치입니다. 이
 Traffic Manager는 DNS를 사용하여 트래픽 라우팅 메서드에 따라 클라이언트 요청을 적절한 서비스 엔드포인트로 보냅니다. 또한 Traffic Manager는 모든 엔드포인트에 대한 상태 모니터링을 제공합니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 인터넷 연결 서비스일 수 있습니다. Traffic Manager는 다양한 애플리케이션 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 및 [엔드포인트 모니터링 옵션](traffic-manager-monitoring.md)을 제공합니다. Traffic Manager는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/overview.md)를 검토하세요. 지역에 부하를 분산하려는 경우 [Load Balancer](../load-balancer/load-balancer-overview.md)를 검토하세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
->
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. 
+> * 애플리케이션 계층에서 한 지역의 서버 간에 부하를 분산하려면 [Application Gateway](../application-gateway/overview.md)를 검토하세요.
+> * 웹 트래픽의 글로벌 라우팅을 최적화하고 빠른 글로벌 장애 조치(failover)를 통해 최상위 계층 최종 사용자 성능과 안정성을 최적화해야 하는 경우 [Front Door](../frontdoor/front-door-overview.md)를 참조하세요.
+> * 네트워크 계층 부하 분산을 수행하려면 [Load Balancer](../load-balancer/load-balancer-overview.md)를 검토하세요. 
+> 
+> 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 > Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
 
 Traffic Manager는 다음 기능을 제공합니다.

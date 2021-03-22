@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100715"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102176640"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -68,9 +68,9 @@ Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 �
 ## <a name="faq-for-azure-container-registry-image-scanning"></a>Azure Container Registry 이미지 검사에 대한 FAQ
 
 ### <a name="how-does-security-center-scan-an-image"></a>Security Center는 이미지를 어떻게 검사하나요?
-레지스트리에서 이미지를 풀합니다. 그런 다음, 격리된 샌드박스에서 Qualys 검사기와 함께 실행되어 알려진 취약성 목록을 추출합니다.
+Security Center는 레지스트리에서 이미지를 가져와 Qualys 스캐너를 사용하여 격리된 샌드박스에서 실행합니다. 스캐너는 알려진 취약점 목록을 추출합니다.
 
-Security Center는 검사기의 검사 결과를 필터링하고 분류합니다. 이미지가 정상이면 Security Center는 이미지를 정상으로 표시합니다. Security Center는 해결해야 할 문제가 있는 이미지에 대해서만 보안 권장 사항을 생성합니다. Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 않는 정보 알림이 발생할 가능성을 줄입니다.
+Security Center는 검사기의 검사 결과를 필터링하고 분류합니다. 이미지가 정상이면 Security Center는 이미지를 정상으로 표시합니다. Security Center는 해결해야 할 문제가 있는 이미지에 대해서만 보안 권장 사항을 생성합니다. Security Center는 문제가 있는 경우에만 알리는 방식으로 원치 않는 정보 알림이 발생할 가능성을 줄입니다.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>REST API를 통해 검사 결과를 가져올 수 있나요?
 예. 결과는 [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/)에 있습니다. 또한 모든 리소스에 대한 Kusto 같은 API인 ARG(Azure Resource Graph)를 사용할 수 있습니다. 쿼리로 특정 검사를 페치할 수 있습니다.
@@ -78,7 +78,7 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>어떤 레지스트리 유형이 검사되나요? 어떤 유형에 요금이 청구되나요?
 컨테이너 레지스트리용 Azure Defender에서 지원하는 컨테이너 레지스트리 유형의 목록은 [가용성](#availability)을 참조하세요.
 
-지원되지 않는 레지스트리를 Azure 구독에 연결하면 검사되지 않으며 요금이 청구되지 않습니다.
+지원되지 않는 레지스트리를 Azure 구독에 연결하는 경우 Azure Defender는 해당 레지스트리를 검색하지 않고 요금을 청구하지 않습니다.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>취약성 검사기의 결과를 사용자 지정할 수 있나요?
 예. 조직에서 결과를 수정하지 않고 무시해야 하는 요구 사항이 있으면 필요에 따라 이 결과를 사용하지 않도록 설정할 수 있습니다. 사용하지 않도록 설정된 결과는 보안 점수에 영향을 주거나 원치 않는 노이즈를 생성하지 않습니다.

@@ -7,16 +7,20 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: cc207522048e3f0491e3aa54f2ae21d2e7e63bc2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: f50737bdefc9065c9b16633ba3360bda1d028cd6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834038"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043051"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+## <a name="update-march-2021"></a>업데이트(2021년 3월)
+- Azure Migrate 어플라이언스에서 여러 서버 자격 증명을 제공하여 설치된 애플리케이션(소프트웨어 인벤토리), 에이전트 없는 종속성 분석을 검색하고 VMware 환경에서 SQL Server 인스턴스와 데이터베이스를 검색할 수 있도록 지원합니다. [자세히 알아보기](tutorial-discover-vmware.md#provide-server-credentials)
+- VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. [자세한 내용](concepts-azure-sql-assessment-calculation.md)<br/>이 기능을 사용해 보려면 [이 링크](https://aka.ms/AzureMigrate/SQL)를 통해 **오스트레일리아 동부** 지역의 프로젝트를 만드세요. 시작하려면 [검색](tutorial-discover-vmware.md) 및 [평가](tutorial-assess-sql.md) 자습서를 참조하세요.
 
 ## <a name="update-january-2021"></a>업데이트(2021년 1월)
 -  Azure Migrate: 이제 서버 마이그레이션 도구를 사용하면 CMK(고객 관리형 키)를 통해 서버 쪽 암호화로 암호화된 디스크를 사용하여 VMware 가상 머신, 물리적 서버 및 가상 머신을 다른 클라우드에서 Azure 가상 머신으로 마이그레이션할 수 있습니다.
@@ -84,7 +88,7 @@ Azure Migrate에 여러 가지 새로운 기능이 추가되었습니다.
 
 Azure Migrate에 새로운 평가 및 마이그레이션 도구가 추가되었습니다.
 
-- **Rackware**: 제품 클라우드 마이그레이션.
+- **RackWare**: 제품 클라우드 마이그레이션.
 - **Movere**: 제품 평가.
 
 Azure Migrate에서 평가 및 마이그레이션을 위해 도구 및 ISV 제품을 사용하는 방법에 대해 [자세히 알아봅니다](migrate-services-overview.md).

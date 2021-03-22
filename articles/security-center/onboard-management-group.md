@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796077"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101293"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>관리 그룹의 모든 구독에서 Security Center 사용
 
@@ -60,7 +60,7 @@ Azure Policy 정의를 수정하기 위해 선택할 수 있는 다양한 방법
     제공된 정의는 아래 '가격 책정' 설정 중 *하나* 를 준수로 정의합니다. '표준' 또는 '체험'으로 설정된 구독은 규정을 준수함을 의미합니다.
 
     > [!TIP]
-    > Azure Defender 플랜을 사용하도록 설정되면 '표준' 설정에 있는 것으로 설명됩니다. 사용하지 않도록 설정되면 '체험'입니다. [Azure Defender 플랜](security-center-pricing.md)에 대해 자세히 알아보세요.
+    > Azure Defender 플랜을 사용하도록 설정되면 정책 정의에 '표준' 설정에 있는 것으로 설명됩니다. 사용하지 않도록 설정되면 '체험'입니다. 이러한 플랜 간의 차이점에 대해 알아보려면 [Security Center 무료 및 Azure Defender 사용](security-center-pricing.md)을 참조하세요. 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Azure Policy 정의를 수정하기 위해 선택할 수 있는 다양한 방법
 이제 전체 관리 그룹이 온보딩되었으므로 Azure Defender의 고급 보호를 사용하도록 설정합니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)
+> [Azure Defender 사용](enable-azure-defender.md)

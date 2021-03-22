@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091111"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579470"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>자습서 - Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비저닝 특성 매핑 사용자 지정
 
@@ -113,13 +113,13 @@ ServiceNow, Box 및 G Suite와 같은 일부 애플리케이션은 그룹 개체
 - ServiceNow
 - Workday에서 Active Directory로 / Workday에서 Azure Active Directory로
 - SuccessFactors에서 Active Directory로 / SuccessFactors에서 Azure Active Directory로
-- Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됩니다.)
+- Azure Active Directory([Azure AD Graph API 기본 특성](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됨). [확장 만들기](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) 및 [알려진 제한](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues)에 대해 자세히 알아보세요. 
 - [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱
 - Workday 또는 SuccessFactors에 대한 Azure Active Directory 쓰기 저장의 경우, 지원되는 특성(XPATH 및 JSONPath)에 대한 관련 메타 데이터를 업데이트하는 것이 지원되지만 기본 스키마에 포함된 특성을 넘어서 새 Workday 또는 SuccessFactors 특성을 추가하는 것은 지원되지 않습니다.
 
 
 > [!NOTE]
-> 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다. 지원되는 특성 목록을 편집하는 기능은 기본적으로 잠겨 있지만 고객은 https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true URL로 이동하여 기능을 사용하도록 설정할 수 있습니다. 그런 다음, [위](#editing-the-list-of-supported-attributes)에 설명된 대로 애플리케이션으로 이동하여 특성 목록을 볼 수 있습니다. 
+> 애플리케이션과 시스템의 스키마를 사용자 지정했으며, 사용자 지정 특성이 정의된 방식에 대한 실무 지식이 있는 관리자일 경우 또는 소스 특성이 Azure Portal UI에 자동으로 표시되지 않는 경우에만 지원되는 특성 목록을 편집하는 것이 좋습니다. 애플리케이션이나 시스템에서 제공하는 API 및 개발자 도구를 잘 알아야 하는 경우가 많습니다. 지원되는 특성 목록을 편집하는 기능은 기본적으로 잠겨 있지만 고객은 https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true URL로 이동하여 기능을 사용하도록 설정할 수 있습니다. 그런 다음, [위](#editing-the-list-of-supported-attributes)에 설명된 대로 애플리케이션으로 이동하여 특성 목록을 볼 수 있습니다. 
 
 지원되는 특성 목록을 편집할 때는 다음과 같은 속성이 제공됩니다.
 

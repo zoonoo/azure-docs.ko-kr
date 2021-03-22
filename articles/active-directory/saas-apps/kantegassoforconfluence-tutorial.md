@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ff2d7f45626055cdbc98ca944eecaa01f9bd052b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: be86e04359c29696d208994d85d36b7740b60cc3
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459206"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>자습서: Kantega SSO for Confluence와 Azure Active Directory 통합
 
@@ -180,15 +180,15 @@ Kantega SSO for Confluence에서 Azure AD Single Sign-On을 구성하려면 다�
 
     b. **다음** 을 클릭합니다.
 
-1. **Metadata import** (메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다. 
+1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다. 
 
     !["내 컴퓨터의 메타데이터 파일"이 선택된 "메타데이터 가져오기" 섹션을 보여주는 스크린샷.](./media/kantegassoforconfluence-tutorial/addon7.png)
 
-    a. **Metadata file on my computer** (내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+    a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
     b. **다음** 을 클릭합니다.
 
-1. **Name and SSO location** (이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
+1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
     !["ID 공급자 이름" 텍스트 상자가 강조 표시되고 "다음" 단추가 선택된 "이름 및 SSO 위치"를 보여주는 스크린샷.](./media/kantegassoforconfluence-tutorial/addon8.png)
 
@@ -212,13 +212,13 @@ Kantega SSO for Confluence에서 Azure AD Single Sign-On을 구성하려면 다�
 
     !["마침" 단추가 선택된 "요약" 페이지의 스크린샷.](./media/kantegassoforconfluence-tutorial/addon11.png)
 
-1. **Known domains for Azure AD** (Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다. 
+1. **Known domains for Azure AD**(Azure AD에 알려진 도메인) 섹션에서 다음 단계를 수행합니다. 
 
     !["알려진 도메인" 텍스트 상자가 강조 표시되고 "저장" 단추가 선택된 "Azure AD의 알려진 도메인" 페이지를 보여주는 스크린샷.](./media/kantegassoforconfluence-tutorial/addon12.png)
 
-    a. 페이지의 왼쪽 창에서 **Known domains** (알려진 도메인)를 선택합니다.
+    a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
 
-    b. **Known domains** (알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
+    b. **Known domains**(알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
 
     다. **저장** 을 클릭합니다.
 
@@ -226,7 +226,7 @@ Kantega SSO for Confluence에서 Azure AD Single Sign-On을 구성하려면 다�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -251,7 +251,7 @@ Kantega SSO for Confluence에서 Azure AD Single Sign-On을 구성하려면 다�
 
 이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Kantega SSO for Confluence에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Kantega SSO for Confluence** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Kantega SSO for Confluence** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

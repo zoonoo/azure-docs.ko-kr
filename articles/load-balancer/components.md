@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6bf090cde7262fdae9c98ef55227bf2925937dbf
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399200"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101739834"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
@@ -131,6 +131,7 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 - 백 엔드 VM에서 내부 Load Balancer의 프런트 엔드로의 아웃바운드 흐름이 실패합니다.
 - 부하 분산 장치 규칙은 두 개의 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트 엔드 및 해당 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
 - 부하 분산 규칙에서는 IP 조각 전달이 지원되지 않습니다. UDP 및 TCP 패킷의 IP 조각화는 부하 분산 규칙에서 지원되지 않습니다. HA 포트 부하 분산 규칙을 사용하여 기존 IP 조각을 전달할 수 있습니다. 자세한 내용은 [고가용성 포트 개요](load-balancer-ha-ports-overview.md)를 참조하세요.
+- 가용성 집합당 공용 Load Balancer 1개와 내부 Load Balancer 1개만 가질 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

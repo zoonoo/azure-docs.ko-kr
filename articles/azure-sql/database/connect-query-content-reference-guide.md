@@ -11,13 +11,13 @@ ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: a9f9e03227bfb75d94ed79cdf858278e2efe4f31
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/17/2021
+ms.openlocfilehash: 96f40f1abd14987b7c404f5a4210a2cab1fa9143
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440397"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594175"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database와 Azure SQL Managed Instance 연결 및 쿼리 문서
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -118,6 +118,7 @@ TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database의 데이터베이�
   - [Java를 사용한 연결 및 쿼리](connect-query-java.md)
   - [Python을 사용한 연결 및 쿼리](connect-query-python.md)
   - [Ruby를 사용한 연결 및 쿼리](connect-query-ruby.md)
+  - [Linux에 SQL Server 명령줄 도구인 sqlcmd 및 bcp 설치](/sql/linux/sql-server-linux-setup-tools) - Linux 사용자의 경우 [sqlcmd](/sql/ssms/scripting/sqlcmd-use-the-utility)를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결해보세요.
 - 재시도 로직 코드 예제:
   - [ADO.NET을 사용하여 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
   - [PHP를 사용하여 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]

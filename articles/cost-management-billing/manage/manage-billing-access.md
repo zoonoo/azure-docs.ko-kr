@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 23e3adad12a726b03f6efe309dde0ec4a93bcd5b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1574149e0587701323cb9ae5ae0c5cfeaccf47c7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897428"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096409"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
@@ -40,7 +40,7 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 이러한 역할은 [Azure Portal](https://portal.azure.com/)의 청구 정보에 대한 액세스 권한을 갖습니다. 이러한 역할이 할당된 사람은 [청구 API](consumption-api-overview.md#usage-details-api)를 사용하여 프로그래밍 방식으로 청구서 및 사용량 세부 정보를 확보할 수 있습니다.
 
-역할을 할당하려면 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+역할을 할당하려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ** EA 고객인 경우 계정 소유자는 팀의 다른 사용자에게 위의 역할을 할당할 수 있습니다. 그러나 이러한 사용자가 청구 정보를 보려면 엔터프라이즈 관리자는 Enterprise Portal에서 AO 보기 요금을 사용하도록 설정해야 합니다.
 
@@ -105,7 +105,7 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 
 ## <a name="next-steps"></a>다음 단계
 
-- 소유자 또는 참가자 등의 다른 역할의 사용자는 청구 정보에 액세스할 수만 있고 Azure 서비스에는 액세스할 수 없습니다. 이 역할을 관리하려면 [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+- 소유자 또는 참가자 등의 다른 역할의 사용자는 청구 정보에 액세스할 수만 있고 Azure 서비스에는 액세스할 수 없습니다. 이러한 역할을 관리하려면 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 - 역할에 대한 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.

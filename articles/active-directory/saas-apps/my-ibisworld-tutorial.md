@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: c83a1050035fc40912d0242a9c5fe2498b299ebd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 56aa7c41934506c7de0c8d5cebe84eb5a6bc2164
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517959"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174617"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-my-ibisworld"></a>자습서: My IBISWorld와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -83,26 +83,26 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에 `https://my.ibisworld.com/account/login` URL을 입력합니다.
+   * **SP** 시작 모드에서 애플리케이션을 구성하려면 IBISWorld에서 URL을 요청한 다음, **로그온 URL** 텍스트 상자에 URL을 입력합니다.
+   
+   * **IdP** 시작 모드에서 애플리케이션을 구성하려면 **릴레이 상태** 텍스트 상자에 `RPID=http://fedlogin.ibisworld.com` URL을 입력합니다. **로그온 URL** 텍스트 상자를 비워 둡니다.
 
 1. **저장** 을 클릭합니다.
 
 1. My IBISWorld 애플리케이션에는 특정 서식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/default-attributes.png)
+   ![이미지](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 My IBISWorld 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name | 원본 특성|
-    | --------------- | --------- |
-    | department | user.department |
-    | 언어 | user.preferredlanguage |
-    | phone | user.telephonenumber |
-    | title | user.jobtitle |
-    | userId | user.employeeid |
-    | country | user.country |
+   | Name | 원본 특성|
+   | --------------- | --------- |
+   | department | user.department |
+   | 언어 | user.preferredlanguage |
+   | phone | user.telephonenumber |
+   | title | user.jobtitle |
+   | userId | user.employeeid |
+   | country | user.country |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
@@ -111,11 +111,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

@@ -8,19 +8,20 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: c5e357824652077acab299e0e27678f528f23b9a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: a1492593c24c2bc350205536006b648608cc5e46
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712643"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기
 
 이 빠른 시작에서는 Azure IoT Central 애플리케이션을 만드는 방법을 보여줍니다.
 
+## <a name="prerequisite"></a>필수 요소 
 
-[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+*기여자* 액세스 권한이 있는 Azure 구독이 필요합니다.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 

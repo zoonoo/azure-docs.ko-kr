@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 03/01/2020
 ms.author: duau
-ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a352624fc802e4224aa1b60768c064c0054cdfd6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569760"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102035877"
 ---
 # <a name="azure-front-door-rules-engine-match-conditions"></a>Azure Front Door 규칙 엔진 일치 조건
 
@@ -80,11 +80,11 @@ IP가 일치하지 않음 | IP 주소(공백으로 구분됨)
 
 - CIDR 표기법을 사용합니다.
 - 여러 IP 주소와 IP 주소 블록을 지정하려면 값 사이에 공백 하나를 사용합니다.
-  - **IPv4 예제**: *1.2.3.4 10.20.30.40*은 1.2.3.4 또는 10.20.30.40 주소에서 도착하는 요청과 일치합니다.
-  - **IPv6 예제**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80*은 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 요청과 일치합니다.
+  - **IPv4 예제**: *1.2.3.4 10.20.30.40* 은 1.2.3.4 또는 10.20.30.40 주소에서 도착하는 요청과 일치합니다.
+  - **IPv6 예제**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* 은 1:2:3:4:5:6:7:8 또는 10:20:30:40:50:60:70:80 주소에서 도착하는 요청과 일치합니다.
 - IP 주소 블록에 대한 구문은 뒤에 슬래시와 접두사 크기가 오는 기본 IP 주소입니다. 예를 들면 다음과 같습니다.
-  - **IPv4 예제**: *5.5.5.64/26*은 5.5.5.64~5.5.5.127 주소에서 도착하는 요청과 일치합니다.
-  - **IPv6 예제**: *1:2:3:/48*은 1:2:3:0:0:0:0:0~1:2:3: ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
+  - **IPv4 예제**: *5.5.5.64/26* 은 5.5.5.64~5.5.5.127 주소에서 도착하는 요청과 일치합니다.
+  - **IPv6 예제**: *1:2:3:/48* 은 1:2:3:0:0:0:0:0~1:2:3: ffff:ffff:ffff:ffff:ffff 주소에서 도착하는 요청과 일치합니다.
 
 ## <a name="request-body"></a>요청 본문
 
@@ -142,7 +142,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 #### <a name="key-information"></a>주요 정보
 
-- 이 규칙 조건을 사용하는 경우 프로토콜 정보를 포함해야 합니다. 예: *https://www.\<yourdomain\>.com*.
+- 이 규칙 조건을 사용하는 경우 프로토콜 정보를 포함해야 합니다. 예를 들어 `https://www.<yourdomain\>.com`을 참조하십시오.
 
 ## <a name="request-file-extension"></a>요청 파일 확장명
 
@@ -156,7 +156,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 
 #### <a name="key-information"></a>주요 정보
 
-- 확장명에는 선행 마침표를 사용하지 않습니다. 예를 들어 *.html*이 아닌 *html*을 사용합니다.
+- 확장명에는 선행 마침표를 사용하지 않습니다. 예를 들어 *.html* 이 아닌 *html* 을 사용합니다.
 
 ## <a name="request-file-name"></a>요청 파일 이름
 
@@ -182,6 +182,10 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 ---------|-------|---------------
 [표준 연산자 목록](#standard-operator-list) | 문자열, Int | 소문자, 대문자, 자르기, 공백 제거, URL 인코딩, URL 디코딩
 
+#### <a name="key-information"></a>주요 정보
+
+- 이 규칙 조건을 사용하는 경우 경로의 첫 번째 `/` 이후에 일치가 시작됩니다. 예를 들어 `https://www.<yourdomain>.com/folder/page`는 `folder/page`와 일치하기 시작합니다.
+
 ## <a name="standard-operator-list"></a>표준 연산자 목록
 
 표준 연산자 목록의 값을 허용하는 규칙에는 다음 연산자가 유효합니다.
@@ -204,7 +208,7 @@ String | [표준 연산자 목록](#standard-operator-list) | 문자열, Int | �
 - 보다 크지 않음
 - 보다 작거나 같음
 
-*작거나 같음*이나 *크거나 같음*처럼 숫자 연산자의 경우 길이를 기준으로 비교합니다. 일치 조건의 값은 비교하려는 길이와 일치하는 정수여야 합니다. 
+*작거나 같음* 이나 *크거나 같음* 처럼 숫자 연산자의 경우 길이를 기준으로 비교합니다. 일치 조건의 값은 비교하려는 길이와 일치하는 정수여야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

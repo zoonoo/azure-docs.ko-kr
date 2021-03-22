@@ -3,14 +3,14 @@ title: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
 description: Azure Arc 사용 서버를 사용하여 하이브리드 머신을 연결하고 등록하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: 68869854cbfcf6d7297137e6239b2229a20c04a1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516792"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646829"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>빠른 시작: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
+# <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>빠른 시작: Azure Arc 사용 서버를 사용하여 하이브리드 머신 연결
 
 [Azure Arc 사용 서버](../overview.md)를 사용하면 온-프레미스, 에지 및 다중 클라우드 환경에서 호스트되는 Windows 및 Linux 머신을 관리하고 제어할 수 있습니다. 이 빠른 시작에서는 Arc 사용 서버를 사용하여 관리하기 위해 Azure 외부에 호스트된 Windows 또는 Linux 머신에서 Connected Machine 에이전트를 배포하고 구성합니다.
 

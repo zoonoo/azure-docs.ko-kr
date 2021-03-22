@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762544"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704806"
 ---
 # <a name="claim-sets"></a>클레임 집합
 
@@ -26,7 +26,8 @@ Microsoft Azure Attestation을 사용하여 enclave를 증명하는 프로세스
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>모든 증명 유형에서 들어오는 일반적인 클레임
 
-Azure Attestation에서 생성되고 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있는 클레임은 다음과 같습니다.
+아래 클레임은 Azure Attestation에 의해 생성되며 정책 작성자가 모든 증명 형식에 대한 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있습니다.
+
 - **x-ms-ver**: JWT 스키마 버전("1.0"이어야 함)
 - **x-ms-attestation-type**: 증명 유형을 나타내는 문자열 값 
 - **x-ms-policy-hash**: BASE64URL(SHA256(UTF8(BASE64URL(UTF8(정책 텍스트)))))로 계산된 Azure Attestation 평가 정책의 해시
@@ -44,7 +45,9 @@ policy_signer | x-ms-policy-signer
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>모든 증명 유형에서 나가는 일반적인 클레임
 
-[IETF JWT](https://tools.ietf.org/html/rfc7519)에서 정의되고 응답 개체의 Azure Attestation에서 사용되는 클레임은 다음과 같습니다.
+아래 클레임은 서비스의 모든 증명 형식에 대한 증명 토큰에 포함됩니다.
+
+원본: [IETF JWT](https://tools.ietf.org/html/rfc7519)에서 정의한 대로
 
 - **"jti"(JWT ID) 클레임**
 - **"iss"(발급자) 클레임**
@@ -52,10 +55,12 @@ policy_signer | x-ms-policy-signer
 - **"exp"(만료 시간) 클레임**
 - **"nbf"(이전이 아님) 클레임**
 
-[IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)에서 정의되고 응답 개체의 Azure Attestation에서 사용되는 클레임은 다음과 같습니다.
+원본: [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)에서 정의한 대로
+
 - **"Nonce 클레임"(nonce)**
 
-아래 클레임은 들어오는 클레임에 따라 기본적으로 생성됩니다.
+아래 클레임은 들어오는 클레임을 기반으로 하여 기본적으로 증명 토큰에 포함됩니다.
+
 - **x-ms-ver**: JWT 스키마 버전("1.0"이어야 함)
 - **x-ms-attestation-type**: 증명 유형을 나타내는 문자열 값 
 - **x-ms-policy-hash**: BASE64URL(SHA256(UTF8(BASE64URL(UTF8(정책 텍스트)))))로 계산된 정책 텍스트의 SHA256 해시가 포함된 문자열 값
@@ -65,7 +70,8 @@ policy_signer | x-ms-policy-signer
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>들어오는 SGX 증명 관련 클레임
 
-SGX 증명 서비스에서 생성되고 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있는 클레임은 다음과 같습니다.
+아래 클레임은 Azure Attestation에 의해 생성되며 정책 작성자가 SGX 증명에 대한 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 사용할 수 있습니다.
+
 - **x-ms-sgx-is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
 - **x-ms-sgx-product-id**
 - **x-ms-sgx-mrsigner**: quote의 "mrsigner" 필드에 대해 16진수로 인코딩된 값
@@ -74,7 +80,8 @@ SGX 증명 서비스에서 생성되고 사용자 지정 정책에서 권한 부
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>나가는 SGX 증명 관련 클레임
 
-서비스에서 생성되고 SGX 증명에 대한 응답 개체에 포함되는 클레임은 다음과 같습니다.
+아래 클레임이 생성되어 SGX 증명에 대한 서비스에 의해 증명 토큰에 포함됩니다.
+
 - **x-ms-sgx-is-debuggable**: 디버깅을 enclave에 사용하도록 설정하는지 여부를 나타내는 부울
 - **x-ms-sgx-product-id**
 - **x-ms-sgx-mrsigner**: quote의 "mrsigner" 필드에 대해 16진수로 인코딩된 값

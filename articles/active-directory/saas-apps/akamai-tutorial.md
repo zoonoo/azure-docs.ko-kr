@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/03/2020
+ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 9e5d12bcea1bd7a587568c30b49c8c4ee95f8362
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: a22a214104357b9ad99238a8db157839a1c9fd46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937385"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591948"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>자습서: Akamai와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -26,13 +26,11 @@ ms.locfileid: "97937385"
 * 사용자가 해당 Azure AD 계정으로 Akamai에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
-
 Azure Active Directory와 Akamai 엔터프라이즈 애플리케이션을 통합하면 클라우드 또는 온-프레미스에 호스트되는 레거시 애플리케이션에 원활하게 액세스할 수 있습니다. 통합 솔루션은 앱을 수정하거나 에이전트를 설치할 필요 없이 [Azure AD 조건부 액세스](../conditional-access/overview.md), [Azure AD ID 보호](../identity-protection/overview-identity-protection.md) 및 [Azure AD Identity Governance](../governance/identity-governance-overview.md)와 같은 Azure Active Directory의 모든 최신 기능을 레거시 애플리케이션에 활용합니다.
 
 아래 이미지는 Akamai EAA가 광범위한 하이브리드 보안 액세스 시나리오에 적합하다는 것을 보여줍니다.
 
-![광범위한 하이브리드 보안 액세스 시나리오에 적합한 Akamai EAA](./media/header-akamai-tutorial/introduction01.png)
+![광범위한 하이브리드 보안 액세스 시나리오에 적합한 Akamai EAA](./media/header-akamai-tutorial/introduction-1.png)
 
 ### <a name="key-authentication-scenarios"></a>키 인증 시나리오
 
@@ -65,7 +63,7 @@ Akamai EAA는 Azure AD에서 단일 애플리케이션으로 구성됩니다. �
 
 * 공통 조건부 액세스 정책 하나가 모든 애플리케이션에 적용됩니다.
 
-![통합 시나리오 1](./media/header-akamai-tutorial/scenario1.png)
+![통합 시나리오 1](./media/header-akamai-tutorial/scenario-1.png)
 
 #### <a name="integration-scenario-2"></a>통합 시나리오 2
 
@@ -82,7 +80,7 @@ Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합
 
 * IDP를 여러 개 구성해야 합니다.
 
-![통합 시나리오 2](./media/header-akamai-tutorial/scenario2.png)
+![통합 시나리오 2](./media/header-akamai-tutorial/scenario-2.png)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -103,22 +101,22 @@ Akamai EAA 애플리케이션은 Azure AD 포털에서 개별적으로 설정합
 
 ![Akamai 엔터프라이즈 애플리케이션 액세스의 AZURESSO-SP에 대한 General(일반) 탭의 스크린샷 인증 구성 URL 필드가 강조 표시됩니다.](./media/header-akamai-tutorial/important.png)
 
-## <a name="adding-akamai-from-the-gallery"></a>갤러리에서 Akamai 추가
+## <a name="add-akamai-from-the-gallery"></a>갤러리에서 Akamai 추가
 
 Akamai가 Azure AD에 통합되도록 구성하려면 갤러리의 Akamai를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Akamai** 를 입력합니다.
 1. 결과 패널에서 **Akamai** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-akamai"></a>Akamai에 대한 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-akamai"></a>Akamai에 대한 Azure AD SSO 구성 및 테스트
 
 **B. Simon** 이라는 테스트 사용자를 사용하여 Akamai에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Akamai의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-Akamai에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Akamai에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
@@ -136,9 +134,9 @@ Akamai에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Akamai** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Akamai** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -178,15 +176,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **Akamai** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-akamai-sso"></a>Akamai SSO 구성
@@ -198,11 +190,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Akamai 엔터프라이즈 애플리케이션 액세스** 콘솔에 로그인합니다.
 1. **Akamai EAA 콘솔** 에서 **ID** > **ID 공급자** 를 선택하고 **ID 공급자 추가** 를 클릭합니다.
 
-    ![Akamai EAA 콘솔 ID 공급자 창의 스크린샷 ID 메뉴에서 ID 공급자를 선택하고 ID 공급자 추가를 선택합니다.](./media/header-akamai-tutorial/configure01.png)
+    ![Akamai EAA 콘솔 ID 공급자 창의 스크린샷 ID 메뉴에서 ID 공급자를 선택하고 ID 공급자 추가를 선택합니다.](./media/header-akamai-tutorial/configure-1.png)
 
 1. **새 ID 공급자 만들기** 에서 다음 단계를 수행합니다.
 
-    ![Akamai EAA 콘솔의 Create New Identity Providers(새 ID 공급자 만들기) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure02.png)
+    ![Akamai EAA 콘솔의 Create New Identity Providers(새 ID 공급자 만들기) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure-2.png)
 
     a. **Unique Name**(고유 이름)을 지정합니다.
 
@@ -218,7 +210,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Akamai Cloud Zone**(Akamai 클라우드 영역) - 적절한 클라우드 영역을 선택합니다.
 1. **Certificate Validation**(인증서 유효성 검사) - Akamai 설명서를 확인합니다(선택 사항).
 
-    ![Identity Intercept(ID 가로채기), Akamai Cloud Zone(Akamai 클라우드 영역) 및 Certificate Validation(인증서 유효성 검사)에 대한 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure03.png)
+    ![Identity Intercept(ID 가로채기), Akamai Cloud Zone(Akamai 클라우드 영역) 및 Certificate Validation(인증서 유효성 검사)에 대한 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure-3.png)
 
 ### <a name="authentication-configuration"></a>Authentication Configuration(인증 구성)
 
@@ -227,13 +219,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 3. Sign SAML Request(SAML 요청 서명): 기본적으로 선택 취소되어 있습니다.
 4. IDP 메타데이터 파일의 경우 Azure AD 콘솔에서 애플리케이션을 추가합니다.
 
-    ![URL, Logout URL(로그아웃 URL), Sign SAML Request(SAML 요청 서명), IDP 메타데이터 파일에 대한 설정을 보여주는 Akamai EAA 콘솔 Authentication configuration(인증 구성)의 스크린샷](./media/header-akamai-tutorial/configure04.png)
+    ![URL, Logout URL(로그아웃 URL), Sign SAML Request(SAML 요청 서명), IDP 메타데이터 파일에 대한 설정을 보여주는 Akamai EAA 콘솔 Authentication configuration(인증 구성)의 스크린샷](./media/header-akamai-tutorial/configure-4.png)
 
 ### <a name="session-settings"></a>세션 설정
 
 설정을 기본값으로 둡니다.
 
-![Akamai EAA 콘솔 Session settings(세션 설정) 대화 상자의 스크린샷](./media/header-akamai-tutorial/sessionsettings.png)
+![Akamai EAA 콘솔 Session settings(세션 설정) 대화 상자의 스크린샷](./media/header-akamai-tutorial/session-settings.png)
 
 ### <a name="directories"></a>디렉터리
 
@@ -245,13 +237,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 IDP에 사용자 지정을 추가할 수 있습니다.
 
-![Customize UI(UI 사용자 지정), Language settings(언어 설정), Themes(테마)에 대한 설정을 보여주는 Akamai EAA 콘솔 Customization(사용자 지정) 탭의 스크린샷](./media/header-akamai-tutorial/customizationui.png)
+![Customize UI(UI 사용자 지정), Language settings(언어 설정), Themes(테마)에 대한 설정을 보여주는 Akamai EAA 콘솔 Customization(사용자 지정) 탭의 스크린샷](./media/header-akamai-tutorial/customization.png)
 
 ### <a name="advanced-settings"></a>고급 설정
 
 [고급 설정]은 건너뜁니다. 자세한 내용은 Akamai 설명서를 참조하세요.
 
-![EAA Client(EAA 클라이언트), Advanced(고급), OIDC to SAML bridging(OIDC-SAML 브리징)에 대한 설정을 보여주는 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/advancesettings.png)
+![EAA Client(EAA 클라이언트), Advanced(고급), OIDC to SAML bridging(OIDC-SAML 브리징)에 대한 설정을 보여주는 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/advance-settings.png)
 
 ### <a name="deployment"></a>배포
 
@@ -259,7 +251,7 @@ IDP에 사용자 지정을 추가할 수 있습니다.
 
     ![Deploy Identity provider(ID 공급자 배포) 단추를 보여주는 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/deployment.png)
 
-2. 배포가 성공했는지 확인
+2. 배포가 성공했는지 확인합니다.
 
 ### <a name="header-based-authentication"></a>헤더 기반 인증
 
@@ -267,115 +259,115 @@ Akamai 헤더 기반 인증
 
 1. Add Applications(애플리케이션 추가) 마법사에서 **Custom HTTP**(사용자 지정 HTTP)를 선택합니다.
 
-    ![Access Apps(앱 액세스) 섹션에 나열된 CustomHTTP(사용자 지정 HTTP)를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure05.png)
+    ![Access Apps(앱 액세스) 섹션에 나열된 CustomHTTP(사용자 지정 HTTP)를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure-5.png)
 
 2. **애플리케이션 이름** 및 **설명** 을 입력합니다.
 
-    ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 Custom HTTP App(사용자 지정 HTTP 앱) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure06.png)
+    ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 Custom HTTP App(사용자 지정 HTTP 앱) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure-6.png)
 
-    ![MYHEADERAPP의 일반 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure07.png)
+    ![MYHEADERAPP의 일반 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure-7.png)
 
-    ![인증서 및 위치 설정을 보여주는 Akamai EAA 콘솔의 스크린샷](./media/header-akamai-tutorial/configure08.png)
+    ![인증서 및 위치 설정을 보여주는 Akamai EAA 콘솔의 스크린샷](./media/header-akamai-tutorial/configure-8.png)
 
 #### <a name="authentication"></a>인증
 
 1. **인증** 탭을 선택합니다.
 
-    ![Authentication(인증) 탭이 선택된 Akamai EAA 콘솔의 스크린샷](./media/header-akamai-tutorial/configure09.png)
+    ![Authentication(인증) 탭이 선택된 Akamai EAA 콘솔의 스크린샷](./media/header-akamai-tutorial/configure-9.png)
 
-2. **ID 공급자** 할당
+2. **ID 공급자** 를 할당합니다.
 
-    ![Azure AD SSO로 설정된 ID 공급자를 보여주는 MYHEADERAPP의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/configure10.png)
+    ![Azure AD SSO로 설정된 ID 공급자를 보여주는 MYHEADERAPP의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/configure-10.png)
 
 #### <a name="services"></a>Services
 
 [Save and Go to Authentication]\(저장 후 인증으로 이동)을 클릭합니다.
 
-![오른쪽 아래 모서리에 있는 Save and go to AdvancedSettings(저장 후 고급 설정으로 이동) 단추를 보여주는 MYHEADERAPP의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/configure11.png)
+![오른쪽 아래 모서리에 있는 Save and go to AdvancedSettings(저장 후 고급 설정으로 이동) 단추를 보여주는 MYHEADERAPP의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/configure-11.png)
 
 #### <a name="advanced-settings"></a>고급 설정
 
 1. **Customer HTTP Headers**(고객 HTTP 헤더)에서 **CustomerHeader** 및 **SAML Attribute**(SAML 특성)를 지정합니다.
 
-    ![Authentication(인증) 아래 강조 표시된 SSO Logged URL(SSO 로그 URL) 필드를 보여주는 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure12.png)
+    ![Authentication(인증) 아래 강조 표시된 SSO Logged URL(SSO 로그 URL) 필드를 보여주는 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure-12.png)
 
 1. **Save and go to Deployment**(저장 후 배포로 이동) 단추를 클릭합니다.
 
-    ![오른쪽 아래 모서리에 있는 Save and go to Deployment(저장 후 배포로 이동) 단추를 보여주는 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure13.png)
+    ![오른쪽 아래 모서리에 있는 Save and go to Deployment(저장 후 배포로 이동) 단추를 보여주는 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure-13.png)
 
 #### <a name="deploy-the-application"></a>애플리케이션 배포
 
 1. **Deploy Application**(애플리케이션 배포) 단추를 클릭합니다.
 
-    ![Deploy application(애플리케이션 배포) 단추를 보여주는 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/configure14.png)
+    ![Deploy application(애플리케이션 배포) 단추를 보여주는 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/configure-14.png)
 
 1. 애플리케이션이 성공적으로 배포되었는지 확인합니다.
 
-    ![애플리케이션 상태 메시지를 보여주는 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷: "Application Successfully Deployed".(애플리케이션을 배포했습니다.)](./media/header-akamai-tutorial/configure15.png)
+    ![애플리케이션 상태 메시지를 보여주는 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷: "Application Successfully Deployed".(애플리케이션을 배포했습니다.)](./media/header-akamai-tutorial/configure-15.png)
 
 1. 최종 사용자 환경.
 
-    ![배경 이미지 및 로그인 대화 상자가 있는 myapps.microsoft.com의 시작 화면 스크린샷](./media/header-akamai-tutorial/enduser01.png)
+    ![배경 이미지 및 로그인 대화 상자가 있는 myapps.microsoft.com의 시작 화면 스크린샷](./media/header-akamai-tutorial/end-user-1.png)
 
-    ![추가 기능, HRWEB, Akamai-CorpApps, 비용, 그룹 및 액세스 검토 아이콘이 있는 앱 창의 일부를 보여주는 스크린샷 ](./media/header-akamai-tutorial/enduser02.png)
+    ![추가 기능, HRWEB, Akamai-CorpApps, 비용, 그룹 및 액세스 검토 아이콘이 있는 앱 창의 일부를 보여주는 스크린샷 ](./media/header-akamai-tutorial/end-user-2.png)
 
 1. 조건부 액세스.
 
-    ![메시지의 스크린샷: 로그인 요청 승인 모바일 디바이스에 알림을 보냈습니다. 계속하려면 응답하세요.](./media/header-akamai-tutorial/conditionalaccess01.png)
+    ![메시지의 스크린샷: 로그인 요청 승인 모바일 디바이스에 알림을 보냈습니다. 계속하려면 응답하세요.](./media/header-akamai-tutorial/conditional-access-1.png)
 
-    ![MyHeaderApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditionalaccess02.png)
+    ![MyHeaderApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditional-access-2.png)
 
 #### <a name="remote-desktop"></a>원격 데스크톱
 
 1. ADD Applications(애플리케이션 추가) 마법사에서 **RDP** 를 선택합니다.
 
-    ![Access Apps(앱 액세스) 섹션의 앱 중에 나열된 RDP를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure16.png)
+    ![Access Apps(앱 액세스) 섹션의 앱 중에 나열된 RDP를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure-16.png)
 
 1. **애플리케이션 이름** 및 **설명** 을 입력합니다.
 
-    ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 RDP App(RDP 앱) 대화 상자 스크린샷](./media/header-akamai-tutorial/configure17.png)
+    ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 RDP App(RDP 앱) 대화 상자 스크린샷](./media/header-akamai-tutorial/configure-17.png)
 
-    ![SECRETRDPAPP에 대한 Application identity(애플리케이션 ID) 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure18.png)
+    ![SECRETRDPAPP에 대한 Application identity(애플리케이션 ID) 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure-18.png)
 
 1. 이 서비스를 제공할 커넥터를 지정합니다.
 
-    ![인증서 및 위치 설정을 보여주는 Akamai EAA 콘솔의 스크린샷 연결된 커넥터는 USWST-CON1로 설정됩니다.](./media/header-akamai-tutorial/configure19.png)
+    ![인증서 및 위치 설정을 보여주는 Akamai EAA 콘솔의 스크린샷 연결된 커넥터는 USWST-CON1로 설정됩니다.](./media/header-akamai-tutorial/configure-19.png)
 
 #### <a name="authentication"></a>인증
 
 **Save and go to Services**(저장 후 서비스로 이동)를 클릭합니다.
 
-![오른쪽 아래 모서리에 있는 Save and go to Services(저장 후 서비스로 이동) 단추를 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/configure20.png)
+![오른쪽 아래 모서리에 있는 Save and go to Services(저장 후 서비스로 이동) 단추를 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/configure-20.png)
 
 #### <a name="services"></a>Services
 
 **Save and go to Advanced Settings**(저장 후 서비스로 이동)를 클릭합니다.
 
-![오른쪽 아래 모서리에 있는 Save and go to AdvancedSettings(저장 후 고급 설정으로 이동) 단추를 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/configure21.png)
+![오른쪽 아래 모서리에 있는 Save and go to AdvancedSettings(저장 후 고급 설정으로 이동) 단추를 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/configure-21.png)
 
 #### <a name="advanced-settings"></a>고급 설정
 
 1. **Save and go to Deployment**(저장 후 배포로 이동)를 클릭합니다.
 
-    ![Remote desktop configuration(원격 데스크톱 구성) 설정을 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure22.png)
+    ![Remote desktop configuration(원격 데스크톱 구성) 설정을 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure-22.png)
 
-    ![Authentication(인증) 및 Health check configuration(상태 검사 구성) 설정을 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure23.png)
+    ![Authentication(인증) 및 Health check configuration(상태 검사 구성) 설정을 보여주는 SECRETRDPAPP의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure-23.png)
 
-    ![오른쪽 아래 모서리에 Save and go to Deployment(저장 후 배포로 이동) 단추가 있는 SECRETRDPAPP의 Akamai EAA 콘솔 Custom HTTP headers(사용자 지정 HTTP 헤더) 설정의 스크린샷](./media/header-akamai-tutorial/configure24.png)
+    ![오른쪽 아래 모서리에 Save and go to Deployment(저장 후 배포로 이동) 단추가 있는 SECRETRDPAPP의 Akamai EAA 콘솔 Custom HTTP headers(사용자 지정 HTTP 헤더) 설정의 스크린샷](./media/header-akamai-tutorial/configure-24.png)
 
 1. 최종 사용자 환경
 
-    ![배경 이미지와 로그인 대화 상자가 있는 myapps.microsoft.com 창의 스크린샷](./media/header-akamai-tutorial/enduser03.png)
+    ![배경 이미지와 로그인 대화 상자가 있는 myapps.microsoft.com 창의 스크린샷](./media/header-akamai-tutorial/end-user-3.png)
 
-    ![추가 기능, HRWEB, Akamai - CorpApps, 비용, 그룹 및 액세스 검토 아이콘이 있는 myapps.microsoft.com 앱 창의 스크린샷](./media/header-akamai-tutorial/enduser02.png)
+    ![추가 기능, HRWEB, Akamai - CorpApps, 비용, 그룹 및 액세스 검토 아이콘이 있는 myapps.microsoft.com 앱 창의 스크린샷](./media/header-akamai-tutorial/end-user-2.png)
 
 1. 조건부 액세스
 
-    ![조건부 액세스 메시지의 스크린샷: 로그인 요청 승인 모바일 디바이스에 알림을 보냈습니다. 계속하려면 응답하세요.](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![조건부 액세스 메시지의 스크린샷: 로그인 요청 승인 모바일 디바이스에 알림을 보냈습니다. 계속하려면 응답하세요.](./media/header-akamai-tutorial/conditional-access-4.png)
 
-    ![MyHeaderApp 및 SecretRDPApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditionalaccess05.png)
+    ![MyHeaderApp 및 SecretRDPApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditional-access-5.png)
 
-    ![일반 사용자 아이콘을 보여주는 Windows Server 2012 RS 화면 스크린샷 관리자, user0 및 user1의 아이콘은 로그인된 것으로 표시됩니다.](./media/header-akamai-tutorial/conditionalaccess06.png)
+    ![일반 사용자 아이콘을 보여주는 Windows Server 2012 RS 화면 스크린샷 관리자, user0 및 user1의 아이콘은 로그인된 것으로 표시됩니다.](./media/header-akamai-tutorial/conditional-access-6.png)
 
 1. RDP 애플리케이션 URL을 직접 입력할 수도 있습니다.
 
@@ -383,15 +375,15 @@ Akamai 헤더 기반 인증
 
 1. [애플리케이션 추가]로 이동하여 **SSH** 를 선택합니다.
 
-    ![Access Apps(앱 액세스) 섹션의 앱 중에 나열된 SSH를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure25.png)
+    ![Access Apps(앱 액세스) 섹션의 앱 중에 나열된 SSH를 보여주는 Akamai EAA 콘솔 Add Applications(애플리케이션 추가) 마법사의 스크린샷](./media/header-akamai-tutorial/configure-25.png)
 
 1. **애플리케이션 이름** 및 **설명** 을 입력합니다.
 
-    ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 SSH App(SSH 앱) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure26.png)
+    ![애플리케이션 이름 및 설명에 대한 설정을 보여주는 SSH App(SSH 앱) 대화 상자의 스크린샷](./media/header-akamai-tutorial/configure-26.png)
 
 1. [Application Identity]\(애플리케이션 ID)를 구성합니다.
 
-    ![SSH-SECURE에 대한 Application identity(애플리케이션 ID) 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure27.png)
+    ![SSH-SECURE에 대한 Application identity(애플리케이션 ID) 설정을 보여주는 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/configure-27.png)
 
     a. [Name/Description]\(이름/설명)을 지정합니다.
 
@@ -407,90 +399,90 @@ Akamai 헤더 기반 인증
 
 **Save and go to Services**(저장 후 서비스로 이동)를 클릭합니다.
 
-![오른쪽 아래 모서리에 있는 Save and go to Services(저장 후 서비스로 이동) 단추를 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/configure28.png)
+![오른쪽 아래 모서리에 있는 Save and go to Services(저장 후 서비스로 이동) 단추를 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/configure-28.png)
 
 #### <a name="services"></a>Services
 
 **Save and go to Advanced Settings**(저장 후 서비스로 이동)를 클릭합니다.
 
-![오른쪽 아래 모서리에 있는 Save and go to AdvancedSettings(저장 후 고급 설정으로 이동) 단추를 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/configure29.png)
+![오른쪽 아래 모서리에 있는 Save and go to AdvancedSettings(저장 후 고급 설정으로 이동) 단추를 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/configure-29.png)
 
 #### <a name="advanced-settings"></a>고급 설정
 
-[Save and go to Deployment]\(저장 후 배포로 이동)를 클릭합니다.
+저장을 클릭하고 배포로 이동합니다.
 
-![Authentication(인증) 및 Health check configuration(상태 검사 구성) 설정을 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure30.png)
+![Authentication(인증) 및 Health check configuration(상태 검사 구성) 설정을 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/configure-30.png)
 
-![오른쪽 아래 모서리에 Save and go to Deployment(저장 후 배포로 이동) 단추가 있는 SSH-SECURE의 Akamai EAA 콘솔 Custom HTTP headers(사용자 지정 HTTP 헤더) 설정의 스크린샷](./media/header-akamai-tutorial/configure31.png)
+![오른쪽 아래 모서리에 Save and go to Deployment(저장 후 배포로 이동) 단추가 있는 SSH-SECURE의 Akamai EAA 콘솔 Custom HTTP headers(사용자 지정 HTTP 헤더) 설정의 스크린샷](./media/header-akamai-tutorial/configure-31.png)
 
 #### <a name="deployment"></a>배포
 
 1. **Deploy Application**(애플리케이션 배포)을 클릭합니다.
 
-    ![Deploy application(애플리케이션 배포) 단추를 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/configure32.png)
+    ![Deploy application(애플리케이션 배포) 단추를 보여주는 SSH-SECURE의 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/configure-32.png)
 
 1. 최종 사용자 환경
 
-    ![myapps.microsoft.com 창 로그인 대화 상자의 스크린샷](./media/header-akamai-tutorial/enduser03.png)
+    ![myapps.microsoft.com 창 로그인 대화 상자의 스크린샷](./media/header-akamai-tutorial/end-user-3.png)
 
-    ![추가 기능, HRWEB, Akamai - CorpApps, 비용, 그룹 및 액세스 검토 아이콘을 보여주는 myapps.microsoft.com의 앱 창 스크린샷](./media/header-akamai-tutorial/enduser04.png)
+    ![추가 기능, HRWEB, Akamai - CorpApps, 비용, 그룹 및 액세스 검토 아이콘을 보여주는 myapps.microsoft.com의 앱 창 스크린샷](./media/header-akamai-tutorial/end-user-4.png)
 
 1. 조건부 액세스
 
-    ![메시지를 보여주는 스크린샷: 로그인 요청 승인 모바일 디바이스에 알림을 보냈습니다. 계속하려면 응답하세요.](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![메시지를 보여주는 스크린샷: 로그인 요청 승인 모바일 디바이스에 알림을 보냈습니다. 계속하려면 응답하세요.](./media/header-akamai-tutorial/conditional-access-4.png)
 
-    ![MyHeaderApp, SSH Secure, SecretRDPApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditionalaccess07.png)
+    ![MyHeaderApp, SSH Secure, SecretRDPApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditional-access-7.png)
 
-    ![암호 프롬프트를 보여주는 ssh-secure-go.akamai-access.com에 대한 명령 창의 스크린샷](./media/header-akamai-tutorial/conditionalaccess08.png)
+    ![암호 프롬프트를 보여주는 ssh-secure-go.akamai-access.com에 대한 명령 창의 스크린샷](./media/header-akamai-tutorial/conditional-access-8.png)
 
-    ![애플리케이션에 대한 정보를 보여주고 명령 프롬프트를 표시하는 ssh-secure-go.akamai-access.com에 대한 명령 창의 스크린샷](./media/header-akamai-tutorial/conditionalaccess09.png)
+    ![애플리케이션에 대한 정보를 보여주고 명령 프롬프트를 표시하는 ssh-secure-go.akamai-access.com에 대한 명령 창의 스크린샷](./media/header-akamai-tutorial/conditional-access-9.png)
 
 ### <a name="kerberos-authentication"></a>Kerberos 인증
 
-아래 예제에서는 KCD를 사용하여 내부 웹 서버 <code>http://frp-app1.superdemo.live</code>를 게시하고 SSO를 설정합니다.
+아래 예제에서는 KCD를 사용하여 내부 웹 서버 <code>http://frp-app1.superdemo.live</code>를 게시하고 SSO를 사용하도록 설정합니다.
 
 #### <a name="general-tab"></a>일반 탭
 
-![MYKERBOROSAPP의 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/generaltab.png)
+![MYKERBOROSAPP의 Akamai EAA 콘솔 General(일반) 탭의 스크린샷](./media/header-akamai-tutorial/general-tab.png)
 
 #### <a name="authentication-tab"></a>[인증] 탭
 
-ID 공급자 할당
+ID 공급자를 할당합니다.
 
-![Azure AD SSO로 설정된 ID 공급자를 보여주는 MYKERBOROSAPP의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/authenticationtab.png)
+![Azure AD SSO로 설정된 ID 공급자를 보여주는 MYKERBOROSAPP의 Akamai EAA 콘솔 Authentication(인증) 탭의 스크린샷](./media/header-akamai-tutorial/authentication-tab.png)
 
 #### <a name="services-tab"></a>서비스 탭
 
-![MYKERBOROSAPP의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/servicestab.png)
+![MYKERBOROSAPP의 Akamai EAA 콘솔 Services(서비스) 탭의 스크린샷](./media/header-akamai-tutorial/services-tab.png)
 
 #### <a name="advanced-settings"></a>고급 설정
 
-![Related Applications(관련 애플리케이션) 및 Authentication(인증)에 대한 설정을 보여주는 MYKERBOROSAPP의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/advancesettings02.png)
+![Related Applications(관련 애플리케이션) 및 Authentication(인증)에 대한 설정을 보여주는 MYKERBOROSAPP의 Akamai EAA 콘솔 Advanced Settings(고급 설정) 탭의 스크린샷](./media/header-akamai-tutorial/advance-settings-2.png)
 
 > [!NOTE]
 > 웹 서버의 SPN은 SPN@Domain 형식이어야 합니다. 예를 들어 이 데모에서는 `HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE`입니다. 나머지 설정은 기본값으로 둡니다.
 
 #### <a name="deployment-tab"></a>배포 탭
 
-![Deploy application(애플리케이션 배포) 단추를 보여주는 MYKERBOROSAPP의 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/deploymenttab.png)
+![Deploy application(애플리케이션 배포) 단추를 보여주는 MYKERBOROSAPP의 Akamai EAA 콘솔 Deployment(배포) 탭의 스크린샷](./media/header-akamai-tutorial/deployment-tab.png)
 
 #### <a name="adding-directory"></a>디렉터리 추가
 
 1. 드롭다운에서 **AD** 를 선택합니다.
 
-    ![Directory Type(디렉터리 유형) 드롭다운에 AD가 선택된 Create New Directory(새 디렉터리 만들기) 대화 상자를 보여주는 Akamai EAA 콘솔 Directories(디렉터리) 창의 스크린샷](./media/header-akamai-tutorial/configure33.png)
+    ![Directory Type(디렉터리 유형) 드롭다운에 AD가 선택된 Create New Directory(새 디렉터리 만들기) 대화 상자를 보여주는 Akamai EAA 콘솔 Directories(디렉터리) 창의 스크린샷](./media/header-akamai-tutorial/configure-33.png)
 
 1. 필요한 데이터를 제공합니다.
 
-    ![DirectoryName(디렉터리 이름), Directory Service(디렉터리 서비스), Connector(커넥터) 및 Attribute mapping(특성 매핑) 설정이 있는 Akamai EAA 콘솔 SUPERDEMOLIVE 창의 스크린샷](./media/header-akamai-tutorial/configure34.png)
+    ![DirectoryName(디렉터리 이름), Directory Service(디렉터리 서비스), Connector(커넥터) 및 Attribute mapping(특성 매핑) 설정이 있는 Akamai EAA 콘솔 SUPERDEMOLIVE 창의 스크린샷](./media/header-akamai-tutorial/configure-34.png)
 
 1. 디렉터리가 만들어졌는지 확인합니다.
 
-    ![superdemo.live 디렉터리가 추가되었음을 보여주는 Akamai EAA 콘솔 Directories(디렉터리) 창의 스크린샷](./media/header-akamai-tutorial/directorydomain.png)
+    ![superdemo.live 디렉터리가 추가되었음을 보여주는 Akamai EAA 콘솔 Directories(디렉터리) 창의 스크린샷](./media/header-akamai-tutorial/directory-domain.png)
 
 1. 액세스 권한이 필요한 그룹/OU를 추가합니다.
 
-    ![superdemo.live 디렉터리에 대한 설정 스크린샷 그룹 또는 OU를 추가하기 위해 선택한 아이콘이 강조 표시됩니다.](./media/header-akamai-tutorial/addgroup.png)
+    ![superdemo.live 디렉터리에 대한 설정 스크린샷 그룹 또는 OU를 추가하기 위해 선택한 아이콘이 강조 표시됩니다.](./media/header-akamai-tutorial/add-group.png)
 
 1. 아래에서 그룹은 EAAGroup이고 1개 멤버가 포함되어 있습니다.
 
@@ -498,7 +490,7 @@ ID 공급자 할당
 
 1. **ID** > **ID 공급자** 를 클릭하고 **디렉터리** 탭을 클릭한 다음, **디렉터리 할당** 을 클릭합니다.
 
-    ![Currently assigned directories(현재 할당된 디렉터리) 목록의 superdemo.live를 보여주는 Azure AD SSO의 Akamai EAA 콘솔 Directories(디렉터리) 탭의 스크린샷](./media/header-akamai-tutorial/assigndirectory.png)
+    ![Currently assigned directories(현재 할당된 디렉터리) 목록의 superdemo.live를 보여주는 Azure AD SSO의 Akamai EAA 콘솔 Directories(디렉터리) 탭의 스크린샷](./media/header-akamai-tutorial/assign-directory.png)
 
 ### <a name="configure-kcd-delegation-for-eaa-walkthrough"></a>EAA에 대한 KCD 위임 구성 연습
 
@@ -506,7 +498,7 @@ ID 공급자 할당
 
 1. 이 예제에서는 **EAADelegation** 이라는 계정을 사용합니다. 이 연습은 **Active Directory 사용자 및 컴퓨터** 스내핀을 사용하여 수행할 수 있습니다.
 
-    ![Azure AD SSO의 Akamai EAA 콘솔 Directories(디렉터리) 탭의 스크린샷 superdemo.live 디렉터리는 Currently assigned directories(현재 할당된 디렉터리) 아래에 나열됩니다.](./media/header-akamai-tutorial/assigndirectory.png)
+    ![Azure AD SSO의 Akamai EAA 콘솔 Directories(디렉터리) 탭의 스크린샷 superdemo.live 디렉터리는 Currently assigned directories(현재 할당된 디렉터리) 아래에 나열됩니다.](./media/header-akamai-tutorial/assign-directory.png)
 
     > [!NOTE]
     > 사용자 이름은 **ID 가로채기 이름** 을 기반으로 하는 특정 형식이어야 합니다. 그림 1을 보면 **corpapps.login.go.akamai-access.com** 입니다.
@@ -529,7 +521,7 @@ ID 공급자 할당
 
     ![SPN을 구성하는 명령을 보여주는 관리자 명령 프롬프트의 스크린샷](./media/header-akamai-tutorial/spn.png)
 
-    * [모든 인증 프로토콜 사용] 지정
+    * [모든 인증 프로토콜 사용]을 지정합니다.
     * [추가]를 클릭하고 Kerberos 웹 사이트의 앱 풀 계정을 추가합니다. 올바르게 구성되었다면 올바른 SPN으로 자동 확인됩니다.
 
 #### <a name="step-4-create-a-keytab-file-for-akamai-eaa"></a>4단계: AKAMAI EAA에 대한 Keytab 파일 만들기
@@ -561,25 +553,25 @@ ID 공급자 할당
 
 1. [Keytab 형식]에서 **Kerberos 위임** 을 선택합니다.
 
-    ![Keytab 설정을 보여주는 Akamai EAA 콘솔 EAAKEYTAB 화면의 스크린샷 Keytab Type(Keytab 형식)은 Kerberos 위임으로 설정됩니다.](./media/header-akamai-tutorial/keytabdelegation.png)
+    ![Keytab 설정을 보여주는 Akamai EAA 콘솔 EAAKEYTAB 화면의 스크린샷 Keytab Type(Keytab 형식)은 Kerberos 위임으로 설정됩니다.](./media/header-akamai-tutorial/keytab-delegation.png)
 
 1. Keytab가 [배포됨] 및 [확인됨]으로 표시되는지 확인합니다.
 
-    ![EAA Keytab이 "Keytab deployed and verified"(Keytab 배포 및 확인됨)로 나열된 Akamai EAA 콘솔 KEYTABS 화면의 스크린샷](./media/header-akamai-tutorial/keytabs02.png)
+    ![EAA Keytab이 "Keytab deployed and verified"(Keytab 배포 및 확인됨)로 나열된 Akamai EAA 콘솔 KEYTABS 화면의 스크린샷](./media/header-akamai-tutorial/keytabs-2.png)
 
 1. 사용자 환경
 
-    ![myapps.microsoft.com의 로그인 대화 상자 스크린샷 ](./media/header-akamai-tutorial/enduser03.png)
+    ![myapps.microsoft.com의 로그인 대화 상자 스크린샷 ](./media/header-akamai-tutorial/end-user-3.png)
 
-    ![앱 아이콘이 보이는 myapps.microsoft.com의 앱 창 스크린샷](./media/header-akamai-tutorial/enduser04.png)
+    ![앱 아이콘이 보이는 myapps.microsoft.com의 앱 창 스크린샷](./media/header-akamai-tutorial/end-user-4.png)
 
 1. 조건부 액세스
 
-    ![로그인 요청 승인 메시지를 보여주는 스크린샷 메시지입니다.](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![로그인 요청 승인 메시지를 보여주는 스크린샷 메시지입니다.](./media/header-akamai-tutorial/conditional-access-4.png)
 
-    ![MyHeaderApp, SSH Secure, SecretRDPApp 및 myKerberosApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditionalaccess10.png)
+    ![MyHeaderApp, SSH Secure, SecretRDPApp 및 myKerberosApp 아이콘을 보여주는 애플리케이션 화면의 스크린샷](./media/header-akamai-tutorial/conditional-access-10.png)
 
-    ![myKerberosApp의 시작 화면 스크린샷 배경 이미지 위에 "Welcome superdemo\user1" 메시지가 표시됩니다.](./media/header-akamai-tutorial/conditionalaccess11.png)
+    ![myKerberosApp의 시작 화면 스크린샷 배경 이미지 위에 "Welcome superdemo\user1" 메시지가 표시됩니다.](./media/header-akamai-tutorial/conditional-access-11.png)
 
 ### <a name="create-akamai-test-user"></a>Akamai 테스트 사용자 만들기
 
@@ -587,16 +579,12 @@ ID 공급자 할당
 
 ## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Akamai 타일을 클릭하면 SSO를 설정한 Akamai에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 이 애플리케이션 테스트를 클릭하면 SSO를 설정한 Akamai에 자동으로 로그인됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Akamai 타일을 클릭하면 SSO를 설정한 Akamai에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
-
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Azure AD에서 Akamai 사용해보기](https://aad.portal.azure.com/)
+Akamai가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

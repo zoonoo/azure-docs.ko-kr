@@ -1,27 +1,27 @@
 ---
-title: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
+title: Defender for IoT 마이크로 에이전트 설치
 titleSuffix: Azure Defender for IoT
 description: Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/18/2021
+ms.date: 3/3/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 8d7e6dffcc40ba1e34a4a84ecccccc1f8b181393
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ccf28c47e2e1438a141e2497da70d32c1832ddb9
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703051"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120439"
 ---
-# <a name="install-defender-for-iot-micro-agent-preview"></a>IoT 마이크로 에이전트용 Defender 설치(미리 보기)
+# <a name="install-defender-for-iot-micro-agent"></a>Defender for IoT 마이크로 에이전트 설치 
 
 이 문서에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [azureiotsecurity 모듈 쌍 만들기](quickstart-create-security-twin.md)를 참조하세요.
+Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender IoT 마이크로 에이전트 모듈 쌍 만들기](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
 
 ## <a name="install-the-package"></a>패키지 설치
 

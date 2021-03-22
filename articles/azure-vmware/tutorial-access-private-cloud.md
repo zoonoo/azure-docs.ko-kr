@@ -2,13 +2,13 @@
 title: 자습서 - 프라이빗 클라우드에 액세스
 description: Azure VMware Solution 프라이빗 클라우드에 액세스하는 방법 알아보기
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/22/2021
+ms.openlocfilehash: 456767a9edd78a70a0aba45c7b44a2150a2217a1
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578424"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045006"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드에 액세스
 
@@ -30,11 +30,14 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
 1. 점프 상자에서 클라우드 관리자 사용자 이름을 사용하여 VMware vCenter SSO로 vSphere 클라이언트에 로그인하고 사용자 인터페이스가 성공적으로 표시되는지 확인합니다.
 
-1. Azure Portal에서 프라이빗 클라우드를 선택한 다음, **개요** 보기에서 **ID > 기본값**을 차례로 선택합니다. 
+1. Azure Portal에서 프라이빗 클라우드를 선택한 다음, **관리** > **ID** 를 선택합니다. 
 
    프라이빗 클라우드 vCenter 및 NSX-T Manager에 대한 URL 및 사용자 자격 증명이 표시됩니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true":::
+   >[!TIP]
+   >**새 암호 생성** 을 선택하여 새 vCenter 및 NSX-T 암호를 생성합니다.
+
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. 이전 단계에서 만든 VM으로 이동하여 가상 머신에 연결합니다. 
 
@@ -44,13 +47,13 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 
 1. vCenter 탭에서 이전 단계의 `cloudadmin@vmcp.local` 사용자 자격 증명을 입력합니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="프라이빗 클라우드 vCenter에 로그인합니다." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="vCenter 포털입니다." border="true":::
 
 1. 브라우저의 두 번째 탭에서 NSX-T 관리자에 로그인합니다.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="브라우저의 두 번째 탭에서 NSX-T 관리자에 로그인합니다." border="true":::
 
 
 

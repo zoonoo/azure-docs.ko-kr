@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: Node.js 콘솔 앱에서 Microsoft Graph 호출 | Azure'
 titleSuffix: Microsoft identity platform
-description: 이 빠른 시작에서는 Node.js 콘솔 애플리케이션이 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Node.js 콘솔 애플리케이션이 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호되는 API를 호출하는 방법을 보여주는 샘플을 다운로드하고 실행합니다.
 services: active-directory
 author: derisen
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: c550cc8009f0138b9f1803399fbc592b34efbfab
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4360810d460c5fc8598ce302ad8b82f65d2d819e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100562034"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101653748"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Node.js 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -29,12 +29,12 @@ ms.locfileid: "100562034"
 * [Visual Studio Code](https://code.visualstudio.com/download) 또는 다른 코드 편집기
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-application"></a>빠른 시작 애플리케이션 등록 및 다운로드
+> ## <a name="register-and-download-the-sample-application"></a>샘플 애플리케이션 등록 및 다운로드
 >
 > 시작하려면 아래의 단계를 따르세요.
 >
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
+> #### <a name="step-1-register-the-application"></a>1단계: 애플리케이션 등록
 > 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
 >
 > 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
@@ -50,9 +50,9 @@ ms.locfileid: "100562034"
 > 1. **사용자** 노드 아래에서 **User.Read.All** 을 선택한 다음, **권한 추가** 를 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>빠른 시작 앱 다운로드 및 구성
+> ### <a name="download-and-configure-the-sample-app"></a>샘플 앱 다운로드 및 구성
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 > 이 빠른 시작에 대한 코드 샘플을 작동시키려면 클라이언트 비밀을 만들고, Graph API의 **User.Read.All** 애플리케이션 권한에 추가해야 합니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
@@ -60,7 +60,7 @@ ms.locfileid: "100562034"
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-netcore-daemon/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
-#### <a name="step-2-download-your-nodejs-project"></a>2단계: Node.js 프로젝트 다운로드
+#### <a name="step-2-download-the-nodejs-sample-project"></a>2단계: Node.js 샘플 프로젝트 다운로드
 
 > [!div renderon="docs"]
 > [코드 샘플 다운로드](https://github.com/azure-samples/ms-identity-javascript-nodejs-console/archive/main.zip)
@@ -73,7 +73,7 @@ ms.locfileid: "100562034"
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-nodejs-project"></a>3단계: Node.js 프로젝트 구성
+> #### <a name="step-3-configure-the-nodejs-sample-project"></a>3단계: Node.js 샘플 프로젝트 구성
 >
 > 1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: *C:/Azure-Samples*)로 추출합니다.
 > 1. *.env* 를 편집하고 `TENANT_ID`, `CLIENT_ID` 및 `CLIENT_SECRET` 필드의 값을 다음 코드 조각으로 바꿉니다.
@@ -172,7 +172,7 @@ const msalConfig = {
         clientId: "Enter_the_Application_Id_Here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
         clientSecret: "Enter_the_Client_Secret_Here",
-   } 
+   }
 };
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 ```

@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: d9c2bec575f2c7a948f3eb6e65be6a735a3c03e8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 809ac72977b670faff984ad39effb1c70767e141
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99821687"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120949"
 ---
 # <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>자습서: Azure SQL Database의 보안 Enclave를 사용한 Always Encrypted 시작
 
@@ -71,40 +71,45 @@ SSMS를 다운로드하는 방법에 대한 자세한 내용은 [SSMS(SQL Server
 필요한 SSMS의 최소 버전은 18.8입니다.
 
 
-## <a name="step-1-create-a-server-and-a-dc-series-database"></a>1단계: 서버 및 DC 시리즈 데이터베이스 만들기
+## <a name="step-1-create-and-configure-a-server-and-a-dc-series-database"></a>1단계: 서버 및 DC 시리즈 데이터베이스 만들기 및 구성
 
- 이 단계에서는 DC 시리즈 하드웨어 구성을 사용하여 새 Azure SQL Database 논리 서버 및 새 데이터베이스를 만듭니다. Azure SQL Database의 보안 enclave를 사용한 Always Encrypted는 DC 시리즈 하드웨어 구성에서 지원되는 Intel SGX enclave를 사용합니다. 자세한 내용은 [DC 시리즈](service-tiers-vcore.md#dc-series)를 참조하세요.
+이 단계에서는 보안 enclave를 사용한 Always Encrypted에 필요한 DC 시리즈 하드웨어 생성을 사용하여 새 Azure SQL Database 논리 서버와 새 데이터베이스를 만듭니다. 자세한 내용은 [DC 시리즈](service-tiers-vcore.md#dc-series)를 참조하세요.
 
-1. PowerShell 콘솔을 열고 Azure에 로그인합니다. 필요한 경우 이 자습서에서 사용하는 [구독으로 전환](/powershell/azure/manage-subscriptions-azureps)합니다.
+1. PowerShell 콘솔을 열고 Az의 필수 버전을 가져옵니다.
+
+  ```PowerShell
+  Import-Module "Az" -MinimumVersion "4.5.0"
+  ```
+  
+2. Azure에 로그인합니다. 필요한 경우 이 자습서에서 사용하는 [구독으로 전환](/powershell/azure/manage-subscriptions-azureps)합니다.
 
   ```PowerShell
   Connect-AzAccount
-  $subscriptionId = <your subscription ID>
-  Set-AzContext -Subscription $serverSubscriptionId
+  $subscriptionId = "<your subscription ID>"
+  Set-AzContext -Subscription $subscriptionId
   ```
 
-2. 데이터베이스 서버를 포함할 리소스 그룹을 만듭니다. 
-
-  ```powershell
-  $serverResourceGroupName = "<server resource group name>"
-  $serverLocation = "<Azure region that supports DC-series in SQL Database>"
-  New-AzResourceGroup -Name $serverResourceGroupName -Location $serverLocation 
-  ```
+3. 새 리소스 그룹 만들기 
 
   > [!IMPORTANT]
-  > DC 시리즈 하드웨어 구성을 지원하는 지역에 리소스 그룹을 만들어야 합니다. 현재 지원되는 지역 목록은 [DC 시리즈 가용성](service-tiers-vcore.md#dc-series-1)을 참조하세요.
-
-3. 데이터베이스 서버를 만듭니다. 메시지가 표시되면 서버 관리자 이름과 암호를 입력합니다.
+  > DC 시리즈 하드웨어 생성과 Microsoft Azure Attestation을 모두 지원하는 지역(위치)에 리소스 그룹을 만들어야 합니다. DC 시리즈를 지원하는 지역 목록은 [DC 시리즈 가용성](service-tiers-vcore.md#dc-series-1)을 참조하세요. Microsoft Azure Attestation의 지역별 가용성은 [다음](https://azure.microsoft.com/global-infrastructure/services/?products=azure-attestation)과 같습니다.
 
   ```powershell
-  $serverName = "<server name>" 
-  New-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -Location $serverLocation
+  $resourceGroupName = "<your new resource group name>"
+  $location = "<Azure region supporting DC-series and Microsoft Azure Attestation>"
+  New-AzResourceGroup -Name $resourceGroupName -Location $location
   ```
 
-4. 지정된 IP 범위에서 액세스를 허용하는 서버 방화벽 규칙을 만듭니다.
+4. Azure SQL 논리 서버를 만듭니다. 메시지가 표시되면 서버 관리자 이름과 암호를 입력합니다. 관리자 이름과 암호를 기억하고 있는지 확인합니다. 나중에 서버에 연결하는 데 필요합니다.
+
+  ```powershell
+  $serverName = "<your server name>" 
+  New-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -Location $location 
+  ```
+
+5. 지정된 IP 범위에서 액세스를 허용하는 서버 방화벽 규칙을 만듭니다.
   
   ```powershell
-  # The ip address range that you want to allow to access your server
   $startIp = "<start of IP range>"
   $endIp = "<end of IP range>"
   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
@@ -112,21 +117,11 @@ SSMS를 다운로드하는 방법에 대한 자세한 내용은 [SSMS(SQL Server
     -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
   ```
 
-5. 서버에 관리 시스템 ID를 할당합니다. 나중에 서버에 Microsoft Azure Attestation에 대한 액세스 권한을 부여하는 데 필요합니다.
-
-  ```powershell
-  Set-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -AssignIdentity 
-  ```
-
-6. 서버에 할당된 ID의 개체 ID를 검색합니다. 검색된 개체 ID를 저장합니다. 이 ID는 이후 섹션에서 필요합니다.
-
-  > [!NOTE]
-  > 새로 할당된 관리 시스템 ID가 Azure Active Directory에 전파되는 데 몇 초 정도 걸릴 수 있습니다. 아래 스크립트가 빈 결과를 반환하면 다시 시도하십시오.
+6. 서버에 관리 시스템 ID를 할당합니다. 
 
   ```PowerShell
-  $server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+  $server = Set-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName -AssignIdentity
   $serverObjectId = $server.Identity.PrincipalId
-  $serverObjectId
   ```
 
 7. DC 시리즈 데이터베이스를 만듭니다.
@@ -136,12 +131,26 @@ SSMS를 다운로드하는 방법에 대한 자세한 내용은 [SSMS(SQL Server
   $edition = "GeneralPurpose"
   $vCore = 2
   $generation = "DC"
-  New-AzSqlDatabase -ResourceGroupName $serverResourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $edition -Vcore $vCore -ComputeGeneration $generation
+  New-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -DatabaseName $databaseName `
+    -Edition $edition `
+    -Vcore $vCore `
+    -ComputeGeneration $generation
   ```
 
-## <a name="step-2-configure-an-attestation-provider"></a>2단계: 증명 공급자 구성
+8. 서버와 데이터베이스에 대한 정보를 검색하고 저장합니다. 이 정보를 비롯하여 이 섹션의 4 단계에 있는 관리자 이름 및 암호는 이후 섹션에서 필요합니다.
 
-이 단계에서는 Microsoft Azure Attestation에서 증명 공급자를 만들고 구성합니다. 이것은 데이터베이스 서버에서 보안 enclave를 증명하는 데 필요합니다.
+  ```powershell
+  Write-Host 
+  Write-Host "Fully qualified server name: $($server.FullyQualifiedDomainName)" 
+  Write-Host "Server Object Id: $serverObjectId"
+  Write-Host "Database name: $databaseName"
+  ```
+  
+## <a name="step-2-configure-an-attestation-provider"></a>2단계: 증명 공급자 구성 
+
+이 단계에서는 Microsoft Azure Attestation에서 증명 공급자를 만들고 구성합니다. 이는 데이터베이스가 사용하는 보안 enclave를 증명하는 데 필요합니다.
 
 1. 아래 증명 정책을 복사하고 이 정책을 텍스트 파일(txt)에 저장합니다. 아래 정책에 대한 자세한 내용은 [증명 공급자 만들기 및 구성](always-encrypted-enclaves-configure-attestation.md#create-and-configure-an-attestation-provider)을 참조하세요.
 
@@ -157,60 +166,60 @@ SSMS를 다운로드하는 방법에 대한 자세한 내용은 [SSMS(SQL Server
   };
   ```
 
-2. 필요한 `Az.Accounts` 및 `Az.Attestation` 버전을 가져옵니다.  
+2. 필요한 `Az.Attestation`의 버전을 가져옵니다.  
 
   ```powershell
-  Import-Module "Az.Accounts" -MinimumVersion "1.9.2"
   Import-Module "Az.Attestation" -MinimumVersion "0.1.8"
   ```
-
-3. 증명 공급자에 대한 리소스 그룹을 만듭니다.
-
-  ```powershell
-  $attestationLocation = $serverLocation
-  $attestationResourceGroupName = "<attestation provider resource group name>"
-  New-AzResourceGroup -Name $attestationResourceGroupName -Location $location  
-  ```
-
-4. 증명 공급자를 만듭니다. 
+  
+3. 증명 공급자를 만듭니다. 
 
   ```powershell
-  $attestationProviderName = "<attestation provider name>" 
-  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Location $attestationLocation
+  $attestationProviderName = "<your attestation provider name>" 
+  New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
   ```
 
-5. 증명 정책을 구성합니다.
+4. 증명 정책을 구성합니다.
   
   ```powershell
-  $policyFile = "<the pathname of the file from step 1 in this section"
+  $policyFile = "<the pathname of the file from step 1 in this section>"
   $teeType = "SgxEnclave"
   $policyFormat = "Text"
   $policy=Get-Content -path $policyFile -Raw
-  Set-AzAttestationPolicy -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName -Tee $teeType -Policy $policy -PolicyFormat  $policyFormat
+  Set-AzAttestationPolicy -Name $attestationProviderName `
+    -ResourceGroupName $resourceGroupName `
+    -Tee $teeType `
+    -Policy $policy `
+    -PolicyFormat  $policyFormat
   ```
 
-6. Azure SQL 논리 서버에 증명 공급자에 대한 액세스 권한을 부여합니다. 이 단계에서는 앞서 서버에 할당한 관리되는 서비스 ID의 개체 ID를 사용합니다.
+5. Azure SQL 논리 서버에 증명 공급자에 대한 액세스 권한을 부여합니다. 이 단계에서는 앞서 서버에 할당한 관리형 서비스 ID의 개체 ID를 사용합니다.
 
   ```powershell
-  New-AzRoleAssignment -ObjectId $serverObjectId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName  
+  New-AzRoleAssignment -ObjectId $serverObjectId `
+    -RoleDefinitionName "Attestation Reader" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName  
   ```
 
-7. 증명 URL을 검색합니다.
+6. SGX enclave에 대해 구성한 증명 정책을 가리키는 증명 URL을 검색합니다. 나중에 필요하므로 URL을 저장합니다.
 
   ```powershell
-  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroupName 
+  $attestationProvider = Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName 
   $attestationUrl = $attestationProvider.AttestUri + “/attest/SgxEnclave”
-  Write-Host "Your attestation URL is: " $attestationUrl 
+  Write-Host
+  Write-Host "Your attestation URL is: $attestationUrl"
   ```
-
-8.  SGX enclave에 대해 구성한 증명 정책을 가리키는 검색된 증명 URL을 저장합니다. 나중에 필요합니다. 증명 URL은 다음과 같습니다. `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
+  
+  증명 URL은 다음과 같습니다. `https://contososqlattestation.uks.attest.azure.net/attest/SgxEnclave`
 
 ## <a name="step-3-populate-your-database"></a>3단계: 데이터베이스 채우기
 
 이 단계에서는 테이블을 만들고 나중에 암호화하고 쿼리할 일부 데이터로 채웁니다.
 
 1. SSMS를 열고 데이터베이스 연결에서 Always Encrypted를 **사용하지 않고** 만든 Azure SQL 논리 서버의 **ContosoHR** 데이터베이스에 연결합니다.
-    1. **서버에 연결** 대화 상자에서 서버 이름(예: *myserver123.database.windows.net*)을 지정하고 이전에 구성한 사용자 이름과 암호를 입력합니다.
+    1. **서버에 연결** 대화 상자에서 서버의 정규화된 이름(예: *myserver123.database.windows.net*)을 지정하고, 서버를 만들 때 지정한 관리자 사용자 이름과 암호를 입력합니다.
     2. **옵션 >>** 을 클릭하고 **연결 속성** 탭을 선택합니다. **ContosoHR** 데이터베이스(기본, 마스터 데이터베이스 아님)를 선택해야 합니다. 
     3. **Always Encrypted** 탭을 선택합니다.
     4. **Always Encrypted 사용(열 암호화)** 확인란이 선택되어 있지 **않은지** 확인합니다.
@@ -292,7 +301,7 @@ SSMS를 다운로드하는 방법에 대한 자세한 내용은 [SSMS(SQL Server
 
 1. 새 SSMS 인스턴스를 열고 데이터베이스 연결에 대해 Always Encrypted를 **사용** 하여 데이터베이스에 연결합니다.
     1. SSMS의 새 인스턴스를 시작합니다.
-    2. **서버에 연결** 대화 상자에서 서버 이름을 지정하고 인증 방법을 선택한 다음, 자격 증명을 지정합니다.
+    2. **서버에 연결** 대화 상자에서 서버의 정규화된 이름(예: *myserver123.database.windows.net*)을 지정하고, 서버를 만들 때 지정한 관리자 사용자 이름과 암호를 입력합니다.
     3. **옵션 >>** 을 클릭하고 **연결 속성** 탭을 선택합니다. **ContosoHR** 데이터베이스(기본, 마스터 데이터베이스 아님)를 선택해야 합니다. 
     4. **Always Encrypted** 탭을 선택합니다.
     5. **Always Encrypted(열 암호화) 사용** 확인란이 선택되어 있는지 확인합니다.

@@ -8,18 +8,22 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: edb80ab3107cbd0a5ddd802d56a60ce77affb2f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 856f33875316eca8b3c16f28c6c222f42e0a0be5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012921"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102121272"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-java"></a>빠른 시작: Java에서 Azure Cache for Redis 사용
 
 이 빠른 시작에서는 Azure 내 모든 애플리케이션에서 액세스할 수 있는 안전한 전용 캐시에 액세스할 수 있도록 [Jedis](https://github.com/xetorthio/jedis) Redis 클라이언트를 사용하여 Azure Cache for Redis를 Java 앱에 통합합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="skip-to-the-code-on-github"></a>GitHub의 코드로 건너뛰기
+
+코드로 바로 건너뛰려면 GitHub의 [Java 빠른 시작](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java)을 참조하세요.
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)

@@ -5,18 +5,28 @@ author: yashesvi
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 02/24/2021
 ms.author: banders
-ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9015cbcd669665467d3836112b152aa504176f2b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601456"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035996"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
-Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 유연성을 제공합니다. 예약을 동일한 유형의 다른 예약으로 교환할 수 있습니다. 예를 들어 가상 머신 예약을 교환하여 다른 VM 크기나 지역에 대한 다른 예약을 구입할 수 있습니다. 마찬가지로 SQL PaaS 데이터베이스 예약을 교환하여 SQL PaaS 데이터베이스 유형 또는 지역에 대한 다른 예약을 구입할 수 있습니다. 예약을 환불할 수도 있지만 청구 범위(예: EA, Microsoft 고객 계약 및 Microsoft 파트너 계약)에서 취소된 모든 예약 약정의 합계는 12개월 연속 기간 내에 50,000USD를 초과할 수 없습니다. Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, Azure Red Hat Open Shift 예약, Red Hat 플랜 및 SUSE Linux 플랜은 환불에 적합하지 않습니다.
+Azure Reservations는 진화하는 요구 사항을 충족하는 데 유용한 유연성을 제공합니다. 예약을 동일한 유형의 다른 예약으로 교환할 수 있습니다. 예를 들어 Azure Dedicated Host, Azure VMware Solution 및 Azure Virtual Machines를 포함한 여러 컴퓨팅 예약을 모두 한 번에 반환할 수 있습니다. 즉, 예약 제품은 동일한 유형의 예약인 경우 서로 바꿔 사용할 수 있습니다. 다른 예에서는 Managed Instance를 비롯한 여러 SQL 데이터베이스 예약 유형과 Elastic Pool을 서로 교환할 수 있습니다.
+
+그러나 다른 예약은 교환할 수 없습니다. 예를 들어 Cosmos DB 예약을 SQL Database로 교환할 수 없습니다.
+
+다른 지역에서 비슷한 유형의 다른 예약을 구매하기 위해 예약을 교환할 수도 있습니다. 예를 들어 미국 서부 2에 있는 예약은 유럽 서부에 있는 예약을 교환할 수 있습니다.
+
+예약을 교환할 때 1년에서 3년까지 기간을 변경할 수 있습니다.
+
+예약을 환불할 수도 있지만 청구 범위(예: EA, Microsoft 고객 계약 및 Microsoft 파트너 계약)에서 취소된 모든 예약 약정의 합계는 12개월 연속 기간 내에 50,000USD를 초과할 수 없습니다.
+
+Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, Azure Red Hat Open Shift 예약, Red Hat 플랜 및 SUSE Linux 플랜은 환불에 적합하지 않습니다.
 
 US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능을 사용할 수 없습니다. 종량제와 CSP(클라우드 솔루션 공급자)를 비롯한 다른 US Government 구독 유형은 지원됩니다.
 
@@ -37,9 +47,26 @@ US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능�
 
 예약을 환불하려면 **예약 정보** 로 이동하여 **환불** 을 선택합니다.
 
+## <a name="exchange-multiple-reservations"></a>여러 예약 교환
+
+한 번의 작업으로 비슷한 유형의 예약을 반환할 수 있습니다.
+
+예약을 교환할 때 새로운 구매 통화 금액은 환불 금액보다 커야 합니다. 새 구매 금액이 환불 금액보다 적으면 오류가 발생합니다. 오류가 표시되면 반품할 수량을 줄이거나 구매할 금액을 늘립니다.
+
+1. Azure Portal에 로그인하고, **예약** 으로 이동합니다.
+1. 예약 목록에서 교환하려는 각 예약의 확인란을 선택합니다.
+1. 페이지 맨 위에서 **교환** 을 선택합니다.
+1. 필요한 경우 각 예약에 대해 반환할 수량을 수정합니다.
+1. 자동 채우기 반환 수량을 선택한 경우 **모두 환불** 을 선택하여 각 예약에 대해 소유한 전체 수량으로 목록을 채우거나 **사용률 최적화(7일)** 를 선택하여 마지막 7일 사용량을 기준으로 사용률을 최적화하는 수량으로 목록을 채웁니다. **적용을 선택합니다**.
+1. 페이지 맨 아래에서 **다음: 구매** 를 선택합니다.
+1. 구매 탭에서 교환하려는 사용 가능한 제품을 선택합니다. 종류가 다른 여러 제품을 선택할 수 있습니다.
+1. 구매할 제품 선택 창에서 원하는 제품을 선택한 다음, **장바구니에 추가** 를 선택하고 **닫기** 를 선택합니다.
+1. 완료되면 **다음: 검토** 를 선택합니다.
+1. 예약을 검토하여 구매할 새 예약을 반환하고 **교환 확인** 을 선택합니다.
+
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>프리미엄이 아닌 스토리지를 프리미엄 스토리지로 교환
 
-프리미엄 스토리지를 지원하지 않는 VM 크기에 대해 구매한 예약을 프리미엄 스토리지를 지원하는 해당 VM 크기로 교환할 수 있습니다. 예를 들어, _F1_ 을 _F1s_ 로 교환할 수 있습니다. 교환을 수행하려면 예약 정보로 이동하여 **교환** 을 선택합니다. 교환은 예약 인스턴스의 기간을 재설정하거나 새 트랜잭션을 만들지 않습니다. 
+프리미엄 스토리지를 지원하지 않는 VM 크기에 대해 구매한 예약을 프리미엄 스토리지를 지원하는 해당 VM 크기로 교환할 수 있습니다. 예를 들어, _F1_ 을 _F1s_ 로 교환할 수 있습니다. 교환을 수행하려면 예약 정보로 이동하여 **교환** 을 선택합니다. 교환은 예약 인스턴스의 기간을 재설정하거나 새 트랜잭션을 만들지 않습니다.
 
 ## <a name="how-transactions-are-processed"></a>거래가 처리되는 방식
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure WCF Relay를 사용하여 온-프레�
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710790"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>자습서: Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출
 
@@ -53,20 +53,20 @@ ms.locfileid: "88935707"
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>인터페이스와 함께 릴레이 계약 만들기
 
-1. 관리자 권한으로 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음**을 선택합니다.
-1. 프로젝트 이름을 *EchoService*로 지정하고 **만들기**를 선택합니다.
+1. 관리자 권한으로 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음** 을 선택합니다.
+1. 프로젝트 이름을 *EchoService* 로 지정하고 **만들기** 를 선택합니다.
 
    ![콘솔 앱 만들기][2]
 
-1. **솔루션 탐색기**에서 프로젝트의 이름을 마우스 오른쪽 단추를 클릭하고 **NuGet 패키지 관리**를 선택합니다. **NuGet 패키지 관리자**에서 **찾아보기**를 선택한 다음, **WindowsAzure.ServiceBus**를 검색하여 선택합니다. **설치**를 선택하고 사용 약관에 동의합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택합니다. **NuGet 패키지 관리자** 에서 **찾아보기** 를 선택한 다음, **WindowsAzure.ServiceBus** 를 검색하여 선택합니다. **설치** 를 선택하고 사용 약관에 동의합니다.
 
     ![Service Bus 패키지][3]
 
    이 패키지는 Service Bus 라이브러리 및 WCF `System.ServiceModel`에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](/dotnet/api/system.servicemodel)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. Service Bus는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-1. *Program.cs*의 위에 다음 `using` 문을 추가합니다.
+1. *Program.cs* 의 위에 다음 `using` 문을 추가합니다.
 
     ```csharp
     using System.ServiceModel;
@@ -180,12 +180,12 @@ Azure 릴레이를 만들려면 먼저 인터페이스를 사용하여 계약을
 
 구성 파일은 WCF 구성 파일과 유사합니다. 구성 파일에는 서비스 이름, 엔드포인트 및 바인딩이 들어 있습니다. 엔드포인트는 클라이언트와 호스트가 서로 통신할 수 있도록 Azure Relay가 노출하는 위치입니다. 바인딩은 통신에 사용되는 프로토콜 유형입니다. 주요 차이점은 구성된 이 서비스 엔드포인트가 .NET Framework에 속하지 않는 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 바인딩을 참조한다는 것입니다. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding)은 서비스에서 정의한 바인딩 중 하나입니다.
 
-1. **솔루션 탐색기**에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+1. **솔루션 탐색기** 에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 1. `<appSettings>` 요소에서 자리 표시자를 이전 단계에서 복사한 서비스 네임스페이스 및 SAS 키의 이름으로 바꿉니다.
 1. `<system.serviceModel>` 태그 안에 `<services>` 요소를 추가합니다. 단일 구성 파일 내에 여러 릴레이 애플리케이션을 정의할 수 있습니다. 그러나 이 자습서에서는 하나만 정의합니다.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -439,16 +439,16 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 다음과 같이 클라이언트에 대한 현재 Visual Studio 솔루션에서 새 프로젝트를 만듭니다.
 
-   1. **솔루션 탐색기**에서 현재 솔루션(프로젝트 아님)을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트**를 선택합니다.
-   1. **새 프로젝트 추가**에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음**을 선택합니다.
-   1. 프로젝트 이름을 *EchoClient*로 지정하고 **만들기**를 선택합니다.
+   1. **솔루션 탐색기** 에서 현재 솔루션(프로젝트 아님)을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트** 를 선택합니다.
+   1. **새 프로젝트 추가** 에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음** 을 선택합니다.
+   1. 프로젝트 이름을 *EchoClient* 로 지정하고 **만들기** 를 선택합니다.
 
-1. Program.cs 파일을 아직 열지 않은 경우 **솔루션 탐색기**의 **EchoClient** 프로젝트에서 **Program.cs** 파일을 두 번 클릭하여 편집기에서 엽니다.
+1. Program.cs 파일을 아직 열지 않은 경우 **솔루션 탐색기** 의 **EchoClient** 프로젝트에서 **Program.cs** 파일을 두 번 클릭하여 편집기에서 엽니다.
 1. 네임스페이스 이름을 기본 이름인 `EchoClient`에서 `Microsoft.ServiceBus.Samples`로 변경합니다.
 1. [Service Bus NuGet 패키지](https://www.nuget.org/packages/WindowsAzure.ServiceBus)를 설치합니다.
 
-   1. **솔루션 탐색기**에서 **EchoClient**를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
-   1. **찾아보기**를 선택한 다음, **WindowsAzure.ServiceBus**를 검색하여 선택합니다. **설치**를 선택하고 사용 약관에 동의합니다.
+   1. **솔루션 탐색기** 에서 **EchoClient** 를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
+   1. **찾아보기** 를 선택한 다음, **WindowsAzure.ServiceBus** 를 검색하여 선택합니다. **설치** 를 선택하고 사용 약관에 동의합니다.
 
       ![Service Bus 패키지 설치][4]
 
@@ -508,12 +508,12 @@ namespace Microsoft.ServiceBus.Samples
 
 이 단계에서는 이 자습서의 앞부분에서 만든 서비스에 액세스하는 기본 클라이언트 애플리케이션의 *App.config* 파일을 만듭니다. 이 *App.config* 파일은 계약, 바인딩 및 엔드포인트 이름을 정의합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
-1. **솔루션 탐색기**의 **EchoClient** 프로젝트에서 **App.config**를 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+1. **솔루션 탐색기** 의 **EchoClient** 프로젝트에서 **App.config** 를 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 1. `<appSettings>` 요소에서 자리 표시자를 이전 단계에서 복사한 서비스 네임스페이스 및 SAS 키의 이름으로 바꿉니다.
 1. `system.serviceModel` 요소 내에 `<client>` 요소를 추가합니다.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>
@@ -534,7 +534,7 @@ namespace Microsoft.ServiceBus.Samples
 
     이 코드는 엔드포인트 이름을 정의합니다. 또한 서비스에서 정의한 계약, 그리고 클라이언트 애플리케이션이 TCP를 사용하여 Azure Relay와 통신한다는 사실을 정의합니다. 엔드포인트 이름은 이 엔드포인트 구성을 서비스 URI에 연결하는 다음 절차에서 사용됩니다.
 
-1. **파일** > **모두 저장**을 선택합니다.
+1. **파일** > **모두 저장** 을 선택합니다.
 
 ### <a name="example-of-the-appconfig-file"></a>App.config 파일 예제
 
@@ -571,7 +571,7 @@ namespace Microsoft.ServiceBus.Samples
 * 애플리케이션 특정 작업을 수행합니다.
 * 연결을 닫습니다.
 
-그러나 주요 차이 중 하나는 클라이언트 애플리케이션이 채널을 사용하여 릴레이 서비스에 연결한다는 것입니다. 반면 서비스는 **ServiceHost**에 대한 호출을 사용합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
+그러나 주요 차이 중 하나는 클라이언트 애플리케이션이 채널을 사용하여 릴레이 서비스에 연결한다는 것입니다. 반면 서비스는 **ServiceHost** 에 대한 호출을 사용합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 ### <a name="implement-a-client-application"></a>클라이언트 애플리케이션 구현
 
@@ -724,17 +724,17 @@ namespace Microsoft.ServiceBus.Samples
 ## <a name="run-the-applications"></a>애플리케이션 실행
 
 1. Ctrl+Shift+B를 선택하여 솔루션을 빌드합니다. 이 작업은 이전 단계에서 만든 클라이언트 프로젝트와 서비스 프로젝트를 빌드합니다.
-1. 클라이언트 애플리케이션을 실행하기 전에 서비스 애플리케이션이 실행 중인지 확인해야 합니다. **솔루션 탐색기**에서 **EchoService** 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 선택합니다.
-1. **속성 페이지**의 **공용 속성** > **시작 프로젝트**에서 **여러 개의 시작 프로젝트**를 선택합니다. **EchoService**가 목록 맨 처음에 나오는지 확인합니다.
-1. **EchoService** 및 **EchoClient** 프로젝트의 **작업** 상자를 모두 **시작**으로 설정합니다.
+1. 클라이언트 애플리케이션을 실행하기 전에 서비스 애플리케이션이 실행 중인지 확인해야 합니다. **솔루션 탐색기** 에서 **EchoService** 솔루션을 마우스 오른쪽 단추로 클릭한 다음, **속성** 을 선택합니다.
+1. **속성 페이지** 의 **공용 속성** > **시작 프로젝트** 에서 **여러 개의 시작 프로젝트** 를 선택합니다. **EchoService** 가 목록 맨 처음에 나오는지 확인합니다.
+1. **EchoService** 및 **EchoClient** 프로젝트의 **작업** 상자를 모두 **시작** 으로 설정합니다.
 
     ![프로젝트 속성 페이지][5]
 
-1. **프로젝트 종속성**을 선택합니다. **프로젝트**에서 **EchoClient**를 선택합니다. **다음에 종속**에서 **EchoService**가 선택되어 있는지 확인합니다.
+1. **프로젝트 종속성** 을 선택합니다. **프로젝트** 에서 **EchoClient** 를 선택합니다. **다음에 종속** 에서 **EchoService** 가 선택되어 있는지 확인합니다.
 
     ![프로젝트 종속성][6]
 
-1. **확인**을 선택하여 **속성 페이지**를 닫습니다.
+1. **확인** 을 선택하여 **속성 페이지** 를 닫습니다.
 1. F5를 선택하여 두 프로젝트를 실행합니다.
 1. 두 콘솔 창을 열고 네임스페이스 이름에 대한 메시지를 표시합니다. 서비스가 먼저 실행되어야 하므로, **EchoService** 콘솔 창에서 네임스페이스를 입력하고 Enter를 선택합니다.
 1. 그러면 콘솔에서 SAS 키를 요청합니다. SAS 키를 입력하고 Enter를 선택합니다.

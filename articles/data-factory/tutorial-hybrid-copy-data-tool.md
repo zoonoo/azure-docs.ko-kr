@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: aa6c7dd786a90abadb43a13eaa73a78a2a61bd0a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719290"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606721"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -33,7 +33,7 @@ ms.locfileid: "101719290"
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 ### <a name="azure-subscription"></a>Azure 구독
 시작하기 전에 Azure 구독이 아직 없는 경우 [체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
@@ -113,7 +113,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
    데이터 팩터리 이름은 *전역적으로 고유* 해야 합니다. 이름 필드에 대해 다음과 같은 오류 메시지가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 
-   ![새 데이터 팩터리 이름](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복된 이름에 대한 새 데이터 팩터리 오류 메시지.":::
 1. 데이터 팩터리를 만들 Azure **구독** 을 선택합니다.
 1. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
 
@@ -128,7 +128,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
 
-     ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
 1. **작성 및 모니터링** 을 선택하여 별도의 탭에서 Data Factory 사용자 인터페이스를 시작합니다.
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>데이터 복사 도구를 사용하여 파이프라인 만들기

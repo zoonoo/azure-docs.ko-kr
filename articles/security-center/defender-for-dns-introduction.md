@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 957e39f7629337182c3e19a1a514c42883666301
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: dffb505719e6778adfdd8e99f62790df9ebd615a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796995"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100698"
 ---
 # <a name="introduction-to-azure-defender-for-dns"></a>Azure Defender for DNS 소개
 
@@ -28,7 +28,7 @@ Azure Defender for DNS는 다음과 같은 방법으로 클라우드 리소스�
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
-|가격 책정:|**Azure Defender for DNS** 는 [가격 책정 페이지](security-center-pricing.md)에 표시된 대로 요금이 청구됩니다.|
+|가격 책정:|**Azure Defender for DNS** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||
 
@@ -47,7 +47,7 @@ Azure Defender for DNS에서 제공하는 경고의 전체 목록은 [경고 참
 
 Azure Defender for DNS는 에이전트를 사용하지 않습니다. 
 
-DNS 계층을 보호하려면 [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)에 설명된 대로 각 구독에 대해 Azure Defender for DNS를 사용하도록 설정합니다.
+DNS 계층을 보호하려면 [Azure Defender 사용](enable-azure-defender.md)에 설명된 대로 각 구독에 대해 Azure Defender for DNS를 사용하도록 설정합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -57,4 +57,4 @@ DNS 계층을 보호하려면 [Azure Defender 사용](security-center-pricing.md
 - 보안 경고는 Security Center에서 생성되거나 Security Center에서 다른 보안 제품으로부터 수신할 수 있습니다. 이러한 모든 경고를 Azure Sentinel, 타사 SIEM 또는 기타 외부 도구로 내보내려면 [SIEM으로 경고 내보내기](continuous-export.md)의 지침을 따릅니다.
 
 - > [!div class="nextstepaction"]
-    > [Azure Defender 사용](security-center-pricing.md#enable-azure-defender)
+    > [Azure Defender 사용](enable-azure-defender.md)

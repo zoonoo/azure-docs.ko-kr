@@ -3,17 +3,17 @@ title: 자동화로 Azure 비용 관리
 description: 이 문서에서는 자동화를 사용하여 Azure 비용을 관리하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/06/2021
+ms.date: 03/08/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f5cebffeaba1ce198be347758004068e8c03133b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051788"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499682"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -46,6 +46,8 @@ Power BI는 많은 양의 데이터를 수집하고 처리하는 데 사용됩�
 ## <a name="automate-retrieval-with-usage-details-api"></a>사용량 세부 정보 API를 사용하여 검색 자동화
 
 [사용 세부 정보 API](/rest/api/consumption/usageDetails)는 Azure 청구서에 해당하는 원시 집계 비용 데이터를 가져오는 쉬운 방법을 제공합니다. API는 조직에서 프로그래밍 방식으로 데이터 검색 솔루션을 필요로 하는 경우에 유용합니다. 더 작은 비용 데이터 세트를 분석하려는 경우 API를 사용하는 것이 좋습니다. 그러나 데이터 세트가 큰 경우 이전에 식별된 다른 솔루션을 사용해야 합니다. 사용량 세부 정보의 데이터는 시간당 미터 단위로 제공됩니다. 월별 청구를 계산할 때 사용됩니다. 이러한 API의 GA(일반 공급) 버전은 `2019-10-01`입니다. `2019-04-01-preview`를 사용하여 API로 예약 및 Azure Marketplace 구매 미리 보기 버전에 액세스합니다.
+
+대량의 내보낸 데이터를 정기적으로 가져오려면 [내보내기를 사용하여 반복적으로 대규모 비용 데이터 세트 검색](ingest-azure-usage-at-scale.md)을 참조하세요.
 
 ### <a name="usage-details-api-suggestions"></a>사용량 세부 정보 API 제안
 
@@ -101,81 +103,19 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
 
-## <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>내보내기를 사용하여 대량 비용 데이터 세트 순환 검색
-
-Cost Management에서 내보내기를 사용하여 많은 양의 데이터를 정기적으로 내보낼 수 있습니다. 내보내기는 집계되지 않은 비용 데이터를 검색하는 데 추천되는 방법입니다. 특히 사용량 파일이 너무 커서 사용량 세부 정보 API를 사용하여 안정적으로 호출하고 다운로드할 수 없는 경우에 적합합니다. 내보낸 데이터는 선택한 Azure Storage 계정에 저장됩니다. 여기서 자신의 시스템에 로드하고 필요에 따라 분석할 수 있습니다. Azure Portal에서 내보내기를 구성하려면 [데이터 내보내기](tutorial-export-acm-data.md)를 참조하세요.
-
-내보내기를 다양한 범위로 자동화하려면 다음 섹션의 샘플 API 요청이 적절한 시작 지점입니다. 내보내기 API를 사용하여 일반 환경 구성의 일부로 자동 내보내기를 만들 수 있습니다. 자동 내보내기는 필요한 데이터를 확보하는 데 도움이 됩니다. Azure 사용을 확장할 때 조직의 시스템에서 사용할 수 있습니다.
-
-### <a name="common-export-configurations"></a>일반적인 내보내기 구성
-
-첫 번째 내보내기를 만들기 전에 시나리오와 이를 사용하도록 설정하는 데 필요한 구성 옵션을 고려해야 합니다. 고려할 내보내기 옵션은 다음과 같습니다.
-
-- **되풀이** - 내보내기 작업이 실행되는 빈도와 파일이 Azure Storage 계정에 저장되는 시기를 결정합니다. 매일, 매주 및 매월 중에서 선택합니다. 조직의 내부 시스템에서 사용하는 데이터 가져오기 작업과 일치하도록 되풀이를 구성해 봅니다.
-- **되풀이 기간** - 내보내기가 유효한 상태로 유지되는 기간을 결정합니다. 파일은 되풀이 기간 동안에만 내보냅니다.
-- **시간 프레임** - 지정된 실행에서 내보내기로 생성되는 데이터 양을 결정합니다. 일반적인 옵션은 MonthToDate 및 WeekToDate입니다.
-- **StartDate** - 내보내기 일정을 시작하려는 시기를 구성합니다. 내보내기는 StartDate에 만들어지고, 이후에는 되풀이에 따라 만들어집니다.
-- **유형** - 다음과 같은 세 가지 내보내기 형식이 있습니다.
-  - ActualCost - 지정된 기간 동안 발생한 총 사용량 및 비용을 청구서에 표시합니다.
-  - AmortizedCost - 지정된 기간의 총 사용량 및 비용을 표시하며, 해당되는 예약 구매 비용에는 상환이 적용됩니다.
-  - Usage - 2020년 7월 20일 이전에 만든 모든 내보내기는 Usage 형식입니다. 예약된 모든 내보내기를 ActualCost 또는 AmortizedCost로 업데이트합니다.
-- **열** – 내보내기 파일에 포함하려는 데이터 필드를 정의합니다. 이러한 필드는 사용량 세부 정보 API에서 사용할 수 있는 필드와 일치합니다. 자세한 내용은 [사용량 세부 정보 API](/rest/api/consumption/usagedetails/list)를 참조하세요.
-
-### <a name="create-a-daily-month-to-date-export-for-a-subscription"></a>구독에 대한 월간 누계 매일 내보내기 만들기
-
-요청 URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}?api-version=2020-06-01`
-
-```json
-{
-  "properties": {
-    "schedule": {
-      "status": "Active",
-      "recurrence": "Daily",
-      "recurrencePeriod": {
-        "from": "2020-06-01T00:00:00Z",
-        "to": "2020-10-31T00:00:00Z"
-      }
-    },
-    "format": "Csv",
-    "deliveryInfo": {
-      "destination": {
-        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
-        "container": "{yourContainer}",
-        "rootFolderPath": "{yourDirectory}"
-      }
-    },
-    "definition": {
-      "type": "ActualCost",
-      "timeframe": "MonthToDate",
-      "dataSet": {
-        "granularity": "Daily",
-        "configuration": {
-          "columns": [
-            "Date",
-            "MeterId",
-            "ResourceId",
-            "ResourceLocation",
-            "Quantity"
-          ]
-        }
-      }
-    }
-}
-```
-
-### <a name="automate-alerts-and-actions-with-budgets"></a>예산으로 경고 및 작업 자동화
+## <a name="automate-alerts-and-actions-with-budgets"></a>예산으로 경고 및 작업 자동화
 
 클라우드에서 투자 가치를 극대화하는 데 중요한 두 가지 구성 요소가 있습니다. 하나는 자동 예산 만들기입니다. 다른 하나는 예산 경고에 대한 응답으로 비용 기반 오케스트레이션을 구성하는 것입니다. Azure 예산 만들기를 자동화하는 방법에는 여러 가지가 있습니다. 구성된 경고 임계값을 초과하면 다양한 경고 응답이 발생합니다.
 
 다음 섹션에서는 사용 가능한 옵션에 대해 설명하고, 예산 자동화를 시작하기 위한 샘플 API 요청을 제공합니다.
 
-#### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>예산 임계값과 비교하여 비용을 평가하는 방법
+### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>예산 임계값과 비교하여 비용을 평가하는 방법
 
 비용은 하루에 한 번 예산 임계값과 비교하여 평가됩니다. 새 예산을 만들 때 또는 예산 재설정일에는 평가를 수행하지 않았을 수 있으므로 임계값과 비교한 비용이 0/null이 됩니다.
 
 Azure에서 비용이 임계값을 초과했음을 감지하는 경우 알림이 감지 기간의 시간 내에 트리거됩니다.
 
-#### <a name="view-your-current-cost"></a>현재 비용 보기
+### <a name="view-your-current-cost"></a>현재 비용 보기
 
 현재 비용을 보려면 [쿼리 API](/rest/api/cost-management/query)를 사용하여 GET 호출을 수행해야 합니다.
 
@@ -185,7 +125,7 @@ Azure에서 비용이 임계값을 초과했음을 감지하는 경우 알림이
 
 [예산 API](/rest/api/consumption/budgets)를 사용하여 예산 만들기를 자동화할 수 있습니다. 예산은 [예산 템플릿](quick-create-budget-template.md)을 사용하여 만들 수도 있습니다. 템플릿은 Azure 배포를 표준화하는 동시에 비용 제어가 적절하게 구성되고 적용되도록 하는 쉬운 방법입니다.
 
-#### <a name="supported-locales-for-budget-alert-emails"></a>예산 경고 이메일이 지원되는 로캘
+### <a name="supported-locales-for-budget-alert-emails"></a>예산 경고 이메일이 지원되는 로캘
 
 예산을 사용하면 비용이 설정된 임계값을 초과하는 경우 경고가 표시됩니다. 예산당 최대 5명의 이메일 수신자를 설정할 수 있습니다. 예산 임계값을 초과하면 수신자는 24시간 이내에 이메일 알림을 받습니다. 그러나 수신자는 다른 언어로 된 이메일을 받을 수도 있습니다. 다음 언어 문화권 코드를 예산 API와 함께 사용할 수 있습니다. 다음 예와 유사한 `locale` 매개 변수를 사용하여 문화권 코드를 설정합니다.
 
@@ -249,7 +189,7 @@ Azure에서 비용이 임계값을 초과했음을 감지하는 경우 알림이
 | pt-pt | 포르투갈어(포르투갈) |
 | sv-se | 스웨덴어(스웨덴) |
 
-#### <a name="common-budgets-api-configurations"></a>일반적인 예산 API 구성
+### <a name="common-budgets-api-configurations"></a>일반적인 예산 API 구성
 
 Azure 환경에서 예산을 구성하는 방법에는 여러 가지가 있습니다. 먼저 시나리오를 고려한 다음, 이를 사용하도록 설정하는 구성 옵션을 식별합니다. 검토할 옵션은 다음과 같습니다.
 

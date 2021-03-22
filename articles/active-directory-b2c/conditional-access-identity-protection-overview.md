@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/01/2020
+ms.date: 03/03/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17706f908613336714bb7daf08fdf3bfd5eaf64
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: e2ec8af824d573493d1da743923956e587ded62e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928395"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033829"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스
 
@@ -49,21 +49,21 @@ Azure AD B2C의 ID 보호 및 조건부 액세스는 일반적으로 Azure AD에
 
 - ID 보호 위험 검색은 Azure AD B2C 테넌트에서 로컬 B2C 계정에만 사용할 수 있으며, Google 또는 Facebook과 같은 소셜 ID에는 사용할 수 없습니다.
 
-- ID 보호 위험 검색의 하위 집합은 Azure AD B2C 테넌트에서 사용할 수 있습니다. [ID 보호 설정](conditional-access-identity-protection-setup.md#set-up-identity-protection)을 참조하세요.
+- ID 보호 위험 검색의 하위 집합은 Azure AD B2C 테넌트에서 사용할 수 있습니다. [ID 보호로 위험 조사](identity-protection-investigate-risk.md) 및 [사용자 흐름에 조건부 액세스 추가](conditional-access-user-flow.md)를 참조하세요.
 
 - 조건부 액세스 디바이스 규정 준수 기능은 Azure AD B2C 테넌트에서 사용할 수 없습니다.
 
 
 ## <a name="integrate-conditional-access-with-user-flows-and-custom-policies"></a>조건부 액세스를 사용자 흐름 및 사용자 지정 정책과 통합
 
-Azure AD B2C에서는 기본 제공 사용자 흐름에서 조건부 액세스 조건을 트리거할 수 있습니다. 또한 조건부 액세스를 사용자 지정 정책에 통합할 수 있습니다. B2C 사용자 흐름의 다른 측면과 마찬가지로 최종 사용자 환경 메시징은 조직의 음성, 브랜드 및 완화 대안에 따라 사용자 지정할 수 있습니다. [조건부 액세스 기술 프로필 정의](conditional-access-technical-profile.md)를 참조하세요.
+Azure AD B2C에서는 기본 제공 사용자 흐름에서 조건부 액세스 조건을 트리거할 수 있습니다. 또한 조건부 액세스를 사용자 지정 정책에 통합할 수 있습니다. B2C 사용자 흐름의 다른 측면과 마찬가지로 최종 사용자 환경 메시징은 조직의 음성, 브랜드 및 완화 대안에 따라 사용자 지정할 수 있습니다. [조건부 액세스를 사용자 흐름에 추가](conditional-access-user-flow.md)를 참조하세요.
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Microsoft Graph API를 사용하여 Azure AD B2C에서 조건부 액세스 정책을 관리할 수도 있습니다. 자세한 내용은 [조건부 액세스 설명서](../active-directory/conditional-access/overview.md) 및 [Microsoft Graph 참조](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta)를 참조하세요.
+Microsoft Graph API를 사용하여 Azure AD B2C에서 조건부 액세스 정책을 관리할 수도 있습니다. 자세한 내용은 [조건부 액세스 설명서](../active-directory/conditional-access/overview.md) 및 [Microsoft Graph 작업](microsoft-graph-operations.md#conditional-access)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2C에 대한 ID 보호 및 조건부 액세스 설정](conditional-access-identity-protection-setup.md)
+- [조건부 액세스를 사용자 흐름에 추가](conditional-access-user-flow.md)
 - [Azure AD의 ID 보호에 대해 알아보기](../active-directory/identity-protection/overview-identity-protection.md)
 - [조건부 액세스에 대해 알아보기](../active-directory/conditional-access/overview.md)

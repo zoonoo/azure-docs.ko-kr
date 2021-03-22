@@ -2,18 +2,18 @@
 title: Azure VM에서 Oracle 데이터베이스 만들기 | Microsoft Docs
 description: Azure 환경에서 Oracle Database 12c 데이터베이스를 신속하게 가동하고 실행합니다.
 author: dbakevlar
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.reviewer: cynthn
-ms.openlocfilehash: a202c8d176d6b9a8893a7bc5aaad6771942dda04
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 8964248bb23b2b615c7e73e26d730fbd79b4e9e7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063065"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102184460"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
@@ -188,16 +188,16 @@ az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 12
    echo "/dev/sdc1               /u02                    ext4    defaults        0 0" >> /etc/fstab
    ```
    
-10. 공용 IP 및 호스트 이름으로 * **/etc/hosts** _ 파일을 업데이트합니다.
+10. 공용 IP 및 호스트 이름으로 ***/etc/hosts*** 파일을 업데이트합니다.
 
-    실제 값을 반영하도록 _*_공용 IP 및 VMname_*_ 을 변경합니다.
+    실제 값을 반영하도록 ***공용 IP 및 VMname*** 을 변경합니다.
   
     ```bash
     echo "<Public IP> <VMname>.eastus.cloudapp.azure.com <VMname>" >> /etc/hosts
     ```
 11. 호스트 이름 파일 업데이트
     
-    다음 명령을 사용하여 _ */etc/hostname** 파일에 VM의 도메인 이름을 추가합니다. 여기서는 **eastus** 지역에 리소스 그룹 및 VM을 만들었다고 가정합니다.
+    다음 명령을 사용하여 **/etc/hostname** 파일에 VM의 도메인 이름을 추가합니다. 여기서는 **eastus** 지역에 리소스 그룹 및 VM을 만들었다고 가정합니다.
     
     ```bash
     sed -i 's/$/\.eastus\.cloudapp\.azure\.com &/' /etc/hostname
@@ -221,12 +221,12 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 1.  **oracle** 사용자로 전환합니다.
 
     ```bash
-    $ sudo su - oracle
+    sudo su - oracle
     ```
 2. 데이터베이스 수신기 시작
 
    ```bash
-   $ lsnrctl start
+   lsnrctl start
    ```
    다음과 유사하게 출력됩니다.
   

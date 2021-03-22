@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: e10812290fa06e94419a1b4f27845f9b04ebb049
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: ad3e5bcda0fb03af0637a309b4dbfd248b54f1a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508846"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587205"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -101,8 +101,8 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 [System.IO.File]::WriteAllBytes("KeyVault.pfx", $pfxFileByte)
 ```
 
-이 명령은 프라이빗 키가 있는 전체 인증서 체인을 내보냅니다. 인증서가 암호로 보호됩니다.
-**Get-AzKeyVaultCertificate** 명령 및 매개 변수에 대한 자세한 내용은 [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate)를 참조하세요.
+이 명령은 프라이빗 키(즉, 가져온 것과 동일)가 있는 전체 인증서 체인을 내보냅니다. 인증서가 암호로 보호됩니다.
+**Get-AzKeyVaultCertificate** 명령 및 매개 변수에 대한 자세한 내용은 [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

@@ -4,17 +4,17 @@ description: Azure Cost Management + 청구 기능을 사용하여 청구 관리
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2021
+ms.date: 03/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 9fe658a1755ce3731f220ec656845da1f861fa9b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051096"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050541"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Azure Cost Management + 청구란?
 
@@ -33,6 +33,8 @@ Azure 제품 및 서비스를 사용하면 사용한 만큼만 요금을 지불�
 
 조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Azure Cost Management 모범 사례](./costs/cost-mgt-best-practices.md) 문서를 참조하세요.
 
+![Cost Management + Billing 최적화 프로세스의 다이어그램.](./media/cost-management-optimization-process.png)
+
 ## <a name="understand-azure-billing"></a>Azure 청구 이해
 
 Azure 청구 기능은 송장이 발부된 비용을 검토하고 청구 정보에 대한 액세스를 관리하는 데 사용됩니다. 대규모 조직에서 일반적으로 조달 및 재무 팀이 청구 작업을 수행합니다.
@@ -48,32 +50,6 @@ Azure 청구 기능은 송장이 발부된 비용을 검토하고 청구 정보�
 - **기업 계약**: 기업계약에 대한 청구 계정은 조직에서 Azure를 사용하기 위해 EA(기업계약)에 서명할 때 생성됩니다.
 
 - **Microsoft 고객 계약**: Microsoft 고객 계약에 대한 청구 계정은 조직이 Microsoft 담당자와 협력하여 Microsoft 고객 계약에 서명할 때 생성됩니다. Azure 웹 사이트를 통해 종량제 요금을 사용한 계정에 가입하거나 [Azure 체험 계정](./manage/create-free-services.md)을 업그레이드한 특정 지역의 일부 고객은 Microsoft 고객 계약에 대한 청구 계정도 가질 수도 있습니다.
-
-### <a name="scopes-for-billing-accounts"></a>청구 계정의 범위
-범위는 청구를 보고 관리하는 데 사용하는 청구 계정 내의 노드입니다. 여기서 청구 데이터, 결제, 청구서를 관리하고 일반 계정 관리를 수행합니다.
-
-#### <a name="microsoft-online-services-program"></a>Microsoft Online Services 프로그램
-
-|범위  |정의  |
-|---------|---------|
-|청구 계정     | 하나 이상의 Azure 구독에 대한 단일 소유자(계정 관리자)를 나타냅니다. 계정 관리자는 구독 만들기, 청구서 보기, 구독의 청구 변경 등 다양한 청구 작업을 수행할 수 있는 권한이 있습니다.  |
-|Subscription     |  Azure 리소스의 그룹화를 나타냅니다. 청구서는 구독 범위에서 생성됩니다. 청구서를 결제하는 데 사용되는 고유한 결제 방법이 있습니다.|
-
-#### <a name="enterprise-agreement"></a>기업 계약
-
-|범위  |정의  |
-|---------|---------|
-|청구 계정    | 기업계약 등록을 나타냅니다. 청구서는 청구 계정 범위에서 생성됩니다. 부서 및 등록 계정을 사용하여 구성됩니다.  |
-|department     |  등록 계정의 선택적 그룹화입니다.      |
-|등록 계정     |  단일 계정 소유자를 나타냅니다. Azure 구독은 등록 계정 범위 아래에 생성됩니다.  |
-
-#### <a name="microsoft-customer-agreement"></a>Microsoft 고객 계약
-
-|범위  |작업  |
-|---------|---------|
-|청구 계정     |   여러 Microsoft 제품 및 서비스에 대한 고객 계약을 나타냅니다. 청구 계정은 청구 프로필 및 청구서 섹션을 사용하여 구성됩니다.   |
-|청구 프로필     |  청구서 및 결제 방법을 나타냅니다. 이 범위에서 청구서가 생성됩니다. 청구 프로필에는 청구서 섹션이 여러 개 있을 수 있습니다.      |
-|청구서 섹션     |   청구서의 비용 그룹을 나타냅니다. 구독과 기타 구매는 청구서 섹션 범위에 연결됩니다.    |
 
 ## <a name="understand-azure-cost-management"></a>Azure Cost Management 이해
 
