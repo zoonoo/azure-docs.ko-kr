@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 67a2799a93141ad84f458642d8499a58784cc19c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036177"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463761"
 ---
 ## <a name="configure-the-sample-project"></a>샘플 프로젝트 구성
 
@@ -38,3 +38,4 @@ Visual Studio에서 _SampleClientApp > **appsettings.json**_ 파일을 선택하
 
 _**AdtE2ESample**_ 프로젝트를 자습서에서 계속 사용해야 하므로 Visual Studio에서 열어 둡니다.
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]

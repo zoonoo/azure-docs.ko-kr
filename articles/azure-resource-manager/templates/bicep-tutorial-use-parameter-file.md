@@ -2,15 +2,15 @@
 title: 자습서 - 매개 변수 파일을 사용하여 Azure Resource Manager Bicep 파일 배포
 description: Bicep 파일 배포에 사용할 값이 포함된 매개 변수 파일을 사용합니다.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 233bab26d659fef2da9a9f5a7080d4b3ecbce7d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca3a73cde9549bfcdfd47bc4f1955904fac69d1c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742950"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632359"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-azure-resource-manager-bicep-file"></a>자습서: 매개 변수 파일을 사용하여 Azure Resource Manager Bicep 파일 배포
 

@@ -4,12 +4,12 @@ description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware S
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b6927407a95d41603c3032f298ffc28def9693
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703864"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462459"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
@@ -35,7 +35,7 @@ Azure VMware Solution을 배포한 후 vCenter 및 NSX에 연결하는 가상 �
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Azure VMware Solution 점프 상자 만들기" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-[배포 프로세스의 일부로 확인하거나 만든](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution) 가상 네트워크에서 VM(가상 머신)을 만들려면 다음 지침을 따릅니다. 
+[배포 프로세스의 일부로 확인하거나 만든](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution) 가상 네트워크에서 VM(가상 머신)을 만들려면 다음 지침을 따릅니다. 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -52,7 +52,7 @@ Azure VMware Solution을 배포한 후 vCenter 및 NSX에 연결하는 가상 �
 
 점프 상자는 Azure VMware Solution에서 ExpressRoute 회로를 통해 연결하는 가상 네트워크에 있습니다.  Azure에서 점프 상자의 네트워크 인터페이스로 이동하여 [유효한 경로를 확인](../virtual-network/manage-route-table.md#view-effective-routes)합니다.
 
-유효한 경로 목록에는 Azure VMware Solution 배포의 일부로 만들어진 네트워크가 표시됩니다. [프라이빗 클라우드를 만들](#create-an-azure-vmware-solution-private-cloud) 때 [정의한 `/22` 네트워크](production-ready-deployment-steps.md#ip-address-segment)에서 파생된 여러 네트워크가 표시됩니다.  
+유효한 경로 목록에는 Azure VMware Solution 배포의 일부로 만들어진 네트워크가 표시됩니다. [프라이빗 클라우드를 만들](#create-an-azure-vmware-solution-private-cloud) 때 [정의한 `/22` 네트워크](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management)에서 파생된 여러 네트워크가 표시됩니다.  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Azure VMware Solution에서 Azure Virtual Network로 보급된 네트워크 경로 확인" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

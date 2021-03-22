@@ -1,23 +1,18 @@
 ---
 title: Azure Security Center에 관리 그룹 온보딩
 description: 제공된 Azure Policy 정의를 사용하여 관리 그룹의 모든 구독에서 Azure Security Center를 사용하도록 설정하는 방법을 알아봅니다.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/10/2020
+ms.topic: how-to
+ms.date: 03/11/2021
 ms.author: memildin
-ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 01036343e2585adf7c09ad3f0d236948a537fc29
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101293"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103016562"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>관리 그룹의 모든 구독에서 Security Center 사용
 

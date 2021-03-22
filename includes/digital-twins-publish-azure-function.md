@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750398"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630282"
 ---
 프로젝트를 Azure의 함수 앱에 게시하려면 *솔루션 탐색기* 에서 프로젝트를 마우스 오른쪽 단추로 선택하고 **게시** 를 선택합니다.
 
@@ -57,6 +57,4 @@ ms.locfileid: "101750398"
 >
 > 프롬프트에 따라 최신 Azure Functions 런타임 버전으로 업그레이드합니다. 이전 버전의 Visual Studio를 사용하는 경우 이 문제가 발생할 수 있습니다.
 
-이제 함수 앱이 Azure에 게시됩니다. 
-
-함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있는 시스템 관리 ID가 있어야 합니다. 이는 다음에 설정하게 됩니다.
+이제 함수 앱이 Azure에 게시됩니다.

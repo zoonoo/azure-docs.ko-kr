@@ -1,14 +1,14 @@
 ---
 title: Azure Security Benchmark Foundation 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 Azure Security Benchmark Foundation 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 02/18/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740684"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232616"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Azure Security Benchmark Foundation 청사진 샘플 배포
 

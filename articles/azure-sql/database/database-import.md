@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: 8d246f06db9fc9f4e6916ea69ec49ddaf8cf0667
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d59f08fc061bace55a7cd3d774380046055828ae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519778"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102618613"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일을 가져옵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,7 +147,7 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## <a name="cancel-the-import-request"></a>가져오기 요청 취소
 
-[데이터베이스 작업 - 취소 API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) 또는 Powershell [Stop-AzSqlDatabaseActivity 명령](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0)(여기에서는 powershell 명령의 예)을 사용합니다.
+[데이터베이스 작업 - 취소 API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) 또는 Powershell [Stop-AzSqlDatabaseActivity 명령](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity)(여기에서는 powershell 명령의 예)을 사용합니다.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

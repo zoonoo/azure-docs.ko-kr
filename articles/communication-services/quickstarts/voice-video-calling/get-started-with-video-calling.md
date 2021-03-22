@@ -4,19 +4,23 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 Azure Communication Services를 사용하여 앱에 영상 통화 기능을 추가하는 방법을 알아봅니다.
 author: xumo-95
 ms.author: mikben
-ms.date: 07/24/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 00721a5c7763663a17b1e67cf0ac3ae59fd9448a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204530"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487873"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>빠른 시작: 1:1 영상 통화를 앱에 추가(JavaScript)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="download-code"></a>코드 다운로드
+
+[GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>필수 구성 요소
 - 활성 구독이 있는 Azure 계정을 얻습니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/) 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1)
 - 활성 Communication Services 리소스를 만듭니다. [Communication Services 리소스를 만듭니다](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp).
@@ -259,7 +263,7 @@ callAgent.on('incomingCall', async e => {
 });
 ```
 ## <a name="end-the-current-call"></a>현재 통화 종료
-`hangUpButton`을 클릭하면 현재 통화를 종료하는 이벤트 수신기를 추가합니다.
+`hangUpButton`을 클릭하면 현재 호출을 종료하는 이벤트 수신기를 추가합니다.
 ```JavaScript
 hangUpButton.addEventListener("click", async () => {
     // dispose of the renderers
@@ -323,7 +327,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 텍스트 필드에서 사용자 ID를 제공하고 호출 시작 단추를 클릭하여 1:1 발신 영상 통화를 수행할 수 있습니다. 
 
 ## <a name="sample-code"></a>샘플 코드
-샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Add%201%20on%201%20video%20calling)에서 다운로드할 수 있습니다.
+샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)에서 다운로드할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources)에 대해 자세히 알아보세요.

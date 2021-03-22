@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: justinha
-ms.openlocfilehash: fd93635e7087d6f4a3590ec7bcb25482dc8382da
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174729"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579555"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -34,7 +34,7 @@ Azure AD DS를 사용하면 LDAPS(보안 Lightweight Directory Access Protocol)�
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -152,7 +152,7 @@ Thumbprint                                Subject
 
     *.PFX* 인증서 파일을 보호하려면 **보안** 페이지에서 **암호** 옵션을 선택합니다. 암호화 알고리즘은 *TripleDES-SHA1* 여야 합니다. 암호를 입력하여 확인하고, **다음** 을 선택합니다. 이 암호는 다음 섹션에서 관리되는 도메인에 보안 LDAP를 사용하도록 설정하는 데 사용됩니다.
 
-    [PowerShell export-pfxcertificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)을 사용하여 내보내는 경우 TripleDES_SHA1을 사용하여 *-CryptoAlgorithmOption* 플래그를 전달해야 합니다.
+    [PowerShell export-pfxcertificate cmdlet](/powershell/module/pkiclient/export-pfxcertificate)을 사용하여 내보내는 경우 TripleDES_SHA1을 사용하여 *-CryptoAlgorithmOption* 플래그를 전달해야 합니다.
 
     ![암호를 암호화하는 방법의 스크린샷](./media/tutorial-configure-ldaps/encrypt.png)
 

@@ -3,19 +3,19 @@ title: 빠른 시작 - 웹앱에서 Teams 모임에 조인
 description: 이 자습서에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 author: chpalm
 ms.author: mikben
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d022d90aa4558ef5a4973668d4966a30f477a1da
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 43f6241f0da0ecc9c68cf60e9f1a0482509374f3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660097"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488006"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 작동하는 [Communication Services 통화 웹앱](../getting-started-with-calling.md).
 - [Teams 배포](/deployoffice/teams-install)

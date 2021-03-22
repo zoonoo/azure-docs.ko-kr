@@ -3,19 +3,19 @@ title: 빠른 시작 - Android 앱에서 Teams 모임에 조인
 description: 이 자습서에서는 Android용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be68b8336861891c6704702379892460fd3b7400
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660041"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103488007"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 작동하는 [Communication Services 통화 Android 앱](../getting-started-with-calling.md).
 - [Teams 배포](/deployoffice/teams-install)
