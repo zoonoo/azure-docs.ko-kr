@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771093"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799193"
 ---
 # <a name="azure-customer-usage-attribution"></a>Azure 고객 사용 특성
 
@@ -39,7 +39,9 @@ ms.locfileid: "104771093"
 Azure Resource Manager Api를 사용 하는 경우 코드에서 리소스를 배포 하는 것 처럼 Azure Resource Manager에 전달 하려면 [아래 지침](#use-resource-manager-apis) 에 따라 추적 ID를 추가 해야 합니다. 이 ID는 계획의 기술 구성 페이지에서 파트너 센터에 표시 됩니다. 
 
 > [!NOTE]
-> 기존 Azure 앱의 경우 각 계획의 기술 구성에서 추적 Id를 업데이트 하기 위해 3 월 2021 일에 일회성 마이그레이션이 수행 되었습니다. 이러한 제품의 이전 배포에 대 한 사용량은 Microsoft 시스템에서 계속 추적 됩니다.
+> 기존 Azure 앱의 경우 각 계획의 기술 구성에서 추적 Id를 업데이트 하기 위해 3 월 2021 일에 일회성 마이그레이션이 시작 됩니다. 이러한 제품의 이전 배포에 대 한 사용량은 Microsoft 시스템에서 계속 추적 됩니다.
+>
+>제품을 업데이트할 때 기본 템플릿 파일에 더 이상 **Microsoft .resources/배포** 리소스 유형을 추가할 필요가 없습니다.
 
 ## <a name="other-use-cases"></a>기타 사용 사례 
 
@@ -87,7 +89,7 @@ Azure Resource Manager Api를 사용 하는 경우 코드에서 리소스를 배
 
 1. 주 템플릿 파일에 [Microsoft .resources/배포](/azure/templates/microsoft.resources/deployments) 유형의 새 리소스를 추가 합니다. 리소스는 중첩 또는 연결 된 템플릿이 아닌 **mainTemplate.json** 또는 **azuredeploy.js** 파일에만 있어야 합니다.
 
-1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 **pid-eb7927c8-dd66-43e1-b0cf-c346a422063** 가 됩니다. 예:
+1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 **pid-eb7927c8-dd66-43e1-b0cf-c346a422063** 가 됩니다. 예제:
  
 ```json
 { // add this resource to the resources section in the mainTemplate.json
@@ -178,7 +180,7 @@ pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4 //enter your GUID after "pid-"
 
 #### <a name="example-python-sdk"></a>예: Python SDK
 
-Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예:
+Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예제:
 
 ```python
 client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)

@@ -8,19 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b15c63545c71d4513abe9102b4de165e2ab5857a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102499852"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781282"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
 페이지 레이아웃 패키지는 주기적으로 업데이트 되어 페이지 요소에 수정 및 향상 된 기능이 포함 됩니다. 다음 변경 로그는 각 버전에 도입 된 변경 내용을 지정 합니다.
+
+## <a name="jquery-version"></a>jQuery 버전
+
+Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리](https://jquery.com/)를 사용 합니다.
+
+|페이지 레이아웃 버전에서  |jQuery 버전  |
+|---------|---------|
+|2.1.4 | 3.5.1 |
+|1.2.0 | 3.4.1 |
+|1.1.0 | 1.10.2 |
 
 ## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지 (selfasserted)
 

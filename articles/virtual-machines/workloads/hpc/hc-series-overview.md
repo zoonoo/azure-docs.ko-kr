@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: e2f6fb167ec8b1ea15f7f08cf77720e705b2e4a3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c251634710811820ba920b72c1759938758f5d2e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721376"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802824"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>HC 시리즈 가상 머신 개요
 
@@ -31,7 +31,7 @@ Intel Xeon Platinum, Gold 및 은색 Cpu는 또한 CPU 소켓 내부 및 외부�
 
 다음 다이어그램에서는 Azure 하이퍼바이저 및 HC 시리즈 VM 용으로 예약 된 코어의 분리 보여 줍니다.
 
-![Azure 하이퍼바이저 및 HC 시리즈 VM 용으로 예약 된 코어 분리](./media/hc-series-overview/segregation-cores.png)
+![Azure 하이퍼바이저 및 HC 시리즈 VM 용으로 예약 된 코어 분리](./media/architecture/hc-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>하드웨어 사양
 

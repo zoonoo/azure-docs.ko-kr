@@ -1,24 +1,14 @@
 ---
 title: IoT 용 Defender 질문과 대답
 description: IoT 기능 및 서비스에 대 한 Azure Defender에 대 한 질문과 대답을 찾습니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/02/2021
-ms.author: rkarlin
-ms.openlocfilehash: 89da9ed378118875f0c09d3c23799349a4d093b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0ce8ded3eea344d72679e0f8b805f45b00279b58
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467700"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778596"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>IoT 용 Azure Defender 질문과 대답
 

@@ -2,14 +2,14 @@
 title: Azure Portal 방법 비디오 시리즈
 description: 포털에서 Azure 서비스를 사용 하는 방법에 대 한 비디오 데모를 찾습니다. 최신 방법 비디오를 보고 직접 연결 하세요.
 keywords: ''
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: d0b356729f2fab418b2322aeb20a44fc74cb199c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aeb80f0ac9b160747d75a50acc7c21b211c9fe28
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99550444"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771518"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Azure Portal 방법 비디오 시리즈
 
@@ -17,17 +17,17 @@ Azure Portal 방법 비디오 시리즈는 Azure Portal에서 Azure 서비스를
 
 ## <a name="featured-video"></a>추천 비디오
 
-이 주요 비디오에서는 Azure Cost Management 보기를 사용 하는 방법을 보여 줍니다.
+이 주요 비디오에서는 Azure 통합 문서에서 탭과 경고를 빌드하는 방법을 보여 줍니다.
 
-> [!VIDEO https://www.youtube.com/embed/VRJA5bn2VH0]
+> [!VIDEO https://www.youtube.com/embed/3XY3lYgrRvA]
 
-[Azure Cost Management 보기를 사용 하는 방법](https://www.youtube.com/watch?v=VRJA5bn2VH0)
+[Azure 통합 문서에서 탭 및 경고를 작성 하는 방법](https://www.youtube.com/watch?v=3XY3lYgrRvA)
 
 이러한 최신 비디오를 파악 하지 못할 수 있습니다.
 
-| [알를 사용 하 여 Azure Portal 필터링 하는 방법](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [리소스의 시각화 보기를 가져오는 방법](https://www.youtube.com/watch?v=wudqkkJd5E4)  | [콘텐츠를 Azure Portal 대시보드에 고정 하는 방법](https://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [가상 컴퓨터를 쉽게 관리 하는 방법](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [알를 사용 하 여 Azure Portal 필터링 하는 방법](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [리소스의 시각화 보기를 가져오는 방법](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![알를 사용 하 여 Azure Portal 필터링 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![리소스의 시각화 보기를 가져오는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) | [![Azure Portal 대시보드에 콘텐츠를 고정 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/eyOJkhYItSg/hqdefault.jpg)](http://www.youtube.com/watch?v=eyOJkhYItSg) |
+| [![가상 컴퓨터를 쉽게 관리 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![알를 사용 하 여 Azure Portal 필터링 하는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![리소스의 시각화 보기를 가져오는 방법에 대 한 YouTube 비디오 이미지](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## <a name="video-playlist"></a>비디오 재생 목록
 

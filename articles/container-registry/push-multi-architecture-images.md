@@ -4,12 +4,12 @@ description: Azure container registry를 사용 하 여 다중 아키텍처 (다
 ms.topic: article
 ms.date: 02/07/2021
 ms.custom: ''
-ms.openlocfilehash: f8467cd3108ae4faea9ecb4c9d9ae339f476c311
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 520518a275e0a9d191ae770e560a0e6e8278eae2
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100012342"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802457"
 ---
 # <a name="multi-architecture-images-in-your-azure-container-registry"></a>Azure container registry의 다중 아키텍처 이미지
 
@@ -165,7 +165,7 @@ steps:
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) 를 사용 하 여 다양 한 아키텍처에 대 한 컨테이너 이미지를 빌드합니다.
+* [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) 를 사용 하 여 다양 한 아키텍처에 대 한 컨테이너 이미지를 빌드합니다.
 * 실험적 Docker [buildx](https://docs.docker.com/buildx/working-with-buildx/) 플러그 인을 사용 하 여 다중 플랫폼 이미지를 빌드하는 방법에 대해 알아봅니다.
 
 <!-- LINKS - external -->

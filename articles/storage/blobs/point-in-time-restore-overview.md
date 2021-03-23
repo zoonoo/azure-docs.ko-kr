@@ -10,12 +10,12 @@ ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: da869091fb1f7bf31a29ba1bc6db8c1c42254dc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b959038753dd15282de357da746ef9b0e0cf2be5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618086"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802270"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 blob에 대 한 지정 시간 복원
 
@@ -53,9 +53,11 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 
 지정 시간 복원을 사용 하려면 지정 시간 복원을 사용 하도록 설정 하기 전에 다음과 같은 Azure Storage 기능을 사용 하도록 설정 해야 합니다.
 
-- [일시 삭제](./soft-delete-blob-overview.md)
+- [일시 삭제](soft-delete-blob-overview.md)
 - [변경 피드](storage-blob-change-feed.md)
 - [Blob 버전 관리](versioning-overview.md)
+
+이러한 기능을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 지정 시간 복원 및 필수 구성 요소 기능을 사용 하기 전에 청구의 영향을 이해 해야 합니다.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>지정 시간 복원에 대 한 보존 기간
 
@@ -88,6 +90,8 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 > 블록 blob을 2020 년 9 월 22 일 이전 지점으로 복원 하는 경우 지정 시간 복원에 대 한 미리 보기 제한이 적용 됩니다. 일반적으로 사용 가능한 지정 시간 복원 기능을 활용 하려면 2020 년 9 월 22 일 이상인 복원 지점을 선택 하는 것이 좋습니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
+
+지정 시간 복원을 사용 하도록 설정 하는 것은 무료입니다. 그러나 특정 시점 복원을 사용 하도록 설정 하면 blob 버전 관리, 일시 삭제 및 변경 피드가 가능해 지 며,이를 통해 각각 추가 요금이 부과 될 수 있습니다.
 
 지정 시간 복원에 대 한 요금은 복원 작업을 수행 하기 위해 처리 된 데이터의 양에 따라 달라 집니다. 처리 되는 데이터의 양은 복원 지점 및 현재 순간 사이에 발생 한 변경 내용 수를 기반으로 합니다. 예를 들어 저장소 계정에서 blob 데이터를 차단 하기 위해 상대적으로 일정 하 게 변경 되는 것으로 간주 되는 복원 작업은 시간 1 일에 다시 복원 되는 복원 작업은 10 일이 지나면 복원 작업의 1/10입니다.
 

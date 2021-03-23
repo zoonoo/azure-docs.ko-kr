@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: ee19c69b47e68328a89a0e3ca6ee3f86a5c13c7d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: cbae87a005240c15a2c3c28dcb8ab126d9957ba6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583737"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801233"
 ---
 # <a name="tutorial-configure-github-enterprise-managed-user-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 GitHub Enterprise 관리 사용자 구성
 
@@ -35,7 +35,11 @@ ms.locfileid: "104583737"
 > * GitHub Enterprise 관리 되는 사용자의 그룹 및 그룹 멤버 자격 프로 비전
 > * GitHub Enterprise 관리 되는 사용자에 대 한 Single sign-on (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> 이 프로 비전 커넥터는 엔터프라이즈 관리 사용자 베타 참가자 에게만 사용할 수 있습니다.
+
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 

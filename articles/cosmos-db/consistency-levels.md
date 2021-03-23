@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97347815"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800145"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ Azure Cosmos DB는 널리 사용 되는 데이터베이스에 대 한 유선 프
 
 Azure Cosmos DB는 읽기 요청의 100%가 선택한 일관성 수준에 대 한 일관성 보장을 충족 하도록 보장 합니다. TLA + 사양 언어를 사용 하 Azure Cosmos DB에서 5 가지 일관성 수준에 대 한 정확한 정의는 [Azure-Cosmos](https://github.com/Azure/azure-cosmos-tla) GitHub 리포지토리에서 제공 됩니다.
 
-5가지 일관성 수준의 의미 체계는 여기에 설명되어 있습니다.
+5 가지 일관성 수준에 대 한 의미는 다음 섹션에 설명 되어 있습니다.
 
-- **Strong**: 강력한 일관성은 선형화 가능성 보장을 제공 합니다. 선형화 가능성은 요청을 동시에 처리 하는 것을 의미 합니다. 읽기를 통해 항목의 최신 커밋된 버전 반환이 보장됩니다. 클라이언트는 커밋되지 않은 쓰기 또는 부분 쓰기를 볼 수 없습니다. 사용자는 항상 최신 커밋 쓰기의 읽기가 보장됩니다.
+### <a name="strong-consistency"></a>강력한 일관성
+
+강력한 일관성은 선형화 가능성 보장을 제공합니다. 선형화 가능성은 요청을 동시에 처리 하는 것을 의미 합니다. 읽기를 통해 항목의 최신 커밋된 버전 반환이 보장됩니다. 클라이언트는 커밋되지 않은 쓰기 또는 부분 쓰기를 볼 수 없습니다. 사용자는 항상 최신 커밋 쓰기의 읽기가 보장됩니다.
 
   다음 그림은 악기 노트와의 강력한 일관성을 보여 줍니다. "미국 서 부 2" 지역에 데이터를 쓴 후 다른 지역의 데이터를 읽으면 최신 값을 얻게 됩니다.
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="강력한 일관성 수준에 대 한 그림":::
 
-- **제한 된 부실**: 읽기는 일관 된 접두사 보증을 보장 합니다. 읽기는 항목의 *"K"* 버전 (즉, "업데이트") 또는 *"T"* 시간 간격 ("업데이트")에 따라 쓰기 뒤에 지연 될 수 있습니다. 즉, 제한 된 부실을 선택 하는 경우 "부실"은 다음 두 가지 방법으로 구성할 수 있습니다.
+### <a name="bounded-staleness-consistency"></a>제한된 부실 일관성
+
+제한 된 부실 일관성에서 읽기는 일관 된 접두사 보증을 보장 합니다. 읽기는 항목의 *"K"* 버전 (즉, "업데이트") 또는 *"T"* 시간 간격 ("업데이트")에 따라 쓰기 뒤에 지연 될 수 있습니다. 즉, 제한 된 부실을 선택 하는 경우 "부실"은 다음 두 가지 방법으로 구성할 수 있습니다.
 
 - 항목의 버전 (*K*) 수입니다.
 - 시간 간격 (*T*) 읽기가 쓰기 뒤에 지연 될 수 있습니다.
@@ -79,7 +83,9 @@ Azure Cosmos DB는 읽기 요청의 100%가 선택한 일관성 수준에 대 �
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="제한 된 부실 일관성 수준에 대 한 그림":::
 
-- **세션**: 단일 클라이언트 세션에서 읽기는 일관 된 접두사, 단조 읽기, 단조 쓰기, 읽기/쓰기 및 쓰기-쓰기를 보장 합니다. 이는 단일 "writer" 세션을 가정 하거나 여러 작성기에 대해 세션 토큰을 공유 하는 것으로 가정 합니다.
+### <a name="session-consistency"></a>세션 일관성
+
+세션 일관성에서 단일 클라이언트 세션 읽기는 일관 된 접두사, 단조 읽기, 단조 쓰기, 읽기/쓰기 및 쓰기 후 읽기를 보장 합니다. 이는 단일 "writer" 세션을 가정 하거나 여러 작성기에 대해 세션 토큰을 공유 하는 것으로 가정 합니다.
 
 쓰기를 수행 하는 세션 외부의 클라이언트는 다음과 같은 보증을 확인할 수 있습니다.
 
@@ -92,7 +98,9 @@ Azure Cosmos DB는 읽기 요청의 100%가 선택한 일관성 수준에 대 �
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="세션 일관성 수준에 대 한 그림":::
 
-- **일관적인 접두사**: 반환 되는 업데이트에는 간격이 없는 모든 업데이트의 일부 접두사가 포함 됩니다. 일관 된 접두사 일관성 수준에 따라 읽기가 잘못 된 쓰기를 표시 하지 않습니다.
+### <a name="consistent-prefix-consistency"></a>일관적인 접두사 일관성
+
+일관 된 접두사 옵션에서 반환 되는 업데이트에는 간격이 없는 모든 업데이트의 일부 접두사가 포함 됩니다. 일관 된 접두사 일관성 수준에 따라 읽기가 잘못 된 쓰기를 표시 하지 않습니다.
 
 쓰기를 순서 대로 수행 `A, B, C` 하는 경우 클라이언트는, 또는 중 하나를 볼 `A` `A,B` `A,B,C` 뿐만 아니라 또는와 같이 순서가 잘못 된 순열은 표시 하지 않습니다 `A,C` `B,A,C` . 일관 된 접두사는 최종 일관성과 비교할 수 있는 쓰기 대기 시간, 가용성 및 읽기 처리량을 제공 하지만 순서가 중요 한 시나리오의 요구 사항에 적합 한 주문 보장도 제공 합니다.
 
@@ -107,7 +115,9 @@ Azure Cosmos DB는 읽기 요청의 100%가 선택한 일관성 수준에 대 �
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="일관적인 접두사의 그림":::
 
-- **최종**: 읽기에 대 한 순서가 보장 되지 않습니다. 추가 쓰기가 없으면 복제본이 결과적으로 수렴합니다.  
+### <a name="eventual-consistency"></a>최종 일관성
+
+결과적 일관성의 경우 읽기에 대 한 순서가 보장 되지 않습니다. 추가 쓰기가 없으면 복제본이 결과적으로 수렴합니다.  
 최종 일관성은 클라이언트에서 이전에 읽은 값 보다 오래 된 값을 읽을 수 있기 때문에 가장 약한 형태의 일관성입니다. 최종 일관성은 응용 프로그램에서 순서를 보장 하지 않아도 되는 경우에 적합 합니다. 예를 들면, 좋아요, 좋아요 또는 비 스레드된 주석의 개수가 포함 됩니다. 다음 그림은 악기 노트와의 최종 일관성을 보여 줍니다.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="최종 일관성의 viIllustration":::

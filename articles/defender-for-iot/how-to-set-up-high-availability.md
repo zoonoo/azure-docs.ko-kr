@@ -1,18 +1,14 @@
 ---
 title: 고가용성 설정
 description: 온-프레미스 관리 콘솔 고가용성 어플라이언스를 설치 하 여 IoT 배포용 Defender의 복원 력을 늘립니다. 고가용성 배포는 관리 되는 센서가 활성 온-프레미스 관리 콘솔에 지속적으로 보고 되도록 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: eb5f2c6293042f44de5e3c061c6d379bee6e5b06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0e09cd37fbae91d1903ca8f175c0592b567da6e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523892"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781656"
 ---
 # <a name="about-high-availability"></a>고가용성 정보
 
@@ -74,7 +70,7 @@ ms.locfileid: "100523892"
 
 조직 보안 정책을 사용 하 여 기본 및 보조 온-프레미스 관리 콘솔에서 다음 서비스에 액세스할 수 있는지 확인 해야 합니다. 이러한 서비스를 통해 센서와 보조 온-프레미스 관리 콘솔 간에 연결할 수 있습니다.
 
-|포트|서비스|설명|
+|포트|서비스|Description|
 |----|-------|-----------|
 |**443 또는 TCP**|HTTPS|온-프레미스 관리 콘솔 웹 콘솔에 대 한 액세스 권한을 부여 합니다.|
 |**22 또는 TCP**|SSH|기본 및 보조 온-프레미스 관리 콘솔 어플라이언스 간에 데이터를 동기화 합니다.|

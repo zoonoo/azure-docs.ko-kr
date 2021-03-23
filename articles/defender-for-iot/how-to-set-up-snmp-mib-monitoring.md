@@ -1,18 +1,14 @@
 ---
 title: SNMP MIB 모니터링 설정
 description: SNMP를 사용 하 여 센서 상태 모니터링을 수행할 수 있습니다. 센서는 권한 있는 모니터링 서버에서 보낸 SNMP 쿼리에 응답 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: e0ae029323d5b64288c5e61ea28a494c1106a53f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1ba52236f65c6c5daba68c67677cdc6adfb699b4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523824"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781673"
 ---
 # <a name="set-up-snmp-mib-monitoring"></a>SNMP MIB 모니터링 설정
 
@@ -24,7 +20,7 @@ SNMP 모니터링 구성을 시작 하기 전에 방화벽에서 UDP 161 포트�
 
 ## <a name="oids"></a>Oid
 
-| 관리 콘솔 및 센서 | OID | 서식 | 설명 |
+| 관리 콘솔 및 센서 | OID | 서식 | Description |
 |--|--|--|--|
 | 어플라이언스 이름 | 1.3.6.1.2.1.1.5.0 | DISPLAYSTRING | 온-프레미스 관리 콘솔의 어플라이언스 이름 |
 | Vendor | 1.3.6.1.2.1.1.4.0 | DISPLAYSTRING | Microsoft 지원 (support.microsoft.com) |
@@ -74,7 +70,7 @@ SNMP v3 상태 모니터링을 정의 하려면:
 
 4. **인증** 섹션에서 다음 매개 변수를 설정 합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | **사용자 이름** | SNMP 사용자 이름은 최대 32 문자를 포함할 수 있으며 영숫자 (대문자, 소문자 및 숫자)를 조합 하 여 포함할 수 있습니다. 공백은 허용되지 않습니다. <br /> <br />SNMP v3 인증에 대 한 사용자 이름은 시스템 및 SNMP 서버에서 구성 해야 합니다. |
     | **암호** | 대/소문자를 구분 하는 인증 암호를 입력 합니다. 인증 암호는 8 ~ 12 자의 문자를 포함할 수 있으며 영숫자 (대문자, 소문자 및 숫자)를 조합 하 여 포함할 수 있습니다. <br /> <br/>SNMP v3 인증에 대 한 사용자 이름은 시스템 및 SNMP 서버에서 구성 해야 합니다. |

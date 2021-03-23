@@ -9,13 +9,13 @@ ms.custom: ''
 ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: maghan
-ms.openlocfilehash: 77283596e4b0d7e25d757c9de76c284ca4f5d4f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.reviewer: jburchel
+ms.openlocfilehash: 8cb92407954ab5376850e57b0ee91d934480b025
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98556399"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786892"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Azure의 SSIS 패키지에서 Windows 인증으로 데이터 저장소 및 파일 공유 액세스
 
@@ -99,7 +99,7 @@ SSIS 패키지에서 Windows 인증을 사용하는 경우 한 집합의 자격 
 
 3. SSMS에서 온-프레미스 SQL Server에 연결할 수 있는지 확인합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure에서 실행 중인 패키지에서 온-프레미스 SQL Server에 액세스하려면 다음을 수행합니다.
 
@@ -126,7 +126,7 @@ Azure에서 실행 중인 패키지에서 온-프레미스 SQL Server에 액세�
 
 3. 온-프레미스 파일 공유에 대한 디렉터리 목록이 반환되는지 확인합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure에서 실행 중인 패키지에서 온-프레미스 파일 공유에 액세스하려면 다음을 수행합니다.
 

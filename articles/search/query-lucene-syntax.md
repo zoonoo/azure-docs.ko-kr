@@ -8,22 +8,22 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 0dbf418d0a673dd0799f0f638e454c484f837fd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fc3662d8198e6ab6ab215ac1e9e8eac585f4250b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97516605"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801590"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
 
 쿼리를 만들 때 특수 쿼리 형식 (와일드 카드, 유사 항목 검색, 근접 검색, 정규식)에 대해 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문을 옵트인 (opt in) 할 수 있습니다. 모든 Lucene 쿼리 파서 구문은 식을 통해 생성 되는 *범위 검색* 을 제외 하 고 [Azure Cognitive Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다 **`$filter`** . 
 
-Full Lucene 구문은 **`search`** 같은 요청에서 및 식에 사용 되는 [OData 구문과](query-odata-filter-orderby-syntax.md) 혼동 하지 않도록 [검색 문서 (REST API)](/rest/api/searchservice/search-documents) 요청의 매개 변수에 전달 된 쿼리 식에 사용 됩니다 [**`$filter`**](search-filters.md) [**`$orderby`**](search-query-odata-orderby.md) . OData 매개 변수에는 쿼리를 생성 하 고 문자열을 이스케이프 처리 하는 다양 한 구문과 규칙이 있습니다.
+Full Lucene 구문을 사용 하려면 queryType를 "full"로 설정 하 고 와일드 카드, 유사 항목 검색 또는 전체 구문에서 지 원하는 다른 쿼리 형식 중 하나에 대 한 쿼리 식 패턴을 전달 합니다. REST에서 쿼리 식은 **`search`** [검색 문서 (REST API)](/rest/api/searchservice/search-documents) 요청의 매개 변수에 제공 됩니다.
 
 ## <a name="example-full-syntax"></a>예 (전체 구문)
 
-**`queryType`** 매개 변수를 설정 하 여 전체 Lucene을 지정 합니다. 다음 예에서는 필드 내 검색 및 용어 부스트를 호출 합니다. 이 쿼리는 category 필드가 "예산" 이라는 용어를 포함 하는 호텔을 찾습니다. "최근 리모델링한" 라는 구가 포함 된 문서는 용어 상승 값 (3)의 결과 보다 더 높은 순위를 갖습니다.  
+다음 예는 전체 구문을 사용 하 여 생성 된 검색 요청입니다. 이 특정 예제에서는 현장 검색 및 용어 부스트를 보여 줍니다. Category 필드가 "예산" 이라는 용어를 포함 하는 호텔을 찾습니다. "최근 리모델링한" 라는 구가 포함 된 문서는 용어 상승 값 (3)의 결과 보다 더 높은 순위를 갖습니다.  
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
@@ -34,9 +34,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 }
 ```
 
-**`searchMode`** 매개 변수는이 예제와 관련이 있습니다. 쿼리에서 연산자를 사용할 때마다 일반적으로 `searchMode=all`을 설정하여 *모든* 조건이 일치하는지 확인해야 합니다.  
+이 예제에서는 특정 쿼리 유형과는 관련이 없지만 **`searchMode`** 매개 변수는 관련이 있습니다. 쿼리에서 연산자를 사용할 때마다 일반적으로 `searchMode=all`을 설정하여 *모든* 조건이 일치하는지 확인해야 합니다.  
 
-추가 예제는 [Lucene 쿼리 구문 예](search-query-lucene-examples.md)를 참조 하세요. 쿼리 요청 및 매개 변수에 대 한 자세한 내용은 [문서 검색 (REST API)](/rest/api/searchservice/Search-Documents)을 참조 하세요.
+추가 예제는 [Lucene 쿼리 구문 예](search-query-lucene-examples.md)를 참조 하세요. SearchMode를 비롯 한 쿼리 요청 및 매개 변수에 대 한 자세한 내용은 [문서 검색 (REST API)](/rest/api/searchservice/Search-Documents)을 참조 하세요.
 
 ## <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> 구문 기본 사항  
 
@@ -72,7 +72,7 @@ URL에서 안전하지 않은 문자 및 예약된 문자를 모두 인코딩하
 
 쿼리 문자열에 부울 연산자를 포함 하 여 일치 하는 항목의 전체 자릿수를 향상할 수 있습니다. 전체 구문은 문자 연산자 외에도 텍스트 연산자를 지원 합니다. 항상 텍스트 부울 연산자(AND, OR, NOT)는 모두 대문자로 지정합니다.
 
-|텍스트 연산자 | 문자 | 예제 | 사용량 |
+|텍스트 연산자 | 문자 | 예제 | 사용 |
 |--------------|----------- |--------|-------|
 | AND | `&`, `+` | `wifi + luxury` | 일치 항목에 포함 되어야 하는 용어를 지정 합니다. 이 예에서 쿼리 엔진은 및를 모두 포함 하는 문서를 `wifi` 찾습니다 `luxury` . 필요한 조건에는 더하기 문자 ( `+` )가 사용 됩니다. 예를 들어, `+wifi +luxury`는 두 용어가 단일 문서의 필드에 나타나야 한다고 명시합니다.|
 | 또는 | `|` | `wifi | luxury` | 용어 중 하나가 발견 될 때 일치 하는 항목을 찾습니다. 이 예제에서 쿼리 엔진은 또는 둘 다를 포함 하는 문서에 대해 일치 하는 항목을 반환 `wifi` `luxury` 합니다. OR은 기본 결합 연산자이므로 `wifi luxury`가 `wifi | luxury`와 동일한 것처럼 생략할 수도 있습니다.|
@@ -164,7 +164,7 @@ Azure Cognitive Search는 텍스트 쿼리에 대해 빈도 기반 점수 매기
 
 Azure Cognitive Search에 보낼 수 있는 쿼리 크기에는 제한이 있습니다. 특히, 최대 1024개 절(AND, OR 등으로 구분된 식)을 사용할 수 있습니다. 또한 한 쿼리의 개별 용어 크기도 약 32KB로 제한됩니다. 애플리케이션이 검색 쿼리를 프로그래밍 방식으로 생성하는 경우 쿼리가 제한 없는 크기로 생성되지 않도록 디자인하는 것이 좋습니다.  
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [단순 검색을 위한 쿼리 예제](search-query-simple-examples.md)
 + [전체 Lucene 검색에 대 한 쿼리 예제](search-query-lucene-examples.md)

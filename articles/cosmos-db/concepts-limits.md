@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/22/2021
+ms.openlocfilehash: f33490e273104105502ecc8f4f255c354a2d2f3b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98611035"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800026"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -137,7 +137,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 | --- | --- |
 | 데이터베이스 또는 컨테이너 이름의 최대 길이 | 255 |
 | 컨테이너당 최대 저장 프로시저 수 | 100 <sup>*</sup>|
-| 컨테이너당 최대 UDF 수 | 25 <sup>*</sup>|
+| 컨테이너당 최대 UDF 수 | 50 <sup>*</sup>|
 | 인덱싱 정책의 최대 경로 수| 100 <sup>*</sup>|
 | 컨테이너당 최대 고유 키 수|10 <sup>*</sup>|
 | 고유 키 제약 조건당 최대 경로 수|16 <sup>*</sup>|

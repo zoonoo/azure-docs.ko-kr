@@ -3,13 +3,13 @@ title: Azure 지원 요청을 만드는 방법
 description: 지원이 필요한 고객은 Azure Portal을 사용하여 셀프 서비스 솔루션을 찾고, 지원 요청을 만들고 관리할 수 있습니다.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100652397"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774877"
 ---
 # <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
 
@@ -42,7 +42,7 @@ Azure Portal에서 **도움말 + 지원** 으로 이동할 수 있습니다. Azu
 
 Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수행합니다.
 
-1. 글로벌 헤더에서 **?** 를 선택합니다. 그런 다음, **도움말 + 지원** 을 선택합니다.
+1. 글로벌 헤더에서 **?** 를 전역 헤더에서 **도움말 + 지원** 을 선택 합니다.
 
    ![도움말 및 지원](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -52,7 +52,7 @@ Azure Portal의 어디에서나 지원 요청을 시작하려면 다음을 수�
 
 ### <a name="go-to-help--support-from-a-resource-menu"></a>리소스 메뉴에서 도움말 + 지원으로 이동
 
-리소스의 컨텍스트에서 지원 요청을 시작하기 위해 현재 다음 작업을 수행하고 있습니다.
+현재 작업 중인 리소스의 컨텍스트에서 지원 요청을 시작 하려면 다음을 수행 합니다.
 
 1. 리소스 메뉴의 **지원 + 문제 해결** 섹션에서 **새 지원 요청** 을 선택합니다.
 

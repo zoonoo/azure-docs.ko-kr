@@ -1,15 +1,15 @@
 ---
 title: Azure 대시보드에서 사용자 지정 markdown 타일 사용
 description: Azure 대시보드에 markdown 타일을 추가하여 정적 콘텐츠를 표시하는 방법을 알아봅니다.
-ms.date: 01/08/2020
+ms.date: 03/19/2021
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.openlocfilehash: 5121142ecf568aa1ac9a7ec19f7211c6f9a6253f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8324b736565cfa353e48cf49b76e2784866f47f7
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745760"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774459"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Azure 대시보드에서 markdown 타일을 사용하여 사용자 지정 콘텐츠 표시
 
@@ -21,7 +21,7 @@ Azure 대시보드에 markdown 타일을 추가하여 사용자 지정 정적 �
 
    ![포털 사이드바를 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. 사용자 지정 대시보드를 만든 경우 대시보드 보기에서 드롭다운을 사용하여 사용자 지정 markdown 타일이 표시되는 대시보드를 선택합니다. 편집 아이콘을 선택하여 **타일 갤러리** 를 엽니다.
+1. 대시보드 보기에서 사용자 지정 markdown 타일이 표시 되는 대시보드를 선택 하 고 **편집** 을 선택 합니다.
 
    ![대시보드 편집 보기를 보여 주는 스크린샷](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
@@ -52,9 +52,9 @@ Azure 대시보드에 markdown 타일을 추가하여 사용자 지정 정적 �
 
 markdown 타일에서는 일반 텍스트, markdown 구문 및 HTML 콘텐츠의 모든 조합을 사용할 수 있습니다. Azure Portal에서 _marked_ 라는 오픈 소스 라이브러리를 사용하여 콘텐츠를 타일에 표시되는 HTML로 변환합니다. _marked_ 에서 생성된 HTML은 렌더링되기 전에 포털에서 전처리됩니다. 이 단계는 사용자 지정이 포털의 보안 또는 레이아웃에 영향을 주지 않도록 하는 데 도움이 됩니다. 전처리 중에 잠재적인 위협이 되는 HTML 부분이 모두 제거됩니다. 포털에서 허용되지 않는 콘텐츠 형식은 다음과 같습니다.
 
-* JavaScript – `<script>` 태그와 인라인 JavaScript 평가가 제거됩니다.
-* iframes - `<iframe>` 태그가 제거됩니다.
-* Style - `<style>` 태그가 제거됩니다. HTML 요소의 인라인 스타일 특성은 공식적으로 지원되지 않습니다. 일부 인라인 스타일 요소는 사용자에게 적합하지만 포털의 레이아웃에 방해가 되면 언제든지 작동을 중지할 수 있습니다. markdown 타일은 포털의 기본 스타일을 사용하는 기본 정적 콘텐츠를 위한 것입니다.
+* JavaScript – `<script>` 태그 및 인라인 JavaScript 평가가 제거 됩니다.
+* iframe- `<iframe>` 태그가 제거 됩니다.
+* 스타일 `<style>` 태그가 제거 됩니다. HTML 요소의 인라인 스타일 특성은 공식적으로 지원되지 않습니다. 일부 인라인 스타일 요소는 사용자에게 적합하지만 포털의 레이아웃에 방해가 되면 언제든지 작동을 중지할 수 있습니다. markdown 타일은 포털의 기본 스타일을 사용하는 기본 정적 콘텐츠를 위한 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

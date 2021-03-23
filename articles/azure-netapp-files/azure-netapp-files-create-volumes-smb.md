@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 91f4f90658281282cdcb01b091bd9c9647d8d702
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a8de9b373a14eab45df28b28bb3f94314c1d89a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100635492"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801090"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -89,8 +89,32 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
     * 볼륨의 프로토콜 유형으로 **SMB** 를 선택합니다. 
     * 드롭다운 목록에서 **Active Directory** 연결을 선택합니다.
     * **공유 이름** 에 공유 볼륨의 이름을 지정합니다.
+    * SMB 볼륨에 대 한 지속적인 가용성을 사용 하도록 설정 하려면 **지속적인 가용성 사용** 을 선택 합니다.    
 
-    ![SMB 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
+        > [!IMPORTANT]   
+        > SMB 지속적인 가용성 기능은 현재 공개 미리 보기로 제공 됩니다. **[AZURE NETAPP FILES SMB 연속 가용성 공유 공개 미리 보기 waitlist 제출 페이지](https://aka.ms/anfsmbcasharespreviewsignup)** 를 통해 기능에 액세스 하기 위한 waitlist 요청을 제출 해야 합니다. 지속적인 가용성 기능을 사용 하기 전에 Azure NetApp Files 팀의 공식 확인 전자 메일을 기다리십시오.   
+        > 
+        > SQL 작업에 대해서만 지속적인 가용성을 사용 하도록 설정 해야 합니다. SQL Server 이외의 작업에 SMB 연속 가용성 공유를 사용 하는 것은 지원 *되지 않습니다* . 이 기능은 현재 Windows SQL Server에서 지원 됩니다. Linux SQL Server 현재 지원 되지 않습니다. 비관리자 (도메인) 계정을 사용 하 여 SQL Server를 설치 하는 경우 계정에 필요한 보안 권한이 할당 되어 있는지 확인 합니다. 도메인 계정에 필요한 보안 권한 ()이 없고 `SeSecurityPrivilege` 도메인 수준에서 권한을 설정할 수 없는 경우 Active Directory 연결의 **보안 권한 사용자** 필드를 사용 하 여 계정에 권한을 부여할 수 있습니다. [Active Directory 연결 만들기](create-active-directory-connections.md#create-an-active-directory-connection)를 참조 하세요.
+
+    <!-- [1/13/21] Commenting out command-based steps below, because the plan is to use form-based (URL) registration, similar to CRR feature registration -->
+    <!-- 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBCAShare
+        ```
+        
+        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+    --> 
+
+    ![SMB 볼륨 만들기의 프로토콜 탭을 설명 하는 스크린샷](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
 5. **검토 + 만들기** 를 클릭하여 볼륨 정보를 검토합니다.  그런 다음, **만들기** 를 클릭하여 SMB 볼륨을 만듭니다.
 

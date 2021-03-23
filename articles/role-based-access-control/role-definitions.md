@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: ''
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/18/2021
+ms.date: 03/22/2021
 ms.author: rolyon
-ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5b2ec3289d187997763ee0d9280a777d4fa1f396
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98602458"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801760"
 ---
 # <a name="understand-azure-role-definitions"></a>Azure 역할 정의 이해
 
@@ -63,7 +59,7 @@ assignableScopes []
 | 속성 | 설명 |
 | --- | --- |
 | `Name`</br>`roleName` | 역할의 표시 이름입니다. |
-| `Id`</br>`name` | 역할의 고유 ID입니다. |
+| `Id`</br>`name` | 역할의 고유 ID입니다. 기본 제공 역할은 여러 클라우드에서 동일한 역할 ID를 가집니다. |
 | `IsCustom`</br>`roleType` | 사용자 지정 역할인지 여부를 나타냅니다. `true` `CustomRole` 사용자 지정 역할에 대해 또는로 설정 합니다. `false` `BuiltInRole` 기본 제공 역할에 대해 또는로 설정 합니다. |
 | `Description`</br>`description` | 역할에 대 한 설명입니다. |
 | `Actions`</br>`actions` | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. |

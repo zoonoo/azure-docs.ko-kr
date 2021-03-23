@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eb468dba1156087bdeb6086f5bc24b214e576e18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199707"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773303"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -267,7 +267,7 @@ UPN 변경은 Windows 10 2004 업데이트에서 지원 됩니다. 이 업데이
 
 **A:** 사용자가 도메인에 가입 된 장치의 앱에 계정을 추가 하는 경우 **Windows에 계정 추가** 메시지가 표시 될 수 있습니다. 사용자가 프롬프트에서 **예** 를 입력하면 디바이스가 Azure AD에 등록됩니다. 신뢰 유형은 Azure AD 등록으로 표시됩니다. 조직에서 하이브리드 Azure AD 조인을 사용하도록 설정하면 디바이스도 하이브리드 Azure AD에 조인됩니다. 동일한 디바이스에 대한 두 가지 디바이스 상태가 표시됩니다. 
 
-하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 장치는 모든 인증 및 조건부 액세스 평가를 위해 하이브리드 Azure AD에 조인 된 것으로 간주 됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](hybrid-azuread-join-plan.md#review-things-you-should-know)을 알아보세요. 
+대부분의 경우 하이브리드 Azure AD 조인이 Azure AD 등록 된 상태 보다 우선적으로 적용 되므로 모든 인증 및 조건부 액세스 평가를 위해 장치가 하이브리드 Azure AD에 조인 된 것으로 간주 됩니다. 그러나이 이중 상태를 사용 하 여 장치를 명확 하 게 평가 하 고 액세스 문제를 일으킬 수 있습니다. Azure AD 등록 상태를 자동으로 정리 하는 Windows 10 버전 1803 이상으로 업그레이드 하는 것이 좋습니다. [Windows 10 컴퓨터에서이 이중 상태를 피하고 정리](hybrid-azuread-join-plan.md#review-things-you-should-know)하는 방법에 대해 알아봅니다. 
 
 ---
 

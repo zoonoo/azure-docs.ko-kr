@@ -1,20 +1,16 @@
 ---
-title: 경고 정보 보기
+title: 경고 메시지 정보
 description: 경고 창에서 경고를 선택 하 여 세부 정보를 검토 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 12/03/2020
+ms.date: 3/21/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 804cdbd6266f2e77b5562d914bac089fce80f645
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fa2b265c7d3983ca6ae2d7507392dd37afabd27
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523586"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781486"
 ---
-# <a name="view-information-in-alerts"></a>경고 정보 보기
+# <a name="about-alert-messages"></a>경고 메시지 정보
 
 **경고 창에서** 경고를 선택 하 여 경고 세부 정보를 검토 합니다. 세부 정보에는 다음 정보가 포함 됩니다.
 

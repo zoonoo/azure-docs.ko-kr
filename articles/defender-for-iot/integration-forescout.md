@@ -1,19 +1,14 @@
 ---
 title: Forescout 통합 정보
-titleSuffix: Azure Defender for IoT
 description: Forescout 플랫폼과의 IoT 용 Azure Defender 통합은 IoT 및 OT의 중앙 집중화 된 가시성, 모니터링 및 제어를 제공 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: faa53c770d0d6caac471e770c80b4dfd5c5ff603
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07e5187970d193502b95b49c5517a8e3824767be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558028"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784070"
 ---
 # <a name="about-the-forescout-integration"></a>Forescout 통합 정보
 
@@ -140,13 +135,13 @@ IoT 및 Forescout 용 Defender를 구성한 후에는 IoT 용 Defender에서 센
 
 1. **CyberX 플랫폼** 으로 이동 합니다. IoT 용 Defender에서 감지한 장치에 대해 다음과 같은 장치 특성이 표시 됩니다.
 
-   | 항목 | 설명 |
+   | 항목 | Description |
    |--|--|
    | IoT 용 Azure Defender에서 권한 부여 | 네트워크 학습 기간 동안 IoT 용 Defender에서 네트워크에서 검색 된 장치입니다. |
    | 펌웨어 | 장치의 펌웨어 세부 정보입니다. 예를 들어, 모델 및 버전 정보를 참조 하세요. |
    | Name | 서버의 이름입니다. |
    | 운영 체제 | 장치의 운영 체제입니다. |
-   | Type | 디바이스의 유형입니다. 예를 들어 PLC, Historian 또는 엔지니어링 스테이션이 있습니다. |
+   | 유형 | 디바이스의 유형입니다. 예를 들어 PLC, Historian 또는 엔지니어링 스테이션이 있습니다. |
    | Vendor | 장치의 공급 업체입니다. 예: Rockwell Automation. |
    | 위험 수준 | IoT 용 Defender에서 계산 된 위험 수준입니다. |
    | 프로토콜 | 장치에 의해 생성 된 트래픽에 검색 된 프로토콜입니다. |

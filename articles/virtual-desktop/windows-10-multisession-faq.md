@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c03d3f9769aec0736d23f18372701e08ad93dac
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631883"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802797"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -33,9 +33,13 @@ Windows 10 Enterprise 다중 세션은 Windows 10 Enterprise의 가상 버전입
 
 Windows 10 Enterprise 다중 세션은 Azure 용 Windows 가상 데스크톱 서비스에 최적화 되어 있으므로 온-프레미스 프로덕션 환경에서 실행할 수 없습니다. 프로덕션 목적으로 Azure 외부에서 Windows 10 Enterprise 다중 세션을 실행 하는 것은 사용권 계약에 대 한 것입니다. Windows 10 Enterprise 다중 세션은 온-프레미스 KMS (키 관리 서비스)에 대해 활성화 되지 않습니다.
 
+## <a name="can-i-upgrade-a-windows-10-vm-to-windows-10-enterprise-multi-session"></a>Windows 10 VM을 Windows 10 Enterprise 다중 세션으로 업그레이드할 수 있나요?
+
+아니요. 현재 Windows 10 Professional 또는 Enterprise를 실행 하는 기존 VM (가상 머신)을 Windows 10 Enterprise 다중 세션으로 업그레이드할 수는 없습니다. 또한 Windows 10 Enterprise 다중 세션 VM을 배포 하 고 제품 키를 다른 버전으로 업데이트 하는 경우에는 VM을 다시 Windows 10 Enterprise 다중 세션으로 전환할 수 없으며 VM을 다시 배포 해야 합니다.
+
 ## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>내 조직에 대 한 Windows 10 Enterprise 다중 세션 이미지를 사용자 지정 어떻게 할까요?
 
-Windows 10 Windows 10 Enterprise 다중 세션을 사용 하 여 Azure에서 VM (가상 머신)을 시작 하 고 LOB 응용 프로그램, sysprep/일반화를 설치 하 여 사용자 지정 하 고 Azure Portal를 사용 하 여 이미지를 만들 수 있습니다.
+Windows 10 Windows 10 Enterprise 다중 세션을 사용 하 여 Azure에서 VM을 시작 하 고, LOB 응용 프로그램, sysprep/일반화를 설치 하 여 사용자 지정 하 고, Azure Portal를 사용 하 여 이미지를 만들 수 있습니다.
 
 시작 하려면 Windows 10 Enterprise 다중 세션을 사용 하 여 Azure에서 VM을 만듭니다. Azure에서 VM을 시작 하는 대신 VHD를 직접 다운로드할 수 있습니다. 그런 다음 다운로드 한 VHD를 사용 하 여 Hyper-v를 사용 하는 Windows 10 PC에서 새 1 세대 VM을 만들 수 있습니다.
 

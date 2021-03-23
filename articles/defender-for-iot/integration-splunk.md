@@ -1,19 +1,14 @@
 ---
 title: Splunk 통합 정보
-titleSuffix: Azure Defender for IoT
 description: 네트워크의 보안 및 복원 력을 파악 하지 못하는 IoT 용 Defender는 iot 용 defender, IIoT 및 Splunk 용 ICS 위협 모니터링 응용 프로그램을 개발한 iot 용 defender와 Splunk에 대 한 통합 된 접근 방식을 사용 하도록 설정 하는에 대 한 기본 통합입니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 91d877d644b4b5ca7231f5f81f9163a0fd3cbe25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 28bdc6deaac09d795c45460bb211126a105b80c8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98557988"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785923"
 ---
 # <a name="defender-for-iot-and-ics-threat-monitoring-application-for-splunk"></a>IoT 용 Defender 및 ICS 위협 모니터링 응용 프로그램 Splunk
 
@@ -152,13 +147,13 @@ IoT *전달 규칙* 에 Defender를 사용 하 여 Splunk 서버에 경고 정�
 
     :::image type="content" source="media/integration-splunk/forwarding-rule.png" alt-text="전달 규칙에 대 한 규칙을 만듭니다.":::
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | **이름** | 전달 규칙 이름입니다. |
     | **심각도 선택** | 최소한의 보안 수준 인시던트를 전달 합니다. 예를 들어 Minor를 선택 하면이 심각도 수준 위의 사소한 경고 및 경고가 전달 됩니다. |
     | **프로토콜** | 기본적으로 모든 프로토콜이 선택 됩니다. 특정 프로토콜을 선택 하려면 **특정** 을 선택 하 고이 규칙이 적용 되는 프로토콜을 선택 합니다. |
     | **엔진** | 기본적으로 모든 보안 엔진이 포함 됩니다. 이 규칙이 적용 되는 특정 보안 엔진을 선택 하려면 **특정** 을 선택 하 고 엔진을 선택 합니다. |
-    | **시스템 알림** | 센서 온라인/오프 라인 상태를 전달 합니다. 이 옵션은 중앙 관리자에 로그인 한 경우에만 사용할 수 있습니다. |                                            |
+    | **시스템 알림** | 센서 온라인/오프 라인 상태를 전달 합니다. 이 옵션은 중앙 관리자에 로그인 한 경우에만 사용할 수 있습니다. |
 
 1. IoT에서 자산 정보를 Splunk으로 보내도록 지시 하려면 **작업** 을 선택한 다음 **Splunk 서버에 보내기를** 선택 합니다.
 
@@ -166,7 +161,7 @@ IoT *전달 규칙* 에 Defender를 사용 하 여 Splunk 서버에 경고 정�
 
     :::image type="content" source="media/integration-splunk/parameters.png" alt-text="이 화면에 입력 해야 하는 Splunk 매개 변수입니다.":::
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | **Host** | Splunk 서버 주소 |
     | **포트** | 8089 |

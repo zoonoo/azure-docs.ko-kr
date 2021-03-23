@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b435547d7cd3b0fab781cc6cf3b617b13ac1120a
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: a03eac3969e8918c8da20b90d0dcf8b60b39b8ee
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774697"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800842"
 ---
 # <a name="hbv3-series"></a>HBv3 시리즈
 
@@ -41,7 +41,7 @@ HBv3 시리즈 Vm은 유체 dynamics, 명시적 및 암시적 유한 요소 분�
 에 대해 자세히 알아보세요.
 - [아키텍처 및 VM 토폴로지](./workloads/hpc/hbv3-series-overview.md)
 - 지원 되는 OS를 포함 하 여 지원 되는 [소프트웨어 스택](./workloads/hpc/hbv3-series-overview.md#software-specifications)
-- HBv3 시리즈 VM의 예상 [성능](./workloads/hpc/hbv3-performance.md) 입니다.
+- HBv3 시리즈 VM의 예상 [성능](./workloads/hpc/hbv3-performance.md)
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

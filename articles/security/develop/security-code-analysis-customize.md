@@ -5,7 +5,7 @@ description: 이 문서에서는 Microsoft 보안 코드 분석 확장에서 작
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -13,14 +13,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4016e1dd055b45f9cd59a172d0e71ef95fec1c40
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad395e1b782edb28845bb7db0607d2bab5b5697c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008687"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802015"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
+
+> [!Note]
+> 2022 년 3 월 1 일부 터 MSCA (Microsoft 보안 코드 분석) 확장이 사용 중지 됩니다. 기존 MSCA 고객은 2022 년 3 월 1 일부 터 MSCA에 대 한 액세스를 유지 합니다. Azure DevOps의 대체 옵션은 [OWASP 소스 코드 분석 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools) 를 참조 하세요. GitHub로 마이그레이션을 계획 하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인할 수 있습니다.
 
 이 문서에서는 각 빌드 작업에서 사용할 수 있는 구성 옵션에 대해 자세히 설명 합니다. 이 문서는 보안 코드 분석 도구에 대 한 작업으로 시작 합니다. 사후 처리 작업으로 끝납니다.
 

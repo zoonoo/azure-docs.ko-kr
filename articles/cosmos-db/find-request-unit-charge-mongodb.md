@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201323"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801828"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>MongoDB 용 Azure Cosmos DB API에서 실행 된 작업에 대 한 요청 단위 요금을 찾습니다.
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,13 +34,17 @@ RU 요금은 `getLastRequestStatistics`라는 사용자 지정 [데이터베이�
 
 1. **Data Explorer** 창으로 이동한 다음, 작업할 컨테이너를 선택합니다.
 
-1. **새 쿼리** 를 선택합니다.
+1. 컨테이너 이름 **옆의 ...를 선택** 하 고 **새 쿼리** 를 선택 합니다.
 
 1. 유효한 쿼리를 입력한 다음, **쿼리 실행** 을 선택합니다.
 
-1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다.
+1. **쿼리 통계** 를 선택하여 방금 실행한 요청의 실제 요청 요금을 표시합니다. 이 쿼리 편집기를 사용 하 여 쿼리 조건자에 대 한 요청 단위 요금 청구를 실행 하 고 볼 수 있습니다. Insert 문과 같은 데이터 조작 명령에는이 편집기를 사용할 수 없습니다.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure Portal의 MongoDB 쿼리 요청 요금 스크린샷":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Azure Portal의 MongoDB 쿼리 요청 요금 스크린샷":::
+
+1. 데이터 조작 명령에 대 한 요청 요금을 얻으려면 `getLastRequestStatistics` Mongo shell, [Robo 3t](mongodb-robomongo.md), [MongoDB 나침반](mongodb-compass.md)또는 셸 스크립팅을 사용 하는 VS Code 확장 등의 셸 기반 UI에서 명령을 실행 합니다.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>MongoDB .NET 드라이버 사용
 

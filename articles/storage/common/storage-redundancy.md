@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7ecf3d23f745d9281008433eee471c14c7afe337
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726839"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802202"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -32,6 +32,9 @@ Azure Storage 계정의 데이터는 항상 기본 지역에서 세 번 복제�
 
 - **LRS(로컬 중복 저장소)** 는 기본 지역의 단일 물리적 위치 내에서 데이터를 동기적으로 세 번 복사합니다. LRS는 가장 저렴한 복제 옵션이지만 고가용성이 필요한 응용 프로그램에는 권장되지 않습니다.
 - **ZRS(영역 중복 저장소)** 는 기본 지역에 있는 3개의 Azure 가용성 영역에서 데이터를 동기적으로 복사합니다. 고가용성이 필요한 응용 프로그램의 경우 Microsoft는 기본 지역에서 ZRS를 사용하고 보조 지역에도 복제하는 것을 권장합니다.
+
+> [!NOTE]
+> Azure Data Lake Storage Gen2 워크 로드의 경우 주 지역에서 ZRS를 사용 하는 것이 좋습니다.
 
 ### <a name="locally-redundant-storage"></a>LRS(로컬 중복 스토리지)
 

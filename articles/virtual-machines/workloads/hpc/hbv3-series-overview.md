@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1abd03f517f9e0b13a2994418cbae5cfbe22454
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721180"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801872"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>HBv3 시리즈 가상 머신 개요 
 
@@ -32,6 +32,9 @@ L3 as NUMA = Disabled
 Azure 하이퍼바이저가 VM을 방해 하지 않고 작동할 수 있는 공간을 제공 하기 위해 서버당 8 개의 실제 코어를 예약 합니다. 
 
 제약 된 코어 VM 크기는 VM에 노출 되는 실제 코어의 수를 줄입니다. 모든 전역 공유 자산 (RAM, 메모리 대역폭, L3 캐시, GMI 및 xGMI 연결, InfiniBand, Azure 이더넷 네트워크, 로컬 SSD)은 일정 하 게 유지 됩니다. 이를 통해 고객은 지정 된 워크 로드 또는 소프트웨어 라이선스 요구 사항 집합에 가장 적합 한 VM 크기를 선택할 수 있습니다.
+
+다음 다이어그램에서는 Azure 하이퍼바이저 (노랑) 및 HBv3 시리즈 VM (녹색) 용으로 예약 된 코어의 분리 보여 줍니다.
+![Azure 하이퍼바이저 및 HBv3 시리즈 VM 용으로 예약 된 코어 분리](./media/architecture/hbv3-segregation-cores.png)
 
 ## <a name="infiniband-networking"></a>InfiniBand 네트워킹
 HBv3 Vm은 200 기가 비트/sec로 작동 하는 Nvidia Mellanox HDR InfiniBand 네트워크 어댑터 (Connectx-3)도 작동 합니다. NIC는 SRIOV을 통해 VM으로 전달 되어 네트워크 트래픽이 하이퍼바이저를 우회 하도록 합니다. 따라서 고객은 운영 체제 미 설치 환경 처럼 HBv3 Vm에서 표준 Mellanox OFED 드라이버를 로드 합니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: db42e59011a68c78d30fed6b66e5c76e0a28f472
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 6978c8588b877c065a78bfd6e99a01f9f75066f3
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774748"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800859"
 ---
 # <a name="hbv2-series"></a>HBv2 시리즈
 
@@ -37,7 +37,7 @@ HBv2 시리즈 Vm 기능 200 g b/초 Mellanox HDR InfiniBand. 이러한 Vm은 �
 에 대해 자세히 알아보세요.
 - [아키텍처 및 VM 토폴로지](./workloads/hpc/hbv2-series-overview.md)
 - 지원 되는 OS를 포함 하 여 지원 되는 [소프트웨어 스택](./workloads/hpc/hbv2-series-overview.md#software-specifications)
-- HBv2 시리즈 VM의 예상 [성능](./workloads/hpc/hbv2-performance.md) 입니다.
+- HBv2 시리즈 VM의 예상 [성능](./workloads/hpc/hbv2-performance.md)
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

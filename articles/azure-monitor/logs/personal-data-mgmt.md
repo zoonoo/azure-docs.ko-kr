@@ -5,21 +5,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: ff6d532d3c391ffecfbfb54a761c73ff24c823d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 03c4babc8fa70c951d80b720c4d4693968011532
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040263"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772266"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
 Log Analytics는 개인 데이터를 찾을 수 있는 데이터 저장소입니다. Application Insights는 해당 데이터를 Log Analytics 파티션에 저장합니다. 이 문서에서는 Log Analytics 및 Application Insights에서 일반적으로 이러한 데이터가 발견되는 위치와 이러한 데이터를 처리하는 데 사용할 수 있는 기능에 대해 설명합니다.
 
 > [!NOTE]
-> 이 문서의 목적을 위해, _로그 데이터_ 는 Log Analytics 작업 영역으로 전송된 데이터를 가리키고, _애플리케이션 데이터_ 는 Application Insights에 의해 수집된 데이터를 가리킵니다.
+> 이 문서의 목적을 위해, _로그 데이터_ 는 Log Analytics 작업 영역으로 전송된 데이터를 가리키고, _애플리케이션 데이터_ 는 Application Insights에 의해 수집된 데이터를 가리킵니다. 작업 영역 기반 Application Insights 리소스를 사용 하는 경우 로그 데이터에 대 한 정보가 적용 되지만 클래식 Application Insights 리소스를 사용 하는 경우 응용 프로그램 데이터가 적용 됩니다.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="strategy-for-personal-data-handling"></a>개인 데이터 처리 전략
 
@@ -27,7 +28,7 @@ Log Analytics는 개인 데이터를 찾을 수 있는 데이터 저장소입니
 
 * 가능한 경우 데이터를 수집 중지, 난독 처리, 익명화하거나, 그렇지 않으면 수집 중인 데이터를 "프라이빗"으로 간주되지 않도록 조정합니다. 이는 _훨씬_ 선호되는 방법이므로 비용이 많이 들고 영향력 있는 데이터 처리 전략을 만들 필요가 없습니다.
 * 가능하지 않은 경우 데이터를 정규화하여 데이터 플랫폼 및 성능에 미치는 영향을 줄입니다. 예를 들어 명시적 사용자 ID를 로깅하는 대신 사용자 이름과 해당 세부 정보를 다른 곳에 기록할 수 있는 내부 ID와 상관 관계가 있는 조회 데이터를 만듭니다. 이렇게 하면 사용자 중 한 명이 자신의 개인 정보를 삭제하도록 요청하면 사용자에게 해당하는 조회 테이블에서 해당 행만 삭제하는 것으로 충분할 수 있습니다. 
-* 마지막으로 프라이빗 데이터를 수집해야 하는 경우 제거 API 경로 및 기존 쿼리 API 경로 주변의 프로세스를 빌드하여 사용자와 연결된 프라이빗 데이터를 내보내고 삭제해야 하는 모든 의무를 충족시킵니다. 
+* 마지막으로 프라이빗 데이터를 수집해야 하는 경우 제거 API 경로 및 기존 쿼리 API 경로 주변의 프로세스를 빌드하여 사용자와 연결된 프라이빗 데이터를 내보내고 삭제해야 하는 모든 의무를 충족시킵니다.
 
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Log Analytics에서 프라이빗 데이터를 찾는 위치
 

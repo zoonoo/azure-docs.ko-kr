@@ -5,12 +5,12 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
-ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96008279"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800162"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -79,6 +79,7 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 
 ### <a name="cluster-health-policy"></a>클러스터 상태 정책
 [클러스터 상태 정책](/dotnet/api/system.fabric.health.clusterhealthpolicy) 은 클러스터 성능 상태 및 노드 성능 상태를 평가하는 데 사용됩니다. 이 정책은 클러스터 매니페스트에서 정의할 수 있습니다. 없는 경우는 기본 정책(0 허용 실패)이 사용됩니다.
+
 클러스터 상태 정책은 다음과 같습니다.
 
 * [ConsiderWarningAsError](/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
@@ -87,18 +88,33 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 * [ApplicationTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). 클러스터 상태를 평가하는 동안 애플리케이션 유형 상태 정책 맵을 사용하여 특수 애플리케이션 유형을 설명할 수 있습니다. 기본적으로 모든 애플리케이션은 풀에 배치되고 MaxPercentUnhealthyApplications를 사용하여 평가됩니다. 일부 애플리케이션 유형을 다르게 처리해야 하는 경우, 전역 풀에서 꺼낼 수 있습니다. 대신, 맵 내의 해당 애플리케이션 유형 이름과 연결된 백분율에 대해 평가됩니다. 예를 들어 클러스터에는 다양한 유형의 애플리케이션 수천 개와 특수 애플리케이션 유형의 제어 애플리케이션 인스턴스가 약간 있습니다. 제어 애플리케이션은 절대 오류가 발생하면 안 됩니다. 일부 실패를 허용하도록 전체 MaxPercentUnhealthyApplications를 20%로 설정할 수 있지만, 애플리케이션 유형 "ControlApplicationType"의 경우에는 MaxPercentUnhealthyApplications를 0으로 설정해야 합니다. 이러한 방식으로, 여러 애플리케이션 중 일부가 비정상 상태이더라도 전체 비정상 비율보다 낮으면 클러스터가 경고로 평가됩니다. 경고 상태는 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 기타 모니터링에 영향을 주지 않습니다. 그러나 한 가지 응용 프로그램 응용 프로그램에서 오류가 발생 하는 경우에도 클러스터를 비정상으로 만들 수 있습니다. 그러면 업그레이드 구성에 따라 클러스터 업그레이드를 트리거하고 일시 중지 합니다.
   맵에 정의된 애플리케이션 유형의 경우 모든 애플리케이션 인스턴스를 애플리케이션 전체 풀에서 가져옵니다. 이러한 애플리케이션은 맵의 특정 MaxPercentUnhealthyApplications를 사용하여 총 애플리케이션 수를 기반으로 평가됩니다. 나머지 애플리케이션은 전체 풀에 남아 있으며 MaxPercentUnhealthyApplications를 사용하여 평가됩니다.
 
-다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 애플리케이션 유형 맵에 항목을 정의하려면 매개 변수 이름 앞에 "ApplicationTypeMaxPercentUnhealthyApplications-"를 붙이고 그 뒤에 애플리케이션 유형 이름을 붙이면 됩니다.
+  다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 애플리케이션 유형 맵에 항목을 정의하려면 매개 변수 이름 앞에 "ApplicationTypeMaxPercentUnhealthyApplications-"를 붙이고 그 뒤에 애플리케이션 유형 이름을 붙이면 됩니다.
 
-```xml
-<FabricSettings>
-  <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
-    <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
-  </Section>
-</FabricSettings>
-```
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="ApplicationTypeMaxPercentUnhealthyApplications-ControlApplicationType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
+
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). 노드 유형 상태 정책 맵은 클러스터 상태 평가 중에 특수 노드 유형을 설명 하는 데 사용할 수 있습니다. 노드 유형은 맵의 노드 유형 이름과 연결 된 백분율에 대해 평가 됩니다. 이 값을 설정 해도에 사용 되는 노드의 전역 풀에는 영향을 주지 않습니다 `MaxPercentUnhealthyNodes` . 예를 들어 클러스터에는 다양 한 유형의 여러 노드가 있고 중요 한 작업을 호스트 하는 몇 가지 노드 유형이 있습니다. 해당 형식의 노드는 다운 되지 않습니다. 전역 `MaxPercentUnhealthyNodes` 에서 20%를 지정 하 여 모든 노드에 대 한 일부 실패를 허용할 수 있지만 노드 형식에 대해을 `SpecialNodeType` `MaxPercentUnhealthyNodes` 0으로 설정 합니다. 이러한 방식으로 많은 노드 중 일부가 비정상 이지만 전역 비정상 비율 보다 낮은 경우 클러스터는 경고 성능 상태에 있는 것으로 평가 됩니다. 경고 상태가 클러스터 업그레이드 또는 오류 상태에 의해 트리거되는 다른 모니터링에 영향을 주지 않습니다. 그러나 `SpecialNodeType` 오류 상태에 있는 형식의 한 노드가 클러스터를 비정상으로 만들고, 업그레이드 구성에 따라 롤백 또는 클러스터 업그레이드 일시 중지를 트리거합니다. 반대로, 글로벌를 0으로 설정 `MaxPercentUnhealthyNodes` 하 고 `SpecialNodeType` 오류 상태에 있는 최대 백분율 비정상 노드를 100로 설정 하는 `SpecialNodeType` 것은 글로벌 제한이이 경우에도 더 엄격 하므로 클러스터를 오류 상태로 전환 합니다. 
+
+  다음 예제는 클러스터 매니페스트에서 발췌한 내용입니다. 노드 형식 맵에서 항목을 정의 하려면 매개 변수 이름 앞에 "NodeTypeMaxPercentUnhealthyNodes-"을 붙이고 그 뒤에 노드 형식 이름을 붙입니다.
+
+  ```xml
+  <FabricSettings>
+    <Section Name="HealthManager/ClusterHealthPolicy">
+      <Parameter Name="ConsiderWarningAsError" Value="False" />
+      <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+      <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+      <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+    </Section>
+  </FabricSettings>
+  ```
 
 ### <a name="application-health-policy"></a>애플리케이션 상태 정책
 [애플리케이션 상태 정책](/dotnet/api/system.fabric.health.applicationhealthpolicy)은 애플리케이션 및 해당 자식에 대해 이벤트 및 하위 상태 집계의 평가를 수행하는 방법을 설명합니다. 애플리케이션 패키지의 애플리케이션 매니페스트 **ApplicationManifest.xml** 에서 정의할 수 있습니다. 정책을 지정하지 않으면 상태 보고가 있거나 자식이 경고 또는 오류 성능 상태인 경우 서비스 패브릭에서 해당 엔터티를 비정상으로 가정합니다.

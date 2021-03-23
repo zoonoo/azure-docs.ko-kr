@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/18/2020
+ms.date: 03/22/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 079dcdc9d1667809779489c5d1126bc85cafb881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fa9861dd1ffbdd33f59abe76c7ebbd1befe3e7a6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96511342"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799431"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
@@ -110,11 +110,7 @@ Azure AD 역할을 가정해 야 하는 경우 Privileged Identity Management에
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 
-Privileged Identity Management에서 역할을 활성화할 때 활성화는 권한 있는 역할이 필요한 모든 포털에 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 정품 인증이 지연 되는 경우 다음 작업을 수행 해야 합니다.
-
-1. Azure Portal에서 로그아웃한 다음, 다시 로그인합니다.
-
-1. Privileged Identity Management에서 역할의 멤버로 나열 되어 있는지 확인 합니다.
+Privileged Identity Management에서 역할을 활성화할 때 활성화는 권한 있는 역할이 필요한 모든 포털에 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 활성화가 지연 되 면 포털에서 로그 아웃 하 고 작업을 수행한 다음 다시 로그인 합니다. Azure Portal에서 PIM은 자동으로 로그인 하 고 다시 로그인 합니다.
 
 # <a name="previous-version"></a>[이전 버전](#tab/previous)
 
@@ -216,13 +212,7 @@ Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 
-Privileged Identity Management에서 역할을 활성화할 때 활성화는 권한 있는 역할이 필요한 모든 포털에 즉시 전파 되지 않을 수 있습니다. 경우에 따라 변경 내용이 전파되더라도 포털의 웹 캐싱 때문에 변경 내용이 즉시 적용되지 않을 수 있습니다. 정품 인증이 지연 되는 경우 다음 작업을 수행 해야 합니다.
-
-1. Azure Portal에서 로그아웃한 다음, 다시 로그인합니다.
-
-    Azure AD 역할을 활성화 하면 활성화 단계가 표시 됩니다. 모든 단계가 완료되면 **로그아웃** 링크가 표시됩니다. 이 링크를 사용 하 여 로그 아웃할 수 있습니다. 이렇게 하면 대부분의 경우 활성화 지연 시간이 해결 됩니다.
-
-1. Privileged Identity Management에서 역할의 멤버로 나열 되어 있는지 확인 합니다.
+Privileged Identity Management에서 역할을 활성화 하면 Office 365 포털과 같은 Azure Portal 이외의 관리 포털에서 활성화가 지연 될 수 있습니다. 활성화가 지연 되 면 현재 포털에서 로그 아웃 한 다음 다시 로그인 합니다. 그런 다음 Privileged Identity Management를 사용 하 여 역할의 멤버로 나열 되어 있는지 확인 합니다.
 
  ---
 
