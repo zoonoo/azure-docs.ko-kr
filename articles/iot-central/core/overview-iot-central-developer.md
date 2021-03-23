@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: f69bbecfc2acc24cd63b87212197342b28723a9f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4423eea6c35ad44d55ad17f5703a95c6273422b8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043102"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585862"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 
@@ -105,7 +105,7 @@ DTDL 모델은 _구성 요소가 없는 모델_ 또는 _다중 구성 요소 모
 - 구성 요소가 없는 모델: 단순 모델은 포함 구성 요소 또는 계단식 구성 요소를 사용하지 않습니다. 모든 원격 분석, 속성 및 명령은 단일 _기본 구성 요소_ 로 정의됩니다. 예제는 [자동 온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) 모델을 참조하세요.
 - 다중 구성 요소 모델: 둘 이상의 구성 요소가 포함된 더 복잡한 모델입니다. 이러한 구성 요소에는 단일 기본 구성 요소 및 하나 이상의 추가 중첩 구성 요소가 포함됩니다. 예제는 [온도 조절기](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) 모델을 참조하세요.
 
-자세한 내용은 [모델의 IoT 플러그 앤 플레이 구성 요소](../../iot-pnp/concepts-components.md)를 참조하세요.
+자세히 알아보려면 [IoT 플러그 앤 플레이 모델링 가이드](../../iot-pnp/concepts-modeling-guide.md)를 참조하세요.
 
 ### <a name="conventions"></a>규칙
 
