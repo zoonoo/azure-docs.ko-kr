@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 33171527f03b0cc386f683f55f6cf9a70913abdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101091433"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871217"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -18,7 +18,7 @@ ms.locfileid: "101091433"
 
 [Azure Portal](https://portal.azure.com)를 사용 하 여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
@@ -36,14 +36,14 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
 [**HDInsight 클러스터**](#showClusters) 페이지에서 클러스터 이름을 선택 합니다.  그러면 다음 이미지와 비슷한 **개요** 보기가 열립니다.
 
-![Azure Portal HDInsight 클러스터 요점](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
+:::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png" alt-text="Azure Portal HDInsight 클러스터 요점":::
 
 **상단 메뉴:**  
 
-| 항목| 설명 |
+| 항목| Description |
 |---|---|
 |이동|클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.|
-|DELETE|클러스터를 삭제합니다. |
+|삭제|클러스터를 삭제합니다. |
 |새로 고침|뷰를 새로 고칩니다.|
 
 **왼쪽 메뉴:**  
@@ -62,7 +62,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **설정 메뉴**  
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |클러스터 크기|클러스터 작업자 노드의 수를 확인하고, 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-portal-linux.md#scale-clusters)을 참조하세요.|
     |할당량 한도|구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.|
@@ -79,7 +79,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **모니터링 메뉴**
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |경고|경고와 작업을 관리합니다.|
     |메트릭|Azure Monitor 로그에서 클러스터 메트릭을 모니터링 합니다.|
@@ -88,7 +88,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
   - **지원 + 문제 해결 메뉴**
 
-    | 항목| 설명 |
+    | 항목| Description |
     |---|---|
     |리소스 상태|[Azure 리소스 상태 개요](../service-health/resource-health-overview.md)를 참조하세요.|
     |새 지원 요청|Microsoft 지원에 지원 티켓을 만들 수 있습니다.|
@@ -97,7 +97,7 @@ HDInsight의 기존 Apache Hadoop 클러스터  [Azure 포털을 사용하여 HD
 
 [클러스터 홈 페이지](#homePage)에 있는 **설정** 에서 **속성** 을 선택합니다.
 
-|항목 | 설명 |
+|항목 | Description |
 |---|---|
 |N|클러스터 이름입니다.|
 |클러스터 URL|Ambari 웹 인터페이스에 대한 URL입니다.|
@@ -173,7 +173,7 @@ Ambari는 RESTful API에서 지원하는 직관적이고 사용하기 쉬운 Had
 
 1. **클러스터 대시보드** 를 선택합니다.
 
-    ![HDInsight Apache Hadoop 클러스터 메뉴](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png)
+    :::image type="content" source="./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu2.png" alt-text="HDInsight Apache Hadoop 클러스터 메뉴":::
 
 1. 새 페이지에서 **Ambari 홈** 을 선택합니다.
 1. 클러스터 사용자 이름 및 암호를 입력합니다.  기본 클러스터 사용자 이름은 _admin_ 입니다.

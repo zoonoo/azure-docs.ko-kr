@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 582077c46f5fc7176b457cf0d392af48fbe7d40b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 38846bbe717912092ccfe2b236b717770b79302f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100369342"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867256"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>문제 해결: Azure 사이트 간 VPN 일시적 연결 끊김
 
@@ -27,7 +27,7 @@ ms.locfileid: "100369342"
 
 Azure Virtual Network Gateway의 형식을 확인합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 2. Virtual Network Gateway의 **개요** 페이지에서 형식 정보를 확인합니다.
     
     ![게이트웨이 개요](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
@@ -56,9 +56,7 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>6단계 온-프레미스 VPN 디바이스 외부 인터페이스 주소 확인
 
-- VPN 디바이스의 인터넷 연결 IP 주소가 Azure의 **로컬 네트워크 게이트웨이** 정의에 포함된 경우 이따금 연결 끊김이 발생할 수 있습니다.
-- 디바이스의 외부 인터페이스는 직접 인터넷에 있어야 합니다. 인터넷과 디바이스 간에는 NAT(Network Address Translation) 또는 방화벽이 없어야 합니다.
--  가상 IP가 있도록 방화벽 클러스터링을 구성하는 경우 클러스터를 분해하고 VPN 어플라이언스를 직접 공용 게이트웨이에 표시하여 게이트웨이가 연결할 수 있도록 해야 합니다.
+VPN 디바이스의 인터넷 연결 IP 주소가 Azure의 **로컬 네트워크 게이트웨이** 정의에 포함된 경우 이따금 연결 끊김이 발생할 수 있습니다.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>7단계 온-프레미스 VPN 디바이스에 PFS(Perfect Forward Secrecy)가 사용하도록 설정되어 있는지 확인
 

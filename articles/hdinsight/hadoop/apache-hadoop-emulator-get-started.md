@@ -6,18 +6,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 60f4e4998e1077ca373f47a0cdf35c9d7a064605
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946619"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866678"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 컴퓨터의 에뮬레이터 인 Apache Hadoop 샌드박스 시작
 
 Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Hortonworks의 Apache Hadoop 샌드박스를 설치하는 방법을 알아봅니다. 이 샌드박스는 Hadoop, HDFS(Hadoop Distributed File System) 및 작업 제출에 대해 알아보는 로컬 개발 환경을 제공합니다. Hadoop에 익숙해졌으면 HDInsight 클러스터를 만들어 Azure에서 Hadoop 사용을 시작할 수 있습니다. 시작 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Oracle VirtualBox](https://www.virtualbox.org/). [여기](https://www.virtualbox.org/wiki/Downloads)에서 다운로드하여 설치합니다.
 
@@ -39,7 +39,7 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 1. **파일** 메뉴에서 **Import Appliance(어플라이언스 가져오기)** 를 클릭한 다음 Hortonworks Sandbox 이미지를 지정합니다.
 1. Hortonworks Sandbox를 선택한 다음 **시작**, **일반 시작** 을 차례로 선택합니다. 가상 머신이 부팅 프로세스를 완료하면 로그인 지침이 표시됩니다.
 
-    ![virtualbox 관리자 정상 시작](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    :::image type="content" source="./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png" alt-text="virtualbox 관리자 정상 시작" border="true":::
 
 1. 웹 브라우저를 열고 표시 된 URL (일반적으로)로 이동 `http://127.0.0.1:8888` 합니다.
 

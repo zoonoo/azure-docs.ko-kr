@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581119"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871404"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -47,12 +47,6 @@ ms.locfileid: "104581119"
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>Apple iOS 장치로 stream을 어떻게 할까요? 하 시겠습니까?
 
 경로 끝에 **(format = m3u8-aapl-v3-aapl)** 가 있는지 확인 하 여 (URL의 **/매니페스트** 부분 뒤에) 스트리밍 원본 서버가 Apple iOS 네이티브 장치에서 사용 하기 위한 HLS (HTTP 라이브 스트리밍) 콘텐츠를 반환 하도록 지시 합니다. 자세한 내용은 [콘텐츠 배달](dynamic-packaging-overview.md)을 참조 하세요.
-
-### <a name="how-do-i-configure-media-reserved-units"></a>미디어 예약 단위를 구성하려면 어떻게 할까요?
-
-Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 S3 Mru (미디어 예약 단위) 10 개를 사용 하 여 계정을 프로 비전 하는 것이 좋습니다. 10 개가 넘는 S3 Mru 필요 하면 [Azure Portal](https://portal.azure.com/)를 사용 하 여 지원 티켓을 여세요.
-
-자세한 내용은 [미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조 하세요.
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>비디오 처리에 권장하는 방법은 무엇입니까?
 

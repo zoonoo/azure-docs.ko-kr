@@ -4,12 +4,12 @@ description: Azure HDInsight의 Apache Spark 클러스터에 대 한 다양 한 
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dd33972810ab3b0d51bbd82282d0e6cf6cd9d96c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946339"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868667"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark에 대 한 OutOfMemoryError 예외
 
@@ -59,7 +59,7 @@ java.lang.OutOfMemoryError
 
 1. 사용할 HDInsight 클러스터가 Spark 애플리케이션을 수용할 수 있는 메모리와 코어 등 충분한 리소스를 갖추고 있는지 확인하세요. 이는 클러스터의 YARN UI에 있는 클러스터 메트릭 섹션에서 사용 하는 **메모리** 및 **총 메모리** 와 vcores의 **합계** **를 비교 하** 여 확인할 수 있습니다.
 
-    ![yarn core 메모리 보기](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="yarn core 메모리 보기" border="true":::
 
 1. 다음 Spark 구성을 적절 한 값으로 설정 합니다. 응용 프로그램 요구 사항을 클러스터에서 사용 가능한 리소스와 분산 합니다. 이러한 값은 YARN에 의해 표시 되는 사용 가능한 메모리 및 코어의 90%를 초과할 수 없으며 Spark 응용 프로그램의 최소 메모리 요구 사항도 충족 해야 합니다.
 
@@ -117,11 +117,11 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 Spark2/Config/Advanced Spark2 섹션을 선택 하 여 Ambari 브라우저 UI 내에서이 작업을 수행할 수 있습니다.
 
-![Advanced spark2-env 섹션](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Advanced spark2-env 섹션" border="true":::
 
 다음 속성을 추가 하 여 Spark 기록 서버 메모리를 1g에서 `SPARK_DAEMON_MEMORY=4g` 4g:로 변경 합니다.
 
-![Spark 속성](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Spark 속성" border="true":::
 
 Ambari에서 영향을 받는 모든 서비스를 다시 시작 해야 합니다.
 

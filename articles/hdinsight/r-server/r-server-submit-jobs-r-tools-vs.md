@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: c5a0b2d21f7d42b8ce96f72d58e5d0a8ab0c572c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ee984de22052076618728fbacfc31b73c18c073a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943933"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864689"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -22,7 +22,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visual
 
 1. [Visual Studio용 R 도구](/visualstudio/rtvs/installing-r-tools-for-visual-studio)를 설치합니다.
 
-    ![Visual Studio 2017에서 RTVS 설치](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png" alt-text="Visual Studio 2017에서 RTVS 설치" border="true":::
 
 2. *데이터 과학 및 분석 애플리케이션* 워크로드를 선택한 후 **R 언어 지원**, **R 개발에 대한 런타임 지원** 및 **Microsoft R Client** 옵션을 선택합니다.
 
@@ -38,7 +38,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visual
 
    2. **R 도구** 메뉴 항목으로 이동한 후 **데이터 과학 설정...** 을 선택합니다.
 
-       ![Visual Studio 데이터 과학 설정](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png" alt-text="Visual Studio 데이터 과학 설정" border="true":::
 
       > [!NOTE]  
       > 1단계의 방법을 사용하여, **데이터 과학 설정** 명령을 반복할 필요 없이 개인 설정된 데이터 과학 레이아웃을 저장 및 복원할 수도 있습니다.
@@ -53,11 +53,11 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](/visual
 6. 파일 맨 위부터, Ctrl + Enter를 눌러 각 줄을 한 번에 하나씩 지나가면서 R 대화형 창까지 이동합니다. 일부 줄은 패키지를 설치하므로 다소 시간이 걸릴 수 있습니다.
     * 또는 R 파일의 모든 줄을 선택한 다음(Ctrl+A), 모든 줄을 실행하거나(Ctrl+Enter) 도구 모음에서 대화형으로 실행 아이콘을 선택합니다.
 
-        ![Visual Studio 대화형 실행](./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/execute-interactive1.png" alt-text="Visual Studio 대화형 실행" border="true":::
 
 7. 스크립트에 모든 줄을 실행하면 다음과 비슷한 출력이 표시됩니다.
 
-    ![Visual Studio 작업 영역 R 도구](./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png)
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/visual-studio-workspace.png" alt-text="Visual Studio 작업 영역 R 도구" border="true":::
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>HDInsight ML 서비스 클러스터에 작업 제출
 
@@ -93,7 +93,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
     rxSetComputeContext(mySparkCluster)
     ```
 
-   ![컨텍스트를 설정 하는 apache spark](./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png)
+   :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/apache-spark-context.png" alt-text="컨텍스트를 설정 하는 apache spark" border="true":::
 
 1. R 대화형 창에서 다음 명령을 실행합니다.
 
@@ -105,22 +105,23 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
     다음과 유사한 결과가 표시됩니다.
 
-    ![Rx ](./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png) 명령 실행 성공
+    :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/successful-rx-commands.png" alt-text="성공적인 rx 명령 실행" border="true":::
+a
 1. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
     1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **스토리지 계정** 을 선택합니다.
 
-        ![Azure HDInsight 저장소 계정](./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-storage-accounts.png" alt-text="Azure HDInsight 저장소 계정" border="true":::
 
     2. 클러스터의 기본 스토리지 계정을 선택하고 컨테이너/디렉터리 이름을 적어둡니다.
 
     3. 스토리지 계정 창의 왼쪽 메뉴에서 **컨테이너** 를 선택합니다.
 
-        ![Azure HDInsight 저장소 컨테이너](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png" alt-text="Azure HDInsight 저장소 컨테이너" border="true":::
 
     4. 클러스터의 컨테이너 이름을 선택하고, **사용자** 폴더(목록 맨 아래의 *추가 로드* 를 클릭해야 할 수 있음)로 이동한 후 *RevoShare*, **newUser** 를 차례로 선택합니다. `people.json` 파일이 `newUser` 폴더에 표시되어야 합니다.
 
-        ![HDInsight에서 복사한 파일 폴더 위치](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
+        :::image type="content" source="./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png" alt-text="HDInsight에서 복사한 파일 폴더 위치" border="true":::
 
 1. 현재 Apache Spark 컨텍스트의 사용이 끝나면 중지해야 합니다. 여러 컨텍스트를 한 번에 실행할 수 없습니다.
 

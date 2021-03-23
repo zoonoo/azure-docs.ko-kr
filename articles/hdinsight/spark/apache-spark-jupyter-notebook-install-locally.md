@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-python
 ms.date: 04/23/2020
-ms.openlocfilehash: d5915316ee9d393b2481eeca6a5da7923b271d9f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6dc91dc07d11f195092343e657911a884d8bf475
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930410"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865998"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter Notebook을 설치 하 고 HDInsight의 Apache Spark에 연결
 
@@ -142,7 +142,7 @@ Jupyter 노트북을 설치 하기 전에 Python을 설치 합니다. [Anaconda 
 
     a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기** 를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark** 를 선택 합니다.
 
-    ![Jupyter Notebook에서 사용 가능한 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter Notebook의 커널")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png " alt-text="Jupyter Notebook에서 사용 가능한 커널" border="true":::
 
     > [!IMPORTANT]  
     > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  오류가 표시 되는 경우 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 특정 버전의 토네이도에서 알려진 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 사용 하 여 토네이도 설치를 다운 그레이드 합니다. `pip install tornado==4.5.3`

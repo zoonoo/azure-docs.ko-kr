@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: acfe74577f58cbdc0b1fe235e7fc1f661543fd90
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609518"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864808"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Grammarly 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "104609518"
 > * 더 이상 액세스할 필요가 없는 경우 Grammarly에서 사용자 제거
 > * Azure AD와 Grammarly 간에 사용자 특성을 동기화 상태로 유지
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "104609518"
 
 Grammarly 담당자에 게 문의 하거나 <support@grammarly.com> 프로 비전 토큰에 대 한 요청에 씁니다.
 
-## <a name="step-3-add-grammarly-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Grammarly 추가
+## <a name="step-3-add-grammarly-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Grammarly 추가
 
 Azure AD 응용 프로그램 갤러리에서 Grammarly를 추가 하 여 Grammarly에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Grammarly를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 처음에 통합을 테스트 하는 경우 별도의 앱을 만드는 것이 좋습니다. 갤러리에서 응용 프로그램을 추가 하는 방법에 대해 자세히 알아보려면 [이 빠른](../manage-apps/add-application-portal.md)시작을 참조 하세요.
 
@@ -85,7 +85,7 @@ Azure AD 프로 비전 서비스를 사용 하 여 응용 프로그램에 대 �
 
     ![[프로비저닝 모드]가 [자동]으로 설정된 것을 보여주는 스크린샷](common/provisioning-automatic.png)
 
-1. **관리자 자격 증명** 섹션에 Grammarly **테 넌 트 URL** 및 **암호 토큰** 정보를 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Grammarly에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Grammarly 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+1. **관리자 자격 증명** 섹션 아래의 **테 넌 트 URL** 입력 필드에 `https://sso.grammarly.com/scim/v2` 를 입력 하 고, **비밀 토큰** 필드에 Grammarly에서 제공한 토큰을 입력 합니다 (위의 2 단계 참조). **연결 테스트** 를 클릭 하 여 Azure AD가 Grammarly에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Grammarly 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테 넌 트 URL 및 암호 토큰 상자를 보여 주는 스크린샷](common/provisioning-testconnection-tenanturltoken.png)
 

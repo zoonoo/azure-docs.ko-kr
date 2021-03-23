@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: c0810d33f3ac939b9382bf321448ed72b6d87474
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d1e8f596ee022a59baa89e7f78648c98420eb44b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945716"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868871"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 메모리 부족 오류 수정
 
@@ -104,7 +104,7 @@ hive-site.xml 파일을 살펴보면 **hive.auto.convert.join.noconditionaltask*
 
 Map join이 Java 힙 공간 부족 오류 때문일 수 있습니다. 블로그 게시물 [HDInsight에서 Hadoop Yarn 메모리 설정](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight)에 설명된 것처럼 Tez 실행 엔진을 사용할 때 사용된 힙 엔진은 실제로 Tez 컨테이너에 속합니다. Tez 컨테이너 메모리를 설명하는 다음 이미지를 참조하세요.
 
-![Tez 컨테이너 메모리 다이어그램: Hive 메모리 부족 오류](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+:::image type="content" source="./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png" alt-text="Tez 컨테이너 메모리 다이어그램: Hive 메모리 부족 오류" border="false":::
 
 블로그 게시물에서 알 수 있듯이 **hive.tez.container.size** 및 **hive.tez.java.opts** 의 두 가지 메모리 설정이 힙의 컨테이너 메모리를 정의합니다. 경험에 따르면 메모리 부족 예외는 컨테이너 크기가 너무 작음을 의미 하지 않습니다. Java 힙 크기(hive.tez.java.opts)가 너무 작은 것입니다. 메모리 부족이 표시될 때마다 **hive.tez.java.opts** 를 늘려볼 수 있습니다. 필요한 경우 **hive.tez.container.size** 를 늘려야 할 수도 있습니다. **java.opts** 설정은 **container.size** 의 80% 정도여야 합니다.
 

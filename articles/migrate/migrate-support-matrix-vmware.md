@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 943223ee99838b2b6d6de7eecb3c3b8c06d3562c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773592"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870741"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
-이 문서에서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 Azure로 마이그레이션하기 위해 VMware 환경에서 실행 중인 서버를 검색 하 고 평가 하는 경우 필수 구성 요소 및 지원 요구 사항을 요약 합니다. 서버를 평가 하려면 프로젝트에 Azure Migrate: 검색 및 평가 도구를 추가 하는 프로젝트를 만듭니다. 도구가 추가된 후 Azure Migrate 어플라이언스를 배포합니다. 어플라이언스는 온-프레미스 서버를 지속적으로 검색 하 고 구성 및 성능 메타 데이터를 Azure로 전송 합니다. 검색이 완료 되 면 검색 된 서버를 그룹으로 수집 하 고 그룹에 대 한 평가를 실행 합니다.
+이 문서에서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) 도구를 사용 하 여 Azure로 마이그레이션하기 위해 VMware 환경에서 실행 중인 서버를 검색 하 고 평가 하는 경우 필수 구성 요소 및 지원 요구 사항을 요약 합니다. 서버를 평가 하려면 프로젝트에 Azure Migrate: 검색 및 평가 도구를 추가 하는 프로젝트를 만듭니다. 도구가 추가된 후 Azure Migrate 어플라이언스를 배포합니다. 어플라이언스는 온-프레미스 서버를 지속적으로 검색 하 고 구성 및 성능 메타 데이터를 Azure로 전송 합니다. 검색이 완료 되 면 검색 된 서버를 그룹으로 수집 하 고 그룹에 대 한 평가를 실행 합니다.
 
 VMware 서버를 Azure로 마이그레이션하려면 [마이그레이션 지원 매트릭스](migrate-support-matrix-vmware-migration.md)를 검토 하세요.
 
@@ -25,7 +25,7 @@ VMware 서버를 Azure로 마이그레이션하려면 [마이그레이션 지원
 
 **요구 사항** | **세부 정보**
 --- | ---
-**프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다.<br/><br/> 단일 [프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 VMware 환경에 대 한 최대 5만 서버를 검색 하 고 평가할 수 있습니다. 프로젝트에는 물리적 서버와 Hyper-v 환경의 서버 (평가 제한까지)가 포함 될 수도 있습니다.
+**프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다.<br/><br/> 단일 [프로젝트](migrate-support-matrix.md#project)에서 VMware 환경에 대 한 최대 5만 서버를 검색 하 고 평가할 수 있습니다. 프로젝트에는 물리적 서버와 Hyper-v 환경의 서버 (평가 제한까지)가 포함 될 수도 있습니다.
 **검색** | Azure Migrate 어플라이언스는 vCenter Server에서 최대 1만 개의 서버를 검색할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 서버를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 대의 서버를 평가할 수 있습니다.
 
@@ -78,9 +78,6 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **포트 액세스** | Azure Migrate 어플라이언스는 응용 프로그램 검색을 수행 하려는 서버를 실행 하는 ESXi 호스트의 TCP 포트 443에 연결할 수 있어야 합니다. VCenter Server는 ESXi 호스트 연결을 반환 하 여 소프트웨어 인벤토리의 세부 정보를 포함 하는 파일을 다운로드 합니다.
 
 ## <a name="requirements-for-discovery-of-sql-server-instances-and-databases"></a>SQL Server 인스턴스 및 데이터베이스 검색을 위한 요구 사항
-
-> [!Note]
-> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 [응용 프로그램 검색](how-to-discover-applications.md) 은 SQL Server 인스턴스를 식별 합니다. 어플라이언스는이 정보를 사용 하 여 어플라이언스에서 제공 되는 Windows 인증 또는 SQL Server 인증 자격 증명을 통해 해당 SQL Server 인스턴스에 연결을 시도 합니다. 연결 되 면 어플라이언스는 SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 데이터를 수집 합니다. SQL Server 구성 데이터는 24 시간 마다 업데이트 되며 성능 데이터는 30 초 마다 캡처됩니다.
 

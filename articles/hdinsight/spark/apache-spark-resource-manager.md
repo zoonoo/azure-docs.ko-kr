@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/12/2021
-ms.openlocfilehash: ff7cfe8ad09201df20db89e14f8c175e678e5107
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7027e4af9c11db628990d42430c6877340de3534
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929795"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868446"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리
 
@@ -28,7 +28,7 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 애플리�
 
 2. **클러스터 대시보드에서** **Yarn** 를 선택 합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-    ![YARN UI 시작](./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/azure-portal-dashboard-yarn.png" alt-text="YARN UI 시작" border="true":::
 
    > [!TIP]  
    > 또는 Ambari UI에서 YARN UI를 시작할 수도 있습니다. Ambari ui에서 **YARN**  >  **빠른 링크**  >  **활성**  >  **리소스 관리자 UI** 로 이동 합니다.
@@ -43,15 +43,15 @@ YARN UI를 사용하여 현재 Spark 클러스터에서 실행 중인 애플리�
 
 1. Ambari UI에서 **Spark2**  >  **Configs**  >  **Custom Spark2-defaults** 로 이동 합니다.
 
-    ![Ambari 사용자 지정을 사용 하 여 매개 변수 설정](./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png "Ambari 사용자 지정을 사용 하 여 매개 변수 설정")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-configs.png " alt-text="Ambari 사용자 지정을 사용 하 여 매개 변수 설정" border="true":::
 
 1. 기본값으로 Spark 클러스터에서 4개의 애플리케이션을 동시에 실행할 수 있습니다. 다음 스크린샷에 표시된 대로 사용자 인터페이스에서 이러한 값을 변경할 수 있습니다.
 
-    ![Ambari를 사용하여 매개 변수 설정](./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png "Ambari를 사용하여 매개 변수 설정")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-defaults.png " alt-text="Ambari를 사용하여 매개 변수 설정" border="true":::
 
 1. **저장** 을 선택 하 여 구성 변경 내용을 저장 합니다. 페이지 맨 위에서 영향을 받는 모든 서비스를 다시 시작 하 라는 메시지가 표시 됩니다. **다시 시작** 을 선택합니다.
 
-    ![서비스 다시 시작](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-services.png" alt-text="서비스 다시 시작" border="true":::
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter Notebook에서 실행 되는 응용 프로그램에 대 한 매개 변수 변경
 
@@ -93,11 +93,11 @@ Spark Thrift 서버는 Spark 동적 실행자 할당을 사용 하므로이 `spa
 
 * **고급 spark2-thrift-sparkconf** 범주를 확장 하 여 매개 변수 및를 업데이트 합니다 `spark.dynamicAllocation.maxExecutors` `spark.dynamicAllocation.minExecutors` .
 
-    ![Spark Thrift 서버 구성](./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png "Spark Thrift 서버 구성")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-advanced-thrift-sparkconf.png " alt-text="Spark Thrift 서버 구성" border="true":::
 
 * **사용자 지정 spark2-thrift-sparkconf** 범주를 확장 하 여 매개 변수 및를 업데이트 합니다 `spark.executor.cores` `spark.executor.memory` .
 
-    ![Spark thrift 서버 매개 변수 구성](./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png "Spark thrift 서버 매개 변수 구성")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-custom-thrift-sparkconf.png " alt-text="Spark thrift 서버 매개 변수 구성" border="true":::
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Spark Thrift 서버의 드라이버 메모리 변경
 
@@ -113,38 +113,38 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 
 2. 다음 페이지에서 **Spark2 Thrift Servers** 를 선택 합니다.
 
-    ![Thrift server1 다시 시작](./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png "Thrift server1 다시 시작")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thrift-servers.png " alt-text="Thrift server1 다시 시작" border="true":::
 
 3. Spark2 Thrift 서버를 실행 하는 두 개의 헤드 노드가 표시 됩니다. 헤드 노드 중 하나를 선택 합니다.
 
-    ![Thrift server2 다시 시작](./media/apache-spark-resource-manager/restart-thrift-server-2.png "Thrift server2 다시 시작")
+    :::image type="content" source="./media/apache-spark-resource-manager/restart-thrift-server-2.png " alt-text="Thrift server2 다시 시작" border="true":::
 
 4. 다음 페이지는 헤드 노드에서 실행 중인 모든 서비스를 나열합니다. 목록에서 Spark2 Thrift Server 옆에 있는 드롭다운 단추를 선택한 다음 **중지** 를 선택 합니다.
 
-    ![Thrift server3 다시 시작](./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png "Thrift server3 다시 시작")
+    :::image type="content" source="./media/apache-spark-resource-manager/ambari-ui-spark2-thriftserver-restart.png " alt-text="Thrift server3 다시 시작" border="true":::
 5. 다른 헤드 노드에서도 이 단계를 반복합니다.
 
 ## <a name="restart-the-jupyter-service"></a>Jupyter 서비스 다시 시작
 
 문서의 처음에 표시된 대로 Ambari 웹 UI가 시작됩니다. 왼쪽 탐색 창에서 **Jupyter** 를 선택 하 고 **서비스 작업** 을 선택한 다음 **모두 다시 시작** 을 선택 합니다. 그러면 모든 헤드 노드에서 Jupyter 서비스가 시작됩니다.
 
-![Jupyter 다시 시작](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Jupyter 다시 시작")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png " alt-text="Jupyter 다시 시작" border="true":::
 
 ## <a name="monitor-resources"></a>리소스 모니터링
 
 문서의 처음에 표시된 대로 Yarn UI가 시작됩니다. 화면 위쪽의 클러스터 메트릭 테이블에서 **사용된 메모리** 및 **총 메모리** 열 값을 확인합니다. 두 값이 비슷하면 리소스가 충분하지 않아 다음 애플리케이션을 시작하지 못할 수 있습니다. 동일한 현상이 **사용된 VCore** 및 **총 VCore** 열에도 적용됩니다. 또한 주 보기에서 응용 프로그램이 **허용 됨** 상태로 전환 **되 고 실행 중** 또는 **실패** 상태로 전환 되지 않는 경우에는 시작 하는 데 충분 한 리소스를 높게 유지 하는 것일 수도 있습니다.
 
-![리소스 제한](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "리소스 제한")
+:::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-resource-limit.png " alt-text="리소스 제한" border="true":::
 
 ## <a name="kill-running-applications"></a>애플리케이션 실행 종료
 
 1. Yarn UI의 왼쪽 패널에서 **실행 중** 을 선택 합니다. 실행 중인 응용 프로그램 목록에서 중지할 응용 프로그램을 결정 하 고 **ID** 를 선택 합니다.
 
-    ![Kill App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Kill App1")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app1.png " alt-text="Kill App1" border="true":::
 
 2. 오른쪽 위 모서리에서 **응용 프로그램 중지** 를 선택 하 고 **확인** 을 선택 합니다.
 
-    ![Kill App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Kill App2")
+    :::image type="content" source="./media/apache-spark-resource-manager/apache-ambari-kill-app2.png " alt-text="Kill App2" border="true":::
 
 ## <a name="see-also"></a>참고 항목
 

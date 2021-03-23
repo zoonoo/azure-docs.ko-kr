@@ -5,14 +5,14 @@ services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 09/16/2019
+ms.date: 03/22/2021
 ms.author: genli
-ms.openlocfilehash: 4454afbe543f374ebd745af7cd59be1ab745036f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cebb05b35379573fc9797e89dee3c0c2bf3de6e2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670890"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867290"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>문제 해결: Azure 사이트 간 VPN 연결에서 연결할 수 없고 작동이 중지됨
 
@@ -70,7 +70,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -Resource
 Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 ```
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계: VPN 피어 IP 확인
+### <a name="step-3-verify-the-vpn-peer-ips"></a>3단계. VPN 피어 IP 확인
 
 -   Azure의 **로컬 네트워크 게이트웨이** 개체에 있는 IP 정의가 온-프레미스 디바이스 IP와 일치해야 합니다.
 -   온-프레미스 디바이스에 설정된 Azure 게이트웨이 IP 정의는 Azure 게이트웨이 IP와 일치해야 합니다.
@@ -81,9 +81,7 @@ Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>5단계. 온-프레미스 VPN 디바이스 외부 인터페이스 주소 확인
 
-- VPN 디바이스의 인터넷 연결 IP 주소가 Azure의 **로컬 네트워크** 정의에 포함된 경우 이따금 연결 끊김이 발생할 수 있습니다.
-- 디바이스의 외부 인터페이스는 직접 인터넷에 있어야 합니다. 인터넷과 디바이스 간에는 NAT(Network Address Translation) 또는 방화벽이 없어야 합니다.
-- 가상 IP가 있도록 방화벽 클러스터링을 구성하려면 클러스터를 분해하고 VPN 어플라이언스를 직접 공용 인터페이스에 표시하여 게이트웨이가 연결할 수 있도록 해야 합니다.
+VPN 디바이스의 인터넷 연결 IP 주소가 Azure의 **로컬 네트워크** 정의에 포함된 경우 이따금 연결 끊김이 발생할 수 있습니다.
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>6단계. 서브넷이 정확하게 일치하는지 확인(Azure 정책 기반 게이트웨이)
 

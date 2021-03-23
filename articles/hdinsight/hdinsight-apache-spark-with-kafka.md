@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: d14b96843b489b28fc7d83348e39638272c06da5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6ef11e9c7907f57b3b8de0a042e1035bce638cf4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942761"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863278"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
@@ -28,7 +28,7 @@ ms.locfileid: "98942761"
 
 HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broker에 제공하지 않습니다. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 여기서는 Kafka 클러스터와 Spark 클러스터가 모두 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
 
-![Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png" alt-text="Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램" border="false":::
 
 > [!NOTE]  
 > Kafka 자체는 가상 네트워크 내의 통신으로 제한되지만, 클러스터의 다른 서비스(예: SSH, Ambari)는 인터넷을 통해 액세스할 수 있습니다. HDInsight에서 사용할 수 있는 공용 포트에 대한 자세한 내용은 [HDInsight에서 사용하는 포트 및 URI](hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
@@ -37,28 +37,28 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 1. Azure에 로그인하고 Azure Portal에서 템플릿을 열려면 다음 단추를 사용합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Azure Resource Manager 템플릿의 위치는 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** 입니다.
+   Azure Resource Manager 템플릿의 위치는 **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json** 입니다.
 
-    > [!WARNING]  
-    > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
+   > [!WARNING]
+   > HDInsight에서 Kafka의 사용 가능성을 보장하려면 클러스터에 작업자 노드가 3개 이상 포함되어야 합니다. 이 템플릿은 세 개의 작업자 노드를 포함하는 Kafka 클러스터를 만듭니다.
 
-    이 템플릿은 Kafka와 Spark 둘 다에 대해 HDInsight 3.6 클러스터를 만듭니다.
+   이 템플릿은 Kafka와 Spark 둘 다에 대해 HDInsight 3.6 클러스터를 만듭니다.
 
 1. 다음 정보를 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
 
-    |속성 |값 |
-    |---|---|
-    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다.|
-    |위치|지리적으로 가까운 위치를 선택합니다.|
-    |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming** 를 입력하면 __spark-hdistreaming__ 라는 Spark 클러스터와 **kafka-hdistreaming** 라는 Kafka 클러스터가 생성됩니다.|
-    |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|
-    |클러스터 로그인 암호|Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.|
-    |SSH 사용자 이름|Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.|
-    |SSH 암호|Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.|
+   |속성 |값 |
+   |---|---|
+   |Resource group|그룹을 만들거나 기존 그룹을 선택합니다.|
+   |위치|지리적으로 가까운 위치를 선택합니다.|
+   |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming** 를 입력하면 __spark-hdistreaming__ 라는 Spark 클러스터와 **kafka-hdistreaming** 라는 Kafka 클러스터가 생성됩니다.|
+   |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|
+   |클러스터 로그인 암호|Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.|
+   |SSH 사용자 이름|Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.|
+   |SSH 암호|Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.|
 
-    ![HDInsight 사용자 지정 배포 매개 변수](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+   :::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png" alt-text="HDInsight 사용자 지정 배포 매개 변수":::
 
 1. **사용 약관** 을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 
@@ -66,7 +66,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 리소스를 만든 후에 요약 페이지가 나타납니다.
 
-![VNet 및 클러스터에 대한 리소스 그룹 요약](./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png)
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png" alt-text="VNet 및 클러스터에 대한 리소스 그룹 요약":::
 
 > [!IMPORTANT]  
 > HDInsight 클러스터의 이름은 **spark-BASENAME** 및 **kafka-BASENAME** 이며, 여기서 BASENAME은 템플릿에 제공된 이름입니다. 이후 단계에서 클러스터에 연결할 때 이러한 이름을 사용합니다.

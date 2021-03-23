@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 47f0ea34fa650371d39252ce6b0ee6a15f3124d6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699303"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871183"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -78,11 +78,11 @@ HDInsight 클러스터 유형 및 프로 비전 방법을 검토 하려면 [Apac
 1. 에서 Ambari 웹 UI를 엽니다 `https://CLUSTERNAME.azurehdinsight.net` . 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 2. 오른쪽 위 모서리에서 관리를 선택 합니다. 설정. 
 
-   ![Ambari 설정](media/hdinsight-faq/ambari-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ambari 설정":::
 
 3. 사용자 설정 창의 표준 시간대 드롭다운에서 새 표준 시간대를 선택 하 고 저장을 클릭 합니다.
 
-   ![Ambari 사용자 설정](media/hdinsight-faq/ambari-user-settings.png)
+   :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari 사용자 설정":::
 
 ## <a name="metastore"></a>메타 저장소
 
@@ -212,7 +212,7 @@ LLAP은 보안상의 이유로 활성화 됩니다 (Apache 레인저). 대규모
 이러한 목표를 달성 하는 방법에는 다음 두 가지가 있습니다. 1-클러스터를 만들 때 클러스터를 다시 만들고 추가 그룹을 추가할 수 있습니다. AAD에서 범위 동기화를 사용 하는 경우 그룹 B가 범위 지정 동기화에 포함 되어 있는지 확인 합니다.
 2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹을 사용 하 여 ESP 클러스터를 만든 경우 `A` 나중에 그룹을 중첩 된 하위 그룹으로 추가 하 `B` `A` 고 약 1 시간 후에 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>기존 HDInsight 클러스터에 Azure Data Lake Storage Gen2 추가 저장소 계정으로 추가할 수 있나요?
 

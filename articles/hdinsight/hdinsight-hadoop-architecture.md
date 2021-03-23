@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
-ms.openlocfilehash: 6f291e5aa440a3e6e45a1dcdb872e18c8d4557ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f69917b574c0be8fdacf05934b05544a4f491a9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945899"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864196"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight의 Apache Hadoop 아키텍처
 
@@ -42,7 +42,7 @@ NodeManager는 애플리케이션을 구성하는 작업을 실행한 다음, �
 
 모든 HDInsight 클러스터 유형은 YARN을 배포합니다. ResourceManager는 고가용성을 위해 클러스터 내의 첫 번째 및 두 번째 헤드 노드에서 각각 실행되는 주 인스턴스와 보조 인스턴스를 통해 배포됩니다. ResourceManager 인스턴스는 한 번에 하나씩 활성화됩니다. NodeManager 인스턴스는 클러스터의 사용 가능한 작업자 노드에서 실행됩니다.
 
-![Azure HDInsight의 Apache YARN](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+:::image type="content" source="./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png" alt-text="Azure HDInsight의 Apache YARN" border="false":::
 
 ## <a name="soft-delete"></a>일시 삭제
 

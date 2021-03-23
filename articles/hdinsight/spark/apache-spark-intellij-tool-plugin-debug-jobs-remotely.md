@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/28/2017
-ms.openlocfilehash: 1daf59c47bf71ad019011036bf42bf6727754345
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e6ed52f89c38a9c4c5476bd1db0f5a67326954e4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940346"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866270"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -24,7 +24,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
 1. 애플리케이션을 실행하고 디버그합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 * **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
@@ -50,19 +50,19 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 1. 헤드 노드의 IP 주소를 가져옵니다. 클러스터에 대한 Ambari UI를 엽니다. 클러스터 블레이드에서 **대시보드** 를 선택합니다.
 
-    ![Apache Ambari에서 대시보드를 선택 합니다.](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png" alt-text="Apache Ambari에서 대시보드를 선택 합니다." border="true":::
 
 1. Ambari UI에서 **호스트** 를 선택합니다.
 
-    ![Apache Ambari에서 호스트 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png" alt-text="Apache Ambari에서 호스트 선택" border="true":::
 
 1. 헤드 노드, 작업자 노드 및 zookeeper 노드 목록이 표시됩니다. 헤드 노드에는 **hn*** 접두사가 붙습니다. 첫 번째 헤드 노드를 선택합니다.
 
-    ![Apache Ambari에서 헤드 노드 찾기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png" alt-text="Apache Ambari에서 헤드 노드 찾기" border="true":::
 
 1. 열리는 페이지 아래쪽의 **요약** 창에서 헤드 노드의 **IP 주소** 및 **호스트 이름** 을 복사합니다.
 
-    ![Apache Ambari에서 IP 주소 찾기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png" alt-text="Apache Ambari에서 IP 주소 찾기" border="true":::
 
 1. 헤드 노드의 IP 주소 및 호스트 이름을 Spark 작업을 실행하고 원격으로 디버그하려는 컴퓨터의 **호스트** 파일에 추가합니다. 이렇게 하면 IP 주소뿐만 아니라 호스트 이름을 사용하여 헤드 노드와 통신할 수 있습니다.
 
@@ -93,7 +93,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 1. IntelliJ IDEA를 열고 새 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다.
 
-    ![IntelliJ IDEA에서 새 프로젝트 템플릿 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-hdi-scala-app.png" alt-text="IntelliJ IDEA에서 새 프로젝트 템플릿 선택" border="true":::
 
     a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
 
@@ -106,7 +106,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x** 를 선택합니다. 그렇지 않으면 **Spark2.x** 를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
   
-   ![프로젝트 SDK 및 Spark 버전 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png" alt-text="프로젝트 SDK 및 Spark 버전 선택" border="true":::
   
 1. Spark 프로젝트가 자동으로 아티팩트를 만듭니다. 이 아티팩트를 보려면 다음을 수행합니다.
 
@@ -114,7 +114,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     b. **프로젝트 구조** 대화 상자에서 **아티팩트** 를 선택하여 만든 기본 아티팩트를 봅니다. 더하기 기호( **+** )를 선택하여 사용자 고유의 아티팩트를 만들 수도 있습니다.
 
-   ![IntelliJ 아이디어 아티팩트 만들기 jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png" alt-text="IntelliJ 아이디어 아티팩트 만들기 jar" border="true":::
 
 1. 프로젝트에 라이브러리를 추가합니다. 라이브러리를 추가하려면 다음을 수행합니다.
 
@@ -122,9 +122,9 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     b. **프로젝트 구조** 대화 상자에서 **라이브러리** 를 선택하고 (**+**) 기호를 선택한 후 **Maven에서** 를 선택합니다.
 
-    ![IntelliJ 아이디어 다운로드 라이브러리](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png" alt-text="IntelliJ 아이디어 다운로드 라이브러리" border="true":::
 
-    다. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
+    c. **Maven 리포지토리에서 라이브러리 다운로드** 대화 상자에서 다음 라이브러리를 검색하고 추가합니다.
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
@@ -174,15 +174,15 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
     </property>
     ```
 
-   다. 파일을 저장합니다.
+   c. 파일을 저장합니다.
 
 1. 애플리케이션에 대한 기본 클래스를 추가합니다. **프로젝트 탐색기** 에서 **src** 를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** 를 가리킨 다음 **Scala 클래스** 를 선택합니다.
 
-    ![IntelliJ 아이디어 주 클래스를 선택 합니다.](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png" alt-text="IntelliJ 아이디어 주 클래스를 선택 합니다." border="true":::
 
 1. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 상자에 **개체** 를 선택한 다음 **확인** 을 선택합니다.
 
-    ![IntelliJ 아이디어 Create new Scala 클래스](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png" alt-text="IntelliJ 아이디어 Create new Scala 클래스" border="true":::
 
 1. `MyClusterAppMain.scala` 파일에서 다음 코드를 붙여 넣습니다. 이 코드는 Spark 컨텍스트를 만들고 `SparkSample` 개체에서 `executeJob` 메서드를 엽니다.
 
@@ -254,47 +254,47 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 1. `*RemoteClusterDebugging` 클래스에서 마우스 오른쪽 단추로 `test` 키워드를 클릭하고 **RemoteClusterDebugging 구성 만들기** 를 선택합니다.
 
-    ![IntelliJ 아이디어 원격 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png" alt-text="IntelliJ 아이디어 원격 구성 만들기" border="true":::
 
 1. **RemoteClusterDebugging 구성 만들기** 대화 상자에서 구성에 대한 이름을 입력한 다음 **Test kind** 를 **테스트 이름** 으로 선택합니다. 다른 모든 값은 기본 설정으로 둡니다. **적용** 및 **확인** 을 차례로 선택합니다.
 
-    ![고 remoteclusterdebugging 구성 만들기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png" alt-text="고 remoteclusterdebugging 구성 만들기" border="true":::
 
 1. 이제 메뉴 모음에 **원격 실행** 구성 드롭다운 목록이 표시됩니다.
 
-    ![원격 실행 드롭다운 목록 IntelliJ](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png" alt-text="원격 실행 드롭다운 목록 IntelliJ" border="true":::
 
 ## <a name="step-5-run-the-application-in-debug-mode"></a>5단계: 디버그 모드에서 애플리케이션 실행
 
 1. IntelliJ IDEA 프로젝트에서 `SparkSample.scala`를 열고 `val rdd1` 옆에 중단점을 만듭니다. **중단점 만들기** 팝업 메뉴에서 **함수 executeJob의 줄** 을 선택합니다.
 
-    ![IntelliJ 아이디어 중단점 추가](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png" alt-text="IntelliJ 아이디어 중단점 추가" border="true":::
 
 1. 애플리케이션을 실행하려면 **원격 실행** 구성 드롭다운 목록 옆에 있는 **디버그 실행** 단추를 선택합니다.
 
-    ![IntelliJ 아이디어 디버그 실행 단추를 선택 합니다.](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode-button.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode-button.png" alt-text="IntelliJ 아이디어 디버그 실행 단추를 선택 합니다." border="true":::
 
 1. 프로그램 실행이 중단점에 도달하면 아래 창에 **디버거** 탭이 표시됩니다.
 
-    ![IntelliJ 아이디어 디버거 탭 보기](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png" alt-text="IntelliJ 아이디어 디버거 탭 보기" border="true":::
 
 1. 조사식을 추가 하려면 ( **+** ) 아이콘을 선택 합니다.
 
-    ![IntelliJ 디버그-변수를 추가 합니다.](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png" alt-text="IntelliJ 디버그-변수를 추가 합니다." border="true":::
 
     이 예제에서는 변수 `rdd1`이 만들어지기 전에 애플리케이션이 중단되었습니다. 이 조사식을 사용하여 변수 `rdd`의 처음 5개 행을 볼 수 있습니다. **Enter** 키를 선택합니다.
 
-    ![디버그 모드에서 프로그램 실행 IntelliJ](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png" alt-text="디버그 모드에서 프로그램 실행 IntelliJ" border="true":::
 
     이전 이미지에서 보는 것은 런타임 시이며 테라바이트의 데이터를 쿼리하고 애플리케이션이 진행되는 방법을 디버그할 수 있습니다. 예를 들어 이전 이미지에 표시된 출력에서 출력의 첫 번째 행이 헤더임을 볼 수 있습니다. 이 출력을 기반으로 필요한 경우 애플리케이션 코드를 헤더 행을 건너뛰도록 수정할 수 있습니다.
 
 1. 이제 **프로그램 다시 시작** 아이콘을 선택하여 애플리케이션 실행을 진행할 수 있습니다.
 
-    ![IntelliJ 아이디어 선택 프로그램 다시 시작](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-remote-run.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-remote-run.png" alt-text="IntelliJ 아이디어 선택 프로그램 다시 시작" border="true":::
 
 1. 애플리케이션이 성공적으로 완료되면 다음과 유사한 출력이 표시됩니다.
 
-    ![IntelliJ 아이디어 디버거 콘솔 출력](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png" alt-text="IntelliJ 아이디어 디버거 콘솔 출력" border="true":::
 
 ## <a name="next-steps"></a><a name="seealso"></a>다음 단계
 

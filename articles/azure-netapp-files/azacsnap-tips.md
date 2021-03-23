@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 08edd86fd19e7698a791e411f42a2a89084a91f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6465acc0d4ce760e0bf89c73dace7c8c66d37c49
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737136"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869942"
 ---
 # <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하기 위한 팁과 요령 (미리 보기)
 
@@ -47,6 +47,27 @@ az role definition create --role-definition '{ \
   "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
 }'
 ```
+
+복원 옵션이 제대로 작동 하려면 AzAcSnap 서비스 사용자도 볼륨을 만들 수 있어야 합니다.  이 경우 역할 정의에 추가 작업이 필요 하므로 전체 서비스 주체는 다음 예제와 같습니다.
+
+```bash
+az role definition create --role-definition '{ \
+  "Name": "Azure Application Consistent Snapshot tool", \
+  "IsCustom": "true", \
+  "Description": "Perform snapshots and restores on ANF volumes.", \
+  "Actions": [ \
+    "Microsoft.NetApp/*/read", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete", \
+    "Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write" \
+  ], \
+  "NotActions": [], \
+  "DataActions": [], \
+  "NotDataActions": [], \
+  "AssignableScopes": ["/subscriptions/<insert your subscription id>"] \
+}'
+```
+
 
 ## <a name="take-snapshots-manually"></a>수동으로 스냅숏 만들기
 

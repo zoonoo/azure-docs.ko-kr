@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: ba58c007dc0bc3776f429366651cb79404b137b3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 969dda4b57deb35d745cf7c7d263b78e6fe577d2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98928482"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867545"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
@@ -32,13 +32,13 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 
 2. 새 Notebook을 만듭니다. 머리글 창에서 **노트북**  >  **새 노트 만들기** 로 이동 합니다.
 
-    ![새 Zeppelin 노트북 만들기](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "새 Zeppelin 노트북 만들기")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png " alt-text="새 Zeppelin 노트북 만들기" border="true":::
 
     노트북의 이름을 입력 한 다음 **메모 만들기** 를 선택 합니다.
 
 3. 노트북 머리글이 연결 된 상태를 표시 하는지 확인 합니다. 오른쪽 위 모서리에 녹색 점으로 표시 됩니다.
 
-    ![Zeppelin 노트북 상태](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin 노트북 상태")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png " alt-text="Zeppelin 노트북 상태" border="true":::
 
 4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 만들 때 샘플 데이터 파일는의 `hvac.csv` 연결 된 저장소 계정에 복사 됩니다 `\HdiSamples\SensorSampleData\hvac` .
 
@@ -70,7 +70,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 
     **SHIFT + enter** 를 누르거나 단락에 대 한 **재생** 단추를 선택 하 여 코드 조각을 실행 합니다. 단락의 오른쪽 모서리 상태가 준비, 보류 중, 실행 중, 완료 순서로 진행됩니다. 출력은 같은 단락 하단에 표시됩니다. 스크린샷은 다음 이미지와 같습니다.
 
-    ![원시 데이터에서 임시 테이블 만들기](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "원시 데이터에서 임시 테이블 만들기")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png " alt-text="원시 데이터에서 임시 테이블 만들기" border="true":::
 
     또한 각 단락에 제목을 제공할 수도 있습니다. 단락의 오른쪽 모서리에서 **설정** 아이콘 (sprocket)을 선택한 다음 **제목 표시** 를 선택 합니다.  
 
@@ -88,7 +88,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 
 6. **가로 막대형 차트** 아이콘을 선택 하 여 표시를 변경 합니다.  **가로 막대형 차트** 를 선택한 후에 표시 되는 **설정** 에서 **키** 및 **값** 을 선택할 수 있습니다.  다음 스크린샷은 출력을 보여 줍니다.
 
-    ![Notebook1를 사용 하 여 Spark SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Notebook1를 사용 하 여 Spark SQL 문 실행")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png " alt-text="Notebook1를 사용 하 여 Spark SQL 문 실행" border="true":::
 
 7. 또한 쿼리에 변수를 사용하여 Spark SQL 문을 실행할 수도 있습니다. 다음 코드 조각에서는 쿼리할 `Temp` 수 있는 값을 사용 하 여 쿼리에서 변수를 정의 하는 방법을 보여 줍니다. 쿼리를 처음 실행하면 드롭다운이 변수에 지정한 값으로 자동으로 채워집니다.
 
@@ -106,7 +106,7 @@ HDInsight Spark 클러스터는 [Apache Zeppelin](https://zeppelin.apache.org/) 
 
      다음 스크린샷은 출력을 보여 줍니다.
 
-     ![Notebook2를 사용 하 여 Spark SQL 문 실행](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Notebook2를 사용 하 여 Spark SQL 문 실행")
+     :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png " alt-text="Notebook2를 사용 하 여 Spark SQL 문 실행" border="true":::
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Notebook에서 외부 패키지 사용 방법
 
@@ -116,15 +116,15 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
 1. 인터프리터 설정을 엽니다. 오른쪽 위 모서리에서 로그인 한 사용자 이름을 선택 하 고 **인터프리터** 를 선택 합니다.
 
-    ![인터프리터 시작](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive 출력")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="인터프리터 시작" border="true":::
 
 2. **Livy2** 으로 스크롤한 다음 **편집** 을 선택 합니다.
 
-    ![변경 인터프리터 run settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "변경 인터프리터 run settings1")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png " alt-text="변경 인터프리터 run settings1" border="true":::
 
 3. 키로 이동 하 여 `livy.spark.jars.packages` 해당 값을 형식으로 설정 `group:id:version` 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
 
-    ![변경 인터프리터 settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "변경 인터프리터 settings2")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png " alt-text="변경 인터프리터 settings2" border="true":::
 
     **저장** 을 선택 하 고 **확인** 을 선택 하 여 Livy 인터프리터를 다시 시작 합니다.
 
@@ -134,9 +134,9 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
     b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다.
 
-    ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png " alt-text="Jupyter Notebook에서 외부 패키지 사용" border="true":::
 
-    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
     ```
     com.databricks:spark-csv_2.10:1.4.0
@@ -146,7 +146,7 @@ HDInsight의 Apache Spark 클러스터에 있는 Zeppelin 노트북은 클러스
 
 Zeppelin Notebook은 클러스터 헤드 노드에 저장됩니다. 따라서 클러스터를 삭제하면 Notebook도 삭제됩니다. 나중에 다른 클러스터에서 사용하기 위해 Notebook을 유지하려면 작업 실행을 완료 한 후 Notebook을 내보내야 합니다. 노트북을 내보내려면 아래 이미지에 표시 된 것 처럼 **내보내기** 아이콘을 선택 합니다.
 
-![Notebook 다운로드](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "노트북 다운로드")
+:::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png " alt-text="Notebook 다운로드" border="true":::
 
 이 작업을 수행 하면 전자 필기장이 다운로드 위치에 JSON 파일로 저장 됩니다.
 
@@ -178,11 +178,11 @@ Zeppelin 노트북의 첫 번째 코드 단락은 클러스터에 새 Livy 세�
 
 1. Zeppelin Notebook에서 Livy 인터프리터를 다시 시작합니다. 이렇게 하려면 오른쪽 위 모서리에서 로그인 한 사용자 이름을 선택 하 여 인터프리터 설정을 열고 **인터프리터** 를 선택 합니다.
 
-    ![인터프리터 시작](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive 출력")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png " alt-text="인터프리터 시작" border="true":::
 
 2. **Livy2** 으로 스크롤한 다음 **다시 시작** 을 선택 합니다.
 
-    ![Livy 인터프리터를 다시 시작 합니다.](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Zeppelin 인터프리터를 다시 시작 합니다.")
+    :::image type="content" source="./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png " alt-text="Livy 인터프리터를 다시 시작 합니다." border="true":::
 
 3. 기존 Zeppelin Notebook에서 코드 셀을 실행합니다. 이 코드는 HDInsight 클러스터에 새 Livy 세션을 만듭니다.
 
@@ -194,7 +194,7 @@ Ambari에서 서비스의 유효성을 검사 하려면로 이동 `https://CLUST
 
 명령줄에서 서비스의 유효성을 검사 하려면 헤드 노드로 SSH를 수행 합니다. Command를 사용 하 여 사용자를 zeppelin로 전환 `sudo su zeppelin` 합니다. 상태 명령:
 
-|명령 |설명 |
+|명령 |Description |
 |---|---|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|서비스 상태.|
 |`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|서비스 버전입니다.|

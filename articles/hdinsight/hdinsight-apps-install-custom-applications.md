@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 9591551b7d5657803e770bd71b47acb141b40fb6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 19dd5bf94b524ff3eb6eb601c77b503a0040bd75
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942693"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867647"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
@@ -106,13 +106,13 @@ Azure 포털에서 애플리케이션 상태를 확인하여 애플리케이션 
 
     포털에서 클러스터를 열고 설정에서 응용 프로그램을 선택 합니다.
 
-    ![hdinsight 애플리케이션 애플리케이션 설치 오류](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-error.png" alt-text="hdinsight 애플리케이션 애플리케이션 설치 오류":::
 
 * HDInsight 스크립트 작업: HDInsight 애플리케이션의 오류 메시지가 스크립트 작업 실패를 나타내는 경우 스크립트 오류에 대한 자세한 내용이 스크립트 작업 창에 표시됩니다.
 
     설정에서 스크립트 동작을 선택 합니다. 스크립트 작업 기록에 오류 메시지가 표시됩니다.
 
-    ![hdinsight 애플리케이션 스크립트 작업 오류](./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png)
+    :::image type="content" source="./media/hdinsight-apps-install-custom-applications/hdinsight-apps-script-action-error.png" alt-text="hdinsight 애플리케이션 스크립트 작업 오류":::
 
 * Apache Ambari 웹 UI: 설치 스크립트가 오류의 원인인 경우 Ambari 웹 UI를 사용 하 여 설치 스크립트에 대 한 전체 로그를 확인 합니다.
 

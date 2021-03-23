@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940848"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870503"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -34,7 +34,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
 다음 다이어그램에서는 미러링 프로세스와 클러스터 간 통신 흐름을 보여줍니다.
 
-![미러링 프로세스 다이어그램](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="미러링 프로세스 다이어그램" border="false":::
 
 기본 및 보조 클러스터는 노드와 파티션 수에 따라 다를 수 있으며 토픽 내의 오프셋도 다릅니다. 미러링은 분할에 사용되는 키 값을 유지하므로 레코드 순서는 키 기준으로 유지됩니다.
 
@@ -84,14 +84,14 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
     1. **추가** 를 선택합니다.
     1. **피어 링 추가** 화면에서 아래 스크린샷에 표시 된 대로 세부 정보를 입력 합니다.
 
-        ![HDInsight Kafka 추가 vnet 피어 링](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="HDInsight Kafka 추가 vnet 피어 링" border="true":::
 
 ### <a name="configure-ip-advertising"></a>IP 광고 구성
 
 클라이언트에서 도메인 이름 대신 broker IP 주소를 사용 하 여 연결할 수 있도록 IP 광고를 구성 합니다.
 
 1. 기본 클러스터에 대 한 Ambari 대시보드로 이동 `https://PRIMARYCLUSTERNAME.azurehdinsight.net` 합니다.
-1. **서비스**  >  **kafka** 을 선택 합니다. **CliSelectck** 탭을 차례로 탭 합니다.
+1. **서비스**  >  **kafka** 을 선택 합니다. **Configs** 탭을 선택 합니다.
 1. 아래쪽 **kafka-env 템플릿** 섹션에 다음 구성 줄을 추가 합니다. **저장** 을 선택합니다.
 
     ```
@@ -107,7 +107,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 1. **구성 변경 내용 저장** 에서 **확인을** 선택 합니다.
 1. 다시 시작  >  **필요** 알림에서 **모든 영향을** 다시 시작을 선택 합니다. **모두 다시 시작 확인** 을 선택 합니다.
 
-    ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="모든 영향을 받는 Apache Ambari 다시 시작" border="true":::
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>모든 네트워크 인터페이스에서 수신 대기 하도록 Kafka을 구성 합니다.
     
@@ -120,7 +120,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 1. Ambari 대시보드에서 **호스트** 를 선택 합니다.
 1. 브로커 및 Zookeeper의 IP 주소를 기록해 둡니다. 브로커 노드는 호스트 이름의 처음 두 문자로 **w)** , 사육 아웃 노드에는 호스트 이름의 처음 두 문자로 **zk** 가 있습니다.
 
-    ![Apache Ambari view 노드 ip 주소](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Apache Ambari view 노드 ip 주소" border="true":::
 
 1. 두 번째 클러스터에 대해 앞의 세 단계를 반복 합니다. **kafka 두-보조-클러스터**: IP 보급을 구성 하 고, 수신기를 설정 하 고, Broker 및 사육 아웃 ip 주소를 기록 합니다.
 
@@ -256,7 +256,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
         1. `auto.create.topics.enable` 값을 true로 변경하고 __저장__ 을 선택합니다. 메모를 추가 하 고 __저장__ 을 다시 선택 합니다.
         1. __Kafka__ 서비스를 선택 하 고, __다시 시작__ 을 선택한 다음, __영향을 받는 모두 다시 시작__ 을 선택 합니다. 메시지가 표시 되 면 __모두 다시 시작 확인__ 을 선택 합니다.
 
-        ![kafka 자동 만들기 항목 사용](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="kafka 자동 만들기 항목 사용" border="true":::
 
 ## <a name="start-mirrormaker"></a>MirrorMaker 시작
 
@@ -268,7 +268,7 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 
     이 예제에 사용된 매개 변수는 다음과 같습니다.
 
-    |매개 변수 |설명 |
+    |매개 변수 |Description |
     |---|---|
     |--consumer.config|소비자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *기본* kafka 클러스터에서 읽는 소비자를 만드는 데 사용 됩니다.|
     |--producer.config|생산자 속성이 포함된 파일을 지정합니다. 이러한 속성은 *보조* kafka 클러스터에 쓰는 생산자를 만드는 데 사용 됩니다.|

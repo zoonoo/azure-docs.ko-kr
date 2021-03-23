@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: feada70c7a461bb4a9cd621c76b5606a7f0e19d5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932880"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865284"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
@@ -22,11 +22,11 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 
 다음 다이어그램에서는 커넥터를 사용하는 경우 HDInsight의 Kafka 및 Azure IoT Hub 간의 데이터 흐름을 표시합니다.
 
-![커넥터를 통해 IoT Hub에서 Kafka로 흐르는 데이터를 보여주는 이미지](./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png)
+:::image type="content" source="./media/apache-kafka-connector-iot-hub/iot-hub-kafka-connector-hdinsight.png" alt-text="커넥터를 통해 IoT Hub에서 Kafka로 흐르는 데이터를 보여주는 이미지" border="false":::
 
 연결 API에 대 한 자세한 내용은을 참조 하십시오 [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Kafka 클러스터 자세한 내용은 [HDInsight의 Kafka 빠른 시작](apache-kafka-get-started.md) 문서를 참조하세요.
 

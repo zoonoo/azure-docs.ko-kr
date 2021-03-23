@@ -4,12 +4,12 @@ description: Azure HDInsight IO 캐시 및 이를 사용하여 Apache Spark 성�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9df585c102e2c7307e949e38b6b69147372c38dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940134"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866304"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상
 
@@ -37,7 +37,7 @@ Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩
 
 1. **작업** (hdi 3.6에서 **서비스 작업** )을 선택 하 고 **활성화** 합니다.
 
-    ![Ambari에서 IO 캐시 서비스 사용](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Ambari에서 IO 캐시 서비스 사용")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png " alt-text="Ambari에서 IO 캐시 서비스 사용" border="true":::
 
 1. 클러스터에 영향을 주는 모든 서비스를 다시 시작하는지 확인합니다.
 
@@ -52,7 +52,7 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 1. **Configs** 및 **고급** 탭을 선택합니다.
 
-    ![HDFS 고급 구성 편집](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "HDFS 고급 구성 편집")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png " alt-text="HDFS 고급 구성 편집" border="true":::
 
 1. 아래로 스크롤하고 **사용자 지정 코어 사이트** 영역을 확장합니다.
 
@@ -60,13 +60,13 @@ IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스�
 
 1. 상자의 값을 변경합니다.
 
-    ![IO 캐시의 평균 사용률 편집](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "IO 캐시의 평균 사용률 편집")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png " alt-text="IO 캐시의 평균 사용률 편집" border="true":::
 
 1. 오른쪽의 **저장** 을 선택합니다.
 
 1.   >  **모든 영향을** 다시 시작을 선택 합니다.
 
-    ![모든 영향을 받는 Apache Ambari 다시 시작](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "영향을 받는 모든 컴퓨터 다시 시작")
+    :::image type="content" source="./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png " alt-text="모든 영향을 받는 Apache Ambari 다시 시작" border="true":::
 
 1. **모두 다시 시작 확인** 을 선택 합니다.
 

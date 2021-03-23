@@ -6,14 +6,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: db19b1ae017fa7981747b0e7b4c82e97efc61ed3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 479a8fac111be6e5b1ae2c6ea21fff801ba26f83
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98878887"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863584"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways"></a>Azure VPN gateway에서 BGP를 구성 하는 방법
 
@@ -35,7 +35,7 @@ Bgp의 이점에 대 한 자세한 내용 및 BGP 사용의 기술 요구 사항
 
 파트를 결합하여 필요에 따라 더 복잡한 다중 홉 전송 네트워크를 빌드할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
@@ -79,13 +79,15 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
    * **AZURE APIPA BGP IP 주소** 필드는 선택 사항입니다. 온-프레미스 VPN 장치에서 BGP에 대해 APIPA 주소를 사용 하는 경우 VPN에 대 한 Azure 예약 APIPA 주소 범위 ( **169.254.21.0** 에서 **169.254.22.255** 로)의 주소를 선택 해야 합니다. 이 예제에서는 169.254.21.11를 사용 합니다.
 
-   * 활성-활성 VPN gateway를 만드는 경우 BGP 섹션에 추가 **두 번째 사용자 지정 AZURE APIPA BGP IP 주소가** 표시 됩니다. 허용 되는 APIPA 범위 (**169.254.21.0** ~ **169.254.22.255**)의 다른 주소를 지정 합니다.
+   * 활성-활성 VPN gateway를 만드는 경우 BGP 섹션에 추가 **두 번째 사용자 지정 AZURE APIPA BGP IP 주소가** 표시 됩니다. 허용 되는 APIPA 범위 (**169.254.21.0** ~ **169.254.22.255**)에서 다른 IP 주소를 선택 합니다. 두 번째 IP 주소는 첫 번째 주소와 달라 야 합니다.
 
    > [!IMPORTANT]
    >
    > * 기본적으로 Azure는 Azure VPN gateway에서 Azure BGP IP 주소로 자동으로 게이트웨이 서브넷 접두사 범위에서 개인 IP 주소를 할당 합니다. 온-프레미스 VPN 장치에서 BGP IP로 APIPA 주소 (169.254.0.1 to 169.254.255.254)를 사용 하는 경우 사용자 지정 Azure APIPA BGP 주소가 필요 합니다. 해당 로컬 네트워크 게이트웨이 리소스 (온-프레미스 네트워크)에 BGP 피어 IP로 APIPA 주소가 있으면 Azure VPN Gateway에서 사용자 지정 APIPA 주소를 선택 합니다. 로컬 네트워크 게이트웨이에서 APIPA가 아닌 일반 IP 주소를 사용 하는 경우 Azure VPN Gateway은 (는) 게이트웨이 서브넷 범위에서 개인 IP 주소로 돌아갑니다.
    >
    > * APIPA BGP 주소는 온-프레미스 VPN 장치와 연결 된 모든 Azure VPN gateway 간에 겹치지 않아야 합니다.
+   >
+   > * Azure VPN 게이트웨이에서 APIPA 주소를 사용 하는 경우 게이트웨이는 APIPA 원본 IP 주소를 사용 하 여 BGP 피어 링 세션을 시작 하지 않습니다. 온-프레미스 VPN 장치에서 BGP 피어 링 연결을 시작 해야 합니다.
    >
 
 1. **검토 + 만들기** 를 선택하여 유효성 검사를 실행합니다. 유효성 검사를 통과하면 **만들기** 를 선택하여 VPN 게이트웨이를 배포합니다. 게이트웨이에서 완전히 만들고 배포하는 데 최대 45분이 걸릴 수 있습니다. 배포 상태는 게이트웨이에 대한 [개요] 페이지에서 확인할 수 있습니다.

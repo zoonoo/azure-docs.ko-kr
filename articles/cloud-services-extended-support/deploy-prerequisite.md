@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: d85aad16049dee6496cb1eaf9def5451625ab876
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 21433e1a0441ef458dd5f8ea4b968211ef82cd46
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773473"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865607"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Azure Cloud Services 배포를 위한 필수 구성 요소 (확장 지원)
 
@@ -133,7 +133,7 @@ Cloud Service(추가 지원) 배포는 가상 네트워크에 있어야 합니�
 
 ## <a name="key-vault-creation"></a>Key Vault 만들기 
 
-Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services (확장 지원) 리소스가 Key Vault에서 암호로 저장 된 인증서를 검색할 수 있도록 ' Azure Virtual Machines for 배포용 ' 및 ' 템플릿 배포에 대 한 Azure Resource Manager '에 액세스 하기 위한 ' 액세스 정책 ' (포털) Key Vault 사용 하도록 설정 해야 합니다. [Azure Portal](../key-vault/general/quick-create-portal.md) 에서 또는 [PowerShell](../key-vault/general/quick-create-powershell.md)을 사용 하 여 주요 자격 증명 모음을 만들 수 있습니다. 주요 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에서 만들어야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
+Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. Key Vault에 인증서를 추가한 다음 서비스 구성 파일에서 인증서 지문을 참조 합니다. 또한 Cloud Services (확장 지원) 리소스가 Key Vault에서 암호로 저장 된 인증서를 검색할 수 있도록 ' Azure Virtual Machines for deployment '에 대 한 ' 액세스 정책 ' (포털) Key Vault 사용 하도록 설정 해야 합니다. [Azure Portal](../key-vault/general/quick-create-portal.md) 에서 또는 [PowerShell](../key-vault/general/quick-create-powershell.md)을 사용 하 여 주요 자격 증명 모음을 만들 수 있습니다. 주요 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에서 만들어야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.

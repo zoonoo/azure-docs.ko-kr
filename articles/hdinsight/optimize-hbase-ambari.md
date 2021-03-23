@@ -4,12 +4,12 @@ description: Apache Ambari 웹 UI를 사용 하 여 Apache HBase를 구성 하 �
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/01/2021
-ms.openlocfilehash: 60c9916bc7d7b3b380a332f41924ee744002fd66
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7e54b1347e4c67b99ba87b15c2c15d9d28244ce7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99428203"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864774"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache HBase 최적화
 
@@ -28,7 +28,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 1. 기본값을 5,000MB로 변경합니다.
 
-    ![' Apache Ambari HBase memory heapsize '](./media/optimize-hbase-ambari/ambari-hbase-heapsize.png)
+    :::image type="content" source="./media/optimize-hbase-ambari/ambari-hbase-heapsize.png" alt-text="' Apache Ambari HBase memory heapsize '" border="true":::
 
 ## <a name="optimize-read-heavy-workloads"></a>읽기 작업이 많은 워크로드 최적화
 
@@ -40,7 +40,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 1. 이 매개 변수를 수정하려면 HBase **Configs**(구성) 탭의 **Settings**(설정) 탭으로 이동한 다음 **% of RegionServer Allocated to Read Buffers**(버퍼를 읽기 위해 할당된 RegionServer의 %)를 찾습니다.
 
-    ![Apache HBase 메모리 블록 캐시 크기](./media/optimize-hbase-ambari/hbase-block-cache-size.png)
+    :::image type="content" source="./media/optimize-hbase-ambari/hbase-block-cache-size.png" alt-text="Apache HBase 메모리 블록 캐시 크기" border="true":::
 
 1. 값을 변경하려면 **편집** 아이콘을 선택합니다.
 
@@ -58,7 +58,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 `hbase.client.scanner.caching` 설정은 스캐너에서 `next` 메서드가 호출될 때 디스크에서 읽어오는 행 수를 정의합니다.  기본값은 100입니다. 숫자가 높을수록 클라이언트에서 영역 서버로의 원격 호출이 줄어들어 스캔 속도가 빨라집니다. 그러나이 설정은 클라이언트의 메모리 압력도 증가 시킵니다.
 
-![인출 된 Apache HBase 행 수](./media/optimize-hbase-ambari/hbase-num-rows-fetched.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-num-rows-fetched.png" alt-text="인출 된 Apache HBase 행 수" border="true":::
 
 > [!IMPORTANT]  
 > 스캐너에서 다음 메서드 호출 사이의 간격이 스캐너 시간 제한보다 크도록 값을 설정하지 않습니다. 스캐너 시간 제한 기간은 `hbase.regionserver.lease.period` 속성에 의해 정의됩니다.
@@ -71,7 +71,7 @@ HBase 힙 크기는 *영역* 및 *마스터* 서버에서 사용할 최대 힙 �
 
 HBase는 *HFile* 이라는 내부 파일 형식으로 데이터를 저장합니다. `hbase.hregion.max.filesize` 속성은 영역에 대한 단일 HFile의 크기를 정의합니다.  영역 내 모든 HFile의 합계가 이 설정보다 큰 경우 하나의 영역이 두 영역으로 분할됩니다.
 
-![' Apache HBase HRegion max filesize '](./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-max-filesize.png" alt-text="' Apache HBase HRegion max filesize '" border="true":::
 
 영역 파일 크기가 클수록 분할 수가 줄어듭니다. 파일 크기를 늘려서 쓰기 성능이 최대화되는 값을 결정할 수 있습니다.
 
@@ -85,7 +85,7 @@ HBase는 *HFile* 이라는 내부 파일 형식으로 데이터를 저장합니�
 
     플러시 크기 및 블록 승수의 기본값을 사용하면 Memstore 크기가 128 * 4 = 512MB인 경우 업데이트가 차단됩니다. 업데이트 차단 횟수를 줄이려면 `hbase.hregion.memstore.block.multiplier` 값을 늘립니다.
 
-![Apache HBase 영역 블록 승수](./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-memstore-block-multiplier.png" alt-text="Apache HBase 영역 블록 승수" border="true":::
 
 ## <a name="define-memstore-size"></a>Memstore 크기 정의
 
@@ -95,7 +95,7 @@ Memstore 크기는 `hbase.regionserver.global.memstore.upperLimit` 및 `hbase.re
 
 Memstore 로컬 할당 버퍼 사용은 `hbase.hregion.memstore.mslab.enabled` 속성으로 결정됩니다. 이 설정을 사용 하도록 설정 하면 (true) 사용량이 많은 쓰기 작업 중에 힙 조각화가 방지 됩니다. 기본값은 true입니다.
 
-![hbase.hregion.memstore.mslab.enabled](./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png)
+:::image type="content" source="./media/optimize-hbase-ambari/hbase-hregion-memstore-mslab-enabled.png" alt-text="hbase.hregion.memstore.mslab.enabled" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

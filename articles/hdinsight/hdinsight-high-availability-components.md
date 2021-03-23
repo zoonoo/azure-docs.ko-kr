@@ -4,12 +4,12 @@ description: HDInsight 클러스터에서 사용 하는 다양 한 고가용성 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945307"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863720"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight에서 지원 되는 고가용성 서비스
 
@@ -34,7 +34,7 @@ HDInsight는 자동 장애 조치 (failover) 기능을 사용 하 여 네 가지
 - 슬레이브 고가용성 서비스
 - Master 고가용성 서비스
 
-![고가용성 인프라](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="고가용성 인프라" border="false":::
 
 또한 오픈 소스 Apache 안정성 구성 요소에서 지원 되는 기타 고가용성 서비스가 있습니다. 이러한 구성 요소는 HDInsight 클러스터에도 있습니다.
 
@@ -91,7 +91,7 @@ Ambari 서버를 제외 하 고 대기 헤드 노드에서 HDInsight HA 서비�
 
 ### <a name="the-failover-process"></a>장애 조치 (failover) 프로세스
 
-![장애 조치(Failover) 프로세스](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="장애 조치(Failover) 프로세스" border="false":::
 
 상태 모니터는 마스터 장애 조치 (failover) 컨트롤러와 함께 각 헤드 노드에서 실행 되어 사육 사 쿼럼에 하트 비트 알림을 보냅니다. 헤드 노드는이 시나리오에서 HA 서비스로 간주 됩니다. 상태 모니터는 각 고가용성 서비스가 정상 상태이 고 리더십 선거에 가입할 준비가 되었는지 확인 합니다. 그렇다면이 헤드 노드는 선거에서 경쟁 합니다. 그렇지 않으면 다시 준비 될 때까지 선거를 종료 합니다.
 

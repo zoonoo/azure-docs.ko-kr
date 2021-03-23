@@ -1,21 +1,21 @@
 ---
-title: Azure Migrate의 물리적 서버 평가 지원
-description: Azure Migrate 검색 및 평가를 사용 하 여 물리적 서버 평가 지원에 대해 알아봅니다.
+title: Azure Migrate의 물리적 검색 및 평가에 대 한 지원
+description: Azure Migrate 검색 및 평가를 통한 물리적 검색 및 평가 지원에 대해 알아봅니다.
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 18176c5a79eda080c72b387781e6c7c9b0c66673
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773201"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869449"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>물리적 서버 검색 및 평가를 위한 지원 매트릭스 
 
-이 문서에서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 Azure로의 마이그레이션에 대 한 물리적 서버를 평가 하는 경우 필수 구성 요소 및 지원 요구 사항을 요약 합니다. 물리적 서버를 Azure로 마이그레이션하려면 [마이그레이션 지원 매트릭스](migrate-support-matrix-physical-migration.md)를 검토 하세요.
+이 문서에서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) 도구를 사용 하 여 Azure로의 마이그레이션에 대 한 물리적 서버를 평가 하는 경우 필수 구성 요소 및 지원 요구 사항을 요약 합니다. 물리적 서버를 Azure로 마이그레이션하려면 [마이그레이션 지원 매트릭스](migrate-support-matrix-physical-migration.md)를 검토 하세요.
 
 물리적 서버를 평가 하려면 프로젝트를 만들고 프로젝트에 Azure Migrate: 검색 및 평가 도구를 추가 합니다. 도구가 추가된 후 [Azure Migrate 어플라이언스](migrate-appliance.md)를 배포합니다. 어플라이언스는 온-프레미스 서버를 지속적으로 검색 하 고 서버 메타 데이터 및 성능 데이터를 Azure로 전송 합니다. 검색이 완료 되 면 검색 된 서버를 그룹으로 수집 하 고 그룹에 대 한 평가를 실행 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "104773201"
 
 **지원** | **세부 정보**
 --- | ---
-**평가 제한** | 단일 [프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 최대 35000 대의 물리적 서버를 검색 하 고 평가할 수 있습니다.
+**평가 제한** | 단일 [프로젝트](migrate-support-matrix.md#project)에서 최대 35000 대의 물리적 서버를 검색 하 고 평가할 수 있습니다.
 **프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다. 물리적 서버 외에도 프로젝트는 VMware 및 Hyper-v의 서버를 각각에 대 한 평가 제한까지 포함할 수 있습니다.
 **검색** | Azure Migrate 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 서버를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 대의 서버를 평가할 수 있습니다.
@@ -84,4 +84,4 @@ Azure Government에서 [이 스크립트를 사용 하 여](deploy-appliance-scr
 
 ## <a name="next-steps"></a>다음 단계
 
-[물리적 서버 평가를 준비](./tutorial-discover-physical.md)합니다.
+[물리적 검색 및 평가를 준비](./tutorial-discover-physical.md)합니다.

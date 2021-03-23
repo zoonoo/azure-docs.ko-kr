@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/12/2021
-ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1414a7b0f17918caa16ccf854d70ea199fb42a47
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103420037"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870197"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -690,10 +690,10 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | 지정한 속성으로 업데이트된 JSON 개체 |
 ||||
 
-기존 속성에 자식 속성을 추가하려면 다음 구문을 사용합니다.
+기존 속성에 부모 속성을 추가 하려면 `setProperty()` 함수가 아닌 함수를 사용 `addProperty()` 합니다. 그렇지 않으면 함수는 출력으로 자식 개체만 반환합니다.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | 매개 변수 | 필수 | Type | Description |
@@ -741,7 +741,7 @@ addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName',
 이 예제에서는 `middleName` 자식 속성을 JSON 개체의 `customerName` 속성에 추가합니다. 이 속성은 [JSON()](#json) 함수를 사용하여 문자열에서 JSON으로 변환됩니다. 함수는 지정된 값을 새 속성에 할당하고 업데이트된 개체를 반환합니다.
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 다음은 현재 JSON 개체입니다.
@@ -1145,8 +1145,8 @@ bool(<value>)
 
 | 입력 값 | Type | 반환 값 |
 | ----------- | ---------- | ---------------------- |
-| `bool(1)` | 정수 | `true` |
-| `bool(0)` | 정수    | `false` |
+| `bool(1)` | Integer | `true` |
+| `bool(0)` | Integer    | `false` |
 | `bool(-1)` | 정수 | `true` |
 | `bool('true')` | String | `true` |
 | `bool('false')` | String | `false` |

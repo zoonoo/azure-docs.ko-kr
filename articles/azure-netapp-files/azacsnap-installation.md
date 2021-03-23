@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 458f4d3f29cb08a94095167ed45133f5cd70f5f4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737170"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869194"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구 설치 (미리 보기)
 
@@ -239,71 +239,6 @@ RBAC 서비스 주체 만들기
     ENV : <IP_address_of_host>:
     USER: AZACSNAP
     ```
-
-### <a name="additional-instructions-for-using-the-log-trimmer-sap-hana-20-and-later"></a>로그를 사용 하기 위한 추가 지침 (SAP HANA 2.0 이상)
-
-로그를 사용 하는 경우 다음 예제 명령은 SAP HANA 2.0 데이터베이스 시스템에 있는 테 넌 트 데이터베이스에서 사용자 (AZACSNAP)를 설정 합니다. IP 주소, 사용자 이름 및 암호를 적절 하 게 변경 해야 합니다.
-
-1. 테 넌 트 데이터베이스에 연결 하 여 사용자를 만들고 테 넌 트 별 세부 정보는 `<IP_address_of_host>` 및 `<SYSTEM_USER_PASSWORD>` 입니다.  또한 `30015` 테 넌 트 데이터베이스와 통신 하는 데 필요한 포트 ()에 유의 하세요.
-
-    ```bash
-    hdbsql -n <IP_address_of_host>:30015 - i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD>
-    ```
-
-    ```output  
-    Welcome to the SAP HANA Database interactive terminal.
-
-    Type: \h for help with commands
-    \q to quit
-
-    hdbsql TENANTDB=>
-    ```
-
-1. 사용자 만들기
-
-    이 예에서는 SYSTEMDB에 AZACSNAP 사용자를 만듭니다.
-
-    ```sql
-    hdbsql TENANTDB=> CREATE USER AZACSNAP PASSWORD <AZACSNAP_PASSWORD_CHANGE_ME> NO FORCE_FIRST_PASSWORD_CHANGE;
-    ```
-
-1. 사용자 권한 부여
-
-    이 예에서는 AZACSNAP 사용자에 대 한 사용 권한을 설정 하 여 데이터베이스 일관성 저장소 스냅숏을 수행할 수 있도록 합니다.
-
-    ```sql
-    hdbsql TENANTDB=> GRANT BACKUP ADMIN, CATALOG READ, MONITORING TO AZACSNAP;
-    ```
-
-1. *선택 사항* -사용자의 암호가 만료 되지 않도록 방지
-
-    > [!NOTE]
-    > 이렇게 변경 하려면 회사 정책을 확인 하세요.
-
-   이 예에서는 AZACSNAP 사용자에 대 한 암호 만료를 사용 하지 않도록 설정 합니다 .이 변경 없이 사용자의 암호는 스냅숏이 올바르게 수행 되지 않도록 만료 됩니다.  
-
-   ```sql
-   hdbsql TENANTDB=> ALTER USER AZACSNAP DISABLE PASSWORD LIFETIME;
-   ```
-
-> [!NOTE]  
-> 모든 테 넌 트 데이터베이스에 대해 이러한 단계를 반복 합니다. SYSTEMDB에 대해 다음 SQL 쿼리를 사용 하 여 모든 테 넌 트에 대 한 연결 세부 정보를 가져올 수 있습니다.
-
-```sql
-SELECT HOST, SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%'
-```
-
-다음 예제 쿼리 및 출력을 참조 하세요.
-
-```bash
-hdbsql -jaxC -n 10.90.0.31:30013 -i 00 -u SYSTEM -p <SYSTEM_USER_PASSWORD> " SELECT HOST,SQL_PORT, DATABASE_NAME FROM SYS_DATABASES.M_SERVICES WHERE SQL_PORT LIKE '3%' "
-```
-
-```output
-sapprdhdb80,30013,SYSTEMDB
-sapprdhdb80,30015,H81
-sapprdhdb80,30041,H82
-```
 
 ### <a name="using-ssl-for-communication-with-sap-hana"></a>SAP HANA와 통신 하는 데 SSL 사용
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 18be3fa8851c2dbaab622c770d02f4db252a231c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 492663ca35ed04da09e7f0d198444a4d40178e2b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945256"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867528"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -26,7 +26,7 @@ HDInsight를 사용하면 빅 데이터와 함께 기계 학습을 수행하여 
 
 [R](https://www.r-project.org/)은 현재 세계에서 가장 인기 있는 통계 프로그래밍 언어입니다. 250만 명 이상의 사용자 및 성장 하는 커뮤니티를 사용 하는 오픈 소스 데이터 시각화 도구입니다. 번창하는 사용자를 기반으로 하고 8,000개 이상의 적용된 패키지를 제공하는 R은 기계 학습이 필요한 많은 회사에 적합한 선택 사항입니다. 대량 데이터 세트 및 모델과 함께 사용할 준비가 된 ML 서비스를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 이 기능은 데이터 과학자 및 통계 전문가에게 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기 조정할 수 있는 친숙한 R 인터페이스를 제공합니다.
 
-![R Server를 사용한 예측 학습](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/training-for-prediction.png" alt-text="R Server를 사용한 예측 학습" border="false":::
 
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다.  ScaleR의 Hadoop Map 줄임 또는 Spark 계산 컨텍스트를 사용 하 여 클러스터의 노드에서 R 스크립트를 실행할 수도 있습니다.
 
@@ -36,7 +36,7 @@ Spark가 있는 HDInsight의 ML 서비스를 사용하면 Spark 컴퓨팅 컨텍
 
 Azure Machine Learning은 예측 분석을 모델링 하는 도구와 예측 모델을 사용할 준비가 된 웹 서비스로 배포 하는 데 사용할 수 있는 완전히 관리 되는 서비스를 제공 합니다. Azure Machine Learning은 클라우드 기반의 완벽한 예측 분석 솔루션으로, 예측 모델을 생성, 테스트, 운영 및 관리하는 데 사용할 수 있습니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
 
-![Microsoft Azure machine learning 개요](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+:::image type="content" source="./media/hdinsight-machine-learning-overview/azure-machine-learning.png" alt-text="Microsoft Azure machine learning 개요" border="false":::
 
 [Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링* 은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. [데이터 가져오기 모듈](../machine-learning/classic/import-data.md)을 사용 하 여 Azure Machine Learning Studio (클래식)에서 HiveQL 쿼리를 실행 하 고 Hive에서 처리 되 고 blob 저장소에 저장 된 데이터에 액세스할 수 있습니다.
 
