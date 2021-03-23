@@ -1,20 +1,19 @@
 ---
-title: 경고 보기
+title: 경고 페이지에서 경고 필터링 및 관리
 description: 다양 한 범주에 따라 경고를 보고, 검색 기능을 사용 하 여 관심 있는 경고를 쉽게 찾을 수 있습니다.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/02/2020
+ms.date: 3/22/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 391d1872124c7332bdaa6008a244490b47df4bf7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523671"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781588"
 ---
-# <a name="view-alerts"></a>경고 보기
+# <a name="filter-and-manage-alerts-from-the-alerts-page"></a>경고 페이지에서 경고 필터링 및 관리 
 
 이 문서에서는 센서에 의해 트리거되는 경고를 확인 하 고 경고 도구를 사용 하 여 관리 하는 방법을 설명 합니다.
 
@@ -32,7 +31,7 @@ ms.locfileid: "100523671"
 
 **경고** 주 보기에서 다양 한 범주에 따라 경고를 볼 수 있습니다. 경고를 선택 하 여 세부 정보를 검토 하 고 이벤트를 관리 합니다.
 
-| 유형별 정렬 | 설명 |
+| 유형별 정렬 | Description |
 |--|--|
 | **중요 한 알림** | 경고가 중요도 별로 정렬 되었습니다. |
 | **고정 된 경고** | 추가 조사를 위해 사용자에 게 고정 된 경고입니다. 고정 된 경고는 보관 되지 않으며 고정 된 폴더에 14 일 동안 저장 됩니다. |

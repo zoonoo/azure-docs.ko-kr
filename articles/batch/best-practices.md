@@ -3,12 +3,12 @@ title: 모범 사례
 description: Azure Batch 솔루션을 개발 하는 데 유용한 모범 사례 및 유용한 팁을 알아보세요.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583278"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802355"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -31,7 +31,12 @@ ms.locfileid: "104583278"
 
 - **풀에는 계산 노드가 두** 개 이상 있어야 합니다. 개별 노드는 항상 사용할 수 있는 것은 아닙니다. 흔치 않은 경우이지만 하드웨어 오류, 운영 체제 업데이트 및 기타 여러 가지 문제로 인해 개별 노드가 오프라인 상태가 될 수 있습니다. Batch 워크로드에 결정적이고 보장된 진행률이 필요한 경우 여러 노드가 있는 풀을 할당해야 합니다.
 
-- **리소스 이름 다시 사용 안 함:** 일괄 처리 리소스 (작업, 풀 등)는 자주 발생 하 고 시간이 지남에 따라 이동 합니다. 예를 들어 월요일에 풀을 만들고, 화요일에 풀을 삭제한 다음, 목요일에 다른 풀을 만들 수 있습니다. 새로 만드는 각 리소스에는 이전에 사용하지 않은 고유한 이름을 지정해야 합니다. 이 작업은 GUID를 전체 리소스 이름 또는 그 일부로 사용하거나 리소스를 만든 시간을 리소스 이름에 포함하여 수행할 수 있습니다. Batch는 [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname)을 지원합니다. 이는 실제 리소스 ID가 그다지 친숙하지 않은 리소스인 경우에도 사람이 읽을 수 있는 이름을 지정하는 데 사용할 수 있습니다. 고유한 이름을 사용하면 로그 및 메트릭에서 작업을 수행한 특정 리소스를 쉽게 구분할 수 있습니다. 또한 리소스에 대한 지원 사례를 제출해야 하는 경우 모호성도 제거됩니다.
+- **임박 한 종료 날짜가 있는 이미지는 사용 하지 마십시오.**
+    임박 한 일괄 처리 지원 종료 날짜가 있는 이미지를 방지 하는 것이 좋습니다. 이러한 날짜는 [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)또는 [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images)을 통해 검색할 수 있습니다. 풀에 해당 하는 EOL 날짜의 보기를 정기적으로 새로 고치고 종료 날짜가 발생 하기 전에 워크 로드를 마이그레이션하는 것은 사용자의 책임입니다. 지정 된 노드 에이전트를 사용 하 여 사용자 지정 이미지를 사용 하는 경우 사용자 지정 이미지가 파생 되거나 정렬 된 이미지에 대 한 일괄 처리 지원 종료 날짜를 충족 하는지 확인 해야 합니다.
+
+- **리소스 이름을 다시 사용하지 않습니다.**
+    Batch 리소스(작업, 풀 등)는 시간이 지남에 따라 변하는 경우가 많습니다. 예를 들어 월요일에 풀을 만들고, 화요일에 풀을 삭제한 다음, 목요일에 다른 풀을 만들 수 있습니다. 새로 만드는 각 리소스에는 이전에 사용하지 않은 고유한 이름을 지정해야 합니다. 이 작업은 GUID를 전체 리소스 이름 또는 그 일부로 사용하거나 리소스를 만든 시간을 리소스 이름에 포함하여 수행할 수 있습니다. Batch는 [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname)을 지원합니다. 이는 실제 리소스 ID가 그다지 친숙하지 않은 리소스인 경우에도 사람이 읽을 수 있는 이름을 지정하는 데 사용할 수 있습니다. 고유한 이름을 사용하면 로그 및 메트릭에서 작업을 수행한 특정 리소스를 쉽게 구분할 수 있습니다. 또한 리소스에 대한 지원 사례를 제출해야 하는 경우 모호성도 제거됩니다.
+
 
 - **풀 유지 관리 및 실패 시 연속성:** 작업에서 풀을 동적으로 사용 하도록 하는 것이 가장 좋습니다. 작업에서 동일한 풀을 모든 대상에 사용하는 경우 풀에 문제가 있으면 작업이 실행되지 않을 수 있습니다. 이는 시간이 중요한 워크로드에 특히 중요합니다. 이 문제를 해결하려면 각 작업을 예약할 때 풀을 동적으로 선택하거나 만들거나, 비정상 풀을 무시할 수 있도록 풀 이름을 재정의하는 방법을 사용합니다.
 

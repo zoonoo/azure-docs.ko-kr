@@ -4,15 +4,15 @@ description: 연속 통합 및 배달을 자동으로 게시 하는 방법에 �
 ms.service: data-factory
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 496d2b6b3d669013c8174e9bc961d0a2f640bed3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b2c48fcc11feaec3efc0acab283609181b92a3dc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462085"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780466"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>지속적인 통합 및 배달에 대 한 자동화 된 게시
 

@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c779e95b790d91b801d5d35b4702191f5e7986d5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100594239"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802967"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -214,6 +214,7 @@ Preview를 사용 하 여 교환 하려면:
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트를 준비 하기 위해 ping 할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예제는 `/statuscheck`입니다. 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대 한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. 예를 들면 `200,202` 입니다. 반환 된 상태 코드가 목록에 없으면 준비 및 교환 작업이 중지 됩니다. 기본적으로 모든 응답 코드는 유효합니다.
+- `WEBSITE_WARMUP_PATH`: 사이트를 다시 시작할 때마다 ping 해야 하는 사이트의 상대 경로입니다 (슬롯 교체 중에만 해당). 예 값 `/statuscheck` 에는 또는 루트 경로가 포함 `/` 됩니다.
 
 > [!NOTE]
 > `<applicationInitialization>`구성 요소는 각 앱 시작의 일부 이지만 두 개의 준비 동작 앱 설정은 슬롯 교환에만 적용 됩니다.

@@ -1,30 +1,30 @@
 ---
-title: JavaScript를 사용 하 여 Azure Data Lake Storage Gen2의 데이터 관리
+title: JavaScript (Node.js)를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 관리
 description: JavaScript 용 Azure Storage Data Lake 클라이언트 라이브러리를 사용 하 여 계층적 네임 스페이스를 사용 하는 저장소 계정의 디렉터리와 파일을 관리 합니다.
 author: normesta
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 03/19/2021
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ce5df805ddce6cdb52e4225bb77e2d8dfa9b9b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 678af3e2fb4111593ece0cc2cdf3811cf0e793a8
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100650170"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774765"
 ---
-# <a name="use-javascript-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>JavaScript를 사용 하 여 Azure Data Lake Storage Gen2의 디렉터리 및 파일 관리
+# <a name="use-javascript-sdk-in-nodejs-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Node.js에서 JavaScript SDK를 사용 하 여 Azure Data Lake Storage Gen2의 디렉터리 및 파일 관리
 
-이 문서에서는 JavaScript를 사용 하 여 계층적 네임 스페이스를 포함 하는 저장소 계정의 디렉터리와 파일을 만들고 관리 하는 방법을 보여 줍니다.
+이 문서에서는 Node.js를 사용 하 여 계층적 네임 스페이스를 가진 저장소 계정의 디렉터리와 파일을 만들고 관리 하는 방법을 보여 줍니다.
 
-디렉터리 및 파일의 ACL (액세스 제어 목록)을 가져오거나 설정 하 고 업데이트 하는 방법에 대 한 자세한 내용은 [JavaScript를 사용 하 여 Azure Data Lake Storage Gen2에서 acl 관리](data-lake-storage-acl-javascript.md)를 참조 하세요.
+디렉터리 및 파일의 ACL (액세스 제어 목록)을 가져오거나 설정 하 고 업데이트 하는 방법에 대 한 자세한 내용은 [Node.js JAVASCRIPT SDK를 사용 하 여 Azure Data Lake Storage Gen2에서 acl 관리](data-lake-storage-acl-javascript.md)를 참조 하세요.
 
 [패키지 (노드 패키지 관리자)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -43,7 +43,11 @@ npm install @azure/storage-file-datalake
 `storage-file-datalake`이 문을 코드 파일의 맨 위에 배치 하 여 패키지를 가져옵니다. 
 
 ```javascript
-const AzureStorageDataLake = require("@azure/storage-file-datalake");
+const {
+AzureStorageDataLake,
+DataLakeServiceClient,
+StorageSharedKeyCredential
+} = require("@azure/storage-file-datalake");
 ```
 
 ## <a name="connect-to-the-account"></a>계정에 연결 

@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: da1ea6462d22242d23629bcec192d7760314dfed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96444807"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780075"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -55,7 +55,7 @@ ms.locfileid: "96444807"
 |----------------|-------------------------|
 | 미국 정부의 Azure AD | `https://login.microsoftonline.us` |
 | Azure AD Germany| `https://login.microsoftonline.de` |
-| 21Vianet으로 운영되는 Azure AD China | `https://login.chinacloudapi.cn` |
+| 21Vianet으로 운영되는 Azure AD China | `https://login.partner.microsoftonline.cn/common` |
 | Azure AD(글로벌 서비스)| `https://login.microsoftonline.com` |
 
 적절한 지역별 기본 URL을 사용하여 Azure AD 권한 부여 또는 토큰 엔드포인트에 대한 요청을 구성할 수 있습니다. 예를 들어 Azure Germany의 경우

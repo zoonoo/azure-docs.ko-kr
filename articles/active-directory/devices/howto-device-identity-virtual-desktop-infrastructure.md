@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfea22c10d98adf3b8c89491c248bf7a934ba1ed
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96029350"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798887"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -79,6 +79,8 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 - [페더레이션된 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-federated-domains.md)
 - [관리 환경에 대 한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
 
+### <a name="non-persistent-vdi"></a>비영구 VDI
+
 비영구 VDI를 배포 하는 경우 IT 관리자가 아래 지침을 구현 하는 것이 좋습니다. 이렇게 하지 않으면 영구적이 지 않은 VDI 플랫폼에서 등록 된 오래 된 하이브리드 Azure AD 조인 장치가 많은 디렉터리에 있게 됩니다. 그러면 테 넌 트 할당량에 대 한 압력이 증가 하 고 테 넌 트 할당량이 부족 하 여 서비스 중단이 발생 합니다.
 
 - 시스템 준비 도구 (sysprep.exe)를 사용 하 고 설치에 Windows 10 1809 이전 이미지를 사용 하는 경우, 하이브리드 Azure AD에 가입 된 Azure AD에 이미 등록 된 장치에서 이미지를 사용 하 고 있지 않은지 확인 합니다.
@@ -92,6 +94,15 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 - [오래 된 장치를 관리](manage-stale-devices.md)하는 프로세스를 정의 하 고 구현 합니다.
    - 영구적이 지 않은 하이브리드 Azure AD 조인 장치를 식별 하는 전략이 있으면 (예: 컴퓨터 표시 이름 접두사 사용), 이러한 장치를 정리 하는 방법에 따라 디렉터리가 오래 된 많은 장치에서 사용 되지 않도록 해야 합니다.
    - Windows 현재 및 하위 수준에서 비영구 VDI를 배포 하는 경우 **ApproximateLastLogonTimestamp** 가 15 일 보다 오래 된 장치를 삭제 해야 합니다.
+
+### <a name="persistent-vdi"></a>영구적 VDI
+
+영구 VDI를 배포 하는 경우 IT 관리자가 아래 지침을 구현 하는 것이 좋습니다. 실패 하면 배포 및 인증 문제가 발생 합니다. 
+
+- 시스템 준비 도구 (sysprep.exe)를 사용 하 고 설치에 Windows 10 1809 이전 이미지를 사용 하는 경우, 하이브리드 Azure AD에 가입 된 Azure AD에 이미 등록 된 장치에서 이미지를 사용 하 고 있지 않은지 확인 합니다.
+- VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Azure AD에 이미 등록 된 VM의 스냅숏이 하이브리드 Azure AD 조인으로 사용 되지 않는지 확인 합니다.
+
+또한 [오래 된 장치를 관리](manage-stale-devices.md)하는 프로세스를 구현 하는 것이 좋습니다. 이렇게 하면 Vm을 정기적으로 다시 설정 하는 경우 오래 된 많은 장치에서 디렉터리가 사용 되지 않습니다.
  
 ## <a name="next-steps"></a>다음 단계
 

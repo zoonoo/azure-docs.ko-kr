@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595979"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773082"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -46,7 +46,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 기본적으로 [함수 프록시](functions-proxies.md) 는 바로 가기를 사용 하 여 프록시의 API 호출을 동일한 함수 앱의 함수로 직접 보냅니다. 이 바로 가기는 새 HTTP 요청을 만드는 대신 사용 됩니다. 이 설정을 사용 하면 바로 가기 동작을 사용 하지 않도록 설정할 수 있습니다.
 
-|키|값|설명|
+|키|값|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전송 되지 않습니다. 대신 요청은 함수 앱에 대 한 HTTP 프런트 엔드로 다시 전달 됩니다.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|지역 함수 앱의 함수를 가리키는 백 엔드 URL을 사용 하는 호출은 함수로 직접 전달 됩니다. 기본값입니다. |
@@ -55,7 +55,7 @@ Application Insights에 대 한 연결 문자열입니다. `APPLICATIONINSIGHTS_
 
 이 설정은 문자를 `%2F` 백 엔드 URL에 삽입할 때 경로 매개 변수에서 슬래시로 디코딩되는 지 여부를 제어 합니다. 
 
-|키|값|설명|
+|키|값|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|인코딩된 슬래시가 있는 경로 매개 변수는 디코딩됩니다. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|모든 경로 매개 변수는 기본 동작인 변경 되지 않은 상태로 전달 됩니다. |
@@ -186,22 +186,24 @@ Azure Portal에서 편집할 수 있는지 여부를 지정 합니다. 유효한
 |---|------------|
 |함수 \_ 작업자 \_ 프로세스 \_ 수|2|
 
-## <a name="python_threadpool_thread_count"></a>PYTHON \_ THREADPOOL \_ 스레드 \_ 수
-
-Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 최대 스레드 수를 지정 합니다 .이 값은 `1` python 버전 및 아래에 대 한 기본값입니다 `3.8` . Python 버전 `3.9` 이상의 경우 값은로 설정 됩니다 `None` . 이 설정은 실행 중에 설정 되는 스레드 수를 보장 하지 않습니다. 설정은 Python이 스레드 수를 지정 된 값으로 확장할 수 있도록 합니다. 설정은 Python 함수 앱에만 적용 됩니다. 또한이 설정은 동기 함수 호출에 적용 되 고 코 루틴에는 적용 되지 않습니다.
-
-|키|샘플 값|최댓값|
-|---|------------|---------|
-|PYTHON \_ THREADPOOL \_ 스레드 \_ 수|2|32|
-
-
 ## <a name="functions_worker_runtime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-함수 앱에 로드할 언어 작업자 런타임입니다.  이것은 애플리케이션(예: "dotnet")에 사용되는 언어에 해당합니다. 여러 언어로 된 함수는 여러 개의 앱을 각각 해당하는 작업자 런타임 값을 사용하여 게시해야 합니다.  유효한 값은 `dotnet` (c #/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) 및 `python` (Python)입니다.
+함수 앱에 로드할 언어 작업자 런타임입니다.  이는 응용 프로그램에서 사용 되는 언어에 해당 합니다 (예: `dotnet` ). Azure Functions 런타임의 버전 2.x부터 지정 된 함수 앱은 단일 언어만 지원할 수 있습니다.   
 
 |키|샘플 값|
 |---|------------|
-|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
+|FUNCTIONS\_WORKER\_RUNTIME|node|
+
+유효한 값은
+
+| 값 | 언어 |
+|---|---|
+| `dotnet` | [C#(클래스 라이브러리)](functions-dotnet-class-library.md)<br/>[C # (스크립트)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C#(격리된 프로세스)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## <a name="pip_extra_index_url"></a>PIP \_ 추가 \_ 인덱스 \_ URL
 
@@ -212,6 +214,14 @@ Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 �
 |PIP \_ 추가 \_ 인덱스 \_ URL|http://my.custom.package.repo/simple |
 
 자세한 내용은 Python 개발자 참조의 [사용자 지정 종속성](functions-reference-python.md#remote-build-with-extra-index-url) 을 참조 하세요.
+
+## <a name="python_threadpool_thread_count"></a>PYTHON \_ THREADPOOL \_ 스레드 \_ 수
+
+Python 언어 작업자에서 함수 호출을 실행 하는 데 사용 하는 최대 스레드 수를 지정 합니다 .이 값은 `1` python 버전 및 아래에 대 한 기본값입니다 `3.8` . Python 버전 `3.9` 이상의 경우 값은로 설정 됩니다 `None` . 이 설정은 실행 중에 설정 되는 스레드 수를 보장 하지 않습니다. 설정은 Python이 스레드 수를 지정 된 값으로 확장할 수 있도록 합니다. 설정은 Python 함수 앱에만 적용 됩니다. 또한이 설정은 동기 함수 호출에 적용 되 고 코 루틴에는 적용 되지 않습니다.
+
+|키|샘플 값|최댓값|
+|---|------------|---------|
+|PYTHON \_ THREADPOOL \_ 스레드 \_ 수|2|32|
 
 ## <a name="scale_controller_logging_enabled"></a>크기 조정 \_ 컨트롤러 \_ 로깅 \_ 사용
 

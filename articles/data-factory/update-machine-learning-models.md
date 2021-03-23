@@ -3,16 +3,16 @@ title: Azure Data Factory를 사용 하 여 Azure Machine Learning Studio (클�
 description: Azure Data Factory 및 Azure Machine Learning Studio (클래식)를 사용 하 여 예측 파이프라인을 만드는 방법을 설명 합니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: ef89ecef34a7c5afb94547181f449b0fc393e67c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5eac6f939ffcc39961f508a993ca17757221503f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100377570"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783101"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용 하 여 Azure Machine Learning Studio (클래식) 모델 업데이트
 
@@ -55,7 +55,7 @@ Azure Machine Learning Studio (클래식)를 사용 하 여 만드는 모델은 
 }
 ```
 
-| 속성                      | 설명                              | 필수 |
+| 속성                      | Description                              | 필수 |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | 파이프라인의 작업 이름입니다.     | 예      |
 | description                   | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 예       |

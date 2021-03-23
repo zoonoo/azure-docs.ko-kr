@@ -4,7 +4,7 @@ description: Microsoft 보안 코드 분석 확장에 대해 알아봅니다. �
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a3af3307892e82ecd0697124954e99837ad5eb9e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4443bdbc134f222256c6af8bb1f52c684cdb4624
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94515696"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801199"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
+
+> [!Note]
+> 2022 년 3 월 1 일부 터 MSCA (Microsoft 보안 코드 분석) 확장이 사용 중지 됩니다. 기존 MSCA 고객은 2022 년 3 월 1 일부 터 MSCA에 대 한 액세스를 유지 합니다. Azure DevOps의 대체 옵션은 [OWASP 소스 코드 분석 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools) 를 참조 하세요. GitHub로 마이그레이션을 계획 하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인할 수 있습니다.
 
 Microsoft 보안 코드 분석 확장을 통해 팀은 Azure DevOps 지속적인 통합 및 배달 (CI/CD) 파이프라인에 보안 코드 분석을 추가할 수 있습니다. 이 분석은 Microsoft의 [SDL (보안 개발 수명 주기)](https://www.microsoft.com/securityengineering/sdl/practices) 전문가가 권장 합니다.
 

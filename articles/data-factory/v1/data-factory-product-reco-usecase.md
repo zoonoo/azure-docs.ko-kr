@@ -3,16 +3,16 @@ title: 데이터 팩터리 사용 사례 - 제품 추천
 description: Azure Data Factory 및 기타 서비스로 구현한 사용 사례에 대해 알아봅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b20eef90cebab59f823e1766d28eb355f317463d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 44c66f5fa89e7293667c930bfd1720d72dc26bf4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100387192"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785073"
 ---
 # <a name="use-case---product-recommendations"></a>사용 사례 - 제품 추천
 Azure Data Factory는 솔루션 가속기의 Cortana Intelligence Suite를 구현하는 데 사용되는 다양한 서비스 중 하나입니다.  이 제품군에 대한 자세한 내용은 [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) 페이지를 참조하세요. 이 문서에서는 Azure 사용자가 Azure Data Factory 및 기타 Cortana Intelligence 구성 요소 서비스를 사용하여 이미 해결하고 구현한 경험이 있는 일반적인 사용 사례를 설명합니다.

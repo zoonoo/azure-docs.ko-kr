@@ -8,20 +8,30 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 03/22/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a42cb97d123d0943dab02bf1f70fcf306d6bcd96
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21da8f79772d9648836bedec89cb5d7014486dc6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97629132"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798362"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 로그인 한 사용자가 전자 메일 확인을 통해 id를 증명 하지 않고도 자신의 암호를 변경할 수 있도록 설정할 수 있습니다. 암호 변경 흐름에는 다음 단계가 포함 됩니다.
+
+1. 사용자가 로컬 계정에 로그인 합니다. 세션이 아직 활성 상태인 경우 Azure AD B2C는 사용자에 게 권한을 부여 하 고 다음 단계로 건너뜁니다.
+1. 사용자가 **이전 암호** 를 확인 한 다음 **새 암호** 를 만들고 확인 합니다.
+
+![암호 변경 흐름](./media/add-password-change-policy/password-change-flow.png)  
+
+> [!TIP]
+> 암호 변경 흐름을 사용 하면 사용자가 암호를 알고 변경 하려는 경우에만 암호를 변경할 수 있습니다. 사용자가 암호를 잊어버린 경우를 지원 하기 위해 [셀프 서비스 암호 재설정](add-password-reset-policy.md) 을 사용 하도록 설정 하는 것이 좋습니다.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -31,16 +41,7 @@ ms.locfileid: "97629132"
 
 ::: zone pivot="b2c-custom-policy"
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 로그인 한 사용자가 전자 메일 확인으로 신뢰성을 증명 하지 않고도 자신의 암호를 변경할 수 있도록 설정할 수 있습니다. 암호 변경 흐름에는 다음 단계가 포함 됩니다.
-
-1. 로컬 계정으로 로그인 합니다. 세션이 아직 활성 상태인 경우 Azure AD B2C는 사용자에 게 권한을 부여 하 고 다음 단계로 건너뜁니다.
-1. 사용자는 **이전 암호** 를 확인 하 고 만들고 **새 암호** 를 확인 해야 합니다.
-
-![암호 변경 흐름](./media/add-password-change-policy/password-change-flow.png)
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
 * 아직 수행 하지 않은 경우 [Azure Active Directory B2C에 웹 응용 프로그램을 등록](tutorial-register-applications.md)합니다.

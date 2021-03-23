@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581918"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798396"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 암호 재설정 흐름 설정
 
@@ -36,9 +36,12 @@ ms.locfileid: "104581918"
 
 암호 다시 설정 흐름은 로그인에 대 한 암호를 사용 하 여 [전자 메일 주소](identity-provider-local.md#email-sign-in) 또는 [사용자 이름을](identity-provider-local.md#username-sign-in) 사용 하는 Azure AD B2C의 로컬 계정에 적용 됩니다.
 
+> [!TIP]
+> 사용자가 암호를 잊어버린 경우 사용자가 암호를 다시 설정 하려는 경우 셀프 서비스 암호 재설정 흐름을 통해 사용자가 암호를 변경할 수 있습니다. 사용자가 암호를 알고 변경 하려는 경우를 지원 하도록 [암호 변경 흐름](add-password-change-policy.md) 을 구성 하는 것이 좋습니다.
+
 사용자를 임의의 암호로 Azure AD B2C로 마이그레이션한 후의 일반적인 방법은 사용자가 전자 메일 주소를 확인 하 고 처음 로그인 할 때 암호를 다시 설정 하도록 하는 것입니다. 관리자가 암호를 변경한 후에도 사용자가 암호를 다시 설정 하도록 하는 것이 일반적입니다. 이 기능을 사용 하려면 [암호 재설정 강제](force-password-reset.md) 사용을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -187,7 +190,7 @@ ms.locfileid: "104581918"
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml* 을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 2 단계에서 복사한 **Userjourney** 요소의 전체 내용을 붙여넣어  요소의 자식 요소를 만듭니다.
-5. 사용자 경험의 Id 이름을 바꿉니다. 예: `Id="CustomSignUpSignIn"`
+5. 사용자 경험의 Id 이름을 바꿉니다. 예들 들어 `Id="CustomSignUpSignIn"`입니다.
 
 ### <a name="connect-the-forgot-password-link-to-the-forgot-password-sub-journey"></a>암호 찾기 링크를 잊어버린 암호 하위 여행에 연결 
 

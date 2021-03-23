@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488876"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798241"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 SAML id 공급자 옵션 구성
 
@@ -85,9 +85,11 @@ SAML 요청은 id 공급자의 metadata 요소에 지정 된 id 공급자에 게
 </IDPSSODescriptor>
 ```
 
-SAML 응답은 HTTP POST 바인딩을 통해 Azure AD B2C 전송 됩니다. Azure AD B2C 정책 메타 데이터는 `AssertionConsumerService` 바인딩을로 설정 `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` 합니다.
+### <a name="assertion-consumer-service"></a>어설션 소비자 서비스
 
-다음은 Azure AD B2C 정책 메타 데이터 Assertion Consumer Service 요소에 대 한 예입니다.
+어설션 소비자 서비스 (또는 ACS)는 Azure AD B2C에서 id 공급자 SAML 응답을 보내고 받을 수 있는 위치입니다. SAML 응답은 HTTP POST 바인딩을 통해 Azure AD B2C 전송 됩니다. ACS 위치는 신뢰 당사자의 기본 정책을 가리킵니다. 예를 들어, 신뢰 정책이 *B2C_1A_signup_signin* 되는 경우 ACS는 *B2C_1A_TrustFrameworkBase* 와 같은 *B2C_1A_signup_signin* 의 기본 정책입니다.
+
+다음은 Azure AD B2C 정책 메타 데이터 Assertion Consumer Service 요소에 대 한 예입니다. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -322,7 +324,7 @@ Azure AD B2C에는 들어오는 모든 어설션이 서명 되어야 합니다. 
 
 SAML 응답 어설션을 암호화하려면 다음 단계를 수행합니다.
 
-1. 고유 식별자를 사용 하 여 [정책 키를 만듭니다](identity-provider-generic-saml.md#create-a-policy-key) . 예: `B2C_1A_SAMLEncryptionCert`
+1. 고유 식별자를 사용 하 여 [정책 키를 만듭니다](identity-provider-generic-saml.md#create-a-policy-key) . 예들 들어 `B2C_1A_SAMLEncryptionCert`입니다.
 2. SAML 기술 프로필 **CryptographicKeys** 컬렉션에 있습니다. **StorageReferenceId** 를 첫 번째 단계에서 만든 정책 키의 이름으로 설정 합니다. `SamlAssertionDecryption`ID는 암호화 키를 사용 하 여 SAML 응답의 어설션을 암호화 하 고 암호 해독 하는 것을 나타냅니다.
 
     ```xml

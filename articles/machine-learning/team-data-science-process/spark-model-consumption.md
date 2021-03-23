@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 659f61734001163ada6fd26caabe2fb007892f61
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86027446"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774493"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
@@ -266,7 +266,8 @@ print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>모델에 입력하기 위해 기능 배열을 사용하여 RDD 개체 만들기
 이 섹션은 범주 텍스트 데이터를 RDD 개체로 인덱싱하고 이 개체를 사용하여 MLlib 로지스틱 회귀 및 트리 기반 모델을 학습하고 시험할 수 있도록 원 핫 인코딩하는 방법을 보여 주는 코드를 포함하고 있습니다. 인덱싱된 데이터는 [RDD(Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) 개체에 저장됩니다. Rds는 Spark의 기본 추상화입니다. RDD 개체는 Spark와 함께 병렬로 작업을 수행할 수 있으며 변경할 수 없고 분할된 요소 컬렉션입니다.
 
-또한 광범위한 기계 학습 모델을 학습하기 위한 인기 있는 알고리즘인 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공하는 `StandardScalar` 를 사용하여 데이터를 규모 조정하는 방법을 보여 주는 코드를 포함하고 있습니다. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) 는 기능을 단위 분산으로 규모 조정하기 위해 사용됩니다. 데이터 정규화라고도 하는 기능 크기 조정은 폭 넓게 분배된 값을 가진 기능이 목적 함수에서 과도한 가중치를 부여하지 않도록 합니다. 
+또한 광범위한 기계 학습 모델을 학습하기 위한 인기 있는 알고리즘인 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공하는 `StandardScalar` 를 사용하여 데이터를 규모 조정하는 방법을 보여 주는 코드를 포함하고 있습니다. [StandardScaler](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.mllib.tree.RandomForest.html#pyspark.mllib.tree.RandomForest
+) 는 기능을 단위 분산으로 규모 조정하기 위해 사용됩니다. 데이터 정규화라고도 하는 기능 크기 조정은 폭 넓게 분배된 값을 가진 기능이 목적 함수에서 과도한 가중치를 부여하지 않도록 합니다. 
 
 ```python
 # CREATE RDD OBJECTS WITH FEATURE ARRAYS FOR INPUT INTO MODELS

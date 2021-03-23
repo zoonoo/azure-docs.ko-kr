@@ -1,24 +1,20 @@
 ---
 title: 경고 이벤트 관리
 description: 네트워크에서 검색 된 경고 이벤트를 관리 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 866ff4cad74b7092dda11a20f8f7bcadf91233ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2995ff0d2246929efb534bc21d888bad3a2cf24a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526904"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781792"
 ---
 # <a name="manage-alert-events"></a>경고 이벤트 관리
 
 경고 이벤트를 관리 하는 데 사용할 수 있는 옵션은 다음과 같습니다.
 
- | 작업 | 설명 |
+ | 작업 | Description |
  |--|--|
  | **Learn** | 검색 된 이벤트에 권한을 부여 합니다. 자세한 내용은 [학습 및 학습 이벤트 정보](#about-learning-and-unlearning-events)를 참조 하세요. |
  | **승인** | 검색 된 이벤트에 대해 한 번 경고를 숨깁니다. 이벤트가 다시 검색 되 면 경고가 다시 트리거됩니다. 자세한 내용은 [승인 및 승인 되지 않은 이벤트 정보](#about-acknowledging-and-unacknowledging-events)를 참조 하세요. |

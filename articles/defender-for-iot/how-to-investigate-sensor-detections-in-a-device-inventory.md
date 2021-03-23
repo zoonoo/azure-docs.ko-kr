@@ -1,18 +1,14 @@
 ---
 title: 특정 센서에서 검색 된 장치에 대 한 통찰력 얻기
 description: 장치 인벤토리는 센서가 검색 하는 광범위 한 장치 특성을 표시 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4daec83f44a545d7837a7e73e847f56b1f5770e7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523994"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782098"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>디바이스 인벤토리에서 센서 감지 조사
 
@@ -30,10 +26,10 @@ ms.locfileid: "100523994"
 
 다음 특성은 장치 인벤토리 테이블에 표시 됩니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | Name | 센서가 검색 한 장치 이름 이거나 사용자가 입력 한 장치 이름입니다. |
-| Type | 센서에 의해 결정 되거나 사용자가 입력 한 장치의 유형입니다. |
+| 유형 | 센서에 의해 결정 되거나 사용자가 입력 한 장치의 유형입니다. |
 | Vendor | MAC 주소에 정의 된 장치 공급 업체의 이름입니다. |
 | 운영 체제 | 검색 된 장치의 OS입니다. |
 | 펌웨어 버전 | 검색 된 장치의 펌웨어입니다. |

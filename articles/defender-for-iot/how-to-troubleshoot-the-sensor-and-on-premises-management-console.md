@@ -1,18 +1,14 @@
 ---
 title: 센서 및 온-프레미스 관리 콘솔 문제 해결
 description: 센서 및 온-프레미스 관리 콘솔 문제를 해결 하 여 발생 하는 모든 문제를 제거 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 03/14/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83ffec959a5b38e9f4fd4d7d0dcfd3b1b9faa096
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465779"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785447"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>센서 및 온-프레미스 관리 콘솔 문제 해결
 
@@ -185,7 +181,7 @@ ms.locfileid: "103465779"
 
 1. IoT 사용자에 대 한 Defender로 센서 CLI에 로그인 하 고을 입력 `sudo cyberx-xsense-limit-interface-I eth0 -l value` 합니다.
 
-   `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
+   예: `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
 
    > [!NOTE]
    > 실제 어플라이언스의 경우 em1 인터페이스를 사용 합니다.

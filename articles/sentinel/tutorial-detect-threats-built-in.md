@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2020
+ms.date: 03/19/2021
 ms.author: yelevin
-ms.openlocfilehash: b8a304d523052f1fe839f94608806df51d35fdf9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 951c616961ff68b810ca135d09a6f6253cb2b7ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589925"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773558"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>자습서: 처음부터 위협 감지
 
@@ -57,7 +57,9 @@ ms.locfileid: "104589925"
     이러한 템플릿은 독점적인 Microsoft machine learning 알고리즘을 기반으로 하므로 작동 방법 및 실행 되는 방식에 대 한 내부 논리를 볼 수 없습니다. 논리는 숨겨져 있으므로 사용자 지정할 수 없으므로이 형식의 각 템플릿을 사용 하 여 규칙을 하나만 만들 수 있습니다.
 
     > [!IMPORTANT]
-    > Machine learning 동작 분석 규칙 템플릿은 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
+    > - Machine learning 동작 분석 규칙 템플릿은 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 추가 약관은 [Microsoft Azure 미리 보기에](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 대 한 추가 사용 약관을 참조 하세요.
+    >
+    > - ML 동작 분석 템플릿을 기반으로 하는 규칙을 만들고 사용 하도록 설정 하 여 machine learning 엔진과 모델에서 처리 하기 위해 필요에 따라 **Azure 센티널 작업 영역의 지리 외부에서 수집 데이터를 복사 하는 데 Microsoft 권한을 부여** 합니다.
 
 - **예약**
 

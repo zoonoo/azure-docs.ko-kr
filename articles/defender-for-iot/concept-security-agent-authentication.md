@@ -1,19 +1,14 @@
 ---
 title: 보안 에이전트 인증(미리 보기)
-titleSuffix: Azure Defender for IoT
 description: 가능한 두 가지 방법을 사용 하 여 마이크로 에이전트 인증을 수행 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
-ms.openlocfilehash: 018da32b90c7730f82eaa5aa2cd2b5c7a64719a6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8dd8abaedaaababf4d84330c5bf8cb030bac55bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124587"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779242"
 ---
 # <a name="micro-agent-authentication-methods-preview"></a>마이크로 에이전트 인증 방법 (미리 보기)
 
@@ -60,7 +55,7 @@ sudo systemctl restart defender-iot-micro-agent.service
 
 ## <a name="ensure-the-micro-agent-is-running-correctly"></a>마이크로 에이전트가 제대로 실행 되 고 있는지 확인 합니다. 
 
-1. 다음 명령을 실행합니다. 
+1. 다음 명령 실행: 
     ```azurecli
     systemctl status defender-iot-micro-agent.service 
     ```

@@ -2,14 +2,14 @@
 title: 풀에 대 한 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 계산 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택 하는 방법
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455198"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800485"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대 한 VM 크기 및 이미지 선택
 
@@ -35,11 +35,13 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | DC | 지원되지 않음 |
 | Dv2, DSv2 | 모든 크기 |
 | Dv3, Dsv3 | 모든 크기 |
-| Dav4, Dasv4 | 모든 크기 |
+| Dav4 | 모든 크기 |
+| Dasv4 | 모든 크기 |
 | Ddv4, Ddsv4 |  모든 크기 |
 | Dv4, Dsv4 | 지원되지 않음 |
 | Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
-| Eav4, Easv4 | 모든 크기 |
+| Eav4 | 모든 크기 |
+| Easv4 | 모든 크기 |
 | Edv4, Edsv4 |  모든 크기 |
 | Ev4, Esv4 | 지원되지 않음 |
 | F, Fs | 모든 크기 |
@@ -56,7 +58,7 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | NC | 모든 크기 |
 | NCv2 | 모든 크기 |
 | NCv3 | 모든 크기 |
-| NCasT4_v3 | 모든 크기 |
+| NCasT4_v3 | 없음 - 아직 사용할 수 없습니다. |
 | ND | 모든 크기 |
 | NDv2 | 없음 - 아직 사용할 수 없습니다. |
 | NV | 모든 크기 |
@@ -100,6 +102,8 @@ Cloud Service 구성의 Batch 풀은 다음을 **제외한** 모든 [Cloud Servi
 - Batch 서비스 REST API: [지원 되는 이미지 나열](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
+
+임박 한 일괄 처리 지원 종료 날짜가 있는 이미지를 방지 하는 것이 좋습니다. 이러한 날짜는 [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)또는 [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images)을 통해 검색할 수 있습니다. Batch 풀 VM 이미지 선택에 대 한 자세한 내용은 [batch 모범 사례 가이드](best-practices.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dbd6a1a0c8643adc4918cc15e214e903dfb1ccb6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466425"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775938"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Azure DevOps를 사용 하 여 Stream Analytics 작업에 대 한 CI/CD 파이프라인 만들기
 
@@ -20,13 +20,13 @@ ms.locfileid: "103466425"
 
 ## <a name="commit-your-stream-analytics-project"></a>Stream Analytics 프로젝트 커밋
 
-시작 하기 전에 전체 Stream Analytics 프로젝트를 원본 파일로 [Azure DevOps](/azure/devops/user-guide/source-control) 리포지토리에 커밋합니다. Azure Pipelines에서이 [샘플 리포지토리](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo) 및 [Stream Analytics 프로젝트 소스 코드](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) 를 참조할 수 있습니다.
+시작 하기 전에 전체 Stream Analytics 프로젝트를 원본 파일로 [Azure DevOps](/azure/devops/user-guide/source-control) 리포지토리에 커밋합니다. Azure Pipelines에서이 [샘플 리포지토리](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo) 및 [Stream Analytics 프로젝트 소스 코드](https://dev.azure.com/ASA-CICD-sample/_git/azure-streamanalytics-cicd-demo) 를 참조할 수 있습니다.
 
 이 문서의 단계에서는 Stream Analytics Visual Studio Code 프로젝트를 사용 합니다. Visual Studio 프로젝트를 사용 하는 경우 [CI/CD 도구를 사용 하 여 Azure Stream Analytics 작업의 빌드, 테스트 및 배포 자동화](cicd-tools.md)의 단계를 따르세요.
 
 ## <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 
-이 섹션에서는 빌드 파이프라인을 만드는 방법에 대해 알아봅니다. Azure DevOps에서이 샘플 [자동 빌드 및 테스트 파이프라인](https://dev.azure.com/wenyzou/_git/azure-streamanalytics-cicd-demo?path=%2FmyASAProject) 을 참조할 수 있습니다.
+이 섹션에서는 빌드 파이프라인을 만드는 방법에 대해 알아봅니다. Azure DevOps에서이 샘플 [자동 빌드 및 테스트 파이프라인](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_build) 을 참조할 수 있습니다.
 
 1. 웹 브라우저를 열고 Azure DevOps에서 프로젝트로 이동 합니다.  
 
@@ -155,7 +155,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
 
 ## <a name="release-with-azure-pipelines"></a>Azure Pipelines으로 릴리스
 
-이 섹션에서는 릴리스 파이프라인을 만드는 방법에 대해 알아봅니다. Azure DevOps에서이 샘플 [릴리스 파이프라인](https://dev.azure.com/wenyzou/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2&preserve-view=true) 을 참조할 수 있습니다.
+이 섹션에서는 릴리스 파이프라인을 만드는 방법에 대해 알아봅니다. Azure DevOps에서이 샘플 [릴리스 파이프라인](https://dev.azure.com/ASA-CICD-sample/azure-streamanalytics-cicd-demo/_release?_a=releases&view=mine&definitionId=2) 을 참조할 수 있습니다.
 
 웹 브라우저를 열고 Azure Stream Analytics Visual Studio Code 프로젝트로 이동 합니다.
 
@@ -182,7 +182,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
    |표시 이름| *MyASAProject 배포*|
    |Azure 구독| 구독을 선택합니다.|
    |작업| *리소스 그룹을 만들기 또는 업데이트*|
-   |Resource group| Stream Analytics 작업을 포함할 테스트 리소스 그룹의 이름을 선택 합니다.|
+   |리소스 그룹| Stream Analytics 작업을 포함할 테스트 리소스 그룹의 이름을 선택 합니다.|
    |위치|테스트 리소스 그룹의 위치를 선택 합니다.|
    |템플릿 위치| 연결 된 아티팩트|
    |템플릿| $ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.js |
@@ -199,7 +199,7 @@ Npm 패키지, 명령줄, 파일 복사 및 빌드 아티팩트 게시 작업을
    |표시 이름| *MyASAProject 배포*|
    |Azure 구독| 구독을 선택합니다.|
    |작업| *리소스 그룹을 만들기 또는 업데이트*|
-   |Resource group| Stream Analytics 작업을 포함할 프로덕션 리소스 그룹의 이름을 선택 합니다.|
+   |리소스 그룹| Stream Analytics 작업을 포함할 프로덕션 리소스 그룹의 이름을 선택 합니다.|
    |위치|프로덕션 리소스 그룹의 위치를 선택 합니다.|
    |템플릿 위치| *연결 된 아티팩트*|
    |템플릿| $ (System.defaultworkingdirectory)/_azure-cicd-CI-배포/삭제/myASAProject.JobTemplate.js |

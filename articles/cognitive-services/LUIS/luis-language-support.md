@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
-ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97845454"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799330"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -44,7 +44,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 한국어 |`ko-KR` |✔|-|-|주요 구문만|
 | 마라티어 | `mr-IN`|-|-|-|-|
 | 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
-| 스페인어(멕시코)|`es-MX` |-|-|✔|✔|
+| 스페인어(멕시코)|`es-MX` |-|✔|✔|✔|
 | 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
 | 타밀어 | `ta-IN`|-|-|-|-|
 | 텔루구어 | `te-IN`|-|-|-|-|

@@ -9,28 +9,28 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715516"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799938"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)에서 개인 링크를 사용 하 여 원본 보호
 
 > [!Note]
-> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [Azure 전방 도어 문서](../front-door-overview.md)를 봅니다.
+> 이 설명서는 Azure Front Door 표준/프리미엄(미리 보기)용입니다. Azure Front Door에 대한 정보를 찾고 있나요? [Azure Front Door 문서](../front-door-overview.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
 
 [Azure 개인 링크](../../private-link/private-link-overview.md) 를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스 및 azure 호스 티 드 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다.
 
 > [!IMPORTANT]
-> Azure 전면 도어 표준/프리미엄 (미리 보기)은 현재 공개 미리 보기로 제공 됩니다.
+> Azure Front Door 표준/프리미엄(미리 보기)은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure Front 도어 Premium SKU는 개인 링크 서비스를 사용 하 여 웹 앱 및 저장소 계정 뒤의 원본에 연결 하 여 원본에 액세스할 수 있는 공개적으로 필요를 제거할 수 있습니다.
+Azure Front 도어 Premium SKU는 개인 링크 서비스를 통해 원본에 연결할 수 있습니다. 응용 프로그램을 개인 VNet에서 호스팅하거나 웹 앱 및 저장소 계정과 같은 PaaS 서비스 뒤에 호스트 하 여 원본에 액세스할 수 있는 공개적으로 필요를 제거할 수 있습니다.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="전면 도어 전용 끝점 아키텍처":::
 

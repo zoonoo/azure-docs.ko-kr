@@ -4,7 +4,7 @@ description: Faq (질문과 대답)를 검토 하 여 Microsoft 보안 코드 �
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 07/31/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,18 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bff42b9b82104909c79b75c7b1de51c9ddb6e0d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879918"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801318"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
+
+> [!Note]
+> 2022 년 3 월 1 일부 터 MSCA (Microsoft 보안 코드 분석) 확장이 사용 중지 됩니다. 기존 MSCA 고객은 2022 년 3 월 1 일부 터 MSCA에 대 한 액세스를 유지 합니다. Azure DevOps의 대체 옵션은 [OWASP 소스 코드 분석 도구](https://owasp.org/www-community/Source_Code_Analysis_Tools) 를 참조 하세요. GitHub로 마이그레이션을 계획 하는 고객의 경우 [Github 고급 보안](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security)을 확인할 수 있습니다.
+
 질문이 있으신가요? 자세한 내용은 다음 FAQ를 확인 하세요.
 
 ## <a name="general-faq"></a>일반 FAQ

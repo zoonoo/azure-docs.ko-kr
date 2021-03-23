@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9d80c0b8d4d913322c47d1ad278d6dbc033d2409
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79b88ad58a2eb95a48a140b3b98d606af495cb94
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620156"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799788"
 ---
 # <a name="apply-an-azure-resource-manager-lock-to-a-storage-account"></a>저장소 계정에 Azure Resource Manager 잠금 적용
 
@@ -25,8 +25,8 @@ ms.locfileid: "102620156"
 
 Azure Resource Manager 잠금에 대 한 자세한 내용은 [변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
 
-> [!IMPORTANT]
-> 저장소 계정을 잠그면 해당 계정 내의 데이터를 업데이트 하거나 삭제할 수 없습니다.
+> [!CAUTION]
+> 저장소 계정을 잠그면 해당 계정 내의 컨테이너 또는 blob을 삭제 하거나 덮어쓸 수 없습니다. Blob 데이터를 보호 하는 방법에 대 한 자세한 내용은 [데이터 보호 개요](../blobs/data-protection-overview.md)를 참조 하세요.
 
 ## <a name="configure-an-azure-resource-manager-lock"></a>Azure Resource Manager 잠금 구성
 
@@ -83,4 +83,5 @@ Azure Files 또는 Table service의 데이터는 이전에 계정 키를 사용 
 
 ## <a name="next-steps"></a>다음 단계
 
-[변경을 방지하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)
+- [데이터 보호 개요](../blobs/data-protection-overview.md)
+- [변경을 방지하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)

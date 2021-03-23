@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: c7be10e14daf3ee769e86d51f648cc6b656a416a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5450e4846c3c49c89830ae65c50a95ee0c8d6eb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89303054"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803363"
 ---
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>빌드 및 릴리스 파이프라인을 사용하여 IoT Edge CI/CD 확인
 
@@ -36,3 +36,5 @@ ms.locfileid: "89303054"
 6. **개발** 단계를 클릭 하 여 릴리스 로그를 확인 합니다.
 
     ![릴리스 로그](./media/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment/release-logs.png)
+
+7. 파이프라인이 실패 하면 로그를 확인 하 여 시작 합니다. 파이프라인 실행 요약으로 이동 하 고 작업 및 태스크를 선택 하 여 로그를 볼 수 있습니다. 특정 작업이 실패 하는 경우 해당 태스크에 대 한 로그를 확인 합니다. 로그를 구성 하 고 사용 하는 방법에 대 한 자세한 내용은 [로그를 검토 하 여 파이프라인 문제 진단을](/azure/devops/pipelines/troubleshooting/review-logs)참조 하세요.

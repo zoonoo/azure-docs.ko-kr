@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8009d98ddbfa778cf5f357248ecd943b810e06e3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104761202"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803215"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>연속 배포에 대 한 릴리스 파이프라인 만들기
 
@@ -89,6 +89,9 @@ ms.locfileid: "104761202"
     | 단일/다중 장치 선택 | 릴리스 파이프라인을 하나 이상의 장치에 배포할지 여부를 선택 합니다. 단일 디바이스에 배포하는 경우 **IoT Edge 디바이스 ID** 를 입력합니다. 여러 디바이스에 배포하는 경우 디바이스 **대상 조건** 을 지정합니다. 대상 조건은 IoT Hub의 IoT Edge 장치 집합과 일치 하는 필터입니다. 장치 태그를 조건으로 사용 하려면 장치 쌍 IoT Hub 사용 하 여 해당 장치 태그를 업데이트 해야 합니다. 고급 설정에서 **IoT Edge 배포 ID** 및 **IoT Edge 배포 우선 순위** 를 업데이트합니다. 여러 디바이스용 배포를 만드는 방법에 대한 자세한 내용은 [IoT Edge 자동 배포 이해](../articles/iot-edge/module-deployment-monitoring.md)를 참조하세요. |
     | 장치 ID 또는 대상 조건 | 이전 선택 항목에 따라 장치 ID 또는 [대상 조건을](../articles/iot-edge/module-deployment-monitoring.md#target-condition) 지정 하 여 여러 장치에 배포 합니다. |
     | 고급 | IoT Edge 배포 ID에 대해를 지정 `$(System.TeamProject)-$(Release.EnvironmentName)` 합니다. 이 변수는 프로젝트와 릴리스 이름을 IoT Edge 배포 ID에 매핑합니다. |
+    
+
+    작업에서 공용 클라우드에 표시 되지 않는 개인 Docker 신뢰할 수 있는 레지스트리에 있는 이미지를 사용 하는 경우 **SKIP_MODULE_IMAGE_VALIDATION** 환경 변수를로 설정 하 여 `true` 이미지 유효성 검사를 건너뛸 수 있습니다. 
 
     ![개발 단계에 대 한 Azure IoT Edge 작업 추가](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 

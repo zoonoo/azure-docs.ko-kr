@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate 어플라이언스
 description: Azure Migrate 어플라이언스에 대 한 지원 요약을 제공 합니다.
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 08cd0e9d33dd88b9bdc418f3d1bbd382b2d80632
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: dadca1fadef9d2967f20cae13e40d01de73d39e4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038767"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778341"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -23,10 +23,10 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 **시나리오** | **도구** | **사용 대상**
 --- | --- | ---
-**VMware 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 서버 평가 | VMware 환경에서 실행 중인 서버 검색<br/><br/> 설치 된 응용 프로그램을 검색 하 고, 에이전트 없는 종속성 분석을 수행 하 고, SQL Server 인스턴스와 데이터베이스를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**VMware 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경에서 실행 중인 서버 검색<br/><br/> 설치 된 소프트웨어 인벤토리에 대 한 검색을 수행 하 고, 에이전트 없는 종속성 분석을 수행 하 고 SQL Server 인스턴스와 데이터베이스를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
 **VMware 환경에서 실행 되는 서버에 대 한 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware 환경에서 실행 중인 서버를 검색 합니다. <br/><br/> 서버에 에이전트를 설치 하지 않고 서버를 복제 합니다.
-**Hyper-v 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 서버 평가 | Hyper-v 환경에서 실행 중인 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
-**온-프레미스에서 물리적 또는 가상화 된 서버 검색 및 평가** |  Azure Migrate: 서버 평가 |  온-프레미스에서 물리적 또는 가상화 된 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**Hyper-v 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | Hyper-v 환경에서 실행 중인 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**온-프레미스에서 물리적 또는 가상화 된 서버 검색 및 평가** |  Azure Migrate: 검색 및 평가 |  온-프레미스에서 물리적 또는 가상화 된 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
 
 ## <a name="deployment-methods"></a>배포 방법
 
@@ -38,15 +38,14 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 - 온-프레미스 또는 다른 클라우드의 물리적 또는 가상화 된 서버에 대해서는 항상 PowerShell 설치 관리자 스크립트를 사용 하 여 어플라이언스를 배포 합니다. [여기](how-to-set-up-appliance-physical.md)에서 배포 단계를 참조 하세요.
 - 다운로드 링크는 아래 표에 나와 있습니다.
 
-
 ## <a name="appliance---vmware"></a>어플라이언스 - VMware
 
 다음 표에는 VMware에 대한 Azure Migrate 어플라이언스 요구 사항이 요약되어 있습니다.
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
+> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
-**요구 사항** | **VMware** 
+**요구 사항** | **VMware**
 --- | ---
 **권한** | 어플라이언스 configuration manager를 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
 **어플라이언스 서비스** | 어플라이언스에는 다음과 같은 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대 한 검색 및 평가를 시작 하기 위해 원본 세부 정보를 사용 하 여 구성할 수 있는 웹 응용 프로그램입니다.<br/> - **VMware discovery agent**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타 데이터를 수집 합니다.<br/>- **VMware 평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타 데이터를 수집 합니다.<br/>- **자동 업데이트 서비스**: 서비스는 어플라이언스에서 실행 되는 모든 에이전트를 최신 상태로 유지 합니다. 자동으로 24 시간 마다 한 번씩 실행 됩니다.<br/>- **DRA 에이전트**: 서버 복제를 오케스트레이션 하 고 복제 된 서버와 Azure 간의 통신을 조정 합니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 서버를 복제 하는 경우에만 사용 됩니다.<br/>- **게이트웨이**: 복제된 데이터를 Azure에 보냅니다. 에이전트 없는 마이그레이션을 사용 하 여 Azure에 서버를 복제 하는 경우에만 사용 됩니다.<br/>- **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타 데이터를 Azure에 보냅니다.
@@ -62,7 +61,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 ## <a name="appliance---hyper-v"></a>어플라이언스 - Hyper-V
 
-**요구 사항** | **Hyper-V** 
+**요구 사항** | **Hyper-V**
 --- | ---
 **권한** | 어플라이언스 configuration manager를 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
 **어플라이언스 서비스** | 어플라이언스에는 다음과 같은 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대 한 검색 및 평가를 시작 하기 위해 원본 세부 정보를 사용 하 여 구성할 수 있는 웹 응용 프로그램입니다.<br/> - **검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타 데이터를 수집 합니다.<br/>- **평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타 데이터를 수집 합니다.<br/>- **자동 업데이트 서비스**: 서비스는 어플라이언스에서 실행 되는 모든 에이전트를 최신 상태로 유지 합니다. 자동으로 24 시간 마다 한 번씩 실행 됩니다.
@@ -77,17 +76,16 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 ## <a name="appliance---physical"></a>어플라이언스 - 물리적 서버
 
-**요구 사항** | **물리적 서버** 
+**요구 사항** | **물리적 서버**
 --- | ---
 **권한** | 어플라이언스 configuration manager를 로컬로 또는 원격으로 액세스 하려면 어플라이언스 서버에 대 한 관리 권한이 있는 로컬 또는 도메인 사용자 계정이 있어야 합니다.
 **어플라이언스 서비스** | 어플라이언스에는 다음과 같은 서비스가 있습니다.<br/><br/> - **어플라이언스 구성 관리자**: 서버에 대 한 검색 및 평가를 시작 하기 위해 원본 세부 정보를 사용 하 여 구성할 수 있는 웹 응용 프로그램입니다.<br/> - **검색 에이전트**: 에이전트는 온-프레미스 평가로 만드는 데 사용할 수 있는 서버 구성 메타 데이터를 수집 합니다.<br/>- **평가 에이전트**: 에이전트는 성능 기반 평가를 만드는 데 사용할 수 있는 서버 성능 메타 데이터를 수집 합니다.<br/>- **자동 업데이트 서비스**: 서비스는 어플라이언스에서 실행 되는 모든 에이전트를 최신 상태로 유지 합니다. 자동으로 24 시간 마다 한 번씩 실행 됩니다.
-**프로젝트 제한** |  어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록 된 기기가 여러 개 있을 수 있습니다.<br/> 
+**프로젝트 제한** |  어플라이언스는 단일 프로젝트에만 등록할 수 있습니다.<br/> 단일 프로젝트에 등록 된 기기가 여러 개 있을 수 있습니다.<br/>
 **검색 제한** | 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
 **지원되는 배포** | PowerShell 설치 관리자 스크립트를 사용 하 여 Windows Server 2016를 실행 하는 기존 서버에 배포 합니다.
-**PowerShell 스크립트** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 파일의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세한 정보를 알아보세요](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
+**PowerShell 스크립트** | 프로젝트 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 파일의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85.8 MB입니다.
 **스크립트 확인** | 해시 값을 확인 하 여 프로젝트에서 다운로드 한 PowerShell 설치 관리자 스크립트를 [확인](tutorial-discover-physical.md#verify-security) 합니다.
 **하드웨어 및 네트워크 요구 사항** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 vCPUs가 포함 된 서버에서 실행 되어야 합니다 (80 g b의 디스크 저장소).<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 기존 서버에서 어플라이언스를 실행 하는 경우 Windows Server 2016를 실행 하 고 하드웨어 요구 사항을 충족 하는지 확인 합니다.<br/>_(현재 어플라이언스 배포는 Windows Server 2016에서만 지원됩니다.)_
-
 
 ## <a name="url-access"></a>URL 액세스
 
@@ -95,7 +93,7 @@ Azure Migrate 어플라이언스는 인터넷에 연결해야 합니다.
 
 - 어플라이언스를 배포하는 경우 Azure Migrate에서 필요한 URL에 대한 연결을 확인합니다.
 - 목록의 모든 URL에 대한 액세스를 허용해야 합니다. 평가만 수행 하는 경우 VMware 에이전트 없는 마이그레이션에 필수로 표시 된 Url을 건너뛸 수 있습니다.
--  URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 프록시에서 URL을 조회하는 동안 받은 모든 CNAME 레코드를 확인하는지 확인합니다.
+- URL 기반 프록시를 사용하여 인터넷에 연결하는 경우 프록시에서 URL을 조회하는 동안 받은 모든 CNAME 레코드를 확인하는지 확인합니다.
 
 ### <a name="public-cloud-urls"></a>퍼블릭 클라우드 URL
 
@@ -132,7 +130,6 @@ download.microsoft.com/download | Microsoft 다운로드 센터에서 다운로�
 *.blob.core.usgovcloudapi.net  |  **VMware 에이전트 없는 마이그레이션에 사용** 됩니다.<br/><br/>마이그레이션을 위해 데이터를 스토리지에 업로드합니다.
 *.applicationinsights.us | 내부 모니터링에 사용 되는 어플라이언스 로그를 업로드 합니다.
 
-
 ## <a name="collected-data---vmware"></a>수집되는 데이터 - VMware
 
 어플라이언스는 구성 메타 데이터, 성능 메타 데이터 및 서버 종속성 데이터 (에이전트 없는 [종속성 분석이](concepts-dependency-visualization.md) 사용 되는 경우)를 수집 합니다.
@@ -144,12 +141,12 @@ Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하
 다음은 기기가 수집 하 여 Azure로 보내는 서버 메타 데이터의 전체 목록입니다.
 
 **데이터** | **카운터**
---- | --- 
-**서버 세부 정보** | 
-서버 ID입니다. | vm.Config.InstanceUuid 
+--- | ---
+**서버 세부 정보** |
+서버 ID입니다. | vm.Config.InstanceUuid
 서버 이름 | vm.Config.Name
 vCenter Server ID | VMwareClient.Instance.Uuid
-VM 설명 | vm.Summary.Config.Annotation
+서버 설명 | vm.Summary.Config.Annotation
 라이선스 제품 이름 | vm.Client.ServiceContent.About.LicenseProductName
 운영 체제 유형 | vm.SummaryConfig.GuestFullName
 부팅 유형 | vm.Config.Firmware
@@ -160,7 +157,7 @@ VM 설명 | vm.Summary.Config.Annotation
 네트워크 어댑터 목록 | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
 CPU 사용률 | cpu.usage.average
 메모리 사용률 |mem.usage.average
-**디스크당 세부 정보** | 
+**디스크당 세부 정보** |
 디스크 키 값 | disk.Key
 Dikunit 번호 | disk.UnitNumber
 디스크 컨트롤러 키 값 | disk.ControllerKey.Value
@@ -170,60 +167,58 @@ Dikunit 번호 | disk.UnitNumber
 초당 쓰기 작업 | virtualDisk.numberWriteAveraged.average
 읽기 처리량(MB/초) | virtualDisk.read.average
 쓰기 처리량(MB/초) | virtualDisk.write.average
-**NIC당 세부 정보** | 
+**NIC당 세부 정보** |
 네트워크 어댑터 이름 | nic.Key
 MAC 주소 | ((VirtualEthernetCard)nic).MacAddress
 IPv4 주소 | vm.Guest.Net
 IPv6 주소 | vm.Guest.Net
 읽기 처리량(MB/초) | net.received.average
 쓰기 처리량(MB/초) | net.transmitted.average
-**인벤토리 경로 세부 정보** | 
+**인벤토리 경로 세부 정보** |
 속성 | container.GetType().Name
 자식 개체 유형 | container.ChildType
 참조 세부 정보 | container.MoRef
 부모 세부 정보 | Container.Parent
-VM당 폴더 세부 정보 | ((Folder)container).ChildEntity.Type
-VM당 데이터 센터 정보 | ((Datacenter)container).VmFolder
+서버당 폴더 세부 정보 | ((Folder)container).ChildEntity.Type
+서버당 데이터 센터 정보 | ((Datacenter)container).VmFolder
 호스트 폴더당 데이터 센터 정보 | ((Datacenter)container).HostFolder
 호스트당 클러스터 세부 정보 | ((ClusterComputeResource)container).Host
-VM당 호스트 세부 정보 | ((HostSystem)container).VM
+서버당 호스트 세부 정보 | ((HostSystem)container).VM
 
 ### <a name="performance-data"></a>성능 데이터
 
-
-어플라이언스에서 수집하여 Azure에 보내는 VMware VM 성능 데이터는 다음과 같습니다.
+다음은 VMware에서 실행 되는 서버에 대해 기기가 수집 하는 성능 데이터 이며 Azure에 전송 하는 것입니다.
 
 **Data** | **카운터** | **평가 영향**
 --- | --- | ---
-CPU 사용률 | cpu.usage.average | 추천 VM 크기/비용
-메모리 사용률 | mem.usage.average | 추천 VM 크기/비용
-디스크 읽기 처리량(MB/초) | virtualDisk.read.average | 디스크 크기, 스토리지 비용, VM 크기 계산
-디스크 쓰기 처리량(MB/초) | virtualDisk.write.average | 디스크 크기, 스토리지 비용, VM 크기 계산
-디스크 읽기 작업 수/초 | virtualDisk.numberReadAveraged.average | 디스크 크기, 스토리지 비용, VM 크기 계산
-디스크 쓰기 작업 수/초 | virtualDisk.numberWriteAveraged.average  | 디스크 크기, 스토리지 비용, VM 크기 계산
-NIC 읽기 처리량(MB/초) | net.received.average | VM 크기 계산
-NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
+CPU 사용률 | cpu.usage.average | 권장 서버 크기/비용
+메모리 사용률 | mem.usage.average | 권장 서버 크기/비용
+디스크 읽기 처리량(MB/초) | virtualDisk.read.average | 디스크 크기, 저장소 비용, 서버 크기에 대 한 계산
+디스크 쓰기 처리량(MB/초) | virtualDisk.write.average | 디스크 크기, 저장소 비용, 서버 크기에 대 한 계산
+디스크 읽기 작업 수/초 | virtualDisk.numberReadAveraged.average | 디스크 크기, 저장소 비용, 서버 크기에 대 한 계산
+디스크 쓰기 작업 수/초 | virtualDisk.numberWriteAveraged.average  | 디스크 크기, 저장소 비용, 서버 크기에 대 한 계산
+NIC 읽기 처리량(MB/초) | net.received.average | 서버 크기에 대 한 계산
+NIC 쓰기 처리량(MB/초) | net.transmitted.average  |서버 크기에 대 한 계산
 
+### <a name="installed-software-inventory"></a>설치 된 소프트웨어 인벤토리
 
-### <a name="installed-applications-data"></a>설치 된 응용 프로그램 데이터
+어플라이언스는 서버에 설치 된 소프트웨어 인벤토리에 대 한 데이터를 수집 합니다.
 
-어플라이언스는 서버에서 설치 된 응용 프로그램, 역할 및 기능에 대 한 데이터를 수집 합니다.
+#### <a name="windows-server-software-inventory-data"></a>Windows server 소프트웨어 인벤토리 데이터
 
-#### <a name="windows-server-application-data"></a>Windows server 응용 프로그램 데이터
+다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 소프트웨어 인벤토리 데이터입니다.
 
-다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 응용 프로그램 데이터입니다.
-
-**데이터** | **레지스트리 위치** | **키**
+**Data** | **레지스트리 위치** | **키**
 --- | --- | ---
 애플리케이션 이름  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
-버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+버전  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion
 공급자  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | 게시자
 
 #### <a name="windows-server-features-data"></a>Windows server 기능 데이터
 
 다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 기능 데이터입니다.
 
-**데이터**  | **PowerShell cmdlet** | **속성**
+**Data**  | **PowerShell cmdlet** | **속성**
 --- | --- | ---
 Name  | Get-WindowsFeature  | Name
 기능 유형 | Get-WindowsFeature  | FeatureType
@@ -233,12 +228,12 @@ Parent  | Get-WindowsFeature  | Parent
 
 다음은 VMware 환경에서 검색 된 각 Windows 서버에서 기기가 수집 하는 SQL Server 데이터입니다.
 
-**데이터**  | **레지스트리 위치**  | **키**
+**Data**  | **레지스트리 위치**  | **키**
 --- | --- | ---
 Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
-버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
+버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전
 서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
-버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
+버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전
 
 #### <a name="windows-server-operating-system-data"></a>Windows server 운영 체제 데이터
 
@@ -250,12 +245,12 @@ Name  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
 아키텍처  | Win32_operatingsystem  | OSArchitecture
 
-#### <a name="linux-server-application-data"></a>Linux 서버 응용 프로그램 데이터
+#### <a name="linux-server-software-inventory-data"></a>Linux 서버 소프트웨어 인벤토리 데이터
 
-다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 응용 프로그램 데이터입니다. 서버의 운영 체제에 따라 하나 이상의 명령이 실행 됩니다.
+다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 소프트웨어 인벤토리 데이터입니다. 서버의 운영 체제에 따라 하나 이상의 명령이 실행 됩니다.
 
-**데이터**  | **명령**
---- | --- 
+**Data**  | **명령**
+--- | ---
 Name | rpm, dpkg, snap
 버전 | rpm, dpkg, snap
 공급자 | rpm, dpkg, snap
@@ -264,9 +259,9 @@ Name | rpm, dpkg, snap
 
 다음은 해당 기기가 VMware 환경에서 검색 한 각 Linux 서버에서 수집 하는 운영 체제 데이터입니다.
 
-**데이터**  | **명령**
---- | --- 
-Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+**Data**  | **명령**
+--- | ---
+Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version
 아키텍처 | uname
 
 ### <a name="sql-server-instances-and-databases-data"></a>SQL Server 인스턴스 및 데이터베이스 데이터
@@ -274,7 +269,7 @@ Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/>
 어플라이언스는 SQL Server 인스턴스 및 데이터베이스에서 데이터를 수집 합니다.
 
 > [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
+> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 #### <a name="sql-database-metadata"></a>SQL 데이터베이스 메타 데이터
 
@@ -296,13 +291,13 @@ Service broker 사용 여부 | sys.databases
 
 **서버 메타 데이터** | **뷰/s q m 서버 속성**
 --- | ---
-서버 이름 |SERVERPROPERTY 
+서버 이름 |SERVERPROPERTY
 FQDN | 설치 된 응용 프로그램의 검색에서 파생 된 연결 문자열
 설치 ID | sys.dm_server_registry
 서버 버전 | SERVERPROPERTY
 서버 버전 | SERVERPROPERTY
 서버 호스트 플랫폼 (Windows/Linux) | SERVERPROPERTY
-서버의 제품 수준 (RTM SP CTP) | SERVERPROPERTY 
+서버의 제품 수준 (RTM SP CTP) | SERVERPROPERTY
 기본 백업 경로 | SERVERPROPERTY
 데이터 파일의 기본 경로 | SERVERPROPERTY 및 Software\Microsoft\MSSQLServer\MSSQLServer
 로그 파일의 기본 경로 | SERVERPROPERTY 및 Software\Microsoft\MSSQLServer\MSSQLServer
@@ -313,8 +308,8 @@ FQDN | 설치 된 응용 프로그램의 검색에서 파생 된 연결 문자�
 HA 사용 또는 사용 안 함 | SERVERPROPERTY
 버퍼 풀 확장 사용 또는 사용 안 함 | sys.dm_os_buffer_pool_extension_configuration
 장애 조치 (Failover) 클러스터 구성 여부 | SERVERPROPERTY
-Windows 인증 모드만 사용 하는 서버 | SERVERPROPERTY 
-서버 설치 PolyBase | SERVERPROPERTY 
+Windows 인증 모드만 사용 하는 서버 | SERVERPROPERTY
+서버 설치 PolyBase | SERVERPROPERTY
 아니요. 시스템의 논리적 Cpu | sys.dm_server_registry, sys.dm_os_sys_info
 하나의 실제 프로세서 패키지에 의해 노출 되는 논리적 또는 물리적 코어의 비율 | sys.dm_os_schedulers, sys.dm_os_sys_info
 시스템에 실제 Cpu가 없습니다. | sys.dm_os_schedulers, sys.dm_os_sys_info
@@ -351,8 +346,8 @@ SQL 메모리 사용률 비율| sys.dm_os_process_memory | 사용 안 함
 
 다음은 기기가 각 Windows 서버에서 수집 하는 연결 데이터 이며 에이전트 없는 종속성 분석에 사용 됩니다.
 
-**데이터** | **명령** 
---- | --- 
+**Data** | **명령**
+--- | ---
 로컬 포트 | netstat
 로컬 IP 주소 | netstat
 원격 포트 | netstat
@@ -373,19 +368,18 @@ TCP 연결 상태 | netstat
 
 다음은 기기가 에이전트 없는 종속성 분석에 사용 하도록 설정 된 각 Linux 서버에서 수집 하는 연결 데이터입니다.
 
-**데이터** | **명령** 
+**Data** | **명령**
 --- | ---
-로컬 포트 | netstat 
-로컬 IP 주소 | netstat 
-원격 포트 | netstat 
-원격 IP 주소 | netstat 
-TCP 연결 상태 | netstat 
+로컬 포트 | netstat
+로컬 IP 주소 | netstat
+원격 포트 | netstat
+원격 IP 주소 | netstat
+TCP 연결 상태 | netstat
 활성 연결 수 | netstat
-프로세스 ID  | netstat 
+프로세스 ID  | netstat
 프로세스 이름 | ps
 프로세스 인수 | ps
 애플리케이션 이름 | dpkg 또는 rpm
-
 
 ## <a name="collected-data---hyper-v"></a>수집되는 데이터 - Hyper-V
 
@@ -400,20 +394,20 @@ Azure Migrate 어플라이언스에서 검색 된 메타 데이터를 사용 하
 --- | --- | ---
 **서버 세부 정보** | 
 BIOS의 일련 번호 | Msvm_BIOSElement | BIOSSerialNumber
-VM 유형(Gen 1 또는 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-VM 표시 이름 | Msvm_VirtualSystemSettingData | ElementName
-VM 버전 | Msvm_ProcessorSettingData | VirtualQuantity
+서버 유형 (Gen 1 또는 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+서버 표시 이름 | Msvm_VirtualSystemSettingData | ElementName
+서버 버전 | Msvm_ProcessorSettingData | VirtualQuantity
 메모리(바이트) | Msvm_MemorySettingData | VirtualQuantity
-VM에서 사용할 수 있는 최대 메모리 | Msvm_MemorySettingData | 제한
+서버에서 사용할 수 있는 최대 메모리 | Msvm_MemorySettingData | 제한
 동적 메모리 사용 | Msvm_MemorySettingData | DynamicMemoryEnabled
 운영 체제 이름/버전/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems 이름 데이터
-VM 전원 상태 | Msvm_ComputerSystem | EnabledState
-**디스크당 세부 정보** | 
+서버 전원 상태 | Msvm_ComputerSystem | EnabledState
+**디스크당 세부 정보** |
 디스크 식별자 | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 가상 하드 디스크 유형 | Msvm_VirtualHardDiskSettingData | Type
 가상 하드 디스크 크기 | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 가상 하드 디스크 부모 | Msvm_VirtualHardDiskSettingData | ParentPath
-**NIC당 세부 정보** | 
+**NIC당 세부 정보** |
 IP 주소(가상 NIC) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
 DHCP 사용(가상 NIC) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
 NIC ID(가상 NIC) | Msvm_SyntheticEthernetPortSettingData | InstanceID
@@ -427,17 +421,16 @@ NIC MAC ID(레거시 NIC) | MsvmEmulatedEthernetPortSetting Data | 주소
 
 **성능 카운터 클래스** | **카운터** | **평가 영향**
 --- | --- | ---
-Hyper-V 하이퍼바이저 가상 프로세서 | % 게스트 실행 시간 | 추천 VM 크기/비용
-Hyper-V 동적 메모리 VM | 현재 압력(%)<br/> 게스트 가시 실제 메모리(MB) | 추천 VM 크기/비용
-Hyper-V 가상 스토리지 디바이스 | 읽기 바이트 수/초 | 디스크 크기, 스토리지 비용, VM 크기 계산
-Hyper-V 가상 스토리지 디바이스 | 쓰기 바이트 수/초 | 디스크 크기, 스토리지 비용, VM 크기 계산
-Hyper-V 가상 네트워크 어댑터 | 받은 바이트 수/초 | VM 크기 계산
-Hyper-V 가상 네트워크 어댑터 | 보낸 바이트 수/초 | VM 크기 계산
+Hyper-V 하이퍼바이저 가상 프로세서 | % 게스트 실행 시간 | 권장 서버 크기/비용
+Hyper-v 동적 메모리 서버 | 현재 압력(%)<br/> 게스트 가시 실제 메모리(MB) | 권장 서버 크기/비용
+Hyper-V 가상 스토리지 디바이스 | 읽기 바이트 수/초 | 디스크 크기, 저장소 비용, 서버 크기에 대 한 계산
+Hyper-V 가상 스토리지 디바이스 | 쓰기 바이트 수/초 | 디스크 크기, 저장소 비용, 서버 크기에 대 한 계산
+Hyper-V 가상 네트워크 어댑터 | 받은 바이트 수/초 | 서버 크기에 대 한 계산
+Hyper-V 가상 네트워크 어댑터 | 보낸 바이트 수/초 | 서버 크기에 대 한 계산
 
-- CPU 사용률은 VM에 연결된 모든 가상 프로세서에 대한 모든 사용량의 합계입니다.
+- CPU 사용률은 서버에 연결 된 모든 가상 프로세서에 대 한 모든 사용량의 합계입니다.
 - 메모리 사용률은 (현재 압력 * 게스트 가시 실제 메모리) / 100입니다.
 - 디스크 및 네트워크 사용률 값은 나열된 Hyper-V 성능 카운터에서 수집됩니다.
-
 
 ## <a name="collected-data---physical"></a>수집되는 데이터 - 물리적 서버
 
@@ -472,8 +465,8 @@ NIC MAC 주소 | Win32_NetworkAdapterConfiguration | MACAddress
 
 어플라이언스에서 수집하여 Azure에 보내는 Linux 서버 메타데이터의 전체 목록은 다음과 같습니다.
 
-**데이터** | **명령** 
---- | --- 
+**Data** | **명령**
+--- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 프로세서 코어 수 |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 할당된 메모리 | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
@@ -507,8 +500,8 @@ NIC당 전송된 데이터 | BWin32_PerfFormattedData_Tcpip_NetworkInterface | B
 
 어플라이언스에서 수집하여 Azure에 보내는 Linux 서버 성능 데이터는 다음과 같습니다.
 
-**Data** | **명령** 
---- | --- 
+**Data** | **명령**
+--- | ---
 CPU 사용량 | cat /proc/stat/| grep 'cpu' /proc/stat
 메모리 사용량 | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
 NIC 수 | lshw -class network \| grep eth[0-60] \| wc -l
@@ -540,7 +533,7 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 
 레지스트리 키를 삭제하려면 다음을 수행합니다.
 
-1. 어플라이언스를 실행하는 컴퓨터에서 레지스트리 편집기를 엽니다.
+1. 어플라이언스를 실행 하는 서버에서 레지스트리 편집기를 엽니다.
 2. **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance** 로 이동합니다.
 3. 자동 업데이트를 해제하기 위해 이전에 만든 **AutoUpdate** 레지스트리 키를 삭제합니다.
 
@@ -556,7 +549,7 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 다음 방법 중 하나를 사용하여 어플라이언스 서비스 버전을 확인할 수 있습니다.
 
 - 어플라이언스 구성 관리자에서 **필수 구성 요소 패널 설정** 으로 이동 합니다.
-- 어플라이언스 컴퓨터의 **제어판** > **프로그램 및 기능** 에서
+- 어플라이언스의 **제어판에서 제어판**  >  **프로그램 및 기능** 을 설정 합니다.
 
 어플라이언스 구성 관리자를 체크 인하려면:
 
@@ -577,12 +570,12 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 서비스의 이전 버전을 실행 하는 경우 서비스를 제거 하 고 최신 버전으로 수동으로 업데이트 해야 합니다.
 
 1. 최신 어플라이언스 서비스 버전을 확인하려면 LatestComponents.json 파일을 [다운로드](https://aka.ms/latestapplianceservices)합니다.
-2.    다운로드되면 메모장에서 LatestComponents.json 파일을 엽니다.
+2. 다운로드되면 메모장에서 LatestComponents.json 파일을 엽니다.
 3. 파일에서 최신 서비스 버전 및 해당 다운로드 링크를 찾습니다. 다음은 그 예입니다.
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.    파일의 다운로드 링크를 사용하여 오래된 서비스의 최신 버전을 다운로드합니다.
+4. 파일의 다운로드 링크를 사용하여 오래된 서비스의 최신 버전을 다운로드합니다.
 5. 다운로드되면 관리자 명령 창에서 다음 명령을 실행하여 다운로드한 MSI의 무결성을 확인합니다.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` 예:  C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
@@ -591,11 +584,8 @@ NIC당 전송된 데이터 | cat /sys/class/net/eth$nic/statistics/tx_bytes
 6. 이제 MSI를 실행하여 서비스를 설치합니다. 자동 설치이며, 완료되면 설치 창이 닫힙니다.
 7. 설치가 완료되면 **제어판** > **프로그램 및 기능** 에서 서비스 버전을 확인합니다. 이제 서비스 버전을 json 파일에 표시된 최신 버전으로 업그레이드해야 합니다.
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
 - [VMware용 어플라이언스를 설정하는 방법](how-to-set-up-appliance-vmware.md)에 대해 알아봅니다.
 - [Hyper-V용 어플라이언스를 설정하는 방법](how-to-set-up-appliance-hyper-v.md)에 대해 알아봅니다.
 - [물리적 서버용 어플라이언스를 설정하는 방법](how-to-set-up-appliance-physical.md)에 대해 알아봅니다.
-

@@ -1,25 +1,15 @@
 ---
 title: 'IoT 용 Defender 보안 에이전트 로컬 구성 (c #)'
 description: 'IoT 보안 서비스용 Defender, c #에 대 한 보안 에이전트 로컬 구성 파일에 대해 자세히 알아보세요.'
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: elazark
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 42cf7f129005f057a9d51ce2e09db735e825f476
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493223"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784784"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 이해 (c # 에이전트)
 

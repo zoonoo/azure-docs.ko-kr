@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93073760"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799397"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ IoT 사용 사례는 일반적으로 데이터를 수집, 처리 및 저장하�
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Azure Cosmos DB IoT 참조 아키텍처" border="false":::
 
-Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 지속적으로 Cosmos 컨테이너에 대 한 변경 내용을 순차적으로 저장 하는 로그만 추가 합니다. 실시간 분석의 일부로 Azure Cosmos DB의 모든 데이터 또는 변경된 데이터만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
+Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집을 제공하기 때문에 데이터 버스트를 수집할 수 있습니다. 실시간으로 처리해야 하는 수집된 데이터는 분석을 위해 Azure Stream Analytics로 전달할 수 있습니다. 임시 쿼리를 위해 데이터를 Azure Cosmos DB에 로드할 수 있습니다. 데이터가 Azure Cosmos DB에 로드되고 나면 데이터를 쿼리할 수 있습니다. 또한 새 데이터와 기존 데이터의 변경 내용을 변경 피드에서 읽을 수 있습니다. 변경 피드는 지속적으로 Cosmos 컨테이너에 대 한 변경 내용을 순차적으로 저장 하는 로그만 추가 합니다. 그런 다음 실시간 분석의 일부로 모든 데이터 또는 Azure Cosmos DB의 데이터 변경 내용만 참조 데이터로 사용할 수 있습니다. 또한 Pig, Hive 또는 Map/Reduce 작업을 위해 Azure Cosmos DB 데이터를 HDInsight에 연결하여 데이터를 추가로 구체화하고 처리할 수 있습니다.  그런 다음 보고를 위해 구체화된 데이터가 Azure Cosmos DB에 다시 로드됩니다.   
 
 Azure Cosmos DB, EventHub 및 Storm을 사용한 샘플 IoT 솔루션은 [GitHub의 hdinsight-storm-examples 리포지토리](https://github.com/hdinsight/hdinsight-storm-examples/)를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: 64b9b6690eafe8f28fdf9711cd0534f4d7d96908
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7accf705ee64be5ba416be9df2f92693b07e8a8c
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584587"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799652"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -180,14 +180,14 @@ except exceptions.CosmosResourceExistsError:
 다음 링크는 Azure CLI을 사용 하 여 분석 저장소 사용 컨테이너를 만드는 방법을 보여 줍니다.
 
 * [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples&preserve-view=true)
-* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+* [SQL API Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
 
 ### <a name="powershell"></a>PowerShell
 
 다음 링크는 PowerShell을 사용 하 여 분석 저장소를 사용 하도록 설정 된 컨테이너를 만드는 방법을 보여 줍니다.
 
 * [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description&preserve-view=true)
-* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
+* [SQL API Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create&preserve-view=true)
 
 
 ## <a name="optional---update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> 선택 사항-분석 저장소 시간을 실시간으로 업데이트 합니다.
@@ -246,14 +246,14 @@ container.replace(containerProperties).block();
 다음 링크는 Azure CLI을 사용 하 여 컨테이너 분석 TTL을 업데이트 하는 방법을 보여 줍니다.
 
 * [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update&preserve-view=true)
-* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
+* [SQL API Azure Cosmos DB](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true)
 
 ### <a name="powershell"></a>PowerShell
 
 다음 링크는 PowerShell을 사용 하 여 컨테이너 분석 TTL을 업데이트 하는 방법을 보여 줍니다.
 
 * [Mongo DB에 대 한 Azure Cosmos DB API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0&preserve-view=true)
-* [Azure Cosmos DB SQL API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
+* [SQL API Azure Cosmos DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0&preserve-view=true)
 
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Synapse 작업 영역에 연결
@@ -276,7 +276,7 @@ Azure Cosmos DB에 대 한 Synapse 링크를 통해 서버를 사용 하지 않�
 
 [Azure Resource Manager 템플릿은](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) SQL API에 대 한 Synapse 링크 사용 Azure Cosmos DB 계정을 만듭니다. 이 템플릿은 분석 TTL이 설정된 컨테이너와 수동 또는 자동 크기 조정 처리량을 사용하는 옵션을 통해 한 지역에 Core(SQL) API 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지에서 **Azure에 배포** 를 클릭합니다.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Azure Synpase Link 시작 - 샘플
+## <a name="getting-started-with-azure-synapse-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Azure Synapse 시작 링크-샘플
 
 [GitHub](https://aka.ms/cosmosdb-synapselink-samples)에서 Azure Synapse 링크를 시작 하는 샘플을 찾을 수 있습니다. IoT 및 소매 시나리오를 사용 하 여 종단 간 솔루션을 소개 합니다. [MongoDB](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples) 폴더 아래에 있는 동일한 리포지토리의 MongoDB API Azure Cosmos DB에 해당 하는 샘플을 찾을 수도 있습니다. 
 

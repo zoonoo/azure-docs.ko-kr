@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 50f7906992aa19daa205a30f71ce21456bafe558
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b0c2b734366f9a74a9b007ab9450ab4b4f51feb
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92079159"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800434"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 
@@ -26,7 +26,7 @@ ms.locfileid: "92079159"
 
    ![클립보드 허용](./media/bastion-vm-manage/allow.png)
 
-텍스트 복사/붙여넣기만 지원 됩니다. 직접 복사 및 붙여넣기의 경우, 사용자의 브라우저에서 사용자의 대화 상자에 대 한 액세스를 요청할 수 있습니다. 웹 페이지에서 클립보드에 액세스할 **수** 있습니다.
+텍스트 복사/붙여넣기만 지원 됩니다. 직접 복사 및 붙여넣기의 경우, 사용자의 브라우저에서 사용자의 대화 상자에 대 한 액세스를 요청할 수 있습니다. 웹 페이지에서 클립보드에 액세스할 **수** 있습니다. Mac에서 작업 하는 경우 붙여넣기에 대 한 바로 가기 키가 **SHIFT + CTRL-V** 입니다.
 
 ## <a name="copy-to-a-remote-session"></a><a name="to"></a>원격 세션에 복사
 

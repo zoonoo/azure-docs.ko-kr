@@ -5,19 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: d1ea328575cf07a22ce39549c34d5cd21e916427
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054764"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778324"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>평가 개요 (Azure SQL로 마이그레이션)
 
 이 문서에서는 [Azure Migrate: 검색 및 평가 도구](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool)를 사용 하 여 VMware 환경에서 Azure SQL Database 또는 관리 되는 인스턴스로 온-프레미스 SQL Server 인스턴스를 마이그레이션하기 위한 평가의 개요를 제공 합니다.
-
-> [!Note]
-> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 ## <a name="whats-an-assessment"></a>평가는 무엇 인가요?
 검색 및 평가 도구를 사용한 평가는 데이터의 특정 시점 스냅숏으로, 준비를 측정 하 고 온-프레미스 서버를 Azure로 마이그레이션하는 효과를 예측 합니다.
@@ -28,9 +25,9 @@ Azure Migrate: 검색 및 평가 도구를 사용 하 여 만들 수 있는 평�
 
 **평가 유형** | **세부 정보**
 --- | --- 
-**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. [VMware](how-to-set-up-appliance-vmware.md) 및 [hyper-v](how-to-set-up-appliance-hyper-v.md) 환경에서 온-프레미스 서버를 평가 하 고,이 평가 유형을 사용 하 여 Azure vm으로 마이그레이션하기 위한 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다.
+**Azure VM** | 온-프레미스 서버를 Azure 가상 머신으로 마이그레이션하기 위한 평가. <br/><br/> [VMware](how-to-set-up-appliance-vmware.md) 및 [hyper-v](how-to-set-up-appliance-hyper-v.md) 환경에서 온-프레미스 서버를 평가 하 고,이 평가 유형을 사용 하 여 Azure vm으로 마이그레이션하기 위한 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가할 수 있습니다.
 **Azure SQL** | 온-프레미스 SQL server를 VMware 환경에서 Azure SQL Database 또는 Azure SQL Managed Instance로 마이그레이션하기 위한 평가.
-**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+**AVS(Azure VMware 솔루션)** | 온-프레미스 서버를 [AVS(Azure VMware 솔루션)](../azure-vmware/introduction.md)로 마이그레이션하기 위한 평가. <br/><br/> 이 평가 유형을 사용하여 AVS(Azure VMware 솔루션)로 마이그레이션하기 위한 온-프레미스 [VMware VM](how-to-set-up-appliance-vmware.md)을 평가할 수 있습니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Azure SQL 평가는 다음과 같은 하나의 크기 조정 기준을 제공 합니다.
 
@@ -75,35 +72,35 @@ Azure SQL 평가 속성에 포함 된 같습니다는 다음과 같습니다.
 
 **속성** | **세부 정보**
 --- | ---
-**대상 위치** | 마이그레이션할 Azure 지역입니다. Azure SQL 구성 및 비용 권장 사항은 사용자가 지정 하는 위치에 따라 달라 집니다.
-**대상 배포 유형** | 평가를 실행할 대상 배포 유형: Azure SQL MI 및 Azure SQL DB로 마이그레이션하기 위한 SQL server의 준비 상태를 평가 하 고 가장 적합 한 대상 배포 옵션인 대상 계층, Azure SQL 구성 및 월별 추정치를 추천 하려면 **권장** 을 선택 하 고 Azure Migrate 합니다. Azure sql Database로만 마이그레이션하기 위한 SQL server를 평가 하 고 대상 계층, Azure SQL DB 구성 및 월별 추정치를 검토 하려면 **AZURE SQL db** 를 선택 합니다. Azure sql MI로 마이그레이션할 SQL server를 평가 하 고 대상 계층, Azure SQL MI 구성 및 월별 추정치를 검토 하려면 **AZURE sql mi** 를 선택 합니다.
-**예약 용량** | 평가에 대 한 비용 예측이 고려 되도록 예약 된 용량을 지정 합니다. 예약 된 용량 옵션을 선택 하는 경우 "할인 (%)"을 지정할 수 없습니다.
-**크기 조정 기준** | 이 속성은 Azure SQL 구성의 크기를 적절 하 게 조정 하는 데 사용 됩니다. 기본적으로 **성능 기반** 으로 설정 됩니다. 즉, 평가에서 SQL Server 인스턴스 및 데이터베이스 성능 메트릭을 수집 하 여 최적의 크기의 Azure SQL Managed Instance 및/또는 Azure SQL Database 계층/구성 권장 구성을 권장 합니다.
+**대상 위치** | 마이그레이션할 Azure 지역입니다. Azure SQL 구성 및 비용 권장 사항은 사용자가 지정한 위치를 기반으로 합니다.
+**대상 배포 유형** | 평가를 실행 하려는 대상 배포 유형: <br/><br/> Azure SQL MI 및 Azure SQL DB로 마이그레이션하기 위한 SQL server의 준비 상태를 평가 하 고 가장 적합 한 대상 배포 옵션인 대상 계층, Azure SQL 구성 및 월별 추정치를 추천 하려면 **권장** 을 선택 하 고 Azure Migrate 합니다.<br/><br/>Azure sql Database로만 마이그레이션하기 위한 SQL server를 평가 하 고 대상 계층, Azure SQL DB 구성 및 월별 추정치를 검토 하려면 **AZURE SQL db** 를 선택 합니다.<br/><br/>Azure sql MI로 마이그레이션할 SQL server를 평가 하 고 대상 계층, Azure SQL MI 구성 및 월별 추정치를 검토 하려면 **AZURE sql mi** 를 선택 합니다.
+**예약 용량** | 평가에 대 한 비용 예측이 고려 되도록 예약 된 용량을 지정 합니다.<br/><br/> 예약된 용량 옵션을 선택하면 "할인(%)"을 지정할 수 없습니다.
+**크기 조정 기준** | 이 속성은 Azure SQL 구성의 크기를 적절 하 게 조정 하는 데 사용 됩니다. <br/><br/> 기본적으로 **성능 기반** 으로 설정 됩니다. 즉, 평가에서 SQL Server 인스턴스 및 데이터베이스 성능 메트릭을 수집 하 여 최적의 크기의 Azure SQL Managed Instance 및/또는 Azure SQL Database 계층/구성 권장 구성을 권장 합니다.
 **성능 기록** | 성능 기록은 성능 데이터를 평가할 때 사용 되는 기간을 지정 합니다.
 **백분위 수 사용률** | 백분위 수 사용률은 rightsizing 조정에 사용 되는 성능 샘플의 백분위 수 값을 지정 합니다.
-**쾌적 인자** | 평가 중에 사용 되는 버퍼입니다. 이는 계절 사용량, 짧은 성능 기록 및 향후 사용에 대 한 성능 향상 등의 문제를 해결 합니다. 예를 들어 20% 사용률이 있는 10 코어 인스턴스는 일반적으로 2 개 코어 인스턴스를 생성 합니다. 편안 하 게 2.0를 사용 하 여 결과는 4 코어 인스턴스입니다.
-**제품/라이선스 프로그램** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 현재 종 량 제 및 종 량 제 개발/테스트 중 에서만 선택할 수 있습니다. 예약 된 용량을 적용 하 고 종 량 제 제안 위에 Azure 하이브리드 혜택 하 여 추가 할인을 사용할 수 있습니다.
-**서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로의 마이그레이션을 위한 비즈니스 요구를 수용 하는 가장 적절 한 서비스 계층 옵션: 서버에 가장 적합 한 서비스 계층을 권장 하는 Azure Migrate 하려면 **권장** 을 선택 합니다. 이는 범용 이거나 업무상 중요할 수 있습니다. 예산 기반 작업에 대해 Azure SQL 구성을 디자인 하려면 **일반 용도** 를 선택 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) 복원 력이 높고 장애 조치 (failover)에 대 한 대기 시간이 짧은 워크 로드를 위해 설계 된 Azure SQL 구성을 원하는 경우 **중요 비즈니스용** 를 선택 합니다. [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**쾌적 인자** | 평가 중에 사용 되는 버퍼입니다. 이는 계절 사용량, 짧은 성능 기록 및 향후 사용에 대 한 성능 향상 등의 문제를 해결 합니다.<br/><br/> 예를 들어 20% 사용률이 있는 10 코어 인스턴스는 일반적으로 2 개 코어 인스턴스를 생성 합니다. 편안 하 게 2.0를 사용 하 여 결과는 4 코어 인스턴스입니다.
+**제품/라이선스 프로그램** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 현재 종량제 및 종량제 개발/테스트에서만 선택할 수 있습니다. 예약 된 용량을 적용 하 고 종 량 제 제안 위에 Azure 하이브리드 혜택 하 여 추가 할인을 사용할 수 있습니다.
+**서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션하기 위한 비즈니스 요구 사항을 수용 하기 위한 가장 적절 한 서비스 계층 옵션은 다음과 같습니다.<br/><br/>서버에 가장 적합 한 서비스 계층을 권장 Azure Migrate 하려는 경우에 **권장** 됩니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. <br/><br/> **일반 용도** 예산 기반 워크 로드를 위해 설계 된 Azure SQL 구성을 원하는 경우 [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **중요 비즈니스용** 장애 조치 (failover) 및 빠른 장애 조치 (failover)에 대 한 복원 력이 높은 대기 시간이 짧은 워크 로드를 위해 설계 된 Azure SQL 구성 [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
 **통화** | 계정에 대 한 청구 통화입니다.
 **할인(%)** | Azure 제품을 기반으로 받는 모든 구독 관련 할인 기본 설정은 0%입니다.
-**Azure 하이브리드 혜택** | SQL Server 라이선스가 이미 있는지 여부를 지정 합니다. 이러한 작업을 수행 하 고 SQL Server 구독의 활성 소프트웨어 보증이 적용 되는 경우 Azure에 라이선스를 제공할 때 Azure 하이브리드 혜택에 대해를 적용할 수 있습니다.
+**Azure 하이브리드 혜택** | SQL Server 라이선스가 이미 있는지 여부를 지정 합니다. <br/><br/> 이러한 작업을 수행하고 SQL Server 구독의 활성 소프트웨어 보증이 적용되는 경우 Azure에 라이선스를 가져올 때 Azure 하이브리드 혜택을 적용할 수 있습니다.
 
 Azure Migrate를 사용 하 여 평가를 만드는 방법에 대 한 [모범 사례를 검토](best-practices-assessment.md) 합니다.
 
 ## <a name="calculate-readiness"></a>준비 상태 계산
 
 > [!NOTE]
-> 평가에는 온라인 상태의 데이터베이스만 포함 됩니다. 데이터베이스가 다른 상태에 있는 경우 평가는 이러한 데이터베이스에 대한 준비, 크기 조정 및 비용 계산을 무시합니다. 이러한 데이터베이스를 평가하려는 경우에는 데이터베이스의 상태를 변경하고 잠시 후 평가를 다시 계산하세요.
+평가에는 온라인 상태의 데이터베이스만 포함 됩니다. 데이터베이스가 다른 상태에 있는 경우 평가는 이러한 데이터베이스에 대한 준비, 크기 조정 및 비용 계산을 무시합니다. 이러한 데이터베이스를 평가하려는 경우에는 데이터베이스의 상태를 변경하고 잠시 후 평가를 다시 계산하세요.
 
 ### <a name="azure-sql-readiness"></a>Azure SQL 준비
 
 SQL 인스턴스 및 데이터베이스에 대 한 Azure SQL 준비는 Azure SQL Database 및 Azure SQL Managed Instance의 기능 호환성 검사를 기반으로 합니다.
-- Azure SQL 평가는 현재 원본 SQL Server 작업 (SQL 에이전트 작업, 연결 된 서버 등)에서 사용 하는 SQL Server 인스턴스 기능 및 사용자 데이터베이스 스키마 (테이블, 뷰, 트리거, 저장 프로시저 등)를 고려 하 여 호환성 문제를 식별 합니다.
-- 호환성 문제가 발견 되지 않은 경우 대상 배포 유형 (Azure SQL Database 또는 Azure SQL Managed Instance)에 대 한 준비 상태가 **준비** 로 표시 됩니다.
-- 특정 대상 배포 유형으로의 마이그레이션을 차단 하지 않는 성능이 저하 되거나 지원 되지 않는 기능과 같은 중요 하지 않은 호환성 문제가 있는 경우 준비는 **경고** 세부 정보 및 권장 되는 수정 지침을 포함 하는 **준비** (하이퍼링크 및 파랑 정보 아이콘)로 표시 됩니다.
-- 특정 대상 배포 유형으로의 마이그레이션을 차단할 수 있는 호환성 문제가 있는 경우 준비 상태가 **문제** 세부 정보 및 권장 되는 수정 지침과 함께 **준비 되지 않음** 으로 표시 됩니다.
+1. Azure SQL 평가는 현재 원본 SQL Server 작업 (SQL 에이전트 작업, 연결 된 서버 등)에서 사용 하는 SQL Server 인스턴스 기능 및 사용자 데이터베이스 스키마 (테이블, 뷰, 트리거, 저장 프로시저 등)를 고려 하 여 호환성 문제를 식별 합니다.
+1. 호환성 문제가 발견 되지 않은 경우 대상 배포 유형 (Azure SQL Database 또는 Azure SQL Managed Instance)에 대 한 준비 상태가 **준비** 로 표시 됩니다.
+1. 특정 대상 배포 유형으로의 마이그레이션을 차단 하지 않는 성능이 저하 되거나 지원 되지 않는 기능과 같은 중요 하지 않은 호환성 문제가 있는 경우 준비는 **경고** 세부 정보 및 권장 되는 수정 지침을 포함 하는 **준비** (하이퍼링크 및 파랑 정보 아이콘)로 표시 됩니다.
+1. 특정 대상 배포 유형으로의 마이그레이션을 차단할 수 있는 호환성 문제가 있는 경우 준비 상태가 **문제** 세부 정보 및 권장 되는 수정 지침과 함께 **준비 되지 않음** 으로 표시 됩니다.
     - SQL 인스턴스에서 특정 대상 배포 유형에 대해 준비 되지 않은 데이터베이스가 하나 이상 있는 경우 해당 인스턴스는 해당 배포 유형에 대해 **준비 되지 않음** 으로 표시 됩니다.
-- 검색이 아직 진행 중이거나 SQL 인스턴스 또는 데이터베이스에 대 한 검색 문제가 있는 경우 평가에서 해당 SQL 인스턴스의 준비 상태를 계산할 수 없기 때문에 준비 상태가 **알 수 없음** 으로 표시 됩니다.
+1. 검색이 아직 진행 중이거나 SQL 인스턴스 또는 데이터베이스에 대 한 검색 문제가 있는 경우 평가에서 해당 SQL 인스턴스의 준비 상태를 계산할 수 없기 때문에 준비 상태가 **알 수 없음** 으로 표시 됩니다.
 
 ### <a name="recommended-deployment-type"></a>권장 배포 유형
 
@@ -111,13 +108,13 @@ Azure SQL 평가 속성에서 **권장** 되는 대상 배포 유형을 선택 �
 
 #### <a name="recommended-deployment-type-based-on-azure-sql-readiness"></a>Azure SQL 준비를 기준으로 권장 되는 배포 유형
 
- **Azure SQL DB 준비** | **Azure SQL MI 준비** | **권장 배포 유형** | **Azure SQL 구성 및 예상 비용을 계산 했습니까?**
+ **Azure SQL DB 준비 상태** | **Azure SQL MI 준비 상태** | **권장 배포 유형** | **Azure SQL 구성 및 예상 비용을 계산했나요?**
  --- | --- | --- | --- |
- 준비 | 준비 | Azure SQL DB 또는 Azure SQL MI | 예
- 준비 | 준비 되지 않음 또는 알 수 없음 | Azure SQL DB | 예
- 준비 되지 않음 또는 알 수 없음 | 준비 | Azure SQL MI | 예
+ 준비 | 준비 | Azure SQL DB 또는 <br/>Azure SQL MI | 예
+ 준비 | 준비 되지 않음 또는<br/> 알 수 없음 | Azure SQL DB | 예
+ 준비 되지 않음 또는<br/>알 수 없음 | 준비 | Azure SQL MI | 예
  준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | 아니요
- 준비 되지 않음 또는 알 수 없음 | 준비 되지 않음 또는 알 수 없음 | 알 수 없음 | 아니요
+ 준비 되지 않음 또는<br/>알 수 없음 | 준비 되지 않음 또는<br/>알 수 없음 | 알 수 없음 | 아니요
 
 > [!NOTE]
 > 평가 **속성에서 권장 되는** 배포 유형을 선택 하 고 원본 SQL Server가 AZURE sql DB 단일 데이터베이스와 azure sql Managed Instance에 모두 적합 한 경우 평가에서는 비용을 최적화 하 고 크기 및 성능 경계 내에 맞추기 위한 특정 옵션을 권장 합니다.
@@ -171,7 +168,7 @@ SQL 인스턴스가 Azure SQL Database 및 Azure SQL Managed Instance에 대해 
 
 #### <a name="low-confidence-ratings"></a>낮은 신뢰 등급
 평가가 낮은 신뢰 등급을 얻을 수 있는 몇 가지 이유는 다음과 같습니다.
-- 평가를 생성 하는 기간에 대 한 환경을 프로 파일링 하지 않았습니다. 예를 들어 성능 기간이 1 일로 설정 된 평가를 만드는 경우 수집 되는 모든 데이터 요소에 대 한 검색을 시작한 후 적어도 하루 이상 기다려야 합니다.
+- 평가를 만드는 동안 환경을 프로파일링하지 않았습니다. 예를 들어 성능 기간이 1 일로 설정 된 평가를 만드는 경우 수집 되는 모든 데이터 요소에 대 한 검색을 시작한 후 적어도 하루 이상 기다려야 합니다.
 - 평가는 일부 또는 모든 서버에 대한 성능 데이터를 평가 기간에 수집할 수 없습니다. 높은 신뢰 등급의 경우 다음을 확인 하세요.
     - 평가 기간 동안 서버가 켜 집니다.
     - 포트 443에 대 한 아웃 바운드 연결이 허용 됩니다.

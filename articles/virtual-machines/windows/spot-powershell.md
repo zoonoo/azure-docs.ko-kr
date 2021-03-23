@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 33172004ac4361de51b92389fbf56bd699f7124f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2ad2eb197af613919efa4414da1759cd47e2e7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096448"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802746"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure 스팟 Virtual Machines 배포
 
@@ -76,20 +76,53 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="simulate-an-eviction"></a>제거 시뮬레이션
 
-Azure 스폿 가상 머신의 [제거를 시뮬레이션](/rest/api/compute/virtualmachines/simulateeviction) 하 여 응용 프로그램이 갑자기 제거 되는 것을 얼마나 잘 repond 테스트할 수 있습니다. 
+REST, PowerShell 또는 CLI를 사용 하 여 Azure 스폿 가상 머신의 제거를 시뮬레이트하여 응용 프로그램이 갑작스러운 제거에 얼마나 잘 대응 하는지 테스트할 수 있습니다.
 
-다음을 사용자의 정보로 바꿉니다. 
+대부분의 경우 REST API [Virtual Machines 시뮬레이트 제거](/rest/api/compute/virtualmachines/simulateeviction) 를 사용 하 여 응용 프로그램의 자동화 된 테스트에 도움을 받을 수 있습니다. REST의 경우는 `Response Code: 204` 시뮬레이트된 제거를 성공적으로 완료 했음을 의미 합니다. 시뮬레이트된 제거를 [예약 된 이벤트 서비스](scheduled-events.md)와 결합 하 여 VM이 제거 될 때 앱이 응답 하는 방식을 자동화할 수 있습니다.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+작동 중인 예약 된 이벤트를 보려면 azure [Scheduled Events를 사용 하 여 VM 유지 관리를 준비](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)합니다.
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>빠른 테스트
+
+시뮬레이션 된 제거의 작동 방식을 보여 주는 빠른 테스트를 위해 PowerShell을 사용 하 여 제거를 시뮬레이션 하는 경우 예약 된 이벤트 서비스를 쿼리하여 어떻게 되는지 확인 하는 방법을 살펴보겠습니다.
+
+예약 된 이벤트 서비스는 이벤트에 대 한 요청을 처음 수행할 때 서비스에 대해 사용 하도록 설정 됩니다. 
+
+VM에 원격으로 연결한 다음 명령 프롬프트를 엽니다. 
+
+VM의 명령 프롬프트에서 다음을 입력 합니다.
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
-`Response Code: 204` 시뮬레이트된 제거를 성공적으로 완료 했음을 의미 합니다. 
+이 첫 번째 응답은 최대 2 분 정도 걸릴 수 있습니다. 지금부터 출력이 거의 즉시 표시 되어야 합니다.
+
+Az PowerShell 모듈이 설치 된 컴퓨터 (예: 로컬 컴퓨터)에서 [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/set-azvm)를 사용 하 여 제거를 시뮬레이션 합니다. 리소스 그룹 이름 및 VM 이름을 사용자 고유의 이름으로 바꿉니다. 
+
+```azurepowershell-interactive
+Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
+```
+
+요청이 성공적으로 수행 되 면 응답 출력에이 포함 됩니다 `Status: Succeeded` .
+
+신속 하 게 지점 가상 머신으로 원격 연결로 돌아가서 Scheduled Events 끝점을 다시 쿼리 합니다. 추가 정보를 포함 하는 출력을 가져올 때까지 다음 명령을 반복 합니다.
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+예약 된 이벤트 서비스에서 제거 알림을 가져오면 다음과 유사한 응답이 표시 됩니다.
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+이를 확인할 수 `"EventType":"Preempt"` 있으며 리소스는 VM 리소스입니다 `"Resources":["myspotvm"]` . 
+
+값을 확인 하 여 VM이 제거 되는 시기를 확인할 수도 있습니다 `"NotBefore"` . VM은에 지정 된 시간 전에는 제거 되지 않으므로 `NotBefore` 응용 프로그램이 정상적으로 종료 될 수 있는 창이 됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
