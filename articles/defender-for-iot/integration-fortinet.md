@@ -1,19 +1,14 @@
 ---
 title: Fortinet 통합 정보
-titleSuffix: Azure Defender for IoT
 description: IoT 및 Fortinet 용 Defender는 IoT 및 ICS 네트워크에 대 한 공격을 감지 하 고 중지 하기 위해 기술 파트너 관계를 설정 했습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 313db90d4c9be30ef588b00caf1d6e4ce32b113b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e2119a9e01a4e58cd9d2ca1b9b3384ec9629784c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98557972"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784019"
 ---
 # <a name="defender-for-iot-and-fortinet-iiot-and-ics-threat-detection--prevention"></a>IoT 및 Fortinet IIoT 용 Defender 및 ICS 위협 검색 & 방지
 
@@ -113,7 +108,7 @@ IoT의 전달 규칙에 대해 Defender를 사용 하 여 경고 정보를 Forti
 
     :::image type="content" source="media/integration-fortinet/new-rule.png" alt-text="새 전달 규칙 창을 만듭니다.":::
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | **이름** | 전달 규칙 이름입니다. |
     | **심각도 선택** | 전달할 최소 보안 수준 인시던트입니다. 예를 들어 **minor** 를 선택 하면이 심각도 수준 위의 사소한 경고 및 경고가 전달 됩니다. |
@@ -129,7 +124,7 @@ IoT의 전달 규칙에 대해 Defender를 사용 하 여 경고 정보를 Forti
 
     :::image type="content" source="media/integration-fortinet/details.png" alt-text="전달 규칙에 FortiSIEm 세부 정보 추가":::
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --------- | ----------- |
     | **Host** | FortiSIEM 서버 주소입니다. |
     | **포트** | FortiSIEM 서버 포트입니다. |
@@ -177,7 +172,7 @@ IoT 경고에 대 한 Defender를 기반으로 하는 FortiGate 방화벽에서 
 
     :::image type="content" source="media/integration-fortinet/cellphone.png" alt-text="휴대폰 설명 자동 생성":::
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --------- | ----------- |
     | **사용자 이름** | 전달 규칙 이름입니다. |
     | **설명** | 최소한의 보안 수준 인시던트를 전달 합니다. 예를 들어 Minor를 선택 하면이 심각도 수준 위의 사소한 경고 및 경고가 전달 됩니다. |
@@ -200,7 +195,7 @@ IoT 경고에 대 한 Defender를 기반으로 하는 FortiGate 방화벽에서 
 
     :::image type="content" source="media/integration-fortinet/new-rule.png" alt-text="전달 규칙 만들기 창의 스크린샷":::
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --------- | ----------- |
     | **이름** | 전달 규칙 이름입니다. |
     | **심각도 선택** | 최소한의 보안 수준 인시던트를 전달 합니다. 예를 들어 **minor** 를 선택 하면이 심각도 수준 위의 사소한 경고 및 경고가 전달 됩니다. |
@@ -218,7 +213,7 @@ IoT 경고에 대 한 Defender를 기반으로 하는 FortiGate 방화벽에서 
 
 1. **작업** 창에서 다음 매개 변수를 설정 합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--|--|
     | 호스트 | FortiGate 서버 IP 주소 유형입니다. |
     | 포트 | FortiGate 서버 포트 유형입니다. |

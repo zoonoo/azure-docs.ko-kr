@@ -3,16 +3,16 @@ title: Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 description: Azure Data Factory v1에서 Pig 활동을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행 하는 방법에 대해 알아봅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2f59734b5452b5a06b49583954f8851e84e8f84d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 85c34bfc306b49bb826a342846bf5e4557e3052f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100387175"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786365"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -77,7 +77,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |

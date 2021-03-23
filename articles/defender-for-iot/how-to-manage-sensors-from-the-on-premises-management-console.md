@@ -1,18 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔에서 센서 관리
 description: 센서 버전 업데이트, 센서에 시스템 설정 푸시, 센서에서 엔진 사용 및 사용 안 함을 포함 하 여 관리 콘솔에서 센서를 관리 하는 방법에 대해 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4706fbcf58b8e5f5eed6532f9a08f65c7716e07e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523960"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781928"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>관리 콘솔에서 센서 관리
 
@@ -144,7 +140,7 @@ IoT 포털의 **업데이트** 페이지에서이 파일을 수동으로 업로�
 
 센서는 IoT 엔진에 대해 5 개의 Defender에 의해 보호 됩니다. 연결 된 센서에 대해 엔진을 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
-| 엔진 | 설명 | 예제 시나리오 |
+| 엔진 | Description | 예제 시나리오 |
 |--|--|--|
 | 프로토콜 위반 엔진 | 패킷 구조 또는 필드 값이 프로토콜 사양을 따르지 않으면 프로토콜 위반이 발생 합니다. | "잘못 된 MODBUS 작업 (함수 코드 0)" 경고입니다. 이 경고는 기본 장치에서 함수 코드가 0 인 요청을 보조 장치로 보냈음을 나타냅니다. 이는 프로토콜 사양에 따라 허용 되지 않으며, 보조 장치에서 입력을 올바르게 처리 하지 못할 수 있습니다. |
 | 정책 위반 엔진 | 정책 위반은 학습 또는 구성 된 정책에 정의 된 기준 동작의 편차를 사용 하 여 발생 합니다. | "권한이 없는 HTTP 사용자 에이전트" 경고입니다. 이 경고는 정책에 의해 학습 또는 승인 되지 않은 응용 프로그램이 장치에서 HTTP 클라이언트로 사용 됨을 나타냅니다. 이는 해당 장치의 새 웹 브라우저 또는 응용 프로그램 일 수 있습니다. |

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 84d5f1e4035fb730d33b7bc8dd375273610f0bfb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101698351"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771943"
 ---
 # <a name="data-source-schema-reference"></a>데이터 원본 스키마 참조
 
@@ -23,7 +23,7 @@ ms.locfileid: "101698351"
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-| Type                             | 데이터 원본             | Log Analytics tablename | 스키마 참조 |
+| 유형                             | 데이터 원본             | Log Analytics tablename | 스키마 참조 |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
 | **Azure**                            | Azure Active Directory | SigninEvents           | [Azure AD 활동 보고서 로그인 속성](/graph/api/resources/signin#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Azure Monitor AuditLogs 참조](/azure/azure-monitor/reference/tables/auditlogs) |
@@ -44,7 +44,7 @@ ms.locfileid: "101698351"
 
 다음 표에는 지원 되는 타사 공급 업체와 각 범주 유형에 대 한 CEF 필드 매핑 및 샘플 로그가 포함 된 다양 한 지원 되는 로그 유형에 대 한 CEF (Common Event Format) 매핑 설명서가 나와 있습니다.
 
-| Type |    Vendor |    제품 | Log Analytics tablename | CEF 필드 매핑 참조  |
+| 유형 |    Vendor |    제품 | Log Analytics tablename | CEF 필드 매핑 참조  |
 | ----- | ----- | ----- | ----- |----- |
 | **Network** | Palo Alto   | OS 이동    | CommonSecurityLog |   [팬-OS 9.0 일반적인 이벤트 형식 통합 가이드](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) ( *cef 스타일의 로그 형식* 검색) |
 | **Network** | Check Point  |ALL   | CommonSecurityLog | [로그 필드 설명](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |
@@ -62,6 +62,9 @@ ms.locfileid: "101698351"
 |**Host** |Trend Micro |모두 |CommonSecurityLog | [Syslog 콘텐츠 매핑-CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
 | | | | | |
 
+> [!NOTE]
+> 자세한 내용은 [Cef 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)을 참조 하세요.
+> 
 ## <a name="next-steps"></a>다음 단계
 
 CEF, Syslog, direct, agent, 사용자 지정 커넥터 등의 지원 되는 Azure 센티널 커넥터에 대해 자세히 알아보세요.

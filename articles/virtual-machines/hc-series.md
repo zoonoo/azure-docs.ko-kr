@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 6ec629629fc774ddb5423db91fe0d71a49305ca1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 43f8b6efd7c4cc510dac8fcbe84ab38f59008ed9
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566042"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773534"
 ---
 # <a name="hc-series"></a>HC 시리즈
 
@@ -29,14 +29,16 @@ HC 시리즈 Vm 기능 100 g b/초 Mellanox EDR InfiniBand. 이러한 Vm은 최�
 [VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
 [가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (성능 및 잠재적인 문제에 대 한[자세한](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-hbv2-and-ndv2/ba-p/2067965) 정보)<br>
 [삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
-
 <br>
 
 | 크기 | vCPU | 프로세서 | 메모리(GiB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 스토리지(GiB) | 최대 데이터 디스크 수 | 최대 이더넷 vNICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HC44rs | 44 | Intel Xeon 플래티넘 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | 모두 | 700 | 4 | 8 |
 
-기본 [아키텍처, vm 토폴로지](./workloads/hpc/hc-series-overview.md) 및 HC 시리즈 vm의 예상 [성능](./workloads/hpc/hc-series-performance.md) 에 대해 자세히 알아보세요.
+에 대해 자세히 알아보세요.
+- [아키텍처 및 VM 토폴로지](./workloads/hpc/hc-series-overview.md)
+- 지원 되는 OS를 포함 하 여 지원 되는 [소프트웨어 스택](./workloads/hpc/hc-series-overview.md#software-specifications)
+- HC 시리즈 VM의 예상 [성능](./workloads/hpc/hc-series-performance.md) 입니다.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

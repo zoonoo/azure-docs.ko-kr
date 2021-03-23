@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dea13444a6bd18bd67f05d93a38af70b3b7a2368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2998c3ea0d65bd3c96bd1ac5bdfa8ff148c6c4cc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556318"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780432"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>게스트 사용자의 상환 상태 다시 설정
 
@@ -28,9 +28,20 @@ ms.locfileid: "102556318"
 
 이러한 시나리오를 이전에 관리 하려면 디렉터리에서 게스트 사용자의 계정을 수동으로 삭제 하 고 사용자를 reinvite 합니다. 이제 PowerShell 또는 Microsoft Graph 초대 API를 사용 하 여 사용자의 상환 상태를 다시 설정 하 고 사용자의 개체 ID, 그룹 멤버 자격 및 앱 할당을 유지 하면서 사용자를 reinvite 수 있습니다. 사용자가 새 초대를 교환 사용자의 UPN은 변경 되지 않지만 사용자의 로그인 이름이 새 전자 메일로 변경 됩니다. 사용자는 이후에 새 전자 메일 또는 `otherMails` 사용자 개체의 속성에 추가한 전자 메일을 사용 하 여 로그인 할 수 있습니다.
 
+## <a name="reset-the-email-address-used-for-sign-in"></a>로그인에 사용 되는 전자 메일 주소 다시 설정
+
+사용자가 다른 전자 메일을 사용 하 여 로그인 하려는 경우:
+
+1. 새 전자 메일 주소가 `mail` 사용자 개체의 또는 속성에 추가 되었는지 확인 `otherMails` 합니다. 
+2.  속성의 전자 메일 주소를 `InvitedUserEmailAddress` 새 전자 메일 주소로 바꿉니다.
+3. 다음 방법 중 하나를 사용 하 여 사용자의 상환 상태를 다시 설정 합니다.
+
+> [!NOTE]
+>공개 미리 보기 중에 사용자의 전자 메일 주소를 다시 설정 하는 경우 속성을 `mail` 새 전자 메일 주소로 설정 하는 것이 좋습니다. 이러한 방식으로 사용자는 초대에서 상환 링크를 사용 하는 것 외에도 디렉터리에 로그인 하 여 초대를 전환할 수 있습니다.
+>
 ## <a name="use-powershell-to-reset-redemption-status"></a>PowerShell을 사용 하 여 상환 상태 다시 설정
 
-최신 AzureADPreview PowerShell 모듈을 설치 하 고를 `InvitedUserEMailAddress` 새 전자 메일 주소로 설정 하 여 새 초대를 만들고 `ResetRedemption` 를로 설정 `true` 합니다.
+최신 AzureADPreview PowerShell 모듈을 설치 하 고를 `InvitedUserEmailAddress` 새 전자 메일 주소로 설정 하 여 새 초대를 만들고 `ResetRedemption` 를로 설정 `true` 합니다.
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -43,7 +54,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Microsoft Graph API를 사용 하 여 상환 상태 다시 설정
 
-[Microsoft Graph 초대 API](/graph/api/resources/invitation)를 사용 하 여 속성을로 설정 하 `resetRedemption` `true` 고 속성에 새 전자 메일 주소를 지정 합니다 `invitedUserEmailAddress` .
+[Microsoft Graph 초대 API](/graph/api/resources/invitation?view=graph-rest-1.0)를 사용 하 여 속성을로 설정 하 `resetRedemption` `true` 고 속성에 새 전자 메일 주소를 지정 합니다 `invitedUserEmailAddress` .
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

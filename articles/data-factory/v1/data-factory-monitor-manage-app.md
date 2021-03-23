@@ -3,16 +3,16 @@ title: 데이터 파이프라인 모니터링 및 관리-Azure
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: be11f742eb99d25cb0e41a3dd0888d62417837dd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3a9eb73aab381f90ae51300bff1250348916c2ab
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100380375"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779599"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 <table>
 <tr>
-    <th align="left">상태</th><th align="left">Substatus</th><th align="left">설명</th>
+    <th align="left">상태</th><th align="left">Substatus</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>활동 기간을 실행할 시간이 아직 되지 않습니다.</td>

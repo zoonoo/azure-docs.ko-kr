@@ -1,24 +1,14 @@
 ---
 title: IoT Hub에 대한 사용자 지정 보안 경고
 description: IoT Hub의 기능 및 서비스에 대해 Defender를 사용 하 여 사용자 지정 가능한 보안 경고 및 권장 해결 방법에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 04198432f2b600a3c703d5e4f253656f116000db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d7a58bcdb759c3f31290cc7930eba6ca52fcc17b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636529"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784733"
 ---
 # <a name="defender-for-iot-hub-custom-security-alerts"></a>Defender IoT Hub 사용자 지정 보안 경고
 
@@ -30,7 +20,7 @@ IoT 용 Defender는 고급 분석 및 위협 인텔리전스를 사용 하 여 I
 
 ## <a name="built-in-custom-alerts-in-the-iot-hub"></a>IoT Hub에서 기본 제공 되는 사용자 지정 경고
 
-| 심각도 | 경고 이름 | 데이터 원본 | 설명 | 제안된 수정 사항 |
+| 심각도 | 경고 이름 | 데이터 원본 | Description | 제안된 수정 사항 |
 |--|--|--|--|--|
 | 낮음 | 사용자 지정 경고-AMQP 프로토콜의 클라우드-장치 메시지 수가 허용 되는 범위를 벗어남 | IoT Hub | 특정 기간 내의 클라우드-장치 메시지 수 (AMQP 프로토콜)가 현재 구성 된 범위 및 허용 되는 범위를 벗어납니다. |  |
 | 낮음 | 사용자 지정 경고-AMQP 프로토콜에서 거부 된 클라우드-장치 메시지 수가 허용 되는 범위를 벗어남 | IoT Hub | 특정 기간 내에 장치에서 거부 한 클라우드-장치 메시지 (AMQP 프로토콜)의 수가 현재 구성 된 범위 및 허용 되는 범위를 벗어납니다. |  |

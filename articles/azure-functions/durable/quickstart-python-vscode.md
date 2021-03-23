@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cccb42041ece65ad4f245c28dd7c5cf356d5e63c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549467"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775156"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Python에서 첫 번째 지속성 함수 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "102549467"
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-python-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -213,7 +213,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 ## <a name="test-your-function-in-azure"></a>Azure에서 함수 테스트
 
-1. **출력** 패널에서 HTTP 트리거의 URL을 복사합니다. HTTP 트리거 함수를 호출하는 URL은 `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator` 형식입니다.
+1. **출력** 패널에서 HTTP 트리거의 URL을 복사합니다. HTTP 트리거 함수를 호출하는 URL은 `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator` 형식입니다.
 
 2. HTTP 요청에 대한 이러한 새 URL을 브라우저의 주소 표시줄에 붙여넣습니다. 게시된 앱을 사용하는 경우 앞으로 같은 상태 응답을 가져와야 합니다.
 

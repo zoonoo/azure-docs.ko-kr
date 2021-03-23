@@ -12,18 +12,18 @@ ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 41336d59d51685d5daf78a1809ce6c0df2cd6124
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102033625"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781316"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 
 Microsoft Graph를 사용 하 여 Azure AD B2C 디렉터리에서 리소스를 관리할 수 있습니다. 다음 Microsoft Graph API 작업은 사용자, id 공급자, 사용자 흐름, 사용자 지정 정책 및 정책 키를 비롯 한 Azure AD B2C 리소스 관리에 대해 지원 됩니다. 다음 섹션의 각 링크는 해당 작업에 대 한 Microsoft Graph API 참조 내의 해당 페이지를 대상으로 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 MS Graph API를 사용 하 고 Azure AD B2C 테 넌 트의 리소스와 상호 작용 하려면 권한을 부여 하는 응용 프로그램 등록이 필요 합니다. 관리 응용 프로그램에서 사용할 수 있는 응용 프로그램 등록을 만들려면 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md) 문서의 단계를 수행 합니다. 
 
@@ -140,7 +140,7 @@ Azure AD B2C 감사 로그에 액세스 하는 방법에 대 한 자세한 내�
 
 ## <a name="conditional-access"></a>조건부 액세스
 
-- [모든 조건부 액세스 정책을 나열 합니다.](/graph/api/resources/conditionalaccessroot-list-policies)
+- [모든 조건부 액세스 정책을 나열 합니다.](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
 - [조건부 액세스 정책의 속성 및 관계 읽기](/graph/api/conditionalaccesspolicy-get)
 - [새 조건부 액세스 정책 만들기](/graph/api/resources/application)
 - [조건부 액세스 정책 업데이트](/graph/api/conditionalaccesspolicy-update)

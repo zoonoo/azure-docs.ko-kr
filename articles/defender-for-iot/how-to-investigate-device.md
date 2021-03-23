@@ -1,24 +1,14 @@
 ---
 title: 의심 스러운 장치 조사
 description: 이 방법 가이드에서는 IoT 용 Defender를 사용 하 여 Log Analytics를 사용 하 여 의심 스러운 IoT 장치를 조사 하는 방법을 설명 합니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/04/2020
-ms.author: mlottner
-ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 32cc8d82a867ead533cbaa6802bffb4494398412
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100516841"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782013"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 

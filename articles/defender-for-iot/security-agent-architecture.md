@@ -1,24 +1,14 @@
 ---
 title: '빠른 시작: 보안 에이전트 개요'
 description: 이 빠른 시작에서는 Azure Defender for IoT 서비스에서 사용되는 에이전트의 보안 에이전트 아키텍처를 이해하는 방법을 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
-ms.openlocfilehash: de8c52372b2ef92dcf2abe357a40ef8947439a8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2e7d7d1e6770667b1ce966724611cc003116409d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493967"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778511"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>빠른 시작: 보안 에이전트 참조 아키텍처
 

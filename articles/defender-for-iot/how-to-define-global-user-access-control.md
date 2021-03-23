@@ -1,18 +1,14 @@
 ---
 title: 전역 사용자 액세스 제어 정의
 description: 대기업에서 사용자 권한은 복잡할 수 있으며 표준 사이트 및 영역 구조 외에도 전역 조직 구조에 의해 결정 될 수 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f5f8df56a5dcb4152fc0ae9fcae3d504d6cf3e2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522277"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784291"
 ---
 # <a name="define-global-access-control"></a>전역 액세스 제어 정의
 

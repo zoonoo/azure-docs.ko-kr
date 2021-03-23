@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490333"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772351"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -149,7 +149,7 @@ Azure 모바일 앱를 구성할 때 계정 ID로 사용 하는 전자 메일 �
 작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 
 ### <a name="function"></a>함수
-[Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다.
+[Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다. 요청을 처리 하려면 끝점이 HTTP POST 동사를 처리 해야 합니다.
 
 작업 그룹에서 함수 작업의 수가 제한될 수 있습니다.
 

@@ -3,12 +3,12 @@ title: 서비스 엔드포인트를 사용한 액세스 제한
 description: Azure 가상 네트워크의 서비스 끝점을 사용 하 여 Azure container registry에 대 한 액세스를 제한 합니다. 서비스 끝점 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c49595ee4ee79aef264a87dd48bccd03f3d4f5a5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93026227"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773898"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure Virtual Network의 서비스 엔드포인트를 사용하여 컨테이너 레지스트리에 대한 액세스 제한
 
@@ -26,7 +26,6 @@ ms.locfileid: "93026227"
 * Azure Container Registry용 서비스 엔드포인트의 향후 개발은 현재는 계획에 없습니다. 그 대신 [프라이빗 엔드포인트](container-registry-private-link.md)를 사용하는 것이 좋습니다.
 * Azure Portal를 사용하여 레지스트리에 서비스 엔드포인트를 구성할 수 없습니다.
 * [Azure Kubernetes Service](../aks/intro-kubernetes.md) 클러스터 또는 Azure [가상 머신](../virtual-machines/linux/overview.md)만 호스트로 사용하여 서비스 엔드포인트를 사용하는 컨테이너 레지스트리에 액세스할 수 있습니다. *Azure Container Instances를 비롯한 다른 Azure 서비스는 지원되지 않습니다.*
-* 각 레지스트리는 최대 100개의 네트워크 액세스 규칙을 지원합니다.
 * Azure Container Registry에 대 한 서비스 끝점은 Azure 미국 정부 클라우드 또는 Azure 중국 클라우드에서 지원 되지 않습니다.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]

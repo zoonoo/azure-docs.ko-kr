@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720494"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771314"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
 > [!IMPORTANT]
 > 의미 체계 검색은 preview REST API 통해서만 사용할 수 있는 공개 미리 보기 상태입니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있는 그대로 제공 되며 일반 공급 시 동일한 구현을 보장 하지 않습니다. 이러한 기능은 청구 가능 합니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
 
-의미 체계 검색은 보다 품질이 우수한 쿼리 환경을 지 원하는 쿼리 관련 기능의 모음입니다. 
+의미 체계 검색은 검색 결과에 대 한 의미 체계 관련성 및 언어 이해를 추가 하는 쿼리 관련 기능의 모음입니다. *의미 등급 순위* 는 컨텍스트를 검색 하 고, 용어를 사용 하 여 쿼리를 보다 합리적으로 관련성 일치 하는 항목을 승격 합니다. 언어 이해는 콘텐츠 내에서 일치 하는 문서를 요약 하거나 질문에 대답 하는 *캡션* 및 *답변* 을 찾습니다 .이는 검색 결과 페이지에서 렌더링 하 여 생산성 높은 검색 환경을 제공할 수 있습니다.
 
-이러한 기능에는 관련 용어 및 구에 대 한 의미 체계 강조 표시와 함께 검색 결과의 의미 체계를 비롯 하 여 캡션 및 대답 추출이 포함 됩니다. 사전 학습 된 최신 모델을 추출 및 순위 지정에 사용 합니다. 사용자가 검색에서 필요로 하는 빠른 성능을 유지 하기 위해 의미 체계 요약 및 순위는 [기본 유사성 점수 매기기 알고리즘](index-similarity-and-scoring.md#similarity-ranking-algorithms)에 따라 점수가 매겨진 상위 50 결과에만 적용 됩니다. 이러한 결과를 문서 모음 사용 하면 의미 체계 순위가 일치의 의미 체계 강도에 따라 결과의 점수를 다시 지정 합니다.
+요약 및 순위 지정에는 미리 학습 된 최신 모델이 사용 됩니다. 사용자가 검색에서 필요로 하는 빠른 성능을 유지 하기 위해 의미 체계 요약 및 순위는 [기본 유사성 점수 매기기 알고리즘](index-similarity-and-scoring.md#similarity-ranking-algorithms)에 따라 점수가 매겨진 상위 50 결과에만 적용 됩니다. 이러한 결과를 문서 모음 사용 하면 의미 체계 순위가 일치의 의미 체계 강도에 따라 결과의 점수를 다시 지정 합니다.
 
 기본 기술은 Bing 및 Microsoft Research에서 추가 기능으로 Cognitive Search 인프라에 통합 되어 있습니다. 의미 체계 검색을 지 원하는 연구 및 AI 투자에 대 한 자세한 내용은 [Bing의 ai가 Azure Cognitive Search를 켜는 방법 (Microsoft Research 블로그)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/)을 참조 하세요.
 

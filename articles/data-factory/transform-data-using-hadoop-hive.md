@@ -7,12 +7,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 05/08/2019
-ms.openlocfilehash: de897f6350893f6188c9a97480c0a849fc142fb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d312e4a00cdd2b62ee219df807f30c22f0c9790
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100375870"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773949"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop Hive 작업을 사용하여 데이터 변환
 
@@ -54,7 +54,7 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성            | 설명                                                  | 필수 |
+| 속성            | Description                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
 | name                | 작업의 이름                                         | 예      |
 | description         | 작업이 무엇에 사용되는지 설명하는 텍스트입니다.                | 예       |
@@ -66,6 +66,9 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | 인수           | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 예       |
 | defines             | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 예       |
 | queryTimeout        | 쿼리 시간 제한 값(분)입니다. HDInsight 클러스터에서 Enterprise Security Package가 사용하도록 설정되어 있으면 적용됩니다. | 예       |
+
+>[!NOTE]
+>QueryTimeout의 기본값은 120 분입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 

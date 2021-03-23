@@ -1,19 +1,14 @@
 ---
 title: ServiceNow 통합 정보
-titleSuffix: Azure Defender for IoT
 description: ServiceNow 용 IoT ICS 관리 응용 프로그램 Defender는 산업 환경에 배포 된 특수 한 프로토콜 및 IoT 장치에 대 한 다차원 가시성을 제공 하며, 의심 스러운 행동 또는 비정상 동작을 신속 하 게 검색 하는 ICS 인식 동작 분석과 함께 SOC 분석가를 제공 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558116"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786008"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>ServiceNow 용 IoT ICS 관리 응용 프로그램 Defender
 
@@ -140,7 +135,7 @@ ServiceNow에 경고 정보를 보낼 IoT *전달* 규칙에 대 한 Defender를
 
 1. **작업** 창에서 다음 매개 변수를 설정 합니다.
 
-  | 매개 변수 | 설명 |
+  | 매개 변수 | Description |
   |--|--|
   | 도메인 | ServiceNow 서버 IP 주소를 입력 합니다. |
   | 사용자 이름 | ServiceNow 서버 사용자 이름을 입력 합니다. |
@@ -169,7 +164,7 @@ ServiceNow 인스턴스를 추가 하려면:
 
     :::image type="content" source="media/integration-servicenow/sync.png" alt-text="ServiceNow 동기화 대화 상자입니다.":::
 
-     매개 변수 | 설명 |
+     매개 변수 | Description |
     |--|--|
     | 동기화 사용 | 매개 변수를 정의한 후 동기화를 사용 하거나 사용 하지 않도록 설정 합니다. |
     | 동기화 빈도 (분) | 기본적으로 정보는 60 분 마다 ServiceNow에 푸시됩니다. 최소값은 5 분입니다. |
@@ -264,13 +259,13 @@ CMDB (구성 관리 데이터베이스)는 보강 및 Defender에서 ServiceNow�
 
 이 문서에서는 ServiceNow로 푸시되는 장치 특성을 설명 합니다.
 
-| 항목 | 설명 |
+| 항목 | Description |
 |--|--|
 | 어플라이언스 | 트래픽을 검색 한 센서의 이름입니다. |
 | ID | IoT 용 Defender에서 할당 한 장치 ID입니다. |
 | Name | 디바이스 이름. |
 | IP 주소 | 장치 IP 주소입니다. |
-| Type | 장치 유형 (예: 스위치, PLC, historian 또는 도메인 컨트롤러) |
+| 유형 | 장치 유형 (예: 스위치, PLC, historian 또는 도메인 컨트롤러) |
 | MAC 주소 | 장치 MAC 주소입니다. |
 | 운영 체제 | 장치 운영 체제입니다. |
 | Vendor | 장치 공급 업체입니다. |
@@ -292,7 +287,7 @@ CMDB (구성 관리 데이터베이스)는 보강 및 Defender에서 ServiceNow�
 
 이 문서에서는 ServiceNow에 푸시되는 장치 펌웨어 정보에 대해 설명 합니다.
 
-| 항목 | 설명 |
+| 항목 | Description |
 |--|--|
 | 어플라이언스 | 트래픽을 검색 한 센서의 이름입니다. |
 | 디바이스 | 디바이스 이름. |
@@ -309,7 +304,7 @@ CMDB (구성 관리 데이터베이스)는 보강 및 Defender에서 ServiceNow�
 
 :::image type="content" source="media/integration-servicenow/connections.png" alt-text="장치의 연결 정보":::
 
-| 항목 | 설명 |
+| 항목 | Description |
 |--|--|
 | 어플라이언스 | 트래픽을 검색 한 센서의 이름입니다. |
 | Direction | 트래픽의 방향입니다. <br /> <br /> - **한 가지 방법은** 대상이 서버이 고 원본이 클라이언트 임을 나타냅니다. <br /> <br /> - **두 가지 방법은** 소스와 대상이 모두 서버 이거나 클라이언트를 알 수 없음을 나타냅니다. |
@@ -329,7 +324,7 @@ IoT 엔진의 방어자 네트워크 트래픽 및 주의가 필요한 동작의
 | 생성일 | 경고가 생성 된 시간 및 날짜입니다. |
 | 엔진 | 이벤트를 검색 한 엔진입니다. |
 | 제목 | 경고 제목입니다. |
-| 설명 | 경고 설명입니다. |
+| Description | 경고 설명입니다. |
 | 프로토콜 | 트래픽에서 프로토콜이 검색 되었습니다. |
 | 심각도 | IoT 용 Defender에서 정의 되는 경고 심각도입니다. |
 | 어플라이언스 | 트래픽을 검색 한 센서의 이름입니다. |
@@ -349,7 +344,7 @@ IoT 엔진의 방어자 네트워크 트래픽 및 주의가 필요한 동작의
 
 이 문서에서는 각 엔진이 트리거하는 경고의 종류를 설명 합니다.
 
-| 경고 유형 | 설명 |
+| 경고 유형 | Description |
 |--|--|
 | 정책 위반 경고 | 정책 위반 엔진이 이전에 학습 한 트래픽의 편차를 감지한 경우에 트리거됩니다. 예를 들면 다음과 같습니다. <br /><br />-새 장치가 검색 되었습니다. <br /><br />-장치에서 새 구성이 검색 됩니다. <br /><br />-프로그래밍 장치로 정의 되지 않은 장치는 프로그래밍 변경을 수행 합니다. <br /><br />-펌웨어 버전이 변경 되었습니다. |
 | 프로토콜 위반 경고 | 프로토콜 위반 엔진이 프로토콜 사양을 따르지 않는 패킷 구조 또는 필드 값을 감지 하면 트리거됩니다. |

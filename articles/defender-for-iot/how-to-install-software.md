@@ -1,18 +1,14 @@
 ---
 title: IoT 설치용 Defender
 description: IoT 용 Azure Defender에 대 한 센서 및 온-프레미스 관리 콘솔을 설치 하는 방법에 대해 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103574665"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782251"
 ---
 # <a name="defender-for-iot-installation"></a>IoT 설치용 Defender
 
@@ -580,13 +576,13 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 다음 아키텍처에서 IoT 용 Defender 센서에 대 한 가상 머신을 배포할 수 있습니다.
 
 
-| 아키텍처 | 사양 | 사용량 | 의견 |
+| 아키텍처 | 사양 | 사용 | 주석 |
 |---|---|---|---|
 | **엔터프라이즈** | CPU: 8<br/>메모리: 32G RAM<br/>HDD: 1800 G B | 프로덕션 환경 | 기본 및 가장 일반적인 |
 | **중소기업** | CPU: 4 <br/>메모리: 8G RAM<br/>HDD: 500 G B | 테스트 또는 소규모 프로덕션 환경 | -  |
 | **Office** | CPU: 4<br/>메모리: 8G RAM<br/>HDD: 100 G B | 소규모 테스트 환경 | -  |
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-v 배포 옵션을 모두 지원 합니다. 설치를 시작 하기 전에 다음 항목이 있는지 확인 합니다.
 
@@ -711,13 +707,13 @@ HPE 프로라이언트 DL20 설치에 대 한 이전 섹션을 참조 하세요.
 
 온-프레미스 관리 콘솔 VM은 다음 아키텍처를 지원 합니다.
 
-| 아키텍처 | 사양 | 사용량 | 
+| 아키텍처 | 사양 | 사용 | 
 |--|--|--|
 | Enterprise <br/>(기본 및 가장 일반적) | CPU: 8 <br/>메모리: 32G RAM<br/> HDD: 1.8 TB | 대량 프로덕션 환경 | 
 | Enterprise | CPU: 4 <br/> 메모리: 8G RAM<br/> HDD: 500 G B | 대량 프로덕션 환경 |
 | Enterprise | CPU: 4 <br/>메모리: 8G RAM <br/> HDD: 100 G B | 소규모 테스트 환경 | 
    
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 관리 콘솔은 VMware 및 Hyper-v 배포 옵션을 모두 지원 합니다. 설치를 시작 하기 전에 다음을 확인 합니다.
 

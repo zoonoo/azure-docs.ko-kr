@@ -1,25 +1,14 @@
 ---
 title: 에이전트 기반 보안 사용자 지정 경고
-titleSuffix: Azure Defender for IoT
 description: IoT 장치의 기능 및 서비스에 대해 Defender를 사용 하 여 사용자 지정 가능한 보안 경고 및 권장 수정 사항에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 5d0eeb046d7a4ba474a1ed4a2cfb07a07f1c3888
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2fb1385c12cbd9d0479d8528f54aad8816393ad1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493308"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784920"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>IoT 장치용 Defender 사용자 지정 보안 경고
 

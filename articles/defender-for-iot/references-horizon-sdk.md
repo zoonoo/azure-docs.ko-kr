@@ -1,19 +1,14 @@
 ---
 title: Horizon SDK
-titleSuffix: Azure Defender for IoT
 description: 수평 SDK를 사용 하면 IoT 용 Azure Defender 개발자는 네트워크 트래픽을 디코딩하는 dissector 플러그 인을 설계 하 여 자동 Defender for IoT 네트워크 분석 프로그램에서 처리할 수 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523365"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782489"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>수평 소유 프로토콜 dissector
 
@@ -313,7 +308,7 @@ JSON 구성 파일은로 저장 해야 합니다 `config.json` .
 
 이 섹션에서는 기본 매개 변수를 설명 합니다.
 
-| 매개 변수 레이블 | 설명 | Type |
+| 매개 변수 레이블 | Description | Type |
 |--|--|--|
 | **ID** | 프로토콜의 이름입니다. 기본값을 삭제 하 고 표시 되는 프로토콜의 이름을 추가 합니다. | String |
 | **endianess** | 다중 바이트 데이터를 인코딩하는 방법을 정의 합니다. "사소한" 또는 "빅" 용어를 사용 합니다. 프로토콜 사양 또는 트래픽 기록에서 가져옵니다. | String |
@@ -326,7 +321,7 @@ JSON 구성 파일은로 저장 해야 합니다 `config.json` .
 
 이 섹션에서는 다른 필드에 대해 설명 합니다.
 
-| 매개 변수 레이블 | 설명 |
+| 매개 변수 레이블 | Description |
 |-----------------|--------|
 | **허용 목록** | 프로토콜 값을 인덱싱하고 데이터 마이닝 보고서에 표시할 수 있습니다. 이러한 보고서는 네트워크 기준선을 반영 합니다. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="데이터 마이닝 뷰의 샘플입니다."::: <br /> 자세한 내용은 [인덱싱 서비스에 연결 (기준)](#connect-to-an-indexing-service-baseline) 을 참조 하세요. |
 | **펌웨어입니다** | 펌웨어 정보를 추출 하 고, 인덱스 값을 정의 하 고, 플러그 인 프로토콜에 대 한 펌웨어 경고를 트리거할 수 있습니다. 자세한 내용은 [펌웨어 데이터 추출](#extract-firmware-data) 항목을 참조 하세요. |
@@ -1106,7 +1101,7 @@ extern "C" {
 
 - Name
 
-- Type
+- 유형
 
 - Vendor
 
@@ -1146,7 +1141,7 @@ JSON의 각 키는 패킷에서이 키를 추출할 때 수행 해야 하는 작
 
 ### <a name="fields"></a>필드
 
-| 필드 | 설명 |
+| 필드 | Description |
 |--|--|
 | key | 키를 나타냅니다. |
 | 값 | 데이터를 제공 하기 위해 사용할 구현 필드를 나타냅니다. |

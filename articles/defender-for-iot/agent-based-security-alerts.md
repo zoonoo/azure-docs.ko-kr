@@ -1,25 +1,14 @@
 ---
 title: 에이전트 기반 보안 경고
-titleSuffix: Azure Defender for IoT
 description: IoT 장치의 기능 및 서비스에 대해 Defender를 사용 하 여 보안 경고 및 권장 해결 방법에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 9e4a65e67200a682313dae8e326128edce3367d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b586eb4bebfc584e6cec4c27df859dbebb817e2d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495762"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784937"
 ---
 # <a name="defender-for-iot-devices-security-alerts"></a>IoT 장치용 Defender 보안 경고
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5b645efe2bbaadeca31b4a0a3b957ff53f5ed3aa
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601766"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775513"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 응용 프로그램 관리: 새로운 기능
 
@@ -141,7 +141,6 @@ Azure Active Directory 응용 프로그램 관리 설명서의 새로운 기능�
 
 ### <a name="new-articles"></a>새 문서
 - [SAML 기반 Single Sign-On 구성](configure-saml-single-sign-on.md)
-- [앱 갤러리에 나열 되지 않은 응용 프로그램에 Azure AD 사용](non-gallery-apps.md)
 - [지금 가져오기 - Azure Marketplace에서 앱 추가](get-it-now-azure-marketplace.md)
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성](add-application-portal-configure.md)
 - [빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SSO(Single Sign-On) 설정](add-application-portal-setup-sso.md)

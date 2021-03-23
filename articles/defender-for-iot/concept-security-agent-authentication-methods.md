@@ -1,24 +1,14 @@
 ---
 title: 보안 에이전트 인증 방법
 description: IoT 서비스용 Defender를 사용할 때 사용할 수 있는 다양 한 인증 방법에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/24/2021
-ms.author: shhazam
-ms.openlocfilehash: 4aeaa703b5e3203eeb7bc355051e0e8f48f898ac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bd4d89d8664dae2421ff7f268b3710b5a906427b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494124"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784614"
 ---
 # <a name="security-agent-authentication-methods"></a>보안 에이전트 인증 방법
 

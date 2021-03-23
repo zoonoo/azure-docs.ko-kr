@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
-ms.openlocfilehash: 122a0a01c420d5efa12fa267a0d3605fc7a25960
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.reviewer: jburchel
+ms.openlocfilehash: 113829dd35c14b5efae39c55a8085dcd2c1ecef4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100385339"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786161"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -21,7 +21,7 @@ Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 필수
+속성 | Description | 필수
 -------- | ----------- | --------
 name | 파이프라인의 작업 이름 | 예
 description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | 아니요

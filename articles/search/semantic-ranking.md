@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: bb65a53f1ba6e97a39bd0c0170c5c41da38aee8b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1406f865d60e6715b5f6a974225dc48958e8da6d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720511"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775173"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 순위
 
@@ -51,7 +51,7 @@ ms.locfileid: "104720511"
 
 출력은 [의미 체계 캡션](semantic-how-to-query-request.md)(일반 텍스트 및 강조 표시)입니다. 캡션은 긴 문자열 (일반적으로 문서 당 200 단어 미만) 보다 작으며 문서를 가장 하는 것으로 간주 됩니다. 
 
-"Answer" 매개 변수를 지정 하 고, 쿼리가 질문으로 발생 한 경우 및 질문에 대 한 타당 대답 처럼 보이는 긴 문자열에서 통로를 찾을 수 있는 경우에도 [의미 대답이](semantic-answers.md) 반환 됩니다.
+"Answer" 매개 변수를 지정 하 고, 쿼리가 질문으로 발생 한 경우 및 질문에 대 한 답을 제공 하는 긴 문자열에서 통로를 찾을 수 있는 경우에도 [의미 대답이](semantic-answers.md) 반환 됩니다.
 
 ## <a name="scoring-and-ranking"></a>점수 매기기 및 순위 지정
 

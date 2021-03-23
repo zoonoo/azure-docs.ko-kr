@@ -6,21 +6,24 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: cb6b3af8d8fb6c2d3fe63964e59f8e3e32f0f0fd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102486661"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773048"
 ---
 # <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
 
  이 문서에서는 HTTP REST API 메서드를 사용 하 여 문서 번역을 사용 하는 방법을 배웁니다. 문서 변환은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  문서 변환 API를 사용 하면 소스 문서 구조와 텍스트 서식을 유지 하면서 전체 문서를 변환할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!NOTE]
-> 일반적으로 Azure Portal에서 인지 서비스 리소스를 만들 때 다중 서비스 구독 키 또는 단일 서비스 구독 키를 만드는 옵션이 있습니다. 그러나 문서 변환은 현재 Translator (단일 서비스) 리소스 에서만 지원 되며 Cognitive Services (다중 서비스) 리소스에는 포함 **되지** 않습니다.
+>
+> 1. 일반적으로 Azure Portal에서 인지 서비스 리소스를 만들 때 다중 서비스 구독 키 또는 단일 서비스 구독 키를 만드는 옵션이 있습니다. 그러나 문서 변환은 현재 Translator (단일 서비스) 리소스 에서만 지원 되며 Cognitive Services (다중 서비스) 리소스에는 포함 **되지** 않습니다.
+> 2. 문서 변환은 현재 **S1 Standard 서비스 계획** 에서 사용할 수 있습니다.  [Cognitive Services 가격-Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)를 참조 하세요.
+>
 
 시작 하려면 다음이 필요 합니다.
 
@@ -29,8 +32,6 @@ ms.locfileid: "102486661"
 * Cognitive Services 리소스가 **아니라** [**변환기**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 서비스 리소스입니다.
 
 * [**Azure blob storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 저장소 계정 내에서 blob 데이터를 저장 하 고 구성 하는 컨테이너를 만듭니다.
-
-* Azure 구독이 새 문서 번역 기능을 사용할 수 있도록 하는 완성 된 [**문서 번역 (미리 보기) 양식**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) 입니다.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>사용자 지정 도메인 이름 및 구독 키 가져오기
 
@@ -186,7 +187,7 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 
 각 문서 변환기 API 요청에는 다음과 같은 헤더가 포함 됩니다.
 
-|HTTP 헤더|설명|
+|HTTP 헤더|Description|
 |---|--|
 |Ocp-Apim-Subscription-Key|**필수**: 값은 Translator 또는 Cognitive Services 리소스에 대 한 Azure 구독 키입니다.|
 |콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정 합니다. 허용 되는 값은 application/json 또는 charset = u t f-8입니다.|
@@ -1248,7 +1249,7 @@ func main() {
 
 다음 표에서는 문서 번역에 보내는 데이터의 제한을 나열 합니다.
 
-|특성 | 제한|
+|attribute | 제한|
 |---|---|
 |문서 크기| ≤ 40 |
 |총 파일 수입니다.|≤ 1000 |
