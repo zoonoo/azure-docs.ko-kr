@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: d1fe5e20c06648aa6efc899fabb3ced3345ab41f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0f488b047cf1323619d9603204877a55b413c295
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102045414"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802474"
 ---
 # <a name="connect-cherwell-with-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용 하 여 Cherwell 연결
 
@@ -37,7 +37,7 @@ ms.locfileid: "102045414"
 1. Azure Portal에서 **모든 리소스** 로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2. **작업 영역 데이터 원본** 에서 **ITSM 연결** 을 클릭합니다.
-    ![새 연결](/media/itsmc-overview/add-new-itsm-connection.png)
+    ![새 연결](/azure/azure-monitor/alerts/media/itsmc-connections-scsm/add-new-itsm-connection.png)
 
 3. 왼쪽 창의 맨 위에 있는 **추가** 를 클릭합니다.
 

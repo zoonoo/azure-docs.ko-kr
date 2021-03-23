@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 1f9169d4f3f6361e557c41a4d612cf6c439257fb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 23c5d138463a52f4ff4c52b4a919b71a87b7fd6d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722517"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802882"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Cognitive Search 인덱서에 SQL Server에 대 한 연결 구성
 
@@ -87,9 +87,12 @@ IP 주소 지정의 경우 몇 가지 문제를 내포할 수 있으며 사용�
 
 ### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Azure Cognitive Search 포털 IP 주소를 포함 합니다.
 
-Azure Portal를 사용 하 여 인덱서를 만드는 경우 Azure Cognitive Search 포털 논리는 만든 시간 동안 SQL Azure VM에 대 한 액세스 권한도 필요 합니다. Azure Cognitive Search 포털 IP 주소는 `stamp2.search.ext.azure.com` traffic manager의 도메인으로 ping 하 여 찾을 수 있습니다.
+Azure Portal를 사용 하 여 인덱서를 만드는 경우 SQL Azure 가상 머신에 대 한 인바운드 액세스를 포털에 부여 해야 합니다. 방화벽의 인바운드 규칙을 사용 하려면 포털의 IP 주소를 제공 해야 합니다.
 
-다른 지역의 클러스터는이 traffic manager에 연결 됩니다. Ping은의 IP 주소 및 도메인을 반환할 수 `stamp2.search.ext.azure.com` 있지만, 서비스가 다른 지역에 있으면 ip 및 도메인 이름이 달라 집니다. Ping에서 반환 된 IP 주소는 해당 지역에서 Azure Portal에 대 한 올바른 IP 주소입니다.
+포털 IP 주소를 가져오려면 `stamp2.ext.search.windows.net` traffic manager의 도메인 인 ping을 수행 합니다. 요청 시간이 초과 되지만 IP 주소는 상태 메시지에 표시 됩니다. 예를 들어 "Ping azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]" 메시지에서 IP 주소는 "52.252.175.48"입니다.
+
+> [!NOTE]
+> 다른 지역의 클러스터는 서로 다른 트래픽 관리자에 연결 됩니다. 도메인 이름에 상관 없이 ping에서 반환 된 IP 주소는 해당 지역의 Azure Portal에 대 한 인바운드 방화벽 규칙을 정의할 때 사용할 올바른 IP 주소입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

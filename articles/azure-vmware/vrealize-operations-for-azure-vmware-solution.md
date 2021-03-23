@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에 대 한 vRealize 작업 설정
 description: Azure VMware 솔루션 사설 클라우드에 대해 vRealize 작업을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 01/26/2021
-ms.openlocfilehash: 3d2617f893c34fde6a154f9f93b5bda520c5a91a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8015bb61a7401b4c97807e0256e06d4967c39026
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738432"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802491"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 vRealize 작업 설정
 
@@ -27,7 +27,7 @@ vRealize Operations Manager는 VMware infrastructure 관리자가 시스템 리�
 * 필요에 따라 온-프레미스 vRealize 작업 Azure VMware 솔루션 배포 관리 옵션에 대 한 [Vrealize 작업 원격 컨트롤러](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) 제품 설명서를 검토 합니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * [Vrealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) 설치 되었습니다.
 * 온-프레미스와 Azure VMware 솔루션 SDDC 사이에서 구성 된 VPN 또는 Azure Express 경로입니다.
 * Azure에 배포 된 Azure VMware 솔루션 사설 클라우드.
@@ -61,7 +61,7 @@ Azure VMware 솔루션 사설 클라우드로 vRealize 작업 기능을 확장 �
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-- Azure VMware 솔루션의 **cloudadmin \@ vsphere 로컬** 사용자에 게는 [제한 된 권한이](concepts-role-based-access-control.md)있습니다.  Azure VMware 솔루션의 Vm (가상 머신)은 VMware 도구를 사용 하 여 게스트 내 메모리 수집을 지원 하지 않습니다.  이 경우 활성 및 사용 된 메모리 사용률은 계속 작동 합니다.
+- Azure VMware 솔루션의 **cloudadmin \@ vsphere 로컬** 사용자에 게는 [제한 된 권한이](concepts-identity.md)있습니다.  Azure VMware 솔루션의 Vm (가상 머신)은 VMware 도구를 사용 하 여 게스트 내 메모리 수집을 지원 하지 않습니다.  이 경우 활성 및 사용 된 메모리 사용률은 계속 작동 합니다.
 - Azure VMware 솔루션은 DRS 설정을 포함 하 여 클러스터 구성을 관리 하므로 호스트 기반 비즈니스 의도에 대 한 워크 로드 최적화는 작동 하지 않습니다.
 - 클러스터 기반 비즈니스 의도를 사용 하 여 SDDC 내에서 클러스터 간 배치에 대 한 워크 로드 최적화는 vRealize Operations Manager 8.0 및 그 이후부터 완벽 하 게 지원 됩니다. 그러나 워크 로드 최적화는 리소스 풀을 인식 하지 않으며 클러스터 수준에서 Vm을 배치 합니다. 사용자는 Azure VMware 솔루션 vCenter Server 인터페이스에서 수동으로 수정할 수 있습니다.
 - Azure VMware 솔루션 vCenter Server 자격 증명을 사용 하 여 vRealize Operations Manager에 로그인 할 수 없습니다. 

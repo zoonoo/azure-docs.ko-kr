@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/12/2021
-ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418099"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802036"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
@@ -101,8 +101,7 @@ Data Factory에 변경 내용을 게시 하려고 하면 다음과 같은 오류
         "details": null
     }
 `
-
-#### <a name="symptom"></a>증상
+### <a name="cause"></a>원인
 
 Git 구성을 분리 하 고 "리소스 가져오기" 플래그를 선택 하 여 다시 설정 하 여 Data Factory를 "동기화 된"로 설정 합니다. 이는 게시할 변경 내용이 없음을 의미 합니다.
 
@@ -150,11 +149,7 @@ ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 �
 
 이 문제를 해결 하려면 *DataFactory/factory/queryFeaturesValue/action* 역할에 다음 권한을 추가 해야 합니다. 이 권한은 기본적으로 "Data Factory 참여자" 역할에 포함 되어야 합니다.
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>게시 단추를 클릭 하지 않고 CI/CD에 대 한 자동 게시  
-
-#### <a name="issue"></a>문제
-
-ADF 포털의 단추 클릭으로 수동 게시는 CI/CD 자동 작업을 사용 하지 않습니다.
+###  <a name="cannot-automate-publishing-for-cicd"></a>CI/CD에 대 한 게시를 자동화할 수 없습니다. 
 
 #### <a name="cause"></a>원인
 
@@ -178,15 +173,14 @@ Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의
 
 중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결 된 템플릿과 중첩 된 템플릿 사용](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)에 대 한 모범 사례를 따르세요.
 
-### <a name="cannot-connect-to-git-enterprise-cloud"></a>GIT Enterprise Cloud에 연결할 수 없음 
+### <a name="cannot-connect-to-git-enterprise"></a>GIT Enterprise에 연결할 수 없음  
 
 ##### <a name="issue"></a>문제
 
-권한 문제로 인해 GIT Enterprise Cloud에 연결할 수 없습니다. **422-처리할 수 없는 엔터티** 와 같은 오류를 볼 수 있습니다.
+권한 문제로 인해 GIT Enterprise에 연결할 수 없습니다. **422-처리할 수 없는 엔터티** 와 같은 오류를 볼 수 있습니다.
 
 #### <a name="cause"></a>원인
 
-* 프레미스 서버에서 Git Enterprise를 사용 하 고 있습니다. 
 * ADF에 대해 Oauth를 구성 하지 않았습니다. 
 * URL이 잘못 구성 되었습니다.
 
@@ -194,7 +188,7 @@ Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의
 
 먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. 구성을 고객 조직으로 설정 해야 합니다. 예를 들어 ADF는 처음 *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> 에 시도 하* 고 실패 합니다. 그런 *https://hostname/api/v3/orgs/ <org> / <repo> 다음 시도 하* 고 성공 합니다. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>삭제 된 데이터 팩터리에서 복구
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>삭제 된 데이터 팩터리에서 복구할 수 없습니다.
 
 #### <a name="issue"></a>문제
 고객이 데이터 팩터리 또는 Data Factory 포함 하는 리소스 그룹을 삭제 했습니다. 삭제 된 데이터 팩터리를 복원 하는 방법을 알고 싶습니다.
@@ -211,7 +205,7 @@ Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의
 
  * 새 Azure Data Factory을 만듭니다.
 
- * 동일한 설정으로 Git를 다시 구성 하 되 기존 Data Factory 리소스를 선택한 리포지토리로 가져온 다음 새 분기를 선택 해야 합니다.
+ * 동일한 설정으로 Git를 다시 구성 하지만 기존 Data Factory 리소스를 선택한 리포지토리로 가져와서 새 분기를 선택 해야 합니다.
 
  * 변경 내용을 공동 작업 분기에 병합 하 고 게시 하는 끌어오기 요청을 만듭니다.
 

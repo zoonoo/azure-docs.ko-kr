@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 66fa56b45e8d3cff7a8ace300a450b9c41df9bc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 161d565aa1d2dd08434ebd8ea155ac5a92e09ac0
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588718"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802916"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 
@@ -33,7 +33,7 @@ ms.locfileid: "104588718"
 
 기존 시계열 메서드와 달리 자동화 된 ML에서 과거 시계열 값은 다른 예측 변수와 함께 회귀 변수의 추가 차원이 되도록 "피벗" 됩니다. 이 방법은 학습 중에 여러 컨텍스트 변수와 각 변수 간 관계를 통합합니다. 여러 요인이 예측에 영향을 줄 수 있으므로 이 방법은 실제 예측 시나리오에 적합합니다. 예를 들어 판매를 예측 하는 경우 과거 추세, 환율 및 가격의 상호 작용은 판매 결과를 모두 공동으로 구동 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -132,7 +132,7 @@ AutoML이 교차 유효성 검사를 적용 하 여 [오버 맞춤 모델을 방
 ----|----|---
 Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
 Auto-ARIMA(미리 보기)|자동 회귀 통합 이동 평균 (ARIMA)은 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어 동전을 대칭 이동 하는 경우 오늘, 내일 또는 다음 연도의 대칭 이동 여부와 관계 없이 헤드를 가져오는 확률은 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
-ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
+ForecastTCN(미리 보기)| ForecastTCN는 가장 까다로운 예측 작업을 처리 하도록 설계 된 신경망 모델입니다. 데이터의 비선형 로컬 및 글로벌 추세와 시계열 간의 관계를 캡처합니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
 
 ### <a name="configuration-settings"></a>구성 설정
 
@@ -146,11 +146,12 @@ ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크�
 |`forecast_horizon`|예측 하려는 기간을 정의 합니다. 수평은 시계열 빈도의 단위입니다. 단위는 예측자가 예측해야 하는 학습 데이터의 시간 간격(예: 매월, 매주)을 기준으로 합니다.|✓|
 |`enable_dnn`|[DNNs 예측을 사용 하도록 설정]()합니다.||
 |`time_series_id_column_names`|타임 스탬프를 사용 하는 여러 행이 있는 데이터의 시계열을 고유 하 게 식별 하는 데 사용 되는 열 이름입니다. 시계열 식별자가 정의 되지 않은 경우 데이터 집합은 하나의 시계열으로 간주 됩니다. 단일 시계열에 대한 자세한 내용은 [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand)을 참조하세요.||
-|`freq`| 시계열 데이터 집합 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생 하는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다.||
+|`freq`| 시계열 데이터 집합 빈도입니다. 이 매개 변수는 매일, 매주, 매년 등 이벤트가 발생 하는 기간을 나타냅니다. 빈도는 [pandas 오프셋 별칭](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects)이어야 합니다. [Frequency]에 대해 자세히 알아보세요. (#frequency--대상-데이터 집계)||
 |`target_lags`|데이터의 빈도에 따라 대상 값을 지연시킬 행 수입니다. 지연은 목록 또는 단일 정수로 표시됩니다. 지연은 독립 변수와 종속 변수 간 관계가 일치하지 않거나 기본적으로 상관 관계가 없는 경우에 사용해야 합니다. ||
 |`feature_lags`| 지연 되는 기능은 `target_lags` 가 설정 되 고 `feature_lags` 가로 설정 된 경우 자동 ML에 의해 자동으로 결정 됩니다 `auto` . 기능 지연을 사용 하면 정확도를 향상 시키는 데 도움이 될 수 있습니다. 기능 지연은 기본적으로 사용 되지 않습니다. ||
 |`target_rolling_window_size`|예측 값(학습 세트 크기 이하)을 생성하는 데 사용할 *n* 개 기록 기간입니다. 생략하면 *n* 은 전체 학습 세트 크기입니다. 모델을 학습시킬 때 특정한 양의 기록만 고려하려는 경우 이 매개 변수를 지정합니다. [대상 롤링 창 집계](#target-rolling-window-aggregation)에 대해 자세히 알아보세요.||
-|`short_series_handling_config`| 데이터 부족으로 인 한 학습 중에 오류가 발생 하지 않도록 짧은 시계열 처리를 사용 합니다. Short 시리즈 처리는 기본적으로로 설정 됩니다 `auto` . [Short 시리즈 처리](#short-series-handling)에 대해 자세히 알아보세요.|
+|`short_series_handling_config`| 데이터 부족으로 인 한 학습 중에 오류가 발생 하지 않도록 짧은 시계열 처리를 사용 합니다. Short 시리즈 처리는 기본적으로로 설정 됩니다 `auto` . [Short 시리즈 처리](#short-series-handling)에 대해 자세히 알아보세요.||
+|`target_aggregation_function`| 매개 변수를 통해 지정 된 빈도를 따르도록 시계열 대상 열을 집계 하는 데 사용 되는 함수 `freq` 입니다. 을 `freq` 사용 하려면 매개 변수를 설정 해야 합니다 `target_aggregation_function` . 기본값은입니다. `None` 대부분의 시나리오 `sum` 에서는를 사용 해도 충분 합니다.<br> [대상 열 집계](#frequency--target-data-aggregation)에 대해 자세히 알아보세요. 
 
 
 다음 코드 
@@ -258,12 +259,36 @@ featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": 
 
 심층 학습을 사용 하도록 설정 하 고 대상 롤링 창 집계를 지정 하는 등의 예측 태스크에 대 한 추가 옵션 구성을 사용할 수 있습니다. 
 
+### <a name="frequency--target-data-aggregation"></a>빈도 & 대상 데이터 집계
+
+Frequency, `freq` , 매개 변수를 활용 하 여 불규칙 한 데이터로 인해 발생 하는 오류를 방지 합니다. 즉, 매시간 또는 매일 데이터와 같은 집합 흐름을 따르지 않는 데이터입니다. 
+
+매우 불규칙 한 데이터 나 다양 한 비즈니스 요구 사항에 대해 사용자는 필요에 따라 원하는 예측 빈도를 설정 하 `freq` 고를 지정 하 여 시계열 `target_aggregation_function` 의 대상 열을 집계할 수 있습니다. 개체에서 이러한 두 설정을 활용 `AutoMLConfig` 하면 데이터 준비 시간을 절약할 수 있습니다. 
+
+`target_aggregation_function`매개 변수를 사용 하는 경우
+* 대상 열 값은 지정 된 작업을 기반으로 집계 됩니다. 일반적으로 `sum` 는 대부분의 시나리오에 적합 합니다.
+
+* 데이터의 숫자 예측 열은 합계, 평균, 최소값 및 최대값으로 집계 됩니다. 따라서 자동 ML은 집계 함수 이름 뒤에 새 열을 생성 하 고 선택한 집계 연산을 적용 합니다. 
+
+* 범주 예측 열의 경우 데이터는 창에서 가장 두드러진 범주인 모드 별로 집계 됩니다.
+
+* 날짜 예측 열은 최소값, 최대값 및 모드로 집계 됩니다. 
+
+대상 열 값에 대해 지원 되는 집계 작업은 다음과 같습니다.
+
+|함수 | 설명
+|---|---
+|`sum`| 대상 값의 합계
+|`mean`| 대상 값의 평균 또는 평균
+|`min`| 대상의 최 솟 값입니다.  
+|`max`| 대상의 최대값  
+
 ### <a name="enable-deep-learning"></a>딥 러닝 사용
 
 > [!NOTE]
 > 자동화 Machine Learning의 예측에 대 한 DNN 지원은 **미리 보기** 상태 이며 로컬 실행을 지원 하지 않습니다.
 
-또한 심층 신경망, DNNs를 사용 하 여 심층 학습을 활용 하 여 모델의 점수를 향상할 수 있습니다. 자동화된 ML의 딥 러닝을 사용하여 단변량 및 다변량 시계열 데이터를 예측할 수 있습니다.
+심층 신경망, DNNs를 사용 하 여 심층 학습을 적용 하 여 모델의 점수를 향상할 수도 있습니다. 자동화된 ML의 딥 러닝을 사용하여 단변량 및 다변량 시계열 데이터를 예측할 수 있습니다.
 
 딥 러닝 모델에는 다음과 같은 세 가지 기능이 내장되어 있습니다.
 1. 입력에서 출력으로의 임의 매핑에서 학습할 수 있습니다.
@@ -283,10 +308,10 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Azure Machine Learning studio에서 만든 AutoML 실험에 대해 DNN를 사용 하도록 설정 하려면 [studio 방법에서 작업 형식 설정](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)을 참조 하세요.
 
-DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 참조하세요.
+DNNs를 사용 하는 자세한 코드 예제는 [음료 프로덕션 예측 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) 을 확인 하세요.
 
-### <a name="target-rolling-window-aggregation"></a>대상 이동 기간 집계
-종종 예측자가 보유할 수 있는 최상의 정보는 대상의 최신 값입니다.  대상 롤링 창 집계를 사용 하면 데이터 값의 롤링 집계를 기능으로 추가할 수 있습니다. 이러한 추가 기능을 생성하고 추가 컨텍스트 데이터로 사용하면 학습 모델의 정확도를 높이는 데 도움이 됩니다.
+### <a name="target-rolling-window-aggregation"></a>대상 롤링 창 집계
+종종 예측자가 보유할 수 있는 최상의 정보는 대상의 최신 값입니다.  대상 롤링 창 집계를 사용 하면 데이터 값의 롤링 집계를 기능으로 추가할 수 있습니다. 추가 컨텍스트 데이터로 이러한 기능을 생성 하 고 사용 하면 학습 모델의 정확도를 높일 수 있습니다.
 
 예를 들어 에너지 수요를 예측 하려는 경우를 가정해 보겠습니다. 3 일의 이동 창 기능을 추가 하 여 열이 아닌 공간의 열 변경에 대해 고려해 볼 수 있습니다. 이 예제에서는 생성자에서을 설정 하 여이 창을 만듭니다 `target_rolling_window_size= 3` `AutoMLConfig` . 
 
@@ -294,11 +319,11 @@ DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](h
 
 ![대상 롤링 창](./media/how-to-auto-train-forecast/target-roll.svg)
 
-[대상 이동 기간 집계 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 활용하는 Python 코드 예제를 확인해 보세요.
+[대상 롤링 창 집계 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 적용 하는 Python 코드 예제를 확인 합니다.
 
 ### <a name="short-series-handling"></a>간단한 시리즈 처리
 
-자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산은 [short_series_handling_configuration 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration)를 참조 하세요.
+자동화 된 ML은 모델 개발의 학습 및 유효성 검사 단계를 수행 하기에 충분 한 데이터 요소가 없는 경우 시계열을 **짧은 계열로** 간주 합니다. 데이터 요소 수는 각 실험에 따라 달라 지 며, max_horizon, 교차 유효성 검사 분할의 수, 모델 lookback의 길이 (시계열 기능을 생성 하는 데 필요한 기록의 최대값)에 따라 달라 집니다. 정확한 계산에 대해서는 [short_series_handling_configuration 참조 설명서](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration)를 참조 하세요.
 
 자동화 된 ML은 개체의 매개 변수를 사용 하 여 기본적으로 짧은 계열 처리를 제공 `short_series_handling_configuration` `ForecastingParameters` 합니다. 
 

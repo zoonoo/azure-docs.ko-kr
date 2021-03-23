@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a1b0598f34fe894e078dc647149cff4ac74e1fea
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "83681809"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802151"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -22,7 +22,7 @@ Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔�
 
 설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
-CLI는 Python 버전 2.7, 3.5, 3.6, 3.7을 지원합니다. Python 2.7의 지원이 곧 끝나기 때문에 Python 3.x가 권장되는 버전입니다.
+CLI는 python 3(sp3)을 권장 하며 python 버전 2.7 및 3.6 +를 지원 합니다.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric 대상 런타임
 

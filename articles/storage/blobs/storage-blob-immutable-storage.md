@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430941"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800723"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장
 
@@ -63,13 +63,15 @@ Azure Blob Storage용 변경 불가능한 스토리지는 두 가지 유형의 W
 ## <a name="time-based-retention-policies"></a>시간 기반 보존 정책
 
 > [!IMPORTANT]
-> 시간 기반 보존 정책은 초 17a-4 (f) 및 기타 규정 준수에 대 한 호환 되지 않는 (쓰기 및 삭제 보호) 상태에 있는 blob에 대해 *잠가야* 합니다. 일반적으로 24 시간 이내에 적절 한 시간 내에 정책을 잠그는 것이 좋습니다. 적용 된 시간 기반 보존 정책의 초기 상태는 잠금 *해제* 되어 있으므로 잠금 전에 기능을 테스트 하 고 정책을 변경할 수 있습니다. *잠금 해제* 된 상태는 불변성 보호를 제공 하지만 단기 기능 평가판 이외의 용도로는 *잠금 해제* 상태를 사용 하지 않는 것이 좋습니다. 
+> 시간 기반 보존 정책은 초 17a-4 (f) 및 기타 규정 준수에 대 한 호환 되지 않는 (쓰기 및 삭제 보호) 상태에 있는 blob에 대해 *잠가야* 합니다. 일반적으로 24 시간 이내에 적절 한 시간 내에 정책을 잠그는 것이 좋습니다. 적용 된 시간 기반 보존 정책의 초기 상태는 잠금 *해제* 되어 있으므로 잠금 전에 기능을 테스트 하 고 정책을 변경할 수 있습니다. *잠금 해제* 된 상태는 불변성 보호를 제공 하지만 단기 기능 평가판 이외의 용도로 *잠금 해제* 상태를 사용 하는 것은 권장 되지 않습니다.
+>
+> 시간 기반 보존 정책이 잠기면 정책을 제거할 수 없으며 유효 보존 기간에 대 한 최대 5 개의 증가가 허용 됩니다. 보존 기간을 낮출 수 없습니다.
 
 컨테이너에 시간 기반 보존 정책이 적용 되 면 컨테이너의 모든 blob은 *유효* 보존 기간 동안 변경할 수 없는 상태로 유지 됩니다. Blob에 대 한 유효 보존 기간은 blob의 **생성 시간과** 사용자 지정 보존 간격 간의 차이와 같습니다. 사용자가 보존 간격을 연장할 수 있으므로 변경 불가능한 스토리지는 사용자 지정 보존 간격의 최근 값을 사용하여 유효 보존 기간을 계산합니다.
 
 예를 들어 사용자가 보존 간격이 5 년 인 시간 기반 보존 정책을 만든다고 가정 합니다. 해당 컨테이너 _testblob1_ 의 기존 blob은 1 년 전에 생성 되었습니다. 따라서 _testblob1_ 에 대 한 유효 보존 기간은 4 년입니다. 새 blob _testblob2_ 를 컨테이너에 업로드 하는 경우 _testblob2_ 에 대 한 유효 보존 기간은 생성 시점부터 5 년입니다.
 
-잠금 해제 된 시간 기반 보존 정책은 기능 테스트에만 사용 하는 것이 좋으며,이 경우에는 SEC 17a-4 (f) 및 기타 규정 준수를 준수 하기 위해 정책을 잠가야 합니다. 시간 기반 보존 정책이 잠기면 정책을 제거할 수 없으며 유효 보존 기간에 대 한 최대 5 개의 증가가 허용 됩니다.
+잠금 해제 된 시간 기반 보존 정책은 기능 테스트에만 사용 하는 것이 좋으며,이 경우에는 SEC 17a-4 (f) 및 기타 규정 준수를 준수 하기 위해 정책을 잠가야 합니다.
 
 보존 정책에는 다음과 같은 제한이 적용 됩니다.
 
@@ -122,7 +124,7 @@ Azure Blob Storage용 변경 불가능한 스토리지는 두 가지 유형의 W
 > [!IMPORTANT]
 > [URL에 대 한 SQL 백업](/sql/relational-databases/backup-restore/sql-server-backup-to-url)등의 일부 작업은 blob을 만들고 추가 합니다. 컨테이너에 활성 시간 기반 보존 정책이 나 법적 보류가 있는 경우이 패턴은 성공 하지 않습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경할 수 없는 데이터는 변경 가능한 데이터와 동일한 방식으로 가격이 책정 됩니다. Azure Blob 저장소에 대 한 가격 정보는 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조 하세요.
 

@@ -3,12 +3,12 @@ title: 개념-저장소
 description: Azure VMware 솔루션 사설 클라우드의 주요 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/13/2021
-ms.openlocfilehash: 2551b11ada8b6118fb7524d9fe36f8b4b568aca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83a4a52f8414e656b5bc688796db6e93a53d4d76
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462476"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801624"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Azure VMware 솔루션 저장소 개념
 
@@ -44,7 +44,7 @@ vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사
 이제 Azure VMware 솔루션 저장소 개념에 대해 설명 했으므로 다음에 대해 알아볼 수 있습니다.
 
 - [사설 클라우드 id 개념](concepts-identity.md).
-- [Azure VMware 솔루션에 대 한 Vsphere 역할 기반 액세스 제어](concepts-role-based-access-control.md).
+- [Azure VMware 솔루션에 대 한 Vsphere 역할 기반 액세스 제어](concepts-identity.md).
 - [Azure VMware 솔루션 리소스를 사용 하도록 설정 하는 방법](enable-azure-vmware-solution.md)
 - [Azure VMware 솔루션으로 Azure NetApp Files](netapp-files-with-azure-vmware-solution.md)
 

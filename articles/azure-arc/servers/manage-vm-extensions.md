@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버를 사용 하 여 VM 확장 관리
 description: Azure Arc 사용 서버는 Azure가 아닌 Vm을 사용 하 여 배포 후 구성 및 자동화 작업을 제공 하는 가상 머신 확장의 배포를 관리할 수 있습니다.
-ms.date: 03/01/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687909"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799584"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Virtual machine extension management with Azure Arc enabled servers(Azure Arc 지원 서버로 가상 머신 확장 관리)
 
@@ -43,9 +43,12 @@ VM 확장 기능은 지원 되는 [지역](overview.md#supported-regions)목록 
 
 Azure 연결 된 컴퓨터 에이전트 패키지 및 확장 에이전트 구성 요소에 대 한 자세한 내용은 [에이전트 개요](agent-overview.md#agent-component-details)를 참조 하세요.
 
+> [!NOTE]
+> Arc 사용 서버에 대 한 최근 DSC VM 확장 지원이 제거 되었습니다. 또는 사용자 지정 스크립트 확장을 사용 하 여 서버 또는 컴퓨터의 배포 후 구성을 관리 하는 것이 좋습니다.
+
 ### <a name="windows-extensions"></a>Windows 확장
 
-|내선 번호 |게시자 |Type |추가 정보 |
+|확장명 |게시자 |유형 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |WindowsAgent. AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft.Compute | CustomScriptExtension |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
@@ -56,7 +59,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지 및 확장 에이전트 구성
 
 ### <a name="linux-extensions"></a>Linux 확장
 
-|내선 번호 |게시자 |Type |추가 정보 |
+|확장명 |게시자 |유형 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |LinuxAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft. Azure 확장명 |CustomScript |[Linux 사용자 지정 스크립트 확장 버전 2](../../virtual-machines/extensions/custom-script-linux.md) |
@@ -65,7 +68,7 @@ Azure 연결 된 컴퓨터 에이전트 패키지 및 확장 에이전트 구성
 |인증서 동기화 Azure Key Vault | Microsoft. Azure. Key 자격 증명 모음 |KeyVaultForLinux | [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor 에이전트 |Microsoft. Azure 모니터 |AzureMonitorLinuxAgent |[Azure Monitor 에이전트 설치 (미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 구독에 있는 다음 Azure 리소스 공급자에 따라 달라 집니다.
 

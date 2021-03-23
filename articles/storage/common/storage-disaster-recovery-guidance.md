@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506704"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800349"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -23,7 +23,7 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 
 Azure Storage 지역 중복 저장소 계정에 대 한 계정 장애 조치 (failover)를 지원 합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다. 장애 조치(failover)는 스토리지 계정의 기본 엔드포인트가 되도록 보조 엔드포인트를 업데이트합니다. 장애 조치(failover)가 완료되면 클라이언트는 새 기본 엔드포인트에 쓰기 시작할 수 있습니다.
 
-계정 장애 조치(failover)는 Azure Resource Manager 배포를 사용하는 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형에 사용할 수 있습니다. 계정 장애 조치 (failover)는 모든 공용 지역에 대해 지원 되지만 지금은 소 버린 또는 국가별 클라우드에서 사용할 수 없습니다.
+계정 장애 조치(failover)는 Azure Resource Manager 배포를 사용하는 범용 v1, 범용 v2 및 Blob 스토리지 계정 유형에 사용할 수 있습니다. 계정 장애 조치 (failover)는 모든 공용 지역에 대해 지원 되지만 지금은 소 버린 또는 국가별 클라우드에서 사용할 수 없습니다. 계층 네임 스페이스가 활성화 된 저장소 계정에 대해서는 계정 장애 조치 (failover)가 지원 되지 않습니다.
 
 이 문서에서는 계정 장애 조치(failover)와 관련된 개념 및 프로세스를 설명하고 고객에게 최소의 영향만 미치고 복구할 수 있게 스토리지 계정을 준비하는 방법을 논의합니다. Azure Portal 또는 PowerShell에서 계정 장애 조치 (failover)를 시작 하는 방법을 알아보려면 [계정 장애 조치 (failover) 시작](storage-initiate-account-failover.md)을 참조 하세요.
 
@@ -67,6 +67,8 @@ Azure Storage의 중복성에 대 한 자세한 내용은 [중복성 Azure Stora
 ## <a name="understand-the-account-failover-process"></a>계정 장애 조치(failover) 프로세스 이해
 
 고객이 관리 하는 계정 장애 조치 (failover)를 사용 하면 어떤 이유로 든 주 복제본을 사용할 수 없게 되 면 보조 지역으로 전체 저장소 계정을 장애 조치할 수 있습니다. 강제로 보조 지역으로 장애 조치(failover)하는 경우 클라이언트는 장애 조치(failover)가 완료된 후에 보조 엔드포인트에 데이터를 쓰기 시작할 수 있습니다. 장애 조치(failover)에는 일반적으로 약 1시간이 걸립니다.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### <a name="how-an-account-failover-works"></a>계정 장애 조치(failover)가 작동하는 방식
 
@@ -171,7 +173,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 저장소 계정이 RA-GRS 또는 RA-GZRS에 대해 구성 된 경우 응용 프로그램은 보조 지역에서 읽을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 - [지리적 중복성을 사용하여 고가용성 애플리케이션 설계](geo-redundant-design.md)
 - [계정 장애 조치(failover) 시작](storage-initiate-account-failover.md)

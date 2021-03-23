@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470468"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798530"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>집계 된 네임 스페이스 설정
 
@@ -30,6 +30,8 @@ Azure Portal의 **네임 스페이스** 페이지에는 클라이언트가 캐�
 ## <a name="add-or-edit-namespace-paths"></a>네임 스페이스 경로 추가 또는 편집
 
 클라이언트에서 저장소 대상에 액세스 하려면 먼저 네임 스페이스 경로를 하나 이상 만들어야 합니다. 클라이언트 액세스에 대 한 자세한 내용은 [AZURE HPC 캐시 탑재](hpc-cache-mount.md) 를 참조 하세요.
+
+최근에 저장소 대상을 추가 했거나 액세스 정책을 사용자 지정한 경우 네임 스페이스 경로를 만들기 전에 1 ~ 2 시간이 걸릴 수 있습니다.
 
 ### <a name="blob-namespace-paths"></a>Blob 네임 스페이스 경로
 

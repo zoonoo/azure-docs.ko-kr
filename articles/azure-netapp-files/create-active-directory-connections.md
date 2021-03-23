@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/01/2021
 ms.author: b-juche
-ms.openlocfilehash: 44959b2f60f9aafd7d9430c9c19baea72344293f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ccc88cabfa81e2d911546fae776f581885ed8fa6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183882"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801260"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 Active Directory 연결 만들기 및 관리
 
@@ -206,6 +206,18 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         ```
         
         [Azure CLI 명령을](/cli/azure/feature) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+
+     * **보안 권한 사용자**   <!-- SMB CA share feature -->   
+        `SeSecurityPrivilege`Azure NetApp Files 볼륨에 액세스 하는 데 상승 된 권한이 필요한 사용자에 게 보안 권한 ()을 부여할 수 있습니다. 지정 된 사용자 계정은 기본적으로 도메인 사용자에 게 할당 되지 않은 보안 권한이 필요한 Azure NetApp Files SMB 공유에서 특정 작업을 수행할 수 있습니다.   
+
+        예를 들어 특정 시나리오에서 SQL Server을 설치 하는 데 사용 되는 사용자 계정에는 상승 된 보안 권한을 부여 해야 합니다. 비관리자 (도메인) 계정을 사용 하 여 SQL Server를 설치 하 고 계정에 할당 된 보안 권한이 없는 경우 계정에 보안 권한을 추가 해야 합니다.  
+
+        > [!IMPORTANT]
+        > SQL Server를 설치 하는 데 사용 되는 도메인 계정은 이미 존재 해야 **보안 권한 사용자** 필드에 추가할 수 있습니다. SQL Server 설치 관리자의 계정을 **보안 권한 사용자** 에 게 추가 하면 Azure NetApp Files 서비스에서 도메인 컨트롤러에 연결 하 여 계정의 유효성을 검사할 수 있습니다. 도메인 컨트롤러에 연결할 수 없는 경우 명령이 실패할 수 있습니다.  
+
+        및 SQL Server에 대 한 자세한 내용은 `SeSecurityPrivilege` [설치 계정에 특정 사용자 권한이 없는 경우 SQL Server 설치 실패](/troubleshoot/sql/install/installation-fails-if-remove-user-right)를 참조 하세요.
+
+        ![Active Directory 연결 창의 보안 권한 사용자 상자를 보여 주는 스크린샷](../media/azure-netapp-files/security-privilege-users.png) 
 
      * **백업 정책 사용자**  
         Azure NetApp Files에 사용하기 위해 만든 컴퓨터 계정에 대한 높은 권한이 필요한 추가 계정을 포함할 수 있습니다. 지정된 계정은 파일 또는 폴더 수준에서 NTFS 권한을 변경할 수 있습니다. 예를 들어 Azure NetApp Files에서 SMB 파일 공유로 데이터를 마이그레이션하는 데 사용되는 권한 없는 서비스 계정을 지정할 수 있습니다.  

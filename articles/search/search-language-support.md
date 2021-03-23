@@ -1,70 +1,148 @@
 ---
 title: 영어가 아닌 검색 쿼리에 대 한 다중 언어 인덱싱
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search는 Lucene의 언어 분석기 및 Microsoft의 자연어 처리 기술을 활용 하 여 56 언어를 지원 합니다.
+description: 다국어 콘텐츠를 지 원하는 인덱스를 만든 다음 해당 콘텐츠로 범위가 지정 된 쿼리를 만듭니다.
 manager: nitinme
-author: yahnoosh
-ms.author: jlembicz
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 588de9c9cae114b5f5396db17f7ecb19bcde25c6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/22/2021
+ms.openlocfilehash: 627ec77af4e492b4f22404972729cecdb1c40f06
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93423082"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801607"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-cognitive-search"></a>Azure Cognitive Search에서 여러 언어에 대 한 인덱스를 만드는 방법
 
-인덱스는 여러 언어의 콘텐츠를 포함 하는 필드를 포함할 수 있습니다. 예를 들어 언어별 문자열의 개별 필드를 만들 수 있습니다. 인덱싱 및 쿼리 중에 최상의 결과를 위해 적절 한 언어 규칙을 제공 하는 언어 분석기를 할당 합니다. 
+다국어 검색 애플리케이션의 핵심 요구 사항은 사용자의 언어로 검색하고 결과를 볼 수 있는 기능입니다. Azure Cognitive Search에서 다국어 앱의 언어 요구 사항을 충족 하는 한 가지 방법은 특정 언어로 문자열을 저장 하기 위한 전용 필드를 만든 다음 쿼리 시 전체 텍스트 검색을 해당 필드로 제한 하는 것입니다.
 
-Azure Cognitive Search는 Lucene 및 Microsoft에서 Analyzer 속성을 사용 하 여 개별 필드에 할당할 수 있는 많은 언어 분석기를 제공 합니다. 이 문서에 설명 된 대로 포털에서 언어 분석기를 지정할 수도 있습니다.
++ 필드 정의에서 대상 언어의 언어 규칙을 호출 하는 언어 분석기를 설정 합니다. 지원 되는 분석기의 전체 목록을 보려면 [언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
 
-## <a name="add-analyzers-to-fields"></a>필드에 분석기 추가
++ 쿼리 요청에서 매개 변수를 설정 하 여 전체 텍스트 검색 범위를 특정 필드로 지정 하 고, 제공 하려는 검색 환경과 호환 되는 콘텐츠를 제공 하지 않는 필드의 결과를 자릅니다.
 
-언어 분석기는 필드가 생성 될 때 지정 됩니다. 기존 필드 정의에 분석기를 추가 하려면 인덱스를 덮어쓰거나 다시 로드 하거나 원래와 동일 하지만 분석기 할당을 사용 하 여 새 필드를 만들어야 합니다. 그러면 사용 하지 않는 필드를 편리 하 게 삭제할 수 있습니다.
+이 기술의 성공은 필드 콘텐츠의 무결성에 달려 있습니다. Azure Cognitive Search는 문자열을 변환 하거나 쿼리 실행의 일부로 언어 검색을 수행 하지 않습니다. 필드에 예상하는 문자열이 포함되어 있는지 확인하는 것은 사용자의 몫입니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 검색 서비스를 찾습니다.
-1. 서비스 대시보드 위쪽의 명령 모음에 있는 **인덱스 추가** 를 클릭하여 새 인덱스를 시작하거나, 기존 인덱스를 여러 기존 인덱스에 추가하는 새 필드에 대해 분석기를 설정합니다.
-1. 이름을 제공 하 여 필드 정의를 시작 합니다.
-1. Edm. String 데이터 형식을 선택 합니다. 문자열 필드만 전체 텍스트 검색 가능입니다.
-1. **검색 가능한** 특성을 설정 하 여 Analyzer 속성을 사용 하도록 설정 합니다. 언어 분석기를 사용 하려면 필드가 텍스트를 기반으로 해야 합니다.
-1. 사용 가능한 분석기 중 하나를 선택 합니다. 
+## <a name="define-fields-for-content-in-different-languages"></a>콘텐츠 필드를 다양한 언어로 정의
 
-![필드 정의 중 언어 분석기 할당](media/search-language-support/select-analyzer.png "필드 정의 중 언어 분석기 할당")
+Azure Cognitive Search에서 쿼리는 단일 인덱스를 대상으로 합니다. 단일 검색 환경에서 언어별 문자열을 제공하려는 개발자는 일반적으로 값을 저장하는 전용 필드(영어 문자열 필드 하나, 프랑스 문자열 필드 하나 등)를 정의합니다.
 
-기본적으로 검색 가능한 모든 필드는 언어와 무관 한 [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) 를 사용 합니다. 지원 되는 분석기의 전체 목록을 보려면 [Azure Cognitive Search 인덱스에 언어 분석기 추가](index-add-language-analyzers.md)를 참조 하세요.
+필드 정의의 "analyzer" 속성은 [언어 분석기](index-add-language-analyzers.md)를 설정 하는 데 사용 됩니다. 인덱싱 및 쿼리 실행에 모두 사용 됩니다.
 
-포털에서 분석기는 그대로 사용 하기 위한 것입니다. 사용자 지정 또는 필터 및 토크 나이저의 특정 구성이 필요한 경우 코드에서 [사용자 지정 분석기를 만들어야](index-add-custom-analyzers.md) 합니다. 포털에서 사용자 지정 분석기를 선택 하거나 구성 하는 기능을 지원 하지 않습니다.
+```JSON
+{
+  "name": "hotels-sample-index",
+  "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft"
+    },
+    {
+      "name": "Description_fr",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "fr.microsoft"
+    },
+```
 
-## <a name="query-language-specific-fields"></a>쿼리 언어별 필드
+## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
-필드에 대해 언어 분석기를 선택한 후에는 해당 필드의 모든 인덱싱 및 검색 요청에 해당 분석기를 사용합니다. 여러 분석기를 사용 하 여 여러 필드에 대해 쿼리를 실행 하는 경우 쿼리는 각 필드에 대해 할당 된 분석기에 의해 독립적으로 처리 됩니다.
+중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](search-get-started-dotnet.md). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 가용성을 확인 하는 한 가지 방법은 [포털](https://portal.azure.com)의 인덱스 목록을 확인 하는 것입니다.
 
-쿼리를 실행한 에이전트의 언어를 아는 경우 검색 요청의 범위를 **searchFields** 쿼리 매개 변수를 사용하여 특정 필드로 지정할 수 있습니다. 다음 쿼리는 폴란드어로 된 설명에 대해서만 실행됩니다.
+> [!TIP]
+> 언어 검색 및 텍스트 변환은 [AI 보강](cognitive-search-concept-intro.md) 및 [기술력과](cognitive-search-working-with-skillsets.md)를 통해 데이터를 수집 하는 동안 지원 됩니다. Azure 데이터 원본에 혼합 언어 콘텐츠가 있는 경우 [데이터 가져오기 마법사](cognitive-search-quickstart-blob.md)를 사용 하 여 언어 검색 및 번역 기능을 사용해 볼 수 있습니다.
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2020-06-30`
+## <a name="constrain-the-query-and-trim-results"></a>쿼리 제한 및 결과 자르기
 
-[**검색 탐색기**](search-explorer.md) 를 사용 하 여 위에서 설명한 것과 비슷한 쿼리를 붙여넣어 포털에서 인덱스를 쿼리할 수 있습니다.
+쿼리의 매개 변수는 검색을 특정 필드로 제한한 다음 시나리오에 도움이 되지 않는 필드의 결과를 자르는 데 사용됩니다. 
+
+| 매개 변수 | 용도 |
+|-----------|--------------|
+| **searchFields** | 전체 텍스트 검색을 명명된 필드 목록으로 제한합니다. |
+| **$select** | 지정하는 필드만 포함하도록 응답을 잘라냅니다. 기본적으로 검색 가능한 모든 필드가 반환됩니다. **$select** 매개 변수를 통해 반환할 필드를 선택할 수 있습니다. |
+
+프랑스어 문자열을 포함하는 필드로 검색을 제한하려면 **searchFields** 를 사용하여 해당 언어의 문자열이 포함된 필드로 쿼리의 대상을 지정합니다.
+
+쿼리 요청에 분석기를 지정 하는 것은 필요 하지 않습니다. 필드 정의의 언어 분석기는 쿼리를 처리 하는 동안 항상 사용 됩니다. 여러 언어 분석기를 호출 하는 여러 필드를 지정 하는 쿼리의 경우 각 필드에 대해 할당 된 분석기를 사용 하 여 용어 또는 구가 독립적으로 처리 됩니다.
+
+기본적으로 검색은 검색 가능으로 표시된 모든 필드를 반환합니다. 따라서 제공하려는 언어별 검색 환경을 따르지 않는 필드는 제외하려고 할 수 있습니다. 특히 프랑스어 문자열이 있는 필드로 검색을 제한하면 영어 문자열이 있는 필드를 결과에서 제외할 수 있습니다. **$select** 쿼리 매개 변수를 사용하면 호출 애플리케이션에 반환되는 필드를 제어할 수 있습니다.
+
+#### <a name="example-in-rest"></a>REST의 예제
+
+```http
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
+{
+    "search": "animaux acceptés",
+    "searchFields": "Tags, Description_fr",
+    "select": "HotelName, Description_fr, Address/City, Address/StateProvince, Tags",
+    "count": "true"
+}
+```
+
+#### <a name="example-in-c"></a>C의 예제 #
+
+```csharp
+private static void RunQueries(SearchClient srchclient)
+{
+    SearchOptions options;
+    SearchResults<Hotel> response;
+
+    options = new SearchOptions()
+    {
+        IncludeTotalCount = true,
+        Filter = "",
+        OrderBy = { "" }
+    };
+
+    options.Select.Add("HotelId");
+    options.Select.Add("HotelName");
+    options.Select.Add("Description_fr");
+    options.SearchFields.Add("Tags");
+    options.SearchFields.Add("Description_fr");
+
+    response = srchclient.Search<Hotel>("*", options);
+    WriteDocuments(response);
+}
+```
 
 ## <a name="boost-language-specific-fields"></a>언어별 필드 향상
 
-간혹 쿼리를 실행한 에이전트의 언어를 알지 못할 수 있습니다. 이 경우 모든 필드에 대해 동시에 쿼리를 실행할 수 있습니다. 필요한 경우 [평가 프로필](index-add-scoring-profiles.md)을 사용하여 특정 언어로 된 결과에 대한 우선 순위를 정의할 수 있습니다. 아래 예에서는 영어 설명에서 찾은 일치 항목이 폴란드 및 프랑스어 항목 일치보다 상대적으로 높은 점수를 받게 됩니다.
+간혹 쿼리를 실행한 에이전트의 언어를 알지 못할 수 있습니다. 이 경우 모든 필드에 대해 동시에 쿼리를 실행할 수 있습니다. 특정 언어의 결과에 대 한 IA 기본 설정은 [점수 매기기 프로필](index-add-scoring-profiles.md)을 사용 하 여 정의할 수 있습니다. 아래 예제에서 영어의 설명에 있는 일치 항목은 다른 언어의 일치 항목에 비해 더 높은 점수를 받습니다.
 
-```http
-    "scoringProfiles": [
-      {
-        "name": "englishFirst",
-        "text": {
-          "weights": { "description_en": 2 }
-        }
+```JSON
+  "scoringProfiles": [
+    {
+      "name": "englishFirst",
+      "text": {
+        "weights": { "description": 2 }
       }
-    ]
+    }
+  ]
 ```
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
+그런 다음 검색 요청에 점수 매기기 프로필을 포함 합니다.
+
+```http
+POST /indexes/hotels/docs/search?api-version=2020-06-30
+{
+  "search": "pets allowed",
+  "searchFields": "Tags, Description",
+  "select": "HotelName, Tags, Description",
+  "scoringProfile": "englishFirst",
+  "count": "true"
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 
-.NET 개발자 인 경우 [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) 및 [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer) 속성을 사용 하 여 언어 분석기를 구성할 수 있습니다.
++ [언어 분석기](index-add-language-analyzers.md)
++ [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md)
++ [문서 검색 REST API](/rest/api/searchservice/search-documents)
++ [AI 보강 개요](cognitive-search-concept-intro.md)
++ [기술력과 개요](cognitive-search-working-with-skillsets.md)

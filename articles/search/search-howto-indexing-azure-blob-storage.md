@@ -7,18 +7,20 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/22/2021
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6f70ae726cf41395e46760dc5cf7da5b4d61478a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988715"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802899"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Cognitive Search에서 blob 인덱싱을 구성 하는 방법
 
-이 문서에서는 Azure Cognitive Search에서 텍스트 기반 문서 (예: Pdf, Microsoft Office 문서 등)를 인덱싱하는 blob 인덱서를 구성 하는 방법을 보여 줍니다. 인덱서 개념을 잘 모르는 경우 [Azure Cognitive Search에서 인덱서](search-indexer-overview.md) 를 시작 하 고 blob 인덱싱에 대해 알아보기 전에 [검색 인덱서를 만듭니다](search-howto-create-indexers.md) .
+Blob 인덱서는 Azure Blob storage에서 Cognitive Search 인덱스에 콘텐츠를 수집는 데 사용 됩니다. Blob 인덱서는 [AI 보강](cognitive-search-concept-intro.md)에서 자주 사용 됩니다 .이 경우 연결 된 [기술](cognitive-search-working-with-skillsets.md) 는 이미지 및 자연어 처리를 추가 하 여 검색 가능한 콘텐츠를 만듭니다. 그러나 AI 보강 없이 blob 인덱서를 사용 하 여 Pdf, Microsoft Office 문서 및 파일 형식과 같은 텍스트 기반 문서에서 콘텐츠를 수집할 수도 있습니다.
+
+이 문서에서는 두 시나리오 모두에 대해 blob 인덱서를 구성 하는 방법을 보여 줍니다. 인덱서 개념을 잘 모르는 경우 [Azure Cognitive Search에서 인덱서](search-indexer-overview.md) 를 시작 하 고 blob 인덱싱에 대해 알아보기 전에 [검색 인덱서를 만듭니다](search-howto-create-indexers.md) .
 
 <a name="SupportedFormats"></a>
 
@@ -30,7 +32,7 @@ Azure Cognitive Search blob 인덱서는 다음 문서 형식에서 텍스트를
 
 ## <a name="data-source-definitions"></a>데이터 원본 정의
 
-Blob 인덱서와 다른 인덱서 간의 차이점은 인덱서에 할당 된 데이터 원본 정의입니다. 데이터 원본은 인덱싱할 콘텐츠의 유형, 연결 및 위치를 지정 하는 모든 속성을 캡슐화 합니다.
+Blob 인덱서와 다른 인덱서 간의 주요 차이점은 인덱서에 할당 된 데이터 원본 정의입니다. 데이터 원본 정의는 데이터 원본 유형 ("type": "azureblob") 뿐만 아니라 인덱싱할 콘텐츠에 대 한 인증 및 연결에 대 한 기타 속성을 지정 합니다.
 
 Blob 데이터 원본 정의는 아래 예제와 유사 합니다.
 
@@ -72,7 +74,7 @@ SAS에 컨테이너에 대한 읽기 권한 및 목록이 있어야 합니다. �
 
 ## <a name="index-definitions"></a>인덱스 정의
 
-인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다. 다음 예에서는 [Create index (REST API)](/rest/api/searchservice/create-index)를 사용 하 여 단순 인덱스를 만듭니다. 
+인덱스는 문서의 필드, 특성 및 검색 경험을 형성하는 기타 항목을 지정합니다. 모든 인덱서에는 검색 인덱스 정의를 대상으로 지정 해야 합니다. 다음 예에서는 [Create index (REST API)](/rest/api/searchservice/create-index)를 사용 하 여 단순 인덱스를 만듭니다. 
 
 ```http
 POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -90,7 +92,7 @@ api-key: [admin key]
 
 인덱스 정의에서는 `"fields"` 문서 키 역할을 하는 컬렉션의 한 필드가 필요 합니다. 인덱스 정의에는 콘텐츠 및 메타 데이터에 대 한 필드도 포함 되어야 합니다.
 
-**`content`** 필드는 blob에서 추출 된 텍스트를 저장 하는 데 사용 됩니다. 이 필드의 정의가 위와 유사할 수 있습니다. 이 이름을 사용할 필요는 없지만 암시적 필드 매핑을 활용할 수 있습니다. Blob 인덱서는 인덱스의 콘텐츠 Edm에 blob 콘텐츠를 보낼 수 있으며 필드 매핑은 필요 하지 않습니다.
+**`content`** 필드는 blob 내용에 공통적입니다. 여기에는 blob에서 추출 된 텍스트가 포함 됩니다. 이 필드의 정의가 위와 유사할 수 있습니다. 이 이름을 사용할 필요는 없지만 암시적 필드 매핑을 활용할 수 있습니다. Blob 인덱서는 인덱스에 blob 콘텐츠를 보낼 수 있습니다 .이 필드에는 필드 매핑이 필요 하지 않습니다.
 
 인덱스에 원하는 모든 blob 메타 데이터에 대 한 필드를 추가할 수도 있습니다. 인덱서는 사용자 지정 메타 데이터 속성, [표준 메타 데이터](#indexing-blob-metadata) 속성 및 [콘텐츠 관련 메타 데이터](search-blob-metadata-properties.md) 속성을 읽을 수 있습니다. 인덱스에 대 한 자세한 내용은 [인덱스 만들기](search-what-is-an-index.md)를 참조 하세요.
 
@@ -202,7 +204,7 @@ api-key: [admin key]
 
   + **metadata_storage_path** ( `Edm.String` )-저장소 계정을 포함 하 여 BLOB의 전체 URI입니다. 예를 들어 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
 
-  + **metadata_storage_content_type** ( `Edm.String` )-blob을 업로드 하는 데 사용한 코드에 지정 된 내용 유형입니다. 예: `application/octet-stream`
+  + **metadata_storage_content_type** ( `Edm.String` )-blob을 업로드 하는 데 사용한 코드에 지정 된 내용 유형입니다. 예들 들어 `application/octet-stream`입니다.
 
   + **metadata_storage_last_modified** ( `Edm.DateTimeOffset` )-blob에 대해 마지막으로 수정 된 타임 스탬프입니다. Azure Cognitive Search는이 타임 스탬프를 사용 하 여 초기 인덱싱 후 모든 항목을 다시 인덱싱하도록 방지 하기 위해 변경 된 blob를 식별 합니다.
 
@@ -334,7 +336,7 @@ api-key: [admin key]
 
 + `"indexStorageMetadataOnlyForOversizedDocuments"` 너무 커서 처리할 수 없는 blob 콘텐츠에 대 한 저장소 메타 데이터를 인덱싱합니다. 너무 큰 Blob은 기본적으로 오류로 처리됩니다. Blob 크기에 대 한 제한은 [서비스 제한](search-limits-quotas-capacity.md)을 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [인덱서 만들기](search-howto-create-indexers.md)
