@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: dylankil
 ms.custom: devx-track-js
-ms.openlocfilehash: e29aff97d510dfed178e32aa319e5cb51ae9786c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fa28d5779c05af615479e3143713badb7842f6c6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376773"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619227"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -36,13 +36,13 @@ Android Studio에서 새 프로젝트를 시작합니다. 이 예제에 대한 �
 
 ![새 프로젝트 - Kotlin](../../media/android/kotlin/android-studio-create-project.png)
 
-**프로젝트 선택** 창에서 **빈 작업**을 선택한 후, **다음**을 선택합니다.
+**프로젝트 선택** 창에서 **빈 작업** 을 선택한 후, **다음** 을 선택합니다.
 
 ![빈 작업 프로젝트 - Kotlin](../../media/android/kotlin/android-studio-empty-activity.png)
 
 ## <a name="configure-the-project"></a>프로젝트 구성
 
-프로젝트 이름을 **QuickstartKotlin**으로 지정하고 저장할 위치를 선택합니다. 프로그래밍 언어로 **Kotlin**을 선택한 다음, **마침**을 선택합니다.
+프로젝트 이름을 **QuickstartKotlin** 으로 지정하고 저장할 위치를 선택합니다. 프로그래밍 언어로 **Kotlin** 을 선택한 다음, **마침** 을 선택합니다.
 
 ![프로젝트 구성 - Kotlin](../../media/android/kotlin/android-studio-configure-project.png)
 
@@ -52,7 +52,7 @@ Android Studio에서 새 프로젝트를 시작합니다. 이 예제에 대한 �
 
 ![새 자산 폴더 만들기 - Kotlin](../../media/android/kotlin/android-studio-assets-folder.png)
 
- 자산 폴더 내에 **env**라는 파일을 만듭니다. 다음 이름과 값을 추가하고 적절한 값을 제공합니다. 이 env 파일에는 공개되어서는 안 되는 비밀이 있으므로 소스 제어로 커밋하지 마세요.
+ 자산 폴더 내에 **env** 라는 파일을 만듭니다. 다음 이름과 값을 추가하고 적절한 값을 제공합니다. 이 env 파일에는 공개되어서는 안 되는 비밀이 있으므로 소스 제어로 커밋하지 마세요.
 
 ![새 env 파일 만들기 - Kotlin](../../media/android/kotlin/android-studio-create-env-file.png)
 
@@ -89,7 +89,7 @@ dependencies {
 
 ## <a name="update-app-strings-and-layout-resources"></a>앱 문자열 및 레이아웃 리소스 업데이트
 
-**res/strings/strings.xml**의 콘텐츠를 앱에서 사용할 다음 문자열로 바꿉니다.
+**res/strings/strings.xml** 의 콘텐츠를 앱에서 사용할 다음 문자열로 바꿉니다.
 
 ![앱 strings.xml - Kotlin](../../media/android/kotlin/android-studio-strings.png)
 
@@ -107,7 +107,7 @@ dependencies {
 </resources>
 ```
 
-**res/layout/activity_main.xml**의 콘텐츠를 앱에서 사용할 다음 XML로 바꿉니다. 이 XML은 앱의 UI 레이아웃입니다.
+**res/layout/activity_main.xml** 의 콘텐츠를 앱에서 사용할 다음 XML로 바꿉니다. 이 XML은 앱의 UI 레이아웃입니다.
 
 ![앱 activity_main.xml - Kotlin](../../media/android/kotlin/android-studio-activity-main-xml.png)
 
@@ -208,7 +208,7 @@ dependencies {
 
 ## <a name="set-up-the-app-kotlin-code-javascript-interface"></a>앱 Kotlin 코드 JavaScript 인터페이스 설정
 
-**/Java/com.example.quickstartkotlin** 폴더에서 새 Kotlin 클래스를 만들고 이름을 **WebAppInterface**로 지정합니다. 그런 다음, 다음 코드를 추가합니다. 이 코드를 통해 앱은 이후 단계에서 추가될 HTML의 JavaScript 함수와 인터페이스할 수 있습니다.
+**/Java/com.example.quickstartkotlin** 폴더에서 새 Kotlin 클래스를 만들고 이름을 **WebAppInterface** 로 지정합니다. 그런 다음, 다음 코드를 추가합니다. 이 코드를 통해 앱은 이후 단계에서 추가될 HTML의 JavaScript 함수와 인터페이스할 수 있습니다.
 
 ![com.example.quickstartkotlin 폴더 - Kotlin](../../media/android/kotlin/android-studio-com-folder.png)
 
@@ -522,7 +522,7 @@ class MainActivity : AppCompatActivity() {
 
 ## <a name="add-the-app-html-to-the-web-view"></a>웹 보기에 앱 HTML 추가
 
-웹 보기 구현에는 HTML을 사용해야 합니다. 마우스 오른쪽 단추로 **/assets** 폴더를 클릭하고, 새 파일을 만들고, 이름을 **immersiveReader.html**로 지정합니다.
+웹 보기 구현에는 HTML을 사용해야 합니다. 마우스 오른쪽 단추로 **/assets** 폴더를 클릭하고, 새 파일을 만들고, 이름을 **immersiveReader.html** 로 지정합니다.
 
 ![새 HTML 파일 만들기 - Kotlin](../../media/android/kotlin/android-studio-immersive-reader-html.png)
 
@@ -577,7 +577,7 @@ Licensed under the MIT License. -->
 
 ![AndroidManifest - Kotlin](../../media/android/kotlin/android-studio-android-manifest-xml.png)
 
-애플리케이션이 작동하려면 몰입형 리더 SDK에 대한 네트워크를 호출해야 하므로 네트워크 액세스를 허용하도록 앱 권한이 구성되어야 합니다. **/manifests/AndroidManifest.xml**의 콘텐츠를 다음 XML로 바꿉니다.
+애플리케이션이 작동하려면 몰입형 리더 SDK에 대한 네트워크를 호출해야 하므로 네트워크 액세스를 허용하도록 앱 권한이 구성되어야 합니다. **/manifests/AndroidManifest.xml** 의 콘텐츠를 다음 XML로 바꿉니다.
 
 ```AndroidManifest.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -607,10 +607,11 @@ Licensed under the MIT License. -->
 
 ## <a name="run-the-app"></a>앱 실행
 
-Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더**를 선택하면 몰입형 리더가 앱의 콘텐츠와 함께 열립니다.
+Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행합니다. **몰입형 리더** 를 선택하면 몰입형 리더가 앱의 콘텐츠와 함께 열립니다.
 
 ![몰입형 리더 - Kotlin](../../media/android/kotlin/android-studio-device-emulator.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 리더 SDK 참조](../../reference.md)를 살펴봅니다.
+> [!div class="nextstepaction"]
+> [리소스 만들기 및 AAD 구성](../../how-to-create-immersive-reader.md)

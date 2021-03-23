@@ -4,21 +4,23 @@ description: 이 빠른 시작에서는 Linux에서 IoT Edge 디바이스를 만
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/02/2020
+ms.date: 03/12/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ff9ba73e71e4525fe56a3cbb54626030f57e990b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 37f4a63d0a901fd70e0a60bb435efdaf08868616
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920800"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463475"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
-이 빠른 시작에서는 컨테이너화된 코드를 가상 Linux IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 IoT Edge 서비스가 설치된 테스트 컴퓨터를 빠르게 만든 다음, 빠른 시작을 마친 후 삭제할 수 있습니다.
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
+이 빠른 시작에서는 컨테이너화된 코드를 가상 Linux IoT Edge 디바이스에 배포하여 Azure IoT Edge를 테스트합니다. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 IoT Edge 디바이스에 Azure 가상 머신을 사용하는 것이 좋습니다. 이를 통해 테스트 머신을 빠르게 만든 다음, 완료되면 삭제할 수 있습니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
@@ -41,7 +43,7 @@ Azure CLI에 대한 환경을 준비합니다.
 
 클라우드 리소스:
 
-- 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 이 빠른 시작과 다음 자습서에서는 **IoTEdgeResources** 라는 예제 리소스 그룹을 사용합니다.
+* 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 이 빠른 시작과 다음 자습서에서는 **IoTEdgeResources** 라는 예제 리소스 그룹을 사용합니다.
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -103,6 +105,9 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 새 가상 머신을 만들고 IoT Edge 런타임을 설치합니다. 사용자 고유의 Linux 디바이스를 대신 사용하려면 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 설치 단계를 수행한 다음, 이 빠른 시작으로 돌아오면 됩니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 다음 CLI 명령을 사용하여 미리 빌드된 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 템플릿을 기반으로 IoT Edge 디바이스를 만듭니다.
 
 * bash 또는 Cloud Shell 사용자의 경우 다음 명령을 텍스트 편집기에 복사하고, 자리 표시자 텍스트를 해당 정보로 바꾸고, bash 또는 Cloud Shell 창에 복사합니다.
@@ -113,8 +118,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
    --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name
-   <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
@@ -131,6 +135,42 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
    --parameters authenticationType='password' `
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+다음 CLI 명령을 사용하여 미리 빌드된 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.2.0-rc4) 템플릿을 기반으로 IoT Edge 디바이스를 만듭니다.
+
+* bash 또는 Cloud Shell 사용자의 경우 다음 명령을 텍스트 편집기에 복사하고, 자리 표시자 텍스트를 해당 정보로 바꾸고, bash 또는 Cloud Shell 창에 복사합니다.
+
+   ```azurecli-interactive
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" \
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' \
+   --parameters adminUsername='azureUser' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   ```
+
+* PowerShell 사용자의 경우 PowerShell 창에 다음 명령을 복사한 다음, 자리 표시자 텍스트를 해당 정보로 바꿉니다.
+
+   ```azurecli
+   az deployment group create `
+   --resource-group IoTEdgeResources `
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0-rc4/edgeDeploy.json" `
+   --parameters dnsLabelPrefix='<REPLACE_WITH_VM_NAME>' `
+   --parameters adminUsername='azureUser' `
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+   --parameters authenticationType='password' `
+   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   ```
+:::moniker-end
+<!-- end 1.2 -->
 
 이 템플릿은 다음 매개 변수를 사용합니다.
 
@@ -158,6 +198,9 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
 
 가상 머신에 연결되면 IoT Edge 디바이스에 런타임이 성공적으로 설치 및 구성되었는지 확인합니다.
 
+<!--1.1 -->
+:::moniker range="iotedge-2018-06"
+
 1. IoT Edge 보안 디먼이 시스템 서비스로 실행되고 있는지 확인합니다.
 
    ```bash
@@ -182,6 +225,35 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 �
    ```
 
    ![디바이스에서 하나의 모듈 보기](./media/quickstart-linux/iotedge-list-1.png)
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. IoT Edge가 실행 중인지 확인합니다. 다음 명령은 IoT Edge가 실행 중인 경우 **확인** 상태를 반환하거나 서비스 오류를 제공해야 합니다.
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+   >[!TIP]
+   >`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 `sudo`를 사용합니다.
+
+2. 서비스 문제를 해결해야 할 경우 서비스 로그를 검색합니다.
+
+   ```bash
+   sudo iotedge system logs
+   ```
+
+3. IoT Edge 디바이스에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 디바이스에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다.
+
+   ```bash
+   sudo iotedge list
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다.
 
@@ -192,6 +264,31 @@ IoT Edge 디바이스가 구성되었습니다. 클라우드 배포 모듈을 �
 ![다이어그램 - 클라우드에서 디바이스로 모듈 배포](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+IoT Edge 버전 1.2는 공개 미리 보기 상태이므로 런타임 모듈을 공개 미리 보기 버전으로 업데이트하기 위해 추가 단계를 수행해야 합니다.
+
+1. 디바이스 세부 정보 페이지에서 **모듈 설정** 을 다시 선택합니다.
+
+1. **런타임 설정** 을 선택합니다.
+
+1. 버전 태그 1.2.0-rc4를 사용하도록 IoT Edge 허브 및 IoT Edge 에이전트 모듈 모두에 대한 **이미지** 필드를 업데이트합니다. 예를 들면 다음과 같습니다.
+
+   * `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`
+   * `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4`
+
+1. 시뮬레이션된 온도 센서 모듈은 모듈 섹션에도 나열되어 있어야 합니다. 공개 미리 보기를 위해 해당 모듈을 변경할 필요가 없습니다.
+
+1. **검토 + 만들기** 를 선택합니다.
+
+1. **만들기** 를 선택합니다.
+
+1. 디바이스 세부 정보 페이지에서 **$edgeAgent** 또는 **$edgeHub** 를 선택하여 이미지의 공개 미리 보기 버전을 반영하는 모듈 세부 정보를 확인할 수 있습니다.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
@@ -205,7 +302,15 @@ IoT Edge 디바이스에서 명령 프롬프트를 다시 열거나 Azure CLI에
    sudo iotedge list
    ```
 
-   ![디바이스에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+   ![디바이스에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2-version-201806.png)
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+   ![디바이스에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2-version-202011.png)
+:::moniker-end
 
 온도 센서 모듈에서 전송되는 메시지를 봅니다.
 
@@ -232,7 +337,7 @@ IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하�
 **IoTEdgeResources** 그룹을 제거합니다. 리소스 그룹을 삭제하는 데 몇 분 정도 소요될 수 있습니다.
 
 ```azurecli-interactive
-az group delete --name IoTEdgeResources
+az group delete --name IoTEdgeResources --yes
 ```
 
 리소스 그룹 목록을 확인하여 리소스 그룹이 제거되었는지 확인할 수 있습니다.

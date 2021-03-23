@@ -10,14 +10,16 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a00e5d262724f4799f8b7b91a54e4b2710f4ce2b
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: aa8c4abf57308ca3da05db6ecede7a330af04bdb
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008080"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463547"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포(미리 보기)
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 컨테이너화된 코드를 Windows IoT Edge 디바이스의 Linux에 배포하여 이 빠른 시작에서 Azure IoT Edge를 사용해보세요. IoT Edge를 사용하면 디바이스에서 코드를 원격으로 관리하여 더 많은 워크로드를 에지로 전송할 수 있습니다. 이 빠른 시작에서는 자체 디바이스를 사용하여 Windows의 Linux용 Azure IoT Edge를 사용하는 것이 얼마나 쉬운지 확인할 것을 권장합니다.
 
@@ -51,9 +53,16 @@ Azure CLI에 대한 환경을 준비합니다.
 
 IoT Edge 디바이스가 다음 요구 사항을 충족하는지 확인합니다.
 
-* Windows PC 또는 서버 버전 1809 이상
-* 최소 메모리 4GB, 권장 메모리 8GB
-* 10GB의 사용 가능한 디스크 공간
+* 버전
+  * Windows 10 버전 1809 이상; 17763 이상 빌드
+    * Professional, Enterprise, IoT Enterprise
+  * Windows Server 2019 빌드 17763 이상
+
+  
+* 하드웨어 요구 사항
+  * 사용 가능한 최소 메모리: 2GB
+  * 사용 가능한 최소 디스크 공간: 10GB
+
 
 >[!NOTE]
 >이 빠른 시작에서는 Windows Admin Center를 사용하여 Windows의 Linux용 IoT Edge 배포판을 만듭니다. PowerShell을 사용할 수도 있습니다. PowerShell을 사용하여 배포판을 만들려면 [Windows 디바이스에 Linux용 Azure IoT Edge 설치 및 프로비저닝](how-to-install-iot-edge-on-windows.md) 방법 가이드의 단계를 따르세요.
@@ -108,7 +117,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 
 ![IoT Edge 런타임을 시작하는 단계를 보여주는 다이어그램](./media/quickstart/start-runtime.png)
 
-1. [Windows Admin Center를 다운로드합니다](https://aka.ms/WACDownloadEFLOW).
+1. [Windows Admin Center를 다운로드합니다](https://aka.ms/wacdownload).
 
 1. 설치 마법사의 지시에 따라 디바이스에 Windows Admin Center를 설치합니다.
 

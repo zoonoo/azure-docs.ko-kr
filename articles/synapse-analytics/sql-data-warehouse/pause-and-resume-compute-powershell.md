@@ -1,33 +1,33 @@
 ---
-title: '빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작'
-description: Azure PowerShell을 사용하여 Synapse SQL 풀(데이터 웨어하우스)을 일시 중지하고 다시 시작할 수 있습니다. 컴퓨팅 리소스
+title: '빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작'
+description: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)을 일시 중지하고 다시 시작할 수 있습니다. 컴퓨팅 리소스
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 03/20/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 6022974b80a7f691edc9b9a11b972035b203187c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74c30a843ef5edd54c7cd19f3fd49acfe782f488
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121042"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602182"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Synapse SQL 풀에서 컴퓨팅 일시 중지 및 다시 시작
+# <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작
 
-Azure PowerShell을 사용하여 Synapse SQL 풀(데이터 웨어하우스) 컴퓨팅 리소스를 일시 중지하고 다시 시작할 수 있습니다.
+Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 컴퓨팅 리소스를 일시 중지하고 다시 시작할 수 있습니다.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 빠른 시작에서는 일시 중지하고 다시 시작할 수 있는 SQL 풀이 이미 있다고 가정합니다. 만들어야 하는 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse** 라는 SQL 풀을 만들 수 있습니다.
+이 빠른 시작에서는 일시 중지했다가 다시 시작할 수 있는 전용 SQL 풀(이전의 SQL DW)이 이미 있다고 가정합니다. 만들어야 하는 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse** 라는 전용 SQL 풀(이전의 SQL DW)을 만들 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -49,11 +49,11 @@ Get-AzSubscription
 Set-AzContext -SubscriptionName "MySubscription"
 ```
 
-## <a name="look-up-sql-pool-information"></a>SQL 풀 정보 조회
+## <a name="look-up-dedicated-sql-pool-formerly-sql-dw-information"></a>전용 SQL 풀(이전의 SQL DW) 정보 조회
 
-일시 중지 및 다시 시작하려는 SQL 풀의 데이터베이스 이름, 서버 이름 및 리소스 그룹을 찾습니다.
+일시 중지 및 다시 시작하려는 전용 SQL 풀(이전의 SQL DW)에 대한 데이터베이스 이름, 서버 이름 및 리소스 그룹을 찾습니다.
 
-다음 단계에 따라 SQL 풀에 대한 위치 정보를 찾습니다.
+다음 단계에 따라 전용 SQL 풀(이전의 SQL DW)에 대한 위치 정보를 찾습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure Portal의 왼쪽 페이지에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 클릭합니다.
@@ -61,7 +61,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 
     ![서버 이름 및 리소스 그룹](./media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-1. 데이터베이스 이름에 해당하는 SQL 풀 이름을 적어 둡니다. 또한 서버 이름 및 리소스 그룹도 적어 둡니다.
+1. 데이터베이스 이름인 전용 SQL 풀(이전의 SQL DW) 이름을 기록해 둡니다. 또한 서버 이름 및 리소스 그룹도 적어 둡니다.
 1. PowerShell cmdlet에서 서버 이름의 첫 부분만 사용합니다. 위 그림에서 전체 서버 이름은 sqlpoolservername.database.windows.net입니다. PowerShell cmdlet에서는 **sqlpoolservername** 을 서버 이름으로 사용합니다.
 
 ## <a name="pause-compute"></a>컴퓨팅 일시 중지
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
-–ServerName "nsqlpoolservername" –DatabaseName "mySampleDataWarehouse"
+–ServerName "sqlpoolservername" –DatabaseName "mySampleDataWarehouse"
 ```
 
 다음 예제에서는 데이터베이스를 $database 개체로 검색합니다. 그런 다음, 개체를 [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 파이프합니다. 결과는 resultDatabase 개체에 저장됩니다. 마지막 명령은 결과를 보여 줍니다.
@@ -107,7 +107,7 @@ $resultDatabase
 
 ## <a name="check-status-of-your-sql-pool-operation"></a>SQL 풀 작업의 상태를 확인합니다.
 
-SQL 풀의 상태를 확인하려면 [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용합니다.
+전용 SQL 풀(이전의 SQL DW)의 상태를 확인하려면 [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/Get-AzSqlDatabaseActivity?toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet을 사용합니다.
 
 ```Powershell
 Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlpoolservername" -DatabaseName "mySampleDataWarehouse"
@@ -115,7 +115,7 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-데이터 웨어하우스 단위 및 SQL 풀에 저장된 데이터에 대해 요금이 청구됩니다. 이러한 컴퓨팅 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다.
+전용 SQL 풀(이전의 SQL DW)에 저장된 데이터 웨어하우스 단위 및 데이터에 대해 요금이 청구됩니다. 이러한 컴퓨팅 및 스토리지 리소스에 대한 요금이 별도로 청구됩니다.
 
 - 스토리지에 데이터를 유지하려는 경우 컴퓨팅을 일시 중지합니다.
 - 앞으로 요금이 부과되지 않게 하려면 SQL 풀을 삭제하면 됩니다.
@@ -136,4 +136,4 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "myResourceGroup" -ServerName "sqlp
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 풀에 대해 자세히 알아보려면 [SQL 풀에 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md) 문서를 계속 진행하세요. 컴퓨팅 기능 관리에 대한 자세한 내용은 [컴퓨팅 관리 개요](sql-data-warehouse-manage-compute-overview.md) 문서를 참조하세요.
+SQL 풀에 대해 자세히 알아보려면 [전용 SQL 풀(이전의 SQL DW)에 데이터 로드](./load-data-from-azure-blob-storage-using-copy.md) 문서를 계속 진행하세요. 컴퓨팅 기능 관리에 대한 자세한 내용은 [컴퓨팅 관리 개요](sql-data-warehouse-manage-compute-overview.md) 문서를 참조하세요.

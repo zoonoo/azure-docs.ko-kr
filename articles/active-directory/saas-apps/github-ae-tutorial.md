@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99821648"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103196852"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>자습서: GitHub AE와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -101,9 +101,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **그룹 선택** 을 클릭하고 이 클레임을 포함할 **그룹** 을 검색합니다. 여기에서 멤버는 GHAE의 관리자여야 합니다.
 
-1. **원본** 에 대한 **특성** 을 선택하고 **값** 에 **true** 를 입력합니다. 
+1. **원본** 에 대한 **특성** 을 선택하고 **값** 에 **true**(따옴표 없이)를 입력합니다. 
 
-10. **저장** 을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
     ![클레임 관리](./media/github-ae-tutorial/administrator.png)
 
@@ -112,7 +112,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificateBase64.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
 1. **GitHub AE 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 

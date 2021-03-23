@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c8221a15ddd92276c105f1e441c8da722655d576
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 914fe0bbf04fa8835cbe96e5bbb83604f0d07bc2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444197"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622211"
 ---
 Computer Vision REST API를 사용하여 다음을 수행합니다.
 
@@ -40,17 +40,21 @@ Computer Vision REST API를 사용하여 다음을 수행합니다.
 다양한 시각적 기능을 위한 이미지를 분석하려면 다음 단계를 수행합니다.
 
 1. 다음 명령을 텍스트 편집기에 복사합니다.
+1. Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Computer Vision 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 구독 키와 엔드포인트를 찾을 수 있습니다.
 1. 필요한 경우 명령에서 다음 내용을 변경합니다.
-    1. `<subscriptionKey>`의 값을 구독 키로 바꿉니다.
-    1. 요청 URL(`westcentralus`)의 첫 번째 부분을 고유한 엔드포인트 URL의 텍스트로 바꿉니다.
+    1. `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE`의 값을 구독 키로 바꿉니다.
+    1. 요청 URL(`PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE`)의 첫 번째 부분을 고유한 Computer Vision 엔드포인트로 바꿉니다. Computer Vision 엔트포인트의 형식은 `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`입니다.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. 필요한 경우 요청 본문의 이미지 URL(`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`)을 분석할 다른 이미지의 URL로 변경합니다.
 1. 명령 프롬프트 창을 엽니다.
 1. 텍스트 편집기에서 명령 프롬프트 창으로 명령을 붙여넣은 후 명령을 실행합니다.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
+
+> [!IMPORTANT]
+> 완료되면 코드에서 구독 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../key-vault/general/overview.md)입니다.
 
 ### <a name="examine-the-response"></a>응답 검사
 

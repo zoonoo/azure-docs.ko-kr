@@ -1,21 +1,21 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
-author: dademath
-manager: nimag
+author: bertong
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
-ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.author: bertong
+ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757166"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622241"
 ---
 Communication Services JavaScript SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -53,7 +53,7 @@ mkdir sms-quickstart && cd sms-quickstart
 npm init -y
 ```
 
-텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **send-sms.js**라는 파일을 만듭니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
+텍스트 편집기를 사용하여 프로젝트 루트 디렉터리에 **send-sms.js** 라는 파일을 만듭니다. 이 빠른 시작의 모든 소스 코드를 다음 섹션의 이 파일에 추가합니다.
 
 ### <a name="install-the-package"></a>패키지 설치
 
@@ -72,14 +72,15 @@ npm install @azure/communication-sms --save
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | 이 클래스는 모든 SMS 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 SMS 메시지를 보내는 데 사용합니다. |
-| SendSmsOptions | 이 인터페이스는 전달 보고를 구성하는 옵션을 제공합니다. `enable_delivery_report`가 `true`로 설정되면 전달이 성공했을 때 이벤트를 내보냅니다. |
-| SendMessageRequest | 이 인터페이스는 sms 요청을 빌드하기 위한 모델입니다(예: 전화 번호와 sms 콘텐츠를 주고 받도록 구성). |
+| SmsSendResult               | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
+| SmsSendOptions | 이 인터페이스는 전달 보고를 구성하는 옵션을 제공합니다. `enableDeliveryReport`가 `true`로 설정된 경우 전달이 성공하면 이벤트를 내보냅니다. |
+| SmsSendRequest | 이 인터페이스는 sms 요청을 빌드하기 위한 모델입니다(예: 전화 번호와 sms 콘텐츠를 주고 받도록 구성). |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-클라이언트 라이브러리에서 **SmsClient**를 가져와서 연결 문자열로 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
+클라이언트 라이브러리에서 **SmsClient** 를 가져와서 연결 문자열로 인스턴스화합니다. 아래 코드는 `COMMUNICATION_SERVICES_CONNECTION_STRING`이라는 환경 변수에서 리소스에 대한 연결 문자열을 검색합니다. [리소스의 연결 문자열을 관리](../../create-communication-resource.md#store-your-connection-string)하는 방법을 알아봅니다.
 
-**send-sms.js**에 다음 코드를 추가합니다.
+**send-sms.js** 에 다음 코드를 추가합니다.
 
 ```javascript
 const { SmsClient } = require('@azure/communication-sms');
@@ -92,27 +93,66 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const smsClient = new SmsClient(connectionString);
 ```
 
-## <a name="send-an-sms-message"></a>SMS 메시지 보내기
+## <a name="send-a-1n-sms-message"></a>1:N SMS 메시지 보내기
 
-`send` 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **send-sms.js** 끝에 추가합니다.
+SMS 메시지를 수신자 목록에 보내려면 수신자 전화 번호 목록을 사용하여 SmsClient에서 `send` 함수를 호출합니다(단일 수신자에게 메시지를 보내려면 목록에 하나의 번호만 포함). 다음 코드를 **send-sms.js** 끝에 추가합니다.
 
 ```javascript
 async function main() {
-  await smsClient.send({
-    from: "<leased-phone-number>",
-    to: ["<to-phone-number>"],
-    message: "Hello World 👋🏻 via Sms"
-  }, {
-    enableDeliveryReport: true //Optional parameter
+  const sendResults = await smsClient.send({
+    from: "<from-phone-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Hello World 👋🏻 via SMS"
   });
+
+  // individual messages can encounter errors during sending
+  // use the "successful" property to verify
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success: ", sendResult);
+    } else {
+      console.error("Something went wrong when trying to send this message: ", sendResult);
+    }
+  }
+}
+
+main();
+```
+`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+## <a name="send-a-1n-sms-message-with-options"></a>옵션이 포함된 1:N SMS 메시지 보내기
+
+옵션 개체를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다.
+
+```javascript
+
+async function main() {
+  await smsClient.send({
+    from: "<from-phone-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Weekly Promotion!"
+  }, {
+    //Optional parameter
+    enableDeliveryReport: true,
+    tag: "marketing"
+  });
+
+  // individual messages can encounter errors during sending
+  // use the "successful" property to verify
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success: ", sendResult);
+    } else {
+      console.error("Something went wrong when trying to send this message: ", sendResult);
+    }
+  }
 }
 
 main();
 ```
 
-`<leased-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
-
 `enableDeliveryReport` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
+`tag`는 전달 보고서에 태그를 적용하는 데 사용할 수 있는 선택적 매개 변수입니다.
 
 ## <a name="run-the-code"></a>코드 실행
 

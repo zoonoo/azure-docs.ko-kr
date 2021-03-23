@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 9ceba84cb3bbe52dc5ba51d0f4945f5bad0a5034
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968501"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573987"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 배포 준비  
 
-이 문서는 Azure Stack Edge Pro를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Azure Stack Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다.
+이 문서는 Azure Stack Edge Pro를 완전히 배포하는 데 필요한 배포 자습서 시리즈 중 첫 번째 자습서입니다. 이 자습서에서는 Azure Stack Edge 리소스를 배포하기 위해 Azure Portal을 준비하는 방법에 대해 설명합니다. 
 
-설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.
+설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 포털 준비에는 10분 미만이 소요됩니다.  
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -37,7 +37,7 @@ Azure Stack Edge Pro를 배포하려면 다음 자습서를 지정된 순서대�
 
 | **#** | **단계** | **이러한 문서를 사용합니다.** |
 | --- | --- | --- | 
-| 1. |**[Azure Stack Edge Pro 배포를 위한 Azure Portal 준비](azure-stack-edge-deploy-prep.md)** |Azure Stack Edge 물리적 디바이스를 설치하기 전에 Azure Stack Edge 리소스를 만들고 구성합니다. |
+| 1. |**[Azure Stack Edge Pro 배포를 위한 Azure Portal 준비](azure-stack-edge-deploy-prep.md)** |Azure Stack Box Edge 물리적 디바이스를 설치하기 전에 Azure Stack Edge 리소스를 만들고 구성합니다. |
 | 2. |**[Azure Stack Edge Pro 설치](azure-stack-edge-deploy-install.md)**|Azure Stack Edge Pro 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결합니다.  |
 | 3. |**[Azure Stack Edge Pro 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)** |로컬 웹 UI에 연결하고 디바이스 설정을 완료한 다음, 디바이스를 활성화합니다. 디바이스에서 SMB 또는 NFS 공유를 설정할 준비가 되었습니다.  |
 | 4. |**[Azure Stack Edge Pro를 사용하여 데이터 전송](azure-stack-edge-deploy-add-shares.md)** |공유를 추가하고 SMB 또는 NFS를 통해 공유에 연결합니다. |
@@ -87,64 +87,64 @@ Azure Stack Edge Pro를 배포하려면 다음 자습서를 지정된 순서대�
   * 디바이스가 업데이트 상태를 유지하기 위한 10Mbps의 최소 다운로드 대역폭.
   * 파일을 전송하기 위한 20Mbps의 최소 전용 업로드 및 다운로드 대역폭.
 
-## <a name="create-a-new-resource"></a>새 리소스 만들기
+## <a name="create-new-resource-for-existing-device"></a>기존 디바이스에 대한 새 리소스 만들기
 
-물리적 디바이스를 관리할 수 있는 기존 Azure Stack Edge 리소스가 있으면 이 단계를 건너뛰고 [활성화 키 가져오기](#get-the-activation-key)로 이동합니다.
+기존 Azure Stack Edge Pro 고객인 경우 기존 디바이스를 교체하거나 다시 설정해야 하는 경우 다음 절차를 사용하여 새 리소스를 만듭니다.
 
-Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
+신규 고객인 경우 워크로드에 대한 Azure Stack Edge Pro - GPU 디바이스를 사용하여 탐색하는 것이 좋습니다. 자세한 내용은 [GPU를 사용하는 Edge Pro Azure Stack Pro란?](azure-stack-edge-gpu-overview.md)을 참조하세요. GPU 디바이스가 있는 Azure Stack Edge Pro를 주문하는 방법에 대한 자세한 내용은 [Azure Stack Edge Pro - GPU에 대한 새 리소스 만들기](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)를 참조하세요.
 
-1. Microsoft Azure 자격 증명을 사용하여 
+기존 디바이스에 대한 새 Azure Stack Edge Pro 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
+
+1. Microsoft Azure 자격 증명을 사용하여 다음에 로그인합니다.
 
     - URL [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인하거나
     - 또는 URL [https://portal.azure.us](https://portal.azure.us)에서 Azure Government 포털에 로그인합니다. 자세한 내용을 보려면 [포털을 사용하여 Azure Government에 연결](../azure-government/documentation-government-get-started-connect-with-portal.md)로 이동합니다.
 
-2. 왼쪽 창에서 **+ 리소스 만들기** 를 선택합니다. **Azure Stack Edge/Data Box Gateway** 를 검색하여 선택합니다. **만들기** 를 선택합니다.
-3. Azure Stack Edge Pro 디바이스에 사용하려는 구독을 선택합니다. Azure Stack Edge 리소스를 배포할 지역을 선택합니다. Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요.
+1. **+ 리소스 만들기** 를 선택합니다. **Azure Stack Edge** 를 검색하여 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 
-    디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. 지역에는 디바이스 관리용 메타데이터만 저장됩니다. 실제 데이터는 원하는 스토리지 계정에 저장할 수 있습니다.
+1. Azure Stack Edge Pro 디바이스에 대한 구독 및 **배송 대상** 에서 디바이스를 배송할 국가를 선택합니다.
+
+   ![디바이스에 대한 구독 및 배송 국가 선택](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
+
+
+1. 표시되는 디바이스 유형 목록에서 **Azure Stack Edge Pro - FPGA** 를 선택합니다. 그런 다음, **선택** 을 선택합니다. 
+
+   **Azure Stack Edge Pro - FPGA** 디바이스 유형은 기존 디바이스가 있는 경우에만 표시됩니다. 새 디바이스를 주문해야 하는 경우 [Azure Stack Edge Pro - GPU에 대한 새 리소스 만들기](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)로 이동합니다.
+
+   ![Azure Stack Edge 서비스 검색](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-02.png)
+
+1. **기본 사항** 탭에서 다음을 수행합니다.
+
+   1. 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
     
-    **Azure Stack Edge Pro** 옵션에서 **만들기** 를 선택합니다.
+       |설정  |값  |
+       |---------|---------|
+       |구독    |이 값은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
+       |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
 
-    ![Azure Stack Edge 서비스 검색](media/azure-stack-edge-deploy-prep/data-box-edge-sku.png)
+   1. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
 
-3. **기본 사항** 탭에서 다음 **프로젝트 세부 정보** 를 입력하거나 선택합니다.
-    
-    |설정  |값  |
-    |---------|---------|
-    |Subscription    |이 항목은 이전에 선택한 내용에 따라 자동으로 채워집니다. 구독은 청구 계정에 연결됩니다. |
-    |Resource group  |기존 그룹을 선택하거나 새 그룹을 만듭니다.<br>[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.     |
+       |설정  |값  |
+       |---------|---------|
+       |속성   | 리소스를 식별하기 위한 이름.<br>이름은 문자, 숫자 및 하이픈을 포함하여 2~50자입니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
+       |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
 
-4. 다음 **인스턴스 세부 정보** 를 입력하거나 선택합니다.
+   1. **검토 + 만들기** 를 선택합니다.
 
-    |설정  |값  |
-    |---------|---------|
-    |속성   | 리소스를 식별하기 위한 이름.<br>이름에는 문자, 숫자 및 하이픈을 포함하여 2~50자가 포함됩니다.<br> 이름은 문자 또는 숫자로 시작하고 끝납니다.        |
-    |지역     |Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.<br> 디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다.|
+    ![프로젝트 및 인스턴스 세부 정보](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-03.png)
 
-    ![프로젝트 및 인스턴스 세부 정보](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
+1. **검토 + 만들기** 탭에서 **사용 약관**, **가격 세부 정부** 및 리소스에 대한 세부 정보를 검토합니다. 그런 다음 **만들기** 를 선택합니다.
 
-5. 완료되면 **다음: 배송 주소** 를 선택합니다.
+    ![Azure Stack Edge 리소스 세부 정보 및 개인정보처리방침 검토](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-04.png)
 
-    - 디바이스가 이미 있는 경우 **I have a Azure Stack Edge Pro device**(Azure Stack Edge Pro 디바이스가 있습니다) 콤보 상자를 선택합니다.
-    - 이 디바이스가 지금 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
+1. 리소스 생성에는 몇 분 정도가 소요됩니다. 리소스가 생성되고 배포된 후에는 알림이 표시됩니다. **리소스로 이동** 을 선택합니다.
 
-    ![새 디바이스의 배송 주소](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
+   ![Azure Stack Edge 리소스로 이동](media/azure-stack-edge-deploy-prep/data-box-edge-resource-01.png)
 
-6. 완료되면 **다음: 리뷰 + 만들기** 를 클릭합니다.
+주문이 완료되면 Microsoft에서 주문을 검토하고 배송 세부 정보가 포함된 이메일을 통해 연락을 드립니다.
 
-7. **검토 + 만들기** 탭에서 **가격 책정 세부 정보**, **사용 약관** 및 리소스 세부 정보를 살펴봅니다. **I have reviewed the privacy terms**(개인정보처리방침을 검토했습니다) 콤보 상자를 선택합니다.
+![Azure Stack Edge Pro 주문 검토 알림](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
 
-    ![Azure Stack Edge 리소스 세부 정보 및 개인정보처리방침 검토](media/azure-stack-edge-deploy-prep/data-box-edge-resource2.png)
-
-8. **만들기** 를 선택합니다.
-
-리소스 생성에는 몇 분 정도가 소요됩니다. 리소스가 생성되고 배포된 후에는 알림이 표시됩니다. **리소스로 이동** 을 선택합니다.
-
-![Azure Stack Edge 리소스로 이동](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
-
-주문이 완료되면 Microsoft에서 주문을 검토한 후 배송 세부 정보가 포함된 이메일을 통해 연락을 드립니다.
-
-![Azure Stack Edge Pro 주문 검토 알림](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
 
 ## <a name="get-the-activation-key"></a>활성화 키 가져오기
 
@@ -152,7 +152,7 @@ Azure Stack Edge 리소스가 가동되면 활성화 키를 가져와야 합니�
 
 1. 사용자가 만든 리소스로 이동하여 **개요** 를 선택합니다. 주문이 처리 중이라는 알림이 표시됩니다.
 
-    ![개요 선택](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![개요 선택](media/azure-stack-edge-deploy-prep/data-box-edge-select-device-setup.png)
 
 2. 주문이 처리되고 디바이스가 사용 중이면 **개요** 가 업데이트됩니다. 기본 **Azure Key Vault 이름** 을 적용하거나 새 이름을 입력합니다. **활성화 키 생성** 을 선택합니다. 복사 아이콘을 선택하여 키를 복사하고 나중에 사용할 수 있도록 저장합니다.
 

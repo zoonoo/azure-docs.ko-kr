@@ -1,21 +1,21 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
-author: dademath
-manager: nimag
+author: peiliu
+manager: rejooyan
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
-ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.author: peiliu
+ms.openlocfilehash: 96cdeb7c35cd1ccd503f7ce01e1098a6b83884c3
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816594"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622335"
 ---
 Communication Services C# SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -27,7 +27,7 @@ Communication Services C# SMS 클라이언트 라이브러리를 사용하여 SM
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)
 - 활성 Communication Services 리소스 및 연결 문자열 [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
 - SMS 지원 전화 번호입니다. [전화 번호를 가져옵니다](../get-phone-number.md).
@@ -59,13 +59,17 @@ dotnet build
 애플리케이션 디렉터리에 있는 동안 `dotnet add package` 명령을 사용하여 .NET 패키지용 Azure Communication Services SMS 클라이언트 라이브러리를 설치합니다.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
 ```
 
 **Program.cs** 의 맨 위에 `using` 지시어를 추가하여 `Azure.Communication` 네임스페이스를 포함합니다.
 
 ```csharp
 
+using System;
+using System.Collections.Generic;
+
+using Azure;
 using Azure.Communication;
 using Azure.Communication.Sms;
 
@@ -78,7 +82,8 @@ using Azure.Communication.Sms;
 | 이름                                       | 설명                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SmsClient     | 이 클래스는 모든 SMS 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 SMS 메시지를 보내는 데 사용합니다.                           |
-| SendSmsOptions | 이 클래스는 전달 보고를 구성하는 옵션을 제공합니다. enable_delivery_report가 True로 설정되면 전달이 성공했을 때 이벤트를 내보냅니다. |
+| SmsSendResult               | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
+| SmsSendOptions | 이 클래스는 전달 보고를 구성하는 옵션을 제공합니다. enable_delivery_report가 True로 설정되면 전달이 성공했을 때 이벤트를 내보냅니다. |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -93,22 +98,43 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 SmsClient smsClient = new SmsClient(connectionString);
 ```
 
-## <a name="send-an-sms-message"></a>SMS 메시지 보내기
+## <a name="send-a-11-sms-message"></a>1:1 SMS 메시지 보내기
 
-Send 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **Program.cs** 에서 `Main` 메서드의 끝에 추가합니다.
+SMS 메시지를 단일 수신자에게 보내려면 SmsClient에서 `Send` 또는 `SendAsync` 함수를 호출합니다. 다음 코드를 **Program.cs** 에서 `Main` 메서드의 끝에 추가합니다.
 
 ```csharp
-smsClient.Send(
-    from: new PhoneNumber("<leased-phone-number>"),
-    to: new PhoneNumber("<to-phone-number>"),
-    message: "Hello World via SMS",
-    new SendSmsOptions { EnableDeliveryReport = true } // optional
+SmsSendResult sendResult = smsClient.Send(
+    from: "<from-phone-number>", // Your E.164 formatted from phone number used to send SMS
+    to: "<to-phone-number>", // E.164 formatted recipient phone number
+    message: "Hello World via SMS"
 );
+
+Console.WriteLine($"Sms id: {sendResult.MessageId}");
+```
+`<from-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
+
+## <a name="send-a-1n-sms-message-with-options"></a>옵션이 포함된 1:N SMS 메시지 보내기
+SMS 메시지를 수신자 목록에 보내려면 수신자의 전화 번호 목록이 포함된 SmsClient에서 `Send` 또는 `SendAsync` 함수를 호출합니다. 선택적 매개 변수를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다.
+
+```csharp
+Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
+    from: "<from-phone-number>", // Your E.164 formatted from phone number used to send SMS
+    to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" }, // E.164 formatted recipient phone numbers
+    message: "Weekly Promotion!",
+    options: new SmsSendOptions(enableDeliveryReport: true) // OPTIONAL
+    {
+        Tag = "marketing", // custom tags
+    });
+
+IEnumerable<SmsSendResult> results = response.Value;
+foreach (SmsSendResult result in results)
+{
+    Console.WriteLine($"Sms id: {result.MessageId}");
+    Console.WriteLine($"Send Result Successful: {result.Successful}");
+}
 ```
 
-`<leased-phone-number>`를 Communication Services 리소스와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다.
-
-`EnableDeliveryReport` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
+`enableDeliveryReport` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
 
 ## <a name="run-the-code"></a>코드 실행
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786642"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563592"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Azure Data Box Gateway란?
 
@@ -87,7 +87,7 @@ Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가�
 
 ## <a name="region-availability"></a>지역 가용성
 
-데이터를 전송하는 Data Box Gateway 물리적 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 동일한 Azure 지역에 있지 않아도 됩니다.
+데이터를 전송하는 Data Box Gateway 디바이스, Azure 리소스 및 대상 스토리지 계정이 모두 동일한 Azure 지역에 있지 않아도 됩니다.
 
 - **리소스 가용성** - Azure Data Box Gateway 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox)으로 이동합니다. Data Box Gateway는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](../azure-government/documentation-government-welcome.md)을 참조하세요.
 

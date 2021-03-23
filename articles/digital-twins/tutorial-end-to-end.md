@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424579"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634977"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -120,6 +120,8 @@ NuGet 패키지 관리자가 열립니다. *업데이트* 탭을 선택하고 �
 _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아가서 *솔루션 탐색기* 창에서 _**SampleFunctionsApp**_ 프로젝트를 찾습니다.
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+함수 앱이 Azure Digital Twins에 액세스할 수 있으려면 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있는 시스템 관리 ID가 있어야 합니다. 이는 다음에 설정하게 됩니다.
 
 ### <a name="assign-permissions-to-the-function-app"></a>함수 앱에 사용 권한 할당
 

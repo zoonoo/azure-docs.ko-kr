@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f267b4909817e89444883403bef6662771332ad
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ea097119111d5dbd5eba3c11aba549d201186e3f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550881"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592186"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,11 +32,11 @@ Azure SQL은 친숙한 SQL Server 엔진에 기반하기 때문에 애플리케�
 
 각 제품이 Microsoft의 Azure SQL 데이터 플랫폼에 어떻게 부합하는지 알아보고 비즈니스 요구 사항에 적합한 옵션을 찾아보세요. 비용 절감이 우선이든 관리 최소화가 중요하든 이 문서에서는 가장 관심 있는 비즈니스 요구 사항에 대해 어떤 접근 방식이 결과를 가져오는지 결정하도록 도울 수 있습니다.
 
-
 Azure SQL을 처음 접하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure SQL이란?* 비디오를 확인하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-
+> [!TIP]
+> Azure SQL을 더 잘 활용하려면 어떻게 해야 하나요? [설문 조사를 수행하세요](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="overview"></a>개요
 

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 967a7d9a78b5edd0c4e5b60545520baef635b340
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5dc4e38eb0e29cc9fa272f6e740fcc7d1dbfe44a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376473"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619211"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -33,7 +33,7 @@ Xcode에서 새 프로젝트를 만듭니다.
 
 ![새 프로젝트 - Swift](../../media/ios/xcode-create-project.png)
 
-**단일 보기 앱**을 선택합니다.
+**단일 보기 앱** 을 선택합니다.
 
 ![새 단일 보기 앱 - Swift](../../media/ios/xcode-single-view-app.png)
 
@@ -58,7 +58,7 @@ SUBDOMAIN=<YOUR_SUBDOMAIN>
 
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>스토리보드 없이 실행되도록 앱 설정
 
-*AppDelegate.swift*를 열고 파일을 다음 코드로 바꿉니다.
+*AppDelegate.swift* 를 열고 파일을 다음 코드로 바꿉니다.
 
 ```swift
 import UIKit
@@ -109,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## <a name="create-the-view-controllers-and-add-sample-content"></a>보기 컨트롤러 만들기 및 샘플 콘텐츠 추가
 
-*ViewController.swift*의 이름을 *LaunchViewController.swift*로 바꾸고 파일을 다음 코드로 바꿉니다.
+*ViewController.swift* 의 이름을 *LaunchViewController.swift* 로 바꾸고 파일을 다음 코드로 바꿉니다.
 
 ```swift
 import UIKit
@@ -258,7 +258,7 @@ class LaunchViewController: UIViewController {
 }
 ```
 
-새 파일을 *ImmersiveReaderViewController.swift*라는 프로젝트 루트 폴더에 추가하고 다음 코드를 추가합니다.
+새 파일을 *ImmersiveReaderViewController.swift* 라는 프로젝트 루트 폴더에 추가하고 다음 코드를 추가합니다.
 
 ```swift
 import UIKit
@@ -437,7 +437,7 @@ extension ImmersiveReaderViewController: WKScriptMessageHandler {
 }
 ```
 
-새 파일을 *LaunchImmersiveReader.swift*라는 프로젝트 루트 폴더에 추가하고 다음 코드를 추가합니다.
+새 파일을 *LaunchImmersiveReader.swift* 라는 프로젝트 루트 폴더에 추가하고 다음 코드를 추가합니다.
 
 ```swift
 import UIKit
@@ -527,7 +527,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 }
 ```
 
-*iFrameMessaging.js*라는 *리소스* 폴더에 파일을 추가하고 다음 코드를 추가합니다.
+*iFrameMessaging.js* 라는 *리소스* 폴더에 파일을 추가하고 다음 코드를 추가합니다.
 
 ```javascript
 window.addEventListener("message", function(message) {
@@ -561,7 +561,7 @@ function sendContentToReader(message) {
 
 ![대상 선택 - Swift](../../media/ios/xcode-select-target.png)
 
-Xcode에서 **Ctrl+R**을 누르거나 재생 단추를 클릭하여 프로젝트를 실행합니다. 지정된 시뮬레이터 또는 디바이스에서 앱이 시작됩니다.
+Xcode에서 **Ctrl+R** 을 누르거나 재생 단추를 클릭하여 프로젝트를 실행합니다. 지정된 시뮬레이터 또는 디바이스에서 앱이 시작됩니다.
 
 앱에서 다음과 같이 표시됩니다.
 
@@ -573,4 +573,5 @@ Xcode에서 **Ctrl+R**을 누르거나 재생 단추를 클릭하여 프로젝�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../../reference.md) 살펴보기
+> [!div class="nextstepaction"]
+> [리소스 만들기 및 AAD 구성](../../how-to-create-immersive-reader.md)

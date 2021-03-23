@@ -1,21 +1,21 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
-author: danieldoolabh
-manager: nimag
+author: lakshmans
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/03/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dadoolab
-ms.openlocfilehash: a24d9531b7b2d2d2f31eec275da7db7e48b9c74a
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.author: lakshmans
+ms.openlocfilehash: e8424f6b5b7617b00de6dedbece3325f3c5513c8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615875"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622086"
 ---
 Communication Services Python SMS 클라이언트 라이브러리를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작하세요.
 
@@ -51,8 +51,6 @@ mkdir sms-quickstart && cd sms-quickstart
 
 ```python
 import os
-from azure.communication.sms import PhoneNumber
-from azure.communication.sms import SendSmsOptions
 from azure.communication.sms import SmsClient
 
 try:
@@ -76,8 +74,8 @@ pip install azure-communication-sms --pre
 
 | 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| SmsClient | 이 클래스는 모든 SMS 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 SMS 메시지를 보내는 데 사용합니다. |
-| SendSmsOptions | 이 클래스는 전달 보고를 구성하는 옵션을 제공합니다. enable_delivery_report가 True로 설정되면 전달이 성공했을 때 이벤트를 내보냅니다. |
+| SmsClient | 이 클래스는 모든 SMS 기능에 필요합니다. 구독 정보를 사용하여 인스턴스화하고 SMS 메시지를 보내는 데 사용합니다.                                                                                                                 |
+| SmsSendResult               | 이 클래스는 SMS 서비스의 결과를 포함합니다.                                          |
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -92,24 +90,47 @@ connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
 sms_client = SmsClient.from_connection_string(connection_string)
 ```
 
-## <a name="send-an-sms-message"></a>SMS 메시지 보내기
+## <a name="send-a-11-sms-message"></a>1:1 SMS 메시지 보내기
 
-Send 메서드를 호출하여 SMS 메시지를 보냅니다. 다음 코드를 **send-sms.py** 의 `try` 블록 끝에 추가합니다.
+단일 수신자에게 SMS 메시지를 보내려면 단일 수신자 전화 번호로 **SmsClient** 에서 ```send``` 메서드를 호출합니다. 선택적 매개 변수를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다. 다음 코드를 **send-sms.py** 의 `try` 블록 끝에 추가합니다.
 
 ```python
 
 # calling send() with sms values
-sms_response = sms_client.send(
-        from_phone_number=PhoneNumber("<leased-phone-number>"),
-        to_phone_numbers=[PhoneNumber("<to-phone-number>")],
-        message="Hello World via SMS",
-        send_sms_options=SendSmsOptions(enable_delivery_report=True)) # optional property
+sms_responses = sms_client.send(
+    from_="<from-phone-number>",
+    to="<to-phone-number>,
+    message="Hello World via SMS",
+    enable_delivery_report=True, # optional property
+    tag="custom-tag") # optional property
 
 ```
 
-`<leased-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다. 
+`<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number>`를 메시지를 보낼 전화 번호로 바꿔야 합니다. 
 
-`send_sms_options` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
+## <a name="send-a-1n-sms-message"></a>1:N SMS 메시지 보내기
+
+SMS 메시지를 수신자 목록에 보내려면 수신자의 전화 번호 목록이 포함된 **SmsClient** 에서 ```send``` 메서드를 호출합니다. 선택적 매개 변수를 전달하여 전달 보고서를 사용하도록 설정할지 여부를 지정하고 사용자 지정 태그를 설정할 수도 있습니다. 다음 코드를 **send-sms.py** 의 `try` 블록 끝에 추가합니다.
+
+```python
+
+# calling send() with sms values
+sms_responses = sms_client.send(
+    from_="<from-phone-number>",
+    to=["<to-phone-number-1>", "<to-phone-number-2>"],
+    message="Hello World via SMS",
+    enable_delivery_report=True, # optional property
+    tag="custom-tag") # optional property
+
+```
+
+`<from-phone-number>`를 Communication Services와 연결된 SMS 지원 전화 번호로 바꾸고, `<to-phone-number-1>` 및 `<to-phone-number-2>`를 메시지를 보낼 전화 번호로 바꿔야 합니다. 
+
+## <a name="optional-parameters"></a>선택적 매개 변수
+
+`enable_delivery_report` 매개 변수는 전달 보고를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다. 이 기능은 SMS 메시지가 전달될 때 이벤트를 내보내려는 시나리오에 유용합니다. SMS 메시지에 대한 전달 보고를 구성하려면 [SMS 이벤트 처리](../handle-sms-events.md)를 참조하세요.
+
+`tag` 매개 변수는 사용자 지정 태그를 구성하는 데 사용할 수 있는 선택적 매개 변수입니다.
 
 ## <a name="run-the-code"></a>코드 실행
 

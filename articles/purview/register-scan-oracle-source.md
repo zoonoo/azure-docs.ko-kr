@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696072"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010458"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Oracle 원본 등록 및 검사(미리 보기)
 
@@ -31,7 +31,7 @@ Oracle 원본은 Oracle 데이터베이스에서 메타데이터를 추출할 �
 
 3.  자체 호스팅 통합 런타임 컴퓨터에 \"Visual C++ 재배포 가능 패키지 2012 업데이트 4\"가 설치되어 있는지 확인합니다. 아직 설치되지 않은 경우 [여기](https://www.microsoft.com/download/details.aspx?id=30679)에서 다운로드하세요.
 
-4.  자체 호스팅 통합 런타임이 실행되는 가상 머신에서 'oracle.jdbc.driver.OracleDriver\'라는 Oracle JDBC 드라이버를 수동으로 다운로드해야 합니다.
+4.  [여기](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html)에서 자체 호스팅 통합 런타임이 실행되는 가상 머신에서 Oracle JDBC 드라이버를 수동으로 다운로드해야 합니다.
 
     > [!Note] 
     > VM의 모든 계정에서 드라이버에 액세스할 수 있어야 합니다. 사용자 계정에는 설치하지 마세요.

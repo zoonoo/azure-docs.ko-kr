@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367506"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616403"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -356,6 +356,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 7. *사용자 고유의 인증서 가져오기로 인증서를 갱신하는 방법*
 
     최신 인증서가 PoP 인프라에 배포되었는지 확인하려면 새 인증서를 Azure KeyVault에 업로드합니다. Azure CDN의 TLS 설정에서 최신 인증서 버전을 선택하고 저장을 선택합니다. 그러면 Azure CDN이 새로 업데이트된 인증서를 전파합니다. 
+
+8. *엔드포인트가 다시 시작된 후 HTTPS를 다시 사용하도록 설정해야 하나요?*
+
+    예. **Akamai의 Azure CDN** 을 사용하는 경우 엔드포인트가 중지되었다가 다시 시작되는 경우 설정이 이전에 활성화된 경우 HTTPS 설정을 다시 활성화해야 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,15 +2,15 @@
 title: 자습서 - Azure Resource Manager Bicep 파일에 매개 변수 추가
 description: 재사용 가능하도록 Bicep 파일에 매개 변수를 추가합니다.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 603aa8f8bdb8136f4418d8f9a77bb40ec39243c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00df2ffc6272011127c5a1eb0c1e302011f8de5f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742971"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632784"
 ---
 # <a name="tutorial-add-parameters-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 매개 변수 추가
 
@@ -34,7 +34,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 ## <a name="make-bicep-file-reusable"></a>Bicep 파일을 다시 사용할 수 있도록 설정
 
-Bicep 파일을 재사용할 수 있도록 스토리지 계정 이름을 전달하는 데 사용할 수 있는 매개 변수를 추가하겠습니다. 다음 예제에서 강조 표시되어 있는 Bicep은 템플릿에서 변경된 내용을 보여줍니다. `storageName` 매개 변수는 문자열로 식별됩니다. 이름이 너무 길지 않도록 최대 길이는 24자로 설정됩니다.
+Bicep 파일을 재사용할 수 있도록 스토리지 계정 이름을 전달하는 데 사용할 수 있는 매개 변수를 추가하겠습니다. 다음 Bicep 파일은 파일에서 변경된 사항을 보여줍니다. `storageName` 매개 변수는 문자열로 식별됩니다. 이름이 너무 길지 않도록 최대 길이는 24자로 설정됩니다.
 
 전체 파일을 복사하고 다음 내용으로 바꿉니다.
 

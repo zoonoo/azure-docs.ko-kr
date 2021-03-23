@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/12/2020
+ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: f9e4af3330ecf5fbe161f7ba92ddf96eb04880a1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1996024d163a4bf7cfa741110038bb8db5b883e8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "99821572"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632749"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>자습서: BeyondTrust Remote Support와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -51,7 +51,7 @@ BeyondTrust Remote Support의 Azure AD 통합을 구성하려면 갤러리의 Be
 1. **갤러리에서 추가** 섹션의 검색 상자에 **BeyondTrust Remote Support** 를 입력합니다.
 1. 결과 패널에서 **BeyondTrust Remote Support** 를 선택하고 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>BeyondTrust Remote Support용 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-beyondtrust-remote-support"></a>BeyondTrust Remote Support에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 BeyondTrust Remote Support에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 BeyondTrust Remote Support의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
@@ -76,14 +76,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<HOSTNAME>.bomgar.com/saml` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<HOSTNAME>.bomgar.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<HOSTNAME>.bomgar.com` 패턴을 사용하는 URL을 입력합니다.
-
-    다. **회신 URL** 텍스트 상자에서 `https://<HOSTNAME>.bomgar.com/saml/sso` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<HOSTNAME>.bomgar.com/saml/sso` 패턴을 사용하여 URL을 입력합니다.
+    
+    다. **로그인 URL** 텍스트 상자에서 `https://<HOSTNAME>.bomgar.com/saml` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값은 자습서의 뒷부분에서 설명합니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값은 자습서의 뒷부분에서 설명합니다.
 
 1. BeyondTrust Remote Support 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -91,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 BeyondTrust Remote Support 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 |  원본 특성|
+    | Name |  원본 특성|
     | ---------------| ----------|
     | 사용자 이름 | user.userprincipalname |
     | FirstName | user.givenname |
@@ -167,6 +167,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-beyondtrust-remote-support-test-user"></a>BeyondTrust Remote Support 테스트 사용자 만들기
 
+이 섹션에서는 BeyondTrust Remote Support에서 Britta Simon이라는 사용자를 만듭니다. BeyondTrust Remote Support는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. BeyondTrust Remote Support에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+
+BeyondTrust Remote Support를 구성하는 데 필수인 다음 절차를 따르세요.
+
 여기서는 사용자 프로비저닝 설정을 구성하겠습니다. 이 섹션에 사용되는 값은 Azure Portal의 **사용자 특성 및 클레임** 섹션에서 참조됩니다. 이 값을 생성 시 가져오는 기본값으로 구성했지만, 필요한 경우 값을 사용자 지정할 수 있습니다.
 
 ![스크린샷은 사용자 값을 구성할 수 있는 사용자 프로비전 설정을 보여줍니다.](./media/bomgarremotesupport-tutorial/user-attribute.png)
@@ -174,7 +178,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 > [!NOTE]
 > 그룹 및 이메일 특성은 이 구현에 필요하지 않습니다. Azure AD 그룹을 활용하고 사용 권한에 대한 BeyondTrust Remote Support 그룹 정책에 할당할 때 그룹의 개체 ID는 Azure Portal에서 속성을 통해 참조해야 하며 '사용 가능한 그룹' 섹션에 배치해야 합니다. 이 작업이 완료되면 개체 ID/AD 그룹을 사용 권한에 대한 그룹 정책에 할당하는 데 사용할 수 있습니다.
 
-![스크린샷은 멤버 자격 유형, 원본, 형식 및 개체 ID가 있는 IT 섹션을 보여줍니다.](./media/bomgarremotesupport-tutorial/config-user2.png)
+![스크린샷은 멤버 자격 유형, 원본, 형식 및 개체 ID가 있는 IT 섹션을 보여줍니다.](./media/bomgarremotesupport-tutorial/config-user-2.png)
 
 ![스크린샷은 그룹 정책에 대한 기본 설정 페이지를 보여줍니다.](./media/bomgarremotesupport-tutorial/group-policy.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449699"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489899"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 
@@ -39,9 +39,9 @@ Azure IoT Hub에 있는 모듈 쌍의 일반적인 개념에 대한 자세한 �
 
 Defender for IoT는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 대한 _azureiotsecurity_ 라는 보안 모듈 쌍을 유지 관리합니다.
 
-보안 모듈 쌍에는 각 디바이스에 대한 디바이스 보안과 관련된 모든 정보가 포함되어 있습니다.
+Defender-IoT-micro-agent 쌍에는 각 디바이스에 대한 디바이스 보안과 관련된 모든 정보가 포함되어 있습니다.
 
-Defender for IoT 기능을 최대한 활용하려면 서비스 내 모든 디바이스에 대해 이 보안 모듈 쌍을 만들고, 구성하고, 사용해야 합니다.
+Defender for IoT 기능을 최대한 활용하려면 서비스 내 모든 디바이스에 대해 이 Defender-IoT-micro-agent 쌍을 만들고, 구성하고, 사용해야 합니다.
 
 ## <a name="create-azureiotsecurity-module-twin"></a>azureiotsecurity 모듈 쌍 만들기
 

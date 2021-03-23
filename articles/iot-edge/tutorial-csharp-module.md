@@ -9,18 +9,20 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 71bfc84eb50521aef72f78b482bddda112c00c6c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 01b30fed23b33719f08e93907075eee757343b1c
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964374"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461745"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C# IoT Edge 모듈 개발
+# <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 C# IoT Edge 모듈 개발
 
-Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 '시뮬레이션된 디바이스에 Azure IoT Edge 배포'에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행하는 디바이스에 배포합니다.
+
+비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 빠른 시작에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용하겠습니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -35,9 +37,9 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서는 **Visual Studio Code** 를 사용하여 **C#** 에서 모듈을 개발하고 **Linux 디바이스** 에 배포하는 방법을 보여 줍니다. Windows 디바이스용 모듈을 개발하는 경우 대신, [개발Windows 디바이스용 C# IoT Edge 모듈 개발](tutorial-csharp-module-windows.md)로 이동합니다.
+이 자습서에서는 **Visual Studio Code** 를 사용하여 **C#** 에서 모듈을 개발하고 IoT Edge 디바이스에 배포하는 방법을 보여줍니다. Windows 컨테이너를 사용하여 모듈을 개발하는 경우 대신 [Windows 컨테이너를 사용하여 C# IoT Edge 개발](tutorial-csharp-module-windows.md)로 이동합니다.
 
-다음 표를 사용하여 C# 모듈을 개발하고 Linux에 배포하기 위한 옵션을 파악할 수 있습니다.
+Linux 컨테이너를 사용하여 C# 모듈을 개발하고 배포하기 위한 옵션을 이해하려면 다음 표를 사용합니다.
 
 | C# | Visual Studio Code | Visual Studio |
 | -- | ------------------ | ------------- |
@@ -47,10 +49,10 @@ Visual Studio Code를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 �
 >[!NOTE]
 >Linux ARM64 디바이스 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
-이 자습서를 시작하기 전에 이전 자습서를 진행하면서 개발 환경을 설정하고, [Linux 디바이스용 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)했어야 합니다. 이 자습서를 완료한 후에는 다음과 같은 필수 구성 요소를 갖추어야 합니다.
+이 자습서를 시작하기 전에 이전 자습서를 통해 개발 환경을 설정하고 [Linux 컨테이너를 사용하여 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)해야 합니다. 이 자습서를 완료한 후에는 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

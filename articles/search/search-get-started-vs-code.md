@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Visual Studio Code 시작'
+title: '빠른 시작: Visual Studio Code를 사용하여 Azure Cognitive Search 시작'
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search용 Visual Studio Code 확장을 설치하고 사용하는 방법을 알아봅니다.
 author: dereklegenzoff
@@ -7,21 +7,19 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: 7a613dd6cba55831b02a60f833088b6c34bfc4a7
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 03/10/2021
+ms.openlocfilehash: 3237a32a90e3964644ff84958a065656cdf7f3ab
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122696"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015848"
 ---
-# <a name="get-started-with-visual-studio-code-and-azure-cognitive-search"></a>Visual Studio Code 및 Azure Cognitive Search 시작
+# <a name="get-started-with-azure-cognitive-search-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Cognitive Search 시작
 
-이 문서에서는 [Azure Cognitive Search REST API](/rest/api/searchservice) 및 요청을 보내고 받기 위한 API 클라이언트를 사용하여 REST API 요청을 대화형으로 작성하는 방법을 설명합니다. API 클라이언트와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 보내고 응답을 볼 수 있습니다.
+이 문서에서는 [Azure Cognitive Search REST API](/rest/api/searchservice) 및 [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)를 사용하여 REST API 요청을 대화형으로 작성하는 방법을 설명합니다. [Azure Cognitive Search(미리 보기)용 Visual Studio 코드 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) 및 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 보내고 응답을 볼 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-이 문서에서는 Azure Cognition Search REST API용 Visual Studio Code 확장(미리 보기)을 사용합니다.
 
 > [!IMPORTANT] 
 > 이 기능은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
@@ -35,18 +33,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 + [Visual Studio Code용 Azure Cognitive Search(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
 
 + [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
-
-## <a name="copy-a-key-and-url"></a>키 및 URL 복사
-
-REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
-
-1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
-
-1. **설정** > **키** 에서 서비스에 대한 모든 권한의 관리자 키를 가져옵니다. 교체 가능한 두 개의 관리자 키가 있으며, 하나를 롤오버해야 하는 경우 비즈니스 연속성을 위해 다른 하나가 제공됩니다. 개체 추가, 수정 및 삭제 요청 시 기본 또는 보조 키를 사용할 수 있습니다.
-
-![HTTP 엔드포인트 및 액세스 키 가져오기](media/search-get-started-rest/get-url-key.png "HTTP 엔드포인트 및 액세스 키 가져오기")
-
-모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
 ## <a name="install-the-extension"></a>확장 설치
 

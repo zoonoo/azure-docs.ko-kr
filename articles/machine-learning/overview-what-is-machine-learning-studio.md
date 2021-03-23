@@ -9,12 +9,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
 adobe-target: true
-ms.openlocfilehash: 320840277483776dfc74b98ab70410503008df67
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 48c4b2a73628ab2105e23054d747e28acc105d01
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374238"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563194"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -76,31 +76,26 @@ ms.locfileid: "100374238"
 
 ## <a name="ml-studio-classic-vs-azure-machine-learning-studio"></a>ML Studio(클래식) 및 Azure Machine Learning 스튜디오
 
-2015년에 출시된 **ML Studio(클래식)** 는 첫 번째 끌어서 놓기 기계 학습 작성기였습니다. 시각적 환경만 제공하는 독립 실행형 서비스입니다. Studio(클래식)는 Azure Machine Learning과 상호 운용되지 않습니다.
+2015년에 출시된 **ML Studio(클래식)** 는 첫 번째 끌어서 놓기 기계 학습 작성기였습니다. 
+
+**ML Studio(클래식)** 는 시각적 환경만 제공하는 독립 실행형 서비스입니다. Studio(클래식)는 Azure Machine Learning과 상호 운용되지 않습니다.
 
 **Azure Machine Learning** 은 완전한 데이터 과학 플랫폼을 제공하는 별도의 현대화된 서비스입니다. 코드 우선 및 낮은 코드 환경을 모두 지원합니다.
 
 **Azure Machine Learning 스튜디오** 는 프로젝트 작성 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션이 포함된 Azure Machine Learning *의* 웹 포털입니다. 
 
-새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning** 을 선택하는 것이 좋습니다.
+새로운 사용자는 최신 데이터 과학 도구 범위에 ML Studio(클래식) 대신 **Azure Machine Learning** 을 선택하는 것이 좋습니다. 기존 ML Studio(클래식) 사용자인 경우 [Azure Machine Learning으로 마이그레이션](classic/migrate-overview.md)하는 것이 좋습니다.
+
+Azure Machine Learning으로 전환하면 다음과 같은 이점이 있습니다.
+
+- 대규모 학습을 위한 확장 가능한 컴퓨팅 클러스터.
+- 엔터프라이즈 보안 및 거버넌스.
+- 인기 있는 오픈 소스 도구와 상호 운용할 수 있습니다.
+- 엔드투엔드 MLOps.
 
 ### <a name="feature-comparison"></a>기능 비교
 
-다음 표에는 ML Studio(클래식)와 Azure Machine Learning 간에 주요 차이점이 요약되어 있습니다.
-
-| 기능 | ML Studio(클래식) | Azure Machine Learning |
-|---| --- | --- |
-| 끌어서 놓기 인터페이스 | 클래식 환경 | 환경이 업데이트됨 - [Azure Machine Learning 디자이너](concept-designer.md)| 
-| 코드 SDK | 지원되지 않음 | [Azure Machine Learning Python](/python/api/overview/azure/ml/) 및 [R](https://github.com/Azure/azureml-sdk-for-r) SDK와 완전히 통합됨 |
-| 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
-| 컴퓨팅 대상 학습 | 전용 컴퓨팅 대상, CPU만 지원 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 학습](concept-compute-target.md#train). GPU 및 CPU 지원 포함 | 
-| 컴퓨팅 대상 배포 | 전용 웹 서비스 형식, 사용자 지정 불가능 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 배포](concept-compute-target.md#deploy). GPU 및 CPU 지원 포함 |
-| ML 파이프라인 | 지원되지 않음 | 유연한 모듈식 [파이프라인](concept-ml-pipelines.md)을 빌드하여 워크플로 자동화 |
-| MLOps | 기본 모델 관리 및 배포, CPU 전용 배포 | 엔터티 버전 관리(모델, 데이터, 워크플로), 워크플로 자동화, CICD 도구와의 통합, CPU 및 GPU 배포 [등](concept-model-management-and-deployment.md) |
-| 모델 형식 | 전용 형식, Studio(클래식)만 해당 | 학습 작업 유형에 따라 지원되는 여러 형식 |
-| 자동화된 모델 학습 및 하이퍼 매개변수 튜닝 |  지원되지 않음 | [지원됨](concept-automated-ml.md)이라는 의미입니다. 코드 우선 및 코드 없음 옵션. | 
-| 데이터 드리프트 검색 | 지원되지 않음 | [지원됨](how-to-monitor-datasets.md) |
-| 데이터 레이블 지정 프로젝트 | 지원되지 않음 | [지원됨](how-to-create-labeling-projects.md) |
+[!INCLUDE [aml-compare-classic](../../includes/machine-learning-compare-classic-aml.md)]
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -5,15 +5,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 30b075cfbd7d38ff81cdf79a05a3a95b87b0bc13
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 40dacdf243505447e9831239ef1252602a3e0f99
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488548"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491693"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
@@ -48,8 +48,8 @@ Azure Communication Services를 처음 사용하는 경우 다음 리소스를 �
 | 리소스                               |Description                           |
 |---                                    |---                                   |
 |**[통화 앱으로 Teams 미팅 참가](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 모임 환경을 구축하는 데 사용할 수 있습니다. Communication Services 솔루션의 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다.|
-|**[Communication Services 리소스 만들기](./quickstarts/create-communication-resource.md)**|Azure Portal 또는 Communication Services 관리 클라이언트 라이브러리를 통해 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services 사용을 시작할 수 있습니다. Communication Services 리소스 연결 문자열이 있으면 첫 번째 사용자 액세스 토큰을 프로비저닝할 수 있습니다.|
-|**[첫 번째 사용자 액세스 토큰 만들기](./quickstarts/access-tokens.md)**|사용자 액세스 토큰은 Azure Communication Services 리소스에 대해 서비스를 인증하는 데 사용됩니다. 이러한 토큰은 Communication Services 관리 클라이언트 라이브러리를 사용하여 프로비저닝되고 다시 발급됩니다.|
+|**[Communication Services 리소스 만들기](./quickstarts/create-communication-resource.md)**|Azure Portal 또는 Communication Services 클라이언트 라이브러리를 통해 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services 사용을 시작할 수 있습니다. Communication Services 리소스 연결 문자열이 있으면 첫 번째 사용자 액세스 토큰을 프로비저닝할 수 있습니다.|
+|**[첫 번째 사용자 액세스 토큰 만들기](./quickstarts/access-tokens.md)**|사용자 액세스 토큰은 Azure Communication Services 리소스에 대해 서비스를 인증하는 데 사용됩니다. 이러한 토큰은 Communication Services 클라이언트 라이브러리를 사용하여 프로비저닝되고 다시 발급됩니다.|
 |**[전화 번호 가져오기](./quickstarts/telephony-sms/get-phone-number.md)**|Azure Communication Services를 사용하여 전화 번호를 프로비저닝하고 해제할 수 있습니다. 이러한 전화 번호는 아웃바운드 호출을 시작하고 SMS 통신 솔루션을 구축하는 데 사용할 수 있습니다.|
 |**[앱에서 SMS 보내기](./quickstarts/telephony-sms/send.md)**|Azure Communication Services SMS 클라이언트 라이브러리를 사용하면 .NET 및 JavaScript 애플리케이션에서 SMS 메시지를 보내고 받을 수 있습니다.|
 |**[음성 및 화상 통화 시작](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services를 사용하면 통화 클라이언트 라이브러리를 사용하여 음성 및 화상 통화를 앱에 추가할 수 있습니다. 이 라이브러리는 WebRTC를 통해 구동되며 애플리케이션 내에서 피어 투 피어, 멀티미디어, 실시간 통신을 설정할 수 있도록 합니다.|

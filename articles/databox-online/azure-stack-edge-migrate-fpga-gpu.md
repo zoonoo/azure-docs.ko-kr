@@ -6,36 +6,36 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382823"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573282"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro FPGA에서 Azure Stack Edge Pro GPU로 워크로드 마이그레이션
 
-이 문서에서는 Azure Stack Edge Pro FPGA 디바이스에서 Azure Stack Edge Pro GPU 디바이스로 워크로드와 데이터를 마이그레이션하는 방법을 설명합니다. 마이그레이션 절차에는 두 디바이스의 비교, 마이그레이션 고려 사항, 세부 단계, 확인 후 정리 작업을 포함하여 마이그레이션 개요가 포함되어 있습니다.
+이 문서에서는 Azure Stack Edge Pro FPGA 디바이스에서 Azure Stack Edge Pro GPU 디바이스로 워크로드와 데이터를 마이그레이션하는 방법을 설명합니다. 마이그레이션 프로세스는 마이그레이션 계획 및 마이그레이션 고려 사항 검토라는 두 디바이스를 비교하는 것으로 시작됩니다. 마이그레이션 절차에서는 확인 및 디바이스 정리로 끝나는 자세한 단계를 제공합니다.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## <a name="about-migration"></a>마이그레이션 정보
 
 마이그레이션은 워크로드 및 애플리케이션 데이터를 한 스토리지 위치에서 다른 스토리지 위치로 이동하는 프로세스입니다. 이 프로세스에서는 활성 애플리케이션을 중단하거나 비활성화하지 않고 조직의 현재 데이터를 한 스토리지 디바이스에서 다른 스토리지 디바이스로 정확히 복사한 다음, 모든 I/O(입/출력) 작업을 새 디바이스로 리디렉션합니다. 
 
-이 마이그레이션 가이드에서는 Azure Stack Edge Pro FPGA 디바이스에서 Azure Stack Edge Pro GPU 디바이스로 데이터를 마이그레이션하는 데 필요한 과정을 단계별로 연습합니다. 이 문서는 데이터 센터의 Azure Stack Edge 디바이스를 운영, 배포, 관리하는 IT(정보 기술) 전문가 및 지식 근로자를 대상으로 합니다. 
+이 마이그레이션 가이드에서는 Azure Stack Edge Pro FPGA 디바이스에서 Azure Stack Edge Pro GPU 디바이스로 데이터를 마이그레이션하는 데 필요한 과정을 단계별로 연습합니다. 이 문서는 데이터 센터의 Azure Stack Edge 디바이스를 운영, 배포, 관리하는 IT(정보 기술) 전문가 및 지식 근로자를 대상으로 합니다.
 
 이 문서에서는 Azure Stack Edge Pro FPGA 디바이스를 *원본* 디바이스, Azure Stack Edge Pro GPU 디바이스를 *대상* 디바이스라고 부릅니다. 
 
 ## <a name="comparison-summary"></a>비교 요약
 
-이 섹션에서는 Azure Stack Edge Pro GPU 디바이스와 Azure Stack Edge Pro FPGA 디바이스의 기능을 비교 요약합니다. 원본 디바이스와 대상 디바이스의 하드웨어는 거의 동일하며 하드웨어 가속 카드와 스토리지 용량만 다릅니다. 
+이 섹션에서는 Azure Stack Edge Pro GPU 디바이스와 Azure Stack Edge Pro FPGA 디바이스의 기능을 비교 요약합니다. 원본 디바이스와 대상 디바이스의 하드웨어는 거의 동일합니다. 하드웨어 가속 카드와 스토리지 용량만 다를 수 있습니다.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    기능  | Azure Stack Edge Pro GPU(대상 디바이스)  | Azure Stack Edge Pro FPGA(원본 디바이스)|
 |----------------|-----------------------|------------------------|
-| 하드웨어       | 하드웨어 가속: Nvidia T4 GPU 1개 또는 2개 <br> 컴퓨팅, 메모리, 네트워크 인터페이스, 전원 공급 장치, 전원 코드 사양은 FPGA를 사용하는 디바이스와 동일합니다.  | 하드웨어 가속: Intel Arria 10 FPGA <br> 컴퓨팅, 메모리, 네트워크 인터페이스, 전원 공급 장치, 전원 코드 사양은 GPU를 사용하는 디바이스와 동일합니다.          |
+| 하드웨어       | 하드웨어 가속: Nvidia T4 GPU 1개 또는 2개 <br> 컴퓨팅, 메모리, 네트워크 인터페이스, 전원 공급 장치 및 전원 코드 사양은 FPGA가 있는 디바이스와 동일합니다.  | 하드웨어 가속: Intel Arria 10 FPGA <br> 컴퓨팅, 메모리, 네트워크 인터페이스, 전원 공급 장치 및 전원 코드 사양은 GPU가 있는 디바이스와 동일합니다.          |
 | 사용 가능한 스토리지 | 4.19TB <br> 패리티 복원력 및 내부 사용을 위한 공간을 예약한 후 | 12.5TB <br> 내부 사용을 위한 공간을 예약한 후 |
 | 보안       | 인증서 |                                                     |
 | 워크로드      | IoT Edge 워크로드 <br> VM 워크로드 <br> Kubernetes 워크로드| IoT Edge 워크로드 |
@@ -55,9 +55,9 @@ ms.locfileid: "100382823"
 
 마이그레이션을 진행하기 전에 다음 정보를 고려해야 합니다. 
 
-- Azure Stack Edge Pro GPU 디바이스는 Azure Stack Edge Pro FPGA 리소스에 대해 활성화할 수 없습니다. [Azure Stack Edge Pro GPU 주문 작성](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource)에 설명된 대로 Azure Stack Edge Pro GPU 디바이스에 사용할 새 리소스를 만들어야 합니다.
+- Azure Stack Edge Pro GPU 디바이스는 Azure Stack Edge Pro FPGA 리소스에 대해 활성화할 수 없습니다. [Azure Stack Edge Pro GPU 주문 작성](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource)에 설명된 대로 Azure Stack Edge Pro GPU 디바이스에 대한 새 리소스를 만들어야 합니다.
 - FPGA를 사용하는 원본 디바이스에 배포된 Machine Learning 모델은 GPU를 사용하는 대상 디바이스에 맞게 변경해야 합니다. 모델과 관련하여 도움이 필요한 경우 Microsoft에 지원에 문의하면 됩니다. FPGA를 사용하지 않는(CPU만 사용) 원본 디바이스에 배포된 사용자 지정 모델은 대상 디바이스와 똑같이(CPU 사용) 작동해야 합니다.
-- 대상 디바이스에 성공적으로 배포하려면 원본 디바이스에 배포된 IoT Edge 모듈을 변경해야 할 수도 있습니다. 
+- 원본 디바이스에 배포된 IoT Edge 모듈을 변경해야 모듈을 대상 디바이스에 성공적으로 배포할 수 있습니다. 
 - 원본 디바이스는 NFS 3.0 및 4.1 프로토콜을 지원합니다. 대상 디바이스는 NFS 3.0 프로토콜만 지원합니다.
 - 원본 디바이스는 SMB 및 NFS 프로토콜을 지원합니다. 대상 디바이스는 공유를 위한 SMB 및 NFS 프로토콜 외에도 스토리지 계정을 사용하여 REST 프로토콜을 통해 스토리지를 지원합니다.
 - 원본 디바이스의 공유 액세스는 IP 주소를 사용하는 반면, 대상 디바이스의 공유 액세스는 디바이스 이름을 사용합니다.
@@ -99,15 +99,15 @@ Edge 클라우드는 디바이스에서 Azure로 계층 데이터를 공유합�
 
 - 원본 디바이스에 있는 모든 Edge 클라우드 공유 및 사용자 목록을 만듭니다.
 - 보유한 모든 대역폭 일정 목록을 만듭니다. 대상 디바이스에서 이러한 대역폭 일정을 다시 만들 것입니다.
-- 사용 가능한 네트워크 대역폭에 따라 클라우드에 계층화되는 데이터를 최대화하도록 디바이스에서 대역폭 일정을 구성합니다. 이렇게 하면 디바이스의 로컬 데이터를 최소화할 수 있습니다.
-- 공유가 클라우드에 완전히 계층화되었는지 확인합니다. Azure Portal에서 공유 상태를 확인하면 됩니다.  
+- 사용 가능한 네트워크 대역폭에 따라 디바이스에 대역폭 일정을 구성하여 클라우드에 계층화된 데이터를 최대화할 수 있습니다. 디바이스에서 로컬 데이터를 최소화합니다.
+- 공유가 클라우드에 완전히 계층화되었는지 확인합니다. Azure Portal에서 공유 상태를 확인하여 계층화를 확인할 수 있습니다.  
 
 #### <a name="data-in-edge-local-shares"></a>Edge 로컬 공유의 데이터
 
 Edge 로컬 공유의 데이터는 디바이스에 남아 있습니다. *원본* 디바이스에서 Azure Portal을 통해 이 단계를 수행합니다. 
 
-- 디바이스에 있는 Edge 로컬 공유 목록을 만듭니다.
-- 일회성 데이터 마이그레이션인 경우 다른 온-프레미스 서버에 Edge 로컬 공유 데이터의 복사본을 만듭니다. `robocopy`(SMB) 또는 `rsync`(NFS)와 같은 복사 도구를 사용하여 데이터를 복사할 수 있습니다. 필요에 따라 로컬 공유의 데이터를 백업하기 위해 타사 데이터 보호 솔루션을 이미 배포한 분들도 있을 것입니다. 다음 타사 솔루션은 Azure Stack Edge Pro FPGA 디바이스와 함께 사용할 수 있습니다.
+- 디바이스에서 Edge 로컬 공유 목록을 만듭니다.
+- 일회성 데이터 마이그레이션을 수행하는 경우 다른 온-프레미스 서버에 Edge 로컬 공유 데이터의 복사본을 만듭니다. `robocopy`(SMB) 또는 `rsync`(NFS)와 같은 복사 도구를 사용하여 데이터를 복사할 수 있습니다. 필요에 따라 로컬 공유의 데이터를 백업하기 위해 타사 데이터 보호 솔루션을 이미 배포한 분들도 있을 것입니다. 다음 타사 솔루션은 Azure Stack Edge Pro FPGA 디바이스와 함께 사용할 수 있습니다.
 
     | 타사 소프트웨어           | 솔루션 참조                               |
     |--------------------------------|---------------------------------------------------------|
@@ -157,9 +157,9 @@ Edge 로컬 공유의 데이터는 디바이스에 남아 있습니다. *원본*
 
 다음 단계에 따라 대상 디바이스에서 Edge 클라우드 공유의 데이터를 동기화합니다.
 
-1. 원본 디바이스에서 만든 공유 이름에 해당하는 [공유를 추가](azure-stack-edge-j-series-manage-shares.md#add-a-share)합니다. 공유를 만드는 동안 **Blob 컨테이너 선택** 옵션이 **기존 항목 사용** 으로 설정되었는지 확인한 다음, 이전 디바이스에서 사용된 컨테이너를 선택합니다.
+1. 원본 디바이스에서 만든 공유 이름에 해당하는 [공유를 추가](azure-stack-edge-j-series-manage-shares.md#add-a-share)합니다. 공유를 만들 때 **Blob 컨테이너 선택** 이 **기존 항목 사용** 으로 설정되었는지 확인한 다음, 이전 디바이스에서 사용된 컨테이너를 선택합니다.
 1. 이전 디바이스에 대한 액세스 권한이 있는 [사용자를 추가](azure-stack-edge-j-series-manage-users.md#add-a-user)합니다.
-1. Azure에서 공유 [데이터를 새로 고칩니다](azure-stack-edge-j-series-manage-shares.md#refresh-shares). 그러면 기존 컨테이너의 모든 클라우드 데이터를 공유로 가져오게 됩니다.
+1. Azure에서 공유 [데이터를 새로 고칩니다](azure-stack-edge-j-series-manage-shares.md#refresh-shares). 공유를 새로 고치면 기존 컨테이너에서 공유로 모든 클라우드 데이터를 풀다운합니다.
 1. 공유와 연결할 대역폭 일정을 다시 만듭니다. 자세한 단계는 [대역폭 일정 추가](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule)를 참조하세요.
 
 
@@ -172,10 +172,10 @@ IoT 워크로드에 대한 로컬 공유 데이터를 보호하기 위해 타사
 다음 단계에 따라 로컬 공유의 데이터를 복구합니다.
 
 1. [디바이스에서 컴퓨팅을 구성](azure-stack-edge-gpu-deploy-configure-compute.md)합니다.
-1. 모든 로컬 공유를 대상 디바이스에 추가합니다. 자세한 단계는 [로컬 공유 추가](azure-stack-edge-j-series-manage-shares.md#add-a-local-share)를 참조하세요.
+1. 모든 로컬 공유를 대상 디바이스에 추가합니다. 자세한 단계는 [로컬 공유 추가](azure-stack-edge-gpu-manage-shares.md#add-a-local-share)를 참조하세요.
 1. 원본 디바이스의 SMB 공유에 액세스할 때는 IP 주소가 사용되고, 대상 디바이스에서는 디바이스 이름이 사용됩니다. [Azure Stack Edge Pro GPU의 SMB 공유에 연결](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share)을 참조하세요. 대상 디바이스의 NFS 공유에 연결하려면 디바이스와 연결된 새 IP 주소를 사용해야 합니다. [Azure Stack Edge Pro GPU에서 NFS 공유에 연결](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share)을 참조하세요. 
 
-    SMB/NFS를 통해 공유 데이터를 중간 서버에 복사한 경우 이 데이터를 대상 디바이스의 공유에 복사할 수 있습니다. 원본 디바이스와 대상 디바이스가 모두 *온라인* 상태인 경우에는 원본 디바이스에서 직접 데이터를 복사할 수도 있습니다.
+    SMB 또는 NFS를 통해 공유 데이터를 중간 서버로 복사한 경우 중간 서버의 데이터를 대상 디바이스의 공유로 복사할 수 있습니다. 원본 디바이스와 대상 디바이스가 모두 *온라인* 상태인 경우 원본 디바이스에서 직접 데이터를 복사할 수도 있습니다.
 
     타사 소프트웨어를 사용하여 로컬 공유의 데이터를 백업한 경우 선택한 데이터 보호 솔루션에서 제공하는 복구 절차를 실행해야 합니다. 다음 표의 참조를 확인하세요.
 

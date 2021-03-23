@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742049"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466765"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
@@ -60,7 +60,7 @@ Azure AD 기본 제공 및 사용자 지정 역할은 [Azure RBAC(Azure 역할 �
 - 역할 정의
 - 리소스 범위
 
-Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할당 만들기](custom-create.md)를 수행할 수 있습니다. [사용자 지정 역할의 할당 보기](custom-view-assignments.md#view-the-assignments-of-a-role)도 가능합니다.
+Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할당 만들기](custom-create.md)를 수행할 수 있습니다. [역할 할당을 나열](view-assignments.md)할 수도 있습니다.
 
 다음 다이어그램은 역할 할당의 예를 보여줍니다. 이 예제에서 Chris Green에게는 Contoso Widget Builder 앱 등록 범위에서 앱 등록 관리자 사용자 지정 역할이 할당되었습니다. 이렇게 할당하면 이 특정 앱 등록에 대해서만 Chris에게 앱 등록 관리자 역할 권한이 부여됩니다.
 
@@ -89,4 +89,4 @@ Azure AD에서 기본 제공 역할을 사용하는 것은 무료이지만, 사�
 
 - [Azure AD 역할 이해](concept-understand-roles.md)
 - [Azure Portal, Azure AD PowerShell 및 Graph API](custom-create.md)를 사용하여 사용자 지정 역할 할당 만들기
-- [사용자 지정 역할의 할당 보기](custom-view-assignments.md)
+- [역할 할당 나열](view-assignments.md)

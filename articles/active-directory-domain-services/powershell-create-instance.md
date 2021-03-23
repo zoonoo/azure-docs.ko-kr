@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e79bbb2ac6febb39fec27aa6ac3c82ff58f81122
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8056e95b731b1818e10d7415cb813d6aba0ec7fa
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99822155"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149070"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -39,6 +39,13 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
     * [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 로그인합니다.
 * Azure AD DS를 사용하도록 설정하려면 Azure AD 테넌트에 *글로벌 관리자* 권한이 필요합니다.
 * 필요한 Azure AD DS 리소스를 만들려면 Azure 구독에 *기여자* 권한이 필요합니다.
+
+  > [!IMPORTANT]
+  > **Az.ADDomainServices** PowerShell 모듈이 미리 보기로 제공되는 동안 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다.
+
+  ```azurepowershell-interactive
+  Install-Module -Name Az.ADDomainServices
+  ```
 
 ## <a name="create-required-azure-ad-resources"></a>필수 Azure AD 리소스 만들기
 
@@ -93,13 +100,13 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 
 먼저 [Register-AzResourceProvider][Register-AzResourceProvider] cmdlet을 사용하여 Azure AD Domain Services 리소스 공급자를 등록합니다.
 
-```powershell
+```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
 다음으로 [New-AzResourceGroup][New-AzResourceGroup] cmdlet을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹이 *westus* 지역에 만들어집니다. 자신의 이름과 원하는 지역을 사용합니다.
 
-```powershell
+```azurepowershell-interactive
 $ResourceGroupName = "myResourceGroup"
 $AzureLocation = "westus"
 
@@ -113,7 +120,7 @@ Azure AD Domain Services에 사용할 가상 네트워크 및 서브넷을 만�
 
 [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNetworkSubnetConfig] cmdlet을 사용하여 서브넷을 만든 다음, [New-AzVirtualNetwork][New-AzVirtualNetwork] cmdlet을 사용하여 가상 네트워크를 만듭니다.
 
-```powershell
+```azurepowershell-interactive
 $VnetName = "myVnet"
 
 # Create the dedicated subnet for Azure AD Domain Services.
@@ -142,7 +149,7 @@ Azure AD DS에는 관리되는 도메인에 필요한 포트를 보호하고 들
 
 다음 PowerShell cmdlet은 [New-AzNetworkSecurityRuleConfig][New-AzNetworkSecurityRuleConfig]를 사용하여 규칙을 만든 다음, [New-AzNetworkSecurityGroup][New-AzNetworkSecurityGroup]을 사용하여 네트워크 보안 그룹을 만듭니다. 그런 다음, [Set-AzVirtualNetworkSubnetConfig][Set-AzVirtualNetworkSubnetConfig] cmdlet을 사용하여 네트워크 보안 그룹 및 규칙을 가상 네트워크 서브넷과 연결합니다.
 
-```powershell
+```azurepowershell-interactive
 $NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
@@ -196,17 +203,24 @@ $vnet | Set-AzVirtualNetwork
 
 Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
 
-```powershell
+```azurepowershell-interactive
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. 관리되는 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 관리되는 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.
@@ -224,7 +238,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!NOTE]
 > Azure AD DS을 사용하도록 설정하려면 Azure AD 테넌트의 전역 관리자여야 합니다. 또한 Azure 구독에서 적어도 *기여자* 권한이 있어야 합니다.
 
-```powershell
+```azurepowershell-interactive
 # Change the following values to match your deployment.
 $AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
@@ -292,7 +306,7 @@ $Vnet=New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
-  
+
 $NSGName = "aaddsNSG"
 
 # Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
@@ -336,12 +350,19 @@ Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
 $vnet | Set-AzVirtualNetwork
 
 # Enable Azure AD Domain Services for the directory.
-New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -ApiVersion "2017-06-01" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; `
-    "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -Force -Verbose
+$replicaSetParams = @{
+  Location = $AzureLocation
+  SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
+}
+$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+
+$domainServiceParams = @{
+  Name = $ManagedDomainName
+  ResourceGroupName = $ResourceGroupName
+  DomainName = $ManagedDomainName
+  ReplicaSet = $replicaSet
+}
+New-AzADDomainService @domainServiceParams
 ```
 
 리소스를 만들고 PowerShell 프롬프트로 제어를 반환하는 데 몇 분 정도 걸립니다. 관리되는 도메인은 백그라운드에서 계속 프로비저닝되며 배포를 완료하는 데 최대 1시간이 걸릴 수 있습니다. Azure Portal의 관리되는 도메인 **개요** 페이지에는 이 배포 단계 전체에서 현재 상태가 표시됩니다.

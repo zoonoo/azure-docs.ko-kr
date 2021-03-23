@@ -1,20 +1,20 @@
 ---
-title: HTTP 요청 C#에 서명하는 방법
+title: C#을 사용하여 HTTP 요청에 서명하는 방법을 알아봅니다.
 titleSuffix: An Azure Communication Services tutorial
-description: C#을 통해 HTTP 요청 Communication Services에 서명하는 방법 알아보기
+description: C#을 통해 Azure Communication Services에 대한 HTTP 요청에 서명하는 방법을 알아봅니다.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 01/15/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8a9191180dcf4a16f586d109e820e63def566a42
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e9b24e981e472371e477cd4dd895e976f709b2fb
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488735"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490513"
 ---
 # <a name="sign-an-http-request"></a>HTTP 요청 서명
 
@@ -27,7 +27,7 @@ ms.locfileid: "102488735"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [Azure Communication Service 리소스 정리](../quickstarts/create-communication-resource.md#clean-up-resources) 및 [Azure 함수 리소스 정리](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources)에 대해 자세히 알아볼 수 있습니다.
+Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [Azure Communication Services 리소스 정리](../quickstarts/create-communication-resource.md#clean-up-resources) 및 [Azure Functions 리소스 정리](../../azure-functions/create-first-function-vs-code-csharp.md#clean-up-resources)에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

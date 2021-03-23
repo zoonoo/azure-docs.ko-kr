@@ -9,18 +9,23 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: edbe2b8370b943aa93a1cef425c64e9f11feb735
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 4e01b1ca9a3858ff31ad9b5da1d1159209c44330
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705594"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464067"
 ---
-# <a name="tutorial-develop-c-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
+# <a name="tutorial-develop-c-iot-edge-modules-using-windows-containers"></a>자습서: Windows 컨테이너를 사용하여 C# IoT Edge 모듈 개발
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 이 문서에서는 Visual Studio를 사용하여 C# 코드를 개발하고 Azure IoT Edge를 실행하는 Windows 디바이스에 배포하는 방법을 보여 줍니다.
 
-Azure IoT Edge 모듈을 사용하여 비즈니스 논리를 IoT Edge 디바이스에 직접 구현하는 코드를 배포할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 
+>[!NOTE]
+>IoT Edge 1.1 LTS는 Windows 컨테이너를 지원하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너가 지원되지 않습니다. Windows 디바이스에서 IoT Edge를 실행하려면 [Windows에서 Linux용 IoT Edge](iot-edge-for-linux-on-windows.md)를 사용하거나 이동하는 것이 좋습니다.
+
+Azure IoT Edge 모듈을 사용하여 비즈니스 논리를 IoT Edge 디바이스에 직접 구현하는 코드를 배포할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -37,21 +42,21 @@ Azure IoT Edge 모듈을 사용하여 비즈니스 논리를 IoT Edge 디바이�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서에서는 Visual Studio 2019를 사용하여 C#에서 모듈을 개발한 후 Windows 디바이스에 배포하는 방법을 설명합니다. Linux 디바이스용 모듈을 개발하는 경우에는 [Linux 디바이스용 C# IoT Edge 모듈 개발](tutorial-csharp-module.md)로 이동합니다.
+이 자습서에서는 Visual Studio 2019를 사용하여 C#에서 모듈을 개발한 후 Windows 디바이스에 배포하는 방법을 설명합니다. Linux 컨테이너를 사용하여 모듈을 개발하는 경우 대신 [Linux 컨테이너를 사용하여 C# IoT Edge 개발](tutorial-csharp-module.md)로 이동합니다.
 
-C# 모듈을 개발하고 Windows 디바이스에 배포하기 위한 옵션을 이해하려면 다음 표를 참조하세요.
+Windows 컨테이너를 사용하여 C# 모듈을 개발하고 배포하는 옵션을 이해하려면 다음 표를 참조하세요.
 
 | C# | Visual&nbsp;Studio&nbsp;Code | Visual Studio 2017&nbsp;및&nbsp;2019 |
 | -- | :------------------: | :------------------: |
 | Windows AMD64 개발 | ![Visual Studio Code의 WinAMD64용 C# 모듈 개발](./media/tutorial-c-module/green-check.png) | ![Visual Studio의 WinAMD64용 C# 모듈 개발](./media/tutorial-c-module/green-check.png) |
 | Windows AMD64 디버그 |   | ![Visual Studio의 WinAMD64용 C# 모듈 디버그](./media/tutorial-c-module/green-check.png) |
 
-이 자습서를 시작하기 전에 [Windows 디바이스용 IoT Edge 모듈 개발](tutorial-develop-for-windows.md) 자습서의 지침에 따라 개발 환경을 설정합니다. 설정을 완료하면 다음과 같은 필수 구성 요소가 환경에 포함됩니다.
+이 자습서를 시작하기 전에 [Windows 컨테이너를 사용하여 IoT Edge 모듈 개발](tutorial-develop-for-windows.md) 자습서의 지침에 따라 개발 환경을 설정합니다. 설정을 완료하면 다음과 같은 필수 구성 요소가 환경에 포함됩니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)입니다.
-* [Azure IoT Edge를 실행하는 Windows 디바이스](quickstart.md).
-* [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리.
-* [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 사용하여 구성된 [Visual Studio 2019](/visualstudio/install/install-visual-studio).
+* [Azure IoT Edge를 실행하는 Windows 디바이스](how-to-install-iot-edge-windows-on-windows.md)
+* [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
+* [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 확장을 사용하여 구성된 [Visual Studio 2019](/visualstudio/install/install-visual-studio)
 * Windows 컨테이너를 실행하도록 구성된 [Docker Desktop](https://docs.docker.com/docker-for-windows/install/).
 
 > [!TIP]
@@ -69,7 +74,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
 
 1. **새 프로젝트 만들기** 창에서 **IoT Edge** 를 검색한 다음, 결과 목록에서 **Azure IoT Edge(Windows amd64)** 프로젝트를 선택합니다.
 
-   ![IoT Edge "새 프로젝트 만들기" 창의 스크린샷.](./media/tutorial-csharp-module-windows/new-project.png)
+   ![IoT Edge "새 프로젝트 만들기" 창의 스크린샷](./media/tutorial-csharp-module-windows/new-project.png)
 
 1. **다음** 을 선택합니다.
 
@@ -83,7 +88,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
 
    **모듈 추가** 창이 열립니다.
 
-   ![프로젝트를 구성하기 위한 "모듈 추가" 창의 스크린샷.](./media/tutorial-csharp-module-windows/add-application-and-module.png)
+   ![프로젝트를 구성하기 위한 "모듈 추가" 창의 스크린샷](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
 1. **새 프로젝트 구성** 페이지에서 다음을 수행합니다.
 
@@ -310,7 +315,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이는 프로덕션 시나리오의 모범 사례로 권장되지만 이 자습서에서는 다루지 않습니다. 자세한 내용은 [docker login 참조](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)를 확인하세요.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이는 프로덕션 시나리오의 모범 사례로 권장되지만 이 자습서에서는 다루지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 확인하세요.
 
 ### <a name="build-and-push"></a>빌드 및 푸시
 
@@ -323,7 +328,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
    * 둘째, `docker build`를 실행하여 대상 아키텍처의 적절한 Dockerfile을 기준으로 컨테이너 이미지를 빌드합니다. 
    * 마지막으로, `docker push`를 실행하여 컨테이너 레지스트리에 이미지 리포지토리를 푸시합니다.
 
-   이 프로세스는 처음에는 몇 분 정도 걸릴 수 있지만 다음 번에 명령을 실행할 때는 더 빨라집니다.
+   이 프로세스는 처음에는 몇 분 정도 걸릴 수 있지만 다음번에 명령을 실행할 때는 더 빨라집니다.
 
 ## <a name="deploy-modules-to-the-device"></a>디바이스에 모듈 배포
 

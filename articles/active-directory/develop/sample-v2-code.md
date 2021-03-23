@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d61ddee1ac510b6d3528a2221a52fd266a2dd5ad
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: dc740acb366212640015ca0fb527d34fade1097d
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436501"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010765"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -42,14 +42,15 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | ![JavaScript 로고를 보여주는 이미지](media/sample-v2-code/logo_js.png) [JavaScript(MSAL.js 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA에서 인증 코드 흐름(PKCE 포함)을 사용하여 Microsoft Graph를 호출 |[javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) |
 | ![JavaScript 로고를 보여 주는 이미지](media/sample-v2-code/logo_js.png) [JavaScript(MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | SPA에서 B2C 호출 |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
 | ![JavaScript 로고를 보여주는 이미지](media/sample-v2-code/logo_js.png) [JavaScript(MSAL.js 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA는 인증 코드 흐름(PKCE 포함)을 사용하여 B2C를 호출합니다. |[b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) |
+| ![JavaScript 로고를 보여주는 이미지](media/sample-v2-code/logo_js.png) [JavaScript(MSAL.js 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA는 Microsoft Graph를 호출하는 사용자 지정 웹 API를 호출합니다.  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/1-call-api-graph) |
 | ![Angular 로고를 보여주는 이미지](media/sample-v2-code/logo_angular.png) [Angular(MSAL Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| SPA에서 Microsoft Graph 호출  | [active-directory-javascript-singlepageapp-angular](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) |
 | ![Angular 로고를 보여 주는 이미지](media/sample-v2-code/logo_angular.png) [Angular(MSAL Angular 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| SPA에서 인증 코드 흐름(PKCE 포함)을 사용하여 Microsoft Graph를 호출 | [ms-identity-javascript-angular-spa](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa) |
 | ![Angular 로고를 보여 주는 이미지](media/sample-v2-code/logo_angular.png) [Angular(MSAL Angular 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| SPA에서 사용자 지정 Web API 호출 | [ms-identity-javascript-angular-spa-aspnetcore-webapi](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi) |
 | ![Angular 로고를 보여주는 이미지](media/sample-v2-code/logo_angular.png) [Angular(MSAL Angular)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA에서 B2C 호출 |[active-directory-b2c-javascript-angular-spa](https://github.com/Azure-Samples/active-directory-b2c-javascript-angular-spa) |
-| ![React 로고를 보여주는 이미지](media/sample-v2-code/logo_react.png) [React(MSAL React)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)| SPA에서 인증 코드 흐름(PKCE 포함)을 사용하여 Microsoft Graph를 호출 | [ms-identity-javascript-react-spa](https://github.com/Azure-Samples/ms-identity-javascript-react-spa) |
-| ![React 로고를 보여주는 이미지](media/sample-v2-code/logo_react.png) [React(MSAL.js 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA에서 사용자 지정 웹 API를 호출, 이는 Microsoft Graph 호출  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
-| ![JavaScript 로고를 보여주는 이미지](media/sample-v2-code/logo_js.png) [JavaScript(MSAL.js 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | SPA는 Microsoft Graph를 호출하는 사용자 지정 웹 API를 호출합니다.  | [ms-identity-javascript-tutorial-chapter4-obo](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/1-call-api-graph) |
 | ![Angular 로고를 보여 주는 이미지](media/sample-v2-code/logo_angular.png) [Angular(MSAL Angular 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular) | SPA에서 앱 역할 및 보안 그룹을 사용하여 사용자 지정 웹 API 호출 |[ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups) |
+| ![React 로고를 보여주는 이미지](media/sample-v2-code/logo_react.png) [React(MSAL React)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)| SPA에서 인증 코드 흐름(PKCE 포함)을 사용하여 Microsoft Graph를 호출 | [ms-identity-javascript-react-spa](https://github.com/Azure-Samples/ms-identity-javascript-react-spa) |
+| ![React 로고를 보여주는 이미지](media/sample-v2-code/logo_react.png) [React(MSAL React)](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)| SPA에서 사용자 지정 웹 API 호출 | [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/1-call-api) |
+| ![React 로고를 보여주는 이미지](media/sample-v2-code/logo_react.png) [React(MSAL.js 2.0)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core)| SPA에서 사용자 지정 웹 API를 호출, 이는 Microsoft Graph 호출  | [ms-identity-javascript-react-spa-dotnetcore-webapi-obo](https://github.com/Azure-Samples/ms-identity-javascript-react-spa-dotnetcore-webapi-obo) |
 | ![Blazor 로고를 보여주는 이미지](media/sample-v2-code/logo-blazor.png) [Blazor WebAssembly(MSAL.js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser) | Azure Active Directory를 사용하여 사용자를 로그인하고 API를 호출하기 위한 Blazor WebAssembly 자습서 |[ms-identity-blazor-wasm](https://github.com/Azure-Samples/ms-identity-blazor-wasm) |
 
 ## <a name="web-applications"></a>웹 애플리케이션
@@ -122,7 +123,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 클라이언트 애플리케이션 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 |
 | ------------------ | -------- |  ----------| ---------- |
 | 데스크톱(콘솔)   | ![이 이미지는 .NET/C#(데스크톱) 로고를 표시](media/sample-v2-code/logo_NETcore.png) | [디바이스 코드 흐름](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
-| 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 보여 줍니다.](media/sample-v2-code/logo_java.png) | [디바이스 코드 흐름](msal-authentication-flows.md#device-code) |[ms-identity-java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
+| 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png) | [디바이스 코드 흐름](msal-authentication-flows.md#device-code) |[ms-identity-java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
 | 데스크톱(콘솔)   | ![이 이미지는 Python 로고를 표시](media/sample-v2-code/logo_python.png) | [디바이스 코드 흐름](msal-authentication-flows.md#device-code) |[ms-identity-python-devicecodeflow](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) |
 
 ## <a name="multi-tenant-saas-applications"></a>다중 테넌트 SaaS 애플리케이션

@@ -9,14 +9,16 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8da5c24265a43eaaf1ecfe80649b6f4fea588b3f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736494"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464068"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하여 IoT 솔루션의 효율성을 높일 수 있습니다. 이 기능은 컴퓨터 비전 모델과 같은 많은 데이터를 처리하는 서비스에 적합합니다. [Custom Vision Service](../cognitive-services/custom-vision-service/overview.md)를 통해 사용자 지정 이미지 분류자를 빌드하고 컨테이너로 디바이스에 배포할 수 있습니다. 이러한 두 서비스를 함께 사용하여 먼저 모든 데이터를 사이트에서 전송하지 않고도 이미지 또는 비디오 스트림에서 정보를 찾을 수 있습니다. Custom Vision은 이미지를 정보를 생성하는 학습된 모델과 비교하는 분류자를 제공합니다.
 
@@ -42,10 +44,10 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 >[!TIP]
 >이 자습서는 [Raspberry Pi 3의 Custom Vision 및 Azure IoT Edge](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) 샘플 프로젝트의 단순화된 버전입니다. 이 자습서는 클라우드 VM에서 실행되도록 설계되었으며 정적 이미지를 사용하여 이미지 분류자를 학습하고 테스트합니다. 이는 IoT Edge에서 Custom Vision을 평가하기 시작하는 사용자에게 유용합니다. 샘플 프로젝트는 물리적 하드웨어를 사용하고 라이브 카메라 피드를 설정하여 이미지 분류자를 학습하고 테스트합니다. 이는 보다 자세한 실제 시나리오를 시도하려는 사용자에게 유용합니다.
 
-이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
+이 자습서를 시작하기 전에 이전 자습서를 통해 Linux 컨테이너 개발을 위한 환경을 설정해야 합니다. [Linux 컨테이너를 사용하여 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)합니다. 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

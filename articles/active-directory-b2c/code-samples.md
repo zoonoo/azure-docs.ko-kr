@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a75896dde7a23ea346e0af73ed145094e78812ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b09587d90024a8c376be8b0d93f7ef7b6cc51a1e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654496"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008487"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 
@@ -47,9 +47,10 @@ ms.locfileid: "101654496"
 
 | 샘플 | Description |
 |--------| ----------- |
+| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | 웹 API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL React를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | 웹 API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다. |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Microsoft Graph를 호출하여 B2C 디렉터리의 사용자를 관리하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다.|
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | 웹 API를 호출하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 암시적 흐름을 사용합니다.|
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Microsoft Graph를 호출하여 B2C 디렉터리의 사용자를 관리하는 SPA(단일 페이지 애플리케이션)입니다. 인증은 MSAL.js를 사용하여 Azure AD B2C로 수행됩니다. 이 샘플에서는 PKCE와 함께 권한 부여 코드 흐름을 사용합니다.|
 
 ## <a name="consoledaemon-apps"></a>콘솔/디먼 앱
 

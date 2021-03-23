@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 15e1dff37e1782baf5740a3fb35119bbbbffc297
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f6199cb20cd56538823f7f7d0967a9cfe59f7099
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102558800"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636660"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -633,7 +633,31 @@ module.exports = df.entity(function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-지속성 엔터티는 현재 Python에서 지원되지 않습니다.
+```python
+import logging
+import json
+
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableOrchestrationContext):
+
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+        context.set_result(current_value)
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    
+    context.set_state(current_value)
+
+main = df.Entity.create(entity_function)
+```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -677,7 +701,17 @@ module.exports = async function (context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-지속성 엔터티는 현재 Python에서 지원되지 않습니다.
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    entity_id = df.EntityId("Counter", "myCounter")
+    instance_id = await client.signal_entity(entity_id, "add", 1)
+    return func.HttpResponse("Entity signaled")
+```
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -685,7 +719,7 @@ module.exports = async function (context) {
 
 ---
 
-엔터티 함수는 C# 및 JavaScript에 대해 [Durable Functions 2.0](durable-functions-versions.md) 이상에서 사용할 수 있습니다.
+엔터티 함수는 C#, JavaScript 및 Python용 [Durable Functions 2.0](durable-functions-versions.md) 이상에서 사용할 수 있습니다.
 
 ## <a name="the-technology"></a>기술
 

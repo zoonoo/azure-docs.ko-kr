@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: c34ed97339076a4412f8b6bf36ddf342205c88be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ffef03457f9d3faf385bd0a924474dfa6efc4121
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376709"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619243"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -51,7 +51,7 @@ yarn add dotenv
 
 ### <a name="configure-authentication-values"></a>인증 값 구성
 
-프로젝트 루트에 _.env_라는 새 파일을 만듭니다. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 다음 코드를 붙여넣습니다.
+프로젝트 루트에 _.env_ 라는 새 파일을 만듭니다. 몰입형 판독기 리소스를 만들 때 지정된 값을 제공하여 다음 코드를 붙여넣습니다.
 따옴표 또는 "{" 및 "}" 문자를 포함하지 마세요.
 
 ```text
@@ -63,7 +63,7 @@ SUBDOMAIN={YOUR_SUBDOMAIN}
 
 이 파일에는 공개되어서는 안 되는 비밀이 있으므로 이 파일을 소스 제어에 커밋하지 않아야 합니다.
 
-이제 _app.js_를 열고 파일 맨 위에 다음을 추가합니다. 이렇게 하면 env 파일에서 정의한 속성이 Node에 환경 변수로 로드됩니다.
+이제 _app.js_ 를 열고 파일 맨 위에 다음을 추가합니다. 이렇게 하면 env 파일에서 정의한 속성이 Node에 환경 변수로 로드됩니다.
 
 ```javascript
 require('dotenv').config();
@@ -128,7 +128,7 @@ module.exports = router;
 
 ## <a name="add-sample-content"></a>샘플 콘텐츠 추가
 
-이제 이 웹앱에 샘플 콘텐츠를 추가합니다. _views\index.pug_를 열고 자동으로 생성된 코드를 다음 샘플로 바꿉니다.
+이제 이 웹앱에 샘플 콘텐츠를 추가합니다. _views\index.pug_ 를 열고 자동으로 생성된 코드를 다음 샘플로 바꿉니다.
 
 ```pug
 doctype html
@@ -256,4 +256,5 @@ npm start
 
 ## <a name="next-steps"></a>다음 단계
 
-* [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../../reference.md) 살펴보기
+> [!div class="nextstepaction"]
+> [리소스 만들기 및 AAD 구성](../../how-to-create-immersive-reader.md)

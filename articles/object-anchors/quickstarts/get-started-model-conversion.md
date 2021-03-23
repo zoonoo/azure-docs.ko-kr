@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 93443a321f22d232f8b2bfa6a0fe5a05a5e18175
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 69d23b9d02eb176a2e42985ef5c3673e83d9bb7e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747955"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607903"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>빠른 시작: 3D 모델에서 Object Anchors 모델 만들기
 
@@ -102,7 +102,7 @@ Azure Object Anchors는 3D 모델을 HoloLens에 대한 개체 인식 혼합 현
 
     | 필드                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath           | 로컬 컴퓨터의 3D 모델에 대한 절대 경로입니다(`assets/models` 폴더에 사용할 수 있는 샘플 모델이 있음). 지원되는 파일 형식은 `fbx`, `ply`, `obj`, `glb`, `gltf`입니다. |
+    | InputAssetPath           | 로컬 머신의 3D 모델에 대한 절대 경로입니다. 지원되는 파일 형식은 `fbx`, `ply`, `obj`, `glb`, `gltf`입니다. |
     | AssetDimensionUnit       | 3D 모델의 측정 단위입니다. 지원되는 모든 측정 단위는 `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` 열거를 사용하여 액세스할 수 있습니다. |
     | Gravity                  | 3D 모델의 중력 벡터 방향입니다. 이 3D 벡터는 모델의 좌표계에서 아래쪽 방향을 제공합니다. 예를 들어 음수 `y`가 모델의 3D 공간에서 아래쪽 방향을 나타내는 경우 이 값은 `Vector3(0.0f, -1.0f, 0.0f)`입니다. |
 

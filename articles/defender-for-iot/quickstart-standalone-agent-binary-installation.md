@@ -1,27 +1,27 @@
 ---
-title: Defender for IoT 마이크로 에이전트 설치
+title: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 titleSuffix: Azure Defender for IoT
 description: Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 3/3/2021
+ms.date: 3/9/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ccf28c47e2e1438a141e2497da70d32c1832ddb9
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120439"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611678"
 ---
-# <a name="install-defender-for-iot-micro-agent"></a>Defender for IoT 마이크로 에이전트 설치 
+# <a name="install-defender-for-iot-micro-agent-preview"></a>IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 
 이 문서에서는 Defender 마이크로 에이전트를 설치하고 인증하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender IoT 마이크로 에이전트 모듈 쌍 만들기](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
+Defender for IoT 모듈을 설치하기 전에 IoT Hub에서 모듈 ID를 만들어야 합니다. 모듈 ID를 만드는 방법에 대한 자세한 내용은 [Defender IoT 마이크로 에이전트 모듈 쌍 만들기(미리 보기)](quickstart-create-micro-agent-module-twin.md)를 참조하세요.
 
 ## <a name="install-the-package"></a>패키지 설치
 
@@ -49,13 +49,37 @@ sudo apt-get install defender-iot-micro-agent
 
 Defender for IoT 마이크로 에이전트를 인증하는 데 사용 되는 두 가지 옵션은 다음과 같습니다. 
 
-- 연결 문자열. 
+- 모듈 ID 연결 문자열 
 
 - 인증서
 
-### <a name="authenticate-using-a-connection-string"></a>연결 문자열을 사용하여 인증
+### <a name="authenticate-using-a-module-identity-connection-string"></a>모듈 ID 연결 문자열을 사용한 인증
 
-연결 문자열을 사용하여 인증하려면 다음을 수행합니다.
+이 문서의 [사전 요구 사항](#prerequisites)이 충족되고 이 단계를 시작하기 전에 모듈 ID를 생성했는지 확인합니다. 
+
+#### <a name="get-the-module-identity-connection-string"></a>모듈 ID 연결 문자열 가져오기
+
+IoT Hub에서 모듈 ID 연결 문자열을 가져오려면 다음을 수행합니다. 
+
+1. IoT Hub으로 이동하여 허브를 선택합니다.
+
+1. 왼쪽 메뉴의 **탐색기** 섹션 아래에서 **IoT 디바이스** 를 선택합니다.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/iot-devices.png" alt-text="왼쪽 메뉴에서 IoT 디바이스를 선택합니다.":::
+
+1. 장치 ID 목록에서 디바이스를 선택하여 **디바이스 세부 정보** 페이지를 표시합니다.
+
+1.  **모듈 ID**  탭을 선택하고 디바이스와 연결된 모듈 ID 목록에서  **DefenderIotMicroAgent**  모듈을 선택합니다.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/module-identities.png" alt-text="모듈 ID 탭을 선택합니다.":::
+
+1. **모듈 ID 세부 정보** 페이지에서 **복사** 단추를 선택하여 기본 키를 복사합니다.
+
+   :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="복사 단추를 선택하여 기본 키를 복사합니다.":::
+
+#### <a name="configure-authentication-using-a-module-identity-connection-string"></a>모듈 ID 연결 문자열을 사용하여 인증 구성
+
+모듈 ID 연결 문자열을 사용하여 인증하도록 에이전트를 구성하려면 다음과 같이 수행합니다.
 
 1. 다음 명령을 입력하여 utf-8로 인코딩된 연결 문자열이 포함된 `connection_string.txt`라는 파일을 Defender 에이전트 디렉터리 `/var/defender_iot_micro_agent` 경로에 저장합니다.
 
@@ -63,7 +87,7 @@ Defender for IoT 마이크로 에이전트를 인증하는 데 사용 되는 두
     sudo bash -c 'echo "<connection string" > /var/defender_iot_micro_agent/connection_string.txt' 
     ```
 
-    이제 `connection_string.txt`가 `/var/defender_iot_micro_agent/connection_string.txt` 경로 위치에 있어야 합니다.
+    `connection_string.txt`는 다음 경로 위치 `/var/defender_iot_micro_agent/connection_string.txt`에 있어야 합니다.
 
 1. 다음 명령을 사용하여 서비스를 다시 시작합니다.  
 

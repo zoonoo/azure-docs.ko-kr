@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563338"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601936"
 ---
 # <a name="azure-files-networking-considerations"></a>Azure Files 네트워킹 고려 사항 
 다음 두 가지 방법으로 Azure 파일 공유에 연결할 수 있습니다.
@@ -25,6 +25,15 @@ ms.locfileid: "90563338"
 Azure 파일 공유에 대한 네트워킹 구성은 Azure 스토리지 계정에서 수행됩니다. 스토리지 계정은 여러 파일 공유뿐만 아니라 다른 스토리지 리소스(예: Blob 컨테이너 또는 큐)도 배포할 수 있는 공유 스토리지 풀을 나타내는 관리 구조입니다. 스토리지 계정은 파일 공유에 대한 네트워크 액세스를 보호하는 데 도움이 되는 여러 설정(네트워크 엔드포인트, 스토리지 계정 방화벽 설정 및 전송 중 암호화)을 공개합니다. 
 
 이 개념 가이드를 읽기 전에 [Azure Files 배포 계획](storage-files-planning.md)을 읽는 것이 좋습니다.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        이 비디오는 간단한 다섯 가지 단계를 통해 Azure 파일 공유를 정보 근로자 및 앱에 직접 안전하게 노출하는 방법에 대한 가이드 및 데모입니다. 아래 섹션에서는 비디오에서 참조되는 설명서에 대한 링크와 추가 컨텍스트를 제공합니다.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Azure 파일 공유에 액세스
 Azure 파일 공유를 스토리지 계정 내에 배포하면 스토리지 계정의 퍼블릭 엔드포인트를 통해 파일 공유에 즉시 액세스할 수 있습니다. 즉, 사용자의 로그온 ID로 권한이 부여된 요청과 같은 인증된 요청이 Azure 내부 또는 외부에서 안전하게 시작될 수 있습니다. 
@@ -137,7 +146,7 @@ IP4Address : 52.239.194.40
 
 스토리지 계정에 대한 액세스를 가상 네트워크로 제한하는 두 가지 방법은 다음과 같습니다.
 - 스토리지 계정에 대한 하나 이상의 프라이빗 엔드포인트를 만들고, 모든 액세스를 퍼블릭 엔드포인트로 제한합니다. 이렇게 하면 원하는 가상 네트워크 내에서 시작된 트래픽만 스토리지 계정 내의 Azure 파일 공유에 액세스할 수 있습니다.
-- 퍼블릭 엔드포인트를 하나 이상의 가상 네트워크로 제한합니다. 이는 *서비스 엔드포인트*라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 엔드포인트를 통해 스토리지 계정으로의 트래픽을 제한하는 경우에도 공용 IP 주소를 통해 스토리지 계정에 액세스하게 됩니다.
+- 퍼블릭 엔드포인트를 하나 이상의 가상 네트워크로 제한합니다. 이는 *서비스 엔드포인트* 라는 가상 네트워크의 기능을 사용하여 작동합니다. 서비스 엔드포인트를 통해 스토리지 계정으로의 트래픽을 제한하는 경우에도 공용 IP 주소를 통해 스토리지 계정에 액세스하게 됩니다.
 
 > [!NOTE]
 > NFS 공유는 공용 IP 주소를 통해 스토리지 계정의 퍼블릭 엔드포인트에 액세스할 수 없으며 가상 네트워크를 사용하여 스토리지 계정의 퍼블릭 엔드포인트에만 액세스할 수 있습니다. NFS 공유는 프라이빗 엔드포인트를 사용하여 스토리지 계정에 액세스할 수도 있습니다.

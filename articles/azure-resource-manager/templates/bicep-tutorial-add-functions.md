@@ -2,16 +2,16 @@
 title: 자습서 - Azure Resource Manager Bicep 파일에 함수 추가
 description: Bicep 파일에 함수를 추가하여 값을 생성합니다.
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: references_regions
-ms.openlocfilehash: 9c66ab132d3343115b1a9bd852d3eb3d83ae4ca7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b909beb0cce9ad04ba00068ee25247520dcff47d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742990"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633158"
 ---
 # <a name="tutorial-add-functions-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 함수 추가
 
@@ -37,7 +37,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 함수는 배포 중에 값을 동적으로 가져와서 Bicep 파일에 유연성을 추가합니다. 이 자습서에서는 함수를 사용하여 배포에 사용 중인 리소스 그룹의 위치를 가져옵니다.
 
-다음 예제는 `location`이라는 매개 변수를 추가하기 위한 변경 사항을 강조 표시합니다. 매개 변수 기본값은 [resourceGroup](template-functions-resource.md#resourcegroup) 함수를 호출합니다. 이 함수는 배포에 사용되는 리소스 그룹에 대한 정보가 포함된 개체를 반환합니다. 이러한 개체의 속성 중 하나가 위치 속성입니다. 기본값을 사용하면, 스토리지 계정 위치는 리소스 그룹과 동일한 위치입니다. 리소스 그룹 내의 리소스는 동일한 위치를 공유하지 않아도 됩니다. 필요한 경우, 다른 위치를 제공할 수도 있습니다.
+다음 예제는 `location`이라는 매개 변수를 추가하기 위한 변경 내용을 보여줍니다. 매개 변수 기본값은 [resourceGroup](template-functions-resource.md#resourcegroup) 함수를 호출합니다. 이 함수는 배포에 사용되는 리소스 그룹에 대한 정보가 포함된 개체를 반환합니다. 이러한 개체의 속성 중 하나가 위치 속성입니다. 기본값을 사용하면, 스토리지 계정 위치는 리소스 그룹과 동일한 위치입니다. 리소스 그룹 내의 리소스는 동일한 위치를 공유하지 않아도 됩니다. 필요한 경우, 다른 위치를 제공할 수도 있습니다.
 
 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
 

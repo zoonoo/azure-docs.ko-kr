@@ -1,21 +1,21 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/16/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 021abce5c6cd83257ad65f529833848d8f14f534
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02b47d7797eaebf6049099729ea51554a61a765e
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750477"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495441"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -39,11 +39,11 @@ ms.locfileid: "101750477"
 Gradle을 사용하여 필요한 Communication Services 종속성을 설치합니다. 명령줄에서 `ChatQuickstart` 프로젝트의 루트 디렉터리 안으로 이동합니다. 앱의 build.gradle 파일을 열고 `ChatQuickstart` 대상에 다음 종속성을 추가합니다.
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.6'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.6'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
 ```
 
-#### <a name="exclude-meta-files-in-packaging-options"></a>패키징 옵션에서 메타 파일 제외
+#### <a name="exclude-meta-files-in-packaging-options-in-root-buildgradle"></a>루트 build.gradle의 패키징 옵션에서 메타 파일을 제외합니다.
 ```
 android {
    ...
@@ -61,6 +61,17 @@ android {
 }
 ```
 
+#### <a name="add-a-maven-resource-in-root-buildgradle"></a>루트 build.gradle에 maven 리소스를 추가합니다.
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://trouterpublicpackages.z13.web.core.windows.net'
+        }
+    }
+```
+
 Android Studio에서 '지금 동기화'를 클릭합니다.
 
 #### <a name="alternative-to-install-libraries-through-maven"></a>(대안) Maven을 통해 라이브러리를 설치하려면
@@ -70,7 +81,7 @@ Android Studio에서 '지금 동기화'를 클릭합니다.
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
 </dependency>
 ```
 
@@ -90,7 +101,7 @@ import com.azure.android.communication.common.*;
     private String second_user_id = "<second_user_id>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0-beta.6";
+    private final String sdkVersion = "1.0.0-beta.7";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "--------------Chat Quickstart App-------------";
 
@@ -177,7 +188,7 @@ String id = "<user_id>";
 // The display name for the thread participant.
 String displayName = "initial participant";
 participants.add(new ChatParticipant()
-        .setId(id)
+        .setCommunicationIdentifier(new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(id)))
         .setDisplayName(displayName)
 );
 
@@ -268,7 +279,10 @@ threadClient.sendChatMessage(threadId, message, new Callback<String>() {
 participants = new ArrayList<>();
 // The display name for the thread participant.
 displayName = "a new participant";
-participants.add(new ChatParticipant().setId(second_user_id).setDisplayName(secondUserDisplayName));
+participants.add(new ChatParticipant().setCommunicationIdentifier(
+          new CommunicationIdentifierModel().setCommunicationUser(
+              new CommunicationUserIdentifierModel().setId(second_user_id)
+          )).setDisplayName(secondUserDisplayName));
 // The model to pass to the add method.
 AddChatParticipantsRequest addParticipantsRequest = new AddChatParticipantsRequest()
   .setParticipants(participants);
@@ -376,7 +390,8 @@ void listChatParticipantsNext(String nextLink, AsyncPagedDataCollection<ChatPart
 `<REMOVE A USER>` 주석을 다음 코드로 바꿉니다.
 
 ```java
-threadClient.removeChatParticipant(threadId, second_user_id, new Callback<Void>() {
+CommunicationIdentifierModel communicationIdentifierModel = new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(second_user_id));
+threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new Callback<Void>() {
     @Override
     public void onSuccess(Void result, okhttp3.Response response) {
         // Take further action.

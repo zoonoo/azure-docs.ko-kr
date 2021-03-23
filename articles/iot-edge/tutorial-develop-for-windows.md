@@ -9,18 +9,23 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e46105f5889f4925be9873fd8613021fe5e8ac2d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: b5ff515f5a6d25285009f6579570aa3afa5a711f
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920764"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463360"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
+# <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>자습서: Windows 컨테이너를 사용하여 IoT Edge 모듈 개발
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Visual Studio를 사용하여 IoT Edge를 실행하는 코드를 개발하고 Windows 디바이스에 배포합니다.
 
-빠른 시작에서는 Windows 가상 머신을 사용하여 IoT Edge 디바이스를 만들고 Azure Marketplace에서 미리 빌드한 모듈을 배포했습니다. 이 자습서에서는 고유한 코드를 개발하고 IoT Edge 디바이스에 배포하기 위한 과정을 안내합니다. 이 자습서는 특정 프로그래밍 언어 또는 Azure 서비스에 대해 좀 더 자세한 내용을 설명하는 다른 자습서를 진행하기 전에 먼저 살펴보아야 하는 유용한 내용을 제공합니다.
+>[!NOTE]
+>IoT Edge 1.1 LTS는 Windows 컨테이너를 지원하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너가 지원되지 않습니다. Windows 디바이스에서 IoT Edge를 실행하려면 [Windows에서 Linux용 IoT Edge](iot-edge-for-linux-on-windows.md)를 사용하거나 이동하는 것이 좋습니다.
+
+이 자습서에서는 고유한 코드를 개발하고 IoT Edge 디바이스에 배포하기 위한 과정을 안내합니다. 이 자습서는 특정 프로그래밍 언어 또는 Azure 서비스에 대해 좀 더 자세한 내용을 설명하는 다른 자습서를 진행하기 전에 먼저 살펴보아야 하는 유용한 내용을 제공합니다.
 
 이 자습서에서는 **Windows 디바이스에 C# 모듈** 을 배포하는 예제를 사용합니다. 이 예가 가장 일반적인 개발 시나리오이기 때문에 선택되었습니다. 다른 언어로 개발하거나 Azure 서비스를 모듈로 배포하려는 경우에도 이 자습서를 통해 개발 도구에 대해 자세히 알아볼 수 있습니다. 개발 개념을 이해하고 나면 기본 언어 또는 Azure 서비스를 선택하여 세부 정보를 자세히 살펴볼 수 있습니다.
 
@@ -44,8 +49,8 @@ Visual Studio를 사용하여 IoT Edge를 실행하는 코드를 개발하고 Wi
 
 Windows의 Azure IoT Edge 디바이스:
 
-* 개발 머신에서 IoT Edge를 실행하지 않고, 대신 별도 디바이스를 사용하는 것이 좋습니다. 이와 같이 개발 머신과 IoT Edge 디바이스를 구분하면 실제 배포 시나리오를 정확히 반영할 수 있고 개념 차이를 유지하는 데 도움이 됩니다.
-* 두 번째 디바이스를 사용할 수 없으면 빠른 시작 문서를 사용하여 [Windows 가상 머신](quickstart.md)을 사용하여 Azure에서 IoT Edge 디바이스를 만듭니다.
+* [Windows 컨테이너를 사용하여 Azure IoT Edge를 설치하고 관리](how-to-install-iot-edge-windows-on-windows.md)합니다.
+* 개발 머신에서 IoT Edge를 실행하지 않고, 가능한 한 별도의 디바이스를 사용하는 것이 좋습니다. 이와 같이 개발 머신과 IoT Edge 디바이스를 구분하면 실제 배포 시나리오를 정확히 반영할 수 있고 개념 차이를 유지하는 데 도움이 됩니다.
 
 클라우드 리소스:
 

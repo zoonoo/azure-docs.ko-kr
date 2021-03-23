@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 5b5d60a014cf63bd28f3097ac3131ad4c7018208
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 85bc54402237ff8e9c82c43ab9cdbe2dc6658af1
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621249"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103464108"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure Functions 배포
 
-비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 디바이스에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 디바이스에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 디바이스에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 빠른 시작에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -38,10 +40,10 @@ ms.locfileid: "96621249"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
+이 자습서를 시작하기 전에 이전 자습서를 통해 Linux 컨테이너 개발을 위한 개발 환경을 설정해야 합니다. [Linux 컨테이너를 사용하여 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)합니다. 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

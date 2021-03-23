@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c898444659c2ce071163e9ab774a4534f8c51a9c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723676"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632053"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
@@ -18,7 +18,7 @@ ms.locfileid: "101723676"
 엔터티는 각각 적당한 크기의 상태인 여러 엔터티 간에 작업을 분산하여 애플리케이션을 확장할 수 있는 방법을 제공합니다.
 
 > [!NOTE]
-> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다. 현재 .NET 및 JavaScript에서 지원됩니다.
+> 엔터티 함수 및 관련 기능은 [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) 이상에서만 사용할 수 있습니다. 현재 .NET 및 JavaScript 및 Python에서 지원됩니다.
 
 ## <a name="general-concepts"></a>일반 개념
 
@@ -189,7 +189,6 @@ def entity_function(context: df.DurableEntityContext):
     elif operation == "get":
         context.set_result(current_value)
     context.set_state(current_value)
-
 
 
 main = df.Entity.create(entity_function)

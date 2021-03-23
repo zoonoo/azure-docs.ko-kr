@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 11/30/2020
-ms.openlocfilehash: 77da3406897c31e48d808541f1f9d579eb0a9cb7
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 3fadfa9d4467209ddbe997afabba27a3752f685d
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401545"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419935"
 ---
 # <a name="what-is-azure-purview"></a>Azure Purview란?
 
@@ -69,6 +69,9 @@ Azure Purview는 데이터 원본을 등록할 수 있는 클라우드 기반 �
 데이터 원본과 데이터 원본의 용도를 찾고 이해하는 것이 원본을 등록하는 주요 목적입니다. 엔터프라이즈 사용자에게는 비즈니스 인텔리전스, 애플리케이션 개발, 데이터 과학 또는 적절한 데이터를 필요로 하는 기타 모든 작업에 대해 데이터가 필요할 수 있습니다. 데이터 카탈로그 검색 환경을 사용하여 요구 사항에 맞는 데이터를 빠르게 찾고, 데이터를 이해하여 용도에 대한 적합성을 평가하고, 선택한 도구에서 데이터 원본을 열어 해당 데이터를 사용합니다.
 
 이와 동시에, 사용자는 이미 등록된 데이터 원본에 태그를 지정하고 관련 문서를 작성하며 주석을 추가하여 카탈로그에 기여할 수 있습니다. 또한 카탈로그 사용자 커뮤니티에서 검색, 이해 및 사용하는 새 데이터 원본을 등록할 수도 있습니다.
+
+## <a name="in-region-data-residency"></a>지역 내 데이터 보존
+Azure Purview는 배포된 지역 외부로 고객 데이터를 이동하거나 저장하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

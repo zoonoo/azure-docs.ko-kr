@@ -1,18 +1,18 @@
 ---
-title: 자습서 - Azure VMware Solution 프라이빗 클라우드 만들기 및 배포
+title: 자습서 - Azure VMware Solution 프라이빗 클라우드 배포
 description: Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법 알아보기
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725427"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462170"
 ---
-# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 만들기
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 배포
 
-이 자습서에서는 Azure VMware Solution 프라이빗 클라우드를 만들고 배포하는 방법을 알아봅니다. 호스트의 최소 초기 배포는 세 개입니다. 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다. 
+Azure VMware Solution은 vSphere 클러스터를 Azure에 배포할 수 있는 기능을 제공합니다. 최소 초기 배포는 세 개의 호스트입니다. 클러스터당 최대 16개의 호스트를 한 번에 하나씩 추가할 수 있습니다.
 
 Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하여 프라이빗 클라우드를 관리할 수 없으므로 추가 구성이 필요합니다. 이러한 절차 및 관련 사전 요구 사항은 이 자습서에서 다룹니다.
 
@@ -48,7 +48,7 @@ Azure VMware Solution 프라이빗 클라우드를 만드는 Azure Portal 대신
 
 #### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-`[az group create](/cli/azure/group)` 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
+['az group create'](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: eb5de33fd41d3a454f4d0b8d44325ed30f9c5d47
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071633"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225220"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 
@@ -271,9 +271,9 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
-이 단계에서는 [문서 검색(REST)](/rest/api/searchservice/search-documents)을 사용하여 인덱스를 쿼리하는 방법을 보여줍니다.
+이 단계에서는 [search.client 클래스](/python/api/azure-search-documents/azure.search.documents.searchclient)의 **검색** 메서드를 사용하여 인덱스를 쿼리하는 방법을 보여줍니다.
 
-1. 이 작업에는 search_client를 사용합니다. 이 쿼리는 빈 검색(`search=*`)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 조건이 없으므로 모든 문서가 결과에 포함됩니다. 이 쿼리는 각 문서의 필드 중 두 개만 출력합니다. 또한 모든 문서의 수(4)를 결과에 가져오는 `include_total_count=True`를 추가합니다.
+1. 다음 단계에서는 빈 검색(`search=*`)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 조건이 없으므로 모든 문서가 결과에 포함됩니다. 이 쿼리는 각 문서의 필드 중 두 개만 출력합니다. 또한 모든 문서의 수(4)를 결과에 가져오는 `include_total_count=True`를 추가합니다.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)
@@ -348,7 +348,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="clean-up"></a>정리
 
-본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기에서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
 왼쪽 탐색 창의 **모든 리소스** 또는 **리소스 그룹** 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
 

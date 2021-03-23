@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 27a2b764ebf420c91c57c6f5f762f656b1040a91
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 2052669d3d1ae2bdb7aa1687c4dc348c9420d126
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594555"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615366"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -368,7 +368,7 @@ New-AzPublicIpAddress @publicipout
 
 * [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig)를 사용하여 새 프런트 엔드 IP 구성을 만듭니다.
 
-* [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig)를 사용하여 새 아웃바운드 풀을 만듭니다. 
+* [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig)를 사용하여 새 아웃바운드 백 엔드 주소 풀을 만듭니다. 
 
 * [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)를 사용하여 부하 분산 장치에 풀 및 프런트 엔드 IP 주소를 적용합니다.
 *  [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig)를 사용하여 아웃바운드 백 엔드 풀에 대한 새 아웃바운드 규칙을 만듭니다. 

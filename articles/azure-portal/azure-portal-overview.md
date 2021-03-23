@@ -2,14 +2,14 @@
 title: Azure 포털 개요
 description: Azure Portal은 Azure 서비스를 관리하는 데 사용할 수 있는 그래픽 사용자 인터페이스입니다. Azure Portal에서 리소스를 탐색하고 찾는 방법을 알아봅니다.
 keywords: portal
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-ms.openlocfilehash: 1e9cf1a9609b9d4f30e51094f1d0542335ead0e2
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745930"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563997"
 ---
 # <a name="azure-portal-overview"></a>Azure 포털 개요
 
@@ -45,11 +45,11 @@ Azure Portal 메뉴와 Azure 기본 보기 둘 다 **포털 설정** 에서 변�
 
 ## <a name="azure-dashboard"></a>Azure 대시보드
 
-대시보드는 사용자에게 가장 중요한 구독의 리소스를 집중적으로 보여주는 보기를 제공합니다. 새로 시작하는 분들을 위한 기본 대시보드가 제공됩니다. 이 대시보드를 사용자 지정하여 자주 사용하는 리소스를 단일 보기로 가져올 수 있습니다. 기본 보기에서 변경한 내용은 사용자 환경에만 적용됩니다. 하지만 혼자 사용할 대시보드를 추가로 만들거나, 사용자 지정한 대시보드를 게시하고 조직의 다른 사용자와 공유할 수 있습니다. 자세한 내용은 [Azure Portal에서 대시보드 만들기 및 공유](../azure-portal/azure-portal-dashboards.md)를 참조하세요.
+대시보드는 사용자에게 가장 중요한 구독의 리소스를 집중적으로 보여주는 보기를 제공합니다. 새로 시작하는 사용자를 위한 기본 대시보드를 제공했습니다. 이 대시보드를 사용자 지정하여 자주 사용하는 리소스를 단일 보기로 가져올 수 있습니다. 기본 보기에서 변경한 내용은 사용자 환경에만 적용됩니다. 하지만 혼자 사용할 대시보드를 추가로 만들거나, 사용자 지정한 대시보드를 게시하고 조직의 다른 사용자와 공유할 수 있습니다. 자세한 내용은 [Azure Portal에서 대시보드 만들기 및 공유](../azure-portal/azure-portal-dashboards.md)를 참조하세요.
 
 ## <a name="getting-around-the-portal"></a>포털 살펴보기
 
-기본 포털 레이아웃 및 상호 작용 방법을 이해하는 것이 좋습니다. 여기서는 사용자 인터페이스의 구성 요소와 지침을 제공하는 데 사용되는 용어를 소개합니다. 포털을 자세히 둘러보려면 과정 단원 [포털 둘러보기](/learn/modules/tour-azure-portal/3-navigate-the-portal)를 참조하세요.
+기본 포털 레이아웃과 상호 작용하는 방법을 이해하는 것이 좋습니다. 여기서는 사용자 인터페이스의 구성 요소와 지침을 제공하는 데 사용되는 용어를 소개합니다. 포털을 자세히 둘러보려면 과정 단원 [포털 둘러보기](/learn/modules/tour-azure-portal/3-navigate-the-portal)를 참조하세요.
 
 Azure Portal 메뉴와 페이지 헤더는 항상 존재하는 글로벌 요소입니다. 이러한 영구적 기능은 개별 서비스 또는 기능과 연결된 사용자 인터페이스의 "셸"이며, 헤더는 글로벌 컨트롤에 대한 액세스를 제공합니다. 리소스의 구성 페이지("블레이드"라고도 함)에는 기능 간에 이동하는 데 도움이 되는 리소스 메뉴가 포함될 수도 있습니다.
 
@@ -75,7 +75,7 @@ Azure Portal 메뉴와 페이지 헤더는 항상 존재하는 글로벌 요소�
 
 ## <a name="get-started-with-services"></a>서비스 시작
 
-신규 구독자인 경우 리소스를 만들어야 합니다. 그 전에는 관리할 항목이 없습니다. **+ 리소스 만들기** 를 선택하여 Azure Marketplace에서 사용할 수 있는 서비스를 확인합니다. 수백 곳의 공급자가 제공하는 애플리케이션 및 서비스를 찾을 수 있으며, 모든 애플리케이션과 서비스는 Azure에서 실행되는 것으로 인증을 마쳤습니다.
+신규 구독자인 경우 리소스를 만들어야 합니다. 그 전에는 관리할 항목이 없습니다. **+ 리소스 만들기** 를 선택하여 Azure Marketplace에서 사용할 수 있는 서비스를 확인합니다. 여기에서 여러 공급자가 제공하는 수백 가지의 애플리케이션 및 서비스를 찾을 수 있으며, Azure에서 실행되도록 인증되었습니다.
 
 사이드바의 [즐겨찾기]가 자주 사용되는 서비스로 미리 채워져 있습니다.  사용 가능한 모든 서비스를 보려면 사이드바에서 **모든 서비스** 를 선택합니다.
 

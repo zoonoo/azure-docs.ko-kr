@@ -1,21 +1,21 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9f62f262e1baa70982e667379a9bf4357197ecb4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661637"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495473"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
@@ -140,22 +140,22 @@ Azure Communication Chat client created!
 - 이 채팅에 토픽을 제공하려면 `topic`을 사용하세요. `UpdateThread` 함수를 사용하여 채팅 스레드를 만든 후에 토픽을 업데이트할 수 있습니다.
 - `participants`를 사용하여 채팅 스레드에 추가할 참가자를 나열합니다.
 
-확인되면 `createChatThread` 메서드가 `CreateChatThreadResponse`를 반환합니다. 이 모델에는 새로 만든 스레드의 `id`에 액세스할 수 있는 `chatThread` 속성이 포함되어 있습니다. 그리고 `id`를 사용하여 `ChatThreadClient`의 인스턴스를 가져올 수 있습니다. 그런 다음, `ChatThreadClient`를 사용하여 메시지 보내기 또는 참가자 나열과 같은 작업을 스레드 내에서 수행할 수 있습니다.
+확인되면 `createChatThread` 메서드가 `CreateChatThreadResult`를 반환합니다. 이 모델에는 새로 만든 스레드의 `id`에 액세스할 수 있는 `chatThread` 속성이 포함되어 있습니다. 그리고 `id`를 사용하여 `ChatThreadClient`의 인스턴스를 가져올 수 있습니다. 그런 다음, `ChatThreadClient`를 사용하여 메시지 보내기 또는 참가자 나열과 같은 작업을 스레드 내에서 수행할 수 있습니다.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -184,7 +184,7 @@ Thread created: <thread_id>
 `getChatThreadClient` 메서드는 이미 존재하는 스레드의 `chatThreadClient`를 반환합니다. 생성된 스레드에서 참가자 추가, 메시지 보내기 등의 작업을 수행하는 데 사용할 수 있습니다. threadId는 기존 채팅 스레드의 고유 ID입니다.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -195,35 +195,33 @@ Chat Thread client for threadId: <threadId>
 
 ## <a name="send-a-message-to-a-chat-thread"></a>채팅 스레드에 메시지 보내기
 
-`sendMessage` 메서드를 사용하여 방금 만든 스레드에 threadId로 식별되는 채팅 메시지를 보냅니다.
+`sendMessage` 메서드를 사용하여 threadId로 식별되는 스레드에 메시지를 보냅니다.
 
-`sendMessageRequest`는 채팅 메시지 요청의 필수 필드를 설명합니다.
+`sendMessageRequest`는 메시지 요청을 설명하는 데 사용됩니다.
 
 - `content`를 사용하여 채팅 메시지 콘텐츠를 제공합니다.
 
-`sendMessageOptions`는 채팅 메시지 요청의 선택적 필드를 설명합니다.
+`sendMessageOptions`는 작업 선택적 매개 변수를 설명하는 데 사용됩니다.
 
-- `priority`를 사용하여 '보통' 또는 '높음'과 같은 채팅 메시지 우선 순위 수준을 지정합니다. 이 속성은 앱에서 수신 사용자를 위한 UI 표시기를 표시하여 메시지로 주의를 끌거나 사용자 지정 비즈니스 로직을 실행하는 데 사용할 수 있습니다.
 - `senderDisplayName`을 사용하여 보낸 사람의 표시 이름을 지정합니다.
+- `type`을 사용하여 메시지 유형(예: 'text' 또는 'html')을 지정합니다.
 
-응답 `sendChatMessageResult`는 해당 메시지의 고유 ID인 ID를 포함합니다.
+`SendChatMessageResult`는 메시지 전송 후 반환된 응답이며, 메시지의 고유 ID인 ID를 포함합니다.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 **client.js** 에서 `<SEND MESSAGE TO A CHAT THREAD>` 주석 대신 이 코드를 추가하고, 브라우저 탭을 새로 고친 후 콘솔을 확인합니다.
 ```console
 Message sent!, message id:<number>
@@ -286,7 +284,7 @@ let nextMessage = await pagedAsyncIterableIterator.next();
 `addParticipants` 메서드를 호출하기 전에 해당 사용자에 대한 새 액세스 토큰 및 ID를 획득했는지 확인하세요. 사용자가 채팅 클라이언트를 초기화하려면 액세스 토큰이 필요합니다.
 
 `addParticipantsRequest`는 `participants`가 채팅 스레드에 추가될 참가자를 나열하는 요청 개체를 설명합니다.
-- `user`(필수)는 채팅 스레드에 추가될 통신 사용자입니다.
+- `id`(필수)는 채팅 스레드에 추가될 통신 식별자입니다.
 - 선택 사항인 `displayName`은 스레드 참가자의 표시 이름입니다.
 - 선택 사항인 `shareHistoryTime`은 채팅 기록이 참가자와 공유된 시간입니다. 채팅 스레드가 시작된 이후의 기록을 공유하려면 이 속성을 스레드 생성 날짜와 동일한 날짜 또는 그 이전의 날짜로 설정합니다. 참가자가 추가되기 전의 기록을 공유하지 않으려면 현재 날짜로 설정합니다. 일부 기록을 공유하려면 원하는 날짜로 설정합니다.
 
@@ -296,7 +294,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]

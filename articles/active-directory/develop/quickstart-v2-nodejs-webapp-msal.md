@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: 5ca8c41dc1e6a05975227555abd91f5d6725285a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d6be9753cbcb2a6be9836b27f82f1b60068570b8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092189"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224982"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>빠른 시작: 인증 코드 흐름을 사용하여 사용자를 로그인하고 노드 웹앱에서 액세스 토큰을 가져옵니다.
 
@@ -48,6 +48,15 @@ ms.locfileid: "101092189"
 > 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 기록해 둡니다.
 > 1. **관리** 아래에서 **인증서 및 비밀** > **새 클라이언트 암호** 를 선택합니다.  설명을 비워 두고 기본 만료를 그대로 둔 다음, **추가** 를 선택합니다.
 > 1. 나중에 사용하기 위해 **클라이언트 암호** 의 **값** 을 확인합니다.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
+> 이 빠른 시작의 코드 샘플이 작동하려면 클라이언트 암호를 만들고 회신 URL을 **http://localhost:3000/redirect** 로 추가해야 합니다.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [자동 변경]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![이미 구성됨](media/quickstart-v2-windows-desktop/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-the-project"></a>2단계: 프로젝트를 다운로드합니다.
 
@@ -91,16 +100,17 @@ ms.locfileid: "101092189"
 > 여기에 설명한 대로 `config` 섹션에서 값을 수정합니다.
 >
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+>
+>    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
 > - `Enter_the_Client_Secret_Here`는 등록한 애플리케이션의 **클라이언트 암호** 의 **값** 입니다.
+>
+>    새 **클라이언트 암호** 를 검색하거나 생성하려면 **관리** 에서 **인증서 및 비밀** 을 선택합니다.
 >
 > 기본 `authority` 값은 기본(글로벌) Azure 클라우드를 나타냅니다.
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다. **인증서 및 비밀** 로 이동하여 새 **클라이언트 암호** 를 검색하거나 생성합니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.

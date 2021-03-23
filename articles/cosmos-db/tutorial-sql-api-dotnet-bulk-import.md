@@ -6,15 +6,15 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 09/21/2020
+ms.date: 03/15/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cf0e77657175449b126eeca02a12c164478e568
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 1c178f57a31e02b3dac712a5425db226720200c5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548072"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563626"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "96548072"
 > * 대량 지원을 사용하도록 설정한 Azure Cosmos 계정에 연결
 > * 동시 만들기 작업을 통해 데이터 가져오기 수행
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 지침을 따르기 전에 다음 리소스가 있는지 확인하세요.
 
@@ -112,7 +112,7 @@ Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬�
         private const string AuthorizationKey = "<your-account-key>";
         private const string DatabaseName = "bulk-tutorial";
         private const string ContainerName = "items";
-        private const int ItemsToInsert = 300000;
+        private const int AmountToInsert = 300000;
 
         static async Task Main(string[] args)
         {
@@ -150,14 +150,11 @@ Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬�
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
-항목을 읽고 `System.Text.Json` 클래스를 사용하여 스트림 인스턴스로 serialize합니다. 자동 생성된 데이터의 특성 때문에 데이터를 스트림으로 serialize합니다. 항목 인스턴스를 직접 사용할 수도 있지만 스트림으로 변환하면 CosmosClient에서 스트림 API의 성능을 활용할 수 있습니다. 일반적으로 파티션 키를 알고 있으면 데이터를 직접 사용할 수 있습니다. 
-
-
-데이터를 스트림 인스턴스로 변환하려면 `Main` 메서드 내에서 컨테이너를 만든 직후에 다음 코드를 추가합니다.
+도우미 함수를 사용하여 작업할 문서 목록을 초기화합니다.
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
-그런 다음, 데이터 스트림을 사용하여 동시 작업을 만들고 작업 목록을 채워 컨테이너에 항목을 삽입합니다. 이 작업을 수행하려면 `Program` 클래스에 다음 코드를 추가합니다.
+다음으로, 문서 목록을 사용하여 동시 작업을 만들고 작업 목록을 채워 컨테이너에 항목을 삽입합니다. 이 작업을 수행하려면 `Program` 클래스에 다음 코드를 추가합니다.
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 

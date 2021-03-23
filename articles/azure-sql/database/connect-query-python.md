@@ -12,14 +12,15 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/19/2020
-ms.openlocfilehash: 8fb6d319cacf85630b2c400cd18d14487725f925
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: f21e11e33d3ddf1489dba3419766a8adaa878d5f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703973"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491965"
 ---
 # <a name="quickstart-use-python-to-query-a-database"></a>빠른 시작: Python을 사용하여 데이터베이스 쿼리
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 이 빠른 시작에서는 Python을 사용하여 Azure SQL Database, Azure SQL Managed Instance 또는 Synapse SQL 데이터베이스에 연결하고 T-SQL 문을 사용하여 데이터를 쿼리합니다.
@@ -35,28 +36,16 @@ ms.locfileid: "97703973"
   [!INCLUDE[create-configure-database](../includes/create-configure-database.md)]
 
 - [Python](https://python.org/downloads) 3 및 관련 소프트웨어
+    
 
-  # <a name="macos"></a>[macOS](#tab/macos)
+    |**동작**|**macOS**|**Ubuntu**|**Windows**|
+    |----------|-----------|------------|---------|
+    |ODBC 드라이버, SQLCMD 및 SQL Server용 Python 드라이버 설치|[macOS에서 SQL Server를 사용하여 Python 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)에서 **1.2**, **1.3** 및 **2.1** 단계를 사용합니다. 그러면 Homebrew와 Python도 설치됩니다.       |[pyodbc Python 개발을 위한 환경 구성](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)|[pyodbc Python 개발을 위한 환경을 구성](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)합니다.|
+    |Python 및 기타 필수 패키지 설치|    |`sudo apt-get install python python-pip gcc g++ build-essential`을 사용합니다.|    |
+    |추가 정보|[macOS의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)  |[Linux의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)|[Linux의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)|
 
-  Homebrew와 Python, ODBC 드라이버 및 SQLCMD, SQL Server용 Python 드라이버를 설치하려면 [macOS에서 SQL Server를 사용하여 Python 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)의 **1.2**, **1.3** 및 **2.1** 단계를 사용합니다.
 
-  자세한 내용은 [macOS의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)를 참조하세요.
 
-  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
-
-  Python 및 기타 필수 패키지를 설치하려면 `sudo apt-get install python python-pip gcc g++ build-essential`을 사용합니다.
-
-  ODBC 드라이버, SQLCMD 및 SQL Server용 Python 드라이버를 설치하려면 [pyodbc Python 개발을 위한 환경 구성](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)을 참조하세요.
-
-  자세한 내용은 [Linux의 Microsoft ODBC 드라이버](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)를 참조하세요.
-
-  # <a name="windows"></a>[Windows](#tab/windows)
-
-  Python, ODBC 드라이버, SQLCMD 및 SQL Server용 Python 드라이버를 설치하려면 [pyodbc Python 개발을 위한 환경 구성](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)을 참조하세요.
-
-  자세한 내용은 [Microsoft ODBC 드라이버](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server)를 참조하세요.
-
----
 Python 및 Azure SQL Database의 데이터베이스를 자세히 살펴보려면 [Python용 Azure SQL Database 라이브러리](/python/api/overview/azure/sql), [pyodbc 리포지토리](https://github.com/mkleehammer/pyodbc/wiki/) 및 [pyodbc 샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)을 참조하세요.
 
 ## <a name="create-code-to-query-your-database"></a>데이터베이스를 쿼리할 코드 만들기 

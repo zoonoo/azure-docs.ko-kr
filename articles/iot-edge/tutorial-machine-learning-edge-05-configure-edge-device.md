@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: 0ed085a161ced22efb1e5022e34b6f9b0344f942
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b59f8343c9dff07a32accd471f70ddf9f5309b8d
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721432"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463088"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>자습서: Azure IoT Edge 디바이스 구성
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 이 문서에서는 Linux를 실행하는 Azure 가상 머신을 투명 게이트웨이로 작동하는 Azure IoT Edge 디바이스로 구성합니다. 투명 게이트웨이를 구성하면 디바이스가 게이트웨이 존재 여부를 알지 못해도 게이트웨이를 통해 Azure IoT Hub에 연결할 수 있습니다. 그와 동시에, IoT Hub의 디바이스와 상호 작용하는 사용자는 중간에 있는 게이트웨이 디바이스를 인식하지 못합니다. 궁극적으로 IoT Edge 모듈을 투명 게이트웨이에 추가하여 에지 분석 기능을 시스템에 추가합니다.
+
+>[!NOTE]
+>이 자습서의 개념은 모든 버전의 IoT Edge에 적용되지만 시나리오를 사용해보기 위해 만드는 샘플 디바이스는 IoT Edge 버전 1.1을 실행합니다.
 
 이 문서의 단계는 일반적으로 클라우드 개발자가 수행합니다.
 

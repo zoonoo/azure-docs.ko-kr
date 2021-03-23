@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650571"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149531"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 사이트 빌드
 
@@ -115,9 +115,9 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 위쪽 검색 창에서 **my-first-web-static-app** 을 검색합니다.
-1. 앱 이름을 선택합니다.
+1. 앱 이름 선택
 1. **삭제** 단추를 선택합니다.
-1. **예** 를 선택하여 삭제 작업을 확인합니다.
+1. **예** 를 선택하여 삭제 작업을 확인합니다(이 작업은 완료하는 데 몇 분 정도 걸릴 수 있음).
 
 ## <a name="next-steps"></a>다음 단계
 

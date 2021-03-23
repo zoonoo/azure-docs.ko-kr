@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 020ba74948a062d23d61272ee912eb3364180f1e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429265"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618001"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -78,10 +78,10 @@ Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](../best-pr
 두 지역에 배포된 클러스터는 정상적인 환경에서 독립적으로 작동합니다. 한 지역에서 오류가 발생하거나 중단되는 경우 수행되는 작업은 다음과 같습니다.
 
 - Azure Attestation BCDR은 고객이 복구하기 위해 추가 단계를 수행할 필요가 없는 원활한 장애 조치를 제공합니다.
-- 해당 지역의 [Azure Traffic Manager](../traffic-manager/index.yml)에서 상태 프로브가 저하되었음을 감지하고 엔드포인트를 쌍으로 연결된 지역으로 전환합니다.
+- 지역의 [Azure Traffic Manager](../traffic-manager/index.yml)는 상태 프로브가 저하되었음을 감지하고 엔드포인트를 쌍으로 연결된 지역으로 전환합니다.
 - 기존 연결이 작동하지 않고 내부 서버 오류 또는 시간 제한 문제가 발생합니다.
-- 모든 컨트롤 플레인 작업이 차단됩니다. 고객은 주 지역에서 증명 공급자를 만들고 정책을 업데이트할 수 없습니다.
-- 증명, 호출을 포함한 모든 데이터 평면 작업이 주 지역에서 계속 작동합니다.
+- 모든 컨트롤 플레인 작업이 차단됩니다. 고객은 주 지역에서 증명 공급자를 만들 수 없습니다.
+- 증명 호출 및 정책 구성을 비롯한 모든 데이터 평면 작업은 보조 지역에서 제공됩니다. 고객은 주 지역에 해당하는 원래 URI를 사용하여 데이터 평면 작업을 계속할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Attestation 기본 개념](basic-concepts.md)에 대해 알아보기

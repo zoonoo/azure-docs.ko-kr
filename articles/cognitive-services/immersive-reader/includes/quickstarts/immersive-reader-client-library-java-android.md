@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
-ms.openlocfilehash: 29bacfff2e7b555143c0483f9b7e4b4f61c9e973
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 7119e1d029bb682f004e65323df5b50087c0634c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612660"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619246"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "97612660"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure Active Directory 인증에 대해 구성된 몰입형 판독기 리소스입니다. [다음 지침](../../how-to-create-immersive-reader.md)에 따라 설정하세요. 환경 속성을 구성할 때 여기서 만든 일부 값이 필요합니다. 나중에 참조할 수 있도록 세션 출력을 텍스트 파일로 저장합니다.
@@ -1391,4 +1391,5 @@ Android Studio를 사용하여 디바이스 에뮬레이터에서 앱을 실행�
 
 ## <a name="next-steps"></a>다음 단계
 
-[몰입형 리더 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 리더 SDK 참조](../../reference.md)를 살펴봅니다.
+> [!div class="nextstepaction"]
+> [리소스 만들기 및 AAD 구성](../../how-to-create-immersive-reader.md)

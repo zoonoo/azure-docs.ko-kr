@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure RTOS용 보안 모듈 구성 및 사용'
-description: 이 빠른 시작에서는 Azure IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 온보드하고 활성화하는 방법에 대해 알아봅니다.
+title: '빠른 시작: Azure RTOS용 Defender-IoT-micro-agent 구성 및 사용'
+description: Azure IoT Hub에서 Azure RTOS용 Defender-IoT-micro-agent 서비스를 온보드하고 활성화하는 방법에 대해 알아봅니다.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3c1af1128b99cbd3263ddffc834eb27ab9dec564
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447302"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489848"
 ---
-# <a name="quickstart-security-module-for-azure-rtos"></a>빠른 시작: Azure RTOS용 보안 모듈 
+# <a name="quickstart-defender-iot-micro-agent-for-azure-rtos-preview"></a>빠른 시작: Azure RTOS용 Defender-IoT-micro-agent(미리 보기)
 
-이 문서에서는 시작하기 전에 필수 구성 요소에 대해 설명하고 IoT Hub에서 Azure RTOS용 보안 모듈 서비스를 활성화하는 방법을 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
+이 문서에서는 시작하기 전에 필수 구성 요소에 대해 설명하고 IoT Hub에서 Azure RTOS용 Defender-IoT-micro-agent 서비스를 활성화하는 방법을 설명합니다. 현재 IoT Hub가 없는 경우 시작하려면 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -32,7 +32,7 @@ ms.locfileid: "102447302"
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-[Azure RTOS GitHub용 보안 모듈 리소스](https://github.com/azure-rtos/azure-iot-preview/releases)에서 선택한 특정 보드 및 도구(IAR, 세미 IDE 또는 PC)에 대한 .zip 파일 중 하나를 다운로드, 컴파일 및 실행합니다.
+[Azure RTOS GitHub용 Defender-IoT-micro-agent 리소스](https://github.com/azure-rtos/azure-iot-preview/releases)에서 선택한 특정 보드 및 도구(IAR, 세미 IDE 또는 PC)에 대한 .zip 파일 중 하나를 다운로드, 컴파일 및 실행합니다.
 
 ### <a name="azure-resources"></a>Azure 리소스
 
@@ -52,11 +52,11 @@ ms.locfileid: "102447302"
 
 연결 자격 증명은 사용자 애플리케이션 구성 **HOST_NAME**, **DEVICE_ID** 및 **DEVICE_SYMMETRIC_KEY** 에서 가져옵니다.
 
-Azure RTOS용 보안 모듈은 **MQTT** 프로토콜을 기반으로 하는 Azure IoT 미들웨어 연결을 사용합니다.
+Azure RTOS용 Defender-IoT-micro-agent는 **MQTT** 프로토콜을 기반으로 하는 Azure IoT 미들웨어 연결을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서로 이동하여 솔루션 구성 및 사용자 지정을 완료합니다.
 
 > [!div class="nextstepaction"]
-> [Azure RTOS용 보안 모듈 구성](how-to-azure-rtos-security-module.md)
+> [Azure RTOS용 Defender-IoT-micro-agent 구성 및 사용자 지정(미리 보기)](how-to-azure-rtos-security-module.md)

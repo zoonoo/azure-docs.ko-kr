@@ -1,56 +1,57 @@
 ---
 title: C#에 HTTP 요청 서명
-description: Communication Services에 대한 HMAC 서명을 사용하여 HTTP 요청에 서명하는 C# 버전입니다.
+description: 이 자습서에서는 Azure Communication Services에 대한 HMAC 서명을 사용하여 HTTP 요청에 서명하는 C# 버전에 대해 설명합니다.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
 ms.author: apistrak
-ms.date: 01/15/2021
+ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 3c1b56f81e5164bbdfa94fdaeca5f5f1f55b3b51
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 34c7df2b0e61536c0b5f0bc1e4a97d58d0d9c6a4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552745"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490514"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인해야 합니다.
-- 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요. 
-- [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
-- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요. 이 자습서에서는 **resourceEndpoint** 및 **resourceAccessKey** 를 기록해야 합니다.
 
-
+- 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/)를 설치합니다.
+- Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요. 이 자습서에서는 **resourceEndpoint** 및 **resourceAccessKey** 를 기록해야 합니다.
 
 ## <a name="sign-an-http-request-with-c"></a>C#에 HTTP 요청 서명
+
 액세스 키 인증은 공유 비밀 키를 사용하여 각 HTTP 요청에 대해 HMAC 서명을 생성합니다. 이 서명은 SHA256 알고리즘을 사용하여 생성되며 `HMAC-SHA256` 체계를 사용하여 `Authorization` 헤더에 전송됩니다. 예를 들어 다음과 같습니다.
 
 ```
 Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
-`hmac-sha256-signature`는 다음으로 구성됩니다. 
+`hmac-sha256-signature`는 다음으로 구성됩니다.
 
-- HTTP 동사(예: `GET` 또는 `PUT`)
+- HTTP 동사(예: `GET` 또는 `PUT` )
 - HTTP 요청 경로
 - 날짜
 - 호스트
 - x-ms-content-sha256
 
-## <a name="setting-up"></a>설치
+## <a name="setup"></a>설정
+
 다음 단계에서는 인증 헤더를 생성하는 방법을 설명합니다.
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `SignHmacTutorial`라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs** 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 `dotnet new` 명령을 사용하여 `SignHmacTutorial`이라는 새 콘솔 앱을 만듭니다. 이 명령은 **Program.cs** 라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다.
 
 ```console
 dotnet new console -o SignHmacTutorial
 ```
 
-디렉터리를 새로 만든 앱 폴더로 변경하고 `dotnet build` 명령을 사용하여 애플리케이션을 컴파일합니다.
+새로 만든 앱 폴더로 디렉터리를 변경합니다. `dotnet build` 명령을 사용하여 애플리케이션을 컴파일합니다.
 
 ```console
 cd SignHmacTutorial
@@ -82,12 +83,13 @@ namespace SignHmacTutorial
         static async Task Main(string[] args)
         {
             Console.WriteLine("Azure Communication Services - Sign an HTTP request Tutorial");
-            // Tutorial code goes here
+            // Tutorial code goes here.
         }
     }
 }
 
 ```
+
 ## <a name="create-a-request-message"></a>요청 메시지 만들기
 
 이 예제에서는 Communication Services Authentication API(버전 `2021-03-07`)를 사용하여 새 ID를 만들도록 요청에 서명합니다.
@@ -96,7 +98,7 @@ namespace SignHmacTutorial
 
 ```csharp
 string resourceEndpoint = "resourceEndpoint";
-//Create an uri you are going to call
+//Create a uri you are going to call.
 var requestUri = new Uri($"{resourceEndpoint}/identities?api-version=2021-03-07");
 //Endpoint identities?api-version=2021-03-07 accepts list of scopes as a body
 var body = new[] { "chat" }; 
@@ -109,7 +111,7 @@ var requestMessage = new HttpRequestMessage(HttpMethod.Post, requestUri)
 
 `resourceEndpoint`를 실제 리소스 엔드포인트 값으로 바꿉니다.
 
-## <a name="create-content-hash"></a>콘텐츠 해시 만들기
+## <a name="create-a-content-hash"></a>콘텐츠 해시 만들기
 
 콘텐츠 해시는 HMAC 서명의 일부입니다. 다음 코드를 추가하여 콘텐츠 해시를 컴퓨팅합니다. 이 메서드를 `Main` 메서드 아래 `Progam.cs`에 추가할 수 있습니다.
 
@@ -125,7 +127,8 @@ static string ComputeContentHash(string content)
 ```
 
 ## <a name="compute-a-signature"></a>서명 컴퓨팅
-다음 코드를 사용하여 HMAC 서명을 컴퓨팅하기 위한 메서드를 만듭니다.
+
+다음 코드를 사용하여 HMAC 서명을 계산하는 메서드를 만듭니다.
 
 ```csharp
  static string ComputeSignature(string stringToSign)
@@ -140,30 +143,30 @@ static string ComputeContentHash(string content)
 }
 ```
 
-`resourceAccessKey`를 실제 Azure Communication Services 리소스의 액세스 키로 바꿉니다.
+`resourceAccessKey`를 실제 Communication Services 리소스의 액세스 키로 바꿉니다.
 
 ## <a name="create-an-authorization-header-string"></a>권한 부여 헤더 문자열 만들기
 
-이제 권한 부여 헤더에 추가할 문자열을 생성합니다.
+이제 권한 부여 헤더에 추가할 문자열을 구성합니다.
 
-1. 콘텐츠 해시 컴퓨팅
-2. UTC(Coordinated Universal Time) 타임스탬프 지정
-3. 서명할 문자열 준비
-4. 서명 컴퓨팅
-5. 권한 부여 헤더에 사용되는 문자열 연결
+1. 콘텐츠 해시를 계산합니다.
+1. UTC(협정 세계시) 타임스탬프를 지정합니다.
+1. 서명할 문자열을 준비합니다.
+1. 서명을 계산합니다.
+1. 권한 부여 헤더에 사용되는 문자열을 연결합니다.
  
 `Main` 메서드에 다음 코드를 추가합니다.
 
 ```csharp
-// Compute a content hash
+// Compute a content hash.
 var contentHash = ComputeContentHash(serializedBody);
-//Specify the Coordinated Universal Time (UTC) timestamp
+//Specify the Coordinated Universal Time (UTC) timestamp.
 var date = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
-//Prepare a string to sign
+//Prepare a string to sign.
 var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authority};{contentHash}";
-//Compute the signature
+//Compute the signature.
 var signature = ComputeSignature(stringToSign);
-//Concatenate the string, which will be used in authorization header
+//Concatenate the string, which will be used in the authorization header.
 var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
@@ -172,15 +175,16 @@ var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha
 다음 코드를 사용하여 `requestMessage`에 필요한 헤더를 추가합니다.
 
 ```csharp
-//Add content hash header
+//Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
-//add date header
+//Add a date header.
 requestMessage.Headers.Add("Date", date);
-//add Authorization header
+//Add an authorization header.
 requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```
 
 ## <a name="test-the-client"></a>클라이언트의 테스트
+
 `HttpClient`를 사용하여 엔드포인트를 호출하고 응답을 확인합니다.
 
 ```csharp

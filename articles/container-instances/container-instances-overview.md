@@ -4,12 +4,12 @@ description: Azure Container Instances 서비스는 가상 머신을 관리하�
 ms.topic: overview
 ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 873f7cc51d1b369503a72501ae000000ff06f805
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88121666"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573016"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -21,10 +21,7 @@ Azure Container Instances는 간단한 애플리케이션, 작업 자동화 및 
 
 컨테이너는 VM(가상 머신)에 비해 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
 
-Docker Hub, 프라이빗 [Azure 컨테이너 레지스트리](../container-registry/index.yml) 또는 다른 클라우드 기반 docker 레지스트리에서 Linux 또는 Windows 컨테이너 이미지를 가져옵니다. Azure Container Instances는 여러 가지 일반적인 기본 OS 이미지를 캐시하여 사용자 지정 애플리케이션 이미지의 배포 속도를 향상합니다.
-
-> [!NOTE]
-> 현재는 온-프레미스 레지스트리의 이미지를 Azure Container Instances에 배포할 수 없습니다.
+Docker Hub, 프라이빗 [Azure 컨테이너 레지스트리](../container-registry/index.yml) 또는 다른 클라우드 기반 docker 레지스트리에서 Linux 또는 Windows 컨테이너 이미지를 가져옵니다. [FAQ](container-instances-faq.md)를 방문하여 ACI에서 지원되는 레지스트리를 알아보세요. Azure Container Instances는 여러 가지 일반적인 기본 OS 이미지를 캐시하여 사용자 지정 애플리케이션 이미지의 배포 속도를 향상합니다.
 
 ## <a name="container-access"></a>컨테이너 액세스
 
@@ -43,7 +40,7 @@ Azure Container Instances는 IP 주소 및 FQDN(정규화된 도메인 이름)�
 
 ### <a name="customer-data"></a>고객 데이터
 
-ACI 서비스는 컨테이너 그룹이 예상대로 실행되고 있는지 확인하는 데 필요한 최소한의 고객 데이터를 저장합니다. 단일 지역에 고객 데이터를 저장하는 것은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르)에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 [지역](https://azure.microsoft.com/global-infrastructure/geographies/)에 저장됩니다. 자세히 알아보려면 Azure 지원에 문의하세요.
+ACI 서비스는 컨테이너 그룹이 예상대로 실행되고 있는지 확인하는 데 필요한 최소한의 고객 데이터를 저장합니다. 단일 지역에 고객 데이터를 저장하는 것은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르) 및 브라질 지역의 브라질 남부(상파울루 주)에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 [지역](https://azure.microsoft.com/global-infrastructure/geographies/)에 저장됩니다. 자세히 알아보려면 Azure 지원에 문의하세요.
 
 ## <a name="custom-sizes"></a>사용자 지정 크기
 
@@ -68,9 +65,6 @@ Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 
 * [GPU 리소스](container-instances-gpu.md)(미리 보기)
 
 Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지를 사용합니다.
-
-> [!NOTE]
-> Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 

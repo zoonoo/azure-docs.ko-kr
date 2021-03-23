@@ -2,25 +2,25 @@
 title: 자습서 - 프라이빗 클라우드에 액세스
 description: Azure VMware Solution 프라이빗 클라우드에 액세스하는 방법 알아보기
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: 456767a9edd78a70a0aba45c7b44a2150a2217a1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/13/2021
+ms.openlocfilehash: f2af1cffda08bf4b9c62e63f32d36cc9bbd7024a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045006"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494396"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드에 액세스
 
-Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이빗 클라우드를 관리할 수 없습니다. 점프 상자를 통해 추가 설정을 수행하고 로컬 vCenter 인스턴스에 연결해야 합니다. 
+Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이빗 클라우드를 관리할 수 없습니다. 점프 박스를 통해 Azure VMware Solution vCenter 인스턴스에 연결해야 합니다. 
 
-이 자습서에서는 [이전 자습서](tutorial-configure-networking.md)에서 만든 리소스 그룹에 점프 상자를 만들고 vCenter에 로그인합니다. 점프 상자는 만든 것과 동일한 가상 네트워크에 있는 Windows VM(가상 머신)입니다.  vCenter 및 NSX Manager에 대한 액세스를 제공합니다. 
+이 자습서에서는 [이전 자습서](tutorial-configure-networking.md)에서 만든 리소스 그룹에 점프 상자를 만들고 Azure VMware Solution vCenter에 로그인합니다. 이 점프 상자는 만든 것과 동일한 가상 네트워크에 있는 Windows VM(가상 머신)입니다.  vCenter와 NSX Manager 모두에 액세스할 수 있습니다. 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * vCenter에 연결하는 데 사용할 Windows 가상 머신 만들기
-> * 가상 머신에서 vCenter에 로그인
+> * Azure VMware Solution vCenter에 액세스할 수 있는 Windows 가상 머신을 만듭니다.
+> * 이 가상 머신에서 vCenter에 로그인
 
 ## <a name="create-a-new-windows-virtual-machine"></a>새 Windows 가상 머신 만들기
 
@@ -33,9 +33,6 @@ Azure VMware Solution을 사용하면 온-프레미스 vCenter에서 프라이�
 1. Azure Portal에서 프라이빗 클라우드를 선택한 다음, **관리** > **ID** 를 선택합니다. 
 
    프라이빗 클라우드 vCenter 및 NSX-T Manager에 대한 URL 및 사용자 자격 증명이 표시됩니다.
-
-   >[!TIP]
-   >**새 암호 생성** 을 선택하여 새 vCenter 및 NSX-T 암호를 생성합니다.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="프라이빗 클라우드 vCenter와 NSX 관리자의 URL 및 자격 증명을 표시합니다." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 

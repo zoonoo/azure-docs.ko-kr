@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1ac17c93bdf95e36f68af678d2ee38b896ef1e7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5712448c8c5248d3c84ce43f8a41c669355f1d43
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979745"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565736"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>자습서: 지역 간에 Azure VM 이동
 
@@ -40,6 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 구성 요소
 **요구 사항** | **설명**
 --- | ---
+**Resource Mover 지원** | 지원되는 지역 및 기타 일반적인 질문을 [검토](common-questions.md)합니다.
 **구독 권한** | 이동하려는 리소스가 포함된 구독에 대한 *소유자* 액세스 권한이 있는지 확인합니다.<br/><br/> **소유자 액세스가 필요한 이유는 무엇인가요?** Azure 구독에서 특정 원본 및 대상 쌍에 대한 리소스를 처음 추가하는 경우 Resource Mover를 통해 구독에서 신뢰할 수 있는 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(이전에는 MSI(관리되는 서비스 ID)라고 함)를 만듭니다. ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 리소스를 추가하는 데 사용하는 계정에 구독의 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 **VM 지원** |  이동하려는 VM이 지원되는지 확인합니다.<br/><br/> - 지원되는 Windows VM을 [확인](support-matrix-move-region-azure-vm.md#windows-vm-support)합니다.<br/><br/> - 지원되는 Linux VM 및 커널 버전을 [확인](support-matrix-move-region-azure-vm.md#linux-vm-support)합니다.<br/><br/> - 지원되는 [컴퓨팅](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [스토리지](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings) 및 [네트워킹](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) 설정을 확인합니다.
 **대상 구독** | 대상 지역의 구독 할당량이 대상 지역에서 이동하려는 리소스를 만들기에 충분해야 합니다. 할당량이 없는 경우 [추가 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 요청하세요.

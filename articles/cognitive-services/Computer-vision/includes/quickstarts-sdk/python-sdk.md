@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 900c019547ae542a42490f9a4f9d25ea6b0a97b3
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 1b17173c95f26c622a0021d30eb678fc27b60c2f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445798"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622152"
 ---
 <a name="HOLTop"></a>
 
@@ -53,21 +53,21 @@ pip install pillow
 
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
-예를 들어 새 Python 파일(&mdash;*quickstart-file.py*)을 만듭니다. 그런 다음, 원하는 편집기 또는 IDE에서 이 파일을 열고, 다음 라이브러리를 가져옵니다.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports)]
-
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-그런 다음, 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다.
+예를 들어 새 Python 파일(&mdash;*quickstart-file.py*)을 만듭니다. 그런 다음, 선호하는 편집기 또는 IDE에서 엽니다.
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_vars)]
+### <a name="find-the-subscription-key-and-endpoint"></a>구독 키 및 엔드포인트 찾기
+
+Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Computer Vision 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 구독 키와 엔드포인트를 찾을 수 있습니다. 
+
+Computer Vision 구독 키와 엔드포인트에 대한 변수를 만듭니다. 구독 키와 엔드포인트를 표시된 다음 코드에 붙여넣습니다. Computer Vision 엔트포인트의 형식은 `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`입니다.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_imports_and_vars)]
 
 > [!IMPORTANT]
-> Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Computer Vision 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
->
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../../key-vault/general/overview.md)입니다.
+> 완료되면 코드에서 구독 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../../key-vault/general/overview.md)입니다.
 
 > [!div class="nextstepaction"]
 > [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=set-up-client)

@@ -10,16 +10,18 @@ ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 402b61bb0845532d601e9f5dcaaf55eacce685d1
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: d6a95dae91ef3e6aa7d39cf8af51c355a87ea73a
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94959376"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462731"
 ---
-# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스를 위한 Python IoT Edge 모듈 개발 및 배포
+# <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-using-linux-containers"></a>자습서: Linux 컨테이너를 사용하여 Python IoT Edge 모듈 개발 및 배포
 
-Visual Studio Code를 사용하여 Python 코드를 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
+Visual Studio Code를 사용하여 Python 코드를 개발하고 Azure IoT Edge를 실행하는 디바이스에 배포합니다.
 
 비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 빠른 시작에서 설정한 IoT Edge 디바이스에서 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -36,19 +38,21 @@ Visual Studio Code를 사용하여 Python 코드를 개발하고 Azure IoT Edge�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서는 **Visual Studio Code** 를 사용하여 **Python** 으로 모듈을 개발하는 방법과 **Linux 디바이스** 에 배포하는 방법을 보여줍니다. IoT Edge는 Windows 디바이스용 Python 모듈을 지원하지 않습니다.
+이 자습서에서는 **Visual Studio Code** 를 사용하여 **Python** 에서 모듈을 개발하고 IoT Edge 디바이스에 배포하는 방법을 보여줍니다.
 
-다음 표에서 Python 모듈을 개발하고 Linux에 배포하기 위한 옵션을 확인할 수 있습니다.
+IoT Edge는 Windows 컨테이너를 사용하는 Python 모듈을 지원하지 않습니다.
+
+Linux 컨테이너를 사용하여 Python 모듈을 개발하고 배포하기 위한 옵션을 이해하려면 다음 표를 사용합니다.
 
 | Python | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Linux AMD64에서 Python 모듈에 대한 VS Code 사용](./media/tutorial-c-module/green-check.png) |  |
 | **Linux ARM32** | ![Linux ARM32에서 Python 모듈에 대한 VS Code 사용](./media/tutorial-c-module/green-check.png) |  |
 
-이 자습서를 시작하려면 이전 자습서를 진행하여 Linux 컨테이너 개발을 위한 개발 환경이 설정되어 있어야 합니다. [Linux 디바이스를 위한 IoT Edge 모듈을 개발합니다](tutorial-develop-for-linux.md). 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
+이 자습서를 시작하기 전에 이전 자습서를 통해 Linux 컨테이너 개발을 위한 개발 환경을 설정해야 합니다. [Linux 컨테이너를 사용하여 IoT Edge 모듈을 개발](tutorial-develop-for-linux.md)합니다. 이 자습서를 완료하여 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
 * Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* [Azure IoT Edge를 실행하는 Linux 디바이스](quickstart-linux.md)
+* Azure IoT Edge를 실행하는 디바이스. 빠른 시작을 사용하여 [Linux 디바이스](quickstart-linux.md) 또는 [Windows 디바이스](quickstart.md)를 설정할 수 있습니다.
 * [Azure Container Registry](../container-registry/index.yml)와 같은 컨테이너 레지스트리
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)를 사용하여 구성된 [Visual Studio Code](https://code.visualstudio.com/)
 * Linux 컨테이너를 실행하도록 구성된 [Docker CE](https://docs.docker.com/install/)

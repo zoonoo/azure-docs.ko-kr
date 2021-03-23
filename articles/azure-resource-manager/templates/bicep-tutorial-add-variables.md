@@ -2,16 +2,16 @@
 title: 자습서 - Azure Resource Manager Bicep 파일에 변수 추가
 description: Bicep 파일에 변수를 추가하여 구문을 단순화합니다.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 1706bafb85834cfd3abae1f5d6a0090da9041bb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: da2755c1f2c0f9fa891fe1a99b1fed21f64492c8
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742931"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632478"
 ---
 # <a name="tutorial-add-variables-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 변수 추가
 
@@ -35,7 +35,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 ## <a name="use-variable"></a>변수 사용
 
-다음 예제에서는 고유한 스토리지 계정 이름을 만드는 변수를 Bicep 파일에 추가하는 변경 사항이 강조 표시되어 있습니다. 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
+다음 예제는 고유한 스토리지 계정 이름을 만드는 Bicep 파일에 변수를 추가하기 위한 변경 사항을 보여줍니다. 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.bicep" range="1-31" highlight="1-3,19,22":::
 

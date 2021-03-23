@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ea9d893f825822638803394e678e6e68f57a32d9
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: f7e12567269304b33a98ff1eb9727cfdf0afbdc4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507299"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418643"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Ubuntu Server 18.04 x64에서 패키지 에이전트를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -106,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어 패키지에는 다음 사용 조건이 적용됩니다.
   * [IoT Hub에 대한 디바이스 업데이트 라이선스](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [배달 최적화 클라이언트 라이선스](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [배달 최적화 클라이언트 라이선스](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치하고 사용하면 이러한 사용 조건에 동의하는 것입니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
@@ -128,9 +128,11 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어 패키지에�
 
 ## <a name="import-update"></a>업데이트 가져오기
 
-1. 다음 [APT 매니페스트 파일](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json)을 다운로드하고 [매니페스트 파일을 가져옵니다](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). 이 APT 매니페스트는 사용 가능한 최신 버전의 `libcurl4-doc package`를 디바이스에 설치합니다.
+1. Github의 [디바이스 업데이트 릴리스](https://github.com/Azure/iot-hub-device-update/releases)로 이동하여 "자산" 드롭다운을 클릭합니다.
 
-   또는 이 [APT 매니페스트 파일](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json)을 다운로드하고 [매니페스트 파일을 가져올 수 있습니다](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). 그러면 특정 v7.58.0 버전의 `libcurl4-doc package`가 디바이스에 설치됩니다.
+3. `apt-update-import-samples.zip`을 클릭하여 다운로드합니다.
+
+5. 폴더의 콘텐츠를 추출하여 다양한 업데이트 샘플과 해당 가져오기 매니페스트를 검색합니다. 
 
 2. Azure Portal의 IoT Hub 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
 
@@ -138,7 +140,10 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어 패키지에�
 
 4. "+ 새 업데이트 가져오기"를 선택합니다.
 
-5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 매니페스트 가져오기를 선택합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 APT 매니페스트 업데이트 파일을 선택합니다.
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 폴더에서 `sample-package-update-1.0.1-importManifest.json` 가져오기 매니페스트를 선택합니다. 다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 폴더에서 `sample-1.0.1-libcurl4-doc-apt-manifest.json` apt 매니페스트 업데이트 파일을 선택합니다.
+이 업데이트는 사용 가능한 최신 버전의 `libcurl4-doc package`를 디바이스에 설치합니다.
+
+   또는 이전에 다운로드한 폴더에서 `sample-package-update-2-2.0.1-importManifest.json` 가져오기 매니페스트 파일 및 `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` apt 매니페스트 업데이트 파일을 선택할 수 있습니다. 그러면 특정 v7.58.0 버전의 `libcurl4-doc package`가 디바이스에 설치됩니다.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="파일 선택을 보여 주는 스크린샷" lightbox="media/import-update/select-update-files.png":::
 
@@ -213,9 +218,9 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어 패키지에�
 
 ## <a name="bonus-steps"></a>보너스 단계
 
-1. 다음 [APT 매니페스트 파일](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json)을 다운로드하고 [매니페스트 파일을 가져옵니다](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). 이 APT 매니페스트는 디바이스에서 설치된 `libcurl4-doc package`를 제거합니다.
-
 1. "업데이트 가져오기" 및 "업데이트 배포" 섹션을 반복합니다.
+
+3. "업데이트 가져오기" 단계 중 이전에 다운로드한 폴더에서 `sample-package-update-1.0.2-importManifest.json` 가져오기 매니페스트 파일 및 `sample-1.0.2-libcurl4-doc-remove-apt-manifest.json` apt 매니페스트 업데이트 파일을 선택합니다. 이 업데이트는 디바이스에서 설치된 `libcurl4-doc package`를 제거합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

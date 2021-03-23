@@ -111,6 +111,8 @@
           href: speech-synthesis-markup.md
         - name: 긴 오디오 API를 사용하여 음성 합성
           href: long-audio-api.md
+        - name: 립싱크를 위한 얼굴 포즈 이벤트 가져오기
+          href: how-to-speech-synthesis-viseme.md
     - name: 사용자 지정
       items:
         - name: Custom Voice 포털

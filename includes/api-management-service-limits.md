@@ -1,20 +1,20 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: api-management
 author: vladvino
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
 ms.topic: include
-ms.date: 01/11/2021
+ms.date: 02/19/2021
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 78890c0596642b629482a6d24d17d83fb8ebc9a0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: ebaca1f39b16e4a06b5dcaa4e5f1de07122c6c89
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98147486"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103622092"
 ---
 | 리소스 | 제한 |
 | ---------------------------------------------------------------------- | -------------------------- |
@@ -34,6 +34,8 @@ ms.locfileid: "98147486"
 | 최대 버퍼링된 페이로드 크기<sup>8</sup> | 2MiB |
 | 최대 요청 URL 크기<sup>9</sup> | 4,096바이트 |
 | URL 경로 세그먼트의 최대 길이<sup>10</sup> | 260자 |
+| [유효성 검사 정책](../articles/api-management/validation-policies.md)<sup>10</sup>에서 사용하는 API 스키마의 최대 크기 | 4MB |
+| [콘텐츠 유효성 검사 정책](../articles/api-management/validation-policies.md#validate-content)에서 요청 또는 응답 본문의 최대 크기 | 100KB |
 | 최대 자체 호스팅 게이트웨이 수<sup>11</sup> | 25 |
 
 <sup>1</sup>크기 조정 제한은 가격 책정 계층에 따라 달라집니다. 가격 책정 계층 및 해당 크기 조정 제한에 대한 자세한 내용은 [API Management 가격](https://azure.microsoft.com/pricing/details/api-management/)을 참조하세요.<br/>

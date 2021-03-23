@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434205"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574580"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
@@ -93,13 +93,15 @@ Azure Digital Twins Explorer 애플리케이션은 로컬 컴퓨터에서 실행
 
 1. 이전에 [Azure Digital Twins 인스턴스 설정](#set-up-an-azure-digital-twins-instance) 섹션에서 수집한 Azure Digital Twins 인스턴스 URL을 *https://{instance host name}* 형식으로 입력합니다.
 
->[!NOTE]
-> 언제든지 동일한 아이콘을 선택하여 **로그인** 상자를 다시 열어서 이 정보를 다시 방문/편집할 수 있습니다. 전달한 값을 유지합니다.
-
 > [!TIP]
 > 연결할 때 `SignalRService.subscribe` 오류 메시지가 표시되면 Azure Digital Twins URL이 *https://* 로 시작하는지 확인합니다.
+>
+> 인증 오류가 표시되면 **환경 변수** 를 확인하여 Azure Digital Twins에 포함된 자격 증명이 유효한지 확인할 수 있습니다. `DefaultAzureCredential`은 [특정 순서](/dotnet/api/overview/azure/identity-readme#defaultazurecredential)로 자격 증명 형식에 대해 인증을 시도하고 환경 변수를 먼저 평가합니다.
 
 Microsoft에서 **요청된 권한** 팝업 창을 표시하는 경우 이 애플리케이션에 대한 동의를 허용하고 수락하여 계속 진행합니다.
+
+>[!NOTE]
+> 언제든지 동일한 아이콘을 선택하여 **로그인** 상자를 다시 열어서 이 정보를 다시 방문/편집할 수 있습니다. 전달한 값을 유지합니다.
 
 ## <a name="add-the-sample-data"></a>샘플 데이터 추가
 

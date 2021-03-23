@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 0de65c4546f5e87377b119370ee629f5a365b24e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 98b40218d168133193410174bcc158ab8698c381
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650538"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225390"
 ---
 # <a name="quickstart-building-your-first-static-site-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -104,8 +104,13 @@ cd my-first-static-web-app
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > `s` 매개 변수에 전달된 URL에는 `.git` 접미사가 포함되어서는 안 됩니다.
 
-    - `<RESOURCE_GROUP_NAME>`: 이 값을 기존 Azure 리소스 그룹 이름으로 바꿉니다.
+    - `<RESOURCE_GROUP_NAME>`: 이 값을 기존 [Azure 리소스 그룹 이름](../azure-resource-manager/management/manage-resources-cli.md)으로 바꿉니다.
+
+      - 리소스 그룹 나열에 대한 자세한 내용은 [az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_list) 설명서를 참조하세요.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: 이 값을 GitHub 사용자 이름으로 바꿉니다.
 

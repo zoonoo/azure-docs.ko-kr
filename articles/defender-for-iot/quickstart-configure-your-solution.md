@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: afe62e5cf255df28ea395405fc894ec5c15bb18c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e6d83dafbe4b7f7013ab32039acaff7d8faa4a91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449716"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487754"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>빠른 시작: Azure Defender for IoT 솔루션 구성
 
@@ -60,7 +60,7 @@ Defender for IoT는 IoT Hub에서 사용하도록 설정되면 IoT Hub에 연결
 
 ## <a name="next-steps"></a>다음 단계
 
-보안 모듈을 만드는 방법을 알아보려면 다음 문서로 계속 진행하세요.
+Defender-IoT-micro-agents를 만드는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [보안 모듈 만들기](quickstart-create-security-twin.md)
+> [Defender-IoT-micro-agents 만들기](quickstart-create-security-twin.md)

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: d9b77e96bc5cdf284eeedcaae67369356d43fc08
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9cb46a57792ecdd650a8a9f5025a5055257057ec
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444234"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622067"
 ---
 <a name="HOLTop"></a>
 
@@ -78,13 +78,23 @@ cd src
 touch sample-app.go
 ```
 
-원하는 IDE 또는 텍스트 편집기에서 `sample-app.go`를 엽니다. 그런 다음, 패키지 이름을 추가하고 다음 라이브러리를 가져옵니다.
+> [!TIP]
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports)]
+원하는 IDE 또는 텍스트 편집기에서 `sample-app.go`를 엽니다.
 
-또한 스크립트의 루트에서 컨텍스트를 선언합니다. 대부분의 Computer Vision 함수 호출을 실행하려면 이 개체가 필요합니다.
+스크립트의 루트에서 컨텍스트를 선언합니다. 대부분의 Computer Vision 함수 호출을 실행하려면 이 개체가 필요합니다.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
+### <a name="find-the-subscription-key-and-endpoint"></a>구독 키 및 엔드포인트 찾기
+
+Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Computer Vision 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 구독 키와 엔드포인트를 찾을 수 있습니다. 
+
+Computer Vision 구독 키와 엔드포인트에 대한 변수를 만듭니다. 구독 키와 엔드포인트를 표시된 다음 코드에 붙여넣습니다. Computer Vision 엔트포인트의 형식은 `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`입니다.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_imports_and_vars)]
+
+> [!IMPORTANT]
+> 완료되면 코드에서 구독 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../../key-vault/general/overview.md)입니다.
 
 다음으로, 다른 Computer Vision 작업을 수행하는 코드를 추가합니다.
 

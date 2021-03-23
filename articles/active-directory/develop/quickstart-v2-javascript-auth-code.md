@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: a626ae1406a6ea4a83919f0fc3ee71ffaa5fbac2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102427048"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224914"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>빠른 시작: PKCE를 통해 인증 코드 흐름을 사용하여 사용자를 로그인하고 JavaScript SPA에서 액세스 토큰을 가져옵니다. 
 
@@ -27,7 +27,7 @@ ms.locfileid: "102427048"
 
 이 빠른 시작에서는 인증 코드 흐름과 함께 MSAL.js 2.0을 사용합니다. 암시적 흐름과 함께 MSAL.js 1.0을 사용하는 비슷한 빠른 시작은 [빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인](./quickstart-v2-javascript.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험용 Azure 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.JS](https://nodejs.org/en/download/)
@@ -110,12 +110,18 @@ ms.locfileid: "102427048"
 > 여기에 설명한 대로 `msalConfig` 섹션에서 값을 수정합니다.
 >
 > - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
+>
+>    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
 > - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com/`을 입력합니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](authentication-national-cloud.md)를 참조하세요.
 > - `Enter_the_Tenant_info_here`는 다음 중 하나로 설정됩니다.
 >   - 애플리케이션에서 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름** 으로 바꿉니다. 예들 들어 `contoso.microsoft.com`입니다.
+>
+>    **디렉터리(테넌트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
 >   - 애플리케이션에서 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 `common`으로 바꿉니다. **이 빠른 시작** 에 대해 `common`을 사용합니다.
 >   - *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.
+>
+>    **지원되는 계정 유형** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
 > - `Enter_the_Redirect_Uri_Here`은 `http://localhost:3000/`입니다.
 >
 > 기본(글로벌) Azure 클라우드를 사용하는 경우 *authConfig.js* 의 `authority` 값은 다음과 비슷해야 합니다.
@@ -124,9 +130,7 @@ ms.locfileid: "102427048"
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> > [!TIP]
-> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
->
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
 > 앱 속성 값을 사용하여 프로젝트를 구성했습니다.

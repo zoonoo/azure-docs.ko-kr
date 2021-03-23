@@ -2,13 +2,13 @@
 title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 11/25/2020
-ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/13/2021
+ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488308"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462315"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
@@ -157,7 +157,7 @@ VMware HCX 커넥터 OVA 온-프레미스를 배포하고 어플라이언스를 
    > [!NOTE]
    > 일반적으로 vCenter FQDN 또는 IP 주소와 동일합니다.
 
-1. 입력한 정보가 올바른지 확인하고, **다시 시작** 을 선택합니다.
+1. 입력한 정보가 올바른지 확인하고 **다시 시작** 을 선택합니다.
     
    > [!NOTE]
    > 다시 시작한 후 다음 단계를 진행하는 메시지가 표시될 때까지 약간 시간이 걸립니다.
@@ -183,7 +183,7 @@ Azure VMware Solution의 VMware HCX Cloud Manager를 데이터 센터의 VMware 
 
 1. **인프라** 에서 **사이트 페어링** 을 선택한 다음, **원격 사이트에 연결** 옵션(화면 가운데)을 선택합니다. 
 
-1. 이전에 기록한 Azure VMware Solution HCX Cloud Manager URL 또는 IP 주소(`https://x.x.x.9`), Azure VMware Solution cloudadmin@vsphere.local 사용자 이름 및 암호를 입력합니다. 그런 다음 **연결** 을 선택합니다.
+1. 앞서 언급한 Azure VMware Solution HCX Cloud Manager URL 또는 IP 주소(`https://x.x.x.9`), Azure VMware Solution cloudadmin\@vsphere.local 사용자 이름 및 암호를 입력합니다. 그런 다음 **연결** 을 선택합니다.
 
    > [!NOTE]
    > 사이트 쌍을 성공적으로 설정하려면 다음을 수행합니다.

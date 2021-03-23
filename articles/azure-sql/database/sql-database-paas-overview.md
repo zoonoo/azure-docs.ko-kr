@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 65710ae40a971d214068f0e2686f78fb994a967e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451419"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601400"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,6 +32,9 @@ SQL Database는 서로 다른 두 구매 모델 내에서 성능을 쉽게 정�
 
 Azure SQL Database를 처음 사용하는 경우에는 심층 [Azure SQL 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)에서 *Azure SQL Database 개요* 비디오를 참조하세요.
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
+
+> [!TIP]
+> Azure SQL을 더 잘 활용하려면 어떻게 해야 하나요? [설문 조사를 수행하세요](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="deployment-models"></a>배포 모델
 
@@ -114,7 +117,7 @@ Azure 가용성 영역은 단일 지역 내에서 단일 데이터 센터 빌드
 
 실제로 Azure의 서비스 수준 약정[(SLA)](https://azure.microsoft.com/support/legal/sla/)은 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. Azure 플랫폼은 모든 데이터베이스를 완벽하게 관리하며 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 컴퓨팅 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 컴퓨팅 및 스토리지를 단일 고성능 노드에 통합한 후 Always On 가용성 그룹과 유사한 기술을 구현함으로써 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](high-availability-sla.md)을 참조하세요. 
 
-또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](business-continuity-high-availability-disaster-recover-hadr-overview.md) 기능을 제공합니다. 내용은 다음과 같습니다.
+또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](business-continuity-high-availability-disaster-recover-hadr-overview.md) 기능을 제공합니다. 여기에는 다음이 포함됩니다.
 
 - [자동 백업](automated-backups-overview.md):
 
@@ -194,7 +197,7 @@ SQL Database를 사용하면 [Azure Active Directory 통합](authentication-aad-
 
 SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의성과 생산성을 높이세요. SQL Database를 사용하면 멋진 앱을 만드는 데만 집중할 수 있습니다. 이미 설치된 도구와 기술을 사용하여 SQL Database에서 관리하고 개발할 수 있습니다.
 
-|도구|Description|
+|도구|설명|
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|모든 Azure 서비스를 관리하는 웹 기반 애플리케이션.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Windows, macOS 및 Linux에서 실행되는 플랫폼 간 데이터베이스 도구.|

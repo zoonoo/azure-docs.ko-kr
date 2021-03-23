@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561350"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495711"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -51,12 +51,14 @@ Communication Services에서 Azure Portal 또는 Azure Resource Manager API를 �
 
 ### <a name="telephone-number-management"></a>전화 번호 관리
 
-Azure Communication Services는 Communication Services 리소스와 연결된 전화 번호의 디렉터리를 유지 관리합니다. 다음 API를 사용하여 전화 번호를 검색하고 삭제합니다.
+Azure Communication Services는 Communication Services 리소스와 연결된 전화 번호의 디렉터리를 유지 관리합니다. [전화 번호 관리 API](/rest/api/communication/phonenumberadministration)를 사용하여 전화 번호를 검색하고 삭제합니다.
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>채팅
 
-채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](/rest/api/communication/chat/deletechatmessage/deletechatmessage)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
+채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](/rest/api/communication/chat/chatthread)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
 
 - `Get Thread`
 - `Get Message`

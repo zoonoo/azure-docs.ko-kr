@@ -6,15 +6,15 @@ author: chriswhilar
 manager: mariusu-msft
 services: azure-communication-services
 ms.author: mariusu
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: aadecd3c57f5a145efd43058a5113205d7517c0b
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 824fd19e8acfed75ab3d64048a00f579b70286d2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102486406"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496238"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>웹 통화 샘플 시작
 
@@ -88,12 +88,12 @@ PSTN 전화 번호로 전화를 거는 경우 대체 호출자 ID를 지정합�
 
 - [통화 클라이언트 라이브러리 사용법](../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
 - [호출 작동 방식](../concepts/voice-video-calling/about-call-types.md)에 대해 자세히 알아보기
-- [API 참조 문서](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js) 검토
+- [API 참조 문서](/javascript/api/azure-communication-services/@azure/communication-calling/) 검토
 - [Contoso Med 앱](https://github.com/Azure-Samples/communication-services-contoso-med-app) 샘플 검토
 
 ## <a name="additional-reading"></a>추가 자료
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - 공식 GitHub 페이지에서 더 많은 예제 및 정보 찾기
+- [샘플](./overview.md) - 샘플 개요 페이지에서 추가 샘플과 예제를 찾아보세요.
 - [Redux](https://redux.js.org/) - 클라이언트 쪽 상태 관리
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft 기반 UI 라이브러리
 - [React](https://reactjs.org/) - 사용자 인터페이스 빌드용 라이브러리

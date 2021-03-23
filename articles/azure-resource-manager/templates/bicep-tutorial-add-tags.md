@@ -2,16 +2,16 @@
 title: 자습서 - Azure Resource Manager Bicep 파일의 리소스에 태그 추가
 description: Bicep 파일에서 배포하는 리소스에 태그를 추가합니다. 태그를 사용하여 리소스를 논리적으로 구성할 수 있습니다.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742926"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632608"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>자습서: Azure Resource Manager Bicep 파일에 태그 추가
 
@@ -37,7 +37,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 리소스에 태그를 지정하여 사용 여부를 식별하는 데 도움이 되는 값을 추가합니다. 예를 들어 환경 및 프로젝트를 나열하는 태그를 추가할 수 있습니다. 비용 센터 또는 리소스를 소유하는 팀을 식별하는 태그를 추가할 수 있습니다. 조직에 적합한 값을 추가합니다.
 
-다음 예제에서는 Bicep 파일의 변경 내용을 강조 표시합니다. 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
+다음 예제는 Bicep 파일의 변경 내용을 보여줍니다. 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

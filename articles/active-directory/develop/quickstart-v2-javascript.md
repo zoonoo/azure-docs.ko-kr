@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 60eed96e20ffcebc3ddefccffa2761017e28e0d2
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: cf5b24bb55f278d9d33916d2d54d3ee5a169c3e8
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103620"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224404"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -109,15 +109,19 @@ ms.locfileid: "100103620"
 > [!div renderon="docs"]
 >
 > 위치:
-> - *\<Enter_the_Application_Id_Here>* 는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* 는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 *https://login.microsoftonline.com* 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
-> - *\<Enter_the_Tenant_info_here>* 는 다음 옵션 중 하나로 설정됩니다.
->    - 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: *contoso.microsoft.com*)으로 바꿉니다.
->    - 애플리케이션이 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **organizations** 으로 바꿉니다.
->    - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 **common** 으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 **consumers** 로 바꿉니다.
+> - `Enter_the_Application_Id_Here`는 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 입니다.
 >
-> > [!TIP]
-> > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형** 의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+>    **애플리케이션(클라이언트) ID** 값을 찾으려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+> - `Enter_the_Cloud_Instance_Id_Here`는 Azure 클라우드의 인스턴스입니다. 주 또는 글로벌 Azure 클라우드의 경우 `https://login.microsoftonline.com` 을 입력하면 됩니다. **국가별** 클라우드(예제: 중국)의 경우 [국가별 클라우드](./authentication-national-cloud.md)를 참조하세요.
+> - `Enter_the_Tenant_info_here` 는 다음 옵션 중 하나로 설정됩니다.
+>    - 애플리케이션이 *이 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: `contoso.microsoft.com`)으로 바꿉니다.
+>
+>    **디렉터리(테넌트) ID** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
+>    - 애플리케이션에서 *모든 조직 디렉터리의 계정* 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>    - 애플리케이션에서 *모든 조직 디렉터리의 계정 및 개인 Microsoft 계정* 을 지원하는 경우 이 값을 `common`으로 바꿉니다. *개인 Microsoft 계정만* 지원하도록 제한하려면 이 값을 `consumers`로 바꿉니다.
+>
+>    **지원되는 계정 유형** 값을 찾으려면 Azure Portal에서 앱 등록의 **개요** 페이지로 이동합니다.
+>
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 6a7f50268a09ae451b1e9dda2ca354ded31efb68
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095174"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200746"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -67,11 +67,11 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 > 다음 명령을 사용하여 PowerShell을 통해 키를 설정할 수 있습니다.
 > ```
 > Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
->
+> ```
 
 #### <a name="recommendations-for-the-connector-server"></a>커넥터 서버에 대한 권장 사항
 
-1. 실제로 애플리케이션 서버에 가깝게 커넥터 서버를 배치하여 커넥터와 애플리케이션 간 성능을 최적화합니다. 자세한 내용은 [네트워크 토폴로지 고려 사항](application-proxy-network-topology.md)을 참조하세요.
+1. 실제로 애플리케이션 서버에 가깝게 커넥터 서버를 배치하여 커넥터와 애플리케이션 간 성능을 최적화합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 프록시를 사용하여 트래픽 흐름 최적화](application-proxy-network-topology.md)를 참조하세요.
 1. 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 동일한 도메인 또는 트러스팅 도메인에 서버를 배치하는 것은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한된 위임)에서 SSO(Single Sign-On)을 사용하기 위한 요구 사항입니다. 커넥터 서버 및 웹 애플리케이션 서버가 다른 Active Directory 도메인에 위치한 경우 Single Sign-On에 대해 리소스 기반 위임을 사용해야 합니다. 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 KCD](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 
 > [!WARNING]
@@ -115,10 +115,10 @@ TLS 1.2를 사용하도록 설정하려면:
 
 **아웃바운드** 트래픽에 대한 다음 포트를 엽니다.
 
-   | 포트 번호 | 사용 방법 |
-   | --- | --- |
-   | 80 | TLS/SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
-   | 443 | 애플리케이션 프록시 서비스와의 모든 아웃바운드 통신 |
+| 포트 번호 | 사용 방법 |
+| ----------- | ------------------------------------------------------------ |
+| 80          | TLS/SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
+| 443         | 애플리케이션 프록시 서비스와의 모든 아웃바운드 통신 |
 
 방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 80 및 443 포트를 엽니다.
 
@@ -127,11 +127,11 @@ TLS 1.2를 사용하도록 설정하려면:
 다음 URL에 대한 액세스를 허용합니다.
 
 | URL | 포트 | 사용 방법 |
-| --- | --- | --- |
-| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |커넥터는 이러한 URL을 사용하여 인증서를 확인합니다. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
-| ctldl.windowsupdate.com | 80/HTTP |커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
+| ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net         | 443/HTTPS | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP   | 커넥터는 이러한 URL을 사용하여 인증서를 확인합니다.        |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| ctldl.windowsupdate.com                                      | 80/HTTP   | 커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
 방화벽 또는 프록시에서 도메인 접미사에 따라 액세스 규칙을 구성할 수 있는 경우 &ast;.msappproxy.net, &ast;.servicebus.windows.net 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
@@ -157,6 +157,7 @@ Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레�
 1. 서비스 약관을 참고하세요. 준비되면 **사용 약관 동의 및 다운로드** 를 선택합니다.
 1. 창의 맨 아래에서 **실행** 을 선택하여 커넥터를 설치합니다. 설치 마법사가 열립니다.
 1. 마법사의 지침에 따라 서비스를 설치합니다. Azure AD 테넌트에 대한 애플리케이션 프록시에서 커넥터를 등록하라는 메시지가 나타나면 애플리케이션 관리자 자격 증명을 제공합니다.
+   
     - IE(Internet Explorer)에서 **IE 보안 강화 구성** 이 **켜기** 로 설정되어 있으면 등록 화면이 표지되지 않을 수 있습니다. 액세스하려면 오류 메시지의 지침에 따릅니다. **Internet Explorer 보안 강화 구성** 이 **꺼짐** 으로 설정되어 있는지 확인하세요.
 
 ### <a name="general-remarks"></a>일반적인 설명
@@ -164,6 +165,8 @@ Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레�
 이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다. 이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시: 버전 릴리스 내역](application-proxy-release-version-history.md)을 참조하세요.
 
 온-프레미스 애플리케이션에서 둘 이상의 Windows Server가 설치되도록 선택하려는 경우 각 서버에서 커넥터를 설치하고 등록해야 합니다. 커넥터를 커넥터 그룹으로 구성할 수 있습니다. 자세한 내용은 [커넥터 그룹](application-proxy-connector-groups.md)을 참조하세요.
+
+다른 지역에 커넥터를 설치한 경우 각 커넥터 그룹에서 사용할 가장 가까운 애플리케이션 프록시 클라우드 서비스 지역을 선택하여 트래픽을 최적화할 수 있습니다. [Azure Active Directory 애플리케이션 프록시를 사용하여 트래픽 흐름 최적화](application-proxy-network-topology.md)를 참조하세요.
 
 조직에서 프록시 서버를 사용하여 인터넷에 연결하는 경우에는 애플리케이션 프록시에 맞게 프록시 서버를 구성해야 합니다.  자세한 내용은 [기존 온-프레미스 프록시 서버로 작업](application-proxy-configure-connectors-with-proxy-servers.md)을 참조하세요. 
 
@@ -208,20 +211,20 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 4. **온-프레미스 애플리케이션** 섹션에서 페이지 중간쯤에 나타나는 **온-프레미스 애플리케이션 추가** 단추를 선택합니다. 또는 페이지 상단에 있는 **사용자 고유의 애플리케이션 만들기** 를 선택한 다음, **온-프레미스 애플리케이션에 대한 보안 원격 액세스를 위한 애플리케이션 프록시 구성** 을 선택합니다.
 5. **사용자 고유의 온-프레미스 애플리케이션 추가** 섹션에서 애플리케이션에 대해 다음 정보를 제공합니다.
 
-    | 필드 | Description |
-    | :---- | :---------- |
+    | 필드  | Description |
+    | :--------------------- | :----------------------------------------------------------- |
     | **이름** | 내 앱 및 Azure Portal에 표시될 애플리케이션의 이름입니다. |
     | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 https:\//yourapp/app에 위치하고 https:\//yourapp/media에 있는 이미지를 사용하는 경우 https:\//yourapp/를 경로로 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |
-    | **외부 URL** | 사용자가 네트워크 외부에서 앱에 액세스하기 위한 주소입니다. 기본 애플리케이션 프록시 도메인을 사용하지 않으려면 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조하세요.|
+    | **외부 URL** | 사용자가 네트워크 외부에서 앱에 액세스하기 위한 주소입니다. 기본 애플리케이션 프록시 도메인을 사용하지 않으려면 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조하세요. |
     | **사전 인증** | 애플리케이션 프록시가 사용자에게 애플리케이션에 대한 액세스 권한을 부여하기 전에 사용자를 확인하는 방법입니다.<br><br>**Azure Active Directory** - 애플리케이션 프록시는 Azure AD를 사용하여 로그인하도록 사용자를 리디렉션하여 디렉터리와 애플리케이션에 대한 사용 권한을 인증합니다. 조건부 액세스 및 Multi-Factor Authentication과 같은 Azure AD 보안 기능을 활용할 수 있도록 이 옵션을 기본값으로 유지하는 것이 좋습니다. **Azure Active Directory** 는 Microsoft 클라우드 애플리케이션 보안을 사용하여 애플리케이션을 모니터링하는 데 필요합니다.<br><br>**통과** - 사용자는 애플리케이션에 액세스하기 위해 Azure AD에 대해 인증할 필요가 없습니다. 백 엔드에 대한 인증 요구 사항은 여전히 설정할 수 있습니다. |
-    | **커넥터 그룹** | 커넥터는 애플리케이션에 대한 원격 액세스를 처리하고, 커넥터 그룹은 지역, 네트워크 또는 용도별로 커넥터와 앱을 구성하는 데 도움을 줍니다. 아직 만든 커넥터 그룹이 없는 경우 앱이 **Default**(기본값)로 할당됩니다.<br><br>애플리케이션에서 연결에 Websocket을 사용하는 경우 그룹의 모든 커넥터는 버전 1.5.612.0 이상이어야 합니다.|
+    | **커넥터 그룹** | 커넥터는 애플리케이션에 대한 원격 액세스를 처리하고, 커넥터 그룹은 지역, 네트워크 또는 용도별로 커넥터와 앱을 구성하는 데 도움을 줍니다. 아직 만든 커넥터 그룹이 없는 경우 앱이 **Default**(기본값)로 할당됩니다.<br><br>애플리케이션에서 연결에 Websocket을 사용하는 경우 그룹의 모든 커넥터는 버전 1.5.612.0 이상이어야 합니다. |
 
 6. 필요한 경우 **추가 설정** 을 구성합니다. 대부분의 애플리케이션에서는 다음과 같은 설정을 기본 상태로 유지해야 합니다. 
 
     | 필드 | Description |
-    | :---- | :---------- |
+    | :------------------------------ | :----------------------------------------------------------- |
     | **백 엔드 애플리케이션 시간 제한** | 애플리케이션의 인증 및 연결 속도가 느린 경우에만 이 값을 **Long** 으로 설정합니다. 기본적으로 백 엔드 애플리케이션 시간 제한의 길이는 85초입니다. 길게 설정하면 백 엔드 시간 제한이 180초로 증가합니다. |
-    | **HTTP 전용 쿠키 사용** | Application Proxy 쿠키가 HTTP 응답 헤더에 HTTPOnly 플래그를 포함하도록 하려면 이 값을 **예** 로 설정합니다. 원격 데스크톱 서비스를 사용하는 경우 이 값을 **아니요** 로 설정합니다.|
+    | **HTTP 전용 쿠키 사용** | Application Proxy 쿠키가 HTTP 응답 헤더에 HTTPOnly 플래그를 포함하도록 하려면 이 값을 **예** 로 설정합니다. 원격 데스크톱 서비스를 사용하는 경우 이 값을 **아니요** 로 설정합니다. |
     | **보안 쿠키 사용**| 이 값을 **예** 로 설정하여 암호화된 HTTPS 요청과 같이 보안 채널을 통해 쿠키를 전송합니다.
     | **영구적 쿠키 사용**| **아니요** 로 설정된 이 값을 유지합니다. 이 설정은 프로세스 간에 쿠키를 공유할 수 없는 애플리케이션에만 사용합니다. 쿠키 설정에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](./application-proxy-configure-cookie-settings.md)을 참조하세요.
     | **헤더의 URL 변환** | 애플리케이션이 인증 요청에서 원래 호스트 헤더를 요구하지 않는 한 이 값을 **예** 로 유지합니다. |

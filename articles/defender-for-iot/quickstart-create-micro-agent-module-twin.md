@@ -1,5 +1,5 @@
 ---
-title: Defender IoT 마이크로 에이전트 모듈 쌍 만들기
+title: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
 titleSuffix: Azure Defender for IoT
 description: 새 디바이스의 개별 DefenderIotMicroAgent 모듈 쌍을 만드는 방법에 대해 알아봅니다.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: ea82fea89a9e81e66be6b3060aad067d3ceb8f5f
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e1c2f4e79b9f0f0ba1ec0da0c5a2a29cdc8bc6d7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123006"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489882"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin"></a>Defender IoT 마이크로 에이전트 모듈 쌍 만들기 
+# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
 
 새 디바이스의 개별  **DefenderIotMicroAgent** 모듈 쌍을 만들 수 있습니다. IoT Hub의 모든 디바이스에 대한 모듈 쌍을 일괄적으로 만들 수도 있습니다. 
 
@@ -27,9 +27,9 @@ Defender for IoT는 기존 IoT 디바이스 관리 플랫폼과 완전히 통합
 
 Azure IoT Hub의  [디바이스 쌍](../iot-hub/iot-hub-devguide-device-twins.md) 개념에 대해 자세히 알아보세요. 
 
-## <a name="security-module-twins"></a>보안 모듈 쌍 
+## <a name="defender-iot-micro-agent-twins"></a>Defender-IoT-micro-agent 쌍 
 
-Defender for IoT는 각 디바이스에 보안 모듈 쌍을 사용합니다. 보안 모듈 쌍에는 솔루션의 각 특정 디바이스에 대한 디바이스 보안과 관련된 모든 정보가 포함되어 있습니다. 디바이스 보안 속성은 보다 안전한 통신을 위해 전용 보안 모듈 쌍을 통해 구성되며, 업데이트와 리소스가 적게 드는 유지 관리를 지원합니다. 
+Defender for IoT는 각 디바이스에 대해 Defender-IoT-micro-agent 쌍을 사용합니다. Defender-IoT-micro-agent 쌍에는 솔루션의 각 특정 디바이스에 대한 디바이스 보안과 관련된 모든 정보가 포함되어 있습니다. 디바이스 보안 속성은 보다 안전한 통신을 위해 전용 Defender-IoT-micro-agent 쌍을 통해 구성되며, 업데이트와 리소스가 적게 드는 유지 관리를 지원합니다. 
 
 ## <a name="understanding-defenderiotmicroagent-module-twins"></a>DefenderIotMicroAgent 모듈 쌍 이해 
 
@@ -39,9 +39,9 @@ Defender for IoT는 기존 IoT 디바이스 관리 플랫폼을 완벽하게 통
 
 Azure IoT Hub에 있는 모듈 쌍의 일반적인 개념에 대한 자세한 내용은  [IoT Hub 모듈 쌍](../iot-hub/iot-hub-devguide-module-twins.md)을 참조하세요.
 
-Defender for IoT는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 대한 보안 모듈 쌍(`DefenderIotMicroAgent`)을 유지 관리합니다. 
+Defender for IoT는 모듈 쌍 메커니즘을 사용하고 각 디바이스에 대해 `DefenderIotMicroAgent`라는 Defender-IoT-micro-agent 쌍을 유지 관리합니다. 
 
-Defender for IoT 기능을 최대한 활용하려면 서비스 내 모든 디바이스에 대해 이러한 보안 모듈 쌍을 만들고, 구성하고, 사용해야 합니다. 
+모든 Defender for IoT 기능을 최대한 활용하려면 서비스의 모든 디바이스에 대해 Defender-IoT-micro-agent 쌍을 만들고, 구성하고, 사용해야 합니다. 
 
 ## <a name="create-defenderiotmicroagent-module-twin"></a>DefenderIotMicroAgent 모듈 쌍 만들기 
 
@@ -49,7 +49,7 @@ Defender for IoT 기능을 최대한 활용하려면 서비스 내 모든 디바
 
 디바이스의 새  **DefenderIotMicroAgent** 모듈 쌍을 수동으로 만들려면 다음을 수행합니다. 
 
-1. IoT Hub에서 보안 모듈 쌍을 만들려는 디바이스를 찾아서 선택합니다. 
+1. IoT Hub에서 Defender-IoT-micro-agent 쌍을 만들려는 디바이스를 찾아서 선택합니다. 
 
 1.  **모듈 ID 추가** 를 선택합니다. 
 
@@ -59,7 +59,7 @@ Defender for IoT 기능을 최대한 활용하려면 서비스 내 모든 디바
 
 ## <a name="verify-the-creation-of-a-module-twin"></a>모듈 쌍 생성 확인 
 
-특정 디바이스에 대한 보안 모듈 쌍이 있는지 확인하려면 다음을 수행합니다. 
+특정 디바이스에 대한 Defender-IoT-micro-agent 쌍이 있는지 확인하려면 다음을 수행합니다. 
 
 1. Azure IoT Hub의  **탐색기** 메뉴에서  **IoT 디바이스** 를 선택합니다. 
 

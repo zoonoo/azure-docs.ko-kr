@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712517"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576920"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 
-Azure 미리 보기 포털에 [로그인](https://preview.portal.azure.com)합니다.
+Azure Portal에 [로그인](https://portal.azure.com)합니다.
 
 ## <a name="create-cross-region-load-balancer"></a>지역 간 부하 분산 장치 만들기
 
@@ -123,7 +123,7 @@ Azure 미리 보기 포털에 [로그인](https://preview.portal.azure.com)합�
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHealthProbe** 를 입력합니다. |
+    | Name | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다. |
     | 간격 | **5** 를 입력합니다. |
@@ -154,7 +154,7 @@ Azure 미리 보기 포털에 [로그인](https://preview.portal.azure.com)합�
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHTTPRule** 을 입력합니다. |
+    | Name | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
@@ -200,9 +200,6 @@ Azure 미리 보기 포털에 [로그인](https://preview.portal.azure.com)합�
 * 부하 분산 규칙 만들기
 * 부하 분산 장치 테스트
 
-지역 간 부하 분산 장치에 대한 자세한 내용은 [지역 간 부하 분산 장치(미리 보기)](cross-region-overview.md)를 참조하세요.
-
-
-방법을 알아보려면 다음 문서를 진행하세요.
+지역 간 부하 분산 장치에 대한 자세한 내용은 다음을 참조하세요.
 > [!div class="nextstepaction"]
-> [가용성 영역에 VM 부하 분산](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [지역 간 부하 분산 장치(미리 보기)](cross-region-overview.md)

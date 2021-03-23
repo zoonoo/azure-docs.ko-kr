@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 855765648d68756598f2942e0c994fa939bcbda0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 679df881e928825496a03b2fef7c9374d61593f7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695671"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199977"
 ---
 # <a name="access-external-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 외부 스토리지에 액세스
 
-이 문서에서는 사용자가 서버리스 SQL 풀의 Azure Storage에 저장된 파일에서 데이터를 읽을 수 있는 방법을 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
+이 문서에서는 사용자가 서버리스 SQL 풀의 Azure Storage에 저장된 파일에서 데이터를 읽는 방법을 설명합니다. 사용자는 다음과 같은 옵션을 사용하여 스토리지에 액세스할 수 있습니다.
 
 - [OPENROWSET](develop-openrowset.md) 함수 - Azure Storage의 파일에 대한 임시 쿼리를 사용할 수 있습니다.
 - [외부 테이블](develop-tables-external-tables.md) - 외부 파일 세트를 기반으로 미리 정의된 데이터 구조입니다.

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 442f51759b136200fd61706864568e580265e572
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947177"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619214"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 
@@ -306,4 +306,5 @@ _Views\Home\Index.cshtml_ 의 맨 아래에 다음 코드를 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [몰입형 판독기 SDK](https://github.com/microsoft/immersive-reader-sdk) 및 [몰입형 판독기 SDK 참조](../../reference.md) 살펴보기
+> [!div class="nextstepaction"]
+> [리소스 만들기 및 AAD 구성](../../how-to-create-immersive-reader.md)

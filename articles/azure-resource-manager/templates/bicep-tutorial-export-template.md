@@ -2,15 +2,15 @@
 title: 자습서 - Bicep 개발용 Azure Portal에서 JSON 템플릿 내보내기
 description: 내보낸 JSON 템플릿을 사용하여 Bicep 개발을 완료하는 방법을 알아봅니다.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742920"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632552"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>자습서: Azure Portal에서 내보낸 JSON 템플릿 사용
 
@@ -79,7 +79,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 내보낸 디컴파일 템플릿에는 필요한 Bicep이 대부분 제공되지만 Bicep 파일에 맞게 사용자 지정해야 합니다. 사용자 Bicep 파일과 내보낸 Bicep 파일 간에 매개 변수와 변수의 차이점에 특히 주의해야 합니다. 물론, 내보내기 프로세스는 Bicep 파일에 이미 정의해 놓은 매개 변수와 변수를 알지 못합니다.
 
-다음 예제는 Bicep 파일에 추가된 내용을 강조 표시합니다. 여기에는 내보낸 코드와 일부 변경 내용이 포함됩니다. 첫째, 매개 변수 이름을 명명 규칙과 일치하도록 변경합니다. 둘째, 위치 매개 변수를 App Service 계획의 위치에 사용합니다. 셋째, 기본값이 적절한 속성 중 일부를 제거합니다.
+다음 예제는 Bicep 파일에 추가된 내용을 보여줍니다. 여기에는 내보낸 코드와 일부 변경 내용이 포함됩니다. 첫째, 매개 변수 이름을 명명 규칙과 일치하도록 변경합니다. 둘째, 위치 매개 변수를 App Service 계획의 위치에 사용합니다. 셋째, 기본값이 적절한 속성 중 일부를 제거합니다.
 
 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
 

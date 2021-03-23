@@ -1,26 +1,26 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: ca6ef57db062ff22b20a8e968eaac39388b9551f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 80d6c4d3f0b2eef5bc6012f2aab3fcbeab0e31b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750993"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495438"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 시작하기 전에 다음을 확인해야 합니다.
-- 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요. 
-- [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
+- 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication 리소스 만들기](../../create-communication-resource.md)를 참조하세요. 이 빠른 시작에 대한 **엔드포인트** 리소스를 기록해야 합니다.
 - [사용자 액세스 토큰](../../access-tokens.md). 범위를 "채팅"으로 설정하고 토큰 문자열과 userId 문자열을 기록해 둡니다.
 
@@ -46,8 +46,8 @@ dotnet build
 .NET용 Azure 통신 채팅 클라이언트 라이브러리 설치
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-``` 
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+```
 
 ## <a name="object-model"></a>개체 모델
 
@@ -60,23 +60,33 @@ dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
 
 ## <a name="create-a-chat-client"></a>채팅 클라이언트 만들기
 
-채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. `Administration` 클라이언트 라이브러리의 `CommunicationIdentityClient` 클래스를 사용하여 사용자를 만들고 채팅 클라이언트에 전달할 토큰을 발급해야 합니다.
+채팅 클라이언트를 만들려면 Communications Service 엔드포인트와 필수 조건 단계의 일부로 생성된 액세스 토큰을 사용합니다. ID 클라이언트 라이브러리의 `CommunicationIdentityClient` 클래스를 사용하여 사용자를 만들고 채팅 클라이언트에 전달할 토큰을 발급해야 합니다.
 
 [사용자 액세스 토큰](../../access-tokens.md)에 대해 자세히 알아보세요.
 
 이 빠른 시작에서는 권장되는 사항이기는 하지만 채팅 애플리케이션에 대한 토큰을 관리하는 서비스 계층을 만드는 방법을 다루지 않습니다. [채팅 아키텍처](../../../concepts/chat/concepts.md)에 대한 자세한 정보
 
+**Program.cs** 코드 조각을 복사하여 원본 파일에 붙여넣습니다.
 ```csharp
-using Azure.Communication.Identity;
-using Azure.Communication.Chat;
 using Azure;
-using Azure.Communication
+using Azure.Communication;
+using Azure.Communication.Chat;
+using System;
 
-// Your unique Azure Communication service endpoint
-Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+namespace ChatQuickstart
+{
+    class Program
+    {
+        static async System.Threading.Tasks.Task Main(string[] args)
+        {
+            // Your unique Azure Communication service endpoint
+            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+            CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+            ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+        }
+    }
+}
 ```
 
 ## <a name="start-a-chat-thread"></a>채팅 스레드 시작
@@ -85,15 +95,15 @@ chatClient의 `createChatThread` 메서드를 사용하여 채팅 스레드를 �
 - `topic`을 사용하여 채팅에 주제를 제공합니다. 주제는 `UpdateTopic` 함수를 사용하여 채팅 스레드를 만든 후 업데이트할 수 있습니다.
 - `participants` 속성을 사용하여 채팅 스레드에 추가할 `ChatParticipant` 개체 목록을 전달합니다. `ChatParticipant` 개체가 `CommunicationIdentifier` 개체로 초기화되었습니다. `CommunicationIdentifier`는 `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` 또는 `PhoneNumberIdentifier` 형식일 수 있습니다. 예를 들어 `CommunicationIdentifier` 개체를 가져오려면 [사용자 생성](../../access-tokens.md#create-an-identity) 지침에 따라 만든 액세스 ID를 전달해야 합니다.
 
-CreateChatThread 메서드의 응답 개체에는 chatThread 세부 정보가 포함됩니다. 참가자 추가, 메시지 보내기, 메시지 삭제 등의 채팅 스레드 작업과 상호 작용하려면 ChatClient 클라이언트에서 GetChatThreadClient 메서드를 사용하여 chatThreadClient 클라이언트 인스턴스를 인스턴스화해야 합니다. 
+`createChatThread` 메서드의 응답 개체에는 `chatThread` 세부 정보가 포함됩니다. 참가자 추가, 메시지 보내기, 메시지 삭제 등과 같은 채팅 스레드 작업과 상호 작용하려면 `chatThreadClient` 클라이언트 인스턴스가 `ChatClient` 클라이언트에서 `GetChatThreadClient` 메서드를 사용하여 인스턴스화되어야 합니다.
 
 ```csharp
-var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
+var chatParticipant = new ChatParticipant(identifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
 {
     DisplayName = "UserDisplayName"
 };
 CreateChatThreadResult createChatThreadResult = await chatClient.CreateChatThreadAsync(topic: "Hello world!", participants: new[] { chatParticipant });
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(createChatThreadResult.ChatThread.Id);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: createChatThreadResult.ChatThread.Id);
 string threadId = chatThreadClient.Id;
 ```
 
@@ -102,7 +112,7 @@ string threadId = chatThreadClient.Id;
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId: threadId);
 ```
 
 ## <a name="send-a-message-to-a-chat-thread"></a>채팅 스레드에 메시지 보내기
@@ -124,7 +134,7 @@ var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", t
 `ChatMessage`는 메시지를 가져온 후 반환되는 응답으로, 다른 필드 가운데 메시지의 고유 식별자인 ID가 포함됩니다. Azure.Communication.Chat.ChatMessage 참조
 
 ```csharp
-ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
+ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId: messageId);
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>채팅 스레드에서 채팅 메시지 받기
@@ -135,7 +145,7 @@ ChatMessage chatMessage = await chatThreadClient.GetMessageAsync(messageId);
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
 await foreach (ChatMessage message in allMessages)
 {
-    Console.WriteLine($"{message.Id}:{message.Id}:{message.Content}");
+    Console.WriteLine($"{message.Id}:{message.Content.Message}");
 }
 ```
 
@@ -164,7 +174,7 @@ await foreach (ChatMessage message in allMessages)
 ```csharp
 string id = "id-of-message-to-edit";
 string content = "updated content";
-await chatThreadClient.UpdateMessageAsync(id, content);
+await chatThreadClient.UpdateMessageAsync(messageId: id, content: content);
 ```
 
 ## <a name="deleting-a-message"></a>메시지 삭제
@@ -173,7 +183,7 @@ await chatThreadClient.UpdateMessageAsync(id, content);
 
 ```csharp
 string id = "id-of-message-to-delete";
-await chatThreadClient.DeleteMessageAsync(id);
+await chatThreadClient.DeleteMessageAsync(messageId: id);
 ```
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>채팅 스레드에 사용자를 참가자로 추가
@@ -197,7 +207,7 @@ var participants = new[]
     new ChatParticipant(amy) { DisplayName = "Amy" }
 };
 
-await chatThreadClient.AddParticipantsAsync(participants);
+await chatThreadClient.AddParticipantsAsync(participants: participants);
 ```
 ## <a name="remove-user-from-a-chat-thread"></a>채팅 스레드에서 사용자 제거
 
@@ -205,7 +215,7 @@ await chatThreadClient.AddParticipantsAsync(participants);
 
 ```csharp
 var gloria = new CommunicationUserIdentifier(id: "<Access_ID_For_Gloria>");
-await chatThreadClient.RemoveParticipantAsync(gloria);
+await chatThreadClient.RemoveParticipantAsync(identifier: gloria);
 ```
 
 ## <a name="get-thread-participants"></a>스레드 참가자 가져오기
@@ -233,7 +243,7 @@ await chatThreadClient.SendTypingNotificationAsync();
 `SendReadReceipt`를 사용하여 다른 참가자에게 사용자가 메시지를 읽었음을 알립니다.
 
 ```csharp
-await chatThreadClient.SendReadReceiptAsync(messageId);
+await chatThreadClient.SendReadReceiptAsync(messageId: messageId);
 ```
 
 ## <a name="get-read-receipts"></a>읽음 확인 가져오기

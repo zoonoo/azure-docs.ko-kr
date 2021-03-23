@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 5d1c4d05748fd9efdc51e18396c8df14e12df63d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2ead9bd72691dc120afb60c025ce563684716038
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193288"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199329"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onshape"></a>자습서: Onshape와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -74,26 +74,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Onshape** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
-
-   ![기본 SAML 구성 편집](common/edit-urls.png)
-
-1. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
-
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.onshape.com` 패턴을 사용하여 URL을 입력합니다.
-
-    > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Onshape 클라이언트 지원 팀](mailto:support@onshape.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
-
-1. **저장** 을 클릭합니다.
-
+1. Single Sign-On 설정을 저장하라는 메시지가 표시되면 **예** 를 선택합니다. 
 1. Onshape 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![이미지](common/default-attributes.png)
 
-1. 위에서 언급한 특성 외에도 Onshape 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+1. 위의 것 외에도 Onshape 애플리케이션은 SAML 응답에서 아래에 표시된 몇 가지 특성이 전달될 것으로 예상합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
     | Name |  원본 특성|
     | --------------- | --------- |
@@ -102,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | companyName | <COMPANY_NAME> |
 
     > [!NOTE]
-    > "도메인 접두사"를 사용하여 "companyName" 클레임 값을 편집합니다. 예를 들어, 고객이 https://acme.onshape.com 과 같은 URL을 사용하여 Onshape 애플리케이션에 액세스하는 경우 해당 도메인 접두사는 "acme"입니다. 특성 값은 전체 DNS 이름이 아니라 접두사여야 합니다.
+    > **companyName** 속성 값을 Onshape 엔터프라이즈의 *도메인 접두사* 로 변경 _해야 합니다_. 예를 들어 `https://acme.onshape.com`과 같은 URL을 사용하여 Onshape 애플리케이션에 액세스하는 경우 도메인 접두사는 *acme* 입니다. 특성 값은 전체 DNS 이름이 아니라 접두사여야 합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -137,7 +123,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-onshape-sso"></a>Onshape SSO 구성
 
-**Onshape** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Onshape 지원 팀](mailto:support@onshape.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Onshape** 쪽에서 Single Sign-On를 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure AD와 통합](https://cad.onshape.com/help/Content/MS_AzureAD.htm)을 참조하세요.
 
 ### <a name="create-onshape-test-user"></a>Onshape 사용자 테스트 만들기
 

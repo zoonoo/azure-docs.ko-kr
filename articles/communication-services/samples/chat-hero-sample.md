@@ -6,15 +6,15 @@ author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 15c697902681ece210895dfd4608547c59bbcad0
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489568"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487833"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>그룹 채팅 주인공 샘플 시작
 
@@ -116,7 +116,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 ## <a name="additional-reading"></a>추가 자료
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - 공식 GitHub 페이지에서 더 많은 예제 및 정보 찾기
+- [샘플](./overview.md) - 샘플 개요 페이지에서 추가 샘플과 예제를 찾아보세요.
 - [Redux](https://redux.js.org/) - 클라이언트 쪽 상태 관리
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft 기반 UI 라이브러리
 - [React](https://reactjs.org/) - 사용자 인터페이스 빌드용 라이브러리

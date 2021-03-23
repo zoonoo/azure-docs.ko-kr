@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d12ce74cb961148776d81b3d7cabc281bbc59fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664285"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232378"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>IoT Hub에 대한 디바이스 업데이트(미리 보기) 개요
 
@@ -23,10 +23,11 @@ IoT 지원 디지털 변환의 모든 이점을 실현하려면 고객은 대규
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>광범위한 IoT 디바이스에 대한 지원
 
-IoT Hub에 대한 디바이스 업데이트는 [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/)와의 통합을 통해 최적화된 업데이트 배포 및 간소화된 작업을 제공하도록 설계되었습니다. 이러한 통합을 통해 기존 솔루션에서 디바이스 업데이트를 쉽게 채택할 수 있습니다. 거의 모든 디바이스를 연결하는 클라우드 호스팅 솔루션을 제공합니다. 디바이스 업데이트는 Linux 및 [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/)(실시간 운영 체제)를 비롯한 광범위한 IoT 운영 체제를 지원하며 오픈 소스를 통해 확장할 수 있습니다. 
+
+IoT Hub에 대한 디바이스 업데이트는 [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/)와의 통합을 통해 최적화된 업데이트 배포 및 간소화된 작업을 제공하도록 설계되었습니다. 이러한 통합을 통해 기존 솔루션에서 디바이스 업데이트를 쉽게 채택할 수 있습니다. 거의 모든 디바이스를 연결하는 클라우드 호스팅 솔루션을 제공합니다. 디바이스 업데이트는 Linux 및 [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/)(실시간 운영 체제)를 비롯한 광범위한 IoT 운영 체제를 지원하며 오픈 소스를 통해 확장할 수 있습니다. STMicroelectronics, NXP, Renesas 및 Microchip을 포함한 반도체 파트너와 함께 IoT Hub 제품을 위한 디바이스 업데이트를 공동으로 개발하고 있습니다. 시작 가이드가 포함된 주요 반도체 평가 보드의 [샘플](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU)을 참조하여 MCU 클래스 디바이스에 무선(OTA) 업데이트를 구성, 빌드 및 배포하는 방법을 알아봅니다. 
 
 디바이스 업데이트 에이전트 시뮬레이터 이진 및 Raspberry Pi 참조 Yocto 이미지를 모두 제공합니다.
-IoT Hub에 대한 디바이스 업데이트는 Azure IoT Edge 디바이스 업데이트도 지원합니다. Ubuntu Server 18.04 amd64 플랫폼용 디바이스 업데이트 에이전트가 제공됩니다. IoT Hub에 대한 디바이스 업데이트는 위의 플랫폼 중 하나를 실행하지 않는 경우에도 오픈 소스 코드를 제공합니다. 이렇게 하면 실행 중인 배포에 에이전트를 이식할 수 있습니다.
+IoT Hub에 대한 디바이스 업데이트는 Azure IoT Edge 디바이스 업데이트도 지원합니다. Ubuntu Server 18.04 amd64 플랫폼용 디바이스 업데이트 에이전트가 제공됩니다. IoT Hub에 대한 디바이스 업데이트는 위의 플랫폼 중 하나를 실행하지 않는 경우에도 오픈 소스 코드를 제공합니다. 실행 중인 배포에 에이전트를 이식할 수 있습니다.
 
 디바이스 업데이트는 IoT PnP(플러그 앤 플레이)에서 작동하며 필요한 PnP 인터페이스를 지원하는 모든 디바이스를 관리할 수 있습니다. 자세한 내용은 [IoT Hub 및 IoT 플러그 앤 플레이에 대한 디바이스 업데이트](device-update-plug-and-play.md)를 참조하세요.
 
@@ -79,7 +80,7 @@ IoT Hub에 대한 디바이스 업데이트는 Microsoft Azure용으로 개발�
 
 ### <a name="importing"></a>가져오기
 
-가져오기는 업데이트를 디바이스 업데이트로 가져오는 기능입니다. 디바이스 업데이트는 디바이스당 단일 업데이트의 출시를 지원합니다. 따라서 전체 OS 파티션을 한 번에 업데이트하는 전체 이미지 업데이트 또는 디바이스에서 업데이트하려는 모든 패키지를 설명하는 APT 매니페스트에 이상적입니다. 업데이트를 디바이스 업데이트로 가져오려면 먼저 업데이트를 설명하는 가져오기 매니페스트를 만든 다음 업데이트 파일 및 가져오기 매니페스트를 인터넷 액세스가 가능한 위치에 업로드합니다. 그런 다음 Azure Portal 또는 디바이스 업데이트 가져오기 REST API를 사용하여 비동기 업데이트 가져오기 프로세스를 시작할 수 있습니다. 디바이스 업데이트는 파일을 업로드하고 처리하며 IoT 디바이스에 배포하는 데 사용할 수 있도록 합니다.
+가져오기는 업데이트를 디바이스에 배포할 수 있도록 디바이스 업데이트에 수집되는 방법입니다. 디바이스 업데이트는 디바이스당 단일 업데이트의 출시를 지원합니다. 따라서 전체 OS 파티션을 한 번에 업데이트하는 전체 이미지 업데이트 또는 디바이스에서 업데이트하려는 모든 패키지를 설명하는 APT 매니페스트에 이상적입니다. 업데이트를 디바이스 업데이트로 가져오려면 먼저 업데이트를 설명하는 가져오기 매니페스트를 만든 다음 업데이트 파일 및 가져오기 매니페스트를 인터넷 액세스가 가능한 위치에 업로드합니다. 그런 다음, Azure Portal 또는 [디바이스 업데이트 가져오기 REST API](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference)를 사용하여 비동기 업데이트 가져오기 프로세스를 시작할 수 있습니다. 디바이스 업데이트는 파일을 업로드하고 처리하며 IoT 디바이스에 배포하는 데 사용할 수 있도록 합니다.
 
 중요한 콘텐츠의 경우 Azure Blob Storage에 대한 임시 SAS와 같은 SAS(공유 액세스 서명)를 사용하여 다운로드를 보호합니다. [SAS에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
