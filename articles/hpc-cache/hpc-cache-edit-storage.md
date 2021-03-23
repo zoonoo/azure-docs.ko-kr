@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: 78010ef2d93b23a12fc7f3e988a536b4993b4dd4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471828"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772592"
 ---
 # <a name="edit-storage-targets"></a>스토리지 대상 편집
 
@@ -76,7 +76,7 @@ Azure HPC 캐시에 **네임 스페이스** 페이지를 사용 합니다. 네�
 
 변경할 경로의 이름을 클릭 하 고 표시 되는 편집 창에서 새 경로를 만듭니다.
 
-![Blob 네임 스페이스 경로를 클릭 한 후 네임 스페이스 페이지의 스크린샷-오른쪽의 창에 편집 필드가 표시 됩니다.](media/edit-namespace-blob.png)
+![Blob 네임 스페이스 경로를 클릭 한 후 네임 스페이스 페이지의 스크린샷-오른쪽의 창에 편집 필드가 표시 됩니다.](media/update-namespace-blob.png)
 
 변경 후에는 **확인** 을 클릭 하 여 저장소 대상을 업데이트 하거나 **취소** 를 클릭 하 여 변경 내용을 취소 합니다.
 

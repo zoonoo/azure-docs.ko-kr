@@ -3,16 +3,16 @@ title: Azure Data Factory의 연결된 서비스
 description: Data Factory의 연결된 서비스에 대해 알아봅니다. 연결된 서비스는 계산/데이터 저장소를 데이터 팩터리에 연결합니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 768af9e8568a3842b642a3ebd447d9df8064e840
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: aaa690a4205951bd251a5230721e34fcb960a3b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100389929"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782744"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스
 
@@ -62,7 +62,7 @@ Data Factory의 연결된 서비스는 다음과 같이 JSON 형식으로 정의
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
 name | 연결된 서비스의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 연결된 서비스의 형식입니다. 예: AzureBlobStorage (데이터 저장소) 또는 AzureBatch (compute). typeProperties에 대한 설명을 참조하세요. | 예 |

@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
-ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/19/2021
+ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99627776"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772470"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -63,8 +63,6 @@ Azure Cosmos DB는 컨테이너의 확장성 및 성능 요구를 효율적으�
 Azure Cosmos DB 해시 기반 분할을 사용 하 여 실제 파티션에 논리적 파티션을 분산 합니다. Azure Cosmos DB는 항목의 파티션 키 값을 해시 합니다. 해시 된 결과는 실제 파티션을 결정 합니다. 그런 다음 Azure Cosmos DB는 실제 파티션에서 파티션 키 해시의 키 공간을 균등 하 게 할당 합니다.
 
 트랜잭션 (저장 프로시저 또는 트리거)은 단일 논리적 파티션의 항목에 대해서만 허용 됩니다.
-
-[Azure Cosmos DB 파티션을 관리 하는 방법](partitioning-overview.md)에 대해 자세히 알아볼 수 있습니다. 응용 프로그램을 빌드하거나 실행 하기 위한 내부 세부 정보를 이해 하는 데 필요 하지는 않지만 여기에서 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="replica-sets"></a>복제본 세트
 

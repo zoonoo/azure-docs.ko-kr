@@ -1,24 +1,14 @@
 ---
 title: 기본 제공 & 사용자 지정 경고 목록
 description: IoT Hub의 기능 및 서비스에 대해 Defender를 사용 하 여 보안 경고 및 권장 수정에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: ef33851600c576494e4e0903c6ab8ffefc9a1a59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73b3a1ca3e52f571ab7b531235650b6bda870691
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636495"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784563"
 ---
 # <a name="defender-for-iot-hub-security-alerts"></a>Defender IoT Hub 보안 경고
 
@@ -32,7 +22,7 @@ IoT 용 Defender는 고급 분석 및 위협 인텔리전스를 사용 하 여 I
 
 ## <a name="built-in-alerts-for-iot-hub"></a>IoT Hub에 대한 기본 제공 경고
 
-| 심각도 | Name | 설명 | 제안된 수정 사항 |
+| 심각도 | Name | Description | 제안된 수정 사항 |
 |--|--|--|--|
 | **중간** 심각도 |  |  |  |
 | IoT Hub에 추가 된 새 인증서 | 중간 | 이름이 \' % {DescCertificateName} 인 인증서가 \' IoT Hub \' % {DescIoTHubName}에 추가 되었습니다 \' . 권한이 없는 당사자가이 작업을 수행한 경우 악성 작업을 나타낼 수 있습니다. | 1. 인증 된 파티에서 인증서를 추가 했는지 확인 합니다. <br> 2. 권한이 부여 된 당사자가 추가 하지 않은 경우 인증서를 제거 하 고 조직 보안 팀에 경고를 에스컬레이션 합니다. |

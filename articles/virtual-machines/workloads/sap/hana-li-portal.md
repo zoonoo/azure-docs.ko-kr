@@ -15,17 +15,17 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d32adab35852cd19933fe3877c2742a21ddc5f1e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07094e399f153f56746a931a4a100b3c0d38f92f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101676992"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772079"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure Portal을 통한 Azure HANA 대규모 인스턴스 제어
 
 >[!NOTE]
->Rev 4.2의 경우 Azure Portal 항목을 [통해 BareMetal 인스턴스 관리](../../../baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal.md) 항목의 지침을 따르세요.
+>Rev 4.2의 경우 Azure Portal 항목을 [통해 BareMetal 인스턴스 관리](../../../baremetal-infrastructure/connect-baremetal-infrastructure.md) 항목의 지침을 따르세요.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com) 에 [hana](./hana-overview-architecture.md) 를 표시 하는 방법 및 사용자를 위해 배포 되는 hana large Instance 단위를 사용 하 여 Azure Portal를 통해 수행할 수 있는 작업을 설명 합니다. Azure Portal에서 HANA Large Instances의 표시 유형은 현재 공개 미리 보기로 제공 되는 HANA Large Instances 용 Azure 리소스 공급자를 통해 제공 됩니다.
 

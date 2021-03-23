@@ -1,18 +1,14 @@
 ---
 title: 디바이스 정보 가져오기
 description: IoT 센서에 대 한 Defender는 미러된 트래픽을 모니터링 하 고 분석 합니다. 이러한 경우에는 이미 검색 된 장치에 대 한 정보를 보강 하기 위해 데이터를 가져올 수 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: eb82a3e5d360913acfead06adc03194d80f7fccb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522243"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785633"
 ---
 # <a name="import-device-information-to-a-sensor"></a>장치 정보를 센서로 가져오기
 

@@ -4,12 +4,12 @@ description: Azure storage 계정을 사용 하 여 전송 파이프라인을 �
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: 30e6c0fa7a33c7a83543fee297c582b15bce4c8b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fe36366011fb790d25419ac46a54c4bf5ad94bf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606772"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785821"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -30,7 +30,7 @@ ms.locfileid: "104606772"
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **컨테이너 레지스트리** -전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요 합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동 하기 위한 것입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일 하거나 다른 Azure 구독, Active Directory 테 넌 트 또는 클라우드에 있을 수 있습니다. 
 
@@ -368,8 +368,9 @@ IMPORT_RUN_RES_ID=$(az deployment group show \
   --name importPipelineRun \
   --query 'properties.outputResources[0].id' \
   --output tsv)
+```
 
-When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
+배포가 성공적으로 완료 되 면 대상 컨테이너 레지스트리의 리포지토리를 나열 하 여 아티팩트 가져오기를 확인 합니다. 예를 들어 [az acr repository list][az-acr-repository-list]를 실행 합니다.
 
 ```azurecli
 az acr repository list --name <target-registry-name>

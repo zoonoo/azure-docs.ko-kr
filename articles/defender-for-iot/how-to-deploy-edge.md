@@ -1,24 +1,14 @@
 ---
 title: IoT Edge 배포-IoT-마이크로 에이전트
 description: IoT Edge에서 IoT 보안 에이전트에 대 한 Defender를 배포 하는 방법에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/30/2020
-ms.author: mlottner
-ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 38e2aa38ab07a4768e95d91ed0ebc866d7edf39f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495116"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784223"
 ---
 # <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>IoT Edge 장치에 Defender-IoT-마이크로 에이전트 배포
 
@@ -32,7 +22,7 @@ Defender-마이크로 에이전트는 운영 체제 및 컨테이너 시스템�
 
 다음 단계를 사용 하 여 IoT Edge 용 Defender Defender-IoT-마이크로 에이전트를 배포 합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](../iot-edge/how-to-register-device.md#register-a-new-device)되어 있는지 확인 합니다.
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563246"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772725"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -164,7 +164,7 @@ NFS 저장소 대상의 설정이 Blob 저장소 대상과 다릅니다. 사용 
 > NFS 저장소 대상을 만들기 전에 Azure HPC 캐시에서 저장소 시스템에 액세스할 수 있고 권한 요구 사항을 충족 하는지 확인 합니다. 캐시에서 저장소 시스템에 액세스할 수 없으면 저장소 대상 만들기가 실패 합니다. 자세한 내용은 [nfs 저장소 요구 사항](hpc-cache-prerequisites.md#nfs-storage-requirements) 및 [NAS 구성 및 nfs 저장소 대상 문제 해결](troubleshoot-nas.md) 을 참조 하세요.
 
 ### <a name="choose-a-usage-model"></a>사용 모델 선택
-<!-- referenced from GUI - update aka.ms link to point at new article when published -->
+<!-- referenced from GUI by aka.ms link -->
 
 NFS를 사용 하 여 저장소 시스템에 연결 하는 저장소 대상을 만드는 경우 해당 대상에 대 한 사용 모델을 선택 해야 합니다. 이 모델은 데이터를 캐시 하는 방법을 결정 합니다.
 
@@ -195,16 +195,6 @@ NFS를 사용 하 여 저장소 시스템에 연결 하는 저장소 대상을 �
 이 표에는 모든 사용 모델 간의 차이점이 요약 되어 있습니다.
 
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
-
-<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
-|--|--|--|--|
-| Read heavy, infrequent writes | Read | Never | None |
-| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
-| Clients bypass the cache | Read | 30 seconds | None |
-| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
-| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
-| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
-| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > **백 엔드 확인** 값은 캐시가 원격 저장소의 소스 파일과 파일을 자동으로 비교 하는 경우를 표시 합니다. 그러나 백 엔드 저장소 시스템에 readdirplus 작업을 포함 하는 클라이언트 요청을 전송 하 여 비교를 트리거할 수 있습니다. Readdirplus는 디렉터리 메타 데이터를 반환 하는 표준 NFS API (확장 된 읽기 라고도 함)로, 캐시에서 파일을 비교 하 고 업데이트 합니다.
