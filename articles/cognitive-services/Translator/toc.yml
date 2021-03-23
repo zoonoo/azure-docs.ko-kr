@@ -8,7 +8,7 @@
       href: language-support.md
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator'
-    - name: Translator FAQ
+    - name: 번역기 FAQ
       href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: 텍스트 번역
   items:
@@ -144,10 +144,10 @@
       items:
         - name: 문서 번역을 위한 SAS 토큰 생성
           href: document-translation/create-sas-tokens.md
-    - name: 참조
+    - name: 참고
       items:
         - name: 문서 번역 REST API
-          href: /rest/api/cognitiveservices/translator/translation
+          href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Translator 리소스
   items:
     - name: 지원 및 도움말 옵션
