@@ -1,18 +1,14 @@
 ---
 title: 공격 벡터 보고서 만들기
 description: 공격 벡터 보고서는 악용 가능한 장치의 취약점 체인에 대 한 그래픽 표현을 제공 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: e22bf80cd9dbcd80a0de84fd5d044354b1fc4e2d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6c178f379561ca4a572a7ae8f556ae6753d6e2be
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522328"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784376"
 ---
 # <a name="attack-vector-reporting"></a>공격 벡터 보고
 

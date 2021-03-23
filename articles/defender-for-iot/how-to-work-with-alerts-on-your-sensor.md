@@ -1,22 +1,18 @@
 ---
-title: 센서에 대 한 경고 사용
+title: 센서 경고 정보
 description: 경고를 사용 하 여 네트워크의 보안 및 작업을 향상 시킬 수 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 00207ffb8480ae99c2f1aad74183fca9ea45ee17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 178d3aedb44c29f53aab481894defeb4b9355d39
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523552"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781350"
 ---
-# <a name="work-with-alerts-on-your-sensor"></a>센서에 대 한 경고 사용
+# <a name="about-sensor-alerts"></a>센서 경고 정보
 
-경고를 사용 하 여 네트워크의 보안 및 작업을 향상 시킬 수 있습니다. 경고는 다음에 대 한 정보를 제공 합니다.
+경고는 네트워크의 보안 및 운영을 개선 하는 데 도움이 됩니다. 경고는 다음에 대 한 정보를 제공 합니다.
 
 - 승인 된 네트워크 작업의 편차
 
@@ -48,7 +44,7 @@ ms.locfileid: "100523552"
 
 센서 엔진이 네트워크 트래픽 및 주의가 필요한 동작의 변경 내용을 검색할 때 경고가 트리거됩니다. 이 문서에서는 각 엔진이 트리거하는 경고의 종류를 설명 합니다.
 
-| 경고 유형 | 설명 |
+| 경고 유형 | Description |
 |-|-|
 | 정책 위반 경고 | 정책 위반 엔진이 이전에 학습 한 트래픽의 편차를 감지한 경우에 트리거됩니다. 예를 들면 다음과 같습니다. <br /> -새 장치가 검색 되었습니다.  <br /> -장치에서 새 구성이 검색 됩니다. <br /> -프로그래밍 장치로 정의 되지 않은 장치는 프로그래밍 변경을 수행 합니다. <br /> -펌웨어 버전이 변경 되었습니다. |
 | 프로토콜 위반 경고 | 프로토콜 위반 엔진이 프로토콜 사양을 따르지 않는 패킷 구조 또는 필드 값을 검색 하는 경우에 트리거됩니다. | 

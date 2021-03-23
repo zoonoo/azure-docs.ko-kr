@@ -3,13 +3,13 @@ title: Azure Kubernetes Service에서 여러 노드 풀 사용 (AKS)
 description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀을 만들고 관리 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 04/08/2020
-ms.openlocfilehash: 3e029695e9dce79473ada0bae3e7f0bbfd30db89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 02/11/2021
+ms.openlocfilehash: 8f18e19eca8895549f17c9f0f6822ecb4da2914b
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218488"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773507"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -134,7 +134,7 @@ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluste
 * 클러스터를 만든 후 VNET을 확장 하는 경우 원래 cidr 외부에 서브넷을 추가 하기 전에 클러스터를 업데이트 해야 합니다 (관리 되는 clster 작업을 수행 하지만 노드 풀 작업은 계산 하지 않음). AKS는 처음에 허용 했지만 에이전트 풀에서 오류를 추가 합니다. 클러스터 파일을 조정 하는 방법을 모르는 경우 지원 티켓. 
 * Calico 네트워크 정책은 지원 되지 않습니다. 
 * Azure 네트워크 정책은 지원 되지 않습니다.
-* Kube-proxy는 단일 연속 cidr을 예상 하 고이를 세 가지 optmizations에 사용 합니다. 이 [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) 를 참조 하세요. 및-- [여기](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) 에서 자세한 내용을 확인 하세요. Azure cni에서 첫 번째 노드 풀의 서브넷이 kube에 제공 됩니다. 
+* Kube-proxy는 단일 연속 cidr을 예상 하 고이를 세 가지 optmizations에 사용 합니다. 이 [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) 를 참조 하세요. 및-- [여기](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) 에서 자세한 내용을 확인 하세요. Azure cni에서 첫 번째 노드 풀의 서브넷이 kube에 제공 됩니다. 
 
 전용 서브넷을 사용 하 여 노드 풀을 만들려면 노드 풀을 만들 때 서브넷 리소스 ID를 추가 매개 변수로 전달 합니다.
 
@@ -716,33 +716,11 @@ az deployment group create \
 
 리소스 관리자 템플릿에서 정의한 노드 풀 설정 및 작업에 따라 AKS 클러스터를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>노드 풀에 대해 노드당 공용 IP 할당 (미리 보기)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools"></a>노드 풀에 노드 당 공용 IP 할당
 
-> [!WARNING]
-> 노드 당 공용 IP 기능을 사용 하려면 CLI preview 확장 0.4.43 이상을 설치 해야 합니다.
+AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 시나리오에서는 고유한 전용 공용 IP 주소를 수신 하기 위해 노드 풀의 노드가 필요할 수 있습니다. 일반적인 시나리오는 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임 워크 로드에 대 한 것입니다. 이 시나리오는 노드 공용 IP를 사용 하 여 AKS에서 수행할 수 있습니다.
 
-AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 시나리오에서는 고유한 전용 공용 IP 주소를 수신 하기 위해 노드 풀의 노드가 필요할 수 있습니다. 일반적인 시나리오는 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임 워크 로드에 대 한 것입니다. 이 시나리오는 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 AKS에서 수행할 수 있습니다.
-
-최신 aks-preview 확장을 설치 하 고 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
-
-```azurecli
-az extension add --name aks-preview
-az extension update --name aks-preview
-az extension list
-```
-
-다음 Azure CLI 명령을 사용 하 여 노드 공용 IP 기능에 등록 합니다.
-
-```azurecli-interactive
-az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
-```
-기능을 등록 하는 데 몇 분 정도 걸릴 수 있습니다.  다음 명령을 사용 하 여 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
- az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
-```
-
-등록이 완료 되 면 새 리소스 그룹을 만듭니다.
+먼저, 새로운 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup2 --location eastus
@@ -760,12 +738,9 @@ az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-p
 az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
 ```
 
-> [!Important]
-> 미리 보기 중에 Azure Instance Metadata Service는 현재 표준 계층 VM SKU에 대 한 공용 IP 주소 검색을 지원 하지 않습니다. 이러한 제한으로 인해 kubectl 명령을 사용 하 여 노드에 할당 된 공용 Ip를 표시할 수 없습니다. 그러나 Ip가 할당 되 고 의도 한 대로 작동 합니다. 노드에 대 한 공용 Ip는 가상 머신 확장 집합의 인스턴스에 연결 됩니다.
-
 다음과 같은 다양 한 방법으로 노드에 대 한 공용 Ip를 찾을 수 있습니다.
 
-* Azure CLI 명령 [az vmss list-instance-공용-ip][az-list-ips] 를 사용 합니다.
+* Azure CLI 명령 [az vmss list-instance-공용 ip][az-list-ips]를 사용 합니다.
 * [PowerShell 또는 Bash 명령을][vmss-commands]사용 합니다. 
 * 가상 머신 확장 집합의 인스턴스를 확인 하 여 Azure Portal에서 공용 Ip를 볼 수도 있습니다.
 
@@ -818,20 +793,20 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-group-create]: /cli/azure/group#az-group-create
-[az-group-delete]: /cli/azure/group#az-group-delete
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_credentials
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create
+[az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_get_upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az_aks_nodepool_delete
+[az-extension-add]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
+[az-extension-update]: /cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-group-create]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_create
+[az-group-delete]: /cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete
+[az-deployment-group-create]: /cli/azure/deployment/group?view=azure-cli-latest&preserve-view=true#az_deployment_group_create
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -844,5 +819,5 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest&preserve-view=true#az_vmss_list_instance_public_ips
 [reduce-latency-ppg]: reduce-latency-ppg.md

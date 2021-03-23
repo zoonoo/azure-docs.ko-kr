@@ -1,18 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔의 경고 작업
 description: 온-프레미스 관리 콘솔을 사용 하 여 네트워크에서 최근에 발생 한 위협에 대 한 엔터프라이즈 보기를 가져오고, 센서 사용자가이를 처리 하는 방법을 더 잘 이해할 수 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526326"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781469"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>온-프레미스 관리 콘솔의 경고 작업 
 

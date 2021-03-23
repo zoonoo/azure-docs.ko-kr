@@ -1,18 +1,14 @@
 ---
 title: Defender for IoT CLI 명령 작업
 description: 이 문서에서는 센서 및 온-프레미스 관리 콘솔에 대 한 IoT CLI 명령인 Defender를 설명 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636563"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778681"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Defender for IoT CLI 명령 작업
 
@@ -35,7 +31,7 @@ alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | -n 이름 | 만들고 있는 규칙의 이름입니다. |
@@ -75,7 +71,7 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 
 경고 제외 규칙과 함께 사용할 수 있는 특성은 다음과 같습니다.
 
-| 특성 | 설명|
+| attribute | Description|
 | --------- | ---------------------------------- |
 | -n 이름 | 삭제할 규칙의 이름입니다. |
 
@@ -107,7 +103,7 @@ ntp disable IP
 
 다음 표에서는 IoT 용 Azure Defender에 대 한 네트워크 옵션을 구성 하는 데 사용할 수 있는 명령을 설명 합니다.
 
-|Name|명령|설명|
+|Name|명령|Description|
 |-----------|-------|-----------|
 |Ping|`ping IP`| IoT 플랫폼용 Defender 외부에서 주소를 Ping 합니다.|
 |Blink|`network blink`| 인터페이스 표시등이 깜박이 게 하 여 연결을 찾습니다. |
@@ -131,7 +127,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 포함 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 포함 합니다. |
@@ -147,7 +143,7 @@ network capture-filter
 
 `Y`다음 구문에 따라 장치, 채널, 포트 및 하위 집합을 추가할 수 있는 nano 파일을 열려면 선택 합니다.
 
-| 특성 | 설명 |
+| attribute | Description |
 |--|--|
 | 1.1.1.1 | 이 장치에 대 한 모든 트래픽을 제외 합니다. |
 | 1.1.1.1, 2.2.2.2 | 이 채널에 대 한 모든 트래픽을 제외 합니다. 즉, 두 장치 간의 모든 트래픽을 의미 합니다. |
@@ -214,7 +210,7 @@ network capture-filter
 > [!NOTE]
 > 선택 항목은 도구의 모든 필터에 사용 되며 세션에 종속 되지 않습니다. 즉, `internal`   일부 필터 및 다른 필터에 대해서는 선택할 수 없습니다  `all-connected`   .
 
-### <a name="comments"></a>의견
+### <a name="comments"></a>주석
 
 다음에서 필터를 볼 수 있습니다  ```/var/cyberx/properties/cybershark.properties``` .
 
@@ -245,7 +241,7 @@ directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]
 
 명령을 사용 하 여 다음 특성을 사용할 수 있습니다 `directions` .
 
-| 특성 | 설명 |
+| attribute | Description |
 |--|--|
 | [-h] | 명령에 대 한 도움말 정보를 인쇄 합니다. |
 | [--식별자 식별자] | 서버 식별자입니다. |
@@ -287,7 +283,7 @@ cyberx-xsense-certificate-import
 | --key | \*키 파일입니다. 키 길이는 2048 비트 이상 이어야 합니다. |
 | --체인 | 인증서 체인 파일의 경로입니다 (선택 사항). |
 | --pass | 인증서를 암호화 하는 데 사용 되는 암호입니다 (선택 사항). |
-| --passphrase-set | 기본값은 **False**, **사용 되지** 않음입니다. <br />이전 인증서와 함께 제공 된 이전 암호를 사용 하려면 **True** 로 설정 합니다 (옵션). |  |
+| --passphrase-set | 기본값은 **False**, **사용 되지** 않음입니다. <br />이전 인증서와 함께 제공 된 이전 암호를 사용 하려면 **True** 로 설정 합니다 (옵션). | 
 
 도구를 사용 하는 경우:
 

@@ -1,18 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔 관리
 description: 백업 및 복원과 같은 온-프레미스 관리 콘솔 옵션, 호스트 이름 정의 및 센서에 대 한 프록시 설정에 대해 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 871c74eee4b74538a8a09188953916ff7376bc8d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618256"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781724"
 ---
 # <a name="manage-the-on-premises-management-console"></a>온-프레미스 관리 콘솔 관리
 

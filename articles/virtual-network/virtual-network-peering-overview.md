@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1356c896abff8c525df283251240d027123405fc
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216753"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778292"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -25,8 +25,8 @@ ms.locfileid: "98216753"
 
 Azure는 다음 피어 링 유형을 지원 합니다.
 
-* 가상 네트워크 피어 링: 동일한 Azure 지역 내에서 가상 네트워크를 연결 합니다.
-* 글로벌 가상 네트워크 피어 링: Azure 지역에서 가상 네트워크를 연결 합니다.
+* **가상 네트워크 피어 링**: 동일한 Azure 지역 내에서 가상 네트워크를 연결 합니다.
+* **글로벌 가상 네트워크 피어 링**: Azure 지역에서 가상 네트워크를 연결 합니다.
 
 로컬 또는 글로벌 가상 네트워크 피어링을 사용하는 이점은 다음과 같습니다.
 
@@ -93,11 +93,11 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 자세한 내용은 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요. 지원 되는 피어 링 수에 대 한 자세한 내용은 [네트워킹 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조 하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 가상 네트워크 피어 링을 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 [사용 권한](virtual-network-manage-peering.md#permissions)을 참조 하세요.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 가상 네트워크 피어 링 연결을 사용 하는 수신 및 송신 트래픽에 대 한 명목 요금이 부과 됩니다. 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)을 참조 하세요.
 

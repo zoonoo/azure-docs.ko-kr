@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: e8f1b3fffefcdf1d2ec8bd3e9b1aaea93697ca8a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f587de4ee2ce051cb771db90d7f9ce00ce66b07f
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471968"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772708"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Azure HPC 캐시에 대해 고객이 관리 하는 암호화 키 사용
 
@@ -21,8 +21,6 @@ Azure Key Vault를 사용 하 여 Azure HPC 캐시에서 데이터를 암호화 
 > 캐시 디스크를 포함 하 여 Azure에 저장 된 모든 데이터는 기본적으로 Microsoft 관리 키를 사용 하 여 미사용에 암호화 됩니다. 데이터를 암호화 하는 데 사용 되는 키를 관리 하려는 경우에만이 문서의 단계를 수행 해야 합니다.
 
 또한 Azure HPC 캐시는 캐시 디스크에 대 한 고객 키를 추가 하는 경우에도 캐시 된 데이터를 보관 하는 관리 디스크에서 [VM 호스트 암호화](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) 를 통해 보호 됩니다. 이중 암호화를 위해 고객이 관리 하는 키를 추가 하면 보안 요구 사항이 높은 고객에 게 추가 보안 수준이 제공 됩니다. 자세한 내용은 [Azure disk storage의 서버 쪽 암호화](../virtual-machines/disk-encryption.md) 를 참조 하세요.
-
-<!-- This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details. -->
 
 Azure HPC 캐시에 대해 고객이 관리 하는 키 암호화를 사용 하도록 설정 하는 세 가지 단계가 있습니다.
 
@@ -69,14 +67,14 @@ Azure HPC 캐시에 대해 고객이 관리 하는 키 암호화를 사용 하�
 자세한 내용은 [Azure Key Vault 설명서](../key-vault/general/overview.md) 를 참조 하세요.
 
 > [!NOTE]
-> Azure Key Vault는 동일한 구독을 사용 해야 하며, Azure HPC 캐시와 동일한 지역에 있어야 합니다. 선택한 지역이 [고객이 관리 하는 키 기능을 지원](hpc-cache-overview.md#region-availability)하는지 확인 합니다.
+> Azure Key Vault는 동일한 구독을 사용 해야 하며, Azure HPC 캐시와 동일한 지역에 있어야 합니다. 선택한 지역이 [두 제품을 모두 지원](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault)하는지 확인 합니다.
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. 고객 관리 키를 사용 하는 캐시 만들기
 
 Azure HPC 캐시를 만들 때 암호화 키 원본을 지정 해야 합니다. [AZURE HPC 캐시 만들기](hpc-cache-create.md)의 지침에 따라 **디스크 암호화 키** 페이지에서 키 자격 증명 모음 및 키를 지정 합니다. 캐시를 만드는 동안 새 key vault 및 키를 만들 수 있습니다.
 
 > [!TIP]
-> **디스크 암호화 키** 페이지가 표시 되지 않는 경우 캐시가 지원 되는 지역 중 하나에 있는지 확인 합니다.
+> **디스크 암호화 키** 페이지가 표시 되지 않는 경우 캐시가 지원 되는 [지역](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault)중 하나에 있는지 확인 합니다.
 
 캐시를 만드는 사용자에 게는 [Key Vault 참여자 역할과](../role-based-access-control/built-in-roles.md#key-vault-contributor) 같은 권한이 있어야 합니다.
 

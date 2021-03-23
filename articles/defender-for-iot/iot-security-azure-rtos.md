@@ -1,24 +1,14 @@
 ---
 title: Azure RTOS 개요에 대 한 Defender-IoT-마이크로 에이전트
 description: IoT 용 Azure Defender의 일부로 Azure RTOS 지원 및 구현을 위한 Defender-IoT-마이크로 에이전트에 대해 자세히 알아보세요.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/14/2021
-ms.author: shhazam
-ms.openlocfilehash: ae1ae941dcb1af73286a4865089b1be227c484fc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8f162cc7e284abc9f1fdc08a10e62369855017c4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496051"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785906"
 ---
 # <a name="overview-defender-for-iot-defender-iot-micro-agent-for-azure-rtos-preview"></a>개요: Azure RTOS 용 Defender-IoT-마이크로 에이전트 (미리 보기)
 

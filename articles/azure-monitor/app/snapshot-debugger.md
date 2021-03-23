@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: bd196e60fed8a18064bfa59e343e51a878a11237
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217400"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786484"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure 애플리케이션 Insights](./app-insights-overview.md) 의 스냅숏 디버거는 웹 앱에서 예외 원격 분석을 모니터링 합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 를 포함 하 고 필요에 따라 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성 합니다. 스냅숏은 Application Insights 포털의 [예외](./asp-net-exceptions.md) 에 표시 됩니다.
@@ -24,7 +24,10 @@ ms.locfileid: "102217400"
 ## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>응용 프로그램에 대 한 Application Insights 스냅숏 디버거 사용
 스냅샷 컬렉션을 다음에 사용할 수 있습니다.
 * .NET Framework 및 .NET Framework 4.5 이상을 실행하는 ASP.NET 애플리케이션
-* .NET Core 2.0 및 Windows에서 실행되는 ASP.NET Core 2.0 애플리케이션
+* Windows에서 .NET Core 2.1 (LTS) 또는 3.1 (LTS)를 실행 하는 .NET Core 및 ASP.NET Core 응용 프로그램입니다.
+* Windows의 .NET 5.0 응용 프로그램
+
+.NET Core 2.0, 2.2 또는 3.0은 지원 되지 않으므로 사용 하지 않는 것이 좋습니다.
 
 다음 환경이 지원됩니다.
 

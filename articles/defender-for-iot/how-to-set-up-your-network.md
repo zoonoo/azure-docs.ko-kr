@@ -1,18 +1,14 @@
 ---
 title: 네트워크 설정
 description: IoT 어플라이언스 용 Azure Defender를 사용 하도록 네트워크를 성공적으로 설정 하는 데 필요한 솔루션 아키텍처, 네트워크 준비, 필수 구성 요소 및 기타 정보에 대해 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ed75995b7cbc3b051d77942698a5d0d948e6eef0
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101733247"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781809"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Azure Defender for IoT 네트워크 설정 정보
 
@@ -101,7 +97,7 @@ IoT 용 Azure Defender는 연속 ICS 위협 모니터링 및 장치 검색을 �
 | SSL | TCP | IN/OUT | 443 | 센서 및 온-프레미스 관리 콘솔 | CyberX 플랫폼과 중앙 관리 플랫폼 간 연결 | 센서 | 온-프레미스 관리 콘솔 |
 | NTP | UDP | IN | 123 | 시간 동기화 | 온-프레미스 관리 콘솔을 사용 하 여 센서에 NTP | 센서 | 온-프레미스 관리 콘솔 |
 | NTP | UDP | IN/OUT | 123 | 시간 동기화 | 온-프레미스 관리 콘솔이 설치 되어 있지 않은 경우 외부 NTP 서버에 연결 된 센서 | 센서 | NTP |
-| SMTP | TCP | OUT | 25 | 메일 | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
+| SMTP | TCP | OUT | 25 | Email | CyberX 플랫폼과 관리 플랫폼과 메일 서버 간의 연결 | 센서 및 온-프레미스 관리 콘솔 | 메일 서버 |
 | Syslog | UDP | OUT | 514 | LEEF | 온-프레미스 관리 콘솔에서 Syslog 서버로 전송 하는 로그 | 온-프레미스 관리 콘솔 및 센서 | Syslog 서버 |
 | DNS |  | IN/OUT | 53 | DNS | DNS 서버 포트 | 온-프레미스 관리 콘솔 및 센서 | DNS 서버 |
 | LDAP | TCP | IN/OUT | 389 | Active Directory | CyberX 플랫폼과 관리 플랫폼 간의 연결 Active Directory | 온-프레미스 관리 콘솔 및 센서 | LDAP 서버 |

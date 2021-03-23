@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744419"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773405"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Azure Cloud Services에 원격 데스크톱 확장 적용 (연장 지원)
 
@@ -27,8 +27,9 @@ Azure Portal은 원격 데스크톱 확장을 사용 하 여 응용 프로그램
 2. **추가** 를 선택합니다.
 3. 원격 데스크톱을 사용 하도록 설정할 역할을 선택 합니다.
 4. 사용자 이름, 암호, 만료 및 인증서 (필수 아님)에 대 한 필수 필드를 입력 합니다.
+> 두고 원격 데스크톱에 대 한 암호는 8-123 자 사이 여야 하 고, 다음에서 3 개 이상의 암호 복잡성 요구 사항을 충족 해야 합니다. 1) 3)에 대문자 3이 포함 되어 있고, 숫자 숫자 4를 포함) 제어 문자는 허용 되지 않습니다.
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="원격 데스크톱에 연결 하는 데 필요한 정보를 입력 하는 이미지가 표시 됩니다.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="원격 데스크톱에 연결 하는 데 필요한 정보를 입력 하는 이미지가 표시 됩니다.":::
 
 5. 작업을 마쳤으면 **저장** 을 선택합니다. 역할 인스턴스가 연결을 수신할 준비가 되기까지 몇 분 정도 걸립니다.
 

@@ -1,18 +1,14 @@
 ---
 title: 모든 엔터프라이즈 센서가 검색 하는 장치에 대해 알아보기
 description: 온-프레미스 관리 콘솔에서 장치 인벤토리를 사용 하 여 연결 된 센서에서 장치 정보에 대 한 포괄적인 보기를 가져올 수 있습니다. 가져오기, 내보내기 및 필터링 도구를 사용 하 여이 정보를 관리 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0ae59123b59cfb54cba2a2ee9bdeefb411c8793b
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100524028"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782183"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>장치 인벤토리에서 모든 엔터프라이즈 센서 검색 조사
 
@@ -22,7 +18,7 @@ ms.locfileid: "100524028"
 
 다음 표에서는 장치 인벤토리의 테이블 열에 대해 설명 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
 | **승인 되지 않은 경고** | 이 장치와 연결 된 처리 되지 않은 경고의 수입니다. |
 | **비즈니스 단위** | 이 장치를 포함 하는 사업부입니다. |
@@ -31,7 +27,7 @@ ms.locfileid: "100524028"
 | **영역** | 이 장치를 포함 하는 영역입니다. |
 | **어플라이언스** | 이 장치를 보호 하는 IoT 용 Azure Defender 센서입니다. |
 | **이름** | IoT 용 Defender에서이 장치의 이름을 검색 했습니다. |
-| **유형** | 장치 유형 (예: PLC 또는 HMI)입니다. |
+| **형식** | 장치 유형 (예: PLC 또는 HMI)입니다. |
 | **공급업체** | MAC 주소에 정의 된 장치 공급 업체의 이름입니다. |
 | **운영 체제** | 장치의 OS입니다. |
 | **펌웨어** | 장치의 펌웨어입니다. |
@@ -155,76 +151,6 @@ IoT API 용 Defender를 사용 하 여이 정보를 검색 하 고 통합 합니
 
 5. 필터 정의를 변경 하려면 정의를 변경 하 고 **변경 내용 저장** 을 선택 합니다.
 
-## <a name="view-device-information-per-zone"></a>영역별 장치 정보 보기
-
-영역에서 장치에 대 한 다음 정보를 알아볼 수 있습니다.
-
-### <a name="view-a-device-map"></a>장치 맵 보기
-
-선택한 영역에 대 한 센서 장치 맵을 보려면:
-
-- **사이트 관리** 창의 영역 이름을 포함 하는 표시줄에서 **영역 맵 보기** 를 선택 합니다.
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-region-to-default-business-unit-v2.png" alt-text="기본 사업부의 기본 영역입니다.":::
-
-**장치 맵** 창이 표시 됩니다. 센서, 연결 된 장치 및 기타 정보를 포함 하 여 선택한 영역과 관련 된 모든 네트워크 요소를 표시 합니다.
-
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/zone-map-screenshot.png" alt-text="영역 지도의 스크린샷":::
-
-지도에서 장치 및 장치 정보를 보는 데 사용할 수 있는 도구는 다음과 같습니다. 이러한 각 기능에 대 한 자세한 내용은 *IoT platform 사용자 가이드* 를 참조 하세요.
-
-- **지도 확대/축소 보기**: 간소화 된 보기, 연결 보기 및 자세히 보기입니다. 표시 된 지도 보기는 지도의 확대/축소 수준에 따라 달라 집니다. 확대/축소 수준을 조정 하 여 지도 보기 간을 전환 합니다.
-
-  :::image type="icon" source="media/how-to-work-with-asset-inventory-information/zoom-icon.png" border="false":::
-
-- **지도 검색 및 레이아웃 도구**: 다양 한 네트워크 세그먼트, 장치, 장치 그룹 또는 레이어를 표시 하는 데 사용 되는 도구입니다.
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/search-and-layout-tools.png" alt-text="검색 및 레이아웃 도구 뷰의 스크린샷":::
-
-- **장치에 대 한 레이블 및 표시기:** 예를 들어 IT 네트워크의 서브넷에 그룹화 된 장치의 수가 있습니다. 이 예제에서는 8입니다.
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/labels-and-indicators.png" alt-text="레이블 및 표시기의 스크린샷":::
-
-- **장치 속성 보기**: 예를 들어 장치를 모니터링 하는 센서 및 기본 장치 속성입니다. 장치를 마우스 오른쪽 단추로 클릭 하 여 장치 속성을 봅니다.
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="장치 속성 보기의 스크린샷":::
-
-- **장치와 연결 된 경고:** 장치를 마우스 오른쪽 단추로 클릭 하 여 관련 경고를 확인 합니다.
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/show-alerts.png" alt-text="경고 표시 보기의 스크린샷":::
-
-### <a name="view-alerts-associated-with-a-zone"></a>영역과 연결 된 경고 보기
-
-특정 영역과 연결 된 경고를 보려면 다음을 수행 합니다.
-
-- **영역** 창에서 경고 아이콘을 선택 합니다. 
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/business-unit-view-v2.png" alt-text="예제가 포함 된 기본 사업부 뷰입니다.":::
-
-자세한 내용은 [개요: 경고 사용](how-to-work-with-alerts-on-premises-management-console.md)을 참조 하세요.
-
-### <a name="view-the-device-inventory-of-a-zone"></a>영역에 대 한 장치 인벤토리 보기
-
-특정 영역과 연결 된 장치 인벤토리를 보려면 다음을 수행 합니다.
-
-- **영역** 창에서 **장치 인벤토리 보기** 를 선택 합니다.
-
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/default-business-unit.png" alt-text="장치 인벤토리 화면이 표시 됩니다.":::
-
-자세한 내용은 [장치 인벤토리에서 모든 엔터프라이즈 센서 검색 조사](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)를 참조 하세요.
-
-### <a name="view-additional-zone-information"></a>추가 영역 정보 보기
-
-다음과 같은 추가 영역 정보를 사용할 수 있습니다.
-
-- **영역 세부 정보**: 영역에 연결 된 장치, 경고 및 센서의 수를 확인 합니다.
-
-- **센서 세부 정보**: 영역에 할당 된 각 센서의 이름, IP 주소 및 버전을 표시 합니다.
-
-- **연결 상태**: 센서의 연결이 끊어지면 센서에서 연결 합니다. [온-프레미스 관리 콘솔에 센서 연결을](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console)참조 하세요. 
-
-- **업데이트 진행률**: 연결 된 센서를 업그레이드 하는 경우 업그레이드 상태가 표시 됩니다. 업그레이드 하는 동안 온-프레미스 관리 콘솔은 센서에서 장치 정보를 받지 않습니다.
-
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 [디바이스 인벤토리에서 센서 감지 조사](how-to-investigate-sensor-detections-in-a-device-inventory.md)

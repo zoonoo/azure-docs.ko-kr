@@ -1,18 +1,14 @@
 ---
 title: 주요 장점
 description: IoT 개념에 대 한 기본 Defender에 대해 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: cb984ca1a74d8b3838b857f2f5679264d1445187
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ca1e5a4d8554b208f5275fd0e7519f2db3fafc08
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99508611"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784750"
 ---
 # <a name="basic-concepts"></a>기본 개념 
 

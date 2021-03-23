@@ -1,18 +1,14 @@
 ---
 title: 센서 콘솔 대시보드 작업
 description: 대시보드를 사용 하 여 네트워크의 보안 상태를 신속 하 게 볼 수 있습니다. 관련 장치에 대 한 정보와 함께 타임 라인의 전체 시스템에 대 한 위협에 대 한 개략적인 개요를 제공 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/03/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: c9afc22cd123a782c9ee0247952c78c72ee916c0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e9bc650e9c306d12ef63994852816c96e1bdf40a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523637"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781537"
 ---
 # <a name="the-dashboard"></a>대시보드
 
@@ -46,7 +42,7 @@ ms.locfileid: "100523637"
 
 각 상태 상자는이 섹션에 설명 되어 있습니다.
 
-| 상태 상자 및 계기 | 설명 |
+| 상태 상자 및 계기 | Description |
 | -------------- | -------------- |
 | :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/critical-alert-status-box-v2.png" alt-text="중요 한 알림"::: | **중요 한 알림** -페이지의 위쪽 가운데에 있는 상자는 중요 한 경고의 수를 나타냅니다. 이 상자를 선택 하면 타임 라인 및 계기 아래의 목록 (있는 경우)에 대 한 경고 설명이 표시 됩니다.                              |
 | :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/major-alert-status-box-v2.png" alt-text="주요 경고"::: | **주요 경고** -페이지의 오른쪽 위에 있는 상자에는 주요 경고 수가 표시 됩니다. 이 상자를 선택 하면 타임 라인 및 계기 아래의 목록 (있는 경우)에 대 한 경고 설명이 표시 됩니다.                                     |

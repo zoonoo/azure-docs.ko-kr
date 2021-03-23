@@ -1,18 +1,14 @@
 ---
 title: 센서 동작 추적
 description: 이벤트 타임 라인은 경고 및 경고 관리 작업, 네트워크 이벤트, 사용자 로그인 및 사용자 삭제와 같은 사용자 작업을 포함 하 여 네트워크에서 검색 된 작업의 타임 라인을 표시 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 195908001fbd247ed2e0fa007bc8dcd5ebf28e60
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523603"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781622"
 ---
 # <a name="track-sensor-activity"></a>센서 동작 추적
 
