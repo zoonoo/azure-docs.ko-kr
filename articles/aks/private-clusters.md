@@ -4,12 +4,12 @@ description: 프라이빗 AKS(Azure Kubernetes Service) 클러스터를 만드�
 services: container-service
 ms.topic: article
 ms.date: 3/5/2021
-ms.openlocfilehash: 190658e23ee02651e64c3718824315c0265c0f04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 21d839df04c868d2c21932f96a6b72a32b0404e5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556539"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771858"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>프라이빗 Azure Kubernetes Service 클러스터 만들기
 
@@ -72,10 +72,10 @@ az aks create \
 
 - "System"이 기본값입니다. --Private-dns 영역 인수를 생략 하면 AKS는 노드 리소스 그룹에 사설 DNS 영역을 만듭니다.
 - "None"은 AKS가 사설 DNS 영역을 만들지 않음을 의미 합니다.  이렇게 하려면 자체 DNS 서버를 가져오고 개인 FQDN에 대 한 DNS 확인을 구성 해야 합니다.  DNS 확인을 구성 하지 않으면 DNS는 에이전트 노드 내 에서만 확인할 수 있으며 배포 후에 클러스터 문제가 발생 합니다. 
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"을 사용 하려면 azure global cloud에 대 한 사설 DNS 영역을이 형식으로 만들어야 `privatelink.<region>.azmk8s.io` 합니다. 앞으로 사설 DNS 영역의 리소스 Id가 필요 합니다.  또한 최소한의 역할을 가진 사용자 할당 id 또는 서비스 주체가 필요 합니다 `private dns zone contributor` .
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"을 사용 하려면 azure global cloud에 대 한 사설 DNS 영역을이 형식으로 만들어야 `privatelink.<region>.azmk8s.io` 합니다. 앞으로 사설 DNS 영역의 리소스 Id가 필요 합니다.  또한 적어도 및 역할이 있는 사용자 할당 id 또는 서비스 주체가 필요 `private dns zone contributor` `vnet contributor` 합니다.
 - "fqdn-하위 도메인"은 "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID"와 함께 사용 하 여 하위 도메인 기능을 제공할 수 있습니다. `privatelink.<region>.azmk8s.io`
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * AKS Preview 버전 0.5.3 이상
 * Api 버전 2020-11-01 이상

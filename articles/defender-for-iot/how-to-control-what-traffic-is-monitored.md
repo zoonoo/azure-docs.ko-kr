@@ -1,18 +1,14 @@
 ---
 title: 모니터링된 트래픽 제어
 description: 센서는이에 대 한 심층 패킷 검색을 자동으로 수행 하 고 장치 특성 및 네트워크 동작과 같은 네트워크 장치에 대 한 정보를 확인 합니다. 각 센서가 검색 하는 트래픽 유형을 제어 하는 데 사용할 수 있는 여러 도구가 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522396"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784444"
 ---
 # <a name="control-what-traffic-is-monitored"></a>모니터링된 트래픽 제어
 

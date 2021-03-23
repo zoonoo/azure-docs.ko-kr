@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a3b7d4f60877d1301f03aa4f015695a6a4639be
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580711"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772555"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure Sentinel의 권한
 
@@ -56,7 +56,7 @@ Azure RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 할
 
 - 플레이 북을 사용 하 여 위협에 대 한 응답 자동화
 
-    Azure 센티널은 자동화 된 위협 대응을 위해 플레이 **북** 을 사용 합니다. Playbooks는 **Azure Logic Apps** 을 기반으로 하며 별도의 Azure 리소스입니다. 보안 작업 팀의 특정 멤버에 게 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 작업에 대 한 Logic Apps를 사용 하는 기능을 할당 하는 것이 좋습니다. [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 역할 또는 [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 역할을 사용 하 여 playbooks 사용에 대 한 명시적 권한을 할당할 수 있습니다.
+    Azure 센티널은 자동화 된 위협 대응을 위해 플레이 **북** 을 사용 합니다. Playbooks는 **Azure Logic Apps** 을 기반으로 하며 별도의 Azure 리소스입니다. 보안 작업 팀의 특정 멤버에 게 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 작업에 대 한 Logic Apps를 사용 하는 기능을 할당 하는 것이 좋습니다. [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 역할을 사용 하 여 playbooks 사용에 대 한 명시적 권한을 할당할 수 있습니다.
 
 - Azure 센티널에 데이터 원본 연결
 

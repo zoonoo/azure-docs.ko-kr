@@ -3,14 +3,14 @@ title: 웹후크에서 Azure Automation Runbook 시작
 description: 이 문서에서는 웹후크를 사용하여 HTTP 호출을 통해 Azure Automation Runbook을 시작하는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: df19f32be41b17e13a9da575e828830e29da4e55
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c46a8753c87e981d9e3d6ecdd698bbbe6cba9894
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98894765"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775785"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>웹후크에서 Runbook 시작
 
@@ -27,7 +27,7 @@ ms.locfileid: "98894765"
 
 다음 표에서는 Webhook에 대해 구성해야 하는 속성을 설명합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | 속성 |웹후크의 이름입니다. 클라이언트에 노출되지 않으므로 원하는 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |웹후크의 URL입니다. 클라이언트가 웹후크에 연결된 Runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 Runbook을 호출할 수 있는 보안 토큰이 포함됩니다. 따라서 비밀번호와 같은 URL을 처리해야 합니다. 보안상의 이유로 Azure Portal의 URL은 웹후크가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
@@ -101,8 +101,8 @@ Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절�
 4. 웹후크에 대한 **이름** 및 **만료 날짜** 필드를 입력하고 사용해야 하는지 여부를 지정합니다. 이 속성에 대한 자세한 내용은 [웹후크 속성](#webhook-properties)을 참조하세요.
 5. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. 
 
-    > [!NOTE]
-    > 웹후크를 만들고 나면 URL을 다시 검색할 수 없습니다.
+    > [!IMPORTANT]
+    > 웹후크를 만들고 나면 URL을 다시 검색할 수 없습니다. 위와 같이 복사 하 고 기록해 야 합니다.
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
@@ -134,6 +134,111 @@ http://<Webhook Server>/token?=<Token Value>
 ```
 
 클라이언트는 Runbook 작업의 완료 여부 또는 완료 상태를 webhook에서 확인할 수 없습니다. [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) 또는 [Azure Automation API](/rest/api/automation/job)와 같은 다른 메커니즘으로 작업 ID를 사용하여 이 정보를 찾을 수 있습니다.
+
+### <a name="use-a-webhook-from-an-arm-template"></a>ARM 템플릿에서 webhook 사용
+
+[Azure Resource Manager (ARM) 템플릿에서](/azure/azure-resource-manager/templates/overview)Automation 웹 후크를 호출할 수도 있습니다. ARM 템플릿은 요청을 발행 `POST` 하 고 다른 클라이언트와 마찬가지로 반환 코드를 받습니다. [Webhook 사용을](#use-a-webhook)참조 하세요.
+
+   > [!NOTE]
+   > 보안상의 이유로 URI는 처음 템플릿이 배포 될 때만 반환 됩니다.
+
+이 샘플 템플릿은 테스트 환경을 만들고 만든 webhook에 대 한 URI를 반환 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "automationAccountName": {
+            "type": "String",
+            "metadata": {
+                "description": "Automation account name"
+            }
+        },
+        "webhookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Name"
+            }
+        },
+        "runbookName": {
+            "type": "String",
+            "metadata": {
+                "description": "Runbook Name for which webhook will be created"
+            }
+        },
+        "WebhookExpiryTime": {
+            "type": "String",
+            "metadata": {
+                "description": "Webhook Expiry time"
+            }
+        },
+        "_artifactsLocation": {
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+            "type": "String",
+            "metadata": {
+                "description": "URI to artifacts location"
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "apiVersion": "2020-01-13-preview",
+            "name": "[parameters('automationAccountName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "sku": {
+                    "name": "Free"
+                }
+            },
+            "resources": [
+                {
+                    "type": "runbooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('runbookName')]",
+                    "location": "[resourceGroup().location]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]"
+                    ],
+                    "properties": {
+                        "runbookType": "Python2",
+                        "logProgress": "false",
+                        "logVerbose": "false",
+                        "description": "Sample Runbook",
+                        "publishContentLink": {
+                            "uri": "[uri(parameters('_artifactsLocation'), 'scripts/AzureAutomationTutorialPython2.py')]",
+                            "version": "1.0.0.0"
+                        }
+                    }
+                },
+                {
+                    "type": "webhooks",
+                    "apiVersion": "2018-06-30",
+                    "name": "[parameters('webhookName')]",
+                    "dependsOn": [
+                        "[parameters('automationAccountName')]",
+                        "[parameters('runbookName')]"
+                    ],
+                    "properties": {
+                        "isEnabled": true,
+                        "expiryTime": "[parameters('WebhookExpiryTime')]",
+                        "runbook": {
+                            "name": "[parameters('runbookName')]"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+        "webhookUri": {
+            "type": "String",
+            "value": "[reference(parameters('webhookName')).uri]"
+        }
+    }
+}
+```
 
 ## <a name="renew-a-webhook"></a>웹후크 갱신
 

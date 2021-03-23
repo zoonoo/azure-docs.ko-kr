@@ -1,32 +1,32 @@
 ---
 title: Azure Migrate 어플라이언스 아키텍처
-description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
-author: vikram1988
-ms.author: vibansa
+description: 서버 검색, 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: f3a94576ef58eabf9d747c6e6c3a6372569d4cf1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096193"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785243"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
-이 문서에서는 Azure Migrate 어플라이언스 아키텍처와 프로세스에 대해 설명 합니다. Azure Migrate 어플라이언스는 Azure로 마이그레이션하기 위한 Vm 및 물리적 서버를 검색 하기 위해 온-프레미스에 배포 되는 경량 어플라이언스입니다.
+이 문서에서는 Azure Migrate 어플라이언스 아키텍처와 프로세스에 대해 설명 합니다. Azure Migrate 어플라이언스는 온-프레미스에 배포 되는 경량 어플라이언스로, Azure로 마이그레이션하도록 서버를 검색 합니다.
 
 ## <a name="deployment-scenarios"></a>배포 시나리오
 
 Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같습니다.
 
-**시나리오** | **도구** | **사용 대상** 
+**시나리오** | **도구** | **사용 대상**
 --- | --- | ---
-**VMware 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 서버 평가 | VMware 환경에서 실행 중인 서버 검색<br/><br/> 설치 된 응용 프로그램을 검색 하 고, 에이전트 없는 종속성 분석을 수행 하 고, SQL Server 인스턴스와 데이터베이스를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**VMware 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | VMware 환경에서 실행 중인 서버 검색<br/><br/> 설치 된 소프트웨어 인벤토리에 대 한 검색을 수행 하 고, 에이전트 없는 종속성 분석을 수행 하 고 SQL Server 인스턴스와 데이터베이스를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
 **VMware 환경에서 실행 되는 서버에 대 한 에이전트 없는 마이그레이션** | Azure Migrate: 서버 마이그레이션 | VMware 환경에서 실행 중인 서버를 검색 합니다.<br/><br/> 서버에 에이전트를 설치 하지 않고 서버를 복제 합니다.
-**Hyper-v 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 서버 평가 | Hyper-v 환경에서 실행 중인 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
-**온-프레미스에서 물리적 또는 가상화 된 서버 검색 및 평가** |  Azure Migrate: 서버 평가 |  온-프레미스에서 물리적 또는 가상화 된 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**Hyper-v 환경에서 실행 중인 서버 검색 및 평가** | Azure Migrate: 검색 및 평가 | Hyper-v 환경에서 실행 중인 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
+**온-프레미스에서 물리적 또는 가상화 된 서버 검색 및 평가** |  Azure Migrate: 검색 및 평가 |  온-프레미스에서 물리적 또는 가상화 된 서버를 검색 합니다.<br/><br/> 평가에 대 한 서버 구성 및 성능 메타 데이터를 수집 합니다.
 
 ## <a name="deployment-methods"></a>배포 방법
 
@@ -51,8 +51,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 - **SQL 검색 및 평가 에이전트**: SQL Server 인스턴스 및 데이터베이스의 구성 및 성능 메타 데이터를 Azure에 보냅니다.
 
 > [!Note]
-> 지난 3 서비스는 VMware 환경에서 실행 중인 서버를 검색 하 고 평가 하는 데 사용 되는 어플라이언스 에서만 사용할 수 있습니다.<br/> VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
-
+> 지난 3 서비스는 VMware 환경에서 실행 중인 서버를 검색 하 고 평가 하는 데 사용 되는 어플라이언스 에서만 사용할 수 있습니다.<br/> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 ## <a name="discovery-and-collection-process"></a>검색 및 수집 프로세스
 
@@ -64,9 +63,9 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 ---|---|---|---
 **검색 시작** | 어플라이언스는 기본적으로 TCP 포트 443의 vCenter server와 통신 합니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 어플라이언스 구성 관리자에서 구성할 수 있습니다. | 어플라이언스는 WinRM 포트 5985 (HTTP)에서 Hyper-v 호스트와 통신 합니다. | 어플라이언스는 포트 22 (TCP)를 통해 Linux 서버를 통해 WinRM 포트 5985 (HTTP)를 통해 Windows 서버와 통신 합니다.
 **구성 및 성능 메타 데이터 수집** | 어플라이언스는 포트 443 (기본 포트) 또는에서 수신 대기 vCenter Server 다른 포트에서 연결 하 여 vSphere Api를 사용 하 여 vCenter Server에서 실행 되는 서버의 메타 데이터를 수집 합니다. | 어플라이언스는 포트 5985의 호스트가 포함 된 CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v 호스트에서 실행 되는 서버의 메타 데이터를 수집 합니다.| 어플라이언스는 포트 5985의 서버와 함께 CIM(Common Information Model) (CIM) 세션을 사용 하 여 Windows 서버에서 메타 데이터를 수집 하 고 포트 22에서 SSH 연결을 사용 하 여 Linux 서버
-**검색 데이터 보내기** | 어플라이언스는 Azure Migrate에 수집 된 데이터를 보냅니다. 서버 평가 및 Azure Migrate: SSL 포트 443을 통한 서버 마이그레이션.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요). | 어플라이언스는 수집 된 데이터를 Azure Migrate으로 보냅니다. SSL 포트 443을 통해 서버 평가.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).| 어플라이언스는 수집 된 데이터를 Azure Migrate으로 보냅니다. SSL 포트 443을 통해 서버 평가.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).
+**검색 데이터 보내기** | 어플라이언스는 수집 된 데이터를 Azure Migrate: 검색 및 평가 및 Azure Migrate: SSL 포트 443을 통한 서버 마이그레이션으로 보냅니다.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요). | 어플라이언스는 수집 된 데이터를 Azure Migrate으로 보냅니다. SSL 포트 443을 통해 검색 및 평가 합니다.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).| 어플라이언스는 수집 된 데이터를 Azure Migrate으로 보냅니다. SSL 포트 443을 통해 검색 및 평가 합니다.<br/><br/> 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).
 **데이터 수집 빈도** | 구성 메타 데이터는 30 분 마다 수집 되 고 전송 됩니다. <br/><br/> 성능 메타 데이터는 20 초 마다 수집 되 고 10 분 마다 Azure로 데이터 요소를 전송 하도록 집계 됩니다. <br/><br/> 소프트웨어 인벤토리 데이터는 12 시간 마다 한 번씩 Azure에 전송 됩니다. <br/><br/> 에이전트 없는 종속성 데이터는 어플라이언스로 집계 되 고 6 시간 마다 Azure로 전송 되는 5 분 마다 수집 됩니다. <br/><br/> SQL Server 구성 데이터는 24 시간 마다 업데이트 되며 성능 데이터는 30 초 마다 캡처됩니다.| 구성 메타 데이터는 30 분 마다 수집 되 고 전송 됩니다. <br/><br/> 성능 메타 데이터는 30 초 마다 수집 되 고 10 분 마다 Azure로 데이터 요소를 전송 하도록 집계 됩니다.|  구성 메타 데이터는 30 분 마다 수집 되 고 전송 됩니다. <br/><br/> 성능 메타 데이터는 5 분 마다 수집 되 고 10 분 마다 Azure로 데이터 요소를 전송 하도록 집계 됩니다.
-**평가 및 마이그레이션** | Azure Migrate: 서버 평가 도구를 사용 하 여 어플라이언스에서 수집 된 메타 데이터에서 평가를 만들 수 있습니다.<br/><br/>또한 Azure Migrate: 서버 마이그레이션 도구를 사용 하 여 VMware 환경에서 실행 중인 서버 마이그레이션을 시작 하 여 에이전트 없는 서버 복제를 오케스트레이션 할 수 있습니다.| Azure Migrate: 서버 평가 도구를 사용 하 여 어플라이언스에서 수집 된 메타 데이터에서 평가를 만들 수 있습니다. | Azure Migrate: 서버 평가 도구를 사용 하 여 어플라이언스에서 수집 된 메타 데이터에서 평가를 만들 수 있습니다.
+**평가 및 마이그레이션** | Azure Migrate: 검색 및 평가 도구를 사용 하 여 어플라이언스에서 수집한 메타 데이터에서 평가를 만들 수 있습니다.<br/><br/>또한 Azure Migrate: 서버 마이그레이션 도구를 사용 하 여 VMware 환경에서 실행 중인 서버 마이그레이션을 시작 하 여 에이전트 없는 서버 복제를 오케스트레이션 할 수 있습니다.| Azure Migrate: 검색 및 평가 도구를 사용 하 여 어플라이언스에서 수집한 메타 데이터에서 평가를 만들 수 있습니다. | Azure Migrate: 검색 및 평가 도구를 사용 하 여 어플라이언스에서 수집한 메타 데이터에서 평가를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

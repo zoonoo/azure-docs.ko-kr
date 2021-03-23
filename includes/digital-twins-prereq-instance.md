@@ -5,17 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
-ms.openlocfilehash: 2be13256ff0fcc93aa40db3bcb2f38aa0cf58cbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f46f7131d5465ec6542d9212e310c04a656f50c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103463760"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774207"
 ---
 이 문서에서 Azure Digital Twins로 작업하려면 먼저 **Azure Digital Twins 인스턴스를 설정** 하고 이를 사용하는 데 필요한 권한이 필요합니다. 이전 작업에서 이미 Azure Digital Twins 인스턴스가 설정된 경우 해당 인스턴스를 사용할 수 있습니다.
 
 그렇지 않으면 [*방법: 인스턴스 및 인증 설정*](../articles/digital-twins/how-to-set-up-instance-portal.md)의 지침을 따릅니다. 지침에는 각 단계를 성공적으로 완료하고 새 인스턴스를 사용할 준비가 되었는지 확인하는 단계도 포함되어 있습니다.
 
 Azure Digital Twins 인스턴스를 설정한 후 나중에 인스턴스에 연결하는 데 필요한 다음 값을 기록해 둡니다.
-* 인스턴스의 **_호스트 이름_**. 이 값은 Azure Portal에서 찾을 수 있습니다([지침](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* 인스턴스의 **호스트 이름**. 이 값은 Azure Portal에서 찾을 수 있습니다([지침](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * 인스턴스를 만드는 데 사용한 **Azure 구독**(해당 이름 또는 ID가 작동함). [Azure Portal](https://portal.azure.com)에서 인스턴스에 대한 동일한 *개요* 페이지를 보면 Azure Digital Twins 인스턴스가 어떤 구독에 있는지 확인할 수 있습니다.

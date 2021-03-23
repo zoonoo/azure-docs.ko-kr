@@ -1,18 +1,14 @@
 ---
 title: 필수 어플라이언스 식별
 description: IoT 센서 및 온-프레미스 관리 콘솔의 인증 된 Defender에 대 한 하드웨어 및 가상 어플라이언스에 대해 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 242e88e92d6197fd018c56fa55a4dd8166f5d027
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149304"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782761"
 ---
 # <a name="identify-required-appliances"></a>필수 어플라이언스 식별
 
@@ -238,7 +234,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="sensors"></a>센서
 
-| Type | 회사 | Enterprise | SMB |
+| 유형 | 회사 | Enterprise | SMB |
 |--|--|--|--|
 | vCPU | 32 | 8 | 4 |
 | 메모리 | 32GB | 32GB | 8GB |
@@ -246,7 +242,7 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 
 ### <a name="on-premises-management-console-appliance"></a>온-프레미스 관리 콘솔 어플라이언스
 
-| Type | Enterprise |
+| 유형 | Enterprise |
 |--|--|
 | Description | 엔터프라이즈 배포 유형의 가상 어플라이언스 |
 | vCPU | 8 |
@@ -272,27 +268,6 @@ IoT 용 Defender는 물리적 및 가상 배포를 모두 지원 합니다.
 어플라이언스를 구매한 후에 **IoT**  >  **네트워크 센서 ISO** 설치용 Defender로 이동 하 여  >   소프트웨어를 다운로드 합니다.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="네트워크 센서 ISO.":::
-
-## <a name="enterprise-deployment-dell-poweredge-r340-xl"></a>엔터프라이즈 배포: Dell PowerEdge R340 XL
-
-| 구성 요소 | 기술 사양 |
-|--|--|
-| 섀시 | 1U 랙 서버
-| 차원 | 42.8 x 434.0 x 596 (mm)/1.67 "x 17.09" x 23.5 "(에서) |
-| 무게 | 최대 29.98 lb/13.6 kg |
-| 프로세서 | Intel Xeon E-2144G 3.6 g h z, 8M cache, 4C/8T, 터보 (71 W) |
-| 칩셋은 | Intel C246 |
-| 메모리 | 32 GB = 2 x 16gb 2666MT/s DDR4 ECC UDIMM |
-| Storage | 3 x 2tb 7.2 K RPM SATA 6-Gbps 512n 3.5-Hot-Plug 하드 드라이브-RAID 5 |
-| 네트워크 컨트롤러 | 온-보드: 2 x 1gb Broadcom BCM5720<br>온-보드 LOM: iDRAC 포트 카드 1-Gb Broadcom BCM5720 <br><br>외부: 1 x Intel 이더넷 i350 QP 1 Gb 서버 어댑터, 낮은 프로필 |
-| 관리 | iDRAC 9 Enterprise |
-| 장치 액세스 | 두 개의 후면 USB 3.0 <br> 전면 USB 3.0 하나 |
-| 고급 | 이중 핫 플러그 전원 공급 장치 350 W |
-| 랙 지원 | ReadyRails II는 도구 감소를 위한 슬라이딩 레일 4 개, 사각형 또는 스레드 없는 라운드 구멍이 나 4-포스트 스레드 구멍 랙을 사용 하는 포스트 랙 (선택적 도구-없음 케이블 관리 arm)을 지원 합니다. |
-
-## <a name="dell-r340-bom"></a>Dell R340 BOM
-
-:::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 BOM.":::
 
 ## <a name="next-steps"></a>다음 단계
 

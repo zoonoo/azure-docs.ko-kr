@@ -3,16 +3,16 @@ title: Azure Portal 및 PowerShell을 사용 하 여 파이프라인 모니터�
 description: Azure Portal과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0744a7d915d6bee868b160abc29964d58947dd28
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576393"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779633"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 <table>
 <tr>
-    <th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
+    <th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">대기 중</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>

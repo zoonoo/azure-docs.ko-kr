@@ -3,17 +3,17 @@ title: 데이터 세트
 description: Data Factory의 데이터 세트에 대해 알아봅니다. 데이터 세트는 입/출력 데이터를 나타냅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
-ms.openlocfilehash: 4dafb738fd7d44893705994baa962831c101804b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 167fb0014f2f0a9e7a2530fe276289f94347146e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100390031"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785787"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 데이터 팩터리의 데이터 세트
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -63,7 +63,7 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 ```
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-속성 | 설명 | 필수 |
+속성 | Description | 필수 |
 -------- | ----------- | -------- |
 name | 데이터 세트의 이름입니다. [Azure Data Factory - 이름 지정 규칙](naming-rules.md)을 참조하세요. |  예 |
 type | 데이터 세트의 형식입니다. Data Factory에서 지 원하는 형식 (예: DelimitedText, AzureSqlTable) 중 하나를 지정 합니다. <br/><br/>자세한 내용은 [데이터 세트 형식](#dataset-type)을 참조하세요. | 예 |

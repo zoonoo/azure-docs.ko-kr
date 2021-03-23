@@ -1,19 +1,14 @@
 ---
 title: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
-titleSuffix: Azure Defender for IoT
 description: 예기치 않거나 설명이 없는 오류를 처리 하는 방법을 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/24/2021
 ms.topic: reference
-ms.service: azure
-ms.openlocfilehash: 07198a5d0ef5d0a6c9eed97523c61826e451b7f5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 51550a4d3e5042fed7cadc4eac10a0074e954f19
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124179"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782455"
 ---
 # <a name="defender-iot-micro-agent-troubleshooting-preview"></a>Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
 

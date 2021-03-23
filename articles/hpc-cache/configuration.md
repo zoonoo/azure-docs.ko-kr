@@ -4,14 +4,14 @@ description: MTU, 사용자 지정 NTP 및 DNS 구성, Azure Blob 저장소 대�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563383"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773235"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC 캐시 설정 구성
 
@@ -75,6 +75,8 @@ Azure HPC 캐시에 사용 하기 전에 DNS 구성이 이러한 항목을 성�
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
 
+프로덕션 환경에서 사용 하기 전에 테스트 캐시를 사용 하 여 DNS 설정을 확인 하 고 구체화 하는 것이 좋습니다.
+
 ### <a name="refresh-storage-target-dns"></a>저장소 대상 DNS 새로 고침
 
 DNS 서버에서 IP 주소를 업데이트 하는 경우 관련 NFS 저장소 대상을 일시적으로 사용할 수 없게 됩니다. [저장소 대상 편집](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only)에서 사용자 지정 DNS 시스템 IP 주소를 업데이트 하는 방법을 참조 하세요.
@@ -94,10 +96,10 @@ Azure HPC 캐시는 Azure Blob 저장소 대상에 대 한 저장소 스냅숏�
 
 스냅숏은 8 시간 (UTC 0:00, 08:00 및 16:00) 마다 수행 됩니다.
 
-Azure HPC 캐시는 새 항목으로 바뀔 때까지 매일, 매주 및 매월 스냅숏을 저장 합니다. 제한은 다음과 같습니다.
+Azure HPC 캐시는 새 항목으로 바뀔 때까지 매일, 매주 및 매월 스냅숏을 저장 합니다. 스냅숏 보존 한도는 다음과 같습니다.
 
 * 최대 20 일간의 스냅숏
 * 최대 8 개의 주간 스냅숏
 * 최대 3 개의 월간 스냅숏
 
-`.snapshot`Blob 저장소 대상의 네임 스페이스에 있는 디렉터리에서 스냅숏에 액세스 합니다.
+`.snapshot`탑재 된 blob 저장소 대상의 루트에 있는 디렉터리에서 스냅숏에 액세스 합니다.

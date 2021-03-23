@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: 2aba44f6c2f10ead1827e1b1411f3824a0ec2d6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101658557"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773252"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -112,7 +112,7 @@ else {
 - [지역 복제](active-geo-replication-configure-portal.md)를 사용하도록 설정된 데이터베이스를 업그레이드하는 경우, 주 데이터베이스를 업그레이드하기 전에 먼저 해당 보조 데이터베이스를 원하는 서비스 계층 및 컴퓨팅 크기로 업그레이드합니다(최상의 성능을 위한 일반 지침). 다른 버전으로 다운 그레이드 하는 경우 주 데이터베이스를 먼저 다운 그레이드 해야 합니다.
 - 복원 서비스는 여러 서비스 계층에서 서로 다르게 제공됩니다. **기본** 계층으로 다운 그레이드 하는 경우 백업 보존 기간이 더 낮습니다. [Azure SQL Database 백업](automated-backups-overview.md)을 참조하세요.
 - 데이터베이스의 새 속성은 변경이 완료 될 때까지 적용 되지 않습니다.
-- 데이터베이스의 크기를 조정 하기 위해 데이터를 복사 해야 하는 경우 ( [대기 시간](#latency)참조) 서비스 계층을 변경할 때 리소스 사용량이 높으면 크기 조정 작업을 수행 하는 데 시간이 더 오래 걸릴 수 있습니다. [ADR (가속화 된 데이터베이스 복구)](/sql/relational-databases/accelerated-database-recovery-concepts.md)를 사용 하는 경우 장기 실행 트랜잭션의 롤백은 지연 되는 원인이 아닙니다. 그러나 많은 동시 리소스 사용량이 크기 조정에 대 한 계산, 저장소 및 네트워크 대역폭 리소스를 줄일 수 있습니다 (특히 계산 크기가 더 작은 경우).
+- 데이터베이스의 크기를 조정 하기 위해 데이터를 복사 해야 하는 경우 ( [대기 시간](#latency)참조) 서비스 계층을 변경할 때 리소스 사용량이 높으면 크기 조정 작업을 수행 하는 데 시간이 더 오래 걸릴 수 있습니다. [ADR (가속화 된 데이터베이스 복구)](/sql/relational-databases/accelerated-database-recovery-concepts)를 사용 하는 경우 장기 실행 트랜잭션의 롤백은 지연 되는 원인이 아닙니다. 그러나 많은 동시 리소스 사용량이 크기 조정에 대 한 계산, 저장소 및 네트워크 대역폭 리소스를 줄일 수 있습니다 (특히 계산 크기가 더 작은 경우).
 
 ## <a name="billing"></a>결제
 

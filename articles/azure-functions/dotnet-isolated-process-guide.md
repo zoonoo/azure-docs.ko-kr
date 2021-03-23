@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: b4cf3699243e990b5e7b7478ba643067ac456020
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584706"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774935"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -68,37 +68,36 @@ Out-of-process를 실행 하는 경우 .NET 프로젝트는 핵심 기능과 바
 
 ## <a name="start-up-and-configuration"></a>시작 및 구성 
 
-.NET isolated 함수를 사용 하는 경우 함수 앱의 시작에 액세스할 수 있습니다 .이는 일반적으로 Program .cs에 있습니다. 사용자는 자신의 호스트 인스턴스를 만들고 시작 해야 합니다. 따라서 앱에 대 한 구성 파이프라인에 직접 액세스할 수도 있습니다. Out-of-process를 실행할 때 종속성을 훨씬 더 쉽게 주입 하 고 미들웨어를 실행할 수 있습니다. 
+.NET isolated 함수를 사용 하는 경우 함수 앱의 시작에 액세스할 수 있습니다 .이는 일반적으로 Program .cs에 있습니다. 사용자는 자신의 호스트 인스턴스를 만들고 시작 해야 합니다. 따라서 앱에 대 한 구성 파이프라인에 직접 액세스할 수도 있습니다. Out-of-process를 실행 하는 경우 훨씬 더 쉽게 구성을 추가 하 고, 종속성을 삽입 하 고, 사용자 고유의 미들웨어를 실행할 수 있습니다. 
 
-다음 코드에서는 파이프라인의 예를 보여 줍니다 `HostBuilder` .
+다음 코드는 [Hostbuilder] 파이프라인의 예를 보여 줍니다.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
-는 `HostBuilder` `IHost` 함수 앱을 시작 하기 위해 비동기적으로 실행 하는 완전히 초기화 된 인스턴스를 빌드하고 반환 하는 데 사용 됩니다. 
+[Hostbuilder] 는 함수 앱을 시작 하기 위해 비동기적으로 실행 하는 완전히 초기화 된 [ihost] 인스턴스를 빌드하고 반환 하는 데 사용 됩니다. 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### <a name="configuration"></a>구성
 
-호스트 빌더 파이프라인에 대 한 액세스 권한이 있는 경우 초기화 하는 동안 앱 별 구성을 설정할 수 있습니다. 이러한 구성은 별도의 프로세스로 실행 되는 함수 앱에 적용 됩니다. 함수 호스트나 트리거 및 바인딩 구성을 변경 하려면 [ 파일에host.js](functions-host-json.md)를 사용 해야 합니다.      
+[ConfigureFunctionsWorkerDefaults] 메서드는 함수 앱이 out-of-process를 실행 하는 데 필요한 설정을 추가 하는 데 사용 됩니다. 여기에는 다음 기능이 포함 됩니다.
 
-<!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
- 
-:::code language="csharp" 
-                .ConfigureAppConfiguration(c =>
-                {
-                    c.AddCommandLine(args);
-                })
-                :::
++ 기본 변환기 집합입니다.
++ 속성 이름에 대/소문자를 무시 하도록 기본 [JsonSerializerOptions] 설정 합니다.
++ Azure Functions 로깅과 통합 합니다.
++ 출력 바인딩 미들웨어 및 기능.
++ 함수 실행 미들웨어.
++ 기본 gRPC 지원. 
 
-The `ConfigureAppConfiguration` method is used to configure the rest of the build process and application. This example also uses an [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), which makes it easier to add multiple configuration items. Because `ConfigureAppConfiguration` returns the same instance of [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true), you can also just call it multiple times to add multiple configuration items.-->  
-및 둘 다에서 구성의 전체 집합에 액세스할 수 있습니다 [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
-구성에 대 한 자세한 내용은 [ASP.NET Core 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요. 
+호스트 빌더 파이프라인에 대 한 액세스 권한이 있는 경우 초기화 하는 동안 앱 별 구성을 설정할 수도 있습니다. [Hostbuilder] 에서 [ConfigureAppConfiguration] 메서드를 한 번 이상 호출 하 여 함수 앱에 필요한 구성을 추가할 수 있습니다. 앱 구성에 대해 자세히 알아보려면 [ASP.NET Core의 구성](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요. 
+
+이러한 구성은 별도의 프로세스로 실행 되는 함수 앱에 적용 됩니다. 함수 호스트나 트리거 및 바인딩 구성을 변경 하려면 [ 파일에host.js](functions-host-json.md)를 사용 해야 합니다.   
 
 ### <a name="dependency-injection"></a>종속성 주입
 
-종속성 주입은 .NET 클래스 라이브러리와 비교 하 여 간소화 됩니다. 서비스를 등록 하기 위해 시작 클래스를 만들어야 하는 대신 `ConfigureServices` 호스트 작성기에서를 호출 하 고의 확장 메서드를 사용 하 여 [`IServiceCollection`](/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true) 특정 서비스를 삽입 하기만 하면 됩니다. 
+종속성 주입은 .NET 클래스 라이브러리와 비교 하 여 간소화 됩니다. 서비스를 등록 하기 위해 시작 클래스를 만들어야 하는 대신 호스트 작성기에서 [ConfigureServices] 를 호출 하 고 [iservicecollection] 의 확장 메서드를 사용 하 여 특정 서비스를 삽입 해야 합니다. 
 
 다음 예에서는 singleton 서비스 종속성을 삽입 합니다.  
  
@@ -106,21 +105,23 @@ The `ConfigureAppConfiguration` method is used to configure the rest of the buil
 
 자세히 알아보려면 [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true)을 참조 하세요.
 
-<!--### Middleware
+### <a name="middleware"></a>미들웨어
 
-.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
+.NET 격리는 또한 ASP.NET에 있는 것과 유사한 모델을 사용 하 여 미들웨어 등록을 다시 지원 합니다. 이 모델을 사용 하면 호출 파이프라인에 논리를 삽입 하 고 함수 실행 전후에 논리를 삽입할 수 있습니다.
 
-While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
+[ConfigureFunctionsWorkerDefaults] 확장 메서드에는 다음 예제에서 볼 수 있는 것 처럼 사용자 고유의 미들웨어를 등록할 수 있는 오버 로드가 있습니다.  
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
+
+함수 앱에서 사용자 지정 미들웨어를 사용 하는 방법에 대 한 자세한 예제는 [사용자 지정 미들웨어 참조 샘플](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware)을 참조 하세요.
 
 ## <a name="execution-context"></a>실행 컨텍스트
 
-.NET 격리는 `FunctionContext` 함수 메서드에 개체를 전달 합니다. 이 개체를 사용 하면 [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 메서드를 호출 `GetLogger` 하 고 문자열을 제공 하 여 로그에 쓸 인스턴스를 가져올 수 있습니다 `categoryName` . 자세히 알아보려면 [로깅](#logging)을 참조 하세요. 
+.NET 격리는 함수 메서드에 [Functioncontext] 개체를 전달 합니다. 이 개체를 사용 하면 [GetLogger] 메서드를 호출 하 고 문자열을 제공 하 여 로그에 쓸 [ILogger] 인스턴스를 가져올 수 있습니다 `categoryName` . 자세히 알아보려면 [로깅](#logging)을 참조 하세요. 
 
 ## <a name="bindings"></a>바인딩 
 
-바인딩은 메서드, 매개 변수 및 반환 형식에 대해 특성을 사용 하 여 정의 됩니다. 함수 메서드는 `Function` 다음 예제와 같이 입력 매개 변수에 적용 되는 및 트리거 특성이 있는 메서드입니다.
+바인딩은 메서드, 매개 변수 및 반환 형식에 대해 특성을 사용 하 여 정의 됩니다. 함수 메서드는 `Function` 다음 예제와 같이 입력 매개 변수에 적용 되는 특성 및 트리거 특성을 포함 하는 메서드입니다.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
@@ -128,9 +129,11 @@ While the full middleware registration set of APIs is not yet exposed, we do sup
 
 `Function` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유 해야 하 고, 문자로 시작 하 고, 문자, 숫자, 및 문자 ( `_` `-` 최대 127 자)를 포함 해야 합니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
 
-.NET 격리 프로젝트는 별도의 작업자 프로세스에서 실행 되기 때문에 바인딩은,, 등의 다양 한 바인딩 클래스를 활용할 수 없습니다 `ICollector<T>` `IAsyncCollector<T>` `CloudBlockBlob` . 또한 [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient) 및 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)와 같은 기본 서비스 sdk에서 상속 된 형식을 직접 지원 하지 않습니다. 대신, 바인딩은 일반 POCOs (일반 클래스 개체)와 같이 문자열, 배열 및 serialize 가능한 형식에 의존 합니다. 
+.NET 격리 프로젝트는 별도의 작업자 프로세스에서 실행 되기 때문에 바인딩은,, 등의 다양 한 바인딩 클래스를 활용할 수 없습니다 `ICollector<T>` `IAsyncCollector<T>` `CloudBlockBlob` . 또한 [Documentclient] 및 [BrokeredMessage]와 같은 기본 서비스 sdk에서 상속 된 형식을 직접 지원 하지 않습니다. 대신, 바인딩은 일반 POCOs (일반 클래스 개체)와 같이 문자열, 배열 및 serialize 가능한 형식에 의존 합니다. 
 
-HTTP 트리거의 경우 및를 사용 `HttpRequestData` 하 여 `HttpResponseData` 요청 및 응답 데이터에 액세스 해야 합니다. 이는 out-of-process를 실행할 때 원래 HTTP 요청 및 응답 개체에 액세스할 수 없기 때문입니다. 
+HTTP 트리거의 경우 [Httprequestdata] 및 [HttpResponseData] 를 사용 하 여 요청 및 응답 데이터에 액세스 해야 합니다. 이는 out-of-process를 실행할 때 원래 HTTP 요청 및 응답 개체에 액세스할 수 없기 때문입니다.
+
+Out-of-process를 실행할 때 트리거와 바인딩을 사용 하기 위한 전체 참조 샘플 집합은 [바인딩 확장 참조 샘플](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions)을 참조 하세요. 
 
 ### <a name="input-bindings"></a>입력 바인딩
 
@@ -146,13 +149,13 @@ HTTP 트리거의 경우 및를 사용 `HttpRequestData` 하 여 `HttpResponseDa
 
 출력 바인딩에 기록 된 데이터는 항상 함수의 반환 값입니다. 둘 이상의 출력 바인딩에 써야 하는 경우 사용자 지정 반환 형식을 만들어야 합니다. 이 반환 형식에는 클래스의 하나 이상의 속성에 적용 되는 출력 바인딩 특성이 있어야 합니다. 다음 예제에서는 HTTP 응답과 큐 출력 바인딩에 모두 씁니다.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" id="docsnippet_multiple_outputs":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
 
 ### <a name="http-trigger"></a>HTTP 트리거
 
-HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수에 전달 된 개체로 변환 합니다. 이 개체는 `Headers` ,, `Cookies` `Identities` , `URL` 및 선택적 메시지를 포함 하 여 요청의 데이터를 제공 `Body` 합니다. 이 개체는 요청 자체가 아닌 HTTP 요청 개체의 표현입니다. 
+HTTP 트리거는 들어오는 HTTP 요청 메시지를 함수에 전달 되는 [Httprequestdata] 개체로 변환 합니다. 이 개체는 `Headers` ,, `Cookies` `Identities` , `URL` 및 선택적 메시지를 포함 하 여 요청의 데이터를 제공 `Body` 합니다. 이 개체는 요청 자체가 아닌 HTTP 요청 개체의 표현입니다. 
 
-마찬가지로 함수는 메시지, 메시지 등의 메시지를 포함 하 여 `HttpReponseData` HTTP 응답을 만드는 데 사용 되는 데이터를 제공 하는 개체를 반환 합니다 `StatusCode` `Headers` `Body` .  
+마찬가지로 함수는 메시지, 메시지 등의 메시지를 포함 하 여 HTTP 응답을 만드는 데 사용 되는 데이터를 제공 하는 [HttpReponseData] 개체를 반환 합니다 `StatusCode` `Headers` `Body` .  
 
 다음 코드는 HTTP 트리거입니다. 
 
@@ -160,15 +163,15 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 ## <a name="logging"></a>로깅
 
-.NET 격리에서 [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 된 개체에서 가져온 인스턴스를 사용 하 여 로그에 쓸 수 있습니다 `FunctionContext` . `GetLogger`로그를 쓸 범주의 이름인 문자열 값을 전달 하 여 메서드를 호출 합니다. 범주는 일반적으로 로그가 기록 되는 특정 함수의 이름입니다. 범주에 대해 자세히 알아보려면 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요. 
+.NET 격리에서 함수에 전달 된 [Functioncontext] 개체에서 가져온 [ILogger] 인스턴스를 사용 하 여 로그에 쓸 수 있습니다. [GetLogger] 메서드를 호출 하 여 로그가 기록 되는 범주의 이름인 문자열 값을 전달 합니다. 범주는 일반적으로 로그가 기록 되는 특정 함수의 이름입니다. 범주에 대해 자세히 알아보려면 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요. 
 
-다음 예제에서는를 가져오고 함수 내에서 로그를 작성 하는 방법을 보여 줍니다 `ILogger` .
+다음 예제에서는 [ILogger] 를 가져오고 함수 내에서 로그를 작성 하는 방법을 보여 줍니다.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
-의 다양 한 방법을 사용 `ILogger` 하 여 또는와 같은 다양 한 로그 수준을 작성 `LogWarning` `LogError` 합니다. 로그 수준에 대 한 자세한 내용은 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요.
+[ILogger] 의 다양 한 방법을 사용 하 여 또는와 같은 다양 한 로그 수준을 작성 `LogWarning` `LogError` 합니다. 로그 수준에 대 한 자세한 내용은 [모니터링 문서](functions-monitoring.md#log-levels-and-categories)를 참조 하세요.
 
-는 [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) [종속성 주입](#dependency-injection)을 사용 하는 경우에도 제공 됩니다.
+[종속성 주입](#dependency-injection)을 사용 하는 경우에도 [ILogger] 제공 됩니다.
 
 ## <a name="differences-with-net-class-library-functions"></a>.NET 클래스 라이브러리 함수와의 차이점
 
@@ -178,13 +181,13 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 | ---- | ---- | ---- |
 | .NET 버전 | LTS (.NET Core 3.1) | 현재 (.NET 5.0) |
 | 핵심 패키지 | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
-| 바인딩 확장 패키지 | [`Microsoft.Azure.WebJobs.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | 에서 [`Microsoft.Azure.Functions.Worker.Extensions.*`](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
-| 로깅 | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 함수에 전달 됩니다. | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) 다음에서 가져옴 `FunctionContext` |
+| 바인딩 확장 패키지 | [WebJobs. *](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft. Azure](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) .. | 
+| 로깅 | [ILogger] 함수에 전달 됩니다. | [Functioncontext] 에서 가져온 [ILogger] |
 | 취소 토큰 | [지원됨](functions-dotnet-class-library.md#cancellation-tokens) | 지원되지 않음 |
 | 출력 바인딩 | Out 매개 변수 | 반환 값 |
-| 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
+| 출력 바인딩 형식 |  `IAsyncCollector`, [Documentclient], [BrokeredMessage]및 기타 클라이언트 관련 형식 | 단순 형식, JSON 직렬화 가능 형식 및 배열입니다. |
 | 여러 출력 바인딩 | 지원됨 | [지원됨](#multiple-output-bindings) |
-| HTTP 트리거 | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
+| HTTP 트리거 | [HttpRequest] / [Objectresult] | [Httprequestdata] / [HttpResponseData] |
 | 지속성 함수 | [지원됨](durable/durable-functions-overview.md) | 지원되지 않음 | 
 | 명령적 바인딩 | [지원됨](functions-dotnet-class-library.md#binding-at-runtime) | 지원되지 않음 |
 | 아티팩트의 function.js | 생성된 계획 | 생성 되지 않음 |
@@ -202,3 +205,21 @@ HTTP 트리거는 들어오는 HTTP 요청 메시지를 `HttpRequestData` 함수
 
 + [트리거 및 바인딩에 대해 자세히 알아보기](functions-triggers-bindings.md)
 + [Azure Functions에 대한 모범 사례에 대해 자세히 알아보기](functions-best-practices.md)
+
+
+[HostBuilder]: /dotnet/api/microsoft.extensions.hosting.hostbuilder?view=dotnet-plat-ext-5.0&preserve-view=true
+[IHost]: /dotnet/api/microsoft.extensions.hosting.ihost?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureFunctionsWorkerDefaults]: /dotnet/api/microsoft.extensions.hosting.workerhostbuilderextensions.configurefunctionsworkerdefaults?view=azure-dotnet&preserve-view=true#Microsoft_Extensions_Hosting_WorkerHostBuilderExtensions_ConfigureFunctionsWorkerDefaults_Microsoft_Extensions_Hosting_IHostBuilder_
+[ConfigureAppConfiguration]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureappconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true
+[IServiceCollection]: /dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection?view=dotnet-plat-ext-5.0&preserve-view=true
+[ConfigureServices]: /dotnet/api/microsoft.extensions.hosting.hostbuilder.configureservices?view=dotnet-plat-ext-5.0&preserve-view=true
+[FunctionContext]: /dotnet/api/microsoft.azure.functions.worker.functioncontext?view=azure-dotnet&preserve-view=true
+[ILogger]: /dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true
+[GetLogger]: /dotnet/api/microsoft.azure.functions.worker.functioncontextloggerextensions.getlogger?view=azure-dotnet&preserve-view=true
+[DocumentClient]: /dotnet/api/microsoft.azure.documents.client.documentclient
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[HttpRequestData]: /dotnet/api/microsoft.azure.functions.worker.http.httprequestdata?view=azure-dotnet&preserve-view=true
+[HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
+[HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true
+[ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true
+[JsonSerializerOptions]: /api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true

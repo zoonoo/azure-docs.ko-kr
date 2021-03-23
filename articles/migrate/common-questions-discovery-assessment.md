@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate의 검색, 평가 및 종속성 분석에 대 한 질문
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
-author: vineetvikram
-ms.author: vivikram
+author: rashijoshi
+ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 6c4dfed27a105fad951ae12ca053b6d86772717a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f9fe4109d2b21f7c44ba340db53dc24311652441
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032571"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782353"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
 
@@ -28,18 +28,15 @@ ms.locfileid: "102032571"
 [퍼블릭](migrate-support-matrix.md#supported-geographies-public-cloud) 및 [정부 클라우드](migrate-support-matrix.md#supported-geographies-azure-government)에 대해 지원되는 지역을 검토합니다.
 
 
-## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 수는 몇 개입니까?
+## <a name="how-many-servers-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 서버는 몇 개입니까?
 
-단일 어플라이언스를 사용 하 여 최대 1만 VMware Vm, 최대 5000 Hyper-v Vm 및 최대 1000 개의 물리적 서버를 검색할 수 있습니다. 컴퓨터가 더 많은 경우 [hyper-v 평가를 확장](scale-hyper-v-assessment.md)하거나 [VMware 평가를 확장](scale-vmware-assessment.md)하거나 [물리적 서버 평가](scale-physical-assessment.md)를 확장 하는 방법을 참조 하세요.
+단일 어플라이언스를 사용 하 여 VMware 환경, Hyper-v 환경에서 최대 5000 대의 서버, 최대 1000 개의 물리적 서버에서 최대 1만 개의 서버를 검색할 수 있습니다. 서버를 더 많이 보유 한 경우 [hyper-v 평가 크기 조정](scale-hyper-v-assessment.md), [VMware 평가 확장](scale-vmware-assessment.md)또는 [물리적 서버 평가](scale-physical-assessment.md)확장에 대해 알아보세요.
 
 ## <a name="how-do-i-choose-the-assessment-type"></a>평가 유형을 선택하려면 어떻게 해야 하나요?
 
-- Azure vm으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md), [hyper-v vm](how-to-set-up-appliance-hyper-v.md)및 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가 하려는 경우 **azure vm 평가** 를 사용 합니다. [자세한 내용](concepts-assessment-calculation.md)
+- 온-프레미스 [VMware](how-to-set-up-appliance-vmware.md) 및 [hyper-v](how-to-set-up-appliance-hyper-v.md) 환경에서 서버를 평가 하 고 azure vm으로 마이그레이션하기 위한 [물리적 서버](how-to-set-up-appliance-physical.md) 를 평가 하려는 경우 **azure vm 평가** 를 사용 합니다. [자세한 내용](concepts-assessment-calculation.md)
 
 - Azure sql Managed Instance Azure SQL Database으로 마이그레이션하기 위해 VMware 환경에서 온-프레미스 SQL Server를 평가 하려는 경우 평가 유형 **AZURE sql** 을 사용 합니다. [자세한 내용](concepts-assessment-calculation.md)
-
-    > [!Note]
-    > VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공 됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 - 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
 
@@ -48,10 +45,10 @@ ms.locfileid: "102032571"
 
 ## <a name="why-is-performance-data-missing-for-someall-servers-in-my-azure-vm-andor-avs-assessment-report"></a>Azure VM 및/또는 AVS 평가 보고서의 일부/모든 서버에 대 한 성능 데이터가 누락 된 이유는 무엇 인가요?
 
-"성능 기반" 평가의 경우 Azure Migrate 어플라이언스에서 온-프레미스 VM에 대한 성능 데이터를 수집할 수 없는 경우 평가 보고서 내보내기에 'PercentageOfCoresUtilizedMissing' 또는 'PercentageOfMemoryUtilizedMissing'이 표시됩니다. 다음을 확인하세요.
+"성능 기반" 평가의 경우 Azure Migrate 어플라이언스에서 온-프레미스 서버에 대 한 성능 데이터를 수집할 수 없는 경우 평가 보고서 내보내기에 ' PercentageOfCoresUtilizedMissing ' 또는 ' PercentageOfMemoryUtilizedMissing '가 표시 됩니다. 다음을 확인하세요.
 
-- 평가를 만드는 동안 VM의 전원이 켜져 있는지 확인합니다.
-- 메모리 카운터만 없고 Hyper-v Vm을 평가 하려고 하는 경우 이 시나리오에서는 Vm에서 동적 메모리를 사용 하도록 설정 하 고 평가를 ' 다시 계산 ' 하 여 최신 변경 내용을 반영 하세요. VM이 동적 메모리를 사용 하도록 설정 된 경우에만 어플라이언스에서 Hyper-v Vm에 대 한 메모리 사용률 값을 수집할 수 있습니다.
+- 평가를 만드는 기간 동안 서버가 켜 졌을 때
+- 메모리 카운터만 없고 Hyper-v 환경에서 서버를 평가 하려는 경우 이 시나리오에서는 서버에서 동적 메모리를 사용 하도록 설정 하 고 평가를 ' 다시 계산 ' 하 여 최신 변경 내용을 반영 하세요. 서버에서 동적 메모리를 사용 하도록 설정한 경우에만 어플라이언스에서 Hyper-v 환경에 대 한 메모리 사용률 값을 수집할 수 있습니다.
 
 - 모든 성능 카운터가 누락 된 경우 포트 443 (HTTPS)의 아웃 바운드 연결이 허용 되는지 확인 합니다.
 
@@ -89,11 +86,6 @@ ms.locfileid: "102032571"
 
 - Azure SQL 평가의 경우 검색을 시작한 후 일부 SQL 인스턴스 또는 데이터베이스가 만들어졌습니다. 예를 들어 지난 한 달의 성능 기록에 대 한 평가를 만드는 경우 몇 주 전에 환경에서 몇 개의 SQL 인스턴스 또는 데이터베이스가 생성 된 것입니다. 이 경우 새 서버에 대 한 성능 데이터는 전체 기간 동안 사용할 수 없으며 신뢰 등급이 낮습니다. [자세히 알아보기](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
-## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Azure Migrate에서 새로운 Azure SQL 평가 기능을 사용하려고 합니다.
-이 기능을 사용해 보려면 [이 링크](https://go.microsoft.com/fwlink/?linkid=2155668L)를 통해 **오스트레일리아 동부** 지역의 프로젝트를 만드세요.
-- 시작하려면 [검색](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) 및 [평가](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql) 자습서를 참조하세요.
-- VMware 환경에서 실행 중인 SQL Server 인스턴스 및 데이터베이스의 검색 및 평가는 현재 미리 보기로 제공됩니다.
-
 ## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Azure SQL 평가를 만들 때 일부 서버를 볼 수 없습니다.
 
 - Azure SQL 평가는 SQL 인스턴스가 검색된 서버에서만 실행할 수 있습니다. 평가할 서버와 SQL 인스턴스가 표시되지 않는 경우 검색이 완료될 때까지 기다렸다가 평가를 만드세요. 
@@ -117,7 +109,7 @@ SQL 검색은 24 시간 마다 한 번씩 수행 되며, 최신 구성 변경 �
 ## <a name="my-assessment-is-in-outdated-state"></a>내 평가가 오래됨 상태입니다.
 
 ### <a name="azure-vmavs-assessment"></a>Azure VM/AVS 평가
-평가 된 그룹에 있는 Vm에 대 한 온-프레미스 변경 내용이 있는 경우 평가는 오래 된 것으로 표시 됩니다. 아래 속성의 변경 내용 중 하나 이상으로 인해 평가를 "오래 된" 것으로 표시할 수 있습니다.
+평가 된 그룹에 있는 서버에 대 한 온-프레미스 변경 내용이 있는 경우 평가는 오래 된 것으로 표시 됩니다. 아래 속성의 변경 내용 중 하나 이상으로 인해 평가를 "오래 된" 것으로 표시할 수 있습니다.
 - 프로세서 코어 수
 - 할당 된 메모리
 - 부팅 유형 또는 펌웨어
@@ -166,18 +158,18 @@ Azure SQL Managed Instance의 경우 첫 번째 32 g b/인스턴스/월 저장�
 - VMware 컴퓨터만 있는 그룹에서 AVS 평가를 수행할 수 있습니다. AVS 평가를 수행하려는 경우 그룹에서 VMware가 아닌 컴퓨터를 모두 제거하세요.
 - Azure Migrate에서 AVS 평가를 처음 실행하는 경우 새 VMware 컴퓨터 그룹을 만드는 것이 좋습니다.
 
-## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Azure Government에서 일부 VM 유형을 볼 수 없습니다.
+## <a name="i-cant-see-some-vm-types-and-sizes-in-azure-government"></a>Azure Government에서 일부 VM 유형 및 크기를 볼 수 없습니다.
 
-평가 및 마이그레이션에 지원 되는 VM 유형은 Azure Government 위치의 가용성에 따라 달라 집니다. Azure Government에서 VM 유형을 [검토 하 고 비교할](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) 수 있습니다.
+평가 및 마이그레이션에 지원 되는 VM 유형 및 크기는 Azure Government 위치의 가용성에 따라 달라 집니다. Azure Government에서 VM 유형을 [검토 하 고 비교할](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) 수 있습니다.
 
-## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>VM의 크기가 변경 되었습니다. 평가를 다시 실행할 수 있나요?
+## <a name="the-size-of-my-server-changed-can-i-run-an-assessment-again"></a>서버 크기를 변경 했습니다. 평가를 다시 실행할 수 있나요?
 
-Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를 지속적으로 수집 합니다.  평가는 온-프레미스 Vm의 지정 시간 스냅숏입니다. 평가 하려는 VM의 설정을 변경 하는 경우 다시 계산 옵션을 사용 하 여 평가를 최신 변경 내용으로 업데이트 합니다.
+Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를 지속적으로 수집 합니다.  평가는 온-프레미스 서버의 특정 시점 스냅숏입니다. 평가 하려는 서버에서 설정을 변경 하는 경우 다시 계산 옵션을 사용 하 여 평가를 최신 변경 내용으로 업데이트 합니다.
 
-## <a name="how-do-i-discover-vms-in-a-multitenant-environment"></a>다중 테 넌 트 환경에서 Vm을 검색 어떻게 할까요??
+## <a name="how-do-i-discover-servers-in-a-multitenant-environment"></a>다중 테 넌 트 환경에서 서버를 검색 어떻게 할까요??
 
-- **VMware**: 환경이 테 넌 트 간에 공유 되 고 다른 테 넌 트의 구독에서 테 넌 트의 vm을 검색 하지 않으려는 경우 검색 하려는 vm에만 액세스할 수 있는 VMware vCenter Server 자격 증명을 만듭니다. 그런 다음 Azure Migrate 어플라이언스에서 검색을 시작할 때 해당 자격 증명을 사용 합니다.
-- **Hyper-v**: 검색에서 hyper-v 호스트 자격 증명을 사용 합니다. Vm이 동일한 Hyper-v 호스트를 공유 하는 경우 현재 검색을 분리할 수 있는 방법이 없습니다.  
+- **VMware**: 환경에서 다른 테 넌 트의 구독에 있는 테 넌 트의 서버를 검색 하지 않으려는 경우, 검색 하려는 서버만 액세스할 수 있는 VMware vCenter Server 자격 증명을 만듭니다. 그런 다음 Azure Migrate 어플라이언스에서 검색을 시작할 때 해당 자격 증명을 사용 합니다.
+- **Hyper-v**: 검색에서 hyper-v 호스트 자격 증명을 사용 합니다. 서버가 동일한 Hyper-v 호스트를 공유 하는 경우 현재 검색을 분리할 수 있는 방법이 없습니다.  
 
 ## <a name="do-i-need-vcenter-server"></a>VCenter Server 필요 한가요?
 
@@ -185,9 +177,9 @@ Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를
 
 ## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Azure VM 평가의 크기 조정 옵션은 무엇 인가요?
 
-온-프레미스 크기 조정으로 Azure Migrate는 평가를 위해 VM 성능 데이터를 고려 하지 않습니다. Azure Migrate은 온-프레미스 구성에 따라 VM 크기를 평가 합니다. 성능 기반 크기 조정을 사용 하 여 크기는 사용률 데이터를 기반으로 합니다.
+온-프레미스 크기 조정 기능을 사용 하 Azure Migrate는 평가를 위해 서버 성능 데이터를 고려 하지 않습니다. Azure Migrate은 온-프레미스 구성에 따라 VM 크기를 평가 합니다. 성능 기반 크기 조정을 사용 하 여 크기는 사용률 데이터를 기반으로 합니다.
 
-예를 들어 온-프레미스 VM에 4 개의 코어와 8gb의 메모리가 50% CPU 사용률, 50%의 메모리 사용률을 포함 하는 경우:
+예를 들어 온-프레미스 서버에 4 개의 코어와 8gb의 메모리가 50% CPU 사용률 및 50% 메모리 사용률을 포함 하는 경우:
 - 온-프레미스 크기 조정에서는 4 개의 코어와 8gb의 메모리가 있는 Azure VM SKU를 권장 합니다.
 - 성능 기반 크기 조정에서는 두 개의 코어와 4gb의 메모리가 있는 VM SKU를 사용 하는 것이 좋습니다.
 
@@ -230,7 +222,7 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 
 ## <a name="what-is-dependency-visualization"></a>종속성 시각화란?
 
-종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 Vm 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세한 정보를 알아보세요](concepts-dependency-visualization.md).
+종속성 시각화를 사용 하면 더 강력 하 게 마이그레이션할 수 있도록 서버 그룹을 평가할 수 있습니다. 종속성 시각화는 평가를 실행 하기 전에 컴퓨터 종속성을 교차 확인 합니다. 이 기능을 사용 하면 아무것도 유지 되지 않고 Azure로 마이그레이션할 때 예기치 않은 중단을 방지할 수 있습니다. Azure Migrate는 Azure Monitor의 서비스 맵 솔루션을 사용하여 종속성 시각화를 사용하도록 설정합니다. [자세히 알아보기](concepts-dependency-visualization.md).
 
 > [!NOTE]
 > 에이전트 기반 종속성 분석은 Azure Government에서 사용할 수 없습니다. 에이전트 없는 종속성 분석을 사용할 수 있습니다.
@@ -241,10 +233,10 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 
 **요구 사항** | **에이전트 없음** | **에이전트 기반**
 --- | --- | ---
-지원 | 이 옵션은 현재 미리 보기 상태 이며 VMware Vm에 대해서만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
+지원 | 이 옵션은 현재 미리 보기 상태 이며 VMware 환경의 서버에만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 에이전트 | 교차 확인 하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | [MMA (Microsoft Monitoring agent)](../azure-monitor/agents/agent-windows.md)및 [종속성 에이전트](../azure-monitor/agents/agents-overview.md#dependency-agent)를 분석 하려는 각 온-프레미스 컴퓨터에 설치 되는 에이전트입니다. 
-필수 구성 요소 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
-Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)의 [서비스 맵](../azure-monitor/vm/service-map.md) 솔루션을 사용합니다. [자세한 정보를 알아보세요](concepts-dependency-visualization.md#agent-based-analysis).
+사전 요구 사항 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
+Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)의 [서비스 맵](../azure-monitor/vm/service-map.md) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
 작동 방법 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
 데이터 | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 시각화 | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.
@@ -296,9 +288,9 @@ Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 
 
 에이전트 없는 시각화의 경우 1 시간에서 30 일 사이에 단일 서버의 종속성 맵을 볼 수 있습니다.
 
-## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-vms"></a>10 개 이상의 Vm 그룹에 대 한 종속성을 시각화할 수 있나요?
+## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-servers"></a>10 개 이상의 서버 그룹에 대 한 종속성을 시각화할 수 있나요?
 
-Vm을 최대 10 개 포함 하는 그룹에 대 한 [종속성을 시각화할](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) 수 있습니다. 10 개 이상의 Vm이 있는 그룹이 있는 경우 그룹을 더 작은 그룹으로 분할 한 다음 종속성을 시각화 하는 것이 좋습니다.
+최대 10 대의 서버를 포함 하는 그룹에 대 한 [종속성을 시각화할](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) 수 있습니다. 10 개 이상의 서버를 포함 하는 그룹이 있는 경우 그룹을 더 작은 그룹으로 분할 한 다음 종속성을 시각화 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

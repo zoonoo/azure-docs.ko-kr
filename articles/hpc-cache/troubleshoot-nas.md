@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
 ms.author: v-erkel
-ms.openlocfilehash: d2a5ffa337f789c4edc3a34b3be81285337473e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bb17918774d23dbeb2747fa55eefc4956812e254
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471707"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775700"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>NAS 구성 및 NFS 저장소 대상 문제 해결
 
@@ -91,16 +91,15 @@ NAS 저장소 공급 업체와 협력 하 여 캐시에 대 한 적절 한 수�
 
 여러 내보내기의 파일에 대해 이러한 가능한 파일 충돌을 방지 하기 위해 Azure HPC 캐시는 shallowest 사용 가능한 내보내기를 경로에 자동으로 탑재 하 ``/ifs`` 고 (예제에서는) 해당 내보내기에서 제공 하는 파일 핸들을 사용 합니다. 여러 내보내기에서 동일한 기본 경로를 사용 하는 경우 Azure HPC 캐시에는 해당 경로에 대 한 루트 액세스 권한이 필요 합니다.
 
-## <a name="enable-export-listing"></a>내보내기 목록 사용
-<!-- link in prereqs article -->
+<!-- ## Enable export listing
 
-Azure HPC 캐시가 쿼리를 쿼리할 때 NAS는 해당 내보내기를 나열 해야 합니다.
+The NAS must list its exports when the Azure HPC Cache queries it.
 
-대부분의 NFS 저장소 시스템에서 Linux 클라이언트에서 다음 쿼리를 전송 하 여 테스트할 수 있습니다. ``showmount -e <storage IP address>``
+On most NFS storage systems, you can test this by sending the following query from a Linux client: ``showmount -e <storage IP address>``
 
-가능 하면 캐시와 동일한 가상 네트워크의 Linux 클라이언트를 사용 합니다.
+Use a Linux client from the same virtual network as your cache, if possible.
 
-해당 명령으로 내보내기가 나열 되지 않으면 캐시에서 저장소 시스템에 연결 하는 데 문제가 있는 것입니다. NAS 공급 업체와 협력 하 여 내보내기 목록을 사용 하도록 설정 합니다.
+If that command doesn't list the exports, the cache will have trouble connecting to your storage system. Work with your NAS vendor to enable export listing.  -->
 
 ## <a name="adjust-vpn-packet-size-restrictions"></a>VPN 패킷 크기 제한 조정
 <!-- link in prereqs article and configuration article -->

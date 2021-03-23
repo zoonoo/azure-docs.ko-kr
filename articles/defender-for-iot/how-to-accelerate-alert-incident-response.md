@@ -1,18 +1,14 @@
 ---
 title: 경고 워크플로 가속화
 description: 경고 및 인시던트 워크플로를 개선 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526292"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779123"
 ---
 # <a name="accelerate-alert-workflows"></a>경고 워크플로 가속화
 
@@ -81,16 +77,29 @@ ms.locfileid: "100526292"
 ### <a name="default-alert-groups"></a>기본 경고 그룹
 
 자동으로 정의 되는 경고 그룹은 다음과 같습니다.
-|  |  |  |
-|--|--|--|
-| 비정상적인 통신 동작 | 사용자 지정 경고 | 원격 액세스 |
-| 비정상적인 HTTP 통신 동작 | 검색 | 다시 시작 및 중지 명령 |
-| 인증 | 펌웨어 변경 | 검사 |
-| 무단 통신 동작 | 잘못 된 명령 | 센서 트래픽 |
-| 대역폭 이상 | 인터넷 액세스 | 맬웨어 했는지에 |
-| 버퍼 오버플로 | 작업 실패 | 악의적인 활동의 했는지에 |
-| 명령 실패 | 운영 문제 |  |
-| 구성 변경 내용 | 프로그래밍 |  |
+
+- 비정상적인 통신 동작
+- 사용자 지정 경고
+- 원격 액세스
+- 비정상적인 HTTP 통신 동작
+- 검색
+- 다시 시작 및 중지 명령
+- 인증
+- 펌웨어 변경
+- 검사
+- 무단 통신 동작
+- 잘못 된 명령
+- 센서 트래픽
+- 대역폭 이상
+- 인터넷 액세스
+- 맬웨어 했는지에
+- 버퍼 오버플로 
+- 작업 실패
+- 악의적인 활동의 했는지에
+- 명령 실패
+- 운영 문제
+- 구성 변경 내용
+- 프로그래밍
 
 경고 그룹은 미리 정의 되어 있습니다. 경고 그룹과 연결 된 경고에 대 한 자세한 내용 및 사용자 지정 경고 그룹을 만드는 방법에 대 한 자세한 내용은 [Microsoft 지원](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099)를 참조 하세요.
 

@@ -4,14 +4,14 @@ description: Azure Data Factory에서 복사 작업 실행을 모니터링 하�
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 03/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4aefeea33e61b6ee2541e929dbeb3fc36343cac5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100388297"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771382"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -45,7 +45,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 복사 작업 실행 세부 정보 및 성능 특성도 UI 모니터링 보기를 렌더링 하는 데 사용 되는 **복사 작업 실행 결과**  >  **출력** 섹션에도 반환 됩니다. 다음은 반환 될 수 있는 속성의 전체 목록입니다. 복사 시나리오에 적용 되는 속성만 볼 수 있습니다. 일반적인 방법으로 작업 실행을 모니터링 하는 방법에 대 한 자세한 내용은 [Azure data factory를 프로그래밍 방식으로 모니터링](monitor-programmatically.md)을 참조 하세요.
 
-| 속성 이름  | 설명 | 출력 단위 |
+| 속성 이름  | Description | 출력 단위 |
 |:--- |:--- |:--- |
 | DataRead | 원본에서 읽은 실제 데이터 양입니다. | Int64 값 (바이트) |
 | DataWritten | 싱크에 기록/커밋된 데이터의 실제 탑재입니다. 크기는 `dataRead` 각 데이터 저장소에서 데이터를 저장 하는 방법과 관련 되므로 크기와 다를 수 있습니다. | Int64 값 (바이트) |
@@ -59,7 +59,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | rowsCopied | 싱크로 복사 된 행의 수입니다. 원본 및 싱크 데이터 집합이 이진 형식 형식 이거나 설정이 동일한 다른 형식 형식인 경우를 제외 하 고 파일을 있는 그대로 복사 하는 경우에는이 메트릭이 적용 되지 않습니다.  | Int64 값(단위 없음) |
 | rowsSkipped | 건너뛴 호환 되지 않는 행의 수입니다. 을 true로 설정 하 여 호환 되지 않는 행을 건너뛰도록 설정할 수 있습니다 `enableSkipIncompatibleRow` . | Int64 값(단위 없음) |
 | copyDuration | 복사 실행의 지속 시간입니다. | Int32 값 (초) |
-| throughput | 데이터 전송 률입니다. | 부동 소수점 수 (KBps) |
+| throughput | 로 나눈 데이터 전송 률 `dataRead` `copyDuration` 입니다. | 부동 소수점 수 (KBps) |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 (단위 없음) |
 | sinkPeakConnections| 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다.| Int32 값 (단위 없음) |
 | sqlDwPolyBase | Azure Synapse Analytics로 데이터를 복사할 때 PolyBase를 사용할지 여부입니다. | 부울 |

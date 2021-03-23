@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715720"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779939"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -24,12 +24,12 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 또는 [이벤트 경로 api](/rest/api/digital-twins/dataplane/eventroutes), [Sdk](how-to-use-apis-sdks.md#overview-data-plane-apis)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
-    - Resource group
+    - 리소스 그룹
 
 인스턴스를 설정한 후 [Azure Portal](https://portal.azure.com) 에서 이러한 세부 정보를 찾을 수 있습니다. 포털에 로그인 하 고 포털 검색 표시줄에서 인스턴스 이름을 검색 합니다.
  
@@ -151,6 +151,9 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 이벤트 경로를 만드는 동안 이벤트 필터를 추가 하려면 *이벤트 경로 만들기* 페이지의 _이벤트 경로 필터 추가_ 섹션을 사용 합니다. 
 
 몇 가지 기본 일반 필터 옵션 중에서 선택 하거나 고급 필터 옵션을 사용 하 여 사용자 지정 필터를 작성할 수 있습니다.
+
+>[!NOTE]
+> 필터는 **대/** 소문자를 구분 하며 페이로드 사례 (모델 사례와 반드시 일치 하지 않을 수 있음)에서 일치 해야 합니다.
 
 #### <a name="use-the-basic-filters"></a>기본 필터 사용
 

@@ -1,18 +1,14 @@
 ---
 title: 온-프레미스 관리 콘솔 활성화 및 설정
 description: 관리 콘솔을 활성화 하면 센서가 Azure에 등록 되 고, 온-프레미스 관리 콘솔로 정보를 전송 하 고, 온-프레미스 관리 콘솔에서 연결 된 센서에 대 한 관리 작업을 수행 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: defender-for-iot
-ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 89ce6da3521248ff7373e23ae8831106cbee74de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602759"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784631"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>온-프레미스 관리 콘솔 활성화 및 설정 
 
@@ -231,9 +227,9 @@ IoT 센서 용 Azure Defender를 온-프레미스 관리 콘솔에 연결 하는
 
 다음 표에서는 **사이트 관리** 창의 매개 변수에 대해 설명 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |--|--|
-| 이름 | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
+| Name | 센서의 이름입니다. 이 이름은 센서 에서만 변경할 수 있습니다. 자세한 내용은 IoT 용 Defender 사용자 가이드를 참조 하세요. |
 | IP | 센서 IP 주소입니다. |
 | 버전 | 센서 버전입니다. |
 | 연결 | 센서 연결 상태입니다. 상태를 연결 하거나 **연결** 을 **끊을** 수 있습니다. |

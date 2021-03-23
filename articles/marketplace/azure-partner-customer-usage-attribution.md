@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 03/19/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 8f84d77b5a424d5f7273c7e748c35c52882819c6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608396"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771093"
 ---
 # <a name="azure-customer-usage-attribution"></a>Azure 고객 사용 특성
 
@@ -30,7 +30,7 @@ ms.locfileid: "102608396"
 >[!IMPORTANT]
 >- 고객 사용 특성은 주로 Azure 리소스를 배포 하 고 관리 하기 위해 설계 된 시스템 통합 업체, 관리 서비스 공급자 또는 도구의 작업을 추적 하기 위한 것이 아닙니다.
 >- 고객 사용 특성은 새 배포에 사용 되며 이미 배포 된 리소스를 추적 하는 것을 지원 하지 않습니다.
->- 모든 Azure 서비스는 고객 사용 특성과 호환 되지 않습니다. AKS (Azure Kubernetes Services) 및 VM Scale Sets에는 사용 현황 보고를 야기 하는 알려진 문제가 있습니다.
+>- 모든 Azure 서비스는 고객 사용 특성과 호환 되지 않습니다. AKS (Azure Kubernetes Services), VM Scale Sets 및 Azure Batch에는 사용 현황 보고를 야기 하는 알려진 문제가 있습니다.
 
 ## <a name="commercial-marketplace-azure-apps"></a>상업적 marketplace Azure 앱
 
@@ -87,7 +87,7 @@ Azure Resource Manager Api를 사용 하는 경우 코드에서 리소스를 배
 
 1. 주 템플릿 파일에 [Microsoft .resources/배포](/azure/templates/microsoft.resources/deployments) 유형의 새 리소스를 추가 합니다. 리소스는 중첩 또는 연결 된 템플릿이 아닌 **mainTemplate.json** 또는 **azuredeploy.js** 파일에만 있어야 합니다.
 
-1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 **pid-eb7927c8-dd66-43e1-b0cf-c346a422063** 가 됩니다. 예제:
+1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 **pid-eb7927c8-dd66-43e1-b0cf-c346a422063** 가 됩니다. 예:
  
 ```json
 { // add this resource to the resources section in the mainTemplate.json
@@ -178,7 +178,7 @@ pid-b6addd8f-5ff4-4fc0-a2b5-0ec7861106c4 //enter your GUID after "pid-"
 
 #### <a name="example-python-sdk"></a>예: Python SDK
 
-Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예제:
+Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예:
 
 ```python
 client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)

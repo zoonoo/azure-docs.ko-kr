@@ -11,18 +11,22 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8f3e8d72db6679a766991160c303948557719bb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1bd91ca63034f77553abb00f4fbf05431a45bd55
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657742"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773388"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
 ## <a name="speech-sdk-1160-2021-march-release"></a>Speech SDK 1.16.0:2021-3 월 릴리스
 
 **참고**: Windows의 Speech SDK는 Visual Studio 2015, 2017 및 2019에 대 한 공유 Microsoft Visual C++ 재배포 가능 패키지에 따라 달라 집니다. [여기](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)에서 다운로드하세요.
+
+**알려진 문제**
+
+**C + +/c #/Java**: `DialogServiceConnector` 를 사용 `CustomCommandsConfig` 하 여 사용자 지정 명령 응용 프로그램에 액세스할 수 없으며 대신 연결 오류가 발생 합니다. 이 작업은를 사용 하 여 요청에 응용 프로그램 ID를 수동으로 추가 하 여 해결할 수 있습니다 `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)` . 의 예상 동작은 `CustomCommandsConfig` 다음 릴리스에서 복원 됩니다.
 
 **하이라이트 요약**
 - 메모리 및 디스크 공간을 줄여 SDK를 보다 효율적으로 만듭니다. 이번에는 Android에 집중 하 고 있습니다.

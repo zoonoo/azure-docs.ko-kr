@@ -1,24 +1,14 @@
 ---
 title: Azure RTOS 용 Defender-IoT-마이크로 에이전트 구성 및 사용자 지정
 description: Azure RTOS에 대해 Defender-마이크로 에이전트를 구성 하 고 사용자 지정 하는 방법에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/07/2021
-ms.author: shhazam
-ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afab823b6bb187c9a7b7529f52efc37b20e8c66f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495099"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778987"
 ---
 # <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Azure RTOS (미리 보기)에 대 한 Defender-마이크로 에이전트 구성 및 사용자 지정
 
@@ -26,15 +16,15 @@ ms.locfileid: "103495099"
 
 디렉터리에서 확장명이 있는 대상 배포 파일을 선택 해야 합니다 `*.dist` `netxduo/addons/azure_iot/azure_iot_security_module/configs` .  
 
-CMake 컴파일 환경을 사용 하는 경우 `IOT_SECURITY_MODULE_DIST_TARGET` 선택한 값에 대 한 명령줄 매개 변수를로 설정 해야 합니다. 예: `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`
+CMake 컴파일 환경을 사용 하는 경우 `IOT_SECURITY_MODULE_DIST_TARGET` 선택한 값에 대 한 명령줄 매개 변수를로 설정 해야 합니다. 예들 들어 `-DIOT_SECURITY_MODULE_DIST_TARGET=RTOS_BASE`입니다.
 
-IAR 또는 다른 비 CMake 컴파일 환경에서는 `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` 알려진 포함 경로에 대 한 경로를 추가 해야 합니다. 예: `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`
+IAR 또는 다른 비 CMake 컴파일 환경에서는 `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/` 알려진 포함 경로에 대 한 경로를 추가 해야 합니다. 예들 들어 `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/RTOS_BASE`입니다.
 
 다음 파일을 사용 하 여 장치 동작을 구성 합니다.
 
 **netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/ \<target distribution> /asc_config. h**
 
-CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경 해야 합니다 `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` . `set(ASC_XXX ON)` `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` 다른 모든 환경에 대해 다음의 ctoformat 또는 다음 파일을 사용 합니다. 예: `#define ASC_XXX`
+CMake 컴파일 환경에서는 파일을 편집 하 여 기본 구성을 변경 해야 합니다 `netxduo/addons/azure_iot/azure_iot_security_module/configs/<target distribution>.dist` . `set(ASC_XXX ON)` `netxduo/addons/azure_iot/azure_iot_security_module/inc/configs/<target distribution>/asc_config.h` 다른 모든 환경에 대해 다음의 ctoformat 또는 다음 파일을 사용 합니다. 예들 들어 `#define ASC_XXX`입니다.
 
 각 구성의 기본 동작은 다음 표에 나와 있습니다. 
 

@@ -3,16 +3,16 @@ title: Azure Data Factory에서 연속 창 트리거 만들기
 description: 연속 창에 따라 파이프라인을 실행하는 Azure Data Factory에서 트리거를 만드는 방법을 알아봅니다.
 author: chez-charlie
 ms.author: chez
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/25/2020
-ms.openlocfilehash: b961939516ac4848da00a3cd01c754c90da805cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad397b62adcbcf6a0e117950c0dc3be33e6522db
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177728"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779820"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>연속 창에 따라 파이프라인을 실행하는 트리거 만들기
 
@@ -91,7 +91,7 @@ ms.locfileid: "102177728"
 
 다음 테이블은 연속 창 트리거의 되풀이 및 일정 계획과 관련된 주요 JSON 요소의 대략적인 개요를 제공합니다.
 
-| JSON 요소 | 설명 | Type | 허용되는 값 | 필수 |
+| JSON 요소 | Description | Type | 허용되는 값 | 필수 |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | 트리거의 유형입니다. 형식은 고정 값 "TumblingWindowTrigger"입니다. | String | "TumblingWindowTrigger" | 예 |
 | **runtimeState** | 트리거 런타임의 현재 상태입니다.<br/>**참고**:이 요소는 \<readOnly> 입니다. | String | "시작된," "중지된," "사용 안 함" | 예 |

@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a19babffa63667b0d2deb954d432421a2b7868b8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 71eaccd615f5c3460e7b48b2e92d5f874c8de12e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722143"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772113"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -58,7 +58,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >사용 중지 된 버전에 대 한 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md) 을 참조 하세요.
 
 
-## <a name="1623"></a>1.6.2.3
+## <a name="1624"></a>1.6.2.4
 
 >[!NOTE]
 > - 이 릴리스는 다운로드 전용으로 제공 됩니다.
@@ -66,7 +66,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > - 이 릴리스는 AADConnect 서버를 새 V2 끝점으로 기본 설정 합니다. 이 끝점은 독일어 국가, 중국어 (미국) 및 미국 정부 클라우드에서 지원 되지 않으며, 이러한 클라우드에이 버전을 배포 해야 하는 경우 [다음 지침](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) 에 따라 다시 V1 끝점으로 전환 해야 합니다. 실패 하면 동기화 오류가 발생 합니다.
 
 ### <a name="release-status"></a>릴리스 상태
-3/17/2021: 다운로드를 위해 릴리스 됨
+3/19/2021: 다운로드를 위해 릴리스 됨
 
 ### <a name="functional-changes"></a>기능 변경 내용
 

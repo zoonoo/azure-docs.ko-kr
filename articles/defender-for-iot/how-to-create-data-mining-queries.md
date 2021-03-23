@@ -1,18 +1,14 @@
 ---
 title: 데이터 마이닝 보고서 만들기
 description: 프로토콜, 펌웨어 버전 또는 프로그래밍 명령과 같은 다양 한 계층에서 네트워크 장치에 대 한 포괄적이 고 세부적인 정보를 생성 합니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522482"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779072"
 ---
 # <a name="sensor-data-mining-queries"></a>센서 데이터 마이닝 쿼리
 
@@ -138,7 +134,7 @@ ms.locfileid: "100522482"
 
 다음 표에서는 데이터 마이닝에 대 한 관리 옵션을 설명 합니다.
 
-| 아이콘 이미지 | 설명 |
+| 아이콘 이미지 | Description |
 |--|--|
 | :::image type="icon" source="media/how-to-generate-reports/edit-a-simulation-icon.png" border="false"::: | 보고서 매개 변수를 편집 합니다. |
 | :::image type="icon" source="media/how-to-generate-reports/export-as-pdf-icon.png" border="false"::: | PDF로 내보냅니다. |

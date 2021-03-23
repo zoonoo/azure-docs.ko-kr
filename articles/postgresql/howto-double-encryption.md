@@ -1,29 +1,29 @@
 ---
 title: 인프라 이중 암호화-Azure Portal-Azure Database for PostgreSQL
 description: Azure Database for PostgreSQL에 대 한 인프라 이중 암호화를 설정 하 고 관리 하는 방법을 알아봅니다.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242231"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771654"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 인프라 이중 암호화
 
 Azure Database for PostgreSQL에 대 한 인프라를 설정 하 고 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>인프라 이중 암호화를 사용 하 여 Azure Database for PostgreSQL 서버 만들기-포털
 
-Azure Portal에서 인프라 이중 암호화를 사용 하 여 Azure Database for MySQL 서버를 만들려면 다음 단계를 따르세요.
+Azure Portal에서 인프라 이중 암호화를 사용 하 여 Azure Database for PostgreSQL 서버를 만들려면 다음 단계를 따르세요.
 
 1. 포털의 왼쪽 위 모서리에서 **리소스 만들기**(+)를 선택합니다.
 
@@ -45,7 +45,7 @@ Azure Portal에서 인프라 이중 암호화를 사용 하 여 Azure Database f
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>인프라 이중 암호화를 사용 하 여 Azure Database for PostgreSQL 서버 만들기-CLI
 
-CLI에서 인프라 이중 암호화를 사용 하 여 Azure Database for MySQL 서버를 만들려면 다음 단계를 따르세요.
+CLI에서 인프라 이중 암호화를 사용 하 여 Azure Database for PostgreSQL 서버를 만들려면 다음 단계를 따르세요.
 
 이 예제에서는 위치에 이라는 리소스 그룹을 만듭니다 `myresourcegroup` `westus` .
 

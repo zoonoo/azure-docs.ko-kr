@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520781"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773116"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화 된 machine learning 실험 결과 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "102520781"
 | [보정 곡선](#calibration-curve)                     |                     
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 없는 경우 시작 하기 전에 [무료 계정을 만듭니다](https://aka.ms/AMLFree) .
 - 다음 중 하나를 사용 하 여 만든 Azure Machine Learning 실험
@@ -91,6 +91,8 @@ weighted_accuracy|가중치가 적용 된 정확도는 각 샘플이 동일한 �
 자동화 된 ML은 이진 메트릭과 다중 클래스 메트릭을 구별 하지 않습니다. 데이터 집합에 두 개 이상의 클래스가 있는지 여부와 상관 없이 동일한 유효성 검사 메트릭이 보고 됩니다. 그러나 일부 메트릭은 다중 클래스 분류를 위한 것입니다. 이러한 메트릭은 이진 데이터 집합에 적용 될 때 클래스를 클래스로 처리 하지 않습니다 `true` . 다중 클래스에 대해 명확 하 게 사용 되는 메트릭은 `micro` , `macro` 또는로 시작 `weighted` 합니다. 예를 들면,,, `average_precision_score` `f1_score` 및가 `precision_score` `recall_score` `AUC` 있습니다.
 
 예를 들어, 다중 클래스를 계산 하는 대신 `tp / (tp + fn)` `micro` `macro` `weighted` 이진 분류 데이터 집합의 두 클래스에 대 한 평균 회수 (, 또는)의 평균을 계산 합니다. 이는 클래스와 클래스에 대 한 회수를 `true` 별도로 계산한 `false` 다음이 두 값의 평균을 가져오는 것과 같습니다.
+
+자동화 된 ML은 이진 메트릭을 계산 하지 않으며 이진 분류 데이터 집합에 대 한 메트릭입니다. 그러나 이러한 메트릭은 특정 실행에 대해 생성 된 ML을 자동으로 생성 하는 [혼동 행렬](#confusion-matrix) 을 사용 하 여 수동으로 계산할 수 있습니다. 예를 들어, `tp / (tp + fp)` 2x2 혼동 행렬 차트에 표시 되는 진정한 긍정 및 거짓 긍정 값을 사용 하 여 전체 자릿수를 계산할 수 있습니다.
 
 ## <a name="confusion-matrix"></a>혼동 행렬
 

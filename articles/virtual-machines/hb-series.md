@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: f0f5d8f5e5e7077c3438005b58d6ed1a132219f4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f3e6f40833f3536bb915af74b7e0d80143fe0d13
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566025"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774799"
 ---
 # <a name="hb-series"></a>HB 시리즈
 
@@ -35,7 +35,10 @@ HB-시리즈 Vm 기능 100 g b/초 Mellanox EDR InfiniBand. 이러한 Vm은 최�
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | 모두 | 700 | 4 | 8 |
 
-기본 [아키텍처](./workloads/hpc/hb-series-overview.md)및 hb 시리즈 VM의 예상 [성능](./workloads/hpc/hb-series-performance.md) 에 대해 자세히 알아보세요.
+에 대해 자세히 알아보세요.
+- [아키텍처 및 VM 토폴로지](./workloads/hpc/hb-series-overview.md)
+- 지원 되는 OS를 포함 하 여 지원 되는 [소프트웨어 스택](./workloads/hpc/hb-series-overview.md#software-specifications)
+- HB 시리즈 VM의 예상 [성능](./workloads/hpc/hb-series-performance.md) 입니다.
 
 [!INCLUDE [hpc-include.md](./workloads/hpc/includes/hpc-include.md)]
 

@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 03/22/2021
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 2064ab7e759798d8934facb8d293e8ac60ec6c82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 040e49ee870704107e1d4118f1484119d98a9ebf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97703418"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781214"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
-Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL** 이 Azure AD에 명시적으로 등록되어야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다.
+Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL** 이 Azure AD에 명시적으로 등록되어야 합니다. 앱이 [Azure 앱 갤러리에 추가](v2-howto-app-gallery-listing.md) 되 면 기본적으로이 값을 설정할 수 있습니다. 그렇지 않으면 앱을 Azure AD 테 넌 트에 추가 하는 사람이 값을 결정 하 고 설정 해야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다. 
 
 Azure AD는 HTTP POST 바인딩이 아닌 리디렉션 바인딩 (HTTP GET)을 지원 합니다.
 

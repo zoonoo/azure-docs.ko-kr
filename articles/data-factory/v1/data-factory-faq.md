@@ -3,16 +3,16 @@ title: Azure 데이터 팩터리 - 질문과 대답
 description: Azure 데이터 팩터리에 대한 질문과 대답입니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4ddadec327f1a4f6aa22d51ac073b9aebb0dee82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 450a12ae5ae1e13c9cc9b5599a41b6c29d740a9f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100383197"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785328"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]

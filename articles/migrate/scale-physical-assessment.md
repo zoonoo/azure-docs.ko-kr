@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/19/2020
-ms.openlocfilehash: 45954a42613fb1716e3b66305c0485a3966b8e37
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 232475c50ab56fe6fb7a39a3497a8de3947fe851
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96753691"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780313"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Azure로의 마이그레이션에 대 한 많은 수의 물리적 서버 평가
 
-이 문서에서는 Azure Migrate Server 평가 도구를 사용 하 여 Azure로 마이그레이션하기 위해 많은 수의 온-프레미스 물리적 서버를 평가 하는 방법을 설명 합니다.
+이 문서에서는 Azure Migrate 검색 및 평가 도구를 사용 하 여 Azure로 마이그레이션하기 위해 많은 수의 온-프레미스 물리적 서버를 평가 하는 방법을 설명 합니다.
 
 [Azure Migrate](migrate-services-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다. 
 
@@ -36,7 +36,7 @@ ms.locfileid: "96753691"
 많은 수의 물리적 서버에 대 한 평가를 계획할 때 고려해 야 할 몇 가지 사항이 있습니다.
 
 - **Azure Migrate 프로젝트 계획**: Azure Migrate 프로젝트를 배포 하는 방법을 파악 합니다. 예를 들어 데이터 센터가 다른 지역에 있거나 검색, 평가 또는 마이그레이션 관련 메타 데이터를 다른 지리에 저장 해야 하는 경우 여러 프로젝트가 필요할 수 있습니다.
-- **계획 어플라이언스**: Azure Migrate Windows 컴퓨터에 배포 된 온-프레미스 Azure Migrate 어플라이언스를 사용 하 여 평가 및 마이그레이션을 위해 지속적으로 서버를 검색 합니다. 어플라이언스는 Vm, 디스크 또는 네트워크 어댑터를 추가 하는 등의 환경 변경을 모니터링 합니다. 또한 Azure에 대 한 메타 데이터 및 성능 데이터를 전송 합니다. 배포할 어플라이언스 수를 파악 해야 합니다.
+- **계획 어플라이언스**: Azure Migrate Windows server에 배포 된 온-프레미스 Azure Migrate 어플라이언스를 사용 하 여 평가 및 마이그레이션을 위한 서버를 지속적으로 검색 합니다. 어플라이언스는 서버, 디스크 또는 네트워크 어댑터를 추가 하는 등의 환경 변경을 모니터링 합니다. 또한 Azure에 대 한 메타 데이터 및 성능 데이터를 전송 합니다. 배포할 어플라이언스 수를 파악 해야 합니다.
 
 
 ## <a name="planning-limits"></a>제한 계획
@@ -57,7 +57,7 @@ ms.locfileid: "96753691"
 
 ## <a name="prepare-for-assessment"></a>평가 준비
 
-서버 평가를 위해 Azure 및 물리적 서버를 준비 합니다. 
+검색 및 평가 도구를 위해 Azure 및 물리적 서버 준비:  
 
 1. [물리적 서버 지원 요구 사항 및 제한 사항을](migrate-support-matrix-physical.md)확인 합니다.
 2. Azure Migrate와 상호 작용 하도록 Azure 계정에 대 한 사용 권한을 설정 합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "96753691"
 계획 요구 사항에 따라 다음을 수행 합니다.
 
 1. Azure Migrate 프로젝트를 만듭니다.
-2. 프로젝트에 Azure Migrate 서버 평가 도구를 추가 합니다.
+2. 프로젝트에 Azure Migrate 검색 및 평가 도구를 추가 합니다.
 
 [자세히 알아보기](./create-manage-projects.md)
 

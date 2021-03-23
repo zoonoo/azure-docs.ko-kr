@@ -4,7 +4,7 @@ description: 이 문서에서는 웹 애플리케이션 프로젝트의 구현 �
 author: TerryLanfear
 manager: barbkess
 ms.author: terrylan
-ms.date: 06/12/2019
+ms.date: 03/21/2021
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -13,15 +13,16 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 52c93bef4529f27ad38677f17209e7b48e997368
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102548447"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782404"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
-이 문서에서는 클라우드용 애플리케이션을 개발할 때 고려해야 할 보안 및 제어 작업에 대해 설명합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
+
+이 문서에서는 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL(보안 개발 수명 주기)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 구현 및 확인 단계에서 고려해야 하는 보안 질문과 개념을 다룹니다. 보다 안전한 애플리케이션을 개발하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
 
 이 문서에서 다루는 SDL 단계는 다음과 같습니다.
 
@@ -29,6 +30,7 @@ ms.locfileid: "102548447"
 - 확인
 
 ## <a name="implementation"></a>구현
+
 구현 단계의 초점은 문제를 초기에 방지하기 위한 모범 사례를 설정하고 코드에서 보안 문제를 발견하여 제거하는 것입니다.
 이렇게 하면 애플리케이션이 개발자의 의도와 다른 방향으로 사용될 때 우발적인 또는 의도적인 오용으로부터 애플리케이션을 보호할 수 있습니다.
 
@@ -89,11 +91,11 @@ Server, X-Powered-By, X-AspNet-Version 등의 헤더는 서버 및 기본 기술
 
 무차별 암호 대입 및 사전 기반 추측 공격을 방어하려면 사용자가 복잡한 암호(예: 영숫자 및 특수 문자로 구성된 12자 이상의 암호)를 만들도록 강력한 암호 정책을 구현해야 합니다.
 
-ID 프레임워크를 사용하여 암호 정책을 만들고 적용할 수 있습니다. Azure AD B2C는 [기본 제공 정책](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [셀프 서비스 암호 재설정](../../active-directory-b2c/user-flow-self-service-password-reset.md) 등을 제공하여 암호 관리를 도와줍니다.
+Azure Active Directory B2C는 [셀프 서비스 암호 재설정](../../active-directory-b2c/add-password-reset-policy.md), [암호 다시 설정 적용](../../active-directory-b2c/force-password-reset.md)등을 제공 하 여 암호 관리에 도움이 됩니다.
 
 기본 계정에 대한 공격을 방어하려면 모든 키와 암호를 바꿀 수 있는지, 리소스를 설치한 후 키와 암호가 생성되거나 바뀌는지 확인합니다.
 
-애플리케이션에서 암호를 자동으로 생성해야 하는 경우 암호가 무작위로 생성되고 암호의 엔트로피가 높은지 확인합니다.
+응용 프로그램에서 암호를 자동 생성 해야 하는 경우 생성 된 암호가 무작위로 생성 되 고 높은 엔트로피가 있는지 확인 합니다.
 
 ### <a name="validate-file-uploads"></a>파일 업로드 확인
 
@@ -108,6 +110,7 @@ ID 프레임워크를 사용하여 암호 정책을 만들고 적용할 수 있�
 브라우저에서 중요한 콘텐츠를 캐시하지 마세요. 브라우저는 캐싱 및 기록에 대한 정보를 저장할 수 있습니다. 캐시된 파일은 Internet Explorer의 경우 임시 인터넷 파일 폴더 같은 폴더에 저장됩니다. 이러한 페이지를 다시 참조할 때 브라우저는 캐시의 페이지를 표시합니다. 중요한 정보(주소, 신용 카드 정보, 주민 등록 번호, 사용자 이름)를 사용자에게 표시하는 경우 정보를 브라우저의 캐시에 저장해 두고 브라우저의 캐시를 검사하거나 브라우저의 **뒤로** 단추를 눌러서 검색할 수 있습니다.
 
 ## <a name="verification"></a>확인
+
 확인 단계에는 코드가 이전 단계에서 설정한 보안 및 개인 정보 교리를 충족하게 만들기 위한 포괄적인 노력이 포함됩니다.
 
 ### <a name="find-and-fix-vulnerabilities-in-your-application-dependencies"></a>애플리케이션 종속성의 취약점을 찾아서 수정
@@ -151,6 +154,7 @@ DAST는 SAST(정적 애플리케이션 보안 테스트)와는 다릅니다. SAS
 [AzSK(Secure DevOps Kit for Azure)](https://azsk.azurewebsites.net/index.html)에는 Azure 플랫폼의 여러 서비스에 대한 SVT가 포함되어 있습니다. 이러한 SVT를 주기적으로 실행하여 Azure 구독과 애플리케이션을 구성하는 여러 리소스를 안전한 상태로 유지해야 합니다. SVT를 Visual Studio 확장으로 사용할 수 있는 AzSK의 CI/CD(연속 통합/지속적인 배포) 확장 기능을 사용하여 이러한 테스트를 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 다음 문서에서는 보안 애플리케이션을 디자인하고 배포하는 데 도움이 되는 보안 제어 및 작업을 권장합니다.
 
 - [보안 애플리케이션 디자인](secure-design.md)

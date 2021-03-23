@@ -1,25 +1,14 @@
 ---
 title: 에이전트 기반 권장 사항
-titleSuffix: Azure Defender for IoT
 description: 보안 권장 사항에 대 한 개념 및 IoT 장치용 Defender에 사용 되는 방법에 대해 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a29957f459edad8b768daea7bc4567d77c80b165
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491268"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784988"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>IoT 장치에 대 한 보안 권장 사항
 
@@ -46,9 +35,9 @@ Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권�
 
 | 심각도 | Name | 데이터 원본 | Description |
 |--|--|--|--|
-| 낮음 | 에이전트가 미달 사용 메시지를 보냅니다. | 클래식 Defender-마이크로 에이전트| 지난 24 시간 동안 10% 이상의 보안 메시지가 4kb 보다 작습니다. |
-| 낮음 | 보안 쌍 구성이 최적이 아닙니다. | 클래식 Defender-마이크로 에이전트| 보안 쌍 구성이 최적이 아닙니다. |
-| 낮음 | 보안 쌍 구성 충돌 | 클래식 Defender-마이크로 에이전트| 보안 쌍 구성에서 충돌을 식별 했습니다. |  |
+| 낮음 | 에이전트가 미달 사용 메시지를 보냅니다. | 클래식 Defender-마이크로 에이전트 | 지난 24 시간 동안 10% 이상의 보안 메시지가 4kb 보다 작습니다. |
+| 낮음 | 보안 쌍 구성이 최적이 아닙니다. | 클래식 Defender-마이크로 에이전트 | 보안 쌍 구성이 최적이 아닙니다. |
+| 낮음 | 보안 쌍 구성 충돌 | 클래식 Defender-마이크로 에이전트 | 보안 쌍 구성에서 충돌을 식별 했습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

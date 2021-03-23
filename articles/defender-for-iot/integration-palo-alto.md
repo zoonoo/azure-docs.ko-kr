@@ -1,19 +1,14 @@
 ---
 title: Palo Alto 통합
-titleSuffix: Azure Defender for IoT
 description: IoT 용 Defender는 지속적인 ICS 위협 모니터링 플랫폼과 Palo Alto의 차세대 방화벽을 통합 하 여 중요 한 위협 요소를 더 빠르고 효율적으로 차단할 수 있습니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 85a7622223861f857ce75b8136b509ba279f3d96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49c00f9ad7cc1980a8690e35ed19351e20417c6a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98558061"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783934"
 ---
 # <a name="about-the-palo-alto-integration"></a>Palo Alto 통합 정보
 
