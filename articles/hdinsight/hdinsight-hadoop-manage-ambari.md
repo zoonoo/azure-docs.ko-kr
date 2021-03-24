@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1b4570b09994f292de2b175396e4b6d1882658d9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945707"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866491"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -44,9 +44,9 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 페이지가 열리면 위쪽의 표시줄을 확인합니다. 이 표시줄에는 다음 정보 및 컨트롤이 포함되어 있습니다.
 
-![Apache Ambari 대시보드 개요](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png" alt-text="Apache Ambari 대시보드 개요":::
 
-|항목 |설명 |
+|항목 |Description |
 |---|---|
 |Ambari 로고|클러스터를 모니터링 하는 데 사용할 수 있는 대시보드를 엽니다.|
 |클러스터 이름 # ops|진행 중인 Ambari 작업 수를 표시 합니다. 클러스터 이름 또는 **# ops** 를 선택하면 백그라운드 작업 목록이 표시됩니다.|
@@ -73,15 +73,15 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 경고는 여러 가지 기본 그룹으로 구성되며 **Alerts** 페이지에서 볼 수 있습니다.
 
-![Apache Ambari 경고 페이지 요약](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png" alt-text="Apache Ambari 경고 페이지 요약":::
 
 **작업** 메뉴를 사용하고 **경고 그룹 관리** 를 선택하여 그룹을 관리할 수 있습니다.
 
-![Apache Ambari 경고 그룹 관리](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png" alt-text="Apache Ambari 경고 그룹 관리":::
 
 경고 메서드를 관리 하 고 __알림 관리__ 를 선택 하 여 **작업** 메뉴에서 경고 알림을 만듭니다. 모든 현재 알림이 표시됩니다. 여기에서 알림을 만듭니다. 특정 경고/심각도 조합이 발생하면 **전자 메일** 또는 **SNMP** 를 통해 알림을 보낼 수 있습니다. 예를 들어 **YARN Default** 그룹에 **위험** 으로 설정된 경고가 있으면 전자 메일 메시지를 보낼 수 있습니다.
 
-![Apache Ambari 경고 만들기 알림](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png" alt-text="Apache Ambari 경고 만들기 알림":::
 
 마지막으로, __작업__ 메뉴에서 __경고 설정 관리__ 를 선택하면 알림을 보내기 전에 경고가 발생해야 하는 횟수를 지정할 수 있습니다. 일시적인 오류에 대한 알림을 방지하는 데 이 설정을 사용할 수 있습니다.
 
@@ -91,29 +91,29 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 대시보드의 **Metrics** 탭은 클러스터의 상태를 한 눈에 쉽게 모니터할 수 있는 일련의 위젯을 포함합니다. **CPU Usage** 와 같은 여러 위젯은 클릭하면 추가 정보를 제공합니다.
 
-![메트릭이 포함 된 Apache Ambari 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png" alt-text="메트릭이 포함 된 Apache Ambari 대시보드":::
 
 **Heatmaps** 탭은 녹색에서 빨간색으로 변하는 히트맵처럼 메트릭을 표시합니다.
 
-![열 지도를 사용 하는 Apache Ambari 대시보드](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png" alt-text="열 지도를 사용 하는 Apache Ambari 대시보드":::
 
 클러스터 내의 노드에 대한 자세한 내용은 **호스트** 를 선택합니다. 그런 다음 관심 있는 특정 노드를 선택 합니다.
 
-![Apache Ambari 호스트 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png" alt-text="Apache Ambari 호스트 요약 정보":::
 
 ### <a name="services"></a>서비스
 
 대시보드의 **Services** 세로 막대는 클러스터에서 실행되는 서비스 상태에 대한 빠른 정보를 제공합니다. 다양한 아이콘은 수행해야 하는 상태 또는 작업을 나타내는 데 사용됩니다. 예를 들어 서비스가 재활용되어야 하는 경우 노란색 재활용 기호가 표시됩니다.
 
 
-![Apache Ambari services의 가로 막대형](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png" alt-text="Apache Ambari services의 가로 막대형":::
 
 > [!NOTE]  
 > 표시된 서비스는 HDInsight 클러스터 유형과 버전 간에 다릅니다. 여기에 표시된 서비스는 클러스터에 대해 표시된 서비스와 다를 수 있습니다.
 
 서비스를 선택하면 해당 서비스에 대한 자세한 정보가 표시됩니다.
 
-![Apache Ambari 서비스 요약 정보](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png" alt-text="Apache Ambari 서비스 요약 정보":::
 
 #### <a name="quick-links"></a>빠른 링크
 
@@ -142,7 +142,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 **Hosts** 페이지는 클러스터의 모든 호스트를 나열합니다. 호스트를 관리하려면 다음 단계를 따르세요.
 
-![Apache Ambari 호스트 페이지 개요](./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/hdinsight-hosts-page.png" alt-text="Apache Ambari 호스트 페이지 개요":::
 
 > [!NOTE]  
 > 호스트 추가, 서비스 해제 및 서비스 등록은 HDInsight 클러스터에서 사용할 수 없습니다.
@@ -151,7 +151,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 2. **작업** 메뉴를 사용 하 여 수행 하려는 작업을 선택 합니다.
 
-    |항목 |설명 |
+    |항목 |Description |
     |---|---|
     |모든 구성 요소 시작|호스트에서 모든 구성 요소를 시작 합니다.|
     |모든 구성 요소 중지|호스트의 모든 구성 요소를 중지 합니다.|
@@ -160,7 +160,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
     |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
     |중지|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
     |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
-    |재시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
+    |다시 시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
     |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마세요.**|
 
@@ -179,7 +179,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 2. **요약** 탭 위쪽에서 **서비스 작업** 단추를 사용하여 수행할 작업을 선택합니다. 이 작업은 모든 노드에서 서비스를 다시 시작 합니다.
 
-    ![Apache Ambari 개별 서비스 작업](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png" alt-text="Apache Ambari 개별 서비스 작업":::
 
    > [!NOTE]  
    > 클러스터가 실행되는 동안 일부 서비스를 다시 시작하면 경고가 발생할 수 있습니다. 경고를 방지하려면 **서비스 작업** 단추를 사용하여 다시 시작하기 전에 서비스에 대한 **유지 관리 모드** 를 사용하도록 설정합니다.
@@ -195,7 +195,7 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 
 2. **Configs** 탭을 선택 합니다. 현재 구성이 표시 됩니다. 이전 구성의 목록도 표시됩니다.
 
-    ![Apache Ambari 서비스 구성](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
+    :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png" alt-text="Apache Ambari 서비스 구성":::
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save** 를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current** 를 선택하여 이전 설정으로 롤백할 수 있습니다.
 

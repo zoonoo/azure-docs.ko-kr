@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b664dd406a1ab90b4ea5e85005a69935f345c609
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a7978410dbe28a5da5dae81cb380d118fe13a159
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034662"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869381"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 서버 개념
 
@@ -55,7 +55,14 @@ Azure Database for MySQL 유연한 서버 내에서 하나 이상의 데이터�
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
 
-[Azure Portal](./quickstart-create-server-portal.md) 또는 [Azure CLI](./quickstart-create-server-cli.md)를 사용 하 여 Azure Database for MySQL 유연한 서버를 관리할 수 있습니다.
+[Azure Portal](./quickstart-create-server-portal.md) 또는 [Azure CLI](./quickstart-create-server-cli.md)를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 만들기, 삭제, 서버 매개 변수 구성 (my.cnf), 크기 조정, 네트워킹, 보안, 고가용성, 백업 & 복원, 모니터링을 관리할 수 있습니다. 또한 서버에서 슈퍼 사용자 권한이 지원 되지 않기 때문에 필요한 특정 데이터베이스 관리 작업을 수행 하는 Azure Database for MySQL에는 다음 저장 프로시저를 사용할 수 있습니다.
+
+|**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|해당 없음|Command와 동일 [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결을 실행 하는 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
+|*mysql.az_kill_query*|processlist_id|해당 없음|Command와 동일 [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
+|*mysql.az_load_timezone*|해당 없음|해당 없음|매개 변수를 명명 된 값으로 설정할 수 있도록 [표준 시간대 테이블](../howto-server-parameters.md#working-with-the-time-zone-parameter) 을 로드 `time_zone` 합니다 (예: "US/태평양").|
+
 
 ## <a name="next-steps"></a>다음 단계
 

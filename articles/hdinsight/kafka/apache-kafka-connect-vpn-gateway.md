@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
-ms.openlocfilehash: ad802b2bdf08a8e43179beece5f52d869513aff3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: eb97e209bc7bb9bc1a15ecadc88593e4c0573b5c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933047"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870622"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Azure Virtual Network를 통해 HDInsight의 Apache Kafka에 연결
 
@@ -245,15 +245,15 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__ 를 선택합니다.
 
-    ![Kafka가 강조 표시된 서비스 목록](./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-service.png" alt-text="Kafka가 강조 표시된 서비스 목록" border="true":::
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__ 를 선택합니다.
 
-    ![Apache Ambari Services 구성](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png" alt-text="Apache Ambari Services 구성" border="true":::
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
-    ![kafka-env의 Kafka 구성](./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/search-for-kafka-env.png" alt-text="kafka-env의 Kafka 구성" border="true":::
 
 5. IP 주소를 보급하도록 Kafka를 구성하려면 __kafka-env-template__ 맨 아래에 다음 텍스트를 추가합니다.
 
@@ -271,15 +271,15 @@ Kafka 클라이언트가 온-프레미스에서 클러스터로 연결할 수 �
 
 8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__ 을 선택합니다.
 
-    ![Apache Ambari 구성 저장](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png" alt-text="Apache Ambari 구성 저장" border="true":::
 
 9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__ 를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 
-    ![유지 관리 모드 켜기가 강조 표시된 서비스 작업](./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/turn-on-maintenance-mode.png" alt-text="유지 관리 모드 켜기가 강조 표시된 서비스 작업" border="true":::
 
 10. Kafka를 다시 시작하려면 __다시 시작__ 단추를 사용하고 __영향 받은 모든 항목 다시 시작__ 을 선택합니다. 다시 시작을 확인하고 작업이 완료되면 __확인__ 단추를 사용합니다.
 
-    ![영향 받은 모든 항목 다시 시작이 강조 표시된 다시 시작 단추](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-connect-vpn-gateway/restart-required-button.png" alt-text="영향 받은 모든 항목 다시 시작이 강조 표시된 다시 시작 단추" border="true":::
 
 11. 유지 관리 모드를 사용하지 않도록 설정하려면 __서비스 작업__ 단추를 사용하고 __유지 관리 모드 끄기__ 를 선택합니다. **확인** 을 선택하여 이 작업을 완료합니다.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: fe04615e234eaf5b006a80e6f584905626c637ba
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0b49cf4fe28e2a9b4d15f889d227b443777b1efa
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489488"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889249"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Windows에서 Linux 용 IoT Edge PowerShell 스크립트
 
@@ -140,7 +140,7 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 ## <a name="ssh-eflowvm"></a>Ssh-EflowVm
 
-**Ssh-EflowVm** 명령은 가상 컴퓨터에 ssh를 사용 하는 데 사용 됩니다. 추가 정보를 보려면 명령을 사용 `Get-Help Ssh-EflowVm -full` 합니다.
+**Ssh-EflowVm** 명령은 가상 컴퓨터에 ssh를 사용 하는 데 사용 됩니다. 가상 컴퓨터에 대 한 SSH를 허용 하는 유일한 계정은 가상 컴퓨터를 만든 사용자입니다. 추가 정보를 보려면 명령을 사용 `Get-Help Ssh-EflowVm -full` 합니다.
 
 | 매개 변수 | 허용되는 값 | 의견 |
 | --------- | --------------- | -------- |

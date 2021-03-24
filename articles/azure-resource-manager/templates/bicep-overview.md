@@ -2,13 +2,13 @@
 title: Azure Resource Manager 템플릿에 대 한 Bicep 언어
 description: Azure Resource Manager 템플릿을 통해 Azure에 인프라를 배포 하기 위한 Bicep 언어에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 6f706081d04c5337bb3def8088fe97b08c814ea2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 0edd0063ea08978b89c3ad3067f41ae743451df7
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594226"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889691"
 ---
 # <a name="what-is-bicep-preview"></a>Bicep (미리 보기) 란?
 
@@ -18,9 +18,7 @@ Bicep은 Azure 리소스를 선언적으로 배포 하기 위한 언어입니다
 
 Bicep에 대 한 자세한 내용은 다음 비디오를 참조 하세요.
 
-> [!VIDEO https://mediusprodstatic.studios.ms/asset-cccfdaf2-cdbe-49dd-9c58-91a4fe5ff0fd/OD340_1920x1080_AACAudio_5429.mp4?sv=2018-03-28&sr=b&sig=N3DuBaTrK3nt5TGwIagTbCqjVrzgwiJ9at80MXQJFwg%3D&st=2021-03-02T01%3A22%3A57Z&se=2026-03-02T01%3A27%3A57Z&sp=r&rscd=filename%3DIGFY21Q3-OD340-Learn%2Beverything%2Babout%2Bthe%2Bnext%2Bgeneration%2Bof%2BARM.mp4]
-
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 Bicep를 시작 하려면 [도구를 설치](https://github.com/Azure/bicep/blob/main/docs/installing.md)합니다.
 

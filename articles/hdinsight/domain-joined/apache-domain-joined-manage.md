@@ -4,12 +4,12 @@ description: Enterprise Security Package를 사용 하 여 Azure HDInsight 클�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.openlocfilehash: b0f8ba4adfa4b08c23d3f69fa4e2b01f4580bb19
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bc31c3d71590a6b8c0b324ffcb8c10129a9f8699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742214"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863244"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 
@@ -116,7 +116,7 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 2. 왼쪽 메뉴에서 **역할** 을 선택 합니다.
 3. 사용 권한을 보려면 파란색 물음표를 선택 합니다.
 
-    ![ESP HDInsight 역할 사용 권한](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="ESP HDInsight 역할 사용 권한" border="true":::
 
 ## <a name="open-the-ambari-management-ui"></a>Ambari 관리 UI 열기
 
@@ -124,25 +124,25 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 1. 클러스터 관리자 도메인 사용자 이름 및 암호를 사용 하 여 Ambari에 로그인 합니다.
 1. 오른쪽 위 모서리에서 **관리** 드롭다운 메뉴를 선택한 다음 **Ambari 관리** 를 선택 합니다.
 
-    ![ESP HDInsight의 Apache Ambari 관리](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="ESP HDInsight의 Apache Ambari 관리" border="true":::
 
     UI는 다음과 같습니다.
 
-    ![ESP HDInsight Apache Ambari 관리 UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="ESP HDInsight Apache Ambari 관리 UI" border="true":::
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Active Directory에서 동기화된 도메인 사용자 나열
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
 2. 왼쪽 메뉴에서 **사용자** 를 선택 합니다. Active Directory에서 HDInsight 클러스터로 동기화된 모든 사용자가 표시됩니다.
 
-    ![ESP HDInsight Ambari 관리 UI 사용자 나열](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="ESP HDInsight Ambari 관리 UI 사용자 나열" border="true":::
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Active Directory에서 동기화된 도메인 그룹 나열
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
 2. 왼쪽 메뉴에서 **그룹** 을 선택 합니다. Active Directory에서 HDInsight 클러스터로 동기화된 모든 그룹이 표시됩니다.
 
-    ![ESP HDInsight Ambari 관리 UI 그룹 나열](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="ESP HDInsight Ambari 관리 UI 그룹 나열" border="true":::
 
 ## <a name="configure-hive-views-permissions"></a>Hive 뷰 사용 권한 구성
 
@@ -150,12 +150,12 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 2. 왼쪽 메뉴에서 **보기** 를 선택 합니다.
 3. **HIVE** 를 선택 하 여 세부 정보를 표시 합니다.
 
-    ![ESP HDInsight Ambari 관리 UI Hive 뷰](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="ESP HDInsight Ambari 관리 UI Hive 뷰" border="true":::
 
 4. Hive 보기를 구성 하려면 **Hive 보기** 링크를 선택 합니다.
 5. 아래에 있는 **사용 권한** 섹션으로 스크롤합니다.
 
-    ![ESP HDInsight Ambari 관리 UI Hive 뷰 사용 권한 구성](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="ESP HDInsight Ambari 관리 UI Hive 뷰 사용 권한 구성" border="true":::
 
 6. **사용자 추가** 또는 **그룹 추가** 를 선택 하 고 Hive 보기를 사용할 수 있는 사용자 또는 그룹을 지정 합니다.
 

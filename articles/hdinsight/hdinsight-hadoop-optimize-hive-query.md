@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/28/2020
-ms.openlocfilehash: a15c3e0fb3550c6e50b3fba2279611fdba25bc84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 551d985ea78e83397e507676c5fd7ecfce12ff7b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945566"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864247"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
@@ -34,11 +34,11 @@ HDInsight 클러스터의 작업자 노드 수를 높이면 작업에서 더 많
 
 * 클러스터를 만들 때 Azure Portal, Azure PowerShell 또는 명령줄 인터페이스를 사용 하 여 작업자 노드 수를 지정할 수 있습니다.  자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 다음 스크린샷에는 Azure Portal의 작업자 노드 구성이 나와 있습니다.
   
-    ![Azure Portal 클러스터 크기 노드](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png" alt-text="Azure Portal 클러스터 크기 노드":::
 
 * 클러스터를 만든 후에는 작업자 노드 수를 편집하여 클러스터를 다시 만들지 않고도 클러스터 규모를 확장할 수도 있습니다.
 
-    ![클러스터 크기 Azure Portal 크기 조정](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
+    :::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png " alt-text="클러스터 크기 Azure Portal 크기 조정":::
 
 HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 크기 조정](hdinsight-scaling-best-practices.md)을 참조하세요.
 
@@ -46,7 +46,7 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 
 [Apache Tez](https://tez.apache.org/) 는 MapReduce 엔진에 대 한 대체 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
 
-![HDInsight Apache Tez 개요 다이어그램](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png" alt-text="HDInsight Apache Tez 개요 다이어그램":::
 
 다음의 이유로 Tez가 훨씬 빠릅니다.
 
@@ -70,7 +70,7 @@ I/O 작업은 Hive 쿼리 실행의 주요 성능 병목 상태입니다. 읽어
 
 Hive 분할은 원시 데이터를 새 디렉터리로 재구성하여 구현됩니다. 각 파티션은 자체 파일 디렉터리를 갖습니다. 분할은 사용자가 정의합니다. 다음 다이어그램에서는 Hive 테이블을 *년* 열로 분할하는 것을 보여 줍니다. 각 연도로 새 디렉터리가 생성됩니다.
 
-![HDInsight Apache Hive 분할](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+:::image type="content" source="./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png" alt-text="HDInsight Apache Hive 분할":::
 
 일부 분할 고려 사항:
 
@@ -127,7 +127,7 @@ STORED AS TEXTFILE;
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
 
-Hive는 다양한 파일 형식을 지원합니다. 예를 들면 다음과 같습니다.
+Hive는 다양한 파일 형식을 지원합니다. 예를 들어:
 
 * **텍스트**: 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
 * **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
@@ -153,7 +153,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예를 들면 다음과 같습니다.
+다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예를 들어:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

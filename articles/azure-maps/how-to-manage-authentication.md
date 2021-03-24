@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 955b541bdb4ae38066f1eb4d2f09363ec51be1d2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92895769"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864077"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -45,7 +45,7 @@ Azure Portal에서 인증 세부 정보를 볼 수 있습니다. 계정에서 **
 
 | 시나리오                                                                                    | 인증 | 권한 부여 | 개발 활동 | 운영 활동 |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | 공유 키     | 해당 없음           | 중간             | 높음               |
+| [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | 공유 키     | 해당 없음           | 중간             | 높은               |
 | [신뢰할 수 있는 데몬/비 대화형 클라이언트 응용 프로그램](./how-to-secure-daemon-app.md)        | Azure AD       | 높음          | 낮음                | 중간             |
 | [대화형 single sign-on을 사용 하는 웹 단일 페이지 응용 프로그램](./how-to-secure-spa-users.md) | Azure AD       | 높음          | 중간             | 중간             |
 | [비 대화형 sign-on을 사용 하는 웹 단일 페이지 응용 프로그램](./how-to-secure-spa-app.md)      | Azure AD       | 높음          | 중간             | 중간             |
@@ -78,6 +78,31 @@ Azure AD 토큰 끝점에서 토큰을 요청 합니다. Azure AD 요청에서 �
 | Azure Government 클라우드 | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
 사용자 및 서비스 사용자를 위해 Azure AD에서 액세스 토큰을 요청 하는 방법에 대 한 자세한 내용은 [AZURE ad에 대 한 인증 시나리오](../active-directory/develop/authentication-vs-authorization.md) 및 [시나리오](./how-to-manage-authentication.md#determine-authentication-and-authorization)표에서 특정 시나리오 보기를 참조 하세요.
+
+## <a name="manage-and-rotate-shared-keys"></a>공유 키 관리 및 회전
+
+Azure Maps 구독 키는 Azure Maps 계정의 루트 암호와 비슷합니다. 구독 키는 항상 보호 해야 합니다. Azure Key Vault를 사용 하 여 키를 안전 하 게 관리 하 고 회전 합니다. 액세스 키를 다른 사용자에 게 배포 하거나 하드 코딩 하거나 다른 사용자가 액세스할 수 있는 일반 텍스트로 저장 하지 않도록 합니다. 키가 손상 된 것으로 판단 되 면 키를 회전 합니다.
+
+> [!NOTE]
+> Azure AD (Azure Active Directory)를 사용 하 여 공유 키 대신 가능한 경우 요청에 권한을 부여 하는 것이 좋습니다. Azure AD는 공유 키를 통해 뛰어난 보안과 사용 편의성을 제공 합니다.
+
+### <a name="manually-rotate-subscription-keys"></a>수동으로 구독 키 회전
+
+Azure Maps 계정을 안전 하 게 유지 하기 위해 구독 키를 정기적으로 회전 하는 것이 좋습니다. 가능 하면 Azure Key Vault를 사용 하 여 액세스 키를 관리 합니다. Key Vault 사용 하지 않는 경우 수동으로 키를 회전 해야 합니다.
+
+키를 회전할 수 있도록 두 개의 구독 키가 할당 됩니다. 두 개의 키가 있으면 응용 프로그램이 프로세스 전체에서 Azure Maps에 대 한 액세스를 유지 관리할 수 있습니다.
+
+Azure Portal에서 Azure Maps 구독 키를 회전 하려면:
+
+1. Azure Maps 계정의 보조 키를 참조 하도록 응용 프로그램 코드를 업데이트 하 고 배포 합니다.
+2. [Azure Portal](https://portal.azure.com/)에서 Azure Maps 계정으로 이동 합니다.
+3. **설정** 에서 **인증** 을 선택 합니다.
+4. Azure Maps 계정에 대 한 기본 키를 다시 생성 하려면 기본 키 옆에 있는 **다시 생성** 단추를 선택 합니다.
+5. 응용 프로그램 코드를 업데이트 하 여 새 기본 키를 참조 하 고 배포 합니다.
+6. 동일한 방식으로 보조 키를 다시 생성 합니다.
+
+> [!WARNING]
+> 모든 애플리케이션에서 키 중 하나만 동시에 사용하는 것이 좋습니다. 일부 위치에서 키 1을 사용 하 고 다른 위치에서 키 2를 사용 하는 경우 일부 응용 프로그램이 액세스 권한을 상실 하지 않아도 키를 회전할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

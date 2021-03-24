@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e8a9f771827b870f493d6b0d7590feee7fc52b20
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929515"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870248"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
 [Apache Spark](https://spark.apache.org/) 스트리밍은 HDInsight Spark 클러스터에서 데이터 스트림 처리를 제공 합니다. 노드 오류가 발생할 경우에도 입력 이벤트가 정확히 한 번만 처리 되도록 보장 합니다. Spark 스트림은 Azure Event Hubs를 포함 하 여 다양 한 원본에서 입력 데이터를 수신 하는 장기 실행 작업입니다. 또한 Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ` , 원시 TCP 소켓 또는 모니터링 APACHE HADOOP YARN 파일 시스템 합니다. 전적으로 이벤트 구동 프로세스와 달리 Spark 스트림은 입력 데이터를 시간 창으로 일괄 처리 합니다. 그런 다음 2 초 조각과 같이 map, 줄임, join 및 extract 작업을 사용 하 여 각 데이터 일괄 처리를 변환 합니다. 그런 다음 Spark Stream은 변환된 데이터를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 기록합니다.
 
-![HDInsight 및 Spark 스트리밍을 사용하여 스트림 처리](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="HDInsight 및 Spark 스트리밍을 사용하여 스트림 처리" border="false":::
 
 Spark 스트리밍 응용 프로그램은 `micro-batch` 처리를 위해 해당 일괄 처리를 보내기 전에 각 이벤트를 수집할 때까지 몇 초 정도 기다려야 합니다. 반면, 이벤트 기반 애플리케이션은 각 이벤트를 즉시 처리합니다. Spark 스트리밍 대기 시간은 일반적으로 몇 초 이하입니다. 마이크로 일괄 처리 방법의 이점은 보다 효율적인 데이터 처리 및 간단한 집계 계산입니다.
 
@@ -30,7 +30,7 @@ DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을
 
 각 RDD는 *일괄 처리 간격* 이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. Rds의 연속 집합은 DStream으로 수집 됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 애플리케이션은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
 
-![온도 이벤트를 사용하는 예제 DStream](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png" alt-text="온도 이벤트를 사용하는 예제 DStream" border="false":::
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Spark 스트리밍 애플리케이션의 구조
 
@@ -168,9 +168,9 @@ DummySource는 5초마다 하나의 값을 만들고 애플리케이션이 30초
 
 이러한 슬라이딩 윈도우는 겹칠 수 있습니다. 예를 들어 1초마다 슬라이드하는 2초 길이로 윈도우를 정의할 수 있습니다. 이 작업은 집계 계산을 수행할 때마다 이전 창의 마지막 1 초에서 가져온 데이터가 창에 포함 됨을 의미 합니다. 그리고 다음 1 초 동안 모든 새 데이터
 
-![온도 이벤트를 사용하는 예제 초기 윈도우](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-01.png" alt-text="온도 이벤트를 사용하는 예제 초기 윈도우" border="false":::
 
-![슬라이딩 후 온도 이벤트를 사용하는 예제 윈도우](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-window-02.png" alt-text="슬라이딩 후 온도 이벤트를 사용하는 예제 윈도우" border="false":::
 
 다음 예제에서는 DummySource를 사용하는 코드가 1분 기간 및 1분 슬라이드가 있는 윈도우에 일괄 처리를 수집하도록 업데이트합니다.
 
@@ -244,7 +244,7 @@ ssc.start()
 
 일반적으로 Spark 스트리밍 응용 프로그램을 JAR 파일에 로컬로 빌드합니다. 그런 다음 JAR 파일을 기본 연결 된 저장소로 복사 하 여 HDInsight의 Spark에 배포 합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 LIVY REST API를 통해 애플리케이션을 시작할 수 있습니다. 게시물의 본문에는 JAR에 대 한 경로를 제공 하는 JSON 문서가 포함 되어 있습니다. 그리고 main 메서드에서 스트리밍 응용 프로그램을 정의 하 고 실행 하는 클래스의 이름과 선택적으로 작업의 리소스 요구 사항 (예: 실행 기, 메모리 및 코어 수)이 포함 됩니다. 또한 응용 프로그램 코드에 필요한 모든 구성 설정입니다.
 
-![Spark Streaming 애플리케이션 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Spark Streaming 애플리케이션 배포" border="false":::
 
 또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 애플리케이션의 상태를 확인할 수 있습니다. 마지막으로 LIVY 끝점에 대해 DELETE 요청을 실행 하 여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [Apache LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: 2c528859ea5abc6267c10a2ede9c2ca99f84e22f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c7125e25c9716a9934c97f9f8f85666d264d5f89
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946800"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866950"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -37,7 +37,7 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 1. Windows에서 **시작 > Windows 관리 도구 > ODBC 데이터 원본 (32 비트)/(64 비트)** 으로 이동 합니다.  이 작업을 수행 하면 **ODBC 데이터 원본 관리자** 창이 열립니다.
 
-    ![OBDC 데이터 원본 관리자](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png "ODBC 데이터 원본 관리자를 사용하여 DSN 구성")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-datasourceadmin1.png" alt-text="OBDC 데이터 원본 관리자" border="true":::
 
 1. **사용자 DSN** 탭에서 **추가** 를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
 
@@ -45,10 +45,10 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 1. 다음 값을 입력하거나 선택합니다.
 
-   | 속성 | 설명 |
+   | 속성 | Description |
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
-   |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. 예: `myHDICluster.azurehdinsight.net` 참고: `HDInsightClusterName-int.azurehdinsight.net` 는 클라이언트 VM이 동일한 가상 네트워크에 피어 링 지만 지원 됩니다. |
+   |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. 예들 들어 `myHDICluster.azurehdinsight.net`입니다. 참고: `HDInsightClusterName-int.azurehdinsight.net` 는 클라이언트 VM이 동일한 가상 네트워크에 피어 링 지만 지원 됩니다. |
    |  포트 |**443** 을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |**기본값** 을 사용 합니다. |
    |  메커니즘 |**Windows Azure HDInsight Service** 를 선택합니다. |
@@ -57,13 +57,13 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 1. 선택 사항: **고급 옵션** ...을 선택 합니다.  
 
-   | 매개 변수 | 설명 |
+   | 매개 변수 | Description |
    | --- | --- |
    |  Use Native Query |선택하면 ODBC 드라이버가 TSQL을 HiveQL로 변환하지 않습니다. 순수한 HiveQL 문을 전송 하 고 있는지 100% 인 경우에만이를 사용 해야 합니다. SQL Server 또는 Azure SQL Database에 연결하는 경우에는 이 옵션을 선택 취소한 상태로 둬야 합니다. |
    |  Rows fetched per block |많은 수의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다. |
    |  Default string column length, Binary column length, Decimal column scale |데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 전체 자릿수 및 잘림 때문에 잘못 된 정보가 반환 됩니다. |
 
-    ![고급 DSN 구성 옵션](./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png "고급 DSN 구성 옵션")
+    :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hiveodbc-datasource-advancedoptions1.png" alt-text="고급 DSN 구성 옵션" border="true":::
 
 1. **테스트** 를 선택하여 데이터 원본을 테스트합니다. 데이터 소스가 올바르게 구성 되 면 테스트 결과에 **성공!** 이 표시 됩니다.
 
@@ -81,7 +81,7 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 2. **데이터** 탭에서 **데이터 가져오기** > **기타 원본에서** > **ODBC에서** 로 이동하여 **ODBC에서** 창을 시작합니다.
 
-    ![Excel 데이터 연결 마법사 열기](./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png "Excel 데이터 연결 마법사 열기")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/simbahiveodbc-excel-dataconnection1.png" alt-text="Excel 데이터 연결 마법사 열기" border="true":::
 
 3. 드롭다운 목록에서 마지막 섹션에서 만든 데이터 원본 이름을 선택 하 고 **확인** 을 선택 합니다.
 
@@ -89,7 +89,7 @@ Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클�
 
 5. **탐색기** 에서 **HIVE** > **기본값** > **hivesampletable** 로 이동한 다음, **로드** 를 선택합니다. 데이터를 Excel로 가져올 때까지 잠시 기다립니다.
 
-    ![HDInsight Excel Hive ODBC 탐색기](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png "HDInsight Excel Hive ODBC 탐색기")
+   :::image type="content" source="./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight-hive-odbc-navigator.png" alt-text="HDInsight Excel Hive ODBC 탐색기" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

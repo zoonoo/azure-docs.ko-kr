@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: ad8239b3403d37a9e4c79de481fb9cb26306e243
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e79c2f361108f1daa3c4a125491d1b399e050648
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946334"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863703"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
 이 문서에서는 HDInsight Spark 클러스터에서 사용할 수 있는 [Jupyter Notebook](https://jupyter.org/) 를 사용 하 여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -70,7 +70,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
 3. 새 Notebook을 만듭니다. **새로 만들기** 를 클릭한 다음 **PySpark** 를 클릭합니다.
 
-    ![새 Jupyter Notebook 만들기](./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "새 Jupyter Notebook 만들기")
+    :::image type="content" source="./media/apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png " alt-text="새 Jupyter Notebook 만들기" border="true":::
 
 4. PySpark 커널을 사용하여 노트북을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 이렇게 하려면 셀에 다음 코드 조각을 붙여 넣고 **SHIFT + ENTER** 를 누릅니다.
 
@@ -80,7 +80,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
 
     Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
-     ![Jupyter Notebook 작업 상태](./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png "Jupyter Notebook 작업 상태")
+     :::image type="content" source="./media/apache-spark-use-with-data-lake-store/hdinsight-jupyter-job-status.png " alt-text="Jupyter Notebook 작업 상태" border="true":::
 
 5. Data Lake Storage Gen1 계정에 복사한 **HVAC.csv** 파일을 사용하여 샘플 데이터를 임시 테이블에 로드합니다. 다음 URL 패턴을 사용하여 Data Lake Storage 계정의 데이터에 액세스할 수 있습니다.
 
@@ -129,11 +129,11 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
     ```
 7. 작업이 성공적으로 완료되면 기본적으로 다음 테이블 형식의 출력이 표시됩니다.
 
-      ![쿼리 결과의 테이블 출력](./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png "쿼리 결과의 테이블 출력")
+      :::image type="content" source="./media/apache-spark-use-with-data-lake-store/jupyter-tabular-output.png " alt-text="쿼리 결과의 테이블 출력" border="true":::
 
      다른 시각화로 결과를 볼 수도 있습니다. 예를 들어 동일한 출력에 대한 영역 그래프는 다음과 같습니다.
 
-     ![쿼리 결과의 영역 그래프](./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png "쿼리 결과의 영역 그래프")
+     :::image type="content" source="./media/apache-spark-use-with-data-lake-store/jupyter-area-output1.png " alt-text="쿼리 결과의 영역 그래프" border="true":::
 
 8. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 노트북을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지** 를 클릭합니다. 그러면 Notebook이 종료되고 닫힙니다.
 

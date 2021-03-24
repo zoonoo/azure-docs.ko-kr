@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
-ms.openlocfilehash: e14784459a3c7733af274197507b76341d68477e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d78b629e90903c58b98de86f425f0c1225d90997
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946911"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867052"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
@@ -31,7 +31,7 @@ Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진�
 
 HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broker에 제공하지 않습니다. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 여기서는 Kafka 클러스터와 Spark 클러스터가 모두 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
 
-![Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램](./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램" border="false":::
 
 > [!NOTE]  
 > Kafka 서비스는 가상 네트워크 내에서 통신으로 제한됩니다. SSH 및 Ambari와 같은 클러스터의 다른 서비스는 인터넷을 통해 액세스할 수 있습니다. HDInsight에서 사용할 수 있는 공용 포트에 대한 자세한 내용은 [HDInsight에서 사용하는 포트 및 URI](hdinsight-hadoop-port-settings-for-services.md)를 참조하세요.
@@ -73,7 +73,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
     |SSH 사용자 이름|Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.|
     |SSH 암호|Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.|
 
-    ![HDInsight 사용자 지정 배포 값](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="HDInsight 사용자 지정 배포 값":::
 
 1. **사용 약관** 을 읽은 다음 **위에 명시된 사용 약관에 동의함** 을 선택합니다.
 

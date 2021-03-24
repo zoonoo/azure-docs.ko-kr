@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: d807b591229644984f6658cdacd0bf447759f292
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2216eb5893b77761f4d31c5819d152ceeb985abc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933022"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869653"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에서 Azure Kubernetes Service 사용
 
@@ -42,7 +42,7 @@ HDInsight와 AKS 모두 Azure Virtual Network를 컴퓨팅 리소스의 컨테�
 
 다음 다이어그램은 이 문서에서 사용한 네트워크 토폴로지를 보여줍니다.
 
-![한 가상 네트워크의 HDInsight, 다른 가상 네트워크의 AKS, 피어링 사용](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
+:::image type="content" source="./media/apache-kafka-azure-container-services/kafka-aks-architecture.png" alt-text="한 가상 네트워크의 HDInsight, 다른 가상 네트워크의 AKS, 피어링 사용" border="false":::
 
 > [!IMPORTANT]  
 > 피어링된 네트워크 간에 이름 확인을 사용할 수 없으므로 IP 주소 지정이 사용됩니다. 기본적으로 HDInsight의 Kafka는 클라이언트 연결 시 IP 주소 대신 호스트 이름을 반환하도록 구성됩니다. 이 문서의 단계에서는 IP 보급을 대신 사용하도록 Kafka를 수정합니다.
@@ -109,15 +109,15 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 2. Kafka에 대한 정보를 보려면 왼쪽 목록에서 __Kafka__ 를 선택합니다.
 
-    ![Kafka가 강조 표시된 서비스 목록](./media/apache-kafka-azure-container-services/select-kafka-service.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-service.png" alt-text="Kafka가 강조 표시된 서비스 목록" border="true":::
 
 3. Kafka 구성을 보려면 위쪽 가운데에서 __Configs__ 를 선택합니다.
 
-    ![Apache Ambari Services 구성](./media/apache-kafka-azure-container-services/select-kafka-config1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/select-kafka-config1.png" alt-text="Apache Ambari Services 구성" border="true":::
 
 4. __kafka-env__ 구성을 찾으려면 오른쪽 위에 있는 __필터__ 필드에 `kafka-env`를 입력합니다.
 
-    ![kafka-env의 Kafka 구성](./media/apache-kafka-azure-container-services/search-for-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/search-for-kafka-env.png" alt-text="kafka-env의 Kafka 구성" border="true":::
 
 5. IP 주소를 보급하도록 Kafka를 구성하려면 __kafka-env-template__ 맨 아래에 다음 텍스트를 추가합니다.
 
@@ -135,15 +135,15 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 8. 구성 변경 내용을 저장하려면 __저장__ 단추를 사용합니다. 변경 내용을 설명하는 텍스트 메시지를 입력합니다. 변경 내용이 저장되면 __확인__ 을 선택합니다.
 
-    ![Apache Ambari 구성 저장](./media/apache-kafka-azure-container-services/save-configuration-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/save-configuration-button.png" alt-text="Apache Ambari 구성 저장" border="true":::
 
 9. Kafka를 다시 시작할 때 오류를 방지하려면 __서비스 작업__ 단추를 사용하여 __유지 관리 모드 켜기__ 를 선택합니다. 확인을 선택하여 이 작업을 완료합니다.
 
-    ![유지 관리 모드 켜기가 강조 표시된 서비스 작업](./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/turn-on-maintenance-mode.png" alt-text="유지 관리 모드 켜기가 강조 표시된 서비스 작업" border="true":::
 
 10. Kafka를 다시 시작하려면 __다시 시작__ 단추를 사용하고 __영향 받은 모든 항목 다시 시작__ 을 선택합니다. 다시 시작을 확인하고 작업이 완료되면 __확인__ 단추를 사용합니다.
 
-    ![영향 받은 모든 항목 다시 시작이 강조 표시된 다시 시작 단추](./media/apache-kafka-azure-container-services/restart-required-button.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/restart-required-button.png" alt-text="영향 받은 모든 항목 다시 시작이 강조 표시된 다시 시작 단추" border="true":::
 
 11. 유지 관리 모드를 사용하지 않도록 설정하려면 __서비스 작업__ 단추를 사용하고 __유지 관리 모드 끄기__ 를 선택합니다. **확인** 을 선택하여 이 작업을 완료합니다.
 
@@ -213,7 +213,7 @@ HDInsight 클러스터에 Kafka를 생성할 때 이전에 HDInsight용으로 �
 
 11. 웹 브라우저를 열고 서비스의 외부 IP 주소를 입력합니다. 다음 이미지와 유사한 페이지가 열립니다.
 
-    ![Apache Kafka 테스트 웹 페이지 이미지](./media/apache-kafka-azure-container-services/test-web-page-image1.png)
+    :::image type="content" source="./media/apache-kafka-azure-container-services/test-web-page-image1.png" alt-text="Apache Kafka 테스트 웹 페이지 이미지" border="true":::
 
 12. 필드에 텍스트를 입력하고 __보내기__ 단추를 선택합니다. 데이터가 Kafka로 전송됩니다. 그러면 애플리케이션의 Kafka 소비자가 메시지를 읽고 이를 __Kafka의 메시지__ 섹션에 추가합니다.
 

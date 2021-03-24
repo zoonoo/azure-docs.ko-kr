@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
-ms.openlocfilehash: cfbbc1f11a24379561df26e2fb8d9da20b249317
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46a22b78ade3d137f25b14e5cbdaff3264208228
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942741"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868395"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -53,10 +53,10 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 3. 목록에서 HDInsight 클러스터를 선택합니다.  HDInsight 클러스터가 없는 경우 만듭니다.  see [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md)를 참조하세요.
 4. **설정** 범주에서 **애플리케이션** 을 선택합니다. 주 창에서 설치된 애플리케이션 목록을 볼 수 있습니다. 
    
-    ![HDInsight 애플리케이션 포털 메뉴](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png" alt-text="HDInsight 애플리케이션 포털 메뉴":::
 5. 메뉴에서 **+추가** 를 선택합니다. 사용 가능한 애플리케이션 목록을 볼 수 있습니다.  **+추가** 가 회색으로 표시되면 이 버전의 HDInsight 클러스터용 애플리케이션이 없는 것입니다.
    
-    ![HDInsight 애플리케이션 사용 가능한 애플리케이션](./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-list1.png" alt-text="HDInsight 애플리케이션 사용 가능한 애플리케이션":::
 6. 사용할 수 있는 애플리케이션 중 하나를 선택한 다음, 지침에 따라 약관에 동의합니다.
 
 포털 알림에서 설치 상태를 확인할 수 있습니다(포털 맨 위에 있는 종 모양 아이콘 선택). 애플리케이션이 설치되면 설치된 앱 목록에 표시됩니다.
@@ -65,7 +65,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 
 클러스터를 만들 때 HDInsight 애플리케이션을 설치하는 옵션이 있습니다. 클러스터가 만들어지고 실행 상태가 되면 프로세스 중에 HDInsight 애플리케이션이 설치됩니다. Azure Portal을 사용하여 클러스터를 만드는 동안 애플리케이션을 설치하려면 **구성 + 가격 책정** 탭에서 **+ 애플리케이션 추가** 를 선택합니다.
 
-![Azure Portal 클러스터 구성 애플리케이션](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
+:::image type="content" source="./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png" alt-text="Azure Portal 클러스터 구성 애플리케이션":::
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>설치된 HDInsight 앱 및 속성 나열
 포털에서는 클러스터에 설치된 HDInsight 애플리케이션의 목록과 설치된 애플리케이션 각각의 속성을 보여 줍니다.
@@ -77,7 +77,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 3. 목록에서 HDInsight 클러스터를 선택합니다.
 4. **설정** 범주에서 **애플리케이션** 을 선택합니다. 주 창에서 설치된 애플리케이션 목록을 볼 수 있습니다. 
    
-    ![HDInsight 애플리케이션 설치 앱](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
+    :::image type="content" source="./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png" alt-text="HDInsight 애플리케이션 설치 앱":::
 5. 설치된 애플리케이션 중 하나를 선택하여 속성을 표시합니다. 속성 목록:
 
     |속성 | Description |

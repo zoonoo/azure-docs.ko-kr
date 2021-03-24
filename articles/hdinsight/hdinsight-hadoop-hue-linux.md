@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: 8d4663aac6af4abb8d9855d2f972965e997d9c92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 97a8dd2476642e693b589b4046f612c5569b9c0b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945680"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865131"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Hue 설치 및 사용
 
@@ -80,17 +80,17 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
    > [!NOTE]  
    > 처음으로 로그인할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.
 
-    ![HDInsight Hue 포털 로그인 창](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png "Hue 포털에 대한 자격 증명 지정")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-login.png" alt-text="HDInsight Hue 포털 로그인 창":::
 
 ### <a name="run-a-hive-query"></a>HIVE 쿼리 실행
 
 1. Hue 포털에서 **쿼리 편집기** 를 선택한 다음 **Hive** 를 선택하여 Hive 편집기를 엽니다.
 
-    ![HDInsight Hue 포털 hive 편집기 사용](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "Hive 사용")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png" alt-text="HDInsight Hue 포털 hive 편집기 사용":::
 
 2. **지원** 탭의 **데이터베이스** 에서 **hivesampletable** 이 표시되어야 합니다. HDInsight에서 모든 Hadoop 클러스터로 제공되는 예제 테이블입니다. 스크린 캡처에 표시된 것처럼 오른쪽 창에서 예제 쿼리를 입력하면 **결과** 탭에서 출력이 표시됩니다.
 
-    ![HDInsight Hue 포털 hive 쿼리](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "Hive 쿼리 실행")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png" alt-text="HDInsight Hue 포털 hive 쿼리":::
 
     **차트** 탭을 사용하여 결과를 시각적으로 표시할 수 있습니다.
 
@@ -99,7 +99,7 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
 1. Hue 포털에서 메뉴 모음의 오른쪽 위에 있는 **파일 브라우저** 를 선택합니다.
 2. 기본적으로 **/user/myuser** 디렉터리에서 파일 브라우저를 엽니다. 경로에서 사용자 디렉터리 바로 앞 슬래시를 선택하여 클러스터와 연결된 Azure Storage 컨테이너의 루트로 이동합니다.
 
-    ![HDInsight Hue 포털 파일 브라우저](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "파일 브라우저 사용")
+    :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png" alt-text="HDInsight Hue 포털 파일 브라우저":::
 
 3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 모서리에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
 
@@ -118,7 +118,7 @@ Hue는 Apache Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 �
 
 1. Linux 클러스터의 경우 보조 헤드 노드에서 Resource Manager를 실행하는 반면 기본 헤드 노드에서 서비스를 실행하는 시나리오가 있을 수 있습니다. Hue를 사용하여 클러스터에서 실행 중인 작업의 세부 정보를 보려면  이러한 시나리오에 오류가 발생할 수 있습니다. 그러나 작업이 완료되었을 때 작업 세부 정보를 볼 수 있습니다.
 
-   ![Hue 포털 오류 샘플 메시지](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Hue 포털 오류")
+   :::image type="content" source="./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png" alt-text="Hue 포털 오류 샘플 메시지":::
 
    이는 알려진 문제 때문입니다. 해결 방법으로 Ambari를 수정하여 활성 Resource Manager가 기본 헤드 노드에서 실행되도록 합니다.
 

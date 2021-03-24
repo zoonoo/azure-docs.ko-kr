@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943402"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863380"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>온-프레미스 네트워크에 HDInsight 연결
 
@@ -37,7 +37,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 다음 다이어그램에서 녹색 선은 가상 네트워크의 DNS 접미사로 끝나는 리소스에 대한 요청입니다. 파란색 선은 온-프레미스 네트워크 또는 공용 인터넷에 있는 리소스에 대한 요청입니다.
 
-![구성에서 DNS 요청을 확인 하는 방법에 대 한 다이어그램](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="구성에서 DNS 요청을 확인 하는 방법에 대 한 다이어그램" border="false":::
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -64,7 +64,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
   
 1. 위쪽 메뉴에서 **+ 리소스 만들기** 를 선택합니다.
 
-    ![Ubuntu 가상 머신 만들기](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Ubuntu 가상 머신 만들기":::
 
 1. **계산**  >  **가상 머신** 을 선택 하 여 **가상 머신 만들기** 페이지로 이동 합니다.
 
@@ -83,7 +83,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     |암호 또는 SSH 공개 키 | 사용 가능한 필드는 **인증 형식** 에 대한 사용자의 선택에 따라 결정됩니다.  적절한 값을 입력합니다.|
     |공용 인바운드 포트|**선택한 포트 허용** 을 선택합니다. 그런 다음 **인바운드 포트 선택** 드롭다운 목록에서 **SSH (22)** 를 선택 합니다.|
 
-    ![가상 컴퓨터 기본 구성](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="가상 컴퓨터 기본 구성":::
 
     다른 항목은 기본값으로 두고 **네트워킹** 탭을 선택합니다.
 
@@ -95,7 +95,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
     |서브넷 | 이전에 만든 가상 네트워크에 대한 기본 서브넷을 선택합니다. VPN Gateway에서 사용되는 서브넷을 선택하지 __않습니다__.|
     |공용 IP | 자동으로 채워진 값을 사용합니다.  |
 
-    ![HDInsight 가상 네트워크 설정](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="HDInsight 가상 네트워크 설정":::
 
     다른 항목은 기본값으로 두고 **검토 + 만들기** 를 선택합니다.
 
@@ -109,7 +109,7 @@ HDInsight 및 조인된 네트워크의 리소스를 이름별로 통신하도�
 
 2. 나중에 사용할 수 있도록 **공용 IP 주소/DNS 이름 레이블** 과 **개인 IP 주소** 값을 적어둡니다.
 
-   ![공용 및 개인 IP 주소](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="공용 및 개인 IP 주소":::
 
 ### <a name="install-and-configure-bind-dns-software"></a>Bind(DNS 소프트웨어) 설치 및 구성
 
@@ -245,7 +245,7 @@ Azure Recursive Resolver 대신 사용자 지정 DNS 서버를 사용하도록 �
 
 5. __저장__ 을 선택합니다.  <br />  
 
-    ![네트워크에 사용자 지정 DNS 서버 설정](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="네트워크에 사용자 지정 DNS 서버 설정":::
 
 ## <a name="configure-on-premises-dns-server"></a>온-프레미스 DNS 서버 구성
 

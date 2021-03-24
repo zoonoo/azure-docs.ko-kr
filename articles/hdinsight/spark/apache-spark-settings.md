@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 148ba2ce256b11b623bf28cf7723dbb0cce60830
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 25ff8611cc988c9777b52a313cfd74d4ee0a638c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929760"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870299"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark 설정 구성
 
@@ -18,7 +18,7 @@ HDInsight Spark 클러스터에는 Apache Spark 라이브러리 설치가 포함
 
 기본 HDInsight Apache Spark 클러스터에는 3개의 Apache ZooKeeper 노드, 2개의 헤드 노드 및 하나 이상의 작업자 노드가 포함되어 있습니다.
 
-![Spark HDInsight 아키텍처](./media/apache-spark-settings/spark-hdinsight-arch.png)
+:::image type="content" source="./media/apache-spark-settings/spark-hdinsight-arch.png" alt-text="Spark HDInsight 아키텍처" border="false":::
 
 HDInsight 클러스터의 노드에 대 한 vm 수 및 VM 크기는 Spark 구성에 영향을 줄 수 있습니다. 기본이 아닌 HDInsight 구성 값을 사용하려면 종종 기본이 아닌 Spark 구성 값이 필요합니다. HDInsight Spark 클러스터를 만들 때 각 구성 요소에 대해 제안 된 VM 크기가 표시 됩니다. 현재, Azure에 대한 [메모리 최적화 Linux VM 크기](../../virtual-machines/sizes-memory.md)는 D12 v2 이상입니다.
 
@@ -59,7 +59,7 @@ Apache Ambari 웹 UI가 표시 되 고 키 클러스터 리소스 사용 메트�
 
 Apache Spark에 대한 구성 값을 표시하려면 **구성 기록** 을 선택한 후 **Spark2** 를 선택합니다.  **구성** 탭을 선택하고 서비스 목록에서 `Spark`(또는 사용 중인 버전에 따라 `Spark2`) 링크를 선택합니다.  클러스터에 대한 구성 값 목록을 확인합니다.
 
-![Spark 구성](./media/apache-spark-settings/spark-configurations.png)
+:::image type="content" source="./media/apache-spark-settings/spark-configurations.png" alt-text="Spark 구성" border="true":::
 
 개별 Spark 구성 값을 확인 하 고 변경 하려면 제목에 "spark"가 있는 링크를 선택 합니다.  Spark에 대한 구성에는 다음 범주의 사용자 지정 및 고급 구성 값이 모두 포함됩니다.
 
@@ -78,7 +78,7 @@ Apache Spark에 대한 구성 값을 표시하려면 **구성 기록** 을 선�
 
 다음 다이어그램은 핵심 Spark 개체에 해당하는 드라이버 프로그램과 해당 관련 Spark 컨텍스트, 클러스터 관리자 및 해당 *n* 작업자 노드를 나타냅니다.  각 작업자 노드에는 실행기, 캐시 및 *n* 태스크 인스턴스가 포함됩니다.
 
-![클러스터 개체](./media/apache-spark-settings/hdi-spark-architecture.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-spark-architecture.png" alt-text="클러스터 개체" border="false":::
 
 Spark 작업은 작업자 리소스, 특히 메모리를 사용하므로, 작업자 노드 실행기에 대한 Spark 구성 값을 조정하는 것이 일반적입니다.
 
@@ -89,7 +89,7 @@ Spark 작업은 작업자 리소스, 특히 메모리를 사용하므로, 작업
 
 Spark 실행 기에서 사용 되는 리소스에 대 한 다른 정보 원본은 Spark 응용 프로그램 UI입니다.  UI에서  **실행자** 는 구성 및 사용 된 리소스의 요약 및 세부 정보 보기를 표시 합니다.  전체 클러스터 또는 특정 작업 실행에 대 한 실행자 값을 변경할 것인지 여부를 결정 합니다.
 
-![Spark 실행기](./media/apache-spark-settings/apache-spark-executors.png)
+:::image type="content" source="./media/apache-spark-settings/apache-spark-executors.png" alt-text="Spark 실행기" border="true":::
 
 또는 Ambari REST API를 사용 하 여 HDInsight 및 Spark 클러스터 구성 설정을 프로그래밍 방식으로 확인할 수 있습니다.  자세한 내용은 [GitHub의 Apache Ambari API 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 참조하세요.
 
@@ -103,11 +103,11 @@ Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보�
 
 다음은 다른 구성 값을 갖는 두 개의 작업자 노드 예제입니다.
 
-![두 노드 구성](./media/apache-spark-settings/executor-configuration.png)
+:::image type="content" source="./media/apache-spark-settings/executor-configuration.png" alt-text="두 노드 구성" border="false":::
 
 다음 목록에서는 핵심 Spark 실행기 메모리 매개 변수를 보여 줍니다.
 
-|매개 변수 |설명|
+|매개 변수 |Description|
 |---|---|
 |spark.executor.memory|실행자에 사용할 수 있는 총 메모리 양을 정의 합니다.|
 |spark. 저장소. memoryFraction|(기본 ~60%)은 지속된 RDD를 저장하는 데 사용할 수 있는 메모리 양을 정의합니다.|
@@ -116,13 +116,13 @@ Spark 워크로드에 따라 기본이 아닌 Spark 구성을 사용하여 보�
 
 YARN은 각 Spark 노드의 컨테이너에서 사용되는 메모리의 최대 합계를 제어합니다. 다음 다이어그램은 YARN 구성 개체와 Spark 개체 사이의 노드별 관계를 보여 줍니다.
 
-![YARN Spark 메모리 관리](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-settings/hdi-yarn-spark-memory.png" alt-text="YARN Spark 메모리 관리" border="false":::
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Jupyter Notebook에서 실행 되는 응용 프로그램에 대 한 매개 변수 변경
 
 기본적으로 HDInsight의 Spark 클러스터에는 다양한 구성 요소가 포함되어 있습니다. 이러한 각 구성 요소에는 필요에 따라 재정의될 수 있는 기본 구성 값이 포함되어 있습니다.
 
-|구성 요소 |설명|
+|구성 요소 |Description|
 |---|---|
 |Spark 코어|Spark Core, Spark SQL, Spark 스트리밍 Api, GraphX 및 Apache Spark MLlib.|
 |Anaconda|Python 패키지 관리자입니다.|

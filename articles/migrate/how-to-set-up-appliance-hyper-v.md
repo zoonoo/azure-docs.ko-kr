@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 85ab07e0b81bf258a56956f5f0f7e80bad6a32fe
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775224"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863686"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Hyper-v에서 서버에 대 한 어플라이언스 설정
 
-이 문서에 따라 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 hyper-v에서 서버를 검색 하 고 평가 하는 Azure Migrate 어플라이언스를 설정 합니다.
+이 문서에 따라 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) 도구를 사용 하 여 hyper-v에서 서버를 검색 하 고 평가 하는 Azure Migrate 어플라이언스를 설정 합니다.
 
 [Azure Migrate 어플라이언스](migrate-appliance.md) 는 Azure Migrate: 검색 및 평가/마이그레이션과 hyper-v에서 온-프레미스 서버를 검색 하 고 서버 메타 데이터/성능 데이터를 Azure에 전송 하는 데 사용 되는 경량 어플라이언스입니다.
 
@@ -24,31 +24,31 @@ ms.locfileid: "104775224"
 - 다운로드 한 VHD를 사용 하 여 Hyper-v의 서버에 설정 합니다. 이 문서에서 설명 하는 방법입니다.
 - PowerShell 설치 관리자 스크립트를 사용 하 여 Hyper-v 또는 물리적 서버의 서버에 설정 합니다. VHD를 사용 하 여 서버를 설정할 수 없거나 Azure Government 중인 경우 [이 방법을](deploy-appliance-script.md) 사용 해야 합니다.
 
-어플라이언스를 만든 후 Azure Migrate: 검색 및 평가에 연결할 수 있는지 확인 하 고, 처음으로 구성 하 고, Azure Migrate 프로젝트에 등록 합니다.
+어플라이언스를 만든 후에 Azure Migrate: 검색 및 평가에 연결할 수 있는지 확인 하 고, 처음으로 구성 하 고, 프로젝트에 등록 합니다.
 
 ## <a name="appliance-deployment-vhd"></a>어플라이언스 배포 (VHD)
 
 VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 
-- 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
+- 포털에서 어플라이언스 이름을 제공 하 고 프로젝트 키를 생성 합니다.
 - Azure Portal에서 압축된 Hyper-V VHD를 다운로드합니다.
 - 어플라이언스를 만들고 Azure Migrate: 검색 및 평가에 연결할 수 있는지 확인 합니다.
-- 어플라이언스를 처음으로 구성하고 Azure Migrate 프로젝트 키를 사용하여 Azure Migrate 프로젝트에 등록합니다.
+- 처음으로 어플라이언스를 구성 하 고 프로젝트 키를 사용 하 여 프로젝트에 등록 합니다.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
+### <a name="generate-the-project-key"></a>프로젝트 키 생성
 
 1. **마이그레이션 목표**  >  **Windows, Linux 및 SQL server**  >  **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택 합니다.
 2. 서버 를  >  **가상화 하는** 서버 검색에서 **예, hyper-v 사용** 을 선택 합니다.
 3. **1: 프로젝트 키 생성** 에서 hyper-v의 서버를 검색 하는 데 설정할 Azure Migrate 어플라이언스의 이름을 제공 합니다. 이름은 14 자 이하의 영숫자여야 합니다.
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 서버 검색 페이지를 닫지 마십시오.
-1. Azure 리소스가 성공적으로 만들어지면 **Azure Migrate 프로젝트 키** 가 생성됩니다.
+1. Azure 리소스를 성공적으로 만든 후에는 **프로젝트 키** 가 생성 됩니다.
 1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
 
 ### <a name="download-the-vhd"></a>VHD 다운로드
 
 **2: Azure Migrate 어플라이언스 다운로드** 에서 .VHD 파일을 선택하고, **다운로드** 를 클릭합니다.
 
-   ![컴퓨터 검색 선택](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![검색 서버에 대 한 선택 항목](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![키 생성 선택](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)

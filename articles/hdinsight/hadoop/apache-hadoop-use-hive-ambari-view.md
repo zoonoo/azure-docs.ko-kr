@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 1f2dbef014f1b48b554e6bc30af83b936fe532a7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 87a4d3960937450713747fa16bd473b4c34eff0e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944869"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867868"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -18,7 +18,7 @@ ms.locfileid: "98944869"
 
 Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Hive 보기를 사용하면 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -30,11 +30,11 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
 
 1. 보기 목록에서 __Hive 보기__ 를 선택합니다.
 
-    ![Apache Ambari select Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png" alt-text="Apache Ambari select Apache Hive 보기" border="true":::
 
     Hive 보기 페이지는 다음 이미지와 유사합니다.
 
-    ![Hive 보기에 대한 쿼리 워크시트 이미지](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png" alt-text="Hive 보기에 대한 쿼리 워크시트 이미지" border="true":::
 
 1. __쿼리__ 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
 
@@ -99,19 +99,19 @@ HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-
 
 __작업__ 탭에 Hive 쿼리의 기록이 표시됩니다.
 
-![작업 탭 기록 Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png" alt-text="작업 탭 기록 Apache Hive 보기" border="true":::
 
 ## <a name="database-tables"></a>데이터베이스 테이블
 
 __테이블__ 탭을 사용하여 Hive 데이터베이스 내의 테이블을 사용할 수 있습니다.
 
-![Apache Hive 테이블 탭의 이미지](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png" alt-text="Apache Hive 테이블 탭의 이미지" border="true":::
 
 ## <a name="saved-queries"></a>저장된 쿼리
 
 **쿼리** 탭에서 필요에 따라 쿼리를 저장할 수 있습니다. 쿼리를 저장한 후에 __저장된 쿼리__ 탭에서 다시 사용할 수 있습니다.
 
-![Apache Hive 뷰 저장 된 쿼리 탭](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png" alt-text="Apache Hive 뷰 저장 된 쿼리 탭" border="true":::
 
 > [!TIP]  
 > 저장된 쿼리는 기본 클러스터 스토리지에 저장됩니다. `/user/<username>/hive/scripts` 경로에서 저장된 쿼리를 찾을 수 있습니다. 이러한 쿼리는 일반 텍스트 `.hql` 파일로 저장됩니다.
@@ -124,7 +124,7 @@ UDF(사용자 정의 함수)를 통해 Hive를 확장할 수 있습니다. UDF�
 
 Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저장합니다. UDF는 **쿼리 편집기** 를 통해 사용할 수 있습니다.
 
-![Udf 탭 표시 Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+:::image type="content" source="./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png" alt-text="Udf 탭 표시 Apache Hive 보기" border="true":::
 
 **Udf 삽입** 단추가 **쿼리 편집기** 아래쪽에 표시 됩니다. 이 항목은 Hive 보기에 정의 된 Udf의 드롭다운 목록을 표시 합니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
@@ -145,7 +145,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예: `SELECT myawesomeudf(name) FROM people;`
+그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예들 들어 `SELECT myawesomeudf(name) FROM people;`입니다.
 
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

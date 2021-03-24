@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: wieastbu
 ms.custom: fasttrack-new, fasttrack-update, devx-track-js
-ms.openlocfilehash: 812b54d10ea3cc3c405f534e36ac66abf3466808
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: baa6a0a6995e206924d14de25b98700e450f3a0c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449291"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954924"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>OAuth 2.0, Azure Active Directory B2C 및 Azure API Management를 사용 하 여 SPA 백 엔드 보호
 
@@ -193,7 +193,7 @@ Azure Functions 및 Azure AD B2C를 사용 하 여 간소화 된 시나리오에
 1. 등록 및 로그인 정책에서 잘 알려진 오픈 id 구성 끝점을 발급자 URL 상자에 붙여넣습니다 (이전에이 구성을 기록 함).
 1. ' 암호 표시 '를 클릭 하 고 백 엔드 응용 프로그램의 클라이언트 암호를 해당 상자에 붙여넣습니다.
 1. 확인을 선택 하 여 id 공급자 선택 블레이드/화면으로 돌아갑니다.
-1. 고급 설정에서 [토큰 저장소](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#token-store) 를 사용 하도록 설정 된 상태로 둡니다 (기본값).
+1. 고급 설정에서 [토큰 저장소](../app-service/overview-authentication-authorization.md#token-store) 를 사용 하도록 설정 된 상태로 둡니다 (기본값).
 1. 블레이드의 왼쪽 위에서 ' 저장 '을 클릭 합니다.
 
    > [!IMPORTANT]

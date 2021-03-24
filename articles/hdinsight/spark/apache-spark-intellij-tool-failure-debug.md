@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 5abbb26e7582d8ddabb73f3a178cf6d87e24db21
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5422fe324ca1f3ef5bb2d14fb04664c8fb03fe3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942532"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866236"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)
 
 이 문서에서는 [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij) 의 HDInsight 도구를 사용 하 여 **Spark 오류 디버그** 응용 프로그램을 실행 하는 방법에 대 한 단계별 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 이 자습서에서는 Java 버전 8.0.202를 사용합니다.
   
@@ -40,19 +40,19 @@ ms.locfileid: "98942532"
 
    b. 주 창에서 **실패 태스크 디버깅 샘플 (미리 보기) (Scala)을 사용 하 여 Spark 프로젝트** 를 선택 합니다.
 
-     ![Intellij 디버그 프로젝트 만들기](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-projectfor-failure-debug.png" alt-text="Intellij 디버그 프로젝트 만들기" border="true":::
 
    c. **다음** 을 선택합니다.
 
 2. **새 프로젝트** 창에서 다음 단계를 수행합니다.
 
-   ![Intellij 새 프로젝트 Spark 버전 선택](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png" alt-text="Intellij 새 프로젝트 Spark 버전 선택" border="true":::
 
    a. 프로젝트 이름과 프로젝트 위치를 입력합니다.
 
    b. **프로젝트 SDK** 드롭다운 목록에서 **Spark 2.3.2** 클러스터용 **Java 1.8** 를 선택 합니다.
 
-   다. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
+   c. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
 
    d. **마침** 을 선택합니다.
 
@@ -64,25 +64,25 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
 1. **구성 추가** 를 클릭 하 여 **실행/디버그 구성** 창을 엽니다.
 
-   ![HDI Intellij 구성 추가](./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-add-new-configuration.png" alt-text="HDI Intellij 구성 추가" border="true":::
 
 2. **실행/디버깅 구성** 대화 상자에서 더하기 기호(**+**)를 선택합니다. 그런 다음 **HDInsight에서 Apache Spark** 옵션을 선택 합니다.
 
-   ![Intellij 새 구성 추가](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png" alt-text="Intellij 새 구성 추가" border="true":::
 
 3. **클러스터에서 원격으로 실행** 탭으로 전환 합니다. **이름**, **Spark 클러스터** 및 **주 클래스 이름** 에 대 한 정보를 입력 합니다. 이 도구는 **실행기** 를 사용하여 디버그를 지원합니다. **NumExectors** 기본값은 5이 고 3 보다 큰 값을 설정 하지 않는 것이 좋습니다. 실행 시간을 줄이기 위해 **작업 구성** 에 **yarn** 를 추가 하 고 값을 1로 설정할 수 있습니다. **확인** 단추를 클릭 하 여 구성을 저장 합니다.
 
-   ![Intellij 디버그 구성 새로 실행](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png" alt-text="Intellij 디버그 구성 새로 실행" border="true":::
 
 4. 이제 사용자가 입력한 이름으로 구성이 저장됩니다. 구성 세부 정보를 보려면 구성 이름을 선택합니다. 변경하려면 **구성 편집** 을 선택합니다.
 
 5. 구성 설정을 완료 한 후에는 원격 클러스터에 대해 프로젝트를 실행할 수 있습니다.
 
-   ![Intellij Debug 원격 Spark 작업 원격 실행 단추](./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-local-run-configuration.png" alt-text="Intellij Debug 원격 Spark 작업 원격 실행 단추" border="true":::
 
 6. 출력 창에서 응용 프로그램 ID를 확인할 수 있습니다.
 
-   ![Intellij Debug 원격 Spark 작업 원격 실행 결과](./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-remotely-run-result.png" alt-text="Intellij Debug 원격 Spark 작업 원격 실행 결과" border="true":::
 
 ## <a name="download-failed-job-profile"></a>다운로드 실패 작업 프로필
 
@@ -90,9 +90,9 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
 1. **Microsoft Azure Storage 탐색기** 를 열고 실패 한 작업에 대 한 클러스터의 HDInsight 계정을 찾은 다음 해당 위치: **\hdp\spark2-events \\ \\ \<application ID>** 에서 로컬 폴더로 실패 한 작업 리소스를 다운로드 합니다. **작업** 창에 다운로드 진행률이 표시 됩니다.
 
-   ![Azure Storage 탐색기 다운로드 실패](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png" alt-text="Azure Storage 탐색기 다운로드 실패" border="true":::
 
-   ![Azure Storage 탐색기 다운로드 성공](./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/spark-on-cosmos-doenload-file-2.png" alt-text="Azure Storage 탐색기 다운로드 성공" border="true":::
 
 ## <a name="configure-local-debugging-environment-and-debug-on-failure"></a>로컬 디버깅 환경 구성 및 오류 발생 시 디버그
 
@@ -100,13 +100,13 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
 1. IntelliJ 아이디어에서 **Spark 실패 디버그** 구성 파일을 만들고, **Spark 작업 실패 컨텍스트 위치** 필드에 대해 이전에 다운로드 한 실패 한 작업 리소스에서 ftd 파일을 선택 합니다.
 
-   ![만들고 실패 구성](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-failure-configuration-01.png" alt-text="만들고 실패 구성" border="true":::
 
 1. 도구 모음에서 로컬 실행 단추를 클릭 하면 실행 창에 오류가 표시 됩니다.
 
-   ![실행-오류-configuration1](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuraion-01.png" alt-text="실행-오류-configuration1" border="true":::
 
-   ![실행-오류-configuration2](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png" alt-text="실행-오류-configuration2" border="true":::
 
 1. 로그에서 중단점을 설정 하 고 로컬 디버그 단추를 클릭 하 여 IntelliJ의 일반 Scala/Java 프로젝트와 마찬가지로 로컬 디버깅을 수행 합니다.
 

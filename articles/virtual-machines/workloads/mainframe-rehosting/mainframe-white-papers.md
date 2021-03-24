@@ -1,19 +1,20 @@
 ---
 title: Azure Virtual Machines 및 Azure Storage를 사용 하 여 메인프레임 주제에 대 한 azure 백서
 description: Microsoft Azure에 대 한 메인프레임 마이그레이션, 재호스팅 및 IBM Z 기반 시스템 이동에 대 한 리소스를 가져옵니다.
-services: multiple
+services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: dd91b4331a6093d1cf208893d5d88746707b473b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 03a075cb2098557d72f0d864da4df910f5bc5f8c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "74224735"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954295"
 ---
 # <a name="azure-white-papers-about-mainframe-topics"></a>메인프레임 항목에 대 한 Azure 백서
 

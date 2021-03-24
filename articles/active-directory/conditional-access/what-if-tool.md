@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93077645"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952765"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용하여 문제 해결
 
@@ -24,15 +24,17 @@ ms.locfileid: "93077645"
 
 이 문서에서는이 도구를 사용 하 여 조건부 액세스 정책을 테스트 하는 방법을 설명 합니다.
 
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
+
 ## <a name="what-it-is"></a>의미
 
 **조건부 액세스 What If 정책 도구** 를 사용 하 여 사용자 환경에 대 한 조건부 액세스 정책의 영향을 이해할 수 있습니다. 여러 번의 로그인을 수동으로 수행하여 정책을 시험 사용해보는 대신, 이 도구를 사용하여 사용자의 시뮬레이트된 로그인을 평가할 수 있습니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고, 시뮬레이션 보고서를 생성합니다. 이 보고서에는 적용 된 조건부 액세스 정책 뿐만 아니라 [기존 정책](policy-migration.md#classic-policies) (있는 경우)도 나열 됩니다.    
 
 **What If** 도구는 특정 사용자에 게 적용 되는 정책을 신속 하 게 결정 하는 방법을 제공 합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
-**조건부 액세스 What If 도구** 에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
+**조건부 액세스 What If 도구** 에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정은 다음과 같습니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
@@ -58,7 +60,7 @@ ms.locfileid: "93077645"
 
 :::image type="content" source="./media/what-if-tool/02.png" alt-text="사용자, 클라우드 앱, I P 주소, 장치 플랫폼, 클라이언트 앱 및 로그인 위험에 대 한 필드를 포함 하는 Azure Portal What If 페이지의 스크린샷" border="false":::
 
-### <a name="user"></a>사용자
+### <a name="user"></a>User
 
 한 명의 사용자만 선택할 수 있습니다. 이 필드는 유일한 필수 필드입니다.
 

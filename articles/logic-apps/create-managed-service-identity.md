@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/09/2021
-ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556624"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889334"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 
@@ -27,7 +27,7 @@ Azure Logic Apps는 [*시스템이 할당한*](../active-directory/managed-ident
 
 * Azure API Management
 * Azure App Services
-* Azure Functions
+* Azure 기능
 * HTTP
 * HTTP + Webhook
 
@@ -402,52 +402,54 @@ Azure에서 논리 앱 리소스 정의를 만들면 `identity` 개체에서 다
 
      자세한 내용은 [예제: 관리 되는 id를 사용 하 여 관리 되는 커넥터 트리거 또는 작업 인증](#authenticate-managed-connector-managed-identity)을 참조 하세요.
 
-     관리 id를 사용 하기 위해 만드는 연결은 관리 되는 id에만 적용 되는 특별 한 연결 형식입니다. 런타임에 연결에서는 논리 앱에서 사용 하도록 설정 된 관리 되는 id를 사용 합니다. 이 구성은 `parameters` `$connections` 사용자 할당 id를 사용 하는 경우 id의 리소스 id와 함께 연결의 리소스 id에 대 한 포인터를 포함 하는 개체를 포함 하는 논리 앱 리소스 정의의 개체에 저장 됩니다.
+### <a name="connections-that-use-managed-identities"></a>관리 되는 id를 사용 하는 연결
 
-     이 예제에서는 논리 앱이 시스템 할당 관리 id를 사용 하도록 설정 하는 경우 구성의 모양을 보여 줍니다.
+관리 id를 사용 하는 연결은 관리 되는 id 에서만 작동 하는 특별 한 연결 형식입니다. 런타임에 연결에서는 논리 앱에서 사용 하도록 설정 된 관리 되는 id를 사용 합니다. 이 구성은 `parameters` `$connections` 사용자 할당 id를 사용 하는 경우 id의 리소스 id와 함께 연결의 리소스 id에 대 한 포인터를 포함 하는 개체를 포함 하는 논리 앱 리소스 정의의 개체에 저장 됩니다.
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+이 예제에서는 논리 앱이 시스템 할당 관리 id를 사용 하도록 설정 하는 경우 구성의 모양을 보여 줍니다.
 
-     이 예제에서는 논리 앱에서 사용자 할당 관리 id를 사용 하도록 설정할 때 구성의 모양을 보여 줍니다.
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+ ```
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+이 예제에서는 논리 앱에서 사용자 할당 관리 id를 사용 하도록 설정할 때 구성의 모양을 보여 줍니다.
 
-     런타임 중에 Logic Apps 서비스는 논리 앱의 관리 되는 커넥터 트리거와 작업이 관리 되는 id를 사용 하도록 설정 되어 있는지, 그리고 모든 필요한 권한이 트리거 및 작업에 지정 된 대상 리소스에 액세스 하기 위해 관리 되는 id를 사용 하도록 설정 되었는지 여부를 확인 합니다. 성공 하면 Logic Apps 서비스에서 관리 되는 id와 연결 된 Azure AD 토큰을 검색 하 고이 id를 사용 하 여 대상 리소스에 대 한 액세스를 인증 하 고 트리거 및 작업에서 구성 된 작업을 수행 합니다.
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+런타임 중에 Logic Apps 서비스는 논리 앱의 관리 되는 커넥터 트리거와 작업이 관리 되는 id를 사용 하도록 설정 되어 있는지, 그리고 모든 필요한 권한이 트리거 및 작업에 지정 된 대상 리소스에 액세스 하기 위해 관리 되는 id를 사용 하도록 설정 되었는지 여부를 확인 합니다. 성공 하면 Logic Apps 서비스에서 관리 되는 id와 연결 된 Azure AD 토큰을 검색 하 고이 id를 사용 하 여 대상 리소스에 대 한 액세스를 인증 하 고 트리거 및 작업에서 구성 된 작업을 수행 합니다.
 
 <a name="authenticate-built-in-managed-identity"></a>
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b08a60d484aa3d52600b8aef2f53d6ca8a04f9b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102202912"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952170"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Azure 부서의 범위 Data Catalog 계보 사용자 가이드
 
@@ -31,7 +31,7 @@ Azure 부서의 범위의 플랫폼 기능 중 하나는 데이터 프로세스�
 
 | 데이터 처리 시스템 | 지원 되는 범위 |
 | ---------------------- | ------------|
-| Azure 데이터 팩터리 | [복사 활동](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [SSIS 패키지 실행 작업](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [복사 활동](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [데이터 흐름 작업](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [SSIS 패키지 실행 작업](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [스냅숏 공유](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>데이터 저장소 시스템
@@ -50,7 +50,7 @@ Azure ML과 같은 데이터 시스템 및 Azure 부서의 범위에 계보를 P
 
 ## <a name="get-started-with-lineage"></a>계보 시작
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
 부서의 범위의 계보에는 데이터 집합 및 프로세스가 포함 됩니다. 데이터 집합은 노드 라고도 하며, 프로세스를 가장자리 라고도 합니다.
 

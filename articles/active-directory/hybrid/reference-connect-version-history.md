@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71eaccd615f5c3460e7b48b2e92d5f874c8de12e
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7269a2435715834a2c1e6723de3fdc6e72eaad5f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772113"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955451"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -82,6 +82,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
      - 복제 된 사용자 지정 동기화 규칙에서 일부 메일 및 Exchange 특성을 전달 하지 않으면 새 Exchange 동기화 규칙에서 해당 특성을 추가 합니다.
  - [선택적 암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization) 에 대 한 지원 추가
  - 새 [단일 개체 동기화 cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync)을 추가 했습니다. 이 cmdlet을 사용 하 여 Azure AD Connect 동기화 구성 문제를 해결할 수 있습니다. 
+ -  Azure AD Connect은 이제 서비스를 구성 하기 위한 하이브리드 Id 관리자 역할을 지원 합니다.
  - AADConnectHealth agent를 3.1.83.0로 업데이트 함
  - 몇 가지 새롭고 향상 된 cmdlet이 포함 된 [Adsynctools PowerShell 모듈](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools)의 새 버전입니다. 
  

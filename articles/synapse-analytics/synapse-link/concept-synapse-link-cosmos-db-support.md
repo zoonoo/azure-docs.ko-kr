@@ -9,12 +9,13 @@ ms.subservice: synapse-link
 ms.date: 03/02/2021
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: cb2cadadacd914bfa5473b512255c1ab0f856150
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: cosmos-db
+ms.openlocfilehash: a03a96f34861b84754de9d9ee4180100b58fcd37
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101666316"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869228"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link 지원 기능
 
@@ -31,7 +32,7 @@ Azure Cosmos DB에는 다음과 같은 두 가지 유형의 컨테이너가 있�
 
 Synapse 링크를 사용 하지 않고 Azure Cosmos DB 컨테이너에 연결할 수 있습니다. 이 시나리오에서는 트랜잭션 저장소에 대 한 읽기/쓰기만 가능 합니다. Azure Cosmos DB에 대 한 Synapse 링크 내에서 현재 지원 되는 기능 목록은 다음과 같습니다. 
 
-| 범주              | 설명 |[Apache Spark 풀](../sql/on-demand-workspace-overview.md) | [서버리스 SQL 풀](../sql/on-demand-workspace-overview.md) |
+| 범주              | Description |[Apache Spark 풀](../sql/on-demand-workspace-overview.md) | [서버리스 SQL 풀](../sql/on-demand-workspace-overview.md) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
 | **런타임 지원** |Azure Cosmos DB에 액세스 하도록 지원 되는 Azure Synapse 런타임| ✓ | ✓ |
 | **Azure Cosmos DB API 지원** | 지원 되는 Azure Cosmos DB API 종류 | SQL / MongoDB | SQL / MongoDB |
@@ -44,7 +45,7 @@ Synapse 링크를 사용 하지 않고 Azure Cosmos DB 컨테이너에 연결할
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Spark에 대해 지원되는 코드 생성 작업
 
-| 제스처              | 설명 |OLTP |HTAP  |
+| 제스처              | Description |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **DataFrame에 로드** |Spark DataFrame에 데이터 로드 및 읽기 |✓| ✓ |
 | **Spark 테이블 만들기** |Azure Cosmos DB 컨테이너를 가리키는 테이블 만들기|✓| ✓ |
@@ -54,7 +55,7 @@ Synapse 링크를 사용 하지 않고 Azure Cosmos DB 컨테이너에 연결할
 
 ## <a name="supported-code-generated-actions-for-serverless-sql-pool"></a>서버를 사용 하지 않는 SQL 풀에 대해 지원 되는 코드 생성 작업
 
-| 제스처              | 설명 |OLTP |HTAP |
+| 제스처              | Description |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **데이터 탐색** |친숙 한 T-sql 구문 및 자동 스키마 유추를 사용 하 여 컨테이너에서 데이터 탐색|X| ✓ |
 | **뷰 만들기 및 BI 보고서 빌드** |SQL 보기를 만들어 서버를 사용 하지 않는 SQL 풀을 통해 BI 용 컨테이너에 직접 액세스할 수 있습니다. |X| ✓ |

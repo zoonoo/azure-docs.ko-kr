@@ -4,12 +4,12 @@ description: Azure HDInsight에서 Apache Hadoop 클러스터로 Grafana 대시�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: cd2a09b6c3196302dcb74fd363481706021a4d4d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 81fd3b368f9405192c164ed7a0638caad0cd75fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940886"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869755"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 다음 예제와 같은 Grafana 대시보드가 표시됩니다.
 
-    ![HDInsight Grafana 웹 대시보드](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 대시보드")
+    :::image type="content" source="./media/hdinsight-grafana/hdinsight-grafana-dashboard.png " alt-text="HDInsight Grafana 웹 대시보드" border="true":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

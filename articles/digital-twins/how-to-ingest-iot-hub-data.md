@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3223a1c8e20d8b0caced5d940132c32fa0aba97c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149093"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889470"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -22,7 +22,7 @@ Azure Digital Twins로 데이터를 수집 하는 프로세스는 [Azure Functio
 
 이 방법 문서에서는 IoT Hub에서 원격 분석을 수집 하는 함수를 작성 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
 * **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
@@ -50,7 +50,7 @@ Azure Digital Twins로 데이터를 수집 하는 프로세스는 [Azure Functio
 모델은 다음과 같습니다.
 :::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
 
-**이 모델을 쌍 인스턴스에 업로드** 하려면 위의 모델을 인라인 JSON으로 업로드 하는 다음 Azure CLI 명령을 실행 합니다. CLI를 [로컬로 설치](/cli/azure/install-azure-cli.md)하는 경우 브라우저 또는 컴퓨터에서 [Azure Cloud Shell](/cloud-shell/overview.md) 에서 명령을 실행할 수 있습니다.
+**이 모델을 쌍 인스턴스에 업로드** 하려면 위의 모델을 인라인 JSON으로 업로드 하는 다음 Azure CLI 명령을 실행 합니다. CLI를 [로컬로 설치](/cli/azure/install-azure-cli)하는 경우 브라우저 또는 컴퓨터에서 [Azure Cloud Shell](/cloud-shell/overview.md) 에서 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}

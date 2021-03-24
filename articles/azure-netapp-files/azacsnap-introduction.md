@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632822"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869959"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구 (미리 보기) 란?
 
-AzAcSnap (Azure 애플리케이션 일치 스냅숏 도구)는 Linux 환경 (예: SUSE 및 RHEL)에서 타사 데이터베이스 (SAP HANA)에 대 한 데이터 보호를 간소화 하는 데 사용할 수 있는 명령줄 도구입니다.  
+AzAcSnap (일관성 있는 스냅숏 도구)는 저장소 스냅숏을 만들기 전에 응용 프로그램 일치 상태에 배치 하는 데 필요한 모든 오케스트레이션을 처리 하 여 타사 데이터베이스에 대해 데이터 보호를 사용 하도록 설정 하는 명령줄 도구입니다. Azure 애플리케이션
+
+## <a name="supported-platforms-and-os"></a>지원 되는 플랫폼 및 OS
+
+- **데이터베이스**
+  - SAP HANA (자세한 내용은 [지원 매트릭스](azacsnap-get-started.md#snapshot-support-matrix-from-sap) 참조)
+
+- **운영 체제**
+  - SUSE Linux Enterprise Server 12 이상
+  - Red Hat Enterprise Linux 7+
 
 ## <a name="benefits-of-using-azacsnap"></a>AzAcSnap 사용의 이점
 

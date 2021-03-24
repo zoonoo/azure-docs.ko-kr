@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 9926102a2e6b25060c2a8840b56d690ce2868ade
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9b85caa3611c484fc17423637dc36ce20b48b823
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618797"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868480"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Azure Portal를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
@@ -101,6 +101,7 @@ I p v 6은 가용성 영역 있는 지역에서 배포에 연결 하는 데 사�
 * Express 경로 회로 간의 Global Reach 연결
 * 가상 WAN과 함께 Express 경로 사용
 * 비-Express 경로 직접 회로가 포함 된 FastPath
+* 다음 피어 링 위치에 회로가 있는 FastPath: Dubai
 * VPN Gateway과 함께 사용
 
 ## <a name="next-steps"></a>다음 단계

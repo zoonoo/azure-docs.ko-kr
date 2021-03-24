@@ -3,12 +3,12 @@ title: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
 description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: e5725ece165f5716480afbcb4ef9098274c09993
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31764b9adb1d0fc28a170fa2e6b5073812533083
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97900640"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889844"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
 
@@ -83,7 +83,7 @@ ms.locfileid: "97900640"
         },
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "createStorage",
           "properties": {
             "mode": "Incremental",

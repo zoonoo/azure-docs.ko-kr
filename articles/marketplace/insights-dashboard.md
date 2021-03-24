@@ -4,15 +4,15 @@ description: 파트너 센터에서 marketplace 웹 분석의 요약에 액세�
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: a8a53a54d30df9a2f7079d705f754e554328c3f7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553938"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953275"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
@@ -115,7 +115,9 @@ Marketplace Insights **방문자** 차트에는 선택한 계산 기간에 대 �
 | 연락처 | 연락처 | 특정 날짜에 대 한 제품 페이지에서 "연락처" CTA의 클릭 수입니다. | 연락처 |
 | 시험 사용 | 시험 사용 | 특정 날짜에 대 한 제품 페이지의 "시험 드라이브" CTA의 클릭 수입니다. | TestDrive |
 | 무료 평가판 | 무료 평가판 | 특정 날짜에 대 한 제품 페이지의 "무료 평가판" CTA의 클릭 수입니다. | FreeTrial |
-|||||
+| 캠페인 | 캠페인의 이름입니다. | 캠페인 이름에 대 한 웹 원격 분석 (페이지 방문 및 CTA 클릭)을 이해할 수 있습니다. | 캠페인 |
+| 해당 없음 | 사이트 | 페이지 방문 또는 CTA 클릭이 발생 한 storefront의 이름입니다. 가능한 값은 다음과 같습니다.<br><ul><li>AZUREMARKETPLACE<li>APPSOURCE</ul> | 사이트 |
+|
 
 ## <a name="next-steps"></a>다음 단계
 

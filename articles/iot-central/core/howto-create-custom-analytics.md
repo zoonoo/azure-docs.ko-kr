@@ -3,18 +3,18 @@ title: 사용자 지정 분석으로 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자는 사용자 지정 분석 및 시각화를 수행 하도록 IoT Central 응용 프로그램을 구성 합니다. 이 솔루션은 Azure Databricks를 사용 합니다.
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0cee343e6769c815ecfb4b9c791783bd246caaac
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551320"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953904"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 설정 | 값 |
 | ------- | ----- |
-| 요금제 | Standard |
+| 요금제 | 표준 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -61,7 +61,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 
 | 설정 | 값 |
 | ------- | ----- |
-| Name    | 네임 스페이스 이름 선택 |
+| 이름    | 네임 스페이스 이름 선택 |
 | 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
@@ -78,18 +78,18 @@ Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스�
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
 | 위치 | 미국 동부 |
-| 가격 책정 계층 | Standard |
+| 가격 책정 계층 | 표준 |
 
 필요한 리소스를 만든 경우 **IoTCentralAnalysis** 리소스 그룹은 다음 스크린샷 처럼 보입니다.
 
-![IoT Central 분석 리소스 그룹](media/howto-create-custom-analytics/resource-group.png)
+:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="IoT Central 분석 리소스 그룹의 이미지입니다.":::
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
 이벤트 허브로 원격 분석을 지속적으로 내보내도록 IoT Central 응용 프로그램을 구성할 수 있습니다. 이 섹션에서는 IoT Central 응용 프로그램에서 원격 분석을 수신 하는 이벤트 허브를 만듭니다. 이벤트 허브는 처리를 위해 원격 분석을 Stream Analytics 작업에 전달 합니다.
 
 1. Azure Portal에서 Event Hubs 네임 스페이스로 이동 하 고 **+ 이벤트 허브** 를 선택 합니다.
-1. 이벤트 허브의 이름을 **centralexport** 으로 선택 하 고 **만들기** 를 선택 합니다.
+1. 이벤트 허브의 이름을 **centralexport** 로 합니다.
 1. 네임 스페이스의 이벤트 허브 목록에서 **centralexport** 를 선택 합니다. 그런 다음 **공유 액세스 정책** 을 선택 합니다.
 1. **+추가** 를 선택합니다. **수신 클레임으로** **수신 대기** 라는 정책을 만듭니다.
 1. 정책이 준비 되 면 목록에서이를 선택 하 고 **연결 문자열-기본 키** 값을 복사 합니다.
@@ -97,26 +97,42 @@ Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스�
 
 Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 
-![Event Hubs 네임스페이스](media/howto-create-custom-analytics/event-hubs-namespace.png)
+:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="Event Hubs 네임 스페이스의 이미지입니다.":::
 
-## <a name="configure-export-in-iot-central"></a>IoT Central에서 내보내기 구성
+## <a name="configure-export-in-iot-central-and-create-a-new-destination"></a>IoT Central에서 내보내기를 구성 하 고 새 대상 만들기
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 Contoso 템플릿에서 만든 IoT Central 응용 프로그램으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
 
-1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기** 를 선택 하 고, **Azure Event Hubs** 를 선택 합니다.
-1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장** 을 선택 합니다.
+1. **데이터 내보내기** 페이지로 이동 하 고 **+ 새로 만들기 내보내기** 를 선택 합니다.
+1. 첫 번째 창을 끝내기 전에 **대상 만들기** 를 선택 합니다.
+
+창은 다음과 같이 표시 됩니다.  
+
+:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="데이터 내보내기 대상 구성 이미지입니다.":::
+
+3. 다음 값을 입력합니다.
+
+| 설정 | 값 |
+| ------- | ----- |
+| 대상 이름 | 사용자의 대상 이름 |
+| 대상 유형 | Azure Event Hubs |
+| 연결 문자열| 이전에 적어 둔 이벤트 허브 연결 문자열입니다. | 
+| 이벤트 허브| 이벤트 허브 이름|
+
+4. **만들기** 를 클릭 하 여 완료 합니다.
+
+5. 내보내기를 구성 하려면 다음 설정을 사용 합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 표시 이름 | Event Hubs로 내보내기 |
+    | 내보내기 이름 입력 | eventhubexport |
     | 사용 | 켜기 |
-    | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
-    | 이벤트 허브 | centralexport |
-    | 측정 | 켜기 |
-    | 디바이스 | 끄기 |
-    | 디바이스 템플릿 | 끄기 |
+    | 데이터| 원격 분석 선택 | 
+    | 대상| 내보내기에 대해 아래와 같이 대상을 만든 다음 대상 드롭다운 메뉴에서 선택 합니다. |
 
-![데이터 내보내기 구성](media/howto-create-custom-analytics/cde-configuration.png)
+:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="데이터 내보내기 대상 구성의 스크린샷":::
+
+6. 작업을 마쳤으면 **저장** 을 선택합니다.
 
 계속 하기 전에 내보내기 상태가 **실행 중** 이 될 때까지 기다립니다.
 
@@ -133,7 +149,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 | 설정 | 값 |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
-| 클러스터 모드 | Standard |
+| 클러스터 모드 | 표준 |
 | Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.5) |
 | Python 버전 | 3 |
 | 자동 크기 조정 사용 | 아니요 |
@@ -164,7 +180,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 1. 이제 라이브러리 상태가 **설치** 됨:
 
-    ![라이브러리 설치 됨](media/howto-create-custom-analytics/cluster-libraries.png)
+:::image type="content" source="media/howto-create-custom-analytics/cluster-libraries.png" alt-text="설치 된 라이브러리의 스크린샷":::
 
 ### <a name="import-a-databricks-notebook"></a>Databricks 노트북 가져오기
 
@@ -178,9 +194,9 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 1. 가져온 노트북을 볼 **작업 영역** 을 선택 합니다.
 
-    ![가져온 노트북](media/howto-create-custom-analytics/import-notebook.png)
+:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="가져온 노트북의 스크린샷":::
 
-1. 첫 번째 Python 셀의 코드를 편집 하 여 이전에 저장 한 Event Hubs 연결 문자열을 추가 합니다.
+5. 첫 번째 Python 셀의 코드를 편집 하 여 이전에 저장 한 Event Hubs 연결 문자열을 추가 합니다.
 
     ```python
     from pyspark.sql.functions import *
@@ -206,7 +222,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 노트북에서 14 셀까지 아래로 스크롤하여 장치 유형별 롤링 평균 습도 플롯을 표시 합니다. 이 그림은 스트리밍 원격 분석이 도착할 때 지속적으로 업데이트 됩니다.
 
-![곡선 원격 분석 플롯](media/howto-create-custom-analytics/telemetry-plot.png)
+:::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="곡선 원격 분석 플롯의 스크린샷":::
 
 노트북에서 차트의 크기를 조정할 수 있습니다.
 
@@ -214,7 +230,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 노트북에서 20 셀까지 아래로 스크롤하여 [상자 플롯](https://en.wikipedia.org/wiki/Box_plot)을 표시 합니다. 상자 플롯은 정적 데이터를 기반으로 하므로 업데이트 하려면 셀을 다시 실행 해야 합니다.
 
-![상자 그림](media/howto-create-custom-analytics/box-plots.png)
+:::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="상자 플롯의 스크린샷":::
 
 노트북에서 플롯의 크기를 조정할 수 있습니다.
 

@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 438ef806f6c59c6f23877a3d3110f22f08ca8713
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242860"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863567"
 ---
-# <a name="private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 개인 링크
+# <a name="private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Private Link
 
 Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용하여 액세스할 수 있습니다.
 
@@ -84,7 +84,7 @@ Azure Database for MySQL의 데이터 필터링은 데이터베이스 관리자�
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 개인 링크 사용 사례
 
-클라이언트는 동일한 VNet, 동일한 지역의 피어 링 VNet 또는 지역 간에 VNet 간 연결을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
+클라이언트는 동일한 VNet, 동일한 지역의 [피어 링 vnet](../virtual-network/virtual-network-peering-overview.md) 또는 지역 간에 [vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="개인 끝점 개요를 선택 합니다.":::
 
