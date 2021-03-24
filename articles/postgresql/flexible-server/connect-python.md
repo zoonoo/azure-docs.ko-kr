@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90946192"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 데이터 연결 및 쿼리
@@ -44,7 +44,7 @@ ms.locfileid: "90946192"
 Azure Database for PostgreSQL - 유연한 서버에 연결하려면 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다. Azure Portal에서 이 정보를 가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 해당하는 유연한 서버 이름을 검색하여 선택합니다. 
-2. 서버의 **개요** 페이지에서 정규화된 **서버 이름** 및 **관리자 사용자 이름**을 복사합니다. 정규화된 **서버 이름**은 항상 *\<my-server-name>.postgres.database.azure.com* 형식입니다.
+2. 서버의 **개요** 페이지에서 정규화된 **서버 이름** 및 **관리자 사용자 이름** 을 복사합니다. 정규화된 **서버 이름** 은 항상 *\<my-server-name>.postgres.database.azure.com* 형식입니다.
 
    관리자 암호도 필요합니다. 암호를 잊어버린 경우 개요 페이지에서 다시 설정할 수 있습니다. 
 
@@ -59,7 +59,7 @@ Azure Database for PostgreSQL - 유연한 서버에 연결하려면 정규화된
 1. 파일에 코드 예제를 추가합니다. 코드에서 다음과 같이 바꿉니다.
    - `<server-name>` 및 `<admin-username>`을 Azure Portal에서 복사한 값으로 바꿉니다.
    - `<admin-password>`를 서버 암호로 바꿉니다.
-   - `<database-name>`을 Azure Database for PostgreSQL - 유연한 서버 데이터베이스의 이름으로 바꿉니다. *postgres*라는 기본 데이터베이스는 서버를 만들 때 자동으로 생성되었습니다. SQL 명령을 사용하여 해당 데이터베이스의 이름을 바꾸거나 새 데이터베이스를 만들 수 있습니다. 
+   - `<database-name>`을 Azure Database for PostgreSQL - 유연한 서버 데이터베이스의 이름으로 바꿉니다. *postgres* 라는 기본 데이터베이스는 서버를 만들 때 자동으로 생성되었습니다. SQL 명령을 사용하여 해당 데이터베이스의 이름을 바꾸거나 새 데이터베이스를 만들 수 있습니다. 
 
 1. 프로젝트 폴더의 파일을 *.py* 확장명을 사용하여 저장합니다(예: *postgres-insert.py*). Windows의 경우 파일을 저장할 때 UTF-8 인코딩을 선택해야 합니다. 
 

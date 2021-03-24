@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: fbe4041b74f90b2ef8a9ef4384e83c7aa2d56461
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: baf41b9e66b14e4b255b6e13b22691357f9e7309
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98939274"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870809"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka란?
 
@@ -44,7 +44,7 @@ ms.locfileid: "98939274"
 
 다음 다이어그램은 소비자 그룹, 분할 및 복제를 사용하여 내결함성으로 이벤트의 병렬 읽기를 제공하는 일반적인 Kafka 구성을 보여 줍니다.
 
-![Kafka 클러스터 구성 다이어그램](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
+:::image type="content" source="./media/apache-kafka-introduction/kafka-cluster-diagram.png" alt-text="Kafka 클러스터 구성 다이어그램" border="false":::
 
 Apache ZooKeeper는 Kafka 클러스터의 상태를 관리합니다. Zookeeper는 복원 가능하고 대기 시간이 낮은 동시 트랜잭션용으로 작성되었습니다.
 

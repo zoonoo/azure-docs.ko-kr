@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: bd87265140a0bfaeb7ef4dada6dd76be1269654b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92369372"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
@@ -60,9 +60,9 @@ ms.locfileid: "92369372"
 
 원본 환경에서는 온-프레미스 Site Recovery 구성 요소를 호스팅할 단일 고가용성 온-프레미스 머신이 필요합니다.
 
-- **구성 서버** : 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
-- **프로세스 서버** : 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스 에이전트를 설치하고, 온-프레미스 VMware VM을 자동으로 검색합니다.
-- **마스터 대상 서버** : 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
+- **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
+- **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스 에이전트를 설치하고, 온-프레미스 VMware VM을 자동으로 검색합니다.
+- **마스터 대상 서버**: 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
 
 
 이 모든 구성 요소가 *구성 서버* 라고 하는 단일 온-프레미스 머신에 함께 설치됩니다. 기본적으로 VMware 재해 복구의 경우 구성 서버를 고가용성 VMware VM으로 설정합니다. 이렇게 하려면 준비된 OVA(Open Virtualization Application) 템플릿을 다운로드하고 VMware로 가져와서 VM을 만듭니다.
@@ -158,7 +158,7 @@ ms.locfileid: "92369372"
 ## <a name="create-a-replication-policy"></a>복제 정책 만들기
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. **Recovery Services 자격 증명 모음** 을 검색하여 선택합니다.
-2. Recovery Services 자격 증명 모음 선택(이 자습서에서는 **ContosoVMVault** ).
+2. Recovery Services 자격 증명 모음 선택(이 자습서에서는 **ContosoVMVault**).
 3. 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책** 을 선택합니다.
 4. **복제 정책 만들기** 에서 정책 이름을 입력합니다. **VMwareRepPolicy** 를 사용합니다.
 5. **RPO 임계값** 에서 기본값인 60분을 사용합니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.

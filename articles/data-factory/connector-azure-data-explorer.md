@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2020
-ms.openlocfilehash: 16126e8b9e5c34529016018273edcf65a31e2280
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2020
+ms.openlocfilehash: f343cf820632c8b53f74a938a039820ea4f56eac
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100379984"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027400"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure 데이터 탐색기 간에 데이터 복사
 
@@ -52,7 +52,14 @@ Azure 데이터 탐색기 커넥터를 사용 하 여 다음을 수행할 수 �
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
-Azure 데이터 탐색기 커넥터는 서비스 주체 인증을 사용 합니다. 다음 단계를 수행 하 여 서비스 주체를 가져오고 사용 권한을 부여 합니다.
+Azure 데이터 탐색기 커넥터는 다음 인증 유형을 지원 합니다. 자세한 내용은 해당 섹션을 참조하세요.
+
+- [서비스 주체 인증](#service-principal-authentication)
+- [Azure 리소스 인증용 관리 ID](#managed-identity)
+
+### <a name="service-principal-authentication"></a>서비스 주체 인증
+
+서비스 주체 인증을 사용 하려면 다음 단계에 따라 서비스 주체를 가져오고 사용 권한을 부여 합니다.
 
 1. [AZURE AD 테 넌 트에 응용 프로그램 등록](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant)의 단계를 수행 하 여 Azure Active Directory에 응용 프로그램 엔터티를 등록 합니다. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
@@ -66,7 +73,7 @@ Azure 데이터 탐색기 커넥터는 서비스 주체 인증을 사용 합니�
     - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여 합니다.
 
 >[!NOTE]
->Data Factory UI를 사용 하 여 작성 하는 경우 로그인 사용자 계정은 Azure 데이터 탐색기 클러스터, 데이터베이스 및 테이블을 나열 하는 데 사용 됩니다. 이러한 작업에 대 한 권한이 없는 경우 수동으로 이름을 입력 합니다.
+>Data Factory UI를 사용 하 여 작성 하는 경우 기본적으로 로그인 사용자 계정을 사용 하 여 Azure 데이터 탐색기 클러스터, 데이터베이스 및 테이블을 나열 합니다. 새로 고침 단추 옆의 드롭다운을 클릭 하 여 서비스 주체를 사용 하 여 개체를 나열 하도록 선택 하거나 이러한 작업에 대 한 권한이 없는 경우 수동으로 이름을 입력할 수 있습니다.
 
 Azure 데이터 탐색기 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
 
@@ -78,8 +85,9 @@ Azure 데이터 탐색기 연결 된 서비스에 대해 지원 되는 속성은
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)에 "Authority ID" 라고 합니다. Azure Portal의 오른쪽 위 모서리에 마우스 포인터를 올려 검색 합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)에서 "AAD 응용 프로그램 클라이언트 ID" 라고 합니다. | 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이를 [Kusto 연결 문자열](/azure/kusto/api/connection-strings/kusto#application-authentication-properties)에서 "AAD 응용 프로그램 키" 라고 합니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 보안 데이터를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
-**연결 된 서비스 속성 예:**
+**예제: 서비스 주체 키 인증 사용**
 
 ```json
 {
@@ -95,6 +103,44 @@ Azure 데이터 탐색기 연결 된 서비스에 대해 지원 되는 속성은
                 "type": "SecureString",
                 "value": "<service principal key>"
             }
+        }
+    }
+}
+```
+
+### <a name="managed-identities-for-azure-resources-authentication"></a><a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
+
+Azure 리소스 인증에 관리 되는 id를 사용 하려면 다음 단계에 따라 사용 권한을 부여 합니다.
+
+1. 팩터리와 함께 생성된 **관리 ID개체 ID** 의 값을 복사하여 [Data Factory 관리 ID 정보를 검색](data-factory-service-identity.md#retrieve-managed-identity)합니다.
+
+2. Azure 데이터 탐색기에서 관리 되는 id에 올바른 권한을 부여 합니다. 역할 및 사용 권한과 사용 권한 관리에 대 한 자세한 내용은 [Azure 데이터 탐색기 데이터베이스 사용 권한 관리](/azure/data-explorer/manage-database-permissions) 를 참조 하세요. 일반적으로 다음을 수행 해야 합니다.
+
+    - **원본으로** 데이터베이스에 적어도 **데이터베이스 뷰어** 역할을 부여 합니다.
+    - **싱크로** 데이터베이스에 적어도 **데이터베이스 수집기** 역할을 부여 합니다.
+
+>[!NOTE]
+>Data Factory UI를 사용 하 여 작성 하는 경우 로그인 사용자 계정은 Azure 데이터 탐색기 클러스터, 데이터베이스 및 테이블을 나열 하는 데 사용 됩니다. 이러한 작업에 대 한 권한이 없는 경우 수동으로 이름을 입력 합니다.
+
+Azure 데이터 탐색기 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니다.
+
+| 속성 | 설명 | 필수 |
+|:--- |:--- |:--- |
+| type | **Type** 속성은 **azuredataexplorer** 로 설정 되어야 합니다. | 예 |
+| 엔드포인트(endpoint) | `https://<clusterName>.<regionName>.kusto.windows.net` 형식의 Azure Data Explorer 클러스터의 엔드포인트 URL입니다. | 예 |
+| 데이터베이스 | 데이터베이스의 이름입니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
+
+**예: 관리 되는 id 인증 사용**
+
+```json
+{
+    "name": "AzureDataExplorerLinkedService",
+    "properties": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+            "endpoint": "https://<clusterName>.<regionName>.kusto.windows.net ",
+            "database": "<database name>",
         }
     }
 }
@@ -144,8 +190,8 @@ Azure Data Explorer에서 데이터를 복사하려면 복사 작업 원본의 *
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **AzureDataExplorerSource** 로 설정 해야 합니다. | 예 |
 | Query | [KQL 형식](/azure/kusto/query/)으로 제공되는 읽기 전용 요청입니다. 사용자 지정 KQL 쿼리를 참조로 사용합니다. | 예 |
-| queryTimeout | 쿼리 요청 시간이 초과 되기 전의 대기 시간입니다. 기본값은 10 분 (00:10:00);입니다. 허용 되는 최대 값은 1 시간 (01:00:00)입니다. | 아니요 |
-| noTruncation | 반환 된 결과 집합을 잘라낼 지 여부를 나타냅니다. 기본적으로 50만 레코드 또는 64 메가바이트 (MB) 후에 결과가 잘립니다. 자르기는 활동의 올바른 동작을 보장 하는 데 강력히 권장 됩니다. |아니요 |
+| queryTimeout | 쿼리 요청 시간이 초과 되기 전의 대기 시간입니다. 기본값은 10 분 (00:10:00);입니다. 허용 되는 최대 값은 1 시간 (01:00:00)입니다. | No |
+| noTruncation | 반환 된 결과 집합을 잘라낼 지 여부를 나타냅니다. 기본적으로 50만 레코드 또는 64 메가바이트 (MB) 후에 결과가 잘립니다. 자르기는 활동의 올바른 동작을 보장 하는 데 강력히 권장 됩니다. |No |
 
 >[!NOTE]
 >기본적으로 Azure 데이터 탐색기 원본의 크기 제한은 50만 레코드 또는 64 MB입니다. 잘림 없이 모든 레코드를 검색 하려면 `set notruncation;` 쿼리의 시작 부분에을 지정 하면 됩니다. 자세한 내용은 [쿼리 제한](/azure/kusto/concepts/querylimits)을 참조 하세요.
@@ -190,7 +236,7 @@ Azure Data Explorer로 데이터를 복사하려면 복사 작업 원본의 형�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 싱크의 **type** 속성은 **AzureDataExplorerSink** 로 설정 해야 합니다. | 예 |
-| ingestionMappingName | Kusto 테이블에서 미리 생성 된 [매핑의](/azure/kusto/management/mappings#csv-mapping) 이름입니다. 원본에서 Azure 데이터 탐색기로 (CSV/JSON/Avro 형식을 포함 하 여 지원 되는 [모든 원본 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에 적용 됨) 열을 매핑하려면 복사 작업 [열 매핑](copy-activity-schema-and-type-mapping.md) (이름으로 암시적으로 또는 구성 된 경우 명시적으로) 및/또는 Azure 데이터 탐색기 매핑을 사용할 수 있습니다. | 아니요 |
+| ingestionMappingName | Kusto 테이블에서 미리 생성 된 [매핑의](/azure/kusto/management/mappings#csv-mapping) 이름입니다. 원본에서 Azure 데이터 탐색기로 (CSV/JSON/Avro 형식을 포함 하 여 지원 되는 [모든 원본 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에 적용 됨) 열을 매핑하려면 복사 작업 [열 매핑](copy-activity-schema-and-type-mapping.md) (이름으로 암시적으로 또는 구성 된 경우 명시적으로) 및/또는 Azure 데이터 탐색기 매핑을 사용할 수 있습니다. | No |
 | additionalProperties | Azure 데이터 탐색기 싱크에 의해 이미 설정 되지 않은 수집 속성을 지정 하는 데 사용할 수 있는 속성 모음입니다. 특히 수집 태그를 지정 하는 데 유용할 수 있습니다. [Azure 데이터 탐색 데이터 수집 문서](/azure/data-explorer/ingestion-properties)에서 자세히 알아보세요. | 예 |
 
 **예:**

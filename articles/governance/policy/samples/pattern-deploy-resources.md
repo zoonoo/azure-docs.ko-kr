@@ -4,10 +4,10 @@ description: 이 Azure Policy 패턴은 deployIfNotExists 정책 정의를 사�
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 0a9eec54954b8963f38b3f19a0d0cabffe1092e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89649976"
 ---
 # <a name="azure-policy-pattern-deploy-resources"></a>Azure Policy 패턴: 리소스 배포
@@ -16,7 +16,7 @@ ms.locfileid: "89649976"
 
 ## <a name="sample-policy-definition"></a>샘플 정책 정의
 
-이 정책 정의는 **field** 연산자를 사용하여 생성 또는 업데이트된 리소스의 `type`을 평가합니다. 해당 리소스가 _Microsoft.Network/virtualNetworks_인 경우 정책은 새 리소스 또는 업데이트된 리소스의 위치에서 네트워크 감시자를 찾습니다. 일치하는 네트워크 감시자를 찾지 못하면 ARM 템플릿이 배포되어 누락된 리소스를 만듭니다.
+이 정책 정의는 **field** 연산자를 사용하여 생성 또는 업데이트된 리소스의 `type`을 평가합니다. 해당 리소스가 _Microsoft.Network/virtualNetworks_ 인 경우 정책은 새 리소스 또는 업데이트된 리소스의 위치에서 네트워크 감시자를 찾습니다. 일치하는 네트워크 감시자를 찾지 못하면 ARM 템플릿이 배포되어 누락된 리소스를 만듭니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 
@@ -26,7 +26,7 @@ ms.locfileid: "89649976"
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="18-23":::
 
-**properties.policyRule.then.details** 블록은 **properties.policyRule.if** 블록의 생성 또는 업데이트된 리소스와 관련된 찾을 내용을 Azure Policy에 알려 줍니다. 이 예제에서는 새 리소스 또는 업데이트된 리소스의 위치와 동일하게 **field** `location`인 리소스 그룹 **networkWatcherRG**의 네트워크 감시자가 있어야 합니다. `field()` 함수를 사용하면 **existenceCondition**에서 새 리소스 또는 업데이트된 리소스의 속성(특히 `location` 속성)에 액세스할 수 있습니다.
+**properties.policyRule.then.details** 블록은 **properties.policyRule.if** 블록의 생성 또는 업데이트된 리소스와 관련된 찾을 내용을 Azure Policy에 알려 줍니다. 이 예제에서는 새 리소스 또는 업데이트된 리소스의 위치와 동일하게 **field** `location`인 리소스 그룹 **networkWatcherRG** 의 네트워크 감시자가 있어야 합니다. `field()` 함수를 사용하면 **existenceCondition** 에서 새 리소스 또는 업데이트된 리소스의 속성(특히 `location` 속성)에 액세스할 수 있습니다.
 
 #### <a name="roledefinitionids"></a>roleDefinitionIds
 
@@ -44,7 +44,7 @@ ms.locfileid: "89649976"
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
   
-- **parameters** - 이 속성은 **template**에 제공되는 매개 변수를 정의합니다. 매개 변수 이름은 **template**에 정의된 이름과 일치해야 합니다. 이 예제에서는 매개 변수의 이름이 **location**으로 일치합니다. **location**의 값은 `field()` 함수를 다시 사용하여 평가된 리소스의 값을 가져옵니다. 이 값은 **policyRule.if** 블록의 가상 네트워크입니다.
+- **parameters** - 이 속성은 **template** 에 제공되는 매개 변수를 정의합니다. 매개 변수 이름은 **template** 에 정의된 이름과 일치해야 합니다. 이 예제에서는 매개 변수의 이름이 **location** 으로 일치합니다. **location** 의 값은 `field()` 함수를 다시 사용하여 평가된 리소스의 값을 가져옵니다. 이 값은 **policyRule.if** 블록의 가상 네트워크입니다.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="45-49":::
 

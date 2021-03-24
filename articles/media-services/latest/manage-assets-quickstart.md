@@ -7,10 +7,10 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
 ms.openlocfilehash: 9b66fa6cd688cf0680e742ffa9fbe4d61a444ab2
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633000"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>빠른 시작: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍

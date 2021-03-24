@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89469187"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
@@ -34,36 +34,36 @@ ms.locfileid: "89469187"
 
 * Azure 구독 Azure 구독이 없으면 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure AD 테넌트.
-* Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자*인 사용자.
+* Azure AD 테넌트의 *글로벌 관리자* 또는 *보안 관리자* 인 사용자.
 * Azure 구독의 Event Hubs 네임스페이스 및 이벤트 허브. [이벤트 허브를 만드는 방법](../../event-hubs/event-hubs-create.md)을 알아봅니다.
 
 ## <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2. **Azure Active Directory** > **모니터링** > **감사 로그**를 선택합니다. 
+2. **Azure Active Directory** > **모니터링** > **감사 로그** 를 선택합니다. 
 
-3. **설정 내보내기**를 선택합니다.  
+3. **설정 내보내기** 를 선택합니다.  
     
 4. **진단 설정** 창에서 다음 중 하나를 수행합니다.
-    * 기존 설정을 변경하려면 **설정 편집**을 선택합니다.
-    * 새 설정을 추가하려면 **진단 설정 추가**를 선택합니다.  
+    * 기존 설정을 변경하려면 **설정 편집** 을 선택합니다.
+    * 새 설정을 추가하려면 **진단 설정 추가** 를 선택합니다.  
       최대 세 개의 설정을 지정할 수 있습니다.
 
       ![설정 내보내기](./media/quickstart-azure-monitor-stream-logs-to-event-hub/ExportSettings.png)
 
-5. **이벤트 허브로 스트림** 확인란을 선택한 다음, **이벤트 허브/구성**을 선택합니다.
+5. **이벤트 허브로 스트림** 확인란을 선택한 다음, **이벤트 허브/구성** 을 선택합니다.
 
 6. 로그를 라우팅하려는 Azure 구독 및 Event Hubs 네임스페이스를 선택합니다.  
-    구독 및 Event Hubs 네임스페이스는 로그가 스트리밍되는 Azure AD 테넌트와 연결되어야 합니다. 또한 로그를 전송해야 하는 Event Hubs 네임스페이스 내에 이벤트 허브를 지정할 수 있습니다. 이벤트 허브가 지정되지 않으면 기본 이름 **insights-logs-audit**를 사용하여 네임스페이스 내에 이벤트 허브가 생성됩니다.
+    구독 및 Event Hubs 네임스페이스는 로그가 스트리밍되는 Azure AD 테넌트와 연결되어야 합니다. 또한 로그를 전송해야 하는 Event Hubs 네임스페이스 내에 이벤트 허브를 지정할 수 있습니다. 이벤트 허브가 지정되지 않으면 기본 이름 **insights-logs-audit** 를 사용하여 네임스페이스 내에 이벤트 허브가 생성됩니다.
 
-7. **확인**을 선택하여 이벤트 허브 구성을 종료합니다.
+7. **확인** 을 선택하여 이벤트 허브 구성을 종료합니다.
 
 8. 다음 중 하나 또는 둘 모두를 수행합니다.
     * 이벤트 허브에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
     * 이벤트 허브에 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
 
-9. **저장**을 선택하여 설정을 저장합니다.
+9. **저장** 을 선택하여 설정을 저장합니다.
 
     ![진단 설정](./media/quickstart-azure-monitor-stream-logs-to-event-hub/DiagnosticSettings.png)
 

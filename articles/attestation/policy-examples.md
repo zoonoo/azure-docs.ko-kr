@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720157"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950572"
 ---
 # <a name="examples-of-an-attestation-policy"></a>증명 정책의 예
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Azure Attestation에서 생성된 들어오는 클레임에 대한 자세한 내용은 [클레임 세트](/azure/attestation/claim-sets)를 참조하세요. 정책 작성자는 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 수신 클레임을 사용할 수 있습니다. 
+Azure Attestation에서 생성된 들어오는 클레임에 대한 자세한 내용은 [클레임 세트](./claim-sets.md)를 참조하세요. 정책 작성자는 사용자 지정 정책에서 권한 부여 규칙을 정의하는 데 수신 클레임을 사용할 수 있습니다. 
 
-발급 규칙 섹션은 필수가 아닙니다. 이 섹션에서는 사용자 지정 이름을 사용하여 증명 토큰에 추가 나가는 클레임을 만들 수 있습니다. 증명 토큰에서 서비스에 의해 생성된 나가는 클레임에 대한 자세한 내용은 [클레임 세트](/azure/attestation/claim-sets)를 참조하세요.
+발급 규칙 섹션은 필수가 아닙니다. 이 섹션에서는 사용자 지정 이름을 사용하여 증명 토큰에 추가 나가는 클레임을 만들 수 있습니다. 증명 토큰에서 서비스에 의해 생성된 나가는 클레임에 대한 자세한 내용은 [클레임 세트](./claim-sets.md)를 참조하세요.
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>SGX enclave에 대한 기본 정책
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-기본 정책에서 사용되는 클레임은 더 이상 사용되지 않는 것으로 간주되지만 완벽하게 지원되며 나중에도 계속 포함됩니다. 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다. 권장 클레임 이름에 대한 자세한 내용은 [클레임 세트](/azure/attestation/claim-sets)를 참조하세요. 
+기본 정책에서 사용되는 클레임은 더 이상 사용되지 않는 것으로 간주되지만 완벽하게 지원되며 나중에도 계속 포함됩니다. 사용되지 않는 클레임 이름을 사용하는 것이 좋습니다. 권장 클레임 이름에 대한 자세한 내용은 [클레임 세트](./claim-sets.md)를 참조하세요. 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>여러 SGX Enclave를 지원하는 샘플 사용자 지정 정책
 

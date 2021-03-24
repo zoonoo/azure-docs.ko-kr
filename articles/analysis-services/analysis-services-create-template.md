@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 08/31/2020
 ms.custom: subject-armqs, references_regions
 ms.openlocfilehash: 3e776bf41420d38a1b208ce11a6a34e97fa92a15
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230792"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>빠른 시작: 서버 만들기 - ARM 템플릿
@@ -28,7 +28,7 @@ ms.locfileid: "89230792"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
-* **Azure Active Directory**: 구독이 Azure Active Directory 테넌트와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
+* **Azure Active Directory**: 구독이 Azure Active Directory와 연결되어야 합니다. 또한 해당 Azure Active Directory의 계정으로 Azure에 로그인해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -49,18 +49,18 @@ ms.locfileid: "89230792"
     지정하지 않으면 기본값이 사용됩니다.
 
     * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 클릭한 다음, 새 리소스 그룹의 고유한 이름을 입력합니다.
+    * **리소스 그룹**: **새로 만들기** 를 클릭한 다음, 새 리소스 그룹의 고유한 이름을 입력합니다.
     * **위치**: 리소스 그룹에 만든 리소스의 기본 위치를 선택합니다.
     * **서버 이름**: 서버 리소스의 이름을 입력합니다. 
     * **위치**: Analysis Services의 경우 위치를 무시합니다. 위치는 [서버 위치]에서 지정합니다.
-    * **서버 위치**: Analysis Services 서버의 위치를 입력합니다. 리소스 그룹에 대해 지정한 기본 위치와 동일한 지역인 경우가 많지만, 필수는 아닙니다. 예를 들어 **미국 중북부**를 지정합니다. 지원되는 지역은 [지역별 Analysis Services 가용성](analysis-services-overview.md#availability-by-region)을 참조하세요.
+    * **서버 위치**: Analysis Services 서버의 위치를 입력합니다. 리소스 그룹에 대해 지정한 기본 위치와 동일한 지역인 경우가 많지만, 필수는 아닙니다. 예를 들어 **미국 중북부** 를 지정합니다. 지원되는 지역은 [지역별 Analysis Services 가용성](analysis-services-overview.md#availability-by-region)을 참조하세요.
     * **Sku 이름**: 만들려는 Analysis Services 서버의 sku 이름을 입력합니다. 이름을 B1, B2, D1, S0, S1, S2, S3, S4, S8v2, S9v2 중에 선택합니다. Sku 가용성은 지역에 따라 다릅니다. S0 또는 D1은 평가 및 테스트용으로 권장됩니다.
     * **Capacity**: 총 쿼리 복제본 스케일 아웃 인스턴스 수를 입력합니다. 두 개 이상의 인스턴스를 스케일 아웃하는 기능은 일부 지역에서만 지원됩니다.
     * **방화벽 설정**: 서버에 대해 정의할 인바운드 방화벽 규칙을 입력합니다. 지정하지 않으면 방화벽이 사용되지 않습니다.
     * **백업 Blob 컨테이너 Uri**: 읽기, 쓰기 및 나열 권한이 있는 프라이빗 Azure Blob Storage 컨테이너의 SAS URI를 입력합니다. [백업/복원](analysis-services-backup.md)을 사용하려는 경우에만 필요합니다.
     * **위에 명시된 사용 약관에 동의함**: 선택합니다.
 
-3. **구매**를 선택합니다. 서버가 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
+3. **구매** 를 선택합니다. 서버가 성공적으로 배포되면 다음과 같이 알림을 받게 됩니다.
 
    ![ARM 템플릿, 배포 포털 알림](./media/analysis-services-create-template/notification.png)
 

@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 94f4d17596936dd9d0ebbdae3c351cac9ed2a570
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89299867"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 명명된 위치 구성
@@ -43,11 +43,11 @@ ms.locfileid: "89299867"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 창에서 **Azure Active Directory**를 선택한 다음, **보안** 섹션에서 **조건부 액세스**를 선택합니다.
+2. 왼쪽 창에서 **Azure Active Directory** 를 선택한 다음, **보안** 섹션에서 **조건부 액세스** 를 선택합니다.
 
     ![조건부 액세스 탭](./media/quickstart-configure-named-locations/entrypoint.png)
 
-3. **조건부 액세스** 페이지에서 **명명된 위치**를 선택하고 **새 위치**를 선택합니다.
+3. **조건부 액세스** 페이지에서 **명명된 위치** 를 선택하고 **새 위치** 를 선택합니다.
 
     ![명명된 위치](./media/quickstart-configure-named-locations/namedlocation.png)
 
@@ -55,7 +55,7 @@ ms.locfileid: "89299867"
 
    * **이름** 상자에 명명된 위치의 이름을 입력합니다.
    * **IP 범위** 상자에 IP 범위를 CIDR 형식으로 입력합니다.  
-   * **만들기**를 클릭합니다.
+   * **만들기** 를 클릭합니다.
     
      ![새로 만들기 블레이드](./media/quickstart-configure-named-locations/61.png)
 

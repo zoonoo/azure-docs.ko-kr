@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-js
 ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91303117"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기
@@ -55,7 +55,7 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-다음과 같이 [docker build][docker-build] 명령을 사용하여 컨테이너 이미지를 만들고 *aci-tutorial-app*이라는 태그를 지정합니다.
+[docker build][docker-build] 명령을 사용하여 컨테이너 이미지를 만들고 *aci-tutorial-app* 으로 태깅합니다.
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
@@ -83,7 +83,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-빌드된 이미지를 보려면 다음과 같이 [docker images][docker-images] 명령을 사용합니다.
+빌드된 이미지를 보려면 [docker images][docker-images] 명령을 사용합니다.
 
 ```bash
 docker images
@@ -128,7 +128,7 @@ a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 이 시리즈의 다음 자습서로 이동하여 Azure Container Registry에 컨테이너 이미지를 저장하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry에 이미지 푸시](container-instances-tutorial-prepare-acr.md)
+> [Azure Container Registry에 이미지 푸시하기](container-instances-tutorial-prepare-acr.md)
 
 <!--- IMAGES --->
 [aci-tutorial-app]:./media/container-instances-quickstart/aci-app-browser.png

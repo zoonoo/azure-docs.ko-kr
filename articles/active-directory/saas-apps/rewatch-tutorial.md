@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: jeedes
 ms.openlocfilehash: 032957b49c7ef9170a7e1aaa63eaa66a3c3e8401
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101648536"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-rewatch"></a>자습서: Rewatch와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -87,7 +87,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Rewatch 애플리케이션은 위에서 언급한 특성 외에 몇 가지 추가 특성이 SAML 응답에 다시 전달될 것이라 예상합니다. 해당 특성은 아래에 나와 있습니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | 속성 |  원본 특성|
+    | Name |  원본 특성|
     | --------------- | --------- |
     | 그룹 | user.groups |
 

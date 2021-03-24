@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
 ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91252309"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
@@ -38,7 +38,7 @@ Azure Portal을 사용하여 웹 애플리케이션에 대한 고가용성을 �
 
 1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
-1. 화면 왼쪽 상단에서 **리소스 만들기** >  **WebApp**을 차례로 선택합니다.
+1. 화면 왼쪽 상단에서 **리소스 만들기** >  **WebApp** 을 차례로 선택합니다.
 
     :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Azure Portal에서 웹앱 만들기":::
 
@@ -47,96 +47,96 @@ Azure Portal을 사용하여 웹 애플리케이션에 대한 고가용성을 �
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | **구독**               | 구독을 선택합니다. |    
-    | **리소스 그룹**       | **새로 만들기**를 선택하고 텍스트 상자에 *FrontDoorQS_rg1*을 입력합니다.|
-    | **이름**                   | 웹앱에 대한 고유한 **이름**을 입력합니다. 이 예에서는 *WebAppContoso-1*을 사용합니다. |
-    | **게시** | **코드**를 선택합니다. |
+    | **리소스 그룹**       | **새로 만들기** 를 선택하고 텍스트 상자에 *FrontDoorQS_rg1* 을 입력합니다.|
+    | **이름**                   | 웹앱에 대한 고유한 **이름** 을 입력합니다. 이 예에서는 *WebAppContoso-1* 을 사용합니다. |
+    | **게시** | **코드** 를 선택합니다. |
     | **런타임 스택**         | **.NET Core 2.1(LTS)** 을 선택합니다. |
-    | **운영 체제**          | **Windows**를 선택합니다. |
-    | **지역**           | **미국 중부**를 선택합니다. |
-    | **Windows 플랜** | **새로 만들기**를 선택하고 텍스트 상자에 *myAppServicePlanCentralUS*를 입력합니다. |
-    | **SKU 및 크기** | **Standard S1 100 총 ACU, 1.75GB 메모리**를 선택합니다. |
+    | **운영 체제**          | **Windows** 를 선택합니다. |
+    | **지역**           | **미국 중부** 를 선택합니다. |
+    | **Windows 플랜** | **새로 만들기** 를 선택하고 텍스트 상자에 *myAppServicePlanCentralUS* 를 입력합니다. |
+    | **SKU 및 크기** | **Standard S1 100 총 ACU, 1.75GB 메모리** 를 선택합니다. |
 
-1. **검토 + 만들기**를 선택하고, **요약**을 검토한 다음, **만들기**를 선택합니다. 배포가 완료되는 데 몇 분 정도 걸릴 수 있습니다.
+1. **검토 + 만들기** 를 선택하고, **요약** 을 검토한 다음, **만들기** 를 선택합니다. 배포가 완료되는 데 몇 분 정도 걸릴 수 있습니다.
 
-    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Azure Portal에서 웹앱 만들기":::
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="웹앱에 대한 요약 검토":::
 
 배포가 완료되면 두 번째 웹앱을 만듭니다. 다음 값을 제외하고 동일한 값으로 동일한 절차를 사용합니다.
 
 | 설정          | 값     |
 | ---              | ---  |
-| **리소스 그룹**   | **새로 만들기**를 선택하고 *FrontDoorQS_rg2*를 입력합니다. |
+| **리소스 그룹**   | **새로 만들기** 를 선택하고 *FrontDoorQS_rg2* 를 입력합니다. |
 | **이름**             | 웹앱에 대한 고유 이름을 입력합니다(이 예에서는 *WebAppContoso-2*).  |
 | **지역**           | 다른 지역(이 예에서는 *미국 중남부*) |
-| **App Service 계획** > **Windows 플랜**         | **새로 만들기**를 선택하고, *myAppServicePlanSouthCentralUS*를 입력한 다음, **확인**을 선택합니다. |
+| **App Service 계획** > **Windows 플랜**         | **새로 만들기** 를 선택하고, *myAppServicePlanSouthCentralUS* 를 입력한 다음, **확인** 을 선택합니다. |
 
 ## <a name="create-a-front-door-for-your-application"></a>애플리케이션에 대한 Front Door 만들기
 
 두 웹앱 서버 간의 가장 짧은 대기 시간을 기준으로 사용자 트래픽을 보내도록 Azure Front Door를 구성합니다. 시작하려면 Azure Front Door에 대한 프런트 엔드 호스트를 추가합니다.
 
-1. 홈 페이지 또는 Azure 메뉴에서 **리소스 만들기**를 선택합니다. **네트워킹** > **모두 보기** > **Front Door**를 선택합니다.
+1. 홈 페이지 또는 Azure 메뉴에서 **리소스 만들기** 를 선택합니다. **네트워킹** > **모두 보기** > **Front Door** 를 선택합니다.
 
-1. **Front Door 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택한 다음, **다음: 구성**을 선택합니다.
+1. **Front Door 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택한 다음, **다음: 구성** 을 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
     | **구독** | 구독을 선택합니다. |    
-    | **리소스 그룹** | **새로 만들기**를 선택하고 텍스트 상자에 *FrontDoorQS_rg0*을 입력합니다.|
-    | **리소스 그룹 위치** | **미국 중부**를 선택합니다. |
+    | **리소스 그룹** | **새로 만들기** 를 선택하고 텍스트 상자에 *FrontDoorQS_rg0* 을 입력합니다.|
+    | **리소스 그룹 위치** | **미국 중부** 를 선택합니다. |
 
-1. **프런트 엔드/도메인**에서 **+** 를 선택하여 **프런트 호스트 추가**를 엽니다.
+1. **프런트 엔드/도메인** 에서 **+** 를 선택하여 **프런트 호스트 추가** 를 엽니다.
 
-1. **호스트 이름**에 대해 전역적으로 고유한 호스트 이름을 입력합니다. 이 예에서는 *contoso-frontend*를 사용합니다. **추가**를 선택합니다.
+1. **호스트 이름** 에 대해 전역적으로 고유한 호스트 이름을 입력합니다. 이 예에서는 *contoso-frontend* 를 사용합니다. **추가** 를 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Azure Portal에서 웹앱 만들기":::
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Azure Front Door에 대한 프런트 엔드 호스트 추가":::
 
 다음으로, 두 개의 웹앱이 포함된 백 엔드 풀을 만듭니다.
 
-1. 여전히 **Front Door 만들기**의 **백 엔드 풀**에서 **+** 를 선택하여 **백 엔드 풀 추가**를 엽니다.
+1. 여전히 **Front Door 만들기** 의 **백 엔드 풀** 에서 **+** 를 선택하여 **백 엔드 풀 추가** 를 엽니다.
 
-1. **이름**에 *myBackendPool*을 입력한 다음, **백 엔드 추가**를 선택합니다.
+1. **이름** 에 *myBackendPool* 을 입력한 다음, **백 엔드 추가** 를 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Azure Portal에서 웹앱 만들기":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="백 엔드 풀 추가":::
 
-1. **백 엔드 추가** 블레이드에서 다음 정보를 선택하고 **추가**를 선택합니다.
-
-    | 설정 | 값 |
-    | --- | --- |
-    | **백 엔드 호스트 유형** | **앱 서비스**를 선택합니다. |   
-    | **구독** | 구독을 선택합니다. |    
-    | **백 엔드 호스트 이름** | 만든 첫 번째 웹앱을 선택합니다. 이 예에서는 웹앱이 *WebAppContoso-1*이었습니다. |
-
-    **기타 모든 필드는 기본값으로 둡니다.*
-
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Azure Portal에서 웹앱 만들기":::
-
-1. **백 엔드 추가**를 다시 선택합니다. 다음 정보를 선택하고 **추가**를 선택합니다.
+1. **백 엔드 추가** 블레이드에서 다음 정보를 선택하고 **추가** 를 선택합니다.
 
     | 설정 | 값 |
     | --- | --- |
-    | **백 엔드 호스트 유형** | **앱 서비스**를 선택합니다. |   
+    | **백 엔드 호스트 유형** | **앱 서비스** 를 선택합니다. |   
     | **구독** | 구독을 선택합니다. |    
-    | **백 엔드 호스트 이름** | 만든 두 번째 웹앱을 선택합니다. 이 예제에서는 웹앱이 *WebAppContoso-2*이었습니다. |
+    | **백 엔드 호스트 이름** | 만든 첫 번째 웹앱을 선택합니다. 이 예에서는 웹앱이 *WebAppContoso-1* 이었습니다. |
 
     **기타 모든 필드는 기본값으로 둡니다.*
 
-1. 백 엔드 풀의 구성을 완료하려면 **백 엔드 풀 추가** 블레이드에서 **추가**를 선택합니다.
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Front Door에 백 엔드 호스트 추가":::
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Azure Portal에서 웹앱 만들기":::
+1. **백 엔드 추가** 를 다시 선택합니다. 다음 정보를 선택하고 **추가** 를 선택합니다.
 
-마지막으로, 회람 규칙을 추가합니다. 회람 규칙은 프런트 엔드 호스트를 백 엔드 풀에 매핑합니다. 규칙은 `contoso-frontend.azurefd.net`에 대한 요청을 **myBackendPool**에 전달합니다.
+    | 설정 | 값 |
+    | --- | --- |
+    | **백 엔드 호스트 유형** | **앱 서비스** 를 선택합니다. |   
+    | **구독** | 구독을 선택합니다. |    
+    | **백 엔드 호스트 이름** | 만든 두 번째 웹앱을 선택합니다. 이 예제에서는 웹앱이 *WebAppContoso-2* 이었습니다. |
 
-1. 여전히 **Front Door 만들기**의 **회람 규칙**에서 **+** 를 선택하여 회람 규칙을 구성합니다.
+    **기타 모든 필드는 기본값으로 둡니다.*
 
-1. **규칙 추가**에서 **이름**에 대해 *LocationRule*을 입력합니다. 모든 기본값을 적용한 다음, **추가**를 선택하여 회람 규칙을 추가합니다.
+1. 백 엔드 풀의 구성을 완료하려면 **백 엔드 풀 추가** 블레이드에서 **추가** 를 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Azure Portal에서 웹앱 만들기":::
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Azure Front Door에 대한 백 엔드 풀 추가":::
+
+마지막으로, 회람 규칙을 추가합니다. 회람 규칙은 프런트 엔드 호스트를 백 엔드 풀에 매핑합니다. 규칙은 `contoso-frontend.azurefd.net`에 대한 요청을 **myBackendPool** 에 전달합니다.
+
+1. 여전히 **Front Door 만들기** 의 **회람 규칙** 에서 **+** 를 선택하여 회람 규칙을 구성합니다.
+
+1. **규칙 추가** 에서 **이름** 에 대해 *LocationRule* 을 입력합니다. 모든 기본값을 적용한 다음, **추가** 를 선택하여 회람 규칙을 추가합니다.
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Front Door에 규칙 추가":::
 
    >[!WARNING]
    > 기본 경로(`\*`)가 연결된 회람 규칙이 Front Door의 각 프런트 엔드 호스트에 **있어야 합니다**. 즉, 모든 회람 규칙에서 하나 이상의 회람 규칙이 기본 경로(`\*`)에 정의된 각 프런트 엔드 호스트에 있어야 합니다. 이렇게 하지 않으면 최종 사용자 트래픽이 올바르게 라우팅되지 않을 수 있습니다.
 
-1. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
+1. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다.
 
-    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Azure Portal에서 웹앱 만들기":::
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="구성된 Azure Front Door":::
 
 ## <a name="view-azure-front-door-in-action"></a>작동 중인 Azure Front Door 보기
 
@@ -148,9 +148,9 @@ Front Door를 만들면 구성이 전역적으로 배포되는 데 몇 분 정�
 
 1. 위에서 설명한 대로 브라우저를 열고, 프런트 엔드 주소(`contoso-frontend.azurefd.net`)로 이동합니다.
 
-1. Azure Portal에서 *앱 서비스*를 검색하여 선택합니다. 아래로 스크롤하여 웹앱 중 하나(이 예에서는 **WebAppContoso-1**)를 찾습니다.
+1. Azure Portal에서 *앱 서비스* 를 검색하여 선택합니다. 아래로 스크롤하여 웹앱 중 하나(이 예에서는 **WebAppContoso-1**)를 찾습니다.
 
-1. 웹앱을 선택한 다음, **중지**, **예**를 차례로 선택하여 확인합니다.
+1. 웹앱을 선택한 다음, **중지**, **예** 를 차례로 선택하여 확인합니다.
 
 1. 브라우저를 새로 고칩니다. 동일한 정보 페이지가 표시됩니다.
 
@@ -161,22 +161,22 @@ Front Door를 만들면 구성이 전역적으로 배포되는 데 몇 분 정�
 
 1. 브라우저를 새로 고칩니다. 이번에는 오류 메시지가 표시됩니다.
 
-   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Azure Portal에서 웹앱 만들기":::
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="웹앱의 두 인스턴스가 모두 중지됨":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 작업을 완료한 후에는 생성한 모든 항목을 제거할 수 있습니다. 리소스 그룹을 삭제하면 해당 콘텐츠도 삭제됩니다. 이 Front Door를 사용하지 않으려면 필요한 요금이 청구되지 않도록 리소스를 제거해야 합니다.
 
-1. Azure Portal에서 **리소스 그룹**을 검색하여 선택하거나 Azure Portal 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal에서 **리소스 그룹** 을 검색하여 선택하거나 Azure Portal 메뉴에서 **리소스 그룹** 을 선택합니다.
 
 1. 필터링하거나 아래로 스크롤하여 리소스 그룹(예: **FrontDoorQS_rg0**)을 찾습니다.
 
-1. 리소스 그룹을 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
+1. 리소스 그룹을 선택한 다음, **리소스 그룹 삭제** 를 선택합니다.
 
    >[!WARNING]
    >이 작업은 되돌릴 수 없습니다.
 
-1. 확인할 리소스 그룹 이름을 입력한 다음, **삭제**를 선택합니다.
+1. 확인할 리소스 그룹 이름을 입력한 다음, **삭제** 를 선택합니다.
 
 다른 두 그룹에 대해 이 절차를 반복합니다.
 
