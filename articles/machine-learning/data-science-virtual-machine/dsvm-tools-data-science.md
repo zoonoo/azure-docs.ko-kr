@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: ac71d8d7830f1d740d0156886a364b1d53ab247f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d78b106464bfbd3c86b9899a5c3543eed5dc0924
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100519561"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888960"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines의 기계 학습 및 데이터 과학 도구
 Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 인기 있는 언어로 제공 되는 기계 학습을 위한 다양 한 도구 및 라이브러리 집합이 있습니다.
@@ -99,7 +99,7 @@ Dsvms에는 `scikit-learn` dsvms에 대 한 Anaconda Python 배포의 일부인 
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 라이브러리      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python 라이브러리 (2.7 및 3.5), R 패키지 및 경로 ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` Windows 및 Linux 용) 명령줄 도구 `/dsvm/tools/xgboost/xgboost`    |
+| 사용/실행 방법      | Python 라이브러리 (2.7 및 3.6 이상), R 패키지 및 경로 명령줄 도구 ( `C:\dsvm\tools\xgboost\bin\xgboost.exe` Windows 및 `/dsvm/tools/xgboost/xgboost` Linux 용)    |
 | 샘플에 대한 링크      | 샘플은 VM에, linux인 경우 `/dsvm/tools/xgboost/demo`, Windows인 경우 `C:\dsvm\tools\xgboost\demo`에 포함됩니다.   |
 | 관련 도구      | LightGBM, MXNet   |
 

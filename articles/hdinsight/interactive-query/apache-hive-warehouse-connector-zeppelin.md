@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7957041c9d445f4239b8f0100128a531d982b451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98941171"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871557"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin과 Hive Warehouse Connector 통합
 
@@ -97,11 +97,11 @@ Livy 인터프리터를 사용하여 Zeppelin에서 Hive 테이블에 액세스�
 
     * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
 
-        ![hive 웨어하우스 커넥터 헤드 노드](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive 웨어하우스 커넥터 헤드 노드" border="true":::
 
     * [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 대화형 쿼리 클러스터에 연결 합니다. `default_realm`파일에서 매개 변수를 찾습니다 `/etc/krb5.conf` . `<AAD-DOMAIN>`이 값을 대문자 문자열로 바꾸고, 그렇지 않으면 자격 증명을 찾을 수 없습니다.
 
-        ![hive 웨어하우스 커넥터 AAD 도메인](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive 웨어하우스 커넥터 AAD 도메인" border="true":::
 
     * 예를 들면 `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` 입니다.
 

@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 9e292aeb116bd33ce935c951b39015c54dd1a8bc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1c210eab0332d01fc6514edc790d729172ed2174
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102486695"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889062"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -126,7 +126,7 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 |배포 유형|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
 |데이터베이스|[AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[데이터베이스 장애 조치](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) 를 사용 하 여에서 REST API 호출을 호출할 수 있습니다 Azure CLI|
-|탄력적 풀|[AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[탄력적 풀 장애 조치 (failover)](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](/cli/azure/reference-index#az-rest) 를 사용 하 여에서 REST API 호출을 호출할 수 있습니다 Azure CLI|
+|탄력적 풀|[AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[탄력적 풀 장애 조치 (failover)](/rest/api/sql/elasticpools/failover)|[az rest](/cli/azure/reference-index#az-rest) 를 사용 하 여에서 REST API 호출을 호출할 수 있습니다 Azure CLI|
 |관리되는 인스턴스|[AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[관리 되는 인스턴스-장애 조치](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi 장애 조치](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]

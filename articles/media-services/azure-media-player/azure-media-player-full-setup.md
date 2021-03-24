@@ -7,12 +7,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: b6b239f44311424db2e80c59e2aba639ae3c0000
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e6ec59e3cb8d285652935b42493c820a7379eeb8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98797458"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956080"
 ---
 # <a name="azure-media-player-full-setup"></a>Azure Media Player 전체 설정 #
 
@@ -93,7 +93,7 @@ HTML5 비디오와 동일 하 게 특성, 설정, 원본 및 트랙을 포함/�
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{

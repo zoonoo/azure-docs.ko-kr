@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: feb77339c9c7f36eb17b43dfe2c220dfb54efa25
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b24276974eba76aa841cdd7f02145210713474eb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720528"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872288"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IoT Edge 보안 디먼 및 런타임 업데이트
 
@@ -203,7 +203,7 @@ IoT Edge 서비스는 최신 버전의 런타임 이미지를 끌어오고 해�
 * 패키지 이름이 **iotedge** 에서 **aziot-edge** 로 변경 되었습니다.
 * **Libiothsm** 패키지는 더 이상 사용 되지 않습니다. IoT Edge 릴리스의 일부로 제공 된 표준 패키지를 사용 하는 경우 구성을 새 버전으로 이전할 수 있습니다. Libiothsm의 다른 구현을 사용한 경우 장치 id 인증서, 장치 CA 및 신뢰 번들과 같은 사용자 제공 인증서를 다시 구성 해야 합니다.
 * 새 id 서비스인 **aziot** 는 1.2 릴리스의 일부로 도입 되었습니다. 이 서비스는 IoT Edge에 대 한 id 프로 비전 및 관리와 Azure IoT Hub 장치 업데이트와 같이 IoT Hub와 통신 해야 하는 기타 장치 구성 요소를 처리 합니다. <!--TODO: add link to ADU when available -->
-* 기본 구성 파일에는 새 이름과 위치가 있습니다. 이전에 `/etc/iotedge/config.yaml` 는 이제 장치 구성 정보가 `/etc/aziot/congig.toml` 기본적으로에 있어야 합니다. `iotedge config import`명령을 사용 하 여 이전 위치와 구문을 구성 정보 형식으로 마이그레이션하는 데 도움이 될 수 있습니다.
+* 기본 구성 파일에는 새 이름과 위치가 있습니다. 이전에 `/etc/iotedge/config.yaml` 는 이제 장치 구성 정보가 `/etc/aziot/config.toml` 기본적으로에 있어야 합니다. `iotedge config import`명령을 사용 하 여 이전 위치와 구문을 구성 정보 형식으로 마이그레이션하는 데 도움이 될 수 있습니다.
 * 업데이트 후에는 IoT Edge 작업 API를 사용 하 여 영구 데이터를 암호화 하거나 암호 해독 하는 모든 모듈을 해독할 수 없습니다. IoT Edge는 내부적으로 사용 하기 위해 마스터 id 키 및 암호화 키를 동적으로 생성 합니다. 이 키는 새 서비스로 전송 되지 않습니다. IoT Edge v 1.2는 새 항목을 생성 합니다.
 
 업데이트 프로세스를 자동화 하기 전에 테스트 컴퓨터에서 작동 하는지 확인 합니다.

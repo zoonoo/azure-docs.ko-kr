@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca3ba61de13e0e451b43dc9c8ea40db33fed859a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931107"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869670"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Azure HDInsight Interactive Query 클러스터(Hive LLAP) 크기 조정 가이드
 
@@ -47,7 +47,7 @@ ms.locfileid: "98931107"
 
 ### <a name="llap-architecturecomponents"></a>**LLAP 아키텍처/구성 요소:**  
 
-![' LLAP 아키텍처/구성 요소 '](./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png "LLAP 아키텍처/구성 요소")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_architecture_sizing_guide.png " alt-text="' LLAP 아키텍처/구성 요소 '" border="true":::
 
 ### <a name="llap-daemon-size-estimations"></a>**LLAP 디먼 크기 예측:** 
 
@@ -81,7 +81,7 @@ D14 v2의 경우 권장되는 값은 **12** 입니다.
 
 **Hive 구성 변수에 대 한 Ambari UI 슬라이더 `hive.server2.tez.sessions.per.default.queue` :**
 
-![' LLAP 최대 동시 쿼리 '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png "LLAP 최대 동시 쿼리 수")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_max_concurrent_queries.png " alt-text="' LLAP 최대 동시 쿼리 '" border="true":::
 
 #### <a name="5-tez-container-and-tez-application-master-size"></a>**5. Tez 컨테이너 및 Tez 애플리케이션 마스터 크기**    
 구성: ***tez.am.resource.memory.mb, hive.tez.container.size***  
@@ -165,7 +165,7 @@ D14 v 2의 경우이 값은 19 x 3gb = **57 GB** 입니다.
 
 `Ambari environment variable for LLAP heap size:`
 
-![' LLAP 힙 크기 '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png "LLAP 힙 크기")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_llap_heap_size.png " alt-text="' LLAP 힙 크기 '" border="true":::
 
 SSD 캐시를 사용 하지 않도록 설정 하는 경우 메모리 내 캐시는 LLAP 디먼 컨테이너 크기에서 여유 크기와 힙 크기를 가져온 후 남은 메모리의 양입니다.
 
@@ -197,11 +197,11 @@ Ambari 환경 변수: ***num_llap_nodes, num_llap_nodes_for_llap_daemons***
 
 **num_llap_nodes** -HIVE llap 서비스에서 사용 하는 노드 수를 지정 합니다. 여기에는 llap 디먼, Llap 서비스 마스터 및 TEZ AM (Application master)을 실행 하는 노드가 포함 됩니다.  
 
-![' LLAP 서비스에 대 한 노드 수 '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png "LLAP 서비스에 대 한 노드 수")  
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes.png " alt-text="' LLAP 서비스에 대 한 노드 수 '" border="true":::  
 
 **num_llap_nodes_for_llap_daemons** 지정 된 노드 수는 llap 디먼에만 사용 됩니다. LLAP 디먼 컨테이너 크기는 최대 맞춤 노드로 설정 되어 있으므로 각 노드에 하나의 LLAP 데몬이 생성 됩니다.
 
-![' LLAP 디먼에 대 한 노드 수 '](./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png "LLAP 디먼의 노드 수")
+:::image type="content" source="./media/hive-llap-sizing-guide/LLAP_sizing_guide_num_llap_nodes_for_llap_daemons.png " alt-text="' LLAP 디먼에 대 한 노드 수 '" border="true":::
 
 두 값을 모두 대화형 쿼리 클러스터의 작업자 노드 수와 동일 하 게 유지 하는 것이 좋습니다.
 

@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 72772743eba23ea7c2a93f5037ac84b671256a66
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99070647"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887702"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -214,10 +214,11 @@ Configuration AuditBitLocker
 }
 
 # Compile the configuration to create the MOF files
-AuditBitLocker ./Config
+AuditBitLocker
 ```
 
-프로젝트 폴더에 `config.ps1`로 이 파일을 저장합니다. 터미널에서 `./config.ps1`을 실행하여 PowerShell에서 실행합니다. 새 mof 파일이 생성됩니다.
+PowerShell 터미널에서이 스크립트를 실행 하거나 프로젝트 폴더에 이름을 사용 하 여이 파일을 저장 `config.ps1` 합니다.
+터미널에서 `./config.ps1`을 실행하여 PowerShell에서 실행합니다. 새 mof 파일이 생성됩니다.
 
 `Node AuditBitlocker` 명령은 기술적으로 필요하지 않지만 기본값 `localhost.mof`가 아닌 `AuditBitlocker.mof`라는 파일을 생성합니다. .mof 파일 이름을 구성에 따라 지정하면 대규모 작업을 수행할 때 많은 파일을 쉽게 구성할 수 있습니다.
 
@@ -234,7 +235,7 @@ MOF가 컴파일되면 지원 파일을 함께 패키지해야 합니다. 완성
 ```azurepowershell-interactive
 New-GuestConfigurationPackage `
   -Name 'AuditBitlocker' `
-  -Configuration './Config/AuditBitlocker.mof'
+  -Configuration './AuditBitlocker/AuditBitlocker.mof'
 ```
 
 구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD (지속적인 통합 및 지속적인 배포) 환경에서 패키지를 테스트할 수 있습니다. GuestConfiguration cmdlet `Test-GuestConfigurationPackage`에는 개발 환경에서 Azure 컴퓨터에서 사용되는 것과 동일한 에이전트가 포함되어 있습니다. 이 솔루션을 사용하여 청구되는 클라우드 환경에 릴리스하기 전에 로컬에서 통합 테스트를 수행할 수 있습니다.
@@ -257,10 +258,16 @@ Test-GuestConfigurationPackage `
 cmdlet은 PowerShell 파이프라인의 입력도 지원합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet으로 파이프합니다.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./AuditBitlocker/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 이 명령에는 `Publish-GuestConfigurationPackage` 모듈이 필요 합니다 `Az.Storage` .
+다음 단계는 Azure Blob Storage에 파일을 게시 하는 것입니다. 저장소 계정에 대 한 특별 한 요구 사항은 없지만 컴퓨터 근처 지역에서 파일을 호스트 하는 것이 좋습니다. 저장소 계정이 없는 경우 다음 예제를 사용 합니다. 을 포함 하 여 아래 명령에는 `Publish-GuestConfigurationPackage` 모듈이 필요 합니다 `Az.Storage` .
+
+```azurepowershell-interactive
+# Creates a new resource group, storage account, and container
+New-AzResourceGroup -name myResourceGroupName -Location WestUS
+New-AzStorageAccount -ResourceGroupName myResourceGroupName -Name myStorageAccountName -SkuName 'Standard_LRS' -Location 'WestUs' | New-AzStorageContainer -Name guestconfiguration -Permission Blob
+```
 
 `Publish-GuestConfigurationPackage` cmdlet의 매개 변수는 다음과 같습니다.
 
@@ -416,111 +423,6 @@ New-GuestConfigurationPolicy
 > 게스트 구성 확장성은 "사용자 라이선스 필요" 시나리오입니다. 사용하기 전에 타사 도구의 사용 약관을 충족하는지 확인합니다.
 
 DSC 리소스를 개발 환경에 설치한 후에는 `New-GuestConfigurationPackage`에 대한 **FilesToInclude** 매개 변수를 사용하여 콘텐츠 아티팩트의 타사 플랫폼에 대한 콘텐츠를 포함합니다.
-
-### <a name="step-by-step-creating-a-content-artifact-that-uses-third-party-tools"></a>타사 도구를 사용하는 콘텐츠 아티팩트 만들기 단계별 안내
-
-`New-GuestConfigurationPackage` cmdlet만 DSC 콘텐츠 아티팩트에 대한 단계별 지침을 변경해야 합니다. 이 예에서는 `gcInSpec` 모듈을 사용하여 Linux에서 사용되는 기본 제공 모듈이 아닌 InSpec 플랫폼을 사용하여 Windows 컴퓨터를 감사하도록 게스트 구성을 확장합니다. 커뮤니티 모듈은 [GitHub에서 오픈 소스 프로젝트](https://github.com/microsoft/gcinspec)로 유지됩니다.
-
-개발 환경에 필요한 모듈을 설치합니다.
-
-```azurepowershell-interactive
-# Update PowerShellGet if needed to allow installing PreRelease versions of modules
-Install-Module PowerShellGet -Force
-
-# Install GuestConfiguration module prerelease version
-Install-Module GuestConfiguration -allowprerelease
-
-# Install commmunity supported gcInSpec module
-Install-Module gcInSpec
-```
-
-먼저 InSpec에서 사용하는 YaML 파일을 만듭니다. 이 파일은 환경에 대한 기본 정보를 제공합니다. 예를 들면 다음과 같습니다.
-
-```YaML
-name: wmi_service
-title: Verify WMI service is running
-maintainer: Microsoft Corporation
-summary: Validates that the Windows Service 'winmgmt' is running
-copyright: Microsoft Corporation
-license: MIT
-version: 1.0.0
-supports:
-  - os-family: windows
-```
-
-이 파일 `wmi_service.yml` 을 프로젝트 디렉터리에 이름이 지정 된 폴더에 저장 `wmi_service` 합니다.
-
-그런 다음, 컴퓨터를 감사하는 데 사용되는 InSpec 언어 추상화를 사용하여 Ruby 파일을 만듭니다.
-
-```Ruby
-control 'wmi_service' do
-  impact 1.0
-  title 'Verify windows service: winmgmt'
-  desc 'Validates that the service, is installed, enabled, and running'
-
-  describe service('winmgmt') do
-    it { should be_installed }
-    it { should be_enabled }
-    it { should be_running }
-  end
-end
-
-```
-
-이 파일을 `wmi_service.rb` 디렉터리 내 이름이 지정 된 새 폴더에 저장 `controls` `wmi_service` 합니다.
-
-마지막으로 구성을 만들고 **GuestConfiguration** 리소스 모듈을 가져오고 `gcInSpec` 리소스를 사용하여 InSpec 프로필의 이름을 설정합니다.
-
-```powershell
-# Define the configuration and import GuestConfiguration
-Configuration wmi_service
-{
-    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
-    node 'wmi_service'
-    {
-        gcInSpec wmi_service
-        {
-            InSpecProfileName       = 'wmi_service'
-            InSpecVersion           = '3.9.3'
-            WindowsServerVersion    = '2016'
-        }
-    }
-}
-
-# Compile the configuration to create the MOF files
-wmi_service -out ./Config
-```
-
-이제 프로젝트 구조가 다음과 같이 표시됩니다.
-
-```file
-/ wmi_service
-    / Config
-        wmi_service.mof
-    / wmi_service
-        wmi_service.yml
-        / controls
-            wmi_service.rb 
-```
-
-지원 파일은 한 패키지에 포함되어야 합니다. 완료된 패키지는 게스트 구성에서 Azure Policy 정의를 만드는 데 사용됩니다.
-
-`New-GuestConfigurationPackage` cmdlet은 패키지를 만듭니다. 타사 콘텐츠의 경우 **FilesToInclude** 매개 변수를 사용하여 패키지에 InSpec 콘텐츠를 추가합니다. Linux 패키지용으로 **ChefProfilePath** 을 지정할 필요가 없습니다.
-
-- **Name**: 게스트 구성 패키지 이름입니다.
-- **구성**: 컴파일된 구성 문서 전체 경로입니다.
-- **경로**: 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
-- **FilesoInclude**: InSpec 프로필의 전체 경로입니다.
-
-다음 명령을 실행하여 이전 단계에서 지정한 구성을 사용한 패키지를 만듭니다.
-
-```azurepowershell-interactive
-New-GuestConfigurationPackage `
-  -Name 'wmi_service' `
-  -Configuration './Config/wmi_service.mof' `
-  -FilesToInclude './wmi_service'  `
-  -Path './package' 
-```
 
 ## <a name="policy-lifecycle"></a>정책 수명 주기
 

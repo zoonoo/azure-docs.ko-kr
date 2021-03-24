@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cadf5b7d92e26e561e570f824295e69ca421e16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 34aaafcd03e737b1e59529f8001e0c008bd39b70
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644523"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888875"
 ---
 # <a name="integrate-with-sharepoint-saml"></a>SharePoint와 통합(SAML)
 
@@ -68,8 +68,8 @@ ms.locfileid: "101644523"
 
  1. 사용자 지정 도메인을 사용 하 여 새 Azure AD 응용 프로그램 프록시 응용 프로그램을 만듭니다. 단계별 지침은 [Azure AD 응용 프로그램 프록시의 사용자 지정 도메인](./application-proxy-configure-custom-domain.md)을 참조 하세요.
 
-    - 내부 URL: https://portal.contoso.com/
-    - 외부 URL: https://portal.contoso.com/
+    - 내부 URL: ' https://portal.contoso.com/ '
+    - 외부 URL: ' https://portal.contoso.com/ '
     - 사전 인증: Azure Active Directory
     - 헤더에서 Url 변환: 아니요
     - 응용 프로그램 본문에서 Url 변환: 아니요
@@ -84,4 +84,4 @@ ms.locfileid: "101644523"
  
 ## <a name="step-3-test-your-application"></a>3 단계: 응용 프로그램 테스트
 
-외부 네트워크의 컴퓨터에서 브라우저를 사용 하 여 https://portal.contoso.com/) 게시 단계 중에 구성한 URL로 이동 합니다. 설정한 테스트 계정으로 로그인 할 수 있는지 확인 합니다.
+외부 네트워크의 컴퓨터에서 브라우저를 사용 하 여 게시 단계 중에 구성한 링크로 이동 합니다. 설정한 테스트 계정으로 로그인 할 수 있는지 확인 합니다.

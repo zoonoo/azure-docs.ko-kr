@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db695b55fbef16cb67dce6dc2d3c81ad177c9db6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 629f71c429d6af8583cb15b9ebc96efe6867f78b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601800"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888892"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -489,7 +489,7 @@ Azure AD에서 지 원하는 앱 및 리소스의 두 가지 주요 범주는 �
 
 마이그레이션을 진행 하는 동안 앱은 정기 배포 중에 이미 테스트 환경을 사용 하 고 있을 수 있습니다. 마이그레이션 테스트에이 환경을 계속 사용할 수 있습니다. 테스트 환경을 현재 사용할 수 없는 경우 응용 프로그램의 아키텍처에 따라 Azure App Service 또는 Azure Virtual Machines를 사용 하 여 설정할 수 있습니다. 앱 구성을 개발할 때 사용할 개별 테스트 Azure AD 테 넌 트를 설정 하도록 선택할 수 있습니다. 이 테 넌 트는 정리 된 상태로 시작 되며 어떤 시스템과도 동기화 하도록 구성 되지 않습니다.
 
-테스트 사용자로 로그인 하 여 각 응용 프로그램을 테스트 하 고 모든 기능이 마이그레이션 이전과 동일한 지 확인 합니다. 테스트 중에 사용자가 [MFA](/active-directory/authentication/howto-mfa-userstates) 또는 [SSPR](../authentication/tutorial-enable-sspr.md)설정을 업데이트 해야 하는지 또는 마이그레이션 중에이 기능을 추가 해야 하는지 확인 하는 경우 최종 사용자 통신 계획에이 기능을 추가 해야 합니다. [MFA](https://aka.ms/mfatemplates) 및 [SSPR](https://aka.ms/ssprtemplates) 최종 사용자 통신 템플릿을 참조 하세요.
+테스트 사용자로 로그인 하 여 각 응용 프로그램을 테스트 하 고 모든 기능이 마이그레이션 이전과 동일한 지 확인 합니다. 테스트 중에 사용자가 [MFA](/azure/active-directory/authentication/howto-mfa-userstates) 또는 [SSPR](../authentication/tutorial-enable-sspr.md)설정을 업데이트 해야 하는지 또는 마이그레이션 중에이 기능을 추가 해야 하는지 확인 하는 경우 최종 사용자 통신 계획에이 기능을 추가 해야 합니다. [MFA](https://aka.ms/mfatemplates) 및 [SSPR](https://aka.ms/ssprtemplates) 최종 사용자 통신 템플릿을 참조 하세요.
 
 앱을 마이그레이션한 후에는 [Azure Portal](https://aad.portal.azure.com/) 로 이동 하 여 마이그레이션이 성공 했는지 테스트 합니다. 아래의 지침을 따르세요.
 
@@ -573,7 +573,7 @@ Azure AD에서 지 원하는 앱 및 리소스의 두 가지 주요 범주는 �
 
 사용자는 **Intune에서 관리 되는 브라우저** 를 다운로드할 수 있습니다.
 
-- **Android 장치의** 경우 [Google play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) 에서
+- **Android 장치의** 경우 [Google play 스토어](/azure/active-directory/authentication/howto-mfa-userstates) 에서
 
 - Apple **장치의** 경우 [apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 에서 또는 [iOS 용 My Apps 모바일 앱](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653) 을 다운로드할 수 있습니다.
 
@@ -627,7 +627,7 @@ Azure AD는 마이그레이션된 앱을 관리 하는 중앙 액세스 위치�
 
 다양 한 [배포 계획](../fundamentals/active-directory-deployment-plans.md) 을 사용할 수 있으며,이는 항상 더 많은 것입니다.
 
-### <a name="contact-support"></a>지원에 문의
+### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
 
 지원 티켓을 만들거나 추적 하 고 상태를 모니터링 하려면 다음 지원 링크를 방문 하세요.
 

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 3b49177eb592906e3bf84d359699b354f8c87c6e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ac4e8d93e2e729db387b0f9cf81017b6c58b6750
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185668"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951337"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -69,7 +69,7 @@ App Service에는 배포 센터를 통해 컨테이너에 대 한 [지속적인 
 
 ### <a name="use-github-actions"></a>GitHub 작업 사용
 
-[GitHub 작업을 사용 하 여](deploy-container-github-action.md)컨테이너 배포를 자동화할 수도 있습니다.  아래 워크플로 파일은 커밋 ID를 사용 하 여 컨테이너를 빌드 및 태그 지정 하 고, 컨테이너 레지스트리에 푸시하고, 지정 된 사이트 슬롯을 새 이미지 태그로 업데이트 합니다.
+[GitHub 작업을 사용 하 여](./deploy-ci-cd-custom-container.md)컨테이너 배포를 자동화할 수도 있습니다.  아래 워크플로 파일은 커밋 ID를 사용 하 여 컨테이너를 빌드 및 태그 지정 하 고, 컨테이너 레지스트리에 푸시하고, 지정 된 사이트 슬롯을 새 이미지 태그로 업데이트 합니다.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

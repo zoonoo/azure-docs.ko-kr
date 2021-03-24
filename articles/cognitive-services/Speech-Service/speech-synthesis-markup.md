@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 124e3ef734e03606372dc07059841b77c3a548de
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ffa8528da454fd29c937a2d49accdda617fe62dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584570"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869024"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -44,7 +44,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 ## <a name="supported-ssml-elements"></a>지원 되는 SSML 요소
 
-각 SSML 문서는 SSML 요소 (또는 태그)를 사용 하 여 생성 됩니다. 이러한 요소는 피치, prosody, 볼륨 등을 조정 하는 데 사용 됩니다. 다음 섹션에서는 각 요소를 사용 하는 방법 및 요소가 필요한 경우와 선택 사항인 경우에 대해 자세히 설명 합니다.  
+각 SSML 문서는 SSML 요소 (또는 태그)를 사용 하 여 생성 됩니다. 이러한 요소는 피치, prosody, 볼륨 등을 조정 하는 데 사용 됩니다. 다음 섹션에서는 각 요소를 사용 하는 방법 및 요소가 필요한 경우와 선택 사항인 경우에 대해 자세히 설명 합니다.
 
 > [!IMPORTANT]
 > 특성 값 주위에 큰따옴표를 사용 해야 합니다. 올바른 형식의 유효한 XML에 대 한 표준에서는 특성 값을 큰따옴표로 묶어야 합니다. 예를 들어 `<prosody volume="90">` 는 잘 구성 된 유효한 요소 이지만 `<prosody volume=90>` 는 그렇지 않습니다. SSML에서 따옴표로 묶지 않은 특성 값을 인식 하지 못할 수 있습니다.
@@ -61,7 +61,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석 하는 데 사용 되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정 합니다. 값에는 소문자, 2 자 언어 코드 (예: `en` ) 또는 언어 코드와 대문자/지역 (예:)이 포함 될 수 있습니다 `en-US` . | 필수 |
@@ -81,7 +81,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -100,11 +100,11 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 ## <a name="use-multiple-voices"></a>여러 음성 사용
 
-요소 내에서 `speak` 텍스트 음성 변환 출력에 대해 여러 음성을 지정할 수 있습니다. 이러한 음성은 서로 다른 언어를 사용할 수 있습니다. 각 음성에 대해 텍스트를 요소에 래핑해야 합니다 `voice` . 
+요소 내에서 `speak` 텍스트 음성 변환 출력에 대해 여러 음성을 지정할 수 있습니다. 이러한 음성은 서로 다른 언어를 사용할 수 있습니다. 각 음성에 대해 텍스트를 요소에 래핑해야 합니다 `voice` .
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -117,7 +117,7 @@ Speech SDK 언어에 따라 `"SpeechServiceResponse_Synthesis_WordBoundaryEnable
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>하십시오.
 
 ```csharp
 speechConfig.SetProperty(
@@ -126,7 +126,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>하십시오.
 
 ```cpp
 speechConfig->SetProperty(
@@ -135,7 +135,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>하십시오.
 
 ```java
 speechConfig.setProperty(
@@ -144,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>하십시오.
 
 ```python
 speech_config.set_property_by_name(
@@ -162,7 +162,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>하십시오.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -170,7 +170,7 @@ speechConfig.setProperty(
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>하십시오.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -213,7 +213,7 @@ speechConfig!.setPropertyTo(
 * `zh-CN-XiaoxuanNeural`(미리 보기)
 * `zh-CN-XiaoruiNeural`(미리 보기)
 
-사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. 에서 더 강력 하거나 더 부드러운 스타일을 지정 `styledegree` 하 여 음성을 더 표현 하거나 subdued 할 수 있습니다. 
+사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. 에서 더 강력 하거나 더 부드러운 스타일을 지정 `styledegree` 하 여 음성을 더 표현 하거나 subdued 할 수 있습니다.
 
 현재 이러한 신경망에 대해 말하는 스타일 조정을 지원 합니다.
 * `zh-CN-XiaoxiaoNeural`
@@ -242,7 +242,7 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정 합니다. 현재 말하는 스타일은 음성 전용입니다. | 신경망의 말하기 스타일을 조정 하는 경우에 필요 합니다. 을 사용 하 `mstts:express-as` 는 경우 스타일을 제공 해야 합니다. 잘못 된 값을 제공 하는 경우이 요소는 무시 됩니다. |
 | `styledegree` | 말하기 스타일의 강도를 지정 합니다. **허용** 되는 값: 0.01-2 포함 기본값은 미리 정의 된 스타일 강도를 의미 하는 1입니다. 최소 단위는 0.01 이며이로 인해 대상 스타일에 대해 약간의 경향이 있습니다. 값이 2 이면 기본 스타일 농도가 두 배가 됩니다.  | 선택 사항으로, 현재는 `styledegree` zh-cn-XiaoxiaoNeural만 지원 합니다.|
@@ -275,11 +275,11 @@ speechConfig!.setPropertyTo(
 |                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
 |                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
 |                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.          |
-|                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |     
-|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
-|                         | `style="lyrical"`         | Melodic 및 sentimental 방식으로 감정을를 표현 합니다.         |   
-| `zh-CN-YunyangNeural`   | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  | 
-| `zh-CN-YunyeNeural`     | `style="calm"`            | 말하는 동안 쿨, 수집 및 구성 된 태도를 표현 합니다. 다른 종류의 음성에 비해 톤, 피치, prosody는 훨씬 더 균일 합니다.    | 
+|                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |
+|                         | `style="lyrical"`         | Melodic 및 sentimental 방식으로 감정을를 표현 합니다.         |
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  |
+| `zh-CN-YunyeNeural`     | `style="calm"`            | 말하는 동안 쿨, 수집 및 구성 된 태도를 표현 합니다. 다른 종류의 음성에 비해 톤, 피치, prosody는 훨씬 더 균일 합니다.    |
 |                         | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
 |                         | `style="sad"`             | 더 높은 피치, 낮은 강도 및 낮은 vocal 에너지를 사용 하 여 sorrowful 톤을 나타냅니다. 이 emotion의 일반적인 지표는 음성 중에 whimpers 또는 우는입니다.            |
 |                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
@@ -301,29 +301,29 @@ speechConfig!.setPropertyTo(
 |                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
 |                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
 |                         | `style="embarrassed"`     | 스피커가 불편 한 경우 불확실 하 고 망설 톤을 나타냅니다.   |
-|                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |     
-|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
+|                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |
 | `zh-CN-XiaomoNeural`    | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
 |                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
 |                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
 |                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
 |                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
 |                         | `style="depressed"`       | 낮은 피치와 에너지를 사용 하 여 melancholic 및 despondent 톤을 나타냅니다.    |
-|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |  
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |
 | `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | 더 높은 피치와 vocal 에너지를 사용 하 여 upbeat 및 톤을 나타냅니다.                         |
 |                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
 |                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
 |                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
 |                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.    |
 |                         | `style="depressed"`       | 낮은 피치와 에너지를 사용 하 여 melancholic 및 despondent 톤을 나타냅니다.    |
-|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
+|                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |
 | `zh-CN-XiaoruiNeural`    | `style="sad"`             | 더 높은 피치, 낮은 강도 및 낮은 vocal 에너지를 사용 하 여 sorrowful 톤을 나타냅니다. 이 emotion의 일반적인 지표는 음성 중에 whimpers 또는 우는입니다.            |
 |                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
 |                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
 
 이 표를 사용 하 여 각 신경망에 대해 지원 되는 역할을 확인 합니다.
 
-| 음성                   | 역할                       | 설명                                                 |
+| 음성                   | 역할                       | Description                                                 |
 |-------------------------|----------------------------|-------------------------------------------------------------|
 | `zh-CN-XiaomoNeural`    | `role="YoungAdultFemale"`  | 음성은 젊은 성인 모방한.                 |
 |                         | `role="OlderAdultMale"`    | 음성은 이전 성인 남성로 모방한.                   |
@@ -393,12 +393,12 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | 선택 사항 |
 | `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다 .이 값은 5000ms 보다 작게 설정 해야 합니다. 유효한 값의 예는 `2s` 및입니다. `500ms` | 선택 사항 |
 
-| 강도가                      | 설명 |
+| 강도가                      | Description |
 |-------------------------------|-------------|
 | 없음 또는 제공 된 값이 없는 경우 | 0 밀리초        |
 | x-약함                        | 250ms      |
@@ -418,10 +418,10 @@ speechConfig!.setPropertyTo(
 ```
 ## <a name="add-silence"></a>침묵 추가
 
-요소를 사용 `mstts:silence` 하 여 텍스트 앞 이나 뒤 또는 두 개의 인접 한 문장 사이에 일시 중지를 삽입 합니다. 
+요소를 사용 `mstts:silence` 하 여 텍스트 앞 이나 뒤 또는 두 개의 인접 한 문장 사이에 일시 중지를 삽입 합니다.
 
 > [!NOTE]
->`mstts:silence`와의 차이는 `break` `break` 텍스트의 어느 위치에 나 추가할 수 있지만, 무음은 입력 텍스트의 시작 또는 끝 이나 인접 한 두 문장의 경계에서만 작동 합니다.  
+>`mstts:silence`와의 차이는 `break` `break` 텍스트의 어느 위치에 나 추가할 수 있지만, 무음은 입력 텍스트의 시작 또는 끝 이나 인접 한 두 문장의 경계에서만 작동 합니다.
 
 
 **구문**
@@ -432,20 +432,20 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `type` | 추가 되는 침묵의 위치를 지정 합니다. <ul><li>선행 – 텍스트의 시작 부분 </li><li>후행 – 텍스트 끝에 있습니다. </li><li>Sentenceboundary – 인접 한 문장 사이 </li></ul> | 필수 |
+| `type` | 추가 되는 침묵의 위치를 지정 합니다. <ul><li>`Leading` – 텍스트의 시작 부분 </li><li>`Tailing` – 텍스트 끝에 있습니다. </li><li>`Sentenceboundary` – 인접 한 문장 사이 </li></ul> | 필수 |
 | `Value` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다 .이 값은 5000ms 보다 작게 설정 해야 합니다. 유효한 값의 예는 `2s` 및입니다. `500ms` | 필수 |
 
 **예** 이 예에서는를 `mtts:silence` 사용 하 여 두 문장 사이에 200 밀리초의 대기를 추가 합니다.
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">  
-<voice name="en-US-AriaNeural"> 
-<mstts:silence  type="Sentenceboundary" value="200ms"/> 
-If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way. 
-A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time. 
-</voice> 
-</speak> 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+<voice name="en-US-AriaNeural">
+<mstts:silence  type="Sentenceboundary" value="200ms"/>
+If we’re home schooling, the best we can do is roll with what each day brings and try to have fun along the way.
+A good place to start is by trying out the slew of educational apps that are helping children stay happy and smash their schooling at the same time.
+</voice>
+</speak>
 ```
 
 ## <a name="specify-paragraphs-and-sentences"></a>단락 및 문장 지정
@@ -497,7 +497,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자</a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 선택 사항 |
 | `ph` | 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열 `phoneme` 입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
@@ -533,7 +533,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 텍스트 음성 변환 서비스가 단어를 정확 하 게 발음 하지 못하는 경우도 있습니다. 예를 들어 회사의 이름 또는 의료 약관입니다. 개발자는 및 태그를 사용 하 여 SSML에서 단일 엔터티를 읽는 방법을 정의할 수 있습니다 `phoneme` `sub` . 그러나 여러 엔터티를 읽는 방법을 정의 해야 하는 경우 태그를 사용 하 여 사용자 지정 어휘를 만들 수 있습니다 `lexicon` .
 
 > [!NOTE]
-> 현재 사용자 지정 어휘는 UTF-8 인코딩을 지원 합니다. 
+> 현재 사용자 지정 어휘는 UTF-8 인코딩을 지원 합니다.
 
 > [!NOTE]
 > 사용자 지정 어휘는 현재 5 개의 음성 (AnuNeural, ga-OrlaNeural, lt-OnaNeural, lv-EveritaNeural 및 mt-GarceNeural)에 대해 지원 되지 않습니다.
@@ -547,7 +547,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명                               | 필수/선택 |
+| attribute | Description                               | 필수/선택 |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | 외부 j 문서의 주소입니다. | 필수 요소.           |
 
@@ -557,18 +557,18 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<lexicon version="1.0" 
+<lexicon version="1.0"
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
       alphabet="ipa" xml:lang="en-US">
   <lexeme>
-    <grapheme>BTW</grapheme> 
-    <alias>By the way</alias> 
+    <grapheme>BTW</grapheme>
+    <alias>By the way</alias>
   </lexeme>
   <lexeme>
-    <grapheme> Benigni </grapheme> 
+    <grapheme> Benigni </grapheme>
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
 </lexicon>
@@ -576,24 +576,24 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 요소에는 `lexicon` 요소가 하나 이상 포함 되어 있습니다 `lexeme` . 각 `lexeme` 요소는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme` , `alias` 및 요소를 포함 `phoneme` 합니다. `grapheme`요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>를 설명 하는 텍스트를 포함 합니다. `alias`요소는 머리글자어 또는 축약 된 단어의 발음을 나타내는 데 사용 됩니다. `phoneme`요소는가 어떻게 발음 되는지 설명 하는 텍스트를 제공 `lexeme` 합니다.
 
-사용자 지정 어휘를 사용 하 여 구의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들면 다음과 같습니다.
+사용자 지정 어휘를 사용 하 여 구의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들어:
 
 ```xml
   <lexeme>
-    <grapheme>Scotland MV</grapheme> 
-    <alias>ScotlandMV</alias> 
+    <grapheme>Scotland MV</grapheme>
+    <alias>ScotlandMV</alias>
   </lexeme>
   <lexeme>
-    <grapheme>ScotlandMV</grapheme> 
+    <grapheme>ScotlandMV</grapheme>
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
 
-`alias`약어 또는 축약 된 용어에 대 한 예상을 직접 제공할 수도 있습니다. 예를 들면 다음과 같습니다.
+`alias`약어 또는 축약 된 용어에 대 한 예상을 직접 제공할 수도 있습니다. 예를 들어:
 ```xml
   <lexeme>
-    <grapheme>Scotland MV</grapheme> 
-    <alias>Scotland Media Wave</alias> 
+    <grapheme>Scotland MV</grapheme>
+    <alias>Scotland Media Wave</alias>
   </lexeme>
 ```
 
@@ -610,8 +610,8 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 > 요소는 `lexicon` 요소 내에 있어야 합니다 `voice` .
 
 ```xml
-<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
-          xmlns:mstts="http://www.w3.org/2001/mstts" 
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+          xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
     <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
@@ -621,7 +621,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 </speak>
 ```
 
-이 사용자 지정 어휘를 사용 하는 경우 "만들었으므로"는 "방법으로" 읽습니다. "Benigni"는 제공 된 IPA "bɛ ˈ ni ː nji"로 읽습니다.  
+이 사용자 지정 어휘를 사용 하는 경우 "만들었으므로"는 "방법으로" 읽습니다. "Benigni"는 제공 된 IPA "bɛ ˈ ni ː nji"로 읽습니다.
 
 **제한 사항**
 - 파일 크기: 사용자 지정 사전 파일 크기 최대 제한은 100KB이 크기를 초과 하면 합성 요청이 실패 합니다.
@@ -637,7 +637,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<lexicon version="1.0" 
+<lexicon version="1.0"
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
@@ -670,10 +670,10 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: `<prosody pitch="600Hz">some text</prosody>`</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul> | 선택 사항 |
-| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 선택 사항 |
+| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예들 들어 `<prosody pitch="600Hz">some text</prosody>`입니다.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들어 `<prosody pitch="+80Hz">some text</prosody>` 또는 `<prosody pitch="-2st">some text</prosody>`입니다. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul> | 선택 사항 |
+| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들어: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 선택 사항 |
 | `range` | 텍스트의 피치 범위를 나타내는 값입니다. `range`설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다 `pitch` . | 선택 사항 |
 | `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 수 있습니다 `rate` .<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>default</li></ul></li></ul> | 선택 사항 |
 | `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms* 입니다. 기간은 표준 음성을 지원 합니다.| 선택 사항 |
@@ -681,7 +681,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 ### <a name="change-speaking-rate"></a>말하기 속도 변경
 
-말하는 속도는 신경망 또는 문장 수준에서 신경망 및 표준 음성에 적용 될 수 있습니다. 
+말하는 속도는 신경망 또는 문장 수준에서 신경망 및 표준 음성에 적용 될 수 있습니다.
 
 **예제**
 
@@ -736,7 +736,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaNeural">
         <prosody contour="(60%,-60%) (100%,+80%)" >
-            Were you the only person in the room? 
+            Were you the only person in the room?
         </prosody>
     </voice>
 </speak>
@@ -753,7 +753,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조 하세요. | 필수 |
 | `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 선택 사항 |
@@ -782,7 +782,7 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 **예제**
 
 음성 합성 엔진은 다음과 같은 예를 "첫 번째 요청은 10 월 19 20 10의 한 방에 대 한 첫 번째 요청은 12 35 PM에 초기 도착 하는 것입니다." 라고 말합니다.
- 
+
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
@@ -815,7 +815,7 @@ SSML 문서에 포함 된 오디오는 다음 요구 사항을 충족 해야 합
 
 **특성**
 
-| 특성 | 설명                                   | 필수/선택                                        |
+| attribute | Description                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 audio 요소를 사용 하는 경우 필요 합니다. |
 
@@ -851,7 +851,7 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
 | `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용** 되는 값: `0` `100` 포함 기본값은 `1`입니다. | 선택 사항 |
@@ -871,7 +871,12 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 ## <a name="bookmark-element"></a>Bookmark 요소
 
-`bookmark`요소를 사용 하면 SSML에 책갈피를 삽입 하 고 비동기 알림에 대 한 오디오 스트림의 각 책갈피 오디오 오프셋을 가져올 수 있습니다.
+Bookmark 요소를 사용 하면 사용자 지정 표식을 SSML에 삽입 하 여 오디오 스트림에서 각 표식의 오프셋을 가져올 수 있습니다.
+책갈피 요소는 읽지 않습니다.
+책갈피 요소는 텍스트 또는 태그 시퀀스에서 특정 위치를 참조 하는 데 사용할 수 있습니다.
+
+> [!NOTE]
+> `bookmark` 요소 `en-US-AriaNeural` 는 현재 미국 서 부 () 지역의 음성 에서만 작동 `westus` 합니다.
 
 **구문**
 
@@ -881,17 +886,18 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| 특성 | 설명                                   | 필수/선택                                        |
+| attribute | Description                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
-| `mark`     | 요소의 책갈피 텍스트를 지정 합니다 `bookmark` . | 필수 요소. |
+|  `mark`   | 요소의 참조 텍스트를 지정 합니다 `bookmark` . | 필수 요소. |
 
 **예제**
 
+예를 들어 다음과 같이 각 꽃 단어의 시간 오프셋을 알아야 할 수 있습니다.
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
-        <bookmark mark='bookmark_one'/> one.
-        <bookmark mark='bookmark_two'/> two. three. four.
+    <voice name="en-US-AriaNeural">
+        We are selling <bookmark mark='flower_1'/>roses and <bookmark mark='flower_2'/>daisies.
     </voice>
 </speak>
 ```
@@ -903,10 +909,14 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 > [!NOTE]
 > `BookmarkReached` Speech SDK 버전 1.16.0부터 이벤트를 사용할 수 있습니다.
 
+`BookmarkReached` 이벤트는 출력 오디오 데이터를 사용할 수 있게 될 때 발생하며, 출력 디바이스로 재생하는 것보다 빠릅니다.
+
+* `AudioOffset` 합성 시작 부분과 책갈피 요소 사이에 출력 오디오의 경과 시간을 보고 합니다. 이 값은 100HNS(나노초 단위)를 사용하며 10,000HNS는 1밀리초입니다.
+* `Text` 특성에서 설정한 문자열인 책갈피 요소의 참조 텍스트입니다 `mark` .
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>하십시오.
 
 ```csharp
 synthesizer.BookmarkReached += (s, e) =>
@@ -917,23 +927,35 @@ synthesizer.BookmarkReached += (s, e) =>
 };
 ```
 
+위의 예제 SSML에 대해 이벤트는 `BookmarkReached` 두 번 트리거되고 콘솔 출력은
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>하십시오.
 
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
 {
-    cout << "bookmark reached. "
+    cout << "Bookmark reached. "
         // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
         << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
-        << "Bookmark text: " << e.Text << "." << endl;
+        << "bookmark text: " << e.Text << "." << endl;
 };
+```
+
+위의 예제 SSML에 대해 이벤트는 `BookmarkReached` 두 번 트리거되고 콘솔 출력은
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>하십시오.
 
 ```java
 synthesizer.BookmarkReached.addEventListener((o, e) -> {
@@ -943,14 +965,26 @@ synthesizer.BookmarkReached.addEventListener((o, e) -> {
 });
 ```
 
+위의 예제 SSML에 대해 이벤트는 `BookmarkReached` 두 번 트리거되고 콘솔 출력은
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>하십시오.
 
 ```python
 # The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
 speech_synthesizer.bookmark_reached.connect(lambda evt: print(
     "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+```
+
+위의 예제 SSML에 대해 이벤트는 `bookmark_reached` 두 번 트리거되고 콘솔 출력은
+```text
+Bookmark reached, audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
@@ -959,19 +993,31 @@ speech_synthesizer.bookmark_reached.connect(lambda evt: print(
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
-    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms. Bookmark text: " + e.text);
+    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms, bookmark text: " + e.text);
 }
+```
+
+위의 예제 SSML에 대해 이벤트는 `bookmarkReached` 두 번 트리거되고 콘솔 출력은
+```text
+(Bookmark reached), Audio offset: 825ms, bookmark text: flower_1.
+(Bookmark reached), Audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>를 참조하세요.
+자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>하십시오.
 
 ```objectivec
 [synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {
     // The unit of AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to converted to milliseconds.
     NSLog(@"Bookmark reached. Audio offset: %fms, bookmark text: %@.", eventArgs.audioOffset/10000., eventArgs.text);
 }];
+```
+
+위의 예제 SSML에 대해 이벤트는 `BookmarkReached` 두 번 트리거되고 콘솔 출력은
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # <a name="swift"></a>[Swift](#tab/swift)

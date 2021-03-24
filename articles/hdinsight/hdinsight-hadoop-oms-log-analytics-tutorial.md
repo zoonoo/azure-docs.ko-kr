@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0dfa89f50dedad41394cb77f1cca9b2dd3a65308
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590819"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865539"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **저장** 을 선택합니다.  설정을 저장하는 데 몇 분 정도 걸립니다.
 
-    ![HDInsight 클러스터에 모니터링 사용](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "HDInsight 클러스터에 모니터링 사용")
+    :::image type="content" source="./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png" alt-text="HDInsight 클러스터에 모니터링 사용":::
 
 ## <a name="enable-azure-monitor-using-azure-powershell"></a>Azure PowerShell을 통해 Azure Monitor 사용
 
@@ -138,7 +138,7 @@ HDInsight는 Azure Monitor Logs에 추가할 수 있는 클러스터 특정 관�
 
 관리 솔루션 지침은 [Azure의 관리 솔루션](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)을 참조하세요. 실험하려면 HDInsight Hadoop 모니터링 솔루션을 설치합니다. 완료되면 **요약** 에 **HDInsightHadoop** 타일이 나열됩니다. **HDInsightHadoop** 타일을 선택합니다. HDInsightHadoop 솔루션은 다음과 같습니다.
 
-![HDInsight 모니터링 솔루션 보기](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+:::image type="content" source="media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png" alt-text="HDInsight 모니터링 솔루션 보기":::
 
 클러스터는 새로운 클러스터이므로 보고서에 작업이 표시되지 않습니다.
 

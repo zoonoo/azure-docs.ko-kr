@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ed6d5d676fd2c6eefd3288b7609446eb61611ed6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100517980"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869432"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 서버 개념
 
@@ -62,7 +62,13 @@ Azure Database for MySQL 사용 하지 않을 때 서버를 **중지** 하 고 �
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
 
-Azure Portal 또는 Azure CLI를 사용하여 MySQL용 Azure 데이터베이스 서버를 관리할 수 있습니다.
+Azure Portal 또는 Azure CLI를 사용 하 여 Azure Database for MySQL 서버에 대 한 만들기, 삭제, 서버 매개 변수 구성 (my.cnf), 크기 조정, 네트워킹, 보안, 고가용성, 백업 & 복원, 모니터링 등을 관리할 수 있습니다. 또한 서버에서 슈퍼 사용자 권한이 지원 되지 않기 때문에 필요한 특정 데이터베이스 관리 작업을 수행 하는 Azure Database for MySQL에는 다음 저장 프로시저를 사용할 수 있습니다.
+
+|**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|해당 없음|Command와 동일 [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결을 실행 하는 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
+|*mysql.az_kill_query*|processlist_id|해당 없음|Command와 동일 [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
+|*mysql.az_load_timezone*|해당 없음|해당 없음|매개 변수를 명명 된 값으로 설정할 수 있도록 [표준 시간대 테이블](howto-server-parameters.md#working-with-the-time-zone-parameter) 을 로드 `time_zone` 합니다 (예: "US/태평양").|
 
 ## <a name="next-steps"></a>다음 단계
 

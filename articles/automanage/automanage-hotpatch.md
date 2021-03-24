@@ -3,24 +3,24 @@ title: Windows Server Azure Edition 용 Hotpatch (미리 보기)
 description: Windows Server Azure Edition의 Hotpatch 작동 방식 및 사용 방법에 대해 알아봅니다.
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687569"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953394"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>새 가상 컴퓨터의 Hotpatch (미리 보기)
 
-핫 패치는 설치 후 다시 부팅 하지 않아도 되는 새 Windows Server Azure Edition Vm (가상 머신)에 업데이트를 설치 하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공 하는 Windows Server Azure Edition Vm에 대 한 Hotpatch에 대 한 정보를 다룹니다.
-* 낮은 다시 부팅으로 인 한 워크 로드 효과
-* 패키지가 더 작고, 더 빠르게 설치 되며, Azure 업데이트 관리자를 사용 하 여 더 쉽게 패치를 배포할 수 있는 업데이트를 빠르게 배포할 수 있습니다.
-* Hotpatch 업데이트 패키지의 범위가 다시 부팅 없이 빠르게 설치 되는 Windows 보안 업데이트로 범위가 향상 됨에 따라 보호 기능이 향상 되었습니다.
+핫패칭은 설치 후 다시 부팅할 필요가 없는 새 Windows Server Azure 버전 VM(가상 머신)에 업데이트를 설치하는 새로운 방법입니다. 이 문서에서는 다음과 같은 이점을 제공 하는 Windows Server Azure Edition Vm에 대 한 Hotpatch에 대 한 정보를 다룹니다.
+* 더 적은 다시 부팅으로 인해 워크로드 영향을 줄입니다.
+* Azure 업데이트 관리자를 사용하여 패키지 크기가 더 작아지고, 더 빠르게 설치되며, 패치 오케스트레이션이 더 쉬워지므로 업데이트를 더 빠르게 배포할 수 있습니다.
+* 핫패치 업데이트 패키지는 다시 부팅하지 않고 더 빠르게 설치되는 Windows 보안 업데이트로 범위가 지정되므로 보호 기능이 향상됩니다.
 
 ## <a name="how-hotpatch-works"></a>Hotpatch 작동 방식
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>패치 설치
 
-미리 보기 중에는 _Windows Server 2019 Datacenter: Azure Edition_ 을 사용 하 여 만든 모든 vm에 대해 [자동 VM 게스트 패치가](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) 자동으로 설정 됩니다. 자동 VM 게스트 패치를 사용 하는 경우:
-* 중요 또는 보안으로 분류 된 패치는 자동으로 다운로드 되어 VM에 적용 됩니다.
-* 패치는 VM의 표준 시간대에서 사용량이 적은 시간에 적용 됩니다.
-* 패치 오케스트레이션은 Azure에 의해 관리 되며, 패치는 [가용성 우선 원칙](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching)에 따라 적용 됩니다.
-* 플랫폼 상태 신호를 통해 결정 되는 가상 머신 상태는 패치 실패를 감지 하기 위해 모니터링 됩니다.
+미리 보기 중에는 _Windows Server 2019 Datacenter: Azure Edition_ 을 사용 하 여 만든 모든 vm에 대해 [자동 VM 게스트 패치가](../virtual-machines/automatic-vm-guest-patching.md) 자동으로 설정 됩니다. 자동 VM 게스트 패치를 사용 하는 경우:
+* 중요 또는 보안으로 분류된 패치가 자동으로 다운로드되어 VM에 적용됩니다.
+* 패치는 VM의 표준 시간대에서 사용량이 적은 시간에 적용됩니다.
+* 패치 오케스트레이션은 Azure에서 관리되며 [가용성 우선 원칙](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching)에 따라 패치가 적용됩니다.
+* 패치 실패를 검색하기 위해 플랫폼 상태 신호를 통해 결정되는 가상 머신 상태를 모니터링합니다.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>자동 VM 게스트 패치는 어떻게 작동 하나요?
 
-VM에서 [자동 Vm 게스트 패치](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) 를 사용 하도록 설정 하면 사용 가능한 중요 및 보안 패치가 자동으로 다운로드 되 고 적용 됩니다. 이 프로세스는 새 패치가 출시 될 때마다 매월 자동으로 시작 됩니다. 패치 평가 및 설치는 자동으로 수행 되며, 필요에 따라이 프로세스에는 VM을 다시 부팅 하는 작업이 포함 됩니다.
+VM에서 [자동 Vm 게스트 패치](../virtual-machines/automatic-vm-guest-patching.md) 를 사용 하도록 설정 하면 사용 가능한 중요 및 보안 패치가 자동으로 다운로드 되 고 적용 됩니다. 이 프로세스는 새 패치가 출시 될 때마다 매월 자동으로 시작 됩니다. 패치 평가 및 설치는 자동으로 수행 되며, 필요에 따라이 프로세스에는 VM을 다시 부팅 하는 작업이 포함 됩니다.
 
 _Windows Server 2019 Datacenter_ 에서 Hotpatch을 사용 하는 경우: Azure 버전 vm, 대부분의 월간 보안 업데이트는 다시 부팅이 필요 하지 않은 hotpatches로 제공 됩니다. 계획 되거나 계획 되지 않은 기준 월에 전송 된 최신 누적 업데이트는 VM을 다시 부팅 해야 합니다. VM을 다시 부팅 해야 할 수도 있는 추가 중요 또는 보안 패치를 정기적으로 사용할 수도 있습니다.
 
 VM은 해당 VM에 대해 적용 가능한 패치를 결정 하기 위해 며칠 마다 자동으로 평가 되 고 30 일 동안 여러 번 평가 됩니다. 이러한 자동 평가를 통해 누락 된 패치가 가능한 가장 빠른 기회에서 검색 됩니다.
 
-패치는 [가용성 우선 원칙](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching)에 따라 월별 패치 릴리스의 30 일 이내에 설치 됩니다. 패치는 vm의 표준 시간대에 따라 VM에 대 한 사용률이 낮은 시간에만 설치 됩니다. 패치를 자동으로 설치 하는 데 사용량이 많은 시간 동안 VM이 실행 중 이어야 합니다. 정기적으로 평가 하는 동안 VM의 전원이 꺼진 경우 vm이 평가 되 고 해당 패치가 켜 졌을 때 다음 주기적 평가 중에 적용 가능한 패치가 자동으로 설치 됩니다. 다음 주기적 평가는 일반적으로 며칠 이내에 발생 합니다.
+패치는 [가용성 우선 원칙](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching)에 따라 월별 패치 릴리스의 30 일 이내에 설치 됩니다. 패치는 vm의 표준 시간대에 따라 VM에 대 한 사용률이 낮은 시간에만 설치 됩니다. 패치를 자동으로 설치 하는 데 사용량이 많은 시간 동안 VM이 실행 중 이어야 합니다. 정기적으로 평가 하는 동안 VM의 전원이 꺼진 경우 vm이 평가 되 고 해당 패치가 켜 졌을 때 다음 주기적 평가 중에 적용 가능한 패치가 자동으로 설치 됩니다. 다음 주기적 평가는 일반적으로 며칠 이내에 발생 합니다.
 
 중요 또는 보안으로 분류 되지 않은 정의 업데이트 및 기타 패치는 자동 VM 게스트 패치를 통해 설치 되지 않습니다.
 
@@ -151,7 +151,7 @@ VM은 해당 VM에 대해 적용 가능한 패치를 결정 하기 위해 며칠
 
 VM에 대 한 패치 상태를 보려면 Azure Portal에서 VM에 대 한 **게스트 + 호스트 업데이트** 섹션으로 이동 합니다. **게스트 OS 업데이트** 섹션에서 ' Hotpatch (미리 보기)로 이동 '을 클릭 하 여 VM에 대 한 최신 패치 상태를 확인 합니다.
 
-이 화면에 VM에 대 한 Hotpatch 상태가 표시 됩니다. 또한 설치 되지 않은 VM에 대 한 사용 가능한 패치가 있는지 검토할 수 있습니다. 위의 ' 패치 설치 ' 섹션에 설명 된 대로 모든 보안 및 중요 업데이트는 [자동 Vm 게스트 패치](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) 를 사용 하 여 vm에 자동으로 설치 되며 추가 작업이 필요 하지 않습니다. 다른 업데이트 분류가 포함 된 패치는 자동으로 설치 되지 않습니다. 대신 ' 호환성 업데이트 ' 탭의 사용 가능한 패치 목록에서 볼 수 있습니다. ' 업데이트 기록 '을 통해 VM에서 업데이트 배포 기록을 볼 수도 있습니다. 최근 30 일 동안의 업데이트 기록이 패치 설치 세부 정보와 함께 표시 됩니다.
+이 화면에 VM에 대 한 Hotpatch 상태가 표시 됩니다. 또한 설치 되지 않은 VM에 대 한 사용 가능한 패치가 있는지 검토할 수 있습니다. 위의 ' 패치 설치 ' 섹션에 설명 된 대로 모든 보안 및 중요 업데이트는 [자동 Vm 게스트 패치](../virtual-machines/automatic-vm-guest-patching.md) 를 사용 하 여 vm에 자동으로 설치 되며 추가 작업이 필요 하지 않습니다. 다른 업데이트 분류가 포함 된 패치는 자동으로 설치 되지 않습니다. 대신 ' 호환성 업데이트 ' 탭의 사용 가능한 패치 목록에서 볼 수 있습니다. ' 업데이트 기록 '을 통해 VM에서 업데이트 배포 기록을 볼 수도 있습니다. 최근 30 일 동안의 업데이트 기록이 패치 설치 세부 정보와 함께 표시 됩니다.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch 관리.":::
@@ -225,5 +225,5 @@ Hotpatch가 사용 하도록 설정 된 Windows Server Azure edition VM을 실�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 업데이트 관리에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/automation/update-management/overview)를 참조 하세요.
-* [여기](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) 에서 자동 VM 게스트 패치에 대해 자세히 알아보세요.
+* Azure 업데이트 관리에 대 한 자세한 내용은 [여기](../automation/update-management/overview.md)를 참조 하세요.
+* [여기](../virtual-machines/automatic-vm-guest-patching.md) 에서 자동 VM 게스트 패치에 대해 자세히 알아보세요.

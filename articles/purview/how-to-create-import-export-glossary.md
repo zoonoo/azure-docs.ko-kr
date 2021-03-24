@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6f7f481ae0e0c75b14d894080f791161346cd93f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694492"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952408"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>용어를 만들고, 가져오고, 내보내는 방법
 
@@ -80,6 +80,9 @@ Azure 부서의 범위 Data Catalog는 용어를 용어집으로 가져올 수 �
 4. .Csv 파일을 채운 후에는 가져올 파일을 선택 하 고 **확인** 을 선택 합니다.
 
 5. 시스템이 파일을 업로드 하 고 모든 용어를 카탈로그에 추가 합니다.
+ 
+   > [!Important]
+   > 관리자 및 전문가의 메일 주소는 AAD 그룹의 사용자에 대 한 기본 주소 여야 합니다. 대체 메일, 사용자 계정 이름 및 비 AAD 메일은 아직 지원 되지 않습니다. 
 
 ## <a name="export-terms-from-glossary-with-custom-attributes"></a>사용자 지정 특성을 사용 하 여 용어집에서 용어 내보내기
 

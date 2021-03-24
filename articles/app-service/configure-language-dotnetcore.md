@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97655971"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889487"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET Core 앱 구성
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-예를 들어 App Service 및 *appsettings.js* 에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *appsettings.js* 값 보다 우선 적용 됩니다. 로컬 *appsettings.json* value를 사용 하면 앱을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 제품에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
+예를 들어 App Service 및 *appsettings.js* 에서 동일한 이름을 사용 하 여 앱 설정을 구성 하는 경우 App Service 값이 *appsettings.js* 값 보다 우선 적용 됩니다. 로컬 *appsettings.json* value를 사용 하면 앱을 로컬로 디버그할 수 있지만 App Service 값을 사용 하면 프로덕션 설정으로 프로덕션 환경에서 앱을 실행할 수 있습니다. 연결 문자열은 동일한 방식으로 작동 합니다. 이러한 방식으로 코드를 변경 하지 않고 응용 프로그램 비밀을 코드 리포지토리 외부에 유지 하 고 적절 한 값에 액세스할 수 있습니다.
 
 > [!NOTE]
 > 참고 *appsettings.js* 의 [계층적 구성 데이터](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) 는 `:` .net Core에 대 한 표준 구분 기호를 사용 하 여 액세스할 수 있습니다. App Service에서 특정 계층적 구성 설정을 재정의 하려면 앱 설정 이름을 키에서 동일 하 게 분리 된 형식으로 설정 합니다. [Cloud Shell](https://shell.azure.com)에서 다음 예제를 실행할 수 있습니다.
@@ -167,7 +167,7 @@ App Service에서 ASP.NET Core 앱 문제를 해결 하는 방법에 대 한 자
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET Core 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생** 한 App Service. 메시지를 출력하는 간단한 코드가 들어 있습니다. App Service에서 자세한 예외 페이지를 표시 하려면 `ASPNETCORE_ENVIRONMENT` <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱 설정을 앱에 추가 합니다.
+ASP.NET Core 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생** 한 App Service. 메시지로 응답합니다. App Service에서 자세한 예외 페이지를 표시 하려면 `ASPNETCORE_ENVIRONMENT` <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱 설정을 앱에 추가 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"

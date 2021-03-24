@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176334"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952918"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>AKS(Azure Kubernetes Service) 작동 시간 SLA
 
@@ -37,9 +37,6 @@ ms.locfileid: "102176334"
 * [Azure CLI](/cli/azure/install-azure-cli) 버전 2.8.0 이상을 설치 합니다.
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>작동 시간 SLA를 사용 하 여 새 클러스터 만들기
-
-> [!NOTE]
-> 현재 작동 시간 SLA를 사용 하는 경우 클러스터에서 제거할 수 있는 방법이 없습니다.
 
 작동 시간 SLA를 사용하여 새 클러스터를 만들려면 Azure CLI를 사용합니다.
 
@@ -106,6 +103,15 @@ az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
     "tier": "Paid"
   },
   ```
+
+## <a name="opt-out-of-uptime-sla"></a>작동 시간 SLA 옵트아웃
+
+무료 계층으로 변경 하 고 작동 시간 SLA를 옵트아웃 하도록 클러스터를 업데이트할 수 있습니다.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## <a name="clean-up"></a>정리
 

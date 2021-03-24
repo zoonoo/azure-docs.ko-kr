@@ -4,12 +4,12 @@ description: HDInsight의 Apache Ambari 오래 된 경고에 대 한 가능한 �
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22985f295e504a2d73015f1dc96064f89be47bd7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946712"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866933"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>시나리오: Azure HDInsight의 Apache Ambari 부실 경고
 
@@ -19,7 +19,7 @@ ms.locfileid: "98946712"
 
 Apache Ambari UI에서 다음과 같은 경고가 표시 될 수 있습니다.
 
-![Apache Ambari 부실 경고 예제](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
+:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Apache Ambari 부실 경고 예제" border="true":::
 
 ## <a name="cause"></a>원인
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: e5fb425afdd4b212a0b28ce91418eb0ee9e3632f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c700cce5f50fda7f7a5773e07549e93da1c9f7a2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97964435"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956257"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>가상 컴퓨터 제품에 대 한 계획을 만드는 방법
 
@@ -116,7 +116,7 @@ Microsoft **세금 송금만** 선택을 선택 하 여 microsoft 송금 판매�
 
 **저장** 을 선택하여 계속합니다.
 
-### <a name="pricing"></a>가격
+### <a name="pricing"></a>가격 책정
 
 **라이선스 모델** 의 경우 **사용량 기반 월별 청구 계획** 을 선택 하 여이 요금제에 대 한 가격 책정을 구성 하거나 고객이 기존 라이선스를 사용 하 여이 요금제를 사용할 수 있도록 **사용자 라이선스를 가져옵니다** .
 
@@ -221,6 +221,8 @@ VM에서 **가속 네트워킹을 지 원하는** 경우를 선택 합니다. �
 사용하는 운영 체제에 관계없이 솔루션에 필요한 최소 수의 데이터 디스크만 추가합니다. 배포 중에 고객은 이미지의 일부인 디스크를 제거할 수 없지만, 배포 중 또는 배포 후에 언제든지 디스크를 추가할 수 있습니다.
 
 **초안 저장** 을 선택 하 고 왼쪽 위에서 **← 계획 개요** 를 선택 하 여 방금 만든 계획을 확인 합니다.
+
+VM 이미지가 게시 되 면 Azure storage에서 이미지를 삭제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

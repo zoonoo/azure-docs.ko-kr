@@ -4,12 +4,12 @@ description: 도메인에 가입 된 Apache Hadoop 클러스터에 대 한 인�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: 47ba11260c3b58566963e5a3ffac80ca461a8a23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5bc5bc702dbd54bbad43aa4e1c6c8650c18e088
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946822"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863193"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Azure HDInsight ID Broker (계층 2)
 
@@ -34,7 +34,7 @@ HDInsight ID Broker는 Azure AD DS에 대 한 암호 해시를 동기화 할 필
 
 다음 다이어그램은 HDInsight ID Broker를 사용 하도록 설정한 후 페더레이션된 사용자를 포함 하 여 모든 사용자에 대 한 최신 OAuth 기반 인증 흐름을 보여 줍니다.
 
-:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="HDInsight ID Broker의 인증 흐름을 보여 주는 다이어그램입니다.":::
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="HDInsight ID Broker의 인증 흐름을 보여 주는 다이어그램입니다." border="false":::
 
 이 다이어그램에서 클라이언트 (브라우저 또는 앱)는 먼저 OAuth 토큰을 획득 해야 합니다. 그런 다음 HTTP 요청에서 게이트웨이에 토큰을 제공 합니다. Azure Portal와 같은 다른 Azure 서비스에 이미 로그인 한 경우 Single Sign-On 환경을 사용 하 여 HDInsight 클러스터에 로그인 할 수 있습니다.
 
@@ -42,8 +42,7 @@ HDInsight ID Broker는 Azure AD DS에 대 한 암호 해시를 동기화 할 필
 
 다음 다이어그램에서는 페더레이션된 사용자에 대 한 기본 인증 흐름을 보여 줍니다. 먼저 게이트웨이는 [Ropc flow](../../active-directory/develop/v2-oauth-ropc.md)를 사용 하 여 인증을 완료 하려고 시도 합니다. Azure AD에 동기화 된 암호 해시가 없는 경우 AD FS 끝점을 검색 하 고 AD FS 끝점에 액세스 하 여 인증을 완료 하는 것으로 대체 됩니다.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="기본 인증을 사용 하 여 아키텍처를 보여 주는 다이어그램입니다.":::
-
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="기본 인증을 사용 하 여 아키텍처를 보여 주는 다이어그램입니다." border="false":::
 
 ## <a name="enable-hdinsight-id-broker"></a>HDInsight ID Broker 사용
 
@@ -55,7 +54,7 @@ HDInsight ID Broker를 사용 하 여 Enterprise Security Package 클러스터�
 
 HDInsight ID Broker 기능은 클러스터에 추가 VM 하나를 추가 합니다. 이 VM은 HDInsight ID 브로커 노드 이며 인증을 지 원하는 서버 구성 요소를 포함 합니다. HDInsight ID 브로커 노드는 Azure AD DS 도메인에 가입 된 도메인입니다.
 
-![HDInsight ID Broker를 사용 하도록 설정 하는 옵션을 보여 주는 다이어그램입니다.](./media/identity-broker/identity-broker-enable.png)
+:::image type="content" source="./media/identity-broker/identity-broker-enable.png" alt-text="HDInsight ID Broker를 사용 하도록 설정 하는 옵션을 보여 주는 다이어그램입니다." border="true":::
 
 ### <a name="use-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 

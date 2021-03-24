@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: fea189952b1452c680255ceb99e38609775a8bd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4b85397eeda651678fe66c6e78199dd25630dcc4
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502691"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889905"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -97,26 +97,25 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 **IP �
 > [!NOTE]
 > - 서비스 끝점은 현재 IP SSL(Secure Sockets Layer) (SSL) VIP (가상 IP)를 사용 하는 웹 앱에 대해 지원 되지 않습니다.
 >
-#### <a name="set-a-service-tag-based-rule-preview"></a>서비스 태그 기반 규칙 설정 (미리 보기)
+#### <a name="set-a-service-tag-based-rule"></a>서비스 태그 기반 규칙 설정
 
-* 4 단계의 경우 **유형** 드롭다운 목록에서 **서비스 태그 (미리 보기)** 를 선택 합니다.
+* 4 단계의 경우 **유형** 드롭다운 목록에서 **서비스 태그** 를 선택 합니다.
 
-   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="서비스 태그 유형이 선택 된 ' 제한 추가 ' 창의 스크린샷":::
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="서비스 태그 유형이 선택 된 ' 제한 추가 ' 창의 스크린샷":::
 
 각 서비스 태그는 Azure 서비스의 IP 범위 목록을 나타냅니다. 이러한 서비스 목록과 특정 범위에 대 한 링크는 [서비스 태그 설명서][servicetags]에서 찾을 수 있습니다.
 
-다음은 미리 보기 단계 중에 액세스 제한 규칙에서 지원 되는 서비스 태그 목록입니다.
+사용 가능한 모든 서비스 태그가 액세스 제한 규칙에서 지원 됩니다. 간단히 하기 위해 Azure Portal를 통해 가장 일반적인 태그 목록만 사용할 수 있습니다. Azure Resource Manager 템플릿 또는 스크립팅을 사용 하 여 지역 범위 규칙과 같은 고급 규칙을 구성 합니다. Azure Portal를 통해 사용할 수 있는 태그는 다음과 같습니다.
+
 * ActionGroup
+* ApplicationInsightsAvailability
 * AzureCloud
 * AzureCognitiveSearch
-* AzureConnectors
 * AzureEventGrid
 * AzureFrontDoor.Backend
 * AzureMachineLearning
-* AzureSignalR
 * AzureTrafficManager
 * LogicApps
-* ServiceFabric
 
 ### <a name="edit-a-rule"></a>규칙 편집
 
@@ -137,6 +136,31 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 **IP �
 
 ## <a name="access-restriction-advanced-scenarios"></a>액세스 제한 고급 시나리오
 다음 섹션에서는 액세스 제한을 사용 하는 몇 가지 고급 시나리오에 대해 설명 합니다.
+
+### <a name="filter-by-http-header"></a>Http 헤더로 필터링
+
+모든 규칙의 일부로 추가 http 헤더 필터를 추가할 수 있습니다. 다음 http 헤더 이름이 지원 됩니다.
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X FD-HealthProbe
+
+각 헤더 이름에 대해 최대 8 개의 값을 쉼표로 구분 하 여 추가할 수 있습니다. Http 헤더 필터는 규칙 자체가 적용 된 후에 평가 되 고 두 조건이 모두 true 여야 규칙이 적용 됩니다.
+
+### <a name="multi-source-rules"></a>다중 소스 규칙
+
+다중 소스 규칙을 사용 하면 단일 규칙에서 최대 8 개의 IP 범위 또는 8 개의 서비스 태그를 결합할 수 있습니다. IP 범위가 512 개 이상인 경우 또는 여러 IP 범위를 단일 http 헤더 필터와 결합 하는 논리 규칙을 만들려는 경우이를 사용할 수 있습니다.
+
+다중 소스 규칙은 단일 소스 규칙을 정의 하는 것과 동일한 방식으로 정의 되지만 각 범위는 쉼표로 구분 됩니다.
+
+PowerShell 예제:
+
+  ```azurepowershell-interactive
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Multi-source rule" -IpAddress "192.168.1.0/24,192.168.10.0/24,192.168.100.0/24" `
+    -Priority 100 -Action Allow
+  ```
+
 ### <a name="block-a-single-ip-address"></a>단일 IP 주소 차단
 
 첫 번째 액세스 제한 규칙을 추가 하는 경우 서비스는 우선 순위가 2147483647 인 명시적 *거부 모든* 규칙을 추가 합니다. 실제로 명시적 *거부* 규칙은 실행 되는 최종 규칙이 며 *허용* 규칙에 의해 명시적으로 허용 되지 않는 모든 IP 주소에 대 한 액세스를 차단 합니다.
@@ -151,17 +175,20 @@ IPv4 및 IPv6 주소에 대 한 CIDR (CIDR) 표기법 Inter-Domain으로 **IP �
 
 :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="SCM 사이트 또는 앱에 대 한 액세스 제한이 설정 되지 않음을 보여 주는 Azure Portal의 ' 액세스 제한 ' 페이지 스크린샷":::
 
-### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>특정 Azure Front 도어 인스턴스 (미리 보기)에 대 한 액세스 제한
-Azure Front 도어에서 응용 프로그램으로 들어오는 트래픽은 AzureFrontDoor 서비스 태그에 정의 된 잘 알려진 IP 범위 집합에서 시작 됩니다. 서비스 태그 제한 규칙을 사용 하 여 Azure Front 도어에서 들어오는 트래픽만으로 제한할 수 있습니다. 트래픽이 특정 인스턴스에서 발생 하도록 하려면 Azure Front 문이 보내는 고유한 http 헤더를 기반으로 들어오는 요청을 추가로 필터링 해야 합니다. 미리 보기 중에는 PowerShell 또는 REST/ARM을 사용 하 여이 작업을 수행할 수 있습니다. 
+### <a name="restrict-access-to-a-specific-azure-front-door-instance"></a>특정 Azure Front 도어 인스턴스에 대 한 액세스 제한
+Azure Front 도어에서 응용 프로그램으로 들어오는 트래픽은 AzureFrontDoor 서비스 태그에 정의 된 잘 알려진 IP 범위 집합에서 시작 됩니다. 서비스 태그 제한 규칙을 사용 하 여 Azure Front 도어에서 들어오는 트래픽만으로 제한할 수 있습니다. 트래픽이 특정 인스턴스에서 발생 하도록 하려면 Azure Front 문이 보내는 고유한 http 헤더를 기반으로 들어오는 요청을 추가로 필터링 해야 합니다.
 
-* PowerShell 예제 (전방 도어 ID는 Azure Portal에서 찾을 수 있음):
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-frontdoor.png" alt-text="Azure 전면 도어 제한을 추가 하는 방법을 보여 주는 Azure Portal의 ' 액세스 제한 ' 페이지 스크린샷":::
 
-   ```azurepowershell-interactive
-    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
-      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
-      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
-    ```
+PowerShell 예제:
+
+  ```azurepowershell-interactive
+  $afd = Get-AzFrontDoor -Name "MyFrontDoorInstanceName"
+  Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+    -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+    -HttpHeader @{'x-azure-fdid' = $afd.FrontDoorId}
+  ```
+
 ## <a name="manage-access-restriction-rules-programmatically"></a>프로그래밍 방식으로 액세스 제한 규칙 관리
 
 다음 중 하나를 수행 하 여 프로그래밍 방식으로 액세스 제한을 추가할 수 있습니다. 
@@ -181,7 +208,7 @@ Azure Front 도어에서 응용 프로그램으로 들어오는 트래픽은 Azu
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > 서비스 태그, http 헤더 또는 다중 소스 규칙을 사용 하려면 버전이 5.1.0 이상 필요 합니다. : **Get-installedmodule-Name Az** 를 사용 하 여 설치 된 모듈의 버전을 확인할 수 있습니다.
+   > 서비스 태그, http 헤더 또는 다중 소스 규칙을 사용 하려면 버전이 5.7.0 이상이 필요 이상 필요 합니다. : **Get-installedmodule-Name Az** 를 사용 하 여 설치 된 모듈의 버전을 확인할 수 있습니다.
 
 다음 중 하나를 수행 하 여 수동으로 값을 설정할 수도 있습니다.
 

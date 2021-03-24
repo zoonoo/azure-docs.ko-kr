@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 86e279fef9561397343b3e6cb55ac335a5b39542
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e5f328d6be52732c30478eb49360efb13919a23e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942848"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872220"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -167,7 +167,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
     
-    ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight 스톰 규모 균형 재조정":::
     
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
     

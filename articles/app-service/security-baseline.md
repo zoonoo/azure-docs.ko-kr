@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd612e7e3c54a000d989c5a2f3a633d06d6d11cb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3193acf8ef19cdac97f6733a657610801d614f32
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101718339"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952306"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -265,9 +265,9 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 자동 도구를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 변경 내용을 신속 하 게 검색 하는 프로세스를 만드는 것이 좋습니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [보안 경고 및 권장 사항 내보내기](../security-center/continuous-export.md)
 
@@ -285,7 +285,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 비즈니스 요구 사항에 따라 다양 한 데이터 원본 및 커넥터에 연결 하는 데 사용할 수 있는 확장 가능한 클라우드 네이티브, SIEM (보안 정보 이벤트 관리)의 Microsoft Azure 센티널을 사용 합니다. 또한 Azure Marketplace의 Barracuda와 같은 타사 SIEM (보안 정보 이벤트 관리) 시스템에 대해 및 온보드 데이터를 사용 하도록 설정할 수 있습니다.
 
-- [ASE 작업 로깅](https://docs.microsoft.com/azure/app-service/environment/using-an-ase#logging)
+- [ASE 작업 로깅](./environment/using-an-ase.md#logging)
 
 - [Azure App Service에 대 한 진단 설정을 사용 하도록 설정 하는 방법](troubleshoot-diagnostic-logs.md)
 
@@ -305,7 +305,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 또한 Azure Key Vault는 액세스 정책 및 감사 기록을 통해 중앙 집중화 된 비밀 관리를 제공 합니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure App Service에 대 한 진단 설정을 사용 하도록 설정 하는 방법](troubleshoot-diagnostic-logs.md)
 
@@ -322,7 +322,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: 보안 로그 스토리지 보존 기간 구성
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 App Service 리소스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
-- [로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -338,7 +338,7 @@ WAF (웹 응용 프로그램 방화벽)를 배포한 경우 실시간 웹 응용
 
 확장 가능한 클라우드 기본 SIEM (보안 정보 이벤트 관리) 인 Azure 센티널을 사용 하 여 요구 사항에 따라 다양 한 데이터 원본 및 커넥터와 통합할 수 있습니다. 필요에 따라 Azure Marketplace의 타사 보안 정보 이벤트 관리 솔루션에 및 온보드 데이터를 사용 하도록 설정 합니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Application Insights를 사용 하도록 설정 하는 방법](../azure-monitor/app/app-insights-overview.md)
 
@@ -372,9 +372,9 @@ WAF (웹 응용 프로그램 방화벽)를 배포한 경우 실시간 웹 응용
 
 **지침**: Azure Active Directory (Azure AD)에는 명시적으로 할당 되 고 쿼리가 가능 해야 하는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](https://docs.microsoft.com/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
+- [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](./overview-managed-identity.md?tabs=dotnet&context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context)
 
 - [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)
 
@@ -390,7 +390,7 @@ WAF (웹 응용 프로그램 방화벽)를 배포한 경우 실시간 웹 응용
 
 지원 해야 하는 경우가 아니면 익명 액세스를 사용 하지 않도록 설정 합니다. 
 
-- [Azure App Service에서 기본적으로 사용할 수 있는 id 공급자](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Azure App Service에서 기본적으로 사용할 수 있는 id 공급자](./overview-authentication-authorization.md#identity-providers)
 
 - [Azure App Service 및 Azure Functions의 인증 및 권한 부여](overview-authentication-authorization.md)
 
@@ -437,7 +437,7 @@ App Service 앱은 타사 id 공급자가 사용자 id와 인증 흐름을 관�
 
 이러한 공급자중 하나를 사용하여 인증 및 권한 부여를 활성화하면 사용자 인증과 공급자의 인증 토큰 유효성 검사에 로그인 엔드포인트를 사용할 수 있습니다.
 
-- [Azure App Service의 인증 및 권한 부여 이해](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Azure App Service의 인증 및 권한 부여 이해](./overview-authentication-authorization.md#identity-providers)
 
 - [Azure App Service의 인증 및 권한 부여에 대해 알아보기](overview-authentication-authorization.md)
 
@@ -451,7 +451,7 @@ App Service 앱은 타사 id 공급자가 사용자 id와 인증 흐름을 관�
 
 Azure AD에 대 한 다단계 인증을 구현 합니다. 관리자는 포털의 구독 계정이 보호 되는지 확인 해야 합니다. 구독은 만든 리소스를 관리 하기 때문에 공격에 취약 합니다. 
 
-- [Azure 보안 다단계 인증](/azure/security/develop/secure-aad-app)
+- [Azure 보안 다단계 인증](/previous-versions/azure/security/develop/secure-aad-app)
 
 - [Azure에서 다단계 인증을 사용 하도록 설정 하는 방법](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -517,7 +517,7 @@ Security Center의 위협 방지는 Windows 컴퓨터, Linux 컴퓨터, App Serv
 
 **지침**: Azure Active Directory (Azure AD)에서 제공 하는 로그를 사용 하 여 부실 계정을 검색 합니다. Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격 및 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스를 주기적으로 검토 하 여 의도 한 사용자만 계속 액세스할 수 있도록 합니다. 
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -533,7 +533,7 @@ Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세�
 
 - [Azure AD 로그인을 사용 하도록 Azure App Service 앱을 구성 하는 방법](configure-authentication-provider-aad.md)
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -561,7 +561,7 @@ Azure AD ID 보호를 사용 하 여 사용자 id와 관련 된 검색 된 의�
 
 **지침**: 사용할 수 없음 Azure App Service에 대 한 고객 Lockbox 지원 되지 않습니다.
 
-- [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **책임**: Customer
 
@@ -647,7 +647,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 데이터를 중�
 
 **지침**: azure AD (역할 기반 access control Azure Active Directory)를 사용 하 여 Azure Portal의 App Service 제어 평면에 대 한 액세스를 제어 합니다.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **책임**: Customer
 
@@ -661,7 +661,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 데이터를 중�
 
 로컬에 연결 된 디스크는 선택적으로 웹 사이트에서 임시 저장소 (예: D:\local 및% TMP%)로 사용할 수 있지만 미사용 상태로 암호화 되지 않습니다.
 
-- [Azure App Service에 대 한 데이터 보호 컨트롤 이해](https://docs.microsoft.com/azure/app-service/security-recommendations#data-protection)
+- [Azure App Service에 대 한 데이터 보호 컨트롤 이해](./security-recommendations.md#data-protection)
 
 - [휴지 상태의 암호화 Azure Storage 이해](../storage/common/storage-service-encryption.md)
 
@@ -673,7 +673,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 데이터를 중�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 App Service 앱 및 기타 중요 또는 관련 된 리소스에 대 한 변경 내용에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -689,7 +689,7 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 데이터를 중�
 
 App Service 앱을 보호 하기 위한 Security Center의 권장 사항을 검토 하 고 따릅니다.
 
-- [CI/CD 파이프라인에 지속적인 보안 유효성 검사를 추가 하는 방법](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?preserve-view=true&amp;view=azure-devops)
+- [CI/CD 파이프라인에 지속적인 보안 유효성 검사를 추가 하는 방법](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&preserve-view=true)
 
 - [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -719,7 +719,7 @@ App Service 앱을 보호 하기 위한 Security Center의 권장 사항을 검�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?preserve-view=true&amp;view=azps-4.8.0)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&preserve-view=true)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -840,7 +840,7 @@ App Service에서 WebJobs를 사용 하 여 컴퓨터 리소스 내에 배포 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 - [Azure App Service에서 WebJobs로 백그라운드 작업 실행](webjobs-create.md)
 
@@ -864,7 +864,7 @@ App Service에서 WebJobs를 사용 하 여 컴퓨터 리소스 내에 배포 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -926,7 +926,7 @@ App Service에서 WebJobs를 사용 하 여 컴퓨터 리소스 내에 배포 �
 
 표준화 된 사용에 대 한 기본 제공 정책 정의를 적용 하는 프로세스를 문서화 하는 것이 좋습니다.   
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&amp;view=azps-4.8.0)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&preserve-view=true)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -952,9 +952,9 @@ App Service에서 WebJobs를 사용 하 여 컴퓨터 리소스 내에 배포 �
 
 기존 CI (지속적인 통합) 및 CD (지속적인 업데이트) 파이프라인을 사용 하 여 알려진 보안 구성을 배포 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?preserve-view=true&amp;view=azure-devops)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?preserve-view=true&amp;view=azure-devops)
+- [Azure Repos 설명서](/azure/devops/repos/?view=azure-devops&preserve-view=true)
 
 **책임**: Customer
 
@@ -1060,7 +1060,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하는 효과, [감사]
 
 - [Azure App Service에서 실행 되는 앱 복원](web-sites-restore.md)
 
-- [Azure의 저장 데이터 암호화 이해](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-at-rest-in-microsoft-cloud-services) 
+- [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 
 - [암호화 모델 및 키 관리 테이블](../security/fundamentals/encryption-atrest.md)
 
@@ -1188,5 +1188,5 @@ Azure Storage 암호화는 리소스 관리자 및 클래식 저장소 계정을
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

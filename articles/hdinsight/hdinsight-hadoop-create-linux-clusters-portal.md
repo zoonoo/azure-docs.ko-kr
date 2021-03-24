@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: c68d342cf21d69fa97ba3d5171ba596662fd845f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 98d18044693bc6f4d23e04e9403e71686df39451
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945818"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872203"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -32,17 +32,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 위쪽 메뉴에서 **+ 리소스 만들기** 를 선택합니다.
 
-    ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Azure 포털에서 새 클러스터 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png" alt-text="Azure Portal에서 새 클러스터 만들기":::
 
 1. **분석** > **Azure HDInsight** 를 차례로 선택하여  **HDInsight 클러스터 만들기** 페이지로 이동합니다.
 
 ## <a name="basics"></a>기본 사항
 
-![HDInsight 클러스터 기본 사항 만들기](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Azure 포털에서 새 클러스터 만들기")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png" alt-text="HDInsight 클러스터 기본 사항 만들기":::
 
 **기본** 탭에서 다음 정보를 제공합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
 |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -58,12 +58,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 **: 저장소 >>** 를 선택 하 여 다음 탭으로 이동 합니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 > [!WARNING] 
 > 2020 년 6 월 15 일부 터 고객은 HDInsight를 사용 하 여 새 서비스 주체를 만들 수 없습니다. Azure Active Directory를 사용 하 여 [서비스 주체 및 인증서 만들기를](../active-directory/develop/howto-create-service-principal-portal.md) 참조 하세요.
 
-![HDInsight 클러스터 저장소 만들기](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Azure Portal 저장소에서 새 클러스터 만들기")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png" alt-text="HDInsight 클러스터 저장소 만들기":::
 
 ### <a name="primary-storage"></a>기본 저장소
 
@@ -90,11 +90,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="security--networking"></a>보안 + 네트워킹
 
-![HDInsight 클러스터 보안 네트워킹 만들기](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png "HDInsight 클러스터 보안 네트워킹 만들기")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png" alt-text="HDInsight 클러스터 보안 네트워킹 만들기":::
 
 **보안 + 네트워킹** 탭에서 다음 정보를 제공 합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |엔터프라이즈 보안 패키지|선택 사항: **Enterprise Security Package** 사용할 확인란을 선택 합니다. 자세한 내용은 [Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package를 사용 하 여 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)을 참조 하세요.|
 |TLS|선택 사항: 드롭다운 목록에서 TLS 버전을 선택 합니다. 자세한 내용은 [전송 계층 보안](./transport-layer-security.md)을 참조하세요.|
@@ -107,11 +107,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="configuration--pricing"></a>구성 + 가격 책정
 
-![HDInsight 클러스터 구성 만들기](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png "구성 및 가격 책정 탭")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png" alt-text="HDInsight 클러스터 구성 만들기":::
 
 **구성 + 가격 책정** 탭에서 다음 정보를 제공 합니다.
 
-|속성 |설명 |
+|속성 |Description |
 |---|---|
 |+ 응용 프로그램 추가|선택 사항: 원하는 응용 프로그램을 선택 합니다. Microsoft, ISV(Independent Software Vendor) 또는 사용자는 이러한 애플리케이션을 개발할 수 있습니다. 자세한 내용은 [클러스터 생성 중에 애플리케이션 설치](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation)를 참조하세요.|
 |노드 크기|선택 사항: 다른 크기의 노드를 선택 합니다.|
@@ -123,7 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review--create"></a>검토 + 만들기
 
-![HDInsight 클러스터 만들기 요약](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png "클러스터 노드 수 지정")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-review-create-hadoop.png" alt-text="HDInsight 클러스터 만들기 요약":::
 
 설정을 검토 합니다. **만들기** 를 선택하여 클러스터를 만듭니다.
 
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 만들기 프로세스가 완료되면 **배포 성공** 알림에서 **리소스로 이동** 을 선택합니다. 클러스터 창에서는 다음 정보를 제공합니다.
 
-![HDI Azure Portal 클러스터 개요](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "클러스터 속성")
+:::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png" alt-text="HDI Azure Portal 클러스터 개요":::
 
 창의 일부 아이콘은 다음과 같이 설명 됩니다.
 
@@ -142,7 +142,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |개요|클러스터에 대 한 모든 필수 정보를 제공 합니다. 예를 들어 이름, 이 이름이 속한 리소스 그룹, 위치, 운영 체제 및 클러스터 대시보드의 URL이 있습니다.|
 |클러스터 대시보드|사용자를 클러스터와 연결 된 Ambari 포털로 보냅니다.|
 |SSH + 클러스터 로그인|SSH를 사용 하 여 클러스터에 액세스 하는 데 필요한 정보를 제공 합니다.|
-|DELETE|HDInsight 클러스터를 삭제합니다.|
+|삭제|HDInsight 클러스터를 삭제합니다.|
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 

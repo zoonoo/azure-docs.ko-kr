@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100378709"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864043"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -258,10 +258,10 @@ Azure Maps REST 서비스에 직접 액세스 하는 경우 URL 도메인을로 
 
 JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소스 프로젝트 중 하나가 유용할 수 있습니다.
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Azure 맵 주변의 Angular 10 래퍼.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Azure Maps Blazor 구성 요소.
-- [Azure Maps React 구성 요소](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 컨트롤의 반응 래퍼.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 애플리케이션용 Azure Maps 구성 요소.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Azure 맵 주변의 Angular 10 래퍼.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - Azure Maps Blazor 구성 요소.
+* [Azure Maps React 구성 요소](https://github.com/WiredSolutions/react-azure-maps) - Azure Maps 컨트롤의 반응 래퍼.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - Vue 애플리케이션용 Azure Maps 구성 요소.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -275,10 +275,10 @@ JavaScript 프레임워크를 사용하여 개발하는 경우 다음 오픈 소
 > [!div class="nextstepaction"]
 > [지도 스타일 선택](choose-map-style.md)
 
-지도에 데이터를 더 추가 하려면:
+모범 사례를 알아보고 샘플을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [맵 만들기](map-create.md)
+> [모범 사례](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [코드 샘플](/samples/browse/?products=azure-maps)

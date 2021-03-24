@@ -2,21 +2,18 @@
 title: 비디오 및 오디오 파일 분석
 description: Azure Media Services에서 AudioAnalyzerPreset 및 VideoAnalyzerPreset를 사용 하 여 오디오 및 비디오 콘텐츠를 분석 하는 방법을 알아봅니다.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: ''
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 002f900f03f7bd08753313cde0e6bd46b097a858
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e062eb1ecc37a60567a6b8af0d4e0f27b1e73c36
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581153"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863346"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services를 사용 하 여 비디오 및 오디오 파일 분석
 
@@ -30,12 +27,9 @@ Audio Analyzer 사전 설정에는 기본 및 표준의 두 가지 모드가 있
 
 Media Services v3 사전 설정을 사용 하 여 콘텐츠를 분석 하려면 **변환을** 만들고 이러한 사전 설정 중 하나를 사용 하는 **작업** 을 제출 합니다. [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 또는 **AudioAnalyzerPreset**. **VideoAnalyzerPreset** 를 사용 하는 방법을 보여 주는 자습서는 [Azure Media Services으로 비디오 분석](analyze-videos-tutorial-with-api.md)을 참조 하세요.
 
-> [!NOTE]
-> 비디오 또는 오디오 분석기 사전 설정을 사용 하는 경우 Azure Portal를 사용 하 여 10 개의 S3 미디어 예약 단위를 포함 하도록 계정을 설정 합니다. 단,이는 필수 사항은 아닙니다. 오디오 사전 설정에는 S1 또는 S2를 사용할 수 있습니다. 자세한 내용은 [미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
-
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
 
-중요한 알림을 사용하는 경우 Video Indexer 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 위반하거나 다른 사용자에게 해로운 방법으로 Video Indexer 또는 다른 Azure 서비스를 사용해서는 안 됩니다. 처리 및 저장을 위해 Video Indexer 서비스에 모든 생체 인식 데이터를 비롯한 비디오를 업로드하려면, 비디오에 나온 모든 사람들의 적절한 동의를 비롯한 적절한 권한이 모두 있어야 합니다. Video Indexer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [Cognitive Services 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 보호 정보는 OST 및 [여기](../video-indexer/faq.md)에서 사용할 수 있습니다. Video Indexer를 사용하면 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침에 따라 바인딩되는 것에 동의합니다.
+중요한 알림을 사용하는 경우 Video Indexer 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 위반하거나 다른 사용자에게 해로운 방법으로 Video Indexer 또는 다른 Azure 서비스를 사용해서는 안 됩니다. 처리 및 저장을 위해 Video Indexer 서비스에 모든 생체 인식 데이터를 비롯한 비디오를 업로드하려면, 비디오에 나온 모든 사람들의 적절한 동의를 비롯한 적절한 권한이 모두 있어야 합니다. Video Indexer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 용어](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)를 사용 합니다. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 보호 정보는 OST 및 [여기](../video-indexer/faq.md)에서 사용할 수 있습니다. Video Indexer를 사용하면 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침에 따라 바인딩되는 것에 동의합니다.
 
 ## <a name="built-in-presets"></a>기본 제공 미리 설정
 
@@ -84,7 +78,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="transcript"></a>대본
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
@@ -122,7 +116,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="ocr"></a>ocr
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|OCR 줄 ID입니다.|
 |text|OCR 텍스트입니다.|
@@ -165,7 +159,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="faces"></a>얼굴
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|얼굴 ID입니다.|
 |name|얼굴 이름입니다. ' 알 수 없는 #0 ', 식별 된 유명인 또는 고객이 학습 한 사용자 일 수 있습니다.|
@@ -210,7 +204,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="shots"></a>샷
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 키 프레임 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 키 프레임 인스턴스에는 keyFrame의 썸네일 ID와 thumbnailId 필드가 있습니다.|
@@ -267,7 +261,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="statistics"></a>통계
 
-|이름|설명|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |WordCount|화자별 단어 수입니다.|
@@ -280,7 +274,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -315,7 +309,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="labels"></a>레이블
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|레이블 ID입니다.|
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -373,7 +367,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="keywords"></a>키워드
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
@@ -424,7 +418,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 사용자는 콘텐츠에 대 한 사람 검토 요청을 제출할 수 있으며,이 경우 특성에는 사용자 `IsAdult` 리뷰 결과가 포함 됩니다.
 
-|이름|Description|
+|Name|Description|
 |---|---|
 |id|시각 콘텐츠 조정 ID입니다.|
 |adultScore|성인 점수(Content Moderator 기반)입니다.|

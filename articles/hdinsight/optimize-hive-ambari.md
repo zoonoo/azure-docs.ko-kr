@@ -4,12 +4,12 @@ description: Apache Ambari 웹 UI를 사용 하 여 Apache Hive를 구성 하 �
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 349f58720e6fff52191dfff65108cd1320e41eed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 69a4e769677b6f0200f4157305a3a125f82ee76d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939245"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864820"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Ambari를 사용 하 여 Apache Hive 최적화
 
@@ -26,11 +26,11 @@ Hive는 Apache Hadoop MapReduce 및 Apache TEZ의 두 가지 실행 엔진을 �
 
 1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진** 을 입력합니다.
 
-    ![Apache Ambari 검색 실행 엔진](./media/optimize-hive-ambari/ambari-search-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-search-execution.png" alt-text="Apache Ambari 검색 실행 엔진" border="true":::
 
 1. **Optimization**(최적화) 속성의 기본값은 **Tez** 입니다.
 
-    ![최적화-Apache Tez 엔진](./media/optimize-hive-ambari/optimization-apache-tez.png)
+    :::image type="content" source="./media/optimize-hive-ambari/optimization-apache-tez.png" alt-text="최적화-Apache Tez 엔진" border="true":::
 
 ## <a name="tune-mappers"></a>매퍼 조정
 
@@ -47,7 +47,7 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 1. 두 매개 변수를 모두 **33,554,432** 바이트(32MB)로 설정합니다.
 
-    ![Apache Ambari Tez 그룹화 크기](./media/optimize-hive-ambari/apache-tez-grouping-size.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-tez-grouping-size.png" alt-text="Apache Ambari Tez 그룹화 크기" border="true":::
 
 이러한 변화는 서버의 모든 Tez 작업에 영향을 미칩니다. 최적의 결과를 내려면 적절한 매개 변수 값을 선택합니다.
 
@@ -63,11 +63,11 @@ Apache ORC 및 Snappy는 모두 고성능을 제공합니다. 하지만 Hive는 
 
 1. 매개 변수를 수정하려면 Hive **Configs**(구성) 탭으로 이동하고 설정 페이지에서 **Data per Reducer**(리듀서당 데이터) 매개 변수를 찾습니다.
 
-    ![리 듀 서 당 Apache Ambari 데이터](./media/optimize-hive-ambari/ambari-data-per-reducer.png)
+    :::image type="content" source="./media/optimize-hive-ambari/ambari-data-per-reducer.png" alt-text="리 듀 서 당 Apache Ambari 데이터" border="true":::
 
 1. **편집** 을 선택하여 값을 128MB(134,217,728바이트)로 수정한 다음 **Enter** 를 눌러 저장합니다.
 
-    ![리 듀 서 당 Ambari 데이터-편집 됨](./media/optimize-hive-ambari/data-per-reducer-edited.png)
+    :::image type="content" source="./media/optimize-hive-ambari/data-per-reducer-edited.png" alt-text="리 듀 서 당 Ambari 데이터-편집 됨" border="true":::
   
     리 듀 서 당 128 MB의 데이터를 사용 하 여 1024 MB의 입력 크기가 지정 된 경우 8 개의 리 듀 서 (1024/128)가 있습니다.
 
@@ -81,7 +81,7 @@ Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단�
 
 1. 동시에 실행 되는 작업 수를 제한 하려면 속성을 수정 `hive.exec.parallel.thread.number` 합니다. 기본값은 8입니다.
 
-    ![Apache Hive exec 병렬 표시](./media/optimize-hive-ambari/apache-hive-exec-parallel.png)
+    :::image type="content" source="./media/optimize-hive-ambari/apache-hive-exec-parallel.png" alt-text="Apache Hive exec 병렬 표시" border="true":::
 
 ## <a name="enable-vectorization"></a>벡터화 사용
 
@@ -91,7 +91,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
-    ![Apache Hive 벡터화 실행](./media/optimize-hive-ambari/hive-vectorized-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-vectorized-execution.png" alt-text="Apache Hive 벡터화 실행" border="true":::
 
 ## <a name="enable-cost-based-optimization-cbo"></a>CBO(비용 기반 최적화) 사용
 
@@ -99,7 +99,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 CBO를 사용 하도록 설정 하려면 **Hive** Configs 설정으로 이동 하 여  >    >   **비용 기반 최적화 프로그램 사용** 을 찾은 다음 설정/해제 단추를 **켜기** 로 전환 합니다.
 
-![HDInsight 비용 기반 최적화 프로그램](./media/optimize-hive-ambari/hdinsight-cbo-config.png)
+:::image type="content" source="./media/optimize-hive-ambari/hdinsight-cbo-config.png" alt-text="HDInsight 비용 기반 최적화 프로그램" border="true":::
 
 다음과 같은 추가적인 구성 매개 변수는 CBO를 사용할 때 Hive 쿼리 성능을 높입니다.
 
@@ -107,19 +107,19 @@ CBO를 사용 하도록 설정 하려면 **Hive** Configs 설정으로 이동 �
 
     true로 설정하면 Hive는 metastore에 저장된 통계를 사용하여 `count(*)`와 같은 간단한 쿼리에 응답합니다.
 
-    ![통계를 사용 하 여 계산 쿼리 Apache Hive](./media/optimize-hive-ambari/hive-compute-query-using-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-compute-query-using-stats.png" alt-text="통계를 사용 하 여 계산 쿼리 Apache Hive" border="true":::
 
 * `hive.stats.fetch.column.stats`
 
     열 통계는 CBO를 사용하도록 설정한 경우 생성됩니다. Hive는 metastore에 저장된 열 통계를 사용하여 쿼리를 최적화합니다. 열의 수가 많을수록 각 열의 열 통계를 가져오는 시간이 길어집니다. false로 설정하면 metastore에서 열 통계 가져오기를 사용하지 않도록 설정됩니다.
 
-    ![Apache Hive 통계 집합 열 통계](./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-column-stats.png" alt-text="Apache Hive 통계 집합 열 통계" border="true":::
 
 * `hive.stats.fetch.partition.stats`
 
     행 수, 데이터 크기 및 파일 크기와 같은 기본 파티션 통계는 metastore에 저장됩니다. True로 설정 하면 파티션 통계가 metastore에서 인출 됩니다. False 이면 파일 시스템에서 파일 크기가 인출 됩니다. 행 스키마에서 행 수가 인출 됩니다.
 
-    ![Hive 통계 설정 파티션 통계](./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png" alt-text="Hive 통계 설정 파티션 통계" border="true":::
 
 ## <a name="enable-intermediate-compression"></a>중간 압축 사용
 
@@ -140,7 +140,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
-    ![' Hive exec 압축 중간 '](./media/optimize-hive-ambari/hive-exec-compress-intermediate.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-exec-compress-intermediate.png" alt-text="' Hive exec 압축 중간 '" border="true":::
 
     > [!NOTE]  
     > 중간 파일을 압축하려면 코덱의 압축 출력이 높지 않더라도 CPU 비용이 낮은 압축 코덱을 선택합니다.
@@ -153,11 +153,11 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
     b. 사용자 지정 hive 사이트 창의 맨 아래에 있는 **속성 추가** ...를 선택 합니다.
 
-    다. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
+    c. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
 
     d. **추가** 를 선택합니다.
 
-    ![' Apache Hive 사용자 지정 속성 추가 '](./media/optimize-hive-ambari/hive-custom-property.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property.png" alt-text="' Apache Hive 사용자 지정 속성 추가 '" border="true":::
 
     이 설정은 Snappy 압축을 사용 하 여 중간 파일을 압축 합니다. 속성이 추가되면 사용자 지정 hive-site 창에 나타납니다.
 
@@ -172,7 +172,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 1. 출력 압축 코덱을 선택하려면 이전 섹션 3단계의 설명에 따라 사용자 지정 hive-site 창에 `mapred.output.compression.codec` 사용자 지정 속성을 추가합니다.
 
-    ![사용자 지정 속성 Apache Hive add2](./media/optimize-hive-ambari/hive-custom-property2.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-custom-property2.png" alt-text="사용자 지정 속성 Apache Hive add2" border="true":::
 
 ## <a name="enable-speculative-execution"></a>투기적 실행 사용
 
@@ -182,7 +182,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 * 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
-    ![' Hive mapred.max.split.size 태스크의 추측 실행 '](./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
+    :::image type="content" source="./media/optimize-hive-ambari/hive-mapred-reduce-tasks-speculative-execution.png" alt-text="' Hive mapred.max.split.size 태스크의 추측 실행 '" border="true":::
 
 ## <a name="tune-dynamic-partitions"></a>동적 파티션은 조정
 
@@ -202,7 +202,7 @@ Hive를 사용 하면 테이블에 레코드를 삽입할 때 모든 파티션�
 
 로컬 모드를 사용하려면 [중간 압축 사용](#enable-intermediate-compression) 섹션의 3단계 설명에 따라 `hive.exec.mode.local.auto` 매개 변수를 사용자 지정 hive-site 패널에 추가합니다.
 
-![Apache Hive exec 모드 로컬 자동](./media/optimize-hive-ambari/hive-exec-mode-local-auto.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-exec-mode-local-auto.png" alt-text="Apache Hive exec 모드 로컬 자동" border="true":::
 
 ## <a name="set-single-mapreduce-multigroup-by"></a>단일 MapReduce MultiGROUP BY 설정
 
@@ -210,7 +210,7 @@ Hive를 사용 하면 테이블에 레코드를 삽입할 때 모든 파티션�
 
 이 동작을 사용하려면 [중간 압축 사용](#enable-intermediate-compression) 섹션의 3단계 설명에 따라 `hive.multigroupby.singlereducer` 매개 변수를 사용자 지정 hive-site 창에 추가합니다.
 
-![Hive에서 단일 MapReduce MultiGROUP BY 설정](./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png)
+:::image type="content" source="./media/optimize-hive-ambari/hive-multigroupby-singlereducer.png" alt-text="Hive에서 단일 MapReduce MultiGROUP BY 설정" border="true":::
 
 ## <a name="additional-hive-optimizations"></a>추가적인 Hive 최적화
 

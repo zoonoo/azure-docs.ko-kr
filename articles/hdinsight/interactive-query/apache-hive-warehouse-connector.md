@@ -6,12 +6,12 @@ ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6611f5ca7ddae243c4bc314be73a9030311cec89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 57a3d76f24c33984a883e926a8d4c68736e9f121
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99594437"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869891"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-hive-warehouse-connector-in-azure-hdinsight"></a>Azure HDInsight의 Hive Warehouse Connector와 Apache Spark 및 Apache Hive 통합
 
@@ -23,9 +23,9 @@ Apache Hive는 ACID(원자성, 일관성, 격리성 및 내구성)에 해당하�
 
 Apache Spark에는 Apache Hive에서 사용할 수 없는 스트리밍 기능을 제공하는 구조적 스트리밍 API가 있습니다. HDInsight 4.0부터 Apache Spark 2.3.1 및 Apache Hive 3.1.0에는 별도의 metastore가 있습니다. 별도의 metastore는 상호 운용성을 어렵게 만들 수 있습니다. Hive Warehouse Connector를 사용하면 좀 더 쉽게 Spark와 Hive를 함께 사용할 수 있습니다. HWC 라이브러리는 LLAP 디먼에서 Spark 실행기로 데이터를 병렬로 로드합니다. 이 프로세스를 통해 Spark에서 Hive로의 표준 JDBC 연결보다 좀 더 효율적이고 편리하게 연결될 수 있습니다.
 
-![Hive Warehouse Connector 아키텍처](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
+:::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png" alt-text="Hive Warehouse Connector 아키텍처" border="true":::
 
-Hive Warehouse Connector에서 지원되는 작업은 다음과 같습니다.
+Hive Warehouse Connector에서 지원하는 일부 작업은 다음과 같습니다.
 
 * 테이블 설명
 * ORC 형식의 데이터에 대한 테이블 만들기
@@ -72,7 +72,7 @@ Hive Warehouse Connector에는 Spark 및 Interactive Query 워크로드를 위�
 
 1. **사용자 지정 spark2-defaults** 를 확장합니다.
 
-    ![Apache Ambari Spark2 구성](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png" alt-text="Apache Ambari Spark2 구성" border="true":::
 
 1. **속성 추가...** 를 선택하여 다음 구성을 추가합니다.
 
@@ -103,11 +103,11 @@ ESP(Enterprise Security Package)는 Azure HDInsight의 Apache Hadoop 클러스�
     
     * 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary` 합니다. 여기서 CLUSTERNAME은 대화형 쿼리 클러스터의 이름입니다. **HiveServer2 Interactive** 를 클릭 합니다. 스크린샷에 표시 된 것 처럼 LLAP이 실행 되는 헤드 노드의 FQDN (정규화 된 도메인 이름)이 표시 됩니다. `<llap-headnode>`이 값으로 대체 합니다.
 
-        ![hive 웨어하우스 커넥터 헤드 노드](./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/head-node-hive-server-interactive.png" alt-text="hive 웨어하우스 커넥터 헤드 노드" border="true":::
 
     * [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 대화형 쿼리 클러스터에 연결 합니다. `default_realm`파일에서 매개 변수를 찾습니다 `/etc/krb5.conf` . `<AAD-DOMAIN>`이 값을 대문자 문자열로 바꾸고, 그렇지 않으면 자격 증명을 찾을 수 없습니다.
 
-        ![hive 웨어하우스 커넥터 AAD 도메인](./media/apache-hive-warehouse-connector/aad-domain.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/aad-domain.png" alt-text="hive 웨어하우스 커넥터 AAD 도메인" border="true":::
 
     * 예를 들면 `hive/hn0-ng36ll.mjry42ikpruuxgs2qy2kpg4q5e.cx.internal.cloudapp.net@PKRSRVUQVMAE6J85.D2.INTERNAL.CLOUDAPP.NET` 입니다.
     
@@ -211,21 +211,21 @@ kinit USERNAME
     hive.executeQuery("SELECT * FROM demo").show()
     ```
 
-    ![Ranger 정책을 적용하기 전의 demo 테이블](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png" alt-text="Ranger 정책을 적용하기 전의 demo 테이블" border="true":::
 
 1. 열의 마지막 4자만 표시하는 열 마스킹 정책을 적용합니다.  
     1. `https://LLAPCLUSTERNAME.azurehdinsight.net/ranger/`에서 Ranger 관리 UI로 이동합니다.
     1. **Hive** 에서 클러스터에 대한 Hive 서비스를 클릭합니다.
-        ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png" alt-text="Ranger Service Manager" border="true":::
     1. **마스킹** 탭을 클릭하고 **새 정책 추가** 를 클릭합니다.
 
-        ![hive warehouse connector ranger hive 정책 목록](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
+        :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png" alt-text="hive warehouse connector ranger hive 정책 목록" border="true":::
 
     1. 원하는 정책 이름을 제공합니다. 데이터베이스를 선택합니다. **마스킹 옵션 선택** 메뉴에서 **기본값**, Hive 테이블: **demo**, Hive 열: **name**, 사용자: **rsadmin2**, 액세스 형식: **select** 및 **부분 마스크: 마지막 4 표시** 를 선택합니다. **추가** 를 클릭합니다.
-                ![정책 만들기](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+                :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png" alt-text="정책 만들기" border="true":::
 1. 테이블의 내용을 다시 봅니다. Ranger 정책을 적용한 후에는 열의 마지막 4자만 볼 수 있습니다.
 
-    ![Ranger 정책을 적용한 후의 demo 테이블](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
+    :::image type="content" source="./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png" alt-text="Ranger 정책을 적용한 후의 demo 테이블" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

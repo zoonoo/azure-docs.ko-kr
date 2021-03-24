@@ -12,22 +12,18 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: 음성 번역
-ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 94ddd06068513261b5b73b313877e273c7251d62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95015208"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954963"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-이 개요에서는 음성 변환 서비스의 이점과 기능에 대해 알아보고, 오디오 스트림에 대 한 실시간 다중 언어 음성-음성-음성-텍스트 변환을 가능 하 게 합니다. Speech SDK를 사용하면 애플리케이션, 도구 및 디바이스를 통해 제공된 오디오의 원본 대화 내용 기록과 번역 결과에 액세스할 수 있습니다. 음성이 감지 되 면 임시 기록 및 번역 결과가 반환 되 고 최종 결과는 합성 된 음성으로 변환 될 수 있습니다.
-
-Microsoft의 번역 엔진은 SMT(통계적 기계 번역) 및 NMT(신경망 기계 번역)의 두 가지 방식으로 구동됩니다. SMT는 고급 통계 분석을 사용하여 몇 가지 단어로 구성된 주어진 컨텍스트에서 가능한 최상의 번역을 추정합니다. NMT는 전체 문장 컨텍스트를 사용하여 단어를 번역함으로써 보다 정확하고 자연스러운 번역을 제공하는 신경망을 사용합니다.
-
-현재 Microsoft는 가장 인기 있는 언어로 번역 하는 데 NMT를 사용 합니다. [음성 대 음성 번역에 사용할 수 있는 모든 언어](language-support.md#speech-translation)는 NMT를 통해 지원됩니다. 음성 대 텍스트 번역은 언어 쌍에 따라 SMT 또는 NMT를 사용할 수 있습니다. NMT에서 대상 언어를 지 원하는 경우 전체 번역이 NMT로 구동 됩니다. NMT에서 대상 언어를 지원 하지 않는 경우 변환은 두 언어 간의 "피벗"로 영어를 사용 하는 NMT 및 SMT의 하이브리드입니다.
+이 개요에서는 음성 변환 서비스의 이점과 기능에 대해 알아보고, 오디오 스트림에 대 한 실시간 [다중 언어 음성-음성](language-support.md#speech-translation) -음성-텍스트 변환을 가능 하 게 합니다. Speech SDK를 사용하면 애플리케이션, 도구 및 디바이스를 통해 제공된 오디오의 원본 대화 내용 기록과 번역 결과에 액세스할 수 있습니다. 음성이 감지 되 면 임시 기록 및 번역 결과가 반환 되 고 최종 결과는 합성 된 음성으로 변환 될 수 있습니다.
 
 ## <a name="core-features"></a>핵심 기능
 
