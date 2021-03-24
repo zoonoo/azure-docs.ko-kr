@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788624"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>자습서: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Managed Instance 보안

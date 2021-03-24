@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b878abbead68b3268891e1f35087e5942969730c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579062"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952816"
 ---
 # <a name="conditional-access-users-and-groups"></a>조건부 액세스: 사용자 및 그룹
 
@@ -38,7 +38,7 @@ ms.locfileid: "104579062"
    - 모든 게스트 및 외부 사용자
       - 이 선택 항목에는로 설정 된 모든 사용자를 포함 하는 모든 B2B 게스트 및 외부 사용자가 포함 됩니다 `user type` `guest` . 이 선택 항목은 CSP (클라우드 솔루션 공급자)와 같은 다른 조직에서 로그인 한 모든 외부 사용자에도 적용 됩니다. 
    - 디렉터리 역할
-      - 관리자가 정책 할당을 확인 하는 데 사용 되는 특정 기본 제공 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다. 관리 단위 범위 디렉터리 역할, 사용자 지정 역할 등 다른 역할 유형은 지원 되지 않습니다.
+      - 관리자가 정책 할당을 확인 하는 데 사용 되는 특정 기본 제공 Azure AD 디렉터리 역할을 선택할 수 있습니다. 예를 들어 조직은 전역 관리자 역할이 할당 된 사용자에 게 더 제한적인 정책을 만들 수 있습니다. 관리 단위 범위 역할 및 사용자 지정 역할을 비롯 한 다른 역할 유형은 지원 되지 않습니다.
    - 사용자 및 그룹
       - 특정 사용자 집합을 대상으로 지정할 수 있습니다. 예를 들어, 조직에서는 HR 앱이 클라우드 앱으로 선택 된 경우 HR 부서의 모든 구성원을 포함 하는 그룹을 선택할 수 있습니다. 그룹은 동적 또는 할당된 보안 및 배포 그룹을 포함하여 Azure AD의 어떤 그룹 유형이라도 상관 없습니다. 정책이 중첩 된 사용자 및 그룹에 적용 됩니다.
 

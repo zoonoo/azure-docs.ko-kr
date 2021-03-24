@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0bfdea6c0bbbe40e4c72ab9da70a1b16d4bc4d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ee0e8d8fa660313cb007d53c2bbbfc9b19feec9
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175671"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889776"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
@@ -27,7 +27,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | 지원 되는 버전 | |
 | 지원 되는 DSVM 버전      | Ubuntu 16.04    |
 | DSVM에 구성/설치 방법  | Caffe는 `/opt/caffe`에 설치됩니다.   샘플은에 `/opt/caffe/examples` 있습니다.|
-| 실행 방법      | X2Go를 사용 하 여 VM에 로그인 한 다음 새 터미널을 시작 하 고 다음을 입력 합니다.<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>새 브라우저 창이 샘플 노트북과 함께 열립니다. 이진 파일은 /opt/caffe/build/install/bin에 설치됩니다.<br/><br/>설치 된 Caffe 버전에는 Python 2.7이 필요 하며, 기본적으로 활성화 되는 Python 3.5에서는 작동 하지 않습니다. Python 2.7로 전환 하려면를 실행 `source activate root` 하 여 Anaconda 환경으로 전환 합니다.|    
+| 실행 방법      | X2Go를 사용 하 여 VM에 로그인 한 다음 새 터미널을 시작 하 고 다음을 입력 합니다.<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>새 브라우저 창이 샘플 노트북과 함께 열립니다. 이진 파일은 /opt/caffe/build/install/bin에 설치됩니다.<br/><br/>설치 된 Caffe 버전에는 Python 2.7이 필요 하며, 기본적으로 활성화 되는 Python 3.6에서는 작동 하지 않습니다. Python 2.7로 전환 하려면를 실행 `source activate root` 하 여 Anaconda 환경으로 전환 합니다.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 

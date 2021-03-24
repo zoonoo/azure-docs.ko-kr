@@ -4,10 +4,10 @@ description: 스토리지 계정의 파일 공유에 대해 일시 삭제를 사
 ms.topic: sample
 ms.date: 02/02/2020
 ms.openlocfilehash: 172a7bd19ffd07ca7900a457c447362343e5f185
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84121286"
 ---
 # <a name="disable-soft-delete-for-file-shares-in-a-storage-account"></a>스토리지 계정의 파일 공유에 대해 일시 삭제 사용 안 함
@@ -52,7 +52,7 @@ ms.locfileid: "84121286"
 
 3. 스토리지 계정 ARM(Azure Resource Manager) ID를 바로 사용할 수 있도록 편리하게 유지합니다. 예: `/subscriptions/37aa2d43-d4f5-4322-bae0-6ee11c627f50/resourceGroups/afsshare/providers/Microsoft.Storage/storageAccounts/inquirytest`
 
-4. **armclient login**을 실행하여 자격 증명을 사용하여 로그인합니다.
+4. **armclient login** 을 실행하여 자격 증명을 사용하여 로그인합니다.
 
 5. 스토리지 계정에서 파일 공유의 현재 일시 삭제 속성을 가져옵니다.
 

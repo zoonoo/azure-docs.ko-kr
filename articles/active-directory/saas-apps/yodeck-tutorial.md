@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 68e961336d7e86f9983fea49044137894ab0f985
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>자습서: Azure Active Directory와 Yodeck 통합
@@ -147,7 +147,7 @@ Yodeck에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -213,9 +213,9 @@ Azure AD 사용자가 Yodeck에 로그인할 수 있도록 하려면 Yodeck에 �
 
     ![스크린샷은 이러한 단계를 수행할 수 있는 사용자 세부 정보 탭을 보여줍니다.](./media/yodeck-tutorial/user3.png)
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta** )을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     다. **전자 메일** 텍스트 상자에서 brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 950744e0b8b2f722d801c911d6fd2c9112f035ec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>자습서: Azure Active Directory와 Microsoft Azure용 클라우드 관리 포털 통합
@@ -148,7 +148,7 @@ Microsoft Azure용 클라우드 관리 포털에서 Azure AD Single Sign-On을 �
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 

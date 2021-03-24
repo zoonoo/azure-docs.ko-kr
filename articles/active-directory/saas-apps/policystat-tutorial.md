@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d6274f3e1356a8ff8a997e830f0ebee43f50cff
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92893141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>자습서: PolicyStat과 Azure Active Directory 통합
@@ -166,7 +166,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
    
     ![선택된 "사용자 IDP 메타데이터" 작업을 보여주는 스크린샷.](./media/policystat-tutorial/ic808636.png "Single Sign-On 구성")
    
-    a. 다운로드한 메타데이터 파일을 열고 내용을 복사한 다음 **Your Identity Provider Metadata** (ID 공급자 메타데이터) 텍스트 상자에 붙여넣습니다.
+    a. 다운로드한 메타데이터 파일을 열고 내용을 복사한 다음 **Your Identity Provider Metadata**(ID 공급자 메타데이터) 텍스트 상자에 붙여넣습니다.
 
     b. **변경 내용 저장** 을 클릭합니다.
 
@@ -174,9 +174,9 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
    
     a. **사용자 이름 특성** 텍스트 상자에 **uid** 를 입력합니다.
 
-    b. **First Name Attribute** (이름 특성) 텍스트 상자에 Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** 의 First Name Attribute(이름 특성) 클레임 이름을 입력합니다.
+    b. **First Name Attribute**(이름 특성) 텍스트 상자에 Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** 의 First Name Attribute(이름 특성) 클레임 이름을 입력합니다.
 
-    다. **Last Name Attribute** (성 특성) 텍스트 상자에 Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** 의 Last Name Attribute(성 특성) 클레임 이름을 입력합니다.
+    다. **Last Name Attribute**(성 특성) 텍스트 상자에 Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** 의 Last Name Attribute(성 특성) 클레임 이름을 입력합니다.
 
     d. **이메일 특성** 텍스트 상자에 Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 의 이메일 특성 클레임 이름을 입력합니다.
 
@@ -191,7 +191,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 PolicyStat에 대한 액세스 권한을 부여하여 자신의 계정에서 Azure Single Sign-On을 사용할 수 있도록 설정합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **PolicyStat** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **PolicyStat** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

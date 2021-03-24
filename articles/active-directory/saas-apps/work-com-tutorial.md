@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: a77b6472ea91a6ba4b6e31d1b7739aae236a1783
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92636156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>자습서: Work.com과 Azure Active Directory 통합
@@ -135,7 +135,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
    
     ![스크린샷은 관리 창에서 도메인 관리를 선택한 내 도메인을 보여줍니다.](./media/work-com-tutorial/ic767825.png "내 도메인")
 
-4. 도메인이 올바르게 설정되었는지 확인하려면 “ **Step 4 Deployed to Users** (4단계 사용자에게 배포)”에 있는지 확인하고 “ **My Domain Settings** (내 도메인 설정)”을 검토합니다.
+4. 도메인이 올바르게 설정되었는지 확인하려면 “**Step 4 Deployed to Users**(4단계 사용자에게 배포)”에 있는지 확인하고 “**My Domain Settings**(내 도메인 설정)”을 검토합니다.
    
     ![사용자에게 배포된 도메인](./media/work-com-tutorial/ic784377.png "사용자에게 배포된 도메인")
 
@@ -200,7 +200,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -224,7 +224,7 @@ Work.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Work.com에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Work.com** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Work.com** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -278,11 +278,11 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
     
     d. **이메일** 텍스트 상자에 사용자 Brittasimon@contoso.com의 **이메일 주소** 를 입력합니다.
     
-    e. **User Name** (사용자 이름) 텍스트 상자에 사용자의 사용자 이름(예: Brittasimon@contoso.com)을 입력합니다.
+    e. **User Name**(사용자 이름) 텍스트 상자에 사용자의 사용자 이름(예: Brittasimon@contoso.com)을 입력합니다.
     
-    f. **Nick Name** (애칭) 텍스트 상자에 사용자의 **애칭** **Simon** 을 입력합니다.
+    f. **Nick Name**(애칭) 텍스트 상자에 사용자의 **애칭** **Simon** 을 입력합니다.
     
-    g. **역할** , **사용자 라이선스** 및 **프로필** 을 차례로 선택합니다.
+    g. **역할**, **사용자 라이선스** 및 **프로필** 을 차례로 선택합니다.
     
     h. **저장** 을 클릭합니다.  
       

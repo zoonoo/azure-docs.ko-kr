@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.openlocfilehash: c589db84b6221aa23868b3b49aea84f33623619f
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92673871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>자습서: Sectigo Certificate Manager와 Azure Active Directory 통합
@@ -98,7 +98,7 @@ Sectigo Certificate Manager에서 Azure AD Single Sign-On을 구성하고 테스
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 창에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -206,7 +206,7 @@ Sectigo Certificate Manager 쪽에서 Single Sign-On을 구성하려면 다운�
 
 #### <a name="test-from-azure-single-sign-on-configuration-idp-initiated-single-sign-on"></a>Azure Single Sign-On 구성에서 테스트(IDP 시작 Single Sign-On)
 
-**Sectigo Certificate Manager** 애플리케이션 통합 창에서 **Single Sign-On** , **테스트** 단추를 차례로 선택합니다.  올바르게 구성되면 Sectigo Certificate Manager에 자동으로 로그인됩니다.
+**Sectigo Certificate Manager** 애플리케이션 통합 창에서 **Single Sign-On**, **테스트** 단추를 차례로 선택합니다.  올바르게 구성되면 Sectigo Certificate Manager에 자동으로 로그인됩니다.
 
 #### <a name="test-by-using-the-my-apps-portal-idp-initiated-single-sign-on"></a>내 앱 포털을 사용하여 테스트(IDP 시작 Single Sign-On)
 

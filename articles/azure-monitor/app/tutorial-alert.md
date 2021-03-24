@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 04/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 6b8cc951301ec315f758478eda1c0736882e66f2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100597727"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 애플리케이션 상태에 대한 모니터링 및 경고
@@ -24,7 +24,7 @@ Azure Application Insights를 사용하여 애플리케이션을 모니터링하
 > * 애플리케이션의 응답을 지속적으로 확인하는 가용성 테스트 만들기
 > * 문제가 발생한 경우 관리자에게 메일 보내기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

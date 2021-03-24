@@ -2,13 +2,13 @@
 title: 배포 기록 삭제
 description: Azure Resource Manager 배포 기록에서 배포를 자동으로 삭제 하는 방법을 설명 합니다. 기록은 800 제한을 초과 하는 경우에만 삭제 됩니다.
 ms.topic: conceptual
-ms.date: 10/01/2020
-ms.openlocfilehash: 13c65f3311e308708034bb5befb7e3c3ee158d38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: fc4f7f33cdd7ccce3158aa95bd002f12c8c44c00
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91652485"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951966"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>배포 기록에서 자동 삭제
 
@@ -53,6 +53,12 @@ Azure CLI를 사용 하 여 잠금을 삭제 하려면 다음 명령을 실행 �
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
+
+## <a name="required-permissions"></a>필요한 사용 권한
+
+템플릿을 배포한 사용자의 id로 삭제를 요청 합니다. 배포를 삭제 하려면 사용자에 게 **Microsoft .resources/배포/삭제** 작업에 대 한 액세스 권한이 있어야 합니다. 사용자에 게 필요한 권한이 없는 경우에는 기록에서 배포가 삭제 되지 않습니다.
+
+현재 사용자에 게 필요한 권한이 없는 경우 다음 배포 중에 자동 삭제가 다시 시도 됩니다.
 
 ## <a name="opt-out-of-automatic-deletions"></a>자동 삭제 옵트아웃 (Opt out)
 

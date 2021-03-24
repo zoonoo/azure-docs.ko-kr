@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d7cc948d3631e69882eb252672e5a3eb5d5f9751
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9ced4da7f71a0499e538e499644d89240611f1ea
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867443"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956216"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>데이터 랭 글 링 (미리 보기)에 대 한 Apache Spark 풀 (Azure Synapse Analytics에서 구동)을 연결 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "104867443"
 
 Azure Synapse Analytics와 Azure Machine Learning (미리 보기)를 통합 하면 Azure Synapse에서 지원 되는 Apache Spark 풀을 연결 하 여 대화형 데이터 탐색 및 준비를 수행할 수 있습니다. 이러한 통합을 통해 기계 학습 모델을 학습 하는 데 사용 하는 것과 동일한 Python 노트북 내에서 데이터 랭 글 링에 대 한 전용 계산을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python).
 
@@ -127,6 +127,21 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## <a name="launch-synapse-spark-pool-for-data-preparation-tasks"></a>데이터 준비 태스크에 대 한 Synapse Spark 풀 시작
 
+Apache Spark 풀을 사용 하 여 데이터 준비를 시작 하려면 Apache Spark 풀 이름을 지정 합니다.
+
+> [!IMPORTANT]
+> Apache Spark 풀을 계속 사용 하려면 `%synapse` 단일 코드 줄 및 여러 줄에 대해 데이터 랭 글 링 작업 전체에서 사용할 계산 리소스를 지정 해야 합니다 `%%synapse` . 
+
+```python
+%synapse start -c SynapseSparkPoolAlias
+```
+
+세션이 시작 된 후 세션의 메타 데이터를 확인할 수 있습니다.
+
+```python
+%synapse meta
+```
+
 Apache Spark 세션 중에 사용할 [Azure Machine Learning 환경을](concept-environments.md) 지정할 수 있습니다. 환경에 지정 된 Conda 종속성만 적용 됩니다. Docker 이미지는 지원 되지 않습니다.
 
 >[!WARNING]
@@ -146,21 +161,11 @@ env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
 env.register(workspace=ws)
 ```
 
-Apache Spark 풀을 사용 하 여 데이터 준비를 시작 하려면 Apache Spark 풀 이름을 지정 하 고 구독 ID, machine learning 작업 영역 리소스 그룹, machine learning 작업 영역 이름 및 Apache Spark 세션 동안 사용할 환경을 제공 합니다. 
-
-> [!IMPORTANT]
-> Apache Spark 풀을 계속 사용 하려면 `%synapse` 단일 코드 줄 및 여러 줄에 대해 데이터 랭 글 링 작업 전체에서 사용할 계산 리소스를 지정 해야 합니다 `%%synapse` . 
+Apache Spark 풀 및 사용자 지정 환경에서 데이터 준비를 시작 하려면 Apache Spark 풀 이름과 Apache Spark 세션 중 사용할 환경을 지정 합니다. 또한 구독 ID, machine learning 작업 영역 리소스 그룹 및 machine learning 작업 영역 이름을 제공할 수 있습니다.
 
 ```python
-%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
+%synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
-
-세션이 시작 된 후 세션의 메타 데이터를 확인할 수 있습니다.
-
-```python
-%synapse meta
-```
-
 ## <a name="load-data-from-storage"></a>저장소에서 데이터 로드
 
 Apache Spark 세션이 시작 되 면 준비 하려는 데이터를 읽습니다. 데이터 로드는 Azure Blob storage 및 Azure Data Lake Storage 세대 1 및 2에 대해 지원 됩니다.
@@ -226,14 +231,22 @@ df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows
 
 ### <a name="read-in-data-from-registered-datasets"></a>등록 된 데이터 집합에서 데이터 읽기
 
-작업 영역에서 등록 된 기존 데이터 집합을 가져와서 spark 데이터 프레임 변환 하 여 데이터 준비를 수행할 수도 있습니다.  
+작업 영역에서 등록 된 기존 데이터 집합을 가져와서 spark 데이터 프레임 변환 하 여 데이터 준비를 수행할 수도 있습니다.
 
-다음 예제에서는 `blob_dset` blob 저장소의 파일을 참조 하 고 spark 데이터 프레임로 변환 하는 등록 된 TabularDataset를 가져옵니다. 데이터 집합을 spark 데이터 프레임 변환 하는 경우 `pyspark` 데이터 탐색 및 준비 라이브러리를 활용할 수 있습니다.  
+다음 예제에서는 작업 영역에 인증 하 고 `blob_dset` blob 저장소의 파일을 참조 하는 등록 된 TabularDataset를 가져온 다음 spark 데이터 프레임로 변환 합니다. 데이터 집합을 spark 데이터 프레임 변환 하는 경우 `pyspark` 데이터 탐색 및 준비 라이브러리를 활용할 수 있습니다.  
 
 ``` python
 
 %%synapse
 from azureml.core import Workspace, Dataset
+
+subscription_id = "<enter your subscription ID>"
+resource_group = "<enter your resource group>"
+workspace_name = "<enter your workspace name>"
+
+ws = Workspace(workspace_name = workspace_name,
+               subscription_id = subscription_id,
+               resource_group = resource_group)
 
 dset = Dataset.get_by_name(ws, "blob_dset")
 spark_df = dset.to_spark_dataframe()

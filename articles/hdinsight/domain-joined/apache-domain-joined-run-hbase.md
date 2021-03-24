@@ -4,12 +4,12 @@ description: 자습서 - Enterprise Security Package를 사용하여 Azure HDIns
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: deefda126602e9b276b74752330a14cc3eb2aa95
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a18e0b252facb4f00d9ba5c9b6bfe9fe6aefe1ef
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99821425"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867001"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성
 
@@ -86,7 +86,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     scan 'Customers'
     ```
 
-    ![HDInsight Hadoop HBase 셸 출력](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png" alt-text="HDInsight Hadoop HBase 셸 출력" border="true":::
 
 ## <a name="create-ranger-policies"></a>Ranger 정책 만들기
 
@@ -94,11 +94,11 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 1. **Ranger 관리 UI** 를 엽니다. **HBase** 아래의 **\<ClusterName>_hbase** 를 클릭합니다.
 
-   ![HDInsight Apache Ranger 관리 UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png" alt-text="HDInsight Apache Ranger 관리 UI" border="true":::
 
 2. **정책 목록** 화면에 이 클러스터에 대해 생성된 모든 Ranger 정책이 표시됩니다. 미리 구성된 정책 하나가 나열될 수 있습니다. **새 정책 추가** 를 클릭합니다.
 
-    ![Apache Ranger HBase 정책 목록](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png" alt-text="Apache Ranger HBase 정책 목록" border="true":::
 
 3. **정책 만들기** 화면에서 다음 값을 입력합니다.
 
@@ -117,7 +117,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    * `*`는 문자가 0개 이상 나옴을 나타냅니다.
    * `?`는 문자 하나를 나타냅니다.
 
-   ![Apache Ranger 정책 sales 만들기](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png" alt-text="Apache Ranger 정책 sales 만들기" border="true":::
 
    >[!NOTE]
    >**사용자 선택** 에 도메인 사용자가 자동으로 입력되지 않으면 Ranger가 Azure AD와 동기화될 때까지 잠시 기다립니다.
@@ -136,7 +136,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
    |사용자 선택  | marketing_user1 |
    |사용 권한  | 읽기 |
 
-   ![Apache Ranger 정책 만들기 marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png" alt-text="Apache Ranger 정책 만들기 marketing" border="true":::  
 
 6. **추가** 를 클릭하여 정책을 저장합니다.
 
@@ -226,7 +226,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 1. Ranger UI에서 감사 액세스 이벤트를 확인합니다.
 
-   ![HDInsight Ranger UI 정책 감사](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   :::image type="content" source="./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png" alt-text="HDInsight Ranger UI 정책 감사" border="true":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

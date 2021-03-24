@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 297c1d4afca5a1d605a046d69b086a05a9322bc7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100574604"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872084"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>방화벽을 사용하여 Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 구성
 
@@ -52,7 +52,7 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
 
 1. **설정** > **규칙** > **애플리케이션 규칙 컬렉션** >  **+ 애플리케이션 규칙 컬렉션 추가** 로 이동합니다.
 
-    ![제목: 애플리케이션 규칙 컬렉션 추가](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
+    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="제목: 애플리케이션 규칙 컬렉션 추가":::
 
 1. **애플리케이션 규칙 컬렉션 추가** 화면에서 다음 정보를 제공합니다.
 
@@ -78,7 +78,7 @@ Azure Firewall을 사용하여 기존 HDInsight의 송신을 잠그는 단계를
     | Rule_3 | * | https:443 | login.microsoftonline.com | Windows 로그인 작업을 허용합니다. |
     | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | `storage_account_name`을 실제 스토리지 계정 이름으로 바꿉니다. https 연결만 사용하려면 스토리지 계정에서 ["보안 전송 필요"](../storage/common/storage-require-secure-transfer.md)를 사용하도록 설정했는지 확인합니다. 개인 끝점을 사용 하 여 저장소 계정에 액세스 하는 경우에는이 단계가 필요 하지 않으며 저장소 트래픽이 방화벽에 전달 되지 않습니다.|
 
-   ![제목: 애플리케이션 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="제목: 애플리케이션 규칙 컬렉션 정보 입력":::
 
 1. **추가** 를 선택합니다.
 
@@ -105,7 +105,7 @@ HDInsight 클러스터를 올바르게 구성하기 위한 네트워크 규칙�
     | Rule_5 | TCP | * | SQL | 1433 | HDInsight에서 제공 하는 기본 sql server를 사용 하는 경우 sql 트래픽을 기록 하 고 감사 하는 데 사용할 수 있는 SQL에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. HDInsight 서브넷에서 SQL Server에 대한 서비스 엔드포인트를 구성하지 않은 경우 방화벽이 무시됩니다. Ambari, Oozie, 레인저 및 Hive metastore에 사용자 지정 SQL server를 사용 하는 경우 고유한 사용자 지정 SQL server에 대 한 트래픽만 허용 하면 됩니다.|
     | Rule_6 | TCP | * | Azure Monitor | * | (선택 사항) 자동 크기 조정 기능을 사용하려는 고객은 이 규칙을 추가해야 합니다. |
     
-   ![제목: 애플리케이션 규칙 컬렉션 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
+   :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="제목: 애플리케이션 규칙 컬렉션 입력":::
 
 1. **추가** 를 선택합니다.
 

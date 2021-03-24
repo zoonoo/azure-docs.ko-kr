@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 08a8dde815a6dea5d69e5e2a385cbaa03fba681a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832697"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865624"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Azure PowerShell을 사용하여 Cloud Service(추가 지원) 배포
 
@@ -88,7 +88,7 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Key Vault를 만듭니다. 이 Key Vault는 Cloud Service(추가 지원) 역할에 연결된 인증서를 저장하는 데 사용됩니다. 포털에서 '배포용 Azure Virtual Machines' 및 '템플릿 배포용 Azure Resource Manager'에 액세스하기 위한 '액세스 정책'을 사용하도록 설정했는지 확인합니다. Key Vault는 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
+9. Key Vault를 만듭니다. 이 Key Vault는 클라우드 서비스(추가 지원) 역할에 연결된 인증서를 저장하는 데 사용됩니다. Key Vault는 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Azure Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -97,6 +97,7 @@ Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-pre
 10. Key Vault 액세스 정책을 업데이트하고, 인증서 권한을 사용자 계정에 부여합니다. 
 
     ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -EnabledForDeployment
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 

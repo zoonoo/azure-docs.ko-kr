@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: d36c8f1f592bbe714a9e31cad8131523049f29ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a3bfcfbe59ccc15278b30470c6a060a9c1dd609c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931367"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871747"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -18,7 +18,7 @@ HDInsight를 사용 하면 외부 데이터 저장소를 사용 하 여 데이�
 
 HDInsight의 Apache Hive 메타스토어는 Apache Hadoop 아키텍처의 핵심 부분입니다. Metastore는 중앙 스키마 리포지토리입니다. Metastore은 Apache Spark, LLAP (Interactive Query), Presto 또는 Apache Pig와 같은 기타 빅 데이터 액세스 도구에서 사용 됩니다. HDInsight는 Azure SQL Database를 Hive 메타스토어로 사용합니다.
 
-![HDInsight Hive 메타데이터 저장소 아키텍처](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png" alt-text="HDInsight Hive 메타데이터 저장소 아키텍처" border="false":::
 
 두 가지 방법을 이용하여 HDInsight 클러스터에 대해 metastore를 설정할 수 있습니다.
 
@@ -56,7 +56,7 @@ HDInsight는 프로덕션 클러스터에 권장되는 사용자 지정 metastor
 
 * 클러스터와 외부 metastore는 동일한 지역에 호스팅해야 합니다.
 
-![HDInsight Hive 메타데이터 저장소 사용 사례](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png" alt-text="HDInsight Hive 메타데이터 저장소 사용 사례" border="false":::
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>사용자 지정 metastore 만들기 및 구성 Azure SQL Database
 
@@ -66,15 +66,15 @@ HDInsight 클러스터에 대 한 사용자 지정 Hive metastore를 설정 하�
 
 SQL 저장소에 대 한 개인 끝점은 resourceproviderconnection을 사용 하 여 만든 클러스터 에서만 지원 됩니다 `outbound` . 자세히 알아보려면이 [documentationa](./hdinsight-private-link.md)를 참조 하세요.
 
-![서버 방화벽 설정 단추](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png" alt-text="서버 방화벽 설정 단추":::
 
-![azure 서비스 액세스 허용](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png" alt-text="azure 서비스 액세스 허용":::
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>클러스터를 만드는 동안 사용자 지정 metastore 선택
 
 언제 든 지 클러스터에서 이전에 만든 Azure SQL Database를 가리킬 수 있습니다. 포털을 통해 클러스터를 만들 때 옵션은 **저장소 > Metastore 설정** 에서 지정 합니다.
 
-![HDInsight Hive 메타데이터 저장소 Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+:::image type="content" source="./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png" alt-text="HDInsight Hive 메타데이터 저장소 Azure Portal":::
 
 ## <a name="hive-metastore-guidelines"></a>Hive metastore 지침
 

@@ -5,18 +5,18 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: e31a696dfb443c20566f13f5a228eefac7af5ecc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b644adb98de5ef5e3af6e1c8d45ea1a207d05cc7
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595926"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956131"
 ---
 # <a name="azure-percept-ai-models"></a>Azure Percept AI 모델
 
-Azure Percept를 사용 하면 azure [Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)에서 AZURE Percept 진한 사용자에 게 직접 AI 모델을 개발 하 고 배포할 수 있습니다. 모델 배포는 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview)를 활용 합니다.
+Azure Percept를 사용 하면 azure [Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)에서 [azure Percept 진한](./overview-azure-percept-dk.md) 사용자에 게 직접 AI 모델을 개발 하 고 배포할 수 있습니다. 모델 배포는 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 및 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview)를 활용 합니다.
 
 ## <a name="sample-ai-models"></a>샘플 AI 모델
 
@@ -27,7 +27,7 @@ Azure Percept Studio에는 다음 응용 프로그램에 대 한 샘플 모델�
 - 일반 개체 검색
 - 제품-선반 검색
 
-미리 학습 된 모델을 사용 하는 경우 코딩 또는 학습 데이터 수집이 필요 하지 않습니다. 포털에서 Azure Percept 진한 모델을 배포 하 고 devkit의 비디오 스트림을 열어 작업 추론 모델을 확인 하면 됩니다. [Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer/releases) 도구를 통해 모델 추론 원격 분석에 액세스할 수도 있습니다.
+미리 학습 된 모델을 사용 하는 경우 코딩 또는 학습 데이터 수집이 필요 하지 않습니다. 포털에서 Azure Percept 진한 [모델을 배포](./how-to-deploy-model.md) 하 고 devkit의 [비디오 스트림을](./how-to-view-video-stream.md) 열어 작업 추론 모델을 확인 하면 됩니다. [Azure IoT 탐색기](https://github.com/Azure/azure-iot-explorer/releases) 도구를 통해 [모델 추론 원격 분석](./how-to-view-telemetry.md) 에 액세스할 수도 있습니다.
 
 ## <a name="reference-solutions"></a>참조 솔루션
 
@@ -37,9 +37,9 @@ Azure Percept Studio에는 다음 응용 프로그램에 대 한 샘플 모델�
 
 ## <a name="custom-no-code-solutions"></a>사용자 지정 코드 없는 솔루션
 
-Azure Percept Studio를 통해 코딩을 요구 하지 않고 사용자 지정 [비전과](./tutorial-nocode-vision.md) 음성 솔루션을 개발할 수 있습니다.
+Azure Percept Studio를 통해 코딩을 요구 하지 않고 사용자 지정 [비전과](./tutorial-nocode-vision.md) [음성](./tutorial-no-code-speech.md) 솔루션을 개발할 수 있습니다.
 
-사용자 지정 비전 솔루션의 경우 개체 검색 및 분류 AI 모델을 모두 사용할 수 있습니다. 원할 경우 Azure Percept 진한의 Azure Percept 비전 SoM을 직접 사용 하 여 학습 이미지를 업로드 하 고 태그를 지정할 수 있습니다. 모델 학습 및 평가는 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview)의 일부인 [Custom Vision](https://www.customvision.ai/)에서 쉽게 수행할 수 있습니다.
+사용자 지정 비전 솔루션의 경우 개체 검색 및 분류 AI 모델을 모두 사용할 수 있습니다. 원한다 면 Azure Percept의 Azure Percept 비전 SoM에서 직접 수행할 수 있는 학습 이미지를 업로드 하 고 태그를 지정할 수 있습니다. 모델 학습 및 평가는 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview)의 일부인 [Custom Vision](https://www.customvision.ai/)에서 쉽게 수행할 수 있습니다.
 
 </br>
 
@@ -58,6 +58,6 @@ Azure Percept Studio를 통해 코딩을 요구 하지 않고 사용자 지정 [
 
 최신 지침, 자습서 및 다음과 같은 항목에 대 한 자세한 내용은 [Azure PERCEPT 진한 고급 개발 GitHub](https://github.com/microsoft/azure-percept-advanced-development) 를 참조 하세요.
 
-* 장치에 사용자 지정 AI 모델 가져오기
-* 모델을 업데이트 하는 과정은 이미 전송 학습을 통해 지원 됩니다.
-* 기타
+- Azure Percept 진한 사용자 지정 AI 모델 배포
+- Transfer learning을 사용 하 여 지원 되는 모델 업데이트
+- 기타

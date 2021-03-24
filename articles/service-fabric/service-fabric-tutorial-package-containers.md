@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 995291a783d14a6d2db8ed8319c720f55c009d91
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92738852"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
@@ -80,7 +80,7 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 애
 
 Yeoman을 사용하여 다른 컨테이너 서비스를 이미 만든 애플리케이션에 추가하려면 다음 단계를 수행합니다.
 
-1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer* )
+1. 디렉터리를 **TestContainer** 디렉터리로 한 수준 변경(예: *./TestContainer*)
 2. `yo azuresfcontainer:AddService`을 실행합니다.
 3. 'azurevoteback' 서비스 이름 지정
 4. Redis - 'alpine:redis'에 대한 컨테이너 이미지 경로 제공

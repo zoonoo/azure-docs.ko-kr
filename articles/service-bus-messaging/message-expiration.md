@@ -3,12 +3,12 @@ title: Azure Service Bus-메시지 만료
 description: 이 문서에서는 Azure Service Bus 메시지의 만료 및 라이브 시간에 대해 설명 합니다. 이러한 기한이 지나면 메시지가 더 이상 배달 되지 않습니다.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042830"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952323"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 메시지의 페이로드 또는 메시지가 수신기에 전달하는 명령이나 조회는 거의 항상 특정 형식의 애플리케이션 수준 만료 기한을 따릅니다. 이러한 기간 후에는 콘텐츠가 더 이상 배달되지 않거나 요청된 작업이 더 이상 실행되지 않습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "102042830"
  
 자동 정리는 엔터티가 동적으로 생성 되 고 사용 후 정리 되지 않는 개발 및 테스트 시나리오에서 유용 합니다 .이는 테스트 또는 디버깅 실행이 중단 된 경우에 발생 합니다. 이 기능은 애플리케이션이 응답을 웹 서버 프로세스로 다시 수신하거나 비교적 수명이 짧아서 개체 인스턴스가 사라질 때 해당 엔터티를 안정적으로 정리하기 어려운 개체로 다시 수신하기 위해 회신 큐와 같은 동적 엔터티를 만들 경우에도 유용합니다.
 
-이 기능은 네임 스페이스의 **유휴 상태에서 자동 삭제** 속성을 사용 하 여 설정 됩니다. 이 속성은 엔터티를 자동으로 삭제하기까지 유휴(사용되지 않은) 상태를 유지해야 하는 기간으로 설정됩니다. 이 속성에 대한 최솟값은 5입니다.
+이 기능은 네임 스페이스의 **유휴 상태에서 자동 삭제** 속성을 사용 하 여 설정 됩니다. 이 속성은 엔터티를 자동으로 삭제하기까지 유휴(사용되지 않은) 상태를 유지해야 하는 기간으로 설정됩니다. 이 속성의 최소값은 5 분입니다.
  
 ## <a name="idleness"></a>끊김
 

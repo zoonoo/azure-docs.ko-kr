@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 602aaeb67ca081ebac71ca1d6d24a2de3c020603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86055990"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>PowerShell을 사용하여 관리되는 리소스 그룹에서 리소스를 가져오고 VM 크기를 조정합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "86055990"
 |---|---|
 | [Get-AzManagedApplication](/powershell/module/az.resources/get-azmanagedapplication) | 관리되는 애플리케이션을 나열합니다. 리소스 그룹 이름을 제공하여 결과를 얻습니다. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | 리소스를 나열합니다. 리소스 그룹 및 리소스 종류를 제공하여 결과를 얻습니다. |
-| [업데이트 AzVM](/powershell/module/az.compute/update-azvm) | 가상 머신의 크기를 업데이트합니다. |
+| [Update-AzVM](/powershell/module/az.compute/update-azvm) | 가상 머신의 크기를 업데이트합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

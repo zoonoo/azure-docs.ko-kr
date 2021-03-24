@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425892"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954873"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>클러스터 구성에 대한 세밀한 역할 기반 액세스로 마이그레이션
 
@@ -27,8 +27,8 @@ ms.locfileid: "102425892"
 
 | 역할                                  | 이전의                                                                                        | 앞으로 이동       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| 판독기                                | -암호를 포함 한 읽기 권한입니다.                                                                   | -읽기 액세스, 비밀 **제외** |           |   |   |
-| HDInsight 클러스터 운영자<br>(새 역할) | 해당 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         |   |   |
+| 판독기                                | -암호를 포함 한 읽기 권한입니다.                                                                   | -읽기 액세스, 비밀 **제외** | 
+| HDInsight 클러스터 운영자<br>(새 역할) | 해당 없음                                                                                              | -읽기/쓰기 액세스 (암호 포함)         | 
 | 참가자                           | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 유형의 Azure 리소스를 만들고 관리 합니다.<br>-스크립트 동작을 실행 합니다.     | 변경 내용 없음 |
 | 소유자                                 | -암호를 포함 하는 읽기/쓰기 액세스입니다.<br>-모든 리소스에 대 한 모든 권한<br>-다른 사용자에 게 액세스 권한을 위임 합니다.<br>-스크립트 동작을 실행 합니다. | 변경 내용 없음 |
 
