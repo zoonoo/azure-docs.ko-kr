@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: fc6b90be8e951c0e30c99d0bb16f85e49cf991f2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>자습서: OrgChart Now와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ OrgChart Now를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 OrgChart Now와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -134,7 +134,7 @@ OrgChart Now에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -199,7 +199,7 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
     ![OrgChart Now 폴더](./media/orgchartnow-tutorial/tutorial_orgchartnow_chart.png)
 
-    d. 관리 사용자만 수정할 수 있도록 폴더를 **잠급니다** . 그런 후 **확인** 을 누릅니다.
+    d. 관리 사용자만 수정할 수 있도록 폴더를 **잠급니다**. 그런 후 **확인** 을 누릅니다.
 
     ![OrgChart Now 잠금](./media/orgchartnow-tutorial/tutorial_orgchartnow_lock.png)
 
@@ -215,9 +215,9 @@ Azure AD 사용자가 OrgChart Now에 로그인할 수 있도록 하려면 이 �
 
     ![OrgChart Now 관리](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * **사용자 ID** 텍스트 상자에 사용자 ID(예: **brittasimon\@contoso.com** )를 입력합니다.
+    * **사용자 ID** 텍스트 상자에 사용자 ID(예: **brittasimon\@contoso.com**)를 입력합니다.
 
-    * **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com** )을 입력합니다.
+    * **이메일 주소** 텍스트 상자에 사용자의 이메일(예: **brittasimon\@contoso.com**)을 입력합니다.
 
     * **추가** 를 클릭합니다.
 

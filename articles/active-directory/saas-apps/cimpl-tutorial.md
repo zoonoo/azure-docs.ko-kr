@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 2ce7ed1efad6f0d71c6e082c50b4783fb96b822c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97670588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>자습서: Cimpl과 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Cimpl을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Cimpl과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -106,7 +106,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://sso.etelesolv.com/<TENANTNAME>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 Cimpl 팀( **+1 866-982-8250**)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 가져오려면 Cimpl 팀(**+1 866-982-8250**)에 문의하세요.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
@@ -124,7 +124,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="configure-cimpl-single-sign-on"></a>Cimpl Single Sign-On 구성
 
-**Cimpl** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Cimpl 지원 팀( **+1 866-982-8250**)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Cimpl** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Cimpl 지원 팀(**+1 866-982-8250**)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -179,7 +179,7 @@ Cimpl에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 ### <a name="create-cimpl-test-user"></a>Cimpl 테스트 사용자 만들기
 
-이 섹션은 Cimpl에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Cimpl 계정에 사용자를 추가하려면 Cimpl 지원 팀( **+1 866-982-8250**)에 문의하세요.
+이 섹션은 Cimpl에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Cimpl 계정에 사용자를 추가하려면 Cimpl 지원 팀(**+1 866-982-8250**)에 문의하세요.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

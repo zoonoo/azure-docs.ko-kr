@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
 ms.openlocfilehash: 4b3235f457f1c6475c18045886c49d3dd2ca2242
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92671177"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>자습서: Azure SQL Database C&#x23; 및 ADO.NET에서 관계형 데이터베이스 디자인
@@ -91,7 +91,7 @@ SQL Database는 서버 수준에서 IP 방화벽을 만듭니다. 방화벽 규�
 > [!IMPORTANT]
 > SQL Database는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 이 서비스에 연결을 시도하면 포트 1433을 통한 아웃바운드 트래픽을 네트워크 방화벽에서 허용하지 않을 수 있습니다. 이 경우 관리자가 1433 포트를 열지 않으면 데이터베이스에 연결할 수 없습니다.
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스** 를 클릭한 다음, **SQL 데이터베이스** 페이지에서 *yourDatabase* 를 클릭합니다. 정규화된 **서버 이름** (예: *yourserver.database.windows.net* )을 표시하고 추가 구성 옵션을 제공하는 데이터베이스 개요 페이지가 열립니다.
+1. 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스** 를 클릭한 다음, **SQL 데이터베이스** 페이지에서 *yourDatabase* 를 클릭합니다. 정규화된 **서버 이름**(예: *yourserver.database.windows.net*)을 표시하고 추가 구성 옵션을 제공하는 데이터베이스 개요 페이지가 열립니다.
 
 2. SQL Server Management Studio에서 서버 및 데이터베이스에 연결하는 데 사용할 수 있도록 이 정규화된 서버 이름을 복사합니다.
 

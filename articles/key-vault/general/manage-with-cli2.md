@@ -11,10 +11,10 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93289904"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
@@ -65,7 +65,7 @@ az account set -h
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Azure에서 확정된 컨테이너(자격 증명 모음)를 만드는 방법
 
-자격 증명 모음은 하드웨어 보안 모듈의 지원을 받는 보안 컨테이너입니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 스토리지하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. Key Vault는 또한 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다. 다음 단계에서는 자격 증명 모음을 만듭니다.
+자격 증명 모음은 하드웨어 보안 모듈의 지원을 받는 보안 컨테이너입니다. 자격 증명 모음은 애플리케이션 비밀을 중앙 집중식으로 스토리지하여 보안 정보의 우발적인 손실 가능성을 줄이는 데 도움이 됩니다. 또한 Key Vault는 저장된 모든 것에 대한 액세스를 제어하고 기록합니다. Azure Key Vault는 TLS(전송 계층 보안) 인증서의 요청 및 갱신을 처리할 수 있으므로, 강력한 인증서 수명 주기 관리 솔루션에 필요한 기능을 제공합니다. 다음 단계에서는 자격 증명 모음을 만듭니다.
 
 ### <a name="connect-to-your-subscriptions"></a>구독에 연결
 
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 이 명령의 출력에는 만든 자격 증명 모음의 속성이 표시됩니다. 가장 중요한 두 개의 속성은 다음과 같습니다.
 
-* **name** : 이 예제에서 이름은 ContosoKeyVault입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
-* **vaultUri** : 이 예제에서 URI는 https://contosokeyvault.vault.azure.net 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
+* **name**: 이 예제에서 이름은 ContosoKeyVault입니다. 이 이름은 다른 Key Vault 명령에 사용됩니다.
+* **vaultUri**: 이 예제에서 URI는 https://contosokeyvault.vault.azure.net 입니다. REST API를 통해 사용자 자격 증명 모음을 사용하는 애플리케이션은 URI를 사용해야 합니다.
 
 Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수행할 권한을 가지게 됩니다. 아직까지는 권한이 부여된 사용자가 없습니다.
 
@@ -189,8 +189,8 @@ az keyvault certificate list --vault-name "ContosoKeyVault"
 
 자격 증명 모음 키를 사용하는 애플리케이션은 Azure Active Directory에서 토큰을 사용하여 인증해야 합니다.  애플리케이션 소유자가 먼저 Azure Active Directory에 등록해야 합니다. 등록 끝에 애플리케이션 소유자는 다음 값을 가져옵니다.
 
-- **애플리케이션 ID** (AAD 클라이언트 ID 또는 appID라고도 함)
-- **인증 키** (또한 공유 암호라고도 함) 
+- **애플리케이션 ID**(AAD 클라이언트 ID 또는 appID라고도 함)
+- **인증 키**(또한 공유 암호라고도 함) 
 
 애플리케이션은 토큰을 가져올 Azure Active Directory에 이 두 값 모두가 있어야 합니다. 토큰을 가져오도록 애플리케이션을 구성하는 방법은 애플리케이션에 따라 다릅니다. [Key Vault 샘플 애플리케이션](https://www.microsoft.com/download/details.aspx?id=45343)의 경우, 애플리케이션 소유자는 app.config 파일에서 이러한 값을 설정합니다.
 

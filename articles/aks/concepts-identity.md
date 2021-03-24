@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 98044f6ff6311241717cb66a6e26a72702d749e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 12900a64d9e023e4bddd5b5862b6a127fcba1d36
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102181451"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949994"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -73,6 +73,7 @@ ms.locfileid: "102181451"
 | Microsoft.Network/virtualNetworks/subnets/read <br/> Microsoft.Network/virtualNetworks/subnets/join/action | 사용자 지정 VNET과 같은 다른 리소스 그룹의 서브넷을 사용 하는 경우 필요 합니다. |
 | Microsoft.Network/routeTables/routes/read <br/> Microsoft.Network/routeTables/routes/write | 사용자 지정 경로 테이블이 있는 사용자 지정 VNET과 같은 다른 리소스 그룹의 경로 테이블과 연결 된 서브넷을 사용 하는 경우 필요 합니다. 다른 리소스 그룹의 서브넷에 대 한 서브넷이 이미 있는지 확인 하는 데 필요 합니다. |
 | Microsoft.Network/virtualNetworks/subnets/read | 다른 리소스 그룹에서 내부 부하 분산 장치를 사용 하는 경우 필요 합니다. 리소스 그룹에 내부 부하 분산 장치에 대 한 서브넷이 이미 있는지 확인 하는 데 필요 합니다. |
+| Microsoft. Network/privatednszones/* | 사용자 지정 privateDNSZone 같은 다른 리소스 그룹에서 개인 DNS 영역을 사용 하는 경우 필요 합니다. |
 
 ## <a name="kubernetes-role-based-access-control-kubernetes-rbac"></a>Kubernetes Kubernetes RBAC (역할 기반 액세스 제어)
 
@@ -182,7 +183,7 @@ Azure RBAC 통합을 사용 하면 AKS는 Kubernetes 권한 부여 webhook 서�
 
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Kubernetes 기본 제공 역할과](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 비슷하지만 crds 지원과 같은 몇 가지 차이점이 있습니다. 각 기본 제공 역할에서 허용 하는 작업의 전체 목록을 보려면 [여기](../role-based-access-control/built-in-roles.md)를 참조 하세요.
 
-| 역할                                | 설명  |
+| 역할                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 암호의 내용을 읽으면 네임 스페이스의 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이 `Secrets` `ServiceAccount` 는 네임 스페이스에서 API 액세스를 허용 합니다 `ServiceAccount` (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
@@ -199,7 +200,7 @@ AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Ku
 
 두 번째 열에서 참조 되는 역할 부여는 Azure Portal의 **Access Control** 탭에 표시 되는 Azure RBAC 역할 권한입니다. 클러스터 관리자 Azure AD 그룹이 포털의 **구성** 탭 (또는 Azure CLI의 매개 변수 이름)에 표시 됩니다 `--aad-admin-group-object-ids` .
 
-| 설명        | 역할 부여 필요| 클러스터 관리 Azure AD 그룹 | 사용 시기 |
+| Description        | 역할 부여 필요| 클러스터 관리 Azure AD 그룹 | 사용 시기 |
 | -------------------|------------|----------------------------|-------------|
 | 클라이언트 인증서를 사용 하는 레거시 관리자 로그인| **Azure Kubernetes Admin 역할**. 이 역할을 `az aks get-credentials` 사용 하면 `--admin` [레거시 (비 Azure AD) 클러스터 관리자 인증서](control-kubeconfig-access.md) 를 사용자에 게 다운로드 하는 플래그와 함께을 사용할 수 있습니다 `.kube/config` . "Azure Kubernetes Admin Role"의 유일한 용도입니다.|해당 없음|클러스터에 대 한 액세스 권한이 있는 유효한 Azure AD 그룹에 대 한 액세스 권한이 없는 사용자가 영구적으로 차단 하는 경우| 
 | 수동 (클러스터) RoleBindings를 사용 하는 Azure AD| **Azure Kubernetes 사용자 역할**. "User" 역할 `az aks get-credentials` 을 사용 하면 플래그 없이를 사용할 수 있습니다 `--admin` . "Azure Kubernetes 사용자 역할"의 유일한 용도입니다. Azure AD를 사용 하는 클러스터에 대 한 결과는에 [빈 항목](control-kubeconfig-access.md) 을 다운로드 하는 것입니다 .이 항목은 `.kube/config` 에서 처음 사용 하는 경우 브라우저 기반 인증을 트리거합니다 `kubectl` .| 사용자가 이러한 그룹에 없습니다. 사용자가 클러스터 관리자 그룹에 있지 않기 때문에 해당 권한은 클러스터 관리자가 설정한 RoleBindings 또는 ClusterRoleBindings에 의해 완전히 제어 됩니다. (Cluster) RoleBindings는 [AZURE ad 사용자 또는 AZURE ad 그룹](azure-ad-rbac.md) 을로 추천 `subjects` 합니다. 이러한 바인딩을 설정 하지 않으면 사용자가 아무 명령도 excute 수 없습니다 `kubectl` .|세부적인 액세스 제어를 원하는 경우 Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하지 않습니다. 바인딩을 설정 하는 사용자는이 표에 나열 된 다른 방법 중 하나를 사용 하 여 로그인 해야 합니다.|

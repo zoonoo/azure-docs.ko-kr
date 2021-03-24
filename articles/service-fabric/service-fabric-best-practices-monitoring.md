@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: a7b1c1b3fc3196557b862c488ee01af8b8e1f04f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0eb9ce24f9ead44b7ba5a4d28d24177e62cb7757
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86529253"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950521"
 ---
 # <a name="monitoring-and-diagnostic-best-practices-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 모니터링 및 진단 모범 사례
 
@@ -34,7 +34,7 @@ Linux 클러스터의 경우 Azure Monitor 로그도 Azure 플랫폼 및 인프�
 
 ## <a name="watchdogs"></a>Watchdog
 
-일반적으로 Watchdog는 전체 서비스의 상태와 부하를 감시하고, 엔드포인트에 Ping을 수행하고, 클러스터에 있는 예기치 않은 상태 이벤트를 보고하는 별도의 서비스입니다. 이렇게 하면 단일 서비스의 성능만을 기준으로 감지되지 않는 오류를 방지할 수 있습니다. Watchdog은 사용자 상호 작용이 필요하지 않은 교정 작업을 수행하는 코드(예: 특정 시간 간격으로 스토리지의 로그 파일 정리)를 호스트하는 데 적합합니다. [Syslog의 Service Fabric Linux 클러스터 이벤트](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 샘플 Watchdog 서비스 구현을 참조하세요.
+일반적으로 Watchdog는 전체 서비스의 상태와 부하를 감시하고, 엔드포인트에 Ping을 수행하고, 클러스터에 있는 예기치 않은 상태 이벤트를 보고하는 별도의 서비스입니다. 이렇게 하면 단일 서비스의 성능만을 기준으로 감지되지 않는 오류를 방지할 수 있습니다. 또한 watchdog은 특정 시간 간격으로 저장소에서 로그 파일을 정리 하는 것과 같이 사용자 조작이 필요 하지 않은 수정 작업을 수행 하는 코드를 호스트 하는 좋은 장소입니다. 사용 하기 쉬운 watchdog 확장성 모델을 포함 하 고 Windows 및 Linux 클러스터 모두에서 실행 되는 완전히 구현 된 오픈 소스 SF watchdog service를 사용 하려면 [FabricObserver](https://aka.ms/sf/FabricObserver) 프로젝트를 참조 하세요. FabricObserver는 프로덕션에 사용할 수 있는 소프트웨어입니다. 테스트 및 프로덕션 클러스터에 FabricObserver를 배포 하 고 플러그 인 모델을 통해 요구 사항에 맞게 확장 하거나,이를 분기 하 고 사용자 고유의 기본 제공 관찰자를 작성 하는 것이 좋습니다. 이전 (플러그 인)은 권장 되는 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

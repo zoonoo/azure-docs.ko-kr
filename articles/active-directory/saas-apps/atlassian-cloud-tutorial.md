@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/02/2020
 ms.author: jeedes
 ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94330570"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
@@ -150,7 +150,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![url 이미지](./media/atlassian-cloud-tutorial/urls.png)
    
-1. **SP** 시작 모드에서 애플리케이션을 구성하려는 경우 Azure의 **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 섹션을 편집합니다. **인스턴스 URL** (1단계)을 복사하여 Azure의 **로그온 URL** 상자에 붙여넣습니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려는 경우 Azure의 **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 섹션을 편집합니다. **인스턴스 URL**(1단계)을 복사하여 Azure의 **로그온 URL** 상자에 붙여넣습니다.
 
    ![url의 편집 단추](./media/atlassian-cloud-tutorial/edit-button.png)
 
@@ -166,7 +166,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
       ![특성 및 클레임](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud에는 **nameidentifier** ( **고유한 사용자 식별자** )가 사용자의 이메일( **user.email** )에 매핑될 것으로 예상됩니다. **원본 특성** 을 편집하고 **user.mail** 로 변경합니다. 변경 내용을 클레임에 저장합니다.
+      b. Atlassian Cloud에는 **nameidentifier**(**고유한 사용자 식별자**)가 사용자의 이메일(**user.email**)에 매핑될 것으로 예상됩니다. **원본 특성** 을 편집하고 **user.mail** 로 변경합니다. 변경 내용을 클레임에 저장합니다.
 
       ![고유 사용자 ID](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -180,7 +180,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
       ![이미지 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Azure는 Microsoft 365 라이선스가 없는 Azure AD 테넌트에서 만든 사용자에 대한 **user.mail** 특성을 채우지 않으며 이러한 사용자에 대한 이메일을 **userprincipalname** 특성에 저장합니다. Atlassian Cloud에는 **nameidentifier** ( **고유한 사용자 식별자** )가 사용자의 이메일( **user.userprincipalname** )에 매핑될 것으로 예상됩니다.  **원본 특성** 을 편집하고 **user.userprincipalname** 으로 변경합니다. 변경 내용을 클레임에 저장합니다.
+      b. Azure는 Microsoft 365 라이선스가 없는 Azure AD 테넌트에서 만든 사용자에 대한 **user.mail** 특성을 채우지 않으며 이러한 사용자에 대한 이메일을 **userprincipalname** 특성에 저장합니다. Atlassian Cloud에는 **nameidentifier**(**고유한 사용자 식별자**)가 사용자의 이메일(**user.userprincipalname**)에 매핑될 것으로 예상됩니다.  **원본 특성** 을 편집하고 **user.userprincipalname** 으로 변경합니다. 변경 내용을 클레임에 저장합니다.
 
       ![이메일 설정](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -192,11 +192,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

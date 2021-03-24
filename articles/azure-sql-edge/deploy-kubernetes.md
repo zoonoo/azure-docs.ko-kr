@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93395294"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Kubernetes에 Azure SQL Edge 컨테이너 배포
@@ -108,7 +108,7 @@ Kubernetes 클러스터에서 [영구적 볼륨](https://kubernetes.io/docs/conc
          storage: 8Gi
    ```
 
-   파일(예: **pvc.yaml** )을 저장합니다.
+   파일(예: **pvc.yaml**)을 저장합니다.
 
 2. Kubernetes에서 영구적 볼륨 클레임을 만듭니다.
 
@@ -241,7 +241,7 @@ spec:
    >[!NOTE]
    >`LoadBalancer` 서비스 유형을 사용하면 1433 포트에서 인터넷을 통해 원격으로 Azure SQL Edge 인스턴스에 액세스할 수 있습니다.
 
-   파일(예: **sqledgedeploy.yaml** )을 저장합니다.
+   파일(예: **sqledgedeploy.yaml**)을 저장합니다.
 
 2. 배포를 만듭니다.
 

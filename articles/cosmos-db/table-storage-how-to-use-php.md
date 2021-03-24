@@ -9,10 +9,10 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 07/23/2020
 ms.openlocfilehash: 9d059c899e4a64d4d2c1b880b2a1d0f89258f33b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079634"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table 서비스 또는 Azure Cosmos DB Table API를 사용하는 방법
@@ -259,7 +259,7 @@ echo $entity->getPartitionKey().":".$entity->getRowKey();
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>파티션의 모든 엔터티 검색
 
-엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition_name* " 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle` 파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
+엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition_name*" 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle` 파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
 
 ```php
 require_once 'vendor/autoload.php';

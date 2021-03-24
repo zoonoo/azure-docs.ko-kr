@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 2d0c8433fff58854cb77a4e806058eae1937e71b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93101122"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Ruby에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
@@ -42,7 +42,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 Table REST 서비스와 
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
 
-1. **PowerShell** (Windows), **Terminal** (Mac) 또는 **Bash** (Unix)와 같은 명령줄 인터페이스를 사용합니다.
+1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix)와 같은 명령줄 인터페이스를 사용합니다.
 2. 명령 창에서 **gem install azure-storage-table** 을 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기

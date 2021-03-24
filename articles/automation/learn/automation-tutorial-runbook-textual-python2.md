@@ -7,10 +7,10 @@ ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
 ms.openlocfilehash: e12327651165606e6a9b571d410f547a09a8ec8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87847927"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>자습서: Python Runbook 만들기
@@ -36,19 +36,19 @@ ms.locfileid: "87847927"
 
 ## <a name="create-a-new-runbook"></a>새 Runbook 만들기
 
-먼저 *헬로 월드*라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
+먼저 *헬로 월드* 라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 
     Automation 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 대부분의 해당 자산은 새 Automation 계정에 자동적으로 포함되어 있는 모듈입니다. 또한 사용자는 [필수 구성 요소](#prerequisites)에서 언급된 자격 증명 자산이 있어야 합니다.
 
-2. **프로세스 자동화** 아래에서 **Runbook**을 선택하여 Runbook 목록을 엽니다.
+2. **프로세스 자동화** 아래에서 **Runbook** 을 선택하여 Runbook 목록을 엽니다.
 
-3. **Runbook 추가**를 선택하여 새 Runbook을 만듭니다.
+3. **Runbook 추가** 를 선택하여 새 Runbook을 만듭니다.
 
-4. Runbook 이름을 **MyFirstRunbook-Python**으로 지정합니다.
+4. Runbook 이름을 **MyFirstRunbook-Python** 으로 지정합니다.
 
-5. **Runbook 형식**에 대해 **Python 2**를 선택합니다.
+5. **Runbook 형식** 에 대해 **Python 2** 를 선택합니다.
 
 6. **만들기** 를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "87847927"
 print("Hello World!")
 ```
 
-**저장**을 클릭하여 Runbook을 저장합니다.
+**저장** 을 클릭하여 Runbook을 저장합니다.
 
 ## <a name="test-the-runbook"></a>Runbook 테스트
 
@@ -81,21 +81,21 @@ print("Hello World!")
 
 방금 만든 Runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행하려면 먼저 게시해야 합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 예에서는 Runbook을 방금 만들었으므로 아직 게시된 버전이 없습니다.
 
-1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
+1. **게시** 를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예** 를 클릭합니다.
 
-2. Runbooks 페이지에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
+2. Runbooks 페이지에서 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태** 가 **게시됨** 으로 표시됩니다.
 
-3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Python**창이 표시됩니다.
+3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook-Python** 창이 표시됩니다.
 
    위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나, 보거나 미래의 특정 시간에 시작하도록 예약할 수 있습니다.
 
-4. **시작**을 클릭한 다음, Runbook 시작 블레이드가 열리면 **확인**을 클릭합니다.
+4. **시작** 을 클릭한 다음, Runbook 시작 블레이드가 열리면 **확인** 을 클릭합니다.
 
 5. 만든 Runbook 작업에 대한 작업 창이 열립니다. 이 창을 닫을 수는 있지만, 작업 진행 상황을 볼 수 있도록 열어 둡니다.
 
-6. Runbook을 테스트할 때와 동일한 작업 상태가 **작업 요약**에 표시됩니다.
+6. Runbook을 테스트할 때와 동일한 작업 상태가 **작업 요약** 에 표시됩니다.
 
-7. Runbook 상태가 완료됨으로 표시되면 **출력**을 클릭합니다. `Hello World`를 볼 수 있는 출력 창이 열립니다.
+7. Runbook 상태가 완료됨으로 표시되면 **출력** 을 클릭합니다. `Hello World`를 볼 수 있는 출력 창이 열립니다.
 
 8. 출력 창을 닫습니다.
 
@@ -103,7 +103,7 @@ print("Hello World!")
 
 10. MyFirstRunbook-Python 창으로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
 
-11. **작업**을 클릭하여 이 Runbook에 대한 작업 페이지를 엽니다. 이 페이지에는 이 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
+11. **작업** 을 클릭하여 이 Runbook에 대한 작업 페이지를 엽니다. 이 페이지에는 이 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
 
 12. Runbook을 시작했을 때 표시된 동일한 작업창을 열려면 이 작업을 클릭하면 됩니다. 이 창을 사용하면 예전으로 돌아가 특정 Runbook으로 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -116,7 +116,7 @@ print("Hello World!")
 > 실행 인증서를 만들려면 서비스 주체 기능을 사용하여 Automation 계정을 만들어야 합니다.
 > 서비스 주체를 사용하여 Automation 계정을 만들지 않은 경우 [Python용 Azure 관리 라이브러리를 사용하여 인증](/azure/python/python-sdk-azure-authenticate)에서 설명한 대로 인증할 수 있습니다.
 
-1. MyFirstRunbook-Python 창에서 **편집**을 클릭하여 텍스트 편집기를 엽니다.
+1. MyFirstRunbook-Python 창에서 **편집** 을 클릭하여 텍스트 편집기를 엽니다.
 
 2. 다음 코드를 추가하여 Azure에 인증합니다.
 
@@ -216,7 +216,7 @@ async_vm_start.wait()
 
 ![매개 변수 값 입력](../media/automation-tutorial-runbook-textual-python/runbook-python-params.png)
 
-**확인**을 클릭하여 Runbook을 시작합니다. Runbook이 실행되고 지정한 VM이 시작됩니다.
+**확인** 을 클릭하여 Runbook을 시작합니다. Runbook이 실행되고 지정한 VM이 시작됩니다.
 
 ## <a name="error-handling-in-python"></a>Python에서 오류 처리
 

@@ -8,10 +8,10 @@ ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: lizross
 ms.openlocfilehash: 91bb14a174d5bd5c16b38513825579097e1d6f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078531"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 PowerShell을 사용하여 서비스 주체 및 역할 할당 만들기

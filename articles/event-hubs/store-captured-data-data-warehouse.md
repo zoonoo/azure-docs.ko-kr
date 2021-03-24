@@ -6,10 +6,10 @@ ms.date: 12/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 77a2b35dea57c71e9e6f07056bd106df2ac109b8
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96854241"
 ---
 # <a name="tutorial-migrate-captured-event-hubs-data-to-azure-synapse-analytics-using-event-grid-and-azure-functions"></a>자습서: Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 Azure Synapse Analytics로 마이그레이션

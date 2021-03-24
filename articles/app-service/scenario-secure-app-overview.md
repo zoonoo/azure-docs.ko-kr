@@ -12,10 +12,10 @@ ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
 ms.openlocfilehash: 17931ee92072059d94cd950e9ce8ef6588f7e891
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96905505"
 ---
 # <a name="tutorial-enable-authentication-in-app-service-and-access-storage-and-microsoft-graph"></a>자습서: App Service에서 인증을 사용하도록 설정하고 스토리지 및 Microsoft Graph에 액세스

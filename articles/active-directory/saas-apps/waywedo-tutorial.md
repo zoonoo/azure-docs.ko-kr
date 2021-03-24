@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 0205617198ec8e57cb891d2415d2b5413a945f1b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97608938"
 ---
 # <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>자습서: Way We Do와 Azure Active Directory 통합
@@ -28,7 +28,7 @@ ms.locfileid: "97608938"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
