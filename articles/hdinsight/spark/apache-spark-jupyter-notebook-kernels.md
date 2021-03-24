@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef2bc5e00779200e5447c8829a437824657a2227
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930401"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865981"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터의 Jupyter Notebook에 대 한 커널
 
@@ -22,7 +22,7 @@ HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 [Apache 
 
 이 문서에서는 이러한 커널의 사용 방법과 사용 시의 이점에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -32,7 +32,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
 2. **개요** 보기의 **클러스터 대시보드** 상자에서 **Jupyter Notebook** 를 선택 합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-    ![Apache Spark Jupyter Notebook](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Spark의 Jupyter Notebook")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png " alt-text="Apache Spark Jupyter Notebook" border="true":::
   
    > [!NOTE]  
    > 브라우저에서 다음 URL을 열어 Spark 클러스터의 Jupyter Notebook에 도달할 수도 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
@@ -41,7 +41,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
 3. **새로** 만들기를 선택 하 고 **Pyspark**, **PySpark3** 또는 **Spark** 중 하나를 선택 하 여 노트북을 만듭니다. Scala 애플리케이션에 대해 Spark 커널을, Python2 애플리케이션에 대해 PySpark 커널을, Python3 애플리케이션에 대해 PySpark3 커널을 사용합니다.
 
-    ![Spark의 Jupyter Notebook에 대 한 커널](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark의 Jupyter Notebook에 대 한 커널")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png " alt-text="Spark의 Jupyter Notebook에 대 한 커널" border="true":::
 
 4. 선택한 커널로 Notebook이 열립니다.
 
@@ -67,7 +67,7 @@ Spark HDInsight 클러스터에서 Jupyter Notebook와 함께 새 커널을 사�
 
     다음 표에는 커널을 통해 사용할 수 있는 다양한 매직이 나열되어 있습니다.
 
-   | 매직 | 예제 | 설명 |
+   | 매직 | 예제 | Description |
    | --- | --- | --- |
    | help |`%%help` |예제 및 설명과 함께 사용할 수 있는 모든 매직이 포함된 테이블을 생성합니다. |
    | 정보 |`%%info` |현재 Livy 엔드포인트에 대한 출력 세션 정보 |
@@ -122,7 +122,7 @@ SELECT * FROM hivesampletable
 
 Notebook이 스토리지 계정에 저장되는 방식은 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)와 호환됩니다. 클러스터에 SSH를 수행 하는 경우 파일 관리 명령을 사용할 수 있습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 |---------|-------------|
 | `hdfs dfs -ls /HdiNotebooks` | # 루트 디렉터리에 모든 항목 나열 –이 디렉터리의 모든 항목은 홈 페이지의 Jupyter에 표시 됩니다. |
 | `hdfs dfs –copyToLocal /HdiNotebooks` | # HdiNotebooks 폴더의 콘텐츠를 다운로드 합니다.|

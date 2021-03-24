@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670565"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864961"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -48,6 +48,7 @@ ms.locfileid: "104670565"
   - **Mabs 또는 DPM 관리 서버**: **백업 인프라**  >  **백업 관리 서버**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. DPM 또는 MABS (Azure Backup Server)를 사용 하는 경우 여기에 나열 된 모든 항목을 백업 데이터와 함께 삭제 하거나 등록을 취소 해야 합니다. 관리 서버를 삭제 하려면 [다음 단계를 수행](#delete-protected-items-on-premises) 합니다.
 
 - **4 단계**: 등록 된 모든 저장소 계정이 삭제 되었는지 확인 해야 합니다. **백업 인프라**  >  **저장소 계정**> 자격 증명 모음 대시보드 메뉴로 이동 합니다. 여기에 나열 된 저장소 계정이 있는 경우 모든 항목의 등록을 취소 해야 합니다. 계정 등록을 취소 하는 방법을 알아보려면 [저장소 계정 등록 취소](manage-afs-backup.md#unregister-a-storage-account)를 참조 하세요.
+- **5 단계**: 자격 증명 모음에 대해 만들어진 개인 끝점이 없는지 확인 합니다. ' 설정 ' 아래의 **개인 끝점 연결** > 자격 증명 모음 대시보드 메뉴로 이동 > 자격 증명 모음에 생성 되거나 생성 하려던 개인 끝점 연결이 있는 경우 자격 증명 모음 삭제를 계속 하기 전에 제거 되었는지 확인 합니다. 
 
 이러한 단계를 완료 한 후에 [는 자격 증명 모음](#delete-the-recovery-services-vault)을 계속 해 서 삭제할 수 있습니다.
 

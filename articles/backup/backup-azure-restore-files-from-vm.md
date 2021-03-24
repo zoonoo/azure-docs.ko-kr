@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ed231a4870af7489d48ff54548be380c2cf0799c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493529"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864893"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -35,7 +35,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 3. 백업 대시보드 메뉴에서 **파일 복구** 를 선택 합니다.
 
-    ![파일 복구 선택](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![파일 복구 선택](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)32
 
     **파일 복구** 메뉴가 열립니다.
 
@@ -81,6 +81,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 [Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
 [Linux OS](#for-backed-up-vms-with-large-disks-linux)
 
+ILR 스크립트를 실행할 올바른 컴퓨터를 선택한 후에는 [OS 요구](#step-3-os-requirements-to-successfully-run-the-script) [사항 및 액세스 요구 사항](#step-4-access-requirements-to-successfully-run-the-script)에 부합 하는지 확인 합니다. 
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>3 단계: 스크립트를 성공적으로 실행 하기 위한 OS 요구 사항
 
@@ -93,7 +94,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
 | Windows Server 2019    | 윈도우 10 |
-| Windows Server 2016    | 윈도우 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -126,6 +127,8 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | .NET | 4.6.2 이상 |
 | TLS | 1.2가 지원되어야 합니다.  |
 
+또한 [ILR 스크립트를 실행 하](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) 고 [액세스 요구 사항을](#step-4-access-requirements-to-successfully-run-the-script)충족 하는 올바른 컴퓨터가 있는지 확인 합니다.
+
 ## <a name="step-4-access-requirements-to-successfully-run-the-script"></a>4 단계: 스크립트를 성공적으로 실행 하기 위한 액세스 요구 사항
 
 제한 된 액세스 권한이 있는 컴퓨터에서 스크립트를 실행 하는 경우 다음에 대 한 액세스 권한이 있는지 확인 합니다.
@@ -148,12 +151,13 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 스크립트가 실행되는 머신과 복구 지점의 데이터 간에 보안 채널을 구축하는 데 사용되는 구성 요소를 다운로드하려면 `download.microsoft.com`에 대한 액세스 권한이 필요합니다.
 
+또한 [ILR 스크립트를 실행할 수 있는 올바른 컴퓨터가](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) 있어야 하며 [OS 요구 사항을](#step-3-os-requirements-to-successfully-run-the-script)충족 하는지 확인 합니다.
 
 ## <a name="step-5-running-the-script-and-identifying-volumes"></a>5 단계: 스크립트 실행 및 볼륨 식별
 
 ### <a name="for-windows"></a>Windows의 경우
 
-2 단계, 3 단계 및 4 단계에 나열 된 모든 요구 사항을 충족 하 고 나 서 다운로드 한 위치 (일반적으로 다운로드 폴더)에서 스크립트를 복사 하 고 실행 파일 또는 스크립트를 마우스 오른쪽 단추로 클릭 한 다음 관리자 자격 증명을 사용 하 여 실행 합니다. 메시지가 표시되면 암호를 입력하거나 메모리에서 암호를 붙여넣고 Enter를 누릅니다. 올바른 암호를 입력하면 스크립트가 복구 지점에 연결됩니다.
+[2 단계](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [3](#step-3-os-requirements-to-successfully-run-the-script) 단계 및 [4](#step-4-access-requirements-to-successfully-run-the-script)단계에 나열 된 모든 요구 사항을 충족 하 고 다운로드 한 위치 (일반적으로 다운로드 폴더)에서 스크립트를 복사 합니다. 스크립트를 [생성 하 고 다운로드 하는 방법에 대해서는 1 단계](#step-1-generate-and-download-script-to-browse-and-recover-files)를 참조 하세요. 실행 파일을 마우스 오른쪽 단추로 클릭 하 고 관리자 자격 증명을 사용 하 여 실행 합니다. 메시지가 표시되면 암호를 입력하거나 메모리에서 암호를 붙여넣고 Enter를 누릅니다. 올바른 암호를 입력하면 스크립트가 복구 지점에 연결됩니다.
 
   ![실행 파일 출력](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -180,7 +184,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 ### <a name="for-linux"></a>Linux의 경우
 
-Linux 머신의 경우 python 스크립트가 생성됩니다. 스크립트를 다운로드 하 고 관련/호환 Linux 서버에 복사 합니다. 스크립트를 실행하려면 ```chmod +x <python file name>```을 사용하여 권한을 수정해야 할 수도 있습니다. 그런 다음, ```./<python file name>```을 사용하여 python 파일을 실행합니다.
+[2 단계](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script), [3](#step-3-os-requirements-to-successfully-run-the-script) 단계 및 [4](#step-4-access-requirements-to-successfully-run-the-script)단계에 나열 된 모든 요구 사항을 충족 하 고 나면 Linux 컴퓨터에 대 한 python 스크립트를 생성 합니다. [스크립트를 생성 하 고 다운로드 하는 방법에 대해서는 1 단계를](#step-1-generate-and-download-script-to-browse-and-recover-files)참조 하세요. 스크립트를 다운로드 하 고 관련/호환 Linux 서버에 복사 합니다. 스크립트를 실행하려면 ```chmod +x <python file name>```을 사용하여 권한을 수정해야 할 수도 있습니다. 그런 다음, ```./<python file name>```을 사용하여 python 파일을 실행합니다.
 
 
 Linux에서 복구 지점의 볼륨은 스크립트가 실행되는 폴더에 탑재됩니다. 연결된 디스크, 볼륨 및 해당 탑재 경로는 적절하게 표시됩니다. 이러한 탑재 경로는 루트 수준 액세스 권한이 있는 사용자에게 표시됩니다. 스크립트 출력에서 언급한 볼륨을 통해 찾습니다.

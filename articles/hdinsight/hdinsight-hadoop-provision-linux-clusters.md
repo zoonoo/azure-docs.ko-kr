@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04da79509ac40ba870014995d8318a49c98e1ce5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101741840"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863414"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -42,7 +42,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 ## <a name="basics"></a>기본 사항
 
-![hdinsight 만들기 옵션 사용자 지정 빠른](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="hdinsight 만들기 옵션 사용자 지정 빠른":::
 
 ### <a name="project-details"></a>프로젝트 세부 정보
 
@@ -105,9 +105,9 @@ SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 * 최대 길이: 64
 * 예약 된 이름: hadoop, 사용자, oozie, hive, mapred, ambari-qa, 사육 사, tez, hdfs, sqoop, yarn, hcat, ams, hbase, 스톰, 관리자, 관리자, 사용자, user1, 테스트, 사용자 2, test1, user3, 1, 1, 123, a, actuser, adm, 2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
-![클러스터 저장소 설정: HDFS 호환 끝점](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="클러스터 저장소 설정: HDFS 호환 끝점":::
 
 Hadoop의 온-프레미스 설치가 클러스터의 스토리지에 HDFS(Hadoop 분산 파일 시스템)를 사용하고 있더라도 클라우드에서는 클러스터에 연결된 스토리지 엔드포인트를 사용합니다. 클라우드 저장소를 사용 하면 데이터를 그대로 유지 하면서 계산에 사용 되는 HDInsight 클러스터를 안전 하 게 삭제할 수 있습니다.
 
@@ -165,7 +165,7 @@ Ambari는 HDInsight 클러스터를 모니터링 하 고, 구성을 변경 하 �
 
 ## <a name="security--networking"></a>보안 + 네트워킹
 
-![HDInsight 생성 옵션 선택 엔터프라이즈 보안 패키지](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="HDInsight 생성 옵션 선택 엔터프라이즈 보안 패키지":::
 
 ### <a name="enterprise-security-package"></a>엔터프라이즈 보안 패키지
 
@@ -201,7 +201,7 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 ## <a name="configuration--pricing"></a>구성 + 가격 책정
 
-![HDInsight에서 노드 크기를 선택 합니다.](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight에서 노드 크기를 선택 합니다.":::
 
 클러스터가 존재 하는 한 노드 사용에 대 한 요금이 청구 됩니다. 클러스터가 만들어지면 청구가 시작되고 클러스터가 삭제되면 청구가 중지됩니다. 클러스터를 할당 취소 하거나 보류 중으로 설정할 수 없습니다.
 
@@ -211,10 +211,10 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 | Type | 노드 | 다이어그램 |
 | --- | --- | --- |
-| Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus 노드(2), 감독자 서버(1+), ZooKeeper 노드(3) |![HDInsight 스톰 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |헤드 노드 (2), 작업자 노드 (1 +), 사육 사 노드 (3) (A1 사육 전 VM 크기의 경우 무료) |![HDInsight spark 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="HDInsight Hadoop 클러스터 노드" border="false"::: |
+| HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="HDInsight HBase 클러스터 유형 설정" border="false"::: |
+| Storm |Nimbus 노드(2), 감독자 서버(1+), ZooKeeper 노드(3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="HDInsight 스톰 클러스터 유형 설정" border="false"::: |
+| Spark |헤드 노드 (2), 작업자 노드 (1 +), 사육 사 노드 (3) (A1 사육 전 VM 크기의 경우 무료) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="HDInsight spark 클러스터 유형 설정" border="false"::: |
 
 자세한 내용은 "HDInsight에서 사용하는 Hadoop 구성 요소 및 버전"에서 [클러스터의 기본 노드 구성 및 가상 머신 크기](hdinsight-supported-node-configuration.md)를 참조하세요.
 
@@ -222,7 +222,7 @@ HDInsight 클러스터의 비용은 노드 수와 노드에 대한 가상 머신
 
 클러스터 유형마다 서로 다른 노드 유형, 노드 수 및 노드 크기를 포함합니다.
 * Hadoop 클러스터 유형 기본값:
-    * *헤드 노드* 2개  
+    * *헤드 노드* 2개
     * *작업자 노드* 4 개
 * Storm 클러스터 유형 기본값:
     * *Nimbus 노드* 2개

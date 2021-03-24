@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519999"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889113"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 (미리 보기)
 
@@ -102,12 +102,14 @@ linked_service.unregister()
 1. [Azure Machine Learning studio](https://ml.azure.com/)에 로그인 합니다.
 1. 왼쪽 창의 **관리** 섹션에서 **연결 된 서비스** 를 선택 합니다.
 1. **통합 추가** 를 선택 합니다.
-1. **링크 작업 영역** 폼에서 필드를 채웁니다. 
-    필드| 설명    
-    ---|---
-    Name| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
-    구독 이름 | Machine learning 작업 영역에 연결 된 구독의 이름을 선택 합니다. 
-    Synapse 작업 영역 | 연결 하려는 Synapse 작업 영역을 선택 합니다.
+1. **링크 작업 영역** 폼에서 필드를 채웁니다.
+
+    |필드| Description    
+    |---|---
+    |이름| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
+    |구독 이름 | Machine learning 작업 영역에 연결 된 구독의 이름을 선택 합니다. 
+    |Synapse 작업 영역 | 연결 하려는 Synapse 작업 영역을 선택 합니다.
+    
 1. **다음** 을 선택 하 여 **Spark 풀 선택 (선택 사항)** 양식을 엽니다. 이 양식에서 작업 영역에 연결할 Synapse Spark 풀을 선택 합니다.
 
 1. **다음** 을 선택 하 여 **검토** 양식을 열고 선택 내용을 확인 합니다.

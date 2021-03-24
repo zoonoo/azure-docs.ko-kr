@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: eae5b5e1430f4e9bf1db62a4413e3b7abe3744cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 660c80a471739f7dc0163e915f45e3a067e1e4b2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699320"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871965"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 속도가 느리거나 오류가 발생하는 작업 문제 해결
 
@@ -51,7 +51,7 @@ HDInsight는 클러스터 문제를 식별하고 해결할 수 있는 여러 도
 
 Azure Portal에서 이 정보를 제공할 수 있습니다.
 
-![HDInsight Azure Portal 정보](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png" alt-text="HDInsight Azure Portal 정보":::
 
 [Azure CLI](/cli/azure/)를 사용할 수도 있습니다.
 
@@ -77,7 +77,7 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 
 Apache Ambari는 웹 UI와 REST API를 사용하여 HDInsight 클러스터를 관리하고 모니터링할 수 있습니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있습니다. Azure Portal HDInsight 페이지에서 **클러스터 대시보드** 창을 선택합니다.  **HDInsight 클러스터 대시보드** 창을 선택하여 Ambari UI를 열고, 클러스터 로그인 자격 증명을 입력합니다.  
 
-![Apache Ambari 대시보드 개요](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-overview.png" alt-text="Apache Ambari 대시보드 개요":::
 
 서비스 보기 목록을 열려면 Azure Portal 페이지에서 **Ambari Views** 를 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다. 예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  구성 및 서비스 정보를 볼 서비스 링크를 선택합니다.
 
@@ -124,7 +124,7 @@ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v
 
 Ambari는 WebHCat 서비스가 중지된 호스트를 보여 주는 경고를 표시합니다. 호스트에서 서비스를 다시 시작하여 WebHCat 서비스를 다시 온라인 상태로 되돌릴 수 있습니다.
 
-![Apache Ambari WebHCat 서버 다시 시작](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat-server.png" alt-text="Apache Ambari WebHCat 서버 다시 시작":::
 
 여전히 WebHCat 서버가 돌아오지 않으면 오류 메시지의 작업 로그를 확인합니다. 자세한 내용은 노드에서 참조되는 `stderr` 및 `stdout` 파일을 확인하세요.
 
@@ -173,7 +173,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
     다음 이미지는 초과 사용률이 714.4%인 joblauncher 큐입니다. 기본 큐에 빌려올 수 있는 용량이 남아 있는 한 계속 허용됩니다. 그러나 클러스터가 남김 없이 사용되고 YARN 메모리가 100% 용량에 도달하면 새 작업은 대기해야 하고, 결국 시간 제한이 발생합니다.
 
-    ![HDInsight 작업 시작 관리자 큐 보기](./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png)
+    :::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png" alt-text="HDInsight 작업 시작 관리자 큐 보기":::
 
     이 문제를 해결하는 두 가지 방법이 있습니다. 하나는 새 작업이 제출되는 속도를 낮추는 것이고, 다른 하나는 클러스터를 확장하여 이전 작업의 처리 속도를 높이는 것입니다.
 
@@ -205,7 +205,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
 Ambari UI **스택 및 버전** 페이지는 클러스터 서비스 구성 및 서비스 버전 기록에 대한 정보를 제공합니다.  Hadoop 서비스 라이브러리 버전이 잘못되면 클러스터가 실패할 수 있습니다.  Ambari UI에서 **Admin** 메뉴를 선택한 다음 **스택 및 버전** 을 선택합니다.  해당 페이지에서 **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
 
-![Apache Ambari Stack 및 버전](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png" alt-text="Apache Ambari Stack 및 버전":::
 
 ## <a name="step-5-examine-the-log-files"></a>5단계: 로그 파일 검사
 
@@ -229,7 +229,7 @@ HDInsight Ambari UI에는 많은 **빠른 링크** 섹션이 있습니다.  HDIn
 
 HDFS 로그를 예로 들면 다음과 같습니다.
 
-![로그 파일에 대한 Ambari 빠른 링크](./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png)
+:::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/apache-ambari-quick-links.png" alt-text="로그 파일에 대한 Ambari 빠른 링크":::
 
 ### <a name="view-hadoop-generated-log-files"></a>Hadoop에서 생성된 로그 파일 보기
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 2b5c053847852cc6090ee94858a5be52275d62fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 71e02ea1265a81da7dd2e85549f6d1390a46311a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101725342"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952238"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -108,7 +108,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 #### <a name="properties"></a>속성
 
-| 속성                     | 설명                              | 필수 |
+| 속성                     | Description                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | 형식 속성은 **HDInsightOnDemand** 로 설정해야 합니다. | 예      |
 | clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | 예      |
@@ -156,7 +156,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | 설명                              | 필수 |
+| 속성                | Description                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
@@ -166,7 +166,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
 
-| 속성               | 설명                              | 필수 |
+| 속성               | Description                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml에서 처럼)를 지정합니다. | 예       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 예       |
@@ -234,7 +234,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 #### <a name="node-sizes"></a>노드 크기
 다음 속성을 사용하여 헤드, 데이터 및 Zookeeper 노드의 크기를 지정할 수 있습니다. 
 
-| 속성          | 설명                              | 필수 |
+| 속성          | Description                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 예       |
 | dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 | 예       |
@@ -293,7 +293,7 @@ Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사�
 ```
 
 ### <a name="properties"></a>속성
-| 속성          | 설명                                                  | 필수 |
+| 속성          | Description                                                  | 필수 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | 형식 속성은 **HDInsight** 로 설정해야 합니다.            | 예      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.                            | 예      |
@@ -356,7 +356,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 
 ### <a name="properties"></a>속성
-| 속성          | 설명                              | 필수 |
+| 속성          | Description                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 형식 속성은 **AzureBatch** 로 설정해야 합니다. | 예      |
 | accountName       | Azure Batch 계정의 이름         | 예      |
@@ -392,7 +392,7 @@ Azure Machine Learning Studio (클래식) 연결 된 서비스를 만들어 Mach
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | 설명                              | 필수                                 |
+| 속성               | Description                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureML** 로 설정해야 합니다. | 예                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
@@ -436,7 +436,7 @@ Azure Machine Learning 연결된 서비스를 만들어 Azure Machine Learning �
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | 설명                              | 필수                                 |
+| 속성               | Description                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureMLService** 로 설정되어야 합니다. | 예                                      |
 | subscriptionId         | Azure 구독 ID입니다.              | 예                                      |
@@ -444,7 +444,7 @@ Azure Machine Learning 연결된 서비스를 만들어 Azure Machine Learning �
 | mlWorkspaceName        | Azure Machine Learning 작업 영역 이름 | 예  |
 | servicePrincipalId     | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예 |
 | servicePrincipalKey    | 애플리케이션의 키를 지정합니다.           | 예 |
-| tenant                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. | 예 |
+| tenant                 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | UpdateResourceEndpoint가 지정된 경우에 필요합니다. |
 | connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 연결된 서비스
@@ -479,7 +479,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 ### <a name="properties"></a>속성
 
-| 속성             | 설명                              | 필수                                 |
+| 속성             | Description                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | 형식 속성은 **AzureDataLakeAnalytics** 로 설정해야 합니다. | 예                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
@@ -541,7 +541,7 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 ### <a name="properties"></a>속성
 
-| 속성             | 설명                              | 필수                                 |
+| 속성             | Description                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | 연결된 서비스의 이름입니다.               | 예   |
 | type                 | 형식 속성은 **Azure Databricks**. | 예                                      |

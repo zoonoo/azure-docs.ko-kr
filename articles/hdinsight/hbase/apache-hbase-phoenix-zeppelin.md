@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ff963e661a2b258c1eb452ed63f41f4e7d84c6a0
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944772"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867783"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Apache Zeppelin를 사용 하 여 Azure HDInsight에서 Apache HBase를 통해 Apache Phoenix 쿼리 실행
 
@@ -20,7 +20,7 @@ Apache Zeppelin는 오픈 소스 웹 기반 노트북으로, 대화형 데이터
 
 HDInsight 사용자는 Apache Zeppelin를 사용 하 여 Phoenix 테이블을 쿼리할 수 있습니다. Apache Zeppelin는 HDInsight 클러스터와 통합 되며이를 사용 하는 추가 단계가 없습니다. JDBC 인터프리터를 사용 하 여 Zeppelin 노트북을 만들고 Phoenix SQL 쿼리 작성을 시작 하기만 하면 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-tutorial-get-started-linux.md)참조 하세요.
 
@@ -30,68 +30,68 @@ HDInsight의 Apache HBase 클러스터. [Apache HBase 시작을](./apache-hbase-
 
 1. Zeppelin 페이지에서 **새 노트 만들기** 를 선택 합니다.
 
-    ![HDInsight 대화형 쿼리 zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
+   :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png" alt-text="HDInsight 대화형 쿼리 zeppelin" border="true":::
 
 1. **새 메모 만들기** 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-    - 참고 이름: 메모의 이름을 입력 합니다.
-    - 기본 인터프리터: 드롭다운 목록에서 **jdbc** 를 선택 합니다.
+   - 참고 이름: 메모의 이름을 입력 합니다.
+   - 기본 인터프리터: 드롭다운 목록에서 **jdbc** 를 선택 합니다.
 
-    그런 다음 **메모 만들기** 를 선택 합니다.
+   그런 다음 **메모 만들기** 를 선택 합니다.
 
 1. 노트북 머리글이 연결 된 상태를 표시 하는지 확인 합니다. 오른쪽 위 모서리에 녹색 점으로 표시 됩니다.
 
-    ![Zeppelin 노트북 상태](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Zeppelin 노트북 상태")
+   :::image type="content" source="./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png" alt-text="Zeppelin 노트북 상태" border="true":::
 
 1. HBase 테이블을 만듭니다. 다음 명령을 입력 하 고 **Shift + enter** 를 누릅니다.
 
-    ```sql
-    %jdbc(phoenix)
-    CREATE TABLE Company (
-        company_id INTEGER PRIMARY KEY,
-        name VARCHAR(225)
-    );
-    ```
+   ```sql
+   %jdbc(phoenix)
+   CREATE TABLE Company (
+       company_id INTEGER PRIMARY KEY,
+       name VARCHAR(225)
+   );
+   ```
 
-    첫 번째 줄의 **% jdbc (phoenix)** 문은 전자 필기장에 phoenix jdbc 인터프리터를 사용 하도록 지시 합니다.
+   첫 번째 줄의 **% jdbc (phoenix)** 문은 전자 필기장에 phoenix jdbc 인터프리터를 사용 하도록 지시 합니다.
 
 1. 만든 테이블을 봅니다.
 
-    ```sql
-    %jdbc(phoenix)
-    SELECT DISTINCT table_name
-    FROM SYSTEM.CATALOG
-    WHERE table_schem is null or table_schem <> 'SYSTEM';
-    ```
+   ```sql
+   %jdbc(phoenix)
+   SELECT DISTINCT table_name
+   FROM SYSTEM.CATALOG
+   WHERE table_schem is null or table_schem <> 'SYSTEM';
+   ```
 
 1. 테이블에 값을 삽입합니다.
 
-    ```sql
-    %jdbc(phoenix)
-    UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
-    UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
-    ```
+   ```sql
+   %jdbc(phoenix)
+   UPSERT INTO dbo.Company VALUES(1, 'Microsoft');
+   UPSERT INTO dbo.Company (name, company_id) VALUES('Apache', 2);
+   ```
 
 1. 테이블을 쿼리합니다.
 
-    ```sql
-    %jdbc(phoenix)
-    SELECT * FROM dbo.Company;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   SELECT * FROM dbo.Company;
+   ```
 
 1. 레코드를 삭제합니다.
 
-    ```sql
-    %jdbc(phoenix)
-    DELETE FROM dbo.Company WHERE COMPANY_ID=1;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   DELETE FROM dbo.Company WHERE COMPANY_ID=1;
+   ```
 
 1. 테이블을 삭제합니다.
 
-    ```sql
-    %jdbc(phoenix)
-    DROP TABLE dbo.Company;
-    ```
+   ```sql
+   %jdbc(phoenix)
+   DROP TABLE dbo.Company;
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

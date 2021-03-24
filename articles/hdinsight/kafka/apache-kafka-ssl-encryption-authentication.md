@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
-ms.openlocfilehash: 6c020153d5c5cb5aad593c5b15e60e67951b89d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d061832022b983e4d5fd55e72c1d4789b82f6633
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945194"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863227"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 TLS 암호화 및 인증 설정
 
@@ -128,11 +128,11 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 1. **Kafka 브로커** 에서 **수신기** 속성을 `PLAINTEXT://localhost:9092,SSL://localhost:9093`로 설정합니다.
 1. **고급 kafka-broker** 에서 **security.inter.broker.protocol** 속성을 `SSL`로 설정합니다.
 
-    ![Ambari에서 Kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png" alt-text="Ambari에서 Kafka ssl 구성 속성 편집" border="true":::
 
 1. **사용자 지정 kafka-broker** 에서 **ssl.client.auth** 속성을 `required`로 설정합니다. 이 단계는 인증 및 암호화를 설정 하는 경우에만 필요 합니다.
 
-    ![Ambari에서 kafka SSL 구성 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png" alt-text="Ambari에서 kafka SSL 구성 속성 편집" border="true":::
 
 1. HDI 버전 3.6의 경우 Ambari UI로 이동 하 여 **고급 kafka env** 및 **kafka-env 템플릿** 속성 아래에 다음 구성을 추가 합니다.
 
@@ -153,11 +153,11 @@ Broker 설치 프로세스의 요약은 다음과 같습니다.
 
     HDI 버전 3.6의 경우:
 
-    ![Ambari에서 kafka-env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png)
+    :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env.png" alt-text="Ambari에서 kafka-env 템플릿 속성 편집" border="true":::
 
     HDI 버전 4.0의 경우:
 
-     ![Ambari 4에서 kafka-env 템플릿 속성 편집](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png)
+     :::image type="content" source="./media/apache-kafka-ssl-encryption-authentication/editing-configuration-kafka-env-four.png" alt-text="Ambari 4에서 kafka-env 템플릿 속성 편집" border="true":::
 
 1. 모든 Kafka 브로커를 다시 시작합니다.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c993b3f70f609fb79c51ba9be08fa3d5dc7e8317
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932635"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864111"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Azure HDInsight의 Apache Storm에 대 한 SCP 프로그래밍 가이드
 
@@ -28,7 +28,7 @@ SCP의 데이터는 튜플의 연속 스트림으로 모델링됩니다. 일반�
 1. 는 스톰 토폴로지 내에서 호스트 되는 비즈니스 논리에 의해 선택 되 고 변환 됩니다.
 1. 다른 SCP 시스템에 튜플로 파이프 하 여 출력을 파이프 하거나 분산 파일 시스템 및 SQL Server 같은 데이터베이스와 같은 저장소에 커밋됩니다.
 
-![처리할 데이터를 공급 하는 큐의 다이어그램으로 데이터 저장소를 피드 합니다.](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png" alt-text="처리할 데이터를 공급 하는 큐의 다이어그램으로 데이터 저장소를 피드 합니다." border="false":::
 
 스톰에서 응용 프로그램 토폴로지는 계산 그래프를 정의 합니다. 토폴로지의 각 노드에는 처리 논리가 포함 됩니다. 노드 간의 링크는 데이터 흐름을 표시 합니다.
 
@@ -431,7 +431,7 @@ SCP 토폴로지 사양은 SCP 토폴로지를 설명 하 고 구성 하기 위�
 
 SCP.NET는 다음과 같은 함수를 추가 하 여 트랜잭션 토폴로지를 정의 합니다.
 
-| 새 함수 | 매개 변수 | 설명 |
+| 새 함수 | 매개 변수 | Description |
 | --- | --- | --- |
 | **tx-topolopy** |*topology-name*<br />*spout-map*<br />*bolt-map* |토폴로지 이름, spout 정의 맵 및 볼트 정의 맵으로 트랜잭션 토폴로지를 정의 합니다. |
 | **scp-tx-spout** |*exec-name*<br />*args*<br />*필드* |트랜잭션 spout를 정의 합니다. 함수는 *exec 이름* 으로 지정 된 응용 프로그램을 실행 하 고 *args* 를 사용 합니다.<br /><br />*Fields* 매개 변수는 spout의 출력 필드를 지정 합니다. |
@@ -443,7 +443,7 @@ SCP.NET는 다음과 같은 함수를 추가 하 여 트랜잭션 토폴로지�
 
 SCP.NET는 다음 키워드를 정의 합니다.
 
-| 키워드 | 설명 |
+| 키워드 | Description |
 | --- | --- |
 | **: 이름** |토폴로지 이름 |
 | **: 토폴로지** |이전 테이블 및 기본 제공 함수의 함수를 사용 하는 토폴로지 |
@@ -453,7 +453,7 @@ SCP.NET는 다음 키워드를 정의 합니다.
 
 또한 SCP.NET는 이러한 자주 사용 되는 매개 변수를 정의 합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | "plugin.name" |C # 플러그 인의 .exe 파일 이름입니다. |
 | "plugin.args" |플러그 인 인수 |
@@ -570,7 +570,7 @@ bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\Hybri
 
 SCP 구성 요소는 Java 쪽과 c # 쪽을 포함 합니다. 네이티브 Java spouts/볼트와 상호 작용 하려면 다음 그래프와 같이 Java 쪽과 c # 쪽 간에 serialization 및 deserialization이 발생 해야 합니다.
 
-![다른 Java 구성 요소로 전송 하는 SCP 구성 요소에 보내는 Java 구성 요소 다이어그램](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+:::image type="content" source="./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png" alt-text="다른 Java 구성 요소로 전송 하는 SCP 구성 요소에 보내는 Java 구성 요소 다이어그램" border="false":::
 
 #### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Java 쪽의 직렬화 및 c # 쪽의 deserialization
 

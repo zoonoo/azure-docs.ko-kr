@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: acd8df620e23ee4ebc103d8910c6443f47ffa141
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d7cc948d3631e69882eb252672e5a3eb5d5f9751
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503830"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867443"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>데이터 랭 글 링 (미리 보기)에 대 한 Apache Spark 풀 (Azure Synapse Analytics에서 구동)을 연결 합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "102503830"
 
 Azure Synapse Analytics와 Azure Machine Learning (미리 보기)를 통합 하면 Azure Synapse에서 지원 되는 Apache Spark 풀을 연결 하 여 대화형 데이터 탐색 및 준비를 수행할 수 있습니다. 이러한 통합을 통해 기계 학습 모델을 학습 하는 데 사용 하는 것과 동일한 Python 노트북 내에서 데이터 랭 글 링에 대 한 전용 계산을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python).
 
@@ -294,6 +294,10 @@ train_ds = Dataset.File.from_files(path=datastore_paths, validate=True)
 input1 = train_ds.as_mount()
 
 ```
+
+## <a name="example-notebook"></a>예제 Notebook
+
+Azure Synapse Analytics 및 Azure Machine Learning를 사용 하 여 단일 노트북에서 데이터 준비 및 모델 학습을 수행 하는 방법에 대 한 자세한 코드 예제는이 [종단 간 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

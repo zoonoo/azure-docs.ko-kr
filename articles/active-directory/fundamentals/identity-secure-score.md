@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: tilarso
+ms.reviewer: guptashi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 23832d9f1205105f1f9711cdf3260b74ee4a9bb1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90705489"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952278"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Azure Active Directory의 ID 보안 점수란?
 
@@ -24,7 +24,7 @@ Azure AD 테넌트는 얼마나 안전하나요? 이 질문에 대답 하는 방
 
 ## <a name="what-is-an-identity-secure-score"></a>ID 보안 점수란?
 
-Id 보안 점수는 1에서 223 사이의 숫자 이며, Microsoft의 보안에 대 한 모범 사례 권장 사항에 따라 정렬 된 방법에 대 한 표시기로 작동 합니다. Id 보안 점수의 각 향상 작업은 특정 구성에 맞게 조정 됩니다.  
+Id 보안 점수는 보안에 대 한 Microsoft의 모범 사례 권장 사항에 따라 정렬 된 방법에 대 한 표시기로 작동 하는 백분율입니다. Id 보안 점수의 각 향상 작업은 특정 구성에 맞게 조정 됩니다.  
 
 ![보안 점수](./media/identity-secure-score/identity-secure-score-overview.png)
 
@@ -78,7 +78,7 @@ ID 보안 점수는 다음과 같은 역할에 의해 사용될 수 있습니다
 
 ### <a name="how-are-controls-scored"></a>컨트롤의 점수는 어떻게 매겨지지?
 
-컨트롤은 두 가지 방법으로 점수를 매길 수 있습니다. 일부는 이진 방식으로 점수가 매겨집니다. 권장 사항에 따라 기능 또는 설정이 구성 된 경우 점수의 100%가 발생 합니다. 다른 점수는 전체 구성의 백분율로 계산 됩니다. 예를 들어, 향상 된 기능을 사용 하는 경우 MFA를 사용 하 여 모든 사용자를 보호 하 고 5 개 중 100 명의 사용자만 보호 하는 경우 2 개 (2 개 보호/100 총 * 30 최대 포인트 = 2 포인트 부분 점수)에 대 한 부분 점수가 제공 됩니다.
+컨트롤은 두 가지 방법으로 점수를 매길 수 있습니다. 일부는 이진 방식으로 점수가 매겨집니다. 권장 사항에 따라 기능 또는 설정이 구성 된 경우 점수의 100%가 발생 합니다. 다른 점수는 전체 구성의 백분율로 계산 됩니다. 예를 들어, 개선 권장 사항이 있을 경우 최대 10.71%의 MFA를 사용 하 여 모든 사용자를 보호 하 고 5 개의 100 총 사용자만 보호 하는 경우 0.53% (보호 된 5 개/100 total * 10.71% maximum = 0.53% 부분 점수)에 대 한 부분적인 점수가 제공 됩니다.
 
 ### <a name="what-does-not-scored-mean"></a>[점수가 매겨지지 않음]은 어떤 의미인가요?
 
@@ -98,7 +98,7 @@ ID 보안 점수는 다음과 같은 역할에 의해 사용될 수 있습니다
 
 ### <a name="how-should-i-interpret-my-score"></a>내 점수는 어떻게 해석해야 하나요?
 
-권장된 보안 기능을 구성하거나 보안 관련 작업(예: 보고서 읽기)을 수행하면 점수를 받습니다. 일부 작업은 사용자에 대해 MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것처럼 부분 완료에 대해 점수가 매겨집니다. 보안 점수는 사용 하는 Microsoft 보안 서비스를 직접 대표 합니다. 보안은 사용 편의성과 균형을 맞춰야 합니다. 모든 보안 제어에는 사용자 영향 구성 요소가 있습니다. 사용자 영향이 낮은 제어는 사용자의 일상적인 작업에 거의 영향을 미치지 않습니다.
+권장 되는 보안 기능을 구성 하거나 보안 관련 작업 (예: 보고서 읽기)을 수행 하기 위해 점수가 향상 됩니다. 일부 작업은 사용자에 대해 MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것처럼 부분 완료에 대해 점수가 매겨집니다. 보안 점수는 사용 하는 Microsoft 보안 서비스를 직접 대표 합니다. 보안은 사용 편의성과 균형을 맞춰야 합니다. 모든 보안 제어에는 사용자 영향 구성 요소가 있습니다. 사용자 영향이 낮은 제어는 사용자의 일상적인 작업에 거의 영향을 미치지 않습니다.
 
 점수 기록을 보려면 [Microsoft 365 security center](https://security.microsoft.com/) 로 이동 하 여 전반적인 Microsoft 보안 점수를 검토 합니다. 전체 보안 점수에 대 한 변경 내용을 검토 하 여 기록을 볼 수 있습니다. 특정 날짜를 선택하여 해당 날짜에 사용하도록 설정된 제어 및 각 제어에 대해 획득한 점수를 확인합니다.
 

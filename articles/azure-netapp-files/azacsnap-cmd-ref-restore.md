@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 1c6b7ec6c4ef24ec00fbfc55a65a968e00561c2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 793b4da8fcf46ba4d5618f8ada86f9c3c8026ffd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97632896"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865267"
 ---
 # <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 복원 (미리 보기)
 
@@ -41,7 +41,7 @@ ms.locfileid: "97632896"
 - `--restore revertvolume` 가장 최근의 스냅숏을 기반으로 대상 볼륨을 이전 상태로 되돌립니다.  이 명령을 연결 된 DR 지역으로 DR 장애 조치 (Failover)의 일부로 사용 합니다. 이 명령은 기본 사이트에서 보조 사이트로의 저장소 복제를 **중지** 하 고, 되돌려 진 dr 볼륨에 대해 권장 되는 filesystem 탑재 지점이와 함께 대상 dr 볼륨을 dr 볼륨에서 사용 가능한 최신 스냅숏으로 되돌립니다. 이 명령은 **DR 지역의** Azure Large Instance 시스템 (즉, 대상 장애 조치 (failover) 시스템)에서 실행 해야 합니다.
     > [!NOTE]
     > 하위 명령 ( `--restore revertvolume` )은 Azure Large 인스턴스에만 사용할 수 있으며 Azure NetApp Files 사용할 수 없습니다.
-- `--hanasid <SAP HANA SID>` 볼륨 복원 명령을 적용할 구성 파일에서 선택 하는 SAP HANA SID입니다.
+- `--dbsid <SAP HANA SID>` 볼륨 복원 명령을 적용할 구성 파일에서 선택 하는 SAP HANA SID입니다.
 
 - `[--configfile <config filename>]` 는 사용자 지정 구성 파일 이름을 허용 하는 선택적 매개 변수입니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "97632896"
 ### <a name="output-of-the-azacsnap--c-restore---restore-snaptovol-command-for-single-node-scenario"></a>`azacsnap -c restore --restore snaptovol`명령의 출력 (Single-Node 시나리오의 경우)
 
 ```output
-> azacsnap --configfile DR.json -c restore --restore snaptovol --hanasid H80
+> azacsnap --configfile DR.json -c restore --restore snaptovol --dbsid H80
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.

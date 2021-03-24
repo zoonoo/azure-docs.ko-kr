@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 824ba2c3316ccb34b59a9e435b9a6e582f137090
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fe5b2a1f083e246ea61854c9cbe03932e6655fdb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945912"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866593"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
@@ -82,15 +82,15 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 2. 왼쪽의 목록을 사용하여 수정할 서비스 영역을 선택합니다. 예를 들어 **HDFS** 를 선택합니다. 가운데 영역에서 **Configs** 탭을 선택합니다.
 
-    ![HDFS Configs 탭이 선택된 Ambari 웹의 이미지](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-service-config-tab.png" alt-text="HDFS Configs 탭이 선택된 Ambari 웹의 이미지":::
 
 3. **Filter...** 항목에 **opts** 를 입력합니다. 이 텍스트가 포함된 항목만 표시됩니다.
 
-    ![Apache Ambari 구성 필터링 된 목록](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png" alt-text="Apache Ambari 구성 필터링 된 목록":::
 
 4. 힙 덤프를 사용 하도록 설정 하려는 서비스에 대 한 **\* \_ OPTS** 항목을 찾아서 사용 하도록 설정 하려는 옵션을 추가 합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
-    ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png" alt-text="Apache Ambari hadoop-namenode-opts":::
 
    > [!NOTE]  
    > map 또는 reduce 자식 프로세스에 힙 덤프를 사용할 경우 **mapreduce.admin.map.child.java.opts** 및 **mapreduce.admin.reduce.child.java.opts** 필드를 찾습니다.
@@ -99,15 +99,15 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 5. 변경 내용이 적용되면 하나 이상의 서비스 옆에 **다시 시작 필요** 아이콘이 표시됩니다.
 
-    ![restart required 단추 및 restart 단추](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/restart-required-icon.png" alt-text="restart required 단추 및 restart 단추":::
 
 6. 다시 시작해야 하는 각 서비스를 선택하고 **Service Actions** 단추를 사용하여 **Turn On Maintenance Mode** 를 지정합니다. 유지 관리 모드에서는 다시 시작할 때 서비스에서 경고가 표시되지 않습니다.
 
-    ![Hdi 유지 관리 모드 메뉴 설정](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-maintenance-mode.png" alt-text="Hdi 유지 관리 모드 메뉴 설정":::
 
 7. 유지 관리 모드를 설정한 후에는 **Restart** 단추를 사용하여 서비스에 대해 **Restart All Effected** 를 지정합니다.
 
-    ![Apache Ambari 모든 영향을 받는 항목 다시 시작](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png)
+    :::image type="content" source="./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdi-restart-all-button.png" alt-text="Apache Ambari 모든 영향을 받는 항목 다시 시작":::
 
    > [!NOTE]  
    > **다시 시작** 단추의 항목은 다른 서비스에서 다를 수 있습니다.

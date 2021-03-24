@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 13862e642c6a91fe6f3c635df2efde91672ecbad
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946694"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866814"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결
 
@@ -42,13 +42,13 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
      *   >    >    >  **Azure HDInsight (HDFS)에서** azure의 데이터 가져오기 > 데이터를 선택 합니다.
 
-       ![HDI. PowerQuery. SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource-excel2016.png" alt-text="HDI. PowerQuery. SelectHdiSource" border="true":::
 
    * Excel 2013/2010
 
      *   >    >  **Microsoft Azure HDInsight에서** 파워 쿼리를 선택 합니다.
 
-       ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
+       :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png" alt-text="HDI.PowerQuery.SelectHdiSource" border="true":::
 
        **참고:** **파워 쿼리** 메뉴가 표시 되지 않으면 **파일**  >  **옵션**  >  **추가 기능** 으로 이동 하 고 페이지 맨 아래에 있는 드롭다운 **관리** 상자에서 **COM 추가 기능** 을 선택 합니다. **이동...** 단추를 선택하고 Excel용 파워 쿼리 추가 기능에 해당하는 상자가 선택되어 있는지 확인합니다.
 
@@ -62,11 +62,11 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 1. **이름** 열에서 **HiveSampleData.txt** 를 찾습니다. 폴더 경로는 **입니다. /hive/warehouse/hivesampletable/**)를 선택한 다음 HiveSampleData.txt 왼쪽에서 **이진** 을 선택 합니다. HiveSampleData.txt는 모든 클러스터와 함께 제공됩니다. 필요에 따라 사용자의 파일을 사용할 수 있습니다.
 
-    ![HDI Excel 파워 쿼리 데이터 가져오기](./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importdata.png" alt-text="HDI Excel 파워 쿼리 데이터 가져오기" border="true":::
 
 1. 원하는 경우 열 이름을 바꿀 수 있습니다. 준비가 되 면 **닫기 & 로드** 를 선택 합니다.  통합 문서에 데이터가 로드됩니다.
 
-    ![HDI Excel 파워 쿼리 가져온 테이블](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
+    :::image type="content" source="./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png" alt-text="HDI Excel 파워 쿼리 가져온 테이블" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,17 +2,21 @@
 title: VMware 소프트웨어 업데이트 빈도
 description: Azure VMware 솔루션에 대해 지원 되는 VMware 소프트웨어 업데이트 빈도입니다.
 ms.topic: include
-ms.date: 03/16/2021
-ms.openlocfilehash: a202e99efbe1232598645fed8a03ebf66a1e173b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.date: 03/22/2021
+ms.openlocfilehash: a3290ed704b493fae3e86223857ff9f1c5617f1a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773925"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869866"
 ---
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
-Microsoft는 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, PSC 및 NXS)의 수명 주기 관리를 담당 합니다.
+Microsoft는 Azure VMware 솔루션 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, PSC 및 NXS)의 수명 주기 관리를 담당 합니다.
+
+사설 클라우드 소프트웨어는 VMware에서 소프트웨어 번들의 릴리스를 추적 하는 일정에 따라 업그레이드 됩니다. 프라이빗 클라우드는 업그레이드로 인한 가동 중지 시간이 없습니다.
+
+사설 클라우드 소프트웨어 번들 업그레이드는 VMware에서 최신 소프트웨어 번들 릴리스의 한 버전에 있는 소프트웨어를 유지 합니다. 사설 클라우드 소프트웨어 버전은 개별 소프트웨어 구성 요소의 최신 버전 (ESXi, NSX, vCenter, vSAN)과 다를 수 있습니다.
 
 소프트웨어 업데이트는 다음과 같습니다.
 

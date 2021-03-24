@@ -4,12 +4,12 @@ description: Apache Hadoop YARN 및 Azure HDInsight 작업에 대한 일반적�
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b5b8ccbfd3e39415416cfc8fabcf9614f5934042
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0cd2571276992812327e286ba9b935fcbf6fbbaf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931413"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871812"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop YARN 문제를 해결합니다.
 
@@ -31,27 +31,27 @@ Ambari에서 다음 단계를 사용하여 새 YARN 큐를 만들고 모든 큐�
 
 1. **Ambari 뷰** 아이콘을 선택한 다음, 그리드 패턴을 선택합니다. 다음으로, **YARN 큐 관리자** 를 선택합니다.
 
-    ![Apache Ambari 대시보드 YARN 큐 관리자](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png" alt-text="Apache Ambari 대시보드 YARN 큐 관리자" border="false":::
 2. **default** 큐를 선택합니다.
 
-    ![Apache Ambari YARN select 기본 큐](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png" alt-text="Apache Ambari YARN select 기본 큐" border="false":::
 3. **default** 큐의 경우 **용량** 을 50%에서 25%로 변경합니다. **thriftsvr** 큐의 경우 **용량** 을 25%로 변경합니다.
 
-    ![default 및 thriftsvr 큐에 대해 용량을 25%로 변경](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png" alt-text="default 및 thriftsvr 큐에 대해 용량을 25%로 변경" border="false":::
 4. 새 큐를 만들려면 **큐 추가** 를 선택합니다.
 
-    ![Apache Ambari YARN dashboard 큐 추가](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png" alt-text="Apache Ambari YARN dashboard 큐 추가" border="false":::
 
 5. 새 큐 이름을 지정합니다.
 
-    ![Apache Ambari YARN 대시보드 이름 큐](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png" alt-text="Apache Ambari YARN 대시보드 이름 큐" border="false":::  
 
 6. **용량** 값을 50%로 두고 **작업** 단추를 선택합니다.
 
-    ![Apache Ambari YARN select 작업](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png" alt-text="Apache Ambari YARN select 작업" border="false":::  
 7. **큐 저장 및 새로 고침** 을 선택합니다.
 
-    ![큐 저장 및 새로 고침 선택](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
+    :::image type="content" source="media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png" alt-text="큐 저장 및 새로 고침을 선택 합니다." border="false":::  
 
 이러한 변경 내용은 YARN Scheduler UI에 즉시 표시됩니다.
 

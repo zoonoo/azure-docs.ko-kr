@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5360057ec2dfbd2b40c6f086f5e910103c544b62
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929152"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865454"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -128,7 +128,7 @@ Visual Studio에서 c # 토폴로지 프로젝트를 만들려면 다음을 수�
 
 1. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *WordCount* 를 입력 하 고, 프로젝트의 **위치** 디렉터리 경로를 만든 다음, **만들기** 를 선택 합니다.
 
-    ![스톰 응용 프로그램, 새 프로젝트 구성 대화 상자, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png" alt-text="스톰 응용 프로그램, 새 프로젝트 구성 대화 상자, Visual Studio" border="true":::
 
 프로젝트를 만든 후에는 다음 파일이 있어야 합니다.
 
@@ -333,7 +333,7 @@ Visual Studio에서 c # 토폴로지 프로젝트를 만들려면 다음을 수�
 
 Spout 및 bolt는 그래프로 정렬되며, 이는 구성 요소 간에 데이터의 흐름 방식을 정의합니다. 이 토폴로지의 경우 그래프는 다음과 같습니다.
 
-![Spout 및 볼트 구성 요소 정렬 다이어그램, 폭풍 토폴로지](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
+:::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png" alt-text="Spout 및 볼트 구성 요소 정렬 다이어그램, 폭풍 토폴로지" border="false":::
 
 Spout는 분할자 볼트의 인스턴스로 배포 되는 문장을 내보냅니다. Splitter bolt는 Counter bolt로 배포된 단어로 문장을 나눕니다.
 
@@ -413,7 +413,7 @@ return topologyBuilder;
 
     토폴로지가 성공적으로 제출 되 면 클러스터에 대 한 **스톰 토폴로지 보기** 창이 표시 됩니다. 실행 중인 토폴로지에 대 한 정보를 보려면 목록에서 **WordCount** 토폴로지를 선택 합니다.
 
-    ![스톰 토폴로지 보기 창, HDInsight 클러스터, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
+    :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png" alt-text="스톰 토폴로지 보기 창, HDInsight 클러스터, Visual Studio" border="true":::
 
     > [!NOTE]  
     > **서버 탐색기** 에서 **Storm 토폴로지** 를 볼 수도 있습니다. **Azure**  >  **hdinsight** 를 확장 하 고 hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 다음 **스톰 토폴로지 보기** 를 선택 합니다.
@@ -567,7 +567,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. 프로젝트 속성에서 그런 다음 **출력 유형을** **콘솔 응용 프로그램** 으로 변경 합니다.
 
-   ![HDInsight 스톰 응용 프로그램, 프로젝트 속성, 출력 형식](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
+   :::image type="content" source="./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png" alt-text="HDInsight 스톰 응용 프로그램, 프로젝트 속성, 출력 형식" border="true":::
 
    > [!NOTE]
    > 토폴로지를 클러스터로 배포하기 전에 **출력 유형** 을 **클래스 라이브러리** 로 다시 변경해야 합니다.

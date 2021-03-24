@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9e626d08e7fd315ca70765477c5dae56030521c6
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945596"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866406"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows 기반 HDInsight용 .NET 솔루션을 Linux 기반 HDInsight로 마이그레이션
 
@@ -33,7 +33,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(https:/
 
 2. Visual Studio 2015에서   >  __이식성 분석기 설정__ 분석을 선택 하 고 __Mono__ 섹션에서 __4.5__ 가 선택 되어 있는지 확인 합니다.
 
-    ![분석기 설정의 Mono 섹션에 4.5가 선택되어 있음](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png" alt-text="분석기 설정의 Mono 섹션에 4.5가 선택되어 있음":::
 
     __확인__ 을 선택하여 구성을 저장합니다.
 
@@ -41,7 +41,7 @@ Mono와 .NET 간 호환성에 대한 자세한 내용은 [Mono 호환성(https:/
 
 4. 분석이 완료 되 __면 분석__  >  __뷰 분석 보고서__ 를 선택 합니다. __Portability Analysis Results__ 에서 __Open report__ 를 선택하여 보고서를 엽니다.
 
-    ![이식성 분석기 결과 대화 상자](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    :::image type="content" source="./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png" alt-text="이식성 분석기 결과 대화 상자":::
 
 > [!IMPORTANT]  
 > 분석기는 솔루션의 모든 문제를 탐지할 수 없습니다. 예를 들어 Mono가 Windows에서 실행 중이면 `c:\temp\file.txt`의 파일 경로가 정상으로 간주됩니다. 동일한 경로가 Linux 플랫폼에서는 유효하지 않습니다.

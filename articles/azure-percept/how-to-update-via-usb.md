@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 12f6acda632b9c0fbee2db570df5293c1daf32ea
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: cd6e4e62123b4d4b927cf385aaf64a066eecc1e0
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720817"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887753"
 ---
 # <a name="how-to-update-azure-percept-dk-over-a-usb-connection"></a>USB 연결을 통해 Azure Percept 진한를 업데이트 하는 방법
 
@@ -28,7 +28,7 @@ ms.locfileid: "104720817"
 >
 > 모든 지침을 순서 대로 수행 합니다. 단계를 건너뛰면 dev kit를 사용할 수 없는 상태로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure Percept 진한
 - Wi-Fi 기능 및 사용 가능한 USB-A 포트를 사용 하는 Windows, Linux 또는 OS X 기반 호스트 컴퓨터
@@ -66,7 +66,7 @@ ms.locfileid: "104720817"
 
     - Windows:
 
-        ```bash
+        ```console
         uuu -b emmc_full.txt fast-hab-fw.raw Azure-Percept-DK-<version number>.raw 
         ```
 

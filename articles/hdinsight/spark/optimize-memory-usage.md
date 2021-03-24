@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d54cf4e9025dfd75d9029dec534fc5dc5dd990a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e23c5977b2492d2ea8a7a8cc050c77c512c3e16
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944172"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868378"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Apache Spark에 대 한 메모리 사용량 최적화
 
@@ -31,7 +31,7 @@ Spark는 데이터를 메모리에 두고 작업하기 때문에 Spark 작업 �
 
 Apache Hadoop YARN을 사용하는 경우 YARN은 각 Spark 노드에서 모든 컨테이너에 의해 사용되는 메모리를 제어합니다.  다음 다이어그램에서는 주요 개체 및 해당 관계를 보여 줍니다.
 
-![YARN Spark 메모리 관리](./media/apache-spark-perf/apache-yarn-spark-memory.png)
+:::image type="content" source="./media/apache-spark-perf/apache-yarn-spark-memory.png" alt-text="YARN Spark 메모리 관리" border="false":::
 
 '메모리 부족' 메시지를 해결하려면 다음을 시도합니다.
 

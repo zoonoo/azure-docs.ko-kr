@@ -4,12 +4,12 @@ description: Apache Ambari 웹 UI를 사용 하 여 Apache Pig를 구성 하 고
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 690cfc66d0f08e63ac6ef1d21b6722fed59eca14
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43159360342063af1682a984db037ae286721411
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939022"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871166"
 ---
 # <a name="optimize-apache-pig-with-apache-ambari-in-azure-hdinsight"></a>Azure HDInsight에서 apache Ambari를 사용 하 여 Apache Pig 최적화
 
@@ -23,7 +23,7 @@ Apache Pig 속성을 Ambari Web UI에서 수정하여 Pig 쿼리를 조정할 �
 
 1. 창의 오른쪽 위에 있는 **저장** 을 선택 하 여 새 값을 저장 합니다. 일부 속성은 서비스를 다시 시작해야 할 수도 있습니다.
 
-    ![고급 Apache pig 속성](./media/optimize-pig-ambari/advanced-pig-properties.png)
+    :::image type="content" source="./media/optimize-pig-ambari/advanced-pig-properties.png" alt-text="고급 Apache pig 속성" border="true":::
 
 > [!NOTE]  
 > 모든 세션 수준 설정은 `pig.properties` 파일의 속성 값을 재정의합니다.

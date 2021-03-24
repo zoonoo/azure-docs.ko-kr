@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5682ff58ad827f5a165342f11f03fb49bbe6d2d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946548"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867885"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 c # 사용자 정의 함수 사용
 
@@ -21,7 +21,7 @@ HDInsight의 [Apache Hive](https://hive.apache.org) 및 [Apache Pig](https://pig
 
 Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처리할 수 있습니다. 이 프로세스를 _스트리밍_ 이라고 합니다. .NET 애플리케이션을 사용하는 경우 데이터가 STDIN의 애플리케이션으로 전달된 다음 애플리케이션이 STDOUT에서 결과를 반환합니다. STDIN 및 STDOUT에서 읽거나 쓰려면 콘솔 애플리케이션에서 `Console.ReadLine()` 및 `Console.WriteLine()`을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * .NET Framework 4.5를 대상으로 하는 C# 코드 작성 및 빌드에 대해 잘 알고 있어야 합니다.
 
@@ -53,7 +53,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 2. **새 프로젝트 만들기** 를 선택합니다.
 
-3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 후 **다음** 을 선택합니다.
+3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 다음, **다음** 을 선택합니다.
 
 4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *hivecsharp.exe* 를 입력 하 고 새 프로젝트를 저장할 **위치로** 이동 하거나 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
@@ -120,7 +120,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 2. **시작** 창에서 **새 프로젝트 만들기** 를 선택합니다.
 
-3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 후 **다음** 을 선택합니다.
+3. **새 프로젝트 만들기** 창에서 **콘솔 앱 (.NET Framework)** 템플릿 (c # 버전)을 선택 합니다. 그런 다음, **다음** 을 선택합니다.
 
 4. **새 프로젝트 구성** 창에서 **프로젝트 이름** 으로 *문은 pigudf.exe* 를 입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
@@ -171,7 +171,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
 1. 이 애플리케이션을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 **(기본 Storage 계정)** 이 목록에 표시됩니다.
 
-    ![기본 저장소 계정, HDInsight 클러스터 서버 탐색기](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png" alt-text="기본 저장소 계정, HDInsight 클러스터 서버 탐색기" border="true":::
 
     * 이 항목을 확장할 수 있는 경우 **Azure Storage 계정을** 클러스터의 기본 저장소로 사용 하 고 있습니다. 클러스터의 기본 스토리지에서 파일을 보려면 항목을 확장한 다음 **(기본 컨테이너)** 를 두 번 클릭합니다.
 
@@ -181,7 +181,7 @@ Apache Hive UDF에 대 한 c # 프로젝트를 만들려면:
 
     * **Azure Storage 계정을** 사용 하는 경우 **Blob 업로드** 아이콘을 선택 합니다.
 
-        ![새 프로젝트에 대 한 HDInsight 업로드 아이콘](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="새 프로젝트에 대 한 HDInsight 업로드 아이콘" border="true":::
 
         **새 파일 업로드** 대화 상자에서 **파일 이름** 아래에 있는 **찾아보기** 를 선택 합니다. **Blob 업로드** 대화 상자에서 *hivecsharp.exe* 프로젝트에 대 한 *bin\debug* 폴더로 이동한 다음 *HiveCSharp.exe* 파일을 선택 합니다. 마지막으로 **열기** 를 선택 하 고 **확인** 을 선택 하 여 업로드를 완료 합니다.
 

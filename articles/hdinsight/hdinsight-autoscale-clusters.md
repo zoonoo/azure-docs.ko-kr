@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 130a5a58fc7dab6f94c011cf9764743f9114e48a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98942644"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863771"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
 Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조건에 따라 클러스터의 작업자 노드 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능은 성능 메트릭 또는 수직 확장 및 수평 확장 작업의 일정에 따라 미리 설정 된 제한 내에서 노드 수를 조정 하 여 작동 합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 자동 크기 조정 기능은 다음 두 가지 조건 유형을 사용 하 여 크기 조정 이벤트를 트리거합니다. 다양 한 클러스터 성능 메트릭에 대 한 임계값 ( *부하 기반 크기 조정* 이라고 함) 및 시간 기반 트리거 ( *일정 기반 크기 조정* 이라고 함)입니다. 부하 기반 크기 조정에서는 최적의 CPU 사용을 보장 하 고 실행 비용을 최소화 하기 위해 설정 하는 범위 내에서 클러스터의 노드 수를 변경 합니다. 일정 기반 크기 조정은 확장 및 축소 작업의 일정에 따라 클러스터의 노드 수를 변경 합니다.
 
@@ -91,7 +91,7 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
     * **최소** 작업자 노드 수입니다.
     * **최대** 작업자 노드 수입니다.
 
-    ![작업자 노드 부하 기반 자동 크기 조정 사용](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png" alt-text="작업자 노드 부하 기반 자동 크기 조정 사용":::
 
 초기 작업자 노드 수는 최소 작업자 노드 수~최대 작업자 노드 수 사이여야 합니다(최댓값 및 최솟값 포함). 이 값은 생성 될 때 클러스터의 초기 크기를 정의 합니다. 최소 작업자 노드 수는 3 개 이상으로 설정 해야 합니다. 클러스터를 3 개 미만의 노드로 확장 하면 파일 복제가 충분 하지 않기 때문에 안전 모드에서 중단 될 수 있습니다.  자세한 내용은 [안전 모드에서 중단 하기](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)를 참조 하세요.
 
@@ -108,7 +108,7 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 1. 조건이 적용 되는 시간 및 클러스터의 크기를 조정 해야 하는 노드 수를 편집 합니다.
 1. 필요한 경우 조건을 더 추가 합니다.
 
-    ![작업자 노드 일정 기반 생성 사용](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
+    :::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png" alt-text="작업자 노드 일정 기반 생성 사용":::
 
 노드 수는 3에서 조건을 추가 하기 전에 입력 한 최대 작업자 노드 수와 같아야 합니다.
 
@@ -116,7 +116,7 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 
 **노드 크기** 아래의 드롭다운 목록에서 vm을 선택 하 여 작업자 노드의 vm 유형을 선택 합니다. 각 노드 유형에 대 한 VM 유형을 선택한 후 전체 클러스터의 예상 비용 범위를 확인할 수 있습니다. VM 유형을 예산에 맞게 조정 합니다.
 
-![작업자 노드 일정 기반 자동 크기 조정 노드 크기 사용](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-vmsize.png" alt-text="작업자 노드 일정 기반 자동 크기 조정 노드 크기 사용":::
 
 구독에는 각 Azure 지역에 대한 용량 할당량이 있습니다. 헤드 노드의 총 코어 수와 최대 작업자 노드 수는 용량 할당량을 초과할 수 없습니다. 그러나 이 할당량은 소프트 제한이며, 언제든지 지원 티켓을 만들어서 간편하게 할당량을 늘릴 수 있습니다.
 
@@ -193,7 +193,7 @@ Azure Portal을 사용하여 HDInsight 클러스터를 만드는 방법에 대�
 
 실행 중인 클러스터에서 자동 크기 조정을 사용 하도록 설정 하려면 [ **설정**] 아래에서 **클러스터 크기** 를 선택 합니다. 그런 다음 **자동 크기 조정 사용** 을 선택 합니다. 원하는 자동 크기 조정 유형을 선택 하 고 부하 기반 또는 일정 기반 크기 조정 옵션을 입력 합니다. 마지막으로 **저장** 을 선택합니다.
 
-![실행 중인 클러스터의 작업자 노드 일정 기반 자동 크기 조정 사용](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png" alt-text="실행 중인 클러스터의 작업자 노드 일정 기반 자동 크기 조정 사용":::
 
 #### <a name="using-the-rest-api"></a>REST API 사용
 
@@ -217,17 +217,17 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 
 Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 작업을 모니터링할 수 있습니다.
 
-![작업자 노드 부하 기반 자동 크기 조정 클러스터 상태를 사용 하도록 설정](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-cluster-status.png" alt-text="작업자 노드 부하 기반 자동 크기 조정 클러스터 상태를 사용 하도록 설정":::
 
 표시 될 수 있는 모든 클러스터 상태 메시지는 아래 목록에 설명 되어 있습니다.
 
-| 클러스터 상태 | 설명 |
+| 클러스터 상태 | Description |
 |---|---|
 | 실행 중 | 클러스터가 정상적으로 작동 하 고 있습니다. 모든 이전 자동 크기 조정 작업이 성공적으로 완료 되었습니다. |
 | 업데이트  | 클러스터 자동 크기 조정 구성을 업데이트 하 고 있습니다.  |
 | HDInsight 구성  | 클러스터 확장 또는 축소 작업이 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에서 자동 크기 조정 구성 업데이트 중에 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 하거나 자동 크기 조정을 사용 하지 않도록 선택할 수 있습니다.  |
-| 오류  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
+| Error  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
 
 클러스터의 현재 노드 수를 보려면 클러스터의 **개요** 페이지에서 **클러스터 크기** 차트로 이동 합니다. 또는 [ **설정**] 아래에서 **클러스터 크기** 를 선택 합니다.
 
@@ -237,7 +237,7 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 
 **모니터링** 아래에서 **메트릭** 을 선택 합니다. 그런 다음 **메트릭** 드롭다운 상자에서 **메트릭 추가** 및 **활성 작업자 수** 를 선택 합니다. 오른쪽 위에 있는 단추를 선택 하 여 시간 범위를 변경 합니다.
 
-![작업자 노드 일정 기반 자동 크기 조정 메트릭 사용](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
+:::image type="content" source="./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png" alt-text="작업자 노드 일정 기반 자동 크기 조정 메트릭 사용":::
 
 ## <a name="best-practices"></a>모범 사례
 

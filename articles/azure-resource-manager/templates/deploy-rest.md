@@ -3,12 +3,12 @@ title: REST API 및 템플릿으로 리소스 배포
 description: Azure Resource Manager와 REST API를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 77192aff9ed4fe33269b5e11891c30e15bc312dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e688d7abfaca442c3de395d25961b4e81e6c7b24
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028967"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889198"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-resource-manager-rest-api"></a>ARM 템플릿 및 Azure Resource Manager REST API를 사용 하 여 리소스 배포
 
@@ -23,13 +23,13 @@ ms.locfileid: "98028967"
 - **리소스 그룹** 에 배포하려면 [배포 - 만들기](/rest/api/resources/deployments/createorupdate)를 사용합니다. 요청이 다음으로 전송됩니다.
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
 - **구독** 에 배포하려면 [배포 - 구독 범위에서 만들기](/rest/api/resources/deployments/createorupdateatsubscriptionscope)를 사용합니다. 요청이 다음으로 전송됩니다.
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
+  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
   구독 수준 배포에 대한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조하세요.
@@ -37,7 +37,7 @@ ms.locfileid: "98028967"
 - **관리 그룹** 에 배포하려면 [배포 - 관리 그룹 범위에서 만들기](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)를 사용합니다. 요청이 다음으로 전송됩니다.
 
   ```HTTP
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
   관리 그룹 수준 배포에 대한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조하세요.
@@ -45,7 +45,7 @@ ms.locfileid: "98028967"
 - **테넌트** 에 배포하려면 [배포 - 테넌트 범위에서 만들기 또는 업데이트](/rest/api/resources/deployments/createorupdateattenantscope)를 사용합니다. 요청이 다음으로 전송됩니다.
 
   ```HTTP
-  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-06-01
+  PUT https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
   ```
 
   테넌트 수준 배포에 대한 자세한 내용은 [테넌트 수준에서 리소스 만들기](deploy-to-tenant.md)를 참조하세요.
@@ -78,7 +78,7 @@ ms.locfileid: "98028967"
 1. 템플릿을 배포하려면 요청 URI에 구독 ID, 리소스 그룹의 이름, 배포 이름을 제공합니다.
 
    ```HTTP
-   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-10-01
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2020-10-01
    ```
 
    요청 본문에서 템플릿 및 매개 변수 파일에 대한 링크를 제공합니다. 매개 변수 파일에 대한 자세한 내용은 [Resource Manager 매개 변수 파일 만들기](parameter-files.md)를 참조하세요.
@@ -192,7 +192,7 @@ ms.locfileid: "98028967"
 1. 템플릿 배포의 상태를 가져오려면 [배포 - 가져오기](/rest/api/resources/deployments/get)를 사용합니다.
 
    ```HTTP
-   GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
+   GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2020-10-01
    ```
 
 ## <a name="deployment-name"></a>배포 이름

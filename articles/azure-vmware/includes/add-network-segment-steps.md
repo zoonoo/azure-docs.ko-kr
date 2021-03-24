@@ -4,10 +4,10 @@ description: Azure VMware Solution에 대한 NSX-T 네트워크 세그먼트를 
 ms.topic: include
 ms.date: 03/13/2021
 ms.openlocfilehash: 14d698413d31af2dcbbdea5f37ec7f24f65199ad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/23/2021
 ms.locfileid: "103462130"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->

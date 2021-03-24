@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp, fasttrack-edit
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 2f446df95c795eaac378340ed0d5de7b31dfcfee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 386a0e27c0f73f5bcd42397ed515f7561d5097fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102219043"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955060"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -140,12 +140,12 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     ---
 
     > [!NOTE]
-    > **사용자 할당 관리 id** 를 사용 하려는 경우 [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential)를 만들 때 clientId를 지정 해야 합니다.
+    > **사용자 할당 관리 id** 를 사용 하려는 경우 [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential)를 만들 때 clientId를 지정 해야 합니다.
     >```
     >config.AddAzureAppConfiguration(options =>
     >   options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential(<your_clientId>)));
     >```
-    >[Azure 리소스에 대 한 관리 되는 Id faq](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명 된 것 처럼 사용 되는 관리 id를 확인 하는 기본 방법이 있습니다. 이 경우 Azure Id 라이브러리는 나중에 계층이 가능한 런타임 문제를 방지 하기 위해 원하는 id를 지정 합니다. 예를 들어 새 사용자 할당 관리 id가 추가 되거나 시스템 할당 관리 id가 사용 하도록 설정 된 경우입니다. 따라서 하나의 사용자 할당 관리 id만 정의 되 고 시스템 할당 관리 id가 없는 경우에도 clientId를 지정 해야 합니다.
+    >[Azure 리소스에 대 한 관리 되는 Id faq](../active-directory/managed-identities-azure-resources/known-issues.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)에 설명 된 것 처럼 사용 되는 관리 id를 확인 하는 기본 방법이 있습니다. 이 경우 Azure Id 라이브러리는 나중에 계층이 가능한 런타임 문제를 방지 하기 위해 원하는 id를 지정 합니다. 예를 들어 새 사용자 할당 관리 id가 추가 되거나 시스템 할당 관리 id가 사용 하도록 설정 된 경우입니다. 따라서 하나의 사용자 할당 관리 id만 정의 되 고 시스템 할당 관리 id가 없는 경우에도 clientId를 지정 해야 합니다.
 
 
 1. 앱 구성 값과 Key Vault 참조를 모두 사용 하려면 아래와 같이 *Program .cs* 를 업데이트 합니다. 이 코드는 `SetCredential` 의 일부로를 호출 하 여 `ConfigureKeyVault` Key Vault에 인증할 때 사용할 자격 증명을 구성 공급자에 게 알립니다.
@@ -203,7 +203,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
     > [!NOTE]
     > 는 `ManagedIdentityCredential` 관리 되는 id 인증을 지 원하는 서비스의 Azure 환경 에서만 작동 합니다. 로컬 환경에서는 작동 하지 않습니다. [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential)로컬 및 Azure 환경에서 작업 하는 데를 사용 하 여 관리 id를 비롯 한 몇 가지 인증 옵션으로 대체 합니다.
     > 
-    > Azure에 배포 된 경우에서 **사용자 asigned 관리 id** 를 사용 하려는 경우에는 `DefaultAzureCredential` clientId를 [지정](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)합니다.
+    > Azure에 배포 된 경우에서 **사용자 asigned 관리 id** 를 사용 하려는 경우에는 `DefaultAzureCredential` clientId를 [지정](/dotnet/api/overview/azure/identity-readme#specifying-a-user-assigned-managed-identity-with-the-defaultazurecredential)합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

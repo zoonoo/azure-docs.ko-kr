@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 67341fcc7be21e4fa62c6e52a921fe397c8ffeb6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5224aab8db65cf22e952185d07147f6f007e088
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417623"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956284"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>사용자 지정 DNS 서버에서 작업 영역을 사용하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "103417623"
 > [!IMPORTANT]
 > 이 문서에서는 이러한 항목에 대 한 DNS 레코드를 구성 하는 방법에 대 한 정보를 제공 하지 않으므로 이러한 항목에 대 한 FQDN (정규화 된 도메인 이름) 및 IP 주소를 찾는 방법에 대해서만 설명 합니다. 레코드를 추가 하는 방법에 대 한 자세한 내용은 DNS 소프트웨어에 대 한 설명서를 참조 하십시오.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [자체 DNS 서버](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)를 사용 하는 Azure Virtual Network입니다.
 
@@ -43,7 +43,10 @@ ms.locfileid: "103417623"
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
+
+    > [!NOTE]
+    > 이 FQDN의 작업 영역 이름이 잘릴 수 있습니다. 잘림는 FQDN을 63 자 이하로 유지 하기 위해 수행 됩니다.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]
