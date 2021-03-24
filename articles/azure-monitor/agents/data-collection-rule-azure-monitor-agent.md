@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721531"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022979"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 
@@ -89,10 +89,10 @@ Windows 이벤트 로그에서 지원 되는 XPath의 제한 사항 목록은 [x
 
 다음 표에서는 사용자 지정 XPath를 사용 하 여 이벤트를 필터링 하는 예제를 보여 줍니다.
 
-| Description |  XPath |
+| 설명 |  XPath |
 |:---|:---|
 | 이벤트 ID가 4648 인 시스템 이벤트만 수집 |  `System!*[System[EventID=4648]]`
-| 이벤트 ID가 4648이 고 프로세스 이름이 인 시스템 이벤트만 수집 consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| 이벤트 ID가 4648이 고 프로세스 이름이 인 시스템 이벤트만 수집 consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
 | 이벤트 ID = 6 (드라이버 로드 됨)을 제외 하 고 시스템 이벤트 로그에서 모든 중요, 오류, 경고 및 정보 이벤트를 수집 합니다. |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
 | 이벤트 ID 4624 (로그온 성공)를 제외한 모든 성공 및 실패 보안 이벤트를 수집 합니다. |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
 

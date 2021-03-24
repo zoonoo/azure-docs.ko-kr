@@ -9,10 +9,10 @@ ms.date: 01/12/2021
 ms.author: wellee
 ms.custom: include file
 ms.openlocfilehash: 67a996dbe1eb7090ea5f9ee9f0880698f4ba74a3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821423"
 ---
 이 섹션에서는 선택한 Virtual WAN 허브의 지점 및 사이트 간 VPN Gateway 배율 단위가 40보다 크거나 같은 클라이언트 주소 공간을 할당하기 위한 지침과 요구 사항에 대해 설명합니다.

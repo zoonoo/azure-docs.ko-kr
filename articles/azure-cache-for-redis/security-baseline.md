@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 516a66ef64512cbe4fa4c3589e651c14ddf18550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38b6251c4b464214d66f7240dab9d5d23812f946
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101647628"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023217"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대 한 azure 보안 기준
 
@@ -34,7 +34,7 @@ Azure Cache for Redis가 Azure Security 벤치 마크에 완전히 매핑되는 
 
 - [Redis 용 프리미엄 Azure 캐시에 대 한 Virtual Network 지원을 구성 하는 방법](cache-how-to-premium-vnet.md)
 
-- [Redis 방화벽 규칙에 대해 Azure Cache를 구성 하는 방법](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
+- [Redis 방화벽 규칙에 대해 Azure Cache를 구성 하는 방법](./cache-configure.md#firewall)
 
 **책임**: Customer
 
@@ -68,7 +68,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 - [Redis 용 프리미엄 Azure 캐시에 대 한 Virtual Network 지원을 구성 하는 방법](cache-how-to-premium-vnet.md)
 
-- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](/azure/virtual-network/manage-ddos-protection)
+- [Azure Portal을 사용하여 Azure DDoS Protection 표준 관리](../ddos-protection/manage-ddos-protection.md)
 
 **책임**: Customer
 
@@ -118,7 +118,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 - [가상 네트워크 서비스 태그](../virtual-network/service-tags-overview.md)
 
-- [응용 프로그램 보안 그룹](/azure/virtual-network/security-overview#application-security-groups)
+- [응용 프로그램 보안 그룹](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **책임**: Customer
 
@@ -145,7 +145,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 **지침**: Redis 배포용 Azure 캐시와 연결 된 네트워크 리소스에 대 한 태그를 사용 하 여 논리적으로 분류로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -155,9 +155,9 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 **지침**: azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Redis 인스턴스에 대 한 azure 캐시와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -171,7 +171,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 **지침**: Azure 활동 로그 진단 설정을 사용하도록 설정하고 보관을 위해 로그를 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure 스토리지 계정으로 보냅니다. 활동 로그는 제어 평면 수준에서 Redis 인스턴스에 대 한 Azure 캐시에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 Redis 인스턴스에 대 한 Azure 캐시에 대 한 제어 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -183,7 +183,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 진단 설정을 사용 하 여 메트릭을 사용할 수 있지만, 데이터 평면의 감사 로깅은 Redis 용 Azure Cache에서 아직 사용할 수 없습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -195,7 +195,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 데이터 평면의 감사 로깅은 Redis 용 Azure Cache에서 아직 사용할 수 없습니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -207,9 +207,9 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 데이터 평면의 감사 로깅은 Redis 용 Azure Cache에서 아직 사용할 수 없습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](/azure/azure-monitor/platform/activity-log-collect)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -221,7 +221,7 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 진단 설정을 사용 하 여 메트릭을 사용할 수 있지만, 데이터 평면의 감사 로깅은 Redis 용 Azure Cache에서 아직 사용할 수 없습니다.
 
-- [Redis 용 Azure 캐시에 대 한 경고를 구성 하는 방법](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts)
+- [Redis 용 Azure 캐시에 대 한 경고를 구성 하는 방법](./cache-how-to-monitor.md#alerts)
 
 **책임**: Customer
 
@@ -235,9 +235,9 @@ Redis 인스턴스에 대 한 Azure 캐시와 연결 된 Vnet에 DDoS Protection
 
 **지침**: Azure Active Directory (Azure AD)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **책임**: Customer
 
@@ -251,7 +251,7 @@ Redis 용 Azure 캐시에 대 한 데이터 평면 액세스는 액세스 키를
 
 응용 프로그램에 기본 암호를 빌드하는 것은 권장 되지 않습니다. 대신 Azure Key Vault에 암호를 저장 하 고 Azure AD를 사용 하 여 검색할 수 있습니다.
 
-- [Redis 액세스 키에 대 한 Azure 캐시를 다시 생성 하는 방법](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
+- [Redis 액세스 키에 대 한 Azure 캐시를 다시 생성 하는 방법](./cache-configure.md#settings)
 
 **책임**: 공유됨
 
@@ -323,7 +323,7 @@ Redis 용 Azure 캐시에 대 한 데이터 평면 액세스는 액세스 키를
 
 - [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **책임**: Customer
 
@@ -353,7 +353,7 @@ Azure AD 인증을 사용 하 여 Azure Cache for Redis의 데이터 평면에 �
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -367,7 +367,7 @@ Azure AD 인증을 사용 하 여 Azure Cache for Redis의 데이터 평면에 �
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 제어 평면의 계정 로그인 동작 편차에 대해 Azure Active Directory (Azure AD) id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -397,7 +397,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -407,15 +407,15 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. Redis 인스턴스에 대 한 Azure Cache는 가상 네트워크/서브넷으로 구분 하 고 적절 하 게 태그를 지정 해야 합니다. 필요에 따라 Redis 용 Azure Cache 방화벽을 사용 하 여 지정 된 IP 주소 범위에서 클라이언트 연결만 캐시에 연결할 수 있도록 규칙을 정의 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
 - [Vnet에 Redis 용 Azure 캐시를 배포 하는 방법](cache-how-to-premium-vnet.md)
 
-- [Redis 방화벽 규칙에 대해 Azure Cache를 구성 하는 방법](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
+- [Redis 방화벽 규칙에 대해 Azure Cache를 구성 하는 방법](./cache-configure.md#firewall)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -439,7 +439,7 @@ Microsoft는 Azure Cache for Redis에 대 한 기본 인프라를 관리 하 고
 
 - [Redis 용 Azure Cache의 전송 암호화 이해](cache-best-practices.md)
 
-- [Vnet 캐시 시나리오에서 사용 되는 필수 포트 이해](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#outbound-port-requirements)
+- [Vnet 캐시 시나리오에서 사용 되는 필수 포트 이해](./cache-how-to-premium-vnet.md#outbound-port-requirements)
 
 **책임**: 공유됨
 
@@ -465,7 +465,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Redis 제어 평면에 대 한 azure Cache (예: Azure Portal)에 대 한 액세스를 제어 합니다.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **책임**: Customer
 
@@ -493,7 +493,7 @@ Azure Storage의 데이터는 256 비트 AES 암호화를 사용 하 여 투명 
 
 **지침**: azure 활동 로그와 함께 Azure Monitor를 사용 하 여 Redis 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 azure 캐시의 프로덕션 인스턴스로 변경 되는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -527,7 +527,7 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -539,7 +539,7 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -557,11 +557,11 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [리소스 태그를 만들고 사용 하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [리소스 태그를 만들고 사용 하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -596,7 +596,7 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -624,7 +624,7 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 자세한 내용은 다음 참조 문서를 참조하세요.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -648,9 +648,9 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 **지침**: Redis 인스턴스 및 관련 리소스에 대 한 Azure 캐시에 대 한 사용자 지정 Azure Policy 정의 또는 Azure Resource Manager 템플릿을 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **책임**: Customer
 
@@ -684,7 +684,7 @@ Microsoft는 Redis 용 Azure Cache를 지 원하는 기본 시스템에서 취�
 
 - [Key Vault를 만드는 방법](../key-vault/general/quick-create-portal.md)
 
-- [Key Vault에 인증 하는 방법](/azure/key-vault/managed-identity)
+- [Key Vault에 인증 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **책임**: Customer
 
@@ -772,7 +772,7 @@ Azure Key Vault 암호의 데이터 복원을 정기적으로 테스트 합니�
 
 - [Redis 가져오기에 Azure Cache를 사용 하는 방법](cache-how-to-import-export-data.md)
 
-- [Key Vault 비밀을 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
+- [Key Vault 비밀을 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultsecret?preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
@@ -868,5 +868,5 @@ Azure Key Vault 암호의 데이터 복원을 정기적으로 테스트 합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

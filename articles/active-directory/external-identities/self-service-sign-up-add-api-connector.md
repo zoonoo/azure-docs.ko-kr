@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3d5e25df68bbf793535b22602ad581db24a1426f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008725"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022911"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
@@ -53,13 +53,22 @@ HTTP 기본 인증은 [RFC 2617](https://tools.ietf.org/html/rfc2617)에 정의�
 > [!IMPORTANT]
 > 이 기능은 미리 보기 상태 이며 서비스 수준 계약 없이 제공 됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-클라이언트 인증서 인증은 클라이언트에서 id를 증명 하기 위해 서버에 클라이언트 인증서를 제공 하는 상호 인증서 기반 인증입니다. 이 경우 Azure Active Directory은 API 커넥터 구성의 일부로 업로드 하는 인증서를 사용 합니다. 이는 SSL 핸드셰이크의 일부로 발생합니다. 적절 한 인증서가 있는 서비스만 API 서비스에 액세스할 수 있습니다. 클라이언트 인증서는 X.509 디지털 인증서입니다. 프로덕션 환경에서는 인증 기관에 의해 서명 되어야 합니다. 
+클라이언트 인증서 인증은 클라이언트에서 id를 증명 하기 위해 서버에 클라이언트 인증서를 제공 하는 상호 인증서 기반 인증 방법입니다. 이 경우 Azure Active Directory은 API 커넥터 구성의 일부로 업로드 하는 인증서를 사용 합니다. 이는 SSL 핸드셰이크의 일부로 발생합니다. 그러면 API 서비스는 적절 한 인증서가 있는 서비스로만 액세스를 제한할 수 있습니다. 클라이언트 인증서는 PKCS12 (PFX) X. x.509 digital certificate입니다. 프로덕션 환경에서는 인증 기관에 의해 서명 되어야 합니다. 
 
-인증서를 만들려면 자체 서명 된 인증서에 대 한 옵션과 서명 된 인증서의 인증서 발급자 공급자와의 통합이 포함 된 [Azure Key Vault](../../key-vault/certificates/create-certificate.md)를 사용할 수 있습니다. 그런 다음 [인증서를 내보내고](../../key-vault/certificates/how-to-export-certificate.md) API 커넥터 구성에서 사용 하기 위해 업로드할 수 있습니다. 암호는 암호로 보호 되는 인증서 파일에만 필요 합니다. PowerShell의 [new-selfsignedcertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) 을 사용 하 여 자체 서명 된 인증서를 생성할 수도 있습니다.
+인증서를 만들려면 자체 서명 된 인증서에 대 한 옵션과 서명 된 인증서의 인증서 발급자 공급자와의 통합이 포함 된 [Azure Key Vault](../../key-vault/certificates/create-certificate.md)를 사용할 수 있습니다. 권장 설정은 다음과 같습니다.
+- **제목**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **콘텐츠 형식**: `PKCS #12`
+- **형식에 대 한 수명 acton** `Email all contacts at a given percentage lifetime` 또는 `Email all contacts a given number of days before expiry`
+- **내보낼 수 있는 개인 키**: `Yes` (pfx 파일을 내보낼 수 있으려면)
 
-Azure App Service 및 Azure Functions의 경우 API 끝점에서 인증서를 사용 하도록 설정 하 고 유효성을 검사 하는 방법을 알아보려면 [TLS 상호 인증 구성](../../app-service/app-service-web-configure-tls-mutual-auth.md) 을 참조 하세요.
+그런 다음 [인증서를 내보낼](../../key-vault/certificates/how-to-export-certificate.md)수 있습니다. 또는 PowerShell의 [new-selfsignedcertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) 을 사용 하 여 자체 서명 된 인증서를 생성할 수 있습니다.
 
-인증서가 만료 되는 경우에 대 한 미리 알림 경고를 설정 하는 것이 좋습니다. 기존 API 커넥터에 새 인증서를 업로드 하려면 **모든 api 커넥터** 에서 api 커넥터를 선택 하 고 **새 인증서 업로드** 를 클릭 합니다. 만료 되지 않고 시작 날짜를 지난 가장 최근에 업로드 된 인증서는 Azure Active Directory에 의해 자동으로 사용 됩니다.
+인증서가 있으면 API 커넥터 구성의 일부로 업로드할 수 있습니다. 암호는 암호로 보호 되는 인증서 파일에만 필요 합니다.
+
+Api는 API 끝점을 보호 하기 위해 전송 된 클라이언트 인증서에 따라 권한 부여를 구현 해야 합니다. Azure App Service 및 Azure Functions의 경우 *API 코드에서 인증서* 를 사용 하도록 설정 하 고 유효성을 검사 하는 방법을 알아보려면 [TLS 상호 인증 구성](../../app-service/app-service-web-configure-tls-mutual-auth.md) 을 참조 하세요.  Azure API Management를 사용 하 여 API를 보호 하 고 정책 식을 사용 하 여 원하는 값에 대 한 [클라이언트 인증서 속성을 확인할](
+../../api-management/api-management-howto-mutual-certificates-for-clients.md) 수도 있습니다.
+ 
+인증서가 만료 되는 경우에 대 한 미리 알림 경고를 설정 하는 것이 좋습니다. 새 인증서를 생성 하 고 위의 단계를 반복 해야 합니다. 새 인증서를 배포 하는 동안 API 서비스는 일시적으로 이전 인증서와 새 인증서를 계속 사용할 수 있습니다. 기존 API 커넥터에 새 인증서를 업로드 하려면 **모든 api 커넥터** 에서 api 커넥터를 선택 하 고 **새 인증서 업로드** 를 클릭 합니다. 만료 되지 않고 시작 날짜를 지난 가장 최근에 업로드 된 인증서는 Azure Active Directory에서 자동으로 사용 됩니다.
 
 ### <a name="api-key"></a>API 키
 일부 서비스는 "API 키" 메커니즘을 사용 하 여 개발 중에 HTTP 끝점에 대 한 액세스를 난독 처리 합니다. [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys)의 경우를 `code` **끝점 URL** 에 쿼리 매개 변수로 포함 하 여이를 수행할 수 있습니다. 예: `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
@@ -259,8 +268,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임** 으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. 응용 프로그램의 일부로 구성 된 경우 토큰에서 반환 될 수도 있습니다.  |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | 사용자 흐름에 대 한 API 커넥터 구성 및 **사용자 특성** 에서 **받을 클레임** 으로 선택한 경우에는 해당 값을 디렉터리에 저장할 수 있습니다. **응용 프로그램 클레임** 으로 선택한 경우 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | 반환 된 클레임에는를 포함할 필요가 없습니다 `_<extensions-app-id>_` . 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. 응용 프로그램의 일부로 구성 된 경우 토큰에서 반환 될 수도 있습니다.  |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예
 
@@ -304,7 +313,7 @@ Content-type: application/json
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API의 버전입니다.                                                    |
 | 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |
-| 상태      | 정수 | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
+| 상태      | Integer | 예      | `400`ValidationError 응답의 값 이어야 합니다.                        |
 | userMessage | String  | 예      | 사용자에게 표시할 메시지입니다.                                            |
 
 > [!NOTE]

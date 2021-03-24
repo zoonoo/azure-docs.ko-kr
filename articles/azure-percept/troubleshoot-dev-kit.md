@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608149"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023081"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Azure Percept 진한 (dev kit) 문제 해결
 
@@ -45,7 +45,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 ```[local host file path]``` 는 .txt 파일을 복사할 호스트 PC의 위치를 나타냅니다. ```[remote username]```[설치 환경](./quickstart-percept-dk-set-up.md)에서 선택 된 SSH 사용자 이름입니다. OOBE를 실행 하는 동안 SSH 로그인을 설정 하지 않은 경우 원격 사용자 이름은 ```root``` 입니다.
 
-Azure IoT Edge 명령에 대 한 자세한 내용은 [Azure IoT Edge 장치 문제 해결 설명서](https://docs.microsoft.com/azure/iot-edge/troubleshoot)를 참조 하세요.
+Azure IoT Edge 명령에 대 한 자세한 내용은 [Azure IoT Edge 장치 문제 해결 설명서](../iot-edge/troubleshoot.md)를 참조 하세요.
 
 |범주:         |명령:                    |함수:                  |
 |------------------|----------------------------|---------------------------|
@@ -98,12 +98,10 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 
 캐리어 보드 하우징 위에는 세 개의 작은 Led가 있습니다. LED 1 옆에 클라우드 아이콘이 인쇄 되 고 LED 2 옆에 Wi-Fi 아이콘이 인쇄 되며 LED 3 옆에 느낌표 아이콘이 인쇄 됩니다. 각 LED 상태에 대 한 자세한 내용은 아래 표를 참조 하십시오.
 
-|LED             |시스템 상태      |설명                      |
+|LED             |주      |설명                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (IoT Hub) |켜기 (solid) |장치가 IoT Hub에 연결 되어 있습니다. |
 |LED 2 (Wi-fi)   |저속 깜박임 |장치는 Wi-Fi 쉬운 연결로 구성할 준비가 되었으며 구성 기에 대 한 존재를 발표 하 고 있습니다. |
 |LED 2 (Wi-fi)   |고속 깜박임 |인증에 성공 하 고 장치를 연결 하는 중입니다. |
 |LED 2 (Wi-fi)   |켜기 (solid) |인증 및 연결에 성공 했습니다. 장치가 Wi-Fi 네트워크에 연결 되어 있습니다. |
 |LED 3           |해당 없음         |LED를 사용 하지 않습니다. |
-
-

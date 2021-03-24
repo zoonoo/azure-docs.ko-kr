@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 2813554700e015c0ac34e47d632d16d97c948c4e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ec5d63c18e8fb3a353de334ae571c730f9b0d3d3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941076"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869806"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Azure HDInsight의 대화형 쿼리란?
 
@@ -33,7 +33,7 @@ HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsi
 
 Hive 쿼리를 실행하려면 다음 옵션이 있어야 합니다.
 
-|방법 |Description |
+|메서드 |설명 |
 |---|---|
 |Microsoft Power BI|[Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Apache Hive 데이터 시각화](./apache-hadoop-connect-hive-power-bi-directquery.md) 및 [Azure HDInsight에서 Power BI를 사용하여 빅 데이터 시각화](../hadoop/apache-hadoop-connect-hive-power-bi.md)를 참조하세요.|
 |Visual Studio|[Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries)을 참조하세요.|
@@ -47,7 +47,7 @@ JDBC(Java Database Connectivity) 연결 문자열을 찾으려면 다음을 수�
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/HIVE/summary`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 1. URL을 복사하려면 클립보드 아이콘을 선택합니다.
 
-   ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
+   :::image type="content" source="./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png" alt-text="HDInsight Hadoop Interactive Query LLAP JDBC" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 ms.openlocfilehash: 9e995e88b80bf14f9c7784f465bcd3d89d0bed65
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92367961"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
@@ -37,9 +37,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 확장 집합을 만들거나 크기를 조정하면 두 개의 디스크가 각 VM 인스턴스에 자동으로 연결됩니다. 
 
-**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 지정할 수 있으며, VM 인스턴스의 운영 체제를 호스팅합니다. OS 디스크는 기본적으로 */dev/sda*로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다. 
+**운영 체제 디스크** - 운영 체제 디스크는 최대 2TB까지 크기를 지정할 수 있으며, VM 인스턴스의 운영 체제를 호스팅합니다. OS 디스크는 기본적으로 */dev/sda* 로 레이블이 지정됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. 이 구성으로 인해 OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다. 
 
-**임시 디스크** - 임시 디스크는 VM 인스턴스와 동일한 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 이러한 디스크는 고성능 디스크이며, 임시 데이터 처리와 같은 작업에 사용할 수 있습니다. 그러나 VM 인스턴스가 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터가 제거됩니다. 임시 디스크의 크기는 VM 인스턴스 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
+**임시 디스크** - 임시 디스크는 VM 인스턴스와 동일한 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 이러한 디스크는 고성능 디스크이며, 임시 데이터 처리와 같은 작업에 사용할 수 있습니다. 그러나 VM 인스턴스가 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터가 제거됩니다. 임시 디스크의 크기는 VM 인스턴스 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb* 로 레이블이 지정되고 탑재 지점은 */mnt* 입니다.
 
 ### <a name="temporary-disk-sizes"></a>임시 디스크 크기
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
@@ -93,7 +93,7 @@ API 버전 `2019-07-01`을 기준으로 [storageProfile.osDisk.diskSizeGb](/rest
 ### <a name="attach-disks-at-scale-set-creation"></a>확장 집합을 만들 때 디스크 연결
 [New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 메시지가 표시되면 VM 인스턴스에 대한 사용자 이름과 암호를 제공합니다. 트래픽을 개별 VM 인스턴스로 배포하기 위해 부하 분산 장치도 생성됩니다. 부하 분산 장치에는 80 TCP 포트에서 트래픽을 분산할 뿐만 아니라 3389 TCP 포트의 원격 데스크톱 트래픽 및 5985 TCP 포트의 PowerShell 원격을 허용하는 규칙이 포함되어 있습니다.
 
-`-DataDiskSizeGb` 매개 변수를 사용하여 두 개의 디스크를 만듭니다. 첫 번째 디스크의 크기는 *64*GB이고, 두 번째 디스크의 크기는 *128*GB입니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
+`-DataDiskSizeGb` 매개 변수를 사용하여 두 개의 디스크를 만듭니다. 첫 번째 디스크의 크기는 *64* GB이고, 두 번째 디스크의 크기는 *128* GB입니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -111,7 +111,7 @@ New-AzVmss `
 확장 집합 리소스와 VM 인스턴스를 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ### <a name="attach-a-disk-to-existing-scale-set"></a>기존 확장 집합에 디스크 연결
-기존 확장 집합에 디스크를 연결할 수도 있습니다. [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk)를 사용하여 다른 디스크를 추가하기 위해 이전 단계에서 만든 확장 집합을 사용합니다. 다음 예제에서는 *128*GB 디스크를 기존 확장 집합에 추가로 연결합니다.
+기존 확장 집합에 디스크를 연결할 수도 있습니다. [Add-AzVmssDataDisk](/powershell/module/az.compute/add-azvmssdatadisk)를 사용하여 다른 디스크를 추가하기 위해 이전 단계에서 만든 확장 집합을 사용합니다. 다음 예제에서는 *128* GB 디스크를 기존 확장 집합에 추가로 연결합니다.
 
 ```azurepowershell-interactive
 # Get scale set object
@@ -172,7 +172,7 @@ Update-AzVmss `
 
 디스크가 올바르게 준비되었는지 확인하려면 RDP를 VM 인스턴스 중 하나에 연결합니다. 
 
-먼저 [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer)를 사용하여 부하 분산 장치 개체를 가져옵니다. 그런 다음, [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig)를 사용하여 인바운드 NAT 규칙을 봅니다. NAT 규칙은 RDP에서 수신 대기하는 각 VM 인스턴스에 대한 *FrontendPort*를 나열합니다. 마지막으로 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
+먼저 [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer)를 사용하여 부하 분산 장치 개체를 가져옵니다. 그런 다음, [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig)를 사용하여 인바운드 NAT 규칙을 봅니다. NAT 규칙은 RDP에서 수신 대기하는 각 VM 인스턴스에 대한 *FrontendPort* 를 나열합니다. 마지막으로 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다.
 
 
 ```azurepowershell-interactive
@@ -250,7 +250,7 @@ VM 인스턴스와의 원격 데스크톱 연결 세션을 닫습니다.
 Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 ```
 
-*VirtualMachineProfile.StorageProfile* 속성 아래에 *DataDisks*의 목록이 표시됩니다. 디스크 크기, 스토리지 계층 및 LUN(논리 단위 번호)에 대한 정보가 표시됩니다. 다음 예제 출력에서는 확장 집합에 연결된 세 개의 데이터 디스크에 대해 자세히 설명합니다.
+*VirtualMachineProfile.StorageProfile* 속성 아래에 *DataDisks* 의 목록이 표시됩니다. 디스크 크기, 스토리지 계층 및 LUN(논리 단위 번호)에 대한 정보가 표시됩니다. 다음 예제 출력에서는 확장 집합에 연결된 세 개의 데이터 디스크에 대해 자세히 설명합니다.
 
 ```powershell
 DataDisks[0]                            :
@@ -278,7 +278,7 @@ DataDisks[2]                            :
 
 
 ## <a name="detach-a-disk"></a>디스크 분리
-지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [Get-AzVmss](/powershell/module/az.compute/get-azvmss) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *3*을 분리합니다.
+지정된 디스크가 더 이상 필요하지 않은 경우 확장 집합에서 디스크를 분리할 수 있습니다. 확장 집합의 모든 VM 인스턴스에서 디스크가 제거됩니다. 확장 집합에서 디스크를 분리하려면 [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk)를 사용하고 디스크의 LUN을 지정합니다. LUN은 이전 섹션의 [Get-AzVmss](/powershell/module/az.compute/get-azvmss) 출력에 표시되어 있습니다. 다음 예제에서는 확장 집합에서 LUN *3* 을 분리합니다.
 
 ```azurepowershell-interactive
 # Get scale set object

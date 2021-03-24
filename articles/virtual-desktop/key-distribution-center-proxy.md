@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/20/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bcf28fbc0d2f4ec9eeac5bcb8f0b2c9b65a62b6b
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 876564934b1ccbffa19c318a2d2c8393e5dca54e
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775040"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023982"
 ---
 # <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Kerberos 키 배포 센터 프록시 구성 (미리 보기)
 
@@ -70,6 +70,6 @@ KDC 프록시를 구성 하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-KDC 프록시의 원격 데스크톱 서비스 쪽을 관리 하 고 RD 게이트웨이 역할을 할당 하는 방법을 알아보려면 [RD 게이트웨이 역할 배포](/windows-server/remote/rd-gateway-role)를 참조 하세요.
+KDC 프록시의 원격 데스크톱 서비스 쪽을 관리 하 고 RD 게이트웨이 역할을 할당 하는 방법을 알아보려면 [RD 게이트웨이 역할 배포](rd-gateway-role.md)를 참조 하세요.
 
 KDC 프록시 서버 크기를 조정 하는 데 관심이 있는 경우에는 [RD 웹 및 게이트웨이 웹 front에 고가용성 추가](/windows-server/remote/remote-desktop-services/rds-rdweb-gateway-ha)에서 kdc 프록시에 대 한 고가용성을 설정 하는 방법을 알아봅니다.

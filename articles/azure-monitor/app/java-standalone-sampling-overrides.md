@@ -6,23 +6,22 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 03d3093f14d97b2cc64d91e0d1b7adf34204a021
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 17979bd548ca0d7b704ebdeb4d060bf35973b319
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962603"
+ms.locfileid: "105024150"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>샘플링 재정의 (미리 보기)-Java 용 Azure Monitor Application Insights
 
 > [!NOTE]
-> 샘플링 재정의 기능은 미리 보기 상태입니다.
+> 샘플링 재정의 기능은 미리 보기 상태 이며 3.0.3에서 시작 합니다. 2.
 
-샘플링 재정의에 대 한 몇 가지 사용 사례는 다음과 같습니다.
- * 상태 검사에 대 한 원격 분석 수집을 억제 합니다.
- * 잡음이 있는 종속성 호출에 대 한 원격 분석 수집을 억제 합니다.
- * 상태 검사 또는 잡음이 있는 종속성 호출을 완전히 억제 하지 않고 노이즈를 줄입니다.
- * `/login`기본 샘플링이 더 낮은 것으로 구성 된 경우에도 중요 한 요청 유형 (예:)에 대해 100%의 원격 분석을 수집 합니다.
+샘플링 재정의를 사용 하면 [기본 샘플링 비율](./java-standalone-config.md#sampling)을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
+ * 잡음이 있는 상태 검사에 대 한 샘플링 비율을 0 또는 작은 값으로 설정 합니다.
+ * 잡음이 있는 종속성 호출에 대 한 샘플링 비율을 0 또는 작은 값으로 설정 합니다.
+ * `/login`기본 샘플링이 더 낮은 것으로 구성 된 경우에도 중요 한 요청 유형 (예:)에 대해 샘플링 비율을 100로 설정 합니다.
 
 ## <a name="terminology"></a>용어
 
@@ -79,7 +78,7 @@ Span 특성은 지정 된 요청 또는 종속성의 표준 및 사용자 지정
 
 일치 하는 샘플링 재정의가 없으면 다음을 수행 합니다.
 
-* 추적의 첫 번째 범위 이면 [일반 샘플링 백분율이](./java-standalone-config.md#sampling) 사용 됩니다.
+* 추적의 첫 번째 범위 이면 [기본 샘플링 백분율이](./java-standalone-config.md#sampling) 사용 됩니다.
 * 추적의 첫 번째 범위가 아닌 경우 부모 샘플링 결정이 사용 됩니다.
 
 > [!IMPORTANT]
@@ -189,17 +188,17 @@ Span 특성은 지정 된 요청 또는 종속성의 표준 및 사용자 지정
 | attribute  | Type | Description | 
 |---|---|---|
 | `http.method` | 문자열 | HTTP 요청 메서드입니다.|
-| `http.url` | string | 형식의 전체 HTTP 요청 URL `scheme://host[:port]/path?query[#fragment]` 입니다. 조각은 일반적으로 HTTP를 통해 전송 되지 않습니다. 하지만 조각이 알려져 있는 경우이를 포함 해야 합니다.|
+| `http.url` | 문자열 | 형식의 전체 HTTP 요청 URL `scheme://host[:port]/path?query[#fragment]` 입니다. 조각은 일반적으로 HTTP를 통해 전송 되지 않습니다. 하지만 조각이 알려져 있는 경우이를 포함 해야 합니다.|
 | `http.status_code` | number | [HTTP 응답 상태 코드](https://tools.ietf.org/html/rfc7231#section-6)입니다.|
-| `http.flavor` | string | HTTP 프로토콜의 유형입니다. |
-| `http.user_agent` | string | 클라이언트에서 보낸 [HTTP 사용자 에이전트](https://tools.ietf.org/html/rfc7231#section-5.5.3) 헤더의 값입니다. |
+| `http.flavor` | 문자열 | HTTP 프로토콜의 유형입니다. |
+| `http.user_agent` | 문자열 | 클라이언트에서 보낸 [HTTP 사용자 에이전트](https://tools.ietf.org/html/rfc7231#section-5.5.3) 헤더의 값입니다. |
 
 ### <a name="jdbc-spans"></a>JDBC 범위
 
 | attribute  | Type | Description  |
 |---|---|---|
 | `db.system` | 문자열 | 사용 중인 DBMS (데이터베이스 관리 시스템) 제품의 식별자입니다. |
-| `db.connection_string` | string | 데이터베이스에 연결하는 데 사용되는 연결 문자열입니다. 포함 된 자격 증명을 제거 하는 것이 좋습니다.|
-| `db.user` | string | 데이터베이스에 액세스 하기 위한 사용자 이름입니다. |
-| `db.name` | string | 액세스 중인 데이터베이스의 이름을 보고 하는 데 사용 되는 문자열입니다. 데이터베이스를 전환 하는 명령의 경우 명령이 실패 하더라도이 문자열을 대상 데이터베이스로 설정 해야 합니다.|
-| `db.statement` | string | 실행 중인 데이터베이스 문입니다.|
+| `db.connection_string` | 문자열 | 데이터베이스에 연결하는 데 사용되는 연결 문자열입니다. 포함 된 자격 증명을 제거 하는 것이 좋습니다.|
+| `db.user` | 문자열 | 데이터베이스에 액세스 하기 위한 사용자 이름입니다. |
+| `db.name` | 문자열 | 액세스 중인 데이터베이스의 이름을 보고 하는 데 사용 되는 문자열입니다. 데이터베이스를 전환 하는 명령의 경우 명령이 실패 하더라도이 문자열을 대상 데이터베이스로 설정 해야 합니다.|
+| `db.statement` | 문자열 | 실행 중인 데이터베이스 문입니다.|
