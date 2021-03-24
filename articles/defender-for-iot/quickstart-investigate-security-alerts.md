@@ -1,24 +1,14 @@
 ---
 title: '빠른 시작: 보안 경고 조사'
 description: IoT 디바이스에서 Defender for IoT 보안 경고를 이해, 드릴다운 및 조사합니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/30/2020
-ms.author: mlottner
-ms.openlocfilehash: 172ae82288c2cb948839b69955b9491715eb4690
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2eb4a10372680348536231aa0333c43199b8d883
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945173"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780993"
 ---
 # <a name="quickstart-investigate-security-alerts"></a>빠른 시작: 보안 경고 조사
 
@@ -33,8 +23,8 @@ Defender for IoT에서 발급한 경고의 예약된 조사 및 수정 작업이
 
 IoT Hub 보안 경고 목록에는 IoT Hub에 대한 모든 집계된 보안 경고가 표시됩니다. 
 
-1. Azure Portal에서 새 경고를 조사하려는 **IoT Hub**를 엽니다.
-1. **보안** 메뉴에서 **경고**를 선택합니다. IoT Hub에 대한 모든 보안 경고가 표시되고 **새** 플래그가 포함된 경고는 지난 24시간 동안의 경고를 표시합니다.
+1. Azure Portal에서 새 경고를 조사하려는 **IoT Hub** 를 엽니다.
+1. **보안** 메뉴에서 **경고** 를 선택합니다. IoT Hub에 대한 모든 보안 경고가 표시되고 **새** 플래그가 포함된 경고는 지난 24시간 동안의 경고를 표시합니다.
 :::image type="content" source="media/quickstart/investigate-new-security-alerts.png" alt-text="새 경고 플래그를 사용하여 새 IoT 보안 경고 조사":::
 1. 목록에서 경고를 선택하고 열어 경고 세부 정보를 열고 경고 세부 정보로 드릴다운합니다. 
 
@@ -43,13 +33,13 @@ IoT Hub 보안 경고 목록에는 IoT Hub에 대한 모든 집계된 보안 경
 각 집계된 경고를 열면 자세한 경고 설명, 수정 단계, 경고를 트리거한 각 디바이스에 대한 디바이스 ID 뿐만 아니라 Log Analytics를 사용하여 경고 심각도 및 직접 조사 액세스도 표시됩니다. 
 
 1. **IoT Hub** > **보안** > **경고** 목록에서 보안 경고를 선택하고 엽니다. 
-1. 집계 기간에 이 경고를 발행한 모든 디바이스의 경고 **설명**, **심각도**, **감지의 원본**, **디바이스 세부 정보**를 검토합니다.
-:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="새 경고 플래그를 사용하여 새 IoT 보안 경고 조사"::: 
+1. 집계 기간에 이 경고를 발행한 모든 디바이스의 경고 **설명**, **심각도**, **감지의 원본**, **디바이스 세부 정보** 를 검토합니다.
+:::image type="content" source="media/quickstart/drill-down-iot-alert-details.png" alt-text="집계된 경고에서 각 디바이스에 대한 세부 정보를 드릴다운하고 검토합니다."::: 
 1. 경고 세부 정보를 검토한 후 **수동 수정 단계** 지침을 사용하여 경고를 발생시킨 문제를 수정 및/또는 해결합니다. 
-:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="새 경고 플래그를 사용하여 새 IoT 보안 경고 조사":::
+:::image type="content" source="media/quickstart/iot-alert-manual-remediation-steps.png" alt-text="수동 수정 단계를 수행하여 디바이스 보안 경고를 해결하거나 수정합니다.":::
 
-1. 추가 조사가 필요한 경우 링크를 사용하여 **Log Analytics의 경고를 조사**합니다. 
-:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="새 경고 플래그를 사용하여 새 IoT 보안 경고 조사":::
+1. 추가 조사가 필요한 경우 링크를 사용하여 **Log Analytics의 경고를 조사** 합니다. 
+:::image type="content" source="media/quickstart/investigate-iot-alert-log-analytics.png" alt-text="경고를 자세히 조사하려면 화면에 제공된 로그 분석 링크를 사용하여 조사를 사용합니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

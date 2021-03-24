@@ -2,25 +2,20 @@
 title: 풀에 대 한 VM 크기 및 이미지 선택
 description: Azure Batch 풀의 계산 노드에 대해 사용 가능한 VM 크기 및 OS 버전을 선택 하는 방법
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/18/2021
 ms.custom: seodec18
-ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 2c3b90d6188dc6660233ae659fb4280dc1d4f2a5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800485"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027383"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대 한 VM 크기 및 이미지 선택
 
 Azure Batch 풀에 대한 노드 크기를 선택하면 Azure에서 사용할 수 있는 거의 모든 VM 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 맞게 다양한 크기의 Linux 및 Windows VM을 제공합니다.
 
 ## <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
-
-Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제한 사항이 있습니다.
-
-- 일부 VM 시리즈 또는 VM 크기는 Batch에서 지원되지 않습니다.
-- 일부 VM 크기는 제한되어 있으므로 할당하기 전에 특별히 사용하도록 설정해야 합니다.
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Virtual Machine 구성의 풀
 
@@ -32,16 +27,14 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | A | Standard_A0, Standard_A8, Standard_A9, Standard_A10, Standard_A11를 *제외한* 모든 크기 |
 | Av2 | 모든 크기 |
 | b | 지원되지 않음 |
-| DC | 지원되지 않음 |
+| DCsv2 | 모든 크기 |
 | Dv2, DSv2 | 모든 크기 |
 | Dv3, Dsv3 | 모든 크기 |
-| Dav4 | 모든 크기 |
-| Dasv4 | 모든 크기 |
+| Dav4, Dasv4 | 모든 크기 |
 | Ddv4, Ddsv4 |  모든 크기 |
 | Dv4, Dsv4 | 지원되지 않음 |
 | Ev3, Esv3 | E64is_v3를 제외한 모든 크기 |
-| Eav4 | 모든 크기 |
-| Easv4 | 모든 크기 |
+| Eav4, Easv4 | 모든 크기 |
 | Edv4, Edsv4 |  모든 크기 |
 | Ev4, Esv4 | 지원되지 않음 |
 | F, Fs | 모든 크기 |
@@ -50,6 +43,7 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | H | 모든 크기 |
 | HB | 모든 크기 |
 | HBv2 | 모든 크기 |
+| HBv3 | Standard_HB120rs_v3 (다른 크기를 아직 사용할 수 없음) |
 | HC | 모든 크기 |
 | Ls | 모든 크기 |
 | Lsv2 | 모든 크기 |
@@ -58,7 +52,7 @@ Batch 풀에 대 한 VM 크기를 선택 하는 데는 몇 가지 예외와 제�
 | NC | 모든 크기 |
 | NCv2 | 모든 크기 |
 | NCv3 | 모든 크기 |
-| NCasT4_v3 | 없음 - 아직 사용할 수 없습니다. |
+| NCasT4_v3 | 모든 크기 |
 | ND | 모든 크기 |
 | NDv2 | 없음 - 아직 사용할 수 없습니다. |
 | NV | 모든 크기 |

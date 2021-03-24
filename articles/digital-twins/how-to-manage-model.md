@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433253"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953700"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -179,7 +179,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `DigitalTwinsMode
 * 속성 읽기
 * 나가는 관계 읽기
 * 들어오는 관계를 추가 및 삭제 합니다 .에서와 같이 다른 쌍이이 쌍 *에 대 한* 관계를 형성할 수 있습니다.
-  - `target`관계 정의의는 삭제 된 모델의 DTMI를 계속 반영할 수 있습니다. 정의 된 대상이 없는 관계는 여기에서 작동할 수도 있습니다.
+  - `target`관계 정의의는 삭제 된 모델의 DTMI를 계속 반영할 수 있습니다. 정의 된 대상이 없는 관계는 여기에서 작동할 수도 있습니다.      
 * 관계 삭제
 * 쌍을 삭제 합니다.
 

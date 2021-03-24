@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93341810"
 ---
 # <a name="how-to-author-an-attestation-policy"></a>증명 정책을 작성하는 방법
@@ -36,7 +36,7 @@ issuancerules
  
 정책 파일에는 위에 표시된 것처럼 3개의 세그먼트가 있습니다.
 
-- **버전** :  버전은 뒤따르는 문법의 버전 번호입니다. 
+- **버전**:  버전은 뒤따르는 문법의 버전 번호입니다. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ issuancerules
 
     현재 지원되는 유일한 버전은 1.0입니다.
 
-- **authorizationrules** : Azure Attestation이 **issuancerules** 로 진행되는지 확인하기 위해 먼저 확인되는 클레임 규칙의 컬렉션입니다. 클레임 규칙은 정의된 순서대로 적용됩니다.
+- **authorizationrules**: Azure Attestation이 **issuancerules** 로 진행되는지 확인하기 위해 먼저 확인되는 클레임 규칙의 컬렉션입니다. 클레임 규칙은 정의된 순서대로 적용됩니다.
 
-- **issuancerules** : 정책에 정의된 대로 증명 결과에 추가 정보를 추가하기 위해 평가되는 클레임 규칙의 컬렉션입니다. 클레임 규칙은 정의된 순서대로 적용되며 선택 사항이기도 합니다.
+- **issuancerules**: 정책에 정의된 대로 증명 결과에 추가 정보를 추가하기 위해 평가되는 클레임 규칙의 컬렉션입니다. 클레임 규칙은 정의된 순서대로 적용되며 선택 사항이기도 합니다.
 
 자세한 내용은 [클레임 및 클레임 규칙](claim-rule-grammar.md)을 참조하세요.
    
@@ -128,8 +128,8 @@ issuancerules
      ```
 
 2. (선택 사항) 정책에 서명합니다. Azure Attestation은 다음과 같은 알고리즘을 지원합니다.
-     - **없음** : 정책 페이로드에 서명하지 않습니다.
-     - **RS256** : 정책 페이로드를 서명하는 데 지원되는 알고리즘
+     - **없음**: 정책 페이로드에 서명하지 않습니다.
+     - **RS256**: 정책 페이로드를 서명하는 데 지원되는 알고리즘
 
 3. JWS를 업로드하고 정책의 유효성을 검사합니다.
      - 정책 파일에 구문 오류가 없는 경우 정책 파일은 서비스에서 허용됩니다.

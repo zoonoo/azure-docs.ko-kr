@@ -16,10 +16,10 @@ ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93360414"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
@@ -49,7 +49,7 @@ ms.locfileid: "93360414"
 스토리지 계정이 아직 없는 경우 이제 하나 만들게 됩니다.  또한 이 단계를 건너뛰고 기존 스토리지 계정의 키에 대한 VM 시스템 할당 관리 ID 액세스 권한을 부여할 수 있습니다. 
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
-2. **스토리지** 를 클릭하면 **스토리지 계정** , 새 “스토리지 계정 만들기” 패널이 표시됩니다.
+2. **스토리지** 를 클릭하면 **스토리지 계정**, 새 “스토리지 계정 만들기” 패널이 표시됩니다.
 3. 나중에 사용할 스토리지 계정에 대한 **이름** 을 입력합니다.  
 4. **배포 모델** 및 **계정 종류** 는 각각 “리소스 관리자” 및 “범용”으로 설정해야 합니다. 
 5. **구독** 및 **리소스 그룹** 은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
@@ -88,7 +88,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
 아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/install-win10)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](../../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-1. Azure Portal에서 **Virtual Machines** , Linux 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결** 을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다. 
+1. Azure Portal에서 **Virtual Machines**, Linux 가상 머신으로 이동한 후 **개요** 페이지 위쪽의 **연결** 을 클릭합니다. VM에 연결하기 위한 문자열을 복사합니다. 
 2. SSH 클라이언트를 사용하여 VM에 연결합니다.  
 3. 그리고 나면 **Linux VM** 을 만들 때 추가했던 **암호** 를 입력하라는 메시지가 표시됩니다. 이제 정상적으로 로그인되어야 합니다.  
 4. CURL을 사용하여 Azure Resource Manager에 대한 액세스 토큰을 가져옵니다.  

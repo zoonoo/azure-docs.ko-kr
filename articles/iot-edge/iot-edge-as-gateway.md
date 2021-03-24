@@ -4,19 +4,19 @@ description: Azure IoT Edge를 사용하여 데이터를 여러 다운스트림 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492713"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027349"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge 디바이스를 게이트웨이로 사용하는 방법
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492713"
 
 IoT Edge 장치는 게이트웨이로 작동할 수 있으며 네트워크의 다른 장치와 IoT Hub 간에 연결을 제공 합니다.
 
-IoT Edge 허브 모듈은 IoT Hub 처럼 작동 하므로 다른 IoT Edge 장치를 비롯 하 여 IoT Hub id가 있는 모든 장치의 연결을 처리할 수 있습니다. 이러한 유형의 게이트웨이 패턴은 메시지가 다운스트림 장치 간에 게이트웨이가 없는 경우와 같이 다운스트림 장치에서 IoT Hub 전달 될 수 있으므로 *투명* 이라고 합니다.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-IoT Edge 버전 1.2부터 투명 게이트웨이는 다른 IoT Edge 장치에서 다운스트림 연결을 처리할 수 있습니다.
-::: moniker-end
+IoT Edge 허브 모듈은 IoT Hub 처럼 작동 하므로 동일한 IoT hub를 사용 하는 id가 있는 다른 장치의 연결을 처리할 수 있습니다. 이러한 유형의 게이트웨이 패턴은 메시지가 다운스트림 장치 간에 게이트웨이가 없는 경우와 같이 다운스트림 장치에서 IoT Hub 전달 될 수 있으므로 *투명* 이라고 합니다.
 
 자체 IoT Hub에 연결할 수 없거나 연결할 수 없는 장치의 경우 IoT Edge 게이트웨이에서 해당 연결을 제공할 수 있습니다. IoT Edge 장치가 들어오는 다운스트림 장치 메시지에 대 한 처리를 수행 해야 IoT Hub에 전달할 수 있으므로이 유형의 게이트웨이 패턴을 *변환* 이라고 합니다. 이러한 시나리오에는 처리 단계를 처리 하기 위해 IoT Edge 게이트웨이의 추가 모듈이 필요 합니다.
 
@@ -51,17 +46,19 @@ IoT Edge 허브가 다운스트림 장치와 클라우드 간의 통신을 관�
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
-
 ![다이어그램-투명 게이트웨이 패턴](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>IoT Edge 버전 1.1 이상에서 IoT Edge 장치는 IoT Edge 게이트웨이의 다운스트림 일 수 없습니다.
+>
+>IoT Edge 버전 1.2부터 투명 게이트웨이는 다운스트림 IoT Edge 장치에서 연결을 처리할 수 있습니다. 자세한 내용은이 문서의 [IoT Edge 1.2](?view=iotedge-2020-11&preserve-view=true) 버전으로 전환 하세요.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-1.2.0 버전부터 IoT Edge 장치는 투명 게이트웨이를 통해 연결할 수 있습니다.
+IoT Edge 버전 1.2부터 투명 게이트웨이는 다운스트림 IoT Edge 장치에서 연결을 처리할 수 있습니다.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4e2531d511193586ef4605cc3732968b6db28d9f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ab67602ebba2ae5446ecc0052ef4b03bba1e1bf
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100613520"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952986"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Windows용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -19,7 +19,7 @@ ms.locfileid: "100613520"
 이 문서의 단계를 수행해도 문제가 해결되지 않으면 다음 지원 채널을 사용할 수 있습니다.
 
 * 프리미어 지원 혜택을 받는 고객은 [프리미어](https://premier.microsoft.com/)를 사용하여 지원 요청을 열 수 있습니다.
-* Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
+* Azure 지원 계약을 맺은 고객은 [Azure Portal](https://azure.microsoft.com/support/options/)에서 지원 요청을 열 수 있습니다.
 * Log Analytics 피드백 페이지를 방문 하 여 전송 된 아이디어와 버그를 검토 [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) 하거나 새 파일을 작성 합니다. 
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics 문제 해결 도구
@@ -89,13 +89,13 @@ Azure Government에 필요한 방화벽 정보는 [Azure Government 관리](../.
 
     컴퓨터가 서비스와 성공적으로 통신 하는 경우 쿼리는 결과를 반환 해야 합니다. 쿼리에서 결과를 반환 하지 않은 경우 먼저 에이전트가 올바른 작업 영역에 보고 하도록 구성 되어 있는지 확인 합니다. 올바르게 구성 된 경우 3 단계로 이동 하 고 Windows 이벤트 로그를 검색 하 여 에이전트에서 Azure Monitor와의 통신을 방해할 수 있는 문제를 기록 하는지 확인 합니다.
 
-- 연결 문제를 확인 하는 또 다른 방법은 **Testcloudconnectivity** 도구를 실행 하는 것입니다. 이 도구는 기본적으로 에이전트와 함께 *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent* 폴더에 설치 됩니다. 관리자 권한 명령 프롬프트에서 폴더로 이동 하 여 도구를 실행 합니다. 이 도구는 결과가 반환 되 고 테스트가 실패 한 위치를 강조 표시 합니다 (예: 차단 된 특정 포트/URL과 관련 된 경우). 
+- 연결 문제를 확인 하는 또 다른 방법은 **Testcloudconnectivity** 도구를 실행 하는 것입니다. 이 도구는 기본적으로 에이전트와 함께 *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent* 폴더에 설치 됩니다. 관리자 권한 명령 프롬프트에서 폴더로 이동하여 도구를 실행합니다. 이 도구는 결과가 반환 되 고 테스트가 실패 한 위치를 강조 표시 합니다 (예: 차단 된 특정 포트/URL과 관련 된 경우). 
 
     ![TestCloudConnection 도구 실행 결과](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
 - 이벤트 **소스** 상태 관리 서비스 모듈, health service 및 서비스 커넥터에 의해 *Operations Manager* 이벤트 로그를 필터링 하  -  고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트를 기록 했는지 확인 합니다.   가능한 경우 각 이벤트에 대해 포함 된 해결 단계를 검토 합니다.
 
-    |이벤트 ID |원본 |설명 |해결 방법 |
+    |이벤트 ID |원본 |Description |해결 방법 |
     |---------|-------|------------|-----------|
     |2133 & 2129 |상태 관리 서비스 |에이전트에서 서비스에 연결 하지 못했습니다. |이 오류는 에이전트가 직접 또는 방화벽/프록시 서버를 통해 Azure Monitor 서비스와 통신할 수 없는 경우에 발생할 수 있습니다. 에이전트 프록시 설정을 확인 하거나 네트워크 방화벽/프록시가 컴퓨터에서 서비스로의 TCP 트래픽을 허용 하는지 확인 합니다.|
     |2138 |상태 관리 서비스 모듈 |프록시에 인증 필요 |에이전트 프록시 설정을 구성 하 고 프록시 서버를 인증 하는 데 필요한 사용자 이름/암호를 지정 합니다. |
@@ -133,7 +133,7 @@ Heartbeat
 
 3. 몇 분 후에 쿼리 결과 또는 시각화에 필요한 데이터가 표시 되지 않는 경우, *Operations Manager* 이벤트 로그에서 솔루션 또는 정보에 대 한 데이터를 볼 수 있는지 여부에 따라 **이벤트 원본** *health service* 및 *상태 관리 서비스 모듈* 을 검색 하 고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트 작성 여부를 확인 합니다.
 
-    |이벤트 ID |원본 |설명 |해결 방법 |
+    |이벤트 ID |원본 |Description |해결 방법 |
     |---------|-------|------------|
     |8000 |HealthService |이 이벤트는 성능, 이벤트 또는 수집 된 다른 데이터 형식과 관련 된 워크플로가 작업 영역에 수집 하기 위해 서비스로 전달할 수 없는 경우를 지정 합니다. | 원본 Health service의 이벤트 ID 2136는이 이벤트와 함께 기록 되며, 에이전트에서 서비스와 통신할 수 없음을 나타낼 수 있습니다. 프록시 및 인증 설정의 잘못 된 구성, 네트워크 중단 또는 네트워크 방화벽/프록시가 컴퓨터에서 서비스로의 TCP 트래픽을 허용 하지 않을 수 있습니다.| 
     |10102 및 10103 |상태 관리 서비스 모듈 |워크플로에서 데이터 원본을 확인할 수 없습니다. |지정 된 성능 카운터 또는 인스턴스가 컴퓨터에 없거나 작업 영역 데이터 설정에 잘못 정의 된 경우이 문제가 발생할 수 있습니다. 사용자 지정 [성능 카운터](data-sources-performance-counters.md#configuring-performance-counters)인 경우 지정 된 정보가 올바른 형식을 사용 하 고 대상 컴퓨터에 존재 하는지 확인 합니다. |

@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92426367"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>대칭 키를 사용하여 Python 디바이스 프로비저닝
@@ -71,9 +71,9 @@ ms.locfileid: "92426367"
 
    - **메커니즘:** ID 증명 *메커니즘* 으로 **대칭 키** 를 선택합니다.
 
-   - **키 자동 생성** : 이 상자를 선택합니다.
+   - **키 자동 생성**: 이 상자를 선택합니다.
 
-   - **등록 ID** : 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-python-device-008** 입니다.
+   - **등록 ID**: 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-python-device-008** 입니다.
 
    - **IoT Hub 디바이스 ID:** 디바이스 식별자를 입력합니다. 예를 들어 **python-device-008** 입니다.
 

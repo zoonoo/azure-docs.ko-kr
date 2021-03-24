@@ -5,13 +5,14 @@ author: sread
 ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 7c9a9f355def492f04f47b49045fadb5afb6acd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98733152"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950538"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 개발자 4.0에 대 한 마이크로 포커스 BankDemo 설정
 
@@ -185,7 +186,7 @@ VM에 Enterprise Developer 4.0을 설치한 후에는 함께 제공 되는 Enter
 
      ![지역 영역 이름 정의: BANKDEMO](media/08-demo-cics.png)
 
-7. **마침** 을 클릭합니다.
+7. **Finish** 를 클릭합니다.
 
 ## <a name="create-xa-resource-definitions"></a>XA 리소스 정의 만들기
 

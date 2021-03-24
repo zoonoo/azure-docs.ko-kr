@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 02/02/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 99cd980e13b3b9b9a7a450520218c76ccf26fd69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89079866"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>삭제된 파일 공유를 삭제 취소하는 PowerShell 스크립트
@@ -165,14 +165,14 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="execution-steps"></a>실행 단계
 
-1. 위의 스크립트를 사용자가 선택한 이름으로 머신에 저장합니다. 이 예제에서는 *Undelete.ps1*로 저장했습니다.
+1. 위의 스크립트를 사용자가 선택한 이름으로 머신에 저장합니다. 이 예제에서는 *Undelete.ps1* 로 저장했습니다.
 2. 요구 사항에 맞는 시나리오에 따라 스크립트를 실행합니다.
 
 #### <a name="scenario-1"></a>시나리오 1
 
 삭제를 취소하려는 파일 공유와 이름이 같은 여러 개의 삭제된 버전이 없습니다.
 
-다음 예에서는 스토리지 계정 *afsshare*에 있는 파일 공유 *share1*의 삭제를 취소합니다.
+다음 예에서는 스토리지 계정 *afsshare* 에 있는 파일 공유 *share1* 의 삭제를 취소합니다.
 
 ```powershell
    .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4 -FileShareName share1

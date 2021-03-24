@@ -2,14 +2,14 @@
 title: Batch 풀에서 관리 되는 id 구성
 description: Batch 풀에서 사용자 할당 관리 id를 사용 하도록 설정 하는 방법 및 노드 내에서 관리 되는 id를 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 02/10/2021
+ms.date: 03/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4a59383d119f88bb3ee180f629ba0a6ea6ac2f44
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7fab213ac1545c0bff9b74bc46504717b6038e8e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100417620"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950164"
 ---
 # <a name="configure-managed-identities-in-batch-pools"></a>Batch 풀에서 관리 되는 id 구성
 
@@ -100,3 +100,4 @@ curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-
 
 - [Azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)에 대해 자세히 알아보세요.
 - [사용자 관리 id에서 고객 관리 키](batch-customer-managed-key.md)를 사용 하는 방법에 대해 알아봅니다.
+- [Batch 풀에서 자동 인증서 회전을 사용 하도록 설정](automatic-certificate-rotation.md)하는 방법에 대해 알아봅니다.
