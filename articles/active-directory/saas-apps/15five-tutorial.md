@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 79c6a5959d000217dcb69370b0e0ac4ccc18ccdd
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97673922"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-15five"></a>자습서: 15Five와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ ms.locfileid: "97673922"
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 15Five와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -183,7 +183,7 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>사용자 프로비전을 구성하려면
 
-1. **15Five** 회사 사이트에 관리자 권한으로 로그인합니다.
+1. **15Five** 회사 사이트에 관리자로 로그인합니다.
 
 2. **회사 관리** 로 이동합니다.
 
@@ -197,7 +197,7 @@ Azure AD 사용자가 15Five에 로그인할 수 있도록 하려면 15Five로 �
 
     ![새 사람 추가](./media/15five-tutorial/ic784677.png "새 사람 추가")
 
-    a. 관련 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **이름**, **성**, **제목**, **전자 메일 주소** 를 입력합니다.
+    a. 관련 텍스트 상자에 프로비전할 올바른 Azure Active Directory 계정의 **이름**, **성**, **직책** 및 **전자 메일 주소** 를 입력합니다.
 
     b. **Done** 을 클릭합니다.
 

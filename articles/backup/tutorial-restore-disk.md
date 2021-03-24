@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 999682c9bf4a4d70d886f0e85cede99f215aa046
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97694711"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Azure CLI를 사용하여 VM 복원
@@ -72,7 +72,7 @@ az backup recoverypoint list \
         --sku Standard_LRS
     ```
 
-2. [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount* 를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName* 을 이전 [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다. ***또한 관리 디스크를 복원할 대상 리소스 그룹을 제공합니다** _.
+2. [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks)를 사용하여 복구 지점에서 디스크를 복원합니다. *mystorageaccount* 를 이전 명령에서 만든 스토리지 계정의 이름으로 바꿉니다. *myRecoveryPointName* 을 이전 [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) 명령의 출력에서 얻은 복구 지점 이름으로 바꿉니다. ***그리고 관리 디스크를 복원할 대상 리소스 그룹을 입력합니다***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -86,7 +86,7 @@ az backup recoverypoint list \
     ```
 
     > [!WARNING]
-    > _ *target-resource-group**이 제공되지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다. target-resource-group 매개 변수가 지정된 경우에만 즉시 복원의 이점을 얻을 수 있습니다. 관리 디스크를 관리되지 않는 상태로 복원하려는 경우에는 **target-resource-group** 매개 변수를 제공하지 않고 대신 아래에 표시된 대로 **restore-as-unmanaged-disk** 매개 변수를 제공합니다. 이 매개 변수는 az 3.4.0 이상에서 사용할 수 있습니다.
+    > **target-resource-group** 이 제공되지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다. target-resource-group 매개 변수가 지정된 경우에만 즉시 복원의 이점을 얻을 수 있습니다. 관리 디스크를 관리되지 않는 상태로 복원하려는 경우에는 **target-resource-group** 매개 변수를 제공하지 않고 대신 아래에 표시된 대로 **restore-as-unmanaged-disk** 매개 변수를 제공합니다. 이 매개 변수는 az 3.4.0 이상에서 사용할 수 있습니다.
 
     ```azurecli-interactive
     az backup restore restore-disks \

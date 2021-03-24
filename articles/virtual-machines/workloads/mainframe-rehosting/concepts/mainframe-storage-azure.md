@@ -5,13 +5,14 @@ author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: storage
-ms.openlocfilehash: 8f57210ff6b65ee3a893fb344a48629466e90004
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
+ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97095358"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954363"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>메인프레임 저장소를 Azure로 이동
 
@@ -51,7 +52,7 @@ Azure storage는 다음 표에 요약 된 것 처럼 azure [디스크](../../../
 
 <table>
 <thead>
-    <tr><th>Type</th><th>설명</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
+    <tr><th>Type</th><th>Description</th><th>다음을 수행 하려는 경우를 사용 합니다.</th></tr>
 </thead>
 <tbody>
 <tr><td>Azure 파일

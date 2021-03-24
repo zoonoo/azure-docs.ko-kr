@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurepowershell
 ms.openlocfilehash: 8ee124f866a5241620671ff84c24f3713f62efe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89078472"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
@@ -34,7 +34,7 @@ Azure Cloud Shell 현재 버전을 포함하여 Azure PowerShell 모듈 버전 6
 
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
-자동 크기 조정 규칙을 보다 쉽게 만들려면 확장 집합에 대해 몇 개의 변수를 정의합니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹과 *East US* 지역에 있는 *myScaleSet*라는 확장 집합에 대한 변수를 정의합니다. 구독 ID는 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 사용하여 가져옵니다. 사용자 계정에 여러 구독이 연결되어 있으면 첫 번째 구독만 반환됩니다. 이름과 구독 ID를 다음과 같이 조정합니다.
+자동 크기 조정 규칙을 보다 쉽게 만들려면 확장 집합에 대해 몇 개의 변수를 정의합니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹과 *East US* 지역에 있는 *myScaleSet* 라는 확장 집합에 대한 변수를 정의합니다. 구독 ID는 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 사용하여 가져옵니다. 사용자 계정에 여러 구독이 연결되어 있으면 첫 번째 구독만 반환됩니다. 이름과 구독 ID를 다음과 같이 조정합니다.
 
 ```azurepowershell-interactive
 $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
@@ -78,7 +78,7 @@ New-AzureRmVmss `
 | *-ScaleActionValue*     | 규칙이 트리거되면 VM 인스턴스의 백분율을 변경해야 합니다.                                            | 3              |
 | *-ScaleActionCooldown*  | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분      |
 
-다음 예제에서는 이 확장 규칙이 적용되는 *myRuleScaleOut*이라는 개체를 생성합니다. *-MetricResourceId*는 구독 ID, 리소스 그룹 이름 및 확장 집합 이름에 대해 이전에 정의된 변수를 사용합니다.
+다음 예제에서는 이 확장 규칙이 적용되는 *myRuleScaleOut* 이라는 개체를 생성합니다. *-MetricResourceId* 는 구독 ID, 리소스 그룹 이름 및 확장 집합 이름에 대해 이전에 정의된 변수를 사용합니다.
 
 ```azurepowershell-interactive
 $myRuleScaleOut = New-AzureRmAutoscaleRule `
@@ -99,7 +99,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## <a name="create-a-rule-to-autoscale-in"></a>자동 크기 축소 규칙 만들기
 저녁이나 주말에는 애플리케이션 수요가 줄어들 수 있습니다. 이 감소된 로드가 일정 기간 동안 일관성 있게 유지될 경우 확장 집합의 VM 인스턴스 수를 줄이도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이 규모 감축 작업은 현재 수요를 충족하는 데 필요한 수의 인스턴스만 실행하므로 확장 집합의 실행 비용을 줄입니다.
 
-평균 CPU 로드가 5분 동안 30% 미만일 경우 [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule)을 사용하여 확장 집합의 VM 인스턴스 수를 줄이는 다른 규칙을 만듭니다. 규칙이 트리거되면 VM 인스턴스 수가 하나씩 감소합니다. 다음 예제에서는 이 축소 규칙이 적용되는 *myRuleScaleDown*이라는 개체를 생성합니다. *-MetricResourceId*는 구독 ID, 리소스 그룹 이름 및 확장 집합 이름에 대해 이전에 정의된 변수를 사용합니다.
+평균 CPU 로드가 5분 동안 30% 미만일 경우 [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule)을 사용하여 확장 집합의 VM 인스턴스 수를 줄이는 다른 규칙을 만듭니다. 규칙이 트리거되면 VM 인스턴스 수가 하나씩 감소합니다. 다음 예제에서는 이 축소 규칙이 적용되는 *myRuleScaleDown* 이라는 개체를 생성합니다. *-MetricResourceId* 는 구독 ID, 리소스 그룹 이름 및 확장 집합 이름에 대해 이전에 정의된 변수를 사용합니다.
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `
@@ -118,7 +118,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
 
 
 ## <a name="define-an-autoscale-profile"></a>자동 크기 조정 프로필 정의
-자동 크기 조정 규칙을 확장 집합과 연결하려면 프로필을 만듭니다. 자동 크기 조정 프로필은 기본, 최소, 최대 확장 집합 용량을 정의하고 자동 크기 조정 규칙을 연결합니다. [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile)을 사용하여 자동 크기 조정 프로필을 만듭니다. 다음 예제에서는 기본 및 최소 용량으로 VM 인스턴스 *2*개, 최대 용량으로 *10*개를 설정합니다. 그런 다음, 이전 단계에서 만든 규모 확장 및 규모 감축 규칙이 연결됩니다.
+자동 크기 조정 규칙을 확장 집합과 연결하려면 프로필을 만듭니다. 자동 크기 조정 프로필은 기본, 최소, 최대 확장 집합 용량을 정의하고 자동 크기 조정 규칙을 연결합니다. [New-AzureRmAutoscaleProfile](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleProfile)을 사용하여 자동 크기 조정 프로필을 만듭니다. 다음 예제에서는 기본 및 최소 용량으로 VM 인스턴스 *2* 개, 최대 용량으로 *10* 개를 설정합니다. 그런 다음, 이전 단계에서 만든 규모 확장 및 규모 감축 규칙이 연결됩니다.
 
 ```azurepowershell-interactive
 $myScaleProfile = New-AzureRmAutoscaleProfile `
@@ -165,7 +165,7 @@ myRDPRule.0 Tcp             50001        3389
 myRDPRule.1 Tcp             50002        3389
 ```
 
-규칙의 *이름*은 이전 [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) 명령에 표시된 VM 인스턴스의 이름과 일치합니다. 예를 들어 *0* VM 인스턴스에 연결하려면 *myRDPRule.0*을 사용하고 *50001* 포트에 연결합니다. *1* VM 인스턴스에 연결하려면 *myRDPRule.1*의 값을 사용하고 *50002* 포트에 연결합니다.
+규칙의 *이름* 은 이전 [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) 명령에 표시된 VM 인스턴스의 이름과 일치합니다. 예를 들어 *0* VM 인스턴스에 연결하려면 *myRDPRule.0* 을 사용하고 *50001* 포트에 연결합니다. *1* VM 인스턴스에 연결하려면 *myRDPRule.1* 의 값을 사용하고 *50002* 포트에 연결합니다.
 
 [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress)를 사용하여 부하 분산 장치의 공용 IP 주소를 봅니다.
 
@@ -189,12 +189,12 @@ mstsc /v 52.168.121.216:50001
 
 로그인한 후 작업 표시줄에서 Internet Explorer를 엽니다.
 
-- **확인**을 선택하여 *권장되는 보안, 개인 정보 및 호환성 설정을 사용*하도록 요구하는 메시지를 수락합니다.
+- **확인** 을 선택하여 *권장되는 보안, 개인 정보 및 호환성 설정을 사용* 하도록 요구하는 메시지를 수락합니다.
 - 주소 표시줄에 *http://download.sysinternals.com/files/CPUSTRES.zip* 을 입력합니다.
-- Internet Explorer 보안 강화 구성을 사용하도록 설정하면 *http://download.sysinternals.com* 도메인을 신뢰할 수 있는 사이트 목록에 **추가**하도록 선택합니다.
-- 파일 다운로드를 묻는 메시지가 표시되면 **열기**를 선택한 다음, *CPUSTRES.EXE* 도구를 선택하고 **실행**합니다.
+- Internet Explorer 보안 강화 구성을 사용하도록 설정하면 *http://download.sysinternals.com* 도메인을 신뢰할 수 있는 사이트 목록에 **추가** 하도록 선택합니다.
+- 파일 다운로드를 묻는 메시지가 표시되면 **열기** 를 선택한 다음, *CPUSTRES.EXE* 도구를 선택하고 **실행** 합니다.
 
-약간의 CPU 로드를 생성하려면 **활성** 스레드에 대한 두 개의 확인란을 선택합니다. 두 스레드에 대한 **활동** 드롭다운 메뉴에서 *최대*를 선택합니다. [작업 관리자]를 열어 VM의 CPU 로드가 100%인지 확인할 수 있습니다.
+약간의 CPU 로드를 생성하려면 **활성** 스레드에 대한 두 개의 확인란을 선택합니다. 두 스레드에 대한 **활동** 드롭다운 메뉴에서 *최대* 를 선택합니다. [작업 관리자]를 열어 VM의 CPU 로드가 100%인지 확인할 수 있습니다.
 
 ![CPU 스트레스 유틸리티에서 VM 인스턴스에 로드를 생성합니다.](media/tutorial-autoscale-powershell/cpu-stress-load.PNG)
 
@@ -204,13 +204,13 @@ mstsc /v 52.168.121.216:50001
 mstsc /v 52.168.121.216:50002
 ```
 
-두 번째 VM 인스턴스에 로그인한 후 이전 단계를 반복하여 *CPUSTRES.EXE*를 다운로드하고 실행합니다. 다시 한 번, 두 개의 **활성** 스레드를 시작하고 활동을 *최대*로 설정합니다.
+두 번째 VM 인스턴스에 로그인한 후 이전 단계를 반복하여 *CPUSTRES.EXE* 를 다운로드하고 실행합니다. 다시 한 번, 두 개의 **활성** 스레드를 시작하고 활동을 *최대* 로 설정합니다.
 
 **CPU 스트레스** 도구가 계속 실행되도록 하려면 두 원격 데스크톱 연결 세션을 모두 열어 둡니다.
 
 
 ## <a name="monitor-the-active-autoscale-rules"></a>활성 자동 크기 조정 규칙 모니터링
-확장 집합의 VM 인스턴스 수를 모니터링하려면 **while**을 사용합니다. 각 VM 인스턴스의 **CPUStress**에서 생성된 CPU 로드에 응답하여 자동 크기 조정 확장 집합에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
+확장 집합의 VM 인스턴스 수를 모니터링하려면 **while** 을 사용합니다. 각 VM 인스턴스의 **CPUStress** 에서 생성된 CPU 로드에 응답하여 자동 크기 조정 확장 집합에서 규모 확장 프로세스를 시작하는 데 5분이 걸립니다.
 
 ```azurepowershell-interactive
 while (1) {Get-AzureRmVmssVM `
@@ -236,7 +236,7 @@ MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6        
 MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6          Deleting
 ```
 
-`Ctrl-c`를 사용하여 *while*을 종료합니다. 확장 집합은 5분마다 계속 축소되며, 최소 인스턴스 수인 2에 도달할 때까지 하나의 VM 인스턴스를 제거합니다.
+`Ctrl-c`를 사용하여 *while* 을 종료합니다. 확장 집합은 5분마다 계속 축소되며, 최소 인스턴스 수인 2에 도달할 때까지 하나의 VM 인스턴스를 제거합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629f71c429d6af8583cb15b9ebc96efe6867f78b
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 1e05a7af3f0b95470432b4fb9602e1b41da9f72f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888892"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952969"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Azure Active Directory에 애플리케이션 인증 마이그레이션
 
@@ -573,7 +573,7 @@ Azure AD에서 지 원하는 앱 및 리소스의 두 가지 주요 범주는 �
 
 사용자는 **Intune에서 관리 되는 브라우저** 를 다운로드할 수 있습니다.
 
-- **Android 장치의** 경우 [Google play 스토어](/azure/active-directory/authentication/howto-mfa-userstates) 에서
+- **Android 장치의** 경우 [Google play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune) 에서
 
 - Apple **장치의** 경우 [apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 에서 또는 [iOS 용 My Apps 모바일 앱](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653) 을 다운로드할 수 있습니다.
 

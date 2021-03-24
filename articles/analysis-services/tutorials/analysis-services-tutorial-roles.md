@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: aea2196671a136145671b977a6d925849b635b73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018698"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
@@ -42,7 +42,7 @@ Azure Analysis Services의 사용자 보안에 대한 자세한 내용은 [인�
 ## <a name="get-server-name"></a>서버 이름 가져오기
 SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. 포털에서 서버 이름을 가져올 수 있습니다.
 
-**Azure Portal** > 서버 > **개요** > **서버 이름**에서 서버 이름을 복사합니다.
+**Azure Portal** > 서버 > **개요** > **서버 이름** 에서 서버 이름을 복사합니다.
    
    ![Azure에서 서버 이름 가져오기](./media/analysis-services-tutorial-roles/aas-copy-server-name.png)
 
@@ -50,18 +50,18 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 나머지 작업에서는 SSMS를 사용하여 서버에 연결하고 관리합니다.
 
-1. SSMS > **개체 탐색기**에서 **연결** > **Analysis Services**를 클릭합니다.
+1. SSMS > **개체 탐색기** 에서 **연결** > **Analysis Services** 를 클릭합니다.
 
     ![연결](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
-2. **서버에 연결** 대화 상자의 **서버 이름**에 포털에서 복사한 서버 이름을 붙여넣습니다. **인증**에서 **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택하고, 사용자 계정을 입력한 다음, **연결**을 누릅니다.
+2. **서버에 연결** 대화 상자의 **서버 이름** 에 포털에서 복사한 서버 이름을 붙여넣습니다. **인증** 에서 **Active Directory - MFA 지원을 통한 유니버설 인증** 을 선택하고, 사용자 계정을 입력한 다음, **연결** 을 누릅니다.
    
     ![SSMS에서 연결](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
     > [Active Directory - MFA 지원을 통한 유니버설 인증]을 선택하는 것이 좋습니다. 이 인증 유형은 [비대화형 및 다단계 인증](../../azure-sql/database/authentication-mfa-ssms-overview.md)을 지원합니다. 
 
-3. **개체 탐색기**에서 서버 개체를 펼쳐서 살펴봅니다. 서버 속성을 마우스 오른쪽 단추를 클릭하여 확인합니다.
+3. **개체 탐색기** 에서 서버 개체를 펼쳐서 살펴봅니다. 서버 속성을 마우스 오른쪽 단추를 클릭하여 확인합니다.
    
     ![SSMS의 개체 탐색기](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
@@ -69,27 +69,27 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 이 작업에서는 Azure AD의 사용자 또는 그룹 계정을 서버 관리자 역할에 추가합니다. 보안 그룹을 지정하는 경우 `obj:groupid@tenantid`를 사용합니다.
 
-1. **개체 탐색기**에서 서버 이름을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 클릭합니다. 
-2. **Analysis Server 속성** 창에서 **보안** > **추가**를 차례로 클릭합니다.
-3. **사용자 또는 그룹 선택** 창에서 Azure AD의 사용자 또는 그룹 계정을 입력한 다음, **추가**를 클릭합니다. 
+1. **개체 탐색기** 에서 서버 이름을 마우스 오른쪽 단추로 클릭한 다음, **속성** 을 클릭합니다. 
+2. **Analysis Server 속성** 창에서 **보안** > **추가** 를 차례로 클릭합니다.
+3. **사용자 또는 그룹 선택** 창에서 Azure AD의 사용자 또는 그룹 계정을 입력한 다음, **추가** 를 클릭합니다. 
    
      ![서버 관리자 추가](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
 
-4. **확인**을 클릭하여 **Analysis Server 속성**을 닫습니다.
+4. **확인** 을 클릭하여 **Analysis Server 속성** 을 닫습니다.
 
     > [!TIP]
-    > 포털에서 **Analysis Services 관리자**를 사용하여 서버 관리자를 추가할 수도 있습니다. 
+    > 포털에서 **Analysis Services 관리자** 를 사용하여 서버 관리자를 추가할 수도 있습니다. 
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>모델 데이터베이스 관리자 역할에 사용자 추가
 
 이 작업에서는 모델에 이미 있는 Internet Sales Administrator(인터넷 판매 관리자) 역할에 사용자 또는 그룹 계정을 추가합니다. 이 역할에는 adventureworks 샘플 모델 데이터베이스에 대한 모든 권한(관리자) 권한이 있습니다. 이 작업에서는 만든 스크립트에서 [CreateOrReplace](/analysis-services/tmsl/createorreplace-command-tmsl) TMSL 명령을 사용합니다.
 
-1. **개체 탐색기**에서 **데이터베이스** > **adventureworks** > **역할**을 차례로 펼칩니다. 
-2. **Internet Sales Administrator**를 마우스 오른쪽 단추로 클릭한 다음, **역할 스크립팅** > **만들기 또는 다음으로 바꾸기** > **새 쿼리 편집기 창**을 차례로 클릭합니다.
+1. **개체 탐색기** 에서 **데이터베이스** > **adventureworks** > **역할** 을 차례로 펼칩니다. 
+2. **Internet Sales Administrator** 를 마우스 오른쪽 단추로 클릭한 다음, **역할 스크립팅** > **만들기 또는 다음으로 바꾸기** > **새 쿼리 편집기 창** 을 차례로 클릭합니다.
 
     ![새 쿼리 편집기 창](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
 
-3. **XMLAQuery**에서 **"memberName":** 값을 Azure AD의 사용자 또는 그룹 계정으로 변경합니다. 로그인한 계정은 기본적으로 포함됩니다. 그러나 이미 서버 관리자이기 때문에 사용자 고유의 계정을 추가할 필요는 없습니다.
+3. **XMLAQuery** 에서 **"memberName":** 값을 Azure AD의 사용자 또는 그룹 계정으로 변경합니다. 로그인한 계정은 기본적으로 포함됩니다. 그러나 이미 서버 관리자이기 때문에 사용자 고유의 계정을 추가할 필요는 없습니다.
 
     ![XMLA 쿼리의 TMSL 스크립트](./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png)
 
@@ -100,7 +100,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 이 작업에서는 TMSL 스크립트에서 [Create](/analysis-services/tmsl/create-command-tmsl) 명령을 사용하여 새 Internet Sales Global(인터넷 판매 전역) 역할을 만들고, 역할에 대한 *읽기* 권한을 지정하고, Azure AD에서 사용자 또는 그룹 계정을 추가합니다.
 
-1. **개체 탐색기**에서 **adventureworks**를 마우스 오른쪽 단추로 클릭한 다음, **새 쿼리** > **XMLA**를 차례로 클릭합니다. 
+1. **개체 탐색기** 에서 **adventureworks** 를 마우스 오른쪽 단추로 클릭한 다음, **새 쿼리** > **XMLA** 를 차례로 클릭합니다. 
 2. 다음 TMSL 스크립트를 복사하여 쿼리 편집기에 붙여넣습니다.
 
     ```JSON
@@ -129,14 +129,14 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="verify-your-changes"></a>변경 내용 확인
 
-1. **개체 탐색기**에서 서버 이름을 클릭한 다음, **새로 고침**을 클릭하거나 **F5** 키를 누릅니다.
-2. **데이터베이스** > **adventureworks** > **역할**을 차례로 펼칩니다. 이전 작업에서 추가한 사용자 계정 및 새 역할 변경 내용이 표시되는지 확인합니다.   
+1. **개체 탐색기** 에서 서버 이름을 클릭한 다음, **새로 고침** 을 클릭하거나 **F5** 키를 누릅니다.
+2. **데이터베이스** > **adventureworks** > **역할** 을 차례로 펼칩니다. 이전 작업에서 추가한 사용자 계정 및 새 역할 변경 내용이 표시되는지 확인합니다.   
 
     ![개체 탐색기에서 확인](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 사용자 또는 그룹 계정 및 역할을 삭제합니다. 이렇게 하려면 **역할 속성** > **멤버 자격**을 차례로 사용하여 사용자 계정을 제거하거나, 역할을 마우스 오른쪽 단추로 클릭하고 **삭제**를 클릭합니다.
+더 이상 필요하지 않은 경우 사용자 또는 그룹 계정 및 역할을 삭제합니다. 이렇게 하려면 **역할 속성** > **멤버 자격** 을 차례로 사용하여 사용자 계정을 제거하거나, 역할을 마우스 오른쪽 단추로 클릭하고 **삭제** 를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

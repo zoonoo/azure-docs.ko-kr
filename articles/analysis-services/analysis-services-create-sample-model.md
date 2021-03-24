@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f882a40940a5c7202e9cf1f5c8b8927f008f4a39
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92013613"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
@@ -39,15 +39,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="add-a-sample-model"></a>샘플 모델 추가
 
-1. 서버 **개요**에서 **새 모델**을 클릭합니다.
+1. 서버 **개요** 에서 **새 모델** 을 클릭합니다.
 
     ![샘플 모델 만들기](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. **새 모델** > **데이터 원본 선택**에서 **샘플 데이터**가 선택되어 있는지 확인한 다음, **추가**를 클릭합니다.
+2. **새 모델** > **데이터 원본 선택** 에서 **샘플 데이터** 가 선택되어 있는지 확인한 다음, **추가** 를 클릭합니다.
 
     ![새 모델 선택](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
-3. **개요**에서 `adventureworks` 샘플 모델이 추가되었는지 확인합니다.
+3. **개요** 에서 `adventureworks` 샘플 모델이 추가되었는지 확인합니다.
 
     ![샘플 데이터 선택](./media/analysis-services-create-sample-model/aas-create-sample-verify.png)
 
@@ -58,13 +58,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 단계에서는 SSMS를 사용하여 서버에서 모델을 삭제하는 방법을 설명합니다.
 
-1. SSMS > **개체 탐색기**에서 **연결** > **Analysis Services**를 클릭합니다.
+1. SSMS > **개체 탐색기** 에서 **연결** > **Analysis Services** 를 클릭합니다.
 
-2. **서버에 연결**에서 서버 이름을 붙여넣고, **인증**에서 **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택하고, 사용자 이름을 입력한 다음, **연결**을 클릭합니다.
+2. **서버에 연결** 에서 서버 이름을 붙여넣고, **인증** 에서 **Active Directory - MFA 지원을 통한 유니버설 인증** 을 선택하고, 사용자 이름을 입력한 다음, **연결** 을 클릭합니다.
 
     ![로그인](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-signin.png)
 
-3. **개체 탐색기**에서 `adventureworks` 샘플 데이터베이스를 마우스 오른쪽 단추로 클릭한 다음, **삭제**를 클릭합니다.
+3. **개체 탐색기** 에서 `adventureworks` 샘플 데이터베이스를 마우스 오른쪽 단추로 클릭한 다음, **삭제** 를 클릭합니다.
 
     ![샘플 데이터베이스 삭제](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 

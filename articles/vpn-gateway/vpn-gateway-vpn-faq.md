@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/22/2021
 ms.author: yushwang
-ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ca50ae77d9d9e200db3318b8e087b72697c343a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880104"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953479"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -20,11 +20,15 @@ ms.locfileid: "98880104"
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>다양한 Azure 지역에서 가상 네트워크를 연결할 수 있습니까?
 
-예. 실제로 지역 제약 조건이 없습니다. 가상 네트워크를 동일한 지역 또는 다른 Azure 지역의 다른 가상 네트워크에 연결할 수 있습니다. 
+예. 실제로 지역 제약 조건이 없습니다. 가상 네트워크를 동일한 지역 또는 다른 Azure 지역의 다른 가상 네트워크에 연결할 수 있습니다.
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>다른 구독의 가상 네트워크를 연결할 수 있습니까?
 
 예.
+
+### <a name="can-i-specify-private-dns-servers-in-my-vnet-when-configuring-vpn-gateway"></a>VPN Gateway를 구성할 때 VNet에서 개인 DNS 서버를 지정할 수 있나요?
+
+VNet을 만들 때 DNS 서버를 지정한 경우 VPN Gateway는 지정한 DNS 서버를 사용 합니다. DNS 서버를 지정 하는 경우 DNS 서버가 Azure에 필요한 도메인 이름을 확인할 수 있는지 확인 합니다.
 
 ### <a name="can-i-connect-to-multiple-sites-from-a-single-virtual-network"></a>단일 가상 네트워크에서 여러 사이트에 연결할 수 있습니까?
 
@@ -32,7 +36,7 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>VPN 게이트웨이를 활성-활성으로 설정기 위한 추가 비용이 있나요?
 
-아니요. 
+아니요.
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>내 프레미스 간 연결 옵션은 무엇입니까?
 
@@ -48,7 +52,7 @@ VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gatewa
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
 
-**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 머신 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 디바이스 또는 소프트 어플라이언스)를 사용합니다. 이러한 유형의 연결을 만들려면 외부 연결 IPv4 주소가 있어야 합니다.
+**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 머신 또는 역할 인스턴스에 연결할 수 있습니다. 이는 항상 사용 가능한 크로스-프레미스 연결에 유용한 옵션 이며 하이브리드 구성에 적합 합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 디바이스 또는 소프트 어플라이언스)를 사용합니다. 이러한 유형의 연결을 만들려면 외부 연결 IPv4 주소가 있어야 합니다.
 
 **지점 및 사이트 간**(SSTP를 통한 VPN) 구성을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 머신 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
@@ -66,17 +70,20 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>경로 기반(동적 라우팅) 게이트웨이란?
 
-경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
+경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 Vpn에 대 한 정책 또는 트래픽 선택기는 임의 또는 와일드 카드로 구성 됩니다.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>내 정책 기반 VPN 게이트웨이를 경로 기반으로 업데이트할 수 있나요?
 
-아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
-1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
-1. 게이트웨이를 삭제합니다.
-   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell-클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [원하는 유형의 새 게이트웨이를 만들고 VPN 설치를 완료](./tutorial-site-to-site-portal.md#VNetGateway)합니다.
+아니요. 게이트웨이 형식은 정책 기반 또는 경로 기반에서 정책 기반으로 변경할 수 없습니다. 게이트웨이 유형을 변경 하려면 게이트웨이를 삭제 하 고 다시 만들어야 합니다. 이 프로세스는 약 60 분 정도 걸립니다. 새 게이트웨이를 만들 때 원래 게이트웨이의 IP 주소를 유지할 수 없습니다.
+
+1. 게이트웨이와 연결 된 연결을 모두 삭제 합니다.
+
+1. 다음 문서 중 하나를 사용 하 여 게이트웨이를 삭제 합니다.
+
+   * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   * [Azure PowerShell-클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. 원하는 게이트웨이 유형을 사용 하 여 새 게이트웨이를 만든 후 VPN 설치를 완료 합니다. 단계에 대 한 자세한 내용은 [사이트 간 자습서](./tutorial-site-to-site-portal.md#VNetGateway)를 참조 하십시오.
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 
@@ -102,7 +109,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>내 VPN 터널을 어떻게 인증합니까?
 
-Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 만들 때 PSK(미리 공유한 키)를 생성합니다. Set Pre-Shared Key PowerShell cmdlet 또는 REST API를 사용하여 자동 생성된 PSK를 자체 PSK로 변경할 수 있습니다.
+Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 만들 때 PSK(미리 공유한 키)를 생성합니다. 미리 공유한 키 설정 PowerShell cmdlet 또는 REST API을 사용 하 여 자동 생성 된 PSK를 고유한 사용자로 변경할 수 있습니다.
 
 ### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-static-routing-gateway-vpn"></a>사전 공유 키 설정 API를 사용하여 정책 기반(고정 라우팅) 게이트웨이 VPN을 구성할 수 있습니까?
 
@@ -121,11 +128,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 #### <a name="classic-deployment-model"></a>클래식 배포 모델
 
-* Azure Portal: 클래식 가상 네트워크 > VPN 연결 > 사이트 간 VPN 연결 > 로컬 사이트 이름 > 로컬 사이트 > 클라이언트 주소 공간으로 이동합니다. 
-
-### <a name="can-i-configure-force-tunneling"></a>강제 터널링을 구성할 수 있나요?
-
-예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
+* Azure Portal: 클래식 가상 네트워크 > VPN 연결 > 사이트 간 VPN 연결 > 로컬 사이트 이름 > 로컬 사이트 > 클라이언트 주소 공간으로 이동합니다.
 
 ### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>내 VPN 연결에서 NAT-T를 사용할 수 있나요?
 
@@ -225,10 +228,13 @@ VPN Gateway 아래에서 지점 및 사이트 간 **구성** 섹션으로 이동
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
-
-## <a name="bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp-and-routing"></a><a name="bgp"></a>BGP 및 라우팅
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
+
+### <a name="can-i-configure-forced-tunneling"></a>강제 터널링을 구성할 수 있나요?
+
+예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
 ## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>크로스-프레미스 연결 및 VM
 
@@ -245,7 +251,6 @@ VPN Gateway 아래에서 지점 및 사이트 간 **구성** 섹션으로 이동
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>VM에 대한 RDP 연결 문제를 해결하려면 어떻게 하나요?
 
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
-
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Virtual Network FAQ
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 이메일 알림을 위해 SendGrid를 Apache A
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5b344c0c4b1db9159d0223c861e5d371cb225f5a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822134"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867205"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Ambari 이메일 알림 구성
 
@@ -33,15 +33,15 @@ ms.locfileid: "99822134"
 
 1. 개요 페이지에서 **관리** 를 선택하고 계정의 SendGrid 웹 페이지로 이동합니다.
 
-    ![Azure Portal의 SendGrid 개요](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="Azure Portal의 SendGrid 개요":::
 
 1. 왼쪽 메뉴에서 계정 이름으로 이동한 다음, **계정 정보** 로 이동합니다.
 
-    ![SendGrid 대시보드 탐색](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="SendGrid 대시보드 탐색":::
 
 1. **계정 정보** 페이지에서 **사용자 이름** 을 기록합니다.
 
-    ![SendGrid 계정 정보](./media/apache-ambari-email/sendgrid-account-details.png)
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="SendGrid 계정 정보":::
 
 ## <a name="configure-ambari-e-mail-notification"></a>Ambari 이메일 알림 구성
 
@@ -51,7 +51,7 @@ ms.locfileid: "99822134"
 
 1. **Manage Alert Notifications**(경고 알림 관리) 창에서 **+** 아이콘을 선택합니다.
 
-    ![스크린샷은 Alert Notifications 관리 대화 상자를 보여줍니다.](./media/apache-ambari-email/azure-portal-create-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-create-notification.png" alt-text="스크린샷은 Alert Notifications 관리 대화 상자를 보여줍니다.":::
 
 1. **Create Alert Notification**(경고 알림 만들기) 대화 상자에서 다음 정보를 제공합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "99822134"
     |암호 확인|암호를 다시 입력합니다.|
     |Start TLS(TLS 시작)|이 확인란을 선택합니다.|
 
-    ![스크린샷은 Alert Notification 만들기 대화 상자를 보여줍니다.](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="스크린샷은 Alert Notification 만들기 대화 상자를 보여줍니다.":::
 
     **저장** 을 선택합니다. **Manage Alert Notifications**(경고 알림 관리) 창이 다시 열립니다.
 

@@ -4,16 +4,17 @@ description: Linux 컴퓨터용으로 자동으로 등록 및 구성 되는 서�
 author: deanwe
 ms.service: virtual-machines
 ms.subservice: automanage
+ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: b4ca9a69ab56a81e192560a3a61ec90f82cbbe80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3aab43be49cb98fbe136e1f0216590785d650392
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101688402"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953252"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices---linux"></a>Virtual machines에 대 한 Azure Automanage 모범 사례-Linux
 
@@ -35,7 +36,7 @@ Automanage는 다음과 같은 Linux 배포판 및 버전을 지원 합니다.
 >[!NOTE]
 > 지금은 Linux Vm에서 Microsoft 맬웨어 방지 프로그램이 지원 되지 않습니다.
 
-|서비스    |설명    |지원 되는 환경<sup>1</sup>    |기본 설정 지원<sup>1</sup>    |
+|서비스    |Description    |지원 되는 환경<sup>1</sup>    |기본 설정 지원<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
 |VM Insights 모니터링    |VM용 Azure Monitor는 실행 중인 프로세스 및 다른 리소스에 대 한 종속성을 포함 하 여 가상 컴퓨터의 성능 및 상태를 모니터링 합니다. 자세히 [알아보세요.](../azure-monitor/vm/vminsights-overview.md)    |프로덕션    |예    |
 |Backup    |Azure Backup은 VM에서 의도하지 않은 데이터 소멸을 방지하기 위해 독립적이고 격리된 백업을 제공합니다. 자세히 [알아보세요.](../backup/backup-azure-vms-introduction.md) 요금은 보호 되는 Vm의 수와 크기를 기준으로 합니다. 자세히 [알아보세요.](https://azure.microsoft.com/pricing/details/backup/)    |프로덕션    |예    |

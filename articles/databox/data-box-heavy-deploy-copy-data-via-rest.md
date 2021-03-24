@@ -9,29 +9,29 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: e2fc174147b99b7b952c6d10084cfc969dacf5a6
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91949142"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
-이 자습서에서는 *http* 또는 *https*를 사용한 REST API를 통해 Azure Data Box Blob 스토리지에 연결하는 절차를 설명합니다. 연결한 후에는 데이터를 Data Box Blob 스토리지에 복사하는 데 필요한 단계에 대해서 설명합니다.
+이 자습서에서는 *http* 또는 *https* 를 사용한 REST API를 통해 Azure Data Box Blob 스토리지에 연결하는 절차를 설명합니다. 연결한 후에는 데이터를 Data Box Blob 스토리지에 복사하는 데 필요한 단계에 대해서 설명합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
-> * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
+> * 필수 구성 요소
+> * *http* 또는 *https* 를 통해 Data Box Blob 스토리지에 연결
 > * Data Box Heavy에 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box Heavy 설정](data-box-heavy-deploy-set-up.md)을 완료했습니다.
-2. Data Box Heavy를 받았고 포털의 주문 상태가 **배달됨**입니다.
+2. Data Box Heavy를 받았고 포털의 주문 상태가 **배달됨** 입니다.
 3. [Data Box Blob 스토리지의 시스템 요구 사항](data-box-system-requirements-rest.md)을 검토했으며 API, SDK 및 도구의 지원 버전에 대해 잘 알고 있습니다.
 4. Data Box Heavy에 복사할 데이터가 포함된 호스트 컴퓨터에 액세스했습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.
     - [지원되는 운영 체제](data-box-system-requirements.md)를 실행합니다.
@@ -41,16 +41,16 @@ ms.locfileid: "91949142"
 
 ## <a name="connect-via-http-or-https"></a>http 또는 https를 통해 연결
 
-*http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결할 수 있습니다.
+*http* 또는 *https* 를 통해 Data Box Blob 스토리지에 연결할 수 있습니다.
 
-- *Https*는 Data Box Blob 스토리지에 안전하게 연결할 수 있는 권장 방법입니다.
-- *Http*는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
+- *Https* 는 Data Box Blob 스토리지에 안전하게 연결할 수 있는 권장 방법입니다.
+- *Http* 는 신뢰할 수 있는 네트워크를 통해 연결할 때 사용됩니다.
 
-연결하는 단계는 Data Box Blob Storage에 연결할 때 *http* 또는 *https*를 사용했는지에 따라 다릅니다.
+연결하는 단계는 Data Box Blob Storage에 연결할 때 *http* 또는 *https* 를 사용했는지에 따라 다릅니다.
 
 ## <a name="connect-via-http"></a>http를 통해 연결
 
-*http*를 통해 Data Box Blob 스토리지 REST API에 연결하려면 다음 단계를 수행해야 합니다.
+*http* 를 통해 Data Box Blob 스토리지 REST API에 연결하려면 다음 단계를 수행해야 합니다.
 
 - 디바이스 IP 및 Blob 서비스 엔드포인트를 원격 호스트에 추가
 - 타사 소프트웨어 구성 및 연결 확인
@@ -91,8 +91,8 @@ https를 통해 Azure Blob 스토리지 REST API에 연결하려면 다음 단�
 Azure Portal을 사용하여 인증서를 다운로드합니다.
 
 1. Azure Portal에 로그인합니다.
-2. 해당 Data Box 주문으로 이동하고 **일반 > 디바이스 세부 정보**로 이동합니다.
-3. **디바이스 자격 증명**에서 **디바이스에 대한 API 액세스**로 이동합니다. **다운로드**를 클릭합니다. 이 작업은 **\<your order name>.cer** 인증서 파일을 다운로드합니다. 이 파일을 **저장**합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치합니다.
+2. 해당 Data Box 주문으로 이동하고 **일반 > 디바이스 세부 정보** 로 이동합니다.
+3. **디바이스 자격 증명** 에서 **디바이스에 대한 API 액세스** 로 이동합니다. **다운로드** 를 클릭합니다. 이 작업은 **\<your order name>.cer** 인증서 파일을 다운로드합니다. 이 파일을 **저장** 합니다. 디바이스에 연결하는 데 사용할 클라이언트 또는 호스트 컴퓨터에 이 인증서를 설치합니다.
 
     ![Azure Portal에서 인증서 다운로드](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
@@ -115,16 +115,16 @@ HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의
 
 #### <a name="use-windows-server-ui"></a>Windows Server UI 사용
 
-1.  `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치**를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
-2.  **저장소 위치**에 대해 **로컬 컴퓨터**를 선택하고 **다음**을 클릭합니다.
+1.  `.cer` 파일을 마우스 오른쪽 단추로 클릭하고 **인증서 설치** 를 선택합니다. 그러면 인증서 가져오기 마법사가 시작됩니다.
+2.  **저장소 위치** 에 대해 **로컬 컴퓨터** 를 선택하고 **다음** 을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
-3.  **모든 인증서를 다음 저장소에 저장**을 선택하고 **찾아보기**를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음**을 클릭합니다.
+3.  **모든 인증서를 다음 저장소에 저장** 을 선택하고 **찾아보기** 를 클릭합니다. 원격 호스트의 루트 저장소로 이동한 후 **다음** 을 클릭합니다.
 
     ![PowerShell을 사용하여 인증서 가져오기 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.  **Finish**를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
+4.  **Finish** 를 클릭합니다. 가져오기에 성공했음을 알리는 메시지가 나타납니다.
 
     ![PowerShell을 사용하여 인증서 가져오기 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -149,11 +149,11 @@ RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용�
 
 ### <a name="add-device-ip-address-and-blob-service-endpoint"></a>디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가 
 
-[*http*를 통해 연결할 때 디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가](#add-device-ip-address-and-blob-service-endpoint)와 동일한 단계를 따릅니다.
+[*http* 를 통해 연결할 때 디바이스 IP 주소 및 Blob 서비스 엔드포인트 추가](#add-device-ip-address-and-blob-service-endpoint)와 동일한 단계를 따릅니다.
 
 ### <a name="configure-partner-software-and-verify-connection"></a>파트너 소프트웨어 구성 및 연결 확인
 
-[*http*를 통해 연결할 때 사용되는 파트너 소프트웨어 구성](#configure-partner-software-and-verify-connection)의 단계를 따릅니다. 유일한 차이점은 *http 옵션 사용*을 선택하지 않은 상태로 두어야 한다는 것입니다.
+[*http* 를 통해 연결할 때 사용되는 파트너 소프트웨어 구성](#configure-partner-software-and-verify-connection)의 단계를 따릅니다. 유일한 차이점은 *http 옵션 사용* 을 선택하지 않은 상태로 두어야 한다는 것입니다.
 
 ## <a name="copy-data-to-data-box-heavy"></a>Data Box Heavy에 데이터 복사
 
@@ -182,7 +182,7 @@ Blob은 항상 컨테이너에 업로드하므로 첫 번째 단계는 컨테이
 
 1. Storage Explorer를 엽니다.
 2. 왼쪽 창에서 blob 컨테이너를 만들고자 하는 곳의 스토리지 계정을 확장합니다.
-3. 마우스 오른쪽 단추로 **Blob 컨테이너**를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 만들기**를 선택합니다.
+3. 마우스 오른쪽 단추로 **Blob 컨테이너** 를 클릭하고, 상황에 맞는 메뉴에서 **Blob 컨테이너 만들기** 를 선택합니다.
 
    ![Blob 컨테이너 상황에 맞는 메뉴 만들기](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
@@ -211,7 +211,7 @@ azcopy \
 AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 ```
 
-`<key>`를 사용자의 계정 키로 바꿉니다. 계정 키를 가져오려면 Azure Portal에서 스토리지 계정으로 이동합니다. **설정 > 액세스 키**로 이동하고 키를 선택하며 AzCopy 명령에 붙여넣습니다.
+`<key>`를 사용자의 계정 키로 바꿉니다. 계정 키를 가져오려면 Azure Portal에서 스토리지 계정으로 이동합니다. **설정 > 액세스 키** 로 이동하고 키를 선택하며 AzCopy 명령에 붙여넣습니다.
 
 지정된 대상 컨테이너가 존재하지 않을 경우 AzCopy는 컨테이너를 만든 후 여기에 파일을 업로드합니다. 원본 경로를 데이터 디렉터리로 업데이트하고 대상 URL의 `data-box-storage-account-name`을 사용자의 Data Box와 연결된 스토리지 계정 이름으로 바꿉니다.
 
@@ -249,8 +249,8 @@ AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blo
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 사전 요구 사항
-> * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
+> * 필수 구성 요소
+> * *http* 또는 *https* 를 통해 Data Box Blob 스토리지에 연결
 > * Data Box Heavy에 데이터 복사
 
 
