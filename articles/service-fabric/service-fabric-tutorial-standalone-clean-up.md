@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 0d46e9068a311594f779411c3ccee2b408febb3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91842889"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>자습서: 독립 실행형 클러스터 정리
@@ -52,14 +52,14 @@ Service Fabric 독립 실행형 클러스터는 Service Fabric를 호스팅할 �
 1. AWS 계정에 로그인합니다.
 2. EC2 콘솔로 이동합니다.
 3. 자습서의 1부에서 만든 세 개의 노드를 선택합니다.
-4. **작업** > **인스턴스 상태** > **종료**를 선택합니다.
+4. **작업** > **인스턴스 상태** > **종료** 를 선택합니다.
 
 ## <a name="delete-azure-resources"></a>Azure 리소스 삭제
 
 1. Azure Portal에 로그인합니다.
 2. **가상 머신** 섹션으로 이동합니다.
 3. 자습서의 1부에서 만든 세 개의 노드에 대한 확인란을 선택합니다.
-4. **삭제**를 선택합니다.
+4. **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

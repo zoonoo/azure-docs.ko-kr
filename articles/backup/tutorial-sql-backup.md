@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure VM에서 실행되는 SQL Server 데�
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88612455"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Azure VM에서 SQL Server 데이터베이스 백업
@@ -74,17 +74,17 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 데이터베이스를 백업하는 데 사용하는 Recovery Services 자격 증명 모음을 엽니다.
 
-2. **Recovery Services 자격 증명 모음** 대시보드에서 **Backup**을 선택합니다.
+2. **Recovery Services 자격 증명 모음** 대시보드에서 **Backup** 을 선택합니다.
 
    ![Backup을 선택하여 백업 목표 메뉴 열기](./media/backup-azure-sql-database/open-backup-menu.png)
 
-3. **백업 목표**에서 **작업이 실행되는 위치**를 **Azure**(기본값)로 설정합니다.
+3. **백업 목표** 에서 **작업이 실행되는 위치** 를 **Azure**(기본값)로 설정합니다.
 
-4. **백업할 항목**에서 **Azure VM의 SQL Server**를 선택합니다.
+4. **백업할 항목** 에서 **Azure VM의 SQL Server** 를 선택합니다.
 
     ![백업을 위해 Azure VM에서 SQL Server 선택](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. **백업 목표** > **VM에서 DB 검색** 에서 **검색 시작**을 선택하여 구독에서 보호되지 않은 가상 머신을 검색합니다. 구독에서 보호되지 않은 가상 머신의 수에 따라 약간의 시간이 걸릴 수 있습니다.
+5. **백업 목표** > **VM에서 DB 검색** 에서 **검색 시작** 을 선택하여 구독에서 보호되지 않은 가상 머신을 검색합니다. 구독에서 보호되지 않은 가상 머신의 수에 따라 약간의 시간이 걸릴 수 있습니다.
 
    * 검색 후에는 보호되지 않은 VM이 이름 및 리소스 그룹별로 나열된 목록에 표시됩니다.
    * VM이 예상대로 나열되지 않으면 자격 증명 모음에 이미 백업되어 있는지 확인합니다.
@@ -92,7 +92,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
      ![VM의 DB 검색 중에는 백업이 보류됩니다.](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
-6. VM 목록에서 SQL Server 데이터베이스가 실행되는 VM, **DB 검색**을 차례로 선택합니다.
+6. VM 목록에서 SQL Server 데이터베이스가 실행되는 VM, **DB 검색** 을 차례로 선택합니다.
 
 7. **알림** 영역에서 데이터베이스 검색을 추적합니다. VM의 데이터베이스 수에 따라 작업이 완료되는 데 약간의 시간이 걸릴 수 있습니다. 선택한 데이터베이스가 검색되면 성공 메시지가 표시됩니다.
 
@@ -104,8 +104,8 @@ VM에서 실행되는 데이터베이스를 검색합니다.
     * Azure Backup에서 **AzureBackupWindowsWorkload** 확장을 VM에 설치합니다. 에이전트는 SQL 데이터베이스에 설치되지 않습니다.
     * Azure Backup에서 **NT Service\AzureWLBackupPluginSvc** 서비스 계정을 VM에 만듭니다.
       * 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다.
-      * **NT Service\AzureWLBackupPluginSvc**에는 SQL sysadmin 권한이 필요합니다. Azure Marketplace에서 만든 모든 SQL Server VM에는 **SqlIaaSExtension**이 설치되어 있습니다. **AzureBackupWindowsWorkload** 확장은 **SQLIaaSExtension**을 사용하여 필요한 권한을 자동으로 확보합니다.
-    * 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension**이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. [지침](backup-azure-sql-database.md#set-vm-permissions)에 따라 이 문제를 해결합니다.
+      * **NT Service\AzureWLBackupPluginSvc** 에는 SQL sysadmin 권한이 필요합니다. Azure Marketplace에서 만든 모든 SQL Server VM에는 **SqlIaaSExtension** 이 설치되어 있습니다. **AzureBackupWindowsWorkload** 확장은 **SQLIaaSExtension** 을 사용하여 필요한 권한을 자동으로 확보합니다.
+    * 마켓플레이스에서 VM을 만들지 않은 경우 VM에 **SqlIaaSExtension** 이 설치되어 있지 않고, **UserErrorSQLNoSysAdminMembership** 오류 메시지와 함께 검색 작업이 실패합니다. [지침](backup-azure-sql-database.md#set-vm-permissions)에 따라 이 문제를 해결합니다.
 
         ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -113,15 +113,15 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
 다음과 같이 백업을 구성합니다.
 
-1. **백업 목표**에서 **백업 구성**을 선택합니다.
+1. **백업 목표** 에서 **백업 구성** 을 선택합니다.
 
    ![백업 구성 선택](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. **백업 구성**을 선택하면 **백업할 항목 선택** 창이 표시됩니다. 이 목록에는 등록된 모든 가용성 그룹 및 독립 실행형 SQL Server가 표시됩니다. 행 왼쪽의 펼침 단추를 확장하여 해당 인스턴스의 보호되지 않는 모든 데이터베이스를 표시하거나 AG에서 항상을 선택합니다.  
+2. **백업 구성** 을 선택하면 **백업할 항목 선택** 창이 표시됩니다. 이 목록에는 등록된 모든 가용성 그룹 및 독립 실행형 SQL Server가 표시됩니다. 행 왼쪽의 펼침 단추를 확장하여 해당 인스턴스의 보호되지 않는 모든 데이터베이스를 표시하거나 AG에서 항상을 선택합니다.  
 
     ![독립 실행형 데이터베이스를 사용하는 모든 SQL Server 인스턴스 표시](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
-3. 보호하려는 모든 데이터베이스, **확인**을 차례로 선택합니다.
+3. 보호하려는 모든 데이터베이스, **확인** 을 차례로 선택합니다.
 
    ![데이터베이스 보호](./media/backup-azure-sql-database/select-database-to-protect.png)
 
@@ -129,11 +129,11 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
      * 또는 **AUTOPROTECT** 열의 해당 드롭다운에서 **ON** 옵션을 선택하여 전체 인스턴스 또는 Always On 가용성 그룹에 대한 자동 보호를 설정할 수 있습니다. 자동 보호 기능은 모든 기존 데이터베이스에 보호를 사용하도록 설정할 뿐 아니라 나중에 해당 인스턴스 또는 가용성 그룹에 추가되는 새 데이터베이스도 자동으로 보호합니다.  
 
-4. **확인**을 선택하여 **백업 정책** 창을 엽니다.
+4. **확인** 을 선택하여 **백업 정책** 창을 엽니다.
 
     ![Always On 가용성 그룹에 자동 보호를 사용하도록 설정](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. **백업 정책 선택**에서 정책을 선택한 다음, **확인**을 선택합니다.
+5. **백업 정책 선택** 에서 정책을 선택한 다음, **확인** 을 선택합니다.
 
    * 기본 정책 HourlyLogBackup.
    * 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
@@ -141,7 +141,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
      ![백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. **백업 메뉴**에서 **백업 사용**을 선택합니다.
+6. **백업 메뉴** 에서 **백업 사용** 을 선택합니다.
 
     ![선택한 백업 정책 사용](./media/backup-azure-sql-database/enable-backup-button.png)
 
@@ -161,23 +161,23 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
 백업 정책을 만들려면:
 
-1. 자격 증명 모음에서 **백업 정책** > **추가**를 선택합니다.
-2. **추가** 메뉴에서 **Azure VM의 SQL Server**를 선택하여 정책 유형을 정의합니다.
+1. 자격 증명 모음에서 **백업 정책** > **추가** 를 선택합니다.
+2. **추가** 메뉴에서 **Azure VM의 SQL Server** 를 선택하여 정책 유형을 정의합니다.
 
    ![새 백업 정책에 대한 정책 유형 선택](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. **정책 이름**에 새 정책의 이름을 입력합니다.
-4. **전체 백업 정책**에서 **백업 빈도**를 선택하고, **매일** 또는 **매주**를 선택합니다.
+3. **정책 이름** 에 새 정책의 이름을 입력합니다.
+4. **전체 백업 정책** 에서 **백업 빈도** 를 선택하고, **매일** 또는 **매주** 를 선택합니다.
 
-   * **매일**의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
+   * **매일** 의 경우 백업 작업이 시작될 때 시간과 표준 시간대를 선택합니다.
    * **전체 백업** 옵션은 해제할 수 없으므로 전체 백업을 실행해야 합니다.
-   * **전체 백업**을 선택하여 정책을 확인합니다.
+   * **전체 백업** 을 선택하여 정책을 확인합니다.
    * 매일 전체 백업에 대해서는 차등 백업을 만들 수 없습니다.
-   * **매주**의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
+   * **매주** 의 경우 백업 작업이 시작되는 요일, 시간 및 표준 시간대를 선택합니다.
 
      ![새 백업 정책 필드](./media/backup-azure-sql-database/full-backup-policy.png)  
 
-5. **보존 범위**에는 모든 옵션이 기본적으로 선택되어 있습니다. 사용하지 않으려는 보존 범위 제한을 모두 선택 취소하고 사용 간격을 설정합니다.
+5. **보존 범위** 에는 모든 옵션이 기본적으로 선택되어 있습니다. 사용하지 않으려는 보존 범위 제한을 모두 선택 취소하고 사용 간격을 설정합니다.
 
     * 모든 백업 유형(전체/차등/로그)의 최소 보존 기간은 7일입니다.
     * 복구 지점은 보존 범위를 기반으로 보존 태그가 지정됩니다. 예를 들어, 매일, 전체 백업을 선택하면 매일 하나의 전체 백업만 트리거됩니다.
@@ -186,30 +186,30 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
    ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
 
-6. **전체 백업 정책** 메뉴에서 **확인**을 클릭하여 설정을 적용합니다.
-7. 차등 백업 정책을 추가하려면 **차등 백업**을 선택합니다.
+6. **전체 백업 정책** 메뉴에서 **확인** 을 클릭하여 설정을 적용합니다.
+7. 차등 백업 정책을 추가하려면 **차등 백업** 을 선택합니다.
 
    ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
    ![차등 백업 정책 메뉴 열기](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
-8. **차등 백업 정책**에서 **사용**을 선택하여 빈도 및 보존 컨트롤을 엽니다.
+8. **차등 백업 정책** 에서 **사용** 을 선택하여 빈도 및 보존 컨트롤을 엽니다.
 
     * 많으면, 하루에 하나의 차등 백업을 트리거할 수 있습니다.
     * 차등 백업은 최대 180일 동안 보존될 수 있습니다. 더 오래 보존해야 하는 경우에는 전체 백업을 사용해야 합니다.
 
-9. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+9. **확인** 을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 
-10. 트랜잭션 로그 백업 정책을 추가하려면 **로그 백업**을 선택합니다.
-11. **로그 백업**에서 **사용**을 선택한 다음, 빈도 및 보존 컨트롤을 설정합니다. 로그 백업은 최소 15분 간격으로 수행할 수 있으며 최대 35일 동안 보존할 수 있습니다.
-12. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+10. 트랜잭션 로그 백업 정책을 추가하려면 **로그 백업** 을 선택합니다.
+11. **로그 백업** 에서 **사용** 을 선택한 다음, 빈도 및 보존 컨트롤을 설정합니다. 로그 백업은 최소 15분 간격으로 수행할 수 있으며 최대 35일 동안 보존할 수 있습니다.
+12. **확인** 을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 
     ![로그 백업 정책 편집](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다.
+13. **백업 정책** 메뉴에서 **SQL 백업 압축** 을 사용할지 여부를 선택합니다.
     * 압축은 기본적으로 사용하지 않도록 설정되어 있습니다.
     * 백 엔드에서, Azure Backup은 SQL 네이티브 백업 압축을 사용합니다.
 
-14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
+14. 백업 정책 편집을 완료 한 후, **확인** 을 선택합니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 

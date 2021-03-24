@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 80ff2f3f3d5fdcf61770889dcdaaf075941b90ff
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91814241"
 ---
 # <a name="reprotect-from-azure-to-azure-vmware-solution-private-cloud"></a>Azure에서 Azure VMware Solution 프라이빗 클라우드로 다시 보호
@@ -29,7 +29,7 @@ Azure VMware Solution VM을 Azure로 [장애 조치(failover)](avs-tutorial-fail
 6. 장애 복구(failback) 전에 vCenter Server가 연결되어 있는지 확인합니다. 연결되지 않은 경우 디스크의 연결을 끊고 가상 머신을 다시 연결하는 작업이 실패합니다.
 7. vCenter Server에서 장애 복구(failback)하려는 VM을 관리하는 경우 필요한 권한이 있는지 확인합니다. 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 그러나 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치(failover)가 실패하고, 다시 보호 중에는 나열되지 않습니다. 이 문제를 해결하려면 vCenter 자격 증명을 [적절한 계정/권한](avs-tutorial-prepare-avs.md#prepare-an-account-for-automatic-discovery)으로 업데이트한 다음, 작업을 다시 시도하면 됩니다. 
 8. 템플릿을 사용하여 가상 머신을 만든 경우 각 VM에 디스크에 대한 고유의 UUID가 있는지 확인합니다. Azure VMware Solution VM UUID와 마스터 대상의 UUID가 모두 동일한 템플릿에서 만들어졌기 때문에 두 UUID가 충돌하는 경우 다시 보호가 실패합니다. 다른 템플릿에서 배포하세요.
-9. 대체 vCenter Server로 장애 복구(failback)하려는 경우 새 vCenter Server 및 마스터 대상 서버가 검색되는지 확인합니다. 검색되지 않는 경우 일반적으로 데이터 저장소에 액세스할 수 없거나 **다시 보호**에 표시되지 않습니다.
+9. 대체 vCenter Server로 장애 복구(failback)하려는 경우 새 vCenter Server 및 마스터 대상 서버가 검색되는지 확인합니다. 검색되지 않는 경우 일반적으로 데이터 저장소에 액세스할 수 없거나 **다시 보호** 에 표시되지 않습니다.
 10. 장애 복구(failback)할 수 없는 다음 시나리오를 확인합니다.
     - ESXi 5.5 체험판 버전 또는 vSphere 6 Hypervisor 체험판 버전을 사용 중인 경우. 다른 버전으로 업그레이드하세요.
     - Windows Server 2008 R2 SP1 물리적 서버가 있는 경우.
@@ -59,13 +59,13 @@ Azure VMware Solution VM을 Azure로 [장애 조치(failover)](avs-tutorial-fail
 
 다음과 같이 다시 보호를 사용하도록 설정합니다.
 
-1. **자격 증명 모음** > **복제된 항목**을 선택합니다. 장애 조치된 가상 머신을 마우스 오른쪽 단추로 클릭한 다음, **다시 보호**를 선택합니다. 또는 명령 단추에서 컴퓨터를 선택한 다음, **다시 보호**를 선택합니다.
-2. 보호 방향이 **Azure에서 온-프레미스**로 선택되어 있는지 확인합니다.
-3. **마스터 대상 서버** 및 **프로세스 서버**에서 온-프레미스 마스터 대상 서버 및 프로세스 서버를 선택합니다.  
-4. **데이터 저장소**로는 Azure VMware Solution에서 디스크를 복구하려는 데이터 저장소를 선택합니다. 이 옵션은 Azure VMware Solution VM이 삭제되어 새 디스크를 만들어야 하는 경우에 사용합니다. 디스크가 이미 존재하는 경우 이 옵션은 무시됩니다. 값을 지정해야 합니다.
+1. **자격 증명 모음** > **복제된 항목** 을 선택합니다. 장애 조치된 가상 머신을 마우스 오른쪽 단추로 클릭한 다음, **다시 보호** 를 선택합니다. 또는 명령 단추에서 컴퓨터를 선택한 다음, **다시 보호** 를 선택합니다.
+2. 보호 방향이 **Azure에서 온-프레미스** 로 선택되어 있는지 확인합니다.
+3. **마스터 대상 서버** 및 **프로세스 서버** 에서 온-프레미스 마스터 대상 서버 및 프로세스 서버를 선택합니다.  
+4. **데이터 저장소** 로는 Azure VMware Solution에서 디스크를 복구하려는 데이터 저장소를 선택합니다. 이 옵션은 Azure VMware Solution VM이 삭제되어 새 디스크를 만들어야 하는 경우에 사용합니다. 디스크가 이미 존재하는 경우 이 옵션은 무시됩니다. 값을 지정해야 합니다.
 5. 보존 드라이브를 선택합니다.
 6. 장애 복구 정책이 자동으로 선택됩니다.
-7. **확인**을 선택하여 다시 보호를 시작합니다.
+7. **확인** 을 선택하여 다시 보호를 시작합니다.
 
     ![다시 보호 대화 상자](./media/vmware-azure-reprotect/reprotectinputs.png)
     
