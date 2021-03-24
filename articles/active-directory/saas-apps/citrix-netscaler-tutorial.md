@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: jeedes
 ms.openlocfilehash: 75d46edb332fb28132592e414e78bad64e75fef5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821808"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-kerberos-based-authentication"></a>자습서: Citrix ADC와 Azure Active Directory Single Sign-On 통합(Kerberos 기반 인증)
@@ -31,7 +31,7 @@ ms.locfileid: "99821808"
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Citrix ADC SSO(Single Sign-On)를 사용하도록 설정된 구독
+* Citrix ADC SSO(Single Sign-On)가 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -103,7 +103,7 @@ Azure Portal을 사용하여 Azure AD SSO를 사용하도록 설정하려면 다
     * **로그온 URL** 텍스트 상자에서 `https://<Your FQDN>/CitrixAuthService/AuthService.asmx` 패턴의 URL을 입력합니다.
 
     > [!NOTE]
-    > * 이 섹션에서 사용되는 URL은 실제 값이 아닙니다. 이러한 값을 식별자, 회신 URL 및 로그온 URL에 대한 실제 값으로 업데이트합니다. 해당 값을 얻으려면 [Citrix ADC 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > * 이 섹션에서 사용되는 URL은 실제 값이 아닙니다. 이러한 값을 식별자, 회신 URL 및 로그온 URL에 대한 실제 값으로 업데이트합니다. 이러한 값을 가져오려면 [Citrix ADC 클라이언트 지원 팀](https://www.citrix.com/contact/technical-support.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
     > * SSO를 설정하려면 공용 웹 사이트에서 URL에 액세스할 수 있어야 합니다. Azure AD에서 토큰을 구성된 URL에 게시할 수 있도록 하려면 Citrix ADC 쪽에서 방화벽 또는 다른 보안 설정을 사용하도록 설정해야 합니다.
 
 1. **SAML로 Single Sign-On 설정** 창의 **SAML 서명 인증서** 섹션에서 **앱 페더레이션 메타데이터 URL** 에 대한 URL을 복사하여 메모장에 저장합니다.
@@ -232,7 +232,7 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
     * **작업**: **SAML** 을 입력한 다음, **추가** 를 선택합니다.
     * **식**:  **true** 를 입력합니다.     
     
-    ![Citrix ADC 구성 - Create Authentication Policy 창](./media/citrix-netscaler-tutorial/policy01.png)
+    ![Citrix ADC 구성 - 인증서 정책 만들기 창](./media/citrix-netscaler-tutorial/policy01.png)
 
 1. **만들기** 를 선택합니다.
 
@@ -252,7 +252,7 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
 
 1. **만들기** 를 선택합니다.
 
-![Citrix ADC 구성 - Create Authentication SAML Server 창](./media/citrix-netscaler-tutorial/server01.png)
+![Citrix ADC 구성 - 인증 SAML Server 만들기 창](./media/citrix-netscaler-tutorial/server01.png)
 
 ### <a name="create-an-authentication-virtual-server"></a>인증 가상 서버 만들기
 
@@ -278,7 +278,7 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
 
 1.  **고급 인증 정책** 창에서 **인증 정책 없음** 을 선택합니다.
 
-    ![Citrix ADC 구성 - Advanced Authentication Policies 창](./media/citrix-netscaler-tutorial/virtual01.png)
+    ![Citrix ADC 구성 - 고급 인증 정책 창](./media/citrix-netscaler-tutorial/virtual01.png)
 
 1. **정책 바인딩** 창에서 인증 정책을 선택한 다음, **바인딩** 를 선택합니다.
 
@@ -286,7 +286,7 @@ Citrix ADC SAML 프로필을 구성하려면 다음 섹션을 완료합니다.
 
 1. **양식 기반 가상 서버** 창에서 **부하 분산 가상 서버 없음** 을 선택합니다.
 
-    ![Citrix ADC 구성 - Form Based Virtual Servers 창](./media/citrix-netscaler-tutorial/virtual03.png)
+    ![Citrix ADC 구성 - 양식 기반 Virtual Servers 창](./media/citrix-netscaler-tutorial/virtual03.png)
 
 1. **인증 FQDN** 에 대해 FQDN(정규화된 도메인 이름)을 입력합니다(필수).
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
 ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821537"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 일정 기반의 되풀이 자동화 워크플로 만들기
@@ -57,7 +57,7 @@ ms.locfileid: "99821537"
 
    ![논리 앱 만들기 창 및 새 논리 앱에 대해 입력해야 하는 정보를 보여주는 스크린샷](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독 이름. 이 예에서는 `Pay-As-You-Go`를 사용합니다. |
    | **리소스 그룹** | LA-TravelTime-RG | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제는 새 리소스 그룹 `LA-TravelTime-RG`를 만듭니다. |
@@ -141,7 +141,7 @@ ms.locfileid: "99821537"
 
    ![지정된 연결 이름과 Bing Maps API 키를 사용하는 Bing Maps 연결 상자를 보여주는 스크린샷](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | BingMapsConnection | 연결 이름을 입력합니다. 이 예에서는 `BingMapsConnection`를 사용합니다. |
    | **API 키** | 예 | <*Bing-Maps-API-key*> | 이전에 받은 Bing Maps API 키를 입력합니다. Bing 지도 키가 없는 경우 [키를 가져오는 방법](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key)을 알아보세요. |
@@ -192,7 +192,7 @@ ms.locfileid: "99821537"
 
 1. 이 표와 표 아래의 단계에 표시된 대로 변수 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
    | **이름** | 예 | travelTime | 변수의 이름입니다. 이 예에서는 `travelTime`를 사용합니다. |
    | **형식** | 예 | 정수 | 변수의 데이터 형식 |

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: f0673523c74a0ea298e7d2d520952c3e98877e91
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c950903522d42b3c279cb89f3a6031043fd49bf3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930033"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868803"
 ---
 # <a name="manage-spark-application-dependencies"></a>Spark 애플리케이션 종속성 관리
 
@@ -43,7 +43,7 @@ Spark 세션이 Scala에 대 한 Spark 커널의 Jupyter Notebook에서 시작 �
 
 Maven 리포지토리에서 패키지를 찾은 후 **GroupId**, **ArtifactId** 및 **Version** 에 대 한 값을 수집 합니다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
-   ![패키지 스키마 연결](./media/apache-spark-manage-dependencies/spark-package-schema.png "패키지 스키마 연결")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="패키지 스키마" border="true":::k) 스키마 연결 "border =" true ":::
 
 수집 하는 값이 클러스터와 일치 하는지 확인 합니다. 이 경우 Scala 2.11에는 Spark Cosmos DB 커넥터 패키지를 사용 하 고 HDInsight 3.6 Spark 클러스터에는 Spark 2.3을 사용 하 고 있습니다. 확실 하지 않은 경우 `scala.util.Properties.versionString` Spark 커널의 코드 셀에서를 실행 하 여 클러스터 Scala 버전을 가져옵니다. `sc.version`을 실행 하 여 클러스터 Spark 버전을 가져옵니다.
 
@@ -70,7 +70,7 @@ import com.microsoft.azure.cosmosdb.spark._
 ### <a name="use-azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ 사용
 [Azure Toolkit for IntelliJ 플러그](./apache-spark-intellij-tool-plugin.md) 인은 HDInsight 클러스터에 Spark Scala 응용 프로그램을 제출 하는 UI 환경을 제공 합니다. `Referenced Jars` `Referenced Files` Spark 응용 프로그램을 제출할 때 jar 라이브러리 경로를 구성 하는 및 속성을 제공 합니다. [HDInsight 용 Azure Toolkit for IntelliJ 플러그 인을 사용 하는 방법](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster)에 대 한 자세한 내용을 참조 하세요.
 
-![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="Spark 제출 대화 상자" border="true":::
 
 ## <a name="jar-libs-for-cluster"></a>클러스터용 Jar 라이브러리
 일부 경우에는 기본적으로 모든 응용 프로그램을 동일한 종속성으로 설정할 수 있도록 클러스터 수준에서 jar 종속성을 구성 하는 것이 좋습니다. 이 방법은 Spark 드라이버 및 executor 클래스 경로에 jar 경로를 추가 하는 것입니다.
@@ -89,11 +89,11 @@ import com.microsoft.azure.cosmosdb.spark._
     spark.executor.extraClassPath=/usr/libs/sparklibs/*
     ```
 
-   ![Spark 기본 구성 변경](./media/apache-spark-manage-dependencies/change-spark-default-config.png "Spark 기본 구성 변경")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/change-spark-default-config.png " alt-text="변경 Spark 기본 구성" border="true":::u) config "border =" true ":::
 
 3. 변경 된 구성을 저장 하 고 영향을 받는 서비스를 다시 시작 합니다.
 
-   ![영향을 받는 서비스 다시 시작](./media/apache-spark-manage-dependencies/restart-impacted-services.png "영향을 받는 서비스 다시 시작")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/restart-impacted-services.png " alt-text="영향을 받는 서비스를 다시 시작" border="true":::합니다. "border =" true ":::
 
 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)을 사용 하 여 단계를 자동화할 수 있습니다. [Hive 사용자 지정 라이브러리를 추가](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) 하는 스크립트 작업은 좋은 참조입니다. Spark 서비스 configs를 변경 하는 경우 구성 파일을 직접 수정 하는 대신 Ambari Api를 사용 해야 합니다. 
 

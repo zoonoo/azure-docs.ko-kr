@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: cddbc4b6a5c7a2c787c8305fdf703e34543746f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6be70f448cec7cf6db2b8152565ad8102d3a3294
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929967"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868752"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
@@ -73,7 +73,7 @@ Azure HDInsight Spark 클러스터와 함께 Microsoft Cognitive Toolkit를 사�
 
 1. Jupyter Notebook의 오른쪽 위 모서리에서 **업로드** 를 선택 하 고 다운로드로 이동 하 여 파일을 선택 `CNTK_model_scoring_on_Spark_walkthrough.ipynb` 합니다.
 
-    ![Azure HDInsight Spark 클러스터에 Jupyter Notebook 업로드](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Azure HDInsight Spark 클러스터에 Jupyter Notebook 업로드")
+    :::image type="content" source="./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png " alt-text="Azure HDInsight Spark 클러스터에 Jupyter Notebook 업로드" border="true":::
 
 1. **업로드** 를 다시 선택 합니다.
 

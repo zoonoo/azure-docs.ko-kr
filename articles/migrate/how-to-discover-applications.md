@@ -6,21 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: 47ea06fa2143f9a5dc5808ccb98fc80c87fefd93
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: d68c3729e8a63f8342cd51b62413aec3276c6165
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786705"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871013"
 ---
 # <a name="discover-installed-software-inventory-and-sql-server-instances-and-databases"></a>설치 된 소프트웨어 인벤토리 및 SQL Server 인스턴스 및 데이터베이스 검색
 
 이 문서에서는 Azure Migrate: 검색 및 평가 도구를 사용 하 여 VMware 환경에서 실행 중인 서버에서 설치 된 소프트웨어 인벤토리를 검색 하 고 인스턴스 및 데이터베이스를 SQL Server 하는 방법을 설명 합니다.
 
 소프트웨어 인벤토리를 수행 하면 워크 로드를 위해 Azure에 대 한 마이그레이션 경로를 식별 하 고 조정할 수 있습니다. 소프트웨어 인벤토리는 Azure Migrate 어플라이언스를 사용 하 여 서버 자격 증명을 사용 하 여 검색을 수행 합니다. 에이전트는 완전히 에이전트 없는 것입니다 .이 데이터를 수집 하기 위해 서버에 에이전트가 설치 되어 있지 않습니다.
-
-> [!NOTE]
-> 소프트웨어 인벤토리는 현재 VMware 환경 에서만 실행 되는 서버에 대해 미리 보기로 제공 되며 검색 으로만 제한 됩니다. 현재는 응용 프로그램 기반 평가를 제공 하지 않습니다.<br/> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 7158e9f82ee01b320d448baeab51fcfd122be00d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73b958964db2d0b308dd6dfc34024d61ce5ad8af
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944679"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871438"
 ---
 # <a name="troubleshoot-script-actions-in-azure-hdinsight"></a>Azure HDInsight의 스크립트 작업 문제 해결
 
@@ -26,11 +26,11 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
 
 1. 페이지 위쪽의 모음에서 **작업** 항목을 선택합니다. Ambari를 통해 클러스터에서 수행된 현재 및 이전 작업이 목록에 표시됩니다.
 
-    ![선택한 작업으로 Ambari 웹 UI 모음](./media/troubleshoot-script-action/hdi-apache-ambari-nav.png)
+    :::image type="content" source="./media/troubleshoot-script-action/hdi-apache-ambari-nav.png" alt-text="선택한 작업으로 Ambari 웹 UI 모음" border="true":::
 
 1. **작업** 열에 **run\_customscriptaction** 이 있는 항목을 찾습니다. 이러한 항목을 스크립트 동작을 실행할 때 생성됩니다.
 
-    ![Apache Ambari 스크립트 동작 작업](./media/troubleshoot-script-action/ambari-script-action.png)
+    :::image type="content" source="./media/troubleshoot-script-action/ambari-script-action.png" alt-text="Apache Ambari 스크립트 동작 작업" border="true":::
 
     **STDOUT** 및 **STDERR** 출력을 보려면 **run\customscriptaction** 항목을 선택하고 링크를 통해 드릴다운합니다. 이 출력은 스크립트가 실행될 때 생성되며, 여기에는 유용한 정보가 있을 수 있습니다.
 
@@ -40,7 +40,7 @@ Apache Ambari 웹 UI를 사용 하 여 스크립트 동작에 의해 기록 된 
 
 * 스토리지 로그는 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`에서 지원됩니다.
 
-    ![스크립트 동작 로그](./media/troubleshoot-script-action/script-action-logs-in-storage.png)
+    :::image type="content" source="./media/troubleshoot-script-action/script-action-logs-in-storage.png" alt-text="스크립트 동작 로그" border="true":::
 
     이 디렉터리에서 로그는 **헤드 노드**, **작업자 노드** 및 **Zookeeper 노드** 에 대해 별도로 구성됩니다. 다음 예제를 참조하세요.
 

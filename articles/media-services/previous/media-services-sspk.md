@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: xpouyat
-ms.openlocfilehash: 36e5b020241f7be33aa4cfa473222ad301d18fbe
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f2c66b08d399ddf53686074079665e36be9aace7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581102"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870472"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Microsoft &reg; 부드러운 스트리밍 클라이언트 포팅 키트 라이선스
 
@@ -32,7 +32,7 @@ Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서 **SS
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가됩니다. SSPK 라이선스는 업계에 다음을 제공합니다.
 
 * C++의 부드러운 스트리밍 이식 키트 소스 
@@ -135,7 +135,6 @@ SSPK 배포 포털 은 등록된 중간 정식 사용자가 액세스할 수 있
 * 메가 Fame 전자식 Co. 제한 됨
 * MIRC 전자 제품 제한
 * MOKA 국제 제한
-* Nintendo Co., Ltd.
 * ONEPLUS 전자 (SHENZHEN) CO.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., l t d.

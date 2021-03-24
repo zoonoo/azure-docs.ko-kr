@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: 8a143dadffb3f89ef67dc20a2038bb3c9bf5a0e4
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91743338"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 연결, 설정 및 활성화 
@@ -51,10 +51,10 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
    
     ![웹 사이트 보안 인증서 오류 메시지](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
-4. **이 웹 페이지에서 계속 진행**을 선택합니다.  
+4. **이 웹 페이지에서 계속 진행** 을 선택합니다.  
     이러한 단계는 사용 중인 브라우저에 따라 달라질 수 있습니다.
 
-5. 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1*입니다. 
+5. 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1* 입니다. 
    
     ![Azure Stack Edge Pro 디바이스 로그인 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
@@ -65,16 +65,16 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
 
 ## <a name="set-up-and-activate-the-physical-device"></a>물리적 디바이스 설정 및 활성화
  
-대시보드에는 물리적 디바이스를 구성하고 Azure Stack Edge 서비스에 등록하는 데 필요한 다양한 설정이 표시됩니다. **디바이스 이름**, **네트워크 설정**, **웹 프록시 설정** 및 **시간 설정**은 선택 사항입니다. 유일한 필수 설정은 **클라우드 설정**입니다.
+대시보드에는 물리적 디바이스를 구성하고 Azure Stack Edge 서비스에 등록하는 데 필요한 다양한 설정이 표시됩니다. **디바이스 이름**, **네트워크 설정**, **웹 프록시 설정** 및 **시간 설정** 은 선택 사항입니다. 유일한 필수 설정은 **클라우드 설정** 입니다.
    
 ![로컬 웹 UI "대시보드" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
-1. 왼쪽 창에서 **디바이스 이름**을 선택하고 디바이스에 대한 친숙한 이름을 입력합니다.  
+1. 왼쪽 창에서 **디바이스 이름** 을 선택하고 디바이스에 대한 친숙한 이름을 입력합니다.  
     식별 이름은 문자, 숫자 및 하이픈을 포함하는 1-15자로 구성되어야 합니다.
 
     ![로컬 웹 UI "디바이스 이름" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-2. (선택 사항) 왼쪽 창에서 **네트워크 설정**을 선택하고 설정을 구성합니다.  
+2. (선택 사항) 왼쪽 창에서 **네트워크 설정** 을 선택하고 설정을 구성합니다.  
     물리적 디바이스에 6개의 네트워크 인터페이스가 있습니다. 포트 1 및 포트 2는 1Gbps 네트워크 인터페이스입니다. 포트 3, 포트 4, 포트 5 및 포트 6은 모두 25Gbps 네트워크 인터페이스이며 10Gbps 네트워크 인터페이스로 사용할 수도 있습니다. 포트 1은 관리 전용 포트로 자동으로 구성되고, 포트 2 및 포트 6은 모두 데이터 포트입니다. 아래는 **네트워크 설정** 페이지입니다.
     
     ![로컬 웹 UI "네트워크 설정" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-3.png)
@@ -86,9 +86,9 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
    - 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
 
      >[!NOTE] 
-     > 디바이스에 연결할 다른 IP 주소가 없으면 네트워크 인터페이스의 로컬 IP 주소를 고정에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성**에서 모든 어댑터의 IP를 볼 수 있습니다.
+     > 디바이스에 연결할 다른 IP 주소가 없으면 네트워크 인터페이스의 로컬 IP 주소를 고정에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성** 에서 모든 어댑터의 IP를 볼 수 있습니다.
 
-3. (선택 사항) 왼쪽 창에서 **웹 프록시 설정**을 선택하고 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용할 경우 이 페이지에서만 구성할 수 있습니다.
+3. (선택 사항) 왼쪽 창에서 **웹 프록시 설정** 을 선택하고 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용할 경우 이 페이지에서만 구성할 수 있습니다.
    
    ![로컬 웹 UI "웹 프록시 설정" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
@@ -96,18 +96,18 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
    
    a. **웹 프록시 URL** 상자에 `http://host-IP address or FQDN:Port number` 형식으로 URL을 입력합니다. HTTPS URL은 지원되지 않습니다.
 
-   b. **인증** 아래에서 **없음** 또는 **NTLM**을 선택합니다. Azure Stack Edge Pro 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음**으로 설정하는 것이 좋습니다. **NTLM**은 지원되지 않습니다.
+   b. **인증** 아래에서 **없음** 또는 **NTLM** 을 선택합니다. Azure Stack Edge Pro 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음** 으로 설정하는 것이 좋습니다. **NTLM** 은 지원되지 않습니다.
 
    다. 인증을 사용하는 경우 사용자 이름과 암호를 입력합니다.
 
-   d. 구성한 웹 프록시 설정의 유효성을 검사하고 적용하려면 **설정 적용**을 클릭합니다.
+   d. 구성한 웹 프록시 설정의 유효성을 검사하고 적용하려면 **설정 적용** 을 클릭합니다.
 
    > [!NOTE]
    > PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다.
    > 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채고 읽는(그런 다음, 자체 인증을 사용하여 모든 항목을 다시 서명함) 프록시는 호환되지 않습니다.
    > 일반적으로 투명 프록시는 Azure Stack Edge Pro에서 잘 작동합니다.
 
-4. (선택 사항) 왼쪽 창에서 **시간 설정**을 선택하고 디바이스의 표준 시간대와 기본 및 보조 NTP 서버를 구성합니다.  
+4. (선택 사항) 왼쪽 창에서 **시간 설정** 을 선택하고 디바이스의 표준 시간대와 기본 및 보조 NTP 서버를 구성합니다.  
     클라우드 서비스 공급자와 인증할 수 있도록 디바이스 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
        
     **시간 설정** 페이지에서 다음을 수행합니다.
@@ -120,21 +120,21 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
 
     3. 필요에 따라 **보조 NTP 서버** 상자에 디바이스의 보조 서버를 입력합니다.
 
-    4. 구성한 시간 설정의 유효성을 검사하고 적용하려면 **설정 적용**을 선택합니다.
+    4. 구성한 시간 설정의 유효성을 검사하고 적용하려면 **설정 적용** 을 선택합니다.
 
         ![로컬 웹 UI "시간 설정" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. (선택 사항) 왼쪽 창에서 **스토리지 설정**을 선택하여 디바이스의 스토리지 복원력을 구성합니다. 이 기능은 현재 미리 보기로 제공됩니다. 기본적으로 디바이스의 스토리지는 복원력이 없으므로 디바이스의 데이터 디스크에서 오류가 발생하면 데이터가 손실됩니다. 복원력 옵션을 사용하도록 설정하면 디바이스의 스토리지가 다시 구성되고, 한 데이터 디스크에서 오류가 발생하더라도 디바이스가 데이터 손실 없이 유지됩니다. 복원력 있는 스토리지를 구성하면 디바이스의 사용 가능한 용량이 감소합니다.
+5. (선택 사항) 왼쪽 창에서 **스토리지 설정** 을 선택하여 디바이스의 스토리지 복원력을 구성합니다. 이 기능은 현재 미리 보기로 제공됩니다. 기본적으로 디바이스의 스토리지는 복원력이 없으므로 디바이스의 데이터 디스크에서 오류가 발생하면 데이터가 손실됩니다. 복원력 옵션을 사용하도록 설정하면 디바이스의 스토리지가 다시 구성되고, 한 데이터 디스크에서 오류가 발생하더라도 디바이스가 데이터 손실 없이 유지됩니다. 복원력 있는 스토리지를 구성하면 디바이스의 사용 가능한 용량이 감소합니다.
 
     > [!IMPORTANT] 
     > 디바이스를 활성화하기 전에만 복원력을 구성할 수 있습니다. 
 
     ![로컬 웹 UI "스토리지 설정" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/storage-settings.png)
 
-6. 왼쪽 창에서 **클라우드 설정**을 선택한 다음, Azure Portal에서 Azure Stack Edge 서비스로 디바이스를 활성화합니다.
+6. 왼쪽 창에서 **클라우드 설정** 을 선택한 다음, Azure Portal에서 Azure Stack Edge 서비스로 디바이스를 활성화합니다.
     
     1. **활성화 키** 상자에 Azure Stack Edge Pro에 대해 [활성화 키 가져오기](azure-stack-edge-deploy-prep.md#get-the-activation-key)에서 얻은 활성화 키를 입력합니다.
-    2. **적용**을 선택합니다.
+    2. **적용** 을 선택합니다.
        
         ![로컬 웹 UI "클라우드 설정" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 

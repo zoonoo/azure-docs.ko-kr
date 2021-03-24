@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 0620f55650d0e4da0cd7a616649df952f3017455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88922330"
 ---
 # <a name="tutorial-azure-wcf-relay-rest-tutorial"></a>자습서: Azure WCF 릴레이 REST 자습서
@@ -51,20 +51,20 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
 
 ### <a name="to-create-a-contract-with-an-interface"></a>인터페이스와 함께 계약을 만들려면
 
-1. 관리자 권한으로 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
-1. **새 프로젝트 만들기**에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음**을 선택합니다.
-1. 프로젝트 이름을 *ImageListener*로 지정합니다. 기본 **위치**를 사용하고, **만들기**를 선택합니다.
+1. 관리자 권한으로 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다.
+1. Visual Studio에서 **새 프로젝트 만들기** 를 선택합니다.
+1. **새 프로젝트 만들기** 에서 C#용 **콘솔 앱(.NET Framework)** 을 선택하고, **다음** 을 선택합니다.
+1. 프로젝트 이름을 *ImageListener* 로 지정합니다. 기본 **위치** 를 사용하고, **만들기** 를 선택합니다.
 
    C# 프로젝트의 경우 Visual Studio에서 *Program.cs* 파일을 만듭니다. 이 클래스는 콘솔 애플리케이션 프로젝트를 제대로 구축하는데 필요한 빈 `Main()` 메서드를 포함합니다.
 
-1. **솔루션 탐색기**에서 **ImageListener** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
-1. **찾아보기**를 선택한 다음, **WindowsAzure.ServiceBus**를 검색하여 선택합니다. **설치**를 선택하고 사용 약관에 동의합니다.
+1. **솔루션 탐색기** 에서 **ImageListener** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리** 를 선택합니다.
+1. **찾아보기** 를 선택한 다음, **WindowsAzure.ServiceBus** 를 검색하여 선택합니다. **설치** 를 선택하고 사용 약관에 동의합니다.
 
-    이 단계에서는 Service Bus 및 *System.ServiceModel.dll*에 대한 참조를 추가합니다. 이 패키지는 Service Bus 라이브러리 및 WCF `System.ServiceModel`에 대한 참조를 자동으로 추가합니다.
+    이 단계에서는 Service Bus 및 *System.ServiceModel.dll* 에 대한 참조를 추가합니다. 이 패키지는 Service Bus 라이브러리 및 WCF `System.ServiceModel`에 대한 참조를 자동으로 추가합니다.
 
-1. `System.ServiceModel.Web.dll`에 대한 참조를 프로젝트에 명시적으로 추가합니다. **솔루션 탐색기**에서 프로젝트 폴더 아래의 **참조** 폴더를 마우스 오른쪽 단추로 클릭하고, **참조 추가**를 선택합니다.
-1. **참조 추가**에서 **Framework**를 선택하고, **검색**에 *System.ServiceModel.Web*을 입력합니다. **System.ServiceModel.Web** 확인란을 선택한 다음 **확인**을 클릭합니다.
+1. `System.ServiceModel.Web.dll`에 대한 참조를 프로젝트에 명시적으로 추가합니다. **솔루션 탐색기** 에서 프로젝트 폴더 아래의 **참조** 폴더를 마우스 오른쪽 단추로 클릭하고, **참조 추가** 를 선택합니다.
+1. **참조 추가** 에서 **Framework** 를 선택하고, **검색** 에 *System.ServiceModel.Web* 을 입력합니다. **System.ServiceModel.Web** 확인란을 선택한 다음 **확인** 을 클릭합니다.
 
 그리고 프로젝트의 코드를 다음과 같이 변경합니다.
 
@@ -130,7 +130,7 @@ WCF 계약과 REST 스타일 계약의 주요 차이는 [OperationContractAttrib
 
    채널은 서비스 및 클라이언트가 서로 정보를 전달하는 WCF 개체입니다. 나중에 호스트 애플리케이션에서 채널을 만듭니다. 그러면 Azure Relay는 이 채널을 사용하여 브라우저의 HTTP GET 요청을 `GetImage` 구현으로 전달합니다. 릴레이는 이 채널을 사용하여 `GetImage` 반환 값을 가져와서 클라이언트 브라우저에 대한 `HTTP GETRESPONSE`로 해석하기도 합니다.
 
-1. **빌드** > **솔루션 빌드**를 선택하여 지금까지 수행한 작업이 정확한지 확인합니다.
+1. **빌드** > **솔루션 빌드** 를 선택하여 지금까지 수행한 작업이 정확한지 확인합니다.
 
 ### <a name="example-that-defines-a-wcf-relay-contract"></a>WCF Relay 계약을 정의하는 예제
 
@@ -198,13 +198,13 @@ REST 스타일 WCF Relay 서비스를 만들려면 먼저 인터페이스를 사
 
 1. *.jpg* 이미지를 프로젝트에 추가합니다. 이 파일은 서비스가 수신 브라우저에 표시하는 그림입니다.
 
-   1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택합니다.
-   1. 그리고 **기존 항목**을 선택합니다.
-   1. **기존 항목 추가**를 사용하여 적절한 .jpg를 찾은 다음, **추가**를 선택합니다. 파일을 추가할 때 **파일 이름** 옆에 있는 드롭다운 목록에서 **모든 파일**을 선택합니다.
+   1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 를 선택합니다.
+   1. 그리고 **기존 항목** 을 선택합니다.
+   1. **기존 항목 추가** 를 사용하여 적절한 .jpg를 찾은 다음, **추가** 를 선택합니다. 파일을 추가할 때 **파일 이름** 옆에 있는 드롭다운 목록에서 **모든 파일** 을 선택합니다.
 
-   이 자습서의 나머지 부분에서는 이미지의 이름을 *image.jpg*로 가정합니다. 다른 파일이 있으면 이미지 이름을 변경하거나 보완하도록 코드를 변경해야 합니다.
+   이 자습서의 나머지 부분에서는 이미지의 이름을 *image.jpg* 로 가정합니다. 다른 파일이 있으면 이미지 이름을 변경하거나 보완하도록 코드를 변경해야 합니다.
 
-1. 실행 중인 서비스가 이미지 파일을 반드시 찾게 하려면 **솔루션 탐색기**에서 이미지 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 선택합니다. **속성**에서 **출력 디렉터리로 복사**를 **변경된 내용만 복사**로 설정합니다.
+1. 실행 중인 서비스가 이미지 파일을 반드시 찾게 하려면 **솔루션 탐색기** 에서 이미지 파일을 마우스 오른쪽 단추로 클릭한 다음, **속성** 을 선택합니다. **속성** 에서 **출력 디렉터리로 복사** 를 **변경된 내용만 복사** 로 설정합니다.
 
 1. [인터페이스와 함께 계약을 만들려면](#to-create-a-contract-with-an-interface)의 절차를 사용하여 *System.Drawing.dll* 어셈블리에 대한 참조를 프로젝트에 추가합니다.
 
@@ -248,13 +248,13 @@ REST 스타일 WCF Relay 서비스를 만들려면 먼저 인터페이스를 사
     }
     ```
 
-    이 구현은 `MemoryStream`을 사용하여 이미지를 가져온 후 브라우저로 스트리밍할 준비를 합니다. 또한 0에서 스트림 위치를 시작하고, 스트림 콘텐츠를 *.jpg*로 선언하고, 정보를 스트리밍합니다.
+    이 구현은 `MemoryStream`을 사용하여 이미지를 가져온 후 브라우저로 스트리밍할 준비를 합니다. 또한 0에서 스트림 위치를 시작하고, 스트림 콘텐츠를 *.jpg* 로 선언하고, 정보를 스트리밍합니다.
 
-1. **빌드** > **솔루션 빌드**를 선택합니다.
+1. **빌드** > **솔루션 빌드** 를 선택합니다.
 
 ### <a name="to-define-the-configuration-for-running-the-web-service-on-service-bus"></a>Service Bus에서 웹 서비스를 실행하기 위한 구성을 정의하려면
 
-1. **솔루션 탐색기**에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+1. **솔루션 탐색기** 에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 
     *App.config* 파일에는 서비스 이름, 엔드포인트 및 바인딩이 들어 있습니다. 엔드포인트는 클라이언트와 호스트가 서로 통신할 수 있도록 Azure Relay가 노출하는 위치입니다. 바인딩은 통신에 사용되는 프로토콜 유형입니다. 여기서 주요 차이점은 구성된 서비스 엔드포인트가 [WebHttpRelayBinding](/dotnet/api/microsoft.servicebus.webhttprelaybinding) 바인딩을 참조한다는 것입니다.
 
@@ -315,7 +315,7 @@ REST 스타일 WCF Relay 서비스를 만들려면 먼저 인터페이스를 사
     </behaviors>
     ```
 
-1. 계속 *App.config*의 `<appSettings>` 요소에서 연결 문자열 값 전체를 이전에 포털에서 얻은 연결 문자열로 바꿉니다.
+1. 계속 *App.config* 의 `<appSettings>` 요소에서 연결 문자열 값 전체를 이전에 포털에서 얻은 연결 문자열로 바꿉니다.
 
     ```xml
     <appSettings>
@@ -325,7 +325,7 @@ REST 스타일 WCF Relay 서비스를 만들려면 먼저 인터페이스를 사
     </appSettings>
     ```
 
-1. **빌드** > **솔루션 빌드**를 선택하여 전체 솔루션을 빌드합니다.
+1. **빌드** > **솔루션 빌드** 를 선택하여 전체 솔루션을 빌드합니다.
 
 ### <a name="example-that-implements-the-rest-based-wcf-service-contract"></a>REST 기반 WCF 서비스 계약을 구현하는 예제
 
@@ -542,7 +542,7 @@ WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
 
 ### <a name="example-of-the-service-contract-and-implementation"></a>서비스 계약 및 구현 예제
 
-다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 애플리케이션에 서비스를 호스트합니다. 다음 코드를 이름이 *ImageListener.exe*인 실행 파일로 컴파일합니다.
+다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 애플리케이션에 서비스를 호스트합니다. 다음 코드를 이름이 *ImageListener.exe* 인 실행 파일로 컴파일합니다.
 
 ```csharp
 using System;
@@ -620,7 +620,7 @@ namespace Microsoft.ServiceBus.Samples
 
 솔루션을 빌드한 후 다음을 수행하여 애플리케이션을 실행합니다.
 
-1. F5 키를 선택하거나 실행 파일 위치 *ImageListener\bin\Debug\ImageListener.exe*로 이동하여 서비스를 실행합니다. 다음 단계를 수행하는 데 필요하므로 앱을 실행 상태로 둡니다.
+1. F5 키를 선택하거나 실행 파일 위치 *ImageListener\bin\Debug\ImageListener.exe* 로 이동하여 서비스를 실행합니다. 다음 단계를 수행하는 데 필요하므로 앱을 실행 상태로 둡니다.
 1. 이미지를 보려면 명령 프롬프트에서 주소를 복사하여 브라우저로 붙여 넣습니다.
 1. 완료되면 명령 프롬프트 창에서 Enter를 선택하여 앱을 닫습니다.
 

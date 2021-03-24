@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: 8f21f5fa8ee9035fe594cecff37a63b1ef2115cc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563469"
 ---
 # <a name="deploy-server-rendered-nuxtjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 서버에 렌더링된 Nuxt.js 웹 사이트 배포
@@ -112,9 +112,9 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
     git push origin main
     ```
 
-## <a name="deploy-your-static-website"></a>정적 웹 사이트를 배포합니다.
+## <a name="deploy-your-static-website"></a>정적 웹 사이트 배포
 
-다음 단계에서는 GitHub에 방금 푸시한 앱을 Azure Static Web Apps로 연결하는 방법을 보여 줍니다. Azure에 있으면 애플리케이션을 프로덕션 환경에 배포할 수 있습니다.
+다음 단계에서는 GitHub에 방금 푸시한 앱을 Azure Static Web Apps로 연결하는 방법을 보여줍니다. Azure에 있으면 애플리케이션을 프로덕션 환경에 배포할 수 있습니다.
 
 ### <a name="create-an-azure-static-web-apps-preview-resource"></a>Azure Static Web Apps 미리 보기 리소스 만들기
 
@@ -156,11 +156,11 @@ Azure Static Web Apps는 각 배포 중에 npm 모듈을 설치하고 `npm run b
 ### <a name="review-and-create"></a>검토 및 만들기
 
 1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
-1. **만들기** 를 클릭하여 리소스 만들기를 시작하고 배포를 위한 GitHub 작업을 프로비저닝합니다.
+1. **만들기** 를 클릭하여 리소스 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
 1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 1. _개요_ 창에서 *URL* 링크를 클릭하여 배포된 애플리케이션을 엽니다. 
 
-웹 사이트에서 즉시 로드를 기록하는 경우 백그라운드 GitHub 작업 워크플로가 계속 실행됩니다. 워크플로가 완료되면 브라우저 새로 고침을 클릭하여 웹앱을 볼 수 있습니다.
+웹 사이트에서 즉시 로드를 기록하는 경우 백그라운드 GitHub Actions 워크플로가 계속 실행됩니다. 워크플로가 완료되면 브라우저 새로 고침을 클릭하여 웹앱을 볼 수 있습니다.
 
 리포지토리의 작업으로 이동하여 작업 워크플로의 상태를 확인할 수 있습니다.
 
@@ -170,7 +170,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nuxtjs-starter/actions
 
 ### <a name="sync-changes"></a>변경 내용 동기화
 
-앱을 만들 때 Azure Static Web Apps는 리포지토리에 GitHub 작업 워크플로 파일을 만들었습니다. git 기록이 동기화되도록 이 파일을 로컬 리포지토리로 가져와야 합니다.
+앱을 만들 때 Azure Static Web Apps는 리포지토리에 GitHub Actions 워크플로 파일을 만들었습니다. git 기록이 동기화되도록 이 파일을 로컬 리포지토리로 가져와야 합니다.
 
 터미널로 돌아가 다음 `git pull origin main` 명령을 실행합니다.
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: a7390858e55a456ec5fb2f851be1a7443be97082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86245044"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
@@ -42,7 +42,7 @@ ms.locfileid: "86245044"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -183,11 +183,11 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > 국가별 클라우드(예: Azure Government, Azure 중국, Azure 독일)의 경우 `-Location` 매개 변수를 지정합니다.
 
-*TenantId* 또는 디렉터리 ID는 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **Azure Active Directory** > **속성**을 차례로 선택하고, **디렉터리 ID** 값을 복사합니다.
+*TenantId* 또는 디렉터리 ID는 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다. **Azure Active Directory** > **속성** 을 차례로 선택하고, **디렉터리 ID** 값을 복사합니다.
 
-*ClusterName*은 스크립트로 만든 Azure AD 애플리케이션의 접두사로 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. Azure AD 아티팩트를 사용 중인 Service Fabric 클러스터에 쉽게 매핑할 수 있습니다.
+*ClusterName* 은 스크립트로 만든 Azure AD 애플리케이션의 접두사로 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. Azure AD 아티팩트를 사용 중인 Service Fabric 클러스터에 쉽게 매핑할 수 있습니다.
 
-*WebApplicationReplyUrl*은 Azure AD에서 로그인을 마친 후에 사용자에게 반환하는 기본 엔드포인트입니다. 이 엔드포인트를 기본적으로 다음과 같은 클러스터에 대한 Service Fabric Explorer 엔드포인트로 설정합니다.
+*WebApplicationReplyUrl* 은 Azure AD에서 로그인을 마친 후에 사용자에게 반환하는 기본 엔드포인트입니다. 이 엔드포인트를 기본적으로 다음과 같은 클러스터에 대한 Service Fabric Explorer 엔드포인트로 설정합니다.
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 

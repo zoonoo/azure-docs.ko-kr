@@ -2,29 +2,27 @@
 title: Mru (미디어 예약 단위) CLI 크기 조정
 description: 이 토픽에서는 CLI를 사용하여 Azure Media Services에서 미디어 처리 크기를 조정하는 방법을 보여줍니다.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06c0c6333b84697415ef598d4c5e853d5c006f08
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102213813"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870163"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>미디어 예약 단위 크기를 조정 하는 방법
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 이 문서에서는 더 빠른 인코딩에 대해 MRSs (미디어 예약 단위) 크기를 조정 하는 방법을 보여 줍니다.
+
+> [!WARNING]
+> 이 명령은 2020-05-01 버전 이상의 API를 사용 하 여 만든 Media Services 계정에 대해 더 이상 작동 하지 않습니다. 이러한 계정에 대해 미디어 예약 단위는 부하에 따라 시스템이 자동으로 확장 및 축소 되기 때문에 더 이상 필요 하지 않습니다. Azure Portal에서 Mru를 관리 하는 옵션이 표시 되지 않으면 2020-05-01 API 이상으로 만든 계정을 사용 하 고 있는 것입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

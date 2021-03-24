@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d449343fd00ff958470a71ecb3a37d585d7ff8ed
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821562"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>자습서: 애플리케이션 및 리소스 제거

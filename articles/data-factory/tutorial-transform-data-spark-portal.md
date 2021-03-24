@@ -7,10 +7,10 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 01/10/2018
 ms.openlocfilehash: 2e2a50a96402f01fe914c79d5257fc5bb4dc57a0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377791"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 클라우드의 데이터 변환
@@ -29,7 +29,7 @@ ms.locfileid: "100377791"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -145,13 +145,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    b. **유형** 에 **주문형 HDInsight** 가 선택되었는지 확인합니다.
    
-   다. **Azure Storage 연결 서비스** 에 대해 **AzureBlobStorage1** 을 선택합니다. 이 연결된 서비스는 앞에서 먼저 만들었습니다. 다른 이름을 사용한 경우 여기에 올바른 이름을 지정합니다. 
+   c. **Azure Storage 연결 서비스** 에 대해 **AzureBlobStorage1** 을 선택합니다. 이 연결된 서비스는 앞에서 먼저 만들었습니다. 다른 이름을 사용한 경우 여기에 올바른 이름을 지정합니다. 
    
    d. **클러스터 유형** 에 **spark** 를 선택합니다.
    
    e. **서비스 주체 ID** 에는 HDInsight 클러스터를 만들 수 있는 권한이 있는 서비스 주체의 ID를 입력합니다. 
    
-      이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. **서비스 주체 ID** 는 ‘애플리케이션 ID’와 동일하고, **서비스 주체 키** 는 ‘클라이언트 비밀’ 값과 동일합니다.  
+      이 서비스 주체는 클러스터를 만든 구독 또는 리소스 그룹의 참가자 역할의 구성원이어야 합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요. **서비스 주체 ID** 는 ‘애플리케이션 ID’와 동일하고, **서비스 주체 키** 는 ‘클라이언트 비밀’ 값과 동일합니다. 
    
    f. **서비스 주체 키** 에 키를 입력합니다. 
    
@@ -193,7 +193,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    !["스크립트/Jar" 탭에서 Spark 스크립트 지정](./media/tutorial-transform-data-spark-portal/specify-spark-script.png)
    
-   다. **adftutorial/spark/script** 폴더로 이동한 후 **WordCount_Spark.py** 를 선택한 후 **마침** 을 선택합니다.      
+   c. **adftutorial/spark/script** 폴더로 이동한 후 **WordCount_Spark.py** 를 선택한 후 **마침** 을 선택합니다.      
 
 1. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사** 단추를 선택합니다. **>>** (오른쪽 화살표) 단추를 선택하여 유효성 검사 창을 닫습니다. 
     
@@ -229,7 +229,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ![출력 파일의 위치](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-파일에는 입력 텍스트 파일의 각 단어 및 해당 단어가 파일에 나타난 횟수가 있어야 합니다. 다음은 그 예입니다. 
+파일에는 입력 텍스트 파일의 각 단어 및 해당 단어가 파일에 나타난 횟수가 있어야 합니다. 예를 들면 다음과 같습니다. 
 
 ```
 (u'This', 1)
@@ -251,7 +251,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 가상 네트워크에 있는 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [자습서: Azure Virtual Network에서 Hive를 사용하여 데이터 변환](tutorial-transform-data-hive-virtual-network-portal.md)
+> [자습서: Azure Virtual Network에서 Hive를 사용하여 데이터 변환](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

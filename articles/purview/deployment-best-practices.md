@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695859"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949841"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Azure 부서의 범위 배포 모범 사례
 
@@ -150,7 +150,7 @@ ms.locfileid: "97695859"
 
 ### <a name="plan-and-implement-different-integration-points-with-purview"></a>부서의 범위를 사용 하 여 다양 한 통합 요소 계획 및 구현
 
-성숙 된 조직에는 이미 기존 데이터 카탈로그가 있을 수 있습니다. 주요 질문은 기존 기술을 계속 사용 하 고 부서의 범위와 동기화 하는지 여부입니다. 부서의 범위는 Atlas Api를 통해 정보를 게시할 수 있지만 이러한 종류의 시나리오를 지원 하기 위한 것은 아닙니다. 일부 조직에서는 먼저 다른 데이터 카탈로그 솔루션에서 기존 데이터 자산을 마이그레이션하여 부서의 범위 사용을 부트스트랩 하도록 결정할 수 있습니다. 이 작업은 Atlas Api를 통해 단방향 방법으로 수행할 수 있습니다. 여러 카탈로그 기술 간 동기화는 장기 디자인에서 고려 하면 안 됩니다. 일반적으로 각 비즈니스 단위는 이전 데이터 자산에 대 한 기존 솔루션을 계속 사용할 수 있는 반면 부서의 범위는 새 데이터 원본을 검색 하는 데 사용 됩니다.
+성숙 된 조직에는 이미 기존 데이터 카탈로그가 있을 수 있습니다. 주요 질문은 기존 기술을 계속 사용 하 고 부서의 범위와 동기화 하는지 여부입니다. 조직의 기존 제품과 동기화를 처리 하기 위해 부서의 범위는 Atlas REST Api를 제공 합니다. Atlas Api는 밀어넣기 및 끌어오기 시나리오를 모두 처리 하는 강력 하 고 유연한 메커니즘을 제공 합니다. 부서의 범위에는 Atlas Api를 사용 하 여 부트스트랩 하거나 다른 시스템에서 부서의 범위로 최신 업데이트를 푸시하는 방법으로 정보를 게시할 수 있습니다. 부서의 범위에서 사용할 수 있는 정보는 Atlas Api를 사용 하 여 읽은 다음 기존 제품에 다시 동기화 할 수도 있습니다. 
 
 티켓, 사용자 지정 사용자 인터페이스 및 오케스트레이션과 같은 다른 통합 시나리오의 경우 Atlas Api 및 Kafka 끝점을 사용할 수 있습니다. 일반적으로 부서의 범위와 함께 4 개의 통합 지점이 있습니다.
 
