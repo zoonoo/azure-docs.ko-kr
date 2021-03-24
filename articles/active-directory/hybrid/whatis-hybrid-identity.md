@@ -14,17 +14,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895355b5acebffe6ad24b15b0c709d21e8f20be4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90016651"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Azure Active Directory에 대한 하이브리드 ID란?
 
 오늘날의 비즈니스와 기업에서는 온-프레미스와 클라우드 애플리케이션이 점점 더 많이 혼합되고 있습니다.  사용자는 온-프레미스 및 클라우드 모두에서 이러한 애플리케이션에 액세스해야 합니다. 온-프레미스와 클라우드의 사용자를 관리하는 일은 까다롭습니다. 
 
-Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 걸쳐 있습니다.  이러한 솔루션은 위치에 관계없이 모든 리소스에 대한 인증 및 권한 부여에 사용할 일반적인 사용자 ID를 만듭니다. 이를 **하이브리드 ID**라고 합니다.
+Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 걸쳐 있습니다.  이러한 솔루션은 위치에 관계없이 모든 리소스에 대한 인증 및 권한 부여에 사용할 일반적인 사용자 ID를 만듭니다. 이를 **하이브리드 ID** 라고 합니다.
 
 Azure AD에 대한 하이브리드 ID와 하이브리드 ID 관리를 사용하면 이러한 시나리오가 지원됩니다.
 

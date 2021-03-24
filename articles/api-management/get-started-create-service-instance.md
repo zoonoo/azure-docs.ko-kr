@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90708209"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
@@ -30,33 +30,33 @@ API Management 인스턴스
 
 ## <a name="create-a-new-service"></a>새 서비스 만들기
 
-1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다. Azure **홈**페이지에서 **리소스 만들기**를 선택할 수도 있습니다. 
+1. Azure Portal 메뉴에서 **리소스 만들기** 를 선택합니다. Azure **홈** 페이지에서 **리소스 만들기** 를 선택할 수도 있습니다. 
    
    :::image type="content" source="media/get-started-create-service-instance/00-CreateResource-01.png" alt-text="리소스 만들기"::: 선택
 
    
-1. **신규** 페이지에서 **통합** > **API Management**를 선택합니다.
+1. **신규** 페이지에서 **통합** > **API Management** 를 선택합니다.
 
    새 Azure API Management 인스턴스
    
 1. **API Management 서비스** 페이지에서 설정을 입력합니다.
 
-   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="리소스 만들기":::
+   :::image type="content" source="media/get-started-create-service-instance/get-started-create-service-instance-create-new.png" alt-text="새 인스턴스":::
    
-   | 설정                 | 설명:   |                                                                     
+   | 설정                 | 설명   |                                                                     
    |-------------------------|-----------------------------------------------|
-   | 이름 - **                | API Management 서비스에 대한 고유한 이름입니다. 이 이름은 나중에 변경할 수 없습니다. 서비스 이름은 서비스와 해당 Azure 리소스를 모두 나타냅니다. <br/> 서비스 이름은 기본 도메인 이름 *\<name\>.azure-api.net*을 생성하는 데 사용됩니다. 사용자 지정 도메인 이름을 사용하려는 경우 [사용자 지정 도메인 구성](configure-custom-domain.md)을 참조하세요. |
+   | 이름 - **                | API Management 서비스에 대한 고유한 이름입니다. 이 이름은 나중에 변경할 수 없습니다. 서비스 이름은 서비스와 해당 Azure 리소스를 모두 나타냅니다. <br/> 서비스 이름은 기본 도메인 이름 *\<name\>.azure-api.net* 을 생성하는 데 사용됩니다. 사용자 지정 도메인 이름을 사용하려는 경우 [사용자 지정 도메인 구성](configure-custom-domain.md)을 참조하세요. |
    | **구독**:          | 이 새 서비스 인스턴스가 만들어질 구독입니다.   |
    | **리소스 그룹**      |  신규 또는 기존 리소스 그룹을 선택합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. |
    | **위치**          | 사용 가능한 API Management 서비스 위치에서 지리적으로 가까운 지역을 선택합니다. | 
    | **조직 이름**   | 조직의 이름입니다. 이 이름은 여러 개발자 포털 제목 및 알림 전자 메일의 보낸 사람을 비롯하여 여러 위치에 사용됩니다. |                                                         
-   | **관리자 전자 메일** | **API Management**에서 모든 알림이 전송될 이메일 주소입니다.   |  
+   | **관리자 전자 메일** | **API Management** 에서 모든 알림이 전송될 이메일 주소입니다.   |  
    | **가격 책정 계층**        | 서비스를 평가할 **개발자** 계층을 선택합니다. 이 계층은 프로덕션 용도가 아닙니다. API Management 계층 크기 조정에 대한 자세한 내용은 [업그레이드 및 크기 조정](upgrade-and-scale.md)을 참조하세요. |
 
-3. **만들기**를 선택합니다.
+3. **만들기** 를 선택합니다.
 
     > [!TIP]
-    > 이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. **대시보드에 고정**을 선택하면 새로 생성된 서비스를 보다 쉽게 찾을 수 있습니다.
+    > 이 계층에서 API Management 서비스를 만들고 활성화하는 데 30~40분 정도 걸릴 수 있습니다. **대시보드에 고정** 을 선택하면 새로 생성된 서비스를 보다 쉽게 찾을 수 있습니다.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
@@ -70,17 +70,17 @@ API Management 서비스 인스턴스가 온라인 상태이면 사용할 준비
 
 더 이상 필요하지 않은 경우 다음 단계에 따라 리소스 그룹 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-1. Azure Portal에서 **리소스 그룹**을 검색하고 선택합니다. **홈**페이지에서 **리소스 그룹**을 선택할 수도 있습니다. 
+1. Azure Portal에서 **리소스 그룹** 을 검색하고 선택합니다. **홈** 페이지에서 **리소스 그룹** 을 선택할 수도 있습니다. 
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="리소스 만들기":::
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-01.png" alt-text="리소스 그룹 탐색":::
 
 1. **리소스 그룹** 페이지에서 리소스 그룹을 선택합니다.
 
-   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="리소스 만들기":::을 선택합니다.
+   :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-02.png" alt-text="리소스 그룹":::을 선택합니다.
 
-1. 리소스 그룹 페이지에서 **리소스 그룹 삭제**를 선택합니다. 
+1. 리소스 그룹 페이지에서 **리소스 그룹 삭제** 를 선택합니다. 
    
-1. 리소스 그룹의 이름을 입력하고 **삭제**를 선택합니다.
+1. 리소스 그룹의 이름을 입력하고 **삭제** 를 선택합니다.
 
    리소스 그룹 삭제
 

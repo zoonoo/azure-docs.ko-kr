@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
 ms.openlocfilehash: 1fc37c6f93fba34944caa7a91c2a89ce5dcdc398
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78201024"
 ---
 ::: zone pivot="programming-language-python,programming-language-javascript,programming-language-powershell,programming-language-typescript"  
@@ -25,5 +25,5 @@ ms.locfileid: "78201024"
 > }
 > ```
 >
-> 바인딩 확장과 관련된 오류가 발생하면 위의 속성이 *host.json*에 있는지 확인하세요.
+> 바인딩 확장과 관련된 오류가 발생하면 위의 속성이 *host.json* 에 있는지 확인하세요.
 ::: zone-end  

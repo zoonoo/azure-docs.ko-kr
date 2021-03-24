@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92892488"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>자습서: PowerShell을 사용하여 Azure AD B2B 협업 사용자 일괄 초대
@@ -126,7 +126,7 @@ foreach ($email in $invitations)
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-초대한 사용자가 *emailaddress* #EXT#\@*domain* 형식의 UPN(사용자 계정 이름)과 함께 나열되어야 합니다. 예를 들어 *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* 에서 contoso.onmicrosoft.com은 초대를 보낸 조직입니다.
+초대한 사용자가 *emailaddress*#EXT#\@*domain* 형식의 UPN(사용자 계정 이름)과 함께 나열되어야 합니다. 예를 들어 *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* 에서 contoso.onmicrosoft.com은 초대를 보낸 조직입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 65e424c6275f9990a5d5a42a54bc4131300a45bf
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>자습서: Workspot Control과 Azure Active Directory 통합
@@ -94,7 +94,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     ![Single Sign-On 선택 방법 선택 창](common/select-saml-option.png)
 
-3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** (연필) 아이콘을 선택하여 **기본 SAML 구성** 에 액세스합니다.
+3. **SAML로 Single Sign-On 설정** 페이지에서 **편집**(연필) 아이콘을 선택하여 **기본 SAML 구성** 에 액세스합니다.
 
     !["기본 SAML 구성"에서 강조 표시된 편집 아이콘](common/edit-urls.png)
 
@@ -103,20 +103,20 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
 
     1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.<br/>
-    **_https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/metadata_* _
+    ***https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/metadata***
 
-    1. _*회신 URL* * 텍스트 상자에 <br/>
-    **_https://< <i></i>INSTANCENAME>-saml.workspot.com/saml/assertion_*_ 패턴으로 URL을 입력합니다.
+    1. **회신 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.<br/>
+    ***https://<<i></i>INSTANCENAME>-saml.workspot.com/saml/assertion***
 
-5. SP 시작 모드에서 애플리케이션을 구성하려면 _*추가 URL 설정**을 선택합니다.
+5. SP 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 을 선택합니다.
 
     ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.<br/>
-    **_https://< <i></i>INSTANCENAME>-saml.workspot.com/_* _
+    ***https://<<i></i>INSTANCENAME>-saml.workspot.com/***
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 바꿉니다. 이러한 값을 얻으려면 [Workspot Control 클라이언트 지원 팀](mailto:support@workspot.com)에 문의하세요. 또는 Azure Portal의 _ *기본 SAML 구성* * 섹션에 있는 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 바꿉니다. 이러한 값을 얻으려면 [Workspot Control 클라이언트 지원 팀](mailto:support@workspot.com)에 문의하세요. 또는 Azure Portal의 **기본 SAML 구성** 섹션에 있는 패턴을 참조할 수도 있습니다.
 
 6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 사용 가능한 옵션에서 **인증서(Base64)** 를 다운로드합니다. 인증서를 컴퓨터에 저장합니다.
 
@@ -158,7 +158,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 이 섹션에서는 Azure Portal에서 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -172,7 +172,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     1. **이름** 필드에 **BrittaSimon** 을 입력합니다.
   
-    1. **사용자 이름** 필드에 * *brittasimon@* yourcompanydomain.extension***을 입력합니다. 예를 들어, **BrittaSimon@contoso. <i></i>com** 을 입력합니다.
+    1. **사용자 이름** 필드에 **brittasimon@* yourcompanydomain.extension***을 입력합니다. 예를 들어, **BrittaSimon@contoso.<i></i>com** 을 입력합니다.
 
     1. **암호 표시** 확인란을 선택합니다. **암호** 상자에 표시된 값을 적어둡니다.
 
@@ -220,11 +220,11 @@ Azure AD 사용자가 Workspot Control에 로그인할 수 있도록 하려면 W
 
     !["새 사용자 추가" 창](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addnewuser.png)
 
-    1. **이름** 상자에 사용자의 이름(예: **Britta** )을 입력합니다.
+    1. **이름** 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
-    1. **성** 텍스트 상자에 사용자의 성(예: **simon** )을 입력합니다.
+    1. **성** 텍스트 상자에 사용자의 성(예: **simon**)을 입력합니다.
 
-    1. **메일** 상자에 사용자의 메일 주소(예: **Brittasimon@contoso. <i></i>com** )를 입력합니다.
+    1. **메일** 상자에 사용자의 메일 주소(예: **Brittasimon@contoso.<i></i>com**)를 입력합니다.
 
     1. **역할** 드롭다운 목록에서 적절한 사용자 역할을 선택합니다.
 

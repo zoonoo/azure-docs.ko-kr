@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 762938ebb4785a54224771e96c5bca274721dc30
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c61ad4d26c4a03889d9ac80332335543ec4140b7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99821289"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868984"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 
@@ -185,7 +185,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 2. 왼쪽 메뉴에서 **`+ Create a resource`**  > **Analytics** > **Data Factory** 로 이동합니다.
 
-    ![포털의 Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "포털의 Azure Data Factory")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png" alt-text="포털의 Azure Data Factory":::
 
 3. **새 데이터 팩터리** 타일에 대해 다음 값을 입력하거나 선택합니다.
 
@@ -198,7 +198,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
     |위치 | 이 위치는 이전에 리소스 그룹을 만드는 동안 지정한 위치로 자동으로 설정됩니다. 이 자습서에서 위치는 **미국 동부** 로 설정됩니다. |
     |GIT 사용|이 상자의 선택을 취소합니다.|
 
-    ![Azure Portal을 사용하여 Azure Data Factory 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png "Azure Portal을 사용하여 Azure Data Factory 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png" alt-text="Azure Portal을 사용하여 Azure Data Factory 만들기":::
 
 4. **만들기** 를 선택합니다. 데이터 팩터리를 만드는 데는 2 ~ 4분 정도 걸릴 수 있습니다.
 
@@ -206,7 +206,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 6. **작성 및 모니터링** 을 선택하여 Azure Data Factory 작성 및 모니터링 포털을 시작합니다.
 
-    ![Azure Data Factory 포털 개요](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory 개요")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png" alt-text="Azure Data Factory 포털 개요":::
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 
@@ -219,15 +219,15 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 1. **시작하기** 페이지의 왼쪽 창에서 **작성자** 아이콘을 선택합니다.
 
-    ![Azure Data Factory 연결된 서비스 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "Azure Data Factory 연결된 서비스 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png" alt-text="Azure Data Factory 연결된 서비스 만들기":::
 
 2. 창의 왼쪽 아래 모서리에서 **연결** 을 선택하고 **+ 새로 만들기** 를 선택합니다.
 
-    ![Azure Data Factory에서 연결 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-create-new-connection.png "Azure Data Factory에서 연결 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-create-new-connection.png" alt-text="Azure Data Factory에서 연결 만들기":::
 
 3. **새 연결된 서비스** 대화 상자에서 **Azure Blob Storage** 를 선택한 다음 **계속** 을 선택합니다.
 
-    ![Data Factory에 대한 Azure Storage 연결된 서비스 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Data Factory에 대한 Azure Storage 연결된 서비스 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png" alt-text="Data Factory에 대한 Azure Storage 연결된 서비스 만들기":::
 
 4. Storage 연결된 서비스에 대해 다음 값을 제공합니다.
 
@@ -239,7 +239,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     **연결 테스트** 를 선택하고, 성공하면 **만들기** 를 선택합니다.
 
-    ![Azure Storage 연결된 서비스의 이름 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "Azure Storage 연결된 서비스의 이름 제공")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png" alt-text="Azure Storage 연결된 서비스의 이름 제공":::
 
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>주문형 HDInsight 연결된 서비스 만들기
 
@@ -249,7 +249,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 3. **Azure HDInsight** 와 **계속** 을 차례로 선택합니다.
 
-    ![Azure Data Factory에 대한 HDInsight 연결된 서비스 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Azure Data Factory에 대한 HDInsight 연결된 서비스 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png" alt-text="Azure Data Factory에 대한 HDInsight 연결된 서비스 만들기":::
 
 4. **새 연결된 서비스** 창에서 다음 값을 입력하고 나머지는 기본값으로 둡니다.
 
@@ -272,21 +272,21 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     그런 다음 **만들기** 를 선택합니다.
 
-    ![HDInsight 연결된 서비스에 대한 값 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "HDInsight 연결된 서비스에 대한 값 제공")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png" alt-text="HDInsight 연결된 서비스에 대한 값 제공":::
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 1. **+** (더하기) 단추를 선택한 다음 **파이프라인** 을 선택합니다.
 
-    ![Azure Data Factory에서 파이프라인 만들기](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Azure Data Factory에서 파이프라인 만들기")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png" alt-text="Azure Data Factory에서 파이프라인 만들기":::
 
 1. **활동** 도구 상자에서 **HDInsight** 를 펼치고, **Hive** 활동을 파이프라인 디자이너 화면으로 끌어 옵니다. **일반** 탭에서 활동의 이름을 제공합니다.
 
-    ![Data Factory 파이프라인에 활동 추가](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Data Factory 파이프라인에 활동 추가")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png" alt-text="Data Factory 파이프라인에 활동 추가":::
 
 1. Hive 활동을 선택했는지 확인하고 **HDI 클러스터** 탭을 선택합니다. 그리고 **HDInsight 연결 서비스** 드롭다운 목록에서 HDInsight에 대해 이전에 만든 연결된 서비스인 **HDInsightLinkedService** 를 선택합니다.
 
-    ![파이프라인에 대한 HDInsight 클러스터 세부 정보 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "파이프라인에 대한 HDInsight 클러스터 세부 정보 제공")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png" alt-text="파이프라인에 대한 HDInsight 클러스터 세부 정보 제공":::
 
 1. **스크립트** 탭을 선택하고 다음 단계를 완료합니다.
 
@@ -294,27 +294,27 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     1. **파일 경로** 로 **스토리지 찾아보기** 를 선택하고 샘플 Hive 스크립트를 사용할 수 있는 위치로 이동합니다. 이전에 PowerShell 스크립트를 실행한 경우 이 위치는 `adfgetstarted/hivescripts/partitionweblogs.hql`입니다.
 
-        ![파이프라인에 대한 Hive 스크립트 세부 정보 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "파이프라인에 대한 Hive 스크립트 세부 정보 제공")
+        :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png" alt-text="파이프라인에 대한 Hive 스크립트 세부 정보 제공":::
 
     1. **고급** > **매개 변수** 에서 **`Auto-fill from script`** 를 선택합니다. 이 옵션은 런타임에 값을 필요로 하는 Hive 스크립트의 매개 변수를 찾습니다.
 
     1. **값** 텍스트 상자에서 `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식으로 기존 폴더를 추가합니다. 경로는 대/소문자를 구분합니다. 이 경로는 스크립트의 출력이 저장되는 위치입니다. 이제 스토리지 계정이 기본적으로 필요한 보안 전송을 사용하도록 설정되어 있으므로 `wasbs` 스키마가 필요합니다.
 
-        ![Hive 스크립트에 대한 매개 변수 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Hive 스크립트에 대한 매개 변수 제공")
+        :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png" alt-text="Hive 스크립트에 대한 매개 변수 제공":::
 
 1. 파이프라인에 대한 유효성을 검사하려면 **유효성 검사** 를 선택합니다. **>>** (오른쪽 화살표) 단추를 선택하여 유효성 검사 창을 닫습니다.
 
-    ![Azure Data Factory 파이프라인 유효성 검사](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png "Azure Data Factory 파이프라인 유효성 검사")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png" alt-text="Azure Data Factory 파이프라인 유효성 검사":::
 
 1. 마지막으로 **모두 게시** 를 선택하여 Azure Data Factory에 아티팩트를 게시합니다.
 
-    ![Azure Data Factory 파이프라인 게시](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-publish-pipeline.png "Azure Data Factory 파이프라인 게시")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-publish-pipeline.png" alt-text="Azure Data Factory 파이프라인 게시":::
 
 ## <a name="trigger-a-pipeline"></a>파이프라인 트리거
 
 1. 디자이너 화면의 도구 모음에서 **트리거 추가** > **지금 트리거** 를 선택합니다.
 
-    ![Azure Data Factory 파이프라인 트리거](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Azure Data Factory 파이프라인 트리거")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png" alt-text="Azure Data Factory 파이프라인 트리거":::
 
 2. 팝업 사이드바에서 **확인** 을 선택합니다.
 
@@ -322,13 +322,13 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **파이프라인 실행** 목록에 파이프라인 실행이 표시됩니다. **상태** 열에서 실행 상태를 확인합니다.
 
-    ![Azure Data Factory 파이프라인 모니터링](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline.png "Azure Data Factory 파이프라인 모니터링")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline.png" alt-text="Azure Data Factory 파이프라인 모니터링":::
 
 1. **새로 고침** 을 선택하여 상태를 새로 고칩니다.
 
 1. **활동 실행 보기** 아이콘을 선택하여 파이프라인와 연결된 활동 실행을 볼 수도 있습니다. 아래 스크린샷에서는 만든 파이프라인에 활동이 하나만 있기 때문에 활동 실행이 하나만 표시됩니다. 이전 보기로 돌아가려면 페이지 위쪽의 **파이프라인** 을 선택합니다.
 
-    ![Azure Data Factory 파이프라인 활동 모니터링](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png "Azure Data Factory 파이프라인 활동 모니터링")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png" alt-text="Azure Data Factory 파이프라인 활동 모니터링":::
 
 ## <a name="verify-the-output"></a>출력 확인
 
@@ -340,7 +340,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     * Azure Data Factory 작업 로그가 있는 **adfjobs** 컨테이너가 표시됩니다.  
 
-        ![Azure Data Factory 파이프라인 출력 확인](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png "Azure Data Factory 파이프라인 출력 확인")
+        :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-verify-output.png" alt-text="Azure Data Factory 파이프라인 출력 확인":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -356,7 +356,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 1. **리소스** 타일에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한 기본 스토리지 계정과 데이터 팩터리가 나열됩니다.
 1. **리소스 그룹 삭제** 를 선택합니다. 이렇게 하면 스토리지 계정 및 스토리지 계정에 저장된 데이터도 삭제됩니다.
 
-    ![`Azure Portal에서 리소스 그룹 삭제`](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "리소스 그룹 삭제")
+    :::image type="content" source="./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png" alt-text="Azure Portal에서 리소스 그룹 삭제":::
 
 1. 삭제를 확인하려면 리소스 그룹 이름을 입력하고 **삭제** 를 선택합니다.
 

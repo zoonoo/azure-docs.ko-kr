@@ -12,21 +12,21 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77194282"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍이란?
 
-Windows 10에서는 [Azure Active Directory(Azure AD)](../fundamentals/active-directory-whatis.md) 사용자가 사용자 설정 및 애플리케이션 설정 데이터를 클라우드와 안전하게 동기화할 수 있습니다. Enterprise State Roaming은 사용자의 모든 Windows 디바이스에 통합된 환경을 제공하고 새 디바이스 구성에 드는 시간을 줄여 줍니다. 엔터프라이즈 상태 로밍은 Windows 8에서 처음 도입된 표준 [소비자 설정 동기화](https://go.microsoft.com/fwlink/?linkid=2015135)와 비슷한 방식으로 작동합니다. 그뿐 아니라 Enterprise State Roaming은 다음 기능을 제공합니다.
+Windows 10에서는 [Azure Active Directory(Azure AD)](../fundamentals/active-directory-whatis.md) 사용자가 사용자 설정 및 애플리케이션 설정 데이터를 클라우드와 안전하게 동기화할 수 있습니다. Enterprise State Roaming은 사용자의 모든 Windows 디바이스에 통합된 환경을 제공하고 새 디바이스 구성에 드는 시간을 줄여 줍니다. 엔터프라이즈 상태 로밍은 Windows 8에서 처음 도입된 표준 [소비자 설정 동기화](https://go.microsoft.com/fwlink/?linkid=2015135) 와 비슷한 방식으로 작동합니다. 뿐만 아니라 Enterprise State Roaming은 다음 기능을 제공합니다.
 
 * **기업 데이터와 소비자 데이터 분리** - 조직에서 데이터를 제어할 수 있으며, 소비자 클라우드 계정에 회사 데이터가 섞이거나 엔터프라이즈 클라우드 계정에 기업 데이터가 섞이지 않습니다.
 * **보안 강화** – 데이터가 사용자의 Windows 10 디바이스에서 나가기 전에 Azure RMS(Azure Rights Management)를 사용하여 자동으로 암호화되고, 암호화된 상태로 클라우드에 보존됩니다. 설정 이름 및 Windows 앱 이름 같은 네임 스페이스를 제외한 모든 콘텐츠가 암호화된 상태로 클라우드에 보존됩니다.  
 * **더 나은 관리 및 모니터링** – Azure AD 포털 통합을 통해 조직에서 누가, 어떤 디바이스에서 설정을 동기화할 수 있는지를 제어하고 확인할 수 있습니다. 
 
-엔터프라이즈 상태 로밍은 여러 Azure 지역에서 사용할 수 있습니다. 사용할 수 있는 업데이트된 지역 목록은 Azure Active Directory의 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services) 페이지에서 확인할 수 있습니다.
+엔터프라이즈 상태 로밍은 여러 Azure 지역에서 사용할 수 있습니다. 사용할 수 있는 지역 목록 업데이트는 Azure Active Directory의 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services) 페이지에서 확인할 수 있습니다.
 
 | 아티클 | Description |
 | --- | --- |

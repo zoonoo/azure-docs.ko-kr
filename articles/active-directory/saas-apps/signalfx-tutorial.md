@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 1fbc42864761360d252ed62cea1aef6f2937b599
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92516072"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -68,7 +68,7 @@ Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Direc
 1. **Show on login page(로그인 페이지 표시)** 를 표시합니다.
     * 이 기능은 로그인 페이지에 사용자가 클릭할 수 있는 사용자 지정 단추를 표시합니다. 
     * **Name** 에 입력한 정보가 단추에 표시됩니다. 따라서 사용자가 인식할 **Name** 을 입력합니다. 
-    * 이 옵션은 사용자 지정 하위 도메인(예: **yourcompanyname.signalfx.com** )을 SignalFx 애플리케이션에 사용하는 경우에만 작동합니다. 사용자 지정 하위 도메인을 얻으려면 SignalFx 고객 지원팀에 문의하세요. 
+    * 이 옵션은 사용자 지정 하위 도메인(예: **yourcompanyname.signalfx.com**)을 SignalFx 애플리케이션에 사용하는 경우에만 작동합니다. 사용자 지정 하위 도메인을 얻으려면 SignalFx 고객 지원팀에 문의하세요. 
 1. **Integration ID(통합 ID)** 를 복사합니다. 이 정보는 이후 단계에서 필요합니다. 
 1. SignalFx UI를 열어 둡니다. 
 
@@ -112,7 +112,7 @@ Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Direc
 
 다음 지침을 사용하여 Azure Portal에서 **B.Simon** 이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 탐색 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 탐색 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 페이지 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음을 수행합니다.
    1. **사용자 이름** 에서 `username@companydomain.extension`을 입력합니다(예: `b.simon@contoso.com`).
@@ -124,7 +124,7 @@ Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Direc
 
 다음 지침을 사용하여 테스트 사용자가 Azure Single Sign-On을 SignalFx에 사용하도록 설정합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **SignalFx** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾은 다음, **사용자 및 그룹** 을 선택합니다.
 

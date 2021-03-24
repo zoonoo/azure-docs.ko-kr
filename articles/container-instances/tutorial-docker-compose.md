@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 10/28/2020
 ms.custom: ''
 ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913843"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>자습서: Docker Compose를 사용하여 다중 컨테이너 그룹 배포 
@@ -86,7 +86,7 @@ services:
 
 `azure-vote-front` 구성에서 다음 두 가지 사항을 변경합니다.
 
-1. `azure-vote-front` 서비스의 `image` 속성을 업데이트합니다. 이미지 이름 앞에 Azure Container Registry의 로그인 서버 이름인 \<acrName\>.azurecr.io를 붙입니다. 예를 들어 레지스트리의 이름이 *myregistry* 인 경우 로그인 서버 이름은 *myregistry.azurecr.io* (모두 소문자)이고 이미지 속성은 `myregistry.azurecr.io/azure-vote-front`입니다.
+1. `azure-vote-front` 서비스의 `image` 속성을 업데이트합니다. 이미지 이름 앞에 Azure Container Registry의 로그인 서버 이름인 \<acrName\>.azurecr.io를 붙입니다. 예를 들어 레지스트리의 이름이 *myregistry* 인 경우 로그인 서버 이름은 *myregistry.azurecr.io*(모두 소문자)이고 이미지 속성은 `myregistry.azurecr.io/azure-vote-front`입니다.
 1. `ports` 매핑을 `80:80`으로 변경합니다. 파일을 저장합니다.
 
 업데이트된 파일은 다음과 같습니다.
@@ -216,7 +216,7 @@ azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front   
 
 클라우드에서 실행 중인 애플리케이션을 확인하려면 로컬 웹 브라우저에 표시된 IP 주소를 입력합니다. 이 예제에서는 `52.179.23.131`을 입력합니다. 다음 예제처럼 샘플 애플리케이션이 로드됩니다.
 
-:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="투표 앱 이미지":::
+:::image type="content" source="media/tutorial-docker-compose/azure-vote-aci.png" alt-text="ACI의 투표 앱 이미지":::
 
 프런트 엔드 컨테이너의 로그를 확인하려면 [docker logs](https://docs.docker.com/engine/reference/commandline/logs) 명령을 실행합니다. 다음은 그 예입니다. 
 
