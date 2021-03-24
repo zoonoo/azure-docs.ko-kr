@@ -8,10 +8,10 @@ ms.custom: seo-lt-2019
 ms.date: 02/18/2021
 ms.author: jingwang
 ms.openlocfilehash: a3cc3686d4b256fc7b8702f34cdf393dc1b0e25f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740395"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사

@@ -3,12 +3,12 @@ title: Azure Resource Manager 템플릿에 대 한 Bicep 언어
 description: Azure Resource Manager 템플릿을 통해 Azure에 인프라를 배포 하기 위한 Bicep 언어에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 0edd0063ea08978b89c3ad3067f41ae743451df7
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889691"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955910"
 ---
 # <a name="what-is-bicep-preview"></a>Bicep (미리 보기) 란?
 
@@ -16,11 +16,15 @@ Bicep은 Azure 리소스를 선언적으로 배포 하기 위한 언어입니다
 
 템플릿을 만들기 위한 JSON 구문은 자세한 정보를 사용할 수 있으며 복잡 한 식이 필요 합니다. Bicep는 JSON 템플릿의 기능을 잃지 않고이 환경을 개선 합니다. ARM 템플릿의 JSON에 대 한 투명 한 추상화입니다. 각 Bicep 파일은 표준 ARM 템플릿으로 컴파일됩니다. ARM 템플릿에서 유효한 리소스 유형, API 버전 및 속성은 Bicep 파일에서 유효 합니다. 현재 릴리스에는 몇 가지 [알려진 제한 사항이](#known-limitations) 있습니다.
 
+Bicep는 현재 미리 보기 상태입니다. 작업 상태를 추적 하려면 [Bicep 프로젝트 리포지토리](https://github.com/Azure/bicep)를 참조 하세요.
+
 Bicep에 대 한 자세한 내용은 다음 비디오를 참조 하세요.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
 ## <a name="get-started"></a>시작
 
-Bicep를 시작 하려면 [도구를 설치](https://github.com/Azure/bicep/blob/main/docs/installing.md)합니다.
+Bicep를 시작 하려면 [도구를 설치](bicep-install.md)합니다.
 
 도구를 설치한 후 [Bicep 자습서](./bicep-tutorial-create-first-bicep.md)를 사용해 보세요. 자습서 시리즈는 Bicep의 구조 및 기능을 안내 합니다. Bicep 파일을 배포 하 고 ARM 템플릿을 해당 Bicep 파일로 변환 합니다.
 

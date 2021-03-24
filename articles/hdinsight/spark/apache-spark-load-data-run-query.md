@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
-ms.openlocfilehash: d3c8a08a14b23492c4bf032dd2b722c59bdf80ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: de17bf02392f0bb05820fabba3f9057e067391cf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99821344"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865913"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
@@ -33,7 +33,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 2. Jupyter 웹 페이지에서 **새로 만들기** > **PySpark** 를 선택하여 노트북을 만듭니다.
 
-   ![대화형 Spark SQL 쿼리 실행을 위해 Jupyter Notebook 만들기](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리 실행을 위해 Jupyter Notebook 만들기")
+   :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png " alt-text="대화형 Spark SQL 쿼리 실행을 위해 Jupyter Notebook 만들기" border="true":::
 
    새 노트북이 만들어지고 이름 Untitled(`Untitled.ipynb`)로 열립니다.
 
@@ -44,7 +44,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 애플리케이션은 Azure Storage, Azure Data Lake Storage 같은 원격 스토리지의 파일 또는 폴더에서, Hive 테이블에서 또는 Spark에서 지원하는 Cosmos DB, Azure SQL DB, DW 등의 기타 데이터 원본에서 직접 데이터 프레임을 만들 수 있습니다. 다음 스크린샷에서는 이 자습서에 사용되는 HVAC.csv 파일의 스냅샷을 보여줍니다. csv 파일에는 모든 HDInsight Spark 클러스터가 함께 제공됩니다. 이 데이터는 건물의 온도 변화를 캡처합니다.
 
-![대화형 Spark SQL 쿼리를 위한 데이터의 스냅샷](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리를 위한 데이터의 스냅샷")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png " alt-text="대화형 Spark SQL 쿼리를 위한 데이터의 스냅샷" border="true":::
 
 1. Jupyter Notebook의 빈 셀에 다음 코드를 붙여넣은 다음, **SHIFT + ENTER** 를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 
@@ -55,7 +55,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
     Jupyter에서 대화형 쿼리를 실행하면 웹 브라우저 창 또는 탭 캡션에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **PySpark** 텍스트 옆에 단색 원이 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
-    ![대화형 Spark SQL 쿼리 상태](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "대화형 Spark SQL 쿼리 상태")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png " alt-text="대화형 Spark SQL 쿼리 상태" border="true":::
 
 1. 반환된 세션 ID를 확인합니다. 위의 그림에서 세션 ID는 0입니다. 원하는 경우 `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements`로 이동하여 세션 세부 정보를 검색할 수 있습니다. 여기서 CLUSTERNAME은 Spark 클러스터의 이름이고 ID는 세션 ID 번호입니다.
 
@@ -80,11 +80,11 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
    다음과 같은 테이블 형식 출력이 표시됩니다.
 
-     ![대화형 Spark 쿼리 결과의 테이블 출력](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "대화형 Spark 쿼리 결과의 테이블 출력")
+     :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png " alt-text="대화형 Spark 쿼리 결과의 테이블 출력" border="true":::
 
 2. 다른 시각화로 결과를 볼 수도 있습니다. 동일한 출력에 대한 영역형 그래프를 보려면 **영역** 을 선택한 다음 표시된 것처럼 다른 값을 설정합니다.
 
-    ![대화형 Spark 쿼리 결과의 영역형 그래프](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "대화형 Spark 쿼리 결과의 영역형 그래프")
+    :::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png " alt-text="대화형 Spark 쿼리 결과의 영역형 그래프" border="true":::
 
 3. Notebook 메뉴 모음에서 **파일** > **저장 및 검사점** 으로 이동합니다.
 
@@ -96,7 +96,7 @@ HDInsight를 사용하면 데이터와 Jupyter Notebooks가 Azure Storage 또는
 
 Azure Portal에서 클러스터를 열고 **삭제** 를 선택합니다.
 
-![HDInsight 클러스터 삭제](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+:::image type="content" source="./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png " alt-text="HDInsight 클러스터 삭제" border="true":::
 
 또한 리소스 그룹 이름을 선택하여 리소스 그룹 페이지를 연 다음, **리소스 그룹 삭제** 를 선택할 수도 있습니다. 리소스 그룹을 삭제하여 HDInsight Spark 클러스터와 기본 스토리지 계정을 삭제합니다.
 

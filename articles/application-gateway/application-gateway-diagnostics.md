@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32d96ce79844cd89e06035036bfa68703a738ed1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98065323"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950487"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
@@ -160,7 +160,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 #### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Application Gateway Standard 및 WAF SKU (v1)
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -204,7 +204,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 ```
 #### <a name="for-application-gateway-and-waf-v2-sku"></a>Application Gateway 및 WAF v2 SKU의 경우
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 요청을 처리한 Application Gateway 인스턴스        |
 |clientIP     | 요청에 대한 원래 IP        |
@@ -259,7 +259,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 이전 단계에서 설명한 대로 성능 로그는 각 Application Gateway 인스턴스에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 성능 로그 데이터는 1분 간격으로 생성됩니다. V1 SKU에 대해서만 사용할 수 있습니다. V2 SKU의 경우 성능 데이터에 대 한 [메트릭을](application-gateway-metrics.md) 사용 합니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     |  성능 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.        |
 |healthyHostCount     | 백 엔드 풀의 정상 호스트 수        |
@@ -296,7 +296,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 이전 단계에서 설명한 대로 방화벽 로그는 각 애플리케이션 게이트웨이에서 이러한 로그를 사용하도록 설정한 경우에만 생성됩니다. 또한 이 로그를 사용하려면 애플리케이션 게이트웨이에서 웹 애플리케이션 방화벽을 구성해야 합니다. 데이터는 로깅을 사용하도록 설정할 때 지정한 스토리지 계정에 저장됩니다. 다음 데이터가 로깅됩니다.
 
 
-|값  |설명  |
+|값  |Description  |
 |---------|---------|
 |instanceId     | 방화벽 데이터가 생성되는 Application Gateway 인스턴스입니다. 다중 인스턴스 애플리케이션 게이트웨이의 경우 인스턴스마다 하나의 행이 있습니다.         |
 |clientIp     |   요청에 대한 원래 IP      |
@@ -306,7 +306,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
 |message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
-|작업     |  요청에서 수행되는 동작이며, 사용 가능한 값은 일치 하 고 차단 됩니다.      |
+|작업     |  요청에서 수행되는 동작이며, 사용 가능한 값은 차단 되 고 허용 됩니다 (사용자 지정 규칙의 경우). 일치 하 고 (규칙이 요청 파트와 일치 하는 경우) 검색 및 차단 됩니다 .이는 WAF가 검색 또는 방지 모드에 있는 경우에 따라 필수 규칙에 대 한 것입니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
 |자세히     | 트리거 이벤트의 세부 정보        |
 |details.message     | 규칙에 대한 설명        |

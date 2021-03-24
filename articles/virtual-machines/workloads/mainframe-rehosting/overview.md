@@ -1,7 +1,8 @@
 ---
 title: Azure virtual machines의 메인프레임 재호스팅
 description: Microsoft Azure에서 Vm (가상 머신)을 사용 하 여 IBM Z 기반 시스템과 같은 메인프레임 워크 로드를 Rehost.
-services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -9,13 +10,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 7ae20b484b4c22c19b856c237d85efe31dc01407
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e4b41497a0ed49ab0b39ab2c93c0142fce6416e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553547"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951320"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Azure virtual machines의 메인프레임 재호스팅
 
@@ -76,7 +76,7 @@ IBM DB2 pureScale 환경은 Azure에 대 한 데이터베이스 클러스터를 
 
 메인프레임 워크 로드를 Azure IaaS (infrastructure as a service)로 마이그레이션하는 경우 Azure Vm을 포함 하 여 여러 유형의 주문형 확장 컴퓨팅 리소스에서 선택할 수 있습니다. Azure는 다양 한 [Linux](../../linux/overview.md) 및 [Windows](../../windows/overview.md) vm을 제공 합니다.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>컴퓨팅
 
 Azure 계산 전원은 잘를 메인프레임 용량과 비교 합니다. 메인프레임 워크 로드를 Azure로 이동 하는 것을 고려 하는 경우 100만 명령 (MIPS)의 메인프레임 메트릭을 가상 Cpu와 비교 합니다. 
 
@@ -92,7 +92,7 @@ VM과 같은 Azure IaaS를 사용 하 여 특정 시스템 함수는 장애 조�
 
 일반적으로 메인프레임은 규모를 강화 하는 반면, 클라우드 환경 규모는 확장 됩니다. Azure는 요구 사항에 맞는 다양 한 [Linux](../../sizes.md) 및 [Windows](../../sizes.md) 크기를 제공 합니다. 또한 클라우드는 정확한 사용자 사양과 일치 하도록 확장 하거나 축소 합니다. 사용량 기반 청구 모델에서 요청 시 전원, 저장소 및 서비스의 [규모](/azure/architecture/best-practices/auto-scaling) 를 계산 합니다.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 클라우드에서는 유연 하 고 확장 가능한 저장소 옵션을 사용할 수 있으며 필요한 만큼만 요금을 지불 하면 됩니다. [Azure Storage](../../../storage/common/storage-introduction.md)는 데이터 개체용으로 대폭 확장 가능한 개체 저장소, 클라우드용 파일 시스템 서비스, 안정적인 메시징 저장소 및 NoSQL 저장소를 제공합니다. VM의 경우에는 관리형 디스크와 비관리형 디스크에서 안전한 영구 디스크 스토리지가 제공됩니다.
 

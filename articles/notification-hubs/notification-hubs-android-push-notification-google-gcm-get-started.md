@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 8c97710202a448c613ab685932cb335bbaed4953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87832657"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 푸시 알림 보내기(더 이상 사용되지 않음)
@@ -51,7 +51,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 > * 알림 허브에 앱 연결
 > * 앱 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 * [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
@@ -66,9 +66,9 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 ### <a name="configure-gcm-setting-for-the-notification-hub"></a>알림 허브에 대한 GCM 설정 구성
 
-1. **알림 설정**에서 **Google(GCM)** 을 선택합니다.
-2. Google Cloud Console에서 얻은 **API 키**를 입력합니다.
-3. 도구 모음에서 **저장**을 선택합니다.
+1. **알림 설정** 에서 **Google(GCM)** 을 선택합니다.
+2. Google Cloud Console에서 얻은 **API 키** 를 입력합니다.
+3. 도구 모음에서 **저장** 을 선택합니다.
 
     ![Azure Notification Hubs - Google(GCM)](./media/notification-hubs-android-get-started/notification-hubs-gcm-api.png)
 
@@ -81,10 +81,10 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 1. Android Studio에서 새 Android Studio 프로젝트를 시작합니다.
 
    ![Android Studio - 새 프로젝트][13]
-2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK**를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+2. **휴대폰 및 태블릿** 폼 팩터와 지원할 **최소 SDK** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
    ![Android Studio - 프로젝트 만들기 워크플로][14]
-3. **빈 활동**을 기본 활동으로 선택하고 **다음**, **마침**을 차례로 클릭합니다.
+3. **빈 활동** 을 기본 활동으로 선택하고 **다음**, **마침** 을 차례로 클릭합니다.
 
 ### <a name="add-google-play-services-to-the-project"></a>프로젝트에 Google Play Services 추가
 
@@ -92,7 +92,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 ### <a name="adding-azure-notification-hubs-libraries"></a>Azure Notification Hubs 라이브러리 추가
 
-1. **앱**의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가합니다.
+1. **앱** 의 `Build.Gradle` 파일에서 **종속성** 섹션에 다음 줄을 추가합니다.
 
     ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
@@ -162,14 +162,14 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 ### <a name="adding-code"></a>코드 추가
 
-1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**, **Java 클래스**를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다.
+1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java** 를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**, **Java 클래스** 를 차례로 클릭합니다. `NotificationSettings`(이)라는 새 클래스를 추가합니다.
 
     ![Android Studio - 새 Java 프로젝트][6]
 
     `NotificationSettings` 클래스에 대한 다음 코드에서 세 개의 자리 표시자를 업데이트합니다.
 
    * `SenderId`: 이전에 [Google 클라우드 콘솔](https://cloud.google.com/console)에서 얻은 프로젝트 번호입니다.
-   * `HubListenConnectionString`: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]에 있는 허브의 **설정** 페이지에서 **액세스 정책**을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
+   * `HubListenConnectionString`: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]에 있는 허브의 **설정** 페이지에서 **액세스 정책** 을 클릭하여 이 연결 문자열을 복사할 수 있습니다.
    * `HubName`: [Azure Portal]의 허브 페이지에 표시되는 알림 허브 이름을 사용합니다.
 
      `NotificationSettings` 코드:
@@ -464,7 +464,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     }
     ```
 
-14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드**를 클릭하여 코드에 오류가 없는지 확인합니다.
+14. Android Studio의 메뉴 모음에서 **빌드** > **프로젝트 다시 빌드** 를 클릭하여 코드에 오류가 없는지 확인합니다.
 
 ## <a name="testing-your-app"></a>앱 테스트
 
@@ -477,7 +477,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
       ![Android에서 테스트 - 메시지 보내기][19]
 
-3. **알림 보내기**를 누릅니다. 앱을 실행 중인 모든 디바이스에는 푸시 알림 메시지가 있는 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되지는 않지만 이전에 푸시 알림이 등록된 디바이스는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 살짝 밀어 알림 메시지를 볼 수 있습니다.
+3. **알림 보내기** 를 누릅니다. 앱을 실행 중인 모든 디바이스에는 푸시 알림 메시지가 있는 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되지는 않지만 이전에 푸시 알림이 등록된 디바이스는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 살짝 밀어 알림 메시지를 볼 수 있습니다.
 
       ![Android에서 테스트 - 알림][21]
 
@@ -485,9 +485,9 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 [Azure Portal]을 통해 푸시 알림을 전송하여 앱에서 푸시 알림 받기를 테스트할 수 있습니다.
 
-1. **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다.
-2. **플랫폼**에 대해 **Android**를 선택합니다.
-3. **보내기**를 선택하여 테스트 알림을 보냅니다.
+1. **문제 해결** 섹션에서 **테스트 보내기** 를 선택합니다.
+2. **플랫폼** 에 대해 **Android** 를 선택합니다.
+3. **보내기** 를 선택하여 테스트 알림을 보냅니다.
 4. Android 디바이스에서 알림 메시지가 표시되는지 확인합니다.
 
     ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
@@ -498,13 +498,13 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 에뮬레이터 내부에서 푸시 알림을 테스트하려는 경우 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지에서 네이티브 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생합니다.
 
-또한 **설정** > **계정**에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
+또한 **설정** > **계정** 에서 실행 중인 에뮬레이터에 Google 계정을 추가했는지 확인합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(선택 사항) 앱에서 바로 푸시 알림 보내기
 
 일반적으로, 백 엔드 서버를 사용하여 알림을 보냅니다. 경우에 따라, 클라이언트 애플리케이션에서 직접 푸시 알림을 보낼 수 있기를 원하기도 합니다. 이 섹션은 [Azure 알림 허브 REST API](/previous-versions/azure/reference/dn223264(v=azure.100))를 사용하여 클라이언트에서 알림을 보내는 방법을 설명합니다.
 
-1. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **레이아웃**을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>`바로 앞에 추가합니다.
+1. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **레이아웃** 을 확장합니다. `activity_main.xml` 레이아웃 파일을 열고 **텍스트** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 푸시 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드를 맨 아래의 `</RelativeLayout>`바로 앞에 추가합니다.
 
     ```xml
     <Button
@@ -526,7 +526,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     android:hint="@string/notification_message_hint" />
     ```
 
-2. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **값**을 확장합니다. `strings.xml` 파일을 열고 새 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래에서 `</resources>` 바로 앞에 다음 줄을 추가합니다.
+2. Android Studio 프로젝트 뷰에서 **앱** > **src** > **기본** > **자원** > **값** 을 확장합니다. `strings.xml` 파일을 열고 새 `Button` 및 `EditText` 컨트롤에서 참조하는 문자열 값을 추가합니다. 파일 맨 아래에서 `</resources>` 바로 앞에 다음 줄을 추가합니다.
 
     ```xml
     <string name="send_button">Send Notification</string>
@@ -535,7 +535,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 
 3. `NotificationSetting.java` 파일에서 `NotificationSettings` 클래스에 다음 설정을 추가합니다.
 
-    허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **설정** 페이지에서 **액세스 정책**을 클릭하여 [Azure Portal]에서 이 연결 문자열을 복사할 수 있습니다.
+    허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **설정** 페이지에서 **액세스 정책** 을 클릭하여 [Azure Portal]에서 이 연결 문자열을 복사할 수 있습니다.
 
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";

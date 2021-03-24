@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: MVC
 ms.openlocfilehash: a8cb5ec782b5932c13e321b2ba2d6513597fef52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87422643"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Recovery Services 자격 증명 모음 및 Azure Site Recovery 구성을 다른 Azure 지역으로 이동
@@ -33,7 +33,7 @@ ms.locfileid: "87422643"
 > [!IMPORTANT]
 > 현재는 Recovery Services 자격 증명 모음과 재해 복구 구성을 있는 그대로 다른 지역으로 이동하는 최상의 방법은 없습니다. 이 문서에서는 복제를 사용하지 않도록 설정하고 새 지역에서 설정하는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure VM을 다른 지역으로 이동하기 전에 재해 복구 구성을 제거하고 삭제해야 합니다. 
 
@@ -45,7 +45,7 @@ ms.locfileid: "87422643"
 ## <a name="identify-the-resources-that-were-used-by-azure-site-recovery"></a>Azure Site Recovery에서 사용한 리소스 식별
 다음 단계를 진행하기 전에 이 단계를 수행하는 것이 좋습니다. VM을 복제하는 동안 관련 리소스를 식별하는 것이 더 쉽습니다.
 
-복제되는 각 Azure VM에 대해 **보호된 항목** > **복제된 항목** > **속성**으로 차례로 이동하여 다음 리소스를 식별합니다.
+복제되는 각 Azure VM에 대해 **보호된 항목** > **복제된 항목** > **속성** 으로 차례로 이동하여 다음 리소스를 식별합니다.
 
 - 대상 리소스 그룹
 - 캐시 스토리지 계정
@@ -56,7 +56,7 @@ ms.locfileid: "87422643"
 ## <a name="disable-the-existing-disaster-recovery-configuration"></a>기존 재해 복구 구성 사용 안 함
 
 1. Recovery Services 자격 증명 모음으로 이동합니다.
-2. **보호된 항목** > **복제된 항목**에서 머신을 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 선택합니다.
+2. **보호된 항목** > **복제된 항목** 에서 머신을 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함** 을 선택합니다.
 3. 이동하려는 모든 VM에 대해 이 단계를 반복합니다.
 
 > [!NOTE]
@@ -65,7 +65,7 @@ ms.locfileid: "87422643"
 ## <a name="delete-the-resources"></a>리소스 삭제
 
 1. Recovery Services 자격 증명 모음으로 이동합니다.
-2. **삭제**를 선택합니다.
+2. **삭제** 를 선택합니다.
 3. [이전에 식별한](#identify-the-resources-that-were-used-by-azure-site-recovery) 다른 리소스를 모두 삭제합니다.
  
 ## <a name="move-azure-vms-to-the-new-target-region"></a>새 대상 지역으로 Azure VM 이동
