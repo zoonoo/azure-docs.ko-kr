@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 03/08/2021
 ms.author: justinha
-ms.openlocfilehash: a89c898e150facc9860d86e18a7acc42f5e0f441
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5fa19e23767af0e121d07872970199a2a1705ea8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96618861"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951942"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인을 보호 하기 위해 약한 암호화 및 암호 해시 동기화 사용 안 함
 
@@ -34,14 +34,25 @@ ms.locfileid: "96618861"
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 관리형 도메인을 만들고 구성합니다][create-azure-ad-ds-instance].
-* Azure PowerShell을 설치하고 구성합니다.
-    * 필요한 경우 지침에 따라 [Azure PowerShell 모듈을 설치하고 Azure 구독에 연결](/powershell/azure/install-az-ps)합니다.
-    * [Connect-AzAccount][Connect-AzAccount] cmdlet을 사용하여 Azure 구독에 로그인합니다.
-* Azure AD PowerShell을 설치하고 구성합니다.
-    * 필요한 경우 지침에 따라 [Azure AD PowerShell 모듈을 설치하고 Azure AD에 연결](/powershell/azure/active-directory/install-adv2)합니다.
-    * [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 로그인합니다.
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>약한 암호화 및 NTLM 암호 해시 동기화 사용 안 함
+## <a name="use-security-settings-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>보안 설정을 사용 하 여 약한 암호화 및 NTLM 암호 해시 동기화를 사용 하지 않도록 설정
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure AD Domain Services** 를 검색 하 고 선택 합니다.
+1. 관리되는 도메인(예: *aaddscontoso.com*)을 선택합니다.
+1. 왼쪽에서 **보안 설정** 을 선택 합니다.
+1. 다음 설정에 대해 **사용 안 함** 을 클릭 합니다.
+   - **TLS 1.2 전용 모드**
+   - **NTLM 인증**
+   - **온-프레미스에서 NTLM 암호 동기화**
+
+   ![약한 암호화 및 NTLM 암호 해시 동기화를 사용 하지 않도록 설정 하는 보안 설정의 스크린샷](media/secure-your-domain/security-settings.png)
+
+## <a name="use-powershell-to-disable-weak-ciphers-and-ntlm-password-hash-sync"></a>PowerShell을 사용 하 여 약한 암호화 및 NTLM 암호 해시 동기화를 사용 하지 않도록 설정
+
+필요한 경우 [Azure PowerShell를 설치 하 고 구성](/powershell/azure/install-az-ps)합니다. [Connect-AzAccount][Connect-AzAccount] cmdlet을 사용하여 Azure 구독에 로그인합니다. 
+
+또한 필요한 경우 [AZURE AD PowerShell을 설치 하 고 구성](/powershell/azure/active-directory/install-adv2)합니다. [Connect-AzureAD][Connect-AzureAD] cmdlet을 사용하여 Azure AD 테넌트에 로그인합니다.
 
 약한 암호 그룹 및 NTLM 자격 증명 해시 동기화를 사용 하지 않도록 설정 하려면 Azure 계정에 로그인 한 다음 [AzResource][Get-AzResource] cmdlet을 사용 하 여 azure AD DS 리소스를 가져옵니다.
 

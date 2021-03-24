@@ -3,12 +3,12 @@ title: Bicep 모듈
 description: 모듈을 정의 하 고 사용 하는 방법과 모듈 범위를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 6abe73b51c7762b01c0bf345c68a7110c063603a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609711"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889708"
 ---
 # <a name="use-bicep-modules"></a>Bicep 모듈 사용
 
@@ -78,9 +78,9 @@ module stgModule './storageAccount.bicep' = {
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
-- **module**: 키워드입니다.
+- **모듈**: 키워드.
 - **기호화 된 이름** (stgModule): 모듈에 대 한 식별자입니다.
-- **모듈 파일**:이 예의 모듈에 대 한 경로는 상대 경로 (./storageAccount.bicep)를 사용 하 여 지정 합니다. 일관 된 컴파일 플랫폼 간 사용을 위해 슬래시 (/) 디렉터리 구분 기호를 사용 하 여 Bicep의 모든 경로를 지정 해야 합니다. Windows 백슬래시 ( \\ ) 문자는 지원 되지 않습니다.
+- **모듈 파일**:이 예의 모듈에 대 한 경로는 상대 경로 (./storageAccount.bicep)를 사용 하 여 지정 합니다. 일관된 컴파일 플랫폼 간 사용을 위해 슬래시(/) 디렉터리 구분 기호를 사용하여 Bicep의 모든 경로를 지정해야 합니다. Windows 백슬래시 ( \\ ) 문자는 지원 되지 않습니다.
 - 모듈을 사용 하는 경우 **_name_** 속성 (storagedeploy)이 필요 합니다. Bicep에서 템플릿 IL을 생성 하는 경우이 필드는 모듈에 대해 생성 되는 중첩 된 배포 리소스의 이름으로 사용 됩니다.
 
     ```json
@@ -89,7 +89,7 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     "resources": [
       {
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-10-01",
+        "apiVersion": "2020-10-01",
         "name": "storageDeploy",
         "properties": {
           ...

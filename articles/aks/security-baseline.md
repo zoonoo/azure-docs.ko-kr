@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: de32de5fc78919154bade3895cab6da82b175a93
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8fd058c88e11764a538f67fe49aba267e706bf11
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740635"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951839"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 azure 보안 기준
 
@@ -114,7 +114,7 @@ Network Watcher는 구독에서 가상 네트워크를 만들거나 업데이트
 
 페이로드 검사 또는 동작 분석을 기반으로 하는 침입 탐지 및/또는 방지가 요구 사항이 아닌 경우 WAF를 사용 하는 Azure 애플리케이션 게이트웨이를 "검색 모드"에서 사용 하 고 구성 하 여 경고 및 위협을 기록 하거나 "방지 모드"를 사용 하 여 검색 된 침입 및 공격을 적극적으로 차단할 수 있습니다.
 
-- [WAF를 사용 하 여 AKS 클러스터를 보호 하기 위한 모범 사례 이해](https://docs.microsoft.com/azure/aks/operator-best-practices-network#secure-traffic-with-a-web-application-firewall-waf)
+- [WAF를 사용 하 여 AKS 클러스터를 보호 하기 위한 모범 사례 이해](./operator-best-practices-network.md#secure-traffic-with-a-web-application-firewall-waf)
 
 - [Azure 애플리케이션 게이트웨이를 배포 하는 방법 (Azure WAF)](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
@@ -158,7 +158,7 @@ AKS 클러스터의 노드 풀에 Azure 태그를 적용 합니다. 이러한 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 **책임**: Customer
 
@@ -190,11 +190,11 @@ Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리�
 
 Azure Monitor 로그를 사용 하 여 마스터 구성 요소인 kube-apiserver 및 kube에서 로그를 사용 하도록 설정 하 고 쿼리 합니다. 컨테이너 런타임을 사용 하 여 kubelet를 실행 하 고 관리 되는 Kubernetes API 서버를 통해 응용 프로그램을 배포 하는 노드를 만들고 관리 합니다. 
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토](/azure/aks/view-master-logs)
+- [AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토](./view-control-plane-logs.md)
 
 **책임**: Customer
 
@@ -232,13 +232,13 @@ Log Analytics 또는 다른 저장소 플랫폼으로 이러한 로그를 내보
 
 조직의 비즈니스 요구 사항에 따라이 데이터를 Azure 센티널 또는 타사 SIEM에 사용 하도록 설정 합니다.
 
-- [여기에 로그 역할을 포함 하 여 로그 스키마를 검토 합니다.](/azure/aks/view-master-logs)
+- [여기에 로그 역할을 포함 하 여 로그 스키마를 검토 합니다.](./view-control-plane-logs.md)
 
-- [컨테이너에 대 한 Azure Monitor 이해](/azure/azure-monitor/insights/container-insights-overview)
+- [컨테이너에 대 한 Azure Monitor 이해](../azure-monitor/containers/container-insights-overview.md)
 
-- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](/azure/azure-monitor/insights/container-insights-onboard)
+- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/containers/container-insights-onboard.md)
 
-- [AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토](/azure/aks/view-master-logs)
+- [AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토](./view-control-plane-logs.md)
 
 **책임**: Customer
 
@@ -265,7 +265,7 @@ Azure PowerShell, Azure CLI (명령줄 인터페이스), Azure REST API 또는 A
 
 Kube 등의 다른 감사 로그를 설정 합니다. 
 
-- [AKS에서 Kubernetes 마스터 노드 로그를 사용 하도록 설정 하 고 검토 하는 방법](/azure/aks/view-master-logs)
+- [AKS에서 Kubernetes 마스터 노드 로그를 사용 하도록 설정 하 고 검토 하는 방법](./view-control-plane-logs.md)
 
 **책임**: Customer
 
@@ -287,7 +287,7 @@ Kube 등의 다른 감사 로그를 설정 합니다.
 
 **지침**: Azure Kubernetes 서비스 (AKS) 인스턴스 Azure Monitor를 등록 하 고 조직의 규정 준수 요구 사항에 따라 해당 azure Log Analytics 작업 영역 보존 기간을 설정 합니다. 
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -301,11 +301,11 @@ Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 로그를 검토 
 
 응용 프로그램 및 서비스 문제를 해결 하기 위해 AKS 마스터 구성 요소 (kube-apiserver 및 kube)에서 생성 된 로그를 봅니다. 중앙 집중식 로그 관리 및 모니터링을 위해 Azure 센티널 또는 타사 SIEM에 대 한 온-보드 데이터를 사용 하도록 설정 합니다.
 
-- [AKS에서 Kubernetes 마스터 노드 로그를 사용 하도록 설정 하 고 검토 하는 방법](/azure/aks/view-master-logs)
+- [AKS에서 Kubernetes 마스터 노드 로그를 사용 하도록 설정 하 고 검토 하는 방법](./view-control-plane-logs.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -333,7 +333,7 @@ Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 로그를 검토 
 
 - [보안 경고 참조 가이드](../security-center/alerts-reference.md)
 
-- [컨테이너에 대 한 경고-Azure Kubernetes Service 클러스터](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [컨테이너에 대 한 경고-Azure Kubernetes Service 클러스터](../security-center/alerts-reference.md#alerts-akscluster)
 
 **책임**: Customer
 
@@ -417,7 +417,7 @@ Coredns-custom ConfigMap에 문서화 된 구성을 적용 하 여 DNS 쿼리 �
 
 **지침**: AKS 클러스터에 대 한 Azure Active Directory (azure AD) 통합 인증을 사용 하 여 AKS (Azure Kubernetes Service)에 대 한 Single Sign-On를 사용 합니다.
 
-- [Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법](/azure/azure-monitor/insights/container-insights-livedata-overview)
+- [Kubernetes 로그, 이벤트 및 pod 메트릭을 실시간으로 보는 방법](../azure-monitor/containers/container-insights-livedata-overview.md)
 
 **책임**: Customer
 
@@ -514,7 +514,7 @@ Azure Id 액세스 검토를 수행 하 여 그룹 멤버 자격, 엔터프라�
 **지침**: Azure Kubernetes 서비스 (AKS)에 대 한 사용자 인증을 azure AD (Azure Active Directory)와 통합 합니다. Azure AD에 대 한 진단 설정을 만들어 Azure Log Analytics 작업 영역에 감사 및 로그인 로그를 보냅니다. Azure Log Analytics 작업 영역 내에서 원하는 경고 (예: 비활성화 된 계정이 로그인을 시도 하는 경우)를 구성 합니다.
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Azure Monitor를 사용 하 여 로그 경고를 만들고, 보고, 관리 하는 방법](/azure/azure-monitor/platform/alerts-log)
+- [Azure Monitor를 사용 하 여 로그 경고를 만들고, 보고, 관리 하는 방법](../azure-monitor/alerts/alerts-log.md)
 
 **책임**: Customer
 
@@ -664,11 +664,11 @@ Microsoft는 기본 플랫폼을 관리 하 고 모든 고객 콘텐츠를 중�
 
 Azure 활동 로그를 사용 하 여 AKS 클러스터 및 관련 리소스를 높은 수준으로 모니터링 합니다. 프로메테우스와 통합 하 여 사용자 지정 경고, 대시보드 및 자세한 분석을 만드는 쿼리를 사용 하 여 노드 및 Kubernetes에서 수집한 응용 프로그램 및 워크 로드 메트릭을 볼 수 있습니다.
 
-- [컨테이너에 대 한 Azure Monitor 이해](/azure/azure-monitor/insights/container-insights-overview)
+- [컨테이너에 대 한 Azure Monitor 이해](../azure-monitor/containers/container-insights-overview.md)
 
-- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](/azure/azure-monitor/insights/container-insights-onboard)
+- [컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법](../azure-monitor/containers/container-insights-onboard.md)
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **책임**: Customer
 
@@ -704,7 +704,7 @@ Windows server 노드를 최신 상태로 유지 하는 프로세스는 windows 
 
 - [Linux를 실행 하는 AKS 클러스터 노드에 업데이트를 적용 하는 방법 이해](node-updates-kured.md)
 
-- [Windows Server 노드를 사용 하는 AKS 클러스터에 대 한 AKS node 풀을 업그레이드 하는 방법](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool)
+- [Windows Server 노드를 사용 하는 AKS 클러스터에 대 한 AKS node 풀을 업그레이드 하는 방법](./use-multiple-node-pools.md#upgrade-a-node-pool)
 
 - [AKS (Azure Kubernetes Service) 노드 이미지 업그레이드](node-image-upgrade.md)
 
@@ -792,7 +792,7 @@ Taints, 레이블 또는 태그를 사용 하 여 정기적으로 인벤토리�
 
 - [관리 되는 클러스터-태그 업데이트](/rest/api/aks/managedclusters/updatetags)
 
-- [노드 풀의 taint, 레이블 또는 태그 지정](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#specify-a-taint-label-or-tag-for-a-node-pool)
+- [노드 풀의 taint, 레이블 또는 태그 지정](./use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool)
 
 **책임**: Customer
 
@@ -887,7 +887,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -1030,7 +1030,7 @@ Pod는 허용 되지 않는 요청 리소스를 AKS 클러스터에서 실행할
 
 - [AKS 에이전트 노드 호스트 OS에 대 한 보안 강화](security-hardened-vm-host-image.md)
 
-- [AKS 클러스터의 상태 구성 이해](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
+- [AKS 클러스터의 상태 구성 이해](./concepts-clusters-workloads.md#control-plane)
 
 - [AKS 가상 컴퓨터 호스트의 보안 강화 이해](security-hardened-vm-host-image.md)
 
@@ -1070,7 +1070,7 @@ Terraform과 같은 타사 솔루션을 구현 하 여 Kubernetes 클러스터�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 **책임**: Customer
 
@@ -1086,7 +1086,7 @@ AKS 호스트에 기본 제공 되는 CI (Internet Security) 컨트롤의 센터
 
 - [AKS 가상 컴퓨터 호스트의 보안 강화 이해](security-hardened-vm-host-image.md)
 
-- [AKS 클러스터의 상태 구성 이해](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#control-plane)
+- [AKS 클러스터의 상태 구성 이해](./concepts-clusters-workloads.md#control-plane)
 
 **책임**: Customer
 
@@ -1124,7 +1124,7 @@ AKS 호스트에 기본 제공 되는 CI (Internet Security) 컨트롤의 센터
 
 - [AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념](concepts-security.md)
 
-- [AKS 클러스터와 함께 Key Vault를 사용 하는 방법](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
+- [AKS 클러스터와 함께 Key Vault를 사용 하는 방법](./developer-best-practices-pod-security.md#limit-credential-exposure)
 
 **책임**: Customer
 
@@ -1138,7 +1138,7 @@ Pod 관리 id는 Linux pod 및 컨테이너 이미지만 사용 하기 위한 �
 
 AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러나 결국 서비스 사용자를 사용 하는 클러스터는 클러스터 작동을 유지 하기 위해 서비스 주체를 갱신 해야 하는 상태에 도달할 수 있습니다. 서비스 주체를 관리 하면 복잡성이 증가 하므로 관리 되는 id를 대신 사용 하는 것이 더 쉽습니다. 서비스 사용자와 관리 되는 id 모두에 대해 동일한 권한 요구 사항이 적용 됩니다.
 
-- [Azure Kubernetes 서비스를 사용 하 여 관리 되는 Id 및 Key Vault 이해 (AKS)](https://docs.microsoft.com/azure/aks/developer-best-practices-pod-security#limit-credential-exposure)
+- [Azure Kubernetes 서비스를 사용 하 여 관리 되는 Id 및 Key Vault 이해 (AKS)](./developer-best-practices-pod-security.md#limit-credential-exposure)
 
 - [Azure AD Pod Id](https://github.com/Azure/aad-pod-identity)
 
@@ -1170,9 +1170,9 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 - [보안 경고 참조 가이드](../security-center/alerts-reference.md)
 
-- [컨테이너에 대 한 경고-Azure Kubernetes Service 클러스터](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [컨테이너에 대 한 경고-Azure Kubernetes Service 클러스터](../security-center/alerts-reference.md#alerts-akscluster)
 
-- [AKS 공유 책임 및 데몬 집합](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
+- [AKS 공유 책임 및 데몬 집합](./support-policies.md#shared-responsibility)
 
 **책임**: 공유됨
 
@@ -1194,9 +1194,9 @@ AKS 클러스터에서 서비스 주체를 사용할 수도 있습니다. 그러
 
 - [보안 경고 참조 가이드](../security-center/alerts-reference.md)
 
-- [컨테이너에 대 한 경고-Azure Kubernetes Service 클러스터](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [컨테이너에 대 한 경고-Azure Kubernetes Service 클러스터](../security-center/alerts-reference.md#alerts-akscluster)
 
-- [AKS 공유 책임 및 데몬 집합](https://docs.microsoft.com/azure/aks/support-policies#shared-responsibility)
+- [AKS 공유 책임 및 데몬 집합](./support-policies.md#shared-responsibility)
 
 **책임**: 공유됨
 
@@ -1238,7 +1238,7 @@ PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저�
 
 - [Key Vault 비밀을 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret)
 
-- [Azure Backup를 사용 하도록 설정 하는 방법](/azure/backup/)
+- [Azure Backup를 사용 하도록 설정 하는 방법](../backup/index.yml)
 
 **책임**: Customer
 
@@ -1250,15 +1250,15 @@ PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저�
 
 PowerShell 명령을 사용 하 여 Key Vault 인증서, 키, 관리 되는 저장소 계정 및 암호의 데이터 복원을 정기적으로 수행 합니다.
 
-- [Key Vault 인증서를 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
+- [Key Vault 인증서를 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultcertificate?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Key Vault 키를 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 - [관리 되는 저장소 계정을 Key Vault 복원 하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Key Vault 비밀을 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
+- [Key Vault 비밀을 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultsecret?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](/azure/backup/backup-azure-restore-files-from-vm)
+- [Azure Virtual Machine 백업에서 파일을 복구 하는 방법](../backup/backup-azure-restore-files-from-vm.md)
 
 **책임**: Customer
 
@@ -1272,7 +1272,7 @@ AKS (Azure Kubernetes Service) 배포에 대해 Azure Key Vault를 사용 하는
 
 - [Azure Storage 서비스 암호화 이해](../storage/common/storage-service-encryption.md)
 
-- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **책임**: Customer
 
@@ -1371,5 +1371,5 @@ AKS (Azure Kubernetes Service) 배포에 대해 Azure Key Vault를 사용 하는
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

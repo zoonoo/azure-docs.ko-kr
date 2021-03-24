@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 9f92007c271da5b6d2cb8db6c3904a62b114e7c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929506"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864604"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 구조적 스트리밍 개요
 
@@ -20,7 +20,7 @@ ms.locfileid: "98929506"
 
 구조적 스트리밍은 입력 데이터에 작업(예: 선택, 프로젝션, 집계, 창 작업 및 스트리밍 데이터 프레임과 참조 데이터 프레임의 조인)을 적용하는 장기 실행 쿼리를 만듭니다. 그런 다음, 사용자 지정 코드(예: SQL Database 또는 Power BI)를 사용하여 결과를 File Storage(Azure Storage Blob 또는 Data Lake Storage) 또는 데이터 저장소에 출력합니다. 또한 구조적 스트리밍은 로컬로 디버그하기 위해 콘솔에 출력을 제공하고, HDInsight에서 디버그하기 위해 생성된 데이터를 볼 수 있도록 메모리 내 테이블에 출력을 제공합니다.
 
-![HDInsight 및 Spark 구조적 스트리밍을 통한 스트림 처리](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png" alt-text="HDInsight 및 Spark 구조적 스트리밍을 통한 스트림 처리" border="false":::
 
 > [!NOTE]  
 > Spark 구조적 스트리밍은 Spark 스트리밍(DStreams)을 대체합니다. 향후에는 구조적 스트리밍에 향상된 기능과 유지 관리 기능을 제공하는 한편, DStreams는 유지 관리 모드로만 유지될 것입니다. 현재 구조적 스트리밍은 즉시 지원되는 원본 및 싱크에 대한 DStreams처럼 완벽한 기능이 아니므로 요구 사항을 평가하여 적절한 Spark 스트림 처리 옵션을 선택해야 합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "98929506"
 
 Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 않은 테이블로 표현합니다. 즉, 새 데이터가 들어옴에 따라 테이블이 계속 커집니다. 이 *입력 테이블* 은 장기 실행 쿼리를 통해 지속적으로 처리 되며 결과는 *출력 테이블로* 전송 됩니다.
 
-![구조적 스트리밍 개념](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png" alt-text="구조적 스트리밍 개념" border="false":::
 
 구조적 스트리밍에서 데이터는 시스템에 들어오는 즉시 입력 테이블로 수집됩니다. 이 입력 테이블에 대해 작업을 수행하는 쿼리를 작성합니다(데이터 프레임 및 데이터 세트 API 사용). 쿼리 출력은 다른 테이블인 *결과 테이블* 을 생성 합니다. 결과 테이블에는 쿼리의 결과가 포함되며, 이 테이블에서 관계형 데이터베이스와 같은 외부 데이터 저장소에 대한 데이터를 가져옵니다. 입력 테이블에서 데이터가 처리 되는 시기는 *트리거 간격* 에 의해 제어 됩니다. 트리거 간격은 기본적으로 0이며, 이 경우 데이터가 들어오는 즉시 구조적 스트리밍에서 처리하려고 시도합니다. 실제로 구조적 스트리밍은 이전 쿼리의 실행을 처리하는 즉시 새로 받은 데이터에 대해 또 다른 처리를 시작합니다. 트리거가 일정한 간격으로 실행되도록 구성하여 스트리밍 데이터를 시간 기반 일괄 처리로 처리할 수 있습니다.
 
@@ -41,7 +41,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 자동 온도 조절기와 같은 온도 센서에서 원격 분석을 처리 하는 시나리오를 고려해 보세요. 첫 번째 트리거에서 온도 판독값이 95도인 디바이스 1에 대해 00:01 시간에 하나의 이벤트를 처리했다고 가정합니다. 쿼리의 첫 번째 트리거에서 00:01 시간이 있는 행만 결과 테이블에 표시됩니다. 00:02 시간에 다른 이벤트가 도착하는 경우 유일한 새 행은 00:02 시간이 있는 행이므로 결과 테이블에는 하나의 행만 포함됩니다.
 
-![구조적 스트리밍 추가 모드](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-append-mode.png" alt-text="구조적 스트리밍 추가 모드" border="false":::
 
 추가 모드를 사용하는 경우 쿼리에서 프로젝션(관심 있는 열 선택), 필터링(특정 조건과 일치하는 행만 선택) 또는 조인(정적 조회 테이블의 데이터로 데이터 보강)을 적용합니다. 추가 모드를 사용하면 관련된 새 데이터 요소만 외부 스토리지로 쉽게 푸시할 수 있습니다.
 
@@ -51,7 +51,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 지금까지 5 초 분량의 데이터가 이미 처리 되었으며 여섯 번째 초의 데이터를 처리 해야 한다고 가정 합니다. 입력 테이블에는 00:01 시간 및 00:03 시간에 대한 이벤트가 있습니다. 이 예제 쿼리의 목표는 5초마다 디바이스의 평균 온도를 제공하는 것입니다. 이 쿼리를 구현하면 각각의 5초 시간 범위에 속하는 모든 값을 사용하여 온도의 평균을 계산하고 해당 간격에 대한 평균 온도 행을 생성하는 집계가 적용됩니다. 첫 번째 5초 시간 범위의 끝에 두 개의 튜플, 즉 (00:01, 1, 95) 및 (00:03, 1, 98)이 있습니다. 따라서 00:00-00:05 시간 범위에 대한 집계는 평균 온도가 96.5도인 튜플을 생성합니다. 다음 5 초 창에는 00:06 시간에 데이터 요소가 하나만 있으므로 결과 평균 온도가 98도입니다. 00:10 시간에서 전체 모드를 사용하는 경우 쿼리에서 새 행뿐만 아니라 집계된 모든 행을 출력하기 때문에 결과 테이블에는 00:00-00:05 및 00:05-00:10의 두 시간 범위에 대한 행이 있습니다. 따라서 새 시간 범위가 추가됨에 따라 결과 테이블은 계속 커집니다.
 
-![구조적 스트리밍 전체 모드](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
+:::image type="content" source="./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png" alt-text="구조적 스트리밍 전체 모드" border="false":::
 
 전체 모드를 사용하는 모든 쿼리에서 테이블이 무제한으로 커지도록 하지는 않습니다.  앞의 예에서는 시간 범위별로 온도 평균을 계산하지 않고 디바이스 ID별로 온도 평균을 계산한 것입니다. 결과 테이블에는 해당 디바이스로부터 받은 모든 데이터 요소에 대한 평균 온도가 포함된 고정된 수의 행(디바이스당 하나씩)이 있습니다. 새 온도를 받는 대로 테이블의 평균이 항상 최신이 되도록 결과 테이블이 업데이트됩니다.
 
@@ -141,7 +141,7 @@ select * from temps
 
 일반적으로 Spark Streaming 애플리케이션을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 스토리지로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 [Apache Livy](https://livy.incubator.apache.org/) REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 애플리케이션을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 애플리케이션 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
 
-![Spark Streaming 애플리케이션 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
+:::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png" alt-text="Spark Streaming 애플리케이션 배포" border="false":::
 
 또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 애플리케이션의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 애플리케이션을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [Apache LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 

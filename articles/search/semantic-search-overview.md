@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771314"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888909"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
 > [!IMPORTANT]
-> 의미 체계 검색은 preview REST API 통해서만 사용할 수 있는 공개 미리 보기 상태입니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있는 그대로 제공 되며 일반 공급 시 동일한 구현을 보장 하지 않습니다. 이러한 기능은 청구 가능 합니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
+> 의미 체계 검색은 preview REST API 및 포털을 통해 사용할 수 있는 공개 미리 보기 상태입니다. 미리 보기 기능은 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있는 그대로 제공 되며 일반 공급 시 동일한 구현을 보장 하지 않습니다. 이러한 기능은 청구 가능 합니다. 자세한 내용은 [가용성 및 가격 책정](semantic-search-overview.md#availability-and-pricing)을 참조 하세요.
 
 의미 체계 검색은 검색 결과에 대 한 의미 체계 관련성 및 언어 이해를 추가 하는 쿼리 관련 기능의 모음입니다. *의미 등급 순위* 는 컨텍스트를 검색 하 고, 용어를 사용 하 여 쿼리를 보다 합리적으로 관련성 일치 하는 항목을 승격 합니다. 언어 이해는 콘텐츠 내에서 일치 하는 문서를 요약 하거나 질문에 대답 하는 *캡션* 및 *답변* 을 찾습니다 .이는 검색 결과 페이지에서 렌더링 하 여 생산성 높은 검색 환경을 제공할 수 있습니다.
 

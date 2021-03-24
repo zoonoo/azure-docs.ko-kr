@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7c5fbbd8cdfd75819bffcfb93fc81900feb4a612
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d965ec2f846f09dd61342b3961e7ea8106f6a19f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101652371"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954890"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -52,7 +52,7 @@ API Management가 배포된 서브넷으로의 인바운드 및 아웃바운드 
 
 주의: API Management 서브넷에서 NSG를 구성하는 경우 열려 있어야 하는 포트 세트가 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다.
 
-- [Azure API Management를 위한 NSG 구성 이해](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Azure API Management를 위한 NSG 구성 이해](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 - [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -75,7 +75,7 @@ API Management가 배포된 서브넷으로의 인바운드 및 아웃바운드 
 
 - [내부 VNET의 API Management를 Application Gateway와 통합하는 방법](api-management-howto-integrate-internal-vnet-appgateway.md)
 
-- [Azure Application Gateway 이해](/azure/application-gateway/)
+- [Azure Application Gateway 이해](../application-gateway/index.yml)
 
 **책임**: Customer
 
@@ -96,7 +96,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 - [내부 VNET의 API Management를 Application Gateway와 통합하는 방법](api-management-howto-integrate-internal-vnet-appgateway.md)
 
-- [Azure Application Gateway 이해](/azure/application-gateway/)
+- [Azure Application Gateway 이해](../application-gateway/index.yml)
 
 - [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
@@ -110,7 +110,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 주의: API Management 서브넷에서 NSG를 구성하는 경우 열려 있어야 하는 포트 세트가 있습니다. 이러한 포트를 사용할 수 없는 경우 API Management가 정상적으로 작동하지 않고 액세스하지 못하게 될 수 있습니다.
 
-- [Azure API Management를 위한 NSG 구성 이해](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [Azure API Management를 위한 NSG 구성 이해](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 - [NSG 흐름 로그를 사용하도록 설정하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -160,7 +160,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 - [Azure Application Gateway의 Azure 웹 애플리케이션 방화벽](../web-application-firewall/ag/ag-overview.md)
 
-- [Azure Application Gateway 이해](/azure/application-gateway/overview)
+- [Azure Application Gateway 이해](../application-gateway/overview.md)
 
 **책임**: Customer
 
@@ -174,7 +174,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 - [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
 
-- [API Management에 필요한 포트](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues)
+- [API Management에 필요한 포트](./api-management-using-with-vnet.md#-common-network-configuration-issues)
 
 **책임**: Customer
 
@@ -198,7 +198,7 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 **지침**: NSG(네트워크 보안 그룹) 및 네트워크 보안/트래픽 흐름과 관련된 기타 리소스에 태그를 사용합니다. 개별 NSG 규칙의 경우 "설명" 필드를 사용하여 네트워크에서 들어오고 나가는 트래픽을 허용하는 모든 규칙에 대한 비즈니스 요구 및/또는 기간 등을 지정할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [Virtual Network를 만드는 방법](../virtual-network/quick-create-portal.md)
 
@@ -212,9 +212,9 @@ Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 �
 
 **지침**: Azure 활동 로그를 사용하여 네트워크 리소스 구성을 모니터링하고 Azure API Management 배포와 연결된 네트워크 리소스의 변경 내용을 검색합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -232,7 +232,7 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM(Security Incident and Event Management)에 사용하도록 설정하고 온보딩합니다.
 
-- [진단 설정을 구성하는 방법](/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal)
+- [진단 설정을 구성하는 방법](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -252,9 +252,9 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 데이터 평면 감사 로깅의 경우 진단 로그는 감사 및 문제 해결에 중요한 작업 및 오류에 대한 다양한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스에서 수행하는 작업에 대한 정보를 제공합니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](/Azure/api-management/api-management-howto-use-azure-monitor#resource-logs)
+- [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](./api-management-howto-use-azure-monitor.md#resource-logs)
 
 **책임**: Customer
 
@@ -264,9 +264,9 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규칙에 따라 Log Analytics 작업 영역 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [로그를 Azure Storage 계정에 보관하는 방법](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [로그를 Azure Storage 계정에 보관하는 방법](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **책임**: Customer
 
@@ -278,11 +278,11 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 필요에 따라 API Management를 Azure Application Insights와 통합하여 기본 또는 보조 모니터링, 추적, 보고 및 경고 도구로 사용합니다.
 
-- [Azure API Management에 대한 로그를 모니터링 및 검토하는 방법](/Azure/api-management/api-management-howto-use-azure-monitor)
+- [Azure API Management에 대한 로그를 모니터링 및 검토하는 방법](./api-management-howto-use-azure-monitor.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
-- [Log Analytics 작업 영역 이해](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 작업 영역 이해](../azure-monitor/logs/log-analytics-tutorial.md)
 
 - [Azure Application Insights와 통합하는 방법](api-management-howto-app-insights.md)
 
@@ -300,11 +300,11 @@ Azure Monitor 외에도 Azure API Management는 하나 이상의 Azure Applicati
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#resource-logs)
+- [진단 설정을 Azure API Management에 사용하도록 설정하는 방법](./api-management-howto-use-azure-monitor.md#resource-logs)
 
-- [Azure API Management에 대 한 경고 규칙을 구성 하는 방법](/Azure/api-management/api-management-howto-use-azure-monitor#set-up-an-alert-rule-for-unauthorized-request)
+- [Azure API Management에 대 한 경고 규칙을 구성 하는 방법](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 - [Azure API Management 인스턴스의 용량 메트릭을 확인하는 방법](api-management-capacity.md)
 
@@ -338,7 +338,7 @@ Azure Active Directory (Azure AD)에는 명시적으로 할당 되어야 하며 
 
 - [PowerShell을 사용하여 Azure AD에서 디렉터리 역할 정의를 가져오는 방법](/powershell/module/az.resources/get-azroledefinition)
 
-- [Azure Security Center의 ID 및 액세스 추천 사항 이해](https://docs.microsoft.com/azure/security-center/recommendations-reference#identityandaccess-recommendations)
+- [Azure Security Center의 ID 및 액세스 추천 사항 이해](../security-center/recommendations-reference.md#identityandaccess-recommendations)
 
 **책임**: Customer
 
@@ -419,7 +419,7 @@ Azure Active Directory (Azure AD)에는 명시적으로 할당 되어야 하며 
 
 - [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **책임**: Customer
 
@@ -505,7 +505,7 @@ Azure AD 사용자 계정에 대한 진단 설정을 만들고, 감사 로그 �
 
 **지침**: 제어 평면 (Azure Portal)의 계정 로그인 동작 편차에 대해 Azure Active Directory (Azure AD) id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -519,7 +519,7 @@ Azure AD 사용자 계정에 대한 진단 설정을 만들고, 감사 로그 �
 
 **지침**: 현재 사용할 수 없음. Customer Lockbox는 현재 Azure API Management에서 지원되지 않습니다.
 
-- [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **책임**: Customer
 
@@ -533,7 +533,7 @@ Azure AD 사용자 계정에 대한 진단 설정을 만들고, 감사 로그 �
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -543,11 +543,11 @@ Azure AD 사용자 계정에 대한 진단 설정을 만들고, 감사 로그 �
 
 **지침**: 개발, 테스트 및 프로덕션을 위해 별도의 구독 및/또는 관리 그룹을 구현합니다. Azure API Management 인스턴스는 VNet(가상 네트워크)/서브넷으로 구분하고 태그를 적절하게 지정해야 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
 - [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [가상 네트워크에서 Azure API Management를 사용하는 방법](api-management-using-with-vnet.md)
 
@@ -571,7 +571,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: 관리 평면 호출은 TLS를 통해 Azure Resource Manager에서 수행됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다. 데이터 평면 호출은 TLS 및 지원되는 인증 메커니즘(예: 클라이언트 인증서 또는 JWT) 중 하나를 사용하여 보호할 수 있습니다.
 
-- [Azure API Management의 데이터 보호 이해](/azure/api-management/api-management-security-controls#data-protection)
+- [Azure API Management의 데이터 보호 이해](#data-protection)
 
 - [Azure API Management에서 TLS 설정 관리](api-management-howto-manage-protocols-ciphers.md)
 
@@ -621,7 +621,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 **지침**: Azure Monitor에서 Azure 활동 로그를 사용하여 프로덕션 Azure Functions 앱 및 기타 중요하거나 관련된 리소스가 변경되는 경우에 대한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure API Management에서 Azure Monitor 및 Azure 활동 로그를 사용하는 방법](api-management-howto-use-azure-monitor.md)
 
@@ -639,7 +639,7 @@ Microsoft는 Azure API Management에 대한 기본 인프라를 관리하고, �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 구성 관련 취약성을 줄이기 위해 사용 가능한 보안 제어를 검토합니다.
 
-- [Azure API Management에서 사용할 수 있는 보안 제어 이해](/azure/api-management/api-management-security-controls)
+- [Azure API Management에서 사용할 수 있는 보안 제어 이해]()
 
 **책임**: Customer
 
@@ -675,7 +675,6 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 서비스 구성 관련 취약성을 줄이기 위해 사용 가능한 보안 제어를 검토합니다.
 
-- [Azure API Management에서 사용할 수 있는 보안 제어 이해](/azure/api-management/api-management-security-controls)
 
 **책임**: Customer
 
@@ -693,7 +692,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 �
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -705,7 +704,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 �
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 활용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 활용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -719,11 +718,11 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 고객이 �
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
 - [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -785,7 +784,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -835,7 +834,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure Policy를 사용하여 Azure API Management 서비스에 대한 표준 보안 구성을 정의하고 구현합니다. "Microsoft.ApiManagement" 네임스페이스에서 Azure Policy 별칭을 사용하여 Azure API Management 서비스의 구성을 감사하거나 적용하는 사용자 지정 정책을 만듭니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -939,7 +938,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [API Management 인스턴스에 대한 관리 ID를 만드는 방법](api-management-howto-use-managed-service-identity.md)
 
-- [관리 ID를 사용하여 인증하는 정책](https://docs.microsoft.com/azure/api-management/api-management-authentication-policies#ManagedIdentity)
+- [관리 ID를 사용하여 인증하는 정책](./api-management-authentication-policies.md#ManagedIdentity)
 
 **책임**: Customer
 
@@ -1001,7 +1000,7 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 - [API Management 데이터 평면을 여러 지역에 배포하는 방법](api-management-howto-deploy-multi-region.md)
 
-- [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 - [API Management 백업 작업을 호출하는 방법](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
 
@@ -1017,9 +1016,9 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 관리 ID는 Azure Key Vault에서 API Management 사용자 지정 도메인 이름에 대한 인증서를 가져오는 데 사용할 수 있습니다. Azure Key Vault 내에 저장되는 인증서를 모두 백업합니다.
 
-- [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [Azure Key Vault 인증서를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultcertificate?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure Key Vault 인증서를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultcertificate?preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
@@ -1041,7 +1040,7 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 **지침**: Azure API Management는 백업을 고객 소유의 Azure Storage 계정에 씁니다. Azure Storage 보안 추천 사항에 따라 백업을 보호합니다.
 
-- [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
+- [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
 - [Blob 스토리지에 대한 보안 추천 사항](../storage/blobs/security-recommendations.md)
 
@@ -1079,7 +1078,7 @@ Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 �
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **책임**: Customer
 
@@ -1143,5 +1142,5 @@ Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

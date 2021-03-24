@@ -1,19 +1,19 @@
 ---
 title: Azure에서 Windows 클라이언트 이미지 사용
 description: Visual Studio 구독 혜택을 사용하여 개발/테스트 시나리오용으로 Azure에서 Windows 7, Windows 8 또는 Windows 10을 배포하는 방법
-author: cynthn
+author: mimckitt
 ms.subservice: imaging
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: cynthn
-ms.openlocfilehash: 21038a8d1eabfcca21329c093b866607f0343070
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.author: mimckitt
+ms.openlocfilehash: 7879e355573d2b9952728828bd3780094a919fe3
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199998"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869058"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 
@@ -28,6 +28,9 @@ ms.locfileid: "103199998"
 
 ## <a name="eligible-offers-and-client-images"></a>적격 제공 및 클라이언트 이미지
 다음 표에서는 Azure Marketplace 통해 Windows 클라이언트 이미지를 배포할 수 있는 제품 Id에 대해 자세히 설명 합니다. Windows 클라이언트 이미지는 다음 제품에만 표시 됩니다. 
+
+> [!NOTE]
+> 이미지 제공은 Azure Marketplace의 **Windows 클라이언트** 아래에 있습니다. Visual Studio 구독자가 사용할 수 있는 클라이언트 이미지를 검색할 때 **Windows 클라이언트** 를 사용 합니다. 
 
 | 제품 이름 | 제품 번호 | 사용 가능한 클라이언트 이미지 | 
 |:--- |:---:|:---:|

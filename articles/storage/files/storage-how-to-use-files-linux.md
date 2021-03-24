@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5161d8e169a7eb9e757dfbfa71fa697880e1806e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4ace5620bf98b06956c294a12b6b08881422e718
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98673690"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952340"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -94,7 +94,7 @@ uname -r
     회사 네트워크에서 포트 445을 열 수 없거나 ISP에 의해 차단 된 경우 VPN 연결 또는 Express 경로를 사용 하 여 포트 445를 해결할 수 있습니다. 자세한 내용은 [Azure 파일 공유에 대 한 직접 액세스에 대 한 네트워킹 고려 사항](storage-files-networking-overview.md)을 참조 하세요.
 
 ## <a name="mounting-azure-file-share"></a>Azure 파일 공유 탑재
-Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 탑재 지점으로 사용할 디렉터리를 만들어야 합니다. 탑재 지점은 Linux 시스템의 어디에 나 만들 수 있지만/mnt.에서이를 만드는 일반적인 규칙입니다. 탑재 지점 후 명령을 사용 하 여 `mount` Azure 파일 공유에 액세스 합니다.
+Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 탑재 지점으로 사용할 디렉터리를 만들어야 합니다. 탑재 지점은 Linux 시스템의 어디에 나 만들 수 있지만/mount.에서이를 만드는 일반적인 규칙입니다. 탑재 지점 후 명령을 사용 하 여 `mount` Azure 파일 공유에 액세스 합니다.
 
 원하는 경우 동일한 Azure 파일 공유를 여러 탑재 위치에 탑재할 수 있습니다.
 
@@ -106,7 +106,7 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -135,14 +135,14 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
 Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath`를 사용하여 공유를 탑재 해제할 수 있습니다.
 
 ### <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>`/etc/fstab`을 사용하여 Azure 파일 공유에 대한 영구 탑재 지점 만들기
-1. **탑재 지점에 대 한 폴더 만들기**: 탑재 지점에 대 한 폴더는 파일 시스템의 어느 위치에 나 만들 수 있지만이를/mnt. 아래에 만드는 것이 일반적인 규칙입니다. 예를 들어 다음 명령을 사용 하 여 새 디렉터리를 만들고 `<your-resource-group>` , `<your-storage-account>` 및를 `<your-file-share>` 사용자 환경에 적절 한 정보로 바꿉니다.
+1. **탑재 지점에 대 한 폴더 만들기**: 탑재 지점에 대 한 폴더는 파일 시스템의 어느 위치에 나 만들 수 있지만이를/mount. 아래에 만드는 것이 일반적인 규칙입니다. 예를 들어 다음 명령을 사용 하 여 새 디렉터리를 만들고 `<your-resource-group>` , `<your-storage-account>` 및를 `<your-file-share>` 사용자 환경에 적절 한 정보로 바꿉니다.
 
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
     fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccountName/$fileShareName"
+    mntPath="/mount/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```

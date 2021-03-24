@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e4b6a6090bf0e5e332a960cba8ec565df9dd55c2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98881064"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872271"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>PostgreSQL-Single 서버용 Azure Database에 대 한 개인 링크
 
@@ -84,7 +84,8 @@ Azure Database for PostgreSQL 단일 서버에서 데이터를 필터링 하는 
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 개인 링크 사용 사례
 
-클라이언트는 동일한 VNet, 동일한 지역의 피어 링 VNet 또는 지역 간에 VNet 간 연결을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
+
+클라이언트는 동일한 VNet, 동일한 지역의 [피어 링 vnet](../virtual-network/virtual-network-peering-overview.md) 또는 지역 간에 [vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
 
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="개인 끝점 개요를 선택 합니다.":::
 

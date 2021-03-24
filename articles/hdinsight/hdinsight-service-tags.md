@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 99a61d3e445bf6887db0c97e365e6e4489eb79e1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931760"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872016"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
 
@@ -40,7 +40,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 
 1. **원본 서비스 태그** 드롭다운 목록에서 **HDInsight** 를 선택 합니다.
 
-    ![Azure Portal에서 서비스 태그를 추가 합니다.](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
+    :::image type="content" source="./media/hdinsight-service-tags/azure-portal-add-service-tag.png" alt-text="Azure Portal에서 서비스 태그를 추가 합니다.":::
 
 이 태그에는 HDInsight를 사용할 수 있는 모든 지역에 대 한 상태 및 관리 서비스의 IP 주소가 포함 됩니다. 태그를 사용 하면 클러스터가 만들어진 위치와 상관 없이 클러스터가 필요한 상태 및 관리 서비스와 통신할 수 있습니다.
 

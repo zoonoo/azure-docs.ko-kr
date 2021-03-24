@@ -3,14 +3,13 @@ title: Azure의 BareMetal Infrastructure 미리 보기 개요
 description: Azure의 BareMetal 인프라 개요.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.subservice: workloads
 ms.date: 1/4/2021
-ms.openlocfilehash: 94cee52eccd8cc9e9631b47bdf84892d763d86d3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 603aa6504531ef8a75fccbc9d9cc6de648b42373
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104776316"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954635"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>Azure의 BareMetal Infrastructure 미리 보기 란 무엇 인가요?
 
@@ -41,7 +40,7 @@ Microsoft는 다음을 담당 합니다.
 
 :::image type="content" source="media/baremetal-support-model.png" alt-text="BareMetal 인프라 지원 모델" border="false":::
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>컴퓨팅
 BareMetal 인프라는 특수화 된 워크 로드에 대해 여러 Sku를 제공 합니다. 작은 2 소켓 시스템에서 24 소켓 시스템으로 사용할 수 있는 Sku를 사용할 수 있습니다. 특수 워크 로드에 대 한 워크 로드 관련 Sku를 사용 합니다.
 
 BareMetal 인스턴스 스탬프 자체는 다음 구성 요소를 결합 합니다.
@@ -72,7 +71,7 @@ BareMetal 인스턴스를 프로 비전 하는 동안 컴퓨터에 설치 하려
    - SLES 12 SP5
    - SLES 15 SP1
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 특정 SKU 유형을 기반으로 하는 BareMetal 인스턴스는 특정 작업 유형에 대해 미리 정의 된 NFS 저장소와 함께 제공 됩니다. BareMetal를 프로 비전 할 때 지원 요청을 제출 하 여 예상 증가량에 따라 더 많은 저장소를 프로 비전 할 수 있습니다. 모든 저장소는 NFSv3 및 NFSv4를 지 원하는 개정판 4.2의 모든 플래시 디스크와 함께 제공 됩니다. 최신 수정 버전 4.5 NVMe SSD를 사용할 수 있습니다. 저장소 크기 조정에 대 한 자세한 내용은 [BareMetal 작업 형식](../virtual-machines/workloads/sap/get-started.md) 섹션을 참조 하세요.
 
 >[!NOTE]

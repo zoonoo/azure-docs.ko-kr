@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 75d219a207fef4f1f122799af5f4f4ef2765bca4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fc26d8e154dc0a58bb3436a8161d2e21efa2b86
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101723863"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952017"
 ---
 # <a name="azure-security-baseline-for-application-gateway"></a>Application Gateway에 대 한 Azure 보안 기준
 
@@ -60,7 +60,7 @@ Application Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 - [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-- [Azure 애플리케이션 게이트웨이의 진단 및 로깅에 대 한 FAQ](/azure/application-gateway/application-gateway-faq#what-types-of-logs-does-application-gateway-provide)
+- [Azure 애플리케이션 게이트웨이의 진단 및 로깅에 대 한 FAQ](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **책임**: Customer
 
@@ -118,7 +118,7 @@ Application Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 - [Azure Security Center에서 제공 하는 네트워크 보안 이해](../security-center/security-center-network-recommendations.md)
 
-- [Azure 애플리케이션 게이트웨이의 진단 및 로깅에 대 한 FAQ](/azure/application-gateway/application-gateway-faq#what-types-of-logs-does-application-gateway-provide)
+- [Azure 애플리케이션 게이트웨이의 진단 및 로깅에 대 한 FAQ](./application-gateway-faq.yml#what-types-of-logs-does-application-gateway-provide)
 
 **책임**: Customer
 
@@ -140,7 +140,7 @@ Application Gateway 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 - [Azure WAF를 배포 하는 방법](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-- [Barracuda WAF 클라우드 서비스 이해](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Barracuda WAF 클라우드 서비스 이해](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **책임**: Customer
 
@@ -210,9 +210,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure 애플리케이션 Gateway 배포와 관련 된 네트워크 설정 및 리소스에 대 한 변경 내용을 검색 합니다. 중요 네트워크 설정 또는 리소스가 변경 될 때 트리거되는 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -230,7 +230,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또한 Azure 애플리케이션 게이트웨이는 Azure 애플리케이션 Insights와의 기본 제공 통합 기능을 제공 합니다. Application Insights는 로그, 성능 및 오류 데이터를 수집 합니다. Application Insights는 성능 변칙을 자동으로 감지 하 고, 문제를 진단 하 고 웹 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 강력한 분석 도구를 포함 합니다. 연속 내보내기를 사용 하 여 Application Insights에서 중앙 위치에 원격 분석을 내보내 표준 보존 기간 보다 오래 지속 되도록 데이터를 유지할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](application-gateway-diagnostics.md)
 
@@ -250,7 +250,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또한 Azure 애플리케이션 게이트웨이는 Azure 애플리케이션 Insights와의 기본 제공 통합 기능을 제공 합니다. Application Insights는 로그, 성능 및 오류 데이터를 수집 합니다. Application Insights는 성능 변칙을 자동으로 감지 하 고, 문제를 진단 하 고 웹 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 강력한 분석 도구를 포함 합니다. 연속 내보내기를 사용 하 여 Application Insights에서 중앙 위치에 원격 분석을 내보내 표준 보존 기간 보다 오래 지속 되도록 데이터를 유지할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](application-gateway-diagnostics.md)
 
@@ -266,7 +266,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규칙에 따라 Log Analytics 작업 영역 보존 기간을 설정합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -280,7 +280,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 필요에 따라 데이터를 Azure Sentinel 또는 타사 SIEM에 사용하도록 설정하고 온보딩할 수 있습니다. 
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](application-gateway-diagnostics.md)
 
@@ -300,13 +300,13 @@ Azure 활동 로그 진단 설정 및 Azure WAF의 진단 설정을 사용 하�
 
 - [Azure WAF를 배포 하는 방법](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Azure 애플리케이션 Gateway에 대 한 진단 설정을 사용 하도록 설정 하는 방법](application-gateway-diagnostics.md)
 
 - [네트워크에 Azure Monitor를 사용 하는 방법](../azure-monitor/insights/network-insights-overview.md)
 
-- [Azure 내에서 경고를 만드는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Azure 내에서 경고를 만드는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -334,9 +334,9 @@ Azure 애플리케이션 게이트웨이 배포에 대 한 진단 설정을 구�
 
 **지침**: Azure Active Directory (Azure AD)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **책임**: Customer
 
@@ -444,7 +444,7 @@ Azure 애플리케이션 게이트웨이 배포에 대 한 진단 설정을 구�
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -458,7 +458,7 @@ Azure 애플리케이션 게이트웨이 배포에 대 한 진단 설정을 구�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -486,7 +486,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Azure 리소스를 추적 하는 데 도움을 줍니다. 
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -536,7 +536,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure 애플리케이션 게이트웨이 제어 평면 (Azure Portal)에 대 한 액세스를 제어 합니다.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **책임**: Customer
 
@@ -546,7 +546,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 프로덕션 Azure 애플리케이션 게이트웨이 인스턴스 및 기타 중요 하거나 관련 된 리소스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -604,7 +604,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 구성 관�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -667,7 +667,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -709,7 +709,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Azure 애플리케이션 게이트웨이 배포와 관련 된 네트워크 설정에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft. Network" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 Azure 애플리케이션 게이트웨이, Azure 가상 네트워크 및 네트워크 보안 그룹의 네트워크 구성을 감사 하거나 적용 합니다. 기본 제공 정책 정의를 사용할 수도 있습니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -733,9 +733,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 사용자 지정 Azure 정책 정의를 사용하는 경우 Azure DevOps 또는 Azure Repos를 사용하여 코드를 안전하게 저장하고 관리합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **책임**: Customer
 
@@ -817,7 +817,7 @@ Azure 애플리케이션 게이트웨이 배포에 대 한 진단 설정을 구�
 
 **지침**: AZURE Waf (웹 응용 프로그램 방화벽)를 사용 하는 경우 waf 정책을 구성할 수 있습니다. WAF 정책은 고객에 의해 작성 된 사용자 지정 규칙과 Azure에서 관리 하는 미리 구성 된 규칙 집합의 컬렉션인 관리 되는 규칙 집합 이라는 두 가지 유형의 보안 규칙으로 구성 됩니다. Azure 관리형 규칙 세트는 일반적인 보안 위협에 대한 보호를 쉽게 배포할 수 있는 방법을 제공합니다. 이러한 규칙 세트는 Azure에서 관리되므로 새로운 공격 서명으로부터 보호하기 위해 필요에 따라 규칙을 업데이트합니다.
 
-- [Azure 관리 WAF 규칙 집합 이해](https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy-and-rules)
+- [Azure 관리 WAF 규칙 집합 이해](../web-application-firewall/ag/ag-overview.md#waf-policy-and-rules)
 
 **책임**: 공유됨
 
@@ -833,11 +833,11 @@ Azure 애플리케이션 게이트웨이 배포에 대 한 진단 설정을 구�
 
 Azure DevOps Services는 여러 Azure Storage 기능을 활용하여 하드웨어 오류, 서비스 중단 또는 지역 재해 시 데이터 가용성을 보장합니다. 또한 Azure DevOps 팀은 데이터를 실수로 삭제하거나 악의적으로 삭제하지 않도록 보호하는 절차를 따릅니다.
 
-- [Azure DevOps의 데이터 가용성 이해](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Azure DevOps의 데이터 가용성 이해](/azure/devops/organizations/security/data-protection?preserve-view=true&view=azure-devops#data-availability)
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **책임**: Customer
 
@@ -963,5 +963,5 @@ Azure DevOps Services는 여러 Azure Storage 기능을 활용하여 하드웨�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

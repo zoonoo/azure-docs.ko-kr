@@ -4,15 +4,15 @@ description: Azure App Service의 네트워킹 기능에 대해 알아보고 보
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 730f26039db0f5441563ac7bf5d6b0ab536cbcd2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99593132"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889147"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -129,11 +129,15 @@ IP 기반 액세스 제한 기능은 앱에 연결 하는 데 사용할 수 있�
 ![Application Gateway에서 서비스 끝점을 사용 하는 방법을 보여 주는 다이어그램입니다.](media/networking-features/service-endpoints-appgw.png)
 
 앱을 사용 하 여 서비스 끝점을 구성 하는 방법에 대 한 자세한 내용은 [Azure App Service 액세스 제한][serviceendpoints]을 참조 하세요.
-#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>서비스 태그를 기반으로 하는 액세스 제한 규칙 (미리 보기)
+
+#### <a name="access-restriction-rules-based-on-service-tags"></a>서비스 태그를 기반으로 하는 액세스 제한 규칙
+
 Azure [서비스 태그][servicetags] 는 azure 서비스에 대해 잘 정의 된 IP 주소 집합입니다. 서비스 태그를 사용 하면 다양 한 Azure 서비스에서 사용 되는 IP 범위가 그룹화 되며, 특정 지역으로 범위가 지정 되는 경우도 있습니다. 이렇게 하면 특정 Azure 서비스에서 *인바운드* 트래픽을 필터링 할 수 있습니다. 
 
 태그의 전체 목록과 자세한 내용을 보려면 위의 서비스 태그 링크를 방문 하세요. 이 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [액세스 제한 구성][iprestrictions]을 참조 하세요.
-#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>액세스 제한 규칙에 대 한 Http 헤더 필터링 (미리 보기)
+
+#### <a name="http-header-filtering-for-access-restriction-rules"></a>액세스 제한 규칙에 대 한 Http 헤더 필터링
+
 각 액세스 제한 규칙에 대해 추가 http 헤더 필터링을 추가할 수 있습니다. 이를 통해 들어오는 요청을 추가로 검사 하 고 특정 http 헤더 값을 기준으로 필터링 할 수 있습니다. 각 헤더에는 규칙 당 최대 8 개의 값이 있을 수 있습니다. 현재 다음 http 헤더 목록이 지원 됩니다. 
 * X-Forwarded-For
 * X-Forwarded-Host
@@ -143,6 +147,7 @@ Azure [서비스 태그][servicetags] 는 azure 서비스에 대해 잘 정의 �
 Http 헤더 필터링에 대 한 몇 가지 사용 사례는 다음과 같습니다.
 * 호스트 이름을 전달 하는 프록시 서버에서의 트래픽에 대 한 액세스 제한
 * 서비스 태그 규칙 및 X-y를 사용 하 여 특정 Azure Front 도어 인스턴스에 대 한 액세스 제한
+
 ### <a name="private-endpoint"></a>Private Endpoint
 
 개인 끝점은 Azure 개인 링크를 통해 웹 앱에 안전 하 게 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점은 가상 네트워크의 개인 IP 주소를 사용 하 여 웹 앱을 가상 네트워크에 효과적으로 제공 합니다. 이 기능은 웹 앱에 대 한 *인바운드* 흐름에만 해당 됩니다.

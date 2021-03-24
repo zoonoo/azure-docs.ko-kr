@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 95ee4e5f326dd9b76645d22ff735bc36437c72fb
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101714955"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870122"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>가용성 영역에서 Azure Service Fabric 클러스터 배포
 Azure의 가용성 영역는 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 가용성 영역은 Azure 지역 내에서 독립적인 전원, 냉각 및 네트워킹을 갖춘 고유한 물리적 위치입니다.
@@ -35,7 +35,19 @@ Service Fabric는 특정 영역에 고정 된 노드 유형을 배포 하 여 �
 >[!NOTE]
 > Service Fabric는 영역에 걸쳐 있는 단일 가상 머신 확장 집합을 지원 하지 않으므로 가상 머신 확장 집합 단일 배치 그룹 속성을 true로 설정 해야 합니다.
 
- ![Azure Service Fabric 가용성 영역 아키텍처를 보여 주는 다이어그램입니다.][sf-architecture]
+Azure ![ Service Fabric 가용성 영역 아키텍처를 보여 주는 azure Service Fabric 가용성 영역 아키텍처 다이어그램을 보여 주는 다이어그램입니다.][sf-architecture]
+
+영역을 확장 하는 가상 머신 확장 집합에 FD/UD 형식을 보여 주는 샘플 노드 목록
+
+ ![영역을 확장 하는 가상 머신 확장 집합에 FD/UD 형식을 보여 주는 샘플 노드 목록입니다.][sf-multi-az-nodes]
+
+**영역에 걸쳐 서비스 복제본 배포**: 영역을 확장 하는 nodetypes에 서비스를 배포 하면 복제본이 별도 영역에 배치 되도록 복제본이 배치 됩니다. 이는 이러한 각 nodeTypes에 있는 노드의 장애 도메인이 영역 정보 (예: FD = fd:/영역 1/1 등). 예를 들어 5 개의 복제본 또는 서비스 인스턴스의 경우 배포는 2-2-1이 되 고 런타임은 AZs 간에 동일한 배포를 보장 하려고 합니다.
+
+**사용자 서비스 복제본 구성**: 크로스 가용성 영역 nodetypes에 배포 된 상태 저장 사용자 서비스는이 구성을 사용 하 여 구성 해야 합니다. 이때 target = 9, min = 5 인 복제본 수를 구성 해야 합니다. 이 구성을 사용 하면 6 개의 복제본이 계속 해 서 다른 두 영역에 있는 경우에도 서비스를 작동 하는 데 도움이 됩니다. 이러한 시나리오에서 응용 프로그램 업그레이드도 진행 됩니다.
+
+**Cluster ReliabilityLevel**: 클러스터의 시드 노드 수와 시스템 서비스의 복제본 크기도 정의 합니다. 여러 영역에 걸쳐 분산 되어 영역 복원 력을 가능 하 게 하는 여러 노드를 포함 하는 고가용성 영역 설치의 경우 더 높은 안정성 값은 노드가 더 많은 시드 노드 및 시스템 서비스 복제본을 제공 하 고 영역 간에 균일 하 게 분산 되도록 합니다. 따라서 영역 오류 발생 시 클러스터와 시스템 서비스의 영향을 받지 않습니다. "ReliabilityLevel = Platinum"을 사용 하면 각 영역에서 3 개의 시드를 사용 하 여 클러스터의 여러 영역에 9 개의 시드 노드가 분산 되므로 가용성 영역 간 설정에 권장 됩니다.
+
+**영역 다운 시나리오**: 영역 작동이 중단 되 면 해당 영역의 모든 노드가 다운 된 것으로 표시 됩니다. 이러한 노드의 서비스 복제본도 중단 됩니다. 다른 영역에는 복제본이 있으므로 서비스는 작동 하는 영역으로 장애 조치 (failover) 되는 주 복제본과 계속 응답 합니다. 대상 복제본 수가 아직 달성 되지 않아서 VM 수가 최소 대상 복제본 크기 보다 더 크기 때문에 서비스는 경고 상태로 표시 됩니다. 그런 다음 Service Fabric 부하 분산 장치는 구성 된 대상 복제본 수와 일치 하도록 작업 영역의 복제본을 가져옵니다. 이 시점에서 서비스는 정상 상태로 표시 됩니다. 다운 된 영역이 백업 되 면 부하 분산은 모든 영역에서 모든 서비스 복제본을 균등 하 게 분산 합니다.
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 ### <a name="public-ip-and-load-balancer-resource"></a>공용 IP 및 Load Balancer 리소스
@@ -345,7 +357,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 * 첫 번째 값은 가상 머신 확장 집합에 있는 가용성 영역를 지정 하는 **zones** 속성입니다.
 * 두 번째 값은 true로 설정 해야 하는 "Singleto Ementgroup" 속성입니다. **3 AZ의 범위에 걸친 확장 집합은 "Singleementgroup = true"를 사용 하 여 300 Vm까지 확장할 수 있습니다.**
-* 세 번째 값은 엄격한 영역 분산을 보장 하는 "zoneBalance"입니다. 영역 간에 Vm의 불균형 배포를 방지 하려면 "true" 여야 합니다. 영역에 분산 되지 않은 VM 배포를 사용 하는 클러스터는 영역 down scenatio 남을 가능성이 적습니다. [ZoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing)에 대해 읽어 보세요.
+* 세 번째 값은 엄격한 영역 분산을 보장 하는 "zoneBalance"입니다. "True" 여야 합니다. 이렇게 하면 영역 간 VM 배포가 불균형 되지 않으므로 영역 중 하나가 중단 되 면 다른 두 영역에는 클러스터의 중단 없이 계속 실행 되도록 하는 충분 한 Vm이 있습니다. VM 분산이 불균형 된 클러스터는 영역에서 대부분의 Vm을 가질 수 있기 때문에 영역 중단 시나리오에서 존속 하지 못할 수 있습니다. 영역에 분산 되지 않은 VM 배포는 인프라 업데이트가 중단 & 서비스 배치 관련 문제를 야기 합니다. [ZoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing)에 대해 읽어 보세요.
 * FaultDomain 및 UpgradeDomain 재정의는 구성할 필요가 없습니다.
 
 ```json
@@ -363,7 +375,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 ```
 
 >[!NOTE]
-> * **SF 클러스터에는 하나 이상의 기본 nodeType이 있어야 합니다. DurabilityLevel 기본 nodeTypes는 은색 이상 이어야 합니다.**
+> * **Service Fabric 클러스터에는 하나 이상의 기본 nodeType이 있어야 합니다. DurabilityLevel 기본 nodeTypes는 은색 이상 이어야 합니다.**
 > * DurabilityLevel에 관계 없이 3 개 이상의 가용성 영역을 사용 하 여 AZ 스패닝 가상 머신 확장 집합을 구성 해야 합니다.
 > * 실버 내구성이 있는 가상 머신 확장 집합에 대 한 AZ 스패닝은 15 개 이상의 Vm이 있어야 합니다.
 > * 가상 머신 확장 집합을 사용 하는 AZ를 사용 하 여 가상 머신 확장 집합을 확장 합니다.
@@ -373,13 +385,13 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 * 첫 번째 값은 nodeType에 대해 true로 설정 해야 하는 **multipleAvailabilityZones** 입니다.
 * 두 번째 값은 **sfZonalUpgradeMode** 이며 옵션입니다. 여러 AZ가 있는 nodetype이 클러스터에 이미 있는 경우에는이 속성을 수정할 수 없습니다.
-      속성은 업그레이드 도메인의 Vm에 대 한 논리적 그룹화를 제어 합니다.
-          Value가 "Parallel"으로 설정 된 경우 nodetype 아래의 Vm은 5 Ud의 영역 정보를 무시 하 고 Ud에 그룹화 됩니다.
-          Value를 생략 하거나 "계층형"로 설정 하면 Vm이 최대 15 Ud 영역 배포를 반영 하도록 그룹화 됩니다. 각 3 개 영역에는 5 개의 Ud 있습니다.
-          이 속성은 ServiceFabric 응용 프로그램 및 코드 업그레이드에 대 한 업그레이드 동작만 정의 합니다. 기본 가상 머신 확장 집합 업그레이드는 모든 AZ의에서 계속 병렬 처리 됩니다.
-      이 속성은 여러 영역을 사용 하지 않는 노드 형식에 대해 UD 배포에 영향을 주지 않습니다.
+  속성은 업그레이드 도메인의 Vm에 대 한 논리적 그룹화를 제어 합니다.
+  **Value를 "Parallel"으로 설정 하면 다음을 수행 합니다.** Nodetype 아래의 Vm은 5 Ud에서 영역 정보를 무시 하 고 Ud로 그룹화 됩니다. 이로 인해 모든 영역에 대 한 UD0 동시에 업그레이드 됩니다. 이 배포 모드는 업그레이드 속도가 더 빠르지만 업데이트를 한 번에 한 영역만 적용 해야 한다는 것을 설명 하는 SDP 지침에 따라 이동 하는 것은 권장 되지 않습니다.
+  **값이 생략 되거나 "계층 구조"로 설정 된 경우:** Vm은 최대 15 Ud의 영역 배포를 반영 하도록 그룹화 됩니다. 각 3 개 영역에는 5 개의 Ud 있습니다. 이렇게 하면 업데이트가 영역 단위로 이동 하 고, 첫 번째 영역 내에서 5 개의 Ud을 완료 한 후에만 다음 영역으로 이동 하 고, 클러스터와 사용자 응용 프로그램의 관점에서 더 안전 하 게 15 Ud (3 개 영역, 5 Ud)로 천천히 이동 합니다.
+  이 속성은 ServiceFabric 응용 프로그램 및 코드 업그레이드에 대 한 업그레이드 동작만 정의 합니다. 기본 가상 머신 확장 집합 업그레이드는 모든 AZ의에서 계속 병렬 처리 됩니다.
+  이 속성은 여러 영역을 사용 하지 않는 노드 형식에 대해 UD 배포에 영향을 주지 않습니다.
 * 세 번째 값은 **vmssZonalUpgradeMode = Parallel** 입니다. 여러 AZs를 포함 하는 nodeType을 추가 하는 경우 클러스터에서 구성 해야 하는 *필수* 속성입니다. 이 속성은 모든 AZ in에서 동시에 발생 하는 가상 머신 확장 집합 업데이트에 대 한 업그레이드 모드를 정의 합니다.
-      현재이 속성은 병렬 으로만 설정할 수 있습니다.
+  현재이 속성은 병렬 으로만 설정할 수 있습니다.
 * Service Fabric cluster resource apiVersion는 "2020-12-01-preview" 이상 이어야 합니다.
 * 클러스터 코드 버전은 "7.2.445" 이상 이어야 합니다.
 
@@ -408,7 +420,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 >[!NOTE]
 > * 공용 IP 및 Load Balancer 리소스는 문서의 앞부분에서 설명한 대로 표준 SKU를 사용 해야 합니다.
 > * nodeType의 "multipleAvailabilityZones" 속성은 nodeType을 만들 때만 정의할 수 있으며 나중에 수정할 수 없습니다. 따라서이 속성을 사용 하 여 기존 nodeTypes를 구성할 수 없습니다.
-> * "SfZonalUpgradeMode"이 생략 되거나 "계층 구조"로 설정 된 경우 클러스터에 업그레이드 도메인이 더 있으므로 클러스터 및 응용 프로그램 배포 속도가 느려집니다. 업그레이드 정책 시간 제한을 올바르게 조정 하 여 15 개의 업그레이드 도메인에 대 한 업그레이드 기간을 통합 하는 것이 중요 합니다.
+> * "SfZonalUpgradeMode"이 생략 되거나 "계층 구조"로 설정 된 경우 클러스터에 업그레이드 도메인이 더 있으므로 클러스터 및 응용 프로그램 배포 속도가 느려집니다. 업그레이드 정책 시간 제한을 올바르게 조정 하 여 15 개의 업그레이드 도메인에 대 한 업그레이드 기간을 통합 하는 것이 중요 합니다. 응용 프로그램 및 클러스터에 대 한 업그레이드 정책을 업데이트 하 여 배포 시 12 시간 동안 Azure 리소스를 배포 하는 시간 제한을 초과 하지 않도록 해야 합니다. 즉, 배포는 15UDs에 대해 12 시간 이상 소요 되지 않습니다. 40 분/UD 이상을 사용 하면 안 됩니다.
 > * 클러스터 **reliabilityLevel = Platinum** 을 설정 하 여 클러스터가 한 영역 다운 시나리오와 동일 하 게 유지 되도록 합니다.
 
 >[!NOTE]
@@ -426,3 +438,4 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png
+[sf-multi-az-nodes]: ./media/service-fabric-cross-availability-zones/sf-multi-az-nodes.png

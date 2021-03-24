@@ -6,16 +6,16 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1217b51ea91758d25b76394b27d3b21b2e9808b3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780874"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865233"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>VMware 환경에서 서버에 대 한 어플라이언스 설정
 
-이 문서에 따라 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool) 도구를 사용 하 여 Azure Migrate 어플라이언스를 설정 하 고 [Azure Migrate: 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용 하 여 에이전트 없이 마이그레이션할 수 있습니다.
+이 문서에 따라 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) 도구를 사용 하 여 Azure Migrate 어플라이언스를 설정 하 고 [Azure Migrate: 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool) 도구를 사용 하 여 에이전트 없이 마이그레이션할 수 있습니다.
 
 [Azure Migrate 어플라이언스](migrate-appliance.md) 는 vCenter Server에서 실행 되는 서버를 검색 하 고, 서버 구성 및 성능 메타 데이터를 Azure로 전송 하 고, 에이전트 없는 마이그레이션을 사용 하 여 서버를 복제 하기 위해 검색 및 평가 및 서버 마이그레이션과 같은 Azure Migrate에서 사용 하는 경량 어플라이언스입니다.
 
@@ -24,23 +24,23 @@ ms.locfileid: "104780874"
 - 다운로드 한 OVA 템플릿을 사용 하 여 vCenter Server에서 서버를 만듭니다. 이 방법은이 문서에 설명 되어 있습니다.
 - PowerShell 설치 관리자 스크립트를 사용 하 여 기존 서버에서 어플라이언스를 설정 합니다. OVA 템플릿을 사용할 수 없거나 Azure Government 중인 경우 [이 메서드](deploy-appliance-script.md) 를 사용 해야 합니다.
 
-어플라이언스를 만든 후에 Azure Migrate: 검색 및 평가에 연결할 수 있는지 확인 하 고, Azure Migrate 프로젝트에 등록 하 고, 검색을 시작 하도록 어플라이언스를 구성 합니다.
+어플라이언스를 만든 후에 Azure Migrate: 검색 및 평가에 연결할 수 있는지 확인 하 고, 프로젝트에 등록 하 고, 검색을 시작 하도록 어플라이언스를 구성 합니다.
 
 ## <a name="deploy-with-ova"></a>OVA를 사용하여 배포
 
 OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 수행합니다.
-1. 포털에서 어플라이언스 이름을 제공하고 Azure Migrate 프로젝트 키를 생성합니다.
+1. 포털에서 어플라이언스 이름을 제공 하 고 프로젝트 키를 생성 합니다.
 1. OVA 템플릿 파일을 다운로드하여 vCenter Server로 가져옵니다. OVA가 안전한지 확인하세요.
 1. OVA 파일로 어플라이언스 VM을 만들고 Azure Migrate에 연결할 수 있는지 확인합니다.
-1. 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트 키를 사용하여 어플라이언스를 프로젝트에 등록합니다.
+1. 처음으로 어플라이언스를 구성 하 고 프로젝트 키를 사용 하 여 프로젝트에 등록 합니다.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Azure Migrate 프로젝트 키 생성
+### <a name="1-generate-the-project-key"></a>1. 프로젝트 키 생성
 
 1. **마이그레이션 목표**  >  **서버**  >  **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택 합니다.
 2. 서버 를  >  **가상화 하는** 서버 검색에서 **예를 선택 하 VMware vSphere 하이퍼바이저를 사용** 합니다.
-3. **1:Azure Migrate 프로젝트 키 생성** 에서 VMware 환경의 서버 검색용으로 설정할 Azure Migrate 어플라이언스의 이름을 입력합니다. 이름은 14자 이하의 영숫자여야 합니다.
+3. **1: 프로젝트 키 생성** 에서 VMware 환경에서 서버를 검색 하는 데 설정할 Azure Migrate 어플라이언스의 이름을 제공 합니다. 이름은 14 자 이하의 영숫자여야 합니다.
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 [검색] 페이지를 닫지 마세요.
-1. Azure 리소스가 성공적으로 만들어지면 **Azure Migrate 프로젝트 키** 가 생성됩니다.
+1. Azure 리소스를 성공적으로 만든 후에는 **프로젝트 키** 가 생성 됩니다.
 1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
 
 ### <a name="2-download-the-ova-template"></a>2. OVA 템플릿 다운로드
@@ -117,7 +117,7 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
-1. 포털에서 복사한 **Azure Migrate 프로젝트 키** 를 붙여넣습니다. 키가 없는 경우 **검색 및 평가> 검색 및 평가로 이동 하> 기존 어플라이언스를 검색** 하 고, 키 생성 시 제공한 어플라이언스 이름을 선택 하 고, 해당 키를 복사 합니다.
+1. 포털에서 복사한 **프로젝트 키** 를 붙여넣습니다. 키가 없는 경우 **검색 및 평가> 검색 및 평가로 이동 하> 기존 어플라이언스를 검색** 하 고, 키 생성 시 제공한 어플라이언스 이름을 선택 하 고, 해당 키를 복사 합니다.
 1. Azure로 인증하려면 디바이스 코드가 필요합니다. **로그인** 을 클릭하면 아래와 같이 디바이스 코드가 포함된 모달이 열립니다.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="디바이스 코드를 보여주는 모달":::
@@ -154,8 +154,6 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="어플라이언스 구성 관리자의 서버 세부 정보에 대한 패널 3":::
 
-> [!Note]
-> VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. 이 기능을 사용해 보려면 [**이 링크**](https://aka.ms/AzureMigrate/SQL)를 사용하여 **오스트레일리아 동부** 지역에서 프로젝트를 만듭니다. 오스트레일리아 동부에 이미 프로젝트가 있고 이 기능을 사용해 보려는 경우 포털에서 이러한 [**필수 구성 요소**](how-to-discover-sql-existing-project.md)를 완료했는지 확인하세요.
 
 이러한 기능을 활용하려면 아래 단계에 따라 서버 자격 증명을 제공하면 됩니다. 어플라이언스는 검색 기능을 수행하기 위해 자동으로 자격 증명을 서버에 매핑하려고 시도합니다.
 

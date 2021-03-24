@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: 4b57eddafbf9a5615dc42e9a3c5a49c5f90781e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0780f66c981f0cebebc1ab327d783954753db965
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946671"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866729"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -20,7 +20,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 ## <a name="advanced-analytics-process"></a>고급 분석 프로세스
 
-![고급 분석 프로세스 흐름](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png" alt-text="고급 분석 프로세스 흐름" border="false":::
 
 비즈니스 문제를 확인하고 데이터 수집 및 처리를 시작한 후에는 예측하려는 질문을 나타내는 모델을 만들어야 합니다. 모델은 하나 이상의 기계 학습 알고리즘을 사용하여 비즈니스 요구에 가장 적합한 유형의 예측을 만듭니다.  대부분의 데이터는 모델을 학습하는 데 사용해야 하고, 나머지는 모델을 테스트하거나 평가하는 데 사용해야 합니다.
 
@@ -30,7 +30,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 
 고급 분석 솔루션은 일단의 기계 학습 알고리즘을 제공합니다. 다음은 알고리즘 범주 및 관련된 일반적인 비즈니스 사용 사례를 요약한 것입니다.
 
-![Machine Learning 범주 요약](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png" alt-text="Machine Learning 범주 요약" border="false":::
 
 가장 적합한 알고리즘을 선택하는 것과 함께 학습용 데이터를 제공해야 하는지 여부를 고려해야 합니다. 기계 학습 알고리즘은 다음과 같이 분류됩니다.
 
@@ -92,20 +92,20 @@ HDInsight를 사용하는 고급 분석 기계 학습 파이프라인의 예를 
 
 이 예에서는 Alex Krizhevsky, Vinod Nair 및 Geoffrey Hinton이 컴파일하고 배포한 CIFAR-10 이미지 집합을 사용합니다. CIFAR-10 데이터 세트에는 상호 배타적인 10개의 클래스에 속하는 60,000개의 32×32 컬러 이미지가 포함되어 있습니다.
 
-![Machine Learning 예제 이미지](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png" alt-text="Machine Learning 예제 이미지" border="false":::
 
 데이터 집합에 대 한 자세한 내용은 Alex Krizhevsky 's [여러 계층의 작은 이미지에서 기능 학습](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf)을 참조 하세요.
 
-데이터 세트는 50,000개 이미지의 학습 집합과 10,000개 이미지의 테스트 집합으로 분할되었습니다. 첫 번째 집합은 Cognitive Toolkit GitHub 리포지토리에서 [이 자습서](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet)에 따라 Microsoft Cognitive Toolkit를 사용하여 20개 계층 딥 합성곱 ResNet(deep convolutional residual network) 모델을 학습하는 데 사용되었습니다. 나머지 10,000개의 이미지는 모델의 정확도를 테스트하는 데 사용되었습니다. 여기서 분산 컴퓨팅이 작동됩니다. 이미지를 사전 처리하고 점수를 매기는 작업은 매우 쉽게 병렬 처리할 수 있습니다. 보유 중인 저장된 학습 모델을 다음과 같이 사용했습니다.
+데이터 세트는 50,000개 이미지의 학습 집합과 10,000개 이미지의 테스트 집합으로 분할되었습니다. 첫 번째 집합은 Cognitive Toolkit GitHub 리포지토리에서 [이 자습서](https://github.com/Microsoft/CNTK/tree/master/Examples/Image/Classification/ResNet)에 따라 Microsoft Cognitive Toolkit를 사용하여 20개 계층 딥 합성곱 ResNet(deep convolutional residual network) 모델을 학습하는 데 사용되었습니다. 나머지 1만 이미지는 모델의 정확도를 테스트 하는 데 사용 되었습니다. 여기서 분산 컴퓨팅이 작동됩니다. 이미지를 사전 처리하고 점수를 매기는 작업은 매우 쉽게 병렬 처리할 수 있습니다. 보유 중인 저장된 학습 모델을 다음과 같이 사용했습니다.
 
-* PySpark를 사용하여 이미지와 학습된 모델을 클러스터의 작업자 노드에 배포했습니다.
+* PySpark는 이미지 및 학습 된 모델을 클러스터의 작업자 노드에 배포 합니다.
 * Python을 사용하여 HDInsight Spark 클러스터의 각 노드에서 이미지를 사전 처리했습니다.
 * Cognitive Toolkit를 사용하여 모델을 로드하고 각 노드에서 사전 처리된 이미지에 대한 점수를 매겼습니다.
 * Jupyter Notebook을 사용하여 PySpark 스크립트를 실행하고, 결과를 집계하고, [Matplotlib](https://matplotlib.org/)를 사용하여 모델 성능을 시각화했습니다.
 
 4개의 작업자 노드가 있는 클러스터에서 10,000개의 이미지 전체를 사전 처리하고 점수를 매기는 데 1분 미만이 걸립니다. 이 모델은 9,100개(91%)까지의 이미지에 대한 레이블을 정확하게 예측합니다. 혼동 행렬에서는 가장 일반적인 분류 오류를 보여 줍니다. 예를 들어 행렬에서는 개가 고양이로 잘못 지정되거나 그 반대로 잘못 지정되는 레이블이 다른 레이블 쌍보다 더 자주 발생한다는 것을 보여 줍니다.
 
-![Machine Learning 결과 차트](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
+:::image type="content" source="./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png" alt-text="Machine Learning 결과 차트" border="false":::
 
 ### <a name="try-it-out"></a>기능 직접 사용해 보기
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 554fa394179e7cfc5b86a2b50eb754547d137a44
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98730873"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870394"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 재해 복구 (미리 보기)
 
@@ -146,13 +146,13 @@ HDB stop
 #### <a name="step-4-restore-the-volumes"></a>4 단계: 볼륨 복원
 
 ```bash
-azacsnap -c restore --restore revertvolume --hanasid H80
+azacsnap -c restore --restore revertvolume --dbsid H80
 ```
 
 **_DR 장애 조치 (failover) 명령의 출력_** 입니다.
 
 ```bash
-azacsnap --configfile DR.json -c restore --restore revertvolume --hanasid H80
+azacsnap --configfile DR.json -c restore --restore revertvolume --dbsid H80
 ```
 
 ```output

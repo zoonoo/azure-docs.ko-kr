@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e6c692e8fc13d1703df44c99e9969ba4db5f119
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98932066"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872101"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -36,7 +36,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 |[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
-![Azure Portal 크기 조정 클러스터 옵션](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png" alt-text="Azure Portal 크기 조정 클러스터 옵션":::
 
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
 
@@ -82,7 +82,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
     1. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 리 밸런스 작업이 완료 되기 전에 지연 시간을 입력 합니다.
 
-        ![HDInsight Storm 규모 균형 재조정](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+        :::image type="content" source="./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight 스톰 규모 균형 재조정":::
 
   * 명령줄 인터페이스(CLI) 도구
 
@@ -130,13 +130,13 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 3. Ambari UI의 왼쪽 메뉴에 있는 서비스 목록에서 **YARN** 를 선택 합니다.  
 4. YARN 페이지에서 **빠른 링크** 를 선택 하 고 활성 헤드 노드 위로 마우스를 이동한 다음 **리소스 관리자 UI** 를 선택 합니다.
 
-    ![Apache Ambari 빠른 링크 리소스 관리자 UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
+    :::image type="content" source="./media/hdinsight-scaling-best-practices/resource-manager-ui1.png" alt-text="Apache Ambari 빠른 링크 리소스 관리자 UI":::
 
 를 사용 하 여 리소스 관리자 UI에 직접 액세스할 수 있습니다 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` .
 
 현재 상태와 함께 작업 목록이 표시됩니다. 스크린샷에는 현재 실행 중인 작업이 하나 있습니다.
 
-![리소스 관리자 UI 응용 프로그램](./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png)
+:::image type="content" source="./media/hdinsight-scaling-best-practices/resourcemanager-ui-applications.png" alt-text="리소스 관리자 UI 응용 프로그램":::
 
 실행 중인 해당 애플리케이션을 수동으로 종료하려면 SSH 셸에서 다음 명령을 실행합니다.
 
@@ -144,7 +144,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

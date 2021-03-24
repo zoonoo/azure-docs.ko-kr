@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101095839"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951473"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 애플리케이션의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -45,7 +45,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정 해야 하는 속성을 보여 주므로 템플릿 제작에 매우 유용 합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만든 다음 탐색기 도구에서 해당 JSON 정의를 검사 하 여 리소스 그룹을 templatize 수 있습니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
-소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
+소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](../azure-resource-manager/templates/deploy-to-azure-button.md) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
 
 ## <a name="get-the-sample-resource-group-template"></a>샘플 리소스 그룹 템플릿 가져오기
 이제 바로 살펴보겠습니다.
@@ -93,7 +93,7 @@ JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스]
 ### <a name="resources"></a>리소스
 리소스 노드에는 SQL Server 인스턴스, App Service 계획 및 앱 두 개를 포함하는 4개의 최상위 리소스가 정의된 것을 확인할 수 있습니다. 
 
-#### <a name="app-service-plan"></a>App Service 요금제
+#### <a name="app-service-plan"></a>App Service 계획
 JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON 개요에서 해당하는 JSON 코드에 강조를 표시하기 위해 **[hostingPlanName]** 라고 명명된 App Service 계획을 클릭합니다. 
 
 ![JSON 코드의 [hostingPlanName] 섹션을 보여 줍니다.](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)

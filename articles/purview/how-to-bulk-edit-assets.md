@@ -1,5 +1,5 @@
 ---
-title: 선택한 자산 목록에 여러 용어집 용어를 태그를 표시 하는 방법
+title: 분류, 용어 설명 및 연락처 수정에 대 한 자산을 대량 편집 하는 방법
 description: Azure 부서의 범위에서 자산을 대량 편집 하는 방법에 대해 알아봅니다.
 author: nayenama
 ms.author: nayenama
@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 493d3ceb596bb29da0e60ab08518375412417a0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049488"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952459"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>용어를 태그 용어집으로 대량 편집 하는 방법
 

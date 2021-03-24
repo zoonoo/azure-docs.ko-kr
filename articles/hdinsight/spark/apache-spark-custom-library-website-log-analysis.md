@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 591804a31c100e5c8211ec6d73fc483c9ac85c72
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940304"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866321"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
@@ -30,11 +30,11 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 1. 새 Notebook을 만듭니다. **새로 만들기** 를 선택한 다음 **PySpark** 를 선택 합니다.
 
-    ![새 Apache Jupyter Notebook 만들기](./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "새 Jupyter Notebook 만들기")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="새 Apache Jupyter Notebook 만들기" border="true"::: 노트북 "border =" true ":::
 
 1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 위쪽에서 노트북 이름을 선택 하 고 이름을 입력 합니다.
 
-    ![노트북에 대한 이름 제공](./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png "노트북에 대한 이름 제공")
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="노트북 tebook의 이름을 입력" border="true":::하십시오. "border =" true ":::
 
 1. PySpark 커널을 사용 하 여 노트북을 만들었으므로 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + enter** 를 누릅니다.
 
@@ -173,7 +173,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
    다음 이미지와 같은 출력이 표시 됩니다.
 
-   ![hdinsight jupyter sql 쿼리 출력](./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png "SQL 쿼리 출력")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="hdinsight jupyter sql 쿼리 출력" border="true":::yter sql 쿼리 출력 "border =" true ":::
 
    `%%sql` 매직에 대한 자세한 내용은 [%%sql 매직에서 지원되는 매개 변수](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)를 참조하세요.
 
@@ -191,7 +191,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
    다음 이미지와 같은 출력이 표시 됩니다.
 
-   ![apache spark 웹 로그 분석 그림](./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png "Matplotlib 출력")
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="apache spark 웹 로그 분석 플롯" border="true":::eb 로그 분석 그림 "border =" true ":::
 
 1. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지** 를 선택합니다. 이 작업은 노트북을 종료 하 고 닫습니다.
 

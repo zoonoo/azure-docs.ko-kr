@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 666e77a06bd2934622400cc2f11830d6ebc34ddb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149706"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954652"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "103149706"
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
@@ -129,9 +129,7 @@ ms.locfileid: "103149706"
 
 디지털 쌍의 정의 된 속성은 디지털 쌍의 최상위 속성으로 반환 됩니다. DTDL 정의의 일부가 아닌 메타 데이터 또는 시스템 정보는 접두사와 함께 반환 됩니다 `$` . 메타 데이터 속성에는 다음 값이 포함 됩니다.
 * `$dtId`:이 Azure Digital Twins 인스턴스의 디지털 쌍 ID
-* `$etag`: 웹 서버에서 할당 한 표준 HTTP 필드입니다. 이는 쌍이 업데이트 될 때마다 새 값으로 업데이트 되므로 이전 검사 이후 서버에서 쌍의 데이터가 업데이트 되었는지 여부를 확인 하는 데 유용할 수 있습니다. 다음과 같은 방법으로 HTTP 헤더에도 사용할 수 있습니다.
-  - 변경 되지 않은 콘텐츠를 인출 하지 않도록 읽기 작업 사용
-  - 낙관적 동시성을 지 원하는 쓰기 작업
+* `$etag`: 웹 서버에서 할당 한 표준 HTTP 필드입니다. 이는 쌍이 업데이트 될 때마다 새 값으로 업데이트 되므로 이전 검사 이후 서버에서 쌍의 데이터가 업데이트 되었는지 여부를 확인 하는 데 유용할 수 있습니다. `If-Match`를 사용 하 여 엔터티의 etag가 제공 된 etag와 일치 하는 경우에만 완료 되는 업데이트 및 삭제를 수행할 수 있습니다. 이러한 작업에 대 한 자세한 내용은 [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) 및 [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete)설명서를 참조 하세요.
 * `$metadata`: 다음을 비롯 한 다른 속성 집합
   - 디지털 쌍 모델의 DTMI입니다.
   - 쓰기 가능한 각 속성의 동기화 상태입니다. 장치에 가장 유용 합니다 .이는 서비스와 장치에 분기 된 상태가 있을 수 있습니다 (예: 장치가 오프 라인 상태인 경우). 현재이 속성은 IoT Hub에 연결 된 물리적 장치에만 적용 됩니다. 메타 데이터 섹션의 데이터를 사용 하 여 마지막 수정 타임 스탬프 뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대 한 자세한 내용은 장치 상태 동기화에 대 한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md) 를 참조 하세요.

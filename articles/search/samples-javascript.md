@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: f83767813ea3923d85db2ca3f0164776c610525e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 85a4d6390087100d8d9521f6ac20dbace3a711eb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955023"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955944"
 ---
 # <a name="javascript-code-samples-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 JavaScript 코드 샘플
 
@@ -39,7 +39,6 @@ Azure SDK 개발 팀의 코드 샘플에서는 API 사용을 보여 줍니다. �
 | [인덱서에](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/indexers) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트 하 고, 가져오고, 나열 하 고, 다시 설정 하 고, 삭제 하는 방법을 보여 줍니다.|
 | [기술](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/skillSets) |   연결 된 인덱서이 고 인덱싱 중 AI 기반 보강를 수행 하는 [기술력과](cognitive-search-working-with-skillsets.md) 를 만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/javascript/src/synonymMaps) | [동의어 맵을](search-synonyms.md)만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.  |
-| [쿼리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) | Microsoft에서 호스팅하는 읽기 전용 공용 인덱스에 대해 쿼리를 실행 하는 방법을 보여 줍니다.  |
 
 ### <a name="typescript-samples"></a>TypeScript 샘플
 
@@ -50,7 +49,6 @@ Azure SDK 개발 팀의 코드 샘플에서는 API 사용을 보여 줍니다. �
 | [인덱서에](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/indexers) |  [인덱서](search-indexer-overview.md)를 만들고, 업데이트 하 고, 가져오고, 나열 하 고, 다시 설정 하 고, 삭제 하는 방법을 보여 줍니다.|
 | [기술](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/skillSets) |   연결 된 인덱서이 고 인덱싱 중 AI 기반 보강를 수행 하는 [기술력과](cognitive-search-working-with-skillsets.md) 를 만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다. |
 | [synonymMaps](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/search/search-documents/samples/typescript/src/synonymMaps) | [동의어 맵을](search-synonyms.md)만들고, 업데이트 하 고, 가져오고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.  |
-| [쿼리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/typescript/src/readonlyQuery.ts) | Microsoft에서 호스팅하는 읽기 전용 공용 인덱스에 대해 쿼리를 실행 하는 방법을 보여 줍니다.  |
 
 ## <a name="doc-samples"></a>Doc 샘플
 

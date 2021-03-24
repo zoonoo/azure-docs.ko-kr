@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561654"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952782"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -174,7 +174,7 @@ Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중
 > - 장치를 연결 하거나 등록 하기 위해 다단계 인증을 적용 하려면 조건부 액세스에서 ["장치 등록 또는 연결" 사용자 작업](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) 을 사용 하는 것이 좋습니다. 
 > - 조건부 액세스 정책을 사용 하 여 multi-factor authentication을 요구 하는 경우이 설정을 **아니요** 로 설정 해야 합니다. 
 
-- **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50** 입니다.
+- **최대 장치 수** -이 설정을 사용 하면 azure ad에 가입 된 azure ad 또는 azure ad에 등록 된 장치의 최대 수를 선택할 수 있습니다. 사용자가 이 할당량에 도달하는 경우 기존 디바이스 중 하나 이상이 제거될 때까지 디바이스를 더 추가할 수 없습니다. 기본값은 **50** 입니다. 값을 최대 100까지 늘릴 수 있으며, 100 보다 높은 값을 입력 하면 Azure AD에서 100로 설정 됩니다. 무제한 값을 사용 하 여 기존 할당량 한도 이외의 제한을 적용 하지 않을 수도 있습니다.
 
 > [!NOTE]
 > **최대 장치 수** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.

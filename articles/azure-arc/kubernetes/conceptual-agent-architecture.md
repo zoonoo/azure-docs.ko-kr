@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: 이 문서에서는 Azure Arc 사용 Kubernetes 에이전트의 아키텍처 개요를 제공 합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
-ms.openlocfilehash: 5e53e99c492f08deab8dea89ec95190782661012
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec95efdfef871777e7f53617b057529e301739dd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121901"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953071"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Azure Arc 사용 Kubernetes 에이전트 아키텍처
 
@@ -40,7 +40,7 @@ ms.locfileid: "102121901"
     * Azure CLI는 투구를 사용 하 여 클러스터에 에이전트 투구 차트를 배포 합니다.
     * 클러스터 노드는 [Microsoft Container Registry](https://github.com/microsoft/containerregistry) 에 대 한 아웃 바운드 통신을 시작 하 고 네임 스페이스에 다음 에이전트를 만드는 데 필요한 이미지를 가져옵니다 `azure-arc` .
 
-        | 에이전트 | 설명 |
+        | 에이전트 | Description |
         | ----- | ----------- |
         | `deployment.apps/clusteridentityoperator` | Azure Arc enabled Kubernetes는 현재 [시스템 할당 id](../../active-directory/managed-identities-azure-resources/overview.md)만 지원 합니다. `clusteridentityoperator` 첫 번째 아웃 바운드 통신을 시작 합니다. 이 첫 번째 통신에서는 다른 에이전트가 Azure와 통신 하기 위해 사용 하는 MSI (관리 서비스 ID) 인증서를 페치합니다. |
         | `deployment.apps/config-agent` | 클러스터에 적용 된 원본 제어 구성 리소스에 대해 연결 된 클러스터를 감시 합니다. 준수 상태를 업데이트 합니다. |
@@ -76,7 +76,7 @@ ms.locfileid: "102121901"
 
 ## <a name="connectivity-status"></a>연결 상태
 
-| 상태 | 설명 |
+| 상태 | Description |
 | ------ | ----------- |
 | Connecting | Azure Arc enabled Kubernetes 리소스가 Azure Resource Manager에서 만들어지지만 서비스에서 에이전트 하트 비트를 아직 받지 못했습니다. |
 | 연결됨 | Azure Arc enabled Kubernetes 서비스가 지난 15 분 내에 에이전트 하트 비트를 받았습니다. |
@@ -85,7 +85,7 @@ ms.locfileid: "102121901"
 
 ## <a name="understand-connectivity-modes"></a>연결 모드 이해
 
-| 연결 모드 | 설명 |
+| 연결 모드 | Description |
 | ----------------- | ----------- |
 | 모두 연결 됨 | 에이전트는 GitOps 구성을 전파 하 고, Azure Policy 및 게이트 키퍼 정책을 적용 하 고, Azure Monitor에서 워크 로드 메트릭과 로그를 수집 하는 지연을 최소화 하면서 Azure와 일관 되 게 통신할 수 있습니다. |
 | 반 연결 됨 | 에서 끌어온 MSI 인증서는 `clusteridentityoperator` 인증서가 만료 될 때까지 최대 90 일 동안 유효 합니다. 만료 되 면 Azure Arc enabled Kubernetes 리소스가 작동을 중지 합니다. 클러스터에서 모든 Azure Arc 기능을 다시 활성화 하려면 Azure Arc enabled Kubernetes 리소스 및 에이전트를 삭제 하 고 다시 만듭니다. 90 일 동안 적어도 30 일 마다 클러스터를 연결 합니다. |
@@ -93,5 +93,5 @@ ms.locfileid: "102121901"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Kubernetes 클러스터를 Azure Arc에 연결 하는](./connect-cluster.md)빠른 시작을 안내 합니다.
+* [Kubernetes 클러스터를 Azure Arc에 연결 하는](./quickstart-connect-cluster.md)빠른 시작을 안내 합니다.
 * [Azure Arc Enabled Kubernetes를 사용](./conceptual-configurations.md)하 여 클러스터와 Git 리포지토리 간의 연결을 구성 리소스로 만드는 방법에 대해 자세히 알아보세요.
