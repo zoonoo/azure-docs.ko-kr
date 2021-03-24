@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4cbb7b96610a56f3b6049038bb5c9c6bc0870b57
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98944613"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871366"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용
 
@@ -70,7 +70,7 @@ DUMP RESULT;
 
 다음 그림에서는 각 변환으로 인해 데이터에 수행되는 작업을 요약해서 보여 줍니다.
 
-![변환의 그래픽 표현][image-hdi-pig-data-transformation]
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="변환의 그래픽 표현" border="false":::
 
 ## <a name="run-the-pig-latin-job"></a><a id="run"></a>Pig Latin 작업 실행
 
@@ -113,4 +113,3 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
-[image-hdi-pig-data-transformation]: ./media/use-pig/hdi-data-transformation.gif

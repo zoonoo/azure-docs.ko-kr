@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596028"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871200"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용 하 여 App Service 인스턴스 모니터링
 
@@ -57,7 +57,7 @@ ms.locfileid: "104596028"
 
 상태 검사는 App Service의 인증 및 권한 부여 기능과 통합 됩니다. 이러한 보안 기능을 사용 하도록 설정한 경우에는 추가 설정이 필요 하지 않습니다. 그러나 사용자 고유의 인증 시스템을 사용 하는 경우 상태 검사 경로에서 익명 액세스를 허용 해야 합니다. 사이트가 HTTP **s** 인 경우에만 사용 하도록 설정 된 경우 상태 검사 요청은 http **s** 를 통해 전송 됩니다.
 
-대기업 개발 팀은 일반적으로 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 합니다. 상태 검사 끝점의 보안을 유지 하려면 먼저 [IP 제한](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](app-service-ip-restrictions.md#set-an-ip-address-based-rule)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램 액세스를 제한 해야 합니다. 들어오는 요청 일치의를 요구 하 여 상태 검사 끝점의 보안을 유지할 수 있습니다 `User-Agent` `ReadyForRequest/1.0` . 이전 보안 기능으로 인해 요청이 이미 보호 되 고 있으므로 User-Agent는 스푸핑 될 수 없습니다.
+대기업 개발 팀은 일반적으로 노출 된 Api에 대 한 보안 요구 사항을 준수 해야 합니다. 상태 검사 끝점의 보안을 유지 하려면 먼저 [IP 제한](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [클라이언트 인증서](app-service-ip-restrictions.md#set-an-ip-address-based-rule)또는 Virtual Network와 같은 기능을 사용 하 여 응용 프로그램 액세스를 제한 해야 합니다. 들어오는 요청 일치의를 요구 하 여 상태 검사 끝점의 보안을 유지할 수 있습니다 `User-Agent` `HealthCheck/1.0` . 이전 보안 기능으로 인해 요청이 이미 보호 되 고 있으므로 User-Agent는 스푸핑 될 수 없습니다.
 
 ## <a name="monitoring"></a>모니터링
 

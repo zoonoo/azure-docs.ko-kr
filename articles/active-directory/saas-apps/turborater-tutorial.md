@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
 ms.openlocfilehash: 7483e7a9300088d07e85d238ad897522d59c5464
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>자습서: TurboRater와 Azure Active Directory 통합
@@ -91,7 +91,7 @@ TurboRater에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92521835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>자습서: Azure Active Directory와 Uberflip 통합
@@ -94,7 +94,7 @@ Uberflip에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
-1. **SAML로 Single Sign-On 설정** 창에서 **편집** (연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
+1. **SAML로 Single Sign-On 설정** 창에서 **편집**(연필 모양 아이콘)을 선택하여 **기본 SAML 구성** 창을 엽니다.
 
    ![스크린샷은 회신 URL을 입력할 수 있는 기본 SAML 구성을 보여줍니다.](common/edit-urls.png)
 

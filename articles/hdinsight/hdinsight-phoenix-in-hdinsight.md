@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 3af48c93633709c9b5814caa99c222e24e402a4a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cb5230ae42703d19726fb8ea0d6c88aa70e589a8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945219"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864145"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
 
@@ -125,11 +125,11 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
 2. 왼쪽 메뉴의 서비스 목록에서 **HBase** 를 선택하고 **구성** 탭을 선택합니다.
 
-    ![Apache Ambari HBase 구성](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png" alt-text="Apache Ambari HBase 구성":::
 
 3. **Phoenix SQL** 구성 섹션을 찾아 Phoenix를 사용하거나 사용하지 않도록 설정하고, 쿼리 제한 시간을 설정합니다.
 
-    ![Ambari Phoenix SQL 구성 섹션](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
+    :::image type="content" source="./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png" alt-text="Ambari Phoenix SQL 구성 섹션":::
 
 ## <a name="see-also"></a>참고 항목
 

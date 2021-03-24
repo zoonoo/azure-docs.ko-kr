@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: c3f6f6a5ac1068f2eabca351e85376b8e16d1058
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8aefa6efa5f10dae8a28e7126b91b7b5f6ac77a6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95016754"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950742"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -24,6 +24,11 @@ ms.locfileid: "95016754"
 ## <a name="choose-a-time-series-id"></a>시계열 ID 선택
 
 적절 한 시계열 ID를 선택 하는 것이 중요 합니다. 시계열 ID 선택은 데이터베이스에 대한 파티션 키를 선택하는 것과 같습니다. Azure Time Series Insights Gen2 환경을 만들 때 필요 합니다.
+
+시계열 ID에 대 한 자세한 설명은 환경 프로 비전 자습서를 시청 하세요. 두 가지 JSON 원격 분석 페이로드 예제와 각각에 대 한 올바른 시계열 ID 선택을 볼 수 있습니다.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+
 
 > [!IMPORTANT]
 > 시계열 Id는 다음과 같습니다.

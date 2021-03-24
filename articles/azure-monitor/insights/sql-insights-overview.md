@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: b9c5db14bec87b30e51d39b1430ecc1f3cbef855
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: b5add466a60bc855e08917d02fecaf60a35deeb1
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798292"
+ms.locfileid: "104889572"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>SQL insights를 사용 하 여 SQL 배포 모니터링 (미리 보기)
 SQL 정보 활용은 SQL 배포의 성능 및 상태를 모니터링 합니다.  성능 병목 상태 및 문제를 식별 하 여 SQL 백 엔드를 기반으로 작성 한 중요 한 워크 로드의 예측 가능한 성능 및 가용성을 제공 하는 데 도움이 됩니다. SQL insights는 데이터를 [Azure Monitor 로그](../logs/data-platform-logs.md)에 저장 합니다 .이 로그를 사용 하면 강력한 집계 및 필터링을 제공 하 고 시간에 따른 데이터 추세를 분석할 수 있습니다. 이 제품의 일부로 제공 되는 보기의 Azure Monitor에서이 데이터를 볼 수 있으며, 로그 데이터를 직접 살펴보고 쿼리를 실행 하 고 추세를 분석할 수 있습니다.
@@ -59,7 +59,12 @@ Azure Portal **Azure Monitor** 메뉴의 **Insights** 섹션에서 **sql (미리
 
 
 ## <a name="data-collected-by-sql-insights"></a>SQL insights에서 수집 된 데이터
-공개 미리 보기에서 SQL 정보 활용은 원격 모니터링 메서드만 지원 합니다. [Telegraf 에이전트가](https://www.influxdata.com/time-series-platform/telegraf/) SQL Server에 설치 되어 있지 않습니다. [Telegraf에 대 한 SQL Server 입력 플러그 인](https://www.influxdata.com/integration/microsoft-sql-server/) 을 사용 하며, AZURE sql DB, azure sql Managed Instance, azure VM에서 실행 되는 sql Server 등의 다양 한 유형의 sql server에서 모니터링 하는 세 가지 쿼리 그룹을 사용 합니다. 
+
+SQL 정보 활용은 SQL 모니터링 원격 방법만 지원 합니다. SQL Server를 실행 하는 Vm에는 에이전트를 설치 하지 않습니다. SQL 리소스에서 원격으로 데이터를 수집 하는 데 사용 하는 하나 이상의 전용 모니터링 Vm이 필요 합니다. 
+
+이러한 각 모니터링 Vm은 WLI (워크 로드 정보) 확장과 함께 [Azure Monitor 에이전트](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview) 를 설치 합니다. 
+
+WLI 확장에는 오픈 소스 [telegraf 에이전트가](https://www.influxdata.com/time-series-platform/telegraf/)포함 됩니다.  [데이터 수집 규칙](https://docs.microsoft.com/azure/azure-monitor/agents/data-collection-rule-overview) 을 사용 하 여 AZURE sql DB, azure sql Managed Instance 및 azure VM에서 실행 되는 SQL Server에서 수집할 데이터를 지정 하도록 [sqlserver 입력 플러그 인](https://www.influxdata.com/integration/microsoft-sql-server/) 을 구성 합니다. 
 
 다음 표에는 다음이 요약 되어 있습니다.
 

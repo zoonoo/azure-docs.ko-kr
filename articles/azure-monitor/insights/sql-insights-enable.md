@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 5ab51fc4ea64dfd678f5c9acfc80b5e380782153
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609875"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889623"
 ---
 # <a name="enable-sql-insights-preview"></a>SQL insights 사용 (미리 보기)
 이 문서에서는 sql [정보](sql-insights-overview.md) 를 사용 하 여 sql 배포를 모니터링 하는 방법을 설명 합니다. SQL 배포에 연결 하 고 Dmv (동적 관리 뷰)를 사용 하 여 모니터링 데이터를 수집 하는 Azure 가상 머신에서 모니터링이 수행 됩니다. 모니터링 프로필을 사용 하 여 수집 되는 데이터 집합 및 수집 빈도를 제어할 수 있습니다.
@@ -92,13 +92,16 @@ SQL의 각 유형은 모니터링 가상 머신이 SQL에 안전 하 게 액세�
 
 ### <a name="azure-sql-databases"></a>Azure SQL Databases  
 
-[자습서-Azure 개인 끝점을 사용 하 여 AZURE SQL server에 연결-Azure Portal](../../private-link/tutorial-private-endpoint-sql-portal.md) 데이터베이스에 액세스 하는 데 사용할 수 있는 개인 끝점을 설정 하는 방법에 대 한 예제를 제공 합니다.  이 방법을 사용 하는 경우 모니터링 가상 컴퓨터가 개인 끝점에 사용 되는 것과 동일한 VNET 및 서브넷에 있는지 확인 해야 합니다.  그런 다음 아직 수행 하지 않은 경우 데이터베이스에서 개인 끝점을 만들 수 있습니다. 
+SQL insights는 가상 네트워크 뿐만 아니라 공용 끝점을 통해 Azure SQL Database에 액세스할 수 있도록 지원 합니다.
 
-[방화벽 설정을](../../azure-sql/database/firewall-configure.md) 사용 하 여 SQL Database에 대 한 액세스를 제공 하는 경우 모니터링 가상 컴퓨터의 공용 IP 주소에서 액세스할 수 있도록 방화벽 규칙을 추가 해야 합니다. 포털의 **Azure SQL Database 개요** 페이지에서 방화벽 설정에 액세스할 수 있습니다. 
+공용 끝점을 통해 액세스 하려면 **방화벽 설정** 페이지와 [IP 방화벽 설정](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) 섹션에서 규칙을 추가 합니다.  가상 네트워크에서 액세스를 지정 하기 위해 [가상 네트워크 방화벽 규칙](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) 을 설정 하 고 [Azure Monitor 에이전트에 필요한 서비스 태그](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking)를 설정할 수 있습니다.  [이 문서](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) 에서는 이러한 두 가지 유형의 방화벽 규칙 간의 차이점을 설명 합니다.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="서버 방화벽 설정" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="방화벽 설정." lightbox="media/sql-insights-enable/firewall-settings.png":::
+
+> [!NOTE]
+> SQL insights는 현재 Azure SQL Database에 대 한 Azure 개인 끝점을 지원 하지 않습니다.  네트워크 보안 그룹 또는 [Azure Monitor 에이전트가 지 원하는](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking)가상 네트워크 방화벽 설정에서 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) 를 사용 하는 것이 좋습니다.
 
 ### <a name="azure-sql-managed-instances"></a>Azure SQL Managed Instance 
 

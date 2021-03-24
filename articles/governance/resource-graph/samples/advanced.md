@@ -1,14 +1,14 @@
 ---
 title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5a87d63e597622ae5c0d8c8f48bc37281d4fd530
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99822530"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949858"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -28,7 +28,6 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 - [가상 머신에 설치된 모든 확장 나열](#join-vmextension)
 - [리소스 그룹에서 특정 태그를 사용하여 스토리지 계정 찾기](#join-findstoragetag)
 - [두 쿼리의 결과를 단일 결과로 결합](#unionresults)
-- [DisplayNames를 사용한 테넌트 및 구독 이름 포함](#displaynames)
 - [전원 상태 확장 속성을 기준으로 가상 머신 요약](#vm-powerstate)
 - [비규격 게스트 구성 할당의 수](#count-gcnoncompliant)
 - [게스트 구성 할당 보고서의 쿼리 세부 정보](#query-gcreports)
@@ -559,26 +558,6 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 - Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com</a>
 - Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.us</a>
 - Azure 중국 21Vianet Portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>DisplayNames를 사용한 테넌트 및 구독 이름 포함
-
-이 쿼리는 _DisplayNames_ 옵션과 함께 **Include** 매개 변수를 사용하여 **subscriptionDisplayName** 및 **tenantDisplayName** 을 결과에 추가합니다. 이 매개 변수는 Azure CLI 및 Azure PowerShell에 대해서만 사용할 수 있습니다.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-구독 이름을 가져오는 대안은 `join` 연산자를 사용하여 **ResourceContainers** 테이블과 `Microsoft.Resources/subscriptions` 형식에 연결하는 것입니다. `join`은 Azure CLI, Azure PowerShell, Portal 및 지원되는 모든 SDK에서 작동합니다. 예제는 [샘플 - 구독 이름이 있는 키 자격 증명 모음](#join)에서 참조하세요.
-
-> [!NOTE]
-> 쿼리에서 **project** 를 사용하여 반환된 속성을 지정하지 않으면 **subscriptionDisplayName** 및 **tenantDisplayName** 이 결과에 자동으로 포함됩니다.
-> 쿼리에서 **project** 를 사용하는 경우 각 _DisplayName_ 필드를 **project** 에 명시적으로 포함해야 합니다. 그렇지 않으면 **Include** 매개 변수가 사용되는 경우에도 이러한 매개 변수는 결과에 반환되지 않습니다. **Include** 매개 변수는 [tables](../concepts/query-language.md#resource-graph-tables)에서 작동하지 않습니다.
 
 ---
 

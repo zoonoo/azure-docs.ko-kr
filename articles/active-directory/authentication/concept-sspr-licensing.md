@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 03/08/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f270f740951b95b0d4c00cbcf9b08e20a8e0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d332c831cc764c61a4672ea5ad1db231b68e106
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96743727"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952374"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Azure Active Directory 셀프 서비스 암호 재설정에 대 한 라이선스 요구 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "96743727"
 
 ## <a name="compare-editions-and-features"></a>버전 및 기능 비교
 
-SSPR는 사용자별로 사용이 허가 됩니다. 규정 준수를 유지 하기 위해 조직에서는 사용자에 게 적절 한 라이선스를 할당 해야 합니다.
+SSPR에는 테 넌 트에 대 한 라이선스가 필요 합니다. 
 
 다음 표에서는 암호 변경, 다시 설정 또는 온-프레미스 쓰기 저장에 대 한 다양 한 SSPR 시나리오와 기능을 제공 하는 Sku를 간략하게 설명 합니다.
 
@@ -46,12 +46,6 @@ SSPR는 사용자별로 사용이 허가 됩니다. 규정 준수를 유지 하�
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
 * [Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
-
-## <a name="enable-group-or-user-based-licensing"></a>그룹 또는 사용자 기반 라이선스 사용
-
-Azure AD는 그룹 기반 라이선스를 지원 합니다. 관리자는 라이선스를 한 번에 하나씩 할당하는 대신 사용자 그룹에 한꺼번에 라이선스를 할당할 수 있습니다. 자세한 내용은 [라이선스 할당, 확인 및 문제 해결](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses)을 참조하세요.
-
-일부 Microsoft 서비스는 일부 위치 에서만 사용할 수 있습니다. 사용자에 게 라이선스를 할당 하려면 관리자가 해당 사용자에 대해 **사용 위치** 속성을 지정 해야 합니다. 라이선스 할당은 Azure Portal의 **사용자**  >  **프로필**  >  **설정** 섹션에서 수행할 수 있습니다. *그룹 라이선스 할당을 사용할 때 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다.*
 
 ## <a name="next-steps"></a>다음 단계
 

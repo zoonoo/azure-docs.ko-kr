@@ -3,17 +3,17 @@ title: PowerShell을 사용하여 여러 테이블 증분 복사
 description: 이 자습서에서는 델타 데이터를 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL Database로 로드하는 파이프라인이 있는 Azure Data Factory를 만듭니다.
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: douglasl, maghan
+ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: bd29c91efe419ec36b2adc337ecfd1ea7fd71f71
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 231f4033b90b152a5893cff93584d9c9bb794321
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739320"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783186"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>SQL Server의 여러 테이블에서 PowerShell을 사용해 Azure SQL Database로 데이터 증분 로드
 

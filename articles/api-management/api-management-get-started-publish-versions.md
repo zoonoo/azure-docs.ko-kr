@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: apimpm
-ms.openlocfilehash: f6ea02c32ec7fcb694d63f29c63c3880a7cfff9e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: dc3d3b4658bd9a26363b6d41377d448059e30c0f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546655"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889674"
 ---
 # <a name="tutorial-publish-multiple-versions-of-your-api"></a>자습서: 여러 버전의 API 게시 
 
@@ -33,7 +33,7 @@ ms.locfileid: "100546655"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 ## <a name="add-a-new-version"></a>새 버전 추가
@@ -60,7 +60,7 @@ Azure API Management에서 *버전 관리 체계*: **경로, 헤더** 또는 **�
 
 
 
-|설정   |값  |설명  |
+|설정   |값  |Description  |
 |---------|---------|---------|
 |**이름**     |  *demo-conference-api-v1*       |  API Management 인스턴스의 고유한 이름입니다.<br/><br/>버전은 API의 [수정 버전](api-management-get-started-revise-api.md)을 기반으로 하는 새 API이므로, 이 설정은 새 API의 이름입니다.   |
 |**버전 관리 체계**     |  **Path**       |  호출자가 API 버전을 지정하는 방식입니다.     |
@@ -105,7 +105,7 @@ az apim api versionset list --resource-group apim-hello-word-resource-group \
 
 Azure Portal에서 버전 집합을 만들 때 목록의 **이름** 열에 표시되는 영숫자 이름이 할당됩니다. 다른 Azure CLI 명령에서 이 이름을 사용합니다.
 
-버전 집합에 대한 세부 정보를 보려면 [az apim api versionset show](/api/versionset#az_apim_api_versionset_show) 명령을 실행합니다.
+버전 집합에 대한 세부 정보를 보려면 [az apim api versionset show](/cli/azure/apim/api/versionset#az_apim_api_versionset_show) 명령을 실행합니다.
 
 ```azurecli
 az apim api versionset show --resource-group apim-hello-word-resource-group \

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32757fef131c5e443350f032c0ac987d7f491396
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945934"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864315"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 스토리지 계정 추가
 
@@ -19,13 +19,13 @@ ms.locfileid: "98945934"
 > [!IMPORTANT]  
 > 이 문서의 정보는 클러스터를 만든 후 클러스터에 추가 저장소 계정을 추가 하는 방법에 대 한 것입니다. 클러스터를 만드는 동안 스토리지 계정을 추가하는 방법에 대한 자세한 내용은 [Apache Hadoop, Apache Spark, Apache Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 저장소 계정 이름 및 키입니다. [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 * PowerShell을 사용 하는 경우 AZ module이 필요 합니다.  [Azure PowerShell 개요를](/powershell/azure/)참조 하세요.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 처리 하는 동안 스크립트는 다음 작업을 수행 합니다.
 
@@ -98,7 +98,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. 로 시작 하는 키를 관찰 `fs.azure.account.key` 합니다. 계정 이름은 다음 샘플 이미지에 표시 된 것 처럼 키의 일부가 됩니다.
 
-   ![Apache Ambari를 통한 확인](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
+   :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="Apache Ambari를 통한 확인":::
 
 ## <a name="remove-storage-account"></a>스토리지 계정 제거
 

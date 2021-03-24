@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: 5a89e9ae05b0733c865d537ffeb1714d3b3ebef1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4f5cc0d5eefd5969566040e4148ca7358d348736
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102489364"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951507"
 ---
 # <a name="creating-queries-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 만들기
 
@@ -43,7 +43,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 Azure Portal 또는 Postman과 같은 도구 또는 Api를 사용 하 여 쿼리 클라이언트를 인스턴스화하는 코드를 사용 해야 합니다. 초기 개발 및 개념 증명 테스트를 위해 Azure Portal 또는 REST Api를 권장 합니다.
 
-### <a name="permissions"></a>권한
+### <a name="permissions"></a>사용 권한
 
 쿼리 요청을 비롯 한 모든 작업은 [관리 API 키](search-security-api-keys.md)로 작동 하지만 쿼리 요청은 선택적으로 [쿼리 API 키](search-security-api-keys.md#create-query-keys)를 사용할 수 있습니다. 쿼리 API 키를 적극 권장 합니다. 서비스 당 최대 50을 만들고 다른 응용 프로그램에 다른 키를 할당할 수 있습니다.
 
@@ -74,7 +74,7 @@ Cognitive Search의 경우 Azure Sdk는 일반적으로 사용 가능한 기능�
 |-----------|--------|----------|
 | .NET | [SearchClient](/dotnet/api/azure.search.documents.searchclient) | [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) |
 | Java | [SearchClient](/java/api/com.azure.search.documents.searchclient) | [SearchForDynamicDocumentsExample](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.1.3/sdk/search/azure-search-documents/src/samples/java/com/azure/search/documents/SearchForDynamicDocumentsExample.java) |
-| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | [readonlyQuery.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/samples/javascript/src/readonlyQuery.js) |
+| JavaScript | [SearchClient](/javascript/api/@azure/search-documents/searchclient) | 보류 중. |
 | Python | [SearchClient](/python/api/azure-search-documents/azure.search.documents.searchclient) | [sample_simple_query py ](https://github.com/Azure/azure-sdk-for-python/blob/7cd31ac01fed9c790cec71de438af9c45cb45821/sdk/search/azure-search-documents/samples/sample_simple_query.py) |
 
 ## <a name="choose-a-query-type-simple--full"></a>쿼리 유형 선택: 단순 | 차지

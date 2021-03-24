@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 5de98f5bf57626a408dd5bec8575856074f434c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 50216b83475e92cbabb5ed78c3836264ceff4600
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705673"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866610"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache HBase 사용
 
@@ -64,11 +64,11 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
-![HDInsight Apache HBase 표 형식 데이터](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase 표 형식 데이터" border="false":::
 
 [Cloud BigTable](https://cloud.google.com/bigtable/)의 구현인 HBase에서는 동일한 데이터가 다음과 같이 표시됩니다.
 
-![HDInsight Apache HBase BigTable 데이터](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable 데이터" border="false":::
 
 **HBase 셸을 사용하려면**
 
@@ -111,7 +111,7 @@ SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](https:
     scan 'Contacts'
     ```
 
-    ![HDInsight Apache Hadoop HBase 셸](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="HDInsight Apache Hadoop HBase 셸" border="false":::
 
 1. `get` 명령을 사용하여 행의 콘텐츠를 페치합니다. 다음 명령을 입력합니다.
 
@@ -331,7 +331,7 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 
 1. 페이지 위쪽에서 **빠른 링크** 를 선택하고 활성 Zookeeper 노드 링크를 가리킨 다음, **HBase Master UI** 를 선택합니다.  UI는 다른 브라우저 탭에서 열립니다.
 
-   ![HDInsight Apache HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="HDInsight Apache HBase HMaster UI" border="false":::
 
    HBase Master UI에는 다음 섹션이 포함되어 있습니다.
 

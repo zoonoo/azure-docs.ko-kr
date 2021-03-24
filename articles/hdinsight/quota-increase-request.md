@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: a539acc423feeab500830fb33262d1b824101072
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b62e41f280d02664b3df631c3413960f1265356f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98935837"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863176"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Azure HDInsight의 할당량 증가 요청
 
@@ -34,7 +34,7 @@ CPU 코어 할당량은 특정 Azure 지역의 모든 고객 간에 리소스 �
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 페이지 왼쪽 맨 아래에서 **도움말 + 지원** 을 선택합니다.
 
-    ![도움말 및 지원 단추](./media/quota-increase-request/help-support-button.png)
+    :::image type="content" source="./media/quota-increase-request/help-support-button.png" alt-text="도움말 및 지원 단추" border="true":::
 
 1. **새 지원 요청** 을 선택합니다.
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.
@@ -43,20 +43,20 @@ CPU 코어 할당량은 특정 Azure 지역의 모든 고객 간에 리소스 �
    - **구독**: 수정하려는 구독
    - **할당량 유형**: **HDInsight**
 
-     ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/quota-increase-request/hdinsight-quota-support-request.png)
+     :::image type="content" source="./media/quota-increase-request/hdinsight-quota-support-request.png" alt-text="HDInsight 코어 할당량을 늘리는 지원 요청 만들기" border="true":::
 
 1. 완료되면 **다음: 솔루션 >>** 을 선택합니다.
 1. **세부 정보** 페이지에서 문제에 대한 설명을 입력하고 해당 문제의 심각도, 기본 연락 방법, 기타 필수 필드를 선택합니다. 아래에 나열된 템플릿을 사용하여 필요한 정보를 제공해야 확인합니다. 할당량 증가 요청은 HDInsight 제품 팀이 아닌 Azure 용량 팀에서 평가합니다. 완전한 정보를 제공할수록 요청이 승인될 가능성이 높습니다.
 
-    ```
-    I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
-    
-    My current quota on this subscription is [CURRENT QUOTA AMOUNT].
-    
-    I would like to use the extra cores for [DETAIL REASON].
-    ```
+   ```text
+   I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
+   
+   My current quota on this subscription is [CURRENT QUOTA AMOUNT].
+   
+   I would like to use the extra cores for [DETAIL REASON].
+   ```
 
-    ![문제 세부 정보](./media/quota-increase-request/problem-details.png)
+   :::image type="content" source="./media/quota-increase-request/problem-details.png" alt-text="문제 세부 정보" border="true":::
 
 1. 완료되면 **다음: 검토 + 만들기 >>** 를 선택합니다.
 1. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.

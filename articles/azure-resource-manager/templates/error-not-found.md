@@ -2,13 +2,13 @@
 title: 리소스를 찾을 수 없음 오류
 description: 리소스를 찾을 수 없는 경우 오류를 해결 하는 방법을 설명 합니다. Azure Resource Manager 템플릿을 배포 하거나 관리 작업을 수행 하는 경우 오류가 발생할 수 있습니다.
 ms.topic: troubleshooting
-ms.date: 06/10/2020
-ms.openlocfilehash: 40f3c2ac61b6a6d5fdbcefdf62761668b013b1db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: b80c32683190167d5c0d6e0a7f75acce8bbdb833
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99526249"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950878"
 ---
 # <a name="resolve-resource-not-found-errors"></a>리소스를 찾을 수 없음 오류 해결
 
@@ -133,3 +133,9 @@ ResourceId 함수의 구독 및 리소스 그룹 매개 변수는 선택 사항�
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
 ```
+
+## <a name="solution-6---after-deleting-resource"></a>해결 방법 6-리소스 삭제 후
+
+리소스를 삭제 하는 경우 리소스가 포털에 계속 표시 되지만 실제로는 사용할 수 없는 짧은 시간이 있을 수 있습니다. 리소스를 선택 하면 리소스를 찾을 수 없다는 오류 메시지가 표시 됩니다. 최신 보기를 가져오려면 포털을 새로 고칩니다.
+
+잠시 후에도 문제가 계속 되 면 [지원 담당자에 게 문의 하세요](https://azure.microsoft.com/support/options/).
