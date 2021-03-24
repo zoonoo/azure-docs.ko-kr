@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버를 계획 하 고 배포 하는 방법
 description: Azure Arc 사용 서버에 대해 많은 수의 컴퓨터를 사용 하도록 설정 하 여 Azure에서 필수 보안, 관리 및 모니터링 기능의 구성을 간소화 하는 방법을 알아봅니다.
 ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591183"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023285"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Arc 사용 서버 계획 및 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "104591183"
 
 이 문서의 목적은 사용자 환경의 여러 프로덕션 물리적 서버 또는 가상 컴퓨터에서 Azure Arc 사용 서버를 성공적으로 배포할 준비가 되었는지 확인 하는 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 컴퓨터에서 연결 된 컴퓨터 에이전트에 대해 [지원 되는 운영 체제](agent-overview.md#supported-operating-systems) 를 실행 합니다.
 * 사용자의 컴퓨터는 직접 또는 프록시 서버를 통해 온-프레미스 네트워크 또는 다른 클라우드 환경에서 Azure의 리소스로 연결 됩니다.
@@ -57,7 +57,7 @@ ms.locfileid: "104591183"
 |작업 |세부 정보 |Duration |
 |-----|-------|---------|
 | [리소스 그룹 만들기](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Arc 사용 서버만 포함 하 고 이러한 리소스에 대 한 중앙 집중식 관리 및 모니터링을 위한 전용 리소스 그룹입니다. | 1시간 |
-| 컴퓨터를 구성 하는 데 도움이 되는 [태그](../../azure-resource-manager/management/tag-resources.md) 를 적용 합니다. | Arc 사용 서버를 관리 하는 복잡성을 줄이고 관리 결정을 간소화 하는 데 도움이 되는 IT에 맞춘 [태그 지정 전략](/cloud-adoption-framework/decision-guides/resource-tagging/) 을 평가 하 고 개발 합니다. | 1일 |
+| 컴퓨터를 구성 하는 데 도움이 되는 [태그](../../azure-resource-manager/management/tag-resources.md) 를 적용 합니다. | Arc 사용 서버를 관리 하는 복잡성을 줄이고 관리 결정을 간소화 하는 데 도움이 되는 IT에 맞춘 [태그 지정 전략](/azure/cloud-adoption-framework/decision-guides/resource-tagging/) 을 평가 하 고 개발 합니다. | 1일 |
 | [Azure Monitor 로그](../../azure-monitor/logs/data-platform-logs.md) 디자인 및 배포 | [디자인 및 배포 고려 사항을](../../azure-monitor/logs/design-logs-deployment.md) 평가 하 여 조직에서 기존를 사용 하거나 다른 Log Analytics 작업 영역을 구현 하 여 하이브리드 서버 및 컴퓨터에서 수집 된 로그 데이터를 저장 해야 하는지 확인 합니다. <sup>1</sup> | 1일 |
 | [Azure Policy](../../governance/policy/overview.md) 거 버 넌 스 계획 개발 | Azure Policy를 사용 하 여 구독 또는 리소스 그룹 범위에서 하이브리드 서버 및 컴퓨터의 관리를 구현 하는 방법을 결정 합니다. | 1일 |
 | RBAC ( [역할 기반 액세스 제어](../../role-based-access-control/overview.md) ) 구성 | 액세스 계획을 개발 하 여 Arc 사용 서버를 관리 하 고 다른 Azure 서비스 및 솔루션에서 데이터를 볼 수 있는 기능을 제어할 수 있는 사용자를 제어 합니다. | 1일 |
@@ -71,7 +71,7 @@ ms.locfileid: "104591183"
 
 |작업 |세부 정보 |Duration |
 |-----|-------|---------|
-| 미리 정의 된 설치 스크립트 다운로드 | 자동화 된 배포 요구 사항을 지원 하기 위해 연결 된 컴퓨터 에이전트를 대규모로 배포 하기 위해 미리 정의 된 설치 스크립트를 검토 하 고 사용자 지정 합니다.<br><br> 규모 온 보 딩 리소스 샘플:<br><br> <ul><li> [크기 조정 기본 배포 스크립트](onboard-service-principal.md)</ul></li> <ul><li>[Windows Server Vm VMware vSphere 대규모 온 보 딩](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Linux Vm VMware vSphere 대규모 온 보 딩](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Ansible를 사용 하 여 대규모 온 보 딩 AWS EC2 인스턴스](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[PowerShell 원격을 사용 하는 규모 배포](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (Windows에만 해당)</ul></li>| 요구 사항, 조직 프로세스 (예: 변경 및 Release Management) 및 사용 되는 자동화 방법에 따라 하나 이상의 일이 있습니다. |
+| 미리 정의 된 설치 스크립트 다운로드 | 자동화 된 배포 요구 사항을 지원 하기 위해 연결 된 컴퓨터 에이전트를 대규모로 배포 하기 위해 미리 정의 된 설치 스크립트를 검토 하 고 사용자 지정 합니다.<br><br> 샘플 확장 온 보 딩 리소스:<br><br> <ul><li> [규모에 맞게 기본 배포 스크립트](onboard-service-principal.md)</ul></li> <ul><li>[Windows Server Vm에 대 한 확장 VMware vSphere 온 보 딩](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_win/_index.md)</ul></li> <ul><li>[VMware vSphere Linux Vm에 대 한 대규모 온 보 딩](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/vmware_scaled_powercli_linux/_index.md)</ul></li> <ul><li>[Ansible를 사용 하 여 스케일 아웃 온 보 딩 AWS EC2 인스턴스](https://github.com/microsoft/azure_arc/blob/main/docs/azure_arc_jumpstart/azure_arc_servers/scaled_deployment/aws_scaled_ansible/_index.md)</ul></li> <ul><li>[PowerShell 원격을 사용 하 여 규모에 맞게 배포](./onboard-powershell.md) (Windows에만 해당)</ul></li>| 요구 사항, 조직 프로세스 (예: 변경 및 Release Management) 및 사용 되는 자동화 방법에 따라 하나 이상의 일이 있습니다. |
 | [서비스 주체 만들기](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Azure PowerShell 또는 포털을 사용 하 여 비 대화형으로 컴퓨터를 연결 하는 서비스 주체를 만듭니다.| 1시간 |
 | 대상 서버 및 컴퓨터에 연결 된 컴퓨터 에이전트 배포 |자동화 도구를 사용 하 여 서버에 스크립트를 배포 하 고 Azure에 연결 합니다.| 릴리스 요금제에 따라 1 일 이상, 단계별 출시 후에 수행 됩니다. |
 

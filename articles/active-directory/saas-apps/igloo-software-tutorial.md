@@ -1,5 +1,5 @@
 ---
-title: '자습서: Igloo Software와 Azure Active Directory 통합| Microsoft Docs'
+title: '자습서: Igloo Software와 Azure Active Directory 통합| Microsoft Azure'
 description: Azure Active Directory 및 Igloo Software 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 033561ac3c4a510927691dc8db4f61196f54ec2a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460396"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>자습서: Igloo Software와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Igloo Software를 Azure AD와 통합하면 다음과 같은 이점이 제공됩�
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Igloo Software와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -133,7 +133,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
      ![제어판](./media/igloo-software-tutorial/ic799949.png "제어판")
 
-3. **멤버 자격** 탭을 클릭하고 **로그인 설정** 을 클릭합니다.
+3. **멤버 자격** 탭에서 **로그인 설정** 을 클릭합니다.
 
     ![로그인 설정](./media/igloo-software-tutorial/ic783968.png "로그인 설정")
 
@@ -145,7 +145,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
     ![일반 구성](./media/igloo-software-tutorial/ic783970.png "일반 구성")
 
-    a. **연결 이름** 텍스트 상자에 구성의 사용자 지정 이름을 입력합니다.
+    a. **연결 이름** 텍스트 상자에 구성에 대한 사용자 지정 이름을 입력합니다.
 
     b. Azure Portal에서 복사한 **IdP 로그인 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -161,9 +161,9 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
   
     a. **ID 공급자** 로 **Microsoft ADFS** 를 선택합니다.
 
-    b. **ID 형식** 으로 **전자 메일 주소** 를 선택합니다. 
+    b. **식별자 유형** 으로 **전자 메일 주소** 를 선택합니다. 
 
-    다. **이메일 특성** 텍스트 상자에 **emailaddress** 를 입력합니다.
+    다. **전자 메일 특성** 텍스트 상자에 **emailaddress** 를 입력합니다.
 
     d. **이름 특성** 텍스트 상자에 **givenname** 을 입력합니다.
 
@@ -171,11 +171,11 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 7. 다음 단계를 수행하여 구성을 완료합니다.
 
-    ![로그인 시 사용자 만들기](./media/igloo-software-tutorial/IC783972.png "로그인할 때 사용자 만들기") 
+    ![로그인할 때 사용자 만들기](./media/igloo-software-tutorial/IC783972.png "로그인할 때 사용자 만들기") 
 
-    a. **로그인할 때 사용자 만들기** 에서 **로그인할 때 사이트에 새 사용자 만들기** 를 선택합니다.
+    a. **로그인 시 사용자 만들기** 로 **새 사용자 로그인 시 사이트에 새 사용자 만들기** 를 선택합니다.
 
-    b. **로그인 설정** 에서 **"로그인" 화면에서 SAML 단추 사용** 을 선택합니다.
+    b. **로그인 설정** 으로 **"로그인" 화면에서 SAML 단추 사용** 을 선택합니다.
 
     다. **저장** 을 클릭합니다.
 
@@ -183,7 +183,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -208,7 +208,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Igloo Software에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Igloo Software** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Igloo Software** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

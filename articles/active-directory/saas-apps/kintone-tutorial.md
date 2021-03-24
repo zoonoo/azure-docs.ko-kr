@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: 96ea3423d3c2dff2c8ba8c82b4c26d318c47211f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92459054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>자습서: Kintone과 Azure Active Directory 통합
@@ -163,7 +163,7 @@ Kintone에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -188,7 +188,7 @@ Kintone에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Kintone에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Kintone** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Kintone** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -238,7 +238,7 @@ Azure AD 사용자가 Kintone에 로그인하려면 Kintone에 프로비저닝�
 
     ![새 사용자](./media/kintone-tutorial/ic785890.png "새 사용자")
 
-    a. 프로비저닝할 유효한 Azure AD 계정의 **표시 이름** , **로그인 이름** , **새 암호** , **암호 확인** , **이메일 주소** 및 기타 세부 정보를 관련 텍스트 상자에 입력합니다.
+    a. 프로비저닝할 유효한 Azure AD 계정의 **표시 이름**, **로그인 이름**, **새 암호**, **암호 확인**, **이메일 주소** 및 기타 세부 정보를 관련 텍스트 상자에 입력합니다.
 
     b. **저장** 을 클릭합니다.
 

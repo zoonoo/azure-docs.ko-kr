@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5e41dea3b47c608b9e82ac57fa1cfe5247ea6cc2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f22379049b74428787b738af832802081be7bf8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099015"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022894"
 ---
 # <a name="managing-your-voice-assistant"></a>음성 도우미 관리
 
@@ -60,7 +60,7 @@ ms.locfileid: "102099015"
 
 [Speech Studio](https://speech.microsoft.com/)를 사용 하 여 음성 도우미에 대 한 사용자 지정 키워드를 만들 수 있습니다. 기본 사용자 지정 키워드 모델을 학습 하는 데 최대 30 분이 걸립니다.
 
-사용자 지정 키워드를 만드는 방법에 대 한 지침은 [Speech Studio 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) 를 참조 하세요. 구성 된 새 키워드는 voice assistant 응용 프로그램에서 사용할 수 있도록 산타 Cruz 포털 프로젝트에서 사용할 수 있습니다.
+사용자 지정 키워드를 만드는 방법에 대 한 지침은 [Speech Studio 설명서](../cognitive-services/speech-service/custom-keyword-basics.md) 를 참조 하세요. 구성 된 새 키워드는 voice assistant 응용 프로그램에서 사용할 수 있도록 산타 Cruz 포털 프로젝트에서 사용할 수 있습니다.
 
 ## <a name="commands-configuration"></a>명령 구성
 
@@ -88,7 +88,7 @@ ms.locfileid: "102099015"
 
 [Speech Studio](https://speech.microsoft.com/)를 사용 하 여 음성 길잡이가 실행할 사용자 지정 명령을 만들 수 있습니다.
 
-사용자 지정 명령 만들기에 대 한 지침은 [Speech Studio 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-custom-commands-application) 를 참조 하세요. 구성 된 후에는 Azure Percept Studio에서 음성 도우미 응용 프로그램에 사용할 수 있는 새 명령이 제공 됩니다.
+사용자 지정 명령 만들기에 대 한 지침은 [Speech Studio 설명서](../cognitive-services/speech-service/quickstart-custom-commands-application.md) 를 참조 하세요. 구성 된 후에는 Azure Percept Studio에서 음성 도우미 응용 프로그램에 사용할 수 있는 새 명령이 제공 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
