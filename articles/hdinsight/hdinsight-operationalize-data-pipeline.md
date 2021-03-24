@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/25/2019
-ms.openlocfilehash: a306890560497b0c7196f1286de3f73039821ea2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c81eb092fa59cb890093e1e9acd0511e39b5047b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939520"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864213"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>데이터 분석 파이프라인 운영
 
@@ -30,7 +30,7 @@ ms.locfileid: "98939520"
 
 아래 다이어그램은 이 예제 파이프라인을 보여 줍니다.
 
-![HDI 비행 예제 데이터 파이프라인 개요](./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/flight-pipeline-overview.png" alt-text="HDI 비행 예제 데이터 파이프라인 개요" border="false":::
 
 ## <a name="apache-oozie-solution-overview"></a>Apache Oozie 솔루션 개요
 
@@ -40,7 +40,7 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터* 의 측면에서 해당 
 
 다음 다이어그램에서는 이 예제 Oozie 파이프라인의 개략적인 디자인을 보여 줍니다.
 
-![Oozie 비행 예제 데이터 파이프라인](./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png)
+:::image type="content" source="./media/hdinsight-operationalize-data-pipeline/pipeline-overview-oozie.png" alt-text="Oozie 비행 예제 데이터 파이프라인" border="false":::
 
 ## <a name="provision-azure-resources"></a>Azure 리소스 프로비전
 
@@ -131,11 +131,11 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 2. 서비스 목록에서 **Hive** 를 선택합니다.
 
-    ![Hive를 선택 하는 Apache Ambari services 목록](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png" alt-text="Hive를 선택 하는 Apache Ambari services 목록":::
 
 3. Hive View 2.0 레이블 옆의 **보기로 이동** 을 선택합니다.
 
-    ![Ambari Apache Hive 요약 목록](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-summary.png" alt-text="Ambari Apache Hive 요약 목록":::
 
 4. 쿼리 텍스트 영역에서 다음 문을 붙여 넣어 `rawFlights` 테이블을 만듭니다. `rawFlights` 테이블은 Azure Storage의 `/example/data/flights` 폴더에 있는 CSV 파일에 대해 스키마 온 리드(schema-on-read)를 제공합니다.
 
@@ -164,7 +164,7 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
 
 5. **실행** 을 선택하여 테이블을 만듭니다.
 
-    ![hdi ambari services hive 쿼리](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="hdi ambari services hive 쿼리":::
 
 6. `flights` 테이블을 만들려면 쿼리 텍스트 영역의 텍스트를 다음 문으로 바꿉니다. `flights`테이블은 연도, 월 및 월의 날짜를 기준으로 로드 된 데이터를 분할 하는 Hive 관리 테이블입니다. 이 테이블에는 모든 기록 비행 데이터가 포함되며, 원본 데이터의 최소 단위가 비행마다 하나의 행에 표시됩니다.
 
@@ -253,18 +253,18 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     INSERT OVERWRITE TABLE flights
     PARTITION (YEAR, MONTH, DAY_OF_MONTH)
     SELECT 
-        FL_DATE,
-        CARRIER,
-        FL_NUM,
-        ORIGIN,
-        DEST,
-        DEP_DELAY,
-        ARR_DELAY,
-        ACTUAL_ELAPSED_TIME,
-        DISTANCE,
+          FL_DATE,
+          CARRIER,
+          FL_NUM,
+          ORIGIN,
+          DEST,
+          DEP_DELAY,
+          ARR_DELAY,
+          ACTUAL_ELAPSED_TIME,
+          DISTANCE,
         YEAR,
-        MONTH,
-        DAY_OF_MONTH
+          MONTH,
+          DAY_OF_MONTH
     FROM rawflights
     WHERE year = ${year} AND month = ${month} AND day_of_month = ${day};
     ```
@@ -278,17 +278,17 @@ Oozie 웹 콘솔을 사용하여 코디네이터 및 워크플로 인스턴스�
     CREATE EXTERNAL TABLE ${hiveTableName}
     (
         YEAR INT,
-        MONTH INT,
-        DAY_OF_MONTH INT,
-        CARRIER STRING,
-        AVG_DEP_DELAY FLOAT,
-        AVG_ARR_DELAY FLOAT,
-        TOTAL_DISTANCE FLOAT
+          MONTH INT,
+          DAY_OF_MONTH INT,
+          CARRIER STRING,
+          AVG_DEP_DELAY FLOAT,
+          AVG_ARR_DELAY FLOAT,
+          TOTAL_DISTANCE FLOAT
     )
     ROW FORMAT DELIMITED
     FIELDS TERMINATED BY '\t' STORED AS TEXTFILE LOCATION '${hiveDataFolder}';
     INSERT OVERWRITE TABLE ${hiveTableName}
-    SELECT  year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
+    SELECT     year, month, day_of_month, carrier, avg(dep_delay) avg_dep_delay, 
             avg(arr_delay) avg_arr_delay, sum(distance) total_distance 
     FROM flights
     GROUP BY year, month, day_of_month, carrier 
@@ -415,7 +415,7 @@ Bash 세션에서 SCP를 사용 하 여 Oozie workflow ( `workflow.xml` ), Hive 
 
 1. Oozie 웹 콘솔을 사용하여 상태를 관찰합니다. Ambar 내에서 **Oozie**, **빠른 링크**, **Oozie 웹 콘솔** 을 차례로 선택합니다. **워크플로 작업** 탭 아래에서 **모든 작업** 을 선택합니다.
 
-    ![hdi oozie 웹 콘솔 워크플로](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-workflows.png" alt-text="hdi oozie 웹 콘솔 워크플로":::
 
 1. 상태가 성공 이면 SQL Database 테이블을 쿼리하여 삽입 된 행을 확인 합니다. Azure Portal을 사용하여 SQL Database에 대한 창으로 이동한 후 **도구** 를 선택하고 **쿼리 편집기** 를 엽니다.
 
@@ -593,11 +593,11 @@ sqlDatabaseTableName=dailyflights
 
 5. Oozie 웹 콘솔을 사용하여 상태를 확인합니다. 이번에는 **코디네이터 작업** 탭, **모든 작업** 을 차례로 선택합니다.
 
-    ![Oozie 웹 콘솔 코디네이터 작업](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-jobs.png" alt-text="Oozie 웹 콘솔 코디네이터 작업":::
 
 6. 코디네이터 인스턴스를 선택하여 예약된 작업 목록을 표시합니다. 이 경우 1/1/2017에서 1/4/2017 범위에서 명목 시간을 갖는 4개의 작업이 표시됩니다.
 
-    ![Oozie 웹 콘솔 코디네이터 작업](./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png)
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-oozie-web-console-coordinator-instance.png" alt-text="Oozie 웹 콘솔 코디네이터 작업":::
 
     이 목록의 각 작업은 하루 동안의 데이터를 처리하는 워크플로 인스턴스에 해당하며, 해당 일의 시작은 명목 시간으로 표시됩니다.
 

@@ -4,17 +4,17 @@ description: 이 자습서에서는 Azure Portal을 사용하여 비규격 리�
 ms.topic: tutorial
 ms.date: 10/07/2020
 ms.openlocfilehash: 9a07e490525ce532f8f843b30b3b83715e65ce3c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826589"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>자습서: 비준수 리소스를 식별하는 정책 할당 만들기
 
 Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. Azure Policy는 게스트 구성 정책을 사용하여 Arc 지원 서버의 상태 감사를 지원합니다. 게스트 구성 정책은 구성을 적용하지 않고 머신 내의 설정만 감사합니다. 이 자습서에서는 Arc 지원 서버 중 Log Analytics 에이전트가 설치되지 않은 서버를 식별하는 정책을 만들고 할당하는 프로세스를 단계별로 안내합니다.
 
-이 프로세스가 끝나면 Windows 또는 Linux용 Log Analytics 에이전트가 설치되지 않은 머신을 성공적으로 식별할 수 있습니다. 이 가상 머신은 정책 할당을 _비준수_합니다.
+이 프로세스가 끝나면 Windows 또는 Linux용 Log Analytics 에이전트가 설치되지 않은 머신을 성공적으로 식별할 수 있습니다. 이 가상 머신은 정책 할당을 _비준수_ 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -24,50 +24,50 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서에서는 정책 할당을 만들고 _\[Preview]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다.
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+1. **모든 서비스** 를 클릭한 후 **정책** 을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
 
    :::image type="content" source="./media/tutorial-assign-policy-portal/search-policy.png" alt-text="모든 서비스에서 정책 검색" border="false":::
 
-1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
+1. Azure Policy 페이지의 왼쪽에서 **할당** 을 선택합니다. 할당은 특정 범위 내에서 수행하도록 할당된 정책입니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="정책 개요 페이지의 할당 선택 페이지" border="false":::
 
-1. **정책 - 할당** 창의 위쪽에서 **정책 할당**을 선택합니다.
+1. **정책 - 할당** 창의 위쪽에서 **정책 할당** 을 선택합니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="할당 페이지에서 정책 정의 할당" border="false":::
 
-1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위**를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 그 후 **범위** 페이지의 맨 위에서 **선택**을 클릭합니다.
+1. **정책 할당** 페이지에서 줄임표를 클릭하고 관리 그룹 또는 구독을 선택하여 **범위** 를 선택합니다. 원하는 경우 리소스 그룹을 선택합니다. 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 그 후 **범위** 페이지의 맨 위에서 **선택** 을 클릭합니다.
 
    이 예제에서는 **Parnell 항공** 구독을 사용합니다. 자신의 구독은 다를 수 있습니다.
 
-1. **범위**에 따라 리소스를 제외할 수 있습니다. **제외**는 **범위** 수준보다 한 수준 아래에서 시작됩니다. **제외**는 원하는 경우에만 적용하면 되므로 지금은 비워 둡니다.
+1. **범위** 에 따라 리소스를 제외할 수 있습니다. **제외** 는 **범위** 수준보다 한 수준 아래에서 시작됩니다. **제외** 는 원하는 경우에만 적용하면 되므로 지금은 비워 둡니다.
 
 1. **정책 정의** 줄임표를 선택하여 사용 가능한 정의 목록을 엽니다. Azure Policy에는 사용 가능한 기본 제공 정책 정의가 포함되어 있습니다. 다음과 같은 여러 정의를 사용할 수 있습니다.
 
    - 태그 및 해당 값 강제 적용
    - 태그 및 해당 값 적용
-   - 없는 경우 리소스 그룹에서 태그 상속
+   - 누락된 경우 리소스 그룹에서 태그 상속
 
    사용 가능한 기본 제공 정책의 부분 목록은 [Azure Policy 샘플](../../../governance/policy/samples/index.md)을 참조하세요.
 
-1. Windows 기반 머신에서 Arc 지원 서버 에이전트를 사용하도록 설정한 경우 정책 정의 목록을 검색하여 _\[미리 보기]: Log Analytics 에이전트를 Windows Azure Arc 머신에 설치해야 함_ 정의를 찾습니다. Linux 기반 머신의 경우 해당 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다. 해당 정책을 클릭하고 **선택**을 클릭합니다.
+1. Windows 기반 머신에서 Arc 지원 서버 에이전트를 사용하도록 설정한 경우 정책 정의 목록을 검색하여 _\[미리 보기]: Log Analytics 에이전트를 Windows Azure Arc 머신에 설치해야 함_ 정의를 찾습니다. Linux 기반 머신의 경우 해당 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 정책 정의를 찾습니다. 해당 정책을 클릭하고 **선택** 을 클릭합니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="올바른 정책 정의 찾기" border="false":::
 
-1. 선택한 정책 이름이 **할당 이름**에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예제의 경우 선택한 항목에 따라 _\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 또는 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_을 그대로 둡니다. 선택적인 **설명**을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
-   **할당한 사람**은 로그인한 사용자를 기준으로 자동으로 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
+1. 선택한 정책 이름이 **할당 이름** 에 자동으로 채워지지만, 할당 이름을 변경할 수 있습니다. 이 예제의 경우 선택한 항목에 따라 _\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 또는 _\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함_ 을 그대로 둡니다. 선택적인 **설명** 을 추가할 수도 있습니다. 설명은 이 정책 할당에 대한 세부 정보를 제공합니다.
+   **할당한 사람** 은 로그인한 사용자를 기준으로 자동으로 입력됩니다. 이 필드는 선택 사항이므로 사용자 지정 값을 입력할 수 있습니다.
 
-1. **관리 ID 만들기**는 선택하지 않은 상태로 유지합니다. 정책이나 이니셔티브에 [deployIfNotExists](../../../governance/policy/concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 _선택해야 합니다_. 이 빠른 시작에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
+1. **관리 ID 만들기** 는 선택하지 않은 상태로 유지합니다. 정책이나 이니셔티브에 [deployIfNotExists](../../../governance/policy/concepts/effects.md#deployifnotexists)가 적용된 정책이 있으면 이 확인란을 _선택해야 합니다_. 이 빠른 시작에 사용되는 정책의 경우 해당 항목이 적용되지 않으므로 이 확인란을 비워 둡니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
-1. **할당**을 클릭합니다.
+1. **할당** 을 클릭합니다.
 
 이제 비규격 리소스를 식별하여 환경의 규정 준수 상태를 파악할 준비가 되었습니다.
 
 ## <a name="identify-non-compliant-resources"></a>비규격 리소스 식별
 
-페이지 왼쪽에서 **준수**를 선택합니다. 그런 다음, 사용자가 만든 **\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 또는 **\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 정책 할당을 찾습니다.
+페이지 왼쪽에서 **준수** 를 선택합니다. 그런 다음, 사용자가 만든 **\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 또는 **\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 정책 할당을 찾습니다.
 
-:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="정책 규정 준수 페이지의 규정 준수 세부 정보" border="false":::
 
 이 새로운 할당을 준수하지 않는 기존 리소스가 있는 경우 **비준수 리소스** 아래에 표시됩니다.
 
@@ -89,9 +89,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. Azure Policy 페이지의 왼쪽에서 **규정 준수**(또는 **할당**)를 선택하고, 사용자가 만든 **\[미리 보기]: Windows Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 또는 **\[미리 보기]: Linux Azure Arc 머신에 Log Analytics 에이전트를 설치해야 함** 정책 할당을 찾습니다.
 
-1. 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제**를 선택합니다.
+1. 정책 할당을 마우스 오른쪽 단추로 클릭하고 **할당 삭제** 를 선택합니다.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="규정 준수 페이지에서 할당 삭제" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

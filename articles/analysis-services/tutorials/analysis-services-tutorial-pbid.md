@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 46805427e6d00e858cf869eef68bf68549f57fb9
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018120"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>자습서: Power BI Desktop을 사용하여 연결
@@ -37,17 +37,17 @@ ms.locfileid: "92018120"
 ## <a name="get-server-name"></a>서버 이름 가져오기
 Power BI Desktop에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. 포털에서 서버 이름을 가져올 수 있습니다.
 
-**Azure Portal** > 서버 > **개요** > **서버 이름**에서 서버 이름을 복사합니다.
+**Azure Portal** > 서버 > **개요** > **서버 이름** 에서 서버 이름을 복사합니다.
    
    ![Azure에서 서버 이름 가져오기](./media/analysis-services-tutorial-pbid/aas-copy-server-name.png)
 
 ## <a name="connect-in-power-bi-desktop"></a>Power BI Desktop에서 연결
 
-1. Power BI Desktop에서 **데이터 가져오기** > **Azure** > **Azure Analysis Services 데이터베이스**를 클릭합니다.
+1. Power BI Desktop에서 **데이터 가져오기** > **Azure** > **Azure Analysis Services 데이터베이스** 를 클릭합니다.
 
    ![데이터 가져오기에서 연결](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
 
-2. **서버**에서 서버 이름을 붙여넣고, **데이터베이스**에서 **adventureworks**를 입력한 다음, **확인**을 클릭합니다.
+2. **서버** 에서 서버 이름을 붙여넣고, **데이터베이스** 에서 **adventureworks** 를 입력한 다음, **확인** 을 클릭합니다.
 
    ![서버 이름 및 모델 데이터베이스 지정](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
@@ -55,7 +55,7 @@ Power BI Desktop에서 서버에 연결하려면 먼저 서버 이름이 필요�
 
     adventureworks 모델은 Power BI Desktop에서 [보고서] 보기의 빈 보고서와 함께 열립니다. **필드** 목록에는 숨겨지지 않은 모델 개체가 모두 표시됩니다. 연결 상태는 오른쪽 아래 모서리에 표시됩니다.
 
-4. **시각화**에서 **묶은 가로 막대형 차트**를 선택하고, **서식**(페인트 롤러 아이콘)을 클릭한 다음, **데이터 레이블**을 켭니다. 
+4. **시각화** 에서 **묶은 가로 막대형 차트** 를 선택하고, **서식**(페인트 롤러 아이콘)을 클릭한 다음, **데이터 레이블** 을 켭니다. 
 
    ![시각화](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 

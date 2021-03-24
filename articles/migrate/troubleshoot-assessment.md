@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 09fbc97b84365cc1d6d40b8e1147e1b8e951cc1f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 78e54543c94cd6e8434023b61516242c2491f353
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780704"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863601"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
-이 문서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool)를 사용 하 여 평가 및 종속성 시각화 문제를 해결 하는 데 도움이 됩니다.
+이 문서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool)를 사용 하 여 평가 및 종속성 시각화 문제를 해결 하는 데 도움이 됩니다.
 
 
 ## <a name="assessment-readiness-issues"></a>평가 준비 문제
@@ -222,7 +222,7 @@ Azure Migrate 에이전트 기반 종속성 분석을 사용 하면 최대 10 �
 에이전트 없는 종속성 분석에서 프로세스 이름은 최상의 노력으로 캡처됩니다. 특정 시나리오에서는 원본 및 대상 서버 이름과 대상 포트가 캡처되고 종속성의 양쪽 end에서 프로세스 이름을 결정 하는 것은 불가능 합니다. 이러한 경우 프로세스는 "알 수 없는 프로세스"로 표시 됩니다.
 
 ## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-azure-migrate"></a>내 Log Analytics 작업 영역은에서 작업 영역을 구성 하려고 할 때 나열 되지 않습니다 Azure Migrate
-Azure Migrate는 현재 미국 동부, 동남 아시아 및 서유럽 지역에서 OMS 작업 영역을 만들 수 있도록 지원합니다. 다른 지역의 Azure Migrate 외부에서 작업 영역을 만든 경우 현재는 Azure Migrate 프로젝트에 연결할 수 없습니다.
+Azure Migrate는 현재 미국 동부, 동남 아시아 및 서유럽 지역에서 OMS 작업 영역을 만들 수 있도록 지원합니다. 작업 영역을 다른 지역의 Azure Migrate 외부에서 만든 경우에는 현재 프로젝트에 연결할 수 없습니다.
 
 
 ## <a name="capture-network-traffic"></a>네트워크 트래픽 캡처
