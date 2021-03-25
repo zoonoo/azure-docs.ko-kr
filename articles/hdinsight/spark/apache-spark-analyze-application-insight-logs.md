@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: fbca4b23b6fc414727ea1b5a4012d2847d6b8d78
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9ae06565039e53c0096ff0541f7b28a5b041d9e8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940467"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864553"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
@@ -18,7 +18,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 [Visual Studio Application Insights](../../azure-monitor/app/app-insights-overview.md) 는 웹 애플리케이션을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 애플리케이션에서 Application Insights를 사용하도록 구성합니다.
 
@@ -36,7 +36,7 @@ HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Applic
 
 다음 다이어그램은 이 예제의 서비스 아키텍처를 보여 줍니다.
 
-![Application Insights에서 blob 저장소로 흐르는 데이터, Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
+:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Application Insights에서 blob 저장소로 흐르는 데이터, Spark" border="false":::
 
 ### <a name="azure-storage"></a>Azure Storage
 

@@ -1,26 +1,24 @@
 ---
-title: .NET을 사용하여 Blob 나열 - Azure Storage
-description: .NET 클라이언트 라이브러리를 사용하여 Azure Storage 계정의 컨테이너에 있는 Blob을 나열하는 방법을 알아봅니다. 코드 예제에서는 Blob이 디렉터리나 폴더로 구성된 경우에도 Blob을 플랫 목록으로 나열하거나 계층 구조로 나열하는 방법을 보여 줍니다.
+title: Azure Storage Api를 사용 하 여 blob 나열
+description: Azure Storage 클라이언트 라이브러리를 사용 하 여 저장소 계정에서 blob을 나열 하는 방법을 알아봅니다. 코드 예제에서는 Blob이 디렉터리나 폴더로 구성된 경우에도 Blob을 플랫 목록으로 나열하거나 계층 구조로 나열하는 방법을 보여 줍니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/24/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ddd19c90c8c47016497e2c3b00e04595a94e7715
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ff20b8bd0aab94cadadddbb7a4b7b32b1db1ee85
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95543071"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046945"
 ---
-# <a name="list-blobs-with-net"></a>.NET을 사용하여 Blob 나열
+# <a name="list-blobs-with-azure-storage-client-libraries"></a>Azure Storage 클라이언트 라이브러리를 사용 하 여 blob 나열
 
 코드에서 Blob을 나열하는 경우 Azure Storage에서 결과가 반환되는 방식을 관리하는 다양한 옵션을 지정할 수 있습니다. 각 결과 세트에서 반환할 결과 수를 지정하고 후속 세트를 검색할 수 있습니다. 이름이 해당 문자 또는 문자열로 시작하는 Blob을 반환하는 접두사를 지정할 수 있습니다. 플랫 목록 구조나 계층 구조로 Blob을 나열할 수 있습니다. 계층형 목록은 폴더로 구성된 것처럼 Blob을 반환합니다.
-
-이 문서에서는 [.NET용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용하여 Blob을 나열하는 방법을 보여 줍니다.  
 
 ## <a name="understand-blob-listing-options"></a>Blob 목록 옵션 이해
 
@@ -45,7 +43,9 @@ ms.locfileid: "95543071"
 - [CloudBlobContainer.ListBlobsSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented)
 - [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync)
 
-이러한 메서드에 대한 오버로드는 목록 작업에서 Blob을 반환하는 방법을 관리하기 위한 추가 옵션을 제공합니다. 다음 섹션에서는 이러한 방법에 대해 설명합니다.
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+- [ContainerClient.list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)
 
 ---
 
@@ -61,13 +61,25 @@ Blob 목록을 필터링 하려면 매개 변수에 대 한 문자열을 지정 
 
 결과를 사용 하 여 blob 메타 데이터를 반환할 수 있습니다.
 
-- .NET v12 SDK를 사용 하는 경우 [Blobtraits](/dotnet/api/azure.storage.blobs.models.blobtraits) 열거에 대 한 **메타 데이터** 값을 지정 합니다.
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-- .NET v11 SDK를 사용 하는 경우 [Bloblistingdetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) 열거에 대 한 **메타 데이터** 값을 지정 합니다. Azure Storage에는 반환된 각 Blob이 있는 메타데이터가 포함되어 있으므로 Blob 메타데이터를 검색하기 위해 이 컨텍스트에서 **FetchAttributes** 메서드 중 하나를 호출할 필요가 없습니다.
+[Blobtraits](/dotnet/api/azure.storage.blobs.models.blobtraits) 열거에 대 한 **메타 데이터** 값을 지정 합니다.
+
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+[Bloblistingdetails](/dotnet/api/microsoft.azure.storage.blob.bloblistingdetails) 열거에 대 한 **메타 데이터** 값을 지정 합니다. Azure Storage에는 반환된 각 Blob이 있는 메타데이터가 포함되어 있으므로 Blob 메타데이터를 검색하기 위해 이 컨텍스트에서 **FetchAttributes** 메서드 중 하나를 호출할 필요가 없습니다.
+
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+`metadata` `include=` [List_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)를 호출할 때 매개 변수에 대해를 지정 합니다.
+
+---
 
 ### <a name="list-blob-versions-or-snapshots"></a>Blob 버전 또는 스냅숏 나열
 
-.NET v12 클라이언트 라이브러리를 사용 하 여 blob 버전 또는 스냅숏을 나열 하려면 **버전** 또는 **스냅숏** 필드를 사용 하 여 [blobstates](/dotnet/api/azure.storage.blobs.models.blobstates) 매개 변수를 지정 합니다. 버전 및 스냅숏은 가장 오래 된 버전에서 최신 버전으로 나열 됩니다. 버전을 나열 하는 방법에 대 한 자세한 내용은 [blob 버전 나열](versioning-enable.md#list-blob-versions)을 참조 하세요.
+- .NET v12 클라이언트 라이브러리를 사용 하 여 blob 버전 또는 스냅숏을 나열 하려면 **버전** 또는 **스냅숏** 필드를 사용 하 여 [blobstates](/dotnet/api/azure.storage.blobs.models.blobstates) 매개 변수를 지정 합니다. 버전 및 스냅숏은 가장 오래 된 버전에서 최신 버전으로 나열 됩니다. 버전을 나열 하는 방법에 대 한 자세한 내용은 [blob 버전 나열](versioning-enable.md#list-blob-versions)을 참조 하세요.
+
+- Python v12 클라이언트 라이브러리를 사용 하 여 스냅숏 수를 나열 하려면 `num_snapshots` `include=` [list_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#list-blobs-name-starts-with-none--include-none----kwargs-)를 호출할 때 매개 변수에를 지정 합니다.
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>단순 목록 및 계층 구조 목록
 
@@ -135,11 +147,15 @@ private static async Task ListBlobsFlatListingAsync(CloudBlobContainer container
 }
 ```
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_ListBlobs":::
+
 ---
 
 샘플 출력은 다음과 유사합니다.
 
-```
+```console
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt
 Blob name: FolderA/blob3.txt
@@ -153,7 +169,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 
 ## <a name="use-a-hierarchical-listing"></a>계층형 목록 사용
 
-목록 작업을 계층형으로 호출하는 경우 Azure Storage는 계층의 첫 번째 수준에서 가상 디렉터리 및 Blob을 반환합니다. 다음 디렉터리를 검색하기 위해 재귀 호출에 접두사를 전달할 수 있도록 각 가상 디렉터리의 [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) 속성이 설정됩니다.
+목록 작업을 계층형으로 호출하는 경우 Azure Storage는 계층의 첫 번째 수준에서 가상 디렉터리 및 Blob을 반환합니다.
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
@@ -164,6 +180,8 @@ Blob을 계층적으로 나열 하려면 [BlobContainerClient. GetBlobsByHierarc
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+
+다음 디렉터리를 검색하기 위해 재귀 호출에 접두사를 전달할 수 있도록 각 가상 디렉터리의 [Prefix](/dotnet/api/microsoft.azure.storage.blob.cloudblobdirectory.prefix) 속성이 설정됩니다.
 
 Blob을 계층형으로 나열하려면 목록 메서드의 `useFlatBlobListing` 매개 변수를 **false** 로 설정합니다.
 
@@ -222,11 +240,19 @@ private static async Task ListBlobsHierarchicalListingAsync(CloudBlobContainer c
 }
 ```
 
+# <a name="python-v12"></a>[Python v12](#tab/python)
+
+Blob을 계층적으로 나열 하려면 [walk_blobs](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.containerclient#walk-blobs-name-starts-with-none--include-none--delimiter--------kwargs-) 메서드를 호출 합니다.
+
+다음 예에서는 지정 된 세그먼트 크기 (선택 사항)를 사용 하 여 지정 된 컨테이너의 blob을 나열 하 고 blob 이름을 콘솔 창에 씁니다.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/list_blobs.py" id="Snippet_WalkHierarchy":::
+
 ---
 
 샘플 출력은 다음과 유사합니다.
 
-```
+```console
 Virtual directory prefix: FolderA/
 Blob name: FolderA/blob1.txt
 Blob name: FolderA/blob2.txt

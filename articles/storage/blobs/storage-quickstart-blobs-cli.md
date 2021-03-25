@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa502f5ca95b1726da7f00f987b35be362ae865a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021761"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613110"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -145,7 +145,7 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>AzCopy를 사용한 데이터 전송
 
-AzCopy 명령줄 유틸리티는 Azure Storage에 대한 스크립트 가능한 고성능 데이터 전송을 제공합니다. AzCopy를 사용하여 Blob 스토리지와 Azure Files 간에 데이터를 전송할 수 있습니다. 최신 버전의 AzCopy인 AzCopy v10에 대한 자세한 내용은 [AzCopy 시작](../common/storage-use-azcopy-v10.md)을 참조하세요. Blob 스토리지에서 AzCopy v10을 사용하는 방법에 대한 자세한 내용은 [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](../common/storage-use-azcopy-blobs.md)을 참조하세요.
+AzCopy 명령줄 유틸리티는 Azure Storage에 대한 스크립트 가능한 고성능 데이터 전송을 제공합니다. AzCopy를 사용하여 Blob 스토리지와 Azure Files 간에 데이터를 전송할 수 있습니다. 최신 버전의 AzCopy인 AzCopy v10에 대한 자세한 내용은 [AzCopy 시작](../common/storage-use-azcopy-v10.md)을 참조하세요. Blob 스토리지에서 AzCopy v10을 사용하는 방법에 대한 자세한 내용은 [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](../common/storage-use-azcopy-v10.md#transfer-data)을 참조하세요.
 
 다음 예제에서는 AzCopy를 사용하여 로컬 파일을 Blob에 업로드합니다. 샘플 값을 사용자 고유의 값으로 바꿔야 합니다.
 

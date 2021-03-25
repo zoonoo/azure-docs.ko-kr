@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 104e6503ba47d17c17cfec2b4e62ec3f69f18330
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f7463b6234c03a9ed79f1c4a9fb310db7067a428
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200026"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043566"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
 이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.
@@ -99,7 +99,7 @@ ms.locfileid: "103200026"
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>연결이 이전 게이트웨이 노드나 새 게이트웨이 노드로 이동 하는지 어떻게 확인할 수 있나요?
 서버의 FQDN을 Ping 합니다 (예:)  ``ping xxx.postgres.database.azure.com`` . 반환 된 IP 주소가 위의 문서에서 게이트웨이 IP 주소 (서비스 해제) 아래에 나열 된 ip 중 하나 이면 연결이 이전 게이트웨이를 통과 하는 것을 의미 합니다. 반면 반환 된 Ip 주소가 게이트웨이 IP 주소 아래에 나열 된 ip 중 하나 이면 연결이 새 게이트웨이를 통과 하는 것을 의미 합니다.
 
-또한 포트 3306을 사용 하 여 클라이언트 응용 프로그램에서 데이터베이스 서버를 [Psping](https://docs.microsoft.com/sysinternals/downloads/psping) 또는 tcpping으로 테스트 하 고, 반환 ip 주소가 서비스 해제 ip 주소 중 하나가 아닌지 확인 합니다.
+또한 포트 3306을 사용 하 여 클라이언트 응용 프로그램에서 데이터베이스 서버를 [Psping](/sysinternals/downloads/psping) 또는 tcpping으로 테스트 하 고, 반환 ip 주소가 서비스 해제 ip 주소 중 하나가 아닌지 확인 합니다.
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>유지 관리가 초과 되는 경우를 확인 하 고 오래 된 IP 주소를 해제할 때 다른 알림을 받게 되나요? 어떻게 할까요?
 유지 관리 작업을 시작 하는 경우 사용자에 게 알리는 전자 메일을 받게 됩니다. 유지 관리는 al 지역에서 마이그레이션해야 하는 서버 수에 따라 최대 1 개월이 걸릴 수 있습니다. FQDN을 사용 하거나 위의 표에서 새 IP 주소를 사용 하 여 데이터베이스 서버에 연결 하도록 클라이언트를 준비 하세요. 

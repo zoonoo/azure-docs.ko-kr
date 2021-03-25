@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
 ms.openlocfilehash: 9579d0da3347bdd4ecc627662cee42f909cbfaf7
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92132774"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure CDN에 WAF 정책 만들기
@@ -64,7 +64,7 @@ WAF 정책을 만드는 경우 기본적으로 WAF 정책은 검색 모드입니
 
 동작 중인 WAF를 확인하기 위해 모드 설정을 *검색* 에서 *방지* 로 변경할 수 있습니다. *방지* 모드에서는 DRS(기본 규칙 집합)에 정의된 규칙과 일치하는 요청이 차단되고 WAF 로그에 기록됩니다.
 
- :::image type="content" source="../media/waf-cdn-create-portal/policy.png" alt-text="검토 + 만들기 단추 및 다양한 설정에 대해 입력한 값이 포함된 WAF 정책 페이지의 스크린샷" border="false":::
+ :::image type="content" source="../media/waf-cdn-create-portal/policy.png" alt-text="정책 설정 섹션의 스크린샷. 모드 토글은 방지로 설정됩니다." border="false":::
 
 ### <a name="custom-rules"></a>사용자 지정 규칙
 
@@ -72,17 +72,17 @@ WAF 정책을 만드는 경우 기본적으로 WAF 정책은 검색 모드입니
 
 다음 스크린샷은 쿼리 문자열에 **blockme** 값이 포함된 경우 요청을 차단하는 사용자 지정 일치 규칙을 보여줍니다.
 
-:::image type="content" source="../media/waf-cdn-create-portal/custommatch.png" alt-text="검토 + 만들기 단추 및 다양한 설정에 대해 입력한 값이 포함된 WAF 정책 페이지의 스크린샷" border="false":::
+:::image type="content" source="../media/waf-cdn-create-portal/custommatch.png" alt-text="QueryString 변수에 blockme 값이 포함되어 있는지 확인하는 규칙 설정을 보여 주는 사용자 지정 규칙 구성 페이지의 스크린샷" border="false":::
 
 속도 제한 규칙에는 두 가지 추가 필드 즉, **속도 제한 기간** 과 **속도 제한 임계값(요청)** 이 필요합니다. 다음 예를 참조하세요.
 
-:::image type="content" source="../media/waf-cdn-create-portal/customrate.png" alt-text="검토 + 만들기 단추 및 다양한 설정에 대해 입력한 값이 포함된 WAF 정책 페이지의 스크린샷" border="false":::
+:::image type="content" source="../media/waf-cdn-create-portal/customrate.png" alt-text="속도 제한 규칙 구성 페이지의 스크린샷. 속도 제한 기간 목록 상자 및 속도 제한 임계값(요청) 상자를 보여 줍니다." border="false":::
 
 ### <a name="default-rule-set-drs"></a>DRS(기본 규칙 집합)
 
 Azure 관리형 기본 규칙 집합은 기본적으로 사용하도록 설정되어 있습니다. 규칙 그룹 내에 있는 개별 규칙을 사용하지 않도록 설정하려면 해당 규칙 그룹 내에서 규칙을 확장하고 규칙 번호 앞의 확인란을 선택한 다음, 위의 탭에서 **사용 안 함** 을 선택합니다. 규칙 집합 내에 있는 개별 규칙의 동작 유형을 변경하려면 규칙 번호 앞의 확인란을 선택한 다음, 위에 있는 **동작 변경** 탭을 선택하세요.
 
- :::image type="content" source="../media/waf-cdn-create-portal/managed2.png" alt-text="검토 + 만들기 단추 및 다양한 설정에 대해 입력한 값이 포함된 WAF 정책 페이지의 스크린샷" border="false":::
+ :::image type="content" source="../media/waf-cdn-create-portal/managed2.png" alt-text="규칙 집합, 규칙 그룹, 규칙 및 작업 활성화, 비활성화 및 변경 단추를 보여주는 관리형 규칙 페이지의 스크린샷. 하나의 규칙을 선택합니다." border="false":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

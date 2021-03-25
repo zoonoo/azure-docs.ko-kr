@@ -3,12 +3,12 @@ title: 응용 프로그램 시나리오 및 디자인
 description: 서비스 패브릭의 클라우드 애플리케이션 범주 개요 상태 저장 및 상태 비저장 서비스를 사용하는 애플리케이션 설계에 대해 논의합니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c3cc931a85b91fc02b8086ca5c2481153691e54
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7d9459e6e0168657cf8e9062331fec0237f58c70
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575672"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045759"
 ---
 # <a name="service-fabric-application-scenarios"></a>서비스 패브릭 애플리케이션 시나리오
 
@@ -68,7 +68,7 @@ Service Fabric 상태 저장 서비스는 데이터베이스 및 기타 데이�
 
 * Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) 및 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 프로그래밍 모델을 사용 하 여 상태 비저장 및 상태 저장 서비스를 구축 하기 시작 합니다.
 * [Azure에서 마이크로 서비스를 구축](/azure/architecture/microservices/)하는 방법에 대 한 지침은 Azure 아키텍처 센터를 참조 하세요.
-* 응용 프로그램 디자인 지침에 대 한 [Azure Service Fabric 응용 프로그램 및 클러스터 모범 사례](service-fabric-best-practices-overview.md) 로 이동 합니다.
+* 응용 프로그램 디자인 지침에 대 한 [Azure Service Fabric 응용 프로그램 및 클러스터 모범 사례](./service-fabric-best-practices-security.md) 로 이동 합니다.
 
 * 참고 항목:
   * [마이크로서비스 이해](service-fabric-overview-microservices.md)

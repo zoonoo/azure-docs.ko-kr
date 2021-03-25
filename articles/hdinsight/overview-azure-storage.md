@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 419b4939c19ee03651a406db44244897e17087f2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98938940"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865471"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>HDInsight의 Azure Storage 개요
 
@@ -24,7 +24,7 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 
 다음 다이어그램은 Azure Storage의 HDInsight 아키텍처 추상 보기를 제공합니다.
 
-![' HDInsight 저장소 아키텍처 '](./media/overview-azure-storage/storage-architecture.png "HDInsight 저장소 아키텍처")
+:::image type="content" source="./media/overview-azure-storage/storage-architecture.png" alt-text="HDInsight 저장소 아키텍처" border="false":::
 
 HDInsight는 컴퓨팅 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -40,7 +40,7 @@ HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 다음 원
 
 * **클러스터에 연결 되지 않은 저장소 계정의 공용 컨테이너 또는 공용 blob:** 컨테이너의 blob에 대 한 읽기 전용 권한이 있습니다.
   
-  > [!NOTE]  
+  > [!NOTE]
   > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/anonymous-read-access-configure.md)를 참조하세요.
 
 * **클러스터에 연결 되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의 하지 않는 한 컨테이너의 blob에 액세스할 수 없습니다.
