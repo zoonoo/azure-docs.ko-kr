@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684596"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023931"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -350,7 +350,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 - **singlePlacementGroup** - singlePlacementGroup이 true이면 false로 수정할 수 있습니다. 그러나 singlePlacementGroup이 false인 경우, true로 수정하지 **못할 수 있습니다**.
 - **서브넷** - 확장 집합의 서브넷은 원래 서브넷과 새 서브넷이 동일한 가상 네트워크에 있는 경우 수정할 수 있습니다.
-- **imageReferenceSku** -보증 [Linux](../virtual-machines/linux/endorsed-distros.md)배포판, Windows server/client 이미지 및 [계획 정보가](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties)없는 이미지에 대해 이미지 참조 SKU를 업데이트할 수 있습니다. 
+- **imageReferenceSku** -보증 [Linux](../virtual-machines/linux/endorsed-distros.md)배포판, Windows server/client 이미지 및 [계획 정보가](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information)없는 이미지에 대해 이미지 참조 SKU를 업데이트할 수 있습니다. 
 
 ### <a name="properties-that-require-deallocation-to-change"></a>변경하기 위해 할당을 취소해야 하는 속성
 일부 속성은 확장 집합의 VM을 할당 취소해야만 특정 값으로 변경할 수 있습니다. 이러한 속성은 다음과 같습니다.
@@ -376,7 +376,7 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference* 를 수정하�
 
 사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>확장 집합에 대한 OS 이미지 업데이트
 이전 버전의 Ubuntu LTS 16.04를 실행하는 확장 집합이 있을 수도 있습니다. Ubuntu LTS 16.04의 최신 버전(예: 버전 *16.04.201801090*)으로 업데이트하려고 합니다. 이미지 참조 버전 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이러한 속성을 직접 수정할 수 있습니다.
@@ -417,7 +417,7 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference* 를 수정하�
 ### <a name="update-the-load-balancer-for-your-scale-set"></a>확장 집합에 대한 부하 분산 장치 업데이트
 Azure Load Balancer가 있는 확장 집합이 있으며 Azure Load Balancer를 Azure Application Gateway로 바꾸려고 한다고 가정해보겠습니다. 확장 집합에 대한 부하 분산 장치 및 Application Gateway 속성은 목록에 포함되어 있으므로 속성을 직접 수정하는 대신 명령을 사용하여 목록 요소를 제거하거나 추가할 수 있습니다.
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

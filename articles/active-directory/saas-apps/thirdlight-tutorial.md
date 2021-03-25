@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: f15d00f1050177c6255fb5528f03314153c3ed9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>자습서: ThirdLight와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Azure AD와 SaaS 앱의 통합에 대해 자세히 알아보려면 [Azure Active
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 ThirdLight와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -74,7 +74,7 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 2. 애플리케이션 쪽에서 **[ThirdLight Single Sign-On을 구성](#configure-thirdlight-single-sign-on)** 합니다.
 3. **[Azure AD 테스트 사용자를 만들어](#create-an-azure-ad-test-user)** Azure AD Single Sign-On을 테스트합니다.
 4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. 사용자의 Azure AD 표현과 연결된 **[ThirdLight 테스트 사용자를 만듭니다](#create-a-thirdlight-test-user)** .
+5. 사용자의 Azure AD 표현과 연결된 **[ThirdLight 테스트 사용자를 만듭니다](#create-a-thirdlight-test-user)**.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -138,17 +138,17 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     1. **SAML2 Single Sign-On 사용** 을 선택합니다.
 
-    1. **Source for IdP Metadata** (IdP 메타데이터에 대한 원본) 아래에서 **Load IdP Metadata from XML** (XML에서 IdP 메타데이터 로드)을 선택합니다.
+    1. **Source for IdP Metadata**(IdP 메타데이터에 대한 원본) 아래에서 **Load IdP Metadata from XML**(XML에서 IdP 메타데이터 로드)을 선택합니다.
 
-    1. 이전 섹션의 Azure Portal에서 다운로드한 메타데이터 파일을 엽니다. 파일의 내용을 복사하여 **IdP Metadata XML** (IdP 메타데이터 XML) 상자에 붙여넣습니다.
+    1. 이전 섹션의 Azure Portal에서 다운로드한 메타데이터 파일을 엽니다. 파일의 내용을 복사하여 **IdP Metadata XML**(IdP 메타데이터 XML) 상자에 붙여넣습니다.
 
-    1. **Save SAML2 settings** (SAML2 설정 저장)를 선택합니다.
+    1. **Save SAML2 settings**(SAML2 설정 저장)를 선택합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
@@ -172,7 +172,7 @@ ThirdLight에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 ThirdLight에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **ThirdLight** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **ThirdLight** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

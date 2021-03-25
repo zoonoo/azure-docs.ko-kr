@@ -1,15 +1,15 @@
 ---
 title: 컨테이너 이미지 스토리지
 description: 컨테이너 이미지 및 기타 아티팩트가 보안, 중복성 및 용량을 포함 하 여 Azure Container Registry에 저장 되는 방식에 대 한 세부 정보입니다.
-ms.topic: article
-ms.date: 03/03/2021
+ms.topic: conceptual
+ms.date: 03/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9c8ec877ddb17603e82b763223278a2e5e36714
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183270"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047748"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure Container Registry의 컨테이너 이미지 스토리지
 
@@ -21,11 +21,9 @@ ms.locfileid: "102183270"
 
 ## <a name="regional-storage"></a>지역 저장소
 
-Azure Container Registry는 고객이 데이터 상주 및 규정 준수 요구 사항을 충족 하는 데 도움이 되도록 레지스트리가 생성 된 지역에 데이터를 저장 합니다.
+Azure Container Registry는 고객이 데이터 상주 및 규정 준수 요구 사항을 충족 하는 데 도움이 되도록 레지스트리가 생성 된 지역에 데이터를 저장 합니다. 브라질 남부 및 동남 아시아를 제외한 모든 지역에서 Azure는 동일한 지리에서 쌍을 이루는 지역에 레지스트리 데이터를 저장할 수도 있습니다. 브라질 남부 및 동남 아시아 지역에서 레지스트리 데이터는 해당 지역에 대 한 데이터 상주 요구 사항을 수용 하기 위해 항상 지역으로 한정 됩니다.
 
-데이터 센터 가동 중단 으로부터 보호 하기 위해 일부 지역은 [영역 중복성](zone-redundancy.md)을 제공 하며,이 경우 데이터는 특정 지역의 여러 데이터 센터에 걸쳐 복제 됩니다.
-
-여러 지역에서의 성능을 향상 시키기 위해 데이터를 여러 지역에 저장 하려는 고객 또는 지역 가동 중단 시 복원 력을 유지 하려는 고객은 [지역에서 복제](container-registry-geo-replication.md)를 사용 하도록 설정 해야 합니다.
+지역 가동 중단이 발생 하는 경우 레지스트리 데이터를 사용할 수 없게 되 고 자동으로 복구 되지 않을 수 있습니다. 여러 지역에서의 성능을 향상 하거나 지역 가동 중단 시 복원 력을 유지 하려는 고객은 [지역에서 복제](container-registry-geo-replication.md)를 사용 하도록 설정 해야 합니다.
 
 ## <a name="geo-replication"></a>지역에서 복제
 
@@ -33,7 +31,7 @@ Azure Container Registry는 고객이 데이터 상주 및 규정 준수 요구 
 
 ## <a name="zone-redundancy"></a>영역 중복
 
-복원 력 및 고가용성 Azure 컨테이너 레지스트리를 만들려면 선택적으로 Azure 지역 선택에서 [영역 중복성](zone-redundancy.md) 을 사용 하도록 설정 합니다. 프리미엄 서비스 계층의 기능으로, 영역 중복성은 Azure [가용성 영역](../availability-zones/az-overview.md) 을 사용 하 여 레지스트리를 사용 하도록 설정 된 각 지역에서 최소 3 개의 개별 영역에 복제 합니다. 지역 복제와 영역 중복성을 결합 하 여 레지스트리의 안정성과 성능을 향상 시킵니다. 
+복원 력 및 고가용성 Azure 컨테이너 레지스트리를 만들기 위해 필요에 따라 Azure 지역 선택에서 [영역 중복성](zone-redundancy.md) 을 사용 하도록 설정 합니다. 프리미엄 서비스 계층의 기능으로, 영역 중복성은 Azure [가용성 영역](../availability-zones/az-overview.md) 을 사용 하 여 레지스트리를 사용 하도록 설정 된 각 지역에서 최소 3 개의 개별 영역에 복제 합니다. 지역 복제와 영역 중복성을 결합 하 여 레지스트리의 안정성과 성능을 향상 시킵니다. 
 
 ## <a name="scalable-storage"></a>확장 가능한 저장소
 

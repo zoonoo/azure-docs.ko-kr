@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
 ms.openlocfilehash: 92b068ee9b8aaf4c462002354bbb6490f4888a80
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92455904"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>자습서: Claromentis와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92455904"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -106,11 +106,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -136,49 +136,49 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 브라우저 창에서 Claromentis 웹 사이트에 관리자 권한으로 로그온합니다.
 
-1. **애플리케이션 아이콘** 을 클릭하고 **Admin** (관리자)을 선택합니다.
+1. **애플리케이션 아이콘** 을 클릭하고 **Admin**(관리자)을 선택합니다.
 
     ![스크린샷은 관리자가 선택된 Claromentis 웹 사이트를 보여줍니다.](./media/claromentis-tutorial/config1.png)
 
-1. **Custom Login Handler** (사용자 지정 로그인 처리기) 탭을 선택합니다.
+1. **Custom Login Handler**(사용자 지정 로그인 처리기) 탭을 선택합니다.
 
     ![스크린샷은 사용자 지정 로그인 처리기가 선택된 관리 페이지를 보여줍니다.](./media/claromentis-tutorial/config2.png)
 
-1. **SAML Config** (SAML 구성)를 선택합니다.
+1. **SAML Config**(SAML 구성)를 선택합니다.
 
     ![스크린샷은 SAML의 구성 페이지를 보여줍니다.](./media/claromentis-tutorial/config3.png)
 
-1. **SAML Config** 탭에서 **Config** (구성) 섹션까지 아래로 스크롤하여 다음 단계를 수행합니다.
+1. **SAML Config** 탭에서 **Config**(구성) 섹션까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
     ![스크린샷은 이 단계에서 설명한 정보를 입력할 수 있는 페이지의 구성 섹션을 보여줍니다.](./media/claromentis-tutorial/config4.png)
 
-    a. **Technical Contact Name** (기술 담당자 이름) 텍스트 상자에서 기술 담당자의 이름을 입력합니다.
+    a. **Technical Contact Name**(기술 담당자 이름) 텍스트 상자에서 기술 담당자의 이름을 입력합니다.
 
-    b. **Technical Contact Email** (기술 담당자 이메일) 텍스트 상자에서 기술 담당자의 이메일 주소를 입력합니다.
+    b. **Technical Contact Email**(기술 담당자 이메일) 텍스트 상자에서 기술 담당자의 이메일 주소를 입력합니다.
 
-    다. **Auth Admin Password** (인증 관리자 암호) 텍스트 상자에서 암호를 입력합니다.
+    다. **Auth Admin Password**(인증 관리자 암호) 텍스트 상자에서 암호를 입력합니다.
 
-1. **Auth Sources** (인증 원본)까지 아래로 스크롤하여 다음 단계를 수행합니다.
+1. **Auth Sources**(인증 원본)까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
     ![스크린샷은 이 단계에서 설명한 정보를 입력할 수 있는 인증 원본 섹션을 보여줍니다.](./media/claromentis-tutorial/config5.png)
 
     a. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **IDP** 텍스트 상자에 붙여넣습니다.
 
-    b. 엔터티 ID 값을 **Entity ID** (엔터티 ID) 텍스트 상자에 붙여넣습니다.
+    b. 엔터티 ID 값을 **Entity ID**(엔터티 ID) 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 파일을 업로드합니다.
 
     d. **저장** 을 클릭합니다.
 
-1. 이제 **SAML Config** 섹션의 **Identity Provider** (ID 공급자) 섹션 내에 모든 URL이 채워져 있습니다.
+1. 이제 **SAML Config** 섹션의 **Identity Provider**(ID 공급자) 섹션 내에 모든 URL이 채워져 있습니다.
 
     ![스크린샷은 URL로 채워진 ID 공급자 페이지를 보여줍니다.](./media/claromentis-tutorial/config6.png)
 
     a. **Identifier (Entity ID)** 식별자(엔터티 ID) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자** 텍스트 상자에 붙여넣습니다.
 
-    b. **Reply URL** (회신 URL) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
+    b. **Reply URL**(회신 URL) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    다. **Sign On URL** (로그온 URL) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **로그온 URL** 텍스트 상자에 붙여넣습니다.
+    다. **Sign On URL**(로그온 URL) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **로그온 URL** 텍스트 상자에 붙여넣습니다.
 
 ### <a name="create-claromentis-test-user"></a>Claromentis 테스트 사용자 만들기
 

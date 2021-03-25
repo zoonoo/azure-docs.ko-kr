@@ -8,10 +8,10 @@ ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049664"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Object Anchors를 사용하여 HoloLens 앱 만들기

@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 49f2c290c69fcadd594d6cbd5879e7d9f5304a42
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102558018"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위
@@ -81,26 +81,26 @@ Azure Portal, PowerShell cmdlet 및 스크립트 또는 Microsoft Graph를 사�
 
 | 사용 권한 |   Graph/PowerShell   | Azure AD 포털 | Microsoft 365 관리 센터 |
 | --- | --- | --- | --- |
-| 관리 단위 만들기 및 삭제   |    지원됨    |   지원 여부   |    지원되지 않음 |
-| 관리 단위 멤버를 개별적으로 추가 및 제거    |   지원됨    |   지원 여부   |    지원되지 않음 |
+| 관리 단위 만들기 및 삭제   |    지원됨    |   지원됨   |    지원되지 않음 |
+| 관리 단위 멤버를 개별적으로 추가 및 제거    |   지원됨    |   지원됨   |    지원되지 않음 |
 | CSV 파일을 사용하여 관리 단위 멤버 대량 추가 및 제거   |    지원되지 않음     |  지원됨   |    지원 계획 없음 |
-| 관리 단위 범위가 지정된 관리자 할당  |     지원됨    |   지원 여부    |   지원되지 않음 |
+| 관리 단위 범위가 지정된 관리자 할당  |     지원됨    |   지원됨    |   지원되지 않음 |
 | 특성에 따라 동적으로 관리 단위 멤버 추가 및 제거 | 지원되지 않음 | 지원되지 않음 | 지원되지 않음
 
 ### <a name="user-management"></a>사용자 관리
 
 | 사용 권한 |   Graph/PowerShell   | Azure AD 포털 | Microsoft 365 관리 센터 |
 | --- | --- | --- | --- |
-| 관리 단위 범위를 지정하여 사용자 속성, 암호 및 라이선스 관리   |    지원됨     |  지원 여부   |   지원됨 |
-| 관리 단위 범위를 지정하여 사용자 로그인 차단 및 차단 해제    |   지원됨   |    지원 여부   |    지원됨 |
-| 관리 단위 범위를 지정하여 사용자 다단계 인증 자격 증명 관리   |    지원됨   |   지원 여부   |   지원되지 않음 |
+| 관리 단위 범위를 지정하여 사용자 속성, 암호 및 라이선스 관리   |    지원됨     |  지원됨   |   지원됨 |
+| 관리 단위 범위를 지정하여 사용자 로그인 차단 및 차단 해제    |   지원됨   |    지원됨   |    지원됨 |
+| 관리 단위 범위를 지정하여 사용자 다단계 인증 자격 증명 관리   |    지원됨   |   지원됨   |   지원되지 않음 |
 
 ### <a name="group-management"></a>그룹 관리
 
 | 사용 권한 |   Graph/PowerShell   | Azure AD 포털 | Microsoft 365 관리 센터 |
 | --- | --- | --- | --- |
-| 관리 단위 범위를 지정하여 그룹 속성 및 멤버 관리     |  지원됨   |    지원 여부    |  지원되지 않음 |
-| 관리 단위 범위를 지정하여 그룹 라이선스 관리   |    지원됨  |    지원 여부   |   지원되지 않음 |
+| 관리 단위 범위를 지정하여 그룹 속성 및 멤버 관리     |  지원됨   |    지원됨    |  지원되지 않음 |
+| 관리 단위 범위를 지정하여 그룹 라이선스 관리   |    지원됨  |    지원됨   |   지원되지 않음 |
 
 관리 단위는 관리 권한에만 범위를 적용합니다. 멤버 또는 관리자가 자신의 [기본 사용자 권한](../fundamentals/users-default-permissions.md)을 사용하여 관리 단위 외부의 다른 사용자, 그룹 또는 리소스를 검색하는 것을 막을 수 없습니다. Microsoft 365 관리 센터에서 범위가 지정된 관리자의 관리 단위 외부의 사용자가 필터링됩니다. 그러나 Azure AD 포털, PowerShell 및 기타 Microsoft 서비스에서 다른 사용자를 탐색할 수 있습니다.
 

@@ -14,10 +14,10 @@ ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 820bc7dfe9123db495c151cd5cd0ea5ae337619f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100103977"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
@@ -58,7 +58,7 @@ ms.locfileid: "100103977"
 
 1. 다음으로 **범위 추가** 창에서 범위 특성을 지정합니다. 이 연습에서는 예제 값을 사용해도 되고, 직접 값을 지정해도 됩니다.
 
-    | 필드 | Description | 예제 |
+    | 필드 | 설명 | 예제 |
     |-------|-------------|---------|
     | **범위 이름** | 범위의 이름입니다. 일반적인 범위 명명 규칙은 `resource.operation.constraint`입니다. | `Employees.Read.All` |
     | **동의할 수 있는 사람** | 이 범위를 사용자가 동의할 수 있는지 아니면 관리자 동의가 필요한지 여부를 지정합니다. 높은 권한을 적용하려면 **관리자만** 을 선택합니다. | **관리자 및 사용자** |

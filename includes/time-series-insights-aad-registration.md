@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 ms.topic: include
 ms.custom: include file
 services: time-series-insights
@@ -9,14 +9,14 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724179"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104462"
 ---
-* [플랫폼 설정 구성](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings) 의 4 단계에서 적절 한 플랫폼을 선택한 후 사용자 인터페이스 오른쪽의 측면 패널에서 **리디렉션 Uri** 및 **액세스 토큰** 을 구성 합니다.
+* [플랫폼 설정 구성](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) 의 4 단계에서 적절 한 플랫폼을 선택한 후 사용자 인터페이스 오른쪽의 측면 패널에서 **리디렉션 Uri** 및 **액세스 토큰** 을 구성 합니다.
 
     * **리디렉션 URI** 는 인증 요청에 의해 제공된 주소와 일치해야 합니다.
 
@@ -41,4 +41,4 @@ ms.locfileid: "101724179"
 
     [![앱에 필요한 API 사용 권한 종류 지정](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* 응용 프로그램에서 환경의 Api를 자체로 호출 하는 경우 [자격 증명을 추가](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) 합니다. 자격 증명을 사용하면 애플리케이션에서 자체적으로 인증할 수 있으므로 런타임에 사용자의 상호 작용이 필요하지 않습니다.
+* 응용 프로그램에서 환경의 Api를 자체로 호출 하는 경우 [자격 증명을 추가](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) 합니다. 자격 증명을 사용하면 애플리케이션에서 자체적으로 인증할 수 있으므로 런타임에 사용자의 상호 작용이 필요하지 않습니다.

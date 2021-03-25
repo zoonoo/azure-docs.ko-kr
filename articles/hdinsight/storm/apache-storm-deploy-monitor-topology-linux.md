@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fb57992c8e26560061faf68443c4993801f9713d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929176"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871574"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](https://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Storm 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 에 **Storm** 을 선택합니다.
 
@@ -43,7 +43,7 @@ Visual Studio 용 Data Lake 도구를 사용 하 여 c # 또는 하이브리드 
 
 1. **새 프로젝트 구성** 창에서 **프로젝트 이름을** 입력 하 고로 이동 하거나 새 프로젝트를 저장할 **위치** 를 만듭니다. 그런 다음 **만들기** 를 선택합니다.
 
-    ![새 프로젝트 창 구성, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
+    :::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png" alt-text="새 프로젝트 창 구성, Visual Studio" border="true":::
 
 1. **서버 탐색기** 에서 **Azure** 를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결 ...을** 선택 하 여 로그인 프로세스를 완료 합니다.
 
@@ -83,7 +83,7 @@ Nimbus 서비스를 사용하여 토폴로지를 프로그래밍 방식으로 �
 
 Visual Studio를 사용 하 여 토폴로지를 제출 하면 **스톰 토폴로지 보기** 창이 표시 됩니다. 실행 중인 토폴로지에 대한 정보를 보려면 목록에서 토폴로지를 선택합니다.
 
-![모니터 토폴로지, 스톰 토폴로지 보기 창, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png" alt-text="모니터 토폴로지, 스톰 토폴로지 보기 창, Visual Studio" border="true":::
 
 > [!NOTE]  
 > **서버 탐색기** 에서 **Storm 토폴로지** 를 볼 수도 있습니다. **Azure**  >  **hdinsight** 를 확장 하 고 hdinsight 클러스터의 스톰을 마우스 오른쪽 단추로 클릭 한 다음 **스톰 토폴로지 보기** 를 선택 합니다.
@@ -179,7 +179,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 스톰 UI 주 페이지는 다음 웹 페이지와 유사 합니다.
 
-![주 페이지, 폭풍 UI, Apache Storm 토폴로지, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png" alt-text="주 페이지, 폭풍 UI, Apache Storm 토폴로지, Azure" border="true":::
 
 #### <a name="topology-summary"></a>토폴로지 요약
 
@@ -198,7 +198,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 스톰 토폴로지 요약 페이지는 다음 웹 페이지와 유사 합니다.
 
-![토폴로지 요약 페이지, 폭풍 UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png" alt-text="토폴로지 요약 페이지, 폭풍 UI, Apache Storm, Azure" border="true":::
 
 **토폴로지 작업** 섹션에서 다음 단추를 선택 하 여 작업을 수행할 수 있습니다.
 
@@ -229,7 +229,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 스톰 볼트 요약 페이지는 다음 웹 페이지와 유사 합니다.
 
-![볼트 요약 페이지, 폭풍 UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+:::image type="content" source="./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png" alt-text="볼트 요약 페이지, 폭풍 UI, Apache Storm, Azure" border="true":::
 
 ## <a name="monitor-and-manage-the-topology-using-the-rest-api"></a>REST API를 사용 하 여 토폴로지 모니터링 및 관리
 
@@ -246,7 +246,7 @@ Linux 기반 HDInsight 클러스터의 REST API에 대 한 기본 URI는 URL 주
 
 여러 가지 방법으로 클러스터 헤드 노드에 대 한 FQDN (정규화 된 도메인 이름)을 찾을 수 있습니다.
 
-| FQDN 검색 방법 | 설명 |
+| FQDN 검색 방법 | Description |
 | --- | --- |
 | SSH 세션 | SSH 세션에서 클러스터로 `headnode -f` 명령을 사용합니다. |
 | Ambari 웹 | Ambari cluster 웹 페이지 ()의 `https://CLUSTERNAME.azurehdinsight.net` 페이지 위쪽에서 **서비스** 를 선택 하 고 **스톰** 을 선택 합니다. **요약** 탭에서 **Storm UI 서버** 를 선택합니다. Storm UI 및 REST API가 호스팅하는 노드의 FQDN은 페이지 맨 위에 표시됩니다. |

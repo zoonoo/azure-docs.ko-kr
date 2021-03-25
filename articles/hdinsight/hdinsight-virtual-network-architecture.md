@@ -4,12 +4,12 @@ description: Azure Virtual Network에서 HDInsight 클러스터를 만들 때 �
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43640a9de91b6b44a236090ff029a49313ee0247
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98931154"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871676"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
 
@@ -19,7 +19,7 @@ ms.locfileid: "98931154"
 
 Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 노드가 있습니다. 각 노드 유형은 시스템 작업에서 역할을 수행 합니다. 다음 표에는 클러스터의 노드 유형과 해당 역할에 대 한 설명이 요약 되어 있습니다.
 
-| Type | 설명 |
+| Type | Description |
 | --- | --- |
 | 헤드 노드 |  Apache Storm를 제외한 모든 클러스터 유형에 대해 헤드 노드는 배포 응용 프로그램의 실행을 관리 하는 프로세스를 호스팅합니다. 헤드 노드는 또한 SSH로 이동 하 여 클러스터 리소스에서 실행 되도록 조정 된 응용 프로그램을 실행할 수 있는 노드입니다. 모든 클러스터 유형에 대해 헤드 노드 수는 2로 고정 됩니다. |
 | 사육 아웃 노드 | 사육 사가 데이터 처리를 수행 하는 노드 간에 작업을 조정 합니다. 또한 헤드 노드의 지도자 선택을 수행 하 고 특정 마스터 서비스를 실행 중인 헤드 노드를 추적 합니다. 사육 사 노드 수는 3에서 고정 됩니다. |
@@ -43,7 +43,7 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 
 다음 다이어그램에서는 Azure의 HDInsight 노드 및 네트워크 리소스를 배치 하는 방법을 보여 줍니다.
 
-![Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램" border="false":::
 
 Azure Virtual Network의 기본 리소스에는 위의 표에 언급 된 클러스터 노드 형식이 포함 되어 있습니다. 그리고 가상 네트워크와 외부 네트워크 간의 통신을 지 원하는 네트워크 장치.
 
