@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a2bca34f683df27c97b131d57c6c3278f7cb175e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 867f042332457ebc5fdd6b1f10ce7fb636309ba8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928895"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865335"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -42,7 +42,7 @@ Storm 사용을 시작하려면 [Azure HDInsight에서 Apache Storm 토폴로지
 
 Storm에서는 친숙한 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 작업 대신 토폴로지를 실행합니다. Storm 토폴로지는 DAG(방향성 비순환 그래프)에서 정렬된 여러 구성 요소로 구성됩니다. 그래프의 구성 요소 간에 데이터가 흐릅니다. 각 구성 요소는 하나 이상의 데이터 스트림을 사용하며, 선택적으로 하나 이상의 스트림을 내보낼 수 있습니다. 다음 다이어그램은 기본 단어 개수 토폴로지에 있는 구성 요소 간에 데이터가 흐르는 방식을 보여 줍니다.
 
-![Storm 토폴로지에서 구성 요소 정렬 방법의 예제](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
+:::image type="content" source="./media/apache-storm-overview/example-apache-storm-topology-diagram.png" alt-text="Storm 토폴로지에서 구성 요소 정렬 방법의 예제" border="false":::
 
 * Spout 구성 요소는 데이터를 토폴로지로 가져옵니다. 하나 이상의 스트림을 토폴로지에 내보냅니다.
 
@@ -56,7 +56,7 @@ Nimbus 노드는 Apache Hadoop JobTracker와 유사한 기능을 제공합니다
 
 Apache Storm 클러스터의 기본 구성에는 Nimbus 노드 하나만 있습니다. HDInsight의 Storm은 두 개의 Nimbus 노드를 제공합니다. 주 노드에 장애가 발생하면 주 노드가 복구되는 동안 Storm 클러스터에서 보조 노드로 전환합니다. 다음 다이어그램은 HDInsight에서 Storm에 대한 작업 흐름 구성을 보여 줍니다.
 
-![nimbus, zookeeper 및 감독자 다이어그램](./media/apache-storm-overview/storm-diagram-nimbus.png)
+:::image type="content" source="./media/apache-storm-overview/storm-diagram-nimbus.png" alt-text="nimbus, zookeeper 및 감독자 다이어그램" border="false":::
 
 ## <a name="ease-of-use"></a>사용 편의성
 

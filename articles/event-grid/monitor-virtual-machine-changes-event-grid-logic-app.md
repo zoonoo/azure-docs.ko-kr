@@ -10,10 +10,10 @@ ms.reviewer: estfan, LADocs
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.openlocfilehash: 1a5d8c36382433024efd1f1cc6ba9fd878d28ddc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92329528"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링
@@ -107,7 +107,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
    | **리소스 종류** | 예 | <*event-publisher-Azure-resource-type*> | 이벤트 게시자의 Azure 리소스 종류를 선택합니다. Azure 리소스 종류에 대한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요. 이 자습서에서는 Azure 리소스 그룹을 모니터링하는 `Microsoft.Resources.ResourceGroups` 값을 선택합니다. |
    | **리소스 이름** |  예 | <*event-publisher-Azure-resource-name*> | 이벤트 게시자의 Azure 리소스 이름을 선택합니다. 이 목록은 선택한 리소스 종류에 따라 달라집니다. 이 자습서에서는 가상 머신이 포함된 Azure 리소스 그룹의 이름을 선택합니다. |
    | **이벤트 유형 항목** |  예 | <*event-types*> | 필터링하고 Event Grid로 보낼 하나 이상의 특정 이벤트 유형을 선택합니다. 예를 들어, 필요에 따라 다음 이벤트 유형을 추가하여 리소스가 변경 또는 삭제되는 경우를 감지할 수 있습니다. <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure Event Grid 리소스 그룹에 대한 이벤트 스키마](../event-grid/event-schema-resource-groups.md) <br>- [이벤트 필터링 이해](../event-grid/event-filtering.md) <br>- [Event Grid에 대한 이벤트 필터링](../event-grid/how-to-filter-events.md) |
-   | 선택적 속성을 추가하려면 **새 매개 변수 추가** 를 선택한 다음, 원하는 속성을 선택합니다. | 예 | {see descriptions} | * **접두사 필터** : 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 접두사 문자열(예: 특정 리소스에 대한 경로 및 매개 변수)을 필터로 지정할 수 있습니다. <p>* **접미사 필터** : 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 특정 파일 형식만 원하는 경우 접미사 문자열(예: 파일 이름 확장명)을 필터로 지정할 수 있습니다. <p>* **구독 이름** : 이 자습서에서는 이벤트 구독에 대한 고유한 이름을 제공할 수 있습니다. |
+   | 선택적 속성을 추가하려면 **새 매개 변수 추가** 를 선택한 다음, 원하는 속성을 선택합니다. | 예 | {see descriptions} | * **접두사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 접두사 문자열(예: 특정 리소스에 대한 경로 및 매개 변수)을 필터로 지정할 수 있습니다. <p>* **접미사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 특정 파일 형식만 원하는 경우 접미사 문자열(예: 파일 이름 확장명)을 필터로 지정할 수 있습니다. <p>* **구독 이름**: 이 자습서에서는 이벤트 구독에 대한 고유한 이름을 제공할 수 있습니다. |
    |||
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장** 을 선택합니다. 논리 앱에서 작업의 세부 정보를 접어 숨기려면 작업의 제목 표시줄을 선택합니다.
@@ -203,7 +203,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
    | -------- | -------- | ----- | ----------- |
    | **수행할 작업** | 예 | <*recipient\@domain*> | 수신자의 이메일 주소를 입력합니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. |
    | **Subject** | 예 | `Resource updated:` **제목** | 전자 메일의 제목에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **제목** 필드를 선택합니다. 여기에서 전자 메일 제목에는 업데이트된 리소스(가상 머신)에 대한 이름이 포함됩니다. |
-   | **본문** | 예 | `Resource:` **항목** <p>`Event type:` **이벤트 유형**<p>`Event ID:` **ID**<p>`Time:` **이벤트 시간** | 전자 메일의 본문에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **토픽** , **이벤트 유형** , **ID** 및 **이벤트 시간** 필드를 선택하여 이벤트를 발생한 리소스, 업데이트의 이벤트 유형, 이벤트 타임스탬프 및 이벤트 ID가 메일에 포함되도록 합니다. 이 자습서에서는 리소스가 트리거에서 선택한 Azure 리소스 그룹입니다. <p>콘텐츠에 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. |
+   | **본문** | 예 | `Resource:` **항목** <p>`Event type:` **이벤트 유형**<p>`Event ID:` **ID**<p>`Time:` **이벤트 시간** | 전자 메일의 본문에 콘텐츠를 입력합니다. 이 자습서의 경우 지정된 텍스트를 입력하고 이벤트의 **토픽**, **이벤트 유형**, **ID** 및 **이벤트 시간** 필드를 선택하여 이벤트를 발생한 리소스, 업데이트의 이벤트 유형, 이벤트 타임스탬프 및 이벤트 ID가 메일에 포함되도록 합니다. 이 자습서에서는 리소스가 트리거에서 선택한 Azure 리소스 그룹입니다. <p>콘텐츠에 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. |
    ||||
 
    > [!NOTE]

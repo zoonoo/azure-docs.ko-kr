@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/28/2020
 ms.openlocfilehash: 60977b9388af3a93d0ebbbc6aad50628b79e0e44
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91598262"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: SSMS를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance 쿼리
@@ -55,7 +55,7 @@ SSMS를 설치하지 않고 일부 임시 쿼리를 실행하려는 경우 [빠�
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. 쿼리하려는 **데이터베이스** 또는 **관리되는 인스턴스**로 이동합니다.
+2. 쿼리하려는 **데이터베이스** 또는 **관리되는 인스턴스** 로 이동합니다.
 
 3. **개요** 페이지에서 SQL Database의 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 VM의 SQL Managed Instance 또는 SQL Server 인스턴스의 관리되는 인스턴스에 대한 **호스트** 옆에 있는 정규화된 서버 이름(또는 IP 주소)을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다.
 
@@ -89,13 +89,13 @@ SSMS에서 서버에 연결합니다.
 > [!NOTE]
 > 이 자습서에서는 SQL Server 인증을 활용합니다.
 
-3. **서버에 연결** 대화 상자에서 **옵션**을 선택합니다. **데이터베이스에 연결** 드롭다운 메뉴에서 **mySampleDatabase**를 선택합니다. [필수 구성 요소](#prerequisites) 섹션에서 빠른 시작을 완료하면 mySampleDatabase라는 AdventureWorksLT 데이터베이스가 만들어집니다. AdventureWorks 데이터베이스의 작업 복사본 이름이 mySampleDatabase와 다른 경우 이를 대신 선택합니다.
+3. **서버에 연결** 대화 상자에서 **옵션** 을 선택합니다. **데이터베이스에 연결** 드롭다운 메뉴에서 **mySampleDatabase** 를 선택합니다. [필수 구성 요소](#prerequisites) 섹션에서 빠른 시작을 완료하면 mySampleDatabase라는 AdventureWorksLT 데이터베이스가 만들어집니다. AdventureWorks 데이터베이스의 작업 복사본 이름이 mySampleDatabase와 다른 경우 이를 대신 선택합니다.
 
    ![서버에서 db에 연결](./media/connect-query-ssms/options-connect-to-db.png)  
 
-4. **연결**을 선택합니다. 개체 탐색기 창이 열립니다.
+4. **연결** 을 선택합니다. 개체 탐색기 창이 열립니다.
 
-5. 데이터베이스의 개체를 보려면 **데이터베이스**를 확장한 다음, 데이터베이스 노드를 확장합니다.
+5. 데이터베이스의 개체를 보려면 **데이터베이스** 를 확장한 다음, 데이터베이스 노드를 확장합니다.
 
    ![mySampleDatabase 개체](./media/connect-query-ssms/connected.png)  
 
@@ -103,7 +103,7 @@ SSMS에서 서버에 연결합니다.
 
 이 [SELECT](/sql/t-sql/queries/select-transact-sql/) Transact-SQL 코드를 실행하여 범주별 상위 20개 제품을 쿼리합니다.
 
-1. 개체 탐색기에서 **mySampleDatabase**를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다. 데이터베이스에 연결된 새 쿼리 창이 열립니다.
+1. 개체 탐색기에서 **mySampleDatabase** 를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다. 데이터베이스에 연결된 새 쿼리 창이 열립니다.
 
 2. 쿼리 창에서 다음 SQL 쿼리를 붙여 넣습니다.
 
@@ -114,7 +114,7 @@ SSMS에서 서버에 연결합니다.
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. 도구 모음에서 **실행**을 선택하여 쿼리를 실행하고 `Product` 및 `ProductCategory` 테이블에서 데이터를 검색합니다.
+3. 도구 모음에서 **실행** 을 선택하여 쿼리를 실행하고 `Product` 및 `ProductCategory` 테이블에서 데이터를 검색합니다.
 
     ![Product 및 ProductCategory 테이블에서 데이터를 검색하는 쿼리](./media/connect-query-ssms/query2.png)
 
@@ -143,7 +143,7 @@ SSMS에서 서버에 연결합니다.
            ,GETDATE() );
    ```
 
-2. **실행**을 선택하여 `Product` 테이블에서 새 행을 삽입합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
+2. **실행** 을 선택하여 `Product` 테이블에서 새 행을 삽입합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
 
 #### <a name="view-the-result"></a>결과 보기
 
@@ -154,7 +154,7 @@ SSMS에서 서버에 연결합니다.
    WHERE Name='myNewProduct'
    ```
 
-2. **실행**을 선택합니다. 다음과 같은 결과가 나타납니다.
+2. **실행** 을 선택합니다. 다음과 같은 결과가 나타납니다.
 
    ![Product 테이블 쿼리 결과](./media/connect-query-ssms/result.png)
 
@@ -170,7 +170,7 @@ SSMS에서 서버에 연결합니다.
    WHERE Name = 'myNewProduct';
    ```
 
-2. **실행**을 선택하여 `Product` 테이블에서 지정된 행을 업데이트합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
+2. **실행** 을 선택하여 `Product` 테이블에서 지정된 행을 업데이트합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
 
 ### <a name="delete-data"></a>데이터 삭제
 
@@ -183,7 +183,7 @@ SSMS에서 서버에 연결합니다.
    WHERE Name = 'myNewProduct';
    ```
 
-2. **실행**을 선택하여 `Product` 테이블에서 지정된 행을 삭제합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
+2. **실행** 을 선택하여 `Product` 테이블에서 지정된 행을 삭제합니다. **메시지** 창에 **(영향을 받는 행 1개)** 가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

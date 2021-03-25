@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: dee692dc6c82ae91272b39093398eba6ad908c1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fee393b694bf761cf052702a975239d6dff9a9c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104612401"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105219"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -69,7 +69,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ### <a name="place-a-1n-call-to-a-user-or-pstn"></a>1: n 호출을 사용자 또는 PSTN에 추가
 
-다른 통신 서비스 사용자를 호출 하려면에서 메서드를 사용 하 `startCall` `callAgent` 고 `CommunicationUserIdentifier` [통신 서비스 관리 라이브러리를 사용 하 여 만든](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)수신자를 전달 합니다.
+다른 통신 서비스 사용자를 호출 하려면에서 메서드를 사용 하 `startCall` `callAgent` 고 `CommunicationUserIdentifier` [통신 서비스 관리 라이브러리를 사용 하 여 만든](../../access-tokens.md)수신자를 전달 합니다.
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -156,7 +156,7 @@ const locator = {
 const call = callAgent.join(locator);
 ```
 
-## <a name="receive-an-incoming-call"></a>들어오는 호출 받기
+## <a name="receive-an-incoming-call"></a>수신 전화 받기
 
 `callAgent`인스턴스는 `incomingCall` 로그인 된 id가 들어오는 호출을 받을 때 이벤트를 내보냅니다. 이 이벤트를 수신 하려면 다음 옵션 중 하나를 사용 하 여 구독 합니다.
 

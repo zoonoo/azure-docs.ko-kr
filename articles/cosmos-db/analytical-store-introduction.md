@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577362"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027181"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소 란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -110,9 +110,10 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
 
 * 현재 Azure Synapse Spark는 공백 (공백)을 포함 하는 열 이름을 읽을 수 없습니다.
 
-* 값과 관련 하 여 다른 동작이 발생 합니다 `NULL` .
-  * Azure Synapse의 Spark 풀은이 값을 0 (영)으로 읽습니다.
-  * Azure Synapse의 SQL server 서버 리스 풀은 이러한 값을로 읽습니다 `NULL` .
+* 명시적 값과 관련 하 여 다른 동작이 발생 합니다 `null` .
+  * Azure Synapse의 Spark 풀은 이러한 값을 `0` (0)으로 읽습니다.
+  * Azure Synapse의 SQL server를 사용 하지 않는 풀은 `NULL` 컬렉션의 첫 번째 문서에 동일한 속성에 대 한 데이터 형식이 다른 값이 있는 것 처럼 이러한 값을 읽습니다 `integer` .
+  * Azure Synapse의 SQL server를 사용 하지 않는 풀은 `0` 컬렉션의 첫 번째 문서에가 인 값 인 동일한 속성에 대해이 값을 (0)으로 읽습니다 `integer` .
 
 * 누락 된 열과 관련 하 여 다음과 같은 동작이 발생 합니다.
   * Azure Synapse의 Spark 풀은 이러한 열을로 표시 `undefined` 합니다.
@@ -144,6 +145,11 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
 
 > [!NOTE]
 > Azure Cosmos DB 분석 저장소가 잘 정의 된 스키마 표현을 따르며 위의 사양이 특정 항목에서 위반 되는 경우 해당 항목은 분석 저장소에 포함 되지 않습니다.
+
+* 잘 정의 된 스키마의 다양 한 형식에 대해 서로 다른 동작을 수행 합니다.
+  * Azure Synapse의 Spark 풀은 이러한 값을로 나타냅니다 `undefined` .
+  * Azure Synapse의 SQL server 서버 리스 풀은 이러한 값을로 나타냅니다 `NULL` .
+
 
 **전체 충실도 스키마 표현**
 
@@ -178,7 +184,7 @@ salary: 1000000
 | Double |  "float64" |    24.99|
 | Array | ". array" |    ["a", "b"]|
 |이진 | "binary" |0|
-|부울    | ". bool"   |참|
+|부울    | ". bool"   |True|
 |Int32  | ". int32"  |123|
 |Int64  | ". int64"  |255486129307|
 |Null   | ". null"   | null|

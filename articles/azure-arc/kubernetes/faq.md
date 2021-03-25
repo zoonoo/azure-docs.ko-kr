@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: 이 문서에는 Azure Arc enabled Kubernetes와 관련 된 질문과 대답 목록이 포함 되어 있습니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너, 구성, GitOps, faq
-ms.openlocfilehash: d7facb842509bdf852957d46d91dfcb3912e99ba
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 84368cc63bd9aaf1df4fb281395b47a6e886cb7f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121714"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025852"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>질문과 대답-Azure Arc 사용 Kubernetes
 
@@ -72,6 +72,6 @@ Azure Arc enabled Kubernetes의 경우 Azure Resource Manager에서 구성을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Kubernetes 클러스터를 Azure Arc에 연결 하는](./connect-cluster.md)빠른 시작을 안내 합니다.
-* Kubernetes 클러스터에 연결 된 Azure Arc가 이미 있나요? [Arc Enabled Kubernetes 클러스터에 대 한 구성을 만듭니다](./use-gitops-connected-cluster.md).
+* [Kubernetes 클러스터를 Azure Arc에 연결 하는](./quickstart-connect-cluster.md)빠른 시작을 안내 합니다.
+* Kubernetes 클러스터에 연결 된 Azure Arc가 이미 있나요? [Arc Enabled Kubernetes 클러스터에 대 한 구성을 만듭니다](./tutorial-use-gitops-connected-cluster.md).
 * Azure Policy를 사용 하 여 [대규모 구성을 적용](./use-azure-policy.md)하는 방법을 알아봅니다.

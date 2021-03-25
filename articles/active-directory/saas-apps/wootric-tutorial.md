@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/23/2020
 ms.author: jeedes
 ms.openlocfilehash: a959dd3615c9498411b141356420939ad7026189
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92638366"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wootric"></a>자습서: Wootric과 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92638366"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -137,7 +137,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 Wootric 사이트에서 선택한 설정 아이콘을 보여줍니다.](./media/wootric-tutorial/configure-1.PNG)
 
-1. **INTEGRATIONS** (통합)의 왼쪽 메뉴에서 **Authentication** (인증)을 선택하고 **Enable Single Sign On with Azure Active Directory** (Azure Active Directory로 Single Sign-On 사용)를 클릭합니다.
+1. **INTEGRATIONS**(통합)의 왼쪽 메뉴에서 **Authentication**(인증)을 선택하고 **Enable Single Sign On with Azure Active Directory**(Azure Active Directory로 Single Sign-On 사용)를 클릭합니다.
 
     ![스크린샷은 인증 항목에 연결된 Azure Active Directory로 Single Sign-On 사용을 보여줍니다.](./media/wootric-tutorial/configure-2.PNG)
 
@@ -151,7 +151,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. Azure Portal에서 다운로드한 **인증서(Base64)** 를 메모장에서 열고, 콘텐츠를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
 
-    d. **Automatically grant access to new users** (새 사용자에게 자동으로 액세스 권한 부여) 확인란을 선택합니다.
+    d. **Automatically grant access to new users**(새 사용자에게 자동으로 액세스 권한 부여) 확인란을 선택합니다.
     
     e. **Save** 를 클릭합니다.
 

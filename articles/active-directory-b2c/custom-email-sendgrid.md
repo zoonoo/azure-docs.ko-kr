@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 86f40944af9fb49b0402a33e5009b99d60be61f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489188"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031310"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>SendGrid를 사용 하 여 사용자 지정 전자 메일 확인
 
@@ -43,7 +43,7 @@ Azure Active Directory B2C (Azure AD B2C)의 사용자 지정 전자 메일을 �
 1. **정책 키**, **추가** 를 차례로 선택합니다.
 1. **옵션** 에 대해 **수동** 을 선택 합니다.
 1. 정책 키의 **이름** 을 입력합니다. 예들 들어 `SendGridSecret`입니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
-1. 이전에 기록해 두었던 클라이언트 비밀을 **비밀** 에 입력합니다.
+1. **비밀** 에서 이전에 기록한 SendGrid API 키를 입력 합니다.
 1. **키 사용** 으로는 **서명** 을 선택합니다.
 1. **만들기** 를 선택합니다.
 
@@ -153,7 +153,7 @@ SendGrid 계정을 만들고 Azure AD B2C 정책 키에 SendGrid API 키를 저�
 1. 왼쪽에서 **설정** 을 확장 하 고 **전자 메일 제목** 에를 입력 `{{subject}}` 합니다.
 1. **템플릿 저장** 을 선택 합니다.
 1. 뒤로 화살표를 선택 하 여 **트랜잭션 템플릿** 페이지로 돌아갑니다.
-1. 이후 단계에서 사용 하기 위해 만든 템플릿의 **ID** 를 기록 합니다. 예: `d-989077fbba9746e89f3f6411f596fb96` [클레임 변환을 추가할](#add-the-claims-transformation)때이 ID를 지정 합니다.
+1. 이후 단계에서 사용 하기 위해 만든 템플릿의 **ID** 를 기록 합니다. 예: `d-989077fbba9746e89f3f6411f596fb96`. [클레임 변환을 추가할](#add-the-claims-transformation)때이 ID를 지정 합니다.
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Azure AD B2C 클레임 유형 추가
 

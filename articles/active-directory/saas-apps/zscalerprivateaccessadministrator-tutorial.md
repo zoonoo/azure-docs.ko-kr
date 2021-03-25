@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 803f5c25429b33e6d1af130196d38e125b410eb4
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92891026"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>자습서: Azure Active Directory와 Zscaler Private Access Administrator 통합
@@ -139,11 +139,11 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
 
 1. 다른 웹 브라우저 창에서 Zscaler Private Access Administrator에 관리자로 로그인합니다.
 
-2. 상단에서 **Administration** (관리)을 클릭하고 **AUTHENTICATION** (인증) 섹션으로 이동한 다음 **IdP Configuration** (IdP 구성)을 클릭합니다.
+2. 상단에서 **Administration**(관리)을 클릭하고 **AUTHENTICATION**(인증) 섹션으로 이동한 다음 **IdP Configuration**(IdP 구성)을 클릭합니다.
 
     ![Zscaler Private Access Administrator 관리](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-3. 상단 오른쪽 모서리에서 **Add IdP Configuration** (IdP 구성 추가)을 클릭합니다. 
+3. 상단 오른쪽 모서리에서 **Add IdP Configuration**(IdP 구성 추가)을 클릭합니다. 
 
     ![Zscaler Private Access Administrator addidp](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addpidp.png)
 
@@ -151,15 +151,15 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
  
     ![Zscaler Private Access Administrator idpselect](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
-    a. **Select File** (파일 선택)을 클릭하여 **IdP Metadata File Upload** (IdP 메타데이터 파일 업로드) 필드의 Azure AD에서 다운로드된 메타데이터 파일을 업로드합니다.
+    a. **Select File**(파일 선택)을 클릭하여 **IdP Metadata File Upload**(IdP 메타데이터 파일 업로드) 필드의 Azure AD에서 다운로드된 메타데이터 파일을 업로드합니다.
 
     b. 그러면 Azure AD에서 **IdP 메타데이터** 를 읽어와서 아래와 같이 모든 필드 정보가 채워집니다.
 
     ![Zscaler Private Access Administrator idpconfig](./media/zscalerprivateaccessadministrator-tutorial/idpconfig.png)
 
-    다. **Single Sign On** 을 **Administrator** (관리자)로 선택합니다.
+    다. **Single Sign On** 을 **Administrator**(관리자)로 선택합니다.
 
-    d. **Domains** (도메인) 필드에서 도메인을 선택합니다.
+    d. **Domains**(도메인) 필드에서 도메인을 선택합니다.
     
     e. **저장** 을 클릭합니다.
 
@@ -167,7 +167,7 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -191,7 +191,7 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Zscaler Private Access Administrator에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Zscaler Private Access Administrator** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Zscaler Private Access Administrator** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -221,19 +221,19 @@ Azure AD 사용자가 Zscaler Private Access Administrator에 로그인하려면
 
 1. Zscaler Private Access Administrator 회사 사이트에 관리자로 로그인합니다.
 
-2. 상단에서 **Administration** (관리)을 클릭하고 **AUTHENTICATION** (인증) 섹션으로 이동한 다음 **IdP Configuration** (IdP 구성)을 클릭합니다.
+2. 상단에서 **Administration**(관리)을 클릭하고 **AUTHENTICATION**(인증) 섹션으로 이동한 다음 **IdP Configuration**(IdP 구성)을 클릭합니다.
 
     ![Zscaler Private Access Administrator 관리](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_admin.png)
 
-3. 메뉴 왼쪽에서 **Administrators** (관리자)를 클릭합니다.
+3. 메뉴 왼쪽에서 **Administrators**(관리자)를 클릭합니다.
 
     ![Zscaler Private Access Administrator 관리자](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_adminstrator.png)
 
-4. 상단 오른쪽 모서리에서 **Add Administrator** (관리자 추가)를 클릭합니다.
+4. 상단 오른쪽 모서리에서 **Add Administrator**(관리자 추가)를 클릭합니다.
 
     ![Zscaler Private Access Administrator 관리자 추가](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_addadmin.png)
 
-5. **Add Administrator** (관리자 추가) 페이지에서 다음 단계를 수행합니다.
+5. **Add Administrator**(관리자 추가) 페이지에서 다음 단계를 수행합니다.
 
     ![Zscaler Private Access Administrator 사용자 관리](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
@@ -243,13 +243,13 @@ Azure AD 사용자가 Zscaler Private Access Administrator에 로그인하려면
 
     다. **암호 확인** 텍스트 상자에 암호를 다시 입력합니다.
 
-    d. **Role** (역할)을 **Zscaler Private Access Administrator** 로 선택합니다.
+    d. **Role**(역할)을 **Zscaler Private Access Administrator** 로 선택합니다.
 
     e. **이메일** 텍스트 상자에 사용자의 이메일 주소(예: BrittaSimon@contoso.com)를 입력합니다.
 
-    f. **Phone** (전화) 텍스트 상자에 전화 번호를 입력합니다.
+    f. **Phone**(전화) 텍스트 상자에 전화 번호를 입력합니다.
 
-    g. **Timezone** (표준 시간대) 텍스트 상자에 표준 시간대를 선택합니다.
+    g. **Timezone**(표준 시간대) 텍스트 상자에 표준 시간대를 선택합니다.
 
     h. **저장** 을 클릭합니다.
 

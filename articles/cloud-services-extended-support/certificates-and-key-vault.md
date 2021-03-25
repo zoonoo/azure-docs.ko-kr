@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 7357703af41afc913ef63dff6ecae3d230c9eca0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583295"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865706"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Azure Cloud Services에서 인증서 사용 (확장 지원)
 
@@ -29,7 +29,6 @@ Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하�
 
 3. 액세스 정책에 다음 속성이 포함 되어 있는지 확인 합니다.
     - **배포를 위해 Azure Virtual Machines에 대 한 액세스 사용**
-    - **템플릿 배포 Azure Resource Manager에 대 한 액세스 사용** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="이미지 Azure Portal의 액세스 정책 창을 표시 합니다.":::
  
@@ -50,6 +49,9 @@ Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하�
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  ARM 템플릿을 통해 배포 하는 경우 비밀 식별자로 레이블이 지정 된 key vault의 인증서로 이동 하 여 certificateUrl을 찾을 수 있습니다.
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="이미지 키 자격 증명 모음에 비밀 식별자 필드를 표시 합니다.":::
 
 ## <a name="next-steps"></a>다음 단계 
 - Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.

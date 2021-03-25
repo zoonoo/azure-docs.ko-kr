@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522294"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>자습서: Oracle PeopleSoft - Protected by F5 BIG-IP APM과 Azure Active Directory SSO(Single Sign-On) 통합
@@ -120,11 +120,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -144,7 +144,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="f5-saml-sp-configuration"></a>F5 SAML SP 구성
 
-나중에 설정 프로세스에서 사용할 F5로 메타데이터 인증서를 가져옵니다. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import** (가져오기)를 선택합니다.
+나중에 설정 프로세스에서 사용할 F5로 메타데이터 인증서를 가져옵니다. **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**(시스템 > 인증서 관리 > 트래픽 인증서 관리 >> SSL 인증서 목록)로 차례로 이동합니다. 오른쪽 모서리에서 **Import**(가져오기)를 선택합니다.
 
 ![F5 SAML SP 구성](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/sp-configuration.png)
 
@@ -166,7 +166,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 #### <a name="setup-the-saml-sp"></a>SAML SP 설정
 
-1. **액세스 > 페더레이션 > SAML 서비스 공급자 > 로컬 SP 서비스** 로 이동하여 **만들기** 를 클릭합니다. 다음 정보를 완성하고, **OK** (확인)를 클릭합니다.
+1. **액세스 > 페더레이션 > SAML 서비스 공급자 > 로컬 SP 서비스** 로 이동하여 **만들기** 를 클릭합니다. 다음 정보를 완성하고, **OK**(확인)를 클릭합니다.
 
     * 이름: `<Name>`
     * 엔터티 ID: `https://<FQDN>.peoplesoft.f5.com`
@@ -178,7 +178,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![새 SAML SP 서비스](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-sp-service.png)
 
 1. SP 구성, PeopleSoftAppSSO를 차례로 선택하고 **IdP 커넥터 바인딩/바인딩 해제** 를 클릭합니다.
-**Add New Row** (새 행 추가)를 클릭하고, 이전 단계에서 만든 **External IdP connector** (외부 IdP 커넥터)를 선택하고, **Update** (업데이트)를 클릭한 다음, **OK** (확인)를 클릭합니다.
+**Add New Row**(새 행 추가)를 클릭하고, 이전 단계에서 만든 **External IdP connector**(외부 IdP 커넥터)를 선택하고, **Update**(업데이트)를 클릭한 다음, **OK**(확인)를 클릭합니다.
 
     ![SAML SP 서비스 만들기](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/edit-saml-idp-use-sp.png)
 

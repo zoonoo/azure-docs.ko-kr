@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 07eaa9fd9add14f136d68c50bca15807ef4037ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1ab927c973c6a5de6f3f3f8d88c504ec572b7148
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738092"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047595"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Container Instances에 대 한 Azure 보안 기준
 
@@ -68,7 +68,7 @@ Azure 방화벽을 사용 하 여 Azure Container Instances에 위임 된 서브
 
 Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제한 된 기간 동안 끝점의 노출을 승인 된 IP 주소로 제한 하는 NSGs를 구성할 수 있습니다. 또한 적응 네트워크 강화 Azure Security Center 사용 하 여 실제 트래픽 및 위협 인텔리전스에 따라 포트와 원본 Ip를 제한 하는 NSG 구성을 권장 합니다.
 
-- [DDoS 보호를 구성 하는 방법](/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -124,7 +124,7 @@ Azure Security Center Just-in-time 네트워크 액세스를 사용 하 여 제�
 
 **지침**: Azure Container Instances에서 Azure container registry와 같은 클라우드 기반 개인 레지스트리를 사용 하는 경우 컨테이너 레지스트리에 액세스 해야 하는 리소스의 경우 Azure Container Registry 서비스에 대해 virtual network 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 "AzureContainerRegistry"를 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-- [서비스 태그를 기준으로 액세스 허용](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
+- [서비스 태그를 기준으로 액세스 허용](../container-registry/container-registry-firewall-access-rules.md#allow-access-by-service-tag)
 
 **책임**: Customer
 
@@ -160,9 +160,9 @@ Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, Azure RBAC �
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 컨테이너 레지스트리 관련 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -196,7 +196,7 @@ Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, Azure RBAC �
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics 작업 영역에 대 한 로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대 한 로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -206,9 +206,9 @@ Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, Azure RBAC �
 
 **지침**: 비정상적인 동작에 대 한 Azure Container Instances 로그를 분석 및 모니터링 하 고 정기적으로 결과를 검토 합니다. Azure Monitor의 Log Analytics 작업 영역을 사용 하 여 로그를 검토 하 고 로그 데이터에 대 한 쿼리를 수행 합니다.
 
-- [Log Analytics 작업 영역 이해](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 작업 영역 이해](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 - [로그를 사용 하는 컨테이너 그룹 및 쿼리 로그를 만드는 방법](container-instances-log-analytics.md)
 
@@ -222,7 +222,7 @@ Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, Azure RBAC �
 
 - [진단 평가 및 감사에 대 한 Azure Container Registry 로그](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -254,11 +254,11 @@ Azure 청사진을 사용 하 여 Azure Resource Manager 템플릿, Azure RBAC �
 
 Azure Container Instances에서 Azure container registry와 같은 클라우드 기반 개인 레지스트리를 사용 하는 경우 각 Azure container registry에 대해 기본 제공 관리자 계정이 사용 되는지 여부를 추적 합니다. 사용 하지 않을 때 계정을 사용 하지 않도록 설정 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Azure Container Registry 관리자 계정](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry 관리자 계정](../container-registry/container-registry-authentication.md#admin-account)
 
 **책임**: Customer
 
@@ -270,7 +270,7 @@ Azure Container Instances에서 Azure container registry와 같은 클라우드 
 
 Azure Container Instances에서 Azure container registry와 같은 클라우드 기반 개인 레지스트리를 사용 하는 경우 Azure container registry의 기본 관리자 계정을 사용 하도록 설정 하면 복잡 한 암호가 자동으로 만들어지고 회전 됩니다. 사용 하지 않을 때 계정을 사용 하지 않도록 설정 합니다.
 
-- [Azure Container Registry 관리자 계정](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry 관리자 계정](../container-registry/container-registry-authentication.md#admin-account)
 
 **책임**: Customer
 
@@ -284,7 +284,7 @@ Azure Container Instances에서 Azure container registry와 같은 클라우드 
 
 - [Azure Security Center Id 및 액세스 이해](../security-center/security-center-identity-access.md)
 
-- [Azure Container Registry 관리자 계정](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Azure Container Registry 관리자 계정](../container-registry/container-registry-authentication.md#admin-account)
 
 **책임**: Customer
 
@@ -298,7 +298,7 @@ Azure Container Instances에서 Azure container registry와 같은 클라우드 
 
 - [Azure AD를 사용 하 여 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-- [컨테이너 레지스트리에 대 한 개별 로그인](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#individual-login-with-azure-ad)
+- [컨테이너 레지스트리에 대 한 개별 로그인](../container-registry/container-registry-authentication.md#individual-login-with-azure-ad)
 
 **책임**: Customer
 
@@ -364,7 +364,7 @@ Azure Container Instances에서 Azure container registry와 같은 클라우드 
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -378,7 +378,7 @@ Azure Container Instances에서 Azure container registry와 같은 클라우드 
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역에 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -400,7 +400,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 사용할 수 없음 고객 Lockbox 현재 Azure Container Instances 지원 되지 않습니다.
 
-- [지원 되 고객 Lockbox 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [지원 되 고객 Lockbox 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **책임**: Customer
 
@@ -468,7 +468,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 해당 하는 경우 미사용 암호화 및 전송 중인 암호화에 대 한 Azure Security Center 권장 사항을 따릅니다.
 
-- [Azure를 사용 하 여 전송 중인 암호화 이해](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **책임**: 공유됨
 
@@ -518,7 +518,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - [Azure의 저장 데이터 암호화 이해](../security/fundamentals/encryption-atrest.md)
 
-- [Azure Container Registry에서 고객이 관리 하는 키](https://aka.ms/acr/cmk)
+- [Azure Container Registry에서 고객이 관리 하는 키](../container-registry/container-registry-customer-managed-keys.md)
 
 **책임**: Customer
 
@@ -544,7 +544,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - [Azure Container Instances에 대 한 컨테이너 모니터링 및 검색 보안 권장 사항](container-instances-image-security.md)
 
-- [Security Center와 Azure Container Registry 통합](/azure/security-center/azure-container-registry-integration)
+- [Security Center와 Azure Container Registry 통합](../security-center/defender-for-container-registries-introduction.md)
 
 **책임**: Customer
 
@@ -604,7 +604,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -666,9 +666,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [진단 평가 및 감사에 대 한 Azure Container Registry 로그](../container-registry/container-registry-diagnostics-audit-logs.md)
 
-- [Log Analytics 작업 영역 이해](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 작업 영역 이해](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -700,7 +700,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -728,7 +728,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 운영 체제별 구성 또는 타사 리소스를 사용 하 여 Azure compute 리소스 내에서 스크립트를 실행 하는 사용자의 기능을 제한 합니다.
 
-- [예를 들어 Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [예를 들어 Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?amp;preserve-view=true&view=powershell-7)
 
 **책임**: Customer
 
@@ -802,9 +802,9 @@ Azure Container Instances에서 Azure Container Registry (ACR)와 같은 클라�
 
 **지침**: 사용자 지정 Azure 정책 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **책임**: Customer
 
@@ -964,7 +964,7 @@ Azure 명령줄 도구 또는 Sdk를 사용 하 여 Azure Key Vault에서 고객
 
 - [컨테이너 이미지를 컨테이너 레지스트리로 가져오기](../container-registry/container-registry-import-images.md)
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Container Instances를 사용 하 여 배포 데이터 암호화](container-instances-encrypt-data.md)
 
@@ -976,7 +976,7 @@ Azure 명령줄 도구 또는 Sdk를 사용 하 여 Azure Key Vault에서 고객
 
 **지침**: Azure 명령줄 도구 또는 sdk를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 백업 키의 복원을 테스트 합니다.
 
-- [Azure에서 Azure Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 Azure Key Vault 키를 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
@@ -1020,7 +1020,7 @@ Azure 명령줄 도구 또는 Sdk를 사용 하 여 Azure Key Vault에서 고객
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md) 
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **책임**: Customer
 
@@ -1086,5 +1086,5 @@ Azure 명령줄 도구 또는 Sdk를 사용 하 여 Azure Key Vault에서 고객
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

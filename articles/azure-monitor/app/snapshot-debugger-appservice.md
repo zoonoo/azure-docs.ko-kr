@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26538f48213d025c6fe71fb55abb17a025a23b45
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211620"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025682"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Azure App Service에서 .NET 앱에 대 한 스냅숏 디버거 사용
 
@@ -56,13 +56,13 @@ ms.locfileid: "102211620"
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>다른 클라우드에 대 한 스냅숏 디버거 사용
 
-현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 하 고 Application Insights 연결 문자열을 통해 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide) 에 있습니다.
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) 하 고 Application Insights 연결 문자열을 통해 [Azure 중국](/azure/china/resources-developer-guide) 에 있습니다.
 
 |연결 문자열 속성    | 미국 정부 클라우드 | 중국 클라우드 |   
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
+다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
 
 ## <a name="disable-snapshot-debugger"></a>스냅숏 디버거 사용 안 함
 
@@ -120,4 +120,3 @@ Azure App Service 스냅숏 디버거 및 프로파일러를 사용 하도록 �
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png
-

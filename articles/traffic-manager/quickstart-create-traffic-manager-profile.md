@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/15/2020
 ms.author: duau
 ms.openlocfilehash: 45489d3500a4a744f2aeb34dc21122d180797133
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92101331"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Traffic Manager 프로필 만들기
@@ -29,7 +29,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에는 두 개의 서로 다른 Azure 지역( *미국 동부* 및 *서유럽* )에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
+이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 동부* 및 *서유럽*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -94,7 +94,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     | 대상 리소스 | **앱 서비스 선택** > **미국 동부** 를 차례로 선택합니다. |
     | 우선순위 | **1** 을 선택합니다. 모든 트래픽이 정상 상태이면 엔드포인트로 이동합니다. |
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="엔드포인트를 Traffic Manager 프로필에 추가하는 위치에 대한 스크린샷":::
     
 1. **확인** 을 선택합니다.
 1. 두 번째 Azure 지역에 대한 장애 조치 엔드포인트를 만들려면 다음 설정을 사용하여 3-4단계를 반복합니다.
@@ -121,7 +121,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 1. Traffic Manager 프로필을 선택합니다. **개요** 가 표시됩니다.
 1. **Traffic Manager 프로필** 에 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다.
   
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Traffic Manager DNS 이름의 위치에 대한 스크린샷":::
 
 ### <a name="view-traffic-manager-in-action"></a>실행 중인 Traffic Manager 보기
 
@@ -130,7 +130,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
     > [!NOTE]
     > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1** 로 설정됩니다.
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Traffic Manager 프로필의 엔드포인트 설정":::
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Traffic Manager 프로필의 가용성을 확인하는 웹 페이지에 대한 스크린샷":::
 
 1. 실행 중인 Traffic Manager 장애 조치를 보려면 기본 사이트를 사용하지 않도록 설정합니다.
     1. Traffic Manager 프로필 페이지의 **개요** 섹션에서 **myPrimaryEndpoint** 를 선택합니다.

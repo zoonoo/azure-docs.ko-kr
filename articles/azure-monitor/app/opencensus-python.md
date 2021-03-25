@@ -5,21 +5,21 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 69472da4f774a1dfae86e1891255907ad711175a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704415"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047425"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
 Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분산 추적, 메트릭 컬렉션 및 Python 애플리케이션의 로깅을 지원합니다. 이 문서에서는 Python 용 OpenCensus를 설정 하 고 모니터링 데이터를 Azure Monitor으로 전송 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-- Python 설치. 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)를 사용 하지만, 다른 버전은 사소한 변경으로 작업할 가능성이 높습니다. SDK는 Python v 2.7 및 v 3.4-v 3.7만 지원 합니다.
+- Python 설치. 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/release/python-370/)를 사용 하지만, 다른 버전은 사소한 변경으로 작업할 가능성이 높습니다. SDK는 Python 버전 2.7 및 3.6 +만 지원 합니다.
 - Application Insights [리소스](./create-new-resource.md)를 만듭니다. 리소스에 대 한 자체 계측 키 (ikey)가 할당 됩니다.
 
 ## <a name="instrument-with-opencensus-python-sdk-for-azure-monitor"></a>Azure Monitor용 OpenCensus Python SDK를 사용한 계측

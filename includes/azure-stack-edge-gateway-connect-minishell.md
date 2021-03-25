@@ -4,24 +4,24 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 5e2ab0b9d7f61539a16fc685134bef6c9047229d
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0ad760caedffa97599548b8dd1b59a887b5690af
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988179"
+ms.locfileid: "105104447"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 
 ### <a name="remotely-connect-from-a-windows-client"></a>Windows 클라이언트에서 원격으로 연결
 
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
 - Windows 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다.
-- Windows 클라이언트에는 장치에 설치 된 노드 인증서에 해당 하는 서명 체인 (루트 인증서)이 있습니다. 자세한 지침은 [Windows 클라이언트에 인증서 설치](../articles/databox-online/azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)를 참조 하세요.
+- Windows 클라이언트에는 장치에 설치 된 노드 인증서에 해당 하는 서명 체인 (루트 인증서)이 있습니다. 자세한 지침은 [Windows 클라이언트에 인증서 설치](../articles/databox-online/azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)를 참조 하세요.
 - `hosts` `C:\Windows\System32\drivers\etc` Windows 클라이언트에 대 한에 있는 파일에는 다음 형식의 노드 인증서에 해당 하는 항목이 있습니다.
 
     `<Device IP>    <Node serial number>.<DNS domain of the device>`
