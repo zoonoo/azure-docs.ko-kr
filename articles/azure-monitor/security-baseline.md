@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 39dff9b48fb292d8a1c145ae3e592786ddb027a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 86d660ef6133231172684f18ad3250392df5f509
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198832"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026124"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Azure Monitor에 대 한 Azure 보안 기준
 
@@ -36,9 +36,9 @@ Azure Monitor 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보
 
 Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는 컴퓨터를 대신 하 여 Azure Monitor의 Log Analytics 작업 영역에 데이터를 보낼 수 있습니다. 그러면 컴퓨터가 인터넷에 연결 될 필요가 없습니다. 
 
-- [Azure Monitor에 대 한 개인 링크를 설정 하는 방법](/azure/azure-monitor/platform/private-link-security)
+- [Azure Monitor에 대 한 개인 링크를 설정 하는 방법](./logs/private-link-security.md)
 
-- [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](/azure/azure-monitor/platform/gateway)
+- [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](./agents/gateway.md)
 
 **책임**: Customer
 
@@ -50,9 +50,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 개인 링크로 Azure Monitor를 사용 하는 경우 ' 개인 끝점에서 처리 한 데이터 ' (IN/OUT) '와 같은 네트워크 로깅에 액세스할 수 있습니다.
 
-- [Azure Monitor 에이전트에 대 한 네트워크 요구 사항](/azure/azure-monitor/platform/log-analytics-agent#network-requirements)
+- [Azure Monitor 에이전트에 대 한 네트워크 요구 사항](./agents/log-analytics-agent.md#network-requirements)
 
-- [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](/azure/azure-monitor/platform/gateway)
+- [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](./agents/gateway.md)
 
 - [네트워크 보안 그룹 흐름 로그를 사용 하도록 설정 하는 방법](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -78,11 +78,11 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 **지침**: Azure Monitor은 Azure core 서비스의 일부 이며 별도로 서비스로 배포할 수 없습니다. Azure Monitor 에이전트 및 Application Insights SDK를 비롯 한 Azure Monitor 구성 요소는 리소스와 함께 배포 될 수 있으며, 이러한 리소스의 보안 상태에 영향을 줄 수 있습니다.
 
-- [Azure Monitor 에이전트에 대 한 네트워크 요구 사항](/azure/azure-monitor/platform/log-analytics-agent#network-requirements)
+- [Azure Monitor 에이전트에 대 한 네트워크 요구 사항](./agents/log-analytics-agent.md#network-requirements)
 
-- [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](/azure/azure-monitor/platform/gateway) 
+- [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](./agents/gateway.md) 
 
-- [Application Insights 시작을 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
+- [Application Insights 시작을 참조 하세요.](./app/app-insights-overview.md#get-started)
 
 - [가용성 웹 테스트를 설정 하는 방법](app/monitor-web-app-availability.md)
 
@@ -94,9 +94,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 Azure Monitor와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. 이러한 중요 한 네트워크 리소스에 대 한 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](./essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](./alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -112,9 +112,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](./essentials/diagnostic-settings.md)
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](./vm/quick-collect-azurevm.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -132,9 +132,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 **지침** Azure Monitor: 활동 로그를 사용 하 여 활동 로그를 자동으로 사용 하도록 설정 하 고 작업을 시작한 사람, 작업 상태, 작업 상태 및 기타 유용한 감사 정보 등 Azure Monitor 리소스에 대해 수행 되는 작업을 기록 합니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](./essentials/diagnostic-settings.md)
 
-- [Azure의 로깅 및 다른 로그 유형 이해](/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure의 로깅 및 다른 로그 유형 이해](./essentials/platform-logs-overview.md)
 
 **책임**: Customer
 
@@ -148,9 +148,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 로그의 장기/보관 저장소에 Azure Storage 계정을 사용 합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](./logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **책임**: Customer
 
@@ -164,9 +164,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 쿼리 시작](./logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](./logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -180,7 +180,7 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Log analytics 로그 데이터를 경고 하는 방법](./alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -194,9 +194,9 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 통해 역할 할당을 통해 azure 리소스에 대 한 액세스를 관리할 수 있습니다. 이러한 역할은 사용자, 그룹 서비스 사용자 및 관리 되는 id에 할당할 수 있습니다. 특정 리소스에 대해 미리 정의된 기본 제공 역할이 있으며 이러한 역할은 Azure CLI, Azure PowerShell 또는 Azure Portal과 같은 도구를 통해 쿼리하거나 인벤토리에 포함할 수 있습니다.
 
-- [PowerShell을 사용 하 여 Azure Active Directory (Azure AD)에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure Active Directory (Azure AD)에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **책임**: Customer
 
@@ -284,7 +284,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토하여 적합한 사용자만 계속 액세스할 수 있도록 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -296,7 +296,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 **지침**: siem/모니터링 도구와 통합할 수 있도록 하는 Azure AD (Azure Active Directory) 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세스할 수 있습니다. Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -326,7 +326,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리](/azure/azure-monitor/platform/manage-access)
+- [Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리](./logs/manage-access.md)
 
 **책임**: Customer
 
@@ -352,7 +352,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 Application Insights 및 Log Analytics는 모두 TLS 1.1 및 TLS 1.0 데이터를 수집 수 있습니다. 클라이언트 쪽에서를 구성 하 여 TLS 1.2로 데이터를 제한할 수 있습니다.
 
-- [TLS 1.2를 사용 하 여 데이터를 안전 하 게 전송 하는 방법](/azure/azure-monitor/platform/data-security#sending-data-securely-using-tls-12)
+- [TLS 1.2를 사용 하 여 데이터를 안전 하 게 전송 하는 방법](./logs/data-security.md#sending-data-securely-using-tls-12)
 
 **책임**: 공유됨
 
@@ -373,9 +373,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure 역할 기반 액세스 제어 (RBAC)를 사용 하 여 Azure Monitor에 대 한 액세스를 관리 합니다.
 
-- [Azure Monitor의 역할, 권한 및 보안](/azure/azure-monitor/platform/roles-permissions-security)
+- [Azure Monitor의 역할, 권한 및 보안](./roles-permissions-security.md)
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 **책임**: Customer
 
@@ -385,9 +385,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure Monitor는 Mmk (Microsoft 관리 키)를 사용 하 여 모든 데이터 및 저장 된 쿼리가 미사용으로 암호화 되도록 합니다. 또한 Azure Monitor은 Azure Key Vault에 저장 되 고 시스템 할당 관리 id 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 CMK (고객 관리 키)는 소프트웨어 또는 하드웨어 HSM으로 보호 될 수 있습니다.
 
-- [고객 관리 키 Azure Monitor](/azure/azure-monitor/platform/customer-managed-keys)
+- [고객 관리 키 Azure Monitor](./logs/customer-managed-keys.md)
 
-- [Log Analytics 데이터 보안](/azure/azure-monitor/platform/data-security)
+- [Log Analytics 데이터 보안](./logs/data-security.md)
 
 - [Application Insights 데이터 수집, 보존 및 스토리지](app/data-retention-privacy.md)
 
@@ -401,7 +401,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 Azure Monitor 및 관련 리소스에서 변경이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](./alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -431,13 +431,13 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure CLI을 사용 하 여 구독 내에서 Azure Monitor 리소스를 쿼리하고 검색 합니다. 테넌트에서 적절한 권한(읽기)을 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거합니다.
 
-- [CLI Azure Monitor](https://docs.microsoft.com/cli/azure/monitor)
+- [CLI Azure Monitor](/cli/azure/monitor)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
-- [Azure Monitor의 역할, 권한 및 보안](/azure/azure-monitor/platform/roles-permissions-security)
+- [Azure Monitor의 역할, 권한 및 보안](./roles-permissions-security.md)
 
 **책임**: Customer
 
@@ -493,7 +493,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 **지침**: 정기적으로 인벤토리를 조정 하 고 허가 되지 않은 Azure Monitor 관련 리소스가 적시에 구독에서 삭제 되도록 합니다.  
 
-- [Azure Log Analytics 작업 영역 삭제](/azure/azure-monitor/platform/delete-workspace)
+- [Azure Log Analytics 작업 영역 삭제](./logs/delete-workspace.md)
 
 **책임**: Customer
 
@@ -505,7 +505,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -535,9 +535,9 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 라이브 스트리밍 APM 기능을 사용 하는 경우 계측 키 외에 비밀 API 키를 사용 하 여 채널 보안을 설정 합니다.
 
-- [APM 라이브 메트릭 스트림 보안](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)
+- [APM 라이브 메트릭 스트림 보안](./app/live-stream.md#secure-the-control-channel)
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
@@ -567,7 +567,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure devops를 사용 하 여 사용자 지정 azure 정책 및 Azure Resource Manager 템플릿과 같은 코드를 안전 하 게 저장 하 고 관리 합니다. Azure DevOps에서 관리 하는 리소스에 액세스 하려면 Azure DevOps와 통합 된 경우 Azure Active Directory (Azure AD)에 정의 된 특정 사용자, 기본 제공 보안 그룹 또는 그룹에 대 한 권한을 부여 하거나 거부할 수 있습니다. 또는 TFS와 통합 된 경우 Active Directory 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
@@ -581,7 +581,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy 별칭](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Azure Policy 별칭](../governance/policy/concepts/definition-structure.md#aliases)
 
 **책임**: Customer
 
@@ -661,7 +661,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure Resource Manager을 사용 하 여 Azure Monitor 및 관련 구성에 대 한 백업으로 사용할 수 있는 JAVASCRIPT OBJECT NOTATION (JSON) 템플릿에서 Azure Monitor 및 관련 된 리소스를 내보냅니다.  Azure Automation를 사용 하 여 자동으로 백업 스크립트를 실행 합니다. 
 
-- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](./logs/resource-manager-workspace.md)
 
 - [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -675,11 +675,11 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure Resource Manager을 사용 하 여 Azure Monitor 및 관련 구성에 대 한 백업으로 사용할 수 있는 JAVASCRIPT OBJECT NOTATION (JSON) 템플릿에서 Azure Monitor 및 관련 된 리소스를 내보냅니다. Azure Monitor 관련 리소스가 고객 관리 키를 사용 하는 경우 Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다.
 
-- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](./logs/resource-manager-workspace.md)
 
 - [Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
@@ -689,9 +689,9 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 **지침**: Azure Resource Manager 지원 되는 템플릿 파일을 사용 하 여 정기적으로 복원을 수행할 수 있도록 합니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
 
-- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Azure Resource Manager 템플릿을 사용 하 여 Log Analytics 작업 영역 관리](./logs/resource-manager-workspace.md)
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
@@ -703,7 +703,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 또한 Key Vault에서 Soft-Delete를 사용 하도록 설정 하 고 보호를 제거 하 여 실수로 또는 악의적으로 삭제 되지 않도록 키를 보호 합니다. Azure Storage를 사용 하 여 Azure Resource Manager 템플릿 백업을 저장 하는 경우 blob 또는 blob 스냅숏이 삭제 될 때 일시 삭제를 사용 하 여 데이터를 저장 하 고 복구할 수 있습니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Azure DevOps의 사용 권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions)
 
@@ -807,5 +807,5 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

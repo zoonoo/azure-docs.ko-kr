@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
-ms.openlocfilehash: 6f0a94daef8c5db820a17fe8cb50eda616bcf260
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 70b56e70ec0e6f511142c48cc89720c054807a5c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453938"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042801"
 ---
 # <a name="tutorial-create-custom-analytics-rules-to-detect-threats"></a>자습서: 위협 검색을 위한 사용자 지정 분석 규칙 만들기
 
@@ -64,7 +64,7 @@ ms.locfileid: "102453938"
 
    :::image type="content" source="media/tutorial-detect-threats-custom/set-rule-logic-tab-1-new.png" alt-text="쿼리 규칙 논리 및 설정 구성" lightbox="media/tutorial-detect-threats-custom/set-rule-logic-tab-all-1-new.png":::
 
-- 다음은 [Azure 활동](../azure-monitor/platform/activity-log.md)에서 비정상 리소스를 만들 때 경고 하는 또 다른 샘플 쿼리입니다.
+- 다음은 [Azure 활동](../azure-monitor/essentials/activity-log.md)에서 비정상 리소스를 만들 때 경고 하는 또 다른 샘플 쿼리입니다.
 
     ```kusto
     AzureActivity

@@ -3,14 +3,14 @@ title: 질문과 대답
 description: Azure Container Registry 서비스와 관련된 질문과 대답입니다.
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 055f039d5bba0dba2906e1d3b8410af00c5600ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8d5e161a0a663542142081c61bf1ad08be1be484
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97606286"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026243"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -260,11 +260,23 @@ ACR은 다양한 수준의 권한을 제공하는 [사용자 지정 역할](cont
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>익명 풀 액세스를 사용하도록 설정하려면 어떻게 하나요?
 
-익명(퍼블릭) 풀 액세스에 대한 Azure 컨테이너 레지스트리 설정은 현재 미리 보기 기능입니다. 레지스트리에 [범위 맵 (사용자) 또는 토큰 리소스가](./container-registry-repository-scoped-permissions.md) 있는 경우 지원 티켓을 발생 시키기 전에 삭제 하십시오 (시스템 범위 맵은 무시 될 수 있음). 퍼블릭 액세스를 사용하도록 설정하려면 https://aka.ms/acr/support/create-ticket 에서 지원 티켓을 여세요. 자세한 내용은 [Azure 피드백 포럼](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries)을 참조하세요.
+익명 (인증 되지 않은) 끌어오기 액세스를 위한 Azure container registry 설정은 현재 Standard 및 Premium [서비스 계층](container-registry-skus.md)에서 사용할 수 있는 미리 보기 기능입니다. 
+
+익명 끌어오기 액세스를 사용 하도록 설정 하려면 Azure CLI (버전 2.21.0 이상)를 사용 하 여 레지스트리를 업데이트 하 고 `--anonymous-pull-enabled` [az acr update](/cli/azure/acr#az_acr_update) 명령에 매개 변수를 전달 합니다.
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+을로 설정 하 여 언제 든 지 익명 끌어오기 액세스를 사용 하지 않도록 설정할 수 있습니다 `--anonymous-pull-enabled` `false` .
 
 > [!NOTE]
-> * 알려진 이미지를 가져오는 데 필요한 Api만 익명으로 액세스할 수 있습니다. 태그 목록 또는 리포지토리 목록과 같은 작업에 대 한 다른 Api는 익명으로 액세스할 수 없습니다.
 > * 익명 끌어오기 작업을 시도 하기 전에를 실행 `docker logout` 하 여 기존 Docker 자격 증명을 모두 지울 수 있도록 합니다.
+> * 데이터 평면 작업만 인증 되지 않은 클라이언트에서 사용할 수 있습니다.
+> * 레지스트리가 인증 되지 않은 요청을 높은 속도로 제한할 수 있습니다.
+
+> [!WARNING]
+> 익명 끌어오기 액세스는 현재 레지스트리의 모든 리포지토리에 적용 됩니다. [리포지토리 범위 토큰](container-registry-repository-scoped-permissions.md)을 사용 하 여 리포지토리 액세스를 관리 하는 경우 모든 사용자가 익명 끌어오기에 대해 사용 하도록 설정 된 레지스트리에서 해당 리포지토리를 끌어올 수 있습니다. 익명 끌어오기 액세스를 사용 하도록 설정한 경우에는 토큰을 삭제 하는 것이 좋습니다.
 
 ### <a name="how-do-i-push-non-distributable-layers-to-a-registry"></a>배포 되지 않은 계층을 레지스트리에 푸시할 어떻게 할까요? 있나요?
 

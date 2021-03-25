@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 991e52c13a5730b83552abb6b922d4d7a57c5429
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734573"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024118"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>원격 분석 프로세서(미리 보기) - Java용 Azure Monitor Application Insights
 
@@ -21,10 +21,13 @@ ms.locfileid: "101734573"
 Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전에 원격 분석 데이터를 처리할 수 있습니다.
 
 다음은 원격 분석 프로세서에 대 한 몇 가지 사용 사례입니다.
- * 중요 한 데이터를 만듭니다.
+ * 중요 한 데이터를 마스크 합니다.
  * 조건부로 사용자 지정 차원을 추가 합니다.
  * Azure Portal에서 유사한 원격 분석을 집계 하는 데 사용 되는 범위 이름을 업데이트 합니다.
- * 수집 비용을 제어 하기 위해 span 특성을 삭제 합니다.
+ * 수집 비용을 제어 하기 위한 특정 범위 특성을 삭제 합니다.
+
+> [!NOTE]
+> 수집 비용을 제어 하기 위해 특정 (전체) 범위를 삭제 하려는 경우 [샘플링 재정의](./java-standalone-sampling-overrides.md)를 참조 하세요.
 
 ## <a name="terminology"></a>용어
 
@@ -335,7 +338,7 @@ Application Insights 용 Java 3.0 에이전트는 데이터를 내보내기 전�
 |---|---|---|
 | `http.method` | 문자열 | HTTP 요청 메서드입니다.|
 | `http.url` | 문자열 | 형식의 전체 HTTP 요청 URL `scheme://host[:port]/path?query[#fragment]` 입니다. 조각은 일반적으로 HTTP를 통해 전송 되지 않습니다. 하지만 조각이 알려져 있는 경우이를 포함 해야 합니다.|
-| `http.status_code` | 숫자 | [HTTP 응답 상태 코드](https://tools.ietf.org/html/rfc7231#section-6)입니다.|
+| `http.status_code` | number | [HTTP 응답 상태 코드](https://tools.ietf.org/html/rfc7231#section-6)입니다.|
 | `http.flavor` | 문자열 | HTTP 프로토콜의 유형입니다. |
 | `http.user_agent` | 문자열 | 클라이언트에서 보낸 [HTTP 사용자 에이전트](https://tools.ietf.org/html/rfc7231#section-5.5.3) 헤더의 값입니다. |
 

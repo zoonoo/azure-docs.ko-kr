@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 085f3a5295d60b83536683a57a34b51abccd3067
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453770"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043022"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션을 사용 하 여 끝점 보호: 끝점에 대 한 Microsoft Defender
 
@@ -74,7 +74,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우에�
 1. 컴퓨터가 Defender for Endpoint에 필요한 요구 사항을 충족 하는지 확인 합니다.
 
     - **모든 버전의 Windows**:
-        - [장치 프록시 및 인터넷 연결 설정 구성](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) 에 설명 된 네트워크 설정을 구성 합니다.
+        - [장치 프록시 및 인터넷 연결 설정 구성](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) 에 설명 된 네트워크 설정을 구성 합니다.
         - 온-프레미스 컴퓨터에 Defender를 끝점에 배포 하는 경우 [Azure arc 사용 서버와 하이브리드 컴퓨터 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) 에 설명 된 대로 azure arc에 연결 합니다.
     - 또한 **Windows Server 2019 컴퓨터** 의 경우 유효한 에이전트를 실행 하 고 MicrosoftMonitoringAgent 확장을 포함 하는지 확인 합니다.
 

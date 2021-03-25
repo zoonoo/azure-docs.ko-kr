@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: f9b5869f7dd472c50ffb2c1c0dce765200f53882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91324029"
 ---
 # <a name="tutorial-how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>자습서: Front Door에 대한 지역 필터링 WAF 정책을 설정하는 방법
@@ -60,7 +60,7 @@ $nonUSBlockRule = New-AzFrontDoorWafCustomRuleObject `
 ## <a name="add-rules-to-a-policy"></a>정책에 규칙 추가
 `Get-AzResourceGroup`을 사용하여 Front Door 프로필이 포함된 리소스 그룹의 이름을 찾습니다. 그런 다음, Front Door 프로필을 포함하는 지정된 리소스 그룹에 [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy)를 사용하여 `nonUSBlockRule`이 포함된 `geoPolicy` 정책 개체를 만듭니다. 지역 필터링 정책에 고유한 이름을 제공해야 합니다. 
 
-아래 예제에서는 리소스 그룹 이름으로 *FrontDoorQS_rg0*을 사용합니다. [빠른 시작: Front Door 만들기](quickstart-create-front-door.md) 문서에 제공된 지침을 사용하여 Front Door 프로필을 만들었다는 가정을 했기 때문입니다. 아래 예제에서 정책 이름 *geoPolicyAllowUSOnly*를 고유한 정책 이름으로 바꿉니다.
+아래 예제에서는 리소스 그룹 이름으로 *FrontDoorQS_rg0* 을 사용합니다. [빠른 시작: Front Door 만들기](quickstart-create-front-door.md) 문서에 제공된 지침을 사용하여 Front Door 프로필을 만들었다는 가정을 했기 때문입니다. 아래 예제에서 정책 이름 *geoPolicyAllowUSOnly* 를 고유한 정책 이름으로 바꿉니다.
 
 ```
 $geoPolicy = New-AzFrontDoorWafPolicy `

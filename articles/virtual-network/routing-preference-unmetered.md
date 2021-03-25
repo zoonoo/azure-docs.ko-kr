@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: mnayak
-ms.openlocfilehash: 1fcc918e5b4b54a415fed0f38d210aeeaa62c008
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00e0d1afa2aa035fe27e73dae60e291ea53bd6b8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679792"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042852"
 ---
 # <a name="what-is-routing-preference-unmetered"></a>라우팅 기본 설정의 우선 순위는 무엇입니까?
 
@@ -45,4 +45,4 @@ Azure의 원본에서 CDN 공급자를 대상으로 하는 네트워크 트래�
 
 * [Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정 구성](configure-routing-preference-virtual-machine-powershell.md)
 * [Azure CLI를 사용하여 VM에 대한 라우팅 기본 설정 구성](configure-routing-preference-virtual-machine-cli.md)
-* [저장소 계정에 대 한 라우팅 기본 설정 구성](/azure/storage/common/network-routing-preference)
+* [저장소 계정에 대 한 라우팅 기본 설정 구성](../storage/common/network-routing-preference.md)

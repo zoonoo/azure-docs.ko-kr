@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434523"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043260"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -114,7 +114,7 @@ Speech SDK는 단일 장치 또는 다중 장치 대화에서 든 상관 없이 
 
 ### <a name="codec-compressed-audio-input"></a>코덱 압축 오디오 입력
 
-몇 가지 음성 SDK 프로그래밍 언어는 코덱 압축 오디오 입력 스트림을 지원 합니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">압축 된 오디오 입력 형식 사용 </a>을 참조 하세요.
+몇 가지 음성 SDK 프로그래밍 언어는 코덱 압축 오디오 입력 스트림을 지원 합니다. 자세한 내용은 <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">압축 된 오디오 입력 형식 사용 </a>을 참조 하세요.
 
 **코덱 압축 오디오 입력** 은 다음 플랫폼에서 사용할 수 있습니다.
 

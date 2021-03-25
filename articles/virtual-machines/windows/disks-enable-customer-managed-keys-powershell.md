@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 63a2e40236e03b9877f4fabac6d0489a87a41ede
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 37d248fd61cd8fb99259e3776447a719ae365ab9
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550589"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042886"
 ---
 # <a name="azure-powershell---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure PowerShell-서버 쪽 암호화 관리 디스크를 사용 하 여 고객 관리 키를 사용 하도록 설정 합니다.
 
@@ -74,7 +74,7 @@ SSE에서 고객 관리 키를 사용 하려면 Azure Key Vault 및 DiskEncrypti
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
     ```
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 이러한 리소스를 만들고 구성 했으므로 이제 이러한 리소스를 사용 하 여 관리 디스크를 보호할 수 있습니다. 다음은 각각의 시나리오를 포함 하는 예제 스크립트 이며,이 스크립트는 관리 디스크를 보호 하는 데 사용할 수 있습니다.
 
@@ -155,6 +155,30 @@ $diskEncryptionSetName = "yourDiskEncryptionSetName"
 $diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $diskEncryptionSetName
  
 New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
+```
+
+### <a name="encrypt-an-existing-virtual-machine-scale-set-with-sse-and-customer-managed-keys"></a>SSE 및 고객 관리 키를 사용 하 여 기존 가상 머신 확장 집합 암호화 
+
+스크립트를 복사 하 고 모든 예제 값을 사용자 고유의 매개 변수로 바꾼 다음 실행 합니다.
+
+```powershell
+#set variables 
+$vmssname = "name of the vmss that is already created"
+$diskencryptionsetname = "name of the diskencryptionset already created"
+$vmssrgname = "vmss resourcegroup name"
+$diskencryptionsetrgname = "diskencryptionset resourcegroup name"
+
+#get vmss object and create diskencryptionset object attach to vmss os disk
+$ssevmss = get-azvmss -ResourceGroupName $vmssrgname -VMScaleSetName $vmssname
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.DiskEncryptionSetParameters
+
+#get diskencryption object and retrieve the resource id
+$des = Get-AzDiskEncryptionSet -ResourceGroupName $diskencryptionsetrgname -Name $diskencryptionsetname
+write-host "the diskencryptionset resource id is:" $des.Id
+
+#associate DES resource id to os disk and update vmss 
+$ssevmss.VirtualMachineProfile.StorageProfile.OsDisk.ManagedDisk.DiskEncryptionSet.id = $des.Id
+$ssevmss | update-azvmss
 ```
 
 ### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용하여 가상 머신 확장 집합을 만들고 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화합니다.

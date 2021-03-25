@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: jeedes
 ms.openlocfilehash: d38ff5c8f33bda5b12f6267e7a8cdf477db6c7d7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92511446"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pulse-secure-pcs"></a>자습서: Pulse Secure PCS와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -98,11 +98,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -135,18 +135,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 ![Pulse Connect Secure 구성](./media/pulse-secure-pcs-tutorial/saml-configuration.png)
 
 1. Pulse Connect Secure 관리 콘솔에 로그인합니다.
-1. **System -> Configuration -> SAML** (시스템 -> 구성 -> SAML)로 차례로 이동합니다.
-1. **New Metadata Provider** (새 메타데이터 공급자)를 클릭합니다.
-1. **Name** (이름) 텍스트 상자에서 올바른 이름을 입력합니다.
-1. Azure Portal에서 다운로드한 메타데이터 XML 파일을 **Azure AD metadata file** (Azure AD 메타데이터 파일)에 업로드합니다.
-1. **Accept Unsigned Metadata** (서명되지 않은 메타데이터 허용)를 선택합니다.
-1. Roles(역할)를 **Identity Provider** (ID 공급자)로 선택합니다.
-1. **Save changes** (변경 내용 저장)를 클릭합니다.
+1. **System -> Configuration -> SAML**(시스템 -> 구성 -> SAML)로 차례로 이동합니다.
+1. **New Metadata Provider**(새 메타데이터 공급자)를 클릭합니다.
+1. **Name**(이름) 텍스트 상자에서 올바른 이름을 입력합니다.
+1. Azure Portal에서 다운로드한 메타데이터 XML 파일을 **Azure AD metadata file**(Azure AD 메타데이터 파일)에 업로드합니다.
+1. **Accept Unsigned Metadata**(서명되지 않은 메타데이터 허용)를 선택합니다.
+1. Roles(역할)를 **Identity Provider**(ID 공급자)로 선택합니다.
+1. **Save changes**(변경 내용 저장)를 클릭합니다.
 
 #### <a name="steps-to-create-a-saml-auth-server"></a>SAML 인증 서버를 만드는 단계:
 
-1. **Authentication -> Auth Servers** (인증 -> 인증 서버)로 차례로 이동합니다.
-1. **New: SAML Server** (새로 만들기: SAML 서버)를 선택하고, **New Server** (새 서버)를 클릭합니다.
+1. **Authentication -> Auth Servers**(인증 -> 인증 서버)로 차례로 이동합니다.
+1. **New: SAML Server**(새로 만들기: SAML 서버)를 선택하고, **New Server**(새 서버)를 클릭합니다.
 
     ![Pulse Connect Secure 인증 서버](./media/pulse-secure-pcs-tutorial/new-saml-server.png)
 
@@ -154,21 +154,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Pulse Connect Secure 인증 서버 설정](./media/pulse-secure-pcs-tutorial/server-settings.png)
 
-    a. 텍스트 상자에서 **Server Name** (서버 이름)을 제공합니다.
+    a. 텍스트 상자에서 **Server Name**(서버 이름)을 제공합니다.
 
-    b. **SAML Version 2.0** (SAML 버전 2.0) 및 **Configuration Mode** (구성 모드)를 **Metadata** (메타데이터)로 선택합니다.
+    b. **SAML Version 2.0**(SAML 버전 2.0) 및 **Configuration Mode**(구성 모드)를 **Metadata**(메타데이터)로 선택합니다.
 
-    다. **Connect Secure Entity Id** (Connect Secure 엔터티 ID) 값을 복사하여 Azure Portal의 **기본 SAML 구성** 대화 상자에 있는 **식별자 URL** 상자에 붙여넣습니다.
+    다. **Connect Secure Entity Id**(Connect Secure 엔터티 ID) 값을 복사하여 Azure Portal의 **기본 SAML 구성** 대화 상자에 있는 **식별자 URL** 상자에 붙여넣습니다.
 
     d. **Identity Provider Entity Id(ID 공급자 엔터티 ID) 드롭다운 목록** 에서 Azure AD 엔터티 ID 값을 선택합니다.
 
     e. **Identity Provider Single Sign-On Service URL(ID 공급자 Single Sign-On 서비스 URL) 드롭다운 목록** 에서 Azure AD 로그인 URL 값을 선택합니다.
 
-    f. **Single Logout** (단일 로그아웃)은 선택적 설정입니다. 이 옵션을 선택하면 로그아웃한 후에 새 인증을 요구하는 메시지가 표시됩니다. 이 옵션을 선택하지 않고 브라우저를 닫지 않은 경우 인증 없이 다시 연결할 수 있습니다.
+    f. **Single Logout**(단일 로그아웃)은 선택적 설정입니다. 이 옵션을 선택하면 로그아웃한 후에 새 인증을 요구하는 메시지가 표시됩니다. 이 옵션을 선택하지 않고 브라우저를 닫지 않은 경우 인증 없이 다시 연결할 수 있습니다.
 
-    g. **Requested Authn Context Class** (요청된 인증 컨텍스트 클래스)를 **Password** 로 선택하고, **Comparison Method** (비교 메서드)를 **exact** 로 선택합니다.
+    g. **Requested Authn Context Class**(요청된 인증 컨텍스트 클래스)를 **Password** 로 선택하고, **Comparison Method**(비교 메서드)를 **exact** 로 선택합니다.
 
-    h. **Metadata Validity** (메타데이터 유효성)를 일 수를 기준으로 설정합니다.
+    h. **Metadata Validity**(메타데이터 유효성)를 일 수를 기준으로 설정합니다.
     
     i. **변경 내용 저장** 을 클릭합니다.
 

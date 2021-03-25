@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 5d1b52ed0f862b544d4b90d466ddc1d2a231ca44
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 86e9b13ce56e1924b0e24a7f4971da18620617de
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023421"
+ms.locfileid: "105043634"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>등록 사용자 흐름에 API 커넥터 추가 (미리 보기)
 
@@ -57,6 +57,8 @@ HTTP 기본 인증은 [RFC 2617](https://tools.ietf.org/html/rfc2617)에 정의�
 - **제목**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **콘텐츠 형식**: `PKCS #12`
 - **형식에 대 한 수명 acton** `Email all contacts at a given percentage lifetime` 또는 `Email all contacts a given number of days before expiry`
+- **키 유형**: `RSA`
+- **키 크기**: `2048`
 - **내보낼 수 있는 개인 키**: `Yes` (pfx 파일을 내보낼 수 있으려면)
 
 그런 다음 [인증서를 내보낼](../key-vault/certificates/how-to-export-certificate.md)수 있습니다. 또는 PowerShell의 [new-selfsignedcertificate cmdlet](../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) 을 사용 하 여 자체 서명 된 인증서를 생성할 수 있습니다.
@@ -262,7 +264,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | 설명                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | 형식              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 작업                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | 반환 된 값은 사용자 로부터 수집 된 값을 덮어쓸 수 있습니다. **응용 프로그램 클레임** 으로 선택 된 경우 토큰에서 반환 될 수도 있습니다.                                              |
@@ -282,7 +284,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | Description                                                                |
+| 매개 변수   | 형식   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | 작업      | String | 예      | 값은 이어야 합니다. `ShowBlockPage`                                              |
@@ -306,7 +308,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | Description                                                                |
+| 매개 변수   | 형식    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API의 버전입니다.                                                    |
 | 작업      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |

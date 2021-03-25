@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: eefef0eb61df9aa0597206b537f3d58e8b8b3213
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96484824"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>자습서: Azure Private 엔드포인트를 사용하여 스토리지 계정에 연결
@@ -162,7 +162,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값                                          |
     |-----------------------|----------------------------------|
-    | 구독 | Azure 구독 선택 |
+    | Subscription | Azure 구독 선택 |
     | 리소스 그룹 | **myResourceGroup** 을 선택합니다. |
     | 위치 | **미국 동부** 를 선택합니다. |
     | Name | **myPrivateEndpoint** 를 입력합니다. |

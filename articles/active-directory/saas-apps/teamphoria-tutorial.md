@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
 ms.openlocfilehash: a8cf58f49cba1bcc77c96a0da2061a037bb62bf2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92504748"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>자습서: Teamphoria와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -28,7 +28,7 @@ ms.locfileid: "92504748"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -94,11 +94,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -144,13 +144,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 설명된 값을 입력할 수 있는 페이지를 보여줍니다.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **표시 이름** : 관리 페이지에서 플러그 인의 표시 이름을 입력합니다.
+    a. **표시 이름**: 관리 페이지에서 플러그 인의 표시 이름을 입력합니다.
 
-    b. **단추 이름** : SSO를 통해 로그인하는 로그인 페이지에 표시되는 탭의 이름입니다.
+    b. **단추 이름**: SSO를 통해 로그인하는 로그인 페이지에 표시되는 탭의 이름입니다.
 
-    다. **인증서** : 메모장에서 Azure Portal에서 이전에 다운로드한 인증서를 열고 동일한 내용을 복사하고 상자에 붙여넣습니다.
+    다. **인증서**: 메모장에서 Azure Portal에서 이전에 다운로드한 인증서를 열고 동일한 내용을 복사하고 상자에 붙여넣습니다.
 
-    d. **진입점** : 이전에 Azure Portal에서 복사한 **로그인 URL** 을 붙여넣습니다.
+    d. **진입점**: 이전에 Azure Portal에서 복사한 **로그인 URL** 을 붙여넣습니다.
 
     e. 옵션을 **ON** 으로 전환하고 **저장** 을 클릭합니다.
 
@@ -174,11 +174,11 @@ Azure AD 사용자가 Teamphoria에 로그인할 수 있도록 하려면 Teampho
 
     ![스크린샷은 이름과 이메일 주소를 입력할 수 있는 수동 사용자 초대 페이지를 보여줍니다.](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. **이메일 주소** 텍스트 상자에 사용자의 **이메일 주소** (예: B.Simon)를 입력합니다.
+    a. **이메일 주소** 텍스트 상자에 사용자의 **이메일 주소**(예: B.Simon)를 입력합니다.
 
-    b. **이름** 텍스트 상자에 사용자의 이름(예: **B** )을 입력합니다.
+    b. **이름** 텍스트 상자에 사용자의 이름(예: **B**)을 입력합니다.
 
-    다. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     d. **1 사용자 초대** 를 클릭합니다. 사용자는 시스템에서 생성할 초대를 수락해야 합니다.
 

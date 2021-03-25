@@ -1,5 +1,5 @@
 ---
-title: GitOps를 사용 하는 CI/CD 워크플로-Azure Arc enabled Kubernetes
+title: GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: 이 문서에서는 GitOps를 사용 하 여 CI/CD 워크플로에 대 한 개념적 개요를 제공 합니다.
 keywords: GitOps, Kubernetes, K8s, Azure, 투구, Arc, AKS, Azure Kubernetes Service, 컨테이너, CI, CD, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121782"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025869"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>GitOps를 사용 하는 CI/CD 워크플로-Azure Arc enabled Kubernetes
 
@@ -30,7 +30,7 @@ ms.locfileid: "102121782"
 ### <a name="application-repo"></a>응용 프로그램 리포지토리
 응용 프로그램 리포지토리에는 개발자가 내부 루프 중에 작업 하는 응용 프로그램 코드가 포함 되어 있습니다. 이 리포지토리에는 응용 프로그램의 배포 템플릿이 투구 또는 Kustomize과 같은 일반 형식으로 있습니다. 환경 관련 값은 저장 되지 않습니다. 이 리포지토리의 변경 내용은 배포 프로세스를 시작 하는 PR 또는 CI 파이프라인을 호출 합니다.
 ### <a name="container-registry"></a>Container Registry
-Container registry는 Kubernetes 환경에 사용 되는 모든 자사 및 타사 이미지를 보관 합니다. 사용자가 읽을 수 있는 태그 및 이미지를 빌드하는 데 사용 되는 Git 커밋을 사용 하 여 자사 응용 프로그램 이미지에 태그를 적용 합니다. 보안, 속도 및 복원 력을 위해 타사 이미지를 캐시 합니다. 적시에 테스트 하 고 보안 업데이트를 통합 하기 위한 계획을 설정 합니다. 자세한 내용은 [ACR 사용 및 유지 관리 공용 콘텐츠](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) 가이드를 참조 하세요.
+Container registry는 Kubernetes 환경에 사용 되는 모든 자사 및 타사 이미지를 보관 합니다. 사용자가 읽을 수 있는 태그 및 이미지를 빌드하는 데 사용 되는 Git 커밋을 사용 하 여 자사 응용 프로그램 이미지에 태그를 적용 합니다. 보안, 속도 및 복원 력을 위해 타사 이미지를 캐시 합니다. 적시에 테스트 하 고 보안 업데이트를 통합 하기 위한 계획을 설정 합니다. 자세한 내용은 [ACR 사용 및 유지 관리 공용 콘텐츠](../../container-registry/tasks-consume-public-content.md) 가이드를 참조 하세요.
 ### <a name="pr-pipeline"></a>PR 파이프라인
 응용 프로그램 리포지토리의 Pr은 PR 파이프라인이 성공적으로 실행 될 때 제어 됩니다. 이 파이프라인은 응용 프로그램 코드에 대 한 lint 및 단위 테스트와 같은 기본 품질 게이트를 실행 합니다. 파이프라인은 Kubernetes 환경에 배포 하는 데 사용 되는 응용 프로그램 및 lints Dockerfiles 및 투구 템플릿을 테스트 합니다. Docker 이미지를 빌드하고 테스트 해야 하지만 푸시 하지는 않습니다. 신속 하 게 반복할 수 있도록 파이프라인 기간을 비교적 짧게 유지 합니다.
 ### <a name="ci-pipeline"></a>CI 파이프라인

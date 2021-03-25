@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f07eb0ab252144d1e0953a1a227dfbadb152c422
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7d503893b1f8814c333e5683343851cc1da2e076
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434505"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043237"
 ---
 :::row:::
     :::column span="3":::
@@ -31,7 +31,7 @@ ms.locfileid: "102434505"
 
 :::row:::
     :::column span="3":::
-        Xamarin.Android는 .NET 개발자를 위한 완전한 Android SDK를 제공합니다. Visual Studio에서 C# 또는 F#을 사용하여 완전한 네이티브 Android 앱을 빌드합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/android/" target="_blank">Xamarin Android</a> 을 참조 하세요.
+        Xamarin.Android는 .NET 개발자를 위한 완전한 Android SDK를 제공합니다. Visual Studio에서 C# 또는 F#을 사용하여 완전한 네이티브 Android 앱을 빌드합니다. 자세한 내용은 <a href="/xamarin/android/" target="_blank">Xamarin Android</a> 을 참조 하세요.
     :::column-end:::
     :::column:::
         <br>

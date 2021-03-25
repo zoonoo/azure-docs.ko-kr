@@ -8,10 +8,10 @@ ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
 ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675706"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Education Hub에 대한 질문과 대답
@@ -252,8 +252,8 @@ Azure Dev Tools for Teaching 구독의 관리자는 [Azure Dev Tools for Teachin
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>내 구독자 ID를 확인하려면 어떻게 해야 하나요?
 
-- **프로그램에 처음 등록하는 경우** : 구독자 ID 번호는 받은 구독 환영 이메일에 있습니다.
-- **구독을 갱신한 경우** : 구독자 ID는 구독 관리자가 받은 갱신 이메일에 있습니다.
+- **프로그램에 처음 등록하는 경우**: 구독자 ID 번호는 받은 구독 환영 이메일에 있습니다.
+- **구독을 갱신한 경우**: 구독자 ID는 구독 관리자가 받은 갱신 이메일에 있습니다.
 
 또한 구독자 ID는 Visual Studio 구독 포털에도 있습니다. 로그인한 후 **내 계정** 페이지의 **내 구독** 아래에서 확인합니다.
 

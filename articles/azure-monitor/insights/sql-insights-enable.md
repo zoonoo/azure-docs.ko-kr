@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: e8dd887d151eb553131048f232940555dbef324b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889623"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025036"
 ---
 # <a name="enable-sql-insights-preview"></a>SQL insights 사용 (미리 보기)
 이 문서에서는 sql [정보](sql-insights-overview.md) 를 사용 하 여 sql 배포를 모니터링 하는 방법을 설명 합니다. SQL 배포에 연결 하 고 Dmv (동적 관리 뷰)를 사용 하 여 모니터링 데이터를 수집 하는 Azure 가상 머신에서 모니터링이 수행 됩니다. 모니터링 프로필을 사용 하 여 수집 되는 데이터 집합 및 수집 빈도를 제어할 수 있습니다.
@@ -40,7 +40,7 @@ GO
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Telegraf 사용자 스크립트를 확인 합니다." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
 ### <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
-Azure SQL Managed Instance에 로그인 하 고 [SSMS](../../azure-sql/database/connect-query-ssms.md) 또는 유사한 도구를 사용 하 여 다음 스크립트를 실행 하 고 필요한 권한으로 모니터링 사용자를 만듭니다. 사용자를 password로 바꾸고 *mystrongpassword* 을 *사용자* 이름으로 바꿉니다.
+Azure SQL Managed Instance에 로그인 하 고 [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) 또는 유사한 도구를 사용 하 여 다음 스크립트를 실행 하 고 필요한 권한으로 모니터링 사용자를 만듭니다. 사용자를 password로 바꾸고 *mystrongpassword* 을 *사용자* 이름으로 바꿉니다.
 
  
 ```
@@ -85,7 +85,7 @@ Azure 가상 컴퓨터에는 다음과 같은 요구 사항이 있습니다.
 > [!NOTE]
 > Standard_B2s (cpu 2 개, GiB 메모리 4 개) 가상 머신 크기는 최대 100 개의 연결 문자열을 지원 합니다. 단일 가상 머신에 100 개 이상의 연결을 할당 해서는 안 됩니다.
 
-가상 컴퓨터는 모니터링 데이터를 수집 하는 네트워크 연결을 만들 수 있도록 SQL 시스템과 동일한 VNET에 배치 해야 합니다. 모니터링 가상 컴퓨터를 사용 하 여 Azure 가상 컴퓨터 또는 Azure Managed Instance에서 실행 되는 SQL을 모니터링 하는 경우 SQL server 모니터링을 위한 공용 네트워크 끝점을 제공할 필요가 없도록 응용 프로그램 보안 그룹 또는 해당 리소스와 동일한 가상 네트워크에 모니터링 가상 컴퓨터를 배치 하는 것이 좋습니다. 
+SQL 리소스의 네트워크 설정에 따라 가상 컴퓨터를 SQL 리소스와 동일한 가상 네트워크에 배치 하 여 네트워크 연결을 통해 모니터링 데이터를 수집할 수 있도록 해야 할 수 있습니다.  
 
 ## <a name="configure-network-settings"></a>네트워크 설정 구성
 SQL의 각 유형은 모니터링 가상 머신이 SQL에 안전 하 게 액세스할 수 있는 방법을 제공 합니다.  다음 섹션에서는 SQL의 유형을 기반으로 하는 옵션을 설명 합니다.
@@ -100,8 +100,6 @@ SQL insights는 가상 네트워크 뿐만 아니라 공용 끝점을 통해 Azu
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="방화벽 설정." lightbox="media/sql-insights-enable/firewall-settings.png":::
 
-> [!NOTE]
-> SQL insights는 현재 Azure SQL Database에 대 한 Azure 개인 끝점을 지원 하지 않습니다.  네트워크 보안 그룹 또는 [Azure Monitor 에이전트가 지 원하는](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking)가상 네트워크 방화벽 설정에서 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) 를 사용 하는 것이 좋습니다.
 
 ### <a name="azure-sql-managed-instances"></a>Azure SQL Managed Instance 
 
@@ -213,12 +211,16 @@ sqlAzureConnections": [
 
 
 
-## <a name="profile-created"></a>프로필이 만들어짐 
-SQL 배포에서 데이터를 수집 하도록 가상 컴퓨터를 구성 하려면 **모니터링 가상 컴퓨터 추가** 를 선택 합니다. **개요** 탭으로 돌아오지 않습니다.  몇 분 후에 상태 열이 "수집 중"으로 변경 되어야 합니다. 모니터링 하도록 선택한 시스템에 대 한 데이터가 표시 되어야 합니다.
+## <a name="monitoring-profile-created"></a>모니터링 프로필이 만들어짐 
+
+SQL 리소스에서 데이터를 수집 하도록 가상 컴퓨터를 구성 하려면 **모니터링 가상 컴퓨터 추가** 를 선택 합니다. **개요** 탭으로 돌아오지 않습니다.  몇 분 후에 상태 열이 읽기 "수집 중"으로 변경 되어야 합니다. 모니터링 하도록 선택한 SQL 리소스에 대 한 데이터가 표시 되어야 합니다.
 
 데이터가 표시 되지 않으면 [SQL 정보 문제 해결](sql-insights-troubleshoot.md) 을 참조 하 여 문제를 식별 합니다. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="프로필이 만들어짐" lightbox="media/sql-insights-enable/profile-created.png":::
+
+> [!NOTE]
+> 모니터링 프로필 또는 모니터링 Vm에 대 한 연결 문자열을 업데이트 해야 하는 경우 SQL insights **프로필 관리** 탭을 통해 수행할 수 있습니다.  업데이트를 저장 한 후에는 약 5 분 이내에 변경 내용이 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

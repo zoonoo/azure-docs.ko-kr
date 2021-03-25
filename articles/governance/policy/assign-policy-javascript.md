@@ -5,10 +5,10 @@ ms.date: 09/24/2020
 ms.topic: quickstart
 ms.custom: devx-track-js
 ms.openlocfilehash: 7548053e4bd5be214bf7de3eef3dc4c6c95442d4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91348172"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-javascript"></a>빠른 시작: JavaScript를 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
@@ -64,7 +64,7 @@ JavaScript가 Azure Policy와 작업할 수 있도록 하려면 라이브러리�
 
 이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사**(`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
 
-1. _policyAssignment.js_라는 새 파일을 만들고 다음 코드를 입력합니다.
+1. _policyAssignment.js_ 라는 새 파일을 만들고 다음 코드를 입력합니다.
 
    ```javascript
    const argv = require("yargs").argv;
@@ -109,7 +109,7 @@ JavaScript가 Azure Policy와 작업할 수 있도록 하려면 라이브러리�
 이 명령은 다음 정보를 사용합니다.
 
 - **subID** - 인증 컨텍스트에 대한 구독 ID입니다. `{subscriptionId}`를 사용자의 구독으로 바꾸어야 합니다.
-- **name** – 정책 할당 개체의 고유한 이름입니다. 위의 예제에서는 _audit-vm-manageddisks_를 사용합니다.
+- **name** – 정책 할당 개체의 고유한 이름입니다. 위의 예제에서는 _audit-vm-manageddisks_ 를 사용합니다.
 - **displayName** - 정책 할당의 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.
 - **policyDefID** – 할당을 만드는 데 기준으로 사용되는 정책 정의 경로입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다.
 - **설명** - 정책에서 수행하는 작업 또는 이 범위에 할당된 이유에 대한 자세한 설명입니다.
@@ -125,7 +125,7 @@ JavaScript가 Azure Policy와 작업할 수 있도록 하려면 라이브러리�
 
 이제 정책 할당이 생성되었으므로 미준수 리소스를 식별할 수 있습니다.
 
-1. _policyState.js_라는 새 파일을 만들고 다음 코드를 입력합니다.
+1. _policyState.js_ 라는 새 파일을 만들고 다음 코드를 입력합니다.
 
    ```javascript
    const argv = require("yargs").argv;

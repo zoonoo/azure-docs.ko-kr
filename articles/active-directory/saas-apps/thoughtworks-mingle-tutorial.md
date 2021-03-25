@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: c3eeb1577e628965e3e5a35fa20c072224383149
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92514625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>자습서: Thoughtworks Mingle과 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Thoughtworks Mingle을 Azure AD와 통합하면 다음과 같은 이점이 제�
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Thoughtworks Mingle과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -124,7 +124,7 @@ Thoughtworks Mingle에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 1. **Thoughtworks Mingle** 회사 사이트에 관리자로 로그인합니다.
 
-2. **관리자** 탭을 클릭하고 **SSO 구성** 을 클릭합니다.
+2. **관리** 탭을 클릭한 후 **SSO 구성** 을 클릭합니다.
    
     ![관리 탭](./media/thoughtworks-mingle-tutorial/ic785157.png "SSO 구성")
 
@@ -140,7 +140,7 @@ Thoughtworks Mingle에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -164,7 +164,7 @@ Thoughtworks Mingle에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Thoughtworks Mingle에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Thoughtworks Mingle** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Thoughtworks Mingle** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -198,7 +198,7 @@ Azure AD 사용자가 로그인할 수 있도록 Azure Active Directory 사용�
    
     ![첫 번째 프로젝트](./media/thoughtworks-mingle-tutorial/ic785160.png "첫 번째 프로젝트")
 
-3. **관리자** 탭을 클릭하고 **사용자** 를 클릭합니다.
+3. **관리** 탭을 클릭한 후 **사용자** 를 클릭합니다.
    
     ![사용자](./media/thoughtworks-mingle-tutorial/ic785161.png "사용자")
 
@@ -210,7 +210,7 @@ Azure AD 사용자가 로그인할 수 있도록 Azure Active Directory 사용�
    
     ![새 사용자 대화 상자](./media/thoughtworks-mingle-tutorial/ic785163.png "새 사용자")  
  
-    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **로그인 이름** , **표시 이름** , **암호 선택** , **암호 확인** 을 입력합니다. 
+    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure AD 계정의 **로그인 이름**, **표시 이름**, **암호 선택**, **암호 확인** 을 입력합니다. 
 
     b. **사용자 유형** 으로 **전체 사용자** 를 선택합니다.
 

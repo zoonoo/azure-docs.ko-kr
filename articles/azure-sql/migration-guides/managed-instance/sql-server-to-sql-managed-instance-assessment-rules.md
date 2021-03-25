@@ -1,5 +1,5 @@
 ---
-title: SQL Managed Instance 마이그레이션 SQL Server에 대 한 평가 규칙
+title: Azure SQL Managed Instance 마이그레이션 SQL Server에 대 한 평가 규칙
 description: Azure SQL Managed Instance로 마이그레이션하기 전에 해결 해야 하는 원본 SQL Server 인스턴스의 문제를 식별 하는 평가 규칙.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: 760a6496ff297ae6328810589f780b430d55b18a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc8959d44fbacd90916a045d23db4bee872c4670
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054727"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026039"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-managed-instance-migration"></a>SQL Managed Instance 마이그레이션 SQL Server에 대 한 평가 규칙
+# <a name="assessment-rules-for-sql-server-to--azure-sql-managed-instance-migration"></a>Azure SQL Managed Instance 마이그레이션 SQL Server에 대 한 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 마이그레이션 도구는 SQL Server 데이터베이스를 Azure SQL Managed Instance 마이그레이션하기 전에 해결 해야 하는 문제를 식별 하는 다양 한 평가 규칙을 실행 하 여 원본 SQL Server 인스턴스의 유효성을 검사 합니다. 
@@ -454,7 +454,7 @@ PowerShell 작업 단계를 사용 하 여 모든 작업을 확인 하 고 작�
 
 추가 정보: [SQL Server에서](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali) 지원 되지 않는 데이터베이스 엔진 기능
 
-## <a name="service-broker"></a>Service broker<a id="ServiceBrokerWithNonLocalAddress"></a>
+## <a name="service-broker"></a>Service Broker<a id="ServiceBrokerWithNonLocalAddress"></a>
 
 **제목: Service Broker 기능은 Azure SQL Managed Instance에서 부분적으로 지원 됩니다.**   
 **범주**: 문제   

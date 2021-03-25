@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c320c8497506a0269e65cd79e18aea1972354729
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589525"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043940"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
@@ -43,7 +43,7 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.
     
     >[!NOTE]
-    >나가는 HTTP 프록시가 있는 경우이 URL autologon.microsoftazuread-sso.com이 허용 목록 인지 확인 합니다. 와일드 카드를 사용할 수 없으므로이 URL을 명시적으로 지정 해야 합니다. 
+    >나가는 HTTP 프록시가 있는 경우이 URL (autologon.microsoftazuread-sso.com)이 허용 목록에 있는지 확인 합니다. 와일드 카드를 사용할 수 없으므로이 URL을 명시적으로 지정 해야 합니다. 
 
 * **지원되는 Azure AD Connect 토폴로지 사용**: [여기](plan-connect-topologies.md)에서 설명한 Azure AD Connect의 지원되는 토폴로지 중 하나를 사용하는지 확인합니다.
 

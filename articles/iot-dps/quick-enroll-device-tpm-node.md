@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 184fb4bbf8845b749459e1963bed3c6d9fa64856
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323848"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>빠른 시작: Node.js 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
@@ -71,7 +71,7 @@ ms.locfileid: "91323848"
   
 1. 샘플을 실행하려면 프로비전 서비스에 대한 연결 문자열이 필요합니다. 
     1. Azure Portal에 로그인하여 왼쪽 메뉴에서 **모든 리소스** 단추를 선택하고 Device Provisioning 서비스를 엽니다. 
-    2. **공유 액세스 정책**을 선택한 다음, 사용하려는 액세스 정책을 선택하여 해당 속성을 엽니다. **액세스 정책** 창에서 기본 키 연결 문자열을 복사하고 적어 둡니다. 
+    2. **공유 액세스 정책** 을 선택한 다음, 사용하려는 액세스 정책을 선택하여 해당 속성을 엽니다. **액세스 정책** 창에서 기본 키 연결 문자열을 복사하고 적어 둡니다. 
 
        ![포털에서 프로비전 서비스 연결 문자열 가져오기](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
@@ -92,7 +92,7 @@ ms.locfileid: "91323848"
 
     ![명령 출력의 등록 속성](./media/quick-enroll-device-tpm-node/output.png) 
 
-4. 개별 등록이 만들어졌는지 확인합니다. Azure Portal의 Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭을 선택하고, 새 등록 항목(*첫 번째*)을 선택하여 해당 항목에 대한 인증 키와 다른 속성을 확인합니다.
+4. 개별 등록이 만들어졌는지 확인합니다. Azure Portal의 Device Provisioning Service 요약 블레이드에서 **등록 관리** 를 선택합니다. **개별 등록** 탭을 선택하고, 새 등록 항목(*첫 번째*)을 선택하여 해당 항목에 대한 인증 키와 다른 속성을 확인합니다.
 
     ![포털의 등록 속성](./media/quick-enroll-device-tpm-node/verify-enrollment-portal.png) 
  
@@ -103,7 +103,7 @@ Node.js 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리�
 
 1. 컴퓨터에서 Node.js 샘플 출력 창을 닫습니다.
 1. 시뮬레이션된 TPM 디바이스를 만든 경우 TPM 시뮬레이터 창을 닫습니다.
-2. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다. 
+2. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리** 를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다. 
  
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 TPM 디바이스에 대한 개별 등록 항목을 프로그래밍 방식으로 만들고, 필요에 따라 머신에 시뮬레이션된 TPM 디바이스를 만들고, Azure IoT Hub Device Provisioning Service를 사용하여 IoT 허브에 이 디바이스를 프로비저닝했습니다. 디바이스 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 

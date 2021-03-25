@@ -10,10 +10,10 @@ services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
 ms.openlocfilehash: 96bd1e85de45ac36515580025dfc392e931643f3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91323766"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>빠른 시작: Python 프로비전 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
@@ -41,7 +41,7 @@ ms.locfileid: "91323766"
 
 1. [Python 프로비저닝 서비스 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client)의 경우 다음 옵션 중 하나를 선택합니다.
 
-    - **Azure IoT Python SDK**를 빌드하고 컴파일합니다. [이러한 지침](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)에 따라 Python 패키지를 빌드합니다. Windows OS를 사용하는 경우 [Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하여 Python의 네이티브 DLL을 사용할 수 있게 합니다.
+    - **Azure IoT Python SDK** 를 빌드하고 컴파일합니다. [이러한 지침](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)에 따라 Python 패키지를 빌드합니다. Windows OS를 사용하는 경우 [Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하여 Python의 네이티브 DLL을 사용할 수 있게 합니다.
 
     - [*pip* Python 패키지 관리 시스템을 설치 또는 업그레이드](https://pip.pypa.io/en/stable/installing/)하고 다음 명령을 통해 패키지를 설치합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "91323766"
 
 1. 텍스트 편집기를 사용하여 새 **TpmEnrollment.py** 파일을 만듭니다.
 
-1. **TpmEnrollment.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다. 그런 다음, `dpsConnectionString`을 **Azure Portal**의 **Device Provisioning Service**에서 **공유 액세스 정책** 아래에 있는 연결 문자열로 바꿉니다. `endorsementKey`를 [환경 준비](quick-enroll-device-tpm-python.md#prepareenvironment)에서 이전에 기록한 값으로 바꿉니다. 마지막으로 고유한 `registrationid`를 만들고, 소문자 영숫자와 하이픈으로만 구성되어야 합니다.  
+1. **TpmEnrollment.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다. 그런 다음, `dpsConnectionString`을 **Azure Portal** 의 **Device Provisioning Service** 에서 **공유 액세스 정책** 아래에 있는 연결 문자열로 바꿉니다. `endorsementKey`를 [환경 준비](quick-enroll-device-tpm-python.md#prepareenvironment)에서 이전에 기록한 값으로 바꿉니다. 마지막으로 고유한 `registrationid`를 만들고, 소문자 영숫자와 하이픈으로만 구성되어야 합니다.  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient
@@ -107,7 +107,7 @@ ms.locfileid: "91323766"
 
 1. 성공적으로 등록되는지 확인하기 위해 결과를 관찰합니다.
 
-1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 선택합니다. 앞에서 만든 이름(`registrationid`)이 있는 TPM 디바이스가 **개별 등록** 탭 아래에 표시됩니다. 
+1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리** 를 선택합니다. 앞에서 만든 이름(`registrationid`)이 있는 TPM 디바이스가 **개별 등록** 탭 아래에 표시됩니다. 
 
     ![포털에서 성공적인 TPM 등록 확인](./media/quick-enroll-device-tpm-python/1.png)  
 
@@ -117,7 +117,7 @@ Java 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소�
 
 1. 컴퓨터에서 Python 샘플 출력 창을 닫습니다.
 1. 시뮬레이션된 TPM 디바이스를 만든 경우 TPM 시뮬레이터 창을 닫습니다.
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다.
+1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리** 를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다.
 
 
 ## <a name="next-steps"></a>다음 단계

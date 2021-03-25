@@ -6,10 +6,10 @@ ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 1bd9f7408baf40791c31626ea9e87a73c65b999c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97964000"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 SQL BACPAC 파일 가져오기
@@ -112,8 +112,8 @@ ARM 템플릿을 사용하여 BACPAC 파일을 가져오려면 먼저 Azure Stor
 
     템플릿에는 다음과 같은 2개의 리소스가 정의되어 있습니다.
 
-   * `Microsoft.Sql/servers`입니다. [템플릿 참조](/azure/templates/microsoft.sql/servers)를 참조하세요.
-   * `Microsoft.SQL.servers/databases`입니다. [템플릿 참조](/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
+   * `Microsoft.Sql/servers`. [템플릿 참조](/azure/templates/microsoft.sql/servers)를 참조하세요.
+   * `Microsoft.SQL.servers/databases`. [템플릿 참조](/azure/templates/microsoft.sql/servers/databases)를 참조하세요.
 
         템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
 1. **파일** > **다른 이름으로 저장** 을 선택하여 파일 복사본을 로컬 컴퓨터에 *azuredeploy.json* 이라는 이름으로 저장합니다.

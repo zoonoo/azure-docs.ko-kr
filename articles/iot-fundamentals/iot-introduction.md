@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: d2afd88500801f1e2b1e4da5a1e267bddfa69fc7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96453019"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure IoT(사물 인터넷)란?
@@ -23,7 +23,7 @@ Azure IoT(사물 인터넷)는 수십억 개의 IoT 자산을 연결, 모니터�
 
 ## <a name="iot-devices"></a>IoT 디바이스
 
-IoT 디바이스는 일반적으로 인터넷에 연결되는 WiFi를 사용하는 센서가 부착된 회로 기판으로 구성되어 있습니다. 다음은 그 예입니다.
+IoT 디바이스는 일반적으로 인터넷에 연결되는 WiFi를 사용하는 센서가 부착된 회로 기판으로 구성되어 있습니다. 예를 들어:
 
 * 원격 오일 펌프의 압력 센서
 * 에어컨 장치의 온도 및 습도 센서

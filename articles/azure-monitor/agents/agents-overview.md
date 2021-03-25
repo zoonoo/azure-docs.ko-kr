@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1dd358c03d051be4be5733d9e729d1d7ef5b0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551473"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026175"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -97,7 +97,7 @@ Log Analytics 에이전트의 제한 사항은 다음과 같습니다.
 - 보관을 위해 Azure Storage 데이터를 보내거나 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같은 도구를 사용 하 여 분석 합니다.
 - [메트릭 탐색기](../essentials/metrics-getting-started.md) 를 사용 하 여 분석 하 고, 거의 실시간 [메트릭 경고](../alerts/alerts-metric-overview.md) 및 [자동 크기 조정](../autoscale/autoscale-overview.md) (Windows에만 해당)과 같은 기능을 활용 하기 위해 데이터를 [Azure Monitor 메트릭에](../essentials/data-platform-metrics.md) 보냅니다.
 - [Azure Event Hubs](./diagnostics-extension-stream-event-hubs.md)를 사용 하 여 타사 도구로 데이터를 보냅니다.
-- [부팅 진단을](../../virtual-machines/troubleshooting/boot-diagnostics.md) 수집 하 여 VM 부팅 문제를 조사 합니다.
+- [부팅 진단을](/troubleshoot/azure/virtual-machines/boot-diagnostics) 수집 하 여 VM 부팅 문제를 조사 합니다.
 
 Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
