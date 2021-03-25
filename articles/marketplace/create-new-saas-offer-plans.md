@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 238ef9ec80b01470e28535d0eb42dbb3a377b005
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb1514c146dcd352451597e6182c6d99ed8836d6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96746440"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044722"
 ---
 # <a name="how-to-create-plans-for-your-saas-offer"></a>SaaS 제품에 대 한 계획을 만드는 방법
 
@@ -149,6 +149,10 @@ Microsoft 상업적 marketplace를 통해 판매 되는 제품에는 하나 이�
 
 - 계획 상태가 **draft** 인 경우 **작업** 열의 링크는 **초안 삭제** 라고 표시 됩니다.
 - 계획 상태가 **Live** 인 경우 **작업** 열의 링크는 **계획 판매** 또는 **동기화 개인 대상 그룹** 중 하나가 됩니다. **개인 대상 그룹 동기화** 링크는 제안에 대 한 다른 업데이트를 게시 하지 않고 개인 사용자에 대 한 변경 내용만 게시 합니다.
+
+## <a name="before-you-publish-your-offer"></a>제품을 게시 하기 전에
+
+아직 수행 하지 않은 경우 프로덕션 제품을 라이브로 게시 하기 전에 개발 및 테스트 (DEV) 제품을 만들어 제품을 테스트 합니다. 자세히 알아보려면 [개발 및 테스트 제안 만들기](create-saas-dev-test-offer.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

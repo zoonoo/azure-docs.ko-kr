@@ -8,17 +8,17 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 2a5c298c201aa2a1f968c2a96dcfd6963a410cf7
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: ef3d415f4f0ca82e79df84ef48acc0323a69099a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149225"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952153"
 ---
 # <a name="what-is-azure-front-door"></a>Azure Front Door란?
 
 > [!IMPORTANT]
-> 이 설명서는 Azure Front Door용입니다. Azure Front Door 표준/프리미엄(미리 보기)에 대한 정보를 찾고 있나요? [여기](/standard-premium/overview.md)에서 봅니다.
+> 이 설명서는 Azure Front Door용입니다. Azure Front Door 표준/프리미엄(미리 보기)에 대한 정보를 찾고 있나요? [여기](standard-premium/overview.md)에서 봅니다.
 
 Azure Front Door는 Microsoft 글로벌 에지 네트워크를 사용하여 빠르고, 안전하고, 확장성이 뛰어난 웹 애플리케이션을 만들기 위한 확장 가능한 글로벌 진입점입니다. Front Door를 사용하면 글로벌 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 콘텐츠가 있는 견고한 고성능의 맞춤형 최신 애플리케이션으로 변환할 수 있습니다.
 

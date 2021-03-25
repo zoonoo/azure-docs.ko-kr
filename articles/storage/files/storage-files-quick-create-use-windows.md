@@ -8,10 +8,10 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92489577"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
@@ -69,7 +69,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
    ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
 1. **인스턴스 세부 정보** 에서 VM 이름을 *qsVM* 으로 지정합니다.
-1. **지역** , **가용성 옵션** , **이미지** 및 **크기** 는 기본 설정을 그대로 둡니다.
+1. **지역**, **가용성 옵션**, **이미지** 및 **크기** 는 기본 설정을 그대로 둡니다.
 1. **관리자 계정** 에서 *VMadmin* 을 **Username** 으로 추가하고 VM에 사용할 **암호** 를 입력합니다.
 1. **인바운드 포트 규칙** 에서 **선택한 포트 허용** 을 선택한 다음, 드롭다운에서 **RDP(3389)** 및 **HTTP** 를 선택합니다.
 1. **검토 + 만들기** 를 선택합니다.

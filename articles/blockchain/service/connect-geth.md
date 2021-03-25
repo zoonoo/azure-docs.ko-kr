@@ -5,10 +5,10 @@ ms.date: 05/26/2020
 ms.topic: quickstart
 ms.reviewer: maheshna
 ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83994786"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>빠른 시작: Geth를 사용하여 Azure Blockchain Service 트랜잭션 노드에 연결
@@ -27,11 +27,11 @@ ms.locfileid: "83994786"
 Azure Portal에서 Azure Blockchain Service 트랜잭션 노드에 대한 Geth 연결 문자열을 가져올 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**와 기본 트랜잭션 노드 링크를 선택합니다.
+1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드** 와 기본 트랜잭션 노드 링크를 선택합니다.
 
     ![기본 트랜잭션 노드 선택](./media/connect-geth/transaction-nodes.png)
 
-1. **연결 문자열**을 선택합니다.
+1. **연결 문자열** 을 선택합니다.
 1. **HTTPS(액세스 키 1)** 에서 연결 문자열을 복사합니다. 다음 섹션에는 문자열이 필요합니다.
 
     ![연결 문자열](./media/connect-geth/connection-string.png)

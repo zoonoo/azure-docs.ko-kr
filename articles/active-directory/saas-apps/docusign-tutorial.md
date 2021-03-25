@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454697"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>자습서: DocuSign과 Azure Active Directory SSO(Single Sign-On) 통합
@@ -26,7 +26,7 @@ ms.locfileid: "92454697"
 * 사용자가 해당 Azure AD 계정을 통해 DocuSign에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B. Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에서 **B.Simon** 을 입력합니다.  
@@ -147,76 +147,76 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. DocuSign을 수동으로 설정하려면 새 웹 브라우저 창을 열고 DocuSign 회사 사이트에 관리자 권한으로 로그인합니다.
 
-4. 페이지의 오른쪽 위 모서리에서 프로필 로고를 선택한 다음, **Go to Admin** (관리로 이동)을 선택합니다.
+4. 페이지의 오른쪽 위 모서리에서 프로필 로고를 선택한 다음, **Go to Admin**(관리로 이동)을 선택합니다.
   
     ![Profile(프로필) 아래의 Go to Admin][51]
 
-5. Domain Solutions(도메인 솔루션) 페이지에서 **Domains** (도메인)를 선택합니다.
+5. Domain Solutions(도메인 솔루션) 페이지에서 **Domains**(도메인)를 선택합니다.
 
     ![Domain Solutions/Domains][50]
 
-6. **Domains** (도메인) 섹션에서 **CLAIM DOMAIN** (도메인 클레임)을 선택합니다.
+6. **Domains**(도메인) 섹션에서 **CLAIM DOMAIN**(도메인 클레임)을 선택합니다.
 
     ![Claim Domain 옵션][52]
 
-7. **Claim a Domain** (도메인 클레임) 대화 상자의 **Domain Name** (도메인 이름) 상자에서 회사 도메인을 입력한 다음, **CLAIM** (클레임)을 선택합니다. 도메인 및 해당 상태가 활성인지의 여부를 확인합니다.
+7. **Claim a Domain**(도메인 클레임) 대화 상자의 **Domain Name**(도메인 이름) 상자에서 회사 도메인을 입력한 다음, **CLAIM**(클레임)을 선택합니다. 도메인 및 해당 상태가 활성인지의 여부를 확인합니다.
 
     ![Claim a Domain/Domain Name 대화 상자][53]
 
-8. Domain Solutions 페이지에서 **Identity Providers** (ID 공급자)를 선택합니다.
+8. Domain Solutions 페이지에서 **Identity Providers**(ID 공급자)를 선택합니다.
   
     ![Identity Providers 옵션][54]
 
-9. **Identity Providers** (ID 공급자) 섹션에서 **ADD IDENTITY PROVIDER** (ID 공급자 추가)를 선택합니다.
+9. **Identity Providers**(ID 공급자) 섹션에서 **ADD IDENTITY PROVIDER**(ID 공급자 추가)를 선택합니다.
 
     ![Add Identity Provider 옵션][55]
 
-10. **Identity Provider Settings** (ID 공급자 설정) 페이지에서 다음 단계를 수행합니다.
+10. **Identity Provider Settings**(ID 공급자 설정) 페이지에서 다음 단계를 수행합니다.
 
     ![Identity Provider Settings 필드][56]
 
-    a. **Name** (이름) 상자에서 고유한 구성 이름을 입력합니다. 공백은 사용하지 마세요.
+    a. **Name**(이름) 상자에서 고유한 구성 이름을 입력합니다. 공백은 사용하지 마세요.
 
-    b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **Identity Provider Issuer** (ID 공급자 발급자) 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **Identity Provider Issuer**(ID 공급자 발급자) 상자에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그인 URL** 값을 **Identity Provider Login URL** (ID 공급자 로그인 URL) 상자에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **로그인 URL** 값을 **Identity Provider Login URL**(ID 공급자 로그인 URL) 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Identity Provider Logout URL** (ID 공급자 로그아웃 URL) 상자에 붙여넣습니다.
+    d. Azure Portal에서 복사한 **로그아웃 URL** 값을 **Identity Provider Logout URL**(ID 공급자 로그아웃 URL) 상자에 붙여넣습니다.
 
     e. **Sign AuthN 요청** 을 선택합니다.
 
-    f. **Send AuthN request by** (다음을 통해 AuthN 요청 보내기)에 대해 **POST** 를 선택합니다.
+    f. **Send AuthN request by**(다음을 통해 AuthN 요청 보내기)에 대해 **POST** 를 선택합니다.
 
-    g. **Send logout request by** (다음을 통해 로그아웃 요청 보내기)에 대해 **GET** 을 선택합니다.
+    g. **Send logout request by**(다음을 통해 로그아웃 요청 보내기)에 대해 **GET** 을 선택합니다.
 
-    h. **Custom Attribute Mapping** (사용자 지정 특성 매핑) 섹션에서 **ADD NEW MAPPING** (새 매핑 추가)을 선택합니다.
+    h. **Custom Attribute Mapping**(사용자 지정 특성 매핑) 섹션에서 **ADD NEW MAPPING**(새 매핑 추가)을 선택합니다.
 
        ![Custom Attribute Mapping UI][62]
 
-    i. Azure AD 클레임에 매핑하려는 필드를 선택합니다. 다음 예에서 **emailaddress** 클레임은 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`의 값으로 매핑됩니다. 이는 이메일 클레임에 대한 Azure AD의 기본 클레임 이름입니다. **SAVE** (저장)를 선택합니다.
+    i. Azure AD 클레임에 매핑하려는 필드를 선택합니다. 다음 예에서 **emailaddress** 클레임은 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`의 값으로 매핑됩니다. 이는 이메일 클레임에 대한 Azure AD의 기본 클레임 이름입니다. **SAVE**(저장)를 선택합니다.
 
        ![Custom Attribute Mapping 필드][57]
 
        > [!NOTE]
        > 적절한 **사용자 ID** 를 사용하여 Azure AD에서 DocuSign 사용자 매핑으로 사용자를 매핑합니다. 적절한 필드를 선택하고, 조직 설정에 따라 적절한 값을 입력합니다.
 
-    j. **Identity Provider Certificates** (ID 공급자 인증서) 섹션에서 **ADD CERTIFICATE** (인증서 추가)를 선택하고, Azure AD 포털에서 다운로드한 인증서를 업로드한 다음, **SAVE** (저장)를 선택합니다.
+    j. **Identity Provider Certificates**(ID 공급자 인증서) 섹션에서 **ADD CERTIFICATE**(인증서 추가)를 선택하고, Azure AD 포털에서 다운로드한 인증서를 업로드한 다음, **SAVE**(저장)를 선택합니다.
 
        ![Identity Provider Certificates/Add Certificate][58]
 
-    k. **Identity Providers** (ID 공급자) 섹션에서 **ACTIONS** (작업), **Endpoints** (엔드포인트)를 차례로 선택합니다.
+    k. **Identity Providers**(ID 공급자) 섹션에서 **ACTIONS**(작업), **Endpoints**(엔드포인트)를 차례로 선택합니다.
 
        ![Identity Providers/Endpoints][59]
 
-    l. DocuSign 관리 포털의 **View SAML 2.0 Endpoints** (SAML 2.0 엔드포인트 보기) 섹션에서 다음 단계를 수행합니다.
+    l. DocuSign 관리 포털의 **View SAML 2.0 Endpoints**(SAML 2.0 엔드포인트 보기) 섹션에서 다음 단계를 수행합니다.
 
        ![SAML 2.0 엔드포인트 보기][60]
        
-       1. **Service Provider Issuer URL** (서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 상자에 붙여넣습니다.
+       1. **Service Provider Issuer URL**(서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **식별자** 상자에 붙여넣습니다.
        
        1. **Service Provider Assertion Consumer Service URL** 을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 상자에 붙여넣습니다.
        
-       1. **Service Provider Login URL** (서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 상자에 붙여넣습니다. **서비스 공급자 로그인 URL** 의 끝에 IDPID 값을 가져옵니다.
+       1. **Service Provider Login URL**(서비스 공급자 발급자 URL)을 복사한 다음, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **로그온 URL** 상자에 붙여넣습니다. **서비스 공급자 로그인 URL** 의 끝에 IDPID 값을 가져옵니다.
 
        1. **닫기** 를 선택합니다.
 

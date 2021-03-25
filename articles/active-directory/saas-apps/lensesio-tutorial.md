@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
 ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92458611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>자습서: Lenses.io DataOps 포털과 Azure Active Directory SSO(Single Sign-On) 통합
@@ -80,11 +80,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션의 다음 텍스트 입력 상자에서 값을 입력합니다.
 
-    a. **로그온 URL** : `https://<CUSTOMER_LENSES_BASE_URL>` 패턴을 사용하는 URL을 입력합니다. 예제는 `https://lenses.my.company.com`입니다.
+    a. **로그온 URL**: `https://<CUSTOMER_LENSES_BASE_URL>` 패턴을 사용하는 URL을 입력합니다. 예제는 `https://lenses.my.company.com`입니다.
 
     b. **식별자(엔터티 ID)** : `https://<CUSTOMER_LENSES_BASE_URL>` 패턴을 사용하는 URL을 입력합니다. 예제는 `https://lenses.my.company.com`입니다.
 
-    c. **회신 URL** : `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client` 패턴을 사용하는 URL을 입력합니다. 예제는 `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`입니다.
+    c. **회신 URL**: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client` 패턴을 사용하는 URL을 입력합니다. 예제는 `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`입니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. Lenses 포털 인스턴스의 기본 URL에 대한 실제 로그온 URL, 회신 URL 및 식별자로 업데이트합니다. 자세한 내용은 [Lenses.io SSO 설명서](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)를 참조하세요.
@@ -103,7 +103,7 @@ Lenses에서 그룹 멤버 자격 매핑을 권한 부여에 사용하는 방법
 
 **테스트 파일을 만들려면 다음을 수행합니다.**
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 상자에서 **B.Simon** 을 입력합니다.  

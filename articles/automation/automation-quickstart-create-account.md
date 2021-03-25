@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "83836705"
 ---
 # <a name="create-an-azure-automation-account"></a>Azure Automation 계정 만들기
@@ -32,18 +32,18 @@ ms.locfileid: "83836705"
 
 2. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추를 클릭합니다.
 
-3. **IT 및 관리 도구**를 선택한 다음, **Automation**을 선택합니다.
+3. **IT 및 관리 도구** 를 선택한 다음, **Automation** 을 선택합니다.
 
-4. 선택한 계정 이름을 포함한 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기**에서 **예**를 선택합니다. 정보 입력이 완료되면 **만들기**를 클릭하여 Automation 계정 배포를 시작합니다.
+4. 선택한 계정 이름을 포함한 계정 정보를 입력합니다. Azure에 대한 인증을 간소화하는 아티팩트를 자동으로 사용하도록 설정하기 위해 **Azure 실행 계정 만들기** 에서 **예** 를 선택합니다. 정보 입력이 완료되면 **만들기** 를 클릭하여 Automation 계정 배포를 시작합니다.
 
     ![페이지에서 Automation 계정에 대한 정보 입력](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
     > Automation 계정을 배포할 수 있는 위치의 업데이트된 목록은 [지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all)을 참조하세요.
 
-5. 배포가 완료되면 **모든 서비스**를 클릭합니다.
+5. 배포가 완료되면 **모든 서비스** 를 클릭합니다.
 
-6. **Automation 계정**을 선택한 다음, 사용자가 만든 Automation 계정을 선택합니다.
+6. **Automation 계정** 을 선택한 다음, 사용자가 만든 Automation 계정을 선택합니다.
 
     ![Automation 계정 개요](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "83836705"
 
 자습서 Runbook 중 하나를 실행합니다.
 
-1. **프로세스 자동화** 아래에서 **Runbook**을 클릭합니다. Runbook 목록이 표시됩니다. 기본적으로 몇 가지 자습서 Runbook을 계정에서 사용할 수 있습니다.
+1. **프로세스 자동화** 아래에서 **Runbook** 을 클릭합니다. Runbook 목록이 표시됩니다. 기본적으로 몇 가지 자습서 Runbook을 계정에서 사용할 수 있습니다.
 
     ![Automation 계정 Runbook 목록](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
@@ -59,11 +59,11 @@ ms.locfileid: "83836705"
 
     ![Runbook 개요](./media/automation-quickstart-create-account/automation-tutorial-script-runbook-overview.png)
 
-1. **시작**을 클릭하고 Runbook 시작 페이지에서 **확인**을 클릭하여 Runbook을 시작합니다.
+1. **시작** 을 클릭하고 Runbook 시작 페이지에서 **확인** 을 클릭하여 Runbook을 시작합니다.
 
     ![Runbook 작업 페이지](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. 작업 상태가 `Running`이 되면 **출력** 또는 **모든 로그**를 클릭하여 Runbook 작업 출력을 확인합니다. 이 자습서 Runbook의 경우 출력은 Azure 리소스 목록입니다.
+1. 작업 상태가 `Running`이 되면 **출력** 또는 **모든 로그** 를 클릭하여 Runbook 작업 출력을 확인합니다. 이 자습서 Runbook의 경우 출력은 Azure 리소스 목록입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

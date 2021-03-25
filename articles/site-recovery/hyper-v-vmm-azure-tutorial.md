@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89442823"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
@@ -36,27 +36,27 @@ ms.locfileid: "89442823"
 
 ## <a name="select-a-replication-goal"></a>복제 목표 선택
 
-1. Azure Portal에서 **Recovery Services 자격 증명 모음**으로 이동하여 [Azure 준비](tutorial-prepare-azure.md#create-a-recovery-services-vault) 자습서에서 만든 **ContosoVMVault** 자격 증명 모음을 선택합니다.
-1. **시작**에서 **Site Recovery** > **인프라 준비**를 차례로 선택하고, 다음 설정을 구성합니다.
-    1. **보호 목표** > **머신이 어디에 있나요?** 에서 **온-프레미스**를 선택합니다.
-    1. **머신을 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
-    1. **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용**을 선택합니다.
-    1. **System Center VMM을 사용하여 Hyper-V 호스트를 관리하나요?** 에서 **예**를 선택합니다.
-1. **확인**을 선택합니다.
+1. Azure Portal에서 **Recovery Services 자격 증명 모음** 으로 이동하여 [Azure 준비](tutorial-prepare-azure.md#create-a-recovery-services-vault) 자습서에서 만든 **ContosoVMVault** 자격 증명 모음을 선택합니다.
+1. **시작** 에서 **Site Recovery** > **인프라 준비** 를 차례로 선택하고, 다음 설정을 구성합니다.
+    1. **보호 목표** > **머신이 어디에 있나요?** 에서 **온-프레미스** 를 선택합니다.
+    1. **머신을 복제할 위치를 선택하세요.** 에서 **Azure** 를 선택합니다.
+    1. **머신이 가상화되어 있습니까?** 에서 **예, Hyper-V 사용** 을 선택합니다.
+    1. **System Center VMM을 사용하여 Hyper-V 호스트를 관리하나요?** 에서 **예** 를 선택합니다.
+1. **확인** 을 선택합니다.
 
    ![복제 목표](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
 
 ## <a name="confirm-deployment-planning"></a>배포 계획 확인
 
-1. **배포 계획**에서 대규모 배포를 계획 중인 경우 페이지의 링크를 통해 Hyper-V용 Deployment Planner를 다운로드합니다. Hyper-V 배포 계획에 대해 [자세히 알아보세요](hyper-v-deployment-planner-overview.md).
-1. 이 자습서에서는 Deployment Planner가 필요하지 않습니다. **배포 계획을 완료하셨나요**에서 **나중에 수행**을 선택한 다음, **확인**을 선택합니다.
+1. **배포 계획** 에서 대규모 배포를 계획 중인 경우 페이지의 링크를 통해 Hyper-V용 Deployment Planner를 다운로드합니다. Hyper-V 배포 계획에 대해 [자세히 알아보세요](hyper-v-deployment-planner-overview.md).
+1. 이 자습서에서는 Deployment Planner가 필요하지 않습니다. **배포 계획을 완료하셨나요** 에서 **나중에 수행** 을 선택한 다음, **확인** 을 선택합니다.
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
 원본 환경을 설정하는 경우 Azure Site Recovery 공급자를 VMM 서버에 설치하고, 이 서버를 자격 증명 모음에 등록합니다. Azure Recovery Services 에이전트를 각 Hyper-V 호스트에 설치합니다.
 
-1. **인프라 준비**에서 **원본**을 선택합니다.
-1. **원본 준비**에서 **+ VMM**을 선택하여 VMM 서버를 추가합니다. **서버 추가**의 **서버 유형**에서 **System Center VMM 서버**가 표시되는지 확인합니다.
+1. **인프라 준비** 에서 **원본** 을 선택합니다.
+1. **원본 준비** 에서 **+ VMM** 을 선택하여 VMM 서버를 추가합니다. **서버 추가** 의 **서버 유형** 에서 **System Center VMM 서버** 가 표시되는지 확인합니다.
 1. Microsoft Azure Site Recovery Provider용 설치 관리자를 다운로드합니다.
 1. 자격 증명 모음 등록 키를 다운로드합니다. 이 키는 공급자 설치를 실행할 때 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 1. Microsoft Azure Recovery Services 에이전트 설치 관리자를 다운로드합니다.
@@ -65,16 +65,16 @@ ms.locfileid: "89442823"
 
 ### <a name="install-the-provider-on-the-vmm-server"></a>VMM 서버에 공급자 설치
 
-1. Azure Site Recovery 공급자 설치 마법사의 **Microsoft Update**에서 Microsoft Update를 사용하여 공급자 업데이트를 확인하도록 옵트인합니다.
-1. **설치**에서 공급자의 기본 설치 위치를 적용하고, **설치**를 선택합니다.
-1. 설치 후에 Microsoft Azure Site Recovery 등록 마법사에서 **자격 증명 모음 설정**, **찾아보기**를 선택하고, **키 파일**에서 다운로드한 자격 증명 모음 키 파일을 선택합니다.
+1. Azure Site Recovery 공급자 설치 마법사의 **Microsoft Update** 에서 Microsoft Update를 사용하여 공급자 업데이트를 확인하도록 옵트인합니다.
+1. **설치** 에서 공급자의 기본 설치 위치를 적용하고, **설치** 를 선택합니다.
+1. 설치 후에 Microsoft Azure Site Recovery 등록 마법사에서 **자격 증명 모음 설정**, **찾아보기** 를 선택하고, **키 파일** 에서 다운로드한 자격 증명 모음 키 파일을 선택합니다.
 1. Azure Site Recovery 구독 및 자격 증명 모음 이름(**ContosoVMVault**)을 지정합니다. 자격 증명 모음에서 식별할 수 있도록 VMM 서버의 식별 이름을 지정합니다.
-1. **프록시 설정**에서 **프록시 없이 Azure Site Recovery에 직접 연결**을 선택합니다.
+1. **프록시 설정** 에서 **프록시 없이 Azure Site Recovery에 직접 연결** 을 선택합니다.
 1. 데이터를 암호화하는 데 사용되는 인증서의 기본 위치를 적용합니다. 장애 조치(failover) 시에는 암호화된 데이터의 암호가 해독됩니다.
-1. **클라우드 메타데이터 동기화**에서 **클라우드 메타데이터를 Site Recovery 포털에 동기화하세요.** 를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 그런 다음 **등록**을 선택합니다.
-1. 서버가 자격 증명 모음에 등록되면 **마침**을 선택합니다.
+1. **클라우드 메타데이터 동기화** 에서 **클라우드 메타데이터를 Site Recovery 포털에 동기화하세요.** 를 선택합니다. 이 작업은 각 서버에서 한 번만 수행해야 합니다. 그런 다음 **등록** 을 선택합니다.
+1. 서버가 자격 증명 모음에 등록되면 **마침** 을 선택합니다.
 
-등록이 완료되면 Azure Site Recovery에서 서버의 메타데이터가 검색되며 VMM 서버가 **Site Recovery 인프라**에 표시됩니다.
+등록이 완료되면 Azure Site Recovery에서 서버의 메타데이터가 검색되며 VMM 서버가 **Site Recovery 인프라** 에 표시됩니다.
 
 ### <a name="install-the-recovery-services-agent-on-hyper-v-hosts"></a>Hyper-V 호스트에 Recovery Services 에이전트 설치
 
@@ -82,55 +82,55 @@ ms.locfileid: "89442823"
 
 Microsoft Azure Recovery Services 에이전트 설치 마법사에서 다음 설정을 구성합니다.
 
-1. **필수 구성 요소 확인**에서 **다음**을 선택합니다. 누락된 필수 구성 요소가 자동으로 설치됩니다.
-1. **설치 설정**에서 설치 위치를 수락합니다. 그런 후 **설치**를 선택합니다.
+1. **필수 구성 요소 확인** 에서 **다음** 을 선택합니다. 누락된 필수 구성 요소가 자동으로 설치됩니다.
+1. **설치 설정** 에서 설치 위치를 수락합니다. 그런 후 **설치** 를 선택합니다.
 
     >[!NOTE]
-    >Azure Site Recovery의 경우 **캐시 위치**가 필요하지 않습니다.
+    >Azure Site Recovery의 경우 **캐시 위치** 가 필요하지 않습니다.
 
-1. **설치**에서 설치가 완료되면 **닫기**를 선택하여 마법사를 완료합니다.
+1. **설치** 에서 설치가 완료되면 **닫기** 를 선택하여 마법사를 완료합니다.
 
    ![에이전트 설치](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
 
-1. **인프라 준비** > **대상**을 선택합니다.
-1. 구독을 선택하고 장애 조치(failover) 후 Azure VM이 생성될 리소스 그룹 **ContosoRG**를 선택합니다.
+1. **인프라 준비** > **대상** 을 선택합니다.
+1. 구독을 선택하고 장애 조치(failover) 후 Azure VM이 생성될 리소스 그룹 **ContosoRG** 를 선택합니다.
 1. **Resource Manager** 배포 모델을 선택합니다.
 
 Site Recovery에서 호환되는 Azure Storage 계정 및 네트워크가 하나 이상 있는지 확인합니다.
 
 ## <a name="configure-network-mapping"></a>네트워크 매핑 구성
 
-1. **Site Recovery 인프라** > **네트워크 매핑** > **네트워크 매핑**에서 **+ 네트워크 매핑** 아이콘을 선택합니다.
-1. **네트워크 매핑 추가**에서 **원본 System Center VMM** 서버를 선택합니다. **대상**에 대해 Azure를 선택합니다.
+1. **Site Recovery 인프라** > **네트워크 매핑** > **네트워크 매핑** 에서 **+ 네트워크 매핑** 아이콘을 선택합니다.
+1. **네트워크 매핑 추가** 에서 **원본 System Center VMM** 서버를 선택합니다. **대상** 에 대해 Azure를 선택합니다.
 1. 장애 조치(failover) 후 구독과 배포 모델을 확인합니다.
-1. **원본 네트워크**에서 원본 온-프레미스 VM 네트워크를 선택합니다.
-1. **대상 네트워크**에서 장애 조치 후에 만들어지는 복제본 Azure VM이 위치할 Azure 네트워크를 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. **원본 네트워크** 에서 원본 온-프레미스 VM 네트워크를 선택합니다.
+1. **대상 네트워크** 에서 장애 조치 후에 만들어지는 복제본 Azure VM이 위치할 Azure 네트워크를 선택합니다. 그런 다음 **확인** 을 선택합니다.
 
    ![네트워크 매핑](./media/hyper-v-vmm-azure-tutorial/network-mapping-vmm.png)
 
 ## <a name="set-up-a-replication-policy"></a>복제 정책 설정
 
-1. **인프라 준비** > **복제 설정** >  **+만들기 및 연결**을 차례로 선택합니다.
-1. **만들기 및 연결 정책**에서 정책 이름을 지정합니다. 여기서는 **ContosoReplicationPolicy**를 사용합니다.
-1. 기본 설정을 적용하고, **확인**을 선택합니다.
-   - **복사 빈도**는 초기 복제 후 델타 데이터가 5분마다 복제됨을 나타냅니다.
-   - **복구 지점 보존**은 각 복구 지점이 2시간 동안 보존됨을 나타냅니다.
-   - **앱 일치 스냅샷 빈도**는 앱 일치 스냅샷을 포함하는 복구 지점이 1시간마다 만들어짐을 나타냅니다.
-   - **초기 복제 시작 시간**은 초기 복제가 즉시 시작됨을 나타냅니다.
-   - **Azure에 저장된 데이터 암호화**가 기본값(**끄기**)으로 설정되고, Azure에 저장된 데이터가 암호화되지 않음을 나타냅니다.
-1. 정책이 만들어지면 **확인**을 선택합니다. 새 정책을 만들면 해당 정책이 VMM 클라우드에 자동으로 연결됩니다.
+1. **인프라 준비** > **복제 설정** >  **+만들기 및 연결** 을 차례로 선택합니다.
+1. **만들기 및 연결 정책** 에서 정책 이름을 지정합니다. 여기서는 **ContosoReplicationPolicy** 를 사용합니다.
+1. 기본 설정을 적용하고, **확인** 을 선택합니다.
+   - **복사 빈도** 는 초기 복제 후 델타 데이터가 5분마다 복제됨을 나타냅니다.
+   - **복구 지점 보존** 은 각 복구 지점이 2시간 동안 보존됨을 나타냅니다.
+   - **앱 일치 스냅샷 빈도** 는 앱 일치 스냅샷을 포함하는 복구 지점이 1시간마다 만들어짐을 나타냅니다.
+   - **초기 복제 시작 시간** 은 초기 복제가 즉시 시작됨을 나타냅니다.
+   - **Azure에 저장된 데이터 암호화** 가 기본값(**끄기**)으로 설정되고, Azure에 저장된 데이터가 암호화되지 않음을 나타냅니다.
+1. 정책이 만들어지면 **확인** 을 선택합니다. 새 정책을 만들면 해당 정책이 VMM 클라우드에 자동으로 연결됩니다.
 
 ## <a name="enable-replication"></a>복제 사용
 
-1. **애플리케이션 복제**에서 **원본**을 선택합니다.
-1. **원본** - VMM 클라우드를 선택합니다. 그런 다음 **확인**을 선택합니다.
-1. **대상**에서 대상(Azure) 및 자격 증명 모음 구독을 확인하고, **Resource Manager** 모델을 선택합니다.
+1. **애플리케이션 복제** 에서 **원본** 을 선택합니다.
+1. **원본** - VMM 클라우드를 선택합니다. 그런 다음 **확인** 을 선택합니다.
+1. **대상** 에서 대상(Azure) 및 자격 증명 모음 구독을 확인하고, **Resource Manager** 모델을 선택합니다.
 1. **contosovmsacct1910171607** 스토리지 계정 및 **ContosoASRnet** Azure 네트워크를 선택합니다.
-1. **가상 머신** > **선택**에서 복제하려는 VM을 선택합니다. 그런 다음 **확인**을 선택합니다.
+1. **가상 머신** > **선택** 에서 복제하려는 VM을 선택합니다. 그런 다음 **확인** 을 선택합니다.
 
-   **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료되면 초기 복제가 완료되고 VM에서 장애 조치할 준비가 됩니다.
+   **작업** > **Site Recovery 작업** 에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 완료되면 초기 복제가 완료되고 VM에서 장애 조치할 준비가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

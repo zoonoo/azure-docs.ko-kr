@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: c4e838afa867a7fb1e7fa8f582bc8879c24056a9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92506108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>자습서: RFPIO와 Azure Active Directory 통합
@@ -171,7 +171,7 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -195,7 +195,7 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 RFPIO에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **RFPIO** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **RFPIO** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -229,7 +229,7 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![스크린샷은 선택된 조직 설정을 보여줍니다.](./media/rfpio-tutorial/app2.png)
 
-1. **TEAM MEMBERS** (팀 멤버)를 클릭합니다.
+1. **TEAM MEMBERS**(팀 멤버)를 클릭합니다.
 
     ![스크린샷은 설정에서 선택한 팀 멤버를 보여줍니다.](./media/rfpio-tutorial/app6.png)
 
@@ -241,7 +241,7 @@ RFPIO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
     ![스크린샷은 설명된 값을 입력할 수 있는 새 멤버 추가를 보여줍니다.](./media/rfpio-tutorial/app8.png)
 
-    a. **Enter one email per line** (줄당 하나의 메일 입력) 필드에 **메일 주소** 를 입력합니다.
+    a. **Enter one email per line**(줄당 하나의 메일 입력) 필드에 **메일 주소** 를 입력합니다.
 
     b. 요구 사항에 따라 **역할** 을 선택합니다.
 

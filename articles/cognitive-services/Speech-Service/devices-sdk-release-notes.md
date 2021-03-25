@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37bbc8c7c2b81c22ffd8704e655805cc63cd9d45
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103562334"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044994"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
 
@@ -25,7 +25,7 @@ ms.locfileid: "103562334"
 
 - 새 MA (Microsoft 오디오 스택)로 업그레이드 하 여 beamforming 및 음성에 대 한 노이즈 감소를 개선 했습니다.
 - 대상에 따라 이진 크기를 70%까지 줄였습니다.
-- [이진 릴리스](https://aka.ms/sdsdk-download-APAudio)를 사용 하는 [Azure Percept Audio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) 지원.
+- [이진 릴리스](https://aka.ms/sdsdk-download-APAudio)를 사용 하는 [Azure Percept Audio](../../azure-percept/overview-azure-percept-audio.md) 지원.
 - [SPEECH SDK](./speech-sdk.md) 구성 요소가 1.15.0 버전으로 업데이트 되었습니다. 해당 [릴리스 정보](./releasenotes.md)를 참조하세요.
 
 ## <a name="speech-devices-sdk-1110"></a>음성 장치 SDK 1.11.0:

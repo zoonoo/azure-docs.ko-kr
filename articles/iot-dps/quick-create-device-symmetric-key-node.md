@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: 78005ba46952bcf05b19c7627feecb1ec30ac651
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92429262"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-nodejs"></a>빠른 시작: Node.js를 사용하여 대칭 키 디바이스 프로비저닝
@@ -51,9 +51,9 @@ ms.locfileid: "92429262"
 
    - **메커니즘:** ID 증명 *메커니즘* 으로 **대칭 키** 를 선택합니다.
 
-   - **키 자동 생성** : 이 상자를 선택합니다.
+   - **키 자동 생성**: 이 상자를 선택합니다.
 
-   - **등록 ID** : 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-nodejs-device-01** 입니다.
+   - **등록 ID**: 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-nodejs-device-01** 입니다.
 
    - **IoT Hub 디바이스 ID:** 디바이스 식별자를 입력합니다. 예를 들어 **nodejs-device-01** 입니다.
 

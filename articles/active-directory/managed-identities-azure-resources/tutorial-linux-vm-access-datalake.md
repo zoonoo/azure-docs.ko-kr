@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d465419dfe36fd5dd67abdef22a6f54fba69a98e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89267465"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
@@ -44,17 +44,17 @@ ms.locfileid: "89267465"
 
 Data Lake Store에서 새 폴더를 만들고, 해당 폴더에서 파일을 읽고, 쓰고, 실행할 수 있는 Linux VM 시스템 할당 관리 ID 권한을 부여합니다.
 
-1. Azure Portal의 왼쪽 창에서 **Data Lake Store**를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Data Lake Store** 를 선택합니다.
 2. 사용할 Data Lake Store 인스턴스를 선택합니다.
-3. 명령 모음에서 **데이터 탐색기**를 선택합니다.
-4. Data Lake Store 인스턴스의 루트 폴더가 선택됩니다. 명령 모음에서 **액세스**를 선택합니다.
-5. **추가**를 선택합니다.  **선택** 상자에서 VM의 이름(예: **DevTestVM**)을 입력합니다. 검색 결과에서 VM을 선택한 다음, **선택**을 클릭합니다.
-6. **사용 권한 선택**을 클릭합니다.  **읽기** 및 **실행**을 선택하고, **이 폴더**에 추가하고, **액세스 권한 전용**으로 추가합니다. **확인**을 선택합니다.  사용 권한은 성공적으로 추가되어야 합니다.
+3. 명령 모음에서 **데이터 탐색기** 를 선택합니다.
+4. Data Lake Store 인스턴스의 루트 폴더가 선택됩니다. 명령 모음에서 **액세스** 를 선택합니다.
+5. **추가** 를 선택합니다.  **선택** 상자에서 VM의 이름(예: **DevTestVM**)을 입력합니다. 검색 결과에서 VM을 선택한 다음, **선택** 을 클릭합니다.
+6. **사용 권한 선택** 을 클릭합니다.  **읽기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 전용** 으로 추가합니다. **확인** 을 선택합니다.  사용 권한은 성공적으로 추가되어야 합니다.
 7. **액세스** 창을 닫습니다.
-8. 이 자습서에서는 새 폴더를 만듭니다. 명령 모음에서 **새 폴더**를 선택하고 새 폴더 이름(예: **TestFolder**)을 입력합니다.  **확인**을 선택합니다.
-9. 만든 폴더를 선택한 다음, 명령 모음에서 **액세스**를 선택합니다.
-10. 5단계와 마찬가지로 **추가**를 선택합니다. **선택** 상자에 VM의 이름을 입력합니다. 검색 결과에서 VM을 선택한 다음, **선택**을 클릭합니다.
-11. 6단계와 마찬가지로 **권한 선택**을 선택합니다. **읽기**, **쓰기** 및 **실행**을 선택하고, **이 폴더**에 추가하고, **액세스 권한 항목 및 기본 권한 항목**으로 추가합니다. **확인**을 선택합니다.  사용 권한은 성공적으로 추가되어야 합니다.
+8. 이 자습서에서는 새 폴더를 만듭니다. 명령 모음에서 **새 폴더** 를 선택하고 새 폴더 이름(예: **TestFolder**)을 입력합니다.  **확인** 을 선택합니다.
+9. 만든 폴더를 선택한 다음, 명령 모음에서 **액세스** 를 선택합니다.
+10. 5단계와 마찬가지로 **추가** 를 선택합니다. **선택** 상자에 VM의 이름을 입력합니다. 검색 결과에서 VM을 선택한 다음, **선택** 을 클릭합니다.
+11. 6단계와 마찬가지로 **권한 선택** 을 선택합니다. **읽기**, **쓰기** 및 **실행** 을 선택하고, **이 폴더** 에 추가하고, **액세스 권한 항목 및 기본 권한 항목** 으로 추가합니다. **확인** 을 선택합니다.  사용 권한은 성공적으로 추가되어야 합니다.
 
 이제 사용자가 만든 폴더의 파일에 Azure 리소스에 대한 관리 ID가 모든 작업을 수행할 수 있습니다. Data Lake Store에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Data Lake Store의 Access Control](../../data-lake-store/data-lake-store-access-control.md)을 참조하세요.
 
@@ -69,7 +69,7 @@ Data Lake Store에서 새 폴더를 만들고, 해당 폴더에서 파일을 읽
 
 아래의 단계를 완료하려면 SSH 클라이언트가 필요합니다. Windows를 사용 중인 경우 [Linux용 Windows 하위 시스템](/windows/wsl/about)에서 SSH 클라이언트를 사용할 수 있습니다. SSH 클라이언트의 키 구성에 대한 도움이 필요하면 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md) 또는 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](../../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-1. 포털에서 Linux VM으로 이동합니다. **개요**에서 **연결**을 선택합니다.  
+1. 포털에서 Linux VM으로 이동합니다. **개요** 에서 **연결** 을 선택합니다.  
 2. 원하는 SSH 클라이언트를 사용하여 VM에 연결합니다. 
 3. 터미널 창에서 cURL을 사용하여 Data Lake Store 파일 시스템에 액세스 토큰을 가져오도록 Azure 리소스에 대한 로컬 관리 ID 엔드포인트에 요청합니다. Data Lake Store의 리소스 식별자는 `https://datalake.azure.net/`입니다.  리소스 식별자에 후행 슬래시를 포함해야 합니다.
     

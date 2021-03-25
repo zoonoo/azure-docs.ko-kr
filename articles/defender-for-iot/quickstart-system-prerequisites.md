@@ -1,18 +1,14 @@
 ---
 title: 시스템 필수 구성 요소
 description: Azure Defender for IoT를 실행하는 데 필요한 시스템 필수 구성 요소를 가져옵니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 4b5db049e6d1cfe76bdd0d5cd6d7360e0b98bad0
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489814"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780942"
 ---
 # <a name="system-prerequisites"></a>시스템 필수 구성 요소
 이 문서에서는 Azure Defender for IoT를 실행하기 위한 시스템 필수 구성 요소가 나열되어 있습니다.

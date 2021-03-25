@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 54be25317717bcf98b9e296d5c9ed59643cd334e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101735780"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044756"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -278,7 +278,7 @@ Azure 네트워킹은 Azure Virtual Network의 네트워크 트래픽에 대한 
 
 Azure는 온-프레미스 네트워크에 대한 전용 WAN 링크 연결과 [ExpressRoute](../../expressroute/expressroute-introduction.md)를 통한 Azure Virtual Network를 지원합니다. Azure와 사이트 간의 링크는 공용 인터넷을 사용하지 않는 전용 연결을 사용합니다. Azure 응용 프로그램이 여러 데이터 센터에서 실행 되는 경우 [azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) 를 사용 하 여 사용자의 요청을 응용 프로그램의 여러 인스턴스에서 지능적으로 라우팅할 수 있습니다. 또한 인터넷에서 액세스할 수 있는 경우 Azure에서 실행되지 않는 서비스로 트래픽을 라우팅할 수 있습니다.
 
-Azure는 azure [개인 링크](https://docs.microsoft.com/azure/private-link/private-link-overview)를 사용 하 여 azure Virtual Network에서 PaaS 리소스 (예: Azure Storage 및 SQL Database)에 대 한 개인 및 안전한 연결도 지원 합니다. PaaS 리소스는 가상 네트워크의 [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 에 매핑됩니다. 가상 네트워크와 PaaS 리소스의 개인 끝점 간 링크는 Microsoft 백본 네트워크를 사용 하며 공용 인터넷을 통해 이동 하지 않습니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 또한 Azure 개인 링크를 사용 하 여 가상 네트워크에서 Azure에서 호스트 되는 고객 소유 및 파트너 서비스에 액세스할 수 있습니다.  또한 Azure 개인 링크를 사용 하면 가상 네트워크에서 [개인 링크 서비스](https://docs.microsoft.com/azure/private-link/private-link-service-overview) 를 만들어 가상 네트워크에서 개인적으로 고객에 게 제공할 수 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다.
+Azure는 azure [개인 링크](../../private-link/private-link-overview.md)를 사용 하 여 azure Virtual Network에서 PaaS 리소스 (예: Azure Storage 및 SQL Database)에 대 한 개인 및 안전한 연결도 지원 합니다. PaaS 리소스는 가상 네트워크의 [개인 끝점](../../private-link/private-endpoint-overview.md) 에 매핑됩니다. 가상 네트워크와 PaaS 리소스의 개인 끝점 간 링크는 Microsoft 백본 네트워크를 사용 하며 공용 인터넷을 통해 이동 하지 않습니다. 서비스를 공용 인터넷에 더 이상 노출할 필요가 없습니다. 또한 Azure 개인 링크를 사용 하 여 가상 네트워크에서 Azure에서 호스트 되는 고객 소유 및 파트너 서비스에 액세스할 수 있습니다.  또한 Azure 개인 링크를 사용 하면 가상 네트워크에서 [개인 링크 서비스](../../private-link/private-link-service-overview.md) 를 만들어 가상 네트워크에서 개인적으로 고객에 게 제공할 수 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다.
 
 ## <a name="virtual-machine-security"></a>가상 머신 보안
 
@@ -342,7 +342,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 보안 센터는 Azure 리소스의 보안 상태를 분석하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
-다음은 이러한 템플릿의 예입니다.
+다음은 이러한 서비스의 예입니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
 

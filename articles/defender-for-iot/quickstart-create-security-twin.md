@@ -1,24 +1,14 @@
 ---
 title: '빠른 시작: 보안 모듈 쌍 만들기'
 description: 이 빠른 시작에서는 Azure Defender for IoT에서 사용할 Defender for IoT 모듈 쌍을 만드는 방법을 알아봅니다.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 1/21/2021
-ms.author: shhazam
-ms.openlocfilehash: cfd5192a78c34caf5acbe4576f5a00ab314acb61
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 2ee88bd23b7d125ef9244f8ff630ee5eb8cdd015
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489899"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782676"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>빠른 시작: azureiotsecurity 모듈 쌍 만들기
 
