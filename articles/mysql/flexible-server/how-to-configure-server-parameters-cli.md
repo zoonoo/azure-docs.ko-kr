@@ -1,19 +1,19 @@
 ---
 title: 서버 매개 변수 구성-Azure CLI-유연한 서버 Azure Database for MySQL
 description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용 하 Azure Database for MySQL 유연한 서버에서 서비스 매개 변수를 구성 하는 방법을 설명 합니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 11/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58e7c024d6494aee745884997e42b527c51ab237
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 21f9b3dcb94be105c8b7279e6ac447540da65447
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94489542"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110103"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Azure CLI를 사용 하 Azure Database for MySQL 유연한 서버에서 서버 매개 변수 구성
 

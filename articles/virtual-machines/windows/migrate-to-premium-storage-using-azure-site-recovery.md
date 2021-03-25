@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: aeb8028468a1e1944a4fd39275f134bfae00dfa3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a8b58c72ee4e6d9d38dccb369a3d38c46f0c4afe
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102555349"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046847"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -63,7 +63,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 * 장애 조치(failover) 시 만든 경우 VM에서 연결할 Azure 가상 네트워크 Azure 가상 네트워크는 Site Recovery가 실행되는 동일한 지역에 있어야 합니다.
 * 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 스토리지 계정일 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이전 섹션의 관련 마이그레이션 시나리오 구성 요소 이해
 * [Site Recovery에서 장애 조치(Failover)](../../site-recovery/site-recovery-failover.md)에 대해 학습하여 작동 중단 시간 계획
@@ -199,7 +199,7 @@ Site Recovery는 Premium Storage 사용 가능 VM에 형식이 동일하거나 �
    * 클래식 배포 모델을 통해 만든 VM: Azure Portal의 가용성 집합에 VM을 추가합니다. 자세한 단계는 [기존 가상 머신을 가용성 집합에 추가](/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic)로 이동하세요.
    * Resource Manager 배포 모델을 통해 만든 VM: VM 구성을 저장하고 VM을 삭제한 후에 가용성 집합에 다시 만듭니다. 이렇게 하려면 [Azure Resource Manager VM 가용성 집합 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)에서 스크립트를 사용합니다. 이 스크립트를 실행하기 전에 제한 사항을 확인하고 작동 중단 시간을 계획합니다.
 
-2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 스토리지 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [스토리지 리소스 삭제 오류 해결](../troubleshooting/storage-resource-deletion-errors.md)을 참조하세요.
+2. **이전 VM 및 디스크를 삭제합니다**. 프리미엄 디스크가 원본 디스크와 일치하고 새 VM이 원본 VM과 동일한 기능을 수행해야 합니다. VM을 삭제하고 Azure Portal의 원본 스토리지 계정에서 디스크를 삭제합니다. VM을 삭제했는데도 디스크가 삭제되지 않는 문제가 발생하는 경우 [스토리지 리소스 삭제 오류 해결](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors)을 참조하세요.
 
 3. **Azure Site Recovery 인프라를 정리합니다**. Site Recovery가 더 이상 필요하지 않은 경우 인프라를 정리할 수 있습니다. 복제된 항목, 구성 서버 및 복구 정책을 삭제한 후 Azure Site Recovery 자격 증명 모음을 삭제합니다.
 

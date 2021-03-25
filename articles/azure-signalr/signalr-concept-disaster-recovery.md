@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 996fa53aa105c0bcc27db7134c25d6d00e542a78
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90976500"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110290"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Azure SignalR Service의 복원력 및 재해 복구
 
@@ -44,13 +44,16 @@ SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적�
 
 ![다이어그램은 각각 앱 서버 및 SignalR 서비스를 포함 하는 두 개의 지역을 보여줍니다. 여기서 각 서버는 해당 지역의 SignalR 서비스와 다른 지역의 서비스를 보조로 연결 합니다.](media/signalr-concept-disaster-recovery/topology.png)
 
-## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>여러 SignalR Service 인스턴스를 사용한 앱 서버 구성
+## <a name="configure-multiple-signalr-service-instances"></a>여러 SignalR 서비스 인스턴스 구성
 
-각 지역에서 SignalR Service와 앱 서버를 만든 후에는 모든 SignalR Service 인스턴스에 연결되도록 앱 서버를 구성할 수 있습니다.
+여러 SignalR service 인스턴스는 앱 서버와 Azure Functions 모두에서 지원 됩니다.
 
+각 지역에서 SignalR 서비스 및 앱 서버/Azure Functions를 만든 후에는 앱 서버/Azure Functions를 구성 하 여 모든 SignalR 서비스 인스턴스에 연결할 수 있습니다.
+
+### <a name="configure-on-app-servers"></a>앱 서버에서 구성
 두 가지 방법이 있습니다.
 
-### <a name="through-config"></a>구성을 통해
+#### <a name="through-config"></a>구성을 통해
 
 환경 변수/앱 설정/웹. cofig을 통해 이름이 인 구성 항목에서 SignalR 서비스 연결 문자열을 설정 하는 방법을 이미 알고 있어야 합니다 `Azure:SignalR:ConnectionString` .
 여러 엔드포인트가 있는 경우 여러 구성 항목에서 각각 다음 형식으로 설정할 수 있습니다.
@@ -62,7 +65,7 @@ Azure:SignalR:ConnectionString:<name>:<role>
 여기서 `<name>`은 엔드포인트의 이름이며 `<role>`은 해당 역할(기본 또는 보조)입니다.
 이름은 선택 사항이지만 여러 엔드포인트 간에 라우팅 동작을 추가로 사용자 지정하려는 경우 유용합니다.
 
-### <a name="through-code"></a>코드를 통해
+#### <a name="through-code"></a>코드를 통해
 
 연결 문자열을 다른 위치에 저장 하려는 경우 코드에서이를 읽고 `AddAzureSignalR()` (ASP.NET Core) 또는 `MapAzureSignalR()` (ASP.NET)를 호출할 때 매개 변수로 사용할 수도 있습니다.
 
@@ -93,6 +96,9 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
 
 1. 주 인스턴스가 하나 이상 온라인 상태 이면 임의의 주 온라인 인스턴스를 반환 합니다.
 2. 모든 주 인스턴스가 다운 되 면 임의의 보조 온라인 인스턴스를 반환 합니다.
+
+### <a name="configure-on-azure-functions"></a>Azure Functions 구성
+[이 문서](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md#configuration-method)를 참조 하세요.
 
 ## <a name="failover-sequence-and-best-practice"></a>장애 조치(Failover) 시퀀스와 모범 사례
 
@@ -137,3 +143,5 @@ SignalR Service는 두 패턴을 모두 지원하며 주요 차이점은 앱 서
 이 문서에서는 SignalR Service에 대한 복원력을 달성하기 위해 애플리케이션을 구성하는 방법을 알아보았습니다. SignalR Service의 서버/클라이언트 연결 및 연결 라우팅에 대해 자세히 알아보려면 [이 문서](signalr-concept-internals.md)에서 SignalR Service 내부 기능에 대해 읽어보세요.
 
 여러 인스턴스를 함께 사용 하 여 다 수의 연결을 처리 하는 분할와 같은 크기 조정 시나리오의 경우 [여러 인스턴스의 크기를 조정 하는 방법](signalr-howto-scale-multi-instances.md)을 참조 하세요.
+
+여러 SignalR service 인스턴스를 사용 하 여 Azure Functions를 구성 하는 방법에 대 한 자세한 내용은 [Azure Functions에서 여러 Azure SignalR 서비스 인스턴스 지원](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/docs/sharding.md)을 참조 하세요.

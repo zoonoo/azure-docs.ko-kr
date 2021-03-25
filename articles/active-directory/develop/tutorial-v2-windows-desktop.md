@@ -13,10 +13,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 60a29efc4d2daa9d1bc90f00e71094da382a83b9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686889"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>자습서: Windows 데스크톱 앱에서 Microsoft Graph API 호출
@@ -35,7 +35,7 @@ ms.locfileid: "101686889"
 > * Microsoft Graph API를 호출하는 코드 추가
 > * 앱 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 

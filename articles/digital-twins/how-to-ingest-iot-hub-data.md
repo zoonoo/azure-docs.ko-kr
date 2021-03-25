@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889470"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950599"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -39,7 +39,7 @@ Azure Digital Twins로 데이터를 수집 하는 프로세스는 [Azure Functio
 
 자동 온도 조절기 장치에서 온도 원격 분석 이벤트를 보낼 때마다 함수는 원격 분석을 처리 하 고 디지털 쌍의 *온도* 속성은 업데이트 해야 합니다. 이 시나리오는 아래 다이어그램에 설명 되어 있습니다.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 IoT Hub를 통해 온도 원격 분석을 azure의 함수로 전송 합니다. 그러면 azure에서 해당 쌍의 온도 속성을 업데이트 합니다." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Azure에서 함수에 대 한 IoT Hub를 통해 온도 원격 분석을 전송 하는 IoT Hub 장치의 다이어그램 (Azure Digital Twins의 쌍에 대 한 온도 속성을 업데이트)." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>모델 및 트윈 추가
 
@@ -47,14 +47,7 @@ Azure Digital Twins로 데이터를 수집 하는 프로세스는 [Azure Functio
 
 자동 온도 조절기 쌍을 만들려면 먼저 자동 온도 조절기 모델을 인스턴스에 업로드 해야 합니다 .이 [모델](concepts-models.md) 은 자동 온도 조절기의 속성을 설명 하 고 나중에 쌍을 만드는 데 사용 됩니다. 
 
-모델은 다음과 같습니다.
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
-
-**이 모델을 쌍 인스턴스에 업로드** 하려면 위의 모델을 인라인 JSON으로 업로드 하는 다음 Azure CLI 명령을 실행 합니다. CLI를 [로컬로 설치](/cli/azure/install-azure-cli)하는 경우 브라우저 또는 컴퓨터에서 [Azure Cloud Shell](/cloud-shell/overview.md) 에서 명령을 실행할 수 있습니다.
-
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 그런 다음 **이 모델을 사용 하 여 하나의** 쌍을 만들어야 합니다. 다음 명령을 사용 하 여 **thermostat67** 라는 자동 온도 조절기 쌍을 만들고 0.0를 초기 온도 값으로 설정 합니다.
 
@@ -62,13 +55,8 @@ az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> PowerShell 환경에서 Cloud Shell를 사용 하는 경우 해당 값을 올바르게 구문 분석 하려면 인라인 JSON 필드에서 인용 부호 문자를 이스케이프 해야 할 수 있습니다. 모델을 업로드 하 고이 수정으로 쌍을 만드는 명령은 다음과 같습니다.
->
-> 모델 업로드:
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
+> [!Note]
+> PowerShell 환경에서 Cloud Shell를 사용 하는 경우 해당 값을 올바르게 구문 분석 하려면 인라인 JSON 필드에서 인용 부호 문자를 이스케이프 해야 할 수 있습니다. 이 수정으로 쌍을 만드는 명령은 다음과 같습니다.
 >
 > 쌍 만들기:
 > ```azurecli-interactive
@@ -117,7 +105,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 
 #### <a name="step-3-publish-the-function-app-to-azure"></a>3 단계: Azure에 함수 앱 게시
 
-Azure의 함수 앱에 프로젝트를 게시 합니다.
+*IoTHubtoTwins* 함수를 사용 하 여 프로젝트를 Azure의 함수 앱에 게시 합니다.
 
 이 작업을 수행 하는 방법에 대 한 지침은 *방법: 데이터 처리를 위한 함수 설정* 문서의 [**Azure에 함수 앱 게시**](how-to-create-azure-function.md#publish-the-function-app-to-azure) 섹션을 참조 하세요.
 

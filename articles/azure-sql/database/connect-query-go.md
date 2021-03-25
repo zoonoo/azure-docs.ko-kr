@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: b4a22c734d2afb90d5ea7bc1bda17d3f8fcf585a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91327547"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Golang을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
@@ -65,13 +65,13 @@ ms.locfileid: "91327547"
 
 ## <a name="create-golang-project-and-dependencies"></a>Golang 프로젝트 및 종속성 만들기
 
-1. 터미널에서 이름이 **SqlServerSample**인 새 프로젝트 폴더를 만듭니다. 
+1. 터미널에서 이름이 **SqlServerSample** 인 새 프로젝트 폴더를 만듭니다. 
 
    ```bash
    mkdir SqlServerSample
    ```
 
-2. **SqlServerSample**로 이동하여 Go용 SQL Server 드라이버를 설치합니다.
+2. **SqlServerSample** 로 이동하여 Go용 SQL Server 드라이버를 설치합니다.
 
    ```bash
    cd SqlServerSample
@@ -81,7 +81,7 @@ ms.locfileid: "91327547"
 
 ## <a name="create-sample-data"></a>샘플 데이터 만들기
 
-1. 텍스트 편집기에서 이름이 **CreateTestData.sql**인 파일을 **SqlServerSample** 폴더에 만듭니다. 파일에서 이 T-SQL 코드를 복사하여 붙여넣습니다. 이 코드는 스키마, 테이블을 만들고 행 몇 개를 삽입합니다.
+1. 텍스트 편집기에서 이름이 **CreateTestData.sql** 인 파일을 **SqlServerSample** 폴더에 만듭니다. 파일에서 이 T-SQL 코드를 복사하여 붙여넣습니다. 이 코드는 스키마, 테이블을 만들고 행 몇 개를 삽입합니다.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -112,7 +112,7 @@ ms.locfileid: "91327547"
 
 ## <a name="insert-code-to-query-the-database"></a>데이터베이스를 쿼리하는 코드 삽입
 
-1. **SqlServerSample** 폴더에 이름이 **sample.go**인 파일을 만듭니다.
+1. **SqlServerSample** 폴더에 이름이 **sample.go** 인 파일을 만듭니다.
 
 2. 파일에서 이 코드를 붙여넣습니다. 서버, 데이터베이스, 사용자 이름 및 암호 값을 추가합니다. 이 예제에서는 Golang [컨텍스트 메서드](https://golang.org/pkg/context/)를 사용하여 활성 연결이 있는지 확인합니다.
 

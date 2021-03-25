@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5f853c19015a70d596c32532a9c280c785b4597b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609548"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954057"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>계산 인스턴스 및 계산 클러스터 호스트 OS를 업그레이드 합니다.
 
 Azure Machine Learning __계산 클러스터__ 및 __계산 인스턴스__ 는 관리 되는 계산 인프라입니다. 관리 서비스인 Microsoft는 설치 된 호스트 OS와 패키지 및 소프트웨어 버전을 관리 합니다.
 
-계산 클러스터 및 계산 인스턴스에 대 한 호스트 OS는 Ubuntu 16.04 LTS입니다. **2021 년 4 월 30** 일부 터 Ubuntu는 16.04에 대 한 지원을 종료 합니다. __2021 년 3 월 15__ 일부 터 Microsoft에서 자동으로 호스트 OS를 Ubuntu 18.04 lts로 업데이트 합니다. 18.04로 업데이트 하면 Ubuntu 커뮤니티에서 지속적인 보안 업데이트 및 지원이 보장 됩니다. Ubuntu에서 16.04에 대 한 지원을 종료 하는 방법에 대 한 자세한 내용은 [ubuntu 릴리스 블로그](https://wiki.ubuntu.com/Releases)를 참조 하세요.
+계산 클러스터 및 계산 인스턴스에 대 한 호스트 OS는 Ubuntu 16.04 LTS입니다. **2021 년 4 월 30** 일부 터 Ubuntu는 16.04에 대 한 지원을 종료 합니다. __2021 년 3 월 15__ 일부 터 Microsoft에서 자동으로 호스트 OS를 Ubuntu 18.04 lts로 업데이트 합니다. 18.04로 업데이트 하면 Ubuntu 커뮤니티에서 지속적인 보안 업데이트 및 지원이 보장 됩니다. 이 업데이트는 Azure 지역에서 롤아웃 되며 __2021 년 4 월 9 일__ 까지 모든 지역에서 사용할 수 있습니다. Ubuntu에서 16.04에 대 한 지원을 종료 하는 방법에 대 한 자세한 내용은 [ubuntu 릴리스 블로그](https://wiki.ubuntu.com/Releases)를 참조 하세요.
 
 > [!TIP]
 > * 호스트 OS는 모델을 학습 하거나 배포할 때 [환경](how-to-use-environments.md) 에 대해 지정할 수 있는 os 버전이 아닙니다. 환경은 Docker 내에서 실행 됩니다. Docker는 호스트 OS에서 실행 됩니다.
@@ -30,11 +30,11 @@ Azure Machine Learning __계산 클러스터__ 및 __계산 인스턴스__ 는 �
 > * Ubuntu 18.04을 기반으로 Azure Machine Learning 계산 인스턴스를 사용 하는 경우 기본 Python 버전은 _python 3.8_ 입니다.
 ## <a name="creating-new-resources"></a>새 리소스 만들기
 
-__2021 년 3 월 15 일__ 이후에 생성 된 계산 클러스터 또는 계산 인스턴스는 기본적으로 Ubuntu 18.04 lts를 호스트 OS로 사용 합니다. 다른 호스트 OS를 선택할 수 없습니다.
+__2021 년 4 월 9 일__ 이후에 생성 된 계산 클러스터 또는 계산 인스턴스는 기본적으로 Ubuntu 18.04 lts를 호스트 OS로 사용 합니다. 다른 호스트 OS를 선택할 수 없습니다.
 
 ## <a name="upgrade-existing-resources"></a>기존 리소스 업그레이드
 
-__2021 년 3 월 15 일__ 이전에 만든 기존 계산 클러스터 또는 계산 인스턴스가 있는 경우 호스트 OS를 Ubuntu 18.04로 업그레이드 하려면 작업을 수행 해야 합니다.
+__2021 년 3 월 15 일__ 이전에 만든 기존 계산 클러스터 또는 계산 인스턴스가 있는 경우 호스트 OS를 Ubuntu 18.04로 업그레이드 하는 조치를 취해야 합니다. 에서 Azure Machine Learning 액세스 하는 지역에 따라, __2021 년 4 월 9 일__ 이후에는 이러한 작업을 수행 하 여 변경 내용이 모든 지역에 롤아웃 되도록 하는 것이 좋습니다.
 
 * __계산 클러스터 Azure Machine Learning__:
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: fda59cc041cc540b95ababa6d56df6e69b0a8970
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: b1391f81c571879534258c289436d2d086b84bef
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956165"
+ms.locfileid: "105045946"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>IBM zD&T v1에서 응용 프로그램 개발자 제어 배포 (ADCD)를 설정 합니다.
 
@@ -28,7 +28,7 @@ Azure Virtual Machines (Vm)에서 IBM Z (zD&T) 환경을 실행할 수 있습니
 
 ZD&T와 같이 ADCDs는 IBM 고객 및 파트너만 사용할 수 있으며 개발 및 테스트 목적 으로만 사용할 수 있습니다. 프로덕션 환경에는 사용 되지 않습니다. 수많은 IBM 설치 패키지는 [Passport 혜택](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) 또는 [IBM 지역](https://www.ibm.com/partnerworld/public)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
 
@@ -191,7 +191,7 @@ ADCD 미디어에 대 한 액세스가 필요 합니다. 아래 단계에서는 
 
 - [메인프레임 마이그레이션: myths 및 팩트](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Azure에서 IBM DB2 pureScale](ibm-db2-purescale-azure.md)
-- [문제 해결](../../../troubleshooting/index.yml)
+- [문제 해결](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [전문가가 제공 자세히 메인프레임에서 Azure로 마이그레이션](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

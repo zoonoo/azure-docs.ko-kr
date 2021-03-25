@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 55440c3bec940e0cd5fd4c4d644801e7012b5e95
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6ab310681ae7b63cb4e9f4e07984983727ae5ff2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101701481"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953921"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -40,7 +40,7 @@ Runbook에 대 한 추가 격리를 얻으려면 Azure virtual machines에서 �
 
 - [Azure 방화벽을 배포 및 구성 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Runbook 실행 환경](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment)
+- [Runbook 실행 환경](./automation-runbook-execution.md#runbook-execution-environment)
 
 **책임**: Customer
 
@@ -132,7 +132,7 @@ Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, Azure RBA
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 - [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -162,9 +162,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 네트워크 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **책임**: Customer
 
@@ -182,7 +182,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -202,9 +202,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 하는 감사 및 활동 로그에 대 한 액세스를 Azure Monitor를 사용 하도록 설정 합니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure 활동 로그 이벤트를 보고 검색하기](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 보고 검색하기](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **책임**: Customer
 
@@ -214,9 +214,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Monitor 내에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. Azure Storage 계정을 장기/보관 스토리지에 사용합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Automation 계정에 대 한 데이터 보존 세부 정보](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+- [Automation 계정에 대 한 데이터 보존 세부 정보](./automation-managing-data.md#data-retention)
 
 **책임**: Customer
 
@@ -230,9 +230,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor의 로그 쿼리 이해](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Azure Monitor의 로그 쿼리 이해](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -248,7 +248,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Azure Monitor 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Azure Monitor 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -296,7 +296,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Management Azure Active Directory (Azure AD) 및 Azure Resource Manager를 사용 하 여 Just-in-time/간단 하 게 액세스할 수 있습니다.
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 - [실행 또는 클래식 실행 계정 삭제](delete-run-as-account.md)
 
@@ -352,7 +352,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 - [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](/azure/azure-monitor/platform/action-groups)
+- [사용자 지정 경고 및 알림에 대 한 작업 그룹을 구성 하는 방법](../azure-monitor/alerts/action-groups.md)
 
 **책임**: Customer
 
@@ -374,7 +374,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
-- [관리 id로 runbook 인증 사용](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+- [관리 id로 runbook 인증 사용](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
 **책임**: Customer
 
@@ -384,7 +384,7 @@ Microsoft 서비스에 대 한 권한 있는 역할 Privileged Identity Manageme
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure ID 액세스 검토를 사용하여 그룹 멤버 자격, 엔터프라이즈 애플리케이션에 대한 액세스 및 역할 할당을 효율적으로 관리합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다. Runbook에 대 한 Automation 계정 실행 계정을 사용 하는 경우 언제 든 지 관리자 권한이 있는 경우에도 이러한 서비스 사용자를 인벤토리에 추적할 수 있습니다. 노출 된 공격 노출 영역을 최소화 하려면 사용 하지 않는 실행 계정을 삭제 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -412,7 +412,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure AD (Azure Active Directory) 위험 및 id 보호 기능을 사용 하 여 네트워크 리소스에 대 한 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -488,7 +488,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 해당 하는 경우 미사용 암호화 및 전송 중인 암호화에 대 한 Azure Security Center 권장 사항을 따릅니다.
 
-- [Azure를 사용 하 여 전송 중인 암호화 이해](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Azure를 사용 하 여 전송 중인 암호화 이해](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 - [Azure Automation TLS 1.2 적용](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
@@ -508,9 +508,9 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 기본 제공 역할 정의를 사용 하 여 Azure Automation 리소스에 대 한 액세스를 제어 하 고, 최소 권한 또는 ' 간단히 ' 액세스 모델에 따라 자동화 리소스에 액세스 하는 사용자에 게 액세스 권한을 할당 합니다. Hybrid Runbook Worker를 사용 하는 경우 해당 가상 컴퓨터에 대 한 관리 id를 활용 하 여 서비스 사용자를 사용 하지 않도록 합니다. 다중 테 넌 트 또는 Hybrid Runbook Worker를 모두 사용 하는 경우 runbook worker의 id에 대해 적절 하 게 범위가 지정 된 Azure RBAC 권한을 적용 해야 합니다.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
-- [Hybrid Runbook Worker에 대한 Runbook 권한](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+- [Hybrid Runbook Worker에 대한 Runbook 권한](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
 - [역할 권한 및 보안 관리](automation-role-based-access-control.md)
 
@@ -538,7 +538,7 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 - [Windows Vm에 대 한 Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)
 
-- [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Azure Automation에서 관리 되는 변수](shared-resources/variables.md)
 
@@ -554,9 +554,9 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 네트워킹 구성 요소, Azure Automation 계정, runbook과 같은 중요 한 Azure 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다. 
 
-- [네트워크 보안 그룹에 대한 진단 로깅](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [네트워크 보안 그룹에 대한 진단 로깅](../private-link/private-link-overview.md#logging-and-monitoring)
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -689,7 +689,7 @@ Hybrid Runbook Worker를 사용 하는 경우 가상 컴퓨터의 가상 디스�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -771,7 +771,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 - [Azure Automation에 대 한 Azure Policy 샘플 기본 제공](policy-reference.md)
 
@@ -831,7 +831,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 - [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [원본 제어 통합 사용](source-control-integration.md)
 
@@ -857,9 +857,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 - [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-- [Automation 계정에 대 한 Azure 데이터 백업](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+- [Automation 계정에 대 한 Azure 데이터 백업](./automation-managing-data.md#data-backup)
 
 **책임**: Customer
 
@@ -873,7 +873,7 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 - [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
-- [Automation 계정에 대해 고객 관리형 키 사용](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Automation 계정에 대해 고객 관리형 키 사용](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **책임**: Customer
 
@@ -987,5 +987,5 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 Azure Security Center를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

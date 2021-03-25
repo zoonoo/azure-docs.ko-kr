@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 12ef839cbbbc69230b314bf7c56a63f57a0d6b20
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a177fc7e17dc91a0d57fa6dee87b80921d7fd8f5
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556267"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043583"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -522,4 +522,4 @@ Resize-VHD -Path C:\test\MyNewVM.vhd -SizeBytes 105906176
 ## <a name="next-steps"></a>다음 단계
 
 - [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)
-- [Azure Windows VM 정품 인증 문제 해결](../troubleshooting/troubleshoot-activation-problems.md)
+- [Azure Windows VM 정품 인증 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

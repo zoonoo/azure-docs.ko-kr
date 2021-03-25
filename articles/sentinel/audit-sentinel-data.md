@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: a8ea32d84da521c8a1af926c6cb5e26bc2738de2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a02be0938b1ab925fb0343351ce1c414cc59c615
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054756"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044841"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Azure Sentinel 쿼리 및 활동 감사
 
@@ -132,7 +132,7 @@ Azure 활동 로그를 사용 하 여 사용자 권한 부여 및 라이선스�
 |업데이트 설정    |Microsoft SecurityInsights/설정|
 | | |
 
-자세한 내용은 [Azure 활동 로그 이벤트 스키마](/azure/azure-monitor/essentials/activity-log-schema)를 참조 하세요.
+자세한 내용은 [Azure 활동 로그 이벤트 스키마](../azure-monitor/essentials/activity-log-schema.md)를 참조 하세요.
 
 
 ## <a name="auditing-with-laquerylogs"></a>LAQueryLogs로 감사
@@ -157,7 +157,7 @@ LAQueryLogs 데이터에는 다음과 같은 정보가 포함 됩니다.
 
 1. Log Analytics 작업 영역에서 **Laquerylogs** 테이블은 기본적으로 사용 하도록 설정 되어 있지 않습니다. Azure 센티널에서 감사할 때 **laquerylogs** 데이터를 사용 하려면 먼저 Log Analytics 작업 영역의 **진단 설정** 영역에서 **laquerylogs** 를 사용 하도록 설정 합니다.
 
-    자세한 내용은 [Azure Monitor 로그의 쿼리 감사](/azure/azure-monitor/logs/query-audit)를 참조 하세요.
+    자세한 내용은 [Azure Monitor 로그의 쿼리 감사](../azure-monitor/logs/query-audit.md)를 참조 하세요.
 
 
 1. 그런 다음 다른 테이블과 같이 KQL를 사용 하 여 데이터를 쿼리 합니다.

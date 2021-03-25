@@ -11,13 +11,14 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 29dd67e9e6e15aaafec0cc47d89da32cbf369938
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fbcdef0002a227d5319fc01e625146480e4c99fc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97618822"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043753"
 ---
 # <a name="set-up-a-sign-up-and-sign-in-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 등록 및 로그인 흐름 설정
 
@@ -34,7 +35,7 @@ ms.locfileid: "97618822"
 
 ![프로필 편집 흐름](./media/add-sign-up-and-sign-in-policy/add-sign-up-and-sign-in-flow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 아직 수행 하지 않은 경우 [Azure Active Directory B2C에 웹 응용 프로그램을 등록](tutorial-register-applications.md)합니다.
 
@@ -66,6 +67,7 @@ ms.locfileid: "97618822"
     ![세 개의 클레임이 선택된 특성 및 클레임 선택 페이지](./media/add-sign-up-and-sign-in-policy/signup-signin-attributes.png)
 
 1. **만들기** 를 클릭하여 사용자 흐름을 추가합니다. *B2C_1* 이라는 접두사가 이름 앞에 자동으로 붙습니다.
+2. 단계에 따라 ["암호를 잊으셨나요?"에 대 한 흐름을 처리](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) 합니다. 등록 또는 로그인 정책 내에 있습니다.
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -73,7 +75,7 @@ ms.locfileid: "97618822"
 1. **애플리케이션** 으로 이전에 등록한 *webapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 을 클릭하고 **지금 등록** 을 선택합니다.
 
-    ![사용자 흐름 실행 단추가 강조 표시된 포털의 사용자 흐름 실행 페이지](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.PNG)
+    ![사용자 흐름 실행 단추가 강조 표시된 포털의 사용자 흐름 실행 페이지](./media/add-sign-up-and-sign-in-policy/signup-signin-run-now.png)
 
 1. 유효한 이메일 주소를 입력하고, **확인 코드 보내기** 를 클릭하고, 받은 확인 코드를 입력한 다음, **코드 확인** 을 선택합니다.
 1. 새 암호를 입력하고 암호를 확인합니다.

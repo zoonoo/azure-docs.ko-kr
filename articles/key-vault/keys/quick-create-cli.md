@@ -11,10 +11,10 @@ ms.date: 01/27/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4141e60370b397e799664b7d42384bbeb096bd05
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99071184"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 키 설정 및 검색

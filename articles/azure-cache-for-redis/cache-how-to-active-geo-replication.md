@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: fe777c3aa7b314dc56a42cc64712d18281a6ea7d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3fe3131263d3cf1984eae1692854d8d6bcd2746a
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121170"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109491"
 ---
 # <a name="configure-active-geo-replication-for-enterprise-azure-cache-for-redis-instances-preview"></a>Redis 인스턴스에 대 한 엔터프라이즈 Azure 캐시에 대 한 활성 지역 복제 구성 (미리 보기)
 
@@ -26,9 +26,11 @@ ms.locfileid: "102121170"
 >
 >
 
-1. **새 Redis Cache** 만들기 UI에서 **구성** 을 클릭 하 여 **고급** 탭에서 **활성 지역 복제** 를 설정 합니다.
+1. **새 Redis Cache** 만들기 UI의 **고급** 탭에서 **클러스터링 정책** 에 대해 **엔터프라이즈** 를 선택 합니다.
 
     ![활성 지역 복제 구성](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+
+1. **구성** 을 클릭 하 여 **활성 지역 복제** 를 설정 합니다.
 
 1. 첫 번째 캐시 인스턴스에 대해 새 복제 그룹을 만들거나 목록에서 기존 복제 그룹을 선택 합니다.
 
@@ -38,7 +40,7 @@ ms.locfileid: "102121170"
 
     ![활성 지역 복제 구성 됨](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
-1. 지역에서 복제 그룹의 각 추가 캐시 인스턴스에 대해 위의 단계를 반복 합니다.
+1. 첫 번째 캐시가 성공적으로 만들어질 때까지 기다립니다. 지역에서 복제 그룹의 각 추가 캐시 인스턴스에 대해 위의 단계를 반복 합니다.
 
 ## <a name="remove-from-an-active-geo-replication-group"></a>활성 지역 복제 그룹에서 제거
 

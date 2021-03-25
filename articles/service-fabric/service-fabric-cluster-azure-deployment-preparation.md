@@ -3,19 +3,19 @@ title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 대 한 프로덕션 Service Fabric 클러스터 배포를 계획 하 고 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 82521487b9a3e9438784e010a32cf6df8e7be2ef
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97109626"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046320"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
 프로덕션 클러스터 배포를 계획 하 고 준비 하는 것이 매우 중요 합니다.  고려해 야 할 여러 요인이 있습니다.  이 문서에서는 클러스터 배포를 준비 하는 단계를 안내 합니다.
 
 ## <a name="read-the-best-practices-information"></a>모범 사례 정보 읽기
-Azure Service Fabric 응용 프로그램 및 클러스터를 성공적으로 관리 하려면 프로덕션 환경의 안정성을 최적화 하기 위해 수행 하는 것이 좋습니다.  자세한 내용은 [Service Fabric 응용 프로그램 및 클러스터 모범 사례](service-fabric-best-practices-overview.md)를 참조 하세요.
+Azure Service Fabric 응용 프로그램 및 클러스터를 성공적으로 관리 하려면 프로덕션 환경의 안정성을 최적화 하기 위해 수행 하는 것이 좋습니다.  자세한 내용은 [Service Fabric 응용 프로그램 및 클러스터 모범 사례](./service-fabric-best-practices-security.md)를 참조 하세요.
 
 ## <a name="select-the-os-for-the-cluster"></a>클러스터에 대 한 OS를 선택 합니다.
 Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는 VM 또는 컴퓨터에서 Service Fabric 클러스터를 만들 수 있습니다.  클러스터를 배포 하기 전에 Windows 또는 Linux 운영 체제를 선택 해야 합니다.  클러스터의 모든 노드 (가상 머신)는 동일한 OS를 실행 하며, 동일한 클러스터에서 Windows 및 Linux Vm을 혼합할 수 없습니다.
@@ -117,7 +117,7 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 애플리케이션 및 클러스터가 프로덕션 트래픽을 허용할 준비가 되었나요? 프로덕션 환경에 클러스터를 배포 하기 전에 [프로덕션 준비 검사 목록](service-fabric-production-readiness-checklist.md)을 실행 합니다. 이 검사 목록의 항목을 통해 작업 하 여 응용 프로그램 및 클러스터를 원활 하 게 실행 하세요. 프로덕션으로 전환 하기 전에 이러한 모든 항목을 체크 아웃 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Windows를 실행 하는 Service Fabric 클러스터 만들기](service-fabric-best-practices-overview.md)
+* [Windows를 실행 하는 Service Fabric 클러스터 만들기](./service-fabric-best-practices-security.md)
 * [Linux를 실행 하는 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints

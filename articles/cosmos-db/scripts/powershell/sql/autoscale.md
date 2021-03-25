@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
 ms.openlocfilehash: 42407f3ebb0b7f3a726c0031a0af5effc338c880
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821203"
 ---
 # <a name="create-a-database-and-container-with-autoscale-for-azure-cosmos-db---sql-api"></a>자동 스케일링되는 Azure Cosmos DB - SQL API용 데이터베이스 및 컨테이너 만들기

@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: 문제 해결, 업데이트, 버그, kinect, 피드백, 복구, 로깅, 팁
-ms.openlocfilehash: 6b83e2952a9039a52aa3b905e376e5d3beccaf8c
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: da5242a09934a756093a9e02b6d474e6c75fecda
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026592"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108743"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect 알려진 문제 및 문제 해결
 
@@ -193,7 +193,7 @@ Linux의 Azure Kinect depth 엔진은 OpenGL을 사용 합니다. OpenGL을 사�
 > ONNX 런타임에 가속화 되지 않은 opcode에 대 한 경고를 표시 합니다. 이는 무시 해도 됩니다.
 
 ONNX Runtime은 TensorRT 모델 캐싱을 제어 하는 환경 변수를 포함 합니다. 권장 값은 다음과 같습니다.
-- ORT_TENSORRT_CACHE_ENABLE = 1 
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
 - ORT_TENSORRT_CACHE_PATH = "pathname"
 
 본문 추적을 시작 하기 전에 폴더를 만들어야 합니다.

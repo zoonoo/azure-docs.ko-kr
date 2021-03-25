@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079707"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
@@ -42,7 +42,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 스토리지 REST 서비
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 설치
 
-1. **PowerShell** (Windows), **Terminal** (Mac) 또는 **Bash** (Unix) 등과 같은 명령줄 인터페이스를 사용하여 애플리케이션을 만든 폴더로 이동합니다.
+1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 애플리케이션을 만든 폴더로 이동합니다.
 2. 명령 창에 **npm install azure-storage** 를 입력합니다. 명령 출력은 다음 예제와 비슷합니다.
 
    ```bash

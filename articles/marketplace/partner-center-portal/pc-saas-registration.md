@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130020"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048343"
 ---
 # <a name="register-a-saas-application"></a>SaaS 애플리케이션 등록
 
@@ -48,7 +48,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 **AZURE AD 앱 id** 는 게시자 id와 연결 되어 있으므로 모든 제품에서 동일한 *앱 id* 를 사용 해야 합니다.
 
 >[!Note]
->파트너 센터에서 게시자의 계정이 서로 다른 경우 두 개의 다른 Azure AD 앱 Id를 사용 해야 합니다.  파트너 센터의 각 파트너 계정은이 계정을 통해 게시 되는 모든 SaaS 제품에 대해 고유한 Azure AD 앱 ID를 사용 해야 합니다.
+>게시자의 파트너 센터에 두 개 이상의 다른 계정이 있는 경우 Azure AD 앱 등록 세부 정보는 한 계정에만 사용할 수 있습니다. 동일한 테 넌 트 ID를 사용 하는 경우 다른 게시자 계정에서 제품에 대 한 앱 ID 쌍을 사용할 수 없습니다.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>게시자의 인증 토큰을 가져오는 방법
 
@@ -68,19 +68,19 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="uri-parameter"></a>*URI 매개 변수*
 
-|  매개 변수 이름    |  필수         |  설명 |
+|  매개 변수 이름    |  필수         |  Description |
 |  ---------------   |  ---------------  | ------------ |
 |  `tenantId`        |  True      |  등록 된 AAD 응용 프로그램의 테 넌 트 ID입니다. |
 
 ##### <a name="request-header"></a>*요청 헤더*
 
-|  헤더 이름       |  필수         |  설명 |
+|  헤더 이름       |  필수         |  Description |
 |  ---------------   |  ---------------  | ------------ |
 |  `content-type`    |  True      |  요청과 연결된 콘텐츠 형식입니다. 기본값은 `application/x-www-form-urlencoded`입니다. |
 
 ##### <a name="request-body"></a>*요청 본문*
 
-|  속성 이름     |  필수         |  설명 |
+|  속성 이름     |  필수         |  Description |
 |  ---------------   |  ---------------  | ------------ |
 |  `grant_type`      |  True      |  권한 부여 유형입니다. `"client_credentials"`을 사용합니다. |
 |  `client_id`       |  True      |  Azure AD 앱과 연결된 클라이언트/앱 식별자입니다. |
@@ -89,7 +89,7 @@ Azure AD의 기능을 사용하려는 모든 애플리케이션이 먼저 Azure 
 
 ##### <a name="response"></a>*응답*
 
-|  Name     |  Type         |  설명 |
+|  Name     |  Type         |  Description |
 |  ------   |  ---------------  | ------------ |
 |  200 정상   |  TokenResponse    |  요청이 성공했습니다. |
 

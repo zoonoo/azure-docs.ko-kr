@@ -1,17 +1,17 @@
 ---
 title: 네트워킹 개요-유연한 서버 Azure Database for MySQL
 description: Azure Database for MySQL에 대 한 유연한 서버 배포 옵션의 연결 및 네트워킹 옵션에 대해 알아봅니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
-ms.openlocfilehash: a8e2d77ff3c7cb2e4352b21cd87d630331e28660
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ec835073a1fe447490f6965fe41478319a47f503
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96906151"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106839"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)에 대 한 연결 및 네트워킹 개념
 
@@ -29,9 +29,9 @@ Azure Database for MySQL 유연한 서버에 대 한 두 가지 네트워킹 옵
 * **프라이빗 액세스(VNet 통합)** – [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md)에 유연한 서버를 배포할 수 있습니다. Azure 가상 네트워크는 프라이빗하고 안전한 네트워크 통신을 제공합니다. 가상 네트워크의 리소스는 개인 IP 주소를 통해 통신할 수 있습니다.
 
    다음과 같은 기능을 원하는 경우 VNet 통합 옵션을 선택합니다.
-   * 개인 IP 주소를 사용하여 동일한 가상 네트워크의 Azure 리소스에서 유연한 서버에 연결
+   * 동일한 가상 네트워크 또는 [피어 링 가상 네트워크](../../virtual-network/virtual-network-peering-overview.md) 의 Azure 리소스에서 유연한 서버에 연결
    * VPN 또는 ExpressRoute를 사용하여 비 Azure 리소스에서 유연한 서버에 연결
-   * 유연한 서버에는 공용 끝점이 없습니다.
+   * 비 퍼블릭 엔드포인트
 
 * **공용 액세스 (허용 된 IP 주소)** – 유연한 서버는 공용 끝점을 통해 액세스 됩니다. 퍼블릭 엔드포인트는 공개적으로 확인할 수 있는 DNS 주소입니다. "허용되는 IP 주소"라는 말은 선택하는 IP 범위에 서버 액세스 권한을 부여한다는 뜻입니다. 이러한 권한을 **방화벽 규칙** 이라고 합니다. 
 
@@ -57,13 +57,32 @@ MySQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야 할 
 
     가상 네트워크는 유연한 서버와 동일한 Azure 지역에 있어야 합니다.
 
-
 * **위임 된 서브넷** -가상 네트워크에 서브넷 (하위 네트워크)이 포함 됩니다. 서브넷을 사용 하면 가상 네트워크를 더 작은 주소 공간으로 분할할 수 있습니다. Azure 리소스는 가상 네트워크 내의 특정 서브넷에 배포 됩니다. 
 
    Mysql 유연한 서버는 MySQL 유연한 서버 사용을 위해 **위임** 된 서브넷에 있어야 합니다. 이렇게 위임하면 Azure Database for MySQL 유동 서버에서만 해당 서브넷을 사용할 수 있습니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다. 위임 속성을 flexibleServers으로 할당 하 여 서브넷을 위임 합니다.
 
 * **NSG (네트워크 보안 그룹)** 네트워크 보안 그룹의 보안 규칙을 사용 하면 가상 네트워크 서브넷 및 네트워크 인터페이스에서 들어오고 나가는 네트워크 트래픽 유형을 필터링 할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md) 를 참조 하세요.
 
+* **가상 네트워크 피어 링** 가상 네트워크 피어 링을 사용 하면 Azure에서 두 개 이상의 가상 네트워크를 원활 하 게 연결할 수 있습니다. 피어 링 가상 네트워크는 연결 목적으로 하나로 표시 됩니다. 피어 링 가상 네트워크의 가상 머신 간 트래픽은 Microsoft 백본 인프라를 사용 합니다. 클라이언트 응용 프로그램과 피어 링 Vnet의 유연한 서버 간 트래픽은 Microsoft 개인 네트워크를 통해만 라우팅되고 해당 네트워크로만 격리 됩니다.
+
+유연한 서버는 동일한 Azure 지역 내에서 가상 네트워크 피어 링을 지원 합니다. 지역 간 피어 링 Vnet **지원 되지 않습니다**. 자세한 내용은 [가상 네트워크 피어 링 개념](../../virtual-network/virtual-network-peering-overview.md) 을 참조 하십시오.
+
+### <a name="connecting-from-peered-vnets-in-same-azure-region"></a>동일한 Azure 지역의 피어 링 Vnet에서 연결
+유연한 서버에 연결 하려는 클라이언트 응용 프로그램이 피어 링 가상 네트워크에 있는 경우 유연한 서버 servername을 사용 하 여 연결 하지 못할 수 있습니다 .이는 피어 링 VNet에서 유연한 서버에 대 한 DNS 이름을 확인할 수 없기 때문입니다. 이 문제를 해결 하는 두 가지 옵션이 있습니다.
+* 개인 IP 주소 사용 (개발/테스트 시나리오에 권장)-이 옵션은 개발 또는 테스트 목적으로 사용할 수 있습니다. Nslookup을 사용 하 여 유연한 servername (정규화 된 도메인 이름)에 대 한 개인 IP 주소를 역방향으로 조회 하 고 개인 IP 주소를 사용 하 여 클라이언트 응용 프로그램에서 연결할 수 있습니다. 계획 되거나 계획 되지 않은 이벤트에서 변경 될 수 있으므로 유연한 서버에 대 한 연결에 개인 IP 주소를 사용 하는 것은 프로덕션에서 사용 하지 않는 것이 좋습니다.
+* 사설 DNS 영역 사용 (프로덕션에 권장)-이 옵션은 프로덕션 용도로 적합 합니다. [개인 DNS 영역](../../dns/private-dns-getstarted-portal.md) 을 프로 비전 하 고 클라이언트 가상 네트워크에 연결 합니다. 개인 DNS 영역에서 개인 IP 주소를 사용 하 여 유연한 서버에 대 한 [a 레코드](../../dns/dns-zones-records.md#record-types) 를 추가 합니다. 그런 다음 A 레코드를 사용 하 여 피어 링 가상 네트워크의 클라이언트 응용 프로그램에서 유연한 서버에 연결할 수 있습니다.
+
+### <a name="connecting-from-on-premises-to-flexible-server-in-virtual-network-using-expressroute-or-vpn"></a>Express 경로 또는 VPN을 사용 하 여 Virtual Network 온-프레미스에서 유연한 서버에 연결
+온-프레미스 네트워크에서 가상 네트워크의 유연한 서버에 액세스 해야 하는 워크 로드의 경우 [express](/azure/architecture/reference-architectures/hybrid-networking/expressroute/) 경로 또는 [VPN](/azure/architecture/reference-architectures/hybrid-networking/vpn/) 과 [온-프레미스에 연결 된](/azure/architecture/reference-architectures/hybrid-networking/)가상 네트워크가 필요 합니다. 이 설정을 적용 한 후에는 온-프레미스 가상 네트워크에서 실행 되는 클라이언트 응용 프로그램 (예: MySQL 워크 벤치)에서 연결 하려는 경우 유연한 서버 이름 확인을 위해 DNS 전달 자가 필요 합니다. 이 DNS 전달자는 Azure에서 제공 하는 DNS 서비스 [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)서버 수준 전달자를 통해 모든 dns 쿼리를 확인 합니다.
+
+제대로 구성 하려면 다음 리소스가 필요 합니다.
+
+- 온-프레미스 네트워크
+- 개인 액세스로 프로 비전 된 MySQL 유연한 서버 (VNet 통합)
+- [온-프레미스에 연결 된](/azure/architecture/reference-architectures/hybrid-networking/) 가상 네트워크
+- Azure에 배포 된 DNS 전달자 [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md) 사용
+
+그런 다음 유연한 servername (FQDN)을 사용 하 여 피어 링 가상 네트워크 또는 온-프레미스 네트워크의 클라이언트 응용 프로그램에서 유연한 서버에 연결할 수 있습니다.
 
 ### <a name="unsupported-virtual-network-scenarios"></a>지원 되지 않는 가상 네트워크 시나리오
 * 공용 끝점 (또는 공용 IP 또는 DNS)-가상 네트워크에 배포 된 유연한 서버는 공용 끝점을 포함할 수 없습니다.
@@ -119,11 +138,10 @@ MySQL Server 서비스의 Microsoft Azure Database에 대 한 액세스가 예�
 * 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 IP)를 사용 하지 마십시오.
 
 
-
 ## <a name="tls-and-ssl"></a>TLS 및 SSL
 Azure Database for MySQL 유연한 서버는 TLS (Transport Layer Security)를 사용 하 여 클라이언트 응용 프로그램을 MySQL 서비스에 연결 하는 것을 지원 합니다. TLS는 데이터베이스 서버와 클라이언트 응용 프로그램 간에 암호화 된 네트워크 연결을 보장 하는 업계 표준 프로토콜입니다. TLS는 SSL(Secure Sockets Layer) (SSL)의 업데이트 된 프로토콜입니다.
 
-Azure Database for MySQL 유연한 서버는 TLS 1.2 (Transport Layer Security)를 사용 하 여 암호화 된 연결만 지원 합니다. TLS 1.0 및 TLS 1.1를 사용 하는 모든 들어오는 연결은 거부 됩니다. Azure Database for MySQL 유연한 서버에 연결 하기 위해 TLS 버전을 사용 하지 않도록 설정 하거나 변경할 수 없습니다.
+Azure Database for MySQL 유연한 서버는 TLS 1.2 (Transport Layer Security)를 사용 하 여 암호화 된 연결만 지원 합니다. TLS 1.0 및 TLS 1.1을 사용하여 들어오는 모든 연결은 거부됩니다. Azure Database for MySQL 유연한 서버에 연결 하기 위해 TLS 버전을 사용 하지 않도록 설정 하거나 변경할 수 없습니다. 자세한 내용은 [SSL/TLS를 사용 하 여 연결](how-to-connect-tls-ssl.md) 하는 방법을 검토 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,10 +11,10 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/30/2020
 ms.openlocfilehash: dd5ed52187a7cd23142b59e20c91c6d125946a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91613784"
 ---
 # <a name="quickstart-explore-azure-time-series-insights-gen1"></a>빠른 시작: Azure Time Series Insights Gen1 살펴보기
@@ -39,31 +39,31 @@ Azure Time Series Insights는 완전 관리형 분석, 스토리지 및 시각�
 
 1. 메시지가 표시되면 Azure 계정 자격 증명을 사용하여 Azure Time Series Insights 탐색기에 로그인합니다.
 
-1. Azure Time Series Insights 간단한 둘러보기 페이지가 표시됩니다. **다음**을 선택하여 간단한 둘러보기를 시작합니다.
+1. Azure Time Series Insights 간단한 둘러보기 페이지가 표시됩니다. **다음** 을 선택하여 간단한 둘러보기를 시작합니다.
 
    [![빠른 시작 시작 - 다음 선택](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>데모 환경 살펴보기
 
-1. **시간 선택 패널**이 표시됩니다. 이 패널에서 시각화할 시간 프레임을 선택합니다.
+1. **시간 선택 패널** 이 표시됩니다. 이 패널에서 시각화할 시간 프레임을 선택합니다.
 
    [![시간 선택 패널](media/quickstart/quickstart-time-selection-panel.png)](media/quickstart/quickstart-time-selection-panel.png#lightbox)
 
-1. 시간 프레임을 선택하여 영역으로 끌어서 놓습니다. **검색**을 선택합니다.
+1. 시간 프레임을 선택하여 영역으로 끌어서 놓습니다. **검색** 을 선택합니다.
 
    [![시간 프레임 선택](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
    Azure Time Series Insights에 지정한 시간 프레임에 대해 시각화된 차트가 표시됩니다. 꺾은선형 차트 내에서 다양한 작업을 수행할 수 있습니다. 예를 들어 필터링, 고정, 정렬 및 쌓기를 수행할 수 있습니다.
 
-   **시간 선택 패널**로 돌아가려면 다음과 같이 아래쪽 화살표를 선택합니다.
+   **시간 선택 패널** 로 돌아가려면 다음과 같이 아래쪽 화살표를 선택합니다.
 
    [![차트](media/quickstart/quickstart-select-down-arrow.png)](media/quickstart/quickstart-select-down-arrow.png#lightbox)
 
-1. **기간 패널**에서 **추가**를 선택하고 새 검색 기간을 추가합니다.
+1. **기간 패널** 에서 **추가** 를 선택하고 새 검색 기간을 추가합니다.
 
    [![검색 용어 패널 추가](media/quickstart/quickstart-add-terms.png)](media/quickstart/quickstart-add-terms.png#lightbox)
 
-1. 이 차트에서는 특정 지역을 선택하고, 마우스 오른쪽 단추로 클릭한 다음 **이벤트 탐색**을 선택할 수 있습니다.
+1. 이 차트에서는 특정 지역을 선택하고, 마우스 오른쪽 단추로 클릭한 다음 **이벤트 탐색** 을 선택할 수 있습니다.
 
    [![이벤트 탐색](media/quickstart/quickstart-explore-events.png)](media/quickstart/quickstart-explore-events.png#lightbox)
 
@@ -81,7 +81,7 @@ Azure Time Series Insights는 완전 관리형 분석, 스토리지 및 시각�
 
    [![계열 필터링](media/quickstart/quickstart-filter-series.png)](media/quickstart/quickstart-filter-series.png#lightbox)
 
-   여기서는 **Station5**를 입력하여 해당 측정소의 온도와 기압 사이의 상관관계를 확인합니다.
+   여기서는 **Station5** 를 입력하여 해당 측정소의 온도와 기압 사이의 상관관계를 확인합니다.
 
 빠른 시작을 완료했으면 샘플 데이터 집합을 이용하여 다양한 시각화를 수행해 봅니다.
 
@@ -89,8 +89,8 @@ Azure Time Series Insights는 완전 관리형 분석, 스토리지 및 시각�
 
 이제 자습서를 완료했으므로 만든 리소스를 정리합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고 Azure Time Series Insights 리소스 그룹을 찾습니다.
-1. **삭제**를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스** 를 선택하고 Azure Time Series Insights 리소스 그룹을 찾습니다.
+1. **삭제** 를 선택하여 전체 리소스 그룹(및 그 안에 포함된 모든 리소스)을 삭제하거나 각 리소스를 개별적으로 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

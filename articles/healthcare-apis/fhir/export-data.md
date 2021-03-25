@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 2/19/2021
+ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: 9ed78baed35312b9a33c71a3e49b7e9dca22eb9f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020310"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045310"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
 
@@ -23,14 +23,19 @@ $Export를 사용 하기 전에 FHIR 용 Azure API가이를 사용 하도록 구
 
 ## <a name="using-export-command"></a>$export 명령 사용
 
-내보내기에 대 한 Azure API를 구성 하 고 나면 $export 명령을 사용 하 여 서비스에서 데이터를 내보낼 수 있습니다. 데이터는 내보내기를 구성 하는 동안 지정한 저장소 계정에 저장 됩니다. FHIR 서버에서 $export 명령을 호출 하는 방법을 알아보려면 [HL7 fhir $export 사양](https://hl7.org/Fhir/uv/bulkdata/export/index.html)에 대 한 설명서를 참조 하세요. 
+내보내기에 대 한 Azure API를 구성 하 고 나면 $export 명령을 사용 하 여 서비스에서 데이터를 내보낼 수 있습니다. 데이터는 내보내기를 구성 하는 동안 지정한 저장소 계정에 저장 됩니다. FHIR 서버에서 $export 명령을 호출 하는 방법을 알아보려면 [HL7 fhir $export 사양](https://hl7.org/Fhir/uv/bulkdata/export/index.html)에 대 한 설명서를 참조 하세요.
+
+
+**잘못 된 상태에서 중단 된 작업**
+
+경우에 따라 작업이 잘못 된 상태에서 중단 될 가능성이 있습니다. 특히 저장소 계정 사용 권한이 올바르게 설정 되지 않은 경우이 문제가 발생할 수 있습니다. 내보내기가 성공적인 지 확인 하는 한 가지 방법은 저장소 계정에서 해당 컨테이너 (즉, ndjson) 파일이 있는지 확인 하는 것입니다. 존재 하지 않는 경우 다른 내보내기 작업이 실행 되지 않으면 현재 작업이 잘못 된 상태에 있을 가능성이 있습니다. 취소 요청을 전송 하 여 내보내기 작업을 취소 하 고 작업을 다시 큐에 다시 시도 합니다. 잘못 된 상태의 내보내기에 대 한 기본 실행 시간은 중지 된 후 새 작업으로 이동 하거나 내보내기를 다시 시도 하기 전에 10 분입니다. 
 
 FHIR 용 Azure API는 다음 수준에서 $export을 지원 합니다.
 * [시스템](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---system-level-export): `GET https://<<FHIR service base URL>>/$export>>`
 * [환자](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [환자 *](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) -FHIR 용 Azure API는 관련 된 모든 리소스를 내보내며 그룹의 특성은 내보내지 않습니다. `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
-데이터를 내보내면 각 리소스 유형에 대해 별도의 파일이 만들어집니다. 내보낸 파일이 너무 커지지 않도록 하기 위해 단일 내보낸 파일의 크기가 64 보다 큰 후 새 파일을 만듭니다. 결과적으로 각 리소스 유형에 대해 여러 파일을 가져올 수 있습니다 (예: 환자-1. ndjson, 환자-2. ndjson). 
+데이터를 내보내면 각 리소스 유형에 대해 별도의 파일이 만들어집니다. 내보낸 파일이 너무 커지지 않도록 합니다. 단일 내보낸 파일의 크기가 64 MB 보다 커지면 새 파일을 만듭니다. 결과적으로 각 리소스 종류에 대 한 여러 파일을 가져올 수 있습니다 (즉, 환자-1. ndjson, 환자-2. ndjson). 
 
 
 > [!Note] 
@@ -42,7 +47,7 @@ FHIR 용 Azure API는 다음 수준에서 $export을 지원 합니다.
 
 현재 ADLS Gen2 사용 가능한 저장소 계정에 대 한 $export 지원 되며 다음과 같은 제한 사항이 있습니다.
 
-- 사용자는 아직 [계층 구조 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) 를 사용할 수 없습니다. 컨테이너 내의 특정 하위 디렉터리로 내보내기를 대상으로 할 수 있는 방법은 없습니다. 특정 컨테이너를 대상으로 지정 하는 기능만 제공 합니다 (각 내보내기에 대 한 새 폴더를 만드는 경우).
+- 사용자는 [계층적 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용할 수 없지만 컨테이너 내의 특정 하위 디렉터리로 내보내기를 대상으로 지정할 수 있는 방법은 없습니다. 특정 컨테이너를 대상으로 지정 하는 기능만 제공 합니다 (각 내보내기에 대 한 새 폴더를 만드는 경우).
 
 - 내보내기가 완료 된 후에는 동일한 컨테이너에 대 한 후속 내보내기가 새로 만든 폴더 내에 있기 때문에 해당 폴더에 아무것도 내보내지 않습니다.
 
@@ -57,13 +62,16 @@ $Export 작업에 대해 설정 해야 하는 두 개의 필수 헤더 매개 �
 ### <a name="query-parameters"></a>쿼리 매개 변수
 FHIR 용 Azure API는 다음과 같은 쿼리 매개 변수를 지원 합니다. 이러한 매개 변수는 모두 선택 사항입니다.
 
-|쿼리 매개 변수        | FHIR 사양에 정의 되어 있나요?    |  설명|
+|쿼리 매개 변수        | FHIR 사양에 정의 되어 있나요?    |  Description|
 |------------------------|---|------------|
 | \_outputFormat | 예 | 는 현재 응용 프로그램/fhir + ndjson, application/ndjson 또는 단지 ndjson에 맞추기 위한 세 가지 값을 지원 합니다. 모든 내보내기 작업은 `ndjson` 를 반환 하며 전달 된 값은 코드 동작에 영향을 주지 않습니다. |
 | \_since | 예 | 제공 된 시간 이후 수정 된 리소스만 내보낼 수 있습니다. |
 | \_입력할 | 예 | 포함할 리소스의 형식을 지정할 수 있습니다. 예를 들어, \_ type = 환자는 환자 리소스만 반환 합니다.|
 | \_typefilter | 예 | 보다 세분화 된 필터링을 요청 하기 위해 \_ 형식 매개 변수와 함께 typefilter를 사용할 수 있습니다 \_ . _TypeFilter 매개 변수의 값은 결과를 추가로 제한 하는 쉼표로 구분 된 FHIR 쿼리 목록입니다. |
-| \_컨테이너 | 아니요 |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
+| \_컨테이너 | No |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
+
+> [!Note]
+> FHIR 용 Azure API와 동일한 구독의 저장소 계정만 $export 작업에 대 한 대상으로 등록할 수 있습니다.
 
 ## <a name="secure-export-to-azure-storage"></a>Azure Storage로 내보내기 보안
 
@@ -71,11 +79,11 @@ FHIR 용 Azure API는 보안 내보내기 작업을 지원 합니다. 보안 내
 
 ### <a name="when-the-azure-storage-account-is-in-a-different-region"></a>Azure storage 계정이 다른 지역에 있는 경우
 
-포털에서 Azure storage 계정의 네트워킹 블레이드를 선택 합니다. 
+포털에서 Azure storage 계정의 **네트워킹** 을 선택 합니다. 
 
    :::image type="content" source="media/export-data/storage-networking.png" alt-text="네트워킹 설정을 Azure Storage 합니다." lightbox="media/export-data/storage-networking.png":::
    
-인터넷 또는 온-프레미스 네트워크에서 액세스를 허용 하려면 "선택한 네트워크"를 선택 하 고 [방화벽 추가] IP 범위의 섹션 아래에 있는 **주소 범위** 상자에 ip 주소를 지정 합니다 \| . Azure API for FHIR 서비스가 프로 비전 되는 Azure 지역에 대 한 아래 표에서 IP 주소를 찾을 수 있습니다.
+**선택한 네트워크** 를 선택합니다. 방화벽 섹션 아래의 **주소 범위** 상자에 IP 주소를 지정 합니다. 인터넷 또는 온-프레미스 네트워크에서의 액세스를 허용 하는 IP 범위를 추가 합니다. Azure API for FHIR 서비스가 프로 비전 되는 Azure 지역에 대 한 아래 표에서 IP 주소를 찾을 수 있습니다.
 
 |**Azure 지역**         |**공용 IP 주소** |
 |:----------------------|:-------------------|
@@ -110,7 +118,7 @@ FHIR 용 Azure API는 보안 내보내기 작업을 지원 합니다. 보안 내
     
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 $export 명령을 사용 하 여 FHIR 리소스를 내보내는 방법을 배웠습니다. 다음으로 식별 되지 않은 데이터를 내보내는 방법에 대해 알아봅니다.
+이 문서에서는 $export 명령을 사용 하 여 FHIR 리소스를 내보내는 방법을 배웠습니다. 다음으로 식별 되지 않은 데이터를 내보내는 방법에 대해 알아보려면 다음을 참조 하세요.
  
 >[!div class="nextstepaction"]
 >[식별 되지 않은 데이터 내보내기](de-identified-export.md)

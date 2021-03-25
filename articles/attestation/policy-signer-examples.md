@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 5cb767c639c7ff1d9888085caa036571376cc596
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98734150"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>증명 정책 서명자 인증서의 예

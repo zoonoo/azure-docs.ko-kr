@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: f2e4bf603fa4cfb93c7ca51f64029ccaedcff727
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ce575a67552c89b17ff4ed9b44ab43a4bd12d67f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103021030"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110756"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>통신 서비스 솔루션에 관리 id 추가 (Java)
 
-### <a name="install-the-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
+### <a name="install-the-sdk-packages"></a>SDK 패키지 설치
 pom.xml 파일에서 종속성 그룹에 다음 종속성 요소를 추가 합니다.
 
 ```xml
@@ -29,9 +29,9 @@ pom.xml 파일에서 종속성 그룹에 다음 종속성 요소를 추가 합�
 </dependency>
 ```
 
-### <a name="use-the-client-library-packages"></a>클라이언트 라이브러리 패키지 사용
+### <a name="use-the-sdk-packages"></a>SDK 패키지 사용
 
-`import`Azure id 및 Azure 통신 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
+`import`Azure id 및 Azure Communication sdk를 사용 하려면 다음 지시문을 코드에 추가 합니다.
 
 ```java
 import com.azure.communication.common.*;

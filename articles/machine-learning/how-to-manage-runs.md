@@ -1,7 +1,7 @@
 ---
 title: Python에서 학습 실행 시작, 모니터링 및 취소
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning Python SDK를 사용 하 여 기계 학습 실험을 시작 하 고, 상태를 관리 하 고, 관리 하는 방법을 알아봅니다.
+description: Azure Machine Learning Python SDK를 사용 하 여 기계 학습 실험을 시작, 모니터링 및 추적 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634787"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110273"
 ---
-# <a name="start-monitor-and-track-runs"></a>실행 시작, 모니터링 및 추적 
+# <a name="start-monitor-and-track-run-history"></a>실행 기록 시작, 모니터링 및 추적 
 
-Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azure Machine Learning STUDIO](https://ml.azure.com) [용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
+Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azure Machine Learning STUDIO](https://ml.azure.com) [용 Azure Machine Learning SDK](/python/api/overview/azure/ml/intro)는 학습 및 실험을 위해 실행을 모니터링, 구성 및 추적 하는 다양 한 방법을 제공 합니다. ML 실행 기록은 explainable 및 반복 가능한 ML 개발 프로세스의 중요 한 부분입니다.
 
-이 문서에서는 다음 작업의 예를 보여 줍니다.
+이 문서에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
 
 * 실행 성능을 모니터링 합니다.
 * 전자 메일 알림을 통해 실행 상태를 모니터링 합니다.
 * 태그를 만들고 실행을 찾습니다.
 * 실행 설명을 추가 합니다. 
-* 검색을 실행 합니다. 
+* 실행 기록에 대해 검색을 실행 합니다. 
 * 취소 또는 실패 실행.
 * 자식 실행을 만듭니다.
  
@@ -38,7 +38,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 > Azure Machine Learning 서비스 및 연결 된 Azure 서비스를 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [Azure Machine Learning를 모니터링 하는 방법](monitor-azure-machine-learning.md)을 참조 하세요.
 > 웹 서비스로 배포 된 모델 또는 IoT Edge 모듈을 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 
@@ -103,7 +103,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     
         자세한 내용은 [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
     
-    2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용하는 경우 -c 매개 변수 가까이에 runconfig 파일의 이름(파일 시스템을 보고 있는 경우 \*.runconfig 앞의 텍스트)을 지정합니다.
+    2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용 하는 경우 \* -c 매개 변수에 대해 .runconfig 파일의 이름 (파일 시스템을 확인 하는 .runconfig 이전의 텍스트)을 지정 합니다.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
@@ -134,7 +134,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
         print(notebook_run.get_status())
         ```
     
-    * 실행 ID, 실행 시간 및 실행에 대 한 추가 세부 정보를 가져오려면 메서드를 사용 [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) 합니다.
+    * 실행에 대 한 실행 ID, 실행 시간 및 기타 세부 정보를 가져오려면 메서드를 사용 합니다 [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) .
     
         ```python
         print(notebook_run.get_details())
@@ -190,7 +190,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     
         **모든 실행 '** 페이지에서 태그, 실험, 계산 대상 등을 기준으로 실행 목록을 필터링 하 여 작업을 보다 효율적으로 구성 하 고 범위를 지정할 수 있습니다.  
     
-    1. 결과를 비교 하거나 차트를 추가 하거나 필터를 적용 하려면 실행을 선택 하 여 페이지에 대 한 사용자 지정을 수행 합니다. 이러한 변경 내용을 **사용자 지정 보기로** 저장할 수 있으므로 작업으로 쉽게 돌아갈 수 있습니다. 작업 영역 권한이 있는 사용자는 사용자 지정 보기를 편집 하거나 볼 수 있습니다. 또한 **공유 보기** 를 선택 하 여 향상 된 공동 작업을 위해 팀 멤버와 사용자 지정 보기를 공유 합니다.   
+    1. 결과를 비교 하거나 차트를 추가 하거나 필터를 적용 하려면 실행을 선택 하 여 페이지에 대 한 사용자 지정을 수행 합니다. 이러한 변경 내용을 **사용자 지정 보기로** 저장할 수 있으므로 작업으로 쉽게 돌아갈 수 있습니다. 작업 영역 권한이 있는 사용자는 편집 하거나 사용자 지정 보기를 볼 수 있습니다. 또한 **공유 보기** 를 선택 하 여 향상 된 공동 작업을 위해 팀 멤버와 사용자 지정 보기를 공유 합니다.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="스크린샷: 사용자 지정 보기 만들기":::
     
@@ -405,9 +405,9 @@ with exp.start_logging() as parent_run:
 
 자식 실행은 부모 실행에서 제출할 수도 있습니다. 이렇게 하면 부모 및 자식 실행의 계층 구조를 만들 수 있습니다. Parentless 자식 실행을 만들 수 없습니다. 부모 실행은 아무 작업도 수행 하지 않지만 자식 실행을 시작 하더라도 계층 구조를 만들어야 합니다. 모든 실행의 상태는 독립적입니다. `"Completed"` 하나 이상의 자식 실행이 취소 되거나 실패 한 경우에도 부모는 성공 상태로 있을 수 있습니다.  
 
-부모 실행과 다른 실행 구성을 사용 하 여 자녀의 실행을 원할 수 있습니다. 예를 들어, 부모에 대해 더 강력 하 고 CPU 기반 구성을 사용할 수 있으며, 자식에 대 한 GPU 기반 구성을 사용할 수 있습니다. 또 다른 일반적인 방법은 서로 다른 인수 및 데이터를 전달 하는 것입니다. 자식 실행을 사용자 지정 하려면 `ScriptRunConfig` 자식 실행에 대 한 개체를 만듭니다. 아래 코드에서는 다음을 수행 합니다.
+부모 실행과 다른 실행 구성을 사용 하 여 자녀의 실행을 원할 수 있습니다. 예를 들어, 부모에 대해 더 강력 하 고 CPU 기반 구성을 사용할 수 있으며, 자식에 대 한 GPU 기반 구성을 사용할 수 있습니다. 또 다른 일반적인 방법은 각 자식 인수 및 데이터를 전달 하는 것입니다. 자식 실행을 사용자 지정 하려면 `ScriptRunConfig` 자식 실행에 대 한 개체를 만듭니다. 코드는 다음과 같습니다.
 
-- 작업 영역에서 라는 계산 리소스를 검색 `"gpu-cluster"` 합니다. `ws`
+- 작업 영역에서 이름이 지정 된 계산 리소스를 검색 `"gpu-cluster"` 합니다. `ws`
 - 자식 개체에 전달 될 다른 인수 값을 반복 합니다. `ScriptRunConfig`
 - 사용자 지정 계산 리소스 및 인수를 사용 하 여 새 자식 실행을 만들고 제출 합니다.
 - 모든 자식 실행이 완료 될 때까지 차단 합니다.
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>부모 또는 루트 실행에 기록
 
-필드를 사용 `Run.parent` 하 여 현재 자식 실행을 시작한 실행에 액세스할 수 있습니다. 이에 대 한 일반적인 사용 사례는 로그 결과를 한 장소에 통합 하려는 경우입니다. 자식 실행은 비동기적으로 실행 되며 부모에서 자식 실행이 완료 될 때까지 대기 하는 기능 이상으로 인해 순서나 동기화가 보장 되지 않습니다.
+필드를 사용 `Run.parent` 하 여 현재 자식 실행을 시작한 실행에 액세스할 수 있습니다. 를 사용 하는 일반적인 사용 사례는 `Run.parent` 로그 결과를 한 장소에 결합 하는 것입니다. 자식 실행은 비동기적으로 실행 되며 부모에서 자식 실행이 완료 될 때까지 대기 하는 기능 이상으로 인해 순서나 동기화가 보장 되지 않습니다.
 
 ```python
 # in child (or even grandchild) run
