@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 2f1f01a8cfa25c222848e7cc5c86dc3532eba348
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "80437784"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Azure Data Box Heavy란?
@@ -117,9 +117,9 @@ Data Box Heavy의 지역 가용성에 대한 최신 정보를 보려면 [지역�
 Data Box Heavy에 가입하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com)합니다.
-2. **+ 리소스 만들기**를 클릭하여 새 리소스를 추가합니다. **Azure Data Box**를 검색합니다. **Azure Data Box** 서비스를 선택합니다.
-3. **만들기**를 클릭합니다.
-4. Data Box Heavy에서 사용하려는 구독을 선택합니다. Data Box Heavy 리소스를 배포할 지역을 선택합니다. **Data Box Heavy** 옵션에서 **등록**을 클릭합니다.
+2. **+ 리소스 만들기** 를 클릭하여 새 리소스를 추가합니다. **Azure Data Box** 를 검색합니다. **Azure Data Box** 서비스를 선택합니다.
+3. **만들기** 를 클릭합니다.
+4. Data Box Heavy에서 사용하려는 구독을 선택합니다. Data Box Heavy 리소스를 배포할 지역을 선택합니다. **Data Box Heavy** 옵션에서 **등록** 을 클릭합니다.
 5. 데이터 상주 국가/지역, 시간 프레임, 데이터 전송 대상 Azure 서비스, 네트워크 대역폭 및 데이터 전송 빈도에 관한 질문에 대답합니다. 개인정보 취급방침 및 약관을 검토하고 Microsoft가 이메일 주소를 사용하여 연락할 수 있다는 확인란을 선택합니다.
 
 가입 후 Data Box Heavy를 주문할 수 있습니다.

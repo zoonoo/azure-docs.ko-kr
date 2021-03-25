@@ -5,10 +5,10 @@ ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101722819"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>자습서: ARM 템플릿과 Azure Pipelines의 연속 통합
@@ -33,7 +33,7 @@ Azure DevOps는 팀이 작업을 계획하고, 협업을 통해 코드를 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -95,7 +95,7 @@ _azuredeploy.json_ 이 로컬 리포지토리에 추가되었습니다. 다음�
 1. *Git Shell* 또는 *Git Bash* 가 열려 있지 않으면 지금 엽니다.
 1. 디렉터리를 로컬 리포지토리의 _CreateWebApp_ 폴더로 변경합니다.
 1. _azuredeploy.json_ 파일이 이 폴더에 있는지 확인합니다.
-1. 다음 명령 실행:
+1. 다음 명령을 실행합니다.
 
     ```bash
     git add .

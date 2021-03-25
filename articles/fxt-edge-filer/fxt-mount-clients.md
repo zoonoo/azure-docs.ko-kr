@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
 ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92340515"
 ---
 # <a name="tutorial-mount-the-cluster"></a>자습서: 클러스터 탑재
@@ -60,7 +60,7 @@ mount 명령에는 다음 세 가지 요소가 있습니다.
 
 ### <a name="create-the-cluster-path"></a>클러스터 경로 만들기
 
-클러스터 경로는 *IP 주소*와 *네임스페이스 접합*에 대한 경로의 조합입니다. 네임스페이스 접합은 [스토리지 시스템을 추가](fxt-add-storage.md#create-a-junction)할 때 정의된 가상 경로입니다.
+클러스터 경로는 *IP 주소* 와 *네임스페이스 접합* 에 대한 경로의 조합입니다. 네임스페이스 접합은 [스토리지 시스템을 추가](fxt-add-storage.md#create-a-junction)할 때 정의된 가상 경로입니다.
 
 예를 들어 ``/fxt/files``를 네임스페이스 경로로 사용한 경우 클라이언트에서 *IP_address*:/fxt/files를 해당 로컬 탑재 지점에 탑재합니다.
 

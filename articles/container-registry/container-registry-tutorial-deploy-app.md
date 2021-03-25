@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92148431"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
@@ -37,13 +37,13 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 
 [Azure Portal](https://portal.azure.com)에 로그인하고 이전 자습서에서 만든 레지스트리로 이동합니다.
 
-**리포지토리** > **acr-helloworld**를 선택하고 **태그**의 **v1** 태그를 마우스 오른쪽 단추로 클릭한 다음 **웹앱에 배포**를 선택합니다.
+**리포지토리** > **acr-helloworld** 를 선택하고 **태그** 의 **v1** 태그를 마우스 오른쪽 단추로 클릭한 다음 **웹앱에 배포** 를 선택합니다.
 
 ![Azure Portal에서 App Service에 배포][deploy-app-portal-01]
 
-"웹앱에 배포"를 사용하지 않도록 설정된 경우 첫 번째 자습서의 [컨테이너 레지스트리 만들기](container-registry-tutorial-prepare-registry.md#create-a-container-registry)에 설명된 대로 레지스트리 관리 사용자를 사용하도록 설정하지 않은 것일 수 있습니다. Azure Portal의 **설정** > **액세스 키**에서 관리 사용자를 사용하도록 설정할 수 있습니다.
+"웹앱에 배포"를 사용하지 않도록 설정된 경우 첫 번째 자습서의 [컨테이너 레지스트리 만들기](container-registry-tutorial-prepare-registry.md#create-a-container-registry)에 설명된 대로 레지스트리 관리 사용자를 사용하도록 설정하지 않은 것일 수 있습니다. Azure Portal의 **설정** > **액세스 키** 에서 관리 사용자를 사용하도록 설정할 수 있습니다.
 
-"웹앱에 배포"를 선택하면 표시되는 **컨테이너용 웹앱**에서 각 설정에 대해 다음 값을 지정합니다.
+"웹앱에 배포"를 선택하면 표시되는 **컨테이너용 웹앱** 에서 각 설정에 대해 다음 값을 지정합니다.
 
 | 설정 | 값 |
 |---|---|
@@ -56,7 +56,7 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 > [!NOTE]
 > 컨테이너형 앱을 배포하기 위한 새 앱 서비스 계획을 만들 때 애플리케이션을 호스팅하기 위한 기본 계획이 자동으로 선택됩니다. 기본 계획은 운영 체제 설정에 따라 달라집니다.
 
-웹앱을 *미국 서부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
+웹앱을 *미국 서부* 영역에 프로비저닝하려면 **만들기** 를 선택합니다.
 
 ![스크린샷은 만들기 단추가 강조 표시된 Web App for Containers를 보여줍니다.][deploy-app-portal-02]
 
@@ -64,7 +64,7 @@ Azure Container Registry는 컨테이너화된 애플리케이션을 [Web App fo
 
 배포가 완료되면 브라우저에서 해당 URL로 이동하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
-포털에서 **App Services**를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-westus*입니다.
+포털에서 **App Services** 를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-westus* 입니다.
 
 브라우저에서 실행 중인 애플리케이션을 보려면 **App Service** 개요의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
 
@@ -76,7 +76,7 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>두 번째 Web App for Containers 인스턴스 배포
 
-이전 섹션에서 설명한 절차를 사용하여 *미국 동부* 영역에 두 번째 웹앱을 배포합니다. **Web App for Containers**에서 다음 값을 지정합니다.
+이전 섹션에서 설명한 절차를 사용하여 *미국 동부* 영역에 두 번째 웹앱을 배포합니다. **Web App for Containers** 에서 다음 값을 지정합니다.
 
 | 설정 | 값 |
 |---|---|
@@ -86,7 +86,7 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 | **이미지** | `acr-helloworld:v1` |
 | **운영 체제** | Linux |
 
-웹앱을 *미국 동부* 영역에 프로비저닝하려면 **만들기**를 선택합니다.
+웹앱을 *미국 동부* 영역에 프로비저닝하려면 **만들기** 를 선택합니다.
 
 ![스크린샷은 만들기 단추가 강조 표시된 Web App for Containers 만들기 창을 보여줍니다.][deploy-app-portal-06]
 
@@ -94,9 +94,9 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 이전과 마찬가지로 브라우저에서 해당 URL로 이동하여 실행 중인 애플리케이션을 볼 수 있습니다.
 
-포털에서 **App Services**를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-eastus*입니다.
+포털에서 **App Services** 를 선택한 다음 이전 단계에서 프로비저닝된 웹앱을 선택합니다. 이 예제에서 웹앱 이름은 *uniqueregistryname-eastus* 입니다.
 
-브라우저에서 실행 중인 애플리케이션을 보려면 **App Service 개요**의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
+브라우저에서 실행 중인 애플리케이션을 보려면 **App Service 개요** 의 오른쪽 위에 있는 웹앱의 하이퍼링크 URL을 선택합니다.
 
 ![Azure Portal에서 Linux의 웹앱 구성][deploy-app-portal-07]
 
