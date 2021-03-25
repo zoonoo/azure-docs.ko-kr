@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 13aa12be5a336363bbe3bcbf3e3fb354a8fa3074
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102617406"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048479"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>AnchorLocateCriteria 클래스 이해
 이 문서에서는 앵커를 쿼리할 때 사용할 수 있는 다양 한 옵션에 대해 알아봅니다. AnchorLocateCriteria 클래스, 해당 옵션 및 유효한 옵션 조합을 살펴보겠습니다.
 
 ## <a name="anchor-locate-criteria"></a>앵커 찾기 조건
-[AnchorLocateCriteria 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) 를 사용 하면 이전에 만든 앵커에 대해 서비스를 쿼리할 수 있습니다. 언제 든 지 감시자 당 하나의 AnchorLocateCriteria 개체를 사용할 수 있습니다. 각 AnchorLocateCriteria 개체에는 [identifier](#identifiers), [NearAnchor](#nearanchor)또는 [NearDevice](#neardevice)속성 중 **하나만** 있어야 합니다. 필요한 경우 [전략](#strategy), [BypassCache](#bypasscache), [RequestedCategories](#requestedcategories) 등의 추가 속성을 설정할 수 있습니다. 
+[AnchorLocateCriteria 클래스](/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) 를 사용 하면 이전에 만든 앵커에 대해 서비스를 쿼리할 수 있습니다. 언제 든 지 감시자 당 하나의 AnchorLocateCriteria 개체를 사용할 수 있습니다. 각 AnchorLocateCriteria 개체에는 [identifier](#identifiers), [NearAnchor](#nearanchor)또는 [NearDevice](#neardevice)속성 중 **하나만** 있어야 합니다. 필요한 경우 [전략](#strategy), [BypassCache](#bypasscache), [RequestedCategories](#requestedcategories) 등의 추가 속성을 설정할 수 있습니다. 
 
 ### <a name="properties"></a>속성
 감시자에서 다음 속성 중 **하나를 정확 하 게** 정의 합니다.
@@ -37,7 +37,7 @@ NearAnchor를 사용 하 여 AnchorLocateCriteria가 선택한 앵커에서 원�
 #### <a name="neardevice"></a>NearDevice
 *기본값: 설정 안 함*
 
-NearDevice를 사용 하 여 AnchorLocateCriteria가 요청한 앵커 집합을 장치의 실제 위치에 가까운 위치로 제한 하도록 지정할 수 있습니다. 사용 가능한 모든 센서는 장치 주변 앵커를 검색 하는 데 사용 됩니다. 앵커를 찾을 수 있는 가장 좋은 기회를 얻기 위해서는 적절 한 모든 센서에 대 한 세션 액세스를 제공 하도록 SensorCapabilities를 구성 해야 합니다. 이 속성을 설정 하 고 사용 하는 방법에 대 한 자세한 내용은 [거칠게 다시 지역화-Azure 공간 앵커를 참조 하세요.](https://docs.microsoft.com/azure/spatial-anchors/concepts/coarse-reloc) [C #](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [Swift](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-swift) [,](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity) [Java](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-java), [c + +/ndk](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-ndk), [c + +/ndk](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-winrt)에서 *거칠게 다시 지역화를 사용 하 여 앵커를 만들고 찾는 방법* 입니다. Microsoft Docs
+NearDevice를 사용 하 여 AnchorLocateCriteria가 요청한 앵커 집합을 장치의 실제 위치에 가까운 위치로 제한 하도록 지정할 수 있습니다. 사용 가능한 모든 센서는 장치 주변 앵커를 검색 하는 데 사용 됩니다. 앵커를 찾을 수 있는 가장 좋은 기회를 얻기 위해서는 적절 한 모든 센서에 대 한 세션 액세스를 제공 하도록 SensorCapabilities를 구성 해야 합니다. 이 속성을 설정 하 고 사용 하는 방법에 대 한 자세한 내용은 [거칠게 다시 지역화-Azure 공간 앵커를 참조 하세요.](./coarse-reloc.md) [C #](../how-tos/set-up-coarse-reloc-unity.md), [Swift](../how-tos/set-up-coarse-reloc-swift.md) [,](../how-tos/set-up-coarse-reloc-unity.md) [Java](../how-tos/set-up-coarse-reloc-java.md), [c + +/ndk](../how-tos/set-up-coarse-reloc-cpp-ndk.md), [c + +/ndk](../how-tos/set-up-coarse-reloc-cpp-winrt.md)에서 *거칠게 다시 지역화를 사용 하 여 앵커를 만들고 찾는 방법* 입니다. Microsoft Docs
 이 속성은 NearDeviceCriteria 개체를 사용 하 여 지정 됩니다.
 
 ### <a name="additional-properties"></a>추가 속성
@@ -66,7 +66,7 @@ LocateStrategy 열거형 값 | Description
 ---------------|------------
 AnyStrategy | 이 전략을 사용 하면 시스템에서 VisualInformation 및 Relationship 전략 조합을 사용 하 여 앵커를 찾을 수 있습니다. 
 VisualInformation|이 전략은 현재 주변의 시각적 정보를 앵커의 시각적 발자국과 일치 시켜 앵커를 찾으려고 시도 합니다. 앵커의 시각적 공간은 현재 앵커와 연결 된 시각적 정보를 나타냅니다. 일반적으로이 시각적 정보는 앵커를 만드는 동안에는 독점적으로 수집 되지 않습니다. 현재이 전략은 NearDevice 또는 Identifier 속성과 함께만 사용할 수 있습니다.
-관계|이 전략은 [연결 된 기존 앵커](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors)를 사용 하 여 앵커를 찾으려고 시도 합니다. 현재이 전략은 NearAnchor 또는 Identifier 속성과 함께만 사용할 수 있습니다. Identifier 속성과 함께 사용 하는 경우에는 동일한 세션에서 사용자가 이미 설정 된 연결 관계를 가진 앵커를 식별자 배열에 지정 된 Id를 가진 앵커에 이미 배치 해야 합니다. 
+관계|이 전략은 [연결 된 기존 앵커](./anchor-relationships-way-finding.md#connect-anchors)를 사용 하 여 앵커를 찾으려고 시도 합니다. 현재이 전략은 NearAnchor 또는 Identifier 속성과 함께만 사용할 수 있습니다. Identifier 속성과 함께 사용 하는 경우에는 동일한 세션에서 사용자가 이미 설정 된 연결 관계를 가진 앵커를 식별자 배열에 지정 된 Id를 가진 앵커에 이미 배치 해야 합니다. 
 
 
 ### <a name="valid-combinations-of-locatestrategy-and-anchorlocatecriteria-properties"></a>LocateStrategy AnchorLocateCriteria 속성의 유효한 조합 
@@ -86,4 +86,4 @@ NearDevice  | &check;    |   | &check;
 
 ## <a name="next-steps"></a>다음 단계
 
-AnchorLocateCriteria 클래스를 사용 하는 몇 가지 추가 예제는 [Azure 공간 앵커를 사용 하 여 앵커를 만들고 찾는 방법을](https://docs.microsoft.com/azure/spatial-anchors/create-locate-anchors-overview) 참조 하세요.
+AnchorLocateCriteria 클래스를 사용 하는 몇 가지 추가 예제는 [Azure 공간 앵커를 사용 하 여 앵커를 만들고 찾는 방법을](../create-locate-anchors-overview.md) 참조 하세요.

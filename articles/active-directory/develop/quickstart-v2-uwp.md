@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 1552dfedc4510ba22e58d166d12a356ba546c092
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 88fd6260df0039e960ac87b4b83d43ea497a58b0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103467"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658512"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>빠른 시작: 유니버설 Windows 플랫폼(UWP) 애플리케이션에서 Microsoft Graph API 호출
 
@@ -26,7 +26,7 @@ ms.locfileid: "100103467"
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
 > [!div renderon="docs"]
-> ## <a name="prerequisites"></a>필수 구성 요소
+> ## <a name="prerequisites"></a>사전 요구 사항
 >
 > * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
@@ -77,6 +77,8 @@ ms.locfileid: "100103467"
 > Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
 > [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: justinha
 ms.openlocfilehash: e381c80dddc4484d541f5f81de6b5df712cff69b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821673"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기

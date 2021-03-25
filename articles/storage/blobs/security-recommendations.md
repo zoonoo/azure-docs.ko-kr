@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 40067815ad582191606ad5a53cf06c9584d83350
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 389d3507c3406743e14324c7b4667e045cfdb3b5
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618018"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048037"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
-이 문서에는 Blob 저장소에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 방법에 대 한 자세한 내용은 [클라우드의 공유 책임](/azure/security/fundamentals/shared-responsibility)을 참조 하세요.
+이 문서에는 Blob 저장소에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 구현하면 공유 책임 모델에 설명된 대로 보안 의무를 충족하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 방법에 대 한 자세한 내용은 [클라우드의 공유 책임](../../security/fundamentals/shared-responsibility.md)을 참조 하세요.
 
 이 문서에 포함된 일부 권장 사항은 Azure Security Center에서 자동으로 모니터링할 수 있습니다. Azure Security Center는 Azure에서 리소스를 보호하는 첫 번째 방어선입니다. Azure Security Center에 대 한 자세한 내용은 [Azure Security Center 항목](../../security-center/security-center-introduction.md) 을 참조 하세요.
 

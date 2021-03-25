@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 42e263a47c6c771d2b1fef6586468cfc5a698e28
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503201"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047918"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -214,7 +214,7 @@ SQL Managed Instance의 저장소 크기는 선택한 서비스 계층 (범용 �
 
 **범용 서비스 계층에서 저장소 성능을 최적화 하려면 어떻게 해야 하나요?**
 
-저장소 성능을 최적화 하려면 범용 [저장소 모범 사례](https://techcommunity.microsoft.com)를 참조 하세요.
+저장소 성능을 최적화 하려면 범용 [저장소 모범 사례](https://techcommunity.microsoft.com/t5/datacat/storage-performance-best-practices-and-considerations-for-azure/ba-p/305525)를 참조 하세요.
 
 ## <a name="backup-and-restore"></a>백업 및 복원
 

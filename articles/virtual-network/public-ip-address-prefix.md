@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 874cb283f0076905393aa529e4ff9e1bad3ae047
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8bfc76afc1ef799be0fb29654bd341f53d1b0a8c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419680"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048462"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -63,7 +63,7 @@ Azure에서 IP 주소를 할당할 때까지 정확한 IP를 알 수 없습니�
 |가상 머신| Azure의 가상 머신에 공용 Ip를 연결 하면 방화벽의 허용 목록에 IP 주소를 추가할 때 관리 오버 헤드가 줄어듭니다. 단일 방화벽 규칙을 사용 하 여 전체 접두사를 추가할 수 있습니다. Azure에서 가상 머신으로 확장할 때 동일한 접두사의 IP를 연결하면 비용, 시간 및 관리 오버헤드를 절약할 수 있습니다.| 접두사의 IP를 가상 머신에 연결하려면: </br> 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . </br> 2. [접두사에서 IP를 만듭니다](manage-public-ip-address-prefix.md) . </br> 3. [IP를 가상 머신의 네트워크 인터페이스에 연결](virtual-network-network-interface-addresses.md#add-ip-addresses) 합니다. </br> [가상 머신 확장 집합에 ip를 연결할](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/)수도 있습니다.
 | 표준 부하 분산 장치 | 공용 ip를 접두사에서 프런트 엔드 IP 구성 또는 아웃 바운드 규칙의 프런트 엔드 IP 구성에 연결 하면 Azure 공용 IP 주소 공간의 간소화를 보장할 수 있습니다. 연속 된 IP 주소 범위에서 아웃 바운드 연결을 제거 하 여 시나리오를 간소화 합니다. | Ip를 접두사에서 부하 분산 장치에 연결 하려면 다음을 수행 합니다. </br> 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . </br> 2. [접두사에서 IP를 만듭니다](manage-public-ip-address-prefix.md) . </br> 3. 부하 분산 장치를 만들 때 위의 2 단계에서 만든 IP를 부하 분산 장치의 프런트 엔드 IP로 선택 하거나 업데이트 합니다. |
 | Azure Firewall | 아웃바운드 SNAT의 접두사에서 공용 IP를 사용할 수 있습니다. 모든 아웃 바운드 가상 네트워크 트래픽은 [Azure 방화벽](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 공용 IP로 변환 됩니다. | IP를 접두사에서 방화벽에 연결 하려면 다음을 수행 합니다. </br> 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . </br> 2. [접두사에서 IP를 만듭니다](manage-public-ip-address-prefix.md) . </br> 3. [Azure 방화벽을 배포할](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)때 이전에 접두사에서 제공한 IP를 선택 해야 합니다.|
-| VPN Gateway (AZ SKU) 또는 Application Gateway v2 | 영역 중복 VPN 또는 Application gateway v2에 대해 접두사에서 공용 IP를 사용할 수 있습니다. | IP를 접두사에서 게이트웨이에 연결 하려면 다음을 수행 합니다. </br> 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . </br> 2. [접두사에서 IP를 만듭니다](manage-public-ip-address-prefix.md) . </br> 3. [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/tutorial-create-gateway-portal) 또는 [Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)를 배포할 때 이전에 접두사에서 제공한 IP를 선택 해야 합니다.|
+| VPN Gateway (AZ SKU) 또는 Application Gateway v2 | 영역 중복 VPN 또는 Application gateway v2에 대해 접두사에서 공용 IP를 사용할 수 있습니다. | IP를 접두사에서 게이트웨이에 연결 하려면 다음을 수행 합니다. </br> 1. [접두사를 만듭니다](manage-public-ip-address-prefix.md) . </br> 2. [접두사에서 IP를 만듭니다](manage-public-ip-address-prefix.md) . </br> 3. [VPN Gateway](../vpn-gateway/tutorial-create-gateway-portal.md) 또는 [Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway)를 배포할 때 이전에 접두사에서 제공한 IP를 선택 해야 합니다.|
 
 ## <a name="constraints"></a>제약 조건
 

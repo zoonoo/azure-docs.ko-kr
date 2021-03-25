@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/02/2021
-ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 34d0d55ba6eb403055be96758b57b7bd0c2ab704
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622167"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104988337"
 ---
 IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 문제를 해결할 수 있습니다. 가능한 응답 목록은 다음과 같습니다.
 
@@ -66,3 +66,43 @@ IoT Edge 서비스를 삭제 한 다음 모듈을 다시 배포 합니다. 자�
 1. **적용** 을 선택합니다. 변경 된 IP 범위는 즉시 적용 됩니다.
 
 자세한 내용은 [컨테이너의 외부 서비스 Ip 변경](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers)을 참조 하세요.
+
+### <a name="configure-static-ips-for-iot-edge-modules"></a>IoT Edge 모듈의 고정 Ip 구성
+
+#### <a name="problem-description"></a>문제 설명
+
+Kubernetes는 Azure Stack Edge Pro GPU 장치의 각 IoT Edge 모듈에 동적 Ip를 할당 합니다. 모듈에 대 한 고정 Ip를 구성 하려면 메서드가 필요 합니다.
+
+#### <a name="suggested-solution"></a>추천 솔루션
+
+아래에 설명 된 대로 K8s-실험적 섹션을 통해 IoT Edge 모듈에 고정 IP 주소를 지정할 수 있습니다. 
+
+```yaml
+{
+  "k8s-experimental": {
+    "serviceOptions" : {
+      "loadBalancerIP" : "100.23.201.78",
+      "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### <a name="expose-kubernetes-service-as-cluster-ip-service-for-internal-communication"></a>Kubernetes service를 내부 통신용 클러스터 IP 서비스로 노출
+
+#### <a name="problem-description"></a>문제 설명
+
+기본적으로 IoT 서비스 유형은 부하 분산 장치 유형이 며 외부 연결 IP 주소가 할당 됩니다. 응용 프로그램에 대 한 외부 연결 IP 주소를 원하지 않을 수 있습니다. 외부에 노출 된 부하 분산 장치 서비스가 아닌 다른 pod으로 액세스 하려면 KUbernetes 클러스터 내에서 pod를 노출 해야 할 수 있습니다. 
+
+#### <a name="suggested-solution"></a>추천 솔루션
+
+K8s-실험적 섹션을 통해 만들기 옵션을 사용할 수 있습니다. 다음 서비스 옵션은 포트 바인딩에서 작동 해야 합니다.
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
+    }
+  }
+}
+```

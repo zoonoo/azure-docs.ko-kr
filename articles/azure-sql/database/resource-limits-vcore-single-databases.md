@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/22/2021
-ms.openlocfilehash: 1fec13eefad7f27bcaac8f2c690b99909cd24e59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: d38dc7b2bf56ba91fcf77ebdb81836c8c398a52d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100518048"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023856"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>vCore 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ ms.locfileid: "100518048"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS \*\*|320|640|1280|1920|2560|
-|최대 로그 전송률 (MBps)|4.5|9|18|27|36|
+|최대 로그 전송률 (MBps)|4.5.|9|18|27|36|
 |최대 동시 작업자(요청)|75|150|300|450|600|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|
@@ -226,7 +226,7 @@ ms.locfileid: "100518048"
 
 \* 로컬 SSD IO 외에도 작업은 원격 [페이지 서버](service-tier-hyperscale.md#page-server) io를 사용 합니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. 자세한 내용은 [데이터 Io 관리](resource-limits-logical-server.md#resource-governance)및 [리소스 사용률 통계의 데이터 io](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics)를 참조 하세요.
 
-#### <a name="notes"></a>참고
+#### <a name="notes"></a>메모
 
 **참고 1**: hyperscale은 별도의 계산 및 저장소 구성 요소를 포함 하는 다중 계층 아키텍처입니다. [대규모 서비스 계층 아키텍처](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -257,7 +257,7 @@ ms.locfileid: "100518048"
 |백업 저장소 보존|7 일|7 일|7 일|7 일|
 |||
 
-### <a name="notes"></a>참고
+### <a name="notes"></a>메모
 
 **참고 1**: hyperscale은 별도의 계산 및 저장소 구성 요소를 포함 하는 다중 계층 아키텍처입니다. [대규모 서비스 계층 아키텍처](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -283,7 +283,7 @@ ms.locfileid: "100518048"
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|320|640|960|1280|1600|1920|
-|최대 로그 전송률 (MBps)|4.5|9|13.5|18|22.5|27|
+|최대 로그 전송률 (MBps)|4.5.|9|13.5|18|22.5|27|
 |최대 동시 작업자(요청)|200|400|600|800|1000|1200|
 |최대 동시 세션|30,000|30,000|30,000|30,000|30,000|30,000|
 |복제본 수|1|1|1|1|1|1|
@@ -383,7 +383,7 @@ ms.locfileid: "100518048"
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1536|
 |최대 로그 크기(GB)|336|336|336|336|512|
-|TempDB 최대 데이터 크기 (GB)|333|333|333|333|333|
+|TempDB 최대 데이터 크기 (GB)|37|46|56|65|74|
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|2560|3200|3840|4480|5120|
@@ -409,7 +409,7 @@ ms.locfileid: "100518048"
 |메모리 내 OLTP 스토리지(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |최대 데이터 크기(GB)|1536|1536|1536|3072|3072|4096|
 |최대 로그 크기(GB)|512|512|512|1024|1024|1024|
-|TempDB 최대 데이터 크기 (GB)|83.25|92.5|111|148|166.5|333|
+|TempDB 최대 데이터 크기 (GB)|83|93|111|148|167|333|
 |스토리지 유형|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|원격 SSD|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
 |최대 데이터 IOPS *|5760|6400|7680|10240|11520|12800|

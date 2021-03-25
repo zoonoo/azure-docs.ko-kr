@@ -9,10 +9,10 @@ ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 4678a6128be13ac61dc4ac67bbd1a17e99c6d24d
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99822543"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>자습서: Azure SQL Database 리소스를 다른 지역으로 이동
@@ -25,16 +25,16 @@ ms.locfileid: "99822543"
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 필수 구성 요소 및 요구 사항을 확인합니다.
-> * 이동하려는 리소스를 선택합니다.
+> * 필수 구성 요소 및 요구 사항 확인
+> * 이동하려는 리소스 선택
 > * 리소스 종속성을 확인합니다.
 > * SQL Server를 준비하고 대상 지역으로 이동합니다.
 > * 데이터베이스 및 탄력적 풀을 준비하고 이동합니다.
 > * 이동을 취소할지 아니면 커밋할지를 결정합니다. 
-> * 이동 후 필요에 따라 원본 지역에서 리소스를 제거합니다. 
+> * 이동 후 필요에 따라 원본 지역의 리소스 제거 
 
 > [!NOTE]
-> 이 자습서에서는 시나리오를 시도하기 위한 가장 빠른 경로를 보여 주고 기본 옵션을 사용합니다. 
+> 이 자습서에서는 시나리오를 가장 빠르게 시도할 수 있는 경로를 보여주며, 기본 옵션을 사용합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다. 그런 다음 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -42,8 +42,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 -  이동하려는 리소스가 포함된 구독에 대한 *소유자* 액세스 권한이 있는지 확인합니다.
     - Azure 구독에서 특정 원본 및 대상 쌍에 대한 리소스를 처음 추가하는 경우 Resource Mover를 통해 구독에서 신뢰할 수 있는 [시스템이 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)(이전에는 MSI(관리되는 서비스 ID)라고 함)를 만듭니다.
-    - ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 구독에 대한 *소유자* 권한이 리소스를 추가하는 데 사용하는 계정에 필요합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
-- 구독에는 대상 지역에서 이동하는 리소스를 만드는 데 충분한 할당량이 필요합니다. 할당량이 없는 경우 [추가 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 요청합니다.
+    - ID를 만들고 필요한 역할(원본 구독의 기여자 또는 사용자 액세스 관리자)을 할당하려면 리소스를 추가하는 데 사용하는 계정에 구독의 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
+- 구독의 할당량이 대상 지역에서 이동하려는 리소스를 만들기에 충분해야 합니다. 할당량이 없는 경우 [추가 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)을 요청합니다.
 - 리소스를 이동하는 대상 지역과 관련된 가격 책정 및 요금을 확인합니다. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 사용자를 도와줍니다.
     
 
@@ -67,9 +67,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 선택한 원본 지역의 모든 리소스 그룹에서 지원되는 리소스 종류를 선택할 수 있습니다.
 - 리소스를 원본 지역과 동일한 구독의 대상 지역으로 이동합니다. 구독을 변경하려면 리소스를 이동한 후에 변경할 수 있습니다.
 
-1. Azure Portal에서 *리소스 이동기* 를 검색합니다. 그런 다음, **서비스** 아래에서 **Azure Resource Mover** 를 선택합니다.
+1. Azure Portal에서 *resource mover* 를 검색합니다. 그런 다음, **서비스** 아래에서 **Azure Resource Mover** 를 선택합니다.
 
-     ![Azure Portal의 리소스 이동기에 대한 검색 결과](./media/tutorial-move-region-sql/search.png)
+     ![Azure Portal의 resource mover에 대한 검색 결과](./media/tutorial-move-region-sql/search.png)
 
 2. **개요** 에서 **시작** 을 클릭합니다.
 

@@ -4,10 +4,10 @@ description: IoT Edge의 모듈로 Azure Event Grid를 사용하여 모듈, 에�
 ms.topic: overview
 ms.date: 07/08/2020
 ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86171519"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Azure IoT Edge의 Azure Event Grid란?

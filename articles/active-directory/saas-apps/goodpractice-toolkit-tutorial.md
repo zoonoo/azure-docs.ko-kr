@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92448421"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>자습서: Mind Tools Toolkit와 Azure Active Directory 통합
@@ -112,7 +112,7 @@ Mind Tools Toolkit에서 Azure AD Single Sign-On을 구성하고 테스트하려
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에서 **B.Simon** 을 입력합니다.  
-   1. **사용자 이름** 필드에 **B.Simon@** _companydomain_ **.** _extension_ 을 입력합니다. B.Simon@contoso.com)을 입력합니다.
+   1. **사용자 이름** 필드에 **B.Simon@** _companydomain_ **.** _extension_ 을 입력합니다. 예들 들어 B.Simon@contoso.com입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 선택합니다.
 

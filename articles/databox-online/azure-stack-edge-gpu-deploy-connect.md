@@ -10,10 +10,10 @@ ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90900039"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro에 연결
@@ -55,10 +55,10 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
    
     ![웹 사이트 보안 인증서 오류 메시지](./media/azure-stack-edge-deploy-connect-setup-activate/image2.png)
 
-4. **이 웹 페이지에서 계속 진행**을 선택합니다.  
+4. **이 웹 페이지에서 계속 진행** 을 선택합니다.  
     이러한 단계는 사용 중인 브라우저에 따라 달라질 수 있습니다.
 
-5. 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1*입니다. 
+5. 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1* 입니다. 
    
     ![Azure Stack Edge Pro 디바이스 로그인 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 

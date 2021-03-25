@@ -5,10 +5,10 @@ ms.date: 01/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99981547"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Resource Graph 공유 쿼리 만들기

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 786c6309f685af6b8e42108c490ce86c7844bc81
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92443180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>자습서:Azure Active Directory와 Hosted Graphite 통합
@@ -133,7 +133,7 @@ Hosted Graphite에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 1. Hosted Graphite 테넌트에 관리자 권한으로 로그온합니다.
 
-2. 세로 막대에서 **SAML 설정 페이지** 로 이동합니다( **액세스 -> SAML 설정** ).
+2. 세로 막대에서 **SAML 설정 페이지** 로 이동합니다(**액세스 -> SAML 설정**).
 
     ![스크린샷은 SAML 설정이 선택된 액세스 메뉴를 보여줍니다.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
@@ -159,7 +159,7 @@ Hosted Graphite에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -184,7 +184,7 @@ Hosted Graphite에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Hosted Graphite에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Hosted Graphite** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Hosted Graphite** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

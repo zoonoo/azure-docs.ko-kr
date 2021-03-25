@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 2405ba800e5ff64b9c0513e07d685e026cc3691c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96179030"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-crises-control"></a>자습서: Crises Control과 Azure Active Directory SSO(Single Sign-On) 통합

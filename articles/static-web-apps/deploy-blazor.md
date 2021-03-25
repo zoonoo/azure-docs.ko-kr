@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: cshoe
 ms.openlocfilehash: 0086f7f68fd05d6925d19c7ab457fbc125e36be4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350231"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Blazor를 사용하여 정적 웹앱 빌드
@@ -20,7 +20,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 빌드하여 프로
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정

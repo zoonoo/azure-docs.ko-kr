@@ -14,10 +14,10 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 85fa79cdfc7036be5b0ab20e49986a1d075152c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86254659"
 ---
 # <a name="about-api-management"></a>API Management 정보
@@ -42,25 +42,25 @@ API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 �
   
   * API 호출 수락 후 백 엔드로 라우팅합니다.
   * API 키, JWT 토큰, 인증서 및 기타 자격 증명을 확인합니다.
-  * 사용 할당량 및 속도 제한을 적용합니다.
-  * 코드 수정 없이 즉석에서 API를 변환합니다.
-  * 설정된 위치에 백 엔드 응답을 캐시합니다.
+  * 사용 할당량 및 요금 제한을 적용합니다.
+  * 코드를 수정하지 않고 즉시 API를 변환합니다.
+  * 설정된 백 엔드 응답을 캐시합니다.
   * 분석용으로 호출 메타데이터를 기록합니다.
-* **Azure Portal**은 API 프로그램이 설치되는 관리 인터페이스입니다. 다음 작업을 수행하는 데 사용합니다.
+* **Azure Portal** 은 API 프로그램이 설치되는 관리 인터페이스입니다. 다음 작업을 수행하는 데 사용합니다.
   
   * API 스키마를 정의하거나 가져옵니다.
   * 제품에 API를 패키징합니다.
   * API에서 할당량 또는 변환 등의 정책을 설정합니다.
   * 분석의 정보를 활용합니다.
   * 사용자를 관리합니다.
-* **개발자 포털**은 개발자를 위한 기본 웹 서비스 역할을 하며, 여기서 개발자는 다음 작업을 수행할 수 있습니다.
+* **개발자 포털** 은 개발자를 위한 기본 웹 서비스 역할을 하며, 여기서 개발자는 다음 작업을 수행할 수 있습니다.
   
   * API 설명서를 읽습니다.
-  * 대화형 콘솔을 통해 API를 사용해 봅니다.
-  * 계정을 만들고 구독하여 API 키를 받습니다.
+  * 대화형 콘솔을 통해 API를 사용해 보세요.
+  * 계정을 만들고 구독하여 API 키를 가져옵니다.
   * 자신의 사용량에 대한 분석에 액세스합니다.
 
-자세한 내용은 [클라우드 기반 API Management: API의 기능 활용](https://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
+자세한 내용은 [클라우드 기반 API Management: API 기능을 활용](https://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
  
  * 공통 API 요구 사항 및 특징
  * API 분리 및 외관 제공
@@ -74,7 +74,7 @@ API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 �
 ## <a name="apis-and-operations"></a><a name="apis"> </a>API 및 작업
 API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개발자가 사용할 수 있는 작업 집합을 나타냅니다. 각 API에는 API를 구현하는 백 엔드 서비스에 대한 참조가 포함되어 있으며, 해당 작업은 백 엔드 서비스에 의해 구현되는 작업에 매핑됩니다. API Management의 작업은 매우 다양하게 구성할 수 있으며 URL 매핑, 쿼리 및 경로 매개 변수, 요청 및 응답 콘텐츠, 작업 응답 캐싱 등을 더 효율적으로 제어할 수 있습니다. 속도 제한, 할당량 및 IP 제한 정책 또한 API 또는 개별 작업 수준에서 구현할 수 있습니다.
 
-자세한 내용은 [API를 관리하는 방법][How to create APIs](영문) 및 [API에 작업을 추가하는 방법][How to add operations to an API](영문)을 참조하세요.
+자세한 내용은 [API를 만드는 방법][How to create APIs] 및 [API에 작업을 추가하는 방법][How to add operations to an API]을 참조하세요.
 
 ## <a name="products"></a><a name="products"> </a> 제품
 제품은 API가 개발자에게 표시되는 방식입니다. API Management에서 제품은 하나 이상의 API를 가지며 제목, 설명, 사용 약관 등으로 구성됩니다. 제품은 **개방형** 또는 **보호된** 제품일 수 있습니다. 보호된 제품은 사용하기 전에 구독해야 하는 반면, 개방형 제품은 구독하지 않고 사용할 수 있습니다. 제품을 개발자가 사용할 수 있게 되면 제품을 게시할 수 있습니다. 게시되고 나면 개발자가 볼 수 있습니다(보호된 제품의 경우 구독할 수 있음). 구독 승인은 제품 수준에서 구성되며 관리자 승인을 요구하거나 자동 승인될 수 있습니다.
@@ -84,13 +84,13 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 ## <a name="groups"></a><a name="groups"> </a> 그룹
 그룹은 제품을 개발자에게 표시하는 옵션을 관리하는 데 사용됩니다. API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 있습니다.
 
-* **관리자** - Azure 구독 관리자가 이 그룹의 구성원입니다. 관리자는 API Management 서비스 인스턴스를 관리하며 개발자가 사용하는 API, 작업 및 제품을 만듭니다.
-* **개발자** - 인증된 개발자 포털 사용자가 이 그룹에 속합니다. 개발자는 API를 사용하여 애플리케이션을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 애플리케이션을 빌드합니다.
+* **관리자** - Azure 구독 관리자는 이 그룹의 구성원입니다. 관리자는 API Management 서비스 인스턴스를 관리하며 개발자가 사용하는 API, 작업 및 제품을 만듭니다.
+* **개발자** - 인증된 개발자 포털 사용자는 이 그룹에 속합니다. 개발자는 API를 사용하여 애플리케이션을 빌드하는 고객입니다. 개발자는 개발자 포털에 액세스할 수 있는 권한을 받으며 API의 작업을 호출하는 애플리케이션을 빌드합니다.
 * **게스트** - API Management 인스턴스의 개발자 포털을 방문하는 인증되지 않은 개발자 포털 사용자(예: 잠재 고객)가 이 그룹에 속합니다. 예를 들어 API를 볼 수 있지만 호출할 수는 없는 기능과 같이 특정 읽기 전용 액세스 권한을 받을 수 있습니다.
 
 이러한 시스템 그룹 외에도 관리자는 사용자 지정 그룹을 만들거나 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다](api-management-howto-aad.md). 사용자 지정 및 외부 그룹은 시스템 그룹과 함께 사용되어 개발자에게 API 제품에 대한 표시 여부 및 액세스를 제공합니다. 예를 들어, 특정 파트너 조직과 관련된 개발자를 위한 하나의 사용자 지정 그룹을 만들고 관련 API만을 포함한 제품에서 API에 대한 액세스를 허용합니다. 사용자는 두 그룹 이상의 구성원이 될 수 있습니다.
 
-자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups](영문)을 참조하세요.
+자세한 내용은 [그룹을 만들고 사용하는 방법][How to create and use groups]을 참조하세요.
 
 ## <a name="developers"></a><a name="developers"> </a> 개발자
 개발자는 API Management 서비스 인스턴스의 사용자 계정을 나타냅니다. 개발자는 개발자(administrator)가 만들거나 참여하도록 초대할 수 있으며 [개발자 포털][Developer portal]에서 등록할 수도 있습니다. 각 개발자는 하나 이상의 그룹의 구성원이며 해당 그룹에 대한 가시성을 부여하는 제품을 구독할 수 있습니다.
@@ -105,7 +105,7 @@ API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개�
 정책이 다르게 지정하지 않는 한 정책 식은 어떤 API Management 정책에서든 특성 값 또는 텍스트 값으로 사용될 수 있습니다. [제어 흐름](./api-management-advanced-policies.md#choose) 및 [변수 설정](./api-management-advanced-policies.md#set-variable) 정책 등의 일부 정책은 정책 식을 기반으로 합니다. 자세한 내용은 [고급 정책](./api-management-advanced-policies.md#AdvancedPolicies) 및 [정책 식](./api-management-policy-expressions.md)을 참조하세요.
 
 
-API Management 정책의 전체 목록을 보려면 [정책 참조][Policy reference](영문)를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API Management 정책][API Management policies](영문)을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][How create and configure advanced product settings]을 참조하세요.
+API Management 정책의 전체 목록을 보려면 [정책 참조][Policy reference](영문)를 참조하세요. 정책 사용 및 구성에 대한 자세한 내용은 [API Management 정책][API Management policies]을 참조하세요. 속도 제한 및 할당량 정책을 사용하여 제품을 만드는 방법에 대한 자습서는 [고급 제품 설정을 만들고 구성하는 방법][How create and configure advanced product settings]을 참조하세요.
 
 
 ## <a name="developer-portal"></a><a name="developer-portal"> </a> 개발자 포털
