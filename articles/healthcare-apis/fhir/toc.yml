@@ -137,6 +137,8 @@
       href: fhir-faq.md
     - name: 지원되는 기능
       href: fhir-features-supported.md
+    - name: GitHub 프로젝트
+      href: fhir-github-projects.md
     - name: 파트너 에코시스템
       href: partner-ecosystem.md
 - name: 참조

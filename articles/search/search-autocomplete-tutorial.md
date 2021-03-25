@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 668b987dd8b367c143a91dc5adb11848321a9d5a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96339611"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044416"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 클라이언트 앱에 자동 완성 및 제안 추가
 
-검색 형식은 사용자가 시작한 쿼리의 생산성을 개선 하는 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 두 번째 사용자 환경에는 *제안 사항이* 나 일치 하는 문서의 짧은 목록 (해당 책에 대 한 세부 정보 페이지에 연결할 수 있도록 책 제목을 ID로 반환)이 있습니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
+검색 형식은 쿼리 생산성을 개선 하기 위한 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 두 번째 사용자 환경에는 *제안 사항이* 나 일치 하는 문서의 짧은 목록 (해당 책에 대 한 세부 정보 페이지에 연결할 수 있도록 책 제목을 ID로 반환)이 있습니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
 
 Azure Cognitive Search에서 이러한 환경을 구현 하려면 다음이 필요 합니다.
 
@@ -63,13 +63,16 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 자동 완성 및 제안에 대 한 응답은 패턴에 대해 예측할 수 있습니다. [자동 완성](/rest/api/searchservice/autocomplete#response) 은 단어를 인출할 수 있도록 용어와 문서 ID [를 반환 합니다](/rest/api/searchservice/suggestions#response) . 그러면 문서를 인출할 수 있습니다 ( [조회 문서](/rest/api/searchservice/lookup-document) API를 사용 하 여 세부 정보 페이지에 대 한 특정 문서 페치).
 
-응답은 요청에 대 한 매개 변수로 모양이 지정 됩니다. 자동 완성을 위해 [**autocompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) 를 설정 하 여 텍스트 완성이 한 두 항에서 발생 하는지 여부를 확인 합니다. 제안에 대해 선택한 필드에 따라 응답의 내용이 결정 됩니다.
+응답은 요청에 대 한 매개 변수에 따라 다음과 같이 지정 됩니다.
 
-제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
++ 자동 완성을 위해 [**autocompleteMode**](/rest/api/searchservice/autocomplete#query-parameters) 를 설정 하 여 텍스트 완성이 한 두 항에서 발생 하는지 여부를 확인 합니다. 
+
++ 제안에 대해 이름, 설명 등 고유 하거나 차별화 된 값이 포함 된 필드를 반환 하도록 [**$select**](/rest/api/searchservice/suggestionse#query-parameters) 를 설정 합니다. 중복 값을 포함 하는 필드 (예: 범주 또는 도시)를 사용 하지 않습니다.
+
+다음 추가 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
 | 매개 변수 | 사용량 |
 |-----------|-------|
-| **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
 | **$filter** | 결과 집합에 일치 조건 ()을 적용 `$filter=Category eq 'ActionAdventure'` 합니다. |
 | **$top** | 결과를 특정 숫자 ()로 제한 `$top=5` 합니다.|

@@ -7,17 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ea647591194dfd6ba0bf818f4ce4d3a2005f0bc4
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/25/2021
+ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630788"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045249"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>SaaS 제품을 테스트 하 고 상업적 marketplace에 게시 하는 방법
 
 이 문서에서는 파트너 센터를 사용 하 여 게시, 제품 미리 보기, 테스트를 위한 SaaS 제품을 제출 하 고 상용 marketplace에 게시 하는 방법을 설명 합니다. 게시 하려는 제품이 이미 만들어져 있어야 합니다.
+
+> [!NOTE]
+> 프로덕션 (PROD) 제품을 게시 하기 전에 테스트 하는 낮은 위험 수준으로 별도의 개발 (테스트 및 개발) 제품을 만드는 것이 좋습니다. (PROD) 제품을 게시 하기 전에 다음 단계에 따라 DEV 제품을 만들고 테스트 합니다.
 
 ## <a name="submit-your-offer-for-publishing"></a>게시를 위해 제품 제출
 
@@ -48,7 +51,7 @@ ms.locfileid: "102630788"
 
 1. **제품 개요** 페이지에서 **라이브 이동** 단추 아래의 미리 보기 링크를 선택 합니다.
 
-1. 종단 간 구매 및 설정 흐름의 유효성을 검사 하려면 미리 보기로 제공 되는 동안 제품을 구매 하세요. 먼저 Microsoft에 [지원 티켓](https://aka.ms/marketplacesupport) 을 알리고 요금을 처리 하지 않도록 합니다.
+1. 종단 간 구매 및 설정 흐름의 유효성을 검사 하려면 미리 보기로 제공 되는 동안 제품에서 요금제를 구입 합니다. 먼저 Microsoft에 [지원 티켓](https://aka.ms/marketplacesupport) 을 알리고 요금을 처리 하지 않도록 합니다.
 
 1. SaaS 제품이 [상업적 marketplace 계량 서비스를 사용 하 여 요금제 요금제](./partner-center-portal/saas-metered-billing.md)를 지 원하는 경우 [Marketplace 요금제 청구 api](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices)에 자세히 설명 된 테스트 모범 사례를 검토 하 고 따릅니다.
 
@@ -60,10 +63,10 @@ ms.locfileid: "102630788"
 
 ## <a name="publish-your-offer-live"></a>제품을 라이브 게시
 
-미리 보기에서 모든 테스트를 완료 한 후 **Live로 전환** 을 선택 하 여 제품을 상업적 marketplace에 게시 합니다.
+미리 보기에서 모든 테스트를 완료 한 후 **Live로 전환** 을 선택 하 여 제품을 상업적 marketplace에 게시 합니다. 제품이 이미 상업적 marketplace에 있는 경우 **Live go** 를 선택할 때까지 모든 업데이트가 라이브 상태로 전환 되지 않습니다.
 
-   > [!TIP]
-   > 제품이 이미 상업적 marketplace에 있는 경우 **Live go** 를 선택할 때까지 모든 업데이트가 라이브 상태로 전환 되지 않습니다.
+> [!IMPORTANT]
+> [개발/테스트 제안](create-saas-dev-test-offer.md)에 대해 항상 **라이브** 를 선택 하지 마세요.
 
 이제 상업적 marketplace에서 제품을 사용할 수 있도록 선택 했으므로 제품의 미리 보기 버전과 마찬가지로 live 제품이 구성 되도록 일련의 최종 유효성 검사를 수행 합니다. 이러한 유효성 검사에 대 한 자세한 내용은 [게시 단계](review-publish-offer.md#publish-phase)를 참조 하세요.
 

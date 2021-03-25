@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025240"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107519"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 대한 질문과 대답
 이 문서에서는 Azure Cloud Services (확장 지원)와 관련 된 질문과 대답을 다룹니다.
@@ -93,7 +93,7 @@ CTP 패키지 형식은 Cloud Services (확장 지원)에서 지원 되지 않�
 ### <a name="when-do-i-need-to-migrate"></a>마이그레이션이 필요한 경우 
 필요한 시간을 예측 하 고 복잡성을 예측 하는 것은 변수의 범위에 따라 다릅니다. 계획은 작업의 범위, 차단 및 마이그레이션 복잡성을 이해 하는 가장 효과적인 단계입니다.
 
-## <a name="networking"></a>네트워킹
+## <a name="networking"></a>네트워킹 
 
 ### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>가상 네트워크가 없는 배포를 만들 수 없는 이유는 무엇입니까?
 가상 네트워크는 Azure Resource Manager에 배포 하는 데 필요한 리소스입니다. Cloud Services (확장 지원) 배포는 가상 네트워크 내에 있어야 합니다. 
@@ -112,6 +112,9 @@ Cloud Services (확장 지원)는 동적 & 고정 IP 할당 방법을 지원 합
 
 ### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Cloud Services (확장 지원)에서 DNS 이름을 사용할 수 있나요? 
 예. Cloud Services (확장 지원)에 DNS 이름을 지정할 수도 있습니다. Azure Resource Manager DNS 레이블은 클라우드 서비스에 할당 된 공용 IP 주소의 선택적 속성입니다. Azure Resource Manager 기반 배포에 대 한 DNS 이름 형식은입니다. `<userlabel>.<region>.cloudapp.azure.com`
+
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>기존 클라우드 서비스에 대 한 가상 네트워크 참조 (확장 지원)를 업데이트 하거나 변경할 수 있나요? 
+아니요. 클라우드 서비스를 만드는 동안 가상 네트워크 참조가 필수입니다. 기존 클라우드 서비스의 경우 가상 네트워크 참조를 변경할 수 없습니다. VNet Api를 사용 하 여 가상 네트워크 주소 공간 자체를 수정할 수 있습니다. 
 
 ## <a name="certificates--key-vault"></a>인증서 & Key Vault
 

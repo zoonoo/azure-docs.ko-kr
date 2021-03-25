@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 998b0cb04d465f675423e2472a7ca8c6441b1fed
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010408"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045487"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터로 마이그레이션
 
@@ -31,7 +31,7 @@ ms.locfileid: "103010408"
 
 마이그레이션은 다음과 같은 결과를 생성 하는 데 도움이 됩니다.
 
-* 온-프레미스 에이전트 및 방화벽 설정이 그대로 작동 합니다. 변경할 필요가 없습니다. Azure 가상 컴퓨터에 설치 된 Log Analytics 에이전트를 [Network Watcher 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows)으로 바꾸어야 합니다.
+* 온-프레미스 에이전트 및 방화벽 설정이 그대로 작동 합니다. 변경할 필요가 없습니다. Azure 가상 컴퓨터에 설치 된 Log Analytics 에이전트를 [Network Watcher 확장](../virtual-machines/extensions/network-watcher-windows.md)으로 바꾸어야 합니다.
 * 기존 테스트는 테스트 그룹 > 테스트 형식 > 연결 모니터에 매핑됩니다. **편집** 을 선택 하 여 새 연결 모니터의 속성을 보고 수정 하 고, 템플릿을 다운로드 하 여 변경 내용을 적용 하 고, Azure Resource Manager를 통해 템플릿을 제출할 수 있습니다.
 * 에이전트는 Log Analytics 작업 영역 및 메트릭 모두에 데이터를 보냅니다.
 * 데이터 모니터링:
@@ -41,7 +41,7 @@ ms.locfileid: "103010408"
     * **종단 간 손실 및 대기 시간**: 연결 모니터는이를 구동 하 고, 사용자가 모니터링할 회로 및 피어 링을 구성할 필요가 없기 때문에 NPM는 것이 더 쉽습니다. 경로의 회로는 자동으로 검색 되며, 데이터를 메트릭에 사용할 수 있습니다 (NPM가 결과를 저장 하는 LA 보다 빠름). 토폴로지가 그대로도 작동 합니다.
     * **대역폭 측정**: 대역폭 관련 메트릭이 시작 됨에 따라 NPM의 log analytics 기반 접근 방식은 express 경로 고객에 대 한 대역폭 모니터링에는 적용 되지 않습니다. 이제이 기능은 연결 모니터에서 사용할 수 없습니다.
     
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용 하도록 설정 했는지 확인 합니다. 
 * Log Analytics 작업 영역 보다 다른 지역/구독에 속한 Azure VM이 끝점으로 사용 되는 경우 해당 구독 및 지역에 대해 Network Watcher를 사용 하도록 설정 해야 합니다.   

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bdfb5f65106f3f8843b4aa52b752f5e563ab03f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102620121"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045334"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>IoT Edge 투명 게이트웨이를 통해 장치를 연결 하는 방법
 
@@ -23,13 +23,13 @@ IoT Edge는 [ *투명* 및 *변환* 게이트웨이 패턴](../../iot-edge/iot-e
 
 이 문서에서는 가상 컴퓨터를 사용 하 여 다운스트림 장치 및 게이트웨이를 호스팅합니다. 실제 시나리오에서 다운스트림 장치 및 게이트웨이는 로컬 네트워크의 물리적 장치에서 실행 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작을 완료하여 **사용자 지정 앱 > 사용자 지정 애플리케이션** 템플릿으로 IoT Central 애플리케이션을 만듭니다.
+[Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작을 완료하여 **사용자 지정 앱 > 사용자 지정 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
 
 이 문서의 단계를 수행 하려면 다음 파일을 컴퓨터에 다운로드 합니다.
 
@@ -155,7 +155,7 @@ IoT Edge 장치가 투명 게이트웨이로 작동 하려면 모든 다운스�
 
     이러한 데모 인증서에 대해 자세히 알아보려면 [데모 인증서를 만들어 IoT Edge 장치 기능 테스트](../../iot-edge/how-to-create-test-certificates.md)를 참조 하세요.
 
-1. 텍스트 편집기에서 *config.xml* 파일을 엽니다. 예를 들면 다음과 같습니다.
+1. 텍스트 편집기에서 *config.xml* 파일을 엽니다. 예를 들어:
 
     ```bash
     sudo nano /etc/iotedge/config.yaml
@@ -186,7 +186,7 @@ IoT Edge 장치가 투명 게이트웨이로 작동 하려면 모든 다운스�
 
 ## <a name="provision-a-downstream-device"></a>다운스트림 장치 프로 비전
 
-현재 IoT Edge는 IoT Central 응용 프로그램에 다운스트림 장치를 자동으로 프로 비전 할 수 없습니다. 다음 단계는 장치를 프로 비전 하는 방법을 보여 줍니다 `thermostat1` . 이러한 단계를 완료 하려면 Python 3.5 이상이 설치 되 고 인터넷에 연결 된 환경이 필요 합니다. [Azure Cloud Shell](https://shell.azure.com/) 에는 Python 3.5이 사전 설치 되어 있습니다.
+현재 IoT Edge는 IoT Central 응용 프로그램에 다운스트림 장치를 자동으로 프로 비전 할 수 없습니다. 다음 단계는 장치를 프로 비전 하는 방법을 보여 줍니다 `thermostat1` . 이러한 단계를 완료 하려면 Python 3.6 이상이 설치 되 고 인터넷에 연결 된 환경이 필요 합니다. [Azure Cloud Shell](https://shell.azure.com/) 에는 Python 3.7이 사전 설치 되어 있습니다.
 
 1. 다음 명령을 실행 하 여 모듈을 설치 합니다 `azure.iot.device` .
 

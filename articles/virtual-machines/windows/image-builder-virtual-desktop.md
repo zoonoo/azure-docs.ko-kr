@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69718b219d239ac13e5d932b05a7dd29619adaa3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602021"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045589"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM 이미지 작성기 및 PowerShell을 사용 하 여 Windows 가상 데스크톱 이미지 만들기
 
@@ -22,11 +22,11 @@ ms.locfileid: "103602021"
 
 * [Fslogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1)를 설치 하 고 있습니다.
 * 커뮤니티 리포지토리에서 [Windows 가상 데스크톱 최적화 스크립트](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) 를 실행 합니다.
-* [Microsoft 팀](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd)을 설치 합니다.
-* [다시 시작](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
-* [Windows 업데이트](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer) 실행
+* [Microsoft 팀](../../virtual-desktop/teams-on-wvd.md)을 설치 합니다.
+* [다시 시작](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
+* [Windows 업데이트](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer) 실행
 
-Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 이미지 갤러리](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)에 이미지를 배포 하 여 다른 지역에 복제 하 고, 크기를 제어 하 고, 조직 내부 및 외부에서 이미지를 공유할 수 있는 방법을 보여 줍니다.
+Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 이미지 갤러리](../shared-image-galleries.md)에 이미지를 배포 하 여 다른 지역에 복제 하 고, 크기를 제어 하 고, 조직 내부 및 외부에서 이미지를 공유할 수 있는 방법을 보여 줍니다.
 
 
 이미지 작성기 구성의 배포를 간소화 하기 위해이 예제에서는 안에 중첩 된 이미지 작성기 템플릿이 있는 Azure Resource Manager 템플릿을 사용 합니다. 이를 통해 변수 및 매개 변수 입력과 같은 다른 이점이 있습니다. 명령줄에서 매개 변수를 전달할 수도 있습니다.
@@ -46,7 +46,7 @@ Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 
       "runAsSystem": true,
     ```
 
-    예를 들면 다음과 같습니다.
+    예를 들어:
 
     ```json
       {
@@ -71,9 +71,9 @@ Azure VM 이미지 작성기를 사용 하 여이를 자동화 하 고, [공유 
 
 - 네트워킹- `Set-NetAdapterAdvancedProperty` . 이는 최적화 스크립트에서 설정 되지만 네트워크 연결을 끊을 때 AIB 빌드에 실패 합니다 .이는 주석 처리 된 것입니다. 조사 중에 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-최신 Azure PowerShell Cmdlet이 설치 되어 있어야 합니다. 설치 세부 정보는 [여기](https://docs.microsoft.com/powershell/azure/overview) 를 참조 하세요.
+최신 Azure PowerShell Cmdlet이 설치 되어 있어야 합니다. 설치 세부 정보는 [여기](/powershell/azure/overview) 를 참조 하세요.
 
 ```PowerShell
 # Register for Azure Image Builder Feature
@@ -279,7 +279,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>VM 만들기
-이제 빌드가 완료 되었으므로 이미지에서 VM을 빌드할 수 있습니다. [여기](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples)의 예제를 사용 합니다.
+이제 빌드가 완료 되었으므로 이미지에서 VM을 빌드할 수 있습니다. [여기](/powershell/module/az.compute/new-azvm#examples)의 예제를 사용 합니다.
 
 ## <a name="clean-up"></a>정리
 

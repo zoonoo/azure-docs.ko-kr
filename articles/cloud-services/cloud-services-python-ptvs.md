@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2822f719928515efc70eeed3d7c182e347627418
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743290"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045521"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
@@ -22,13 +22,13 @@ ms.locfileid: "98743290"
 
 이 문서에서는 [Visual Studio용 Python Tools][Python Tools for Visual Studio]를 사용하여 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 Cloud Service를 만들고 배포하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 * [Visual Studio 2013, 2015 또는 2017](https://www.visualstudio.com/)
 * [Visual Studio용 Python Tools][Python Tools for Visual Studio](PTVS)
 * [VS 2013용 Azure SDK Tools][Azure SDK Tools for VS 2013] 또는  
 [VS 2015용 Azure SDK Tools][Azure SDK Tools for VS 2015] 또는  
 [VS 2017용 Azure SDK Tools][Azure SDK Tools for VS 2017]
-* [Python 2.7 32비트][Python 2.7 32-bit] 또는 [Python 3.5 32비트][Python 3.5 32-bit]
+* [Python 2.7 32 비트][Python 2.7 32-bit] 또는 [python 3.8 32 비트][Python 3.8 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -71,7 +71,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 
 설치 스크립트의 가장 큰 문제는 Python을 설치하지 않았다는 점입니다. 먼저 [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 두 가지 [시작 태스크](cloud-services-startup-tasks.md)를 정의합니다. 첫 번째 작업(**PrepPython.ps1**)은 Python 런타임을 다운로드하고 설치합니다. 두 번째 작업(**PipInstaller.ps1**)은 pip를 실행하여 가질 수 있는 모든 종속성을 설치합니다.
 
-다음 스크립트는 Python 3.5를 대상으로 작성되었습니다. Python 2.x 버전을 사용하려는 경우 두 가지 시작 태스크 및 런타임 태스크에 **PYTHON2** 변수 파일을 **켜기** 로 설정합니다. `<Variable name="PYTHON2" value="<mark>on</mark>" />`
+다음 스크립트는 Python 3.8를 대상으로 작성 되었습니다. Python 2.x 버전을 사용하려는 경우 두 가지 시작 태스크 및 런타임 태스크에 **PYTHON2** 변수 파일을 **켜기** 로 설정합니다. `<Variable name="PYTHON2" value="<mark>on</mark>" />`
 
 ```xml
 <Startup>
@@ -167,7 +167,7 @@ Azure 클라우드 서비스 마법사에서 새 웹 및 작업자 역할 만들
 다음으로 역할의 **./bin** 폴더에 **PrepPython.ps1** 및 **PipInstaller.ps1** 파일을 만듭니다.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-이 스크립트는 Python을 설치합니다. **PYTHON2** 환경 변수가 **켜기** 로 설정된 경우 Python 2.7이 설치되고 그렇지 않으면 Python 3.5가 설치됩니다.
+이 스크립트는 Python을 설치합니다. **PYTHON2** 환경 변수가 **on** 으로 설정 된 경우 python 2.7이 설치 되 고 그렇지 않으면 python 3.8이 설치 됩니다.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = "tls12, tls11, tls"
@@ -186,12 +186,12 @@ if (-not $is_emulated){
 
     if (-not $?) {
 
-        $url = "https://www.python.org/ftp/python/3.5.2/python-3.5.2-amd64.exe"
-        $outFile = "${env:TEMP}\python-3.5.2-amd64.exe"
+        $url = "https://www.python.org/ftp/python/3.8.8/python-3.8.8-amd64.exe"
+        $outFile = "${env:TEMP}\python-3.8.8-amd64.exe"
 
         if ($is_python2) {
-            $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
-            $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
+            $url = "https://www.python.org/ftp/python/2.7.18/python-2.7.18.amd64.msi"
+            $outFile = "${env:TEMP}\python-2.7.18.amd64.msi"
         }
 
         Write-Output "Not found, downloading $url to $outFile$nl"
@@ -214,7 +214,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-이 스크립트는 pip를 호출하고 **requirements.txt** 파일에 모든 종속성을 설치합니다. **PYTHON2** 환경 변수가 **켜기** 로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
+이 스크립트는 pip를 호출하고 **requirements.txt** 파일에 모든 종속성을 설치합니다. **PYTHON2** 환경 변수가 **on** 으로 설정 된 경우 python 2.7이 사용 되 고 그렇지 않으면 python 3.8이 사용 됩니다.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -249,7 +249,7 @@ if (-not $is_emulated){
 
 **bin\LaunchWorker.ps1** 은 원래 많은 준비 작업을 수행하도록 만들었지만 실제로 작동하지 않습니다. 해당 파일의 내용을 다음 스크립트로 바꿉니다.
 
-이 스크립트는 Python 프로젝트에서 **worker.py** 파일을 호출합니다. **PYTHON2** 환경 변수가 **켜기** 로 설정된 경우 Python 2.7이 사용되고 그렇지 않으면 Python 3.5가 사용됩니다.
+이 스크립트는 Python 프로젝트에서 **worker.py** 파일을 호출합니다. **PYTHON2** 환경 변수가 **on** 으로 설정 된 경우 python 2.7이 사용 되 고 그렇지 않으면 python 3.8이 사용 됩니다.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -364,4 +364,4 @@ Azure Storage 또는 Service Bus를 사용하는 등 웹 및 작업자 역할에
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
-[Python 3.5 32-bit]: https://www.python.org/downloads/
+[Python 3.8 32-bit]: https://www.python.org/downloads/

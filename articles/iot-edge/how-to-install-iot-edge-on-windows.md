@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 94c3917b0912835799818597f94f3880ea3a7639
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: c291bb701aca385a11631504f1a312b25cced633
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889538"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045674"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Windows 디바이스에서 Linux용 Azure IoT Edge 설치 및 프로비저닝(미리 보기)
 
@@ -32,7 +32,7 @@ Windows에서 Linux에 대 한 Azure IoT Edge를 사용 하면 Linux 가상 머�
 >
 >Windows에서 Linux에 대 한 IoT Edge windows 환경에서 Azure IoT Edge를 사용 하는 데 권장 되는 환경 이지만 Windows 컨테이너는 계속 사용할 수 있습니다. Windows 컨테이너를 사용 하려는 경우 [windows 용 Azure IoT Edge 설치 및 관리](how-to-install-iot-edge-windows-on-windows.md)에 대 한 방법 가이드를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 구독이 있는 Azure 계정. [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -370,4 +370,6 @@ Windows에서 Linux에 대 한 IoT Edge이 IoT Edge 장치에 성공적으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-장치에 모듈을 배포 하는 방법을 알아보려면 [IoT Edge 모듈 배포](how-to-deploy-modules-portal.md) 를 계속 진행 하세요.
+* 장치에 모듈을 배포 하는 방법을 알아보려면 [IoT Edge 모듈 배포](how-to-deploy-modules-portal.md) 를 계속 진행 하세요.
+* [Windows 가상 머신에서 linux 용 IoT Edge에서 인증서를 관리](how-to-manage-device-certificates.md) 하 고 호스트 OS에서 linux 가상 머신으로 파일을 전송 하는 방법에 대해 알아봅니다.
+* [프록시 서버를 통해 통신 하도록 IoT Edge 장치를 구성](how-to-configure-proxy-support.md)하는 방법에 대해 알아봅니다.

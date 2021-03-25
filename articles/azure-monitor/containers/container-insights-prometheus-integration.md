@@ -3,12 +3,12 @@ title: 컨테이너 insights 프로메테우스 통합 구성 | Microsoft Docs
 description: 이 문서에서는 Kubernetes 클러스터를 사용 하 여 프로메테우스에서 메트릭을 스크랩 하도록 Container insights 에이전트를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 149cdc8613d5034989c7660608a29309353cdabe
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731734"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109644"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>컨테이너 insights를 사용 하 여 스크랩의 프로메테우스 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "101731734"
 
 스크랩에서 호스트 되는 Kubernetes 클러스터에서 지원 되는 프로메테우스 메트릭은 다음과 같습니다.
 
-- Azure Kubernetes Service(AKS)
+- AKS(Azure Kubernetes Service)
 - Azure Stack 또는 온-프레미스
 - Azure Red Hat OpenShift 버전 3(sp3)
 - Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x
@@ -48,7 +48,7 @@ URL을 지정 하면 컨테이너 insights는 끝점을 스크랩 합니다. Kub
 |------|-----|-----------|-------|-------------|
 | 클러스터 전체 | | | | 다음 세 가지 방법 중 하나를 지정 하 여 메트릭에 대 한 끝점을 스크랩. |
 | | `urls` | String | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. ($NODE _IP은 특정 컨테이너 insights 매개 변수 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
-| | `kubernetes_services` | String | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 예를 들면 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`입니다.|
+| | `kubernetes_services` | String | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 정규화 된 도메인 이름을 여기에서 사용 해야 합니다. 예를 들면 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace.svc.cluster.local:9100/metrics]`입니다.|
 | | `monitor_kubernetes_pods` | 부울 | true 또는 false | `true`클러스터 전체 설정에서로 설정 된 경우 컨테이너 insights 에이전트는 다음 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | 부울 | true 또는 false | Pod의 스크랩를 사용 하도록 설정 합니다. `monitor_kubernetes_pods`은 `true`로 설정해야 합니다. |
 | | `prometheus.io/scheme` | String | HTTP 또는 HTTPS | 기본값은 HTTP over scrapping입니다. 필요한 경우를로 설정 `https` 합니다. | 
@@ -65,7 +65,7 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
 
 다음 단계를 수행 하 여 다음 클러스터에 대 한 ConfigMap 구성 파일을 구성 합니다.
 
-* Azure Kubernetes Service(AKS)
+* AKS(Azure Kubernetes Service)
 * Azure Stack 또는 온-프레미스
 * Azure Red Hat OpenShift 버전 4.x 및 Red Hat OpenShift 버전 4.x
 
@@ -162,7 +162,7 @@ ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적�
 >[!NOTE]
 >Azure Red Hat OpenShift. x의 경우 *openshift-Azure-로깅* 네임 스페이스에 템플릿 configmap 파일이 만들어집니다. 에이전트에서 메트릭 또는 데이터 수집을 적극적으로 스크랩 구성 되어 있지 않습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 컨테이너 화 된 agent 및 프로메테우스 스크랩 설정을 구성 하려면 Azure Red Hat OpenShift 클러스터의 고객 클러스터 관리자 역할의 구성원 인지 확인 합니다. 사용자가 *osa-고객-admins* 그룹의 구성원 인지 확인 하려면 다음 명령을 실행 합니다.
 
@@ -278,7 +278,7 @@ container-azm-ms-agentconfig   4         56m
 
 다음 Kubernetes 환경의 경우:
 
-- Azure Kubernetes Service(AKS)
+- AKS(Azure Kubernetes Service)
 - Azure Stack 또는 온-프레미스
 - Azure Red Hat OpenShift 및 Red Hat OpenShift 버전 4.x
 

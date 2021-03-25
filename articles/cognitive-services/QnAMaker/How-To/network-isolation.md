@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467547"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043362"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대 한 권장 설정
 
@@ -60,7 +60,7 @@ Cognitive Search 인스턴스는 QnA Maker 리소스를 만든 후 개인 끝점
 
 App Service Environment를 사용 하 여 QnA Maker App Service 제한 된 경우 동일한 VNet을 사용 하 여 Cognitive Search 인스턴스에 대 한 개인 끝점 연결을 만듭니다. VNet에서 새 DNS 항목을 만들어 Cognitive Search 끝점을 Cognitive Search 개인 끝점 IP 주소에 매핑합니다. 
 
-QnAMaker App Service에 App Service Environment를 사용 하지 않는 경우 먼저 새 VNet 리소스를 만든 다음 Cognitive Search 인스턴스에 대 한 개인 끝점 연결을 만듭니다. 이 경우 QnA Maker App Service을 [VNet과 통합](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) 하 여 Cognitive Search 인스턴스에 연결 해야 합니다. 
+QnAMaker App Service에 App Service Environment를 사용 하지 않는 경우 먼저 새 VNet 리소스를 만든 다음 Cognitive Search 인스턴스에 대 한 개인 끝점 연결을 만듭니다. 이 경우 QnA Maker App Service을 [VNet과 통합](../../../app-service/web-sites-integrate-with-vnet.md) 하 여 Cognitive Search 인스턴스에 연결 해야 합니다. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 

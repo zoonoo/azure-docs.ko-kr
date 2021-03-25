@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98219201"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042869"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결
 
@@ -49,7 +49,7 @@ Azure VM(Virtual Machines) 간에 연결 문제가 발생할 수 있습니다. �
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>1단계: NIC가 잘못 구성되었는지 확인
 
-[Microsoft Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법](../virtual-machines/troubleshooting/reset-network-interface.md)의 단계를 따릅니다. 
+[Microsoft Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법](/troubleshoot/azure/virtual-machines/reset-network-interface)의 단계를 따릅니다. 
 
 네트워크 인터페이스(NIC)를 수정한 후에도 문제가 발생하는 경우 다음 단계를 따릅니다.
 
@@ -62,8 +62,8 @@ Azure VM(Virtual Machines) 간에 연결 문제가 발생할 수 있습니다. �
 
 **단일 NIC VM** 
 
-- [Windows VM 다시 배포](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
-- [Linux VM 다시 배포](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
+- [Windows VM 다시 배포](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Linux VM 다시 배포](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>2단계: 네트워크 트래픽이 NSG에 의해 차단되는지 또는 UDR에 의해 차단되는지 확인
 
@@ -107,7 +107,7 @@ ACL(액세스 제어 목록)은 가상 머신 엔드포인트의 트래픽을 �
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>8단계: VM 네트워크 공유에 연결해보기
 
-VM 네트워크 공유에 연결할 수 없으면 VM의 사용할 수 없는 NIC가 문제의 원인일 수 있습니다. 사용할 수 없는 NIC를 삭제하려면 [사용할 수 없는 NIC를 삭제하는 방법](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)을 참조하세요.
+VM 네트워크 공유에 연결할 수 없으면 VM의 사용할 수 없는 NIC가 문제의 원인일 수 있습니다. 사용할 수 없는 NIC를 삭제하려면 [사용할 수 없는 NIC를 삭제하는 방법](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)을 참조하세요.
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>9단계: vNET 간 연결 확인
 
