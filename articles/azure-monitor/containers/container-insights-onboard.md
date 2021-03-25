@@ -3,12 +3,12 @@ title: 컨테이너 insights 사용 | Microsoft Docs
 description: 이 문서에서는 컨테이너를 사용 하는 방법 및 식별 된 성능 관련 문제를 이해할 수 있도록 Container insights를 사용 하도록 설정 하 고 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 58797221fa3380e4f7533a710e2f8dc658cb676c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 01246a728f204ed9cb43eee392c637b495208aaf
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708359"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109355"
 ---
 # <a name="enable-container-insights"></a>컨테이너 insights 사용
 
@@ -32,7 +32,7 @@ ms.locfileid: "101708359"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -64,6 +64,7 @@ ms.locfileid: "101708359"
 - 모니터링 데이터를 보려면 컨테이너 insights를 사용 하 여 구성 된 Log Analytics 작업 영역에 [*Log Analytics 읽기 권한자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할이 있어야 합니다.
 
 - 기본적으로 프로메테우스 메트릭은 수집 되지 않습니다. 메트릭을 수집 하도록 [에이전트를 구성](container-insights-prometheus-integration.md) 하기 전에 스크랩 수 있는 데이터 및 지원 되는 방법을 이해 하려면 [프로메테우스 설명서](https://prometheus.io/) 를 검토 하는 것이 중요 합니다.
+- AKS 클러스터는 동일한 Azure AD 테 넌 트의 다른 Azure 구독에 있는 Log Analytics 작업 영역에 연결할 수 있습니다. 현재는 Azure Portal을 사용 하 여이 작업을 수행할 수 없지만 Azure CLI 또는 리소스 관리자 템플릿을 사용 하 여 수행할 수 있습니다.
 
 ## <a name="supported-configurations"></a>지원되는 구성
 

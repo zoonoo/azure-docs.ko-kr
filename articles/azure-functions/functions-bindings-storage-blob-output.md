@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: eaa8a4c600864f636d49813d415621d46130fff7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 78cbf94bfc19757a4264c7884c3e47b230de5e46
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100381661"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044093"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Functions에 대 한 Azure Blob storage 출력 바인딩
 
@@ -431,8 +431,8 @@ Python에서는 특성을 지원하지 않습니다.
 
 함수 매개 변수를 다음 형식으로 선언 하 여 blob 저장소에 쓸 수 있습니다.
 
-* 문자열 `func.Out(str)`
-* 스트림 `func.Out(func.InputStream)`
+* 문자열 `func.Out[str]`
+* 스트림 `func.Out[func.InputStream]`
 
 자세한 내용은 [출력 예제](#example) 를 참조 하십시오.
 

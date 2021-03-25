@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 03/16/2021
 ms.author: victorh
 ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573458"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
@@ -76,7 +76,7 @@ Azure Firewall 정책은 여러 지역에 걸쳐 사용할 수 있습니다. 예
 
 Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
 |트래픽 분할|Microsoft 365 및 Azure Public PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure Public PaaS 및 Microsoft 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|

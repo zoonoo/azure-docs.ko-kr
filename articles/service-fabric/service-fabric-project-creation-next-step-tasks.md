@@ -4,12 +4,12 @@ description: Visual Studio에서 방금 만든 애플리케이션 프로젝트�
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 59c8eb0737d2cef1c4b1df34d673b74944fef4e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4d162918644727d4c79ad606f1ed34816f543d81
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97760438"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044382"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>서비스 패브릭 애플리케이션 및 다음 단계
 Azure 서비스 패브릭 애플리케이션이 만들어졌습니다. 이 문서에는 몇 가지 리소스, 관심을 가질 수 있는 몇 가지 추가 정보 및 [다음 단계가](#next-steps)포함 됩니다.
@@ -59,7 +59,7 @@ Service Fabric 애플리케이션은 여러 가지 서비스로 구성되며, �
 다른 플랫폼과 마찬가지로, Service Fabric 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. [이 문서](service-fabric-application-lifecycle.md)에서는 Service Fabric 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용되는 방법 및 API에 대한 개요를 제공합니다.
 
 ## <a name="learn-about-best-practices"></a>모범 사례에 대 한 자세한 정보
-Service Fabric에는 [모범 사례](./service-fabric-best-practices-overview.md)를 설명 하는 다양 한 문서가 있습니다. 이 정보를 활용 하 여 클러스터 및 응용 프로그램의 실행 가능성을 보장 합니다.
+Service Fabric에는 [모범 사례](./service-fabric-best-practices-security.md)를 설명 하는 다양 한 문서가 있습니다. 이 정보를 활용 하 여 클러스터 및 응용 프로그램의 실행 가능성을 보장 합니다.
 다루는 항목은 다음과 같습니다.
 * [보안](./service-fabric-best-practices-security.md)
 * [네트워킹](./service-fabric-best-practices-networking.md)

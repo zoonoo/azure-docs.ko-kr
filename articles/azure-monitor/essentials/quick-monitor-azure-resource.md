@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
 ms.openlocfilehash: 0bbc08ccf02f572fefd1c676e2b1d73157e169c9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033234"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 Azure 리소스 모니터링

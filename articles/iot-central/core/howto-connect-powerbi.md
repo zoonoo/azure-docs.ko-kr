@@ -7,16 +7,18 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: dd67a4f1a005abc7319723efcc3f2944b18c4f5f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92123340"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109236"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
 
 *이 항목은 관리자 및 솔루션 개발자에 게 적용 됩니다.*
+
+[!Note] 이 솔루션은 [레거시 데이터 내보내기 기능](./howto-export-data-legacy.md)을 사용 합니다. 최신 데이터 내보내기를 사용 하 여 Power BI에 연결 하는 방법에 대 한 업데이트 된 지침을 계속 조정 하세요.
 
 :::image type="content" source="media/howto-connect-powerbi/iot-continuous-data-export.png" alt-text="Power BI 솔루션 파이프라인":::
 
@@ -27,9 +29,9 @@ Azure IoT Central V3의 Power BI 솔루션을 사용 하 여 IoT 장치의 성�
 - 특정 장치에서 보낸 데이터로 필터링
 - 테이블에서 최신 원격 분석 데이터 보기
 
-이 솔루션은 [연속 데이터 내보내기](./howto-export-data.md) Azure Blob storage 계정에서 데이터를 읽는 파이프라인을 설정 합니다. 파이프라인은 Azure Functions, Azure Data Factory 및 Azure SQL Database를 사용 하 여 데이터를 처리 하 고 변환 합니다. .PBIX 파일로 다운로드 하는 Power BI 보고서의 데이터를 시각화 하 고 분석할 수 있습니다. 모든 리소스는 Azure 구독에 만들어지므로 요구에 맞게 각 구성 요소를 사용자 지정할 수 있습니다.
+이 솔루션은 [연속 데이터 내보내기](./howto-export-data-legacy.md) Azure Blob storage 계정에서 데이터를 읽는 파이프라인을 설정 합니다. 파이프라인은 Azure Functions, Azure Data Factory 및 Azure SQL Database를 사용 하 여 데이터를 처리 하 고 변환 합니다. .PBIX 파일로 다운로드 하는 Power BI 보고서의 데이터를 시각화 하 고 분석할 수 있습니다. 모든 리소스는 Azure 구독에 만들어지므로 요구에 맞게 각 구성 요소를 사용자 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -69,7 +71,7 @@ Azure Portal에서 파이프라인을 구성 하는 모든 Azure 리소스에 �
 
 Azure 함수 앱은 IoT Central 때마다 트리거되고 Blob storage에 새 파일을 쓸 수 있습니다. 함수는 원격 분석, 장치 및 장치 템플릿 blob에서 데이터를 추출 하 여 Azure Data Factory에서 사용 하는 중간 SQL 테이블을 채웁니다.
 
-### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Azure Data Factory 연결 된 서비스로 SQL Database에 연결 됩니다. 저장 프로시저를 실행 하 여 데이터를 처리 하 고 분석 테이블에 저장 합니다.
 

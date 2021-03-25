@@ -3,12 +3,12 @@ title: Azure의 마이크로서비스 소개
 description: 마이크로 서비스 접근 방식을 통해 클라우드 애플리케이션을 빌드하는 것이 왜 현대 애플리케이션 개발에서 중요하며 Azure Service Fabric이 어떻게 이를 위한 플랫폼을 제공하는지에 대한 개요
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: d20e04820c87a7390d9c20e511259ee9860c27f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 46d4be7321057bd7a5ee19e0aca136c8c60d43bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96575655"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044433"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>응용 프로그램을 빌드하는 데 마이크로 서비스 접근 방식을 사용 하는 이유
 
@@ -194,7 +194,7 @@ Service Fabric의 목적은 마이크로 서비스 응용 프로그램 빌드에
 
 * [마이크로 서비스: 클라우드가 지원하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 * [Azure 아키텍처 센터: Azure에서 마이크로 서비스 구축](/azure/architecture/microservices/)
-* [Azure Service Fabric 애플리케이션 및 클러스터에 대한 모범 사례](service-fabric-best-practices-overview.md)
+* [Azure Service Fabric 애플리케이션 및 클러스터에 대한 모범 사례](./service-fabric-best-practices-security.md)
 * [서비스 패브릭 용어 개요](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png

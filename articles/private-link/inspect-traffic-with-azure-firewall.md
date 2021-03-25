@@ -1,5 +1,5 @@
 ---
-title: Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사 합니다.
+title: Azure Firewall을 사용하여 프라이빗 엔드포인트로 향하는 트래픽 검사
 titleSuffix: Azure Private Link
 description: Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사할 수 있는 방법을 알아봅니다.
 services: private-link
@@ -8,14 +8,14 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575121"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108148"
 ---
-# <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure 방화벽을 사용 하 여 개인 끝점으로 향하는 트래픽을 검사 합니다.
+# <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure Firewall을 사용하여 프라이빗 엔드포인트로 향하는 트래픽 검사
 
 Azure 개인 끝점은 Azure 개인 링크에 대 한 기본 빌딩 블록입니다. 개인 끝점을 사용 하면 가상 네트워크에 배포 된 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있습니다.
 
@@ -25,8 +25,8 @@ Azure 개인 끝점은 Azure 개인 링크에 대 한 기본 빌딩 블록입니
 
 다음과 같은 제한 사항이 적용됩니다.
 
-* NSGs (네트워크 보안 그룹)는 개인 끝점에 적용 되지 않습니다.
-* UDR (사용자 정의 경로)은 전용 끝점에 적용 되지 않습니다.
+* 개인 끝점에서 들어오는 트래픽이 NSG (네트워크 보안 그룹)를 바이패스 합니다.
+* UDR (사용자 정의 경로)은 개인 끝점에서 들어오는 트래픽에 의해 무시 됩니다.
 * 단일 경로 테이블을 서브넷에 연결할 수 있습니다.
 * 경로 테이블은 최대 400 경로를 지원 합니다.
 
@@ -35,7 +35,8 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 * TCP 및 UDP 프로토콜에 대 한 [네트워크 규칙의 FQDN](../firewall/fqdn-filtering-network-rules.md)
 * HTTP, HTTPS 및 MSSQL의 [응용 프로그램 규칙에서 FQDN](../firewall/features.md#application-fqdn-filtering-rules) . 
 
-개인 끝점을 통해 노출 되는 대부분의 서비스는 HTTPS를 사용 합니다. Azure SQL을 사용 하는 경우 네트워크 규칙에 대 한 응용 프로그램 규칙을 사용 하는 것이 좋습니다.
+> [!IMPORTANT] 
+> 네트워크 규칙에 대 한 응용 프로그램 규칙을 사용 하는 것은 흐름 대칭을 유지 하기 위해 개인 끝점으로 향하는 트래픽을 검사할 때 사용 하는 것이 좋습니다. 네트워크 규칙을 사용 하거나 Azure 방화벽 대신 NVA를 사용 하는 경우 개인 끝점으로 향하는 트래픽에 대해 SNAT를 구성 해야 합니다.
 
 > [!NOTE]
 > SQL FQDN 필터링은 [프록시 모드](../azure-sql/database/connectivity-architecture.md#connection-policy)에서만 지원됩니다(포트 1433). **프록시** 모드를 사용할 경우 *리디렉션* 에 비해 대기 시간이 길어질 수 있습니다. Azure 내에서 연결 하는 클라이언트에 대 한 기본값 인 리디렉션 모드를 계속 사용 하려는 경우 방화벽 네트워크 규칙에서 FQDN을 사용 하 여 액세스를 필터링 할 수 있습니다.
@@ -46,12 +47,9 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 이 시나리오는 개인 끝점을 사용 하 여 여러 Azure 서비스에 개인적으로 연결 하는 가장 확장성이 뛰어난 아키텍처입니다. 개인 끝점이 배포 된 네트워크 주소 공간을 가리키는 경로가 만들어집니다. 이 구성은 관리 오버 헤드를 줄이고 400 경로 제한을 초과 하는 것을 방지 합니다.
 
-클라이언트 가상 네트워크에서 허브 가상 네트워크의 Azure 방화벽으로 연결 하면 가상 네트워크가 피어 링 때 요금이 발생 합니다.
+클라이언트 가상 네트워크에서 허브 가상 네트워크의 Azure 방화벽으로 연결 하면 가상 네트워크가 피어 링 때 요금이 발생 합니다. 허브 가상 네트워크의 Azure 방화벽에서 피어 링 가상 네트워크의 개인 끝점으로의 연결은 청구 되지 않습니다.
 
 피어 링 가상 네트워크와의 연결과 관련 된 요금에 대 한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/private-link/) 페이지의 FAQ 섹션을 참조 하세요.
-
->[!NOTE]
-> 이 시나리오는 응용 프로그램 규칙 대신 타사 NVA 또는 Azure 방화벽 네트워크 규칙을 사용 하 여 구현할 수 있습니다.
 
 ## <a name="scenario-2-hub-and-spoke-architecture---shared-virtual-network-for-private-endpoints-and-virtual-machines"></a>시나리오 2: 허브 및 스포크 아키텍처-개인 끝점 및 가상 컴퓨터에 대 한 공유 가상 네트워크
 
@@ -69,21 +67,15 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 전반적인 아키텍처에 따라 400 경로 제한까지 실행할 수 있습니다. 가능 하면 항상 시나리오 1을 사용 하는 것이 좋습니다.
 
-클라이언트 가상 네트워크에서 허브 가상 네트워크의 Azure 방화벽으로 연결 하면 가상 네트워크가 피어 링 때 요금이 발생 합니다.
+클라이언트 가상 네트워크에서 허브 가상 네트워크의 Azure 방화벽으로 연결 하면 가상 네트워크가 피어 링 때 요금이 발생 합니다. 허브 가상 네트워크의 Azure 방화벽에서 피어 링 가상 네트워크의 개인 끝점으로의 연결은 청구 되지 않습니다.
 
 피어 링 가상 네트워크와의 연결과 관련 된 요금에 대 한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/private-link/) 페이지의 FAQ 섹션을 참조 하세요.
-
->[!NOTE]
-> 이 시나리오는 응용 프로그램 규칙 대신 타사 NVA 또는 Azure 방화벽 네트워크 규칙을 사용 하 여 구현할 수 있습니다.
 
 ## <a name="scenario-3-single-virtual-network"></a>시나리오 3: 단일 가상 네트워크
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/single-vnet.png" alt-text="단일 가상 네트워크" border="true":::
 
-구현에 대 한 몇 가지 제한 사항이 있습니다. 허브 및 스포크 아키텍처로의 마이그레이션은 가능 하지 않습니다. 시나리오 2에서와 동일한 고려 사항이 적용 됩니다. 이 시나리오에서는 가상 네트워크 피어 링 요금이 적용 되지 않습니다.
-
->[!NOTE]
-> 타사 NVA 또는 Azure 방화벽을 사용 하 여이 시나리오를 구현 하려면 개인 끝점으로 향하는 트래픽을 SNAT 하기 위해 응용 프로그램 규칙이 아닌 네트워크 규칙이 필요 합니다. 그렇지 않으면 가상 컴퓨터와 개인 끝점 간의 통신에 실패 합니다.
+허브 및 스포크 아키텍처로 마이그레이션할 수 없는 경우이 패턴을 사용 합니다. 시나리오 2에서와 동일한 고려 사항이 적용 됩니다. 이 시나리오에서는 가상 네트워크 피어 링 요금이 적용 되지 않습니다.
 
 ## <a name="scenario-4-on-premises-traffic-to-private-endpoints"></a>시나리오 4: 전용 끝점에 대 한 온-프레미스 트래픽
 
@@ -98,10 +90,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 위의 시나리오 2와 동일한 고려 사항이 적용 됩니다. 이 시나리오에서는 가상 네트워크 피어 링 요금이 발생 하지 않습니다. 온-프레미스 워크 로드가 개인 끝점에 액세스할 수 있도록 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 [dns 전달자를 사용 하는 온-프레미스 워크 로드](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder)를 참조 하세요.
 
->[!NOTE]
-> 타사 NVA 또는 Azure 방화벽을 사용 하 여이 시나리오를 구현 하려면 개인 끝점으로 향하는 트래픽을 SNAT 하기 위해 응용 프로그램 규칙이 아닌 네트워크 규칙이 필요 합니다. 그렇지 않으면 가상 컴퓨터와 개인 끝점 간의 통신에 실패 합니다.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독
 * Log Analytics 작업 영역.  
@@ -456,17 +445,17 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **SQLPrivateEndpoint** 를 입력 합니다. |
+    | 이름 | **SQLPrivateEndpoint** 를 입력 합니다. |
     | 우선 순위 | **100** 을 입력합니다. |
     | 작업 | **허용** 을 입력 합니다. |
     | **규칙.** |  |
     | **FQDN 태그** | |
-    | Name  | 비워 둡니다.  |
+    | 이름  | 비워 둡니다.  |
     | 소스 형식 | 기본 **IP 주소** 를 그대로 둡니다.    |
     | 원본 | 비워 둡니다. |
     | FQDN 태그 | 기본값 0을 **선택** 된 상태로 둡니다. |
     | **대상 FQDN** | |
-    | Name | **SQLPrivateEndpoint** 를 입력 합니다.    |
+    | 이름 | **SQLPrivateEndpoint** 를 입력 합니다.    |
     | 소스 형식 | 기본 **IP 주소** 를 그대로 둡니다. |
     | 원본 | **10.1.0.0/16** 을 입력 합니다. |
     | 프로토콜: 포트 | **Mssql: 1433** 을 입력 합니다. |
@@ -498,7 +487,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | Resource group | **myResourceGroup** 을 선택합니다.  |
     | **인스턴스 세부 정보** |  |
     | 지역 | **남부 중부 US** 를 선택 합니다. |
-    | Name | **VMsubnet 대 AzureFirewall을** 입력 합니다. |
+    | 이름 | **VMsubnet 대 AzureFirewall을** 입력 합니다. |
     | 게이트웨이 경로 전파 | **아니오** 를 선택합니다. |
 
 5. **검토 + 만들기** 를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.
