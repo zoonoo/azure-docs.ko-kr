@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3ff4635f6069cc0db0d2b4960f00f8db57c2e9c4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ff9af0d12266c50faf7e6716a498c1a456aec6b4
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591091"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105037849"
 ---
 ## <a name="azure-security-benchmark"></a>Azure 보안 벤치마크
 
@@ -50,9 +50,9 @@ ms.locfileid: "104591091"
 
 |도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
-|Access Control |AC.1.001 |정보 시스템 액세스 대상을 권한 있는 사용자, 권한 있는 사용자를 대신하여 작동하는 프로세스 및 디바이스(기타 정보 시스템 포함)로 제한합니다. |[암호 없이 계정에서 원격 연결을 허용하는 Linux 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea53dbee-c6c9-4f0e-9f9e-de0039b78023) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword110_AINE.json) |
-|Access Control |AC.1.001 |정보 시스템 액세스 대상을 권한 있는 사용자, 권한 있는 사용자를 대신하여 작동하는 프로세스 및 디바이스(기타 정보 시스템 포함)로 제한합니다. |[Windows 머신은 '보안 옵션 - 네트워크 액세스'에 대한 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ff60f98-7fa4-410a-9f7f-0b00f5afdbdd) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkAccess_AINE.json) |
-|Access Control |AC.1.001 |정보 시스템 액세스 대상을 권한 있는 사용자, 권한 있는 사용자를 대신하여 작동하는 프로세스 및 디바이스(기타 정보 시스템 포함)로 제한합니다. |[Windows 머신은 '보안 옵션 - 네트워크 보안'에 대한 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1221c620-d201-468c-81e7-2817e6107e84) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkSecurity_AINE.json) |
+|Access Control |AC.1.001 |정보 시스템 액세스를 권한 있는 사용자, 권한 있는 사용자를 대신하여 작동하는 프로세스 및 디바이스(기타 정보 시스템 포함)로 제한합니다. |[암호 없이 계정에서 원격 연결을 허용하는 Linux 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea53dbee-c6c9-4f0e-9f9e-de0039b78023) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword110_AINE.json) |
+|Access Control |AC.1.001 |정보 시스템 액세스를 권한 있는 사용자, 권한 있는 사용자를 대신하여 작동하는 프로세스 및 디바이스(기타 정보 시스템 포함)로 제한합니다. |[Windows 머신은 '보안 옵션 - 네트워크 액세스'에 대한 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ff60f98-7fa4-410a-9f7f-0b00f5afdbdd) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkAccess_AINE.json) |
+|Access Control |AC.1.001 |정보 시스템 액세스를 권한 있는 사용자, 권한 있는 사용자를 대신하여 작동하는 프로세스 및 디바이스(기타 정보 시스템 포함)로 제한합니다. |[Windows 머신은 '보안 옵션 - 네트워크 보안'에 대한 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1221c620-d201-468c-81e7-2817e6107e84) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkSecurity_AINE.json) |
 |Access Control |AC.1.002 |정보 시스템 액세스를 권한 있는 사용자가 실행할 수 있는 트랜잭션 및 기능의 유형으로 제한합니다. |[암호 없이 계정에서 원격 연결을 허용하는 Linux 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea53dbee-c6c9-4f0e-9f9e-de0039b78023) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword110_AINE.json) |
 |Access Control |AC.1.002 |정보 시스템 액세스를 권한 있는 사용자가 실행할 수 있는 트랜잭션 및 기능의 유형으로 제한합니다. |[Windows 머신은 '보안 옵션 - 네트워크 액세스'에 대한 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3ff60f98-7fa4-410a-9f7f-0b00f5afdbdd) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecurityOptionsNetworkAccess_AINE.json) |
 |Access Control |AC.1.002 |정보 시스템 액세스를 권한 있는 사용자가 실행할 수 있는 트랜잭션 및 기능의 유형으로 제한합니다. |[Windows 웹 서버는 보안 통신 프로토콜을 사용하도록 구성해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SecureWebProtocol_AINE.json) |

@@ -1,5 +1,5 @@
 ---
-title: SQL Server SQL Database 마이그레이션에 대 한 평가 규칙
+title: SQL Server Azure SQL Database 마이그레이션에 대 한 평가 규칙
 description: Azure SQL Database로 마이그레이션하기 전에 해결 해야 하는 원본 SQL Server 인스턴스의 문제를 식별 하는 평가 규칙입니다.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
-ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c407b62b5f0308fbb6d9ff7223a3554ca09592db
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054732"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027213"
 ---
-# <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>SQL Server SQL Database 마이그레이션에 대 한 평가 규칙
+# <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>SQL Server Azure SQL Database 마이그레이션에 대 한 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 마이그레이션 도구는 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션하기 전에 해결 해야 하는 문제를 식별 하는 다양 한 평가 규칙을 실행 하 여 원본 SQL Server 인스턴스의 유효성을 검사 합니다. 

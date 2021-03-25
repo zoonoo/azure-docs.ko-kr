@@ -15,10 +15,10 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 06/01/2020
 ms.openlocfilehash: 914df5b80dee7da041b268a3aaf25ac493d0cf5b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98624442"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>빠른 시작: 디바이스에서 IoT 허브로 원격 분석을 보내고 서비스 애플리케이션(.NET)으로 읽습니다.

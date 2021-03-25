@@ -8,10 +8,10 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.openlocfilehash: 6f4a8e8f26e88a73fc73c309ef336813282589f3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103488179"
 ---
 # <a name="quickstart-get-started-with-ui-framework-base-components"></a>빠른 시작: UI 프레임워크 기본 구성 요소 시작
@@ -78,7 +78,7 @@ npm run start
 
 Azure Communication Services UI 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-| 속성                                  | Description                                                  |
+| 속성                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | 공급자| 개발자가 기본 Fluent UI 구성 요소를 수정할 수 있도록 하는 Fluent UI 공급자입니다.|
 | CallingProvider| 호출을 인스턴스화하는 통화 공급자입니다. 추가 구성 요소를 추가하는 데 필요합니다.|

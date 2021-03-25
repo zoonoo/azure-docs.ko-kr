@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.openlocfilehash: 75ac0cb2616eb86026218d2971ad192c1a557e5f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100626503"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
@@ -40,7 +40,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    구성 페이지가 표시되면 다음 표를 사용하여 입력 필드를 채웁니다. 
 
-    | 설정        | 값           | Description  |
+    | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
    | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별하는 이름 |
    | **리소스 그룹**     | myResourceGroup      | AppInsights 데이터를 호스팅할 새 리소스 그룹의 이름입니다. 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. |

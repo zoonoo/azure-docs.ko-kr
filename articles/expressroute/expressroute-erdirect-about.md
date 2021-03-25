@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: duau
-ms.openlocfilehash: 4b129a218f0fe90f632adef1325288b3f8d97d16
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 56d6a76991c4386be45b2c18f4edb3d363e58fa5
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585964"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027145"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
-Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결 하는 기능을 제공 합니다. Express 경로 다이렉트는 규모에 맞게 활성/활성 연결을 지 원하는 이중 100 Gbps 또는 10gbps 연결을 제공 합니다.
+Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결 하는 기능을 제공 합니다. Express 경로 다이렉트는 규모에 맞게 활성/활성 연결을 지 원하는 이중 100 Gbps 또는 10gbps 연결을 제공 합니다. ER Direct 용 서비스 공급자를 사용할 수 있습니다.
 
 ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 제한되지 않습니다.
 
