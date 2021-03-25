@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 8a00cf11edfea2e732a18a392d465525b38ea45f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92520856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>자습서: Picturepark와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Picturepark를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Picturepark와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -137,11 +137,11 @@ Picturepark에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 1. 다른 웹 브라우저 창에서 Picturepark 회사 사이트에 관리자로 로그인합니다.
 
-2. 위쪽의 도구 모음에서 **관리 도구** 를 클릭한 다음 **관리 콘솔** 을 클릭합니다.
+2. 위쪽 도구 모음에서 **관리 도구** 를 클릭하고 **관리 콘솔** 을 클릭합니다.
    
     ![관리 콘솔](./media/picturepark-tutorial/ic795062.png "관리 콘솔")
 
-3. **인증** 을 클릭한 다음 **ID 공급자** 를 클릭합니다.
+3. **인증** 을 클릭한 후 **ID 공급자** 를 클릭합니다.
    
     ![인증](./media/picturepark-tutorial/ic795063.png "인증")
 
@@ -157,7 +157,7 @@ Picturepark에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
    
     d. Azure Portal에서 복사한 **로그인 URL** 값을 **발급자 URI** 텍스트 상자에 붙여넣습니다.
    
-    e. **SAML 서명 인증서** 섹션에서 복사한 **지문** 값을 **Trusted Issuer Thumb Print** (신뢰할 수 있는 발급자 지문) 텍스트 상자에 붙여넣습니다. 
+    e. **SAML 서명 인증서** 섹션에서 복사한 **지문** 값을 **Trusted Issuer Thumb Print**(신뢰할 수 있는 발급자 지문) 텍스트 상자에 붙여넣습니다. 
 
 5. **JoinDefaultUsersGroup** 을 클릭합니다.
 
@@ -169,7 +169,7 @@ Picturepark에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -193,7 +193,7 @@ Picturepark에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Picturepark에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Picturepark** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Picturepark** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -223,7 +223,7 @@ Azure AD 사용자가 Picturepark에 로그인하려면 Picturepark에 프로비
 
 1. **Picturepark** 테넌트에 로그인합니다.
 
-1. 위쪽의 도구 모음에서 **관리 도구** 를 클릭한 다음 **사용자** 를 클릭합니다.
+1. 위쪽 도구 모음에서 **관리 도구** 를 클릭하고 **사용자** 를 클릭합니다.
    
     ![사용자](./media/picturepark-tutorial/ic795067.png "사용자")
 

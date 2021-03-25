@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 9454bef52798650fc431f8df994e1a964662b453
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bfb383a7079e98db1db1f9b5077558c187bcea96
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720830"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047731"
 ---
 # <a name="install-the-remote-rendering-package-for-unity"></a>Unity용 Remote Rendering 패키지 설치
 
@@ -22,11 +22,11 @@ Azure 원격 렌더링은 unity 패키지를 사용 하 여 통합을 Unity로 �
 
 ## <a name="install-remote-rendering-package-using-the-mixed-reality-feature-tool"></a>혼합 현실 기능 도구를 사용 하 여 원격 렌더링 패키지 설치
 
-[혼합 현실 기능 도구](https://aka.ms/MRFeatureToolDocs) ([다운로드](https://aka.ms/mrfeaturetool))는 혼합 현실 기능 패키지를 Unity 프로젝트에 통합 하는 데 사용 되는 도구입니다. 패키지는 [ARR 샘플 리포지토리의](https://github.com/Azure/azure-remote-rendering)일부가 아니므로 Unity의 내부 패키지 레지스트리에서 사용할 수 없습니다.
+[혼합 현실 기능 도구](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) ([다운로드](https://aka.ms/mrfeaturetool))는 혼합 현실 기능 패키지를 Unity 프로젝트에 통합 하는 데 사용 되는 도구입니다. 패키지는 [ARR 샘플 리포지토리의](https://github.com/Azure/azure-remote-rendering)일부가 아니므로 Unity의 내부 패키지 레지스트리에서 사용할 수 없습니다.
 
 프로젝트에 패키지를 추가 하려면 다음을 수행 해야 합니다.
 1. [Mixed Reality 기능 도구 다운로드](https://aka.ms/mrfeaturetool)
-1. 도구를 사용 하는 방법에 대 한 [전체 지침](https://aka.ms/MRFeatureToolDocs) 을 따르세요.
+1. 도구를 사용 하는 방법에 대 한 [전체 지침](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) 을 따르세요.
 1. **검색 기능** 페이지의 **Microsoft Azure 원격 렌더링** 패키지 상자에서 프로젝트에 추가 하려는 패키지의 버전을 선택 합니다.
 
 ![Mixed_Reality_feature_tool_package](media/mixed-reality-feature-tool-package.png)

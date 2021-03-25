@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 23ae1a2c1371cda9435ea76f02cebc79c141c904
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92522243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>자습서: Proxyclick과 Azure Active Directory 통합
@@ -31,7 +31,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Proxyclick과 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -75,7 +75,7 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 2. 애플리케이션 쪽에서 **[Proxyclick Single Sign-On을 구성](#configure-proxyclick-single-sign-on)** 합니다.
 3. **[Azure AD 테스트 사용자를 만들어](#create-an-azure-ad-test-user)** Azure AD Single Sign-On을 테스트합니다.
 4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. 사용자의 Azure AD 표현과 연결된 **[Proxyclick 테스트 사용자를 만듭니다](#create-a-proxyclick-test-user)** .
+5. 사용자의 Azure AD 표현과 연결된 **[Proxyclick 테스트 사용자를 만듭니다](#create-a-proxyclick-test-user)**.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -137,11 +137,11 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 새 웹 브라우저 창에서 Proxyclick 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. **Account & Settings** (계정 및 설정)를 선택합니다.
+2. **Account & Settings**(계정 및 설정)를 선택합니다.
 
     ![Account & Settings 선택](./media/proxyclick-tutorial/configure1.png)
 
-3. **Integrations** (통합) 섹션까지 아래로 스크롤하여 **SAML** 을 선택합니다.
+3. **Integrations**(통합) 섹션까지 아래로 스크롤하여 **SAML** 을 선택합니다.
 
     ![SAML 선택](./media/proxyclick-tutorial/configure2.png)
 
@@ -149,17 +149,17 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![SAML 섹션](./media/proxyclick-tutorial/configure3.png)
 
-    1. **SAML Consumer URL** (SAML 소비자 URL) 값을 복사하여 Azure Portal의 **기본 SAML 구성** 대화 상자에 있는 **회신 URL** 상자에 붙여넣습니다.
+    1. **SAML Consumer URL**(SAML 소비자 URL) 값을 복사하여 Azure Portal의 **기본 SAML 구성** 대화 상자에 있는 **회신 URL** 상자에 붙여넣습니다.
 
-    1. **SAML SSO Redirect URL** (SAML SSO 리디렉션 URL) 값을 복사하여 Azure Portal의 **기본 SAML 구성** 대화 상자에 있는 **로그온 URL** 및 **식별자** 상자에 붙여넣습니다.
+    1. **SAML SSO Redirect URL**(SAML SSO 리디렉션 URL) 값을 복사하여 Azure Portal의 **기본 SAML 구성** 대화 상자에 있는 **로그온 URL** 및 **식별자** 상자에 붙여넣습니다.
 
-    1. **SAML Request Method** (SAML 요청 메서드) 목록에서 **HTTP Redirect** (HTTP 리디렉션)를 선택합니다.
+    1. **SAML Request Method**(SAML 요청 메서드) 목록에서 **HTTP Redirect**(HTTP 리디렉션)를 선택합니다.
 
-    1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **Issuer** (발급자) 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **Issuer**(발급자) 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 복사한 **로그인 URL** 을 **SAML 2.0 Endpoint URL** (SAML 2.0 엔드포인트 URL) 상자에 붙여넣습니다.
+    1. Azure Portal에서 복사한 **로그인 URL** 을 **SAML 2.0 Endpoint URL**(SAML 2.0 엔드포인트 URL) 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 다운로드한 인증서 파일을 메모장에서 엽니다. 이 파일의 내용을 **Certificate** (인증서) 상자에 붙여넣습니다.
+    1. Azure Portal에서 다운로드한 인증서 파일을 메모장에서 엽니다. 이 파일의 내용을 **Certificate**(인증서) 상자에 붙여넣습니다.
 
     1. **변경 내용 저장** 을 선택합니다.
 
@@ -167,7 +167,7 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
@@ -191,7 +191,7 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Proxyclick에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Proxyclick** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Proxyclick** 을 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -221,23 +221,23 @@ Azure AD 사용자가 Proxyclick에 로그인할 수 있도록 설정하려면 �
 
 1. Proxyclick 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 창 위쪽에서 **Colleagues** (동료)를 선택합니다.
+1. 창 위쪽에서 **Colleagues**(동료)를 선택합니다.
 
     ![Colleagues 선택](./media/proxyclick-tutorial/user1.png)
 
-1. **Add Colleague** (동료 추가)를 클릭합니다.
+1. **Add Colleague**(동료 추가)를 클릭합니다.
 
     ![동료 추가 선택](./media/proxyclick-tutorial/user2.png)
 
-1. **Add a colleague** (동료 추가) 섹션에서 다음 단계를 수행합니다.
+1. **Add a colleague**(동료 추가) 섹션에서 다음 단계를 수행합니다.
 
     ![동료 추가 섹션](./media/proxyclick-tutorial/user3.png)
 
     1. **이메일** 상자에서 사용자의 이메일 주소를 입력합니다. 여기서는 **brittasimon\@contoso.com** 입니다.
 
-    1. **First Name** (이름) 텍스트 상자에서 사용자의 이름을 입력합니다. 여기서는 **Britta** 입니다.
+    1. **First Name**(이름) 텍스트 상자에서 사용자의 이름을 입력합니다. 여기서는 **Britta** 입니다.
 
-    1. **Last Name** (성) 텍스트 상자에서 사용자의 성을 입력합니다. 여기서는 **Simon** 입니다.
+    1. **Last Name**(성) 텍스트 상자에서 사용자의 성을 입력합니다. 여기서는 **Simon** 입니다.
 
     1. **사용자 추가** 를 선택합니다.
 

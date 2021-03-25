@@ -5,12 +5,12 @@ author: athinanthny
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: atsenthi
-ms.openlocfilehash: 1da70c37c8a6ed93e7abe1b5d329e808c592e43a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a0131960d356e4862d1379c308e240e19e76205c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86034985"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048071"
 ---
 # <a name="read-and-update-a-reliable-collections-backup-by-using-backup-explorer"></a>Backup 탐색기를 사용 하 여 신뢰할 수 있는 컬렉션 백업 읽기 및 업데이트
 
@@ -45,4 +45,4 @@ Backup 탐색기에는 고급 사용자를 위한 c # 라이브러리가 있습�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Service Fabric 상태 저장 서비스에서 신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)에 대해 자세히 알아보세요.
-* [Service Fabric 모범 사례](service-fabric-best-practices-overview.md)를 검토 합니다.
+* [Service Fabric 모범 사례](./service-fabric-best-practices-security.md)를 검토 합니다.

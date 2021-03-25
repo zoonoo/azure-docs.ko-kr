@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8399f7101697af429b8c073c101dbfea203e98ea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87025594"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
@@ -73,12 +73,12 @@ Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스
 
 ## <a name="device-security"></a>디바이스 보안
 
-- **Azure AD 등록 디바이스**는 최종 사용자가 관리하는 계정을 사용하며, 이 계정은 Microsoft 계정이거나 다음 중 하나 이상으로 보안이 지정된 다른 로컬 관리형 자격 증명입니다.
+- **Azure AD 등록 디바이스** 는 최종 사용자가 관리하는 계정을 사용하며, 이 계정은 Microsoft 계정이거나 다음 중 하나 이상으로 보안이 지정된 다른 로컬 관리형 자격 증명입니다.
    - 암호
    - PIN
    - 패턴
    - Windows Hello
-- **Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스**는 다음 중 하나 이상으로 보안이 지정된 Azure AD의 조직 계정을 사용합니다.
+- **Azure AD 조인 디바이스 또는 하이브리드 Azure AD 조인 디바이스** 는 다음 중 하나 이상으로 보안이 지정된 Azure AD의 조직 계정을 사용합니다.
    - 암호
    - 비즈니스용 Windows Hello
 

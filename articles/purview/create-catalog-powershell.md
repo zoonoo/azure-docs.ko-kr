@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
 ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880002"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
@@ -37,22 +37,22 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ## <a name="configure-your-subscription"></a>구독 구성
 
-필요한 경우 다음 단계에 따라 구독을 구성하여 Azure Purview를 구독에서 실행할 수 있도록 합니다.
+필요한 경우 다음 단계에 따라 구독에서 Azure Purview가 실행될 수 있도록 구독을 구성합니다.
 
    1. Azure Portal에서 **구독** 을 검색하고 선택합니다.
 
-   1. 구독 목록에서 사용할 구독을 선택합니다. 구독에 대한 관리자 액세스 권한이 필요합니다.
+   1. 구독 목록에서 사용하려는 구독을 선택합니다. 구독에 대한 관리자 액세스 권한이 필요합니다.
 
-      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Azure Portal에서 구독을 선택하는 방법을 보여주는 스크린샷.":::
+      :::image type="content" source="./media/create-catalog-portal/select-subscription.png" alt-text="Azure Portal에서 구독을 선택하는 방법을 보여 주는 스크린샷":::
 
-   1. 구독의 경우 **리소스 공급자** 를 선택합니다. **리소스 공급자** 창에서 다음과 같은 세 가지 리소스 공급자를 모두 검색하고 등록합니다. 
+   1. 구독의 경우 **리소스 공급자** 를 선택합니다. **리소스 공급자** 창에서 다음 세 가지 리소스 공급자를 모두 검색하고 등록합니다. 
        1. **Microsoft.Purview**
        1. **Microsoft.Storage**
        1. **Microsoft.EventHub** 
       
       등록되지 않은 경우 **등록** 을 선택하여 등록합니다.
 
-      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Azure Portal에서 Microsoft.Azure Purview 리소스 공급자를 등록하는 방법을 보여주는 스크린샷.":::
+      :::image type="content" source="./media/create-catalog-portal/register-purview-resource-provider.png" alt-text="Azure Portal에서 Microsoft.Azure Purview 리소스 공급자를 등록하는 방법을 보여 주는 스크린샷":::
 
 ## <a name="create-an-azure-purview-account-instance"></a>Azure Purview 계정 인스턴스 만들기
 
@@ -164,7 +164,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 이 빠른 시작에서는 Azure Purview 계정을 만드는 방법을 알아보았습니다.
 
-다음 문서로 이동하여 사용자가 Azure Purview 계정에 액세스할 수 있도록 허용하는 방법을 알아봅니다. 
+다음 문서로 계속 진행하여 사용자가 Azure Purview 계정에 액세스할 수 있도록 허용하는 방법을 알아보세요. 
 
 > [!div class="nextstepaction"]
 > [Azure Purview 계정에 사용자 추가](catalog-permissions.md)

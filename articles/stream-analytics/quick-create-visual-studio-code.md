@@ -8,10 +8,10 @@ ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98014614"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기(미리 보기)
@@ -168,7 +168,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 5. 다음 값을 사용하여 새로 생성된 **IoTHub1.json** 파일을 편집합니다. 여기서 설명되지 않은 필드의 경우 기본값을 유지합니다.
 
-   |설정|제안 값|Description|
+   |설정|제안 값|설명|
    |-------|---------------|-----------|
    |속성|입력|작업의 입력을 식별하는 이름을 입력합니다.|
    |IotHubNamespace|MyASAIoTHub|IoT 허브의 이름을 선택하거나 입력합니다. IoT 허브 이름이 동일한 구독에 만들어지면 자동으로 검색됩니다.|
@@ -200,7 +200,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
 5. 다음 값을 사용하여 **BlobStorage** 를 편집합니다. 여기서 설명되지 않은 필드의 경우 기본값을 유지합니다. CodeLens 기능을 사용하여 드롭다운 목록에서 선택하거나 문자열을 입력할 수 있습니다.
 
-   |설정|제안 값|Description|
+   |설정|제안 값|설명|
    |-------|---------------|-----------|
    |속성|출력| 작업의 출력을 식별하는 이름을 입력합니다.|
    |스토리지 계정|asaquickstartstorage|스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름이 동일한 구독에 만들어지면 자동으로 검색됩니다.|

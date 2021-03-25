@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: e79d8584a7c760fa0a50a614390370ee7ff8ae15
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92512483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>자습서: Panorama9와 Azure Active Directory 통합
@@ -144,7 +144,7 @@ Panorama9에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
    
     a. **ID 공급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
    
-    b. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint** (인증서 지문) 텍스트 상자에 붙여넣습니다.    
+    b. Azure Portal에서 복사한 인증서의 **지문** 값을 **Certificate fingerprint**(인증서 지문) 텍스트 상자에 붙여넣습니다.    
          
 5. **저장** 을 클릭합니다.
 
@@ -152,7 +152,7 @@ Panorama9에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -176,7 +176,7 @@ Panorama9에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Panorama9에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Panorama9** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Panorama9** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

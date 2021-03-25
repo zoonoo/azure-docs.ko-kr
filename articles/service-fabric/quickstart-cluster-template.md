@@ -8,15 +8,15 @@ ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 07/29/2020
 ms.openlocfilehash: 359b527733ee8eebf7e1e7d12c40a0c74ec1c9bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87460306"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Fabric 클러스터 만들기
 
-Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. Service Fabric *클러스터*는 네트워크로 연결된 가상 머신 세트로, 여기에 마이크로서비스를 배포하여 관리하게 됩니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure에 Service Fabric 테스트 클러스터를 배포하는 방법을 설명합니다.
+Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 관리하도록 배포된 시스템 플랫폼입니다. Service Fabric *클러스터* 는 네트워크로 연결된 가상 머신 세트로, 여기에 마이크로서비스를 배포하여 관리하게 됩니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure에 Service Fabric 테스트 클러스터를 배포하는 방법을 설명합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -74,7 +74,7 @@ New-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $resourceGroupName -L
 .\scripts\New-ServiceFabricClusterCertificate.ps1
 ```
 
-이 스크립트는 다음 정보를 묻습니다. 아래 예제의 값에서 *CertDNSName* 및 *KeyVaultName*을 꼭 수정하세요.
+이 스크립트는 다음 정보를 묻습니다. 아래 예제의 값에서 *CertDNSName* 및 *KeyVaultName* 을 꼭 수정하세요.
 
 * **암호:** Password!1
 * **CertDNSName:** *sfquickstart*.southcentralus.cloudapp.azure.com
@@ -108,10 +108,10 @@ Azure Service Fabric에 관련된 더 많은 템플릿을 찾으려면 [Azure �
 
 *azuredeploy.parameters.json* 파일을 열고 매개 변수 값이 다음과 같이 되도록 편집합니다.
 
-* **clusterName**은 클러스터 인증서를 만들 때 *CertDNSName*으로 입력한 값과 일치합니다.
-* **adminUserName**은 기본 *GEN-UNIQUE* 토큰이 아닌 다른 값입니다.
-* **adminPassword**는 기본 *GEN-PASSWORD* 토큰이 아닌 다른 값입니다.
-* **certificateThumbprint**, **sourceVaultResourceId** 및 **certificateUrlValue**는 모두 빈 문자열(`""`)입니다.
+* **clusterName** 은 클러스터 인증서를 만들 때 *CertDNSName* 으로 입력한 값과 일치합니다.
+* **adminUserName** 은 기본 *GEN-UNIQUE* 토큰이 아닌 다른 값입니다.
+* **adminPassword** 는 기본 *GEN-PASSWORD* 토큰이 아닌 다른 값입니다.
+* **certificateThumbprint**, **sourceVaultResourceId** 및 **certificateUrlValue** 는 모두 빈 문자열(`""`)입니다.
 
 예를 들면 다음과 같습니다.
 
