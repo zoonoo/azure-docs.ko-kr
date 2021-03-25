@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 88a71eb5a8ca9a6f2bf1d17fc4eaf9780527d2cb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 13e5609c965a28405804b8a993280b13755b2d3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822005"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866070"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드
 
@@ -32,7 +32,7 @@ ms.locfileid: "99822005"
 
 애플리케이션은 기본적으로 모든 클러스터에서 사용할 수 있는 샘플 **HVAC.csv** 데이터를 사용합니다. 파일은 `\HdiSamples\HdiSamples\SensorSampleData\hvac`에 있습니다. 이 데이터는 HVAC 시스템이 설치된 일부 건물의 목표 온도 및 실제 온도를 보여줍니다. **System** 열은 시스템 ID를 나타내고 **SystemAge** 열은 HVAC 시스템이 건물의 적절한 위치에 있었던 연수를 나타냅니다. 시스템 ID 및 시스템 연수가 지정된 상태에서 대상 온도를 기반으로 건물이 더 덥거나 추운지를 예측할 수 있습니다.
 
-![Spark 기계 학습 예제에 사용되는 데이터의 스냅샷](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark 기계 학습 예제에 사용되는 데이터의 스냅샷")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png " alt-text="Spark 기계 학습 예제에 사용되는 데이터의 스냅샷" border="true":::
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Spark MLlib를 사용하여 Spark Machine Learning 애플리케이션 개발
 
@@ -138,7 +138,7 @@ ms.locfileid: "99822005"
 
     원시 CSV 파일에 대한 출력을 비교합니다. 예를 들어 CSV 파일의 첫 번째 행에는 다음 데이터가 있습니다.
 
-    ![Spark 기계 학습 예제의 출력 데이터 스냅샷](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 기계 학습 예제의 출력 데이터 스냅샷")
+    :::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png " alt-text="Spark 기계 학습 예제의 출력 데이터 스냅샷" border="true":::
 
     실제 온도가 건물이 춥다는 것을 의미하는 대상 온도보다 얼마나 작은지 확인합니다. 첫 번째 행의 **label** 값이 **0.0** 이며, 이는 건물이 덥지 않다는 것을 의미합니다.
 
@@ -199,7 +199,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 1. **삭제** 를 선택합니다. **예** 를 선택합니다.
 
-![HDInsight 클러스터를 삭제하는 Azure Portal](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+:::image type="content" source="./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png " alt-text="HDInsight 클러스터를 삭제하는 Azure Portal" border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

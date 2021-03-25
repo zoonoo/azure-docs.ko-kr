@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2e627e582b47c5174e70f5d21d758148cde8dbdd
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095394"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022857"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>무선을 통해 Azure Percept 진한를 업데이트 합니다.
 
@@ -66,7 +66,7 @@ IoT Hub에 대 한 장치 업데이트를 사용 하면 Azure Percept의 특정 
 
 1. 장치에 태그를 추가 합니다.
     1. 왼쪽 탐색 창의 **IoT Edge** 에서 AZURE Percept 진한 사용자를 찾아 해당 **장치** 쌍으로 이동 합니다.
-    1. 아래와 같이 **IoT Hub 태그 값에 대 한 새 장치 업데이트** 를 추가 ```<CustomTagValue>``` 합니다 (값 (예: AzurePerceptGroup1). 장치 [쌍 JSON 문서 태그](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins#device-twins)에 대해 자세히 알아보세요.
+    1. 아래와 같이 **IoT Hub 태그 값에 대 한 새 장치 업데이트** 를 추가 ```<CustomTagValue>``` 합니다 (값 (예: AzurePerceptGroup1). 장치 [쌍 JSON 문서 태그](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)에 대해 자세히 알아보세요.
 
     ```
     "tags": {

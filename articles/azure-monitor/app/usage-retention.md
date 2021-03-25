@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 37de27e8dc707133595b71b39e45bdec554289e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583389"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025614"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
 
@@ -64,5 +64,4 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
     - [깔때기](usage-funnels.md)
     - [사용자 흐름](usage-flows.md)
     - [통합 문서](../visualize/workbooks-overview.md)
-    - [사용자 컨텍스트 추가](usage-send-user-context.md)
-
+    - [사용자 컨텍스트 추가](./usage-overview.md)

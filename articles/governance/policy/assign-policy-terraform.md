@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 Terraform 및 HCL 구문을 사용하여
 ms.date: 10/27/2020
 ms.topic: quickstart
 ms.openlocfilehash: dc4dae2dc6e43e7532117bf64af3ce97ddc7c496
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93104924"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>빠른 시작: Terraform을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
@@ -26,7 +26,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 ## <a name="create-the-terraform-configuration-variable-and-output-file"></a>Terraform 구성, 변수 및 출력 파일 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사** (`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
+이 빠른 시작에서는 정책 할당을 만들고 **관리 디스크를 사용하지 않는 VM 감사**(`06a78e20-9358-41c9-923c-fb736d382a4d`) 정의를 할당합니다. 이 정책 정의는 정책 정의에 설정된 조건을 준수하지 않는 리소스를 식별합니다.
 
 먼저 Terraform 구성, 변수 및 출력 파일을 구성합니다. Azure Policy에 대한 Terraform 리소스는 [Azure 공급자](https://www.terraform.io/docs/providers/azurerm/index.html)를 사용합니다.
 

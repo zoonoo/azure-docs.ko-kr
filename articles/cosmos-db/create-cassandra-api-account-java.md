@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
 ms.openlocfilehash: ca1fdbd9aa2c98358489d91fe0839c98adec293b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102212708"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
@@ -47,7 +47,7 @@ ms.locfileid: "102212708"
 
 3. **새 계정** 창에서 새 Azure Cosmos 계정에 대한 설정을 입력합니다. 
 
-   |설정   |제안 값  |설명  |
+   |설정   |제안 값  |Description  |
    |---------|---------|---------|
    |ID   |   고유한 이름을 입력합니다.    | 이 Azure Cosmos 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
    |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL(Cassandra 쿼리 언어) 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들므로 **Cassandra** 를 선택합니다.  |

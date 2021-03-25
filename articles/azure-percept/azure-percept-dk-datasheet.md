@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 5b8a84b77fbde41748a2d9ef99a92cb6af1bbea6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0c9f848827db452710b4bca355aae0db99a2c95c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097587"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027366"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Azure Percept DK 데이터시트
 
@@ -24,13 +24,13 @@ ms.locfileid: "102097587"
 |Box에 포함 됨                 |1x Azure Percept 진한 캐리어 보드  <br> 1x [Azure Percept 비전](./azure-percept-vision-datasheet.md) <br> 1x RGB 센서 (카메라) <br> 1x USB 3.0 유형 C 케이블 <br> 1x DC 전원 케이블 <br> 1x AC/DC 변환기 <br> 2 배 Wi-Fi 안테나  |
 |OS                              |[CBL-Mariner](https://github.com/microsoft/CBL-Mariner)           |
 |관리 제어 평면        |Azure 장치 업데이트 (ADU) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)          |
-|지원 되는 소프트웨어 및 서비스 |Azure 장치 업데이트 <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 및 [마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [연결을 사용 하는 Azure Mariner OS](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [Tensorflow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure 디바이스 프로비저닝 서비스(DPS)](https://docs.microsoft.com/azure/iot-dps/) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
+|지원 되는 소프트웨어 및 서비스 |Azure 장치 업데이트 <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 및 [마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [연결을 사용 하는 Azure Mariner OS](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [Tensorflow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure 디바이스 프로비저닝 서비스(DPS)](../iot-dps/index.yml) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
 |일반 프로세서               |NXP iMX8m (Azure Percept 진한 캐리어 보드)        |
 |AI 가속                 |1x Intel Movidius 방대한 X 통합 ISP (Azure Percept 비전) |
 |센서 및 시각적 표시기   |6P 렌즈를 사용 하는 Sony IMX219 카메라 센서<br>해결 방법: 30FPS의 8MP, 거리: 50cm-무한대<br>FoV: 120도 대각선, 색: 와이드 동적 범위, 고정 된 포커스 롤링 셔터|
 |보안                        |TPM 2.0 Nuvoton NCPT750 |
 |연결                    |Realtek RTL882CE 단일 칩 컨트롤러를 통해 Wi-Fi 및 Bluetooth     |
-|Storage                         |16GB     |
+|스토리지                         |16GB     |
 |메모리                          |4     |
 |포트                           |1x 이더넷 <br> 2x USB-A 3.0 <br> 1x USB-C     |
 |운영 온도           |0 ~ 35도 C     |

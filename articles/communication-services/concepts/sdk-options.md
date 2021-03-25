@@ -1,7 +1,7 @@
 ---
 title: Azure Communication Services에 대 한 클라이언트 라이브러리 및 REST Api
 titleSuffix: An Azure Communication Services concept document
-description: Azure Communication Services 클라이언트 라이브러리 및 REST Api에 대해 자세히 알아보세요.
+description: Azure Communication Services Sdk 및 REST Api에 대해 자세히 알아보세요.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,37 +9,37 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 01a5f4a947f0b89b5881eddb3c743b9a9b184b19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: effd7658bbfe7359e1f99f9452857824c2c45c2f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495643"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107893"
 ---
 # <a name="client-libraries-and-rest-apis"></a>클라이언트 라이브러리 및 REST API
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성 됩니다. 일부 영역에는 완전히 오픈 소스 클라이언트 라이브러리가 있습니다. 호출 하는 클라이언트 라이브러리가 독점 네트워크 인터페이스를 사용 하 고 있으며 현재 닫힌 소스 이며 채팅 라이브러리에 닫힌 소스 종속성이 포함 되어 있습니다. 클라이언트 라이브러리에 대 한 샘플 및 추가 기술 세부 정보는 [Azure Communication Services GitHub](https://github.com/Azure/communication)리포지토리에 게시 됩니다.
+Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성 됩니다. 일부 영역에는 완전히 오픈 소스 Sdk가 있습니다. 호출 하는 SDK는 소유 네트워크 인터페이스를 사용 하 고 현재 닫힌 소스 이며 채팅 라이브러리에는 닫힌 소스 종속성이 포함 되어 있습니다. Sdk에 대 한 샘플 및 추가 기술 세부 정보는 [Azure Communication Services GitHub](https://github.com/Azure/communication)리포지토리에 게시 됩니다.
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
 | 어셈블리               | 프로토콜             |소스 및 닫힌 소스 열기| 네임스페이스                          | 기능                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | 열기            | Azure. ResourceManager. 통신 | 통신 서비스 리소스 프로 비전 및 관리             |
-| 일반                 | REST | 열기               | Azure. 통신 Common          | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
+| 일반                 | REST | 열기               | Azure. 통신 Common          | 다른 Sdk의 기본 형식을 제공 합니다. |
 | ID         | REST | 열기               | Azure. 통신 Id  | 사용자 관리, 토큰 액세스 |
 | 전화 번호         | REST | 열기               | PhoneNumbers  | 전화 번호 관리 |
 | 채팅                   | 소유 신호를 포함 하는 REST | 닫힌 소스 신호 패키지를 사용 하 여 열기    | Azure. 통신 채팅            | 응용 프로그램에 실시간 텍스트 기반 채팅 추가  |
 | sms                    | REST | 열기              | Azure. 통신 SMS             | SMS 메시지 보내기 및 받기 |
 | 호출                | 소유 전송 | 종결 |Azure. 통신. 호출         | 음성, 비디오, 화면 공유 및 기타 실시간 데이터 통신 기능 활용          |
 
-Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 통합에 초점을 맞추고 있으며 이러한 기능을 최종 사용자 응용 프로그램에 통합 하는 경우 대부분의 경우 보안 문제가 발생 합니다. 공용 및 채팅 클라이언트 라이브러리는 서비스 및 클라이언트 응용 프로그램에 적합 합니다. 호출 하는 클라이언트 라이브러리는 클라이언트 응용 프로그램용으로 설계 되었습니다. 서비스 시나리오에 초점을 맞춘 클라이언트 라이브러리는 개발 과정에 있습니다.
+Azure Resource Manager, Id 및 SMS Sdk는 서비스 통합에 초점을 맞추고 있으며 이러한 기능을 최종 사용자 응용 프로그램에 통합 하는 경우 대부분의 경우 보안 문제가 발생 합니다. 공용 및 채팅 Sdk는 서비스 및 클라이언트 응용 프로그램에 적합 합니다. 호출 SDK는 클라이언트 응용 프로그램용으로 설계 되었습니다. 서비스 시나리오에 초점을 맞춘 SDK는 개발 하 고 있습니다.
 
 ### <a name="languages-and-publishing-locations"></a>언어 및 게시 위치
 
-개별 클라이언트 라이브러리 패키지의 게시 위치는 아래에 자세히 설명 되어 있습니다.
+개별 SDK 패키지의 게시 위치는 아래에 자세히 설명 되어 있습니다.
 
 | 영역           | JavaScript | .NET | Python | Java SE | iOS | Android | 기타                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -60,8 +60,8 @@ Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 
 
 ### <a name="ios-and-android-support-details"></a>iOS 및 Android 지원 세부 정보
 
-- 통신 서비스 iOS 클라이언트 라이브러리는 iOS 버전 13 이상 및 Xcode 11 +를 대상으로 합니다.
-- Android Java 클라이언트 라이브러리 대상 Android API 레벨 21 이상 및 Android Studio 4.0 이상
+- 통신 서비스 iOS Sdk 대상 iOS 버전 13 이상 및 Xcode 11 이상
+- Android Java Sdk 대상 Android API 레벨 21 이상 및 Android Studio 4.0 이상
 
 ### <a name="net-support-details"></a>.NET 지원 세부 정보
 
@@ -82,9 +82,9 @@ Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
 
-## <a name="calling-client-library-timeouts"></a>클라이언트 라이브러리 제한 시간 호출
+## <a name="calling-sdk-timeouts"></a>SDK 시간 제한 호출
 
-클라이언트 라이브러리를 호출 하는 통신 서비스에는 다음 제한 시간이 적용 됩니다.
+Sdk를 호출 하는 통신 서비스에는 다음 제한 시간이 적용 됩니다.
 
 | 작업           | 제한 시간 (초) |
 | -------------- | ---------- |
@@ -100,30 +100,30 @@ Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 
 ## <a name="api-stability-expectations"></a>API 안정성 기대
 
 > [!IMPORTANT]
-> 이 섹션에서는 **안정적인** 것으로 표시 된 REST api 및 클라이언트 라이브러리에 대 한 지침을 제공 합니다. 시험판, 미리 보기 또는 베타로 표시 된 Api는 **통지 없이** 변경 되거나 더 이상 사용 되지 않을 수 있습니다.
+> 이 섹션에서는 **안정적인** 것으로 표시 된 REST Api 및 sdk에 대 한 지침을 제공 합니다. 시험판, 미리 보기 또는 베타로 표시 된 Api는 **통지 없이** 변경 되거나 더 이상 사용 되지 않을 수 있습니다.
 
-향후에는 통신 서비스 클라이언트 라이브러리의 버전을 사용 중지할 수 있으며, REST Api에 대 한 주요 변경 사항을 도입 하 고 클라이언트 라이브러리를 해제할 수 있습니다. Azure 통신 서비스는 *일반적으로* 서비스 버전 사용을 중지 하기 위한 두 가지 지원 가능성 정책을 따릅니다.
+향후에는 통신 서비스 Sdk 버전을 사용 중지할 수 있으며, REST Api와 출시 된 Sdk에 대 한 주요 변경 내용이 도입 될 수 있습니다. Azure 통신 서비스는 *일반적으로* 서비스 버전 사용을 중지 하기 위한 두 가지 지원 가능성 정책을 따릅니다.
 
-- 통신 서비스 인터페이스 변경으로 인해 코드를 변경 해야 하기 전에 3 년 이상 알림이 표시 됩니다. 문서화 된 모든 REST Api 및 클라이언트 라이브러리 Api는 일반적으로 인터페이스가 서비스 해제 되기 전에 3 년 이상 경고를 발생 시킵니다.
-- 클라이언트 라이브러리 어셈블리를 최신 부 버전으로 업데이트 하기 전에 적어도 1 년 이상 알림이 표시 됩니다. 이러한 필수 업데이트는 동일한 주 버전에 있기 때문에 코드를 변경할 필요가 없습니다. 보안 및 성능 업데이트가 자주 필요한 실시간 구성 요소를 포함 하는 호출 및 채팅 라이브러리의 경우 특히 그렇습니다. 통신 서비스 클라이언트 라이브러리를 업데이트 된 상태로 유지 하는 것이 좋습니다.
+- 통신 서비스 인터페이스 변경으로 인해 코드를 변경 해야 하기 전에 3 년 이상 알림이 표시 됩니다. 문서화 된 모든 REST Api 및 SDK Api는 일반적으로 인터페이스가 서비스 해제 되기 전에 3 년 이상 경고를 발생 시킵니다.
+- SDK 어셈블리를 최신 부 버전으로 업데이트 하기 전에 적어도 1 년 이상 알림이 표시 됩니다. 이러한 필수 업데이트는 동일한 주 버전에 있기 때문에 코드를 변경할 필요가 없습니다. 보안 및 성능 업데이트가 자주 필요한 실시간 구성 요소를 포함 하는 호출 및 채팅 라이브러리의 경우 특히 그렇습니다. 통신 서비스 Sdk를 계속 업데이트 하는 것이 좋습니다.
 
-### <a name="api-and-client-library-decommissioning-examples"></a>API 및 클라이언트 라이브러리 서비스 해제 예제
+### <a name="api-and-sdk-decommissioning-examples"></a>API 및 SDK 서비스 해제 예제
 
 **V24 버전의 SMS REST API를 응용 프로그램에 통합 했습니다. Azure Communication은 v25을 릴리스 합니다.**
 
 이러한 Api의 작동이 중지 되 고 v25로 강제로 업데이트 되기 전에 3 년 동안 경고가 발생 합니다. 이 업데이트를 수행 하려면 코드를 변경 해야 할 수 있습니다.
 
-**호출 클라이언트 라이브러리의 v 2.02 버전을 응용 프로그램에 통합 했습니다. Azure Communication은 v 2.05을 릴리스 합니다.**
+**호출 SDK의 v 2.02 버전을 응용 프로그램에 통합 했습니다. Azure Communication은 v 2.05을 릴리스 합니다.**
 
-V 2.05의 릴리스 12 개월 이내에 호출 하는 클라이언트 라이브러리의 v 2.05 버전으로 업데이트 해야 할 수 있습니다. 이는 v 2.05가 v2 주 버전에 있고 주요 변경 내용이 없기 때문에 코드를 변경 하지 않고도 아티팩트를 간단히 대체 해야 합니다.
+V 2.05의 릴리스 12 개월 이내에 호출 SDK의 v 2.05 버전으로 업데이트 해야 할 수 있습니다. 이는 v 2.05가 v2 주 버전에 있고 주요 변경 내용이 없기 때문에 코드를 변경 하지 않고도 아티팩트를 간단히 대체 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 클라이언트 라이브러리 개요를 참조 하세요.
+자세한 내용은 다음 SDK 개요를 참조 하세요.
 
-- [클라이언트 라이브러리 호출 개요](../concepts/voice-video-calling/calling-sdk-features.md)
-- [채팅 클라이언트 라이브러리 개요](../concepts/chat/sdk-features.md)
-- [SMS 클라이언트 라이브러리 개요](../concepts/telephony-sms/sdk-features.md)
+- [SDK 호출 개요](../concepts/voice-video-calling/calling-sdk-features.md)
+- [채팅 SDK 개요](../concepts/chat/sdk-features.md)
+- [SMS SDK 개요](../concepts/telephony-sms/sdk-features.md)
 
 Azure 통신 서비스를 시작 하려면 다음을 수행 하세요.
 

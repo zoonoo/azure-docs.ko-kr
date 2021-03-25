@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: 46d5e1cf773a24b032874ee54021c780e1f361af
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91814234"
 ---
 # <a name="run-a-disaster-recovery-drill-from-azure-vmware-solution-to-azure"></a>Azure VMware Solution에서 Azure로 재해 복구 훈련 실행
@@ -37,8 +37,8 @@ ms.locfileid: "91814234"
 
 이전 자습서 완료:
 
-1. Azure에 대한 재해 복구를 위해 [Azure를 설정](avs-tutorial-prepare-azure.md)했는지 확인합니다.
-2. [이러한 단계](avs-tutorial-prepare-avs.md)에 따라 Azure에 대한 재해 복구를 위해 Azure VMware Solution 배포를 준비합니다.
+1. Azure로 재해 복구하도록 [Azure를 설정](avs-tutorial-prepare-azure.md)했는지 확인합니다.
+2. [다음 단계](avs-tutorial-prepare-avs.md)에 따라 Azure에 대한 재해 복구를 위해 Azure VMware Solution 배포를 준비합니다.
 3. Azure VMware Solution VM에 대한 재해 복구를 [설정](avs-tutorial-replication.md)합니다.
  
 
@@ -46,11 +46,11 @@ ms.locfileid: "91814234"
 
 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인하고 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines)이 Azure 요구 사항을 준수하는지 확인합니다.
 
-1. **보호된 항목**에서 **복제된 항목**을 클릭하고 VM을 클릭합니다.
-2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
-3. **컴퓨팅 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
+1. **보호된 항목** 에서 **복제된 항목** 을 클릭하고 VM을 클릭합니다.
+2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성** 을 클릭합니다.
+3. **컴퓨팅 및 네트워크** 에서 Azure 이름, 리소스 그룹, 대상 크기, 가용성 집합 및 관리 디스크 설정을 수정할 수 있습니다.
 4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
-5. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
+5. **디스크** 에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 
 ## <a name="create-a-network-for-test-failover"></a>테스트 장애 조치(Failover)를 위한 네트워크 만들기
 
@@ -70,14 +70,14 @@ ms.locfileid: "91814234"
 
 다음과 같이 테스트 장애 조치(Failover)를 실행합니다.
 
-1. **설정** > **복제된 항목**에서 VM > **+테스트 장애 조치(Failover)** 를 클릭합니다.
+1. **설정** > **복제된 항목** 에서 VM > **+테스트 장애 조치(Failover)** 를 클릭합니다.
 2. 이 자습서에서는 **가장 최근에 처리된** 복구 지점을 선택합니다. 그러면 사용 가능한 최신 시점으로 VM을 장애 조치(failover)합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 시간 목표)가 제공됩니다.
 3. **테스트 장애 조치(Failover)** 에서 장애 조치(Failover)가 발생한 후에 Azure VM이 연결될 대상 Azure 네트워크를 선택합니다.
-4. **확인**을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 해당 속성을 열어 진행률을 추적할 수 있습니다. 또는 자격 증명 모음 이름 > **설정** > **작업** >
-   **Site Recovery 작업**에서 **테스트 장애 조치(Failover)** 작업을 클릭하면 됩니다.
-5. 장애 조치가 완료되면 Azure Portal > **Virtual Machines**에서 Azure VM 복제본이 표시됩니다. VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
+4. **확인** 을 클릭하여 장애 조치(failover)를 시작합니다. VM을 클릭하여 해당 속성을 열어 진행률을 추적할 수 있습니다. 또는 자격 증명 모음 이름 > **설정** > **작업** >
+   **Site Recovery 작업** 에서 **테스트 장애 조치(Failover)** 작업을 클릭하면 됩니다.
+5. 장애 조치가 완료되면 Azure Portal > **Virtual Machines** 에서 Azure VM 복제본이 표시됩니다. VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다.
 6. 이제 Azure에서 복제된 VM에에 연결할 수 있습니다.
-7. 테스트 장애 조치(failover) 중에 만든 Azure VM을 삭제하려면 VM에서 **테스트 장애 조치(failover) 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다.
+7. 테스트 장애 조치(failover) 중에 만든 Azure VM을 삭제하려면 VM에서 **테스트 장애 조치(failover) 정리** 를 클릭합니다. **참고** 에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다.
 
 일부 시나리오에서는 장애 조치(failover)를 위해서는 추가 처리가 필요하며 이러한 작업을 완료하는 데는 약 8~10분이 소요됩니다. VMware Linux 컴퓨터, DHCP 서비스가 사용되도록 설정되지 않은 VMware VM과 부팅 드라이버인 storvsc, vmbus, storflt, intelide, atapi가 없는 VMware VM의 경우 테스트 장애 조치(failover)가 더 오래 걸릴 수 있습니다.
 

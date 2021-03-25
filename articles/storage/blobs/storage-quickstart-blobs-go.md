@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: bf0e868e9ee746da1dfe1b03403d21f7edb3bd5e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95544652"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
@@ -149,9 +149,9 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 
 Blob에 파일을 업로드하려면 **os.Open** 을 사용하여 파일을 엽니다. 그런 다음, Upload(PutBlob), StageBlock/CommitBlockList(PutBlock/PutBlockList)와 같은 REST API 중 하나를 사용하여 지정된 경로에 파일을 업로드할 수 있습니다. 
 
-또는 SDK가 하위 수준 REST API를 기반으로 하는 [고급 수준의 API](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go)를 제공합니다. 예를 들어 **_UploadFileToBlockBlob_* _ 함수는 처리량을 최적화하기 위해 StageBlock(PutBlock) 작업을 사용하여 동시에 청크에서 파일을 업로드합니다. 파일이 256MB보다 작은 경우 대신 Upload(PutBlob)을 사용하여 단일 트랜잭션에서 전송을 완료합니다.
+또는 SDK가 하위 수준 REST API를 기반으로 하는 [고급 수준의 API](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go)를 제공합니다. 예를 들어 ***UploadFileToBlockBlob*** 함수는 처리량을 최적화하기 위해 StageBlock(PutBlock) 작업을 사용하여 동시에 청크에서 파일을 업로드합니다. 파일이 256MB보다 작은 경우 대신 Upload(PutBlob)을 사용하여 단일 트랜잭션에서 전송을 완료합니다.
 
-다음 예제에서는 _*quickstartblobs-[randomstring]**이라는 컨테이너에 파일을 업로드합니다.
+다음 예제에서는 **quickstartblobs-[randomstring]** 이라는 컨테이너에 파일을 업로드합니다.
 
 ```go
 // Create a file to test the upload and download.

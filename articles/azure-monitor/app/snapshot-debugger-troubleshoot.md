@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217417"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026456"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다.
@@ -20,7 +20,7 @@ ms.locfileid: "102217417"
 
 ## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>적절 한 스냅숏 디버거 끝점을 사용 하 고 있는지 확인 합니다.
 
-현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) 및 [Azure 중국](/azure/china/resources-developer-guide)입니다.
 
 Application Insights SDK를 사용 하는 App Service 및 응용 프로그램의 경우 아래에 정의 된 대로 스냅숏 디버거에 대해 지원 되는 재정의를 사용 하 여 연결 문자열을 업데이트 해야 합니다.
 
@@ -28,7 +28,7 @@ Application Insights SDK를 사용 하는 App Service 및 응용 프로그램의
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
+다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
 
 함수 앱의 경우 `host.json` 아래의 지원 되는 재정의를 사용 하 여를 업데이트 해야 합니다.
 

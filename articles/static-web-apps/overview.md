@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 9cd5136d69e4b14aa50a96d20f3187ce88db6e96
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320485"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
@@ -30,7 +30,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 
 ## <a name="key-features"></a>주요 기능
 
-- HTML, CSS, JavaScript 및 이미지와 같은 정적 콘텐츠에 대한 **웹 호스팅**입니다.
+- HTML, CSS, JavaScript 및 이미지와 같은 정적 콘텐츠에 대한 **웹 호스팅** 입니다.
 - Azure Functions에서 제공하는 **통합 API**.
 - 리포지토리 변경 시 빌드 및 배포가 트리거되는 **최상급 GitHub 통합**.
 - **전역적으로 분산된** 정적 콘텐츠로, 사용자에게 더 가까운 콘텐츠를 제공합니다.
@@ -39,14 +39,14 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 - CORS 구성이 필요 없는 API를 호출할 때 역방향 프록시를 사용하는 **원활한 보안 모델**.
 - Azure Active Directory, Facebook, Google, GitHub 및 Twitter와 **인증 공급자 통합**.
 - **사용자 지정 가능한 권한 부여 역할 정의** 및 할당.
-- **백 엔드 라우팅 규칙**을 사용하여 사용자가 제공하는 콘텐츠와 경로를 완전히 제어할 수 있습니다.
+- **백 엔드 라우팅 규칙** 을 사용하여 사용자가 제공하는 콘텐츠와 경로를 완전히 제어할 수 있습니다.
 - 게시하기 전에 사이트의 미리 보기 버전을 사용하도록 설정하는 끌어오기 요청으로 구동되는 **생성된 스테이징 버전**.
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Static Web Apps로 수행할 수 있는 작업
 
-- [Azure Functions](apis.md) 백 엔드를 통해WebAssembly 애플리케이션을 만드는 [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react), [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) 같은 JavaScript 프레임워크와 라이브러리를 사용하여 **최신 웹 애플리케이션을 빌드**합니다.
-- [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md)와 같은 프레임워크를 사용하여 **정적 사이트를 게시**합니다.
-- [Next.js](deploy-nextjs.md) 및 [Nuxt.js](deploy-nuxtjs.md)와 같은 프레임워크를 사용하여 **웹 애플리케이션**을 배포합니다.
+- [Azure Functions](apis.md) 백 엔드를 통해WebAssembly 애플리케이션을 만드는 [Angular](getting-started.md?tabs=angular), [React](getting-started.md?tabs=react), [Svelte](/learn/modules/publish-app-service-static-web-app-api/), [Vue](getting-started.md?tabs=react), [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) 같은 JavaScript 프레임워크와 라이브러리를 사용하여 **최신 웹 애플리케이션을 빌드** 합니다.
+- [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md), [VuePress](publish-vuepress.md)와 같은 프레임워크를 사용하여 **정적 사이트를 게시** 합니다.
+- [Next.js](deploy-nextjs.md) 및 [Nuxt.js](deploy-nuxtjs.md)와 같은 프레임워크를 사용하여 **웹 애플리케이션** 을 배포합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

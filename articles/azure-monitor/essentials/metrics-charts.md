@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a8a4f84db140ca442371cb71886bebf9214d3e43
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031480"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026541"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Azure 메트릭 탐색기의 고급 기능
 
@@ -237,7 +237,7 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 | 용어             | 정의  | 
 |------------------|-------------|
 | 활동 로그    | Service Health 이벤트에 대 한 업데이트 외에도 외부 (관리 평면)에서 구독의 각 Azure 리소스에 대 한 작업에 대 한 통찰력을 제공 합니다. 활동 로그를 사용 하 여 구독의 리소스에 대해 수행 되는 쓰기 작업 (PUT, POST, DELETE)에 대 한 내용, 대상 및 시기를 결정 합니다. 각 Azure 구독에 대 한 단일 활동 로그가 있습니다.  |   
-| 진단 로그   | Azure 리소스 (데이터 평면) 내에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 리소스 로그의 콘텐츠는 Azure 서비스 및 리소스 유형에 따라 달라 집니다. **참고:** 서비스에서 제공 해야 하며 고객이 사용 하도록 설정 해야 합니다.  | 
+| 진단 로그   | Azure 리소스 (데이터 평면) 내에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 예를 들어 Key Vault에서 비밀을 가져오거나 데이터베이스를 요청 하는 등의 작업을 수행할 수 있습니다. 이러한 로그의 내용은 Azure 서비스와 리소스 종류에 따라 달라집니다. **참고:** 서비스에서 제공 해야 하며 고객이 사용 하도록 설정 해야 합니다.  | 
 | 권장 로그 | 고객이 메트릭 탐색기의 비정상 상태를 조사 하기 위해 활용할 수 있는 시나리오 기반 쿼리입니다.  |
 
 현재 select 리소스 공급자에 대 한 드릴스루 로그를 사용할 수 있습니다. 로그에 대 한 전체 드릴스루 환경을 포함 하는 리소스 공급자는 다음과 같습니다. 
@@ -245,7 +245,7 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 * Application Insights 
 * 자동 크기 조정 
 * App Services  
-* Storage  
+* 스토리지  
 
 다음은 Application Insights 리소스 공급자에 대 한 샘플 환경입니다.
 
@@ -261,7 +261,7 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 
 ### <a name="common-problems-with-drill-into-logs"></a>로그 드릴에 대 한 일반적인 문제
 
-* 로그 및 쿼리를 사용할 수 없습니다. 권장 로그와 쿼리를 보려면 진단 로그를 Log Analytics로 라우팅해야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 를 참조 하세요. 
+* 로그 및 쿼리를 사용할 수 없습니다. 권장 로그와 쿼리를 보려면 진단 로그를 Log Analytics로 라우팅해야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [이 문서](./diagnostic-settings.md) 를 참조 하세요. 
 * 활동 로그만 제공 됩니다.-로그로 드릴 기능은 select 리소스 공급자에 대해서만 사용할 수 있습니다. 기본적으로 활동 로그가 제공 됩니다. 
 
  
@@ -278,4 +278,3 @@ Y 축 범위를 제어 하려면 차트 메뉴 (**...**)를 엽니다. 그런 �
 ## <a name="next-steps"></a>다음 단계
 
 메트릭을 사용 하 여 실행 가능한 대시보드를 만들려면 [사용자 지정 KPI 대시보드 만들기](../app/tutorial-app-dashboards.md)를 참조 하세요.
-
