@@ -6,14 +6,15 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 9b7a5d5ca6cbad897839c8e28c9e3efd1eeabaf0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e128e9f7515e572fc0be4b92ef03d8d98529ac66
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "68736988"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674906"
 ---
 # <a name="what-is-azure-data-catalog"></a>Azure 데이터 카탈로그란?
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 Azure Data Catalog는 완전 관리형 클라우드 서비스입니다. 사용자는 필요한 데이터 원본을 검색하고 찾은 데이터 원본을 이해할 수 있습니다. 이와 동시에, 데이터 카탈로그를 통해 조직은 기존 투자에서 더 많은 가치를 창출할 수 있습니다.
 

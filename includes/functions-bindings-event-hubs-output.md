@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 9fca69804220021ca7935e562f2026c11749515a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cdd8b42f3ef7530809c50925c631b7aa90ee213c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102623499"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104470"
 ---
 Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 씁니다. 이벤트를 쓰려면 이벤트 허브에 대한 보내기 사용 권한이 있어야 합니다.
 
@@ -265,14 +265,14 @@ Event Hub의 출력 바인딩에 다음 매개 변수 유형을 사용할 수 �
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
 
 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
 
 ### <a name="additional-types"></a>추가 형식 
-5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -283,14 +283,14 @@ Event Hub의 출력 바인딩에 다음 매개 변수 유형을 사용할 수 �
 * `string`
 * `byte[]`
 * `POCO`
-* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
+* `EventData` - EventData의 기본 속성은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에서 제공됩니다.
 
 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json* 의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
 
 ### <a name="additional-types"></a>추가 형식 
-5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
+5\.0.0 이상 버전의 Event Hub 확장을 사용하는 앱은 [Microsoft.Azure.EventHubs 네임스페이스](/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet)에 있는 `EventData` 유형 대신 [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet)에 있는 유형을 사용합니다. 이 버전은 다음 유형을 위해 레거시 `Body` 유형 지원을 중단합니다.
 
-- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+- [EventBody](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

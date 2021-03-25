@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 18b43a99eb561cbfa340e0b3f318782bef2ca17c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952782"
+ms.locfileid: "105023438"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
@@ -33,6 +33,7 @@ Azure AD는 장치 id를 관리 하는 중앙의 장소를 제공 합니다.
 - 장치 id 설정을 구성 합니다.
 - Enterprise State Roaming 사용 하거나 사용 하지 않도록 설정 합니다.
 - 장치 관련 감사 로그 검토
+- 장치 다운로드 (미리 보기)
 
 [![Azure Portal의 모든 장치 보기](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
@@ -144,6 +145,14 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 1. 표시 되는 배너를 선택 하 고 **새 장치 필터링 기능을 사용해 보세요. 미리 보기를 사용 하려면 클릭 합니다.**
 
 이제 **모든 장치** 보기에 필터를 **추가할** 수 있습니다.
+
+### <a name="download-devices-preview"></a>장치 다운로드 (미리 보기)
+
+클라우드 장치 관리자, Intune 관리자 및 전역 관리자는 **장치 다운로드 (미리 보기)** 옵션을 사용 하 여 적용 된 필터를 기반으로 하는 장치를 CSV 파일로 내보낼 수 있습니다. 목록에 필터를 적용 하지 않으면 모든 장치를 내보냅니다. 내보내기는 다음에 따라 최대 1 시간 동안 실행 될 수 있습니다. 
+
+내보낸 목록에는 다음과 같은 장치 id 특성이 포함 됩니다.
+
+`accountEnabled, approximateLastLogonTimeStamp, deviceOSType, deviceOSVersion, deviceTrustType, dirSyncEnabled, displayName, isCompliant, isManaged, lastDirSyncTime, objectId, profileType, registeredOwners, systemLabels, registrationTime, mdmDisplayName`
 
 ## <a name="configure-device-settings"></a>디바이스 설정 구성
 

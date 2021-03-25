@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4732abacc80a24d268f0e5cb7d100079e5a8d90b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95561996"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104141"
 ---
 원격 데스크톱 연결을 만들어 VNet에 배포된 VM에 연결합니다. VM에 연결할 수 있는지 확인하는 가장 좋은 방법은 컴퓨터 이름이 아닌 개인 IP 주소를 사용하여 연결하는 것입니다. 이렇게 하면 연결할 수 있는지, 아니면 이름 확인이 제대로 구성되었는지를 테스트할 수 있습니다. 
 
@@ -32,4 +32,4 @@ VPN 연결을 통해 가상 머신에 연결하는 데 문제가 있는 경우 �
 - 컴퓨터 이름이 아닌 개인 IP 주소를 사용하여 VM에 연결할 수 있으면 DNS를 올바르게 구성했는지 확인합니다. 이름 확인이 VM에서 작동하는 방법에 대한 자세한 내용은 [VM에서 이름 확인](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 - VNet에 대한 DNS 서버 IP 주소가 지정되면 VPN 클라이언트 구성 패키지가 생성되는지 확인합니다. DNS 서버 IP 주소를 업데이트하는 경우 새 VPN 클라이언트 구성 패키지를 생성하고 설치합니다.
 
-자세한 문제 해결 정보는 [VM에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)을 참조하세요.
+자세한 문제 해결 정보는 [VM에 대한 원격 데스크톱 연결 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)을 참조하세요.

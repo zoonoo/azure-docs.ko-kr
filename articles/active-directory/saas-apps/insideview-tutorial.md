@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
 ms.openlocfilehash: b8f12b6d55cb11c0cfeda5331072127ea4a696bc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92460107"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>자습서: InsideView와 Azure Active Directory 통합
@@ -31,7 +31,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 InsideView와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -75,7 +75,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 2. 애플리케이션 쪽에서 **[InsideView Single Sign-On을 구성](#configure-insideview-single-sign-on)** 합니다.
 3. **[Azure AD 테스트 사용자를 만들어](#create-an-azure-ad-test-user)** Azure AD Single Sign-On을 테스트합니다.
 4. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 사용자가 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. 사용자의 Azure AD 표현과 연결된 **[InsideView 테스트 사용자를 만듭니다](#create-an-insideview-test-user)** .
+5. 사용자의 Azure AD 표현과 연결된 **[InsideView 테스트 사용자를 만듭니다](#create-an-insideview-test-user)**.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -125,27 +125,27 @@ InsideView에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. 새 웹 브라우저 창에서 InsideView 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 창 위쪽에서 **Admin** (관리자), **SingleSignOn Settings** (SingleSignOn 설정), **Add SAML** (SAML 추가)을 차례로 선택합니다.
+1. 창 위쪽에서 **Admin**(관리자), **SingleSignOn Settings**(SingleSignOn 설정), **Add SAML**(SAML 추가)을 차례로 선택합니다.
    
    ![SAML Singl Sign On 설정](./media/insideview-tutorial/ic794135.png "SAML Singl Sign On 설정")
 
-1. **Add a New SAML** (새 SAML 추가) 섹션에서 다음 단계를 수행합니다.
+1. **Add a New SAML**(새 SAML 추가) 섹션에서 다음 단계를 수행합니다.
 
     ![새 SAML 섹션 추가](./media/insideview-tutorial/ic794136.png "새 SAML 섹션 추가")
 
-    1. **STS Name** (STS 이름) 상자에서 구성 이름을 입력합니다.
+    1. **STS Name**(STS 이름) 상자에서 구성 이름을 입력합니다.
 
     1. Azure Portal에서 복사한 **로그인 URL** 을 **SamlP/WS-Fed Unsolicited EndPoint** 상자에 붙여넣습니다.
 
-    1. Azure Portal에서 다운로드한 원시 인증서를 메모장에서 엽니다. 인증서의 내용을 클립보드에 복사한 다음, **STS Certificate** (STS 인증서) 상자에 붙여넣습니다.
+    1. Azure Portal에서 다운로드한 원시 인증서를 메모장에서 엽니다. 인증서의 내용을 클립보드에 복사한 다음, **STS Certificate**(STS 인증서) 상자에 붙여넣습니다.
 
-    1. **Crm User Id Mapping** (Crm 사용자 ID 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 를 입력합니다.
+    1. **Crm User Id Mapping**(Crm 사용자 ID 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 를 입력합니다.
 
-    1. **Crm Email Mapping** (Crm 이메일 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 를 입력합니다.
+    1. **Crm Email Mapping**(Crm 이메일 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** 를 입력합니다.
 
-    1. **Crm First Name Mapping** (Crm 이름 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** 을 입력합니다.
+    1. **Crm First Name Mapping**(Crm 이름 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** 을 입력합니다.
 
-    1. **Crm lastName Mapping** (Crm 성 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** 을 입력합니다.  
+    1. **Crm lastName Mapping**(Crm 성 매핑) 상자에서 **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** 을 입력합니다.  
 
     1. **저장** 을 선택합니다.
 
@@ -153,7 +153,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 
@@ -177,7 +177,7 @@ InsideView에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 InsideView에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **InsideView** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **InsideView** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 

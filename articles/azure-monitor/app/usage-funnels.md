@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: d0e5cb5097a2f8833b10fec16a99b67c5c109fc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c09667e0493fc39e8a2679a698f06301bab6ba45
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583457"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024951"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Application Insights Funnels를 통해 고객이 애플리케이션을 사용하는 방법 검색
 
@@ -47,6 +47,5 @@ ms.locfileid: "100583457"
   * [사용자, 세션 및 이벤트](usage-segmentation.md)
   * [보존](usage-retention.md)
   * [통합 문서](../visualize/workbooks-overview.md)
-  * [사용자 컨텍스트 추가](usage-send-user-context.md)
+  * [사용자 컨텍스트 추가](./usage-overview.md)
   * [Power BI에 내보내기](./export-power-bi.md)
-

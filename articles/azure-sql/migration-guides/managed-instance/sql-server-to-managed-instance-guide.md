@@ -1,5 +1,5 @@
 ---
-title: 'SQL Managed Instance SQL Server: 마이그레이션 가이드'
+title: 'Azure SQL Managed Instance에 SQL Server: 마이그레이션 가이드'
 description: 이 가이드에서는 SQL Server 데이터베이스를 Azure SQL Managed Instance로 마이그레이션하는 방법을 설명 합니다.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1dcb72c30268dd82052e29232e79a485d86f72d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564493"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025308"
 ---
-# <a name="migration-guide-sql-server-to-sql-managed-instance"></a>마이그레이션 가이드: SQL Managed Instance SQL Server
+# <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 가이드: Azure SQL Managed Instance에 대 한 SQL Server
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 이 가이드는 SQL Server 인스턴스를 Azure SQL Managed Instance로 마이그레이션하는 데 도움이 됩니다. 
@@ -30,19 +30,21 @@ ms.locfileid: "103564493"
 - 계산 엔진 (Google Cloud Platform GCP)  
 - SQL Server에 대 한 클라우드 SQL (Google Cloud Platform – GCP) 
 
-마이그레이션에 대 한 자세한 내용은 [마이그레이션 개요](sql-server-to-managed-instance-overview.md)를 참조 하세요. 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
+마이그레이션에 대 한 자세한 내용은 [마이그레이션 개요](sql-server-to-managed-instance-overview.md)를 참조 하세요. 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 SQL Server를 Azure SQL Managed Instance로 마이그레이션하려면 다음 필수 구성 요소를 확인 하세요. 
 
 - 선택한 방법에 필요한 [마이그레이션 방법](sql-server-to-managed-instance-overview.md#compare-migration-options) 및 해당 도구를 선택 합니다.
 - 원본 SQL Server에 연결할 수 있는 컴퓨터에 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) 를 설치 합니다.
+- 원본 및 대상 모두에 액세스할 수 있는 연결 및 적절 한 권한 
 
 
-## <a name="pre-migration"></a>마이그레이션 전
+
+## <a name="pre-migration"></a>사전 마이그레이션
 
 원본 환경이 지원 되는지 확인 한 후에는 마이그레이션 전 단계부터 시작 합니다. 모든 기존 데이터 원본을 검색 하 고, 마이그레이션 가능성을 평가 하 고, 마이그레이션을 방해할 수 있는 차단 문제를 식별 합니다.  
 
@@ -104,7 +106,7 @@ SQL Managed Instance의 작업 성과를 SQL Server에서 실행 되는 원래 �
 검색 및 평가 단계의 정보에 따라 적절 한 크기의 대상 SQL Managed Instance를 만듭니다. [Azure Portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)또는 [Azure Resource Manager (ARM) 템플릿을](../../managed-instance/create-template-quickstart.md)사용 하 여이 작업을 수행할 수 있습니다. 
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>마이그레이션
 
 마이그레이션 전 단계와 관련 된 작업을 완료 하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 
@@ -119,7 +121,7 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 1. 이 작업을 처음 수행 하는 경우 구독에 **microsoft.datamigration** 리소스 공급자를 등록 합니다.
 1. 원하는 위치 (대상 Azure SQL Managed Instance와 동일한 지역)에 Azure Database Migration Service 인스턴스를 만들고 기존 가상 네트워크를 선택 하거나 DMS 인스턴스를 호스트할 새 가상 네트워크를 만듭니다.
 1. DMS 인스턴스를 만든 후 새 마이그레이션 프로젝트를 만들고 원본 서버 유형을 **SQL Server** 로 지정 하 고 대상 서버 유형을 **Azure SQL Database Managed Instance** 으로 지정 합니다. 프로젝트 만들기 블레이드의 온라인 또는 오프 라인 데이터 마이그레이션에서 작업 유형을 선택 합니다. 
-1.  마이그레이션 **원본** 세부 정보 페이지에서 원본 SQL Server 세부 정보를 지정 하 고 **마이그레이션 대상** 세부 정보 페이지에서 대상 Azure SQL Managed Instance 세부 정보를 지정 합니다. **다음** 을 선택합니다.
+1.  마이그레이션 **원본** 세부 정보 페이지에서 원본 SQL Server 세부 정보를 지정 하 고 **마이그레이션 대상** 세부 정보 페이지에서 대상 Azure SQL Managed Instance 세부 정보를 지정 합니다. **새로 만들기** 를 선택합니다.
 1. 마이그레이션하려는 데이터베이스를 선택 합니다. 
 1. 구성 설정을 제공 하 여 데이터베이스 백업 파일을 포함 하는 **SMB 네트워크 공유** 를 지정 합니다. DMS에서 네트워크 공유에 액세스할 수 있는 Windows 사용자 자격 증명을 사용 합니다. **Azure Storage 계정 정보** 를 제공 합니다. 
 1. 마이그레이션 요약을 검토 하 고 **마이그레이션 실행** 을 선택 합니다. 그런 다음 마이그레이션 작업을 모니터링 하 고 데이터베이스 마이그레이션의 진행률을 확인할 수 있습니다.
@@ -146,14 +148,14 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 
 1. Azure blob storage에 데이터베이스를 백업 합니다. 예를 들어 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)의 [url에 백업을](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 사용 합니다. [Microsoft Azure 도구](https://go.microsoft.com/fwlink/?LinkID=324399) 를 사용 하 여 SQL SERVER 2012 SP1 CU2 이전의 데이터베이스를 지원할 수 있습니다. 
 1. SQL Server Management Studio를 사용 하 여 Azure SQL Managed Instance에 연결 합니다. 
-1. 데이터베이스 백업을 사용 하 여 Azure Blob storage 계정에 액세스 하기 위해 공유 액세스 서명을 사용 하 여 자격 증명을 만듭니다. 예를 들면 다음과 같습니다.
+1. 데이터베이스 백업을 사용 하 여 Azure Blob storage 계정에 액세스 하기 위해 공유 액세스 서명을 사용 하 여 자격 증명을 만듭니다. 예를 들어:
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
-1. Azure storage blob 컨테이너에서 백업을 복원 합니다. 예를 들면 다음과 같습니다. 
+1. Azure storage blob 컨테이너에서 백업을 복원 합니다. 예를 들어: 
 
     ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
@@ -179,11 +181,11 @@ DMS를 사용 하 여 마이그레이션을 수행 하려면 다음 단계를 �
 > DMS를 사용 하 여 마이그레이션의 일부로 수행 하는 것과 관련 된 특정 단계에 대 한 자세한 내용은 [마이그레이션](../../../dms/tutorial-sql-server-managed-instance-online.md#performing-migration-cutover)시작을 참조 하세요.
 
 
-## <a name="post-migration"></a>마이그레이션 후
+## <a name="post-migration"></a>마이그레이션 후 작업
 
 마이그레이션 단계를 성공적으로 완료 한 후에는 일련의 마이그레이션 후 작업을 진행 하 여 모든 것이 원활 하 고 효율적으로 기능 하는지 확인 합니다. 
 
-마이그레이션 후 단계는 데이터 정확도 문제를 조정 하 고 완성도를 확인 하는 데 중요 하며 워크 로드와 관련 된 성능 문제를 해결 하는 데 중요 합니다. 
+마이그레이션 후 단계는 데이터 정확도 문제를 조정하고 완성도를 확인할 뿐만 아니라 워크로드 관련 성능 문제를 해결하는 데 매우 중요합니다. 
 
 ### <a name="remediate-applications"></a>애플리케이션 수정 
 

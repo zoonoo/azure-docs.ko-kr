@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
 ms.openlocfilehash: be63ea7ebf905b825ffe73dfc2b37dcdc3bb88fd
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92507570"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>자습서: Moxtra와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92507570"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -124,11 +124,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -162,7 +162,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    
     ![스크린샷은 설명된 값을 입력할 수 있는 SAML 페이지를 보여줍니다.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. **이름** 텍스트 상자에 구성할 이름을 입력합니다(예: *SAML* ). 
+    a. **이름** 텍스트 상자에 구성할 이름을 입력합니다(예: *SAML*). 
   
     b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **IdP 엔터티 ID** 텍스트 상자에 붙여넣습니다. 
  
@@ -177,7 +177,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     g. SAML 전자 메일 도메인 텍스트 상자에 SAML 전자 메일 도메인을 입력합니다.    
   
     >[!NOTE]
-    >도메인을 확인하는 단계를 보려면 아래 " **i** "를 클릭합니다.
+    >도메인을 확인하는 단계를 보려면 아래 "**i**"를 클릭합니다.
 
     h. **업데이트** 를 클릭합니다.
 
@@ -189,17 +189,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Moxtra 회사 사이트에 관리자로 로그온합니다.
 
-1. 왼쪽의 도구 모음에서 **관리 콘솔 > 사용자 관리** , **사용자 추가** 를 차례로 클릭합니다.
+1. 왼쪽의 도구 모음에서 **관리 콘솔 > 사용자 관리**, **사용자 추가** 를 차례로 클릭합니다.
    
     ![스크린샷은 사용자 추가가 선택된 사용자 관리 페이지를 보여줍니다.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. **사용자 추가** 대화 상자에서 다음 단계를 수행합니다.
   
-    a. **First Name** (이름) 텍스트 상자에서 **B** 를 입력합니다.
+    a. **First Name**(이름) 텍스트 상자에서 **B** 를 입력합니다.
   
     b. **성** 텍스트 상자에 **Simon** 을 입력합니다.
   
-    다. **Email** (이메일) 텍스트 상자에서 Azure Portal과 동일한 B.simon의 이메일 주소를 입력합니다.
+    다. **Email**(이메일) 텍스트 상자에서 Azure Portal과 동일한 B.simon의 이메일 주소를 입력합니다.
   
     d. **사업부** 텍스트 상자에 **Dev** 를 입력합니다.
   

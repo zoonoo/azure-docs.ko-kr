@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2092c3f6402d5c6e7a0bc8c93015d3a900b9e38
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 47691ae404f65f04ace36485cb01fc5617d00a9a
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588010"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031769"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>복원 력을 위한 응용 프로그램 로그인 상태 모니터링
 
@@ -43,7 +43,7 @@ ms.locfileid: "104588010"
 
 이 문서에서는 사용자 로그인에 대 한 중단을 모니터링 하도록 로그인 상태 통합 문서를 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure AD 테넌트.
 
@@ -100,7 +100,7 @@ Azure Monitor를 사용 하 여 로그 경고를 만들고 보고 관리 하는 
 
    쿼리 로그가 열립니다.
 
-   [![쿼리 로그를 보여 주는 스크린샷](./media/monitor-sign-in-health-for-resilience/query-log.png)](/media/monitor-sign-in-health-for-resilience/query-log.png)
+   [![쿼리 로그를 보여 주는 스크린샷](./media/monitor-sign-in-health-for-resilience/query-log.png)](./media/monitor-sign-in-health-for-resilience/query-log.png)
 ‎
 
 2. 새 Kusto 쿼리를 위한 샘플 스크립트 중 하나를 복사 합니다.  

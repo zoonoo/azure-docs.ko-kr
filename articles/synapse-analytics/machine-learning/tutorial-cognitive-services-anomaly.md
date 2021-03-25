@@ -10,10 +10,10 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: c54300bf37f6f4526c525b1502d902e5f4336ed7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821818"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>자습서: Cognitive Services를 사용하여 변칙 검색(미리 보기)
@@ -58,7 +58,7 @@ Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다
 
 1. 이전 단계에서 만든 Spark 테이블을 마우스 오른쪽 단추로 클릭합니다. **Machine Learning** > **기존 모델을 사용하여 보강** 을 차례로 선택하여 마법사를 엽니다.
 
-   ![채점 마법사를 열기 위한 선택 항목을 보여 주는 스크린샷](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
+   ![점수 매기기 마법사 열기 선택을 보여 주는 스크린샷](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
 
 2. 구성 패널이 표시되고, Cognitive Services 모델을 선택하라는 메시지가 표시됩니다. **Anomaly Detector** 를 선택합니다.
 

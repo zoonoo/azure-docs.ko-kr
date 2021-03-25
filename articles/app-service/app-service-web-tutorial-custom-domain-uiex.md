@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ca1308c969227336bfb4970f7c5c77b9f2e0cc22
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 32ad6fa122083b40a948345e360bf5b9b0f09e96
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216533"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954856"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -121,7 +121,7 @@ ms.locfileid: "102216533"
 
     <details>
         <summary>도메인 공급자에서 Azure를 사용하여 DNS를 관리할 수 있나요?</summary>
-        원한다면 Azure DNS를 사용하여 도메인의 DNS 레코드를 관리하고 Azure App Service의 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 <a href="https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns">자습서: Azure DNS에서 도메인 호스트</a>를 참조하세요.
+        원한다면 Azure DNS를 사용하여 도메인의 DNS 레코드를 관리하고 Azure App Service의 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 <a href="/azure/dns/dns-delegate-domain-azure-dns">자습서: Azure DNS에서 도메인 호스트</a>를 참조하세요.
     </details>
 
 1. DNS 레코드를 관리하기 위한 페이지를 찾습니다. 
@@ -146,7 +146,7 @@ ms.locfileid: "102216533"
             <ul>
             <li>루트 도메인(예: <code>contoso.com</code>)을 매핑하려면 A 레코드를 사용합니다. 루트 레코드에는 CNAME 레코드를 사용하지 마세요. 자세한 내용은 <a href="https://en.wikipedia.org/wiki/CNAME_record">위키백과 항목</a>을 참조하세요.</li>
             <li>하위 도메인(예: <code>www.contoso.com</code>)을 매핑하려면 CNAME 레코드를 사용합니다.</li>
-            <li>A 레코드를 사용하여 하위 도메인을 앱의 IP 주소로 직접 매핑해도 되지만 <a href="https://docs.microsoft.com/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">IP 주소가 변경</a>될 가능성이 있습니다. CNAME은 앱의 호스트 이름으로 매핑되므로 변경 가능성이 낮습니다.</li>
+            <li>A 레코드를 사용하여 하위 도메인을 앱의 IP 주소로 직접 매핑해도 되지만 <a href="/azure/app-service/overview-inbound-outbound-ips#when-inbound-ip-changes">IP 주소가 변경</a>될 가능성이 있습니다. CNAME은 앱의 호스트 이름으로 매핑되므로 변경 가능성이 낮습니다.</li>
             <li><a href="https://en.wikipedia.org/wiki/Wildcard_DNS_record">와일드카드 도메인</a>(예: <code>*.contoso.com</code>)을 매핑하려면 CNAME 레코드를 사용합니다.</li>
             </ul>
         </div>
@@ -247,7 +247,7 @@ ms.locfileid: "102216533"
 
     <details>
         <summary><strong>안전하지 않음</strong> 경고 레이블에 포함된 것은 무엇인가요?</summary>
-        사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
+        사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
     </details>
 
     이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
@@ -274,7 +274,7 @@ ms.locfileid: "102216533"
 
     <details>
         <summary><strong>안전하지 않음</strong> 경고 레이블에 포함된 것은 무엇인가요?</summary>
-        사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
+        사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
     </details>
     
     이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
@@ -297,7 +297,7 @@ ms.locfileid: "102216533"
 
     <details>
         <summary><strong>안전하지 않음</strong> 경고 레이블에 포함된 것은 무엇인가요?</summary>
-        사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="https://docs.microsoft.com/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
+        사용자 지정 도메인에 대한 경고 레이블은 아직 TLS/SSL 인증서에 바인딩되지 않았다는 뜻입니다. 브라우저에서 사용자 지정 도메인으로 전송되는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 수신합니다. TLS 바인딩을 추가하려면 <a href="/azure/app-service/configure-ssl-bindings">Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호</a>를 참조하세요.
     </details>
 
 -----

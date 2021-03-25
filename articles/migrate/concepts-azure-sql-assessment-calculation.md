@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778324"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025121"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>평가 개요 (Azure SQL로 마이그레이션)
 
-이 문서에서는 [Azure Migrate: 검색 및 평가 도구](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool)를 사용 하 여 VMware 환경에서 Azure SQL Database 또는 관리 되는 인스턴스로 온-프레미스 SQL Server 인스턴스를 마이그레이션하기 위한 평가의 개요를 제공 합니다.
+이 문서에서는 [Azure Migrate: 검색 및 평가 도구](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool)를 사용 하 여 VMware 환경에서 Azure SQL Database 또는 관리 되는 인스턴스로 온-프레미스 SQL Server 인스턴스를 마이그레이션하기 위한 평가의 개요를 제공 합니다.
 
 ## <a name="whats-an-assessment"></a>평가는 무엇 인가요?
 검색 및 평가 도구를 사용한 평가는 데이터의 특정 시점 스냅숏으로, 준비를 측정 하 고 온-프레미스 서버를 Azure로 마이그레이션하는 효과를 예측 합니다.
@@ -113,7 +113,7 @@ Azure SQL 평가 속성에서 **권장** 되는 대상 배포 유형을 선택 �
  준비 | 준비 | Azure SQL DB 또는 <br/>Azure SQL MI | 예
  준비 | 준비 되지 않음 또는<br/> 알 수 없음 | Azure SQL DB | 예
  준비 되지 않음 또는<br/>알 수 없음 | 준비 | Azure SQL MI | 예
- 준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | 아니요
+ 준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | No
  준비 되지 않음 또는<br/>알 수 없음 | 준비 되지 않음 또는<br/>알 수 없음 | 알 수 없음 | 아니요
 
 > [!NOTE]

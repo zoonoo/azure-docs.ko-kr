@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 801702d43bae6d925fa4f7fbc37cf44bf585fa6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531993"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 애플리케이션 디버그
@@ -30,7 +30,7 @@ ms.locfileid: "91531993"
 > * 구성 가능한 위치로 로그 리디렉션
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -54,7 +54,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. 프로젝트 가져오기 창에서 **루트 디렉터리 선택** 옵션을 선택하고 **Voting** 디렉터리를 선택합니다. 자습서 시리즈 1부를 따른 경우 **Voting** 디렉터리는 **Eclipse 작업 공간** 디렉터리 내에 있습니다.
 
-4. 디버그하려는 서비스의 entryPoint.sh를 원격 디버그 매개 변수를 사용하여 Java 프로세스를 시작하도록 업데이트합니다. 이 자습서의 경우 상태 비저장 프론트 엔드가 사용됩니다. *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh* 이 예제에서 포트 8001은 디버깅을 위해 설정되었습니다.
+4. 디버그하려는 서비스의 entryPoint.sh를 원격 디버그 매개 변수를 사용하여 Java 프로세스를 시작하도록 업데이트합니다. 이 자습서의 경우 상태 비저장 프런트 엔드는 다음과 같이 사용됩니다. *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. 이 예제에서 포트 8001은 디버깅을 위해 설정되었습니다.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 5. 인스턴스 수 또는 디버그하는 서비스의 복제본 수를 1로 설정하여 애플리케이션 매니페스트를 업데이트합니다. 이 설정은 디버깅에 사용되는 포트에 대한 충돌을 방지합니다. 예를 들어, 상태 비저장 서비스의 경우 ``InstanceCount="1"``을 설정하고 상태 저장 서비스의 경우 ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``과 같이 대상과 최소 복제본 세트 크기를 1로 설정합니다.
 
-6. Eclipse IDE에서 **실행 -&gt; 구성 디버그 -&gt; 원격 Java 애플리케이션**을 선택하고 **새** 단추를 누르고 속성을 다음과 같이 설정하고 **적용**을 클릭합니다.
+6. Eclipse IDE에서 **실행 -&gt; 구성 디버그 -&gt; 원격 Java 애플리케이션** 을 선택하고 **새** 단추를 누르고 속성을 다음과 같이 설정하고 **적용** 을 클릭합니다.
 
     ```
     Name: Voting
@@ -76,11 +76,11 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 8. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -&gt; 애플리케이션 게시...** 를 클릭합니다.
 
-9. **애플리케이션 게시** 창의 드롭다운 메뉴에서 **Local.json**을 선택하고 **게시**를 클릭합니다.
+9. **애플리케이션 게시** 창의 드롭다운 메뉴에서 **Local.json** 을 선택하고 **게시** 를 클릭합니다.
 
-10. Eclipse IDE에서 **실행 -&gt; 구성 디버그 -&gt; 원격 Java 애플리케이션**을 선택하고 만든 **Voting** 구성을 클릭하고 **디버그**를 클릭합니다.
+10. Eclipse IDE에서 **실행 -&gt; 구성 디버그 -&gt; 원격 Java 애플리케이션** 을 선택하고 만든 **Voting** 구성을 클릭하고 **디버그** 를 클릭합니다.
 
-11. 웹 브라우저로 이동하여 **localhost:8080**에 액세스합니다. 그러면 자동으로 중단점에 도달하고 Eclipse는 **디버그 큐브 뷰**를 시작합니다.
+11. 웹 브라우저로 이동하여 **localhost:8080** 에 액세스합니다. 그러면 자동으로 중단점에 도달하고 Eclipse는 **디버그 큐브 뷰** 를 시작합니다.
 
 이제 동일한 단계를 적용하여 Eclipse에서 모든 Service Fabric 애플리케이션을 디버깅할 수 있습니다.
 
@@ -88,7 +88,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 다음 단계는 기본 */var/log/syslog* 위치에서 사용자 지정 위치로 애플리케이션 로그를 리디렉션하는 방법을 설명합니다.
 
-1. 현재 Service Fabric Linux 클러스터에서 실행 중인 애플리케이션은 단일 로그 파일 선택만 지원합니다. 로그가 항상 */tmp/mysfapp0.0.log*로 이동하도록 애플리케이션을 설정하려면, 다음 위치 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*에 logging.properties라는 파일을 만들고 다음 내용을 추가합니다.
+1. 현재 Service Fabric Linux 클러스터에서 실행 중인 애플리케이션은 단일 로그 파일 선택만 지원합니다. 로그가 항상 */tmp/mysfapp0.0.log* 로 이동하도록 애플리케이션을 설정하려면, 다음 위치 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* 에 logging.properties라는 파일을 만들고 다음 내용을 추가합니다.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -101,7 +101,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
-2. Java 실행 명령에 대한 다음 매개 변수를 *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*에 추가합니다.
+2. Java 실행 명령에 대한 다음 매개 변수를 *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh* 에 추가합니다.
 
     ```bash
     -Djava.util.logging.config.file=logging.properties

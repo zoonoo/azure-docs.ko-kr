@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ed11b0bb00a571fb4cefc51a708432baef88184d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935410"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613076"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R 배포 준비
 
@@ -84,6 +84,8 @@ Azure Stack Edge Mini R을 배포하려면 다음 자습서를 지정된 순서�
 
 물리적 디바이스를 관리할 수 있는 기존 Azure Stack Edge 리소스가 있으면 이 단계를 건너뛰고 [활성화 키 가져오기](#get-the-activation-key)로 이동합니다.
 
+### <a name="portal"></a>[포털](#tab/azure-portal)
+
 Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. Microsoft Azure 자격 증명을 사용하여 [https://portal.azure.com](https://portal.azure.com) URL에서 Azure Portal에 로그인합니다.
@@ -121,11 +123,11 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
 
 7. 완료되면 **다음: 배송 주소** 를 선택합니다.
 
-    - 디바이스가 이미 있는 경우 **이미 디바이스가 있습니다** 의 콤보 상자를 선택합니다.
+   - 디바이스가 이미 있는 경우 **이미 디바이스가 있습니다** 의 콤보 상자를 선택합니다.
 
      ![리소스 만들기 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - 이 디바이스가 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
+   - 이 디바이스가 주문하는 새 디바이스인 경우 연락처 이름, 회사, 디바이스를 배송할 주소, 연락처 정보를 입력합니다.
 
      ![리소스 만들기 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -145,9 +147,57 @@ Azure Stack Edge 리소스를 만들려면 Azure Portal에서 다음 단계를 �
     
     ![Azure Stack Edge Pro 리소스로 이동](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    주문이 완료되면 Microsoft에서 주문을 검토한 후 배송 세부 정보가 포함된 이메일을 통해 연락을 드립니다.
+주문이 완료되면 Microsoft에서 주문을 검토한 후 배송 세부 정보가 포함된 이메일을 통해 연락을 드립니다.
 
-   주문 프로세스 중에 문제가 발생하는 경우 [주문 문제 해결](azure-stack-edge-troubleshoot-ordering.md)을 참조하세요.
+> [!NOTE]
+> 한 번에 여러 주문을 만들거나 기존 주문을 복제하려는 경우 [Azure 샘플의 스크립트](https://github.com/Azure-Samples/azure-stack-edge-order)를 사용할 수 있습니다. 자세한 내용은 추가 정보 파일을 참조하세요.
+
+주문 프로세스 중에 문제가 발생하는 경우 [주문 문제 해결](azure-stack-edge-troubleshoot-ordering.md)을 참조하세요.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+필요한 경우 Azure CLI에 대한 환경을 준비합니다.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Azure Stack Edge 리소스를 만들려면 Azure CLI에서 다음 명령을 수행합니다.
+
+1. [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다.
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. 디바이스를 만들려면 [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create) 명령을 사용합니다.
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgeMR_Mini
+   ```
+
+   디바이스를 배포하려는 지역에 지리적으로 가장 가까운 위치를 선택합니다. 지역에는 디바이스 관리용 메타데이터만 저장됩니다. 실제 데이터는 원하는 스토리지 계정에 저장할 수 있습니다.
+
+   Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Government를 사용하는 경우 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 본 것처럼 모든 정부 지역을 사용할 수 있습니다.
+
+1. 주문을 생성하려면 [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create) 명령을 실행합니다.
+
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+리소스 생성에는 몇 분 정도가 소요됩니다. [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) 명령을 실행하여 순서를 확인합니다.
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+주문한 후 Microsoft는 주문을 검토하고 배송 세부 정보가 포함된 이메일로 연락을 드립니다.
+
+---
 
 ## <a name="get-the-activation-key"></a>활성화 키 가져오기
 
