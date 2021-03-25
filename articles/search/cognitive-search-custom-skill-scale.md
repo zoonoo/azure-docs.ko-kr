@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 22e48239631850d82cbb3e3208748416087da87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103422168"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043073"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>사용자 지정 기술 효율적 확장
 
@@ -22,7 +22,7 @@ ms.locfileid: "103422168"
 * Simple 컨테이너 화 된 AI 기술을 위한 Azure Webapps
 * 더 복잡 하거나 큰 기술을 위한 Azure Kubernetes 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 대 한 소개를 보려면 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 를 검토 합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "103422168"
 
 3. `timeout`기술이 유효한 응답으로 응답 하는 데 충분 한 값으로 설정 합니다.
 
-4. 정의에서 `indexer` 를 [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) 데이터 원본에서 읽고 동시에 보강 하는 문서 수로 설정 합니다.
+4. 정의에서 `indexer` 를 [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) 데이터 원본에서 읽고 동시에 보강 하는 문서 수로 설정 합니다.
 
 ### <a name="considerations"></a>고려 사항
 
@@ -106,5 +106,5 @@ ms.locfileid: "103422168"
 
 + [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
 + [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
-+ [Azure Machine Learning 기술 추가](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [디버그 세션을 사용 하 여 변경 내용 테스트](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Azure Machine Learning 기술 추가](./cognitive-search-aml-skill.md)
++ [디버그 세션을 사용 하 여 변경 내용 테스트](./cognitive-search-debug-session.md)

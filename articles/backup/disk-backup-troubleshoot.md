@@ -3,19 +3,14 @@ title: Azure Disk Backup에서 백업 오류 문제 해결
 description: Azure Disk Backup에서 백업 실패 문제를 해결 하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6e9bcbbd618cf820ce91f8a3092d5be4aa045cb
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98737730"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107247"
 ---
-# <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Azure 디스크 백업 (미리 보기)의 백업 오류 문제 해결
-
->[!IMPORTANT]
->Azure Disk Backup은 서비스 수준 계약 없이 미리 보기 상태 이며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
->
->미리 보기에 등록 하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) 하세요.
+# <a name="troubleshooting-backup-failures-in-azure-disk-backup"></a>Azure Disk Backup에서 백업 오류 문제 해결
 
 이 문서에서는 Azure Disk에 직면 한 백업 및 복원 문제에 대 한 문제 해결 정보를 제공 합니다. [Azure Disk backup](disk-backup-overview.md) 지역 가용성, 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 
@@ -157,7 +152,7 @@ ms.locfileid: "98737730"
 
 오류 메시지: 백업 자격 증명 모음에서 보호를 구성 하는 동안 아직 디스크 백업을 사용할 수 없습니다.
 
-권장 작업: 백업 자격 증명 모음은 지원 되는 미리 보기 영역에 있어야 합니다. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
+권장 작업: 백업 자격 증명 모음은 지원 되는 지역에 있어야 합니다. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 
 ### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>오류 코드: UserErrorDppDatasourceAlreadyHasBackupInstance
 

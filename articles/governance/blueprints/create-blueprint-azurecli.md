@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure C
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920243"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>빠른 시작: Azure CLI로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - 이전에 Azure Blueprints를 사용하지 않은 경우 Azure CLI를 통해 리소스 공급자를 `az provider register --namespace Microsoft.Blueprint`로 등록합니다.

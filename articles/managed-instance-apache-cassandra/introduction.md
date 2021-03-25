@@ -7,10 +7,10 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 03/02/2021
 ms.openlocfilehash: d99c62e7d88510c351f87d85b4f8c5c271767cb3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747627"
 ---
 # <a name="what-is-azure-managed-instance-for-apache-cassandra-preview"></a>Apache Cassandra용 Azure Managed Instance란? (미리 보기)
@@ -57,4 +57,4 @@ Apache Cassandra용 Azure Managed Instance 서비스는 관리형 오픈 소스 
 
 * [Azure Portal에서 관리형 인스턴스 만들기](create-cluster-portal.md)
 * [Azure Databricks를 사용하여 관리형 Apache Spark 클러스터 배포](deploy-cluster-databricks.md)
-* [Azure CLI를 사용하여 Apache Cassandra 리소스에 대한 Azure Managed Instance 관리](manage-resources-cli.md)
+* [Azure CLI를 사용하여 Apache Cassandra용 Azure Managed Instance 리소스 관리](manage-resources-cli.md)

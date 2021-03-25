@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurepowershell
 ms.openlocfilehash: b57c44e79d599ab41b2c3356ee337811acdf639d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91948360"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
@@ -102,7 +102,7 @@ New-AzBlockchainMember @memberParams
 | **프로토콜** | Blockchain 프로토콜입니다. 현재 _Quorum_ 프로토콜이 지원됩니다.
 | **컨소시엄** | 참가할 또는 만들 컨소시엄의 이름입니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
 | **ConsortiumManagementAccountPassword** | 컨소시엄 계정 암호는 멤버 계정 암호라고도 합니다. 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다.
-| **Sku** | 계층 유형입니다. 표준의 경우 **S0**이고, 기본의 경우 **B0**입니다. 개발, 테스트 및 개념 증명에 _기본_ 계층을 사용합니다. 프로덕션 등급 배포에 _표준_ 계층을 사용합니다. Blockchain Data Manager를 사용하거나 대량의 프라이빗 트랜잭션을 전송하는 경우 _표준_ 계층도 사용해야 합니다. 멤버를 만든 후 기본과 표준 간의 가격 책정 계층 변경은 지원되지 않습니다.
+| **Sku** | 계층 유형입니다. 표준의 경우 **S0** 이고, 기본의 경우 **B0** 입니다. 개발, 테스트 및 개념 증명에 _기본_ 계층을 사용합니다. 프로덕션 등급 배포에 _표준_ 계층을 사용합니다. Blockchain Data Manager를 사용하거나 대량의 프라이빗 트랜잭션을 전송하는 경우 _표준_ 계층도 사용해야 합니다. 멤버를 만든 후 기본과 표준 간의 가격 책정 계층 변경은 지원되지 않습니다.
 
 블록체인 멤버 및 지원 리소스를 만드는 데 약 10분이 걸립니다.
 

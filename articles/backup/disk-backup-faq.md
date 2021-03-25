@@ -3,19 +3,14 @@ title: Azure 디스크 백업에 대 한 질문과 대답
 description: Azure Disk Backup에 대해 자주 묻는 질문에 대 한 답변 가져오기
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3ef18a7d178075194e24889477768583f05f0cdd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7729bc1120fc0e2f4361739a8e05f3a82ccb4268
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98734565"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107315"
 ---
-# <a name="frequently-asked-questions-about-azure-disk-backup-in-preview"></a>Azure Disk Backup (미리 보기)에 대 한 질문과 대답
-
->[!IMPORTANT]
->Azure Disk Backup은 서비스 수준 계약 없이 미리 보기 상태 이며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
->
->미리 보기에 등록 하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) 하세요.
+# <a name="frequently-asked-questions-about-azure-disk-backup"></a>Azure 디스크 백업에 대 한 질문과 대답
 
 이 문서에서는 Azure Disk Backup에 대해 자주 묻는 질문과 대답을 설명 합니다. [Azure Disk backup](disk-backup-overview.md) 지역 가용성, 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 

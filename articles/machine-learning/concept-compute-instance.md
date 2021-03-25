@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ac90827fec65187088787971623483a96da77d7c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3f41a68feafe2f0a3eae1e0026a4c350b0959aec
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016239"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036988"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -178,6 +178,9 @@ VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생�
 * 단일 노드 다중 GPU 분산 학습 작업 지원
 
 계산 인스턴스는 테스트/디버그 시나리오에 대 한 로컬 추론 배포 대상으로 사용할 수 있습니다.
+
+> [!TIP]
+> 계산 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족 한 경우 계산 인스턴스를 중지/다시 시작 하기 전에 충분 한 공간을 확보 하십시오.
 
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Notebook VM의 변경 내용

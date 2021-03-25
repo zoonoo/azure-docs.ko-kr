@@ -1,17 +1,17 @@
 ---
 title: 서버 매개 변수 구성-Azure Portal-유연한 서버 Azure Database for MySQL
 description: 이 문서에서는 Azure Portal를 사용 하 Azure Database for MySQL 유연한 서버에서 MySQL 서버 매개 변수를 구성 하는 방법을 설명 합니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 7733a6211363b4f1c9e9006f757b4d152c7af7f5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 618862e12bd62fbe37ef5e621c89babd7942c04b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94489559"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106958"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에서 서버 매개 변수 구성
 

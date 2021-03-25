@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-azurecli
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: da7f6fdaedd8105363cc62bf55bae2cb5f72f234
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031653"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Python 함수 만들기

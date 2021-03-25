@@ -12,10 +12,10 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 9d69c1708e73ad7ce5610a0683835e9f304c3f54
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98679757"
 ---
 # <a name="quickstart-configure-workload-isolation-in-a-dedicated-sql-pool-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 전용 SQL 풀에서 워크로드 격리 구성

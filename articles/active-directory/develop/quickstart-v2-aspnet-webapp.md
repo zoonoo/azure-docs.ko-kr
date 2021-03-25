@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: eb57be94e460241e3cacbe2dd20c071504a9222a
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 87948ed04f7b50820d94993d4c4fbcf2dfd94b31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209767"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104578688"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 
@@ -78,6 +78,8 @@ ms.locfileid: "102209767"
 > Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
