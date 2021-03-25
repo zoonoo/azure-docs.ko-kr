@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 00ddc7cd806a9275de7b4ec579bdef62bdf8062d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5e2ab0b9d7f61539a16fc685134bef6c9047229d
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102603290"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104988179"
 ---
 클라이언트의 운영 체제에 따라 장치에 원격으로 연결 하는 절차가 다릅니다.
 
@@ -95,7 +95,7 @@ NFS 클라이언트에서 원격으로 연결 하려면 다음 단계를 수행 
  
 2. 원격 클라이언트를 사용 하 여 연결 하려면 다음을 입력 합니다.
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL`
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
     메시지가 표시 되 면 장치에 로그인 하는 데 사용할 암호를 제공 합니다.
  

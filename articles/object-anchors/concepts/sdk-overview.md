@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 551374824610c0257aaf52c45768d31849026524
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034611"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047544"
 ---
 # <a name="runtime-sdk-overview"></a>런타임 SDK 개요
 
@@ -21,63 +21,63 @@ ms.locfileid: "102034611"
 
 아래에서 설명 하는 모든 형식은 **MixedReality** 네임 스페이스에서 찾을 수 있습니다.
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
 ### <a name="objectmodel"></a>ObjectModel
 
-[Objectmodel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) 은 물리적 개체의 기 하 도형을 나타내며 검색 및 포즈 예측에 필요한 매개 변수를 인코딩합니다. [개체 앵커 서비스](../quickstarts/get-started-model-conversion.md)를 사용 하 여 만들어야 합니다. 그런 다음 응용 프로그램은 개체 앵커 API를 사용 하 여 생성 된 모델 파일을 로드 하 고 시각화를 위해 해당 모델에 포함 된 메시를 쿼리할 수 있습니다.
+[Objectmodel](/dotnet/api/microsoft.azure.objectanchors.objectmodel) 은 물리적 개체의 기 하 도형을 나타내며 검색 및 포즈 예측에 필요한 매개 변수를 인코딩합니다. [개체 앵커 서비스](../quickstarts/get-started-model-conversion.md)를 사용 하 여 만들어야 합니다. 그런 다음 응용 프로그램은 개체 앵커 API를 사용 하 여 생성 된 모델 파일을 로드 하 고 시각화를 위해 해당 모델에 포함 된 메시를 쿼리할 수 있습니다.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
-[Objectsearcharea](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) 는 하나 또는 여러 개체를 찾을 수 있는 공간을 지정 합니다. 공간 그래프 노드 ID가 나타내는 좌표계의 공간 그래프 노드 ID 및 공간 범위에 의해 정의 됩니다. 개체 앵커 런타임 SDK는 네 가지 유형의 범위, 즉 **보기의 필드**, **경계 상자**, **구** 및 **위치** 를 지원 합니다.
+[Objectsearcharea](/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) 는 하나 또는 여러 개체를 찾을 수 있는 공간을 지정 합니다. 공간 그래프 노드 ID가 나타내는 좌표계의 공간 그래프 노드 ID 및 공간 범위에 의해 정의 됩니다. 개체 앵커 런타임 SDK는 네 가지 유형의 범위, 즉 **보기의 필드**, **경계 상자**, **구** 및 **위치** 를 지원 합니다.
 
 ### <a name="objectquery"></a>ObjectQuery
 
-[ObjectQuery](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery) 는 **개체 관찰자** 에 게 지정 된 모델의 개체를 찾는 방법을 알려 줍니다. 개체 모델에서 기본 값을 검색할 수 있는 다음 튜닝할 수 있는 매개 변수를 제공 합니다.
+[ObjectQuery](/dotnet/api/microsoft.azure.objectanchors.objectquery) 는 **개체 관찰자** 에 게 지정 된 모델의 개체를 찾는 방법을 알려 줍니다. 개체 모델에서 기본 값을 검색할 수 있는 다음 튜닝할 수 있는 매개 변수를 제공 합니다.
 
 #### <a name="minsurfacecoverage"></a>MinSurfaceCoverage
 
-[MinSurfaceCoverage](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) 속성은 인스턴스를 검색 된 것으로 간주할 값을 나타냅니다.
+[MinSurfaceCoverage](/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) 속성은 인스턴스를 검색 된 것으로 간주할 값을 나타냅니다.
 
 **관찰자** 는 각 개체 후보에 대해 변환 된 개체 모델과 장면 간의 겹친 표면 비율을 계산 하 고, 검사 비율이 지정 된 임계값을 초과 하는 경우에만 응용 프로그램에 대 한 후보를 보고 합니다.
 
 #### <a name="isexpectedtobestandingongroundplane"></a>IsExpectedToBeStandingOnGroundPlane
 
-[IsExpectedToBeStandingOnGroundPlane](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) 속성은 대상 개체가 그라운드 평면에 있을 것으로 예상 되는지 여부를 나타냅니다.
+[IsExpectedToBeStandingOnGroundPlane](/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) 속성은 대상 개체가 그라운드 평면에 있을 것으로 예상 되는지 여부를 나타냅니다.
 
 그라운드 평면은 검색 영역에서 가장 작은 가로 층입니다. 가능한 개체의 포즈에 대해 좋은 제약 조건을 제공 합니다. 이 플래그를 설정 하면 **관찰자** 가 제한 된 공간에서 포즈를 추정 하 고 정확도를 향상 시킬 수 있습니다. 모델이 그라운드 평면에서 사용할 필요가 없는 경우이 매개 변수는 무시 됩니다.
 
 #### <a name="expectedmaxverticalorientationindegrees"></a>ExpectedMaxVerticalOrientationInDegrees
 
-[ExpectedMaxVerticalOrientationInDegrees](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) 속성은 개체 인스턴스 및 중력의 위쪽 방향 사이에 예상 되는 최대 각도 (도)를 나타냅니다.
+[ExpectedMaxVerticalOrientationInDegrees](/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) 속성은 개체 인스턴스 및 중력의 위쪽 방향 사이에 예상 되는 최대 각도 (도)를 나타냅니다.
 
 이 매개 변수는 예상 포즈의 위쪽 방향에 대 한 또 다른 제약 조건을 제공 합니다. 예를 들어 개체가 오른쪽에 있는 경우이 매개 변수는 0이 될 수 있습니다. 개체 앵커는 모델과 다른 개체를 검색 하지 않아야 합니다. 모델이 오른쪽에 있는 경우에는 해당 인스턴스를 검색 하지 않습니다. 새 모델은 하향 레이아웃에 사용 됩니다. Articulation에 동일한 규칙이 적용 됩니다.
 
 #### <a name="maxscalechange"></a>MaxScaleChange
 
-[MaxScaleChange](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) 속성은 공간 매핑과 관련 하 여 최대 개체 배율 변경 (0 ~ 1)을 나타냅니다. 예상 소수 자릿수가 원점에서 가운데 맞춤 된 개체 꼭지점과 축 정렬에 적용 됩니다. 예상 되는 배율은 CAD 모델과 실제 표현 사이의 실제 규모와는 다를 수 있지만, 앱이 물리적 개체의 공간 매핑과 가까운 개체 모델을 렌더링할 수 있는 일부 값입니다.
+[MaxScaleChange](/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) 속성은 공간 매핑과 관련 하 여 최대 개체 배율 변경 (0 ~ 1)을 나타냅니다. 예상 소수 자릿수가 원점에서 가운데 맞춤 된 개체 꼭지점과 축 정렬에 적용 됩니다. 예상 되는 배율은 CAD 모델과 실제 표현 사이의 실제 규모와는 다를 수 있지만, 앱이 물리적 개체의 공간 매핑과 가까운 개체 모델을 렌더링할 수 있는 일부 값입니다.
 
 #### <a name="searchareas"></a>SearchAreas
 
-[Searchareas](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) 속성은 개체를 찾을 공간 경계 배열을 나타냅니다.
+[Searchareas](/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) 속성은 개체를 찾을 공간 경계 배열을 나타냅니다.
 
 **관찰자** 는 쿼리에 지정 된 모든 검색 영역의 union 공간에서 개체를 찾습니다. 이 릴리스에서는 대기 시간을 줄이기 위해 신뢰도가 가장 높은 개체를 최대 하나만 반환 합니다.
 
 ### <a name="objectinstance"></a>ObjectInstance
 
-[ObjectInstance](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectinstance) 는 지정 된 모델의 인스턴스가 HoloLens 좌표계에 있을 수 있는 가상 위치를 나타냅니다. 각 인스턴스에는 `SurfaceCoverage` 예상 포즈의 올바른 정도를 나타내는 속성과 함께 제공 됩니다.
+[ObjectInstance](/dotnet/api/microsoft.azure.objectanchors.objectinstance) 는 지정 된 모델의 인스턴스가 HoloLens 좌표계에 있을 수 있는 가상 위치를 나타냅니다. 각 인스턴스에는 `SurfaceCoverage` 예상 포즈의 올바른 정도를 나타내는 속성과 함께 제공 됩니다.
 
 인스턴스는 메서드를 호출 하 여 만든 `ObjectObserver.DetectAsync` 다음, 활성 상태에서 백그라운드에서 자동으로 업데이트 됩니다. 응용 프로그램은 특정 인스턴스에서 상태 변경 이벤트를 수신 하거나 추적 모드를 변경 하 여 업데이트를 일시 중지/다시 시작할 수 있습니다. 인스턴스는 추적이 손실 될 때 **관찰자** 에서 자동으로 제거 됩니다.
 
 ### <a name="objectobserver"></a>ObjectObserver
 
-[Objectobserver](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectobserver) 는 개체 모델을 로드 하 고, 해당 인스턴스를 검색 하 고, HoloLens 좌표계의 각 인스턴스에 대 한 6-DoF 포즈를 보고 합니다.
+[Objectobserver](/dotnet/api/microsoft.azure.objectanchors.objectobserver) 는 개체 모델을 로드 하 고, 해당 인스턴스를 검색 하 고, HoloLens 좌표계의 각 인스턴스에 대 한 6-DoF 포즈를 보고 합니다.
 
 모든 개체 모델 또는 인스턴스는 **관찰자** 에서 만들어지므로 수명이 독립적입니다. 응용 프로그램은 관찰자를 삭제 하 고 개체 모델 또는 인스턴스를 계속 사용할 수 있습니다.
 
 ### <a name="objectdiagnosticssession"></a>ObjectDiagnosticsSession
 
-[ObjectDiagnosticSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) 은 진단 정보를 기록 하 고 보관 파일에 데이터를 기록 합니다.
+[ObjectDiagnosticSession](/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) 은 진단 정보를 기록 하 고 보관 파일에 데이터를 기록 합니다.
 
 진단 보관에는 장면 지점 클라우드, 관찰자의 상태 및 모델에 대 한 정보가 포함 됩니다. 이 정보는 가능한 런타임 문제를 식별 하는 데 유용 합니다. 자세한 내용은 [FAQ](../faq.md)을 참조하세요.
 

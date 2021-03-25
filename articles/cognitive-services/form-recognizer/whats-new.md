@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47e145c5d96ba54b02f5453ff97d16dec302eabd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81115f5a9ed802f1d07c45ec928dc4b84ea2917b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493512"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048751"
 ---
 <!-- markdownlint-disable MD024 -->
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
@@ -117,7 +117,7 @@ ms.locfileid: "103493512"
 * **통화 지원** -전역 통화 기호의 검색 및 추출을 지원 합니다.
 * Azure **.gov** 는 이제 azure .gov 에서도 사용할 수 있습니다.
 * **향상 된 보안 기능**: 
-  * 사용자 **고유의 키** -양식 인식기를 가져오면 데이터를 클라우드에 보관 하 여 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정에 맞게 자동으로 암호화 합니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [고객 관리 키 (BYOK 라고도 함)](./form-recognizer-encryption-of-data-at-rest.md)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.  
+  * 사용자 **고유의 키** -양식 인식기를 가져오면 데이터를 클라우드에 보관 하 여 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정에 맞게 자동으로 암호화 합니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [고객 관리 키 (BYOK 라고도 함)](./encrypt-data-at-rest.md)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.  
   * **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](../../private-link/private-link-overview.md) 하 게 데이터에 액세스할 수 있습니다.
 
 ## <a name="june-2020"></a>2020년 6월

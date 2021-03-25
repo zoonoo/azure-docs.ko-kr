@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 56ef6563982c315d34cfeb87070b9ebfa3d27a30
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49122421f04ee6eef8828ca305cfb235aceee3fb
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500430"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035696"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor의 로그 데이터 수집 시간
 Azure Monitor는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 대규모 데이터 서비스입니다. 로그 데이터가 수집된 후 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -81,8 +81,8 @@ Azure Monitor의 최우선 과제는 고객 데이터가 손실되지 않도록 
 | 단계 | 속성 또는 함수 | 의견 |
 |:---|:---|:---|
 | 데이터 원본에 생성 되는 레코드 | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>데이터 원본에서이 값을 설정 하지 않으면 _TimeReceived와 같은 시간으로 설정 됩니다. |
-| Azure Monitor 수집 끝점에서 받은 레코드 | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
-| 작업 영역에 저장 되어 쿼리에 사용할 수 있는 레코드 | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
+| Azure Monitor 수집 끝점에서 받은 레코드 | [_TimeReceived](./log-standard-columns.md#_timereceived) | 이 필드는 대량 처리를 위해 최적화 되지 않으므로 대규모 데이터 집합을 필터링 하는 데 사용 하면 안 됩니다. |
+| 작업 영역에 저장 되어 쿼리에 사용할 수 있는 레코드 | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | 특정 기간에 수집 된 레코드만 필터링 해야 하는 경우에는 ingestion_time ()를 사용 하는 것이 좋습니다. 이 경우 더 큰 범위로 TimeGenerated 필터를 추가 하는 것이 좋습니다. |
 
 ### <a name="ingestion-latency-delays"></a>수집 대기 시간 지연
 [Ingestion_time ()](/azure/kusto/query/ingestiontimefunction) 함수의 결과를 _timegenerated_ 속성과 비교 하 여 특정 레코드의 대기 시간을 측정할 수 있습니다. 다양한 집계에서 이 데이터를 사용하여 수집 대기 시간이 발생하는 방식을 확인할 수 있습니다. 수집 시간의 백분위수 몇 개를 검사하면 대량의 데이터 수집 시간 관련 정보를 파악할 수 있습니다. 

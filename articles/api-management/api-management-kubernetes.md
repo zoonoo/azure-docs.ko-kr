@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108401"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047935"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포 된 마이크로 서비스에서 Azure API Management 사용
 
@@ -95,7 +95,7 @@ API에 액세스하기 위해 구독 키를 얻으려면 구독이 필요합니�
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>옵션 3: 클러스터 VNet 내에 APIM 배포
 
-경우에 따라 규정 제약 조건이 있거나 엄격한 보안 요구 사항이 있는 고객은 공개적으로 노출 된 끝점 때문에 옵션 1과 2가 실행 불가능 한 솔루션을 찾을 수 있습니다. 다른 AKS 클러스터와 마이크로 서비스를 사용 하는 응용 프로그램은 동일한 VNet 내에 상주할 수 있으므로 모든 API 트래픽이 VNet 내에서 유지 되므로 공개적으로 클러스터를 노출할 이유가 없습니다. 이러한 시나리오의 경우 클러스터 VNet에 API Management을 배포할 수 있습니다. [API Management 프리미엄 계층](https://aka.ms/apimpricing) 은 VNet 배포를 지원 합니다. 
+경우에 따라 규정 제약 조건이 있거나 엄격한 보안 요구 사항이 있는 고객은 공개적으로 노출 된 끝점 때문에 옵션 1과 2가 실행 불가능 한 솔루션을 찾을 수 있습니다. 다른 AKS 클러스터와 마이크로 서비스를 사용 하는 응용 프로그램은 동일한 VNet 내에 상주할 수 있으므로 모든 API 트래픽이 VNet 내에서 유지 되므로 공개적으로 클러스터를 노출할 이유가 없습니다. 이러한 시나리오의 경우 클러스터 VNet에 API Management을 배포할 수 있습니다. [API Management Developer 및 Premium 계층](https://aka.ms/apimpricing) 은 VNet 배포를 지원 합니다. 
 
 VNet (외부 및 내부) [에 API Management를 배포 하](./api-management-using-with-vnet.md) 는 두 가지 모드가 있습니다. 
 

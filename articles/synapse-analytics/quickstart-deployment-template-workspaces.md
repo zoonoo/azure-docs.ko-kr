@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
 ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92740365"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse 작업 영역 만들기
@@ -48,15 +48,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 업데이트합니다.
 
-   - **구독** : Azure 구독을 선택합니다.
-   - **리소스 그룹** : **새로 만들기** 를 선택하고, 리소스 그룹의 고유한 이름을 입력하고, **확인** 을 선택합니다. 새 리소스 그룹은 리소스 정리를 용이하게 합니다.
-   - **지역** : 지역을 선택합니다.  예: **미국 중부**
-   - **Name** : 작업 영역의 이름을 입력합니다.
-   - **SQL 관리자 로그인** : SQL Server의 관리자 사용자 이름을 입력합니다.
-   - **SQL 관리자 암호** : SQL Server의 관리자 암호를 입력합니다.
-   - **태그 값** : 기본값을 적용합니다.
-   - **검토 및 만들기** : 선택합니다.
-   - **만들기** : 선택합니다.
+   - **구독**: Azure 구독을 선택합니다.
+   - **리소스 그룹**: **새로 만들기** 를 선택하고, 리소스 그룹의 고유한 이름을 입력하고, **확인** 을 선택합니다. 새 리소스 그룹은 리소스 정리를 용이하게 합니다.
+   - **지역**: 지역을 선택합니다.  예: **미국 중부**
+   - **Name**: 작업 영역의 이름을 입력합니다.
+   - **SQL 관리자 로그인**: SQL Server의 관리자 사용자 이름을 입력합니다.
+   - **SQL 관리자 암호**: SQL Server의 관리자 암호를 입력합니다.
+   - **태그 값**: 기본값을 적용합니다.
+   - **검토 및 만들기**: 선택합니다.
+   - **만들기**: 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

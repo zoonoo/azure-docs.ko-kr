@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 453d7e118b946d60eb3d84c6a66abdbea7db2410
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca1a2edec70b13f111ffd89278aa39d1ddea7f67
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499223"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035645"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -60,6 +60,9 @@ Azure SQL Managed Instance를 사용 하 여 확장할 수도 있습니다.
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 는 [vcores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) 모드를 사용 하며, 최대 CPU 코어 및 인스턴스에 할당 된 최대 저장소 수를 정의할 수 있습니다. 관리 되는 인스턴스 내의 모든 데이터베이스는 인스턴스에 할당 된 리소스를 공유 합니다.
 
 모든 버전에서 확장 또는 축소 작업을 시작 하면 데이터베이스 엔진 프로세스가 다시 시작 되 고 필요한 경우 다른 가상 컴퓨터로 이동 합니다. 데이터베이스 엔진 프로세스를 새 가상 컴퓨터로 이동 하는 작업은 프로세스가 진행 되는 동안 기존 Azure SQL Database 서비스를 계속 사용할 수 있는 **온라인 프로세스** 입니다. 대상 데이터베이스 엔진이 완전히 초기화 되 고 쿼리를 처리할 준비가 되 면 연결이 [원본 데이터베이스 엔진에서 대상 데이터베이스 엔진으로 전환](single-database-scale.md#impact)됩니다.
+
+> [!NOTE]
+> 데이터 가져오기, 데이터 처리 작업, 인덱스 다시 작성 등의 장기 실행 트랜잭션이 실행 되는 경우 또는 인스턴스에 활성 연결이 있는 경우에는 관리 되는 인스턴스 크기를 조정 하지 않는 것이 좋습니다. 크기 조정이 평소 보다 시간이 더 오래 걸리는 것을 방지 하려면 장기 실행 작업이 완료 될 때 인스턴스 크기를 조정 해야 합니다.
 
 > [!NOTE]
 > 수직 확장/축소 프로세스가 완료 되 면 짧은 연결 중단을 예측할 수 있습니다. [표준 일시적 오류에 대 한 재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)를 구현 하는 경우 장애 조치 (failover)를 확인할 수 없습니다.

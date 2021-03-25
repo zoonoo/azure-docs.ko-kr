@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633d0b9e454fe2906d98624ac2cdbcc9a8b6c7fa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98216651"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022265"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure Storage에 대한 가상 네트워크 서비스 엔드포인트 정책
 
@@ -109,6 +109,8 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
   - 계정이 서브넷에서 서비스 끝점 정책을 사용 하는 **클래식 저장소 계정이** 아닌지 확인 합니다.
 - 서브넷을 통해 서비스 끝점 정책을 적용 한 후 관리 되는 Azure 서비스의 작동이 중지 됨
   - 지금은 서비스 끝점 정책에서 관리 서비스를 지원 하지 않습니다. *업데이트에 대 한이 공간을 시청* 하세요.
+- 서브넷을 통해 서비스 끝점 정책을 적용 한 후 관리 되는 저장소 계정에 대 한 액세스가 작동 중지 됨
+  - 관리 되는 저장소 계정은 서비스 끝점 정책에서 지원 되지 않습니다. 구성 된 경우 정책에서는 기본적으로 모든 관리 저장소 계정에 대 한 액세스를 거부 합니다. 응용 프로그램에서 관리 되는 저장소 계정에 액세스 해야 하는 경우에는이 트래픽에 대해 끝점 정책을 사용 하면 안 됩니다.
 
 ## <a name="provisioning"></a>프로비전
 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91285421"
 ---
 # <a name="claim-and-claim-rules"></a>클레임 및 클레임 규칙
@@ -92,8 +92,8 @@ C2:[type=="OSName" , issuer=="AttestationService", value== F1.value ]
 
 | 작업 동사 | Description | 이러한 항목이 적용되는 정책 섹션 |
 |--|--|--|
-| permit() | 들어오는 클레임 집합을 사용하여 **issuancerules**를 계산할 수 있습니다. claim을 매개 변수로 사용하지 않습니다. | **authorizationrules** |
-| deny() | 들어오는 클레임 집합을 **issuancerules**를 계산하는 데 사용하면 안 됩니다. claim을 매개 변수로 사용하지 않습니다. | **authorizationrules** |
+| permit() | 들어오는 클레임 집합을 사용하여 **issuancerules** 를 계산할 수 있습니다. claim을 매개 변수로 사용하지 않습니다. | **authorizationrules** |
+| deny() | 들어오는 클레임 집합을 **issuancerules** 를 계산하는 데 사용하면 안 됩니다. claim을 매개 변수로 사용하지 않습니다. | **authorizationrules** |
 | add(claim) | claim을 들어오는 클레임 집합에 추가합니다. 들어오는 클레임 집합에 추가된 모든 클레임은 후속 클레임 규칙에 사용할 수 있습니다. |**authorizationrules**, **issuancerules** |
 | issue(claim) | claim을 들어오는 클레임 집합 및 클레임 집합에 추가합니다. | **issuancerules** |
 | issueproperty(claim) | claim을 들어오는 클레임 집합 및 속성 클레임 집합에 추가합니다. | **issuancerules**

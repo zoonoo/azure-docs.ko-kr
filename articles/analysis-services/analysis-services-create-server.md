@@ -8,10 +8,10 @@ ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89230783"
 ---
 # <a name="quickstart-create-a-server---portal"></a>빠른 시작: 서버 만들기 - 포털
@@ -30,11 +30,11 @@ ms.locfileid: "89230783"
 
 ## <a name="create-a-server"></a>서버 만들기
 
-1. **+ 리소스 만들기** > **분석** > **Analysis Services**를 클릭합니다.
+1. **+ 리소스 만들기** > **분석** > **Analysis Services** 를 클릭합니다.
 
     ![포털](./media/analysis-services-create-server/aas-create-server-portal.png)
 
-2. **Analysis Services**에서 필수 필드를 입력한 다음, **만들기**를 누릅니다.
+2. **Analysis Services** 에서 필수 필드를 입력한 다음, **만들기** 를 누릅니다.
    
    * **서버 이름**: 서버를 참조하는 데 사용되는 고유한 이름을 입력합니다. 서버 이름은 소문자로 시작하고 3~128자의 소문자 및 숫자를 포함해야 합니다. 공백 및 특수 문자는 허용되지 않습니다.
    * **구독**: 이 서버와 연결할 구독을 선택합니다.
@@ -45,11 +45,11 @@ ms.locfileid: "89230783"
    * **백업 스토리지 설정**: 선택 사항입니다. [스토리지 계정](../storage/common/storage-introduction.md)이 이미 있는 경우 모델 데이터베이스 백업에 대한 기본값으로 지정할 수 있습니다. [백업 및 복원](analysis-services-backup.md) 설정을 나중에 지정할 수도 있습니다.
    * **스토리지 키 만료**: 선택 사항입니다. 스토리지 키 만료 시간을 지정합니다.
 
-서버를 만드는 데 걸리는 시간은 보통 1분 미만입니다. **포털에 추가**를 선택한 경우 새 서버를 보려면 포털로 이동합니다. 또는 **모든 서비스** > **Analysis Services**로 이동하여 서버가 준비되었는지 확인합니다. 서버는 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 모델 호환성 수준이 Visual Studio 또는 SSMS에서 지정됩니다.
+서버를 만드는 데 걸리는 시간은 보통 1분 미만입니다. **포털에 추가** 를 선택한 경우 새 서버를 보려면 포털로 이동합니다. 또는 **모든 서비스** > **Analysis Services** 로 이동하여 서버가 준비되었는지 확인합니다. 서버는 1200 이상 호환성 수준의 테이블 형식 모델을 지원합니다. 모델 호환성 수준이 Visual Studio 또는 SSMS에서 지정됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 서버를 삭제합니다. 서버의 **개요**에서 **삭제**를 클릭합니다. 
+더 이상 필요하지 않은 경우 서버를 삭제합니다. 서버의 **개요** 에서 **삭제** 를 클릭합니다. 
 
  ![정리](./media/analysis-services-create-server/aas-create-server-cleanup.png)
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 5faf26230618161a5b908c9a544a43ec5c33b807
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91532025"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 애플리케이션 모니터링
@@ -29,7 +29,7 @@ ms.locfileid: "91532025"
 > * 애플리케이션에 대한 모니터링 및 진단 설정
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
@@ -138,7 +138,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. **http:\//SERVER-IP**에서 Kibana 대시보드에 액세스하고 Kibana에 대한 사용자 이름 및 암호를 입력합니다. Azure에서 ELK 이미지를 사용한 경우 기본 사용자 이름은 'user'가 되고 암호는 **부팅 진단**에서 가져옵니다.
+8. **http:\//SERVER-IP** 에서 Kibana 대시보드에 액세스하고 Kibana에 대한 사용자 이름 및 암호를 입력합니다. Azure에서 ELK 이미지를 사용한 경우 기본 사용자 이름은 'user'가 되고 암호는 **부팅 진단** 에서 가져옵니다.
 
     ![스크린샷은 플랫폼 및 애플리케이션 로그를 시각화하는 Kibana 대시보드를 보여줍니다.](./media/service-fabric-tutorial-java-elk/kibana.png)
 

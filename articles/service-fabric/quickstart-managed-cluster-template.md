@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91410422"
 ---
 # <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 통해 Service Fabric 관리형 클러스터(미리 보기) 배포
@@ -46,16 +46,16 @@ Service Fabric 관리형 클러스터는 클라이언트 인증서를 액세스 
     이 빠른 시작에서는 다음 템플릿 매개 변수에 대한 사용자 고유의 값을 제공합니다.
 
     * **구독**: Azure 구독을 선택합니다.
-    * **리소스 그룹**: **새로 만들기**를 선택합니다. 리소스 그룹에 대한 고유 이름(예: *myResourceGroup*)을 입력한 다음, **확인**을 선택합니다.
+    * **리소스 그룹**: **새로 만들기** 를 선택합니다. 리소스 그룹에 대한 고유 이름(예: *myResourceGroup*)을 입력한 다음, **확인** 을 선택합니다.
     * **위치**: 위치(예: **eastus2**)를 선택합니다. Service Fabric 관리형 클러스터 미리 보기에 지원되는 지역에는 `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` 및 `eastus2`가 포함됩니다.
     * **클러스터 이름**: 클러스터에 대한 고유 이름(예: *mysfcluster*)을 입력합니다.
     * **관리자 사용자 이름**: 클러스터의 기본 VM에서 RDP에 사용할 관리자에 대한 이름을 입력합니다.
     * **관리자 암호**: 클러스터의 기본 VM에서 RDP에 사용할 관리자에 대한 암호를 입력합니다.
     * **클라이언트 인증서 지문**: 클러스터에 액세스하는 데 사용할 클라이언트 인증서의 지문을 제공합니다. 인증서가 없는 경우 [인증서 설정 및 검색](../key-vault/certificates/quick-create-portal.md)을 수행하여 자체 서명된 인증서를 만듭니다.
-    * **노드 유형 이름**: *nt1*과 같이 노드 형식에 대한 고유한 이름을 입력합니다.
+    * **노드 유형 이름**: *nt1* 과 같이 노드 형식에 대한 고유한 이름을 입력합니다.
     * **위에 명시된 사용 약관에 동의함**: 동의하려면 이 확인란을 선택합니다. 
 
-3. **구매**를 선택합니다.
+3. **구매** 를 선택합니다.
 
 4. 관리형 Service Fabric 클러스터를 배포하는 데 몇 분 정도 걸립니다. 다음 단계로 이동하기 전에 배포가 성공적으로 완료될 때까지 기다립니다.
 
@@ -73,8 +73,8 @@ Service Fabric 관리형 클러스터는 클라이언트 인증서를 액세스 
 더 이상 필요 하지 않은 경우 Service Fabric 관리형 클러스터에 대한 리소스 그룹을 삭제합니다. 포털을 통해 리소스 그룹을 삭제하려면:
 
 1. 포털 맨 위에 있는 *검색* 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 빠른 시작에서 사용된 리소스 그룹이 표시되면 선택합니다.
-2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
+2. **리소스 그룹 삭제** 를 선택합니다.
+3. **리소스 그룹 이름 입력** 상자에 리소스 그룹 이름을 입력하고 **삭제** 를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

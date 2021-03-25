@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 2afac0e25c394c9bf265daf1fe3ded3d763a7c61
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fd4ad1443f466a78abfc569d5f52f6bdeff2d5be
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102508506"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048887"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>알림 및 백업을 위해 Azure storage 통합
 
@@ -25,11 +25,11 @@ Custom Vision 프로젝트를 Azure Blob Storage 큐와 통합하여 프로젝�
 > [!NOTE]
 > 푸시 알림은 **Createproject** API의 선택적 _notificationqueueuri_ 매개 변수에 따라 달라 지 며, 모델 백업에도 선택적 _exportModelContainerUri_ 매개 변수를 사용 해야 합니다. 이 가이드에서는 전체 기능 집합에 대해 모두를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure의 Custom Vision 리소스입니다. 없는 경우 Azure Portal으로 이동 하 여 [새 Custom Vision 리소스를 만듭니다](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). 이 기능은 현재 단일 키로 인식 서비스 리소스를 지원 하지 않습니다.
 - Blob 컨테이너를 사용 하는 Azure Storage 계정 이 단계에 대 한 도움이 필요한 경우 [Azure Storage 랩의 연습 1을](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) 따릅니다.
-* [PowerShell 버전 6.0 이상](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) 또는 유사한 명령줄 애플리케이션.
+* [PowerShell 버전 6.0 이상](/powershell/scripting/install/installing-powershell-core-on-windows) 또는 유사한 명령줄 애플리케이션.
 
 ## <a name="set-up-azure-storage-integration"></a>Azure storage 통합 설정
 

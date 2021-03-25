@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
 ms.openlocfilehash: 5ae930240872c00c8dbb45857e4e77d82766eadf
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93398065"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
@@ -109,9 +109,9 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 1. 자격 증명 모음으로 이동합니다. **설정** > **복제된 항목** 에서 대상 지역으로 이동하려는 가상 머신을 선택합니다. 그런 후 **테스트 장애 조치(failover)** 를 선택합니다.
 2. **테스트 장애 조치(Failover)** 에서 장애 조치에 사용할 복구 지점을 선택합니다.
 
-   - **가장 최근에 처리됨** : VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 데이터를 처리하는 데 시간을 소비하지 않으므로 이 옵션을 사용하면 낮은 RTO(복구 시간 목표)가 제공됩니다.
-   - **최신 앱 일치** : 모든 VM을 최신 앱 일치 복구 지점으로 장애 조치(failover)합니다. 타임스탬프가 표시됩니다.
-   - **Custom** : 복구 시점을 선택합니다.
+   - **가장 최근에 처리됨**: VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 데이터를 처리하는 데 시간을 소비하지 않으므로 이 옵션을 사용하면 낮은 RTO(복구 시간 목표)가 제공됩니다.
+   - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 지점으로 장애 조치(failover)합니다. 타임스탬프가 표시됩니다.
+   - **Custom**: 복구 시점을 선택합니다.
 
 3. 구성을 테스트하기 위해 Azure VM을 이동할 대상 Azure 가상 네트워크를 선택합니다.
 

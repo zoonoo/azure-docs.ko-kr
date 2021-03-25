@@ -5,10 +5,10 @@ ms.date: 09/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c4c8f8e9df544b6fc00b5b7701435f5a606f9764
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91604579"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>빠른 시작: .NET Core를 사용하여 미준수 리소스를 식별하는 정책 할당 만들기
@@ -20,7 +20,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-- _clientId_ 및 _clientSecret_을 포함하는 Azure 서비스 주체. Azure Policy에 사용할 서비스 주체가 없거나 새로 만들려면 [.NET 인증을 위한 Azure 관리 라이브러리](/dotnet/azure/sdk/authentication#mgmt-auth)를 참조하세요.
+- _clientId_ 및 _clientSecret_ 을 포함하는 Azure 서비스 주체. Azure Policy에 사용할 서비스 주체가 없거나 새로 만들려면 [.NET 인증을 위한 Azure 관리 라이브러리](/dotnet/azure/sdk/authentication#mgmt-auth)를 참조하세요.
   .NET Core 패키지를 설치하는 단계는 건너뜁니다. 다음 단계에서 수행할 것입니다.
 
 ## <a name="create-the-azure-policy-project"></a>Azure Policy 프로젝트 만들기
@@ -126,7 +126,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 - `{clientId}` - 서비스 주체의 클라이언트 ID로 대체
 - `{clientSecret}` - 서비스 주체의 클라이언트 암호로 대체
 - `{subscriptionId}` - 사용자의 구독 ID로 대체
-- **name** – 정책 할당 개체의 고유한 이름입니다. 위의 예제에서는 _audit-vm-manageddisks_를 사용합니다.
+- **name** – 정책 할당 개체의 고유한 이름입니다. 위의 예제에서는 _audit-vm-manageddisks_ 를 사용합니다.
 - **displayName** - 정책 할당의 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.
 - **policyDefID** – 할당을 만드는 데 기준으로 사용되는 정책 정의 경로입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다.
 - **설명** - 정책에서 수행하는 작업 또는 이 범위에 할당된 이유에 대한 자세한 설명입니다.
@@ -229,7 +229,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 - `{clientId}` - 서비스 주체의 클라이언트 ID로 대체
 - `{clientSecret}` - 서비스 주체의 클라이언트 암호로 대체
 - `{subscriptionId}` - 사용자의 구독 ID로 대체
-- **name** – 정책 할당 개체의 고유한 이름입니다. 위의 예제에서는 _audit-vm-manageddisks_를 사용합니다.
+- **name** – 정책 할당 개체의 고유한 이름입니다. 위의 예제에서는 _audit-vm-manageddisks_ 를 사용합니다.
 
 `response`의 결과는 Azure Portal 보기에서 정책 할당의 **리소스 규정 준수** 탭에 보이는 것과 일치합니다.
 

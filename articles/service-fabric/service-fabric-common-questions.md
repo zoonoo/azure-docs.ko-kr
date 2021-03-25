@@ -4,12 +4,12 @@ description: 기능, 사용 사례 및 일반적인 시나리오를 비롯 하 �
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 4e03ccf432852a5fc9ee700ba0e39dfe2e64fcc9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 95463865c52ee501ceca22cae60d19a089236fd1
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102456099"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048683"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -189,4 +189,4 @@ Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[핵심 Service Fabric 개념](service-fabric-technical-overview.md) 및 [모범 사례](service-fabric-best-practices-overview.md) 에 대해 알아봅니다.
+[핵심 Service Fabric 개념](service-fabric-technical-overview.md) 및 [모범 사례](./service-fabric-best-practices-security.md) 에 대해 알아봅니다.

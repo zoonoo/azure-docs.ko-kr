@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 9aa02521d91d41380b1bdac3efe50ab3d196a856
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90894195"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 설치
@@ -33,7 +33,7 @@ ms.locfileid: "90894195"
 
 물리적 디바이스를 설치하기 위한 필수 조건은 다음과 같습니다.
 
-### <a name="for-the-azure-stack-edge-resource"></a>Azure Stack Edge 리소스의 경우
+### <a name="for-the-azure-stack-edge-resource"></a>Azure Stack Edge 리소스
 
 시작하기 전에 다음 사항을 확인합니다.
 

@@ -10,23 +10,23 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: f97840a05115bf5659a6f7579b72786e890051a2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92429291"
 ---
 # <a name="quickstart-provision-a-symmetric-key-device-using-c"></a>빠른 시작: C#을 사용하여 대칭 키 디바이스 프로비저닝
 
 이 빠른 시작에서는 C#을 사용하여 IoT 허브에 디바이스로 Windows 개발 머신을 프로비저닝하는 방법을 알아봅니다. 이 디바이스는 대칭 키와 개별 등록을 사용하여 IoT 허브에 할당되도록 DPS(Device Provisioning Service) 인스턴스로 인증합니다. [C#용 Azure IoT 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp)의 샘플 코드는 디바이스를 프로비저닝하는 데 사용됩니다. 
 
-이 문서에서는 개별 등록을 통한 프로비저닝을 보여 주지만 등록 그룹을 사용할 수도 있습니다. 등록 그룹을 사용할 때는 몇 가지 차이점이 있습니다. 예를 들어 디바이스에 대한 고유한 등록 ID가 있는 파생된 디바이스 키를 사용해야 합니다. [대칭 키로 디바이스 프로비전](how-to-legacy-device-symm-key.md)은 등록 그룹 예를 제공합니다. 등록 그룹에 대한 자세한 내용은 [대칭 키 증명에 대한 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)을 참조하세요.
+이 문서에서는 개별 등록을 통한 프로비저닝을 보여 주지만 등록 그룹을 사용할 수도 있습니다. 등록 그룹을 사용할 때는 몇 가지 차이점이 있습니다. 예를 들어 디바이스에 대한 고유한 등록 ID가 있는 파생된 디바이스 키를 사용해야 합니다. [대칭 키를 사용하여 디바이스 프로비저닝](how-to-legacy-device-symm-key.md)에서는 등록 그룹 예제를 제공합니다. 등록 그룹에 대한 자세한 내용은 [대칭 키 증명에 대한 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)을 참조하세요.
 
 자동 프로비저닝 프로세스에 익숙하지 않은 경우 [프로비저닝](about-iot-dps.md#provisioning-process) 개요를 검토하세요. 
 
 이 빠른 시작을 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 이 빠른 시작에서는 Device Provisioning Service 인스턴스를 이미 만들었어야 합니다.
 
-이 문서는 Windows 기반 워크스테이션에 적용됩니다. 그러나 Linux에서 절차를 수행할 수 있습니다. Linux 예제는 [다중 테넌트에 대한 프로비전](how-to-provision-multitenant.md)을 참조하세요.
+이 문서는 Windows 기반 워크스테이션에 적용됩니다. 그러나 Linux에서 절차를 수행할 수 있습니다. Linux 예제는 [다중 테넌트에 대한 프로비저닝](how-to-provision-multitenant.md)을 참조하세요.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -51,9 +51,9 @@ ms.locfileid: "92429291"
 
    - **메커니즘:** ID 증명 *메커니즘* 으로 **대칭 키** 를 선택합니다.
 
-   - **키 자동 생성** : 이 상자를 선택합니다.
+   - **키 자동 생성**: 이 상자를 선택합니다.
 
-   - **등록 ID** : 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-csharp-device-01** 입니다.
+   - **등록 ID**: 등록을 식별하는 등록 ID를 입력합니다. 소문자 영숫자 및 대시('-') 문자만을 사용합니다. 예를 들어 **symm-key-csharp-device-01** 입니다.
 
    - **IoT Hub 디바이스 ID:** 디바이스 식별자를 입력합니다. 예를 들어 **csharp-device-01** 입니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "92429291"
 
 ## <a name="prepare-the-device-provisioning-code"></a>디바이스 프로비저닝 코드 준비
 
-이 섹션에서는 대칭 키 디바이스를 프로비저닝하기 위해 디바이스 프로비저닝 샘플 코드의 매개 변수로 사용되는 다음 네 가지 환경 변수를 추가합니다. 
+이 섹션에서는 대칭 키 디바이스를 프로비저닝하기 위해 디바이스 프로비저닝 샘플 코드에 대한 매개 변수로 사용되는 다음 4개의 환경 변수를 추가합니다. 
 
 * `DPS_IDSCOPE`
 * `PROVISIONING_REGISTRATION_ID`

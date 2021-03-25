@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92428384"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>자습서: Firebase SDK 버전 0.6을 사용하여 Android 디바이스에 푸시 알림 보내기
@@ -56,7 +56,7 @@ ms.locfileid: "92428384"
 ## <a name="create-an-android-studio-project"></a>Android Studio 프로젝트 만들기
 
 1. Android Studio를 시작합니다.
-2. **File** (파일)을 선택하고, **New** (신규)를 가리킨 후, **New Project** (새 프로젝트)를 선택합니다. 
+2. **File**(파일)을 선택하고, **New**(신규)를 가리킨 후, **New Project**(새 프로젝트)를 선택합니다. 
 2. **Choose your project** 페이지에서 **Empty Activity** 를 선택한 후 **Next** 를 선택합니다. 
 3. **Configure your project** 페이지에서 다음 단계를 수행합니다. 
     1. 애플리케이션의 이름을 입력합니다.
@@ -171,12 +171,12 @@ ms.locfileid: "92428384"
 
 ### <a name="add-code"></a>코드 추가
 
-1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java** 를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기** , **Java 클래스** 를 차례로 선택합니다. 이름에 **NotificationSettings** 를 입력한 후 **확인** 을 선택합니다.
+1. 프로젝트 뷰에서 **앱** > **src** > **기본** > **java** 를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**, **Java 클래스** 를 차례로 선택합니다. 이름에 **NotificationSettings** 를 입력한 후 **확인** 을 선택합니다.
 
     아래의 `NotificationSettings` 클래스에 대한 코드에서 다음 세 개의 자리 표시자를 업데이트합니다.
 
-   * **HubListenConnectionString** : 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]의 허브에서 **액세스 정책** 을 클릭하여 해당 연결 문자열을 복사할 수 있습니다.
-   * **HubName** : [Azure Portal]의 허브 페이지에 표시되는 허브 이름을 사용합니다.
+   * **HubListenConnectionString**: 허브의 **DefaultListenAccessSignature** 연결 문자열입니다. [Azure Portal]의 허브에서 **액세스 정책** 을 클릭하여 해당 연결 문자열을 복사할 수 있습니다.
+   * **HubName**: [Azure Portal]의 허브 페이지에 표시되는 허브 이름을 사용합니다.
 
      `NotificationSettings` 코드:
 
