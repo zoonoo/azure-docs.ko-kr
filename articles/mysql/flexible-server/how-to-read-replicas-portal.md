@@ -1,17 +1,17 @@
 ---
 title: 읽기 복제본 관리-Azure Portal-Azure Database for MySQL 유연한 서버
 description: Azure Portal를 사용 하 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 설정 하 고 관리 하는 방법을 알아봅니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/26/2020
-ms.openlocfilehash: d33734dc7404e49aed94dffae8644b2bc4386925
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fd303804706f9ae210e6714cc8698c94c39ebef6
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96492831"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105106856"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 Azure Database for MySQL 유연한 서버에서 읽기 복제본을 만들고 관리 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "96492831"
 > [!Note]
 > 고가용성 지원 서버에서는 복제본이 지원 되지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 원본 서버로 사용 되는 [Azure Database for MySQL 서버 유연한 서버](quickstart-create-server-portal.md) 입니다.
 

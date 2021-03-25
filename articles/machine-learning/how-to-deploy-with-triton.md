@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0bb17ded6822c477fe2107c66711af5e2dc384d3
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519200"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107842"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Triton 유추 서버를 사용 하는 고성능 서비스 (미리 보기) 
 
@@ -32,7 +32,10 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 > [!TIP]
 > 이 문서의 코드 조각은 설명 목적으로 작성 되었으며 전체 솔루션을 표시 하지 않을 수 있습니다. 작업 예제 코드는 [Azure Machine Learning에서 Triton의 종단 간 샘플](https://aka.ms/triton-aml-sample)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> [NVIDIA Triton 유추 서버](https://aka.ms/nvidia-triton-docs) 는 Azure Machine Learning에 통합 된 오픈 소스 타사 소프트웨어입니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * Azure Machine Learning를 사용 하 여 [모델을 배포 하는 방법과 위치](how-to-deploy-and-where.md) 에 대해 잘 알고 있어야 합니다.
@@ -47,7 +50,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 이러한 작업자는 전처리, 모델 호출 및 후 처리를 처리 합니다. 
-* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 합니다. 예: `https://myservice.azureml.net/score`
+* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 합니다. 예: `https://myservice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Triton이 아닌 일반 배포 아키텍처 다이어그램":::
 
@@ -55,7 +58,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 
 * 요청은 Triton 서버로 직접 이동 합니다.
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __TRITON URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myservice.azureml.net/v2/models/${MODEL_NAME}/versions/${MODEL_VERSION}/infer`
+* 클라이언트는 __TRITON URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myservice.azureml.net/v2/models/${MODEL_NAME}/versions/${MODEL_VERSION}/infer`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/triton-deploy.png" alt-text="Triton only를 사용 하 여 Inferenceconfig 배포 및 Python 미들웨어 없음":::
 
@@ -64,7 +67,7 @@ Triton는 *유추에 최적화* 된 프레임 워크입니다. Gpu 및 더 비�
 * 여러 [Gunicorn](https://gunicorn.org/) worker는 들어오는 요청을 동시에 처리 하기 시작 합니다.
 * 요청은 **Triton 서버로** 전달 됩니다. 
 * Triton은 요청을 일괄 처리로 처리 하 여 GPU 사용률을 최대화 합니다.
-* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myservice.azureml.net/score`
+* 클라이언트는 __AZURE ML 점수 매기기 URI__ 를 사용 하 여 요청을 수행 합니다. 예: `https://myservice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inference-config-deploy.png" alt-text="Triton 및 Python 미들웨어를 사용 하 여 배포":::
 
@@ -97,7 +100,7 @@ models
         - model_1
             - model_version
                 - model_file
-                - config_file
+            - config_file
         - model_2
             ...
 ```
@@ -114,6 +117,11 @@ az ml model register -n my_triton_model -p models --model-framework=Multi
 ```
 
 에 대 한 자세한 내용은 `az ml model register` [참조 설명서](/cli/azure/ext/azure-cli-ml/ml/model)를 참조 하세요.
+
+모델을 Azure Machine Learning 등록 하는 경우 매개 변수의 값은 `--model-path  -p` Triton의 부모 폴더 이름 이어야 합니다.  
+위의 예제에서  `--model-path` 는 ' 모델 '입니다.
+
+`--name  -n`예제의 ' my_triton_model ' 매개 변수에 대 한 값은 Azure Machine Learning 작업 영역에 알려진 모델 이름이 됩니다. 
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -364,13 +372,17 @@ local_service.delete()
 
 
 ---
+## <a name="troubleshoot"></a>문제 해결
+
+* [실패 한 배포 문제를 해결](how-to-troubleshoot-deployment.md)하 고, 모델을 배포할 때 발생할 수 있는 일반적인 오류를 해결 하 고 해결 하거나 해결 하는 방법에 대해 알아보세요.
+
+* 배포 로그에 TritonServer를 **시작 하지 못했음을** 표시 되는 경우 [Nvidia 오픈 소스 설명서](https://github.com/triton-inference-server/server) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Machine Learning에서 Triton의 종단 간 샘플을 참조 하세요.](https://aka.ms/aml-triton-sample)
 * [Triton client 예제](https://aka.ms/nvidia-client-examples) 확인
 * [Triton 유추 서버 설명서](https://aka.ms/nvidia-triton-docs) 읽기
-* [실패한 배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [Azure Kubernetes Service로 배포](how-to-deploy-azure-kubernetes-service.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)

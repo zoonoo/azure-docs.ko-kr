@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: ee6b0e1b745e86c72843af88c0f6d17f91512e15
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 456aaf20c0b6d198ae353490d961a69a319b6601
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176759"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045113"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
@@ -260,7 +260,7 @@ az network private-endpoint dns-zone-group create \
    --zone-name "searchServiceZone"
 ```
 
-PowerShell에서 개인 끝점을 만드는 방법에 대 한 자세한 내용은이 [개인 링크 빠른](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli) 시작을 참조 하세요.
+PowerShell에서 개인 끝점을 만드는 방법에 대 한 자세한 내용은이 [개인 링크 빠른](../private-link/create-private-endpoint-cli.md) 시작을 참조 하세요.
 
 ### <a name="manage-private-endpoint-connections"></a>프라이빗 엔드포인트 연결 관리
 

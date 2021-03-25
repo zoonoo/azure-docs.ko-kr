@@ -4,12 +4,12 @@ description: 구독에 이미 배포 된 Container insights를 사용 하 여 AK
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: e84e1c4ad3aa3950a433218255ccac3d91435231
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101717675"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109627"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -21,6 +21,8 @@ ms.locfileid: "101717675"
 * Terraform
 * [Azure Monitor에서](#enable-from-azure-monitor-in-the-portal) 또는 AZURE PORTAL의 [AKS 클러스터에서 직접](#enable-directly-from-aks-cluster-in-the-portal)
 * Azure PowerShell cmdlet을 사용 하거나 Azure CLI를 사용 하 여 [제공 된 Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 `New-AzResourceGroupDeployment` 합니다.
+
+기존 AKS 클러스터를 다른 구독의 Azure Log Analytics 작업 영역에 연결 하는 경우 ContainerService 리소스 공급자를 Log Analytics 작업 영역을 만든 구독에 등록 해야 합니다. 자세한 내용은 [리소스 공급자 등록](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)을 참조 하세요.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

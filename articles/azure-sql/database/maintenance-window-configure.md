@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/04/2021
-ms.openlocfilehash: 210f0c52a2b27492bfa2181473043df3537157d2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/23/2021
+ms.openlocfilehash: 8688458d85084f3d3dab4678fa91ed827a337739
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102183202"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047354"
 ---
 # <a name="configure-maintenance-window-preview"></a>유지 관리 기간 구성 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "102183202"
 모든 서비스 수준 또는 모든 지역에 대해 다른 유지 관리 기간을 변경 하는 기능을 사용할 수 없습니다. 가용성에 대 한 자세한 내용은 [유지 관리 기간 가용성](maintenance-window.md#availability)을 참조 하세요.
 
 > [!Important]
-> 유지 관리 기간을 구성 하는 작업은 Azure SQL 리소스의 서비스 계층을 변경 하는 것과 유사한 장기 실행 비동기 작업입니다. 작업을 수행 하는 동안 작업을 수행 하는 동안 리소스를 사용할 수 있습니다. 단, 작업 끝에서 발생 하는 짧은 장애 조치 (failover)는 제외 하 고 장기 실행 트랜잭션이 중단 된 경우에도 일반적으로 최대 8 초 장애 조치 (failover)의 영향을 최소화 하려면 사용량이 많은 시간 외에 작업을 수행 해야 합니다.
+> 유지 관리 기간을 구성 하는 작업은 Azure SQL 리소스의 서비스 계층을 변경 하는 것과 유사한 장기 실행 비동기 작업입니다. 작업을 수행 하는 동안 작업을 수행 하는 동안 리소스를 사용할 수 있습니다. 단, 작업의 끝에서 발생 하는 짧은 재구성을 제외 하 고는 중단 된 장기 실행 트랜잭션이 발생 하는 경우에도 최대 8 초가 걸립니다 재구성의 영향을 최소화 하려면 사용량이 많은 시간 외에 작업을 수행 해야 합니다.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>데이터베이스를 만드는 동안 유지 관리 기간 구성 
 
@@ -257,7 +257,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 ## <a name="configure-maintenance-window-for-existing-databases"></a>기존 데이터베이스에 대 한 유지 관리 기간 구성
 
 
-유지 관리 기간 선택 항목을 데이터베이스에 적용 하는 경우 Azure에서 필요한 변경 내용을 적용 하는 경우 짧은 장애 조치 (failover) (몇 초)가 발생할 수 있습니다.
+유지 관리 기간 선택 항목을 데이터베이스에 적용 하는 경우 Azure에서 필요한 변경 내용을 적용 하는 일부 경우에 짧은 재구성 (몇 초)이 발생할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 

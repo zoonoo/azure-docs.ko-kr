@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 66de81387fe27bd2a81ebcfeab7d86aac7031ff1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425297"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043880"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -29,13 +29,13 @@ HTTP를 통해 노출 되는 모든 Cognitive Services 끝점은 TLS 1.2을 적�
 * HTTP 호출을 수행 하는 데 사용 되는 언어 (및 플랫폼)는 요청의 일부로 TLS 1.2을 지정 해야 합니다.
   * 언어 및 플랫폼에 따라 TLS를 암시적으로 지정 하거나 명시적으로 지정 합니다.
 
-.NET 사용자의 경우 <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">전송 계층 보안 모범 사례 </a>를 고려 합니다.
+.NET 사용자의 경우 <a href="/dotnet/framework/network-programming/tls" target="_blank">전송 계층 보안 모범 사례 </a>를 고려 합니다.
 
 ## <a name="authentication"></a>인증
 
 인증에 대해 논의할 때 몇 가지 일반적인 오해 있습니다. 인증 및 권한 부여는 서로 혼동 되는 경우가 많습니다. 또한 id는 보안의 주요 구성 요소입니다. Id는 <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">보안 주체 </a>에 대 한 정보 컬렉션입니다. IdP (id 공급자)는 인증 서비스에 id를 제공 합니다. 인증은 사용자의 id를 확인 하는 동작입니다. 권한 부여는 지정 된 id에 대 한 리소스에 대 한 액세스 권한 및 권한을 지정 하는 것입니다. 몇 가지 Cognitive Services 제공에는 azure 역할 기반 access control (Azure RBAC)이 포함 되어 있습니다. Azure RBAC는 수동으로 보안 주체를 관리 하는 것과 관련 된 일부 공식 절차를 간소화 하는 데 사용할 수 있습니다. 자세한 내용은 azure [리소스에 대 한 azure 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
 
-구독 키, 액세스 토큰 및 AAD (Azure Active Directory) 인증에 대 한 자세한 내용은 <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Azure Cognitive Services에 대 한 요청 인증</a>을 참조 하세요.
+구독 키, 액세스 토큰 및 AAD (Azure Active Directory) 인증에 대 한 자세한 내용은 <a href="/azure/cognitive-services/authentication" target="_blank">Azure Cognitive Services에 대 한 요청 인증</a>을 참조 하세요.
 
 ## <a name="environment-variables-and-application-configuration"></a>환경 변수 및 응용 프로그램 구성
 
@@ -113,7 +113,7 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>하십시오.
+자세한 내용은을 참조 <a href="/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` </a>하십시오.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>하십시오.
+자세한 내용은을 참조 <a href="/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` </a>하십시오.
 
 ```cpp
 #include <stdlib.h>

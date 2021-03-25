@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2cc0707c344c3ca537795666a3f60f648026596
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96467826"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043770"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>로컬 웹 UI를 사용 하 여 Azure Stack Edge 미니 R의 무선 연결 관리
 
@@ -55,6 +55,8 @@ Azure Stack Edge 미니 R 장치는 네트워크에 유선으로 또는 무선 �
     ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     무선 네트워크 프로필은 무선 네트워크에 연결할 수 있도록 SSID(네트워크 이름), 암호 키 및 보안 정보를 포함합니다. 네트워크 관리자로부터 사용자 환경에 대한 Wi-Fi 프로필을 가져올 수 있습니다.
+
+    Wi-Fi 프로필을 준비 하는 방법에 대 한 자세한 내용은 [Azure Stack Edge 미니 R 장치와 함께 Wi-Fi 프로필 사용](azure-stack-edge-mini-r-use-wifi-profiles.md)을 참조 하세요.
 
     ![로컬 웹 UI "포트 Wi-Fi 네트워크 설정" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 

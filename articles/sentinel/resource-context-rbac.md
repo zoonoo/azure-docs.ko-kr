@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 26124f8f650e1006244b4871e26962d417d90fd4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc1246d079760fd86513840aebbffa34d192f8ed
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054820"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044178"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>리소스를 사용 하 여 Azure 센티널 데이터에 대 한 액세스 관리
 
@@ -36,7 +36,7 @@ ms.locfileid: "102054820"
 
 - **Via Azure Monitor**. 여러 리소스 및/또는 리소스 그룹에 걸친 쿼리를 만들려는 경우이 방법을 사용 합니다. Azure Monitor에서 로그와 통합 문서를 탐색 하는 경우 하나 이상의 특정 리소스 그룹 또는 리소스에 대 한 범위를 정의 합니다.
 
-Azure Monitor에서 리소스 컨텍스트 RBAC를 사용 하도록 설정 합니다. 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대 한 액세스 관리](/azure/azure-monitor/logs/manage-access)를 참조 하세요.
+Azure Monitor에서 리소스 컨텍스트 RBAC를 사용 하도록 설정 합니다. 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역에 대 한 액세스 관리](../azure-monitor/logs/manage-access.md)를 참조 하세요.
 
 > [!NOTE]
 > 데이터가 Syslog, CEF, AAD 데이터 또는 사용자 지정 수집기에 의해 수집 된 데이터와 같은 Azure 리소스가 아닌 경우 데이터를 식별 하 고 액세스를 사용 하도록 설정 하는 데 사용 되는 리소스 ID를 수동으로 구성 해야 합니다.
@@ -62,11 +62,11 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용 하도록 설정 합�
 
 다음 목록에서는 데이터 액세스에 대 한 다른 솔루션이 요구 사항에 더 적합할 수 있는 시나리오를 설명 합니다.
 
-|시나리오  |솔루션  |
+|시나리오  |해결 방법  |
 |---------|---------|
 |**자회사에는 전체 Azure 센티널 환경이 필요한 SOC 팀이** 있습니다.     |  이 경우 다중 작업 영역 아키텍처를 사용 하 여 데이터 권한을 구분 합니다. <br><br>자세한 내용은 다음을 참조하세요. <br>- [작업 영역 및 테 넌 트에서 Azure 센티널 확장](extend-sentinel-across-workspaces-tenants.md)<br>    - [여러 작업 영역에서 한 번에 인시던트 사용](multiple-workspace-view.md)          |
 |**특정 유형의 이벤트에 대 한 액세스를 제공** 하려고 합니다.     |  예를 들어 Windows 관리자에 게 모든 시스템의 Windows 보안 이벤트에 대 한 액세스 권한을 제공 합니다. <br><br>이러한 경우 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 를 사용 하 여 각 테이블에 대 한 사용 권한을 정의 합니다.       |
-| **리소스를 기준으로 하지 않거나 이벤트에 있는 필드의 하위 집합에 대 한 액세스를 보다 세분화 된 수준으로 제한**   |   예를 들어 사용자의 자회사에 따라 Office 365 로그에 대 한 액세스를 제한할 수 있습니다. <br><br>이 경우 [Power BI 대시보드 및 보고서](/azure/azure-monitor/platform/powerbi)와의 기본 제공 통합을 사용 하 여 데이터에 대 한 액세스를 제공 합니다.      |
+| **리소스를 기준으로 하지 않거나 이벤트에 있는 필드의 하위 집합에 대 한 액세스를 보다 세분화 된 수준으로 제한**   |   예를 들어 사용자의 자회사에 따라 Office 365 로그에 대 한 액세스를 제한할 수 있습니다. <br><br>이 경우 [Power BI 대시보드 및 보고서](../azure-monitor/visualize/powerbi.md)와의 기본 제공 통합을 사용 하 여 데이터에 대 한 액세스를 제공 합니다.      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>리소스 컨텍스트 RBAC를 명시적으로 구성
@@ -77,11 +77,11 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용 하도록 설정 합�
 
 **리소스 컨텍스트 RBAC를 명시적으로 구성 하려면 다음을 수행 합니다**.
 
-1. Azure Monitor에서 [리소스 컨텍스트 RBAC를 사용 하도록 설정](/azure/azure-monitor/platform/manage-access) 했는지 확인 합니다. 
+1. Azure Monitor에서 [리소스 컨텍스트 RBAC를 사용 하도록 설정](../azure-monitor/logs/manage-access.md) 했는지 확인 합니다. 
 
-1. 전체 Azure 센티널 환경을 사용 하지 않고 리소스에 액세스 해야 하는 각 사용자 팀에 대 한 [리소스 그룹을 만듭니다](/azure/azure-resource-manager/management/manage-resource-groups-portal) .
+1. 전체 Azure 센티널 환경을 사용 하지 않고 리소스에 액세스 해야 하는 각 사용자 팀에 대 한 [리소스 그룹을 만듭니다](../azure-resource-manager/management/manage-resource-groups-portal.md) .
 
-    각 팀 멤버에 대 한 [로그 판독기 권한을](/azure/azure-monitor/platform/manage-access#resource-permissions) 할당 합니다.
+    각 팀 멤버에 대 한 [로그 판독기 권한을](../azure-monitor/logs/manage-access.md#resource-permissions) 할당 합니다.
 
 1. 만든 리소스 팀 그룹에 리소스를 할당 하 고 관련 리소스 Id로 이벤트에 태그를 지정 합니다.
 
@@ -110,7 +110,7 @@ Azure Monitor에서 리소스 컨텍스트 RBAC를 사용 하도록 설정 합�
 예를 들어 Vm을 분리 하면 팀 A에 속한 Syslog 이벤트가 수집기 VM A를 사용 하 여 수집 됩니다.
 
 > [!TIP]
-> - 온-프레미스 VM 또는 다른 클라우드 VM (예: AWS)을 로그 전달자로 사용 하는 경우 [Azure Arc](/azure/azure-arc/servers/overview)를 구현 하 여 리소스 ID가 있는지 확인 합니다.
+> - 온-프레미스 VM 또는 다른 클라우드 VM (예: AWS)을 로그 전달자로 사용 하는 경우 [Azure Arc](../azure-arc/servers/overview.md)를 구현 하 여 리소스 ID가 있는지 확인 합니다.
 > - 로그 전달 VM 환경의 크기를 조정 하려면 CEF 및 Sylog 로그를 수집 하는 [vm 확장 집합](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) 을 만드는 것이 좋습니다.
 
 
@@ -145,7 +145,7 @@ Azure 센티널 [Logstash 출력 플러그 인](connect-logstash.md)을 사용 �
 >
 ### <a name="resource-ids-with-the-log-analytics-api-collection"></a>Log Analytics API 컬렉션을 사용 하는 리소스 Id
 
-[Log Analytics 데이터 수집기 API](/azure/azure-monitor/platform/data-collector-api)를 사용 하 여 수집 하는 경우 HTTP [*AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) request 헤더를 사용 하 여 리소스 ID를 사용 하 여 이벤트에 할당할 수 있습니다.
+[Log Analytics 데이터 수집기 API](../azure-monitor/logs/data-collector-api.md)를 사용 하 여 수집 하는 경우 HTTP [*AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) request 헤더를 사용 하 여 리소스 ID를 사용 하 여 이벤트에 할당할 수 있습니다.
 
 리소스 컨텍스트 RBAC를 사용 하 고 API를 통해 수집 되는 이벤트를 특정 사용자가 사용할 수 있도록 하려면 [사용자에 대해 만든](#explicitly-configure-resource-context-rbac)리소스 그룹의 리소스 ID를 사용 합니다.
 

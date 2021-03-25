@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: b8f8403617a5fc8b442e8a3f74ab9226fe1479fe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c47e67375e093ff6e9a5cf7193c76eeeb5228e29
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97588763"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045656"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -59,9 +59,9 @@ Microsoft는 C, .NET (c #), Node.js, Java 및 Python 언어로 GitHub에 오픈 
 
 | OS                  | 컴파일러                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7. *, 3.5 이상 |
-| macOS High Sierra   | Python 2.7. *, 3.5 이상 |
-| Windows 10 제품군   | Python 2.7. *, 3.5 이상 |
+| Linux               | Python 2.7. *, 3.6 이상 |
+| macOS High Sierra   | Python 2.7. *, 3.6 이상 |
+| Windows 10 제품군   | Python 2.7. *, 3.6 이상 |
 
 Python 버전 3.5.3 이상 에서만 비동기 Api를 지원 하므로 버전 3.7 이상을 사용 하는 것이 좋습니다.
 
