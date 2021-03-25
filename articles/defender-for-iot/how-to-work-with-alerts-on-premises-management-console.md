@@ -3,12 +3,12 @@ title: 온-프레미스 관리 콘솔의 경고 작업
 description: 온-프레미스 관리 콘솔을 사용 하 여 네트워크에서 최근에 발생 한 위협에 대 한 엔터프라이즈 보기를 가져오고, 센서 사용자가이를 처리 하는 방법을 더 잘 이해할 수 있습니다.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781469"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032143"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>온-프레미스 관리 콘솔의 경고 작업 
 
@@ -242,6 +242,7 @@ API를 사용 하 여 만든 규칙은 **제외 규칙** 창에 RO로 표시 됩
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="제외 규칙 편집 보기의 스크린샷":::
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
-[센서에 대 한 경고 사용](how-to-work-with-alerts-on-your-sensor.md)
+[센서에 대 한 경고를 사용](how-to-work-with-alerts-on-your-sensor.md)합니다.
+[IoT 엔진 경고에 대 한 Defender](alert-engine-messages.md)를 검토 합니다.

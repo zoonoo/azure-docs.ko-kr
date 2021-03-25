@@ -3,12 +3,12 @@ title: Container insights를 사용 하 여 PV 모니터링 구성 | Microsoft D
 description: 이 문서에서는 컨테이너 insights를 사용 하 여 영구 볼륨으로 모니터링 Kubernetes 클러스터를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 578cfe128b7445f8b09771999d1e653e92c4befa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200702"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026107"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>컨테이너 insights를 사용 하 여 PV 모니터링 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "102200702"
 
 | 메트릭 이름 | 메트릭 차원 (태그) | 메트릭 설명 | | `pvUsedBytes`| poduid, podName, pvcName, Pvcname, capacityBytes, clusterId, clusterName | 특정 pod에서 사용 하는 클레임을 가진 특정 영구적 볼륨에 대해 사용 된 공간 (바이트)입니다. `capacityBytes` 는 데이터 수집 비용을 줄이고 쿼리를 간소화 하기 위해 태그 필드에 차원으로 중첩 됩니다. |
 
-[여기](https://aka.ms/ci/pvconfig)에서 수집 된 PV 메트릭을 구성 하는 방법에 대해 자세히 알아보세요.
+[여기](./container-insights-agent-config.md)에서 수집 된 PV 메트릭을 구성 하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="pv-inventory"></a>PV 인벤토리
 
@@ -48,7 +48,7 @@ ms.locfileid: "102200702"
 :::image type="content" source="./media/container-insights-persistent-volumes/pv-details-workbook-example.PNG" alt-text="Azure Monitor PV details 통합 문서 예제":::
 
 ### <a name="persistent-volume-usage-recommended-alert"></a>영구적 볼륨 사용 권장 경고
-Pod의 평균 PV 사용량이 80% 이상인 경우 경고를 표시 하는 권장 되는 경고를 사용 하도록 설정할 수 있습니다. [여기에서 경고에](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts) 대 한 자세한 내용과 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts#configure-alertable-metrics-in-configmaps)에서 기본 임계값을 재정의 하는 방법을 알아보세요.
+Pod의 평균 PV 사용량이 80% 이상인 경우 경고를 표시 하는 권장 되는 경고를 사용 하도록 설정할 수 있습니다. [여기에서 경고에](./container-insights-metric-alerts.md) 대 한 자세한 내용과 [여기](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps)에서 기본 임계값을 재정의 하는 방법을 알아보세요.
 ## <a name="next-steps"></a>다음 단계
 
 - 수집 된 PV 메트릭에 대 한 자세한 내용은 [여기](./container-insights-agent-config.md)를 참조 하세요.

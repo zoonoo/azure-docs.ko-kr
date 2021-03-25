@@ -2,17 +2,17 @@
 title: 컴퓨팅 노드에 애플리케이션 패키지 배포
 description: Azure Batch의 애플리케이션 패키지 기능을 사용하여 Batch 컴퓨팅 노드에 설치할 여러 애플리케이션 및 버전을 간편하게 관리하세요.
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 03/24/2021
 ms.custom:
 - H1Hack27Feb2017
 - devx-track-csharp
 - contperf-fy21q1
-ms.openlocfilehash: b4c6ab99b0fa93e5fdea4256d6f232cc0fe4218e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d0ed5cc47694d6576e6aea46b62dfab8ecb73459
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97033734"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045793"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>애플리케이션을 배포하여 Batch 애플리케이션 패키지에서 노드 컴퓨팅
 
@@ -59,6 +59,9 @@ Azure Batch 내에서 *애플리케이션* 은 풀의 컴퓨팅 노드에 자동
 ## <a name="upload-and-manage-applications"></a>애플리케이션 업로드 및 관리
 
 [Azure Portal](https://portal.azure.com) 또는 Batch Management API를 사용하여 Batch 계정에서 애플리케이션 패키지를 관리합니다. 다음 섹션에서는 저장소 계정을 연결 하는 방법 및 Azure Portal에서 응용 프로그램 및 응용 프로그램 패키지를 추가 하 고 관리 하는 방법을 설명 합니다.
+
+> [!NOTE]
+> [Arm 템플릿의](quick-create-template.md) [Microsoft.BatCh/batchaccounts](/templates/microsoft.batch/batchaccounts) 리소스에서 응용 프로그램 값을 정의할 수 있지만, 현재는 arm 템플릿을 사용 하 여 Batch 계정에서 사용할 응용 프로그램 패키지를 업로드할 수 없습니다. [아래](#add-a-new-application)에 설명 된 대로 연결 된 저장소 계정에 업로드 해야 합니다.
 
 ### <a name="link-a-storage-account"></a>저장소 계정 연결
 

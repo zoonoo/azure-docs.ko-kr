@@ -8,17 +8,17 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 2512092c69390ce604c26ab6c5dd000afafc7c05
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91360891"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>인터넷 분석기란? (미리 보기)
 
 Internet Analyzer는 네트워킹 인프라 변경으로 인해 고객의 성능에 미치는 영향을 테스트하기 위한 클라이언트 쪽 측정 플랫폼입니다. 온-프레미스에서 Azure로 마이그레이션하든 새 Azure 서비스를 평가하든 Internet Analyzer를 사용하면 마이그레이션하기 전에 Azure에서 사용자의 데이터 및 Microsoft의 다양한 분석을 통해 네트워크 아키텍처를 더 잘 이해하고 최적화할 수 있습니다.
 
-인터넷 분석기는 웹 애플리케이션에 포함된 소형 JavaScript 클라이언트를 사용하여 최종 사용자가 _엔드포인트_라고 하는 선택한 네트워크 대상 세트로 도달하기까지의 대기 시간을 측정합니다. 인터넷 분석기를 사용하면 여러 병렬 테스트를 설정할 수 있으므로 인프라와 고객의 요구가 진화하는 가운데, 다양한 시나리오를 평가할 수 있습니다. 인터넷 분석기는 사용자 지정 및 미리 구성된 엔드포인트를 제공하여 최종 사용자가 편리하면서 유연하게 신뢰할 수 있는 성능 결정을 내릴 수 있도록 지원합니다. 
+인터넷 분석기는 웹 애플리케이션에 포함된 소형 JavaScript 클라이언트를 사용하여 최종 사용자가 _엔드포인트_ 라고 하는 선택한 네트워크 대상 세트로 도달하기까지의 대기 시간을 측정합니다. 인터넷 분석기를 사용하면 여러 병렬 테스트를 설정할 수 있으므로 인프라와 고객의 요구가 진화하는 가운데, 다양한 시나리오를 평가할 수 있습니다. 인터넷 분석기는 사용자 지정 및 미리 구성된 엔드포인트를 제공하여 최종 사용자가 편리하면서 유연하게 신뢰할 수 있는 성능 결정을 내릴 수 있도록 지원합니다. 
 
 
 > [!IMPORTANT]

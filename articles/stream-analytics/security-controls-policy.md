@@ -1,18 +1,18 @@
 ---
 title: Azure Stream Analytics에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Stream Analytics에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c7de54804b0ec825f72f3414f6da831477a91748
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2811a3cc2d1bb592a5c6698397ef563ba0988614
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586701"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036676"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-stream-analytics"></a>Azure Stream Analytics에 대한 Azure Policy 규정 준수 컨트롤
 

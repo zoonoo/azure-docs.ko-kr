@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 69b5927c73dac14c76b94a4ee5bbb21449f8ec98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a6d4c5811c08aa8c4de2eeea5f5f53967c3006b2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047455"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025359"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics에서 고객 관리형 스토리지 계정 사용
 
@@ -50,7 +50,7 @@ AMPLS 구성 절차에 대 한 자세한 내용은 [Azure 개인 링크를 사�
 * Azure Monitor에서 저장소 계정에 액세스할 수 있도록 허용 합니다. 선택한 네트워크만 저장소 계정에 액세스할 수 있도록 선택한 경우 "신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스할 수 있도록 허용" 예외를 선택 해야 합니다.
 ![저장소 계정 신뢰 MS services 이미지](./media/private-storage/storage-trust.png)
 * 작업 영역에서 다른 네트워크의 트래픽만 처리 하는 경우 관련 네트워크/인터넷에서 들어오는 트래픽을 허용 하도록 저장소 계정을 구성 해야 합니다.
-* 에이전트와 저장소 계정 간의 TLS 버전 조정-TLS 1.2 이상을 사용 하 여 Log Analytics에 데이터를 전송 하는 것이 좋습니다. [플랫폼별 지침](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12)을 검토 하 고 필요한 경우 [TLS 1.2를 사용 하도록 에이전트를 구성](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12)합니다. 몇 가지 이유로 인해 가능 하지 않은 경우 TLS 1.0을 허용 하도록 저장소 계정을 구성 합니다.
+* 에이전트와 저장소 계정 간의 TLS 버전 조정-TLS 1.2 이상을 사용 하 여 Log Analytics에 데이터를 전송 하는 것이 좋습니다. [플랫폼별 지침](./data-security.md#sending-data-securely-using-tls-12)을 검토 하 고 필요한 경우 [TLS 1.2를 사용 하도록 에이전트를 구성](../agents/agent-windows.md#configure-agent-to-use-tls-12)합니다. 몇 가지 이유로 인해 가능 하지 않은 경우 TLS 1.0을 허용 하도록 저장소 계정을 구성 합니다.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>CMK 데이터 암호화에 고객이 관리 하는 저장소 계정 사용
 Azure Storage는 저장소 계정에서 미사용 데이터를 모두 암호화 합니다. 기본적으로 Microsoft 관리 키 (MMK)를 사용 하 여 데이터를 암호화 합니다. 그러나 Azure Storage를 사용 하면 Azure Key vault의 CMK를 사용 하 여 저장소 데이터를 암호화할 수도 있습니다. 사용자 고유의 키를 Azure Key Vault로 가져오거나 Azure Key Vault Api를 사용 하 여 키를 생성할 수 있습니다.

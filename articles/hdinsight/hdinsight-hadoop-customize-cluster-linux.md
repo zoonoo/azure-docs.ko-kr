@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 03/09/2021
-ms.openlocfilehash: 0b0fc1062f9e57ab716aa0fa88f90924f0485b08
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: efd145732ecc119e2fdf9b73ca59729232a37d4c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864876"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109525"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정
 
@@ -22,27 +22,32 @@ Azure HDInsight는 사용자 지정 스크립트를 호출 하 여 클러스터�
 
 스크립트 작업은 HDInsight 클러스터의 노드에서 실행되는 Bash 스크립트입니다. 스크립트 동작의 특징과 기능은 다음과 같습니다.
 
-- HDInsight 클러스터에서 액세스할 수 있는 URI에 저장해야 합니다. 가능한 스토리지 위치는 다음과 같습니다.
+- Bash 스크립트 URI (파일에 액세스 하는 위치)는 HDInsight 리소스 공급자 및 클러스터에서 액세스할 수 있어야 합니다.
+- 가능한 스토리지 위치는 다음과 같습니다.
 
-  - 일반 (비 ESP) 클러스터의 경우:
-    - Data Lake Storage Gen1/Gen2: HDInsight가 Data Lake Storage에 액세스 하는 데 사용 하는 서비스 사용자에 게는 스크립트에 대 한 읽기 권한이 있어야 합니다. Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
-    - HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 스토리지 계정 모두에 대해 액세스 권한을 부여받습니다.
+   - 일반 (비 ESP) 클러스터의 경우:
+     - HDInsight 클러스터에 대한 기본 또는 추가 스토리지 계정인 Azure Storage 계정의 Blob. HDInsight는 클러스터를 만드는 동안 이러한 두 유형의 스토리지 계정 모두에 대해 액세스 권한을 부여받습니다.
+    
+       > [!IMPORTANT]  
+       > 이 Azure Storage 계정에서 저장소 키를 회전 하지 마십시오 .이 경우 스크립트를 사용 하 여 후속 스크립트 작업을 수행 하면 오류가 발생 합니다.
 
-    > [!IMPORTANT]  
-    > 이 Azure Storage 계정에서 저장소 키를 회전 하지 마십시오 .이 경우 스크립트를 사용 하 여 후속 스크립트 작업을 수행 하면 오류가 발생 합니다.
+     - Data Lake Storage Gen1: HDInsight가 Data Lake Storage에 액세스 하는 데 사용 하는 서비스 주체에는 스크립트에 대 한 읽기 권한이 있어야 합니다. Bash 스크립트 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` 입니다. 
 
-    - 경로를 통해 액세스할 수 있는 공용 파일 공유 서비스 `http://` 입니다. Azure Blob, GitHub 또는 OneDrive의 예가 있습니다. URI 예제는 [예제 스크립트 동작 스크립트](#example-script-action-scripts)를 참조하세요.
+     - 스크립트 동작에는 Data Lake Storage Gen2를 사용 하지 않는 것이 좋습니다. `abfs://` 는 Bash 스크립트 URI에 대해 지원 되지 않습니다. `https://` Uri는 가능 하지만, 공용 액세스 권한이 있는 컨테이너에 대 한 작업을 수행 하며, 방화벽은 HDInsight 리소스 공급자에 대해 열려 있으므로 권장 되지 않습니다.
+
+     - 경로를 통해 액세스할 수 있는 공용 파일 공유 서비스 `https://` 입니다. Azure Blob, GitHub 또는 OneDrive의 예가 있습니다. URI 예제는 [예제 스크립트 동작 스크립트](#example-script-action-scripts)를 참조하세요.
+
   - ESP를 사용 하는 클러스터의 경우 `wasb://` 또는 `wasbs://` 또는 `http[s]://` uri가 지원 됩니다.
 
-- 특정 노드 유형에서만 실행되도록 제한할 수 있습니다. 예를 들어 헤드 노드 또는 작업자 노드가 있습니다.
-- 지속형 또는 *임시* 일 수 있습니다.
+- 특정 노드 형식 에서만 실행 되도록 스크립트 작업을 제한할 수 있습니다. 예를 들어 헤드 노드 또는 작업자 노드가 있습니다.
+- 스크립트 작업은 지속 되거나 *임시* 일 수 있습니다.
 
   - 지속형 스크립트 작업은 고유한 이름이 있어야 합니다. 지속형 스크립트는 크기 조정 작업을 통해 클러스터에 추가되는 새 작업자 노드를 사용자 지정하는 데 사용됩니다. 또한 크기 조정 작업이 수행되면 지속형 스크립트에서 다른 노드 유형에도 변경 내용을 적용할 수 있습니다. 예를 들어 헤드 노드가 있습니다.
   - *임시* 스크립트는 지속 되지 않습니다. 클러스터를 만들 때 사용되는 스크립트 작업은 자동으로 보존됩니다. 이 스크립트가 실행되더라도 클러스터에 추가된 작업자 노드에는 적용되지 않습니다. 그런 다음 *임시* 스크립트를 지속형 스크립트로 승격 하거나 지속형 스크립트를 *임시* 스크립트로 강등할 수 있습니다. 사용자가 특별히 유지해야 한다고 지정하더라도 실패한 스크립트는 유지되지 않습니다.
 
-- 실행 중에 스크립트에서 사용하는 매개 변수를 수락할 수 있습니다.
-- 클러스터 노드에서 루트 수준 권한으로 실행합니다.
-- Azure Portal, Azure PowerShell, Azure CLI 또는 HDInsight .NET SDK를 통해 사용할 수 있습니다.
+- 스크립트 작업은 실행 중에 스크립트에서 사용 하는 매개 변수를 사용할 수 있습니다.
+- 스크립트 작업은 클러스터 노드에서 루트 수준 권한으로 실행 됩니다.
+- 스크립트 작업은 Azure Portal, Azure PowerShell, Azure CLI 또는 HDInsight .NET SDK를 통해 사용할 수 있습니다.
 - VM에서 서비스 파일을 제거 하거나 수정 하는 스크립트 작업은 서비스 상태 및 가용성에 영향을 줄 수 있습니다.
 
 클러스터에서 실행된 모든 스크립트에 대한 기록을 보관합니다. 이 기록은 승격 또는 강등 작업에 사용할 스크립트 ID를 찾아야 할 때 도움이 됩니다.
@@ -50,7 +55,7 @@ Azure HDInsight는 사용자 지정 스크립트를 호출 하 여 클러스터�
 > [!IMPORTANT]  
 > 스크립트 동작으로 인한 변경을 자동으로 실행 취소하는 방법은 없습니다. 변경 사항을 수동으로 되돌리거나 되돌린 스크립트를 제공하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 도메인 조인 HDInsight 클러스터를 사용하는 경우 클러스터에서 스크립트 동작을 사용할 때 다음 두 가지 Apache Ambari 권한이 필요합니다.
 
@@ -126,7 +131,7 @@ Status            : Succeeded
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
-| Name | 스크립트 |
+| 이름 | 스크립트 |
 | --- | --- |
 | Azure Storage 계정 추가 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md) 참조 |
 | Hue 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) 참조 |
@@ -151,7 +156,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
    | 속성 | 값 |
    | --- | --- |
    | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__ 을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
-   | Name |스크립트 작업의 이름을 지정합니다. |
+   | 이름 |스크립트 작업의 이름을 지정합니다. |
    | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
    | 헤드/작업자/사육 사 |스크립트가 실행 되는 노드 ( **헤드**, **작업자** 또는 **사육 사**)를 지정 합니다. |
    | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -224,7 +229,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
    | 속성 | 값 |
    | --- | --- |
    | 스크립트 선택 | 사용자 고유의 스크립트를 사용 하려면 __사용자 지정__ 을 선택 합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
-   | Name |스크립트 작업의 이름을 지정합니다. |
+   | 이름 |스크립트 작업의 이름을 지정합니다. |
    | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
    | Head/Worker/Zookeeper |스크립트가 실행 되는 노드 ( **헤드**, **작업자** 또는 **사육 사**)를 지정 합니다. |
    | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -266,7 +271,7 @@ NodeTypes       : {HeadNode, WorkerNode}
    az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
    ```
 
-   유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 예들 들어 `--roles headnode workernode`입니다.
+   유효한 역할은,, `headnode` `workernode` `zookeepernode` , `edgenode` 입니다. 스크립트를 여러 노드 형식에 적용 해야 하는 경우에는 역할을 공백으로 구분 합니다. 예: `--roles headnode workernode`.
 
    스크립트를 유지하려면 `--persist-on-success`를 추가합니다. 나중에 `az hdinsight script-action promote`을(를) 사용하여 스크립트를 지속할 수도 있습니다.
 
@@ -300,7 +305,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| Cmdlet | 함수 |
+| Cmdlet | 기능 |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |지속형 스크립트 동작에 대한 정보를 검색합니다. 이 cmdlet은 스크립트에 의해 수행 된 작업을 실행 취소 하지 않으며 지속형 플래그만 제거 합니다.|
 | `Get-AzHDInsightScriptActionHistory` |클러스터에 적용된 스크립트 동작의 기록 또는 특정 스크립트에 대한 세부 정보를 검색합니다. |
@@ -313,7 +318,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-cli"></a>Azure CLI
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |클러스터의 지정 된 지속형 스크립트 작업을 삭제 합니다. 이 명령은 스크립트에 의해 수행 된 작업을 실행 취소 하지 않으며 지속형 플래그만 제거 합니다.|
 |[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|지정된 HDInsight 클러스터에서 스크립트 동작을 실행합니다.|

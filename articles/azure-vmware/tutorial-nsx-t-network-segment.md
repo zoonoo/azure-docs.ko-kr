@@ -4,10 +4,10 @@ description: vCenter에서 VM(가상 머신)에 사용할 NSX-T 네트워크 세
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.openlocfilehash: 9125e552f9641a2d26b9584b66a4447f9c152161
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/23/2021
 ms.locfileid: "103462129"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>자습서: Azure VMware Solution에서 네트워크 세그먼트 추가 

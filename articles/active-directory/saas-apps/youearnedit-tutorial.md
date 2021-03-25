@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a243e662efe85d38ace87c1f6385481d723bedf
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519132"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>자습서: Azure Active Directory와 YouEarnedIt 통합
@@ -30,7 +30,7 @@ YouEarnedIt을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 YouEarnedIt과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -103,14 +103,14 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     a. **로그온 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
 
-    | Environment  | 패턴  |
+    | Environment  | 무늬  |
     |:--- |:--- |
     | 프로덕션 | `https://<company name>.youearnedit.com/users/sign_in` |
     | 샌드박스  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    | Environment  | 패턴  |
+    | Environment  | 무늬  |
     |:--- |:--- |
     | 프로덕션 | `<company name>.youearnedit.com` |
     | 샌드박스  |`<company name>.sandbox.youearnedit.com` |
@@ -140,7 +140,7 @@ YouEarnedIt에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 

@@ -7,18 +7,18 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 44bf498af52f4d8a0d880dc1f1d5874d5b444cae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d6cece6ee3079ba9f400f40026ca26ea36668710
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102035537"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024645"
 ---
 # <a name="capture-images-for-a-vision-project-in-azure-percept-studio"></a>Azure Percept Studio에서 비전 프로젝트용 이미지 캡처
 
 이 가이드에 따라 azure Percept Studio에서 기존 비전 프로젝트에 대 한 Azure Percept의 비전 SoM을 사용 하 여 이미지를 캡처합니다. 비전 프로젝트를 아직 만들지 않은 경우 [코드 없는 비전 자습서](./tutorial-nocode-vision.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Percept DK(Devkit)
 - [Azure 구독](https://azure.microsoft.com/free/)
@@ -62,4 +62,4 @@ ms.locfileid: "102035537"
 
 ## <a name="next-steps"></a>다음 단계
 
-[코드 없는 비전 모델을 테스트 하 고 다시 학습](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model)합니다.
+[코드 없는 비전 모델을 테스트 하 고 다시 학습](../cognitive-services/custom-vision-service/test-your-model.md)합니다.

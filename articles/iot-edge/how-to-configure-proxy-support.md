@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: 888761bb976b9d7a87211a77cb6504a44f108bbd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f2ca089a6d885227bd61940d71ec7bb7960fbd6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200052"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043158"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -69,7 +69,11 @@ IoT Edge 장치가 Windows 또는 Linux에서 실행 되는지 여부에 관계 
 
 Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자가 구성 되 면 일반적인 방식으로 [Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md) 의 지침을 따릅니다.
 
-### <a name="windows-devices"></a>Windows 디바이스
+### <a name="windows-devices-using-iot-edge-for-linux-on-windows"></a>Windows에서 Linux 용 IoT Edge를 사용 하는 windows 장치
+
+Windows에서 Linux 용 IoT Edge를 사용 하 여 IoT Edge 런타임을 설치 하는 경우 Linux 가상 머신에 IoT Edge 기본적으로 설치 됩니다. 추가 설치 또는 업데이트 단계가 필요 하지 않습니다.
+
+### <a name="windows-devices-using-windows-containers"></a>Windows 컨테이너를 사용 하는 windows 장치
 
 Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를 두 번 통과 해야 합니다. 첫 번째 연결은 설치 관리자 스크립트 파일을 다운로드 하 고 두 번째 연결은 설치 중에 필요한 구성 요소를 다운로드 하는 것입니다. Windows 설정에서 프록시 정보를 구성 하거나 PowerShell 명령에 프록시 정보를 직접 포함할 수 있습니다.
 
@@ -206,7 +210,17 @@ systemctl show --property=Environment aziot-identityd
 :::moniker-end
 <!--end 1.2-->
 
-#### <a name="windows"></a>Windows
+#### <a name="windows-using-iot-edge-for-linux-on-windows"></a>Windows에서 Linux 용 IoT Edge를 사용 하는 windows
+
+Windows 가상 머신에서 Linux 용 IoT Edge에 로그인 합니다.
+
+```azurepowershell-interactive
+Ssh-EflowVm
+```
+
+위의 Linux 섹션과 동일한 단계를 수행 하 여 IoT Edge 디먼을 구성 합니다.
+
+#### <a name="windows-using-windows-containers"></a>Windows 컨테이너를 사용 하는 windows
 
 관리자 권한으로 PowerShell 창을 연 후에 다음 명령을 실행해 새 환경 변수를 사용하여 레지스트리를 편집합니다. **\<proxy url>** 을 프록시 서버 주소 및 포트로 바꿉니다.
 
@@ -249,13 +263,13 @@ IoT Edge 에이전트는 모든 IoT Edge 디바이스에서 처음으로 시작�
 
 5. config.yaml의 변경 내용을 저장하고 편집기를 닫습니다. IoT Edge를 다시 시작하여 변경 내용을 적용합니다.
 
-   * Linux:
+   * Windows의 linux 및 linux 용 IoT Edge:
 
       ```bash
       sudo systemctl restart iotedge
       ```
 
-   * Windows:
+   * Windows 컨테이너를 사용 하는 windows:
 
       ```powershell
       Restart-Service iotedge

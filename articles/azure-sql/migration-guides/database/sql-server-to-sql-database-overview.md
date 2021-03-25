@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server SQL Database: 마이그레이션 개요'
+title: 'SQL Server Azure SQL Database: 마이그레이션 개요'
 description: SQL Server 데이터베이스를 Azure SQL Database으로 마이그레이션하는 데 사용할 수 있는 다양 한 도구와 옵션에 대해 알아봅니다.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ecb9d1e25647e197614817116921140f0d7fbdf4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102488276"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024968"
 ---
-# <a name="migration-overview-sql-server-to-sql-database"></a>마이그레이션 개요: SQL Database SQL Server
+# <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: Azure SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 SQL Server를 Azure SQL Database으로 마이그레이션하기 위한 다양 한 마이그레이션 옵션 및 고려 사항에 대해 알아봅니다. 
@@ -30,7 +30,7 @@ SQL Server를 Azure SQL Database으로 마이그레이션하기 위한 다양 �
 - 계산 엔진 (Google Cloud Platform GCP)  
 - SQL Server에 대 한 클라우드 SQL (Google Cloud Platform – GCP) 
 
-다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -58,7 +58,7 @@ SQL Server 온-프레미스 라이선스를 Azure SQL Database으로 마이그�
 
 ## <a name="choose-appropriate-target"></a>적절 한 대상 선택
 
-Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하는 데 도움이 되는 일반적인 지침을 고려 합니다. 배포 중에 계산 및 저장소 리소스를 선택 하 고 나중에 응용 프로그램에 대 한 가동 중지 시간 없이  [Azure Portal](../../database/scale-resources.md)  사용 하 여 변경할 수 있습니다.
+Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하는 데 도움이 되는 일반적인 지침을 고려 합니다. 배포 중에 계산 및 저장소 리소스를 선택 하 고 나중에 응용 프로그램에 대 한 가동 중지 시간 없이 [Azure Portal 사용 하 여 변경할](../../database/scale-resources.md) 수 있습니다.
 
 
 **배포 모델**: 단일 데이터베이스 또는 탄력적 풀을 결정 하는 데 사용 되는 응용 프로그램 워크 로드 및 사용 패턴을 이해 합니다. 
@@ -212,7 +212,7 @@ SQL Database는 고급 관리 및 보안 기능 외에도 [워크 로드를 모�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure SQL Database로 SQL Server 마이그레이션을 시작 하려면 [SQL Server 마이그레이션 가이드 SQL Database를](sql-server-to-sql-database-guide.md)참조 하세요.
+SQL Database로 SQL Server 마이그레이션을 시작 하려면 [SQL Server 마이그레이션 가이드 Azure SQL Database를](sql-server-to-sql-database-guide.md)참조 하세요.
 
 - 다양 한 데이터베이스 및 데이터 마이그레이션 시나리오와 전문 작업을 지 원하는 데 사용할 수 있는 Microsoft 및 타사 서비스 및 도구의 행렬은 [데이터 마이그레이션을 위한 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조 하세요.
 

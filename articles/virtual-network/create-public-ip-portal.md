@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1ac3f2fa1ef3f1a24077064ad3ad3f3c30c5f3f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694872"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048360"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공용 IP 주소 만들기
 
@@ -45,14 +45,14 @@ ms.locfileid: "101694872"
     | DNS 이름 레이블          | 값을 비워 둡니다.    |
     | Subscription            | 구독을 선택합니다.   |
     | Resource group          | **새로 만들기** 를 선택 하 고 **myresourcegroup** 을 입력 합니다. </br> **확인** 을 선택합니다. |
-    | 위치                | **미국 동부 2** 선택      |
+    | Location                | **미국 동부 2** 선택      |
     | 가용성 영역       | **영역 중복**, 영역 없음 또는 특정 영역 선택 (아래 참고 참조) |
 
 :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Azure Portal에서 표준 IP 주소 만들기" border="false":::
 
 > [!NOTE]
 > 이러한 선택 항목은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)있는 지역에서 유효 합니다. </br>
-이러한 지역에서 특정 영역을 선택할 수 있지만 영역 오류에 대 한 복원 력이는 없습니다. </br> 가용성 영역에 대 한 자세한 내용은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조 하세요.
+이러한 지역에서 특정 영역을 선택할 수 있지만 영역 오류에 대 한 복원 력이는 없습니다. </br> 가용성 영역에 대 한 자세한 내용은 [가용성 영역 개요](../availability-zones/az-overview.md)를 참조 하세요.
 
 \* = 계층은 현재 미리 보기로 제공 되는 [지역 간 부하 분산 장치](../load-balancer/cross-region-overview.md) 기능과 관련이 있습니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "101694872"
     | DNS 이름 레이블          | 값을 비워 둡니다.    |
     | Subscription            | 구독을 선택합니다.   |
     | Resource group          | **새로 만들기** 를 선택 하 고 **myresourcegroup** 을 입력 합니다. </br> **확인** 을 선택합니다. |
-    | 위치                | **미국 동부 2** 선택      |
+    | Location                | **미국 동부 2** 선택      |
 
 :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Azure Portal에서 표준 IP 주소 만들기" border="false":::
 

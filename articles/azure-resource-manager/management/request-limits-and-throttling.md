@@ -4,12 +4,12 @@ description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c1fd707bf9f13ed88bf9acb5d2ad70d56c453a90
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97563129"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024628"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -58,7 +58,7 @@ Microsoft. Network 리소스 공급자는 다음과 같은 제한 제한을 적�
 
 ### <a name="compute-throttling"></a>계산 제한
 
-계산 작업의 제한 한도에 대 한 자세한 내용은 [API 제한 오류 문제 해결-계산](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)을 참조 하세요.
+계산 작업의 제한 한도에 대 한 자세한 내용은 [API 제한 오류 문제 해결-계산](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors)을 참조 하세요.
 
 가상 머신 확장 집합 내의 가상 머신 인스턴스를 확인 하려면 [Virtual Machine Scale Sets 작업](/rest/api/compute/virtualmachinescalesetvms)을 사용 합니다. 예를 들어 가상 머신 [확장 집합 vm-목록](/rest/api/compute/virtualmachinescalesetvms/list) 매개 변수를 사용 하 여 가상 머신 인스턴스의 전원 상태를 확인 합니다. 이 API는 요청 수를 줄입니다.
 
@@ -98,7 +98,7 @@ Azure SDK를 사용 하는 경우 SDK에 자동 다시 시도 구성이 있을 �
 | x-ms-ratelimit-remaining-tenant-resource-requests |테넌트에 범위가 지정된 나머지 리소스 종류 요청.<br /><br />이 헤더는 서비스에서 기본 제한을 재정의한 경우에만 테넌트 수준의 요청에 대해서만 추가됩니다. Resource Manager는 테넌트 읽기 또는 쓰기 대신 이 값을 추가합니다. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |테넌트에 범위가 지정된 나머지 리소스 종류 컬렉션 요청.<br /><br />이 헤더는 서비스에서 기본 제한을 재정의한 경우에만 테넌트 수준의 요청에 대해서만 추가됩니다. |
 
-리소스 공급자는 나머지 요청에 대 한 정보를 사용 하 여 응답 헤더를 반환할 수도 있습니다. Compute 리소스 공급자에서 반환 하는 응답 헤더에 대 한 자세한 내용은 [호출 요금 정보 응답 헤더](../../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers)를 참조 하세요.
+리소스 공급자는 나머지 요청에 대 한 정보를 사용 하 여 응답 헤더를 반환할 수도 있습니다. Compute 리소스 공급자에서 반환 하는 응답 헤더에 대 한 자세한 내용은 [호출 요금 정보 응답 헤더](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors#call-rate-informational-response-headers)를 참조 하세요.
 
 ## <a name="retrieving-the-header-values"></a>헤더 값 검색
 

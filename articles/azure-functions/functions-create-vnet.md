@@ -3,12 +3,12 @@ title: 사설 끝점을 사용 하 여 가상 네트워크와 Azure Functions �
 description: 이 자습서에서는 Azure 가상 네트워크에 함수를 연결 하 고 개인 끝점을 사용 하 여 잠그는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630472"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027417"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>자습서: 개인 끝점을 사용 하 여 Azure 가상 네트워크와 Azure Functions 통합
 
@@ -36,7 +36,7 @@ ms.locfileid: "102630472"
 
 1. **기본 사항** 페이지에서 다음 표를 사용 하 여 함수 앱 설정을 구성 합니다.
 
-    | 설정      | 제안 값  | Description |
+    | 설정      | 제안 값  | 설명 |
     | ------------ | ---------------- | ----------- |
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 생성 되는 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
@@ -82,7 +82,7 @@ ms.locfileid: "102630472"
 
 1. **기본 사항** 탭에서 다음 표를 사용 하 여 저장소 계정 설정을 구성 합니다. 다른 모든 설정에는 기본값을 사용할 수 있습니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용 하 여 만든 리소스 그룹입니다. |
@@ -99,7 +99,7 @@ ms.locfileid: "102630472"
 
 1. **기본 정보** 탭에서 다음 표를 사용 하 여 service bus 설정을 구성 합니다. 다른 모든 설정에는 기본값을 사용할 수 있습니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용 하 여 만든 리소스 그룹입니다. |
@@ -125,7 +125,7 @@ ms.locfileid: "102630472"
 
 1. **기본 사항** 탭에서 다음 표를 사용 하 여 가상 네트워크 설정을 구성 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용 하 여 만든 리소스 그룹입니다. |
@@ -136,7 +136,7 @@ ms.locfileid: "102630472"
 
     :::image type="content" source="./media/functions-create-vnet/1-create-vnet-ip-address.png" alt-text="가상 네트워크 구성 보기 만들기의 스크린샷":::
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **서브넷 이름** | functions | 함수 앱이 연결 될 서브넷의 이름입니다. | 
     | **서브넷 주소 범위** | 10.0.1.0/24 | 서브넷 주소 범위입니다. 위의 그림에서 IPv4 주소 공간은 10.0.0.0/16입니다. 값이 10.1.0.0/16 인 경우 권장 서브넷 주소 범위는 10.1.1.0/24입니다. |
@@ -157,7 +157,7 @@ Azure 개인 끝점은 개인 IP 주소를 사용 하 여 특정 Azure 리소스
 
 1. **기본 사항** 탭에서 다음 표에 나와 있는 개인 끝점 설정을 사용 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용 하 여 만든 리소스 그룹을 선택 합니다. | |
@@ -166,7 +166,7 @@ Azure 개인 끝점은 개인 IP 주소를 사용 하 여 특정 Azure 리소스
 
 1. **리소스** 탭에서 다음 표에 나와 있는 개인 끝점 설정을 사용 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.Storage/storageAccounts | 저장소 계정에 대 한 리소스 유형입니다. |
@@ -179,7 +179,7 @@ Azure 개인 끝점은 개인 IP 주소를 사용 하 여 특정 Azure 리소스
 
 1. Blob에 대 한 다른 개인 끝점을 만듭니다. **리소스** 탭에서 다음 표에 나와 있는 설정을 사용 합니다. 다른 모든 설정의 경우에는 파일에 대 한 개인 끝점을 만드는 데 사용한 것과 동일한 값을 사용 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.Storage/storageAccounts | 저장소 계정에 대 한 리소스 유형입니다. |
@@ -198,7 +198,7 @@ Service bus를 잠글 개인 끝점을 만듭니다.
 
 1. **기본 사항** 탭에서 다음 표에 나와 있는 개인 끝점 설정을 사용 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)**  | myResourceGroup | 함수 앱을 사용 하 여 만든 리소스 그룹입니다. |
@@ -207,7 +207,7 @@ Service bus를 잠글 개인 끝점을 만듭니다.
 
 1. **리소스** 탭에서 다음 표에 나와 있는 개인 끝점 설정을 사용 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **구독** | 사용자의 구독 | 리소스가 만들어지는 구독입니다. | 
     | **리소스 종류**  | Microsoft.ServiceBus/namespaces | 서비스 버스에 대 한 리소스 형식입니다. |
@@ -284,7 +284,7 @@ Azure Functions service bus 트리거에서 이벤트를 가져오는 큐를 만
 
     :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="전용 끝점에 대 한 함수 앱 설정을 구성 하는 방법의 스크린샷":::
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **AzureWebJobsStorage** | mysecurestorageConnectionString | 만든 저장소 계정의 연결 문자열입니다. 이 저장소 연결 문자열은 [저장소 계정 연결 문자열 가져오기](#get-the-storage-account-connection-string) 섹션에서 가져온 것입니다. 이 설정을 통해 함수 앱은 런타임에 정상 작업에 보안 저장소 계정을 사용할 수 있습니다. | 
     | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | 만든 저장소 계정의 연결 문자열입니다. 이 설정을 사용 하면 함수 앱이 배포 중에 사용 되는 Azure Files에 대 한 보안 저장소 계정을 사용할 수 있습니다. |
@@ -312,7 +312,7 @@ Azure Functions service bus 트리거에서 이벤트를 가져오는 큐를 만
 
 1. **설정** 탭에서 다음 표에 나와 있는 배포 설정을 사용 합니다.
 
-    | 설정      | 제안 값  | Description      |
+    | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
     | **원본** | GitHub | 2 단계에서 샘플 코드에 대 한 GitHub 리포지토리를 만들어야 합니다. | 
     | **조직**  | myOrganization | 리포지토리가 체크 인 된 조직입니다. 일반적으로 사용자의 계정입니다. |
@@ -332,7 +332,7 @@ Azure Functions service bus 트리거에서 이벤트를 가져오는 큐를 만
 
 이제 함수 앱을 잠글 개인 끝점을 만듭니다. 이 개인 끝점은 개인 IP 주소를 사용 하 여 전용 및 안전 하 게 가상 네트워크에 함수 앱을 연결 합니다. 
 
-자세한 내용은 [개인 끝점 설명서](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)를 참조 하세요.
+자세한 내용은 [개인 끝점 설명서](../private-link/private-endpoint-overview.md)를 참조 하세요.
 
 1. 함수 앱의 왼쪽에 있는 메뉴에서 **네트워킹** 을 선택 합니다.
 
