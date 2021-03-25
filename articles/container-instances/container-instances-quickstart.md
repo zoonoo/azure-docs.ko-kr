@@ -10,10 +10,10 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.openlocfilehash: 1c327fc7fc067948b5022f989e6c86f99573bd1a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93100187"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
@@ -66,7 +66,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-컨테이너의 `ProvisioningState`가 **Succeeded** (성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
+컨테이너의 `ProvisioningState`가 **Succeeded**(성공)이면 브라우저에서 해당 FQDN으로 이동합니다. 다음과 비슷한 웹 페이지가 표시됩니다. Docker 컨테이너에서 실행되는 애플리케이션이 Azure에 성공적으로 배포되었습니다.
 
 ![브라우저에서 Azure Container Instances에 배포된 앱 보기][aci-app-browser]
 

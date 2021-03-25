@@ -4,12 +4,12 @@ ms.service: databox
 ms.author: alkohli
 ms.topic: include
 ms.date: 03/23/2021
-ms.openlocfilehash: 34d0d55ba6eb403055be96758b57b7bd0c2ab704
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 0d912d0ac3f0fcf4c52116e67909038a1973304b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104988337"
+ms.locfileid: "105105785"
 ---
 IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 문제를 해결할 수 있습니다. 가능한 응답 목록은 다음과 같습니다.
 
@@ -32,7 +32,7 @@ IoT Edge 에이전트 런타임 응답을 사용 하 여 계산 관련 오류 �
 
 #### <a name="suggested-solution"></a>추천 솔루션
 
-IoT Edge 서비스를 삭제 한 다음 모듈을 다시 배포 합니다. 자세한 내용은 [IoT Edge 서비스 제거](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service)를 참조 하세요.
+IoT Edge 서비스를 삭제 한 다음 모듈을 다시 배포 합니다. 자세한 내용은 [IoT Edge 서비스 제거](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service)를 참조 하세요.
 
 
 ### <a name="modules-show-as-running-but-are-not-working"></a>모듈이 실행 중으로 표시 되지만 작동 하지 않습니다.
@@ -65,7 +65,7 @@ IoT Edge 서비스를 삭제 한 다음 모듈을 다시 배포 합니다. 자�
 1. **Kubernetes 외부 서비스 ip** 에 대 한 고정 ip 범위를 입력 합니다. 서비스에는 1 개의 IP가 필요 `edgehub` 합니다. 또한 각 IoT Edge 모듈 및 배포할 각 VM에 대해 하나의 IP가 필요 합니다. 
 1. **적용** 을 선택합니다. 변경 된 IP 범위는 즉시 적용 됩니다.
 
-자세한 내용은 [컨테이너의 외부 서비스 Ip 변경](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers)을 참조 하세요.
+자세한 내용은 [컨테이너의 외부 서비스 Ip 변경](../articles/databox-online/azure-stack-edge-gpu-manage-compute.md#change-external-service-ips-for-containers)을 참조 하세요.
 
 ### <a name="configure-static-ips-for-iot-edge-modules"></a>IoT Edge 모듈의 고정 Ip 구성
 

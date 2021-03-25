@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 76df8baaf170b05762b93478a496eb1e9ed802d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de78008a4645690cfc900f77670204bb892daf51
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94916749"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105042971"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Media Services v3 API에 연결-Python
 
@@ -27,12 +27,12 @@ ms.locfileid: "94916749"
 
 이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 Python SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Python.org](https://www.python.org/downloads/) 에서 Python 다운로드
 - 환경 변수를 설정 해야 합니다. `PATH`
 - [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
-- [액세스 API](./access-api-howto.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 응용 프로그램 ID (클라이언트 ID), 인증 키 (비밀) 및 테 넌 트 ID를 기록 합니다.
+- [액세스 api](./access-api-howto.md) 항목의 단계에 따라 서비스 주체 인증 방법을 선택 합니다. `SubscriptionId`이후 단계에서 필요한 구독 id (), 응용 프로그램 클라이언트 ID ( `AadClientId` ), 인증 키 ( `AadSecret` ) 및 테 넌 트 id ()를 기록 합니다 `AadTenantId` .
 
 > [!IMPORTANT]
 > [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토합니다.
@@ -59,38 +59,34 @@ pip3 install azure-mgmt-media==3.0.0
 1. 자주 사용 하는 편집기에서 파일을 엽니다.
 1. 파일에 다음 코드를 추가 합니다. 이 코드는 필요한 모듈을 가져오고 Media Services에 연결 하는 데 필요한 Active Directory 자격 증명 개체를 만듭니다.
 
-      변수의 값을 [액세스 api](./access-api-howto.md) 에서 가져온 값으로 설정 합니다.
+      변수의 값을 [액세스 api](./access-api-howto.md)에서 가져온 값으로 설정 합니다. `ACCOUNT_NAME`및 변수를 `RESOUCE_GROUP_NAME` 해당 리소스를 만들 때 사용 되는 Media Services 계정 이름 및 리소스 그룹 이름으로 업데이트 합니다.
 
       ```
       import adal
+      from azure.mgmt.media import AzureMediaServices
       from msrestazure.azure_active_directory import AdalAuthentication
       from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-      from azure.mgmt.media import AzureMediaServices
-      from azure.mgmt.media.models import MediaService
 
-      RESOURCE = 'https://management.core.windows.net/'
-      # Tenant ID for your Azure Subscription
-      TENANT_ID = '00000000-0000-0000-000000000000'
-      # Your Service Principal App ID
-      CLIENT = '00000000-0000-0000-000000000000'
-      # Your Service Principal Password
-      KEY = '00000000-0000-0000-000000000000'
-      # Your Azure Subscription ID
-      SUBSCRIPTION_ID = '00000000-0000-0000-000000000000'
+      RESOURCE = "https://management.core.windows.net/"
+      # Tenant ID for your Azure Subscription (AadTenantId)
+      TENANT_ID = "00000000-0000-0000-000000000000"
+      # Your Service Principal App ID (AadClientId)
+      CLIENT = "00000000-0000-0000-000000000000"
+      # Your Service Principal Password (AadSecret)
+      KEY = "00000000-0000-0000-000000000000"
+      # Your Azure Subscription ID (SubscriptionId)
+      SUBSCRIPTION_ID = "00000000-0000-0000-000000000000"
       # Your Azure Media Service (AMS) Account Name
-      ACCOUNT_NAME = 'amsv3account'
+      ACCOUNT_NAME = "amsaccount"
       # Your Resource Group Name
-      RESOUCE_GROUP_NAME = 'AMSv3ResourceGroup'
+      RESOUCE_GROUP_NAME = "amsResourceGroup"
 
       LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
       RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
 
-      context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
+      context = adal.AuthenticationContext(LOGIN_ENDPOINT + "/" + TENANT_ID)
       credentials = AdalAuthentication(
-          context.acquire_token_with_client_credentials,
-          RESOURCE,
-          CLIENT,
-          KEY
+          context.acquire_token_with_client_credentials, RESOURCE, CLIENT, KEY
       )
 
       # The AMS Client
@@ -101,7 +97,7 @@ pip3 install azure-mgmt-media==3.0.0
 
       # Now that you are authenticated, you can manipulate the entities.
       # For example, list assets in your AMS account
-      print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
+      print(client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
       ```
 
 1. 파일 실행

@@ -3,12 +3,12 @@ title: Azure Service Bus에 대 한 문제 해결 가이드 | Microsoft Docs
 description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대 한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 7de39e5a3a7b6cbb8e5fa504f073023853e18366
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179700"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031293"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Azure Service Bus를 사용할 때 표시 될 수 있는 몇 가지 문제에 대 한 문제 해결 팁과 권장 사항을 제공 합니다. 
@@ -52,7 +52,7 @@ ms.locfileid: "102179700"
     ```
     , 등의 다른 도구를 사용 하는 경우에는 동일한 명령을 사용할 수 있습니다 `tnc` `ping` . 
 - 이전 단계에서 [Wireshark](https://www.wireshark.org/)와 같은 도구를 사용 하 여 도움을 주지 않고 분석 하는 경우 네트워크 추적을 가져옵니다. 필요한 경우 [Microsoft 지원](https://support.microsoft.com/) 에 문의 하세요. 
-- 연결에 대 한 허용 목록에 추가할 올바른 IP 주소를 찾으려면 [허용 목록에 추가 해야 하는 ip 주소](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list)를 참조 하세요. 
+- 연결에 대 한 allowlist에 추가할 올바른 IP 주소를 찾으려면 [allowlist에 추가 해야 하는 ip 주소](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list)를 참조 하세요. 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>서비스 업그레이드/다시 시작 시 발생할 수 있는 문제
@@ -98,6 +98,25 @@ Service Bus 네임 스페이스에 대 한 단일 연결을 사용 하 여 메�
 
 ### <a name="resolution"></a>해결 방법
 더 많은 메시지를 전송 하려면 Service Bus 네임 스페이스에 대 한 새 연결을 엽니다.
+
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>PowerShell을 사용 하 여 가상 네트워크 규칙을 추가 하지 못함
+
+### <a name="symptoms"></a>증상
+가상 네트워크 규칙의 단일 가상 네트워크에서 두 개의 서브넷을 구성 했습니다. [AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet을 사용 하 여 한 서브넷을 제거 하려고 하면 가상 네트워크 규칙에서 서브넷이 제거 되지 않습니다. 
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
+```
+
+### <a name="cause"></a>원인
+서브넷에 대해 지정한 Azure Resource Manager ID가 잘못 되었을 수 있습니다. 가상 네트워크가 Service Bus 네임 스페이스가 있는 다른 리소스 그룹에 있는 경우이 문제가 발생할 수 있습니다. 가상 네트워크의 리소스 그룹을 명시적으로 지정 하지 않으면 CLI 명령은 Service Bus 네임 스페이스의 리소스 그룹을 사용 하 여 Azure Resource Manager ID를 생성 합니다. 따라서 네트워크 규칙에서 서브넷을 제거 하지 못합니다. 
+
+### <a name="resolution"></a>해결 방법
+가상 네트워크가 있는 리소스 그룹의 이름을 포함 하는 서브넷의 전체 Azure Resource Manager ID를 지정 합니다. 예를 들면 다음과 같습니다.
+
+```azurepowershell-interactive
+Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
+```
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 

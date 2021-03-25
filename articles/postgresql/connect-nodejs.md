@@ -14,10 +14,10 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: 7569606429740de23b56767d490b9bb14283d468
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93331695"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Node.js를 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
@@ -48,7 +48,7 @@ npm list
 ## <a name="get-connection-information"></a>연결 정보 가져오기
 PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 만든 서버(예: **mydemoserver** )를 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에서 만든 서버(예: **mydemoserver**)를 검색하여 선택합니다.
 
 1. 서버의 **개요** 패널에서 **서버 이름** 과 **관리자 사용자 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
 

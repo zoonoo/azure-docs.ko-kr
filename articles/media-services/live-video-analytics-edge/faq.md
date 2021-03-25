@@ -3,12 +3,12 @@ title: IoT Edge FAQ에서 라이브 비디오 분석-Azure
 description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석에 대 한 자주 묻는 질문에 답변 합니다.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702252"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032802"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>IoT Edge FAQ의 Live Video Analytics
 
@@ -18,7 +18,7 @@ ms.locfileid: "101702252"
 
 **그래프 토폴로지 정의에서 사용할 수 있는 시스템 변수는 무엇 인가요?**
 
-| 변수   |  설명  | 
+| 변수   |  Description  | 
 | --- | --- | 
 | [System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | UTC 시간의 인스턴트를 나타냅니다. 일반적으로 다음과 같은 형식으로 날짜와 시간으로 표현 됩니다.<br>*yyyyMMddTHHmmssZ* | 
 | PreciseDateTime | 밀리초를 사용 하는 ISO8601 파일 호환 형식의 UTC (협정 세계시) 날짜/시간 인스턴스를 다음 형식으로 나타냅니다.<br>*yyyyMMddTHHmmss* | 
@@ -129,7 +129,7 @@ Apple HLS 또는 MPEG-4를 사용 하 여 콘텐츠를 배달할 수 있습니�
    
 *GRPC 프로토콜을 사용 합니다*. 
 
-* 라이브 비디오 분석 모듈 1.0를 사용 하 여 범용 원격 프로시저 호출 (gRPC) 프로토콜을 사용 하는 경우 gRPC 서버에서 다른 포트를 통해 서로 다른 AI 모델을 노출 하는 경우에만이 작업을 수행할 수 있습니다. [이 코드 예제](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json)에서 단일 포트인 44000는 모든 yolo 모델을 노출 합니다. 이론적으로 yolo gRPC 서버를 다시 작성 하 여 포트 44000 및 포트 45000의 다른 모델을 노출할 수 있습니다. 
+* 라이브 비디오 분석 모듈 1.0를 사용 하 여 범용 원격 프로시저 호출 (gRPC) 프로토콜을 사용 하는 경우 gRPC 서버에서 다른 포트를 통해 서로 다른 AI 모델을 노출 하는 경우에만이 작업을 수행할 수 있습니다. [이 코드 예제](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json)에서 단일 포트인 44000는 모든 yolo 모델을 노출 합니다. 이론적으로 yolo gRPC 서버를 다시 작성 하 여 포트 44000 및 포트 45000의 다른 모델을 노출할 수 있습니다. 
 
 * 라이브 비디오 분석 모듈 2.0을 사용 하면 gRPC 확장 노드에 새 속성이 추가 됩니다. **Extensionconfiguration** 속성은 grpc 계약의 일부로 사용할 수 있는 선택적 문자열입니다. 단일 유추 서버에 여러 AI 모델이 패키지 된 경우에는 모든 AI 모델에 대 한 노드를 노출할 필요가 없습니다. 대신, 그래프 인스턴스의 경우 확장 공급자는 **Extensionconfiguration** 속성을 사용 하 여 여러 AI 모델을 선택 하는 방법을 정의할 수 있습니다. 실행 하는 동안 Live Video Analytics는이 문자열을 추론 서버에 전달 하 여 원하는 AI 모델을 호출 하는 데 사용할 수 있습니다. 
 
