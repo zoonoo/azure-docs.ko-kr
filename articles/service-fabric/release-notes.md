@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 38ec7949b5fc04852568e9e69f35f212b1edee5d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7f99c37cd9f029c7478d4102bd17c952ffd52f8c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201041"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044280"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric 릴리스
 
@@ -72,7 +72,7 @@ Service Fabric 런타임의 7.2 릴리스가 도구 및 SDK 업데이트와 함�
       -  전체 비용 절감 (디스크가 무료 이며 추가 저장소 비용이 발생 하지 않음)
 - [**주체 일반 이름을 기준으로 Service Fabric 응용 프로그램의 서비스 끝점 인증서**](./service-fabric-service-manifest-resources.md)선언 지원.
 - [**컨테이너 화 된 services에 대 한 상태 프로브 지원**](./probes-codepackage.md): 컨테이너 화 된 응용 프로그램에 대 한 선거의 프로브 메커니즘에 대 한 지원입니다. 선거의 프로브는 컨테이너 화 된 응용 프로그램의 선거의을 발표 하는 데 도움이 되며, 적시에 응답 하지 않으면 다시 시작 됩니다. 
-- [컨테이너](/azure/service-fabric/service-fabric-containers-overview) 및 [게스트 실행 파일](/azure/service-fabric/service-fabric-guest-executables-introduction) 응용 프로그램에 대 한 [**이니셜라이저 코드 패키지 지원**](./initializer-codepackages.md) . 이렇게 하면 코드 패키지 (예: 컨테이너)를 지정 된 순서로 실행 하 여 서비스 패키지 초기화를 수행할 수 있습니다.
+- [컨테이너](./service-fabric-containers-overview.md) 및 [게스트 실행 파일](./service-fabric-guest-executables-introduction.md) 응용 프로그램에 대 한 [**이니셜라이저 코드 패키지 지원**](./initializer-codepackages.md) . 이렇게 하면 코드 패키지 (예: 컨테이너)를 지정 된 순서로 실행 하 여 서비스 패키지 초기화를 수행할 수 있습니다.
 - **FabricObserver 및 ClusterObserver** 는 SF 클러스터의 여러 측면과 관련 된 Service Fabric 원격 분석을 캡처하는 상태 비저장 응용 프로그램입니다. 이러한 응용 프로그램은 모두 Windows 프로덕션 클러스터에 배포할 준비가 되어 ApplicationInsights, EventSource 및 LogAnalytics에 대해 구현 된 지원으로 다양 한 원격 분석을 캡처할 수 있습니다.
     - [**FabricObserver () 2.0**](https://github.com/microsoft/service-fabric-observer)-모든 노드에서 실행 되 고, 상태 이벤트를 생성 하 고, 사용자가 구성한 리소스 사용 임계값에 도달 하면 원격 분석을 내보냅니다. 이 릴리스에는 모니터링, 데이터 관리, 상태 이벤트 세부 정보, 구조화 된 원격 분석 등 여러 가지 향상 된 기능이 포함 되어 있습니다.
      - [**Clusterobserver (CO) 1.1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) -한 노드에서 실행 되 고 클러스터 수준 상태 원격 분석을 캡처합니다. 이 릴리스에서는 노드 상태를 모니터링 하 고 사용자 지정 기간 보다 오랫동안 노드가 다운/비활성화/사용 안 함으로 설정 된 경우 원격 분석을 내보냅니다.

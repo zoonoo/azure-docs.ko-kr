@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: mimckitt
-ms.openlocfilehash: 0451047cd0fa31d27553a33b0c9318e03ffa222e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: da51fabaaa3c02137770f0b2d9a851b1f6702980
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102558953"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044052"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
@@ -47,10 +47,10 @@ sudo pkg install bash
 python이 FreeBSD 컴퓨터에 설치되지 않은 경우 설치 전에 다음 명령을 실행합니다. 
 
 ```bash
-sudo pkg install python35
+sudo pkg install python38
 cd /usr/local/bin 
 sudo rm /usr/local/bin/python 
-sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
+sudo ln -s /usr/local/bin/python3.8 /usr/local/bin/python
 ```
 
 설치하는 동안 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` 프롬프트가 표시됩니다. `y`로 답변하고 `a path to an rc file to update`로 `/etc/rc.conf`를 입력하면 문제 `ERROR: [Errno 13] Permission denied`가 발생할 수 있습니다. 이 문제를 해결하려면 현재 사용자에게 `etc/rc.conf` 파일에 대한 쓰기 권한을 부여해야 합니다.

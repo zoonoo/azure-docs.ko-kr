@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92207842"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>자습서: Traffic Manager에서 가중치 적용 트래픽 라우팅 방법 구성
@@ -60,23 +60,23 @@ ms.locfileid: "92207842"
 
 1. **저장** 을 선택하여 구성을 완료합니다.
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Traffic Manager 프로필 검색"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Traffic Manager 가중 구성"::: 
 
 1. **엔드포인트** 를 선택하고 각 엔드포인트의 가중치를 구성합니다. 가중치는 1~1000일 수 있습니다. 가중치가 높을수록 우선 순위가 높아집니다.  
 
-    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Traffic Manager 프로필 검색"::: 
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Traffic Manager 가중 엔드포인트 구성"::: 
 
 ## <a name="use-the-traffic-manager-profile"></a>Traffic Manager 프로필 사용
 
 **Traffic Manager 프로필** 에 새로 만든 Traffic Manager 프로필의 DNS 이름이 표시됩니다. 이 이름은 모든 클라이언트에서 라우팅 유형에 따라 결정된 올바른 엔드포인트로 라우팅(예: 웹 브라우저를 사용하여 이동)하는 데 사용할 수 있습니다. 이 경우 모든 요청은 라운드 로빈 방식으로 각 엔드포인트로 라우팅됩니다.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Traffic Manager 프로필 검색"::: 
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Traffic Manager 가중 개요"::: 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Traffic Manager 프로필이 더 이상 필요하지 않은 경우 해당 프로필을 찾아서 **프로필 삭제** 를 선택합니다.
 
-:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Traffic Manager 프로필 검색":::
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Traffic Manager 가중 프로필 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
-ms.date: 02/26/2019
-ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 4434c796a41126444b8785440427123e88e0b528
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472008"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107791"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Resource Health를 사용 하 여 Azure SQL Database 및 Azure SQL에 대 한 연결 문제를 해결 Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,5 +76,5 @@ Azure 인프라는 데이터 센터에서 하드웨어 또는 소프트웨어 �
 - [일시적인 오류에 대 한 재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)에 대해 자세히 알아보세요.
 - [SQL 연결 오류를 해결, 진단 및 방지](troubleshoot-common-connectivity-issues.md)합니다.
 - [Resource Health 경고 구성](../../service-health/resource-health-alert-arm-template-guide.md)에 대해 자세히 알아보세요.
-- [Resource Health](../../application-gateway/resource-health-overview.md)에 대 한 개요를 가져옵니다.
+- [Resource Health](../../service-health/resource-health-overview.md)에 대 한 개요를 가져옵니다.
 - [RESOURCE HEALTH FAQ](../../service-health/resource-health-faq.md)를 검토 합니다.

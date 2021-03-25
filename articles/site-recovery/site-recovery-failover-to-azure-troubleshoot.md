@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92371990"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043906"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
 
@@ -78,9 +78,9 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
 
-RDP 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)에서 설명서를 참조 하세요.
+RDP 문제에 대 한 자세한 문제 해결 지침은 [여기](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)에서 설명서를 참조 하세요.
 
-SSH 문제에 대 한 자세한 문제 해결 지침은 [여기](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md)에서 설명서를 참조 하세요.
+SSH 문제에 대 한 자세한 문제 해결 지침은 [여기](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)에서 설명서를 참조 하세요.
 
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우에는 다음을 수행합니다.
 
@@ -94,7 +94,7 @@ Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 �
 
 ## <a name="unable-to-connectrdpssh---vm-connect-button-available"></a>연결할 수 없음/RDP/SSH - VM 연결 단추 사용 가능
 
-Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단** 을 검사하고 [이 문서](../virtual-machines/troubleshooting/boot-diagnostics.md)에 나열된 오류를 확인합니다.
+Azure에서 장애 조치(failover)된 VM의 **연결** 단추를 사용할 수 있는 경우(회색으로 표시되지 않음), 가상 머신에서 **부트 진단** 을 검사하고 [이 문서](/troubleshoot/azure/virtual-machines/boot-diagnostics)에 나열된 오류를 확인합니다.
 
 1. 가상 머신이 시작되지 않은 경우 이전의 복구 지점으로 장애 조치를 시도합니다.
 2. 가상 머신 내 애플리케이션이 가동되지 않는 경우 애플리케이션 일치 복구 지점으로 장애 조치를 시도합니다.
@@ -182,7 +182,7 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Windows VM에 대한 RDP 연결](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md) 문제 해결
-- [Linux VM에 대한 SSH 연결](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md) 문제 해결
+- [Windows VM에 대한 RDP 연결](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection) 문제 해결
+- [Linux VM에 대한 SSH 연결](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection) 문제 해결
 
 도움이 더 필요하다면 [Site Recovery에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-site-recovery.html)에 쿼리를 게시하거나 이 문서의 끝에 의견을 남기세요. 도움을 드릴 수 있도록 커뮤니티를 운영 중입니다.

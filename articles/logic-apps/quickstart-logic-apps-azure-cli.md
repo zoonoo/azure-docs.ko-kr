@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 11/23/2020
 ms.openlocfilehash: bc172fd1702addf8f4e34094452a779b09320a4d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97033377"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 논리 앱 만들기 및 관리
@@ -148,7 +148,7 @@ Azure CLI에서 [`az logic workflow delete`](/cli/azure/ext/logic/logic/workflow
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-delete-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | Description |
+| 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `-resource-group -g` | 논리 앱이 배치되는 리소스 그룹입니다. |
@@ -198,7 +198,7 @@ az logic workflow show --name
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/ext/logic/logic/workflow#ext-logic-az-logic-workflow-show-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | Description |
+| 매개 변수 | 값 | 설명 |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱이 배치되는 리소스 그룹의 이름입니다. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 270e7f748f0d7fda14d93ac753ba655117f7ad36
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048236"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044153"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -39,7 +39,7 @@ Azure 센티널은 Azure Monitor Log Analytics의 Kusto 쿼리 언어 (KQL)를 �
 
 기본 제공 플레이 북의 갤러리를 확대 하 여 Azure Logic Apps를 사용 하 여 Azure 센티널에서 자동화를 만듭니다. 
 
-자세한 내용은 [Azure Logic Apps 커넥터](https://docs.microsoft.com/connectors/)를 참조 하세요.
+자세한 내용은 [Azure Logic Apps 커넥터](/connectors/)를 참조 하세요.
 
 ## <a name="comment-on-our-blogs-and-forums"></a>블로그 및 포럼에 대 한 의견
 
@@ -67,4 +67,3 @@ Microsoft 보안 분석가들은 새로운 통합 문서, 플레이 북 및 헌�
 
 > [!div class="nextstepaction"]
 > [고객 사용 사례 스토리 읽기](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
-

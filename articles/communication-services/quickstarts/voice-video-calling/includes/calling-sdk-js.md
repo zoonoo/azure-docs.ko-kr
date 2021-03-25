@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 7fee393b694bf761cf052702a975239d6dff9a9c
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9aaaece7d60ceead80e51bdc2a1bb342d9a4d237
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105219"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107750"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -18,12 +18,12 @@ ms.locfileid: "105105219"
 - 호출 클라이언트를 사용 하도록 설정 하는 사용자 액세스 토큰입니다. 자세한 내용은 [액세스 토큰 만들기 및 관리](../../access-tokens.md)를 참조 하세요.
 - 선택 사항: 빠른 시작을 완료 하 여 [응용 프로그램에 음성 통화를 추가](../getting-started-with-calling.md)합니다.
 
-## <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
+## <a name="install-the-sdk"></a>SDK 설치
 
 > [!NOTE]
-> 이 문서에서는 통화 클라이언트 라이브러리 1.0.0-beta.6 버전을 사용합니다.
+> 이 문서에서는 호출 하는 SDK의 버전 1.0.0-베타. 6을 사용 합니다.
 
-명령을 사용 하 여 `npm install` 및 JavaScript 용 공용 클라이언트 라이브러리를 호출 하는 Azure 통신 서비스를 설치 합니다.
+명령을 사용 하 여 `npm install` 및 JavaScript 용 일반 sdk를 호출 하는 Azure 통신 서비스를 설치 합니다.
 이 문서는 호출 하는 라이브러리의 버전 1.0.0-beta. 5에서 형식을 참조 합니다.
 
 ```console
@@ -34,11 +34,11 @@ npm install @azure/communication-calling --save
 
 ## <a name="object-model"></a>개체 모델
 
-다음 클래스와 인터페이스는 클라이언트 라이브러리를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
+다음 클래스와 인터페이스는 SDK를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
-| Name                             | Description                                                                                                                                 |
+| 이름                             | 설명                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                      | 호출 하는 클라이언트 라이브러리에 대 한 주 진입점입니다.                                                                       |
+| `CallClient`                      | 호출 SDK의 주 진입점입니다.                                                                       |
 | `CallAgent`                        | 호출을 시작 하 고 관리 하는 데 사용 됩니다.                                                                                            |
 | `DeviceManager`                    | 미디어 장치를 관리 하는 데 사용 됩니다.                                                                                           |
 | `AzureCommunicationTokenCredential` | 를 `CommunicationTokenCredential` 인스턴스화하는 데 사용 되는 인터페이스를 구현 `callAgent` 합니다. |
@@ -63,7 +63,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-a-call"></a>전화 걸기
 
-호출을 만들고 시작 하려면의 Api 중 하나를 사용 하 `callAgent` 고 통신 서비스 id 클라이언트 라이브러리를 통해 만든 사용자를 제공 합니다.
+호출을 만들고 시작 하려면의 Api 중 하나를 사용 하 `callAgent` 고 통신 서비스 ID SDK를 통해 만든 사용자를 제공 합니다.
 
 통화 만들기와 시작은 동기적입니다. 호출 인스턴스를 사용 하면 호출 이벤트를 구독할 수 있습니다.
 

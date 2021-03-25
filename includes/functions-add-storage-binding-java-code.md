@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2020
 ms.author: glenga
 ms.openlocfilehash: 9d5bae1aedbd031a0a3c08ba5141aebc22f1c674
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99493397"
 ---
 이제 새 `msg` 매개 변수를 사용하여 함수 코드에서 출력 바인딩에 쓸 수 있습니다. 성공 응답 앞에 다음 코드 줄을 추가하여 `name` 값을 `msg` 출력 바인딩에 추가합니다.

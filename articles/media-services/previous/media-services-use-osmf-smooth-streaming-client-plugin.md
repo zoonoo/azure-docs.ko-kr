@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70042a5c4c27ec5d163e5f05089ae50b92140c28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b0969ffae7963d6a5f9ac249e43750444ab11baa
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011258"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036053"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법
 
@@ -59,7 +59,7 @@ OSMF 플러그 인은 정적으로(컴파일 시간에) 또는 동적으로(런�
 * 정적 로드: 정적으로 로드하려면 정적 라이브러리(SWC) 파일이 필요합니다. 정적 플러그 인이 프로젝트에 참조로 추가되고 컴파일 시간에 최종 출력 파일 내에 병합됩니다.
 * 동적 로드: 동적으로 로드하려면 미리 컴파일된(SWF) 파일이 필요합니다. 동적 플러그 인이 런타임에 로드되며 프로젝트 출력에 포함되지 않습니다. (컴파일된 출력) 동적 플러그 인은 HTTP 및 FILE 프로토콜을 사용하여 로드할 수 있습니다.
 
-정적 및 동적 로드에 대한 자세한 내용은 공식 [OSMF 플러그 인 페이지](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)(영문)를 참조하십시오.
+정적 및 동적 로드에 대한 자세한 내용은 공식 [OSMF 플러그 인 페이지](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.3.0/com.ibm.zos.v2r3.izua300/IZUHPINFO_PluginsPlanning.htm)(영문)를 참조하십시오.
 
 ### <a name="ss-for-osmf-static-loading"></a>SS for OSMF 정적 로드
 아래 코드 조각은 OSMF용 SS 플러그 인을 정적으로 로드하고 OSMF MediaFactory 클래스를 사용하여 기본 비디오를 재생하는 방법을 보여 줍니다. SS for OSMF 코드를 포함하기 전에 먼저 프로젝트 참조에 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" 정적 플러그 인이 있는지 확인하십시오.

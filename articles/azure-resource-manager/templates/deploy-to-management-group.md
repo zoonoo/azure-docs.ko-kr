@@ -3,12 +3,12 @@ title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 603b7e32e6f4e1181a8ef2df67382b5e21ed6715
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889810"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043311"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>ARM 템플릿을 사용 하 여 관리 그룹 배포
 
@@ -25,7 +25,7 @@ Azure 청사진의 경우 다음을 사용 합니다.
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [버전](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-Azure 정책의 경우 다음을 사용 합니다.
+Azure Policy의 경우 다음을 사용 합니다.
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)

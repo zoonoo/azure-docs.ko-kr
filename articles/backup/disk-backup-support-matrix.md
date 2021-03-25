@@ -4,25 +4,20 @@ description: 지원 설정 및 Azure Disk Backup 제한 사항에 대 한 요약
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707220"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107281"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Azure Disk Backup 지원 매트릭스 (미리 보기)
-
->[!IMPORTANT]
->Azure Disk Backup은 서비스 수준 계약 없이 미리 보기 상태 이며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
->미리 보기에 등록 하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) 하세요.
+# <a name="azure-disk-backup-support-matrix"></a>Azure Disk Backup 지원 매트릭스
 
 [Azure Backup](./backup-overview.md) 를 사용 하 여 Azure 디스크를 보호할 수 있습니다. 이 문서에서는 지역 가용성, 지원 되는 시나리오 및 제한 사항을 요약 합니다.
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Azure Disk Backup은 다음 지역에서 미리 보기로 제공 됩니다. 미국 서 부, 미국 서 부, 미국 미국, 캐나다 중부, 영국 서부, 스위스 북부, 스위스 서부, 오스트레일리아 중부, 오스트레일리아 중부 2, 대한민국 중부, 대한민국 남부, 일본 서 부, 동아시아, 아랍에미리트 북부, 브라질 남부, 인도 중부. 
+Azure Disk Backup은 다음 지역에서 제공 됩니다. 미국 서 부, 미국 서 부 2, 미국 서 부, 미국 동부, 미국 미국, 미국 중부, 미국 중 북부, 미국 중 북부, 캐나다 중부, 브라질 남부, 남아프리카 공화국 북부, 영국 남부, 영국 서부, 유럽 서부, 북부, 스위스 북부, 스위스 서부, 독일 중서부, 프랑스 중부, 노르웨이 동부, 아랍에미리트 북부, 오스트레일리아 중부, 오스트레일리아 중부 2 , 오스트레일리아 동부, 대한민국 중부, 한국 남부, 일본 동부, 일본 서 부, 동아시아, 동남 아시아, 인도 중부 
 
 사용할 수 있게 되 면 더 많은 지역이 발표 됩니다.
 
