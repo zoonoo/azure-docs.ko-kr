@@ -2,14 +2,14 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670208"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108641"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
@@ -18,6 +18,12 @@ ms.locfileid: "104670208"
 이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트 또는 삭제할 수 없음을 의미 합니다. 리소스가 고정 된 것은 아닙니다. 예를 들어 Azure SQL 논리 서버와 해당 데이터베이스를 새 리소스 그룹 또는 구독으로 이동 하는 경우 데이터베이스를 사용 하는 응용 프로그램에서 가동 중지 시간이 발생 하지 않습니다. 여전히 데이터베이스를 읽고 쓸 수 있습니다. 잠금은 최대 4 시간 동안 지속 될 수 있지만 대부분의 시간이 훨씬 더 짧습니다.
 
 리소스를 이동할 때는 새 리소스 그룹 또는 구독으로만 이동됩니다. 리소스의 위치는 변경하지 않습니다.
+
+## <a name="changed-resource-id"></a>변경 된 리소스 ID
+
+리소스를 이동 하는 경우 해당 리소스 ID를 변경 합니다. 리소스 ID의 표준 형식은 `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}` 입니다. 새 리소스 그룹 또는 구독으로 리소스를 이동 하는 경우 해당 경로에서 하나 이상의 값을 변경 합니다.
+
+리소스 ID를 어디서 나 사용 하는 경우 해당 값을 변경 해야 합니다. 예를 들어 포털에 리소스 ID를 참조 하는 [사용자 지정 대시보드가](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) 있는 경우 해당 값을 업데이트 해야 합니다. 새 리소스 ID로 업데이트 해야 하는 스크립트나 템플릿을 찾습니다.
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 
@@ -36,7 +42,7 @@ ms.locfileid: "104670208"
    * [Virtual Machines 이동 지침](./move-limitations/virtual-machines-move-limitations.md)
    * Azure 구독을 새 관리 그룹으로 이동 하려면 [구독 이동](../../governance/management-groups/manage.md#move-subscriptions)을 참조 하세요.
 
-1. Azure 역할이 할당 된 리소스 (또는 자식 리소스)에 직접 이동 하는 경우 역할 할당은 이동 되지 않으며 분리 됩니다. 이동 후에는 역할 할당을 다시 만들어야 합니다. 결국 분리 된 역할 할당이 자동으로 제거 되지만 리소스를 이동 하기 전에 역할 할당을 제거 하는 것이 가장 좋습니다.
+1. Azure 역할이 할당 된 리소스 (또는 자식 리소스)에 직접 이동 하는 경우 역할 할당은 이동 되지 않으며 분리 됩니다. 이동 후에는 역할 할당을 다시 만들어야 합니다. 결국 분리 된 역할 할당이 자동으로 제거 되지만 이동 하기 전에 역할 할당을 제거 하는 것이 좋습니다.
 
     역할 할당을 관리 하는 방법에 대 한 자세한 내용은 [azure 역할 할당 나열](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) 및 [azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
 
@@ -260,7 +266,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 **질문: 리소스 이동 중에 리소스 그룹이 4 시간 동안 잠겨 있는 이유는 무엇 인가요?**
 
-이동 요청은 완료 하는 데 최대 4 시간까지 허용 됩니다. 이동 되는 리소스에 대 한 수정을 방지 하기 위해 원본 및 대상 리소스 그룹은 리소스 이동 기간 동안 잠깁니다.
+이동 요청은 완료 하는 데 최대 4 시간까지 허용 됩니다. 이동 되는 리소스에 대 한 수정을 방지 하기 위해 리소스를 이동 하는 동안 원본 및 대상 리소스 그룹을 모두 잠 궜 습니다.
 
 이동 요청에는 두 단계가 있습니다. 첫 번째 단계에서 리소스를 이동 합니다. 두 번째 단계에서는 이동 하는 리소스에 종속 된 다른 리소스 공급자에 게 알림이 전송 됩니다. 리소스 공급자가 두 단계 모두를 실패할 때 전체 4 시간 동안 리소스 그룹을 잠글 수 있습니다. 허용 되는 시간 동안 리소스 관리자는 실패 한 단계를 다시 시도 합니다.
 

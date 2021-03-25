@@ -1,19 +1,19 @@
 ---
 title: 방화벽 규칙 관리-Azure CLI-Azure Database for MySQL 유연한 서버
 description: Azure CLI 명령줄을 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 방화벽 규칙을 만들고 관리 합니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4c699b00ebbecdbee985babe47c036cce6e0cb4b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92545075"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109967"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for MySQL 유연한 서버 방화벽 규칙 만들기 및 관리
 
@@ -35,7 +35,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 계정에 로그인해야 합니다. Azure 계정의 **구독 id** 를 참조 하는 **id** 속성을 기록해 둡니다.
 

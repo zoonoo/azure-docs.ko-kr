@@ -7,40 +7,20 @@
       href: overview.md
     - name: 새로운 기능
       href: whats-new.md
-- name: Form Recognizer 시작
-  expanded: true
+- name: 빠른 시작
   items:
-    - name: 클라이언트 라이브러리 또는 REST API 사용
+    - name: 클라이언트 라이브러리 또는 REST API 시작
       href: quickstarts/client-library.md
     - name: 샘플 레이블 지정 도구 사용
       href: quickstarts/label-tool.md
-- name: 자습서
+- name: 샘플
   items:
-    - name: Cognitive Search와 함께 Form Recognizer 사용
-      href: ../../search/cognitive-search-custom-skill-form.md
-    - name: AI Builder와 함께 Form Recognizer 사용
-      href: tutorial-ai-builder.md
-    - name: Azure Functions에서 Form Recognizer 사용
-      href: tutorial-azure-function.md
-    - name: 대량으로 양식 데이터 추출
-      href: tutorial-bulk-processing.md
-- name: 개념
-  items:
-    - name: 레이아웃 API
-      expanded: true
-      items:
-        - name: 양식 데이터 추출
-          href: concept-layout.md
-    - name: 사용자 지정 모델
-      href: concept-custom.md
-    - name: Receipts
-      href: concept-receipts.md
-    - name: 명함
-      href: concept-business-cards.md
-    - name: 송장
-      href: concept-invoices.md
-    - name: ID 카드
-      href: concept-identification-cards.md
+    - name: 'C#/.NET: Form Recognizer 클라이언트 라이브러리 SDK'
+      href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+    - name: 'Java: Form Recognizer 클라이언트 라이브러리 SDK'
+      href: /samples/azure/azure-sdk-for-java/formrecognizer-java-samples
+    - name: 'Python: Form Recognizer 클라이언트 라이브러리 SDK'
+      href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
 - name: 방법 가이드
   items:
     - name: 학습 데이터 세트 빌드
@@ -64,6 +44,33 @@
           href: ../containers/index.yml
     - name: 모델 백업 및 복구
       href: disaster-recovery.md
+- name: 개념
+  items:
+    - name: 레이아웃 API
+      expanded: true
+      items:
+        - name: 양식 데이터 추출
+          href: concept-layout.md
+    - name: 사용자 지정 모델
+      href: concept-custom.md
+    - name: Receipts
+      href: concept-receipts.md
+    - name: 명함
+      href: concept-business-cards.md
+    - name: 송장
+      href: concept-invoices.md
+    - name: ID 카드
+      href: concept-identification-cards.md
+- name: 자습서
+  items:
+    - name: 대량으로 양식 데이터 추출
+      href: tutorial-bulk-processing.md
+    - name: Cognitive Search와 함께 Form Recognizer 사용
+      href: ../../search/cognitive-search-custom-skill-form.md
+    - name: AI Builder와 함께 Form Recognizer 사용
+      href: tutorial-ai-builder.md
+    - name: Azure Functions에서 Form Recognizer 사용
+      href: tutorial-azure-function.md
 - name: 참조
   items:
     - name: Form Recognizer API v2.1 미리보기 3

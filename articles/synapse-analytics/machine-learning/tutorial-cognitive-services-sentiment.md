@@ -10,10 +10,10 @@ ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 08d5e53facce172c2287c2e341895f0ee38571f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821428"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>자습서: Cognitive Services를 사용하여 감정 분석(미리 보기)
@@ -30,7 +30,7 @@ Azure Synapse의 사용자는 감정을 사용하여 보강할 텍스트 열이 
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.

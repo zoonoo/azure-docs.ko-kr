@@ -3,12 +3,12 @@ title: 템플릿 함수-문자열
 description: 문자열 작업에 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 함수에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: e823acc07ce0618c064f30e103ec52b7133cea18
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cff1424562b45bc722f87fa3ec896c1c641ee758
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731122"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108845"
 ---
 # <a name="string-functions-for-arm-templates"></a>ARM 템플릿에 대 한 문자열 함수
 
@@ -66,7 +66,7 @@ ms.locfileid: "101731122"
 
 Base64 표현을 포함하는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64 함수를 사용하는 방법을 보여줍니다.
 
@@ -149,7 +149,7 @@ base64 표현을 JSON 개체로 변환합니다.
 
 JSON 개체입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToJson 함수를 사용하여 base64 값을 변환합니다.
 
@@ -233,7 +233,7 @@ base64 표현을 문자열로 변환합니다.
 
 변환된 base64 값의 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
 
@@ -321,7 +321,7 @@ output toJsonOutput object = base64ToJson(base64Object)
 
 연결된 값의 문자열 또는 배열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
 
@@ -450,7 +450,7 @@ output return array = concat(firstArray, secondArray)
 
 항목이 있으면 **True** 이고, 항목이 없으면 **False** 입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
 
@@ -539,11 +539,11 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 | 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | 거짓 |
+| stringFalse | Bool | False |
 | objectTrue | Bool | True |
-| objectFalse | Bool | 거짓 |
+| objectFalse | Bool | False |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | 거짓 |
+| arrayFalse | Bool | False |
 
 ## <a name="datauri"></a>dataUri
 
@@ -561,7 +561,7 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 데이터 URI로 형식이 지정된 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
@@ -630,7 +630,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 변환된 값을 포함하는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
@@ -699,7 +699,7 @@ output toStringOutput string = dataUriToString(dataFormattedString)
 
 값이 비어 있으면 **True** 를 반환하고 비어 있지 않으면 **False** 를 반환합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
@@ -781,7 +781,7 @@ output stringEmpty bool = empty(testString)
 
 마지막 문자 또는 문자열의 문자가 값과 일치하면 **True** 이고, 일치하지 않으면 **False** 입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
 
@@ -840,10 +840,10 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | 거짓 |
+| startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | 거짓 |
+| endsFalse | Bool | False |
 
 ## <a name="first"></a>first
 
@@ -861,7 +861,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 배열의 첫 번째 문자의 문자열 또는 첫 번째 요소의 형식(문자열, int, 배열 또는 개체)입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여줍니다.
 
@@ -932,7 +932,7 @@ output stringOutput string = first('One Two Three')
 
 템플릿에서 문자열의 형식을 지정 하려면이 함수를 사용 합니다. .NET의 [system.string](/dotnet/api/system.string.format) 메서드와 동일한 형식 지정 옵션을 사용 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 예제 템플릿에서는 format 함수를 사용 하는 방법을 보여 줍니다.
 
@@ -1058,7 +1058,7 @@ guid(resourceGroup().id, deployment().name)
 
 고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
 
@@ -1115,7 +1115,7 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 
 찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우-1이 반환 됩니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
 
@@ -1197,7 +1197,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 배열의 마지막 문자의 문자열 또는 마지막 요소의 형식(문자열, int, 배열 또는 개체)입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)에서는 배열 및 문자열에 최근 함수를 사용하는 방법을 보여줍니다.
 
@@ -1267,7 +1267,7 @@ output stringOutput string = last('One Two Three')
 
 찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우-1이 반환 됩니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
 
@@ -1341,7 +1341,7 @@ output notFound int = indexOf('abcdef', 'z')
 
 int입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
 
@@ -1453,7 +1453,7 @@ NewGuid 함수는 .NET Framework의 [guid 구조](/dotnet/api/system.guid) 를 �
 
 고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 예제 템플릿에서는 새 식별자를 포함 하는 매개 변수를 보여 줍니다.
 
@@ -1492,7 +1492,7 @@ output guidOutput string = guidValue
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | guidOutput | 문자열 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
@@ -1559,7 +1559,7 @@ output nameOutput string = storageName
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| Name | Type | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | nameOutput | 문자열 | storagenziwvyru7uxie |
 
@@ -1575,7 +1575,7 @@ output nameOutput string = storageName
 |:--- |:--- |:--- |:--- |
 | valueToPad |예 |문자열 또는 int |오른쪽으로 맞출 값입니다. |
 | totalLength |예 |int |반환된 문자열에서 문자의 총수입니다. |
-| paddingCharacter |아니요 |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
+| paddingCharacter |예 |단일 문자 |총 길이에 도달할 때까지 왼쪽 여백에 사용되는 문자입니다. 기본값은 공백입니다. |
 
 원래 문자열이 채울 문자 수보다 긴 경우 문자가 추가되지 않습니다.
 
@@ -1583,7 +1583,7 @@ output nameOutput string = storageName
 
 최소한 지정된 문자의 수를 포함하는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다.
 
@@ -1643,7 +1643,7 @@ output stringOutput string = padLeft(testString, 10, '0')
 
 문자가 대체된 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json)에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
 
@@ -1708,7 +1708,7 @@ output secondOutput string = replace(testString, '1234', 'xxxx')
 
 배열 또는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
 
@@ -1796,7 +1796,7 @@ output stringOutput string = skip(testString, charactersToSkip)
 
 문자열 배열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json)에서는 쉼표를 사용하여 또는 쉼표 또는 세미콜론을 사용하여 입력 문자열을 분할합니다.
 
@@ -1874,7 +1874,7 @@ output secondOutput array = split(secondString, delimiters)
 
 첫 번째 문자 또는 문자열의 문자가 값과 일치하면 **True** 이고, 일치하지 않으면 **False** 입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
 
@@ -1933,7 +1933,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | 거짓 |
+| startsFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
@@ -1954,7 +1954,7 @@ output endsFalse bool = endsWith('abcdef', 'e')
 
 변환된 값의 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json)에서는 다른 형식의 값을 문자열로 변환하는 방법을 보여 줍니다.
 
@@ -2043,8 +2043,8 @@ output intOutput string = string(testInt)
 | 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |문자열 |부분 문자열을 추출할 원래 문자열입니다. |
-| startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
-| length |아니요 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
+| startIndex |예 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
+| length |예 |int |부분 문자열에 대한 문자 수입니다. 문자열 내 위치를 참조해야 합니다. 0 이상이어야 합니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -2077,7 +2077,7 @@ var prefix = substring(inputString, 0, 11)
 
 ---
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json)에서는 매개 변수에서 하위 문자열을 추출합니다.
 
@@ -2135,7 +2135,7 @@ output substringOutput string = substring(testString, 4, 3)
 
 배열 또는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
 
@@ -2189,12 +2189,12 @@ param testArray array = [
   'two'
   'three'
 ]
-param elementsToSkip int = 2
+param elementsToTake int = 2
 param testString string = 'one two three'
-param charactersToSkip int = 2
+param charactersToTake int = 2
 
-output arrayOutput array = take(testArray, elementsToSkip)
-output stringOutput string = take(testString, charactersToSkip)
+output arrayOutput array = take(testArray, elementsToTake)
+output stringOutput string = take(testString, charactersToTake)
 ```
 
 ---
@@ -2222,7 +2222,7 @@ output stringOutput string = take(testString, charactersToSkip)
 
 소문자로 변환된 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
@@ -2286,7 +2286,7 @@ output toUpperOutput string = toUpper(testString)
 
 대문자로 변환된 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
@@ -2350,7 +2350,7 @@ output toUpperOutput string = toUpper(testString)
 
 선행 및 후행 공백 문자가 없는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json)에서는 매개 변수에서 공백 문자를 자릅니다.
 
@@ -2491,7 +2491,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 
 13개의 문자를 포함하는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)에서는 uniquestring에서 결과를 반환합니다.
 
@@ -2559,7 +2559,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 기본 및 상대 값에 대한 절대 URI를 나타내는 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -2645,7 +2645,7 @@ URI를 인코딩합니다.
 
 URI로 인코딩된 값의 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
@@ -2715,7 +2715,7 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 
 URI로 인코딩된 값의 디코딩된 문자열입니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 

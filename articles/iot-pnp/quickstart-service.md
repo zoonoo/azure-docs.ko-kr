@@ -10,10 +10,10 @@ services: iot-pnp
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-ten
 ms.openlocfilehash: f1c7cb4c760b5344a7c27fc0257fdea445280b7f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99831902"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution"></a>빠른 시작: 솔루션에 연결된 IoT 플러그 앤 플레이 디바이스와 상호 작용

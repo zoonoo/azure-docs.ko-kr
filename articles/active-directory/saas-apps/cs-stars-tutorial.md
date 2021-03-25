@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 6dce717e6622d7b322756c239d5728c6fe813ba0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97670138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>자습서: CS Stars와 Azure Active Directory 통합

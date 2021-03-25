@@ -5,10 +5,10 @@ ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: 8d631ffcb14af93f10e578097470efc6156287d5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99594319"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 쿼리 만들기
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 값을 선택하거나 입력합니다.
 
-   | Name | 값 |
+   | 속성 | 값 |
    |------|-------|
    | Subscription | Azure 구독을 선택합니다. |
    | Resource group | **새로 만들기** 를 선택하고 이름을 지정한 다음, **확인** 을 선택합니다. |

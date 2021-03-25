@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/07/2021
 ms.author: alkohli
 ms.openlocfilehash: c51577882e75facb1d8eb03c7cfab82467c5ec51
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821362"
 ---
 Azure Stack Edge Pro에 컴퓨팅을 구성하려면 Azure Portal을 통해 IoT Hub 리소스를 만들어야 합니다.

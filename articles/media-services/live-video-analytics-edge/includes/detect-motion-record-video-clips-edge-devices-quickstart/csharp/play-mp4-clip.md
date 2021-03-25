@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dfb887004cd29b5bd9f1d9886b7dfa5f43c83dbe
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99531836"
 ---
 MP4 파일은 VIDEO_OUTPUT_FOLDER_ON_DEVICE 키를 사용하여 *.env* 파일에서 구성한 에지 디바이스의 디렉터리에 기록됩니다. 기본값을 사용한 경우 결과는 */var/media/* 폴더에 있어야 합니다.

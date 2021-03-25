@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92057980"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - ARM 템플릿
@@ -55,18 +55,18 @@ ms.locfileid: "92057980"
 
 Azure에 ARM 템플릿을 배포합니다.
 
-1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
+1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
 
 2. 포털의 **여러 IP 주소로 Azure Firewall 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
    - 구독: 기존 구독에서 선택 
-   - 리소스 그룹:  기존 리소스 그룹에서 선택하거나 **새로 만들기**를 선택하고 **확인**을 선택합니다.
+   - 리소스 그룹:  기존 리소스 그룹에서 선택하거나 **새로 만들기** 를 선택하고 **확인** 을 선택합니다.
    - 위치: 위치 선택
    - 관리자 사용자 이름: 관리자 사용자 계정에 대한 사용자 이름 입력 
    - 관리자 암호: 관리자 암호 또는 키 입력
 
-3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
+3. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 

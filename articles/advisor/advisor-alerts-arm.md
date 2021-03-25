@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
 ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100590062"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 추천에 대한 Azure Advisor 경고 만들기

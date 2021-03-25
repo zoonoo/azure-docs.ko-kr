@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: c1b74b43c6ef884c68282dcaaae8dfc9a5541453
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52c5c0d9d13eba29e6f9cb6d50725d51b6877d47
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622028"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110759"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-net"></a>통신 서비스 솔루션에 관리 되는 id 추가 (.NET)
 
-### <a name="install-the-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
+### <a name="install-the-sdk-packages"></a>SDK 패키지 설치
 
 ```console
 dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
@@ -16,9 +16,9 @@ dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
 dotnet add package Azure.Identity
 ```
 
-### <a name="use-the-client-library-packages"></a>클라이언트 라이브러리 패키지 사용
+### <a name="use-the-sdk-packages"></a>SDK 패키지 사용
 
-`using`Azure id 및 Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
+`using`Azure id 및 Azure Storage sdk를 사용 하려면 다음 지시문을 코드에 추가 합니다.
 
 ```csharp
 using Azure.Identity;

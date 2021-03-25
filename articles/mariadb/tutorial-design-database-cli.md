@@ -3,16 +3,16 @@ title: '자습서: Azure Database for MariaDB 디자인 - Azure CLI'
 description: 이 자습서에서는 명령줄에서 Azure CLI를 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: e40a0a63069b09ddcc3e7014e62b2f1cb9806bfd
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8f6f8d5a2cc9dc17d08486125fc2e44307c1be46
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821258"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MariaDB 디자인

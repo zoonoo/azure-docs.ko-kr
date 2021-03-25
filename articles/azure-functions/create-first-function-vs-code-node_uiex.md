@@ -7,10 +7,10 @@ ms.custom:
 - devx-track-js
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3cf47d04da51db898e667ef8b31d42d79c9f354e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747543"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 JavaScript 함수 만들기
@@ -47,7 +47,7 @@ Visual Studio Code를 사용하여 HTTP 요청에 응답하는 JavaScript 함수
 
 ## <a name="2-create-your-local-functions-project"></a>2. <a name="create-an-azure-functions-project"></a>로컬 Functions 프로젝트 만들기
 
-1. 작업 표시줄에서 Azure 아이콘을 <abbr title="">선택한 다음</abbr>, **Azure: Functions** 영역에서 **새 프로젝트 만들기...** 아이콘을 선택합니다.
+1. 작업 표시줄에서 Azure 아이콘을 <abbr title="">선택한 다음</abbr>그런 다음, **Azure: Functions** 영역에서 **새 프로젝트 만들기...** 아이콘을 선택합니다.
 
     ![새 프로젝트 만들기 선택](./media/functions-create-first-function-vs-code/create-new-project.png)
 
@@ -72,7 +72,7 @@ Visual Studio Code를 사용하여 HTTP 요청에 응답하는 JavaScript 함수
 <details>
 <summary><strong>함수 프로젝트를 만들 수 없나요?</strong></summary>
 
-로컬 Functions 프로젝트를 만들 때 해결해야 하는 가장 대표적인 문제는 다음과 같습니다.
+로컬 Functions 프로젝트를 만들 때 해결해야 하는 가장 일반적인 문제는 다음과 같습니다.
 * Azure Functions 확장이 설치되어 있지 않습니다. 
 </details>
 
@@ -105,10 +105,10 @@ Visual Studio Code를 사용하여 HTTP 요청에 응답하는 JavaScript 함수
 
 <br/>
 <details>
-<summary><strong>함수를 로컬로 실행할 수 없나요?</strong></summary>
+<summary><strong>함수를 로컬에서 실행할 수 없나요?</strong></summary>
 
-로컬 Functions 프로젝트를 실행할 때 해결해야 하는 가장 대표적인 문제는 다음과 같습니다.
-* Core Tools가 설치되어 있지 않습니다. 
+로컬 Functions 프로젝트를 실행할 때 해결해야 하는 가장 일반적인 문제는 다음과 같습니다.
+* 핵심 도구가 설치되어 있지 않습니다. 
 *  Windows에서 실행하는 데 문제가 있는 경우 Visual Studio Code의 기본 터미널 셸이 WSL Bash로 설정되어 있지 않은지 확인합니다. 
 </details>
 
@@ -119,7 +119,7 @@ Visual Studio Code를 사용하여 HTTP 요청에 응답하는 JavaScript 함수
 
 앱을 게시하려면 Azure에 로그인합니다. 이미 로그인한 경우 다음 섹션으로 이동합니다.
 
-1. 작업 표시줄에서 Azure 아이콘을 선택한 다음, **Azure: Functions** 영역에서 **Azure에 로그인...** 을 선택합니다.
+1. 작업 막대에서 Azure 아이콘을 선택한 다음, **Azure: Functions** 영역에서 **Azure에 로그인...** 을 선택합니다.
 
     ![VS Code 내에서 Azure에 로그인](../../includes/media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
@@ -173,9 +173,9 @@ Visual Studio Code를 사용하여 HTTP 요청에 응답하는 JavaScript 함수
 
 완료되면 함수 앱 이름을 기반으로 하는 이름을 사용하여 구독에 다음 Azure 리소스가 생성됩니다. 
 * **리소스 그룹**: 리소스 그룹은 동일한 지역에 있는 관련 리소스에 대한 논리적 컨테이너입니다.
-* **Azure Storage 계정** - Storage 리소스는 프로젝트에 대한 상태 및 기타 정보를 유지합니다.
-* **사용 계획** - 사용 계획은 서버리스 함수 앱의 기본 호스트를 정의합니다.
-* **함수 앱**: 함수 앱은 함수 코드 및 그룹 함수를 논리 단위로 실행하기 위한 환경을 제공합니다.
+* **Azure Storage 계정**: Storage 리소스는 프로젝트에 대한 상태 및 기타 정보를 유지합니다.
+* **사용 계획**: 사용 계획은 서버리스 함수 앱의 기본 호스트를 정의합니다.
+* **함수 앱**: 함수 앱은 함수 코드 및 그룹 함수를 논리적 단위로 실행하기 위한 환경을 제공합니다.
 * **Application Insights**: Application Insights는 서버리스 함수 사용 현황을 추적합니다.
 
 </details>

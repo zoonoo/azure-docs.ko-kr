@@ -9,10 +9,10 @@ ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f469664c716ecef6b82de2befa40b33f253e229f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821607"
 ---
 1. 사용자가 만든 가상 WAN을 찾습니다. 가상 WAN 페이지의 **연결** 섹션에서 **Hubs** 를 선택합니다.

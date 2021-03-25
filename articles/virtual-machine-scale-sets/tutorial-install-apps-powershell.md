@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: e783f7f0a9be413679e509e4d6124d50bb811821
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87059284"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 애플리케이션 설치
@@ -155,9 +155,9 @@ Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select IpAddress
 
 
 ## <a name="update-app-deployment"></a>앱 배포 업데이트
-확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `-UpgradePolicyMode`가 *Automatic*으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
+확장 집합의 수명 주기 전체에서 애플리케이션의 업데이트된 버전을 배포해야 할 수 있습니다. 사용자 지정 스크립트 확장을 사용하면 업데이트된 배포 스크립트를 참조한 다음, 해당 확장을 확장 집합에 다시 적용할 수 있습니다. 이전 단계에서 확장 집합을 만든 경우 `-UpgradePolicyMode`가 *Automatic* 으로 설정되어 있습니다. 이 설정을 사용하면 확장 집합의 VM 인스턴스에서 자동으로 업데이트하여 애플리케이션의 최신 버전을 적용할 수 있습니다.
 
-*customConfigv2*라는 새 구성 정의를 만듭니다. 이 정의는 업데이트된 *v2* 버전의 애플리케이션 설치 스크립트를 실행합니다.
+*customConfigv2* 라는 새 구성 정의를 만듭니다. 이 정의는 업데이트된 *v2* 버전의 애플리케이션 설치 스크립트를 실행합니다.
 
 ```azurepowershell-interactive
 $customConfigv2 = @{
