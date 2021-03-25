@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 789233ce1ede751276f965143716694c6feca3ca
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705163"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032798"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
@@ -90,7 +90,7 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 디바이스의 방화벽, 라우터 내부의 방화벽 등 방화벽이 다음 포트를 차단하지 않는지 확인합니다.
 
-| 포트              | 프로토콜 | 허용    | 설명 |
+| 포트              | 프로토콜 | 허용    | Description |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | 나가는 포트 | 초기 연결 (HTTP 핸드셰이크) |
 | 8266              | UDP      | 나가는 포트 | 데이터 전송 |
@@ -111,12 +111,10 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 
 ## <a name="unity"></a>Unity
 
-Unity를 사용 하 여 개발 하려면 다음을 설치 합니다.
-
-* Unity 2019.3.1[(다운로드)](https://unity3d.com/get-unity/download)
-* 다음 모듈을 Unity에 설치합니다.
-  * **UWP** - 유니버설 Windows 플랫폼 빌드 지원
-  * **IL2CPP** - Windows 빌드 지원(IL2CPP)
+Unity를 사용 하 여 개발 하려면 최신 버전의 Unity 2019.3 또는 2019.4 LTS [(다운로드)](https://unity3d.com/get-unity/download)를 설치 합니다. 설치를 관리 하려면 Unity 허브를 사용 하는 것이 좋습니다.
+Unity 설치에 다음 모듈을 포함 해야 합니다.
+* **UWP** - 유니버설 Windows 플랫폼 빌드 지원
+* **IL2CPP** - Windows 빌드 지원(IL2CPP)
 
 ## <a name="next-steps"></a>다음 단계
 

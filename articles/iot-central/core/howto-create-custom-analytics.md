@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 458c93fd3e13a958137c762a0979af918a70d930
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023057"
+ms.locfileid: "105033826"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 설정 | 값 |
 | ------- | ----- |
-| 요금제 | 표준 |
+| 요금제 | Standard |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -78,7 +78,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스�
 | Subscription | 사용자의 구독 |
 | Resource group | IoTCentralAnalysis |
 | 위치 | 미국 동부 |
-| 가격 책정 계층 | 표준 |
+| 가격 책정 계층 | Standard |
 
 필요한 리소스를 만든 경우 **IoTCentralAnalysis** 리소스 그룹은 다음 스크린샷 처럼 보입니다.
 
@@ -153,7 +153,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 | 설정 | 값 |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
-| 클러스터 모드 | 표준 |
+| 클러스터 모드 | Standard |
 | Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.5) |
 | Python 버전 | 3 |
 | 자동 크기 조정 사용 | No |

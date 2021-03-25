@@ -16,10 +16,10 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: c0c0018ac3007f77da820b9b0cecbb69c68bef31
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92308304"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>자습서: Google Cloud Messaging을 사용하여 특정 Android 디바이스에 푸시 알림 보내기(더 이상 사용되지 않음)
@@ -33,7 +33,7 @@ ms.locfileid: "92308304"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 Android 앱에 속보 알림을 브로드캐스트하는 방법을 보여줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그* 를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -314,7 +314,7 @@ ms.locfileid: "92308304"
 ## <a name="test-the-app"></a>앱 테스트
 
 1. Android Studio의 Android 디바이스 또는 에뮬레이터에서 앱을 실행합니다. 앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
-2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독**을 클릭합니다. 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다. 등록된 범주가 반환되어 알림 메시지에 표시됩니다.
+2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독** 을 클릭합니다. 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다. 등록된 범주가 반환되어 알림 메시지에 표시됩니다.
 
     ![범주에 대한 구독](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
 3. 각 범주에 대한 알림을 전송하는 .NET 콘솔 앱을 실행합니다. 선택한 범주에 대한 알림이 알림 메시지로 나타납니다.

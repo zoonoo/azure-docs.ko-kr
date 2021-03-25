@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1bd91ca63034f77553abb00f4fbf05431a45bd55
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: d3d10eb496899287e93a96f0cbb06dedf83c601d
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773388"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048632"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -41,7 +41,7 @@ ms.locfileid: "104773388"
 - **C + +/c #/Java/Objective-C/Python**: 압축 된 TTS/합성 오디오를 SDK와 디코딩하는 지원을 추가 했습니다. 출력 오디오 형식을 PCM으로 설정 하 고 시스템에서 GStreamer를 사용할 수 있는 경우 SDK는 서비스에서 압축 된 오디오를 자동으로 요청 하 여 대역폭을 절약 하 고 클라이언트에서 오디오를 디코딩합니다. 이렇게 하면 사용 사례에 필요한 대역폭을 낮출 수 있습니다. `SpeechServiceConnection_SynthEnableCompressedAudioTransmission`을로 설정 `false` 하 여이 기능을 사용 하지 않도록 설정할 수 있습니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#propertyid), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.propertyid?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.propertyid?view=azure-java-stable), [목표-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxpropertyid), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.propertyid?view=azure-python)에 대 한 세부 정보입니다.
 - **JavaScript** Node.js: 사용자는 이제 API를 사용할 수 있으며,이 [ `AudioConfig.fromWavFileInput` API](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest#fromWavFileInput_File_)를 통해 고객은 디스크의 경로를 .wav 파일로 wav 파일에 보낼 수 있습니다. 그러면 sdk가이를 인식할 수 있습니다. 이 [#252 GitHub 문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/252)를 해결 합니다.
 - **C + +/c #/Java/Objective-C/Python**: `GetVoicesAsync()` 사용 가능한 모든 합성 음성을 프로그래밍 방식으로 반환 하는 TTS에 대 한 메서드를 추가 했습니다. 이렇게 하면 응용 프로그램에서 사용 가능한 음성을 나열 하거나 프로그래밍 방식으로 다른 음성에서 선택할 수 있습니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#getvoicesasync), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-dotnet#methods), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer?view=azure-java-stable#methods), [목표-C](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#getvoices)및 [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?view=azure-python#methods)에 대 한 세부 정보입니다.
-- **C + +/c #/Java/JavaScript/Objective-C/Python**: 지원 되 `VisemeReceived` 는 TTS/음성 합성 이벤트를 추가 하 여 동기 viseme 애니메이션을 반환 합니다. Visemes를 사용 하면 보다 자연 스런 뉴스 브로드캐스트 길잡이, 더 많은 대화형 게임 및 만화 문자 및 보다 직관적인 언어 교육 비디오를 만들 수 있습니다. 청각 장애가 있으면 음성 콘텐츠를 시각적으로 선택 하 고 "립-읽기" 할 수도 있습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme)에서 설명서를 참조 하세요.
+- **C + +/c #/Java/JavaScript/Objective-C/Python**: 지원 되 `VisemeReceived` 는 TTS/음성 합성 이벤트를 추가 하 여 동기 viseme 애니메이션을 반환 합니다. Visemes를 사용 하면 보다 자연 스런 뉴스 브로드캐스트 길잡이, 더 많은 대화형 게임 및 만화 문자 및 보다 직관적인 언어 교육 비디오를 만들 수 있습니다. 청각 장애가 있는 사용자는 소리를 시각적으로 선택 하 고 음성 콘텐츠를 "립-읽기" 할 수도 있습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-speech-synthesis-viseme)에서 설명서를 참조 하세요.
 - **C + +/c #/Java/JavaScript/Objective-C/Python**: `BookmarkReached` TTS에 대 한 이벤트를 추가 했습니다. 입력 SSML에서 책갈피를 설정 하 고 각 책갈피에 대 한 오디오 오프셋을 가져올 수 있습니다. 응용 프로그램에서이를 사용 하 여 특정 단어가 텍스트를 음성으로 말할 때 작업을 수행할 수 있습니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-synthesis-markup#bookmark-element)에서 설명서를 참조 하세요.
 - **Java**: java에서 스피커 인식을 사용할 수 있도록 하는 스피커 인식 api에 대 한 지원이 추가 되었습니다. 자세한 내용은 [여기](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speakerrecognizer?view=azure-java-stable)를 참조 하세요.
 - **C + +/c #/Java/JavaScript/Objective-C/Python**: TTS 용 webm 컨테이너 (Webm16Khz16BitMonoOpus 및 Webm24Khz16BitMonoOpus)를 사용 하 여 두 개의 새로운 출력 오디오 형식을 추가 했습니다. 이러한 형식은 Opus 코덱으로 오디오를 스트리밍하는 데 더 적합 합니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace#speechsynthesisoutputformat), [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-java-stable), [JavaScript](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest), [목표-c](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesisoutputformat), [Python](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesisoutputformat?view=azure-python)에 대 한 세부 정보입니다.

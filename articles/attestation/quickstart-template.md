@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: mbaldwin
 ms.date: 10/16/2020
 ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92144971"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Attestation 공급자 만들기
@@ -49,9 +49,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     지정되지 않은 경우 기본 값을 사용하여 증명 공급자를 만듭니다.
 
-    - **증명 공급자 이름** : Azure Attestation 공급자의 이름을 선택합니다.
-    - **위치** : 위치를 선택합니다. 예: **미국 중부**
-    - **태그** : 위치를 선택합니다. 예: **미국 중부**
+    - **증명 공급자 이름**: Azure Attestation 공급자의 이름을 선택합니다.
+    - **위치**: 위치를 선택합니다. 예: **미국 중부**
+    - **태그**: 위치를 선택합니다. 예: **미국 중부**
 
 1. **구매** 를 선택합니다. 증명 리소스가 성공적으로 배포되면 알림을 받게 됩니다.
 

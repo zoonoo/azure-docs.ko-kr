@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7165cdc072ffaa5b0d862e1fe17f94e35c35aeec
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720939"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034540"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 계산 및 저장소 옵션 (미리 보기)
 
@@ -46,28 +46,28 @@ ms.locfileid: "101720939"
 
 사용 가능한 서버 유형의 세부 사양은 다음과 같습니다.
 
-| 컴퓨팅 크기         | vCore 수 | 메모리 크기 (GiB) | 
-|----------------------|--------|-------------------|
+| 컴퓨팅 크기         | vCore 수 | 메모리 크기 (GiB) | 지원 되는 최대 IOPS | 지원 되는 최대 i/o 대역폭 (MBps)|
+|----------------------|--------|-------------------| ------------------ |-----------------------------------|
 | **버스터 블**        |        |                   | 
-| Standard_B1s         | 1      | 1                 |  
-| Standard_B1ms        | 1      | 2                 | 
-| Standard_B2s         | 2      | 4                 |  
-| **범용**  |        |                   | 
-| Standard_D2ds_v4     | 2      | 8                 |  
-| Standard_D4ds_v4     | 4      | 16                | 
-| Standard_D8ds_v4     | 8      | 32                | 
-| Standard_D16ds_v4    | 16     | 64                | 
-| Standard_D32ds_v4    | 32     | 128               |  
-| Standard_D48ds_v4    | 48     | 192               |  
-| Standard_D64ds_v4    | 64     | 256               | 
-| **메모리 액세스에 최적화** |        |                   |
-| Standard_E2ds_v4     | 2      | 16                |
-| Standard_E4ds_v4     | 4      | 32                |
-| Standard_E8ds_v4     | 8      | 64                |
-| Standard_E16ds_v4    | 16     | 128               |
-| Standard_E32ds_v4    | 32     | 256               |
-| Standard_E48ds_v4    | 48     | 384               |
-| Standard_E64ds_v4    | 64     | 504               |
+| Standard_B1s         | 1      | 1                 | 320                | 10                                | 
+| Standard_B1ms        | 1      | 2                 | 640                | 10                                |
+| Standard_B2s         | 2      | 4                 | 1280               | 15                                |
+| **범용**  |        |                   |                    |                                   |
+| Standard_D2ds_v4     | 2      | 8                 | 3200               | 48                                |
+| Standard_D4ds_v4     | 4      | 16                | 6400               | 96                                |
+| Standard_D8ds_v4     | 8      | 32                | 12800              | 192                               |
+| Standard_D16ds_v4    | 16     | 64                | 20000              | 384                               |
+| Standard_D32ds_v4    | 32     | 128               | 20000              | 768                               |
+| Standard_D48ds_v4    | 48     | 192               | 20000              | 1152                              |
+| Standard_D64ds_v4    | 64     | 256               | 20000              | 1200                              |
+| **메모리 액세스에 최적화** |        |                   |                    |                                   |
+| Standard_E2ds_v4     | 2      | 16                | 3200               | 48                                |
+| Standard_E4ds_v4     | 4      | 32                | 6400               | 96                                |
+| Standard_E8ds_v4     | 8      | 64                | 12800              | 192                               |
+| Standard_E16ds_v4    | 16     | 128               | 20000              | 384                               |
+| Standard_E32ds_v4    | 32     | 256               | 20000              | 768                               |
+| Standard_E48ds_v4    | 48     | 384               | 20000              | 1152                              |
+| Standard_E64ds_v4    | 64     | 504               | 20000              | 1200                              |
 
 사용 가능한 계산 시리즈에 대 한 자세한 내용은 Azure VM 설명서 ( [B 시리즈)](../../virtual-machines/sizes-b-series-burstable.md), [범용 (Ddsv4 시리즈)](../../virtual-machines/ddv4-ddsv4-series.md)및 [메모리 최적화 (Edsv4 시리즈)](../../virtual-machines/edv4-edsv4-series.md)를 참조 하세요.
 
@@ -156,7 +156,7 @@ Compute 크기별 최대 IOPS에 대 한 자세한 내용은 아래에 나와 �
 
 저장소 크기 조정 및 백업 보존 기간 변경은 온라인 작업 이며 서버를 다시 시작 하지 않아도 됩니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/MySQL/)를 참조하세요. 원하는 구성에 대 한 비용을 확인 하기 위해 [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) 는 선택한 옵션에 따라 **계산 + 저장소** 탭의 월별 비용을 보여 줍니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택 하 고, **데이터베이스** 범주를 확장 하 고, **Azure Database for MySQL**, **유연한 서버** 를 배포 유형으로 선택 하 여 옵션을 사용자 지정 합니다.
 

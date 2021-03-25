@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5309fd60640c45ade42bab4c5727cf1f0a8d9d70
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397953"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025478"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
 
@@ -53,7 +53,7 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분 한 인프라 용량을 
 - Site Recovery 지원:
     - Azure Active Directory (Azure AD)를 필요로 하는 스키마가 있는 ADE 버전 0.1.
     - Azure AD가 필요 하지 않은 ADE 버전 1.1. 버전 1.1의 경우 Windows Azure Vm에는 관리 디스크가 있어야 합니다.
-    - [자세한 정보를 알아보세요](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). 확장 스키마 정보
+    - [자세히 알아보기](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). 확장 스키마 정보
 
 암호화된 VM에 대해 복제를 사용하도록 설정하는 방법을 [자세히 알아보세요](azure-to-azure-how-to-enable-replication-ade-vms.md).
 
@@ -61,7 +61,7 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분 한 인프라 용량을 
 
 복제 된 Azure Vm에서 실행 되는 모바일 서비스 확장에 대 한 업데이트를 관리 하기 위해 Site Recovery 하는 경우 azure automation 계정을 통해 Azure 서비스에서 사용 되는 글로벌 runbook을 배포 합니다. Site Recovery 만드는 automation 계정을 사용 하거나 기존 automation 계정을 사용 하도록 선택할 수 있습니다. 
 
-현재는 포털에서 자격 증명 모음과 동일한 리소스 그룹에 있는 automation 계정만 선택할 수 있습니다. PowerShell을 사용 하 여 다른 리소스 그룹에서 automation 계정을 선택할 수 있습니다. [자세한 정보를 알아보세요](azure-to-azure-autoupdate.md#enable-automatic-updates).
+현재는 포털에서 자격 증명 모음과 동일한 리소스 그룹에 있는 automation 계정만 선택할 수 있습니다. PowerShell을 사용 하 여 다른 리소스 그룹에서 automation 계정을 선택할 수 있습니다. [자세히 알아보기](azure-to-azure-autoupdate.md#enable-automatic-updates).
 
 ### <a name="if-i-use-a-customer-automation-account-thats-not-in-the-vault-resource-group-can-i-delete-the-default-runbook"></a>자격 증명 모음 리소스 그룹에 없는 고객 automation 계정을 사용 하는 경우 기본 runbook을 삭제할 수 있나요?
 
@@ -73,7 +73,7 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분 한 인프라 용량을 
 
 ### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>가용성 영역에서 다른 지역으로 Vm을 복제할 수 있나요?
 
-예, 가용성 영역에 있는 Vm을 다른 Azure 지역에 복제할 수 있습니다. 대상 VM은 단일 인스턴스, 가용성 집합 또는 대상 지역에서 지원 되는 경우 가용성 영역에 배포할 수 있습니다. 
+예, 가용성 영역에 있는 Vm을 다른 Azure 지역에 복제할 수 있습니다. 
 
 ### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>영역이 아닌 Vm을 동일한 지역 내의 영역에 복제할 수 있나요? 
 
@@ -81,11 +81,11 @@ Site Recovery 팀 및 Azure 용량 관리 팀은 충분 한 인프라 용량을 
 
 ### <a name="can-i-replicate-zoned-vms-to-a-different-zone-in-the-same-region"></a>배열로 영역 설정 Vm을 동일한 지역의 다른 영역으로 복제할 수 있나요?
 
-이에 대 한 지원은 몇 개의 지역으로 제한 됩니다. [자세한 정보를 알아보세요](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+이에 대 한 지원은 몇 개 지역으로 제한 됩니다. [자세히 알아보기](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
 ### <a name="can-i-exclude-disks-from-replication"></a>디스크를 복제에서 제외할 수 있나요?
 
-예, PowerShell을 사용 하 여 복제를 설정할 때 디스크를 제외할 수 있습니다. [자세한 정보를 알아보세요](azure-to-azure-exclude-disks.md).
+예, PowerShell을 사용 하 여 복제를 설정할 때 디스크를 제외할 수 있습니다. [자세히 알아보기](azure-to-azure-exclude-disks.md).
 
 ### <a name="can-i-replicate-new-disks-added-to-replicated-vms"></a>복제 된 Vm에 추가 된 새 디스크를 복제할 수 있나요?
 
@@ -111,7 +111,7 @@ Site Recovery를 사용 하 여 지역 내에서 디스크를 복제할 수 없�
 
 ### <a name="does-site-recovery-need-internet-connectivity"></a>인터넷 연결이 필요 Site Recovery?
 
-아니요, 하지만 Vm은 Site Recovery Url 및 IP 범위에 액세스할 수 있어야 합니다. [자세한 정보를 알아보세요](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
+아니요, 하지만 Vm은 Site Recovery Url 및 IP 범위에 액세스할 수 있어야 합니다. [자세히 알아보기](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
 ### <a name="can-i-replicate-an-application-tiered-across-resource-groups"></a>리소스 그룹 전체에 계층화 된 응용 프로그램을 복제할 수 있나요?
 
@@ -285,7 +285,7 @@ Site Recovery의 [복구 계획](site-recovery-create-recovery-plans.md) 은 vm�
 
 ### <a name="how-does-sequencing-work"></a>시퀀싱은 어떻게 작동 하나요?
 
-복구 계획에서는 시퀀싱을 위해 VM의 여러 그룹을 만들 수 있습니다. 그룹은 한 번에 하나씩 장애 조치 (failover) 되므로 동일한 그룹에 속하는 Vm은 함께 장애 조치 (failover) 됩니다. [자세한 정보를 알아보세요](recovery-plan-overview.md#model-apps).
+복구 계획에서는 시퀀싱을 위해 VM의 여러 그룹을 만들 수 있습니다. 그룹은 한 번에 하나씩 장애 조치 (failover) 되므로 동일한 그룹에 속하는 Vm은 함께 장애 조치 (failover) 됩니다. [자세히 알아보기](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>복구 플랜의 RTO를 확인하려면 어떻게 할까요?
 
@@ -295,7 +295,7 @@ Site Recovery의 [복구 계획](site-recovery-create-recovery-plans.md) 은 vm�
 
 ### <a name="can-i-add-automation-runbooks-to-recovery-plans"></a>자동화 runbook을 복구 계획에 추가할 수 있나요?
 
-예. [자세한 정보를 알아보세요](site-recovery-runbook-automation.md).
+예. [자세히 알아보기](site-recovery-runbook-automation.md).
 
 ## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구
 
@@ -305,7 +305,7 @@ Site Recovery의 [복구 계획](site-recovery-create-recovery-plans.md) 은 vm�
 
 ### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>다시 보호 하는 경우 모든 데이터가 보조 지역에서 주 지역으로 복제 되나요? 
 
-그것은 사정 나름이에요. 원본 지역 VM이 있으면 원본 디스크와 대상 디스크 간의 변경 내용만 동기화 됩니다. Site Recovery는 디스크를 다른 것과 비교한 다음 데이터를 전송 합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. [자세한 정보를 알아보세요](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
+그것은 사정 나름이에요. 원본 지역 VM이 있으면 원본 디스크와 대상 디스크 간의 변경 내용만 동기화 됩니다. Site Recovery는 디스크를 다른 것과 비교한 다음 데이터를 전송 합니다. 이 프로세스는 일반적으로 몇 시간 정도 걸립니다. [자세히 알아보기](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### <a name="how-long-does-it-take-fail-back"></a>장애 복구 (failback)는 얼마나 걸립니까?
 
