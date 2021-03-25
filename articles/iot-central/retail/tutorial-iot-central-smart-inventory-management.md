@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
 ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719086"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>자습서: 스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기

@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674965"
 ---
 # <a name="azure-for-students-starter"></a>Azure for Students Starter
@@ -29,7 +29,7 @@ Azure for Students Starter는 비용을 들이지 않고 약정 또는 시간 �
 
 이 제품은 MOOC(대규모 공개 온라인 과정) 또는 영리 조직의 다른 전문 학습에서 사용할 수 없습니다.
 
-이 제품은 적격 고객당 하나의 Azure for Students Starter 구독으로 제한됩니다. Microsoft에서 허용하지 않는 한, 양도할 수 없으며 다른 제품과 결합할 수 없습니다.
+이 제안은 적격 고객당 하나의 Azure for Students Starter 구독으로 제한됩니다. Microsoft에서 허용하지 않는 한, 양도할 수 없으며 다른 제품과 결합할 수 없습니다.
 
 Azure for Students Starter 제품에는 신용 카드가 필요하지 않습니다. 그러나 언제든지 [Azure 계정 포털](https://account.azure.com/)을 사용하여 모든 Azure 서비스에 액세스하기 위해 종량제 구독으로 업그레이드할 수 있습니다.
 

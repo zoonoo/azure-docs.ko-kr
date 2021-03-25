@@ -17,10 +17,10 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 01/27/2021
 ms.openlocfilehash: df6673f6e8e448b0208ee53c17cf86f55d6d9f8f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102219168"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>빠른 시작: Azure IoT 허브로 원격 분석을 전송하고 Java 애플리케이션으로 읽기

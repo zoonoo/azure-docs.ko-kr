@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Monitor에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: sample
 author: rboucher
 ms.author: robb
 ms.service: azure-monitor
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: a97636bc23e1106994ba774a1f19a8df6c227ae9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 40b4a1326091dc8cb7e93ea17a08a8adc7d94f98
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589130"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036131"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-monitor"></a>Azure Monitor에 대한 Azure Policy 규정 준수 컨트롤
 

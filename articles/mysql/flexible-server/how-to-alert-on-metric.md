@@ -1,17 +1,17 @@
 ---
 title: 메트릭 경고 구성-Azure Portal-Azure Database for MySQL 유연한 서버
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL 유연한 서버에 대 한 메트릭 경고를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 632aae766e6fd1328dc6e0135a88a942d7ad0910
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: be52bbe58f6c2ff6ee21703860e8d8e00ec30072
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100595781"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110154"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버에 대 한 메트릭에 대 한 경고를 설정 합니다. 
 

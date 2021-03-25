@@ -1,19 +1,19 @@
 ---
 title: Azure API for FHIR에 대한 기본 제공 정책 정의
 description: Azure API for FHIR에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 265de87f9bd66447b3cef134295df167e04625bc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 615b9cf1957b9d5a6dc74693fb7a00fbbc5bf82e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587194"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035146"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-api-for-fhir"></a>Azure API for FHIR에 대한 Azure Policy 기본 제공 정의
 

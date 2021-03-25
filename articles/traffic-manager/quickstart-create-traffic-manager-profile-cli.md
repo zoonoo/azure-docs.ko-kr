@@ -14,10 +14,10 @@ ms.date: 10/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9a19e9c66967f36c3bdc4124fb9e60f7b7d2b36d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102213439"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기

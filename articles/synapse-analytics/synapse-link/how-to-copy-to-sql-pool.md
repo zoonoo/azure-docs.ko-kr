@@ -9,12 +9,13 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: cosmos-db
+ms.openlocfilehash: 755782b117ef5a5619ddde3e1573fe1805117e77
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309213"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868565"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Apache Spark를 사용하여 Azure Cosmos DB에서 전용 SQL 풀로 데이터 복사
 
@@ -50,7 +51,7 @@ Azure Cosmos DB용 Azure Synapse Link를 사용하면 Azure Cosmos DB의 작동 
 * weekStarting: long(nullable = true)
 * _etag: string(nullable = true)
 
-보고용으로 *productCode* 및 *weekStarting* 별로 판매( *수량* , *수익* (가격 x 수량))를 집계합니다. 마지막으로, 해당 데이터를 **dbo.productsales** 라는 전용 SQL 풀 테이블로 내보냅니다.
+보고용으로 *productCode* 및 *weekStarting* 별로 판매(*수량*, *수익*(가격 x 수량))를 집계합니다. 마지막으로, 해당 데이터를 **dbo.productsales** 라는 전용 SQL 풀 테이블로 내보냅니다.
 
 ## <a name="configure-a-spark-notebook"></a>Spark Notebook 구성
 Scala as Spark(Scala)를 주 언어로 사용하여 Spark Notebook을 만듭니다. 세션에 Notebook의 기본 설정을 사용합니다.

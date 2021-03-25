@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/09/2020
 ms.openlocfilehash: 1610c51b613712c06410247e2eb673a50a9988b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792245"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
@@ -50,14 +50,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     이 예제에서 인스턴스는 Azure API Management를 평가하는 경제적인 옵션인 개발자 계층에서 구성됩니다. 이 계층은 프로덕션 용도가 아닙니다. API Management 계층 크기 조정에 대한 자세한 내용은 [업그레이드 및 크기 조정](upgrade-and-scale.md)을 참조하세요.
 
 1. 다음 값을 선택하거나 입력합니다.
-    - **구독** : Azure 구독을 선택합니다.
-    - **리소스 그룹** : **새로 만들기** 를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인** 을 선택합니다.
-    - **지역** : 리소스 그룹에 대한 위치를 선택합니다. 예제: **미국 중부**
-    - **게시자 이메일** : 알림을 받을 이메일 주소를 입력합니다.
-    - **게시자 이름** : API 게시자에 대해 선택한 이름을 입력합니다.
-    - **Sku** : **개발자** 의 기본값을 적용합니다.
-    - **Sku 수** : 기본값을 적용합니다.
-    - **위치** : API Management 서비스에 대해 생성된 위치를 적용합니다.
+    - **구독**: Azure 구독을 선택합니다.
+    - **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹에 고유한 이름을 입력한 다음, **확인** 을 선택합니다.
+    - **지역**: 리소스 그룹에 대한 위치를 선택합니다. 예제: **미국 중부**
+    - **게시자 이메일**: 알림을 받을 이메일 주소를 입력합니다.
+    - **게시자 이름**: API 게시자에 대해 선택한 이름을 입력합니다.
+    - **Sku**: **개발자** 의 기본값을 적용합니다.
+    - **Sku 수**: 기본값을 적용합니다.
+    - **위치**: API Management 서비스에 대해 생성된 위치를 적용합니다.
 
     :::image type="content" source="media/quickstart-arm-template/create-instance-template.png" alt-text="API Management 템플릿 속성":::
 
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 인스턴스가 성공적으로 만들어지면 다음과 같이 알림을 받게 됩니다.
 
-    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="API Management 템플릿 속성":::
+    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="배포 알림":::
 
  Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외에도 Azure PowerShell, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
@@ -79,7 +79,7 @@ Azure Portal을 사용하여 배포된 리소스를 확인하거나 Azure CLI �
 1. [Azure Portal](https://portal.azure.com)에서 **API Management 서비스** 를 검색하여 선택하고 만든 서비스 인스턴스를 선택합니다.
 1. **개요** 페이지에서 서비스의 속성을 검토합니다.
 
-:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="API Management 템플릿 속성":::
+:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="서비스 개요 페이지":::
 
 API Management 서비스 인스턴스가 온라인 상태이면 사용할 준비가 된 것입니다. 자습서를 시작하여 첫 번째 API를 [가져오고 게시](import-and-publish.md)하세요.
 

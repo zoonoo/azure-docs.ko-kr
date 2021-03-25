@@ -11,20 +11,20 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91363208"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035808"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
 이 아티클에서는 Azure AD(Azure Active Directory)의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여줍니다. 또한 이 가이드에서는 사용자를 포함하는 외부 그룹을 추가하여 Azure AD 사용자 그룹을 관리하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md)를 참조 하세요.
@@ -47,7 +47,15 @@ ms.locfileid: "91363208"
     기타 필요한 정보를 입력할 수 있는 컨트롤이 창에 나타납니다. 제어에는 **클라이언트 ID** 및 **클라이언트 암호** 가 포함됩니다. (이러한 컨트롤에 대한 정보는 이 아티클의 뒷부분에 다룹니다.)
 9. **리디렉션 URL** 의 내용을 적어둡니다.
     
-   ![Azure Portal에서 ID 공급자를 추가하는 단계](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Azure Portal에 id 공급자 추가":::
+    > [!NOTE]
+    > 리디렉션 Url에는 두 가지가 있습니다.<br/>
+    > **리디렉션 URL** -API Management의 최신 개발자 포털을 가리킵니다.<br/>
+    > **리디렉션 URL (사용 되지 않는 포털)** -API Management의 사용 되지 않는 개발자 포털을 가리킵니다.
+    >
+    > 최신 개발자 포털 리디렉션 URL을 사용 하는 것이 좋습니다.
+   
 10. 브라우저에서 다른 탭을 엽니다. 
 11. [Azure Portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 으로 이동 하 여 Active Directory에 앱을 등록 합니다.
 12. **관리** 아래에서 **앱 등록** 을 선택합니다.

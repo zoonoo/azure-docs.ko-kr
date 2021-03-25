@@ -1,17 +1,17 @@
 ---
 title: 가상 네트워크 관리-Azure Portal-Azure Database for MySQL 유연한 서버
 description: Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버를 위한 가상 네트워크 만들기 및 관리
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 28506ea5afe085e9f52e40495d9931ae0aeddf32
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4906ce9f562910f0a087cd25167457ec1fb301ec
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90937313"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110000"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL 유연한 서버를 위한 가상 네트워크 만들기 및 관리
 
@@ -27,7 +27,7 @@ Azure Database for MySQL 유동 서버는 유동 서버에 연결하는 두 가�
 
 서버를 만드는 동안 유동 서버를 가상 네트워크 및 서브넷에 배포할 수 있습니다. 유동 서버를 배포한 후에는 다른 가상 네트워크, 서브넷 또는 *퍼블릭 액세스(허용된 IP 주소)* 로 이동할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 가상 네트워크에서 유연한 서버를 만들려면 다음이 필요 합니다.
 - [가상 네트워크](../../virtual-network/quick-create-portal.md#create-a-virtual-network)
     > [!Note]

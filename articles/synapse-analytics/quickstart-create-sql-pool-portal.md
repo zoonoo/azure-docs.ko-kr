@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96462010"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기
@@ -24,7 +24,7 @@ Azure Synapse Analytics는 데이터를 수집, 변환, 모델링 및 분석하�
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse 작업 영역](./quickstart-create-workspace.md)

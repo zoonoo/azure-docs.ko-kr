@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564514"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047782"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 
@@ -204,11 +204,11 @@ Azure 네트워킹은 다양한 보안 원격 액세스 시나리오를 지원�
 
 ### <a name="azure-private-link"></a>Azure Private Link
 
-[Azure 개인 링크](https://azure.microsoft.com/services/private-link/) 를 사용 하면 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database) 및 [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)을 통해 가상 네트워크에서 개인적으로 호스트 된 고객 소유/파트너 서비스에 액세스할 수 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다.
+[Azure 개인 링크](https://azure.microsoft.com/services/private-link/) 를 사용 하면 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database) 및 [개인 끝점](../../private-link/private-endpoint-overview.md)을 통해 가상 네트워크에서 개인적으로 호스트 된 고객 소유/파트너 서비스에 액세스할 수 있습니다. Azure Private Link를 사용한 설치 및 소비는 Azure PaaS, 고객 소유 및 공유 파트너 서비스에서 일관적입니다. 가상 네트워크에서 Azure 서비스로의 트래픽은 항상 Microsoft Azure 백본 네트워크에 유지됩니다.
 
-[개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) 을 사용 하면 중요 한 Azure 서비스 리소스를 가상 네트워크에만 보안을 유지할 수 있습니다. Azure 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 Azure 개인 링크를 통해 제공 되는 서비스에 개인적으로 안전 하 게 연결 하 고 서비스를 VNet에 효과적으로 제공 합니다. 가상 네트워크를 공용 인터넷에 노출 하는 것은 더 이상 Azure에서 서비스를 사용 하는 데 필요 하지 않습니다. 
+[개인 끝점](../../private-link/private-endpoint-overview.md) 을 사용 하면 중요 한 Azure 서비스 리소스를 가상 네트워크에만 보안을 유지할 수 있습니다. Azure 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 Azure 개인 링크를 통해 제공 되는 서비스에 개인적으로 안전 하 게 연결 하 고 서비스를 VNet에 효과적으로 제공 합니다. 가상 네트워크를 공용 인터넷에 노출 하는 것은 더 이상 Azure에서 서비스를 사용 하는 데 필요 하지 않습니다. 
 
-가상 네트워크에서 개인 링크 서비스를 만들 수도 있습니다. [Azure 개인 링크 서비스](https://docs.microsoft.com/azure/private-link/private-link-service-overview) 는 Azure 개인 링크에서 제공 하는 자체 서비스에 대 한 참조입니다. Azure 표준 Load Balancer에서 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 가상 네트워크에서 개인에 액세스할 수 있습니다. 고객은 가상 네트워크 내에 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 서비스를 공용 인터넷에 노출 하는 것은 더 이상 Azure에서 서비스를 렌더링 하는 데 필요 하지 않습니다. 
+가상 네트워크에서 개인 링크 서비스를 만들 수도 있습니다. [Azure 개인 링크 서비스](../../private-link/private-link-service-overview.md) 는 Azure 개인 링크에서 제공 하는 자체 서비스에 대 한 참조입니다. Azure 표준 Load Balancer에서 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 가상 네트워크에서 개인에 액세스할 수 있습니다. 고객은 가상 네트워크 내에 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 서비스를 공용 인터넷에 노출 하는 것은 더 이상 Azure에서 서비스를 렌더링 하는 데 필요 하지 않습니다. 
 
 ### <a name="vpn-gateway"></a>VPN Gateway
 
@@ -292,7 +292,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 
 [Azure Security Center](../../security-center/security-center-introduction.md) 는 네트워크 보안 모범 사례에 대 한 Azure 리소스의 보안 상태를 지속적으로 분석 합니다. Security Center에서 잠재적인 보안 취약점을 식별 하는 경우 리소스를 강화 하 고 보호 하는 데 필요한 컨트롤을 구성 하는 과정을 안내 하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>컴퓨팅
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="antimalware--antivirus"></a>맬웨어 방지 및 바이러스 백신

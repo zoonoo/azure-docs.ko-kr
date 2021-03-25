@@ -10,10 +10,10 @@ ms.date: 06/23/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: bc0ac1a6e882f4197828bf79c7989c16b2eb16f7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98217671"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>빠른 시작: 가상 네트워크 만들기 - Resource Manager 템플릿
@@ -25,7 +25,7 @@ ms.locfileid: "98217671"
 
 [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
