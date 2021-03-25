@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92362453"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
@@ -42,7 +42,7 @@ ID 거버넌스는 온-프레미스와 클라우드에서 직원, 비즈니스 �
 
 ## <a name="identity-lifecycle"></a>ID 수명 주기
 
-조직에서는 ID 거버넌스를 통해 *생산성* (사용자가 조직에 가입할 때처럼 필요한 리소스에 액세스하는 속도)과 *보안* (고용 상태의 변화처럼 시간에 따른 사용자의 액세스 권한 변화) 간에 적절한 균형을 유지할 수 있습니다.  ID 수명 주기 관리는 ID 거버넌스의 기반이며 효과적인 대규모 거버넌스를 원한다면 애플리케이션의 ID 수명 주기 관리 인프라를 현대화해야 합니다.
+조직에서는 ID 거버넌스를 통해 *생산성*(사용자가 조직에 가입할 때처럼 필요한 리소스에 액세스하는 속도)과 *보안*(고용 상태의 변화처럼 시간에 따른 사용자의 액세스 권한 변화) 간에 적절한 균형을 유지할 수 있습니다.  ID 수명 주기 관리는 ID 거버넌스의 기반이며 효과적인 대규모 거버넌스를 원한다면 애플리케이션의 ID 수명 주기 관리 인프라를 현대화해야 합니다.
 
 ![ID 수명 주기](./media/identity-governance-overview/identity-lifecycle.png)
 

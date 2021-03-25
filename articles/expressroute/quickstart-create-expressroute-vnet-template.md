@@ -10,10 +10,10 @@ ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92789729"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
@@ -92,11 +92,11 @@ Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerSh
 
 1. 리소스 그룹에는 여기에 표시된 다음 리소스가 포함되어야 합니다.
 
-     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
+     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="ExpressRoute 배포 리소스 그룹":::
 
 1. ExpressRoute 회로 **er-ck01** 을 선택하여 회로 상태가 **활성화됨** 이고, 공급자 상태가 **프로비저닝되지 않음** 이고, 프라이빗 피어링이 **프로비저닝됨** 상태인지 확인합니다.
 
-    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="ExpressRoute 배포 회로":::
 
 > [!NOTE]
 > 가상 네트워크를 회로에 연결하려면 먼저 공급자를 호출하여 프로비저닝 프로세스를 완료해야 합니다.

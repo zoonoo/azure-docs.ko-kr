@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 11/11/2020
 ms.author: sngun
 ms.openlocfilehash: 036338e90a3e7b466924d419400c0dcc692dec5f
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97630754"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Azure Cosmos DB Gremlin 그래프 지원 및 TinkerPop 기능과의 호환성
@@ -169,31 +169,31 @@ Azure Cosmos DB에서 제공하는 쓰기 최적화 엔진은 기본적으로 �
 
 ## <a name="behavior-differences"></a>동작 차이점
 
-* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 ***폭 우선** _ 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
+* TinkerPop Gremlin은 깊이 우선이지만, Azure Cosmos DB Graph 엔진은 ***폭 우선*** 순회를 실행합니다. 이 동작은 Cosmos DB 같이 수평 확장이 가능한 시스템의 성능을 향상합니다.
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 
-_ * **[Gremlin 바이트 코드](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _는 프로그래밍 언어의 제약을 받지 않는 그래프 순회에 대한 사양입니다. Cosmos DB Graph는 아직 이 사양을 지원하지 않습니다. `GremlinClient.SubmitAsync()`를 사용하여 순회를 텍스트 문자열로 전달하세요.
+* ***[Gremlin 바이트 코드](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 는 프로그래밍 언어의 제약을 받지 않는 그래프 조회에 대한 사양입니다. Cosmos DB Graph는 아직 이 사양을 지원하지 않습니다. `GremlinClient.SubmitAsync()`를 사용하여 순회를 텍스트 문자열로 전달하세요.
 
-_ * **`property(set, 'xyz', 1)`** _ 세트 카디널리티는 현재 지원되지 않습니다. 대신 `property(list, 'xyz', 1)`를 사용하세요. 자세한 내용은 [TinkerPop을 사용하는 꼭짓점 속성](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)을 참조하세요.
+* ***`property(set, 'xyz', 1)`*** 세트 카디널리티는 현재 지원되지 않습니다. 대신 `property(list, 'xyz', 1)`를 사용하세요. 자세한 내용은 [TinkerPop을 사용하는 꼭짓점 속성](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)을 참조하세요.
 
-_ * **`match()` 단계** _는 현재 사용할 수 없습니다. 이 단계는 선언적 쿼리 기능을 제공합니다.
+* ***`match()` 단계*** 는 현재 사용할 수 없습니다. 이 단계는 선언적 쿼리 기능을 제공합니다.
 
-_ 꼭짓점 또는 에지에 대한 ***속성인 개체** _는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
+* 꼭짓점 또는 에지에 대한 ***속성인 개체*** 는 지원되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
 
-_ ***배열 속성 정렬** _ `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
+* ***배열 속성 정렬*** `order().by(<array property>)`는 지원되지 않습니다. 정렬은 기본 형식만 지원됩니다.
 
-_ ***기본이 아닌 JSON 형식** _은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
+* ***기본이 아닌 JSON 형식*** 은 지원되지 않습니다. `string`, `number` 또는 `true`/`false` 형식을 사용하세요. `null` 값은 지원되지 않습니다. 
 
-_ ***GraphSONv3** _ 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
+* ***GraphSONv3*** 직렬 변환기는 현재 지원되지 않습니다. 연결 구성에 `GraphSONv2` Serializer, Reader 및 Writer 클래스를 사용하세요. Azure Cosmos DB Gremlin API에서 반환된 결과의 형식은 GraphSON 형식과 다릅니다. 
 
-_ **람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`, `.by{<expression>}` 및 `.filter{<expression>}` 함수가 포함됩니다. 자세한 내용을 알아보고 Gremlin 단계를 사용하여 다시 작성하는 방법에 대해 알아보려면 [람다에 대한 참고 사항](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)을 참조하세요.
+* **람다 식 및 함수** 는 현재 지원되지 않습니다. 여기에는 `.map{<expression>}`, `.by{<expression>}` 및 `.filter{<expression>}` 함수가 포함됩니다. 자세한 내용을 알아보고 Gremlin 단계를 사용하여 다시 작성하는 방법에 대해 알아보려면 [람다에 대한 참고 사항](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)을 참조하세요.
 
-* ***트랜잭션** _은 시스템의 분산 특성으로 인해 지원되지 않습니다.  "사용자 고유의 쓰기를 읽기"로 Gremlin 계정에서 적절한 일관성 모델을 구성하고, 낙관적 동시성을 사용하여 충돌하는 쓰기를 해결하세요.
+* ***트랜잭션*** 은 시스템의 분산 특성으로 인해 지원되지 않습니다.  "사용자 고유의 쓰기를 읽기"로 Gremlin 계정에서 적절한 일관성 모델을 구성하고, 낙관적 동시성을 사용하여 충돌하는 쓰기를 해결하세요.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-**중간 순회 `.V()` 단계를 사용하는 Gremlin 쿼리의 인덱스 사용률**: 현재는 순회의 첫 번째 `.V()` 호출만 인덱스를 사용하여 연결된 필터 또는 조건자를 확인합니다. 후속 호출에서는 인덱스를 참조하지 않으므로 쿼리의 대기 시간과 비용이 늘어날 수 있습니다.
+* **중간 순회 `.V()` 단계를 사용하는 Gremlin 쿼리의 인덱스 사용률**: 현재는 순회의 첫 번째 `.V()` 호출만 인덱스를 사용하여 연결된 필터 또는 조건자를 확인합니다. 후속 호출에서는 인덱스를 참조하지 않으므로 쿼리의 대기 시간과 비용이 늘어날 수 있습니다.
     
 기본 인덱싱을 사용하는 경우 `.V()` 단계로 시작하는 일반적인 읽기 Gremlin 쿼리는 연결된 필터링 단계에서 `.has()` 또는 `.where()` 같은 매개 변수를 사용하여 쿼리의 비용과 성능을 최적화합니다. 예를 들면 다음과 같습니다.
 

@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090412"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드
@@ -31,7 +31,7 @@ ms.locfileid: "93090412"
 이 빠른 시작에서는 Azure Portal 및 GitHub에서 복제된 Java 앱을 사용하여 Azure Cosmos DB SQL API 계정을 만들고 관리합니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, SQL Java SDK를 사용하여 Java 앱을 만든 다음, Java 애플리케이션을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
 > [!IMPORTANT]  
-> 이 빠른 시작은 Azure Cosmos DB Java SDK v4 전용입니다. 자세한 내용은 Azure Cosmos DB Java SDK v4 [릴리스 정보](sql-api-sdk-java-v4.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [성능 팁](performance-tips-java-sdk-v4-sql.md) 및 Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 현재 v4 이전 버전을 사용 중인 경우 v4로 업그레이드하는 데 도움이 필요하면 [Azure Cosmos DB Java SDK v4로 마이그레이션](migrate-java-v4-sdk.md)을 참조하세요.
+> 이 빠른 시작은 Azure Cosmos DB Java SDK v4 전용입니다. 자세한 내용은 Azure Cosmos DB Java SDK v4 [릴리스 정보](sql-api-sdk-java-v4.md), [Maven 리포지토리](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4 [성능 팁](performance-tips-java-sdk-v4-sql.md) 및 Azure Cosmos DB Java SDK v4 [문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)를 참조하세요. 현재 v4 이전 버전을 사용 중인 경우 v4로 업그레이드하는 데 도움이 필요하면 [Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) 가이드를 참조하세요.
 >
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -47,11 +47,11 @@ ms.locfileid: "93090412"
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
 
-데이터베이스, 컨테이너 및 항목은 [여기](account-databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키* )은 컨테이너 수준에서 정의됩니다. 
+데이터베이스, 컨테이너 및 항목은 [여기](account-databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키*)은 컨테이너 수준에서 정의됩니다. 
 
 프로비저닝된 처리량은 *RU(요청 단위)* 로 측정됩니다. 이는 화폐 가격을 포함하고 계정의 운영 비용에 대한 실질적인 결정 요소입니다. 프로비저닝된 처리량은 컨테이너 단위 또는 데이터베이스 단위 세분성에서 선택할 수 있지만 일반적으로 컨테이너 수준 처리량 사양이 선호됩니다. 처리량 프로비저닝은 [여기](set-throughput.md)서 자세히 알아볼 수 있습니다.
 
-항목이 Cosmos DB 컨테이너에 삽입되면 요청을 처리하기 위해 더 많은 스토리지와 컴퓨팅을 추가하여 데이터베이스를 수평으로 확장시킵니다. 스토리지 및 컴퓨팅 용량은 *파티션* 이라는 별도의 단위로 추가되며, 각 문서를 파티션에 매핑하는 파티션 키로 하나의 필드를 문서에서 선택해야 합니다. 파티션을 관리하는 방법은 파티션 키 값의 범위에서 거의 동일한 조각이 각 파티션에 할당되는 것입니다. 따라서 비교적 임의로 또는 균일하게 분산되는 파티션 키를 선택하는 것이 좋습니다. 그렇지 않으면 일부 파티션에는 훨씬 더 많은 요청이 표시되고( *핫 파티션* ), 다른 파티션에는 훨씬 더 적은 요청이 표시되므로( *콜드 파티션* ) 이를 방지해야 합니다. 파티션 분할은 [여기](partitioning-overview.md)서 자세히 알아볼 수 있습니다.
+항목이 Cosmos DB 컨테이너에 삽입되면 요청을 처리하기 위해 더 많은 스토리지와 컴퓨팅을 추가하여 데이터베이스를 수평으로 확장시킵니다. 스토리지 및 컴퓨팅 용량은 *파티션* 이라는 별도의 단위로 추가되며, 각 문서를 파티션에 매핑하는 파티션 키로 하나의 필드를 문서에서 선택해야 합니다. 파티션을 관리하는 방법은 파티션 키 값의 범위에서 거의 동일한 조각이 각 파티션에 할당되는 것입니다. 따라서 비교적 임의로 또는 균일하게 분산되는 파티션 키를 선택하는 것이 좋습니다. 그렇지 않으면 일부 파티션에는 훨씬 더 많은 요청이 표시되고(*핫 파티션*), 다른 파티션에는 훨씬 더 적은 요청이 표시되므로(*콜드 파티션*) 이를 방지해야 합니다. 파티션 분할은 [여기](partitioning-overview.md)서 자세히 알아볼 수 있습니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
