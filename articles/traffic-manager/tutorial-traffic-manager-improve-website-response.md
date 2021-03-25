@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
 ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96003823"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선

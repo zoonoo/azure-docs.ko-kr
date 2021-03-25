@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 3626ca4cc3e7377f1c6778bc77e5e48ef0dcad0c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3ec650f82b95cdfabc923e92325959c63f2846de
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103439181"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110755"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-js"></a>관리 되는 id를 통신 서비스 솔루션 (JS)에 추가
 
-### <a name="install-the-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
+### <a name="install-the-sdk-packages"></a>SDK 패키지 설치
 
 ```console
 npm install @azure/communication-identity
@@ -17,9 +17,9 @@ npm install @azure/communication-sms
 npm install @azure/identity
 ```
 
-### <a name="use-the-client-library-packages"></a>클라이언트 라이브러리 패키지 사용
+### <a name="use-the-sdk-packages"></a>SDK 패키지 사용
 
-`import`Azure id 및 Azure Storage 클라이언트 라이브러리를 사용 하는 다음 지시문을 코드에 추가 합니다.
+`import`Azure id 및 Azure Storage sdk를 사용 하려면 다음 지시문을 코드에 추가 합니다.
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";

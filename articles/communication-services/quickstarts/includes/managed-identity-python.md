@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 50707b46445803ee27118ee72b90a237a3e76200
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b37ebebdb99530ab615a313d9b269b9ce937b7f1
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103021183"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110758"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution"></a>통신 서비스 솔루션에 관리 id 추가
 
-### <a name="install-the-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
+### <a name="install-the-sdk-packages"></a>SDK 패키지 설치
 
 ```console
 pip install azure-identity
@@ -16,7 +16,7 @@ pip install azure-communication-identity
 pip install azure-communication-sms
 ```
 
-### <a name="use-the-client-library-packages"></a>클라이언트 라이브러리 패키지 사용
+### <a name="use-the-sdk-packages"></a>SDK 패키지 사용
 
 `import`Azure id를 사용 하는 코드에 다음을 추가 합니다.
 

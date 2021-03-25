@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 405bcd4f3839b99879f76c23060ba24062b279de
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 91b3097e465458181074d1e450e69f267d0fe556
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018749"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026788"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
@@ -169,14 +169,20 @@ Azure는 IoT 디바이스를 연결하고 관리할 수 있는 광범위한 IoT 
 > 실제 디바이스가 준비되면 언제든지 동일한 IoT Central 애플리케이션을 사용하여 [디바이스를 온보딩](../../iot-central/core/howto-set-up-template.md)하고 디바이스 시뮬레이터를 바꿀 수 있습니다. 디바이스 데이터는 자동으로 FHIR에 전달되기 시작합니다. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)과 IoT 데이터 연결
-> [!WARNING]
-> 이 가이드에서 제공하는 디바이스 매핑 템플릿은 IoT Central 내에서 데이터 내보내기(레거시)를 사용하도록 설계되었습니다.
 
-IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](../../iot-central/core/howto-export-data-legacy.md)합니다. 연속 데이터 내보내기 페이지에서 다음을 수행합니다.
-- 내보내기 대상으로 *Azure Event Hubs* 를 선택합니다.
-- **Event Hubs 네임스페이스** 에 대해 *연결 문자열 사용* 값을 선택합니다.
-- 이전 단계에서 얻은 Azure IoT Connector for FHIR의 연결 문자열을 **연결 문자열** 필드에 입력합니다.
-- **내보낼 데이터** 필드에서 **원격 분석** 옵션을 *켜기* 로 유지합니다.
+IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](../../iot-central/core/howto-export-data.md)합니다. 먼저 대상에 대 한 연결을 만든 다음 지속적으로 실행할 데이터 내보내기 작업을 만듭니다. 
+
+새 대상 만들기:
+- **대상 탭으로** 이동 하 여 새 대상을 만듭니다.
+- 대상에 고유한 이름을 지정 하 여 시작 합니다.
+- 대상 유형으로 *Azure Event Hubs* 를 선택 합니다.
+- 이전 단계에서 **연결 문자열** 필드에 대 한 Azure IoT 커넥터를 제공 합니다.
+
+새 데이터 내보내기 만들기:
+- 대상을 만든 후에는 **내보내기** 탭으로 이동 하 여 새 데이터 내보내기를 만듭니다. 
+- 데이터 내보내기에 고유한 이름을 지정 하 여 시작 합니다.
+- **데이터** 아래에서 *내보낼 데이터 형식* 으로 *원격 분석* 을 선택 합니다.
+- **대상** 에서 이전 이름에 만든 대상 이름을 선택 합니다.
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Azure API for FHIR에서 디바이스 데이터 보기
 

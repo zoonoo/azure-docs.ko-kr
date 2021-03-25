@@ -8,10 +8,10 @@ ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ms.openlocfilehash: afc0a5bf9b83363d1f4baab955b55148fe3a8498
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95818483"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure Event Grid를 통해 받은 Azure Service Bus 이벤트에 응답
@@ -120,17 +120,17 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 ## <a name="troubleshoot"></a>문제 해결
 잠시 기다렸다가 새로 고친 후에도 호출이 표시되지 않으면 다음 단계를 수행합니다. 
 
-1. 메시지가 Service Bus 토픽에 도달했는지 확인합니다. **Service Bus 토픽** 페이지에서 **들어오는 메시지** 카운터를 확인하세요. 이 자습서에서는 **MessageSender** 애플리케이션을 두 번 실행했으므로 10개의 메시지(각 실행당 5개의 메시지)가 표시됩니다.
+1. 메시지가 Service Bus 토픽에 도달했는지 확인합니다. **Service Bus 토픽** 페이지에서 **들어오는 메시지** 카운터를 참조하세요. 이 경우 **MessageSender** 애플리케이션을 두 번 실행했으므로 10개의 메시지(각 실행당 5개의 메시지)가 표시됩니다.
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/topic-incoming-messages.png" alt-text="Service Bus 토픽 페이지 - 들어오는 메시지":::    
-1. Service Bus 구독에 **활성 메시지가 없는지** 확인합니다. 
-    이 페이지에 이벤트가 표시되지 않으면 **Service Bus 구독** 페이지에 **활성 메시지 수** 가 표시되지 않는지 확인합니다. 이 카운터의 수가 0보다 크면 어떤 이유로 인해 구독의 메시지가 처리기 함수(이벤트 구독 처리기)로 전달되지 않는 것입니다. 이벤트 구독을 제대로 설정했는지 확인하세요. 
+1. Service Bus 구독에 **활성 메시지가 없는** 지 확인합니다. 
+    이 페이지에 이벤트가 표시되지 않으면 **Service Bus 구독** 페이지에 **활성 메시지 수** 가 표시되지 않는지 확인합니다. 이 카운터의 수가 0보다 크면 특정 이유로 인해 구독의 메시지가 처리기 함수(이벤트 구독 처리기)로 전달되지 않습니다. 이벤트 구독을 제대로 설정했는지 확인합니다. 
 
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Service Bus 구독의 활성 메시지 수":::    
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Service Bus 구독에 있는 활성 메시지 수":::    
 1. Service Bus 네임스페이스의 **이벤트** 페이지에도 **전달된 이벤트** 가 표시됩니다. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-page.png" alt-text="이벤트 페이지 - 전달된 이벤트" lightbox="./media/service-bus-to-event-grid-integration-example/invocation-details.png":::
-1. **이벤트 구독** 페이지에서도 이벤트가 전달된 것을 확인할 수 있습니다. **이벤트** 페이지에서 이벤트 구독을 선택하여 이 페이지로 이동할 수 있습니다. 
+1. **이벤트 구독** 페이지에서 이벤트가 전달된 것을 확인할 수도 있습니다. **이벤트** 페이지에서 이벤트 구독을 선택하여 이 페이지로 이동할 수 있습니다. 
     
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-delivered-events.png" alt-text="이벤트 구독 페이지 - 전달된 이벤트":::
     

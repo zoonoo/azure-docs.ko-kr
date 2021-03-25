@@ -10,10 +10,10 @@ ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9c63e5e24495f373f288d2789780a6c671a7cc24
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98218402"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역에 Power BI 작업 영역 연결
@@ -22,7 +22,7 @@ ms.locfileid: "98218402"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Synapse 작업 영역 및 연결된 스토리지 계정 만들기](quickstart-create-workspace.md)
 - [Power BI Professional 또는 Premium 작업 영역](/power-bi/service-create-the-new-workspaces)

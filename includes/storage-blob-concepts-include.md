@@ -9,24 +9,24 @@ ms.date: 01/19/2021
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 0914cf9515930e23e4134181ffe8332e36eacffe
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98612932"
 ---
-Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델이나 정의를 따르지 않는 데이터입니다.
+Azure Blob Storage는 Microsoft의 클라우드용 개체 스토리지 솔루션입니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다. 비정형 데이터는 텍스트 또는 이진 데이터와 같은 특정 데이터 모델이나 정의를 따르지 않는 데이터입니다.
 
 ## <a name="about-blob-storage"></a>Blob Storage 정보
 
 Blob Storage는 다음을 위해 설계되었습니다.
 
 * 브라우저에 이미지 또는 문서 직접 제공
-* 분산 액세스용 파일 저장
-* 동영상 및 오디오 스트리밍
+* 분산 액세스용 파일 저장.
+* 비디오 및 오디오 스트리밍.
 * 로그 파일에 쓰기
 * 백업/복원, 재해 복구 및 보관용 데이터 저장
-* 온-프레미스 또는 Azure 호스티드 서비스에 의한 분석용 데이터 저장
+* 온-프레미스 또는 Azure 호스팅 서비스에서 분석하기 위한 데이터 저장.
 
 사용자 또는 클라이언트 애플리케이션은 전 세계 어디서든 HTTP/HTTPS를 통해 Blob Storage의 개체에 액세스할 수 있습니다. Blob Storage의 개체는 [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), [Azure CLI](/cli/azure/storage) 또는 Azure Storage 클라이언트 라이브러리를 통해 액세스할 수 있습니다. 클라이언트 라이브러리는 다음을 포함하여 다양한 언어에서 사용할 수 있습니다.
 

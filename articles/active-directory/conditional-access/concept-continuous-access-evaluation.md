@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562c90dcc4f802290b0ed8b4d544fce9d526fa10
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2c83fc0f4776e1ded2c8c12cb990ab227f048b
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99524671"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109015"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -52,6 +52,9 @@ CAE를 사용 하도록 응용 프로그램을 준비 하려면 [응용 프로�
 
 이 프로세스를 통해 사용자는 조직 SharePoint Online 파일, 전자 메일, 일정 또는 작업에 대 한 액세스 권한을 상실 하 고 이러한 중요 한 이벤트 중 하나에서 분 내에 Microsoft 365 클라이언트 앱에서 팀에 액세스할 수 있습니다. 
 
+> [!NOTE] 
+> 팀에서 사용자 위험 이벤트를 아직 지원 하지 않습니다.
+
 ### <a name="conditional-access-policy-evaluation-preview"></a>조건부 액세스 정책 평가 (미리 보기)
 
 Exchange 및 SharePoint는 키 조건부 액세스 정책을 동기화 할 수 있으므로 서비스 자체 내에서 평가할 수 있습니다.
@@ -59,11 +62,11 @@ Exchange 및 SharePoint는 키 조건부 액세스 정책을 동기화 할 수 �
 이 프로세스를 통해 사용자는 네트워크 위치를 변경한 후 즉시 Microsoft 365 클라이언트 앱 또는 SharePoint Online에서 조직 파일, 메일, 일정 또는 작업에 액세스할 수 없게 됩니다.
 
 > [!NOTE]
-> 일부 앱 및 리소스 공급자 조합은 지원 되지 않습니다. 아래 표를 참조 하세요. Office는 Word, Excel 및 PowerPoint를 의미 합니다.
+> 일부 앱 및 리소스 공급자 조합은 지원 되지 않습니다. 아래 표를 참조 하세요. Office는 Word, Excel 및 PowerPoint를 나타냅니다.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원되지 않음 | 지원됨 |
+| **SharePoint Online** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 | **Exchange Online** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 
 | | Office web apps | Office Win32 앱 | IOS 용 Office | Android 용 Office | Mac용 Office |
@@ -71,23 +74,20 @@ Exchange 및 SharePoint는 키 조건부 액세스 정책을 동기화 할 수 �
 | **SharePoint Online** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 | **Exchange Online** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 
+| | OneDrive 웹 | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SharePoint Online** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+
 ### <a name="client-side-claim-challenge"></a>클라이언트 쪽 클레임 챌린지
 
 연속 액세스를 평가 하기 전에 클라이언트는 만료 되지 않은 경우 항상 캐시에서 액세스 토큰을 재생 하려고 시도 합니다. CAE를 사용 하는 경우 리소스 공급자가 만료 되지 않은 경우에도 토큰을 거부할 수 있는 새로운 사례를 소개 합니다. 캐시 된 토큰이 만료 되지 않았더라도 클라이언트에 캐시를 사용 하지 않도록 알리기 위해 **클레임 챌린지** 라는 메커니즘을 도입 하 여 토큰이 거부 되었으며 Azure AD에서 새 액세스 토큰을 발급 해야 함을 표시 합니다. CAE에는 클레임 챌린지를 이해 하기 위해 클라이언트 업데이트가 필요 합니다. 아래 응용 프로그램의 최신 버전은 다음과 같은 클레임 챌린지를 지원 합니다.
 
-- Outlook 창
-- Outlook iOS
-- Outlook Android
-- Outlook Mac
-- Outlook Web App
-- Windows 용 팀 (팀 리소스에만 해당)
-- 팀 iOS (팀 리소스에만 해당)
-- 팀 Android (팀 리소스에만 해당)
-- 팀 Mac (팀 리소스에만 해당)
-- Word/Excel/Windows 용 PowerPoint
-- IOS 용 Word/Excel/PowerPoint
-- Android 용 Word/Excel/PowerPoint
-- Mac 용 Word/Excel/PowerPoint
+| | 웹 | Win32 | iOS | Android | Mac |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Outlook** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+| **Teams** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+| **Office** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+| **OneDrive** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 
 ### <a name="token-lifetime"></a>토큰 수명
 
@@ -146,7 +146,7 @@ CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들어:
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
@@ -165,9 +165,9 @@ Office 업데이트 채널에 대 한 자세한 내용은 [Microsoft 365 앱의 
 
 ### <a name="policy-change-timing"></a>정책 변경 타이밍
 
-Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므로 관리자가 수행한 정책 변경 내용은 Exchange Online에 적용 되는 데 최대 2 시간이 걸릴 수 있습니다.
+관리자가 적용 하는 정책 변경 내용이 적용 되는 데 최대 1 일 걸릴 수 있습니다. 2 시간 지연 시간을 줄이기 위해 몇 가지 최적화가 수행 되었습니다. 그러나 아직 일부 시나리오는 다루지 않습니다. 
 
-예: 관리자가 11:00 AM에 전자 메일에 액세스 하지 못하도록 차단 하는 정책을 추가 합니다. 이전에 해당 IP 범위에서 가져온 사용자는 1:00 PM까지 계속 해 서 메일에 액세스할 수 있습니다.
+응급 상태이 고 특정 사용자에 게 업데이트 된 정책을 즉시 적용 해야 하는 경우 사용자 프로필 페이지에서이 [PowerShell 명령](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) 또는 "세션 해지"를 사용 하 여 사용자의 세션을 취소 해야 합니다. 그러면 업데이트 된 정책이 즉시 적용 됩니다.
 
 ### <a name="coauthoring-in-office-apps"></a>Office 앱의 공동 작성
 

@@ -5,10 +5,10 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 02/13/2021
 ms.openlocfilehash: c5b930fb2c87a09a1f4801365936c62a7cf79f1d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100516178"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Java)
@@ -105,7 +105,7 @@ Eclipse를 사용하고 Java 콘솔 애플리케이션을 만든 경우 Java 프
         System.out.println("Sent a single message to the topic: " + topicName);        
     }
     ```
-1. 클래스에 `createMessages`라는 메서드를 추가하여 메시지 목록을 만듭니다. 일반적으로 애플리케이션의 여러 부분에서 이러한 메시지를 가져옵니다. 여기에서 샘플 메시지의 목록을 만듭니다.
+1. 클래스에 `createMessages`라는 메서드를 추가하여 메시지 목록을 만듭니다. 일반적으로 이러한 메시지는 애플리케이션의 여러 부분에서 가져옵니다. 여기에서 샘플 메시지의 목록을 만듭니다.
 
     ```java
     static List<ServiceBusMessage> createMessages()

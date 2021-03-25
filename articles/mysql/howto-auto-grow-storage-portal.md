@@ -1,24 +1,24 @@
 ---
 title: 저장소 자동 증가-Azure Portal-Azure Database for MySQL
 description: 이 문서에서는를 사용 하 여 Azure Database for MySQL에 대 한 저장소 자동 증가를 사용 하도록 설정할 수 있는 방법을 설명 Azure Portal
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 9355c2b2c780b6ccd63100e576850fe5566db3cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5242ef7d5d2eb9fb3aca2138ad525199c8a6afee
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95998603"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109950"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL의 저장소 자동 증가
 이 문서에서는 워크 로드에 영향을 주지 않고 확장 되도록 Azure Database for MySQL server 저장소를 구성 하는 방법을 설명 합니다.
 
 서버가 할당 된 저장소 제한에 도달 하면 서버가 읽기 전용으로 표시 됩니다. 그러나 저장소 자동 증가를 사용 하도록 설정 하면 증가 하는 데이터에 맞게 서버 저장소가 늘어납니다. 프로 비전 된 저장소 수가 100 미만인 서버의 경우, 사용 가능한 저장소가 프로 비전 된 저장소의 1gb 또는 10%를 초과 하는 즉시 프로 비전 된 저장소 크기는 5gb 씩 증가 합니다. 프로 비전 된 저장소 수가 100 GB를 넘는 서버에서는 사용 가능한 저장소 공간이 프로 비전 된 저장소 크기의 5% 미만이 면 프로 비전 된 저장소 크기가 5% 증가 합니다. [여기](./concepts-pricing-tiers.md#storage) 에 지정 된 대로 최대 저장소 제한이 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)
 

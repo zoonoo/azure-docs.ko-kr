@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: e9c889dcffe42fde244f8a35ce42032e84d78fff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36bf92a1b1bdef4e45b22b934728b3e8c46c3da
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488119"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107747"
 ---
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -23,7 +23,7 @@ ms.locfileid: "103488119"
 ### <a name="creating-the-xcode-project"></a>Xcode 프로젝트 만들기
 
 > [!NOTE]
-> 이 문서에서는 통화 클라이언트 라이브러리의 버전 1.0.0-beta.8을 사용합니다.
+> 이 문서에서는 호출 SDK의 버전 1.0.0-beta. 8을 사용 합니다.
 
 Xcode에서 새 iOS 프로젝트를 만들고 **단일 보기 앱** 템플릿을 선택합니다. 이 빠른 시작에서는 [SwiftUI 프레임워크](https://developer.apple.com/xcode/swiftui/)를 사용하므로 **언어** 를 **Swift** 로 설정하고 **사용자 인터페이스** 를 **SwiftUI** 로 설정해야 합니다. 이 빠른 시작 중에는 단위 테스트 또는 UI 테스트를 만들지 않습니다. **단위 테스트 포함** 을 선택 취소하고 **UI 테스트 포함** 도 선택 취소하십시오.
 
@@ -68,18 +68,18 @@ import AVFoundation
 
 ## <a name="object-model"></a>개체 모델
 
-iOS용 Azure Communication Services 통화 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+다음 클래스와 인터페이스는 iOS 용 SDK를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
 
-| 속성                                  | 설명                                                  |
+| 이름                                  | 설명                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | CallClient는 통화 클라이언트 라이브러리의 주 진입점입니다.|
+| CallClient | CallClient는 호출 SDK의 기본 진입점입니다.|
 | CallAgent | CallAgent는 통화를 시작하고 관리하는 데 사용됩니다. |
 | CommunicationTokenCredential | CommunicationTokenCredential은 CallAgent를 인스턴스화하기 위한 토큰 자격 증명으로 사용됩니다.| 
 | CommunicationIdentifier | CommunicationIdentifier는 사용자의 ID를 나타내는 데 사용되며 CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication 중 하나일 수 있습니다. |
 
 > [!NOTE]
-> 이벤트 대리자를 구현할 때 애플리케이션은 이벤트 구독이 필요한 개체에 대한 강력한 참조를 보유해야 합니다. 예를 들어 `call.addParticipant` 메서드를 호출할 때 `RemoteParticipant` 개체가 반환되고 애플리케이션에서 `RemoteParticipantDelegate`를 수신 대기하도록 대리자를 설정하는 경우 애플리케이션은 `RemoteParticipant` 개체에 대한 강력한 참조를 보유해야 합니다. 그렇지 않으면 이 개체가 수집될 경우 호출 SDK가 개체를 호출하려고 할 때 대리자가 치명적인 예외를 throw합니다.
+> 이벤트 대리자를 구현할 때 애플리케이션은 이벤트 구독이 필요한 개체에 대한 강력한 참조를 보유해야 합니다. 예를 들어 `call.addParticipant` 메서드를 호출할 때 `RemoteParticipant` 개체가 반환되고 애플리케이션에서 `RemoteParticipantDelegate`를 수신 대기하도록 대리자를 설정하는 경우 애플리케이션은 `RemoteParticipant` 개체에 대한 강력한 참조를 보유해야 합니다. 그렇지 않으면이 개체가 수집 될 경우 호출 SDK에서 개체를 호출 하려고 할 때 대리자는 심각한 예외를 throw 합니다.
 
 ## <a name="initialize-the-callagent"></a>CallAgent 초기화
 
@@ -131,7 +131,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>발신 전화 걸기
 
-통화를 만들고 시작하려면 `CallAgent`에서 API 중 하나를 호출하고 Communication Services 관리 클라이언트 라이브러리를 사용하여 프로비저닝한 사용자의 Communication Services ID를 제공해야 합니다.
+호출을 만들고 시작 하려면에서 Api 중 하나를 호출 하 `CallAgent` 고 통신 서비스 관리 SDK를 사용 하 여 프로 비전 한 사용자의 통신 서비스 id를 제공 해야 합니다.
 
 통화 만들기와 시작은 동기적입니다. 통화의 모든 이벤트를 구독할 수 있는 호출 인스턴스를 받게 됩니다.
 

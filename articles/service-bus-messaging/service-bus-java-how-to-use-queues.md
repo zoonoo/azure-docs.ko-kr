@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 02/13/2021
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 1fab8d3f603b3c2c7e3c307d3d2ce53590d7511c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739766"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)
@@ -105,7 +105,7 @@ Eclipse를 사용하고 Java 콘솔 애플리케이션을 만든 경우 Java 프
         System.out.println("Sent a single message to the queue: " + queueName);        
     }
     ```
-1. 메시지 목록을 만드는 `createMessages`라는 메서드를 클래스에 추가합니다. 일반적으로 애플리케이션의 여러 부분에서 이러한 메시지를 가져옵니다. 여기서는 샘플 메시지의 목록을 만듭니다.
+1. 메시지 목록을 만드는 `createMessages`라는 메서드를 클래스에 추가합니다. 일반적으로 이러한 메시지는 애플리케이션의 여러 부분에서 가져옵니다. 여기서는 샘플 메시지의 목록을 만듭니다.
 
     ```java
     static List<ServiceBusMessage> createMessages()
