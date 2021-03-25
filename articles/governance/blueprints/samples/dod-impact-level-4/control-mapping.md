@@ -4,10 +4,10 @@ description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨�
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 4345cd67cda5b00d89d9eae1f8abaedb40228759
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98035107"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑

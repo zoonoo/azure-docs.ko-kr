@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.openlocfilehash: 13f8f1067ce7c9fe55160400d20ec0b20788c17b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>자습서: Procore SSO와 Azure Active Directory 통합
@@ -135,13 +135,13 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 4. **변경 내용 저장** 을 클릭합니다.
 
-5. 이러한 설정 후에 Procore에 로그인할 때 사용한 **도메인 이름** (예: **contoso.com** )을 [Procore 지원 팀](https://support.procore.com/)에 보내서 해당 도메인에 대해 페더레이션된 SSO를 활성화하도록 해야 합니다.
+5. 이러한 설정 후에 Procore에 로그인할 때 사용한 **도메인 이름**(예: **contoso.com**)을 [Procore 지원 팀](https://support.procore.com/)에 보내서 해당 도메인에 대해 페더레이션된 SSO를 활성화하도록 해야 합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](common/users.png)
 
@@ -165,7 +165,7 @@ Procore SSO에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Procore SSO에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** , **모든 애플리케이션** , **Procore SSO** 를 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션**, **Procore SSO** 를 차례로 선택합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -197,17 +197,17 @@ Procore SSO 쪽에서 Procore 테스트 사용자를 만들려면 다음 단계�
 
     ![스크린샷은 도구 상자에서 디렉터리가 선택된 Procore 회사 사이트를 보여줍니다.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
-3. **Add a Person** (사람 추가) 옵션을 클릭하여 양식을 열고 다음 옵션을 입력합니다.
+3. **Add a Person**(사람 추가) 옵션을 클릭하여 양식을 열고 다음 옵션을 입력합니다.
 
     ![스크린샷은 사용자 정보를 입력할 수 있는 Boylan Construction에 사람 추가를 보여줍니다.](./media/procoresso-tutorial/Procore_user_add.png)
 
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta** )을 입력합니다.
+    a. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 
-    b. **성** 텍스트 상자에 사용자의 성(예: **Simon** )을 입력합니다.
+    b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
     다. **이메일 주소** 텍스트 상자에 사용자의 이메일 주소(예: BrittaSimon@contoso.com)를 입력합니다.
 
-    d. **Permission Template** (권한 템플릿)에 **Apply Permission Template Later** (권한 템플릿 나중에 적용)를 선택합니다.
+    d. **Permission Template**(권한 템플릿)에 **Apply Permission Template Later**(권한 템플릿 나중에 적용)를 선택합니다.
 
     e. **만들기** 를 클릭합니다.
 
@@ -215,7 +215,7 @@ Procore SSO 쪽에서 Procore 테스트 사용자를 만들려면 다음 단계�
 
     ![스크린샷은 사용자 설정을 확인할 수 있는 편집 페이지를 보여줍니다.](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. **Save and Send Invitiation** (저장 및 초대 보내기)(메일을 통한 초대가 필요한 경우) 또는 **저장** (바로 저장)을 클릭하여 사용자 등록을 완료합니다.
+5. **Save and Send Invitiation**(저장 및 초대 보내기)(메일을 통한 초대가 필요한 경우) 또는 **저장**(바로 저장)을 클릭하여 사용자 등록을 완료합니다.
     
     ![스크린샷을 초대를 저장하고 보낼 수 있는 현재 프로젝트 설정을 보여줍니다.](./media/procoresso-tutorial/Procore_user_save.png)
 

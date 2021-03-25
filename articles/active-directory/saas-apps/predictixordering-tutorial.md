@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: f48f7cf9507afae31e3c36aef517aab7b7d77ccf
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>자습서: Predictix Ordering과 Azure Active Directory 통합
@@ -136,7 +136,7 @@ Predictix Ordering 쪽에서 Single Sign-On을 구성하려면 Azure Portal에�
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자** 를 차례로 선택하고 **모든 사용자** 를 선택합니다.
 
     ![모든 사용자 선택](common/users.png)
 

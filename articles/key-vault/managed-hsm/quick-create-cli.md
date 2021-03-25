@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91756822"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화
@@ -27,8 +27,8 @@ Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* Azure CLI 버전 2.12.0 이상 `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 구독의 관리형 HSM [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
+* Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* 구독의 관리형 HSM. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus2* 위치에 *ContosoResourceGroup*이라는 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus2* 위치에 *ContosoResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name "ContosoResourceGroup" --location eastus2
@@ -63,7 +63,7 @@ az group create --name "ContosoResourceGroup" --location eastus2
 - Azure 위치입니다.
 - 초기 관리자 목록
 
-아래 예제에서는 **현재 로그인한 사용자**를 유일한 관리자로 사용하여 **ContosoMHSM**이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
+아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)

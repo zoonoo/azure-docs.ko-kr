@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744569"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025240"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 대한 질문과 대답
 이 문서에서는 Azure Cloud Services (확장 지원)와 관련 된 질문과 대답을 다룹니다.
@@ -82,6 +82,8 @@ REST, PowerShell 및 CLI를 사용 하 여 템플릿 및 매개 변수 파일을
 ### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Cloud Services에서 응용 프로그램 코드를 변경 하는 방법 (확장 지원)
 Cspkg에 패키지 된 응용 프로그램 코드에 필요한 변경 사항은 없습니다. 기존 응용 프로그램은 이전 처럼 계속 작동 합니다. 
 
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>CTP 패키지 형식을 허용 하는 Cloud Services (확장 지원)
+CTP 패키지 형식은 Cloud Services (확장 지원)에서 지원 되지 않습니다. 그러나 800 MB의 향상 된 패키지 크기 제한을 허용 합니다.
 
 ## <a name="migration"></a>마이그레이션
 

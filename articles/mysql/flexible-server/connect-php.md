@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92545109"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: PHP를 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
@@ -56,7 +56,7 @@ ms.locfileid: "92545109"
 Azure Database for MySQL 유연한 서버에 연결하는 데 필요한 연결 정보를 가져옵니다. 정규화된 서버 이름 및 로그인 자격 증명이 필요합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 생성한 서버를 검색합니다(예: **mydemoserver** ).
+2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 를 선택한 다음, 생성한 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 선택합니다.
 4. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
  <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
@@ -78,7 +78,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 **CREATE TABLE** SQL 문을 사용하여 테이블을 연결하고 생성하려면 다음 코드를 사용하세요.
 
-이 코드는 PHP에 포함된 **MySQL Improved Extension** (mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_init](https://secure.php.net/manual/mysqli.init.php) 및 [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) 메서드를 호출하여 MySQL에 연결합니다. 그리고 [mysqli_query](https://secure.php.net/manual/mysqli.query.php) 메서드를 호출하여 쿼리를 실행합니다. 그런 다음 [mysqli_close](https://secure.php.net/manual/mysqli.close.php) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_init](https://secure.php.net/manual/mysqli.init.php) 및 [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) 메서드를 호출하여 MySQL에 연결합니다. 그리고 [mysqli_query](https://secure.php.net/manual/mysqli.query.php) 메서드를 호출하여 쿼리를 실행합니다. 그런 다음 [mysqli_close](https://secure.php.net/manual/mysqli.close.php) 메서드를 호출하여 연결을 닫습니다.
 
 host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요.
 
@@ -118,7 +118,7 @@ mysqli_close($conn);
 
 **INSERT** SQL 문을 사용하여 데이터를 연결하고 삽입하려면 다음 코드를 사용하세요.
 
-이 코드는 PHP에 포함된 **MySQL Improved Extension** (mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 INSERT 문을 만든 후 [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 삽입된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 INSERT 문을 만든 후 [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 삽입된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
 
 host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요.
 
@@ -154,7 +154,7 @@ mysqli_close($conn);
 
 ## <a name="read-data"></a>데이터 읽기
 
-**SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.  이 코드는 PHP에 포함된 **MySQL Improved Extension** (mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_query](https://secure.php.net/manual/mysqli.query.php) 메서드를 사용하여 SQL 쿼리를 수행하고 [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) 메서드를 사용하여 결과 행을 페치합니다.
+**SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.  이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_query](https://secure.php.net/manual/mysqli.query.php) 메서드를 사용하여 SQL 쿼리를 수행하고 [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) 메서드를 사용하여 결과 행을 페치합니다.
 
 host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요.
 
@@ -188,7 +188,7 @@ mysqli_close($conn);
 
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
 
-이 코드는 PHP에 포함된 **MySQL Improved Extension** (mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 UPDATE 문을 만든 후 [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 업데이트된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 UPDATE 문을 만든 후 [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 업데이트된 각 열 값의 매개 변수를 바인딩합니다. [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
 
 host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요.
 
@@ -226,7 +226,7 @@ mysqli_close($conn);
 ## <a name="delete-data"></a>데이터 삭제
 **DELETE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요.
 
-이 코드는 PHP에 포함된 **MySQL Improved Extension** (mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 DELETE 문을 만든 후 [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 문의 Where 절에 대한 매개 변수를 바인딩합니다. [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
+이 코드는 PHP에 포함된 **MySQL Improved Extension**(mysqli) 클래스를 사용합니다. 이 코드는 [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) 메서드를 사용하여 준비된 DELETE 문을 만든 후 [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) 메서드를 사용하여 문의 Where 절에 대한 매개 변수를 바인딩합니다. [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) 메서드를 사용하여 문을 실행한 후 [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) 메서드를 사용하여 문을 닫습니다.
 
 host, username, password 및 db_name 매개 변수는 원하는 값으로 바꾸세요.
 

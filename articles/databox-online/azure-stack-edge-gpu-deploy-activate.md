@@ -10,10 +10,10 @@ ms.date: 10/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ms.openlocfilehash: a767f6f877ae22a311afdb00417efb9f28fdc8f0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91938358"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 활성화
@@ -44,13 +44,13 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
 ## <a name="activate-the-device"></a>디바이스 활성화
 
 1. 디바이스의 로컬 웹 UI에서 **시작** 페이지로 이동합니다.
-2. **활성화** 타일에서 **활성화**를 선택합니다. 
+2. **활성화** 타일에서 **활성화** 를 선택합니다. 
 
     ![로컬 웹 UI "클라우드 세부 정보" 페이지](./media/azure-stack-edge-gpu-deploy-activate/activate-1.png)
     
-3. **활성화** 창에 [Azure Stack Edge Pro의 활성화 키 가져오기](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key)에서 얻은 **활성화 키**를 입력합니다.
+3. **활성화** 창에 [Azure Stack Edge Pro의 활성화 키 가져오기](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key)에서 얻은 **활성화 키** 를 입력합니다.
 
-4. **적용**을 선택합니다.
+4. **적용** 을 선택합니다.
 
     ![로컬 웹 UI "클라우드 세부 정보" 페이지 2](./media/azure-stack-edge-gpu-deploy-activate/activate-2.png)
 
@@ -59,7 +59,7 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
     
     ![로컬 웹 UI "클라우드 세부 정보" 페이지 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
     
-    **다운로드 및 계속**을 선택하고 디바이스 외부의 안전한 위치에 *device-serial-no.json* 파일을 저장합니다. **이 키 파일에는 OS 디스크의 복구 키와 디바이스의 데이터 디스크가 포함되어 있습니다**. 나중에 시스템을 복구할 때 이 키가 필요할 수 있습니다.
+    **다운로드 및 계속** 을 선택하고 디바이스 외부의 안전한 위치에 *device-serial-no.json* 파일을 저장합니다. **이 키 파일에는 OS 디스크의 복구 키와 디바이스의 데이터 디스크가 포함되어 있습니다**. 나중에 시스템을 복구할 때 이 키가 필요할 수 있습니다.
 
     *json* 파일의 내용은 다음과 같습니다.
 
@@ -86,7 +86,7 @@ Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 �
     |`SystemVolumeBitLockerRecoveryKey`| 시스템 볼륨의 BitLocker 키입니다. 이 키는 디바이스의 시스템 구성 및 시스템 데이터 복구에 도움이 됩니다. |
     |`ServiceEncryptionKey`| 이 키는 Azure 서비스를 통과하는 데이터를 보호합니다. 이 키는 Azure 서비스가 손상되더라도 저장된 정보가 손상되지 않도록 합니다. |
 
-6. **개요** 페이지로 이동합니다. 디바이스 상태는 **활성화됨**으로 표시되어야 합니다.
+6. **개요** 페이지로 이동합니다. 디바이스 상태는 **활성화됨** 으로 표시되어야 합니다.
 
     ![로컬 웹 UI "클라우드 세부 정보" 페이지 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)
  

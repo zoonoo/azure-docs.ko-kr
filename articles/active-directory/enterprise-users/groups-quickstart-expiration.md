@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bc76214ca2bedfc66ad3165cafe904584d42db
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96546321"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹이 만료되도록 설정

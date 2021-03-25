@@ -3,16 +3,16 @@ title: Data Factory, 데이터 통합 서비스 소개
 description: 데이터의 이동과 변환을 오케스트레이션하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 1cee5f92af4e23a6bc0d195bc13bc3f11f53443d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 220c1969055ffaa5d1bea41ab547efd4596f8a20
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382976"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786467"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

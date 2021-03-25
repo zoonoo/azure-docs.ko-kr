@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab54243eb7109965941cf60edd9358133550c7d3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101711997"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046643"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -66,7 +66,7 @@ Azure Monitor 로그를 사용 하면 경쟁 솔루션 보다 저렴 한 비용�
 
 Azure Monitor 로그의 핵심 기능은 Azure에서 실행 되는 서비스 집합을 통해 제공 됩니다. 각 서비스는 고유의 관리 기능을 제공하며, 사용자는 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다.
 
-| 서비스  | 설명|
+| 서비스  | Description|
 | :------------- | :-------------|
 | Azure Monitor 로그 | 실제 컴퓨터와 가상 머신을 포함하여 다양한 리소스의 가용성 및 성능을 모니터링하고 분석합니다. |
 |Automation | 수동 프로세스를 자동화하고 실제 컴퓨터와 가상 머신에 대한 구성을 적용합니다. |
@@ -165,7 +165,7 @@ Azure Security Center는 크래시 덤프 파일의 임시 복사본을 수집�
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor 로그 보안](../../security-center/security-center-monitoring.md) 및 감사 솔루션을 사용 하면 IT가 모든 리소스를 적극적으로 모니터링 하 여 보안 문제의 영향을 최소화할 수 있습니다. Azure Monitor 로그에는 리소스를 모니터링 하는 데 사용할 수 있는 보안 도메인이 보안 및 감사. 보안 도메인을 통해 옵션에 빠르게 액세스할 수 있으며, 여기서는 보안 모니터링과 관련하여 다음 도메인에 대해 자세히 살펴봅니다.
+[Azure Monitor 로그 보안](../../security-center/security-center-remediate-recommendations.md) 및 감사 솔루션을 사용 하면 IT가 모든 리소스를 적극적으로 모니터링 하 여 보안 문제의 영향을 최소화할 수 있습니다. Azure Monitor 로그에는 리소스를 모니터링 하는 데 사용할 수 있는 보안 도메인이 보안 및 감사. 보안 도메인을 통해 옵션에 빠르게 액세스할 수 있으며, 여기서는 보안 모니터링과 관련하여 다음 도메인에 대해 자세히 살펴봅니다.
 
 -   맬웨어 평가
 -   업데이트 평가
