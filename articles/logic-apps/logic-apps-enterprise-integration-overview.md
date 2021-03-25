@@ -9,10 +9,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: adf15904d4490647074d6e2b46ac7e9e871dd388
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "86536405"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩이 포함된 B2B 엔터프라이즈 통합 솔루션
@@ -32,7 +32,7 @@ Microsoft BizTalk Server 또는 Azure BizTalk Services에 대해 잘 알고 있�
 
 * Azure Functions를 사용하여 Logic Apps에 대한 사용자 지정 코드를 만들 수 있습니다.
 
-## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
+## <a name="how-do-i-get-started"></a>시작하려면 어떻게 해야 하나요?
 
 EIP를 사용하여 B2B 논리 앱 워크플로를 빌드하려면 다음 항목이 필요합니다.
 

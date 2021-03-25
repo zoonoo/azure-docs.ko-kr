@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: ae37771cd9e48f450ae538174b9bed9cfa866f9d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fae915df037b2a279dfdb87ee6734055c422a1e2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565532"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024815"
 ---
 # <a name="azure-compute-unit-acu"></a>ACU(Azure 컴퓨팅 단위)
 
@@ -25,6 +25,8 @@ ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 컴퓨팅(CPU) 성능을 �
 **ACU는 AMD® Boost 기술을 사용하여 CPU 빈도를 늘리고 성능을 개선합니다.  성능 증가량은 VM 크기, 워크로드 및 동일한 호스트에서 실행 중인 다른 워크로드에 따라 달라질 수 있습니다.
 
 ***하이퍼 스레드 및 중첩된 가상화 실행 기능
+
+AMD 동시 다중 스레딩 기술
 
 > [!IMPORTANT]
 > ACU는 단지 지침일 뿐입니다. 워크로드에 대한 결과가 달라질 수 있습니다.
@@ -45,7 +47,7 @@ ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 컴퓨팅(CPU) 성능을 �
 | [DS1_v2 - DS15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
 | [D_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Ds_v3](dv3-dsv3-series.md) |160 - 190* | 2:1\*\*\* |
-| [Dav4](dav4-dasv4-series.md) |230-260 * * | 2:1 |
+| [Dav4](dav4-dasv4-series.md) |230-260 * * | 2:1\*\*\*\* |
 | [Dasv4](dav4-dasv4-series.md) |230-260 * * | 2:1 |
 | [Dv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
@@ -53,7 +55,7 @@ ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 컴퓨팅(CPU) 성능을 �
 | [Ddsv4](ddv4-ddsv4-series.md) | 195-210 * | 2:1\*\*\* |
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
-| [Eav4](eav4-easv4-series.md) |230-260 * * | 2:1 |
+| [Eav4](eav4-easv4-series.md) |230-260 * * | 2:1\*\*\*\* |
 | [Easv4](eav4-easv4-series.md) | 230-260 * * | 2:1 |
 | [Ev4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Esv4](ev4-esv4-series.md) | 195 - 210 | 2:1\*\*\* |
@@ -68,7 +70,7 @@ ACU(Azure 컴퓨팅 단위) 개념은 Azure SKU에서 컴퓨팅(CPU) 성능을 �
 | [HB](hb-series.md) |199-216 * * | 1:1 |
 | [HC](hc-series.md) |297-315 * | 1:1 |
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
+| [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1\*\*\*\* |
 | [M](m-series.md) | 160-180 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230-260 * * | 2:1 |
 

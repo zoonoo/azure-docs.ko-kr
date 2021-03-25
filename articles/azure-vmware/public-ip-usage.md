@@ -3,12 +3,12 @@ title: Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 description: 이 문서에서는 Azure 가상 WAN에서 공용 IP 기능을 사용 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 02/04/2021
-ms.openlocfilehash: 640f359ed8934048bffd7f58b36e8a3eef71c2f1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 794e24e531d464adf58d5a06b5a411ada18c4a60
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99581383"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023659"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Azure VMware 솔루션에서 공용 IP 기능을 사용 하는 방법
 
@@ -29,7 +29,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 이 문서에서는 가상 WAN에서 공용 IP 기능을 사용할 수 있는 방법을 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure VMware 솔루션 환경
 - Azure VMware 솔루션 환경에서 실행 중인 웹 서버입니다.
@@ -47,6 +47,9 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 ## <a name="test-case"></a>테스트 사례
 이 시나리오에서는 IIS 웹 서버를 인터넷에 게시 합니다. Azure VMware 솔루션의 공용 IP 기능을 사용 하 여 공용 IP 주소에 웹 사이트를 게시 합니다.  또한 방화벽에서 NAT 규칙을 구성 하 고 공용 IP를 사용 하는 Azure VMware 솔루션 리소스 (웹 서버를 사용 하는 Vm)에 액세스 합니다.
+
+>[!TIP]
+>송신 트래픽을 사용 하도록 설정 하려면 보안 구성 > **Azure 방화벽** 에 대 한 인터넷 트래픽을 설정 해야 합니다.
 
 ## <a name="deploy-virtual-wan"></a>Virtual WAN을 배포합니다.
 
@@ -152,7 +155,7 @@ Azure VMware 솔루션 사설 클라우드 배포의 일부로 공용 IP 기능�
 
 ## <a name="limitations"></a>제한 사항
 
-SDDCs 당 100 공용 Ip가 있을 수 있습니다.
+사설 클라우드 당 100 공용 Ip가 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

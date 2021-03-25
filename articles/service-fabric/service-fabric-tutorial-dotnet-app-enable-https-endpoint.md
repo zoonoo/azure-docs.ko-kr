@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91326238"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
@@ -36,12 +36,12 @@ ms.locfileid: "91326238"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 설치](https://www.visualstudio.com/) 버전 16.5 이상.
+* **Azure 개발** 과 **ASP.NET 및 웹 개발** 워크로드가 포함된 [Visual Studio 2019 설치](https://www.visualstudio.com/) 버전 16.5 이상.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>인증서를 받거나 자체 서명된 개발 인증서 만들기
@@ -68,7 +68,7 @@ Thumbprint                                Subject
 
 ## <a name="define-an-https-endpoint-in-the-service-manifest"></a>서비스 매니페스트에서 HTTPS 엔드포인트 정의
 
-**관리자** 권한으로 Visual Studio를 시작하고 투표 솔루션을 엽니다. 솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다. 이 서비스 매니페스트는 서비스 엔드포인트를 정의합니다.  **엔드포인트** 섹션을 찾고 기존 "ServiceEndpoint" 엔드포인트를 편집합니다.  이름을 "EndpointHttps"로 변경하고 프로토콜을 *https*로, 유형을 *입력*으로, 포트를 *443*으로 설정합니다.  변경 내용을 저장합니다.
+**관리자** 권한으로 Visual Studio를 시작하고 투표 솔루션을 엽니다. 솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml* 을 엽니다. 이 서비스 매니페스트는 서비스 엔드포인트를 정의합니다.  **엔드포인트** 섹션을 찾고 기존 "ServiceEndpoint" 엔드포인트를 편집합니다.  이름을 "EndpointHttps"로 변경하고 프로토콜을 *https* 로, 유형을 *입력* 으로, 포트를 *443* 으로 설정합니다.  변경 내용을 저장합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -188,14 +188,14 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
 
 ## <a name="grant-network-service-access-to-the-certificates-private-key"></a>NETWORK SERVICE에 인증서의 프라이빗 키에 대한 액세스 권한 부여
 
-이전 단계에서 개발 컴퓨터의 `Cert:\LocalMachine\My` 저장소로 인증서를 가져온 상태입니다.  또한 서비스를 실행하는 계정(기본적으로 NETWORK SERVICE)에 인증서의 프라이빗 키에 대한 액세스 권한을 명시적으로 부여해야 합니다. 이 단계는 수동으로(certlm.msc 도구 사용) 수행할 수 있지만 서비스 매니페스트의 **SetupEntryPoint**에 [시작 스크립트를 구성](service-fabric-run-script-at-service-startup.md)하여 PowerShell 스크립트를 자동으로 실행하는 것이 좋습니다.
+이전 단계에서 개발 컴퓨터의 `Cert:\LocalMachine\My` 저장소로 인증서를 가져온 상태입니다.  또한 서비스를 실행하는 계정(기본적으로 NETWORK SERVICE)에 인증서의 프라이빗 키에 대한 액세스 권한을 명시적으로 부여해야 합니다. 이 단계는 수동으로(certlm.msc 도구 사용) 수행할 수 있지만 서비스 매니페스트의 **SetupEntryPoint** 에 [시작 스크립트를 구성](service-fabric-run-script-at-service-startup.md)하여 PowerShell 스크립트를 자동으로 실행하는 것이 좋습니다.
 
 >[!NOTE]
 > Service Fabric은 지문 또는 주체 일반 이름으로 엔드포인트 인증서를 선언하는 것을 지원합니다. 이 경우 런타임은 서비스를 실행하는 ID에 대한 인증서의 프라이빗 키를 바인딩하고 ACL을 설정합니다. 또한 런타임은 인증서의 변경/갱신을 모니터링하고 해당하는 프라이빗 키를 적절하게 다시 ACL합니다.
 
 ### <a name="configure-the-service-setup-entry-point"></a>서비스 설치 진입점 구성
 
-솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml*을 엽니다.  **CodePackage** 섹션에 **SetupEntryPoint** 노드를 추가한 다음, **ExeHost** 노드를 추가합니다.  **ExeHost**에서 **Program**을 "Setup.bat"로 설정하고 **WorkingFolder**을 "CodePackage"로 설정합니다.  VotingWeb 서비스가 시작되면 VotingWeb.exe 가 시작되기 전에 Setup.bat 스크립트가 CodePackage 폴더에서 실행됩니다.
+솔루션 탐색기에서 *VotingWeb/PackageRoot/ServiceManifest.xml* 을 엽니다.  **CodePackage** 섹션에 **SetupEntryPoint** 노드를 추가한 다음, **ExeHost** 노드를 추가합니다.  **ExeHost** 에서 **Program** 을 "Setup.bat"로 설정하고 **WorkingFolder** 을 "CodePackage"로 설정합니다.  VotingWeb 서비스가 시작되면 VotingWeb.exe 가 시작되기 전에 Setup.bat 스크립트가 CodePackage 폴더에서 실행됩니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -236,17 +236,17 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
 
 ### <a name="add-the-batch-and-powershell-setup-scripts"></a>일괄 처리 및 PowerShell 설치 스크립트 추가
 
-**SetupEntryPoint** 지점에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 일괄 처리 파일에서 PowerShell.exe를 실행하면 됩니다. 먼저 서비스 프로젝트에 일괄 처리 파일을 추가합니다.  솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목**을 선택하여 "Setup.bat" 라는 새 파일을 추가합니다.  *Setup.bat* 파일을 편집하고 다음 명령을 추가합니다.
+**SetupEntryPoint** 지점에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 일괄 처리 파일에서 PowerShell.exe를 실행하면 됩니다. 먼저 서비스 프로젝트에 일괄 처리 파일을 추가합니다.  솔루션 탐색기에서 **VotingWeb** 을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목** 을 선택하여 "Setup.bat" 라는 새 파일을 추가합니다.  *Setup.bat* 파일을 편집하고 다음 명령을 추가합니다.
 
 ```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
-*Setup.bat* 파일 속성을 수정하여 **출력 디렉터리로 복사**를 "변경된 내용만 복사"로 설정합니다.
+*Setup.bat* 파일 속성을 수정하여 **출력 디렉터리로 복사** 를 "변경된 내용만 복사"로 설정합니다.
 
 ![파일 속성 설정][image1]
 
-솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목**을 선택하여 "SetCertAccess.ps1" 이라는 새 파일을 추가합니다.  *SetCertAccess.ps1* 파일을 편집하고 다음 스크립트를 추가합니다.
+솔루션 탐색기에서 **VotingWeb** 을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목** 을 선택하여 "SetCertAccess.ps1" 이라는 새 파일을 추가합니다.  *SetCertAccess.ps1* 파일을 편집하고 다음 스크립트를 추가합니다.
 
 ```powershell
 $subject="mytestcert"
@@ -295,14 +295,14 @@ if ($cert -eq $null)
 
 ```
 
-*SetCertAccess.ps1* 파일 속성을 수정하여 **출력 디렉터리로 복사**를 "변경된 내용만 복사"로 설정합니다.
+*SetCertAccess.ps1* 파일 속성을 수정하여 **출력 디렉터리로 복사** 를 "변경된 내용만 복사"로 설정합니다.
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>로컬 관리자 권한으로 설치 스크립트 실행
 
-기본적으로 서비스 설치 진입점 실행 파일은 Service Fabric과 동일한 자격 증명(일반적으로 NetworkService 계정)으로 실행됩니다. *SetCertAccess.ps1*을 실행하려면 관리자 권한이 필요합니다. 애플리케이션 매니페스트에서 로컬 관리자 계정으로 시작 스크립트를 실행하도록 보안 권한을 변경할 수 있습니다.
+기본적으로 서비스 설치 진입점 실행 파일은 Service Fabric과 동일한 자격 증명(일반적으로 NetworkService 계정)으로 실행됩니다. *SetCertAccess.ps1* 을 실행하려면 관리자 권한이 필요합니다. 애플리케이션 매니페스트에서 로컬 관리자 계정으로 시작 스크립트를 실행하도록 보안 권한을 변경할 수 있습니다.
 
-솔루션 탐색기에서 *Voting/ApplicationPackageRoot/ApplicationManifest.xml*을 엽니다. 먼저 **보안 주체** 섹션을 만들고 새 사용자를 추가합니다(예: "SetupAdminUser"). SetupAdminUser 사용자 계정을 관리자 시스템 그룹에 추가합니다.
-그런 다음, VotingWebPkg **ServiceManifestImport** 섹션에서 **RunAsPolicy**를 구성하여 SetupAdminUser 보안 주체를 설치 진입점에 적용합니다. 이 정책은 Service Fabric에 Setup.bat 파일이 Service SetupAdminUser(관리자 권한 있음) 권한으로 실행됨을 알립니다.
+솔루션 탐색기에서 *Voting/ApplicationPackageRoot/ApplicationManifest.xml* 을 엽니다. 먼저 **보안 주체** 섹션을 만들고 새 사용자를 추가합니다(예: "SetupAdminUser"). SetupAdminUser 사용자 계정을 관리자 시스템 그룹에 추가합니다.
+그런 다음, VotingWebPkg **ServiceManifestImport** 섹션에서 **RunAsPolicy** 를 구성하여 SetupAdminUser 보안 주체를 설치 진입점에 적용합니다. 이 정책은 Service Fabric에 Setup.bat 파일이 Service SetupAdminUser(관리자 권한 있음) 권한으로 실행됨을 알립니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -360,11 +360,11 @@ if ($cert -eq $null)
 
 Azure에 애플리케이션을 배포하기 전에 모든 원격 클러스터 노드의 `Cert:\LocalMachine\My` 저장소에 인증서를 설치합니다.  서비스는 클러스터의 다른 노드로 이동할 수 있습니다.  클러스터 노드에서 프런트 엔드 웹 서비스가 시작되면 시작 스크립트는 인증서를 조회하고 액세스 권한을 구성합니다.
 
-먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 애플리케이션을 열고 **개인**>**인증서**로 이동합니다.  *mytestcert* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기**를 선택합니다.
+먼저 인증서를 PFX 파일로 내보냅니다. certlm.msc 애플리케이션을 열고 **개인**>**인증서** 로 이동합니다.  *mytestcert* 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**>**내보내기** 를 선택합니다.
 
 ![인증서 내보내기][image4]
 
-내보내기 마법사에서 **예, 프라이빗 키를 내보냅니다**를 선택하고, PFX(개인 정보 교환) 형식을 선택합니다.  파일을 *C:\Users\sfuser\votingappcert.pfx*로 내보냅니다.
+내보내기 마법사에서 **예, 프라이빗 키를 내보냅니다** 를 선택하고, PFX(개인 정보 교환) 형식을 선택합니다.  파일을 *C:\Users\sfuser\votingappcert.pfx* 로 내보냅니다.
 
 그런 다음, [제공된 Powershell 스크립트](./scripts/service-fabric-powershell-add-application-certificate.md)를 사용하여 원격 클러스터에 인증서를 설치합니다.
 
@@ -418,7 +418,7 @@ $nsg | Set-AzNetworkSecurityGroup
 
 ## <a name="deploy-the-application-to-azure"></a>Azure에 애플리케이션 배포
 
-모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [클러스터에 애플리케이션 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  애플리케이션을 원격 클러스터에 게시하려면 **게시**를 클릭합니다.
+모든 파일을 저장하고 디버그에서 릴리스로 전환한 다음, F6 키를 눌러 다시 빌드합니다.  솔루션 탐색기에서 **투표** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. [클러스터에 애플리케이션 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)에서 만든 클러스터의 연결 엔드포인트를 선택하거나, 다른 클러스터를 선택합니다.  애플리케이션을 원격 클러스터에 게시하려면 **게시** 를 클릭합니다.
 
 애플리케이션이 배포되면 웹 브라우저를 열고 `https://mycluster.region.cloudapp.azure.com:443`(클러스터의 연결 엔드포인트로 URL 업데이트)으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 

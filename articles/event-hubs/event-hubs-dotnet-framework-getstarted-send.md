@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ea3ad7e90a947269833a03a4cacf3d4fe76a6620
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91334279"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
@@ -20,21 +20,21 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - [Microsoft Visual Studio 2019](https://visualstudio.com)
-- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **이벤트 허브 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **이벤트 허브 네임스페이스에 대한 연결 문자열** 을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Framework 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
-Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 애플리케이션 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **Sender**로 지정합니다.
+Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 애플리케이션 프로젝트를 새로 만듭니다. 프로젝트의 이름을 **Sender** 로 지정합니다.
    
 !["콘솔 앱(.NET Framework)"이 선택된 "새 프로젝트" 창과 프로젝트 이름 "보낸 사람" 및 "확인" 단추가 강조 표시된 스크린샷.](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-1. 솔루션 탐색기에서 **Sender** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다. 
-2. **찾아보기** 탭을 클릭한 다음 `WindowsAzure.ServiceBus`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다. 
+1. 솔루션 탐색기에서 **Sender** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리** 를 클릭합니다. 
+2. **찾아보기** 탭을 클릭한 다음 `WindowsAzure.ServiceBus`를 검색합니다. **설치** 를 클릭하고 사용 약관에 동의합니다. 
    
     ![Service Bus NuGet 패키지 설치](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
@@ -98,14 +98,14 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
-Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 애플리케이션 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
+Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 애플리케이션 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver** 로 지정합니다.
    
 ![콘솔 애플리케이션 만들기](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Event Hubs NuGet 패키지 추가
 
-1. 솔루션 탐색기에서 **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리**를 클릭합니다.
-2. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+1. 솔루션 탐색기에서 **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **솔루션에 대한 NuGet 패키지 관리** 를 클릭합니다.
+2. **찾아보기** 탭을 클릭한 다음 `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색합니다. **설치** 를 클릭하고 사용 약관에 동의합니다.
    
     ![이벤트 프로세서 호스트 NuGet 패키지 검색](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
@@ -113,7 +113,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
 
 ### <a name="implement-the-ieventprocessor-interface"></a>IEventProcessor 인터페이스 구현
 
-1. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다.
+1. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** 를 클릭한 후 **클래스** 를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor** 로 지정하고 **추가** 를 클릭하여 클래스를 생성합니다.
    
     ![SimpleEventProcessor 클래스 추가](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
 2. SimpleEventProcessor.cs 파일의 맨 위에 다음 구문을 추가합니다.
@@ -167,7 +167,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
       }
       ```
     
-      이 클래스는 Event Hub에서 받는 이벤트를 처리하기 위해 **EventProcessorHost**에 의해 호출됩니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 이 처리로 인해 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
+      이 클래스는 Event Hub에서 받는 이벤트를 처리하기 위해 **EventProcessorHost** 에 의해 호출됩니다. `SimpleEventProcessor` 클래스는 초시계를 사용하여 **EventProcessorHost** 컨텍스트에서 검사점 메서드를 주기적으로 호출합니다. 이 처리로 인해 수신기가 다시 시작되는 경우 5분 이하의 처리 작업은 손실됩니다.
 
 ### <a name="update-the-main-method-to-use-simpleeventprocessor"></a>SimpleEventProcessor를 사용하도록 Main 메서드 업데이트
 

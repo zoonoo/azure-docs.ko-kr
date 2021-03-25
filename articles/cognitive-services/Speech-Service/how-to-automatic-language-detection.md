@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e62333f241cf24620773314fb7aa4846af651eaf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b558d4b3be64f82775eb9caf2f3ea8c5a8f95c6d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98185872"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025223"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
 
@@ -30,7 +30,7 @@ ms.locfileid: "98185872"
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 자동 언어 검색
 
-자동 언어 검색에는 현재 검색 당 4 개 언어의 서비스 쪽 제한이 있습니다. 개체를 생성할 때 이러한 제한을 염두에 두십시오 `AudoDetectSourceLanguageConfig` . 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig` 다음이를 사용 하 여를 생성 `SpeechRecognizer` 합니다.
+자동 언어 검색에는 현재 검색 당 4 개 언어의 서비스 쪽 제한이 있습니다. 개체를 생성할 때 이러한 제한을 염두에 두십시오 `AutoDetectSourceLanguageConfig` . 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig` 다음이를 사용 하 여를 생성 `SpeechRecognizer` 합니다.
 
 > [!TIP]
 > 음성 텍스트를 수행할 때 사용할 사용자 지정 모델을 지정할 수도 있습니다. 자세한 내용은 [자동 언어 검색에 사용자 지정 모델 사용](#use-a-custom-model-for-automatic-language-detection)을 참조 하세요.

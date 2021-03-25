@@ -1,19 +1,14 @@
 ---
 title: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
-titleSuffix: Azure Defender for IoT
 description: Defender 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/9/2021
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 8984b1dbcb9a6aca6d313d8195a75093ae421bbd
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ecde9f42acc5cf4a924a657f4f0cdc545c4a668e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611678"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782727"
 ---
 # <a name="install-defender-for-iot-micro-agent-preview"></a>IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 

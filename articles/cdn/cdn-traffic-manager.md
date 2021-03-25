@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777744"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034761"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용 하 여 여러 끝점에서 장애 조치 (Failover)
 
@@ -87,14 +87,17 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
 
     b. 두 번째 CNAME 항목의 경우 cdnverify 하위 도메인이 없는 사용자 지정 도메인을 CDN 엔드포인트에 매핑합니다. 이 항목은 Traffic Manager에 사용자 지정 도메인을 매핑합니다. 
 
-      예를 들면 다음과 같습니다. 
+      예를 들어: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
     > [!NOTE]
     > 도메인이 현재 라이브라서 중단할 수 없는 경우 이 단계를 마지막에 수행합니다. 사용자 지정 도메인 DNS를 Traffic Manager로 업데이트하기 전에 Traffic Manager 도메인 및 CDN 엔드포인트가 라이브인지 확인합니다.
     >
-
+   
+    > [!NOTE]
+    > 거이 장애 조치 (failover)를 위해 두 끝점은 서로 다른 프로필에 있어야 하 고 다른 프로필은 도메인 이름 충돌을 방지 하기 위해 다른 CDN 공급자를 사용 해야 합니다.
+    > 
 
 2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가** 및 입력 **cdndemo101.dustydogpetcare.online** 를 선택 합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
 
@@ -106,7 +109,7 @@ CDN 및 Traffic Manager 프로필을 구성한 후 다음 단계에 따라 DNS �
 
 3.  사용자 지정 도메인의 도메인 공급자에 대 한 웹 사이트로 돌아갑니다. 만든 첫 번째 DNS 매핑을 업데이트 합니다. 두 번째 CDN 끝점에 사용자 지정 도메인을 매핑합니다.
                              
-    예를 들면 다음과 같습니다. 
+    예를 들어: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

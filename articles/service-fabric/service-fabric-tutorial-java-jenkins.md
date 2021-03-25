@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531975"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
@@ -73,37 +73,37 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Jenkins 작업 만들기 및 구성
 
-1. 먼저 GitHub에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 새로 만듭니다. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
+1. 먼저 GitHub에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 새로 만듭니다. 리포지토리는 이 자습서의 나머지에 대해 **dev_test** 라고 합니다.
 
-1. ``http://<HOST-IP>:8080``의 Jenkins 대시보드에 **새 항목**을 만듭니다.
+1. ``http://<HOST-IP>:8080``의 Jenkins 대시보드에 **새 항목** 을 만듭니다.
 
-1. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
+1. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트** 를 선택하고 **확인** 을 클릭합니다.
 
-1. 작업 페이지로 이동하여 **구성**을 클릭합니다.
+1. 작업 페이지로 이동하여 **구성** 을 클릭합니다.
 
-   a. 일반 섹션에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
+   a. 일반 섹션에서 **GitHub 프로젝트** 에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트합니다(예: ``https://github.com/testaccount/dev_test``).
 
-   b. **소스 코드 관리** 섹션 아래에서 **Git**를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *`https://github.com/testaccount/dev_test.git`* ). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
+   b. **소스 코드 관리** 섹션 아래에서 **Git** 를 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: *`https://github.com/testaccount/dev_test.git`* ). 또한 여기에서 빌드할 분기를 지정할 수 있습니다(예: **/master**).
 
-1. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub*을 구성합니다. 다음 단계를 사용합니다.
+1. Jenkins와 통신할 수 있도록 리포지토리를 호스팅하는 *GitHub* 을 구성합니다. 다음 단계를 사용합니다.
 
-   a. GitHub 리포지토리 페이지로 이동합니다. **설정** > **통합 및 서비스**로 이동합니다.
+   a. GitHub 리포지토리 페이지로 이동합니다. **설정** > **통합 및 서비스** 로 이동합니다.
 
-   b. **서비스 추가**를 선택하고 **Jenkins**를 입력하고 **Jenkins-GitHub 플러그 인**을 선택합니다.
+   b. **서비스 추가** 를 선택하고 **Jenkins** 를 입력하고 **Jenkins-GitHub 플러그 인** 을 선택합니다.
 
-   다. Jenkins Webhook URL을 입력합니다(기본적으로 ``http://<PublicIPorFQDN>:8081/github-webhook/``이여야 함). **서비스 추가/업데이트**를 클릭합니다.
+   다. Jenkins Webhook URL을 입력합니다(기본적으로 ``http://<PublicIPorFQDN>:8081/github-webhook/``이여야 함). **서비스 추가/업데이트** 를 클릭합니다.
 
    d. 테스트 이벤트가 사용자의 Jenkins 인스턴스로 전송됩니다. GitHub의 웹후크에서 녹색 확인 표시가 나타나고 프로젝트가 빌드됩니다.
 
    ![Service Fabric Jenkins 구성](./media/service-fabric-tutorial-java-jenkins/jenkinsconfiguration.png)
 
-1. **트리거 빌드** 섹션 아래에서 원하는 빌드 옵션을 선택합니다. 이 예에서는 리포지토리에 일부 푸시가 발생할 때마다 빌드를 트리거하려고 합니다. 따라서 **GITScm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
+1. **트리거 빌드** 섹션 아래에서 원하는 빌드 옵션을 선택합니다. 이 예에서는 리포지토리에 일부 푸시가 발생할 때마다 빌드를 트리거하려고 합니다. 따라서 **GITScm 폴링에 대한 GitHub 후크 트리거** 를 선택합니다.
 
-1. **빌드 섹션** 아래 **빌드 단계 추가** 드롭다운에서 **Gradle 스크립트 호출** 옵션을 선택합니다. 고급 메뉴가 열리는 위젯에서 애플리케이션에 대한 **루트 빌드 스크립트**의 경로를 지정합니다. 지정된 경로에서 build.gradle을 선택하면 이에 따라 적절하게 작동합니다.
+1. **빌드 섹션** 아래 **빌드 단계 추가** 드롭다운에서 **Gradle 스크립트 호출** 옵션을 선택합니다. 고급 메뉴가 열리는 위젯에서 애플리케이션에 대한 **루트 빌드 스크립트** 의 경로를 지정합니다. 지정된 경로에서 build.gradle을 선택하면 이에 따라 적절하게 작동합니다.
 
     ![Service Fabric Jenkins 빌드 작업](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포**를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 애플리케이션을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
+1. **빌드 후 작업** 드롭다운에서 **Service Fabric 프로젝트 배포** 를 선택합니다. 여기에서 Jenkins가 컴파일한 Service Fabric 애플리케이션을 배포한 클러스터 세부 정보를 제공해야 합니다. 인증서 경로가 볼륨이 탑재(/tmp/myCerts)됐던 위치에 있습니다.
 
     또한 애플리케이션을 배포하는 데 사용된 추가 세부 정보를 제공할 수 있습니다. 애플리케이션 세부 정보에 대한 예제는 다음 스크린샷을 참조하세요.
 
@@ -113,11 +113,11 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     > 이 클러스터는 Service Fabric을 사용하여 Jenkins 컨테이너 이미지를 배포하는 경우에 Jenkins 컨테이너 애플리케이션을 호스팅하는 것과 동일할 수 있습니다.
     >
 
-1. **저장**을 클릭합니다.
+1. **저장** 을 클릭합니다.
 
 ## <a name="update-your-existing-application"></a>기존 애플리케이션 업데이트
 
-1. **Service Fabric Voting 샘플 V2**를 사용하여 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 파일의 HTML의 제목을 업데이트합니다.
+1. **Service Fabric Voting 샘플 V2** 를 사용하여 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 파일의 HTML의 제목을 업데이트합니다.
 
     ```html
     <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
@@ -131,7 +131,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </div>
     ```
 
-1. **ApplicationTypeVersion** 및 **ServiceManifestVersion** 버전을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에서 **2.0.0**으로 업데이트합니다.
+1. **ApplicationTypeVersion** 및 **ServiceManifestVersion** 버전을 *Voting/VotingApplication/ApplicationManifest.xml* 파일에서 **2.0.0** 으로 업데이트합니다.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -158,7 +158,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </ApplicationManifest>
     ```
 
-1. **ServiceManifest**에서 **버전** 필드 및 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 파일의 **CodePackage** 태그에서 **버전** 필드를 **2.0.0**으로 업데이트합니다.
+1. **ServiceManifest** 에서 **버전** 필드 및 *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* 파일의 **CodePackage** 태그에서 **버전** 필드를 **2.0.0** 으로 업데이트합니다.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -176,7 +176,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
     ![업그레이드 진행 중](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. **http://\<Host-IP>:8080**에 액세스하는 경우 이제 완벽한 기능으로 Voting 애플리케이션이 작동되고 실행됩니다.
+1. **http://\<Host-IP>:8080** 에 액세스하는 경우 이제 완벽한 기능으로 Voting 애플리케이션이 작동되고 실행됩니다.
 
     ![로컬 Voting 앱](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

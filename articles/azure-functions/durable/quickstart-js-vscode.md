@@ -7,21 +7,21 @@ ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
 ms.custom: devx-track-js
 ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91335452"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
-*Durable Functions*는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
+*Durable Functions* 는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
 이 문서에서는 Visual Studio Code Azure Functions를 사용하여 로컬로 “hello world” 지속성 함수를 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다.
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -41,11 +41,11 @@ ms.locfileid: "91335452"
 
 이 섹션에서는 Visual Studio Code를 사용하여 로컬 Azure Functions 프로젝트를 만듭니다. 
 
-1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create New Project...`을 검색하여 선택합니다.
+1. Visual Studio Code에서 F1(또는 Ctrl/Cmd+Shift+P) 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create New Project...`을 검색하여 선택합니다.
 
     ![함수 만들기](media/quickstart-js-vscode/functions-create-project.png)
 
-1. 프로젝트에 대한 빈 폴더 위치를 선택하고, **선택**을 누릅니다.
+1. 프로젝트에 대한 빈 폴더 위치를 선택하고, **선택** 을 누릅니다.
 
 1. 지시에 따라 다음 정보를 제공합니다.
 
@@ -89,7 +89,7 @@ Node.js 함수 앱에서 Durable Functions를 작업하려면 `durable-functions
     | 함수의 템플릿 선택 | Durable Functions 오케스트레이터 | Durable Functions 오케스트레이션 만들기 |
     | 함수 이름 제공 | HelloOrchestrator | 지속성 함수의 이름 |
 
-작업 함수를 조정하기 위한 오케스트레이터를 추가했습니다. 오케스트레이터 함수를 보려면 *HelloOrchestrator/index.js*를 엽니다. `context.df.callActivity`를 호출할 때마다 `Hello`라는 작업 함수가 호출됩니다.
+작업 함수를 조정하기 위한 오케스트레이터를 추가했습니다. 오케스트레이터 함수를 보려면 *HelloOrchestrator/index.js* 를 엽니다. `context.df.callActivity`를 호출할 때마다 `Hello`라는 작업 함수가 호출됩니다.
 
 다음으로, 참조된 `Hello` 작업 함수를 추가하겠습니다.
 
@@ -104,7 +104,7 @@ Node.js 함수 앱에서 Durable Functions를 작업하려면 `durable-functions
     | 함수의 템플릿 선택 | Durable Functions 작업 | 작업 함수 만들기 |
     | 함수 이름 제공 | 안녕하세요. | 작업 함수의 이름 |
 
-오케스트레이터에서 호출하는 `Hello` 작업 함수를 추가했습니다. *Hello/index.js*를 열고, 입력으로 이름을 가져오고 인사말을 반환하는지 확인합니다. 작업 함수에서는 데이터베이스 호출, 컴퓨팅 수행 등의 작업을 수행할 것입니다.
+오케스트레이터에서 호출하는 `Hello` 작업 함수를 추가했습니다. *Hello/index.js* 를 열고, 입력으로 이름을 가져오고 인사말을 반환하는지 확인합니다. 작업 함수에서는 데이터베이스 호출, 컴퓨팅 수행 등의 작업을 수행할 것입니다.
 
 마지막으로, 오케스트레이션을 시작하는 HTTP 트리거 함수를 추가합니다.
 
@@ -120,7 +120,7 @@ Node.js 함수 앱에서 Durable Functions를 작업하려면 `durable-functions
     | 함수 이름 제공 | DurableFunctionsHttpStart | 작업 함수의 이름 |
     | 권한 부여 수준 | 익명 | 데모용으로 인증 없이 함수를 호출할 수 있도록 허용합니다. |
 
-오케스트레이션을 시작하는 HTTP 트리거 함수를 추가했습니다. *DurableFunctionsHttpStart/index.js*를 열면 `client.startNew`를 사용하여 새 오케스트레이션을 시작한 다음, `client.createCheckStatusResponse`를 사용하여 새 오케스트레이션을 모니터링하고 관리하는 데 사용할 수 있는 URL이 포함된 HTTP 응답이 반환되는 것을 볼 수 있습니다.
+오케스트레이션을 시작하는 HTTP 트리거 함수를 추가했습니다. *DurableFunctionsHttpStart/index.js* 를 열면 `client.startNew`를 사용하여 새 오케스트레이션을 시작한 다음, `client.createCheckStatusResponse`를 사용하여 새 오케스트레이션을 모니터링하고 관리하는 데 사용할 수 있는 URL이 포함된 HTTP 응답이 반환되는 것을 볼 수 있습니다.
 
 이제 로컬로 실행하고 Azure에 배포할 수 있는 Durable Functions 앱이 생겼습니다.
 
@@ -133,7 +133,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     > [!NOTE]
     > 디버깅에 대한 자세한 내용은 [Durable Functions 진단](durable-functions-diagnostics.md#debugging)을 참조하세요.
 
-1. Durable Functions를 사용하려면 Azure Storage 계정을 실행해야 합니다. VS Code에서 스토리지 계정을 선택하라는 메시지가 표시되면 **스토리지 계정 선택**을 선택합니다.
+1. Durable Functions를 사용하려면 Azure Storage 계정을 실행해야 합니다. VS Code에서 스토리지 계정을 선택하라는 메시지가 표시되면 **스토리지 계정 선택** 을 선택합니다.
 
     ![스토리지 계정 만들기](media/quickstart-js-vscode/functions-select-storage.png)
 
@@ -176,7 +176,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     }
     ```
 
-1. 디버깅을 중지하려면 VS Code에서 **Shift + F5**를 누릅니다.
+1. 디버깅을 중지하려면 VS Code에서 **Shift + F5** 를 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 

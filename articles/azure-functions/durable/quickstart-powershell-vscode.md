@@ -6,15 +6,15 @@ ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
 ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91317262"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>PowerShell에서 첫 번째 지속성 함수 만들기
 
-*Durable Functions*는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
+*Durable Functions* 는 서버리스 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
 이 문서에서는 Visual Studio Code Azure Functions를 사용하여 로컬로 “hello world” 지속성 함수를 만들고 테스트하는 방법에 대해 알아봅니다.  이 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다. 그런 후 함수 코드를 Azure에 게시합니다.
 
@@ -38,11 +38,11 @@ ms.locfileid: "91317262"
 
 이 섹션에서는 Visual Studio Code를 사용하여 로컬 Azure Functions 프로젝트를 만듭니다. 
 
-1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create New Project...`을 검색하여 선택합니다.
+1. Visual Studio Code에서 F1(또는 Ctrl/Cmd+Shift+P) 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create New Project...`을 검색하여 선택합니다.
 
     ![함수 만들기](media/quickstart-js-vscode/functions-create-project.png)
 
-1. 프로젝트에 대한 빈 폴더 위치를 선택하고, **선택**을 누릅니다.
+1. 프로젝트에 대한 빈 폴더 위치를 선택하고, **선택** 을 누릅니다.
 
 1. 지시에 따라 다음 정보를 제공합니다.
 
@@ -93,7 +93,7 @@ package.json 파일도 루트 폴더에 생성됩니다.
     | 함수의 템플릿 선택 | Durable Functions 오케스트레이터(미리 보기) | Durable Functions 오케스트레이션 만들기 |
     | 함수 이름 제공 | HelloOrchestrator | 지속성 함수의 이름 |
 
-작업 함수를 조정하기 위한 오케스트레이터를 추가했습니다. 오케스트레이터 함수를 보려면 *HelloOrchestrator/run.ps1*을 엽니다. `Invoke-ActivityFunction` cmdlet에 대한 각 호출은 `Hello`라는 작업 함수를 호출합니다.
+작업 함수를 조정하기 위한 오케스트레이터를 추가했습니다. 오케스트레이터 함수를 보려면 *HelloOrchestrator/run.ps1* 을 엽니다. `Invoke-ActivityFunction` cmdlet에 대한 각 호출은 `Hello`라는 작업 함수를 호출합니다.
 
 다음으로, 참조된 `Hello` 작업 함수를 추가하겠습니다.
 
@@ -108,7 +108,7 @@ package.json 파일도 루트 폴더에 생성됩니다.
     | 함수의 템플릿 선택 | Durable Functions 작업(미리 보기) | 작업 함수 만들기 |
     | 함수 이름 제공 | 안녕하세요. | 작업 함수의 이름 |
 
-오케스트레이터에서 호출하는 `Hello` 작업 함수를 추가했습니다. *Hello/run.ps1*을 열어 입력으로 이름을 가져오고 인사말을 반환하는지 확인합니다. 작업 함수에서는 데이터베이스 호출, 컴퓨팅 수행 등의 작업을 수행할 것입니다.
+오케스트레이터에서 호출하는 `Hello` 작업 함수를 추가했습니다. *Hello/run.ps1* 을 열어 입력으로 이름을 가져오고 인사말을 반환하는지 확인합니다. 작업 함수에서는 데이터베이스 호출, 컴퓨팅 수행 등의 작업을 수행할 것입니다.
 
 마지막으로, 오케스트레이션을 시작하는 HTTP 트리거 함수를 추가합니다.
 
@@ -124,7 +124,7 @@ package.json 파일도 루트 폴더에 생성됩니다.
     | 함수 이름 제공 | HttpStart | 작업 함수의 이름 |
     | 권한 부여 수준 | 익명 | 데모용으로 인증 없이 함수를 호출할 수 있도록 허용합니다. |
 
-오케스트레이션을 시작하는 HTTP 트리거 함수를 추가했습니다. *HttpStart/run.ps1*을 열어 `Start-NewOrchestration` cmdlet을 사용하여 새 오케스트레이션을 시작하는지 확인합니다. 그런 다음, `New-OrchestrationCheckStatusResponse` cmdlet을 사용하여 새 오케스트레이션을 모니터링하고 관리하는 데 사용할 수 있는 URL이 포함된 HTTP 응답을 반환합니다.
+오케스트레이션을 시작하는 HTTP 트리거 함수를 추가했습니다. *HttpStart/run.ps1* 을 열어 `Start-NewOrchestration` cmdlet을 사용하여 새 오케스트레이션을 시작하는지 확인합니다. 그런 다음, `New-OrchestrationCheckStatusResponse` cmdlet을 사용하여 새 오케스트레이션을 모니터링하고 관리하는 데 사용할 수 있는 URL이 포함된 HTTP 응답을 반환합니다.
 
 이제 로컬로 실행하고 Azure에 배포할 수 있는 Durable Functions 앱이 생겼습니다.
 
@@ -137,7 +137,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     > [!NOTE]
     > 디버깅에 대한 자세한 내용은 [Durable Functions 진단](durable-functions-diagnostics.md#debugging)을 참조하세요.
 
-1. Durable Functions를 사용하려면 Azure Storage 계정을 실행해야 합니다. VS Code에서 스토리지 계정을 선택하라는 메시지가 표시되면 **스토리지 계정 선택**을 선택합니다.
+1. Durable Functions를 사용하려면 Azure Storage 계정을 실행해야 합니다. VS Code에서 스토리지 계정을 선택하라는 메시지가 표시되면 **스토리지 계정 선택** 을 선택합니다.
 
     ![스토리지 계정 만들기](media/quickstart-js-vscode/functions-select-storage.png)
 
@@ -180,7 +180,7 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
     }
     ```
 
-1. 디버깅을 중지하려면 VS Code에서 **Shift + F5**를 누릅니다.
+1. 디버깅을 중지하려면 VS Code에서 **Shift + F5** 를 누릅니다.
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 
@@ -225,9 +225,9 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
     함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다.
 
-1. <a name="update-function-app-ps7"></a>함수 앱을 만들 때 이전에 *PowerShell 7*을 선택할 수 없는 경우 F1(또는 Ctrl/Cmd+Shift+P)을 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Upload Local Settings...`을 검색하여 선택합니다. 프롬프트에 따라 만든 함수 앱을 선택합니다. 기존 설정을 덮어쓸지 묻는 메시지가 표시되면 *모두 아니요*를 선택합니다.
+1. <a name="update-function-app-ps7"></a>함수 앱을 만들 때 이전에 *PowerShell 7* 을 선택할 수 없는 경우 F1(또는 Ctrl/Cmd+Shift+P)을 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Upload Local Settings...`을 검색하여 선택합니다. 프롬프트에 따라 만든 함수 앱을 선택합니다. 기존 설정을 덮어쓸지 묻는 메시지가 표시되면 *모두 아니요* 를 선택합니다.
     
-1. 이 알림에서 **출력 보기**를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
+1. 이 알림에서 **출력 보기** 를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다. 알림이 누락된 경우 오른쪽 아래 모서리에 있는 종 모양 아이콘을 선택하여 다시 확인합니다.
 
     ![전체 알림 만들기](../../../includes/media/functions-publish-project-vscode/function-create-notifications.png)
 
