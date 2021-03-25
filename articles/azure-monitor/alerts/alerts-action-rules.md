@@ -3,16 +3,16 @@ title: Azure Monitor 경고에 대 한 작업 규칙
 description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471686"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036784"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
-작업 규칙을 통해 Azure Resource Manager 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)에서 작업을 정의 하거나 표시 하지 않을 수 있습니다. 작업 하려는 경고 인스턴스의 특정 하위 집합에 대 한 범위를 좁히는 데 도움이 되는 다양 한 필터를 포함 합니다.
+작업 규칙을 사용 하면 발생 한 경고에 대 한 작업 그룹을 추가 하거나 억제할 수 있습니다. 단일 규칙은 특정 리소스 (예: 특정 가상 머신)에 대 한 경고 또는 구독의 모든 리소스에 대해 발생 하는 경고와 같은 다양 한 대상 리소스 범위를 포함할 수 있습니다. 필요에 따라 다양 한 필터를 추가 하 여 규칙이 적용 되는 경고를 제어 하 고이에 대 한 일정을 정의할 수 있습니다. 예를 들어 업무 시간 외에만 또는 계획 된 유지 관리 기간 동안에만 적용 됩니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -31,7 +31,7 @@ ms.locfileid: "103471686"
 작업 규칙은이 프로세스를 간소화 하는 데 도움이 됩니다. 규모에 따라 작업을 정의 하 여 구성 된 범위에서 생성 되는 모든 경고에 대해 작업 그룹을 트리거할 수 있습니다. 이전 예제에서 팀은 **ContosoRG** 에서 생성 된 모든 경고에 대해 동일한 작업 그룹을 트리거하는 하나의 작업 규칙을 정의할 수 있습니다.
 
 > [!NOTE]
-> 작업 규칙은 현재 Azure Service Health 알림에 적용 되지 않습니다.
+> 작업 규칙은 Azure Service Health 경고에는 적용 되지 않습니다.
 
 ## <a name="configuring-an-action-rule"></a>작업 규칙 구성
 
@@ -308,7 +308,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 비 표시 제거는 항상 동일한 범위에 우선 합니다.
 
-### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>별도의 두 작업 규칙에서 모니터링 되는 리소스가 있으면 어떻게 되나요? 하나 또는 두 개의 알림을 받을 까 요? 예를 들어, 다음과 같은 시나리오에서는 **v m 2** 입니다.
+### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>두 작업 규칙이 적용 되는 리소스가 있으면 어떻게 되나요? 하나 또는 두 개의 알림을 받을 까 요? 예를 들어, 다음과 같은 시나리오에서는 **v m 2** 입니다.
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

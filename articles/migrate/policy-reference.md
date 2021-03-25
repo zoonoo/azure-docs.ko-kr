@@ -1,18 +1,18 @@
 ---
 title: Azure Migrate에 대 한 기본 제공 정책 정의
 description: Azure Migrate에 대 한 Azure Policy 기본 제공 정책 정의를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: reference
 ms.service: azure-migrate
 author: rayne-wiselman
 ms.author: raynew
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ed95b8afb783fedb9af97506958ad827f30b3c02
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: e7349d388d4474505d90292973257574e5c961a0
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104776363"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036852"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Azure Migrate에 대 한 기본 제공 정의 Azure Policy
 

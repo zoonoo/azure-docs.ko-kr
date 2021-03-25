@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 REST API를 사용하여 비규격 리�
 ms.date: 01/29/2021
 ms.topic: quickstart
 ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99219980"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>빠른 시작: REST API를 사용하여 비규격 리소스를 식별하는 정책 할당 만들기

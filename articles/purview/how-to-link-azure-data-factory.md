@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449614"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026626"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Azure Data Factory 및 Azure 부서의 범위를 연결 하는 방법
 
@@ -147,6 +147,11 @@ Data Factory와 부서의 범위 간의 통합은 다음 섹션에 설명 된 �
 - 파일 기반 저장소에 대 한 원본 파티션 검색 옵션입니다.
 - 파일당 최대 행 수 설정을 사용 하 여 파일 기반 싱크로 데이터를 복사 합니다.
 - 복사 중에 다른 열을 추가 합니다.
+
+추가 계보에는 다음 커넥터에 대 한 데이터 자산 스키마 (자산-> 스키마 탭에 표시)가 보고 됩니다.
+
+- Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2 및 Amazon S3의 CSV 및 Parquet 파일
+- Azure 데이터 탐색기, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
 
 ### <a name="data-factory-data-flow-support"></a>Data Factory 데이터 흐름 지원
 

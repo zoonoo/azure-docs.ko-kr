@@ -15,10 +15,10 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 03/04/2020
 ms.openlocfilehash: 28d80a20c50f846146aed069028303e86426df27
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99072088"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(.NET)
@@ -56,7 +56,7 @@ IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-이전 [빠른 시작: 디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-dotnet.md)를 완료한 경우 이 단계를 건너뛸 수 있습니다.
+이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-dotnet.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
