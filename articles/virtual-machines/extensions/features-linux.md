@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 03/30/2018
-ms.openlocfilehash: b6a834ede381ee319d3ff7678f49febd11e34a5d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8ff7b2940ca9ce3e5dc5913c0e676a32857771e7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102559773"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046881"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -31,7 +31,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -245,7 +245,7 @@ waagent --version
 
 ```bash
 WALinuxAgent-2.2.17 running on ubuntu 16.04
-Python: 3.5.2
+Python: 3.6.0
 Goal state agent: 2.2.18
 ```
 
@@ -397,7 +397,7 @@ az vm extension delete \
 
 ## <a name="common-vm-extension-reference"></a>일반적인 VM 확장 참조
 
-| 확장 이름 | 설명 | 자세한 정보 |
+| 확장 이름 | Description | 자세한 정보 |
 | --- | --- | --- |
 | Linux용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Linux용 사용자 지정 스크립트 확장](custom-script-linux.md) |
 | VM 액세스 확장 |Azure Virtual Machine에 대한 액세스 권한 복구 |[VM 액세스 확장](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

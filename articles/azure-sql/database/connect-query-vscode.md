@@ -14,10 +14,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
 ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92672483"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>빠른 시작: Visual Studio Code를 사용하여 연결 및 쿼리를 참조하세요. 
@@ -99,7 +99,7 @@ Visual Studio Code를 사용하여 서버에 대한 연결을 설정합니다.
 > [!IMPORTANT]
 > 계속하기 전에 서버 및 로그인 정보를 준비했는지 확인합니다. 연결 프로필 정보를 입력하기 시작하면 Visual Studio Code에서 포커스를 변경하는 경우 프로필 만들기를 다시 시작해야 합니다.
 
-1. Visual Studio Code에서 **Ctrl+Shift+P** (또는 **F1** 키)를 눌러서 명령 팔레트를 엽니다.
+1. Visual Studio Code에서 **Ctrl+Shift+P**(또는 **F1** 키)를 눌러서 명령 팔레트를 엽니다.
 
 2. **MS SQL:Connect** 를 선택하고 **Enter** 를 선택합니다.
 
@@ -109,7 +109,7 @@ Visual Studio Code를 사용하여 서버에 대한 연결을 설정합니다.
 
    | 속성       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **서버 이름** | 정규화된 서버 이름 | 예: **mynewserver20170313.database.windows.net** . |
+   | **서버 이름** | 정규화된 서버 이름 | 예: **mynewserver20170313.database.windows.net**. |
    | **데이터베이스 이름** | mySampleDatabase | 연결할 데이터베이스입니다. |
    | **인증** | SQL 로그인| 이 자습서에서는 SQL 인증을 사용합니다. |
    | **사용자 이름** | 사용자 이름 | 서버를 만드는 데 사용되는 서버 관리자 계정의 사용자 이름입니다. |

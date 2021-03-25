@@ -5,10 +5,10 @@ ms.date: 08/24/2020
 ms.topic: tutorial
 ms.reviewer: ravastra
 ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88784031"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench용 블록체인 애플리케이션 만들기
@@ -319,12 +319,12 @@ Blockchain Workbench에 블록체인 애플리케이션을 추가하려면 구�
 
 1. 웹 브라우저에서 Blockchain Workbench 웹 주소로 이동합니다. 예를 들어 `https://{workbench URL}.azurewebsites.net/`입니다. Blockchain Workbench를 배포하면 웹 애플리케이션이 생성됩니다. Blockchain Workbench 웹 주소를 찾는 방법에 대한 내용은 [Blockchain Workbench 웹 URL](deploy.md#blockchain-workbench-web-url)을 참조하세요.
 2. [Blockchain Workbench 관리자](manage-users.md#manage-blockchain-workbench-administrators)로 로그인합니다.
-3. **애플리케이션** > **새로 만들기**를 선택합니다. **새 애플리케이션** 창이 표시됩니다.
-4. **계약 구성 업로드** > **찾아보기**를 선택하여 생성한 **HelloBlockchain.json** 구성 파일을 찾습니다. 구성 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.
-5. **계약 코드 업로드** > **찾아보기**를 선택하여 **HelloBlockchain.sol** 스마트 계약 코드 파일을 찾습니다. 코드 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.
-6. **배포**를 선택하여 구성 및 스마트 계약 파일을 기반으로 블록체인 애플리케이션을 만듭니다.
+3. **애플리케이션** > **새로 만들기** 를 선택합니다. **새 애플리케이션** 창이 표시됩니다.
+4. **계약 구성 업로드** > **찾아보기** 를 선택하여 생성한 **HelloBlockchain.json** 구성 파일을 찾습니다. 구성 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.
+5. **계약 코드 업로드** > **찾아보기** 를 선택하여 **HelloBlockchain.sol** 스마트 계약 코드 파일을 찾습니다. 코드 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 애플리케이션을 배포하기 전에 유효성 검사 오류를 수정합니다.
+6. **배포** 를 선택하여 구성 및 스마트 계약 파일을 기반으로 블록체인 애플리케이션을 만듭니다.
 
-블록체인 애플리케이션을 배포하는 데 몇 분이 걸립니다. 배포가 완료되면 새 애플리케이션이 **애플리케이션**에 표시됩니다. 
+블록체인 애플리케이션을 배포하는 데 몇 분이 걸립니다. 배포가 완료되면 새 애플리케이션이 **애플리케이션** 에 표시됩니다. 
 
 > [!NOTE]
 > [Azure Blockchain Workbench REST API](/rest/api/azure-blockchain-workbench)를 사용하여 블록체인 애플리케이션을 만들 수도 있습니다.
@@ -336,10 +336,10 @@ Blockchain Workbench에 블록체인 애플리케이션을 추가하려면 구�
 1. **애플리케이션** > **Hello, Blockchain!** 을 선택합니다.
 2. 애플리케이션과 연관된 구성원의 수는 페이지의 오른쪽 위에 표시됩니다. 새로운 애플리케이션의 경우 구성원 수가 0입니다.
 3. 페이지의 오른쪽 위에 있는 **구성원** 링크를 선택합니다. 애플리케이션의 현재 구성원 목록이 표시됩니다.
-4. 구성원 목록에서 **구성원 추가**를 선택합니다.
+4. 구성원 목록에서 **구성원 추가** 를 선택합니다.
 5. 추가하려는 구성원 이름을 선택하거나 입력합니다. Blockchain Workbench 테넌트에 있는 Azure AD 사용자만 나열됩니다. 사용자를 찾을 수 없는 경우 [Azure AD 사용자를 추가](manage-users.md#add-azure-ad-users)해야 합니다.
-6. 구성원에 대해 **역할**을 선택합니다. 첫 번째 구성원의 경우 **요청자**를 역할로 선택합니다.
-7. **추가**를 선택하여 관련된 역할이 있는 구성원을 애플리케이션에 추가합니다.
+6. 구성원에 대해 **역할** 을 선택합니다. 첫 번째 구성원의 경우 **요청자** 를 역할로 선택합니다.
+7. **추가** 를 선택하여 관련된 역할이 있는 구성원을 애플리케이션에 추가합니다.
 8. **응답자** 역할을 사용하여 다른 구성원을 애플리케이션에 추가합니다.
 
 Blockchain Workbench에서 사용자를 관리하는 방법에 대한 자세한 내용은 [Azure Blockchain Workbench에서 사용자 관리](manage-users.md)를 참조하세요.

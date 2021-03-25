@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6bcfbc19cbaa078373d6857bdac74eaf86eca104
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712218"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048054"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 계산 및 저장소 옵션
 
@@ -121,7 +121,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 로 표시 된 경우 \* 선택한 VM 유형에 따라 IOPS가 제한 됩니다. 그렇지 않으면 선택한 저장소 크기에 따라 IOPS가 제한 됩니다.
 
 >[!NOTE]
-> 디스크 수준 버스트로 인해 메트릭에 더 높은 IOPS가 표시 될 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) 를 참조 하세요. 
+> 디스크 수준 버스트로 인해 메트릭에 더 높은 IOPS가 표시 될 수 있습니다. 자세한 내용은 [설명서](../../virtual-machines/disk-bursting.md#disk-level-bursting) 를 참조 하세요. 
 
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>구성에 대 한 최대 i/o 대역폭 (MiB/초)
 
@@ -178,7 +178,7 @@ VCores 또는 compute 계층 수를 변경 하면 새 서버 유형을 적용 �
 
 백업 보존 기간을 변경 하는 작업은 온라인 작업입니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 최신 가격 책정 정보는 서비스 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/PostgreSQL/)를 참조하세요. 원하는 구성 비용을 확인하려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)에서 선택한 옵션에 따라 **가격 책정 계층** 탭에 월별 비용이 표시됩니다. Azure 구독이 없는 경우 Azure 가격 책정 계산기를 사용하여 예상 가격을 구할 수 있습니다. [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/) 웹 사이트에서 **항목 추가** 를 선택하고, **데이터베이스** 범주를 확장하고, **Azure Database for PostgreSQL** 을 선택하여 옵션을 사용자 지정합니다.
 

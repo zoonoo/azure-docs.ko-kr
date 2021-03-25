@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: pafarley
-ms.openlocfilehash: 9293d47d8aade11f4cc3ee55bb32574f125dfafc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f280e1a70ab595a87789c7514d8cce4fccbe8e84
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428289"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046898"
 ---
 # <a name="whats-new-in-face-service"></a>Face 서비스의 새로운 기능이란?
 
@@ -23,9 +23,9 @@ Azure Face 서비스는 지속적으로 업데이트 됩니다. 이 문서를 �
 
 ## <a name="february-2021"></a>2021년 2월
 
-* 새 Face API 검색 모델: 새 검색 03 모델은 현재 사용할 수 있는 가장 정확한 검색 모델입니다. 새 고객 인 경우이 모델을 사용 하는 것이 좋습니다. 검색 03은 이미지 (64x64 픽셀)에서 발견 되는 작은 얼굴의 리콜 및 정밀도를 모두 향상 시킵니다. 추가 개선 사항으로는 거짓 긍정의 전반적인 감소 및 회전 된 얼굴 방향에 대 한 향상 된 검색이 포함 됩니다. 검색 03과 새 인식 04을 결합 하면 인식 정확도도 향상 됩니다. 자세한 내용은 [얼굴 검색 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) 을 참조 하세요.
-* 얼굴 마스크 특성: 얼굴 마스크 특성은 `"noseAndMouthCovered"` 얼굴 마스크가 의도 한 대로 마모 되었는지 여부를 검색 하는 추가 특성과 함께 최신 검색 03 모델과 함께 사용할 수 있습니다. 최신 마스크 검색 기능을 사용 하려면 사용자가 API 요청에서 검색 모델을 지정 해야 합니다. _detectionModel_ 매개 변수를 사용 하 여 모델 버전을에 할당 `detection_03` 합니다. 자세한 내용은 [얼굴 검색 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) 을 참조 하세요.
-* 새 Face API 인식 모델: 새 인식 04 모델은 현재 사용할 수 있는 가장 정확한 인식 모델입니다. 새 고객 인 경우 확인 및 식별을 위해이 모델을 사용 하는 것이 좋습니다. 얼굴 커버 (surgical 마스크, N95 마스크, 천을 마스크)를 포함 하는 등록 된 사용자에 대 한 인식 향상을 포함 하 여 인식 03의 정확도를 향상 시킵니다. 이제 고객은 등록 된 사용자가 최신 검색 03 모델을 사용 하 여 얼굴 커버를 작성 하 고 있는지 여부를 검색 하는 안전 하 고 원활한 사용자 환경을 구축 하 고, 최신 인식 04 모델을 사용 하는 사용자를 인식할 수 있습니다. 자세한 내용은 [얼굴 인식 모델 지정](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model) 을 참조 하세요.
+* 새 Face API 검색 모델: 새 검색 03 모델은 현재 사용할 수 있는 가장 정확한 검색 모델입니다. 새 고객 인 경우이 모델을 사용 하는 것이 좋습니다. 검색 03은 이미지 (64x64 픽셀)에서 발견 되는 작은 얼굴의 리콜 및 정밀도를 모두 향상 시킵니다. 추가 개선 사항으로는 거짓 긍정의 전반적인 감소 및 회전 된 얼굴 방향에 대 한 향상 된 검색이 포함 됩니다. 검색 03과 새 인식 04을 결합 하면 인식 정확도도 향상 됩니다. 자세한 내용은 [얼굴 검색 모델 지정](./face-api-how-to-topics/specify-detection-model.md) 을 참조 하세요.
+* 얼굴 마스크 특성: 얼굴 마스크 특성은 `"noseAndMouthCovered"` 얼굴 마스크가 의도 한 대로 마모 되었는지 여부를 검색 하는 추가 특성과 함께 최신 검색 03 모델과 함께 사용할 수 있습니다. 최신 마스크 검색 기능을 사용 하려면 사용자가 API 요청에서 검색 모델을 지정 해야 합니다. _detectionModel_ 매개 변수를 사용 하 여 모델 버전을에 할당 `detection_03` 합니다. 자세한 내용은 [얼굴 검색 모델 지정](./face-api-how-to-topics/specify-detection-model.md) 을 참조 하세요.
+* 새 Face API 인식 모델: 새 인식 04 모델은 현재 사용할 수 있는 가장 정확한 인식 모델입니다. 새 고객 인 경우 확인 및 식별을 위해이 모델을 사용 하는 것이 좋습니다. 얼굴 커버 (surgical 마스크, N95 마스크, 천을 마스크)를 포함 하는 등록 된 사용자에 대 한 인식 향상을 포함 하 여 인식 03의 정확도를 향상 시킵니다. 이제 고객은 등록 된 사용자가 최신 검색 03 모델을 사용 하 여 얼굴 커버를 작성 하 고 있는지 여부를 검색 하는 안전 하 고 원활한 사용자 환경을 구축 하 고, 최신 인식 04 모델을 사용 하는 사용자를 인식할 수 있습니다. 자세한 내용은 [얼굴 인식 모델 지정](./face-api-how-to-topics/specify-recognition-model.md) 을 참조 하세요.
 
 
 ## <a name="january-2021"></a>2021년 1월

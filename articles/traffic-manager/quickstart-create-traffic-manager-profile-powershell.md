@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
 ms.openlocfilehash: 9b34a17cc9add0bed4bffb7677aa81bb17f3125b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91631565"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 고가용성 웹 애플리케이션을 위한 Traffic Manager 프로필 만들기
@@ -129,13 +129,13 @@ Get-AzTrafficManagerProfile -Name $mytrafficmanagerprofile `
 -ResourceGroupName MyResourceGroup
 ```
 
-**RelativeDnsName** 값을 복사합니다. Traffic Manager 프로필의 DNS 이름은 *http://<* relativednsname *>.trafficmanager.net*입니다. 
+**RelativeDnsName** 값을 복사합니다. Traffic Manager 프로필의 DNS 이름은 *http://<* relativednsname *>.trafficmanager.net* 입니다. 
 
 ### <a name="view-traffic-manager-in-action"></a>실행 중인 Traffic Manager 보기
 1. 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름(*http://<* relativednsname *>.trafficmanager.net*)을 입력하여 웹앱의 기본 웹 사이트를 표시합니다.
 
     > [!NOTE]
-    > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1**로 설정됩니다.
+    > 이 빠른 시작 시나리오에서는 모든 요청이 기본 엔드포인트로 라우팅됩니다. **우선 순위 1** 로 설정됩니다.
 2. 작동 중인 Traffic Manager 장애 조치(failover)를 보려면 [Disable-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/disable-aztrafficmanagerendpoint)를 사용하여 기본 사이트를 사용하지 않도록 설정합니다.
 
    ```azurepowershell-interactive

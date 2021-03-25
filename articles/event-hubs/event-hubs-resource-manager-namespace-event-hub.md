@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/23/2020
 ms.openlocfilehash: e6da5fbe3c0e269f5ceb2c3627df27ccf0e3b30b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88933854"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 이벤트 허브 만들기
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 템플릿을 배포하는 방법은 다음과 같습니다.
 
-1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud Shell에 로그인합니다.
+1. 다음 코드 블록에서 **사용해보기** 를 선택한 다음, 지침에 따라 Azure Cloud Shell에 로그인합니다.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -58,8 +58,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    이벤트 허브를 만드는 데 몇 분 정도 걸립니다.
 
-1. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
+1. **복사** 를 선택하여 PowerShell 스크립트를 복사합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기** 를 선택합니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 

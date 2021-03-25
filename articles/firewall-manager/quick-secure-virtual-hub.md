@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
 ms.openlocfilehash: 050dfa737ad04127f8c72158fbecb2e8e70e05c1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075344"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - ARM 템플릿
@@ -57,18 +57,18 @@ Azure Firewall Manager에 대한 자세한 내용은 [Azure Firewall Manager란?
 
 Azure에 ARM 템플릿을 배포합니다.
 
-1. **Azure에 배포**를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 가상 WAN 및 가상 허브, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
+1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 가상 WAN 및 가상 허브, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
 
 2. 포털의 **보안 가상 허브** 페이지에서 다음 값을 입력하거나 선택합니다.
    - 구독: 기존 구독에서 선택 
-   - 리소스 그룹:  기존 리소스 그룹에서 선택하거나 **새로 만들기**를 선택하고 **확인**을 선택합니다.
+   - 리소스 그룹:  기존 리소스 그룹에서 선택하거나 **새로 만들기** 를 선택하고 **확인** 을 선택합니다.
    - 위치: 위치 선택
    - 관리자 사용자 이름: 관리자 사용자 계정에 대한 사용자 이름 입력 
    - 관리자 암호: 관리자 암호 또는 키 입력
 
-3. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
+3. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
@@ -78,7 +78,7 @@ Azure에 ARM 템플릿을 배포합니다.
 2. 원격 데스크톱을 **Jump-Srv** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Workload-Srv** 프라이빗 IP 주소로 엽니다.
 
 3. Internet Explorer를 열고 [https://www.google.com]\(`www.microsoft.com`)을 찾습니다.
-4. Internet Explorer 보안 경고에서 **확인** > **닫기**를 선택합니다.
+4. Internet Explorer 보안 경고에서 **확인** > **닫기** 를 선택합니다.
 
    Microsoft 홈페이지가 표시됩니다.
 

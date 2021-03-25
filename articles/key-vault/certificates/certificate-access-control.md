@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 10/12/2020
 ms.author: sebansal
 ms.openlocfilehash: 1308debb34d724f93526b776f19e0cbf1914d945
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92128577"
 ---
 # <a name="certificate-access-control"></a>인증서 액세스 제어
@@ -24,24 +24,24 @@ ms.locfileid: "92128577"
  키 자격 증명 모음의 비밀 액세스 제어 항목에서 보안 주체별로 사용할 수 있고 비밀 개체에 허용되는 작업과 매우 비슷한 권한은 다음과 같습니다.  
 
 - 인증서 관리 작업에 필요한 권한
-  - **get** : 현재 인증서 버전 또는 모든 인증서 버전 가져오기
-  - **list** : 현재 인증서 또는 인증서 버전 나열  
-  - **update** : 인증서 업데이트
-  - **create** : Key Vault 인증서 만들기
-  - **import** : 인증서 자료를 Key Vault 인증서로 가져오기
-  - **delete** : 인증서, 해당 정책 및 모든 해당 버전 삭제  
-  - **recover** : 삭제된 인증서 복구
-  - **backup** : 인증서를 키 자격 증명 모음에 백업
-  - **restore** : 키 자격 증명 모음에 백업된 인증서 복원
-  - **managecontacts** : Key Vault 인증서 연락처 관리  
-  - **manageissuers** : Key Vault 인증서 기관/발급자 관리
-  - **getissuers** : 인증서 기관/발급자 가져오기
-  - **listissuers** : 인증서 기관/발급자 나열  
-  - **setissuers** : Key Vault 인증서의 기관/발급자 만들기 또는 업데이트  
-  - **deleteissuers** : Key Vault 인증서의 기관/발급자 삭제  
+  - **get**: 현재 인증서 버전 또는 모든 인증서 버전 가져오기
+  - **list**: 현재 인증서 또는 인증서 버전 나열  
+  - **update**: 인증서 업데이트
+  - **create**: Key Vault 인증서 만들기
+  - **import**: 인증서 자료를 Key Vault 인증서로 가져오기
+  - **delete**: 인증서, 해당 정책 및 모든 해당 버전 삭제  
+  - **recover**: 삭제된 인증서 복구
+  - **backup**: 인증서를 키 자격 증명 모음에 백업
+  - **restore**: 키 자격 증명 모음에 백업된 인증서 복원
+  - **managecontacts**: Key Vault 인증서 연락처 관리  
+  - **manageissuers**: Key Vault 인증서 기관/발급자 관리
+  - **getissuers**: 인증서 기관/발급자 가져오기
+  - **listissuers**: 인증서 기관/발급자 나열  
+  - **setissuers**: Key Vault 인증서의 기관/발급자 만들기 또는 업데이트  
+  - **deleteissuers**: Key Vault 인증서의 기관/발급자 삭제  
  
 - 권한 있는 작업에 필요한 권한
-  - **purge** : 삭제된 인증서 제거(영구적으로 삭제)
+  - **purge**: 삭제된 인증서 제거(영구적으로 삭제)
 
 자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 

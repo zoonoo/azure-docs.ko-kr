@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
 ms.openlocfilehash: e35b655dc8b735214de891884fe40fb951dd16cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91441295"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
@@ -35,7 +35,7 @@ ms.locfileid: "91441295"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
+* [Visual Studio 2019를 설치](https://www.visualstudio.com/)하고 **Azure 개발** 과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 > [!NOTE]
@@ -72,23 +72,23 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 이후 단계에서 필요한 서비스 엔드포인트를 기록해 둡니다.  기존 클러스터에 배포하는 경우 [PowerShell 스크립트](./scripts/service-fabric-powershell-open-port-in-load-balancer.md)를 사용하거나 [Azure Portal](https://portal.azure.com)에서 이 클러스터에 대한 부하 분산 장치를 통해 Azure 부하 분산 장치에서 부하 분산 규칙 및 프로브를 만들어 이 포트를 엽니다.
 
 ### <a name="create-a-test-cluster-in-azure"></a>Azure에서 테스트 클러스터 만들기
-솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+솔루션 탐색기에서 **투표** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-**연결 엔드포인트**에서 **새 클러스터 만들기**를 선택합니다.  기존 클러스터에 배포하는 경우 목록에서 클러스터 엔드포인트를 선택합니다.  Service Fabric 클러스터 만들기 대화 상자가 열립니다.
+**연결 엔드포인트** 에서 **새 클러스터 만들기** 를 선택합니다.  기존 클러스터에 배포하는 경우 목록에서 클러스터 엔드포인트를 선택합니다.  Service Fabric 클러스터 만들기 대화 상자가 열립니다.
 
-**클러스터** 탭에서 **클러스터 이름**(예: "mytestcluster")을 입력하고, 구독을 선택하고, 클러스터에 대한 지역을 선택하고(예: 미국 중남부), 클러스터 노드의 수를 입력하고(테스트 클러스터에 대해 3개의 노드 권장), 리소스 그룹을 입력합니다(예: "mytestclustergroup"). **다음**을 클릭합니다.
+**클러스터** 탭에서 **클러스터 이름**(예: "mytestcluster")을 입력하고, 구독을 선택하고, 클러스터에 대한 지역을 선택하고(예: 미국 중남부), 클러스터 노드의 수를 입력하고(테스트 클러스터에 대해 3개의 노드 권장), 리소스 그룹을 입력합니다(예: "mytestclustergroup"). **다음** 을 클릭합니다.
 
 ![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 클러스터 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-**인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 대해서는 사용하지 마세요.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기**를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음**을 클릭합니다.
+**인증서** 탭에서 클러스터 인증서에 대한 암호 및 출력 경로를 입력합니다. 자체 서명된 인증서가 PFX 파일로 만들어지고 지정된 출력 경로에 저장됩니다.  인증서는 노드-노드 및 클라이언트-노드 보안에 사용됩니다.  자체 서명된 인증서를 프로덕션 클러스터에 대해서는 사용하지 마세요.  이 인증서는 클러스터를 사용하여 인증하고 애플리케이션을 배포하기 위해 Visual Studio에서 사용됩니다. **인증서 가져오기** 를 선택하여 컴퓨터의 CurrentUser\내 인증서 저장소에 PFX를 설치합니다.  **다음** 을 클릭합니다.
 
 ![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 인증서 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-**VM 세부 정보** 탭에서 클러스터 관리자 계정에 대한 **사용자 이름** 및 **암호**를 입력합니다.  클러스터 노드에 대해 **가상 머신 이미지**를 각 클러스터 노드에 대해 **가상 머신 크기**를 각각 선택합니다.  **고급** 탭을 클릭합니다.
+**VM 세부 정보** 탭에서 클러스터 관리자 계정에 대한 **사용자 이름** 및 **암호** 를 입력합니다.  클러스터 노드에 대해 **가상 머신 이미지** 를 각 클러스터 노드에 대해 **가상 머신 크기** 를 각각 선택합니다.  **고급** 탭을 클릭합니다.
 
 ![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 VM 세부 정보 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
-**포트**에서 이전 단계의 VotingWeb 서비스 엔드포인트를 입력합니다(예: 8080).  클러스터가 만들어지면 이러한 애플리케이션 포트는 클러스터에 트래픽을 전달하도록 Azure 부하 분산 장치에서 열립니다.  **만들기**를 클릭하여 클러스터를 만듭니다. 몇 분 정도 소요됩니다.
+**포트** 에서 이전 단계의 VotingWeb 서비스 엔드포인트를 입력합니다(예: 8080).  클러스터가 만들어지면 이러한 애플리케이션 포트는 클러스터에 트래픽을 전달하도록 Azure 부하 분산 장치에서 열립니다.  **만들기** 를 클릭하여 클러스터를 만듭니다. 몇 분 정도 소요됩니다.
 
 ![스크린샷은 Service Fabric 클러스터 만들기 대화 상자의 고급 탭을 보여줍니다.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
@@ -96,12 +96,12 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 새 클러스터가 준비되면 Visual Studio에서 직접 투표 애플리케이션을 배포할 수 있습니다.
 
-솔루션 탐색기에서 **투표**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **게시** 대화 상자가 나타납니다.
+솔루션 탐색기에서 **투표** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. **게시** 대화 상자가 나타납니다.
 
-**연결 엔드포인트**에서 이전 단계에서 만든 클러스터의 엔드포인트를 선택합니다.  예를 들어 "mytestcluster.southcentral.cloudapp.azure.com:19000"입니다. **고급 연결 매개 변수**를 선택하는 경우 인증서 정보는 자동으로 채워집니다.  
+**연결 엔드포인트** 에서 이전 단계에서 만든 클러스터의 엔드포인트를 선택합니다.  예를 들어 "mytestcluster.southcentral.cloudapp.azure.com:19000"입니다. **고급 연결 매개 변수** 를 선택하는 경우 인증서 정보는 자동으로 채워집니다.  
 ![Service Fabric 애플리케이션 게시](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-**게시**를 선택합니다.
+**게시** 를 선택합니다.
 
 애플리케이션이 배포되면 브라우저를 열고 **:8080** 앞에 클러스터 주소를 입력합니다. 또는 구성된 다른 포트가 있는 경우 해당 포트를 입력합니다. 예제는 `http://mytestcluster.southcentral.cloudapp.azure.com:8080`입니다. Azure의 클러스터에서 애플리케이션이 실행 중인 것이 보입니다. 투표 웹 페이지에서 투표 옵션 및 이러한 옵션 중 하나 이상에 대한 투표를 추가하거나 삭제합니다.
 

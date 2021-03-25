@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 7/29/2020
 ms.openlocfilehash: 11689bb70cf6594d71b018d3bfc3d253919b119c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94565554"
 ---
 # <a name="create-a-database-with-autoscale-and-shared-collections-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB용 MongoDB API에 대한 자동 스케일링되는 데이터베이스 및 공유 컬렉션 만들기

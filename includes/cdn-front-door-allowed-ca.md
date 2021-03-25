@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: multiple
 author: duongau
 ms.service: multiple
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2020
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 1196ec0c3e92df6c359461ea7d1d53c8aea0bd88
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 20d9810ef5ff7380eb0df5df8a6720dcef71a6ad
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101750241"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104780"
 ---
 다음은 고유의 인증서를 만들 때 허용되는 CA입니다.
 
@@ -62,6 +62,8 @@ ms.locfileid: "101750241"
 - 보안 통신 RootCA1
 - 보안 통신 RootCA2
 - 보안 통신 RootCA3
+- SSL.com 루트 인증 기관 RSA
+- SSL.com EV 루트 인증 기관 RSA R2
 - Staat der Nederlanden EV 루트 CA
 - Symantec Class 3 EV SSL CA - G3
 - Symantec Class 3 Secure Server CA - G4

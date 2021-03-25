@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
 ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91661162"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
@@ -36,17 +36,17 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 1. Azure Portal에서 이전에 만든 함수 앱으로 이동하여 선택합니다.
 
-1. **Functions**를 선택한 다음, HttpTrigger 함수를 선택합니다.
+1. **Functions** 를 선택한 다음, HttpTrigger 함수를 선택합니다.
 
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-select-http-function.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
 
-1. **통합** 및 **+ 출력 추가**를 선택합니다.
+1. **통합** 및 **+ 출력 추가** 를 선택합니다.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-add-output-binding.png" alt-text="Azure Cosmos DB 출력 바인딩을 추가합니다." border="true":::
 
 1. 다음 표에 지정된 대로 **출력 만들기** 설정을 사용합니다.
 
-     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
+     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Azure Cosmos DB 출력 바인딩을 구성합니다." border="true":::
 
     | 설정      | 제안 값  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -55,9 +55,9 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
     | **데이터베이스 이름** | taskDatabase | 문서를 저장할 데이터베이스의 이름. |
     | **컬렉션 이름** | taskCollection | 데이터베이스 컬렉션 이름. |
     | **true이면 Cosmos DB 데이터베이스 및 컬렉션을 만듭니다.** | 예 | 아직 컬렉션이 없으므로 지금 만듭니다. |
-    | **Cosmos DB 계정 연결** | 새 설정 | **새로 만들기**를 선택한 다음, 이전에 만든 **Azure Cosmos DB 계정** 및 **데이터베이스 계정**을 선택한 후, **확인**을 선택합니다. 계정 연결에 대한 애플리케이션 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
+    | **Cosmos DB 계정 연결** | 새 설정 | **새로 만들기** 를 선택한 다음, 이전에 만든 **Azure Cosmos DB 계정** 및 **데이터베이스 계정** 을 선택한 후, **확인** 을 선택합니다. 계정 연결에 대한 애플리케이션 설정이 만들어집니다. 이 설정은 데이터베이스에 연결하는 바인딩에서 사용됩니다. |
 
-1. **확인**을 선택하여 바인딩을 만듭니다.
+1. **확인** 을 선택하여 바인딩을 만듭니다.
 
 ## <a name="update-the-function-code"></a>함수 코드 업데이트
 
@@ -132,29 +132,29 @@ module.exports = async function (context, req) {
 
 ## <a name="test-the-function-and-database"></a>함수 및 데이터베이스 테스트
 
-1. **테스트/실행**을 선택합니다. **쿼리** 아래에서 **+ 매개 변수 추가**를 선택하고 쿼리 문자열에 다음 매개 변수를 추가합니다.
+1. **테스트/실행** 을 선택합니다. **쿼리** 아래에서 **+ 매개 변수 추가** 를 선택하고 쿼리 문자열에 다음 매개 변수를 추가합니다.
 
     + `name`
     + `task`
     + `duedate`
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function.png" alt-text="함수 테스트." border="true":::
 
 
-1. **실행**을 선택하고 200 상태가 반환되는지 확인합니다.
+1. **실행** 을 선택하고 200 상태가 반환되는지 확인합니다.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="스크린샷은 실행을 선택한 후 강조 표시된 HTTP 응답 코드 200 상태를 보여줍니다." border="true":::
 
 
-1. Azure Portal에서 **Azure Cosmos DB**를 검색하여 선택합니다.
+1. Azure Portal에서 **Azure Cosmos DB** 를 검색하여 선택합니다.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Cosmos DB 서비스 검색." border="true":::
 
-1. Azure Cosmos DB 계정을 선택한 다음, **Data Explorer**를 선택합니다.
+1. Azure Cosmos DB 계정을 선택한 다음, **Data Explorer** 를 선택합니다.
 
 1. **TaskCollection** 노드를 확장하고, 새 문서를 선택하고, 문서에 일부 추가 메타데이터와 함께 쿼리 문자열 값이 포함되어 있는지 확인합니다.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="Azure Portal에서 Http 함수를 선택합니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-data-explorer-check-document.png" alt-text="문서에서 문자열 값을 확인." border="true":::
 
 Azure Cosmos DB에 구조화되지 않은 데이터를 저장하는 HTTP 트리거에 바인딩을 성공적으로 추가했습니다.
 
