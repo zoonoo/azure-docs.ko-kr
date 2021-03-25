@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/22/2020
 ms.openlocfilehash: badeb850e8d0346347a994f053fb0f64fd01240a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91283346"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Managed Instance 만들기
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-다음 PowerShell 코드 블록에서 **사용해 보세요**를 선택하여 Azure Cloud Shell을 엽니다.
+다음 PowerShell 코드 블록에서 **사용해 보세요** 를 선택하여 Azure Cloud Shell을 엽니다.
 
 > [!IMPORTANT]
 > 관리형 인스턴스 배포는 장기 실행 작업입니다. 서브넷에서 첫 번째 인스턴스를 배포하려면 기존 관리형 인스턴스가 있는 서브넷에 배포하는 것보다 일반적으로 훨씬 오래 걸립니다. 평균적인 프로비저닝 시간에 대한 내용은 [SQL Managed Instance 관리 작업](sql-managed-instance-paas-overview.md#management-operations)을 참조하세요.

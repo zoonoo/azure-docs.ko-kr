@@ -10,13 +10,13 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 01/14/2021
+ms.openlocfilehash: dca4d699ac1253753c82949cb480d95a1dde26e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917939"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594107"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,6 +35,9 @@ Azure SQL Managed Instance를 처음 사용하는 경우에는 심층 [Azure SQL
 
 Azure SQL Managed Instance는 최대한 적은 마이그레이션 작업을 통해 많은 수의 앱을 온-프레미스 또는 IaaS, 자체 구축 또는 ISV 제공 환경에서 완전 관리형 PaaS 클라우드 환경으로 마이그레이션하려는 고객을 위해 설계되었습니다. 완전히 자동화된 [Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)를 사용하면 기존 SQL Server 인스턴스를 SQL Managed Instance로 옮길 수 있습니다. 여기에서는 SQL Server와의 호환성이 제공되고 네이티브 VNet 지원을 통해 고객 인스턴스를 완벽하게 격리합니다. 마이그레이션 옵션 및 도구에 대한 자세한 내용은 [마이그레이션 개요: SQL Server에서 Azure SQL Managed Instance로 마이그레이션](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md)을 참조하세요.</br> Software Assurance를 사용하면 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 SQL Managed Instance에서 기존 라이선스를 할인된 가격으로 교환할 수 있습니다. SQL Managed Instance는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다.
 
+> [!TIP]
+> Azure SQL을 더 잘 활용하려면 어떻게 해야 하나요? [설문 조사를 수행하세요](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
 ## <a name="key-features-and-capabilities"></a>주요 특징 및 기능
 
 SQL Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔진 모두에서 사용할 수 있는 최상의 기능을 결합했습니다.
@@ -46,14 +49,14 @@ SQL Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔�
 | --- | --- |
 |하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공되는 [고가용성](../database/high-availability-sla.md) <br>[자동화된 백업](../database/automated-backups-overview.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) <br>[특정 시점 데이터베이스 복원](../database/recovery-using-backups.md#point-in-time-restore) 기능 |
 |**보안 및 규정 준수** | **관리**|
-|격리된 환경([VNet 통합](connectivity-architecture-overview.md), 단일 테넌트 서비스, 전용 컴퓨팅 및 스토리지) <br>[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD(Azure Active Directory) 인증](../database/authentication-aad-overview.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체(로그인)</a>  <br>Azure SQL Database와 동일한 표준 준수 <br>[SQL 감사](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
+|격리된 환경([VNet 통합](connectivity-architecture-overview.md), 단일 테넌트 서비스, 전용 컴퓨팅 및 스토리지) <br>[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD(Azure Active Directory) 인증](../database/authentication-aad-overview.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">Azure AD 서버 보안 주체(로그인)</a>  <br>Azure SQL Database와 동일한 표준 준수 <br>[SQL 감사](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
 > [!IMPORTANT]
 > Azure SQL Managed Instance는 다양한 규정 준수 표준에 따라 인증을 받았습니다. 자세한 내용은 [Microsoft Azure 규정 준수 제안](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers)을 참조하세요. 여기서 **SQL Database** 아래에 최신 SQL Managed Instance 규정 준수 인증서 목록이 있습니다.
 
 SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
-|기능 | Description|
+|기능 | 설명|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
 | 관리되는 자동 백업 | 예 |
@@ -63,7 +66,7 @@ SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 예 |
+| VNet - 클래식 배포 모델 | No |
 | 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](../../analysis-services/analysis-services-overview.md)입니다. |
@@ -76,8 +79,8 @@ SQL Managed Instance의 [vCore 기반 구매 모델](../database/service-tiers-v
 
 vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
-- **Gen4** 논리 CPU는 Intel® E5-2673 v3(Haswell) 2.4GHz 프로세서, SSD 장착, 물리적 코어, 코어당 7GB RAM 및 vCore가 8~24개인 컴퓨팅 크기를 기반으로 합니다.
-- **Gen5** 논리 CPU는 Intel® E5-2673 v4(Broadwell) 2.3GHz, Intel® SP-8160(Skylake) 및 Intel® 8272CL(Cascade Lake) 2.5GHz 프로세서, 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 4~80개인 컴퓨팅 크기를 기반으로 합니다.
+- **Gen4** 논리 CPU는 Intel&reg; E5-2673 v3(Haswell) 2.4GHz 프로세서, SSD 장착, 물리적 코어, 코어당 7GB RAM 및 vCore가 8~24개인 컴퓨팅 크기를 기반으로 합니다.
+- **Gen5** 논리 CPU는 Intel&reg; E5-2673 v4(Broadwell) 2.3GHz, Intel&reg; SP-8160(Skylake) 및 Intel&reg; 8272CL(Cascade Lake) 2.5GHz 프로세서, 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 4~80개인 컴퓨팅 크기를 기반으로 합니다.
 
 하드웨어 세대 간의 차이점에 대한 자세한 내용은 [SQL Managed Instance 리소스 제한](resource-limits.md#hardware-generation-characteristics)을 참조하세요.
 
@@ -158,7 +161,7 @@ Azure SQL Managed Instance는 데이터를 보호하는 데 사용할 수 있는
 
 SQL Managed Instance는 기존 SQL Server 데이터베이스 엔진 로그인 및 Azure AD와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 보안 주체(로그인)를 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure AD 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
 
-Azure AD 서버 보안 주체(로그인)를 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER** 가 도입되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하고 [SQL Managed Instance에 대한 Azure Active Directory 관리자 프로비저닝](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 살펴보세요.
+Azure AD 서버 보안 주체(로그인)를 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER** 가 도입되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN</a>을 참조하고 [SQL Managed Instance에 대한 Azure Active Directory 관리자 프로비저닝](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 살펴보세요.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 다단계 인증
 

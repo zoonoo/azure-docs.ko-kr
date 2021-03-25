@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
 ms.openlocfilehash: 6182deb657631135742351583d51171739c8ee68
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821700"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: .NET 샘플
@@ -19,16 +19,16 @@ ms.locfileid: "99821700"
 > * [Java 예제](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
-이 문서는 다음을 제공합니다.
+이 문서에서는 다음을 제공합니다.
 
 * 클러스터 만들기 작업용 샘플에 연결합니다.
 * 다른 관리 작업을 위한 참조 콘텐츠에 연결합니다.
 
-[Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)할 수 있음: Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+[Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)할 수 있습니다. Visual Studio 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 [.NET용 Azure HDInsight SDK](/dotnet/api/overview/azure/hdinsight#sdk-installation)
 

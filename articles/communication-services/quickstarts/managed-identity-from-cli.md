@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: b49ee61f3ee4ea8e8a177bca6aa566a07b7ef113
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2ef5a3b162d62fa79ed01a156345070ee12b4862
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044739"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110681"
 ---
 # <a name="authorize-access-with-managed-identity-to-your-communication-resource-in-your-development-environment"></a>개발 환경에서 관리 id를 사용 하 여 통신 리소스에 대 한 액세스 권한 부여
 
-Azure Id 클라이언트 라이브러리는 azure SDK에 대 한 Azure Active Directory (Azure AD) 토큰 인증을 지원 합니다. .NET, Java, Python 및 JavaScript 용 Azure Communication Services 클라이언트 라이브러리의 최신 버전은 azure Id 라이브러리와 통합 되어 azure Communication Services 요청 권한 부여를 위한 OAuth 2.0 토큰을 획득 하는 간단 하 고 안전한 방법을 제공 합니다.
+Azure Id SDK는 azure SDK에 대 한 Azure Active Directory (Azure AD) 토큰 인증을 지원 합니다. 최신 버전의 .NET, Java, Python 및 JavaScript 용 Azure Communication Services Sdk는 azure Id 라이브러리와 통합 되어 Azure Communication Services 요청을 권한 부여 하는 OAuth 2.0 토큰을 획득 하는 간단 하 고 안전한 방법을 제공 합니다.
 
-Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개발 환경에서 실행 되 든 Azure에서 실행 되는지에 관계 없이 동일한 코드를 사용 하 여 여러 서비스에서 인증할 수 있다는 점입니다. Azure Id 클라이언트 라이브러리는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다. 개발 환경에서 관리 id가 존재 하지 않으므로 클라이언트 라이브러리는 테스트 목적으로 사용자 또는 등록 된 응용 프로그램을 인증 합니다.
+Azure Id SDK의 장점은 응용 프로그램이 개발 환경 또는 Azure에서 실행 되 고 있는지에 관계 없이 동일한 코드를 사용 하 여 여러 서비스에서 인증할 수 있다는 점입니다. Azure Id SDK는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다. 개발 환경에서 관리 id는 존재 하지 않으므로 SDK는 테스트 목적으로 사용자 또는 등록 된 응용 프로그램을 인증 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 템플릿](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager 클라이언트 라이브러리](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Azure Resource Manager Sdk](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 - [앱 서비스](../../app-service/overview-managed-identity.md)
 
 ## <a name="authenticate-a-registered-application-in-the-development-environment"></a>개발 환경에서 등록 된 응용 프로그램 인증
@@ -68,7 +68,7 @@ az ad sp create-for-rbac --name <application-name>
 
 #### <a name="set-environment-variables"></a>환경 변수 설정
 
-Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변수에서 값을 읽어 응용 프로그램을 인증 합니다. 다음 표에서는 각 환경 변수에 대해 설정할 값을 설명 합니다.
+Azure Id SDK는 런타임에 세 가지 환경 변수에서 값을 읽어 응용 프로그램을 인증 합니다. 다음 표에서는 각 환경 변수에 대해 설정할 값을 설명 합니다.
 
 |환경 변수|값
 |-|-

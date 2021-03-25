@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 9087261865b07d32afab65012e04ea478cb60611
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88921650"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
@@ -62,7 +62,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 작동 중인 Batch 워크플로를 보려면 Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 사용하여 애플리케이션을 빌드 및 실행합니다. 애플리케이션이 실행되면 코드를 검토하여 애플리케이션의 각 부분에서 수행하는 작업을 알아봅니다. 예를 들어 Visual Studio의 경우 다음과 같습니다.
 
-- [솔루션 탐색기]에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드**를 클릭합니다. 
+- [솔루션 탐색기]에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **솔루션 빌드** 를 클릭합니다. 
 
 - 메시지가 표시되면 모든 NuGet 패키지 복원을 확인합니다. 누락된 패키지를 다운로드해야 하는 경우 [NuGet 패키지 관리자](https://docs.nuget.org/consume/installing-nuget)가 설치되어 있는지 확인합니다.
 
@@ -241,7 +241,7 @@ foreach (CloudTask task in completedtasks)
 
 앱은 만든 스토리지 컨테이너를 자동으로 삭제하고 Batch 풀과 작업을 삭제할 수 있는 옵션을 제공합니다. 작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 풀이 더 이상 필요하지 않으면 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다.
 
-더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+더 이상 필요하지 않으면 리소스 그룹, 배치 계정 및 스토리지 계정을 삭제합니다. Azure Portal에서 이렇게 하려면 배치 계정에 대한 리소스 그룹을 선택하고 **리소스 그룹 삭제** 를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,14 +4,14 @@ description: Azure Cosmos DB 계정에 대 한 Azure Active Directory를 사용 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: thweiss
-ms.openlocfilehash: efde86eac3e0830b36eabfc9e80df09daeed9f6f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ec12deb5a7c77674026b849585552fd873aee5c1
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586066"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045997"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Azure Cosmos DB 계정 (미리 보기)에 대 한 Azure Active Directory를 사용 하 여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Azure Cosmos DB 데이터 평면 RBAC는 [AZURE rbac](../role-based-access-contr
 
 다음 표에서는 권한 모델에 의해 노출 되는 모든 작업을 나열 합니다.
 
-| 이름 | 해당 데이터베이스 작업 |
+| Name | 해당 데이터베이스 작업 |
 |---|---|
 | `Microsoft.DocumentDB/databaseAccounts/readMetadata` | 계정 메타 데이터를 읽습니다. 자세한 내용은 [메타 데이터 요청](#metadata-requests) 을 참조 하세요. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | 새 항목을 만듭니다. |
@@ -314,7 +314,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Azure AD를 사용 하 여 SDK 초기화

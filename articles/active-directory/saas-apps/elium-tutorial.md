@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
 ms.openlocfilehash: 7f0e9d0c97b9325a30de3cb8c6ce10a3ba8489f4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92454116"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-elium"></a>자습서: Elium과 Azure Active Directory SSO(Single Sign-On) 연결
@@ -88,7 +88,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://<platform-domain>.elium.com/login/saml2/login` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. `https://<platform-domain>.elium.com/login/saml2/metadata`에서 다운로드할 수 있는 **SP 메타데이터 파일** (이 자습서의 뒷부분에서 설명함)에서 이러한 값을 얻을 수 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. `https://<platform-domain>.elium.com/login/saml2/metadata`에서 다운로드할 수 있는 **SP 메타데이터 파일**(이 자습서의 뒷부분에서 설명함)에서 이러한 값을 얻을 수 있습니다.
 
 1. Elium 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -105,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | company| user.companyname|
 
     > [!NOTE]
-    > 이러한 특성은 기본 클레임입니다. 하지만 **이메일 클레임만 필요합니다** . 또한 JIT 프로비전의 경우 이메일 클레임만 필수입니다. 다른 사용자 지정 클레임은 고객 플랫폼마다 다를 수 있습니다.
+    > 이러한 특성은 기본 클레임입니다. 하지만 **이메일 클레임만 필요합니다**. 또한 JIT 프로비전의 경우 이메일 클레임만 필수입니다. 다른 사용자 지정 클레임은 고객 플랫폼마다 다를 수 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -119,11 +119,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 

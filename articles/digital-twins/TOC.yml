@@ -255,8 +255,8 @@
           href: 'https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_servicebus'
     - name: 도구 및 샘플 프로젝트
       items:
-        - name: 디바이스 시뮬레이터 서비스
-          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
+        - name: Azure Digital Twins Postman 컬렉션
+          href: 'https://github.com/microsoft/azure-digital-twins-postman-samples'
         - name: Azure Digital Twins 엔드투엔드 샘플
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Azure Digital Twins 탐색기(샘플)
@@ -275,6 +275,8 @@
           href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
         - name: Logic Apps 커넥터용 사용자 지정 Swagger
           href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
+        - name: 디바이스 시뮬레이터 서비스
+          href: 'https://github.com/Azure/device-simulation-dotnet/tree/master'
     - name: DTDL
       items:
         - name: VS Code용 DTDL 확장

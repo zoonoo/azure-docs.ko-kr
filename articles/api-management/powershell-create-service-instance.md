@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 09/14/2020
 ms.author: apimpm
 ms.openlocfilehash: eb2c42d26a85a07518a018ba5b8817f13d3cd17f
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90707065"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-powershell"></a>빠른 시작: PowerShell을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
@@ -34,7 +34,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-다음 명령은 미국 서부 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 명령은 미국 서부 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location WestUS
@@ -44,7 +44,7 @@ New-AzResourceGroup -Name myResourceGroup -Location WestUS
 
 이제 리소스 그룹이 있으므로 API Management 서비스 인스턴스를 만들 수 있습니다. [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement)를 사용하여 만들고 서비스 이름과 게시자 세부 정보를 제공합니다. 서비스 이름은 Azure 내에서 고유해야 합니다.
 
-다음 예제에서는 *myapim*이 서비스 이름에 사용됩니다. 이름을 고유한 값으로 업데이트합니다. 또한 API 게시자의 조직 이름과 알림을 받을 관리자 이메일 주소를 업데이트합니다.
+다음 예제에서는 *myapim* 이 서비스 이름에 사용됩니다. 이름을 고유한 값으로 업데이트합니다. 또한 API 게시자의 조직 이름과 알림을 받을 관리자 이메일 주소를 업데이트합니다.
 
 기본적으로 이 명령은 Azure API Management를 평가하는 경제적인 옵션인 개발자 계층에서 인스턴스를 만듭니다. 이 계층은 프로덕션 용도가 아닙니다. API Management 계층 크기 조정에 대한 자세한 내용은 [업그레이드 및 크기 조정](upgrade-and-scale.md)을 참조하세요.
 
