@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 06/26/2019
 ms.custom: mvc, devcenter, vs-azure
 ms.openlocfilehash: 15e2180e44acaa5ebefb403b2da3755396a45ba4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96575893"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 애플리케이션 배포
@@ -50,7 +50,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 > 이 특별한 빠른 시작에는 불필요하지만 클러스터를 만들 때 Docker를 실행하도록 하는 지침이 모범 사례로 포함됩니다.
 > 터미널 창을 열고 오류가 발생하는지를 확인하는 `docker ps`를 실행하여 Docker가 실행되는지 테스트합니다. 응답이 오류를 나타내지 않는 경우 Docker가 실행되고 클러스터를 빌드할 준비가 되었습니다.
 >
-> [컨테이너에 대한 Windows 10 또는 Windows Server 설정](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
+> [컨테이너에 대해 Windows 10 또는 Windows Server 설정](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
 
 1. 관리자 권한으로 새롭게 상승된 PowerShell 창을 엽니다.
 2. 다음 PowerShell 명령을 실행하여 개발 클러스터를 만듭니다.
@@ -76,7 +76,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
+## <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
 
 시작 메뉴에서 Visual Studio 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행** 을 선택합니다. 디버거를 서비스에 연결하려면 관리자 권한으로 Visual Studio를 실행해야 합니다.
 
@@ -139,7 +139,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
    - 메서드의 첫 번째 줄 **(1)** 에서는 `StateManager`가 신뢰할 수 있는 사전 `counts`를 가져오거나 추가합니다.
    - 신뢰할 수 있는 사전에 있는 값과의 모든 상호 작용에는 트랜잭션이 필요하며 using 문 **(2)** 으로 트랜잭션이 만들어집니다.
-   - 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 작업을 커밋합니다 **(3)** . 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
+   - 트랜잭션에서는 투표 옵션에 대한 관련 키 값을 업데이트하고 작업을 커밋합니다 **(3)**. 커밋 메서드가 반환되면 사전에 데이터가 업데이트되고 클러스터의 다른 노드에 복제됩니다. 이제 데이터는 클러스터에 안전하게 저장되며 백 엔드 서비스는 데이터를 계속 제공하면서 다른 노드로 장애 조치할 수 있습니다.
 5. 계속하려면 **F5** 키를 누릅니다.
 
 디버깅 세션을 중지하려면 **Shift+F5** 키를 누릅니다.
@@ -168,7 +168,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
     업그레이드가 실행되는 동안 애플리케이션을 계속 사용할 수 있습니다. 클러스터에서 실행되는 서비스에는 두 인스턴스가 있으므로 일부 요청은 애플리케이션의 업그레이드된 버전을 가질 수 있는 반면 일부는 이전 버전을 가질 수 있습니다.
 
-11. 브라우저를 열고 포트 19080에서 클러스터 주소로 이동합니다. `http://localhost:19080/`)을 입력합니다.
+11. 브라우저를 열고 포트 19080에서 클러스터 주소로 이동합니다. 예: `http://localhost:19080/`.
 12. 트리 뷰의 **애플리케이션** 노드를 클릭한 후 오른쪽 창에서 **Upgrades in Progress(진행 중인 업그레이드)** 를 클릭합니다. 업그레이드가 클러스터에서 업그레이드 도메인을 어떻게 통과하고 다음으로 진행하기 전에 각 도메인 상태가 정상인지 확인하게 됩니다. 도메인 상태가 확인되면 진행률 표시줄에 업그레이드 도메인이 녹색으로 표시됩니다.
     ![Service Fabric Explorer에서 업그레이드 보기](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
@@ -176,7 +176,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
+이 빠른 시작에서는 다음과 같은 방법을 배웠습니다.
 
 * .NET 및 Service Fabric을 사용하여 애플리케이션 만들기
 * ASP.NET Core를 웹 프런트 엔드로 사용

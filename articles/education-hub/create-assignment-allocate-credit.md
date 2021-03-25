@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92332470"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>과제 생성 및 학점 할당
@@ -26,7 +26,7 @@ ms.locfileid: "92332470"
 
 ### <a name="accounts"></a>계정
 
-Azure Education Hub는 _____@ ___의 모든 이메일 주소를 수락합니다.___ 형식. 현재 조직의 올바른 계정에 대해 확인하거나 Microsoft 계정이 최신인지 또는 올바른지를 확인하지 *않습니다* . 계속하기 전에 각 이메일 주소를 신중하게 확인 하세요.
+Azure Education Hub는 _____@___의 모든 이메일 주소를 수락합니다.___ 형식. 현재 조직의 올바른 계정에 대해 확인하거나 Microsoft 계정이 최신인지 또는 올바른지를 확인하지 *않습니다*. 계속하기 전에 각 이메일 주소를 신중하게 확인 하세요.
 
 > [!IMPORTANT]
 > 회사 및 학교 계정은 조직이 아닌 도메인의 이메일 주소(예: @school.edu 도메인에 student2@outlook.com 추가)를 허용할지 여부를 포함하여 고유한 정책을 적용합니다. 새 사용자를 추가하기 전에 이러한 정책을 확인해야 합니다.

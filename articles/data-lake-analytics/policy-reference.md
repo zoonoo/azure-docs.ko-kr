@@ -1,18 +1,18 @@
 ---
 title: Azure Data Lake Analytics에 대한 기본 제공 정책 정의
 description: Azure Data Lake Analytics에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.topic: reference
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e77c85add708b92340d1cfc8dfcad625ee9a1c53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bc3a1dc76d24937868d76a352ab62165bbfa74ef
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590662"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035316"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics에 대한 Azure Policy 기본 제공 정의
 

@@ -12,17 +12,17 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 15fa1dd230b7f07846653278533805fa66ed2195
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7a196ff8c80a6f92e1205f5553a54913e281b52b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870395"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025886"
 ---
 # <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
 
 > [!NOTE]
-> Viseme는 `en-US-AriaNeural` 현재 미국 서 부 () 지역의 음성에 대해서만 작동 `westus` 하며 `en-US` , 2021 년 4 월 말에 모든 음성에서 사용할 수 있습니다.
+> Viseme `en-US-AriaNeural` 는 현재 미국 서 부 2 () 지역에서 음성에 대해서만 작동 `westus2` 합니다.
 
 Viseme는 음성 언어의 음소에 대 한 시각적 설명입니다.
 단어를 말하면 얼굴 및 입의 위치를 정의 합니다.
@@ -37,7 +37,7 @@ Visemes를 사용 하 여 보다 자연스럽 고 지능적인 뉴스 브로드�
 
 Viseme 이벤트를 만들기 위해 입력 텍스트를 일련의 음소 시퀀스와 해당 하는 viseme 시퀀스로 변환 합니다. 음성 오디오에서 각 viseme의 시작 시간을 예측 합니다. Viseme 이벤트는 Viseme가 표시 되는 오디오에 대 한 오프셋을 포함 하는 Viseme Id의 시퀀스를 포함 합니다. 이러한 이벤트는 입력 텍스트를 말하는 사람을 시뮬레이트하는 입 애니메이션을 만들 수 있습니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |-----------|-------------|
 | Viseme ID | Viseme를 지정 하는 정수입니다. 영어 (미국)에서는 음소의 특정 집합에 대 한 입 셰이프를 나타내는 22 가지 다른 visemes 제공 합니다. [Viseme ID와 음소 사이의 매핑 표](#map-phonemes-to-visemes)를 참조 하세요.  |
 | 오디오 오프셋 | 각 viseme의 시작 시간 (틱 (100 나노초))입니다. |

@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 5888a7cc8aa58d1c6edab191e1243ebc60000fd6
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102498900"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048870"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Cognitive Search에서 SharePoint Online 인덱싱을 구성 하는 방법 (미리 보기)
 
@@ -147,7 +147,7 @@ api-key: [admin key]
 
 ```
 
-자세한 내용은 [인덱스 만들기 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조 하세요.
+자세한 내용은 [인덱스 만들기 (REST API)](/rest/api/searchservice/create-index)를 참조 하세요.
 
 ### <a name="step-5-create-an-indexer"></a>5 단계: 인덱서 만들기
 인덱서는 데이터 원본을 대상 검색 인덱스와 연결하고 데이터 새로 고침을 자동화하는 일정을 제공합니다. 인덱스와 데이터 원본이 만들어지면 인덱서를 만들 준비가 된 것입니다.
@@ -226,7 +226,7 @@ Content-Type: application/json
 api-key: [admin key]
 ```
 
-인덱서 상태에 대 한 자세한 내용은 [인덱서 상태 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)를 참조 하세요.
+인덱서 상태에 대 한 자세한 내용은 [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status)를 참조 하세요.
 
 ## <a name="updating-the-data-source"></a>데이터 원본 업데이트
 데이터 원본 개체에 대 한 업데이트가 없는 경우 인덱서는 사용자 상호 작용 없이 일정에 따라 실행 될 수 있습니다. 그러나 Azure Cognitive Search 데이터 원본 개체가 업데이트 될 때마다 인덱서를 실행 하기 위해 다시 로그인 해야 합니다. 예를 들어 데이터 원본 쿼리를 변경 하는 경우 및 새 코드를 사용 하 여 다시 로그인 해야 합니다 `https://microsoft.com/devicelogin` .
@@ -241,7 +241,7 @@ api-key: [admin key]
     api-key: [admin key]
     ```
 
-    인덱서 실행 요청에 대 한 자세한 내용은 [인덱서 실행](https://docs.microsoft.com/rest/api/searchservice/run-indexer)에서 찾을 수 있습니다.
+    인덱서 실행 요청에 대 한 자세한 내용은 [인덱서 실행](/rest/api/searchservice/run-indexer)에서 찾을 수 있습니다.
 
 1.  인덱서 상태를 확인 합니다. 마지막 인덱서 실행에서로 이동 하 라는 오류가 발생 하는 경우 `https://microsoft.com/devicelogin` 해당 페이지로 이동 하 여 새 코드를 제공 합니다. 
 
@@ -251,7 +251,7 @@ api-key: [admin key]
     api-key: [admin key]
     ```
 
-    인덱서 상태에 대 한 자세한 내용은 [인덱서 상태 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)를 참조 하세요.
+    인덱서 상태에 대 한 자세한 내용은 [인덱서 상태 가져오기](/rest/api/searchservice/get-indexer-status)를 참조 하세요.
 
 1.  로그인
 
@@ -263,7 +263,7 @@ api-key: [admin key]
 > [!NOTE]
 > 사용자 지정 메타 데이터는 현재 버전의 미리 보기에 포함 되지 않습니다.
 
-| ID | Type | 설명 | 
+| ID | 형식 | Description | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | 사이트의 문서 라이브러리에서 항목을 고유 하 게 식별 하는 사이트 ID, 라이브러리 ID 및 항목 ID의 조합 키입니다. |
 | metadata_spo_site_id | Edm.String | SharePoint Online 사이트의 ID입니다. |
@@ -359,13 +359,13 @@ api-key: [admin key]
 "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Cognitive Search은 인덱싱되는 문서 크기를 제한 합니다. 이러한 한도는 [Azure Cognitive Search의 서비스 제한](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)사항에 설명 되어 있습니다. 크기가 큰 문서는 기본적으로 오류로 처리 됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우에도 크기가 큰 문서의 저장소 메타 데이터를 인덱싱할 수 있습니다.
+Azure Cognitive Search은 인덱싱되는 문서 크기를 제한 합니다. 이러한 한도는 [Azure Cognitive Search의 서비스 제한](./search-limits-quotas-capacity.md)사항에 설명 되어 있습니다. 크기가 큰 문서는 기본적으로 오류로 처리 됩니다. 그러나 `indexStorageMetadataOnlyForOversizedDocuments` 구성 매개 변수를 true로 설정한 경우에도 크기가 큰 문서의 저장소 메타 데이터를 인덱싱할 수 있습니다.
 
 ```http
 "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 ```
 
-문서를 구문 분석 하거나 인덱스에 문서를 추가 하는 동안 처리 중에 오류가 발생 하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들면 다음과 같습니다.
+문서를 구문 분석 하거나 인덱스에 문서를 추가 하는 동안 처리 중에 오류가 발생 하는 경우에도 인덱싱을 계속할 수 있습니다. 설정 개수의 오류를 무시하려면 `maxFailedItems` 및 `maxFailedItemsPerBatch` 구성 매개 변수를 원하는 값으로 설정합니다. 예를 들어:
 
 ```http
 {
@@ -374,6 +374,6 @@ Azure Cognitive Search은 인덱싱되는 문서 크기를 제한 합니다. 이
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [Azure Cognitive Search에 사용 되는 콘텐츠 메타 데이터 속성](search-blob-metadata-properties.md)

@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8dd3edd25d21bfcd0fde1bc8b5f103877d968c8a
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98119988"
 ---
 # <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>자습서: Power BI Desktop에서 서버리스 SQL 풀 사용 및 보고서 만들기
@@ -40,7 +40,7 @@ ms.locfileid: "98119988"
 
 다음 매개 변수의 값:
 
-| 매개 변수                                 | 설명                                                   |
+| 매개 변수                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
 | 서버리스 SQL 풀 서비스 엔드포인트 주소    | 서버 이름으로 사용                                   |
 | 서버리스 SQL 풀 서비스 엔드포인트 지역     | 샘플에 사용할 스토리지를 확인하는 데 사용 |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 996159f7014e735c8a4b3e5975c2716ce1ab6910
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cca60ba9948299f4e9557f26097d4a23e4ebea12
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101728560"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025342"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 Azure 보안 기준
 
@@ -32,9 +32,9 @@ Azure Resource Manager 완전히 Azure 보안 벤치 마크에 매핑되는 방�
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md) 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -50,9 +50,9 @@ Azure Resource Manager 완전히 Azure 보안 벤치 마크에 매핑되는 방�
 
 **지침**: Azure Resource Manager에서는 자동으로 사용 하도록 설정 된 활동 로그를 사용 하 여 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure의 로깅 및 다른 로그 유형 이해](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **책임**: Customer
 
@@ -66,9 +66,9 @@ Azure Resource Manager 완전히 Azure 보안 벤치 마크에 매핑되는 방�
 
 - [Azure Sentinel을 온보딩하는 방법](../../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 쿼리 시작](../../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../../azure-monitor/logs/get-started-queries.md)
 
 **책임**: 공유됨
 
@@ -82,7 +82,7 @@ Azure Resource Manager 완전히 Azure 보안 벤치 마크에 매핑되는 방�
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Log Analytics 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Log Analytics 로그 데이터를 경고 하는 방법](../../azure-monitor/alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -119,7 +119,7 @@ Azure Resource Manager 완전히 Azure 보안 벤치 마크에 매핑되는 방�
 
 Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 Just-in-time 액세스를 사용 하도록 설정할 수도 있습니다.
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../../active-directory/privileged-identity-management/index.yml)
 
 - [Azure Policy를 사용하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -205,7 +205,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resou
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../../active-directory/reports-monitoring/index.yml)
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../../active-directory/governance/access-reviews-overview.md)
 
@@ -223,7 +223,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resou
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -261,7 +261,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Active Directory (Azure AD) RBAC를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 하 고, 그렇지 않으면 서비스별 액세스 제어 방법을 사용 합니다.
 
-- [Azure RBAC를 구성 하는 방법](../../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../../role-based-access-control/role-assignments-portal.md)
 
 **책임**: Customer
 
@@ -275,7 +275,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 미사용 서버 쪽 암호화의 경우 Azure Resource Manager는 Microsoft 관리 키를 지원 합니다.
 
-- [Azure Resource Manager의 데이터 보호 이해](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager-security-controls#data-protection)
+- [Azure Resource Manager의 데이터 보호 이해](#data-protection)
 
 **책임**: Customer
 
@@ -285,7 +285,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 중요 한 azure 리소스에 변경 내용이 발생 하는 경우 경고를 만들려면 Azure 활동 로그와 Azure Monitor를 사용 합니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -319,7 +319,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 정책 이름, 설명 및 범주를 사용 하 여 분류에 따라 자산을 논리적으로 구성 합니다.
 
-- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [자산에 태그를 지정 하는 방법에 대 한 자세한 내용은 리소스 명명 및 태깅 결정 가이드를 참조 하세요.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 **책임**: Customer
 
@@ -379,7 +379,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -463,7 +463,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../../governance/policy/concepts/definition-structure.md#aliases)
 
 **책임**: Customer
 
@@ -587,5 +587,5 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

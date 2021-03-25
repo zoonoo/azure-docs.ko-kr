@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090106"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>빠른 시작: .NET V4 SDK를 사용하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 콘솔 앱을 빌드합니다.
@@ -56,7 +56,7 @@ Azure Cosmos DB는 모든 규모의 개방형 API를 포함하는 Microsoft의 �
 
 Azure Cloud Shell을 사용하여 Azure Cosmos 계정을 만들 수 있습니다. Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 액세스할 수 있는 인증된 대화형 셸입니다. Bash 또는 PowerShell 중에서 작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다. 이 빠른 시작에서는 **Bash** 모드를 선택합니다. Azure Cloud Shell은 스토리지 계정도 필요하므로, 메시지가 표시되면 계정을 만들 수 있습니다.
 
-다음 코드 옆에 있는 **Try It** (시도) 단추를 선택하고 **Bash** 모드를 선택한 다음, **스토리지 계정 만들기** 를 선택하고 Cloud Shell에 로그인합니다. 다음 코드를 복사하여 Azure Cloud Shell에 붙여넣고 실행합니다. Azure Cosmos 계정 이름은 전역적으로 고유해야 하므로, 명령을 실행하기 전에 `mysqlapicosmosdb` 값을 업데이트합니다.
+다음 코드 옆에 있는 **Try It**(시도) 단추를 선택하고 **Bash** 모드를 선택한 다음, **스토리지 계정 만들기** 를 선택하고 Cloud Shell에 로그인합니다. 다음 코드를 복사하여 Azure Cloud Shell에 붙여넣고 실행합니다. Azure Cosmos 계정 이름은 전역적으로 고유해야 하므로, 명령을 실행하기 전에 `mysqlapicosmosdb` 값을 업데이트합니다.
 
 ```azurecli-interactive
 

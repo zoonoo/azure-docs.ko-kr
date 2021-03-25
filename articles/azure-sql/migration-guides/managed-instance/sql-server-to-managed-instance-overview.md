@@ -1,5 +1,5 @@
 ---
-title: 'SQL Managed Instance SQL Server: 마이그레이션 개요'
+title: 'Azure SQL Managed Instance에 SQL Server: 마이그레이션 개요'
 description: SQL Server 데이터베이스를 Azure SQL Managed Instance로 마이그레이션하는 데 사용할 수 있는 다양 한 도구와 옵션에 대해 알아봅니다.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102562013"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024900"
 ---
-# <a name="migration-overview-sql-server-to-sql-managed-instance"></a>마이그레이션 개요: SQL Managed Instance SQL Server
+# <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 개요: Azure SQL Managed Instance에 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 SQL Server를 Azure SQL Managed Instance로 마이그레이션하기 위한 다양 한 마이그레이션 옵션 및 고려 사항에 대해 알아봅니다. 
@@ -30,7 +30,7 @@ SQL Server를 Azure SQL Managed Instance로 마이그레이션하기 위한 다�
 - 계산 엔진 (Google Cloud Platform GCP)  
 - SQL Server에 대 한 클라우드 SQL (Google Cloud Platform – GCP) 
 
-다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요. 
+다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
 
 ## <a name="overview"></a>개요
 
@@ -60,7 +60,7 @@ Sql Server를 SQL Managed Instance로 마이그레이션하는 주요 이점 중
 - 파일 하위 시스템의 기준 IO 대기 시간을 사용 하 여 일반적인 용도 (5 밀리초를 초과 하는 대기 시간)와 중요 비즈니스용 (3 밀리초 미만의 대기 시간) 서비스 계층을 선택 합니다. 
 - 기본 처리량을 사용 하 여 데이터 및 로그 파일의 크기를 미리 할당 하 여 예상 IO 성능을 달성할 수 있습니다. 
 
-배포 중에 계산 및 저장소 리소스를 선택한 다음 응용 프로그램에 대 한 가동 중지 시간 없이 [Azure Portal](../../database/scale-resources.md) 사용 하 여 변경할 수 있습니다. 
+배포 중에 계산 및 저장소 리소스를 선택한 다음 응용 프로그램에 대 한 가동 중지 시간 없이 [Azure Portal 사용 하 여 변경할](../../database/scale-resources.md) 수 있습니다. 
 
 > [!IMPORTANT]
 > [관리 되는 인스턴스 가상 네트워크 요구 사항의](../../managed-instance/connectivity-architecture-overview.md#network-requirements) 차이로 인해 새 인스턴스를 만들거나 기존 인스턴스를 사용 하지 못할 수 있습니다.  [새 네트워크 만들기](../../managed-instance/virtual-network-subnet-create-arm-template.md)   및 기존 네트워크 [구성](../../managed-instance/vnet-existing-add-subnet.md)에 대해 자세히 알아보세요   . 
@@ -100,9 +100,9 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |설명  |
+|**기술** |**설명**  |
 |---------|---------|
-|[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. |  |
+|[트랜잭션 복제](../../managed-instance/replication-transactional-overview.md) | 트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Managed Instance로 데이터를 복제 합니다. | 
 |[대량 복사](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| [Bcp (대량 복사 프로그램) 유틸리티](/sql/tools/bcp-utility) 는 SQL Server 인스턴스에서 데이터 파일로 데이터를 복사 합니다. BCP 유틸리티를 사용 하 여 원본에서 데이터를 내보내고 대상 SQL Managed Instance로 데이터 파일을 가져옵니다.</br></br> Azure SQL Database으로 데이터를 이동 하는 고속 대량 복사 작업의 경우, [효율적인 대량 복사 도구](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) 를 사용 하 여 병렬 복사 작업을 활용 하 여 전송 속도를 최대화할 수 있습니다. | 
 |[가져오기 내보내기 마법사/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 는 `.bacpac` 데이터베이스의 스키마와 데이터를 캡슐화 하는 확장명을 포함 하는 Windows 파일입니다. BACPAC를 사용 하 여 원본 SQL Server에서 데이터를 내보내고 Azure SQL Managed Instance에 다시 파일을 가져올 수 있습니다.  |  
 |[ADF(Azure Data Factory)](../../../data-factory/connector-azure-sql-managed-instance.md)| Azure Data Factory의 [복사 작업](../../../data-factory/copy-activity-overview.md) 은 기본 제공 커넥터 및 [Integration Runtime](../../../data-factory/concepts-integration-runtime.md)를 사용 하 여 원본 SQL Server 데이터베이스에서 SQL Managed Instance로 데이터를 마이그레이션합니다.</br> </br> ADF는 SQL Server 원본에서 SQL Managed Instance로 데이터를 이동 하는 다양 한 [커넥터](../../../data-factory/connector-overview.md) 를 지원 합니다. |
@@ -241,7 +241,7 @@ SQL Managed Instance에서 제공 하는 고급 클라우드 기반 기능을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure SQL Managed Instance에 대 한 SQL Server 마이그레이션을 시작 하려면 [SQL SERVER sql Managed Instance 마이그레이션 가이드](sql-server-to-managed-instance-guide.md)를 참조 하세요.
+Azure SQL Managed Instance에 대 한 SQL Server 마이그레이션을 시작 하려면 [SQL Server AZURE sql Managed Instance 마이그레이션 가이드](sql-server-to-managed-instance-guide.md)를 참조 하세요.
 
 - 다양 한 데이터베이스 및 데이터 마이그레이션 시나리오와 전문 작업을 지 원하는 데 사용할 수 있는 Microsoft 및 타사 서비스 및 도구의 행렬은 [데이터 마이그레이션을 위한 서비스 및 도구](../../../dms/dms-tools-matrix.md)를 참조 하세요.
 

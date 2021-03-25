@@ -10,10 +10,10 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: a32811b439a569a8f8f82fcc046e0f4b89e47a38
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94966703"
 ---
 # <a name="quickstart-provision-a-simulated-device-to-iot-hub-with-symmetric-keys"></a>대칭 키를 사용하여 IoT Hub에 시뮬레이션된 디바이스 프로비전
@@ -32,7 +32,7 @@ ms.locfileid: "94966703"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 머신에 [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) 이상이 설치되어 있는지 확인합니다.
 
@@ -134,7 +134,7 @@ ms.locfileid: "94966703"
 
 6. Azure Portal에서 프로비전 서비스에 연결된 IoT 허브로 이동하고 **Device Explorer** 블레이드를 엽니다. 시뮬레이션된 대칭 키 디바이스가 허브에 성공적으로 프로비저닝되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태* 가 **사용** 으로 표시됩니다.  샘플 디바이스 애플리케이션을 실행하기 전에 블레이드가 이미 열려 있으면 위쪽의 **새로 고침** 단추를 눌러야 할 수도 있습니다. 
 
-    ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device-symm-key-java/hubregistration-java.png) 
+    ![디바이스가 IoT 허브에 등록됨](./media/quick-create-simulated-device-symm-key-java/hubregistration-java.png) 
 
 > [!NOTE]
 > 디바이스에 대한 등록 항목의 기본값으로부터 *초기 디바이스 쌍 상태* 를 변경한 경우, 허브에서 원하는 쌍 상태를 가져와서 그에 맞게 작동할 수 있습니다. 자세한 내용은 [IoT Hub의 디바이스 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.

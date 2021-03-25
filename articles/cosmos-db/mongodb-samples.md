@@ -10,10 +10,10 @@ author: sivethe
 ms.author: sivethe
 ms.custom: devx-track-js
 ms.openlocfilehash: c2117c535cca679d3a7a3b75491bf60ab9567ceb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93098215"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Node.js 및 Azure Cosmos DB의 API for MongoDB를 사용하여 앱 빌드 
@@ -118,7 +118,7 @@ ms.locfileid: "93098215"
     });
     ```
     
-    **선택 사항** : **MongoDB Node.js 2.2 드라이버** 를 사용 중인 경우 다음 코드 조각을 바꾸십시오.
+    **선택 사항**: **MongoDB Node.js 2.2 드라이버** 를 사용 중인 경우 다음 코드 조각을 바꾸십시오.
 
     원본:
 
@@ -155,7 +155,7 @@ ms.locfileid: "93098215"
     });
     ```
     
-2. 계정 설정에 따라 *app.js* 파일에서 다음 변수를 수정합니다( [연결 문자열](connect-mongodb-account.md)을 찾는 방법 자세히 알아보기).
+2. 계정 설정에 따라 *app.js* 파일에서 다음 변수를 수정합니다([연결 문자열](connect-mongodb-account.md)을 찾는 방법 자세히 알아보기).
 
     > [!IMPORTANT]
     > **MongoDB Node.js 3.0 드라이버** 는 Cosmos DB 암호에서 특수 문자를 인코딩할 것을 요구합니다. '=' 문자를 %3D로 인코딩하는지 확인

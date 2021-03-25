@@ -10,10 +10,10 @@ ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
 ms.openlocfilehash: 03863171cb05c0557611fb8cd3c0ade667e7d79e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88650080"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 템플릿은 PowerShell DSC 확장을 사용하여 IIS에서 실행되는 ASP.NET MVC 앱을 설치합니다.
 
-설치 스크립트는 *url*에서 정의한 대로 GitHub에서 다운로드됩니다. 그런 다음 확장이 *function* 및 *script*에서 정의한 대로 *IISInstall.ps1* 스크립트에서 *InstallIIS*를 실행합니다. ASP.NET 앱 자체는 *WebDeployPackagePath*에서 정의한 대로 GitHub에서 다운로드되는 웹 배포 패키지로 제공됩니다.
+설치 스크립트는 *url* 에서 정의한 대로 GitHub에서 다운로드됩니다. 그런 다음 확장이 *function* 및 *script* 에서 정의한 대로 *IISInstall.ps1* 스크립트에서 *InstallIIS* 를 실행합니다. ASP.NET 앱 자체는 *WebDeployPackagePath* 에서 정의한 대로 GitHub에서 다운로드되는 웹 배포 패키지로 제공됩니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
