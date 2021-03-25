@@ -3,17 +3,17 @@ title: Azure Data Factory 파이프라인 분기
 description: 분기 및 연결 작업을 통해 Azure Data Factory에서 데이터 흐름을 제어하는 방법을 알아봅니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 111fff6e35bed9c2af9c638549362039f25def12
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 83bc90ca251fddd498dd365f1a4b00689a471475
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386019"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785668"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 
@@ -452,9 +452,9 @@ Visual Studio에서 프로젝트로 돌아갑니다. 이제 복사 활동과 `De
 
 파이프라인 코드의 첫 번째 섹션에서는 매개 변수를 정의합니다.
 
-* `sourceBlobContainer`입니다. 원본 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
-* `sinkBlobContainer`입니다. 싱크 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
-* `receiver`입니다. 성공 또는 실패 이메일을 받는 사람에게 보내는 파이프라인의 두 웹 활동에서 이 매개 변수를 사용합니다.
+* `sourceBlobContainer`. 원본 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
+* `sinkBlobContainer`. 싱크 Blob 데이터 세트는 파이프라인에서 이 매개 변수를 사용합니다.
+* `receiver`. 성공 또는 실패 이메일을 받는 사람에게 보내는 파이프라인의 두 웹 활동에서 이 매개 변수를 사용합니다.
 
 ```csharp
 Parameters = new Dictionary<string, ParameterSpecification>

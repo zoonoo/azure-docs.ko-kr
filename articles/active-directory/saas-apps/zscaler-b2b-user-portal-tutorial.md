@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: jeedes
 ms.openlocfilehash: f6b7fb79b5aab1ee3ea6b5b710c766c1a34b099c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92519812"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-b2b-user-portal"></a>자습서: Zscaler B2B User Portal과 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92519812"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
@@ -133,11 +133,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 새 웹 브라우저 창을 열고, Zscaler B2B User Portal 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
 
-1. 상단에서 **Administration** (관리)을 클릭하고 **AUTHENTICATION** (인증) 섹션으로 이동한 다음, **IdP Configuration** (IdP 구성)을 클릭합니다.
+1. 상단에서 **Administration**(관리)을 클릭하고 **AUTHENTICATION**(인증) 섹션으로 이동한 다음, **IdP Configuration**(IdP 구성)을 클릭합니다.
 
     ![Zscaler Private Access 관리자 관리](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-administration.png)
 
-1. 상단 오른쪽 모서리에서 **Add IdP Configuration** (IdP 구성 추가)을 클릭합니다. 
+1. 상단 오른쪽 모서리에서 **Add IdP Configuration**(IdP 구성 추가)을 클릭합니다. 
 
     ![Zscaler Private Access 관리자 idp](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-idp.png)
 
@@ -145,13 +145,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
     ![Zscaler Private Access 관리자 선택](./media/zscaler-b2b-user-tutorial/tutorial-zscaler-private-access-select.png)
 
-    a. **Select File** (파일 선택)을 클릭하여 **IdP Metadata File Upload** (IdP 메타데이터 파일 업로드) 필드의 Azure AD에서 다운로드된 메타데이터 파일을 업로드합니다.
+    a. **Select File**(파일 선택)을 클릭하여 **IdP Metadata File Upload**(IdP 메타데이터 파일 업로드) 필드의 Azure AD에서 다운로드된 메타데이터 파일을 업로드합니다.
 
     b. 그러면 Azure AD에서 **IdP 메타데이터** 를 읽어와서 아래와 같이 모든 필드 정보가 채워집니다.
 
     ![Zscaler Private Access 관리자 구성](./media/zscaler-b2b-user-tutorial/config.png)
 
-    다. **Domains** (도메인) 필드에서 도메인을 선택합니다.
+    다. **Domains**(도메인) 필드에서 도메인을 선택합니다.
     
     d. **저장** 을 클릭합니다.
 

@@ -7,16 +7,16 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 149a70ea9b3fad919e771e8eb279e01d1492b3b3
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 4dc1af590a1965c155a7af7b233b431f982a73d2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952459"
+ms.locfileid: "105024237"
 ---
-# <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>용어를 태그 용어집으로 대량 편집 하는 방법
+# <a name="how-to-bulk-edit-assets-to-annotate-classifications-glossary-terms-and-modify-contacts"></a>자산을 대량 편집 하 여 분류에 주석을 달고 용어 용어를 수정 하 고 연락처를 수정 하는 방법
 
-이 문서에서는 여러 용어를 단일 작업으로 선택한 자산 목록에 태그를 표시 하는 방법을 설명 합니다.
+이 문서에서는 여러 용어집 용어, 분류, 소유자 및 전문가를 단일 작업으로 선택한 자산 목록에 태그를 표시 하는 방법을 설명 합니다.
 
 ### <a name="add-assets-to-view-selected-list-using-search"></a>검색을 사용 하 여 선택한 목록 보기에 자산 추가
 

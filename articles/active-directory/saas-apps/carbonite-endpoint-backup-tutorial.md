@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.openlocfilehash: ff19275270e5b6572fb7d637b88c4736a3aa6ea0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92456486"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>자습서: Azure Active Directory와 Carbonite Endpoint Backup 연결
@@ -28,7 +28,7 @@ ms.locfileid: "92456486"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -127,7 +127,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. Carbonite Endpoint Backup을 수동으로 설정하려면 새 웹 브라우저 창을 열고 Carbonite Endpoint Backup 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
-4. 왼쪽 창에서 **Company** (회사)를 클릭합니다.
+4. 왼쪽 창에서 **Company**(회사)를 클릭합니다.
 
     ![스크린샷은 회사에서 선택한 Carbonite 엔드포인트를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
@@ -135,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 Single Sign-On이 선택된 회사를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-6. **Enable** (사용)을 클릭한 다음, **Edit settings** (설정 편집)를 클릭하여 구성합니다.
+6. **Enable**(사용)을 클릭한 다음, **Edit settings**(설정 편집)를 클릭하여 구성합니다.
 
     ![스크린샷은 사용 및 편집 설정이 호출된 Single Sign-On 탭을 보여줍니다.](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
@@ -147,7 +147,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     1. Azure Portal에서 복사한 **로그인 URL** 값을 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.
 
-    1. **Choose file** (파일 선택)을 클릭하여 Azure Portal로부터 다운로드한 **인증서(Base64)** 를 업로드합니다.
+    1. **Choose file**(파일 선택)을 클릭하여 Azure Portal로부터 다운로드한 **인증서(Base64)** 를 업로드합니다.
 
     1. **저장** 을 클릭합니다.
 
@@ -155,11 +155,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -185,7 +185,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 다른 웹 브라우저 창에서 Carbonite Endpoint Backup 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. 왼쪽 창에서 **Users** (사용자)를 클릭한 다음, **Add user** (사용자 추가)를 클릭합니다.
+1. 왼쪽 창에서 **Users**(사용자)를 클릭한 다음, **Add user**(사용자 추가)를 클릭합니다.
 
     ![스크린샷은 사용자와 사용자 추가가 선택된 Carbonite 엔드포인트 페이지를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/adduser1.png)
 
@@ -193,7 +193,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![스크린샷은 여기에 설명된 단계를 수행할 수 있는 사용자 추가 페이지를 보여줍니다.](media/carbonite-endpoint-backup-tutorial/adduser2.png)
 
-    1. 사용자의 **Email** (이메일), **First name** (이름), **Last name** (성)을 입력하고, 조직의 요구 사항에 따라 사용자에게 필요한 권한을 제공합니다.
+    1. 사용자의 **Email**(이메일), **First name**(이름), **Last name**(성)을 입력하고, 조직의 요구 사항에 따라 사용자에게 필요한 권한을 제공합니다.
 
     1. **사용자 추가** 를 클릭합니다.
 

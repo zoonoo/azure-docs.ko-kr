@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/26/2021
+ms.date: 03/22/2021
 ms.author: justinha
-ms.openlocfilehash: e8887cc39b48f090ff223e5e83c13d65b921dc0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a016287fedbd303a5571100130769ce4299828bc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687501"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798562"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services"></a>자습서: 복제본 세트를 만들어서 Azure Active Directory Domain Services의 복원력 또는 지리적 위치에 사용
 
@@ -32,7 +32,7 @@ Azure AD DS을 지원하는 Azure 지역의 모든 피어링된 가상 네트워
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 

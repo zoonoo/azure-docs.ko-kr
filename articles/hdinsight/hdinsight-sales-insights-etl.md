@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 32c331b10fcc73b5449588595370f8f69ef9893c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99821759"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872050"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 데이터 파이프라인 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "99821759"
 
 이 데이터 파이프라인은 다양한 저장소의 데이터를 결합하고, 원치 않는 데이터를 모두 제거하고, 새 데이터를 추가한 다음, 이 모두를 스토리지에 다시 로드하여 비즈니스 인사이트를 시각화합니다. [규모에 맞게 ETL(추출, 변환 및 로드)](./hadoop/apache-hadoop-etl-at-scale.md)에서 ETL 파이프라인에 대해 자세히 참조하세요.
 
-![ETL 아키텍처](./media/hdinsight-sales-insights-etl/architecture.png)
+:::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="ETL 아키텍처" border="false":::
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

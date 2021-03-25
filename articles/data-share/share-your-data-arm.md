@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
 ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92487690"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>빠른 시작: Azure Data Share 및 ARM 템플릿을 사용하여 데이터 공유
@@ -69,12 +69,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. 다음 값을 선택하거나 입력합니다.
 
-    * **구독** : 데이터 공유 및 기타 리소스를 만드는 데 사용되는 Azure 구독을 선택합니다.
-    * **리소스 그룹** : **새로 만들기** 를 선택하여 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
-    * **위치** : 리소스 그룹에 대한 위치를 선택합니다.
-    * **프로젝트 이름** : 프로젝트 이름을 입력합니다.  프로젝트 이름은 리소스 이름을 생성하는 데 사용됩니다.  이전 템플릿에서 변수 정의를 참조하세요.
-    * **위치** : 리소스에 대한 위치를 선택합니다.  리소스 그룹과 동일한 위치를 사용할 수 있습니다.
-    * **초대 이메일** : 데이터 공유 수신자의 Azure 로그인 이메일 주소를 입력합니다.  이메일 별칭이 작동하지 않습니다.
+    * **구독**: 데이터 공유 및 기타 리소스를 만드는 데 사용되는 Azure 구독을 선택합니다.
+    * **리소스 그룹**: **새로 만들기** 를 선택하여 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
+    * **위치**: 리소스 그룹에 대한 위치를 선택합니다.
+    * **프로젝트 이름**: 프로젝트 이름을 입력합니다.  프로젝트 이름은 리소스 이름을 생성하는 데 사용됩니다.  이전 템플릿에서 변수 정의를 참조하세요.
+    * **위치**: 리소스에 대한 위치를 선택합니다.  리소스 그룹과 동일한 위치를 사용할 수 있습니다.
+    * **초대 이메일**: 데이터 공유 수신자의 Azure 로그인 이메일 주소를 입력합니다.  이메일 별칭이 작동하지 않습니다.
 
     나머지 설정에 대해서는 기본값을 사용합니다.
 1. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다.

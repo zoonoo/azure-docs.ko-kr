@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 71d5a910e36762d096763c4f45a13cbdad47414d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730628"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104863"
 ---
-Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 지침은 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결을](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md)참조 하세요.
+Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 지침은 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결을](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md)참조 하세요.
 
 클라이언트에서 장치에 액세스 하려면 다음 단계를 사용할 수 있는지 확인 합니다. Azure Resource Manager에 연결 했을 때이 구성을 이미 완료 했 고 이제 구성이 완료 되었는지 확인 하는 중입니다. 
 
@@ -38,5 +38,3 @@ Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 
 
     > [!NOTE]
     > GPU Vm을 만드는 경우 인터넷에 연결 된 네트워크 인터페이스를 선택 합니다. 이렇게 하면 장치에 GPU 확장을 설치할 수 있습니다.
-
-

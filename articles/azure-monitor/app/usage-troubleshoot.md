@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1d77016fdf94de4fdd574b0d4cbd22d6b0b8490
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87323505"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024747"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights에서 사용자 동작 분석 도구 문제 해결
 [Application Insights의 사용자 동작 분석 도구](usage-overview.md)에서 [사용자, 세션, 이벤트](usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](usage-flows.md), [재방문 주기](usage-retention.md) 또는 코호트에 대해 질문이 있으신가요? 다음은 몇 가지 대답입니다.
@@ -23,7 +23,7 @@ Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2
 
 웹앱을 모니터링하는 경우 가장 쉬운 방법은 앱에 [Application Insights JavaScript SDK](./javascript.md)를 추가하고, 모니터링하려는 각 페이지에 스크립트 조각이 로드되는지 확인하는 것입니다. JavaScript SDK는 익명 사용자 및 세션 ID를 자동으로 생성한 다음, 앱에서 전송되는 원격 분석 이벤트를 이러한 ID로 채웁니다.
 
-웹 서비스를 모니터링하는 경우(사용자 인터페이스 없음) 고유한 사용자 및 세션에 대한 서비스 개념에 따라, [익명 사용자 ID 및 세션 ID 속성을 채우는 원격 분석 이니셜라이저를 만듭니다](usage-send-user-context.md).
+웹 서비스를 모니터링하는 경우(사용자 인터페이스 없음) 고유한 사용자 및 세션에 대한 서비스 개념에 따라, [익명 사용자 ID 및 세션 ID 속성을 채우는 원격 분석 이니셜라이저를 만듭니다](./usage-overview.md).
 
 앱이 [인증된 사용자 ID](./api-custom-events-metrics.md#authenticated-users)를 전송하는 경우 사용자 도구에서 인증된 사용자 ID를 기준으로 수를 계산할 수 있습니다. "표시" 드롭다운 목록에서 "인증된 사용자"를 선택합니다.
 
@@ -50,4 +50,3 @@ Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2
 
 ## <a name="get-help"></a>도움말 보기
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

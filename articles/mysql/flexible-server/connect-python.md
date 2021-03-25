@@ -9,10 +9,10 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.openlocfilehash: ff14bb1daeef6fc54ee5d11632ad98a29db2a172
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90945248"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
@@ -62,11 +62,11 @@ Azure Portal에서 Azure Database for MySQL 유연한 서버에 연결하는 데
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
    
-1. 포털 검색 창에서 **mydemoserver**와 같이 만든 Azure Database for MySQL 유연한 서버를 검색하여 선택합니다.
+1. 포털 검색 창에서 **mydemoserver** 와 같이 만든 Azure Database for MySQL 유연한 서버를 검색하여 선택합니다.
    
    <!---:::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::-->
    
-1. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 페이지에서 암호를 재설정할 수 있습니다.
+1. 서버의 **개요** 패널에 있는 **서버 이름** 과 **서버 관리자 로그인 이름** 을 기록해 둡니다. 암호를 잊어버리면 이 페이지에서 암호를 재설정할 수 있습니다.
    
    <!---:::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::-->
 
@@ -77,11 +77,11 @@ Azure Portal에서 Azure Database for MySQL 유연한 서버에 연결하는 데
 
 1. 텍스트 편집기에서 새 파일을 만듭니다.
 1. 파일에 코드 예제를 추가합니다. 코드에서 `<mydemoserver>`, `<myadmin>`, `<mypassword>` 및 `<mydatabase>` 자리 표시자를 MySQL 서버 및 데이터베이스의 값으로 바꿉니다.
-1. 파일을 *C:\pythonmysql\createtable.py* 또는 */home/username/pythonmysql/createtable.py*와 같이 *.py* 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
+1. 파일을 *C:\pythonmysql\createtable.py* 또는 */home/username/pythonmysql/createtable.py* 와 같이 *.py* 파일 확장명이 포함된 프로젝트 폴더에 저장합니다.
 1. 코드를 실행하려면 명령 프롬프트 또는 `bash` 셸을 시작한 후 디렉터리를 사용자의 프로젝트 폴더로 변경합니다(예: `cd pythonmysql`). `python` 명령 다음에 파일 이름을 입력하고(예: `python createtable.py`) Enter 키를 누릅니다. 
    
    > [!NOTE]
-   > Windows에서 *python.exe*를 찾을 수 없으면 PATH 환경 변수에 Python 경로를 추가하거나 *python.exe*에 대한 전체 경로(예: `C:\python27\python.exe createtable.py`)를 제공해야 할 수 있습니다.
+   > Windows에서 *python.exe* 를 찾을 수 없으면 PATH 환경 변수에 Python 경로를 추가하거나 *python.exe* 에 대한 전체 경로(예: `C:\python27\python.exe createtable.py`)를 제공해야 할 수 있습니다.
 
 ### <a name="create-a-table-and-insert-data"></a>테이블 만들기 및 데이터 삽입
 

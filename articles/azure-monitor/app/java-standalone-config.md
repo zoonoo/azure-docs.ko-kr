@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224659"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024169"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -122,6 +122,17 @@ ms.locfileid: "103224659"
 > [!NOTE]
 > 샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다. 현재 샘플링은 다른 값을 지원하지 않습니다.
 
+## <a name="sampling-overrides-preview"></a>샘플링 재정의 (미리 보기)
+
+이 기능은 3.0.3에서 시작 하는 미리 보기 상태입니다. 2.
+
+샘플링 재정의를 사용 하면 [기본 샘플링 비율](#sampling)을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
+* 잡음이 있는 상태 검사에 대 한 샘플링 비율을 0 또는 작은 값으로 설정 합니다.
+* 잡음이 있는 종속성 호출에 대 한 샘플링 비율을 0 또는 작은 값으로 설정 합니다.
+* `/login`기본 샘플링이 더 낮은 것으로 구성 된 경우에도 중요 한 요청 유형 (예:)에 대해 샘플링 비율을 100로 설정 합니다.
+
+자세한 내용은 [샘플링 재정의](./java-standalone-sampling-overrides.md) 설명서를 참조 하세요.
+
 ## <a name="jmx-metrics"></a>JMX 메트릭
 
 몇 가지 추가 JMX 메트릭을 수집 하려면:
@@ -176,9 +187,13 @@ ms.locfileid: "103224659"
 이를 통해 요청, 종속성 및 추적 원격 분석에 적용 되는 규칙을 구성할 수 있습니다. 예를 들면 다음과 같습니다.
  * 중요 한 데이터 마스킹
  * 조건부로 사용자 지정 차원 추가
- * 집계 및 표시에 사용 되는 원격 분석 이름을 업데이트 합니다.
+ * Azure Portal에서 유사한 원격 분석을 집계 하는 데 사용 되는 범위 이름을 업데이트 합니다.
+ * 수집 비용을 제어 하기 위해 특정 범위 특성을 삭제 합니다.
 
 자세한 내용은 [원격 분석 프로세서](./java-standalone-telemetry-processors.md) 설명서를 확인 하세요.
+
+> [!NOTE]
+> 수집 비용을 제어 하기 위해 특정 (전체) 범위를 삭제 하려는 경우 [샘플링 재정의](./java-standalone-sampling-overrides.md)를 참조 하세요.
 
 ## <a name="auto-collected-logging"></a>자동 수집 된 로깅
 

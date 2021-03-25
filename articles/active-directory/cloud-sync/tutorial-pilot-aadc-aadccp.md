@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3395afbe95b2a7f35893a0ce7f60c3871597acd0
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612169"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798717"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 동기화 
 
@@ -208,20 +208,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 1.  Azure Portal에서 프로비저닝 구성을 사용하지 않도록 설정합니다. 
 2.  동기화 규칙 편집기 도구를 사용하여 클라우드 프로비저닝에 대해 만들어진 모든 사용자 지정 동기화 규칙을 사용하지 않도록 설정합니다. 사용하지 않도록 설정하면 모든 커넥터에서 전체 동기화가 수행됩니다.
 
-## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>파일럿 테스트 OU를 제외하도록 Azure AD Connect 동기화 구성
-파일럿 OU의 사용자가 클라우드 동기화를 통해 성공적으로 관리되는지 확인한 후에는 위에서 만든 파일럿 OU를 제외하도록 Azure AD Connect를 다시 구성할 수 있습니다.  클라우드 프로비저닝 에이전트는 앞으로 이러한 사용자에 대한 동기화를 처리합니다.  다음 단계를 사용하여 Azure AD Connect의 범위를 지정합니다.
 
- 1. Azure AD Connect를 실행하는 서버에서 Azure AD Connect 아이콘을 두 번 클릭합니다.
- 2. **구성** 을 클릭합니다.
- 3. **동기화 옵션 사용자 지정** 을 선택하고, [다음]을 클릭합니다.
- 4. Azure AD에 로그인하고, **다음** 을 클릭합니다.
- 5. **디렉터리 연결** 화면에서 **다음** 을 클릭합니다.
- 6. **도메인 및 OU 필터링** 화면에서 **선택한 도메인 및 OU 동기화** 를 선택합니다.
- 7. 도메인을 펼치고, **CPUsers** OU를 **선택 취소** 합니다.  **다음** 을 클릭합니다.
-![범위](media/tutorial-existing-forest/scope-1.png)</br>
- 9. **선택적 기능** 화면에서 **다음** 을 클릭합니다.
- 10. **구성 준비 완료** 화면에서 **구성** 을 클릭합니다.
- 11. 완료되면 **끝내기** 를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
 

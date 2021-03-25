@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e7b25315aaadffe7f34b28195c25b77a36fa5f8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705656"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872152"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -385,7 +385,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 #### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 이제 HDInsight를 사용 하 여 Apache Ambari에 대 한 고유한 SQL DB를 사용할 수 있습니다. 이 사용자 지정 Ambari DB는 Azure Portal 또는 리소스 관리자 템플릿을 통해 구성할 수 있습니다.  이 기능을 사용 하 여 처리 및 용량 요구 사항에 적합 한 SQL DB를 선택할 수 있습니다. 비즈니스 증가 요구 사항에 맞게 쉽게 업그레이드할 수도 있습니다. 자세한 내용은 [사용자 지정 AMBARI DB를 사용 하 여 HDInsight 클러스터 설정](hdinsight-custom-ambari-db.md)을 참조 하세요.
 
-![사용자 지정 Ambari DB](./media/hdinsight-release-notes/custom-ambari-db.png)
+:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="사용자 지정 Ambari DB":::
 
 ### <a name="deprecation"></a>사용 중단
 이 릴리스의 사용 중단은 없습니다. 예정된 사용 중단을 대비하려면 [예정된 변경](#upcoming-changes)을 참조하세요.

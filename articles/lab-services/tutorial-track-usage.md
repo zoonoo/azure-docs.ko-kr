@@ -4,10 +4,10 @@ description: 이 자습서에서는 랩 작성자/소유자로서 랩 사용량�
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 8a3ca9e011eb89b3db8b202bab11d14f10d74e7e
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96434620"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
