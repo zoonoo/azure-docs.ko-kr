@@ -12,10 +12,10 @@ ms.author: sachinp
 ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
 ms.openlocfilehash: bef1e9bdafd91a51290fe84af074c8cece7cc371
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102486729"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 서버 수준 방화벽 규칙 만들기

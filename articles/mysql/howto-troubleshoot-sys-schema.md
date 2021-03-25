@@ -6,14 +6,15 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: a20510ee2800a54f9a51a2f498ee8ae8a3e51d55
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 939d9f5f4cafc7a08ceb99368e8ede7a81b1eac0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94543152"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110528"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 MySQL 5.5에 처음 제공된 MySQL performance_schema에는 메모리 할당, 저장된 프로그램, 메타데이터 잠금 등과 같은 다수의 중요한 서버 리소스에 대한 계측이 제공됩니다. 하지만 performance_schema에는 80개를 초과하는 테이블이 포함되어 있어서 필요한 정보를 얻으려면 performance_schema 내의 테이블은 물론 information_schema의 테이블을 조인해야 합니다. performance_schema 및 information_schema 모두를 기반으로 하는 sys_schema에는 읽기 전용 데이터베이스의 강력하고 [사용자에게 친숙한 보기](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) 컬렉션이 제공되며 Azure Database for MySQL 버전 5.7에서 완벽한 사용이 가능합니다.
 

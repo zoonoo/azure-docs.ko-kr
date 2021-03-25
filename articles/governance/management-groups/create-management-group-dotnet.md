@@ -5,10 +5,10 @@ ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a74cea9b142785c093b8ed235fc40049746f11a0
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592571"
 ---
 # <a name="quickstart-create-a-management-group-with-net-core"></a>빠른 시작: .NET Core를 사용하여 관리 그룹 만들기
@@ -138,4 +138,4 @@ ms.locfileid: "99592571"
 관리 그룹 및 리소스 계층 구조를 관리하는 방법에 대해 자세히 알아보려면 다음을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [관리 그룹으로 리소스 관리](./manage.md)
+> 관리 그룹으로 리소스 관리

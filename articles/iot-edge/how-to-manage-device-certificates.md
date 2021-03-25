@@ -8,12 +8,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e5c85d2c3049ea8718d0a9e0e574c13d0d99394c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f3b6bd19d47658e5ad079f0b731cbafc866bb333
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200266"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045776"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>IoT Edge 장치에서 인증서 관리
 
@@ -33,7 +33,7 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 >[!NOTE]
 >이 문서 전체에서 사용 되는 "루트 CA" 라는 용어는 IoT 솔루션에 대 한 인증서 체인의 최상위 권한 공용 인증서를 나타냅니다. 게시 된 인증 기관의 인증서 루트나 조직의 인증 기관 루트를 사용할 필요는 없습니다. 대부분의 경우에는 실제로 중간 CA 공용 인증서입니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * IoT Edge 장치입니다.
 
@@ -67,9 +67,18 @@ IoT Edge를 처음 설치 하 고 장치를 프로 비전 할 때 서비스를 �
 
 IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 하도록 IoT Edge 런타임을 구성 합니다.
 
-3 개의 인증서 및 키 파일을 IoT Edge 장치에 복사 합니다. [Azure Key Vault](../key-vault/index.yml) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다.  IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
+3 개의 인증서 및 키 파일을 IoT Edge 장치에 복사 합니다. [Azure Key Vault](../key-vault/index.yml) 또는 [보안 복사 프로토콜](https://www.ssh.com/ssh/scp/) 같은 기능을 사용하여 인증서 파일을 이동할 수 있습니다. IoT Edge 장치 자체에서 인증서를 생성 한 경우이 단계를 건너뛰고 작업 디렉터리에 대 한 경로를 사용할 수 있습니다.
 
-예를 들어 샘플 스크립트를 사용 하 여 [데모 인증서를 만든](how-to-create-test-certificates.md)경우 다음 파일을 IoT-Edge 장치에 복사 합니다.
+Windows에서 Linux 용 IoT Edge를 사용 하는 경우 Azure IoT Edge 파일에 있는 SSH 키를 사용 하 여 `id_rsa` 호스트 OS와 Linux 가상 머신 간의 파일 전송을 인증 해야 합니다. 다음 명령을 사용 하 여 인증 된 SCP를 수행할 수 있습니다.
+
+   ```powershell-interactive
+   C:\WINDOWS\System32\OpenSSH\scp.exe -i 'C:\Program Files\Azure IoT Edge\id_rsa' <PATH_TO_SOURCE_FILE> iotedge-user@<VM_IP>:<PATH_TO_FILE_DESTINATION>
+   ```
+
+   >[!NOTE]
+   >명령을 통해 Linux 가상 머신의 IP 주소를 쿼리할 수 있습니다 `Get-EflowVmAddr` .
+
+샘플 스크립트를 사용 하 여 [데모 인증서를 만든](how-to-create-test-certificates.md)경우 다음 파일을 IoT-Edge 장치에 복사 합니다.
 
 * 장치 CA 인증서: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * 장치 CA 개인 키: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
@@ -80,21 +89,13 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
 
 1. IoT Edge 보안 디먼 구성 파일을 엽니다.
 
-   * Windows: `C:\ProgramData\iotedge\config.yaml`
-   * Linux: `/etc/iotedge/config.yaml`
+   * Windows의 linux 및 linux 용 IoT Edge: `/etc/iotedge/config.yaml`
 
-1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들면 다음과 같습니다.
+   * Windows 컨테이너를 사용 하는 windows: `C:\ProgramData\iotedge\config.yaml`
 
-   * Windows:
+1. 구성. yaml의 **인증서** 속성을 IoT Edge 장치의 인증서 및 키 파일에 대 한 파일 URI 경로로 설정 합니다. `#`네 줄의 주석 처리를 제거 하려면 인증서 속성 앞의 문자를 제거 합니다. **인증서:** 줄에 앞에 공백이 없고 중첩 된 항목이 두 개의 공백으로 들여쓰기 되는지 확인 합니다. 예를 들어:
 
-      ```yaml
-      certificates:
-        device_ca_cert: "file:///C:/<path>/<device CA cert>"
-        device_ca_pk: "file:///C:/<path>/<device CA key>"
-        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
-      ```
-
-   * Linux:
+   * Windows의 linux 및 linux 용 IoT Edge:
 
       ```yaml
       certificates:
@@ -103,13 +104,23 @@ IoT Edge 장치에 인증서 체인을 설치 하 고 새 인증서를 참조 �
         trusted_ca_certs: "file:///<path>/<root CA cert>"
       ```
 
+   * Windows 컨테이너를 사용 하는 windows:
+
+      ```yaml
+      certificates:
+        device_ca_cert: "file:///C:/<path>/<device CA cert>"
+        device_ca_pk: "file:///C:/<path>/<device CA key>"
+        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
+      ```
+
 1. Linux 장치에서 사용자 **iotedge** 에 인증서가 포함 된 디렉터리에 대 한 읽기 권한이 있는지 확인 합니다.
 
 1. 이전에 장치에서 IoT Edge 하는 데 다른 인증서를 사용한 경우 IoT Edge를 시작 하거나 다시 시작 하기 전에 다음 두 디렉터리에서 파일을 삭제 합니다.
 
-   * Windows: `C:\ProgramData\iotedge\hsm\certs` 및 `C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows에서 linux 및 linux 용 IoT Edge: `/var/lib/iotedge/hsm/certs` 및 `/var/lib/iotedge/hsm/cert_keys`
 
-   * Linux: `/var/lib/iotedge/hsm/certs` 및 `/var/lib/iotedge/hsm/cert_keys`
+   * Windows 컨테이너를 사용 하는 windows: `C:\ProgramData\iotedge\hsm\certs` 및 `C:\ProgramData\iotedge\hsm\cert_keys`
+
 :::moniker-end
 <!-- end 1.1 -->
 
@@ -177,34 +188,36 @@ IoT Edge 장치에서 다양 한 인증서의 기능에 대 한 자세한 내용
 
 1. `hsm`이전에 생성 된 인증서를 제거 하려면 폴더의 내용을 삭제 합니다.
 
-   Windows: `C:\ProgramData\iotedge\hsm\certs` 및 `C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs` 및 `/var/lib/iotedge/hsm/cert_keys`
+   * Windows에서 linux 및 linux 용 IoT Edge: `/var/lib/iotedge/hsm/certs` 및 `/var/lib/iotedge/hsm/cert_keys`
+
+   * Windows 컨테이너를 사용 하는 windows: `C:\ProgramData\iotedge\hsm\certs` 및 `C:\ProgramData\iotedge\hsm\cert_keys`
 
 1. IoT Edge 서비스를 다시 시작 합니다.
 
-   Windows:
-
-   ```powershell
-   Restart-Service iotedge
-   ```
-
-   Linux:
+   * Windows의 linux 및 linux 용 IoT Edge:
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-1. 수명 설정을 확인 합니다.
-
-   Windows:
+   * Windows 컨테이너를 사용 하는 windows:
 
    ```powershell
-   iotedge check --verbose
+   Restart-Service iotedge
    ```
 
-   Linux:
+1. 수명 설정을 확인 합니다.
+
+   * Windows의 linux 및 linux 용 IoT Edge:
 
    ```bash
    sudo iotedge check --verbose
+   ```
+
+   * Windows 컨테이너를 사용 하는 windows:
+
+   ```powershell
+   iotedge check --verbose
    ```
 
    **프로덕션 준비 상태: 인증서** 확인의 출력을 확인 하 여 자동으로 생성 된 장치 CA 인증서가 만료 될 때까지 남은 일 수를 나열 합니다.

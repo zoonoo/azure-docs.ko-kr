@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 102bb1a7bf1bd3cb799d52ce13045e01a2a34297
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: acb497b2f0111d36650ec415c8f1f580d116b55e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505259"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863295"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -36,7 +36,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
 1. 위쪽 메뉴에서 **+ 리소스 만들기** 를 선택합니다.
 
-    ![리소스 HDInsight를 만드는 Azure Portal](./media/apache-kafka-get-started/azure-portal-create-resource.png)
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-create-resource.png" alt-text="리소스 HDInsight를 만드는 Azure Portal" border="true":::
 
 1. **분석** > **Azure HDInsight** 를 차례로 선택하여  **HDInsight 클러스터 만들기** 페이지로 이동합니다.
 
@@ -54,7 +54,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
     |SSH(보안 셸) 사용자 이름 | 기본 사용자 이름은 **sshuser** 입니다.  SSH 사용자 이름에 다른 이름을 입력할 수 있습니다. |
     |SSH에 클러스터 로그인 암호 사용| 클러스터 로그인 사용자에 대해 입력한 것과 동일한 암호를 SSH 사용자에 사용하려면 이 확인란을 선택합니다.|
 
-   ![클러스터 기본 사항을 만드는 Azure Portal](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-basics.png" alt-text="클러스터 기본 사항을 만드는 Azure Portal" border="true":::
 
     각 Azure 지역(위치)은 _장애 도메인_ 을 제공합니다. 장애 도메인은 Azure 데이터 센터에 있는 기본 하드웨어의 논리적 그룹입니다. 장애 도메인마다 공통 전원과 네트워크 스위치를 공유합니다. HDInsight 클러스터 내의 노드를 구현하는 가상 머신과 관리 디스크는 이러한 장애 도메인에 분산되어 있습니다. 이 아키텍처에서는 실제 하드웨어 오류의 잠재적 영향을 제한합니다.
 
@@ -71,7 +71,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
     |기본 스토리지 계정|드롭다운 목록을 사용하여 기존 스토리지 계정을 선택하거나 **새로 만들기** 를 선택합니다. 새 계정을 만드는 경우 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.|
     |컨테이너|자동으로 채워진 값을 사용합니다.|
 
-    ![HDInsight Linux 시작 - 클러스터 스토리지 값 제공](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-storage.png " alt-text="HDInsight Linux 시작 - 클러스터 스토리지 값 제공" border="true":::
 
     **보안 + 네트워킹** 탭을 선택합니다.
 
@@ -79,7 +79,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
    클러스터를 가상 네트워크에 연결하려는 경우에는 **가상 네트워크** 드롭다운에서 가상 네트워크를 선택합니다.
 
-   ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png" alt-text="가상 네트워크에 클러스터 추가" border="true":::
 
     **구성 + 가격 책정** 탭을 선택합니다.
 
@@ -87,13 +87,13 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
     **작업자 노드당 표준 디스크** 항목은 HDInsight에서 Apache Kafka의 확장성을 구성합니다. HDInsight의 Apache Kafka는 클러스터에서 가상 머신의 로컬 디스크를 사용하여 데이터를 저장합니다. Apache Kafka는 입출력이 많으므로 높은 처리량과 노드당 더 많은 스토리지를 제공하기 위해 [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md)를 사용합니다. 관리 디스크 유형은 __표준__ (HDD) 또는 __프리미엄__ (SSD)일 수 있습니다. 디스크 유형은 작업자 노드(Apache Kafka broker)에서 사용하는 VM 크기에 따라 달라집니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 자동으로 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
-   ![Apache Kafka 클러스터 크기 설정](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
+   :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png" alt-text="Apache Kafka 클러스터 크기 설정" border="true":::
 
     **검토 + 만들기** 탭을 선택합니다.
 
 1. 클러스터에 대한 구성을 검토합니다. 잘못된 설정을 변경합니다. 마지막으로, **만들기** 를 선택하여 클러스터를 만듭니다.
 
-    ![kafka 클러스터 구성 요약](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
+    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png" alt-text="kafka 클러스터 구성 요약" border="true":::
 
     클러스터를 만드는 데 최대 20분이 걸릴 수 있습니다.
 

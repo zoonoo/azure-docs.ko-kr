@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 21df853d9b1c7250e9a6eea37a68835a180f610d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773048"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047238"
 ---
 # <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
 
@@ -114,7 +114,7 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 
 ### <a name="java"></a>[Java](#tab/java)
 
-* 프로젝트에 대한 작업 디렉터리를 만듭니다. 예를 들면 다음과 같습니다.
+* 프로젝트에 대한 작업 디렉터리를 만듭니다. 예를 들어:
 
 ```powershell
 mkdir sample-project
@@ -272,7 +272,7 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 
 > [!IMPORTANT]
 >
-> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) 을 참조 하세요.
+> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](../../cognitive-services-security.md?tabs=command-line%2ccsharp) 을 참조 하세요.
 >
 > 작업에 따라 다음 필드를 업데이트 해야 할 수 있습니다.
 >>>

@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 6c84bf4ebc73857fa0280ffbcbf46b68c2da630f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031721"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Java 함수 만들기
@@ -17,7 +17,7 @@ ms.locfileid: "102031721"
 
 Visual Studio Code를 사용하여 HTTP 요청에 응답하는 Java 함수를 만듭니다. 코드를 로컬에서 테스트한 다음, 서버리스 Azure Functions 환경에 배포합니다.
 
-이 빠른 시작을 완료하면 Azure 계정에 미화 몇 센트 이하로 소액의 비용이 부과됩니다. <abbr title="Azure 사용량에 대한 청구 정보를 유지 관리하는 프로필입니다.">Azure 계정</abbr>.
+이 빠른 시작을 완료하면 Azure 계정에 미화 몇 센트 이하로 소액의 비용이 부과됩니다. <abbr title="Azure 사용량에 대한 청구 정보를 유지 관리하는 프로필.">Azure 계정</abbr>.
 
 Visual Studio Code가 선호하는 개발 도구가 아닌 경우 [Maven](create-first-function-cli-java.md), [Gradle](./functions-create-first-java-gradle.md) 및 [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)를 사용하여 Java 개발자를 위한 유사한 자습서를 확인하세요.
 

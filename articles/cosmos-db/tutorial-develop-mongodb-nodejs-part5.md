@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: a3097fa539f460ef5e8ffe73598fa5d55516717e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097807"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Mongoose를 사용하여 Cosmos DB에 연결
@@ -200,7 +200,7 @@ hero 모델을 만든 후에는 데이터를 읽고 나열, 만들기, 삭제 �
 
 ## <a name="configure-routes"></a>경로 구성
 
-다음으로, 가져오기, 만들기, 읽기 및 삭제 요청에 대한 URL을 처리하는 경로를 설정해야 합니다. 라우팅 메서드는 콜백 함수( _처리기 함수_ 라고도 함)를 지정합니다. 애플리케이션이 지정된 엔드포인트 및 HTTP 메서드에 대한 요청을 수신하면 이러한 함수가 호출됩니다. 다음 단계에 따라 Hero 서비스를 추가하고 경로를 정의합니다.
+다음으로, 가져오기, 만들기, 읽기 및 삭제 요청에 대한 URL을 처리하는 경로를 설정해야 합니다. 라우팅 메서드는 콜백 함수(_처리기 함수_ 라고도 함)를 지정합니다. 애플리케이션이 지정된 엔드포인트 및 HTTP 메서드에 대한 요청을 수신하면 이러한 함수가 호출됩니다. 다음 단계에 따라 Hero 서비스를 추가하고 경로를 정의합니다.
 
 1. Visual Studio Code의 **routes.js** 파일에서 샘플 Hero 데이터를 보내는 `res.send` 함수를 주석으로 처리합니다. `heroService.getHeroes` 함수를 대신 호출하는 줄을 추가합니다.
 
