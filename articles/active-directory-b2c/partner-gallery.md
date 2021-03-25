@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a1ee632e3aaae7b858ab43b45f6e72aff8d1fb77
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5e0125f14570e917b228c5f713e636335755581d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100361770"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024271"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -26,12 +26,6 @@ ISV 파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는
 >[GitHub의 Azure Active Directory B2C 커뮤니티 사이트](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) 는 커뮤니티의 샘플 사용자 지정 정책을 제공 합니다.
 
 ## <a name="identity-verification-and-proofing"></a>Id 확인 및 교정
-
-Azure AD B2C 파트너를 통해 고객은 계정 등록 또는 액세스를 허용 하기 전에 최종 사용자의 id 확인 및 언어를 사용할 수 있습니다. Id 확인 및 교정은 문서, 지식 기반 정보 및 선거의을 확인할 수 있습니다.
-
-개략적인 아키텍처 다이어그램은 흐름을 설명 합니다.
-
-![Id 교정 흐름을 보여 주는 다이어그램](./media/partner-gallery/third-party-identity-proofing.png)
 
 Microsoft는 id 확인 및 교정을 위해 다음 Isv와 협력 합니다.
 

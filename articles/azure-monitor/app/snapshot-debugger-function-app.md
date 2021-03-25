@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: ac25962cac36a149807b67a44b3b88a4f40c954a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48eb3cf81384446a07fea69572ac16e0b80cee38
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211943"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025631"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Azure Functions에서 .NET 및 .NET Core 앱에 대 한 스냅숏 디버거 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "102211943"
 
 대부분의 응용 프로그램의 경우 무료 및 공유 서비스 계층에는 스냅숏을 저장할 수 있는 충분 한 메모리 나 디스크 공간이 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [함수 앱에서 Application Insights 모니터링 사용](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
@@ -126,7 +126,7 @@ namespace SnapshotCollectorAzureFunction
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>다른 클라우드에 대 한 스냅숏 디버거 사용
 
-현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) 및 [Azure 중국](https://docs.microsoft.com/azure/china/resources-developer-guide)입니다.
+현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) 및 [Azure 중국](/azure/china/resources-developer-guide)입니다.
 
 다음은 `host.json` 미국 정부 클라우드 에이전트 끝점으로 업데이트 된의 예입니다.
 ```json

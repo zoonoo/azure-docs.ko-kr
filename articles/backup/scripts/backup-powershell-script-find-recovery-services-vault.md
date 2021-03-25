@@ -5,10 +5,10 @@ ms.topic: sample
 ms.date: 1/28/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 40859c1ea05210d27fcdcf33ba9d4f961965ea22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075701"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>스토리지 계정이 등록된 Recovery Services 자격 증명 모음을 찾는 PowerShell 스크립트
@@ -50,7 +50,7 @@ if(!$found)
 
 ## <a name="how-to-execute-the-script"></a>스크립트를 실행하는 방법
 
-1. 위의 스크립트를 사용자가 선택한 이름으로 머신에 저장합니다. 이 예제에서는 *FindRegisteredStorageAccount.ps1*로 저장했습니다.
+1. 위의 스크립트를 사용자가 선택한 이름으로 머신에 저장합니다. 이 예제에서는 *FindRegisteredStorageAccount.ps1* 로 저장했습니다.
 2. 다음 매개 변수를 제공하여 스크립트를 실행합니다.
 
     * **-ResourceGroupName** - 스토리지 계정의 리소스 그룹

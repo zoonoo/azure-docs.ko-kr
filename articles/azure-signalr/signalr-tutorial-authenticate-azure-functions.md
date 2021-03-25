@@ -8,10 +8,10 @@ ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
 ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92150903"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
@@ -52,7 +52,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 1. 새 Azure 리소스를 만들려면 **리소스 만들기**( **+** ) 단추를 클릭합니다.
 
-1. **SignalR Service**를 검색하여 선택합니다. **만들기**를 클릭합니다.
+1. **SignalR Service** 를 검색하여 선택합니다. **만들기** 를 클릭합니다.
 
     ![새 SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
@@ -65,9 +65,9 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
     | 위치 | 가까운 위치를 선택합니다. |
     | 가격 책정 계층 | Free |
 
-1. **만들기**를 클릭합니다.
+1. **만들기** 를 클릭합니다.
 
-1. 인스턴스가 배포되면 포털에서 열고 해당 설정 페이지를 찾습니다. 서비스 모드 설정을 *서버리스*로 변경합니다.
+1. 인스턴스가 배포되면 포털에서 열고 해당 설정 페이지를 찾습니다. 서비스 모드 설정을 *서버리스* 로 변경합니다.
 
     ![SignalR Service 모드](media/signalr-concept-azure-functions/signalr-service-mode.png)
     
@@ -80,10 +80,10 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 1. 새 VS Code 창의 메뉴에서 `File > Open Folder`를 사용하여 적절한 위치에 빈 폴더를 만들고 엽니다. 이는 빌드할 애플리케이션에 대한 주 프로젝트 폴더입니다.
 
 1. VS Code에서 Azure Functions 확장을 사용하여 주 프로젝트 폴더에서 함수 앱을 초기화합니다.
-   1. 메뉴에서 **보기 > 명령 팔레트**를 차례로 선택하여 VS Code에서 명령 팔레트를 엽니다(바로 가기: `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
+   1. 메뉴에서 **보기 > 명령 팔레트** 를 차례로 선택하여 VS Code에서 명령 팔레트를 엽니다(바로 가기: `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
    1. **Azure Functions: 새 프로젝트 만들기** 명령을 검색하여 선택합니다.
    1. 주 프로젝트 폴더가 표시됩니다. 이 폴더를 선택하거나 "찾아보기"를 사용하여 찾습니다.
-   1. 언어를 선택하라는 프롬프트에서 **JavaScript**를 선택합니다.
+   1. 언어를 선택하라는 프롬프트에서 **JavaScript** 를 선택합니다.
 
       ![함수 앱 만들기](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
 
@@ -91,7 +91,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 이 자습서에서는 Azure Functions 바인딩을 사용하여 Azure SignalR Service와 상호 작용합니다. 대부분의 다른 바인딩과 마찬가지로, SignalR Service 바인딩은 사용하기 전에 먼저 Azure Functions 핵심 도구 CLI를 설치해야 하는 확장으로 사용할 수 있습니다.
 
-1. 메뉴(Ctrl-\`)에서 **보기 > 터미널**을 차례로 선택하여 VS Code에서 터미널을 엽니다.
+1. 메뉴(Ctrl-\`)에서 **보기 > 터미널** 을 차례로 선택하여 VS Code에서 터미널을 엽니다.
 
 1. 주 프로젝트 폴더가 현재 디렉터리인지 확인합니다.
 
@@ -103,9 +103,9 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 ### <a name="configure-application-settings"></a>애플리케이션 설정 구성
 
-Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **local.settings.json**에서 애플리케이션 설정을 읽습니다. 이 파일을 앞에서 만든 SignalR Service 인스턴스의 연결 문자열로 업데이트합니다.
+Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **local.settings.json** 에서 애플리케이션 설정을 읽습니다. 이 파일을 앞에서 만든 SignalR Service 인스턴스의 연결 문자열로 업데이트합니다.
 
-1. VS Code의 [탐색기] 창에서 **local.settings.json**을 선택하여 엽니다.
+1. VS Code의 [탐색기] 창에서 **local.settings.json** 을 선택하여 엽니다.
 
 1. 파일의 내용을 다음으로 바꿉니다.
 
@@ -140,10 +140,10 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ## <a name="create-a-function-to-authenticate-users-to-signalr-service"></a>사용자를 SignalR Service에 인증하는 함수 만들기
 
-브라우저에서 채팅 앱을 처음 열 때 Azure SignalR Service에 연결하려면 유효한 연결 자격 증명이 필요합니다. 함수 앱에서 *negotiate*라는 HTTP 트리거 함수를 만들어서 이 연결 정보를 반환합니다.
+브라우저에서 채팅 앱을 처음 열 때 Azure SignalR Service에 연결하려면 유효한 연결 자격 증명이 필요합니다. 함수 앱에서 *negotiate* 라는 HTTP 트리거 함수를 만들어서 이 연결 정보를 반환합니다.
 
 > [!NOTE]
-> SignalR 클라이언트에서 `/negotiate`로 끝나는 엔드포인트가 필요하기 때문에 이 함수의 이름을 *negotiate*로 지정해야 합니다.
+> SignalR 클라이언트에서 `/negotiate`로 끝나는 엔드포인트가 필요하기 때문에 이 함수의 이름을 *negotiate* 로 지정해야 합니다.
 
 1. VS Code 명령 팔레트를 엽니다(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
@@ -158,9 +158,9 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
     | 이름 | negotiate |
     | 권한 부여 수준 | 익명 |
 
-    새 함수가 포함된 **negotiate**라는 폴더가 만들어집니다.
+    새 함수가 포함된 **negotiate** 라는 폴더가 만들어집니다.
 
-1. **negotiate/function.json**을 열어서 함수에 대한 바인딩을 구성합니다. 파일의 내용을 다음과 같이 수정합니다. 이렇게 하면 클라이언트에서 `chat`이라는 Azure SignalR Service 허브에 연결할 수 있는 유효한 자격 증명을 생성하는 입력 바인딩이 추가됩니다.
+1. **negotiate/function.json** 을 열어서 함수에 대한 바인딩을 구성합니다. 파일의 내용을 다음과 같이 수정합니다. 이렇게 하면 클라이언트에서 `chat`이라는 Azure SignalR Service 허브에 연결할 수 있는 유효한 자격 증명을 생성하는 입력 바인딩이 추가됩니다.
 
     ```json
     {
@@ -190,7 +190,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
     `signalRConnectionInfo` 바인딩의 `userId` 속성은 인증된 SignalR Service 연결을 만드는 데 사용됩니다. 이 속성은 로컬 개발을 위해 비워 둡니다. 함수 앱이 Azure에 배포될 때 이를 사용하게 됩니다.
 
-1. **negotiate/index.js**를 열어서 함수의 본문을 볼 수 있습니다. 파일의 내용을 다음과 같이 수정합니다.
+1. **negotiate/index.js** 를 열어서 함수의 본문을 볼 수 있습니다. 파일의 내용을 다음과 같이 수정합니다.
 
     ```javascript
     module.exports = async function (context, req, connectionInfo) {
@@ -204,7 +204,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ## <a name="create-a-function-to-send-chat-messages"></a>채팅 메시지를 보내는 함수 만들기
 
-웹앱에는 채팅 메시지를 보내는 HTTP API가 필요합니다. SignalR Service를 통해 연결된 모든 클라이언트에 메시지를 보내는 *SendMessage*라는 HTTP 트리거 함수를 만듭니다.
+웹앱에는 채팅 메시지를 보내는 HTTP API가 필요합니다. SignalR Service를 통해 연결된 모든 클라이언트에 메시지를 보내는 *SendMessage* 라는 HTTP 트리거 함수를 만듭니다.
 
 1. VS Code 명령 팔레트를 엽니다(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`).
 
@@ -219,9 +219,9 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
     | 이름 | SendMessage |
     | 권한 부여 수준 | 익명 |
 
-    새 함수가 포함된 **SendMessage**라는 폴더가 만들어집니다.
+    새 함수가 포함된 **SendMessage** 라는 폴더가 만들어집니다.
 
-1. **SendMessage/function.json**을 열어 함수에 대한 바인딩을 구성합니다. 파일의 내용을 다음과 같이 수정합니다.
+1. **SendMessage/function.json** 을 열어 함수에 대한 바인딩을 구성합니다. 파일의 내용을 다음과 같이 수정합니다.
     ```json
     {
         "disabled": false,
@@ -256,7 +256,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 파일을 저장합니다.
 
-1. **SendMessage/index.js**를 열어 함수 본문을 봅니다. 파일의 내용을 다음과 같이 수정합니다.
+1. **SendMessage/index.js** 를 열어 함수 본문을 봅니다. 파일의 내용을 다음과 같이 수정합니다.
 
     ```javascript
     module.exports = async function (context, req) {
@@ -289,9 +289,9 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 채팅 애플리케이션의 UI는 Vue JavaScript 프레임워크를 사용하여 만든 간단한 SPA(단일 페이지 애플리케이션)입니다. 함수 앱과 별도로 호스팅됩니다. 로컬에서는 Live Server VS Code 확장을 사용하여 웹 인터페이스를 실행합니다.
 
-1. VS Code에서 주 프로젝트 폴더의 루트에 **content**라는 새 폴더를 만듭니다.
+1. VS Code에서 주 프로젝트 폴더의 루트에 **content** 라는 새 폴더를 만듭니다.
 
-1. **content** 폴더에서 **index.html**이라는 새 파일을 만듭니다.
+1. **content** 폴더에서 **index.html** 이라는 새 파일을 만듭니다.
 
 1. **[index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)** 의 내용을 복사하여 붙여넣습니다.
 
@@ -299,7 +299,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. **F5** 키를 눌러 함수 앱을 로컬로 실행하고 디버거를 연결합니다.
 
-1. **index.html**이 열린 상태에서 VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Live Server: Live Server로 열기**를 선택하여 Live Server를 시작합니다. Live Server는 브라우저에서 애플리케이션을 엽니다.
+1. **index.html** 이 열린 상태에서 VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Live Server: Live Server로 열기** 를 선택하여 Live Server를 시작합니다. Live Server는 브라우저에서 애플리케이션을 엽니다.
 
 1. 애플리케이션이 열립니다. 채팅 상자에서 메시지를 입력하고 Enter 키를 누릅니다. 새 메시지를 보려면 애플리케이션을 새로 고칩니다. 인증이 구성되지 않았으므로 모든 메시지는 "익명"으로 보내집니다.
 
@@ -323,7 +323,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 1. Azure Portal에서 새 Azure 리소스를 만들려면 **리소스 만들기**( **+** ) 단추를 클릭합니다.
 
-1. **스토리지** 범주를 선택한 다음, **스토리지 계정**을 선택합니다.
+1. **스토리지** 범주를 선택한 다음, **스토리지 계정** 을 선택합니다.
 
 1. 다음 정보를 입력합니다.
 
@@ -338,21 +338,21 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
     | 복제 | LRS(로컬 중복 스토리지) |
     | 액세스 계층 | 핫 |
 
-1. **검토 + 만들기**와 **만들기**를 차례로 클릭합니다.
+1. **검토 + 만들기** 와 **만들기** 를 차례로 클릭합니다.
 
 ### <a name="configure-static-websites"></a>정적 웹 사이트 구성
 
 1. 스토리지 계정이 만들어지면 Azure Portal에서 엽니다.
 
-1. **정적 웹 사이트**를 선택합니다.
+1. **정적 웹 사이트** 를 선택합니다.
 
-1. **사용**을 선택하여 정적 웹 사이트 기능을 사용하도록 설정합니다.
+1. **사용** 을 선택하여 정적 웹 사이트 기능을 사용하도록 설정합니다.
 
-1. **인덱스 문서 이름**에 *index.html*을 입력합니다.
+1. **인덱스 문서 이름** 에 *index.html* 을 입력합니다.
 
-1. **Save**을 클릭합니다.
+1. **Save** 을 클릭합니다.
 
-1. **기본 엔드포인트**가 나타납니다. 이 값을 적어 둡니다. 함수 앱을 구성하는 데 필요합니다.
+1. **기본 엔드포인트** 가 나타납니다. 이 값을 적어 둡니다. 함수 앱을 구성하는 데 필요합니다.
 
 ### <a name="configure-function-app-for-authentication"></a>인증을 위한 함수 앱 구성
 
@@ -360,7 +360,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 메시지를 보내는 경우 연결된 모든 클라이언트에 보낼지, 아니면 지정한 사용자에게 인증된 클라이언트에만 보낼지 여부를 결정할 수 있습니다.
 
-1. VS Code에서 **negotiate/function.json**을 엽니다.
+1. VS Code에서 **negotiate/function.json** 을 엽니다.
 
 1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](../azure-functions/functions-triggers-bindings.md)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
 
@@ -379,7 +379,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
 ### <a name="deploy-function-app-to-azure"></a>Azure에 함수 앱 배포
 
-1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: 함수 앱에 배포**를 선택합니다.
+1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: 함수 앱에 배포** 를 선택합니다.
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
@@ -387,7 +387,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
     |---|---|
     | 배포할 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | 구독 | 구독 선택 |
-    | 함수 앱 | **새 함수 앱 만들기**를 선택합니다. |
+    | 함수 앱 | **새 함수 앱 만들기** 를 선택합니다. |
     | 함수 앱 이름 | 고유한 이름을 입력합니다. |
     | 리소스 그룹 | SignalR Service 인스턴스와 동일한 리소스 그룹을 선택합니다. |
     | 스토리지 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
@@ -408,7 +408,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
     | 구독 | 구독 선택 |
     | 함수 앱 | 이전에 배포한 함수 앱을 선택합니다. |
 
-로컬 설정이 Azure의 함수 앱에 업로드됩니다. 기존 설정을 덮어쓸지 묻는 메시지가 표시되면 **모두 예**를 선택합니다.
+로컬 설정이 Azure의 함수 앱에 업로드됩니다. 기존 설정을 덮어쓸지 묻는 메시지가 표시되면 **모두 예** 를 선택합니다.
 
 
 ### <a name="enable-app-service-authentication"></a>App Service 인증을 사용하도록 설정
@@ -421,13 +421,13 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
 1. 구독 및 함수 앱 이름을 선택하여 Azure Portal에서 함수 앱을 엽니다.
 
-1. 포털에 열린 함수 앱에서, **플랫폼 기능** 탭을 찾아서 **인증/권한 부여**를 선택합니다.
+1. 포털에 열린 함수 앱에서, **플랫폼 기능** 탭을 찾아서 **인증/권한 부여** 를 선택합니다.
 
-1. App Service 인증을 **켜기**로 설정합니다.
+1. App Service 인증을 **켜기** 로 설정합니다.
 
-1. **요청이 인증되지 않은 경우 수행할 작업**에서 "{이전에 선택한 인증 공급자}를 사용하여 로그인"을 선택합니다.
+1. **요청이 인증되지 않은 경우 수행할 작업** 에서 "{이전에 선택한 인증 공급자}를 사용하여 로그인"을 선택합니다.
 
-1. **허용되는 외부 리디렉션 URL**에서 앞에서 적어 둔 스토리지 계정 기본 웹 엔드포인트의 URL을 입력합니다.
+1. **허용되는 외부 리디렉션 URL** 에서 앞에서 적어 둔 스토리지 계정 기본 웹 엔드포인트의 URL을 입력합니다.
 
 1. 선택한 로그인 공급자에 대한 설명서에 따라 구성을 완료합니다.
 
@@ -445,7 +445,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
     ![URL 가져오기](media/signalr-tutorial-authenticate-azure-functions/signalr-get-url.png)
 
-1. VS Code에서 **index.html**을 열고 `apiBaseUrl`의 값을 함수 앱의 URL로 바꿉니다.
+1. VS Code에서 **index.html** 을 열고 `apiBaseUrl`의 값을 함수 앱의 URL로 바꿉니다.
 
 1. 애플리케이션은 Azure Active Directory, Facebook, Twitter, Microsoft 계정 또는 Google을 사용하여 인증을 통해 구성할 수 있습니다. `authProvider` 값을 설정하여 사용할 인증 공급자를 선택합니다.
 
@@ -463,19 +463,19 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
     | Name | 값 |
     |---|---|
-    | 구독 | 구독 선택 |
+    | Subscription | 구독 선택 |
     | 스토리지 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
-    | 배포할 폴더 | **찾아보기**를 선택하고 *content* 폴더를 선택합니다. |
+    | 배포할 폴더 | **찾아보기** 를 선택하고 *content* 폴더를 선택합니다. |
 
 *content* 폴더의 파일이 정적 웹 사이트에 배포됩니다.
 
 ### <a name="enable-function-app-cross-origin-resource-sharing-cors"></a>함수 앱 CORS(원본 간 리소스 공유)를 사용하도록 설정
 
-CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전파되지 않습니다. 따라서 개별적으로 설정해야 합니다.
+CORS 설정은 **local.settings.json** 에 있지만 Azure의 함수 앱에 전파되지 않습니다. 따라서 개별적으로 설정해야 합니다.
 
 1. Azure Portal에서 함수 앱을 엽니다.
 
-1. **플랫폼 기능** 탭에서 **CORS**를 선택합니다.
+1. **플랫폼 기능** 탭에서 **CORS** 를 선택합니다.
 
     ![CORS 찾기](media/signalr-tutorial-authenticate-azure-functions/signalr-find-cors.png)
 
@@ -485,13 +485,13 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
     ![Access-Control-Allow-Credentials 사용](media/signalr-tutorial-authenticate-azure-functions/signalr-cors-credentials.png)
 
-1. **저장**을 클릭하여 CORS 설정을 유지합니다.
+1. **저장** 을 클릭하여 CORS 설정을 유지합니다.
 
 ### <a name="try-the-application"></a>애플리케이션 사용해 보기
 
 1. 브라우저에서 스토리지 계정의 기본 웹 엔드포인트로 이동합니다.
 
-1. **로그인**을 선택하여 선택한 인증 공급자를 통해 인증합니다.
+1. **로그인** 을 선택하여 선택한 인증 공급자를 통해 인증합니다.
 
 1. 기본 채팅 상자에 공개 메시지를 입력하여 보냅니다.
 

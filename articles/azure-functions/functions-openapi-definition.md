@@ -6,10 +6,10 @@ ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
 ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88212917"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
@@ -41,20 +41,20 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 그런 다음, 함수는 복구 비용과 터빈이 24시간 내에 가져올 수 있는 수익을 계산합니다. [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수를 만들려면 다음을 수행합니다.
 
-1. 함수 앱의 왼쪽 메뉴에서 **Functions**를 선택한 다음, 맨 위 메뉴에서 **추가**를 선택합니다.
+1. 함수 앱의 왼쪽 메뉴에서 **Functions** 를 선택한 다음, 맨 위 메뉴에서 **추가** 를 선택합니다.
 
-1. **새 함수** 창에서 **Http 트리거**를 선택합니다.
+1. **새 함수** 창에서 **Http 트리거** 를 선택합니다.
 
-1. **새 함수**에 `TurbineRepair`를 입력합니다. 
+1. **새 함수** 에 `TurbineRepair`를 입력합니다. 
 
-1. **[권한 부여 수준](functions-bindings-http-webhook-trigger.md#http-auth)** 드롭다운 목록에서 **함수**를 선택한 다음, **함수 만들기**를 선택합니다.
+1. **[권한 부여 수준](functions-bindings-http-webhook-trigger.md#http-auth)** 드롭다운 목록에서 **함수** 를 선택한 다음, **함수 만들기** 를 선택합니다.
 
-    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기":::
 
-1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
+1. **코드 + 테스트** 를 선택한 다음, 드롭다운 목록에서 **run.csx** 를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장** 을 선택합니다.
 
     ```csharp
-    #r &quot;Newtonsoft.Json"
+    #r "Newtonsoft.Json"
     
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
@@ -106,7 +106,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
     이 함수 코드는 `Yes` 또는 `No`의 메시지를 반환하여 응급 복구가 비용 효율적인지 여부를 나타냅니다. 또한 터빈이 나타내는 수익 기회와 터빈 수정에 드는 비용을 반환합니다.
 
-1. 함수를 테스트하려면 **테스트**를 선택하고, **입력** 탭을 선택하고, **본문**에 다음 입력을 입력한 다음, **실행**을 선택합니다.
+1. 함수를 테스트하려면 **테스트** 를 선택하고, **입력** 탭을 선택하고, **본문** 에 다음 입력을 입력한 다음, **실행** 을 선택합니다.
 
     ```json
     {
@@ -115,12 +115,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
     }
     ```
 
-    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
-
-1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Azure Portal에서 함수 테스트":::
 
     **출력** 탭에 다음과 같은 출력이 반환됩니다.
 
@@ -134,14 +129,9 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 OpenAPI 정의를 생성하려면 다음을 수행합니다.
 
-1. 함수 앱을 선택하고, 왼쪽 메뉴에서 **API Management**를 선택한 다음, **API Management**에서 **새로 만들기**를 선택합니다.
+1. 함수 앱을 선택하고, 왼쪽 메뉴에서 **API Management** 를 선택한 다음, **API Management** 에서 **새로 만들기** 를 선택합니다.
 
-    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
-
-1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="API Management 선택":::
 
 
 1. 다음 표에 지정된 것처럼 API Management 설정을 사용합니다.
@@ -158,22 +148,17 @@ OpenAPI 정의를 생성하려면 다음을 수행합니다.
 
     ![새 API Management 서비스 만들기](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-1. **만들기**를 선택하여 API Management 인스턴스를 만듭니다. 몇 분 정도 소요될 수 있습니다.
+1. **만들기** 를 선택하여 API Management 인스턴스를 만듭니다. 몇 분 정도 소요될 수 있습니다.
 
-1. Azure에서 인스턴스를 만든 후 페이지에서 **Application Insights 사용** 옵션을 사용하도록 설정합니다. 이를 선택하여 함수 애플리케이션과 동일한 위치로 로그를 보낸 다음, **API 링크**를 선택합니다.
+1. Azure에서 인스턴스를 만든 후 페이지에서 **Application Insights 사용** 옵션을 사용하도록 설정합니다. 이를 선택하여 함수 애플리케이션과 동일한 위치로 로그를 보낸 다음, **API 링크** 를 선택합니다.
 
-1. **TurbineRepair** 함수가 강조 표시된 상태로 **Azure Functions 가져오기**가 열립니다. **선택**을 선택하여 계속합니다.
+1. **TurbineRepair** 함수가 강조 표시된 상태로 **Azure Functions 가져오기** 가 열립니다. **선택** 을 선택하여 계속합니다.
 
     ![Azure Functions를 API Management로 가져오기](media/functions-openapi-definition/import-function-openapi.png)
 
-1. **함수 앱에서 만들기** 페이지에서 기본값을 수락한 다음, **만들기**를 선택합니다.
+1. **함수 앱에서 만들기** 페이지에서 기본값을 수락한 다음, **만들기** 를 선택합니다.
 
-    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
-
-1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="함수 앱에서 만들기":::
 
     Azure는 함수에 대한 API를 만듭니다.
 
@@ -181,9 +166,9 @@ OpenAPI 정의를 생성하려면 다음을 수행합니다.
 
 OpenAPI 정의를 사용하기 전에 API가 작동하는지 확인해야 합니다.
 
-1. 함수 앱 페이지에서 **API Management**를 선택하고 **테스트** 탭을 선택한 다음, **POST TurbineRepair**를 선택합니다. 
+1. 함수 앱 페이지에서 **API Management** 를 선택하고 **테스트** 탭을 선택한 다음, **POST TurbineRepair** 를 선택합니다. 
 
-1. **요청 본문**에 다음 코드를 입력합니다.
+1. **요청 본문** 에 다음 코드를 입력합니다.
 
     ```json
     {
@@ -192,20 +177,15 @@ OpenAPI 정의를 사용하기 전에 API가 작동하는지 확인해야 합니
     }
     ```
 
-1. **보내기**를 선택한 다음, **HTTP 응답**을 봅니다.
+1. **보내기** 를 선택한 다음, **HTTP 응답** 을 봅니다.
 
-    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="OpenAPI에 대한 HTTP 함수 만들기&quot;:::
-
-1. **코드 + 테스트**를 선택한 다음, 드롭다운 목록에서 **run.csx**를 선택합니다. run.csx C# 스크립트 파일 내용을 다음 코드로 바꾼 다음, **저장**을 선택합니다.
-
-    ```csharp
-    #r &quot;Newtonsoft.Json":::
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="테스트 함수 API":::
 
 ## <a name="download-the-openapi-definition"></a>OpenAPI 정의 다운로드
 
 API가 예상대로 작동하는 경우 OpenAPI 정의를 다운로드할 수 있습니다.
 
-1. 페이지 위쪽에서 **OpenAPI 정의 다운로드**를 선택합니다.
+1. 페이지 위쪽에서 **OpenAPI 정의 다운로드** 를 선택합니다.
    
    ![OpenAPI 정의 다운로드](media/functions-openapi-definition/download-definition.png)
 

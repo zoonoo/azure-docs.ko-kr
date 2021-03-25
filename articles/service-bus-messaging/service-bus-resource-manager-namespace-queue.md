@@ -9,10 +9,10 @@ ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 69cffb6000df9d8b058d92231c130ea8a601e6d2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88660634"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
-1. 배포 상태를 확인하려면 맨 위에 있는 **알림**을 선택합니다. 배포가 성공할 때까지 기다립니다. 그런 다음, 알림 메시지에서 **리소스 그룹으로 이동**을 선택하여 Service Bus 네임스페이스가 포함된 리소스 그룹의 페이지로 이동합니다. 
+1. 배포 상태를 확인하려면 맨 위에 있는 **알림** 을 선택합니다. 배포가 성공할 때까지 기다립니다. 그런 다음, 알림 메시지에서 **리소스 그룹으로 이동** 을 선택하여 Service Bus 네임스페이스가 포함된 리소스 그룹의 페이지로 이동합니다. 
 
     ![배포 알림](./media/service-bus-resource-manager-namespace-queue/notification.png)
 2. 리소스 목록에 Service Bus 네임스페이스가 표시되는지 확인합니다. 
@@ -73,8 +73,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="clean-up-resources"></a>리소스 정리
 
 1. Azure Portal에서 리소스 그룹의 **리소스 그룹** 페이지로 이동합니다.
-2. 도구 모음에서 **리소스 그룹 삭제**를 선택합니다. 
-3. 리소스 그룹의 이름을 입력하고 **삭제**를 선택합니다. 
+2. 도구 모음에서 **리소스 그룹 삭제** 를 선택합니다. 
+3. 리소스 그룹의 이름을 입력하고 **삭제** 를 선택합니다. 
 
     ![리소스 그룹 - 삭제](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)
 

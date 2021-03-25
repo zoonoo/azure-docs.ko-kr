@@ -8,10 +8,10 @@ ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 92da400616ace9f24da121d81798d5ebd9222e35
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88921888"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Service란?
@@ -37,7 +37,7 @@ Azure SignalR Service는 매우 다양한 업계에서 실시간 콘텐츠 업�
 * **협업 앱:** 공동 작성, 화이트보드 앱, 팀 모임 소프트웨어
 * **푸시 알림:** 소셜 네트워크, 메일, 게임, 여행 경보
 * **실시간 브로드캐스트:** 라이브 오디오/비디오 브로드캐스트, 실시간 캡션, 번역, 이벤트/뉴스 브로드캐스트
-* **IoT 및 연결된 디바이스:** : 실시간 IoT 메트릭, 원격 제어, 실시간 상태, 위치 추적
+* **IoT 및 연결된 디바이스:**: 실시간 IoT 메트릭, 원격 제어, 실시간 상태, 위치 추적
 * **자동화:** 업스트림 이벤트의 실시간 트리거
 
 ## <a name="what-are-the-benefits-using-azure-signalr-service"></a>Azure SignalR Service를 사용하면 어떤 이점이 있나요?

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c3950b1aeae2b4e90b1ae4acfb9439c2cb159ca
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026005"
+ms.locfileid: "105034710"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>가용성 그룹에 대 한 DNN 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -145,7 +145,7 @@ SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 
 ## <a name="update-connection-string"></a>연결 문자열 업데이트
 
-DNN 수신기에 연결 하도록 응용 프로그램에 대 한 연결 문자열을 업데이트 합니다. 장애 조치 (failover) 시 빠른 연결을 보장 하려면 `MultiSubnetFailover=True` SQL 클라이언트에서 지 원하는 경우 연결 문자열에를 추가 합니다.
+DNN 수신기에 연결 하도록 응용 프로그램에 대 한 연결 문자열을 업데이트 합니다. DNN 수신기에 대 한 연결 문자열은 DNN 포트 번호를 제공 해야 합니다. 장애 조치 (failover) 시 빠른 연결을 보장 하려면 `MultiSubnetFailover=True` SQL 클라이언트에서 지 원하는 경우 연결 문자열에를 추가 합니다.
 
 ## <a name="test-failover"></a>테스트 장애 조치
 

@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4da685c247427e78297df1753779ee9b5c7866b8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774935"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023200"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Azure의 .NET 5.0에서 함수를 실행 하는 방법에 대 한 가이드
 
@@ -147,15 +147,17 @@ Out-of-process를 실행할 때 트리거와 바인딩을 사용 하기 위한 �
 
 ### <a name="multiple-output-bindings"></a>여러 출력 바인딩
 
-출력 바인딩에 기록 된 데이터는 항상 함수의 반환 값입니다. 둘 이상의 출력 바인딩에 써야 하는 경우 사용자 지정 반환 형식을 만들어야 합니다. 이 반환 형식에는 클래스의 하나 이상의 속성에 적용 되는 출력 바인딩 특성이 있어야 합니다. 다음 예제에서는 HTTP 응답과 큐 출력 바인딩에 모두 씁니다.
+출력 바인딩에 기록 된 데이터는 항상 함수의 반환 값입니다. 둘 이상의 출력 바인딩에 써야 하는 경우 사용자 지정 반환 형식을 만들어야 합니다. 이 반환 형식에는 클래스의 하나 이상의 속성에 적용 되는 출력 바인딩 특성이 있어야 합니다. Http 트리거의 다음 예제는 HTTP 응답과 큐 출력 바인딩에 모두 씁니다.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+
+HTTP 트리거의 응답은 항상 출력으로 간주 되므로 반환 값 특성은 필요 하지 않습니다.
 
 ### <a name="http-trigger"></a>HTTP 트리거
 
 HTTP 트리거는 들어오는 HTTP 요청 메시지를 함수에 전달 되는 [Httprequestdata] 개체로 변환 합니다. 이 개체는 `Headers` ,, `Cookies` `Identities` , `URL` 및 선택적 메시지를 포함 하 여 요청의 데이터를 제공 `Body` 합니다. 이 개체는 요청 자체가 아닌 HTTP 요청 개체의 표현입니다. 
 
-마찬가지로 함수는 메시지, 메시지 등의 메시지를 포함 하 여 HTTP 응답을 만드는 데 사용 되는 데이터를 제공 하는 [HttpReponseData] 개체를 반환 합니다 `StatusCode` `Headers` `Body` .  
+마찬가지로 함수는 메시지, 메시지 등의 메시지를 포함 하 여 HTTP 응답을 만드는 데 사용 되는 데이터를 제공 하는 [HttpResponseData] 개체를 반환 합니다 `StatusCode` `Headers` `Body` .  
 
 다음 코드는 HTTP 트리거입니다. 
 

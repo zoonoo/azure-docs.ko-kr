@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 7d756b53247206ab4dd4f955c954e6bd105afa1d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 16c3b59bcfa14cc02f13dadd726e0380d934598b
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778494"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023812"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>평가 개요(Azure VM으로 마이그레이션)
 
-이 문서에서는 Azure Migrate의 평가에 대 한 개요를 제공 합니다 [. 서버 검색 및 평가](migrate-services-overview.md) 도구를 제공 합니다. 이 도구는 VMware 가상 및 Hyper-v 환경의 온-프레미스 서버와 Azure로 마이그레이션하기 위한 물리적 서버를 평가할 수 있습니다.
+이 문서에서는 [Azure Migrate: 검색 및 평가](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) 도구의 평가에 대 한 개요를 제공 합니다. 이 도구는 VMware 가상 및 Hyper-v 환경의 온-프레미스 서버와 Azure로 마이그레이션하기 위한 물리적 서버를 평가할 수 있습니다.
 
 ## <a name="whats-an-assessment"></a>평가는 무엇 인가요?
 
@@ -292,7 +292,7 @@ Azure Migrate의 각 성능 기반 Azure VM 평가는 신뢰도 등급과 연결
     - 소프트웨어 보증
     - 예약 인스턴스
     - VM 작동 시간
-    - 위치
+    - Location
     - 통화 설정
 
     평가는 모든 서버에서 비용을 집계 하 여 월별 총 계산 비용을 계산 합니다.

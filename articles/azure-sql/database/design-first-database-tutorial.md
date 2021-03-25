@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674884"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database에서 관계형 데이터베이스 디자인
@@ -52,7 +52,7 @@ Azure SQL 데이터베이스는 Microsoft Cloud(Azure)의 관계형 DBaaS(Databa
 
 ## <a name="create-a-blank-database-in-azure-sql-database"></a>Azure SQL Database에서 빈 데이터베이스 만들기
 
-Azure SQL Database의 데이터베이스는 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../active-directory-b2c/overview.md) 내에 만들어지고 [논리 SQL 서버](logical-servers.md)를 사용하여 관리됩니다.
+Azure SQL Database의 데이터베이스는 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../../active-directory-b2c/overview.md) 내에 생성되고 [논리 SQL 서버](logical-servers.md)를 사용하여 관리됩니다.
 
 다음 단계에 따라 빈 데이터베이스를 만듭니다.
 
@@ -103,7 +103,7 @@ Azure SQL Database는 서버 수준에서 IP 방화벽을 만듭니다. 방화�
 
 1. 배포가 완료되면 Azure Portal 메뉴에서 **SQL 데이터베이스** 를 선택하거나아무 페이지에서 *SQL 데이터베이스* 를 선택합니다.  
 
-1. **SQL 데이터베이스** 페이지에서 *데이터베이스* 를 선택합니다. 데이터베이스에 대한 개요 페이지가 열리고, 정규화된 **서버 이름** (예: `contosodatabaseserver01.database.windows.net`)을 표시하고, 추가 구성 옵션을 제공합니다.
+1. **SQL 데이터베이스** 페이지에서 *데이터베이스* 를 선택합니다. 데이터베이스에 대한 개요 페이지가 열리고, 정규화된 **서버 이름**(예: `contosodatabaseserver01.database.windows.net`)을 표시하고, 추가 구성 옵션을 제공합니다.
 
    ![서버 이름](./media/design-first-database-tutorial/server-name.png)
 
@@ -134,7 +134,7 @@ Azure SQL Database는 서버 수준에서 IP 방화벽을 만듭니다. 방화�
    | 설정       | 제안 값 | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **서버 유형** | 데이터베이스 엔진 | 이 값은 필수입니다. |
-   | **서버 이름** | 정규화된 서버 이름 | 예: *yourserver.database.windows.net* . |
+   | **서버 이름** | 정규화된 서버 이름 | 예: *yourserver.database.windows.net*. |
    | **인증** | SQL Server 인증 | SQL 인증은 이 자습서에서 구성한 유일한 인증 유형입니다. |
    | **로그인** | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
    | **암호** | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
@@ -231,7 +231,7 @@ Azure SQL Database는 서버 수준에서 IP 방화벽을 만듭니다. 방화�
 
 3. 명령 프롬프트 창을 열고 *sampleData* 폴더로 이동합니다.
 
-4. 다음 명령을 실행하여 테이블에 샘플 데이터를 삽입하고 *서버* , *데이터베이스* , *사용자* 및 *암호* 값을 해당 환경에 맞는 값으로 바꿉니다.
+4. 다음 명령을 실행하여 테이블에 샘플 데이터를 삽입하고 *서버*, *데이터베이스*, *사용자* 및 *암호* 값을 해당 환경에 맞는 값으로 바꿉니다.
 
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","

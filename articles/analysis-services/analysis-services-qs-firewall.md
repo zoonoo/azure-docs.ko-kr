@@ -8,10 +8,10 @@ ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: e4953137cf939c35c6ac73fe51ca43eca6e99edc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88192442"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
@@ -33,10 +33,10 @@ ms.locfileid: "88192442"
 ## <a name="configure-a-firewall"></a>방화벽 구성
 
 1. 서버를 클릭하여 개요 페이지를 엽니다. 
-2. **설정** > **방화벽** > **방화벽 사용**에서 **켜기**를 선택합니다.
-3. Power BI 및 Power BI Premium에서 연결을 사용하도록 설정하려면 **Power BI에서 액세스 허용**에서 **켜기**를 선택합니다.  
+2. **설정** > **방화벽** > **방화벽 사용** 에서 **켜기** 를 선택합니다.
+3. Power BI 및 Power BI Premium에서 연결을 사용하도록 설정하려면 **Power BI에서 액세스 허용** 에서 **켜기** 를 선택합니다.  
 4. (선택 사항) 하나 이상의 IP 주소 범위를 지정합니다. 각 범위에 대한 이름, 시작 및 끝 IP 주소를 입력합니다. 방화벽 규칙 이름은 128자로 제한되고 대문자, 소문자, 숫자, 밑줄 및 하이픈만 포함할 수 있습니다. 공백 및 기타 특수 문자는 허용되지 않습니다.
-5. **저장**을 클릭합니다.
+5. **저장** 을 클릭합니다.
 
      ![방화벽 설정](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 

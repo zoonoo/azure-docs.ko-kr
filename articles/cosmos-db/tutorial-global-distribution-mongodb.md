@@ -10,10 +10,10 @@ ms.date: 12/26/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 89826eab7b1686ae695a2716a03b2f5d03da277f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93099257"
 ---
 # <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 글로벌 분산 데이터베이스 설정
@@ -66,14 +66,14 @@ Mongo Shell에서 다음을 수행합니다.
 
 ## <a name="connecting-to-a-preferred-region"></a>기본 설정 지역에 연결 
 
-Azure Cosmos DB의 API for MongoDB를 통해 전역적으로 분산된 데이터베이스에 대한 컬렉션의 읽기 기본 설정을 지정할 수 있습니다. 짧은 대기 시간 읽기 및 글로벌 고가용성을 위해 컬렉션의 읽기 기본 설정을 *nearest* (최근접)로 설정하는 것이 좋습니다. *nearest* (최근접)의 읽기 기본 설정은 가장 가까운 지역에서 읽도록 구성됩니다.
+Azure Cosmos DB의 API for MongoDB를 통해 전역적으로 분산된 데이터베이스에 대한 컬렉션의 읽기 기본 설정을 지정할 수 있습니다. 짧은 대기 시간 읽기 및 글로벌 고가용성을 위해 컬렉션의 읽기 기본 설정을 *nearest*(최근접)로 설정하는 것이 좋습니다. *nearest*(최근접)의 읽기 기본 설정은 가장 가까운 지역에서 읽도록 구성됩니다.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-주 읽기/쓰기 지역 및 재해 복구(DR) 시나리오를 위한 보조 지역이 있는 애플리케이션에는 컬렉션의 읽기 기본 설정을 *secondary preferred* (보조 기본 설정)로 설정하는 것이 좋습니다. *secondary preferred* (보조 기본 설정)의 읽기 기본 설정은 주 지역의 데이터를 사용할 수 없는 경우 보조 지역에서 읽도록 구성됩니다.
+주 읽기/쓰기 지역 및 재해 복구(DR) 시나리오를 위한 보조 지역이 있는 애플리케이션에는 컬렉션의 읽기 기본 설정을 *secondary preferred*(보조 기본 설정)로 설정하는 것이 좋습니다. *secondary preferred*(보조 기본 설정)의 읽기 기본 설정은 주 지역의 데이터를 사용할 수 없는 경우 보조 지역에서 읽도록 구성됩니다.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

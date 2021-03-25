@@ -10,10 +10,10 @@ ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090293"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Spring Data Azure Cosmos DB v3 앱을 빌드
@@ -54,11 +54,11 @@ ms.locfileid: "93090293"
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos 계정 엔터티" border="false":::
 
-데이터베이스, 컨테이너 및 항목은 [여기](account-databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키* )은 컨테이너 수준에서 정의됩니다. 
+데이터베이스, 컨테이너 및 항목은 [여기](account-databases-containers-items.md)서 자세히 알아볼 수 있습니다. 몇 가지 중요한 속성(예: *프로비저닝 처리량* 및 *파티션 키*)은 컨테이너 수준에서 정의됩니다. 
 
 프로비저닝된 처리량은 *RU(요청 단위)* 로 측정됩니다. 이는 화폐 가격을 포함하고 계정의 운영 비용에 대한 실질적인 결정 요소입니다. 프로비저닝된 처리량은 컨테이너 단위 또는 데이터베이스 단위 세분성에서 선택할 수 있지만 일반적으로 컨테이너 수준 처리량 사양이 선호됩니다. 처리량 프로비저닝은 [여기](set-throughput.md)서 자세히 알아볼 수 있습니다.
 
-항목이 Cosmos DB 컨테이너에 삽입되면 요청을 처리하기 위해 더 많은 스토리지와 컴퓨팅을 추가하여 데이터베이스를 수평으로 확장시킵니다. 스토리지 및 컴퓨팅 용량은 *파티션* 이라는 별도의 단위로 추가되며, 각 문서를 파티션에 매핑하는 파티션 키로 하나의 필드를 문서에서 선택해야 합니다. 파티션을 관리하는 방법은 파티션 키 값의 범위에서 거의 동일한 조각이 각 파티션에 할당되는 것입니다. 따라서 비교적 임의로 또는 균일하게 분산되는 파티션 키를 선택하는 것이 좋습니다. 그렇지 않으면 일부 파티션에는 훨씬 더 많은 요청이 표시되고( *핫 파티션* ), 다른 파티션에는 훨씬 더 적은 요청이 표시되므로( *콜드 파티션* ) 이를 방지해야 합니다. 파티션 분할은 [여기](partitioning-overview.md)서 자세히 알아볼 수 있습니다.
+항목이 Cosmos DB 컨테이너에 삽입되면 요청을 처리하기 위해 더 많은 스토리지와 컴퓨팅을 추가하여 데이터베이스를 수평으로 확장시킵니다. 스토리지 및 컴퓨팅 용량은 *파티션* 이라는 별도의 단위로 추가되며, 각 문서를 파티션에 매핑하는 파티션 키로 하나의 필드를 문서에서 선택해야 합니다. 파티션을 관리하는 방법은 파티션 키 값의 범위에서 거의 동일한 조각이 각 파티션에 할당되는 것입니다. 따라서 비교적 임의로 또는 균일하게 분산되는 파티션 키를 선택하는 것이 좋습니다. 그렇지 않으면 일부 파티션에는 훨씬 더 많은 요청이 표시되고(*핫 파티션*), 다른 파티션에는 훨씬 더 적은 요청이 표시되므로(*콜드 파티션*) 이를 방지해야 합니다. 파티션 분할은 [여기](partitioning-overview.md)서 자세히 알아볼 수 있습니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

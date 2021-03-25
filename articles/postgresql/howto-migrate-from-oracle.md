@@ -1,5 +1,5 @@
 ---
-title: Oracle에서 마이그레이션
+title: 'Oracle to Azure Database for PostgreSQL: 마이그레이션 가이드'
 titleSuffix: Azure Database for PostgreSQL
 description: 이 가이드에서는 Oracle 스키마를 Azure Database for PostgreSQL로 마이그레이션하는 방법을 설명 합니다.
 author: sr-msft
@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: ec6cf87b3fd326c905b4843dc30ae6ce15379305
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b41f894a7e4742b75ea06684a960221d4a5b7641
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609451"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024764"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Oracle을 Azure Database for PostgreSQL로 마이그레이션
 
@@ -21,7 +21,7 @@ ms.locfileid: "104609451"
 
 자세한 마이그레이션 지침 및 포괄적인 마이그레이션 [가이드는 마이그레이션 가이드 리소스](https://github.com/microsoft/OrcasNinjaTeam/blob/master/Oracle%20to%20PostgreSQL%20Migration%20Guide/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Guide.pdf)를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Oracle 스키마를 Azure Database for PostgreSQL 마이그레이션하려면 다음을 수행 해야 합니다. 
 
@@ -70,13 +70,13 @@ VM을 프로 비전 하 고 Azure Database for PostgreSQL 후 다음과 같이 *
 
 
 
-## <a name="pre-migration"></a>마이그레이션 전 
+## <a name="pre-migration"></a>사전 마이그레이션 
 
-원본 환경이 지원 되는지 확인 하 고 모든 필수 구성 요소를 해결 한 후에는 마이그레이션 전 단계를 시작할 준비가 된 것입니다. 프로세스의이 부분에서는 마이그레이션해야 하는 데이터베이스에 대 한 인벤토리를 수행 하 고, 해당 데이터베이스를 평가 하 여 잠재적인 마이그레이션 문제나 차단기를 확인 한 다음, 표시 되는 항목을 확인 하는 것을 포함 합니다. Azure Database for PostgreSQL Oracle과 같은 다른 유형의 마이그레이션의 경우이 단계에서는 원본 데이터베이스의 스키마를 대상 환경과 호환 되도록 변환 하는 작업도 수행 합니다.
+원본 환경이 지원 되는지 확인 하 고 모든 필수 구성 요소를 해결 한 후에는 마이그레이션 전 단계를 시작할 준비가 된 것입니다. 프로세스의 이 부분에서는 마이그레이션해야 하는 데이터베이스에 대한 인벤토리를 수행하고, 해당 데이터베이스에 잠재적인 마이그레이션 문제나 방해 요소가 있는지 평가한 다음, 발견했을 수 있는 모든 항목을 확인합니다. Azure Database for PostgreSQL Oracle과 같은 다른 유형의 마이그레이션의 경우이 단계에서는 원본 데이터베이스의 스키마를 대상 환경과 호환 되도록 변환 하는 작업도 수행 합니다.
 
 ### <a name="discover"></a>검색
 
-검색 단계의 목표는 기존 데이터 원본 및 마이그레이션에 대 한 이해를 개선 하는 데 사용 되는 기능에 대 한 세부 정보를 확인 하는 것입니다. 이 프로세스에는 네트워크를 검색 하 여 사용 중인 버전 및 기능과 함께 조직의 모든 Oracle 인스턴스를 식별 하는 작업이 포함 됩니다.
+검색 단계의 목표는 기존 데이터 원본 및 마이그레이션에 대 한 이해를 개선 하는 데 사용 되는 기능에 대 한 세부 정보를 확인 하는 것입니다. 이 프로세스에서는 네트워크를 검색하여 사용 중인 버전 및 기능과 함께 조직의 모든 Oracle 인스턴스를 파악합니다.
 
 Oracle 데이터베이스에 대해 Microsoft Oracle 사전 평가 스크립트가 실행 됩니다. 사전 평가 스크립트는 Oracle 메타 데이터에 도달 하는 쿼리 집합으로, 다음을 제공 합니다.
 
@@ -258,7 +258,7 @@ C-코드 재작성을 사용한 마이그레이션 및 5 일 이상 사용자 �
 
 ## <a name="migrate"></a>마이그레이션 
 
-필요한 필수 구성 요소를 준비 하 고 **마이그레이션 전** 단계와 관련 된 작업을 완료 한 후에는 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다.
+필요한 필수 조건을 준비하고 **마이그레이션 전** 단계와 관련된 작업을 완료했으면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다.
 
 ### <a name="migrate-schema-and-data"></a>스키마 및 데이터 마이그레이션
 
@@ -292,7 +292,7 @@ select * from table1 where filter_data >= 01/01/2019
 
 ## <a name="post-migration"></a>마이그레이션 후 
 
-**마이그레이션** 단계를 성공적으로 완료 한 후에는 모든 것이 가능한 한 원활 하 고 효율적으로 작동 하는지 확인 하기 위해 일련의 마이그레이션 후 작업을 수행 해야 합니다.
+**마이그레이션** 단계를 성공적으로 완료한 후 모든 것이 최대한 원활하고 효율적으로 작동하게 하려면 일련의 마이그레이션 후 작업을 수행해야 합니다.
 
 ### <a name="remediate-applications"></a>애플리케이션 수정
 
@@ -312,11 +312,11 @@ ora2pg -t TEST -c config/ora2pg.conf > migration_diff.txt
 
 ### <a name="optimize"></a>최적화
 
-마이그레이션 후 단계는 데이터 정확도 문제를 조정 하 고 완성도를 확인 하는 데 중요 하며 워크 로드와 관련 된 성능 문제를 해결 하는 데 중요 합니다.
+마이그레이션 후 단계는 데이터 정확도 문제를 조정하고 완성도를 확인할 뿐만 아니라 워크로드 관련 성능 문제를 해결하는 데 매우 중요합니다.
 
 ## <a name="migration-assets"></a>마이그레이션 자산 
 
-이 마이그레이션 시나리오를 완료 하는 방법에 대 한 추가 지원은 실제 마이그레이션 프로젝트 참여를 지원 하기 위해 개발 된 다음 리소스를 참조 하세요.
+이 마이그레이션 시나리오를 완료하는 데 추가 지원이 필요한 경우 실제 마이그레이션 프로젝트 참여를 지원하여 개발된 다음 리소스를 참조하세요.
 
 | **제목 링크** | **설명**    |
 | -------------- | ------------------ |
@@ -327,7 +327,7 @@ ora2pg -t TEST -c config/ora2pg.conf > migration_diff.txt
 위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
 
 
-### <a name="contact-support"></a>지원에 문의
+### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.
 
 Ora2pg 도구 외의 마이그레이션에 대 한 지원이 필요한 경우 [ @Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) 별칭에 다른 마이그레이션 옵션에 대 한 자세한 내용을 문의 하세요.
 
@@ -342,4 +342,4 @@ Ora2pg 도구 외의 마이그레이션에 대 한 지원이 필요한 경우 [ 
 - [PostgreSQL의 자치 트랜잭션 지원](http://blog.dalibo.com/2016/08/19/Autonoumous_transactions_support_in_PostgreSQL.html) 
 
 비디오 콘텐츠: 
-- [평가 및 마이그레이션을 수행 하는 데 권장 되는 마이그레이션 경험 및 도구/서비스의 개요입니다](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+- [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)(평가 및 마이그레이션을 수행하는 데 권장되는 도구/서비스 및 마이그레이션 과정에 대한 개요)
