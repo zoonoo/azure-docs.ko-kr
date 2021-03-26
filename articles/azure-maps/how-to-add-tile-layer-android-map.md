@@ -3,18 +3,18 @@ title: Android maps에 타일 계층 추가 | Microsoft Azure 맵
 description: 지도에 타일 계층을 추가 하는 방법에 대해 알아봅니다. Azure Maps Android SDK를 사용 하 여 날씨 레이더 오버레이를 지도에 추가 하는 예제를 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 2/26/2021
+ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 6a920dc222cae4aedd77b667644de317637bbb69
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ac37a4e6d68decdf6780560963a0c534689e8dbb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047505"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608988"
 ---
 # <a name="add-a-tile-layer-to-a-map-android-sdk"></a>지도에 타일 계층 추가 (Android SDK)
 
@@ -29,7 +29,7 @@ ms.locfileid: "102047505"
 > [!TIP]
 > TileLayer는 맵에서 큰 데이터 세트를 시각화하는 좋은 방법입니다. 이미지에서 타일 계층을 생성할 있을 뿐 아니라 타일 계층으로 벡터 데이터도 렌더링할 수 있습니다. 지도 컨트롤은 벡터 데이터를 타일 계층으로 렌더링 하 여 타일을 로드 하기만 하면 됩니다. 이러한 타일은 파일 크기가 나타내는 벡터 데이터 보다 훨씬 작을 수 있습니다. 맵에서 데이터 행 수백만 개를 렌더링해야 하는 대부분의 사용자가 이 기술을 사용합니다.
 
-타일 계층으로 전달된 타일 URL은 다음 매개 변수를 사용하는 TileJSON 리소스에 대한 http/https URL 또는 타일 URL 템플릿이어야 합니다. 
+타일 계층으로 전달된 타일 URL은 다음 매개 변수를 사용하는 TileJSON 리소스에 대한 http/https URL 또는 타일 URL 템플릿이어야 합니다.
 
 * `{x}` - 타일의 X 위치입니다. 또한 `{y}` 및 `{z}`가 필요합니다.
 * `{y}` - 타일의 Y 위치입니다. 또한 `{x}` 및 `{z}`가 필요합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "102047505"
 * `{subdomain}` -하위 도메인 값이 지정 된 경우 하위 도메인 값에 대 한 자리 표시자입니다.
 * `azmapsdomain.invalid` -맵에 사용 되는 것과 동일한 값을 사용 하 여 도메인 및 타일 요청의 인증을 정렬 하는 자리 표시자입니다. Azure Maps에서 호스트 하는 타일 서비스를 호출할 때이를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 프로세스를 완료 하려면 맵을 로드 하기 위해 [Azure Maps Android SDK](how-to-use-android-map-control-library.md) 를 설치 해야 합니다.
 
@@ -82,6 +82,82 @@ map.layers.add(layer, "labels")
 다음 스크린샷은 진한 회색조 스타일을 포함 하는 지도에서 해리 정보의 타일 계층을 표시 하는 위의 코드를 보여 줍니다.
 
 ![타일 계층을 표시 하는 Android 맵](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
+
+## <a name="add-an-ogc-web-mapping-service-wms"></a>OGC 웹 매핑 서비스 (WMS) 추가
+
+WMTS (웹 매핑 서비스)는 지도 데이터의 이미지를 제공 하는 OGC (Open Geospatial Consortium) 표준입니다. 이 형식으로 사용할 수 있는 많은 개방형 데이터 집합은 Azure Maps에서 사용할 수 있습니다. 서비스가 `EPSG:3857` CRS (좌표 참조 시스템)를 지 원하는 경우이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMS 서비스를 사용할 때 width 및 height 매개 변수를 서비스에서 지 원하는 것과 동일한 값으로 설정 합니다 .이 값은 옵션에서 동일 하 게 설정 해야 `tileSize` 합니다. 형식이 지정 된 URL에서 `BBOX` 서비스의 매개 변수를 자리 표시자로 설정 합니다 `{bbox-epsg-3857}` .
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+TileLayer layer = new TileLayer(
+    tileUrl("https://mrdata.usgs.gov/services/gscworld?FORMAT=image/png&HEIGHT=1024&LAYERS=geology&REQUEST=GetMap&STYLES=default&TILED=true&TRANSPARENT=true&WIDTH=1024&VERSION=1.3.0&SERVICE=WMS&CRS=EPSG:3857&BBOX={bbox-epsg-3857}"),
+    tileSize(1024)
+);
+
+map.layers.add(layer, "labels");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://mrdata.usgs.gov/services/gscworld?FORMAT=image/png&HEIGHT=1024&LAYERS=geology&REQUEST=GetMap&STYLES=default&TILED=true&TRANSPARENT=true&WIDTH=1024&VERSION=1.3.0&SERVICE=WMS&CRS=EPSG:3857&BBOX={bbox-epsg-3857}"),
+    tileSize(1024)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
+다음 스크린샷은 지도 위에 있는 [미국 Geological 설문 조사 (USGS)](https://mrdata.usgs.gov/) 의 geological 데이터의 웹 매핑 서비스를 레이블 아래에 겹치게 보여 줍니다.
+
+![WMS 타일 계층을 표시 하는 Android 맵](media/how-to-add-tile-layer-android-map/android-tile-layer-wms.jpg)
+
+## <a name="add-an-ogc-web-mapping-tile-service-wmts"></a>OGC 웹 매핑 타일 서비스 추가 (WMTS)
+
+WMTS (웹 매핑 타일 서비스)는 맵의 타일 기반 오버레이를 제공 하기 위한 OGC (Open Geospatial Consortium) 표준입니다. 이 형식으로 사용할 수 있는 많은 개방형 데이터 집합은 Azure Maps에서 사용할 수 있습니다. 서비스가 `EPSG:3857` 또는 `GoogleMapsCompatible` CRS (좌표 참조 시스템)를 지 원하는 경우이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMTS 서비스를 사용 하는 경우 width 및 height 매개 변수를 서비스에서 지 원하는 것과 동일한 값으로 설정 합니다 .이 값은 옵션에서 동일 하 게 설정 해야 `tileSize` 합니다. 형식이 지정 된 URL에서 다음 자리 표시자를 적절 하 게 바꿉니다.
+
+* `{TileMatrix}` => `{z}`
+* `{TileRow}` => `{y}`
+* `{TileCol}` => `{x}`
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+TileLayer layer = new TileLayer(
+    tileUrl("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/WMTS/tile/1.0.0/USGSImageryOnly/default/GoogleMapsCompatible/{z}/{y}/{x}"),
+    tileSize(256),
+    bounds(-173.25000107492872, 0.0005794121990209753, 146.12527718104752, 71.506811402077),
+    maxSourceZoom(18)
+);
+
+map.layers.add(layer, "transit");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/WMTS/tile/1.0.0/USGSImageryOnly/default/GoogleMapsCompatible/{z}/{y}/{x}"),
+    tileSize(256),
+    bounds(-173.25000107492872, 0.0005794121990209753, 146.12527718104752, 71.506811402077),
+    maxSourceZoom(18)
+)
+
+map.layers.add(layer, "transit")
+```
+
+::: zone-end
+
+다음 스크린샷은 지도 위쪽의 [미국 USGS () 국가 지도](https://viewer.nationalmap.gov/services/) 에서도로 및 레이블 아래에 있는 이미지의 웹 매핑 타일 서비스와 겹치지 않는 위의 코드를 보여 줍니다.
+
+![WMTS 타일 계층을 표시 하는 Android 맵](media/how-to-add-tile-layer-android-map/android-tile-layer-wmts.jpg)
 
 ## <a name="next-steps"></a>다음 단계
 

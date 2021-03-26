@@ -1,25 +1,25 @@
 ---
-title: HBv3 시리즈 VM 크기 성능
-description: Azure에서 HBv3 시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
+title: HBv3 시리즈 VM 크기 성능 및 확장성
+description: Azure에서 HBv3 시리즈 VM 크기의 성능 및 확장성에 대해 알아봅니다.
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 87c3e4e9b509589624a228ea2e1f4b68e86e3fa8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721144"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604773"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>HBv3 시리즈 가상 머신 성능
 
-HBv3 Vm의 초기 액세스 사용자는 일반적인 HPC 마이크로 벤치 마크에 대 한 다음 성능 수치를 예측할 수 있습니다.
+일반적인 HPC 마이크로 벤치 마크를 사용 하는 성능 기대치는 다음과 같습니다.
 
 | 작업                                        | HBv3                                                              |
 |-------------------------------------------------|-------------------------------------------------------------------|
@@ -30,7 +30,7 @@ HBv3 Vm의 초기 액세스 사용자는 일반적인 HPC 마이크로 벤치 �
 
 ## <a name="process-pinning"></a>프로세스 고정
 
-게스트 VM에 기본 실리콘를 그대로 노출 하기 때문에 HBv3 시리즈 Vm에서 프로세스 고정이 잘 작동 합니다. 최적의 성능과 일관성을 위해이를 고정 하는 것이 좋습니다.
+게스트 VM에 기본 실리콘를 그대로 노출 하기 때문에 HBv3 시리즈 Vm에서 [프로세스 고정](compiling-scaling-applications.md#process-pinning) 이 잘 작동 합니다. 최적의 성능과 일관성을 위해이를 고정 하는 것이 좋습니다.
 
 ## <a name="mpi-latency"></a>MPI 대기 시간
 
@@ -45,11 +45,12 @@ OSU 마이크로 벤치 마크 제품군의 MPI 대역폭 테스트는 아래에
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
-[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package) 에는 대기 시간 (ib_send_lat) 및 대역폭 (ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다. 
+[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package) 에는 대기 시간 (ib_send_lat) 및 대역폭 (ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## <a name="next-steps"></a>다음 단계
 - [MPI 응용 프로그램 크기 조정](compiling-scaling-applications.md)에 대해 알아봅니다.
+- [TechCommunity 문서의](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv3-vms/bc-p/2235843)HBv3 VM에서 HPC 응용 프로그램의 성능 및 확장성 결과를 검토 합니다.
 - [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
 - 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.

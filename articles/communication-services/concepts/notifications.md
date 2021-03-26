@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 21c247c2fb9e1532c4580eea894c97e2bff84f92
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9bf3067737ee1f4e15deaf31677513e5ac99cbd1
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657045"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108131"
 ---
 # <a name="communication-services-notifications"></a>Communication Services 알림
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Azure Communication Services 채팅 및 통화 클라이언트 라이브러리는 신호 메시지를 효율적이고 안정적인 방식으로 연결된 클라이언트에 푸시할 수 있는 실시간 메시징 채널을 만듭니다. 이를 통해 복잡한 HTTP 폴링 로직을 구현하지 않고도 다양한 실시간 통신 기능을 애플리케이션에 구축할 수 있습니다. 하지만 모바일 애플리케이션에서 이 신호 채널은 애플리케이션이 포그라운드에서 활성 상태인 경우에만 연결된 상태를 유지합니다. 애플리케이션이 백그라운드에 있는 동안 걸려오는 전화나 채팅 메시지를 사용자가 받도록 하려면 푸시 알림을 사용해야 합니다.
+Azure Communication Services 채팅 및 통화 SDK는 신호 메시지를 효율적이고 안정적인 방식으로 연결된 클라이언트에 푸시할 수 있는 실시간 메시징 채널을 만듭니다. 이를 통해 복잡한 HTTP 폴링 로직을 구현하지 않고도 다양한 실시간 통신 기능을 애플리케이션에 구축할 수 있습니다. 하지만 모바일 애플리케이션에서 이 신호 채널은 애플리케이션이 포그라운드에서 활성 상태인 경우에만 연결된 상태를 유지합니다. 애플리케이션이 백그라운드에 있는 동안 걸려오는 전화나 채팅 메시지를 사용자가 받도록 하려면 푸시 알림을 사용해야 합니다.
 
 푸시 알림을 사용하면 애플리케이션에서 사용자의 모바일 디바이스로 정보를 보낼 수 있습니다. 푸시 알림을 사용하여 대화 상자를 표시하거나 소리를 재생하거나 걸려오는 전화 UI를 표시할 수 있습니다. Azure Communication Services는 앱에 푸시 알림을 추가하는 데 사용할 수 있는 [Azure Event Grid](../../event-grid/overview.md) 및 [Azure Notification Hubs](../../notification-hubs/notification-hubs-push-notification-overview.md)와의 통합을 제공합니다.
 

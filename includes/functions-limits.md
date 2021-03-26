@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: aa75d1d57f44bb1a4d6513823ac97ac9917b260f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 91f72117fdbcdbeda1d906a9760243e66404920c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97934471"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105657"
 ---
-| 리소스 |[사용 계획](../articles/azure-functions/consumption-plan.md)|[프리미엄 계획](../articles/azure-functions/functions-premium-plan.md)|[전용 계획](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| 리소스 |[사용 계획](../articles/azure-functions/consumption-plan.md)|[프리미엄 플랜](../articles/azure-functions/functions-premium-plan.md)|[전용 계획](../articles/azure-functions/dedicated-plan.md)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |기본 [시간 제한 기간](../articles/azure-functions/functions-scale.md#timeout)(분) |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |최대 [시간 제한 기간](../articles/azure-functions/functions-scale.md#timeout)(분) |10 | 무제한<sup>7</sup> | 무제한<sup>2</sup> | unbounded | unbounded |
@@ -21,6 +21,7 @@ ms.locfileid: "97934471"
 | 최대 요청 URL 길이<sup>3</sup> | 8192 | 8192 | 8192 | 8192 | 클러스터에 따라 다름 |
 |인스턴스당 [ACU](../articles/virtual-machines/acu.md) | 100 | 210-840 | 100-840 | 210-250<sup>8</sup> | [AKS 가격 책정](https://azure.microsoft.com/pricing/details/container-service/) |
 | 최대 메모리(인스턴스당 GB) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | 모든 노드가 지원됩니다. |
+| 최대 인스턴스 수 | 200 | 100<sup>9</sup> | SKU<sup>10</sup>에 따라 다름 | 100<sup>10</sup> | 클러스터에 따라 다름 |   
 | 계획당 함수 앱 |100 |100 |무제한<sup>4</sup> | unbounded | unbounded |
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) | [지역](https://azure.microsoft.com/global-infrastructure/regions/)당 100 |리소스 그룹당 100 |리소스 그룹당 100 | - | - |
 | 스토리지<sup>5</sup> |5TB |250GB |50-1000GB | 1TB | 해당 없음 |
@@ -34,4 +35,6 @@ ms.locfileid: "97934471"
 <sup>5</sup> 스토리지 제한은 동일한 App Service 요금제에 있는 모든 앱에서 임시 스토리지의 총 콘텐츠 크기입니다. 소비 계획은 임시 스토리지에 Azure Files를 사용합니다.  
 <sup>6</sup> [소비 계획](../articles/azure-functions/consumption-plan.md)에서 함수 앱이 호스트되는 경우 CNAME 옵션만 지원됩니다. [프리미엄 플랜](../articles/azure-functions/functions-premium-plan.md) 또는 [App Service 요금제](../articles/azure-functions/dedicated-plan.md)에서 호스트되는 함수 앱의 경우 CNAME 또는 A 레코드 중 하나를 사용하여 사용자 지정 도메인을 매핑할 수 있습니다.  
 <sup>7</sup> 최대 60분까지 보장됩니다.  
-<sup>8</sup> 작업자는 고객 앱을 호스트하는 역할입니다. 작업자는 3가지 고정된 크기로 사용할 수 있습니다. vCPU/3.5GB RAM 1개, vCPU/7GB RAM 2개, vCPU/14GB RAM 4개
+<sup>8</sup> 작업자는 고객 앱을 호스트하는 역할입니다. 작업자는 3가지 고정된 크기로 사용할 수 있습니다. vCPU/3.5GB RAM 1개, vCPU/7GB RAM 2개, vCPU/14GB RAM 4개   
+<sup>9</sup> Linux에서 프리미엄 플랜으로 실행하는 경우 현재 20개의 인스턴스로 제한됩니다.  
+<sup>10</sup> 자세한 내용은 [App Service 제한](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits)을 참조하세요.

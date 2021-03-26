@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598187"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609091"
 ---
 # <a name="monitoring-media-services-data-reference"></a>모니터링 Media Services 데이터 참조
 
-이 문서에서는 Media Services 모니터링에 유용한 데이터를 다룹니다. Azure Monitor에서 지원 되는 모든 플랫폼 메트릭에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)을 검토 하세요.
+이 문서에서는 Media Services 모니터링에 유용한 데이터를 다룹니다. Azure Monitor에서 지원 되는 모든 플랫폼 메트릭에 대 한 자세한 내용은 [Azure Monitor를 사용 하 여 지원 되는 메트릭](../../../azure-monitor/essentials/metrics-supported.md)을 검토 하세요.
 
 ## <a name="media-services-metrics"></a>Media Services 메트릭
 
@@ -31,7 +32,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 계정 메트릭을 모니터링할 수 있습니다.
 
-|메트릭 이름|표시 이름|설명|
+|메트릭 이름|표시 이름|Description|
 |---|---|---|
 |AssetCount|자산 수|계정의 자산입니다.|
 |AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
@@ -49,7 +50,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 Media Services [스트리밍 끝점](/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
 
-|메트릭 이름|표시 이름|설명|
+|메트릭 이름|표시 이름|Description|
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|스트리밍 끝점 당 분당 총 바이트 수입니다.|
@@ -59,7 +60,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 ## <a name="metric-dimensions"></a>메트릭 차원
 
-메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)을 참조하세요.
+메트릭 차원에 대한 자세한 내용은 [다차원 메트릭](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)을 참조하세요.
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 ## <a name="media-services-diagnostic-logs"></a>진단 로그 Media Services
 
-진단 로그는 Azure 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md)을 참조 하세요.
+진단 로그는 Azure 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 자세한 내용은 [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../../azure-monitor/essentials/platform-logs-overview.md)을 참조 하세요.
 
 Media Services는 다음 진단 로그를 지원 합니다.
 
@@ -75,19 +76,19 @@ Media Services는 다음 진단 로그를 지원 합니다.
 
 ### <a name="key-delivery"></a>키 배달
 
-|이름|설명|
+|이름|Description|
 |---|---|
 |키 배달 서비스 요청|키 배달 서비스 요청 정보를 표시 하는 로그입니다. 자세한 내용은 [스키마](monitor-media-services-data-reference.md)를 참조 하세요.|
 
 ## <a name="schemas"></a>스키마
 
-최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md)를 참조 하세요.
+최상위 진단 로그 스키마에 대 한 자세한 설명은 [Azure 진단 로그에 대해 지원 되는 서비스, 스키마 및 범주](../../../azure-monitor/essentials/resource-logs-schema.md)를 참조 하세요.
 
 ## <a name="key-delivery-log-schema-properties"></a>키 배달 로그 스키마 속성
 
 이러한 속성은 키 배달 로그 스키마에만 적용 됩니다.
 
-|이름|설명|
+|이름|Description|
 |---|---|
 |keyId|요청 된 키의 ID입니다.|
 |keyType|"Clear" (암호화 없음), "FairPlay", "PlayReady" 또는 "Widevine" 값 중 하나일 수 있습니다.|

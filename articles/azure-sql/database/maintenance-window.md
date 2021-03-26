@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/23/2021
-ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047255"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565904"
 ---
 # <a name="maintenance-window-preview"></a>유지 관리 기간 (미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -55,7 +55,7 @@ Azure는 SQL Database 및 SQL 관리 되는 인스턴스 리소스의 [계획 �
 유지 관리 기간을 구성 하 고 사용 하는 것은 적합 한 모든 [제품 유형](https://azure.microsoft.com/support/legal/offer-details/)(종 량 제, CSP (클라우드 솔루션 공급자), microsoft 기업계약 또는 Microsoft 고객 계약)에 대 한 무료입니다.
 
 > [!Note]
-> Azure 제안은 사용자가 소유한 Azure 구독의 유형을 말합니다. 예를 들어 [종 량 제 요금이](https://azure.microsoft.com/offers/ms-azr-0003p/)있는 구독, [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/)및 [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) 은 모두 Azure 제품입니다. 각 제품 또는 요금제에는 서로 다른 용어와 이점이 있습니다. 제안 또는 계획이 구독의 개요에 표시 됩니다. 구독을 다른 제품으로 전환 하는 방법에 대 한 자세한 내용은 [Azure 구독을 다른 제품으로 변경](/azure/cost-management-billing/manage/switch-azure-offer)을 참조 하세요.
+> Azure 제안은 사용자가 소유한 Azure 구독의 유형을 말합니다. 예를 들어 [종 량 제 요금이](https://azure.microsoft.com/offers/ms-azr-0003p/)있는 구독, [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/)및 [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) 은 모두 Azure 제품입니다. 각 제품 또는 요금제에는 서로 다른 용어와 이점이 있습니다. 제안 또는 계획이 구독의 개요에 표시 됩니다. 구독을 다른 제품으로 전환 하는 방법에 대 한 자세한 내용은 [Azure 구독을 다른 제품으로 변경](../../cost-management-billing/manage/switch-azure-offer.md)을 참조 하세요.
 
 ## <a name="advance-notifications"></a>고급 알림
 
@@ -108,17 +108,17 @@ Azure SQL 관리 되는 인스턴스의 클라이언트 연결 정책에 대 한
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Azure SQL 관리 되는 인스턴스에 대 한 고려 사항
 
-Azure SQL 관리 되는 인스턴스는 고객의 가상 네트워크 서브넷 내에서 실행 되는 격리 된 전용 가상 머신의 전용 집합에 호스트 되는 서비스 구성 요소로 구성 됩니다. 이러한 가상 머신은 여러 관리 되는 인스턴스를 호스트할 수 있는 [가상 클러스터](/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) 를 형성 합니다. 한 서브넷의 인스턴스에 구성 된 유지 관리 기간은 가상 클러스터 간의 인스턴스 배포 및 서브넷 내의 가상 클러스터 수에 영향을 줄 수 있습니다. 몇 가지 효과를 고려해 야 할 수 있습니다.
+Azure SQL 관리 되는 인스턴스는 고객의 가상 네트워크 서브넷 내에서 실행 되는 격리 된 전용 가상 머신의 전용 집합에 호스트 되는 서비스 구성 요소로 구성 됩니다. 이러한 가상 머신은 여러 관리 되는 인스턴스를 호스트할 수 있는 [가상 클러스터](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) 를 형성 합니다. 한 서브넷의 인스턴스에 구성 된 유지 관리 기간은 가상 클러스터 간의 인스턴스 배포 및 서브넷 내의 가상 클러스터 수에 영향을 줄 수 있습니다. 몇 가지 효과를 고려해 야 할 수 있습니다.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>유지 관리 기간 구성이 장기 실행 작업입니다. 
 가상 클러스터에서 호스트 되는 모든 인스턴스는 유지 관리 기간을 공유 합니다. 기본적으로 모든 관리 되는 인스턴스는 기본 유지 관리 기간을 사용 하 여 가상 클러스터에서 호스팅됩니다. 관리 되는 인스턴스를 만드는 동안 다른 유지 관리 기간을 지정 하는 것은 해당 유지 관리 기간이 있는 가상 클러스터에 배치 해야 함을 의미 합니다. 서브넷에 이러한 가상 클러스터가 없는 경우 인스턴스를 수용 하기 위해 먼저 새 가상 클러스터를 만들어야 합니다. 기존 가상 클러스터에서 추가 인스턴스를 수용 하려면 클러스터 크기 조정이 필요할 수 있습니다. 두 작업은 모두 관리 되는 인스턴스에 대해 유지 관리 기간을 구성 하는 기간에 적용 됩니다.
-관리 되는 인스턴스에서 유지 관리 기간을 구성 하는 데 필요한 기간은 [인스턴스 관리 작업의 예상 기간](/azure/azure-sql/managed-instance/management-operations-overview#duration)을 사용 하 여 계산할 수 있습니다.
+관리 되는 인스턴스에서 유지 관리 기간을 구성 하는 데 필요한 기간은 [인스턴스 관리 작업의 예상 기간](../managed-instance/management-operations-overview.md#duration)을 사용 하 여 계산할 수 있습니다.
 
 > [!Important]
 > 짧은 재구성은 유지 관리 작업이 끝날 때 발생 하며 일반적으로 장기 실행 중단 된 트랜잭션이 발생 하는 경우에도 최대 8 초까지 지속 됩니다. 재구성의 영향을 최소화 하려면 사용량이 많은 시간 외에 작업을 예약 해야 합니다.
 
 ### <a name="ip-address-space-requirements"></a>IP 주소 공간 요구 사항
-서브넷의 새 가상 클러스터 마다 [가상 클러스터 ip 주소 할당](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size)에 따라 추가 IP 주소가 필요 합니다. 또한 기존 관리 되는 인스턴스에 대 한 유지 관리 기간을 변경 하려면 해당 서비스 계층에 대 한 vCores 크기 조정 시나리오에서와 마찬가지로 [임시 추가 IP 용량이](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) 필요 합니다.
+서브넷의 새 가상 클러스터 마다 [가상 클러스터 ip 주소 할당](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size)에 따라 추가 IP 주소가 필요 합니다. 또한 기존 관리 되는 인스턴스에 대 한 유지 관리 기간을 변경 하려면 해당 서비스 계층에 대 한 vCores 크기 조정 시나리오에서와 마찬가지로 [임시 추가 IP 용량이](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) 필요 합니다.
 
 ### <a name="ip-address-change"></a>IP 주소 변경
 유지 관리 기간을 구성 하 고 변경 하면 서브넷의 IP 주소 범위 내에서 인스턴스의 IP 주소가 변경 됩니다.
@@ -137,8 +137,3 @@ Azure SQL 관리 되는 인스턴스는 고객의 가상 네트워크 서브넷 
 * [Azure SQL Database](sql-database-paas-overview.md) 
 * [SQL 관리 되는 인스턴스](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Azure SQL Database 및 Azure SQL 관리 되는 인스턴스의 Azure 유지 관리 이벤트 계획](planned-maintenance.md)
-
-
-
-
-

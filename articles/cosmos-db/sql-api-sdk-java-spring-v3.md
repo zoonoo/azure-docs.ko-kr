@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 03/15/2021
 ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 536c0ab78a4b7e08abb1532635aff722df9e15cd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493614"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563109"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core 용 스프링 데이터 Azure Cosmos DB v3 (SQL) API: 릴리스 정보 및 리소스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,7 +65,7 @@ Core (SQL)에 대 한 스프링 데이터 Azure Cosmos DB 버전 3을 통해 개
 
 ## <a name="get-started-fast"></a>빠른 시작
 
-  [스프링 부팅 시작 가이드](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)에 따라 스프링 데이터 Azure Cosmos DB을 시작 하 고 실행 합니다. 스프링 부팅 스타터 접근 방식은 스프링 데이터 Azure Cosmos DB 커넥터를 사용 하 여 시작 하는 데 권장 되는 방법입니다.
+  [스프링 부팅 시작 가이드](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)에 따라 스프링 데이터 Azure Cosmos DB을 시작 하 고 실행 합니다. 스프링 부팅 스타터 접근 방식은 스프링 데이터 Azure Cosmos DB 커넥터를 사용 하 여 시작 하는 데 권장 되는 방법입니다.
 
   또는 아래와 같이 스프링 데이터 Azure Cosmos DB 종속성을 파일에 추가할 수 있습니다 `pom.xml` .
 
@@ -79,7 +79,7 @@ Core (SQL)에 대 한 스프링 데이터 Azure Cosmos DB 버전 3을 통해 개
 
 ## <a name="helpful-content"></a>유용한 내용
 
-| 콘텐츠 | 링크 |
+| Content | 링크 |
 |---|---|
 |**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
 |**API 설명서** | [Java API 참조 설명서](/java/api/com.azure.spring.data.cosmos) |

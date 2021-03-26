@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 7796b94609a9be05fdb72900d0725747440f8042
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 821746856cb37781c8f6a2e58659ce7db43e1479
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105582888"
+ms.locfileid: "105609418"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -74,7 +74,7 @@ VNet 통합은 전용 서브넷에 종속 됩니다. 서브넷을 프로 비전 
 
 ### <a name="service-endpoints"></a>서비스 엔드포인트
 
-지역 VNet 통합을 사용 하면 서비스 끝점을 사용할 수 있습니다. 서비스 끝점을 통해 앱에서 서비스에 액세스할 수 있는 기본 단계는 다음과 같습니다.
+지역 VNet 통합을 사용 하면 서비스 끝점으로 보안이 유지 되는 Azure 서비스에 연결할 수 있습니다. 서비스 끝점 보안 서비스에 액세스 하려면 다음을 수행 해야 합니다.
 
 1. 웹 앱과의 지역 VNet 통합을 구성 하 여 통합을 위해 특정 서브넷에 연결 합니다.
 1. 대상 서비스로 이동 하 여 통합 서브넷에 대해 서비스 끝점을 구성 합니다.
@@ -101,9 +101,6 @@ BGP (Border Gateway Protocol) 경로도 앱 트래픽에 영향을 줍니다. Ex
 1. `WEBSITE_VNET_ROUTE_ALL` 값 포함 `1`
 
 이러한 설정은 앱에서 VNet으로 모든 아웃 바운드 호출을 보내고 앱이 Azure DNS 개인 영역에 액세스할 수 있도록 합니다. 이러한 설정을 사용 하 여 앱은 작업자 수준에서 DNS 개인 영역을 쿼리하여 Azure DNS를 사용할 수 있습니다.  
-
-> [!NOTE]
-> VNET 통합에서 DNS 개인 영역을 사용 하 여 웹 앱에 사용자 지정 도메인을 추가 하는 것은 가능 하지 않습니다. 사용자 지정 도메인 유효성 검사는 작업자 수준이 아니라 컨트롤러 수준에서 수행 되며,이로 인해 DNS 레코드가 표시 되지 않습니다. DNS 사설 영역에서 사용자 지정 도메인을 사용 하려면 [Application Gateway](../articles/app-service/networking/app-gateway-with-service-endpoints.md) 또는 [ilb App Service Environment](../articles/app-service/environment/create-ilb-ase.md)를 사용 하 여 유효성 검사를 무시 해야 합니다.
 
 ### <a name="private-endpoints"></a>프라이빗 엔드포인트
 

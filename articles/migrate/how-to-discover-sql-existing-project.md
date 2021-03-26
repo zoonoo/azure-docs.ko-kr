@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2021
-ms.openlocfilehash: 8caac0a111c3a1bdd88e0d5f43a4629ad4221496
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 2de60880b511e43ffb2949a15fec2cf2a94f62fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888943"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567155"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>기존 프로젝트에서 SQL Server 인스턴스 검색 
 
@@ -41,7 +41,7 @@ ms.locfileid: "104888943"
     - 어플라이언스에서 실행 중인 서비스가 최신 버전으로 업데이트 되었는지 확인 합니다. 이렇게 하려면 어플라이언스 서버에서 어플라이언스 구성 관리자를 시작 하 고 설치 필수 구성 요소 패널에서 어플라이언스 서비스 보기를 선택 합니다.
         - 어플라이언스 및 해당 구성 요소가 자동으로 업데이트 됩니다. :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="어플라이언스 버전 확인":::
     - 어플라이언스 구성 관리자의 자격 증명 및 검색 원본 관리 패널에서 검색할 데이터베이스와 데이터베이스 SQL Server에 대 한 Sysadmin 액세스 권한이 있는 도메인 또는 SQL Server 인증 자격 증명을 추가 합니다.
-    기기의 자동 자격 증명 매핑 기능을 활용 하거나 [여기](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery)에 강조 표시 된 대로 해당 서버에 자격 증명을 수동으로 매핑할 수 있습니다.
+    기기의 자동 자격 증명 매핑 기능을 활용 하거나 [여기](./tutorial-discover-vmware.md#start-continuous-discovery)에 강조 표시 된 대로 해당 서버에 자격 증명을 수동으로 매핑할 수 있습니다.
 
     다음 몇 가지 사항을 주의해야 합니다.
     - 소프트웨어 인벤토리가 이미 사용 하도록 설정 되어 있는지 확인 하거나 도메인 또는 도메인이 아닌 자격 증명을 제공 하 여 동일 하 게 설정 합니다. SQL Server 인스턴스를 검색 하려면 소프트웨어 인벤토리를 수행 해야 합니다.

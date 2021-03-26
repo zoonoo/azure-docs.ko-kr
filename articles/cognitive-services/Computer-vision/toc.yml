@@ -48,13 +48,13 @@
     - name: 실시간 비디오 분석
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
     - name: 가상 네트워크를 구성하는 방법
-      href: /azure/cognitive-services/cognitive-services-virtual-networks?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../cognitive-services-virtual-networks.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Read 2.x에서 Read 3.x로 업그레이드
       href: upgrade-api-versions.md
     - name: AAD 인증을 구성하는 방법
-      href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../authentication.md?tabs=powershell%3fcontext%3d%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: 고객 관리형 키를 사용하는 방법
-      href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
+      href: ../encryption/cognitive-services-encryption-keys-portal.md?context=%2fazure%2fcognitive-services%2fcomputer-vision%2fcontext%2fcontext
     - name: Computer Vision 배포
       items:
         - name: 컨테이너
@@ -155,7 +155,7 @@
     - name: 지역 지원
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 학습 모듈
-      href: 'https://docs.microsoft.com/en-us/learn/paths/explore-computer-vision-microsoft-azure/'
+      href: /learn/paths/explore-computer-vision-microsoft-azure/
     - name: 지원 및 도움말
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
     - name: 규정 준수

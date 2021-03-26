@@ -1,17 +1,17 @@
 ---
 title: 서버 매개 변수 구성-Azure Portal-Azure Database for PostgreSQL 유연한 서버
 description: 이 문서에서는 Azure Portal를 통해 Azure Database for PostgreSQL 유연한 서버에서 Postgres 매개 변수를 구성 하는 방법을 설명 합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 4f945c2c7fffb143bdb8324a330775fb072b25c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 29d85cc33dc55f3819bba6898a265c46b7e7ef85
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90938824"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607442"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---flexible-server-via-the-azure-portal"></a>Azure Portal를 통해 Azure Database for PostgreSQL 유연한 서버에서 서버 매개 변수 구성 
 

@@ -1,19 +1,19 @@
 ---
 title: 매개 변수 구성-유연한 서버 Azure Database for PostgreSQL
 description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버에서 Postgres 매개 변수를 구성 하는 방법을 설명 합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b14858cc99cac41e277b03171fd4cac4d6eafa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 315e4439ca66a3fbadac228c013797f516bc2940
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90940733"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605767"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 유연한 서버에 대 한 서버 매개 변수 사용자 지정
 

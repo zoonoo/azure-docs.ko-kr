@@ -6,13 +6,14 @@ ms.author: inhenkel
 manager: femilia
 ms.topic: how-to
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 783d9e1b4ab86f6580cf3418a0676921aef2db6a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 90ca92dc19c588d0b19adf009301cf844e0cdbde
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598204"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609051"
 ---
 # <a name="monitor-media-services"></a>모니터 Media Services
 
@@ -37,9 +38,9 @@ robb@microsoft.com -->
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
 
-Media Services는 Azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다.
+Media Services는 Azure에서 전체 stack 모니터링 서비스인 [Azure Monitor](../../../azure-monitor/overview.md)를 사용 하 여 모니터링 데이터를 만들며,이를 통해 다른 클라우드 및 온-프레미스의 리소스 외에도 azure 리소스를 모니터링할 수 있는 완전 한 기능 집합을 제공 합니다.
 
-다음 개념을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)문서를 읽어 보십시오.
+다음 개념을 설명 하는 [Azure Monitor을 사용 하 여 Azure 리소스 모니터링](../../../azure-monitor/essentials/monitor-azure-resource.md)문서를 읽어 보십시오.
 
 - Azure Monitor란?
 - 모니터링과 관련된 비용
@@ -49,7 +50,7 @@ Media Services는 Azure에서 전체 stack 모니터링 서비스인 [Azure Moni
 
 ## <a name="monitoring-data"></a>데이터 모니터링
 
-Media Services는 [azure 리소스의 데이터 모니터링](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources)에 설명 된 다른 azure 리소스와 동일한 종류의 모니터링 데이터를 수집 합니다.
+Media Services는 [azure 리소스의 데이터 모니터링](../../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data)에 설명 된 다른 azure 리소스와 동일한 종류의 모니터링 데이터를 수집 합니다.
 
 Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 메트릭 및 로그 중 하나에 해당합니다. 이러한 두 가지 유형으로 다음을 수행할 수 있습니다.
 
@@ -69,13 +70,13 @@ Media Services에서 만든 메트릭 및 로그 메트릭에 대 한 자세한 
 
 *리소스 로그* 는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장 **되지 않습니다** .
 
-Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 문서를 참조 하세요.
+Azure Portal, CLI 또는 PowerShell을 사용 하 여 진단 설정을 만드는 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조 하세요.
 
 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. Media Services 범주는 [Media Services 모니터링 데이터 참조](monitor-media-services-data-reference.md)에 나열 되어 있습니다.
 
 ## <a name="analyzing-metrics"></a>메트릭 분석
 
-**Azure Monitor** 메뉴에서 **메트릭을 열어 메트릭 탐색기를 사용** 하 여 다른 Azure 서비스의 메트릭과 함께 Media Services에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)을 참조하세요.
+**Azure Monitor** 메뉴에서 **메트릭을 열어 메트릭 탐색기를 사용** 하 여 다른 Azure 서비스의 메트릭과 함께 Media Services에 대 한 메트릭을 분석할 수 있습니다. 이 도구 사용에 대한 자세한 내용은 [Azure 메트릭 탐색기 시작](../../../azure-monitor/essentials/metrics-getting-started.md)을 참조하세요.
 
 Media Services에 대해 수집 되는 메트릭의 목록은 [모니터링 Media Services 데이터 참조](monitor-media-services-data-reference.md)를 참조 하세요.
 
@@ -83,11 +84,11 @@ Media Services에 대해 수집 되는 메트릭의 목록은 [모니터링 Medi
 
 Azure Monitor Logs의 데이터는 테이블마다 고유한 자체 속성 집합이 있는 테이블에 저장됩니다.  
 
-Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema)에 설명 되어 있습니다.
+Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 오는 서비스별 필드가 있습니다. 공용 스키마는 [Azure Monitor 리소스 로그 스키마](../../../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema)에 설명 되어 있습니다.
 
 Media Services 리소스 로그의 스키마는 [모니터링 Media Services 데이터 참조](monitor-media-services-data-reference.md)에서 찾을 수 있습니다.
 
-[활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 Azure의 플랫폼 로그입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.
+[활동 로그](../../../azure-monitor/essentials/activity-log.md) 는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 Azure의 플랫폼 로그입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.
 
 Media Services에 대해 수집 되는 리소스 로그의 유형 목록은 [모니터링 Media Services 데이터 참조](monitor-media-services-data-reference.md)를 참조 하세요.
 
@@ -102,7 +103,7 @@ Media Services에 대해 수집 되는 리소스 로그의 유형 목록은 [모
 
 ## <a name="alerts"></a>경고
 
-Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview), [로그](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) 및 [활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts)에서 경고를 설정할 수 있습니다.
+Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](../../../azure-monitor/alerts/alerts-metric-overview.md), [로그](../../../azure-monitor/alerts/alerts-unified-log.md) 및 [활동 로그](../../../azure-monitor/alerts/activity-log-alerts.md)에서 경고를 설정할 수 있습니다.
 
 Media Services 메트릭은 값이 변경 되었는지 여부에 관계 없이 정기적으로 수집 됩니다. 자주 샘플링 될 수 있으므로 경고 하는 데 유용 합니다. 비교적 간단한 논리를 사용 하 여 경고를 신속 하 게 발생 시킬 수 있습니다.
 

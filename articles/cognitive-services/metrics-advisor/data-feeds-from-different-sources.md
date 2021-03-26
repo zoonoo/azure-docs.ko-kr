@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348622"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606150"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
 
-이 문서를 사용 하 여 다양 한 유형의 데이터 원본을 메트릭 관리자에 연결 하기 위한 설정 및 요구 사항을 찾을 수 있습니다. 메트릭 Advisor를 사용 하 여 데이터를 사용 하는 주요 개념에 대 한 자세한 내용은 [데이터](how-tos/onboard-your-data.md) 를 등록 하는 방법을 참조 하세요. 
+이 문서를 사용 하 여 다양 한 유형의 데이터 원본을 메트릭 관리자에 연결 하기 위한 설정 및 요구 사항을 찾을 수 있습니다. 메트릭 Advisor를 사용 하 여 데이터를 사용 하는 주요 개념에 대 한 자세한 내용은 [데이터](how-tos/onboard-your-data.md) 를 등록 하는 방법을 참조 하세요. \
 
 ## <a name="supported-authentication-types"></a>지원되는 인증 형식
 
@@ -37,7 +37,7 @@ ms.locfileid: "96348622"
 
 | 데이터 원본 | 인증 유형 |
 |-------------| ---------------------|
-|[**Azure 애플리케이션 정보**](#appinsights)|  Basic |
+|[**Azure Application Insights**](#appinsights)|  Basic |
 |[**Azure Blob Storage (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer(Kusto)**](#kusto) | Basic<br>ManagedIdentity|
@@ -51,7 +51,7 @@ ms.locfileid: "96348622"
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-**자격 증명 엔터티** 를 만들어 데이터 원본에 인증 하는 데 사용 합니다. 다음 섹션에서는 *기본* 인증에에 필요한 매개 변수를 지정 합니다. 
+자격 증명 엔터티 * *를 만들어 데이터 원본에 인증 하는 데 사용 합니다. 다음 섹션에서는 *기본* 인증에에 필요한 매개 변수를 지정 합니다. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
@@ -82,7 +82,7 @@ ms.locfileid: "96348622"
 
 * **컨테이너**: 메트릭 관리자는 단일 컨테이너 아래에 blob 파일 (타임 스탬프 당 하나의 blob)로 저장 된 시계열 데이터를 예상 합니다. 컨테이너 이름 필드입니다.
 
-* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예를 들어 `/%Y/%m/X_%Y-%m-%d-%h-%M.json`을 참조하십시오. 지원되는 매개 변수는 다음과 같습니다.
+* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예: `/%Y/%m/X_%Y-%m-%d-%h-%M.json` 지원되는 매개 변수는 다음과 같습니다.
   * `%Y` 는로 서식이 지정 된 연도입니다. `yyyy`
   * `%m` 는로 형식이 지정 된 월입니다. `MM`
   * `%d` 날짜 형식이 `dd`
@@ -93,7 +93,7 @@ ms.locfileid: "96348622"
   
   * v1 (기본값)
 
-      메트릭 *이름과* *값* 만 허용 됩니다. 예를 들면 다음과 같습니다.
+      메트릭 *이름과* *값* 만 허용 됩니다. 예를 들어:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ ms.locfileid: "96348622"
 
   * v2
 
-      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예를 들면 다음과 같습니다.
+      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예를 들어:
       
       ``` JSON
       [
@@ -159,7 +159,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
   * `%h` 는로 서식이 지정 된 시간입니다. `HH`
   * `%M` 는로 서식이 지정 된 분입니다. `mm`
 
-현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예를 들면 다음과 같습니다.
+현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예를 들어:
 
 ``` JSON
 [
@@ -212,15 +212,14 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Azure Table Storage</span>
 
-* **연결 문자열**: Azure Table Storage에서 연결 문자열을 검색 하는 방법에 대 한 자세한 내용은 [연결 문자열 보기 및 복사](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) 를 참조 하세요.
+* **연결 문자열**: SAS (공유 액세스 서명) URL을 만들고 여기에 입력 하세요. SAS URL을 생성 하는 가장 간단한 방법은 Azure Portal을 사용 하는 것입니다. Azure Portal를 사용 하 여 그래픽으로 탐색할 수 있습니다. Azure Portal를 통해 SAS URL을 만들려면 먼저 설정 섹션에서 액세스 하려는 저장소 계정으로 이동한 다음 공유 액세스 서명을 클릭 합니다. 최소 "테이블" 및 "개체" 확인란을 선택 하 고 SAS 및 연결 문자열 생성 단추를 클릭 합니다. Table service SAS URL은 메트릭 Advisor 작업 영역에서 텍스트 상자를 복사 하 고 입력 해야 합니다.
 
 * **테이블 이름**: 쿼리할 테이블을 지정 합니다. 이는 Azure Storage 계정 인스턴스에서 찾을 수 있습니다. **테이블 서비스** 섹션에서 **테이블** 을 클릭 합니다.
 
-* **쿼리** 쿼리에서를 사용할 수 있습니다 `@StartTime` . `@StartTime` 스크립트에서 yyyy-MM-Yyyy-mm-ddthh: MM: ss 형식 문자열로 바뀝니다.
+* **쿼리** 쿼리에서를 사용할 수 있습니다 `@StartTime` . `@StartTime` 스크립트에서 yyyy-MM-Yyyy-mm-ddthh: MM: ss 형식 문자열로 바뀝니다. 팁: Azure storage 탐색기를 사용 하 여 특정 시간 범위를 포함 하는 쿼리를 만들고 확인을 실행 한 다음 대체 작업을 수행 합니다.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
@@ -232,7 +231,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">HTTP 요청</span>
 
-* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예를 들어 `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`을 참조하십시오.
+* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`
 * **요청 HTTP 메서드**: GET 또는 POST를 사용 합니다.
 * **요청 헤더**: 기본 인증을 추가할 수 있습니다. 
 * **요청 페이로드**: JSON 페이로드만 지원 됩니다. 페이로드에서 자리 표시 자가 @StartTime 지원 됩니다. 응답은 다음과 같은 JSON 형식 이어야 합니다. [{"timestamp": "2018-01-01T00:00:00Z", "market": "en-us", "count": 11, "수익": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market": "zh-cn-cn", "count": 22, "수익": 4.56}]. (예: 2020-06-21T00:00:00Z의 데이터가 수집, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

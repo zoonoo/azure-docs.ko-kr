@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889827"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604841"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>H 시리즈 및 N 시리즈 VM의 알려진 문제
 
@@ -24,9 +24,18 @@ Ubuntu-18.04에서 Mellanox OFED는 커널 버전 및 최신 버전과의 호환
 임시 솔루션은 **UbuntuServer: 18_04-gen2:18.04.202101290** marketplace 이미지를 사용 하 고 커널을 업데이트 하지 않는 것입니다.
 이 문제는 최신 MOFED (TBD)로 해결 될 예정입니다.
 
-## <a name="known-issues-on-hbv3"></a>HBv3의 알려진 문제
-- 현재 InfiniBand는 120-코어 VM (Standard_HB120rs_v3) 에서만 지원 됩니다.
-- 현재 Azure 가속화 된 네트워킹은 모든 지역의 HBv3 시리즈에서 지원 되지 않습니다.
+## <a name="mpi-qp-creation-errors"></a>MPI QP 생성 오류
+MPI 워크 로드를 실행 하는 경우 아래와 같은 InfiniBand QP 생성 오류가 발생 하면 VM을 다시 부팅 하 고 작업을 다시 시도 하는 것이 좋습니다. 이 문제는 나중에 수정 될 예정입니다.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+다음과 같이 문제가 관찰 될 때 최대 큐 쌍 수 값을 확인할 수 있습니다.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>HB, HC, HBv2 및 NDv2의 가속화 네트워킹
 

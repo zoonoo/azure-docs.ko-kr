@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221017"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605215"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -96,6 +96,36 @@ Azure에서 사용자 지정 경로 또는 사용자 정의(정적) 경로를 �
 
 사용자 정의 경로에서는 **VNet 피어링** 또는 **VirtualNetworkServiceEndpoint** 를 다음 홉 유형으로 지정할 수 없습니다. **VNet 피어링** 또는 **VirtualNetworkServiceEndpoint** 다음 홉 유형이 있는 경로는 가상 네트워크 피어링 또는 서비스 엔드포인트를 구성할 때 Azure에서 만듭니다.
 
+### <a name="service-tags-for-user-defined-routes-public-preview"></a>사용자 정의 경로에 대 한 서비스 태그 (공개 미리 보기)
+
+이제 명시적 IP 범위 대신 사용자 정의 경로에 대 한 주소 접두사로 [서비스 태그](service-tags-overview.md) 를 지정할 수 있습니다. 서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고, 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 하 여 사용자 정의 경로에 대 한 빈번한 업데이트의 복잡성을 최소화 하 고 만들어야 하는 경로 수를 줄입니다. 현재 각 경로 테이블에 서비스 태그로 25 개 이하의 경로를 만들 수 있습니다. </br>
+
+
+#### <a name="exact-match"></a>정확히 일치
+명시적 IP 접두사가 있는 경로와 서비스 태그가 있는 경로 사이에 정확히 일치 하는 접두사가 있는 경우 명시적 접두사가 있는 경로에 대 한 기본 설정이 지정 됩니다. 서비스 태그가 있는 여러 경로에 일치 하는 IP 접두사가 있는 경우 경로는 다음 순서로 평가 됩니다. 
+
+   1. 국가별 태그 (예: AppService. AustraliaCentral)
+   2. 최상위 태그 (예: Storage, AppService)
+   3. AzureCloud 지역 태그 (예: AzureCloud. canadacentral, AzureCloud. e한글)
+   4. AzureCloud 태그 </br></br>
+
+이 기능을 사용 하려면 경로 테이블 명령에서 주소 접두사 매개 변수에 대 한 서비스 태그 이름을 지정 합니다. 예를 들어 Powershell에서 다음을 사용 하 여 Azure Storage IP 접두사로 전송 되는 트래픽을 가상 어플라이언스로 보내도록 새 경로를 만들 수 있습니다. </br>
+
+```azurepowershell-interactive
+New-AzRouteConfig -Name "StorageRoute" -AddressPrefix “Storage” -NextHopType "VirtualAppliance" -NextHopIpAddress "10.0.100.4"
+```
+
+CLI에 대 한 동일한 명령은 다음과 같습니다. </br>
+
+```azurecli-interactive
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n StorageRoute --address-prefix Storage --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.100.4
+```
+</br>
+
+
+> [!NOTE] 
+> 공개 미리 보기에는 몇 가지 제한 사항이 있습니다. 이 기능은 현재 Azure Portal에서 지원 되지 않으며 Powershell 및 CLI를 통해서만 사용할 수 있습니다. 컨테이너에는 사용할 수 있는 기능이 없습니다. 
+
 ## <a name="next-hop-types-across-azure-tools"></a>Azure 도구 간의 다음 홉 유형
 
 다음 홉 유형에 대해 표시되고 참조되는 이름은 Azure Portal 및 명령줄 도구와 Azure Resource Manager 및 클래식 배포 모델 간에 다릅니다. 다음 표에서는 서로 다른 도구 및 [배포 모델](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 각각의 다음 홉 유형을 참조하는 데 사용되는 이름을 나열하고 있습니다.
@@ -109,6 +139,8 @@ Azure에서 사용자 지정 경로 또는 사용자 정의(정적) 경로를 �
 |None                            |None                                            |Null(asm 모드의 클래식 CLI에서는 사용할 수 없음)|
 |가상 네트워크 피어링         |VNet 피어링                                    |해당 없음|
 |가상 네트워크 서비스 엔드포인트|VirtualNetworkServiceEndpoint                   |해당 없음|
+
+
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 

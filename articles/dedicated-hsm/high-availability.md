@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.author: mbaldwin
-ms.openlocfilehash: 85aa9d355b2440535ea13c8c15e95500bac22352
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: c46ccbda35936ed94079a21e3e9c72405875b961
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98567248"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608870"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedicated HSM 고가용성
 
@@ -25,7 +25,7 @@ Azure Dedicated HSM은 Microsoft의 고가용성 데이터 센터에서 기반�
 
 ## <a name="high-availability-example"></a>고가용성 예제
 
-소프트웨어 수준에서 고가용성을 위해 HSM 장치를 구성 하는 방법에 대 한 정보는 ' Thales Luna 7 HSM 관리 가이드 '에 있습니다. 이 문서는  [THALES HSM 페이지](https://thalesdocs.com/gphsm/Content/luna/network/luna_network_releases.htm)에서 사용할 수 있습니다.
+소프트웨어 수준에서 고가용성을 위해 HSM 장치를 구성 하는 방법에 대 한 정보는 ' Thales Luna 7 HSM 관리 가이드 '에 있습니다. 이 문서는  [THALES HSM 페이지](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms)에서 사용할 수 있습니다.
 
 다음 다이어그램에서는 고가용성 아키텍처를 보여 줍니다. 이 아키텍처는 지역에서 여러 디바이스 및 별도 지역에서 연결된 여러 디바이스를 사용합니다. 또한 최소 4개의 HSM 디바이스 및 가상 네트워킹 구성 요소도 사용합니다.
 
@@ -42,4 +42,4 @@ Azure Dedicated HSM은 Microsoft의 고가용성 데이터 센터에서 기반�
 * [지원 가능성](supportability.md)
 * [Monitoring](monitoring.md)
 
-고가용성을 위해 HSM 장치를 구성 하는 방법에 대 한 자세한 내용은 Thales 고객 지원 포털에서 관리자 가이드를 참조 하 고 섹션 6을 참조 하세요.
+고가용성을 위해 HSM 장치를 구성 하는 방법에 대 한 자세한 내용은 [Thales 고객 지원 포털](https://supportportal.thalesgroup.com/csm) 에서 관리자 가이드를 참조 하 고 섹션 6을 참조 하세요.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043260"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608088"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -67,17 +67,17 @@ Speech SDK는 음성 서비스의 많은 기능을 노출 하지만 일부는 �
   - Java/Windows & Linux & macOS & Android (음성 장치 SDK)
   - Go
 
-#### <a name="keyword-spotting"></a>키워드 발견
+#### <a name="keyword-recognition"></a>키워드 인식
 
-[발견 키워드](./custom-keyword-basics.md) 의 개념은 Speech SDK에서 지원 됩니다. 키워드 발견는 음성에서 키워드를 식별 한 후 키워드를 청력으로 작업을 수행 하는 동작입니다. 예를 들어 "안녕하세요 Cortana"는 Cortana 길잡이를 활성화 합니다.
+[키워드 인식](./custom-keyword-basics.md) 의 개념은 Speech SDK에서 지원 됩니다. 키워드 인식은 음성에서 키워드를 식별 한 후 키워드를 청력으로 작업을 수행 하는 동작입니다. 예를 들어 "안녕하세요 Cortana"는 Cortana 길잡이를 활성화 합니다.
 
-**KWS (Keyword 발견)** 는 다음 플랫폼에서 사용할 수 있습니다.
+**키워드 인식은** 다음 플랫폼에서 사용할 수 있습니다.
 
   - C + +/Windows & Linux
   - C #/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (음성 장치 SDK)
-  - KWS (Keyword 발견) 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
+  - 키워드 인식 기능은 모든 마이크 종류에 사용할 수 있지만 공식 키워드 인식 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 됩니다.
 
 ### <a name="meeting-scenarios"></a>모임 시나리오
 

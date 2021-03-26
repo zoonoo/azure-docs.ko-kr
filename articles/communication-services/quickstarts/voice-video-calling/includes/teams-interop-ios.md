@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - iOS 앱에서 Teams 모임에 조인
-description: 이 자습서에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
+description: 이 자습서에서는 iOS용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488005"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108196"
 ---
-이 빠른 시작에서는 iOS용 Azure Communication Services 통화 클라이언트 라이브러리를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
+이 빠른 시작에서는 iOS용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -178,7 +178,7 @@ struct ContentView_Previews: PreviewProvider {
 ## <a name="get-the-teams-meeting-link"></a>Teams 미팅 링크 가져오기
 
 Teams 미팅 링크는 Graph API를 사용하여 검색할 수 있습니다. 자세한 내용은 [Graph 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta)에서 설명하고 있습니다.
-Communication Services Calling 클라이언트 라이브러리는 전체 Teams 모임 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. 또한 Teams 모임 초대 자체의 **모임 조인** URL에서 필요한 모임 정보를 가져올 수 있습니다.
+Communication Services Calling SDK는 전체 Teams 미팅 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다. 또한 Teams 모임 초대 자체의 **모임 조인** URL에서 필요한 모임 정보를 가져올 수 있습니다.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>앱을 시작하고 Teams 모임에 조인
 

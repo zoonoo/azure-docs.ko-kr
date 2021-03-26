@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3ca4938d8666fd60ebac9e75bb2da1780e0914d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566135"
+ms.locfileid: "105608003"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -208,11 +208,11 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>디렉터리가 제한 크기에 근접 하 고 있는지 확인 어떻게 할까요??
 
-`stat`클라이언트에서 명령을 사용 하 여 디렉터리가 디렉터리 메타 데이터에 대 한 최대 크기 제한 (320 MB)에 근접 하 고 있는지 확인할 수 있습니다.
+`stat`클라이언트에서 명령을 사용 하 여 디렉터리가 디렉터리 메타 데이터에 대 한 최대 크기 제한 (320 MB)에 근접 하 고 있는지 확인할 수 있습니다.   
 
-320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  
+320 디렉터리의 경우 블록 수는 655360 이며 각 블록 크기는 512 바이트입니다.  (즉, 320x1024x1024/512)  이 숫자는 320 MB 디렉터리에 대해 약 400만 파일의 최대값으로 변환 됩니다. 그러나 디렉터리의 비 ASCII 문자를 포함 하는 파일 수와 같은 요소에 따라 실제 최대 파일 수가 더 낮을 수 있습니다. 따라서 `stat` 다음과 같이 명령을 사용 하 여 디렉터리가 제한에 근접 하 고 있는지 확인 해야 합니다.  
 
-예제:
+예:
 
 ```console
 [makam@cycrh6rtp07 ~]$ stat bin

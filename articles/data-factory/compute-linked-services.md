@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 71e02ea1265a81da7dd2e85549f6d1390a46311a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 2aa7afebede3759221674c48dd66256e740575a3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952238"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565948"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -21,7 +21,7 @@ ms.locfileid: "104952238"
 
 다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다. 
 
-| 컴퓨팅 환경                                          | 작업                                                   |
+| 컴퓨팅 환경                                          | 활동                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [주문형 HDInsight 클러스터](#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
@@ -39,12 +39,12 @@ ms.locfileid: "104952238"
 
 | 컴퓨팅 연결된 서비스에서 | 속성 이름                | Description                                                  | Blob | ADLS Gen2 | Azure SQL DB | ADLS Gen 1 |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------ | ---- | --------- | ------------ | ---------- |
-| 요청 시                 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. | 예  | 예       | 아니요           | 예         |
-|                           | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정하므로 Data Factory 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. | 예  | 아니요        | 아니요           | 예         |
-|                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 메타스토어로 사용하여 만들어집니다. | 예   | 아니요        | 예          | 예         |
-| BYOC                      | linkedServiceName            | Azure Storage 연결된 서비스 참조                | 예  | 예       | 아니요           | 예         |
-|                           | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정하므로 Data Factory 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. | 예   | 아니요        | 아니요           | 예         |
-|                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스에 대한 참조입니다. | 예   | 아니요        | 아니요           | 예         |
+| 요청 시                 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. | 예  | 예       | 예           | 예         |
+|                           | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정하므로 Data Factory 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. | 예  | 예        | 예           | 예         |
+|                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 메타스토어로 사용하여 만들어집니다. | 예   | 예        | 예          | 예         |
+| BYOC                      | linkedServiceName            | Azure Storage 연결된 서비스 참조                | 예  | 예       | 예           | 예         |
+|                           | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정하므로 Data Factory 서비스가 사용자를 대신해 계정을 등록할 수 있습니다. | 예   | 예        | 예           | 예         |
+|                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스에 대한 참조입니다. | 예   | 예        | 예           | 예         |
 
 ### <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 주문형 연결된 서비스
 
@@ -436,6 +436,7 @@ Azure Machine Learning 연결된 서비스를 만들어 Azure Machine Learning �
 ```
 
 ### <a name="properties"></a>속성
+
 | 속성               | Description                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureMLService** 로 설정되어야 합니다. | 예                                      |
@@ -546,8 +547,8 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 | name                 | 연결된 서비스의 이름입니다.               | 예   |
 | type                 | 형식 속성은 **Azure Databricks**. | 예                                      |
 | 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예: https://eastus.azuredatabricks.net | 예                                 |
-| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 확인할 수 있습니다.  | 아니요                                       |
-| MSI          | Data Factory의 관리 id (시스템 할당)를 사용 하 여 Azure Databricks에 인증 합니다. ' MSI ' 인증을 사용 하는 경우 액세스 토큰이 필요 하지 않습니다.  | 아니요                                       |
+| accessToken          | 데이터 팩터리가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 확인할 수 있습니다.  | 예                                       |
+| MSI          | Data Factory의 관리 id (시스템 할당)를 사용 하 여 Azure Databricks에 인증 합니다. ' MSI ' 인증을 사용 하는 경우 액세스 토큰이 필요 하지 않습니다.  | 예                                       |
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 정보](https://docs.databricks.com/user-guide/clusters/tags.html) | 예 
 | instancePoolId    | Databricks 작업 영역에 있는 기존 풀의 인스턴스 풀 ID입니다.  | 예  |
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 예  |

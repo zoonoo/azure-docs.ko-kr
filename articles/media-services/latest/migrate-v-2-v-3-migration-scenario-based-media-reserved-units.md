@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5ca01bcea348b866c0f40f82ebe90dc31d032739
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 00e1fa623fc625a568f6580998443758c3916be8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98927064"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563075"
 ---
 # <a name="media-reserved-units-mrus-scenario-based-migration-guidance"></a>Mru (미디어 예약 단위) 시나리오 기반 마이그레이션 지침
 
@@ -48,7 +48,3 @@ Mru에 대 한 자세한 내용은 [미디어 예약 단위](concept-media-reser
 ## <a name="samples"></a>샘플
 
 [코드 샘플에서 V2 및 V3 코드도 비교할](migrate-v-2-v-3-migration-samples.md)수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

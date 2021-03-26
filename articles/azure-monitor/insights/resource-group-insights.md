@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: ab2c56b5e5cfc3dcb7411db27e7faabb2589be6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bfe197befc781548dc41ff389f2d9558af7a8aae
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704330"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567405"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -43,7 +43,7 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
 리소스 그룹 인사이트 페이지는 문제를 진단하는 데 도움을 주기 위해 몇 가지 다른 도구를 범위별로 제공합니다.
 
-   |         |          |
+   | 도구 | Description |
    | ---------------- |:-----|
    | [**경고**](../alerts/alerts-overview.md)      |  경고를 보고, 만들고, 관리합니다. |
    | [**메트릭**](../data-platform.md) | 메트릭 기반 데이터를 시각화하고 탐색합니다.    |

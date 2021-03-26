@@ -204,7 +204,13 @@
       topicHref: /azure/vmware-cloudsimple/
     - name: Azure Portal 문서
       tocHref: /azure/azure-portal/
-      topicHref: /azure/azure-portal/\
+      topicHref: /azure/azure-portal/
+    - name: Azure Portal 문서
+      tocHref: /azure/virtual-machines/
+      topicHref: /azure/azure-portal/index
+    - name: Azure Portal 문서
+      tocHref: /power-bi
+      topicHref: /azure/azure-portal/index
     - name: 사물 인터넷
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/

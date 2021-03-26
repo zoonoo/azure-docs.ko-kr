@@ -4,14 +4,14 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 9aaaece7d60ceead80e51bdc2a1bb342d9a4d237
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: af5ec07a8fb2db0bd4b9b8f1af556ef54199400d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107750"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609489"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../create-communication-resource.md).
@@ -36,7 +36,7 @@ npm install @azure/communication-calling --save
 
 다음 클래스와 인터페이스는 SDK를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
-| 이름                             | 설명                                                                                                                                 |
+| Name                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CallClient`                      | 호출 SDK의 주 진입점입니다.                                                                       |
 | `CallAgent`                        | 호출을 시작 하 고 관리 하는 데 사용 됩니다.                                                                                            |
@@ -123,6 +123,12 @@ const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 전화를 연결 하면 자동으로 선택 된 카메라에서 다른 참가자로 비디오 스트림을 보내기 시작 합니다. 이는 `Call.Accept()` 비디오 옵션 및 비디오 옵션에도 적용 됩니다 `CallAgent.join()` .
 
 ### <a name="join-a-group-call"></a>그룹 통화 참가
+
+> [!NOTE]
+> `groupId`매개 변수는 시스템 메타 데이터로 간주 되며 Microsoft에서 시스템을 실행 하는 데 필요한 작업에 사용할 수 있습니다. 값에 개인 데이터를 포함 하지 않습니다 `groupId` . Microsoft는이 매개 변수를 개인 데이터로 간주 하지 않으며 해당 콘텐츠가 Microsoft 직원에 게 표시 되거나 장기적으로 저장 될 수 있습니다.
+>
+> `groupId`매개 변수는 데이터를 GUID 형식으로 지정 해야 합니다. 시스템에서 개인 데이터로 간주 되지 않는 임의로 생성 된 Guid를 사용 하는 것이 좋습니다.
+>
 
 새 그룹 호출을 시작 하거나 진행 중인 그룹 호출을 조인 하려면 메서드를 사용 하 고 속성을 사용 하 `join` 여 개체를 전달 `groupId` 합니다. `groupId`값은 GUID 여야 합니다.
 

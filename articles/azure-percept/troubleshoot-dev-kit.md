@@ -5,25 +5,22 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c9c62ec07873272b956877ec51d8765ae0bbd100
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023081"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605640"
 ---
-# <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Azure Percept 진한 (dev kit) 문제 해결
+# <a name="azure-percept-dk-troubleshooting"></a>Azure Percept 진한 문제 해결
 
 Azure Percept에 대 한 일반적인 문제 해결 팁은 아래 지침을 참조 하세요.
 
 ## <a name="general-troubleshooting-commands"></a>일반 문제 해결 명령
 
-이러한 명령을 실행 하려면 
-1. [Dev kit의 Wi-Fi AP](./quickstart-percept-dk-set-up.md) 에 연결
-1. [Dev kit로 SSH](./how-to-ssh-into-percept-dk.md)
-1. SSH 터미널에 명령 입력
+이러한 명령을 실행 하려면 [개발자 키트에 ssh](./how-to-ssh-into-percept-dk.md) 를 실행 하 고 ssh 클라이언트 프롬프트에 명령을 입력 합니다.
 
 추가 분석을 위해 모든 출력을 .txt 파일로 리디렉션하려면 다음 구문을 사용 합니다.
 
@@ -43,7 +40,7 @@ sudo chmod 666 [file name].txt
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-```[local host file path]``` 는 .txt 파일을 복사할 호스트 PC의 위치를 나타냅니다. ```[remote username]```[설치 환경](./quickstart-percept-dk-set-up.md)에서 선택 된 SSH 사용자 이름입니다. OOBE를 실행 하는 동안 SSH 로그인을 설정 하지 않은 경우 원격 사용자 이름은 ```root``` 입니다.
+```[local host file path]``` 는 .txt 파일을 복사할 호스트 PC의 위치를 나타냅니다. ```[remote username]```[설치 환경](./quickstart-percept-dk-set-up.md)에서 선택 된 SSH 사용자 이름입니다.
 
 Azure IoT Edge 명령에 대 한 자세한 내용은 [Azure IoT Edge 장치 문제 해결 설명서](../iot-edge/troubleshoot.md)를 참조 하세요.
 
@@ -88,17 +85,17 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[모든 현 현 이미지를 제거 합니다.](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |docker 컨테이너 다운로드 상태 확인 |
 
-## <a name="usb-updating"></a>USB 업데이트
+## <a name="usb-updates"></a>USB 업데이트
 
 |오류:                                    |해결 방법:                                               |
 |------------------------------------------|--------------------------------------------------------|
-|UUU를 통해 USB 플래시 중 LIBUSB_ERROR_XXX |이 오류는 UUU 업데이트 중에 USB 연결 오류가 발생 한 경우에 발생 합니다. USB 케이블이 PC 또는 10 배의 USB 포트에 제대로 연결 되어 있지 않으면이 양식의 오류가 발생 합니다. USB 케이블의 양쪽 끝을 분리 하 고 replugging 하 고 케이블을 jiggling 하 여 보안 연결을 확인 하세요. 이는 거의 항상 문제를 해결 합니다. |
+|UUU를 통해 USB 플래시 중 LIBUSB_ERROR_XXX |이 오류는 UUU 업데이트 중에 USB 연결 오류가 발생 한 경우에 발생 합니다. USB 케이블이 PC 또는 Percept 진한 캐리어 보드의 USB 포트에 제대로 연결 되어 있지 않으면이 양식의 오류가 발생 합니다. USB 케이블의 양쪽 끝을 분리 하 고 다시 연결 하 고 케이블을 jiggling 하 여 보안 연결을 확인 하십시오. 이는 거의 항상 문제를 해결 합니다. |
 
 ## <a name="azure-percept-dk-carrier-board-led-states"></a>Azure Percept 진한 캐리어 보드 LED 상태
 
 캐리어 보드 하우징 위에는 세 개의 작은 Led가 있습니다. LED 1 옆에 클라우드 아이콘이 인쇄 되 고 LED 2 옆에 Wi-Fi 아이콘이 인쇄 되며 LED 3 옆에 느낌표 아이콘이 인쇄 됩니다. 각 LED 상태에 대 한 자세한 내용은 아래 표를 참조 하십시오.
 
-|LED             |주      |설명                      |
+|LED             |주      |Description                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (IoT Hub) |켜기 (solid) |장치가 IoT Hub에 연결 되어 있습니다. |
 |LED 2 (Wi-fi)   |저속 깜박임 |장치는 Wi-Fi 쉬운 연결로 구성할 준비가 되었으며 구성 기에 대 한 존재를 발표 하 고 있습니다. |
