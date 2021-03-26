@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549858"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609261"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Azure Synapse Analytics 작업 영역에서 Azure Monitor 사용
 
@@ -103,7 +103,7 @@ Azure Portal에 로그인 하 고   >  **경고** 모니터링을 선택 하 여
 
 Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습니다.
 
-| Log Analytics 테이블 이름 | 로그 범주 이름                 | 설명 |
+| Log Analytics 테이블 이름 | 로그 범주 이름                 | Description |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | 게이트웨이 Apirequests             | Azure Synapse gateway API 요청. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Azure Synapse SRBAC (역할 기반 액세스 제어) 작업 |
@@ -112,7 +112,7 @@ Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습
 
 다음은 전용 SQL 풀에서 내보낸 로그입니다.
 
-| Log Analytics 테이블 이름        | 로그 범주 이름             | 설명 |
+| Log Analytics 테이블 이름        | 로그 범주 이름             | Description |
 |----------------------|--------------------------------------|-------------|
 | SynapseSqlPoolExecRequests  | ExecRequests | Azure Synapse 전용 SQL 풀의 SQL 요청/쿼리에 대 한 정보입니다.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Azure Synapse 전용 SQL 풀에서 DMS 단계를 완료 하는 작업자에 대 한 정보입니다.
@@ -131,7 +131,7 @@ Azure Synapse Analytics 작업 영역에서 내보낸 로그는 다음과 같습
 
 Apache Spark 풀이 내보내는 로그는 다음과 같습니다.
 
-| Log Analytics 테이블 이름               | 로그 범주 이름              | 설명                 |
+| Log Analytics 테이블 이름               | 로그 범주 이름              | Description                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SynapseBigDataPoolApplicationsEnded | BigDataPoolAppsEnded | 종료 된 Apache Spark 응용 프로그램에 대 한 정보 |
 
@@ -171,7 +171,7 @@ Azure Monitor 진단 설정을 사용 하 여 분석을 위해 진단 로그를 
 1. 설정에 이름을 지정 하 고 **Log Analytics 보내기** 를 선택한 다음 **Log Analytics 작업 영역** 에서 작업 영역을 선택 합니다.
 
     > [!NOTE]
-    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Azurediagnostics 로그 참조](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column)를 참조 하세요.
+    > Azure 로그 테이블에는 500 개 이상의 열을 사용할 수 없기 때문에 _리소스 특정 모드_ 를 선택 하 **는 것이 좋습니다** . 자세한 내용은 [Azurediagnostics 로그 참조](/azure/azure-monitor/reference/tables/azurediagnostics)를 참조 하세요.
 
 1. **저장** 을 선택합니다.
 

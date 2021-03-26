@@ -1,17 +1,17 @@
 ---
 title: 경고 구성-Azure Portal-Azure Database for PostgreSQL 유연한 서버
 description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 유연한 서버에 대 한 메트릭 경고를 구성 하 고 액세스 하는 방법을 설명 합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3c6f1dd581f7b07bb7892cbfe23dd76348124f9a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 365cb5604c1f9ddc2c0d7f3cc63daff96b043515
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100579052"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608054"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 유연한 서버에 대 한 메트릭에 대 한 경고를 설정 합니다.
 

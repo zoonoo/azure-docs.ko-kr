@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579147"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605079"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>조건부 액세스: 클라우드 앱 또는 작업
 
@@ -31,7 +31,7 @@ ms.locfileid: "104579147"
 
 기존 Microsoft 클라우드 애플리케이션 중 상당수는 선택할 수 있는 애플리케이션 목록에 포함되어 있습니다. 
 
-관리자들은 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다. Office 365 및 Microsoft Azure 관리와 같은 일부 앱은 관련 된 여러 자식 앱 또는 서비스를 포함 합니다. 다음 목록은 전체 목록이 아니며 변경될 수 있습니다.
+관리자들은 Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 수 있습니다. Office 365 및 Microsoft Azure 관리와 같은 일부 앱은 관련 된 여러 자식 앱 또는 서비스를 포함 합니다. 계속 해 서 더 많은 앱을 추가 하므로 다음 목록은 완전 하지 않으며 변경 될 수 있습니다.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -66,6 +66,8 @@ ms.locfileid: "104579147"
 - 비즈니스 온라인용 Skype
 - VPN(가상 사설망)
 - Windows Defender ATP
+
+조건부 액세스에 사용할 수 있는 응용 프로그램이 온 보 딩 및 유효성 검사 프로세스를 통과 했습니다. 이는 백 엔드 서비스 이며 정책을 직접 적용 하지 않는 모든 Microsoft 앱을 포함 하지 않습니다. 누락 된 응용 프로그램을 찾고 있는 경우 특정 응용 프로그램 팀에 문의 하거나 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259)에 대해 요청을 수행할 수 있습니다.
 
 ### <a name="office-365"></a>Office 365
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600805"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609278"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리
 
@@ -77,7 +77,7 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 ## <a name="autocomplete-and-suggested-queries"></a>자동 완성 및 제안 된 쿼리
 
-[자동 완성 또는 제안 된 결과](search-autocomplete-tutorial.md) 는 **`search`** 검색 시 검색 환경에서 부분 문자열 입력 (각 문자 이후)을 기반으로 연속 쿼리 요청을 발생 시키는 대체 방법입니다. **`autocomplete`** **`suggestions`** [이 자습서](tutorial-csharp-type-ahead-and-suggestions.md)에 설명 된 대로 및 매개 변수를 함께 사용 하거나 개별적으로 사용할 수 있지만에서는 사용할 수 없습니다 **`search`** . 완료 된 용어와 제안 된 쿼리는 모두 인덱스 콘텐츠에서 파생 됩니다. 엔진은 인덱스에 존재 하지 않는 문자열 또는 제안을 반환 하지 않습니다. 자세한 내용은 [자동 완성 (REST API)](/rest/api/searchservice/autocomplete) 및 [제안 (REST API)](/rest/api/searchservice/suggestions)을 참조 하세요.
+[자동 완성 또는 제안 된 결과](search-add-autocomplete-suggestions.md) 는 **`search`** 검색 시 검색 환경에서 부분 문자열 입력 (각 문자 이후)을 기반으로 연속 쿼리 요청을 발생 시키는 대체 방법입니다. **`autocomplete`** **`suggestions`** [이 자습서](tutorial-csharp-type-ahead-and-suggestions.md)에 설명 된 대로 및 매개 변수를 함께 사용 하거나 개별적으로 사용할 수 있지만에서는 사용할 수 없습니다 **`search`** . 완료 된 용어와 제안 된 쿼리는 모두 인덱스 콘텐츠에서 파생 됩니다. 엔진은 인덱스에 존재 하지 않는 문자열 또는 제안을 반환 하지 않습니다. 자세한 내용은 [자동 완성 (REST API)](/rest/api/searchservice/autocomplete) 및 [제안 (REST API)](/rest/api/searchservice/suggestions)을 참조 하세요.
 
 ## <a name="filter-search"></a>필터 검색
 
@@ -85,7 +85,7 @@ Cognitive Search에서 전체 텍스트 검색은 Apache Lucene 쿼리 엔진을
 
 다음 표에서 설명 하는 것 처럼 특수 쿼리 양식을 호출 하는 필터가 필요할 수도 있습니다. 지정 되지 않은 검색 ( **`search=*`** ) 또는 용어, 구, 연산자 및 패턴이 포함 된 쿼리 문자열을 사용 하 여 필터를 사용할 수 있습니다.
 
-| 필터 시나리오 | 설명 |
+| 필터 시나리오 | Description |
 |-----------------|-------------|
 | 범위 필터 | Azure Cognitive Search에서는 필터 매개 변수를 사용 하 여 범위 쿼리를 작성 합니다. 자세한 내용 및 예제는 [범위 필터 예](search-query-simple-examples.md#example-5-range-filters)를 참조 하세요. |
 | 지리적 위치 검색 | 검색 가능한 필드가 [GeographyPoint](/rest/api/searchservice/supported-data-types)인 경우 "주변 찾기" 또는 맵 기반 검색 컨트롤에 대 한 필터 식을 만들 수 있습니다. 지리적 검색을 구동 하는 필드에는 좌표가 포함 됩니다. 자세한 내용 및 예제는 [지역 검색 예제](search-query-simple-examples.md#example-6-geo-search)를 참조 하세요. |

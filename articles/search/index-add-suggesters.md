@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604409"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606218"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-Azure Cognitive Search에서 "검색 형식"은 *확인 기* 를 통해 사용 하도록 설정 됩니다. 확인 기는 fields 컬렉션으로 구성 된 내부 데이터 구조입니다. 필드는 추가 토큰화를 거쳐 부분 용어에 대 한 일치를 지원 하기 위해 접두사 시퀀스를 생성 합니다.
+Azure Cognitive Search에서는 *확인 기* 를 통해 "형식 검색"을 사용 하도록 설정 합니다. 확인 기는 fields 컬렉션으로 구성 된 내부 데이터 구조입니다. 필드는 추가 토큰화를 거쳐 부분 용어에 대 한 일치를 지원 하기 위해 접두사 시퀀스를 생성 합니다. 예를 들어 City 필드를 포함 하는 확인 기에는 "시애틀" 용어에 대 한 "해상", "좌석", "seatt" 및 "seattl"의 접두사 조합이 있습니다.
 
-예를 들어 확인 기에 City 필드가 포함 된 경우 "서울" 이라는 용어에 대해 "해상", "좌석", "seatt" 및 "seattl"의 접두사 조합이 생성 됩니다. 접두사는 확인 기 fields 컬렉션에 지정 된 각 필드에 대 한 반전 된 인덱스에 저장 됩니다.
+부분 일치 용어에 대 한 일치는 자동 완성 쿼리 또는 제안 된 일치 항목이 될 수 있습니다. 동일한 확인 기는 두 가지 환경을 모두 지원 합니다.
 
 ## <a name="typeahead-experiences-in-cognitive-search"></a>Cognitive Search에서 보다 앞선 경험
 
-확인 기는 두 가지 환경을 지원 합니다. *자동 완성* 은 전체 용어 쿼리에 대 한 부분 입력을 완료 하 고, 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 지원 합니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
+앞서 typeahead 전체 용어 쿼리에 대 한 부분 입력을 완료 하거나 클릭을 통해 특정 일치 항목에 초대 하는 *제안을* 완료 하는 *자동 완성 기능* 을 사용할 수 있습니다. 자동 완성 기능은 쿼리를 생성 합니다. 제안 사항은 일치 하는 문서를 생성 합니다.
 
 [C #에서 첫 번째 앱 만들기](tutorial-csharp-type-ahead-and-suggestions.md) 의 다음 스크린샷은 두 가지를 모두 보여 줍니다. 자동 완성 기능을 사용 하는 경우 "내"에서 "휴먼"를 마무리 하는 잠재적인 용어 제안 사항은 최소 검색 결과입니다. 호텔 이름과 같은 필드는 인덱스에서 일치 하는 호텔 검색 문서를 나타냅니다. 제안 사항을 위해 설명 정보를 제공 하는 모든 필드를 표시할 수 있습니다.
 
@@ -40,11 +40,11 @@ Azure Cognitive Search에서 "검색 형식"은 *확인 기* 를 통해 사용 �
 
 ## <a name="how-to-create-a-suggester"></a>확인 기를 만드는 방법
 
-확인 기를 만들려면 [인덱스 정의](/rest/api/searchservice/create-index)에 하나를 추가 합니다. 확인 기에는 이름 및 필드의 컬렉션을 가져옵니다 .이 필드의 형식에 따라 미리 결정 된 형식이 사용 됩니다. [각 속성을 설정](#property-reference)합니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
+확인 기를 만들려면 [인덱스 정의](/rest/api/searchservice/create-index)에 하나를 추가 합니다. 확인 기는 이름 및 필드 컬렉션을 사용 하며,이를 통해 해당 하는 형식에 대 한 미리 변수를 사용할 수 있습니다. 확인 기를 만드는 가장 좋은 시기는이를 사용할 필드를 정의 하는 경우입니다.
 
 + 문자열 필드만 사용 합니다.
 
-+ 문자열 필드가 복합 형식 (예: 주소 내의 City 필드)의 일부인 경우 필드에 부모를 포함 합니다 ( `"Address/City"` REST 및 c # 및 Python) 또는 `["Address"]["City"]` (JavaScript).
++ 문자열 필드가 복합 형식 (예: 주소 내의 City 필드)의 일부인 경우 필드 경로에 부모를 포함 합니다 ( `"Address/City"` REST 및 c # 및 Python) 또는 `["Address"]["City"]` (JavaScript).
 
 + 필드에 기본 표준 Lucene 분석기 ( `"analyzer": null` ) 또는 [언어 분석기](index-add-language-analyzers.md) (예:)를 사용 `"analyzer": "en.Microsoft"` 합니다.
 
@@ -58,7 +58,7 @@ Azure Cognitive Search에서 "검색 형식"은 *확인 기* 를 통해 사용 �
 
 반면에 제안 사항은 필드를 선택 하는 경우 더 나은 결과를 생성 합니다. 제안에는 검색 문서에 대 한 프록시가 있으므로 단일 결과를 가장 잘 나타내는 필드를 사용할 수 있습니다. 여러 일치 항목을 구분 하는 이름, 제목 또는 기타 고유 필드가 가장 잘 작동 합니다. 필드가 반복 되는 값으로 구성 된 경우 제안 사항은 동일한 결과로 구성 되며 사용자는 어떤 항목을 클릭할 지 알지 못합니다.
 
-검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 **$select**, **$top**, **$filter** 및 **searchfields** 를 사용 하 여 제안에 대 한 결과를 제어 합니다.
+검색에 사용 되는 환경을 모두 만족 시키려면 자동 완성에 필요한 모든 필드를 추가한 다음 "$select", "$top", "$filter" 및 "searchFields"를 사용 하 여 제안에 대 한 결과를 제어 합니다.
 
 ### <a name="choose-analyzers"></a>분석기 선택
 
@@ -140,11 +140,11 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |설명      |
+|속성      |Description      |
 |--------------|-----------------|
-|`name`        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
-|`sourceFields`| 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다.<p/> 검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다.<p/>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
-|`searchMode`  | REST 전용 매개 변수 이지만 포털에도 표시 됩니다. 이 매개 변수는 .NET SDK에서 사용할 수 없습니다. 후보 구를 검색 하는 데 사용 되는 전략을 나타냅니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
+| name        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
+| sourceFields | 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다. </br></br>검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다. </br></br>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
+| searchMode  | REST 전용 매개 변수 이지만 포털에도 표시 됩니다. 이 매개 변수는 .NET SDK에서 사용할 수 없습니다. 후보 구를 검색 하는 데 사용 되는 전략을 나타냅니다. 현재 지원 되는 모드는 `analyzingInfixMatching` 현재 단어의 시작 부분에서 일치 하는입니다.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -157,9 +157,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 + [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)
 + [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
-검색 응용 프로그램에서 클라이언트 코드는 [JQUERY UI 자동 완성](https://jqueryui.com/autocomplete/) 같은 라이브러리를 활용 하 여 부분 쿼리를 수집 하 고 일치 하는 항목을 제공 해야 합니다. 이 작업에 대 한 자세한 내용은 [클라이언트 코드에 자동 완성 또는 제안 된 결과 추가](search-autocomplete-tutorial.md)를 참조 하세요.
+검색 응용 프로그램에서 클라이언트 코드는 [JQUERY UI 자동 완성](https://jqueryui.com/autocomplete/) 같은 라이브러리를 활용 하 여 부분 쿼리를 수집 하 고 일치 하는 항목을 제공 해야 합니다. 이 작업에 대 한 자세한 내용은 [클라이언트 코드에 자동 완성 또는 제안 된 결과 추가](search-add-autocomplete-suggestions.md)를 참조 하세요.
 
-API 사용법은 다음 REST API 자동 완성 호출에 설명 되어 있습니다. 이 예제에서는 두 가지 내용 있습니다. 첫째, 모든 쿼리와 마찬가지로 작업은 인덱스의 문서 컬렉션에 대해 수행 되 고 쿼리는 **검색** 매개 변수를 포함 하며이 경우 부분 쿼리를 제공 합니다. 두 번째로, 요청에 **suggesterName** 를 추가 해야 합니다. 인덱스에 확인 기가 정의 되어 있지 않으면 자동 완성 또는 제안에 대 한 호출이 실패 합니다.
+API 사용법은 다음 REST API 자동 완성 호출에 설명 되어 있습니다. 이 예제에서는 두 가지 내용 있습니다. 첫째, 모든 쿼리와 마찬가지로 작업은 인덱스의 문서 컬렉션에 대해 수행 되 고 쿼리는 "search" 매개 변수를 포함 하며이 경우 부분 쿼리를 제공 합니다. 두 번째로, 요청에 "suggesterName"를 추가 해야 합니다. 인덱스에 확인 기가 정의 되어 있지 않으면 자동 완성 또는 제안에 대 한 호출이 실패 합니다.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -178,4 +178,4 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 요청을 공식화 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [클라이언트 코드에 자동 완성 및 제안 추가](search-autocomplete-tutorial.md)
+> [클라이언트 코드에 자동 완성 및 제안 추가](search-add-autocomplete-suggestions.md)

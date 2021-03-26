@@ -1,17 +1,17 @@
 ---
 title: 확장-Azure Database for PostgreSQL-단일 서버
 description: Azure Database for PostgreSQL 단일 서버에서 사용 가능한 Postgres 확장에 대해 알아봅니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92485463"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606320"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용하여 데이터베이스에서 로드하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드한 확장은 기본 제공 기능처럼 작동합니다.
@@ -62,7 +62,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, avro-mapred-1.7.4-hadoop2.jar             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
 
@@ -108,7 +108,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, avro-mapred-1.7.4-hadoop2.jar             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
 
@@ -154,11 +154,14 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | remote PostgreSQL servers에 대 한 외부 데이터 래퍼|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | 크로스탭을 포함 하 여 전체 테이블을 조작 하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, avro-mapred-1.7.4-hadoop2.jar             | 시계열 데이터에 대 한 확장 가능한 삽입 및 복잡 한 쿼리를 사용 합니다.|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | 강조를 제거 하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Uuid (범용 고유 식별자)를 생성 합니다.|
 
-## <a name="postgres-95-extensions"></a>Postgres 9.5 확장 
+## <a name="postgres-95-extensions"></a>Postgres 9.5 확장
+
+>[!NOTE]
+> PostgreSQL 버전 9.5은 사용 중지 되었습니다.
 
 다음 확장은 Postgres 버전 9.5이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 

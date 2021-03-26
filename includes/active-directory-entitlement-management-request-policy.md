@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1bbc549a9ba457d5f515df25d6fdce0c2ede6f2e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98698008"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582656"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
@@ -27,7 +27,7 @@ ms.locfileid: "98698008"
 
 1. 다음 옵션 중 하나를 선택합니다.
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **특정 사용자 및 그룹** | 이 액세스 패키지를 요청할 수 있도록 지정 하는 디렉터리의 사용자 및 그룹만 하려면이 옵션을 선택 합니다. |
     | **모든 구성원 (게스트 제외)** | 디렉터리의 모든 구성원 사용자가이 액세스 패키지를 요청할 수 있도록 하려면이 옵션을 선택 합니다. 이 옵션에는 디렉터리에 초대 했을 수 있는 게스트 사용자가 포함 되지 않습니다. |
@@ -62,7 +62,7 @@ ms.locfileid: "98698008"
 
 1. 다음 옵션 중 하나를 선택합니다.
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **연결 된 특정 조직** | 관리자가 이전에 추가한 조직 목록에서 선택 하려면이 옵션을 선택 합니다. 선택한 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. |
     | **연결 된 모든 조직** | 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있는 경우이 옵션을 선택 합니다. |

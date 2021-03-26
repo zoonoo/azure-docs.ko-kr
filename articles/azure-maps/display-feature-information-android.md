@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: b9926d5d6a70d959c0baacd9602341bb69abe924
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ea9ed2c74651a7719533340a24c4741d4e25b805
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097247"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605725"
 ---
 # <a name="display-feature-information"></a>기능 정보 표시
 
@@ -75,6 +75,9 @@ map.events.add((OnFeatureClick) (features) -> {
     String msg = features.get(0).getStringProperty("title");
 
     //Do something with the message.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
@@ -93,6 +96,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
     val msg = features[0].getStringProperty("title")
 
     //Do something with the message.
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 }, layer.getId()) //Limit this event to the symbol layer.
 ```
 
@@ -112,6 +118,9 @@ map.events.add((OnFeatureClick) (features) -> {
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 }, layer.getId());    //Limit this event to the symbol layer.
 ```
 
@@ -127,6 +136,9 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
     //Display a toast message with the title information.
     Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 }, layer.getId()) //Limit this event to the symbol layer.
 ```
 
@@ -143,7 +155,7 @@ map.events.add(OnFeatureClick { features: List<Feature> ->
 
 ## <a name="display-a-popup"></a>팝업 표시
 
-Azure Maps Android SDK는 `Popup` 맵의 위치에 고정 된 UI 주석 요소를 쉽게 만들 수 있도록 하는 클래스를 제공 합니다. 팝업의 경우에는 상대적인 레이아웃을 포함 하는 뷰를 팝업의 옵션으로 전달 해야 합니다 `content` . 다음은 배경 위에 짙은 텍스트를 표시 하는 간단한 레이아웃 예제입니다.
+Azure Maps Android SDK는 `Popup` 맵의 위치에 고정 된 UI 주석 요소를 쉽게 만들 수 있도록 하는 클래스를 제공 합니다. 팝업의 경우에는 상대적인 레이아웃을 포함 하는 뷰를 팝업의 옵션에 전달 해야 합니다 `content` . 다음은 배경 위에 짙은 텍스트를 표시 하는 간단한 레이아웃 예제입니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -210,6 +222,9 @@ map.events.add((OnFeatureClick)(feature) -> {
 
     //Open the popup.
     popup.open();
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false;
 });
 ```
 
@@ -255,6 +270,9 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
 
     //Open the popup.
     popup.open()
+
+    //Return a boolean indicating if event should be consumed or continue bubble up.
+    return false
 })
 ```
 

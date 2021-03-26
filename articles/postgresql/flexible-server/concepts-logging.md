@@ -1,17 +1,17 @@
 ---
 title: 로그-Azure Database for PostgreSQL-유연한 서버
 description: Azure Database for PostgreSQL 유연한 서버에서 로깅 구성, 저장소 및 분석에 대해 설명 합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 852bce26e348c817b609d5ff837641741afe4461
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e09c01fcfb9c4725ac169151e85c8b030d8bb18c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90940396"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606388"
 ---
 # <a name="logs-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL-유연한 서버의 로그
 
@@ -44,7 +44,7 @@ Azure Database for PostgreSQL은 Azure Monitor 진단 설정과 통합 됩니다
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| Type | 로그의 형식 항상 `AzureDiagnostics`입니다. |
+| 형식 | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL`입니다. |

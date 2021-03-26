@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7726877efcb72caf5bb4c92e2e1c65e5df68f270
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76cb2f94c949217c36fdccb8c64a53555bab227c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89002711"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606337"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Azure Search .NET SDK 버전 9로 업그레이드
 
@@ -40,7 +40,7 @@ Azure Search .NET SDK 버전 9는 다음 기능을 포함 하는 2019-05-06 버�
 
 * [AI 보강](cognitive-search-concept-intro.md) 는 이미지, blob 및 기타 구조화 되지 않은 데이터 원본에서 텍스트를 추출 하는 기능으로, Azure Search 인덱스에서 보다 검색 하기 쉽도록 콘텐츠를 보강 합니다.
 * [복합 형식을](search-howto-complex-data-types.md) 지원 하면 Azure Search 인덱스에서 거의 모든 중첩 된 JSON 구조를 모델링할 수 있습니다.
-* [자동 완성](search-autocomplete-tutorial.md) 은 검색 형식 동작을 구현 하기 위한 **제안** API에 대 한 대안을 제공 합니다. 자동 완성은 사용자가 현재 입력하고 있는 단어 또는 구를 "완성"합니다.
+* [자동 완성](search-add-autocomplete-suggestions.md) 은 검색 형식 동작을 구현 하기 위한 **제안** API에 대 한 대안을 제공 합니다. 자동 완성은 사용자가 현재 입력하고 있는 단어 또는 구를 "완성"합니다.
 * Azure Blob 인덱싱의 일부인 [JsonLines 구문 분석 모드](search-howto-index-json-blobs.md)는 JSON 엔터티 마다 줄 바꿈으로 구분 된 하나의 검색 문서를 만듭니다.
 
 ### <a name="new-preview-features-in-version-80-preview"></a>버전 8.0-미리 보기의 새로운 미리 보기 기능
@@ -152,7 +152,7 @@ var index = new Index()
 
 ### <a name="removed-facetresults-and-hithighlights"></a>FacetResults 및 HitHighlights 제거 됨
 
-`FacetResults`및 `HitHighlights` 클래스가 제거 되었습니다. 패싯 결과는 이제로 형식화 `IDictionary<string, IList<FacetResult>>` 되며는로 강조 표시 됩니다 `IDictionary<string, IList<string>>` . 이러한 변경으로 인해 발생 하는 빌드 오류를 신속 하 게 해결 하는 방법은 `using` 제거 된 형식을 사용 하는 각 파일의 맨 위에 별칭을 추가 하는 것입니다. 예를 들면 다음과 같습니다.
+`FacetResults`및 `HitHighlights` 클래스가 제거 되었습니다. 패싯 결과는 이제로 형식화 `IDictionary<string, IList<FacetResult>>` 되며는로 강조 표시 됩니다 `IDictionary<string, IList<string>>` . 이러한 변경으로 인해 발생 하는 빌드 오류를 신속 하 게 해결 하는 방법은 `using` 제거 된 형식을 사용 하는 각 파일의 맨 위에 별칭을 추가 하는 것입니다. 예를 들어:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

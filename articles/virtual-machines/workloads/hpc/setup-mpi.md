@@ -1,5 +1,5 @@
 ---
-title: HPC에 대 한 메시지 전달 인터페이스 설정-Azure Virtual Machines | Microsoft Docs
+title: HPC에 대 한 MPI (메시지 전달 인터페이스) 설정-Azure Virtual Machines | Microsoft Docs
 description: Azure에서 HPC에 대 한 MPI를 설정 하는 방법에 대해 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 8f071dfe817d15b745575fbfb70ff662a643db70
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 66de34c43ab1b3a6b4245f77196793bf9ad8530c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721358"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606643"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>HPC에 대 한 메시지 전달 인터페이스 설정
 
@@ -64,6 +64,11 @@ HPC-X 실행
 ```bash
 ${HPCX_PATH}mpirun -np 2 --map-by ppr:2:node -x UCX_TLS=rc ${HPCX_PATH}/ompi/tests/osu-micro-benchmarks-5.3.2/osu_latency
 ```
+
+### <a name="optimizing-mpi-collectives"></a>MPI collectives 최적화
+
+MPI 집합적 통신 기본 형식은 유연 하 고 이식 가능한 그룹 통신 작업을 구현 하는 방법을 제공 합니다. 이러한 응용 프로그램은 다양 한 과학적 병렬 응용 프로그램에서 널리 사용 되며 전반적인 응용 프로그램 성능에 상당한 영향을 미칩니다. 구성 매개 변수에 대 한 자세한 내용은 TechCommunity 및 HCOLL library를 사용 하 여 집합적 통신 성능을 최적화 하는 방법 [문서](https://techcommunity.microsoft.com/t5/azure-compute/optimizing-mpi-collective-communication-using-hpc-x-on-azurehpc/ba-p/1356740) 를 참조 하세요.
+
 > [!NOTE] 
 > HPC-X 2.7.4 이상이 +를 사용 하는 경우 MOFED 버전의 및 HPC-X에서 서로 다른 경우 명시적으로 LD_LIBRARY_PATH를 전달 해야 할 수 있습니다.
 

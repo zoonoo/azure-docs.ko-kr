@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 03/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b5115355133bdcf33825a05d4baa16408cb3fccd
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 92324d68eabfb1885a482a7f539140f93be77596
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562446"
+ms.locfileid: "105605198"
 ---
 # <a name="sdks-and-rest-apis"></a>SDK 및 REST API
 
-Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성 됩니다. 대부분의 영역에는 인터넷을 통해 직접 사용할 수 있는 게시 된 REST Api에 대해 프로그래밍 된 완전히 오픈 소스 클라이언트 라이브러리가 있습니다. 호출 하는 클라이언트 라이브러리가 독점 네트워크 인터페이스를 사용 하며 현재 닫힌 소스입니다. Sdk에 대 한 샘플 및 추가 기술 세부 정보는 [Azure Communication Services GitHub](https://github.com/Azure/communication)리포지토리에 게시 됩니다.
+Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성 됩니다. 대부분의 영역에는 인터넷을 통해 직접 사용할 수 있는 게시 된 REST Api에 대해 프로그래밍 된 완전히 오픈 소스 Sdk가 있습니다. 호출 하는 SDK는 소유 네트워크 인터페이스를 사용 하며 현재 닫혀 있는 소스입니다. Sdk에 대 한 샘플 및 추가 기술 세부 정보는 [Azure Communication Services GitHub](https://github.com/Azure/communication)리포지토리에 게시 됩니다.
 
 ## <a name="rest-apis"></a>REST API
 통신 서비스 Api는 [docs.microsoft.com](/rest/api/azure/)의 다른 Azure REST api와 함께 설명 됩니다. 이 설명서에서는 HTTP 메시지를 구성 하는 방법을 설명 하 고 Postman 사용에 대 한 지침을 제공 합니다. 이 설명서는 [GitHub](https://github.com/Azure/azure-rest-api-specs)에서 Swagger 형식으로도 제공 됩니다.
@@ -29,14 +29,14 @@ Azure Communication Services 기능은 개념적으로 6 개 영역으로 구성
 | 어셈블리 | 네임스페이스| 프로토콜 | 기능 |
 |------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
 | Azure Resource Manager | Azure. ResourceManager. 통신 | [REST (영문)](https://docs.microsoft.com/rest/api/communication/communicationservice)| 통신 서비스 리소스 프로 비전 및 관리|
-| 일반 | Azure. 통신 Common| REST | 다른 클라이언트 라이브러리의 기본 형식을 제공 합니다. |
+| 일반 | Azure. 통신 Common| REST | 다른 Sdk의 기본 형식을 제공 합니다. |
 | ID | Azure. 통신 Id| [REST (영문)](https://docs.microsoft.com/rest/api/communication/communicationidentity)| 사용자 관리, 토큰 액세스|
 | 전화 번호 _(베타)_| PhoneNumbers| [REST (영문)](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)| 전화 번호 획득 및 관리 |
 | 채팅 | Azure. 통신 채팅| 소유 신호를 포함 하는 [REST](https://docs.microsoft.com/rest/api/communication/) | 응용 프로그램에 실시간 텍스트 기반 채팅 추가 |
 | sms| Azure. 통신 SMS | [REST (영문)](https://docs.microsoft.com/rest/api/communication/sms)| SMS 메시지 보내기 및 받기|
 | 호출| Azure. 통신. 호출 | 소유 전송 | 음성, 비디오, 화면 공유 및 기타 실시간 데이터 통신 기능 사용 |
 
-Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 통합에 초점을 맞추고 있으며 이러한 기능을 최종 사용자 응용 프로그램에 통합 하는 경우 대부분의 경우 보안 문제가 발생 합니다. 공용 및 채팅 클라이언트 라이브러리는 서비스 및 클라이언트 응용 프로그램에 적합 합니다. 호출 하는 클라이언트 라이브러리는 클라이언트 응용 프로그램용으로 설계 되었습니다. 서비스 시나리오에 초점을 맞춘 클라이언트 라이브러리는 개발 과정에 있습니다.
+Azure Resource Manager, Id 및 SMS Sdk는 서비스 통합에 초점을 맞추고 있으며 이러한 기능을 최종 사용자 응용 프로그램에 통합 하는 경우 대부분의 경우 보안 문제가 발생 합니다. 공용 및 채팅 Sdk는 서비스 및 클라이언트 응용 프로그램에 적합 합니다. 호출 SDK는 클라이언트 응용 프로그램용으로 설계 되었습니다. 서비스 시나리오에 초점을 맞춘 SDK는 개발 하 고 있습니다.
 
 
 ### <a name="languages-and-publishing-locations"></a>언어 및 게시 위치
@@ -61,7 +61,7 @@ Azure Resource Manager, Id 및 SMS 클라이언트 라이브러리는 서비스 
 | API                                                                                                                          | 제한            |
 |------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | [모든 검색 전화 번호 계획 Api](https://docs.microsoft.com/rest/api/communication/phonenumberadministration)         | 4 개 요청/일      |
-| [전화 번호 요금제 구매](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 개 요청/일       |
+| [전화 번호 요금제 구매](https://docs.microsoft.com/rest/api/communication/phonenumberadministration/purchasesearch) | 1 한 달 구매  |
 | [SMS 보내기](https://docs.microsoft.com/rest/api/communication/sms/send)                                                       | 200 요청/분 |
 
 

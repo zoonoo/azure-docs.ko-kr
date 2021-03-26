@@ -3,40 +3,34 @@ title: Azure Application Insights를 사용한 Batch 모니터링
 description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 04/05/2018
-ms.openlocfilehash: 9decb99c3de798df43dedc2441208066d18e3a13
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.openlocfilehash: 251f02f145e8f450b1528bf8676cffdc61a6f051
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605786"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607884"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 
 [Application Insights](../azure-monitor/app/app-insights-overview.md)는 개발자가 Azure 서비스에 배포된 애플리케이션을 모니터링 및 디버그할 수 있는 세련되고 강력한 방법을 제공합니다. Application Insights를 사용하여 성능 카운터 및 예외를 모니터링하고 사용자 지정 메트릭 및 추적으로 코드를 계측할 수 있습니다. Application Insights를 Azure Batch 애플리케이션과 통합하면 동작에 대한 구체적인 인사이트를 얻고 거의 실시간으로 문제를 조사할 수 있습니다.
 
-이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 애플리케이션 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 애플리케이션을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조하세요.
+이 문서에서는 Azure Batch .NET 솔루션에 Application Insights 라이브러리를 추가 및 구성하고 애플리케이션 코드를 계측하는 방법을 보여줍니다. Azure Portal을 통해 애플리케이션을 모니터링하고 사용자 지정 대시보드를 빌드하는 방법도 보여줍니다. 다른 언어에 대 한 Application Insights 지원은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조 하세요.
 
-이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 컴퓨팅 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다. 
+이 문서에서 코드와 함께 사용할 샘플 C# 솔루션은 [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)에서 제공합니다. 이 예제에서는 Application Insights 계측 코드를 [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) 예제에 추가합니다. 이 예제에 익숙하지 않은 경우 먼저 TopNWords를 빌드하고 실행해 보세요. 여러 컴퓨팅 노드에서 입력 Blobs 세트를 병렬로 처리하는 기본 Batch 워크플로를 이해하는 데 도움이 될 것입니다.
 
 > [!TIP]
-> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요. 
->
+> 대안으로 Batch Explorer의 VM 성능 카운터 같은 Application Insights 데이터를 표시하도록 Batch 솔루션을 구성합니다. [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 애플리케이션을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. Batch Explorer에서 Application Insights 데이터를 사용하도록 설정하는 빠른 단계는 [일괄 처리 인사이트 리포지토리](https://github.com/Azure/batch-insights)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-* [Visual Studio 2017 이상](https://www.visualstudio.com/vs)
 
-* [Batch 계정 및 연결된 스토리지 계정](batch-account-create-portal.md)
-
-* [Application Insights 리소스](../azure-monitor/app/create-new-resource.md )
-  
-   * Azure Portal을 사용하여 Application Insights *리소스* 를 만듭니다. *일반* **애플리케이션 유형** 을 선택합니다.
-
-   * 포털에서 [계측 키](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key)를 복사합니다. 이 문서의 뒷부분에서 필요합니다.
+- [Visual Studio 2017 이상](https://www.visualstudio.com/vs)
+- [Batch 계정 및 연결된 스토리지 계정](batch-account-create-portal.md)
+- [리소스를 Application Insights](../azure-monitor/app/create-new-resource.md)합니다. Azure Portal을 사용하여 Application Insights *리소스* 를 만듭니다. *일반* **애플리케이션 유형** 을 선택합니다.
+- Azure Portal에서 [계측 키](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key) 를 복사 합니다. 나중에 이 값이 필요합니다.
   
   > [!NOTE]
-  > Application Insights에 저장된 데이터에 대한 [요금이 청구](https://azure.microsoft.com/pricing/details/application-insights/)될 수 있습니다. 여기에는 이 문서에서 살펴보는 진단 및 모니터링 데이터가 포함됩니다.
-  > 
+  > Application Insights에 저장 된 데이터에 대 한 [요금이 부과](https://azure.microsoft.com/pricing/details/application-insights/) 될 수 있습니다. 여기에는 이 문서에서 살펴보는 진단 및 모니터링 데이터가 포함됩니다.
 
 ## <a name="add-application-insights-to-your-project"></a>프로젝트에 Application Insights 추가
 
@@ -45,6 +39,7 @@ ms.locfileid: "104605786"
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```
+
 **Microsoft.ApplicationInsights** 네임스페이스를 사용하여 .NET 애플리케이션에서 Application Insights를 참조합니다.
 
 ## <a name="instrument-your-code"></a>코드 계측
@@ -54,14 +49,16 @@ Install-Package Microsoft.ApplicationInsights.WindowsServer
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
+
 또한 TopNWords.cs 파일의 계측 키를 추가합니다.
 
 TopNWords.cs 파일의 예제에서는 Application Insights API의 다음 [계측 호출](../azure-monitor/app/api-custom-events-metrics.md)을 사용합니다.
-* `TrackMetric()` - 컴퓨팅 노드에서 필요한 텍스트 파일을 다운로드하는 데 걸리는 평균 시간을 추적합니다.
-* `TrackTrace()` - 코드에 디버깅 호출을 추가합니다.
-* `TrackEvent()` - 캡처할 흥미로운 이벤트를 추적합니다.
 
-이 예제에서는 예외 처리를 의도적으로 배제합니다. 그 대신, Application Insights가 처리되지 않은 예외를 자동으로 보고하므로 디버깅 환경이 크게 개선됩니다. 
+- `TrackMetric()` - 컴퓨팅 노드에서 필요한 텍스트 파일을 다운로드하는 데 걸리는 평균 시간을 추적합니다.
+- `TrackTrace()` - 코드에 디버깅 호출을 추가합니다.
+- `TrackEvent()` - 캡처할 흥미로운 이벤트를 추적합니다.
+
+이 예제에서는 예외 처리를 의도적으로 배제합니다. 그 대신, Application Insights가 처리되지 않은 예외를 자동으로 보고하므로 디버깅 환경이 크게 개선됩니다.
 
 다음 코드 조각은 이러한 메서드를 사용하는 방법을 보여줍니다.
 
@@ -118,7 +115,8 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch 원격 분석 이니셜라이저 도우미
-지정된 서버 및 인스턴스에 대한 원격 분석 데이터를 보고할 때 Application Insights는 기본값에 Azure VM 역할 및 VM 이름을 사용합니다. Azure Batch의 컨텍스트에서 이 예제에는 풀 이름 및 컴퓨팅 노드 이름을 대신 사용하는 방법을 보여줍니다. [원격 분석 이니셜라이저](../azure-monitor/app/api-filtering-sampling.md#add-properties)를 사용하여 기본값을 재정의합니다. 
+
+지정된 서버 및 인스턴스에 대한 원격 분석 데이터를 보고할 때 Application Insights는 기본값에 Azure VM 역할 및 VM 이름을 사용합니다. Azure Batch의 컨텍스트에서 이 예제에는 풀 이름 및 컴퓨팅 노드 이름을 대신 사용하는 방법을 보여줍니다. [원격 분석 이니셜라이저](../azure-monitor/app/api-filtering-sampling.md#add-properties)를 사용하여 기본값을 재정의합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -173,7 +171,7 @@ namespace Microsoft.Azure.Batch.Samples.TelemetryInitializer
 <TelemetryInitializers>
     <Add Type="Microsoft.Azure.Batch.Samples.TelemetryInitializer.AzureBatchNodeTelemetryInitializer, Microsoft.Azure.Batch.Samples.TelemetryInitializer"/>
 </TelemetryInitializers>
-``` 
+```
 
 ## <a name="update-the-job-and-tasks-to-include-application-insights-binaries"></a>Application Insights 이진 파일을 포함하도록 작업 및 태스크를 업데이트합니다.
 
@@ -200,6 +198,7 @@ private static readonly List<string> AIFilesToUpload = new List<string>()
 ```
 
 다음으로 태스크에서 사용할 준비 파일을 만듭니다.
+
 ```csharp
 ...
 // create file staging objects that represent the executable and its dependent assembly to run as the task.
@@ -219,6 +218,7 @@ foreach (string aiFile in AIFilesToUpload)
 `FileToStage` 메서드는 로컬 디스크에서 Azure Storage BLOB으로 파일을 간편하게 업로드할 수 있게 해주는 코드 샘플의 도우미 함수입니다. 각 파일은 나중에 컴퓨팅 노드로 다운로드되어 태스크에 의해 참조됩니다.
 
 마지막으로 작업에 태스크를 추가하고 필요한 Application Insights 이진 파일을 포함합니다.
+
 ```csharp
 ...
 // initialize a collection to hold the tasks that will be submitted in their entirety
@@ -260,7 +260,7 @@ Application Insights를 사용하도록 작업 및 태스크를 구성했으니,
 
 Application Insights 리소스에서 추적 로그를 보려면 **라이브 스트림** 을 클릭합니다. 다음 스크린샷은 풀의 컴퓨팅 노드에서 오는 라이브 데이터(예: 컴퓨팅 노드당 CPU 사용량)를 보는 방법을 보여줍니다.
 
-![라이브 스트림 컴퓨팅 노드 데이터](./media/monitor-application-insights/applicationinsightslivestream.png)
+![라이브 스트림 계산 노드 데이터의 스크린샷](./media/monitor-application-insights/applicationinsightslivestream.png)
 
 ### <a name="view-trace-logs"></a>추적 로그 보기
 
@@ -268,30 +268,30 @@ Application Insights 리소스에서 추적 로그를 보려면 **검색** 을 �
 
 다음 스크린샷은 태스크에 대한 단일 추적이 기록되고 나중에 디버깅을 위해 쿼리되는 원리를 보여줍니다.
 
-![추적 로그 이미지](./media/monitor-application-insights/tracelogsfortask.png)
+![단일 추적에 대 한 로그를 보여 주는 스크린샷](./media/monitor-application-insights/tracelogsfortask.png)
 
 ### <a name="view-unhandled-exceptions"></a>처리되지 않은 예외 보기
 
-다음 스크린샷은 애플리케이션에서 Application Insights 로그 예외가 throw되는 원리를 보여줍니다. 이 예에서는 애플리케이션이 예외를 throw한 후 수 초 이내에 특정 예외를 자세히 들여다 보고 문제를 진단할 수 있습니다.
+Application Insights 응용 프로그램에서 throw 된 예외를 기록 합니다. 이 예에서는 애플리케이션이 예외를 throw한 후 수 초 이내에 특정 예외를 자세히 들여다 보고 문제를 진단할 수 있습니다.
 
-![처리되지 않은 예외](./media/monitor-application-insights/exception.png)
+![처리 되지 않은 예외를 보여 주는 스크린샷](./media/monitor-application-insights/exception.png)
 
 ### <a name="measure-blob-download-time"></a>BLOB 다운로드 시간 측정
 
 사용자 지정 메트릭도 포털의 유용한 도구입니다. 예를 들어 각 컴퓨팅 노드가 처리 중인 필수 텍스트 파일을 다운로드하는 데 걸린 평균 시간을 표시할 수 있습니다.
 
 샘플 차트를 만들려면:
+
 1. Application Insights 리소스에서 **메트릭 탐색기** > **차트 추가** 를 클릭합니다.
-2. 추가된 차트에서 **편집** 을 클릭합니다.
-2. 다음과 같이 차트 세부 정보를 업데이트합니다.
-   * **차트 종류** 를 **그리드** 로 설정합니다.
-   * **집계** 를 **평균** 으로 설정합니다.
-   * **그룹화 기준** 을 **NodeId** 로 설정합니다.
-   * **메트릭** 에서 **사용자 지정** > **다음 시간(초) 후에 BLOB 다운로드** 를 선택합니다.
-   * 디스플레이 **색상표** 를 원하는 대로 조정합니다. 
+1. 추가된 차트에서 **편집** 을 클릭합니다.
+1. 다음과 같이 차트 세부 정보를 업데이트합니다.
+   - **차트 종류** 를 **그리드** 로 설정합니다.
+   - **집계** 를 **평균** 으로 설정합니다.
+   - **그룹화 기준** 을 **NodeId** 로 설정합니다.
+   - **메트릭** 에서 **사용자 지정** > **다음 시간(초) 후에 BLOB 다운로드** 를 선택합니다.
+   - 디스플레이 **색상표** 를 원하는 대로 조정합니다.
 
-![노드당 BLOB 다운로드 시간](./media/monitor-application-insights/blobdownloadtime.png)
-
+![노드당 blob 다운로드 시간을 보여 주는 차트의 스크린샷](./media/monitor-application-insights/blobdownloadtime.png)
 
 ## <a name="monitor-compute-nodes-continuously"></a>컴퓨팅 노드를 지속적으로 모니터링
 
@@ -327,16 +327,12 @@ pool.StartTask = new StartTask()
 
 > [!TIP]
 > 솔루션의 관리 효율성을 개선하려면 어셈블리를 [애플리케이션 패키지](./batch-application-packages.md)에 번들화하면 됩니다. 그런 다음, 풀에 애플리케이션 패키지를 자동으로 배포하도록 풀 구성에 애플리케이션 패키지 참조를 추가합니다.
->
 
-## <a name="throttle-and-sample-data"></a>스로틀 및 샘플 데이터 
+## <a name="throttle-and-sample-data"></a>스로틀 및 샘플 데이터
 
 프로덕션 환경에서 실행되는 Azure Batch 애플리케이션은 그 규모가 크기 때문에 비용 관리를 위해 Application Insights에서 수집하는 데이터 양을 제한할 수 있습니다. 자세한 메커니즘은 [Application Insights의 샘플링](../azure-monitor/app/sampling.md)을 참조하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights](../azure-monitor/app/app-insights-overview.md)에 대해 자세히 알아봅니다.
 
-* Application Insights의 다른 언어 지원에 대한 내용은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조하세요.
-
-
+- [Application Insights](../azure-monitor/app/app-insights-overview.md)에 대해 자세히 알아봅니다.
+- 다른 언어에 대 한 Application Insights 지원은 [언어, 플랫폼 및 통합 설명서](../azure-monitor/app/platforms.md)를 참조 하세요.

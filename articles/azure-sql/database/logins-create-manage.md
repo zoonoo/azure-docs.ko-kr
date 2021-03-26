@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: d03bce1566d4f56a576c980723571f587296236f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6383c0fa3aad15da8abaea79136a75732ce9ea01
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96452430"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605776"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -142,7 +142,7 @@ ms.locfileid: "96452430"
   - 고정 데이터베이스 역할에 사용자를 추가하려면:
 
     - Azure SQL Database에서 [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) 문을 사용합니다. 예제는 [ALTER ROLE 예제](/sql/t-sql/statements/alter-role-transact-sql#examples)를 참조하세요.
-    - Azure Synapse [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 문을 사용 합니다. 예제는 [sp_addrolemember 예제](/sql/t-sql/statements/alter-role-transact-sql)를 참조하세요.
+    - Azure Synapse [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 문을 사용 합니다. 예제는 [sp_addrolemember 예제](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql#examples)를 참조하세요.
 
 - **사용자 지정 데이터베이스 역할**
 

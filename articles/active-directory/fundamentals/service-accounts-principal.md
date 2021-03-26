@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587851"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604705"
 ---
 # <a name="securing-service-principals"></a>서비스 주체 보안
 
@@ -96,6 +96,7 @@ PowerShell 사용
 서비스 사용자의 보안을 평가 하려면 권한 및 자격 증명 저장소를 평가 해야 합니다.
 
 다음 정보를 사용 하 여 잠재적인 문제를 완화 합니다.
+
 |과제 | 해결 방법|
 | - | - |
 | 다중 테 넌 트 앱에 동의한 사용자를 검색 하 고 다중 테 넌 트 앱에 대 한 불법 승인 부여를 검색 합니다. | 다음 PowerShell을 실행 하 여 다중 테 넌 트 앱을 찾습니다.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>사용자 동의를 사용 하지 않습니다. <br>선택한 권한에 대해 확인 된 게시자의 사용자 동의 허용 (권장) <br> 조건부 액세스를 사용 하 여 신뢰할 수 없는 위치의 서비스 사용자를 차단할 수 있습니다. 사용자 컨텍스트에서 구성 하 고 해당 토큰을 사용 하 여 서비스 주체를 트리거합니다.|

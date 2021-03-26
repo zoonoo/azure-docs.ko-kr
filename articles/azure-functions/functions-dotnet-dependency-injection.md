@@ -4,15 +4,15 @@ description: .NET 함수의 서비스를 등록하고 사용할 때 종속성 �
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 01/27/2021
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 32cd2760eadc94466cdf55883611c78ac0cf24e6
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955091"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608122"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -21,6 +21,11 @@ Azure Functions는 클래스와 해당 종속성 간에 [IoC(제어 반전)](/do
 - Azure Functions의 종속성 주입은 .NET Core 종속성 주입 기능을 기반으로 합니다. [.NET Core 종속성 주입](/aspnet/core/fundamentals/dependency-injection)에 대해 잘 알고 있는 것이 좋습니다. Azure Functions의 사용 계획에서 종속성을 재정의하는 방법과 관련 구성 값을 읽는 방법에는 차이가 있습니다.
 
 - 종속성 주입에 대한 지원은 Azure Functions 2.x부터 제공됩니다.
+
+- 종속성 주입 패턴은 c # 함수가 [in-process로](functions-dotnet-class-library.md) 실행 되는지, 아니면 [out-of-process](dotnet-isolated-process-guide.md)로 실행 되는지에 따라 달라 집니다.  
+
+> [!IMPORTANT]
+> 이 문서의 지침은 런타임에 in-process로 실행 되는 [c # 클래스 라이브러리 함수](functions-dotnet-class-library.md)에만 적용 됩니다. 이 사용자 지정 종속성 주입 모델은 .net 5.0 함수를 out-of-process로 실행할 수 있는 [.net isolated 함수](dotnet-isolated-process-guide.md)에는 적용 되지 않습니다. .NET isolated 프로세스 모델은 일반 ASP.NET Core 종속성 주입 패턴을 사용 합니다. 자세히 알아보려면 .NET 격리 된 프로세스 가이드의 [종속성 주입](dotnet-isolated-process-guide.md#dependency-injection) 을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

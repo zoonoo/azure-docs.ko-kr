@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721284"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606779"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 응용 프로그램 크기 조정
 
@@ -43,6 +43,9 @@ Azure에서 HPC 응용 프로그램의 최적의 확장 및 확장 성능을 위
    ```bash
    Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
    ```
+
+## <a name="adaptive-routing"></a>적응 라우팅
+AR (적응 라우팅)는 EDR 및 HDR InfiniBand을 실행 하는 Vm (Azure Virtual Machines)에서 더 최적의 네트워크 경로를 동적으로 선택 하 여 네트워크 정체를 자동으로 감지 하 고 방지할 수 있도록 합니다. 결과적으로 AR는 InfiniBand 네트워크에 대 한 대기 시간 및 대역폭을 개선 하 여 더 높은 성능 및 확장성 효율성을 제공 합니다. 자세한 내용은 [TechCommunity 문서](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217)를 참조 하세요.
 
 ## <a name="process-pinning"></a>프로세스 고정
 

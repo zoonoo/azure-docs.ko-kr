@@ -2,21 +2,22 @@
 title: 사용자 계정으로 작업 실행
 description: 사용자 계정 유형과 구성 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 03/25/2021
 ms.custom: seodec18
-ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b19e0c10834b3c5215d14c6c5ae20caaacb4bc64
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88719362"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606609"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
 > [!NOTE]
 > 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다.
 >
-> SSH를 통해 Linux 가상 머신 구성을 실행하는 노드에 연결하려면 [Azure에서 Linux VM에 대해 원격 데스크톱 사용](../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. RDP를 통해 Windows를 실행하는 노드에 연결하려면 [Windows Server VM에 연결](../virtual-machines/windows/connect-logon.md)을 참조하세요.<br /><br />
+> SSH를 통해 Linux 가상 머신 구성을 실행 하는 노드에 연결 하려면 Ubuntu에서 [원격 데스크톱을 사용 하도록 xrdp 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)을 참조 하세요. RDP를 통해 Windows를 실행 하는 노드에 연결 하려면 [windows를 실행 하는 Azure 가상 머신에 연결 하 고 로그온 하는 방법](../virtual-machines/windows/connect-logon.md)을 참조 하세요.
+>
 > RDP를 통해 클라우드 서비스 구성을 실행하는 노드에 연결하려면 [Azure Cloud Services의 역할에 대해 원격 데스크톱 연결 사용](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)을 참조하세요.
 
 Azure Batch의 태스크는 항상 사용자 계정으로 실행됩니다. 기본적으로 태스크는 관리자 권한 없이 표준 사용자 계정으로 실행됩니다. 특정 시나리오의 경우 작업을 실행 하려는 사용자 계정을 구성할 수 있습니다. 이 문서에서는 사용자 계정의 유형과 시나리오에 맞게 구성 하는 방법을 설명 합니다.
@@ -30,7 +31,7 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 - **명명된 사용자 계정.** 풀을 만들 때 풀에 대해 하나 이상의 명명된 사용자 계정을 지정할 수 있습니다. 각 사용자 계정은 풀의 각 노드에서 생성됩니다. 계정 이름 외에도 계정 암호, 권한 상승 수준을 지정할 수 있으며, Linux 풀의 경우에는 SSH 프라이빗 키도 지정할 수 있습니다. 태스크를 추가할 때 해당 태스크를 실행할 명명된 사용자 계정을 지정할 수 있습니다.
 
 > [!IMPORTANT]
-> Batch 서비스 버전 2017-01-01.4.0에서는 해당 버전을 호출하기 위해 코드를 업데이트해야 하는 주요 변경 내용이 추가되었습니다. 이전 버전의 Batch에서 코드를 마이그레이션하는 경우 REST API 또는 Batch 클라이언트 라이브러리에서 **runElevated** 속성이 더 이상 지원되지 않습니다. 태스크의 새로운 **userIdentity** 속성을 사용하여 권한 상승 수준을 지정합니다. 클라이언트 라이브러리 중 하나를 사용 하는 경우 Batch 코드를 업데이트 하는 방법에 대 한 간략 한 지침은 [최신 batch 클라이언트 라이브러리로 코드 업데이트를](#update-your-code-to-the-latest-batch-client-library) 참조 하세요.
+> Batch 서비스 버전 2017-01.txt-01.4.0에는 해당 버전 이상을 호출 하도록 코드를 업데이트 해야 하는 주요 변경 내용이 도입 되었습니다. 이전 버전에서 일괄 처리 코드를 업데이트 하는 방법에 대 한 간략 한 지침은 [최신 batch 클라이언트 라이브러리로 코드 업데이트를](#update-your-code-to-the-latest-batch-client-library) 참조 하세요.
 
 ## <a name="user-account-access-to-files-and-directories"></a>파일 및 디렉터리에 대한 사용자 계정 액세스
 
@@ -77,6 +78,7 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
 ```
+
 #### <a name="batch-java"></a>Batch Java
 
 ```java
@@ -278,7 +280,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 
 ## <a name="update-your-code-to-the-latest-batch-client-library"></a>최신 Batch 클라이언트 라이브러리로 코드 업데이트
 
-2017-01-01.4.0의 Batch 서비스 버전에는 중요한 변경 내용이 추가되었으며 이전 버전에서 사용할 수 있던 **runElevated** 속성이 **userIdentity** 속성으로 바뀌었습니다. 다음 표에서는 이전 버전의 클라이언트 라이브러리에서 코드를 업데이트하는 데 사용할 수 있는 간단한 매핑을 제공합니다.
+Batch 서비스 버전 2017-01.txt-01.4.0는 주요 변경 사항을 도입 하 여 이전 버전에서 사용 가능한 **Runelevated** 된 속성을 **useridentity** 속성으로 바꿉니다. 다음 표에서는 이전 버전의 클라이언트 라이브러리에서 코드를 업데이트하는 데 사용할 수 있는 간단한 매핑을 제공합니다.
 
 ### <a name="batch-net"></a>Batch .NET
 

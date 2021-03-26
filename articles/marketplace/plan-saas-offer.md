@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b1bb749400cfb1e289a0a335275f4654d37145e9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046507"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604942"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -37,9 +37,9 @@ ms.locfileid: "105046507"
 
 이러한 목록 옵션에 대 한 자세한 내용은 [상업적 marketplace의 기능](marketplace-commercial-transaction-capabilities-and-considerations.md)을 참조 하세요.
 
-제품이 게시 된 후 제품에 대해 선택한 목록 옵션이 제품 목록 페이지의 왼쪽 위 모서리에 단추로 나타납니다. 예를 들어 다음 스크린샷에서는 **지금 가져오기** 및 **드라이브 테스트** 단추와 Azure Marketplace의 제품 목록 페이지를 보여 줍니다.
+제품이 게시 된 후 제품에 대해 선택한 목록 옵션이 제품 목록 페이지의 왼쪽 위 모서리에 단추로 나타납니다. 예를 들어 다음 스크린샷에서는 **지금 가져오기** 단추를 사용 하 여 Azure Marketplace의 제품 목록 페이지를 보여 줍니다.
 
-![온라인 스토어의 제품 목록을 보여 줍니다.](./media/listing-options.png)
+![온라인 스토어의 제품 목록을 보여 줍니다.](./media/saas/listing-options-saas-full.png)
 
 ## <a name="technical-requirements"></a>기술 요구 사항
 
@@ -79,7 +79,7 @@ _지금 가져오기 (무료)_, _무료 평가판_ 및 Microsoft 목록 옵션�
   제공 하는 웹 후크는 24/7을 실행 해야 합니다. 이 방법은 상용 marketplace를 통해 구매한 고객의 SaaS 구독에 대 한 업데이트에 대 한 알림을 받을 수 있는 유일한 방법입니다.
 
   > [!NOTE]
-  > Azure Portal 내에서 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱 등록](../active-directory/develop/howto-create-service-principal-portal.md)을 만들어야 합니다. Marketplace Api를 호출할 때 앱 등록 정보를 사용 하 여 솔루션을 인증 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예: `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Azure Portal 내에서 단일 테 넌 트 [Azure Active Directory (AZURE AD) 앱 등록](../active-directory/develop/howto-create-service-principal-portal.md)을 만들어야 합니다. Marketplace Api를 호출할 때 앱 등록 정보를 사용 하 여 솔루션을 인증 합니다. [테 넌 트 ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 고 **속성** 을 선택한 다음 나열 된 디렉터리 ID 번호를 확인 합니다. 예들 들어 `50c464d3-4930-494c-963c-1e951d15360e`입니다.
 
 - **Azure Active Directory 테 넌 트 id**: (디렉터리 id 라고도 함) Azure Portal 내에서 API의 ACL (액세스 제어 목록)에 추가 하 여 호출할 권한이 있는지 확인할 수 있도록 [AD (Azure Active Directory) 앱을 등록](../active-directory/develop/howto-create-service-principal-portal.md) 해야 합니다. Azure Active Directory (AD) 앱에 대 한 테 넌 트 ID를 찾으려면 Azure Active Directory의 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 블레이드로 이동 합니다. **표시 이름** 열에서 앱을 선택 합니다. 그런 다음 나열 된 **디렉터리 (테 넌 트) ID** 번호 (예: `50c464d3-4930-494c-963c-1e951d15360e` )를 찾습니다.
 
@@ -138,7 +138,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 
 파트너 센터에서 [새 SaaS 제품을 만들](create-new-saas-offer.md) 때 **제품 목록** 페이지에 텍스트, 이미지, 선택적 비디오 및 기타 세부 정보를 입력 합니다. 다음 예제와 같이 상용 marketplace에서 제품 목록을 검색할 때 고객이 보게 될 정보입니다.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="이 제품이 Microsoft AppSource 표시 되는 방식을 보여 줍니다.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="이 제품이 Microsoft AppSource 표시 되는 방식을 보여 줍니다.":::
 
 **호출 설명**
 
@@ -202,7 +202,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
   - .png 파일
   - 캡션을 포함 해야 합니다.
 - **미디어-비디오** (선택 사항): 제품을 설명 하는 다음과 같은 요구 사항을 사용 하 여 최대 4 개의 비디오를 추가할 수 있습니다.
-  - Name
+  - 이름
   - URL: YouTube 또는 Vimeo에만 호스팅되어야 합니다.
   - 축소판 그림: 1280 x 720 .png 파일
 

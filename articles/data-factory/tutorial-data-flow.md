@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584519"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563296"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>데이터 흐름 매핑을 사용하여 데이터 변환
 
@@ -24,7 +24,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 이 자습서에서는 Azure Data Factory 사용자 인터페이스 (UX)를 사용 하 여 데이터 흐름 매핑을 사용 하 여 Azure Data Lake Storage (ADLS) Gen2 원본에서 ADLS Gen2 싱크로 데이터를 복사 하 고 변환 하는 파이프라인을 만듭니다. 이 자습서의 구성 패턴은 데이터 흐름 매핑을 사용 하 여 데이터를 변환할 때 확장 될 수 있습니다.
 
  >[!NOTE]
-   >이 자습서는 데이터 흐름을 일반적으로 매핑하기 위한 것입니다. 데이터 흐름은 Azure Data Factory 및 Synapse 파이프라인 모두에서 사용할 수 있습니다. Azure Synapse 파이프라인에서 데이터 흐름을 처음 접하는 경우 [Azure Synapse 파이프라인을 사용 하 여 데이터 흐름](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 에 따라 이동 하세요. 
+   >이 자습서는 데이터 흐름을 일반적으로 매핑하기 위한 것입니다. 데이터 흐름은 Azure Data Factory 및 Synapse 파이프라인 모두에서 사용할 수 있습니다. Azure Synapse 파이프라인에서 데이터 흐름을 처음 접하는 경우 [Azure Synapse 파이프라인을 사용 하 여 데이터 흐름](../synapse-analytics/concepts-data-flow-overview.md) 에 따라 이동 하세요. 
    
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -54,7 +54,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
    Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. (예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 
-    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복 된 이름에 대 한 새 data factory 오류 메시지입니다.":::
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복된 이름에 대한 새 데이터 팩터리 오류 메시지.":::
 4. 데이터 팩터리를 만들 Azure **구독** 을 선택합니다.
 5. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
 
@@ -134,7 +134,7 @@ Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](int
 
     디버그 클러스터가 활성 상태 이면 **새로 고침** 을 클릭 하 여 논리를 확인할 수 있습니다. 사용 된 입력에 대 한 식 출력을 볼 수 있습니다. 데이터 흐름 식 언어를 사용 하 여이 논리를 수행 하는 방법에는 두 개 이상의 올바른 대답이 있습니다.
 
-    ![Assert](media/tutorial-data-flow/filter2.png)
+    ![필터](media/tutorial-data-flow/filter2.png)
 
     **저장을** 클릭 하 고 식을 사용 하 여 작업을 완료 합니다.
 

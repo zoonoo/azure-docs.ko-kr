@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: d3d10eb496899287e93a96f0cbb06dedf83c601d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 86a656630f6c41e2cf6682d0160cce345d1f564d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048632"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606626"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -711,13 +711,13 @@ SPX는 코드를 작성 하지 않고 Azure Speech service를 사용 하는 명�
 **버그 수정**
 
 - 대화 기록을 사용할 때 FromSubscription을 수정 합니다.
-- 음성 도우미에 대 한 발견 키워드의 버그를 수정 합니다.
+- 음성 도우미에 대 한 키워드 인식에서 버그를 수정 합니다.
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019-릴리스 수
 
 **새로운 기능**
 
-- 이제 Windows 및 Linux에서 KWS (Keyword 발견)를 사용할 수 있습니다. KWS 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
+- 이제 Windows 및 Linux에서 키워드 인식 기능을 사용할 수 있습니다. 이 기능은 모든 마이크 유형에 서 작동할 수 있지만 현재 공식 지원은 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 됩니다.
 - 구문 힌트 기능은 SDK를 통해 사용할 수 있습니다. 자세한 내용은 [여기](./get-started-speech-to-text.md)를 참조하세요.
 - 대화 내용 기능은 SDK를 통해 사용할 수 있습니다. [여기](./conversation-transcription.md)를 참조 하세요.
 - 직접 선 음성 채널을 사용 하 여 음성 도우미에 대 한 지원을 추가 합니다.

@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: aef8fbacf8302fb5dd4b5fe28afc615c6bf56090
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9dcb5b84faa47b7307ce8441003e8591d7c2757b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102100987"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604790"
 ---
 # <a name="set-map-style-android-sdk"></a>지도 스타일 설정 (Android SDK)
 
 이 문서에서는 Azure Maps Android SDK를 사용 하 여 지도 스타일을 설정 하는 두 가지 방법을 보여 줍니다. Azure Maps에는 6 가지 맵 스타일을 선택할 수 있습니다. 지원 되는 지도 스타일에 대 한 자세한 내용은 [Azure Maps에서 지원 되는 맵 스타일](supported-map-styles.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다.
 
@@ -83,7 +83,7 @@ mapControl!!.onReady { map: AzureMap ->
 
 ## <a name="setting-the-map-camera"></a>지도 카메라 설정
 
-지도 카메라는 지도에 표시 되는 지도의 부분을 제어 합니다. 카메라는 프로그래밍 방식으로 코드에서 레이아웃에 있을 수 있습니다. 코드에서 설정할 때 맵의 위치를 설정 하는 두 가지 주요 방법이 있습니다. 중심 및 확대/축소를 사용 하거나 경계 상자를 전달 합니다. 다음 코드에서는 및를 사용할 때 모든 선택적 카메라 옵션을 설정 하는 방법을 보여 줍니다 `center` `zoom` .
+지도 카메라는 지도 뷰포트에 표시 되는 전 세계 부분을 제어 합니다. 카메라는 프로그래밍 방식으로 코드에서 레이아웃에 있을 수 있습니다. 코드에서 설정할 때 맵의 위치를 설정 하는 두 가지 주요 방법이 있습니다. 중심 및 확대/축소를 사용 하거나 경계 상자를 전달 합니다. 다음 코드에서는 및를 사용할 때 모든 선택적 카메라 옵션을 설정 하는 방법을 보여 줍니다 `center` `zoom` .
 
 ::: zone pivot="programming-language-java-android"
 
@@ -104,7 +104,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -130,7 +130,7 @@ map.setCamera(
     //The minimum zoom level the map will zoom-out to when animating from one location to another on the map.
     minZoom(10),
     
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
@@ -162,7 +162,7 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 );
 ```
@@ -192,7 +192,7 @@ map.setCamera(
     //Amount of pixel buffer around the bounding box to provide extra space around the bounding box.
     padding(20),
 
-    //The maximium zoom level the map will zoom-in to when animating from one location to another on the map.
+    //The maximum zoom level the map will zoom-in to when animating from one location to another on the map.
     maxZoom(14)
 )
 ```
