@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: ced066623d23c6894745374ace812454c52f3109
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 29fb96dc83ada329910844506838dee461321343
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103420020"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866338"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -46,11 +46,11 @@ Scala 플러그 인을 설치 하는 단계:
 
 2. 시작 화면에서 **구성** > **플러그인** 으로 이동하여 **플러그인** 창을 엽니다.
 
-    ![IntelliJ 아이디어가 scala 플러그 인을 사용 하도록 설정](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png" alt-text="IntelliJ 아이디어가 scala 플러그 인을 사용 하도록 설정" border="true":::
 
 3. 새 창에 제공되는 Scala 플러그인에 대해 **설치** 를 선택합니다.  
 
-    ![IntelliJ 아이디어가 scala 플러그 인을 설치 합니다.](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png" alt-text="IntelliJ 아이디어가 scala 플러그 인을 설치 합니다." border="true":::
 
 4. 플러그 인이 성공적으로 설치된 후에 IDE를 다시 시작해야 합니다.
 
@@ -66,7 +66,7 @@ Scala 플러그 인을 설치 하는 단계:
    * **Maven**: Scala 프로젝트 만들기 마법사 지원의 경우
    * **SBT** - 종속성 관리 및 Scala 프로젝트용 빌드의 경우
 
-     ![IntelliJ IDEA 새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png" alt-text="IntelliJ IDEA 새 프로젝트 대화 상자" border="true":::
 
 5. **다음** 을 선택합니다.
 
@@ -79,7 +79,7 @@ Scala 플러그 인을 설치 하는 단계:
     |프로젝트 SDK| 처음으로 아이디어를 사용할 때이 필드가 비어 있을 수 있습니다.  **새로 만들기...** 를 만들기 JDK로 이동합니다.|
     |Spark 버전|만들기 마법사는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. Spark 클러스터 버전이 2.0 이전인 경우 **Spark 1.x** 를 선택합니다. 그렇지 않으면 **Spark2.x** 를 선택합니다. 이 예제에서는 **Spark 2.3.0(Scala 2.11.8)** 을 사용합니다.|
 
-    ![Apache Spark SDK 선택](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-new-project.png" alt-text="Apache Spark SDK 선택" border="true":::
 
 7. **마침** 을 선택합니다.  프로젝트를 사용할 수 있게 되기까지 몇 분 정도 걸릴 수 있습니다.
 
@@ -91,7 +91,7 @@ Scala 플러그 인을 설치 하는 단계:
 
    다. 아티팩트를 본 후에 **취소**  를 선택 합니다.
 
-      ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
+      :::image type="content" source="./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png" alt-text="대화 상자의 아티팩트 정보" border="true":::
 
 9. 다음 단계를 수행 하 여 응용 프로그램 소스 코드를 추가 합니다.
 
@@ -99,11 +99,11 @@ Scala 플러그 인을 설치 하는 단계:
 
     b. 마우스 오른쪽 단추로 **scala** 를 클릭하고 **새로 만들기** > **Scala 클래스** 로 이동합니다.
 
-   ![프로젝트에서 Scala 클래스를 만들기 위한 명령](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png" alt-text="프로젝트에서 Scala 클래스를 만들기 위한 명령" border="true":::
 
-   다. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체** 를 선택한 다음, **확인** 을 선택합니다.
+   c. **새 Scala 클래스 만들기** 대화 상자에서 이름을 제공하고 **종류** 드롭다운 목록에서 **개체** 를 선택한 다음, **확인** 을 선택합니다.
 
-     ![새 Scala 클래스 만들기 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
+     :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png" alt-text="새 Scala 클래스 만들기 대화 상자" border="true":::
 
    d. 그러면 **myApp.scala** 파일이 기본 보기에서 열립니다. 기본 코드를 아래 코드로 바꿉니다.  
 
@@ -137,39 +137,39 @@ Scala 플러그 인을 설치 하는 단계:
 
 1. 메뉴 모음에서 **보기** > **도구 창** > **Azure 탐색기** 로 이동합니다.
 
-   ![Azure 탐색기를 보여 주는 IntelliJ 아이디어](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png" alt-text="Azure 탐색기를 보여 주는 IntelliJ 아이디어" border="true":::
 
 2. Azure 탐색기에서 **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음, **로그인** 을 선택합니다.
 
-   ![IntelliJ IDEA 탐색기에서 Azure를 마우스 오른쪽 단추로 클릭](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png" alt-text="IntelliJ 아이디어 탐색기 azure를 마우스 오른쪽 단추로 클릭 합니다." border="true":::
 
 3. **Azure 로그인** 대화 상자에서 **디바이스 로그인** 과 **로그인** 을 차례로 선택합니다.
 
-    ![' IntelliJ 아이디어 azure 로그인 장치 로그인 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png" alt-text="' IntelliJ 아이디어 azure 로그인 장치 로그인 '" border="true":::
 
 4. **Azure 디바이스 로그인** 대화 상자에서 **복사 및 열기** 를 클릭합니다.
 
-   ![' IntelliJ 아이디어 azure device 로그인 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png" alt-text="' IntelliJ 아이디어 azure device 로그인 '" border="true":::
 
 5. 브라우저 인터페이스에서 코드를 붙여넣고 **다음** 을 클릭합니다.
 
-   ![' HDI '의 Microsoft 입력 코드 대화 상자](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png" alt-text="' HDI '의 Microsoft 입력 코드 대화 상자" border="true":::
 
 6. Azure 자격 증명을 입력한 다음, 브라우저를 닫습니다.
 
-   ![' HDI '의 Microsoft 입력 전자 메일 대화 상자](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png" alt-text="' HDI '의 Microsoft 입력 전자 메일 대화 상자" border="true":::
 
 7. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. 구독을 선택한 후 **선택** 단추를 선택합니다.
 
-    ![구독 선택 대화 상자](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png" alt-text="구독 선택 대화 상자" border="true":::
 
 8. **Azure 탐색기** 에서 **HDInsight** 를 확장하여 구독에 포함된 HDInsight Spark 클러스터를 표시합니다.
 
-    ![IntelliJ IDEA Azure Explorer 기본 보기](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png" alt-text="IntelliJ IDEA Azure Explorer 기본 보기" border="true":::
 
 9. 클러스터와 연결된 리소스(예: 스토리지 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
 
-    ![Azure Explorer 스토리지 계정](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png" alt-text="Azure Explorer 스토리지 계정" border="true":::
 
 ### <a name="link-a-cluster"></a>클러스터 연결
 
@@ -179,7 +179,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
 
 1. Azure 탐색기에서 **HDInsight** 노드를 마우스 오른쪽 단추로 클릭한 다음, **클러스터 연결** 을 선택합니다.
 
-   ![Azure Explorer에서 클러스터에 연결 상황에 맞는 메뉴](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png" alt-text="Azure Explorer에서 클러스터에 연결 상황에 맞는 메뉴" border="true":::
 
 1. **클러스터 연결** 창에 표시되는 사용 가능한 옵션은 **링크 리소스 유형** 드롭다운 목록에서 선택한 값에 따라 다릅니다.  값을 입력하고 **확인** 을 선택합니다.
 
@@ -193,7 +193,7 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|
 
-        ![IntelliJ IDEA에서 클러스터에 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        :::image type="content" source="./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png" alt-text="IntelliJ IDEA에서 클러스터에 연결 대화 상자" border="true":::
 
     * **Livy 서비스**  
   
@@ -207,15 +207,15 @@ Apache Ambari 관리 사용자 이름을 사용하여 HDInsight 클러스터에 
         |사용자 이름| 클러스터 사용자 이름을 입력합니다. 기본값은 admin입니다.|
         |암호| 사용자 이름에 대한 암호를 입력합니다.|
 
-        ![IntelliJ IDEA에서 Livy 클러스터에 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        :::image type="content" source="./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png" alt-text="IntelliJ IDEA에서 Livy 클러스터에 연결 대화 상자" border="true":::
 
 1. **HDInsight** 노드에서 연결된 클러스터를 볼 수 있습니다.
 
-   ![Azure Explorer에서 cluster1에 연결됨](./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png" alt-text="Azure Explorer에서 cluster1에 연결됨" border="true":::
 
 1. **Azure Explorer** 에서 클러스터 연결을 해제할 수도 있습니다.
 
-   ![Azure Explorer에서 클러스터에 연결 해제](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png" alt-text="Azure Explorer에서 클러스터에 연결 해제" border="true":::
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에서 Spark Scala 애플리케이션 실행
 
@@ -223,7 +223,7 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
 
 1. 프로젝트에서 **myApp** > **src** > **main** > **scala** > **myApp** 으로 이동합니다.  **myApp** 을 마우스 오른쪽 단추로 클릭하고 **Spark 애플리케이션 제출**(일반적으로 목록 맨 아래에 표시됨)을 선택합니다.
 
-      ![HDInsight에 Spark 애플리케이션 제출 명령](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
+      :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png" alt-text="HDInsight에 Spark 애플리케이션 제출 명령" border="true":::
 
 2. **Spark 응용 프로그램 제출** 대화 상자 창에서 1을 선택 **합니다. HDInsight의 Spark**.
 
@@ -243,11 +243,11 @@ Scala 애플리케이션을 작성한 후 이를 클러스터에 제출할 수 �
     |스토리지 키|스토리지 키를 입력합니다.|
     |스토리지 컨테이너|**스토리지 계정** 및 **스토리지 키** 를 입력했으면 드롭다운 목록에서 스토리지 컨테이너를 선택합니다.|
 
-    ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="Spark 제출 대화 상자" border="true":::
 
 4. **SparkJobRun** 을 선택하여 선택된 클러스터에 프로젝트를 제출합니다. **클러스터의 원격 Spark 작업** 탭 아래쪽에는 작업 실행 진행률이 표시됩니다. 빨간색 단추를 클릭하여 애플리케이션을 중지할 수 있습니다.
 
-    ![Apache Spark 제출 창](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png" alt-text="Apache Spark 제출 창" border="true":::
 
 ## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 로컬 또는 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -261,19 +261,19 @@ Azure Toolkit for IntelliJ를 사용 하 여 다양 한 작업을 수행할 수 
 
 1. Azure 탐색기에서 **HDInsight** 작업으로 이동  >  \<Your Cluster>  >  합니다.
 
-    ![IntelliJ Azure Explorer 작업 보기 노드](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png" alt-text="IntelliJ Azure Explorer 작업 보기 노드" border="true":::
 
 2. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 애플리케이션이 표시됩니다. 자세한 내용을 보려면 원하는 애플리케이션 이름을 선택합니다.
 
-    ![Spark 작업 보기 애플리케이션 세부 정보](./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png" alt-text="Spark 작업 보기 애플리케이션 세부 정보" border="true":::
 
 3. 실행 중인 기본 작업 정보를 표시하려면 작업 그래프 위로 마우스를 가져갑니다. 모든 작업이 생성하는 단계 그래프 및 정보를 보려면 작업 그래프에서 노드를 선택합니다.
 
-    ![Spark 작업 보기 작업 단계 세부 정보](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png" alt-text="Spark 작업 보기 작업 단계 세부 정보" border="true":::
 
 4. *드라이버 Stderr*, *드라이버 Stdout* 및 *디렉터리 정보* 와 같은 자주 사용되는 로그를 보려면 **로그** 탭을 선택합니다.
 
-    ![Spark 작업 보기 로그 세부 정보](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png" alt-text="Spark 작업 보기 로그 세부 정보" border="true":::
 
 5. Spark 기록 UI 및 YARN UI (응용 프로그램 수준)를 볼 수 있습니다. 창 맨 위에 있는 링크를 선택 합니다.
 
@@ -320,7 +320,7 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
     |환경 변수|HADOOP_HOME의 값이 올바른지 확인합니다.|
     |WINUTILS.exe 위치|경로가 올바른지 확인합니다.|
 
-    ![로컬 콘솔 구성 설정](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/console-set-configuration.png" alt-text="로컬 콘솔 구성 설정" border="true":::
 
 5. 프로젝트에서 **myApp** > **src** > **main** > **scala** > **myApp** 으로 이동합니다.  
 
@@ -328,13 +328,13 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 
 7. 그러면 종속성을 자동으로 수정할 것인지 묻는 두 개의 대화 상자가 표시될 수 있습니다. 자동으로 수정하려면 **자동 수정** 을 선택합니다.
 
-    ![IntelliJ IDEA Spark 자동 수정 대화 상자1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png" alt-text="IntelliJ IDEA Spark 자동 수정 대화 상자1" border="true":::
 
-    ![IntelliJ IDEA Spark 자동 수정 대화 상자2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png" alt-text="IntelliJ IDEA Spark 자동 수정 대화 상자2" border="true":::
 
 8. 콘솔은 아래 그림과 같이 표시됩니다. 콘솔 창에서 `sc.appName`을 입력한 다음, Ctrl+Enter를 누릅니다.  결과가 표시됩니다. 빨간색 단추를 클릭 하 여 로컬 콘솔을 종료할 수 있습니다.
 
-    ![IntelliJ IDEA 로컬 콘솔 결과](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/local-console-result.png" alt-text="IntelliJ IDEA 로컬 콘솔 결과" border="true":::
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy 대화형 세션 콘솔(Scala)
 
@@ -351,7 +351,7 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
     |Spark 클러스터(Linux만 해당)|애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.|
     |주 클래스 이름|기본값은 선택한 파일의 기본 클래스입니다. 줄임표( **...** )를 선택하고 다른 클래스를 선택하여 클래스를 변경할 수 있습니다.|
 
-    ![대화형 콘솔 구성 설정](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png" alt-text="대화형 콘솔 구성 설정" border="true":::
 
 5. 프로젝트에서 **myApp** > **src** > **main** > **scala** > **myApp** 으로 이동합니다.  
 
@@ -359,13 +359,13 @@ WINUTILS.EXE 필수 구성 요소를 충족하는지 확인합니다.
 
 7. 콘솔은 아래 그림과 같이 표시됩니다. 콘솔 창에서 `sc.appName`을 입력한 다음, Ctrl+Enter를 누릅니다.  결과가 표시됩니다. 빨간색 단추를 클릭 하 여 로컬 콘솔을 종료할 수 있습니다.
 
-    ![IntelliJ IDEA 대화형 콘솔 결과](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/interactive-console-result.png" alt-text="IntelliJ IDEA 대화형 콘솔 결과" border="true":::
 
 ### <a name="send-selection-to-spark-console"></a>Spark 콘솔로 선택 내용 보내기
 
 일부 코드를 로컬 콘솔 또는 Livy 대화식 세션 콘솔(Scala)로 보내면 편리하게 스크립트 결과를 예측할 수 있습니다. Scala 파일에서 일부 코드를 강조 표시한 다음, 마우스 오른쪽 단추로 **Spark 콘솔로 선택 내용 보내기** 를 클릭합니다. 선택한 코드가 콘솔로 전송 됩니다. 결과는 콘솔의 코드 뒤에 표시됩니다. 콘솔에서 오류가 발생했는지 확인합니다.  
 
-   ![Spark 콘솔로 선택 내용 보내기](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png" alt-text="Spark 콘솔로 선택 항목 보내기" border="true":::
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>HIB(HDInsight Identity Broker)와 통합
 
@@ -379,7 +379,7 @@ Azure 구독에 로그인 하는 일반적인 단계에 따라 ID Broker ()를 �
 
 로그인 계정으로 이름이 지정 된 폴더에 필요한 파일을 업로드 하 고 구성 파일에서 업로드 경로를 볼 수 있습니다.
 
-   ![구성의 업로드 경로](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png" alt-text="구성의 업로드 경로" border="true":::
 
 ### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>ID Broker를 사용 하는 HDInsight ESP 클러스터의 Spark 콘솔 (계층 2)
 
@@ -398,16 +398,16 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
 2. **Azure 탐색기** 에서 **HDInsight** 를 확장하여 구독에 포함된 HDInsight 클러스터를 표시합니다. **"Role:Reader"** 표시가 있는 클러스터에는 판독기 전용 역할 권한만 있습니다.
 
-    ![' IntelliJ Azure Explorer 역할: 판독기 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png" alt-text="' IntelliJ Azure Explorer 역할: 판독기 '" border="true":::
 
 3. 판독기 전용 역할 권한이 있는 클러스터를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **Link this cluster**(이 클러스터 연결)를 선택하여 클러스터를 연결합니다. Ambari 사용자 이름 및 암호를 입력합니다.
 
-    ![IntelliJ Azure Explorer에서 이 클러스터에 연결](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png" alt-text="IntelliJ Azure Explorer에서 이 클러스터에 연결" border="true":::
 
 4. 클러스터가 연결되면 HDInsight가 새로 고쳐집니다.
    클러스터의 단계가 연결됨으로 변경됩니다.
   
-    ![IntelliJ Azure Explorer에서 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png" alt-text="IntelliJ Azure Explorer에서 연결 대화 상자" border="true":::
 
 ### <a name="link-cluster-by-expanding-jobs-node"></a>작업 노드를 확장하여 클러스터 연결
 
@@ -415,7 +415,7 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
 2. **Link this cluster**(이 클러스터 연결)를 클릭하여 클러스터를 연결합니다.
 
-    ![클러스터 작업 액세스 거부 대화 상자](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png)
+    :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png" alt-text="클러스터 작업 액세스 거부 대화 상자" border="true":::
 
 ### <a name="link-cluster-from-rundebug-configurations-window"></a>실행/디버그 구성 창에서 클러스터 연결
 
@@ -423,21 +423,21 @@ Spark 로컬 콘솔 (Scala)을 실행 하거나 ID Broker ()를 사용 하 여 H
 
 2. **Spark 클러스터(Linux 전용)** 에 대해 판독기 전용 역할 권한이 있는 클러스터를 선택합니다. 경고 메시지가 표시 됩니다. **이 클러스터에 연결** 을 클릭 하 여 클러스터에 연결할 수 있습니다.
 
-   ![IntelliJ IDEA 실행/디버그 구성 만들기](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/create-configuration.png" alt-text="IntelliJ IDEA 실행/디버그 구성 만들기" border="true":::
 
 ### <a name="view-storage-accounts"></a>스토리지 계정 보기
 
 * 판독기 전용 역할 권한이 있는 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage Explorer 열기** 를 클릭하여 Storage Explorer를 엽니다.
 
-   ![' IntelliJ 아이디어 저장소 액세스 거부 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png" alt-text="' IntelliJ 아이디어 저장소 액세스 거부 '" border="true":::
 
-   ![IntelliJ IDEA 스토리지 액세스 거부됨 단추](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png" alt-text="IntelliJ IDEA 스토리지 액세스 거부됨 단추" border="true":::
 
 * 연결된 클러스터에 대해 **스토리지 계정** 노드를 클릭하면 **Storage Access Denied**(스토리지 계정 거부됨) 창이 표시됩니다. **Azure Storage 열기** 를 클릭하여 Storage Explorer를 엽니다.
 
-   ![' IntelliJ 아이디어 저장소 액세스 Denied2 '](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png" alt-text="' IntelliJ 아이디어 저장소 액세스 Denied2 '" border="true":::
 
-   ![IntelliJ IDEA 스토리지 액세스 거부됨2 단추](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png)
+   :::image type="content" source="./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png" alt-text="IntelliJ IDEA 스토리지 액세스 거부됨2 단추" border="true":::
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ를 사용하도록 기존 IntelliJ IDEA 애플리케이션 변환
 
@@ -473,7 +473,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 애플리케이션을 Azure Toolki
 
 1. **삭제** 를 선택합니다. **예** 를 선택합니다.
 
-![Azure Portal HDInsight 클러스터를 삭제 합니다.](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "HDInsight 클러스터 삭제")
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png " alt-text="Azure Portal HDInsight 클러스터를 삭제 합니다." border="true":::
 
 ## <a name="next-steps"></a>다음 단계
 

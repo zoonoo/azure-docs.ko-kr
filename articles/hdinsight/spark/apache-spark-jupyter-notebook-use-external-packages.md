@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: a3d787059345b5971d99ebd7a1e26a9135b61bed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3ddfdfdfe10d5b6ea7c2d5cd99d325564163c0dd
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930346"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866015"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter 노트북과 함께 외부 패키지 사용
 
@@ -34,11 +34,11 @@ ms.locfileid: "98930346"
 
 1. 새 Notebook을 만듭니다. **새로 만들기** 를 선택한 다음 **Spark** 를 선택 합니다.
 
-    ![새 Spark Jupyter Notebook 만들기](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png "새 Jupyter Notebook 만들기")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-create-notebook.png " alt-text="새 Spark Jupyter Notebook 만들기" border="true":::
 
 1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 위쪽에서 노트북 이름을 선택 하 고 이름을 입력 합니다.
 
-    ![노트북에 대한 이름 제공](./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png "노트북에 대한 이름 제공")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/hdinsight-spark-name-notebook.png " alt-text="노트북에 대한 이름 제공" border="true":::
 
 1. 매직을 사용 하 여 `%%configure` 외부 패키지를 사용 하도록 노트북을 구성 합니다. 외부 패키지를 사용하는 Notebook에서 `%%configure` Magic을 호출해야 합니다. 이렇게 하면 커널은 세션이 시작되기 전에 패키지를 사용하도록 구성됩니다.
 
@@ -56,9 +56,9 @@ ms.locfileid: "98930346"
 
     b. 해당 리포지토리에서 **GroupId**, **ArtifactId** 및 **Version** 값을 수집합니다. 수집하는 값이 클러스터와 일치하는지 확인합니다. 이 경우 Scala 2.11 및 Spark 1.5.0 패키지를 사용 하지만 클러스터에서 적절 한 Scala 또는 Spark 버전에 대해 다른 버전을 선택 해야 할 수도 있습니다. Spark Jupyter 커널에서 또는 Spark 제출 시 `scala.util.Properties.versionString`을 실행하여 클러스터에서 Scala 버전을 찾을 수 있습니다. Jupyter 노트북에서를 실행 하 여 클러스터에서 Spark 버전을 확인할 수 있습니다 `sc.version` .
 
-    ![Jupyter Notebook에서 외부 패키지 사용](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Jupyter Notebook에서 외부 패키지 사용")
+    :::image type="content" source="./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png " alt-text="Jupyter Notebook에서 외부 패키지 사용" border="true":::
 
-    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
     ```scala
     com.databricks:spark-csv_2.11:1.5.0

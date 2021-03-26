@@ -4,12 +4,12 @@ description: Azure App Service에서 사용자 지정 컨테이너를 구성 하
 ms.topic: article
 ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1d1a1292bc7583e4934ac176c34d2768700d11c5
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101704874"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036767"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -112,6 +112,8 @@ Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB
 ```
 
 앱이 실행 되 면 App Service 앱 설정이 자동으로 환경 변수로 프로세스에 삽입 됩니다. URL을 사용 하 여 컨테이너 환경 변수를 확인할 수 있습니다 `https://<app-name>.scm.azurewebsites.net/Env)` .
+
+앱이 개인 레지스트리 또는 Docker 허브에서 이미지를 사용 하는 경우 리포지토리에 액세스 하기 위한 자격 증명은 환경 변수 `DOCKER_REGISTRY_SERVER_URL` , 및에 `DOCKER_REGISTRY_SERVER_USERNAME` 저장 `DOCKER_REGISTRY_SERVER_PASSWORD` 됩니다. 보안 위험 때문에 이러한 예약 된 변수 이름이 응용 프로그램에 노출 되지 않습니다.
 
 ::: zone pivot="container-windows"
 IIS 또는 .NET Framework (4.0 이상) 기반 컨테이너의 경우 `System.ConfigurationManager` App Service에 의해 자동으로 .net 앱 설정 및 연결 문자열로 삽입 됩니다. 다른 모든 언어 또는 프레임 워크의 경우에는 다음의 해당 접두사 중 하 나와 함께 프로세스에 대 한 환경 변수로 제공 됩니다.
@@ -364,7 +366,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 *Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을에 매핑합니다 `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
+`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들어:
 
 ```yaml
 wordpress:

@@ -5,12 +5,12 @@ description: 이 문서에서는 Azure HDInsight 클러스터의 미사용 데�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d4f9e3be02a64efa058ea1f84a3e261cb6166fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988620"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867120"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -76,41 +76,41 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 1. 새 키 자격 증명 모음에서 **설정**  >  **키**  >  **+ 생성/가져오기** 로 이동 합니다.
 
-    ![Azure Key Vault에 새 키 생성](./media/disk-encryption/create-new-key.png "Azure Key Vault에 새 키 생성")
+    :::image type="content" source="./media/disk-encryption/create-new-key.png" alt-text="Azure Key Vault에 새 키 생성":::
 
 1. 이름을 입력 하 고 **만들기** 를 선택 합니다. **RSA** 의 기본 **키 유형을** 유지 합니다.
 
-    ![키 이름을 생성 합니다.](./media/disk-encryption/create-key.png "키 이름 생성")
+    :::image type="content" source="./media/disk-encryption/create-key.png" alt-text="키 이름을 생성 합니다.":::
 
 1. **키** 페이지로 돌아가면 만든 키를 선택 합니다.
 
-    ![키 자격 증명 모음 키 목록](./media/disk-encryption/key-vault-key-list.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-key-list.png" alt-text="키 자격 증명 모음 키 목록":::
 
 1. 버전을 선택 하 여 **키 버전** 페이지를 엽니다. HDInsight 클러스터 암호화를 위해 고유한 키를 사용 하는 경우 키 URI를 제공 해야 합니다. **키 식별자** 를 복사하고 클러스터를 만들 준비가 될 때까지 어딘가에 저장합니다.
 
-    ![키 식별자 가져오기](./media/disk-encryption/get-key-identifier.png)
+    :::image type="content" source="./media/disk-encryption/get-key-identifier.png" alt-text="키 식별자 가져오기":::
 
 ### <a name="create-access-policy"></a>액세스 정책 만들기
 
 1. 새 키 자격 증명 모음에서 **설정**  >  **액세스 정책**  >  **+ 액세스 정책 추가** 로 이동 합니다.
 
-    ![새 Azure Key Vault 액세스 정책 만들기](./media/disk-encryption/key-vault-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/key-vault-access-policy.png" alt-text="새 Azure Key Vault 액세스 정책 만들기":::
 
 1. **액세스 정책 추가** 페이지에서 다음 정보를 제공 합니다.
 
-    |속성 |설명|
+    |속성 |Description|
     |---|---|
     |키 권한|**가져오기**, **키 래핑** 및 **키 래핑** 을 선택 합니다.|
     |비밀 권한|**가져오기**, **설정** 및 **삭제** 를 선택 합니다.|
     |보안 주체 선택|이전에 만든 사용자 할당 관리 id를 선택 합니다.|
 
-    ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/disk-encryption/azure-portal-add-access-policy.png)
+    :::image type="content" source="./media/disk-encryption/azure-portal-add-access-policy.png" alt-text="Azure Key Vault 액세스 정책에 대한 주체 선택 설정":::
 
 1. **추가** 를 선택합니다.
 
 1. **저장** 을 선택합니다.
 
-    ![Azure Key Vault 액세스 정책 저장](./media/disk-encryption/add-key-vault-access-policy-save.png)
+    :::image type="content" source="./media/disk-encryption/add-key-vault-access-policy-save.png" alt-text="Azure Key Vault 액세스 정책 저장":::
 
 ### <a name="create-cluster-with-customer-managed-key-disk-encryption"></a>고객이 관리 하는 키 디스크 암호화를 사용 하 여 클러스터 만들기
 
@@ -124,12 +124,12 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 클러스터를 만드는 동안 다음과 같은 방법으로 버전이 지정 된 키를 사용 하거나 versionless 키를 사용할 수 있습니다.
 
-- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`
-- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey`
+- **버전 관리** -클러스터를 만드는 동안 키 버전을 포함 한 전체 **키 식별자** 를 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`입니다.
+- **Versionless** -클러스터를 만드는 동안 **키 식별자** 만 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey`입니다.
 
 또한 관리 되는 id를 클러스터에 할당 해야 합니다.
 
-![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
+:::image type="content" source="./media/disk-encryption/create-cluster-portal.png" alt-text="새 클러스터 만들기":::
 
 #### <a name="using-azure-cli"></a>Azure CLI 사용
 
@@ -367,7 +367,7 @@ Azure Portal 또는 Azure CLI를 사용 하 여 실행 중인 클러스터에서
 
 키를 회전 하려면 기본 키 자격 증명 모음 URI가 필요 합니다. 이 작업을 완료 한 후에는 포털에서 HDInsight 클러스터 속성 섹션으로 이동 하 고 **디스크 암호화 키 URL** 에서 **키 변경** 을 클릭 합니다. 새 키 url을 입력 하 고 전송 하 여 키를 회전 합니다.
 
-![디스크 암호화 키 회전](./media/disk-encryption/change-key.png)
+:::image type="content" source="./media/disk-encryption/change-key.png" alt-text="디스크 암호화 키 회전":::
 
 #### <a name="using-azure-cli"></a>Azure CLI 사용
 
@@ -400,7 +400,7 @@ Hdinsight는 HDInsight 클러스터와 연결 하는 관리 id를 사용 하 여
 
 클러스터가 키에 대 한 액세스 권한을 상실 하면 Apache Ambari 포털에 경고가 표시 됩니다. 이 상태에서 **키 변경** 작업은 실패 합니다. 키 액세스가 복원 되 면 Ambari 경고가 표시 되지 않고 키 회전과 같은 작업이 성공적으로 수행 될 수 있습니다.
 
-![키 액세스 Ambari 경고](./media/disk-encryption/ambari-alert.png)
+:::image type="content" source="./media/disk-encryption/ambari-alert.png" alt-text="키 액세스 Ambari 경고":::
 
 **키가 삭제될 경우 클러스터를 어떻게 복구할 수 있나요?**
 

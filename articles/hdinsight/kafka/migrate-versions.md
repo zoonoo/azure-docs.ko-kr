@@ -4,12 +4,12 @@ description: HDInsight 3.6에서 Apache Kafka 작업을 HDInsight 4.0로 마이�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: 3967a5d96c35e4bac88dcd9a6c1fa95b78a6b2b1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e15ebb13aee0e5dd814688ae77edaded667d54ac
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98939124"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864128"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Apache Kafka 워크 로드를 Azure HDInsight 4.0로 마이그레이션
 
@@ -24,7 +24,7 @@ HDInsight 3.6은 두 가지 버전의 Kafka (1.0.0 및 1.1.0)를 지원 합니�
 * **최신 버전에서 hdinsight를 실행 하 고 kafka 버전 유지**: kafka 1.1.0 (아래 경로 C)를 사용 하 여 hdinsight 3.6 및 kafka 1.1.0 응용 프로그램을 hdinsight 4.0로 마이그레이션 합니다.
 * **더 최신 버전의 Kafka를 실행 하 고 hdinsight 버전 유지**: kafka 1.0.0 응용 프로그램을 1.1.0로 마이그레이션하고 hdinsight 3.6 (아래 경로)에 유지 합니다. 이 옵션은 여전히 새 클러스터를 배포 해야 합니다. 기존 클러스터에서 Kafka 버전 업그레이드는 지원 되지 않습니다. 원하는 버전으로 클러스터를 만든 후 새 클러스터를 사용 하도록 Kafka 클라이언트를 마이그레이션합니다.
 
-![3.6의 Apache Kafka에 대 한 업그레이드 경로](./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-upgrade-path.png" alt-text="3.6의 Apache Kafka에 대 한 업그레이드 경로" border="false":::
 
 ## <a name="apache-kafka-versions"></a>Apache Kafka 버전
 
@@ -53,7 +53,7 @@ Kafka 2.1로 마이그레이션하면 다음과 같은 기능을 활용할 수 �
 
 새 Kafka broker는 이전 클라이언트를 지원 합니다. [건너뛰기-35-프로토콜 버전을 검색](https://cwiki.apache.org/confluence/display/KAFKA/KIP-35+-+Retrieving+protocol+version) 하면 kafverbroker 및 건너뛰기-97의 기능을 동적으로 결정 하는 메커니즘이 도입 되었습니다 [. 향상 된 Kafverclient RPC 호환성 정책은](https://cwiki.apache.org/confluence/display/KAFKA/KIP-97%3A+Improved+Kafka+Client+RPC+Compatibility+Policy) 새로운 호환성 정책을 도입 하 고 Java 클라이언트를 보장 합니다. 이전에는 Kafka 클라이언트는 동일한 버전이 나 최신 버전의 broker와 상호 작용 해야 했습니다. 이제 최신 버전의 Java 클라이언트와 건너뛰기-35을 지 원하는 다른 클라이언트 (예:)가 `librdkafka` 이전 요청 형식으로 대체 되거나 기능을 사용할 수 없는 경우 적절 한 오류를 throw 할 수 있습니다.
 
-![Kafka 클라이언트 호환성 업그레이드](./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-client-compatibility.png" alt-text="Kafka 클라이언트 호환성 업그레이드" border="false":::
 
 클라이언트에서 이전 broker를 지원함을 의미 하지는 않습니다.  자세한 내용은 [호환성 매트릭스](https://cwiki.apache.org/confluence/display/KAFKA/Compatibility+Matrix)를 참조 하세요.
 
@@ -61,21 +61,21 @@ Kafka 2.1로 마이그레이션하면 다음과 같은 기능을 활용할 수 �
 
 다음 마이그레이션 지침은 단일 가상 네트워크에서 HDInsight 3.6에 Apache Kafka 1.0.0 또는 1.1.0 클러스터를 배포 했다고 가정 합니다. 기존 broker에는 몇 가지 항목이 있으며 생산자와 소비자가 적극적으로 사용 하 고 있습니다.
 
-![현재 Kafka 가정 환경](./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png)
+:::image type="content" source="./media/upgrade-threesix-to-four/apache-kafka-presumed-environment.png" alt-text="현재 Kafka 가정 환경" border="false":::
 
 마이그레이션을 완료 하려면 다음 단계를 수행 합니다.
 
 1. **테스트를 위해 새 HDInsight 4.0 클러스터 및 클라이언트를 배포 합니다.** 새 HDInsight 4.0 Kafka 클러스터를 배포 합니다. 여러 Kafka 클러스터 버전을 선택할 수 있는 경우 최신 버전을 선택 하는 것이 좋습니다. 배포 후 필요에 따라 몇 가지 매개 변수를 설정 하 고 기존 환경과 동일한 이름으로 토픽을 만듭니다. 또한 TLS를 설정 하 고 필요에 따라 BYOK (고유 키) 암호화를 수행 합니다. 그런 다음 새 클러스터에서 올바르게 작동 하는지 확인 합니다.
 
-    ![새 HDInsight 4.0 클러스터 배포](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png" alt-text="새 HDInsight 4.0 클러스터 배포" border="false":::
 
 1. **생산자 응용 프로그램의 클러스터를 전환 하 고 모든 큐 데이터가 현재 소비자에 의해 사용 될 때까지 기다립니다.** 새 HDInsight 4.0 Kafka 클러스터가 준비 되 면 기존 생산자 대상을 새 클러스터로 전환 합니다. 기존 소비자 앱이 기존 클러스터의 모든 데이터를 사용 하기 전 까지는 그대로 둡니다.
 
-    ![생산자 앱에 대 한 클러스터 전환](./media/upgrade-threesix-to-four/switch-cluster-producer-app.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/switch-cluster-producer-app.png" alt-text="생산자 앱에 대 한 클러스터 전환" border="false":::
 
 1. **소비자 응용 프로그램에서 클러스터를 전환 합니다.** 기존 소비자 응용 프로그램에서 기존 클러스터의 모든 데이터 사용을 완료 했는지 확인 한 후 새 클러스터로 연결을 전환 합니다.
 
-    ![소비자 앱에서 클러스터 전환](./media/upgrade-threesix-to-four/switch-cluster-consumer-app.png)
+    :::image type="content" source="./media/upgrade-threesix-to-four/switch-cluster-consumer-app.png" alt-text="소비자 앱에서 클러스터 전환" border="false":::
 
 1. **이전 클러스터를 제거 하 고 필요에 따라 응용 프로그램을 테스트 합니다.** 스위치가 완료 되 고 제대로 작동 하면 이전 HDInsight 3.6 Kafka 클러스터와 테스트에 사용 된 생산자와 소비자를 필요에 따라 제거 합니다.
 

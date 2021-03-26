@@ -8,15 +8,15 @@ ms.author: sumuth
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
 ms.openlocfilehash: 2e546801f95d9d884bdfb3f09a18b3fa6e2d78a1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97364989"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>빠른 시작: GitHub Actions를 사용하여 Azure PostgreSQL에 연결
 
-<Token>**적용 대상:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 단일 서버 :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 유연한 서버 </Token>
+<Token>**적용 대상:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 단일 서버 :::image type="icon" source="./media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - 유연한 서버</Token>
 
 워크플로를 사용하여 [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)에 데이터베이스 업데이트를 배포하는 [GitHub Actions](https://docs.github.com/en/actions)를 시작합니다.
 

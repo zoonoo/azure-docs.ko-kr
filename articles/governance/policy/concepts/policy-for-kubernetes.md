@@ -1,14 +1,14 @@
 ---
 title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100577104"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868157"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -68,7 +68,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 
 다음은 Azure Policy 추가 기능을 사용 하기 위한 일반적인 권장 사항입니다.
 
-- Azure Policy 추가 기능을 실행 하려면 3 개의 게이트 키퍼 구성 요소를 실행 해야 합니다. 1 감사 pod 및 2 개의 webhook pod 복제본입니다. 이러한 구성 요소는 Kubernetes 리소스의 수와 감사 및 적용 작업을 요구 하는 클러스터의 정책 할당 수가 늘어남에 따라 더 많은 리소스를 사용 합니다.
+- Azure Policy 추가 기능을 실행 하려면 3 개의 게이트 키퍼 구성 요소를 실행 해야 합니다. 1 개의 감사 pod와 2 개의 webhook pod 복제본입니다. 이러한 구성 요소는 클러스터에서 Kubernetes 리소스 및 정책 할당 수가 늘어남에 따라 더 많은 리소스를 사용 하므로 감사 및 적용 작업이 필요 합니다.
 
   - 최대 20 개의 제약 조건이 있는 단일 클러스터에서 500 pod 미만: 2 개 vCPUs와 구성 요소별 350 MB 메모리.
   - 최대 40 제약 조건이 있는 단일 클러스터에서 500 pod 이상: 3 개 vCPUs와 구성 요소별 600 MB 메모리
@@ -85,7 +85,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>AKS에 대한 Azure Policy 추가 기능 설치
 
-Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도록 설정하기 전에 해당 구독은 **Microsoft.ContainerService** 및 **Microsoft.PolicyInsights** 리소스 공급자를 사용하도록 설정해야 합니다.
+Azure Policy 추가 기능을 설치 하거나 서비스 기능을 사용 하도록 설정 하기 전에 구독에서 **Microsoft PolicyInsights** 리소스 공급자를 사용 하도록 설정 해야 합니다.
 
 1. Azure CLI 버전 2.12.0 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -93,15 +93,12 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 
    - Azure Portal:
 
-     **Microsoft.ContainerService** 및 **Microsoft.PolicyInsights** 리소스 공급자를 등록합니다. 단계는 [리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
+     **Microsoft PolicyInsights** 리소스 공급자를 등록 합니다. 단계는 [리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
 
    - Azure CLI:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -446,8 +443,7 @@ Kubernetes 클러스터에서 네임스페이스에 다음 레이블 중 하나�
 
 ## <a name="logging"></a>로깅
 
-Kubernetes 컨트롤러/컨테이너로 _azure-policy_ 및 _gatekeeper_ Pod는 모두 Kubernetes 클러스터에 로그를 유지합니다. 로그는 Kubernetes 클러스터의 **인사이트** 페이지에 공개될 수 있습니다.
-자세한 내용은 [컨테이너용 Azure Monitor를 사용하여 Kubernetes 클러스터 성능 모니터링](../../../azure-monitor/containers/container-insights-analyze.md)을 참조하세요.
+Kubernetes 컨트롤러/컨테이너는 _azure 정책_ 및 _게이트 키퍼_ pod 모두 Kubernetes 클러스터에 로그를 유지 합니다. 로그는 Kubernetes 클러스터의 **인사이트** 페이지에 공개될 수 있습니다. 자세한 내용은 [컨테이너용 Azure Monitor를 사용하여 Kubernetes 클러스터 성능 모니터링](../../../azure-monitor/containers/container-insights-analyze.md)을 참조하세요.
 
 추가 기능 로그를 보려면 `kubectl`을 사용합니다.
 

@@ -3,12 +3,12 @@ title: 네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSA
 description: Azure VMware 솔루션에서 WSFC (Windows Server 장애 조치 (Failover) 클러스터)를 설정 하 고 WSFC 기능을 필요로 하는 솔루션을 활용 합니다.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8cb2fdd8d519c665840390a41c95121218750a95
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518996"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025971"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSAN의 Windows Server 장애 조치 (Failover) 클러스터
 
@@ -32,7 +32,7 @@ WSFC 클러스터는 다양 한 Azure VMware 솔루션 인스턴스 (클러스�
 
 먼저 [WSFC를 만들어야](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)합니다. WSFC에 대 한 자세한 내용은 [Windows Server의 장애 조치 (Failover) 클러스터링](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)을 참조 하세요. 이 문서에서 제공 하는 정보를 사용 하 여 Azure VMware 솔루션의 WSFC 배포에 대 한 세부 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure VMware 솔루션 환경
 - Microsoft Windows Server OS 설치 미디어
@@ -50,8 +50,8 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 현재 지원 되는 구성은 다음과 같습니다.
 
 - Microsoft Windows Server 2012 이상
-- 클러스터 당 최대 5 개의 장애 조치 (failover) 클러스터링 노드.
-- VM 당 최대 4 개의 PARAVIRTUAL 어댑터.
+- 클러스터 당 최대 5 개의 장애 조치 (failover) 클러스터링 노드
+- VM 당 최대 4 개의 PARAVIRTUAL 어댑터
 - PARAVIRTUAL 어댑터 당 최대 64 디스크
 
 ## <a name="virtual-machine-configuration-requirements"></a>가상 컴퓨터 구성 요구 사항

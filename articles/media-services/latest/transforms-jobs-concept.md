@@ -1,9 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
-제목: Media Services 변환 및 작업: Azure Media Services 설명: Azure Media Services에서 비디오를 처리 하는 규칙을 설명 하는 변환을 만드는 방법을 알아봅니다.
-services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
-
-ms. 서비스: media services ms. 작업: 밀리초. 항목: 개념: 밀리초. 날짜: 03/17/2021. 작성자: inhenkel
+제목: Media Services 변환 및 작업: Azure Media Services 설명: 변환은 Azure Media Services에서 비디오를 처리 하는 규칙을 설명 합니다.
+서비스: media services author: IngridAtMicrosoft manager: femila ms.date: media services ms. 항목: 개념 ms. 날짜: 03/22/2021. 작성자: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
@@ -90,12 +88,6 @@ Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태
 전체 크기로 보려면 이미지를 클릭합니다.  
 
 [![개체 간의 클래스 파생 관계를 포함 하 여 작업 개체와이 개체가 참조 하는 개체를 보여 주는 다이어그램입니다.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## <a name="configure-media-reserved-units"></a>미디어 예약 단위 구성
-
-Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 10 개의 S3 미디어 예약 단위 (Mru)를 사용 하 여 계정을 프로 비전 하는 것이 좋습니다. 10개가 넘는 S3 MRU가 필요한 경우 [Azure Portal](https://portal.azure.com/)을 사용하여 지원 티켓을 엽니다.
-
-자세한 내용은 [CLI를 사용하여 미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

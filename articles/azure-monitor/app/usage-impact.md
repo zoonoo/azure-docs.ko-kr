@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 51f938743d8da3c9a1dea546320662701e2b88c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ce49488124f07f05b8df2d9f4eae41e041aa0aa
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100583516"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026192"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
 
@@ -86,5 +86,4 @@ Impact의 궁극적인 계산 방법은 분석 기준이 메트릭인지 아니�
     - [보존](usage-retention.md)
     - [사용자 흐름](usage-flows.md)
     - [통합 문서](../visualize/workbooks-overview.md)
-    - [사용자 컨텍스트 추가](usage-send-user-context.md)
-
+    - [사용자 컨텍스트 추가](./usage-overview.md)

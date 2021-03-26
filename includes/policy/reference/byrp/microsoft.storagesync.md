@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b830d3d9143bb5b15292d1c0b14b04d8fee9b2ba
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b3939094b4299ccf75e4953443f8ce9d0075c59
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104588324"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031694"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Azure 파일 동기화 개인 링크를 사용 해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |표시 된 저장소 동기화 서비스 리소스에 대 한 개인 끝점을 만들면 인터넷에 액세스할 수 있는 공용 끝점을 통해서가 아니라 조직의 네트워크 개인 IP 주소 공간 내에서 저장소 동기화 서비스 리소스의 주소를 지정할 수 있습니다. 전용 끝점을 직접 만드는 경우에는 공용 끝점을 사용 하지 않도록 설정 하지 않습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
-|[개인 끝점을 사용 하 여 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |표시 된 저장소 동기화 서비스 리소스에 대해 개인 끝점을 배포 합니다. 이렇게 하면 인터넷에 액세스할 수 있는 공용 끝점을 통해서가 아니라 조직의 네트워크 개인 IP 주소 공간 내에서 저장소 동기화 서비스 리소스의 주소를 지정할 수 있습니다. 하나 이상의 전용 끝점이 있는 경우에는 공용 끝점을 사용 하지 않도록 설정 하지 않습니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |
-|[수정-공용 네트워크 액세스를 사용 하지 않도록 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e07b2e9-6cd9-4c40-9ccb-52817b95133b) |조직의 정책에 따라 Azure 파일 동기화의 인터넷 액세스 가능 공용 끝점이 사용 하지 않도록 설정 됩니다. 개인 끝점을 통해 저장소 동기화 서비스에 계속 액세스할 수 있습니다. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_Modify.json) |
-|[Azure 파일 동기화에 대 한 공용 네트워크 액세스를 사용 하지 않도록 설정 해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a8cd35-125e-4d13-b82d-2e19b7208bb7) |공용 끝점을 사용 하지 않도록 설정 하면 조직의 네트워크에서 승인 된 개인 끝점으로 향하는 요청에 대해 저장소 동기화 서비스 리소스에 대 한 액세스를 제한할 수 있습니다. 공용 끝점에 대 한 요청을 허용 하는 것에 대해서는 기본적으로 안전 하지 않지만 규정, 법률 또는 조직 정책 요구 사항을 충족 하기 위해 사용 하지 않도록 설정할 수 있습니다. 리소스의 incomingTrafficPolicy를 AllowVirtualNetworksOnly로 설정 하 여 저장소 동기화 서비스에 대 한 공용 끝점을 사용 하지 않도록 설정할 수 있습니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_AuditDeny.json) |
+|[Azure 파일 동기화는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |표시된 Storage Sync Service 리소스의 프라이빗 엔드포인트를 만들면 인터넷에서 액세스할 수 있는 퍼블릭 엔드포인트를 사용하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스를 처리할 수 있습니다. 프라이빗 엔드포인트를 자체적으로 만든다고 해서 퍼블릭 엔드포인트가 비활성화되지 않습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
+|[프라이빗 엔드포인트를 사용하여 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |표시된 Storage Sync Service 리소스에 대해 프라이빗 엔드포인트가 배포됩니다. 이렇게 하면 인터넷에 액세스할 수 있는 퍼블릭 엔드포인트를 통하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스 주소를 지정할 수 있습니다. 하나 이상의 프라이빗 엔드포인트가 자체적으로 있다고 하더라도 퍼블릭 엔드포인트가 비활성화되지는 않습니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |
+|[수정 - 공용 네트워크 액세스를 사용하지 않도록 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0e07b2e9-6cd9-4c40-9ccb-52817b95133b) |조직 정책에 따라 Azure 파일 동기화의 인터넷 액세스 가능 퍼블릭 엔드포인트가 비활성화되었습니다. 프라이빗 엔드포인트를 통해 Storage Sync Service에 계속 액세스할 수 있습니다. |수정, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_Modify.json) |
+|[Azure 파일 동기화의 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a8cd35-125e-4d13-b82d-2e19b7208bb7) |퍼블릭 엔드포인트를 사용하지 않도록 설정하면 Storage Sync Service에 대한 액세스를 조직의 네트워크에서 승인된 프라이빗 엔드포인트로 향하는 요청으로 제한할 수 있습니다. 퍼블릭 엔드포인트에 대한 요청을 허용할 때 기본적으로 안전하지 않은 것은 없지만 규정, 법률 또는 조직 정책 요구 사항을 충족하기 위해 사용하지 않도록 설정할 수 있습니다. 리소스의 incomingTrafficPolicy를 AllowVirtualNetworksOnly로 설정하여 Storage Sync Service에 대한 퍼블릭 엔드포인트를 사용하지 않도록 설정할 수 있습니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_IncomingTrafficPolicy_AuditDeny.json) |
