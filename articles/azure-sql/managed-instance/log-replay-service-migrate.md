@@ -9,19 +9,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b2a3f018b16258622b817648cb00e230313bf49
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199852"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564520"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>로그 재생 서비스 (미리 보기)를 사용 하 여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 이 문서에서는 현재 공개 미리 보기로 제공 되는 LRS (로그 재생 서비스)를 사용 하 여 SQL Server 2008-2019에서 Azure SQL Managed Instance로 데이터베이스 마이그레이션을 수동으로 구성 하는 방법을 설명 합니다. LRS는 SQL Managed Instance를 사용 하도록 설정 되 고 SQL Server 로그 전달 기술을 기반으로 하는 클라우드 서비스입니다. 
 
-[Azure Database Migration Service](/azure/dms/tutorial-sql-server-to-managed-instance) 및 LRS는 동일한 기본 마이그레이션 기술과 동일한 api를 사용 합니다. LRS을 해제 하 여 온-프레미스 SQL Server와 SQL Managed Instance 간에 복잡 한 사용자 지정 마이그레이션과 하이브리드 아키텍처를 추가로 사용할 수 있습니다.
+[Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md) 및 LRS는 동일한 기본 마이그레이션 기술과 동일한 api를 사용 합니다. LRS을 해제 하 여 온-프레미스 SQL Server와 SQL Managed Instance 간에 복잡 한 사용자 지정 마이그레이션과 하이브리드 아키텍처를 추가로 사용할 수 있습니다.
 
 ## <a name="when-to-use-log-replay-service"></a>로그 재생 서비스를 사용 하는 경우
 
@@ -40,7 +40,7 @@ ms.locfileid: "102199852"
 > [!NOTE]
 > Database Migration Service를 사용 하 여 SQL Server에서 SQL Managed Instance로 데이터베이스 마이그레이션을 자동화 하는 것이 좋습니다. 이 서비스는 백 엔드에서 로그 전달 모드를 사용 하 여 동일한 LRS 클라우드 서비스를 사용 `NORECOVERY` 합니다. Database Migration Service에서 시나리오를 완전히 지원 하지 않을 때 마이그레이션을 오케스트레이션 하는 데 수동으로 LRS를 사용 하는 것이 좋습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 LRS를 사용 하 여 클라우드로 데이터베이스를 마이그레이션하는 사용자 지정 솔루션을 빌드하려면이 단원의 뒷부분에 나오는 다이어그램 및 표에 표시 된 것 처럼 몇 가지 오케스트레이션 단계가 필요 합니다.
 
@@ -66,7 +66,7 @@ LRS에는 백업 파일에 대 한 특정 명명 규칙이 필요 하지 않습�
     
 | 작업 | 세부 정보 |
 | :----------------------------- | :------------------------- |
-| **1. SQL Server에서 Blob Storage으로 데이터베이스 백업을 복사** 합니다. | [Azcopy](/azure/storage/common/storage-use-azcopy-v10) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용 하 여 SQL Server에서 Blob Storage 컨테이너로 전체, 차등 및 로그 백업을 복사 합니다. <br /><br />모든 파일 이름을 사용 합니다. LRS에는 특정 파일 명명 규칙이 필요 하지 않습니다.<br /><br />여러 데이터베이스를 마이그레이션하는 경우 각 데이터베이스에 대해 별도의 폴더가 필요 합니다. |
+| **1. SQL Server에서 Blob Storage으로 데이터베이스 백업을 복사** 합니다. | [Azcopy](../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용 하 여 SQL Server에서 Blob Storage 컨테이너로 전체, 차등 및 로그 백업을 복사 합니다. <br /><br />모든 파일 이름을 사용 합니다. LRS에는 특정 파일 명명 규칙이 필요 하지 않습니다.<br /><br />여러 데이터베이스를 마이그레이션하는 경우 각 데이터베이스에 대해 별도의 폴더가 필요 합니다. |
 | **2. 클라우드에서 LRS을 시작** 합니다. | PowerShell ([azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) 또는 Azure CLI ([az_sql_midb_log_replay_start cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)) cmdlet을 선택 하 여 서비스를 다시 시작할 수 있습니다. <br /><br /> Blob Storage의 백업 폴더를 가리키는 각 데이터베이스에 대해 개별적으로 LRS을 시작 합니다. <br /><br /> 서비스를 시작한 후에는 Blob Storage 컨테이너에서 백업을 수행 하 고 SQL Managed Instance에서 복원을 시작 합니다.<br /><br /> 연속 모드에서 LRS를 시작한 경우 처음 업로드 된 모든 백업이 복원 된 후 서비스는 폴더에 업로드 된 새 파일을 감시 합니다. 서비스는 중지 될 때까지 LSN (로그 시퀀스 번호) 체인을 기반으로 로그를 지속적으로 적용 합니다. |
 | **2.1. 작업의 진행 상태를 모니터링 합니다.** | PowerShell ([azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) 또는 Azure CLI ([az_sql_midb_log_replay_show cmdlet](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)) cmdlet을 선택 하 여 복원 작업의 진행률을 모니터링할 수 있습니다. |
 | **2.2. 필요한 경우 작업을 중지 합니다.** | 마이그레이션 프로세스를 중지 해야 하는 경우 PowerShell ([azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) 또는 Azure CLI ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)) cmdlet 중에서 선택할 수 있습니다. <br /><br /> 작업을 중지 하면 SQL Managed Instance에서 복원 하는 데이터베이스가 삭제 됩니다. 작업을 중지 한 후에는 데이터베이스에 대해 LRS를 다시 시작할 수 없습니다. 마이그레이션 프로세스를 처음부터 다시 시작 해야 합니다. |
@@ -164,7 +164,7 @@ Azure Blob Storage은 SQL Server와 SQL Managed Instance 간의 백업 파일에
 
 LRS를 사용 하 여 데이터베이스를 관리 되는 인스턴스로 마이그레이션하는 경우 다음 방법을 사용 하 여 Blob Storage에 백업을 업로드할 수 있습니다.
 - SQL Server 기본 [백업에서 URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) 기능 사용
-- [Azcopy](/azure/storage/common/storage-use-azcopy-v10) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer) 를 사용 하 여 blob 컨테이너에 백업 업로드
+- [Azcopy](../../storage/common/storage-use-azcopy-v10.md) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer) 를 사용 하 여 blob 컨테이너에 백업 업로드
 - Azure Portal에서 Storage 탐색기 사용
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>SQL Server에서 Blob Storage로 직접 백업 만들기
@@ -313,7 +313,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 
 연속 모드에서 LRS를 시작 하기 위한 PowerShell 및 CLI 클라이언트는 동기식입니다. 즉, 클라이언트는 API 응답에서 작업을 시작 하는 데 성공 또는 실패를 보고할 때까지 대기 합니다. 
 
-이 대기 중에 명령이 명령 프롬프트에 컨트롤을 반환 하지 않습니다. 마이그레이션 환경을 스크립팅 하는 경우 스크립트의 나머지 부분을 계속 하기 위해 LRS start 명령이 즉시 다시 제공 되도록 하려면 스위치를 사용 하 여 PowerShell을 백그라운드 작업으로 실행할 수 있습니다 `-AsJob` . 예를 들면 다음과 같습니다.
+이 대기 중에 명령이 명령 프롬프트에 컨트롤을 반환 하지 않습니다. 마이그레이션 환경을 스크립팅 하는 경우 스크립트의 나머지 부분을 계속 하기 위해 LRS start 명령이 즉시 다시 제공 되도록 하려면 스위치를 사용 하 여 PowerShell을 백그라운드 작업으로 실행할 수 있습니다 `-AsJob` . 예를 들어:
 
 ```PowerShell
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob

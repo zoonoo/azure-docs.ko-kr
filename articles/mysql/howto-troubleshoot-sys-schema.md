@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 939d9f5f4cafc7a08ceb99368e8ede7a81b1eac0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 38b85748ad810002dc9cfd456ef6c138e8732ece
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110528"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605487"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 성능 튜닝 및 데이터베이스 유지 관리를 위해 sys_schema를 사용하는 방법
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
@@ -84,4 +84,4 @@ InnoDB 버퍼 풀은 메모리에 상주하며 DBMS와 스토리지 사이의 �
 요약하자면, sys_schema는 성능 튜닝 및 데이터베이스 유지 관리 모두에 유용한 도구입니다. Azure Database for MySQL에서 이 기능을 반드시 활용하세요. 
 
 ## <a name="next-steps"></a>다음 단계
-- 가장 궁금한 질문에 대한 동료의 답변을 찾아보거나 새로운 질문/답변을 게시하려면 [Microsoft Q&A 질문 페이지](/answers/topics/azure-database-mysql.html) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 참조하세요.
+- 가장 관심 있는 질문에 대 한 피어 대답을 찾거나 새 질문/답변을 게시 하려면 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql)를 방문 하세요.

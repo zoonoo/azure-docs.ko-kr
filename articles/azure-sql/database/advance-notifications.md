@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 895b9081ba7eb6d7e8b5d3304d37168e4064ed39
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101690892"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560049"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>계획 된 유지 관리 이벤트에 대 한 사전 알림 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "101690892"
 
 다음 표에서는 받을 수 있는 일반 정보 알림을 보여 줍니다. 
 
-|상태|설명|
+|상태|Description|
 |:---|:---|
 |**계획 된 배포**| 유지 관리 이벤트 전에 24 시간 동안 수신 됩니다. 유지 관리는 DB xyz에 대해 오후 5 시-오전 8 시 (현지 시간) 사이의 날짜에 계획 됩니다.|
 |**진행 중** |  *Xyz* 데이터베이스에 대 한 유지 관리   를 시작 하는 중입니다.| 
@@ -77,7 +77,7 @@ ms.locfileid: "101690892"
 
 다음 표에서는 유지 관리가 진행 되는 동안 전송 될 수 있는 추가 알림을 보여 줍니다. 
 
-|상태|설명|
+|상태|Description|
 |:---|:---|
 |**확장** | 유지 관리가 진행 중이지만 *xyz* 데이터베이스에 대해 완료 되지 않았습니다. 유지 관리는 다음 유지 관리 기간에 계속 됩니다.| 
 |**Canceled**| *Xyz* 데이터베이스에 대 한 유지 관리가 취소 되 고 나중에 다시 예약 됩니다. |
@@ -89,5 +89,5 @@ ms.locfileid: "101690892"
 
 - [유지 관리 기간](maintenance-window.md)
 - [유지 관리 기간 FAQ](maintenance-window-faq.yml)
-- [Microsoft Azure의 경고 개요](../../azure-monitor/platform/alerts-overview.md)
-- [Azure Resource Manager 역할에 메일 보내기](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
+- [Microsoft Azure의 경고 개요](../../azure-monitor/alerts/alerts-overview.md)
+- [Azure Resource Manager 역할에 메일 보내기](../../azure-monitor/alerts/action-groups.md#email-azure-resource-manager-role)

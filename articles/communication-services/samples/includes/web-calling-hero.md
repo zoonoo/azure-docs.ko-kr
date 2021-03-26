@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
 author: mikben
@@ -10,18 +10,18 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487939"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152806"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 클라이언트 라이브러리를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
+Azure Communication Services **그룹 통화 주인공 샘플** 은 Communication Services 통화 웹 SDK를 사용하여 그룹 통화 환경을 만드는 방법을 보여줍니다.
 
-이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 머신에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
+이 샘플 빠른 시작에서는 샘플이 어떻게 작동하는지 살펴본 후 로컬 컴퓨터에서 샘플을 실행합니다. 그런 다음, 사용자 고유의 Azure Communication Services 리소스를 사용하여 Azure에 샘플을 배포합니다.
 
 ## <a name="download-code"></a>코드 다운로드
 
@@ -96,7 +96,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [통화 클라이언트 라이브러리 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
+- [통화 SDK 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
 - [통화 작동 방식](../../concepts/voice-video-calling/about-call-types.md)에 대한 자세한 정보
 
 ### <a name="additional-reading"></a>추가 자료

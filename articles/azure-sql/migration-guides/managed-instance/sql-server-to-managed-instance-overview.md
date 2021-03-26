@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 529bc5468c74ac9d50f64decad29fd070a7bda83
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024900"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566934"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 개요: Azure SQL Managed Instance에 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -88,9 +88,9 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | 설명|
+|기술 | Description|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
 |[네이티브 백업 및 복원](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance는 기본 SQL Server 데이터베이스 백업 (.bak 파일)의 복원을 지원 하 여 Azure storage에 전체 데이터베이스 백업을 제공할 수 있는 고객에 게 가장 쉬운 마이그레이션 옵션을 제공 합니다. 전체 및 차등 백업은이 문서의 뒷부분에 있는 [마이그레이션 자산 섹션](#migration-assets) 에도 지원 되며 문서화 되어 있습니다.| 
 |[로그 재생 서비스 (LRS)](../../managed-instance/log-replay-service-migrate.md) | 이는 SQL Server 로그 전달 기술을 기반으로 Managed Instance에 사용 하도록 설정 된 클라우드 서비스로, Azure storage에 대 한 전체, 차등 및 로그 데이터베이스 백업을 제공할 수 있는 고객을 위한 마이그레이션 옵션을 만듭니다. LRS는 Azure Blob Storage에서 SQL Managed Instance 백업 파일을 복원 하는 데 사용 됩니다.| 
@@ -212,7 +212,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-메모리 내 기술에 대해 자세히 알아보려면 [Azure SQL Database 및 AZURE SQL에서 메모리 내 기술을 사용 하 여 성능 최적화](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview) 를 참조 하세요 Managed Instance
+메모리 내 기술에 대해 자세히 알아보려면 [Azure SQL Database 및 AZURE SQL에서 메모리 내 기술을 사용 하 여 성능 최적화](../../in-memory-oltp-overview.md) 를 참조 하세요 Managed Instance
 
 ## <a name="leverage-advanced-features"></a>고급 기능 활용 
 

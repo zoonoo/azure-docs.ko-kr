@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 37bbc8c7c2b81c22ffd8704e655805cc63cd9d45
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f9215469b1436ce9dc95c140e6969366d80d1ced
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044994"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607136"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>릴리스 정보: 음성 장치 SDK
 
@@ -107,7 +107,7 @@ ms.locfileid: "105044994"
 **주요 변경 내용**
 
 - 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다. API와 관련된 자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요.
-- KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새 키워드 파일이 장치에 기록 된 후 기존 키워드 파일이 삭제 됩니다.
+- 키워드 인식 모델 파일은 음성 장치 SDK 1.0.1와 호환 되지 않습니다. 새 키워드 파일이 장치에 기록 된 후 기존 키워드 파일이 삭제 됩니다.
 
 ## <a name="speech-devices-sdk-050-2018-aug-release"></a>음성 장치 SDK 0.5.0:2018-8 월 릴리스
 

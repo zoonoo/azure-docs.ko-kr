@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 14b2c1f98ae977548edb635b8a8a7a956b3f2dd7
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 6b8d3afc214f6b78fcc11b3592cd51dadf37bf96
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023778"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564163"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>마이그레이션 가이드: MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -172,7 +172,7 @@ MySQL 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 
 - Azure로 워크 로드를 마이그레이션하여 실현할 수 있는 비용 절감 액을 예측 하려면 [AZURE TCO (총 소유 비용) 계산기](https://aka.ms/azure-tco) 를 확인 해야 합니다.
 
-- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
+- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](../../../dms/dms-tools-matrix.md)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
 
 - 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://datamigration.microsoft.com/)을 참조하세요. 
 

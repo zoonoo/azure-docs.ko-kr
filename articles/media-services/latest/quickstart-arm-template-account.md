@@ -2,7 +2,7 @@
 제목: Media Services 계정 ARM 템플릿 : Azure Media Services 설명: 이 문서에서는 ARM 템플릿을 사용하여 미디어 서비스 계정을 만드는 방법을 보여줍니다.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
-ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 2020/11/24 ms.author: inhenkel ms.custom: subject-armqs
+ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 03/23/2021 ms.author: inhenkel ms.custom: subject-armqs
 
 ---
 
@@ -18,12 +18,11 @@ ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 2020/11/24
 
 ARM 템플릿에 익숙한 리더는 [배포 섹션](#deploy-the-template)을 계속 진행할 수 있습니다.
 
-<!-- this section will be added when the template is merged. If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
--->
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-media-services-create%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -31,81 +30,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-<!-- this will be added when the template is merged. The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-media-services-account-create/).
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-media-services-create/)에서 나온 것입니다.
 
-The syntax for the JSON code fence is:
+JSON 코드 펜스의 구문은 다음과 같습니다.
 
-:::code language="json" source="~/quickstart-templates/101-media-services-account-create/azuredeploy.json"::: -->
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mediaServiceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Media Services account. A Media Services account name is unique in a given region, all lowercase letters or numbers with no spaces."
-      }
-    }
-  },
-  "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "name": "[parameters('mediaServiceName')]",
-      "type": "Microsoft.Media/mediaServices",
-      "apiVersion": "2018-07-01",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
-      ],
-      "properties": {
-        "storageAccounts": [
-          {
-            "id": "[resourceId('microsoft.storage/storageaccounts/', variables('storageName'))]",
-            "type": "Primary"
-          }
-        ]
-      }
-    },
-    {
-      "name": "[variables('storageName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
-      },
-      "kind": "StorageV2",
-      "apiVersion": "2017-10-01",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "scale": null,
-      "properties": {
-          "encryption": {
-              "services": {
-                  "file": {
-                      "enabled": true
-                  },
-                  "blob": {
-                      "enabled": true
-                  }
-              },
-              "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "Hot"
-      }
-    }
-  ]
-}
-
-```
+:::code language="json" source="~/quickstart-templates/101-media-services-create/azuredeploy.json":::
 
 템플릿에 정의된 세 가지 Azure 리소스 유형은 다음과 같습니다.
 
-- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): Media Services 계정 만들기
 - [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): 스토리지 계정 만들기
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): Media Services 계정 만들기
 
 ## <a name="set-the-account"></a>계정 설정
 

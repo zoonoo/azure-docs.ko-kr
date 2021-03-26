@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: c952fe33b434aac972be6a1eb03b63698eb64fc6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995914fab0e7112327ebf6ab8e32fb67181f481e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782319"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608921"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -211,7 +211,7 @@ Azure Migrate은 Azure Migrate: 검색 및 평가를 사용 하 여 소프트웨
 
 일반적인 앱 검색 오류는 표에 요약 되어 있습니다.
 
-| **오류** | **원인** | **작업** |
+| **오류** | **원인** | **동작** |
 |--|--|--|
 | 9000: VMware 도구 상태를 검색할 수 없습니다. | VMware 도구가 설치 되어 있지 않거나 손상 되었을 수 있습니다. | 서버에 VMware 도구가 설치 되어 있고 실행 중인지 확인 합니다. |
 | 9001: VMware 도구가 설치 되어 있지 않습니다. | VMware 도구가 설치 되어 있지 않거나 손상 되었을 수 있습니다. | 서버에 VMware 도구가 설치 되어 있고 실행 중인지 확인 합니다. |
@@ -260,6 +260,34 @@ Azure Migrate은 Azure Migrate: 검색 및 평가를 사용 하 여 소프트웨
 | 10007: 검색 된 메타 데이터를 처리할 수 없습니다. | JSON을 deserialize 하는 동안 오류가 발생 했습니다. | 해결 하려면 Microsoft 지원에 문의 하세요. |
 | 10008: 서버에 파일을 만들 수 없습니다. | 내부 오류로 인해 문제가 발생할 수 있습니다. | 해결 하려면 Microsoft 지원에 문의 하세요. |
 | 10009: 검색 된 메타 데이터를 서버의 파일에 쓸 수 없습니다. | 내부 오류로 인해 문제가 발생할 수 있습니다. | 해결 하려면 Microsoft 지원에 문의 하세요. |
+
+## <a name="common-sql-server-instances-and-database-discovery-errors"></a>일반적인 SQL Server 인스턴스 및 데이터베이스 검색 오류
+
+Azure Migrate Azure Migrate: 검색 및 평가를 사용 하 여 온-프레미스 컴퓨터에서 실행 되는 SQL Server 인스턴스 및 데이터베이스의 검색을 지원 합니다. SQL 검색은 현재 VMware에만 지원 됩니다. 시작 하려면 [검색](tutorial-discover-vmware.md) 자습서를 참조 하세요.
+
+일반적인 SQL 검색 오류는 테이블에 요약 되어 있습니다.
+
+| **오류** | **원인** | **동작** |
+|--|--|--|
+|3만:이 SQL Server 연결 된 자격 증명이 작동 하지 않습니다.|수동으로 연결 된 자격 증명이 잘못 되었거나 자동 연결 된 자격 증명이 SQL Server에 더 이상 액세스할 수 없습니다.|어플라이언스의 SQL Server에 대 한 자격 증명을 추가 하 고 다음 SQL 검색 주기 또는 강제로 새로 고침까지 기다립니다.|
+|30001: 어플라이언스에서 SQL Server에 연결할 수 없습니다.|1. 어플라이언스는 SQL Server에 대 한 네트워크 시야를 갖지 않습니다.<br/>2. SQL Server와 어플라이언스 간의 방화벽 차단 연결|1. 어플라이언스에서 SQL Server 연결할 수 있는지 확인 합니다.<br/>2. 어플라이언스에서 SQL Server로 들어오는 연결을 허용 합니다.|
+|30003: 인증서를 신뢰할 수 없습니다.|SQL Server를 실행 하는 컴퓨터에 신뢰할 수 있는 인증서가 설치 되어 있지 않습니다.|서버에서 신뢰할 수 있는 인증서를 설정 하세요. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153616)|
+|30004: 권한이 부족 합니다.|이 오류는 SQL Server 인스턴스를 검색 하는 데 필요한 권한이 부족 하기 때문에 발생할 수 있습니다. |SQL Server 인스턴스 및 데이터베이스를 검색 하기 위해 어플라이언스에 제공 된 자격 증명/계정에 sysadmin 역할을 부여 합니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153511)|
+|30005: 기본 master 데이터베이스 문제로 인해 로그인 SQL Server 연결 하지 못했습니다.|데이터베이스 자체가 잘못되었거나 로그인에 데이터베이스에 대한 CONNECT 권한이 부족합니다.|ALTER LOGIN을 사용 하 여 기본 데이터베이스를 master database로 설정 합니다.<br/>SQL Server 인스턴스 및 데이터베이스를 검색 하기 위해 어플라이언스에 제공 된 자격 증명/계정에 sysadmin 역할을 부여 합니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153615)|
+|30006: SQL Server 로그인은 Windows 인증과 함께 사용할 수 없습니다.|1. 로그인이 SQL Server 로그인 일 수 있지만 서버에서 Windows 인증만 허용 합니다.<br/>2. SQL Server 인증을 사용 하 여 연결 하려고 하지만 사용 된 로그인이 SQL Server에 존재 하지 않습니다.<br/>3. 로그인이 Windows 인증을 사용할 수 있지만 인식할 수 없는 Windows 보안 주체입니다. 인식할 수 없는 Windows 보안 주체란 로그인을 Windows에서 확인할 수 없음을 의미합니다. 이는 Windows 로그인이 트러스트되지 않은 도메인에서 온 것이기 때문일 수 있습니다.|SQL Server 인증을 사용 하 여 연결을 시도 하는 경우 SQL Server 혼합 인증 모드로 구성 되어 있고 SQL Server 로그인이 있는지 확인 합니다.<br/>Windows 인증을 사용하여 연결하려고 하는 경우 올바른 도메인에 제대로 로그인되어 있는지 확인합니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153421)|
+|30007: 암호가 만료 되었습니다.|계정의 암호가 만료되었습니다.|SQL Server 로그인 암호가 만료 되었을 수 있습니다. 암호를 다시 설정 하 고 암호 만료 날짜를 연장 하십시오. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153419)|
+|30008: 암호를 변경 해야 합니다.|계정의 암호를 변경해야 합니다.|SQL Server 검색을 위해 제공 된 자격 증명의 암호를 변경 합니다. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153318)|
+|30009: 내부 오류가 발생 했습니다.|SQL Server 인스턴스와 데이터베이스를 검색 하는 동안 내부 오류가 발생 했습니다. |문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
+|30010: 데이터베이스를 찾을 수 없습니다.|선택한 서버 인스턴스에서 데이터베이스를 찾을 수 없습니다.|SQL 데이터베이스를 검색 하기 위해 어플라이언스에 제공 된 자격 증명/계정에 sysadmin 역할을 부여 합니다.|
+|30011: SQL 인스턴스 또는 데이터베이스를 평가 하는 동안 내부 오류가 발생 했습니다.|평가를 수행 하는 동안 내부 오류가 발생 했습니다.|문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
+|30012: SQL 연결에 실패 했습니다.|1. 서버의 방화벽이 연결을 거부 했습니다.<br/>2. SQL Server Browser 서비스 (sqlbrowser)가 시작 되지 않았습니다.<br/>3. 서버가 시작 되지 않았기 때문에 SQL Server 클라이언트 요청에 응답 하지 않았습니다.<br/>4. SQL Server 클라이언트에서 서버에 연결할 수 없습니다. 서버가 원격 연결을 허용하도록 구성되어 있지 않기 때문에 이 오류가 발생했을 수 있습니다.<br/>5. SQL Server 클라이언트에서 서버에 연결할 수 없습니다. 클라이언트가 서버 이름을 확인할 수 없거나 서버 이름이 잘못되었기 때문에 이 오류가 발생할 수 있습니다.<br/>6. TCP 또는 명명 된 파이프 프로토콜을 사용할 수 없습니다.<br/>7. 지정 된 SQL Server 인스턴스 이름이 잘못 되었습니다.|[이](https://go.microsoft.com/fwlink/?linkid=2153317) 대화형 사용자 가이드를 사용 하 여 연결 문제를 해결 하세요. 서비스에서 업데이트 하는 데이터에 대 한 가이드를 따라 24 시간 동안 기다려 주세요. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
+|30013: SQL server 인스턴스에 대 한 연결을 설정 하는 동안 오류가 발생 했습니다.|1. 어플라이언스에서 SQL Server의 이름을 확인할 수 없습니다.<br/>2. SQL Server는 원격 연결을 허용 하지 않습니다.|어플라이언스에서 SQL server를 ping 할 수 있는 경우 24 시간 동안 기다린 후이 문제가 자동으로 해결 되는지 확인 하세요. 그렇지 않은 경우 Microsoft 지원에 문의 하세요. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153316)|
+|30014: 사용자 이름 또는 암호가 잘못 되었습니다.| 이 오류는 잘못 된 암호나 사용자 이름과 관련 된 인증 실패로 인해 발생할 수 있습니다.|유효한 사용자 이름 및 암호를 사용 하 여 자격 증명을 제공 하세요. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153315)|
+|30015: SQL 인스턴스를 검색 하는 동안 내부 오류가 발생 했습니다.|SQL 인스턴스를 검색 하는 동안 내부 오류가 발생 했습니다.|문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
+|30016: 시간 초과로 인해 '% instance; ' 인스턴스에 연결 하지 못했습니다.| 서버의 방화벽이 연결을 거부 하는 경우이 문제가 발생할 수 있습니다.|SQL Server의 방화벽이 연결을 허용 하도록 구성 되어 있는지 확인 합니다. 오류가 계속 되 면 Microsoft 지원에 문의 하세요. [자세한 정보](https://go.microsoft.com/fwlink/?linkid=2153611)|
+|30017: 내부 오류가 발생 했습니다.|처리되지 않은 예외가 발생했습니다.|문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
+|30018: 내부 오류가 발생 했습니다.|SQL 인스턴스의 임시 DB 크기, 파일 크기 등의 데이터를 수집 하는 동안 내부 오류가 발생 했습니다.|24 시간 동안 기다린 후 문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
+|30019: 내부 오류가 발생 했습니다.|데이터베이스 또는 인스턴스의 메모리 사용률 등의 성능 메트릭을 수집 하는 동안 내부 오류가 발생 했습니다.|24 시간 동안 기다린 후 문제가 계속 되 면 Microsoft 지원에 문의 하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

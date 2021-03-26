@@ -7,12 +7,12 @@ ms.date: 03/13/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462000"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563415"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Azure Data Factory 파이프라인 오케스트레이션 및 트리거 문제 해결
 
@@ -95,7 +95,7 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 
 * [파이프라인 오류 및 오류를 처리 하는 방법에](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459)따라 활동 수준 검사를 구현 합니다.
 * Azure Logic Apps를 사용 하 여 [팩터리에서 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)다음에 정기적인 간격으로 파이프라인을 모니터링할 수 있습니다.
-* [시각적으로 파이프라인 모니터링](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [시각적으로 파이프라인 모니터링](./monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>정기적으로 파이프라인 오류를 모니터링 하는 방법
 
@@ -105,7 +105,7 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 
 **해결 방법**
 * [팩터리에 쿼리](/rest/api/datafactory/pipelineruns/querybyfactory)에 설명 된 대로 5 분 마다 실패 한 모든 파이프라인을 쿼리하도록 Azure 논리 앱을 설정할 수 있습니다. 그런 다음 티켓 시스템에 인시던트를 보고할 수 있습니다.
-* [시각적으로 파이프라인 모니터링](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [시각적으로 파이프라인 모니터링](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>병렬 처리 수준 증가로 인해 처리량이 더 높지 않습니다.
 
@@ -146,8 +146,8 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 
 **해결 방법**
 
-* 각 복사 작업을 시작하는 데 최대 2분이 걸리고 이 문제가 주로 VNet 조인(및 Azure IR)에서 발생하는 경우 이는 복사 성능 문제일 수 있습니다. 문제 해결 단계를 검토 하려면 [복사 성능 향상으로 이동 합니다.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* Time to live 기능을 사용 하 여 데이터 흐름 작업에 대 한 클러스터 시작 시간을 줄일 수 있습니다. [Integration Runtime 데이터 흐름을](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime) 검토 하십시오.
+* 각 복사 작업을 시작하는 데 최대 2분이 걸리고 이 문제가 주로 VNet 조인(및 Azure IR)에서 발생하는 경우 이는 복사 성능 문제일 수 있습니다. 문제 해결 단계를 검토 하려면 [복사 성능 향상으로 이동 합니다.](./copy-activity-performance-troubleshooting.md)
+* Time to live 기능을 사용 하 여 데이터 흐름 작업에 대 한 클러스터 시작 시간을 줄일 수 있습니다. [Integration Runtime 데이터 흐름을](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime) 검토 하십시오.
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>SHIR의 용량 문제 (자체 호스트 된 Integration Runtime) 적중
  
@@ -157,7 +157,7 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 
 **해결 방법**
 
-* SHIR에서 용량 문제가 발생 한 경우 VM을 업그레이드 하 여 노드를 늘려 활동의 균형을 유지 합니다. 자체 호스팅 IR 일반 오류 또는 오류, 자체 호스팅 IR 업그레이드 또는 긴 큐를 생성할 수 있는 자체 호스팅 IR 연결 문제에 대 한 오류 메시지가 표시 되는 경우 [자체 호스팅 통합 런타임 문제 해결로 이동 합니다.](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide)
+* SHIR에서 용량 문제가 발생 한 경우 VM을 업그레이드 하 여 노드를 늘려 활동의 균형을 유지 합니다. 자체 호스팅 IR 일반 오류 또는 오류, 자체 호스팅 IR 업그레이드 또는 긴 큐를 생성할 수 있는 자체 호스팅 IR 연결 문제에 대 한 오류 메시지가 표시 되는 경우 [자체 호스팅 통합 런타임 문제 해결로 이동 합니다.](./self-hosted-integration-runtime-troubleshoot-guide.md)
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>ADF 복사 및 데이터 흐름에 대 한 긴 큐로 인 한 오류 메시지
 
@@ -166,10 +166,10 @@ Azure Data Factory은 모든 리프 수준 활동의 결과를 평가 합니다.
 다양 한 이유로 긴 큐 관련 오류 메시지가 표시 될 수 있습니다. 
 
 **해결 방법**
-* 긴 큐를 생성할 수 있는 커넥터를 통해 원본 또는 대상에서 오류 메시지가 수신 되 면 [커넥터 문제 해결 가이드로 이동 합니다.](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide)
-* 긴 큐를 생성할 수 있는 데이터 흐름 매핑에 대 한 오류 메시지가 표시 되 면 [데이터 흐름 문제 해결 가이드로 이동 합니다.](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide)
-* 긴 큐를 생성할 수 있는 Databricks, 사용자 지정 활동 또는 HDI와 같은 다른 활동에 대 한 오류 메시지가 표시 되는 경우 [활동 문제 해결 가이드로 이동 합니다.](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide)
-* 긴 큐를 생성할 수 있는 SSIS 패키지를 실행 하는 방법에 대 한 오류 메시지가 표시 되 면 [AZURE Ssis 패키지 실행 문제 해결 가이드](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) 및 [Integration Runtime 관리 문제 해결 가이드로 이동 합니다.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+* 긴 큐를 생성할 수 있는 커넥터를 통해 원본 또는 대상에서 오류 메시지가 수신 되 면 [커넥터 문제 해결 가이드로 이동 합니다.](./connector-troubleshoot-guide.md)
+* 긴 큐를 생성할 수 있는 데이터 흐름 매핑에 대 한 오류 메시지가 표시 되 면 [데이터 흐름 문제 해결 가이드로 이동 합니다.](./data-flow-troubleshoot-guide.md)
+* 긴 큐를 생성할 수 있는 Databricks, 사용자 지정 활동 또는 HDI와 같은 다른 활동에 대 한 오류 메시지가 표시 되는 경우 [활동 문제 해결 가이드로 이동 합니다.](./data-factory-troubleshoot-guide.md)
+* 긴 큐를 생성할 수 있는 SSIS 패키지를 실행 하는 방법에 대 한 오류 메시지가 표시 되 면 [AZURE Ssis 패키지 실행 문제 해결 가이드](./ssis-integration-runtime-ssis-activity-faq.md) 및 [Integration Runtime 관리 문제 해결 가이드로 이동 합니다.](./ssis-integration-runtime-management-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>다음 단계

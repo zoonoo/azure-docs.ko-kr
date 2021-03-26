@@ -6,22 +6,22 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 15f76488790249f7e301d4474772c500c8829b77
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3644f26f989fec05ee76afd9f930c31b25234c7f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565642"
+ms.locfileid: "105608530"
 ---
 # <a name="import-new-update"></a>새 업데이트 가져오기
 IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다. 아직 수행 하지 않은 경우 기본 [가져오기 개념](import-concepts.md)을 숙지 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
+* [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). 
 * IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
    * 실제 장치를 사용 하는 경우 이미지 업데이트를 위한 업데이트 이미지 파일 또는 패키지 업데이트를 위한 [APT 매니페스트 파일이](device-update-apt-manifest.md) 필요 합니다.
-* [PowerShell 5](/powershell/scripting/install/installing-powershell) 이상
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) 이상 (Linux, macos 및 Windows 설치 포함)
 * 지원되는 브라우저:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome

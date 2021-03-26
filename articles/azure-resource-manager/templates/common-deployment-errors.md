@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: 6cb2b611e694c6b72e063f3d8ab05b7667a34e29
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 40e6317a1d879704ef00e928a971ae08fc9e0f72
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888858"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564350"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "104888858"
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 스토리지 계정에 대한 명명 제한 사항을 따릅니다. | [스토리지 계정 이름 오류 해결](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | 사용 가능한 스토리지 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Windows의 프로비전 및 할당 문제](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) 및 [할당 문제 해결](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux), [Windows의 프로비전 및 할당 문제](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) 및 [할당 문제 해결](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필요한 리소스 공급자가 등록 되지 않은 경우이 오류가 나타날 수 있습니다. | [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](error-register-resource-provider.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-location.md) |

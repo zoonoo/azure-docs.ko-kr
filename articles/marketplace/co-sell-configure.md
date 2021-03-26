@@ -8,16 +8,16 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e8019a30d4f5bf24814d88fc749cefd6b529b73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609651"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563398"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>상업적 marketplace 제품에 대 한 공동 판매 구성
 
-이 문서에서는 상업적 marketplace 제품에 대해 **Microsoft와 공동 판매** 탭을 구성 하는 방법을 설명 합니다. 이 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항 이지만 [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)를 구현 하는 데 필요 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 이 정보는 고객에 게 직접 제공 되지 않습니다. 공동 판매에 대 한 자세한 내용은 [microsoft 판매자 및 파트너와 공동 판매 개요](marketplace-co-sell.md) 및 [microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
+이 문서에서는 상업적 marketplace 제품에 대해 **Microsoft와 공동 판매** 탭을 구성 하는 방법을 설명 합니다. 이 탭에 대 한 정보를 제공 하는 것은 모두 선택 사항 이지만 [공동 판매 준비 및 IP 공동 판매 Incentivized 상태](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)를 구현 하는 데 필요 합니다. Microsoft 영업 팀에서 제공 하는 정보를 사용 하 여 고객의 요구에 맞게 제품을 평가할 때 제품에 대해 자세히 알아볼 수 있습니다. 이 정보는 고객에 게 직접 제공 되지 않습니다. 공동 판매에 대 한 자세한 내용은 [microsoft 판매자 및 파트너와 공동 판매 개요](marketplace-co-sell.md) 및 [microsoft와 공동 판매](https://partner.microsoft.com/membership/co-sell-with-microsoft)를 참조 하세요.
 
 공동 판매 옵션은 다음 제안 유형에 사용할 수 있습니다.
 

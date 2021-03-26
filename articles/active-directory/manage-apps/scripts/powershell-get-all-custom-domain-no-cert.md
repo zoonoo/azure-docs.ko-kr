@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7be5732b4e8897a9bc993b4e84b781e5f39bce55
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f4b661ee66d3fb045dfa4891f1f1c1643927167c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565617"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044059"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>인증서를 업로드하지 않고 게시된 모든 Azure AD 프록시 애플리케이션 앱 가져오기
+# <a name="get-all-application-proxy-apps-published-with-no-certificate-uploaded"></a>인증서를 업로드하지 않고 게시된 모든 애플리케이션 프록시 앱 가져오기
 
 이 PowerShell 스크립트 예제에서는 사용자 지정 도메인을 사용 중이지만 유효한 TLS/SSL 인증서가 업로드되지 않은 모든 Azure AD(Azure Active Directory) 애플리케이션 프록시 앱을 나열합니다.
 

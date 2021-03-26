@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3193acf8ef19cdac97f6733a657610801d614f32
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 7607b1726900423498a58502494c015f62da8829
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952306"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559437"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>App Service에 대 한 Azure 보안 기준
 
@@ -59,7 +59,7 @@ Azure 방화벽을 구현 하 여 구독 및 가상 네트워크에서 응용 �
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 네트워크**:
 
@@ -83,7 +83,7 @@ Azure 방화벽을 사용 하 여 트래픽을 전송 하 고, 구독 및 가상
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 네트워크**:
 
@@ -122,7 +122,7 @@ Azure 방화벽 장치를 통해 모든 응용 프로그램 트래픽 아웃 바
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 웹**:
 
@@ -148,7 +148,7 @@ Azure 방화벽 장치를 통해 모든 응용 프로그램 트래픽 아웃 바
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 네트워크**:
 
@@ -162,7 +162,7 @@ Azure 방화벽 장치를 통해 모든 응용 프로그램 트래픽 아웃 바
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 네트워크**:
 
@@ -192,7 +192,7 @@ Azure 방화벽 장치를 통해 모든 응용 프로그램 트래픽 아웃 바
 
 - [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integrationEnvironment:)
+- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integration)
 
 **책임**: Customer
 
@@ -229,7 +229,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 - [포털에서 Application Gateway를 사용 하 여 종단 간 TLS를 구성 하는 방법](../application-gateway/end-to-end-ssl-portal.md)
 
-- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integrationEnvironment:)
+- [App Service 잠금에 설명 된 대로 ASE를 보호 합니다.](/azure/app-service/environment/firewall-integration)
 
 **책임**: Customer
 
@@ -245,7 +245,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure App Service 액세스 제한](/azure/app-service/app-service-ip-restriction)
+- [Azure App Service 액세스 제한](/azure/app-service/app-service-ip-restrictions)
 
 **책임**: Customer
 
@@ -313,7 +313,7 @@ Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 �
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 웹**:
 
@@ -623,7 +623,7 @@ Microsoft는 App Service에 대 한 기본 인프라를 관리 하 고, 데이�
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 웹**:
 
@@ -1006,7 +1006,7 @@ Azure 리소스에 대 한 구성을 자동으로 적용 하는 효과, [감사]
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 웹**:
 

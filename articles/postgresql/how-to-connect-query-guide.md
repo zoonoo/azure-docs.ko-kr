@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1506ce311fe443247050a36e1b9fa4600360ac6e
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92546554"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604144"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Azure database for PostgreSQL- 단일 서버 개요 연결 및 쿼리
 
@@ -44,7 +44,6 @@ PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하�
 - [Postgres 11 확장](./concepts-extensions.md#postgres-11-extensions)
 - [Postgres 10 확장](./concepts-extensions.md#postgres-10-extensions)
 - [Postgres 9.6 확장](./concepts-extensions.md#postgres-96-extensions)
-- [Postgres 9.5 확장](./concepts-extensions.md#postgres-95-extensions)
 
 자세한 내용은 [단일 서버에서 PostgreSQL 확장을 사용 하는 방법](concepts-extensions.md)을 참조 하세요.
 

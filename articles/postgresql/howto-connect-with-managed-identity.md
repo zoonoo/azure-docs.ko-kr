@@ -1,18 +1,18 @@
 ---
 title: 관리 ID를 사용하여 연결 - Azure Database for PostgreSQL - 단일 서버
 description: Azure Database for PostgreSQL 인증을 위해 관리 ID를 사용하여 연결하고 인증하는 방법을 알아봅니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: b0d6b083228ddab9d958bf3480b592f7ee0d892d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d59b449a2dbf2ed3b1177db6e543de4c34a8ecb1
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101092639"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604161"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>관리 ID를 사용하여 Azure Database for PostgreSQL에 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "101092639"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](../../articles/active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. Azure 계정이 없으면 계속하기 전에 [체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
-- 필요한 리소스를 만들고 역할을 관리하려면 적절한 범위(사용자 구독 또는 리소스 그룹)의 "소유자" 권한이 계정에 필요합니다. 역할 할당에 대 한 지원이 필요한 경우 azure [구독 리소스에 대 한 액세스를 관리 하기 위해 azure 역할 할당](../../articles/role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+- 필요한 리소스를 만들고 역할을 관리하려면 적절한 범위(사용자 구독 또는 리소스 그룹)의 "소유자" 권한이 계정에 필요합니다. 역할 할당에 관한 도움이 필요한 경우 [Azure 역할을 할당하여 Azure 구독 리소스에 대한 액세스 관리](../../articles/role-based-access-control/role-assignments-portal.md)를 참조하세요.
 - 관리 ID를 사용하여 데이터베이스에 액세스하는 데 사용할 Azure VM(예: Ubuntu Linux 실행)이 필요합니다.
 - [Azure AD 인증](howto-configure-sign-in-aad-authentication.md)이 구성된 Azure Database for PostgreSQL 데이터베이스 서버가 필요합니다.
 - C# 예제를 따르려면 먼저 [C#을 사용하여 연결](connect-csharp.md)하는 방법 가이드를 완료합니다.

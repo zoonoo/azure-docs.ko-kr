@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 9ee0e8d8fa660313cb007d53c2bbbfc9b19feec9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 43a8004b6cdfe2e074304569b83360101784a87e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889776"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568004"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
@@ -129,14 +129,14 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | DSVM에 구성/설치 방법  | [Linux](dsvm-tools-languages.md#python-linux-edition) 의 python 3.5에 설치 된 및 Windows의 python 3.6 [2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | 실행 방법      | 터미널: 올바른 환경을 활성화 한 다음 Python을 실행 합니다. <br/> * Jupyter: [jupyter](provision-vm.md) 또는 [Jupyterhub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)에 연결한 다음 샘플에 대 한 TensorFlow 디렉터리를 엽니다.   |
 
-## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-serving"></a>[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving)
 
 | 범주 | 값 |
 | ------------- | ------------- |
 | 지원 되는 버전 | 1.12 |
 | 지원 되는 DSVM 버전      | Ubuntu 16.04 |
 | DSVM에 구성/설치 방법  | tensorflow_model_server는 터미널에서 제공됩니다. |
-| 실행 방법      |  샘플은 [온라인](https://www.tensorflow.org/serving/)으로 제공됩니다.   |
+| 실행 방법      |  샘플은 [온라인](https://www.tensorflow.org/tfx/guide/serving)으로 제공됩니다.   |
 
 
 ## <a name="theano"></a>[Theano](https://github.com/Theano/Theano)

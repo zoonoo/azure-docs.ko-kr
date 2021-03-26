@@ -2,19 +2,19 @@
 title: 자습서 - Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
 description: 자습서 - Synapse Prometheus 커넥터를 사용하여 거의 실시간으로 Azure Spark 애플리케이션 메트릭에 대해 기존 온-프레미스 Prometheus 서버를 Azure Synapse 작업 영역에 통합하는 방법을 알아봅니다.
 services: synapse-analytics
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d22975199eedae353f2dc12588671ae4b54c85ab
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593019"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109321"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>자습서: Azure Synapse Spark 애플리케이션 수준 메트릭 연결 및 모니터링
 
@@ -152,7 +152,7 @@ python main.py
 | grant_type    | True     | 요청된 부여 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 client_credentials이어야 합니다. |
 | client_id     | True     | Azure Portal 또는 Azure CLI에 등록한 애플리케이션의 애플리케이션(서비스 주체) ID입니다.        |
 | client_secret | True     | 애플리케이션에 대해 생성된 암호(서비스 주체)입니다.                                                  |
-| resource      | True     | Synapse 리소스 URI로, https://dev.azuresynapse.net 이어야 합니다.                                                  |
+| resource      | True     | Synapse 리소스 URI로, 'https://dev.azuresynapse.net '이어야 합니다.                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \

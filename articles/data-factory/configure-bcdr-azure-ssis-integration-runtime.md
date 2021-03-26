@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/05/2021
-ms.openlocfilehash: 2744d51b6d68ed494050be10a9f0e4d1f59cdc49
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a426ee39ba3c0f50b9a6c1fb9c7de1ef8e7291b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204068"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566356"
 ---
 # <a name="configure-azure-ssis-integration-runtime-for-business-continuity-and-disaster-recovery-bcdr"></a>BCDR (비즈니스 연속성 및 재해 복구)를 위한 Azure SSIS 통합 런타임 구성 
 
@@ -25,7 +25,7 @@ ms.locfileid: "102204068"
 
 Azure Data Factory (ADF)의 SSIS (Azure SQL Database/Managed Instance 및 SQL Server Integration Services)는 SQL Server 마이그레이션을 위해 권장 되는 모든 PaaS (Platform as a Service) 솔루션으로 결합 될 수 있습니다. Azure SQL Database/Managed Instance에 의해 호스트 되는 ssis 카탈로그 데이터베이스 (SSISDB)에 SSIS 프로젝트를 배포 하 고 ADF의 Azure SSIS IR (통합 런타임)에서 SSIS 패키지를 실행할 수 있습니다.
 
-BCDR (비즈니스 연속성 및 재해 복구)의 경우 읽기/쓰기 액세스 권한이 있는 기본 Azure 지역의 SSISDB (주 역할)가 읽기 전용 액세스 (보조 역할)를 사용 하 여 보조 지역으로 계속 복제 되는 [지역 복제/장애 조치 (failover) 그룹](https://docs.microsoft.com/azure/azure-sql/database/auto-failover-group-overview)을 사용 하 여 Azure SQL Database/Managed Instance 구성할 수 있습니다. 주 지역에서 재해가 발생 하면 기본 및 보조 SSISDBs 역할을 교환 하는 장애 조치 (failover)가 트리거됩니다.
+BCDR (비즈니스 연속성 및 재해 복구)의 경우 읽기/쓰기 액세스 권한이 있는 기본 Azure 지역의 SSISDB (주 역할)가 읽기 전용 액세스 (보조 역할)를 사용 하 여 보조 지역으로 계속 복제 되는 [지역 복제/장애 조치 (failover) 그룹](../azure-sql/database/auto-failover-group-overview.md)을 사용 하 여 Azure SQL Database/Managed Instance 구성할 수 있습니다. 주 지역에서 재해가 발생 하면 기본 및 보조 SSISDBs 역할을 교환 하는 장애 조치 (failover)가 트리거됩니다.
 
 BCDR의 경우 Azure SQL Database/Managed Instance 장애 조치 (failover) 그룹과 동기화 된 상태에서 작동 하는 이중 대기 Azure SSIS IR 쌍을 구성할 수도 있습니다. 이렇게 하면 지정 된 시간에 하나의 Azure-SSIS IRs를 실행 하는 한 쌍을 가질 수 있습니다. 단, 패키지 실행 로그 (주 역할)는 물론 패키지 실행 로그 (주 역할)는 물론 패키지 실행 로그 (주 역할)의 경우와 같은 다른 Azure Files 위치에 배포 된 패키지에 대해서만 동일한 작업을 수행할 수 있습니다. SSISDB 장애 조치 (failover)가 발생 하면 기본 및 보조 Azure SSIS IRs 역할을 교환 하 고 둘 다 실행 중인 경우 가동 중지 시간이 거의 발생 하지 않습니다.
 
@@ -39,7 +39,7 @@ Azure SQL Database 장애 조치 (failover) 그룹과 동기화 된 상태에서
 
    **Integration runtime 설정** 창의 **배포 설정** 페이지에서 [ssisdb를 사용 하도록 선택](./tutorial-deploy-ssis-packages-azure.md#creating-ssisdb) 하는 경우 **ssisdb 장애 조치 (failover)와 함께 이중 대기 Azure-SSIS Integration Runtime 쌍 사용** 확인란을 선택 합니다. **이중 대기 쌍 이름** 에 기본 및 보조 AZURE-SSIS IRs의 쌍을 식별 하는 이름을 입력 합니다. 기본 Azure-SSIS IR 만들기를 완료 하면 읽기/쓰기 액세스를 사용 하 여 사용자를 대신 하 여 생성 되는 기본 SSISDB가 시작 되 고 연결 됩니다. 방금 다시 구성한 경우 다시 시작 해야 합니다.
 
-1. Azure Portal를 사용 하 여 주 SSISDB가 주 Azure SQL Database 서버의 **개요** 페이지에 만들어졌는지 여부를 확인할 수 있습니다. 만들어진 후에는 [기본 및 보조 Azure SQL Database 서버에 대 한 장애 조치 (failover) 그룹을 만들고](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#2---create-the-failover-group) **장애 조치 (failover) 그룹** 페이지에서 SSISDB를 추가할 수 있습니다. 장애 조치 (failover) 그룹을 만든 후에는 보조 Azure SQL Database 서버의 **개요** 페이지에서 읽기 전용 액세스 권한으로 주 SSISDB가 보조 데이터베이스에 복제 되었는지 여부를 확인할 수 있습니다.
+1. Azure Portal를 사용 하 여 주 SSISDB가 주 Azure SQL Database 서버의 **개요** 페이지에 만들어졌는지 여부를 확인할 수 있습니다. 만들어진 후에는 [기본 및 보조 Azure SQL Database 서버에 대 한 장애 조치 (failover) 그룹을 만들고](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#2---create-the-failover-group) **장애 조치 (failover) 그룹** 페이지에서 SSISDB를 추가할 수 있습니다. 장애 조치 (failover) 그룹을 만든 후에는 보조 Azure SQL Database 서버의 **개요** 페이지에서 읽기 전용 액세스 권한으로 주 SSISDB가 보조 데이터베이스에 복제 되었는지 여부를 확인할 수 있습니다.
 
 1. Azure Portal/ADF UI를 사용 하 여 보조 지역에서 SSISDB를 호스트 하는 보조 Azure SQL Database 서버를 사용 하 여 다른 Azure-SSIS IR을 만들 수 있습니다. 이는 보조 Azure-SSIS IR입니다. 전체 BCDR에 종속 된 모든 리소스 (예: 사용자 지정 설치 스크립트/파일을 저장 하기 위한 Azure Storage, 오케스트레이션/예약 패키지 실행을 위한 ADF 등)가 보조 지역에도 생성 되었는지 확인 합니다.
 
@@ -51,13 +51,13 @@ Azure SQL Database 장애 조치 (failover) 그룹과 동기화 된 상태에서
 
 1. [오케스트레이션/일정 예약 실행을 위해 ADF를 사용](./how-to-invoke-ssis-package-ssis-activity.md)하는 경우 SSIS 패키지 작업 및 연결 된 트리거를 실행 하는 모든 관련 ADF 파이프라인이 처음에는 트리거를 사용 하지 않도록 설정 하 여 보조 ADF로 복사 되었는지 확인 합니다. SSISDB 장애 조치 (failover)가 발생 하는 경우이를 사용 하도록 설정 해야 합니다.
 
-1. [Azure SQL Database 장애 조치 (failover) 그룹을 테스트](https://docs.microsoft.com/azure/azure-sql/database/failover-group-add-single-database-tutorial?tabs=azure-portal#3---test-failover) 하 고 [ADF 포털에서 Azure-SSIS IR 모니터링 페이지](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) 를 선택 하 여 기본 및 보조 Azure SSIS IRs에서 역할을 교환 했는지 여부를 확인할 수 있습니다. 
+1. [Azure SQL Database 장애 조치 (failover) 그룹을 테스트](../azure-sql/database/failover-group-add-single-database-tutorial.md?tabs=azure-portal#3---test-failover) 하 고 [ADF 포털에서 Azure-SSIS IR 모니터링 페이지](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) 를 선택 하 여 기본 및 보조 Azure SSIS IRs에서 역할을 교환 했는지 여부를 확인할 수 있습니다. 
 
 ## <a name="configure-a-dual-standby-azure-ssis-ir-pair-with-azure-sql-managed-instance-failover-group"></a>Azure SQL Managed Instance 장애 조치 (failover) 그룹을 사용 하 여 이중 대기 Azure-SSIS IR 쌍 구성
 
 Azure SQL Managed Instance 장애 조치 (failover) 그룹과 동기화 할 수 있는 이중 대기 Azure-SSIS IR 쌍을 구성 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal를 사용 하 여 기본 Azure SQL Managed Instance의 **장애 조치 (Failover) 그룹** 페이지에서 [기본 및 보조 Azure sql 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만들](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal) 수 있습니다.
+1. Azure Portal를 사용 하 여 기본 Azure SQL Managed Instance의 **장애 조치 (Failover) 그룹** 페이지에서 [기본 및 보조 Azure sql 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만들](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal) 수 있습니다.
 
 1. Azure Portal/ADF UI를 사용 하 여 기본 지역에서 SSISDB를 호스트 하는 기본 Azure SQL Managed Instance를 사용 하 여 새 Azure-SSIS IR을 만들 수 있습니다. 기본 Azure SQL Managed Instance에서 호스트 하는 SSIDB에 이미 연결 되어 있는 기존 Azure-SSIS IR 이미 실행 중인 경우 다시 구성 하려면 먼저 중지 해야 합니다. 이는 기본 Azure-SSIS IR입니다.
 
@@ -112,7 +112,7 @@ Azure SQL Managed Instance 장애 조치 (failover) 그룹과 동기화 할 수 
 
 1. [오케스트레이션/일정 예약 실행을 위해 ADF를 사용](./how-to-invoke-ssis-package-ssis-activity.md)하는 경우 SSIS 패키지 작업 및 연결 된 트리거를 실행 하는 모든 관련 ADF 파이프라인이 처음에는 트리거를 사용 하지 않도록 설정 하 여 보조 ADF로 복사 되었는지 확인 합니다. SSISDB 장애 조치 (failover)가 발생 하는 경우이를 사용 하도록 설정 해야 합니다.
 
-1. [AZURE SQL Managed Instance 장애 조치 (failover) 그룹을 테스트](https://docs.microsoft.com/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#test-failover) 하 고 [ADF 포털에서 Azure-SSIS IR 모니터링 페이지](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) 를 선택 하 여 기본 및 보조 Azure SSIS IRs에서 역할을 교환 했는지 여부를 확인할 수 있습니다. 
+1. [AZURE SQL Managed Instance 장애 조치 (failover) 그룹을 테스트](../azure-sql/managed-instance/failover-group-add-instance-tutorial.md?tabs=azure-portal#test-failover) 하 고 [ADF 포털에서 Azure-SSIS IR 모니터링 페이지](./monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) 를 선택 하 여 기본 및 보조 Azure SSIS IRs에서 역할을 교환 했는지 여부를 확인할 수 있습니다. 
 
 ## <a name="attach-a-new-azure-ssis-ir-to-existing-ssisdb-hosted-by-azure-sql-databasemanaged-instance"></a>Azure SQL Database/Managed Instance에서 호스트 하는 기존 SSISDB에 새 Azure-SSIS IR을 연결 합니다.
 

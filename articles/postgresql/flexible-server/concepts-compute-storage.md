@@ -1,17 +1,17 @@
 ---
 title: Compute 및 Storage 옵션-Azure Database for PostgreSQL 유연한 서버
 description: 이 문서에서는 Azure Database for PostgreSQL 유연한 서버에서 계산 및 저장소 옵션을 설명 합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 6bcfbc19cbaa078373d6857bdac74eaf86eca104
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 93a439c814b6bac630c5231f46d7a022a131687c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048054"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608173"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 계산 및 저장소 옵션
 
@@ -65,7 +65,7 @@ ms.locfileid: "105048054"
 | E48s_v3              | 48     | 384 GiB     | 18000              | 750MiB/초                 |
 | E64s_v3              | 64     | 432GiB     | 18000              | 750MiB/초                 |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 프로비전하는 스토리지는 Azure Database for PostgreSQL 서버에 사용할 수 있는 스토리지 용량입니다. 스토리지는 데이터베이스 파일, 임시 파일, 트랜잭션 로그 및 PostgreSQL 서버 로그에 사용됩니다. 프로비전하는 총 스토리지 용량도 서버에 사용할 수 있는 I/O 용량을 정의합니다.
 

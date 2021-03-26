@@ -1,19 +1,19 @@
 ---
 title: '자습서: Azure Database for PostgreSQL 디자인 - 단일 서버 - Azure PowerShell'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 첫 번째 Azure Database for PostgreSQL - 단일 서버를 만들고, 구성하고, 쿼리하는 방법을 보여 줍니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: cf84a8abcc0f1c890a51bf07056ac31d37107e53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 84b52ec43dc5fec4671459720af1b218b7f176d1
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96749116"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605827"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-powershell"></a>자습서: PowerShell을 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL은 PostgreSQL 커뮤니티 버전 데이터베이�
 > - 데이터 업데이트
 > - 데이터 복원
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

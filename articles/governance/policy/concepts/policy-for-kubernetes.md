@@ -3,12 +3,12 @@ title: Kubernetes에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다.
 ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4a6ca7fb5086401cab58d4bfb6a412089c11ef05
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868157"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564308"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Kubernetes 클러스터에 대한 Azure Policy 이해
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터용 Azure Policy 추가 기능에는 다음과 같은 일
 
 다음 제한은 AKS 용 Azure Policy 추가 기능에만 적용 됩니다.
 
-- [AKS Pod 보안 정책](../../../aks/use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 자세한 내용은 [AKS pod 보안 제한](../../../aks/use-pod-security-on-azure-policy.md#limitations)을 참조 하세요.
+- [AKS Pod 보안 정책](../../../aks/use-pod-security-policies.md) 및 AKS에 대 한 Azure Policy 추가 기능을 둘 다 사용할 수 없습니다. 자세한 내용은 [AKS pod 보안 제한](../../../aks/use-azure-policy.md)을 참조 하세요.
 - _Kube_, _aks 및-periscope_ _를 평가_ 하기 위해 추가 기능에 Azure Policy 의해 자동으로 제외 되는 네임 스페이스입니다.
 
 ## <a name="recommendations"></a>권장 사항
@@ -201,7 +201,7 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 
 1. [Helm 3](https://v3.helm.sh/docs/intro/install/)을 설치합니다.
 
-1. Azure Arc에 대해 Kubernetes 클러스터를 사용하도록 설정했습니다. 자세한 내용은 [Azure Arc에 Kubernetes 클러스터 온보딩](../../../azure-arc/kubernetes/connect-cluster.md)을 참조하세요.
+1. Azure Arc에 대해 Kubernetes 클러스터를 사용하도록 설정했습니다. 자세한 내용은 [Azure Arc에 Kubernetes 클러스터 온보딩](../../../azure-arc/kubernetes/quickstart-connect-cluster.md)을 참조하세요.
 
 1. Azure Arc 지원 Kubernetes 클러스터의 정규화된 Azure 리소스 ID가 있어야 합니다.
 

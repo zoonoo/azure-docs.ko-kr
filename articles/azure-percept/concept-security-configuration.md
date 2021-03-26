@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 086d7ec9d2bcae96ee64745a4382c4748aea291e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: cfc20a30104e24a3950c71bdd8377544803d2f25
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105572468"
+ms.locfileid: "105604416"
 ---
 # <a name="azure-percept-firewall-configuration-and-security-recommendations"></a>Azure Percept 방화벽 구성 및 보안 권장 사항
 
@@ -38,3 +38,8 @@ Azure Percept는 기본 제공 되는 다양 한 보안 기능을 제공 합니�
 - 미사용 데이터 암호화가 사용 되도록 설정 되어 있는지 확인
 - 지속적으로 장치 상태를 모니터링 하 고 경고에 신속 하 게 응답
 - 장치에 대 한 액세스 권한이 있는 관리자 수 제한
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [Azure Percept 보안에 대 한 자세한 정보](./overview-percept-security.md)

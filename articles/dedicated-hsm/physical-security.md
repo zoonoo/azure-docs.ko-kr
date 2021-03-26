@@ -10,14 +10,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: ede1af4625d06af4e280eda86d09ae1db3dfdfd1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 8437d12075a148a3e8062f62e195bc019d89a85b
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "70881034"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606966"
 ---
 # <a name="azure-dedicated-hsm-physical-security"></a>Azure Dedicated HSM 물리적 보안
 
@@ -25,7 +25,7 @@ Azure Dedicated HSM은 키 스토리지에 대한 고급 보안 요구 사항을
 
 ## <a name="security-through-procurement"></a>조달 보안
 
-Microsoft는 보안 조달 프로세스를 따릅니다. Microsoft 관리 연속성을 관리하고 주문 및 배송되는 디바이스가 Microsoft의 데이터 센터에 도착하는 디바이스인지 확인합니다. 디바이스는 변조 이벤트 비닐 백에 담겨 있습니다. 데이터 센터의 데이터 갤러리에 의뢰될 때까지 안전한 스토리지 영역에 보관됩니다.  HSM 디바이스가 장착된 랙은 HBI(High Business Impact)로 간주됩니다. 디바이스는 잠긴 상태로 보관되며 항상 전후방에서 비디오로 감시됩니다.
+Microsoft는 보안 조달 프로세스를 따릅니다. Microsoft 관리 연속성을 관리하고 주문 및 배송되는 디바이스가 Microsoft의 데이터 센터에 도착하는 디바이스인지 확인합니다. 장치는 직렬화 된 변조 방지 이벤트 플라스틱 백 및 컨테이너에 있습니다. 데이터 센터의 데이터 갤러리에 의뢰될 때까지 안전한 스토리지 영역에 보관됩니다.  HSM 디바이스가 장착된 랙은 HBI(High Business Impact)로 간주됩니다. 디바이스는 잠긴 상태로 보관되며 항상 전후방에서 비디오로 감시됩니다.
 
 ## <a name="security-through-deployment"></a>배포 보안
 
@@ -49,7 +49,7 @@ Microsoft 엔지니어가 HSM 디바이스에서 사용하는 랙에 액세스�
 
 ## <a name="logical-level-security-considerations"></a>논리 수준 보안 고려 사항
 
-HSM은 고객이 만든 가상 네트워크에 프로비전됩니다. 이 가상 네트워크는 고객의 개인 IUP 주소 공간입니다.  이 구성은 중요한 논리 네트워크 수준 격리를 제공하고 고객만 액세스할 수 있도록 보장합니다. 즉, 모든 논리 수준 보안 제어는 고객의 책임입니다.
+Hsm은 고객의 개인 IP 주소 공간 내에서 고객이 만든 가상 네트워크에 프로 비전 됩니다.  이 구성은 중요한 논리 네트워크 수준 격리를 제공하고 고객만 액세스할 수 있도록 보장합니다. 즉, 모든 논리 수준 보안 제어는 고객의 책임입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

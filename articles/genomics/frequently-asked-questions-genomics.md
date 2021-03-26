@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40fff49aa3ed46417cdd9a6190f928707e41accb
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96018327"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608615"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
@@ -59,6 +59,10 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 ## <a name="do-you-save-my-storage-account-keys"></a>내 스토리지 계정 키를 저장하나요?
 스토리지 계정 키는 Microsoft Genomics 서비스에 대한 단기 액세스 토큰을 만들어 입력 파일을 읽고 출력 파일을 쓰는 데 사용됩니다. 기본 토큰 지속 기간은 48시간입니다. 토큰 지속 기간은 submit 명령의 `-sas/--sas-duration` 옵션으로 변경할 수 있습니다. 값은 시간 단위입니다.
 
+## <a name="does-microsoft-genomics-store-customer-data"></a>고객 데이터를 저장 Microsoft Genomics 합니까?
+
+아니요. Microsoft Genomics는 고객 데이터를 저장 하지 않습니다.
+
 ## <a name="what-genome-references-can-i-use"></a>어떤 게놈 참조를 사용할 수 있나요?
 
 지원되는 참조는 다음과 같습니다.
@@ -88,5 +92,5 @@ msgen은 다음 형식으로 구성 파일을 이해합니다.
 
 다음 리소스를 사용하여 Microsoft Genomics를 시작하세요.
 - 먼저 Microsoft Genomics 서비스를 통해 첫 번째 워크플로를 실행합니다. [Microsoft Genomics 서비스를 통해 워크플로 실행](quickstart-run-genomics-workflow-portal.md)
-- Microsoft Genomics 서비스에서 처리할 데이터를 전송 합니다. 쌍으로 연결 된 [fastq](quickstart-input-pair-FASTQ.md)  |  [bam](quickstart-input-BAM.md)  |  [다중 fastq 또는 bam](quickstart-input-multiple.md) 
+- Microsoft Genomics 서비스에서 처리하도록 자체 데이터 제출: [연결된 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [여러 FASTQ 또는 BAM](quickstart-input-multiple.md) 
 

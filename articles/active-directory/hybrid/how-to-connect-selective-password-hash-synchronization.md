@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103603104"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604671"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Azure AD Connect에 대 한 선택적 암호 해시 동기화 구성
 
@@ -36,6 +36,9 @@ Azure AD에 대 한 암호 해시 동기화에서 제외 된 사용자의 하위
 
 > [!Important]
 > 선택한 구성 옵션을 사용 하 여 변경 내용을 적용 하는 데 필요한 초기 동기화 (전체 동기화)가 다음 동기화 주기 동안 자동으로 수행 됩니다.
+
+> [!Important]
+> 선택적 암호 해시 동기화 구성은 비밀 번호 쓰기 저장에 직접 영향을 미칩니다. 사용자가 암호 해시 동기화 범위 내에 있는 경우에만 온-프레미스 Active Directory에 다시 쓸 Azure Active Directory에서 시작 된 암호 변경 또는 암호 재설정입니다. 
 
 ### <a name="the-admindescription-attribute"></a>AdminDescription 특성
 두 시나리오 모두 사용자의 adminDescription 특성을 특정 값으로 설정 하는 데 사용 됩니다.  이렇게 하면 규칙을 적용할 수 있으며,이를 통해 선택적 PHS가 작동 합니다.
@@ -134,6 +137,9 @@ Azure AD에 대 한 암호 해시 동기화에서 제외 된 사용자의 하위
    
   ![특성 편집](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+다음 PowerShell 명령을 사용 하 여 사용자의 **Admindescription** 특성을 편집할 수도 있습니다.
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>제외 된 사용자가 포함 된 사용자 보다 큼
 다음 섹션에서는 **제외할** 사용자 수가 **포함할** 사용자 수보다 많은 경우 선택적 암호 해시 **동기화를 사용** 하도록 설정 하는 방법을 설명 합니다.
@@ -202,7 +208,9 @@ Azure AD에 대 한 암호 해시 동기화에서 제외 된 사용자의 하위
 
   ![특성 편집](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ 다음 PowerShell 명령을 사용 하 여 사용자의 **Admindescription** 특성을 편집할 수도 있습니다.
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>다음 단계
 - [암호 해시 동기화란?](whatis-phs.md)

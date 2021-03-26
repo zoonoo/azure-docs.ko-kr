@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: f4baca7f261aa7544b54992a5e1ddf620794774f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962283"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567310"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
@@ -102,7 +102,7 @@ Azure Database Migration 서비스 프로젝트 마법사에서 원본에 연결
 
 | 원인         | 해결 방법    |
 | ------------- | ------------- |
-| [Express](https://azure.microsoft.com/services/expressroute/)경로를 사용 하는 경우 서비스와 연결 된 Virtual Network 서브넷에서 3 개의 서비스 끝점을 프로 비전 [해야](./tutorial-sql-server-azure-sql-online.md) Azure Database Migration Service.<br> --Service Bus 끝점<br> --저장소 끝점<br> --대상 데이터베이스 끝점 (예: SQL 끝점, Cosmos DB 끝점)<br><br><br><br><br> | 원본 및 Azure Database Migration Service 간 Express 경로 연결에 필요한 서비스 끝점을 [사용 하도록 설정](./tutorial-sql-server-azure-sql-online.md) 합니다. <br><br><br><br><br><br><br><br> |
+| [Express](https://azure.microsoft.com/services/expressroute/)경로를 사용 하는 경우 서비스와 연결 된 Virtual Network 서브넷에서 3 개의 서비스 끝점을 프로 비전 [해야](./tutorial-sql-server-to-azure-sql.md) Azure Database Migration Service.<br> --Service Bus 끝점<br> --저장소 끝점<br> --대상 데이터베이스 끝점 (예: SQL 끝점, Cosmos DB 끝점)<br><br><br><br><br> | 원본 및 Azure Database Migration Service 간 Express 경로 연결에 필요한 서비스 끝점을 [사용 하도록 설정](./tutorial-sql-server-to-azure-sql.md) 합니다. <br><br><br><br><br><br><br><br> |
 
 ## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Mysql 용 Azure DB로 MySQL 데이터베이스를 마이그레이션할 때 잠금 대기 시간 초과 오류가 발생 했습니다.
 
@@ -126,7 +126,7 @@ Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Dat
 
 ## <a name="additional-known-issues"></a>추가 알려진 문제
 
-* [Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-sql-online.md)
+* [Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./index.yml)
 * [Azure Database for MySQL에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-mysql-online.md)
 * [Azure Database for PostgreSQL에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항](./known-issues-azure-postgresql-online.md)
 

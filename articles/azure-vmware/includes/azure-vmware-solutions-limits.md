@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션 제한
 description: Azure VMware 솔루션 제한 사항.
 ms.topic: include
-ms.date: 03/16/2021
-ms.openlocfilehash: 0e2359d951f5348b69e95ab7fa046981b2b7b32d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/24/2021
+ms.openlocfilehash: 997a5ae96ff30226d055b7b966b128d7ec0ae5bd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622144"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105582738"
 ---
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->
 
@@ -19,7 +19,7 @@ ms.locfileid: "103622144"
 | 사설 클라우드 당 클러스터 | 12 |
 | 클러스터 당 최소 노드 수 | 3 |
 | 클러스터당 최대 노드 수 | 16 |
-| 사설 클라우드 당 노드 수 | 64 |
+| 사설 클라우드 당 노드 수 | 96 |
 | 사설 클라우드 당 vCenter | 1  |
 | HCX 사이트 쌍 | 3 with Advanced edition, 10 Enterprise edition |
 | AVS Express 경로 최대 연결 된 SDDCs | 4 |

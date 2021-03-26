@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 38b6251c4b464214d66f7240dab9d5d23812f946
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: f07eece54bfe456e173e664b19777cfc98b71368
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023217"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566866"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대 한 azure 보안 기준
 
@@ -443,7 +443,7 @@ Microsoft는 Azure Cache for Redis에 대 한 기본 인프라를 관리 하 고
 
 **책임**: 공유됨
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft 캐시**:
 

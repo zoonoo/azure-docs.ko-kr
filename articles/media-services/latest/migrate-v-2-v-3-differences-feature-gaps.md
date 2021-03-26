@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f77a41a172bc868ad056d74d018b50f734286f0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 07e43bdb0969c26120231013cc0c0354e6968ceb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702456"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567953"
 ---
 # <a name="feature-gaps-between-azure-media-services-v2-and-v3"></a>Azure Media Services V2와 V3 사이의 기능 차이
 
@@ -48,6 +48,6 @@ V3 API는 V2 API를 사용 하 여 다음과 같은 기능을 사용 합니다. 
 
 - 미사용 자산의 보호를 위한 클라이언트 쪽 저장소 암호화가 V3 API에서 제거 되 고 미사용 데이터에 대 한 storage 서비스 암호화로 대체 되었습니다. V3 Api는 기존의 저장소 암호화 된 자산을 계속 사용할 수 있지만 새로 만들 수는 없습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="terminology-and-entity-changes"></a>용어 및 엔터티 변경
 
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]
+API에 대 한 추가 변경 사항은 [용어 및 엔터티](migrate-v-2-v-3-differences-terminology.md) 변경을 참조 하세요.

@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509372"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562327"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -148,7 +148,7 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 
 * **기간별 정책 준수**:이 보기를 사용 하 여 지정 된 날짜에 하나 이상의 성공한 백업이 있었던 항목 수와 해당 날짜에 백업이 성공적으로 수행 되지 않은 횟수를 식별할 수 있습니다. 행을 클릭 하면 선택한 날짜에 트리거된 모든 백업 작업에 대 한 세부 정보를 볼 수 있습니다. 시간 범위를 지난 60 일과 같은 더 큰 값으로 늘리면 표가 주간 보기에서 렌더링 되 고 지정 된 주의 매일 하나 이상의 성공한 백업이 있는 모든 항목의 수가 표시 됩니다. 마찬가지로 더 큰 시간 범위에 대 한 월별 보기가 있습니다.
 
-매주 백업 된 항목의 경우이 표를 사용 하 여 지정 된 주에 하나 이상의 성공한 백업이 있는 모든 항목을 식별할 수 있습니다. 지난 120 일과 같은 더 큰 시간 범위에 대해 표는 월별 보기에서 렌더링 되 고 지정 된 달에 매주 하나 이상의 성공한 백업이 있는 모든 항목의 수를 표시 합니다. 매일, 매주 및 매월 보기에 대 한 자세한 내용은 [백업 보고서에 사용 되는 규칙](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) 을 참조 하세요.
+매주 백업 된 항목의 경우이 표를 사용 하 여 지정 된 주에 하나 이상의 성공한 백업이 있는 모든 항목을 식별할 수 있습니다. 지난 120 일과 같은 더 큰 시간 범위에 대해 표는 월별 보기에서 렌더링 되 고 지정 된 달에 매주 하나 이상의 성공한 백업이 있는 모든 항목의 수를 표시 합니다. 매일, 매주 및 매월 보기에 대 한 자세한 내용은 [백업 보고서에 사용 되는 규칙](#conventions-used-in-backup-reports) 을 참조 하세요.
 
 ![기간별 정책 준수](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ SQL 및 SAP HANA 같은 데이터베이스 작업의 경우 표에 표시 된 �
 
 백업 보고서는 [Azure Monitor 로그에 시스템 함수를](backup-reports-system-functions.md)사용 합니다. 이러한 함수는 LA의 원시 Azure Backup 테이블에 있는 데이터에 대해 작동 하며 간단한 쿼리를 사용 하 여 모든 백업 관련 엔터티의 정보를 쉽게 검색 하는 데 도움이 되는 형식이 지정 된 데이터를 반환 합니다. 
 
-백업 보고서를 기반으로 사용 하 여 사용자 고유의 보고 통합 문서를 만들려면 Backup 보고서로 이동 하 고, 보고서 맨 위에 있는 **편집** 을 클릭 하 고, 보고서에 사용 되는 쿼리를 보거나 편집할 수 있습니다. 사용자 지정 보고서를 만드는 방법에 대 한 자세한 내용은 [Azure 통합](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) 문서를 참조 하세요. 
+백업 보고서를 기반으로 사용 하 여 사용자 고유의 보고 통합 문서를 만들려면 Backup 보고서로 이동 하 고, 보고서 맨 위에 있는 **편집** 을 클릭 하 고, 보고서에 사용 되는 쿼리를 보거나 편집할 수 있습니다. 사용자 지정 보고서를 만드는 방법에 대 한 자세한 내용은 [Azure 통합](../azure-monitor/visualize/workbooks-overview.md) 문서를 참조 하세요. 
 
 ## <a name="export-to-excel"></a>Excel로 내보내기
 

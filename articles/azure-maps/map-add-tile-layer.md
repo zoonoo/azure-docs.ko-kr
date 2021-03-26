@@ -3,24 +3,24 @@ title: 지도에 타일 계층 추가 | Microsoft Azure 맵
 description: 지도에서 이미지를 superimpose 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 날씨 방사형 오버레이가 포함 된 타일 계층을 지도에 추가 하는 예제를 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 07/29/2019
+ms.date: 3/25/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: b3619995739c51d68b00f37ebea3a38680a6b6e7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e0fda77be23f6ea16d5e64b5d4796813c53f0e94
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92890980"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608105"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>맵에 타일 레이어 추가
 
 이 문서에서는 지도에서 타일 계층을 오버레이 하는 방법을 보여 줍니다. 타일 계층을 사용하여 Azure Maps 기본 맵 타일의 위에 이미지를 겹칠 수 있습니다. 바둑판식 배열 시스템 Azure Maps에 대 한 자세한 내용은 [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)를 참조 하세요.
 
-타일 계층이 서버에서 타일에 로드 됩니다. 이러한 이미지는 미리 렌더링 되거나 동적으로 렌더링 될 수 있습니다. 미리 렌더링 된 이미지는 타일 계층에서 인식 하는 명명 규칙을 사용 하 여 서버의 다른 이미지와 마찬가지로 저장 됩니다. 동적으로 렌더링 된 이미지는 서비스를 사용 하 여 실시간으로 가까운 이미지를 로드 합니다. Azure Maps [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) 클래스에서 지 원하는 세 가지 타일 서비스 명명 규칙은 다음과 같습니다. 
+타일 계층이 서버에서 타일에 로드 됩니다. 이러한 이미지는 미리 렌더링 되거나 동적으로 렌더링 될 수 있습니다. 미리 렌더링 된 이미지는 타일 계층에서 인식 하는 명명 규칙을 사용 하 여 서버의 다른 이미지와 마찬가지로 저장 됩니다. 동적으로 렌더링 된 이미지는 서비스를 사용 하 여 실시간으로 가까운 이미지를 로드 합니다. Azure Maps [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer) 클래스에서 지 원하는 세 가지 타일 서비스 명명 규칙은 다음과 같습니다.
 
 * X, Y, Zoom 표기법-X는 열이 고 Y는 타일 그리드에서 타일의 행 위치 이며 확대/축소는 확대/축소 수준을 기반으로 하는 값입니다.
 * Quadkey notation-x, y 및 zoom 정보를 단일 문자열 값으로 결합 합니다. 이 문자열 값은 단일 타일에 대 한 고유 식별자가 됩니다.
@@ -29,7 +29,7 @@ ms.locfileid: "92890980"
 > [!TIP]
 > [TileLayer](/javascript/api/azure-maps-control/atlas.layer.tilelayer)는 맵에서 큰 데이터 세트를 시각화하는 좋은 방법입니다. 이미지에서 타일 계층을 생성할 수 있을 뿐만 아니라 벡터 데이터도 타일 계층으로 렌더링 될 수 있습니다. 지도 컨트롤은 벡터 데이터를 타일 계층으로 렌더링 하 여 파일 크기가 표시 하는 벡터 데이터 보다 작은 타일을 로드 하기만 하면 됩니다. 이 기술은 일반적으로 지도에 수백만 개의 데이터 행을 렌더링 하는 데 사용 됩니다.
 
-타일 계층에 전달 된 타일 URL은 TileJSON 리소스 또는 다음 매개 변수를 사용 하는 타일 URL 템플릿에 대 한 http 또는 https URL 이어야 합니다. 
+타일 계층에 전달 된 타일 URL은 TileJSON 리소스 또는 다음 매개 변수를 사용 하는 타일 URL 템플릿에 대 한 http 또는 https URL 이어야 합니다.
 
 * `{x}` - 타일의 X 위치입니다. 또한 `{y}` 및 `{z}`가 필요합니다.
 * `{y}` - 타일의 Y 위치입니다. 또한 `{x}` 및 `{z}`가 필요합니다.
@@ -41,15 +41,16 @@ ms.locfileid: "92890980"
 
 ## <a name="add-a-tile-layer"></a>타일 레이어 추가
 
- 이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이 샘플에서는 x, y, zoom 바둑판식 배열 시스템을 사용 합니다. 이 타일 계층의 원본은 [아이오와 주립 대학교의 Iowa Environmental Mesonet](https://mesonet.agron.iastate.edu/ogc/)에서 받은 날씨 레이더 오버레이입니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다. 이 동작은 계층 아래에 타일 계층을 삽입 하 여 구현할 수 있습니다 `labels` .
+ 이 샘플에서는 타일 집합을 가리키는 타일 계층을 만드는 방법을 보여 줍니다. 이 샘플에서는 x, y, zoom 바둑판식 배열 시스템을 사용 합니다. 이 타일 계층의 원본은 [OpenSeaMap 프로젝트](https://openseamap.org/index.php)이며,이 프로젝트에는 멋진 원본 항해 차트가 포함 되어 있습니다. 방사형 데이터를 볼 때 가장 적합 한 사용자는 지도를 탐색할 때 도시 레이블을 명확 하 게 볼 수 있습니다. 이 동작은 계층 아래에 타일 계층을 삽입 하 여 구현할 수 있습니다 `labels` .
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
-//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
 map.layers.add(new atlas.layer.TileLayer({
-    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    tileUrl: 'https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png',
     opacity: 0.8,
-    tileSize: 256
+    tileSize: 256,
+    minSourceZoom: 7,
+    maxSourceZoom: 17
 }), 'labels');
 ```
 
@@ -58,6 +59,34 @@ map.layers.add(new atlas.layer.TileLayer({
 <br/>
 
 <iframe height='500' scrolling='no' title='X, Y 및 Z를 사용하는 타일 계층' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>X, Y 및 Z를 사용하는 펜 타일 계층</a>을 참조하세요.
+</iframe>
+
+## <a name="add-an-ogc-web-mapping-service-wms"></a>OGC 웹 매핑 서비스 (WMS) 추가
+
+WMTS (웹 매핑 서비스)는 지도 데이터의 이미지를 제공 하는 OGC (Open Geospatial Consortium) 표준입니다. 이 형식으로 사용할 수 있는 많은 개방형 데이터 집합은 Azure Maps에서 사용할 수 있습니다. 서비스가 `EPSG:3857` CRS (좌표 참조 시스템)를 지 원하는 경우이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMS 서비스를 사용할 때 width 및 height 매개 변수를 서비스에서 지 원하는 것과 동일한 값으로 설정 합니다 .이 값은 옵션에서 동일 하 게 설정 해야 `tileSize` 합니다. 형식이 지정 된 URL에서 `BBOX` 서비스의 매개 변수를 자리 표시자로 설정 합니다 `{bbox-epsg-3857}` .
+
+다음 스크린샷은 지도 위에 있는 [미국 Geological 설문 조사 (USGS)](https://mrdata.usgs.gov/) 의 geological 데이터의 웹 매핑 서비스를 레이블 아래에 겹치게 보여 줍니다.
+
+<br/>
+
+<iframe height="265" style="width: 100%;" scrolling="no" title="WMS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZqr?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/BapjZqr'>WMS 타일 계층</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
+</iframe>
+
+## <a name="add-an-ogc-web-mapping-tile-service-wmts"></a>OGC 웹 매핑 타일 서비스 추가 (WMTS)
+
+WMTS (웹 매핑 타일 서비스)는 맵의 타일 기반 오버레이를 제공 하기 위한 OGC (Open Geospatial Consortium) 표준입니다. 이 형식으로 사용할 수 있는 많은 개방형 데이터 집합은 Azure Maps에서 사용할 수 있습니다. 서비스가 `EPSG:3857` 또는 `GoogleMapsCompatible` CRS (좌표 참조 시스템)를 지 원하는 경우이 유형의 서비스를 타일 계층과 함께 사용할 수 있습니다. WMTS 서비스를 사용 하는 경우 width 및 height 매개 변수를 서비스에서 지 원하는 것과 동일한 값으로 설정 합니다 .이 값은 옵션에서 동일 하 게 설정 해야 `tileSize` 합니다. 형식이 지정 된 URL에서 다음 자리 표시자를 적절 하 게 바꿉니다.
+
+* `{TileMatrix}` => `{z}`
+* `{TileRow}` => `{y}`
+* `{TileCol}` => `{x}`
+
+다음 스크린샷은 지도 위쪽의 [미국 USGS () 국가 지도](https://viewer.nationalmap.gov/services/) 에서도로 및 레이블 아래에 있는 이미지의 웹 매핑 타일 서비스와 겹치지 않는 위의 코드를 보여 줍니다.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="WMTS 타일 계층" src="https://codepen.io/azuremaps/embed/BapjZVY?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+CodePen에서 Azure Maps ()로 Pen <a href='https://codepen.io/azuremaps/pen/BapjZVY'>WMTS 타일 계층</a> 을 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'></a>.
 </iframe>
 
 ## <a name="customize-a-tile-layer"></a>타일 계층 사용자 지정

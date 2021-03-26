@@ -1,18 +1,18 @@
 ---
 title: 서버 다시 시작-Azure PowerShell-Azure Database for PostgreSQL
 description: 이 문서에서는 PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버를 다시 시작 하는 방법을 설명 합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2d37de4a1861cb78b4a76c8ca7bc8c3643245b32
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2eadde4e3158c60685ba30542845f28954651bde
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97706969"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609329"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>PowerShell을 사용 하 여 Azure Database for PostgreSQL 서버 다시 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "97706969"
 > [!NOTE] 
 > 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다. 검사점 빈도를 늘릴 수도 있습니다. 또한를 포함 하 여 검사점 관련 매개 변수 값을 튜닝할 수 있습니다 `max_wal_size` . 또한 `CHECKPOINT` 서버를 다시 시작 하기 전에 명령을 실행 하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
