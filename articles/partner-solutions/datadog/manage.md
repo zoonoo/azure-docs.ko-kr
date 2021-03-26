@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745296"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046354"
 ---
 # <a name="manage-the-datadog-resource"></a>Datadog 리소스 관리
 
@@ -61,7 +61,7 @@ Datadog에 로그를 내보내는 리소스의 목록을 보려면 왼쪽 창에
 **Datadog에 대** 한 열 로그는 리소스가 Datadog에 로그를 보내고 있는지 여부를 나타냅니다. 리소스가 로그를 전송 하지 않는 경우이 필드는 로그가 Datadog 전송 되지 않는 이유를 나타냅니다. 원인은 다음과 같습니다.
 
 - 리소스에서 로그 전송을 지원 하지 않습니다. Datadog로 로그를 보내도록 모니터링 로그 범주의 리소스 유형만 구성할 수 있습니다.
-- 진단 설정 5 개로 제한에 도달 했습니다. 각 Azure 리소스에는 최대 5 개의 진단 설정이 있을 수 있습니다. 자세한 내용은 [진단 설정](../../azure-monitor/platform/diagnostic-settings.md)을 참조 하세요.
+- 진단 설정 5 개로 제한에 도달 했습니다. 각 Azure 리소스에는 최대 5 개의 진단 설정이 있을 수 있습니다. 자세한 내용은 [진단 설정](../../azure-monitor/essentials/diagnostic-settings.md)을 참조 하세요.
 - 오류. 리소스가 Datadog로 로그를 보내도록 구성 되었지만 오류로 인해 차단 되었습니다.
 - 로그가 구성 되지 않았습니다. 적절 한 리소스 태그가 있는 Azure 리소스만 Datadog로 로그를 보내도록 구성 됩니다.
 - 지역이 지원 되지 않습니다. Azure 리소스는 현재 Datadog에 대 한 로그 전송을 지원 하지 않는 지역에 있습니다.

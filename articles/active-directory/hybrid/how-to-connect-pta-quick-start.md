@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3200dc6ad7756f77dc0d74df83a33c7e89d4bedb
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581833"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044569"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -73,7 +73,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
      
      방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이 나 프록시를 사용 하 여 allowlist에 DNS 항목을 추가할 수 있는 경우 **\* msappproxy.net** 및 **\* servicebus.windows.net** 에 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
-   - 나가는 HTTP 프록시가 있는 경우이 URL autologon.microsoftazuread-sso.com이 허용 목록 인지 확인 합니다. 와일드 카드를 사용할 수 없으므로이 URL을 명시적으로 지정 해야 합니다. 
+   - 나가는 HTTP 프록시가 있는 경우이 URL (autologon.microsoftazuread-sso.com)이 허용 목록에 있는지 확인 합니다. 와일드 카드를 사용할 수 없으므로이 URL을 명시적으로 지정 해야 합니다. 
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com** 에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
     - 인증서 유효성을 검사 하려면 다음 Url을 차단 해제 합니다. **crl3.digicert.com:80**, **crl4.digicert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-c3-ca2-2009.ocsp.d-trust.net:80** **, crl.microsoft.com:80** **, oneocsp.microsoft.com:80 및** **ocsp.msocsp.com:80**. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 

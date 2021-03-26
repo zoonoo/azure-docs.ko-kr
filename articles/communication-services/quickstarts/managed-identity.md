@@ -10,17 +10,17 @@ ms.date: 03/10/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ffda88da451e25b79112a7adf85026158bd27acc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e4b71cc889615fd4784f11c9edd77b44ef421d9e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492356"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110757"
 ---
 # <a name="use-managed-identities"></a>관리 ID 사용
-관리 id를 사용 하 여 Azure 통신 서비스를 시작 하세요. 통신 서비스 Id 및 SMS 클라이언트 라이브러리는 [azure 리소스에 대 한 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 azure AD (Azure Active Directory) 인증을 지원 합니다.
+관리 id를 사용 하 여 Azure 통신 서비스를 시작 하세요. 통신 서비스 Id 및 SMS Sdk는 [azure 리소스에 대 한 관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 azure AD (Azure Active Directory) 인증을 지원 합니다.
 
-이 빠른 시작에서는 관리 되는 id를 지 원하는 Azure 환경에서 Id 및 SMS 클라이언트 라이브러리에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 개발 환경에서 코드를 테스트 하는 방법에 대해서도 설명 합니다.
+이 빠른 시작에서는 관리 되는 id를 지 원하는 Azure 환경에서 Id 및 SMS Sdk에 대 한 액세스 권한을 부여 하는 방법을 보여 줍니다. 개발 환경에서 코드를 테스트 하는 방법에 대해서도 설명 합니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity-net.md)]

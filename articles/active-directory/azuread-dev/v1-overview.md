@@ -14,10 +14,10 @@ ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8cb426239fe9f3dea207df06b6f2bafbdb54058a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88117671"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>개발자용 Azure Active Directory(v1.0) 개요
@@ -34,11 +34,11 @@ Azure AD(Azure Active Directory)는 개발자가 Microsoft 회사 또는 학교 
 
 ## <a name="get-started"></a>시작하기
 
-v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 [Microsoft ID 플랫폼(개발자용 Azure Active Directory)](index.yml)에서 **v1.0 빠른 시작** 및 **v1.0 자습서**를 참조하세요.
+v1.0 빠른 시작 및 자습서에서는 ADAL(Azure AD 인증 라이브러리) SDK를 사용하여 선호하는 플랫폼에서 앱을 빌드하는 과정을 안내합니다. 시작하려면 [Microsoft ID 플랫폼(개발자용 Azure Active Directory)](index.yml)에서 **v1.0 빠른 시작** 및 **v1.0 자습서** 를 참조하세요.
 
 ## <a name="how-to-guides"></a>방법 가이드
 
-Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 **v1.0 방법 가이드**를 참조하세요.
+Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 **v1.0 방법 가이드** 를 참조하세요.
 
 ## <a name="reference-topics"></a>참조 항목
 

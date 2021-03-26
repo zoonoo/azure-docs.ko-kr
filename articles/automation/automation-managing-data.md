@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616119"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954676"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
@@ -56,7 +56,7 @@ Azure Automation에서 리소스를 삭제 하는 경우 영구적으로 제거 
 | 노드 보고서 |노드 보고서는 해당 노드에 대한 새 보고서가 생성된 후 90일이 지나면 영구적으로 제거됩니다. |
 | Runbook |Runbook은 사용자가 리소스를 삭제 한 후 30 일이 지나면 영구적으로 제거 되 고, 사용자가 리소스<sup>1</sup>을 보유 하는 계정을 삭제 한 후 30 일이 지나면 영구적으로 제거 됩니다. |
 
-<sup>1</sup> Microsoft Azure 지원 서비스에 Azure 지원 인시던트를 제출 하 여 30 일 기간 내에 runbook을 복구할 수 있습니다. [Azure 지원 사이트로](/support/options) 이동 하 여 **지원 요청 제출** 을 선택 합니다.
+<sup>1</sup> Microsoft Azure 지원 서비스에 Azure 지원 인시던트를 제출 하 여 30 일 기간 내에 runbook을 복구할 수 있습니다. [Azure 지원 사이트로](https://azure.microsoft.com/support/options/) 이동 하 여 **지원 요청 제출** 을 선택 합니다.
 
 ## <a name="data-backup"></a>데이터 백업
 

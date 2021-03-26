@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 0a9ca21cc14bb87797c962a89cf87ac184e73735
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 31634abe2768ec47ee2aa66051a7a363f83c6009
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434566"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043224"
 ---
 :::row:::
     :::column span="3":::
@@ -58,7 +58,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS는 .NET 개발자를 위한 전체 iOS SDK를 제공합니다. Visual Studio에서 C# 또는 F#을 사용하여 완전한 네이티브 iOS 앱을 빌드합니다. 자세한 내용은 <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">xamarin.ios </a>를 참조 하세요.
+        Xamarin.iOS는 .NET 개발자를 위한 전체 iOS SDK를 제공합니다. Visual Studio에서 C# 또는 F#을 사용하여 완전한 네이티브 iOS 앱을 빌드합니다. 자세한 내용은 <a href="/xamarin/ios/" target="_blank">xamarin.ios </a>를 참조 하세요.
     :::column-end:::
     :::column:::
         <br>
@@ -73,7 +73,7 @@ end
 
 ---
 
-#### <a name="additional-resources"></a>추가 리소스
+#### <a name="additional-resources"></a>추가 자료
 
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios" target="_blank">iOS Speech SDK 퀵 스타트 목표-C 소스 코드 </a>
 - <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios" target="_blank">iOS Speech SDK 퀵 스타트 Swift 원본 코드 </a>

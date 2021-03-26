@@ -3,19 +3,14 @@ title: Azure Managed Disks 백업
 description: Azure Portal에서 Azure Managed Disks를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e234495eb483d6d0cc6ca556ca418138c61a99f5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98738155"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110630"
 ---
-# <a name="back-up-azure-managed-disks-in-preview"></a>Azure Managed Disks 백업(미리 보기 상태)
-
->[!IMPORTANT]
->Azure Disk Backup은 서비스 수준 계약 없이 미리 보기 상태 이며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
->
->미리 보기에 등록 하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) 하세요.
+# <a name="back-up-azure-managed-disks"></a>Azure Managed Disks 백업
 
 이 문서에서는 Azure Portal에서 [Azure 관리 디스크](../virtual-machines/managed-disks-overview.md) 를 백업 하는 방법을 설명 합니다.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4512c9d9fdb66713ba24fbf30278e5d5dbb2ae23
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943166"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863754"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
@@ -49,11 +49,11 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 5. **실행** 을 선택합니다. 실행 모드는 기본적으로 **Interactive** 로 설정 됩니다.
 
-    ![대화형 Hive 쿼리 실행, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="대화형 Hive 쿼리 실행, Visual Studio" border="true":::
 
 6. **일괄 처리** 모드에서 동일한 쿼리를 실행 하려면 드롭다운 목록을 **대화형** 에서 **일괄 처리** 로 전환 합니다. 실행 단추가 **Execute** 에서 **Submit** 로 변경 됩니다.
 
-    ![일괄 처리 Hive 쿼리, Visual Studio 제출](./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="일괄 처리 Hive 쿼리, Visual Studio 제출" border="true":::
 
     Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어를 입력 하면 `SELECT * FROM` IntelliSense에서 제안 된 테이블 이름을 모두 나열 합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
 
@@ -61,7 +61,7 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 8. 고급 제출 옵션을 선택한 경우 **스크립트 제출** 대화 상자에서 **작업 이름**, **인수**, **추가 구성** 및 **상태 디렉터리** 를 구성 합니다. 그런 다음 **제출** 을 선택합니다.
 
-    ![스크립트 제출 대화 상자, HDInsight Hadoop Hive 쿼리](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="스크립트 제출 대화 상자, HDInsight Hadoop Hive 쿼리" border="true":::
 
 ### <a name="create-a-hive-application"></a>Hive 애플리케이션 만들기
 
@@ -109,7 +109,7 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
 
    **Hive 작업 요약** 이 표시되고 실행 중인 작업 정보가 표시됩니다. **작업 상태** 가 **완료** 로 변경될 때까지 **새로 고침** 링크를 사용하여 작업 정보를 새로 고칩니다.
 
-   ![완료 된 Hive 작업 요약, Hive 응용 프로그램, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png)
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="완료 된 Hive 작업 요약, Hive 응용 프로그램, Visual Studio" border="true":::
 
 7. **작업 출력** 을 선택 하 여이 작업의 출력을 볼 수 있습니다. 이 쿼리로 반환된 값으로 `[ERROR] 3`이 표시되어야 합니다.
 

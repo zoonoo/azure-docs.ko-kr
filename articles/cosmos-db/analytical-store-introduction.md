@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027181"
+ms.locfileid: "105046215"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소 란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -112,8 +112,8 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
 
 * 명시적 값과 관련 하 여 다른 동작이 발생 합니다 `null` .
   * Azure Synapse의 Spark 풀은 이러한 값을 `0` (0)으로 읽습니다.
-  * Azure Synapse의 SQL server를 사용 하지 않는 풀은 `NULL` 컬렉션의 첫 번째 문서에 동일한 속성에 대 한 데이터 형식이 다른 값이 있는 것 처럼 이러한 값을 읽습니다 `integer` .
-  * Azure Synapse의 SQL server를 사용 하지 않는 풀은 `0` 컬렉션의 첫 번째 문서에가 인 값 인 동일한 속성에 대해이 값을 (0)으로 읽습니다 `integer` .
+  * Azure Synapse의 SQL server를 사용 하지 않는 풀은 `NULL` 컬렉션의 첫 번째 문서에 동일한 속성에 대 한 데이터 형식의 값이 있는 것 처럼 이러한 값을 읽습니다 `non-numeric` .
+  * Azure Synapse의 SQL server를 사용 하지 않는 풀은 `0` 컬렉션의 첫 번째 문서에 데이터 형식이 있는 값과 같은 속성의 값이 있는 경우 이러한 값을 (0)으로 읽습니다 `numeric` .
 
 * 누락 된 열과 관련 하 여 다음과 같은 동작이 발생 합니다.
   * Azure Synapse의 Spark 풀은 이러한 열을로 표시 `undefined` 합니다.
