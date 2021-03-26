@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: b122765a3d77428008c91dda471706cad53a5616
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc2667dfddf4442acaf39f6783190e8640b22a89
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430601"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561732"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>자습서: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
 
@@ -175,4 +175,4 @@ Power BI 창의 오른쪽에 있는 **필드** 창 아래에서 마우스 오른
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[Azure Databricks를 사용하여 스트리밍 변칙 검색](anomaly-detection-streaming-databricks.md)
+>[Azure Databricks를 사용하여 스트리밍 변칙 검색](../overview.md)

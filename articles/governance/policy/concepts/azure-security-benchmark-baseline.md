@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9916ad6d3b6cb1a63d34004915666226b7836490
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e8bb4cf715c6cb8d0729399c1985376de18687b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740355"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561290"
 ---
 # <a name="azure-security-baseline-for-azure-policy"></a>Azure Policy에 대 한 Azure 보안 기준
 
@@ -30,9 +30,9 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 **지침**: Azure Policy에서는 자동으로 사용 하도록 설정 된 활동 로그를 사용 하 여 이벤트 원본, 날짜, 사용자, 타임 스탬프, 원본 주소, 대상 주소 및 기타 유용한 요소를 포함 합니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Azure의 로깅 및 다른 로그 유형 이해](/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure의 로깅 및 다른 로그 유형 이해](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 **책임**: Customer
 
@@ -48,7 +48,7 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-GuestConfiguration**:
 
@@ -74,9 +74,9 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Policy에 대 한 액세스를 제어 합니다.
 
-- [Azure Policy의 Azure RBAC 사용 권한](https://docs.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy)
+- [Azure Policy의 Azure RBAC 사용 권한](../overview.md#azure-rbac-permissions-in-azure-policy)
 
-- [Azure RBAC를 구성 하는 방법](../../../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../../../role-based-access-control/role-assignments-portal.md)
 
 **책임**: Customer
 
@@ -86,7 +86,7 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 **지침**: Azure Policy에서 변경이 발생 하는 경우에 대 한 경고를 만들려면 활동 로그와 Azure Monitor를 사용 합니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -128,5 +128,5 @@ Azure Policy는 _책임_ 대신 _소유권_ 이라는 용어를 사용 합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

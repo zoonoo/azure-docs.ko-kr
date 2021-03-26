@@ -3,12 +3,12 @@ title: Azure Stack Edge에 Live Video Analytics 배포
 description: 이 문서에서는 Azure Stack Edge에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: d49167890009d58b21c3678cb89f608bad665abd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5be85e93b81f5cf50284533f21e688384558494
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730272"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561154"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Live Video Analytics 배포
 
@@ -236,12 +236,12 @@ Azure Stack Edge는 네트워크 데이터 전송 기능을 사용 하는 서비
 
 * **Kubectl (Kubernetes API Access)**
 
-    * 설명서에 따라 [Kubernetes 클러스터에](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster)대 한 액세스를 위해 컴퓨터를 구성 합니다.
+    * 설명서에 따라 [Kubernetes 클러스터에](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md)대 한 액세스를 위해 컴퓨터를 구성 합니다.
     * 배포 된 모든 IoT Edge 모듈은 `iotedge` 네임 스페이스를 사용 합니다. Kubectl를 사용할 때이를 포함 해야 합니다.  
 
 * **모듈 로그**
 
-    `iotedge`로그를 가져오기 위해 도구에 액세스할 수 없습니다. [Kubectl 로그](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) 를 사용 하 여 파일에 대 한 로그 또는 파이프를 확인 해야 합니다. 예제: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
+    `iotedge`로그를 가져오기 위해 도구에 액세스할 수 없습니다. [Kubectl 로그](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) 를 사용 하 여 파일에 대 한 로그 또는 파이프를 확인 해야 합니다. 예: <br/>  `kubectl logs deployments/mediaedge -n iotedge --all-containers`  
 
 * **Pod 및 노드 메트릭**
 
