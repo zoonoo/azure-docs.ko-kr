@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097824"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 Angular 앱 만들기 - Angular를 사용하여 UI 빌드
@@ -354,7 +354,7 @@ ms.locfileid: "93097824"
 
 이제 구성 요소를 만들었으면 화면에 표시해보도록 하겠습니다. **app.component.ts** 에서 기본 구성 요소를 수정하겠습니다.
 
-1. 탐색기 창에서 **/app/app.component.ts** 를 열고, 제목을 Heroes로 변경하고, **heroes.components.ts** (app-heroes)에서 만든 구성 요소의 이름을 사용해서 새 구성 요소를 참조합니다. 이제 파일의 내용이 다음과 같이 표시됩니다. 
+1. 탐색기 창에서 **/app/app.component.ts** 를 열고, 제목을 Heroes로 변경하고, **heroes.components.ts**(app-heroes)에서 만든 구성 요소의 이름을 사용해서 새 구성 요소를 참조합니다. 이제 파일의 내용이 다음과 같이 표시됩니다. 
 
     ```ts
     import { Component } from '@angular/core';

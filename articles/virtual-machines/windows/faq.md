@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0de25b29dc1e930956c01f342ca2614d1a9082ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2dc94ea904da128be01decf36e2d36dc9510c2a5
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557508"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043887"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows Virtual Machines에 대한 자주 묻는 질문과 대답
 이 문서에서는 Azure에서 리소스 관리자 배포 모델을 사용하여 만든 Windows 가상 머신에 대한 일부 일반적인 질문을 해결합니다. 이 항목의 Linux 버전에 대해서는 [Linux Virtual Machines에 대 한 질문과 대답](../linux/faq.md)을 참조 하세요.
@@ -33,7 +33,7 @@ Azure Stroage 계정은 운영 체제 디스크 및 모든 데이터 디스크�
 ## <a name="how-can-i-access-my-virtual-machine"></a>나의 가상 머신에 액세스 하려면 어떻게 해야 합니까?
 RDP(원격 데스크톱 연결)를 사용하여 Windows VM에 대한 원격 연결을 설정합니다. 지침은 Windows를 실행 하는 [Azure 가상 머신에 연결 하 고 로그온 하는 방법](connect-logon.md)을 참조 하세요. 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
 
-원격 데스크톱에 문제가 발생 하 [는 경우 Windows 기반 Azure 가상 머신에 대 한 원격 데스크톱 연결 문제 해결](../troubleshooting/troubleshoot-rdp-connection.md?toc=/azure/virtual-machines/windows/toc.json)을 참조 하세요. 
+원격 데스크톱에 문제가 발생 하 [는 경우 Windows 기반 Azure 가상 머신에 대 한 원격 데스크톱 연결 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 참조 하세요. 
 
 Hyper-v에 익숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. Azure는 가상 머신에 대 한 콘솔 액세스가 지원 되지 않기 때문에 유사한 도구를 제공 하지 않습니다.
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, synapse-azureml
-ms.openlocfilehash: 2a9f0a8c943f539166f18a1e41a36136fbb63a6f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b03915608c6143a9e205ba1a1e08e411b8aa9093
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584304"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868650"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Machine learning 파이프라인 (미리 보기)에서 Apache Spark (Azure Synapse Analytics에서 구동)를 사용 하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "104584304"
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -92,6 +92,8 @@ synapse_compute.wait_for_completion()
 구성이 만들어지면 `ComputeTarget` `Workspace` `ComputeTargetAttachConfiguration` machine learning 작업 영역 내에서 계산을 참조 하려는, 및 이름을 전달 하 여 기계 학습을 만듭니다. 에 대 한 호출은 `ComputeTarget.attach()` 비동기 이므로 샘플은 호출이 완료 될 때까지 차단 됩니다.
 
 ## <a name="create-a-synapsesparkstep-that-uses-the-linked-apache-spark-pool"></a>연결 된 `SynapseSparkStep` Apache Spark 풀을 사용 하는 만들기
+
+[Apache spark 풀의 샘플 노트북 Spark 작업](https://github.com/azure/machinelearningnotebooks/blob/master/how-to-use-azureml/azure-synapse/spark_job_on_synapse_spark_pool.ipynb) 은 간단한 기계 학습 파이프라인을 정의 합니다. 먼저 노트북은 `synapse_compute` 이전 단계에서 정의 된에서 구동 하는 데이터 준비 단계를 정의 합니다. 그런 다음, 노트북은 계산 대상에서 제공 하는 학습 단계를 학습에 더 적합 하 게 정의 합니다. 샘플 노트북은 Titanic 생존 데이터베이스를 사용 하 여 데이터 입력 및 출력을 보여 줍니다. 실제로 데이터를 정리 하거나 예측 모델을 만들지 않습니다. 이 샘플에 대 한 실제 교육은 없으므로 학습 단계에서는 저렴 한 CPU 기반 계산 리소스를 사용 합니다.
 
 데이터 `DatasetConsumptionConfig` 는 테이블 형식 데이터 또는 파일 집합을 포함할 수 있는 개체를 통해 기계 학습 파이프라인으로 흐릅니다. 데이터는 종종 작업 영역 데이터 저장소의 blob 저장소에 있는 파일에서 제공 됩니다. 다음 코드는 machine learning 파이프라인에 대 한 입력을 만들기 위한 몇 가지 일반적인 코드를 보여 줍니다.
 

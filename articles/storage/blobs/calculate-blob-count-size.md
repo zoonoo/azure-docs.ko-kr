@@ -8,12 +8,12 @@ ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 92e5b00cd655677cdc3096bc2142dfe1b704adf2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d1aa91ea0f698e609e786d87a0072e6a07c143a3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102638167"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047320"
 ---
 # <a name="calculate-blob-count-and-total-size-per-container-using-azure-storage-inventory"></a>Azure Storage 인벤토리를 사용 하 여 컨테이너 당 blob 수 및 총 크기 계산
 
@@ -43,7 +43,7 @@ Blob 메타 데이터는이 메서드에 포함 되지 않습니다. Azure Blob 
 
 ## <a name="create-an-azure-synapse-workspace"></a>Azure Synapse 작업 영역 만들기
 
-그런 다음 SQL 쿼리를 실행 하 여 인벤토리 결과를 보고 하는 [Azure Synapse 작업 영역을 만듭니다](/azure/synapse-analytics/get-started-create-workspace) .
+그런 다음 SQL 쿼리를 실행 하 여 인벤토리 결과를 보고 하는 [Azure Synapse 작업 영역을 만듭니다](../../synapse-analytics/get-started-create-workspace.md) .
 
 ## <a name="create-the-sql-query"></a>SQL 쿼리 만들기
 
@@ -58,7 +58,7 @@ Azure Synapse 작업 영역을 만든 후 다음 단계를 수행 합니다.
 
 ## <a name="run-the-sql-query"></a>SQL 쿼리 실행
 
-1. Azure Synapse 작업 영역에서 다음 SQL 쿼리를 추가 하 여 [인벤토리 CSV 파일을 읽습니다](/azure/synapse-analytics/sql/query-single-csv-file#read-a-csv-file).
+1. Azure Synapse 작업 영역에서 다음 SQL 쿼리를 추가 하 여 [인벤토리 CSV 파일을 읽습니다](../../synapse-analytics/sql/query-single-csv-file.md#read-a-csv-file).
 
     `bulk`매개 변수의 경우 분석 하려는 인벤토리 보고서 CSV 파일의 URL을 사용 합니다.
 

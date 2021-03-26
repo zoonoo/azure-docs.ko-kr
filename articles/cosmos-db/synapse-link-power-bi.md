@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: a16d22a49e42408271c91d961bcdb004536e3980
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: synapse-cosmos-db
+ms.openlocfilehash: 7a9324923164d6d5cbbdc48bfa60fc444bdc4fb1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101659752"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868973"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Power BI 및 서버를 사용 하지 않는 Synapse SQL 풀을 사용 하 여 Synapse 링크로 Azure Cosmos DB 데이터 분석 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -20,7 +21,7 @@ ms.locfileid: "101659752"
 
 이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대 한 더미 데이터를 사용 합니다. 큰 명인 가구의 근접성 및 특정 주에 대 한 광고의 영향을 기준으로 매장 당 수익을 분석 합니다. 이 문서에서는 **RetailSales** 및 파일 **인구 통계** 와 둘 간의 쿼리 라는 두 개의 뷰를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 리소스를 만들어야 합니다.
 

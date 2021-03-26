@@ -4,12 +4,12 @@ description: Azure HDInsight gateway를 통해 Hive 쿼리를 실행 하기 위�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933108"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869789"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Azure HDInsight의 Apache Hive에 대 한 게이트웨이 심층 정보 및 모범 사례
 
@@ -21,7 +21,7 @@ HDInsight 게이트웨이는 인터넷을 통해 공개적으로 액세스할 �
 
 다음 다이어그램에서는 게이트웨이가 HDInsight 내의 다른 모든 호스트 확인 가능성 앞에 추상화를 제공 하는 방법에 대 한 대략적인 설명을 제공 합니다.
 
-![호스트 확인 다이어그램](./media/gateway-best-practices/host-resolution-diagram.png "호스트 확인 다이어그램")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="호스트 확인 다이어그램" border="true":::
 
 ## <a name="motivation"></a>동기
 
@@ -39,7 +39,7 @@ HDInsight 게이트웨이는 인터넷을 통해 공개적으로 액세스할 �
 
 다음 다이어그램은 SELECT 쿼리와 관련 된 단계를 보여 줍니다.
 
-![결과 다이어그램](./media/gateway-best-practices/result-retrieval-diagram.png "결과 다이어그램")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="결과 다이어그램" border="true":::
 
 Apache Hive는 HDFS 호환 파일 시스템에 대 한 관계 추상화입니다. 이 추상화는 Hive의 **SELECT** 문이 파일 시스템에 대 한 **읽기** 작업과 일치 함을 의미 합니다. **읽기** 작업은 사용자에 게 보고 되기 전에 적절 한 스키마로 변환 됩니다. 최종 사용자에 게 도달 하는 데 필요한 데이터 크기 및 총 홉으로이 프로세스의 대기 시간이 증가 합니다.
 

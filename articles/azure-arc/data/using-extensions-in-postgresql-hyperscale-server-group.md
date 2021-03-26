@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e247e372237572586e5a4647d24d9ed6067ea823
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101688300"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949790"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에서 PostgreSQL 확장 사용
 
@@ -55,7 +55,7 @@ PostgreSQL는 확장과 함께 사용할 때 가장 효율적입니다. 실제�
 ## <a name="add-extensions-to-the-shared_preload_libraries"></a>Shared_preload_libraries에 확장 추가
 Shared_preload_libraries에 대 한 자세한 내용은 [여기](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES)에서 PostgreSQL 설명서를 참조 하세요.
 - 에 포함 된 확장에는이 단계가 필요 하지 않습니다. `contrib`
-- shared_preload_libraries에 의해 미리 로드 하지 않아도 되는 확장에는이 단계가 필요 하지 않습니다. 이러한 확장의 경우 다음 단락 [확장 만들기](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions)를 이동할 수 있습니다.
+- shared_preload_libraries에 의해 미리 로드 하지 않아도 되는 확장에는이 단계가 필요 하지 않습니다. 이러한 확장의 경우 다음 단락 [확장 만들기](#create-extensions)를 이동할 수 있습니다.
 
 ### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>서버 그룹을 만들 때 확장 추가
 ```console

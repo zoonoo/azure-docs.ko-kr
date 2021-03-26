@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 224ebae58a5688f81d1b64b4a9c81d5abd8a9690
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930062"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868854"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Apache Spark MLlib을 사용하여 Machine Learning 애플리케이션 빌드 및 데이터 세트 분석
 
@@ -175,7 +175,7 @@ Spark 컨텍스트를 사용 하 여 원시 CSV 데이터를 메모리에 구조
 
     출력은 다음과 같습니다.
 
-    ![SQL 쿼리 출력](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL 쿼리 출력")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png " alt-text="SQL 쿼리 출력" border="true":::
 
 3. 또한 데이터 시각화를 구성하는 데 사용되는 라이브러리인 Matplotlib를 사용하여 플롯을 만들 수 있습니다. 로컬로 유지되는 **countResultsdf** 데이터 프레임에서 플롯을 만들어야 하므로 코드 조각은 `%%local` 매직으로 시작해야 합니다. 이 작업을 수행 하면 코드가 Jupyter 서버에서 로컬로 실행 됩니다.
 
@@ -348,7 +348,7 @@ model = pipeline.fit(labeledData)
 
     다음 출력이 표시됩니다.
 
-    ![Spark machine learning 응용 프로그램 출력-실패 한 음식 검사의 원형 차트 백분율입니다.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark machine learning 결과 출력")
+    :::image type="content" source="./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png " alt-text="Spark machine learning 응용 프로그램 출력-실패 한 음식 검사의 원형 차트 백분율입니다." border="true":::
 
     이 차트에서 "긍정" 결과는 불합격한 음식 검사를 참조하는 반면, 부정 결과는 합격한 검사를 참조합니다.
 

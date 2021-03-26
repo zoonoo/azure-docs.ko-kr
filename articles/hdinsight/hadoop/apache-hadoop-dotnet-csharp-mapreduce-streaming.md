@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 6e2758fd650547978924c25f8f3faf1e3e7194f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8093db9c53d9c34014d1b315d53539b3f2cffb30
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699388"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866712"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -150,7 +150,7 @@ namespace reducer
 
 1. 이 애플리케이션을 배포하려는 HDInsight 클러스터를 확장합니다. 텍스트가 포함된 항목 **(기본 Storage 계정)** 이 목록에 표시됩니다.
 
-   ![Storage 계정, HDInsight 클러스터, 서버 탐색기, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Storage 계정, HDInsight 클러스터, 서버 탐색기, Visual Studio" border="true":::
 
    * **(기본 저장소 계정)** 항목을 확장할 수 있는 경우 **Azure Storage 계정을** 클러스터의 기본 저장소로 사용 하 고 있습니다. 클러스터의 기본 저장소에 있는 파일을 보려면 해당 항목을 확장 한 다음 **(기본 컨테이너)** 를 두 번 클릭 합니다.
 
@@ -160,7 +160,7 @@ namespace reducer
 
     * **Azure Storage 계정을** 사용 하는 경우 **Blob 업로드** 아이콘을 선택 합니다.
 
-        ![맵 편집기에 대 한 HDInsight 업로드 아이콘, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="맵 편집기에 대 한 HDInsight 업로드 아이콘, Visual Studio" border="true":::
 
         **새 파일 업로드** 대화 상자에서 **파일 이름** 아래에 있는 **찾아보기** 를 선택 합니다. **Blob 업로드** 대화 상자에서 *매퍼* 프로젝트의 *bin\debug* 폴더로 이동한 다음 *mapper.exe* 파일을 선택 합니다. 마지막으로 **열기** 를 선택 하 고 **확인** 을 선택 하 여 업로드를 완료 합니다.
 
@@ -215,7 +215,7 @@ namespace reducer
 
    다음 목록에서는 각 매개 변수 및 옵션이 나타내는 내용에 대해 설명 합니다.
 
-   |매개 변수 | 설명 |
+   |매개 변수 | Description |
    |---|---|
    |hadoop-streaming.jar|스트리밍 MapReduce 기능을 포함 하는 jar 파일을 지정 합니다.|
    |-파일|이 작업에 대 한 *mapper.exe* 및 *reducer.exe* 파일을 지정 합니다. `wasbs:///` `adl:///` `abfs:///` 각 파일 앞의, 또는 프로토콜 선언은 클러스터의 기본 저장소 루트에 대 한 경로입니다.|

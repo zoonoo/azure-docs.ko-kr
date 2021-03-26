@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/30/2020
-ms.openlocfilehash: 4204254754307f8310d5ccfda19400de57381075
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/23/2021
+ms.openlocfilehash: 6bd8d6001fcd3bfa487259aa219ff771f26a8a94
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96500872"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951286"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance의 자동 조정
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,8 +54,8 @@ Azure SQL Database의 데이터베이스에 적용 되는 튜닝 작업은 가�
 
 ## <a name="enable-automatic-tuning"></a>자동 튜닝 사용
 
-- Azure Portal 또는 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) t-sql 문을 사용 하 여 [Azure SQL Database에 대해 자동 조정을 사용 하도록 설정](automatic-tuning-enable.md) 합니다.
-- [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current) t-sql 문을 사용 하 여 Azure SQL Managed Instance에 대 한 자동 조정을 사용 하도록 설정 합니다.
+- Azure Portal 또는 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) t-sql 문을 사용 하 여 [Azure SQL Database에 대해 자동 조정을 사용 하도록 설정](automatic-tuning-enable.md) 합니다.
+- [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-mi-current&preserve-view=true) t-sql 문을 사용 하 여 Azure SQL Managed Instance에 대 한 자동 조정을 사용 하도록 설정 합니다.
 
 ## <a name="automatic-tuning-options"></a>자동 조정 옵션
 
@@ -64,7 +64,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용할 수 있는 자
 | 자동 조정 옵션 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :----------------------------- | ----- | ----- |
 | **인덱스 만들기** -작업의 성능을 향상 시키고 인덱스를 만들며 쿼리 성능이 향상 되었는지 자동으로 확인할 수 있는 인덱스를 식별 합니다. | 예 | 아니요 |
-| **DROP INDEX** -고유 인덱스를 제외 하 고 매일 중복 인덱스와 중복 인덱스를 식별 하 고 오랜 시간 동안 사용 되지 않은 인덱스 (90 일 >)를 식별 합니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 아니요 |
+| **DROP INDEX** -사용 되지 않는 (지난 90 일간) 및 중복 된 인덱스를 삭제 합니다. Primary key 및 unique 제약 조건을 지 원하는 인덱스를 비롯 한 고유 인덱스는 삭제 되지 않습니다. 인덱스 힌트가 포함 된 쿼리가 작업에 있거나 작업에서 파티션 전환을 수행할 때이 옵션을 자동으로 사용 하지 않도록 설정할 수 있습니다. Premium 및 중요 비즈니스용 서비스 계층에서이 옵션은 사용 되지 않는 인덱스를 삭제 하지 않지만 중복 인덱스 (있는 경우)를 삭제 합니다. | 예 | 아니요 |
 | **마지막으로 성공한 계획 강제 적용** (자동 계획 수정)-이전 좋은 계획 보다 느린 실행 계획을 사용 하 여 Azure SQL 쿼리를 식별 하 고 회귀 된 계획 대신 마지막으로 알려진 좋은 계획을 사용 하 여 쿼리 합니다. | 예 | 예 |
 
 ### <a name="automatic-tuning-for-sql-database"></a>SQL Database 자동 조정
@@ -90,7 +90,7 @@ T-sql을 통해 튜닝 권장 사항을 적용 하는 경우 자동 성능 유�
 
 ### <a name="automatic-tuning-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance 자동 조정
 
-SQL Managed Instance 자동 조정에서는 **마지막으로 성공한 요금제** 만 지원 합니다. T-sql을 통한 자동 조정 옵션을 구성 하는 방법에 대 한 자세한 내용은 자동 [조정에서 자동 계획 수정](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [자동 계획 수정](/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction)을 도입 하는 방법을 참조 하세요.
+SQL Managed Instance 자동 조정에서는 **마지막으로 성공한 요금제** 만 지원 합니다. T-sql을 통한 자동 조정 옵션을 구성 하는 방법에 대 한 자세한 내용은 자동 [조정에서 자동 계획 수정](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) 및 [자동 계획 수정](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction)을 도입 하는 방법을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

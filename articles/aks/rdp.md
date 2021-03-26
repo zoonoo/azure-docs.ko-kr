@@ -5,12 +5,12 @@ description: 문제 해결 및 유지 관리 작업을 위해 AKS (Azure Kuberne
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 4cfac73c66969148927897de7ed6da0c56aa276a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4b6ccc05d1cb49a77a2867dfc1c5fe5f45134dd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173820"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951915"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 RDP를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 Windows Server 노드에 연결
 
@@ -20,7 +20,7 @@ AKS (Azure Kubernetes Service) 클러스터의 수명 주기 동안 AKS Windows 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Windows Server 노드가 있는 기존 AKS 클러스터가 있다고 가정 합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용 하 여 Windows 컨테이너를 사용 하 여 AKS 클러스터 만들기][aks-windows-cli]문서를 참조 하세요. 문제를 해결 하려면 Windows Server 노드에 대 한 Windows 관리자 사용자 이름 및 암호가 필요 합니다. 이를 모를 경우 [WINDOWS VM에서 원격 데스크톱 서비스 다시 설정 또는 관리자 암호 ](../virtual-machines/troubleshooting/reset-rdp.md)를 다시 설정 하 여 다시 설정할 수 있습니다. [Microsoft 원격 데스크톱][rdp-mac]와 같은 RDP 클라이언트도 필요 합니다.
+이 문서에서는 Windows Server 노드가 있는 기존 AKS 클러스터가 있다고 가정 합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용 하 여 Windows 컨테이너를 사용 하 여 AKS 클러스터 만들기][aks-windows-cli]문서를 참조 하세요. 문제를 해결 하려면 Windows Server 노드에 대 한 Windows 관리자 사용자 이름 및 암호가 필요 합니다. 이를 모를 경우 [WINDOWS VM에서 원격 데스크톱 서비스 다시 설정 또는 관리자 암호 ](/troubleshoot/azure/virtual-machines/reset-rdp)를 다시 설정 하 여 다시 설정할 수 있습니다. [Microsoft 원격 데스크톱][rdp-mac]와 같은 RDP 클라이언트도 필요 합니다.
 
 또한 Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 

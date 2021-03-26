@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 1b6c02778b0ee790d81c713283e653058c29c153
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92899794"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>자습서: 그래픽 Runbook 만들기
@@ -160,7 +160,7 @@ Runbook을 테스트하고 게시했지만 지금까지는 Azure 리소스를 �
 
 2. `Write Hello World to output` 항목은 더 이상 필요하지 않습니다. 줄임표를 클릭하고 **삭제** 를 선택하면 됩니다.
 
-3. [라이브러리] 컨트롤에서 **자산** , **연결** 을 차례로 펼칩니다. **캔버스에 추가** 를 선택하여 `AzureRunAsConnection`을 캔버스에 추가합니다.
+3. [라이브러리] 컨트롤에서 **자산**, **연결** 을 차례로 펼칩니다. **캔버스에 추가** 를 선택하여 `AzureRunAsConnection`을 캔버스에 추가합니다.
 
 4. `AzureRunAsConnection`의 이름을 `Get Run As Connection`으로 바꿉니다.
 

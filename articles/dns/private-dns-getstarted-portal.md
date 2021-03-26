@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310060"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 프라이빗 DNS 영역 만들기
@@ -28,25 +28,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-private-dns-zone"></a>프라이빗 DNS 영역 만들기
 
-다음 예에서는 **MyAzureResourceGroup**이라는 리소스 그룹에 **private.contoso.com**이라는 DNS 영역을 만듭니다.
+다음 예에서는 **MyAzureResourceGroup** 이라는 리소스 그룹에 **private.contoso.com** 이라는 DNS 영역을 만듭니다.
 
 DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만듭니다.
 
 ![프라이빗 DNS 영역 검색](media/private-dns-portal/search-private-dns.png)
 
-1. 포털 검색 창의 검색 텍스트 상자에 **프라이빗 DNS 영역**을 입력하고 **Enter** 키를 누릅니다.
-1. **프라이빗 DNS 영역**을 선택합니다.
-2. **프라이빗 DNS 영역 만들기**를 선택합니다.
+1. 포털 검색 창의 검색 텍스트 상자에 **프라이빗 DNS 영역** 을 입력하고 **Enter** 키를 누릅니다.
+1. **프라이빗 DNS 영역** 을 선택합니다.
+2. **프라이빗 DNS 영역 만들기** 를 선택합니다.
 
 1. **프라이빗 DNS 영역 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-   - **리소스 그룹**: **새로 만들기**를 선택하고, *MyAzureResourceGroup*을 입력하고, **확인**을 선택합니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다.
-   -  **Name**: 이 예에서는 *private.contoso.com*을 입력합니다.
-1. **리소스 그룹 위치**에 **미국 중서부**를 선택합니다.
+   - **리소스 그룹**: **새로 만들기** 를 선택하고, *MyAzureResourceGroup* 을 입력하고, **확인** 을 선택합니다. 리소스 그룹 이름은 Azure 구독 내에서 고유해야 합니다.
+   -  **Name**: 이 예에서는 *private.contoso.com* 을 입력합니다.
+1. **리소스 그룹 위치** 에 **미국 중서부** 를 선택합니다.
 
-1. **검토 + 만들기**를 선택합니다.
+1. **검토 + 만들기** 를 선택합니다.
 
-1. **만들기**를 선택합니다.
+1. **만들기** 를 선택합니다.
 
 영역을 만드는 데 몇 분이 걸릴 수 있습니다.
 
@@ -73,44 +73,44 @@ DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에
 ![가상 네트워크 링크 추가](media/private-dns-portal/dns-add-virtual-network-link.png)
 
 1. **MyAzureResourceGroup** 리소스 그룹을 열고 **private.contoso.com** 프라이빗 영역을 선택합니다.
-2. 왼쪽 창에서 **가상 네트워크 링크**를 선택합니다.
-3. **추가**를 선택합니다.
-4. **링크 이름**에 **myLink**를 입력합니다.
-5. **가상 네트워크**에서 **myAzureVNet**을 선택합니다.
+2. 왼쪽 창에서 **가상 네트워크 링크** 를 선택합니다.
+3. **추가** 를 선택합니다.
+4. **링크 이름** 에 **myLink** 를 입력합니다.
+5. **가상 네트워크** 에서 **myAzureVNet** 을 선택합니다.
 6. **자동 등록 사용** 확인란을 선택합니다.
-7. **확인**을 선택합니다.
+7. **확인** 을 선택합니다.
 
 ## <a name="create-the-test-virtual-machines"></a>테스트 가상 머신 만들기
 
 이제 프라이빗 DNS 영역을 테스트할 수 있도록 두 대의 가상 머신을 만듭니다.
 
-1. 포털 페이지 상단 왼쪽에서 **리소스 만들기**를 선택한 다음 **Windows Server 2016 Datacenter**를 선택합니다.
-1. 리소스 그룹으로 **MyAzureResourceGroup**을 선택합니다.
+1. 포털 페이지 상단 왼쪽에서 **리소스 만들기** 를 선택한 다음 **Windows Server 2016 Datacenter** 를 선택합니다.
+1. 리소스 그룹으로 **MyAzureResourceGroup** 을 선택합니다.
 1. **myVM01**(가상 머신의 이름)을 입력합니다.
-1. **지역**은 **미국 중서부**를 선택합니다.
+1. **지역** 은 **미국 중서부** 를 선택합니다.
 1. 관리자 사용자 이름의 이름을 입력합니다.
 2. 암호를 입력하고 암호를 확인합니다.
-5. **공용 인바운드 포트**에서 **선택한 포트 허용**을 선택한 다음 **인바운드 포트 선택**에 대해 **RDP(3389)** 를 선택합니다.
+5. **공용 인바운드 포트** 에서 **선택한 포트 허용** 을 선택한 다음 **인바운드 포트 선택** 에 대해 **RDP(3389)** 를 선택합니다.
 10. 페이지에서 다른 기본값으로 적용하고 **다음: 디스크 >** 를 클릭합니다.
 11. **디스크** 페이지에서 기본값을 적용하고 **다음: 네트워킹 >** 을 클릭합니다.
-1. 가상 네트워크로 **myAzureVNet**이 선택되었는지 확인합니다.
+1. 가상 네트워크로 **myAzureVNet** 이 선택되었는지 확인합니다.
 1. 페이지에서 다른 기본값으로 적용하고 **다음: 관리 >** 를 클릭합니다.
-2. **부트 진단**의 경우 **해제**를 선택하고 다른 기본값을 적용한 다음 **검토 + 만들기**를 선택합니다.
-1. 설정을 검토한 다음 **만들기**를 클릭합니다.
+2. **부트 진단** 의 경우 **해제** 를 선택하고 다른 기본값을 적용한 다음 **검토 + 만들기** 를 선택합니다.
+1. 설정을 검토한 다음 **만들기** 를 클릭합니다.
 
-이 단계를 반복하여 이름이 **myVM02**인 다른 가상 머신을 만듭니다.
+이 단계를 반복하여 이름이 **myVM02** 인 다른 가상 머신을 만듭니다.
 
 두 가상 머신을 모두 완료하는 데 몇 분 정도 걸립니다.
 
 ## <a name="create-an-additional-dns-record"></a>추가 DNS 레코드 만들기
 
- 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup**의 DNS 영역 **private.contoso.com**에 상대적 이름 **db**가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.private.contoso.com**입니다. 레코드 종류는 "A"이고 IP 주소는 **myVM01**입니다.
+ 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup** 의 DNS 영역 **private.contoso.com** 에 상대적 이름 **db** 가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.private.contoso.com** 입니다. 레코드 종류는 "A"이고 IP 주소는 **myVM01** 입니다.
 
 1. **MyAzureResourceGroup** 리소스 그룹을 열고 **private.contoso.com** 프라이빗 영역을 선택합니다.
-2. **+ 레코드 집합**을 선택합니다.
-3. **이름**에 **db**를 입력합니다.
-4. **IP 주소**에는 **myVM01**의 IP 주소를 입력합니다. 이 주소는 가상 머신이 시작될 때 자동으로 등록되어야 합니다.
-5. **확인**을 선택합니다.
+2. **+ 레코드 집합** 을 선택합니다.
+3. **이름** 에 **db** 를 입력합니다.
+4. **IP 주소** 에는 **myVM01** 의 IP 주소를 입력합니다. 이 주소는 가상 머신이 시작될 때 자동으로 등록되어야 합니다.
+5. **확인** 을 선택합니다.
 
 ## <a name="test-the-private-zone"></a>프라이빗 영역 테스트
 

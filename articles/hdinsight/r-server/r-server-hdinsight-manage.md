@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: e4c9124ebd0b61b8db1b1da964355a3c36b5bba5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a5e623b0429194db6d03beb674679bd10e337844
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98930576"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869477"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
 이 문서에서는 여러 동시 사용자 추가, ML 서비스 클러스터에 원격 연결, 계산 컨텍스트 변경 등의 작업을 수행 하기 위해 Azure HDInsight에서 기존 ML 서비스 클러스터를 관리 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "98930576"
 
 RStudio Community 버전이 실행되는 에지 노드에 대해 더 많은 사용자를 추가하여 HDInsight의 ML 서비스 클러스터에 대해 여러 동시 사용자를 사용하도록 설정할 수 있습니다. HDInsight 클러스터를 만들 때 다음과 같이 두 사용자, 즉 HTTP 사용자와 SSH 사용자를 제공해야 합니다.
 
-![HDI Azure Portal 로그인 매개 변수](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+:::image type="content" source="./media/r-server-hdinsight-manage/hdi-concurrent-users1.png" alt-text="HDI Azure Portal 로그인 매개 변수" border="true":::
 
 - **클러스터 로그인 사용자 이름**: 사용자가 만든 HDInsight 클러스터를 보호하는 데 사용되는 HDInsight 게이트웨이를 통해 인증하기 위한 HTTP 사용자입니다. 이 HTTP 사용자는 Apache Ambari UI, Apache Hadoop YARN UI 및 다른 UI 구성 요소에 액세스하는 데 사용됩니다.
 - **Ssh (Secure Shell) 사용자 이름**: 보안 셸을 통해 클러스터에 액세스 하는 ssh 사용자입니다. 이 사용자는 모든 헤드 노드, 작업자 노드 및 에지 노드에 대한 Linux 시스템의 사용자입니다. 따라서 보안 셸을 사용하여 원격 클러스터의 노드 중 하나에 액세스할 수 있습니다.
@@ -63,7 +63,7 @@ sudo passwd <yournewusername>
 
 다음 스크린샷은 출력을 보여 줍니다.
 
-![동시 사용자를 위한 스크린샷 출력](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+:::image type="content" source="./media/r-server-hdinsight-manage/hdi-concurrent-users2.png" alt-text="동시 사용자를 위한 스크린샷 출력" border="true":::
 
 “현재 Kerberos 암호:”를 묻는 메시지가 표시될 때 **Enter** 키를 누르기만 하면 무시됩니다. `useradd` 명령의 `-m` 옵션은 시스템에서 사용자의 홈 폴더를 만듦을 나타내며, 이 폴더는 RStudio Community 버전에 필요합니다.
 
@@ -211,7 +211,7 @@ rxSparkDisconnect(myHadoopCluster)
    > 2. 일부 R 패키지에는 추가 Linux 시스템 라이브러리가 필요합니다. 편의상 HDInsight ML 서비스는 가장 인기 있는 상위 100개의 R 패키지에서 필요한 종속성을 사용하여 미리 설치되었습니다. 그러나 설치한 R 패키지에 더 많은 라이브러리가 필요한 경우 여기에 사용되는 기본 스크립트를 다운로드하고 시스템 라이브러리를 설치하는 단계를 추가해야 합니다. 그런 다음 수정된 스크립트를 Azure Storage의 공용 blob 컨테이너에 업로드하고 수정된 스크립트를 사용하여 패키지를 설치해야 합니다.
    >    스크립트 동작 개발에 대 한 자세한 내용은 [스크립트 동작 개발](../hdinsight-hadoop-script-actions-linux.md)을 참조 하세요.
 
-   ![스크립트 동작 Azure Portal 제출](./media/r-server-hdinsight-manage/submit-script-action.png)
+   :::image type="content" source="./media/r-server-hdinsight-manage/submit-script-action.png" alt-text="스크립트 동작 Azure Portal 제출" border="true":::
 
 4. **만들기** 를 선택하여 스크립트를 실행합니다. 스크립트가 완료되면 모든 작업자 노드에서 R 패키지를 사용할 수 있습니다.
 

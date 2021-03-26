@@ -4,10 +4,10 @@ description: 초당 수백만 개의 이벤트를 수집하는 빅 데이터 스
 ms.topic: overview
 ms.date: 01/13/2021
 ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98195768"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스

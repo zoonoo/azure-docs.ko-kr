@@ -10,16 +10,20 @@ services: time-series-insights
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: 56f7ac6f4403867e5e4e53b55b241912cdc57454
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 09068d966df871d4b6804978a543db50bccbee37
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103464451"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952850"
 ---
 # <a name="create-an-azure-time-series-insights-gen2-environment-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Time Series Insights Gen2 환경을 만듭니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/)를 사용 하 여 Azure Time Series Insights Gen2 환경을 만드는 방법을 설명 합니다.
+
+환경 프로 비전 자습서는이 과정을 안내 합니다. 올바른 시계열 ID를 선택 하 고 두 JSON 페이로드의 예제를 확인 하는 방법에 대해 알아봅니다.</br>
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
 
 ## <a name="overview"></a>개요
 

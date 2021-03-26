@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99053587"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953853"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>작업 시간 외 VM 중지/시작 문제 해결
 
@@ -149,7 +149,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
   ```
 
 * VM을 시작 및 중지하려면 Automation 계정의 실행 계정에 VM에 대한 적절한 사용 권한이 있어야 합니다. 리소스에 대한 권한을 확인하는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용하여 사용자에게 할당된 역할 보기](../../role-based-access-control/check-access.md)를 참조하세요. 실행 계정에서 사용하는 서비스 주체의 애플리케이션 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하여 이 값을 검색할 수 있습니다. **계정 설정** 아래에서 **실행 계정** 을 선택하고 적절한 실행 계정을 선택합니다.
-* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체에 문제가 있을 수 있습니다. 예를 들어 VM을 종료하려고 할 때 적용되는 업데이트, 중단된 서비스 등이 있습니다. VM 리소스로 이동하고 **활동 로그** 를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제 해결에 대해 자세히 알아보려면 [Azure 가상 머신 문제 해결](../../virtual-machines/troubleshooting/index.yml)을 참조하세요.
+* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체에 문제가 있을 수 있습니다. 예를 들어 VM을 종료하려고 할 때 적용되는 업데이트, 중단된 서비스 등이 있습니다. VM 리소스로 이동하고 **활동 로그** 를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제 해결에 대해 자세히 알아보려면 [Azure 가상 머신 문제 해결](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)을 참조하세요.
 * [작업 스트림](../automation-runbook-execution.md#job-statuses)에 오류가 있는지 확인합니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화** 에서 **작업** 을 선택합니다.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>시나리오: 내 사용자 지정 Runbook이 VM을 시작 또는 중지하지 못함

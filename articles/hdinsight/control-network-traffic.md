@@ -4,12 +4,12 @@ description: Azure HDInsight 클러스터에 대한 인바운드 및 아웃바�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 66b078e8dfa1daa100978f04283e9bba7158bddf
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943377"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867035"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 트래픽 제어
 
@@ -21,7 +21,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 관리형 서비스인 HDInsight는 VNET을 드나드는 트래픽의 HDInsight 상태 및 관리 서비스에 제한 없이 액세스할 수 있어야 합니다. NSG를 사용하는 경우 이러한 서비스가 HDInsight 클러스터와 계속 통신할 수 있는지 확인해야 합니다.
 
-![Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램](./media/control-network-traffic/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/control-network-traffic/hdinsight-vnet-diagram.png" alt-text="Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램" border="false":::
 
 ## <a name="hdinsight-with-network-security-groups"></a>네트워크 보안 그룹을 사용한 HDInsight
 

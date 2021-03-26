@@ -3,19 +3,14 @@ title: Azure Disk Backup 개요
 description: Azure Disk backup 솔루션에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9449fdc57909cb143d381ae074913c79d24c8893
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98915511"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107298"
 ---
-# <a name="overview-of-azure-disk-backup-in-preview"></a>Azure Disk Backup 개요 (미리 보기)
-
->[!IMPORTANT]
->Azure Disk Backup은 서비스 수준 계약 없이 미리 보기 상태 이며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 지역 가용성은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
->
->미리 보기에 등록 하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) 하세요.
+# <a name="overview-of-azure-disk-backup"></a>Azure Disk Backup 개요
 
 Azure Disk Backup은 관리 디스크에서 데이터를 보호 하는 클라우드 기반의 네이티브 백업 솔루션입니다. 몇 가지 단계를 통해 관리 디스크에 대 한 보호를 구성할 수 있는 간단 하 고 안전 하며 비용 효율적인 솔루션입니다. 재해 시나리오에서 데이터를 복구할 수 있도록 보장 합니다.
 
@@ -69,7 +64,7 @@ Azure Disk backup 솔루션은 다음과 같은 시나리오에서 유용 합니
 
 - 현재 Azure Disk Backup은 관리 디스크의 운영 백업을 지원 하 고 백업 자격 증명 모음 저장소에 백업을 복사 하지 않습니다. 지원 되는 시나리오 및 지원 되지 않는 시나리오 및 지역 가용성에 대 한 자세한 목록은 [지원 매트릭스](disk-backup-support-matrix.md)를 참조 하세요.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 Azure Backup는 Azure 디스크를 보호 하기 위한 스냅숏 수명 주기 관리 솔루션을 제공 합니다. Azure Backup에서 만든 디스크 스냅숏은 Azure 구독 내의 리소스 그룹에 저장 되 고 **스냅숏 저장소** 요금이 발생 합니다. 스냅숏 가격에 대 한 자세한 내용은 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요. 스냅숏은 백업 자격 증명 모음에 복사 되지 않으므로 Azure Backup **보호 된 인스턴스** 요금을 청구 하지 않으며 **백업 저장소** 비용이 적용 되지 않습니다. 또한 증분 스냅숏은 마지막 스냅숏 이후의 델타 변경 내용을 차지 하며, 부모 관리 디스크의 저장소 유형과 관계 없이 항상 표준 저장소에 저장 되며 standard storage의 가격 책정에 따라 요금이 청구 됩니다. 이렇게 하면 Azure Disk Backup에서 비용 효율적인 솔루션을 만들 수 있습니다.
 

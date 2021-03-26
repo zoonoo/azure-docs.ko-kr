@@ -4,10 +4,10 @@ description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽
 ms.date: 03/08/2021
 ms.topic: tutorial
 ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102485744"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
@@ -23,7 +23,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 > - 새 리소스 그룹 조사
 > - 청사진을 할당 취소하여 잠금 제거
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98929816"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868718"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -104,7 +104,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     1. Ambari UI를 열고 Spark2 페이지의 구성 탭으로 이동합니다.
 
-        ![Ambari을 통해 Spark 및 Livy 구성 변경](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Ambari을 통해 Spark 및 Livy 구성 변경" border="true":::
 
     2. 고급 livy2-env를 확장하고 맨 아래에 다음 문을 추가합니다. 다른 접두사를 사용하여 가상 환경을 설치한 경우 경로를 이에 맞춰 변경합니다.
 
@@ -113,7 +113,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Ambari를 통해 Livy 구성 변경](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Ambari를 통해 Livy 구성 변경" border="true":::
 
     3. 고급 spark2-env를 확장하고 맨 아래의 기존 내보내기 PYSPARK_PYTHON 문을 바꿉니다. 다른 접두사를 사용하여 가상 환경을 설치한 경우 경로를 이에 맞춰 변경합니다.
 
@@ -121,11 +121,11 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Ambari를 통해 Spark 구성 변경](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Ambari를 통해 Spark 구성 변경" border="true":::
 
     4. 변경 내용을 저장하고 영향을 받은 서비스를 다시 시작합니다. 이러한 변경을 하면 Spark2 서비스를 다시 시작해야 합니다. Ambari UI에서 필수 다시 시작 알림이 표시되면 다시 시작을 클릭하여 영향을 받는 모든 서비스를 다시 시작합니다.
 
-        ![서비스 다시 시작](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="서비스 다시 시작" border="true":::
 
     5. 작업이 업데이트 된 spark 구성 (및)을 가리키도록 하기 위해 Spark 세션에 두 속성을 설정 `spark.yarn.appMasterEnv.PYSPARK_PYTHON` 합니다 `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON` . 
 
@@ -153,7 +153,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     아래 코드를 실행하여 Jupyter Notebook에서 Python 환경을 이중으로 확인할 수 있습니다.
 
-    ![Jupyter Notebook에서 Python 버전 확인](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Jupyter Notebook에서 Python 버전 확인" border="true":::
 
 ## <a name="known-issue"></a>알려진 문제
 

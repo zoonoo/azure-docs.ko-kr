@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: devx-track-js
 ms.openlocfilehash: 5a0bef4fbfd4ee9aa720dab430a33bbfcd0b918b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91280354"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>자습서: 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
@@ -105,7 +105,7 @@ Fiddler를 사용하여 오류를 시뮬레이션하려면 요청에 대해 실�
 
 ### <a name="launch-fiddler"></a>Fiddler 시작
 
-Fiddler를 열고 **규칙**과 **규칙 사용자 지정**을 선택합니다.
+Fiddler를 열고 **규칙** 과 **규칙 사용자 지정** 을 선택합니다.
 
 ![Fiddler 규칙 사용자 지정](media/simulate-primary-region-failure/figure1.png)
 
@@ -113,7 +113,7 @@ Fiddler ScriptEditor가 시작되고 **SampleRules.js** 파일을 표시합니�
 
 `STORAGEACCOUNTNAME`을 스토리지 계정의 이름으로 바꾼 후 다음 코드 샘플을 `OnBeforeResponse` 함수에 붙여넣습니다. 샘플에 따라, `HelloWorld`를 다운로드할 테스트 파일의 이름(`sampleFile`과 같은 접두사)으로 바꿀 수도 있습니다. 새 코드는 즉시 실행되지 않도록 주석으로 처리됩니다.
 
-완료되면 **파일**과 **저장**을 선택하여 변경 내용을 저장합니다. 다음 단계에서 사용하므로 ScriptEditor 창을 열어 둡니다.
+완료되면 **파일** 과 **저장** 을 선택하여 변경 내용을 저장합니다. 다음 단계에서 사용하므로 ScriptEditor 창을 열어 둡니다.
 
 ```javascript
     /*
@@ -139,13 +139,13 @@ Fiddler ScriptEditor가 시작되고 **SampleRules.js** 파일을 표시합니�
 
 ### <a name="simulate-failure"></a>오류 시뮬레이션
 
-애플리케이션이 일시 중지된 동안 Fiddler로 다시 전환하고 `OnBeforeResponse` 함수에 저장한 사용자 지정 규칙의 주석 처리를 제거합니다. **파일** 및 **저장**을 선택하여 규칙이 적용되도록 변경 내용을 저장합니다. 이 코드에서는 RA-GZRS 스토리지 계정에 대한 요청을 찾고, 경로에 샘플 파일의 이름이 포함되어 있는 경우 `503 - Service Unavailable` 응답 코드를 반환합니다.
+애플리케이션이 일시 중지된 동안 Fiddler로 다시 전환하고 `OnBeforeResponse` 함수에 저장한 사용자 지정 규칙의 주석 처리를 제거합니다. **파일** 및 **저장** 을 선택하여 규칙이 적용되도록 변경 내용을 저장합니다. 이 코드에서는 RA-GZRS 스토리지 계정에 대한 요청을 찾고, 경로에 샘플 파일의 이름이 포함되어 있는 경우 `503 - Service Unavailable` 응답 코드를 반환합니다.
 
 샘플이 실행 중인 창에서 애플리케이션을 다시 시작하거나 해당 키를 눌러 샘플 파일을 다운로드하고, 보조 스토리지에서 가져온 것인지 확인합니다. 샘플을 다시 일시 중지하거나 프롬프트에서 대기할 수 있습니다.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>기본 엔드포인트 복원 시뮬레이션
 
-Fiddler에서 사용자 지정 규칙을 제거하거나 다시 주석으로 처리합니다. **파일** 및 **저장**을 선택하여 규칙이 더 이상 적용되지 않도록 합니다.
+Fiddler에서 사용자 지정 규칙을 제거하거나 다시 주석으로 처리합니다. **파일** 및 **저장** 을 선택하여 규칙이 더 이상 적용되지 않도록 합니다.
 
 샘플이 실행 중인 창에서 애플리케이션을 다시 시작하거나 해당 키를 눌러 샘플 파일을 다운로드하고, 다시 기본 스토리지에서 가져온 것인지 확인합니다. 그런 후 샘플을 종료해도 됩니다.
 
