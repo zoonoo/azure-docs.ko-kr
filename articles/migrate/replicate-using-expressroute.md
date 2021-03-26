@@ -6,19 +6,19 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9aa9a42422f3c114490d1dbb28a146b6e76ca8cd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102448831"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558621"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Azure Migrate로 Express 경로를 통해 데이터 복제: 서버 마이그레이션
 
-이 문서에서는 서버를 Azure로 마이그레이션하는 동안 Express 경로 회로를 통해 데이터를 복제 하도록 [서버 마이그레이션을 Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-migration-tool) 구성 하는 방법에 대해 알아봅니다.
+이 문서에서는 서버를 Azure로 마이그레이션하는 동안 Express 경로 회로를 통해 데이터를 복제 하도록 [서버 마이그레이션을 Azure Migrate](./migrate-services-overview.md#azure-migrate-server-migration-tool) 구성 하는 방법에 대해 알아봅니다.
 
 ## <a name="understand-azure-expressroute-circuits"></a>Azure Express 경로 회로 이해
-Express 경로 (ER) 회로는 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결 합니다. Express 경로 회로는 개인 피어 링, Microsoft 피어 링 또는 둘 다를 사용 하도록 구성할 수 있습니다. Express 경로 [회로 및 피어 링](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#peeringcompare) 의 문서를 검토 하 여 express 경로에서 사용할 수 있는 다양 한 피어 링 옵션에 대해 자세히 알아보세요.
+Express 경로 (ER) 회로는 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결 합니다. Express 경로 회로는 개인 피어 링, Microsoft 피어 링 또는 둘 다를 사용 하도록 구성할 수 있습니다. Express 경로 [회로 및 피어 링](../expressroute/expressroute-circuit-peerings.md#peeringcompare) 의 문서를 검토 하 여 express 경로에서 사용할 수 있는 다양 한 피어 링 옵션에 대해 자세히 알아보세요.
 
 Azure Migrate의 서버 마이그레이션 도구를 사용 하면 다른 클라우드에서 온-프레미스 서버 및 서버를 Azure virtual machines로 마이그레이션할 수 있습니다. 이 도구는 Azure 구독의 관리 디스크로 마이그레이션할 서버에서 데이터를 복제 하기 위해 진행 중인 복제 스트림을 설정 하는 방식으로 작동 합니다. 서버를 마이그레이션할 준비가 되 면 Azure에서 복제 된 데이터가 서버를 마이그레이션하는 데 사용 됩니다.
 
@@ -104,7 +104,7 @@ Azure Migrate는 Azure Migrate 프로젝트에서 가상 머신에 대 한 복�
     > [!Note]
     > 가상 네트워크는 Express 경로 게이트웨이 끝점을 포함 하거나 Express 경로 게이트웨이를 사용 하 여 가상 네트워크에 연결 되어야 합니다. 
 
-    **사설 DNS 통합** 섹션에서 **예** 를 선택 하 고 개인 DNS 영역과 통합 합니다. **예** 를 선택 하면 선택한 가상 네트워크에 dns 영역이 자동으로 연결 되 고, 새 IP의 dns 확인에 필요한 dns 레코드와 개인 끝점에 대해 생성 된 정규화 된 도메인 이름이 추가 됩니다. [개인 DNS 영역](https://docs.microsoft.com/azure/dns/private-dns-overview) 에 대해 자세히 알아보세요.
+    **사설 DNS 통합** 섹션에서 **예** 를 선택 하 고 개인 DNS 영역과 통합 합니다. **예** 를 선택 하면 선택한 가상 네트워크에 dns 영역이 자동으로 연결 되 고, 새 IP의 dns 확인에 필요한 dns 레코드와 개인 끝점에 대해 생성 된 정규화 된 도메인 이름이 추가 됩니다. [개인 DNS 영역](../dns/private-dns-overview.md) 에 대해 자세히 알아보세요.
 
     ![privatednszone](./media/replicate-using-expressroute/private-dns-zone.png)
 
@@ -144,14 +144,14 @@ Azure Migrate는 Azure Migrate 프로젝트에서 가상 머신에 대 한 복�
     b. **레코드 집합 추가** 페이지에서 정규화 된 도메인 이름 및 개인 IP에 대 한 항목을 유형 레코드로 추가 합니다.
 
 > [!Important]
-> 원본 환경에서 저장소 계정의 개인 끝점에 대 한 개인 IP 주소를 확인 하려면 추가 DNS 설정이 필요할 수 있습니다. 필요한 DNS 구성을 이해 하려면 [이 문서를 검토](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder) 하세요.
+> 원본 환경에서 저장소 계정의 개인 끝점에 대 한 개인 IP 주소를 확인 하려면 추가 DNS 설정이 필요할 수 있습니다. 필요한 DNS 구성을 이해 하려면 [이 문서를 검토](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) 하세요.
 
 ## <a name="replicate-data-using-an-expressroute-circuit-with-microsoft-peering"></a>Microsoft 피어 링을 사용 하 여 Express 경로 회로를 사용 하 여 데이터 복제
 
 Microsoft 피어 링 또는 기존 공용 피어 링 도메인 (새 Express 경로 연결에 사용 되지 않음)을 사용 하 여 아래 다이어그램에 표시 된 것 처럼 Express 경로 회로를 통해 복제 트래픽을 라우팅할 수 있습니다.
 ![replicationwithmicrosoftpeering](./media/replicate-using-expressroute/replication-with-microsoft-peering.png)
 
-Microsoft 피어 링 회로를 통해 복제 데이터를 사용 하는 경우에도 Azure Migrate 서비스를 사용 하 여 다른 통신 (제어 평면)을 위해 온-프레미스 사이트에서 인터넷에 연결 해야 합니다. Express 경로를 통해 연결할 수 없는 몇 가지 추가 Url이 있으며 복제 어플라이언스/Hyper-v 호스트에서 복제 프로세스를 오케스트레이션 하는 데 액세스 해야 합니다. 마이그레이션 시나리오, [VMware 에이전트](https://docs.microsoft.com/azure/migrate/migrate-appliance#public-cloud-urls) 없는 마이그레이션 또는 [에이전트 기반 마이그레이션](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance)에 따라 URL 요구 사항을 검토할 수 있습니다.  
+Microsoft 피어 링 회로를 통해 복제 데이터를 사용 하는 경우에도 Azure Migrate 서비스를 사용 하 여 다른 통신 (제어 평면)을 위해 온-프레미스 사이트에서 인터넷에 연결 해야 합니다. Express 경로를 통해 연결할 수 없는 몇 가지 추가 Url이 있으며 복제 어플라이언스/Hyper-v 호스트에서 복제 프로세스를 오케스트레이션 하는 데 액세스 해야 합니다. 마이그레이션 시나리오, [VMware 에이전트](./migrate-appliance.md#public-cloud-urls) 없는 마이그레이션 또는 [에이전트 기반 마이그레이션](./migrate-replication-appliance.md)에 따라 URL 요구 사항을 검토할 수 있습니다.  
 
 온-프레미스 사이트에서 프록시를 사용 하 고 복제 트래픽에 대해 Express 경로를 사용 하려는 경우 온-프레미스 어플라이언스의 관련 Url에 대해 프록시 바이패스를 구성 해야 합니다. 
 
@@ -172,7 +172,7 @@ Microsoft 피어 링 회로를 통해 복제 데이터를 사용 하는 경우�
 
 구성 서버 및 프로세스 서버에서 프록시 바이패스 목록을 구성 하려면 다음 단계를 수행 합니다.
 
-1. [PsExec 도구를 다운로드](https://docs.microsoft.com/sysinternals/downloads/psexec) 하 여 시스템 사용자 컨텍스트에 액세스 합니다.
+1. [PsExec 도구를 다운로드](/sysinternals/downloads/psexec) 하 여 시스템 사용자 컨텍스트에 액세스 합니다.
 2. 다음 명령줄을 실행 하 여 Internet Explorer를 시스템 사용자 컨텍스트에서 엽니다. psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"
 3. IE에서 프록시 설정을 추가 합니다.
 4. 바이패스 목록에서 Azure storage URL. *. blob. w i n.  
@@ -185,10 +185,10 @@ Microsoft 피어 링 회로를 통해 복제 데이터를 사용 하는 경우�
 - 대상 Azure 지역에 대 한 지역 BGP 커뮤니티 (마이그레이션 지역)
 - Azure Active Directory에 대 한 BGP 커뮤니티 (12076:5060)
 
-[경로 필터](https://docs.microsoft.com/azure/expressroute/how-to-routefilter-portal) 및 [express 경로에 대 한 BGP 커뮤니티](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp)목록에 대해 자세히 알아보세요. 
+[경로 필터](../expressroute/how-to-routefilter-portal.md) 및 [express 경로에 대 한 BGP 커뮤니티](../expressroute/expressroute-routing.md#bgp)목록에 대해 자세히 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [ExpressRoute 회로](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings)에 대해 자세히 알아봅니다.
-- [ExpressRoute 라우팅 도메인](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#peeringcompare)에 대해 자세히 알아봅니다.
-- [개인 끝점](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)에 대해 자세히 알아보세요.
+- [ExpressRoute 회로](../expressroute/expressroute-circuit-peerings.md)에 대해 자세히 알아봅니다.
+- [ExpressRoute 라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#peeringcompare)에 대해 자세히 알아봅니다.
+- [개인 끝점](../private-link/private-endpoint-overview.md)에 대해 자세히 알아보세요.

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 28988af0c1b3b5e4e5ce359abb617a66af816d69
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 90925f30e84ec3c06e715669ebd982c823dfaf5a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439819"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568327"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge 장치에 Vm 배포
 
@@ -127,7 +127,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Azure Resource Manager를 사용 하 여 로컬 저장소 계정 (예: 로컬 중복 저장소) (standard 또는 premium)만 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [자습서: GPU를 사용 하 여 Azure Stack Edge Pro로 저장소 계정을 통해 데이터 전송](azure-stack-edge-j-series-deploy-add-storage-accounts.md)을 참조 하세요.
+> Azure Resource Manager를 사용 하 여 로컬 저장소 계정 (예: 로컬 중복 저장소) (standard 또는 premium)만 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [자습서: GPU를 사용 하 여 Azure Stack Edge Pro로 저장소 계정을 통해 데이터 전송](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)을 참조 하세요.
 
 다음은 몇 가지 예제 출력입니다.
 
@@ -179,7 +179,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-the-blob-uri-to-the-host-file"></a>호스트 파일에 blob URI를 추가 합니다.
 
-[Azure PowerShell를 통해 Azure Stack에 지 장치에 Vm 배포](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)의 "5 단계: 끝점 이름 확인을 위한 호스트 파일 수정"의 Azure Blob Storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했습니다. 이 항목은 blob URI를 추가 하는 데 사용 되었습니다.
+[Azure PowerShell를 통해 Azure Stack에 지 장치에 Vm 배포](./azure-stack-edge-gpu-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)의 "5 단계: 끝점 이름 확인을 위한 호스트 파일 수정"의 Azure Blob Storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했습니다. 이 항목은 blob URI를 추가 하는 데 사용 되었습니다.
 
 \<Azure consistent network services VIP \>\<storage name\>. blob. \<appliance name\> .\<dnsdomain\>
 

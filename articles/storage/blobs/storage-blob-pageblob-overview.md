@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: aada418b4f74c38a2a35c793deb85b94b703fb89
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 88c0d88a1d3119ef2fa00eb49da447749fde3221
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97629360"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543842"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -39,7 +39,7 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 * 온-프레미스에서 클라우드로 응용 프로그램 및 데이터 실시간 마이그레이션: 온-프레미스 데이터를 복사 하 고 REST Api를 사용 하 여 온-프레미스 VM이 계속 실행 되는 동안 Azure 페이지 blob에 직접 쓸 수 있습니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이렇게 하면 VM을 계속 사용 하면서 데이터 마이그레이션이 백그라운드에서 수행 되 고 장애 조치 (failover)에 필요한 가동 중지 시간이 짧은 시간 (분) 이므로, 이러한 방식으로 온-프레미스에서 클라우드로 Vm 및 가상 디스크를 마이그레이션할 수 있습니다.
 * [SAS 기반](../common/storage-sas-overview.md) 공유 액세스: 동시성 제어를 지원하는 다중 판독기 및 단일 작성기와 같은 시나리오를 사용할 수 있습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 페이지 blob과 함께 제공 되는 두 가지 저장소 유형 모두에는 고유한 가격 책정 모델이 있습니다. 프리미엄 페이지 blob은 managed disks 가격 책정 모델을 따르고, 표준 페이지 blob은 사용 된 크기와 각 트랜잭션에 대해 요금이 청구 됩니다. 자세한 내용은 [Azure 페이지 blob 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/page-blobs/)를 참조 하세요.
 
@@ -141,7 +141,7 @@ pageBlob.WritePages(dataStream, startingOffset);
 
 # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
-페이지를 읽으려면 [Pageblobclient. Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) 메서드를 사용 하 여 페이지 blob에서 바이트 범위를 읽습니다. 
+페이지를 읽으려면 [Pageblobclient. Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto) 메서드를 사용 하 여 페이지 blob에서 바이트 범위를 읽습니다. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 

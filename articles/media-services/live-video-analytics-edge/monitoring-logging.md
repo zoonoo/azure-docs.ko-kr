@@ -3,12 +3,12 @@ title: 모니터링 및 로깅-Azure
 description: 이 문서에서는 IoT Edge에 대 한 라이브 비디오 분석의 모니터링 및 로깅에 대 한 개요를 제공 합니다.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730248"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564486"
 ---
 # <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
@@ -230,7 +230,7 @@ IoT Hub를 통해 관찰 되는 모든 이벤트에는 공용 속성 집합이 �
 
 이러한 메트릭은 IoT Edge 모듈의 라이브 비디오 분석에서 보고 됩니다.  
 
-|메트릭 이름|Type|레이블|Description|
+|메트릭 이름|형식|레이블|Description|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|계기|iothub, edge_device, module_name, graph_topology|토폴로지 당 활성 그래프의 총 수입니다.|
 |lva_received_bytes_total|카운터|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|노드에서 받은 총 바이트 수입니다. RTSP 원본에 대해서만 지원 됩니다.|
@@ -312,7 +312,7 @@ IoT Edge 모듈의 라이브 비디오 분석에서 메트릭 수집을 사용 �
    이 경우 Azure Portal에서 IoT hub로 이동 하 고 왼쪽 창에서 **메트릭** 을 선택 합니다. 여기에 메트릭이 표시 됩니다.
 
 ### <a name="log-analytics-metrics-collection"></a>Log Analytics 메트릭 수집
-[Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial)와 함께 [프로메테우스 끝점](https://prometheus.io/docs/practices/naming/) 을 사용 하 여 사용 된 CPUPercent, MemoryUsedPercent 등의 메트릭을 생성 하 고 [모니터링할](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) 수 있습니다.   
+[Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md)와 함께 [프로메테우스 끝점](https://prometheus.io/docs/practices/naming/) 을 사용 하 여 사용 된 CPUPercent, MemoryUsedPercent 등의 메트릭을 생성 하 고 [모니터링할](../../azure-monitor/essentials/metrics-supported.md) 수 있습니다.   
 
 > [!NOTE]
 > 아래 구성은 로그, **메트릭만** 수집 하지 않습니다. 수집기 모듈을 확장 하 여 로그를 수집 하 고 업로드 하는 것도 가능 합니다.

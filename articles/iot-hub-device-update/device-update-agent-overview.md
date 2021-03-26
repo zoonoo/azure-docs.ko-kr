@@ -6,18 +6,18 @@ ms.author: valls
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e932238849baf267983fb3ca1ebb082db169d9fd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: efe5d0171463668bda19a0d0445fc67f3734aaee
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679600"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561239"
 ---
 # <a name="device-update-for-iot-hub-agent-overview"></a>IoT Hub 에이전트에 대한 디바이스 업데이트 개요
 
 장치 업데이트 에이전트는 다음과 같은 두 가지 개념적 계층으로 구성 됩니다.
 
-* 인터페이스 계층은 장치가 장치 업데이트 에이전트와 장치 업데이트 서비스 간에 전달 될 수 있도록 하는 [Azure IoT 플러그 앤 플레이 (PnP)](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) 를 기반으로 빌드됩니다.
+* 인터페이스 계층은 장치가 장치 업데이트 에이전트와 장치 업데이트 서비스 간에 전달 될 수 있도록 하는 [Azure IoT 플러그 앤 플레이 (PnP)](../iot-pnp/overview-iot-plug-and-play.md) 를 기반으로 빌드됩니다.
 * 플랫폼 계층은 플랫폼 또는 장치별 일 수 있는 다운로드, 설치 및 적용의 상위 수준 업데이트 작업을 담당 합니다.
 
 :::image type="content" source="media/understand-device-update/client-agent-reference-implementations.png" alt-text="에이전트 구현." lightbox="media/understand-device-update/client-agent-reference-implementations.png":::
@@ -72,8 +72,7 @@ APT 업데이트 처리기는 APT 관련 업데이트 매니페스트를 처리 
 
 ## <a name="self-update-device-update-agent"></a>장치 업데이트 에이전트 자동 업데이트
 
-장치 업데이트 에이전트 및 해당 종속성은 IoT Hub 파이프라인에 대 한 장치 업데이트를 통해 업데이트할 수 있습니다. 이미지 기반 업데이트를 사용 하는 경우 새 이미지에 최신 장치 업데이트 에이전트를 포함 합니다. 패키지 기반 업데이트를 사용 하는 경우 다른 패키지와 마찬가지로 apt 매니페스트에 장치 업데이트 에이전트와 원하는 버전을 포함 합니다. Apt manifest에 [대해 자세히 알아보세요](device-update-apt-manifest.md) . [IoT 장치](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)쌍의 장치 속성 섹션에서 설치 된 버전의 장치 업데이트 에이전트와 배달 최적화 에이전트를 확인할 수 있습니다. [ADU Core 인터페이스에서 장치 속성에 대해 자세히 알아보세요](device-update-plug-and-play.md#device-properties).
+장치 업데이트 에이전트 및 해당 종속성은 IoT Hub 파이프라인에 대 한 장치 업데이트를 통해 업데이트할 수 있습니다. 이미지 기반 업데이트를 사용 하는 경우 새 이미지에 최신 장치 업데이트 에이전트를 포함 합니다. 패키지 기반 업데이트를 사용 하는 경우 다른 패키지와 마찬가지로 apt 매니페스트에 장치 업데이트 에이전트와 원하는 버전을 포함 합니다. Apt manifest에 [대해 자세히 알아보세요](device-update-apt-manifest.md) . [IoT 장치](../iot-hub/iot-hub-devguide-device-twins.md)쌍의 장치 속성 섹션에서 설치 된 버전의 장치 업데이트 에이전트와 배달 최적화 에이전트를 확인할 수 있습니다. [ADU Core 인터페이스에서 장치 속성에 대해 자세히 알아보세요](device-update-plug-and-play.md#device-properties).
 
 ## <a name="next-steps"></a>다음 단계
 [장치 업데이트 에이전트 구성 파일 이해](device-update-configuration-file.md)
-

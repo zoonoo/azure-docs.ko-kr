@@ -10,11 +10,11 @@ ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: b1a56c8acf1789690c01f1c16b7c37a237720e39
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100417809"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564877"
 ---
 # <a name="limitations-of-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale의 제한 사항
 
@@ -47,11 +47,11 @@ Microsoft와 고객 간의 역할 및 책임은 Azure PaaS 서비스 (Platform A
 
 | 질문                      | Azure PaaS (Platform As A Service) | Azure Arc 하이브리드 서비스 |
 |:----------------------------------|:------------------------------------:|:---------------------------:|
-| 인프라를 제공 하는 사람은 누구 인가요?  | Microsoft                          | 고객                  |
+| 인프라를 제공 하는 사람은 누구 인가요?  | Microsoft                          | Customer                  |
 | 소프트웨어를 제공 하는 사람은 누구 인가요? *       | Microsoft                          | Microsoft                 |
-| 작업을 수행 하는 사람은 누구 인가요? | Microsoft                          | 고객                  |
-| Microsoft에서 Sla를 제공 하나요?      | 예                                | 아니요                        |
-| Sla를 부과 하는 사람은 누구 인가요? | Microsoft                          | 고객                  |
+| 작업을 수행 하는 사람은 누구 인가요? | Microsoft                          | Customer                  |
+| Microsoft에서 Sla를 제공 하나요?      | 예                                | 예                        |
+| Sla를 부과 하는 사람은 누구 인가요? | Microsoft                          | Customer                  |
 
 \* Azure 서비스
 

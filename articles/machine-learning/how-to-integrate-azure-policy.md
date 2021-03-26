@@ -4,27 +4,30 @@ titleSuffix: Azure Machine Learning
 description: Azure Policy를 사용 하 여 Azure Machine Learning에 대 한 기본 제공 정책을 사용 하 여 작업 영역이 요구 사항을 준수 하는지 확인 하는 방법을 알아봅니다.
 author: aashishb
 ms.author: aashishb
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 21b07130e99ad4fac9a0a9b2d11aca852a1f205f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f708e2181511da97ecffcd6f1636a2b232b4fbc6
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584315"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544369"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure Machine Learning 감사 및 관리
 
 [Azure Policy](../governance/policy/index.yml) 은 Azure 리소스가 정책을 준수 하는지 확인할 수 있도록 하는 거 버 넌 스 도구입니다. Azure Machine Learning를 사용 하 여 다음 정책을 할당할 수 있습니다.
 
-* **고객 관리 키**: 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
-* **개인 링크**: 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 하거나 적용 합니다.
-* **개인 끝점**: 개인 끝점을 만들어야 하는 Azure Virtual Network 서브넷을 구성 합니다.
-* **사설 DNS 영역**: 개인 링크에 사용할 개인 DNS 영역을 구성 합니다.
+| 정책 | Description |
+| ----- | ----- |
+| **고객 관리 키** | 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다. |
+| **개인 링크** | 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 하거나 적용 합니다. |
+| **개인 끝점** | 개인 끝점을 만들어야 하는 Azure Virtual Network 서브넷을 구성 합니다. |
+| **사설 DNS 영역** | 개인 링크에 사용할 개인 DNS 영역을 구성 합니다. |
+| **사용자 할당 관리 ID** | 작업 영역에서 사용자 할당 관리 id를 사용 하는지 여부를 감사 하거나 적용 합니다. |
 
 구독 또는 리소스 그룹 수준 등의 여러 범위에서 정책을 설정할 수 있습니다. 자세한 내용은 [Azure Policy 설명서](../governance/policy/overview.md)를 참조 하세요.
 
@@ -68,6 +71,14 @@ Azure Virtual Network의 지정 된 서브넷 내에 개인 끝점을 만들도�
 개인 DNS 영역을 사용 하 여 개인 끝점에 대 한 기본 DNS 확인을 재정의 하는 작업 영역을 구성 합니다.
 
 이 정책을 구성 하려면 effect 매개 변수를 __Deployifnotexists__ 로 설정 합니다. __PrivateDnsZoneId__ 를 사용할 개인 DNS 영역의 Azure Resource Manager ID로 설정 합니다. 
+
+## <a name="workspace-should-use-user-assigned-managed-identity"></a>작업 영역에서 사용자 할당 관리 id 사용
+
+시스템 할당 관리 id (기본값) 또는 사용자 할당 관리 id를 사용 하 여 작업 영역을 만들지 여부를 제어 합니다. 작업 영역에 대 한 관리 id는 Azure Storage, Azure Container Registry, Azure Key Vault 및 Azure 애플리케이션 Insights와 같은 관련 리소스에 액세스 하는 데 사용 됩니다. 자세한 내용은 [Azure Machine Learning에서 관리 되는 Id 사용](how-to-use-managed-identities.md)을 참조 하세요.
+
+이 정책을 구성 하려면 effect 매개 변수를 __audit__, __deny__ 또는 __disabled__ 로 설정 합니다. __Audit__ 로 설정 된 경우 사용자 할당 관리 id를 지정 하지 않고 작업 영역을 만들 수 있습니다. 시스템 할당 id가 사용 되 고 활동 로그에 경고 이벤트가 생성 됩니다.
+
+정책이 __거부__ 로 설정 되어 있으면 생성 프로세스 중 사용자에 게 할당 된 id를 제공 하지 않는 한 작업 영역을 만들 수 없습니다. 사용자 할당 id를 제공 하지 않고 작업 영역을 만들려고 하면 오류가 발생 합니다. 또한이 오류는 활동 로그에 기록 됩니다. 정책 식별자는이 오류의 일부로 반환 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

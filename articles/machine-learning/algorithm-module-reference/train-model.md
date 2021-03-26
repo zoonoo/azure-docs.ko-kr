@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2021
-ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 41b327e793c6b35a2b2aeae825c493a484d84fb4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224339"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562769"
 ---
 # <a name="train-model-module"></a>모델 학습 모듈
 
@@ -71,7 +71,7 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
 
 모델 interpretability는 ML 모델을 이해 하 고, 사람이 이해할 수 있는 방식으로 의사 결정을 위한 기본 기반을 제공할 수 있는 가능성을 제공 합니다.
 
-현재 **학습 모델** 모듈에서는 [interpretability 패키지를 사용 하 여 ML 모델을 설명](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs)합니다. 다음 기본 제공 알고리즘이 지원 됩니다.
+현재 **학습 모델** 모듈에서는 [interpretability 패키지를 사용 하 여 ML 모델을 설명](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs)합니다. 다음 기본 제공 알고리즘이 지원 됩니다.
 
 - 선형 회귀
 - 신경망 회귀
@@ -87,7 +87,7 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
 
 ![모델 설명 차트를 보여 주는 스크린샷](./media/module/train-model-explanations-tab.gif)
 
-Azure Machine Learning에서 모델 설명을 사용 하는 방법에 대 한 자세한 내용은 [ML 모델 해석](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs)에 대 한 방법 문서를 참조 하세요.
+Azure Machine Learning에서 모델 설명을 사용 하는 방법에 대 한 자세한 내용은 [ML 모델 해석](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs)에 대 한 방법 문서를 참조 하세요.
 
 ## <a name="results"></a>결과
 
@@ -101,4 +101,4 @@ Azure Machine Learning에서 모델 설명을 사용 하는 방법에 대 한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

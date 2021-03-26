@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614890"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558230"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -86,7 +86,7 @@ VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변
 --- | --- | --- | ---
 **SAN 정책을 [모두 온라인]으로 구성**<br/><br/> 이렇게 하면 Azure VM의 Windows 볼륨에 온-프레미스 VM과 동일한 드라이브 문자가 할당됩니다. | Windows Server 2008 R2 이상을 실행하는 머신은 자동으로 설정됩니다.<br/><br/> 이전 운영 체제는 수동으로 구성해야 합니다. | 대부분의 경우 자동으로 설정됩니다. | 수동으로 구성합니다.
 **Hyper-V 게스트 통합 설치** | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-vmware-vms)합니다. | Windows Server 2003을 실행하는 머신에 [수동으로 설치](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms)합니다.
-**Azure 직렬 콘솔을 사용하도록 설정합니다**.<br/><br/>문제 해결에 도움이 되도록 Azure VM에서 [콘솔을 사용하도록 설정](../virtual-machines/troubleshooting/serial-console-windows.md)합니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다. | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정
+**Azure 직렬 콘솔을 사용하도록 설정합니다**.<br/><br/>문제 해결에 도움이 되도록 Azure VM에서 [콘솔을 사용하도록 설정](/troubleshoot/azure/virtual-machines/serial-console-windows)합니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다. | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정 | 수동으로 사용하도록 설정
 **마이그레이션 후 연결**<br/><br/> 마이그레이션 후 연결하려면 마이그레이션하기 전에 여러 단계를 수행해야 합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다. | 수동으로 [설정](#prepare-to-connect-to-azure-windows-vms)합니다.
 
 
@@ -126,7 +126,7 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 **동작** | **세부 정보** | **Linux 버전**
 --- | --- | ---
 **Hyper-V Linux Integration Services 설치** | 필요한 Hyper-V 드라이버가 포함되도록 Linux 초기화 이미지를 다시 빌드합니다. 초기화 이미지가 다시 빌드하면 VM이 Azure에서 부팅됩니다. | 이 기능은 대부분의 새 Linux 배포판 버전에 기본적으로 포함되어 있습니다.<br/><br/> 포함되지 않은 경우 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 설치합니다.
-**Azure 직렬 콘솔 로깅을 사용하도록 설정** | 콘솔 로깅을 사용하도록 설정하면 문제를 해결할 수 있습니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다.<br/><br/> [이 지침](../virtual-machines/troubleshooting/serial-console-linux.md)에 따라 사용하도록 설정합니다.
+**Azure 직렬 콘솔 로깅을 사용하도록 설정** | 콘솔 로깅을 사용하도록 설정하면 문제를 해결할 수 있습니다. VM을 다시 부팅할 필요가 없습니다. Azure VM은 디스크 이미지를 사용하여 부팅됩니다. 디스크 이미지 부팅은 새 VM을 다시 부팅하는 것과 같습니다.<br/><br/> [이 지침](/troubleshoot/azure/virtual-machines/serial-console-linux)에 따라 사용하도록 설정합니다.
 **디바이스 맵 파일 업데이트** | 영구 디바이스 식별자를 사용하도록 디바이스 맵 파일을 디바이스 이름-볼륨 연결로 업데이트합니다. | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 설치합니다. (에이전트 기반 VMware 시나리오에만 해당)
 **fstab 항목 업데이트** |  영구 볼륨 식별자를 사용하도록 항목을 업데이트합니다.    | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 업데이트합니다.
 **udev 규칙 제거** | mac 주소 등에 기반한 인터페이스 이름을 예약하는 모든 udev 규칙을 제거합니다. | 위에서 설명한 버전을 제외한 모든 버전에서는 수동으로 제거합니다.
@@ -140,15 +140,15 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Hyper\-V Linux Integration Services 설치 | yes                           | 예                        | 필요하지 않음 |
 | Azure 직렬 콘솔 로깅 사용         | yes                           | 예                        | 예         |
-| 디바이스 맵 파일 업데이트                      | 예                           | 아니요                         | 아니요         |
+| 디바이스 맵 파일 업데이트                      | 예                           | 예                         | 아니요         |
 | fstab 항목 업데이트                        | yes                           | 예                        | 예         |
 | udev 규칙 제거                            | yes                           | 예                        | 예         |
-| 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 아니요         |
-| ssh 사용                                  | 아니요                            | 아니요                         | 아니요         |
+| 네트워크 인터페이스 업데이트                   | yes                           | 예                        | 예         |
+| ssh 사용                                  | 아니요                            | 예                         | 아니요         |
 
 [Azure에서 Linux VM 실행](../virtual-machines/linux/create-upload-generic.md) 단계에 대해 자세히 알아보고, 많이 사용되는 Linux 배포판에 대한 지침을 확인합니다.
 
-Linux VM 에이전트를 설치하는 데 [필요한 패키지](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) 목록을 검토합니다. Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하는 경우 RHEL6, RHEL7, CentOS7(6은 RHEL과 유사하게 지원되어야 함), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04에 대해 Linux VM 에이전트를 자동으로 설치합니다.
+Linux VM 에이전트를 설치하는 데 [필요한 패키지](../virtual-machines/extensions/agent-linux.md#requirements) 목록을 검토합니다. Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하는 경우 RHEL6, RHEL7, CentOS7(6은 RHEL과 유사하게 지원되어야 함), Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04에 대해 Linux VM 에이전트를 자동으로 설치합니다.
 
 ## <a name="check-azure-vm-requirements"></a>Azure VM 요구 사항 확인
 
@@ -187,7 +187,7 @@ Azure VM은 Azure로 마이그레이션하는 동안 만들어집니다. 마이�
 
 1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 다른 공용 IP 주소를 Azure VM에 사용해야 합니다. [자세히 알아보기](../virtual-network/virtual-network-public-ip-address.md).
 2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
-3. [부트 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine)을 확인하여 VM을 살펴봅니다.
+3. [부트 진단](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine)을 확인하여 VM을 살펴봅니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -200,4 +200,4 @@ VMware VM의 경우 서버 마이그레이션은 [에이전트 없는 또는 에
 
 - **VMware VM**: VMware VM에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-vmware-migration.md)을 확인합니다.
 - **Hyper-V VM**: Hyper-V VM에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-hyper-v-migration.md)을 확인합니다.
-- **물리적 머신**: 온-프레미스 물리적 머신 및 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-physical-migration.md)을 확인합니다. 
+- **물리적 머신**: 온-프레미스 물리적 머신 및 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-physical-migration.md)을 확인합니다.

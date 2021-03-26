@@ -1,14 +1,14 @@
 ---
 title: 문제 해결을 위한 브라우저 추적 캡처
 description: 브라우저 추적에서 네트워크 정보를 캡처하여 Azure Portal 문제를 해결할 수 있습니다.
-ms.date: 05/11/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745998"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563493"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>문제 해결을 위한 브라우저 추적 캡처
 
@@ -190,13 +190,13 @@ Google Chrome 및 Microsoft Edge(Chromium)는 모두 [Chromium 오픈 소스 프
 
     ![브라우저 추적 결과의 스크린샷](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. 예기치 않은 포털 동작을 재현한 후 **HAR 내보내기/가져오기** 를 선택하고 **HAR로 모두 저장** 을 선택합니다.
+1. 예기치 않은 포털 동작을 재현 한 후 **HAR로 모두 저장** 을 선택 합니다.
 
     !["HAR 내보내기"의 스크린샷](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Windows에서 단계 레코더 또는 Mac에서 화면 녹화를 중지하고 녹화를 저장합니다.
 
-1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택합니다. 메시지 중 하나를 마우스 오른쪽 단추로 클릭한 다음 **표시되는 메시지 내보내기** 를 선택하고 콘솔 출력을 텍스트 파일로 저장합니다.
+1. 브라우저 개발자 도구 창으로 돌아가서 **콘솔** 탭을 선택 합니다. 메시지 중 하나를 마우스 오른쪽 단추로 클릭 한 다음 **표시 되는 메시지를로 내보내기** 를 선택 하 고 콘솔 출력을 텍스트 파일에 저장 합니다.
 
     ![콘솔 출력의 스크린샷](media/capture-browser-trace/firefox-console-select.png)
 

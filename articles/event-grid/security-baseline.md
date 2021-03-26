@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 80b630bb2f06d3eb634b9d9d32649ea8a47c0b0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1bc1df4582c83b093b6ed25d03cc73aef9a81483
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739146"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563942"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Event Grid에 대 한 Azure 보안 기준
 
@@ -32,15 +32,15 @@ Azure Event Grid 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 
 
 또한 Azure Event Grid는 토픽 및 도메인에 게시 하기 위한 공용 IP 기반 액세스 제어를 지원 합니다. IP 기반 컨트롤을 사용 하면 게시자를 토픽 또는 도메인으로 승인 된 컴퓨터 및 클라우드 서비스 집합 으로만 제한할 수 있습니다. 이 기능은 Event Grid에서 지 원하는 인증 메커니즘을 보완 합니다. 
 
-- [Event Grid 전용 끝점에 대 한 자세한 내용](https://docs.microsoft.com/azure/event-grid/network-security#private-endpoints)
+- [Event Grid 전용 끝점에 대 한 자세한 내용](./network-security.md#private-endpoints)
 
-- [Event Grid IP 방화벽에 대 한 자세한 내용](https://docs.microsoft.com/azure/event-grid/network-security#ip-firewall)
+- [Event Grid IP 방화벽에 대 한 자세한 내용](./network-security.md#ip-firewall)
 
 - [네트워크 보안 Azure Event Grid](network-security.md) 
 
 - [Azure Private Link 개요](../private-link/private-link-overview.md)
 
-- [Azure 네트워크 보안 그룹](/azure/virtual-network/security-overview)
+- [Azure 네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
 
 **책임**: Customer
 
@@ -74,13 +74,13 @@ Azure 가상 머신은 Event Grid 리소스에 액세스 하 고, NSG (네트워
 
 선택한 가상 네트워크 에서만 액세스를 제한 하도록 개인 끝점을 구성할 수 있습니다.
 
-DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 아티클을 참조하세요. 
+DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 문서를 참조하세요. 
 
 - [Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법](configure-private-endpoints.md)
 
 - [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Security Center 통합 위협 인텔리전스에 대 한 자세한 내용은](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스에 대 한 자세한 내용은](../security-center/azure-defender.md)
 
 **책임**: Customer
 
@@ -132,7 +132,7 @@ DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러�
 
 **지침**: Azure Event Grid 리소스에 액세스 해야 하는 가상 네트워크의 리소스에 대 한 Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 또는 Azure 방화벽에서 네트워크 액세스 제어를 정의 합니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 (예: AzureEventGrid)을 지정 하 여 해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트합니다.
 
-- [Azure Event Grid에 대 한 서비스 태그를 사용 하는 방법](https://docs.microsoft.com/azure/event-grid/network-security#service-tags)
+- [Azure Event Grid에 대 한 서비스 태그를 사용 하는 방법](./network-security.md#service-tags)
 
 - [서비스 태그를 사용 하는 방법에 대 한 자세한 내용](../virtual-network/service-tags-overview.md)
 
@@ -149,7 +149,7 @@ DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러�
 - Azure Event Grid 도메인은 프라이빗 링크를 사용해야 함
 
 - Azure Event Grid 토픽은 개인 링크 Azure를 사용 해야 합니다.
-- [Event Grid 리소스에 대 한 기본 제공 정책](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-grid)
+- [Event Grid 리소스에 대 한 기본 제공 정책](../governance/policy/samples/built-in-policies.md#event-grid)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -161,7 +161,7 @@ DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러�
 
 **지침**: 논리적으로 분류로 구성 하기 위해 Azure Event Grid 리소스와 연결 된 네트워크 리소스에 대 한 태그를 사용 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -171,9 +171,9 @@ DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Event Grid와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -217,7 +217,7 @@ DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Event Grid 리소스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -235,9 +235,9 @@ DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 쿼리 시작](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -257,7 +257,7 @@ Azure Event Grid 메트릭 및 활동 로그 작업에 대 한 경고를 만들 
 
 - [Event Grid 진단 로그 스키마의 세부 정보](diagnostic-logs.md)
 
-- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](/azure/azure-monitor/platform/alerts-log)
+- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -329,7 +329,7 @@ Azure event Grid 토픽 또는 도메인에 대해 관리 서비스 id를 사용
 
 - [게시 클라이언트 인증 (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 **책임**: Customer
 
@@ -363,7 +363,7 @@ Azure event Grid 토픽 또는 도메인에 대해 관리 서비스 id를 사용
 
 **지침**: 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 경우를 감지 하려면 Azure Active Directory (Azure AD) 보안 보고서 및 모니터링을 사용 합니다. Azure Security Center를 사용하여 ID 및 액세스 활동을 모니터링합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자의 ID 및 액세스 활동을 모니터링하는 방법](../security-center/security-center-identity-access.md)
 
@@ -401,11 +401,11 @@ Azure event Grid 토픽 또는 도메인에 대해 관리 서비스 id를 사용
 
 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고를 생성 하는 데 PIM (Azure AD Privileged Identity Management)을 사용 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-- [Azure AD PIM(Privileged Identity Management) 배포](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Azure AD PIM(Privileged Identity Management) 배포](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **책임**: Customer
 
@@ -417,7 +417,7 @@ Azure event Grid 토픽 또는 도메인에 대해 관리 서비스 id를 사용
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -427,7 +427,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure Active Directory (Azure AD) id 보호 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 합니다. 추가 조사를 위해 데이터를 Azure Sentinel로 수집할 수도 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -455,7 +455,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
  
  
  
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -465,11 +465,11 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 환경 유형 및 데이터 민감도 수준과 같은 개별 보안 도메인에 대해 별도의 구독 및 관리 그룹을 사용 하 여 격리를 구현 합니다. 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 Azure 리소스에 대 한 액세스 수준을 제한할 수 있습니다. Azure RBAC를 통해 Azure 리소스에 대 한 액세스를 제어할 수 있습니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -519,7 +519,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 Azure Event Grid 리소스 및 기타 중요 하거나 관련 된 리소스의 프로덕션 인스턴스로 변경 될 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -569,7 +569,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적인 분류로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -581,11 +581,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
  
  
  
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -764,7 +764,7 @@ Azure Resource Manager은 구성이 배포 전에 조직의 보안 요구 사항
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 **책임**: Customer
 
@@ -930,7 +930,7 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md)
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **책임**: Customer
 
@@ -1000,5 +1000,5 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

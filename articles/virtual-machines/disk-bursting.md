@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9758b026ef205e6608f7fc4110219dc5f267369e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101677481"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568718"
 ---
 # <a name="managed-disk-bursting"></a>관리 디스크 버스팅
 [!INCLUDE [managed-disks-bursting](../../includes/managed-disks-bursting.md)]
@@ -27,10 +27,10 @@ Azure [Premium ssd](disks-types.md#premium-ssd) 는 두 가지 버스트 모델�
 
 |  |신용 기반 버스트  |주문형 버스트  |성능 계층 변경  |
 |---------|---------|---------|---------|
-| 시나리오|단기 크기 조정 (30 분 이내)에 이상적입니다.|단기 크기 조정에 적합 합니다 (시간이 제한 되지 않음).|작업 부하가 지속적으로 지속적으로 실행 되는 경우에 적합 합니다.|
-|비용     |무료         |비용은 가변적입니다. 자세한 내용은 [청구](#billing) 섹션을 참조 하세요.        |각 성능 계층의 비용은 고정 되어 있습니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요.         |
-|가용성     |프리미엄 Ssd 512 GiB에만 사용할 수 있습니다.         |512 GiB 보다 큰 프리미엄 Ssd에만 사용할 수 있습니다.         |모든 프리미엄 SSD 크기에서 사용할 수 있습니다.         |
-|사용 여부     |적격 디스크에서 기본적으로 사용 하도록 설정 됩니다.         |사용자가 사용 하도록 설정 해야 합니다.         |사용자는 계층을 수동으로 변경 해야 합니다.         |
+| **시나리오**|단기 크기 조정 (30 분 이내)에 이상적입니다.|단기 크기 조정에 적합 합니다 (시간이 제한 되지 않음).|작업 부하가 지속적으로 지속적으로 실행 되는 경우에 적합 합니다.|
+|**비용**     |무료         |비용은 가변적입니다. 자세한 내용은 [청구](#billing) 섹션을 참조 하세요.        |각 성능 계층의 비용은 고정 되어 있습니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요.         |
+|**가용성**     |프리미엄 Ssd 512 GiB에만 사용할 수 있습니다.         |512 GiB 보다 큰 프리미엄 Ssd에만 사용할 수 있습니다.         |모든 프리미엄 SSD 크기에서 사용할 수 있습니다.         |
+|**사용 여부**     |적격 디스크에서 기본적으로 사용 하도록 설정 됩니다.         |사용자가 사용 하도록 설정 해야 합니다.         |사용자는 계층을 수동으로 변경 해야 합니다.         |
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 다음 시나리오는 버스트에서 크게 이점을 누릴 수 있습니다.

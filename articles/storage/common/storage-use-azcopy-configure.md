@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9c699cd865746bf430193eba38ec6fa79575692e
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596946"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543451"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -103,14 +103,16 @@ azcopy jobs resume <job-id> --cap-mbps 10
 
 ### <a name="optimize-memory-use"></a>메모리 사용 최적화
 
-`AZCOPY_BUFFER_GB`환경 변수를 설정 하 여 파일을 다운로드 하 고 업로드할 때 AzCopy 사용할 시스템 메모리의 최대 크기를 지정 합니다.
-이 값을 기가바이트 (GB) 단위로 표현 합니다.
+`AZCOPY_BUFFER_GB`환경 변수를 설정 하 여 AzCopy에서 파일을 다운로드 하 고 업로드할 때 버퍼링에 사용 하려는 시스템 메모리의 최대 크기를 지정 합니다. 이 값을 기가바이트 (GB) 단위로 표현 합니다.
 
 | 운영 체제 | 명령  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> 작업 추적에는 항상 메모리 사용에 대 한 추가 오버 헤드가 발생 합니다. 양은 작업의 전송 수에 따라 달라 집니다. 버퍼는 메모리 사용량의 가장 큰 구성 요소입니다. 를 사용 하 여 요구 사항을 대략적으로 충족 하면서 오버 헤드를 제어할 수 `AZCOPY_BUFFER_GB` 있지만 전체 메모리 사용량을 엄격히 캡 플래그는 사용할 수 없습니다.
 
 ### <a name="optimize-file-synchronization"></a>파일 동기화 최적화
 

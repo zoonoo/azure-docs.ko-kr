@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 9b8824a0f73f3a79ab70810c529cb0ed9331a797
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 04cda044b002e226c49f8647d4705d7c0f2a514e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102485489"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565268"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -107,8 +107,8 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 각 구성 옵션은 위에 표시 된 항목의 기본값을 [옵션]으로 재정의 하지 않으려는 경우 반환 된 페이지의 결과 크기를 최소화 하기 위해 해당 줄을 제거할 수 있습니다.
 
 사용 가능한 구성 옵션은
-
-| Name | Type | 설명
+ 
+| 이름 | Type | Description
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -171,52 +171,87 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
-| 속성 | 기본값 | 설명 |
-|------|---------|-------------|
-| instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
-| accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
-| sessionRenewalMs | 180만 | 사용자가이 시간 (밀리초) 동안 비활성 상태 이면 세션이 기록 됩니다. 기본값은 30분입니다. |
-| sessionExpirationMs | 8640만 | 이 시간 (밀리초) 동안 계속 되 면 세션이 기록 됩니다. 기본값은 24 시간입니다. |
-| maxBatchSizeInBytes | 10000 | 원격 분석 일괄 처리의 최대 크기입니다. 일괄 처리가이 제한을 초과 하면 즉시 전송 되 고 새 일괄 처리가 시작 됩니다. |
-| maxBatchInterval | 15000 | 보내기 전에 원격 분석을 일괄 처리 하는 시간 (밀리초) |
-| disableExceptionTracking | false | True 이면 예외가 자동으로 수집 되지 않습니다. 기본값은 false입니다. |
-| disableTelemetry | false | True 이면 원격 분석이 수집 되거나 전송 되지 않습니다. 기본값은 false입니다. |
-| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>**_참고:_** 이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 대신 또는를 사용 하는 것이 좋습니다 `consoleLoggingLevel` `telemetryLoggingLevel` `enableDebug` . |
-| loggingLevelConsole | 0 | **내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
-| loggingLevelTelemetry | 1 | **내부** Application Insights 오류를 원격 분석으로 보냅니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
-| diagnosticLogInterval | 10000 | 사내 내부 로깅 큐의 폴링 간격 (밀리초) |
-| samplingPercentage | 100 | 전송 될 이벤트의 백분율입니다. 기본값은 100입니다. 즉, 모든 이벤트가 전송 됩니다. 대규모 응용 프로그램에 대 한 데이터 캡을 유지 하려는 경우에 설정 합니다. |
-| autoTrackPageVisitTime | false | True 이면 페이지 보기에서 이전에 계측 된 페이지의 뷰 시간이 추적 되어 원격 분석으로 전송 되 고 현재 페이지 보기에 대해 새 타이머가 시작 됩니다. 기본값은 false입니다. |
-| disableAjaxTracking | false | True 이면 Ajax 호출이 자동으로 수집 되지 않습니다. 기본값은 false입니다. |
-| disableFetchTracking | true | True 이면 인출 요청이 자동으로 수집 되지 않습니다. 기본값은 true입니다. |
-| overridePageViewDuration | false | True 이면 trackPageView의 기본 동작이 trackPageView가 호출 될 때 페이지 보기 기간 간격의 끝을 기록 하도록 변경 됩니다. False이 고 trackPageView에 사용자 지정 기간이 제공 되지 않으면 탐색 타이밍 API를 사용 하 여 페이지 보기 성능이 계산 됩니다. 기본값은 false입니다. |
-| maxAjaxCallsPerView | 500 | 기본 500-페이지 보기 당 모니터링할 Ajax 호출 수를 제어 합니다. 페이지에서 모든 (무제한) Ajax 호출을 모니터링 하려면-1로 설정 합니다. |
-| disableDataLossAnalysis | true | False 이면 내부 원격 분석 보낸 사람 버퍼를 시작할 때 아직 보내지 않은 항목을 확인 합니다. |
-| disableCorrelationHeaders | false | False 이면 SDK에서 모든 종속성 요청에 두 개의 헤더 (' 요청 Id ' 및 ' 요청 컨텍스트 ')를 추가 하 여 서버 쪽의 해당 요청과 상관 관계를 설정 합니다. 기본값은 false입니다. |
-| correlationHeaderExcludedDomains |  | 특정 도메인에 대 한 상관 관계 헤더 사용 안 함 |
-| correlationHeaderDomains |  | 특정 도메인에 대 한 상관 관계 헤더 사용 |
-| disableFlushOnBeforeUnload | false | 기본값은 false입니다. True 이면 onBeforeUnload 이벤트 트리거가 발생할 때 flush 메서드가 호출 되지 않습니다. |
-| enableSessionStorageBuffer | true | 기본값은 true입니다. True 이면 모든 보내지 않은 원격 분석을 포함 하는 버퍼가 세션 저장소에 저장 됩니다. 페이지가 로드 되 면 버퍼가 복원 됩니다. |
-| isCookieUseDisabled | false | 기본값은 false입니다. True 이면 SDK가 쿠키의 데이터를 저장 하거나 읽지 않습니다. 이렇게 하면 사용자 및 세션 쿠키가 사용 하지 않도록 설정 되 고 사용 블레이드가 나 쓸모 없는 환경이 렌더링 됩니다. |
-| cookieDomain | null | 사용자 지정 쿠키 도메인입니다. 이 기능은 하위 도메인에서 Application Insights 쿠키를 공유 하려는 경우에 유용 합니다. |
-| isRetryDisabled | false | 기본값은 false입니다. False 인 경우 206 (부분 성공), 408 (시간 제한), 429 (너무 많은 요청), 500 (내부 서버 오류), 503 (서비스를 사용할 수 없음), 0 (오프 라인, 검색 된 경우에만)을 다시 시도 합니다. |
-| isStorageUseDisabled | false | True 이면 SDK가 로컬 및 세션 저장소에서 데이터를 저장 하거나 읽지 않습니다. 기본값은 false입니다. |
-| isBeaconApiDisabled | true | False 이면 SDK에서 [신호 API](https://www.w3.org/TR/beacon) 를 사용 하 여 모든 원격 분석을 보냅니다. |
-| onunloadDisableBeacon | false | 기본값은 false입니다. 탭이 닫히면 SDK는 [신호 API](https://www.w3.org/TR/beacon) 를 사용 하 여 나머지 모든 원격 분석을 보냅니다. |
-| sdkExtension | null | Sdk 확장 이름을 설정 합니다. 영문자 문자만 사용할 수 있습니다. 확장 이름이 ' sdkVersion ' 태그에 접두사로 추가 됩니다 (예: ' ext_javascript: 2.0.0 '). 기본값은 null입니다. |
-| isBrowserLinkTrackingEnabled | false | 기본값은 false입니다. True 이면 SDK에서 모든 [브라우저 링크](/aspnet/core/client-side/using-browserlink) 요청을 추적 합니다. |
-| appId | null | AppId는 서버측 요청과 함께 클라이언트 쪽에서 발생 하는 AJAX 종속성 간의 상관 관계에 사용 됩니다. 신호 API를 사용 하는 경우 자동으로 사용할 수 없지만 구성에서 수동으로 설정할 수 있습니다. 기본값은 null입니다. |
-| enableCorsCorrelation | false | True 이면 SDK는 나가는 AJAX 종속성을 서버 쪽의 해당 요청과 상관 관계를 지정 하기 위해 모든 CORS 요청에 두 개의 헤더 (' 요청 Id ' 및 ' 요청-컨텍스트 ')를 추가 합니다. 기본값은 false입니다. |
-| namePrefix | 정의되지 않음 | LocalStorage 및 쿠키 이름에 대해 이름 후 위로 사용할 선택적 값입니다.
-| enableAutoRouteTracking | false | SPA (단일 페이지 응용 프로그램)의 경로 변경 내용을 자동으로 추적 합니다. True 이면 각 경로 변경 시 Application Insights에 새 페이지 보기 전송 됩니다. 해시 경로 변경 ( `example.com/foo#bar` ) 또한 새 페이지 뷰로 기록 됩니다.
-| enableRequestHeaderTracking | false | True 이면 AJAX & 인출 요청 헤더가 추적 되 고 기본값은 false입니다.
-| enableResponseHeaderTracking | false | True 이면 AJAX & Fetch 요청의 응답 헤더가 추적 되 고 기본값은 false입니다.
-| distributedTracingMode | `DistributedTracingModes.AI` | 분산 추적 모드를 설정 합니다. AI_AND_W3C 모드 또는 W3C 모드가 설정 된 경우 W3C 추적 컨텍스트 헤더 (traceparent/tracestate)가 생성 되 고 나가는 모든 요청에 포함 됩니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다. 예제는 [여기](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)를 참조 하세요.
-| enableAjaxErrorStatusText | false | 기본값은 false입니다. True 이면 실패 한 AJAX 요청에 대 한 종속성 이벤트에 응답 오류 데이터 텍스트를 포함 합니다.
-| enableAjaxPerfTracking | false | 기본값은 false입니다. 추가 브라우저 창을 조회 하 고 포함 하는 데 사용할 플래그입니다. 보고 된 `ajax` (xhr 및 fetch)의 성능 타이밍이 보고 된 메트릭을 보고 합니다.
-| maxAjaxPerfLookupAttempts | 3 | 기본값은 3입니다. 창을 찾을 수 있는 최대 횟수입니다. 성능 타이밍 (사용할 수 있는 경우)은 모든 브라우저에서 창을 채우지 않기 때문에 필요 합니다. XHR 요청의 끝을 보고 하기 전의 성능 및 인출 요청에 대 한 성능이 완료 된 후에 추가 됩니다.
-| ajaxPerfLookupDelay | 25 | 기본값은 25 밀리초입니다. Windows 성능 타이밍을 다시 시도 하기 전에 대기 하는 시간입니다. 요청에 대 한 성능 타이밍 ( `ajax` 밀리초 단위)이 고 setTimeout ()에 직접 전달 됩니다.
-| enableUnhandledPromiseRejectionTracking | false | True 이면 처리 되지 않은 약속 거부는 자동으로 수집 되 고 JavaScript 오류로 보고 됩니다. DisableExceptionTracking이 true 이면 (예외를 추적 하지 않음) 구성 값이 무시 되 고 처리 되지 않은 약속 거부는 보고 되지 않습니다.
+| 이름 | Description | 기본값 |
+|------|-------------|---------|
+| instrumentationKey | **필수**<br>Azure Portal에서 가져온 계측 키입니다. | 문자열<br/>null |
+| accountId | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. | 문자열<br/>null |
+| sessionRenewalMs | 사용자가이 시간 (밀리초) 동안 비활성 상태 이면 세션이 기록 됩니다. | numeric<br/>180만<br/>(30 분) |
+| sessionExpirationMs | 이 시간 (밀리초) 동안 계속 되 면 세션이 기록 됩니다. | numeric<br/>8640만<br/>(24 시간) |
+| maxBatchSizeInBytes | 원격 분석 일괄 처리의 최대 크기입니다. 일괄 처리가이 제한을 초과 하면 즉시 전송 되 고 새 일괄 처리가 시작 됩니다. | numeric<br/>10000 |
+| maxBatchInterval | 보내기 전에 원격 분석을 일괄 처리 하는 시간 (밀리초) | numeric<br/>15000 |
+| &#8203;ExceptionTracking 사용 안 함 | True 이면 예외가 자동으로 수집 되지 않습니다. | boolean<br/> false |
+| disableTelemetry | True 이면 원격 분석이 수집 되거나 전송 되지 않습니다. | boolean<br/>false |
+| enableDebug | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>**_참고:_** 이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 대신 또는를 사용 하는 것이 좋습니다 `consoleLoggingLevel` `telemetryLoggingLevel` `enableDebug` . | boolean<br/>false |
+| loggingLevelConsole | **내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) | numeric<br/> 0 |
+| loggingLevelTelemetry | **내부** Application Insights 오류를 원격 분석으로 보냅니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) | numeric<br/> 1 |
+| diagnosticLogInterval | 사내 내부 로깅 큐의 폴링 간격 (밀리초) | numeric<br/> 10000 |
+| samplingPercentage | 전송 될 이벤트의 백분율입니다. 기본값은 100입니다. 즉, 모든 이벤트가 전송 됩니다. 대규모 응용 프로그램에 대 한 데이터 캡을 유지 하려는 경우에 설정 합니다. | numeric<br/>100 |
+| autoTrackPageVisitTime | True 이면 페이지 보기에서 이전에 계측 된 페이지의 뷰 시간이 추적 되어 원격 분석으로 전송 되 고 현재 페이지 보기에 대해 새 타이머가 시작 됩니다. | boolean<br/>false |
+| disableAjaxTracking | True 이면 Ajax 호출이 자동으로 수집 되지 않습니다. | boolean<br/> false |
+| disableFetchTracking | True 이면 인출 요청이 자동으로 수집 되지 않습니다.|boolean<br/>true |
+| overridePageViewDuration | True 이면 trackPageView의 기본 동작이 trackPageView가 호출 될 때 페이지 보기 기간 간격의 끝을 기록 하도록 변경 됩니다. False이 고 trackPageView에 사용자 지정 기간이 제공 되지 않으면 탐색 타이밍 API를 사용 하 여 페이지 보기 성능이 계산 됩니다. |boolean<br/>
+| maxAjaxCallsPerView | 기본 500-페이지 보기 당 모니터링할 Ajax 호출 수를 제어 합니다. 페이지에서 모든 (무제한) Ajax 호출을 모니터링 하려면-1로 설정 합니다. | numeric<br/> 500 |
+| disableDataLossAnalysis | False 이면 내부 원격 분석 보낸 사람 버퍼를 시작할 때 아직 보내지 않은 항목을 확인 합니다. | boolean<br/> true |
+| &#8203;CorrelationHeaders 사용 안 함 | False 이면 SDK에서 모든 종속성 요청에 두 개의 헤더 (' 요청 Id ' 및 ' 요청 컨텍스트 ')를 추가 하 여 서버 쪽의 해당 요청과 상관 관계를 설정 합니다. | boolean<br/> false |
+| correlationHeader&#8203;ExcludedDomains | 특정 도메인에 대 한 상관 관계 헤더 사용 안 함 | string[]<br/>정의되지 않음 |
+| correlationHeader&#8203;ExcludePatterns | 정규식을 사용 하 여 상관 관계 헤더 사용 안 함 | regex []<br/>정의되지 않음 |
+| correlationHeader&#8203;도메인 | 특정 도메인에 대 한 상관 관계 헤더 사용 | string[]<br/>정의되지 않음 |
+| disableFlush&#8203;OnBeforeUnload | True 이면 onBeforeUnload 이벤트 트리거가 발생할 때 flush 메서드가 호출 되지 않습니다. | boolean<br/> false |
+| enableSessionStorageBuffer | True 이면 모든 보내지 않은 원격 분석을 포함 하는 버퍼가 세션 저장소에 저장 됩니다. 페이지가 로드 되 면 버퍼가 복원 됩니다. | boolean<br />true |
+| cookieCfg | 기본적으로 쿠키 사용이 설정 되어 있습니다. 전체 기본값은 [ICookieCfgConfig](#icookiemgrconfig) 설정을 참조 하세요. | [ICookieCfgConfig](#icookiemgrconfig)<br>(2.6.0 이후)<br/>정의되지 않음 |
+| ~~isCookieUseDisabled~~<br>disableCookiesUsage | True 이면 SDK가 쿠키의 데이터를 저장 하거나 읽지 않습니다. 이렇게 하면 사용자 및 세션 쿠키가 사용 하지 않도록 설정 되 고 사용 블레이드가 나 쓸모 없는 환경이 렌더링 됩니다. isCookieUseDisable는 둘 다 제공 되는 경우 disableCookiesUsage가 우선적으로 적용 됩니다.<br>(V 2.6.0 이후) `cookieCfg.enabled` 또한가 정의 되 면 이러한 값 보다 우선 적용 됩니다. getCookieMgr (). setEnabled (true)를 통해 초기화 후 쿠키 사용을 다시 활성화할 수 있습니다. | 별칭 [`cookieCfg.enabled`](#icookiemgrconfig)<br>false |
+| cookieDomain | 사용자 지정 쿠키 도메인입니다. 이 기능은 하위 도메인에서 Application Insights 쿠키를 공유 하려는 경우에 유용 합니다.<br>(V 2.6.0 이후) `cookieCfg.domain` 가 정의 되 면이 값 보다 우선 적용 됩니다. | 별칭 [`cookieCfg.domain`](#icookiemgrconfig)<br>null |
+| cookiePath | 사용자 지정 쿠키 경로입니다. 이는 응용 프로그램 게이트웨이 뒤에 Application Insights 쿠키를 공유 하려는 경우에 유용 합니다.<br>`cookieCfg.path`가 정의 되 면이 값 보다 우선 적용 됩니다. | 별칭 [`cookieCfg.path`](#icookiemgrconfig)<br>(2.6.0 이후)<br/>null |
+| isRetryDisabled | False 인 경우 206 (부분 성공), 408 (시간 제한), 429 (너무 많은 요청), 500 (내부 서버 오류), 503 (서비스를 사용할 수 없음), 0 (오프 라인, 검색 된 경우에만)을 다시 시도 합니다. | boolean<br/>false |
+| isStorageUseDisabled | True 이면 SDK가 로컬 및 세션 저장소에서 데이터를 저장 하거나 읽지 않습니다. | boolean<br/> false |
+| isBeaconApiDisabled | False 이면 SDK에서 [신호 API](https://www.w3.org/TR/beacon) 를 사용 하 여 모든 원격 분석을 보냅니다. | boolean<br/>true |
+| onunloadDisableBeacon | 탭이 닫히면 SDK는 [신호 API](https://www.w3.org/TR/beacon) 를 사용 하 여 나머지 모든 원격 분석을 보냅니다. | boolean<br/> false |
+| sdkExtension | Sdk 확장 이름을 설정 합니다. 영문자 문자만 사용할 수 있습니다. 확장 이름이 ' sdkVersion ' 태그에 접두사로 추가 됩니다 (예: ' ext_javascript: 2.0.0 '). | 문자열<br/> null |
+| isBrowserLink&#8203;TrackingEnabled | True 이면 SDK에서 모든 [브라우저 링크](/aspnet/core/client-side/using-browserlink) 요청을 추적 합니다. | boolean<br/>false |
+| appId | AppId는 서버측 요청과 함께 클라이언트 쪽에서 발생 하는 AJAX 종속성 간의 상관 관계에 사용 됩니다. 신호 API를 사용 하는 경우 자동으로 사용할 수 없지만 구성에서 수동으로 설정할 수 있습니다. |문자열<br/> null |
+| &#8203;CorsCorrelation 사용 | True 이면 SDK는 나가는 AJAX 종속성을 서버 쪽의 해당 요청과 상관 관계를 지정 하기 위해 모든 CORS 요청에 두 개의 헤더 (' 요청 Id ' 및 ' 요청-컨텍스트 ')를 추가 합니다. | boolean<br/>false |
+| namePrefix | LocalStorage 및 쿠키 이름에 대해 이름 후 위로 사용할 선택적 값입니다. | 문자열<br/>정의되지 않음 |
+| &#8203;AutoRoute&#8203;추적 사용 | SPA (단일 페이지 응용 프로그램)의 경로 변경 내용을 자동으로 추적 합니다. True 이면 각 경로 변경 시 Application Insights에 새 페이지 보기 전송 됩니다. 해시 경로 변경 ( `example.com/foo#bar` ) 또한 새 페이지 뷰로 기록 됩니다.| boolean<br/>false |
+| enableRequest HeaderTracking | True 이면 AJAX & 인출 요청 헤더가 추적 됩니다. | boolean<br/> false |
+| enableResponse&#8203;HeaderTracking | True 이면 AJAX & 인출 요청의 응답 헤더가 추적 됩니다. | boolean<br/> false |
+| distributedTracingMode | 분산 추적 모드를 설정 합니다. AI_AND_W3C 모드 또는 W3C 모드가 설정 된 경우 W3C 추적 컨텍스트 헤더 (traceparent/tracestate)가 생성 되 고 나가는 모든 요청에 포함 됩니다. AI_AND_W3C은 레거시 Application Insights 계측 된 서비스와의 이전 버전과의 호환성을 위해 제공 됩니다. 예제는 [여기](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps)를 참조 하세요.| `DistributedTracingModes`또는<br/>numeric<br/>(V 2.6.0 이후) `DistributedTracingModes.AI_AND_W3C`<br />(v 2.5.11 또는 이전 버전) `DistributedTracingModes.AI` |
+| &#8203;AjaxErrorStatusText 사용 | True 이면 실패 한 AJAX 요청에 대 한 종속성 이벤트에 응답 오류 데이터 텍스트를 포함 합니다. | boolean<br/> false |
+| &#8203;AjaxPerfTracking 사용 |추가 브라우저 창을 조회 하 고 포함 하는 데 사용할 플래그입니다. 보고 된 `ajax` (xhr 및 fetch)의 성능 타이밍이 보고 된 메트릭을 보고 합니다. | boolean<br/> false |
+| maxAjaxPerf&#8203;LookupAttempts | 창을 찾을 수 있는 최대 횟수입니다. 성능 타이밍 (사용할 수 있는 경우)은 모든 브라우저에서 창을 채우지 않기 때문에 필요 합니다. XHR 요청의 끝을 보고 하기 전의 성능 및 인출 요청에 대 한 성능이 완료 된 후에 추가 됩니다.| numeric<br/> 3 |
+| ajaxPerfLookupDelay | Windows 성능 타이밍을 다시 시도 하기 전에 대기 하는 시간입니다. 요청에 대 한 성능 타이밍 ( `ajax` 밀리초 단위)이 고 setTimeout ()에 직접 전달 됩니다. | numeric<br/> 25ms |
+| enableUnhandled PromiseRejection&#8203;추적 | True 이면 처리 되지 않은 약속 거부는 자동으로 수집 되 고 JavaScript 오류로 보고 됩니다. DisableExceptionTracking이 true 이면 (예외를 추적 하지 않음) 구성 값이 무시 되 고 처리 되지 않은 약속 거부는 보고 되지 않습니다. | boolean<br/> false |
+| &#8203;InstrumentationKey&#8203;유효성 검사 사용 안 함 | True 이면 계측 키 유효성 검사를 무시 합니다. | boolean<br/>false |
+| enablePerfMgr | 사용 하도록 설정 하면 (true) doPerf () 도우미를 통해 perfEvents를 내보내도록 계측 된 코드에 대 한 로컬 perfEvents를 만듭니다. 이를 사용 하 여 사용자의 사용 또는 계측 된 코드 내에서 필요에 따라 SDK 내의 성능 문제를 식별할 수 있습니다. [자세한 내용은 기본 설명서에서 확인할 수](https://github.com/microsoft/ApplicationInsights-JS/blob/master/docs/PerformanceMonitoring.md)있습니다. V 2.5.7 이후 | boolean<br/>false |
+| perfEvtsSendAll | _Enableperfmgr_ 을 사용 하도록 설정 하 고 [Iperfmanager](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IPerfManager.ts) 가 [INotificationManager](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/INotificationManager.ts)()를 실행 하는 경우이 플래그는 모든 이벤트 (true) 또는 ' 부모 ' 이벤트 (false 기본값)에 대해서만 이벤트가 발생 하 고 모든 수신기에 전송 되는지 여부를 결정 &lt; &gt; 합니다.<br />부모 [Iperfevent](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/IPerfEvent.ts) 는이 이벤트가 생성 되는 지점에서 아직 실행 되 고 있지 않고 _부모_ 속성이 null 이거나 정의 되지 않은 경우에도 다른 iperfevent를 실행 하지 않는 이벤트입니다. V 2.5.7 이후 |  boolean<br />false |
+| idLength | 새 임의의 세션 및 사용자 id 값을 생성 하는 데 사용 되는 기본 길이를 식별 합니다. 기본값은 22, 이전 기본값은 5 (v 2.5.8 개이 하)입니다. 이전 최대 길이를 유지 해야 하는 경우에는이 값을 5로 설정 해야 합니다. |  numeric<br />22 |
+
+## <a name="cookie-handling"></a>쿠키 처리
+
+버전 2.6.0에서 쿠키 관리는 이제 인스턴스에서 직접 사용할 수 있으며 초기화 후 비활성화 및 다시 활성화할 수 있습니다.
+
+또는 구성을 통해 초기화 하는 동안 사용 하지 않도록 설정 된 경우 `disableCookiesUsage` `cookieCfg.enabled` 이제 [ICookieMgr](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/ICookieMgr.ts) 함수를 통해 다시 사용 하도록 설정할 수 있습니다 `setEnabled` .
+
+또한 인스턴스 기반 쿠키 관리는, 및의 이전 CoreUtils 전역 함수를 대체 합니다 `disableCookies()` `setCookie(...)` `getCookie(...)` `deleteCookie(...)` . 또한 버전 2.6.0의 일부로 도입 된 핸드쉐이킹 향상 된 기능을 활용 하 여 더 이상 전역 함수를 사용 하지 않아야 합니다.
+
+### <a name="icookiemgrconfig"></a>ICookieMgrConfig
+
+인스턴스 기반 쿠키 관리의 쿠키 구성이 버전 2.6.0에 추가 되었습니다.
+
+| 이름 | Description | 유형 및 기본값 |
+|------|-------------|------------------|
+| 사용 | 현재 인스턴스에서 SDK의 쿠키 사용을 사용 하는지 여부를 나타내는 부울입니다. False 이면이 구성으로 초기화 된 SDK의 인스턴스가 쿠키의 데이터를 저장 하거나 읽지 않습니다. | boolean<br/> true |
+| 도메인 | 사용자 지정 쿠키 도메인입니다. 이 기능은 하위 도메인에서 Application Insights 쿠키를 공유 하려는 경우에 유용 합니다. 지정 하지 않으면 루트 값의 값을 사용 `cookieDomain` 합니다. | 문자열<br/>null |
+| path | 쿠키에 사용할 경로를 지정 합니다. 제공 되지 않으면 루트 값의 값을 사용 합니다 `cookiePath` . | 문자열 <br/> / |
+| System.windows.application.getcookie | 명명 된 쿠키 값을 인출 하는 함수입니다. 제공 되지 않으면 내부 쿠키 구문 분석/캐싱이 사용 됩니다. | `(name: string) => string` <br/> null |
+| System.windows.application.setcookie | 쿠키를 추가 하거나 업데이트 하는 경우에만 호출 되는 지정 된 값을 사용 하 여 명명 된 쿠키를 설정 하는 함수입니다. | `(name: string, value: string) => void` <br/> null |
+| delCookie | 쿠키를 추가 하거나 제거할지 여부를 결정 하기 위해 값을 구문 분석할 필요가 없도록 지정 된 값을 사용 하 여 명명 된 쿠키를 setCookie와 구분 하 여 삭제 하는 함수입니다. 제공 되지 않으면 내부 쿠키 구문 분석/캐싱이 사용 됩니다. | `(name: string, value: string) => void` <br/> null |
+
+### <a name="simplified-usage-of-new-instance-cookie-manager"></a>새 인스턴스 쿠키 관리자 사용 간소화
+
+- appInsights. [getCookieMgr ()](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/ICookieMgr.ts). setenabled (true/false);
+- appInsights. [getCookieMgr ()](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/ICookieMgr.ts). set ("mycookie", "% 20encoded% 20encoded");
+- appInsights. [getCookieMgr ()](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/ICookieMgr.ts). get ("mycookie");
+- appInsights. [getCookieMgr ()](https://github.com/microsoft/ApplicationInsights-JS/blob/master/shared/AppInsightsCore/src/JavaScriptSDK.Interfaces/ICookieMgr.ts). del ("mycookie");
 
 ## <a name="enable-time-on-page-tracking"></a>시간 페이지 추적 사용
 
@@ -331,7 +366,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. 특정 원격 분석 유형 (예:, 등)을 전송 하는 Api는 `trackTrace` `trackException` 이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track` 입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/Azure-Samples?q=applicationinsights-js-demo)을 참조 하세요.
 

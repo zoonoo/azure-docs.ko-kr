@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 84bf14caeec163c31004a430fa954fc36f4be68b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630370"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562786"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Azure Stack Edge 2101 릴리스 정보
 
@@ -49,7 +49,7 @@ Azure Stack Edge 2101 릴리스에서는 다음과 같은 새로운 기능을 �
 |**3.**|Kubernetes |웹 프록시를 사용 하는 경우 Edge 컨테이너 레지스트리가 작동 하지 않습니다.|이 기능은 이후 릴리스에서 제공 될 예정입니다. |
 |**4.**|Kubernetes |Edge 컨테이너 레지스트리는 IoT Edge 모듈에서 작동 하지 않습니다.| |
 |**5.**|Kubernetes |Kubernetes는 .NET 응용 프로그램에서 사용 하는 환경 변수 이름에서 ":"을 지원 하지 않습니다. 이는 Event grid IoT Edge 모듈이 Azure Stack Edge 장치 및 기타 응용 프로그램에서 작동 하는 데도 필요 합니다. 자세한 내용은 [ASP.NET core 설명서](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables)를 참조 하세요.|":"을 이중 밑줄로 바꿉니다. 자세한 내용은 [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201) 항목을 참조 하세요.|
-|**6.** |Azure Arc + Kubernetes 클러스터 |기본적으로 `yamls` Git 리포지토리에서 리소스를 삭제 하면 해당 리소스가 Kubernetes 클러스터에서 삭제 되지 않습니다.  |Git 리포지토리에서 삭제 될 때 리소스 삭제를 허용 하려면 `--sync-garbage-collection` 호 OperatorParams에서를 설정 합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)를 참조 하세요. |
+|**6.** |Azure Arc + Kubernetes 클러스터 |기본적으로 `yamls` Git 리포지토리에서 리소스를 삭제 하면 해당 리소스가 Kubernetes 클러스터에서 삭제 되지 않습니다.  |Git 리포지토리에서 삭제 될 때 리소스 삭제를 허용 하려면 `--sync-garbage-collection` 호 OperatorParams에서를 설정 합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)를 참조 하세요. |
 |**7.**|NFS |장치에서 데이터를 쓰기 위해 NFS 공유 탑재를 사용 하는 응용 프로그램은 단독 쓰기를 사용 해야 합니다. 이렇게 하면 쓰기를 디스크에 쓸 수 있습니다.| |
 |**8.**|계산 구성 |네트워크에 존재 하지 않는 시스템에 대 한 게이트웨이 또는 스위치 또는 라우터가 ARP (주소 확인 프로토콜) 요청에 응답 하는 네트워크 구성에서 계산 구성이 실패 합니다.| |
 |**9.**|Compute 및 Kubernetes |Kubernetes가 장치에 처음으로 설정 된 경우 사용 가능한 모든 Gpu를 클레임 합니다. 따라서 Kubernetes를 설정한 후에는 Gpu를 사용 하 여 Azure Resource Manager Vm을 만들 수 없습니다. |장치에 2 개의 Gpu가 있는 경우 GPU를 사용 하는 VM 1 개를 만든 다음 Kubernetes을 구성할 수 있습니다. 이 경우 Kubernetes는 사용 가능한 나머지 1 개의 GPU를 사용 합니다. |

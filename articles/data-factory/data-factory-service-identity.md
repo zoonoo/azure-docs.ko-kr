@@ -4,14 +4,14 @@ description: Azure Data Factory에 대 한 관리 id에 대해 알아봅니다.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/23/2021
+ms.date: 03/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 65512f8e46b5545929a798392ac5f19ddeab39ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888994"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562463"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -28,8 +28,7 @@ ms.locfileid: "104888994"
 Data Factory에 대 한 관리 id는 다음과 같은 기능을 제공 합니다.
 
 - [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다 .이 경우 데이터 팩터리 관리 id는 Azure Key Vault 인증에 사용 됩니다.
-- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)및 [azure Synapse Analytics](connector-azure-sql-data-warehouse.md)를 포함 하는 커넥터.
-- [웹 활동](control-flow-web-activity.md).
+- Azure Blob storage, Azure 데이터 탐색기, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks 활동, 웹 활동 등을 비롯 한 관리 되는 id 인증을 사용 하 여 데이터 저장소에 액세스 하거나 계산 합니다. 자세한 내용은 커넥터 및 작업 문서를 확인 하세요.
 
 ## <a name="generate-managed-identity"></a>관리 id 생성
 
@@ -157,11 +156,10 @@ Azure Portal에서 또는 프로그래밍 방식으로 관리 되는 id를 검�
 
 - 관리 Id 개체 ID
 - 관리 Id 테 넌 트
-- 관리 Id 응용 프로그램 ID
 
 관리 id 정보는 Azure Blob, Azure Data Lake Storage, Azure Key Vault 등의 관리 되는 id 인증을 지 원하는 연결 된 서비스를 만들 때에도 표시 됩니다.
 
-권한을 부여할 때 개체 ID 또는 데이터 팩터리 이름 (관리 id 이름)을 사용 하 여이 id를 찾습니다.
+사용 권한을 부여 하는 경우 Azure 리소스의 Access Control (IAM) 탭-역할 할당 추가 >->에 대 한 액세스 권한 할당 > 시스템 할당 관리 id에서 Data Factory을 선택 하 고 팩터리 이름으로 선택 합니다. 또는 일반적으로 개체 ID 또는 데이터 팩터리 이름 (관리 id 이름으로)을 사용 하 여이 id를 찾을 수 있습니다. 관리 id의 응용 프로그램 ID를 가져와야 하는 경우 PowerShell을 사용할 수 있습니다.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>PowerShell을 사용 하 여 관리 되는 id 검색
 

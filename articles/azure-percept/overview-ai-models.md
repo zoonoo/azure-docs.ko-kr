@@ -1,18 +1,18 @@
 ---
 title: Azure Percept AI 모델
 description: 프로토타입 및 배포에 사용할 수 있는 AI 모델에 대해 자세히 알아보기
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: b644adb98de5ef5e3af6e1c8d45ea1a207d05cc7
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: f10a330de52d40f728cd628a1d7cb83b54ad1ff6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956131"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557363"
 ---
 # <a name="azure-percept-ai-models"></a>Azure Percept AI 모델
 

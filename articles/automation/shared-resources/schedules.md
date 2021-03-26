@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a829cd946f36fb5996405ba00945e9f9cb65d162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669562"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544233"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Azure Automation의 일정 관리
 
@@ -123,7 +123,7 @@ New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th
 
 ## <a name="create-a-schedule-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 일정 만들기
 
-이 예에서는 새 작업 일정을 만드는 ARM (Automation 리소스 관리자) 템플릿을 사용 합니다. Automation 작업 일정을 관리 하는이 템플릿에 대 한 일반 정보는 [Microsoft Automation automationAccounts/jobSchedules 템플릿 참조](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates)를 참조 하세요.
+이 예에서는 새 작업 일정을 만드는 ARM (Automation 리소스 관리자) 템플릿을 사용 합니다. Automation 작업 일정을 관리 하는이 템플릿에 대 한 일반 정보는 [Microsoft Automation automationAccounts/jobSchedules 템플릿 참조](/azure/templates/microsoft.automation/2015-10-31/automationaccounts/jobschedules#quickstart-templates)를 참조 하세요.
 
 이 템플릿 파일을 텍스트 편집기에 복사 합니다.
 

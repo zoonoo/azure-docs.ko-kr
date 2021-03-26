@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
-ms.openlocfilehash: 57c83a94925e94088085efacf1192416f63e6383
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d561c72bb1c6e6e67de7698d7b21901fcf8d1f7c
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232038"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544420"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로 미리 보기
 
@@ -136,11 +136,7 @@ with:
     ###### End of Repository/Build Configurations ######
 ```
 
-| 속성 | Description | 필수 |
-|---|---|---|
-| `app_location` | 애플리케이션 코드의 위치입니다.<br><br>예를 들어 애플리케이션 소스 코드가 리포지토리의 루트에 있으면 `/`를 입력하거나 애플리케이션 코드가 `app`이라는 디렉터리에 있는 경우 `/app`을 입력합니다. | 예 |
-| `api_location` | Azure Functions 코드의 위치입니다.<br><br>예를 들어 앱 코드가 `api`라는 폴더에 있는 경우 `/api`를 입력합니다. 폴더에서 Azure Functions 앱이 검색 되지 않으면 빌드에 실패 하 고 워크플로가 원치 않는 API를 가정 합니다. | 예 |
-| `output_location` | `app_location`에 상대적인 빌드 출력 디렉터리의 위치입니다.<br><br>예를 들어 애플리케이션 소스 코드를 `/app`에 배치하고, 빌드 스크립트에서 파일을 `/app/build` 폴더에 출력하는 경우 `build`를 `output_location` 값으로 설정합니다. | 예 |
+[!INCLUDE [static-web-apps-folder-structure](../../includes/static-web-apps-folder-structure.md)]
 
 Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_web_apps_api_token` 값은 수동으로 변경하면 안 됩니다.
 

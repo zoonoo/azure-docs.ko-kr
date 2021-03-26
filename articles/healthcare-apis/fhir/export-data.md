@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a5b3daa499546f3a30b5a4d133d77786a1916b6a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045310"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559199"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
 
@@ -47,8 +47,7 @@ FHIR 용 Azure API는 다음 수준에서 $export을 지원 합니다.
 
 현재 ADLS Gen2 사용 가능한 저장소 계정에 대 한 $export 지원 되며 다음과 같은 제한 사항이 있습니다.
 
-- 사용자는 [계층적 네임 스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용할 수 없지만 컨테이너 내의 특정 하위 디렉터리로 내보내기를 대상으로 지정할 수 있는 방법은 없습니다. 특정 컨테이너를 대상으로 지정 하는 기능만 제공 합니다 (각 내보내기에 대 한 새 폴더를 만드는 경우).
-
+- 사용자는 [계층적 네임 스페이스](../../storage/blobs/data-lake-storage-namespace.md)를 사용할 수 없지만 컨테이너 내의 특정 하위 디렉터리로 내보내기를 대상으로 지정할 수 있는 방법은 없습니다. 특정 컨테이너를 대상으로 지정 하는 기능만 제공 합니다 (각 내보내기에 대 한 새 폴더를 만드는 경우).
 - 내보내기가 완료 된 후에는 동일한 컨테이너에 대 한 후속 내보내기가 새로 만든 폴더 내에 있기 때문에 해당 폴더에 아무것도 내보내지 않습니다.
 
 
@@ -68,7 +67,7 @@ FHIR 용 Azure API는 다음과 같은 쿼리 매개 변수를 지원 합니다.
 | \_since | 예 | 제공 된 시간 이후 수정 된 리소스만 내보낼 수 있습니다. |
 | \_입력할 | 예 | 포함할 리소스의 형식을 지정할 수 있습니다. 예를 들어, \_ type = 환자는 환자 리소스만 반환 합니다.|
 | \_typefilter | 예 | 보다 세분화 된 필터링을 요청 하기 위해 \_ 형식 매개 변수와 함께 typefilter를 사용할 수 있습니다 \_ . _TypeFilter 매개 변수의 값은 결과를 추가로 제한 하는 쉼표로 구분 된 FHIR 쿼리 목록입니다. |
-| \_컨테이너 | No |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
+| \_컨테이너 | 예 |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
 
 > [!Note]
 > FHIR 용 Azure API와 동일한 구독의 저장소 계정만 $export 작업에 대 한 대상으로 등록할 수 있습니다.

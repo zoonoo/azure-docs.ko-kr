@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 03/03/2021
-ms.openlocfilehash: d60810c291984e0f57df1968f69678de8179273c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1362d8c1f15b64b9d76b28fd354cdae8919504b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042524"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558281"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure Portal에서 자동 조정 기능을 사용 하 여 쿼리를 모니터링 하 고 워크 로드 성능을 향상 시킵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -120,7 +120,7 @@ ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_I
 - 할당 된 저장소 공간을 사용 하 여 쿼리 저장소 실행이 중지 되었습니다.
 
 다음 단계를 고려 하 여이 문제를 해결할 수 있습니다.
-- T-sql을 사용 하 여 쿼리 저장소를 정리 하거나 데이터 보존 기간을 "auto"로 수정 하십시오. [쿼리 저장소에 대 한 권장 보존 및 캡처 정책을 구성](/azure/azure-sql/database/query-performance-insight-use#recommended-retention-and-capture-policy)하는 방법을 참조 하세요.
+- T-sql을 사용 하 여 쿼리 저장소를 정리 하거나 데이터 보존 기간을 "auto"로 수정 하십시오. [쿼리 저장소에 대 한 권장 보존 및 캡처 정책을 구성](./query-performance-insight-use.md#recommended-retention-and-capture-policy)하는 방법을 참조 하세요.
 - SSMS (SQL Server Management Studio)를 사용 하 고 다음 단계를 수행 합니다.
   - Azure SQL Database에 연결
   - 데이터베이스를 마우스 오른쪽 단추로 클릭 합니다.

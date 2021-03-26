@@ -3,7 +3,7 @@ title: Azure DDoS Protection 표준 보고서 및 흐름 로그
 description: 보고서 및 흐름 로그를 구성 하는 방법에 대해 알아봅니다.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100591879"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567681"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>DDoS 진단 로깅 보기 및 구성
 
@@ -29,7 +29,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 - **작업:** 공격 완화 보고서는 집계 된 netflow 프로토콜 데이터를 사용 하 여 리소스에 대 한 공격에 대 한 자세한 정보를 제공 합니다. 공용 IP 리소스가 공격을 받을 때마다 완화가 시작되는 즉시 보고서 생성이 시작됩니다. 5분마다 생성되는 증분 보고서와 전체 완화 기간에 대한 사후 완화 보고서가 있습니다. 이렇게 하면 DDoS 공격이 더 오랜 시간 지속되는 경우 5분마다 완화 보고서의 최신 스냅샷을 볼 수 있고 공격 완화가 완료되면 전체 요약을 볼 수 있습니다. 
 - **Allmetrics**: DDoS 공격 기간 동안 사용 가능한 모든 메트릭을 제공 합니다. 
 
-이 자습서에서 학습할 방법은 다음과 같습니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 알림, 완화 보고서 및 완화 흐름 로그를 포함 하 여 DDoS 진단 로그를 구성 합니다. 
@@ -78,7 +78,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 | **ResourceType** | 이는 항상 `PUBLICIPADDRESS` 입니다. |
 | **OperationName** | 알림의 경우이는 `DDoSProtectionNotifications` 입니다.  |
 | **메시지** | 공격에 대 한 세부 정보입니다. |
-| **유형** | 알림 유형입니다. 가능한 값은 다음과 같습니다 `MitigationStarted` . `MitigationStopped`. |
+| **형식** | 알림 유형입니다. 가능한 값은 다음과 같습니다 `MitigationStarted` . `MitigationStopped`. |
 | **PublicIpAddress** | 공용 IP 주소입니다. |
 
 # <a name="ddosmitigationflowlogs"></a>[DDoSMitigationFlowLogs](#tab/DDoSMitigationFlowLogs)
@@ -130,7 +130,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 이 [템플릿은](https://aka.ms/ddosdiaglogs) 정의 된 범위의 모든 공용 IP 로그에서 진단 로깅을 자동으로 사용 하도록 Azure Policy 정의를 만듭니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
 
 ## <a name="view-log-data-in-workbooks"></a>통합 문서에서 로그 데이터 보기
 
@@ -144,7 +144,7 @@ Azure DDoS Protection 표준에는 다음 진단 로그를 사용할 수 있습�
 
 [이 Azure Resource Manager (ARM) 템플릿을](https://aka.ms/ddosworkbook) 사용 하 여 공격 분석 통합 문서를 배포할 수 있습니다. 이 통합 문서를 사용 하면 여러 개의 필터링 가능한 패널에서 공격 데이터를 시각화 하 여 stake의 기능을 쉽게 이해할 수 있습니다. 
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 ![DDoS Protection 통합 문서](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 

@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 866500e9cd9e3fe6aac6a5bfded0dbb21ab137fc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 14854f839d6dfe3c8a08a4a1453fd78e389fe8d3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614278"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568735"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일 Azure SQL Database 및 Azure SQL Managed Instance로 내보내기
 
@@ -73,7 +73,7 @@ Azure Portal를 사용 하 여 [AZURE SQL Managed Instance](../managed-instance/
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio(SSMS)
+## <a name="sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)
 
 최신 버전의 SQL Server Management Studio에서는 Azure SQL Database 또는 SQL Managed Instance 데이터베이스의 데이터베이스를 BACPAC 파일로 내보내는 마법사를 제공 합니다. [데이터 계층 애플리케이션 내보내기](/sql/relational-databases/data-tier-applications/export-a-data-tier-application)를 참조하세요.
 
@@ -106,7 +106,7 @@ $exportStatus
 ```
 ## <a name="cancel-the-export-request"></a>내보내기 요청 취소
 
-Powershell 명령 예제를 보려면 [데이터베이스 작업-취소 API](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) 또는 powershell [AzSqlDatabaseActivity 명령을](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity)사용 합니다.
+[데이터베이스 작업 - 취소 API](/rest/api/sql/databaseoperations/cancel) 또는 Powershell [Stop-AzSqlDatabaseActivity 명령](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity)(여기에서는 powershell 명령의 예)을 사용합니다.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

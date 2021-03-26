@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f4c1de484ce2659a7e84a1546a7c49c1d77a7d56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e64abc008433c895e21690ccab8cc532ec1b34b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101674492"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543859"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -29,9 +29,9 @@ ms.locfileid: "101674492"
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
-[sles-zero-downtime-paper]:https://www.suse.com/media/presentation/TUT90846_towards_zero_downtime%20_how_to_maintain_sap_hana_system_replication_clusters.pdf
+[sles-zero-downtime-paper]:https://www.youtube.com/embed/0FW3J6GbxOk
 [sap-nw-ha-guide-sles]:high-availability-guide-suse.md
-[sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[sles-12-for-sap]:https://www.scribd.com/document/377847444/Suse-Linux-Enterprise-Server-for-Sap-Applications-12-Sp1
 
 
 이 문서는 Azure VM(가상 머신)에서 실행되는 SAP HANA 스케일 아웃에 대한 Pacemaker 클러스터 구성을 확인하는 데 도움이 됩니다. 클러스터 설정은 SAP HSR(HANA System Replication) 및 SAPHanaSR-ScaleOut SUSE RPM 패키지와 함께 수행되었습니다. 모든 테스트는 SUSE SLES 12 SP3에서만 수행되었습니다. 이 문서의 섹션에서는 다양한 영역을 다루며 샘플 명령과 구성 파일에서 발췌한 내용이 포함되어 있습니다. 이 샘플은 전체 클러스터 설정을 확인하고 검사하는 방법으로 사용하는 것이 좋습니다.

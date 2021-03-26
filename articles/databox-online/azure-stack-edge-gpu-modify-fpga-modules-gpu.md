@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 660fbf7cc4dd28c800d8f49fd5d990c99f97c4c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1276a242efb1917a0c4a24aa73c3e0d11f81e158
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102442998"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559165"
 ---
 # <a name="run-existing-iot-edge-modules-from-azure-stack-edge-pro-fpga-devices-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치의 Azure Stack Edge Pro FPGA Azure Stack 장치에서 기존 IoT Edge 모듈 실행
 
@@ -248,4 +248,4 @@ GPU 장치에 대 한 Kubernetes 기반 IoT Edge 설정의 경우 배포 중에�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [모듈을 사용 하도록 GPU를 구성](azure-stack-edge-j-series-configure-gpu-modules.md)하는 방법에 대해 자세히 알아보세요.
+- [모듈을 사용 하도록 GPU를 구성](./azure-stack-edge-gpu-configure-gpu-modules.md)하는 방법에 대해 자세히 알아보세요.

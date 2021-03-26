@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1cbd314861a4d5079a5c8e5213f45c7164344f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a21ae2ce79c500455c5735f4d82e7852e8474ad1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102204170"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559148"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
@@ -157,9 +157,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Data Factory 인스턴스와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -175,7 +175,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또는 온 보드 데이터를 Azure 센티널 또는 타사 SIEM (보안 인시던트 및 이벤트 관리)로 설정할 수 있습니다. 또한 Git와 Azure Data Factory를 통합 하 여 변경 내용을 추적/감사 하는 기능, 버그를 발생 시키는 변경 내용 되돌리기 기능 등 여러 가지 소스 제어 이점을 활용할 수 있습니다.
 
-- [진단 설정을 구성하는 방법](/azure/azure-monitor/platform/diagnostic-settings#create-in-azure-portal)
+- [진단 설정을 구성하는 방법](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -193,7 +193,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 진단 설정을 사용 하 여 메트릭 및 파이프라인 실행 데이터와 같은 Azure Data Factory의 비 계산 리소스에 대 한 진단 로그를 구성 합니다. Azure Data Factory는 45 일간 파이프라인 실행 데이터를 저장 합니다. 더 오랜 기간 동안이 데이터를 보존 하려면 감사 또는 수동 검사를 위해 저장소 계정에 진단 로그를 저장 하 고 보존 기간 (일)을 지정 합니다.  또한 로그를 Azure Event Hubs로 스트리밍하 고 분석을 위해 로그를 Log Analytics 작업 영역으로 보낼 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [진단 로그 Azure Data Factory 이해](monitor-using-azure-monitor.md)
 
@@ -207,9 +207,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 조직에서 보안 이벤트 로그 데이터를 유지 하려는 경우 데이터 컬렉션 계층 내에 저장할 수 있으며,이 시점에서 Log Analytics 쿼리할 수 있습니다.
 
-- [Azure Monitor의 Azure Virtual Machines에서 데이터를 수집 하는 방법](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Azure Monitor의 Azure Virtual Machines에서 데이터를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md)
 
-- [Azure Security Center에서 데이터 수집 사용](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+- [Azure Security Center에서 데이터 수집 사용](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **책임**: Customer
 
@@ -221,7 +221,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 - [Azure Data Factory에서 진단 로그를 사용 하도록 설정 하는 방법](monitor-using-azure-monitor.md)
 
-- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Log Analytics 작업 영역에 대한 로그 보존 기간 매개 변수를 설정하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -235,9 +235,9 @@ Azure VM (가상 컴퓨터)에서 Integration Runtime를 실행 하는 경우 VM
 
 또는 데이터를 사용하도록 설정하여 Azure Sentinel 또는 타사 SIEM에 온보딩할 수 있습니다.
 
-- [Log Analytics 스키마](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#schema-of-logs-and-events)
+- [Log Analytics 스키마](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신에서 데이터를 수집 하는 방법](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신에서 데이터를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -253,11 +253,11 @@ Azure Data Factory에 대 한 진단 설정을 구성 하 고 Log Analytics 작�
 
 또한 데이터 저장소와 관련 된 서비스에 대 한 진단 설정을 사용 하도록 설정 했는지 확인 합니다. 각 서비스의 보안 기준선에서 지침을 참조할 수 있습니다.
 
-- [Azure Data Factory의 경고](https://docs.microsoft.com/azure/data-factory/monitor-visually#alerts)
+- [Azure Data Factory의 경고](./monitor-visually.md#alerts)
 
-- [지원 되는 모든 메트릭 페이지](/azure/azure-monitor/platform/metrics-supported)
+- [지원 되는 모든 메트릭 페이지](../azure-monitor/essentials/metrics-supported.md)
 
-- [Log Analytics 작업 영역에서 경고를 구성하는 방법](/azure/azure-monitor/platform/alerts-log)
+- [Log Analytics 작업 영역에서 경고를 구성하는 방법](../azure-monitor/alerts/alerts-log.md)
 
 **책임**: Customer
 
@@ -279,7 +279,7 @@ Azure Data Factory에 대 한 진단 설정을 구성 하 고 Log Analytics 작�
 
 **지침**: Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 명령줄 감사 로깅을 사용 하도록 설정할 수 있습니다. Azure Security Center은 Azure Vm에 대 한 보안 이벤트 로그 모니터링을 제공 합니다.  Security Center은 지원 되는 모든 Azure Vm 및 자동 프로 비전이 사용 하도록 설정 된 경우 생성 되는 새 Vm에 대 한 Microsoft Monitoring Agent를 프로 비전 하거나 에이전트를 수동으로 설치할 수 있습니다.  에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 CommandLine 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 EventLog에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다.
 
-- [Azure Security Center에서 데이터 수집](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)
+- [Azure Security Center에서 데이터 수집](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
 **책임**: Customer
 
@@ -305,7 +305,7 @@ Azure AD는 사용자 액세스를 관리할 수 있는 권장 되는 방법 이
 
 - [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-- [로컬 계정에 대 한 정보](https://docs.microsoft.com/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role)
+- [로컬 계정에 대 한 정보](../active-directory/devices/assign-local-admin.md#manage-the-device-administrator-role)
 
 **책임**: Customer
 
@@ -434,7 +434,7 @@ Azure 가상 머신에서 런타임 통합을 실행 하는 경우 로컬 보안
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -448,7 +448,7 @@ Azure 가상 머신에서 런타임 통합을 실행 하는 경우 로컬 보안
 
 Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 VM에서 Azure 센티널로 VM을 실행 합니다. Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Azure Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure AD를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여](../event-hubs/authorize-access-azure-active-directory.md)
 
@@ -468,7 +468,7 @@ Azure VM (가상 머신)에서 Integration Runtime를 실행 하는 경우 VM에
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [SQL을 사용 하 여 Azure AD 인증 구성 및 관리](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell)
+- [SQL을 사용 하 여 Azure AD 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)
 
 - [Azure-SSIS Integration Runtime에 대해 Azure AD 인증 사용](enable-aad-authentication-azure-ssis-ir.md)
 
@@ -574,7 +574,7 @@ Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에
 
 Azure SQL Database와 같은 Data Factory 데이터 원본의 경우 Azure RBAC에 대 한 자세한 내용은 해당 서비스의 보안 기준을 참조 하세요.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [Azure Data Factory용 역할 및 권한](concepts-roles-permissions.md)
 
@@ -620,9 +620,9 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
 
 **지침**: Azure 활동 로그와 Azure Monitor를 사용 하 여 변경 내용이 Azure Data Factory 및 관련 된 리소스에 대해 발생 하는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage 분석 로깅](../storage/common/storage-analytics-logging.md)
 
@@ -963,7 +963,7 @@ Data Factory 참여자 역할을 사용 하 여 데이터 팩터리를 만들고
 
 - [Container Registry에 대 한 Azure RBAC 이해](../container-registry/container-registry-roles.md) 
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Azure Data Factory용 역할 및 권한](concepts-roles-permissions.md)
 
@@ -1019,7 +1019,7 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
 
 - [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal)
+- [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
 - [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
@@ -1243,5 +1243,5 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security 벤치 마크 V2 개요](/azure/security/benchmarks/overview) 를 참조 하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security 벤치 마크 V2 개요](../security/benchmarks/overview.md) 를 참조 하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

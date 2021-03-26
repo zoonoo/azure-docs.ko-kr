@@ -10,42 +10,42 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 02/02/2021
-ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 5e95bc50a74413389bd2583beb90128b3fd0810a
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691232"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543519"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Azure SQL Database 및 Azure Synapse Analytics 서버에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-이 문서에서는 Azure SQL Database 및 Azure Synapse Analytics에서 사용 되는 논리 서버에 대 한 리소스 제한에 대 한 개요를 제공 합니다. 리소스 제한에 도달 하거나 초과 하는 경우 발생 하는 상황에 대 한 정보를 제공 하 고 이러한 제한을 적용 하는 데 사용 되는 리소스 관리 메커니즘을 설명 합니다.
+이 문서에서는 Azure SQL Database 및 Azure Synapse Analytics에서 사용 되는 [논리 서버](logical-servers.md) 에 대 한 리소스 제한에 대 한 개요를 제공 합니다. 리소스 제한에 도달 하거나 초과 하는 경우 발생 하는 상황에 대 한 정보를 제공 하 고 이러한 제한을 적용 하는 데 사용 되는 리소스 관리 메커니즘을 설명 합니다.
 
 > [!NOTE]
-> Azure SQL Managed Instance 제한에 대해서 [는 관리 되는 인스턴스의 리소스 제한 SQL Database](../managed-instance/resource-limits.md)을 참조 하세요.
+> Azure SQL Managed Instance 제한의 경우 [관리 되는 인스턴스의 리소스 제한](../managed-instance/resource-limits.md)을 참조 하세요.
 
 ## <a name="maximum-resource-limits"></a>최대 리소스 한도
 
 | 리소스 | 제한 |
 | :--- | :--- |
-| 서버당 데이터베이스 | 5,000 |
-| 모든 지역에서 구독당 서버의 기본 수 | 20 |
-| 모든 지역에서 구독당 서버의 최대 수 | 200 |  
-| 서버당 DTU/eDTU 할당량 | 54,000 |  
-| 서버/인스턴스당 vCore 할당량 | 540 |
-| 서버당 최대 풀 | DTU 또는 vCore의 수로 제한됩니다. 예를 들어 각 풀에 DTU가 1000개인 경우 서버는 54개 풀을 지원할 수 있습니다.|
+| 논리 서버당 데이터베이스 수 | 5,000 |
+| 지역에서 구독 당 기본 논리 서버 수 | 20 |
+| 한 지역에서 구독 당 최대 논리 서버 수 | 200 |  
+| 논리 서버당 DTU/eDTU 할당량 | 54,000 |  
+| 논리 서버당 vCore 할당량 | 540 |
+| 논리 서버당 최대 풀 | DTU 또는 vCore의 수로 제한됩니다. 예를 들어 각 풀에 DTU가 1000개인 경우 서버는 54개 풀을 지원할 수 있습니다.|
 |||
 
 > [!IMPORTANT]
-> 데이터베이스 수가 서버당 제한에 근접하면 다음이 발생할 수 있습니다.
+> 데이터베이스 수가 논리 서버당 한도에 근접하면 다음이 발생할 수 있습니다.
 >
-> - 마스터 데이터베이스에 대해 쿼리를 실행할 때 대기 시간이 증가합니다.  여기에는 sys.resource_stats와 같은 리소스 사용률 통계 보기가 포함됩니다.
+> - 마스터 데이터베이스에 대해 쿼리를 실행할 때 대기 시간이 증가합니다.  여기에는와 같은 리소스 사용률 통계의 뷰가 포함 됩니다 `sys.resource_stats` .
 > - 관리 작업을 수행하고 서버의 데이터베이스 열거와 관련된 포털 뷰 포인트를 렌더링할 때 대기 시간이 증가합니다.
 
 > [!NOTE]
-> 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 기본 용량 보다 많은 서버를 얻으려면 Azure Portal에 새 지원 요청을 제출 합니다. 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md)를 참조 하세요.
+> 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 기본 용량 보다 더 많은 논리 서버를 얻으려면 Azure Portal에 새 지원 요청을 제출 합니다. 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md)를 참조 하세요.
 
 ### <a name="storage-size"></a>스토리지 크기
 

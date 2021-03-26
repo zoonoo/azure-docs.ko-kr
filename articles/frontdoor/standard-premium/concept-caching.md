@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: 73b2e8e59774e12ddb9aa684382510d1f2c151b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63ea252a4b4c673ae3028adb7ab793ac21fb2e99
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101100152"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564588"
 ---
 # <a name="caching-with-azure-front-door-standardpremium-preview"></a>Azure 전면 도어 표준/프리미엄 (미리 보기)을 사용 하 여 캐싱
 
@@ -23,9 +23,13 @@ ms.locfileid: "101100152"
 이 문서에서는 캐싱이 설정 된 경우 Front 도어 표준/프리미엄 (미리 보기) 경로 및 규칙 집합이 동작 하는 방법을 알아봅니다. Azure 전면 도어는 동적 사이트 가속 및 부하 분산이 있는 현대적인 CDN (Content Delivery Network)입니다.
 
 > [!IMPORTANT]
-> Azure 전면 도어 표준/프리미엄 (미리 보기)은 현재 공개 미리 보기로 제공 됩니다.
+> Azure Front Door 표준/프리미엄(미리 보기)은 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+## <a name="request-methods"></a>요청 메서드
+
+오직 GET 요청 메서드만이 Azure Front Door에서 캐시된 콘텐츠를 생성할 수 있습니다. 다른 모든 요청 메서드는 항상 네트워크를 통해 프록시 됩니다.
 
 ## <a name="delivery-of-large-files"></a>대용량 파일 전달
 
@@ -42,7 +46,7 @@ Azure 전면 도어에서 파일을 압축 하 여 성능 향상을 참조 하�
 
 ## <a name="query-string-behavior"></a>쿼리 문자열 동작
 
-Front Door를 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예: `http://www.contoso.com/content.mov?field1=value1&field2=value2` 요청에 대 한 쿼리 문자열에 키-값 쌍이 둘 이상 있는 경우 해당 순서는 중요 하지 않습니다.
+Front Door를 사용하면 쿼리 문자열이 포함된 웹 요청에 대해 파일이 캐시되는 방식을 제어할 수 있습니다. 쿼리 문자열이 있는 웹 요청에서 쿼리 문자열은 물음표(?) 다음에 나오는 요청 부분입니다. 쿼리 문자열은 필드 이름 및 해당 값이 등호(=)로 구분된 하나 이상의 키-값 쌍을 포함할 수 있습니다. 각 키-값 쌍은 앰퍼샌드(&)로 구분됩니다. 예들 들어 `http://www.contoso.com/content.mov?field1=value1&field2=value2`입니다. 요청에 대 한 쿼리 문자열에 키-값 쌍이 둘 이상 있는 경우 해당 순서는 중요 하지 않습니다.
 
 * **쿼리 문자열 무시**:이 모드에서 전방 도어는 요청자의 쿼리 문자열을 첫 번째 요청에 대 한 원본으로 전달 하 고 자산을 캐시 합니다. 프런트 도어 환경에서 제공 되는 자산에 대 한 모든 결과 요청은 캐시 된 자산이 만료 될 때까지 쿼리 문자열을 무시 합니다.
 

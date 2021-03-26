@@ -1,17 +1,17 @@
 ---
 title: IntelliJ를 사용 하 여 Azure Functions에서 Java 함수 만들기
 description: IntelliJ를 사용 하 여 간단한 HTTP로 트리거되는 Java 함수를 만드는 방법에 대해 알아봅니다 .이 함수는 Azure의 서버를 사용 하지 않는 환경에서 실행 되도록 게시 합니다.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 45fb62b446e6b589dc0cb9287a8aebe7f4e699b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708818"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543648"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>IntelliJ를 사용 하 여 Azure에서 첫 번째 Java 함수 만들기
 
@@ -104,17 +104,9 @@ IntelliJ를 사용 하 여 Azure에 Java 함수를 만들고 게시 하려면 �
 
     ![Azure에 프로젝트 배포](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. 함수 앱이 아직 없는 경우 *사용 가능한 함수 없음을 클릭하여 새로 만듭니다*.
+1. 아직 함수 앱 없는 경우 *+* *함수* 줄을 클릭 합니다. 함수 앱 이름을 입력 하 고 적절 한 플랫폼을 선택 합니다. 여기에서 기본값을 그대로 사용할 수 있습니다. *확인* 을 클릭 하면 방금 만든 새 함수 앱이 자동으로 선택 됩니다. *실행* 을 클릭하여 함수를 배포합니다.
 
     ![Azure에서 함수 앱 만들기](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. 함수 앱 이름을 입력 하 고 적절 한 구독/플랫폼/리소스 그룹/App Service 계획을 선택 합니다. 여기에서 리소스 그룹/App Service 계획을 만들 수도 있습니다. 그런 다음 앱 설정을 변경 되지 않은 상태로 유지 하 고 *확인* 을 클릭 한 다음 새 함수 앱을 만들 때까지 몇 분 정도 기다립니다. *새 함수 앱 만들기...* 진행률 표시줄이 사라지면 완료된 것입니다.
-
-    ![Azure 앱 만들기 마법사에 함수 앱 배포](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. 배포하려는 함수 앱을 선택합니다(방금 만든 새 함수 앱이 자동으로 선택됨). *실행* 을 클릭하여 함수를 배포합니다.
-
-    ![스크린샷 배포 Azure Functions 대화 상자를 표시 합니다.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Azure 로그에 함수 앱 배포](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

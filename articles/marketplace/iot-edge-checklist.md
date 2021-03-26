@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/01/2021
-ms.openlocfilehash: c1d4c9be1f76e62be3c17d4dec22479db003b77a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 31c19f62f0328fca05562eaa2f19b7a79c0f3e15
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608260"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562701"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>IoT Edge 모듈의 사전 인증 검사 목록
 
@@ -55,7 +55,7 @@ Edge 모듈은 Azure에서 만든 Edge 장치에 배포 됩니다.
 #### <a name="steps"></a>단계
 
 1. Putty를 통해 만든 장치/v m에 액세스할 수 있는지 확인 합니다.
-1. [IoT Edge 런타임을](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge) 장치에 다운로드 합니다.
+1. [IoT Edge 런타임을](../iot-edge/how-to-install-iot-edge.md) 장치에 다운로드 합니다.
 1. 5 단계에서 복사한 연결 문자열을 구성. yaml 파일로 업데이트 합니다.
 1. 를 사용 하 여에 지 모듈을 다시 시작 `sudo systemctl restart iotedge` 합니다.
 1. 모듈이로 장치에 배포 되었는지 확인 합니다. `sudo iotedge list` 실행 중 상태 여야 합니다.
@@ -78,6 +78,6 @@ Edge 모듈은 Azure에서 만든 Edge 장치에 배포 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상용 marketplace에서 모듈 배포](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal#deploy-from-azure-marketplace)
-- [파트너 센터에에 지 모듈 게시](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
-- [IoT Edge 모듈 배포](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)  
+- [상용 marketplace에서 모듈 배포](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
+- [파트너 센터에에 지 모듈 게시](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [IoT Edge 모듈 배포](../iot-edge/quickstart-linux.md)

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7a9fa4a6f44e88caa6f98d5e1c56adaa065fa29a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721160"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558712"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>가상 컴퓨터 인증 문제 해결
 
@@ -54,7 +54,7 @@ VM 확장이 제대로 활성화 되었는지 확인 하려면:
 
 프로 비전 문제는 다음과 같은 오류 시나리오를 포함할 수 있습니다.
 
-|시나리오|오류|이유|솔루션|
+|시나리오|Error|이유|해결 방법|
 |---|---|---|---|
 |1|잘못 된 VHD (가상 하드 디스크)|VHD 바닥글의 지정 된 쿠키 값이 잘못 된 경우 VHD가 잘못 된 것으로 간주 됩니다.|이미지를 다시 만들고 요청을 제출 합니다.|
 |2|잘못 된 blob 유형|사용 된 블록이 페이지 유형이 아닌 blob 유형 이므로 VM을 프로 비전 하지 못했습니다.|이미지를 다시 만들고 요청을 제출 합니다.|
@@ -126,7 +126,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 될 Linux 테스트 사례를 보여 줍니다. 테스트 유효성 검사는 설명에 명시 되어 있습니다.
 
-|시나리오|테스트 사례|설명|
+|시나리오|테스트 사례|Description|
 |---|---|---|
 |1|Bash 기록|Bash 기록 파일은 VM 이미지를 만들기 전에 지워야 합니다.|
 |2|Linux 에이전트 버전|Azure Linux Agent 2.2.41 이상을 설치 해야 합니다.|
@@ -156,7 +156,7 @@ Microsoft 인증 도구 키트는 테스트 사례를 실행 하 고 VHD 또는 
 
 다음 표에서는 도구 키트가 실행 되는 Windows 테스트 사례와 테스트 유효성 검사에 대 한 설명을 보여 줍니다.
 
-|시나리오 |테스트 사례|설명|
+|시나리오 |테스트 사례|Description|
 |---|---|---|
 |1|OS 아키텍처|Azure는 64 비트 운영 체제만 지원 합니다.|
 |2|사용자 계정 종속성|응용 프로그램 실행은 관리자 계정에 종속 되지 않아야 합니다.|
@@ -197,7 +197,7 @@ OS 디스크 크기에 대 한 제한 사항은 다음 규칙을 참조 하세�
 
 Vm은 기본 운영 체제에 대 한 액세스를 허용 하므로 vhd 크기가 VHD에 대해 충분히 큰지 확인 합니다. 가동 중지 시간 없이 디스크를 확장할 필요가 없습니다. 30GB에서 50 GB 까지의 디스크 크기를 사용 합니다.
 
-|VHD 크기|실제 차지 크기|솔루션|
+|VHD 크기|실제 차지 크기|해결 방법|
 |---|---|---|
 |>500 tebibytes (TiB)|해당 없음|예외 승인에 대해서는 지원 팀에 문의 하세요.|
 |250-500 TiB|Blob 크기와 >200 GiB) 차이|예외 승인에 대해서는 지원 팀에 문의 하세요.|
@@ -311,7 +311,7 @@ Azure의 모든 Vhd에는 1 메가바이트 (MB)의 배수로 크기를 맞춘 �
 
 SAS (공유 액세스 서명) URL을 사용 하 여 VM 이미지를 다운로드 하는 경우 발생 하는 문제에 대해서는 다음 표를 참조 하세요.
 
-|오류|이유|솔루션|
+|Error|이유|해결 방법|
 |---|---|---|
 |Blob을 찾을 수 없음|VHD는 지정 된 위치에서 삭제 되거나 이동 될 수 있습니다.|| 
 |사용 중인 Blob|다른 내부 프로세스에서 VHD를 사용 합니다.|SAS URL을 사용 하 여 VHD를 다운로드 하는 경우 VHD가 사용 된 상태 여야 합니다.|
@@ -470,7 +470,7 @@ Azure Marketplace에서 가져온 모든 이미지를 다시 사용 하는 경�
 
 데이터 디스크와 관련 된 오류에 대 한 해결 방법은 다음 표를 사용 하십시오.
 
-|오류|이유|솔루션|
+|Error|이유|해결 방법|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|이 오류는 제품이 제출 될 때 잘못 된 LUN (논리 단위 번호)으로 인해 발생할 수 있습니다.|데이터 디스크에 대 한 LUN 번호 시퀀스가 파트너 센터에 있는지 확인 합니다.|
 |`DataDisk- NotFound:`|이 오류는 데이터 디스크가 지정 된 SAS URL에 있지 않기 때문에 발생할 수 있습니다.|데이터 디스크가 지정 된 SAS URL에 있는지 확인 합니다.|
@@ -620,11 +620,10 @@ Bash 기록을 삭제 하려면:
 * 2.8 이상 Python 버전 
 
 
-자세한 내용은 [VM 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)을 참조 하세요.
+자세한 내용은 [VM 확장](../virtual-machines/extensions/diagnostics-linux.md)을 참조 하세요.
      
 ## <a name="next-steps"></a>다음 단계
 
 - [VM 제품 속성 구성](azure-vm-create-properties.md)
 - [활성 마켓플레이스 보상](partner-center-portal/marketplace-rewards.md)
 - 개선 사항에 대 한 질문이 나 피드백이 있는 경우 [파트너 센터 지원](https://aka.ms/marketplacepublishersupport)에 문의 하세요.
- 

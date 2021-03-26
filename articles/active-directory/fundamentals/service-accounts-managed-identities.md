@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 16cd14aa447fb56af4cd9dd809696aecdc0c47a5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587834"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557839"
 ---
 # <a name="securing-managed-identities"></a>관리 ID 보안
 
@@ -38,7 +38,7 @@ ms.locfileid: "104587834"
 
 원본 시스템은 대상 서비스에 대 한 액세스를 요청 합니다. 모든 Azure 리소스는 원본 시스템 일 수 있습니다. 예를 들어 Azure VM, Azure Function instance 및 Azure 앱 Services 인스턴스는 관리 되는 id를 지원 합니다.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>인증 및 권한 부여 작업 방법
 
@@ -86,7 +86,7 @@ Azure의 모든 제어 평면 작업은 [Azure Resource Manager](../../azure-res
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-1. Azure AD에서 엔터프라이즈 응용 프로그램을 선택 합니다.
+1. Azure Active Directory에서 엔터프라이즈 응용 프로그램을 선택 합니다.
 
 2. "관리 되는 Id"의 필터를 선택 합니다. 
 
@@ -120,7 +120,7 @@ Microsoft Graph에 대 한 다음 GET 요청을 사용 하 여 테 넌 트에서
 
 ## <a name="move-to-managed-identities"></a>관리 되는 id로 이동
 
-서비스 주체 또는 Azure AD 사용자 계정을 사용 하는 경우 관리 되는를 대신 사용 하 여 자격 증명을 보호, 회전 및 관리할 필요가 없도록 평가 합니다. 
+서비스 주체 또는 Azure AD 사용자 계정을 사용 하는 경우 관리 되는 id를 대신 사용 하 여 자격 증명을 보호 하 고, 회전 하 고, 관리 하지 않아도 되는지 평가할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

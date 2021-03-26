@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: dec29dc92f70a3f02f3fb598659aa86477fb59bf
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99094559"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558247"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Azure SQL용 Azure Active Directory의 Directory Readers 역할
 
@@ -25,7 +25,7 @@ ms.locfileid: "99094559"
 
 Azure AD (Azure Active Directory)는 [클라우드 그룹을 사용 하 여 Azure Active Directory (미리 보기)에서 역할 할당을 관리 하](../../active-directory/roles/groups-concept.md)는 것을 소개 했습니다. 이렇게 하면 Azure AD 역할을 그룹에 할당할 수 있습니다.
 
-Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에 대해 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 를 사용 하도록 설정 하는 경우 azure ad [Graph API](../../active-directory/develop/active-directory-graph-api.md)에 대 한 읽기 액세스를 허용 하도록 azure ad [**디렉터리 구독자**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 id에 할당 해야 합니다. SQL Database 및 Azure Synapse의 관리 되는 id를 서버 id 라고 합니다. SQL Managed Instance의 관리 되는 id를 관리 되는 인스턴스 id 라고 하며, 인스턴스를 만들 때 자동으로 할당 됩니다. SQL Database 또는 Azure Synapse에 서버 id를 할당 하는 방법에 대 한 자세한 내용은 [서비스 주체를 사용 하 여 AZURE AD 사용자 만들기를](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users)참조 하세요.
+Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에 대해 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) 를 사용 하도록 설정 하는 경우 azure ad [Graph API](/graph/migrate-azure-ad-graph-planning-checklist)에 대 한 읽기 액세스를 허용 하도록 azure ad [**디렉터리 구독자**](../../active-directory/roles/permissions-reference.md#directory-readers) 역할을 id에 할당 해야 합니다. SQL Database 및 Azure Synapse의 관리 되는 id를 서버 id 라고 합니다. SQL Managed Instance의 관리 되는 id를 관리 되는 인스턴스 id 라고 하며, 인스턴스를 만들 때 자동으로 할당 됩니다. SQL Database 또는 Azure Synapse에 서버 id를 할당 하는 방법에 대 한 자세한 내용은 [서비스 주체를 사용 하 여 AZURE AD 사용자 만들기를](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users)참조 하세요.
 
 **디렉터리 판독기** 역할은 다음 작업을 수행 하는 데 필요 합니다.
 

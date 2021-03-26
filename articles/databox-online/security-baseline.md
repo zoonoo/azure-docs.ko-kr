@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 460fd66ed4651248639334caa55eb8facbce866d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d88284f3b9759ce04af9e44ae591c4796dde4e84
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102452376"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565200"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Azure Stack Edge에 대 한 Azure 보안 기준
 
@@ -38,7 +38,7 @@ Azure Stack Edge가 Azure Security 벤치 마크에 완전히 매핑되는 방�
 
 참조 된 링크에서 추가 정보를 확인할 수 있습니다.
  
-- [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [빠른 시작-GPU를 사용 하 여 Azure Stack Edge Pro 시작](azure-stack-edge-gpu-quickstart.md)
 
@@ -54,7 +54,7 @@ Azure Stack Edge가 Azure Security 벤치 마크에 완전히 매핑되는 방�
 
 - [Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R에 대 한 Azure PowerShell 스크립트를 통해 Azure VPN 구성](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [자습서: Azure Stack Edge Pro R을 위한 인증서 구성](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -68,7 +68,7 @@ Azure Stack Edge가 Azure Security 벤치 마크에 완전히 매핑되는 방�
 
 - [Azure Stack Edge Pro R 및 Azure Stack Edge 미니 R에 대 한 Azure PowerShell 스크립트를 통해 Azure VPN 구성](azure-stack-edge-mini-r-configure-vpn-powershell.md)
 
-- [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](azure-stack-edge-j-series-configure-tls-settings.md)
+- [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](./azure-stack-edge-gpu-configure-tls-settings.md)
 
 - [자습서: Azure Stack Edge Pro R을 위한 인증서 구성](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)
 
@@ -136,7 +136,7 @@ Azure Stack Edge 장치는 로컬 액세스를 위해 잠긴 상태로 부팅 �
 
 **책임**: Customer
 
-### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: 계정 변칙 모니터링 및 경고
+### <a name="im-5-monitor-and-alert-on-account-anomalies"></a>IM-5: 비정상 계정 활동 모니터링 및 경고
 
 **지침**: Azure Monitor을 사용 하 여 Azure Stack에 지 서비스에 대 한 장치 또는 컨테이너 로그를 수집 합니다. 장치의 Kubernetes 클러스터에서 여러 계산 응용 프로그램을 실행 하는 것과 같은 컨테이너를 모니터링 합니다.
 
@@ -206,7 +206,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 **책임**: Customer
 
-### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 정기적으로 사용자 액세스 권한 검토 및 조정
+### <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: 정기적으로 사용자 액세스 검토 및 조정
 
 **지침**: Edge Azure Stack 장치를 구성할 수 있는 ' EdgeUser ' 라는 사용자가 있습니다. 또한 장치의 로컬 Azure Resource Manager 기능에 대 한 사용자 ' EdgeArmUser ' Azure Resource Manager 있습니다. 
 
@@ -298,7 +298,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 **지침**: 권한이 부여 된 사용자 (예: ' EdgeArmUser ')만 로컬 Azure Resource Manager를 통해 Azure Stack Edge 장치 api에 액세스할 수 있습니다. 사용자 계정 암호는 Azure Portal 에서만 관리할 수 있습니다. 
 
-- [Azure Resource Manager 암호 설정](azure-stack-edge-j-series-set-azure-resource-manager-password.md)
+- [Azure Resource Manager 암호 설정](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -428,7 +428,7 @@ Azure 리소스의 위험을 식별 하는 데 도움이 되도록 내보내기 
 
 **책임**: Customer
 
-### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: 탐지 및 분석 – 인시던트 조사
+### <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: 검색 및 분석 – 인시던트 조사
 
 **지침**: 분석가가 잠재적 인시던트를 조사 하는 동안 발생 한 활동에 대 한 전체 보기를 작성 하기 위해 다양 한 데이터 원본을 쿼리하고 사용할 수 있도록 합니다. 블라인드 지점을 방지 하려면 다양 한 로그 유형을 수집 하 여 kill 체인에서 잠재적인 공격자의 활동을 추적 해야 합니다.  또한 기록 참조를 위해 정보 및 학습을 캡처해야 합니다.  
 
@@ -460,7 +460,7 @@ Azure Sentinel은 거의 모든 로그 원본 및 사례 관리 포털에서 광
 
 ### <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: 탐지 및 분석 – 인시던트 우선 순위 지정
 
-**지침**: 경고 심각도 및 자산 민감도에 따라 처음에 집중할 인시던트에 대해 분석가에게 컨텍스트를 제공합니다. Azure Security Center의 각 경고에 할당 된 심각도를 사용 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있습니다. 심각도는 Security Center에서 경고를 실행하는 데 사용되는 결과 또는 분석의 신뢰도 및 경고가 발생한 활동에 악의적인 의도가 있었다는 신뢰 수준을 기준으로 합니다.
+**지침**: 경고 심각도 및 자산 민감도에 따라 먼저 집중해야 하는 인시던트에 대한 컨텍스트를 분석가에게 제공합니다. Azure Security Center의 각 경고에 할당 된 심각도를 사용 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있습니다. 심각도는 Security Center에서 경고를 실행하는 데 사용되는 결과 또는 분석의 신뢰도 및 경고가 발생한 활동에 악의적인 의도가 있었다는 신뢰 수준을 기준으로 합니다.
 
 또한 태그를 사용하여 리소스를 표시하고, Azure 리소스, 특히 중요한 데이터를 처리하는 리소스를 식별하고 분류할 수 있는 명명 시스템을 만듭니다.  인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
@@ -488,7 +488,7 @@ Azure Sentinel은 거의 모든 로그 원본 및 사례 관리 포털에서 광
 
 ## <a name="posture-and-vulnerability-management"></a>태세 및 취약성 관리
 
-자세한 내용은 [Azure Security Benchmark: 태세 및 취약성 관리](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)를 참조하세요.
+*자세한 내용은 [Azure Security Benchmark: 보안 상태 및 취약성 관리](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)를 참조하세요.*
 
 ### <a name="pv-3-establish-secure-configurations-for-compute-resources"></a>PV 3: 계산 리소스에 대 한 보안 구성 설정
 
@@ -629,7 +629,7 @@ Azure Storage 계정에 대 한 액세스는 해당 저장소 계정과 연결 �
 
 **지침**: 시스템 및 데이터를 지속적으로 모니터링하고 보호하기 위한 명확한 전략을 문서화하고 전달해야 합니다. 중요 비즈니스용 데이터 및 시스템의 검색, 평가, 보호, 모니터링에 우선 순위를 지정합니다. 
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
 
 -   비즈니스 위험에 따른 데이터 분류 표준
 
@@ -708,7 +708,7 @@ Azure Storage 계정에 대 한 액세스는 해당 저장소 계정과 연결 �
 
 **지침**: 조직의 전반적인 보안 액세스 제어 전략의 일부로 Azure 네트워크 보안 방법을 설정합니다.  
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
 
 -   중앙 집중식 네트워크 관리 및 보안 책임
 
@@ -739,7 +739,7 @@ Azure Storage 계정에 대 한 액세스는 해당 저장소 계정과 연결 �
 
 **지침**: 조직의 전반적인 보안 액세스 제어 전략의 일부로 Azure ID 및 권한 있는 액세스 방법을 설정합니다.  
 
-이 전략에는 다음 요소에 대한 문서화된 지침, 정책, 표준이 포함되어야 합니다. 
+이 전략에는 다음 요소에 대한 문서화된 지침, 정책 및 표준이 포함되어야 합니다. 
 
 -   중앙 집중식 ID 및 인증 시스템과 다른 내부 및 외부 ID 시스템 간의 상호 연결
 

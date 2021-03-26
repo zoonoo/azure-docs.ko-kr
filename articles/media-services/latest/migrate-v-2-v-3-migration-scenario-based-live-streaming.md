@@ -9,14 +9,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 322a599d5ad02ddcf19c61261d968d098b6c9871
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598289"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563129"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>라이브 스트리밍 시나리오 기반 마이그레이션 지침
 
@@ -70,7 +70,3 @@ V 2에서 V3로 콘텐츠를 이동 하기 전에 Media Services을 사용 하 �
 ## <a name="samples"></a>샘플
 
 [코드 샘플에서 V2 및 V3 코드도 비교할](migrate-v-2-v-3-migration-samples.md)수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

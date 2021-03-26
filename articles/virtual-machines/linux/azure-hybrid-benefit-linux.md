@@ -4,7 +4,7 @@ description: Azure에서 실행 되는 Linux 가상 머신에 대 한 비용을 
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
-manager: westonh
+manager: rochakm
 ms.service: virtual-machines
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 17b2e260f9a90ddda6e246058cefb1bec8b1ac5e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73747222b9131fa85ae6ac01c9dedd5b0bbe1d63
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101695484"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543411"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Linux 가상 머신에 Azure 하이브리드 혜택 적용 되는 방법
 
@@ -39,9 +39,9 @@ RHEL 또는 SLES VM에서 혜택을 사용 하도록 설정한 후에는 일반�
 
 Azure 하이브리드 혜택은 Azure Marketplace의 모든 RHEL 및 SLES PAYG 이미지에 사용할 수 있습니다. RHEL 또는 SLES BYOS 이미지 또는 Azure Marketplace의 사용자 지정 이미지에 대 한 혜택은 아직 제공 되지 않습니다.
 
-Linux Vm을 사용 하 여 혜택을 이미 사용 하 고 있는 경우 예약 된 인스턴스, Azure 전용 호스트 인스턴스 및 SQL 하이브리드 혜택을 Azure 하이브리드 혜택 자격이 없습니다.
+Linux Vm에서 혜택을 이미 사용 하 고 있는 경우 Azure 전용 호스트 인스턴스 및 SQL 하이브리드 혜택을 Azure 하이브리드 혜택 수 없습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 ### <a name="red-hat-customers"></a>Red Hat 고객
 
@@ -90,11 +90,8 @@ SUSE에 대 한 혜택 사용을 시작 하려면 다음을 수행 합니다.
 1. 왼쪽의 **구성** 옵션으로 이동 합니다. 라이선스 섹션이 표시 됩니다. AHB 변환을 사용 하도록 설정 하려면 ' 예 ' 라디오 단추를 선택 하 고 확인 확인란을 선택 합니다.
 ![만든 후 AHB 구성 블레이드](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-
 >[!NOTE]
 > RHEL 또는 SLES PAYG Marketplace 이미지의 **사용자 지정 스냅숏** 또는 **SIG (공유 이미지)** 를 만든 경우 Azure 하이브리드 혜택를 사용 하도록 설정 하는 데 Azure CLI만 사용할 수 있습니다. 이는 알려진 제한 사항입니다. 현재 Azure Portal 에서도이 기능을 제공할 타임 라인이 없습니다.
-
-
 
 ## <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Azure CLI 혜택 사용 및 사용 안 함
 
@@ -179,6 +176,15 @@ Red Hat 구독 준수, 소프트웨어 업데이트 및 Azure 하이브리드 �
 
 SLES Vm에 대 한 Azure 하이브리드 혜택를 사용 하 고 SLES PAYG에서 BYOS로 이동 하거나 SLES BYOS에서 PAYG로 이동 하는 방법에 대 한 자세한 내용은 [SUSE Linux Enterprise and Azure 하이브리드 혜택](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/)를 참조 하세요. 
 
+## <a name="azure-hybrid-benefit-on-reserved-instances-is-in-preview"></a>예약 된 인스턴스의 Azure 하이브리드 혜택 미리 보기 상태입니다.
+
+Azure Reservations (Azure Reserved Virtual Machine Instances)를 통해 여러 제품에 대 한 1 년 또는 3 년 요금제로 커밋하여 비용을 절감할 수 있습니다. [여기에서 예약 된 인스턴스에](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)대해 자세히 알아볼 수 있습니다. Azure 하이브리드 혜택은 [예약 된 RIs (가상 컴퓨터 인스턴스)](https://review.docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation)에 대 한 미리 보기에서 사용할 수 있습니다. 즉, RI를 사용 하 여 할인 된 요금으로 계산 비용을 구매한 경우 RHEL 및 SUSE에 대 한 라이선스 비용에 AHB 혜택을 적용할 수 있습니다. RI 인스턴스에 대해 AHB 혜택을 적용 하는 단계는 일반 VM에 대 한 것과 정확히 동일 하 게 유지 됩니다.
+![AHB for RIs](./media/azure-hybrid-benefit/reserved-instances.png)
+
+>[!NOTE]
+>Azure Marketplace에서 RHEL 또는 SUSE PAYG software에 대 한 예약을 이미 구매한 경우 Azure 하이브리드 혜택를 사용 하기 전에 예약 재직 기간이 완료 될 때까지 기다려 주세요.
+
+
 ## <a name="frequently-asked-questions"></a>질문과 대답
 *Q: SLES 이미지를 사용 하 여 라이선스 유형을 사용 `RHEL_BYOS` 하거나 그 반대로 사용할 수 있나요?*
 
@@ -206,11 +212,11 @@ A: 예, 가능합니다. `RHEL_BYOS`RHEL vm에 대 한 라이선스 유형과 `S
 
 *Q: RHEL 및 SLES에 대 한 가상 머신 확장 집합에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
-A: 아니요, 할 수 없습니다. 가상 머신 확장 집합은 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택 범위에 없습니다.
+A: 예, RHEL 및 SLES에 대 한 가상 머신 확장 집합에 대 한 Azure 하이브리드 혜택 미리 보기 상태입니다. [이 혜택 및 사용 방법에 대해 자세히 알아볼](https://docs.microsoft.com/azure/virtual-machine-scale-sets/azure-hybrid-benefit-linux-vmss)수 있습니다. 
 
 *Q: RHEL 및 SLES에 대 한 예약 된 인스턴스에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
-A: 아니요, 할 수 없습니다. 예약 인스턴스는 현재 RHEL 및 SLES에 대 한 Azure 하이브리드 혜택 범위에 속하지 않습니다.
+A: 예, Azure 하이브리드 혜택 RHEL 및 SLES의 예약 인스턴스는 미리 보기 상태입니다. [이 혜택 및 사용 방법에 대해 자세히 알아볼](#azure-hybrid-benefit-on-reserved-instances-is-in-preview)수 있습니다.
 
 *Q: RHEL 이미지에 대해 SQL Server 배포 된 가상 머신에서 Azure 하이브리드 혜택를 사용할 수 있나요?*
 
@@ -224,7 +230,7 @@ A: 아니요, 할 수 없습니다. VDC는 AHB을 포함 하 여 Azure에서 지
 ## <a name="common-problems"></a>일반적인 문제
 이 섹션에는 발생할 수 있는 일반적인 문제와 완화 단계를 나열 합니다.
 
-| 오류 | 완화 방법 |
+| Error | 완화 방법 |
 | ----- | ---------- |
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에 대 한 혜택을 사용 하려면 먼저 [Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록](https://access.redhat.com/management/cloud)해야 합니다.
 

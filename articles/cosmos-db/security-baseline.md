@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5f9cf6dba0a1e670e3a27cb3546de9237466e7ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dead43f2e9f2e8913bcebde43d543b8df8d33ced
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101659429"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565676"
 ---
 # <a name="azure-security-baseline-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure 보안 기준
 
@@ -44,7 +44,7 @@ IP 방화벽을 사용 하 여 Azure Cosmos 계정에 저장 된 데이터를 �
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft.DocumentDB**:
 
@@ -84,9 +84,9 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 - [Azure Cosmos DB Advanced Threat Protection을 구성 하는 방법](cosmos-db-advanced-threat-protection.md)
 
-- [DDoS 보호를 구성 하는 방법](/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](/azure/security-center/security-center-alerts-service-layer)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 **책임**: Customer
 
@@ -146,7 +146,7 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 **지침**: 논리적으로 분류로 구성 하기 위해 Azure Cosmos DB 배포와 연결 된 네트워크 리소스에 대 한 태그를 사용 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -156,9 +156,9 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure Cosmos DB 인스턴스와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다. 
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -172,7 +172,7 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 **지침**: Azure Monitor을 통해 로그를 수집 하 여 Azure Cosmos DB에서 생성 된 보안 데이터를 집계 합니다. Azure Monitor에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. 또는 Azure 센티널 또는 타사 SIEM (보안 인시던트 및 이벤트 관리)에 대 한 온보드 데이터를 사용할 수 있습니다. 
 
-- [Azure Cosmos DB에 대 한 진단 로그를 사용 하도록 설정 하는 방법](/azure/cosmos-db/logging)
+- [Azure Cosmos DB에 대 한 진단 로그를 사용 하도록 설정 하는 방법](./monitor-cosmos-db.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -186,9 +186,9 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 또한 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 해당 로그를 Azure Cosmos DB 로그에 사용 하는 것과 동일한 Log Analytics 작업 영역으로 보낼 수 있습니다.
 
-- [Azure Cosmos DB에 대 한 진단 설정을 사용 하도록 설정 하는 방법](/azure/cosmos-db/logging)
+- [Azure Cosmos DB에 대 한 진단 설정을 사용 하도록 설정 하는 방법](./monitor-cosmos-db.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -198,7 +198,7 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Cosmos DB 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -222,11 +222,11 @@ DDoS 공격 으로부터 보호 하기 위해 Azure Cosmos DB 인스턴스와 �
 
 또한 Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케스트레이션 자동화 된 응답 (대화 충성도) 솔루션을 제공할 수 있습니다. 이를 통해 플레이북(자동화된 솔루션)을 만들어 보안 문제를 수정하는 데 사용할 수 있습니다. 또한 Azure Monitor를 사용 하 여 Log Analytics 작업 영역에서 사용자 지정 로그 경고를 만들 수 있습니다.
 
-- [Azure Cosmos DB에 대 한 위협 방지 경고 목록](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos)
+- [Azure Cosmos DB에 대 한 위협 방지 경고 목록](../security-center/alerts-reference.md#alerts-azurecosmos)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](/azure/azure-monitor/platform/alerts-log)
+- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
 
 **책임**: Customer
 
@@ -248,13 +248,13 @@ Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 �
 
 - [Azure Cosmos DB의 역할 기반 액세스 제어 이해](role-based-access-control.md)
 
-- [Azure Cosmos DB 작업을 사용 하 여 사용자 지정 역할 작성 (Microsoft.DocumentDB 네임 스페이스)](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdocumentdb)
+- [Azure Cosmos DB 작업을 사용 하 여 사용자 지정 역할 작성 (Microsoft.DocumentDB 네임 스페이스)](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 - [Azure AD에서 새 역할 만들기](../role-based-access-control/custom-roles.md)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 - [데이터 작업에 대해서만 사용자 액세스 제한](how-to-restrict-user-data.md)
 
@@ -268,7 +268,7 @@ Azure Cosmos DB은 Azure Cosmos DB의 일반적인 관리 시나리오에 대 �
 
 - [Azure Cosmos DB 데이터에 대 한 보안 액세스 이해](secure-access-to-data.md)
 
-- [Azure Cosmos DB 키를 다시 생성 하는 방법](https://docs.microsoft.com/azure/cosmos-db/manage-with-powershell#regenerate-keys)
+- [Azure Cosmos DB 키를 다시 생성 하는 방법](./manage-with-powershell.md#regenerate-keys)
 
 - [Azure AD를 사용 하 여 프로그래밍 방식으로 키에 액세스 하는 방법](certificate-based-authentication.md)
 
@@ -330,7 +330,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 - [PIM(Privileged Identity Management)을 배포하는 방법](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Azure AD 위험 탐지 이해](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Azure AD 위험 탐지 이해](../active-directory/identity-protection/overview-identity-protection.md)
 
 **책임**: Customer
 
@@ -352,7 +352,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory-domain-services/tutorial-create-instance.md)
 
-- [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](/azure/sql-database/sql-database-aad-authentication-configure)
+- [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](../azure-sql/database/authentication-aad-configure.md)
 
 **책임**: Customer
 
@@ -384,7 +384,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 또한 Azure Active Directory (Azure AD) Id 보호 및 위험 검색 기능을 사용 하 여 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성할 수 있습니다. 또한 추가 조사를 위해 Azure 센티널에 로그를 수집할 수 있습니다.
 
-- [Azure AD 위험한 로그인을 확인하는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험한 로그인을 확인하는 방법](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -402,7 +402,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 **지침**: 태그를 사용 하 여 중요 한 정보를 저장 하거나 처리 하는 Azure Cosmos DB 인스턴스를 추적 하는 데 도움을 줍니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -412,11 +412,11 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. Azure Cosmos DB 인스턴스는 가상 네트워크/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, NSG (네트워크 보안 그룹) 또는 Azure 방화벽 내에서 보안이 유지 됩니다. 중요 한 데이터를 저장 하는 Azure Cosmos DB 인스턴스는 격리 되어야 합니다. Azure 개인 링크를 사용 하 여 개인 끝점을 통해 Azure Cosmos DB 인스턴스 계정에 연결할 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크 내부에 있는 서브넷의 개인 IP 주소 세트입니다. 그런 다음 선택한 개인 IP 주소에 대 한 액세스를 제한할 수 있습니다. 
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 - [Azure Cosmos DB에 대 한 개인 끝점을 구성 하는 방법](how-to-configure-private-endpoints.md)
 
@@ -450,7 +450,7 @@ Azure AD 위험 검색을 사용하여 위험한 사용자 동작에 대한 경�
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-- [Azure Cognitive Search를 사용 하 여 Azure Cosmos DB 데이터 인덱싱](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json&amp;bc=/azure/cosmos-db/breadcrumb/toc.json)
+- [Azure Cognitive Search를 사용 하 여 Azure Cosmos DB 데이터 인덱싱](../search/search-howto-index-cosmosdb.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json)
 
 - [Azure의 고객 데이터 보호 이해](../security/fundamentals/protection-customer-data.md)
 
@@ -476,7 +476,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure Cosmos DB를 사용 하 여 미사용 암호화 이해](database-encryption-at-rest.md)
 
-- [Azure Cosmos DB를 사용 하 여 미사용 암호화를 위한 키 관리 이해](/azure/cosmos-db/cosmos-db-security-controls)
+- [Azure Cosmos DB를 사용 하 여 미사용 암호화를 위한 키 관리 이해]()
 
 - [Azure Cosmos DB 계정에 대해 고객이 관리 하는 키를 구성 하는 방법](how-to-setup-cmk.md)
 
@@ -488,9 +488,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 Azure Cosmos DB의 프로덕션 인스턴스로 변경 될 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -506,7 +506,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에서 시스템 패치 및 취약성 관리를 수행 합니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-- [Azure Security Center에서 사용할 수 있는 지원되는 기능](https://docs.microsoft.com/azure/security-center/security-center-services?tabs=features-windows)
+- [Azure Security Center에서 사용할 수 있는 지원되는 기능](../security-center/security-center-services.md?tabs=features-windows)
 
 **책임**: 공유됨
 
@@ -524,7 +524,7 @@ Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure 역할 기반 액세스 제어 이해](../role-based-access-control/overview.md)
 
@@ -536,9 +536,9 @@ Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에�
 
 **지침**: 메타 데이터를 사용 하 여 Azure Cosmos DB 인스턴스 및 관련 리소스에 태그를 적용 하 여 논리적으로 분류로 구성 합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [태그를 지 원하는 Azure Cosmos DB 리소스](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support#microsoftdocumentdb)
+- [태그를 지 원하는 Azure Cosmos DB 리소스](../azure-resource-manager/management/tag-support.md#microsoftdocumentdb)
 
 **책임**: Customer
 
@@ -548,11 +548,11 @@ Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에�
 
 **지침**: 해당 하는 경우 태그 지정, 관리 그룹 및 별도의 구독을 사용 하 여 Azure Cosmos DB 리소스를 비롯 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -584,7 +584,7 @@ Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -610,7 +610,7 @@ Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에�
 - Cosmos DB 계정에 대한 Advanced Threat Protection 배포
 - Cosmos DB는 가상 네트워크 서비스 엔드포인트를 사용해야 함
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -668,7 +668,7 @@ Microsoft는 Azure Cosmos DB 인스턴스를 지 원하는 기본 호스트에�
 
 - [Azure 관리 Id와 통합 하는 방법](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal)
+- [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
 - [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
 
@@ -728,7 +728,7 @@ Key Vault를 사용 하 여 Cosmos DB 인스턴스의 자격 증명을 저장 �
 
 - [자동화 된 백업 Azure Cosmos DB 이해](online-backup-and-restore.md)
 
-- [Azure Cosmos DB에서 데이터를 복원 하는 방법](/azure/cosmos-db/how-to-backup-and-restore)
+- [Azure Cosmos DB에서 데이터를 복원 하는 방법](./online-backup-and-restore.md)
 
 - [Key Vault 키를 백업 하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
@@ -744,9 +744,9 @@ PowerShell을 사용 하 여 Azure Key Vault에 저장 된 암호의 복원을 �
 
 - [자동화 된 백업 Azure Cosmos DB 이해](online-backup-and-restore.md)
 
-- [Azure Cosmos DB에서 데이터를 복원 하는 방법](/azure/cosmos-db/how-to-backup-and-restore)
+- [Azure Cosmos DB에서 데이터를 복원 하는 방법](./online-backup-and-restore.md)
 
-- [Azure Key Vault 비밀을 복원 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure Key Vault 비밀을 복원 하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **책임**: 공유됨
 
@@ -760,7 +760,7 @@ Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 �
 
 - [Azure Cosmos DB의 데이터 암호화 이해](database-encryption-at-rest.md)
 
-- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용하도록 설정하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **책임**: 공유됨
 
@@ -856,5 +856,5 @@ Key Vault에서 일시 삭제를 사용하도록 설정하여 실수로 또는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

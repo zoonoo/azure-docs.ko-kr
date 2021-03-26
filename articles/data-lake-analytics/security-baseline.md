@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 33196af2f3544733715ece501cceec0366d2a47c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7569f98b1a721ecc9bd8e41a7d55cfbb80a2bc88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716258"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564622"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Data Lake Analytics에 대 한 Azure 보안 기준
 
@@ -64,9 +64,9 @@ Data Lake Analytics 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](/azure/azure-monitor/learn/quick-collect-azurevm) 
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
@@ -78,13 +78,13 @@ Data Lake Analytics 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 **지침**: 감사 및 요청 로그에 액세스 하는 Data Lake Analytics에 대 한 진단 설정을 사용 하도록 설정 합니다. 여기에는 이벤트 원본, 날짜, 사용자, 타임 스탬프 및 기타 유용한 요소와 같은 데이터가 포함 됩니다. 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-DataLakeAnalytics**:
 
@@ -94,9 +94,9 @@ Data Lake Analytics 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Log Analytics 작업 영역 보존 기간을 설정 합니다. 장기 및 보관 저장소에 Azure Storage 계정을 사용 합니다.
 
-- [Log Analytics에서 데이터 보존 기간 변경](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) 
+- [Log Analytics에서 데이터 보존 기간 변경](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) 
 
-- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Azure Storage 계정 로그에 대 한 보존 정책을 구성 하는 방법](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **책임**: Customer
 
@@ -108,9 +108,9 @@ Data Lake Analytics 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log Analytics 작업 영역에 대 한 자세한 내용](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 작업 영역에 대 한 자세한 내용](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -122,7 +122,7 @@ Data Lake Analytics 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Log analytics 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)  
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)  
 
 - [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)
 
@@ -162,7 +162,7 @@ Data Lake Analytics 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 Just-in-time 액세스를 사용 하도록 설정할 수도 있습니다.
 
-- [Privileged Identity Management에 대 한 자세한 정보](/azure/active-directory/privileged-identity-management/)
+- [Privileged Identity Management에 대 한 자세한 정보](../active-directory/privileged-identity-management/index.yml)
 
 **책임**: Customer
 
@@ -240,7 +240,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resou
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -252,7 +252,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resou
 
 **지침**: 모든 로그를 Log Analytics 작업 영역으로 전송 하는 Data Lake Analytics 및 Azure Active Directory (Azure AD)에 대 한 진단 설정을 사용 하도록 설정 합니다. Log Analytics 내에서 원하는 경고 (예: 비활성화 된 암호에 대 한 액세스 시도)를 구성 합니다.
 
-- [Azure Monitor 로그와 Azure AD 로그 통합](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor 로그와 Azure AD 로그 통합](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -296,7 +296,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management 및 Azure Resou
 
 - [태그를 만들고 사용하는 방법](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure 역할 기반 Access Control 관리](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+- [Azure 역할 기반 Access Control 관리](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 - [방화벽 규칙](/rest/api/datalakeanalytics/firewallrules)
 
@@ -344,7 +344,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자가 서비스와 상호 작용 하는 방식을 제어 합니다.
 
-- [Azure RBAC 관리](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+- [Azure RBAC 관리](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 **책임**: Customer
 
@@ -364,7 +364,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 Azure Data Lake Analytics 리소스의 프로덕션 인스턴스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -477,7 +477,7 @@ Microsoft는 Azure Data Lake Analytics을 지 원하는 기본 시스템에서 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -713,5 +713,5 @@ App Service, Data Lake Analytics, Blob Storage 등의 Azure 리소스에 업로�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

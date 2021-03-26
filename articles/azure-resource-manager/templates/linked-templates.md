@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 연결 된 템플릿을 사용 하 여 모듈식 템플릿 솔루션을 만드는 방법을 설명 합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 6076cbae43e420ac354b5c9d7d101a9c541c078d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 981e9f10e118012911108d634fbb8bdb9524cb88
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889181"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543978"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -444,6 +444,8 @@ HTTP 또는 HTTPS를 포함 하는 매개 변수를 사용 하 여 템플릿을 
 GitHub의 템플릿에 연결 하는 경우 원시 URL을 사용 합니다. 링크의 형식은 `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` 입니다. 원시 링크를 가져오려면 **raw** 를 선택 합니다.
 
 :::image type="content" source="./media/linked-templates/select-raw.png" alt-text="원시 URL 선택":::
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 ### <a name="parameters-for-linked-template"></a>연결 된 템플릿의 매개 변수
 

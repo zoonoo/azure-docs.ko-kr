@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110545"
+ms.locfileid: "105543366"
 ---
 # <a name="create-a-test-offer"></a>테스트 제안 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "105110545"
 
 두 제품의 **별칭** 상자에 동일한 별칭을 사용 하는 것이 좋지만 DEV 제품의 별칭에 "_test"을 추가 하는 것이 좋습니다. 예를 들어, PROD 제품의 별칭이 "contososolution" 인 경우 DEV 제품의 별칭은 "contososolution_test"입니다. 이러한 방식으로 PROD 제품에서 개발 제품을 쉽게 식별할 수 있습니다.
 
-**고객 리드** 섹션에서 및 Azure table을 사용 하 고 개발 제품을 위한 테스트 CRM 환경을 사용 합니다. PROD 제품에 의도 한 리드 관리 시스템을 사용 합니다.
+**고객 리드** 섹션에서 개발 제품에 대 한 Azure 테이블 또는 테스트 CRM 환경을 사용 합니다. PROD 제품에 의도 한 리드 관리 시스템을 사용 합니다.
 
 ## <a name="properties-page"></a>속성 페이지
 
@@ -39,7 +39,7 @@ ms.locfileid: "105110545"
 
 ## <a name="preview-audience"></a>미리 보기 대상 그룹
 
-개발자 제품에는 사용자를 포함 하 여 개발자와 테스터의 Azure Active Directory (AAD) 사용자 계정 이름 또는 Microsoft 계정 (MSA) 전자 메일 주소를 포함 합니다. AAD에서 사용자의 사용자 계정 이름은 사용자의 전자 메일과 다를 수 있습니다. 예를 들어 jane.doe@contoso.com 는 작동 하지 않지만는 janedoe@contoso.com 작동 합니다. 이러한 사용자는 개발 및 테스트 단계 중에 **미리 보기** 링크를 공유할 때 DEV 제품에 액세스할 수 있습니다.
+개발자 제품에는 개발자 및 테스터의 사용자 계정 이름 (AAD) 사용자 계정 이름 또는 Microsoft 계정 (MSA) 전자 메일 주소를 Azure Active Directory 포함 하 여 사용자를 포함 합니다. AAD에서 사용자의 사용자 계정 이름은 해당 사용자의 전자 메일과 다를 수 있습니다. 예를 들어는 jane.doe@contoso.com 작동 하지 않지만 janedoe@contoso.com 는 그렇지 않습니다. 사용자가 지정 하는 사용자는 개발 및 테스트 단계 중에 **미리 보기** 링크를 공유할 때 DEV 제품에 액세스할 수 있습니다.
 
 PROD 제품에서 **Live Go 단추** 를 선택 하 여 제품을 라이브로 게시 하기 전에 제품의 유효성을 검사 하는 사용자의 Azure AD 사용자 계정 이름 또는 Microsoft 계정 메일을 포함 합니다.
 
@@ -77,10 +77,10 @@ PROD 제품에서 **Live Go 단추** 를 선택 하 여 제품을 라이브로 �
 
 개발자 제품을 사용 하 여 가격 책정 모델을 시험해 보세요. 가장 적합 한 가격 책정 모델 또는 모델을 확인 한 후에는 가격 책정 모델 및 가격을 사용 하 여 PROD 제품에서 계획을 만듭니다.
 
-개발 제품은 계획의 가격이 0 또는 매우 낮은 요금제를 사용 해야 합니다. PROD 제품은 고객에 게 요금을 부과 하고자 하는 가격을 갖습니다.
+DEV 제품은 계획의 가격이 0 개 또는 낮은 요금제를 보유 해야 합니다. PROD 제품은 고객에 게 요금을 부과 하고자 하는 가격을 갖습니다.
 
-> [!NOTE]
-> Preview에서의 구매는 개발 및 PROD 제품 모두에 대해 처리 됩니다. 제품에 $100/mo 가격이 있으면 회사는 $100에 대 한 요금이 청구 됩니다. 이 경우 [지원 티켓](support.md) 을 열 수 있습니다. 그러면 전체 금액에 대해 지급를 발급 하 고 에이전시 요금을 부과 하지 않습니다.
+> [!IMPORTANT]
+> Preview에서의 구매는 개발 및 PROD 제품 모두에 대해 처리 됩니다. 제품에 $100/mo 가격이 있으면 회사는 $100에 대 한 요금이 청구 됩니다. 이 경우 [지원 티켓](support.md) 을 열 수 있습니다. 그러면 전체 금액에 대해 지급를 발급 하 고 매장 서비스 요금을 부과 하지 않습니다.
 
 #### <a name="pricing-model"></a>가격 책정 모델
 
@@ -97,7 +97,7 @@ Marketplace 사용자 지정 측정기 차원을 포함 하 여 가격 책정 �
 | $50.00 이상 | 이 가격 범위를 사용 하 여 지급를 테스트 합니다. 지불 일정에 대 한 자세한 내용은 [지급 일정 및 프로세스](/partner-center/payout-policy-details)를 참조 하세요. |
 |||
 
-테스트에 대 한 처리 요금을 부과 하지 않으려면 [지원 티켓](support.md)을 엽니다.
+테스트에 대 한 매장 서비스 요금이 부과 되지 않도록 하려면 [지원 티켓](support.md)을 엽니다.
 
 #### <a name="free-trial"></a>평가판
 

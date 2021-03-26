@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c11a89d91693075ca54c0689223dcf2af06df521
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102436535"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568514"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Azure Portal를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -52,7 +52,7 @@ Azure Portal, 템플릿, Azure PowerShell cmdlet을 사용 하 고 Azure CLI/Pyt
 
 Azure Portal를 통해 장치에서 Vm 만들기 및 관리를 시작 하기 전에 다음을 확인 합니다.
 
-1. [1 단계: Azure Stack Edge pro 장치 구성](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device)에 설명 된 대로 Azure Stack edge pro 장치에서 네트워크 설정을 완료 했습니다.
+1. [1 단계: Azure Stack Edge pro 장치 구성](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device)에 설명 된 대로 Azure Stack edge pro 장치에서 네트워크 설정을 완료 했습니다.
 
     1. 계산을 위한 네트워크 인터페이스를 사용 하도록 설정 했습니다. 이 네트워크 인터페이스 IP는 VM 배포를 위한 가상 스위치를 만드는 데 사용됩니다. 장치의 로컬 UI에서 **Compute** 로 이동 합니다. 가상 스위치를 만드는 데 사용할 네트워크 인터페이스를 선택합니다.
 
@@ -87,7 +87,7 @@ Azure Stack Edge 장치에서 가상 머신을 만들려면 다음 단계를 따
 1. **이미지 추가** 블레이드에서 다음 매개 변수를 입력 합니다. **추가** 를 선택합니다.
 
 
-    |매개 변수  |설명  |
+    |매개 변수  |Description  |
     |---------|---------|
     |저장소 blob에서 다운로드    |VHD를 업로드 한 저장소 계정에서 저장소 blob의 위치로 이동 합니다.         |
     |다운로드 대상    | 가상 컴퓨터를 배포 하는 현재 장치에 자동으로 설정 됩니다.        |
@@ -124,7 +124,7 @@ VM 이미지를 만든 후에 VM을 만들려면 다음 단계를 수행 합니�
 1. **기본 사항** 탭에서 다음 매개 변수를 입력 합니다.
 
 
-    |매개 변수 |설명  |
+    |매개 변수 |Description  |
     |---------|---------|
     |가상 머신 이름     |         |
     |이미지     | 장치에서 사용할 수 있는 VM 이미지를 선택 합니다.        |
@@ -158,7 +158,7 @@ VM 이미지를 만든 후에 VM을 만들려면 다음 단계를 수행 합니�
 1. **네트워킹** 탭에서 VM에 대 한 네트워크 연결을 구성 합니다.
 
     
-    |매개 변수  |설명 |
+    |매개 변수  |Description |
     |---------|---------|
     |가상 네트워크    | 네트워크 인터페이스에서 계산을 사용 하도록 설정한 경우 드롭다운 목록에서 Azure Stack Edge 장치에 만들어진 가상 스위치를 선택 합니다.    |
     |서브넷     | 이 필드는 compute를 사용 하도록 설정한 네트워크 인터페이스와 연결 된 서브넷으로 자동으로 채워집니다.         |

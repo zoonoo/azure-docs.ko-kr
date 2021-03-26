@@ -3,12 +3,12 @@ title: 보관 계층 지원 (미리 보기)
 description: Azure Backup에 대 한 보관 계층 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609855"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563976"
 ---
 # <a name="archive-tier-support-preview"></a>보관 계층 지원 (미리 보기)
 
@@ -46,7 +46,7 @@ Azure Backup는 스냅숏 및 표준 계층 외에도 보관 계층에서 장기
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. [AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 Azure에 연결 합니다.
+1. [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용 하 여 Azure에 연결 합니다.
 1. 구독에 로그인 합니다.
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -128,7 +128,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 보관의 복구 지점의 경우 Azure Backup는 통합 복원 방법론을 제공 합니다.
 
-통합 복원은 2 단계 프로세스입니다. 첫 번째 단계는 보관에 저장 된 복구 지점의 리하이드레이션는 10 ~ 30 일 사이의 기간 (리하이드레이션 기간이 라고도 함)에 대 한 자격 증명 모음 표준 계층에 임시로 저장 하는 것입니다. 기본값은 15 일입니다. 리하이드레이션의 두 가지 우선 순위 (표준 및 높은 우선 순위)가 있습니다. [리하이드레이션 우선 순위](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier)에 대해 자세히 알아보세요.
+통합 복원은 2 단계 프로세스입니다. 첫 번째 단계는 보관에 저장 된 복구 지점의 리하이드레이션는 10 ~ 30 일 사이의 기간 (리하이드레이션 기간이 라고도 함)에 대 한 자격 증명 모음 표준 계층에 임시로 저장 하는 것입니다. 기본값은 15 일입니다. 리하이드레이션의 두 가지 우선 순위 (표준 및 높은 우선 순위)가 있습니다. [리하이드레이션 우선 순위](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier)에 대해 자세히 알아보세요.
 
 >[!NOTE]
 >

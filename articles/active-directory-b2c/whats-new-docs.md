@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: 00be0a18984f1ad3eacf86a2cf3477d8b0d9065f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3fcc4f01d926f5c624adabd51e6215e0106af1fa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454620"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557873"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C: 새로운 기능
 
@@ -73,7 +73,7 @@ Azure Active Directory B2C 설명서의 새로운 기능을 시작 합니다. �
 
 ### <a name="new-articles"></a>새 문서
 
-- [Azure Active Directory B2C에서 사용자 흐름 만들기](create-user-flow.md)
+- [Azure Active Directory B2C에서 사용자 흐름 만들기](add-sign-up-and-sign-in-policy.md)
 - [사용자 흐름에 대 한 전화 등록 및 로그인 설정 (미리 보기)](phone-authentication-user-flows.md)
 
 ### <a name="updated-articles"></a>업데이트된 문서
@@ -114,7 +114,7 @@ Azure Active Directory B2C 설명서의 새로운 기능을 시작 합니다. �
 ### <a name="updated-articles"></a>업데이트된 문서
 - [Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정](b2clogin.md)
 - [Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의](openid-connect-technical-profile.md)
-- [Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정](phone-authentication.md)
+- [Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정](phone-authentication-user-flows.md)
 
 
 ## <a name="august-2020"></a>2020년 8월

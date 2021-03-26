@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 5d24e056d397617c95a7ba301b58efc3631f40dd
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 4173fe34c6966514ef4f150527cd712c9d95ab7e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026524"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561715"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>마이그레이션 가이드: Azure VM에서 Oracle to SQL Server
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -168,7 +168,7 @@ MAP 도구 키트를 사용하여 인벤토리 검색을 수행하려면 다음 
 1. 오프라인 스키마 수정 연습을 위해 프로젝트를 로컬로 저장합니다. **파일** 메뉴에서 **프로젝트 저장** 을 선택합니다. 이를 통해 원본 및 대상 스키마를 오프 라인으로 평가 하 고, Azure VM에서 SQL Server에 스키마를 게시 하기 전에 수정을 수행할 수 있습니다.
 
 
-## <a name="migrate"></a>마이그레이션
+## <a name="migrate"></a>Migrate
 
 필요한 필수 조건을 준비하고 **마이그레이션 전** 단계와 관련된 작업을 완료했으면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 마이그레이션에는 스키마 게시 및 데이터 마이그레이션의 두 단계가 포함됩니다. 
 
@@ -199,7 +199,7 @@ MAP 도구 키트를 사용하여 인벤토리 검색을 수행하려면 다음 
 
 
 SSMA를 사용하는 것 외에도 SSIS(SQL Server Integration Services)를 사용하여 데이터를 마이그레이션할 수 있습니다. 자세한 내용은 다음을 참조하세요. 
-- [SQL Server Integration Services 시작](https://docs.microsoft.com//sql/integration-services/sql-server-integration-services) 문서
+- [SQL Server Integration Services 시작](//sql/integration-services/sql-server-integration-services) 문서
 - [SQL Server Integration Services: SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)(SQL Server Integration Services: Azure용 SSIS 및 하이브리드 데이터 이동) 백서
 
 
@@ -271,4 +271,3 @@ SSMA를 사용하는 것 외에도 SSIS(SQL Server Integration Services)를 사�
 
 - 응용 프로그램 액세스 계층을 평가 하려면 [데이터 액세스 마이그레이션 도구 키트 (미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) 를 참조 하세요.
 - 데이터 액세스 계층 A/B 테스트를 수행 하는 방법에 대 한 자세한 내용은 [데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview)를 참조 하세요.
-

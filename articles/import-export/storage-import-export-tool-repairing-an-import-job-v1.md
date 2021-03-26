@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: af6234a81e8f79424cc3b1ec4178a175d9ff0146
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b0eeb73ffb5436284f4f23cef943db0a3307a2b2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98706455"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564571"
 ---
 # <a name="repairing-an-import-job"></a>가져오기 작업 복구
 Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파일 또는 파일의 일부를 복사하지 못할 수 있습니다. 이 오류의 몇 가지 원인은 다음과 같습니다.  
@@ -30,7 +30,7 @@ Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파�
 
 **RepairImport** 와 함께 다음 매개 변수를 지정할 수 있습니다. 
   
-|||  
+| 매개 변수 | Description |  
 |-|-|  
 |**/r:**<RepairFile\>|**필수 사항입니다.** 복구의 진행 상황을 추적하고 중단된 복구를 다시 시작할 수 있도록 하는 복구 파일의 경로입니다. 각 드라이브에는 하나의 복구 파일만 있어야 합니다. 지정 된 드라이브에 대 한 복구를 시작할 때 아직 존재 하지 않는 복구 파일의 경로를 전달 합니다. 중단된 복구를 다시 시작하려면 기존 복구 파일의 이름을 제공해야 합니다. 대상 드라이브에 해당 하는 복구 파일을 항상 지정 합니다.|  
 |**/logdir:**<logdirectory\>|**선택 사항입니다.** 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  

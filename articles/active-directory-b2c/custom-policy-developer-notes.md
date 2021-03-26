@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 76dcb9aec935dd4ea4f57a1362953d9741d8eaf0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c175a6d225be268f27854b9ab63886892cf029fb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095802"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557278"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대한 개발자 정보
 
@@ -68,7 +68,7 @@ ms.locfileid: "102095802"
 | [OAuth2 인증 코드](authorization-code-flow.md) |  |  | X |  |
 | PKCE를 사용하는 OAuth2 인증 코드 |  |  | X | [공용 클라이언트 및 단일 페이지 응용 프로그램](authorization-code-flow.md)  |
 | [OAuth2 암시적 흐름](implicit-flow-single-page-application.md) |  |  | X |  |
-| [OAuth2 리소스 소유자 암호 자격 증명](ropc-custom.md) |  | X |  |  |
+| [OAuth2 리소스 소유자 암호 자격 증명](add-ropc-policy.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
 | [SAML2](saml-service-provider.md)  |  |  |X  | POST 바인딩 및 리디렉션 바인딩 |
 | OAuth1 |  |  |  | 지원되지 않습니다. |

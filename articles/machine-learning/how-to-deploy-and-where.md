@@ -8,16 +8,16 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 01/13/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d2aa4d43fbc8cf9040702afb1877e0271b2eab2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561943"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568293"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Azure에 machine learning 모델 배포
 
@@ -195,11 +195,50 @@ Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에
 ```json
 {
     "entryScript": "score.py",
-    "sourceDirectory": "./working_dir"
+    "sourceDirectory": "./working_dir",
+    "environment": {
+    "docker": {
+        "arguments": [],
+        "baseDockerfile": null,
+        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "enabled": false,
+        "sharedVolumes": true,
+        "shmSize": null
+    },
+    "environmentVariables": {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+    },
+    "name": "my-deploy-env",
+    "python": {
+        "baseCondaEnvironment": null,
+        "condaDependencies": {
+            "channels": [
+                "conda-forge",
+                "pytorch"
+            ],
+            "dependencies": [
+                "python=3.6.2",
+                "torchvision"
+                {
+                    "pip": [
+                        "azureml-defaults",
+                        "azureml-telemetry",
+                        "scikit-learn==0.22.1",
+                        "inference-schema[numpy-support]"
+                    ]
+                }
+            ],
+            "name": "project_environment"
+        },
+        "condaDependenciesFile": null,
+        "interpreterPath": "python",
+        "userManagedDependencies": false
+    },
+    "version": "1"
 }
 ```
 
-이는 machine learning 배포에서 디렉터리의 파일을 사용 하 여 들어오는 요청을 처리 하도록 지정 합니다 `score.py` `./working_dir` .
+이는 machine learning 배포에서 디렉터리의 파일을 사용 하 여 `score.py` `./working_dir` 들어오는 요청을 처리 하 고 환경에 지정 된 Python 패키지와 함께 Docker 이미지를 사용 하도록 지정 합니다 `project_environment` .
 
 유추 구성에 대 한 자세한 내용은 [이 문서를 참조](./reference-azure-machine-learning-cli.md#inference-configuration-schema) 하세요. 
 
@@ -290,7 +329,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 모델을 등록 하지 않으려는 경우의 inferenceconfig.js에 "sourceDirectory" 매개 변수를 전달 하 여 모델을 제공할 로컬 디렉터리를 지정할 수 있습니다.
 
 ```azurecli-interactive
-az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json --name my_deploy
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -318,9 +357,9 @@ print(service.state)
 
 | 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
-| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
+| Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
 | 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
 | 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 

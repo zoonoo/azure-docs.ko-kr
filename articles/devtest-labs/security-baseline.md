@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 13585173b54c79158161da54f968ba66eb018f6a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27a0d5b809480b2ce4aff36c5acd43c149ed5bb3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705741"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562837"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -78,11 +78,11 @@ DDoS 공격 으로부터 보호 하기 위해 Azure 가상 네트워크에서 DD
 
 - [Azure DevTest Labs에 대 한 가상 네트워크를 구성 하는 방법](devtest-lab-configure-vnet.md)
 
-- [DDoS 보호를 구성 하는 방법](/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../ddos-protection/manage-ddos-protection.md)
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](/azure/security-center/threat-protection)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../security-center/azure-defender.md)
 
 - [적응 네트워크 강화 Azure Security Center 이해](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -144,7 +144,7 @@ DDoS 공격 으로부터 보호 하기 위해 Azure 가상 네트워크에서 DD
 
 - [서비스 태그 이해 및 사용](../virtual-network/service-tags-overview.md)
 
-- [응용 프로그램 보안 그룹 이해 및 사용](/azure/virtual-network/security-overview#application-security-groups)
+- [응용 프로그램 보안 그룹 이해 및 사용](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **책임**: Customer
 
@@ -158,7 +158,7 @@ Azure 청사진을 사용 하 여 azure 리소스 관리자 템플릿, RBAC 컨�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [네트워킹에 대 한 Azure Policy 샘플](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [네트워킹에 대 한 Azure Policy 샘플](../governance/policy/samples/built-in-policies.md#network)
 
 - [Azure Blueprint를 만드는 방법](../governance/blueprints/create-blueprint-portal.md)
 
@@ -188,9 +188,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 리소스 구성을 모니터링 하 고 azure 리소스에 대 한 변경 내용을 검색 합니다. 중요 한 리소스의 변경 내용이 발생 하는 경우 트리거할 Azure Monitor 내에서 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -214,7 +214,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그 진단 설정을 사용하도록 설정하고 보관을 위해 로그를 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure 스토리지 계정으로 보냅니다. 활동 로그는 관리 평면 수준에서 Azure DevTest Labs 인스턴스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 DevTest Labs 인스턴스에 대 한 관리 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 확인할 수 있습니다.
 
-- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](/azure/azure-monitor/platform/diagnostic-settings)
+- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)
 
 **책임**: Customer
 
@@ -224,7 +224,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그 진단 설정을 사용하도록 설정하고 보관을 위해 로그를 Log Analytics 작업 영역, Azure 이벤트 허브 또는 Azure 스토리지 계정으로 보냅니다. 활동 로그는 관리 평면 수준에서 Azure DevTest Labs 인스턴스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. Azure 활동 로그 데이터를 사용 하 여 DevTest Labs 인스턴스에 대 한 관리 평면 수준에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대해 "무엇을, 누가, 언제"를 결정할 수 있습니다.
 
-- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](/azure/azure-monitor/platform/diagnostic-settings)
+- [플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기](../azure-monitor/essentials/diagnostic-settings.md)
 
 **책임**: Customer
 
@@ -234,9 +234,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: 고객이 vm (가상 머신)을 만들고 소유 하 고 Azure DevTest Labs 합니다. 따라서이를 모니터링 하는 것은 조직의 책임입니다. Azure Security Center를 사용 하 여 계산 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/vm/quick-collect-azurevm.md)
 
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
 
@@ -248,7 +248,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure DevTest Labs 인스턴스와 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [자세한 내용은 다음 문서를 참조 하세요.](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [자세한 내용은 다음 문서를 참조 하세요.](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -258,11 +258,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 실행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Azure DevTest Labs에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공 합니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/diagnostic-settings)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](/azure/azure-monitor/platform/activity-log)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -272,7 +272,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Log Analytics 작업 영역을 사용 하 여 보안 로그 및 Azure DevTest Labs 관련 된 이벤트의 비정상적인 활동을 모니터링 하 고 경고 합니다.
 
-- [Log analytics 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -333,7 +333,7 @@ DevTest Labs에는 기본 암호 개념이 없습니다.
 - 리소스 관리: 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (Vm 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 azure에서 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
 - 가상 컴퓨터 (네트워크 수준): 기본 구성에서 Vm은 로컬 관리자 계정을 사용 합니다. 사용 가능한 도메인 (Azure Active Directory Domain Services (Azure AD DS), 온-프레미스 도메인 또는 클라우드 기반 도메인)이 있으면 컴퓨터를 도메인에 조인할 수 있습니다. 그런 다음 사용자는 도메인 가입 아티팩트를 사용 하 여 도메인 기반 id를 사용 하 여 컴퓨터에 연결할 수 있습니다.
 
-- [DevTest Labs에 대 한 참조 아키텍처](https://docs.microsoft.com/azure/devtest-labs/devtest-lab-reference-architecture#architecture)
+- [DevTest Labs에 대 한 참조 아키텍처](./devtest-lab-reference-architecture.md#architecture)
 
 - [Azure AD를 사용 하 여 SSO 이해](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -451,7 +451,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure DevTest Labs에서 실습에 대 한 액세스를 제어 합니다.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [DevTest Labs의 역할 이해](devtest-lab-add-devtest-user.md)
 
@@ -463,7 +463,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure 활동 로그와 Azure Monitor를 사용 하 여 변경 내용이 DevTest Labs 인스턴스 및 기타 중요 한 리소스 또는 관련 된 리소스에 적용 되는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [DevTest Labs 활동 로그 이벤트에 대 한 경고를 만드는 방법](create-alerts.md)
 
@@ -481,7 +481,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [Azure Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -595,7 +595,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -625,7 +625,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 스크립트 유형에 따라 운영 체제별 구성 또는 타사 리소스를 사용 하 여 DevTest Labs에서 호스트 되는 vm 내에서 사용자가 스크립트를 실행 하는 기능을 제한할 수 있습니다. Azure Security Center 적응 응용 프로그램 제어를 사용 하 여 권한이 있는 소프트웨어만 실행 되 고 모든 권한이 없는 소프트웨어가 기본 Azure Vm에서 실행 되지 않도록 차단할 수도 있습니다.
 
-- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [Windows 환경에서 PowerShell 스크립트 실행을 제어 하는 방법](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&view=powershell-7)
 
 - [Azure Security Center 적응 응용 프로그램 컨트롤을 사용 하는 방법](../security-center/security-center-adaptive-application.md)
 
@@ -665,7 +665,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구성 기준으로 사용할 수도 있습니다.
 
-- [사용 가능한 Azure Policy 별칭을 보는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure Policy 별칭을 보는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [자습서: 규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)
 
@@ -721,7 +721,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure Automation 상태 구성 개요](../automation/automation-dsc-overview.md)
 
-- [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
+- [Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 - [DevTest Labs에서 이미지 팩터리를 만드는 방법](image-factory-create.md)
 
@@ -735,7 +735,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure Repos Git 자습서](/azure/devops/repos/git/gitworkflow)
 
-- [권한 및 그룹 정보](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&amp;tabs=preview-page&amp;preserve-view=true)
+- [권한 및 그룹 정보](/azure/devops/organizations/security/about-permissions?preserve-view=true&tabs=preview-page&view=azure-devops)
 
 - [Azure DevTest Labs와 Azure DevOps 워크플로 간 통합](devtest-lab-dev-ops.md)
 
@@ -749,7 +749,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [DevTest Labs에 대 한 공유 이미지 갤러리 구성](configure-shared-image-gallery.md)
 
@@ -765,7 +765,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 **책임**: Customer
 
@@ -853,7 +853,7 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 
 - [Azure 용 Microsoft 맬웨어 방지를 구성 하는 방법](../security/fundamentals/antimalware.md) 
 
-- [위협 방지 및 Azure Security Center](/azure/security-center/threat-protection)
+- [위협 방지 및 Azure Security Center](../security-center/azure-defender.md)
 
 **책임**: Customer
 
@@ -869,7 +869,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 - [Azure에 대 한 Microsoft 맬웨어 방지 이해](../security/fundamentals/antimalware.md) 
 
-- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](/azure/security-center/security-center-alerts-data-services)
+- [데이터 서비스에 대 한 Azure Security Center의 위협 검색 이해](../security-center/azure-defender.md)
 
 **책임**: Customer
 
@@ -913,7 +913,7 @@ App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스�
 
 - [Azure VM 백업 개요](../backup/backup-azure-vms-introduction.md)
 
-- [Azure에서 Key Vault 키를 백업 하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 Key Vault 키를 백업 하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
@@ -929,7 +929,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 - [Azure VM 백업에서 파일을 복구 하는 방법](../backup/backup-azure-restore-files-from-vm.md)
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 - [암호화 된 VM을 백업 및 복원 하는 방법](../backup/backup-azure-vms-encryption.md)
 
@@ -975,7 +975,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 - [Azure Security Center의 보안 경고](../security-center/security-center-alerts-overview.md) 
 
-- [태그를 사용하여 Azure 리소스 구성](/azure/azure-resource-manager/resource-group-using-tags).
+- [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md).
 
 **책임**: Customer
 
@@ -1041,5 +1041,5 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

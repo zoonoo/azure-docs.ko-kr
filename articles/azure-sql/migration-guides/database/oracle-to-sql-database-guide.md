@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 9b02b0e5d9e3229aafec9b8a4ca21b14c0e596a6
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 62b1924a1aeb1c1e5bc06ec0783d83d6918d162c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105022282"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557924"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>마이그레이션 가이드: Oracle to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -143,7 +143,7 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 
 또는 SSIS (SQL Server Integration Services)를 사용 하 여 마이그레이션을 수행할 수도 있습니다. 자세한 내용은 다음을 참조하세요. 
 
-- [SQL Server Integration Services 시작](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services 시작](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services: Azure 및 하이브리드 데이터 이동을 위한 SSIS](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
 
@@ -196,7 +196,7 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
+- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](../../../dms/dms-tools-matrix.md)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
 
 - Azure SQL Database에 대 한 자세한 내용은 다음을 참조 하세요. 
   - [Azure SQL Database 개요](../../database/sql-database-paas-overview.md)
@@ -209,5 +209,3 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 
 - 비디오 콘텐츠는 다음을 참조하세요. 
     - [평가 및 마이그레이션을 수행 하는 데 권장 되는 마이그레이션 경험 및 도구/서비스의 개요](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)
-
-

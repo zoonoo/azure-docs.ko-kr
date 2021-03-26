@@ -7,12 +7,12 @@ ms.author: v-mibufo
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: b11aedb52be3c263c781c2ac68d1d5197ba4def2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3d1a1135db0421d89d4c6c9f278c86e02cb5cb32
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745717"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558961"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스 (클래식)를 배포할 때 LocationNotFoundForRoleSize 문제 해결
 
@@ -41,13 +41,13 @@ Azure Portal에서 클라우드 서비스 (클래식)로 이동 하 고 사이�
 
 배포 하는 지역 또는 클러스터에는 용량 문제가 있습니다. *LocationNotFoundForRoleSize* 예외는 지정한 지역에 대해 선택한 리소스 SKU (VM 크기)를 사용할 수 없는 경우에 발생 합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 시나리오에서는 클라우드 서비스 (클래식)를 배포할 다른 지역 또는 SKU를 선택 해야 합니다. 클라우드 서비스 (클래식)를 배포 하거나 업그레이드 하기 전에 지역 또는 가용성 영역에서 사용할 수 있는 Sku를 확인할 수 있습니다. 아래 [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell)또는 [REST API](#list-skus-in-region-using-rest-api) 프로세스를 따르세요.
 
 ### <a name="list-skus-in-region-using-azure-cli"></a>Azure CLI를 사용 하 여 지역에서 Sku 나열
 
-[Az vm list-sku](https://docs.microsoft.com/cli/azure/vm.html#az_vm_list_skus) 명령을 사용할 수 있습니다.
+[Az vm list-sku](/cli/azure/vm.html#az_vm_list_skus) 명령을 사용할 수 있습니다.
 
 - 사용 중인 `--location` 위치에 대 한 출력을 필터링 하려면 매개 변수를 사용 합니다.
 - `--size` 매개 변수를 사용하여 부분 크기 이름별로 검색합니다.
@@ -63,7 +63,7 @@ Azure Portal에서 클라우드 서비스 (클래식)로 이동 하 고 사이�
 
 #### <a name="list-skus-in-region-using-powershell"></a>PowerShell을 사용 하 여 지역에서 Sku 나열
 
-[AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) 명령을 사용할 수 있습니다.
+[AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) 명령을 사용할 수 있습니다.
 
 - 결과를 위치별로 필터링합니다.
 - 이 명령이 작동하려면 최신 버전의 PowerShell이 있어야 합니다.
@@ -91,7 +91,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 
 #### <a name="list-skus-in-region-using-rest-api"></a>REST API를 사용 하 여 지역에서 Sku 나열
 
-[리소스 Sku 목록](https://docs.microsoft.com/rest/api/compute/resourceskus/list) 작업을 사용할 수 있습니다. 다음과 같은 형식으로 사용 가능한 SKU 및 지역을 반환합니다.
+[리소스 Sku 목록](/rest/api/compute/resourceskus/list) 작업을 사용할 수 있습니다. 다음과 같은 형식으로 사용 가능한 SKU 및 지역을 반환합니다.
 
 ```json
 {

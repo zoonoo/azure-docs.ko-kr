@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 9b85caa3611c484fc17423637dc36ce20b48b823
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7f5afc05a8d03d33366a2f76318bcf5e039d4d30
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868480"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561664"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Azure Portal를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure에서 Express 경로를 통해 Azure의 리소스에 연결 하기 위해 IPv6 지원을 추가 하는 방법을 설명 합니다. 
 
 > [!Note]
-> 이 기능은 현재 [가용성 영역를 사용 하 여 Azure 지역](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones)에서 미리 보기에 사용할 수 있습니다. 따라서 Express 경로 회로를 피어 링 위치를 사용 하 여 만들 수 있지만 연결 하는 IPv6 기반 배포는 가용성 영역 있는 지역에 있어야 합니다.
+> 이 기능은 현재 [가용성 영역를 사용 하 여 Azure 지역](../availability-zones/az-region.md#azure-regions-with-availability-zones)에서 미리 보기에 사용할 수 있습니다. 따라서 Express 경로 회로를 피어 링 위치를 사용 하 여 만들 수 있지만 연결 하는 IPv6 기반 배포는 가용성 영역 있는 지역에 있어야 합니다.
 
 ## <a name="register-for-public-preview"></a>공개 미리 보기 등록
 IPv6 지원을 추가 하기 전에 먼저 구독을 등록 해야 합니다. 등록 하려면 Azure PowerShell를 통해 다음 명령을 실행 합니다.
