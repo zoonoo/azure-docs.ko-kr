@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: abbae7f8cb047f2f2ad3d998966bc00b02a002d4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 03a29e121d3838404519045601d484a1875db9ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864026"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557244"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -100,6 +100,7 @@ ms.locfileid: "104864026"
 * [클라우드 볼륨 ONTAP 및 Azure NetApp Files: SAP HANA 시스템 마이그레이션을 손쉽게 수행할 수 있습니다.](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
 * [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-1 부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
 * [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-2 부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [HANA N + M Scale-Out 아키텍처의 ANF 투자를 극대화 하기 위한 아키텍처 결정-3 부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware 솔루션
 

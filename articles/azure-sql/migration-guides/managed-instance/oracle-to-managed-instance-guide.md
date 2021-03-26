@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 1c2fbc90d3956ab831e6d9fac4e1e2d3540e1c6d
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 6cf6e8e3f19b11a49e91b781b1ef6d83bf647903
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025427"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563007"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>마이그레이션 가이드: Oracle에서 Azure SQL Managed Instance로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -142,11 +142,8 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 
 또는 SSIS (SQL Server Integration Services)를 사용 하 여 마이그레이션을 수행할 수도 있습니다. 자세한 내용은 다음을 참조하세요. 
 
-- [SQL Server Integration Services 시작](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [SQL Server Integration Services 시작](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services: Azure 및 하이브리드 데이터 이동을 위한 SSIS](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
-
-    
-
 
 ## <a name="post-migration"></a>마이그레이션 후 
 
@@ -194,7 +191,7 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
+- 다양한 데이터베이스 및 데이터 마이그레이션 시나리오와 특수 작업을 지원하는 데 사용할 수 있는 Microsoft와 타사의 서비스 및 도구 표는 [Service and tools for data migration](../../../dms/dms-tools-matrix.md)(데이터 마이그레이션을 위한 서비스 및 도구) 문서를 참조하세요.
 
 - Azure SQL Managed Instance에 대 한 자세한 내용은 다음을 참조 하세요. 
   - [Azure SQL Managed Instance 개요](../../managed-instance/sql-managed-instance-paas-overview.md)

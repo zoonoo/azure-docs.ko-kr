@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/08/2020
-ms.openlocfilehash: 090c738d06b9b8acd53a4c194e97fa3a0515e1d6
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: c9e1abc5fb6f66981f56bc262319587d9fc4265e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783390"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566662"
 ---
 # <a name="how-to-use-parameters-expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory에서 매개 변수, 식 및 함수를 사용 하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "104783390"
 
 ## <a name="azure-data-factory-ui-and-parameters"></a>Azure data factory UI 및 매개 변수
 
-ADF 사용자 인터페이스에서 Azure data factory 매개 변수를 처음 사용 하는 경우, 시각적 설명 [매개 변수를 사용 하 여 메타 데이터 기반 파이프라인에 대](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) 한 매개 변수 및 데이터 팩터리 ui를 [사용 하 여 연결 된 서비스의 data factory ui](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui) 를 검토 하세요
+ADF 사용자 인터페이스에서 Azure data factory 매개 변수를 처음 사용 하는 경우, 시각적 설명 [매개 변수를 사용 하 여 메타 데이터 기반 파이프라인에 대](./how-to-use-trigger-parameterization.md#data-factory-ui) 한 매개 변수 및 데이터 팩터리 ui를 [사용 하 여 연결 된 서비스의 data factory ui](./parameterize-linked-services.md#data-factory-ui) 를 검토 하세요
 
 ## <a name="parameter-and-expression-concepts"></a>매개 변수 및 식 개념 
 
@@ -313,11 +313,11 @@ ADF 사용자 인터페이스에서 Azure data factory 매개 변수를 처음 �
 
 ### <a name="detailed--mapping-data-flow-pipeline-with-parameters"></a>매개 변수를 사용 하는 상세 매핑 데이터 흐름 파이프라인 
 
-데이터 흐름에서 매개 변수를 사용 하는 방법에 대 한 포괄적인 예는 [매개 변수를 사용 하 여 데이터 흐름 매핑](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) 을 수행 하세요.
+데이터 흐름에서 매개 변수를 사용 하는 방법에 대 한 포괄적인 예는 [매개 변수를 사용 하 여 데이터 흐름 매핑](./parameters-data-flow.md) 을 수행 하세요.
 
 ### <a name="detailed-metadata-driven-pipeline-with-parameters"></a>매개 변수가 있는 자세한 메타 데이터 기반 파이프라인
 
-매개 변수를 사용 하 여 메타 데이터 기반 파이프라인을 디자인 하는 방법에 대 한 자세한 내용은 [메타 데이터 기반 파이프라인](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) 을 참조 하세요. 매개 변수를 사용 하는 일반적인 사용 사례입니다.
+매개 변수를 사용 하 여 메타 데이터 기반 파이프라인을 디자인 하는 방법에 대 한 자세한 내용은 [메타 데이터 기반 파이프라인](./how-to-use-trigger-parameterization.md) 을 참조 하세요. 매개 변수를 사용 하는 일반적인 사용 사례입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

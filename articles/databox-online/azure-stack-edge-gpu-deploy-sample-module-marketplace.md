@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: e6a58a1f404228564e4e1ac6d77051a747debaa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e22014380d568b12e1e3bec751a75180d0760ab7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438162"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568422"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
 
@@ -113,4 +113,4 @@ ms.locfileid: "102438162"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [모듈을 사용 하도록 GPU를 구성](azure-stack-edge-j-series-configure-gpu-modules.md)하는 방법에 대해 자세히 알아보세요.
+- [모듈을 사용 하도록 GPU를 구성](./azure-stack-edge-gpu-configure-gpu-modules.md)하는 방법에 대해 자세히 알아보세요.

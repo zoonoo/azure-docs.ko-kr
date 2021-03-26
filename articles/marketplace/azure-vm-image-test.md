@@ -7,12 +7,12 @@ ms.topic: how-to
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 9ffba221625c57332cd695125651d92adc11cf60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 467b7d605b57c479d84fc995b4e0dc53b3ac5275
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200370"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558298"
 ---
 # <a name="test-a-virtual-machine-image"></a>가상 컴퓨터 이미지 테스트
 
@@ -28,7 +28,7 @@ ms.locfileid: "103200370"
 1. 검토 + 만들기를 클릭합니다. 유효성 검사를 통과 한 후 만들기를 클릭 합니다.
 
 > [!NOTE]
-> Vhd 파일에서 VM을 만들어야 하는 경우 다음 문서의 지침을 따르세요. [Azure Resource Manager 템플릿 준비](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) 또는 [PowerShell을 사용 하 여 Azure VM 배포](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell)를 참조 하세요.
+> Vhd 파일에서 VM을 만들어야 하는 경우 다음 문서의 지침을 따르세요. [Azure Resource Manager 템플릿 준비](#connect-the-certification-tool-to-a-vm-image) 또는 [PowerShell을 사용 하 여 Azure VM 배포](#how-to-use-powershell-to-consume-the-self-test-api)를 참조 하세요.
 
 이 문서에서는 상업용 Marketplace에서 VM(가상 머신) 이미지를 테스트하고 제출하여 최신 Azure Marketplace 게시 요구 사항을 충족하도록 하는 방법을 설명합니다.
 
@@ -66,7 +66,7 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="VM 사용자 이름 및 암호를 선택 하는 방법을 보여 줍니다.":::
 
-6. **다음** 을 선택합니다.
+6. **새로 만들기** 를 선택합니다.
 
 #### <a name="run-a-certification-test"></a>인증 테스트 실행
 

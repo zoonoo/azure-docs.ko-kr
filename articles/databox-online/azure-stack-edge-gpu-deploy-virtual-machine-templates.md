@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2922e9620f558e072cfc1264f7e661efd11a90fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf236396f080af9676f211c42178ddda6a794420
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437011"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568344"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
@@ -110,7 +110,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge Pro에서 저장소 계정에 연결 추가](azure-stack-edge-j-series-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
+> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge Pro에서 저장소 계정에 연결 추가](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
 
 샘플 출력은 다음과 같습니다.
 
@@ -187,11 +187,11 @@ Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파
 
     ![Azure Storage 1에 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. **스토리지 계정 이름 및 키 사용** 을 선택합니다. **다음** 을 선택합니다.
+5. **스토리지 계정 이름 및 키 사용** 을 선택합니다. **새로 만들기** 를 선택합니다.
 
     ![Azure Storage 2에 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. **연결 이름 및 키** 에 **표시 이름**, **저장소 계정 이름**, Azure Storage **계정 키** 를 제공 합니다. **다른** 저장소 도메인을 선택한 다음 `<device name>.<DNS domain>` 연결 문자열을 입력 합니다. Storage 탐색기에서 인증서를 설치 하지 않은 경우 **HTTP 사용** 옵션을 선택 합니다. **다음** 을 선택합니다.
+6. **연결 이름 및 키** 에 **표시 이름**, **저장소 계정 이름**, Azure Storage **계정 키** 를 제공 합니다. **다른** 저장소 도메인을 선택한 다음 `<device name>.<DNS domain>` 연결 문자열을 입력 합니다. Storage 탐색기에서 인증서를 설치 하지 않은 경우 **HTTP 사용** 옵션을 선택 합니다. **새로 만들기** 를 선택합니다.
 
     ![이름 및 키로 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 

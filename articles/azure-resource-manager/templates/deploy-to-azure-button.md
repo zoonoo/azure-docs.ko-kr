@@ -2,13 +2,13 @@
 title: Azure 단추에 배포
 description: GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포 하려면 단추를 사용 합니다.
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: abe59f377474540e9209691df8b1d1a7b806c26d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: e25d49571347bb5ed27dbd52bb60c68cbeb4360d
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028746"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543784"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 단추를 사용 하 여 GitHub 리포지토리에서 템플릿 배포
 
@@ -76,7 +76,7 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 링크에 대 한 전체 URL이 있습니다.
 
-일반적으로 공용 리포지토리에서 템플릿을 호스팅합니다. 개인 리포지토리를 사용 하는 경우 템플릿의 원시 콘텐츠를 액세스 하는 토큰을 포함 해야 합니다. GitHub에 의해 생성 된 토큰은 짧은 시간 동안만 유효 합니다. 링크를 자주 업데이트 해야 합니다.
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 GitHub 리포지토리 대신 [Azure Repos에서 Git](/azure/devops/repos/git/) 를 사용 하는 경우 **Azure에 배포** 단추를 계속 사용할 수 있습니다. 리포지토리가 공용 인지 확인 합니다. [항목 작업](/rest/api/azure/devops/git/items/get) 을 사용 하 여 템플릿을 가져옵니다. 요청은 다음 형식 이어야 합니다.
 

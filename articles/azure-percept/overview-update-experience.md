@@ -5,21 +5,21 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/24/2021
 ms.custom: template-concept
-ms.openlocfilehash: 68244e1669bbdce8215df467564ea3aca56b530c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1f09bc5b753da1d79b7701e95e4c2d8bc62647c9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098131"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567630"
 ---
-# <a name="the-azure-percept-dk-update-experience"></a>Azure Percept 진한 업데이트 환경
+# <a name="azure-percept-dk-update-experience-overview"></a>Azure Percept DK 업데이트 환경 개요
 
-Azure Percept 진한 사용자는 dev kit OS 및 펌웨어를 업데이트 하는 두 가지 옵션 (OTA (공중파) 또는 USB를 통해)을 사용할 수 있습니다. OTA 업데이트는 장치를 최신 상태로 유지 하는 간편한 방법입니다. USB 업데이트는 OTA를 사용할 수 없거나 장치를 공장 기본 설정으로 설정 하려는 경우에 적합 한 옵션입니다. 어떤 업데이트 방법을 사용 하는 것이 가장 적합 한지 확인 하기 위해 사용자에 게 도움이 되는 방법 가이드의 컬렉션을 포함 했습니다. 
+Azure Percept 진한 사용자는 개발 키트 OS 및 무선 (OTA) 또는 USB를 통해 펌웨어를 업데이트할 수 있습니다. OTA 업데이트는 [IoT Hub 서비스에 대 한 장치 업데이트](https://docs.microsoft.com/azure/iot-hub-device-update/) 를 통해 장치를 최신 상태로 유지 하는 간편한 방법입니다. USB 업데이트는 OTA 업데이트를 사용할 수 없는 사용자 또는 장치의 공장 재설정이 필요한 경우에 사용할 수 있습니다. 다음 방법 가이드를 확인 하 여 Azure Percept 진한 장치 업데이트를 시작 하세요.
 
-- [Azure IoT Hub를 설정 하 여 air 업데이트를 통해 Azure Percept에 배포 하는 방법](./how-to-set-up-over-the-air-updates.md)
-- [무선을 통해 Azure Percept 진한을 업데이트 하는 방법](./how-to-update-over-the-air.md)
+- [Azure Percept 진한 무선 (OTA) 업데이트를 배포 하는 Azure IoT Hub 설정](./how-to-set-up-over-the-air-updates.md)
+- [Azure Percept 진한 무선 (OTA) 업데이트](./how-to-update-over-the-air.md)
 - [USB를 통해 Azure Percept 진한 업데이트](./how-to-update-via-usb.md)
 
 ## <a name="next-steps"></a>다음 단계

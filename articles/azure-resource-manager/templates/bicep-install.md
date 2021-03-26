@@ -3,12 +3,12 @@ title: Bicep 개발 및 배포 환경 설정
 description: Bicep 개발 및 배포 환경을 구성 하는 방법
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: d665a863affdec2009fc208f76b85a7f25de451d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd3721aca83488de61494a94826bfcd0b6acc26
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594396"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543740"
 ---
 # <a name="setup-bicep-development-and-deployment-environment"></a>Bicep 개발 및 배포 환경 설정
 
@@ -31,7 +31,7 @@ Azure CLI 또는 Azure PowerShell를 사용 하 여 Bicep 파일을 배포할 �
 - [macOS에 Azure CLI 설치](/cli/azure/install-azure-cli-macos)
 
 > [!NOTE]
-> 현재 Azure CLI와 Azure PowerShell 모두 로컬 Bicep 파일만 배포할 수 있습니다. Azure CLI를 사용 하 여 Bicep 파일을 배포 하는 방법에 대 한 자세한 내용은 [배포-CLI](/deploy-cli.md#deploy-remote-template)를 참조 하세요. Azure PowerShell를 사용 하 여 Bicep 파일을 배포 하는 방법에 대 한 자세한 내용은 [배포-PowerShell](/deploy-powershell.md#deploy-remote-template)을 참조 하세요.
+> 현재 Azure CLI와 Azure PowerShell 모두 로컬 Bicep 파일만 배포할 수 있습니다. Azure CLI를 사용 하 여 Bicep 파일을 배포 하는 방법에 대 한 자세한 내용은 [배포-CLI](./deploy-cli.md#deploy-remote-template)를 참조 하세요. Azure PowerShell를 사용 하 여 Bicep 파일을 배포 하는 방법에 대 한 자세한 내용은 [배포-PowerShell]( ./deploy-powershell.md#deploy-remote-template)을 참조 하세요.
 
 지원 되는 Azure PowerShell 또는 Azure CLI 버전이 설치 되 면 다음을 사용 하 여 Bicep 파일을 배포할 수 있습니다.
 
@@ -100,7 +100,7 @@ az bicep list-versions
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-Azure PowerShell에는 Bicep CLI를 아직 설치할 수 있는 기능이 없습니다. Azure PowerShell (v 5.6.0 이상)에는 Bicep CLI가 이미 설치 되어 있고 경로에 사용할 수 있어야 합니다. [수동 설치 방법](#install-manually)중 하나를 수행 합니다. Bicep CLI가 설치 되 면 deployment cmdlet에 필요할 때마다 Bicep CLI가 호출 됩니다. 예: `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`
+Azure PowerShell에는 Bicep CLI를 아직 설치할 수 있는 기능이 없습니다. Azure PowerShell (v 5.6.0 이상)에는 Bicep CLI가 이미 설치 되어 있고 경로에 사용할 수 있어야 합니다. [수동 설치 방법](#install-manually)중 하나를 수행 합니다. Bicep CLI가 설치 되 면 deployment cmdlet에 필요할 때마다 Bicep CLI가 호출 됩니다. 예들 들어 `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`입니다.
 
 ### <a name="install-manually"></a>수동 설치
 

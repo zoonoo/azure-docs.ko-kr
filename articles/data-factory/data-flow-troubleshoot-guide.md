@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77007f0d9ffac39ecb6f21957dd8cd1bf7a0b945
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593856"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565710"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑 문제 해결
 
@@ -302,7 +302,7 @@ ms.locfileid: "104593856"
 
 ### <a name="error-code-df-excel-invalidrange"></a>오류 코드: DF-Excel-InvalidRange
 - **메시지**: 잘못 된 범위를 제공 했습니다.
-- **권장 사항**: 매개 변수 값을 확인 하 고 올바른 범위를 [Azure 데이터 Factory-Dataset 속성의 Excel 형식](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties)참조로 지정 합니다.
+- **권장 사항**: 매개 변수 값을 확인 하 고 올바른 범위를 [Azure 데이터 Factory-Dataset 속성의 Excel 형식](./format-excel.md#dataset-properties)참조로 지정 합니다.
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>오류 코드: DF-Excel-워크시트 작업
 - **메시지**: Excel 워크시트가 없습니다.
@@ -369,4 +369,3 @@ ms.locfileid: "104593856"
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Data Factory에 대한 Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)
-

@@ -3,16 +3,16 @@ title: Windows에서 Linux 용 IoT Edge에 배포-Azure
 description: 이 문서에서는 Windows 장치에서 Linux 용 IoT Edge에 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: 9ec28c62ca804137ede3cd60d1980e55fbaa2807
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d5c3d89ae7447b062714ad90be117a6426a39581
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618137"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561086"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Windows의 Linux (EFLOW) 장치에 대 한 IoT Edge에 배포
 
-이 문서에서는 [EFLOW (Windows On Windows)에 대 한 IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows)있는에 지 장치에 라이브 비디오 분석을 배포 하는 방법에 대해 알아봅니다. 이 문서의 단계를 완료 하면 비디오에서 동작을 감지 하 고 해당 이벤트를 클라우드의 IoT hub로 내보내는 [미디어 그래프가](media-graph-concept.md) 실행 될 수 있습니다. 그런 다음 고급 시나리오에 대 한 미디어 그래프를 전환 하 고 라이브 비디오 분석 기능을 Windows 기반 IoT Edge 장치로 가져올 수 있습니다.
+이 문서에서는 [EFLOW (Windows On Windows)에 대 한 IoT Edge](../../iot-edge/iot-edge-for-linux-on-windows.md)있는에 지 장치에 라이브 비디오 분석을 배포 하는 방법에 대해 알아봅니다. 이 문서의 단계를 완료 하면 비디오에서 동작을 감지 하 고 해당 이벤트를 클라우드의 IoT hub로 내보내는 [미디어 그래프가](media-graph-concept.md) 실행 될 수 있습니다. 그런 다음 고급 시나리오에 대 한 미디어 그래프를 전환 하 고 라이브 비디오 분석 기능을 Windows 기반 IoT Edge 장치로 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 
@@ -21,7 +21,7 @@ ms.locfileid: "102618137"
     > [!NOTE]
     > 서비스 주체를 만들 수 있는 권한이 있는 Azure 구독이 필요합니다(**소유자 역할** 이 이를 제공함). 적절 한 권한이 없는 경우 계정 관리자에 게 연락 하 여 적절 한 권한을 부여 합니다.
 * 개발 컴퓨터의 [Visual Studio Code](https://code.visualstudio.com/). [Azure IoT Tools 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)이 있는지 확인합니다.
-* [EFLOW 정의를](https://aka.ms/AzEFLOW-docs)참조 하세요.
+* [EFLOW 정의를](../../iot-edge/iot-edge-for-linux-on-windows.md)참조 하세요.
 
 ## <a name="deployment-steps"></a>배포 단계
 
@@ -29,9 +29,9 @@ ms.locfileid: "102618137"
 
 :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="Windows의 Linux 용 IoT Edge (EFLOW) 다이어그램":::
 
-1. Windows 장치에 [EFLOW를 설치](https://aka.ms/AzEFLOW-install) 합니다. 
+1. Windows 장치에 [EFLOW를 설치](../../iot-edge/how-to-install-iot-edge-on-windows.md) 합니다. 
 
-    1. Windows PC를 사용 하는 경우 windows [관리 센터](https://docs.microsoft.com/windows-server/manage/windows-admin-center/overview) 시작 페이지의 연결 목록 아래에 Windows 관리 센터를 실행 하는 PC를 나타내는 로컬 호스트 연결이 표시 됩니다. 
+    1. Windows PC를 사용 하는 경우 windows [관리 센터](/windows-server/manage/windows-admin-center/overview) 시작 페이지의 연결 목록 아래에 Windows 관리 센터를 실행 하는 PC를 나타내는 로컬 호스트 연결이 표시 됩니다. 
     1. 관리 하는 모든 추가 서버, Pc 또는 클러스터도 여기에 표시 됩니다.
     1. Windows 관리 센터를 사용 하 여 로컬 장치나 원격 관리 장치에서 Azure EFLOW를 설치 하 고 관리할 수 있습니다. 이 가이드에서는 Windows에서 Linux 용 Azure IoT Edge를 배포 하기 위한 대상 장치로 제공 되는 로컬 호스트 연결을 제공 합니다. 따라서 localhost가 IoT Edge 장치로 나열 됩니다.
 
@@ -110,4 +110,3 @@ ms.locfileid: "102618137"
 * [라이브 비디오에서 AI](use-your-model-quickstart.md#overview) 실행 (위에서 이미 수행 된 필수 구성 요소 설치를 건너뛸 수 있음)
 * [VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) 을 사용 하 여 추가 미디어 그래프를 볼 수 있습니다.
 * RTSP 시뮬레이터를 사용 하는 대신 RTSP를 지 원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)  를 사용 합니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products/) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: b962d66349bbed112114c010e8d185ba16c74c8d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443083"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560236"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 워크 로드 관리 Kubernetes
 
@@ -83,7 +83,7 @@ Azure Stack Edge Pro 장치에 응용 프로그램을 배포 하려면 다음 �
 
 Kubectl를 통해 응용 프로그램을 로컬로 배포 하려면 다음을 참조 하세요.
 
-- [Kubectl를 통해 Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md)합니다.
+- [Kubectl를 통해 Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)합니다.
 
 IoT Edge를 통해 앱을 배포 하려면 다음을 참조 하세요.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4d75986880075f6eb07aa31b9322bdae15535802
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1d42843805f4fce24368dd07de3a73fec2545957
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437607"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567528"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -74,7 +74,7 @@ Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에
     
     ![Kubernetes 리소스 공급자 3 등록](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-를 통해 리소스 공급자를 등록할 수도 있습니다 `az cli` . 자세한 내용은 [Azure Arc 활성화 된 Kubernetes에 대 한 두 공급자 등록](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes) 을 참조 하세요.
+를 통해 리소스 공급자를 등록할 수도 있습니다 `az cli` . 자세한 내용은 [Azure Arc 활성화 된 Kubernetes에 대 한 두 공급자 등록](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes) 을 참조 하세요.
 
 ## <a name="create-service-principal-assign-role"></a>서비스 주체 만들기, 역할 할당
 
@@ -226,7 +226,7 @@ Azure Arc 관리를 제거 하려면 다음 단계를 수행 합니다.
 
 
 > [!NOTE]
-> 기본적으로 `yamls` Git 리포지토리에서 리소스를 삭제 하면 해당 리소스가 Kubernetes 클러스터에서 삭제 되지 않습니다. `--sync-garbage-collection`Git 리포지토리에서 삭제 될 때 리소스 삭제를 허용 하도록 Arc OperatorParams에서를 설정 해야 합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters) 를 참조 하세요.
+> 기본적으로 `yamls` Git 리포지토리에서 리소스를 삭제 하면 해당 리소스가 Kubernetes 클러스터에서 삭제 되지 않습니다. `--sync-garbage-collection`Git 리포지토리에서 삭제 될 때 리소스 삭제를 허용 하도록 Arc OperatorParams에서를 설정 해야 합니다. 자세한 내용은 [구성 삭제](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

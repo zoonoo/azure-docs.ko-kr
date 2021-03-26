@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 1a0fc569b7d552101c1e0bd1a065b2a91ebfa3c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 139eeaa83629f3ef51f8eda414622f7da54dfab4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439615"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560253"
 ---
 # <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes 네트워킹
 
@@ -86,4 +86,4 @@ Azure Stack Edge Pro에서 Kubernetes 네트워킹을 구성 하려면 다음을
 
 - [IoT Edge를 통해 Azure Stack Edge Pro에서 외부 상태 비저장 응용 프로그램을 노출](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)합니다.
 
-- [Kuebctl를 통해 Azure Stack Edge Pro에서 외부적으로 상태 비저장 응용 프로그램을 노출](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md)합니다.
+- [Kuebctl를 통해 Azure Stack Edge Pro에서 외부적으로 상태 비저장 응용 프로그램을 노출](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)합니다.

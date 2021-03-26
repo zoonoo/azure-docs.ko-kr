@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06eb7e8d1be2e58fd6cf87167a585a2ffeee0d7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 676fdf264cb930069425a330c3da9cd753bf8e0a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97708486"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567036"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -64,14 +64,14 @@ ms.locfileid: "97708486"
 
 다음 **적격** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| | |
+| | Description |
 | --- | --- |
 | **영구 적격 할당 허용** | 전역 관리자 및 권한 있는 역할 관리자는 영구 적격 할당을 할당할 수 있습니다. |
 | **적격 할당 만료 기준 시간** | 전역 관리자 및 권한 있는 역할 관리자가 모든 적격 할당에 지정 된 시작 및 종료 날짜를 요구할 수 있습니다. |
 
 또한 다음 **활성** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| | |
+| | Description |
 | --- | --- |
 | **영구 활성 할당 허용** | 전역 관리자 및 권한 있는 역할 관리자는 영구 활성 할당을 할당할 수 있습니다. |
 | **활성 할당 만료 기준 시간** | 전역 관리자 및 권한 있는 역할 관리자는 모든 활성 할당에 지정 된 시작 및 종료 날짜가 포함 되도록 요구할 수 있습니다. |

@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ded81389fae5954c0e488f634945b4f1c1fe4c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 40779e4517b610e52e41caacc46fc613b72023e5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96009044"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567138"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -78,14 +78,14 @@ Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Az
 
 다음 **적격** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| | |
+| | Description |
 | --- | --- |
 | **영구 적격 할당 허용** | 리소스 관리자가 영구 적격 할당을 할당할 수 있습니다. |
 | **적격 할당 만료 기준 시간** | 리소스 관리자는 모든 적격 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |
 
 또한 다음 **활성** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| | |
+| | Description |
 | --- | --- |
 | **영구 활성 할당 허용** | 리소스 관리자는 영구 활성 할당을 할당할 수 있습니다. |
 | **활성 할당 만료 기준 시간** | 리소스 관리자는 모든 활성 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |

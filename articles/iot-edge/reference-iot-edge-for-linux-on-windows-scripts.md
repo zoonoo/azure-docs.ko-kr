@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0b49cf4fe28e2a9b4d15f889d227b443777b1efa
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5286362369e0c4881cdf0c56bc13d1d340056be1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889249"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562514"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Windows에서 Linux 용 IoT Edge PowerShell 스크립트
 
@@ -48,10 +48,10 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 | vmUser | 30 자이 하 | 가상 컴퓨터에 로그온 하기 위한 사용자 이름입니다. |
 | vnetType | **투명** 또는 **ICS** | 가상 스위치의 유형입니다. **기본값**: 투명 합니다. |
 | vnetName | 64 자를 초과 하지 않습니다. | 가상 스위치의 이름입니다. **기본값**: 외부. |
-| enableVtpm | 없음 | **스위치 매개 변수** 입니다. TPM을 사용 하거나 사용 하지 않도록 설정 하 여 가상 컴퓨터를 만듭니다. |
+| enableVtpm | None | **스위치 매개 변수** 입니다. TPM을 사용 하거나 사용 하지 않도록 설정 하 여 가상 컴퓨터를 만듭니다. |
 | mobyPackageVersion | 30 자이 하 |  가상 머신에서 확인 하거나 설치할 Moby 패키지의 버전입니다.  **기본값** 은 19.03.11입니다. |
 | iotedgePackageVersion | 30 자이 하 | 가상 머신에서 확인 하거나 설치할 IoT Edge 패키지의 버전입니다. **기본값** 은 1.1.0입니다. |
-| installPackages | 없음 | **스위치 매개 변수** 입니다. 이 옵션이 설정 되어 있으면 스크립트가 패키지를 확인 하는 것이 아니라 Moby 및 IoT Edge 패키지를 설치 하려고 시도 합니다. |
+| installPackages | None | **스위치 매개 변수** 입니다. 이 옵션이 설정 되어 있으면 스크립트가 패키지를 확인 하는 것이 아니라 Moby 및 IoT Edge 패키지를 설치 하려고 시도 합니다. |
 
 ## <a name="verify-eflowvm"></a>Verify-EflowVm
 
@@ -150,6 +150,6 @@ Windows 가상 머신에서 Linux 용 IoT Edge를 배포 하 고 프로 비전 �
 
 다음 문서에서 이러한 명령을 사용 하는 방법을 알아봅니다.
 
-* [Windows에서 Linux 용 Azure IoT Edge 설치](how-to-install-iot-edge-windows.md)
+* [Windows에서 Linux 용 Azure IoT Edge 설치](./how-to-install-iot-edge-windows-on-windows.md)
 
 * PowerShell을 통해 사용할 수 있는 모든 명령에 대 한 자세한 내용은 [Windows powershell 용 IoT Edge powershell 스크립트 참조](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) 를 참조 하세요.

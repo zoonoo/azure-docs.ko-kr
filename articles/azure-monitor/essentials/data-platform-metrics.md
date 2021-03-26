@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700977"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562973"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Azure Monitor 메트릭 개요
 Azure Monitor 메트릭은 모니터링 되는 [리소스](../monitor-reference.md) 의 숫자 데이터를 시계열 데이터베이스로 수집 하는 Azure Monitor의 기능입니다. 메트릭은 정기적으로 수집 되는 숫자 값으로, 특정 시점에 시스템의 일부 측면을 설명 합니다. Azure Monitor의 메트릭은 경량이며 거의 실시간으로 시나리오를 지원할 수 특히 경고 및 빠른 문제 감지에 유용합니다. 메트릭 탐색기를 사용 하 여 대화형으로 분석 하거나, 값이 임계값을 초과할 때 경고를 사용 하 여 사전에 통보 하거나, 통합 문서 또는 대시보드에서 시각화할 수 있습니다.
@@ -27,7 +27,7 @@ Azure Monitor 메트릭은 모니터링 되는 [리소스](../monitor-reference.
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>Azure Monitor 메트릭으로 무엇을 할 수 있나요?
 다음 표에서는 Azure Monitor에서 메트릭을 사용할 수 있는 여러 가지 방법을 보여 줍니다.
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **분석** | [메트릭 탐색기](metrics-charts.md)를 사용 하 여 차트에서 수집된 메트릭을 분석하고 여러 리소스의 메트릭을 비교할 수 있습니다. |
 | **경고** | 메트릭 값이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](../alerts/action-groups.md)을 수행하는 [메트릭 경고 규칙](../alerts/alerts-metric.md)을 구성합니다. |

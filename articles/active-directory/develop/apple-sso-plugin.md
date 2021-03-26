@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 24a538686e101d40daba008f30a72ffc5078047a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104674538"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559131"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)
 
@@ -52,14 +52,14 @@ Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 사용 하려�
 - 장치를 *MDM에 등록* 해야 합니다 (예: Microsoft Intune).
 - Enterprise SSO 플러그 인을 사용 하도록 설정 하려면 *장치에 구성을 푸시* 해야 합니다. Apple에는이 보안 제약 조건이 필요 합니다.
 
-iOS 요구 사항:
+### <a name="ios-requirements"></a>iOS 요구 사항:
 - iOS 13.0 이상이 장치에 설치 되어 있어야 합니다.
-- Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 제공 하는 Microsoft 응용 프로그램을 장치에 설치 해야 합니다. 공개 미리 보기 동안이 응용 프로그램은 [Microsoft Authenticator 앱](/intune/user-help/user-help-auth-app-overview.md)입니다.
+- Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 제공 하는 Microsoft 응용 프로그램을 장치에 설치 해야 합니다. 공개 미리 보기의 경우 이러한 응용 프로그램은 [Microsoft Authenticator 앱](/azure/active-directory/user-help/user-help-auth-app-overview)입니다.
 
 
-macOS 요구 사항:
+### <a name="macos-requirements"></a>macOS 요구 사항:
 - macOS 10.15 이상이 장치에 설치 되어 있어야 합니다. 
-- Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 제공 하는 Microsoft 응용 프로그램을 장치에 설치 해야 합니다. 공개 미리 보기 동안이 응용 프로그램은 [Intune 회사 포털 앱](/intune/user-help/enroll-your-device-in-intune-macos-cp.md)입니다.
+- Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 제공 하는 Microsoft 응용 프로그램을 장치에 설치 해야 합니다. 공개 미리 보기의 경우 이러한 응용 프로그램에는 [Intune 회사 포털 앱](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)이 포함 됩니다.
 
 ## <a name="enable-the-sso-plug-in"></a>SSO 플러그 인 사용
 

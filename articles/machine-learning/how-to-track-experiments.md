@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9576730d9c4f8d4d237dce9ce8f207ea14b04f45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d91c88da1416071b5eee2a8eb10e3029086839e9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471587"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561783"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>ML 학습 실행에서 로깅 사용
 
@@ -41,7 +41,7 @@ Azure Machine Learning Python SDK를 사용하면 기본 Python 로깅 패키지
 
 ### <a name="logging-run-metrics"></a>로깅 실행 메트릭 
 
-로깅 Api에서 다음 메서드를 사용 하 여 메트릭 시각화에 영향을 줍니다. 이러한 기록 된 메트릭에 대 한 [서비스 제한](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) 사항에 유의 하세요. 
+로깅 Api에서 다음 메서드를 사용 하 여 메트릭 시각화에 영향을 줍니다. 이러한 기록 된 메트릭에 대 한 [서비스 제한](./resource-limits-quotas-capacity.md#metrics) 사항에 유의 하세요. 
 
 |기록된 값|예제 코드| 포털의 형식|
 |----|----|----|

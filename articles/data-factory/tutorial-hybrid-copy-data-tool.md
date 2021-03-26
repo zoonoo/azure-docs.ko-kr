@@ -6,13 +6,13 @@ author: nabhishek
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
-ms.openlocfilehash: 43097b520297ff17350620faff3da884dcbd2073
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/26/2021
+ms.openlocfilehash: 70905d23b61ee9fee319bae41aeb421d808fa4d0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606721"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566764"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 SQL Server 데이터베이스에서 Azure Blob 스토리지로 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -87,21 +87,6 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 
 1. **스토리지 계정 이름** 및 **key1** 상자에서 값을 복사한 다음 메모장 또는 나중에 자습서에서 사용할 다른 편집기에 붙여넣습니다.
-
-#### <a name="create-the-adftutorial-container"></a>adftutorial 컨테이너 만들기
-이 섹션에서는 Blob Storage에 **adftutorial** 이라는 Blob 컨테이너를 만듭니다.
-
-1. **스토리지 계정** 창에서 **개요** 로 전환한 다음, **Blob** 을 선택합니다.
-
-1. **Blob** 창에서 **+ 컨테이너** 를 선택합니다.
-
-1. **새 컨테이너** 창의 **이름** 에 **adftutorial** 을 입력한 다음, **확인** 을 선택합니다.
-
-1. 컨테이너 목록에서 **adftutorial** 을 선택합니다.
-
-
-1. **adftutorial** 에 대한 **컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
-
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 

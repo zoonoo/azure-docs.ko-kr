@@ -7,12 +7,12 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784036"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564180"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -335,7 +335,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
 * 데이터 세트에 대해 형식별 사용자 지정을 사용할 수 있지만, 명시적으로 \* 수준으로 구성하지 않고도 구성할 수 있습니다. 이전 예에서 `typeProperties` 아래의 모든 데이터 세트 속성은 매개 변수화됩니다.
 
 > [!NOTE]
-> 파이프라인에 대해 구성 된 경우 **Azure 경고 및 매트릭스가** ARM 배포에 대 한 매개 변수로 현재 지원 되지 않습니다. 새 환경에서 경고 및 매트릭스를 다시 적용 하려면 [Data Factory 모니터링, 경고 및 매트릭스](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics) 를 따르세요.
+> 파이프라인에 대해 구성 된 경우 **Azure 경고 및 매트릭스가** ARM 배포에 대 한 매개 변수로 현재 지원 되지 않습니다. 새 환경에서 경고 및 매트릭스를 다시 적용 하려면 [Data Factory 모니터링, 경고 및 매트릭스](./monitor-using-azure-monitor.md#data-factory-metrics) 를 따르세요.
 > 
 
 ### <a name="default-parameterization-template"></a>기본 매개 변수화 템플릿

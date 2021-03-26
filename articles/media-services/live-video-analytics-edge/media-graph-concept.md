@@ -3,12 +3,12 @@ title: 미디어 그래프 개념-Azure
 description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대 한 자세한 설명을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401103"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557669"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -74,7 +74,7 @@ RTSP 원본 노드를 사용 하면 [rtsp](https://tools.ietf.org/html/rfc2326) 
 
 #### <a name="iot-hub-message-source"></a>IoT Hub 메시지 원본 
 
-다른 [IoT Edge 모듈과](../../iot-edge/iot-edge-glossary.md#iot-edge-module)마찬가지로 IoT Edge 모듈의 Live Video Analytics는 [IoT Edge 허브](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)를 통해 메시지를 받을 수 있습니다. 이러한 메시지는 다른 모듈,에 지 장치에서 실행 되는 앱 또는 클라우드에서 보낼 수 있습니다. 이러한 메시지는 모듈의 [명명 된 입력](../../iot-edge/module-composition.md#sink) 으로 전달 (라우팅됩니다) 됩니다. IoT Hub 메시지 원본 노드에서는 이러한 메시지가 미디어 그래프에 도달할 수 있습니다. 이러한 메시지 또는 신호를 미디어 그래프에서 내부적으로 사용할 수 있습니다. 일반적으로 신호 게이트를 활성화 하려면 (아래 [신호 게이트](#signal-gate-processor) 참조) 
+다른 [IoT Edge 모듈과](../../iot-fundamentals/iot-glossary.md#iot-edge)마찬가지로 IoT Edge 모듈의 Live Video Analytics는 [IoT Edge 허브](../../iot-fundamentals/iot-glossary.md#iot-edge-hub)를 통해 메시지를 받을 수 있습니다. 이러한 메시지는 다른 모듈,에 지 장치에서 실행 되는 앱 또는 클라우드에서 보낼 수 있습니다. 이러한 메시지는 모듈의 [명명 된 입력](../../iot-edge/module-composition.md#sink) 으로 전달 (라우팅됩니다) 됩니다. IoT Hub 메시지 원본 노드에서는 이러한 메시지가 미디어 그래프에 도달할 수 있습니다. 이러한 메시지 또는 신호를 미디어 그래프에서 내부적으로 사용할 수 있습니다. 일반적으로 신호 게이트를 활성화 하려면 (아래 [신호 게이트](#signal-gate-processor) 참조) 
 
 예를 들어 문이 열릴 때 메시지를 생성 하는 IoT Edge 모듈을 사용할 수 있습니다. 해당 모듈의 메시지를 IoT Edge 허브로 라우팅할 수 있습니다. 그런 다음 미디어 그래프의 IoT hub 메시지 원본으로 라우팅할 수 있습니다. 미디어 그래프 내에서 IoT hub 메시지 원본은 신호 게이트 프로세서에 이벤트를 전달할 수 있습니다. 그러면 RTSP 원본에서 파일로 비디오 기록을 켤 수 있습니다. 
 

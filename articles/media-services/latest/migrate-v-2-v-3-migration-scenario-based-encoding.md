@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 915fdcb059d9e7bf9e1853040b90b82a0457652e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: bf66723f878f8b277d71577c068afdad56708ad6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598408"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563274"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>인코딩 시나리오 기반 마이그레이션 지침
 
@@ -43,7 +43,7 @@ ms.locfileid: "104598408"
 
 [![V2 ](./media/migration-guide/V2-pretty.svg) 용 Encoding 워크플로 ](./media/migration-guide/V2-pretty.svg#lightbox)
 
-1. 설치 프로그램
+1. 설정
     1. 자산을 만들거나 및 기존 자산을 사용 합니다. 새 자산을 사용 하는 경우 해당 자산에 콘텐츠를 업로드 합니다. 기존 자산을 사용 하는 경우 자산에 이미 있는 파일을 인코딩 해야 합니다.
     2. 다음 항목의 값을 가져옵니다.
         - 미디어 프로세서 ID 또는 개체
@@ -143,7 +143,3 @@ V2 API에서 인덱서 v1 프로세서를 사용 하는 고객의 경우 `AudioA
 ## <a name="samples"></a>샘플
 
 [코드 샘플에서 V2 및 V3 코드도 비교할](migrate-v-2-v-3-migration-samples.md)수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104607656"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564010"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 VMware 가상 컴퓨터의 에이전트 없는 마이그레이션 확장
 
@@ -54,7 +54,7 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 ### <a name="1-generate-the-azure-migrate-project-key"></a>1. Azure Migrate 프로젝트 키 생성
 
 1. **Azure Migrate 프로젝트 키 생성** 에서 스케일 아웃 어플라이언스에 대 한 접미사 이름을 제공 합니다. 접미사는 영숫자 문자만 포함할 수 있으며 길이는 14 자로 제한 됩니다.
-2. **키 생성** 을 클릭 하 여 필요한 Azure 리소스 만들기를 시작 합니다. 리소스를 만드는 동안 검색 페이지를 닫지 마세요.
+2. **키 생성** 을 클릭 하 여 필요한 Azure 리소스 만들기를 시작 합니다. 리소스를 만드는 동안 [검색] 페이지를 닫지 마세요.
 3. 생성 된 키를 복사 합니다. 확장 어플라이언스 등록을 완료 하려면 나중에 키가 필요 합니다.
 
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. 스케일 아웃 어플라이언스에 대 한 설치 관리자 다운로드
@@ -106,14 +106,14 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 
    또는 구성 관리자의 바로 가기를 사용 하 여 스케일 아웃 어플라이언스 서버의 바탕 화면에서 구성 관리자를 열 수 있습니다.
 - **사용 조건** 에 동의하고 타사 정보를 읽습니다.
-- 구성 관리자 > 필수 구성 **요소를 설정** 하 고 다음을 수행 합니다.
-   - **연결**: 어플라이언스는 서버가 인터넷에 연결 되어 있는지 확인 합니다. 서버에서 프록시를 사용하는 경우:
+- 구성 관리자 > **필수 구성 요소 설정** 에서 다음을 수행합니다.
+   - **연결**: 어플라이언스가 서버의 인터넷 연결을 확인합니다. 서버에서 프록시를 사용하는 경우:
      1. **프록시 설정** 을 클릭하여 프록시 주소(http://ProxyIPAddress 또는 http://ProxyFQDN) 형식) 및 수신 대기 포트를 지정합니다.
      2. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
      3. HTTP 프록시만 지원됩니다.
      4. 프록시 세부 정보를 추가하거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장** 을 클릭하여 연결 확인을 다시 트리거합니다.
    - **시간 동기화**: 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-   - **업데이트 설치**: 어플라이언스에서 최신 업데이트가 설치되어 있는지 확인합니다. 검사가 완료 되 면 **어플라이언스 서비스 보기** 를 클릭 하 여 어플라이언스 서버에서 실행 중인 서비스의 상태와 버전을 확인할 수 있습니다.
+   - **업데이트 설치**: 어플라이언스에서 최신 업데이트가 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스 서버에서 실행되는 서비스의 상태와 버전을 확인할 수 있습니다.
    - **VDDK 설치**: 어플라이언스에서 VMware vSphere VDDK(Virtual Disk Development Kit)가 설치되어 있는지 확인합니다. 설치 되지 않은 경우 VDDK 6.7를 VMware에서 다운로드 하 고, 어플라이언스의 지정 된 위치에 다운로드 한 zip 콘텐츠를 추출 합니다 (어플라이언스 Configuration Manager 화면의 **설치 지침 참조** ).
 
 
@@ -176,4 +176,4 @@ Azure Migrate 서버 마이그레이션 도구는 복제를 위해 기본 및 �
 - 스케일 아웃 어플라이언스를 사용 하 여 Vm을 복제 하는 방법
 
 
-Azure Migrate: 서버 마이그레이션 도구를 사용 하 여 서버를 Azure로 마이그레이션하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) .
+Azure Migrate: 서버 마이그레이션 도구를 사용 하 여 서버를 Azure로 마이그레이션하는 방법에 [대해 자세히 알아보세요](./tutorial-migrate-vmware.md) .

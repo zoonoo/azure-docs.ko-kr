@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: f28a95ce6ef5e87eed6e5efcd013cc40b102fcba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3a09e3f2bf29c09066e9414f9aa02a7879375425
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721092"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563534"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>패키징 및 배달 시나리오 기반 마이그레이션 지침
 
@@ -62,7 +62,3 @@ V3 API에서 콘텐츠가 게시 되는 방식에 대 한 주요 변경 내용�
 ## <a name="samples"></a>샘플
 
 [코드 샘플에서 V2 및 V3 코드도 비교할](migrate-v-2-v-3-migration-samples.md)수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

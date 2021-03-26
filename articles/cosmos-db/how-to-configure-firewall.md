@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b94b30851a5206c2183d999a3c024351cf415c90
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122717"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568242"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -104,11 +104,11 @@ Azure Cosmos DB를 사용하여 중간 계층 서비스를 호스트하는 데 [
 
 인터넷에 있는 컴퓨터에서 Azure Cosmos DB 계정에 액세스하는 경우 머신의 클라이언트 IP 주소 또는 IP 주소 범위를 사용자 계정의 허용되는 IP 주소 목록에 추가해야 합니다.
 
-### <a name="add-outbound-rules-to-the-firewall"></a>아웃 바운드 규칙을 방화벽에 추가
+### <a name="add-outbound-rules-to-the-firewall"></a>방화벽에 아웃바운드 규칙 추가
 
 방화벽 설정에 추가할 아웃 바운드 IP 범위의 현재 목록에 액세스 하려면 [AZURE IP 범위 및 서비스 태그 다운로드](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요.
 
-목록을 자동화 하려면 [서비스 태그 검색 API (공개 미리 보기) 사용](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview)을 참조 하세요.
+목록을 자동화 하려면 [서비스 태그 검색 API (공개 미리 보기) 사용](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview)을 참조 하세요.
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Resource Manager 템플릿을 사용하여 IP 방화벽 구성
 

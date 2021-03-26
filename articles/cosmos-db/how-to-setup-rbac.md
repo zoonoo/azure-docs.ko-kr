@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: thweiss
-ms.openlocfilehash: ec12deb5a7c77674026b849585552fd873aee5c1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f8028d69e376e2b71549be52267e2f6cbdb1f8ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045997"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568650"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Azure Cosmos DB 계정 (미리 보기)에 대 한 Azure Active Directory를 사용 하 여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Azure Cosmos DB 데이터 평면 RBAC는 [AZURE rbac](../role-based-access-contr
 
 다음 표에서는 권한 모델에 의해 노출 되는 모든 작업을 나열 합니다.
 
-| Name | 해당 데이터베이스 작업 |
+| 이름 | 해당 데이터베이스 작업 |
 |---|---|
 | `Microsoft.DocumentDB/databaseAccounts/readMetadata` | 계정 메타 데이터를 읽습니다. 자세한 내용은 [메타 데이터 요청](#metadata-requests) 을 참조 하세요. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | 새 항목을 만듭니다. |
@@ -323,9 +323,9 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 인스턴스를 만드는 방법은 `TokenCredential` 이 문서의 범위를 벗어나는 것입니다. 사용 하려는 AAD id의 형식 (사용자 계정, 서비스 주체, 그룹 등)에 따라 이러한 인스턴스를 만들 수 있는 여러 가지 방법이 있습니다. 가장 중요 한 점은 사용자의 `TokenCredential` 인스턴스가 사용자가 역할을 할당 한 id (보안 주체 id)로 확인 되어야 한다는 것입니다. 클래스 만들기에 대 한 예제를 찾을 수 있습니다 `TokenCredential` .
 
-- [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [Java에서](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [JavaScript에서](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [.NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [Java에서](/java/api/overview/azure/identity-readme#credential-classes)
+- [JavaScript에서](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 아래 예제에서는 인스턴스에 서비스 주체를 사용 `ClientSecretCredential` 합니다.
 

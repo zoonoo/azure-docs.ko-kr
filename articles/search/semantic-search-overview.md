@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: b5b33007f71cfc2a29005ce84f1fedba90dd1bf1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888909"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561970"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 의미 체계 검색
 
@@ -44,7 +44,7 @@ ms.locfileid: "104888909"
 
 ### <a name="order-of-operations"></a>작업 순서
 
-의미 체계 검색의 구성 요소는 기존 쿼리 실행 파이프라인을 양방향으로 확장 합니다. 맞춤법 수정 기능을 사용 하는 경우 쿼리 용어가 검색 엔진에 도달 하기 전에 맞춤법 [검사기](speller-how-to-add.md) 가 시작 시 오타를 수정 합니다.
+의미 체계 검색의 구성 요소는 기존 쿼리 실행 파이프라인을 양방향으로 확장 합니다. 맞춤법 수정 기능을 사용 하는 경우 맞춤법 [검사기](speller-how-to-add.md) 는 검색 엔진에 도달 하기 전에 query 하기 시작 하면에서 오타를 수정 합니다.
 
 :::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="쿼리 실행의 의미 체계 구성 요소" border="true":::
 

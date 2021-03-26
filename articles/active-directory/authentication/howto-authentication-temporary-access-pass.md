@@ -7,23 +7,23 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579385"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558264"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>암호 없는 인증 방법 (미리 보기)을 등록 하기 위해 Azure AD에서 임시 액세스 단계 구성
 
 Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인과 같은 암호 없는 인증 방법을 사용 하면 사용자가 암호 없이 안전 하 게 로그인 할 수 있습니다. 사용자는 다음 두 가지 방법 중 하나로 Passwordless 메서드를 부트스트랩 할 수 있습니다.
 
-- 기존 Azure AD multi-factor authentication 방법 사용 
-- 임시 액세스 통과 사용 
+- 기존 Azure AD Multi-Factor Authentication 메서드 사용 
+- 임시 액세스 패스 사용 (탭) 
 
 임시 액세스 전달은 강력한 인증 요구 사항을 충족 하 고 Passwordless를 포함 하 여 다른 인증 방법을 등록 하는 데 사용할 수 있는 관리자가 발급 한 시간이 제한 된 암호입니다. 사용자가 FIDO2 보안 키 또는 Microsoft Authenticator 앱과 같은 강력한 인증 요소를 분실 하거나 잊어버린 경우에도 복구를 쉽게 수행할 수 있지만, 새 강력한 인증 방법을 등록 하려면 로그인 해야 합니다.
 
@@ -49,13 +49,13 @@ Microsoft Authenticator 앱을 통해 FIDO2 및 Passwordless 휴대폰 로그인
    다음 표에서는 기본값 및 허용 되는 값 범위에 대해 설명 합니다.
 
 
-   | 설정          | 기본값 | 허용되는 값               | 의견                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    최소 수명 | 1시간         | 10-43200 분 (30 일) | 임시 액세스를 통과 하는 최소 시간 (분)입니다.                                                                                                                                                                                                                         |   |
-   | 최대 수명 | 24시간       | 10-43200 분 (30 일) | 임시 액세스를 전달할 수 있는 최대 시간 (분)입니다.                                                                                                                                                                                                                         |   |
-   | 기본 수명 | 1시간         | 10-43200 분 (30 일) | 기본 값은 정책에 의해 구성 된 최소 및 최대 수명 내에서 개별 패스에 의해 재정의 될 수 있습니다.                                                                                                                                                |   |
-   | 일회성 사용     | 거짓          | True/False                 | 정책이 false로 설정 된 경우 테 넌 트의 전달은 유효성 (최대 수명) 동안 한 번 또는 여러 번 사용할 수 있습니다. 임시 액세스 전달 정책에서 일회성 사용을 적용 하 여 테 넌 트에 생성 된 모든 패스는 일회성 사용으로 만들어집니다. |   |
-   | 길이           | 8              | 8-48 문자              | 암호 길이를 정의 합니다.                                                                                                                                                                                                                                      |   |
+   | 설정 | 기본값 | 허용되는 값 | 의견 |
+   |---|---|---|---|
+   | 최소 수명 | 1시간 | 10-43200 분 (30 일) | 임시 액세스를 통과 하는 최소 시간 (분)입니다. |
+   | 최대 수명 | 24시간 | 10-43200 분 (30 일) | 임시 액세스를 전달할 수 있는 최대 시간 (분)입니다. |
+   | 기본 수명 | 1시간 | 10-43200 분 (30 일) | 기본 값은 정책에 의해 구성 된 최소 및 최대 수명 내에서 개별 패스에 의해 재정의 될 수 있습니다. |
+   | 일회성 사용 | False | True/False | 정책이 false로 설정 된 경우 테 넌 트의 전달은 유효성 (최대 수명) 동안 한 번 또는 여러 번 사용할 수 있습니다. 임시 액세스 전달 정책에서 일회성 사용을 적용 하 여 테 넌 트에 생성 된 모든 패스는 일회성 사용으로 만들어집니다. |
+   | 길이 | 8 | 8-48 문자 | 암호 길이를 정의 합니다. |
 
 ## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Azure AD 포털에서 임시 액세스 전달 만들기
 

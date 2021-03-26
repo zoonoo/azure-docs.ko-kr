@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4160a9ab4edbac8584eab2d4e5b9bf1ba11a9aec
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92515749"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568786"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS (Java Message Service) 2.0 응용 프로그램 마이그레이션
 
@@ -64,7 +64,7 @@ Azure Service Bus와 상호 작용 하도록 클라이언트 응용 프로그램
 
 Azure Active Directory에서 지 원하는 azure RBAC (역할 기반 액세스 제어)는 Service Bus에 대 한 기본 인증 메커니즘입니다. Azure RBAC 또는 클레임 기반 인증은 현재 Apache QPID JMS에서 지원 되지 않으므로 인증을 위해 SAS 키를 사용 해야 합니다.
 
-## <a name="pre-migration"></a>마이그레이션 전
+## <a name="pre-migration"></a>사전 마이그레이션
 
 ### <a name="version-check"></a>버전 확인
 
@@ -89,7 +89,7 @@ Service Bus를 통해 다양 한 엔터프라이즈 보안 및 고가용성 기�
   * [가상 네트워크 서비스 엔드포인트](service-bus-service-endpoints.md)
   * [방화벽](service-bus-ip-filtering.md)
   * [BYOK (고객 관리 키)를 사용 하는 서비스 쪽 암호화](configure-customer-managed-key.md)
-  * [전용 끝점](private-link-service.md)
+  * [프라이빗 엔드포인트](private-link-service.md)
   * [인증 및 권한 부여](service-bus-authentication-and-authorization.md)
 
 ### <a name="monitoring-alerts-and-tracing"></a>모니터링, 경고 및 추적
@@ -160,60 +160,6 @@ Service Bus와 원활 하 게 연결 되도록 하려면 다음과 `azure-servic
 
 이 파트는 ActiveMQ에 연결 하는 클라이언트 응용 프로그램을 호스트 하는 응용 프로그램 서버에 맞게 사용자 지정 됩니다.
 
-#### <a name="tomcat"></a>Tomcat
-
-여기서는 파일에 표시 된 대로 ActiveMQ에 특정 한 구성으로 시작 합니다 `/META-INF/context.xml` .
-
-```XML
-<Context antiJARLocking="true">
-    <Resource
-        name="jms/ConnectionFactory"
-        auth="Container"
-        type="org.apache.activemq.ActiveMQConnectionFactory"
-        description="JMS Connection Factory"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        brokerURL="tcp://localhost:61616"
-        brokerName="LocalActiveMQBroker"
-        useEmbeddedBroker="false"/>
-
-    <Resource name="jms/topic/MyTopic"
-        auth="Container"
-        type="org.apache.activemq.command.ActiveMQTopic"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO"/>
-    <Resource name="jms/queue/MyQueue"
-        auth="Container"
-        type="org.apache.activemq.command.ActiveMQQueue"
-        factory="org.apache.activemq.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO.QUEUE"/>
-</Context>
-```
-
-다음과 같이 Service Bus를 가리키도록이를 조정 합니다.
-
-```xml
-<Context antiJARLocking="true">
-    <Resource
-        name="jms/ConnectionFactory"
-        auth="Container"
-        type="com.microsoft.azure.servicebus.jms.ServiceBusJmsConnectionFactory"
-        description="JMS Connection Factory"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        connectionString="<INSERT YOUR SERVICE BUS CONNECTION STRING HERE>"/>
-
-    <Resource name="jms/topic/MyTopic"
-        auth="Container"
-        type="org.apache.qpid.jms.JmsTopic"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO"/>
-    <Resource name="jms/queue/MyQueue"
-        auth="Container"
-        type="org.apache.qpid.jms.JmsQueue"
-        factory="org.apache.qpid.jms.jndi.JNDIReferenceFactory"
-        physicalName="MY.TEST.FOO.QUEUE"/>
-</Context>
-```
-
 #### <a name="spring-applications"></a>Spring 애플리케이션
 
 ##### <a name="update-the-applicationproperties-file"></a>파일 업데이트 `application.properties`
@@ -266,7 +212,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>마이그레이션 후
+## <a name="post-migration"></a>마이그레이션 후 작업
 
 이제 응용 프로그램을 수정 하 여 Service Bus에서 메시지를 보내고 받기 시작 했으므로 정상적으로 작동 하는지 확인 해야 합니다. 이 작업이 완료 되 면 계속 해 서 응용 프로그램 스택을 구체화 하 고 현대화 수 있습니다.
 

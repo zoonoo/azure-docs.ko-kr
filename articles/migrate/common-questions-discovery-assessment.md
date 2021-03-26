@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0701ff53202d53131ceac8ceabb148fb5ff4f2b2
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 629459d22b18b326307b45bb512d16622808b533
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025155"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562633"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>검색, 평가 및 종속성 분석-일반적인 질문
 
@@ -38,7 +38,7 @@ ms.locfileid: "105025155"
 
 - Azure sql Managed Instance Azure SQL Database으로 마이그레이션하기 위해 VMware 환경에서 온-프레미스 SQL Server를 평가 하려는 경우 평가 유형 **AZURE sql** 을 사용 합니다. [자세한 내용](concepts-assessment-calculation.md)
 
-- 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세히 알아보기](concepts-azure-vmware-solution-assessment-calculation.md)
+- 이 평가 유형을 사용 하 여 [Azure Vmware 솔루션 (avs)](../azure-vmware/introduction.md) 으로 마이그레이션하기 위한 온-프레미스 [VMware vm](how-to-set-up-appliance-vmware.md) 을 평가 하려는 경우에는 **azure vmware solution (avs)** 평가를 사용 합니다. [자세한 정보](concepts-azure-vmware-solution-assessment-calculation.md)
 
 - 두 가지 유형의 평가를 실행하는 경우에만 VMware 컴퓨터에서 공통 그룹을 사용할 수 있습니다. Azure Migrate에서 AVS 평가를 처음 실행하는 경우 새 VMware 컴퓨터 그룹을 만드는 것이 좋습니다.
  
@@ -82,9 +82,9 @@ ms.locfileid: "105025155"
 
     신뢰 등급의 최신 변경 내용을 반영하려면 평가를 **다시 계산** 하세요.
 
-- Azure VM 및 AVS 평가의 경우 검색을 시작한 후 소수의 서버가 생성 되었습니다. 예를 들어 지난 한 달의 성능 기록에 대 한 평가를 만드는 중이지만 환경에 몇 개의 서버가 몇 주 전에만 생성 된 경우를 예로 들 수 있습니다. 이 경우 새 서버에 대 한 성능 데이터는 전체 기간 동안 사용할 수 없으며 신뢰 등급이 낮습니다. [자세히 알아보기](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
+- Azure VM 및 AVS 평가의 경우 검색을 시작한 후 소수의 서버가 생성 되었습니다. 예를 들어 지난 한 달의 성능 기록에 대 한 평가를 만드는 중이지만 환경에 몇 개의 서버가 몇 주 전에만 생성 된 경우를 예로 들 수 있습니다. 이 경우 새 서버에 대 한 성능 데이터는 전체 기간 동안 사용할 수 없으며 신뢰 등급이 낮습니다. [자세한 정보](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
-- Azure SQL 평가의 경우 검색을 시작한 후 일부 SQL 인스턴스 또는 데이터베이스가 만들어졌습니다. 예를 들어 지난 한 달의 성능 기록에 대 한 평가를 만드는 경우 몇 주 전에 환경에서 몇 개의 SQL 인스턴스 또는 데이터베이스가 생성 된 것입니다. 이 경우 새 서버에 대 한 성능 데이터는 전체 기간 동안 사용할 수 없으며 신뢰 등급이 낮습니다. [자세히 알아보기](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+- Azure SQL 평가의 경우 검색을 시작한 후 일부 SQL 인스턴스 또는 데이터베이스가 만들어졌습니다. 예를 들어 지난 한 달의 성능 기록에 대 한 평가를 만드는 경우 몇 주 전에 환경에서 몇 개의 SQL 인스턴스 또는 데이터베이스가 생성 된 것입니다. 이 경우 새 서버에 대 한 성능 데이터는 전체 기간 동안 사용할 수 없으며 신뢰 등급이 낮습니다. [자세한 정보](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
 ## <a name="i-want-to-try-out-the-new-azure-sql-assessment"></a>새 Azure SQL 평가를 사용해 보고 싶습니다.
 VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. [이 자습서](tutorial-discover-vmware.md)를 시작합니다. 기존 프로젝트에서이 기능을 사용해 보려는 경우이 문서의 [필수 구성 요소](how-to-discover-sql-existing-project.md) 를 완료 했는지 확인 하세요.
@@ -143,7 +143,7 @@ Azure Migrate는 SQL 인스턴스와 호환되는 특정 Azure SQL 배포 유형
 이는 평가 속성에서 선택한 대상 배포 유형이 **권장됨** 이고 SQL 인스턴스가 Azure SQL Database 및 Azure SQL Managed Instance에 대해 준비되지 않은 경우에 발생할 수 있습니다. 사용자는 Azure Migrate에서 **Azure VM** 평가 유형으로 평가를 만들어 인스턴스가 실행되는 서버가 Azure VM으로 마이그레이션할 준비가 되었는지 확인하는 것이 좋습니다.
 사용자는 평가 유형을 **AZURE vm** 으로 사용 하 여 Azure Migrate 평가를 만들어 인스턴스가 실행 되 고 있는 서버를 azure vm으로 마이그레이션할 준비가 되었는지 확인 하는 것이 좋습니다.
 - Azure Migrate의 azure VM 평가는 현재까지 진행 되 고 있으며 Azure 가상 머신에서 SQL 인스턴스 및 데이터베이스를 실행 하는 특정 성능 메트릭을 고려 하지 않습니다. 
-- 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices)합니다.
+- 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)합니다.
 
 ## <a name="i-cant-see-some-databases-in-my-assessment-even-though-the-instance-is-part-of-the-assessment"></a>인스턴스가 평가의 일부인 경우에도 내 평가에서 일부 데이터베이스를 볼 수 없습니다.
 
@@ -151,7 +151,7 @@ Azure SQL 평가는 온라인 상태에 있는 데이터베이스만 포함합�
 
 ## <a name="i-want-to-compare-costs-for-running-my-sql-instances-on-azure-vm-vs-azure-sql-databaseazure-sql-managed-instance"></a>Azure VM에서의 SQL 인스턴스 실행에 대 한 비용과 Azure SQL Database/Azure SQL Managed Instance를 비교 하려고 합니다.
 
-**Azure SQL** 평가에 사용된 것과 동일한 그룹에서 **Azure VM** 유형을 사용하여 평가를 만들 수 있습니다. 그런 다음 두 보고서를 나란히 비교할 수 있습니다. 그러나 Azure Migrate의 Azure VM 평가는 현재 리프트 앤 시프트에 초점을 맞춘 후 Azure 가상 머신에서 SQL 인스턴스 및 데이터베이스를 실행하는 특정 성능 메트릭을 고려하지 않습니다. 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices)합니다.
+**Azure SQL** 평가에 사용된 것과 동일한 그룹에서 **Azure VM** 유형을 사용하여 평가를 만들 수 있습니다. 그런 다음 두 보고서를 나란히 비교할 수 있습니다. 그러나 Azure Migrate의 Azure VM 평가는 현재 리프트 앤 시프트에 초점을 맞춘 후 Azure 가상 머신에서 SQL 인스턴스 및 데이터베이스를 실행하는 특정 성능 메트릭을 고려하지 않습니다. 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)합니다.
 
 ## <a name="the-storage-cost-in-my-azure-sql-assessment-is-zero"></a>Azure SQL 평가의 저장소 비용은 0입니다.
 Azure SQL Managed Instance의 경우 첫 번째 32 g b/인스턴스/월 저장소에 대 한 저장소 비용이 추가 되지 않으며 저장소에 대 한 추가 저장소 비용이 32GB 증분으로 추가 됩니다. [자세한 내용](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
@@ -238,7 +238,7 @@ CSV 파일을 통해 가져온 컴퓨터의 경우에는 AVS 평가의 기본 �
 --- | --- | ---
 지원 | 이 옵션은 현재 미리 보기 상태 이며 VMware 환경의 서버에만 사용할 수 있습니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 에이전트 | 교차 확인 하려는 컴퓨터에 에이전트를 설치할 필요가 없습니다. | [MMA (Microsoft Monitoring agent)](../azure-monitor/agents/agent-windows.md)및 [종속성 에이전트](../azure-monitor/agents/agents-overview.md#dependency-agent)를 분석 하려는 각 온-프레미스 컴퓨터에 설치 되는 에이전트입니다. 
-사전 요구 사항 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
+필수 구성 요소 | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agentless-analysis) 합니다. | 필수 구성 요소 및 배포 요구 사항을 [검토](concepts-dependency-visualization.md#agent-based-analysis) 합니다.
 Log Analytics | 필수 아님. | Azure Migrate는 종속성 시각화에 대한 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)의 [서비스 맵](../azure-monitor/vm/service-map.md) 솔루션을 사용합니다. [자세히 알아보기](concepts-dependency-visualization.md#agent-based-analysis).
 작동 방식 | 종속성 시각화에 사용 되는 컴퓨터에서 TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 서비스 맵 에이전트는 각 프로세스에 대 한 TCP 프로세스 및 인바운드/아웃 바운드 연결에 대 한 데이터를 수집 합니다.
 데이터 | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 

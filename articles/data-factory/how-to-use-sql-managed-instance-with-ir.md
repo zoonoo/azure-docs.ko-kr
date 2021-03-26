@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102451730"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564148"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance 사용
 
@@ -39,7 +39,7 @@ ms.locfileid: "102451730"
             - **다른 서브넷** 을 사용 하 여 관리 되는 인스턴스와 동일한 가상 네트워크 내에 있습니다.
             - 가상 네트워크 피어 링 (글로벌 VNet 피어 링 제약 조건으로 인해 동일한 지역으로 제한 됨) 또는 가상 네트워크에서 가상 네트워크로의 연결을 통해 관리 되는 인스턴스가 아닌 다른 가상 네트워크 내에 있습니다.
 
-            SQL Managed Instance 연결에 대 한 자세한 내용은 [AZURE sql Managed Instance에 응용 프로그램 연결](/azure/sql-database/sql-database-managed-instance-connect-app)을 참조 하세요.
+            SQL Managed Instance 연결에 대 한 자세한 내용은 [AZURE sql Managed Instance에 응용 프로그램 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조 하세요.
 
         1. [가상 네트워크를 구성합니다](#configure-virtual-network).
 

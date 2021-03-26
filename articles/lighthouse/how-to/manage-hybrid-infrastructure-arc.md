@@ -3,12 +3,12 @@ title: Azure Arc를 사용 하 여 대규모로 하이브리드 인프라 관리
 description: Azure 외부에서 고객의 컴퓨터 및 Kubernetes 클러스터를 효과적으로 관리 하는 방법을 알아봅니다.
 ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: ec32389cd7444405580530a00c8b7c5bc48bcd56
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: da7f016b507f8f876d27f6924f87f078a7806563
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103419337"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563602"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Azure Arc를 사용 하 여 대규모로 하이브리드 인프라 관리
 
@@ -35,11 +35,11 @@ Azure Portal에서 위임 된 구독에 대 한 리소스를 볼 때 **Azure Arc
 
 ## <a name="manage-hybrid-kubernetes-clusters-at-scale-with-azure-arc-enabled-kubernetes"></a>Azure Arc enabled Kubernetes를 사용 하 여 대규모로 하이브리드 Kubernetes 클러스터 관리
 
-Azure에서 실행 되는 것 처럼 [Azure Arc를 사용 하 여 고객 구독에 연결](../../azure-arc/kubernetes/connect-cluster.md)된 Kubernetes 클러스터를 관리할 수 있습니다.
+Azure에서 실행 되는 것 처럼 [Azure Arc를 사용 하 여 고객 구독에 연결](../../azure-arc/kubernetes/quickstart-connect-cluster.md)된 Kubernetes 클러스터를 관리할 수 있습니다.
 
 고객이 [Kubernetes 클러스터를 Azure Arc에 등록 하는 서비스 주체 계정을](../../azure-arc/kubernetes/create-onboarding-service-principal.md)만든 경우이 서비스 사용자 계정에 액세스 하 여 클러스터를 등록 하 고 관리할 수 있습니다. 이 작업은 서비스 주체 계정이 포함 된 구독이 [Azure Lighthouse로 등록](onboard-customer.md)때 "Kubernetes Cluster-Azure Arc 온 보 딩" azure 기본 제공 역할이 부여 된 관리 테 넌 트의 사용자가 수행할 수 있습니다.
 
-연결 된 클러스터에 GitOps를 사용 하 여 [구성](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) 및 [투구 차트](../../azure-arc/kubernetes/use-gitops-with-helm.md) 를 배포할 수 있습니다.
+연결 된 클러스터에 GitOps를 사용 하 여 [구성](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) 및 [투구 차트](../../azure-arc/kubernetes/use-gitops-with-helm.md) 를 배포할 수 있습니다.
 
 또한 Azure Monitor를 사용 하 여 연결 된 클러스터를 모니터링 하 고 [Azure Policy를 사용 하 여 클러스터 구성을 대규모로 적용할](../../azure-arc/kubernetes/use-azure-policy.md)수 있습니다.
 

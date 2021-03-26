@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e893216eb8e2d7e44e3f272f6b965b84c6253f7f
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7a9ac98a9566986767016720fda245712197b27f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870333"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566543"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Azure PowerShell를 사용 하 여 개인 피어 링에 대 한 IPv6 지원 추가 (미리 보기)
 
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure에서 Express 경로를 통해 Azure의 리소스에 연결 하기 위해 IPv6 지원을 추가 하는 방법을 설명 합니다.
 
 > [!Note]
-> 이 기능은 현재 [가용성 영역를 사용 하 여 Azure 지역](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones)에서 미리 보기에 사용할 수 있습니다. 따라서 Express 경로 회로를 피어 링 위치를 사용 하 여 만들 수 있지만 연결 하는 IPv6 기반 배포는 가용성 영역 있는 지역에 있어야 합니다.
+> 이 기능은 현재 [가용성 영역를 사용 하 여 Azure 지역](../availability-zones/az-region.md#azure-regions-with-availability-zones)에서 미리 보기에 사용할 수 있습니다. 따라서 Express 경로 회로를 피어 링 위치를 사용 하 여 만들 수 있지만 연결 하는 IPv6 기반 배포는 가용성 영역 있는 지역에 있어야 합니다.
 
 ## <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
@@ -46,7 +46,7 @@ IPv6 지원을 추가 하기 전에 먼저 구독을 등록 해야 합니다. �
 
 ## <a name="add-ipv6-private-peering-to-your-expressroute-circuit"></a>Express 경로 회로에 IPv6 개인 피어 링 추가
 
-1. [Express 경로 회로를 만들거나](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-arm) 기존 회로를 사용 합니다. **AzExpressRouteCircuit** 명령을 실행 하 여 회로를 검색 합니다.
+1. [Express 경로 회로를 만들거나](./expressroute-howto-circuit-arm.md) 기존 회로를 사용 합니다. **AzExpressRouteCircuit** 명령을 실행 하 여 회로를 검색 합니다.
 
     ```azurepowershell-interactive
     $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -150,7 +150,7 @@ IPv6 지원을 추가 하기 전에 먼저 구독을 등록 해야 합니다. �
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 
-4. 기존 영역 중복 게이트웨이가 있는 경우 다음을 실행 하 여 IPv6 연결을 사용 하도록 설정 합니다. 그렇지 않으면 영역 중복 SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ)를 사용 하 여 [가상 네트워크 게이트웨이를 만듭니다](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager) .
+4. 기존 영역 중복 게이트웨이가 있는 경우 다음을 실행 하 여 IPv6 연결을 사용 하도록 설정 합니다. 그렇지 않으면 영역 중복 SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ)를 사용 하 여 [가상 네트워크 게이트웨이를 만듭니다](./expressroute-howto-add-gateway-resource-manager.md) .
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -161,13 +161,13 @@ IPv6 지원을 추가 하기 전에 먼저 구독을 등록 해야 합니다. �
 
 IPv6 개인 피어 링을 사용 하 여 가용성 영역 있는 지역에서 새 Azure 리소스 집합에 연결 하려는 경우 아래 단계를 수행 합니다.
 
-1. IPv4 및 IPv6 주소 공간을 모두 사용 하 여 이중 스택 가상 네트워크를 만듭니다. 자세한 내용은 [가상 네트워크 만들기](https://docs.microsoft.com/azure/virtual-network/quick-create-portal#create-a-virtual-network)를 참조 하세요.
+1. IPv4 및 IPv6 주소 공간을 모두 사용 하 여 이중 스택 가상 네트워크를 만듭니다. 자세한 내용은 [가상 네트워크 만들기](../virtual-network/quick-create-portal.md#create-a-virtual-network)를 참조 하세요.
 
-2. [이중 스택 게이트웨이 서브넷을 만듭니다](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
+2. [이중 스택 게이트웨이 서브넷을 만듭니다](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
 
-3. 영역 중복 SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ)를 사용 하 여 [가상 네트워크 게이트웨이를 만듭니다](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) . FastPath를 사용 하려는 경우 ErGw3AZ를 사용 합니다 (이는 Express 경로 직접를 사용 하는 회로에만 사용할 수 있음).
+3. 영역 중복 SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ)를 사용 하 여 [가상 네트워크 게이트웨이를 만듭니다](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) . FastPath를 사용 하려는 경우 ErGw3AZ를 사용 합니다 (이는 Express 경로 직접를 사용 하는 회로에만 사용할 수 있음).
 
-4. [Express 경로 회로에 가상 네트워크를 연결](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm)합니다.
+4. [Express 경로 회로에 가상 네트워크를 연결](./expressroute-howto-linkvnet-arm.md)합니다.
 
 ## <a name="limitations"></a>제한 사항
 I p v 6은 가용성 영역 있는 지역에서 배포에 연결 하는 데 사용할 수 있지만 다음과 같은 사용 사례를 지원 하지 않습니다.

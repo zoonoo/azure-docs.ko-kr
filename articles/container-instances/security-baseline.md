@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ab927c973c6a5de6f3f3f8d88c504ec572b7148
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f63fc7ae28d80707149046637cf39c60a45748fd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047595"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566577"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Container Instances에 대 한 Azure 보안 기준
 
@@ -32,7 +32,7 @@ Container Instances 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 Azure 방화벽을 사용 하 여 Azure Container Instances에 위임 된 서브넷에서 아웃 바운드 네트워크 액세스를 제어 합니다. 
 
-- [Azure Virtual Network에 컨테이너 인스턴스 배포](/azure/container-instances/container-instance-vnet)
+- [Azure Virtual Network에 컨테이너 인스턴스 배포](/azure/container-instances/container-instances-vnet)
 
 - [Azure 방화벽을 배포 및 구성 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 

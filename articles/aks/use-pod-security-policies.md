@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 �
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180312"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544250"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "102180312"
 > AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. Pod 보안 정책에서 마이그레이션하려면 클러스터에서 다음 작업을 수행 해야 합니다.
 > 
 > 1. 클러스터에서 [pod 보안 정책 사용 안 함](#clean-up-resources)
-> 1. [Azure Policy 추가 기능][kubernetes-policy-reference] 사용
+> 1. [Azure Policy 추가 기능][azure-policy-add-on] 사용
 > 1. [사용 가능한 기본 제공 정책][policy-samples] 에서 원하는 Azure 정책 사용
 > 1. [Pod 보안 정책과 Azure Policy 간의 동작 변경 내용을](#behavior-changes-between-pod-security-policy-and-azure-policy) 검토 합니다.
 
@@ -462,7 +462,6 @@ Pod 네트워크 트래픽을 제한 하는 방법에 대 한 자세한 내용�
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -479,3 +478,4 @@ Pod 네트워크 트래픽을 제한 하는 방법에 대 한 자세한 내용�
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [policy-samples]: ./policy-reference.md#microsoftcontainerservice
+[azure-policy-add-on]: ../governance/policy/concepts/policy-for-kubernetes.md

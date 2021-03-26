@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb7f93437cd45914d3824e9f557241ba0d71162
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94835393"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564639"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹 설정 구성 (미리 보기)
 
@@ -75,14 +75,14 @@ Azure 권한 있는 액세스 그룹 역할에 대 한 설정을 열려면 다�
 
 다음 **적격** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| | |
+| | Description |
 | --- | --- |
 | **영구 적격 할당 허용** | 리소스 관리자가 영구 적격 할당을 할당할 수 있습니다. |
 | **적격 할당 만료 기준 시간** | 리소스 관리자는 모든 적격 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |
 
 또한 다음 **활성** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
-| | |
+| | Description |
 | --- | --- |
 | **영구 활성 할당 허용** | 리소스 관리자는 영구 활성 할당을 할당할 수 있습니다. |
 | **활성 할당 만료 기준 시간** | 리소스 관리자는 모든 활성 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |

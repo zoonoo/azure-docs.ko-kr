@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 2d0c0e7322ecb92fd371f5bf7924a370dd29fe85
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 65ee0847e6a59976eec223b68b1f3e0c464674e8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102583981"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563806"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>상용 marketplace 분석 데이터에 액세스 하기 위한 첫 번째 API 호출 만들기
 
@@ -50,7 +50,7 @@ curl --location --request POST 'https://login.microsoftonline.com/{TenantId}/oau
 }
 ```
 
-응용 프로그램에 대 한 Azure AD 토큰을 얻는 방법에 대 한 자세한 내용은 [스토어 서비스를 사용 하 여 분석 데이터 액세스](https://docs.microsoft.com/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token)를 참조 하세요.
+응용 프로그램에 대 한 Azure AD 토큰을 얻는 방법에 대 한 자세한 내용은 [스토어 서비스를 사용 하 여 분석 데이터 액세스](/windows/uwp/monetize/access-analytics-data-using-windows-store-services#step-2-obtain-an-azure-ad-access-token)를 참조 하세요.
 
 ## <a name="programmatic-api-call"></a>프로그래밍 방식 API 호출
 
@@ -258,7 +258,7 @@ curl
 
 _**표 1:이 요청 예제에 사용 된 매개 변수에 대 한 설명**_
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | ------------ | ------------- |
 | `Description` | 생성 되는 보고서에 대 한 간략 한 설명을 제공 합니다. |
 | `QueryId` | `queryId`2 단계: 사용자 지정 쿼리 만들기에서 쿼리를 만들 때 생성 된입니다. |

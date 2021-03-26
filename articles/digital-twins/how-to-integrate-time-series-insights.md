@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aeb7489b455840eeca0a8e1967c7e6e2ed50b7a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 608f883304dbc8e1ea8b0127668125ae50ca0b11
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199903"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564945"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Azure Time Series Insights와 Azure Digital Twins 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "102199903"
 
 이 문서에서 설명 하는 솔루션을 통해 IoT 솔루션에 대 한 기록 데이터를 수집 하 고 분석할 수 있습니다. Azure Digital Twins는 여러 데이터 스트림의 상관 관계를 발견하고 정보를 Time Series Insights로 전송하기 전에 표준화할 수 있으므로 Time Series Insights에 데이터를 공급하는 좋은 방법이 됩니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Time Series Insights와의 관계를 설정 하려면 먼저 **Azure Digital Twins 인스턴스가** 있어야 합니다. 이 인스턴스는 데이터를 기반으로 하는 디지털 쌍 정보를 업데이트 하는 기능을 사용 하 여 설정 해야 하며, Time Series Insights에서 추적 되는 데이터를 확인 하기 위해 쌍 정보를 몇 번 업데이트 해야 합니다. 
 
@@ -157,7 +157,7 @@ Azure Functions와 함께 Event Hubs를 사용 하는 방법에 대 한 자세�
 
 ## <a name="create-and-connect-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 만들기 및 연결
 
-다음으로 두 번째 (TSI) 이벤트 허브에서 데이터를 받도록 Time Series Insights 인스턴스를 설정 합니다. 아래 단계를 수행 하 고이 프로세스에 대 한 자세한 내용은 [*자습서: Azure Time Series Insights GEN2 PAYG 환경 설정*](../time-series-insights/tutorials-set-up-tsi-environment.md)을 참조 하세요.
+다음으로 두 번째 (TSI) 이벤트 허브에서 데이터를 받도록 Time Series Insights 인스턴스를 설정 합니다. 아래 단계를 수행 하 고이 프로세스에 대 한 자세한 내용은 [*자습서: Azure Time Series Insights GEN2 PAYG 환경 설정*](../time-series-insights/tutorial-set-up-environment.md)을 참조 하세요.
 
 1. Azure Portal에서 Time Series Insights 환경 만들기를 시작 합니다. 
     1. **Gen2 (L1)** 가격 책정 계층을 선택 합니다.
@@ -201,7 +201,7 @@ Time Series Insights로 데이터를 보내기 시작 하려면 변경 데이터
 
 디지털 쌍은 기본적으로 Time Series Insights의 플랫 계층으로 저장 되지만 모델 정보와 조직의 다단계 계층 구조를 사용 하 여 보강 수 있습니다. 이 프로세스에 대 한 자세한 내용은 다음을 참조 하세요. 
 
-* [*자습서: 모델 정의 및 적용*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
+* [*자습서: 모델 정의 및 적용*](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
 
 Azure Digital Twins에 이미 저장 된 모델 및 그래프 데이터를 사용 하 여이 정보를 자동으로 제공 하는 사용자 지정 논리를 작성할 수 있습니다. 쌍 그래프에서 정보를 관리, 업그레이드 및 검색 하는 방법에 대 한 자세한 내용은 다음 참조를 참조 하세요.
 

@@ -3,12 +3,12 @@ title: Azure Blob에 대 한 운영 백업 개요
 description: Azure Blob에 대 한 운영 백업 (미리 보기)에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745099"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558757"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Azure Blob에 대 한 운영 백업 개요 (미리 보기)
 
@@ -22,7 +22,7 @@ Blob의 운영 백업은 **로컬 백업** 솔루션입니다. 따라서 백업 
 
 운영 백업은 blob 플랫폼 기능을 사용 하 여 데이터를 보호 하 고 필요할 때 복구를 허용 합니다.
 
-- 지정 **시간 복원**: [blob 지정 시간 복원은](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) blob 데이터를 이전 상태로 복원할 수 있습니다. 이렇게 하면 **일시 삭제**, **변경 피드** 및 **blob 버전 관리** 를 사용 하 여 지정 된 기간 동안 데이터를 유지 합니다. 운영 백업에서는 지정 된 기간 동안 데이터가 보존 되도록 하는 기본 기능 뿐만 아니라 지정 시간 복원을 사용 합니다.
+- 지정 **시간 복원**: [blob 지정 시간 복원은](../storage/blobs/point-in-time-restore-overview.md) blob 데이터를 이전 상태로 복원할 수 있습니다. 이렇게 하면 **일시 삭제**, **변경 피드** 및 **blob 버전 관리** 를 사용 하 여 지정 된 기간 동안 데이터를 유지 합니다. 운영 백업에서는 지정 된 기간 동안 데이터가 보존 되도록 하는 기본 기능 뿐만 아니라 지정 시간 복원을 사용 합니다.
 
 - **삭제 잠금**: 삭제 잠금을 삭제 하면 저장소 계정이 실수로 또는 권한이 없는 사용자에 의해 삭제 되지 않습니다. 구성 된 경우에도 운영 백업은 삭제 잠금을 자동으로 적용 하 여 저장소 계정 삭제로 인 한 데이터 손실 가능성을 줄입니다.
 
@@ -59,13 +59,13 @@ Blob의 운영 백업은 **로컬 백업** 솔루션입니다. 따라서 백업 
 
 운영 백업은 저장소 계정의 모든 블록 blob을 복원 하 고 특정 컨테이너를 찾아보거나 복원 하거나 접두사 일치를 사용 하 여 blob의 하위 집합을 복원 하는 옵션을 제공 합니다. 모든 복원은 원본 저장소 계정에만 수행할 수 있습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 Blob에 대 한 운영 백업을 사용 하는 경우 관리 요금 또는 인스턴스 요금이 발생 하지 않습니다. 그러나 다음과 같은 요금이 발생 합니다.
 
-- 복원은 blob 지정 시간 복원 및 처리 된 데이터의 양에 따라 요금을 사용 하 여 수행 됩니다. 자세한 내용은 지정 [시간 복원 가격](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing)을 참조 하세요.
+- 복원은 blob 지정 시간 복원 및 처리 된 데이터의 양에 따라 요금을 사용 하 여 수행 됩니다. 자세한 내용은 지정 [시간 복원 가격](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing)을 참조 하세요.
 
-- [Blob에 대 한 일시 삭제](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), [Azure Blob Storage의 변경 피드 지원](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed)및 [blob 버전 관리](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)로 인해 데이터를 보존 합니다.
+- [Blob에 대 한 일시 삭제](../storage/blobs/soft-delete-blob-overview.md), [Azure Blob Storage의 변경 피드 지원](../storage/blobs/storage-blob-change-feed.md)및 [blob 버전 관리](../storage/blobs/versioning-overview.md)로 인해 데이터를 보존 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98724444"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557907"
 ---
 # <a name="resilient-end-user-experience"></a>복원 력 최종 사용자 환경
 
@@ -62,7 +62,7 @@ ms.locfileid: "98724444"
 
 ## <a name="availability-of-multi-factor-authentication"></a>Multi-factor authentication의 가용성
 
-[MFA (multi-factor authentication)에 전화 서비스](../../active-directory-b2c/phone-authentication.md)를 사용 하는 경우 대체 서비스 공급자를 고려해 야 합니다. 로컬 Telco 또는 phone 서비스 공급자의 서비스가 중단 될 수 있습니다.
+[MFA (multi-factor authentication)에 전화 서비스](../../active-directory-b2c/phone-authentication-user-flows.md)를 사용 하는 경우 대체 서비스 공급자를 고려해 야 합니다. 로컬 Telco 또는 phone 서비스 공급자의 서비스가 중단 될 수 있습니다.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>대체 MFA를 선택 하는 방법  
 

@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
 ms.date: 03/03/2021
-ms.openlocfilehash: d8f7a2b2f31fb192147c1950866cff77064a3671
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a884dac90273e98868fed6bfe1cbed23b939d286
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020319"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557703"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Azure API에서 FHIR에 대 한 진단 로깅 사용
 
@@ -42,7 +42,7 @@ ms.locfileid: "103020319"
     2. 타사 서비스 또는 사용자 지정 분석 솔루션에의 한 수집을 위해 **이벤트 허브로 스트리밍합니다** . 이 단계를 구성 하려면 먼저 이벤트 허브 네임 스페이스 및 이벤트 허브 정책을 만들어야 합니다.
     3. Azure Monitor에서 Log Analytics 작업 영역 **으로 스트리밍합니다** . 이 옵션을 선택 하려면 먼저 로그 분석 작업 영역을 만들어야 합니다.
 
-6. **AuditLogs** 및/또는 **allmetrics** 을 선택 합니다. 메트릭에는 서비스 이름, 가용성, 데이터 크기, 총 대기 시간, 총 요청, 총 오류 및 타임 스탬프가 포함 됩니다. [지원 되는 메트릭에](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices)대 한 자세한 정보를 찾을 수 있습니다. 
+6. **AuditLogs** 및/또는 **allmetrics** 을 선택 합니다. 메트릭에는 서비스 이름, 가용성, 데이터 크기, 총 대기 시간, 총 요청, 총 오류 및 타임 스탬프가 포함 됩니다. [지원 되는 메트릭에](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices)대 한 자세한 정보를 찾을 수 있습니다. 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR 진단 설정입니다. AuditLogs 및/또는 AllMetrics을 선택 합니다." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

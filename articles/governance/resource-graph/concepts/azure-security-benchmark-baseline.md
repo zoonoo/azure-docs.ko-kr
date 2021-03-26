@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5e01c8d1ac16e5e8be405660a0726796789e645
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad8968fdb6548da29a031f0e44bd3671f67b5553
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738976"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557720"
 ---
 # <a name="azure-security-baseline-for-azure-resource-graph"></a>Azure 리소스 그래프의 azure 보안 기준
 
@@ -30,7 +30,7 @@ Azure 리소스 그래프가 Azure 보안 벤치 마크에 완전히 매핑되�
 
 **지침**: Azure 리소스 그래프는 azure RBAC (역할 기반 액세스 제어)를 기반으로 하는 리소스 유형 및 속성에 대 한 액세스를 제공 합니다. 정기적으로 보안 주체 (사용자, 그룹 및 서비스 계정)에 부여 된 액세스를 감사 하 고 검토 하 여 쿼리가 적절 한 리소스에 대 한 결과를 반환 하는지 확인 합니다.
 
-- [Azure Resource Graph의 권한](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Azure Resource Graph의 권한](../overview.md#permissions-in-azure-resource-graph)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../../../active-directory/governance/access-reviews-overview.md)
 
@@ -46,9 +46,9 @@ Azure 리소스 그래프가 Azure 보안 벤치 마크에 완전히 매핑되�
 
 **지침**: Azure RBAC를 사용 하 여 데이터 및 리소스에 대 한 액세스를 제어 합니다. Azure 리소스 그래프를 사용 하려면 쿼리 하려는 리소스에 대 한 적절 한 액세스 권한도 있어야 합니다. 이 액세스는 읽기 전용으로 한정 되어야 하며 필요한 담당자 에게만 부여 되어야 합니다.
 
-- [Azure Resource Graph의 권한](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Azure Resource Graph의 권한](../overview.md#permissions-in-azure-resource-graph)
 
-- [Azure RBAC를 구성 하는 방법](../../../role-based-access-control/role-assignments-rest.md)
+- [Azure RBAC를 구성하는 방법](../../../role-based-access-control/role-assignments-rest.md)
 
 **책임**: Customer
 
@@ -96,5 +96,5 @@ Azure 리소스 그래프가 Azure 보안 벤치 마크에 완전히 매핑되�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

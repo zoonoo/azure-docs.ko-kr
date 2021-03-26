@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b9d40848abdd85beeca592001b697e3c50b7cd59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 15f76488790249f7e301d4474772c500c8829b77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008565"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565642"
 ---
 # <a name="import-new-update"></a>새 업데이트 가져오기
 IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방법에 대해 알아봅니다. 아직 수행 하지 않은 경우 기본 [가져오기 개념](import-concepts.md)을 숙지 해야 합니다.
@@ -21,7 +21,7 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 * [IoT Hub 사용 하도록 설정 된 장치 업데이트를 사용 하는 IoT Hub에 대 한 액세스](create-device-update-account.md). IoT Hub에 대해 S1 (Standard) 계층 이상을 사용 하는 것이 좋습니다. 
 * IoT Hub 내에서 장치 업데이트를 위해 프로 비전 된 IoT 장치 (또는 시뮬레이터)입니다.
    * 실제 장치를 사용 하는 경우 이미지 업데이트를 위한 업데이트 이미지 파일 또는 패키지 업데이트를 위한 [APT 매니페스트 파일이](device-update-apt-manifest.md) 필요 합니다.
-* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) 이상
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) 이상
 * 지원되는 브라우저:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -55,10 +55,10 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
     빠른 참조를 위해 위의 매개 변수에 대 한 몇 가지 예제 값은 다음과 같습니다. 자세한 내용은 전체 [가져오기 매니페스트 스키마](import-schema.md) 를 볼 수도 있습니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --------- | ----------- |
-    | deviceManufacturer | 업데이트가 호환 되는 (예: Contoso) 장치의 제조업체입니다. _제조업체_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)일치 해야 합니다.
-    | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델입니다. _모델_ [장치 속성과](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)일치 해야 합니다.
+    | deviceManufacturer | 업데이트가 호환 되는 (예: Contoso) 장치의 제조업체입니다. _제조업체_ [장치 속성과](./device-update-plug-and-play.md#device-properties)일치 해야 합니다.
+    | deviceModel | 업데이트가 호환 되는 장치 (예: Toaster)의 모델입니다. _모델_ [장치 속성과](./device-update-plug-and-play.md#device-properties)일치 해야 합니다.
     | updateProvider | 업데이트를 만들거나 직접 담당 하는 엔터티입니다. 회사 이름이 될 수도 있습니다.
     | updateName | 업데이트 클래스의 식별자입니다. 클래스는 사용자가 선택 하는 것이 될 수 있습니다. 일반적으로 장치 또는 모델 이름이 됩니다.
     | updateVersion | 이 업데이트를 동일한 공급자와 이름을 가진 다른 사용자와 구별 하는 버전 번호입니다. 는 장치에 있는 개별 소프트웨어 구성 요소의 버전과 일치 하지 않습니다 (선택 하는 경우에는 가능 함).
@@ -69,7 +69,7 @@ IoT Hub에 대 한 장치 업데이트로 새 업데이트를 가져오는 방�
 
 ## <a name="review-generated-import-manifest"></a>생성 된 가져오기 매니페스트 검토
 
-예제:
+예:
 ```json
 {
   "updateId": {

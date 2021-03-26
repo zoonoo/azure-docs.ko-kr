@@ -1,15 +1,15 @@
 ---
 title: 지원 되는 Azure Resource Manager 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 Azure Resource Manager 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 03/10/2021
+ms.date: 03/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 482c261586d5d077a61781eff28698fa9994f332
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102633770"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544148"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure Resource Graph 테이블 및 리소스 종류 참조
 
@@ -84,6 +84,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Citrix. Services/XenDesktopEssentials (Citrix 가상 데스크톱 Essentials)
 - Conexlink/accounts (MyCloudIT-Azure 데스크톱 호스팅)
 - Crypteron. DataSecurity/앱 (Crypteron)
+- github. 엔터프라이즈/계정
 - gridpro.evops/accounts
 - gridpro.evops/accounts/eventrules
 - gridpro.evops/accounts/requesttemplates
@@ -142,7 +143,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - AzureStackHCI/클러스터 (Azure Stack HCI)
 - azurestackhci/galleryimages
 - azurestackhci/networkinterfaces
-- AzureStackHCI/virtualmachines (Azure Stack HCI 가상 머신-Azure Arc)
+- azurestackhci/virtual하드 디스크
+- AzureStackHci/virtualMachines (Azure Stack HCI 가상 머신-Azure Arc)
 - azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - BareMetal/crayServers (Cray Servers)
@@ -219,7 +221,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - connectedvehicle/platformaccounts
 - connectedvmwarevsphere/resourcepools
 - connectedvmwarevsphere/vcenters
-- connectedvmwarevsphere/virtualmachines
+- ConnectedVMwarevSphere/VirtualMachines (VMware + AVS virtual machines)
+- connectedvmwarevsphere/virtualmachines/extensions
 - connectedvmwarevsphere/virtualmachinetemplates
 - connectedvmwarevsphere/virtualnetworks
 - ContainerInstance/containerGroups (Container instances)
@@ -254,6 +257,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.datamigration/services (Azure Database Migration Services)
 - Microsoft.datamigration/서비스/프로젝트 (Azure Database Migration Projects)
 - microsoft.datamigration/slots
+- microsoft.datamigration/sqlmigrationservices
 - Microsoft DataProtection/BackupVaults (백업 자격 증명 모음)
 - microsoft dataprotection/resourceoperationgatekeepers 키퍼
 - DataShare/계정 (데이터 공유)
@@ -262,7 +266,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft DBforMySQL/servers (Azure Database for MySQL 서버)
 - DBforPostgreSQL/flexibleServers (Azure Database for PostgreSQL 유연한 서버)
 - DBforPostgreSQL/serverGroups (Azure Database for PostgreSQL 서버 그룹)
-- dbforpostgresql/servergroupsv2
+- DBforPostgreSQL/serverGroupsv2 (Azure Database for PostgreSQL 서버 그룹)
 - DBforPostgreSQL/servers (Azure Database for PostgreSQL 서버)
 - DBforPostgreSQL/serversv2 (Azure Database for PostgreSQL servers v2)
 - microsoft.dbforpostgresql/singleservers
@@ -361,7 +365,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - IntelligentITDigitalTwin/digitalTwins/testPlans (도구 모음)
 - IntelligentITDigitalTwin/digitalTwins/테스트 (스크립트)
 - Microsoft 응용 프로그램 (IoT Central 응용 프로그램)
-- Microsoft. .Exe 공간/그래프 (Digital Twins (사용 되지 않음))
+- microsoft.iotspaces/graph
 - microsoft.keyvault/hsmpools
 - microsoft. keyvault/managedhsms
 - Microsoft. KeyVault/자격 증명 모음 (Key Vault)
@@ -369,6 +373,8 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft. Kusto/클러스터 (Azure 데이터 탐색기 클러스터)
 - Microsoft .Kusto/클러스터/데이터베이스 (Azure 데이터 탐색기 데이터베이스)
 - Microsoft. 서비스/연구원 계정 (Lab Services)
+- microsoft. 서비스/랩 계획
+- microsoft. 서비스/랩
 - Microsoft LoadTestService/Load테스트 (클라우드 네이티브 부하 테스트)
 - Microsoft 논리/integrationAccounts (통합 계정)
 - Microsoft 논리/integrationServiceEnvironments (통합 서비스 환경)
@@ -380,6 +386,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - MachineLearning/webServices (Machine Learning Studio (클래식) 웹 서비스)
 - MachineLearning/작업 영역 (Machine Learning Studio (클래식) 작업 영역)
 - microsoft.machinelearningcompute/operationalizationclusters
+- microsoft.machinelearningexperimentation/계정/작업 영역
 - machinelearningservices/modelinventories
 - machinelearningservices/modelinventory
 - machinelearningservices/virtualclusters
@@ -517,6 +524,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.powerbi/workspacecollections
 - microsoft. powerbidedicated/autoscalevcores
 - Microsoft. PowerBIDedicated/용량 (Power BI Embedded)
+- microsoft powerplatform/enterprisepolicies
 - ProjectBabylon/Accounts (Babylon 계정)
 - 부서의 범위/Accounts (부서의 범위 계정)
 - Microsoft 양자/작업 영역 (퀀텀 작업 영역)
@@ -525,7 +533,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft Relay/네임 스페이스 (릴레이)
 - microsoft.remoteapp/collections
 - microsoft. 복원 력/chaosexperiments
-- ResourceConnector/어플라이언스 (어플라이언스)
+- ResourceConnector/어플라이언스 (리소스 브리지)
 - Microsoft resourcegraph/queries (리소스 그래프 쿼리)
 - Microsoft .Resources/deploymentScripts (배포 스크립트)
 - TemplateSpecs/(템플릿 사양)
@@ -553,6 +561,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.servicefabricmesh/volumes
 - Microsoft 서비스 허브/커넥터 (서비스 허브 커넥터)
 - SignalRService/SignalR (SignalR)
+- SignalRService/WebPubSub (웹 PubSub 서비스)
 - 특이성/계정
 - microsoft.solutions/appliancedefinitions
 - microsoft.solutions/appliances
@@ -575,7 +584,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft. Storage/StorageAccounts (저장소 계정)
 - storagecache/amlfilesystems
 - StorageCache/캐시 (HPC 캐시)
-- microsoft storagepool/diskpools
+- Microsoft StoragePool/diskPools (디스크 풀)
 - Microsoft.storagesync/storageSyncServices (저장소 동기화 서비스)
 - Microsoft. StorageSyncDev/Storagesyncdev (저장소 동기화 서비스)
 - Microsoft StorageSyncInt/Storagescecservices (저장소 동기화 서비스)
@@ -603,7 +612,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - microsoft.vmware/arczones
 - microsoft.vmware/resourcepools
 - microsoft.vmware/vcenters
-- Microsoft. VMware/VirtualMachines (AVS virtual machines)
+- microsoft.vmware/virtualmachines
 - microsoft.vmware/virtualmachinetemplates
 - microsoft.vmware/virtualnetworks
 - VMwareCloudSimple/dedicatedCloudNodes (CloudSimple 노드)
@@ -633,10 +642,6 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - MyGet/services (MyGet-Hosted NuGet, NPM, Bower 및 Vsix)
 - Paraleap CloudMonix/서비스 (CloudMonix)
 - Pokitdok/services (PokitDok Platform)
-- 공급자. 테스트/statefulIbizaEngines (응용 프로그램 평가)
-- providers.test/statefulresources
-- providers.test/statefulresources/nestedresources
-- providers.test/statelessresources
 - RavenHq/데이터베이스 (RavenHQ)
 - Raygun/apps (Raygun)
 - Sendgrid.Email/accounts (SendGrid 계정)
@@ -661,6 +666,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
+- microsoft. 보안/정보/분류
 - microsoft. security/i이상 경고
 - microsoft. 보안/위치/경고 (보안 경고)
 - microsoft.security/pricings

@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4d51fc13e3587c21a7340b35db10d3cf36ab74b5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870741"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557550"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
@@ -94,8 +94,8 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **지원 되는 SQL 서비스** | SQL Server 데이터베이스 엔진만 지원 됩니다. <br/> SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS) 및 SQL Server Analysis Services (SSAS) 검색은 지원 되지 않습니다.
 
 > [!Note]
-> Azure Migrate는 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다(암호화 연결 속성이 TRUE로 설정됨). 이러한 연결은 [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate)로 암호화됩니다(TRUE로 설정됨). 전송 계층에서는 SSL을 사용하여 채널을 암호화하고 인증서 체인을 무시하여 신뢰의 유효성을 확인합니다. 어플라이언스 서버는 [**인증서의 루트 인증 기관을 신뢰**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.<br/>
-서버가 시작될 때 서버에 인증서가 제공되지 않으면 SQL Server는 로그인 패킷을 암호화하는 데 사용할 자체 서명된 인증서를 생성합니다. [**자세한 정보**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> Azure Migrate는 Azure Migrate 어플라이언스와 원본 SQL Server 인스턴스 간의 통신을 암호화합니다(암호화 연결 속성이 TRUE로 설정됨). 이러한 연결은 [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate)로 암호화됩니다(TRUE로 설정됨). 전송 계층에서는 SSL을 사용하여 채널을 암호화하고 인증서 체인을 무시하여 신뢰의 유효성을 확인합니다. 어플라이언스 서버는 [**인증서의 루트 인증 기관을 신뢰**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine)하도록 설정되어야 합니다.<br/>
+서버가 시작될 때 서버에 인증서가 제공되지 않으면 SQL Server는 로그인 패킷을 암호화하는 데 사용할 자체 서명된 인증서를 생성합니다. [**자세한 정보**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 ## <a name="dependency-analysis-requirements-agentless"></a>종속성 분석 요구 사항 (에이전트 없는)
 

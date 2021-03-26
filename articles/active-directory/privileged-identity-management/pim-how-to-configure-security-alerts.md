@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a632c0e31de1c2d7e5417656d537e5f9f82ecfbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 26b519ce11747ab3374d9bd286800a6c93129019
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96180492"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565234"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 보안 경고 구성
 
@@ -50,9 +50,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>관리자가 권한 있는 역할을 사용하지 않음
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 사용자에게 필요 없는 권한 있는 역할이 할당되면 공격 위험이 증대됩니다. 또한 잘 사용되지 않는 계정에서는 공격자가 드러나지 않을 가능성이 더 큽니다. |
 | **해결 방법** | 목록의 사용자를 검토 하 고 필요 하지 않은 권한 있는 역할에서 제거 합니다. |
 | **방지** | 비즈니스 근거를 가진 사용자 에게만 권한 있는 역할을 할당 합니다. </br>사용자가 액세스 권한이 계속 필요한지 확인하도록 정기적인 [액세스 검토](pim-how-to-start-security-review.md)를 예약합니다. |
@@ -62,9 +63,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>활성화할 역할에 다단계 인증이 필요하지 않음
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | Multi-factor authentication을 사용 하지 않으면 손상 된 사용자가 권한 있는 역할을 활성화할 수 있습니다. |
 | **해결 방법** | 역할 목록을 검토 하 고 모든 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
 | **방지** | [모든 역할에 대해 MFA를 요구합니다](pim-how-to-change-default-settings.md).  |
@@ -72,17 +74,19 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>조직에 Azure AD Premium P2가 없습니다.
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 현재 Azure AD 조직에 Azure AD Premium P2가 없습니다. |
 | **해결 방법** | [Azure AD 버전](../fundamentals/active-directory-whatis.md)에 대한 정보를 검토합니다. Azure AD Premium P2로 업그레이드합니다. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>권한 있는 역할의 잠재적인 부실 계정
 
-| | |
+심각도: **중형**
+
+| | Description |
 | --- | --- |
-| **심각도** | 중간 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
@@ -91,9 +95,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>역할이 Privileged Identity Management 외부에서 할당 됨
 
-| | |
+심각도: **높음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 높음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | Privileged Identity Management 외부에서 만든 권한 있는 역할 할당은 제대로 모니터링 되지 않으며 활성 공격을 나타낼 수 있습니다. |
 | **해결 방법** | 목록에서 사용자를 검토 하 고 Privileged Identity Management 외부에서 할당 된 권한 있는 역할에서 해당 사용자를 제거 합니다. |
 | **방지** | 사용자가 Privileged Identity Management 외부에서 권한 있는 역할을 할당 하는 위치를 조사 하 고 향후 할당을 금지 합니다. |
@@ -101,9 +106,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="there-are-too-many-global-administrators"></a>글로벌 관리자가 너무 많음
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 전역 관리자가 가장 높은 권한 있는 역할입니다. 전역 관리자가 손상 되 면 공격자는 모든 사용 권한에 대 한 액세스 권한을 얻게 되므로 전체 시스템의 위험을 초래할 수 있습니다. |
 | **해결 방법** | 목록에서 사용자를 검토 하 고 전역 관리자 역할이 절대적으로 필요 하지 않은 모든 사용자를 제거 합니다. </br>대신 이러한 사용자에 게 더 낮은 권한 있는 역할을 할당 합니다. |
 | **방지** | 사용자에게 필요한 최소한의 권한 있는 역할을 할당합니다. |
@@ -114,9 +120,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="roles-are-being-activated-too-frequently"></a>역할이 너무 자주 활성화됨
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
@@ -149,9 +156,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>관리자가 권한 있는 역할을 사용하지 않음
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 사용자에게 필요 없는 권한 있는 역할이 할당되면 공격 위험이 증대됩니다. 또한 잘 사용되지 않는 계정에서는 공격자가 드러나지 않을 가능성이 더 큽니다. |
 | **해결 방법** | 목록의 사용자를 검토 하 고 필요 하지 않은 권한 있는 역할에서 제거 합니다. |
 | **방지** | 비즈니스 근거를 가진 사용자 에게만 권한 있는 역할을 할당 합니다. </br>사용자가 액세스 권한이 계속 필요한지 확인하도록 정기적인 [액세스 검토](pim-how-to-start-security-review.md)를 예약합니다. |
@@ -161,9 +169,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="roles-dont-require-multi-factor-authentication-for-activation"></a>활성화할 역할에 다단계 인증이 필요하지 않음
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | Multi-factor authentication을 사용 하지 않으면 손상 된 사용자가 권한 있는 역할을 활성화할 수 있습니다. |
 | **해결 방법** | 역할 목록을 검토 하 고 모든 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
 | **방지** | [모든 역할에 대해 MFA를 요구합니다](pim-how-to-change-default-settings.md).  |
@@ -171,28 +180,31 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>조직에 Azure AD Premium P2가 없습니다.
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 현재 Azure AD 조직에 Azure AD Premium P2가 없습니다. |
 | **해결 방법** | [Azure AD 버전](../fundamentals/active-directory-whatis.md)에 대한 정보를 검토합니다. Azure AD Premium P2로 업그레이드합니다. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>권한 있는 역할의 잠재적인 부실 계정
 
-| | |
+심각도: **중형**
+
+| | Description |
 | --- | --- |
-| **심각도** | 중간 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
-| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세히 알아보기](../roles/security-planning.md) |
+| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세한 정보](../roles/security-planning.md) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>역할이 Privileged Identity Management 외부에서 할당 됨
 
-| | |
+심각도: **높음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 높음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | Privileged Identity Management 외부에서 만든 권한 있는 역할 할당은 제대로 모니터링 되지 않으며 활성 공격을 나타낼 수 있습니다. |
 | **해결 방법** | 목록에서 사용자를 검토 하 고 Privileged Identity Management 외부에서 할당 된 권한 있는 역할에서 해당 사용자를 제거 합니다. |
 | **방지** | 사용자가 Privileged Identity Management 외부에서 권한 있는 역할을 할당 하는 위치를 조사 하 고 향후 할당을 금지 합니다. |
@@ -200,9 +212,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="there-are-too-many-global-administrators"></a>글로벌 관리자가 너무 많음
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 전역 관리자가 가장 높은 권한 있는 역할입니다. 전역 관리자가 손상 되 면 공격자는 모든 사용 권한에 대 한 액세스 권한을 얻게 되므로 전체 시스템의 위험을 초래할 수 있습니다. |
 | **해결 방법** | 목록에서 사용자를 검토 하 고 전역 관리자 역할이 절대적으로 필요 하지 않은 모든 사용자를 제거 합니다. </br>대신 이러한 사용자에 게 더 낮은 권한 있는 역할을 할당 합니다. |
 | **방지** | 사용자에게 필요한 최소한의 권한 있는 역할을 할당합니다. |
@@ -213,9 +226,10 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ### <a name="roles-are-being-activated-too-frequently"></a>역할이 너무 자주 활성화됨
 
-| | |
+심각도: **낮음**
+
+| | Description |
 | --- | --- |
-| **심각도** | 낮음 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |

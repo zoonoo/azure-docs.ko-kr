@@ -3,25 +3,23 @@ title: Azure Media Services에 대한 인증 토큰 전달 | Microsoft Docs
 description: 클라이언트에서 Azure Media Services 키 배달 서비스로 인증 토큰을 보내는 방법을 알아봅니다.
 services: media-services
 keywords: 콘텐츠 보호, DRM, 토큰 인증
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4daec8ef5f2cc1da3a211113e7236dfd22803d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1fe692e1eb20956f339c9b861f50163cee9c5063
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008247"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564656"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>클라이언트가 Azure Media Services 키 배달 서비스로 토큰을 전달하는 방법 알아보기
 
@@ -33,7 +31,7 @@ ms.locfileid: "103008247"
 
 - HTTP 권한 부여 헤더를 통함.
     > [!NOTE]
-    > OAuth 2.0 사양마다 “Bearer” 접두사가 필요합니다. Azure Media Player [데모 페이지](https://ampdemo.azureedge.net/)에 호스트된 토큰 구성을 사용하는 샘플 플레이어가 있습니다. 동영상 원본을 설정하려면 **AES(JWT 토큰)** 또는 **AES(SWT 토큰)** 를 선택합니다. 토큰은 인증 헤더를 통해 전달됩니다.
+    > OAuth 2.0 사양마다 “Bearer” 접두사가 필요합니다. 동영상 원본을 설정하려면 **AES(JWT 토큰)** 또는 **AES(SWT 토큰)** 를 선택합니다. 토큰은 인증 헤더를 통해 전달됩니다.
 
 - “token=tokenvalue”로 URL 쿼리 매개 변수 추가를 통해,  
     > [!NOTE]

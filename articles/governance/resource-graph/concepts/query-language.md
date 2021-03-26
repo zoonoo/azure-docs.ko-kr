@@ -3,12 +3,12 @@ title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: f6cb13814fe725ff0253a0a5bf0098f0080fa407
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e600439d54a89dd9bd2510b2e47b71b60ee93a7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102633804"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557686"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -32,17 +32,17 @@ Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원�
 |ResourceContainers |예 |subscription(미리 보기에서는 --`Microsoft.Resources/subscriptions`) 및 resource group(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
 |AdvisorResources |예(미리 보기) |`Microsoft.Advisor` _관련_ 리소스를 포함합니다. |
 |AlertsManagementResources |예(미리 보기) |`Microsoft.AlertsManagement` _관련_ 리소스를 포함합니다. |
-|ExtendedLocationResources |아니요 |`Microsoft.ExtendedLocation` _관련_ 리소스를 포함합니다. |
-|GuestConfigurationResources |아니요 |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
-|KubernetesConfigurationResources |아니요 |`Microsoft.KubernetesConfiguration` _관련_ 리소스를 포함합니다. |
+|ExtendedLocationResources |예 |`Microsoft.ExtendedLocation` _관련_ 리소스를 포함합니다. |
+|GuestConfigurationResources |예 |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
+|KubernetesConfigurationResources |예 |`Microsoft.KubernetesConfiguration` _관련_ 리소스를 포함합니다. |
 |MaintenanceResources |부분, _에_ 만 조인 합니다. (미리 보기) |`Microsoft.Maintenance` _관련_ 리소스를 포함합니다. |
-|PatchAssessmentResources|아니요 |Azure Virtual Machines 패치 평가 _와 관련 된_ 리소스를 포함 합니다. |
-|PatchInstallationResources|아니요 |Azure Virtual Machines 패치 설치 _와 관련 된_ 리소스가 포함 되어 있습니다. |
-|PolicyResources |아니요 |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**)|
+|PatchAssessmentResources|예 |Azure Virtual Machines 패치 평가 _와 관련 된_ 리소스를 포함 합니다. |
+|PatchInstallationResources|예 |Azure Virtual Machines 패치 설치 _와 관련 된_ 리소스가 포함 되어 있습니다. |
+|PolicyResources |예 |`Microsoft.PolicyInsights` _관련_ 리소스를 포함합니다. (**미리 보기**)|
 |Recovery서비스로 리소스 |부분, _에_ 만 조인 합니다. (미리 보기) |및와 _관련 된_ 리소스를 포함 `Microsoft.DataProtection` `Microsoft.RecoveryServices` 합니다. |
 |SecurityResources |부분, _에_ 만 조인 합니다. (미리 보기) |`Microsoft.Security` _관련_ 리소스를 포함합니다. |
-|ServiceHealthResources |아니요 |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
-|WorkloadMonitorResources |아니요 |`Microsoft.WorkloadMonitor` _관련_ 리소스를 포함합니다. |
+|ServiceHealthResources |예 |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
+|WorkloadMonitorResources |예 |`Microsoft.WorkloadMonitor` _관련_ 리소스를 포함합니다. |
 
 리소스 종류를 비롯 한 전체 목록은 [참조: 지원 되는 테이블 및 리소스 종류](../reference/supported-tables-resources.md)를 참조 하세요.
 
@@ -135,7 +135,7 @@ Resource Graph에서 지원하는 KQL 테이블 형식 연산자와 특정 샘�
 |[join](/azure/kusto/query/joinoperator) |[구독 이름이 있는 키 자격 증명 모음](../samples/advanced.md#join) |지원되는 조인 버전: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). 단일 쿼리에서 3의 제한이 `join` 있으며, 그 중 하나는 크로스 테이블 일 수 있습니다 `join` . 모든 테이블 간 `join` 사용이 _리소스_ 와 _ResourceContainers_ 사이에 있는 경우 3 개의 크로스 테이블이 `join` 허용 됩니다. 브로드캐스트 조인과 같은 사용자 지정 조인 전략은 허용되지 않습니다. 사용할 수 있는 테이블에 대해서는 `join` [리소스 그래프 표](#resource-graph-tables)를 참조 하세요. |
 |[limit](/azure/kusto/query/limitoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |의 동의어 `take` 입니다. [Skip](./work-with-data.md#skipping-records)에서 작동 하지 않습니다. |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | 레거시 연산자. `mv-expand`를 대신 사용합니다. _RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. 단일 쿼리의 `mv-expand`은 3개로 제한됩니다.|
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_. 최댓값은 400입니다. 기본값은 128입니다. 단일 쿼리에서 제한 값 2 개 `mv-expand`|
 |[order](/azure/kusto/query/orderoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`sort`의 동의어 |
 |[project](/azure/kusto/query/projectoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[결과에서 열 제거](../samples/advanced.md#remove-column) | |

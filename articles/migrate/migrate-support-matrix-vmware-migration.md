@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576784"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557567"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -68,7 +68,7 @@ VMware Vm은 몇 가지 방법으로 마이그레이션할 수 있습니다.
 **IPv6** | 지원되지 않습니다.
 **대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 표준 SSD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 **동시 복제** | 1 개 어플라이언스를 사용 하 여 vCenter Server 최대 300 개의 Vm을 동시에 복제 합니다. 추가 [확장 어플라이언스](./how-to-scale-out-for-migration.md) 를 배포할 때 VCenter Server 당 vm을 동시에 최대 500 개까지 복제 합니다. 
-**Azure VM 에이전트 (Windows 및 Linux 에이전트)의 자동 설치** | Windows Server 2008 R2 이후부터 지원 됩니다. <br/> RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04에 대해 지원 됩니다. 이러한 Linux 운영 체제에 대 한 [필수 패키지](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)의 목록을 검토 합니다.
+**Azure VM 에이전트 (Windows 및 Linux 에이전트)의 자동 설치** | Windows Server 2008 R2 이후부터 지원 됩니다. <br/> RHEL6, RHEL7, CentOS7, Ubuntu 14.04, Ubuntu 16.04, Ubuntu 18.04에 대해 지원 됩니다. 이러한 Linux 운영 체제에 대 한 [필수 패키지](../virtual-machines/extensions/agent-linux.md#requirements)의 목록을 검토 합니다.
 
 > [!TIP]
 >  Azure Portal를 사용 하 여 복제를 구성 하기 위해 한 번에 최대 10 개의 Vm을 선택할 수 있습니다. 더 많은 Vm을 복제 하려면 포털을 사용 하 고 vm을 10 개 Vm의 여러 일괄 처리로 복제 하도록 Vm을 추가 하거나 Azure Migrate PowerShell 인터페이스를 사용 하 여 복제를 구성할 수 있습니다. 동시 복제를 위해 지원 되는 최대 Vm 수를 초과 하 여 동시 복제를 구성 하지 않도록 합니다.
@@ -170,7 +170,7 @@ Azure에 복제 되는 모든 온-프레미스 Vm (에이전트 없는 에이전
 FC 디스크 | 지원되지 않습니다. 
 BitLocker | 지원되지 않습니다.<br/><br/> 컴퓨터를 마이그레이션하기 전에 BitLocker를 사용 하지 않도록 설정 해야 합니다.
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. 
-마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고,   ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세한 정보를 알아보세요](prepare-for-migration.md).
+마이그레이션 후 연결-Windows | 마이그레이션 후 Windows를 실행 하는 Azure Vm에 연결 하려면 다음을 수행 합니다.<br/><br/> -마이그레이션하기 전에 온-프레미스 VM에서 RDP를 사용 하도록 설정 합니다.<br/><br/> **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱** 에서 모든 프로필에 대해 허용되는지 확인합니다.<br/><br/> 사이트 간 VPN 액세스의 경우 rdp를 사용 하도록 설정 하 고,   ->  **도메인 및 개인** 네트워크의 Windows 방화벽 **허용 되는 앱 및 기능** 에서 rdp를 허용 합니다.<br/><br/> 또한 운영 체제의 SAN 정책이 **OnlineAll** 으로 설정 되어 있는지 확인 합니다. [자세히 알아보기](prepare-for-migration.md).
 마이그레이션 후 연결-Linux | SSH를 사용 하 여 마이그레이션한 후 Azure Vm에 연결 하려면:<br/><br/> 마이그레이션 전에 온-프레미스 컴퓨터에서 Secure Shell 서비스가 시작으로 설정 되어 있고 방화벽 규칙에서 SSH 연결을 허용 하는지 확인 합니다.<br/><br/> 장애 조치 (failover) 후에 Azure VM에서 장애 조치 (failover) 된 VM의 네트워크 보안 그룹 규칙에 대 한 SSH 포트 및 연결 된 Azure 서브넷에 대 한 들어오는 연결을 허용 합니다.<br/><br/> 또한 VM에 대 한 공용 IP 주소를 추가 합니다.  
 
 

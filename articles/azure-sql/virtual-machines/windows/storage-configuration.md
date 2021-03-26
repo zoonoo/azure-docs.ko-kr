@@ -1,5 +1,5 @@
 ---
-title: SQL Server VM에 대한 스토리지 구성 | Microsoft Docs
+title: SQL Server Vm에 대 한 저장소 구성 | Microsoft Docs
 description: 이 항목에서는 Azure에서 프로 비전 중에 SQL Server Vm에 대 한 저장소를 구성 하는 방법을 설명 합니다 (Azure Resource Manager 배포 모델). 또한 기존 SQL Server VM에 대한 스토리지를 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,27 +13,26 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: d713faf7062f82110be5fa8378faca368b9bb7a2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 982bd9239c5e95c9b7af09b5f54c5a09067ca7c6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97356723"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565429"
 ---
-# <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM에 대한 스토리지 구성
+# <a name="configure-storage-for-sql-server-vms"></a>SQL Server Vm에 대 한 저장소 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Azure에서 SQL Server VM (가상 머신) 이미지를 구성 하는 경우 Azure Portal은 저장소 구성을 자동화 하는 데 도움이 됩니다. 스토리지를 VM에 연결하고 해당 스토리지를 SQL Server에 액세스할 수 있도록 하고 구성하여 특정 성능 요구 사항에 최적화하는 작업을 포함합니다.
+이 문서에서는 Azure Virtual Machines (Vm)에서 SQL Server에 대 한 저장소를 구성 하는 방법을 설명 합니다.
 
-이 항목에서는 Azure에서 프로비전 중 스토리지 SQL Server VM 및 기존 VM에 대한 스토리지를 구성하는 방법을 설명합니다. 이 구성은 SQL Server를 실행하는 Azure VM의 [성능 모범 사례](performance-guidelines-best-practices.md) 에 기반합니다.
+Marketplace 이미지를 통해 배포 된 SQL Server Vm은 배포 중에 수정할 수 있는 기본 [저장소 모범 사례](performance-guidelines-best-practices-storage.md) 를 자동으로 따릅니다. 이러한 구성 설정 중 일부는 배포 후 변경할 수 있습니다. 
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 자동화된 스토리지 구성 설정을 사용하려면 가상 머신에는 다음과 같은 특성이 필요합니다.
 
-* [SQL Server 갤러리 이미지](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo)로 프로비전합니다.
+* [SQL Server 갤러리 이미지](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo) 를 사용 하 여 프로 비전 되거나 [SQL IaaS 확장]()에 등록 됩니다.
 * [Resource Manager 배포 모델](../../../azure-resource-manager/management/deployment-models.md)을 사용합니다.
 * [프리미엄 SSD](../../../virtual-machines/disks-types.md)를 사용합니다.
 
@@ -47,7 +46,9 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 �
 
 ![SQL Server 설정 탭과 변경 구성 옵션을 강조 표시 하는 스크린샷](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-**스토리지 최적화** 에서 SQL Server를 배포하는 워크로드의 유형을 선택합니다. **일반** 최적화 옵션을 사용하는 경우 기본적으로 최대 5,000 IOPS를 포함하는 하나의 데이터 디스크가 있으며 데이터, 트랜잭션 로그 및 TempDB 스토리지에 대해 동일한 드라이브를 사용합니다. **트랜잭션 처리**(OLTP) 또는 **데이터 웨어하우징** 을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리** 와 **데이터 웨어하우징** 간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](performance-guidelines-best-practices.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
+**스토리지 최적화** 에서 SQL Server를 배포하는 워크로드의 유형을 선택합니다. **일반** 최적화 옵션을 사용하는 경우 기본적으로 최대 5,000 IOPS를 포함하는 하나의 데이터 디스크가 있으며 데이터, 트랜잭션 로그 및 TempDB 스토리지에 대해 동일한 드라이브를 사용합니다. 
+
+**트랜잭션 처리**(OLTP) 또는 **데이터 웨어하우징** 을 선택하면 데이터용 및 트랜잭션 로그용으로 별도의 디스크가 생성되고 TempDB에 로컬 SSD가 사용됩니다. **트랜잭션 처리** 와 **데이터 웨어하우징** 간에는 스토리지 차이점이 없지만 사용자의 [스트라이프 구성 및 추적 플래그](#workload-optimization-settings)를 변경합니다. Premium Storage를 선택하면 데이터 드라이브에 *ReadOnly* 캐싱이 설정되고 [SQL Server VM 성능 모범 사례](performance-guidelines-best-practices.md)에 따라 로그 드라이브에 없음이 설정됩니다. 
 
 ![프로비전하는 동안 SQL Server VM 스토리지 구성](./media/storage-configuration/sql-vm-storage-configuration.png)
 
@@ -74,7 +75,7 @@ SQL Server 갤러리 이미지를 사용하여 Azure VM을 프로비전하는 �
 * 가상 컴퓨터에 새 드라이브와 스토리지 풀을 연결합니다.
 * 지정한 워크로드 유형(데이터 웨어하우징, 트랜잭션 처리 또는 일반)에 따라 새 드라이브를 최적화합니다.
 
-Azure에서 스토리지 설정을 구성하는 방법에 대한 자세한 내용은 [스토리지 구성 섹션](#storage-configuration)을 참조하세요. Azure Portal에서 SQL Server VM을 만드는 방법의 전체 연습은 [프로비전 자습서](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)를 참조하세요.
+Azure Portal에서 SQL Server VM을 만드는 방법의 전체 연습은 [프로비전 자습서](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)를 참조하세요.
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
@@ -111,7 +112,7 @@ SQL Server VM 만들기 프로세스 중에 구성된 드라이브의 디스크 
 ![기존 SQL Server VM에 대한 스토리지 구성](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-## <a name="storage-configuration"></a>스토리지 구성
+## <a name="automated-changes"></a>자동화 된 변경 내용
 
 이 섹션에서는 Azure Portal에서 SQL Server VM 프로 비전 또는 구성 하는 동안 Azure에서 자동으로 수행 하는 저장소 구성 변경 내용에 대 한 참조를 제공 합니다.
 
@@ -137,7 +138,7 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 <sup>1</sup> 스토리지 풀을 만든 후에 스토리지 풀에서 열 수를 변경할 수 없습니다.
 
 
-## <a name="workload-optimization-settings"></a>워크로드 최적화 설정
+### <a name="workload-optimization-settings"></a>워크로드 최적화 설정
 
 다음 테이블에서는 사용할 수 있는 세 가지 워크로드 유형 옵션 및 이에 해당하는 최적화를 설명합니다.
 
@@ -149,6 +150,78 @@ Azure는 다음 설정을 사용하여 SQL Server VM에 스토리지 풀을 만�
 
 > [!NOTE]
 > 저장소 구성 단계에서 가상 컴퓨터를 선택 하 여 SQL Server 가상 컴퓨터를 프로 비전 할 때에만 작업 유형을 지정할 수 있습니다.
+
+## <a name="enable-caching"></a>캐싱 설정 
+
+디스크 수준에서 캐싱 정책을 변경 합니다. Azure Portal, [PowerShell](/powershell/module/az.compute/set-azvmdatadisk)또는 [Azure CLI](/cli/azure/vm/disk)를 사용 하 여이 작업을 수행할 수 있습니다. 
+
+Azure Portal에서 캐싱 정책을 변경 하려면 다음 단계를 수행 합니다.
+
+1. SQL Server 서비스를 중지 합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. 가상 머신으로 이동 하 고 **설정** 아래에서 **디스크** 를 선택 합니다. 
+   
+   ![Azure Portal의 VM 디스크 구성 블레이드를 보여 주는 스크린샷](./media/storage-configuration/disk-in-portal.png)
+
+1. 드롭다운에서 디스크에 대 한 적절 한 캐싱 정책을 선택 합니다. 
+
+   ![Azure Portal의 디스크 캐싱 정책 구성을 보여 주는 스크린샷](./media/storage-configuration/azure-disk-config.png)
+
+1. 변경 내용이 적용 되 면 SQL Server VM를 다시 부팅 하 고 SQL Server 서비스를 시작 합니다. 
+
+
+## <a name="enable-write-accelerator"></a>Write Accelerator 사용
+
+쓰기 가속화는 M 시리즈 Virtual Machines (Vm)에만 사용할 수 있는 디스크 기능입니다. 쓰기 가속화의 목적은 대량 업무에 중요 한 OLTP 작업 또는 데이터 웨어하우스 환경으로 인해 단일 숫자 i/o 대기 시간이 필요한 경우 Azure Premium Storage에 대 한 쓰기의 i/o 대기 시간을 개선 하는 것입니다. 
+
+쓰기 가속 정책을 변경 하기 전에 모든 SQL Server 작업을 중지 하 고 SQL Server 서비스를 종료 합니다. 
+
+디스크가 스트라이프 되는 경우에는 각 디스크에 대해 개별적으로 쓰기 가속화를 사용 하도록 설정 하 고 Azure VM을 종료 한 후에 변경 해야 합니다. 
+
+Azure Portal를 사용 하 여 쓰기 가속을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+
+1. SQL Server 서비스를 중지 합니다. 디스크가 스트라이프 된 경우 가상 컴퓨터를 종료 합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. 가상 머신으로 이동 하 고 **설정** 아래에서 **디스크** 를 선택 합니다. 
+   
+   ![Azure Portal의 VM 디스크 구성 블레이드를 보여 주는 스크린샷](./media/storage-configuration/disk-in-portal.png)
+
+1. 드롭다운에서 디스크에 대 한 **쓰기 가속기** 를 사용 하 여 캐시 옵션을 선택 합니다. 
+
+   ![쓰기 가속기 캐시 정책을 보여 주는 스크린샷](./media/storage-configuration/write-accelerator.png)
+
+1. 변경 내용이 적용 되 면 가상 컴퓨터를 시작 하 고 서비스를 SQL Server 합니다. 
+
+## <a name="disk-striping"></a>디스크 스트라이프
+
+더 많은 처리량을 위해 데이터 디스크를 더 추가 하 고 디스크 스트라이프를 사용할 수 있습니다. 데이터 디스크 수를 확인 하려면 로그 및 tempdb를 포함 하 여 SQL Server 데이터 파일에 필요한 처리량 및 대역폭을 분석 합니다. 처리량 및 대역폭 제한은 VM 크기에 따라 달라 집니다. 자세히 알아보려면 [VM 크기](../../../virtual-machines/sizes.md) 를 참조 하세요.
+
+
+* Windows 8/Windows Server 2012 이상인 경우 다음 지침을 통해 [스토리지 공간](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11))을 사용합니다.
+
+  1. 파티션 잘못 맞춤으로 인해 성능에 영향을 미치지 않도록 인터리브 (스트라이프 크기)를 64 KB (65536 바이트)로 설정 합니다. 이는 PowerShell로 설정되어야 합니다.
+
+  2. 열 수를 실제 디스크 수로 설정합니다. 8개 이상의 디스크(서버 관리자 UI 아님)를 구성하는 경우 PowerShell을 사용합니다.
+
+예를 들어 다음 PowerShell은 인터리브 크기가 64 KB이 고 저장소 풀의 실제 디스크 양과 동일한 열 수를 사용 하 여 새 저장소 풀을 만듭니다.
+
+  ```powershell
+  $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+  
+  New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" `
+      -PhysicalDisks $PhysicalDisks | New- VirtualDisk -FriendlyName "DataFiles" `
+      -Interleave 65536 -NumberOfColumns $PhysicalDisks .Count -ResiliencySettingName simple `
+      –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter `
+      -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" `
+      -AllocationUnitSize 65536 -Confirm:$false 
+  ```
+
+  * Windows 2008 R2 또는 이전 버전에서는 동적 디스크(OS 스트라이프 볼륨)를 사용할 수 있으며 스트라이프 크기는 항상 64KB입니다. 이 옵션은 Windows 8/Windows Server 2012부터 사용되지 않습니다. 자세한 내용은 [가상 디스크 서비스가 Windows 스토리지 관리 API로 전환](https://docs.microsoft.com/windows/win32/w8cookbook/vds-is-transitioning-to-wmiv2-based-windows-storage-management-api)에 있는 지원 설명을 참조하세요.
+ 
+  * [SQL Server 장애 조치(failover) 클러스터 인스턴스](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure)와 함께 [S2D(스토리지 공간 다이렉트)](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm)를 사용하는 경우 단일 풀을 구성해야 합니다. 해당 단일 풀에서 여러 볼륨을 만들 수 있지만 모두 동일한 캐싱 정책 등의 동일한 특성을 공유합니다.
+ 
+  * 예상되는 부하에 따라 스토리지 풀에 연결되는 디스크 수를 결정합니다. VM 크기가 다르면 연결된 데이터 디스크 수도 다를 수 있다는 점에 유의하세요. 자세한 내용은 [가상 컴퓨터의 크기](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json)를 참조 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

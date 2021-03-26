@@ -3,34 +3,34 @@ title: Azure Monitor 로그의 시스템 함수
 description: 시스템 함수를 사용 하 여 Azure Monitor 로그에 사용자 지정 쿼리 작성
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510552"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564911"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Azure Monitor 로그의 시스템 함수
 
 Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할 수 있는 시스템 함수 또는 솔루션 함수 라는 일련의 함수를 제공 합니다.
  
-이러한 함수는 LA의 [원시 Azure Backup 테이블](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) 에 있는 데이터에 대해 작동 하며 간단한 쿼리를 사용 하 여 모든 백업 관련 엔터티의 정보를 쉽게 검색 하는 데 도움이 되는 형식이 지정 된 데이터를 반환 합니다. 사용자는 이러한 함수에 매개 변수를 전달 하 여 이러한 함수에서 반환 되는 데이터를 필터링 할 수 있습니다. 
+이러한 함수는 LA의 [원시 Azure Backup 테이블](./backup-azure-reports-data-model.md) 에 있는 데이터에 대해 작동 하며 간단한 쿼리를 사용 하 여 모든 백업 관련 엔터티의 정보를 쉽게 검색 하는 데 도움이 되는 형식이 지정 된 데이터를 반환 합니다. 사용자는 이러한 함수에 매개 변수를 전달 하 여 이러한 함수에서 반환 되는 데이터를 필터링 할 수 있습니다. 
 
 아래 섹션에 설명 된 대로 사용자 지정 보고서를 만들기 위해 LA 작업 영역에서 백업 데이터를 쿼리 하는 데 시스템 함수를 사용 하는 것이 좋습니다.
 
 ## <a name="benefits-of-using-system-functions"></a>시스템 함수 사용의 이점
 
-* **간단한 쿼리**: 함수를 사용 하면 쿼리에 필요한 조인 수를 줄일 수 있습니다. 기본적으로 함수는 쿼리 중인 엔터티 (백업 인스턴스, 작업, 자격 증명 모음 등)와 관련 된 모든 정보를 통합 하는 ' 평면화 된 ' 스키마를 반환 합니다. 예를 들어 백업 항목 이름 및 연결 된 컨테이너를 기준으로 성공한 백업 작업 목록을 가져와야 하는 경우 **_AzureBackup_getJobs ()** 함수를 간단히 호출 하면 각 작업에 대 한이 모든 정보가 제공 됩니다. 반면에 원시 테이블을 직접 쿼리하면 [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) 테이블과 [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup) 테이블 간에 여러 조인을 수행 해야 합니다.
+* **간단한 쿼리**: 함수를 사용 하면 쿼리에 필요한 조인 수를 줄일 수 있습니다. 기본적으로 함수는 쿼리 중인 엔터티 (백업 인스턴스, 작업, 자격 증명 모음 등)와 관련 된 모든 정보를 통합 하는 ' 평면화 된 ' 스키마를 반환 합니다. 예를 들어 백업 항목 이름 및 연결 된 컨테이너를 기준으로 성공한 백업 작업 목록을 가져와야 하는 경우 **_AzureBackup_getJobs ()** 함수를 간단히 호출 하면 각 작업에 대 한이 모든 정보가 제공 됩니다. 반면에 원시 테이블을 직접 쿼리하면 [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) 테이블과 [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup) 테이블 간에 여러 조인을 수행 해야 합니다.
 
-* **레거시 진단 이벤트의 원활한 전환**: 시스템 함수를 사용 하면 [레거시 진단 이벤트](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (azurediagnostics 모드의 azurebackupreport)에서 [리소스 관련 이벤트](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users)로 원활 하 게 전환할 수 있습니다. Azure Backup에서 제공 하는 모든 시스템 함수를 사용 하면 함수에서 리소스 관련 테이블의 데이터만 쿼리 하거나 레거시 테이블 및 리소스 관련 테이블 (레코드 중복 제거) 모두에서 데이터를 쿼리 해야 할지 여부를 선택할 수 있는 매개 변수를 지정할 수 있습니다.
+* **레거시 진단 이벤트의 원활한 전환**: 시스템 함수를 사용 하면 [레거시 진단 이벤트](./backup-azure-diagnostic-events.md#legacy-event) (azurediagnostics 모드의 azurebackupreport)에서 [리소스 관련 이벤트](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users)로 원활 하 게 전환할 수 있습니다. Azure Backup에서 제공 하는 모든 시스템 함수를 사용 하면 함수에서 리소스 관련 테이블의 데이터만 쿼리 하거나 레거시 테이블 및 리소스 관련 테이블 (레코드 중복 제거) 모두에서 데이터를 쿼리 해야 할지 여부를 선택할 수 있는 매개 변수를 지정할 수 있습니다.
     * 리소스 관련 테이블로 성공적으로 마이그레이션한 경우 함수에서 레거시 테이블을 쿼리하지 않도록 선택할 수 있습니다.
     * 현재 마이그레이션 프로세스를 진행 중 이며 분석에 필요한 일부 데이터가 레거시 테이블에 있는 경우 레거시 테이블을 포함 하도록 선택할 수 있습니다. 전환이 완료 되 고 레거시 테이블의 데이터가 더 이상 필요 하지 않은 경우 쿼리에서 함수로 전달 된 매개 변수 값을 업데이트 하 여 레거시 테이블을 제외할 수 있습니다.
-    * 기존 테이블만 사용 하 고 있는 경우에도 동일한 매개 변수를 통해 레거시 테이블을 포함 하도록 선택 하면 함수는 계속 작동 합니다. 그러나 가장 빨리 [리소스 관련 테이블로 전환](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) 하는 것이 좋습니다.
+    * 기존 테이블만 사용 하 고 있는 경우에도 동일한 매개 변수를 통해 레거시 테이블을 포함 하도록 선택 하면 함수는 계속 작동 합니다. 그러나 가장 빨리 [리소스 관련 테이블로 전환](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) 하는 것이 좋습니다.
 
 * **사용자 지정 쿼리 중단 가능성 감소**: 향후 보고 시나리오를 수용 하기 위해 기본 LA 테이블의 스키마가 향상 된 기능을 도입 하는 Azure Backup 경우 스키마 변경을 고려 하도록 함수 정의가 업데이트 될 수도 있습니다. 따라서 시스템 함수를 사용 하 여 사용자 지정 쿼리를 만드는 경우 테이블의 기본 스키마가 변경 되더라도 쿼리는 중단 되지 않습니다.
 
 > [!NOTE]
-> 시스템 함수는 Microsoft에 의해 유지 관리 되며 사용자는 해당 정의를 편집할 수 없습니다. 편집 가능한 함수가 필요한 경우 LA에서 [저장 된 함수](https://docs.microsoft.com/azure/azure-monitor/logs/functions) 를 만들 수 있습니다.
+> 시스템 함수는 Microsoft에 의해 유지 관리 되며 사용자는 해당 정의를 편집할 수 없습니다. 편집 가능한 함수가 필요한 경우 LA에서 [저장 된 함수](../azure-monitor/logs/functions.md) 를 만들 수 있습니다.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Azure Backup에서 제공 하는 시스템 함수 유형
 
@@ -68,13 +68,13 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
 | -------------- | --------------- |
 | UniqueId | 자격 증명 모음의 고유 ID를 나타내는 기본 키입니다. |
 | Id | 자격 증명 모음의 ARM (Azure Resource Manager) ID |
-| Name | 자격 증명 모음의 이름 |
+| 이름 | 자격 증명 모음의 이름 |
 | SubscriptionId | 자격 증명 모음이 존재 하는 구독의 ID입니다. |
 | 위치 | 자격 증명 모음이 있는 위치 |
 | VaultStore_StorageReplicationType | 자격 증명 모음과 연결 된 저장소 복제 유형 |
-| 태그 | 자격 증명 모음의 태그 |
+| Tags | 자격 증명 모음의 태그 |
 | TimeGenerated | 레코드의 타임 스탬프 |
-| Type |  자격 증명 모음의 유형 ("Microsoft RecoveryServices/자격 증명 모음")|
+| 형식 |  자격 증명 모음의 유형 ("Microsoft RecoveryServices/자격 증명 모음")|
 
 #### <a name="_azurebackup_getpolicies"></a>_AzureBackup_GetPolicies ()
 
@@ -99,7 +99,7 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
 | -------------- | --------------- |
 | UniqueId | 정책의 고유 ID를 나타내는 기본 키 |
 | Id | 정책에 대 한 Azure Resource Manager (ARM) ID |
-| Name | 정책 이름 |
+| 이름 | 정책 이름 |
 | 백업 솔루션 | 정책이 연결 된 백업 솔루션입니다. 예를 들어 Azure VM 백업, Azure VM Backup의 SQL 등이 여기에 해당 합니다. |
 | TimeGenerated | 레코드의 타임 스탬프 |
 | VaultUniqueId | 정책과 연결 된 자격 증명 모음을 참조 하는 외래 키 |
@@ -246,8 +246,8 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
 | -------------- | --------------- |
 | UniqueId | 청구 그룹의 고유 ID를 나타내는 기본 키 |
 | FriendlyName | 청구 그룹의 이름 |
-| Name | 청구 그룹의 이름입니다. |
-| Type | 청구 그룹의 유형입니다. 예: ProtectedContainer 또는 BackupItem |
+| 이름 | 청구 그룹의 이름입니다. |
+| 형식 | 청구 그룹의 유형입니다. 예: ProtectedContainer 또는 BackupItem |
 | SourceSizeInMBs | 요금 청구 그룹의 프런트 엔드 크기 (Mb) |
 | VaultStore_StorageConsumptionInMBs | 자격 증명 모음에서 청구 그룹에서 사용한 총 클라우드 저장소-표준 계층 |
 | BackupSolution | 청구 그룹이 연결 된 백업 솔루션입니다. 예를 들어 Azure VM 백업, Azure VM Backup의 SQL 등이 여기에 해당 합니다. |
@@ -343,8 +343,8 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
 | -------------- | --------------- |
 | UniqueId | 청구 그룹의 고유 ID를 나타내는 기본 키 |
 | FriendlyName | 청구 그룹의 이름 |
-| Name | 청구 그룹의 이름입니다. |
-| Type | 청구 그룹의 유형입니다. 예: ProtectedContainer 또는 BackupItem |
+| 이름 | 청구 그룹의 이름입니다. |
+| 형식 | 청구 그룹의 유형입니다. 예: ProtectedContainer 또는 BackupItem |
 | SourceSizeInMBs | 요금 청구 그룹의 프런트 엔드 크기 (Mb) |
 | VaultStore_StorageConsumptionInMBs | 자격 증명 모음에서 청구 그룹에서 사용한 총 클라우드 저장소-표준 계층 |
 | BackupSolution | 청구 그룹이 연결 된 백업 솔루션입니다. 예를 들어 Azure VM 백업, Azure VM Backup의 SQL 등이 여기에 해당 합니다. |
@@ -390,4 +390,4 @@ Azure Backup은 LA (Log Analytics) 작업 영역에서 기본적으로 사용할
     ````
 
 ## <a name="next-steps"></a>다음 단계
-[백업 보고서에 대 한 자세한 정보](https://docs.microsoft.com/azure/backup/configure-reports)
+[백업 보고서에 대 한 자세한 정보](./configure-reports.md)

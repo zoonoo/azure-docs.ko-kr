@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5487e51ad73ab903e7b61de266e2c28d282a56c1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98071377"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568661"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -292,7 +292,7 @@ VCenter Server management agent의 작동이 중지 되는 경우이 문제가 �
 
 ### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>오류 메시지: 내부 오류가 발생 했습니다. [스냅숏 디스크 크기가 잘못 되었습니다.]
 
-이는 스냅숏에서 나타내는 디스크 크기가 0이 되는 알려진 VMware 문제입니다. [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138972)에 제공 된 해상도를 따릅니다.
+이는 스냅숏에서 나타내는 디스크 크기가 0이 되는 알려진 VMware 문제입니다. [VMWARE KB](https://kb.vmware.com/s/)에 제공 된 해상도를 따릅니다.
 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>오류 메시지: 내부 오류가 발생 했습니다. [메모리 할당에 실패 했습니다. 메모리가 부족 합니다.]
 

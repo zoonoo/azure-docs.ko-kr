@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 105fd185900692669fdc40e0c47a03474524e250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c389cfd2af6fe83ec232e5f205041676ba46bd2a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101731105"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558196"
 ---
 # <a name="azure-security-baseline-for-azure-cloud-services"></a>Azure Cloud Services에 대 한 azure 보안 기준
 
@@ -36,7 +36,7 @@ Microsoft Azure Cloud Services (클래식)은 (는) Azure Resource Manager 가�
 
 - [네트워크 보안 그룹 개요](../virtual-network/network-security-groups-overview.md)
 
-- [가상 네트워크 피어링](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [가상 네트워크 피어링](./cloud-services-connectivity-and-networking-faq.md#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
 **책임**: Customer
 
@@ -89,11 +89,11 @@ Azure Cloud Services 내에서 플랫폼 수준 보호 외에도 통신을 차�
 
 클래식 구독 관리자 할당에 대 한 거부 적용 규칙을 구성 합니다. 기본적으로 내부 엔드포인트가 정의된 후에 어떤 역할에서도 제한 없이 역할의 내부 엔드포인트로 통신할 수 있습니다. 통신을 제한하려면 서비스 정의 파일의 ServiceDefinition 요소에 NetworkTrafficRules 요소를 추가해야 합니다.
 
-- [내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단 하거나 사용 하지 않도록 설정 하는 방법](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [내 클라우드 서비스의 기본 URL에 들어오는 트래픽을 차단 하거나 사용 하지 않도록 설정 하는 방법](./cloud-services-connectivity-and-networking-faq.md#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
-- [Azure DDOS 보호](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS 보호](./cloud-services-connectivity-and-networking-faq.md#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
-- [특정 IP 주소 차단](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common#block-a-specific-ip-address)
+- [특정 IP 주소 차단](./cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
 **책임**: Customer
 
@@ -175,9 +175,9 @@ Azure Cloud Services 내에서 개별 네트워크 보안 그룹 규칙에 대 �
 
 활동 로그를 Azure 외부에서 전달 하거나 보관을 위해 Azure Storage Event Hubs Azure Monitor으로 전송 하는 진단 설정을 만듭니다. Azure Cloud Services의 중요 한 리소스가 변경 될 때 알림 경고에 대 한 Azure Monitor를 구성 합니다. 
 
-- [Azure 활동 로그](/azure/azure-monitor/platform/activity-log)
+- [Azure 활동 로그](../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Traffic Manager 모니터링](../traffic-manager/traffic-manager-monitoring.md)
 
@@ -193,7 +193,7 @@ Azure Cloud Services 내에서 개별 네트워크 보안 그룹 규칙에 대 �
 
 **지침**: azure Cloud Services에 대 한 azure 리소스의 시간 소스를 유지 관리 합니다. UDP 프로토콜을 사용 하는 포트 123을 통해 환경에서 사용 되는 시간 서버에 대 한 액세스를 허용 하는 네트워크 규칙을 만들어야 할 수 있습니다.
 
-- [NTP 서버 액세스](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [NTP 서버 액세스](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
 **책임**: 공유됨
 
@@ -233,7 +233,7 @@ Azure Cloud Services는 가용성, 성능, 실패 및 사용에 대 한 Applicat
 
 - [배포 하기 전에 Visual Studio에서 진단 설정](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [변경 기록 보기](/azure/azure-monitor/platform/activity-log#view-change-history)
+- [변경 기록 보기](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 
@@ -269,7 +269,7 @@ Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장�
 
 - [PowerShell을 사용하여 Azure Cloud Services에 진단 사용](cloud-services-diagnostics-powershell.md)
 
-- [Azure Storage에서 진단 데이터 저장 및 보기](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage?&amp;preserve-view=true)
+- [Azure Storage에서 진단 데이터 저장 및 보기](./diagnostics-extension-to-storage.md?preserve-view=)
 
 **책임**: Customer
 
@@ -289,7 +289,7 @@ Azure 진단 확장은 데이터를 수집하고 Azure Storage 계정에 저장�
 
 **지침**: azure에 대 한 Microsoft 맬웨어 방지 프로그램은 azure Cloud Services 및 가상 머신을 보호 합니다. 웹 응용 프로그램 방화 벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템 (ID 또는 IP) 등과 같은 타사 보안 솔루션을 배포할 수도 있습니다.
 
-- [Azure 기본 IP/ID 및 DDOS에서 제공 하는 기능 및 기능](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [Azure 기본 IP/ID 및 DDOS에서 제공 하는 기능 및 기능](./cloud-services-configuration-and-management-faq.md#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 
 **책임**: Customer
 
@@ -315,7 +315,7 @@ Get-AzRoleAssignment-IncludeClassicAdministrators
 
 클래식 구독 관리 역할 간의 차이점을 검토 합니다. 
 
-- [3 가지 클래식 구독 관리 역할 간의 차이점](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [3 가지 클래식 구독 관리 역할 간의 차이점](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **책임**: Customer
 
@@ -325,7 +325,7 @@ Get-AzRoleAssignment-IncludeClassicAdministrators
 
 **참고**: 사용 가능한 역할 및 Azure Cloud Services 리소스를 운영 하 고 관리 하는 데 필요한 권한을 바탕으로 전용 관리 계정을 사용 하는 표준 운영 절차를 만드는 것이 좋습니다.
 
-- [클래식 구독 관리 역할 간의 차이점](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [클래식 구독 관리 역할 간의 차이점](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **책임**: Customer
 
@@ -389,7 +389,7 @@ Azure 클라우드 서비스의 Certificate 요소에서 "사용자 수준"을 �
 
 - [관리 그룹을 만드는 방법](../governance/management-groups/create-management-group-portal.md)
 
-- [WebRole 스키마](https://docs.microsoft.com/azure/cloud-services/schema-csdef-webrole#Certificate)
+- [WebRole 스키마](./schema-csdef-webrole.md#Certificate)
 
 **책임**: Customer
 
@@ -465,9 +465,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 또한 Azure Cloud Services 앱의 가용성, 성능, 실패 및 사용 현황을 모니터링할 수 Application Insights. 이는 Application Insights Sdk의 결합 된 데이터를 Azure Cloud Services의 Azure 진단 데이터와 함께 사용 합니다.
 
-- [Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기, 보기 및 관리](/azure/azure-monitor/platform/alerts-classic-portal)
+- [Azure Monitor를 사용 하 여 클래식 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [메트릭 경고 개요](/azure/azure-monitor/platform/alerts-metric-overview) 
+- [메트릭 경고 개요](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Azure 클라우드 서비스에 대 한 Application Insights (클래식)](../azure-monitor/app/cloudservices.md)
 
@@ -493,7 +493,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [클라우드 서비스를 구성 하는 방법 (클래식)](cloud-services-how-to-configure-portal.md)
 
-- [게스트 OS 버전 관리](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal#manage-guest-os-version)
+- [게스트 OS 버전 관리](./cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
 **책임**: 공유됨
 
@@ -523,7 +523,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 지원 설명서:
 
-- [Azure 리소스의 위험 평가](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices#risk-evaluation-of-your-azure-resources)
+- [Azure 리소스의 위험 평가](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
 **책임**: Customer
 
@@ -805,7 +805,7 @@ Azure Cloud Services에 사용 되는 자격 증명과 같은 비밀을 보호�
 
 또한 Azure Cloud Services에 사용 되는 인증서의 개인 키를 보안 저장소에 저장 하는 것이 좋습니다.
 
-- [PowerShell에서 원격 데스크톱 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [PowerShell에서 원격 데스크톱 구성](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **책임**: Customer
 
@@ -820,7 +820,7 @@ Azure Cloud Services에 사용 되는 자격 증명과 같은 비밀을 보호�
 
 Azure Cloud Services에 사용 되는 인증서의 개인 키를 보안 저장소 위치에 저장 합니다.
 
-- [PowerShell에서 원격 데스크톱 구성](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [PowerShell에서 원격 데스크톱 구성](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **책임**: Customer
 
@@ -840,9 +840,9 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 지능적이 고 자동화 된 종단 간 솔루션인 Azure Security Center에서 적응 응용 프로그램 제어 기능을 선택 합니다. 맬웨어 방지를 위해 컴퓨터를 강화 하는 데 도움이 되며 맬웨어 방지 솔루션에 의해 누락 될 수 있는 응용 프로그램을 포함 하 여 악의적인 응용 프로그램의 실행 시도를 차단 하거나 경고할 수 있습니다.
 
-- [Azure Cloud Services에 대 한 맬웨어 방지 확장을 자동화 된 방식으로 추가 하려면 어떻게 해야 하나요?](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [Azure Cloud Services에 대 한 맬웨어 방지 확장을 자동화 된 방식으로 추가 하려면 어떻게 해야 하나요?](./cloud-services-configuration-and-management-faq.md#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
-- [맬웨어 방지 프로그램 배포 시나리오](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
+- [맬웨어 방지 프로그램 배포 시나리오](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
 - [적응 애플리케이션 컨트롤](../security-center/security-center-adaptive-application.md)
 
@@ -940,5 +940,5 @@ Azure Cloud Services에서 시작 작업의 PowerShell 스크립트를 사용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

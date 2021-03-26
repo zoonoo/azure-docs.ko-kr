@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: ce155015373a096595dc61d75c876633e2e4f00a
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e2de694a153276dcace1070d35af44dec1056e03
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105027196"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564928"
 ---
 # <a name="migration-guide-sql-server-to-azure-sql-database"></a>마이그레이션 가이드: Azure SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "105027196"
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 SQL Server을 Azure SQL Database로 마이그레이션하려면 다음 필수 구성 요소가 있는지 확인 합니다. 
 
@@ -104,7 +104,7 @@ Data Migration Assistant에서는 분석을 위해 평가 보고서의 확장 �
 > [!IMPORTANT]
 > 여러 데이터베이스, 특히 대규모 데이터베이스에 대해 대규모 평가를 실행 하는 것은 [DMA 명령줄 유틸리티](/sql/dma/dma-commandline) 를 사용 하 여 자동화 하 고 추가 분석 및 대상 준비를 위해 [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) 에 업로드할 수도 있습니다.
 
-## <a name="migrate"></a>마이그레이션
+## <a name="migrate"></a>Migrate
 
 마이그레이션 전 단계와 관련 된 작업을 완료 하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 
@@ -152,7 +152,7 @@ DMS를 사용 하 여 SQL Server에서 Azure SQL Database로 데이터베이스�
 원본과 대상 모두에서 데이터가 동일한 지 확인 한 후 원본에서 대상 환경으로 건너뛸 수 있습니다. 비즈니스 연속성에 영향을 주지 않도록 비즈니스/응용 프로그램 팀과 함께 가공선을 계획 하는 것이 중요 합니다. 
 
 > [!IMPORTANT]
-> DMS를 사용 하 여 마이그레이션의 일부로 수행 하는 것과 관련 된 특정 단계에 대 한 자세한 내용은 [마이그레이션](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover)시작을 참조 하세요.
+> DMS를 사용 하 여 마이그레이션의 일부로 수행 하는 것과 관련 된 특정 단계에 대 한 자세한 내용은 [마이그레이션](../../../dms/tutorial-sql-server-to-azure-sql.md)시작을 참조 하세요.
 
 ## <a name="migration-recommendations"></a>마이그레이션 권장 사항
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d965ec2f846f09dd61342b3961e7ea8106f6a19f
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 6f54bd88e58ccfef068900fc3c7b249cde1c233d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104954890"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558553"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>API Management Azure 보안 기준
 
@@ -1002,9 +1002,9 @@ API Management의 서비스 백업 및 복원 기능은 재해 복구 전략을 
 
 - [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-- [API Management 백업 작업을 호출하는 방법](/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+- [API Management 백업 작업을 호출하는 방법](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-- [API Management 복원 작업을 호출하는 방법](/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+- [API Management 복원 작업을 호출하는 방법](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **책임**: Customer
 

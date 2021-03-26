@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e70b41dfba03b7439313350746724c6f8e90bc34
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038920"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564775"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ ms.locfileid: "102038920"
 구성을 시작하기 전에 이러한 단계의 [비디오](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)를 시청하십시오.
 
 > [!IMPORTANT]
-> 프라이빗 피어링에 대한 IPv6 지원은 현재 **퍼블릭 미리 보기** 로 제공됩니다. IPv6 기반 프라이빗 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [Azure VNet용 IPv6](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)에 대한 지침을 따르세요.
+> 프라이빗 피어링에 대한 IPv6 지원은 현재 **퍼블릭 미리 보기** 로 제공됩니다. IPv6 기반 프라이빗 피어링이 구성된 ExpressRoute 회로에 가상 네트워크를 연결하려면 가상 네트워크가 이중 스택인지 확인하고 [Azure VNet용 IPv6](../virtual-network/ipv6-overview.md)에 대한 지침을 따르세요.
 > 
 > 
 

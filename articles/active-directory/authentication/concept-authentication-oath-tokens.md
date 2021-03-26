@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568048597f83616ed07954af744c94761250b5c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b535d59376de455962d367a8ad6f02a037649d9d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471618"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557890"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Azure Active Directory OATH 토큰의 인증 방법 
 
@@ -51,7 +51,7 @@ Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > CSV 파일에 머리글 행을 포함해야 합니다. UPN에 작은따옴표가 있으면 다른 작은따옴표를 사용 하 여 이스케이프 합니다. 예를 들어, UPN이 my ' 이면 user@domain.com 파일을 업로드할 때 ' '로 변경 user@domain.com 합니다.
 
-CSV 파일로 올바르게 형식이 지정되면 관리자는 Azure Portal에 로그인하여 **Azure Active Directory > 보안 > MFA > OATH 토큰** 으로 이동하고 CSV 파일을 업로드할 수 있습니다.
+CSV 파일로 올바른 형식이 지정 되 면 전역 관리자가 Azure Portal에 로그인 하 여 **Azure Active Directory > 보안 > MFA > OATH 토큰** 으로 이동한 후 결과 CSV 파일을 업로드할 수 있습니다.
 
 CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 있습니다. 현재 상태를 가져오려면 **새로 고침** 단추를 선택합니다. 파일에 오류가 있는 경우 오류가 나열된 CSV 파일을 다운로드하여 해결할 수 있습니다. 다운로드한 CSV 파일의 필드 이름은 업로드된 버전과 다릅니다.  
 

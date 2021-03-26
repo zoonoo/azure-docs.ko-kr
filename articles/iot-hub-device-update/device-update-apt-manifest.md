@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101679590"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561171"
 ---
 # <a name="device-update-apt-manifest"></a>장치 업데이트 APT 매니페스트
 
@@ -42,7 +42,7 @@ APT 매니페스트 파일은 버전이 지정 된 스키마가 있는 JSON 파�
 }
 ```
 
-예제:
+예:
 
 ```json
 {
@@ -63,11 +63,11 @@ APT 매니페스트 파일은 버전이 지정 된 스키마가 있는 JSON 파�
 
 ### <a name="name"></a>name
 
-이 APT 매니페스트의 이름입니다. 시나리오에 적합 한 이름 또는 ID는 무엇이 든 될 수 있습니다. 예: `contoso-iot-edge`
+이 APT 매니페스트의 이름입니다. 시나리오에 적합 한 이름 또는 ID는 무엇이 든 될 수 있습니다. 예들 들어 `contoso-iot-edge`입니다.
 
 ### <a name="version"></a>버전
 
-이 APT 매니페스트에 대 한 버전 번호입니다. 예: `1.0.0.0`
+이 APT 매니페스트에 대 한 버전 번호입니다. 예들 들어 `1.0.0.0`입니다.
 
 
 ### <a name="packages"></a>패키지
@@ -76,11 +76,11 @@ APT 매니페스트 파일은 버전이 지정 된 스키마가 있는 JSON 파�
 
 #### <a name="name"></a>name
 
-패키지의 이름 또는 ID입니다. 예: `iotedge`
+패키지의 이름 또는 ID입니다. 예들 들어 `iotedge`입니다.
 
 #### <a name="version"></a>버전
 
-패키지에 대 한 원하는 버전 조건입니다. 예: `1.0.8-2`
+패키지에 대 한 원하는 버전 조건입니다. 예들 들어 `1.0.8-2`입니다.
 
 현재 정확한 버전 번호는 지원 됩니다. 버전 번호는 [epoch:] upstream_version [-debian_revision] 형식의 원하는 Debian 패키지 버전입니다.
 
@@ -103,7 +103,7 @@ Debian 패키지의 버전을 지정 하는 방법에 [대해 자세히 알아�
 > APT 패키지 관리자는 설치할 종속 패키지를 자동으로 확인 하는 경우 패키지에서 제공 하는 버전 관리 요구 사항을 무시 합니다. 종속 패키지의 명시적 버전을 지정 하지 않는 한 패키지 자체가 지정 된 버전에서 엄격한 요구 사항 (=)을 지정할 수 있는 경우에도 최신를 사용 합니다. 이 자동 해결을 통해 충족 되지 않는 종속성과 관련 된 오류가 발생할 수 있습니다. [자세한 내용](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Azure IoT Edge 보안 디먼의 특정 버전을 업데이트 하는 경우 `iotedge` APT 매니페스트에 원하는 패키지 버전과 해당 종속 패키지를 포함 해야 합니다 `libiothsm-std` .
-[자세한 내용](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[자세한 내용](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Apt 매니페스트는 장치 업데이트 에이전트 및 해당 종속성을 업데이트 하는 데 사용할 수 있습니다. 다른 패키지에 대 한 것 처럼 apt 매니페스트에 장치 업데이트 에이전트 이름 및 원하는 버전을 나열 합니다. 그런 다음 IoT Hub 파이프라인에 대 한 장치 업데이트를 통해이 apt 매니페스트를 가져오고 배포할 수 있습니다. 
@@ -112,7 +112,7 @@ Azure IoT Edge 보안 디먼의 특정 버전을 업데이트 하는 경우 `iot
 
 Apt 매니페스트를 사용 하 여 장치에서 설치 된 패키지를 제거할 수도 있습니다. 단일 apt 매니페스트를 사용 하 여 여러 패키지를 제거, 추가 및 업데이트할 수 있습니다. 패키지를 제거 하려면 패키지 이름 뒤에 빼기 기호 "-"를 추가 합니다. 제거할 패키지의 버전 번호를 포함 하지 않아야 합니다. Apt 매니페스트를 통해 패키지를 제거 해도 종속성 및 구성은 제거 되지 않습니다.
 
-예제:
+예:
 
 ```json
 {
@@ -129,7 +129,7 @@ Apt 매니페스트를 사용 하 여 장치에서 설치 된 패키지를 제�
 
 ## <a name="recommended-value-for-installed-criteria"></a>설치 된 조건에 권장 되는 값
 
-APT 매니페스트에 설치 된 기준은입니다 `<name>-<version>` `<name>` . 여기서는 APT 매니페스트의 이름이 고 `<version>` 는 APT manifest의 버전입니다. 예: `contoso-iot-edge-1.0.0.0` 
+APT 매니페스트에 설치 된 기준은입니다 `<name>-<version>` `<name>` . 여기서는 APT 매니페스트의 이름이 고 `<version>` 는 APT manifest의 버전입니다. 예들 들어 `contoso-iot-edge-1.0.0.0`입니다. 
 
 ## <a name="guidelines-on-creating-an-apt-manifest"></a>APT 매니페스트를 만드는 방법에 대 한 지침
 
@@ -143,7 +143,7 @@ APT 매니페스트를 만드는 동안 다음과 같은 몇 가지 지침을 �
 - 특정 버전의 패키지를 설치 하는 경우 (예: `iotedge 1.0.9-1` ) APT 매니페스트에 설치 될 종속 패키지의 명시적 버전 (예:)도 포함 하는 것이 좋습니다. `libiothsm 1.0.9-1`
 - 반드시 필요한 것은 아니지만 APT 매니페스트가 누적 되어 장치가 알 수 없는 상태로 전환 되는 것을 방지 해야 합니다. 누적 업데이트를 사용 하는 경우 장치에서 설치에 실패 하거나 오프 라인으로 전환 하는 APT 업데이트 배포를 건너뛴 경우에도 관심 있는 모든 패키지의 desired 버전이 있는지 확인할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 **기본 APT 매니페스트**
 
@@ -202,4 +202,3 @@ APT 매니페스트를 만드는 동안 다음과 같은 몇 가지 지침을 �
 
 > [!div class="nextstepaction"]
 > [새 업데이트 가져오기](import-update.md)
-

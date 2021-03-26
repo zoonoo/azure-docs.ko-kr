@@ -3,12 +3,12 @@ title: 컨트롤 평면 및 데이터 평면 작업
 description: 제어 평면과 데이터 평면 작업의 차이점을 설명 합니다. 제어 평면 작업은 Azure Resource Manager에 의해 처리 됩니다. 데이터 평면 작업은 서비스에 의해 처리 됩니다.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 76304c81a1af1eef87d12cfd4130867851a61d28
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91371272"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544097"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Azure 제어 평면 및 데이터 평면
 
@@ -16,7 +16,7 @@ Azure 작업은 제어 평면과 데이터 평면 이라는 두 가지 범주로
 
 제어 평면을 사용 하 여 구독에서 리소스를 관리 합니다. 데이터 평면을 사용 하 여 리소스 형식 인스턴스에서 노출 되는 기능을 사용 합니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 * 제어 평면을 통해 가상 머신을 만듭니다. 가상 컴퓨터를 만든 후에는 RDP (원격 데스크톱 프로토콜)와 같은 데이터 평면 작업을 통해 가상 컴퓨터와 상호 작용 합니다.
 
@@ -24,7 +24,7 @@ Azure 작업은 제어 평면과 데이터 평면 이라는 두 가지 범주로
 
 * 제어 평면을 통해 Cosmos 데이터베이스를 만듭니다. Cosmos 데이터베이스의 데이터를 쿼리하려면 데이터 평면을 사용 합니다.
 
-## <a name="control-plane"></a>제어 평면
+## <a name="control-plane"></a>컨트롤 플레인
 
 제어 평면 작업에 대 한 모든 요청은 Azure Resource Manager URL로 전송 됩니다. 이 URL은 Azure 환경에 따라 달라 집니다.
 
@@ -52,7 +52,7 @@ Azure Resource Manager는 모든 제어 평면 요청을 처리 합니다. 다�
 
 ## <a name="data-plane"></a>데이터 평면
 
-데이터 평면 작업에 대 한 요청은 사용자 인스턴스와 관련 된 끝점으로 전송 됩니다. 예를 들어 Cognitive Services의 [언어 검색 작업](/rest/api/cognitiveservices/textanalytics/detect%20language/detect%20language) 은 요청 URL이 다음과 같은 경우 데이터 평면 작업입니다.
+데이터 평면 작업에 대 한 요청은 사용자 인스턴스와 관련 된 끝점으로 전송 됩니다. 예를 들어 Cognitive Services의 [언어 검색 작업](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection) 은 요청 URL이 다음과 같은 경우 데이터 평면 작업입니다.
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

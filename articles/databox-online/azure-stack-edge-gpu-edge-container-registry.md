@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: f19625f1d558071ccb29487efe56146756c7692c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 56b691b2755b5e248b16e338f8fd82864f5bf218
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437539"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560338"
 ---
 # <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Edge 컨테이너 레지스트리를 사용 하도록 설정
 
@@ -294,4 +294,4 @@ Edge Container Registry 저장소는 장치에서 사용 가능한 저장소에 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md)합니다.
+- [Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)합니다.

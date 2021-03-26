@@ -3,12 +3,12 @@ title: 전자 메일 Azure Backup 보고서
 description: 전자 메일을 통해 정기적으로 보고서를 받을 수 있는 자동화 된 작업 만들기
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 8c18d4c7a3c7a9ba343296961fa9a44614366405
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510510"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561341"
 ---
 # <a name="email-azure-backup-reports"></a>전자 메일 Azure Backup 보고서
 
@@ -30,7 +30,7 @@ ms.locfileid: "102510510"
 
 ## <a name="authorize-connections-to-azure-monitor-logs-and-office-365"></a>Azure Monitor 로그 및 Office 365에 대 한 연결 권한 부여
 
-논리 앱은 LA 작업 영역을 쿼리 하는 데 [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) 커넥터를 사용 하 고 전자 메일을 보내는 데 [Office365 Outlook](https://docs.microsoft.com/connectors/office365connector/) 커넥터를 사용 합니다. 이러한 두 커넥터에 대해 일회성 권한 부여를 수행 해야 합니다. 
+논리 앱은 LA 작업 영역을 쿼리 하는 데 [azuremonitorlogs](/connectors/azuremonitorlogs/) 커넥터를 사용 하 고 전자 메일을 보내는 데 [Office365 Outlook](/connectors/office365connector/) 커넥터를 사용 합니다. 이러한 두 커넥터에 대해 일회성 권한 부여를 수행 해야 합니다. 
  
 권한 부여를 수행 하려면 다음 단계를 수행 합니다.
 
@@ -79,4 +79,4 @@ ms.locfileid: "102510510"
 문제가 지속 되 면 Microsoft 지원에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[백업 보고서에 대 한 자세한 정보](https://docs.microsoft.com/azure/backup/configure-reports)
+[백업 보고서에 대 한 자세한 정보](./configure-reports.md)

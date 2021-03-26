@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: f63a8fd05e1a6ed5e41eeb64aa852ff01db295af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5184639d8c34be705aeeb691f1cf38486f850673
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101645470"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543961"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>내 앱 구성 Azure Active Directory 계획
 
@@ -74,31 +74,19 @@ Azure Active Directory (Azure AD) 내 앱은 앱을 시작 하 고 관리 하기
 
 ## <a name="plan-consent-configuration"></a>계획 승인 구성
 
-승인에는 사용자 동의와 데이터 액세스 앱에 대 한 동의의 두 가지 유형이 있습니다.
-
-![동의 구성 스크린샷](./media/my-apps-deployment-plan/my-apps-consent.png)
-
 ### <a name="user-consent-for-applications"></a>응용 프로그램에 대 한 사용자 동의 
 
-사용자 또는 관리자는 모든 응용 프로그램의 사용 약관 및 개인 정보 취급 방침에 동의 해야 합니다. 사용자 또는 관리자만 응용 프로그램에 동의할 수 있는지 여부를 결정 해야 합니다. **비즈니스 규칙에서 허용 하는 경우 관리자 동의를 사용 하 여 테 넌 트의 응용 프로그램에 대 한 제어를 유지 하는 것이 좋습니다**.
+사용자가 응용 프로그램에 로그인 하 고 응용 프로그램에서 조직의 데이터에 액세스할 수 있으려면 먼저 사용자 또는 관리자가 응용 프로그램 권한을 부여 해야 합니다. 사용자 동의가 허용 되는지 여부와 조건에 대해 구성할 수 있습니다. **확인 된 게시자의 응용 프로그램에 대 한 사용자 동의만 허용 하는 것이 좋습니다.**
 
-관리자 동의를 사용 하려면 조직의 전역 관리자 여야 하며 응용 프로그램은 다음 중 하나 여야 합니다.
-
-* 조직에 등록 되어 있습니다.
-
-* 다른 Azure AD 조직에 등록 되어 있고 이전에 한 명 이상의 사용자가 동의한 합니다.
-
-사용자에 게 동의할 수 있도록 허용 하려면 앱에 동의할 지 아니면 특정 상황 에서만 동의할 지 결정 해야 합니다.
-
-자세한 내용은 [Azure Active Directory에서 최종 사용자가 응용 프로그램에 동의 하는 방식 구성을 참조 하세요.](../manage-apps/configure-user-consent.md)
+자세한 내용은 [응용 프로그램에 최종 사용자의 동의를 구성 하는 방법 구성](../manage-apps/configure-user-consent.md) 을 참조 하세요.
 
 ### <a name="group-owner-consent-for-apps-accessing-data"></a>데이터에 액세스 하는 앱에 대 한 그룹 소유자 동의
 
-Azure AD 보안 그룹 또는 M365 그룹의 소유자가 자신이 소유한 그룹의 데이터에 액세스 하는 응용 프로그램에 동의할 수 있는지 확인 합니다. 허용 하지 않거나, 모든 그룹 소유자를 허용 하거나, 그룹 소유자의 하위 집합만 허용할 수 있습니다.
+그룹 및 팀 소유자는 타사 공급 업체에서 게시 한 응용 프로그램과 같은 응용 프로그램에 권한을 부여 하 여 그룹과 연결 된 조직의 데이터에 액세스할 수 있습니다. 자세히 알아보려면 [Microsoft 팀의 리소스 관련 동의](https://docs.microsoft.com/microsoftteams/resource-specific-consent) 를 참조 하세요. 
+
+이 기능을 허용할지 여부를 구성할 수 있습니다.
 
 자세한 내용은 [그룹 동의 권한 구성](../manage-apps/configure-user-consent-groups.md)을 참조 하세요.
-
-그런 다음 Azure Portal에서 [사용자 및 그룹 소유자 동의 설정을](https://portal.azure.com/) 구성 합니다.
 
 ### <a name="plan-communications"></a>통신 계획
 
@@ -256,11 +244,11 @@ Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분
 
 | 가상 사용자| 역할| Azure AD 역할 |
 | - | - | - |
-| 기술 지원팀 관리자| 계층 1 지원| 없음 |
+| 기술 지원팀 관리자| 계층 1 지원| None |
 | Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 글로벌 관리자 |
-| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
+| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| None |
 | 인프라 관리자| 인증서 롤오버 소유자| 글로벌 관리자 |
-| 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
+| 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| None |
 
 
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.

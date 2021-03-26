@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: c2e739a45c7915c957ca89e5b01b98afa945d03e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025121"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557193"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>평가 개요 (Azure SQL로 마이그레이션)
 
-이 문서에서는 [Azure Migrate: 검색 및 평가 도구](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool)를 사용 하 여 VMware 환경에서 Azure SQL Database 또는 관리 되는 인스턴스로 온-프레미스 SQL Server 인스턴스를 마이그레이션하기 위한 평가의 개요를 제공 합니다.
+이 문서에서는 [Azure Migrate: 검색 및 평가 도구](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool)를 사용 하 여 VMware 환경에서 Azure SQL Database 또는 관리 되는 인스턴스로 온-프레미스 SQL Server 인스턴스를 마이그레이션하기 위한 평가의 개요를 제공 합니다.
 
 ## <a name="whats-an-assessment"></a>평가는 무엇 인가요?
 검색 및 평가 도구를 사용한 평가는 데이터의 특정 시점 스냅숏으로, 준비를 측정 하 고 온-프레미스 서버를 Azure로 마이그레이션하는 효과를 예측 합니다.
@@ -80,7 +80,7 @@ Azure SQL 평가 속성에 포함 된 같습니다는 다음과 같습니다.
 **백분위 수 사용률** | 백분위 수 사용률은 rightsizing 조정에 사용 되는 성능 샘플의 백분위 수 값을 지정 합니다.
 **쾌적 인자** | 평가 중에 사용 되는 버퍼입니다. 이는 계절 사용량, 짧은 성능 기록 및 향후 사용에 대 한 성능 향상 등의 문제를 해결 합니다.<br/><br/> 예를 들어 20% 사용률이 있는 10 코어 인스턴스는 일반적으로 2 개 코어 인스턴스를 생성 합니다. 편안 하 게 2.0를 사용 하 여 결과는 4 코어 인스턴스입니다.
 **제품/라이선스 프로그램** | 등록 하는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/) 입니다. 현재 종량제 및 종량제 개발/테스트에서만 선택할 수 있습니다. 예약 된 용량을 적용 하 고 종 량 제 제안 위에 Azure 하이브리드 혜택 하 여 추가 할인을 사용할 수 있습니다.
-**서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션하기 위한 비즈니스 요구 사항을 수용 하기 위한 가장 적절 한 서비스 계층 옵션은 다음과 같습니다.<br/><br/>서버에 가장 적합 한 서비스 계층을 권장 Azure Migrate 하려는 경우에 **권장** 됩니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. <br/><br/> **일반 용도** 예산 기반 워크 로드를 위해 설계 된 Azure SQL 구성을 원하는 경우 [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-general-purpose) <br/><br/> **중요 비즈니스용** 장애 조치 (failover) 및 빠른 장애 조치 (failover)에 대 한 복원 력이 높은 대기 시간이 짧은 워크 로드를 위해 설계 된 Azure SQL 구성 [자세한 내용](https://docs.microsoft.com/azure/azure-sql/database/service-tier-business-critical)
+**서비스 계층** | Azure SQL Database 및/또는 Azure SQL Managed Instance로 마이그레이션하기 위한 비즈니스 요구 사항을 수용 하기 위한 가장 적절 한 서비스 계층 옵션은 다음과 같습니다.<br/><br/>서버에 가장 적합 한 서비스 계층을 권장 Azure Migrate 하려는 경우에 **권장** 됩니다. 권장 제품은 범용 또는 중요 비즈니스용 제품입니다. <br/><br/> **일반 용도** 예산 기반 워크 로드를 위해 설계 된 Azure SQL 구성을 원하는 경우 [자세한 내용](../azure-sql/database/service-tier-general-purpose.md) <br/><br/> **중요 비즈니스용** 장애 조치 (failover) 및 빠른 장애 조치 (failover)에 대 한 복원 력이 높은 대기 시간이 짧은 워크 로드를 위해 설계 된 Azure SQL 구성 [자세한 내용](../azure-sql/database/service-tier-business-critical.md)
 **통화** | 계정에 대 한 청구 통화입니다.
 **할인(%)** | Azure 제품을 기반으로 받는 모든 구독 관련 할인 기본 설정은 0%입니다.
 **Azure 하이브리드 혜택** | SQL Server 라이선스가 이미 있는지 여부를 지정 합니다. <br/><br/> 이러한 작업을 수행하고 SQL Server 구독의 활성 소프트웨어 보증이 적용되는 경우 Azure에 라이선스를 가져올 때 Azure 하이브리드 혜택을 적용할 수 있습니다.
@@ -113,7 +113,7 @@ Azure SQL 평가 속성에서 **권장** 되는 대상 배포 유형을 선택 �
  준비 | 준비 | Azure SQL DB 또는 <br/>Azure SQL MI | 예
  준비 | 준비 되지 않음 또는<br/> 알 수 없음 | Azure SQL DB | 예
  준비 되지 않음 또는<br/>알 수 없음 | 준비 | Azure SQL MI | 예
- 준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | No
+ 준비 안 됨 | 준비 안 됨 | 잠재적으로 Azure VM에 대해 준비 | 예
  준비 되지 않음 또는<br/>알 수 없음 | 준비 되지 않음 또는<br/>알 수 없음 | 알 수 없음 | 아니요
 
 > [!NOTE]
@@ -124,7 +124,7 @@ Azure SQL 평가 속성에서 **권장** 되는 대상 배포 유형을 선택 �
 SQL 인스턴스가 Azure SQL Database 및 Azure SQL Managed Instance에 대해 준비 되지 않은 경우 권장 되는 배포 유형은 *AZURE VM에 대해 잠재적으로 준비* 된 것으로 표시 됩니다.
 - 사용자는 "Azure VM"으로 평가 유형을 사용 하 여 Azure Migrate 평가를 만들어 인스턴스가 실행 되는 서버를 Azure VM으로 마이그레이션할 준비가 되었는지 확인 하는 것이 좋습니다. 다음 사항에 유의합니다.
     - Azure Migrate의 azure VM 평가는 현재 리프트 앤 시프트 이며 Azure 가상 머신에서 SQL 인스턴스 및 데이터베이스를 실행 하는 특정 성능 메트릭을 고려 하지 않습니다. 
-    - 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices)합니다.
+    - 서버에서 Azure VM 평가를 실행하는 경우 서버에서 실행되는 모든 인스턴스에 대해 권장되는 크기 및 예상 비용을 계산하고 서버 마이그레이션 도구를 사용하여 Azure VM으로 마이그레이션할 수 있습니다. 마이그레이션하기 전에 Azure Virtual Machines의 SQL Server에 대한 [성능 지침을 검토](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)합니다.
 
 
 ## <a name="calculate-sizing"></a>크기 계산 계산
