@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2278b9d70e888fa546dc64da4743b2bf5b6c45e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7c5c2f1d055ec6270892873548872b20b17b4158
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100587526"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566900"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights 에이전트 API 참조
 
@@ -38,7 +38,7 @@ ms.locfileid: "100587526"
 - Enable cmdlet을 사용 하 여 모니터링을 이미 사용 하도록 설정 했지만 계측 엔진을 사용 하도록 설정 하지 않았습니다.
 - 수동으로 .NET Sdk를 사용 하 여 앱을 계측 하 고 추가 원격 분석을 수집 하려고 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
@@ -73,7 +73,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 
 모니터링을 사용 하도록 설정한 후에는 [라이브 메트릭을](live-stream.md) 사용 하 여 앱이 원격 분석을 전송 하 고 있는지 신속 하 게 확인 하는 것이 좋습니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -100,6 +100,8 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ```
 
+> [!NOTE]
+> 이 컨텍스트에서 AppFilter 이름이 혼동 될 수 있으므로 `AppFilter` 응용 프로그램 이름 regex 필터 (IIS의 경우 .net의 경우 HostingEnvironment)를 설정 합니다. `VirtualPathFilter` 가상 경로 regex 필터 (IIS에서 .Net의 경우 HostingEnvironment)를 설정 합니다. 단일 앱을 계측 하려면 다음과 같이 VirtualPathFilter를 사용 합니다. `Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap @(@{VirtualPathFilter="^/MyAppName$"; InstrumentationSettings=@{InstrumentationKey='<your ikey>'}})`
 
 ### <a name="parameters"></a>매개 변수
 
@@ -186,7 +188,7 @@ Successfully enabled Application Insights Status Monitor
 일부 레지스트리 키를 제거 하 여 계측 엔진을 사용 하지 않도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Disable-InstrumentationEngine
@@ -215,7 +217,7 @@ Configuring registry for instrumentation engine...
 대상 컴퓨터에서 모니터링을 사용 하지 않도록 설정 합니다.
 이 cmdlet은 IIS applicationHost.config 편집 내용을 제거 하 고 레지스트리 키를 제거 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
@@ -257,7 +259,7 @@ Successfully disabled Application Insights Status Monitor
 
 구성 파일을 가져오고 값을 콘솔에 출력 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 ```powershell
 PS C:\> Get-ApplicationInsightsMonitoringConfig
@@ -286,7 +288,7 @@ Filters:
 이 cmdlet을 사용 하 여 PowerShell 모듈의 모니터링 상태와 버전을 조사 하 고 실행 중인 프로세스를 검사할 수 있습니다.
 이 cmdlet은 버전 정보 및 모니터링에 필요한 키 파일에 대 한 정보를 보고 합니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
@@ -465,7 +467,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -558,7 +560,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 
 이 cmdlet은 제한 시간 (기본값 5 분)에 도달할 때까지 실행 되거나 수동으로 중지 됩니다 ( `Ctrl + C` ).
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="how-to-collect-events"></a>이벤트를 수집 하는 방법
 

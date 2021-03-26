@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800111"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558009"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>VM 이미지에 대 한 SAS URI를 생성 하는 방법
 
 > [!NOTE]
-> VM을 게시 하는 데 SAS URI가 필요 하지 않습니다. 단지 Parter 센터에서 이미지를 공유할 수 있습니다. [승인 된 기본을 사용 하 여 가상 머신 만들기](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) 또는 [고유한 이미지 지침을 사용 하 여 가상 머신](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) 만들기를 참조 하세요.
+> VM을 게시 하는 데 SAS URI가 필요 하지 않습니다. 단지 Parter 센터에서 이미지를 공유할 수 있습니다. [승인 된 기본을 사용 하 여 가상 머신 만들기](./azure-vm-create-using-approved-base.md) 또는 [고유한 이미지 지침을 사용 하 여 가상 머신](./azure-vm-create-using-own-image.md) 만들기를 참조 하세요.
 
 Vhd에 대 한 SAS Uri 생성에는 다음과 같은 요구 사항이 있습니다.
 

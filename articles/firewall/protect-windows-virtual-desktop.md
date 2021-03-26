@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: ad4f42d0e33f6d70c75abfcd1daab4f5aa9a515f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d5320f44aa5d922cea852ab09e5141fad277e2b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94654986"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566029"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Azure Firewall을 사용하여 Windows 가상 데스크톱 배포 보호
 
@@ -54,7 +54,7 @@ Windows 가상 데스크톱에 대해 만든 Azure virtual machines는 제대로
 - 네트워크 규칙 컬렉션 만들기 다음 규칙을 추가 합니다.
 
    - DNS 허용-TCP 및 UDP 포트 53에 대 한 개인 IP 주소를 *에 추가 합니다.
-   - KMS 허용-windows 가상 데스크톱 가상 머신에서 Windows 정품 인증 서비스 TCP 포트 1688로의 트래픽을 허용 합니다. 대상 IP 주소에 대 한 자세한 내용은 [강제 터널링 시나리오에서 Windows 정품 인증 실패](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution)를 참조 하세요.
+   - KMS 허용-windows 가상 데스크톱 가상 머신에서 Windows 정품 인증 서비스 TCP 포트 1688로의 트래픽을 허용 합니다. 대상 IP 주소에 대 한 자세한 내용은 [강제 터널링 시나리오에서 Windows 정품 인증 실패](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution)를 참조 하세요.
 
 > [!NOTE]
 > 일부 배포의 경우 DNS 규칙이 필요 하지 않을 수 있습니다. 예를 들어 Azure Active Directory 도메인 컨트롤러가 168.63.129.16에서 Azure DNS에 DNS 쿼리를 전달할 수 있습니다.

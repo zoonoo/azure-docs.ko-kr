@@ -3,12 +3,12 @@ title: 네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSA
 description: Azure VMware 솔루션에서 WSFC (Windows Server 장애 조치 (Failover) 클러스터)를 설정 하 고 WSFC 기능을 필요로 하는 솔루션을 활용 합니다.
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.openlocfilehash: 8cb2fdd8d519c665840390a41c95121218750a95
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 8162e15675d8bbde9267126c785f152d1cb860bd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025971"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562242"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>네이티브 공유 디스크를 사용 하는 Azure VMware 솔루션 vSAN의 Windows Server 장애 조치 (Failover) 클러스터
 
@@ -30,9 +30,9 @@ WSFC 클러스터는 다양 한 Azure VMware 솔루션 인스턴스 (클러스�
 
 이 문서에서는 Windows Server 2016 및 Windows Server 2019의 WSFC에 대해 집중적으로 설명 합니다. 이전 Windows Server 버전은 [기본 지원을 제공](https://support.microsoft.com/lifecycle/search?alpha=windows%20server) 하지 않으므로 여기서 고려 하지 않습니다.
 
-먼저 [WSFC를 만들어야](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster)합니다. WSFC에 대 한 자세한 내용은 [Windows Server의 장애 조치 (Failover) 클러스터링](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)을 참조 하세요. 이 문서에서 제공 하는 정보를 사용 하 여 Azure VMware 솔루션의 WSFC 배포에 대 한 세부 정보를 제공 합니다.
+먼저 [WSFC를 만들어야](/windows-server/failover-clustering/create-failover-cluster)합니다. WSFC에 대 한 자세한 내용은 [Windows Server의 장애 조치 (Failover) 클러스터링](/windows-server/failover-clustering/failover-clustering-overview)을 참조 하세요. 이 문서에서 제공 하는 정보를 사용 하 여 Azure VMware 솔루션의 WSFC 배포에 대 한 세부 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure VMware 솔루션 환경
 - Microsoft Windows Server OS 설치 미디어
@@ -77,7 +77,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 | --- | --- |
 | SCSI 컨트롤러 유형 | LSI 논리 SAS |
 | 디스크 모드 | 가상 |
-| SCSI 버스 공유 | 없음 |
+| SCSI 버스 공유 | None |
 | 부팅 장치를 호스트 하는 가상 SCSI 컨트롤러에 대 한 고급 설정을 수정 합니다. | 각 WSFC 노드에 다음 고급 설정을 추가 합니다.<br /> scsiX. returnNoConnectDuringAPD = "TRUE"<br />scsiX. returnBusyOnNoConnectStatus = "FALSE"<br />여기서 X는 부팅 장치 SCSI 버스 컨트롤러 ID 번호입니다. 기본적으로 X는 0으로 설정 됩니다. |
 
 ### <a name="wsfc-node---shared-disks-configuration-parameters"></a>WSFC 노드-공유 디스크 구성 매개 변수
@@ -150,7 +150,7 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 
 ## <a name="related-information"></a>관련 정보
 
-- [Windows Server에서의 장애 조치(failover) 클러스터링](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Windows Server에서의 장애 조치(failover) 클러스터링](/windows-server/failover-clustering/failover-clustering-overview)
 - [VSphere Microsoft 클러스터링에 대 한 지침 (1037959) (vmware.com)](https://kb.vmware.com/s/article/1037959)
 - [장애 조치 (Failover) 클러스터링 및 Microsoft Cluster Service 설치 정보 (vmware.com)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.mscs.doc/GUID-1A2476C0-CA66-4B80-B6F9-8421B6983808.html)
 - [vSAN 6.7 U3-WSFC 공유 디스크 &amp; SCSI-3 영구 예약 (vmware.com)](https://blogs.vmware.com/virtualblocks/2019/08/23/vsan67-u3-wsfc-shared-disksupport/)
@@ -162,5 +162,5 @@ Azure VMware 솔루션은 가상화 된 WSFC를 기본적으로 지원 합니다
 
 - WSFC 기능을 필요로 하는 응용 프로그램을 더 추가 하 여 새 WSFC를 설정 합니다. 예를 들어 SQL Server 및 SAP ASCS가 있습니다.
 - 백업 솔루션 설정
-  - [Azure VMware 솔루션에 대 한 Azure Backup Server 설정](https://docs.microsoft.com/azure/azure-vmware/set-up-backup-server-for-azure-vmware-solution)
-  - [Azure VMware 솔루션 가상 컴퓨터용 백업 솔루션](https://docs.microsoft.com/azure/azure-vmware/ecosystem-back-up-vms)
+  - [Azure VMware 솔루션에 대 한 Azure Backup Server 설정](./set-up-backup-server-for-azure-vmware-solution.md)
+  - [Azure VMware 솔루션 가상 컴퓨터용 백업 솔루션](./ecosystem-back-up-vms.md)

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83ed5af00bb61d7a8929e710b52e60c33c0f479b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713374"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559216"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -79,7 +79,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생 하지 않는 경우의 예외
 
-오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 핵심 원리는 다음과 같습니다.
+오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - 사용자가 실행 중인 작업을 명시적으로 취소 함
 - 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
@@ -130,7 +130,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 - 백업 오류 (백업 실패에 대 한 경고를 가져오려면 미리 보기 포털을 통해 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 이라는 afec 플래그를 등록 해야 합니다.)
 - 복원 실패 (복원 실패에 대 한 경고를 받으려면 미리 보기 포털을 통해 **EnableAzureBackupJobFailureAlertsToAzureMonitor** 이라는 afec 플래그를 등록 해야 합니다.)
 
-Azure Monitor 경고에 대 한 자세한 내용은 [Azure의 경고 개요](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview)를 참조 하세요.
+Azure Monitor 경고에 대 한 자세한 내용은 [Azure의 경고 개요](../azure-monitor/alerts/alerts-overview.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

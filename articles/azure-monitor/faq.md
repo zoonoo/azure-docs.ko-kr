@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fa91644eab9d28ffb20de8ec8c0fe00488922b67
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104606959"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563381"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -80,7 +80,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 ### <a name="how-do-i-retrieve-log-data"></a>로그 데이터를 검색하려면 어떻게 해야 하나요?
 모든 데이터는 KQL(Kusto 쿼리 언어)로 작성된 로그 쿼리를 사용하여 Log Analytics 작업 영역에서 검색됩니다. 사용자 고유의 쿼리를 작성하거나 특정 애플리케이션 또는 서비스에 대한 로그 쿼리가 포함된 솔루션과 인사이트를 사용할 수 있습니다. [Azure Monitor의 로그 쿼리 개요](logs/log-query-overview.md)를 참조하세요.
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Log Analytics 작업 영역에서 데이터를 삭제할 수 있나요?
 [보존 기간](logs/manage-cost-storage.md#change-the-data-retention-period)에 따라 작업 영역에서 데이터가 제거 됩니다. 개인 정보나 규정 준수 상의 이유로 특정 데이터를 삭제할 수 있습니다. 자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법을](logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) 참조 하세요.
 
@@ -828,26 +828,27 @@ Azure VM의 개요 페이지에는 게스트 VM에서 작업의 호스트 측정
 ## <a name="sql-insights-preview"></a>SQL insights (미리 보기)
 
 ### <a name="what-versions-of-sql-server-are-supported"></a>지원 되는 SQL Server 버전은 무엇 인가요?
-지원 되는 SQL 버전은 [지원 되는 버전](insights/sql-insights-overview.md#supported-versions) 을 참조 하세요.
+SQL Server 2012 및 모든 최신 버전을 지원 합니다. 자세한 내용은 [지원 되는 버전](insights/sql-insights-overview.md#supported-versions) 을 참조 하세요.
 
 ### <a name="what-sql-resource-types-are-supported"></a>지원 되는 SQL 리소스 종류는 무엇 인가요?
+- Azure SQL Database
+- Azure SQL Managed Instance
+- Azure Virtual Machines SQL Server ( [SQL 가상 컴퓨터](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 공급자에 등록 된 가상 컴퓨터에서 실행 되는 SQL Server)
+- Azure Vm ( [SQL 가상 컴퓨터](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) 공급자에 등록 되지 않은 가상 컴퓨터에서 실행 중인 SQL Server)
 
-- Azure SQL Database. 단일 데이터베이스만 Elastic Pool 데이터베이스는 그렇지 않습니다.
-- Azure SQL Managed Instance 
-- SQL Server 되는 azure SQL 가상 컴퓨터 ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) 및 azure 가상 컴퓨터.
+지원 되지 않거나 제한적으로 지원 되는 시나리오에 대 한 자세한 내용은 [지원 되는 버전](insights/sql-insights-overview.md#supported-versions) 을 참조 하세요.
 
-### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>SQL Server를 실행 하는 컴퓨터의 운영 체제는 무엇이 지원 되나요?
-지원 되는 SQL 버전의 실행을 지 원하는 모든 OS
+### <a name="what-operating-systems-for-the-virtual-machine-running-sql-server-are-supported"></a>SQL Server를 실행 하는 가상 머신에 대 한 운영 체제는 무엇이 지원 되나요?
+Azure Virtual Machines에서 SQL Server에 대 한 [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms) 및 [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) 설명서에서 지정한 모든 운영 체제를 지원 합니다.
 
-### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>원격 모니터링 서버에 대해 지원 되는 운영 체제는 무엇 인가요?
+### <a name="what-operating-system-for-the-monitoring-virtual-machine-are-supported"></a>모니터링 가상 컴퓨터에 대 한 운영 체제가 지원 되나요?
+Ubuntu 18.04은 현재 모니터링 가상 컴퓨터에 대해 지원 되는 유일한 운영 체제입니다.
 
-Ubuntu 18.04은 현재 유일 하 게 지원 되는 운영 체제입니다.
-
-### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>모니터링 데이터는 Log Analytics에 저장 됩니다. 
-모든 모니터링 데이터는 **InsightsMetrics** 테이블에 저장 됩니다. **원본** 열에는 *solutions.azm.ms/telegraf/SqlInsights* 값이 있습니다. **네임 스페이스** 열에 *sqlserver_* 로 시작 하는 값이 있습니다.
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>모니터링 데이터는 Log Analytics에 저장 됩니다.
+모든 모니터링 데이터는 **InsightsMetrics** 테이블에 저장 됩니다. **원본** 열에 값이 `solutions.azm.ms/telegraf/SqlInsights` 있습니다. **네임 스페이스** 열에는로 시작 하는 값이 `sqlserver_` 있습니다.
 
 ### <a name="how-often-is-data-collected"></a>데이터를 얼마나 자주 수집 하나요? 
-다른 데이터를 수집 하는 빈도에 대 한 자세한 내용은 [SQL insights에서 수집한 데이터](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) 를 참조 하세요.
+데이터 컬렉션의 빈도를 사용자 지정할 수 있습니다. 기본 빈도에 대 한 자세한 내용은 [sql 정보에 의해 수집 된 데이터](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) 를 참조 하십시오. 빈도를 사용자 지정 하는 방법에 대 한 자세한 내용은 [Sql 모니터링 프로필 만들기](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile) 
 
 ## <a name="next-steps"></a>다음 단계
 질문에 대한 대답이 여기에 없으면 다음 포럼에서 추가 질문 및 대답을 참조할 수 있습니다.

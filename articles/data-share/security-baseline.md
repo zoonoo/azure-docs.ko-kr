@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d423a8aaf3ace78ccb4b2eb1d8424c6a1dfb61bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6a804b6d6840b25993ad6e249305f531a818be32
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705979"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559454"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Azure 데이터 공유에 대 한 azure 보안 기준
 
@@ -34,7 +34,7 @@ Azure 데이터 공유가 Azure 보안 벤치 마크에 완전히 매핑되는 �
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Azure Monitor 및 타사 SIEM 통합을 시작하는 방법](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -48,11 +48,11 @@ Azure 데이터 공유가 Azure 보안 벤치 마크에 완전히 매핑되는 �
 
 Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentShareSnapshotsLog MicrosoftDataShareReceivedShareSnapshotsLog에 대 한 진단 로그를 사용 하도록 설정 &amp; 합니다. 이러한 로그를 통해 동기화 시작 시간, 종료 시간, 상태 및 기타 세부 정보와 같은 주요 정보를 캡처할 수 있습니다. 이러한 로그는 나중에 보안 인시던트를 조사 하 고 법정 연습을 수행 하는 데 중요할 수 있습니다.
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Azure의 로깅 및 다른 로그 유형 이해](/azure/azure-monitor/platform/platform-logs-overview)
+- [Azure의 로깅 및 다른 로그 유형 이해](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](/azure/azure-monitor/platform/activity-log)
+- [Azure 활동 로그에 대 한 진단 설정을 구성 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -62,9 +62,9 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure 데이터 공유 로그를 저장 하는 데 사용 되는 저장소 계정 또는 Log Analytics 작업 영역에는 조직의 규정 준수 규정에 따라 설정 된 로그 보존 기간이 있는지 확인 합니다.
 
-- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](/azure/azure-monitor/platform/manage-cost-storage)
+- [Log Analytics 작업 영역 보존 기간을 구성 하는 방법](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Azure Storage 계정에 리소스 로그 저장](/azure/azure-monitor/platform/resource-logs#send-to-azure-storage)
+- [Azure Storage 계정에 리소스 로그 저장](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **책임**: Customer
 
@@ -78,9 +78,9 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md) 
 
-- [Log Analytics 쿼리 시작](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Log Analytics 쿼리 시작](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](/azure/azure-monitor/log-query/get-started-queries)
+- [Azure Monitor에서 사용자 지정 쿼리를 수행하는 방법](../azure-monitor/logs/get-started-queries.md)
 
 **책임**: Customer
 
@@ -94,7 +94,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure Security Center에서 경고를 관리 하는 방법](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Log analytics 로그 데이터를 경고 하는 방법](/azure/azure-monitor/learn/tutorial-response)
+- [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/alerts/tutorial-response.md)
 
 **책임**: Customer
 
@@ -144,7 +144,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 - [Azure AD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) 
 
-- [Azure 데이터 공유는 일반적인 Azure 역할에서 작동 합니다. ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#general)
+- [Azure 데이터 공유는 일반적인 Azure 역할에서 작동 합니다. ](../role-based-access-control/built-in-roles.md#general)
 
 **책임**: Customer
 
@@ -154,11 +154,11 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 **지침**: Azure AD는 부실 계정을 검색하는 데 유용한 로그를 제공합니다. 또한 Azure AD id 및 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리 합니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/) 
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml) 
 
 - [Azure AD ID 및 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md) 
 
-- [Azure 데이터 공유는 일반적인 Azure 역할에서 작동 합니다. ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#general)
+- [Azure 데이터 공유는 일반적인 Azure 역할에서 작동 합니다. ](../role-based-access-control/built-in-roles.md#general)
 
 **책임**: Customer
 
@@ -170,7 +170,7 @@ Azure 데이터 공유에 대 한 진단 로그, 특히 MicrosoftDataShareSentSh
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성할 수 있습니다.
 
-- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure Monitor와 Azure 활동 로그를 통합 하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **책임**: Customer
 
@@ -208,7 +208,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 중요 한 Azure 리소스에 변경 내용이 발생 하는 경우에 대 한 Azure Monitor 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -291,7 +291,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure 리소스는 더 이상 필요 하지 않을 때 제거 합니다 .이 작업은 Azure Portal, POWERSHELL 또는 CLI를 통해 수행할 수 있습니다.
 
-- [Azure 리소스 그룹 및 리소스 삭제](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)
+- [Azure 리소스 그룹 및 리소스 삭제](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
 
 Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타사 소프트웨어 응용 프로그램을 설치할 수 있도록 합니다.
 
@@ -305,7 +305,7 @@ Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md) 
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -343,7 +343,7 @@ Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타�
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md) 
 
-- [별칭을 사용 하는 방법](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [별칭을 사용 하는 방법](../governance/policy/concepts/definition-structure.md#aliases)
 
 **책임**: Customer
 
@@ -361,5 +361,5 @@ Azure 데이터 공유는 OS를 노출 하지 않거나 해당 리소스에 타�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

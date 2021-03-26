@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110273"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566288"
 ---
 # <a name="start-monitor-and-track-run-history"></a>실행 기록 시작, 모니터링 및 추적 
 
@@ -38,7 +38,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 > Azure Machine Learning 서비스 및 연결 된 Azure 서비스를 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [Azure Machine Learning를 모니터링 하는 방법](monitor-azure-machine-learning.md)을 참조 하세요.
 > 웹 서비스로 배포 된 모델 또는 IoT Edge 모듈을 모니터링 하는 방법에 대 한 정보를 찾고 있는 경우 [모델 데이터 수집](how-to-enable-data-collection.md) 및 [Application Insights로 모니터링](how-to-enable-app-insights.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 항목이 필요 합니다.
 
@@ -211,7 +211,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
     1. **대상 세부 정보** 에서 **Log Analytics 작업 영역으로 보내기** 를 선택 하 고 **구독** 및 **Log Analytics 작업 영역** 을 지정 합니다. 
 
     > [!NOTE]
-    > **Azure Log Analytics 작업 영역은** **Azure Machine Learning 서비스 작업 영역과** 는 다른 유형의 azure 리소스입니다. 해당 목록에 옵션이 없는 경우 [Log Analytics 작업 영역을 만들](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace)수 있습니다. 
+    > **Azure Log Analytics 작업 영역은** **Azure Machine Learning 서비스 작업 영역과** 는 다른 유형의 azure 리소스입니다. 해당 목록에 옵션이 없는 경우 [Log Analytics 작업 영역을 만들](../azure-monitor/logs/quick-create-workspace.md)수 있습니다. 
     
     ![전자 메일 알림을 저장할 위치](./media/how-to-manage-runs/log-location.png)
 
@@ -219,7 +219,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 
     ![새 경고 규칙](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. [Azure Monitor를 사용 하 여 로그 경고를 만들고 관리 하는 방법을](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log)참조 하세요.
+1. [Azure Monitor를 사용 하 여 로그 경고를 만들고 관리 하는 방법을](../azure-monitor/alerts/alerts-log.md)참조 하세요.
 
 ## <a name="run-description"></a>실행 설명 
 

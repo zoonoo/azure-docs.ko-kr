@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 887aaf32592c74a5884916bc7ad63d79544fb554
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7deba32eb9d0e098b75f98cc81fac2c01b8bb7f8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99575858"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567256"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Azure Stack Edge Blob 저장소 요구 사항
 
@@ -25,7 +25,7 @@ Azure Stack Edge Blob storage에 연결 하기 전에 정보를 신중 하 게 �
 
 |     기능                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
+|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원 안 함      |
 |    스토리지 계정 유형                                 |    범용 및 Azure Blob storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
 |    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Stack Edge 용 4.75 TB (100 MB x 5만 블록)|
@@ -70,10 +70,10 @@ Edge Blob storage Azure Stack에는 특정 클라이언트 라이브러리 및 �
 
 ## <a name="endpoint-declaration"></a>엔드포인트 선언
 
-Azure Stack Edge Blob storage SDK에서 끝점 접미사-는 Azure Stack에 `<device serial number>.microsoftdatabox.com` 지 도메인을 식별 합니다. Blob service 끝점에 대 한 자세한 내용은 [Edge PRO GPU를 사용 하 Azure Stack 여 저장소 계정을 통해 데이터 전송](azure-stack-edge-j-series-deploy-add-storage-accounts.md)으로 이동 합니다.
+Azure Stack Edge Blob storage SDK에서 끝점 접미사-는 Azure Stack에 `<device serial number>.microsoftdatabox.com` 지 도메인을 식별 합니다. Blob service 끝점에 대 한 자세한 내용은 [Edge PRO GPU를 사용 하 Azure Stack 여 저장소 계정을 통해 데이터 전송](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)으로 이동 합니다.
 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="net"></a>.NET
 

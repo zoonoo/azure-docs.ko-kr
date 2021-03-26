@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471748"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562225"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -56,9 +56,9 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Azure Machine Learning Studio 노트북 환경 (2 월 업데이트)
 + **새로운 기능**
-  + [기본 터미널 (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다.
+  + [기본 터미널 (GA)](./how-to-access-terminal.md). 이제 사용자는 통합 터미널을 통해 Git 작업 뿐만 아니라 통합 터미널에 액세스할 수 있습니다.
   + [노트북 코드 조각 (미리 보기)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). 이제는 일반적인 Azure ML 코드 발췌를 편리 하 게 이용할 수 있습니다. 도구 모음을 통해 액세스할 수 있는 코드 조각 패널로 이동 하거나 Ctrl + 스페이스바를 사용 하 여 코드 내 조각 메뉴를 활성화 합니다.  
-  + [바로 가기 키](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys) Jupyter에서 사용할 수 있는 바로 가기 키가 포함 된 전체 패리티입니다. 
+  + [바로 가기 키](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts) Jupyter에서 사용할 수 있는 바로 가기 키가 포함 된 전체 패리티입니다. 
   + 셀 매개 변수를 지정 합니다. 전자 필기장의 셀이 매개 변수 셀 이며 계산 인스턴스의 [용지 제분소](https://github.com/nteract/papermill) 를 통해 매개 변수화 된 노트북을 실행할 수 있는 사용자를 보여 줍니다.
   + 터미널 및 커널 세션 관리자: 사용자가 계산에서 실행 되는 모든 커널 및 터미널 세션을 관리할 수 있습니다.
   + 공유 단추. 사용자는 이제 파일을 마우스 오른쪽 단추로 클릭 하 고 공유 단추를 사용 하 여 전자 필기장 파일 탐색기에서 모든 파일을 공유할 수 있습니다.
@@ -68,7 +68,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
   + 페이지 로드 시간 향상
   + 성능 향상 
   + 향상 된 속도 및 커널 안정성
-  + 진행 중인 모든 [계산 인스턴스 작업](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)에 대 한 진행률을 표시 하는 회전 휠이 추가 되었습니다.
+  + 진행 중인 모든 [계산 인스턴스 작업](./how-to-run-jupyter-notebooks.md#status-indicators)에 대 한 진행률을 표시 하는 회전 휠이 추가 되었습니다.
   + 파일 탐색기에서 마우스 오른쪽 단추를 클릭 합니다. 이제 파일을 마우스 오른쪽 단추로 클릭 하면 파일 작업이 열립니다. 
 
 
@@ -79,7 +79,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
   + **azureml-core**
     + [실험적 기능] Synapse 작업 영역을 연결 된 서비스로 AML에 연결 하는 지원을 추가 합니다.
     + [실험적 기능] Synapse spark 풀을 AML에 계산으로 연결 하는 지원 추가
-    + [실험적 기능] Id 기반 데이터 액세스에 대 한 지원을 추가 합니다. 사용자는 자격 증명을 제공 하지 않고 데이터 저장소 또는 데이터 집합을 등록할 수 있습니다. 이러한 경우 사용자의 AAD 토큰 또는 관리 id의 계산 대상이 인증에 사용 됩니다. [여기](https://aka.ms/data-access)를 참조하세요.
+    + [실험적 기능] Id 기반 데이터 액세스에 대 한 지원을 추가 합니다. 사용자는 자격 증명을 제공 하지 않고 데이터 저장소 또는 데이터 집합을 등록할 수 있습니다. 이러한 경우 사용자의 AAD 토큰 또는 관리 id의 계산 대상이 인증에 사용 됩니다. [여기](./how-to-identity-based-data-access.md)를 참조하세요.
   + **azureml-pipeline-steps**
     + [실험적 기능] [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep) 에 대 한 지원 추가
   + **azureml-synapse**
@@ -305,7 +305,7 @@ __RSS 피드__: 다음 URL을 복사하여 피드 판독기에 붙여넣으면 �
     + `OutputDatasetConfig.register_on_complete`에서 이름이 이미 있는 경우 발생 하는 동작을 포함 하도록에 대 한 설명서를 개선 했습니다.
     + 공통 환경 변수와 충돌할 가능성이 있는 데이터 집합 입력 및 출력 이름을 지정 하면 경고가 발생 합니다.
     + `grant_workspace_access`Datastores를 등록할 때 매개 변수가 재사용 됩니다. `True`Machine Learning Studio에서 가상 네트워크 뒤에 있는 데이터에 액세스 하려면로 설정 합니다.
-      [자세히 알아보기](./how-to-enable-studio-virtual-network.md)
+      [자세한 정보](./how-to-enable-studio-virtual-network.md)
     + 연결 된 서비스 API가 구체화 되었습니다. 리소스 ID를 제공 하는 대신 3 개의 별도 매개 변수 sub_id, rg 및 구성에 정의 된 이름을 갖습니다.
     + 고객이 토큰 손상 문제를 자체 해결할 수 있도록 하려면 작업 영역 토큰 동기화를 공용 메서드로 설정 합니다.
     + 이렇게 변경 하면 빈 문자열을 script_param 값으로 사용할 수 있습니다.
@@ -1752,13 +1752,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+    + [실험](/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
 
         ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
+        [archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
 
         ```python
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -1767,7 +1767,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
+        실험에서 정적 메서드 [목록 ()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
 
         ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")

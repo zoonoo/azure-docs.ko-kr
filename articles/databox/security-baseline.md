@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a05a4692bb4a09213532ed29b2501f6b8056857
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63b99cdeb7606798caa1b1d997dbb9f609c033b0
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721993"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562191"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Azure Data Box에 대 한 Azure 보안 기준
 
@@ -88,7 +88,7 @@ Azure Data Box 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 �
 
 - [통합 문서에 대 한 Azure RBAC를 구성 하는 방법](../sentinel/quickstart-get-visibility.md)
 
-- [주문에 대 한 액세스 제어를 설정 하는 방법 이해](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [주문에 대 한 액세스 제어를 설정 하는 방법 이해](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **책임**: Customer
 
@@ -172,7 +172,7 @@ Azure Data Box 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 �
 
 Data Box 어플라이언스의 경우 실시간으로 지원 되지 않습니다. 작업이 끝날 때 로그를 검토할 수 있습니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure ID 액세스 검토를 사용하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -190,7 +190,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 않습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -216,7 +216,7 @@ Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 
 
 **지침**: 곧 제공 될 예정입니다. 고객 Lockbox는 Azure Data Box에 대해 아직 지원 되지 않습니다. 
 
-- [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **책임**: Customer
 
@@ -254,7 +254,7 @@ Azure Data Box 서비스 로그는 Log Analytics 작업 영역에 기록 되지 
 
 - [Azure Data Box를 시작 하는 방법 이해](data-box-quickstart-portal.md)
 
-- [액세스 제어를 설정 하는 방법 이해](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+- [액세스 제어를 설정 하는 방법 이해](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **책임**: Customer
 
@@ -281,7 +281,7 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 변경 내용이 Azure Data Box 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -459,5 +459,5 @@ Azure Data Box는 미사용 데이터에 대 한 AES 256 비트 암호화를 구
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

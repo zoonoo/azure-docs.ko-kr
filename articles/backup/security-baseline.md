@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 33408c65fdc09972807aaa8afdf123f1c39cfff5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0530baf5c198b5d82527cfb02c66765ec885bd94
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700266"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566713"
 ---
 # <a name="azure-security-baseline-for-azure-backup"></a>Azure Backup에 대 한 Azure 보안 기준
 
@@ -30,7 +30,7 @@ Azure Backup 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure Backup (Microsoft Azure Recovery Services 에이전트 포함)에서 사용 하는 끝점은 모두 Microsoft에서 관리 합니다. 온-프레미스 시스템에 배포 하려는 추가 컨트롤을 담당 합니다.
 
-- [MARS 에이전트에 대 한 네트워킹 및 액세스 지원 이해](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#networking-and-access-support)
+- [MARS 에이전트에 대 한 네트워킹 및 액세스 지원 이해](./backup-support-matrix-mars-agent.md#networking-and-access-support)
 
 **책임**: Customer
 
@@ -58,9 +58,9 @@ Azure Backup 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: 네트워크 보안 그룹 또는 azure 방화벽으로 보호 중인 Azure 가상 머신에서 MARS 에이전트를 사용 하는 경우 Azure 활동 로그를 사용 하 여 nsg 또는 방화벽의 구성을 모니터링 합니다. Azure Monitor 내에서 이러한 리소스에 대 한 변경 내용이 발생 하는 경우 트리거되는 경고를 만들 수 있습니다.
 
-- [Azure 활동 로그 이벤트 보기 및 검색](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Azure 활동 로그 이벤트 보기 및 검색](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -76,7 +76,7 @@ Azure Backup 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 또한 Azure Monitor를 통해 로그를 수집 하 여 Azure Backup 생성 된 보안 데이터를 집계 합니다. Azure Monitor에서 Log Analytics 작업 영역을 사용 하 여 분석을 쿼리하고 수행 하 고 장기/보관 저장소에 저장소 계정을 사용 합니다. 또는 Azure 센티널 또는 타사 SIEM (보안 인시던트 및 이벤트 관리)에 대 한 온보드 데이터를 사용할 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Recovery Services 자격 증명 모음에 대 한 진단 설정 사용](backup-azure-diagnostic-events.md)
 
@@ -92,7 +92,7 @@ Azure Backup 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 또한 Azure Backup는 분석, 경고 및 보고를 위해 수집 하 고 사용할 수 있는 진단 이벤트를 보냅니다. Azure Portal를 통해 Recovery Services 자격 증명 모음에 대 한 진단 설정을 구성할 수 있습니다. 하나 이상의 진단 이벤트를 저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역으로 보낼 수 있습니다.
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
 - [Recovery Services 자격 증명 모음에 대 한 진단 설정 사용](backup-azure-diagnostic-events.md)
 
@@ -104,7 +104,7 @@ Azure Backup 완전히 Azure 보안 벤치 마크에 매핑되는 방법을 보�
 
 **지침**: Azure Monitor에서 조직의 규정 준수 규정에 따라 Azure Recovery Services 자격 증명 모음과 연결 된 Log Analytics 작업 영역에 대 한 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
@@ -118,9 +118,9 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 - [Azure Backup 워크 로드 모니터링](backup-azure-monitoring-built-in-monitor.md)
 
-- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](/azure/azure-monitor/platform/activity-log)
+- [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/essentials/activity-log.md)
 
-- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](/azure/azure-monitor/platform/activity-log)
+- [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/essentials/activity-log.md)
 
 **책임**: Customer
 
@@ -138,7 +138,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
-- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](/azure/azure-monitor/platform/alerts-log)
+- [Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-log.md)
 
 **책임**: Customer
 
@@ -268,7 +268,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 **지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure AD 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 해야 합니다.
 
-- [Azure AD 보고 이해](/azure/active-directory/reports-monitoring/)
+- [Azure AD 보고 이해](../active-directory/reports-monitoring/index.yml)
 
 - [Azure AD 액세스 검토를 사용 하는 방법](../active-directory/governance/access-reviews-overview.md)
 
@@ -284,7 +284,7 @@ Azure AD 로그인 활동, 감사 및 위험 이벤트 로그 원본에 액세�
 
 Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 전송 하 여이 프로세스를 간소화할 수 있습니다. Log Analytics 내에서 원하는 로그 경고를 구성할 수 있습니다.
 
-- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Azure 활동 로그를 Azure Monitor에 통합하는 방법](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
 
@@ -310,7 +310,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 **지침**: 현재 사용할 수 없음 고객 Lockbox는 Azure Backup에 대해 아직 지원 되지 않습니다.
 
-- [Customer Lockbox 지원 서비스 목록](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Customer Lockbox 지원 서비스 목록](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **책임**: Customer
 
@@ -378,7 +378,7 @@ Microsoft는 Azure Backup에 대 한 기본 인프라를 관리 하 고, 고객 
 
 Azure Backup 백업 관리 작업을 제어 하기 위한 세 가지 기본 제공 역할인 백업 참여자, 백업 운영자 및 백업 판독기를 제공 합니다. 백업 기본 제공 역할을 다양 한 백업 관리 작업에 매핑할 수 있습니다.
 
-- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성하는 방법](../role-based-access-control/role-assignments-portal.md)
 
 - [Azure 역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](backup-rbac-rs-vault.md)
 
@@ -402,7 +402,7 @@ MARS 에이전트로 백업 하거나 고객이 관리 하는 키로 암호화 �
 
 **지침**: azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 Azure Recovery Services 자격 증명 모음 및 기타 중요 하거나 관련 된 리소스에 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -418,7 +418,7 @@ MARS 에이전트로 백업 하거나 고객이 관리 하는 키로 암호화 �
 
 Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 구성 관련 취약성을 줄이기 위해 Azure Backup 사용할 수 있는 보안 제어를 검토 합니다.
 
-- [Azure Backup 사용할 수 있는 보안 컨트롤 이해](/azure/backup/backup-security-controls)
+- [Azure Backup 사용할 수 있는 보안 컨트롤 이해]()
 
 **책임**: Customer
 
@@ -446,7 +446,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../role-based-access-control/overview.md)
 
@@ -520,7 +520,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -544,7 +544,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리하고 
 
 **지침**: Azure Policy를 사용 하 여 Recovery Services 자격 증명 모음에 대 한 표준 보안 구성을 정의 하 고 구현 합니다. "Microsoft RecoveryServices" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Recovery Services 자격 증명 모음 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만듭니다.
 
-- [사용 가능한 Azure 정책 별칭을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [사용 가능한 Azure 정책 별칭을 확인하는 방법](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -656,7 +656,7 @@ Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다.
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft RecoveryServices**:
 
@@ -676,7 +676,7 @@ Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다.
 
 **지침**: 온-프레미스 백업의 경우 Azure에 백업할 때 제공 하는 암호를 사용 하 여 미사용 암호화가 제공 됩니다. Azure VM의 경우 SSE(스토리지 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다. Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호할 수 있습니다.
 
-- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **책임**: Customer
 
@@ -772,5 +772,5 @@ Azure Key Vault 내에서 고객이 관리 하는 키를 백업 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

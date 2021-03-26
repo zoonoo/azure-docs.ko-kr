@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: ecb9d1e25647e197614817116921140f0d7fbdf4
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 54c1b8c189264fb2e127ff04b0fdd9125f4c9aeb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024968"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563143"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: Azure SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -102,9 +102,9 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | 설명|
+|기술 | Description|
 |---------|---------|
-| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
+| [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
 |[DMA(Data Migration Assistant)](/sql/dma/dma-migrateonpremsqltosqldb)|Data Migration Assistant는 Azure SQL Database (스키마와 데이터 모두)로의 SQL Server 및 마이그레이션에 대 한 원활한 평가를 제공 하는 데스크톱 도구입니다. 이 도구는 원본 데이터베이스에 연결 된 서버 온-프레미스 또는 로컬 컴퓨터에 설치할 수 있습니다. 마이그레이션 프로세스는 원본 데이터베이스와 대상 데이터베이스의 개체 간 논리적 데이터 이동입니다. </br> -단일 데이터베이스 마이그레이션 (스키마 및 데이터 모두)|
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Azure Portal 또는 PowerShell을 사용 하 여 Azure SQL Database으로 SQL Server 데이터베이스를 마이그레이션할 수 있는 자사 Azure 서비스입니다. Azure DMS를 사용 하려면 프로 비전 중에 기본 설정 된 VNet (Azure Virtual Network)을 선택 하 여 원본 SQL Server 데이터베이스에 연결 되어 있는지 확인 해야 합니다. </br> -단일 데이터베이스 또는 대규모로 마이그레이션 |
 | | |
@@ -114,7 +114,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |설명  |
+|기술 |Description  |
 |---------|---------|
 |[트랜잭션 복제](../../database/replication-to-sql-database.md)|트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Database로 데이터를 복제 합니다. 증분 데이터 변경 내용은 게시자에서 발생 하는 구독자로 전파 됩니다.|
 |[가져오기/내보내기 서비스/BACPAC](../../database/database-import.md)|[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 는 `.bacpac` 데이터베이스의 스키마와 데이터를 캡슐화 하는 확장명을 포함 하는 Windows 파일입니다. BACPAC를 사용 하 여 원본 SQL Server에서 데이터를 내보내고 Azure SQL Database 데이터를 가져올 수 있습니다. BACPAC 파일은 Azure Portal를 사용 하 여 새 Azure SQL Database 가져올 수 있습니다. </br></br> 대규모 데이터베이스 크기 또는 많은 수의 데이터베이스를 사용 하는 규모 및 성능에 대해 [SqlPackage](../../database/database-import.md#using-sqlpackage) 명령줄 유틸리티를 사용 하 여 데이터베이스를 내보내고 가져오는 것이 좋습니다.|

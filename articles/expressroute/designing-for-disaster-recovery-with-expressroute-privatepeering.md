@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 03/22/2021
 ms.author: duau
-ms.openlocfilehash: 8b1691dc7358c03b924d710684ecd73841b4832d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 3da044057784763df8d071af6c101f7baffbefc6
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105044603"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562310"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
@@ -43,11 +43,11 @@ Azure 지역 또는 온-프레미스 또는 다른 곳에서 중요 업무용 �
 
 ### <a name="same-metro"></a>동일한 metro
 
-동일한 metro를 사용 하는 경우이 구성이 작동 하려면 두 번째 경로에 대 한 보조 위치를 사용 해야 합니다. 동일한 metro의 예로는 *암스테르담* 및 *Amsterdam2* 이 있습니다. 응용 프로그램 장애 조치 (failover)가 발생 하는 경우 동일한 metro를 선택 하면 온-프레미스 응용 프로그램과 Microsoft 간의 종단 간 대기 시간이 동일 하 게 유지 된다는 장점이 있습니다. 그러나 자연 재해가 발생 한 경우 두 경로에 대 한 연결을 더 이상 사용할 수 없습니다. 
+[많은 metros](expressroute-locations-providers.md#global-commercial-azure) 에는 두 개의 express 경로 위치가 있습니다. 예를 들면 *암스테르담* 및 *Amsterdam2* 입니다. 중복성을 디자인할 때 동일한 metro의 두 위치를 모두 사용 하 여 Azure에 대 한 두 개의 병렬 경로를 빌드할 수 있습니다. 이 디자인의 장점은 응용 프로그램 장애 조치 (failover)가 발생 하는 경우 온-프레미스 응용 프로그램과 Microsoft 간의 종단 간 대기 시간을 유지 하는 것입니다. 그러나 지진과 같은 자연 재해가 발생 한 경우 두 경로에 대 한 연결을 더 이상 사용할 수 없습니다.
 
 ### <a name="different-metros"></a>다른 metros
 
-표준 SKU 회로에 다른 metros를 사용 하는 경우 보조 위치는 동일한 [지역 정치 지역](expressroute-locations-providers.md#locations)에 있어야 합니다. 지역 정치적 지역 외부의 위치를 선택 하려면 병렬 경로에서 두 회로에 대해 프리미엄 SKU를 사용 해야 합니다. 이 구성의 장점은 자연 재해가 발생 하 여 두 링크로의 작동이 중단 되는 것이 아니라 종단 간 대기 시간이 증가 하는 것입니다.
+중복성을 위해 다른 metros를 사용 하는 경우 보조 위치는 동일한 [지역 정치 지역](expressroute-locations-providers.md#locations)에 있어야 합니다. 지역 정치적 지역 외부의 위치를 선택 하려면 병렬 경로에서 두 회로에 대해 프리미엄 SKU를 사용 해야 합니다. 이 구성의 장점은 자연 재해가 발생 하 여 두 링크로의 작동이 중단 되는 것이 아니라 종단 간 대기 시간이 증가 하는 것입니다.
 
 이 문서에서는 지역 중복 경로를 구성할 때 발생할 수 있는 문제를 해결 하는 방법을 설명 하겠습니다.
 

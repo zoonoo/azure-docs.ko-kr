@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87072ecc4bff054d64c3d8576f821e725959ea7e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca28c2a1943912ce6a244929e7438edd7680d131
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657794"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565965"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Azure SQL Database에 대 한 Azure 보안 기준
 
@@ -32,13 +32,13 @@ Azure SQL Database 완전히 Azure 보안 벤치 마크에 매핑되는 방법�
 
 Azure SQL Database는 가상 네트워크 규칙을 통해 Virtual Network 내의 선택한 서브넷에서 전송된 통신만 수락할 수 있습니다.
 
-- [Azure SQL Database용 Private Link를 설정하는 방법](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+- [Azure SQL Database용 Private Link를 설정하는 방법](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
-- [데이터베이스 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙을 사용 하는 방법](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [데이터베이스 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙을 사용 하는 방법](./vnet-service-endpoint-rule-overview.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -68,9 +68,9 @@ Azure SQL Database 서버 인스턴스에 연결할 Azure Virtual Machines (VM)�
 
 **지침**: 배포 된 서비스 거부 공격 으로부터 보호 하기 위해 SQL Server 인스턴스와 연결 된 가상 네트워크에서 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다.
 
-- [DDoS 보호를 구성 하는 방법](/azure/virtual-network/manage-ddos-protection)
+- [DDoS 보호를 구성 하는 방법](../../ddos-protection/manage-ddos-protection.md)
 
-- [Azure Security Center 통합 위협 인텔리전스 이해](/azure/security-center/security-center-alerts-data-services)
+- [Azure Security Center 통합 위협 인텔리전스 이해](../../security-center/azure-defender.md)
 
 **책임**: Customer
 
@@ -92,7 +92,7 @@ Azure SQL Database 서버 인스턴스에 연결할 Azure Virtual Machines (VM)�
 
 **지침**: Azure SQL Database에 대해 ATP (Advanced Threat Protection)를 사용 하도록 설정 합니다.  사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. 또한 Advanced Threat Protection은 경고를 Azure Security Center와 통합 합니다. 
 
-- [Azure SQL Database에 대 한 Advanced Threat Protection 이해 및 사용](/azure/sql-database/sql-database-threat-detection-overview)
+- [Azure SQL Database에 대 한 Advanced Threat Protection 이해 및 사용](./threat-detection-overview.md)
 
 **책임**: Customer
 
@@ -104,7 +104,7 @@ Azure SQL Database 서버 인스턴스에 연결할 Azure Virtual Machines (VM)�
 
 Azure SQL Database에 대해 서비스 끝점을 사용 하는 경우 Azure SQL Database 공용 IP 주소에 대 한 아웃 바운드가 필요 합니다. 연결을 허용 하려면 Ip를 Azure SQL Database 하기 위해 NSGs (네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대 한 NSG 서비스 태그를 사용 하 여이 작업을 수행할 수 있습니다.
 
-- [Azure SQL Database에 대 한 서비스 끝점을 사용 하 여 서비스 태그 이해](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
+- [Azure SQL Database에 대 한 서비스 끝점을 사용 하 여 서비스 태그 이해](./vnet-service-endpoint-rule-overview.md#limitations)
 
 - [서비스 태그 이해 및 사용](../../virtual-network/service-tags-overview.md)
 
@@ -136,7 +136,7 @@ Azure 청사진을 사용 하 여 azure 리소스 관리 템플릿, azure RBAC (
 
 Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리소스에 대 한 작업을 조회 하거나 수행할 수 있습니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -146,9 +146,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure 활동 로그를 사용 하 여 네트워크 리소스 구성을 모니터링 하 고 Azure SQL Database 서버 인스턴스와 관련 된 네트워크 리소스에 대 한 변경 내용을 검색 합니다. Azure Monitor 내에서 중요한 네트워크 리소스가 변경되면 트리거되는 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](/azure/azure-monitor/platform/activity-log-view)
+- [Azure 활동 로그 이벤트를 확인하고 검색하는 방법](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Azure Monitor에서 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure Monitor에서 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -164,11 +164,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 또한 azure sql 진단 원격 분석을 Azure SQL 분석으로 스트리밍할 수 있으며, azure sql Database의 성능 및 여러 구독을 확장 하는 azure sql 관리 되는 인스턴스의 성능을 모니터링 하는 클라우드 솔루션입니다. Azure SQL Database 성능 메트릭을 수집 및 시각화하는 데 도움이 될 수 있고 성능 문제 해결을 위한 기본 제공 인텔리전스를 제공합니다.
 
-- [Azure SQL Database에 대 한 감사를 설정 하는 방법](/azure/sql-database/sql-database-auditing)
+- [Azure SQL Database에 대 한 감사를 설정 하는 방법](./auditing-overview.md)
 
-- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](/azure/sql-database/sql-database-metrics-diag-logging)
+- [Azure Monitor를 사용 하 여 플랫폼 로그 및 메트릭을 수집 하는 방법](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md)
 
-- [진단을 Azure SQL 분석로 스트리밍하는 방법](/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics)
+- [진단을 Azure SQL 분석로 스트리밍하는 방법](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-sql-analytics)
 
 **책임**: Customer
 
@@ -178,11 +178,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure SQL Database 서버 인스턴스에서 감사를 사용 하도록 설정 하 고 감사 로그 (Azure Storage, Log Analytics 또는 이벤트 허브)의 저장소 위치를 선택 합니다.
 
-- [Azure SQL Server에 대 한 감사를 사용 하도록 설정 하는 방법](/azure/sql-database/sql-database-auditing)
+- [Azure SQL Server에 대 한 감사를 사용 하도록 설정 하는 방법](./auditing-overview.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -192,11 +192,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Log Analytics 작업 영역에 Azure SQL Database 로그를 저장 하는 경우 조직의 규정 준수 규정에 따라 로그 보존 기간을 설정 합니다.
 
-- [로그 보존 매개 변수를 설정 하는 방법](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [로그 보존 매개 변수를 설정 하는 방법](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -206,7 +206,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: 비정상적인 동작에 대 한 로그를 분석 및 모니터링 하 고 정기적으로 결과를 검토 합니다. Azure Security Center의 Advanced Threat Protection을 사용 하 여 Azure SQL Database 인스턴스와 관련 된 비정상적인 활동을 경고 합니다. 또는 Azure SQL Database 인스턴스와 관련 된 Azure 활동 로그 항목 또는 메트릭 값을 기반으로 경고를 구성 합니다.
 
-- [Azure SQL Server에 대 한 고급 위협 방지 및 경고 이해](/azure/sql-database/sql-database-threat-detection-overview)
+- [Azure SQL Server에 대 한 고급 위협 방지 및 경고 이해](./threat-detection-overview.md)
 
 - [Azure SQL Database에 대 한 사용자 지정 경고를 구성 하는 방법](alerts-insights-configure-portal.md)
 
@@ -218,7 +218,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: 비정상적인 활동을 모니터링 하 고 경고 하기 위해 Azure SQL database에 대 한 Azure Security Center Advanced Threat Protection을 사용 합니다. SQL 데이터베이스에 Azure Defender for SQL을 사용 하도록 설정 합니다. SQL 용 Azure Defender에는 중요 한 데이터를 검색 및 분류 하 고, 잠재적인 데이터베이스 취약성을 표시 및 완화 하 고, 데이터베이스에 위협을 나타낼 수 있는 비정상적인 활동을 검색 하기 위한 기능이 포함 되어 있습니다.
 
-- [Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해](/azure/sql-database/sql-database-threat-detection-overview)
+- [Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해](./threat-detection-overview.md)
 
 - [Azure SQL Database 용 Azure Defender for SQL을 사용 하도록 설정 하는 방법](azure-defender-for-sql.md)
 
@@ -226,7 +226,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -240,9 +240,9 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **지침**: Azure Active Directory (Azure AD)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **책임**: Customer
 
@@ -252,7 +252,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 **참고**: Azure Active Directory (Azure AD)에는 기본 암호 개념이 없습니다. Azure SQL Database 인스턴스를 프로 비전 하는 경우 Azure AD와 인증을 통합 하도록 선택 하는 것이 좋습니다.
 
-- [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](/azure/sql-database/azure-sql/database/authentication-aad-configure)
+- [Azure SQL을 사용 하 여 Azure AD 인증을 구성 하 고 관리 하는 방법](/azure/azure-sql/database/authentication-aad-configure)
 
 **책임**: Customer
 
@@ -298,11 +298,11 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비정상이 고 잠재적으로 유해한 작업을 통해 데이터베이스에 액세스 하거나 악용 하려는 비정상 작업을 검색 합니다.
 
-- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [위험한 활동에 대해 플래그가 지정된 Azure AD 사용자를 식별하는 방법](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법](../../security-center/security-center-identity-access.md)
 
-- [Advanced Threat Protection 및 잠재적 경고 검토](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview#alerts)
+- [Advanced Threat Protection 및 잠재적 경고 검토](./threat-detection-overview.md#alerts)
 
 **책임**: Customer
 
@@ -328,7 +328,7 @@ Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비�
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -360,7 +360,7 @@ Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비�
 
 **지침**: 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하려면 Azure AD (Azure Active Directory) id 보호 및 위험 검색을 사용 합니다. 또한 추가 조사를 위해 데이터를 Azure 센티널로 수집할 수 있습니다.
 
-- [Azure AD 위험 로그인을 보는 방법](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Azure AD 위험 로그인을 보는 방법](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [ID 보호 위험 정책을 구성하고 사용하도록 설정하는 방법](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -386,11 +386,11 @@ Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비�
 
 **지침**: 태그를 사용하여 중요한 정보를 저장하거나 처리하는 Azure 리소스를 추적할 수 있도록 지원합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -400,13 +400,13 @@ Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비�
 
 **지침**: 개발, 테스트 및 프로덕션을 위한 별도의 구독 및/또는 관리 그룹을 구현합니다. 리소스는 Vnet/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, NSG 또는 Azure 방화벽 내에서 보안이 유지 됩니다. 중요 한 데이터를 저장 하거나 처리 하는 리소스는 격리 되어야 합니다. 개인 링크 사용; Vnet 내에 Azure SQL Server를 배포 하 고 개인 끝점을 사용 하 여 개인적으로 연결 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
-- [Azure SQL Database용 Private Link를 설정하는 방법](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+- [Azure SQL Database용 Private Link를 설정하는 방법](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
 **책임**: Customer
 
@@ -418,7 +418,7 @@ Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비�
 
 Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고객 콘텐츠를 중요한 것으로 간주하고, 고객 데이터 손실 및 노출을 방지하기 위해 모든 노력을 다하고 있습니다. Azure 내에서 고객 데이터를 안전하게 유지하기 위해 Microsoft는 강력한 데이터 보호 제어 및 기능 모음을 구현하고 유지 관리합니다.
 
-- [Azure SQL Database 인스턴스에서 데이터 반출을 방지 하도록 개인 링크 및 nsgs를 구성 하는 방법](/azure/sql-database/sql-database-private-endpoint-overview)
+- [Azure SQL Database 인스턴스에서 데이터 반출을 방지 하도록 개인 링크 및 nsgs를 구성 하는 방법](./private-endpoint-overview.md)
 
 - [Azure의 고객 데이터 보호 이해](../../security/fundamentals/protection-customer-data.md)
 
@@ -430,11 +430,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure SQL Database 데이터 검색 및 분류 기능을 사용 합니다. 데이터 검색 및 분류는 &amp; 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 하는 Azure SQL Database에 기본 제공 되는 고급 기능을 제공 합니다.
 
-- [Azure SQL Server에 대 한 데이터 검색 및 분류를 사용 하는 방법](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Azure SQL Server에 대 한 데이터 검색 및 분류를 사용 하는 방법](./data-discovery-and-classification-overview.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -444,9 +444,9 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure SQL Database 인스턴스에 대 한 액세스를 인증 하 고 제어 하는 데 Azure Active Directory (Azure AD)를 사용 합니다.
 
-- [인증을 위해 azure AD와 azure SQL Server를 통합 하는 방법](/azure/sql-database/sql-database-aad-authentication)
+- [인증을 위해 azure AD와 azure SQL Server를 통합 하는 방법](./authentication-aad-overview.md)
 
-- [Azure SQL Server에서 액세스를 제어 하는 방법](/azure/sql-database/sql-database-control-access)
+- [Azure SQL Server에서 액세스를 제어 하는 방법](./logins-create-manage.md)
 
 **책임**: Customer
 
@@ -456,11 +456,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 Azure SQL Database, azure SQL 관리 되는 인스턴스 및 Azure data Warehouse를 보호 하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. 기본적으로 TDE는 SQL Database 및 SQL Managed Instance에서 새로 배포 된 모든 데이터베이스에 대해 사용 하도록 설정 됩니다. Microsoft 또는 고객은 TDE 암호화 키를 관리할 수 있습니다.
 
-- [투명 한 데이터 암호화를 관리 하 고 사용자 고유의 암호화 키를 사용 하는 방법](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption)
+- [투명 한 데이터 암호화를 관리 하 고 사용자 고유의 암호화 키를 사용 하는 방법](./transparent-data-encryption-tde-overview.md?tabs=azure-portal#manage-transparent-data-encryption)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -470,7 +470,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure 활동 로그와 함께 Azure Monitor를 사용 하 여 프로덕션 인스턴스 Azure SQL Database 및 기타 중요 한 리소스 또는 관련 된 리소스에 대 한 변경 내용이 발생 하는 경우에 대 한 경고를 만듭니다.
 
-- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](/azure/azure-monitor/platform/alerts-activity-log)
+- [Azure 활동 로그 이벤트에 대한 경고를 만드는 방법](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **책임**: Customer
 
@@ -484,15 +484,15 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: azure DEFENDER for sql Azure SQL Database를 사용 하도록 설정 하 고 Azure sql 서버에서 취약성 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.
 
-- [Azure SQL Database에서 취약성 평가를 실행 하는 방법](/azure/sql-database/sql-vulnerability-assessment)
+- [Azure SQL Database에서 취약성 평가를 실행 하는 방법](./sql-vulnerability-assessment.md)
 
 - [SQL 용 Azure Defender를 사용 하도록 설정 하는 방법](azure-defender-for-sql.md)
 
-- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -502,7 +502,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure SQL Database 인스턴스에 대해 정기적인 되풀이 검색을 사용 하도록 설정 합니다. 그러면 일주일에 한 번씩 데이터베이스에서 검색을 자동으로 실행 하도록 취약성 평가를 구성 합니다. 사용자가 제공한 전자 메일 주소로 검색 결과 요약이 전송됩니다. 결과를 비교 하 여 취약점이 재구성 되었는지 확인 합니다.
 
-- [Azure Security Center에서 취약성 평가 보고서를 내보내는 방법](/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment)
+- [Azure Security Center에서 취약성 평가 보고서를 내보내는 방법](./sql-vulnerability-assessment.md#export-an-assessment-report)
 
 **책임**: Customer
 
@@ -512,11 +512,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: Azure Security Center에서 제공 하는 기본 위험 등급 (보안 점수)을 사용 합니다.
 
-- [보안 점수 Azure Security Center 이해](/azure/security-center/security-center-secure-score)
+- [보안 점수 Azure Security Center 이해](../../security-center/secure-score-security-controls.md)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -534,7 +534,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 - [Azure Resource Graph를 사용하여 쿼리를 만드는 방법](../../governance/resource-graph/first-query-portal.md)
 
-- [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure 구독을 확인하는 방법](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Azure RBAC 이해](../../role-based-access-control/overview.md)
 
@@ -546,7 +546,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 논리적으로 분류 체계로 구성합니다.
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -556,11 +556,11 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **지침**: 태그 지정, 관리 그룹 및 별도의 구독 (해당 하는 경우)을 사용 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정하고, 구독에서 권한 없는 리소스가 적시에 삭제되도록 합니다.
 
-- [추가 Azure 구독을 만드는 방법](/azure/billing/billing-create-subscription)
+- [추가 Azure 구독을 만드는 방법](../../cost-management-billing/manage/create-subscription.md)
 
-- [관리 그룹을 만드는 방법](/azure/governance/management-groups/create)
+- [관리 그룹을 만드는 방법](../../governance/management-groups/create-management-group-portal.md)
 
-- [태그를 만들고 사용하는 방법](/azure/azure-resource-manager/resource-group-using-tags)
+- [태그를 만들고 사용하는 방법](../../azure-resource-manager/management/tag-resources.md)
 
 **책임**: Customer
 
@@ -594,7 +594,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 - [Azure Policy를 구성하고 관리하는 방법](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Azure Policy를 사용하여 특정 리소스 종류를 거부하는 방법](../../governance/policy/samples/built-in-policies.md#general)
 
 **책임**: Customer
 
@@ -640,9 +640,9 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 사용자 지정 Azure Policy 정의를 사용 하는 경우 Azure devops 또는 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-- [Azure DevOps에 코드를 저장하는 방법](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Azure DevOps에 코드를 저장하는 방법](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos 설명서](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos 설명서](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **책임**: Customer
 
@@ -662,7 +662,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure Security Center 활용 하 여 Azure SQL Server 및 데이터베이스에 대 한 기준 검색을 수행 합니다.
 
-- [Azure Security Center에서 권장 사항을 수정 하는 방법](/azure/security-center/security-center-sql-service-recommendations)
+- [Azure Security Center에서 권장 사항을 수정 하는 방법](../../security-center/security-center-remediate-recommendations.md)
 
 **책임**: Customer
 
@@ -672,7 +672,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: Azure Key Vault을 사용 하 여 tde (Azure SQL Database 투명한 데이터 암호화에 대 한 암호화 키를 저장 합니다.
 
-- [Azure SQL Server에 저장 되는 중요 한 데이터를 보호 하 고 암호화 키를 Azure Key Vault에 저장 하는 방법](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+- [Azure SQL Server에 저장 되는 중요 한 데이터를 보호 하 고 암호화 키를 Azure Key Vault에 저장 하는 방법](./always-encrypted-azure-key-vault-configure.md)
 
 **책임**: Customer
 
@@ -726,11 +726,11 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 서로 다른 규정 준수 요구 사항을 충족 하기 위해 주별, 월별 및/또는 매년 백업에 대해 서로 다른 보존 기간을 선택할 수 있습니다. 스토리지 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다.
 
-- [Azure SQL Server를 사용 하 여 백업 및 비즈니스 연속성 이해](/azure/sql-database/sql-database-business-continuity)
+- [Azure SQL Server를 사용 하 여 백업 및 비즈니스 연속성 이해](./business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 **책임**: 공유됨
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -742,13 +742,13 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 투명한 데이터 암호화에 대해 고객 관리 키를 사용 하는 경우 키를 백업 하 고 있는지 확인 합니다.
 
-- [Azure SQL Server의 백업 이해](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups?tabs=single-database)
+- [Azure SQL Server의 백업 이해](./automated-backups-overview.md?tabs=single-database)
 
-- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure 보안 벤치 마크](/azure/governance/policy/samples/azure-security-benchmark) 는 Security Center에 대 한 기본 정책 이니셔티브 이며 [Security Center 권장 사항의](/azure/security-center/security-center-recommendations)기초가 됩니다. 이 컨트롤과 관련 된 Azure Policy 정의는 Security Center에 의해 자동으로 설정 됩니다. 이 컨트롤과 관련 된 경고에는 관련 서비스에 대 한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의-Microsoft .sql**:
 
@@ -758,9 +758,9 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: Azure Backup 내에서 콘텐츠의 데이터 복원을 정기적으로 수행할 수 있는지 확인 합니다. 필요한 경우 격리 된 VLAN에 대 한 콘텐츠 복원을 테스트 합니다. 백업 된 고객이 관리 하는 키의 복원을 테스트 합니다.
 
-- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Azure에서 키 자격 증명 모음 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
-- [지정 시간 복원을 사용 하 여 Azure SQL Database 백업을 복구 하는 방법](/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore)
+- [지정 시간 복원을 사용 하 여 Azure SQL Database 백업을 복구 하는 방법](./recovery-using-backups.md#point-in-time-restore)
 
 **책임**: Customer
 
@@ -770,7 +770,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **지침**: Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하 여 실수로 또는 악의적인 삭제 로부터 키를 보호 합니다.
 
-- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **책임**: Customer
 
@@ -860,5 +860,5 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Benchmark V2 개요](/azure/security/benchmarks/overview)를 참조하세요.
-- [Azure 보안 기준](/azure/security/benchmarks/security-baselines-overview)에 대해 자세히 알아보세요.
+- [Azure Security Benchmark V2 개요](../../security/benchmarks/overview.md)를 참조하세요.
+- [Azure 보안 기준](../../security/benchmarks/security-baselines-overview.md)에 대해 자세히 알아보세요.

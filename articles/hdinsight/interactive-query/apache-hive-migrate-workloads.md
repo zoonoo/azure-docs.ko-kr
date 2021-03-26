@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/4/2020
-ms.openlocfilehash: b13e8e088eff95071247a53ad1a4a18879f94053
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 43d616bc82c608918f5e7ee51481a393dd55a284
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742197"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566073"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Azure HDInsight 3.6 Hive 워크로드를 HDInsight 4.0으로 마이그레이션
 
@@ -71,7 +71,7 @@ Hive 테이블을 새 저장소 계정으로 마이그레이션하는 작업은 
     > [!NOTE]
     > 이 유틸리티는 클라이언트를 사용 하 여 `beeline` 에서 SQL 스크립트를 실행 `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql` 합니다.
     >
-    > 이러한 스크립트의 SQL 구문은 다른 클라이언트 도구와 반드시 호환 되는 것은 아닙니다. 예를 들어 [](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) [Azure Portal의 SSMS 및 쿼리 편집기](../../azure-sql/database/connect-query-portal.md) 에는 `GO` 각 명령 다음에 키워드가 필요 합니다.
+    > 이러한 스크립트의 SQL 구문은 다른 클라이언트 도구와 반드시 호환 되는 것은 아닙니다. 예를 들어 [](/sql/ssms/download-sql-server-management-studio-ssms) [Azure Portal의 SSMS 및 쿼리 편집기](../../azure-sql/database/connect-query-portal.md) 에는 `GO` 각 명령 다음에 키워드가 필요 합니다.
     >
     > 리소스 용량 또는 트랜잭션 시간 제한으로 인해 스크립트가 실패 하는 경우 SQL Database 확장 합니다.
 

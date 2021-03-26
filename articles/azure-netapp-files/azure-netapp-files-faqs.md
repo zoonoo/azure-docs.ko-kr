@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: 330131ea7e9a364a31d25a6f3f0a75b1adbeb27a
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799890"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566135"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -145,7 +145,7 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 1. 다음 PowerShell 명령을 사용 하 여 CaseSensitiveLookup를 사용 하도록 설정 합니다.   
     `Set-NfsClientConfiguration -CaseSensitiveLookup 1`    
 2. Windows 서버에 볼륨을 탑재 합니다.   
-    예제:   
+    예:   
     `Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
 ### <a name="how-does-azure-netapp-files-support-nfsv41-file-locking"></a>Azure NetApp Files는 NFSv 4.1 파일 잠금을 어떻게 지원 하나요? 
@@ -191,6 +191,10 @@ SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼�
 ### <a name="im-having-issues-connecting-to-my-smb-share-what-should-i-do"></a>내 SMB 공유에 연결 하는 데 문제가 있습니다.   어떻게 해야 합니까?
 
 컴퓨터 클록 동기화에 대 한 최대 허용 오차를 5 분으로 설정 하는 것이 가장 좋습니다. 자세한 내용은 [컴퓨터 클록 동기화에 대 한 최대 허용 오차](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11))를 참조 하세요. 
+
+### <a name="how-can-i-obtain-the-ip-address-of-an-smb-volume-via-the-portal"></a>포털을 통해 SMB 볼륨의 IP 주소를 얻으려면 어떻게 해야 하나요?
+
+볼륨 개요 창의 **JSON 보기** 링크를 사용 하 여 **속성** mountTargets에서 **startIp** 식별자를 찾습니다  ->  .
 
 ## <a name="capacity-management-faqs"></a>용량 관리 Faq
 

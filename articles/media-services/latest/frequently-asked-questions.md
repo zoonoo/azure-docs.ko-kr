@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: d1c2fd2ac7f809b4a70a0edffbddfb6e733fed57
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: b9a4c15c0942a0a5dffe2cfdb30dbea4184057ed
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104871404"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565591"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Media Services v3 질문과 대답
 
@@ -31,7 +31,7 @@ ms.locfileid: "104871404"
 - 고객은 자신의 Azure Media Services 계정에 자신의 저장소 계정을 연결 합니다.  모든 자산 데이터는 이러한 연결 된 저장소 계정에 저장 되 고 고객은이 저장소의 위치 및 복제 유형을 제어 합니다.
 - Media Services 계정과 연결 된 추가 데이터 (콘텐츠 암호화 키, 토큰 확인 키, JobInputHttp url, 기타 엔터티 메타 데이터 등)는 Media Services 계정에 대해 선택 된 지역 내에서 Microsoft 소유의 저장소에 저장 됩니다.
     - 브라질 남부 및 동남 아시아의 [데이터 상주 요구 사항](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) 으로 인해 추가 계정 데이터는 영역 중복 방식으로 저장 되며 단일 지역에 포함 됩니다. 동남 아시아의 경우 모든 추가 계정 데이터는 싱가포르에 저장 되 고 브라질 남부의 경우 데이터는 브라질에 저장 됩니다.
-    - 브라질 남부 및 동남 아시아 이외의 지역에서 추가 계정 데이터는 [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에 있는 Microsoft 소유의 저장소에 저장 될 수도 있습니다.
+    - 브라질 남부 및 동남 아시아 이외의 지역에서 추가 계정 데이터는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 있는 Microsoft 소유의 저장소에 저장 될 수도 있습니다.
 - Azure Media Services는 지역 서비스 이며 [고가용성](media-services-high-availability-encoding.md) 또는 데이터 복제를 제공 하지 않습니다. 이러한 기능을 필요로 하는 고객은 여러 지역에서 Media Services 계정을 사용 하 여 솔루션을 구축 하는 것이 좋습니다.  주문형 비디오 Media Services를 사용 하 여 고가용성을 위한 솔루션을 구축 하는 방법을 보여 주는 샘플은 가이드로 제공 됩니다.
 
 ### <a name="what-are-the-azure-portal-limitations-for-media-services-v3"></a>Media Services v3에 대 한 Azure Portal 제한 사항은 무엇입니까?

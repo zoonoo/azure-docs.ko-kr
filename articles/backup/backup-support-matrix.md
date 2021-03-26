@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225550"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564469"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -40,7 +40,7 @@ Azure Backup는 Recovery Services vault를 사용 하 여 azure Vm, azure vm의 
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간의 백업된 데이터 이동은 지원되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장하기 전에 자격 증명 모음에 대한 스토리지 복제 유형(지역 중복 스토리지 또는 로컬 중복 스토리지)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
 **ZRS(영역 중복 스토리지)** | UKS (영국 남부) 및 남부 동아시아 (바다) 지역에서 사용할 수 있습니다.
-**프라이빗 엔드포인트** | Recovery services 자격 증명 모음에 대 한 개인 끝점을 만들기 위한 요구 사항은 [이 섹션](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) 을 참조 하세요.  
+**프라이빗 엔드포인트** | Recovery services 자격 증명 모음에 대 한 개인 끝점을 만들기 위한 요구 사항은 [이 섹션](./private-endpoints.md#before-you-start) 을 참조 하세요.  
 
 ## <a name="on-premises-backup-support"></a>온-프레미스 백업 지원
 
@@ -154,7 +154,7 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위�
 | Azure VM               | 관리 및 관리 되지 않는 디스크를 모두 사용 하는 Azure Vm에 대해 지원 됩니다. 클래식 VM에는 지원되지 않습니다. | 프랑스 중부, 오스트레일리아 중부, 남아프리카 북부, 아랍에미리트 북부, 스위스 북부, 독일 중서부, 노르웨이 동부를 제외 하 고 모든 Azure 공용 지역 및 소 버린 지역에서 사용할 수 있습니다. <br>이러한 지역에서 사용 하는 방법에 대 한 자세한 내용은 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | SQL/SAP HANA | 미리 보기                                                      | 프랑스 중부, 오스트레일리아 중부, 남아프리카 북부, 아랍에미리트 북부, 스위스 북부, 독일 중서부, 노르웨이 동부를 제외 하 고 모든 Azure 공용 지역 및 소 버린 지역에서 사용할 수 있습니다. <br>이러한 지역에서 사용 하는 방법에 대 한 자세한 내용은 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) |
 | MARS 에이전트/온-프레미스  | 예                                                           | 해당 없음               |
-| AFS (Azure 파일 공유)                 | 아니요                                                           | 해당 없음               |
+| AFS (Azure 파일 공유)                 | 예                                                           | 해당 없음               |
 
 ## <a name="next-steps"></a>다음 단계
 

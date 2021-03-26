@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 019f0bc98de45fa1fe6f9b8c72ef74beb50ea2c2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 801d810a82e4e484ca1ab30c5c6d510860dbab6b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103017361"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566016"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -64,7 +64,7 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 
 #### <a name="action-required"></a>작업 필요:
 
-워크 로드의 중단을 최소화 하려면 [마이그레이션 가이드](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) 를 검토 하 여 버전 2 Api 및 sdk에서 버전 3 API 및 sdk로 코드를 전환 합니다. 2024 년 2 월 29 일 이전입니다.
+워크 로드의 중단을 최소화 하려면 [마이그레이션 가이드](../latest/migrate-v-2-v-3-migration-introduction.md) 를 검토 하 여 버전 2 Api 및 sdk에서 버전 3 API 및 sdk로 코드를 전환 합니다. 2024 년 2 월 29 일 이전입니다.
 **2024 년 2 월 29** 일부 터 Azure Media Services는 더 이상 버전 2 REST API, ARM 계정 관리 API 버전 2015-10-01 또는 버전 2 .Net 클라이언트 sdk에서 트래픽을 수락 하지 않습니다. 여기에는 버전 2 API를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함 됩니다.  
 
 공식 [Azure 업데이트 공지](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/)를 참조 하세요.
