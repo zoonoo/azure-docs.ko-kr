@@ -13,10 +13,10 @@ ms.reviewer: v-masebo
 ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
 ms.openlocfilehash: 44530577972839aacb803d1722fa97716088fa0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91325439"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Node.js를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
@@ -83,7 +83,7 @@ Azure SQL Database의 데이터베이스에 연결하는 데 필요한 연결 �
 
 ## <a name="create-the-project"></a>프로젝트 만들기
 
-명령 프롬프트를 열고 *sqltest*라는 폴더를 만듭니다. 생성한 폴더를 열고 다음 명령을 실행합니다.
+명령 프롬프트를 열고 *sqltest* 라는 폴더를 만듭니다. 생성한 폴더를 열고 다음 명령을 실행합니다.
 
   ```bash
   npm init -y

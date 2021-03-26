@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
 ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92206954"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
@@ -102,9 +102,9 @@ ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 �
 ### <a name="flexible-billing-models"></a>유연한 청구 모델
 사용자에게 적합한 청구 모델을 선택할 수 있습니다. 다음과 같이 나열된 청구 모델 중에서 선택합니다. 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
 
-* **무제한 데이터**입니다. 월별 요금으로 청구되며 모든 인바운드 및 아웃바운드 데이터 전송은 무료로 포함됩니다.
-* **데이터 요금**입니다. 월별 요금으로 청구되며 모든 인바운드 데이터 전송은 무료입니다. 아웃 바운드 데이터 전송은 데이터 전송량 GB 당 요금이 부과됩니다. 데이터 전송 속도는 지역에 따라 다릅니다.
-* **ExpressRoute 프리미엄 추가 기능**입니다. ExpressRoute 프리미엄은 ExpressRoute 회로의 추가 기능입니다. ExpressRoute 프리미엄 추가 기능에서는 다음과 같은 기능을 제공합니다. 
+* **무제한 데이터** 입니다. 월별 요금으로 청구되며 모든 인바운드 및 아웃바운드 데이터 전송은 무료로 포함됩니다.
+* **데이터 요금** 입니다. 월별 요금으로 청구되며 모든 인바운드 데이터 전송은 무료입니다. 아웃 바운드 데이터 전송은 데이터 전송량 GB 당 요금이 부과됩니다. 데이터 전송 속도는 지역에 따라 다릅니다.
+* **ExpressRoute 프리미엄 추가 기능** 입니다. ExpressRoute 프리미엄은 ExpressRoute 회로의 추가 기능입니다. ExpressRoute 프리미엄 추가 기능에서는 다음과 같은 기능을 제공합니다. 
   * Azure 공용 및 Azure 프라이빗 피어링에 대한 경로 제한은 4,000개의 경로에서 10,000개의 경로로 증가됩니다.
   * 서비스에 대한 전역 연결입니다. 모든 지역(국가 클라우드 제외)에서 만든 ExpressRoute 회로는 전 세계의 다른 모든 지역에 걸쳐 있는 리소스에 액세스할 수 있습니다. 예를 들어 서유럽에서 만든 가상 네트워크는 실리콘밸리에 프로비전된 ExpressRoute 회로를 통해 액세스될 수 있습니다.
   * ExpressRoute 회로 당 VNet 링크의 횟수는 회로의 대역폭에 따라 10에서 큰 제한으로 증가합니다.

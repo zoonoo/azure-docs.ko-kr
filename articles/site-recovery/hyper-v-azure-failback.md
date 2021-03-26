@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416233"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110256"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Hyper-V VM에 대한 장애 복구(failback) 실행
 
@@ -26,10 +26,10 @@ ms.locfileid: "87416233"
 ## <a name="before-you-start"></a>시작하기 전에
 
 1. 사용 가능한 [장애 복구(failback) 유형](failover-failback-overview.md#hyper-v-reprotectionfailback) - 원래 위치 복구 및 대체 위치 복구를 검토합니다.
-2. Azure Vm이 관리 디스크를 사용 하지 않고 저장소 계정을 사용 하 고 있는지 확인 합니다. 관리 디스크를 사용 하 여 복제 된 Hyper-v Vm의 장애 복구 (Failback)는 지원 되지 않습니다.
+2. Azure Vm이 관리 디스크를 사용 하지 않고 저장소 계정을 사용 하 고 있는지 확인 합니다. 관리 디스크를 사용 하 여 Azure 컴퓨터로 장애 조치 (failover) 된 Hyper-v 가상 머신의 장애 복구 (Failback)는 지원 되지 않습니다.
 3. 온-프레미스 Hyper-v 호스트 (또는 Site Recovery를 사용 하는 경우 System Center VMM 서버가 실행 중이 고 Azure에 연결 되어 있는지 확인 합니다. 
 4. Vm에 대 한 장애 조치 (failover) 및 커밋이 완료 되었는지 확인 합니다. Azure에서 Hyper-v Vm의 장애 복구 (failback)에 대 한 특정 Site Recovery 구성 요소를 설정할 필요가 없습니다.
-5. 데이터 동기화를 완료 하 고 온-프레미스 VM을 시작 하는 데 필요한 시간은 여러 요소에 따라 달라 집니다. 데이터 다운로드 속도를 높이려면 다운로드를 병렬화 하기 위해 더 많은 스레드를 사용 하도록 Microsoft Recovery Services 에이전트를 구성할 수 있습니다. [자세한 정보를 알아보세요](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
+5. 데이터 동기화를 완료 하 고 온-프레미스 VM을 시작 하는 데 필요한 시간은 여러 요소에 따라 달라 집니다. 데이터 다운로드 속도를 높이려면 다운로드를 병렬화 하기 위해 더 많은 스레드를 사용 하도록 Microsoft Recovery Services 에이전트를 구성할 수 있습니다. [자세히 알아보기](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).
 
 
 ## <a name="fail-back-to-the-original-location"></a>원래 위치로 장애 복구(failback)

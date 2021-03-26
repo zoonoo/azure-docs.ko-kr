@@ -3,12 +3,12 @@ title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 리소스 관리자 템플릿 또는 Bicep 파일에 정의 됩니다.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1fc3397409634f29690af05ca2a85e67c30b6d89
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521699"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954975"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -85,7 +85,7 @@ az deployment group create \
 ## <a name="deploy-remote-template"></a>원격 템플릿 배포
 
 > [!NOTE]
-> 현재 Azure CLI은 원격 Bicep 파일 배포를 지원 하지 않습니다. 원격 Bicep 파일을 배포 하려면 먼저 CLI Bicep를 사용 하 여 Bicep 파일을 JSON 템플릿으로 컴파일합니다.
+> 현재 Azure CLI은 원격 Bicep 파일 배포를 지원 하지 않습니다. [BICEP CLI](./bicep-install.md#development-environment) 를 사용 하 여 Bicep 파일을 json 템플릿으로 컴파일한 다음 json 파일을 원격 위치로 로드 합니다.
 
 ARM 템플릿을 로컬 컴퓨터에 저장 하는 대신 외부 위치에 저장 하는 것이 좋습니다. 원본 제어 리포지토리(예: GitHub)에 템플릿을 저장할 수 있습니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 저장할 수 있습니다.
 

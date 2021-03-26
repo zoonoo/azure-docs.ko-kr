@@ -4,16 +4,16 @@ description: Azure Files 배포 계획을 이해 합니다. Azure 파일 공유�
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 8a96b44a280e0aea15a6d0843f02f4ed16f8fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 267b68fbdae6d894acc3222a8d74a8e15e865dbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98879850"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023523"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 [Azure Files](storage-files-introduction.md) 는 서버를 사용 하지 않는 azure 파일 공유를 직접 탑재 하거나 Azure 파일 동기화를 사용 하 여 온-프레미스에서 azure 파일 공유를 캐시 하는 두 가지 주요 방법으로 배포할 수 있습니다. 선택 하는 배포 옵션에 따라 배포를 계획할 때 고려해 야 할 사항이 변경 됩니다. 
@@ -65,7 +65,7 @@ Azure 파일 공유에 대 한 액세스를 차단 해제 하기 위해 다음 �
 
 - **Express 경로를 사용 하는 네트워크 터널링, 사이트 간 또는 지점 및 사이트 간 VPN**: 가상 네트워크로 터널링 하면 포트 445이 차단 된 경우에도 온-프레미스에서 Azure 파일 공유에 액세스할 수 있습니다.
 - **개인 끝점**: 개인 끝점은 가상 네트워크의 주소 공간 내에서 저장소 계정에 전용 IP 주소를 제공 합니다. 이렇게 하면 Azure storage 클러스터에서 소유 하는 모든 IP 주소 범위에 대 한 온-프레미스 네트워크를 열 필요 없이 네트워크 터널링을 사용할 수 있습니다. 
-- **DNS 전달**: 개인 끝점의 IP 주소로 확인 되도록 온-프레미스 DNS를 구성 하 여 저장소 계정 (예: `storageaccount.file.core.windows.net` 공용 클라우드 지역)의 이름을 확인 합니다.
+- **DNS 전달**: 개인 끝점의 IP 주소로 확인할 수 있도록 온-프레미스 DNS를 구성 하 여 `storageaccount.file.core.windows.net` 공용 클라우드 지역에 대 한 저장소 계정의 이름을 확인 합니다.
 
 Azure 파일 공유 배포와 관련 된 네트워킹을 계획 하려면 [Azure Files 네트워킹 고려 사항](storage-files-networking-overview.md)을 참조 하세요.
 
@@ -94,12 +94,12 @@ Azure Files는 데이터를 백업, 복구 및 보안 위협 으로부터 보호
 ### <a name="soft-delete"></a>일시 삭제
 파일 공유에 대 한 일시 삭제 (미리 보기)는 파일 공유를 실수로 삭제 한 경우 복구할 수 있도록 하는 저장소 계정 수준 설정입니다. 파일 공유를 삭제 하면 영구적으로 삭제 되는 대신 일시 삭제 된 상태로 전환 됩니다. 일시 삭제 된 데이터를 영구적으로 삭제 하기 전에 복구할 수 있는 시간을 구성 하 고,이 보존 기간 동안 언제 든 지 공유를 삭제 취소 합니다. 
 
-대부분의 파일 공유에 대해 일시 삭제를 설정 하는 것이 좋습니다. 공유 삭제가 공통적이 고 예상 되는 워크플로가 있는 경우 보존 기간을 매우 짧게 설정 하거나 일시 삭제를 사용 하도록 설정 하지 않을 수 있습니다.
+대부분의 파일 공유에 대해 일시 삭제를 설정 하는 것이 좋습니다. 공유 삭제가 공통적이 고 예상 되는 워크플로가 있는 경우에는 보존 기간을 짧게 설정 하거나 일시 삭제를 사용 하도록 설정 하지 않을 수 있습니다.
 
 일시 삭제에 대 한 자세한 내용은 [실수로 인 한 데이터 삭제 방지](./storage-files-prevent-file-share-deletion.md)를 참조 하세요.
 
 ### <a name="backup"></a>Backup
-공유 [스냅숏](./storage-snapshots-files.md)(읽기 전용, 공유의 지정 시간 복사본)을 통해 Azure 파일 공유를 백업할 수 있습니다. 스냅숏은 증분 이므로 이전 스냅숏 이후 변경 된 만큼의 데이터만 포함 합니다. 파일 공유 당 최대 200 개의 스냅숏을 보유 하 고 최대 10 년 동안 유지할 수 있습니다. PowerShell 또는 CLI (명령줄 인터페이스)를 통해 Azure Portal에서 수동으로 이러한 스냅숏을 만들거나 [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 사용할 수 있습니다. 스냅숏은 파일 공유 내에 저장 됩니다. 즉, 파일 공유를 삭제 하면 스냅숏은 삭제 됩니다. 스냅숏 백업이 실수로 삭제 되지 않도록 보호 하려면 공유에 대해 일시 삭제를 사용 하도록 설정 해야 합니다.
+공유 [스냅숏](./storage-snapshots-files.md)(읽기 전용, 공유의 지정 시간 복사본)을 통해 Azure 파일 공유를 백업할 수 있습니다. 스냅숏은 증분 이므로 이전 스냅숏 이후 변경 된 데이터만 포함 합니다. 파일 공유 당 최대 200 개의 스냅숏을 보유 하 고 최대 10 년 동안 유지할 수 있습니다. PowerShell 또는 CLI (명령줄 인터페이스)를 통해 Azure Portal에서 수동으로 이러한 스냅숏을 만들거나 [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 사용할 수 있습니다. 스냅숏은 파일 공유 내에 저장 됩니다. 즉, 파일 공유를 삭제 하면 스냅숏은 삭제 됩니다. 스냅숏 백업이 실수로 삭제 되지 않도록 보호 하려면 공유에 대해 일시 삭제를 사용 하도록 설정 해야 합니다.
 
 [Azure 파일 공유에 대 한 Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 는 스냅숏의 예약 및 보존을 처리 합니다. GFS (조부) 기능을 사용 하는 경우 매일, 매주, 매월 및 매년 스냅숏을 만들 수 있으며 각각 고유한 보존 기간을 갖습니다. 또한 오케스트레이션는 일시 삭제를 사용 하도록 설정 하 고 저장소 계정 내의 파일 공유가 백업에 대해 구성 되는 즉시 저장소 계정에 대 한 삭제 잠금을 수행 합니다. Azure Backup 마지막으로, Azure Backup은 고객이 백업 공간을 통합 하 여 볼 수 있도록 하는 특정 주요 모니터링 및 경고 기능을 제공 합니다.
 
@@ -107,10 +107,10 @@ Azure Backup를 사용 하 여 Azure Portal에서 항목 수준 및 공유 수�
 
 백업에 대 한 자세한 내용은 [Azure 파일 공유 백업](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)정보를 참조 하세요.
 
-### <a name="advanced-threat-protection-for-azure-files-preview"></a>Azure Files에 대 한 Advanced Threat Protection (미리 보기)
-Azure Storage에 대 한 ATP (Advanced Threat Protection)는 저장소 계정에서 비정상적인 활동을 검색할 때 경고를 제공 하는 추가 보안 인텔리전스 계층을 제공 합니다 (예: 저장소 계정에 대 한 액세스를 비정상적인 시도). ATP는 맬웨어 해시 평판 분석도 실행 하 고 알려진 맬웨어에 대해 경고 합니다. Azure Security Center를 통해 구독 또는 저장소 계정 수준에서 ATP를 구성할 수 있습니다. 
+### <a name="azure-defender-for-azure-files"></a>Azure Files 용 Azure Defender 
+Azure Defender for Azure Storage (이전에는 Azure Storage에 대 한 고급 위협 방지)는 저장소 계정에서 비정상적인 활동을 검색할 때 경고를 제공 하는 추가 보안 인텔리전스 계층을 제공 합니다 (예: 비정상적인 액세스 시도). 또한 맬웨어 해시 평판 분석을 실행 하 고 알려진 맬웨어에 대 한 경고를 생성 합니다. Azure Security Center를 통해 구독 또는 저장소 계정 수준에서 Azure Defender를 구성할 수 있습니다. 
 
-자세한 내용은 [Azure Storage에 대 한 Advanced Threat protection](../common/azure-defender-storage-configure.md)을 참조 하세요.
+자세한 내용은 [저장소에 대 한 Azure Defender 소개](../../security-center/defender-for-storage-introduction.md)를 참조 하세요.
 
 ## <a name="storage-tiers"></a>스토리지 계층
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

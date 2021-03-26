@@ -1,17 +1,17 @@
 ---
 title: 복제본 읽기-Azure Database for MySQL-유연한 서버
 description: Azure Database for MySQL 유연한 서버에서 복제본을 만들고, 복제본에 연결 하 고, 복제를 모니터링 하 고, 복제를 중지 하는 방법에 대해 알아봅니다.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.openlocfilehash: fa7cc9b9a09bfd2bc503640272b5e7ac3a0a7b58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e51b9667e3bb20a6bd463d3286888085a927f2c0
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98251304"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109661"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Azure Database for MySQL-유연한 서버에서 복제본 읽기
 
@@ -114,9 +114,9 @@ Azure Database for MySQL 유연한 서버는 Azure Monitor에서 **복제 지연
 
 | 시나리오 | 제한 사항/고려 사항 |
 |:-|:-|
-| 영역 중복 HA를 사용 하도록 설정 된 서버의 복제본 | 지원되지 않음 |
-| 영역 간 읽기 복제 | 지원되지 않음 |
-| 가격 | 복제 서버를 실행 하는 비용은 복제본 서버가 실행 되는 지역을 기반으로 합니다. |
+| 영역 중복 HA를 사용 하도록 설정 된 서버의 복제본 | 지원 안 함 |
+| 영역 간 읽기 복제 | 지원 안 함 |
+| 가격 책정 | 복제 서버를 실행 하는 비용은 복제본 서버가 실행 되는 지역을 기반으로 합니다. |
 | 원본 서버 다시 시작 | 기존 복제본이 없는 원본에 대 한 복제본을 만드는 경우 원본 복제본이 먼저 다시 시작 되어 복제를 위한 준비가 됩니다. 이를 고려 하 여 사용량이 많지 않은 기간 동안 이러한 작업을 수행 합니다. |
 | 새 복제본 | 읽기 복제본은 새 Azure Database for MySQL 유연한 서버로 생성 됩니다. 기존 서버를 복제본으로 만들 수 없습니다. 다른 읽기 복제본의 복제본을 만들 수 없습니다. |
 | 복제본 구성 | 복제본은 원본과 동일한 서버 구성을 사용 하 여 만들어집니다. 복제본을 만든 후에는 계산 세대, vCores, 저장소 및 백업 보존 기간 등의 여러 설정을 원본 서버와 독립적으로 변경할 수 있습니다. 계산 계층은 독립적으로 변경할 수도 있습니다.<br> <br> **중요**  <br> -원본 서버 구성을 새 값으로 업데이트 하기 전에 복제본 구성을 같거나 큰 값으로 업데이트 합니다. 이렇게 하면 복제본이 원본에 대한 변경 내용을 유지할 수 있습니다. <br/> 복제본을 만들 때 연결 방법과 매개 변수 설정은 원본 서버에서 복제본으로 상속 됩니다. 나중에 복제본의 규칙은 독립적입니다. |

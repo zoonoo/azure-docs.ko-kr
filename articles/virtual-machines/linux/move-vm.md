@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7dbe06a9f2fff8abf59adbdfc9e41055c85e8f2c
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87291099"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889300"
 ---
 # <a name="move-a-vm-to-another-subscription-or-resource-group"></a>VM을 다른 구독 또는 리소스 그룹으로 이동
 이 문서에서는 리소스 그룹 또는 구독 간에 VM (가상 머신)을 이동 하는 방법을 안내 합니다. 개인 구독에서 VM을 만들고 회사 구독으로 이동하려면 구독 간의 VM 이동이 편리할 수 있습니다.
@@ -38,6 +38,7 @@ VM을 성공적으로 이동하려면 VM 및 모든 지원 리소스를 이동�
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+을 `table` 사용 하는 경우 출력을 사용할 수 없습니다 `--interactive` . 출력을 같은 다른 옵션으로 변경 `json` 합니다.
 
 다른 리소스 그룹에 VM 및 해당 리소스를 이동하려면 [az resource move](/cli/azure/resource)를 사용합니다. 다음 예제에서는 필요한 VM 및 가장 일반적인 리소스를 이동하는 방법을 보여 줍니다. **-ids** 매개 변수를 사용하고 이동할 리소스에 대한 ID의 쉼표로 구분된 목록을 공백 없이 제출합니다.
 

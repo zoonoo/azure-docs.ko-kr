@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e2b76fbc2afaad465773860ff45f18261edad138
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bcf2f39423f033ccd5bfdb6bf51ebc89e254f802
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933431"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867817"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "98933431"
 
 다음 그림은 ETL 자동화에 대한 사용 사례 및 모델을 간략하게 보여 줍니다. 적절한 출력을 생성하기 위해 입력 데이터가 변환됩니다.  이 변환 중에 데이터는 셰이프, 데이터 형식 및 언어를 변경 합니다.  ETL 프로세스는 대상의 기존 데이터에 맞게 영국 단위를 미터법으로 변환하고, 표준 시간대를 변경하고, 정밀도를 높일 수 있습니다. ETL 프로세스는 새 데이터를 기존 데이터와 결합 하 여 보고를 최신 상태로 유지 하거나 기존 데이터에 대 한 추가 정보를 제공할 수도 있습니다. 보고 도구 및 서비스와 같은 응용 프로그램은이 데이터를 원하는 형식으로 사용할 수 있습니다.
 
-![ETL 아키텍처로 Apache Hive](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+:::image type="content" source="./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png" alt-text="ETL 아키텍처로 Apache Hive" border="false":::
 
 Hadoop은 일반적으로 대량의 텍스트 파일 (예: Csv)을 가져오는 ETL 프로세스에서 사용 됩니다. 또는 더 작고 자주 변경 되는 텍스트 파일 수 또는 둘 다입니다.  Hive는 데이터를 데이터 대상으로 로드하기 전에 데이터를 준비하는 데 사용할 수 있는 유용한 도구입니다.  Hive를 사용하여 CSV를 통해 스키마를 만들고, SQL 유사 언어를 사용하여 데이터와 상호 작용하는 MapReduce 프로그램을 생성할 수 있습니다.
 

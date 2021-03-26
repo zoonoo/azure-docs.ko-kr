@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 6a3049709c6c094f722a8132ee4c4b2051e24d95
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9575c0aec4a1b45f9099bff1dc4209c63529ddf6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616692"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025546"
 ---
 # <a name="azure-percept-security-overview"></a>Azure Percept 보안 개요
 
@@ -25,7 +25,7 @@ Azure Percept 진한 장치는 신뢰의 하드웨어 루트: 모든 장치에 �
 
 ### <a name="azure-percept-dk"></a>Azure Percept DK
 
-Azure Percept에는 추가 보안을 사용 하 여 장치를 Azure 장치 프로 비전 서비스에 연결 하는 데 활용할 수 있는 TPM (신뢰할 수 있는 플랫폼 모듈) 버전 2.0이 포함 되어 있습니다. TPM은 TCG(신뢰할 수 있는 컴퓨팅 그룹)의 산업 전반에 걸친 ISO 표준 이며 [전체 tpm 2.0 사양](https://trustedcomputinggroup.org/resource/tpm-library-specification/) 또는 ISO/IEC 11889 사양에서 tpm에 대 한 자세한 내용을 확인할 수 있습니다. DPS에서 안전 하 게 장치를 프로 비전 하는 방법에 대 한 자세한 내용은 [장치 프로 비전 서비스-TPM 증명 Azure IoT Hub](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation)를 참조 하세요.
+Azure Percept에는 추가 보안을 사용 하 여 장치를 Azure 장치 프로 비전 서비스에 연결 하는 데 활용할 수 있는 TPM (신뢰할 수 있는 플랫폼 모듈) 버전 2.0이 포함 되어 있습니다. TPM은 TCG(신뢰할 수 있는 컴퓨팅 그룹)의 산업 전반에 걸친 ISO 표준 이며 [전체 tpm 2.0 사양](https://trustedcomputinggroup.org/resource/tpm-library-specification/) 또는 ISO/IEC 11889 사양에서 tpm에 대 한 자세한 내용을 확인할 수 있습니다. DPS에서 안전 하 게 장치를 프로 비전 하는 방법에 대 한 자세한 내용은 [장치 프로 비전 서비스-TPM 증명 Azure IoT Hub](../iot-dps/concepts-tpm-attestation.md)를 참조 하세요.
 
 ### <a name="azure-percept-system-on-module-som"></a>Azure SOM (Percept system on module)
 
@@ -37,7 +37,7 @@ Azure Percept 장치는 하드웨어 루트 트러스트를 사용 하 여 펌�
 
 ### <a name="iot-edge"></a>IoT Edge
 
-Azure Percept는 TLS (전송 계층 보안) 프로토콜을 활용 하는 추가 보안 및 기타 Azure 서비스를 사용 하 여 Azure Percept Studio에 연결 합니다. Azure Percept 진한 Azure IoT Edge 활성화 된 장치입니다. IoT Edge runtime은 장치를 IoT Edge 장치로 전환 하는 프로그램 컬렉션입니다. IoT Edge 런타임 구성 요소를 통해 IoT Edge 장치가 Edge에서 실행 되는 코드를 수신 하 고 결과를 전달할 수 있습니다. Azure Percept는 호스트 운영 체제 및 Edge 사용 응용 프로그램에서 IoT Edge 작업을 격리 하기 위해 Docker 컨테이너를 활용 합니다. Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge security manager](https://docs.microsoft.com/azure/iot-edge/iot-edge-security-manager)를 참조 하세요.
+Azure Percept는 TLS (전송 계층 보안) 프로토콜을 활용 하는 추가 보안 및 기타 Azure 서비스를 사용 하 여 Azure Percept Studio에 연결 합니다. Azure Percept 진한 Azure IoT Edge 활성화 된 장치입니다. IoT Edge runtime은 장치를 IoT Edge 장치로 전환 하는 프로그램 컬렉션입니다. IoT Edge 런타임 구성 요소를 통해 IoT Edge 장치가 Edge에서 실행 되는 코드를 수신 하 고 결과를 전달할 수 있습니다. Azure Percept는 호스트 운영 체제 및 Edge 사용 응용 프로그램에서 IoT Edge 작업을 격리 하기 위해 Docker 컨테이너를 활용 합니다. Azure IoT Edge 보안 프레임 워크에 대 한 자세한 내용은 [IoT Edge security manager](../iot-edge/iot-edge-security-manager.md)를 참조 하세요.
 
 ### <a name="device-update-for-iot-hub"></a>IoT Hub용 디바이스 업데이트 문서
 
@@ -57,7 +57,7 @@ IoT Hub에 대 한 장치 업데이트를 통해 Azure Percept 장치에 갱신 
 |*. auth.azureperceptdk.azure.net|   443|    Azure 진한 SOM 인증 및 권한 부여|
 |*. auth.projectsantacruz.azure.net| 443|    Azure 진한 SOM 인증 및 권한 부여|
 
-또한 [Azure IoT Edge에서 사용 하는 연결](https://docs.microsoft.com/azure/iot-edge/production-checklist#allow-connections-from-iot-edge-devices)의 목록을 검토 합니다.
+또한 [Azure IoT Edge에서 사용 하는 연결](../iot-edge/production-checklist.md#allow-connections-from-iot-edge-devices)의 목록을 검토 합니다.
 
 <!---
 ## Additional Recommendations for Deployment to Production

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94543088"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034523"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 제한 사항
 
@@ -89,8 +89,12 @@ MySQL 서비스는 기본 파일 시스템에 대 한 직접 액세스를 허용
 - 지정 시간 복원을 사용 하 여 새 서버는 기반으로 하는 원본 서버와 동일한 계산 및 저장소 구성을 사용 하 여 만들어집니다. 서버를 만든 후 새로 복원 된 서버의 계산을 축소할 수 있습니다.
 - 삭제 된 서버 복원은 지원 되지 않습니다.
 
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>단일 서버에서 사용할 수 있지만 유연한 서버에서 아직 지원 되지 않는 기능 
+Azure Database for MySQL 단일 서버에서 사용할 수 있는 일부 기능은 아직 유연한 서버에서 사용할 수 없습니다. 단일 서버와 유연한 서버 간의 기능 비교에 대 한 전체 목록은 [Azure 설명서에서 적절 한 MySQL 서버 옵션 선택을 참조 하세요.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+
 ## <a name="next-steps"></a>다음 단계
 
-- [계산 및 저장소 옵션에 사용할 수 있는 기능](concepts-compute-storage.md) 이해
+- [Azure 설명서에서 적절 한 MySQL Server 옵션을 선택 하는](../select-right-deployment-type.md) 방법 알아보기
+- [유연한 서버에서 계산 및 저장소 옵션에 사용할 수 있는 기능](concepts-compute-storage.md) 이해
 - [지원 되는 MySQL 버전](concepts-supported-versions.md) 에 대 한 자세한 정보
-- [Azure Portal를 사용 하 여 서버를 백업 및 복원 하는 방법](how-to-restore-server-portal.md) 검토
+- 빠른 시작: [Azure Portal을 사용 하 여 Azure Database for MySQL 유연한 서버 만들기](quickstart-create-server-portal.md)

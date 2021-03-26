@@ -8,12 +8,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 3/19/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 9c6e57d45cb5647053283da687659cc5ff0217e9
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 8389ce008531e8bf295b2f863dad1ab2c3eb825c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2021
-ms.locfileid: "104802185"
+ms.locfileid: "104870656"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Azure Files 및 Azure NetApp Files 비교
 
@@ -23,12 +23,12 @@ ms.locfileid: "104802185"
 
 ## <a name="features"></a>기능
 
-| Category | Azure 파일 | Azure NetApp Files |
+| 범주 | Azure 파일 | Azure NetApp Files |
 |---------|-------------------------|---------|
-| 설명 | [Azure Files](https://azure.microsoft.com/services/storage/files/) 는 완전히 관리 되 고 항상 사용 가능한 서비스 이며 내부 데이터 업데이트를 사용 하 여 임의 액세스 작업에 최적화 되어 있습니다.<br><br> Azure Files는 Azure Blob과 같은 다른 서비스와 동일한 Azure storage 플랫폼에서 빌드됩니다. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 는 고급 데이터 관리 기능을 필요로 하는 가장 까다로운 고성능의 대기 시간이 짧은 워크 로드를 처리할 수 있는 완전히 관리 되는 고가용성의 엔터프라이즈급 NAS 서비스입니다. 이 기능을 사용 하면가 없는 "마이그레이션할 수 있고"로 간주 되는 워크 로드를 마이그레이션할 수 있습니다.<br><br>  ANF는 일관 된 Azure 환경을 위해 Azure 데이터 센터 내에서 실행 되는 ONTAP 저장소 OS와 성능 같은 온-프레미스를 사용 하 여 NetApp의 완전 한 기능 금속을 기반으로 합니다. |
-| 프로토콜 | Premium<br><ul><li>SMB 2.1, 3.0</li><li>NFS 4.1 (미리 보기)</li></ul><br>Standard<br><ul><li>SMB 2.1, 3.0</li><li>REST</li></ul><br> 자세히 알아보려면 [사용 가능한 파일 공유 프로토콜](https://docs.microsoft.com/azure/storage/files/storage-files-compare-protocols)을 참조 하세요. | 모든 계층<br><ul><li>SMB 1, 2.x, 3(sp3)</li><li>NFS 3.0, 4.1</li><li>이중 프로토콜 액세스 (NFSv3/SMB)</li></ul><br> 자세히 알아보려면 [NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes), [SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb)또는 [이중 프로토콜](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) 볼륨을 만드는 방법을 참조 하세요. |
-| 지역 가용성 | Premium<br><ul><li>30 개 이상의 지역</li></ul><br>Standard<br><ul><li>모든 지역</li></ul><br> 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요. | 모든 계층<br><ul><li>25 개 이상의 지역</li></ul><br> 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요. |
-| 중복 | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>Standard<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> 자세히 알아보려면 [중복성](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy)을 참조 하세요. | 모든 계층<br><ul><li>기본 제공 로컬 HA</li><li>[지역 간 복제](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)</li></ul> |
+| Description | [Azure Files](https://azure.microsoft.com/services/storage/files/) 는 완전히 관리 되 고 항상 사용 가능한 서비스 이며 내부 데이터 업데이트를 사용 하 여 임의 액세스 작업에 최적화 되어 있습니다.<br><br> Azure Files는 Azure Blob과 같은 다른 서비스와 동일한 Azure storage 플랫폼에서 빌드됩니다. | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 는 고급 데이터 관리 기능을 필요로 하는 가장 까다로운 고성능의 대기 시간이 짧은 워크 로드를 처리할 수 있는 완전히 관리 되는 고가용성의 엔터프라이즈급 NAS 서비스입니다. 이 기능을 사용 하면가 없는 "마이그레이션할 수 있고"로 간주 되는 워크 로드를 마이그레이션할 수 있습니다.<br><br>  ANF는 일관 된 Azure 환경을 위해 Azure 데이터 센터 내에서 실행 되는 ONTAP 저장소 OS와 성능 같은 온-프레미스를 사용 하 여 NetApp의 완전 한 기능 금속을 기반으로 합니다. |
+| 프로토콜 | Premium<br><ul><li>SMB 2.1, 3.0</li><li>NFS 4.1 (미리 보기)</li><li>REST</li></ul><br>표준<br><ul><li>SMB 2.1, 3.0</li><li>REST</li></ul><br> 자세히 알아보려면 [사용 가능한 파일 공유 프로토콜](https://docs.microsoft.com/azure/storage/files/storage-files-compare-protocols)을 참조 하세요. | 모든 계층<br><ul><li>SMB 1, 2.x, 3(sp3)</li><li>NFS 3.0, 4.1</li><li>이중 프로토콜 액세스 (NFSv3/SMB)</li></ul><br> 자세히 알아보려면 [NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes), [SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb)또는 [이중 프로토콜](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) 볼륨을 만드는 방법을 참조 하세요. |
+| 지역 가용성 | Premium<br><ul><li>30 개 이상의 지역</li></ul><br>표준<br><ul><li>모든 지역</li></ul><br> 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요. | 모든 계층<br><ul><li>25 개 이상의 지역</li></ul><br> 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 참조하세요. |
+| 중복 | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>표준<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> 자세히 알아보려면 [중복성](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy)을 참조 하세요. | 모든 계층<br><ul><li>기본 제공 로컬 HA</li><li>[지역 간 복제](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)</li></ul> |
 | SLA (Service-Level 계약)<br><br> Azure Files 및 Azure NetApp Files에 대 한 Sla는 다르게 계산 됩니다. | [Azure Files에 대 한 SLA](https://azure.microsoft.com/support/legal/sla/storage/) | [Azure NetApp Files에 대 한 SLA](https://azure.microsoft.com/support/legal/sla/netapp) |  
 | Identity-Based 인증 및 권한 부여 | SMB<br><ul><li>AD DS(Active Directory Domain Services)</li><li>Azure AD DS(Azure Active Directory Domain Services)</li></ul><br> 확인 기반 인증은 SMB 프로토콜을 사용 하는 경우에만 지원 됩니다. 자세히 알아보려면 [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control)를 참조 하세요. | SMB<br><ul><li>AD DS(Active Directory Domain Services)</li><li>Azure AD DS(Azure Active Directory Domain Services)</li></ul><br> NFS/SMB 이중 프로토콜<ul><li>추가/i s 통합</li></ul><br>NFSv3/NFSv 4.1<ul><li>추가/v s 통합 (출시)</li><li>NFS 확장 그룹 (출시)</li></ul><br> 자세히 알아보려면 [FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs)를 참조 하세요. |
 | 암호화 | SMB<br><ul><li>사용자 또는 Microsoft 관리 키를 사용 하 여 미사용 암호화 (AES 256)</li><li>AES 256 또는 RC4를 사용 하는 Kerberos 암호화-HMAC</li><li>전송 중 암호화</li></ul><br>NFS<br><ul><li>사용자 또는 Microsoft 관리 키를 사용 하 여 미사용 암호화 (AES 256)</li></ul><br>REST<br><ul><li>사용자 또는 Microsoft 관리 키를 사용 하 여 미사용 암호화 (AES 256)</li><li>전송 중 암호화</li></ul><br> 자세히 알아보려면 [보안](https://docs.microsoft.com/azure/storage/files/storage-files-compare-protocols#security)을 참조 하세요. | 모든 프로토콜<br><ul><li>Microsoft에서 관리 하는 키를 사용 하 여 미사용 암호화 (AES 256) </li></ul><br>NFS 4.1<ul><li>AES 256에서 Kerberos를 사용 하 여 전송 암호화</li></ul><br> 자세히 알아보려면 [보안 FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#security-faqs)를 참조 하세요. |
@@ -40,15 +40,15 @@ ms.locfileid: "104802185"
 
 ## <a name="scalability-and-performance"></a>확장성 및 성능
 
-| Category | Azure 파일 | Azure NetApp Files |
+| 범주 | Azure 파일 | Azure NetApp Files |
 |---------|---------|---------|
-| 최소 공유/볼륨 크기 | Premium<br><ul><li>100GiB</li></ul><br>Standard<br><ul><li>GiB 1</li></ul> | 모든 계층<br><ul><li>100 GiB (최소 용량 풀 크기: 4 TiB)</li></ul> |
-| 최대 공유/볼륨 크기 | Premium<br><ul><li>100TiB</li></ul><br>Standard<br><ul><li>100TiB</li></ul> | 모든 계층<br><ul><li>100 TiB (500-TiB capacity pool limit)</li></ul><br>Azure NetApp 계정 당 최대 12.5 PiB |
-| 최대 공유/볼륨 IOPS | Premium<br><ul><li>최대 10만 개</li></ul><br>Standard<br><ul><li>최대 10k</li></ul> | Ultra 및 Premium<br><ul><li>최대 450k </li></ul><br>Standard<br><ul><li>최대 320k</li></ul> |
-| 최대 공유/볼륨 처리량 | Premium<br><ul><li>최대 10 GiB/s</li></ul><br>Standard<br><ul><li>최대 300 MiB/s</li></ul> | Ultra 및 Premium<br><ul><li>최대 4.5 GiB/s</li></ul><br>Standard<br><ul><li>최대 3.2 GiB/s</li></ul> |
-| 최대 파일 크기 | Premium<br><ul><li>4TiB</li></ul><br>Standard<br><ul><li>1TiB</li></ul> | 모든 계층<br><ul><li>16TiB</li></ul> |
-| 파일당 최대 IOPS | Premium<br><ul><li>최대 8000</li></ul><br>Standard<br><ul><li>1,000</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |
-| 파일당 최대 처리량 | Premium<br><ul><li>300 MiB/s (SMB 다중 채널을 사용 하는 최대 1 GiB/s)</li></ul><br>Standard<br><ul><li>60 MiB/s</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |
+| 최소 공유/볼륨 크기 | Premium<br><ul><li>100GiB</li></ul><br>표준<br><ul><li>GiB 1</li></ul> | 모든 계층<br><ul><li>100 GiB (최소 용량 풀 크기: 4 TiB)</li></ul> |
+| 최대 공유/볼륨 크기 | Premium<br><ul><li>100TiB</li></ul><br>표준<br><ul><li>100TiB</li></ul> | 모든 계층<br><ul><li>100 TiB (500-TiB capacity pool limit)</li></ul><br>Azure NetApp 계정 당 최대 12.5 PiB |
+| 최대 공유/볼륨 IOPS | Premium<br><ul><li>최대 10만 개</li></ul><br>표준<br><ul><li>최대 10k</li></ul> | Ultra 및 Premium<br><ul><li>최대 450k </li></ul><br>표준<br><ul><li>최대 320k</li></ul> |
+| 최대 공유/볼륨 처리량 | Premium<br><ul><li>최대 10 GiB/s</li></ul><br>표준<br><ul><li>최대 300 MiB/s</li></ul> | Ultra 및 Premium<br><ul><li>최대 4.5 GiB/s</li></ul><br>표준<br><ul><li>최대 3.2 GiB/s</li></ul> |
+| 최대 파일 크기 | Premium<br><ul><li>4TiB</li></ul><br>표준<br><ul><li>1TiB</li></ul> | 모든 계층<br><ul><li>16TiB</li></ul> |
+| 파일당 최대 IOPS | Premium<br><ul><li>최대 8000</li></ul><br>표준<br><ul><li>1,000</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |
+| 파일당 최대 처리량 | Premium<br><ul><li>300 MiB/s (SMB 다중 채널을 사용 하는 최대 1 GiB/s)</li></ul><br>표준<br><ul><li>60 MiB/s</li></ul> | 모든 계층<br><ul><li>최대 볼륨 제한</li></ul> |
 | SMB 다중 채널 | 예 ([미리 보기](https://docs.microsoft.com/azure/storage/files/storage-files-smb-multichannel-performance)) | 예 |
 | 대기 시간 | 단일 밀리초 최소 대기 시간 (작은 IO의 경우 2ms ~ 3ms) | 최소 밀리초의 최소 대기 시간 (임의 IO에 대 한 1ms <)<br><br>자세히 알아보려면 [성능 벤치 마크](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux)를 참조 하세요. |
 

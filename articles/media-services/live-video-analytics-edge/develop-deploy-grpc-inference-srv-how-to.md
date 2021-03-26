@@ -3,12 +3,12 @@ title: GRPC 유추 서버 개발 및 배포-Azure
 description: 이 문서에서는 gRPC 유추 서버를 개발 하 고 배포 하는 방법에 대 한 지침을 제공 합니다.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dbf46a26626a4143d76385968d092c4f238729da
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98881655"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034863"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>방법 가이드 – gRPC 유추 서버 개발 및 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "98881655"
 * [GRPC 소개](https://www.grpc.io/docs/what-is-grpc/introduction/)
 * [proto3 언어 가이드](https://developers.google.com/protocol-buffers/docs/proto3)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [지원 되는 Linux 운영 체제](../../iot-edge/support.md#operating-systems) 또는 Windows 컴퓨터 중 하나를 실행 하는 x86-64 또는 ARM64 장치입니다.
 * 컴퓨터에 [Docker를 설치](https://docs.docker.com/desktop/#download-and-install) 합니다.
@@ -242,7 +242,7 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
         * GraphInstanceSet에서 이전 링크의 값과 일치하도록 그래프 토폴로지의 이름을 편집합니다.<br/>`"topologyName": "InferencingWithGrpcExtension"`
         * GraphTopologyDelete에서 이름을 편집합니다.<br/>`"name": "InferencingWithGrpcExtension"`
 
-            토폴로지 (예 `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json` :)는 확장 주소를 정의 해야 합니다.
+            토폴로지 (예 `https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json` :)는 확장 주소를 정의 해야 합니다.
     * 확장 주소 매개 변수
 
         ```
@@ -308,4 +308,4 @@ GRPC 서버를 개발 하는 방법에 대 한 세부 정보를 이해 하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-[모델을 사용 하 여 라이브 비디오 분석](use-your-model-quickstart.md) 빠른 시작에 설명 된 **이벤트 모니터링 준비** 단계에 따라 샘플을 실행 하 고 결과를 해석 합니다. 또한 [Grpcextension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtension/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension 및 [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json)샘플 grpc 토폴로지를 확인 하세요.
+[모델을 사용 하 여 라이브 비디오 분석](use-your-model-quickstart.md) 빠른 시작에 설명 된 **이벤트 모니터링 준비** 단계에 따라 샘플을 실행 하 고 결과를 해석 합니다. 또한 [Grpcextension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension 및 [EVROnMotionPlusGrpcExtension](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/motion-with-grpcExtension/topology.json)샘플 grpc 토폴로지를 확인 하세요.

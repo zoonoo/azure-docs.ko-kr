@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: a5732c2dc0a92bd5727eeff39a529630e45683d7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bb448a4befb15618485b2b5951222761180a1f22
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946688"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866746"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI와 Apache Hive 데이터 시각화
 
@@ -21,11 +21,11 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 이 문서에서는 Hive 테이블에서 데이터를 로드 `hivesampletable` 하 여 Power BI 합니다. Hive 테이블에는 일부 휴대폰 사용량 현황 데이터가 포함되어 있습니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
 
-![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
+:::image type="content" source="./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png" alt-text="HDInsight Power BI 맵 보고서" border="true":::
 
 정보는 새 [대화형 쿼리](../interactive-query/apache-interactive-query-get-started.md) 클러스터 유형에도 적용됩니다. 직접 쿼리를 사용하여 HDInsight 대화형 쿼리에 연결하는 방법은 [Visualize Interactive Query Hive data with Microsoft Power BI using direct query in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)(Azure HDInsight의 직접 쿼리를 사용하여 Microsoft Power BI로 대화형 쿼리 Hive 데이터 시각화)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -45,7 +45,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 1. 상단 메뉴에서 **홈**  >  **데이터 가져오기**  >  **자세히** 로 이동 합니다.
 
-    ![HDInsight Excel Power BI 열 데이터](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png" alt-text="HDInsight Excel Power BI 열 데이터" border="true":::
 
 1. **데이터 가져오기** 대화 상자의 왼쪽에서 **기타** 를 선택 하 고 오른쪽에서 **ODBC** 를 선택한 다음 아래쪽에서 **연결** 을 선택 합니다.
 
@@ -61,7 +61,7 @@ ODBC를 사용 하 여 Microsoft Power BI Desktop를 Azure HDInsight에 연결 �
 
 1. 시각화 창에서 **지도** 를 선택 합니다 .이 아이콘은 지구본입니다.
 
-    ![HDInsight Power BI 보고서 사용자 지정](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
+    :::image type="content" source="./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png" alt-text="HDInsight Power BI 보고서 사용자 지정" border="true":::
 
 1. **필드** 창에서 **country** and **devicemake** 를 선택 합니다. 맵에 표시된 데이터를 볼 수 있습니다.
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9558e6c5ddd58b1d5fd70da03187caef50d1275d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99980697"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865573"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 
@@ -152,11 +152,11 @@ YARN `ResourceManager` UI는 클러스터 헤드 노드에서 실행 됩니다. 
 
 2. 왼쪽에 있는 서비스 목록에서 **YARN** 을 선택합니다.
 
-    ![Apache Ambari Yarn 서비스 선택 됨](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    :::image type="content" source="./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png" alt-text="Apache Ambari Yarn 서비스 선택 됨":::
 
 3. **빠른 링크** 드롭다운에서 클러스터 헤드 노드 중 하나를 선택 하 고를 선택 **`ResourceManager Log`** 합니다.
 
-    ![Apache Ambari Yarn 빠른 링크](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    :::image type="content" source="./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png" alt-text="Apache Ambari Yarn 빠른 링크":::
 
     YARN 로그에 대 한 링크 목록이 표시 됩니다.
 

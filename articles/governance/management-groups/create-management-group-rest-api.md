@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 REST API를 사용하여 리소스를 �
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.openlocfilehash: ff1487bf25945c733402ddb74d1e102bea80b4b1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99592503"
 ---
 # <a name="quickstart-create-a-management-group-with-rest-api"></a>빠른 시작: REST API를 사용하여 관리 그룹 만들기
@@ -98,4 +98,4 @@ REST API의 경우 [관리 그룹 - 만들기 또는 업데이트](/rest/api/res
 관리 그룹 및 리소스 계층 구조를 관리하는 방법에 대해 자세히 알아보려면 다음을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [관리 그룹으로 리소스 관리](./manage.md)
+> 관리 그룹으로 리소스 관리

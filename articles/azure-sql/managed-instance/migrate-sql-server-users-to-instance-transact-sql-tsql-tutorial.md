@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: f2dd34ab7c6ee5be26836e4abb86960605ee44ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "84708680"
 ---
 # <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>자습서: T-SQL DDL 구문을 사용하여 SQL Server 인스턴스의 Windows 사용자 및 그룹을 Azure SQL Managed Instance로 마이그레이션
@@ -84,7 +84,7 @@ _groupName_</br>
 > 사용자: testUser1, testGroupUser </br>
 > 그룹: migration - testGroupUser는 AD의 migration 그룹에 속해야 합니다.
 
-아래 예제에서는 _aadsqlmi_ 도메인에 속한 _testUser1_이라는 계정에 대한 로그인을 SQL Server에 만듭니다.
+아래 예제에서는 _aadsqlmi_ 도메인에 속한 _testUser1_ 이라는 계정에 대한 로그인을 SQL Server에 만듭니다.
 
 ```sql
 -- Sign into SQL Server as a sysadmin or a user that can create logins and databases

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: 56d301762fde41f727b0b425d6c41a423f08103c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa1b861555cff65c9e432ea711af3f7c6e410625
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96467298"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109168"
 ---
 # <a name="azure-stack-edge-pro-r-technical-specifications"></a>Azure Stack Edge Pro R 기술 사양
 
@@ -26,7 +26,7 @@ Azure Stack Edge Pro R 장치에는 계산 및 메모리에 대 한 다음과 �
 
 | 사양       | 값                  |
 |---------------------|------------------------|
-| CPU    | 2 X 10 코어 CPU, Intel Xeon 실버 4114 |
+| CPU    | 2 X Intel Xeon 실버 4114 CPU<br>20 개의 물리적 코어 (CPU 당 10 개)<br>40 논리 코어 (vCPUs) (CPU 당 20)  |
 | 메모리              | 256 g b RAM (2666 MT/s)     |
 
 

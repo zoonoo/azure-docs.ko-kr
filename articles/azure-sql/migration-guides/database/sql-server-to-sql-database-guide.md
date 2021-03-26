@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server SQL Database: 마이그레이션 가이드'
+title: 'SQL Server Azure SQL Database: 마이그레이션 가이드'
 description: 이 가이드에 따라 SQL Server 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ce155015373a096595dc61d75c876633e2e4f00a
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563847"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027196"
 ---
-# <a name="migration-guide-sql-server-to-sql-database"></a>마이그레이션 가이드: SQL Database SQL Server
+# <a name="migration-guide-sql-server-to-azure-sql-database"></a>마이그레이션 가이드: Azure SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 이 가이드는 SQL Server 인스턴스를 Azure SQL Database으로 마이그레이션하는 데 도움이 됩니다. 
@@ -30,20 +30,22 @@ ms.locfileid: "103563847"
 - 계산 엔진 (Google Cloud Platform GCP)  
 - SQL Server에 대 한 클라우드 SQL (Google Cloud Platform – GCP) 
 
-마이그레이션에 대 한 자세한 내용은 [마이그레이션 개요](sql-server-to-sql-database-overview.md)를 참조 하세요. 다른 시나리오는 [데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조 하세요.
+마이그레이션에 대 한 자세한 내용은 [마이그레이션 개요](sql-server-to-sql-database-overview.md)를 참조 하세요. 다른 마이그레이션 가이드는 [데이터베이스 마이그레이션](https://docs.microsoft.com/data-migration)을 참조하세요. 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="마이그레이션 프로세스 흐름":::
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 SQL Server을 Azure SQL Database로 마이그레이션하려면 다음 필수 구성 요소가 있는지 확인 합니다. 
 
-- 선택한 [마이그레이션 방법](sql-server-to-sql-database-overview.md#compare-migration-options) 및 해당 도구 
-- 원본에 연결할 수 있는 컴퓨터에 설치 된 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) SQL Server
-- 대상 [Azure SQL Database](../../database/single-database-create-quickstart.md)
+- 선택한 [마이그레이션 방법](sql-server-to-sql-database-overview.md#compare-migration-options) 및 해당 도구.
+- 원본 SQL Server에 연결할 수 있는 컴퓨터에 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) 가 설치 되어 있어야 합니다.
+- 대상 [Azure SQL Database](../../database/single-database-create-quickstart.md)입니다. 
+- 원본 및 대상 모두에 액세스할 수 있는 연결 및 적절 한 권한 
 
 
-## <a name="pre-migration"></a>마이그레이션 전
+
+## <a name="pre-migration"></a>사전 마이그레이션
 
 원본 환경이 지원 되는지 확인 한 후에는 마이그레이션 전 단계부터 시작 합니다. 모든 기존 데이터 원본을 검색 하 고, 마이그레이션 가능성을 평가 하 고, 마이그레이션을 방해할 수 있는 차단 문제를 식별 합니다. 
 
@@ -102,7 +104,7 @@ Data Migration Assistant에서는 분석을 위해 평가 보고서의 확장 �
 > [!IMPORTANT]
 > 여러 데이터베이스, 특히 대규모 데이터베이스에 대해 대규모 평가를 실행 하는 것은 [DMA 명령줄 유틸리티](/sql/dma/dma-commandline) 를 사용 하 여 자동화 하 고 추가 분석 및 대상 준비를 위해 [Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) 에 업로드할 수도 있습니다.
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>마이그레이션
 
 마이그레이션 전 단계와 관련 된 작업을 완료 하면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 
 
@@ -165,11 +167,11 @@ Azure SQL Database로의 마이그레이션을 가속화 하려면 다음과 같
 |**Azure DMS(Database Migration Service)** |DMS에 대 한 계산 리소스 경합 및 데이터베이스 개체 고려 사항 |프리미엄 4 vCore를 사용 합니다. DMS는 외래 키, 트리거, 제약 조건 및 비클러스터형 인덱스와 같은 데이터베이스 개체를 자동으로 처리 하므로 수동 작업이 필요 하지 않습니다.  |
 
 
-## <a name="post-migration"></a>마이그레이션 후
+## <a name="post-migration"></a>마이그레이션 후 작업
 
 마이그레이션 단계를 성공적으로 완료 한 후에는 일련의 마이그레이션 후 작업을 진행 하 여 모든 것이 원활 하 고 효율적으로 기능 하는지 확인 합니다. 
 
-마이그레이션 후 단계는 데이터 정확도 문제를 조정 하 고 완성도를 확인 하는 데 중요 하며 워크 로드와 관련 된 성능 문제를 해결 하는 데 중요 합니다. 
+마이그레이션 후 단계는 데이터 정확도 문제를 조정하고 완성도를 확인할 뿐만 아니라 워크로드 관련 성능 문제를 해결하는 데 매우 중요합니다. 
 
 ### <a name="remediate-applications"></a>애플리케이션 수정 
 

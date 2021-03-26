@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.openlocfilehash: 1727193faa028a1d681f2a74df950afeb9570ec9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91270052"
 ---
 # <a name="tutorial-add-security-headers-with-rules-engine"></a>자습서: 규칙 엔진을 사용하여 보안 헤더 추가
@@ -36,18 +36,18 @@ ms.locfileid: "91270052"
 
 ## <a name="add-a-content-security-policy-header-in-azure-portal"></a>Azure Portal에서 콘텐츠 보안 정책 헤더 추가
 
-1. **추가**를 클릭하여 새 규칙을 추가합니다. 규칙 이름을 입력한 다음, **작업 추가** > **응답 헤더**를 클릭합니다.
+1. **추가** 를 클릭하여 새 규칙을 추가합니다. 규칙 이름을 입력한 다음, **작업 추가** > **응답 헤더** 를 클릭합니다.
 
-1. 이 헤더를 이 경로에 들어오는 모든 요청에 대한 응답으로 추가하려면 연산자를 **추가**로 설정합니다.
+1. 이 헤더를 이 경로에 들어오는 모든 요청에 대한 응답으로 추가하려면 연산자를 **추가** 로 설정합니다.
 
-1. 헤더 이름: **콘텐츠 보안 정책**을 추가하고 이 헤더에 허용되는 값을 정의합니다. 이 시나리오에서는 *"script-src 'self' https://apiphany.portal.azure-api.net."* 을 선택합니다.
+1. 헤더 이름: **콘텐츠 보안 정책** 을 추가하고 이 헤더에 허용되는 값을 정의합니다. 이 시나리오에서는 *"script-src 'self' https://apiphany.portal.azure-api.net."* 을 선택합니다.
 
 1. 구성에 원하는 규칙을 모두 추가한 후에는 기본 경로로 이동하여 규칙 엔진 구성을 경로 규칙에 연결해야 합니다. 이 단계는 규칙이 작동하도록 설정하는 데 필요합니다. 
 
 ![포털 샘플](./media/front-door-rules-engine/rules-engine-security-header-example.png)
 
 > [!NOTE]
-> 이 시나리오에서는 [일치 조건](front-door-rules-engine-match-conditions.md)을 규칙에 추가하지 않았습니다. 경로 규칙에 정의된 경로와 일치하는 모든 들어오는 요청에는 이 규칙이 적용됩니다. 이러한 요청의 하위 집합에만 적용하려면 특정 **일치 조건**을 이 규칙에 추가해야 합니다.
+> 이 시나리오에서는 [일치 조건](front-door-rules-engine-match-conditions.md)을 규칙에 추가하지 않았습니다. 경로 규칙에 정의된 경로와 일치하는 모든 들어오는 요청에는 이 규칙이 적용됩니다. 이러한 요청의 하위 집합에만 적용하려면 특정 **일치 조건** 을 이 규칙에 추가해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

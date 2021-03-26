@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 336eeee7d522647d11f55a65dc9dc4e65e8b7d47
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d0b2ccc0bf5d38e9a72bf780875d3b6f29733189
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100535242"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026754"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>빠른 시작: Azure DDoS Protection Standard 만들기 및 구성
 
@@ -30,7 +30,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - https://portal.azure.com 에서 Azure Portal에 로그인합니다. 계정이 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용 권한에](manage-permissions.md)대 한 방법 가이드에 나열 된 적절 한 작업에 할당 된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 에 할당 되었는지 확인 합니다.
@@ -47,7 +47,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
     |Name           | _MyDdosProtectionPlan_ 를 입력 합니다.                     |
     |Subscription   | 구독을 선택합니다.                         |
     |Resource group | **새로 만들기** 를 선택 하 고 _myresourcegroup_ 을 입력 합니다.|
-    |위치       | _미국 동부_ 를 입력 합니다.                                  |
+    |Location       | _미국 동부_ 를 입력 합니다.                                  |
 
 ## <a name="enable-ddos-protection-for-a-virtual-network"></a>가상 네트워크에 대 한 DDoS 보호 사용
 
@@ -62,7 +62,7 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
     | Name            | _Myvnet_ 을 입력 합니다.                                 |
     | Subscription    | 구독을 선택합니다.                                    |
     | Resource group  | **기존 사용** 을 선택 하 고 **myresourcegroup** 을 선택 합니다. |
-    | 위치        | _미국 동부_ 입력                                                    |
+    | Location        | _미국 동부_ 입력                                                    |
     | DDoS Protection 표준 | **사용** 을 선택합니다. 선택한 계획은 가상 네트워크와 동일하거나 다른 구독에 있을 수 있지만, 두 구독은 모두 동일한 Azure Active Directory 테넌트에 연결되어야 합니다.|
 
 가상 네트워크에 대해 DDoS 표준을 사용하도록 설정하면 가상 네트워크를 다른 리소스 그룹 또는 구독으로 이동할 수 없습니다. DDoS 표준을 사용하도록 설정된 가상 네트워크를 이동해야 하는 경우 먼저 DDoS 표준을 사용하지 않도록 설정하고, 가상 네트워크를 이동한 다음, DDoS 표준을 사용하도록 설정합니다. 이동 후에는 가상 네트워크의 모든 보호된 공용 IP 주소에 대한 자동 조정된 정책 임계값이 다시 설정됩니다.
@@ -112,7 +112,7 @@ _Myvnet_ 가상 네트워크가 나열 됩니다.
 가상 네트워크에 대 한 DDoS 보호를 사용 하지 않도록 설정 하려면: 
 
 1. 포털 위쪽의 **리소스, 서비스 및 문서 검색 상자** 에서 DDoS 보호 표준을 사용하지 않도록 설정하려는 가상 네트워크의 이름을 입력합니다. 가상 네트워크의 이름이 검색 결과에 표시되면 선택합니다.
-2. **DDoS Protection Standard에서** 를 선택 하 고 **사용 안 함** 을 선택 합니다.
+2. **DDoS Protection Standard** 에서 **사용 안 함** 을 선택 합니다.
 
 DDoS 보호 계획을 삭제 하려면 먼저 모든 가상 네트워크를 분리 해야 합니다. 
 

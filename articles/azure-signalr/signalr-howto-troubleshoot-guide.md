@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589183"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048207"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Azure SignalR Service의 일반적인 문제에 대 한 문제 해결 가이드
 
@@ -34,7 +34,7 @@ HTTP/1.1 또는 c # 클라이언트의 경우 최대 URI 길이는 **12 k** 이 
 
 SDK 버전 **1.0.6** 이상에서는 생성 된 `/negotiate` `413 Payload Too Large` 액세스 토큰이 **4 K** 보다 큰 경우이 throw 됩니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 기본적으로에서 클레임 `context.User.Claims` 은 **asrs**(z) **S** ignal **R** **s** ervice)로 JWT 액세스 토큰을 생성할 때 포함 되므로 클라이언트가에 연결할 때 클레임은 유지 되 고 **asrs** 에서로 전달 될 수 있습니다 `Hub` `Hub` .
 
@@ -102,7 +102,7 @@ Azure 서비스는 보안 문제에 대 한 TLS 1.2만 지원 합니다. .NET fr
     GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
     ```
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 시작에 다음 코드를 추가 합니다.
 
@@ -132,7 +132,7 @@ ASP.NET Core SignalR의 다른 전송 유형, SSE 및 긴 폴링의 경우 기�
 
 ASP.NET SignalR의 경우 클라이언트는 `/ping` 시간에서 서비스에 KeepAlive 요청을 전송 합니다 `/ping` .이 실패 하면 클라이언트는 연결을 **중단** 하 고 다시 연결 하지 않습니다. 즉, ASP.NET SignalR의 경우 기본 토큰 수명은 모든 전송 형식에 대해 **최대** 1 시간 동안 연결이 지속 되도록 합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 보안 문제를 해결 하기 위해 TTL을 확장 하는 것은 권장 되지 않습니다. 이러한 401이 발생 하면 연결을 다시 시작 하기 위해 클라이언트에서 다시 연결 논리를 추가 하는 것이 좋습니다. 클라이언트는 연결을 다시 시작할 때 JWT 토큰을 다시 가져오고 갱신 된 토큰을 가져오기 위해 app server와 협상 합니다.
 
@@ -284,11 +284,11 @@ SignalR 클라이언트 연결 `DisposeAsync` 을 호출할 수 없습니다. �
 
 SignalR client가 종료 **되지** 않았는지 확인 합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 연결을 닫고 있는지 확인 합니다. `HubConnection.DisposeAsync()`를 사용 하 여 연결을 중지 하려면 수동으로를 호출 합니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -312,7 +312,7 @@ finally
 
 이 문제는 사용자가 함수 클래스에 대 한 정적 멤버로 설정 하는 대신 Azure Function 메서드에서 SignalR 클라이언트 연결을 설정 하는 경우에 종종 발생 합니다. 클라이언트 연결이 한 번만 설정 될 수 있지만 클라이언트 연결 수가 계속 해 서 Azure Portal 리소스 메뉴의 모니터링 섹션에 있는 메트릭에 표시 되는 것을 볼 수 있습니다. 이러한 모든 연결은 Azure Function 또는 Azure SignalR 서비스가 다시 시작 된 후에만 삭제 됩니다. 이는 **각** 요청에 대해 azure function이 **하나의** 클라이언트 연결을 만들기 때문입니다. 함수 메서드에서 클라이언트 연결을 중지 하지 않으면 클라이언트가 Azure SignalR service에 연결 된 상태를 유지 합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 * Azure 함수에서 SignalR 클라이언트를 사용 하거나 SignalR client를 singleton으로 사용 하는 경우 클라이언트 연결을 닫아야 합니다.
 * Azure function에서 SignalR 클라이언트를 사용 하는 대신, 다른 곳에서 SignalR 클라이언트를 만들고 [Azure SignalR Service에 대 한 Azure Functions 바인딩을](https://github.com/Azure/azure-functions-signalrservice-extension) 사용 하 여 클라이언트를 azure SignalR에 [협상할](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L22) 수 있습니다. 또한 바인딩을 활용 하 여 [메시지를 보낼](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L40)수 있습니다. 클라이언트를 협상 하 고 메시지를 보내는 샘플은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples)에서 찾을 수 있습니다. 자세한 내용은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension)를 참조 하세요.
@@ -348,7 +348,7 @@ ASP.NET SignalR의 경우 SDK 1.6.0에서 알려진 문제가 해결 되었습�
 
 ## <a name="thread-pool-starvation"></a>스레드 풀 고갈
 
-서버가 함으로써 인 경우에는 스레드가 메시지 처리 작업을 수행 하 고 있지 않은 것입니다. 모든 스레드가 특정 메서드에서 지연 됩니다.
+서버가 함으로써 인 경우에는 스레드가 메시지 처리 작업을 수행 하 고 있지 않은 것입니다. 모든 스레드가 특정 메서드에서 응답 하지 않습니다.
 
 일반적으로이 시나리오는 비동기 또는 `Task.Result` / `Task.Wait()` 비동기 메서드에의 한 비동기에 의해 발생 합니다.
 

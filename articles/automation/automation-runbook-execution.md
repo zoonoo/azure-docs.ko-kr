@@ -3,14 +3,14 @@ title: Azure Automation에서 Runbook 실행
 description: 이 문서에서는 Azure Automation runbook의 처리에 대 한 개요를 제공 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ca28d5829689dca46bbf3a94ce7c1591c20cf7b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 165c9ea721bec7fc7a1657f5dde5c19d9e254e20
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100586051"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954346"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -34,7 +34,8 @@ Azure Portal에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작�
 
 Azure Automation의 Runbook은 Azure 샌드박스 또는 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 실행할 수 있습니다. 
 
-Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 경우, 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 실행됩니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Azure 샌드박스 환경은 대화형 작업을 지원하지 않으며 모든 out-of-process COM 서버에 대한 액세스를 차단합니다. Win32 호출을 수행하는 Runbook의 경우 로컬 MOF 파일을 사용해야 합니다.
+Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 경우, 여러 작업에서 사용할 수 있는 공유 환경인 Azure 샌드박스에서 실행됩니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Azure 샌드박스 환경은 대화형 작업을 지원하지 않으며 모든 out-of-process COM 서버에 대 한 액세스를 방지 하 고 runbook에서 Win32 공급자에 대 한 [WMI 호출](/windows/win32/wmisdk/wmi-architecture) 을 지원 하지 않습니다.  이러한 시나리오는 Windows Hybrid Runbook Worker에서 runbook을 실행 하는 경우에만 지원 됩니다.
+
 
 역할을 호스트하는 컴퓨터에서, 그리고 환경의 리소스에 대해 Runbook을 직접 실행하는 데 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)를 사용할 수도 있습니다. Azure Automation은 Runbook을 저장 및 관리한 후 하나 이상의 할당된 컴퓨터로 전달합니다.
 
@@ -137,7 +138,7 @@ Azure Automation은 동일한 Automation 계정에서 작업을 실행하는 환
 
 다음 표에서는 작업의 가능한 여러 상태를 설명합니다. Azure Portal에서 모든 Runbook 작업의 상태 요약을 보거나 특정 Runbook 작업의 세부 정보로 드릴할 수 있습니다. 또한 Runbook의 작업 상태와 작업 스트림을 전달하기 위해 Log Analytics 작업 영역과 통합하도록 구성할 수도 있습니다. Azure Monitor 로그와의 통합에 대한 자세한 내용은 [Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)을 참조하세요. Runbook의 상태를 사용하는 예제는 [작업 상태 가져오기](manage-runbooks.md#obtain-job-statuses)를 참조하세요.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |:--- |:--- |
 | 토폴로지만 |작업이 활성화 되 고 있습니다. |
 | Completed |작업이 완료되었습니다. |

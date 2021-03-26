@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d098af394906dc120a252bdcda65fb3af31e28c8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98946141"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865794"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code Spark & Hive 도구 사용
 
@@ -40,7 +40,7 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 
 4. 검색 결과에서 **Spark & Hive Tools** 를 선택하고 **설치** 를 선택합니다.
 
-   ![Visual Studio Code Python용 Spark & Hive 설치](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/install-hdInsight-plugin.png" alt-text="Python 설치 Visual Studio Code에 대 한 Spark & Hive":::
 
 5. 필요한 경우 **다시 로드** 를 선택합니다.
 
@@ -52,7 +52,7 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 
 2. **탐색기** 보기에서 **hdexample** 대상 폴더를 선택 하 고 작업 폴더 옆의 **새 파일** 아이콘을 선택 합니다.
 
-   ![Visual Studio Code 새 파일 아이콘](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/visual-studio-code-new-file.png" alt-text="Visual Studio Code 새 파일 아이콘":::
 
 3. `.hql`(Hive 쿼리) 또는 `.py` (Spark 스크립트) 파일 확장명을 사용 하 여 새 파일의 이름을로 합니다. 이 예제에서는 **HelloWorld.hql** 을 사용합니다.
 
@@ -64,7 +64,7 @@ Spark & Hive Tools는 Visual Studio Code가 지원하는 플랫폼에 설치할 
 2. 다음 문자열을 검색 합니다. **Azure: Cloud**.
 3. 목록에서 국가 클라우드를 선택 합니다.
 
-   ![기본 로그인 항목 구성 설정](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/set-default-login-entry-configuration.png" alt-text="기본 로그인 항목 구성 설정":::
 
 ## <a name="connect-to-an-azure-account"></a>Azure 계정에 연결
 
@@ -72,7 +72,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 1. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동한 다음, **Azure: Sign In** 을 입력합니다.
 
-   ![Visual Studio Code용 Spark & Hive Tools 로그인](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png" alt-text="Visual Studio Code 로그인에 대 한 Spark & Hive 도구":::
 
 2. 로그인 지침에 따라 Azure에 로그인합니다. 연결되면 Visual Studio Code 창 아래쪽의 상태 표시줄에 Azure 계정 이름이 표시됩니다.  
 
@@ -84,7 +84,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 1. 메뉴 모음에서 **보기**  >  **명령 팔레트 ...** 로 이동 하 고 **Spark/Hive: 클러스터 연결** 을 입력 합니다.
 
-   ![명령 팔레트 링크 클러스터 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/link-cluster-command.png" alt-text="명령 팔레트 링크 클러스터 명령":::
 
 2. 연결된 클러스터 유형 **Azure HDInsight** 를 선택합니다.
 
@@ -127,7 +127,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 3. **출력** 뷰를 검토합니다. 이 보기에는 Azure 구독에 연결 된 클러스터 (또는 클러스터)와 모든 클러스터가 표시 됩니다.
 
-   ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result1.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/list-cluster-result1.png" alt-text="기본 클러스터 구성 설정":::
 
 ## <a name="set-the-default-cluster"></a>기본 클러스터 설정
 
@@ -141,7 +141,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하기 전에 �
 
 5. 현재 스크립트 파일의 기본 클러스터로 사용할 클러스터를 선택합니다. 도구에서 **.VSCode\settings.json** 구성 파일이 자동으로 업데이트됩니다.
 
-   ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/set-default-cluster-configuration.png" alt-text="기본 클러스터 구성 설정":::
 
 ## <a name="submit-interactive-hive-queries-and-hive-batch-scripts"></a>대화형 Hive 쿼리 및 Hive 배치 스크립트 제출
 
@@ -163,7 +163,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 6. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 또한이 도구를 사용 하면 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수 있습니다. 잠시 후 쿼리 결과가 새 탭에 나타납니다.
 
-   ![대화형 Apache Hive 쿼리 결과](./media/hdinsight-for-vscode/interactive-hive-result.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/interactive-hive-result.png" alt-text="대화형 Apache Hive 쿼리 결과":::
 
    - **결과** 패널: 전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
 
@@ -198,57 +198,57 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 4. PySpark/Synapse Pyspark 커널을 설치하라는 메시지가 창의 오른쪽 아래 모서리에 표시됩니다. **설치** 단추를 클릭하여 PySpark/Synapse Pyspark 설치를 진행하거나 **건너뛰기** 단추를 클릭하여 이 단계를 건너뜁니다.
 
-   ![PySpark 설치를 건너뛰는 옵션을 보여 주는 스크린샷](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/install-the-pyspark-kernel.png" alt-text="PySpark 설치를 건너뛰는 옵션을 보여 주는 스크린샷":::
 
 5. 나중에 설치 해야 하는 경우 **파일**  >  **기본**  >  **설정** 으로 이동한 다음 설정에서 **HDInsight: Skip Pyspark 설치 사용** 을 선택 취소할 수 있습니다. 
     
-    ![Pyspark 건너뛰기 설치를 사용 하도록 설정 하는 옵션을 보여 줍니다.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png" alt-text="Pyspark 건너뛰기 설치를 사용 하도록 설정 하는 옵션을 보여 줍니다.":::
 
 6. 4 단계에서 설치가 성공적으로 완료 되 면 "PySpark 설치 되었습니다." 라는 메시지 상자가 창의 오른쪽 아래 모서리에 표시 됩니다. **다시 로드** 단추를 클릭하여 창을 다시 로드합니다.
 
-   ![pyspark 설치 성공](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png" alt-text="pyspark 설치 성공":::
 
 
 7. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Python: Select Interpreter to start Jupyter Server** 를 입력합니다.
 
-   ![jupyter 서버를 시작할 인터프리터 선택](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png" alt-text="jupyter 서버를 시작할 인터프리터 선택":::
 
 8. 아래의 python 옵션을 선택합니다.
 
-   ![아래 옵션을 선택합니다.](./media/hdinsight-for-vscode/choose-the-below-option.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/choose-the-below-option.png" alt-text="아래 옵션을 선택합니다.":::
     
 9. 메뉴 모음에서 **보기** > **명령 팔레트...** 로 이동하거나 **Shift + Ctrl + P** 바로 가기 키를 사용하여 **Developer: Reload Window** 를 입력합니다.
 
-    ![창 다시 로드](./media/hdinsight-for-vscode/reload-window.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/reload-window.png" alt-text="창 다시 로드":::
 
 10. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
 11. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark interactive/Synapse: PySpark interactive** 를 선택 하 여 쿼리를 제출 합니다. 
 
-    ![pyspark 대화형 상황에 맞는 메뉴](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/pyspark-interactive-right-click.png" alt-text="pyspark 대화형 상황에 맞는 메뉴":::
 
 12. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 몇 분 후에 **Python 대화형** 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark** 로 전환 하면 코드가 성공적으로 실행 됩니다. Synapse Pyspark kernel로 전환 하려는 경우 Azure Portal에서 자동 설정을 사용 하지 않도록 설정 하는 것이 좋습니다. 그렇지 않으면 클러스터의 절전 모드를 해제하고 처음 사용할 때 synapse 커널을 설정하는 데 시간이 오래 걸릴 수 있습니다. 도구를 통해 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다.
 
-    ![pyspark 대화형 python 대화형 창](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png" alt-text="pyspark 대화형 python 대화형 창":::
 
 13. **%% Info** 를 입력 한 다음 Shift + enter를 눌러 작업 정보를 확인 합니다 (선택 사항).
 
-    ![pyspark 대화형 보기 작업 정보](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png" alt-text="pyspark 대화형 보기 작업 정보":::
 
 이 도구는 **SPARK SQL** 쿼리도 지원 합니다.
 
-  ![pyspark 대화형 보기 결과](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
+  :::image type="content" source="./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png" alt-text="pyspark 대화형 보기 결과":::
 
 
 ### <a name="perform-interactive-query-in-py-file-using-a--comment"></a>#%% 주석을 사용하여 PY 파일에서 대화형 쿼리 수행
 
 1. **#%%** Py 코드 앞에를 추가 하 여 노트북 환경을 가져옵니다.
 
-   ![#%% 추가](./media/hdinsight-for-vscode/run-cell.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/run-cell.png" alt-text="#%% 추가":::
 
 2. **셀 실행** 을 클릭합니다. 몇 분 후에 Python 대화형 결과가 새 탭에 나타납니다. PySpark을 클릭 하 여 커널을 PySpark/Synapse PySpark로 전환한 다음 **셀 실행** 을 다시 클릭 하면 코드가 성공적으로 실행 됩니다.
 
-   ![셀 실행 결과](./media/hdinsight-for-vscode/run-cell-get-results.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/run-cell-get-results.png" alt-text="셀 실행 결과":::
 
 ## <a name="leverage-ipynb-support-from-python-extension"></a>Python 확장의 IPYNB 지원 활용
 
@@ -256,11 +256,11 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 2. **셀 실행** 단추를 클릭하고 프롬프트에 따라 **기본 Spark 풀을 설정** 한(Notebook을 열기 전에 매번 기본 클러스터/풀을 설정하는 것이 좋음) 다음, 창을 **다시 로드** 합니다.
 
-   ![기본 Spark 풀을 설정하고 다시 로드](./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/set-the-default-spark-pool-and-reload.png" alt-text="기본 Spark 풀을 설정하고 다시 로드":::
 
 3. PySpark을 클릭 하 여 커널을 **PySpark/Synapse PySpark** 로 전환 하 고, 잠시 후 **셀 실행** 을 클릭 하면 결과가 표시 됩니다.
 
-   ![ipynb 실행 결과](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/run-ipynb-file-results.png" alt-text="ipynb 실행 결과":::
 
 
 > [!NOTE]
@@ -302,7 +302,7 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 6. PySpark 작업을 제출할 클러스터/spark 풀을 선택 하세요.
 
-   ![Python 작업 결과 출력 제출](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/submit-pythonjob-result.png" alt-text="Python 작업 결과 출력 제출":::
 
 Python 작업을 제출하면 Visual Studio Code의 **출력** 창에 제출 로그가 표시됩니다. Spark UI URL 및 Yarn UI URL도 표시 됩니다. Apache Spark 풀에 batch 작업을 제출 하는 경우 Spark 기록 UI URL 및 Spark 작업 응용 프로그램 UI URL도 표시 됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
@@ -338,7 +338,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
 - 프로젝트 설정:
 
-  ![HDInsight Apache Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
+  :::image type="content" source="./media/hdinsight-for-vscode/hdi-apache-livy-config.png" alt-text="HDInsight Apache Livy 구성":::
 
   >[!NOTE]
   >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예: 1g 또는 1024m.
@@ -395,11 +395,11 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
 
 5. Hive 테이블을 마우스 오른쪽 단추로 클릭 합니다. 예: **hivesampletable**. **미리 보기** 를 선택합니다.
 
-   ![Visual Studio Code 미리 보기 hive 테이블의 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png" alt-text="Visual Studio Code 미리 보기 hive 테이블의 Spark & Hive":::
 
 6. **미리 보기 결과** 창이 열립니다.
 
-   ![Visual Studio Code 미리 보기 결과 창에 대 한 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png" alt-text="Visual Studio Code 미리 보기 결과 창에 대 한 Spark & Hive":::
 
 - 결과 패널
 
@@ -415,7 +415,7 @@ PySpark batch 작업을 실행 하는 일반적인 단계를 수행 하 여 ID B
      >
      >Linux에서 xclip을 설치 하 여 복사 테이블 데이터를 사용 하도록 설정 합니다.
      >
-     >![Linux에서 Visual Studio code에 대 한 Spark & Hive](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
+     >:::image type="content" source="./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png" alt-text="Linux에서 Visual Studio code에 대 한 Spark & Hive":::
 
 ## <a name="additional-features"></a>추가 기능
 
@@ -423,12 +423,12 @@ Visual Studio Code에 대 한 Spark & Hive는 또한 다음과 같은 기능을 
 
 - **IntelliSense 자동 완성**. 키워드, 메서드, 변수 및 기타 프로그래밍 요소에 대 한 제안이 팝업 됩니다. 다음과 같이 개체 형식마다 다른 아이콘으로 표시됩니다.
 
-    ![IntelliSense 개체 Visual Studio Code Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png" alt-text="IntelliSense 개체 Visual Studio Code Spark & Hive 도구":::
 
 - **IntelliSense 오류 표식** 입니다. 언어 서비스는 Hive 스크립트의 편집 오류에 밑줄을 긋습니다.     
 - **구문 강조 표시**. 언어 서비스는 변수, 키워드, 데이터 형식, 함수 및 기타 프로그래밍 요소를 구분 하는 데 서로 다른 색을 사용 합니다.
 
-    ![Visual Studio Code용 Spark & Hive Tools 구문 강조 표시](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
+    :::image type="content" source="./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png" alt-text="Visual Studio Code 구문 강조 표시를 위한 Spark & Hive 도구":::
 
 ## <a name="reader-only-role"></a>독자 전용 역할
 
@@ -447,15 +447,15 @@ HDInsight 클러스터에 작업을 제출 하는 경우 클러스터에 대 한
 1. 올바른 Ambari 사용자 이름을 입력 하세요.
 2. 올바른 암호를 입력 하십시오.
 
-   ![Visual Studio Code 사용자 이름에 대 한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png" alt-text="Visual Studio Code 사용자 이름에 대 한 Spark & Hive 도구":::
 
-   ![Visual Studio Code 암호를 위한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
+   :::image type="content" source="./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png" alt-text="Visual Studio Code 암호를 위한 Spark & Hive 도구":::
 
    > [!NOTE]
    >
    >`Spark / Hive: List Cluster`를 사용 하 여 연결 된 클러스터를 확인할 수 있습니다.
    >
-   >![연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구](./media/hdinsight-for-vscode/list-cluster-result1.png)
+   >:::image type="content" source="./media/hdinsight-for-vscode/list-cluster-result1.png" alt-text="연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구":::
 
 ## <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
@@ -467,7 +467,7 @@ Data Lake Storage Gen2 계정을 확장 하려면 Azure HDInsight 탐색기를 �
 
 Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제출 합니다. Azure 계정에 Gen2 저장소에 대 한 쓰기 권한이 없는 경우 저장소 액세스 키를 입력 하 라는 메시지가 표시 됩니다. 액세스 키의 유효성을 검사 한 후 작업이 성공적으로 제출 됩니다.
 
-![Visual Studio Code AccessKey 용 Spark & Hive 도구](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
+:::image type="content" source="./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png" alt-text="Visual Studio Code AccessKey 용 Spark & Hive 도구":::
 
 > [!NOTE]
 >
