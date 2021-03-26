@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92331807"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-instance-of-the-service"></a>서비스 인스턴스 만들기
 
-1. + **리소스 만들기** 를 선택하여 Azure Database Migration Service의 인스턴스를 만듭니다.
+1. +**리소스 만들기** 를 선택하여 Azure Database Migration Service의 인스턴스를 만듭니다.
 
 2. Marketplace에서 "migration"을 검색하고 **Azure Database Migration Service** 를 선택한 다음, **Azure Database Migration Service** 화면에서 **만들기** 를 선택합니다.
 

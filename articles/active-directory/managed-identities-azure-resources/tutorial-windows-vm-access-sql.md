@@ -15,10 +15,10 @@ ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f4f56ce9fa86dc27b77ad6b463479d13c8e4e7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91856515"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure SQL에 액세스
@@ -49,18 +49,18 @@ Azure SQL Databaser의 데이터베이스에 대한 액세스 권한을 VM에 �
 VM에 데이터베이스에 대한 액세스 권한을 부여하는 과정은 다음과 같은 2단계로 진행됩니다.
 
 1. 서버에 대한 Azure AD 인증을 사용하도록 설정합니다.
-2. VM의 시스템 할당 ID를 나타내는 데이터베이스에 **포함된 사용자**를 만듭니다.
+2. VM의 시스템 할당 ID를 나타내는 데이터베이스에 **포함된 사용자** 를 만듭니다.
 
 ### <a name="enable-azure-ad-authentication"></a>Azure AD 인증 사용
 
-**Azure[ AD 인증 구성하기](../../azure-sql/database/authentication-aad-configure.md):**
+**Azure [ AD 인증 구성하기](../../azure-sql/database/authentication-aad-configure.md):**
 
-1. Azure Portal의 왼쪽 탐색 영역에서 **SQL Server**를 선택합니다.
+1. Azure Portal의 왼쪽 탐색 영역에서 **SQL Server** 를 선택합니다.
 2. Azure AD 인증에 사용할 SQL Server를 클릭합니다.
-3. 블레이드의 **설정** 섹션에서 **Active Directory 관리자**를 클릭합니다.
-4. 명령 모음에서 **Set admin**을 클릭합니다.
-5. 서버 관리자로 만들 Azure AD 사용자 계정을 선택하고 **선택**을 클릭합니다.
-6. 명령 모음에서 **저장**을 클릭합니다.
+3. 블레이드의 **설정** 섹션에서 **Active Directory 관리자** 를 클릭합니다.
+4. 명령 모음에서 **Set admin** 을 클릭합니다.
+5. 서버 관리자로 만들 Azure AD 사용자 계정을 선택하고 **선택** 을 클릭합니다.
+6. 명령 모음에서 **저장** 을 클릭합니다.
 
 ### <a name="create-contained-user"></a>포함된 사용자 만들기
 
@@ -75,14 +75,14 @@ SQL DB에는 고유한 AAD 표시 이름이 필요합니다. 이를 통해 사�
 
 1. SQL Server Management Studio를 시작합니다.
 2. **서버에 연결** 대화 상자의 **서버 이름** 필드에 서버 이름을 입력합니다.
-3. **인증** 필드에서 **Active Directory - MFA 지원을 통한 유니버설 인증**을 선택합니다.
+3. **인증** 필드에서 **Active Directory - MFA 지원을 통한 유니버설 인증** 을 선택합니다.
 4. **사용자 이름** 필드에 서버 관리자로 설정한 Azure AD 계정의 이름(예: helen@woodgroveonline.com)을 입력합니다.
-5. **옵션**을 클릭합니다.
+5. **옵션** 을 클릭합니다.
 6. **연결할 데이터베이스** 필드에 구성하려면 비시스템 데이터베이스의 이름을 입력합니다.
-7. **연결**을 클릭합니다. 로그인 프로세스를 완료합니다.
-8. **개체 탐색기**에서 **데이터베이스** 폴더를 확장합니다.
-9. 사용자 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
-10. 쿼리 창에서 다음 줄을 입력하고 도구 모음에서 **실행**을 클릭합니다.
+7. **연결** 을 클릭합니다. 로그인 프로세스를 완료합니다.
+8. **개체 탐색기** 에서 **데이터베이스** 폴더를 확장합니다.
+9. 사용자 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 클릭합니다.
+10. 쿼리 창에서 다음 줄을 입력하고 도구 모음에서 **실행** 을 클릭합니다.
 
     > [!NOTE]
     > 다음 명령의 `VMName`은 필수 구성 요소 섹션에서 시스템 할당 ID를 사용하도록 설정한 VM의 이름입니다.
@@ -92,7 +92,7 @@ SQL DB에는 고유한 AAD 표시 이름이 필요합니다. 이를 통해 사�
     ```
 
     이 명령은 성공적으로 완료되고 VM의 시스템 할당 ID에 대해 포함된 사용자가 만들어집니다.
-11. 쿼리 창을 지우고 다음 줄을 입력한 후 도구 모음에서 **실행**을 클릭합니다.
+11. 쿼리 창을 지우고 다음 줄을 입력한 후 도구 모음에서 **실행** 을 클릭합니다.
 
     > [!NOTE]
     > 다음 명령의 `VMName`은 필수 구성 요소 섹션에서 시스템 할당 ID를 사용하도록 설정한 VM의 이름입니다.
@@ -155,9 +155,9 @@ if (accessToken != null) {
 
 또는 VM에서 앱을 작성 및 배포하지 않고도 PowerShell을 사용하여 전체적인 설정을 빠르게 테스트할 수도 있습니다.
 
-1. Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요**에서 **연결**을 클릭합니다.
-2. Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다.
-3. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다.
+1. Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요** 에서 **연결** 을 클릭합니다.
+2. Windows VM을 만들 때 추가한 **사용자 이름** 과 **암호** 를 입력합니다.
+3. 이제 가상 머신에 대한 **원격 데스크톱 연결** 을 만들었으므로 원격 세션에서 **PowerShell** 을 엽니다.
 4. PowerShell의 `Invoke-WebRequest`를 사용하여 로컬 관리 ID의 엔드포인트에 대한 요청을 수행해 Azure SQL용 액세스 토큰을 가져옵니다.
 
     ```powershell

@@ -3,15 +3,15 @@ title: '빠른 시작: Azure DB for MariaDB 만들기 - ARM 템플릿'
 description: 이 빠른 시작 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Database for MariaDB 서버를 만드는 방법을 알아봅니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: b40aa30121bf98e756e26d70b44bc74a500de79f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: de6df8349025c3e87e5b005196008053039fa49f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98662076"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MariaDB 서버 만들기

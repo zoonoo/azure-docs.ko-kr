@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563078"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기에서 정적으로 렌더링된 Next.js 웹 사이트 배포
@@ -136,7 +136,7 @@ Azure Static Web Apps는 GitHub 리포지토리에서 앱을 배포하고 지정
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. **리소스 만들기** 를 클릭합니다.
-1. **Static Web Apps** 검색
+1. **Static Web Apps** 를 검색합니다.
 1. **Static Web Apps(미리 보기)** 를 클릭합니다.
 1. **만들기**
 

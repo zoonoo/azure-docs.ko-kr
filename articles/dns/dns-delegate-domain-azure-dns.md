@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92282176"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에서 도메인 호스트
@@ -45,7 +45,7 @@ Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 
    ![DNS 영역](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. **DNS 영역 만들기** 를 선택합니다.
-1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음, **만들기** 를 선택합니다(예: **contoso.net** ).
+1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음, **만들기** 를 선택합니다(예: **contoso.net**).
       > [!NOTE] 
       > 만드는 새 영역이 자식 영역(예: 부모 영역 = contoso.net 자식 영역 = child.contoso.net)인 경우 [새 자식 DNS 영역 만들기 자습서](./tutorial-public-dns-zones-child.md)를 참조하세요.
 
@@ -65,7 +65,7 @@ DNS 영역을 Azure DNS에 위임하려면 해당 영역에 대한 이름 서버
 
 1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스** 를 선택합니다. **모든 리소스** 페이지에서 DNS 영역을 선택합니다. 선택한 구독에 이미 여러 리소스가 있는 경우 **이름 기준으로 필터링** 상자에 도메인 이름을 입력하면 애플리케이션 게이트웨이에 쉽게 액세스할 수 있습니다. 
 
-1. DNS 영역 페이지에서 이름 서버를 검색합니다. 이 예제에서는 contoso.com 영역에 이름 서버 *ns1-01.azure-dns.com* , *ns2-01.azure-dns.net* , *ns3-01.azure-dns.org* 및 *ns4-01.azure-dns.info* 가 할당되었습니다.
+1. DNS 영역 페이지에서 이름 서버를 검색합니다. 이 예제에서는 contoso.com 영역에 이름 서버 *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* 및 *ns4-01.azure-dns.info* 가 할당되었습니다.
 
    ![이름 서버 목록](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 
@@ -82,7 +82,7 @@ DNS 영역을 만들었고 이름 서버를 확보했으니, 이제 Azure DNS �
 > [!NOTE]
 > 각 이름 서버 주소를 복사하면 주소 끝에 마침표를 복사해야 합니다. 마침표는 정규화된 도메인 이름의 끝을 나타냅니다. 일부 등록 기관에서는 DNS 이름 끝에 마침표가 없는 경우 이를 추가합니다. DNS RFC를 준수하려면 후행 마침표를 포함합니다.
 
-고유 영역에서 이름 서버를 사용하는 위임( *베니티 이름 서버* 라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
+고유 영역에서 이름 서버를 사용하는 위임(*베니티 이름 서버* 라고도 함)은 현재 Azure DNS에서 지원되지 않습니다.
 
 ## <a name="verify-the-delegation"></a>위임 확인
 
