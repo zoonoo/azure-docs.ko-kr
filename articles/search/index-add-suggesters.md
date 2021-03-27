@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a03ca4bcad9bb577db68e2728ff9dbebb5779a7a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606218"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626829"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>쿼리에서 자동 완성 및 제안 된 결과를 사용 하도록 설정 하는 확인 기 만들기
 
-Azure Cognitive Search에서는 *확인 기* 를 통해 "형식 검색"을 사용 하도록 설정 합니다. 확인 기는 fields 컬렉션으로 구성 된 내부 데이터 구조입니다. 필드는 추가 토큰화를 거쳐 부분 용어에 대 한 일치를 지원 하기 위해 접두사 시퀀스를 생성 합니다. 예를 들어 City 필드를 포함 하는 확인 기에는 "시애틀" 용어에 대 한 "해상", "좌석", "seatt" 및 "seattl"의 접두사 조합이 있습니다.
+Azure Cognitive Search에서는 *확인 기* 를 통해 "형식 검색"을 사용 하도록 설정 합니다. 확인 기은 추가 토큰화를 수행 하 여 부분 용어에 대 한 일치를 지원 하기 위해 접두사 시퀀스를 생성 하는 필드의 목록을 제공 합니다. 예를 들어 "시애틀" 값이 있는 City 필드를 포함 하는 확인 기에는 "해상", "좌석", "seatt" 및 "seattl"의 접두사 조합이 포함 되어 있습니다.
 
 부분 일치 용어에 대 한 일치는 자동 완성 쿼리 또는 제안 된 일치 항목이 될 수 있습니다. 동일한 확인 기는 두 가지 환경을 모두 지원 합니다.
 
@@ -140,7 +140,7 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 ## <a name="property-reference"></a>속성 참조
 
-|속성      |Description      |
+|속성      |설명      |
 |--------------|-----------------|
 | name        | 확인 기 정의에 지정 되 고 자동 완성 또는 제안 요청에서 호출 됩니다. |
 | sourceFields | 확인 기 정의에 지정 되어 있습니다. 제안 된 콘텐츠의 원본인 인덱스에 있는 하나 이상의 필드 목록입니다. 필드는 및 형식 이어야 `Edm.String` 합니다 `Collection(Edm.String)` . 필드에 분석기를 지정 하는 경우 사용자 지정 분석기가 아닌 [이 목록](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 에서 명명 된 어휘 분석기로 지정 해야 합니다. </br></br>검색 표시줄이 나 드롭다운 목록에서 완성 된 문자열 인지 여부에 관계 없이 필요한 적절 한 응답에 대해 자신을 지 원하는 필드만 지정 하는 것이 가장 좋습니다. </br></br>호텔 이름은 전체 자릿수가 있으므로 좋은 후보입니다. 설명 및 주석과 같은 자세한 정보 필드에는 너무 조밀 하 게 표시 됩니다. 마찬가지로 범주 및 태그와 같은 반복적인 필드도 효과적이 지 않습니다. 예제에는 여러 필드를 포함할 수 있음을 보여 주는 "category"가 포함 되어 있습니다. |
@@ -171,11 +171,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>샘플 코드
 
-+ [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가) 샘플은](tutorial-csharp-type-ahead-and-suggestions.md) 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드 샘플은 샌드박스 Azure Cognitive Search 서비스에서 실행 되 고 이미 생성 된 확인 기를 사용 하 여 미리 로드 된 호텔 인덱스를 사용 하므로 F5 키를 눌러 응용 프로그램을 실행 하면 됩니다. 구독 또는 로그인이 필요 하지 않습니다.
++ [웹 사이트에 검색 추가 (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) 는 클라이언트 앱의 부분 용어 완성을 위해 오픈 소스 제안 패키지를 사용 합니다.
+
++ [C #에서 첫 번째 앱 만들기 (3 단원-검색 형식 추가) 샘플은](tutorial-csharp-type-ahead-and-suggestions.md) 제안 된 쿼리, 자동 완성 및 패싯 탐색을 보여 줍니다. 이 코드는 위젯을 사용 하는 대신 형식에 대 한 기본 지원을 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-요청을 공식화 하는 방법에 대해 자세히 알아보려면 다음 문서를 참조 하는 것이 좋습니다.
+요청 \ 공식화에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [클라이언트 코드에 자동 완성 및 제안 추가](search-add-autocomplete-suggestions.md)

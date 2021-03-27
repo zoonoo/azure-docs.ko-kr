@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 3b2925a532d722598ccf16c001c9e2591aed1f2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cc2afb2b29c69e9687dbd3b194b6a1626d4131b3
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584993"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625197"
 ---
 # <a name="apply-math-operation"></a>수학 연산 적용
 
@@ -254,6 +254,7 @@ MATLAB의 ATAN2 함수에 해당 합니다.
 - 나누기 (Arg1_Arg2) = Arg1/Arg 2
 
 다음 표에서는 몇 가지 예를 보여 줍니다.
+
 작업|Num1|Num2|결과 열|결과 값|
 ----|----|----|----|----
 |더하기|1|5|추가 (Num2_Num1)| 6|
@@ -343,7 +344,7 @@ Azure Machine Learning designer는 다양 한 반올림 작업을 지원 합니�
 
 ### <a name="beta"></a>베타
 
-오일러 베타 함수 값을 반환합니다.  
+오일러의 beta 함수 값을 반환 합니다.  
 
 ### <a name="ellipticintegrale"></a>EllipticIntegralE
 불완전 한 타원 정수 계열 값을 반환 합니다.  

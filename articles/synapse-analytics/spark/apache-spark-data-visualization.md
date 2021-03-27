@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e57cdca1d212e6077d685d95a8f869c12e546a8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98121528"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627951"
 ---
 # <a name="visualize-data"></a>데이터 시각화
 Azure Synapse는 데이터 웨어하우스 및 빅 데이터 분석 시스템에서 정보에 대 한 시간을 가속화 하는 통합 분석 서비스입니다. 데이터 시각화는 데이터에 대 한 통찰력을 얻을 수 있는 핵심 구성 요소입니다. 이를 통해 큰 데이터를 더 쉽게 이해할 수 있습니다. 또한 데이터 그룹의 패턴, 추세 및 이상 값을 더 쉽게 검색할 수 있습니다. 
@@ -34,6 +34,7 @@ Azure Synapse 노트북을 사용 하는 경우 차트 옵션을 사용 하 여 
    ![기본 제공 차트](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
 3. 이제 다음 값을 지정 하 여 시각화를 사용자 지정할 수 있습니다.
+
    | 구성 | 설명 |
    |--|--| 
    | 차트 종류 | ```display```함수는 가로 막대형 차트, 산 점도, 선 그래프 등을 비롯 한 다양 한 차트 종류를 지원 합니다. |
@@ -148,6 +149,37 @@ svg
 ## <a name="popular-libraries"></a>인기 있는 라이브러리
 데이터 시각화와 함께 제공 되는 Python은 다양 한 기능을 제공 하는 여러 그래프 라이브러리를 제공 합니다. 기본적으로 Azure Synapse Analytics의 모든 Apache Spark 풀에는 큐 레이트 및 인기 있는 오픈 소스 라이브러리 집합이 포함 되어 있습니다. Azure Synapse Analytics 라이브러리 관리 기능을 사용 하 여 추가 라이브러리 & 버전을 추가 하거나 관리할 수도 있습니다. 
 
+### <a name="matplotlib"></a>Matplotlib
+각 라이브러리에 대해 기본 제공 렌더링 함수를 사용 하 여 Matplotlib와 같은 표준 그리기 라이브러리를 렌더링할 수 있습니다.
+
+다음 그림은 **Matplotlib** 를 사용 하 여 가로 막대형 차트를 만드는 예입니다.
+   ![선 그래프 예제입니다.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+
+위의 이미지를 그리려면 다음 샘플 코드를 실행합니다.
+
+```python
+# Bar chart
+
+import matplotlib.pyplot as plt
+
+x1 = [1, 3, 4, 5, 6, 7, 9]
+y1 = [4, 7, 2, 4, 7, 8, 3]
+
+x2 = [2, 4, 6, 8, 10]
+y2 = [5, 6, 2, 6, 2]
+
+plt.bar(x1, y1, label="Blue Bar", color='b')
+plt.bar(x2, y2, label="Green Bar", color='g')
+plt.plot()
+
+plt.xlabel("bar number")
+plt.ylabel("bar height")
+plt.title("Bar Chart Example")
+plt.legend()
+plt.show()
+```
+
+
 ### <a name="bokeh"></a>Bokeh
 를 사용 하 여 **빛 망 울** 와 같은 HTML 또는 대화형 라이브러리를 렌더링할 수 있습니다 ```displayHTML(df)``` . 
 
@@ -186,41 +218,49 @@ html = file_html(p, CDN, "my plot1")
 displayHTML(html)
 ```
 
-### <a name="matplotlib"></a>Matplotlib
-각 라이브러리에 대해 기본 제공 렌더링 함수를 사용 하 여 Matplotlib와 같은 표준 그리기 라이브러리를 렌더링할 수 있습니다.
 
-다음 그림은 **Matplotlib** 를 사용 하 여 가로 막대형 차트를 만드는 예입니다.
-   ![선 그래프 예제입니다.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
+### <a name="plotly"></a>Plotly
+**Displayhtml ()** 을 사용 하 여 **PLOTLY** 와 같은 HTML 또는 대화형 라이브러리를 렌더링할 수 있습니다.
 
-위의 이미지를 그리려면 다음 샘플 코드를 실행합니다.
+다음 샘플 코드를 실행 하 여 아래 이미지를 그립니다.
+
+   ![plotly-예제](./media/apache-spark-development-using-notebooks/synapse-plotly-image.png#lightbox)
+
 
 ```python
-# Bar chart
+from urllib.request import urlopen
+import json
+with urlopen('https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json') as response:
+    counties = json.load(response)
 
-import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/fips-unemp-16.csv",
+                   dtype={"fips": str})
 
-x1 = [1, 3, 4, 5, 6, 7, 9]
-y1 = [4, 7, 2, 4, 7, 8, 3]
+import plotly.express as px
 
-x2 = [2, 4, 6, 8, 10]
-y2 = [5, 6, 2, 6, 2]
+fig = px.choropleth(df, geojson=counties, locations='fips', color='unemp',
+                           color_continuous_scale="Viridis",
+                           range_color=(0, 12),
+                           scope="usa",
+                           labels={'unemp':'unemployment rate'}
+                          )
+fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
-plt.bar(x1, y1, label="Blue Bar", color='b')
-plt.bar(x2, y2, label="Green Bar", color='g')
-plt.plot()
+# create an html document that embeds the Plotly plot
+h = plotly.offline.plot(fig, output_type='div')
 
-plt.xlabel("bar number")
-plt.ylabel("bar height")
-plt.title("Bar Chart Example")
-plt.legend()
-plt.show()
+# display this html
+displayHTML(h)
 ```
+
 
 ### <a name="additional-libraries"></a>추가 라이브러리 
 이러한 라이브러리 외에도 Azure Synapse Analytics 런타임에는 데이터 시각화에 자주 사용 되는 다음과 같은 라이브러리 집합이 포함 되어 있습니다.
 - [Matplotlib](https://matplotlib.org/)
 - [Bokeh](https://bokeh.org/)
 - [Seaborn](https://seaborn.pydata.org/) 
+- [Plotly](https://plotly.com/)
 
 사용할 수 있는 라이브러리 및 버전에 대 한 최신 정보는 Azure Synapse Analytics 런타임 [설명서](./spark/../apache-spark-version-support.md) 를 참조 하세요.
 

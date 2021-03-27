@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863686"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612027"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Hyper-v에서 서버에 대 한 어플라이언스 설정
 
@@ -39,7 +39,7 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 
 1. **마이그레이션 목표**  >  **Windows, Linux 및 SQL server**  >  **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택 합니다.
 2. 서버 를  >  **가상화 하는** 서버 검색에서 **예, hyper-v 사용** 을 선택 합니다.
-3. **1: 프로젝트 키 생성** 에서 hyper-v의 서버를 검색 하는 데 설정할 Azure Migrate 어플라이언스의 이름을 제공 합니다. 이름은 14 자 이하의 영숫자여야 합니다.
+3. **1: 프로젝트 키 생성** 에서 hyper-v의 서버를 검색 하는 데 설정할 Azure Migrate 어플라이언스의 이름을 제공 합니다. 이름은 14자 이하의 영숫자여야 합니다.
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 서버 검색 페이지를 닫지 마십시오.
 1. Azure 리소스를 성공적으로 만든 후에는 **프로젝트 키** 가 생성 됩니다.
 1. 어플라이언스를 구성하는 동안 어플라이언스 등록을 완료하는 데 필요하므로 키를 복사합니다.
@@ -53,7 +53,6 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 
    ![키 생성 선택](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>보안 확인
 
 배포하기 전에 압축된 파일이 안전한지 확인합니다.
@@ -63,9 +62,7 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+위의 명령의 결과와 [여기](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security) 에 설명 된 값을 비교 하 여 최신 해시 값을 확인 합니다.
 
 ## <a name="create-the-appliance"></a>어플라이언스 만들기
 
@@ -85,7 +82,6 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 5. **네트워크 선택** 에서 서버가 사용할 가상 스위치를 지정 합니다. 이 스위치에는 데이터를 Azure로 보내기 위한 인터넷 연결이 필요합니다.
 6. **요약** 에서 설정을 검토합니다. **마침** 을 클릭합니다.
 7. Hyper-V 관리자 > **Virtual Machines** 에서 VM을 시작합니다.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
@@ -128,8 +124,6 @@ VHD 템플릿을 사용 하 여 어플라이언스를 설정 하려면:
 1. 성공적으로 로그인한 후 어플라이언스 구성 관리자를 사용하여 이전 탭으로 돌아갑니다.
 4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 시 만든 Azure 리소스에 대한 올바른 [권한](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account)이 있는 경우 어플라이언스 등록이 시작됩니다.
 1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기** 를 클릭하여 등록 세부 정보를 확인할 수 있습니다.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>SMB VHD에 대한 자격 증명 위임
 

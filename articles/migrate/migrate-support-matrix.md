@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b9ea447b0204ad91065f27d265584c8787167fc2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: af0b8a4d3dfbce32e412f5294fb19ade61fd7661
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870724"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628172"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -44,7 +44,7 @@ Azure Migrate: Server Migration | 해당 없음 | [VMware VM](tutorial-migrate-v
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware Vm, Hyper-v Vm, 물리적 서버 및 기타 클라우드 워크 로드를 평가 합니다. | 해당 없음
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | VMware Vm, Hyper-v Vm, 물리적 서버 샌드 그 밖의 클라우드 워크 로드를 평가 합니다. |  VMware VM, Hyper-V VM, 물리적 서버 및 퍼블릭 클라우드 워크로드를 마이그레이션합니다.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | VMware Vm, Hyper-v Vm, 물리적 서버 및 기타 클라우드 워크 로드를 평가 합니다.| 해당 없음
-[DMA](/sql/dma/dma-overview?view=sql-server-2017) | SQL Server 데이터베이스를 평가 합니다. | 해당 없음
+[DMA](/sql/dma/dma-overview) | SQL Server 데이터베이스를 평가 합니다. | 해당 없음
 [DMS](../dms/dms-overview.md) | 해당 없음 | SQL Server, Oracle, MySQL, PostgreSQL 및 MongoDB를 마이그레이션합니다. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI(가상 데스크톱 인프라)를 평가합니다. | 해당 없음
 [Movere](https://www.movere.io/) | VMware Vm, Hyper-v Vm, Xen Vm, 물리적 서버, 워크스테이션 (VDI 포함) 및 기타 클라우드 워크 로드를 평가 합니다. | 해당 없음
@@ -55,7 +55,7 @@ Azure Migrate: Server Migration | 해당 없음 | [VMware VM](tutorial-migrate-v
 [Zerto](https://go.microsoft.com/fwlink/?linkid=2157322) | 해당 없음 |  VMware Vm, Hyper-v Vm, 물리적 서버 및 기타 클라우드 워크 로드를 마이그레이션합니다.
 
 
-## <a name="project"></a>Project
+## <a name="project"></a>프로젝트
 
 **지원** | **세부 정보**
 --- | ---

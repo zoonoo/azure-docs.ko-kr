@@ -2,19 +2,19 @@
 title: 배열 및 중첩 된 구조로 스키마 분석
 description: Apache Spark 및 SQL을 사용 하 여 배열 및 중첩 구조를 분석 하는 방법
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: spark
 ms.date: 06/15/2020
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
-ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d4004887a4806a5b8e50429031fb204f4eec5000
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98220000"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627968"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 복잡 한 데이터 형식 분석
 

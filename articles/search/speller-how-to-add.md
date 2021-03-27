@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.custom: references_regions
-ms.openlocfilehash: be72cae8d109bfeccd60e8c821625f75357568e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52ac3ee4ea2f71e285d21c7b6d082e84fa090da1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103232361"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625911"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Cognitive Search에서 쿼리에 맞춤법 검사 추가
 
@@ -23,9 +23,9 @@ ms.locfileid: "103232361"
 
 검색 엔진에 도달 하기 전에 개별 검색 쿼리 용어를 철자 수정 하 여 회수를 향상 시킬 수 있습니다. **맞춤법 검사기** 매개 변수는 모든 쿼리 유형 ( [단순](query-simple-syntax.md), [전체](query-lucene-syntax.md)및 현재 공개 미리 보기로 제공 되는 새 [의미](semantic-how-to-query-request.md) 옵션)에 대해 지원 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-+ 영어 콘텐츠를 포함 하는 기존 검색 인덱스
++ 영어 콘텐츠를 포함 하는 기존 검색 인덱스입니다. 현재 철자 보정은 [동의어](search-synonyms.md)와는 작동 하지 않습니다. 모든 필드 정의에서 동의어 맵을 지정 하는 인덱스에는 사용 하지 마십시오.
 
 + 쿼리를 보내기 위한 검색 클라이언트
 

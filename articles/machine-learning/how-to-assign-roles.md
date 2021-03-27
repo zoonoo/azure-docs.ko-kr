@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
-ms.date: 01/20/2020
+ms.date: 03/26/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-ms.openlocfilehash: bdd59c80408910bf8ca51bf787c8ff15dc2a4893
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 4d037bdf266e70a2621b2627bc88abce30af652c
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889759"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612622"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
 
@@ -470,6 +470,7 @@ Azure RBAC (역할 기반 액세스 제어)를 사용 하는 동안 알아야 �
     네트워킹에 대 한 Azure RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조 하세요.
 
 - 경우에 따라 새 역할 할당이 스택에서 캐시 된 사용 권한에 적용 되는 데 최대 1 시간이 걸릴 수 있습니다.
+- 현재 Azure Machine Learning에서는 [조건부 액세스가](../role-based-access-control/conditional-access-azure-management.md) 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

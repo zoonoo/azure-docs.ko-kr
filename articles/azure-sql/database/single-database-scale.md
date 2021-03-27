@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5852899175f9cc9f2725b875c6e1ce9fd682768d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773252"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625270"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -61,7 +61,10 @@ VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](single-data
 > 또한 Standard (S2-S 12) 및 범용 데이터베이스의 경우 데이터베이스에서[PFS](../../storage/files/storage-files-introduction.md)(Premium File Share) 저장소를 사용 하는 경우 탄력적 풀에서 또는 탄력적 풀 간에 데이터베이스를 이동 하는 데 대 한 대기 시간이 데이터베이스 크기에 비례 합니다.
 >
 > 데이터베이스에서 PFS 저장소를 사용 하 고 있는지 확인 하려면 데이터베이스의 컨텍스트에서 다음 쿼리를 실행 합니다. AccountType 열의 값이 또는 인 경우 `PremiumFileStorage` `PremiumFileStorage-ZRS` 데이터베이스에서 PFS 저장소를 사용 합니다.
- 
+
+[!NOTE]
+ 중요 비즈니스용에서 범용 계층으로 크기를 조정할 때 기본적으로 영역 중복 속성은 동일 하 게 유지 됩니다. 범용 계층에 대 한 영역 중복성으로 전환 하기 위한 대기 시간 뿐만 아니라 영역 중복성이 사용 되는 경우이 다운 그레이드의 대기 시간은 데이터베이스 크기에 비례 합니다.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,

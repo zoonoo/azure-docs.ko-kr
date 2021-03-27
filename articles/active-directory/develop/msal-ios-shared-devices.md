@@ -1,7 +1,7 @@
 ---
 title: iOS 디바이스의 공유 디바이스 모드
 titleSuffix: Microsoft identity platform | Azure
-description: Frontline Worker가 iOS 장치를 공유할 수 있도록 공유 장치 모드를 사용 하도록 설정 하는 방법을 알아봅니다.
+description: Frontline worker가 iOS 장치를 공유할 수 있도록 공유 장치 모드를 사용 하도록 설정 하는 방법을 알아봅니다.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: c67c5d7b46c04e7f1aea020127ee798878c43d60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3353d87291492563acbd3a85bbae266c711377f2
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578790"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611806"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
@@ -95,7 +95,7 @@ ms.locfileid: "104578790"
 
 ### <a name="detect-shared-device-mode"></a>공유 장치 모드 검색
 
-응용 프로그램에는 공유 장치 모드를 검색 하는 것이 중요 합니다. 응용 프로그램을 공유 장치에서 사용 하는 경우 많은 응용 프로그램에서 사용자 환경 (UX)을 변경 해야 합니다. 예를 들어 응용 프로그램에 이미 계정이 있을 가능성이 있으므로 Frontline 작업자에 게 적합 하지 않은 "등록" 기능이 있을 수 있습니다. 또한 공유 장치 모드에 있는 경우 응용 프로그램의 데이터 처리에 추가 보안을 추가할 수 있습니다.
+응용 프로그램에는 공유 장치 모드를 검색 하는 것이 중요 합니다. 응용 프로그램을 공유 장치에서 사용 하는 경우 많은 응용 프로그램에서 사용자 환경 (UX)을 변경 해야 합니다. 예를 들어 응용 프로그램에 이미 계정이 있을 가능성이 있으므로 frontline 작업자에 게 적합 하지 않은 "등록" 기능이 있을 수 있습니다. 또한 공유 장치 모드에 있는 경우 응용 프로그램의 데이터 처리에 추가 보안을 추가할 수 있습니다.
 
 `getDeviceInformationWithParameters:completionBlock:`에서 API를 사용 `MSALPublicClientApplication` 하 여 공유 장치 모드의 장치에서 앱이 실행 되 고 있는지 확인 합니다.
 
@@ -230,6 +230,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## <a name="next-steps"></a>다음 단계
 
-작동 중인 공유 장치 모드를 확인 하기 위해 GitHub의 다음 코드 샘플에는 공유 장치 모드의 iOS 장치에서 Frontline Worker 앱을 실행 하는 예가 포함 되어 있습니다.
+작동 중인 공유 장치 모드를 확인 하기 위해 GitHub의 다음 코드 샘플에는 공유 장치 모드의 iOS 장치에서 frontline worker 앱을 실행 하는 예가 포함 되어 있습니다.
 
 [MSAL iOS Swift Microsoft Graph API 샘플](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)
