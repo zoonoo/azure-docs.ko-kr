@@ -4,12 +4,12 @@ description: 지원 설정 및 Azure Disk Backup 제한 사항에 대 한 요약
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107281"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612860"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Azure Disk Backup 지원 매트릭스
 
@@ -51,7 +51,7 @@ Azure Disk Backup은 다음 지역에서 제공 됩니다. 미국 서 부, 미�
 
 - 현재 디스크의 백업을 구성 하는 Azure Portal 환경은 동일한 구독의 최대 20 개의 디스크로 제한 됩니다.
 
-- 현재 미리 보기 중에는 PowerShell 및 Azure CLI를 사용 하 여 디스크의 백업 및 복원을 구성 하는 것이 지원 되지 않습니다.
+- Azure Disk Backup은 PowerShell을 지원 합니다. 현재 Azure CLI 지원 되지 않습니다.
 
 - 백업을 구성할 때 백업 하도록 선택한 디스크와 스냅숏이 저장 될 스냅숏 리소스 그룹은 동일한 구독의 일부 여야 합니다. 해당 디스크의 구독 외부에 있는 특정 디스크에 대해 증분 스냅숏을 만들 수 없습니다. 관리 디스크의 [증분 스냅숏에](../virtual-machines/disks-incremental-snapshots.md#restrictions) 대해 자세히 알아보세요. 스냅숏 리소스 그룹을 선택 하는 방법에 대 한 자세한 내용은  [백업 구성](backup-managed-disks.md#configure-backup)을 참조 하세요.
 
@@ -61,7 +61,7 @@ Azure Disk Backup은 다음 지역에서 제공 됩니다. 미국 서 부, 미�
 
 - 관리 디스크에 대 한 [개인 링크](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) 지원을 통해 Azure virtual network 내 에서만 발생 하도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Azure Disk Backup은 개인 끝점이 사용 하도록 설정 된 디스크의 백업을 지원 합니다. 여기에는 개인 끝점을 통해 액세스할 수 있는 백업 데이터 또는 스냅숏이 포함 되지 않습니다.
 
-- 미리 보기 중에는 백업을 사용 하지 않도록 설정할 수 없으므로 백업 **중지 및 백업 데이터 보존** 옵션은 지원 되지 않습니다. 백업을 중지 하 고 모든 백업 데이터를 삭제 하는 백업 인스턴스를 삭제할 수 있습니다.
+- 백업 인스턴스를 삭제 하면 백업이 중지 되 고 모든 백업 데이터가 삭제 됩니다. 백업 **중지 및 백업 데이터 보존** 옵션이 지원 되지 않으므로 현재 백업을 사용 하지 않도록 설정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

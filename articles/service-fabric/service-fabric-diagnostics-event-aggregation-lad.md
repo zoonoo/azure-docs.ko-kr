@@ -1,16 +1,14 @@
 ---
 title: Linux Azure 진단를 사용한 이벤트 집계
 description: Azure Service Fabric 클러스터 모니터링 및 진단을 위해 LAD를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 453258bb5768a2faa8f4e42cce86d02125283026
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: bd5efc6b661bf25ce7946cda0bcfa01be4c351a7
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96002173"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628937"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Linux Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]

@@ -2,15 +2,15 @@
 title: Bicep 모듈
 description: 모듈을 정의 하 고 사용 하는 방법과 모듈 범위를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889708"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611738"
 ---
-# <a name="use-bicep-modules"></a>Bicep 모듈 사용
+# <a name="use-bicep-modules-preview"></a>Bicep 모듈 사용 (미리 보기)
 
 Bicep를 사용 하면 복잡 한 솔루션을 모듈로 분할할 수 있습니다. Bicep 모듈은 함께 배포할 하나 이상의 리소스 집합입니다. 모듈은 가독성을 높일 수 있는 원시 리소스 선언의 복잡 한 세부 정보를 추상화 합니다. 이러한 모듈을 다시 사용 하 고 다른 사용자와 공유할 수 있습니다. [템플릿 사양과](./template-specs.md)결합 하 여 모듈화 및 코드 재사용을 위한 방법을 만듭니다. 자습서는 [자습서: Bicep 모듈 추가](./bicep-tutorial-add-modules.md)를 참조 하세요.
 

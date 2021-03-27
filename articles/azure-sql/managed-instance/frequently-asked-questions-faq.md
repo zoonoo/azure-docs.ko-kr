@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 42e263a47c6c771d2b1fef6586468cfc5a698e28
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9faaf79958443c252a8d913fbd7448389c610e09
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047918"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628580"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -135,7 +135,7 @@ Azure Portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance) [AZUR
 
 한 가지 옵션은 [데이터베이스를 bacpac로 내보낸](../database/database-export.md) 다음 [bacpac 파일을 가져오는](../database/database-import.md)것입니다. 데이터베이스가 100 GB 보다 작은 경우에 권장 되는 방법입니다.
 
-데이터베이스의 모든 테이블에 *기본* 키가 있고 데이터베이스에 메모리 내 OLTP 개체가 없는 경우 [트랜잭션 복제](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) 를 사용할 수 있습니다.
+데이터베이스의 모든 테이블에 *기본* 키가 있고 데이터베이스에 메모리 내 OLTP 개체가 없는 경우 [트랜잭션 복제](replication-two-instances-and-sql-server-configure-tutorial.md) 를 사용할 수 있습니다.
 
 관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 COPY_ONLY 백업을 SQL Server로 복원할 수 없습니다. 자세한 내용은 [복사 전용 백업](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15)을 참조 하세요.
 
@@ -171,7 +171,7 @@ SQL Server 인스턴스를 마이그레이션하려면 [SQL Server 인스턴스�
 
 다음을 수행 하 여 관리 되는 인스턴스의 성능을 최적화할 수 있습니다.
 - AI 및 기계 학습을 기반으로 하는 지속적인 성능 조정을 통해 최대 성능 및 안정적인 워크 로드를 제공 하는 [자동 조정](../database/automatic-tuning-overview.md)
--   트랜잭션 처리 워크 로드에 대 한 처리량과 대기 시간을 개선 하 고 더 빠른 비즈니스 통찰력을 제공 하는 [메모리 내 OLTP](../in-memory-oltp-overview.md) 
+-    트랜잭션 처리 워크 로드에 대 한 처리량과 대기 시간을 개선 하 고 더 빠른 비즈니스 통찰력을 제공 하는 [메모리 내 OLTP](../in-memory-oltp-overview.md) 
 
 성능을 더욱 잘 조정 하려면 [응용 프로그램 및 데이터베이스 튜닝](../database/performance-guidance.md#tune-your-database)에 대 한 몇 가지 *모범 사례* 를 적용 하는 것이 좋습니다.
 워크 로드가 많은 작은 트랜잭션으로 구성 된 경우에는 짧은 대기 시간 및 높은 처리량을 위해 [프록시에서 리디렉션 모드로 연결 유형을 전환 하는](connection-types-overview.md#changing-connection-type) 것이 좋습니다.
@@ -263,9 +263,9 @@ SLA를 달성 하기 위해 지속적으로 관리 트래픽의 흐름을 보장
 **Fqdn을 기준으로 아웃 바운드 관리 트래픽을 필터링 하도록 NVA 또는 온-프레미스 방화벽을 설정할 수 있나요?**
 
 아니요. 이는 다음과 같은 여러 가지 이유로 지원 되지 않습니다.
--   인바운드 관리 요청에 대 한 응답을 나타내는 트래픽 라우팅은 비대칭 이며 작동 하지 않을 수 있습니다.
--   저장소로 이동 하는 트래픽 라우팅은 처리량 제약 조건 및 대기 시간에 따라 달라 지 며, 이러한 방식으로 예상 된 서비스 품질 및 가용성을 제공할 수 없습니다.
--   경험에 따라 이러한 구성은 오류가 발생 하기 쉬우며 지원할 수 없습니다.
+-    인바운드 관리 요청에 대 한 응답을 나타내는 트래픽 라우팅은 비대칭 이며 작동 하지 않을 수 있습니다.
+-    저장소로 이동 하는 트래픽 라우팅은 처리량 제약 조건 및 대기 시간에 따라 달라 지 며, 이러한 방식으로 예상 된 서비스 품질 및 가용성을 제공할 수 없습니다.
+-    경험에 따라 이러한 구성은 오류가 발생 하기 쉬우며 지원할 수 없습니다.
 
 **아웃 바운드 관리 되지 않는 트래픽에 대해 NVA 또는 방화벽을 설정할 수 있나요?**
 
@@ -416,9 +416,9 @@ SQL Managed Instance는 [Vcore 기반 구매 모델](sql-managed-instance-paas-o
 **SQL Managed Instance에 사용할 수 있는 비용 혜택은 무엇 인가요?**
 
 다음과 같은 방법으로 Azure SQL 혜택을 통해 비용을 절감할 수 있습니다.
--   온-프레미스 라이선스에 대 한 기존 투자를 극대화 하 고 [Azure 하이브리드 혜택](../azure-hybrid-benefit.md?tabs=azure-powershell)하 여 최대 55%까지 비용을 절감할 수 있습니다. 
--   계산 리소스에 대 한 예약을 커밋하고 [예약 된 인스턴스 혜택](../database/reserved-capacity-overview.md)으로 최대 33%까지 비용을 절감할 수 있습니다. 최대 82%까지 비용을 절감할 수 있도록이를 Azure 하이브리드 혜택과 결합 하세요. 
--   진행 중인 개발 및 테스트 워크 로드에 대 한 할인 된 요금을 제공 하는 [Azure 개발/테스트 가격 혜택](https://azure.microsoft.com/pricing/dev-test/) 을 통해 최대 55% 대비 가격을 절감할 수 있습니다.
+-    온-프레미스 라이선스에 대 한 기존 투자를 극대화 하 고 [Azure 하이브리드 혜택](../azure-hybrid-benefit.md?tabs=azure-powershell)하 여 최대 55%까지 비용을 절감할 수 있습니다. 
+-    계산 리소스에 대 한 예약을 커밋하고 [예약 된 인스턴스 혜택](../database/reserved-capacity-overview.md)으로 최대 33%까지 비용을 절감할 수 있습니다. 최대 82%까지 비용을 절감할 수 있도록이를 Azure 하이브리드 혜택과 결합 하세요. 
+-    진행 중인 개발 및 테스트 워크 로드에 대 한 할인 된 요금을 제공 하는 [Azure 개발/테스트 가격 혜택](https://azure.microsoft.com/pricing/dev-test/) 을 통해 최대 55% 대비 가격을 절감할 수 있습니다.
 
 **예약 인스턴스 혜택을 받을 수 있는 사용자는 누구 인가요?**
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: fd9a811fd1c19d115f3ff15194b7e632114140df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c530d584282cebba78c095798944e48d7efe2c66
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92790256"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625637"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ ms.locfileid: "92790256"
 > [!IMPORTANT]
 > 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.
 > [!NOTE]
-> `tempdb`제한 사항은 [tempdb 제한](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb`제한 사항은 [tempdb 제한](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

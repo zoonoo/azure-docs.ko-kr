@@ -1,16 +1,14 @@
 ---
 title: Azure Monitor 로그를 사용 하 여 모니터링 설정
 description: Azure Service Fabric 클러스터를 모니터링 하기 위해 이벤트를 시각화 하 고 분석 하기 위해 Azure Monitor 로그를 설정 하는 방법을 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: srrengar
-ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 79dbc38f9d177bc3decf11673a68ce434f9a83bc
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570348"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625962"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>클러스터에 대 한 Azure Monitor 로그 설정
 

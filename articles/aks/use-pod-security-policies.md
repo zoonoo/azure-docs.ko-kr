@@ -3,27 +3,20 @@ title: Azure Kubernetes Service에서 pod 보안 정책 사용 (AKS)
 description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 하 여 pod 입학을 제어 하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.date: 03/25/2021
+ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544250"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611772"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
 > [!WARNING]
-> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 사용 중단에 대해 설정 되었으며** , [AKS에 대 한 Azure Policy를 위해](use-azure-policy.md)2021 년 6 월 30 일 이후에는 더 이상 사용할 수 없습니다. 사용 중단 날짜가 2020 년 10 월 15 일 이전 날짜에서 연장 되었습니다.
+> **이 문서 pod 보안 정책 (미리 보기)에 설명 된 기능은 버전 1.25에서 제거 된 Kubernetes 버전 1.21을 사용 하지 않는 상태로 시작 됩니다.** Kubernetes 업스트림은 해당 마일스 톤을 사용 하기 때문에 Kubernetes 커뮤니티는 실행 가능한 대체 항목을 문서화 하 게 됩니다. 이전 사용 중단 발표는 현재 고객에 게 실행 가능한 옵션이 없기 때문에 수행 되었습니다. Kubernetes 커뮤니티는 다른 방법으로 작업 중 이므로 Kubernetes 앞으로 사용 중단 하는 것이 더 이상 필요 하지 않습니다.
 >
 > Pod 보안 정책(미리 보기)이 더 이상 사용되지 않는 경우 향후 클러스터 업그레이드를 수행하고 Azure 지원을 유지하려면 더 이상 사용되지 않는 기능을 사용하여 기존 클러스터에서 이 기능을 사용하지 않도록 설정해야 합니다.
->
-> AKS에 대 한 Azure Policy를 사용 하 여 시나리오 테스트를 시작 하는 것이 좋습니다 .이는 기본 제공 정책을 사용 하 여 pod를 보호 하 고 기본 제공 이니셔티브를 사용 하 여 pod 보안 정책에 매핑합니다. Pod 보안 정책에서 마이그레이션하려면 클러스터에서 다음 작업을 수행 해야 합니다.
-> 
-> 1. 클러스터에서 [pod 보안 정책 사용 안 함](#clean-up-resources)
-> 1. [Azure Policy 추가 기능][azure-policy-add-on] 사용
-> 1. [사용 가능한 기본 제공 정책][policy-samples] 에서 원하는 Azure 정책 사용
-> 1. [Pod 보안 정책과 Azure Policy 간의 동작 변경 내용을](#behavior-changes-between-pod-security-policy-and-azure-policy) 검토 합니다.
 
 AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod을 제한할 수 있습니다. 허용 하지 않는 리소스를 요청 하는 pod는 AKS 클러스터에서 실행할 수 없습니다. Pod 보안 정책을 사용 하 여이 액세스를 정의 합니다. 이 문서에서는 pod 보안 정책을 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 

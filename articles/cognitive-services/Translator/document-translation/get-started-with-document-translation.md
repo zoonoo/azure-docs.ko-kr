@@ -6,18 +6,18 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047238"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612384"
 ---
 # <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
 
  이 문서에서는 HTTP REST API 메서드를 사용 하 여 문서 번역을 사용 하는 방법을 배웁니다. 문서 변환은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  문서 변환 API를 사용 하면 소스 문서 구조와 텍스트 서식을 유지 하면서 전체 문서를 변환할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 >
@@ -37,8 +37,8 @@ ms.locfileid: "105047238"
 
 > [!IMPORTANT]
 >
-> * 문서 변환에 대 한 HTTP 요청을 수행 하려면 Azure Portal 리소스 _키와 끝점_ 페이지 또는 전역 변환기 끝점 ()에 있는 끝점을 사용 하지 않습니다 `api.cognitive.microsofttranslator.com` .
 > * **문서 변환 서비스에 대 한 모든 API 요청에는 사용자 지정 도메인 끝점이 필요** 합니다.
+> * 문서 변환에 대 한 HTTP 요청을 수행 하려면 Azure Portal 리소스 _키와 끝점_ 페이지 또는 전역 변환기 끝점 ()에 있는 끝점을 사용 하지 않습니다 `api.cognitive.microsofttranslator.com` .
 
 ### <a name="what-is-the-custom-domain-endpoint"></a>사용자 지정 도메인 끝점은 무엇 인가요?
 
@@ -93,7 +93,7 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 
 * 새 프로젝트를 만듭니다.
 * Program.cs를 아래에 표시된 C# 코드로 바꿉니다.
-* 끝점을 설정 합니다. subscription 키, 그리고 Program .cs의 컨테이너 URL 값입니다.
+* Program .cs에서 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
 * JSON 데이터를 처리 하려면 [ .NET CLI를 사용 하 여 패키지에Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/)를 추가 합니다.
 * 프로젝트 디렉터리에서 프로그램을 실행 합니다.
 
@@ -174,7 +174,7 @@ gradle run
 * 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
 * '.go' 확장명으로 파일을 저장합니다.
 * Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-* 파일을 빌드합니다(예: 'go build example-code.go').
+* 파일을 빌드합니다. 예: ' go build example-code. go '.
 * 파일을 실행합니다(예: 'example-code').
 
  ---
@@ -187,7 +187,7 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 
 각 문서 변환기 API 요청에는 다음과 같은 헤더가 포함 됩니다.
 
-|HTTP 헤더|Description|
+|HTTP 헤더|설명|
 |---|--|
 |Ocp-Apim-Subscription-Key|**필수**: 값은 Translator 또는 Cognitive Services 리소스에 대 한 Azure 구독 키입니다.|
 |콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정 합니다. 허용 되는 값은 application/json 또는 charset = u t f-8입니다.|
@@ -207,26 +207,49 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 ## <a name="post-a-translation-request"></a>번역 요청 게시
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-without-optional-glossaryurl"></a>선택적 glossaryURL 없는 POST 요청 본문
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>컨테이너의 모든 문서를 변환 하는 POST 요청 본문
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>컨테이너의 특정 문서를 변환 하는 POST 요청 본문
+
+* "StorageType": "File"을 지정 했는지 확인 합니다.
+* 특정 blob/문서에 대 한 원본 URL & SAS 토큰을 생성 했는지 확인 합니다 (컨테이너가 아님). 
+* 대상 파일 이름을 대상 URL의 일부로 지정 했는지 확인 합니다. SAS 토큰은 아직 컨테이너에 대 한 것입니다.
+* 아래 샘플 요청에서는 두 개의 대상 언어로 번역 된 단일 문서를 보여 줍니다.
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -235,44 +258,10 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 }
 ```
 
-### <a name="post-request-body-with-optional-glossaryurl"></a>선택적 glossaryURL를 포함 하는 POST 요청 본문
-
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
 
 > [!IMPORTANT]
 >
-> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](../../cognitive-services-security.md?tabs=command-line%2ccsharp) 을 참조 하세요.
+> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) 을 참조 하세요.
 >
 > 작업에 따라 다음 필드를 업데이트 해야 할 수 있습니다.
 >>>
@@ -1247,7 +1236,7 @@ func main() {
 
 ## <a name="content-limits"></a>콘텐츠 제한
 
-다음 표에서는 문서 번역에 보내는 데이터의 제한을 나열 합니다.
+다음 표에서는 문서 번역 (미리 보기)에 보내는 데이터의 제한을 나열 합니다.
 
 |attribute | 제한|
 |---|---|

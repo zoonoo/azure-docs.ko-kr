@@ -3,12 +3,12 @@ title: 개인 링크 서비스를 사용 하 여 이벤트 제공
 description: 이 문서에서는 개인 링크 서비스를 사용 하 여 이벤트를 배달할 수 없다는 제한을 해결 하는 방법을 설명 합니다.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9df78e1cc7734ba9e455ed686286658006f9445e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722330"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629294"
 ---
 # <a name="deliver-events-using-private-link-service"></a>개인 링크 서비스를 사용 하 여 이벤트 제공
 현재 [개인 끝점](../private-link/private-endpoint-overview.md)을 사용 하 여 이벤트를 전달할 수 없습니다. 즉, 전달 된 이벤트 트래픽이 개인 IP 공간을 떠나지 않아야 하는 엄격한 네트워크 격리 요구 사항이 있는 경우에는 지원 되지 않습니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "104722330"
 ## <a name="deliver-events-to-event-hubs-using-managed-identity"></a>관리 id를 사용 하 여 Event Hubs에 이벤트 제공
 관리 id를 사용 하 여 Event Hubs 네임 스페이스의 event hubs에 이벤트를 전달 하려면 다음 단계를 수행 합니다.
 
-1. [토픽 또는 도메인에 대해 시스템이 할당 한 id를 사용 하도록 설정](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity)합니다. 
+1. 시스템 할당 id 사용: [시스템 항목](enable-identity-system-topics.md), [사용자 지정 항목 및 도메인](enable-identity-custom-topics-domains.md).  
 1. [Event Hubs 네임 스페이스의 **Azure Event Hubs 데이터 발신자** 역할에 id를 추가](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal)합니다.
 1. [Event Hubs 네임 스페이스에 대해 **신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 무시 하도록 허용** 설정을 사용 하도록 설정](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services)합니다. 
 1. 시스템 할당 id를 사용 하는 끝점으로 이벤트 허브를 사용 하는 [이벤트 구독을 구성](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) 합니다.
@@ -35,16 +35,16 @@ ms.locfileid: "104722330"
 ## <a name="deliver-events-to-service-bus-using-managed-identity"></a>관리 id를 사용 하 여 Service Bus에 이벤트 제공
 관리 id를 사용 하 여 Service Bus 네임 스페이스의 Service Bus 큐 또는 토픽에 이벤트를 전달 하려면 다음 단계를 수행 합니다.
 
-1. [토픽 또는 도메인에 대해 시스템이 할당 한 id를 사용 하도록 설정](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity)합니다. 
-1. Service Bus 네임 스페이스의 [Azure Service Bus 데이터 발신자](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) 역할에 id를 추가 합니다.
+1. 시스템 할당 id 사용: [시스템 항목](enable-identity-system-topics.md), [사용자 지정 항목 및 도메인](enable-identity-custom-topics-domains.md). 
+1. Service Bus 네임 스페이스의 [ **Azure Service Bus 데이터 발신자** 역할에 id를 추가](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) 합니다.
 1. [Service Bus 네임 스페이스에 대해 **신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 무시 하도록 허용** 설정을 사용 하도록 설정](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services)합니다. 
-1. 시스템이 할당 한 id를 사용 하려면 Service Bus 큐 또는 토픽을 끝점으로 사용 하는 [이벤트 구독을 구성](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) 합니다.
+1. 시스템이 할당 한 id를 사용 하려면 Service Bus 큐 또는 토픽을 끝점으로 사용 하는 [이벤트 구독을 구성](managed-service-identity.md) 합니다.
 
 ## <a name="deliver-events-to-storage"></a>저장소에 이벤트 제공 
 관리 id를 사용 하 여 저장소 큐에 이벤트를 전달 하려면 다음 단계를 수행 합니다.
 
-1. [토픽 또는 도메인에 대해 시스템이 할당 한 id를 사용 하도록 설정](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity)합니다.
-1. Azure Storage 큐의 [저장소 큐 데이터 메시지 발신자](../storage/common/storage-auth-aad-rbac-portal.md) 역할에 id를 추가 합니다.
+1. 시스템 할당 id 사용: [시스템 항목](enable-identity-system-topics.md), [사용자 지정 항목 및 도메인](enable-identity-custom-topics-domains.md). 
+1. Azure Storage 큐의 [ **저장소 큐 데이터 메시지 발신자** 역할에 id를 추가](../storage/common/storage-auth-aad-rbac-portal.md) 합니다.
 1. 시스템이 할당 한 id를 사용 하려면 Service Bus 큐 또는 토픽을 끝점으로 사용 하는 [이벤트 구독을 구성](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) 합니다.
 
 

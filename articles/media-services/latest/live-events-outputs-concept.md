@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454790"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625299"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -117,47 +117,68 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 라이브 이벤트가 만들어지면 라이브 온-프레미스 인코더에 제공할 수집 Url을 가져올 수 있습니다. 라이브 인코더는 이러한 URL을 사용하여 라이브 스트림을 입력합니다. 자세한 내용은 [권장 온-프레미스 라이브 인코더](recommended-on-premises-live-encoders.md)를 참조하세요.
 
 >[!NOTE]
-> 2020-05-01 API 릴리스부터 베 니 티 Url을 정적 호스트 이름 이라고 합니다.
+> 2020-05-01 API 릴리스부터는 "베 니 티" Url을 정적 호스트 이름 (useStaticHostname: true) 이라고 합니다.
 
-비베니티 URL 또는 베니티 URL을 사용할 수 있습니다.
 
 > [!NOTE]
-> 수집 URL을 예측하려면 "베니티" 모드를 설정합니다.
+> 수집 URL이 정적이 고 하드웨어 인코더 설정에서 사용할 수 있도록 예측 가능 하도록 하려면 **useStaticHostname** 속성을 true로 설정 하 고 각 생성 시 **accessToken** 속성을 동일한 GUID로 설정 합니다. 
 
-* 비베니티 URL
+### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>정적 (비 무작위) 수집 RTMP URL에 대 한 라이브 및 LiveEventInput 구성 설정 예제입니다.
 
-    베 니 티 URL은 Media Services v3의 기본 모드입니다. 라이브 이벤트를 신속 하 게 가져올 수 있지만 수집 URL은 라이브 이벤트가 시작 될 때만 알려집니다. 라이브 이벤트를 중지/시작 하면 URL이 변경 됩니다. 베 니 티은 최종 사용자가 앱에서 라이브 이벤트를 최대한 활용 하 고 동적 수집 URL이 문제가 되지 않는 앱을 사용 하 여 스트리밍하는 시나리오에서 유용 합니다.
+```csharp
+             LiveEvent liveEvent = new LiveEvent(
+                    location: mediaService.Location,
+                    description: "Sample LiveEvent from .NET SDK sample",
+                    // Set useStaticHostname to true to make the ingest and preview URL host name the same. 
+                    // This can slow things down a bit. 
+                    useStaticHostname: true,
+
+                    // 1) Set up the input settings for the Live event...
+                    input: new LiveEventInput(
+                        streamingProtocol: LiveEventInputProtocol.RTMP,  // options are RTMP or Smooth Streaming ingest format.
+                                                                         // This sets a static access token for use on the ingest path. 
+                                                                         // Combining this with useStaticHostname:true will give you the same ingest URL on every creation.
+                                                                         // This is helpful when you only want to enter the URL into a single encoder one time for this Live Event name
+                        accessToken: "acf7b6ef-8a37-425f-b8fc-51c2d6a5a86a",  // Use this value when you want to make sure the ingest URL is static and always the same. If omitted, the service will generate a random GUID value.
+                        accessControl: liveEventInputAccess, // controls the IP restriction for the source encoder.
+                        keyFrameIntervalDuration: "PT2S" // Set this to match the ingest encoder's settings
+                    ),
+```
+
+* 비정적 호스트 이름
+
+    비정적 호스트 이름은 **라이브** 를 만들 때 v3 Media Services의 기본 모드입니다. 라이브 이벤트는 약간 더 빠르게 할당 되지만 라이브 인코딩 하드웨어 또는 소프트웨어에 필요한 수집 URL은 무작위로 제공 됩니다. 라이브 이벤트를 중지/시작 하면 URL이 변경 됩니다. 비정적 호스트 이름은 최종 사용자가 라이브 이벤트를 매우 신속 하 게 사용 해야 하는 앱을 사용 하 여 스트리밍하 고 동적 수집 URL이 문제가 되지 않는 경우에만 유용 합니다.
 
     라이브 이벤트를 만들기 전에 클라이언트 앱에서 수집 URL을 미리 생성할 필요가 없는 경우 라이브 이벤트에 대 한 액세스 토큰을 자동으로 생성할 Media Services 있습니다.
 
-* 베니티 URL
+* 정적 호스트 이름 
 
-    베 니 티 모드는 하드웨어 브로드캐스트 인코더를 사용 하 고 라이브 이벤트를 시작할 때 인코더를 다시 구성 하지 않으려는 large media 방송사에서 선호 됩니다. 이러한 방송사는 시간이 지남에 따라 변경 되지 않는 예측 수집 URL을 원합니다.
+    정적 호스트 이름 모드는 특정 라이브 이벤트의 생성 이나 중지/시작 시 변경 되지 않는 RTMP 수집 URL을 사용 하 여 라이브 인코딩 하드웨어 또는 소프트웨어를 미리 구성 하려는 대부분의 운영자가 선호 합니다. 이러한 연산자는 시간이 지남에 따라 변경 되지 않는 예측 RTMP 수집 URL을 원합니다. 또한이는 정적 RTMP 수집 URL을 블랙 매직 Atem 미니 Pro 또는 유사한 하드웨어 인코딩 및 프로덕션 도구와 같은 하드웨어 인코딩 장치의 구성 설정에 푸시 해야 하는 경우에 매우 유용 합니다. 
 
     > [!NOTE]
-    > Azure Portal 베 니 티 URL의 이름은 "*정적 호스트 이름 접두사*"입니다.
+    > Azure Portal에서 정적 호스트 이름 URL은 "*정적 호스트 이름 접두사*" 라고 합니다.
 
     API에서이 모드를 지정 하려면를 `useStaticHostName` `true` 만들 때로 설정 합니다 (기본값은 `false` ). `useStaticHostname`가 true로 설정 되 면는 `hostnamePrefix` 라이브 이벤트 미리 보기에 할당 된 호스트 이름 중 첫 번째 부분을 지정 하 고 끝점을 수집 합니다. 최종 호스트 이름은이 접두사, 미디어 서비스 계정 이름 및 Azure Media Services 데이터 센터에 대 한 간단한 코드의 조합입니다.
 
     URL에서 임의의 토큰을 방지 하려면 만들 때 사용자 고유의 액세스 토큰 ()도 전달 해야 `LiveEventInput.accessToken` 합니다.  액세스 토큰은 하이픈을 포함 하거나 포함 하지 않는 유효한 GUID 문자열 이어야 합니다. 모드가 설정 된 후에는 업데이트할 수 없습니다.
 
-    액세스 토큰은 데이터 센터에서 고유 해야 합니다. 앱이 베 니 티 URL을 사용 해야 하는 경우 기존 GUID를 다시 사용 하는 대신 항상 액세스 토큰에 대 한 새 GUID 인스턴스를 만드는 것이 좋습니다.
+    액세스 토큰은 Azure 지역 및 Media Services 계정에서 고유 해야 합니다. 앱에서 정적 호스트 이름 수집 URL을 사용 해야 하는 경우에는 항상 지역, 미디어 서비스 계정 및 라이브 이벤트의 특정 조합에 사용할 새 GUID 인스턴스를 만드는 것이 좋습니다.
 
-    다음 Api를 사용 하 여 베 니 티 URL을 사용 하도록 설정 하 고 액세스 토큰을 유효한 GUID (예: `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` )로 설정 합니다.  
+    다음 Api를 사용 하 여 정적 호스트 이름 URL을 사용 하도록 설정 하 고 액세스 토큰을 유효한 GUID (예:)로 설정 `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` 합니다.  
 
-    |언어|베 니 티 URL 사용|액세스 토큰 설정|
+    |언어|정적 호스트 이름 URL 사용|액세스 토큰 설정|
     |---|---|---|
-    |REST|[vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--베 니 티](/cli/azure/ams/live-event#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[라이브. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--액세스 토큰](/cli/azure/ams/live-event#optional-parameters)|
+    |.NET|[라이브. useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *사용자의 액세스 토큰*: 베 니 티 모드를 사용할 때 설정 하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
+* *사용자의 액세스 토큰*: 정적 호스트 이름 설정을 사용 하는 경우 설정 하는 유효한 GUID 문자열입니다. 예들 들어 `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`입니다.
 * *스트림 이름*: 특정 연결의 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용 하는 라이브 인코더에 의해 추가 됩니다. 연결을 설명 하는 이름을 사용 하도록 라이브 인코더를 구성할 수 있습니다 (예: "video1_audio1", "video2_audio1", "stream").
 
-#### <a name="non-vanity-url"></a>비베니티 URL
+#### <a name="non-static-hostname-ingest-url"></a>비정적 호스트 이름 수집 URL
 
 ##### <a name="rtmp"></a>RTMP
 
@@ -171,7 +192,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### <a name="vanity-url"></a>베니티 URL
+#### <a name="static-hostname-ingest-url"></a>정적 호스트 이름 수집 URL
 
 다음 경로에서는 `<live-event-name>` 이벤트에 지정 된 이름 또는 라이브 이벤트를 만들 때 사용 되는 사용자 지정 이름을 의미 합니다.
 
@@ -204,7 +225,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
 라이브 출력에 대 한 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr.md)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 질문과 [대답](frequently-asked-questions.md#live-streaming) 문서를 참조 하세요.
 

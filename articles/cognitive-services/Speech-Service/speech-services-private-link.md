@@ -10,32 +10,35 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
-ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6971c6f0959135c7de1f41bcd49adde514f87941
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99559653"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625486"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>개인 끝점을 통해 Speech Services 사용
 
 [Azure 개인 링크](../../private-link/private-link-overview.md) 를 사용 하면 [개인 끝점](../../private-link/private-endpoint-overview.md)을 사용 하 여 azure에서 서비스에 연결할 수 있습니다. 개인 끝점은 특정 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 및 서브넷 내 에서만 액세스할 수 있는 개인 IP 주소입니다.
 
 이 문서에서는 Azure Cognitive Services에서 음성 서비스를 사용 하 여 개인 링크 및 개인 끝점을 설정 하 고 사용 하는 방법을 설명 합니다.
+그런 다음 나중에 개인 끝점을 제거 하는 방법을 설명 하지만 여전히 음성 리소스를 사용 합니다.
 
 > [!NOTE]
 > 계속 하기 전에 Cognitive Services에서 [가상 네트워크를 사용 하는 방법](../cognitive-services-virtual-networks.md)을 검토 하세요.
 
-이 문서는 [나중에 개인 끝점을 제거 하는 방법에 대해서도 설명 하지만 여전히 음성 리소스를 사용](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints)합니다.
+
 
 ## <a name="create-a-custom-domain-name"></a>사용자 지정 도메인 이름 만들기
 
 개인 끝점에는 [Cognitive Services에 대 한 사용자 지정 하위 도메인 이름이](../cognitive-services-custom-subdomains.md)필요 합니다. 다음 지침을 사용 하 여 음성 리소스에 대해 하나를 만듭니다.
 
 > [!WARNING]
-> 사용자 지정 도메인 이름이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 이러한 두 시나리오 모두에 대해 응용 프로그램 코드를 조정 해야 할 수 있습니다 [. 개인 끝점](#use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled) 은 사용 하도록 설정 되 고 개인 끝점은 [사용 하도록 설정 되어 *있지 않습니다*](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints).
+> 사용자 지정 도메인 이름을 사용 하는 음성 리소스는 다른 방식으로 음성 서비스와 상호 작용 합니다.
+> 전용 끝점에서 음성 리소스를 사용 하도록 응용 프로그램 코드를 조정 하 고 전용 끝점이 _없는_ 음성 리소스를 사용 해야 할 수도 있습니다.
+> 사용자 지정 도메인 이름으로 전환 _하는 것은 취소할 수_ 없기 때문에 두 시나리오 모두 필요할 수 있습니다.
 >
-> 사용자 지정 도메인 이름을 사용 하도록 설정 하면 작업을 [되돌릴 수 없습니다](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). [지역 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 으로 다시 이동 하는 유일한 방법은 새 음성 리소스를 만드는 것입니다.
+> 사용자 지정 도메인 이름을 설정 하면 작업을 [되돌릴 수 없습니다](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). [지역 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 으로 다시 이동 하는 유일한 방법은 새 음성 리소스를 만드는 것입니다.
 >
 > 음성 리소스에 많은 연결 된 사용자 지정 모델과 [Speech Studio](https://speech.microsoft.com/)를 통해 만든 프로젝트가 있는 경우 프로덕션에 사용 되는 리소스를 수정 하기 전에 테스트 리소스를 사용 하 여 구성을 시도 하는 것이 좋습니다.
 
@@ -119,7 +122,7 @@ subdomainName        : my-custom-name
 ```
 ## <a name="create-your-custom-domain-name"></a>사용자 지정 도메인 이름 만들기
 
-선택한 음성 리소스에 대해 사용자 지정 도메인 이름을 사용 하도록 설정 하려면 [AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet을 사용 합니다.
+선택한 음성 리소스에 대해 사용자 지정 도메인 이름을 설정 하려면 [AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet을 사용 합니다.
 
 > [!WARNING]
 > 다음 코드가 성공적으로 실행 되 면 음성 리소스에 대 한 사용자 지정 도메인 이름을 만듭니다. 이 이름은 변경할 수 *없습니다* .
@@ -144,7 +147,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-이 섹션에는 최신 버전의 Azure CLI 필요 합니다. Azure Cloud Shell 사용 하는 경우 최신 버전이 이미 설치 되어 있습니다.
+이 섹션에는 최신 버전의 Azure CLI 필요 합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="verify-that-the-custom-domain-name-is-available"></a>사용자 지정 도메인 이름을 사용할 수 있는지 확인 합니다.
 
@@ -183,9 +186,9 @@ az rest --method post --url "https://management.azure.com/subscriptions/xxxxxxxx
   "type": null
 }
 ```
-## <a name="enable-a-custom-domain-name"></a>사용자 지정 도메인 이름 사용
+## <a name="turn-on-a-custom-domain-name"></a>사용자 지정 도메인 이름 설정
 
-선택한 음성 리소스에 대해 사용자 지정 도메인 이름을 사용 하도록 설정 하려면 [az cognitiveservices account account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) 명령을 사용 합니다.
+선택한 음성 리소스와 함께 사용자 지정 도메인 이름을 사용 하려면 [az cognitiveservices account account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) 명령을 사용 합니다.
 
 음성 리소스를 포함 하는 Azure 구독을 선택 합니다. Azure 계정에 활성 구독이 하나만 있는 경우이 단계를 건너뛸 수 있습니다. `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 를 Azure 구독 ID로 바꿉니다.
 ```azurecli-interactive
@@ -202,13 +205,14 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ***
 
-## <a name="enable-private-endpoints"></a>전용 끝점 사용
+## <a name="turn-on-private-endpoints"></a>개인 끝점 설정
 
-개인 끝점에 필요한 업데이트를 사용 하 여 가상 네트워크에 연결 된 [개인 DNS 영역](../../dns/private-dns-overview.md) 을 사용 하는 것이 좋습니다. 프로 비전 프로세스 중에 기본적으로 개인 DNS 영역을 만듭니다. 자체 DNS 서버를 사용 하는 경우 DNS 구성을 변경 해야 할 수도 있습니다. 
+개인 끝점에 필요한 업데이트를 사용 하 여 가상 네트워크에 연결 된 [개인 DNS 영역](../../dns/private-dns-overview.md) 을 사용 하는 것이 좋습니다. 프로 비전 프로세스 중에 사설 DNS 영역을 만들 수 있습니다. 자체 DNS 서버를 사용 하는 경우 DNS 구성을 변경 해야 할 수도 있습니다.
 
 프로덕션 음성 리소스에 대 한 개인 끝점을 프로 비전 *하기 전에* DNS 전략을 결정 합니다. DNS 변경 (특히 사용자의 DNS 서버를 사용 하는 경우)을 테스트 합니다.
 
-다음 문서 중 하나를 사용 하 여 개인 끝점을 만듭니다. 이러한 문서에서는 웹 앱을 샘플 리소스로 사용 하 여 전용 끝점을 사용 하도록 설정 합니다.
+다음 문서 중 하나를 사용 하 여 개인 끝점을 만듭니다.
+이러한 문서에서는 웹 앱을 샘플 리소스로 사용 하 여 전용 끝점을 통해 사용할 수 있도록 합니다.
 
 - [Azure Portal을 사용하여 프라이빗 엔드포인트 만들기](../../private-link/create-private-endpoint-portal.md)
 - [Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기](../../private-link/create-private-endpoint-powershell.md)
@@ -248,7 +252,7 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 ### <a name="resolve-dns-from-other-networks"></a>다른 네트워크에서 DNS 확인
 
-리소스의 **네트워킹** 섹션에서 **모든 네트워크** 옵션이 나 **선택한 네트워크 및 개인 끝점** 액세스 옵션을 사용 하도록 설정한 경우에만이 확인을 수행 합니다. 
+리소스의 **네트워킹** 섹션에서 **모든 네트워크** 옵션이 나 **선택한 네트워크 및 개인 끝점** 액세스 옵션을 설정한 경우에만이 확인을 수행 합니다. 
 
 전용 엔드포인트를 사용 하 여 리소스에 액세스할 계획인 경우이 섹션을 건너뛸 수 있습니다.
 
@@ -271,18 +275,20 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 > [!NOTE]
 > 확인 된 IP 주소는 가상 네트워크 프록시 끝점을 가리키며,이 끝점은 네트워크 트래픽을 Cognitive Services 리소스의 개인 끝점으로 디스패치합니다. 이 동작은 사용자 지정 도메인 이름이 있지만 전용 끝점이 *없는* 리소스에 대해 다릅니다. 자세한 내용은 [이 섹션](#dns-configuration) 을 참조 하세요.
 
-## <a name="adjust-existing-applications-and-solutions"></a>기존 응용 프로그램 및 솔루션 조정
+## <a name="adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint"></a>전용 끝점에서 음성 리소스를 사용 하도록 응용 프로그램 조정
 
-사용자 지정 도메인이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 개인 끝점을 사용 하거나 사용 하지 않는 사용자 지정 도메인 사용 음성 리소스의 경우에도 마찬가지입니다. 이 섹션의 정보는 두 시나리오에 모두 적용 됩니다.
+사용자 지정 도메인을 사용 하는 음성 리소스는 음성 서비스와 다른 방식으로 상호 작용 합니다. 개인 끝점을 사용 하거나 사용 하지 않는 사용자 지정 도메인 사용 음성 리소스의 경우에도 마찬가지입니다. 이 섹션의 정보는 두 시나리오에 모두 적용 됩니다.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-a-private-endpoint-enabled"></a>사용자 지정 도메인 이름 및 개인 끝점이 설정 된 음성 리소스 사용
+이 섹션의 지침에 따라 기존 응용 프로그램 및 솔루션을 조정 하 여 사용자 지정 도메인 이름 및 개인 끝점이 설정 된 음성 리소스를 사용 합니다.
 
 사용자 지정 도메인 이름 및 개인 끝점이 설정 된 음성 리소스는 음성 서비스와 상호 작용 하는 다른 방법을 사용 합니다. 이 섹션에서는 Speech Service REST Api와 [SPEECH SDK](speech-sdk.md)를 사용 하 여 이러한 리소스를 사용 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> 개인 끝점이 없고 사용자 지정 도메인 이름을 사용 하도록 설정 된 음성 리소스도 음성 서비스와 상호 작용 하는 특별 한 방법이 있습니다. 이러한 방식은 개인 끝점 사용 음성 리소스의 시나리오와는 다릅니다. 이러한 리소스가 있는 경우 (예: 전용 끝점을 포함 하는 리소스가 있지만 제거 하기로 결정 한 경우)에는 [사용자 지정 도메인 이름을 사용 하 여 전용 끝점 없이 음성 리소스 사용](#use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints)섹션을 참조 하세요.
+> 사용자 지정 도메인 이름을 사용 하는 개인 끝점이 없는 음성 리소스에는 음성 서비스와 상호 작용 하는 특별 한 방법이 있습니다.
+> 이러한 방식은 개인 끝점을 사용 하는 음성 리소스의 시나리오와는 다릅니다. 이는 나중에 개인 끝점을 제거 하도록 결정할 수 있으므로 고려해 야 합니다.
+> 이 문서의 뒷부분에서 _전용 끝점 없이 음성 리소스를 사용 하도록 응용 프로그램 조정을_ 참조 하세요.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>사용자 지정 도메인 이름 및 개인 끝점을 사용 하는 음성 리소스: REST Api 사용
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-rest-apis"></a>사용자 지정 도메인 이름 및 개인 끝점을 사용 하는 음성 리소스: REST Api 사용
 
 `my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름 (사용자 지정 도메인)으로를 사용 합니다.
 
@@ -300,7 +306,7 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 다음 하위 섹션에서는 두 경우 모두에 대해 설명 합니다.
 
-##### <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
+#### <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
 
 일반적으로 음성 리소스는 [Cognitive Services 지역 끝점](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) 을 사용 하 여 [음성 텍스트 REST API v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30)과 통신 합니다. 이러한 리소스에는 다음과 같은 명명 형식이 있습니다. <p/>`{region}.api.cognitive.microsoft.com`.
 
@@ -313,9 +319,9 @@ https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions
 > [!NOTE]
 > Azure Government 및 Azure 중국 끝점은 [이 문서](sovereign-clouds.md) 를 참조 하세요.
 
-개인 끝점에 필요한 음성 리소스에 대해 사용자 지정 도메인을 사용 하도록 설정 하면 해당 리소스는 기본 REST API 끝점에 대해 다음 DNS 이름 패턴을 사용 합니다. <p/>`{your custom name}.cognitiveservices.azure.com`.
+개인 끝점에 필요한 음성 리소스에 대해 사용자 지정 도메인을 설정 하 고 나면 해당 리소스는 기본 REST API 끝점에 대해 다음 DNS 이름 패턴을 사용 합니다. <p/>`{your custom name}.cognitiveservices.azure.com`
 
-즉,이 예제에서 REST API 끝점 이름은 다음과 같습니다. <p/>`my-private-link-speech.cognitiveservices.azure.com`.
+즉,이 예제에서 REST API 끝점 이름은 다음과 같습니다. <p/>`my-private-link-speech.cognitiveservices.azure.com`
 
 그리고 샘플 요청 URL을로 변환 해야 합니다.
 ```http
@@ -323,14 +329,14 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 ```
 이 URL은 가상 네트워크에서 연결 된 개인 끝점 ( [올바른 DNS 확인](#resolve-dns-from-the-virtual-network)제공)을 사용 하 여 연결할 수 있어야 합니다.
 
-음성 리소스에 대해 사용자 지정 도메인 이름을 사용 하도록 설정한 후에는 일반적으로 모든 요청 Url의 호스트 이름을 새로운 사용자 지정 도메인 호스트 이름으로 바꿉니다. 이전 예제의 경로와 같은 요청의 다른 모든 부분은 `/speechtotext/v3.0/transcriptions` 동일 하 게 유지 됩니다.
+음성 리소스에 대 한 사용자 지정 도메인 이름을 설정한 후에는 일반적으로 모든 요청 Url의 호스트 이름을 새로운 사용자 지정 도메인 호스트 이름으로 바꿉니다. 이전 예제의 경로와 같은 요청의 다른 모든 부분은 `/speechtotext/v3.0/transcriptions` 동일 하 게 유지 됩니다.
 
 > [!TIP]
 > 일부 고객은 지역 끝점의 DNS 이름 (예: 특정 Azure 지역에 배포 된 음성 리소스에 요청을 보내는)의 지역 부분을 사용 하는 응용 프로그램을 개발 합니다.
 >
 > 음성 리소스의 사용자 지정 도메인에는 리소스가 배포 되는 지역에 대 한 정보가 포함 되어 *있지 않습니다* . 따라서 앞에서 설명한 응용 프로그램 논리는 작동 *하지* 않으며 변경 해야 합니다.
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
 
 짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 는 두 가지 유형의 끝점을 사용 합니다.
 - Cognitive Services REST API와 통신 하 여 권한 부여 토큰을 가져오는 [지역 끝점 Cognitive Services](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)
@@ -346,7 +352,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/speechtotext/v3.0/tra
 > [!NOTE]
 > 개인 끝점 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성-텍스트 REST API를 사용 하는 경우 헤더를 통해 전달 된 구독 키를 사용 합니다 `Ocp-Apim-Subscription-Key` . (짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md#request-headers)) [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#request-headers) 세부 정보를 참조 하세요.
 >
-> 권한 부여 토큰을 사용 하 고 헤더를 통해 특수 끝점에 전달 하는 것 `Authorization` 은 음성 리소스의 **네트워킹** 섹션에서 **모든 네트워크** 액세스 옵션을 사용 하도록 설정한 경우에 *만* 작동 합니다. 다른 경우에는 `Forbidden` `BadRequest` 권한 부여 토큰을 가져오려고 할 때 또는 오류를 받게 됩니다.
+> 권한 부여 토큰을 사용 하 고 헤더를 통해 특수 끝점에 전달 하는 것 `Authorization` 은 음성 리소스의 **네트워킹** 섹션에서 **모든 네트워크** 액세스 옵션을 설정한 경우에 *만* 작동 합니다. 다른 경우에는 `Forbidden` `BadRequest` 권한 부여 토큰을 가져오려고 할 때 또는 오류를 받게 됩니다.
 
 **텍스트 음성 변환 REST API 사용 예**
 
@@ -366,13 +372,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/tts/cognitiveservices
 ```
 Speech SDK의 [끝점 URL 생성](#construct-endpoint-url) 하위 섹션에서 자세한 설명을 참조 하세요.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>사용자 지정 도메인 이름 및 개인 끝점을 사용 하는 음성 리소스: Speech SDK 사용
+### <a name="speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk"></a>사용자 지정 도메인 이름 및 개인 끝점을 사용 하는 음성 리소스: Speech SDK 사용
 
 사용자 지정 도메인 이름 및 개인 끝점 사용 음성 리소스와 함께 Speech SDK를 사용 하려면 응용 프로그램 코드를 검토 하 고 변경 해야 합니다.
 
 `my-private-link-speech.cognitiveservices.azure.com`이 섹션에 대 한 샘플 음성 리소스 DNS 이름 (사용자 지정 도메인)으로를 사용 합니다.
 
-##### <a name="construct-endpoint-url"></a>끝점 URL 생성
+#### <a name="construct-endpoint-url"></a>끝점 URL 생성
 
 일반적으로 SDK 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API 시나리오에 대 한 음성-텍스트 REST API에서 음성 리소스는 다양 한 서비스 제공에 대 한 전용 지역 끝점을 사용 합니다. 이러한 끝점에 대 한 DNS 이름 형식은 다음과 같습니다.
 
@@ -431,16 +437,16 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 예 1의 동일한 원칙이 적용 되지만이 시간에 키 요소는입니다 `voice` .
 
-##### <a name="modifying-applications"></a>응용 프로그램 수정
+#### <a name="modifying-applications"></a>응용 프로그램 수정
 
 코드를 수정 하려면 다음 단계를 따르세요.
 
 1. 응용 프로그램 끝점 URL을 결정 합니다.
 
-   - [응용 프로그램에 대 한 로깅을 사용 하도록 설정](how-to-use-logging.md) 하 고 실행 하 여 작업을 로깅합니다.
+   - [응용 프로그램에 대 한 로깅을 설정](how-to-use-logging.md) 하 고 로그 작업에 실행 합니다.
    - 로그 파일에서을 검색 `SPEECH-ConnectionUrl` 합니다. 일치 하는 줄에서 `value` 매개 변수는 음성 서비스에 도달 하는 데 사용 되는 응용 프로그램의 전체 URL을 포함 합니다.
 
-   예제:
+   예:
 
    ```
    (114917): 41ms SPX_DBG_TRACE_VERBOSE:  property_bag_impl.cpp:138 ISpxPropertyBagImpl::LogPropertyAndValue: this=0x0000028FE4809D78; name='SPEECH-ConnectionUrl'; value='wss://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?traffictype=spx&language=en-US'
@@ -494,13 +500,13 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 이 수정 후에는 응용 프로그램이 개인 끝점 사용 음성 리소스를 사용 하 여 작업 해야 합니다. 개인 끝점 시나리오를 더욱 원활 하 게 지원 하기 위해 노력 하 고 있습니다.
 
-### <a name="use-a-speech-resource-with-a-custom-domain-name-and-without-private-endpoints"></a>사용자 지정 도메인 이름 및 전용 끝점 없이 음성 리소스 사용
+## <a name="adjust-an-application-to-use-a-speech-resource-without-private-endpoints"></a>전용 끝점 없이 음성 리소스를 사용 하도록 응용 프로그램 조정
 
 이 문서에서는 음성 리소스에 대해 사용자 지정 도메인을 사용 하도록 설정 하 *는 것을* 여러 번 확인 하지 않습니다. 이러한 리소스는 [지역 끝점 이름을](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)사용 하는 것과 비교 하 여 음성 서비스와 통신 하는 다른 방법을 사용 합니다.
 
-이 섹션에서는 사용 하도록 설정 된 사용자 지정 도메인 이름을 사용 하는 음성 리소스  를 사용 하는 방법에 대해 설명 [합니다.](speech-sdk.md) 이 리소스는 개인 끝점 시나리오에서 사용 된 후 전용 끝점이 삭제 된 것일 수 있습니다.
+이 섹션에서는 사용자 지정 도메인 이름으로 음성 리소스를 사용 하는 방법에 대해 설명 하지만, 음성 서비스 REST Api 및 [SPEECH SDK](speech-sdk.md)를 사용 하는 개인 끝점은 포함 *하지* 않습니다. 이 리소스는 개인 끝점 시나리오에서 사용 된 후 전용 끝점이 삭제 된 것일 수 있습니다.
 
-#### <a name="dns-configuration"></a>DNS 구성
+### <a name="dns-configuration"></a>DNS 구성
 
 개인 끝점 사용 음성 리소스의 사용자 지정 도메인 DNS 이름이 [공용 네트워크에서 확인](#resolve-dns-from-other-networks)되는 방법을 유념 하세요. 이 경우 확인 된 IP 주소는 가상 네트워크에 대 한 프록시 끝점을 가리킵니다. 이 끝점은 개인 끝점 사용 Cognitive Services 리소스에 대 한 네트워크 트래픽을 발송 하는 데 사용 됩니다.
 
@@ -524,22 +530,22 @@ Aliases:  my-private-link-speech.cognitiveservices.azure.com
 ```
 [이 섹션](#resolve-dns-from-other-networks)의 출력과 비교 합니다.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>사용자 지정 도메인 이름 및 전용 끝점이 없는 Speech 리소스: REST Api 사용
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-rest-apis"></a>사용자 지정 도메인 이름 및 전용 끝점이 없는 Speech 리소스: REST Api 사용
 
-##### <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
+#### <a name="speech-to-text-rest-api-v30"></a>음성 텍스트 REST API v 3.0
 
 음성 텍스트 REST API v 3.0 사용은 [개인 끝점 사용 음성 리소스](#speech-to-text-rest-api-v30)의 경우와 완전히 동일 합니다.
 
-##### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
+#### <a name="speech-to-text-rest-api-for-short-audio-and-text-to-speech-rest-api"></a>짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성 텍스트 REST API
 
 이 경우 짧은 오디오의 경우 음성 텍스트 REST API를 사용 하 고 텍스트 음성 변환 REST API를 사용 하는 데는 일반적인 경우와는 차이가 없으며 한 가지 예외가 있습니다. 다음 참고를 참조 하세요. 짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md) 설명서 [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) 설명 된 대로 두 api를 모두 사용 해야 합니다.
 
 > [!NOTE]
 > 사용자 지정 도메인 시나리오에서 짧은 오디오 및 텍스트 음성 변환 REST API에 대 한 음성-텍스트 REST API를 사용 하는 경우 헤더를 통해 전달 된 구독 키를 사용 합니다 `Ocp-Apim-Subscription-Key` . (짧은 오디오 및 [텍스트 음성 변환 REST API](rest-text-to-speech.md#request-headers)) [에 대 한 음성 텍스트 REST API](rest-speech-to-text.md#request-headers) 세부 정보를 참조 하세요.
 >
-> 권한 부여 토큰을 사용 하 고 헤더를 통해 특수 끝점에 전달 하는 것 `Authorization` 은 음성 리소스의 **네트워킹** 섹션에서 **모든 네트워크** 액세스 옵션을 사용 하도록 설정한 경우에 *만* 작동 합니다. 다른 경우에는 `Forbidden` `BadRequest` 권한 부여 토큰을 가져오려고 할 때 또는 오류를 받게 됩니다.
+> 권한 부여 토큰을 사용 하 고 헤더를 통해 특수 끝점에 전달 하는 것 `Authorization` 은 음성 리소스의 **네트워킹** 섹션에서 **모든 네트워크** 액세스 옵션을 설정한 경우에 *만* 작동 합니다. 다른 경우에는 `Forbidden` `BadRequest` 권한 부여 토큰을 가져오려고 할 때 또는 오류를 받게 됩니다.
 
-#### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>사용자 지정 도메인 이름 및 개인 끝점이 없는 음성 리소스: Speech SDK 사용
+### <a name="speech-resource-with-a-custom-domain-name-and-without-private-endpoints-usage-with-the-speech-sdk"></a>사용자 지정 도메인 이름 및 개인 끝점이 없는 음성 리소스: Speech SDK 사용
 
 Private 끝점이 *없는* 사용자 지정 도메인 사용 음성 리소스와 함께 speech sdk를 사용 하는 것은 [speech sdk 설명서](speech-sdk.md)에 설명 된 일반적인 경우와 동일 합니다.
 

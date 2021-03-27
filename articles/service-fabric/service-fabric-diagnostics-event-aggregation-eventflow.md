@@ -1,17 +1,15 @@
 ---
 title: EventFlow를 사용 하 여 Azure Service Fabric 이벤트 집계
 description: Azure Service Fabric 클러스터 모니터링 및 진단을 위해 EventFlow를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
-ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5a502fe05a862893d2c4879a6976d8d8d1044cbf
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96006339"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627764"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>EventFlow를 사용하여 이벤트 집계 및 수집
 

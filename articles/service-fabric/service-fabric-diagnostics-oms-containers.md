@@ -1,16 +1,14 @@
 ---
 title: Azure Monitor 로그를 사용 하 여 컨테이너 모니터링
 description: Azure Service Fabric 클러스터에서 실행 중인 컨테이너를 모니터링 하려면 Azure Monitor 로그를 사용 합니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: 6539815875b87a0d0f525d7e89464fa7d2505746
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6217569dc50517c88a5a8a7bc0f3752e7e327f4e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570193"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626659"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 컨테이너 모니터링
  

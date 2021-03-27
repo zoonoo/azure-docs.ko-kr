@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564010"
+ms.locfileid: "105611976"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Azure로 VMware 가상 컴퓨터의 에이전트 없는 마이그레이션 확장
 
@@ -43,8 +43,8 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 
 스케일 아웃 어플라이언스를 추가 하려면 아래에 설명 된 단계를 따르세요.
 
-1. **검색** 을 클릭  >  **하면 컴퓨터가 가상화 되었습니까?** 
-1. **VMware VSphere 하이퍼바이저를 사용 하 여 예를 선택 합니다.**
+1.   >  **컴퓨터가 가상화 되었습니까?** 를 클릭 합니다. 
+1. **VMware vSphere 하이퍼바이저를 사용 하 여 예를 선택 합니다.**
 1. 다음 단계에서 에이전트 없는 복제를 선택 합니다.
 1. 어플라이언스 유형 선택 메뉴에서 **기존 기본 어플라이언스 확장** 을 선택 합니다.
 1. 스케일 아웃 하려는 기본 어플라이언스 (검색을 사용 하는 어플라이언스)를 선택 합니다.
@@ -54,7 +54,7 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 ### <a name="1-generate-the-azure-migrate-project-key"></a>1. Azure Migrate 프로젝트 키 생성
 
 1. **Azure Migrate 프로젝트 키 생성** 에서 스케일 아웃 어플라이언스에 대 한 접미사 이름을 제공 합니다. 접미사는 영숫자 문자만 포함할 수 있으며 길이는 14 자로 제한 됩니다.
-2. **키 생성** 을 클릭 하 여 필요한 Azure 리소스 만들기를 시작 합니다. 리소스를 만드는 동안 [검색] 페이지를 닫지 마세요.
+2. **키 생성** 을 클릭 하 여 필요한 Azure 리소스 만들기를 시작 합니다. 리소스를 만드는 동안 검색 페이지를 닫지 마십시오.
 3. 생성 된 키를 복사 합니다. 확장 어플라이언스 등록을 완료 하려면 나중에 키가 필요 합니다.
 
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. 스케일 아웃 어플라이언스에 대 한 설치 관리자 다운로드
@@ -68,8 +68,8 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 > 1. 관리자 권한으로 명령 프롬프트 열기
 > 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. 계산 된 해시 값이이 문자열과 일치 하지 않는 경우 포털에서 스케일 아웃 어플라이언스 설치 관리자의 최신 버전을 다운로드 합니다. e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+    - 퍼블릭 클라우드의 사용 예: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. 계산 된 해시 값이이 문자열과 일치 하지 않는 경우 포털에서 스케일 아웃 어플라이언스 설치 관리자의 최신 버전을 다운로드 합니다. 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Azure Migrate 설치 프로그램 스크립트 실행
 설치 프로그램 스크립트는 다음을 수행합니다.
@@ -108,7 +108,7 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 - **사용 조건** 에 동의하고 타사 정보를 읽습니다.
 - 구성 관리자 > **필수 구성 요소 설정** 에서 다음을 수행합니다.
    - **연결**: 어플라이언스가 서버의 인터넷 연결을 확인합니다. 서버에서 프록시를 사용하는 경우:
-     1. **프록시 설정** 을 클릭하여 프록시 주소(http://ProxyIPAddress 또는 http://ProxyFQDN) 형식) 및 수신 대기 포트를 지정합니다.
+     1. **설정 프록시** 를 클릭 하 여 양식 http://ProxyIPAddress 또는 http://ProxyFQDN) 수신 대기 포트에서 프록시 주소를 지정 합니다.
      2. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
      3. HTTP 프록시만 지원됩니다.
      4. 프록시 세부 정보를 추가하거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장** 을 클릭하여 연결 확인을 다시 트리거합니다.
@@ -124,7 +124,7 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="디바이스 코드를 보여주는 모달":::
 
 1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. 새 탭에서 Azure 사용자 이름 및 암호를 사용 하 여 장치 코드를 붙여넣고 로그인 합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
@@ -150,7 +150,7 @@ VMware 가상 컴퓨터에 대해 에이전트 없는 마이그레이션 방법�
 파일을 성공적으로 가져오면 스케일 아웃 어플라이언스의 등록이 완료 되 고 마지막으로 성공한 가져오기의 타임 스탬프가 표시 됩니다. **자세히 보기** 를 클릭 하 여 등록 세부 정보를 볼 수도 있습니다.
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="스크린샷 Azure Migrate 프로젝트를 사용 하는 스케일 아웃 어플라이언스 등록을 보여 줍니다.":::
 
-이 시점에서 확장 기기가 vCenter 서버에 연결할 수 있는지 유효성을 다시 검사 해야 합니다. **유효성** 재검사를 클릭 하 여 스케일 아웃 어플라이언스에서 vCenter Server 연결의 유효성을 검사 합니다.
+이 시점에서 확장 기기가 vCenter 서버에 연결할 수 있는지 다시 유효성을 다시 검사 해야 합니다. **유효성** 재검사를 클릭 하 여 스케일 아웃 어플라이언스에서 vCenter Server 연결의 유효성을 검사 합니다.
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="유효성을 검사할 보기 자격 증명과 검색 원본을 보여 주는 스크린샷":::
 
 > [!IMPORTANT]

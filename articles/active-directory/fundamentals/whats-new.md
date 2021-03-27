@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0b53fc47c6e93c0750ba729a1b4670289d7714
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 03e783353f65ba2017dda9f6ca21a68ae6cff4de
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105560406"
+ms.locfileid: "105612248"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -270,20 +270,20 @@ CTL에서 새로 고침 및 세션 수명 수명 구성이 사용 중지 됩니�
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>공개 미리 보기-대규모로 Frontline 작업자를 위한 Android 공유 장치 사용자 지정 및 구성
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>공개 미리 보기-대규모로 frontline 작업자를 위한 Android 공유 장치 사용자 지정 및 구성
 
 **유형:** 새로운 기능  
 **서비스 범주:** 장치 등록 및 관리  
 **제품 기능:** Id 보안 & 보호
  
-Azure AD 및 Microsoft 끝점 관리자 팀은 Frontline Worker 장치를 사용자 지정 하 고, 크기를 조정 하 고, 보호 하는 기능을 결합 했습니다.
+Azure AD 및 Microsoft 끝점 관리자 팀은 frontline worker 장치를 사용자 지정 하 고, 크기를 조정 하 고, 보호 하는 기능을 결합 했습니다.
 
 다음 미리 보기 기능을 사용 하 여 다음을 수행할 수 있습니다.
 - Microsoft Endpoint Manager를 사용 하 여 대규모로 Android 공유 장치 프로 비전
 - 장치 기반 조건부 액세스를 사용 하 여 이동 작업자에 대 한 액세스 보호
 - 관리 되는 홈 화면을 사용 하 여 이동 작업자의 로그인 환경 사용자 지정
 
-자세히 알아보려면 [대규모로 Frontline 작업자를 위한 공유 장치 사용자 지정 및 구성](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708)을 참조 하세요.
+자세히 알아보려면 [대규모로 frontline 작업자를 위한 공유 장치 사용자 지정 및 구성](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708)을 참조 하세요.
 
 ---
 

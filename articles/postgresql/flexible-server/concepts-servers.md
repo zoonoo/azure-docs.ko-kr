@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: e3b04563b0da3255c63208b73c9ecdbd62ff0cf7
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609296"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626846"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>서버-Azure Database for PostgreSQL-유연한 서버
 
@@ -42,8 +42,8 @@ PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이�
 
 다음과 같은 요소를 활용하면 데이터베이스에 안전하게 액세스할 수 있습니다.
 
-|||
-|:--|:--|
+| 보안 개념 | 설명 |
+| :-- | :-- |
 | **인증 및 권한 부여** | PostgreSQL용 Azure 데이터베이스 서버는 네이티브 PostgreSQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 PostgreSQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |
 | **TCP/IP** | 이 프로토콜은 TCP/IP 및 Unix 도메인 소켓을 통해 지원됩니다. |

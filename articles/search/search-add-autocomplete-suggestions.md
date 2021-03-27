@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a46c7f35e30b2dda7b4800ed553447cef5bb5d33
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609355"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626710"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -81,13 +81,15 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 쿼리 용어를 자동으로 채우거 나 일치 하는 링크 목록을 삭제 하려면 사용자 상호 작용 코드 (일반적으로 JavaScript)를 사용 해야 합니다 .이 코드는 자동 완성 또는 Azure Search 인식 인덱스에 대 한 제안 쿼리와 같은 외부 소스의 요청을 사용할 수 있습니다.
 
-이 코드를 기본적으로 작성할 수 있지만 기존 JavaScript 라이브러리의 함수를 사용 하는 것이 훨씬 쉽습니다. 이 문서에서는 두 가지를 설명 하 고, 다른 하나는 자동 완성 기능을 설명 합니다. 
+이 코드를 기본적으로 작성할 수 있지만 다음 중 하 나와 같은 기존 JavaScript 라이브러리의 함수를 사용 하는 것이 훨씬 쉽습니다. 
 
 + [자동 완성 위젯 (JQUERY UI)](https://jqueryui.com/autocomplete/) 이 제안 코드 조각에 나타납니다. 검색 상자를 만든 다음 자동 완성 위젯을 사용 하는 JavaScript 함수에서 검색 상자를 참조할 수 있습니다. 위젯의 속성은 원본 (자동 완성 또는 제안 함수), 작업을 수행 하기 전의 최소 입력 문자 길이 및 위치 지정을 설정 합니다.
 
 + [XDSoft 자동 완성 플러그](https://xdsoft.net/jqplugins/autocomplete/) 인이 자동 완성 코드 조각에 표시 됩니다.
 
-이러한 라이브러리를 사용하여 제안과 자동 완성을 모두 지원하는 검색 상자를 빌드합니다. 검색 상자에 수집 된 입력은 제안 및 자동 완성 작업과 쌍을 이룹니다.
++ [제안 사항은](https://www.npmjs.com/package/suggestions) [JavaScript 자습서](tutorial-javascript-overview.md) 및 코드 샘플에 표시 됩니다.
+
+클라이언트에서 이러한 라이브러리를 사용 하 여 제안과 자동 완성을 모두 지 원하는 검색 상자를 만듭니다. 검색 상자에 수집 된 입력은 검색 서비스의 제안 및 자동 완성 작업과 함께 사용할 수 있습니다.
 
 ## <a name="suggestions"></a>제안
 
@@ -249,5 +251,5 @@ Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는
 
 다음 링크를 따라 포괄적인 검색 환경을 보여 주는 종단 간 지침 또는 코드를 참조 하세요. 이 샘플에서는 제안 및 자동 완성의 하이브리드 구현을 보여 줍니다.
 
-+ [자습서: c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [C # 코드 샘플: azure-검색-dotnet-samples/create-first-app/3-추가 형식 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
++ [웹 사이트에 검색 추가 (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) 는 클라이언트 앱의 부분 용어 완성을 위해 오픈 소스 제안 패키지를 사용 합니다.
++ 자습서: 연결 된 c # 코드 샘플을 사용 하 여 [c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md) [: azure-검색-dotnet-samples/Create-first-app/3-추가 유형 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) 시연 형식에 대 한 기본 지원

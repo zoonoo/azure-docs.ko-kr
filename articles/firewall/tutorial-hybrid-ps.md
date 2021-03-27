@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/26/2021
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e60c829831bde3b454ab180d1a39ec46cb346963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: db60c26ed50dae3b4b28a6c44d152a921eb96a69
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94658658"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627560"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -46,7 +46,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 PowerShell을 로컬로 실행 해야 합니다. Azure PowerShell 모듈을 설치해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
@@ -61,9 +61,9 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 이러한 경로를 만드는 방법을 보려면이 문서의 [경로 만들기](#create-the-routes) 섹션을 참조 하세요.
 
 >[!NOTE]
->Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet** 으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
+>Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet가 BGP를 통해 온-프레미스 네트워크에 대 한 기본 경로를 학습 하는 경우 강제 터널링 모드에서 Azure 방화벽을 구성 해야 합니다. 강제 터널링 모드로 다시 구성할 수 없는 기존 Azure 방화벽 인 경우 직접 인터넷 연결을 유지 하려면 **인터넷** 으로 설정 된 **NextHopType** 값을 사용 하 여 AzureFirewallSubnet에 0.0.0.0/0 udr을 추가 하는 것이 좋습니다.
 >
->Azure Firewall은 강제 터널링을 지원하도록 구성할 수 있습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
+>자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
 
 >[!NOTE]
 >직접 피어링된 VNet 사이의 트래픽은 UDR이 기본 게이트웨이로 Azure Firewall을 가리키는 경우에도 직접 라우팅됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 UDR에 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.

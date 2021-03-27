@@ -1,16 +1,14 @@
 ---
 title: 시스템 상태 보고서를 사용하여 문제 해결
 description: Azure Service Fabric 구성 요소에서 보낸 상태 보고서와 클러스터 또는 애플리케이션 문제 해결에 대한 사용을 설명합니다.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 8e60ac5065c2f9543a641daf4f62299c00c61fc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 483483746b2cce66588e9481bca7e0de391070b8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96000660"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625894"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>시스템 상태 보고서를 사용하여 문제 해결
 Azure Service Fabric 구성 요소가 클러스터 내의 모든 엔터티에 대해 즉각적으로 시스템 상태 보고서를 제공합니다. [Health 스토어](service-fabric-health-introduction.md#health-store) 는 시스템 보고서를 기반으로 엔터티를 만들고 삭제합니다. 또한 엔터티 상호 작용을 캡처하는 계층 구조에서 보고서를 구성합니다.
@@ -139,7 +137,7 @@ HealthEvents          :
 ## <a name="application-system-health-reports"></a>애플리케이션 시스템 상태 보고서
 클러스터 관리자 서비스를 나타내는 System.CM은 애플리케이션에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 애플리케이션을 만들거나 업데이트할 때 System.CM은 확인을 보고합니다. 애플리케이션을 삭제할 때 스토어에서 제거할 수 있도록 Health 스토어에 이를 알려줍니다.
 
 * **SourceId**: System.CM
@@ -172,7 +170,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>서비스 시스템 상태 보고서
 장애 조치(failover) 관리자 서비스를 나타내는 System.FM은 서비스에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 System.FM은 서비스가 만들어질 때 확인을 보고합니다. 서비스가 삭제되면 Health 스토어에서 엔터티를 삭제합니다.
 
 * **SourceId**: System.FM
@@ -214,7 +212,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>파티션 시스템 상태 보고서
 장애 조치(failover) 관리자 서비스를 나타내는 System.FM은 서비스 파티션에 대한 정보를 관리하는 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 System.FM은 파티션이 생성되고 정상적이면 확인을 보고합니다. 파티션이 삭제될 때 Health 스토어에서 엔터티를 삭제합니다.
 
 파티션이 최소 복제본 수 이하인 경우 오류를 보고합니다. 파티션이 최소 복제본 개수 이하는 아니지만 대상 복제본 개수 이하라면 경고를 보고합니다. 파티션이 쿼럼 손실인 경우 System.FM이 오류를 보고합니다.
@@ -391,7 +389,7 @@ HealthEvents          :
 ## <a name="replica-system-health-reports"></a>복제본 시스템 상태 보고서
 재구성 에이전트 구성 요소를 나타내는 **System.RA** 는 복제본 상태의 기관입니다.
 
-### <a name="state"></a>시스템 상태
+### <a name="state"></a>주
 System.RA는 복제본이 만들어지면 정상으로 보고합니다.
 
 * **SourceId**: System.RA
@@ -647,7 +645,7 @@ HealthEvents          :
 
 - **Istatefulservicereplica.open. istatefulservicereplica.changerole (P)**: 가장 일반적인 경우는 서비스에서 작업을 반환 하지 않았기 때문입니다 `RunAsync` .
 
-정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예를 들면 다음과 같습니다.
+정지 될 수 있는 다른 API 호출은 **Ireplicator** 인터페이스에 있습니다. 예를 들어:
 
 - **IReplicator.CatchupReplicaSet**:이 경고는 다음 두 가지 중 하나를 나타냅니다. 복제본이 충분하지 않습니다. 이러한 경우에 해당하는지 확인하려면 파티션에 있는 복제본의 복제본 상태 또는 중단된 재구성을 위한 System.FM 상태 보고서를 살펴봅니다. 복제본이 작업을 승인하고 있지 않습니다. `Get-ServiceFabricDeployedReplicaDetail` PowerShell cmdlet은 모든 복제본의 진행 상황을 확인하는 데 사용할 수 있습니다. 문제는 `LastAppliedReplicationSequenceNumber` 값이 주 복제본의 `CommittedSequenceNumber` 값 뒤에 있는 복제본에 있습니다.
 
