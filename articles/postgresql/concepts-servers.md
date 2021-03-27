@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 215b7e908b21b1843b36a1e55972038c49ee101a
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 1d1751ed56f63105ce7775ceaed9ea2dcca1f8bf
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605317"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628138"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버
 이 문서에서는 Azure Database for PostgreSQL 단일 서버를 사용 하기 위한 고려 사항 및 지침을 제공 합니다.
@@ -36,7 +36,7 @@ PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이�
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>PostgreSQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
 다음과 같은 요소를 활용하면 데이터베이스에 안전하게 액세스할 수 있습니다.
 
-|||
+|보안 개념|설명|
 |:--|:--|
 | **인증 및 권한 부여** | PostgreSQL용 Azure 데이터베이스 서버는 네이티브 PostgreSQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 PostgreSQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |

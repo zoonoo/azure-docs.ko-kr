@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 8bb858bc29ac18d110f2679c3681fd4d27b72baa
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: ac5ed0e5941c6251d632d029fe4c9f80bbcf12df
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105607692"
+ms.locfileid: "105612554"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU 업데이트 
 
@@ -112,7 +112,7 @@ Azure Portal를 통해 업데이트를 설치 하는 것이 좋습니다. 디바
 
 8. 장치 업데이트를 사용할 수 있음을 나타내는 알림 배너가 표시 됩니다. 이 배너를 선택 하 여 장치에서 Kubernetes 소프트웨어 업데이트를 시작 합니다. 
 
-    ![업데이트 13 이후 소프트웨어 버전](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
+    ![업데이트 13a 이후 소프트웨어 버전](./media/azure-stack-edge-gpu-install-update/portal-update-13.png) 
 
 
     ![업데이트 14 이후 소프트웨어 버전](./media/azure-stack-edge-gpu-install-update/portal-update-14-a.png) 

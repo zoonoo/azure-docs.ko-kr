@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa520b7d77a283e7dda883e99475947a8ccfa862
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92780815"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625628"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -154,7 +154,7 @@ ms.locfileid: "92780815"
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 컴퓨팅 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 > [!NOTE]
-> `tempdb`제한 사항은 [tempdb 제한](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb`제한 사항은 [tempdb 제한](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)을 참조 하세요.
 
 ### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 

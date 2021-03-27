@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric에서 Linux 클러스터 이벤트 모니터링
 description: Syslog에 Service Fabric 플랫폼 이벤트를 작성 하 여 Service Fabric Linux 클러스터 이벤트를 모니터링 하는 방법을 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: srrengar
-ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 895ff340c1b649c1ba8a20bf95edcefb9a72e246
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570213"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626965"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
 
@@ -26,7 +24,7 @@ Service Fabric은 사용자에게 클러스터의 중요한 작업에 대해 알
 * Facility
 * ID
 * 메시지
-* 심각도
+* Severity
 
 SyslogConsumer는 Facility `Local0`를 사용하여 모든 플랫폼 이벤트를 씁니다. 구성 구성을 변경 하 여 모든 유효한 기능으로 업데이트할 수 있습니다. 사용 되는 Id는 `ServiceFabric` 입니다. 메시지 필드에는 다양한 도구에서 쿼리하고 사용할 수 있도록 JSON으로 직렬화된 전체 이벤트가 포함됩니다. 
 

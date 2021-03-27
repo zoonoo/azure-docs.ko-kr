@@ -1,16 +1,14 @@
 ---
 title: Windows Azure 진단를 사용 하 여 성능 모니터링
 description: Windows Azure Diagnostics를 사용하여 Azure Service Fabric 클러스터에 대한 성능 카운터를 수집합니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: c2114f5392da788bb440589e69e704a148731e02
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6803494d29bf97336e30128f9f5ad20ec73ce202
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86258610"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627407"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure Diagnostics 확장을 사용하여 성능 모니터링
 

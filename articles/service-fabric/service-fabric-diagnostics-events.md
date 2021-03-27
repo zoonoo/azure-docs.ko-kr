@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 이벤트
 description: Azure Service Fabric 클러스터를 모니터링할 수 있도록 기본적으로 제공되는 Service Fabric 이벤트에 대해 자세히 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: srrengar
-ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 581bb3f16941fce660e0f464ed8ea9389b034b12
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75451722"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628814"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 이벤트 
 

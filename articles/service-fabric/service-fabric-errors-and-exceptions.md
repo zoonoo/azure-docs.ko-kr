@@ -1,16 +1,14 @@
 ---
 title: 일반적인 FabricClient 예외가 발생 합니다.
 description: 애플리케이션 및 클러스터 관리 작업을 수행하는 동안 FabricClient API에 의해 발생될 수 있는 일반적인 예외 및 오류를 설명합니다.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 06/20/2018
-ms.author: gwallace
-ms.openlocfilehash: 7f3c3e072a3a2e4f7723f84b2c70ba0d0ddb9d03
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2b5418729855ce366512d9718e22124e5cd837a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86258844"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627713"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>FabricClient API로 작업하는 경우 일반적인 예외 및 오류
 [FabricClient](/dotnet/api/system.fabric.fabricclient) API를 사용하여 클러스터 및 애플리케이션 관리자가 Service Fabric 애플리케이션, 서비스 또는 클러스터에서 관리 작업을 수행할 수 있습니다. 예를 들어 애플리케이션 배포, 업그레이드 및 제거, 클러스터 상태 확인 또는 서비스를 테스트합니다. 애플리케이션 개발자 및 클러스터 관리자는 FabricClient API를 사용하여 Service Fabric 클러스터 및 애플리케이션을 관리하기 위한 도구를 개발할 수 있습니다.
@@ -27,7 +25,7 @@ FabricClient를 사용하여 수행할 수 있는 다양한 유형의 작업이 
 
 일부 일반 [FabricErrorCode](/dotnet/api/system.fabric.fabricerrorcode) 오류는 [FabricException](/dotnet/api/system.fabric.fabricexception)으로 반환될 수 있습니다.
 
-| 오류 | 조건 |
+| Error | 조건 |
 | --- |:--- |
 | CommunicationError |통신 오류로 인해 작업이 실패했습니다. 작업을 다시 시도하세요. |
 | InvalidCredentialType |자격 증명 유형이 올바르지 않습니다. |

@@ -3,12 +3,12 @@ title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095717"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612486"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -19,6 +19,7 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
 ## <a name="updates-summary"></a>업데이트 요약
 
 - 2021년 3월
+  - [Azure Disk Backup은 이제 일반 공급 됩니다.](#azure-disk-backup-is-now-generally-available)
   - [Backup center는 이제 일반 공급 됩니다.](#backup-center-is-now-generally-available)
   - [Azure Backup에 대 한 보관 계층 지원 (미리 보기)](#archive-tier-support-for-azure-backup-in-preview)
 - 2021년 2월
@@ -39,6 +40,12 @@ Azure Backup은 Azure에서 데이터의 보호를 향상 시키는 새로운 �
   - [RHEL Azure Virtual Machines에서 SAP HANA 백업 (미리 보기)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [백업 데이터에 대 한 ZRS (영역 중복 저장소) (미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure Vm의 SQL Server 및 SAP HANA 작업에 대 한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>Azure Disk Backup은 이제 일반 공급 됩니다.
+
+Azure Backup는 스냅숏 만들기를 자동화 하 고 백업 정책을 사용 하 여 구성 된 기간 동안 스냅숏을 유지 하 여 Azure Managed Disks에 대 한 스냅숏 수명 주기 관리를 제공 합니다.
+
+자세한 내용은 [Azure Disk Backup 개요](disk-backup-overview.md)를 참조 하세요.
 
 ## <a name="backup-center-is-now-generally-available"></a>Backup center는 이제 일반 공급 됩니다.
 

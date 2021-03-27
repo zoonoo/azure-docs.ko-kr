@@ -1,17 +1,17 @@
 ---
 title: Azure Active Directory 인증 - Azure Database for MySQL
 description: Azure Database for MySQL을 사용하여 인증을 위한 Azure Active Directory 개념에 대해 알아봅니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 942789d5541e796247af2dbdf9371cce4701105e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e3afa7e7129c34aae8487affe979bd7704580a1e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87171891"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612452"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>MySQL 인증에 Azure Active Directory 사용
 

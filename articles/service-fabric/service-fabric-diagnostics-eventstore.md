@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 이벤트 저장소
 description: 언제 든 지 클러스터 또는 워크 로드의 상태를 이해 하 고 모니터링 하는 방법인 Azure Service Fabric의 EventStore에 대해 알아보세요.
-author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
-ms.author: srrengar
-ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ef5049fd934a29fa1d96514c334b13358e6600cf
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91354822"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626557"
 ---
 # <a name="eventstore-overview"></a>EventStore 개요
 

@@ -9,17 +9,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 84fdca96f2ce42c608e7def98f6a3400964cfe46
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0c45a48e6cafa722945400554f2f81916da13775
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101691929"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627611"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-이 문서에서는 Azure SQL Database 및 Azure Synapse Analytics 용 서버에 대 한 연결을 제어 하는 설정을 소개 합니다. 이러한 설정은 서버와 연결 된 모든 SQL Database 및 Azure Synapse Analytics 데이터베이스에 적용 됩니다.
+이 문서에서는 Azure Synapse Analytics에서 Azure SQL Database 및 [전용 sql 풀 (이전의 SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) 용 서버에 대 한 연결을 제어 하는 설정을 소개 합니다. 이러한 설정은 서버와 연결 된 모든 SQL Database 및 전용 SQL 풀 (이전의 SQL DW) 데이터베이스에 적용 됩니다.
 
 > [!IMPORTANT]
 > 이 문서는 Azure SQL Managed Instance에는 적용 되지 않습니다.

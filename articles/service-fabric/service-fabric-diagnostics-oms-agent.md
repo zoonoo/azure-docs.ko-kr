@@ -1,16 +1,14 @@
 ---
 title: Azure Monitor 로그를 사용 하 여 성능 모니터링
 description: Azure Service Fabric 클러스터의 컨테이너 및 성능 카운터를 모니터링하기 위해 Log Analytics 에이전트를 설정하는 방법에 대해 알아보세요.
-author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.author: srrengar
-ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9bb89dc2eebe584a0a9f81a6707c0a2e4fa2fc30
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100570145"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626676"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 성능 모니터링
 

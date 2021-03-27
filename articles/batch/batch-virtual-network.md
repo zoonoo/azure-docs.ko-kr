@@ -2,14 +2,14 @@
 title: 가상 네트워크에서 풀 프로비저닝
 description: 컴퓨팅 노드가 파일 서버와 같은 네트워크의 다른 VM과 안전하게 통신할 수 있도록 Azure 가상 네트워크에 Batch 풀을 만드는 방법입니다.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/26/2021
 ms.custom: seodec18
-ms.openlocfilehash: d6e5de75164e098fc95f6c086d9f98a652dcee4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7213637e89cfccd1352861002c47a696d942d30f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561919"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629311"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -56,6 +56,8 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 - 일괄 처리 서비스는 작업을 예약 하기 위해 노드와 통신 해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 UDR을 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오려면 [온-프레미스 서비스 태그](../virtual-network/service-tags-overview.md)를 참조 하세요.
 
 - Azure Storage에 대 한 아웃 바운드 트래픽 (특히, 및 형식의 Url `<account>.table.core.windows.net` `<account>.queue.core.windows.net` `<account>.blob.core.windows.net` )이 온-프레미스 네트워크에 의해 차단 되지 않는지 확인 합니다.
+
+- 가상 파일 탑재를 사용 하는 경우 [네트워킹 요구 사항을](virtual-file-mount.md#networking-requirements) 검토 하 고 필요한 트래픽이 차단 되지 않았는지 확인 합니다.
 
 UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 **다음 홉 유형** 을 **인터넷** 으로 설정합니다.
 

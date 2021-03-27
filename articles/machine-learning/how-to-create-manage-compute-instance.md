@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009966"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628954"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스 만들기 및 관리
 
@@ -127,6 +127,9 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
 계산 인스턴스를 시작, 중지, 다시 시작 및 삭제 합니다. 계산 인스턴스는 자동으로 축소 되지 않으므로 리소스를 중지 하 여 지속적인 요금을 방지 해야 합니다.
 
+> [!TIP]
+> 컴퓨팅 인스턴스에 120GB OS 디스크가 있습니다. 디스크 공간이 부족 한 경우에는 컴퓨터를 중지 하거나 다시 시작 하기 전에 [터미널을 사용](how-to-access-terminal.md) 하 여 최소 1-2 GB를 지워야 합니다.
+
 # <a name="python"></a>[Python](#tab/python)
 
 아래 예제에서 계산 인스턴스의 이름은 **instance** 입니다.
@@ -138,7 +141,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
     instance.get_status()
     ```
 
-* 중지
+* Stop
 
     ```python
     # stop() is used to stop the ComputeInstance
@@ -172,7 +175,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 
 아래 예제에서 계산 인스턴스의 이름은 **instance** 입니다.
 
-* 중지
+* Stop
 
     ```azurecli-interactive
     az ml computetarget stop computeinstance -n instance -v
@@ -225,6 +228,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅** 을 선택한
 * 특정 컴퓨팅 인스턴스에 대한 세부 정보(예: IP 주소 및 지역)를 가져옵니다.
 
 ---
+
 
 [AZURE RBAC](../role-based-access-control/overview.md) 를 사용 하면 작업 영역에서 계산 인스턴스를 만들고 삭제, 시작, 중지 및 다시 시작할 수 있는 사용자를 제어할 수 있습니다. 작업 영역 기여자 및 소유자 역할의 모든 사용자는 작업 영역에서 컴퓨팅 인스턴스를 만들고, 삭제, 시작, 중지 및 다시 시작할 수 있습니다. 그러나 특정 계산 인스턴스의 작성자나 사용자를 대신 하 여 생성 된 사용자만 해당 계산 인스턴스의 Jupyter, JupyterLab 및 RStudio에 액세스할 수 있습니다. 계산 인스턴스는 루트 액세스 권한이 있는 단일 사용자 전용 이며 Jupyter/JupyterLab/RStudio를 통해에서 터미널 할 수 있습니다. 계산 인스턴스는 단일 사용자 로그인을 포함 하 고 모든 작업은 Azure RBAC 및 실험 실행의 특성에 해당 사용자의 id를 사용 합니다. SSH 액세스는 공개/프라이빗 키 메커니즘을 통해 제어됩니다.
 

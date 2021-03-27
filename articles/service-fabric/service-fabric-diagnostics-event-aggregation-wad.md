@@ -1,16 +1,14 @@
 ---
 title: Windows Azure 진단를 사용 하 여 이벤트 집계
 description: Azure Service Fabric 클러스터 모니터링 및 진단을 위해 MAD를 사용하여 이벤트를 집계 및 수집하는 방법에 대해 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
-ms.author: srrengar
-ms.openlocfilehash: eaf40bafb68820b56fc9bf00dd4c11fbb337406f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bbc8efcb2600e1832ad8a37560ab231a4a7f3185
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613462"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626732"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -26,7 +24,7 @@ Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 다음 도구가 사용됩니다.
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)

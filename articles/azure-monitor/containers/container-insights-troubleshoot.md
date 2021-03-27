@@ -2,13 +2,13 @@
 title: 컨테이너 insights 문제를 해결 하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너 정보를 사용 하 여 문제를 해결 하 고 해결할 수 있는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 60a6e76d43d954b27336b9631c48328aeff0b69b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: b7618e9073308da67a8e17c82375a0f05925a542
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101708308"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627118"
 ---
 # <a name="troubleshooting-container-insights"></a>컨테이너 정보 문제 해결
 
@@ -113,6 +113,54 @@ Container insights agent Pod는 노드 에이전트의 cAdvisor 끝점을 사용
 ## <a name="non-azure-kubernetes-cluster-are-not-showing-in-container-insights"></a>비 Azure Kubernetes 클러스터는 컨테이너 insights에 표시 되지 않습니다.
 
 컨테이너 insights에서 비 Azure Kubernetes 클러스터를 보려면이 통찰력을 지 원하는 Log Analytics 작업 영역 및 Container Insights 솔루션 리소스 **ContainerInsights (*작업 영역*)** 에서 읽기 권한이 필요 합니다.
+
+## <a name="metrics-arent-being-collected"></a>메트릭이 수집 되지 않습니다.
+
+1. 클러스터가 [사용자 지정 메트릭에 대해 지원](../essentials/metrics-custom-overview.md#supported-regions)되는 지역에 있는지 확인 합니다.
+
+2. 다음 CLI 명령을 사용 하 여 **모니터링 메트릭 게시자** 역할 할당이 존재 하는지 확인 합니다.
+
+    ``` azurecli
+    az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
+    ```
+    MSI를 사용 하는 클러스터의 경우에는 모니터링이 사용 하도록 설정 되 고 사용 하지 않도록 설정 될 때마다 omsagent의 사용자 할당 클라이언트 id가 변경 되므로 역할 할당이 현재 MSI 클라이언트 id에 존재 해야 합니다. 
+
+3. Azure Active Directory pod id를 사용 하도록 설정 하 고 MSI를 사용 하는 클러스터의 경우:
+
+   - 다음 명령을 사용 하 여 필수 레이블 **kubernetes.azure.com/managedby: aks**  가 omsagent pod에 있는지 확인 합니다.
+
+        `kubectl get pods --show-labels -n kube-system | grep omsagent`
+
+    - 에서 지원 되는 메서드 중 하나를 사용 하 여 pod id를 사용 하도록 설정한 경우 예외가 활성화 되는지 확인 https://github.com/Azure/aad-pod-identity#1-deploy-aad-pod-identity 합니다.
+
+        다음 명령을 실행 하 여 확인 합니다.
+
+        `kubectl get AzurePodIdentityException -A -o yaml`
+
+        다음과 유사한 출력이 표시 됩니다.
+
+        ```
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: mic-exception
+        namespace: default
+        spec:
+        podLabels:
+        app: mic
+        component: mic
+        ---
+        apiVersion: "aadpodidentity.k8s.io/v1"
+        kind: AzurePodIdentityException
+        metadata:
+        name: aks-addon-exception
+        namespace: kube-system
+        spec:
+        podLabels:
+        kubernetes.azure.com/managedby: aks
+        ```
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

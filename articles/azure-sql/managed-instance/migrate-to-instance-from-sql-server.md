@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: df0a28c4d2ba78e9b7a6b52e26537540164d28e0
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564316"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628376"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,7 @@ SQL Server에서 실행 되는 원래 워크 로드와 관리 되는 인스턴�
 SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 같습니다.
 
 - [SQL Server 인스턴스의 cpu 사용량을 모니터링](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) 하 고 평균 및 최대 cpu 사용량을 기록 합니다.
-- [SQL Server 인스턴스의 메모리 사용량을 모니터링](/sql/relational-databases/performance-monitor/monitor-memory-usage) 하 고 버퍼 풀, 계획 캐시, 열 저장소 풀, [메모리 내 OLTP](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017)등의 여러 구성 요소에서 사용 하는 메모리 양을 확인 합니다. 또한 페이지 수명 예상 메모리 성능 카운터의 평균 및 피크 값을 찾아야 합니다.
+- [SQL Server 인스턴스의 메모리 사용량을 모니터링](/sql/relational-databases/performance-monitor/monitor-memory-usage) 하 고 버퍼 풀, 계획 캐시, 열 저장소 풀, [메모리 내 OLTP](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage)등의 여러 구성 요소에서 사용 하는 메모리 양을 확인 합니다. 또한 페이지 수명 예상 메모리 성능 카운터의 평균 및 피크 값을 찾아야 합니다.
 - [Sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) 뷰 또는 [성능 카운터](/sql/relational-databases/performance-monitor/monitor-disk-usage)를 사용 하 여 원본 SQL Server 인스턴스에서 디스크 IO 사용량을 모니터링 합니다.
 - SQL Server 2016 이상 버전에서 마이그레이션하는 경우 동적 관리 뷰 또는 쿼리 저장소를 검토 하 여 워크 로드 및 쿼리 성능 또는 SQL Server 인스턴스를 모니터링할 수 있습니다. 작업에서 가장 중요 한 쿼리의 평균 기간 및 CPU 사용량을 확인 하 여 관리 되는 인스턴스에서 실행 되는 쿼리와 비교 합니다.
 
@@ -100,7 +100,7 @@ SQL Server 인스턴스에서 측정 해야 하는 매개 변수는 다음과 �
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>최적 크기의 관리되는 인스턴스에 배포
 
-SQL Managed Instance는 클라우드로 이동할 계획인 온-프레미스 워크 로드에 맞게 조정 됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 [새 구매 모델](../database/service-tiers-vcore.md)이 도입되었습니다. 온-프레미스 환경에서는 실제 코어 및 IO 대역폭을 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. 관리되는 인스턴스에 대한 구매 모델은 가상 코어 수 또는 "vCore 수"를 기반으로 하며, 추가 스토리지 및 IO를 별도로 사용할 수 있습니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 새로운 이 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다. 올바른 서비스 계층 및 특성을 선택 하는 데 도움이 되는 몇 가지 일반적인 지침은 여기에 설명 되어 있습니다.
+SQL Managed Instance는 클라우드로 이동할 계획인 온-프레미스 워크 로드에 맞게 조정 됩니다. 작업에 적합한 수준의 리소스를 선택할 때 유연성이 높은 [새 구매 모델](../database/service-tiers-vcore.md)이 도입되었습니다. 온-프레미스 환경에서는 실제 코어 및 IO 대역폭을 사용하여 이러한 작업의 크기를 조정하는 데 익숙할 것입니다. 관리 되는 인스턴스의 구매 모델은 가상 코어 또는 "vCores"를 기반으로 하며, 추가 저장소 및 IO는 별도로 제공 됩니다. vCore 모델은 현재 온-프레미스에서 사용하는 제품과 비교하여 클라우드의 컴퓨팅 요구 사항을 더 쉽게 이해할 수 있는 방법입니다. 새로운 이 모델을 사용하면 클라우드에서 대상 환경의 크기를 올바르게 조정할 수 있습니다. 올바른 서비스 계층 및 특성을 선택 하는 데 도움이 되는 몇 가지 일반적인 지침은 여기에 설명 되어 있습니다.
 
 - 기준 CPU 사용량을 기준으로 SQL Server에서 사용 하는 코어 수와 일치 하는 관리 되는 인스턴스를 프로 비전 할 수 있습니다. 관리 되는 [인스턴스가 설치 된 VM 특성과](resource-limits.md#hardware-generation-characteristics)일치 하도록 CPU 특성을 확장 해야 할 수도 있습니다.
 - 기준 메모리 사용량에 따라 일치 하는 [메모리가 있는 서비스 계층](resource-limits.md#hardware-generation-characteristics)을 선택 합니다. 메모리 크기를 직접 선택할 수 없기 때문에 일치 하는 메모리가 있는 Vcores의 크기 (예: Gen5의 5.1 g b/Vcores)를 사용 하 여 관리 되는 인스턴스를 선택 해야 합니다.

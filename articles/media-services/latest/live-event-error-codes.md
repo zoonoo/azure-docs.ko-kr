@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/12/2020
+ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7c30649fe3486f812569cb51f609356a6cbfd58f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581085"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627543"
 ---
 # <a name="media-services-live-event-error-codes"></a>Media Services 라이브 이벤트 오류 코드
 
@@ -30,7 +30,7 @@ ms.locfileid: "104581085"
 
 라이브 이벤트에 대 한 [Event Grid](../../event-grid/index.yml) 이벤트를 구독할 때 [LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 > [!div class="mx-tdCol2BreakAll"]
->| 오류 | 정보 |
+>| Error | 정보 |
 >|--|--|
 >|**MPE_RTMP_APPID_AUTH_FAILURE** ||
 >|설명 | 잘못된 수집 URL입니다. |
@@ -71,7 +71,7 @@ ms.locfileid: "104581085"
 [LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected) 이벤트에서 다음 오류 중 하나가 표시 될 수 있습니다.
 
 > [!div class="mx-tdCol2BreakAll"]
->| 오류 | 정보 |
+>| Error | 정보 |
 >|--|--|
 >|**MPE_RTMP_SESSION_IDLE_TIMEOUT** |
 >| 설명|허용된 시간 한도 동안 유휴 상태가 된 후 RTMP 세션 시간이 초과되었습니다. |
@@ -83,25 +83,26 @@ ms.locfileid: "104581085"
 >| 설명|데이터를 너무 빨리 보내는 인코더입니다. |
 >| 추천 솔루션|인코더는 짧은 기간 동안 많은 조각 집합을 버스트 하는 경우에 발생 합니다.  이론적으로는 네트워크 문제로 인해 인코더에서 데이터를 푸시할 수 없고 네트워크를 사용할 수 있을 때 데이터를 버스트 할 수 없는 경우에 발생할 수 있습니다. 인코더 로그 또는 시스템 로그에서 이유를 찾습니다. |
 >|**알 수 없는 오류 코드** |
->| 설명| 이러한 오류 코드는 메모리 오류에서 해시 맵의 중복 항목에 이르기까지 다양할 수 있습니다. |
+>| 설명| 이러한 오류 코드는 메모리 오류에서 해시 맵의 중복 항목에 이르기까지 다양할 수 있습니다. 인코더에서 짧은 기간 동안 많은 조각 집합을 전송 하는 경우이 문제가 발생할 수 있습니다.  네트워크 문제로 인해 인코더가 데이터를 푸시 하지 못한 경우에도이 문제가 발생할 수 있습니다. 그런 다음 네트워크를 사용할 수 있게 되 면 지연 된 모든 조각을 한 번에 보냅니다. |
+>|추천 솔루션| 인코더 로그를 확인 합니다.|
 
 ## <a name="other-error-codes"></a>기타 오류 코드
 
 > [!div class="mx-tdCol2BreakAll"]
->| 오류 | 정보 |거부/연결 끊김 이벤트|
+>| Error | 정보 |거부/연결 끊김 이벤트|
 >|--|--|--|
 >|**ERROR_END_OF_MEDIA** ||예|
 >| Description|일반 오류입니다. ||
 >|추천 솔루션| 없음||
 >|**MPI_SYSTEM_MAINTENANCE** ||예|
 >| Description|서비스 업데이트 또는 시스템 유지 관리로 인해 인코더의 연결을 끊었습니다. ||
->|추천 솔루션|인코더가 ' 자동 연결 '을 사용 하도록 설정 해야 합니다. 예기치 않은 세션 연결을 복구 하는 인코더 기능입니다. ||
+>|추천 솔루션|인코더가 ' 자동 연결 '을 사용 하도록 설정 했는지 확인 합니다. 인코더를 유지 관리 하지 않는 중복 라이브 이벤트 끝점에 다시 연결할 수 있습니다. ||
 >|**MPE_BAD_URL_SYNTAX** ||예|
 >| Description|수집 URL의 형식이 잘못 되었습니다. ||
 >|추천 솔루션|수집 URL의 형식이 올바르게 지정 되었는지 확인 합니다. RTMP의 경우 `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||예|
 >| Description|인코더에서 세션의 연결을 끊었습니다.  ||
->|추천 솔루션|이는 오류가 아닙니다. 이것은 인코더의 연결이 끊긴 경우 (정상 연결 끊기 포함)입니다. 예기치 않은 연결 끊기 인 경우 인코더 로그 또는 시스템 로그를 확인 합니다. |
+>|추천 솔루션|이는 오류가 아닙니다. 정상 연결 끊기를 포함 하 여 인코더가 연결 끊기를 시작 했습니다. 예기치 않은 연결 끊기 인 경우 인코더 로그를 확인 합니다. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||예|
 >| Description|들어오는 데이터 비율이 예상 비트 전송률이 일치 하지 않습니다. ||
 >|추천 솔루션|이 경고는 들어오는 데이터 속도가 너무 느리거나 빠를 때 발생 하는 경고입니다. 인코더 로그 또는 시스템 로그를 확인 하십시오.||
@@ -109,7 +110,7 @@ ms.locfileid: "104581085"
 >| Description| 들어오는 데이터에 discontinuty가 있습니다.||
 >|추천 솔루션| 이는 네트워크 문제나 시스템 리소스 문제로 인해 인코더가 데이터를 삭제 한다는 경고입니다. 인코더 로그 또는 시스템 로그를 확인 하십시오. 시스템 리소스 (CPU, 메모리 또는 네트워크)도 모니터링 합니다. 시스템 CPU가 너무 높으면 비트 전송률을 낮추고 시스템 그래픽 카드에서 H/W 인코더 옵션을 사용 하십시오.||
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 [스트리밍 끝점 (원본) 오류 코드](streaming-endpoint-error-codes.md)
 

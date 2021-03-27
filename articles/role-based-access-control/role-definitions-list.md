@@ -2,24 +2,19 @@
 title: Azure 역할 정의 나열-Azure RBAC
 description: Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure 기본 제공 및 사용자 지정 역할을 나열 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f354e3bb7fc0f7ced17d43acacf29c726ce1329c
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100555960"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629159"
 ---
 # <a name="list-azure-role-definitions"></a>Azure 역할 정의 나열
 
@@ -33,6 +28,10 @@ Azure Active Directory에 대 한 관리자 역할 목록을 보려면 [Azure Ac
 
 Azure Portal의 모든 역할을 나열 하려면 다음 단계를 수행 합니다.
 
+업데이트 된 역할 환경을 볼 수 있는 경우 현재 공개 미리 보기로 제공 되는 **역할 (미리 보기)** 탭을 확인 하세요. 역할 **(미리 보기)** **탭에는 역할 탭과** 동일한 역할 목록이 몇 가지 추가 기능과 함께 표시 됩니다. 역할 탭을 사용 하 여 역할 작업을 수행할 수 있지만 사용자 지정 역할을 만들거나 삭제 하는 경우 페이지를 수동으로 새로 고쳐 최신 변경 내용을 확인 해야 할 수도 있습니다.
+
+#### <a name="roles"></a>[역할](#tab/roles/)
+
 1. Azure Portal에서 **모든 서비스** 를 클릭 한 다음 범위를 선택 합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
 
 1. 특정 리소스를 클릭 합니다.
@@ -43,7 +42,29 @@ Azure Portal의 모든 역할을 나열 하려면 다음 단계를 수행 합니
 
    현재 범위에서 각 역할에 할당 된 사용자 및 그룹의 수를 볼 수 있습니다.
 
-   ![역할 목록](./media/role-definitions-list/roles-list.png)
+   ![역할 목록](./media/role-definitions-list/roles-list-current.png)
+
+#### <a name="roles-preview"></a>[역할 (미리 보기)](#tab/roles-preview/)
+
+1. Azure Portal에서 **모든 서비스** 를 클릭 한 다음 범위를 선택 합니다. 예를 들어 **관리 그룹**, **구독**, **리소스 그룹** 또는 리소스를 선택할 수 있습니다.
+
+1. 특정 리소스를 클릭 합니다.
+
+1. **액세스 제어(IAM)** 를 클릭합니다.
+
+1. **역할 (미리 보기)** 탭을 클릭 하 여 모든 기본 제공 및 사용자 지정 역할 목록을 표시 합니다.
+
+   ![미리 보기 환경을 사용 하는 역할 목록](./media/role-definitions-list/roles-list.png)
+
+1. 특정 역할에 대 한 사용 권한을 보려면 **자세히** 열에서 **보기** 링크를 클릭 합니다.
+
+    권한 창이 표시 됩니다.
+
+1. **사용 권한** 탭을 클릭 하 여 선택한 역할에 대 한 사용 권한을 확인 하 고 검색 합니다.
+
+   ![미리 보기 환경을 사용한 역할 사용 권한](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -347,7 +368,7 @@ az role definition list --name "Virtual Machine Contributor" --output json --que
     > | 범위 | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
@@ -432,7 +453,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Micro
     > | 범위 | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
-    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}` | 구독 |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resource group |
     > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/Microsoft.Web/sites/mysite1` | 리소스 |
      

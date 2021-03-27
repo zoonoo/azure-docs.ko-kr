@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 408e972eb5950baa75fa1bdf33fb2cd507154bcb
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89279417"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612843"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -32,12 +32,25 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 
 동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](./reference-connect-version-history.md)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
 
+## <a name="march-2021"></a>2021년 3월
+**에이전트 업데이트**
+
+- AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.95.0)
+
+  - 로그인 이벤트 중에는 NT4 형식이 지정 된 사용자 이름을 UPN으로 확인 하도록 수정 합니다.
+  - 수정 하 여 전용 오류 코드가 있는 잘못 된 응용 프로그램 식별자 시나리오를 식별 합니다.
+  - OAuth 클라이언트 식별자에 대 한 새 속성을 추가 하도록 변경 합니다.
+  - 특정 로그인 시나리오에 대 한 Azure AD Sign-In 보고서의 **프로토콜** 및 **인증 유형** 필드에 올바른 값을 표시 하도록 수정 합니다.
+  - 요청 순서에 따라 Azure AD Sign-In 보고서의 IP 체인 필드에 IP 주소를 표시 하도록 수정 합니다.
+  - 로그인 중에 보조 인증이 요청 되었는지 여부를 구분 하기 위해 새 필드를 도입 하도록 변경 합니다.
+  - Azure AD Sign-In 보고서에 표시할 AD FS 응용 프로그램 식별자 속성을 수정 합니다.
+
 ## <a name="april-2020"></a>2020년 4월
 **에이전트 업데이트**
 
 - AD FS에 대 한 Azure AD Connect Health 에이전트 (버전 3.1.77.0)
 
-   1.   경고가 잘못 보고 된 "AD FS 서비스에 대 한 SPN (서비스 사용자 이름)이 잘못 되었습니다." 경고에 대 한 버그 수정
+   - 경고가 잘못 보고 된 "AD FS 서비스에 대 한 SPN (서비스 사용자 이름)이 잘못 되었습니다." 경고에 대 한 버그 수정
 
 
 ## <a name="july-2019"></a>2019년 7월

@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 모니터링 및 진단 개요
 description: Azure Service Fabric 클러스터, 애플리케이션 및 서비스에 대한 모니터링 및 진단에 대해 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.author: srrengar
-ms.openlocfilehash: 25a50a2841a03929804be45be8012f9b5d0457ff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 71ec86f26de1e94b4e17e0990d2eafd1fff954e2
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91357134"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627747"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 

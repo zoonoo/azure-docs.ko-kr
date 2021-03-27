@@ -1,16 +1,14 @@
 ---
 title: Azure Monitor 로그를 사용 하 여 Azure Service Fabric 이벤트 분석
 description: Azure Service Fabric 클러스터의 모니터링 및 진단에 대 한 Azure Monitor 로그를 사용 하 여 이벤트를 시각화 및 분석 하는 방법을 알아봅니다.
-author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: srrengar
-ms.openlocfilehash: 678e96c9b5611cd6d72abd7c4582691b55ffe479
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f1e22213c857b400cc36c51cefb90e2379352893
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581547"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628971"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 이벤트 분석 및 시각화
  Azure Monitor 로그는 클라우드에서 호스팅되는 애플리케이션 및 서비스에서 원격 분석 데이터를 수집 및 분석하고, 가용성과 성능을 최대화하는 데 도움이 되는 분석 도구를 제공합니다. 이 문서에서는 Azure Monitor 로그에서 쿼리를 실행 하 여 정보를 얻고 클러스터에서 발생 하는 문제를 해결 하는 방법을 설명 합니다. 다음과 같은 일반적인 질문을 해결합니다.

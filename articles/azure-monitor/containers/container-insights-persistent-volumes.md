@@ -3,12 +3,12 @@ title: Container insights를 사용 하 여 PV 모니터링 구성 | Microsoft D
 description: 이 문서에서는 컨테이너 insights를 사용 하 여 영구 볼륨으로 모니터링 Kubernetes 클러스터를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7c6ddd62bf06d313987289e444962378cea43fc8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026107"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627900"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>컨테이너 insights를 사용 하 여 PV 모니터링 구성
 
@@ -17,7 +17,9 @@ ms.locfileid: "105026107"
 
 컨테이너 insights는 60-초 간격으로 다음 메트릭을 수집 하 고 **InsightMetrics** 테이블에 저장 하 여 PV 사용 모니터링을 자동으로 시작 합니다.
 
-| 메트릭 이름 | 메트릭 차원 (태그) | 메트릭 설명 | | `pvUsedBytes`| poduid, podName, pvcName, Pvcname, capacityBytes, clusterId, clusterName | 특정 pod에서 사용 하는 클레임을 가진 특정 영구적 볼륨에 대해 사용 된 공간 (바이트)입니다. `capacityBytes` 는 데이터 수집 비용을 줄이고 쿼리를 간소화 하기 위해 태그 필드에 차원으로 중첩 됩니다. |
+| 메트릭 이름 | 메트릭 차원 (태그) | 메트릭 설명 |
+|-----|-----------|----------|
+| `pvUsedBytes`| podUID, podName, pvcName, Pvcname, capacityBytes, clusterId, clusterName| 특정 pod에서 사용 하는 클레임을 가진 특정 영구적 볼륨에 대해 사용 된 공간 (바이트)입니다. `capacityBytes` 는 데이터 수집 비용을 줄이고 쿼리를 간소화 하기 위해 태그 필드에 차원으로 중첩 됩니다.|
 
 [여기](./container-insights-agent-config.md)에서 수집 된 PV 메트릭을 구성 하는 방법에 대해 자세히 알아보세요.
 
@@ -27,7 +29,7 @@ ms.locfileid: "105026107"
 
 |데이터 |데이터 원본| 데이터 형식| 필드|
 |-----|-----------|----------|-------|
-|Kubernetes 클러스터의 영구적 볼륨 인벤토리 |Kube API |`KubePVInventory` | PVName, PVCapacityBytes, PVCName, Pvcname, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
+|Kubernetes 클러스터의 영구적 볼륨 인벤토리 |Kube API |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, Pvcname, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, TimeGenerated, ClusterId, ClusterName, _ResourceId |
 
 ## <a name="monitor-persistent-volumes"></a>영구 볼륨 모니터링
 

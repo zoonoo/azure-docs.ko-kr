@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9d2ffac813456398c02066c978c37bdb09501aeb
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92151678"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628988"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -64,7 +64,7 @@ IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바�
 >
 > - Azure Functions 또는 Azure Stream Analytics를 사용 하 여 기본 제공 이벤트 끝점을 연결 하는 경우 **다시 시작** 을 수행 해야 할 수 있습니다. 이는 장애 조치 (failover) 중 이전 오프셋이 더 이상 유효 하지 않기 때문입니다.
 >
-> - 저장소로 라우팅할 때 blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있습니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. [목록 BLOB api](/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](/rest/api/storageservices/datalakestoragegen2/path/list) 목록을 열거할 수 있습니다. 자세한 내용은 [라우팅 끝점으로 Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)을 참조 하세요.
+> - 저장소로 라우팅할 때 blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있습니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. [목록 BLOB api](/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](/rest/api/storageservices/datalakestoragegen2/filesystem/listpaths) 목록을 열거할 수 있습니다. 자세한 내용은 [라우팅 끝점으로 Azure Storage](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)을 참조 하세요.
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 시작 장애 조치
 

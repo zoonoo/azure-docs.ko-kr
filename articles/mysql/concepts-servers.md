@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: a05037505c122bb974e6da3d11a6f25a715a6843
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: cb8394de49c2c5daeae156a9316466928eded148
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869432"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628478"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 서버 개념
 
@@ -38,7 +38,7 @@ Azure Database for MySQL 서버 내에서 하나 이상의 데이터베이스를
 
 다음과 같은 요소가 데이터베이스에 안전하게 액세스할 수 있도록 도와줍니다.
 
-|     |     |
+| 보안 개념 | 설명     |
 | :-- | :-- |
 | **인증 및 권한 부여** | MySQL용 Azure 데이터베이스 서버는 네이티브 MySQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 MySQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |

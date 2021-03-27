@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630127"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105630055"
 ---
 ## <a name="generalize-the-image"></a>이미지 일반화
 
@@ -52,7 +52,9 @@ VM이 준비 되 면 Azure 공유 이미지 갤러리에서 캡처할 수 있습
 8. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다.
 9. 유효성 검사를 통과 한 후 **만들기** 를 선택 합니다.
 
-게시 하려면 게시자 계정에 SIG에 대 한 소유자 권한이 있어야 합니다. 액세스 권한을 부여 하려면:
+SIG를 포함 하는 Azure 구독은 게시 하기 위해 게시자 계정과 동일한 테 넌 트 아래에 있어야 합니다. 또한 게시자 계정에는 SIG에 대 한 소유자 액세스 권한이 있어야 합니다. 
+
+액세스 권한을 부여 하려면:
 
 1. 공유 이미지 갤러리로 이동 합니다.
 2. 왼쪽 패널에서 **Access control** (IAM)을 선택 합니다.

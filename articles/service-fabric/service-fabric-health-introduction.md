@@ -1,16 +1,14 @@
 ---
 title: Service Fabric 상태 모니터링
 description: 클러스터 및 애플리케이션과 서비스 모니터링을 제공하는 Azure 서비스 패브릭 상태 모니터링 모델 소개.
-author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
-ms.openlocfilehash: 6c96651fa48acc2f88658148c7e60be2f3fa09da
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a1c545048739182e3baba3e3d94da1accca227d1
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800162"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627418"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.

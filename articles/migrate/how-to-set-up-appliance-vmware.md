@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: c2ffa85ed6cb007dd766d4517a86783d21d4913e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 685d7f0a0aaab2f38967e0eb6c32c3fb4067dbe3
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110511"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612826"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>VMware 환경에서 서버에 대 한 어플라이언스 설정
 
@@ -67,7 +67,6 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
         --- | --- | ---
         VMware(11.9GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
-
 ### <a name="3-create-the-appliance-server"></a>3. 어플라이언스 서버 만들기
 
 다운로드한 파일을 가져오고, VMware 환경에서 서버 만들기
@@ -81,11 +80,9 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 8. **네트워크 매핑** 에서 서버가 연결할 네트워크를 지정합니다. 메타데이터를 Azure Migrate로 전송하려면 네트워크가 인터넷에 연결되어야 합니다.
 9. 설정을 검토 및 확인한 다음 **마침** 을 클릭합니다.
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
 어플라이언스 서버가 [공용](migrate-appliance.md#public-cloud-urls) 및 [정부](migrate-appliance.md#government-cloud-urls) 클라우드의 Azure url에 연결할 수 있는지 확인 합니다.
-
 
 ### <a name="4-configure-the-appliance"></a>4. 어플라이언스 구성
 
@@ -114,7 +111,6 @@ OVA 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 1. 원하는 경우 어플라이언스를 구성하는 동안 언제든지 **필수 구성 요소를 다시 실행** 하여 어플라이언스에서 모든 필수 구성 요소를 충족하는지 확인할 수 있습니다.
 
     :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="어플라이언스 구성 관리자의 패널 1":::
-
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 

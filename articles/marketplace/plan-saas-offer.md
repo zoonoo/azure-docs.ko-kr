@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.date: 03/26/2021
+ms.openlocfilehash: 7d421cf20aa054fb3e1e4877ee610a284eeff7c9
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105604942"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627060"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 SaaS 제품을 계획 하는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "105604942"
 
 제품이 게시 된 후 제품에 대해 선택한 목록 옵션이 제품 목록 페이지의 왼쪽 위 모서리에 단추로 나타납니다. 예를 들어 다음 스크린샷에서는 **지금 가져오기** 단추를 사용 하 여 Azure Marketplace의 제품 목록 페이지를 보여 줍니다.
 
-![온라인 스토어의 제품 목록을 보여 줍니다.](./media/saas/listing-options-saas-full.png)
+![온라인 스토어의 제품 목록을 보여 줍니다.](./media/saas/listing-options-saas.png)
 
 ## <a name="technical-requirements"></a>기술 요구 사항
 
@@ -150,7 +150,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 11. 문서
 
@@ -161,7 +161,7 @@ SaaS 제품이 IT 솔루션 (Azure Marketplace)이 고 비즈니스 솔루션 (A
 **호출 설명**
 
 1. 제목
-1. Description
+1. 설명
 1. 유용한 링크
 1. 스크린샷
 

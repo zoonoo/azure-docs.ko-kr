@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 3/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 29c49ceb3647964030f53c94276e831dc0f648c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100576615"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627135"
 ---
 # <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Windows 가상 데스크톱 (미리 보기) 용어집에 대 한 Azure Monitor
 
@@ -24,7 +24,7 @@ ms.locfileid: "100576615"
 
 ## <a name="alerts"></a>경고
 
-구독에서 구성 하 고 [심각도 1](#severity-1-alerts) 로 분류 한 활성 Azure Monitor 경고가 개요 페이지에 표시 됩니다. 경고를 설정 하는 방법에 대 한 자세한 내용은 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/alerts/tutorial-response.md)을 참조 하세요.
+구독에서 구성 하 고 [심각도 0](#severity-0-alerts) 으로 분류 한 활성 Azure Monitor 경고가 개요 페이지에 표시 됩니다. 경고를 설정 하는 방법에 대 한 자세한 내용은 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/alerts/tutorial-response.md)을 참조 하세요.
 
 ## <a name="available-sessions"></a>사용 가능한 세션
 
@@ -40,7 +40,7 @@ ms.locfileid: "100576615"
 
 ## <a name="daily-alerts"></a>일별 경고
 
-지난 24 시간 동안 트리거된 [심각도 1 경고](#severity-1-alerts) 의 총 수입니다.
+매일 트리거된 총 경고 수입니다.
 
 ## <a name="daily-connections-and-reconnections"></a>매일 연결 및 재연결
 
@@ -78,7 +78,7 @@ Windows 가상 데스크톱에 대 한 Azure Monitor에 오류 또는 경고가 
 
 ## <a name="input-delay"></a>입력 지연
 
-Windows 가상 데스크톱에 대 한 Azure Monitor의 "입력 지연"은 각 세션에 대 한 프로세스 당 입력 지연 성능 카운터를 의미 합니다. <aka.ms/azmonwvdi>의 호스트 성능 페이지에서이 성능 카운터는 30 초 마다 한 번씩 보고서를 서비스로 보내도록 구성 되어 있습니다. 이러한 30 초 간격을 "samples" 라고 하며, 해당 창에서 최악의 경우를 보고 합니다. 중앙값과 p95 값은 모든 샘플에서 중앙값 및 95 번째 백분위 수를 반영 합니다.
+Windows 가상 데스크톱에 대 한 Azure Monitor의 "입력 지연"은 각 세션에 대 한 프로세스 당 입력 지연 성능 카운터를 의미 합니다. [Aka.ms/azmonwvdi](https://portal.azure.com/#blade/Microsoft_Azure_WVD/WvdManagerMenuBlade/workbooks)의 호스트 성능 페이지에서이 성능 카운터는 30 초 마다 한 번씩 보고서를 서비스로 보내도록 구성 되어 있습니다. 이러한 30 초 간격을 "samples" 라고 하며, 해당 창에서 최악의 경우를 보고 합니다. 중앙값과 p95 값은 모든 샘플에서 중앙값 및 95 번째 백분위 수를 반영 합니다.
 
 **호스트의 입력 지연** 에서 세션 호스트 행을 선택 하 여 해당 호스트에 대 한 페이지의 다른 모든 시각적 개체를 필터링 할 수 있습니다. 프로세스 이름을 선택 하 여 시간에 따른 입력 지연 시간 차트를 필터링 할 수도 있습니다.
 
@@ -114,16 +114,11 @@ Windows 가상 데스크톱에 대 한 Azure Monitor의 "입력 지연"은 각 �
 |PhysicalDisk ( \* ) \\ Avg. Disk Sec/Read|30초|
 |PhysicalDisk ( \* ) \\ Avg. Disk Sec/Transfer|30초|
 |PhysicalDisk ( \* ) \\ Avg. Disk Sec/Write|30초|
-|Process ( \* ) \\ % 프로세서 시간|20초|
-|Process ( \* ) \\ % 사용자 시간|30초|
-|Process ( \* ) \\ 스레드 수|30초|
-|Process ( \* ) \\ IO 쓰기 작업/초|30초|
-|Process ( \* ) \\ IO 읽기 작업/초|30초|
 |프로세서 정보 (_Total) \\ % 프로세서 시간|30초|
 |터미널 서비스 ( \* ) \\ 활성 세션|60초|
 |터미널 서비스 ( \* ) \\ 비활성 세션|60초|
 |터미널 서비스 ( \* ) \\ 총 세션|60초|
-|\*프로세스 당 사용자 입력 지연 ( \* ) \\ 최대 입력 dela|30초|
+|\*프로세스 당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연|30초|
 |\*세션당 사용자 입력 지연 ( \* ) \\ 최대 입력 지연|30초|
 |RemoteFX 네트워크 ( \* ) \\ 현재 TCP RTT|30초|
 |RemoteFX 네트워크 ( \* ) \\ 현재 UDP 대역폭|30초|
@@ -149,13 +144,13 @@ Windows 가상 데스크톱에 대 한 Azure Monitor의 "입력 지연"은 각 �
 
 ## <a name="round-trip-time-rtt"></a>RTT (왕복 시간)
 
-RTT (왕복 시간)는 최종 사용자의 위치와 VM의 Azure 지역 간에 연결의 왕복 시간을 예상 하는 것입니다. 대기 시간이 가장 긴 위치를 확인 하려면 [Windows 가상 데스크톱 환경 평가기 도구](https://azure.microsoft.com/services/virtual-desktop/assessment/)에서 원하는 위치를 조회 합니다.
+RTT (왕복 시간)는 최종 사용자의 위치와 세션 호스트의 Azure 지역 간에 연결의 왕복 시간을 예상 하는 것입니다. 대기 시간이 가장 긴 위치를 확인 하려면 [Windows 가상 데스크톱 환경 평가기 도구](https://azure.microsoft.com/services/virtual-desktop/assessment/)에서 원하는 위치를 조회 합니다.
 
 ## <a name="session-history"></a>세션 기록
 
 **세션** 항목은 모든 세션의 상태를 표시 하 고 연결 된 연결을 해제 합니다. **유휴 세션** 은 연결 되지 않은 세션만 표시 합니다.
 
-## <a name="severity-1-alerts"></a>심각도 1 경고
+## <a name="severity-0-alerts"></a>심각도 0 경고
 
 즉시 처리 해야 하는 가장 긴급 한 항목입니다. 이러한 문제를 해결 하지 않으면 Windows 가상 데스크톱 배포의 작동이 중지 될 수 있습니다.
 
@@ -171,22 +166,22 @@ RTT (왕복 시간)는 최종 사용자의 위치와 VM의 Azure 지역 간에 �
 
 각 가상 컴퓨터 코어의 사용자 수입니다. 시간에 따른 코어 당 최대 사용자 수를 추적 하면 환경에서 코어 당 높음, 낮음 또는 변동의 사용자 수를 일관 되 게 실행할지 여부를 쉽게 파악할 수 있습니다. 활성 상태인 사용자 수를 알면 환경을 효율적으로 리소스 및 크기를 조정 하는 데 도움이 됩니다.
 
-## <a name="windows-events"></a>Windows 이벤트
+## <a name="windows-event-logs"></a>Windows 이벤트 로그
 
 Windows 이벤트 로그는 Windows 가상 컴퓨터의 Log Analytics 에이전트에서 수집 하는 데이터 원본입니다. 모니터링 해야 하는 응용 프로그램에서 만든 사용자 지정 로그 뿐만 아니라 시스템 및 응용 프로그램과 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
 
-다음 표에서는 Windows 가상 데스크톱에 대 한 Azure Monitor에 필요한 Windows 이벤트를 보여 줍니다.
+다음 표에서는 Windows 가상 데스크톱에 대 한 Azure Monitor에 필요한 Windows 이벤트 로그를 보여 줍니다.
 
 |이벤트 이름|이벤트 유형|
 |---|---|
 |애플리케이션|오류 및 경고|
 |Microsoft-windows-terminalservices-gateway-RemoteConnectionManager/Admin|오류, 경고 및 정보|
 |Microsoft-windows-terminalservices-gateway-LocalSessionManager/Operational|오류, 경고 및 정보|
-|System|오류 및 경고|
+|시스템|오류 및 경고|
 | Microsoft-FSLogix-앱/운영|오류, 경고 및 정보|
 |Microsoft-FSLogix-앱/관리자|오류, 경고 및 정보|
 
-Windows 이벤트에 대해 자세히 알아보려면 [windows 이벤트 레코드 속성](../azure-monitor/agents/data-sources-windows-events.md)을 참조 하세요.
+Windows 이벤트 로그에 대 한 자세한 내용은 [Windows 이벤트 레코드 속성](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -203,4 +198,4 @@ Windows 가상 데스크톱에 대 한 Azure Monitor를 시작 하려면 다음 
    
 - 피드백을 유지 하는 방법에 [대 한 자세한 내용은 Windows 가상 데스크톱에 대 한 문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview.md#report-issues)을 참조 하세요.
 
-- Windows 가상 데스크톱 [피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) 또는 [UserVoice 포럼](https://windowsvirtualdesktop.uservoice.com/forums/921118-general)에서 windows 가상 데스크톱에 대 한 피드백을 남길 수도 있습니다.
+- Windows 가상 데스크톱 [피드백 허브](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) 에서 Windows 가상 데스크톱에 대 한 피드백을 남길 수도 있습니다.

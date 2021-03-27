@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671600"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612328"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio 노트북 만들기, 개발 및 유지 관리
 
@@ -35,15 +35,12 @@ Synapse 팀은 새로운 노트북 구성 요소를 Synapse Studio로 가져와�
 
 |기능|클래식 노트북|노트북 미리 보기|
 |--|--|--|
-|% 실행| 지원되지 않음 | &#9745;|
-|% 기록| 지원되지 않음 |&#9745;
-|% 로드| 지원되지 않음 |&#9745;|
-|%% html| 지원되지 않음 |&#9745;|
-|끌어서 놓고 셀 이동| 지원되지 않음 |&#9745;|
+|% 실행| 지원 안 함 | &#9745;|
+|% 기록| 지원 안 함 |&#9745;
+|% 로드| 지원 안 함 |&#9745;|
+|%% html| 지원 안 함 |&#9745;|
+|끌어서 놓고 셀 이동| 지원 안 함 |&#9745;|
 |영구 디스플레이 () 출력|&#9745;| 사용할 수 없음 |
-|모두 취소| &#9745;| 사용할 수 없음|
-|위의 모든 셀 실행|&#9745;| 사용할 수 없음 |
-|아래의 모든 셀 실행|&#9745;| 사용할 수 없음 |
 |도구 모음 단추를 사용하여 텍스트 셀 서식 지정|&#9745;| 사용할 수 없음 |
 |셀 실행 취소 작업| &#9745;| 사용할 수 없음 |
 
@@ -273,28 +270,38 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[클래식 노트북](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>위 또는 아래 셀 모두 실행
+
+# <a name="classical-notebook"></a>[클래식 노트북](#tab/classical)
 
 오른쪽 끝에 있는 추가 셀 작업 메뉴에 액세스하려면 줄임표( **...** )를 선택합니다. 그런 다음, 현재 셀 위에 있는 모든 셀을 순서대로 실행하려면 **Run cells above**(위 셀 실행)를 선택합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[노트북 미리 보기](#tab/preview)
+
+**모두 실행** 단추에서 드롭다운 목록을 확장 한 다음 **위의 셀 실행** 을 선택 하 여 현재 순서의 모든 셀을 순서 대로 실행 합니다. 현재 셀 아래 모든 셀을 순서대로 실행하려면 **Run cells below**(아래 셀 실행)을 선택합니다.
+
+   ![azure-노트북-위-또는 아래](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>실행 중인 모든 셀 취소
+
+# <a name="classical-notebook"></a>[클래식 노트북](#tab/classical)
 실행 중인 셀 또는 큐에서 대기 중인 셀을 취소 하려면 **모두 취소** 단추를 선택 합니다. 
    ![모두 취소-셀](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[노트북 미리 보기](#tab/preview)
 
-아직 실행 되지 않은 모든 셀은 preview 노트북 환경에서 사용할 수 없습니다. 
+실행 중인 셀 또는 큐에서 대기 중인 셀을 취소 하려면 **모두 취소** 단추를 선택 합니다. 
+   ![azure-노트북-모두 취소-전체 셀](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>참조 노트북
+### <a name="notebook-reference"></a>노트북 참조
 
 # <a name="classical-notebook"></a>[클래식 노트북](#tab/classical)
 
@@ -305,6 +312,11 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 ```%run <notebook path>```매직 명령을 사용 하 여 현재 노트북의 컨텍스트 내에서 다른 노트북을 참조할 수 있습니다. 참조 노트북에 정의 된 모든 변수는 현재 노트북에서 사용할 수 있습니다. ```%run``` 매직 명령은 중첩 된 호출을 지원 하지만 재귀 호출을 지원 하지 않습니다. 문 깊이가 5 보다 크면 예외를 수신 합니다. ```%run``` 현재 명령은 전자 필기장 경로를 매개 변수로 전달 하는 기능만 지원 합니다. 
 
 예: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> Synapse 파이프라인에서는 노트북 참조가 지원 되지 않습니다.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 
     }
 }
 ```
-
+> [!NOTE]
+> Spark 세션 구성 매직 명령은 Synapse 파이프라인에서 지원 되지 않습니다.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Notebook에 데이터 가져오기
 
@@ -420,6 +435,11 @@ Notebook 속성에서 저장할 때 셀 출력을 포함할지 여부를 구성�
 ## <a name="magic-commands"></a>매직 명령
 Azure Synapse Studio 노트북에서 친숙 한 Jupyter 매직 명령을 사용할 수 있습니다. 현재 사용 가능한 매직 명령으로 다음 목록을 검토 합니다. 사용자의 요구를 충족 하기 위해 더 많은 매직 명령을 계속 빌드할 수 있도록 [GitHub에서 사용 사례](https://github.com/MicrosoftDocs/azure-docs/issues/new) 를 알려 주세요.
 
+> [!NOTE]
+> Synapse 파이프라인에서 다음 매직 명령만 지원 됩니다 .%% pyspark,%% spark,%% csharp,%% sql. 
+>
+>
+
 # <a name="classical-notebook"></a>[클래식 노트북](#tab/classical)
 
 사용 가능한 줄 매직: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Azure Synapse Studio 노트북에서 친숙 한 Jupyter 매직 명령을 사용�
 
 # <a name="preview-notebook"></a>[노트북 미리 보기](#tab/preview)
 
-사용 가능한 줄 매직: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic),% [time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time),% [timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% run](#reference-notebook), [% load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+사용 가능한 줄 매직: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic),% [time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time),% [timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% run](#notebook-reference), [% load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 사용 가능한 셀 매직: [%% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% sql](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% spark](#use-multiple-languages), [% csharp](#use-multiple-languages),% [% html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%% configure](#spark-session-config-magic-command)
 
@@ -550,7 +570,7 @@ Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 
 ---
 
 ## <a name="next-steps"></a>다음 단계
-- [Synapse 샘플 노트북 확인](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
+- [Synapse 샘플 Notebooks 체크 아웃](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기](../quickstart-apache-spark-notebook.md)
 - [Azure Synapse Analytics의 Apache Spark란?](apache-spark-overview.md)
 - [Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용](spark-dotnet.md)
