@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 16dc95d4e32c683634aa2d96fc2af281612346e1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 38ba5679731b5e52eb06751a625aea9df69c76ca
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105568310"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643218"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
@@ -278,7 +278,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge Pro 디바이스에서 VM �
 
 3. 환경을 등록합니다. az cloud register를 실행하는 경우 다음 매개 변수를 사용합니다.
 
-    | Value | Description | 예 |
+    | Value | 설명 | 예 |
     | --- | --- | --- |
     | 환경 이름 | 연결하려는 환경의 이름 | 이름 제공(예: `aze-environ`) |
     | Resource Manager 엔드포인트 | URL은 `https://Management.<appliancename><dnsdomain>`입니다. <br> 이 URL을 얻으려면 디바이스의 로컬 웹 UI에서 **디바이스** 페이지로 이동합니다. |예: `https://management.team3device.teatraining1.com`  |

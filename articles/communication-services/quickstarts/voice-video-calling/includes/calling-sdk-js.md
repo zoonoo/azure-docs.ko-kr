@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: af5ec07a8fb2db0bd4b9b8f1af556ef54199400d
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 49054d9bbde67dc3670ec444e4b60c3ddf503db5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609489"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645459"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -21,10 +21,10 @@ ms.locfileid: "105609489"
 ## <a name="install-the-sdk"></a>SDK 설치
 
 > [!NOTE]
-> 이 문서에서는 호출 하는 SDK의 버전 1.0.0-베타. 6을 사용 합니다.
+> 이 문서에서는 호출 SDK의 버전 1.0.0-beta. 10을 사용 합니다.
 
 명령을 사용 하 여 `npm install` 및 JavaScript 용 일반 sdk를 호출 하는 Azure 통신 서비스를 설치 합니다.
-이 문서는 호출 하는 라이브러리의 버전 1.0.0-beta. 5에서 형식을 참조 합니다.
+이 문서는 버전 1.0.0-beta. 10의 호출 라이브러리에서 형식을 참조 합니다.
 
 ```console
 npm install @azure/communication-common --save
@@ -36,7 +36,7 @@ npm install @azure/communication-calling --save
 
 다음 클래스와 인터페이스는 SDK를 호출 하는 Azure Communication Services의 주요 기능 중 일부를 처리 합니다.
 
-| Name                             | Description                                                                                                                                 |
+| 이름                             | 설명                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CallClient`                      | 호출 SDK의 주 진입점입니다.                                                                       |
 | `CallAgent`                        | 호출을 시작 하 고 관리 하는 데 사용 됩니다.                                                                                            |
@@ -54,6 +54,10 @@ npm install @azure/communication-calling --save
 인스턴스를 만든 후에 `callAgent` `getDeviceManager` 는 인스턴스에 대해 메서드를 사용 하 여에 액세스할 수 있습니다 `CallClient` `deviceManager` .
 
 ```js
+// Set the logger's log level
+setLogLevel('verbose');
+// Redirect logger output to wherever desired. By default it logs to console
+AzureLogger.log = (...args) => { console.log(...args) };
 const userToken = '<user token>';
 callClient = new CallClient(options);
 const tokenCredential = new AzureCommunicationTokenCredential(userToken);
@@ -113,8 +117,8 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 ```js
 const deviceManager = await callClient.getDeviceManager();
 const cameras = await deviceManager.getCameras();
-videoDeviceInfo = cameras[0];
-localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const camera = cameras[0]
+localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
 
@@ -168,14 +172,26 @@ const call = callAgent.join(locator);
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
-    //Get information about caller
+
+    //Get incoming call ID
+    var incomingCallId = incomingCall.id
+
+    // Get information about caller
     var callerInfo = incomingCall.callerInfo
 
-    //Accept the call
+    // Accept the call
     var call = await incomingCall.accept();
 
-    //Reject the call
+    // Reject the call
     incomingCall.reject();
+
+    // Subscribe to callEnded event and get the call end reason
+     incomingCall.on('callEnded', args => {
+        console.log(args.callEndReason);
+    });
+
+    // callEndReason is also a property of IncomingCall
+    var callEndReason = incomingCall.callEndReason;
 };
 callAgentInstance.on('incomingCall', incomingCallHander);
 ```
@@ -194,7 +210,7 @@ callAgentInstance.on('incomingCall', incomingCallHander);
     const callId: string = call.id;
    ```
 
-컬렉션을 검사 하 여 호출에서 다른 참가자에 대해 알아봅니다 `remoteParticipant` .
+' Call ' 인스턴스에서 컬렉션을 검사 하 여 호출의 다른 참가자에 대해 알아봅니다 `remoteParticipants` .
 
    ```js
    const remoteParticipants = call.remoteParticipants;
@@ -217,7 +233,6 @@ callAgentInstance.on('incomingCall', incomingCallHander);
    다음과 같은 통화의 현재 상태를 나타내는 문자열을 반환합니다.
 
   - `None`: 초기 호출 상태입니다.
-  - `Incoming`: 호출이 수신 됨을 나타냅니다. 수락 하거나 거부 해야 합니다.
   - `Connecting`: 호출이 배치 되거나 수락 될 때의 초기 전환 상태입니다.
   - `Ringing`: 나가는 호출의 경우는 원격 참가자에 대 한 호출이 링 됨을 나타냅니다. 그 `Incoming` 쪽에 있습니다.
   - `EarlyMedia`: 호출이 연결 되기 전에 알림이 재생 되는 상태를 나타냅니다.
@@ -231,8 +246,8 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 
    ```js
    const callEndReason = call.callEndReason;
-   // callEndReason.code (number) code associated with the reason
-   // callEndReason.subCode (number) subCode associated with the reason
+   const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+   const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
    ```
 
 속성을 검사 하 여 현재 호출이 들어오거나 나가는 지 알아봅니다 `direction` . `CallDirection`를 반환합니다.
@@ -245,7 +260,7 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 현재 마이크가 음소거 되어 있는지 확인 합니다. `Boolean`를 반환합니다.
 
    ```js
-   const muted = call.isMicrophoneMuted;
+   const muted = call.isMuted;
    ```
 
 속성을 확인 하 여 화면 공유 스트림이 지정 된 끝점에서 전송 되 고 있는지 확인 `isScreenSharingOn` 합니다. `Boolean`를 반환합니다.
@@ -291,7 +306,10 @@ await call.unmute();
 비디오를 시작 하려면 개체에서 메서드를 사용 하 여 카메라를 지정 해야 `getCameras` `deviceManager` 합니다. 그런 다음 `LocalVideoStream` 원하는 카메라를 메서드에 인수로 전달 하 여의 새 인스턴스를 만듭니다 `startVideo` .
 
 ```js
-const localVideoStream = new LocalVideoStream(videoDeviceInfo);
+const deviceManager = await callClient.getDeviceManager();
+const cameras = await deviceManager.getCameras();
+const camera = cameras[0]
+const localVideoStream = new LocalVideoStream(camera);
 await call.startVideo(localVideoStream);
 ```
 
@@ -311,12 +329,13 @@ await call.stopVideo(localVideoStream);
 
 ```js
 const cameras = await callClient.getDeviceManager().getCameras();
-localVideoStream.switchSource(cameras[1]);
+const camera = cameras[1];
+localVideoStream.switchSource(camera);
 ```
 
 ## <a name="manage-remote-participants"></a>원격 참가자 관리
 
-모든 원격 참가자는로 표시 되며 `remoteParticipant` `remoteParticipants` 호출 인스턴스의 컬렉션을 통해 사용할 수 있습니다.
+모든 원격 참가자는 `RemoteParticipant` 형식으로 표시되며 호출 인스턴스에서 `remoteParticipants` 컬렉션을 통해 사용할 수 있습니다.
 
 ### <a name="list-the-participants-in-a-call"></a>호출의 참가자 나열
 
@@ -341,6 +360,7 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
   - `{ communicationUserId: '<ACS_USER_ID'> }`: ACS 사용자를 나타내는 개체입니다.
   - `{ phoneNumber: '<E.164>' }`: E. 164 형식의 전화 번호를 나타내는 개체입니다.
   - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: 팀 사용자를 나타내는 개체입니다.
+  - `{ id: string }`: 다른 식별자 형식에 맞지 않는 개체 repredenting identifier
 
 - `state`: 원격 참가자의 상태를 가져옵니다.
 
@@ -362,8 +382,8 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 
   ```js
   const callEndReason = remoteParticipant.callEndReason;
-  // callEndReason.code (number) code associated with the reason
-  // callEndReason.subCode (number) subCode associated with the reason
+  const callEndReasonCode = callEndReason.code // (number) code associated with the reason
+  const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
   ```
 
 - `isMuted` 상태: 원격 참가자가 음소거 되어 있는지 확인 하려면 속성을 확인 `isMuted` 합니다. `Boolean`를 반환합니다.
@@ -382,6 +402,11 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 
   ```js
   const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+  ```
+- `displayName`:이 원격 참가자에 대 한 표시 이름을 가져오려면 `displayName` 속성에서 반환 문자열을 검사 합니다. 
+
+  ```js
+  const displayName = remoteParticipant.displayName;
   ```
 
 ### <a name="add-a-participant-to-a-call"></a>통화에 참가자 추가
@@ -415,22 +440,22 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-렌더링 하려면 `RemoteVideoStream` 이벤트를 구독 해야 `isAvailableChanged` 합니다. `isAvailable` 속성이 `true`로 변경되면 원격 참가자가 스트림을 보내는 것입니다. 그 후에는의 새 인스턴스를 만든 `Renderer` 다음 `RendererView` 비동기 메서드를 사용 하 여 새 인스턴스를 만듭니다 `createView` .  그런 다음 `view.target` 모든 UI 요소에 연결할 수 있습니다.
+렌더링 하려면 `RemoteVideoStream` 이벤트를 구독 해야 `isAvailableChanged` 합니다. `isAvailable` 속성이 `true`로 변경되면 원격 참가자가 스트림을 보내는 것입니다. 그 후에는의 새 인스턴스를 만든 `VideoStreamRenderer` 다음 `VideoStreamRendererView` 비동기 메서드를 사용 하 여 새 인스턴스를 만듭니다 `createView` .  그런 다음 `view.target` 모든 UI 요소에 연결할 수 있습니다.
 
-원격 스트림의 가용성이 변경 될 때 `Renderer` 특정 인스턴스를 삭제 `RendererView` 하거나 삭제 하거나 모두 유지할 수 있습니다. 사용할 수 없는 스트림에 연결 된 렌더러는 빈 비디오 프레임을 생성 합니다.
+원격 스트림의 가용성이 변경될 때마다 전체 `VideoStreamRenderer`, 즉, 특정 `VideoStreamRendererView`를 제거하거나 유지하도록 선택할 수 있지만, 이 경우 빈 비디오 프레임이 표시됩니다.
 
 ```js
 function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
-    let renderer: Renderer = new Renderer(remoteVideoStream);
+    let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
     const displayVideo = () => {
-        const view = await renderer.createView();
+        const view = await videoStreamRenderer.createView();
         htmlElement.appendChild(view.target);
     }
-    remoteVideoStream.on('availabilityChanged', async () => {
+    remoteVideoStream.on('isAvailableChanged', async () => {
         if (remoteVideoStream.isAvailable) {
             displayVideo();
         } else {
-            renderer.dispose();
+            videoStreamRenderer.dispose();
         }
     });
     if (remoteVideoStream.isAvailable) {
@@ -449,12 +474,6 @@ function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
   const id: number = remoteVideoStream.id;
   ```
 
-- `Stream.size`: 원격 비디오 스트림의 높이 및 너비입니다.
-
-  ```js
-  const size: {width: number; height: number} = remoteVideoStream.size;
-  ```
-
 - `mediaStreamType`: 또는 일 수 있습니다 `Video` `ScreenSharing` .
 
   ```js
@@ -467,32 +486,32 @@ function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
   const type: boolean = remoteVideoStream.isAvailable;
   ```
 
-### <a name="renderer-methods-and-properties"></a>렌더러 메서드 및 속성
+### <a name="videostreamrenderer-methods-and-properties"></a>VideoStreamRenderer 메서드 및 속성
 
-`rendererView`원격 비디오 스트림을 렌더링 하기 위해 응용 프로그램 UI에 연결할 수 있는 인스턴스를 만듭니다.
-
-  ```js
-  renderer.createView()
-  ```
-
-`renderer`및 연결 된 모든 인스턴스를 삭제 합니다 `rendererView` .
+`VideoStreamRendererView`응용 프로그램 UI에 연결 하 여 원격 비디오 스트림을 렌더링 하 고, 비동기 `createView()` 메서드를 사용 하 고, 스트림이 렌더링 될 준비가 되었을 때를 확인 하 고, `target` `video` DOM 트리의 아무 곳에 나 추가할 수 있는 요소를 나타내는 속성이 있는 개체를 반환할 수 있는 인스턴스를 만듭니다.
 
   ```js
-  renderer.dispose()
+  videoStreamRenderer.createView()
   ```
 
-### <a name="rendererview-methods-and-properties"></a>RendererView 메서드 및 속성
+`videoStreamRenderer`및 연결 된 모든 인스턴스를 삭제 합니다 `VideoStreamRendererView` .
 
-를 만들 때 `rendererView` 및 속성을 지정할 수 `scalingMode` 있습니다 `isMirrored` . `scalingMode` , 또는 일 수 있습니다 `Stretch` `Crop` `Fit` . `isMirrored`가 지정 된 경우 렌더링 된 스트림은 세로로 대칭 이동 됩니다.
+  ```js
+  videoStreamRenderer.dispose()
+  ```
+
+### <a name="videostreamrendererview-methods-and-properties"></a>VideoStreamRendererView 메서드 및 속성
+
+를 만들 때 `VideoStreamRendererView` 및 속성을 지정할 수 있습니다 `scalingMode` `isMirrored` . `scalingMode` , 또는 일 수 있습니다 `Stretch` `Crop` `Fit` . `isMirrored`가 지정 된 경우 렌더링 된 스트림은 세로로 대칭 이동 됩니다.
 
 ```js
-const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
+const videoStreamRendererView: VideoStreamRendererView = await videoStreamRenderer.createView({ scalingMode, isMirrored });
 ```
 
-모든 `RendererView` 인스턴스에는 `target` 렌더링 화면을 나타내는 속성이 있습니다. 응용 프로그램 UI에서이 속성을 연결 합니다.
+모든 `VideoStreamRendererView` 인스턴스에는 `target` 렌더링 화면을 나타내는 속성이 있습니다. 응용 프로그램 UI에서이 속성을 연결 합니다.
 
 ```js
-document.body.appendChild(rendererView.target);
+htmlElement.appendChild(view.target);
 ```
 
 `scalingMode`메서드를 호출 하 여를 업데이트할 수 있습니다 `updateScalingMode` .
@@ -506,9 +525,6 @@ view.updateScalingMode('Crop')
 에서는 `deviceManager` 호출에서 오디오 및 비디오 스트림을 전송할 수 있는 로컬 장치를 지정할 수 있습니다. 또한 네이티브 브라우저 API를 사용 하 여 다른 사용자의 마이크와 카메라에 대 한 액세스 권한을 요청 하는 데 도움이 됩니다.
 
 `deviceManager`메서드를 호출 하 여에 액세스할 수 있습니다 `callClient.getDeviceManager()` .
-
-> [!IMPORTANT]
-> 에 `callAgent` 액세스할 수 있으려면 먼저 개체가 있어야 합니다 `deviceManager` .
 
 ```js
 const deviceManager = await callClient.getDeviceManager();
@@ -538,26 +554,26 @@ const localSpeakers = await deviceManager.getSpeakers(); // [AudioDeviceInfo, Au
 const defaultMicrophone = deviceManager.selectedMicrophone;
 
 // Set the microphone device to use.
-await deviceManager.selectMicrophone(AudioDeviceInfo);
+await deviceManager.selectMicrophone(localMicrophones[0]);
 
 // Get the speaker device that is being used.
 const defaultSpeaker = deviceManager.selectedSpeaker;
 
 // Set the speaker device to use.
-await deviceManager.selectSpeaker(AudioDeviceInfo);
+await deviceManager.selectSpeaker(localSpeakers[0]);
 ```
 
 ### <a name="local-camera-preview"></a>로컬 카메라 미리 보기
 
-`deviceManager` 및 `Renderer`를 사용하여 로컬 카메라에서 스트림 렌더링을 시작할 수 있습니다. 이 스트림은 다른 참가자에게 전송되지 않는 로컬 미리 보기 피드입니다.
+`deviceManager` 및 `VideoStreamRenderer`를 사용하여 로컬 카메라에서 스트림 렌더링을 시작할 수 있습니다. 이 스트림은 다른 참가자에게 전송되지 않는 로컬 미리 보기 피드입니다.
 
 ```js
 const cameras = await deviceManager.getCameras();
-const localVideoDevice = cameras[0];
-const localCameraStream = new LocalVideoStream(localVideoDevice);
-const renderer = new Renderer(localCameraStream);
-const view = await renderer.createView();
-document.body.appendChild(view.target);
+const camera = cameras[0];
+const localCameraStream = new LocalVideoStream(camera);
+const videoStreamRenderer = new VideoStreamRenderer(localCameraStream);
+const view = await videoStreamRenderer.createView();
+htmlElement.appendChild(view.target);
 
 ```
 

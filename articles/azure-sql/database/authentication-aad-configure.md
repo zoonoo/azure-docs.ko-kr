@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f3c34526fd4005dbbb0be7e763721e125ed7828e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201210"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643417"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
@@ -115,7 +115,7 @@ Azure Portal를 사용 하 여 SQL Managed Instance Azure AD 읽기 권한을 �
 
     관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 Active Directory 관리자 상자에 표시됩니다.
 
-SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 한 후 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 구문을 사용 하 여 azure ad 서버 보안 주체 (로그인) 만들기를 시작할 수 있습니다. 자세한 내용은 [SQL Managed Instance 개요](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration)를 참조 하세요.
+SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 한 후 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문을 사용 하 여 azure ad 서버 보안 주체 (로그인) 만들기를 시작할 수 있습니다. 자세한 내용은 [SQL Managed Instance 개요](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration)를 참조 하세요.
 
 > [!TIP]
 > 나중에 관리자를 제거하려면 Active Directory 관리자 페이지 위쪽에서 **관리자 제거** 를 선택한 다음, **저장** 을 선택합니다.
@@ -190,7 +190,7 @@ Azure AD 관리자를 프로비전하려면 다음 Azure PowerShell 명령을 �
 
 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 하 고 관리 하는 데 사용 되는 cmdlet은 다음 표에 나와 있습니다.
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |현재 구독의 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함)|
 | [AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |현재 구독에서 SQL Managed Instance에 대 한 Azure AD 관리자를 제거 합니다. |
@@ -218,7 +218,7 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 다음 CLI 명령을 호출 하 여 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 할 수도 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | SQL Managed Instance에 대 한 Azure Active Directory 관리자를 프로 비전 합니다 (현재 구독에서 가져와야 함). |
 |[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | SQL Managed Instance에 대 한 Azure Active Directory 관리자를 제거 합니다. |
@@ -279,13 +279,13 @@ PowerShell cmdlet을 실행하려면 Azure powershell을 설치하고 실행해�
 
 SQL Database 및 Azure Synapse에 대 한 Azure AD 관리자를 프로 비전 하 고 관리 하는 데 사용 되는 cmdlet:
 
-| Cmdlet 이름 | Description |
+| Cmdlet 이름 | 설명 |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 제거 합니다.|
 | [AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대해 현재 구성 된 Azure Active Directory 관리자에 대 한 정보를 반환 합니다. |
 
-PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 예: `get-help Set-AzSqlServerActiveDirectoryAdministrator`
+PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자세한 정보를 확인 합니다. 예들 들어 `get-help Set-AzSqlServerActiveDirectoryAdministrator`입니다.
 
 다음 스크립트는  `40b79501-b343-44ed-9ce7-da4c8cc7353f` **그룹-23** 이라는 리소스 그룹의 **demo_server** 서버에 대 한 DBA_GROUP (개체 ID) 이라는 Azure AD 관리자 그룹을 프로 비전 합니다.
 
@@ -293,7 +293,7 @@ PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``가 있습니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
 > [!NOTE]
 > Azure PowerShell 명령 ```Set-AzSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다.
@@ -324,7 +324,7 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 다음 CLI 명령을 호출 하 여 Azure AD 관리자를 프로 비전 할 수 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 프로 비전 합니다. (현재 구독에서 가져와야 함) |
 |[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | SQL Database 또는 Azure Synapse를 호스트 하는 서버에 대 한 Azure Active Directory 관리자를 제거 합니다. |
@@ -345,8 +345,8 @@ CLI 명령에 대 한 자세한 내용은 [az sql server](/cli/azure/sql/server)
 - 에서 4.6 이상 .NET Framework [https://msdn.microsoft.com/library/5a4x27ek.aspx](/dotnet/framework/install/guide-for-developers) 합니다.
 - SQL Server에 대 한 Azure Active Directory 인증 라이브러리 (*ADAL.DLL*). 다음은 *ADAL.DLL* 라이브러리가 포함 된 최신 SSMS, ODBC 및 OLE DB 드라이버를 설치 하는 다운로드 링크입니다.
   - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
-  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15)
-  - [SQL Server에 대 한 OLE DB 드라이버 18](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15)
+  - [ODBC Driver 17 for SQL Server](/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
+  - [SQL Server에 대 한 OLE DB 드라이버 18](/sql/connect/oledb/download-oledb-driver-for-sql-server?view=sql-server-ver15&preserve-view=true)
 
 다음을 통해 이러한 요구 사항을 충족할 수 있습니다.
 
@@ -357,7 +357,7 @@ CLI 명령에 대 한 자세한 내용은 [az sql server](/cli/azure/sql/server)
 
 ## <a name="create-contained-users-mapped-to-azure-ad-identities"></a>Azure AD ID에 매핑되어 있는 포함된 사용자 만들기
 
-SQL Managed Instance는 Azure AD 서버 보안 주체 (로그인)를 지원 하므로 포함 된 데이터베이스 사용자를 사용 하는 것은 필요 하지 않습니다. Azure AD 서버 보안 주체(로그인)를 사용하면 Azure AD 사용자, 그룹 또는 애플리케이션에서 로그인을 만들 수 있습니다. 즉, 포함 된 데이터베이스 사용자가 아닌 Azure AD 서버 로그인을 사용 하 여 SQL Managed Instance 인증할 수 있습니다. 자세한 내용은 [SQL Managed Instance 개요](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration)를 참조 하세요. Azure AD 서버 보안 주체(로그인)를 만드는 구문은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하세요.
+SQL Managed Instance는 Azure AD 서버 보안 주체 (로그인)를 지원 하므로 포함 된 데이터베이스 사용자를 사용 하는 것은 필요 하지 않습니다. Azure AD 서버 보안 주체(로그인)를 사용하면 Azure AD 사용자, 그룹 또는 애플리케이션에서 로그인을 만들 수 있습니다. 즉, 포함 된 데이터베이스 사용자가 아닌 Azure AD 서버 로그인을 사용 하 여 SQL Managed Instance 인증할 수 있습니다. 자세한 내용은 [SQL Managed Instance 개요](../managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration)를 참조 하세요. Azure AD 서버 보안 주체(로그인)를 만드는 구문은 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true)을 참조하세요.
 
 그러나 SQL Database 및 Azure Synapse를 사용 하 여 Azure Active Directory 인증을 사용 하려면 Azure AD id를 기반으로 하는 포함 된 데이터베이스 사용자를 사용 해야 합니다. 포함 된 데이터베이스 사용자는 master 데이터베이스에 로그인을 포함 하지 않으며, 데이터베이스와 연결 된 Azure AD의 id에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 참조하세요.
 

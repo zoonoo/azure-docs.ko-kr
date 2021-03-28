@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 6383c0fa3aad15da8abaea79136a75732ce9ea01
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a0e9cc9967509eba05bd26f3bad86eefeeb6ca3e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605776"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639479"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 대한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ ms.locfileid: "105605776"
 
   - Master 데이터베이스에서 추가 SQL 로그인을 만듭니다.
   - [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql) 문을 사용하여 [sysadmin 고정 서버 역할](/sql/relational-databases/security/authentication-access/server-level-roles)에 로그인을 추가합니다. 이 로그인은 전체 관리자 권한을 갖습니다.
-  - 또는 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 [Azure AD 로그인](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 만듭니다.
+  - 또는 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문을 사용하여 [Azure AD 로그인](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)을 만듭니다.
 
 - **SQL Database에서 관리 권한이 제한 된 SQL 로그인을 만듭니다.**
 
@@ -122,9 +122,9 @@ ms.locfileid: "105605776"
 
 로그인 및 사용자를 만드는 방법을 보여 주는 예제는 다음을 참조하세요.
 
-- [Azure SQL Database에 대 한 로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Azure SQL Managed Instance에 대 한 로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Azure Synapse에 대 한 로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Azure SQL Database에 대 한 로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1)
+- [Azure SQL Managed Instance에 대 한 로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true#examples-2)
+- [Azure Synapse에 대 한 로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest&preserve-view=true#examples-3)
 - [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql#examples)
 - [Azure AD 포함된 사용자 만들기](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)
 

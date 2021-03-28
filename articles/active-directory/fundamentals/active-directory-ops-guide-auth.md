@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 90e215ea445c8c700e351149e9c7a91d9a595252
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0d425111e151d60ab38a60e38cd1805cef39f606
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96859524"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641767"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -31,7 +31,7 @@ ms.locfileid: "96859524"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| 작업 | 소유자 |
+| Task | 소유자 |
 | :- | :- |
 | Azure AD에서 SSO (Single Sign-On) 구성의 수명 주기 관리 | IAM 운영 팀 |
 | Azure AD 응용 프로그램에 대 한 조건부 액세스 정책 디자인 | InfoSec 아키텍처 팀 |
@@ -59,7 +59,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 아래 표를 사용 하 여 해결 해야 하는 문제를 완화 하기 위한 권장 솔루션을 찾을 수 있습니다.
 
-| 문제 | 권장 |
+| 문제점 | 권장 |
 | :- | :- |
 | 약한 암호 로부터 보호 하는 메커니즘이 없습니다. | Azure AD [SSPR (셀프 서비스 암호 재설정)](../authentication/concept-sspr-howitworks.md) 및 [암호 보호](../authentication/concept-password-ban-bad-on-premises.md) 를 사용 하도록 설정 |
 | 누출 암호를 검색 하는 메커니즘이 없습니다. | 정보를 얻기 위해 phs ( [암호 해시 동기화](../hybrid/how-to-connect-password-hash-synchronization.md) ) 사용 |
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
 
 |리소스 | 사용 권한 |
 | :- | :- |
@@ -365,8 +365,8 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="logs-recommended-reading"></a>로그 권장 읽기
 
-- [Azure Active Directory 감사 API 참조](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
-- [Azure Active Directory 로그인 활동 보고서 API 참조](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Azure Active Directory 감사 API 참조](/graph/api/resources/directoryaudit?view=graph-rest-beta)
+- [Azure Active Directory 로그인 활동 보고서 API 참조](/graph/api/resources/signin?view=graph-rest-beta)
 - [인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기](../reports-monitoring/tutorial-access-api-with-certificates.md)
 - [Azure Active Directory Identity Protection에 대 한 Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)
 - [Office 365 관리 활동 API 참조](/office/office-365-management-api/office-365-management-activity-api-reference)

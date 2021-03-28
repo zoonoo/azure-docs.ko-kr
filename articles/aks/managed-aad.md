@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 2cf72da8f7ca82c37088cd6456f094ada2580982
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b7918ecc31fe152bd25153ac8c899ce3ff8fdacb
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418966"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640600"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -29,7 +29,7 @@ AKS로 관리 되는 Azure ad 통합은 사용자가 이전에 클라이언트 �
 * AKS로 관리 되는 Azure AD 통합에 대 한 Kubernetes RBAC 사용 클러스터가 지원 되지 않음
 * AKS로 관리 되는 Azure AD 통합에 연결 된 Azure AD 테 넌 트 변경은 지원 되지 않음
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure CLI 버전 2.11.0 이상
 * Kubectl [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 또는 [kubelogin](https://github.com/Azure/kubelogin) 의 최소 버전
@@ -262,7 +262,7 @@ AKS 관리 Azure AD 통합을 사용 하 여 AKS 클러스터와 just-in-time �
 1. *활성* 의 할당 유형, 원하는 기간을 선택 하 고 근거를 제공 합니다. 계속할 준비가 되 면 *할당* 을 선택 합니다. 할당 형식에 대 한 자세한 내용은 [Privileged Identity Management에서 권한 있는 액세스 그룹 (미리 보기)에 대 한 자격 할당][aad-assignments]을 참조 하세요.
     :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="Azure Portal의 할당 추가 설정 화면이 표시 됩니다. ' 활성 '의 할당 유형을 선택 하 고 샘플 사유를 지정 했습니다. ' 할당 ' 옵션이 강조 표시 됩니다.":::
 
-할당이 완료 되 면 클러스터에 액세스 하 여 just-in-time 액세스가 작동 하는지 확인 합니다. 예를 들면 다음과 같습니다.
+할당이 완료 되 면 클러스터에 액세스 하 여 just-in-time 액세스가 작동 하는지 확인 합니다. 예를 들어:
 
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
@@ -308,7 +308,7 @@ Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[aad-pricing]: /azure/pricing/details/active-directory
+[aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md

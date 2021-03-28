@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: b0c26aa95d8c3aba5df164fb0707b4833accd052
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104786484"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644075"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure 애플리케이션 Insights](./app-insights-overview.md) 의 스냅숏 디버거는 웹 앱에서 예외 원격 분석을 모니터링 합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 응용 프로그램에 [스냅숏 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 를 포함 하 고 필요에 따라 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성 합니다. 스냅숏은 Application Insights 포털의 [예외](./asp-net-exceptions.md) 에 표시 됩니다.
@@ -124,7 +124,7 @@ Visual Studio 2017의 15.2 버전 이상은 App Service에 게시할 때 기본�
 Azure Compute 및 기타 형식의 경우 기호 파일이 주 애플리케이션 .dll의 동일한 폴더(일반적으로 `wwwroot/bin`)에 있거나 현재 경로에서 사용할 수 있는지 확인합니다.
 
 > [!NOTE]
-> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> 사용할 수 있는 다른 기호 옵션에 대 한 자세한 내용은 [Visual Studio 설명서](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019&preserve-view=true#output
 )를 참조 하세요. 최상의 결과를 위해서는 "Full", "이식 가능" 또는 "포함"을 사용 하는 것이 좋습니다.
 
 ### <a name="optimized-builds"></a>최적화된 빌드

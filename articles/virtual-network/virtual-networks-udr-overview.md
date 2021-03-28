@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605215"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645265"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -96,10 +96,12 @@ Azure에서 사용자 지정 경로 또는 사용자 정의(정적) 경로를 �
 
 사용자 정의 경로에서는 **VNet 피어링** 또는 **VirtualNetworkServiceEndpoint** 를 다음 홉 유형으로 지정할 수 없습니다. **VNet 피어링** 또는 **VirtualNetworkServiceEndpoint** 다음 홉 유형이 있는 경로는 가상 네트워크 피어링 또는 서비스 엔드포인트를 구성할 때 Azure에서 만듭니다.
 
-### <a name="service-tags-for-user-defined-routes-public-preview"></a>사용자 정의 경로에 대 한 서비스 태그 (공개 미리 보기)
+### <a name="service-tags-for-user-defined-routes-preview"></a>사용자 정의 경로에 대 한 서비스 태그 (미리 보기)
 
 이제 명시적 IP 범위 대신 사용자 정의 경로에 대 한 주소 접두사로 [서비스 태그](service-tags-overview.md) 를 지정할 수 있습니다. 서비스 태그는 지정 된 Azure 서비스에서 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그가 들어 있는 주소 접두사를 관리 하 고, 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 하 여 사용자 정의 경로에 대 한 빈번한 업데이트의 복잡성을 최소화 하 고 만들어야 하는 경로 수를 줄입니다. 현재 각 경로 테이블에 서비스 태그로 25 개 이하의 경로를 만들 수 있습니다. </br>
 
+> [!IMPORTANT]
+> 사용자 정의 경로에 대 한 서비스 태그는 현재 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 #### <a name="exact-match"></a>정확히 일치
 명시적 IP 접두사가 있는 경로와 서비스 태그가 있는 경로 사이에 정확히 일치 하는 접두사가 있는 경우 명시적 접두사가 있는 경로에 대 한 기본 설정이 지정 됩니다. 서비스 태그가 있는 여러 경로에 일치 하는 IP 접두사가 있는 경우 경로는 다음 순서로 평가 됩니다. 
@@ -280,9 +282,9 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 |기본값 |Active |10.2.0.0/16         |VNet 피어링              |                   |
 |기본값 |Active |10.10.0.0/16        |가상 네트워크 게이트웨이   |[X.X.X.X]          |
 |기본값 |Active |0.0.0.0/0           |인터넷                  |                   |
-|기본값 |활성 |10.0.0.0/8          |없음                      |                   |
+|기본값 |Active |10.0.0.0/8          |없음                      |                   |
 |기본값 |Active |100.64.0.0/10       |없음                      |                   |
-|기본값 |활성 |192.168.0.0/16      |None                      |                   |
+|기본값 |Active |192.168.0.0/16      |None                      |                   |
 
 *Subnet2* 의 경로 테이블에는 Azure에서 만든 모든 기본 경로 및 선택적인 VNet 피어링 및 가상 네트워크 게이트웨이 경로가 포함되어 있습니다. 게이트웨이 및 피어링이 가상 네트워크에 추가되었을 때 Azure에서 선택적 경로를 가상 네트워크의 모든 서브넷에 추가했습니다. 0\.0.0.0/0 주소 접두사에 대한 사용자 정의 경로가 *Subnet1* 에 추가되었을 때 Azure에서 *Subnet1* 경로 테이블로부터 10.0.0.0/8, 192.168.0.0/16 및 100.64.0.0/10 주소 접두사에 대한 경로를 제거했습니다.  
 

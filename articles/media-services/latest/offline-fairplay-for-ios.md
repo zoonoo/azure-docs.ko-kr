@@ -2,26 +2,18 @@
 title: IOS에 대 한 Media Services v3 오프 라인 FairPlay 스트리밍
 description: 이 항목에서는 Azure Media Services v 3을 사용 하 여 오프 라인 모드에서 Apple FairPlay를 사용 하 여 HLS (HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화 하는 방법을 간략하게 설명 합니다.
 services: media-services
-keywords: HLS, DRM, FairPlay 스트리밍(FPS), Offline, iOS 10
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
+manager: femila
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 399f9b0184217db8180fcec38e4f78917d5c9bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: inhenkel
+ms.openlocfilehash: 0412ef303a301873d437e03e91c58c0a2e8e7e15
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955240"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640726"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Media Services v3를 사용 하는 iOS 용 오프 라인 FairPlay 스트리밍
 
@@ -49,7 +41,7 @@ ms.locfileid: "98955240"
 > [!NOTE]
 > 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 전에 다음을 수행합니다.
 
@@ -205,10 +197,6 @@ Media Services의 세 가지 테스트 샘플은 다음 세 시나리오를 다�
 이러한 샘플은 Azure 웹앱에 호스트되는 해당 애플리케이션 인증서를 사용하여 [이 데모 사이트](https://aka.ms/poc#22)에서 찾을 수 있습니다.
 FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재생 목록에 대체 오디오가 들어 있다면 오프라인 모드 동안에 오디오만을 재생합니다. 따라서 대체 오디오를 제거해야 합니다. 즉, 이전에 나열된 두 번째 및 세 번째 샘플은 온라인 및 오프라인 모드에서 작동합니다. 온라인 스트리밍이 제대로 작동하지만, 첫 번째로 나열된 샘플은 오프라인 모드 동안에는 오디오만 재생합니다.
 
-## <a name="faq"></a>FAQ
+## <a name="offline-fairplay-questions"></a>오프 라인 Fairplay 질문
 
-질문과 [대답 지원 정보를](frequently-asked-questions.md#why-does-only-audio-play-but-not-video-during-offline-mode)참조 하십시오.
-
-## <a name="next-steps"></a>다음 단계
-
-[AES-128로 보호](protect-with-aes128.md)하는 방법 확인
+[오프 라인 fairplay 질문](questions-collection.md#why-does-only-audio-play-but-not-video-during-offline-mode)을 참조 하세요.

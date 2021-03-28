@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 8a76a637c4862032b100308d8b02bced76af38fe
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: e27e7e0bb4616508c8f137260bde68de9420f9cf
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023404"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644965"
 ---
 # <a name="migrating-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 데이터 웨어하우스를 전용 SQL 풀로 마이그레이션 
 다음 섹션에서는 기존 데이터 웨어하우스 솔루션을 Azure Synapse Analytics 전용 SQL 풀로 마이그레이션하는 것과 관련 된 작업에 대 한 개요를 제공 합니다.
@@ -39,7 +39,7 @@ Azure Synapse Analytics 대신 다음과 같은 작업 (OLTP) 워크 로드에 �
 ## <a name="azure-synapse-pathway"></a>Azure Synapse 경로
 중요 한 차단 고객 중 하나는 한 시스템에서 다른 시스템으로 마이그레이션할 때 해당 데이터베이스 개체를 변환 하는 것입니다. [Azure Synapse 경로](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) 를 사용 하면 기존 데이터 웨어하우스의 개체 변환을 자동화 하 여 최신 데이터 웨어하우스 플랫폼으로 업그레이드할 수 있습니다. 무료로 제공되며 직관적이고 사용이 간단한 도구로, 코드 변환을 자동화하여 Azure Synapse Analytics로 신속하게 마이그레이션할 수 있도록 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 # <a name="migrate-from-sql-server"></a>[SQL Server에서 마이그레이션](#tab/migratefromSQLServer)
 SQL Server 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이션하려면 다음과 같은 필수 구성 요소가 있는지 확인 합니다. 
 
@@ -73,7 +73,7 @@ Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 
 ---
 
-## <a name="pre-migration"></a>사전 마이그레이션
+## <a name="pre-migration"></a>마이그레이션 전
 기존 솔루션을 Azure Synapse Analytics로 마이그레이션하도록 결정 한 후에는 시작 하기 전에 마이그레이션을 계획 하는 것이 중요 합니다. 계획의 주요 목표는 데이터, 테이블 스키마 및 코드가 Azure Synapse Analytics와 호환 되는지 확인 하는 것입니다. 사용자가 해결 해야 하는 Azure Synapse Analytics와 현재 시스템 간에는 몇 가지 호환성 차이가 있습니다. 또한 많은 양의 데이터를 Azure로 마이그레이션하는 데 시간이 걸립니다. 신중한 계획은 데이터를 Azure로 가져오는 프로세스를 가속화 합니다. 계획의 또 다른 주요 목표는 솔루션이 Azure Synapse Analytics가 제공 하도록 설계 된 높은 쿼리 성능을 최대한 활용할 수 있도록 설계를 조정 하는 것입니다. 크기에 대 한 데이터 웨어하우스 디자인은 고유한 디자인 패턴을 도입 하므로 기존 방법이 항상 가장 적합 한 것은 아닙니다. 마이그레이션 후에는 일부 디자인을 조정할 수 있지만 이전에 프로세스를 변경 하면 나중에 시간을 절약할 수 있습니다.
 
 ## <a name="migrate"></a>마이그레이션
@@ -83,7 +83,7 @@ Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 - [데이터 마이그레이션](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading)문서를 참조 하세요.
 - 이 문서에서는 [워크 로드 관리를 고려](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management)합니다.
 
-## <a name="additional-resources"></a>추가 리소스 
+## <a name="additional-resources"></a>추가 자료 
 - CAT (고객 자문 팀)에는 블로그 게시물로 게시 된 몇 가지 훌륭한 Azure Synapse Analytics (이전의 SQL DW) 지침이 있습니다. 마이그레이션을 수행 하는 방법에 대 한 자세한 내용은이 문서에서 [Azure SQL Data Warehouse 하 여 데이터를 마이그레이션하](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice)는 방법을 참조 하세요.
 
 ## <a name="migration-assets-from-real-world-engagements"></a>실제 계약의 마이그레이션 자산
@@ -96,7 +96,7 @@ Oracle 데이터 웨어하우스를 Azure Synapse Analytics로 마이그레이�
 | [Azure Synapse Analytics 전용 SQL 풀에서 테이블 크기 가져오기](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | 설계자가 실행을 수행 해야 하는 주요 작업 중 하나는 마이그레이션 후 새 환경에 대 한 메트릭을 얻는 것입니다. 즉, 온-프레미스에서 클라우드로 로드 시간을 수집 하 고, PolyBase 로드 시간을 수집 하는 등의 작업을 수행 합니다. 이러한 작업 중 가장 중요 한 것은 고객의 현재 플랫폼과 비교 하 여 SQL Data Warehouse에서 저장소 크기를 확인 하는 것입니다. |
 | [온-프레미스 SQL Server 로그인을 Azure Synapse Analytics로 이동 하는 유틸리티](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | 로그인을 다시 만들고 "온-프레미스" SQL Server에서 Azure SQL PaaS 서비스로 데이터베이스 사용자를 선택 하는 T-sql 명령 스크립트를 만드는 PowerShell 스크립트입니다. 이 도구를 사용 하면 Azure AD 계정에 대 한 Windows AD 계정 자동 매핑을 허용 하거나 온-프레미스 Windows Active Directory에 대 한 각 로그인에 대해 UPN 조회를 수행할 수 있습니다. 이 도구는 선택적으로 SQL Server 기본 로그인도 이동 합니다. 사용자 지정 서버 및 데이터베이스 역할은 스크립팅된 역할 멤버 자격, 데이터베이스 역할 및 사용자 권한입니다. 포함 된 데이터베이스는 아직 지원 되지 않으며 가능한 SQL Server 권한의 하위 집합만 스크립팅 됩니다. 즉 grant 권한 부여는 지원 되지 않습니다 (복잡 한 권한 트리). 자세한 내용은 지원 문서에서 확인할 수 있으며 스크립트는 이해 하기 쉽도록 설명 합니다. |
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 ## <a name="videos"></a>동영상
 - Walgreens에서 Netezza (이전 SQL DW)에서 Azure Synapse Analytics (이전의 SQL DW)로 약 100TB의 데이터를 사용 하 여 [소매 재고 시스템을 마이그레이션하](https://www.youtube.com/watch?v=86dhd8N1lH4) 는 방법을 시청 하세요. 

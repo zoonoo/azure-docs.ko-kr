@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: e0736e58983d4c28b8f2f4a20241cd36ac84fdfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 09e8ef85b6df48b6b442351135d4ae4ed55e9b45
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96445386"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641081"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse의 논리 SQL server는 무엇 인가요?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -147,10 +147,10 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 
 | 명령 | 설명 |
 | --- | --- |
-|[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Azure SQL Database에서 새로운 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
-|[데이터베이스 만들기 (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Azure Synapse에서 새 데이터 웨어하우스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
-| [ALTER DATABASE(Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |데이터베이스 또는 탄력적 풀을 수정 합니다. |
-|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Azure Synapse에서 데이터 웨어하우스 데이터베이스를 수정 합니다.|
+|[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true) | Azure SQL Database에서 새로운 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
+|[데이터베이스 만들기 (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Azure Synapse에서 새 데이터 웨어하우스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
+| [ALTER DATABASE(Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |데이터베이스 또는 탄력적 풀을 수정 합니다. |
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=sqlpool)|Azure Synapse에서 데이터 웨어하우스 데이터베이스를 수정 합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|데이터베이스에 대 한 버전 (서비스 계층), 서비스 목표 (가격 책정 계층) 및 탄력적 풀 이름 (있는 경우)을 반환 합니다. 서버에 대 한 master 데이터베이스에 로그온 한 경우는 모든 데이터베이스에 대 한 정보를 반환 합니다. Azure Synapse의 경우 master 데이터베이스에 연결 해야 합니다.|
 |[sys.dm_db_resource_stats(Azure SQL 데이터베이스)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Azure SQL Database의 데이터베이스에 대 한 CPU, IO 및 메모리 소비량을 반환 합니다. 데이터베이스에서 활동이 없더라도 15초 간격으로 한 행이 있습니다.|

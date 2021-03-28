@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: cde8db5310e3ede2721ba327b28c789ccd0b7dd0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 56b74e440fcb09ab206bbb069517dd756221f809
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87280769"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639568"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "87280769"
     > Visual Studio 2019 또는 2017을 설치할 때는 **Azure 개발** 워크로드를 선택해야 합니다.
     > 자세한 내용은 [Visual Studio에서 Azure 계정과 연결 된 리소스 관리 클라우드 탐색기](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer)를 참조 하세요.
 
-    Visual Studio 2015에 대 한 클라우드 탐색기를 설치 하려면 [Visual Studio Marketplace에서 클라우드 탐색기를 다운로드](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)합니다. 자세한 내용은 [Visual Studio에서 Azure 계정과 연결 된 리소스 관리 클라우드 탐색기 (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)를 참조 하세요.
+    Visual Studio 2015에 대 한 클라우드 탐색기를 설치 하려면 [Visual Studio Marketplace에서 클라우드 탐색기를 다운로드](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)합니다. 자세한 내용은 [Visual Studio에서 Azure 계정과 연결 된 리소스 관리 클라우드 탐색기 (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015&preserve-view=true)를 참조 하세요.
 
   * [Azure SDK (2.9.1 이상)](https://azure.microsoft.com/downloads/)
 
@@ -71,7 +71,7 @@ Visual Studio에서 클라우드 탐색기를 사용하여 Azure 구독에 연�
 
 1. Visual Studio를 엽니다. **보기** 메뉴에서 **클라우드 탐색기** 를 선택합니다.
 
-1. 클라우드 탐색기에서 **계정 관리** 아이콘을 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용** 을 선택 합니다. 예를 들면 다음과 같습니다.
+1. 클라우드 탐색기에서 **계정 관리** 아이콘을 선택 합니다. 논리 앱과 연결 된 Azure 구독을 선택 하 고 **적용** 을 선택 합니다. 예를 들어:
 
    !["계정 관리"를 선택 합니다.](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -230,7 +230,7 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
    ![논리 앱에 대 한 실행 기록 열기](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예를 들면 다음과 같습니다.
+1. 특정 실행에 대한 세부 정보를 보려면 실행을 두 번 클릭합니다. 예를 들어:
 
    ![특정 실행에 대 한 정보 보기](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   

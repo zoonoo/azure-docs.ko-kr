@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e2fa09ac8609310d4579590214bc25e5d7ee309f
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94841651"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641565"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Azure AD Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -113,7 +113,7 @@ C # 예제에서는 네임 스페이스를 사용 합니다 [`System.Data.SqlCli
   Azure AD 사용자 이름 및 암호가 필요한 인증에 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 메서드는 Multi-Factor Authentication을 지원 하지 않습니다.
 
 > [!NOTE]
-> .NET Core를 사용 하는 경우에는 [Microsoft. SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) 네임 스페이스를 사용 하는 것이 좋습니다. 자세한 내용은 다음 [블로그](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)를 참조 하세요.
+> .NET Core를 사용 하는 경우에는 [Microsoft. SqlClient](/dotnet/api/microsoft.data.sqlclient) 네임 스페이스를 사용 하는 것이 좋습니다. 자세한 내용은 다음 [블로그](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)를 참조 하세요.
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>Azure Portal에서 C# 매개 변수 값 설정
 
@@ -148,7 +148,7 @@ SSMS를 다시 실행 합니다. 이번에는 **MFA를 사용 하 여 Azure Acti
 ## <a name="c-code-example"></a>C# 코드 예제
 
 > [!NOTE]
-> .NET Core를 사용 하는 경우에는 [Microsoft. SqlClient](/dotnet/api/microsoft.data.sqlclient?view=sqlclient-dotnet-core-1.1) 네임 스페이스를 사용 하는 것이 좋습니다. 자세한 내용은 다음 [블로그](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)를 참조 하세요.
+> .NET Core를 사용 하는 경우에는 [Microsoft. SqlClient](/dotnet/api/microsoft.data.sqlclient) 네임 스페이스를 사용 하는 것이 좋습니다. 자세한 내용은 다음 [블로그](https://devblogs.microsoft.com/dotnet/introducing-the-new-microsoftdatasqlclient/)를 참조 하세요.
 
 예제 C# 프로그램은 [*Microsoft.IdentityModel.Clients.ActiveDirectory*](/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL 어셈블리를 사용합니다.
 

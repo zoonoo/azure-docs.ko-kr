@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 6cf6e8e3f19b11a49e91b781b1ef6d83bf647903
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 4343359e17203fcae538558ebeaa967cfde1540d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563007"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640508"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>마이그레이션 가이드: Oracle에서 Azure SQL Managed Instance로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Oracle 스키마를 SQL Managed Instance 마이그레이션하려면 다음이 �
 - [공급자](/sql/ssma/oracle/connect-to-oracle-oracletosql) 및 [Oracle용 SSMA에 필요한 권한](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql)
  
 
-## <a name="pre-migration"></a>사전 마이그레이션
+## <a name="pre-migration"></a>마이그레이션 전
 
 필수 조건을 충족하면 사용자 환경의 토폴로지를 검색하고 마이그레이션의 적합성을 평가할 준비가 된 것입니다. 프로세스의 이 부분에서는 마이그레이션해야 하는 데이터베이스에 대한 인벤토리를 수행하고, 해당 데이터베이스에 잠재적인 마이그레이션 문제나 방해 요소가 있는지 평가한 다음, 발견했을 수 있는 모든 항목을 확인합니다.
 
@@ -187,7 +187,7 @@ Oracle 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 | [SSMA for Oracle Common Errors and how to fix them](https://aka.ms/dmj-wp-ssma-oracle-errors)(Oracle용 SSMA 일반적인 오류 및 해결 방법)                                                           | Oracle을 사용하면 WHERE 절에서 스칼라가 아닌 조건을 할당할 수 있습니다. 그러나 SQL Server는 이런 유형의 조건을 지원하지 않습니다. 따라서 Oracle용 SSMA(SQL Server Migration Assistant)는 WHERE 절에 스칼라가 아닌 조건이 있는 쿼리를 변환하지 않고 대신 오류 O2SS0001을 생성합니다. 이 백서에서는 이 문제에 대한 자세한 정보와 해결 방법을 제공합니다.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)(Oracle에서 SQL Server로 마이그레이션 안내서)                | 이 문서에서는 Oracle 스키마를 최신 버전의 SQL Server 기반으로 마이그레이션하는 것과 관련된 작업을 집중적으로 설명합니다. 마이그레이션에서 기능을 변경해야 하는 경우 각 변경 작업이 데이터베이스를 사용하는 애플리케이션에 미칠 수 있는 영향을 신중하게 고려해야 합니다.                                                     |
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

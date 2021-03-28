@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739265"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644655"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 수신
 
@@ -178,7 +178,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
    ![대상 저장소 계정을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/map-target.png "대상 저장소.") 
 
-1. 스냅숏 기반 공유의 경우 데이터 공급자가 스냅숏 일정을 사용 하 여 정기적으로 데이터를 업데이트 하는 경우 **스냅숏 일정** 탭에서 일정을 사용 하도록 설정할 수 있습니다. 스냅숏 일정 옆의 상자를 선택 합니다. 그런 다음 **사용** 을 선택합니다.
+1. 스냅숏 기반 공유의 경우 데이터 공급자가 스냅숏 일정을 사용 하 여 정기적으로 데이터를 업데이트 하는 경우 **스냅숏 일정** 탭에서 일정을 사용 하도록 설정할 수 있습니다. 스냅숏 일정 옆의 상자를 선택 합니다. 그런 다음 **사용** 을 선택합니다. 첫 번째 예약 된 스냅숏은 일정 시간 동안 1 분 이내에 시작 되 고 후속 스냅숏은 예약 된 시간 (초) 이내에 시작 됩니다.
 
    ![스냅숏 일정을 사용 하도록 설정 하는 방법을 보여 주는 스크린샷](./media/enable-snapshot-schedule.png "스냅숏 일정을 사용 하도록 설정 합니다.")
 

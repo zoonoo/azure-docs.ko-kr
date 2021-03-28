@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea3d895970c6a18286d719471a693f774efaa387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aecae72b0bea07a0d8e240b3dcae7ee9b9662f95
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955232"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640719"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Media Services v3를 사용 하는 Windows 10 용 오프 라인 PlayReady 스트리밍
 
@@ -34,7 +34,7 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 > [!NOTE]
 > 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
-## <a name="overview"></a>개요
+## <a name="background-on-offline-mode-playback"></a>오프 라인 모드 재생의 배경
 
 이 섹션에서는 오프라인 모드 재생에 관한 약간의 배경 지식을 제공합니다.
 
@@ -61,12 +61,12 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](/iis/media/smooth-stre
 
 테스트 자산의 두 가지 세트는 다음과 같습니다. 첫 번째는 AMS의 PlayReady 라이선스 제공을 사용하는 것이며 두 번째는 Azure VM에 호스팅된 PlayReady 라이선스 서버를 사용하는 것입니다.
 
-자산 #1:
+## <a name="asset-1"></a>자산 #1
 
 * 프로그레시브 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL(AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
-자산 #2:
+## <a name="asset-2"></a>자산 #2
 
 * 프로그레시브 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (온-프레미스): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
@@ -124,7 +124,3 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 * 점진적 다운로드 시 Azure Media Services 또는 Azure Storage에서 콘텐츠를 호스팅할 수 있습니다.
 * Azure Media Services 또는 다른 위치에서PlayReady 라이선스 배달을 할 수 있습니다.
 * 준비된 부드러운 스트리밍 콘텐츠는 DASH 또는 DRM으로 PlayReady를 사용하는 부드러운 스트리밍을 통해 온라인 스트리밍에서 계속 사용할 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)

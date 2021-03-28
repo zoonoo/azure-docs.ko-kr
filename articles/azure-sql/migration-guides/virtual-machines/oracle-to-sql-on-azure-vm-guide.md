@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 4173fe34c6966514ef4f150527cd712c9d95ab7e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8f034492568a7525f8f75f5f2add1a732c3ad896
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105561715"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644290"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>마이그레이션 가이드: Azure VM에서 Oracle to SQL Server
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ MAP 도구 키트를 사용하여 인벤토리 검색을 수행하려면 다음 
 
 1. 비즈니스 요구 사항 및 환경에 가장 적합한 컴퓨터 검색 옵션을 선택하고 **다음** 을 선택합니다. 
 
-   ![비즈니스 요구에 가장 적합 한 컴퓨터 검색 옵션을 선택 합니다.](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
+   ![비즈니스 요구 사항에 가장 적합한 컴퓨터 검색 옵션 선택](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
 
 1. 자격 증명을 입력 하거나 탐색 하려는 시스템에 대 한 새 자격 증명을 만든 후 **다음** 을 선택 합니다.
 
@@ -79,7 +79,7 @@ MAP 도구 키트를 사용하여 인벤토리 검색을 수행하려면 다음 
 1. 검색하려는 각 컴퓨터에 대해 자격 증명을 지정합니다. 모든 컴퓨터/컴퓨터에 대해 고유한 자격 증명을 사용 하거나 **모든 컴퓨터 자격 증명** 목록을 사용 하도록 선택할 수 있습니다.
 
 
-   ![검색 하려는 각 컴퓨터에 대 한 자격 증명을 지정 합니다.](./media/oracle-to-sql-on-azure-vm-guide/specify-credentials-for-each-computer.png)
+   ![검색하려는 각 컴퓨터에 대해 자격 증명 지정](./media/oracle-to-sql-on-azure-vm-guide/specify-credentials-for-each-computer.png)
 
 
 1. 선택 요약을 확인 하 고 **마침** 을 선택 합니다.
@@ -118,7 +118,7 @@ MAP 도구 키트를 사용하여 인벤토리 검색을 수행하려면 다음 
 
    ![보고서 만들기](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
-1. **Oracle 메타 데이터 탐색기** 에서 oracle 스키마를 선택한 다음 **보고서 만들기** 를 선택 하 여 변환 통계 및 오류/경고 (있는 경우)가 포함 된 HTML 보고서를 생성 합니다.
+1. **Oracle 메타데이터 탐색기** 에서 Oracle 스키마를 선택한 다음, **보고서 만들기** 를 선택하여 변환 통계 및 오류/경고(있는 경우)가 포함된 HTML 보고서를 생성합니다.
 1. HTML 보고서를 검토하여 변환 통계와 오류 또는 경고를 파악합니다. 또한 Excel에서 보고서를 열어 Oracle 개체의 인벤토리를 가져오고 스키마를 변환 하는 데 필요한 작업을 수행할 수 있습니다. 보고서의 기본 위치는 SSMAProjects 내의 보고서 폴더에 있습니다. 
 
    예: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\`
@@ -168,7 +168,7 @@ MAP 도구 키트를 사용하여 인벤토리 검색을 수행하려면 다음 
 1. 오프라인 스키마 수정 연습을 위해 프로젝트를 로컬로 저장합니다. **파일** 메뉴에서 **프로젝트 저장** 을 선택합니다. 이를 통해 원본 및 대상 스키마를 오프 라인으로 평가 하 고, Azure VM에서 SQL Server에 스키마를 게시 하기 전에 수정을 수행할 수 있습니다.
 
 
-## <a name="migrate"></a>Migrate
+## <a name="migrate"></a>마이그레이션
 
 필요한 필수 조건을 준비하고 **마이그레이션 전** 단계와 관련된 작업을 완료했으면 스키마 및 데이터 마이그레이션을 수행할 준비가 된 것입니다. 마이그레이션에는 스키마 게시 및 데이터 마이그레이션의 두 단계가 포함됩니다. 
 
@@ -246,7 +246,7 @@ SSMA를 사용하는 것 외에도 SSIS(SQL Server Integration Services)를 사�
 | [SSMA for Oracle Common Errors and how to fix them](https://aka.ms/dmj-wp-ssma-oracle-errors)(Oracle용 SSMA 일반적인 오류 및 해결 방법)                                                           | Oracle을 사용하면 WHERE 절에서 스칼라가 아닌 조건을 할당할 수 있습니다. 그러나 SQL Server는 이런 유형의 조건을 지원하지 않습니다. 따라서 Oracle용 SSMA(SQL Server Migration Assistant)는 WHERE 절에 스칼라가 아닌 조건이 있는 쿼리를 변환하지 않고 대신 오류 O2SS0001을 생성합니다. 이 백서에서는 이 문제에 대한 자세한 정보와 해결 방법을 제공합니다.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)(Oracle에서 SQL Server로 마이그레이션 안내서)                | 이 문서에서는 Oracle 스키마를 최신 버전의 SQL Server로 마이그레이션하는 작업과 관련 된 작업에 대해 중점적으로 설명 합니다. 마이그레이션에서 기능을 변경해야 하는 경우 각 변경 작업이 데이터베이스를 사용하는 애플리케이션에 미칠 수 있는 영향을 신중하게 고려해야 합니다.                                                     |
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

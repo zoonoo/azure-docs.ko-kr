@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
-ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d6b7b298e7e4d18e68985ec3cf536c90ef773608
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96499138"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644390"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech service로 마이그레이션
 
@@ -26,7 +26,7 @@ ms.locfileid: "96499138"
 단일 Speech service 구독 키는 다음 기능에 대 한 액세스 권한을 부여 합니다. 각 기능은 별도로 측정되므로 사용하는 기능에 대해서만 요금이 청구됩니다.
 
 * [음성 텍스트 변환](speech-to-text.md)
-* [사용자 지정 음성 텍스트](https://cris.ai)
+* [사용자 지정 음성 텍스트](/azure/cognitive-services/speech-service/custom-speech-overview)
 * [텍스트 음성 변환](text-to-speech.md)
 * [사용자 지정 텍스트 음성 변환](./how-to-custom-voice-create-voice.md)
 * [음성 번역](speech-translation.md)([텍스트 번역](../translator/translator-info-overview.md) 제외)
@@ -87,7 +87,7 @@ Speech service, SDK 및 API 지원이 필요한 경우 Speech service [지원 �
 * [음성 텍스트 변환 시작](get-started-speech-to-text.md)
 * [텍스트 음성 변환 시작](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 * [Speech service 릴리스 정보](releasenotes.md)
 * [음성 서비스는 무엇 인가요?](overview.md)

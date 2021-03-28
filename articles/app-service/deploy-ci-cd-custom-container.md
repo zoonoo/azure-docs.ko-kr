@@ -9,12 +9,12 @@ ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: bc36325b55f049eebef823d836768fccc39a7615
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472168"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643357"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Azure App Service에서 사용자 지정 컨테이너를 사용 하 여 연속 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "103472168"
 배포 원본 **선택** 은 시나리오에 따라 달라 집니다.
 - Container **registry** 는 컨테이너 레지스트리와 App Service 사이에 CI/CD를 설정 합니다.
 - Github의 컨테이너 이미지에 대 한 소스 코드를 유지 관리 하는 경우 **Github 작업** 옵션을 사용할 수 있습니다. GitHub 리포지토리에 대 한 새로운 커밋에 의해 트리거된 배포 작업은 `docker build` `docker push` 컨테이너 레지스트리를 실행 하 고, 새 이미지를 실행 하기 위해 App Service 앱을 업데이트할 수 있습니다. 자세한 내용은 [GitHub 작업을 사용 하 여 CI/CD의 작동 방식](#how-cicd-works-with-github-actions)을 참조 하세요.
-- **Azure Pipelines** 를 사용 하 여 CI/CD를 설정 하려면 [Azure Pipelines에서 Azure 웹 앱 컨테이너 배포](/devops/pipelines/targets/webapp-on-container-linux)를 참조 하세요.
+- **Azure Pipelines** 를 사용 하 여 CI/CD를 설정 하려면 [Azure Pipelines에서 Azure 웹 앱 컨테이너 배포](/azure/devops/pipelines/targets/webapp-on-container-linux)를 참조 하세요.
 
 > [!NOTE]
 > Docker Compose 앱의 경우 **Container Registry** 를 선택 합니다.

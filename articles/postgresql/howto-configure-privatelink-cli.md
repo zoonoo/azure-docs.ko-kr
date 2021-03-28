@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8aaebdd37f835201ef549e3f97e0c0b657e4fe9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3452bfee1e9228926bb687d1b9dc7fb26dfff85a
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96020129"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642180"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 개인 링크 만들기 및 관리
 
@@ -124,7 +124,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> 고객 DNS 설정의 FQDN은 구성 된 개인 IP로 확인 되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 표시 된 대로 구성 된 FQDN에 대 한 DNS 영역을 설정 해야 합니다.
+> 고객 DNS 설정의 FQDN이 구성된 개인 IP로 확인되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 표시 된 대로 구성 된 FQDN에 대 한 DNS 영역을 설정 해야 합니다.
 
 > [!NOTE]
 > Azure Database for PostgreSQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
@@ -171,7 +171,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
    Address:  10.1.3.4
    ```
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 다음 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 를 사용 하 여 작업을 수행 합니다.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 다음 예제에서는 [Azure Data studio](/sql/azure-data-studio/download) 를 사용 하 여 작업을 수행 합니다.
 
 4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 

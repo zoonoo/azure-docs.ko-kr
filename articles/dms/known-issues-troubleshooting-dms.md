@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 785567685b77183df0f212897b923d911ac045f6
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ce53e8a77186f96801879e5c9d8f8c65809470d0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567310"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639806"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>일반적인 Azure Database Migration Service 문제 및 오류 해결
 
@@ -132,7 +132,7 @@ Azure Database Migration Service를 통해 MySQL 데이터베이스를 Azure Dat
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)문서를 참조 하세요.
+* [PowerShell Azure Database Migration Service](/powershell/module/azurerm.datamigration#data_migration)문서를 참조 하세요.
 * [Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수를 구성 하는 방법](../mysql/howto-server-parameters.md)문서를 참조 하세요.
 * [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](./pre-reqs.md)문서를 참조 하세요.
 * [Azure Database Migration Service 사용에 대 한 FAQ](./faq.md)를 참조 하세요.

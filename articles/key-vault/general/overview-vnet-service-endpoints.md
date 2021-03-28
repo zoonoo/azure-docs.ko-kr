@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 148f67fb87072a8ffd25f0fe1dfdb444be052173
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771620"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643487"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -48,13 +48,13 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Exchange Online 및 SharePoint Online|[고객 키](/microsoft-365/compliance/customer-key-overview)를 사용하여 Azure Storage 서비스 암호화를 위한 고객 키에 대한 액세스를 허용합니다.|
 |Azure Information Protection|[Azure Information Protection](/azure/information-protection/what-is-information-protection)을 위해 테넌트 키 액세스 허용|
 |Azure App Service|[Key Vault를 통해 Azure Web App 인증서를 배포합니다](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Azure SQL Database 및 Azure Synapse 분석에 대 한 Bring Your Own Key 지원으로 투명한 데이터 암호화](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&preserve-view=true&viewFallbackFrom=azuresqldb-current)합니다.|
+|Azure SQL Database|[Azure SQL Database 및 Azure Synapse 분석에 대 한 Bring Your Own Key 지원으로 투명한 데이터 암호화](../../azure-sql/database/transparent-data-encryption-byok-overview.md)합니다.|
 |Azure Storage|[Azure Key Vault에서 고객 관리 키를 사용 하 여 저장소 서비스 암호화](../../storage/common/customer-managed-keys-configure-key-vault.md)합니다.|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../../data-lake-store/data-lake-store-encryption.md).|
 |Azure Synapse Analytics|[Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 데이터 암호화](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](/azure/databricks/scenarios/what-is-azure-databricks)|
 |Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
-|Azure 데이터 팩터리|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Data Factory|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../event-hubs/configure-customer-managed-key.md)|
 |Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](../../import-export/storage-import-export-encryption-key-portal.md)

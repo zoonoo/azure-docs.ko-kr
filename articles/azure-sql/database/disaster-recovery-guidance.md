@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11c83a6ec364865eb3478112c9f33add22a5c09d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580762"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643267"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대 한 장애 조치
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 
 ## <a name="wait-for-service-recovery"></a>서비스 복구 대기
 
-Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위해 열심히 작업하지만 루트에 따라 몇 시간 또는 며칠씩 걸릴 수 있습니다.  애플리케이션이 가동 중지 시간을 상당히 허용할 수 있는 경우 복구가 완료되기를 기다릴 수밖에 없습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다. 지역 복구 후에 애플리케이션의 가용성이 복원됩니다.
+Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위해 열심히 작업하지만 루트에 따라 몇 시간 또는 며칠씩 걸릴 수 있습니다.  애플리케이션이 가동 중지 시간을 상당히 허용할 수 있는 경우 복구가 완료되기를 기다릴 수밖에 없습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 서비스의 현재 상태를 [Azure 서비스 상태 대시보드](https://azure.microsoft.com/status/)에서 확인할 수 있습니다. 지역 복구 후에 응용 프로그램의 가용성이 복원 됩니다.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>장애 조치(failover) 그룹에 있는 지역에서 복제된 보조 서버로 장애 조치합니다.
 
@@ -78,7 +78,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 - [Azure Portal을 사용하여 지역에서 복제된 보조 서버로 장애 조치](active-geo-replication-configure-portal.md)
 - [PowerShell을 사용하여 보조 서버로 장애 조치](scripts/setup-geodr-and-failover-database-powershell.md)
-- [Transact-sql (T-sql)을 사용 하 여 보조 서버로 장애 조치 (failover)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Transact-sql (T-sql)을 사용 하 여 보조 서버로 장애 조치 (failover)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>지역 복원을 사용한 복구
 
@@ -90,7 +90,7 @@ Azure 팀은 가능한 한 신속하게 서비스 가용성을 복원하기 위�
 
 ### <a name="update-connection-strings"></a>연결 문자열 업데이트
 
-복구된 데이터베이스가 다른 서버에 상주하기 때문에 해당 서버를 가리키도록 애플리케이션의 연결 문자열을 업데이트해야 합니다.
+복구 된 데이터베이스가 다른 서버에 상주 하기 때문에 해당 서버를 가리키도록 응용 프로그램의 연결 문자열을 업데이트 해야 합니다.
 
 연결 문자열을 변경하는 방법에 대한 자세한 내용은 [연결 라이브러리](connect-query-content-reference-guide.md#libraries)에 대한 적절한 개발 언어를 참조하세요.
 

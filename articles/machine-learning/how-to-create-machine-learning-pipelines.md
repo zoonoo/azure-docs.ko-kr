@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 188df9564905443b8f975eb743b24885b5d03c32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38fd5b779c3a8ae71c2e4fafcaf65921b1be3f93
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618205"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642270"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -32,7 +32,7 @@ ML 파이프라인은 계산 대상에서 실행 됩니다 ( [Azure Machine Lear
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -89,7 +89,7 @@ from azureml.core import Dataset
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
 
-중간 데이터 (또는 단계의 출력)는 [Outputfiledatasetconfig](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig) 개체로 표현 됩니다. `output_data1` 는 단계의 출력으로 생성 됩니다. 필요에 따라를 호출 하 여이 데이터를 데이터 집합으로 등록할 수 있습니다 `register_on_complete` . `OutputFileDatasetConfig`한 번에를 만들어 다른 단계에 대 한 입력으로 사용 하는 경우 단계 간 데이터 종속성은 파이프라인에서 암시적 실행 순서를 만듭니다.
+중간 데이터 (또는 단계의 출력)는 [Outputfiledatasetconfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig) 개체로 표현 됩니다. `output_data1` 는 단계의 출력으로 생성 됩니다. 필요에 따라를 호출 하 여이 데이터를 데이터 집합으로 등록할 수 있습니다 `register_on_complete` . `OutputFileDatasetConfig`한 번에를 만들어 다른 단계에 대 한 입력으로 사용 하는 경우 단계 간 데이터 종속성은 파이프라인에서 암시적 실행 순서를 만듭니다.
 
 `OutputFileDatasetConfig` 개체는 디렉터리를 반환 하며 기본적으로 작업 영역의 기본 데이터 저장소에 출력을 씁니다.
 
@@ -106,7 +106,7 @@ output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_
 > 파이프라인 실행이 끝날 때 중간 데이터를 프로그래밍 방식으로 삭제 하거나, 단기 데이터 보존 정책이 포함 된 데이터 저장소를 사용 하거나, 정기적으로 수동으로 정리 해야 합니다.
 
 > [!TIP]
-> 현재 작업과 관련된 파일만 업로드합니다. 데이터 디렉터리 내에서 파일을 변경 하면 다시 사용이 지정 된 경우에도 다음에 파이프라인이 실행 될 때 단계를 다시 실행 하는 이유를 볼 수 있습니다. 
+> 현재 작업과 관련된 파일만 업로드합니다. 데이터 디렉터리 내에서 파일을 변경하면 다시 사용이 지정된 경우에도 다음에 파이프라인이 실행될 때 단계를 다시 실행하는 이유로 간주됩니다. 
 
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 
@@ -247,7 +247,7 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### <a name="use-a-dataset"></a>데이터 세트 사용 
 
-Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 만든 데이터 집합은 모든 파이프라인 단계에 대 한 입력으로 사용할 수 있습니다. [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)에 대 한 출력을 작성 하거나 특정 데이터 저장소에 데이터를 쓰려면 [outputfiledatasetconfig](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig)를 사용 합니다. 
+Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 만든 데이터 집합은 모든 파이프라인 단계에 대 한 입력으로 사용할 수 있습니다. [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)에 대 한 출력을 작성 하거나 특정 데이터 저장소에 데이터를 쓰려면 [outputfiledatasetconfig](/python/api/azureml-core/azureml.data.outputfiledatasetconfig)를 사용 합니다. 
 
 > [!IMPORTANT]
 > 을 사용 하 여 데이터 저장소에 출력 데이터를 다시 작성 하 `OutputFileDatasetConfig` 는 것은 Azure Blob, Azure 파일 공유, ADLS gen 1 및 gen 2 데이터 저장소에 대해서만 지원 됩니다. 

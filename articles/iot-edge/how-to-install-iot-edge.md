@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/26/2021
 ms.author: kgremban
-ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a98eed61904b580988fe34302999f3ec6a24ac9e
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201611"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640928"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux 용 Azure IoT Edge 설치 또는 제거
 
@@ -24,7 +24,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 
 이 문서에는 Linux 장치에 Azure IoT Edge 런타임을 설치 하는 단계가 나와 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [등록 된 장치 ID](how-to-register-device.md)
 
@@ -303,10 +303,10 @@ IoT Edge 장치에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트 합니다.
 
-* **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
+* **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
 * **device_id**: 장치를 등록할 때 제공한 id입니다.
-* **identity_cert**: 장치의 id 인증서에 대 한 URI입니다. 예: `file:///path/identity_certificate.pem`
-* **identity_pk**: 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다. 예: `file:///path/identity_key.pem`
+* **identity_cert**: 장치의 id 인증서에 대 한 URI입니다. 예들 들어 `file:///path/identity_certificate.pem`입니다.
+* **identity_pk**: 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다. 예들 들어 `file:///path/identity_key.pem`입니다.
 
 파일을 저장하고 닫습니다.
 
@@ -355,7 +355,7 @@ IoT Edge 장치에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트 합니다.
 
-* **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`
+* **iothub_hostname**: 장치가 연결 될 IoT hub의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
 * **device_id**: 장치를 등록할 때 제공한 id입니다.
 * **identity_cert**: 장치의 id 인증서에 대 한 URI입니다 (예:). `file:///path/identity_certificate.pem` 또는 EST 또는 로컬 인증 기관을 사용 하 여 동적으로 인증서를 발급 합니다.
 * **identity_pk**: 제공 된 id 인증서의 개인 키 파일에 대 한 URI입니다 (예:). `file:///path/identity_key.pem` 또는 PKCS # 11 URI를 제공한 다음 구성 파일의 뒷부분에 있는 **pkcs # 11** 섹션에서 구성 정보를 제공 합니다.
@@ -397,6 +397,8 @@ IoT Edge 시스템 서비스가 실행 되 고 있는지 확인 하십시오.
    ```bash
    sudo iotedge system status
    ```
+
+성공적인 상태 응답은 `Ok` 입니다.
 
 ::: moniker-end
 
@@ -491,7 +493,7 @@ IoT Edge 디바이스에서 실행되는 모든 모듈을 봅니다. 서비스�
    2. 다음 명령의 복사 된 링크를 사용 하 여 해당 버전의 id 서비스를 설치 합니다.
 
       ```bash
-      curl -L <identity service link> -o aziot-identity-service.deb && sudo dpkg -i ./aziot-identity-service.deb
+      curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
 
    3. IoT Edge 장치의 아키텍처와 일치 하는 **aziot** 파일을 찾습니다. 파일 링크를 마우스 오른쪽 단추로 클릭 하 고 링크 주소를 복사 합니다.
@@ -499,7 +501,7 @@ IoT Edge 디바이스에서 실행되는 모든 모듈을 봅니다. 서비스�
    4. 다음 명령의 복사 된 링크를 사용 하 여 해당 버전의 IoT Edge를 설치 합니다.
 
       ```bash
-      curl -L <iotedge link> -o aziot-edge.deb && sudo dpkg -i ./aziot-edge.deb
+      curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
 
 <!-- end 1.2 -->

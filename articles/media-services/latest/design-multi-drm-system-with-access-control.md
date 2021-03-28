@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 057a284f99dd7c3713249b19e8fc39212d9e6003
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101092436"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640267"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계
 
@@ -53,7 +53,7 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 | **Windows 10** | PlayReady | Microsoft Edge/PlayReady용 IE11|
 | **Android 디바이스(전화, 태블릿, TV)** |Widevine |Widevine용 Chrome |
 | **iOS** | FairPlay | FairPlay용 Safari(iOS 11.2 이후) |
-| **macOS** | FairPlay | FairPlay용 Safari(Safari 9 이후+Mac OS X 10.11에서+El Capitan)|
+| **macOS** | FairPlay | FairPlay 용 safari (macOS X 10.11 + El Capitan의 Safari 9 이상)|
 | **tvOS** | FairPlay | |
 
 각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 엔드포인트을 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
@@ -235,7 +235,7 @@ Azure AD에 대한 내용:
 
 * 애플리케이션의 **구성** 탭에서 Azure AD의 애플리케이션에 권한을 추가합니다. 각 애플리케이션(로컬 및 배포된 버전)에 사용 권한이 필요합니다.
 
-    ![권한](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
+    ![사용 권한](./media/design-multi-drm-system-with-access-control/media-services-perms-to-other-apps.png)
 
 * 동적 CENC 보호 설정에 올바른 발급자를 사용합니다.
 
@@ -357,9 +357,3 @@ protectionInfo.type으로 "FairPlay"를 입력하고 FPS AC 경로(FairPlay 스�
 ![비대칭 키가 있는 사용자 지정 STS](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 이전의 두 경우 모두 사용자 인증은 동일하게 유지됩니다. 즉, Azure AD를 통해 수행됩니다. 유일한 차이점은 JWT가 Azure AD 대신 사용자 지정 STS에 의해 발급된다는 점입니다. 동적 CENC 보호를 구성할 때 라이선스 배달 서비스 제한으로 JWT 형식을 대칭 또는 비대칭 키로 지정합니다.
-
-## <a name="next-steps"></a>다음 단계
-
-* [자주 묻는 질문](frequently-asked-questions.md)
-* [콘텐츠 보호 개요](content-protection-overview.md)
-* [DRM을 사용하여 콘텐츠 보호](protect-with-drm.md)

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ce575a67552c89b17ff4ed9b44ab43a4bd12d67f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 417b6099a6b52fecf6f11e1074b346e9a63255c3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110756"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645428"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-java"></a>통신 서비스 솔루션에 관리 id 추가 (Java)
 
@@ -47,7 +47,7 @@ import java.io.IOException;
 import java.util.*;
 ```
 
-아래 예제에서는 [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
+아래 예제에서는 [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
 
 `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_ID` 및 `AZURE_TENANT_ID` 환경 변수는 개체를 만드는 데 필요 `DefaultAzureCredential` 합니다. 개발 환경에서 등록 된 응용 프로그램을 만들고 환경 변수를 설정 하려면 [관리 id를 사용 하 여 액세스 권한 부여](../managed-identity-from-cli.md)를 참조 하세요.
 

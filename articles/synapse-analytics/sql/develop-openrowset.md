@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 987b850d569c238902f57baaed4a2178f51bd79d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a6af8f4600544007a9ecb4fcff5ac9016fd7dfbf
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589619"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640340"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -241,7 +241,7 @@ DATAFILETYPE = { 'char' | 'widechar' }
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
-데이터 파일에서 데이터의 코드 페이지를 지정합니다. 기본값은 65001(UTF-8 인코딩)입니다. 이 옵션에 대한 자세한 내용을 [여기](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage)를 클릭하세요.
+데이터 파일에서 데이터의 코드 페이지를 지정합니다. 기본값은 65001(UTF-8 인코딩)입니다. 이 옵션에 대한 자세한 내용을 [여기](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15&preserve-view=true#codepage)를 클릭하세요.
 
 ## <a name="fast-delimited-text-parsing"></a>분리된 텍스트에 대한 빠른 구문 분석
 

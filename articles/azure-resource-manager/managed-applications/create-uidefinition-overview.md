@@ -3,14 +3,14 @@ title: 포털 창의 파일에 CreateUiDefinition.js
 description: Azure Portal에 대 한 사용자 인터페이스 정의를 만드는 방법을 설명 합니다. Azure Managed Applications를 정의할 때 사용 됩니다.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 03/26/2021
 ms.author: tomfitz
-ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 586237c6dd909312780163cf316220d2f3fddd8c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89319573"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641650"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리되는 애플리케이션의 만들기 환경을 위한 CreateUiDefinition.json
 
@@ -63,25 +63,29 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid subscription."
+                        "isValid": "[not(contains(subscription().displayName, 'Test'))]",
+                        "message": "Can't use test subscription."
                     },
                     {
-                        "permission": "<Resource Provider>/<Action>",
-                        "message": "Must have correct permission to complete this step."
+                        "permission": "Microsoft.Compute/virtualmachines/write",
+                        "message": "Must have write permission for the virtual machine."
+                    },
+                    {
+                        "permission": "Microsoft.Compute/virtualMachines/extensions/write",
+                        "message": "Must have write permission for the extension."
                     }
                 ]
             },
             "resourceProviders": [
-                "<Resource Provider>"
+                "Microsoft.Compute"
             ]
         },
         "resourceGroup": {
             "constraints": {
                 "validations": [
                     {
-                        "isValid": "[expression for checking]",
-                        "message": "Please select a valid resource group."
+                        "isValid": "[not(contains(resourceGroup().name, 'test'))]",
+                        "message": "Resource group name can't contain 'test'."
                     }
                 ]
             },
@@ -103,11 +107,13 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 },
 ```
 
+속성에 대해 `isValid` true 또는 false로 확인 되는 식을 작성 합니다. 속성에 대해 `permission` [리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)중 하나를 지정 합니다.
+
 ### <a name="wizard"></a>마법사
 
 `isWizard`속성을 사용 하면 다음 단계를 진행 하기 전에 각 단계의 유효성을 성공적으로 검사 하도록 요구할 수 있습니다. `isWizard`속성이 지정 되지 않은 경우 기본값은 **false** 이 고 단계별 유효성 검사가 필요 하지 않습니다.
 
-을 `isWizard` 사용 하도록 설정 하면를 **true** 로 설정 하 고 **기본** 탭을 사용할 수 있으며 다른 모든 탭은 사용 하지 않도록 설정 됩니다. **다음** 단추를 선택 하면 탭의 아이콘이 탭의 유효성 검사에 성공 또는 실패 여부를 나타냅니다. 탭의 필수 필드가 완료 되 고 유효성을 검사 한 후 **다음** 단추를 클릭 하 여 다음 탭으로 이동할 수 있습니다. 모든 탭에서 유효성 검사를 통과 하면 **검토 및 만들기** 페이지로 이동 하 고 **만들기** 단추를 선택 하 여 배포를 시작할 수 있습니다.
+을 `isWizard` 사용 하도록 설정 하면를 **true** 로 설정 하 고 **기본** 탭을 사용할 수 있으며 다른 모든 탭은 사용 하지 않도록 설정 됩니다. **다음** 단추를 선택 하면 탭의 아이콘이 탭의 유효성 검사에 성공 또는 실패 여부를 나타냅니다. 탭의 필수 필드를 완료 하 고 유효성을 검사 한 후에는 **다음 단추를 클릭 하** 여 다음 탭으로 이동할 수 있습니다. 모든 탭에서 유효성 검사를 통과 하면 **검토 및 만들기** 페이지로 이동 하 고 **만들기** 단추를 선택 하 여 배포를 시작할 수 있습니다.
 
 :::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="탭 마법사":::
 
@@ -117,7 +123,7 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 
 의 `description` 경우 리소스를 설명 하는 markdown 사용 문자열을 제공 합니다. 여러 줄 형식 및 링크가 지원 됩니다.
 
-`subscription`및 요소를 사용 하 여 `resourceGroup` 추가 유효성 검사를 지정할 수 있습니다. 유효성 검사를 지정 하는 구문은 [텍스트 상자](microsoft-common-textbox.md)에 대 한 사용자 지정 유효성 검사와 동일 합니다. `permission`구독 또는 리소스 그룹에 대 한 유효성 검사를 지정할 수도 있습니다.  
+`subscription`및 `resourceGroup` 요소를 사용 하면 더 많은 유효성 검사를 지정할 수 있습니다. 유효성 검사를 지정 하는 구문은 [텍스트 상자](microsoft-common-textbox.md)에 대 한 사용자 지정 유효성 검사와 동일 합니다. `permission`구독 또는 리소스 그룹에 대 한 유효성 검사를 지정할 수도 있습니다.  
 
 구독 제어는 리소스 공급자 네임 스페이스의 목록을 수락 합니다. 예를 들어, **Microsoft Compute** 를 지정할 수 있습니다. 사용자가 리소스 공급자를 지원 하지 않는 구독을 선택 하면 오류 메시지가 표시 됩니다. 이 오류는 리소스 공급자가 해당 구독에 등록 되지 않고 사용자에 게 리소스 공급자를 등록할 수 있는 권한이 없는 경우에 발생 합니다.  
 
@@ -150,7 +156,7 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 
 ## <a name="steps"></a>단계
 
-단계 속성에는 기본 후 표시할 0 개 이상의 추가 단계가 포함 되어 있습니다. 각 단계에는 하나 이상의 요소가 포함 되어 있습니다. 배포할 애플리케이션의 역할별 또는 계층별로 단계를 추가하는 것이 좋습니다. 예를 들어 마스터 노드 입력에 대 한 단계와 클러스터의 작업자 노드에 대 한 단계를 추가 합니다.
+단계 속성에는 기본 다음에 표시 되는 0 개 이상의 단계가 포함 됩니다. 각 단계에는 하나 이상의 요소가 포함 되어 있습니다. 배포할 애플리케이션의 역할별 또는 계층별로 단계를 추가하는 것이 좋습니다. 예를 들어 주 노드 입력에 대 한 단계와 클러스터의 작업자 노드에 대 한 단계를 추가 합니다.
 
 ```json
 "steps": [

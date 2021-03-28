@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: b41f894a7e4742b75ea06684a960221d4a5b7641
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 1a20ffd7150ac75721b2affc2f4375301c4754c8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024764"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643578"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Oracle을 Azure Database for PostgreSQL로 마이그레이션
 
@@ -21,7 +21,7 @@ ms.locfileid: "105024764"
 
 자세한 마이그레이션 지침 및 포괄적인 마이그레이션 [가이드는 마이그레이션 가이드 리소스](https://github.com/microsoft/OrcasNinjaTeam/blob/master/Oracle%20to%20PostgreSQL%20Migration%20Guide/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Guide.pdf)를 참조 하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Oracle 스키마를 Azure Database for PostgreSQL 마이그레이션하려면 다음을 수행 해야 합니다. 
 
@@ -70,7 +70,7 @@ VM을 프로 비전 하 고 Azure Database for PostgreSQL 후 다음과 같이 *
 
 
 
-## <a name="pre-migration"></a>사전 마이그레이션 
+## <a name="pre-migration"></a>마이그레이션 전 
 
 원본 환경이 지원 되는지 확인 하 고 모든 필수 구성 요소를 해결 한 후에는 마이그레이션 전 단계를 시작할 준비가 된 것입니다. 프로세스의 이 부분에서는 마이그레이션해야 하는 데이터베이스에 대한 인벤토리를 수행하고, 해당 데이터베이스에 잠재적인 마이그레이션 문제나 방해 요소가 있는지 평가한 다음, 발견했을 수 있는 모든 항목을 확인합니다. Azure Database for PostgreSQL Oracle과 같은 다른 유형의 마이그레이션의 경우이 단계에서는 원본 데이터베이스의 스키마를 대상 환경과 호환 되도록 변환 하는 작업도 수행 합니다.
 
@@ -324,7 +324,7 @@ ora2pg -t TEST -c config/ora2pg.conf > migration_diff.txt
 | [Oracle에서 Azure PostgreSQL로 마이그레이션 해결 방법](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20Database%20for%20PostgreSQL%20Migration%20Workarounds.pdf) | 이 문서에서는 작업을 Oracle에서 Azure Database for PostgreSQL로 마이그레이션하는 동안 문제를 신속 하 게 해결 하 고 해결 하기 위한 가이드를 설계자, 컨설턴트, Dba 및 관련 역할에 제공 합니다. |
 | [Windows 또는 Linux에서 ora2pg를 설치 하는 단계](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)                       | 이 문서는 Windows 또는 Linux에서 ora2pg 도구를 사용 하 여 Oracle에서 Azure Database for PostgreSQL 스키마 & 데이터를 마이그레이션할 수 있도록 하는 빠른 설치 가이드로 사용 됩니다. 이 도구에 대 한 전체 세부 정보는에서 찾을 수 있습니다 http://ora2pg.darold.net/documentation.html . |
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 
 ### <a name="contact-support"></a>기술 지원 서비스에 문의하십시오.

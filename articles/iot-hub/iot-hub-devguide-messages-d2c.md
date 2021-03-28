@@ -11,14 +11,14 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: d2fe8f32ec854e1e6db644a039e6a249cfbddcaa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07bbd50dbc415b86aa0c511d46ead9f0612df107
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103012890"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642509"
 ---
-# <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
+# <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -71,7 +71,7 @@ IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerPrope
 
 원하는 파일 명명 규칙을 사용할 수 있지만, 나열된 토큰은 모두 사용해야 합니다. 쓸 데이터가 없으면 IoT Hub가 빈 Blob을 작성합니다.
 
-Blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. [목록 BLOB api](/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](/rest/api/storageservices/datalakestoragegen2/path/list) 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
+Blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있도록 하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. [목록 BLOB api](/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](/rest/api/storageservices/datalakestoragegen2/path) 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)

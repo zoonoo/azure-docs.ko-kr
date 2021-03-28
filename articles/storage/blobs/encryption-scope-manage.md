@@ -1,37 +1,32 @@
 ---
-title: 암호화 범위 만들기 및 관리 (미리 보기)
+title: 암호화 범위 만들기 및 관리
 description: 암호화 범위를 만들어 컨테이너 또는 blob 수준에서 blob 데이터를 격리 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 03/05/2021
+ms.date: 03/26/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d5590ff275ce821c81f5751f4d92972c49adaafc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c29282637f6854248c98dff59f8fae46ad1a9d39
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102209594"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640521"
 ---
-# <a name="create-and-manage-encryption-scopes-preview"></a>암호화 범위 만들기 및 관리 (미리 보기)
+# <a name="create-and-manage-encryption-scopes"></a>암호화 범위 만들기 및 관리
 
-암호화 범위 (미리 보기)를 사용 하면 개별 blob 또는 컨테이너 수준에서 암호화를 관리할 수 있습니다. 암호화 범위는 스토리지 계정 내의 안전한 인클레이브에 Blob 데이터를 격리합니다. 암호화 범위를 사용 하 여 동일한 저장소 계정에 있지만 다른 고객에 게 속한 데이터 간에 보안 경계를 만들 수 있습니다. 암호화 범위에 대 한 자세한 내용은 [Blob storage의 암호화 범위 (미리 보기)](encryption-scope-overview.md)를 참조 하세요.
+암호화 범위를 사용하면 개별 Blob 또는 컨테이너 수준에서 암호화를 관리할 수 있습니다. 암호화 범위를 사용 하 여 동일한 저장소 계정에 있지만 다른 고객에 게 속한 데이터 간에 보안 경계를 만들 수 있습니다. 암호화 범위에 대 한 자세한 내용은 [Blob storage의 암호화 범위](encryption-scope-overview.md)를 참조 하세요.
 
 이 문서에서는 암호화 범위를 만드는 방법을 보여 줍니다. 또한 blob 또는 컨테이너를 만들 때 암호화 범위를 지정 하는 방법을 보여 줍니다.
-
-> [!IMPORTANT]
-> 암호화 범위는 현재 **미리 보기** 상태입니다. 베타, 미리 보기 또는 아직 일반 공급으로 출시 되지 않은 Azure 기능에 적용 되는 약관에 대 한 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
->
-> 예기치 않은 비용을 방지 하려면 현재 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 해야 합니다.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>암호화 범위 만들기
 
-Microsoft 관리 키 또는 Azure Key Vault에 저장 된 고객이 관리 하는 키 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)을 사용 하 여 암호화 범위를 만들 수 있습니다. 고객 관리 키를 사용 하 여 암호화 범위를 만들려면 먼저 주요 자격 증명 모음 또는 관리 되는 HSM을 만들고 범위에 사용 하려는 키를 추가 해야 합니다. 키 자격 증명 모음 또는 관리 되는 HSM은 제거 보호를 사용 하도록 설정 해야 하며, 저장소 계정과 동일한 지역에 있어야 합니다.
+Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)에 저장 된 Microsoft 관리 키 또는 고객이 관리 하는 키로 보호 되는 암호화 범위를 만들 수 있습니다. 고객 관리 키를 사용 하 여 암호화 범위를 만들려면 먼저 주요 자격 증명 모음 또는 관리 되는 HSM을 만들고 범위에 사용 하려는 키를 추가 해야 합니다. 키 자격 증명 모음 또는 관리 되는 HSM은 제거 보호를 사용 하도록 설정 해야 하며, 저장소 계정과 동일한 지역에 있어야 합니다.
 
 암호화 범위는 만들 때 자동으로 사용 하도록 설정 됩니다. 암호화 범위를 만든 후에는 blob을 만들 때 지정할 수 있습니다. 컨테이너를 만들 때 기본 암호화 범위를 지정할 수도 있습니다. 컨테이너는 컨테이너의 모든 blob에 자동으로 적용 됩니다.
 
@@ -43,22 +38,16 @@ Azure Portal에서 암호화 범위를 만들려면 다음 단계를 수행 합�
 1. **암호화** 설정을 선택 합니다.
 1. **암호화 범위** 탭을 선택 합니다.
 1. **추가** 단추를 클릭 하 여 새 암호화 범위를 추가 합니다.
-1. **암호화 범위** 만들기 창에서 새 범위의 이름을 입력 합니다.
-1. **Microsoft에서 관리** 하는 키 또는 **고객이 관리** 하는 키 중에서 암호화 유형을 선택 합니다.
+1. **암호화 범위 만들기** 창에서 새 범위의 이름을 입력 합니다.
+1. **Microsoft에서 관리** 하는 키 또는 **고객이 관리** 하는 키 중에서 원하는 유형의 암호화 키 지원을 선택 합니다.
     - **Microsoft 관리 키** 를 선택한 경우 **만들기** 를 클릭 하 여 암호화 범위를 만듭니다.
-    - **고객 관리 키** 를 선택한 경우 다음 그림에 표시 된 것 처럼이 암호화 범위에 사용할 주요 자격 증명 모음 또는 관리 되는 HSM, 키 및 키 버전을 지정 합니다.
+    - **고객 관리 키** 를 선택한 경우 다음 그림에 표시 된 것 처럼 구독을 선택 하 고이 암호화 범위에 사용할 키 자격 증명 모음 또는 관리 되는 HSM 및 키를 지정 합니다.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Azure Portal에서 암호화 범위를 만드는 방법을 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 암호화 범위를 만들려면 먼저 Az. Storage preview 모듈 버전을 설치 합니다. 최신 미리 보기 버전을 사용 하는 것이 좋지만 암호화 범위가 버전 1.13.4-preview 이상에서 지원 됩니다. Az. Storage 모듈의 다른 버전을 제거 합니다.
-
-다음 명령은 Az. Storage [2.1.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.1.1-preview) 모듈을 설치 합니다.
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.1.1-preview -AllowPrerelease
-```
+PowerShell을 사용 하 여 암호화 범위를 만들려면 [Az. Storage](https://www.powershellgallery.com/packages/Az.Storage) PowerShell module, version 3.4.0 이상을 설치 합니다.
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Microsoft에서 관리 하는 키로 보호 되는 암호화 범위 만들기
 
@@ -89,9 +78,8 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 $keyVaultName = "<key-vault>"
-$keyUri = "<key-uri-with-version>"
+$keyUri = "<key-uri>"
 $scopeName2 = "customer2scope"
-
 
 # Assign a system managed identity to the storage account.
 $storageAccount = Set-AzStorageAccount -ResourceGroupName $rgName `
@@ -105,7 +93,9 @@ Set-AzKeyVaultAccessPolicy `
     -PermissionsToKeys wrapkey,unwrapkey,get
 ```
 
-그런 다음 매개 변수를 사용 하 여 **AzStorageEncryptionScope** 명령을 호출 `-KeyvaultEncryption` 하 고 키 URI를 지정 합니다. 키 URI에 키 버전을 포함 해야 합니다. 예제의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
+그런 다음 매개 변수를 사용 하 여 **AzStorageEncryptionScope** 명령을 호출 `-KeyvaultEncryption` 하 고 키 URI를 지정 합니다. 키 URI에 키 버전을 포함 하는 것은 선택 사항입니다. 키 버전을 생략 하면 암호화 범위에서 최신 키 버전이 자동으로 사용 됩니다. 키 버전을 포함 하는 경우 다른 버전을 사용 하도록 수동으로 키 버전을 업데이트 해야 합니다.
+
+예제의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 New-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -117,7 +107,7 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Azure CLI를 사용 하 여 암호화 범위를 만들려면 먼저 Azure CLI 버전 2.4.0 이상을 설치 합니다.
+Azure CLI를 사용 하 여 암호화 범위를 만들려면 먼저 Azure CLI 버전 2.20.0 이상을 설치 합니다.
 
 ### <a name="create-an-encryption-scope-protected-by-microsoft-managed-keys"></a>Microsoft에서 관리 하는 키로 보호 되는 암호화 범위 만들기
 
@@ -163,7 +153,9 @@ az keyvault set-policy \
     --key-permissions get unwrapKey wrapKey
 ```
 
-그런 다음 매개 변수를 사용 하 여 **az storage 계정 암호화 범위 만들기** 명령을 호출 `--key-uri` 하 고 키 URI를 지정 합니다. 키 URI에 키 버전을 포함 해야 합니다. 예제의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
+그런 다음 매개 변수를 사용 하 여 **az storage 계정 암호화 범위 만들기** 명령을 호출 `--key-uri` 하 고 키 URI를 지정 합니다. 키 URI에 키 버전을 포함 하는 것은 선택 사항입니다. 키 버전을 생략 하면 암호화 범위에서 최신 키 버전이 자동으로 사용 됩니다. 키 버전을 포함 하는 경우 다른 버전을 사용 하도록 수동으로 키 버전을 업데이트 해야 합니다.
+
+예제의 자리 표시자 값을 고유한 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account encryption-scope create \
@@ -176,7 +168,10 @@ az storage account encryption-scope create \
 
 ---
 
-주요 자격 증명 모음에서 고객 관리 키를 사용 하 여 Azure Storage 암호화를 구성 하는 방법을 알아보려면 [Azure Key Vault에 저장 된 고객이 관리 하는 키를 사용 하 여 암호화 구성](../common/customer-managed-keys-configure-key-vault.md)을 참조 하세요. 관리 되는 HSM에서 고객이 관리 하는 키를 구성 하려면 관리 되는 [hsm Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성 (미리 보기)](../common/customer-managed-keys-configure-key-vault-hsm.md)을 참조 하세요.
+주요 자격 증명 모음 또는 관리 되는 HSM에서 고객 관리 키를 사용 하 여 Azure Storage 암호화를 구성 하는 방법에 대해 알아보려면 다음 문서를 참조 하세요.
+
+- [Azure Key Vault에 저장된 고객 관리형 키를 사용하여 암호화 구성](../common/customer-managed-keys-configure-key-vault.md)
+- [Azure Key Vault 관리 HSM (미리 보기)에 저장 된 고객 관리 키를 사용 하 여 암호화를 구성](../common/customer-managed-keys-configure-key-vault-hsm.md)합니다.
 
 ## <a name="list-encryption-scopes-for-storage-account"></a>저장소 계정에 대 한 암호화 범위를 나열 합니다.
 
@@ -185,6 +180,10 @@ az storage account encryption-scope create \
 Azure Portal에서 저장소 계정에 대 한 암호화 범위를 보려면 저장소 계정에 대 한 **암호화 범위** 설정으로 이동 합니다. 이 창에서 암호화 범위를 사용 하거나 사용 하지 않도록 설정 하거나 암호화 범위에 대 한 키를 변경할 수 있습니다.
 
 :::image type="content" source="media/encryption-scope-manage/list-encryption-scopes-portal.png" alt-text="Azure Portal의 암호화 범위 목록을 보여 주는 스크린샷":::
+
+키 URI 및 버전을 비롯 하 여 고객 관리 키에 대 한 세부 정보와 키 버전이 자동으로 업데이트 되는지 여부를 보려면 **키** 열의 링크를 따르세요.
+
+:::image type="content" source="media/encryption-scope-manage/customer-managed-key-details-portal.png" alt-text="암호화 범위에 사용 되는 키에 대 한 세부 정보를 보여 주는 스크린샷":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -217,7 +216,7 @@ az storage account encryption-scope list \
 
 컨테이너를 만들 때 기본 암호화 범위를 지정할 수 있습니다. 해당 컨테이너의 blob은 기본적으로 해당 범위를 사용 합니다.
 
-컨테이너가 모든 blob의 기본 범위를 사용 하도록 구성 된 경우를 제외 하 고는 자체 암호화 범위를 사용 하 여 개별 blob을 만들 수 있습니다.
+컨테이너가 모든 blob에서 기본 범위를 사용 하도록 구성 된 경우를 제외 하 고는 자체 암호화 범위를 사용 하 여 개별 blob을 만들 수 있습니다. 자세한 내용은 [컨테이너 및 blob에 대 한 암호화 범위](encryption-scope-overview.md#encryption-scopes-for-containers-and-blobs)를 참조 하세요.
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -232,18 +231,15 @@ Azure Portal에서 기본 암호화 범위를 사용 하 여 컨테이너를 만
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 기본 암호화 범위를 사용 하 여 컨테이너를 만들려면 [AzRmStorageContainer](/powershell/module/az.storage/new-azrmstoragecontainer) 명령을 호출 하 고 매개 변수의 범위를 지정 합니다 `-DefaultEncryptionScope` . **AzRmStorageContainer** 명령은 Azure Storage 리소스 공급자를 사용 하 여 컨테이너를 만들며,이를 통해 암호화 범위 및 기타 리소스 관리 작업을 구성할 수 있습니다.
-
-컨테이너의 모든 blob이 컨테이너의 기본 범위를 사용 하도록 강제 하려면 `-PreventEncryptionScopeOverride` 매개 변수를로 설정 `true` 합니다.
+PowerShell을 사용 하 여 기본 암호화 범위를 사용 하 여 컨테이너를 만들려면 [AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) 명령을 호출 하 고 매개 변수의 범위를 지정 합니다 `-DefaultEncryptionScope` . 컨테이너의 모든 blob이 컨테이너의 기본 범위를 사용 하도록 강제 하려면 `-PreventEncryptionScopeOverride` 매개 변수를로 설정 `true` 합니다.
 
 ```powershell
 $containerName1 = "container1"
-$containerName2 = "container2"
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a container with a default encryption scope that cannot be overridden.
-New-AzRmStorageContainer -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -Name $containerName1 `
+New-AzStorageContainer -Name $containerName1 `
+    -Context $ctx `
     -DefaultEncryptionScope $scopeName1 `
     -PreventEncryptionScopeOverride $true
 ```
@@ -274,7 +270,7 @@ Blob을 업로드 하는 경우 해당 blob에 대 한 암호화 범위를 지�
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-Azure Portal에 지정 된 암호화 범위를 사용 하 여 blob을 업로드 하려면 먼저 [암호화 범위 만들기](#create-an-encryption-scope)에 설명 된 대로 암호화 범위를 만듭니다. 다음 단계를 수행 하 여 blob을 만듭니다.
+Azure Portal를 통해 암호화 범위를 사용 하 여 blob을 업로드 하려면 먼저 [암호화 범위 만들기](#create-an-encryption-scope)에 설명 된 대로 암호화 범위를 만듭니다. 다음 단계를 수행 하 여 blob을 만듭니다.
 
 1. Blob을 업로드 하려는 컨테이너로 이동 합니다.
 1. **업로드** 단추를 선택 하 고 업로드할 blob을 찾습니다.
@@ -286,22 +282,28 @@ Azure Portal에 지정 된 암호화 범위를 사용 하 여 blob을 업로드 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 지정 된 암호화 범위를 사용 하 여 blob을 업로드 하려면 [AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) 명령을 호출 하 고 blob에 대 한 암호화 범위를 제공 합니다.
+PowerShell을 통해 암호화 범위를 사용 하 여 blob을 업로드 하려면 [AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) 명령을 호출 하 고 blob에 대 한 암호화 범위를 제공 합니다.
 
 ```powershell
 $containerName2 = "container2"
 $localSrcFile = "C:\temp\helloworld.txt"
-$ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -StorageAccountName $accountName).Context
+$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Create a new container with no default scope defined.
 New-AzStorageContainer -Name $containerName2 -Context $ctx
+
 # Upload a block upload with an encryption scope specified.
-Set-AzStorageBlobContent -Context $ctx -Container $containerName2 -File $localSrcFile -Blob "helloworld.txt" -BlobType Block -EncryptionScope $scopeName2
+Set-AzStorageBlobContent -Context $ctx `
+    -Container $containerName2 `
+    -File $localSrcFile `
+    -Blob "helloworld.txt" `
+    -BlobType Block `
+    -EncryptionScope $scopeName2
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Azure CLI를 사용 하 여 지정 된 암호화 범위를 사용 하 여 blob을 업로드 하려면 [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) 명령을 호출 하 고 blob에 대 한 암호화 범위를 제공 합니다.
+Azure CLI를 통해 암호화 범위를 사용 하 여 blob을 업로드 하려면 [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) 명령을 호출 하 고 blob에 대 한 암호화 범위를 제공 합니다.
 
 Azure Cloud Shell를 사용 하는 경우 [Blob 업로드](storage-quickstart-blobs-cli.md#upload-a-blob) 에 설명 된 단계에 따라 루트 디렉터리에 파일을 만듭니다. 그런 다음, 다음 샘플을 사용 하 여이 파일을 blob에 업로드할 수 있습니다.
 
@@ -406,10 +408,13 @@ az storage account encryption-scope update \
     --state Disabled
 ```
 
+> [!IMPORTANT]
+> 암호화 범위를 삭제할 수는 없습니다. 예기치 않은 비용을 방지 하려면 현재 필요 하지 않은 모든 암호화 범위를 사용 하지 않도록 설정 해야 합니다.
+
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
 - [미사용 데이터에 대한 Azure Storage 암호화](../common/storage-service-encryption.md)
-- [Blob 저장소의 암호화 범위 (미리 보기)](encryption-scope-overview.md)
+- [Blob 저장소의 암호화 범위](encryption-scope-overview.md)
 - [Azure Storage 암호화를 위한 고객 관리 키](../common/customer-managed-keys-overview.md)

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 23b9774f28f915596abafbd8c1f6c38fc4f55748
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95995287"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642127"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Azure Database for PostgreSQL에 대 한 개인 링크 만들기 및 관리-포털을 사용 하는 단일 서버
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork* 를 입력 합니다. |
+    | 이름 | *MyVirtualNetwork* 를 입력 합니다. |
     | 주소 공간 | *10.1.0.0/16* 을 입력 합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -179,7 +179,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="개인 링크를 만듦":::
 
     > [!NOTE] 
-    > 고객 DNS 설정의 FQDN은 구성 된 개인 IP로 확인 되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 표시 된 대로 구성 된 FQDN에 대 한 DNS 영역을 설정 해야 합니다.
+    > 고객 DNS 설정의 FQDN이 구성된 개인 IP로 확인되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 표시 된 대로 구성 된 FQDN에 대 한 DNS 영역을 설정 해야 합니다.
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>RDP(원격 데스크톱)를 사용하여 VM에 연결
 
@@ -222,7 +222,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Address:  10.1.3.4
     ```
 
-3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) 를 사용 하 여 작업을 수행 했습니다.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 PostgreSQL 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [Azure Data studio](/sql/azure-data-studio/download) 를 사용 하 여 작업을 수행 했습니다.
 
 4. **새 연결** 에서 다음 정보를 입력 하거나 선택 합니다.
 

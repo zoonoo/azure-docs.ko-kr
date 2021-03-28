@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: e237cf09616cb645bfc4659af4439086979b2565
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023625"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641406"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>마이그레이션 개요: Azure Vm에서 SQL Server으로 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -140,7 +140,7 @@ Azure Vm에서 SQL Server 데이터베이스를 SQL Server으로 마이그레이
 |[다중 SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|이 백서에서는 SQL Server Always On 가용성 그룹 구성에서 여러 Azure 가상 머신을 설정 하는 단계를 간략하게 설명 합니다.|
 |[지역별 울트라 SSD를 지 원하는 Azure virtual machines](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|이러한 PowerShell 스크립트는 울트라 Ssd를 지 원하는 Azure virtual machines를 지 원하는 지역 목록을 검색 하는 프로그래밍 방식의 옵션을 제공 합니다.|
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

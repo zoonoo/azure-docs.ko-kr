@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 65ee0847e6a59976eec223b68b1f3e0c464674e8
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 9e5fbdfca80d19f026a014a89ffbf137bacb521c
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563806"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639585"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>상용 marketplace 분석 데이터에 액세스 하기 위한 첫 번째 API 호출 만들기
 
@@ -258,7 +258,7 @@ curl
 
 _**표 1:이 요청 예제에 사용 된 매개 변수에 대 한 설명**_
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | ------------ | ------------- |
 | `Description` | 생성 되는 보고서에 대 한 간략 한 설명을 제공 합니다. |
 | `QueryId` | `queryId`2 단계: 사용자 지정 쿼리 만들기에서 쿼리를 만들 때 생성 된입니다. |
@@ -337,5 +337,5 @@ Curl
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SWAGGER API URL](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html) 을 통해 api를 사용해 볼 수 있습니다.
+- [SWAGGER API URL](https://swagger.io/docs/specification/api-host-and-base-path/) 을 통해 api를 사용해 볼 수 있습니다.
 - [프로그래밍 방식 액세스 페러다임](analytics-programmatic-access.md)

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 03/26/2021
 ms.author: trbye
-ms.openlocfilehash: c27493748381a3aced92aab41745f352f228c50e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 903e8db14a2830236ae81a2a3b5416491d03e8c7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95024996"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643247"
 ---
-# <a name="what-is-conversation-transcription-in-meetings-preview"></a>모임의 대화 내용 (미리 보기)은 무엇입니까?
+# <a name="what-is-conversation-transcription-preview"></a>대화 내용 (미리 보기) 이란 무엇 인가요?
 
 대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 ( _diarization_ 라고도 함)와 결합 하 여 대화에 대 한 실시간 및/또는 비동기 기록을 제공 하는 [음성-텍스트](speech-to-text.md) 솔루션입니다. 대화 기록을 통해 대화에서 스피커를 구분 하 여 및 시기를 확인 하 고 개발자가 다중 스피커 diarization을 수행 하는 응용 프로그램에 음성 텍스트를 쉽게 추가할 수 있습니다.
 

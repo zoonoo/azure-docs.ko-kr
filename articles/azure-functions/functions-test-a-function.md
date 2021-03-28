@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: f75f42f3879f551a945bdeb2d88450ae3b9d6106
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 27bc8171509e16f25c508dd71515d8cb25a11b0b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98674153"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639864"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -41,7 +41,7 @@ ms.locfileid: "98674153"
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 **myto trigger** 로 이름을로 합니다.
 4. 솔루션에서 [xUnit 테스트 앱을 만들고](https://xunit.net/docs/getting-started/netcore/cmdline) 이름을 test.txt로 합니다 **.**
 5. NuGet을 사용 하 여 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/) 에 테스트 앱의 참조를 추가 합니다.
-6. [함수 앱에서 *함수* 앱을 참조](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) 합니다 *.*
+6. [함수 앱에서 *함수* 앱을 참조](/visualstudio/ide/managing-references-in-a-project) 합니다 *.*
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dd62fb5e3c7450d50b9837ee5484ca480cab78aa
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889113"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640838"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 (미리 보기)
 
@@ -31,13 +31,13 @@ Azure Synapse 작업 영역에 연결 된 Azure Machine Learning 작업 영역�
 >[!IMPORTANT]
 > Azure Machine Learning 및 Azure Synapse 통합은 공개 미리 보기로 제공 됩니다. 패키지에서 제공 되는 `azureml-synapse` 기능은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md?tabs=python).
 
-* [Azure Portal에서 Synapse 작업 영역을 만듭니다](/synapse-analytics/quickstart-create-workspace.md).
+* [Azure Portal에서 Synapse 작업 영역을 만듭니다](/azure/synapse-analytics/quickstart-create-workspace).
 
-* [Azure Portal, 웹 도구 또는 Synapse Studio를 사용 하 여 Apache Spark 풀 만들기](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+* [Azure Portal, 웹 도구 또는 Synapse Studio를 사용 하 여 Apache Spark 풀 만들기](/azure/synapse-analytics/quickstart-create-apache-spark-pool-studio)
 
 * [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro) 를 설치 합니다.
 
@@ -104,7 +104,7 @@ linked_service.unregister()
 1. **통합 추가** 를 선택 합니다.
 1. **링크 작업 영역** 폼에서 필드를 채웁니다.
 
-    |필드| Description    
+    |필드| 설명    
     |---|---
     |이름| 연결 된 서비스의 이름을 제공 합니다. 이 이름은이 특정 연결 된 서비스를 참조 하는 데 사용 됩니다.
     |구독 이름 | Machine learning 작업 영역에 연결 된 구독의 이름을 선택 합니다. 

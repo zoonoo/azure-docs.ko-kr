@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/24/2021
-ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ef8c1a50cd3568c6cec9bdb053b02e6e14741eb0
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740378"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644677"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 수신
 
@@ -36,7 +36,20 @@ SQL 테이블로 데이터를 수신 하 고 대상 테이블이 아직 없는 �
 다음은 SQL 원본에서 데이터를 공유하기 위한 필수 구성 요소 목록입니다. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)에서 공유하기 위한 필수 구성 요소
-[단계별 데모](https://youtu.be/hIE-TjJD8Dc)에 따라 필수 구성 요소를 구성할 수 있습니다.
+
+
+Azure Active Directory 인증을 사용 하 여 데이터를 공유 하려면 필수 구성 요소 목록은 다음과 같습니다.
+
+* 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)
+* SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
+* SQL Server **Azure Active Directory 관리자**
+* SQL Server Firewall 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 SQL 서버로 이동합니다. 왼쪽 탐색에서 *방화벽 및 가상 네트워크* 를 선택합니다.
+    1. *Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭합니다.
+    1. **+클라이언트 IP 추가** 를 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
+    1. **저장** 을 클릭합니다. 
+
+SQL 인증을 사용 하 여 데이터를 공유 하려면 다음은 필수 구성 요소 목록입니다. [단계별 데모](https://youtu.be/hIE-TjJD8Dc)에 따라 필수 구성 요소를 구성할 수 있습니다.
 
 * 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)
 * SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
@@ -132,7 +145,9 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
     ![AddDatasets](./media/add-datasets.png "데이터 세트 추가")    
 
-1. SQL server 또는 Synapse 작업 영역을 선택 하 고 메시지가 표시 되 면 자격 증명을 제공 하 고 **다음** 을 선택 하 여 공유할 개체로 이동 하 고 ' 데이터 집합 추가 '를 선택 합니다. Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 및 뷰를 선택 하거나 Azure Synapse Analytics (작업 영역) 전용 SQL 풀의 테이블을 선택할 수 있습니다. 
+1. SQL server 또는 Synapse 작업 영역을 선택 합니다. AAD 인증을 사용 하는 경우 **데이터 공유에서 위의 ' 사용자 만들기 ' SQL 스크립트를 실행할 수** 있습니다. 라는 확인란을 선택 합니다. SQL 인증을 사용 하는 경우 자격 증명을 제공 하 고 스크립트를 실행 하기 위한 필수 구성 요소의 단계에 따라 화면에 표시 됩니다. 이렇게 하면 SQL DB에서 읽을 수 있는 데이터 공유 리소스 권한이 제공 됩니다. 
+
+   **다음** 을 선택 하 여 공유할 개체로 이동 하 고 ' 데이터 집합 추가 '를 선택 합니다. Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL DW)에서 테이블 및 뷰를 선택 하거나 Azure Synapse Analytics (작업 영역) 전용 SQL 풀의 테이블을 선택할 수 있습니다. 
 
     ![SelectDatasets](./media/select-datasets-sql.png "데이터 세트 선택")    
 
@@ -176,7 +191,18 @@ Azure Storage 데이터를 수신 하도록 선택 하는 경우 다음은 필�
 Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하는 경우 아래는 필수 구성 요소 목록입니다. 
 
 #### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)로 데이터를 받기 위한 필수 구성 요소
-[단계별 데모](https://youtu.be/aeGISgK1xro)에 따라 필수 구성 요소를 구성할 수 있습니다.
+
+SQL server의 **Azure Active Directory 관리자** 인 sql server로 데이터를 수신 하기 위해 필수 구성 요소 목록은 다음과 같습니다.
+
+* Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW).
+* SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
+* SQL Server Firewall 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. Azure Portal에서 SQL 서버로 이동합니다. 왼쪽 탐색에서 *방화벽 및 가상 네트워크* 를 선택합니다.
+    1. *Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭합니다.
+    1. **+클라이언트 IP 추가** 를 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
+    1. **저장** 을 클릭합니다. 
+    
+**Azure Active Directory 관리자** 가 아닌 SQL server로 데이터를 수신 하기 위해 다음은 필수 구성 요소 목록입니다. [단계별 데모](https://youtu.be/aeGISgK1xro)에 따라 필수 구성 요소를 구성할 수 있습니다.
 
 * Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW).
 * SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다. 
@@ -264,18 +290,18 @@ Azure SQL Database, Azure Synapse Analytics로 데이터를 받도록 선택하�
 
    ![대상에 매핑](./media/dataset-map-target.png "대상에 매핑") 
 
-1. 데이터를 넣을 대상 데이터 저장소를 선택 합니다. 경로와 이름이 동일한 대상 데이터 저장소에 있는 모든 데이터 파일 또는 테이블을 덮어씁니다. 
+1. 데이터를 넣을 대상 데이터 저장소를 선택 합니다. 경로와 이름이 동일한 대상 데이터 저장소에 있는 모든 데이터 파일 또는 테이블을 덮어씁니다. SQL 대상으로 데이터를 수신 하는 경우 **데이터 공유에서 위의 ' 사용자를 대신 하 여 sql 스크립트를 실행할 수 있음** ' 확인란이 표시 되 면 확인란을 선택 합니다. 그렇지 않으면 스크립트를 실행 하기 위한 필수 구성 요소의 지침에 따라 화면에 표시 됩니다. 그러면 대상 SQL DB에 대 한 데이터 공유 리소스 쓰기 권한이 제공 됩니다.
 
    ![대상 스토리지 계정](./media/dataset-map-target-sql.png "대상 데이터 저장소") 
 
-1. 스냅샷 기반 공유의 경우 데이터 공급자가 데이터에 정기적인 업데이트를 제공하기 위해 스냅샷 일정을 만든 경우 **스냅샷 일정** 탭을 선택하여 스냅샷 일정을 사용하도록 설정할 수도 있습니다. 스냅샷 일정 옆의 확인란을 선택하고 **+ 사용** 을 선택합니다.
+1. 스냅샷 기반 공유의 경우 데이터 공급자가 데이터에 정기적인 업데이트를 제공하기 위해 스냅샷 일정을 만든 경우 **스냅샷 일정** 탭을 선택하여 스냅샷 일정을 사용하도록 설정할 수도 있습니다. 스냅샷 일정 옆의 확인란을 선택하고 **+ 사용** 을 선택합니다. 첫 번째 예약 된 스냅숏은 일정 시간 동안 1 분 이내에 시작 되 고 후속 스냅숏은 예약 된 시간 (초) 이내에 시작 됩니다.
 
    ![스냅샷 일정 사용](./media/enable-snapshot-schedule.png "스냅샷 일정 사용")
 
 ### <a name="trigger-a-snapshot"></a>스냅샷 트리거
 이 단계는 스냅샷 기반 공유에만 적용됩니다.
 
-1. **세부 정보** 탭 다음에 **스냅샷 트리거** 를 선택하여 스냅샷을 트리거할 수 있습니다. 여기서는 데이터의 전체 또는 증분 스냅샷을 트리거할 수 있습니다. 데이터를 데이터 공급자로부터 처음 받는 경우 전체 복사본을 선택합니다. SQL 원본의 경우 전체 스냅숏으로 지원 됩니다. 스냅숏이 실행 중일 때 후속 스냅숏은 이전 스냅숏이 완료 될 때까지 시작 되지 않습니다.
+1. **세부 정보** 탭 다음에 **스냅샷 트리거** 를 선택하여 스냅샷을 트리거할 수 있습니다. 여기에서 데이터의 전체 또는 증분 스냅숏을 트리거할 수 있습니다. 데이터를 데이터 공급자로부터 처음 받는 경우 전체 복사본을 선택합니다. SQL 원본의 경우 전체 스냅숏으로 지원 됩니다. 스냅숏이 실행 중일 때 후속 스냅숏은 이전 스냅숏이 완료 될 때까지 시작 되지 않습니다.
 
    ![스냅샷 트리거](./media/trigger-snapshot.png "스냅샷 트리거") 
 

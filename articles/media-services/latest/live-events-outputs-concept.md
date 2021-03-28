@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 0eff5b13a79f64de1863e82a2c9285788accf6fc
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625299"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641533"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -225,14 +225,6 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
 라이브 출력에 대 한 자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr.md)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="live-event-output-questions"></a>라이브 이벤트 출력 질문
 
-질문과 [대답](frequently-asked-questions.md#live-streaming) 문서를 참조 하세요.
-
-## <a name="ask-questions-and-get-updates"></a>질문 하 고 업데이트 받기
-
-[Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-[라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
+[라이브 이벤트 출력 질문](questions-collection.md#live-streaming) 문서를 참조 하세요.

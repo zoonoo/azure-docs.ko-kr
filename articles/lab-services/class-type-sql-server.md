@@ -5,18 +5,18 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fb1b9e3458d08b8387c7f3978ff83c097fad2375
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659712"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644035"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>SQL Server를 사용 하 여 관리 및 개발 하기 위한 랩 설정
 
 이 문서에서는 Azure Lab Services에서 기본 SQL Server 관리 및 개발 클래스에 대 한 랩을 설정 하는 방법을 설명 합니다.  데이터베이스 개념은 대학에서 대부분의 컴퓨터 과학 부서에서 배울 수 있는 소개 과정 중 하나입니다. 구조적 쿼리 언어 (SQL)은 국제 표준입니다.  SQL은 데이터베이스의 콘텐츠 추가, 액세스 및 관리를 포함 하 여 데이터베이스 관리와 관련 된 표준 언어입니다.  이는 빠른 처리, 검증 된 안정성, 편의성 및 사용의 유연성에 가장 많이 사용 됩니다.
 
-이 문서에서는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)및 [Azure Data Studio](https://github.com/microsoft/azuredatastudio)를 사용 하 여 랩에서 가상 머신 템플릿을 설정 하는 방법을 보여 줍니다.  이 랩에서는 전체 랩에서 하나의 공유 [SQL Server 데이터베이스](../azure-sql/database/sql-database-paas-overview.md) 를 사용 합니다. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 는 Azure에서 제공 하는 Paas (Platform As a Service) 데이터베이스 엔진입니다.
+이 문서에서는 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)및 [Azure Data Studio](https://github.com/microsoft/azuredatastudio)를 사용 하 여 랩에서 가상 머신 템플릿을 설정 하는 방법을 보여 줍니다.  이 랩에서는 전체 랩에서 하나의 공유 [SQL Server 데이터베이스](../azure-sql/database/sql-database-paas-overview.md) 를 사용 합니다. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) 는 Azure에서 제공 하는 Paas (Platform As a Service) 데이터베이스 엔진입니다.
 
 ## <a name="lab-configuration"></a>랩 구성
 
@@ -82,9 +82,9 @@ SQL Database 배포가 성공적으로 완료 되 면 랩을 만들고 랩 템�
 
 ## <a name="visual-studio"></a>Visual Studio
 
-위에서 선택한 이미지에는 [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/)가 포함 됩니다.  모든 워크 로드 및 도구 집합이 이미지에 이미 설치 되어 있습니다.  Visual Studio 설치 관리자 사용 하 여 원하는 [선택적 도구를 설치할](/visualstudio/install/modify-visual-studio?view=vs-2019) 수 있습니다.  [Visual Studio에 로그인](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) 하 여 community edition의 잠금을 해제 합니다.
+위에서 선택한 이미지에는 [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/)가 포함 됩니다.  모든 워크 로드 및 도구 집합이 이미지에 이미 설치 되어 있습니다.  Visual Studio 설치 관리자 사용 하 여 원하는 [선택적 도구를 설치할](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) 수 있습니다.  [Visual Studio에 로그인](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&preserve-view=true#how-to-sign-in-to-visual-studio) 하 여 community edition의 잠금을 해제 합니다.
 
-Visual Studio에는 SQL Server Data Tools (SSDT)를 포함 하는 **데이터 저장 및 처리** 도구 집합이 포함 되어 있습니다.  SSDT 기능에 대 한 자세한 내용은 [SQL Server Data Tools 개요](/sql/ssdt/sql-server-data-tools?view=sql-server-ver15)를 참조 하세요.  클래스에 대 한 공유 SQL Server에 대 한 연결이 성공적인 지 확인 하려면 [데이터베이스에 연결 및 기존 개체 찾아보기](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15)를 참조 하세요. 메시지가 표시 되 면 SQL Server 인스턴스에 연결할 수 있는 [허용 된 컴퓨터 목록](../azure-sql/database/firewall-configure.md) 에 템플릿 컴퓨터 IP를 추가 합니다.
+Visual Studio에는 SQL Server Data Tools (SSDT)를 포함 하는 **데이터 저장 및 처리** 도구 집합이 포함 되어 있습니다.  SSDT 기능에 대 한 자세한 내용은 [SQL Server Data Tools 개요](/sql/ssdt/sql-server-data-tools)를 참조 하세요.  클래스에 대 한 공유 SQL Server에 대 한 연결이 성공적인 지 확인 하려면 [데이터베이스에 연결 및 기존 개체 찾아보기](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects)를 참조 하세요. 메시지가 표시 되 면 SQL Server 인스턴스에 연결할 수 있는 [허용 된 컴퓨터 목록](../azure-sql/database/firewall-configure.md) 에 템플릿 컴퓨터 IP를 추가 합니다.
 
 Visual Studio는 **웹 & 클라우드** 및 **데스크톱 & 모바일** 워크 로드를 비롯 한 여러 작업을 지원 합니다.  이러한 작업은 모두 데이터 원본으로 SQL Server을 지원 합니다. SQL Server ASP.NET Core를 사용 하는 방법에 대 한 자세한 내용은 [Azure App Service 자습서에서 ASP.NET Core 및 SQL Database 앱 빌드](../app-service/tutorial-dotnetcore-sqldb-app.md) 를 참조 하세요.  [System.object](/dotnet/api/system.data.sqlclient) 라이브러리를 사용 하 여 [Xamarin](/xamarin) 앱에서 SQL Database에 연결 합니다.
 
@@ -98,7 +98,7 @@ Visual Studio는 **웹 & 클라우드** 및 **데스크톱 & 모바일** 워크 
 4. **시작 메뉴 폴더 선택** 페이지에서 **다음** 을 클릭합니다.
 5. **추가 작업 선택** 페이지에서 바탕 화면 아이콘을 원하는 경우 **바탕 화면 아이콘 만들기** 를 선택 합니다.  **다음** 을 클릭합니다.
 6. **설치 준비** 에서 **다음** 을 클릭 합니다.
-7. 설치 관리자가 실행 될 때까지 기다립니다.  **마침** 을 클릭합니다.
+7. 설치 관리자가 실행 될 때까지 기다립니다.  **Finish** 를 클릭합니다.
 
 Azure Data Studio 설치 했으므로 Azure SQL Database에 대 한 연결을 설정 하겠습니다.
 
@@ -113,7 +113,7 @@ Azure Data Studio 설치 했으므로 Azure SQL Database에 대 한 연결을 �
 
 ## <a name="install-sql-server-management-studio"></a>SQL Server Management Studio를 설치합니다.
 
-[SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) 는 모든 SQL 인프라를 관리 하기 위한 통합 환경입니다.  SSMS는 데이터베이스 관리자가 데이터 인프라를 배포, 모니터링 및 업그레이드 하는 데 사용 하는 도구입니다.
+[SSMS (SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 는 모든 SQL 인프라를 관리 하기 위한 통합 환경입니다.  SSMS는 데이터베이스 관리자가 데이터 인프라를 배포, 모니터링 및 업그레이드 하는 데 사용 하는 도구입니다.
 
 1. [Sql Server Management Studio를 다운로드](https://aka.ms/ssmsfullsetup)합니다. 다운로드 한 후 설치 관리자를 시작 합니다.
 2. **시작** 페이지에서 **설치** 를 클릭 합니다.

@@ -2,25 +2,19 @@
 title: 오프 라인으로 Widevstandroid 스트리밍
 description: 이 항목에서는 Widevine 보호 된 콘텐츠의 오프 라인 스트리밍을 위해 Azure Media Services v3 계정을 구성 하는 방법을 보여 줍니다.
 services: media-services
-keywords: DASH, DRM, Widevine 오프라인 모드, ExoPlayer, Android
-documentationcenter: ''
 author: willzhan
-manager: steveng
-editor: ''
+manager: femila
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: willzhan
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c7adab9c14075e12cf5656f9e798e78ff26ff0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.author: inhenkel
+ms.openlocfilehash: c19a8dd4f9a4b715b5f81a5a349edbffc2f7dea2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955210"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640702"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Media Services v3을 사용 하 여 Android 용 오프 라인 Widevine 스트리밍
 
@@ -47,7 +41,7 @@ Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사�
 > [!NOTE]
 > 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>전제 조건
 
 Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
 
@@ -158,14 +152,8 @@ Android 휴대폰에서 모바일 Chrome 브라우저를 v62(또는 이상)로 �
     - 인증서는 신뢰할 수 있는 CA에서 발급한 것이어야 하고, 자체 서명된 인증서가 작동하지 않습니다.
     - 인증서는 웹 서버 또는 게이트웨이의 DNS 이름과 일치하는 CN이 있어야 합니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="more-information"></a>자세한 정보
 
-자세한 내용은 [Widevine faq](frequently-asked-questions.md#widevine-streaming-for-android)를 참조 하십시오.
-
-## <a name="additional-notes"></a>추가적인 참고 사항
+자세한 내용은 [질문 컬렉션에서 Widevine](questions-collection.md#widevine-streaming-for-android)를 참조 하세요.
 
 Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
-
-## <a name="summary"></a>요약
-
-이 문서에서는 Android 디바이스에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다.  Widevine 보호 콘텐츠의 오프라인 스트리밍과 관련된 몇 가지 일반적인 질문에 대한 답변도 제공되어 있습니다.

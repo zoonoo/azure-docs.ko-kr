@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4c1adddbf4b13f8e299bd656443c9aaab1d55b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6f91adf499c62fef56a30c5f2945ba7a90a0b29
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644830"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640078"
 ---
 # <a name="securing-group-managed-service-accounts"></a>그룹 관리 서비스 계정 보안
 
@@ -41,7 +41,7 @@ gMSAs는 보안이 강화 된 단일 id 솔루션을 제공 하 고 다음을 �
 장애 조치 (Failover) 클러스터링과 같은 서비스에서 지원 하지 않는 한, gMSAs를 온-프레미스 서비스에 대 한 기본 계정 유형으로 사용 합니다.
 
 > [!IMPORTANT]
-> 프로덕션 환경에 배포 하기 전에 gMSAs를 사용 하 여 서비스를 테스트 해야 합니다. 이렇게 하려면 테스트 환경을 설정 하 고 응용 프로그램이 gMSA를 사용 하 고 액세스 해야 하는 리소스에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [그룹 관리 서비스 계정에 대 한 지원](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019)을 참조 하세요.
+> 프로덕션 환경에 배포 하기 전에 gMSAs를 사용 하 여 서비스를 테스트 해야 합니다. 이렇게 하려면 테스트 환경을 설정 하 고 응용 프로그램이 gMSA를 사용 하 고 액세스 해야 하는 리소스에 액세스할 수 있는지 확인 합니다. 자세한 내용은 [그룹 관리 서비스 계정에 대 한 지원](/system-center/scom/support-group-managed-service-accounts)을 참조 하세요.
 
 
 서비스에서 gMSAs를 사용 하는 것을 지원 하지 않는 경우 다음으로 가장 좋은 옵션은 sMSA (독립 실행형 관리 서비스 계정)를 사용 하는 것입니다. sMSAs는 gMSA와 동일한 기능을 제공 하지만 단일 서버에만 배포 하기 위한 것입니다.
@@ -86,7 +86,7 @@ Get-ADServiceAccount -Filter *
 
 # To filter results to only gMSAs:
 
-Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount”}
+Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount"}
 ```
 
 ## <a name="manage-gmsas"></a>GMSAs 관리

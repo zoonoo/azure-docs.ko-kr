@@ -4,15 +4,15 @@ description: Visual Studio에서 CodeLens를 사용하여 Application Insights �
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: 2cfc4e06dcb5671f34ff98794c9569b6ed5ddae7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d412441a7a80a14a0bc7a70de8020692f8f573d6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94538498"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642717"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens에서 Application Insights 원격 분석
-웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 애플리케이션에 [Azure Application Insights](./app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens?view=vs-2015)에 표시됩니다. 즉, 각 함수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.
+웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 애플리케이션에 [Azure Application Insights](./app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](/visualstudio/ide/find-code-changes-and-other-history-with-codelens)에 표시됩니다. 즉, 각 함수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.
 
 ![CodeLens](./media/visual-studio-codelens/codelens-overview.png)
 

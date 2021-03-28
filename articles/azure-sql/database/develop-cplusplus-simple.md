@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0460317a47a1cf01707990b6f92532d4ade01439
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92674766"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643281"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>C 및 C++를 사용하여 SQL Database에 연결
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "92674766"
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * [Visual Studio](https://www.visualstudio.com/downloads/) 이 샘플을 빌드하고 실행하려면 C++ 언어 구성 요소를 설치해야 합니다.
-* [Visual Studio Linux 개발](/cpp/linux/?view=vs-2019). Linux에서 개발하는 경우에 Visual Studio Linux 확장도 설치해야 합니다.
+* [Visual Studio Linux 개발](/cpp/linux/). Linux에서 개발하는 경우에 Visual Studio Linux 확장도 설치해야 합니다.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>가상 머신에서 Azure SQL Database 및 SQL Server
 
@@ -81,7 +81,7 @@ Visual Studio를 사용 하 여 빌드하는 [이 샘플을 사용 하 여 Windo
 
 ![파일 DSN 만들기](./media/develop-cplusplus-simple/datasource.png)
 
-축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
+지금까지 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a name="step-5-connecting-from-a-linux-cc-application"></a><a id="Linux"></a>5 단계: Linux C/C++ 애플리케이션에서 연결
 
@@ -131,7 +131,7 @@ Windows ODBC 샘플과 마찬가지로 이전에 Azure Portal에서 복사한 �
 
 ![Linux 콘솔 창 출력](./media/develop-cplusplus-simple/linuxconsolewindow.png)
 
-축하합니다! 자습서를 성공적으로 완료 했으며 이제 Windows 및 Linux 플랫폼의 c + +에서 Azure SQL Database에 연결할 수 있습니다.
+지금까지 자습서를 성공적으로 완료 했으며 이제 Windows 및 Linux 플랫폼의 c + +에서 Azure SQL Database에 연결할 수 있습니다.
 
 ## <a name="get-the-complete-cc-tutorial-solution"></a><a id="GetSolution"></a> 전체 C++ 자습서 솔루션 가져오기
 
@@ -145,7 +145,7 @@ GitHub에서 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을
 * [SQL Database 개발 개요](develop-overview.md) 를 검토 합니다.
 * [ODBC API 참조](/sql/odbc/reference/syntax/odbc-api-reference/)에 대한 자세한 정보
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](saas-tenancy-app-design-patterns.md)
 * 모든 [SQL Database의 기능](https://azure.microsoft.com/services/sql-database/)

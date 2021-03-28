@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4fbb09a2687673ef96252d8bdb0523d0c5f235ae
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772028"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639920"
 ---
 # <a name="embedded-sign-in-experience"></a>포함 된 로그인 환경
 
@@ -45,9 +45,9 @@ ms.locfileid: "104772028"
 Iframe을 사용 하는 경우 다음 사항을 고려 합니다.
 
 - 포함 된 로그인은 로컬 계정만 지원 합니다. 대부분의 소셜 id 공급자 (예: Google 및 Facebook)는 로그인 페이지가 인라인 프레임에서 렌더링 되지 않도록 차단 합니다.
-- Iframe 내의 Azure AD B2C 세션 쿠키는 타사 쿠키로 간주 되기 때문에 특정 브라우저 (예: Safari 또는 incognito 모드의 Chrome)는 이러한 쿠키를 차단 하거나 지워 원치 않는 사용자 환경을 생성 합니다. 이 문제를 방지 하려면 응용 프로그램 도메인 이름과 Azure AD B2C 도메인의 *원본이 동일한* 지 확인 합니다. 동일한 원본을 사용 하려면 Azure AD B2C 테 넌 트에 대해 [사용자 지정 도메인을 사용 하도록 설정한](custom-domain.md) 다음 동일한 원본으로 웹 앱을 구성 합니다. 예를 들어에서 호스팅된 응용 프로그램은 https://app.contoso.com 에서 실행 되는 Azure AD B2C와 동일한 원본을 갖습니다 https://login.contoso.com .
+- Iframe 내의 Azure AD B2C 세션 쿠키는 타사 쿠키로 간주 되기 때문에 특정 브라우저 (예: Safari 또는 incognito 모드의 Chrome)는 이러한 쿠키를 차단 하거나 지워 원치 않는 사용자 환경을 생성 합니다. 이 문제를 방지 하려면 응용 프로그램 도메인 이름과 Azure AD B2C 도메인의 *원본이 동일한* 지 확인 합니다. 동일한 원본을 사용 하려면 Azure AD B2C 테 넌 트에 대해 [사용자 지정 도메인을 사용 하도록 설정한](custom-domain.md) 다음 동일한 원본으로 웹 앱을 구성 합니다. 예를 들어 ' '에서 호스트 되는 응용 프로그램의 https://app.contoso.com 원본은 ' '에서 실행 되는 Azure AD B2C와 동일 https://login.contoso.com 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
 * 정책에 대해 [사용자 지정 도메인을 사용 하도록 설정](custom-domain.md) 합니다.

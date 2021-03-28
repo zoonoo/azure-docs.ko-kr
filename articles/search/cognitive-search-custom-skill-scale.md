@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043073"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641133"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>사용자 지정 기술 효율적 확장
 
@@ -22,11 +22,11 @@ ms.locfileid: "105043073"
 * Simple 컨테이너 화 된 AI 기술을 위한 Azure Webapps
 * 더 복잡 하거나 큰 기술을 위한 Azure Kubernetes 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 대 한 소개를 보려면 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 를 검토 합니다.
 
-+ 환경을 설정 합니다. [이 자습서](/python/tutorial-vs-code-serverless-python-01) 를 시작 하 여 Visual Studio Code 및 Python 확장을 사용 하 여 서버 리스 Azure 함수를 설정할 수 있습니다.
++ 환경을 설정 합니다. [이 자습서](/azure/azure-functions/create-first-function-vs-code-python) 를 시작 하 여 Visual Studio Code 및 Python 확장을 사용 하 여 서버 리스 Azure 함수를 설정할 수 있습니다.
 
 ## <a name="skillset-configuration"></a>기술 구성
 
