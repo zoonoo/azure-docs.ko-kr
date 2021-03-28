@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: e7038a4e06a96ac2df1a7f0918877db9c97cb71d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 44bcc27f877f6b2a547c51ecd3848214719cb085
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102502538"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643661"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -263,7 +263,7 @@ Azure Machine Learning을 사용하면 자동화된 ML을 사용하여 Python �
 
 [이 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)에서 ONNX 형식으로 변환하는 방법을 참조하세요. [ONNX에서 지원되는 알고리즘](how-to-configure-auto-train.md#select-your-experiment-type)에 대해 알아보세요.
 
-또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [Onnx RUNTIME c # API를 사용 하 여 ML.NET 및 추론 ONNX 모델](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md)을 [통해 .net 응용 프로그램에서 AUTOML onnx 모델을 사용 하](./how-to-use-automl-onnx-model-dotnet.md) 는 방법에 대해 자세히 알아보세요. 
+또한 ONNX 런타임은 C#을 지원하므로 REST 엔드포인트에서 도입하는 네트워크 대기 시간 또는 다시 코딩 없이도 C# 앱에서 자동으로 빌드되는 모델을 사용할 수 있습니다. [Onnx RUNTIME c # API를 사용 하 여 ML.NET 및 추론 ONNX 모델](https://github.com/plaidml/onnxruntime/blob/plaidml/docs/CSharp_API.md)을 [통해 .net 응용 프로그램에서 AUTOML onnx 모델을 사용 하](./how-to-use-automl-onnx-model-dotnet.md) 는 방법에 대해 자세히 알아보세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

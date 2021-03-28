@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100095004"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642110"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인하고 앱 시작
 
@@ -39,11 +39,12 @@ ms.locfileid: "100095004"
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 
-다음 웹 브라우저에서 **내 앱** 포털로 이동할 수 있습니다.
+다음 웹 브라우저 중 하나에서 **내 앱** 포털로 이동할 수 있습니다. Microsoft는 운영 체제와 호환 되는 최신 브라우저를 사용 하는 것이 좋습니다.
 
-- Microsoft Edge (Edge의 모바일 버전은 현재 유일 하 게 지원 되는 모바일 브라우저)
-- Google Chrome
-- Mozilla Firefox 버전 26.0 이상
+- Microsoft Edge (최신 버전, 데스크톱 및 모바일)
+- Safari (최신 버전, Mac 및 iOS)
+- Chrome (최신 버전, 데스크톱 및 모바일)
+- Firefox(최신 버전)
 
 컴퓨터 또는 iOS 또는 Android 모바일 장치에서 Edge 브라우저의 모바일 버전에서 내 앱 포털에 액세스 하 여 사용할 수 있습니다.
 

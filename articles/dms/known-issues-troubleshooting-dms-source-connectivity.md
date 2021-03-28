@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: cffa8d9a0647ff5fe970801d5da98e23be0b2aaf
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: edc420cb1e79ed6d99a55524764cb164bd2edaf5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567328"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641353"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>원본 데이터베이스에 연결할 때 DMS 오류 문제 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "105567328"
 | ------------- | ------------- |
 | SQL 연결에 실패 했습니다. SQL Server에 연결하는 중에 네트워크 관련 오류 또는 인스턴스별 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오.<br> | 이 오류는 서비스가 원본 서버를 찾을 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 [동적 포트나 명명 된 인스턴스를 사용 하는 경우 원본 SQL Server에 연결 오류](./known-issues-troubleshooting-dms.md#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance)문서를 참조 하세요. |
 | **오류 53** -SQL 연결에 실패 했습니다. (오류 코드 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | 이 오류는 서비스가 원본 서버에 연결할 수 없는 경우에 발생 합니다. 문제를 해결 하려면 다음 리소스를 참조 한 후 다시 시도 하십시오. <br><br>  [연결 문제를 해결 하기 위한 대화형 사용자 가이드](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [SQL Server를 Azure SQL Database로 마이그레이션하기 위한 필수 구성 요소](./pre-reqs.md#prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance) <br><br> [Azure SQL Managed Instance SQL Server 마이그레이션하기 위한 필수 구성 요소](./pre-reqs.md#prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance) |
-| **오류 18456** -로그인이 실패 했습니다.<br> | 서비스에서 제공 된 T-sql 자격 증명을 사용 하 여 원본 데이터베이스에 연결할 수 없는 경우이 오류가 발생 합니다. 이 문제를 해결 하려면 입력 한 자격 증명을 확인 합니다. 이 표 아래의 참고에 나열 된 문제 해결 문서 또는 [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) 를 참조할 수 있으며 다시 시도할 수도 있습니다. |
+| **오류 18456** -로그인이 실패 했습니다.<br> | 서비스에서 제공 된 T-sql 자격 증명을 사용 하 여 원본 데이터베이스에 연결할 수 없는 경우이 오류가 발생 합니다. 이 문제를 해결 하려면 입력 한 자격 증명을 확인 합니다. 이 표 아래의 참고에 나열 된 문제 해결 문서 또는 [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error) 를 참조할 수 있으며 다시 시도할 수도 있습니다. |
 | 잘못 된 AccountName 값 ' '이 (가) {0} 제공 되었습니다. AccountName에 필요한 형식은 DomainName\UserName입니다.<br> | 이 오류는 사용자가 Windows 인증을 선택 하지만 사용자 이름을 잘못 된 형식으로 제공 하는 경우에 발생 합니다. 문제를 해결 하려면 Windows 인증에 대 한 올바른 형식으로 사용자 이름을 제공 하거나 **SQL 인증** 을 선택 합니다. |
 
 ## <a name="aws-rds-mysql"></a>AWS RDS MySQL
@@ -48,8 +48,8 @@ ms.locfileid: "105567328"
 
 > [!NOTE]
 > 원본 AWS RDS MySQL 데이터베이스에 연결 하는 것과 관련 된 문제를 해결 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
-> * [Amazon RDS 연결 문제에 대 한 문제 해결](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
-> * [Amazon RDS 데이터베이스 인스턴스에 연결 하는 문제를 해결할 어떻게 할까요? 있나요?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> *    [Amazon RDS 연결 문제에 대 한 문제 해결](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
+> *    [Amazon RDS 데이터베이스 인스턴스에 연결 하는 문제를 해결할 어떻게 할까요? 있나요?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="aws-rds-postgresql"></a>AWS RDS PostgreSQL
 
@@ -62,8 +62,8 @@ ms.locfileid: "105567328"
 
 > [!NOTE]
 > 원본 AWS RDS PostgreSQL 데이터베이스에 연결 하는 것과 관련 된 문제를 해결 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
-> * [Amazon RDS 연결 문제에 대 한 문제 해결](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
-> * [Amazon RDS 데이터베이스 인스턴스에 연결 하는 문제를 해결할 어떻게 할까요? 있나요?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
+> *    [Amazon RDS 연결 문제에 대 한 문제 해결](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Troubleshooting.html#CHAP_Troubleshooting.Connecting)
+> *    [Amazon RDS 데이터베이스 인스턴스에 연결 하는 문제를 해결할 어떻게 할까요? 있나요?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="aws-rds-sql-server"></a>AWS RDS SQL Server
 
@@ -72,15 +72,15 @@ ms.locfileid: "105567328"
 | Error         | 원인 및 문제 해결 세부 정보 |
 | ------------- | ------------- |
 | **오류 53** -SQL 연결에 실패 했습니다. SQL Server에 연결하는 중에 네트워크 관련 오류 또는 인스턴스별 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오. (공급자: 명명 된 파이프 공급자, 오류: 40-SQL Server에 대 한 연결을 열 수 없습니다. | 이 오류는 서비스가 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
-| **오류 18456** -로그인이 실패 했습니다. 사용자 ' {user} '이 (가) 로그인 하지 못했습니다. | 이 오류는 제공 된 T-sql 자격 증명을 사용 하 여 서비스에서 원본 데이터베이스에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 입력 한 자격 증명을 확인 합니다. 또한이 표 아래의 참고에 나열 된 문제 해결 문서 또는 [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) 를 참조 하 고 다시 시도할 수 있습니다. |
+| **오류 18456** -로그인이 실패 했습니다. 사용자 ' {user} '이 (가) 로그인 하지 못했습니다. | 이 오류는 제공 된 T-sql 자격 증명을 사용 하 여 서비스에서 원본 데이터베이스에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 입력 한 자격 증명을 확인 합니다. 또한이 표 아래의 참고에 나열 된 문제 해결 문서 또는 [MSSQLSERVER_18456](/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error) 를 참조 하 고 다시 시도할 수 있습니다. |
 | **오류 87** -연결 문자열이 잘못 되었습니다. SQL Server에 연결하는 중에 네트워크 관련 오류 또는 인스턴스별 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오. (공급자: SQL 네트워크 인터페이스, 오류: 25-연결 문자열이 잘못 되었습니다.) | 이 오류는 연결 문자열이 잘못 되어 서비스에서 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 제공 된 연결 문자열을 확인 합니다. 문제가 계속 되 면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
 | **오류-서버 인증서를 신뢰할 수 없습니다.** 서버에 성공적으로 연결되었지만 로그인 중 오류가 발생했습니다. (공급자: SSL 공급자, 오류: 0-인증서 체인이 신뢰 되지 않는 기관에서 발급 되었습니다.) | 이 오류는 사용 된 인증서를 신뢰할 수 없는 경우에 발생 합니다. 문제를 해결 하려면 신뢰할 수 있는 인증서를 찾은 다음 서버에서 사용 하도록 설정 해야 합니다. 또는 연결 하는 동안 인증서 신뢰 옵션을 선택할 수 있습니다. 사용 된 인증서에 대해 잘 알고 있고 신뢰 하는 경우에만이 작업을 수행 하세요. <br> 자체 서명 된 인증서를 사용 하 여 암호화 된 TLS 연결은 강력한 보안을 제공 하지 않으며 메시지 가로채기 (man-in-the-middle) 공격에 취약 합니다. 프로덕션 환경이 나 인터넷에 연결 된 서버에서 자체 서명 된 인증서를 사용 하 여 TLS를 사용 하지 마세요. <br> 자세한 내용은 [MICROSOFT SQL SERVER DB 인스턴스](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) 를 사용 하 여 SSL을 사용 하거나 [자습서: DMS를 사용 하 여 Azure로 RDS SQL Server 마이그레이션](./index.yml)을 참조 하세요. |
-| **오류 300** -사용자에 게 필요한 권한이 없습니다. 개체 ' {SERVER} ', 데이터베이스 ' {database} '에 대 한 VIEW SERVER STATE 권한이 거부 되었습니다. | 이 오류는 사용자에 게 마이그레이션을 수행할 수 있는 권한이 없는 경우에 발생 합니다. 이 문제를 해결 하려면 [서버 권한 부여-transact-sql](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) 또는 [자습서: DMS를 사용 하 여 Azure로 RDS SQL Server 마이그레이션](./index.yml) 을 참조 하세요. |
+| **오류 300** -사용자에 게 필요한 권한이 없습니다. 개체 ' {SERVER} ', 데이터베이스 ' {database} '에 대 한 VIEW SERVER STATE 권한이 거부 되었습니다. | 이 오류는 사용자에 게 마이그레이션을 수행할 수 있는 권한이 없는 경우에 발생 합니다. 이 문제를 해결 하려면 [서버 권한 부여-transact-sql](/sql/t-sql/statements/grant-server-permissions-transact-sql) 또는 [자습서: DMS를 사용 하 여 Azure로 RDS SQL Server 마이그레이션](./index.yml) 을 참조 하세요. |
 
 > [!NOTE]
 > 원본 AWS RDS SQL Server에 연결 하는 것과 관련 된 문제를 해결 하는 방법에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 >
-> * [Solving Connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)(SQL Server에 대한 연결 오류 해결)
+> *    [Solving Connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)(SQL Server에 대한 연결 오류 해결)
 > * [Amazon RDS 데이터베이스 인스턴스에 연결 하는 문제를 해결할 어떻게 할까요? 있나요?](https://aws.amazon.com/premiumsupport/knowledge-center/rds-cannot-connect)
 
 ## <a name="known-issues"></a>알려진 문제
@@ -91,7 +91,7 @@ ms.locfileid: "105567328"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [PowerShell Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)문서를 참조 하세요.
+* [PowerShell Azure Database Migration Service](/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0&preserve-view=true#data_migration)문서를 참조 하세요.
 * [Azure Portal를 사용 하 여 Azure Database for MySQL에서 서버 매개 변수를 구성 하는 방법](../mysql/howto-server-parameters.md)문서를 참조 하세요.
 * [Azure Database Migration Service 사용을 위한 필수 구성 요소 개요](./pre-reqs.md)문서를 참조 하세요.
 * [Azure Database Migration Service 사용에 대 한 FAQ](./faq.md)를 참조 하세요.

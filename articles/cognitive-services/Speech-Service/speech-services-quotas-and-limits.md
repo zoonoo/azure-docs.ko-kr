@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564425"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645120"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -39,7 +39,7 @@ ms.locfileid: "103564425"
 #### <a name="batch-transcription"></a>일괄 처리 기록
 | 할당량 | 무료 (F0)<sup>1</sup> | Standard(S0) |
 |--|--|--|
-| REST API 제한 | F0에 대 한 일괄 처리 기록을 사용할 수 없음 | 분당 300 요청 |
+| [음성 텍스트 REST API v2.0 및 v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) 제한 | F0에 대 한 일괄 처리 기록을 사용할 수 없음 | 분당 300 요청 |
 | 최대 오디오 입력 파일 크기 | 해당 없음 | 1GB |
 | 최대 입력 blob 크기 (예: zip 보관 파일에 둘 이상의 파일을 포함할 수 있습니다. 위의 파일 크기 제한을 확인 해야 함) | 해당 없음 | 2.5GB |
 | 최대 blob 컨테이너 크기 | 해당 없음 | 5GB |

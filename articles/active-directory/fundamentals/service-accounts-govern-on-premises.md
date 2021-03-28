@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36ad7cf7fe2ca1ddcb592e895014b1d956e55e1b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 10ea524620f810e0bf1dddc230716031bbc10e69
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557372"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642385"
 ---
 # <a name="governing-on-premises-service-accounts"></a>온-프레미스 서비스 계정 관리
 
@@ -60,7 +60,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 서비스 계정으로 사용 되는 사용자 계정에는 다음 설정을 사용 합니다.
 
-* [**계정 만료**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): 계속 해야 하는 것으로 확인 된 경우를 제외 하 고는 서비스 계정이 검토 기간 후 설정 된 시간을 자동으로 만료 하도록 설정 합니다.
+* [**계정 만료**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true): 계속 해야 하는 것으로 확인 된 경우를 제외 하 고는 서비스 계정이 검토 기간 후 설정 된 시간을 자동으로 만료 하도록 설정 합니다.
 
 *  **Logonworkstations**: 서비스 계정에서 로그인 할 수 있는 권한을 제한 합니다. 컴퓨터에서 로컬로 실행 되 고 해당 컴퓨터의 리소스에만 액세스 하는 경우에는 다른 위치에 로그온 할 수 없도록 제한 합니다.
 
@@ -149,7 +149,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 관련 정보가 CMDB에 문서화 된 후에만 서비스 계정을 만들고 위험 평가를 수행 합니다. 계정 제한은 위험 평가에 맞춰야 합니다. 평가와 관련 하 여 다음과 같은 제한 사항을 고려 하세요.
 
-* [계정 만료](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [계정 만료](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps&preserve-view=true)
 
    * 서비스 계정으로 사용 되는 모든 사용자 계정에 대해 사용 하기 위한 현실적인 종료 날짜를 정의 합니다. "계정 만료" 플래그를 사용 하 여이를 설정 합니다. 자세한 내용은[ 설정-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration)를 참조 하세요. 
 
@@ -193,7 +193,7 @@ Windows Active Directory에는 다음과 같은 네 가지 유형의 온-프레�
 
 3. 사용 하지 않도록 설정 된 정책 유지를 수행한 후 서비스 계정을 삭제 합니다. 
 
-   * MSAs의 경우 PowerShell을 사용 하 여 [제거](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) 하거나 관리 서비스 계정 컨테이너에서 수동으로 삭제할 수 있습니다.
+   * MSAs의 경우 PowerShell을 사용 하 여 [제거](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps&preserve-view=true) 하거나 관리 서비스 계정 컨테이너에서 수동으로 삭제할 수 있습니다.
 
    * 컴퓨터 또는 사용자 계정의 경우 Active Directory에서 계정을 수동으로 삭제할 수 있습니다.
 

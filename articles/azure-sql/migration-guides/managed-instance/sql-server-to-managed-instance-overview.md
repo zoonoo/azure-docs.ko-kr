@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 529bc5468c74ac9d50f64decad29fd070a7bda83
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: a3876b63e9dc41a22ac6e95b31f34665a0d0bdd8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566934"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642347"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>마이그레이션 개요: Azure SQL Managed Instance에 SQL Server
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -88,7 +88,7 @@ Azure Vm에서 Azure SQL Managed Instance 보다 더 적합 한 대상에 SQL Se
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
 |[Azure DMS(Database Migration Service)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | 마이그레이션 프로세스 중 가동 중지 시간을 감당할 수 있는 응용 프로그램에 대해 오프 라인 모드에서 마이그레이션을 지 원하는 자사 Azure 서비스입니다. 온라인 모드의 연속 마이그레이션과 달리 오프 라인 모드 마이그레이션은 원본에서 대상으로 전체 데이터베이스 백업에 대 한 일회성 복원을 실행 합니다. | 
@@ -236,7 +236,7 @@ SQL Managed Instance에서 제공 하는 고급 클라우드 기반 기능을 �
 |[Logman를 사용 하 여 Perfmon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|마이그레이션 대상 권장 사항에 도움이 되는 기준 성능을 이해 하기 위해 데이터를 수집 하는 도구입니다. 이 도구는 logman.exe을 사용 하 여 원격 SQL Server에 설정 된 성능 카운터를 만들고, 시작 하 고, 중지 하 고, 삭제 하는 명령을 만듭니다.|
 |[백서-전체 및 차등 백업을 복원 하 여 Azure SQL Managed Instance로 데이터베이스 마이그레이션](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|이 백서에서는 전체 및 차등 백업 (로그 백업 기능 없음)만 있는 경우 SQL Server에서 Azure SQL Managed Instance로의 마이그레이션을 가속화 하는 데 도움이 되는 지침과 단계를 제공 합니다.|
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

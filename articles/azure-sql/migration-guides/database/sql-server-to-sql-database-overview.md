@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 54c1b8c189264fb2e127ff04b0fdd9125f4c9aeb
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ef69b8cf0e51c6248862f4cabd4f4ce3598a811
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563143"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640352"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-database"></a>마이그레이션 개요: Azure SQL Database SQL Server
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -102,7 +102,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하
 
 다음 표에는 권장 마이그레이션 도구가 나열 되어 있습니다. 
 
-|기술 | Description|
+|기술 | 설명|
 |---------|---------|
 | [Azure Migrate](../../../migrate/how-to-create-azure-sql-assessment.md) | Azure SQL Azure Migrate를 사용 하 여 VMware에서 Azure SQL 배포 권장 사항, 대상 크기 조정 및 월별 추정치를 제공 하는 경우 SQL 데이터 공간을 대규모로 검색 하 고 평가할 수 있습니다. | 
 |[DMA(Data Migration Assistant)](/sql/dma/dma-migrateonpremsqltosqldb)|Data Migration Assistant는 Azure SQL Database (스키마와 데이터 모두)로의 SQL Server 및 마이그레이션에 대 한 원활한 평가를 제공 하는 데스크톱 도구입니다. 이 도구는 원본 데이터베이스에 연결 된 서버 온-프레미스 또는 로컬 컴퓨터에 설치할 수 있습니다. 마이그레이션 프로세스는 원본 데이터베이스와 대상 데이터베이스의 개체 간 논리적 데이터 이동입니다. </br> -단일 데이터베이스 마이그레이션 (스키마 및 데이터 모두)|
@@ -114,7 +114,7 @@ Azure SQL Database의 올바른 배포 모델 및 서비스 계층을 선택 하
 
 다음 표에서는 대체 마이그레이션 도구를 보여 줍니다. 
 
-|기술 |Description  |
+|기술 |설명  |
 |---------|---------|
 |[트랜잭션 복제](../../database/replication-to-sql-database.md)|트랜잭션 일관성을 유지 하면서 게시자-구독자 유형 마이그레이션 옵션을 제공 하 여 원본 SQL Server 데이터베이스 테이블에서 SQL Database로 데이터를 복제 합니다. 증분 데이터 변경 내용은 게시자에서 발생 하는 구독자로 전파 됩니다.|
 |[가져오기/내보내기 서비스/BACPAC](../../database/database-import.md)|[BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) 는 `.bacpac` 데이터베이스의 스키마와 데이터를 캡슐화 하는 확장명을 포함 하는 Windows 파일입니다. BACPAC를 사용 하 여 원본 SQL Server에서 데이터를 내보내고 Azure SQL Database 데이터를 가져올 수 있습니다. BACPAC 파일은 Azure Portal를 사용 하 여 새 Azure SQL Database 가져올 수 있습니다. </br></br> 대규모 데이터베이스 크기 또는 많은 수의 데이터베이스를 사용 하는 규모 및 성능에 대해 [SqlPackage](../../database/database-import.md#using-sqlpackage) 명령줄 유틸리티를 사용 하 여 데이터베이스를 내보내고 가져오는 것이 좋습니다.|
@@ -207,7 +207,7 @@ SQL Database는 고급 관리 및 보안 기능 외에도 [워크 로드를 모�
 |[Logman를 사용 하 여 PerfMon 데이터 수집 자동화](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|기본 성능을 이해 하 고 마이그레이션 대상 권장 사항을 지원 하기 위해 PerMon 데이터를 수집 하는 도구입니다. 이 도구는 logman.exe을 사용 하 여 원격 SQL Server에 설정 된 성능 카운터를 생성, 시작, 중지 및 삭제 하는 명령을 만듭니다.|
 |[백서-BACPAC를 사용 하 여 Azure SQL DB로 데이터베이스 마이그레이션](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20-%20Benchmarks%20and%20Steps%20to%20Import%20to%20Azure%20SQL%20DB%20Single%20Database%20from%20BACPAC.pdf)|이 백서에서는 BACPAC 파일을 사용 하 여 SQL Server에서 Azure SQL Database로의 마이그레이션을 가속화 하는 지침과 단계를 제공 합니다.|
 
-위 리소스는 Azure 데이터 그룹 엔지니어링 팀에서 후원하는 Data SQL Ninja 프로그램의 일부로 개발되었습니다. Data SQL Ninja 프로그램의 핵심 선언은 복잡한 현대화의 장애물을 제거하고 속도를 높이며 Microsoft의 Azure 데이터 플랫폼에 대한 데이터 플랫폼 마이그레이션 기회를 놓고 경쟁하는 것입니다. 조직이 Data SQL Ninja 프로그램에 참여하는 데 관심이 있다고 생각되면 계정 팀에 문의하여 추천서를 제출하도록 요청하세요.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

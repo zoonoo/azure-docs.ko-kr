@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 24fe28eafc1d1da90b6a7b7f9d41b7e645e62855
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 9483b0a8829c042a7cf8d516c6007cbbf14a97ac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105625775"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639743"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C을 사용 하 여 Microsoft Dynamics 365 사기 방지 구성
 
@@ -85,7 +85,7 @@ Microsoft efp [device 지문 인식을](/dynamics365/fraud-protection/device-fin
 
 ### <a name="deploy-the-azure-ad-b2c-api-code"></a>Azure AD B2C API 코드 배포
 
-제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) 를 Azure 서비스에 배포 합니다. [Visual Studio에서](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/API) 를 Azure 서비스에 배포 합니다. [Visual Studio에서](/visualstudio/deployment/quickstart-deploy-to-azure)코드를 게시할 수 있습니다.
 
 CORS 설정, **허용 된 원본** 추가 `https://{your_tenant_name}.b2clogin.com`
 

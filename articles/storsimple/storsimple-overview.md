@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/02/2021
 ms.author: timlt
-ms.openlocfilehash: 3f0ec053d806208b4a3c15604714f6bdb87399e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8fb6985da5046d0a1bad171cbc9742a15baf1af
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102613224"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643444"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션
 
@@ -255,13 +255,13 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 | Backup 대상 |Veeam |Veeam v 9 이상 |[Veaam에서 백업 대상인 StorSimple](storsimple-configure-backup-target-veeam.md)|
 | Backup 대상 |Veritas Backup Exec |Backup Exec 16 이상 |[Backup Exec에서 백업 대상으로 StorSimple 구성](storsimple-configure-backup-target-using-backup-exec.md)|
 | Backup 대상 |Veritas NetBackup |NetBackup 7.7.x 이상  |[NetBackup에서 백업 대상인 StorSimple](storsimple-configure-backuptarget-netbackup.md)|
-| 전역 파일 공유 <br></br> 협업 |Talon  |[Talon을 사용하는 StorSimple](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
+| 전역 파일 공유 <br></br> 협업 |Talon  |[Talon을 사용하는 StorSimple](https://www.theinfostride.com/talon-and-microsoft-to-host-azure-storsimple-web-conference-with-capita/) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple 용어
 Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정의를 검토하는 것이 좋습니다.
 
 ### <a name="key-terms-and-definitions"></a>주요 용어 및 정의
-| 용어(머리글자어 또는 약어) | Description |
+| 용어(머리글자어 또는 약어) | 설명 |
 | --- | --- |
 | 액세스 제어 레코드(ACR) |연결할 수 있는 호스트를 결정하는, Microsoft Azure StorSimple 디바이스의 볼륨과 연결된 레코드입니다. 이 결정은 StorSimple 디바이스에 연결하는 호스트의 IQN(iSCSI 정규화된 이름)(ACR에 포함됨)을 기반으로 합니다. |
 | AES-256 |클라우드에 출입할 때 데이터를 암호화하기 위한 256비트 AES(Advanced Encryption Standard) 알고리즘입니다. |

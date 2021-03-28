@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: a475441a845300d74014924415a4e48ae4de16df
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 7678d0fde21cefc950e0ac64a58563425c606298
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628291"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640219"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑 문제 해결
 
@@ -317,24 +317,6 @@ ms.locfileid: "105628291"
 ### <a name="error-code-df-excel-invalidfile"></a>오류 코드: DF-Excel-InvalidFile
 - **메시지**: .xlsx 및 .xls만 지원 되지만 잘못 된 excel 파일이 제공 됩니다.
 
-### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>오류 코드: DF-AdobeIntegration-InvalidMapToFilter
-- **메시지**: 사용자 지정 리소스는 필터에 매핑되는 키/Id가 하나만 있을 수 있습니다.
-
-### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>오류 코드: DF-AdobeIntegration-Invalid파티션 구성
-- **메시지**: 단일 파티션만 지원 됩니다. 파티션 스키마는 라운드 로빈 또는 Hash 일 수 있습니다.
-- **권장 사항**: AdobeIntegration 설정에서 단일 파티션만 있는지 확인 합니다. 파티션 스키마는 라운드 로빈 또는 Hash 일 수 있습니다.
-
-### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>오류 코드: DF-AdobeIntegration-KeyColumnMissed
-- **메시지**: 삽입이 불가능 한 작업의 경우 Key를 지정 해야 합니다.
-- **권장 사항**: 비 삽입 작업에 대해 AdobeIntegration 설정에서 키 열을 지정 합니다.
-
-### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>오류 코드: DF-AdobeIntegration-Invalid파티션 형식
-- **메시지**: 파티션 형식은 라운드 로빈 여야 합니다.
-- **권장 사항**: AdobeIntegration 설정에서 파티션 유형을 라운드 로빈 확인 합니다.
-
-### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>오류 코드: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **메시지**: 현재 지원 되는 개인 정보 취급 규제는 gdpr입니다.
-- **권장 사항**: AdobeIntegration 설정의 개인 정보 취급 규제는 **' gdpr '** 인지 확인 합니다.
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>기타 문제 해결 팁
 - **문제**: 예기치 않은 예외가 발생 하 여 실행이 실패 했습니다.

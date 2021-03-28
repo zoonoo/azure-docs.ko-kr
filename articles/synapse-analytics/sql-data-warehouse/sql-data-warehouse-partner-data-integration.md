@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ba03fe86c126c76faf91a06a96aaea6d1ffeddc0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7eecacef7f678001c9d65da540432154305549e2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594929"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645157"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics 데이터 통합 파트너
 
@@ -27,6 +27,7 @@ Azure Synapse Analytics에서 전용 SQL 풀을 사용 하 여 데이터 웨어�
 | 파트너 | Description | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Ab Initio](./media/sql-data-warehouse-partner-data-integration/abinitio-logo.png) |**Ab Initio**<br> Ab Initio의 agile digital 엔지니어링 플랫폼을 사용 하면 기업의 컴퓨팅에서 가장 까다로운 데이터 처리 및 데이터 관리 문제를 해결할 수 있습니다. Ab Initio의 클라우드 네이티브 플랫폼을 사용 하면 레거시 시스템에 저장 된 데이터를 비롯 하 여 Azure 또는 온-프레미스에서 회사 에코 시스템의 모든 곳에서 데이터에 액세스 하 고 사용할 수 있습니다. 강력한 자동화, 데이터 품질, 데이터 관리 및 활성 메타 데이터 기능으로 직관적인 인터페이스를 조합 하 여 신속 하 게 개발 하 고 진정한 데이터 셀프 서비스를 제공 함으로써 분석가가 신속 하 고 효과적으로 작업을 수행할 수 있습니다. Ab Initio를 사용 하 여 세계에서 가장 큰 비즈니스를 참여 하 여 빅 데이터를 의미 있는 데이터로 전환 합니다. |[제품 페이지](https://www.abinitio.com/) |
+| ![Aecorsoft](./media/sql-data-warehouse-partner-data-integration/aecorsoft-logo.png) |**Aecorsoft**<br> AecorSoft는 빠르고 확장 가능한 실시간 ELT/ETL 소프트웨어 솔루션을 제공 하 여 SAP 고객이 복잡 한 SAP 데이터를 Azure Synapse Analytics 및 Azure 데이터 플랫폼으로 가져올 수 있도록 지원 합니다. SAP 응용 프로그램 계층 보안을 완벽 하 게 준수 하는 AecorSoft 솔루션은 SAP 응용 프로그램과 통합 하기 위한 공식적으로 SAP 프리미엄 인증을 받았습니다. AecorSoft의 고유한 슈퍼 델타 및 변경 데이터 캡처 기능을 사용 하면 SAP 사용자가 SAP 투명, 풀 및 클러스터 테이블의 델타 데이터를 CSV, Parquet, Avro, ORC 또는 GZIP 형식으로 Azure로 스트리밍할 수 있습니다. SAP 테이블 형식 데이터 외에도 BW 쿼리 및 S/4HANA CD 뷰와 같은 많은 많은 비즈니스 규칙을 갖춘 SAP 개체가 완전히 지원 됩니다. |[제품 페이지](https://www.aecorsoft.com/products/dataintegrator)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aecorsoftinc1588038796343.aecorsoftintegrationservice_adf)<br>|
 | ![Alooma](./media/sql-data-warehouse-partner-data-integration/alooma_logo.png) |**Alooma**<br> Alooma는 실시간으로 데이터 팀이 다양한 데이터 사일로에서 Azure Synapse 데이터 웨어하우스로 데이터를 통합하고 보강하고 스트리밍할 수 있도록 하는 ETL(추출, 변환 및 로드) 솔루션입니다. |[제품 페이지](https://www.alooma.com/) |
 | ![Alteryx](./media/sql-data-warehouse-partner-data-integration/alteryx_logo.png) |**Alteryx**<br> Alteryx Designer는 주간 단위로 이해하는 전형적인 접근 방식이 아니라 시간 단위로 심층 분석하는 셀프 서비스 데이터 분석을 위한 반복 가능한 워크플로를 제공합니다. Alteryx Designer는 동일한 직관적 사용자 인터페이스를 사용하여 데이터 준비, 데이터 혼합 및 분석(예측, 통계 및 공간)을 결합함으로써 데이터 분석을 도와줍니다. |[제품 페이지](https://www.alteryx.com/partners/microsoft/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/alteryx.alteryx-designer)<br>|
 | ![Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_logo.png) |**Attunity(CloudBeam)**<br>Attunity CloudBeam은 Azure Synapse 데이터 웨어하우스에 데이터를 로드하기 위한 자동화 솔루션을 제공합니다. 또한 SQL Server, Oracle, DB2, Sybase, MySQL 등의 많은 원본에서 데이터의 일괄 로드 및 증분 복제를 간소화합니다. |[제품 페이지](http://www.attunity.com/attunity-cloudbeam-for-azure/)<br>[Azure Marketplace](https://aws.amazon.com/marketplace/pp/Attunity-Attunity-CloudBeam/B00B5PB8IM) <br> |

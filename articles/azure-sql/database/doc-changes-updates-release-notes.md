@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 0ddd2c96be3513d253537cefd5b9eb83da2b3c12
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634841"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640094"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,12 +61,12 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 | 기능 | 세부 정보 |
 | ---| --- |
-| <a href="/azure/azure-sql/database/elastic-transactions-overview">분산 트랜잭션</a> | 관리 되는 인스턴스 간의 분산 트랜잭션. |
-| <a href="/azure/sql-database/sql-database-instance-pools">인스턴스 풀</a> | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">인스턴스 수준 Azure AD 서버 보안 주체(로그인)</a> | <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN FROM EXTERNAL PROVIDER</a> 문을 사용 하 여 인스턴스 수준 로그인을 만듭니다. |
+| [분산 트랜잭션](/azure/azure-sql/database/elastic-transactions-overview) | 관리 되는 인스턴스 간의 분산 트랜잭션. |
+| [인스턴스 풀](/azure/sql-database/sql-database-instance-pools) | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
+| [인스턴스 수준 Azure AD 서버 보안 주체(로그인)](/sql/t-sql/statements/create-login-transact-sql) | [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 문을 사용 하 여 인스턴스 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 테이블의 변경 내용을 SQL Managed Instance, SQL Database 또는 SQL Server의 다른 데이터베이스로 복제 합니다. 또는 SQL Managed Instance 또는 SQL Server의 다른 인스턴스에서 일부 행이 변경 될 때 테이블을 업데이트 합니다. 자세한 내용은 [AZURE SQL Managed Instance에서 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조 하세요. |
 | 위협 탐지 |자세한 내용은 [AZURE SQL Managed Instance에서 위협 감지 구성](../managed-instance/threat-detection-configure.md)을 참조 하세요.|
-| 장기 백업 보존 | 자세한 내용은 현재 제한 된 공개 미리 보기로 제공 되는 [AZURE SQL Managed Instance에서 장기 백업 보존 구성](../managed-instance/long-term-backup-retention-configure.md)을 참조 하세요. | 
+| 장기 백업 보존 | 자세한 내용은 현재 제한 된 공개 미리 보기로 제공 되는 [AZURE SQL Managed Instance에서 장기 백업 보존 구성](../managed-instance/long-term-backup-retention-configure.md)을 참조 하세요. |
 
 ---
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: b37ebebdb99530ab615a313d9b269b9ce937b7f1
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: cefdf77052e559853cc85d129799e288032186b8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110758"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645456"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution"></a>통신 서비스 솔루션에 관리 id 추가
 
@@ -24,7 +24,7 @@ pip install azure-communication-sms
 from azure.identity import DefaultAzureCredential
 ```
 
-아래 예제에서는 [DefaultAzureCredential](/python/api/azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
+아래 예제에서는 [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential)를 사용 합니다. 이 자격 증명은 프로덕션 환경과 개발 환경에 적합 합니다.
 
 개발 환경에 응용 프로그램을 등록 하 고 환경 변수를 설정 하려면 [관리 id를 사용 하 여 액세스 권한 부여](../managed-identity-from-cli.md) 를 참조 하세요.
 

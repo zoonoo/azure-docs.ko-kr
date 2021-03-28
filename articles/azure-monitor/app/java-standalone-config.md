@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: f349d260fff32427712442615cabf6d3958468ac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105024169"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640041"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>구성 옵션-Java 용 Azure Monitor Application Insights
 
@@ -284,6 +284,9 @@ Application Insights에 대해 구성 된 기본 수준은 `INFO` 입니다. 이
   }
 }
 ```
+
+> 자세한 제어를 찾고 있는 경우 (예: 일부 redis 호출을 표시 하지 않고 일부 redis 호출은 제외) [샘플링 재정의](./java-standalone-sampling-overrides.md)를 참조 하세요.
+
 
 ## <a name="heartbeat"></a>하트비트
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a7efd57100ad89fa9824b7a635e11698515e13ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3246f6668a653c05599001a2f8d8fc8d376936ce
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521019"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642424"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Azure Machine Learning에서 관리 되는 id 사용 (미리 보기)
 
@@ -234,7 +234,7 @@ env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 
 작업 영역을 만들 때 ACR, KeyVault, Storage 및 App Insights와 같은 연결 된 리소스에 액세스 하는 데 사용 되는 사용자 할당 관리 id를 지정할 수 있습니다.
 
-먼저 [사용자 할당 관리 id를 만들고](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli])관리 ID의 ARM 리소스 ID를 기록해 둡니다.
+먼저 [사용자 할당 관리 id를 만들고](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)관리 ID의 ARM 리소스 ID를 기록해 둡니다.
 
 그런 다음 Azure CLI 또는 Python SDK를 사용 하 여 작업 영역을 만듭니다. CLI를 사용 하는 경우 매개 변수를 사용 하 여 ID를 지정 합니다 `--primary-user-assigned-identity` . SDK를 사용 하는 경우를 사용 `primary_user_assigned_identity` 합니다. 다음은 Azure CLI 및 Python을 사용 하 여 이러한 매개 변수를 사용 하는 새 작업 영역을 만드는 예입니다.
 

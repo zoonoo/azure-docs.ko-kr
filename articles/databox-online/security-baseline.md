@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d88284f3b9759ce04af9e44ae591c4796dde4e84
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565200"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641384"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Azure Stack Edge에 대 한 Azure 보안 기준
 
@@ -36,7 +36,7 @@ Azure Stack Edge가 Azure Security 벤치 마크에 완전히 매핑되는 방�
 
 - 권한 있는 Azure Stack Edge Pro 장치만 고객이 Azure 구독에서 만든 Azure Stack Edge 서비스에 가입할 수 있습니다.
 
-참조 된 링크에서 추가 정보를 확인할 수 있습니다.
+참조된 링크에서 추가 정보를 확인할 수 있습니다.
  
 - [Azure Stack Edge Pro GPU 장치에 액세스 하는 Windows 클라이언트에서 TLS 1.2 구성](./azure-stack-edge-gpu-configure-tls-settings.md)
 
@@ -298,7 +298,7 @@ Azure Stack Edge Pro 장치는 데이터를 로컬로 처리 한 다음 Azure에
 
 **지침**: 권한이 부여 된 사용자 (예: ' EdgeArmUser ')만 로컬 Azure Resource Manager를 통해 Azure Stack Edge 장치 api에 액세스할 수 있습니다. 사용자 계정 암호는 Azure Portal 에서만 관리할 수 있습니다. 
 
-- [Azure Resource Manager 암호 설정](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
+- [Azure Resource Manager 암호 설정](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -577,7 +577,7 @@ Microsoft Cloud 침투 테스트 시행 규칙에 따라 침투 테스트가 Mic
 
 Cohesity, Commvault 및 Veritas와 같은 타사 데이터 보호 솔루션은 로컬 SMB 또는 NFS 공유에 있는 데이터에 대 한 백업 솔루션을 제공할 수도 있습니다. 
 
-참조 된 링크에서 추가 정보를 확인할 수 있습니다.
+참조된 링크에서 추가 정보를 확인할 수 있습니다.
 
 - [장치 오류에 대 한 준비](azure-stack-edge-gpu-prepare-device-failure.md)
 

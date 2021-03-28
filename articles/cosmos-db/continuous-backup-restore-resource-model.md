@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: edf60a5c454d34a2424ef7981b02952ffbfd3bde
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 065127fbeaabc415dd9a5fbe74f90d5060909d5d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102097230"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641033"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Azure Cosmos DB 지정 시간 복원 기능 (미리 보기)에 대 한 리소스 모델
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -128,7 +128,7 @@ ms.locfileid: "102097230"
 | restorableLocations: creationTime | 지역 계정을 만든 UTC 시간입니다.|
 | restorableLocations: deletionTime | 지역 계정이 삭제 된 UTC 시간입니다. 지역 계정이 live 인 경우이 값은 비어 있습니다.|
 
-모든 복원 가능한 계정 목록을 가져오려면 [복원 가능한 Database accounts-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) 또는 [복원 가능한 database accounts-location by location](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) 문서를 참조 하세요.
+모든 복원 가능한 계정 목록을 가져오려면 [복원 가능한 Database accounts-list](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorabledatabaseaccounts/list) 또는 [복원 가능한 database accounts-location by location](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorabledatabaseaccounts/listbylocation) 문서를 참조 하세요.
 
 ### <a name="restorable-sql-database"></a>복원 가능한 SQL 데이터베이스
 
@@ -142,7 +142,7 @@ ms.locfileid: "102097230"
 | VM에서 operationType 작업을 | 이 데이터베이스 이벤트의 작업 유형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>만들기: 데이터베이스 만들기 이벤트</li><li>삭제: 데이터베이스 삭제 이벤트</li><li>Replace: 데이터베이스 수정 이벤트</li><li>SystemOperation: 시스템에 의해 트리거되는 데이터베이스 수정 이벤트입니다. 이 이벤트는 사용자가 시작 하지 않습니다.</li></ul> |
 | 데이터베이스 |이벤트 당시 SQL 데이터베이스의 속성|
 
-모든 데이터베이스 변경이 목록을 가져오려면 [복원 가능한 Sql Databases-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list) 문서를 참조 하세요.
+모든 데이터베이스 변경이 목록을 가져오려면 [복원 가능한 Sql Databases-list](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablesqldatabases/list) 문서를 참조 하세요.
 
 ### <a name="restorable-sql-container"></a>복원 가능한 SQL 컨테이너
 
@@ -156,7 +156,7 @@ ms.locfileid: "102097230"
 | VM에서 operationType 작업을 | 이 컨테이너 이벤트의 작업 유형입니다. 가능한 값은 다음과 같습니다. <br/><ul><li>만들기: 컨테이너 만들기 이벤트</li><li>삭제: 컨테이너 삭제 이벤트</li><li>Replace: 컨테이너 수정 이벤트</li><li>SystemOperation: 시스템에 의해 트리거되는 컨테이너 수정 이벤트입니다. 이 이벤트는 사용자가 시작 하지 않습니다.</li></ul> |
 | container | 이벤트 당시 SQL 컨테이너의 속성입니다.|
 
-동일한 데이터베이스의 모든 컨테이너 변경이 목록을 가져오려면 [복원 가능한 Sql 컨테이너-목록](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list) 문서를 참조 하세요.
+동일한 데이터베이스의 모든 컨테이너 변경이 목록을 가져오려면 [복원 가능한 Sql 컨테이너-목록](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablesqlcontainers/list) 문서를 참조 하세요.
 
 ### <a name="restorable-sql-resources"></a>복원 가능한 SQL 리소스
 
@@ -167,7 +167,7 @@ ms.locfileid: "102097230"
 | databaseName  | SQL 데이터베이스의 이름입니다.
 | collectionNames   | 이 데이터베이스의 SQL 컨테이너 목록입니다.|
 
-지정 된 타임 스탬프 및 위치의 계정에 존재 하는 SQL database 및 container combo 목록을 가져오려면 [복원 가능한 SQL Resources-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list) article을 참조 하세요.
+지정 된 타임 스탬프 및 위치의 계정에 존재 하는 SQL database 및 container combo 목록을 가져오려면 [복원 가능한 SQL Resources-list](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablesqlresources/list) article을 참조 하세요.
 
 ### <a name="restorable-mongodb-database"></a>복원 가능한 MongoDB 데이터베이스
 
@@ -180,7 +180,7 @@ ms.locfileid: "102097230"
 | 소유자 Resourceid   | MongoDB 데이터베이스의 리소스 ID입니다. |
 | VM에서 operationType 작업을 |   이 데이터베이스 이벤트의 작업 유형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li> 만들기: 데이터베이스 만들기 이벤트</li><li> 삭제: 데이터베이스 삭제 이벤트</li><li> Replace: 데이터베이스 수정 이벤트</li><li> SystemOperation: 시스템에 의해 트리거되는 데이터베이스 수정 이벤트입니다. 이 이벤트는 사용자가 시작 하지 않습니다. </li></ul> |
 
-모든 데이터베이스 변형 목록을 가져오려면 [복원 가능한 Mongodb Databases-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list) 문서를 참조 하세요.
+모든 데이터베이스 변형 목록을 가져오려면 [복원 가능한 Mongodb Databases-list](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablemongodbdatabases/list) 문서를 참조 하세요.
 
 ### <a name="restorable-mongodb-collection"></a>복원 가능한 MongoDB 컬렉션
 
@@ -193,7 +193,7 @@ ms.locfileid: "102097230"
 | 소유자 Resourceid   | MongoDB collection의 리소스 ID입니다. |
 | VM에서 operationType 작업을 |이 컬렉션 이벤트의 작업 유형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>만들기: 컬렉션 생성 이벤트</li><li>삭제: 컬렉션 삭제 이벤트</li><li>Replace: collection 수정 이벤트</li><li>SystemOperation: 시스템에 의해 트리거되는 컬렉션 수정 이벤트입니다. 이 이벤트는 사용자가 시작 하지 않습니다.</li></ul> |
 
-동일한 데이터베이스의 모든 컨테이너 변경이 목록을 가져오려면 [복원 가능한 Mongodb Collections-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list) 문서를 참조 하세요.
+동일한 데이터베이스의 모든 컨테이너 변경이 목록을 가져오려면 [복원 가능한 Mongodb Collections-list](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablemongodbcollections/list) 문서를 참조 하세요.
 
 ### <a name="restorable-mongodb-resources"></a>복원 가능한 MongoDB 리소스
 
@@ -204,7 +204,7 @@ ms.locfileid: "102097230"
 | databaseName  |MongoDB 데이터베이스의 이름입니다. |
 | collectionNames | 이 데이터베이스의 MongoDB 컬렉션 목록입니다. |
 
-지정 된 타임 스탬프 및 위치의 계정에 있는 모든 MongoDB 데이터베이스 및 컬렉션 조합의 목록을 가져오려면 [복원 가능한 MongoDB Resources-list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) 문서를 참조 하세요.
+지정 된 타임 스탬프 및 위치의 계정에 있는 모든 MongoDB 데이터베이스 및 컬렉션 조합의 목록을 가져오려면 [복원 가능한 MongoDB Resources-list](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/restorablemongodbresources/list) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

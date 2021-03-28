@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 216410d423a70037588a6fb596771a702a13c003
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 09ae46ec6455b6998bcf4da5648d2ceaef4d5b19
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472246"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644793"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>CSV의 데이터를 Azure SQL Database 또는 SQL Managed Instance (플랫 파일)로 로드
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Bcp 명령줄 유틸리티를 사용 하 여 CSV 파일에서 Azure SQL Database
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -33,7 +33,7 @@ Bcp 명령줄 유틸리티를 사용 하 여 CSV 파일에서 Azure SQL Database
 * 설치된 bcp 명령줄 유틸리티
 * 설치된 sqlcmd 명령줄 유틸리티
 
-[Microsoft sqlcmd 설명서] []에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다 https://docs.microsoft.com/sql/tools/sqlcmd-utility?view=sql-server-ver15 .
+[Microsoft Sqlcmd 설명서](/sql/tools/sqlcmd-utility?view=sql-server-ver15&preserve-view=true)에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 또는 UTF-16 형식 데이터
 

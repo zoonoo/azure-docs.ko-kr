@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601375"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644921"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 ### <a name="logins-and-users"></a>로그인 및 사용자
 
 - `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` 및 `FROM SID`를 사용하여 만든 SQL 로그인이 지원됩니다. [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql)을 참조하세요.
-- [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 구문 또는 [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 만든 Azure AD(Azure Active Directory) 서버 보안 주체(로그인)가 지원됩니다. 이러한 로그인은 서버 수준에서 만들어집니다.
+- [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문 또는 [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문을 사용하여 만든 Azure AD(Azure Active Directory) 서버 보안 주체(로그인)가 지원됩니다. 이러한 로그인은 서버 수준에서 만들어집니다.
 
     SQL Managed Instance는 구문을 사용 하 여 Azure AD 데이터베이스 보안 주체를 지원 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 합니다. 이 기능을 Azure AD 포함된 데이터베이스 사용자라고도 합니다.
 
@@ -466,15 +466,15 @@ PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/poly
 
 ### <a name="service-broker"></a>Service Broker
 
-인스턴스 간 service broker 메시지 교환은 Azure SQL 관리 되는 인스턴스 간에만 지원 됩니다.
+인스턴스 간 Service Broker 메시지 교환은 Azure SQL Managed Instance 사이에만 지원됩니다.
 
 - `CREATE ROUTE`: `CREATE ROUTE` `ADDRESS` `LOCAL` 다른 SQL MANAGED INSTANCE의 또는 DNS 이름과 함께 사용할 수 없습니다.
 - `ALTER ROUTE`: `ALTER ROUTE` `ADDRESS` `LOCAL` 다른 SQL MANAGED INSTANCE의 또는 DNS 이름과 함께 사용할 수 없습니다.
 
-전송 보안이 지원 됩니다. 대화 보안은 다음과 같습니다.
+전송 보안이 지원되며, 대화 보안은 지원되지 않습니다.
 - `CREATE REMOTE SERVICE BINDING`은 지원되지 않습니다.
 
-Service broker는 기본적으로 사용 하도록 설정 되어 있으며 사용 하지 않도록 설정할 수 없습니다. 다음 ALTER DATABSE 옵션은 지원 되지 않습니다.
+Service Broker는 기본적으로 사용하도록 설정되어 있으며, 비활성화할 수 없습니다. 다음 ALTER DATABSE 옵션은 지원 되지 않습니다.
 - `ENABLE_BROKER`
 - `DISABLE_BROKER`
 
@@ -525,7 +525,7 @@ Service broker는 기본적으로 사용 하도록 설정 되어 있으며 사�
 ### <a name="tempdb"></a>TEMPDB
 - `tempdb`의 최대 파일 크기는 범용 계층에서 코어당 24GB보다 클 수 없습니다. `tempdb`중요 비즈니스용 계층의 최대 크기는 SQL Managed Instance 저장소 크기에 의해 제한 됩니다. `Tempdb` 로그 파일 크기는 범용 계층에서 120GB로 제한됩니다. 일부 쿼리는 `tempdb`에서 코어당 24GB보다 많이 필요하거나 120GB보다 많이 로그 데이터를 생성하는 경우 오류를 반환할 수 있습니다.
 - `Tempdb` 는 항상 12 개의 데이터 파일로 분할 됩니다. 주 복제본은 master, data file 및 11 이외의 주 데이터 파일이 라고도 합니다. 파일 구조를 변경할 수 없으며 새 파일을에 추가할 수 없습니다 `tempdb` . 
-- 새 SQL Server 2019 메모리 내 데이터베이스 기능이 있는 [메모리 최적화 `tempdb` 메타 데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata)는 지원 되지 않습니다.
+- 새 SQL Server 2019 메모리 내 데이터베이스 기능이 있는 [메모리 최적화 `tempdb` 메타 데이터](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata)는 지원 되지 않습니다.
 - Model 데이터베이스에서 만든 개체는 `tempdb` `tempdb` model 데이터베이스에서 초기 개체 목록을 가져오지 않으므로 다시 시작 또는 장애 조치 (failover) 후에에서 자동으로 만들 수 없습니다. `tempdb`각 다시 시작 또는 장애 조치 (failover) 후에는 수동으로 개체를 만들어야 합니다.
 
 ### <a name="msdb"></a>MSDB
@@ -534,13 +534,13 @@ SQL Managed Instance의 다음 MSDB 스키마는 해당 하는 미리 정의 된
 
 - 일반 역할
   - TargetServersRole
-- [고정 데이터베이스 역할](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [고정 데이터베이스 역할](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [DatabaseMail 역할](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [DatabaseMail 역할](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Integration Services 역할](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Integration Services 역할](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - msdb
   - db_ssisltduser
   - db_ssisoperator

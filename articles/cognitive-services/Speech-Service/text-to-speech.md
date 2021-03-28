@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: e42f81ce0f06b3782972dbf4322f0590763d8704
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026328"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645010"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -44,7 +44,7 @@ ms.locfileid: "105026328"
 * Visemes- [Visemes](how-to-speech-synthesis-viseme.md) 는 특정 음소을 생성할 때 lip, jaw 및 메롱를 포함 하 여 관찰 된 음성에서의 주요 동작입니다. Visemes에는 음성 및 음소와의 강력한 상관 관계가 있습니다. Speech SDK에서 viseme 이벤트를 사용 하 여 통신, 교육, 엔터테인먼트 및 고객 서비스를 읽는 립에서 얼굴에 애니메이션 효과를 주는 데 사용할 수 있는 얼굴 애니메이션 데이터를 생성할 수 있습니다.
 
 > [!NOTE]
-> Viseme `en-US-AriaNeural` 는 현재 미국 서 부 2 () 지역에서 음성에 대해서만 작동 `westus2` 합니다.
+> Viseme는 지금은 음성에 대해서만 작동 `en-US-AriaNeural` 합니다.
 
 ## <a name="get-started"></a>시작
 

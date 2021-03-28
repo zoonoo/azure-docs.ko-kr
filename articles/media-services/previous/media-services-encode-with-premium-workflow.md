@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b58a1ae2a20afb357f6363077e70b692256d2ce7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8d39d54498872201afe2f705da1fc5654d8befb2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103013502"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644993"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 
@@ -42,7 +42,8 @@ Microsoft Azure Media Services는 **미디어 인코더 Premium 워크플로** �
 
 **미디어 인코더 Premium 워크플로** 의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이러한 파일은 확장명이 .workflow이고 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 작성됩니다.
 
-[여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수도 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
+[여기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md
+)에서 기본 워크플로 파일을 가져올 수도 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
 워크플로 파일은 자산으로 Media Services 계정에 업로드되고 이 자산은 인코딩 태스크에 전달되어야 합니다.
 

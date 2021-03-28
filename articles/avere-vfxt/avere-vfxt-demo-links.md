@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 31e32bfc0a2c3279375148bdf3da7d4a4829af1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 43162c4c9812015952c749446d160ab1c0d84392
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88271076"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639402"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Avere vFXT 데모 프로젝트
 
@@ -29,7 +29,7 @@ ms.locfileid: "88271076"
 
 ## <a name="vfxt-performance"></a>vFXT 성능
 
-* [vdbench를 사용하여 vFXT 성능 측정](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) - vFXT 메모리 및 디스크 하위 시스템을 테스트하기 위해 중소 규모의 워크로드를 생성하는 기본 테스트 설정입니다.
+* [Vdbench를 사용 하 여 vFXT 성능 측정](https://github.com/Azure/Avere/blob/master/docs/vdbench.md) -vFXT 메모리 및 디스크 하위 시스템을 테스트 하기 위해 중소 규모의 워크 로드를 생성 하는 기본 테스트 설정입니다.
 
 ## <a name="client-setup"></a>클라이언트 설치
 

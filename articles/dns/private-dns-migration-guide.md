@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 72d046cde70d1224eb1fd47f527c9e49c6b002f6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3f0856f85e279f97934fff506a052c8fd214ff73
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500464"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641227"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. Azure PowerShell(Az)과 설치 방법에 대한 자세한 내용을 보려면 https://docs.microsoft.com/powershell/azure/new-azureps-module-az를 방문하세요.
 
@@ -108,7 +108,7 @@ DNS 쿼리가 확인되지 않는다면 몇 분 정도 기다린 후 쿼리를 �
 
 SDK를 사용하여 개발된 템플릿, PowerShell 스크립트 또는 사용자 지정 코드를 포함한 자동화를 사용하는 경우 프라이빗 DNS 영역의 새 리소스 모델을 사용하도록 자동화를 업데이트해야 합니다. 다음은 새로운 프라이빗 DNS CLI/PS/SDK 설명서에 대한 링크입니다.
 * [Azure DNS Private Zones REST API](/rest/api/dns/privatedns/privatezones)
-* [Azure DNS Private Zones CLI](/cli/azure/ext/privatedns/network/private-dns)
+* [Azure DNS Private Zones CLI](/cli/azure/network/private-dns/link/vnet?view=azure-cli-latest)
 * [Azure DNS Private Zones PowerShell](/powershell/module/az.privatedns/)
 * [Azure DNS Private Zones SDK](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 

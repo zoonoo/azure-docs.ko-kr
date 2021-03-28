@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f7e14500fb377b46f651b53e2704d8477aea7a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3152fe0bf77b73e593ac61efb5f386827bdc96ef
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520662"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643732"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure SQL Database SQL Server 데이터베이스 마이그레이션
 
@@ -31,7 +31,7 @@ ms.locfileid: "102520662"
 > * Azure Database Migration Service 인스턴스에서 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -151,7 +151,7 @@ $project = New-AzDataMigrationProject -ResourceGroupName myResourceGroup `
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>원본 및 대상에 대한 자격 증명 매개 변수 만들기
 
-[PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 개체로 연결 보안 자격 증명을 만들 수 있습니다.
+[PSCredential](/dotnet/api/system.management.automation.pscredential) 개체로 연결 보안 자격 증명을 만들 수 있습니다.
 
 다음 예제에서는 *$sourcePassword* 및 *$targetPassword* 문자열 변수로 암호를 제공하여 원본 및 대상 연결 모두에 대한 *PSCredential* 개체 만들기를 보여 줍니다.
 
@@ -195,8 +195,8 @@ $selectedDbs = New-AzDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks20
 * *TaskName*. 만들 작업의 이름입니다. 
 * *SourceConnection*. 원본 SQL Server 연결을 나타내는 AzDmsConnInfo 개체입니다.
 * *TargetConnection*. 대상 Azure SQL Database 연결을 나타내는 AzDmsConnInfo 개체입니다.
-* *SourceCred*. 원본 서버에 연결할 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 개체입니다.
-* *TargetCred*. 대상 서버에 연결할 [PSCredential](/dotnet/api/system.management.automation.pscredential?view=powershellsdk-1.1.0) 개체입니다.
+* *SourceCred*. 원본 서버에 연결할 [PSCredential](/dotnet/api/system.management.automation.pscredential) 개체입니다.
+* *TargetCred*. 대상 서버에 연결할 [PSCredential](/dotnet/api/system.management.automation.pscredential) 개체입니다.
 * *SelectedDatabase*. 원본 및 대상 데이터베이스 매핑을 나타내는 AzDataMigrationSelectedDB 개체입니다.
 * *Schemavalidation*. (선택 사항, 스위치 매개 변수) 마이그레이션 후는 원본과 대상 간의 스키마 정보를 비교 합니다.
 * *Data/Ityvalidation*. (선택 사항, 스위치 매개 변수) 마이그레이션 후는 원본 및 대상 간에 체크섬 기반 데이터 무결성 유효성 검사를 수행 합니다.

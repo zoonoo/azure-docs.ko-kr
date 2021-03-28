@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc394550cf5eb28ce3a30af4afcb3deca4223fe3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100587948"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642452"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -64,7 +64,7 @@ VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로
 
 ### <a name="do-scale-sets-work-with-azure-availability-zones"></a>확장 집합은 Azure 가용성 영역과 작업이 가능한가요?
 
-예. 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
+예 자세한 내용은 [확장 집합 영역 문서](./virtual-machine-scale-sets-use-availability-zones.md)를 참조하세요.
 
 
 ## <a name="autoscale"></a>자동 크기 조정
@@ -226,7 +226,7 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
 
 linuxConfiguration 요소 이름 | 필수 | Type | 설명
 --- | --- | --- | ---
-ssh | 아니요 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
+ssh | 예 | 컬렉션 | Linux OS용 SSH 키 구성을 지정합니다.
 path | 예 | String | SSH 키 또는 인증서를 배치해야 하는 Linux 파일 경로를 지정합니다.
 keyData | 예 | String | base64로 인코딩된 SSH 공개 키를 지정합니다.
 
@@ -304,7 +304,7 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 
 .cer 공개 키를 가상 머신 확장 집합에 배포하려면 .cer 파일만 포함하는 .pfx 파일을 생성할 수 있습니다. 이렇게 하려면 `X509ContentType = Pfx`를 사용합니다. 예를 들어 C# 또는 PowerShell에서 .cer 파일을 x509Certificate2 개체로 로드하고 이 메서드를 호출합니다.
 
-자세한 내용은 [X509Certificate.Export 메서드(X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_)를 참조하세요.
+자세한 내용은 [X509Certificate.Export 메서드(X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_)를 참조하세요.
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>인증서를 base64 문자열로 전달 어떻게 할까요??
 
@@ -469,7 +469,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>집합의 모든 VM NIC에 적용되도록 확장 집합에 NSG(네트워크 보안 그룹)를 할당할 수 있나요?
 
-예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예제:
+예. 네트워크 프로필의 networkInterfaceConfigurations 섹션에서 참조하여 네트워크 보안 그룹을 확장 집합에 직접 적용할 수 있습니다. 예:
 
 ```json
 "networkProfile": {
@@ -515,7 +515,7 @@ Azure Load Balancer 프런트 엔드가 포함된 두 개의 가상 머신 확�
 
 IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
-가상 머신 확장 집합 설정 IP 주소를 할당하는 방법은 항상 "동적"이지만 이러한 IP 주소를 변경할 수 있다는 뜻은 아닙니다. 이 경우 "동적"은 PUT 요청에서 IP 주소를 지정하지 않는다는 것을 의미할 뿐입니다. 서브넷을 사용하여 정적 집합을 지정합니다.
+가상 머신 확장 집합 IP 주소의 할당 방법은 항상 "동적" 이지만 이러한 IP 주소는 변경 될 수 있다는 의미는 아닙니다. 이 경우 "동적"은 PUT 요청에서 IP 주소를 지정하지 않는다는 것을 의미할 뿐입니다. 서브넷을 사용하여 정적 집합을 지정합니다.
 
 ### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>기존 Azure Virtual Network에 가상 머신 확장 집합을 배포하려면 어떻게 하나요?
 
@@ -543,7 +543,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>확장 집합에서 사용하는 DNS 서버를 구성하려면 어떻게 해야 하나요?
 
-사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예제:
+사용자 지정 DNS 구성을 포함한 가상 머신 확장 집합을 만들려면 dnsSettings JSON 패킷을 확장 집합 networkInterfaceConfigurations 섹션에 추가합니다. 예:
 
 ```json
     "dnsSettings":{
@@ -553,7 +553,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>각 VM에 공용 IP 주소를 할당하도록 확장 집합을 구성하려면 어떻게 해야 하나요?
 
-각 VM에 공용 IP 주소를 할당 하는 가상 머신 확장 집합을 만들려면 virtualMachineScaleSets/리소스의 API 버전이 2017-03-30 인지 확인 하 고 _고 publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가 합니다. 예제:
+각 VM에 공용 IP 주소를 할당 하는 가상 머신 확장 집합을 만들려면 virtualMachineScaleSets/리소스의 API 버전이 2017-03-30 인지 확인 하 고 _고 publicipaddressconfiguration_ JSON 패킷을 확장 집합 ipConfigurations 섹션에 추가 합니다. 예:
 
 ```json
     "publicipaddressconfiguration": {
@@ -572,7 +572,7 @@ IP 주소는 사용자가 지정한 서브넷에서 선택됩니다.
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>어떤 경우에 VM이 2개 미만인 가상 머신 확장 집합을 만들어야 하나요?
 
-VM이 2개 미만인 가상 머신 확장 집합을 만드는 한 가지 이유는 가상 머신 확장 집합의 탄력적 속성을 사용해야 하는 경우입니다. 예를 들어 VM 실행 비용을 지불하지 않고 인프라를 정의하기 위해 VM이 없는 가상 머신 확장 집합을 배포할 수 있습니다. 그런 다음 VM을 배포할 준비가 되면 가상 머신 확장 집합의 "용량"을 프로덕션 인스턴스 수로 늘립니다.
+VM이 2개 미만인 가상 머신 확장 집합을 만드는 한 가지 이유는 가상 머신 확장 집합의 탄력적 속성을 사용해야 하는 경우입니다. 예를 들어 VM 실행 비용을 지불하지 않고 인프라를 정의하기 위해 VM이 없는 가상 머신 확장 집합을 배포할 수 있습니다. 그런 다음 Vm을 배포할 준비가 되 면 가상 머신 확장 집합의 "용량"을 프로덕션 인스턴스 수로 늘립니다.
 
 VM이 2개 미만인 가상 머신 확장 집합을 만드는 또 다른 경우는 개별 VM이 있는 가용성 집합을 사용하는 것보다 가용성에 별 관심이 없을 때입니다. 가상 머신 확장 집합은 대체할 수 있는 미분화된 컴퓨팅 단위로 작업하는 방법을 제공합니다. 이 일관성은 가상 머신 확장 집합과 가용성 집합의 주요 차별 요인이기도 합니다. 다양한 상태 비저장 워크로드는 개별 단위를 추적하지 않습니다. 워크로드가 감소하면 하나의 컴퓨팅 단위로 축소하고, 워크로드가 증가하면 여러 단위로 확장합니다.
 
@@ -700,7 +700,7 @@ Azure Portal의 Log Analytics 작업 영역에서 workspaceId 및 workspaceKey�
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>가상 머신 확장 집합에서 VM을 삭제하는 것과 VM을 할당 취소하는 것 사이의 차이점은 무엇입니까? 언제 다른 하나를 선택해야 합니까?
 
-가상 머신 확장 집합에서 VM을 삭제하는 것과 VM을 할당 취소하는 것 사이의 주요 차이점은 `deallocate`로는 VHD(가상 하드 디스크)가 삭제되지 않는다는 것입니다. `stop deallocate` 실행과 관련된 스토리지 비용이 있습니다. 다음과 같은 이유 중 하나로 두 가지 방법 중 하나를 사용할 수 있습니다.
+가상 머신 확장 집합에서 VM을 삭제 하 고 VM의 할당을 취소 하는 경우의 주요 차이점은 `deallocate` vhd (가상 하드 디스크)를 삭제 하지 않는 것입니다. `stop deallocate` 실행과 관련된 스토리지 비용이 있습니다. 다음과 같은 이유 중 하나로 두 가지 방법 중 하나를 사용할 수 있습니다.
 
 - Compute 비용은 더 이상 지불하지 않고, VM의 디스크 상태는 유지하려고 합니다.
 - 가상 머신 확장 집합을 확장하는 것보다 더 빠르게 VM 집합을 시작하려고 합니다.

@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108148"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641998"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Azure Firewall을 사용하여 프라이빗 엔드포인트로 향하는 트래픽 검사
 
@@ -90,7 +90,7 @@ Azure 방화벽은 다음 중 하나를 사용 하 여 트래픽을 필터링 �
 
 위의 시나리오 2와 동일한 고려 사항이 적용 됩니다. 이 시나리오에서는 가상 네트워크 피어 링 요금이 발생 하지 않습니다. 온-프레미스 워크 로드가 개인 끝점에 액세스할 수 있도록 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 [dns 전달자를 사용 하는 온-프레미스 워크 로드](./private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독
 * Log Analytics 작업 영역.  
@@ -117,6 +117,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 단계에서 다음 매개 변수를 아래 정보로 바꿉니다.
 
 ### <a name="azure-firewall-network"></a>Azure 방화벽 네트워크
+
 | 매개 변수                   | 값                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -127,6 +128,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### <a name="virtual-machine-network"></a>가상 머신 네트워크
+
 | 매개 변수                   | 값                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -137,13 +139,14 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### <a name="private-endpoint-network"></a>개인 끝점 네트워크
+
 | 매개 변수                   | 값                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | 미국 중남부      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -564,7 +567,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     Address: 10.2.0.4
     ```
 
-2. [SQL Server 명령줄 도구](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools)를 설치 합니다.
+2. [SQL Server 명령줄 도구](/sql/linux/quickstart-install-connect-ubuntu#tools)를 설치 합니다.
 
 3. 다음 명령을 실행 하 여 SQL Server에 연결 합니다. 이전 단계에서 SQL Server를 만들 때 정의한 서버 관리자와 암호를 사용 합니다.
 

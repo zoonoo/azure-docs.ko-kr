@@ -2,23 +2,18 @@
 title: 라이브 스트리밍 개요
 description: 이 문서에서는 Azure Media Services v3를 사용하는 라이브 스트리밍 개요를 제공합니다.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b552dcc0e6766316e55e9cdda6e462b2d4abfd2b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c82c646e4befef9d409bb8e59a442642913ada22
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955922"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641520"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -123,16 +118,6 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해 하려면 
 - [상태 및 청구](live-event-states-billing.md)
 - [대기 시간](live-event-latency.md)
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="live-streaming-questions"></a>라이브 스트리밍 질문
 
-질문과 [대답](frequently-asked-questions.md#live-streaming) 문서를 참조 하세요.
-
-## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
-
-[Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-* [라이브 스트리밍 빠른 시작](live-events-wirecast-quickstart.md)
-* [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
-* [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-v-2-v-3-migration-introduction.md)
+[라이브 스트리밍 질문](questions-collection.md#live-streaming) 문서를 참조 하세요.

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d83f6585500316515139f937a56889dfc1f8fac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96459665"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642698"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,7 +91,7 @@ ms.locfileid: "96459665"
 - 그룹 할당을 통해 Azure AD 사용자에 게 리소스에 대 한 액세스 권한 할당: Azure AD 그룹을 만들고, 그룹에 액세스 권한을 부여 하 고, 그룹에 개별 멤버를 추가 합니다. 데이터베이스에서 Azure AD 그룹을 매핑하는 포함 된 데이터베이스 사용자를 만듭니다. 데이터베이스 내에서 사용 권한을 할당 하려면 적절 한 권한이 있는 데이터베이스 역할에서 Azure AD 그룹에 연결 된 사용자를 배치 합니다.
   - Sql을 사용한 인증에는 SQL을 사용 하 [여 Azure Active Directory 인증 구성 및 관리](authentication-aad-configure.md) 및 [sql 인증을 위해 Azure AD 사용](authentication-aad-overview.md)문서를 참조 하세요.
   > [!NOTE]
-  > SQL Managed Instance에서는 master 데이터베이스의 Azure AD 보안 주체에 매핑되는 로그인을 만들 수도 있습니다. [CREATE LOGIN (transact-sql)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조 하세요.
+  > SQL Managed Instance에서는 master 데이터베이스의 Azure AD 보안 주체에 매핑되는 로그인을 만들 수도 있습니다. [CREATE LOGIN (transact-sql)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true)을 참조 하세요.
 
 - Azure AD 그룹을 사용 하 여 권한 관리 및 그룹 소유자를 간소화 하 고 리소스 소유자가 그룹에서 구성원을 추가/제거할 수 있습니다.
 
@@ -136,7 +136,7 @@ Azure AD Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 �
 
 - Azure AD Interactive 인증 모드를 사용 하 여 Azure SQL Database 및 Azure SQL Managed Instance에 대해 암호를 대화형으로 요청 하 고 그 뒤에 Multi-Factor Authentication 합니다.
   - SSMS에서 유니버설 인증을 사용 합니다. [Azure SQL Database에서 Multi-factor AZURE AD 인증 사용, SQL Managed Instance, Azure Synapse (Multi-Factor Authentication에 대 한 SSMS 지원)](authentication-mfa-ssms-overview.md)문서를 참조 하세요.
-  - SQL Server Data Tools에서 지원 되는 대화형 인증 (SSDT)을 사용 합니다. [SQL Server Data Tools에서 Azure Active Directory 지원 (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current)문서를 참조 하세요.
+  - SQL Server Data Tools에서 지원 되는 대화형 인증 (SSDT)을 사용 합니다. [SQL Server Data Tools에서 Azure Active Directory 지원 (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true)문서를 참조 하세요.
   - Multi-Factor Authentication를 지 원하는 다른 SQL 도구를 사용 합니다.
     - 데이터베이스 내보내기/추출/배포에 대 한 SSMS 마법사 지원  
     - [sqlpackage.exe](/sql/tools/sqlpackage): '/ua ' 옵션
@@ -196,7 +196,7 @@ Azure AD Multi-Factor Authentication는 둘 이상의 인증 형태를 요구 �
 
 - 암호나 암호를 사용할 수 없는 경우 Azure Key Vault에 사용자 암호 및 응용 프로그램 암호를 저장 하 고 Key Vault 액세스 정책을 통해 액세스를 관리 합니다.
 
-- 다양 한 앱 개발 프레임 워크는 앱에서 비밀을 보호 하기 위한 프레임 워크 특정 메커니즘을 제공할 수도 있습니다. 예: [ASP.NET core 앱](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- 다양 한 앱 개발 프레임 워크는 앱에서 비밀을 보호 하기 위한 프레임 워크 특정 메커니즘을 제공할 수도 있습니다. 예: [ASP.NET core 앱](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### <a name="use-sql-authentication-for-legacy-applications"></a>레거시 응용 프로그램에 SQL 인증 사용
 
@@ -231,7 +231,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
        - [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
-       - [CREATE USER](/sql/t-sql/statements/create-user-transact-sql)
+       - [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql)
     1. 사용자를 역할에 멤버로 추가
        - [ALTER_ROLE](/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -283,7 +283,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 
 **구현 방법**:
 
-- 필요한 의무의 분리 수준을 식별 합니다. 예제:
+- 필요한 의무의 분리 수준을 식별 합니다. 예:
   - 개발/테스트 및 프로덕션 환경 간
   - 보안에 중요 한 작업은 DBA (데이터베이스 관리자) 관리 수준 작업과 개발자 작업을 비교 합니다.
     - 예: 감사자, RLS (역할 수준 보안)에 대 한 보안 정책 만들기, DDL 권한으로 개체 SQL Database 구현

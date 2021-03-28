@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹 앱, 클라우드 서비스, 가상 머�
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726056"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641547"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -59,7 +59,7 @@ Azure Monitor에서 자동 크기 조정을 적용할 수 있는 리소스를 �
    ![CPU 기준 크기 조정][8]
 1. **저장** 을 클릭합니다.
 
-축하합니다! 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
+지금까지 이제 CPU 사용량을 기준으로 웹앱의 크기를 자동으로 조정하는 첫 번째 크기 조정 설정을 성공적으로 만들었습니다.
 
 > [!NOTE]
 > 가상 머신 확장 집합 또는 Cloud Service 역할의 크기 조정을 시작하려는 경우에도 동일한 단계를 적용할 수 있습니다.
@@ -113,6 +113,10 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 **자동 크기 조정 사용** 과 **저장** 을 차례로 클릭하면 언제든지 자동 크기 조정을 다시 사용하도록 설정할 수 있습니다.
 
+### <a name="cool-down-period-effects"></a>휴지 기간 효과
+
+자동 크기 조정은 쿨 다운 기간을 사용 하 여 인스턴스를 빠르게 repetative 하는 "플 래핑"을 방지 합니다.  자세한 내용은 [자동 크기 조정 평가 단계](autoscale-understanding-settings.md#autoscale-evaluation)를 참조 하세요.  플 래핑 및 자동 크기 조정 엔진을 모니터링 하는 방법에 대 한 다른 중요 한 정보는 [자동 크기 조정 모범 사례](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) 및 자동 [크기 조정 문제 해결](autoscale-troubleshoot.md) 에서 각각 찾을 수 있습니다. 
+
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅 (App Service)
 
 <a id="health-check-path"></a>
@@ -136,6 +140,7 @@ Azure에서 지역과 재해 복구 간에 리소스를 이동 하는 방법에 
 ## <a name="next-steps"></a>다음 단계
 - [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com

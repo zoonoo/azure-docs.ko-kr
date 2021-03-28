@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: be202a6016842ee82b3230c2841d416d3b53ea15
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2641218fa9ddef65c45f2f1a9c9ce807cef35048
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505582"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642743"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
@@ -153,7 +153,15 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 4. 앱으로 이동 해 보세요.
 5. 앱이 로드 된 후 PerfView로 돌아가서 **수집 중지** 를 선택 합니다.
 
+### <a name="how-to-capture-full-sql-command-text"></a>전체 SQL 명령 텍스트를 캡처하는 방법
 
+전체 SQL 명령 텍스트를 캡처하려면 다음과 같이 applicationinsights.config 파일을 수정 해야 합니다.
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">,
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 ## <a name="next-steps"></a>다음 단계
 

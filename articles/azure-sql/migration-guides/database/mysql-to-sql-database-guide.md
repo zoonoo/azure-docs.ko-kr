@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 1f1692aaa74f56c404a8fae7aa91e94baecbb7e1
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 8952e6e1bda8763d403c02dcd5815f1e1c0941e8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626489"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641878"
 ---
 # <a name="migration-guide-mysql-to-azure-sql-database"></a>마이그레이션 가이드: MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -167,7 +167,7 @@ MySQL 용 SSMA (SQL Server Migration Assistant)를 사용 하 여 데이터베�
 | --- | --- |
 | [데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | 는 지정 된 작업에 대해 제안 된 "최적" 대상 플랫폼, 클라우드 준비 상태, 응용 프로그램/데이터베이스 재구성 수준을 제공 합니다. 이는 자동화 된 단일 대상 플랫폼 의사 결정 프로세스를 제공 하 여 방대한 부동산 평가를 가속화 하는 간단한 단일 클릭 계산 및 보고서 생성을 제공 합니다. |
 
-데이터 SQL 엔지니어링 팀이이 리소스를 개발 했습니다. 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
+데이터 SQL 엔지니어링 팀은 이러한 리소스를 개발 했습니다. 이 팀의 핵심 기본은 Microsoft의 Azure 데이터 플랫폼으로 데이터 플랫폼 마이그레이션 프로젝트에 대 한 복잡 한 현대화의 차단을 해제 하 고 가속화 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계 
 
