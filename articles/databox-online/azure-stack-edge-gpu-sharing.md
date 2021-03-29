@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 6683e39cfa3601b1ae1fbbe02e69e4dc0a54e8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ff1c7b79a49b0b659056c89af3c61f28b72ebc50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103565021"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645246"
 ---
 # <a name="gpu-sharing-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 GPU 공유
 
-GPU (그래픽 처리 장치)는 그래픽 렌더링을 가속화 하기 위해 설계 된 특수 한 프로세서입니다. Gpu는 여러 데이터를 동시에 처리 하 여 기계 학습, 비디오 편집 및 게임 응용 프로그램에 유용 하 게 사용할 수 있습니다. 범용 계산을 위한 CPU 외에도 Azure Stack Edge Pro GPU 장치에는 하드웨어 가속 추론 같은 계산 집약적인 워크 로드를 위한 하나 또는 두 개의 Nvidia Tesla T4 Gpu가 포함 될 수 있습니다. 자세한 내용은 [Nvidia의 Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/)를 참조 하세요.
+GPU (그래픽 처리 장치)는 그래픽 렌더링을 가속화 하기 위해 설계 된 특수 한 프로세서입니다. Gpu는 여러 데이터를 동시에 처리 하 여 기계 학습, 비디오 편집 및 게임 응용 프로그램에 유용 하 게 사용할 수 있습니다. 범용 계산을 위한 CPU 외에도 Azure Stack Edge Pro GPU 장치에는 하드웨어 가속 추론 같은 계산 집약적인 워크 로드를 위한 하나 또는 두 개의 Nvidia Tesla T4 Gpu가 포함 될 수 있습니다. 자세한 내용은 [Nvidia의 Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/)를 참조 하세요.
 
 
 ## <a name="about-gpu-sharing"></a>GPU 공유 정보

@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4faa48a9edb5ea157fde67e4a4f3008864342075
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92221131"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639764"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
 
@@ -131,7 +131,7 @@ U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하 고 Spark
 - [org .sql. types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Spark SQL 및 데이터 프레임 형식](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala 값 형식](https://www.scala-lang.org/api/current/scala/AnyVal.html)
-- [pyspark](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
+- [pyspark](https://spark.apache.org/docs/2.3.1/api/python/_modules/pyspark/sql/types.html#module-pyspark.sql.types)
 
 ### <a name="treatment-of-null"></a>NULL 처리
 

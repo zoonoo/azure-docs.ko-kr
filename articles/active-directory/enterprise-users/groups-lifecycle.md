@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a2a69b5013ab8e1bc4637f21ce484a132d37834
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0a4ba5a9211cdb89f6ac5a92a315378e58f5d08a
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455715"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709517"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대 한 만료 정책 구성
 
@@ -92,7 +92,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 > - 동적 그룹을 삭제 및 복원 하는 경우 새 그룹으로 표시 되 고 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24시간이 소요될 수 있습니다.
 > - 팀에서 사용 하는 그룹에 대 한 만료 알림은 팀 소유자 피드에 표시 됩니다.
 
-## <a name="email-notifications"></a>이메일 알림
+## <a name="email-notifications"></a>메일 알림
 
 그룹이 자동으로 갱신 되지 않은 경우이 그룹의 만료 전에 30 일, 15 일 및 1 일의 Microsoft 365 그룹 소유자에 게 전자 메일 알림이 전송 됩니다. 전자 메일의 언어는 그룹 소유자의 기본 설정 언어 또는 Azure AD 언어 설정에 따라 결정 됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 Azure AD 언어 설정이 사용 됩니다.
 
@@ -172,7 +172,7 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Microsoft 365 그룹�
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-다음 cmdlet은 정책을 보다 자세히 구성하는 데 사용할 수 있습니다. 자세한 내용은 [PowerShell 설명서](/powershell/module/azuread/?view=azureadps-2.0-preview#groups)를 참조 하세요.
+다음 cmdlet은 정책을 보다 자세히 구성하는 데 사용할 수 있습니다. 자세한 내용은 [PowerShell 설명서](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#groups)를 참조 하세요.
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

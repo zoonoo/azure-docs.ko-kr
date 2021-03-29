@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73251fcbe9f149979d3fd62d14bbca86d77027f2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657539"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640140"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Azure Cosmos DB 및 Power BI를 사용 하 여 실시간 대시보드 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -72,7 +72,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset?groups=cl
    
    |속성  |데이터 형식  |Assert  |
    |---------|---------|---------|
-   |_ts     |   숫자      |  [_ts] > Duration. TotalSeconds #datetime (TotalSeconds (1970, 1, 1, 0, 0, 0)) 및 [_ts] < Duration. (범위 종료-#datetime (1970, 1, 1, 0, 0, 0)))       |
+   |_ts        |   숫자      |  [_ts] > Duration. TotalSeconds #datetime (TotalSeconds (1970, 1, 1, 0, 0, 0)) 및 [_ts] < Duration. (범위 종료-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |날짜 (예:-2019-08-19)     |   String      | [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd")        |
    |날짜 (예:-2019-08-11 12:00:00)   |  String       |  [Document. date] > DateTime. ToText (범위 시작, "yyyy-mm-dd HH: mm: ss") 및 [Document. date] < DateTime. ToText (범위 끝, "yyyy-mm-dd HH: mm: ss")       |
 
@@ -100,7 +100,7 @@ Azure Cosmos DB에 [날씨 데이터](https://catalog.data.gov/dataset?groups=cl
 
 1. **새 Azure Analysis Services 클러스터 만들기**  -  Azure Cosmos 계정 및 Databricks 클러스터와 동일한 지역에 [Azure Analysis services 인스턴스를 만듭니다](../analysis-services/analysis-services-create-server.md) .
 
-1. **Visual Studio**  -   에서 새 Analysis Services 테이블 형식 프로젝트 만들기 [SQL Server Data Tools (SSDT)를 설치](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true) 하 고 Visual Studio에서 Analysis Services 테이블 형식 프로젝트를 만듭니다.
+1. **Visual Studio**  -   에서 새 Analysis Services 테이블 형식 프로젝트 만들기 [SQL Server Data Tools (SSDT)를 설치](/sql/ssdt/download-sql-server-data-tools-ssdt) 하 고 Visual Studio에서 Analysis Services 테이블 형식 프로젝트를 만듭니다.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Azure Analysis Services 프로젝트 만들기":::
 

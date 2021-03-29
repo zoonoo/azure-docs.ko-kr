@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 7402172473056f191c2c50fa8aa8bd99d4e948eb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 880185a33ec16ffc30d6412d3f27a69ce81a7880
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101095914"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642159"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -243,7 +243,7 @@ Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토�
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -265,12 +265,3 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
-
-## <a name="next-steps"></a>다음 단계
-
-* [AES 암호화로 보호](protect-with-aes128.md)
-* [DRM으로 보호](protect-with-drm.md)
-* [액세스 제어를 사용 하 여 다중 DRM 콘텐츠 보호 시스템 디자인](design-multi-drm-system-with-access-control.md)
-* [스토리지 쪽 암호화](storage-account-concept.md#storage-side-encryption)
-* [자주 묻는 질문](frequently-asked-questions.md)
-* [JSON 웹 토큰 처리기](/dotnet/framework/security/json-web-token-handler)

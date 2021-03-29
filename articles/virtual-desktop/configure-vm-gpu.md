@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f95b9c1615cc58d9cc0589bad98c7315e571686e
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95018344"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709466"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
 
@@ -23,10 +23,10 @@ Windows Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가�
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>적절 한 GPU에 최적화 된 Azure 가상 컴퓨터 크기를 선택 합니다.
 
-Azure의 [NV 시리즈](../virtual-machines/nv-series.md), [NVv3 시리즈](../virtual-machines/nvv3-series.md)또는 [NVv4 시리즈](../virtual-machines/nvv4-series.md) VM 크기 중 하나를 선택 합니다. 이러한 기능은 앱 및 데스크톱 가상화에 맞게 조정 되며 앱 및 Windows 사용자 인터페이스를 GPU 가속으로 설정 합니다. 호스트 풀에 적합한 선택은 특정 앱 워크로드, 원하는 사용자 환경의 품질 및 비용을 비롯한 다양한 요인에 따라 달라집니다. 일반적으로 더 크고, 지원 되는 Gpu는 지정 된 사용자 밀도에서 더 나은 사용자 환경을 제공 하는 반면, 작고 작은 GPU 크기는 비용 및 품질에 대 한 세분화 된 제어를 허용 합니다.
+Azure의 [NV 시리즈](../virtual-machines/nv-series.md), [NVv3 시리즈](../virtual-machines/nvv3-series.md)또는 [NVv4 시리즈](../virtual-machines/nvv4-series.md) VM 크기 중 하나를 선택 합니다. 이러한 기능은 앱 및 데스크톱 가상화에 맞게 조정 되며 대부분의 앱 및 Windows 사용자 인터페이스를 GPU 가속으로 설정 합니다. 호스트 풀에 적합한 선택은 특정 앱 워크로드, 원하는 사용자 환경의 품질 및 비용을 비롯한 다양한 요인에 따라 달라집니다. 일반적으로 더 크고, 지원 되는 Gpu는 지정 된 사용자 밀도에서 더 나은 사용자 환경을 제공 하는 반면, 작고 작은 GPU 크기는 비용 및 품질에 대 한 세분화 된 제어를 허용 합니다.
 
 >[!NOTE]
->Azure의 NC, NCv2, NCv3, ND 및 NDv2 시리즈 Vm은 일반적으로 Windows 가상 데스크톱 세션 호스트에 적합 하지 않습니다. 이러한 Vm은 NVIDIA를 사용 하 여 빌드된 특수 한 고성능 계산 또는 기계 학습 도구에 맞게 조정 됩니다. NVIDIA Gpu를 사용 하는 일반 앱 및 데스크톱 가속에는 NVIDIA 그리드 라이선스가 필요 합니다. 이는 권장 되는 VM 크기에 대해 Azure에서 제공 되지만, NC/ND 시리즈 Vm에 대해서는 별도로 정렬 해야 합니다.
+>Azure의 NC, NCv2, NCv3, ND 및 NDv2 시리즈 Vm은 일반적으로 Windows 가상 데스크톱 세션 호스트에 적합 하지 않습니다. 이러한 Vm은 NVIDIA를 사용 하 여 빌드된 특수 한 고성능 계산 또는 기계 학습 도구에 맞게 조정 됩니다. 대부분의 앱 또는 Windows 사용자 인터페이스에 대 한 GPU 가속을 지원 하지 않습니다.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>호스트 풀 생성, 가상 머신 프로비저닝 및 앱 그룹 구성
 
@@ -41,9 +41,10 @@ Windows Virtual Desktop은 다음과 같은 운영 체제에서 GPU 가속 렌�
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>가상 머신에서 지원되는 그래픽 드라이버 설치
 
-Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원되는 운영 체제 및 드라이버](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers)의 지침에 따라 적절한 그래픽 공급 업체의 드라이버를 수동이나 Azure VM 확장을 사용하여 설치합니다.
+Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원 되는 운영 체제 및 드라이버](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) 의 지침에 따라 드라이버를 설치 합니다. Azure에서 배포한 드라이버만 지원 됩니다.
 
-Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니다. Nvidia Gpu를 사용 하는 Azure NV 시리즈 Vm의 경우, nvidia [그리드 드라이버만](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers), AZURE (nvidia Tesla) 드라이버는 범용 앱 및 데스크톱에 대 한 GPU 가속을 지원 합니다.
+* Azure NV 시리즈 또는 NVv3 시리즈 Vm의 경우 nvidia 표 드라이버만이 아닌 NVIDIA를 사용 하는 경우 대부분의 앱 및 Windows 사용자 인터페이스에 대 한 GPU 가속을 지원 합니다. 드라이버를 수동으로 설치 하도록 선택 하는 경우 그리드 드라이버를 설치 해야 합니다. Azure VM 확장을 사용 하 여 드라이버를 설치 하도록 선택 하는 경우 이러한 VM 크기에 맞게 그리드 드라이버가 자동으로 설치 됩니다.
+* Azure NVv4 시리즈 Vm의 경우 Azure에서 제공 하는 AMD 드라이버를 설치 합니다. Azure VM 확장을 사용 하 여 자동으로 설치 하거나 수동으로 설치할 수 있습니다.
 
 드라이버를 설치한 후에는 VM을 다시 시작해야 합니다. 위 지침의 확인 단계에 따라 그래픽 드라이버가 성공적으로 설치되었는지 확인합니다.
 

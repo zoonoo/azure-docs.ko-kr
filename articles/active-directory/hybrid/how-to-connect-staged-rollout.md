@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176861"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709721"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -98,7 +98,7 @@ ms.locfileid: "102176861"
 
 단계적 롤아웃을 사용하여 *암호 해시 동기화* 로그인을 테스트하려면 다음 섹션의 사전 작업 지침을 따릅니다.
 
-사용할 PowerShell cmdlet에 대한 자세한 내용은 [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)를 참조하세요.
+사용할 PowerShell cmdlet에 대한 자세한 내용은 [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout)를 참조하세요.
 
 ## <a name="pre-work-for-password-hash-sync"></a>암호 해시 동기화를 위한 사전 작업
 
@@ -251,9 +251,9 @@ A: 아니요,이 기능은 클라우드 인증 테스트를 위해 설계 되었
 
 **Q: PowerShell을 사용하여 단계적 롤아웃을 수행할 수 있나요?**
 
-A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을 알아보려면 [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)를 참조하세요.
+A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을 알아보려면 [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [로그인 방법을 암호 해시 동기화로 변경 합니다.](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [로그인 방법을 통과 인증으로 변경](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

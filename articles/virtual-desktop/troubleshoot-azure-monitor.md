@@ -1,24 +1,21 @@
 ---
-title: 모니터 문제 해결 Windows 가상 데스크톱 미리 보기-Azure
+title: Windows 가상 데스크톱 모니터 문제 해결-Azure
 description: Windows 가상 데스크톱에 대 한 Azure Monitor 문제를 해결 하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a07d7536d3d71b121c1dde761d8c290b8be01fe7
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: dda58868432248fe93a9fbc83d1e538dfc9b61ba
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628461"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709449"
 ---
-# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor 문제 해결
+# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 Azure Monitor 문제 해결
 
->[!IMPORTANT]
->Windows 가상 데스크톱에 대 한 Azure Monitor는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-이 문서에서는 Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor의 일반적인 문제에 대 한 알려진 문제 및 해결 방법을 제공 합니다.
+이 문서에서는 Windows 가상 데스크톱에 대 한 Azure Monitor의 일반적인 문제에 대 한 알려진 문제 및 해결 방법을 제공 합니다.
 
 ## <a name="issues-with-configuration-and-setup"></a>구성 및 설정 문제
 

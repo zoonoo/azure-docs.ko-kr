@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100585425"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641982"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
-현재 Azure 고객 및 잠재 고객과의 대화에서 자주 받는 질문 중 하나가 "Azure에서 제공하는 모든 보안 관련 서비스 및 기술 목록이 있나요?"입니다.
+현재 및 미래의 Azure 고객과 논의 하는 경우 "Azure에서 제공 해야 하는 모든 보안 관련 서비스 및 기술 목록이 있나요?" 라는 메시지가 자주 표시 됩니다.
 
-클라우드 서비스 공급자 옵션을 평가할 때 이러한 정보가 있으면 유용합니다. 이를 위해 Microsoft에서 사용자의 시작을 도울 수 있도록 이 목록을 준비했습니다.
+클라우드 서비스 공급자 옵션을 평가할 때이 정보를 제공 하는 것이 좋습니다. 이를 위해 Microsoft에서 사용자의 시작을 도울 수 있도록 이 목록을 준비했습니다.
 
 시간이 지남에 따라 이 목록은 Azure와 마찬가지로 변경되고 증가합니다. 보안 관련 서비스 및 기술을 최신 상태로 유지할 수 있도록 정기적으로 이 페이지를 확인하세요.
 
@@ -59,8 +59,8 @@ ms.locfileid: "100585425"
 | [Azure&nbsp;SQL&nbsp;방화벽](../../azure-sql/database/firewall-configure.md)|데이터베이스에 대한 네트워크 기반 공격으로부터 보호하는 네트워크 액세스 제어 기능입니다. |
 |[Azure&nbsp;SQL&nbsp;셀&nbsp;수준 암호화](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| 세부적인 수준에서 암호화를 제공하는 데이터베이스 보안 기술입니다.  |
 | [Azure&nbsp;SQL&nbsp;연결 암호화](../../azure-sql/database/logins-create-manage.md)|SQL Database는 보안을 제공하기 위해 IP 주소로 연결을 제한하는 방화벽 규칙, 사용자가 해당 ID를 증명하도록 하는 인증 메커니즘 및 특정 작업 및 데이터에 대한 사용자를 제한하는 권한 부여 메커니즘을 사용하여 액세스를 제어합니다. |
-| [Azure SQL 항상 암호화](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호합니다.  |
-| [Azure&nbsp;SQL&nbsp;투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| 전체 데이터베이스의 스토리지를 암호화하는 데이터베이스 보안 기능입니다. |
+| [Azure SQL 항상 암호화](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Azure SQL Database 또는 SQL Server 데이터베이스에 저장된 신용 카드 번호 또는 주민 등록 번호(예: 미국 사회 보장 번호)와 같은 중요한 데이터를 보호합니다.  |
+| [Azure&nbsp;SQL&nbsp;투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| 전체 데이터베이스의 스토리지를 암호화하는 데이터베이스 보안 기능입니다. |
 | [Azure SQL Database 감사](../../azure-sql/database/auditing-overview.md)|데이터베이스 이벤트를 추적하고 이를 Azure Storage 계정의 감사 로그에 기록하는 데이터베이스 감사 기능입니다.  |
 
 

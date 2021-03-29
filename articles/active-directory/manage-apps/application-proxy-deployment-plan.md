@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
-ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6da003612d98d107390c9f20a5172786c30665a6
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580065"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709755"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Azure AD 애플리케이션 프록시 배포 계획
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 응용 프로그램 프록시는 온-프레미
 
 다음 섹션에서는 효율적인 배포 환경에 맞게 설정 하는 주요 계획 요소를 광범위 하 게 보여 줍니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 구현을 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다. 이러한 필수 구성 요소를 포함 하 여 환경을 설정 하는 방법에 대 한 자세한 내용은이 [자습서](application-proxy-add-on-premises-application.md)에서 확인할 수 있습니다.
 
@@ -172,7 +172,7 @@ SSO (Single sign-on)를 사용 하 여 단일 응용 프로그램에 대해 원�
 
 응용 프로그램 게시는 모든 필수 구성 요소를 충족 하 고 응용 프로그램 프록시 페이지에서 여러 커넥터를 등록 하 고 활성 상태로 표시 하는 것으로 가정 합니다.
 
-[PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview)을 사용 하 여 응용 프로그램을 게시할 수도 있습니다.
+[PowerShell](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)을 사용 하 여 응용 프로그램을 게시할 수도 있습니다.
 
 응용 프로그램을 게시할 때 따라야 할 몇 가지 모범 사례는 다음과 같습니다.
 

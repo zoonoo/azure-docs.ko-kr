@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592367"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709925"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Azure Cognitive Search의 작업 및 활동 모니터링
 
@@ -38,9 +38,9 @@ Azure Cognitive Search는 포털에서 또는 이러한 [REST api](#monitoring-a
 
 * **모니터링** 탭의 기본 개요 페이지에는 쿼리 볼륨, 대기 시간, 서비스의 압력 상태 여부 등이 표시 됩니다.
 * 왼쪽 탐색 창에서 **활동 로그** 는 Azure Resource Manager에 연결 됩니다. 활동 로그는 서비스 가용성 및 상태, 용량 (복제본 및 파티션)에 대 한 변경 및 API 키 관련 활동을 리소스 관리자에서 수행 하는 작업에 대해 보고 합니다.
-* **모니터링** 설정은 구성 가능한 경고, 메트릭 및 진단 로그를 제공 합니다. 필요할 때 이러한 항목을 만듭니다. 데이터를 수집 하 고 저장 하면 정보를 쿼리하거나 시각화할 수 있습니다.
+* **모니터링** 설정은 구성 가능한 경고, 메트릭 시각화 및 진단 로그를 제공 합니다. 필요할 때 이러한 항목을 만듭니다. 데이터를 수집 하 고 저장 하면 정보를 쿼리하거나 시각화할 수 있습니다.
 
-![검색 서비스의 Azure Monitor 통합](./media/search-monitor-usage/azure-monitor-search.png
+  ![검색 서비스의 Azure Monitor 통합](./media/search-monitor-usage/azure-monitor-search.png
  "검색 서비스의 Azure Monitor 통합")
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Azure Monitor에는 자체 청구 구조가 있으며이 섹션에서 참조 하
 
 ## <a name="monitor-user-access"></a>사용자 액세스 모니터링
 
-검색 인덱스는 대규모 클라이언트 응용 프로그램의 구성 요소 이므로 인덱스에 대 한 사용자별 액세스를 제어 하거나 모니터링 하는 기본 제공 방법이 없습니다. 요청은 관리자 또는 쿼리 요청에 대해 클라이언트 응용 프로그램에서 가져온 것으로 간주 됩니다. 관리자 읽기/쓰기 작업에는 전체 서비스에서 개체를 만들고, 업데이트 하 고, 삭제 하는 작업이 포함 됩니다. 읽기 전용 작업은 단일 인덱스로 범위가 지정 된 documents 컬렉션에 대 한 쿼리입니다. 
+검색 인덱스는 대규모 클라이언트 응용 프로그램의 구성 요소 이므로 인덱스에 대 한 사용자별 액세스를 제어 하거나 모니터링 하는 기본 제공 방법이 없습니다. 요청은 관리자 또는 쿼리 요청을 포함 하는 클라이언트 응용 프로그램에서 가져온 것으로 간주 됩니다. 관리자 읽기/쓰기 작업에는 전체 서비스에서 개체를 만들고, 업데이트 하 고, 삭제 하는 작업이 포함 됩니다. 읽기 전용 작업은 단일 인덱스로 범위가 지정 된 documents 컬렉션에 대 한 쿼리입니다. 
 
 따라서 활동 로그에 표시 되는 항목은 관리 키 또는 쿼리 키를 사용 하는 호출에 대 한 참조입니다. 적절 한 키는 클라이언트 코드에서 시작 되는 요청에 포함 됩니다. 서비스는 id 토큰 또는 가장을 처리할 수 없습니다.
 

@@ -1,24 +1,21 @@
 ---
-title: 모니터 사용 Windows 가상 데스크톱 모니터 미리 보기-Azure
+title: Windows 가상 데스크톱 모니터 모니터 사용-Azure
 description: Windows 가상 데스크톱에 Azure Monitor를 사용 하는 방법
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1c87763cb2ca482fc8ee15588d7287f0d9275fff
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627169"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709551"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Windows 가상 데스크톱에 대 한 Azure Monitor를 사용 하 여 배포 모니터링 (미리 보기)
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Windows 가상 데스크톱에 대 한 Azure Monitor를 사용 하 여 배포 모니터링
 
->[!IMPORTANT]
->Windows 가상 데스크톱에 대 한 Azure Monitor는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor는 IT 전문가가 Windows 가상 데스크톱 환경을 이해 하는 데 도움이 되는 Azure Monitor 통합 문서를 기반으로 하는 대시보드입니다. 이 문서에서는 windows 가상 데스크톱 환경을 모니터링 하기 위해 Windows 가상 데스크톱 Azure Monitor를 설정 하는 방법을 안내 합니다.
+Windows 가상 데스크톱에 대 한 Azure Monitor는 IT 전문가가 Windows 가상 데스크톱 환경을 이해할 수 있도록 하는 Azure Monitor 통합 문서를 기반으로 하는 대시보드입니다. 이 항목에서는 windows 가상 데스크톱 환경을 모니터링 하기 위해 Windows 가상 데스크톱에 대 한 Azure Monitor를 설정 하는 방법을 안내 합니다.
 
 ## <a name="requirements"></a>요구 사항
 

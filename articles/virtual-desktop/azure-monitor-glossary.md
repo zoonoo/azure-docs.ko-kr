@@ -1,24 +1,21 @@
 ---
-title: Windows 가상 데스크톱 미리 보기 용어 모니터링-Azure
+title: Windows 가상 데스크톱 모니터링 용어집-Azure
 description: Windows 가상 데스크톱에 대 한 Azure Monitor 관련 된 용어 및 개념입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 3/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627135"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709534"
 ---
-# <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Windows 가상 데스크톱 (미리 보기) 용어집에 대 한 Azure Monitor
-
->[!IMPORTANT]
->Windows 가상 데스크톱에 대 한 Azure Monitor는 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Windows 가상 데스크톱 용어집에 대 한 Azure Monitor
 
 이 문서에서는 Windows 가상 데스크톱 (미리 보기)에 대 한 Azure Monitor와 관련 된 주요 용어 및 개념을 나열 하 고 간략하게 설명 합니다.
 

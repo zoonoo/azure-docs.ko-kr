@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81779d942b31f940d579de623ecb39c35d3a8b14
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417640"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642140"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -35,7 +35,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -52,7 +52,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
     * 자신의 Jupyter 노트북에서 작업 하 고 [이러한 지침](/python/api/overview/azure/ml/install)을 사용 하 여 SDK를 직접 설치 합니다.
 
 > [!NOTE]
-> 일부 데이터 집합 클래스에는 64 비트 Python과만 호환 되는 [azureml-dataprep](/python/api/azureml-dataprep/) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) 및 CentOS (7) 배포판 에서만 지원 됩니다. 지원 되지 않는 배포판을 사용 하는 경우 [이 가이드](/dotnet/core/install/linux) 에 따라 .net Core 2.1을 설치 하 여 계속 진행 하세요. 
+> 일부 데이터 집합 클래스에는 64 비트 Python과만 호환 되는 [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) 및 CentOS (7) 배포판 에서만 지원 됩니다. 지원 되지 않는 배포판을 사용 하는 경우 [이 가이드](/dotnet/core/install/linux) 에 따라 .net Core 2.1을 설치 하 여 계속 진행 하세요. 
 
 ## <a name="compute-size-guidance"></a>계산 크기 지침
 
@@ -174,11 +174,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|이름|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 작업 영역의 실험에서 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다.
 
@@ -254,11 +254,11 @@ TabularDatasets의 경우 메서드를 사용 [`to_pandas_dataframe()`](/python/
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|이름|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 집합 만들기
 

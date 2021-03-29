@@ -12,18 +12,18 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: e6f94c006de8914fe3ae27cdb8ac4d75a0ac49cc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e42b5ab2bbdebb2584b38531bd6458a98563ef42
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94962997"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643736"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 SSIS 패키지를 Azure SQL Database 다시 배포
 
 SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스트 하는 원본 SSISDB에서 SSIS 프로젝트/패키지를 Azure SQL Database에서 호스트 되는 대상 SSISDB로 마이그레이션하려는 경우 Integration Services 배포 마법사를 사용 하 여 다시 배포할 수 있습니다. SSMS(SQL Server Management Studio) 내에서 마법사를 시작할 수 있습니다.
 
-사용하는 SSIS 버전이 2012 이전인 경우 SSIS 프로젝트/패키지를 프로젝트 배포 모델로 재배포하기 전에 먼저 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용하여 변환해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages?view=sql-server-2017#convert)을 참조하세요.
+사용하는 SSIS 버전이 2012 이전인 경우 SSIS 프로젝트/패키지를 프로젝트 배포 모델로 재배포하기 전에 먼저 SSMS에서 시작할 수도 있는 Integration Services 프로젝트 변환 마법사를 사용하여 변환해야 합니다. 자세한 내용은 문서 [프로젝트를 프로젝트 배포 모델로 변환](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#convert)을 참조하세요.
 
 > [!NOTE]
 > DMS (Azure Database Migration Service)는 현재 Azure SQL Database에 대 한 원본 SSISDB의 마이그레이션을 지원 하지 않지만 다음 프로세스를 사용 하 여 SSIS 프로젝트/패키지를 다시 배포할 수 있습니다.
@@ -34,7 +34,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에서 호스
 > * 원본 SSIS 프로젝트/패키지를 평가합니다.
 > * Azure에 SSIS 프로젝트/패키지를 마이그레이션합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -78,7 +78,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database로 마이그레이션하려면
 
     ![배포 마법사 원본 선택 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-source-page.png)
  
-8. **다음** 을 선택합니다.
+8. **새로 만들기** 를 선택합니다.
 9. **대상 선택** 페이지에서 프로젝트에 대한 대상을 지정합니다.
 
     a. 서버 이름 텍스트 상자에 정규화 된 서버 이름 (<server_name> database.windows.net)을 입력 합니다.
@@ -96,7 +96,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database로 마이그레이션하려면
 
     ![배포 마법사 유효성 검사 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-validate-page.png)
 
-11. **다음** 을 선택합니다.
+11. **새로 만들기** 를 선택합니다.
 
 12. **검토** 페이지에서 배포 설정을 검토합니다.
 

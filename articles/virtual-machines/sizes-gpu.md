@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a63a468301a5b0d54abd474fd9bb62212b890f76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 09d62ea5f2db77c14e8faff44de7fb3ce759c6fe
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102554418"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709738"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
@@ -31,11 +31,13 @@ GPU 최적화 VM 크기는 단일 또는 여러 개의 Gpu에서 사용할 수 �
 
 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA 또는 AMD GPU 드라이버가 설치 되어 있어야 합니다.
 
-- Nvidia gpu에 의해 지원 되는 Vm의 경우 [NVIDIA Gpu 드라이버 확장](./extensions/hpccompute-gpu-windows.md) 은 적절 한 nvidia 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.   
+- Nvidia gpu에 의해 지원 되는 Vm의 경우 [NVIDIA Gpu 드라이버 확장](./extensions/hpccompute-gpu-windows.md) 은 적절 한 nvidia 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
 
    또는 NVIDIA GPU 드라이버를 수동으로 설치할 수 있습니다. 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계는 Windows를 실행 하는 [n 시리즈 vm에 NVIDIA gpu 드라이버 설치](./windows/n-series-driver-setup.md) 또는 [Linux를 실행 하는 n 시리즈 VM에 Nvidia gpu 드라이버 설치](./linux/n-series-driver-setup.md) 를 참조 하세요.
 
-- AMD Gpu에 의해 지원 되는 Vm의 경우 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 Windows를 실행 하는 [N 시리즈 vm에 AMD GPU 드라이버 설치](./windows/n-series-amd-driver-setup.md) 를 참조 하세요.
+- Amd gpu에 의해 지원 되는 Vm의 경우 [AMD gpu 드라이버 확장](./extensions/hpccompute-amd-gpu-windows.md) 은 적절 한 amd 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](./extensions/overview.md)을 참조하세요.
+
+   또는 AMD GPU 드라이버를 수동으로 설치할 수 있습니다. 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계는 Windows를 실행 하는 [N 시리즈 vm에 AMD GPU 드라이버 설치](./windows/n-series-amd-driver-setup.md) 를 참조 하세요.
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
