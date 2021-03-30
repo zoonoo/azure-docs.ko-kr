@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 48ee6de28bcd76d4c484b77c981062bad1a3754d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219754"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>자습서: Azure FXT Edge Filer 설치
@@ -95,7 +95,7 @@ Azure FXT Edge Filer 하이브리드 스토리지 캐시는 3개 이상의 Azure
 
 스냅인 사각형 또는 원형 구멍이 있는 랙의 경우 다음 절차에 따라 레일을 조립하고 설치합니다.
 
-1. **FRONT**라는 레이블이 안쪽을 향하도록 왼쪽 및 오른쪽 레일 끝부분을 배치합니다. 각 끝부분이 세로 랙 플랜지의 앞면 구멍에 들어가도록 놓습니다. (1)
+1. **FRONT** 라는 레이블이 안쪽을 향하도록 왼쪽 및 오른쪽 레일 끝부분을 배치합니다. 각 끝부분이 세로 랙 플랜지의 앞면 구멍에 들어가도록 놓습니다. (1)
 
 2. 각 끝을 탑재하려는 공간의 랙 상단 및 하단 구멍에 맞춥니다. (2)
 

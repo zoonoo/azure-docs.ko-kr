@@ -4,10 +4,10 @@ description: '빠른 시작: 이 문서에서는 Azure Event Hubs에서 이벤�
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87002457"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>빠른 시작: Go를 사용하여 Event Hubs에서 이벤트 보내기 또는 받기
@@ -31,7 +31,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 ### <a name="install-go-package"></a>Go 패키지 설치
 
-`go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받습니다. 다음은 그 예입니다.
+`go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받습니다. 예를 들어:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -162,7 +162,7 @@ import (
 
 ### <a name="create-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 다음 이름으로 현재 환경에 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 다음 변수 이름을 찾도록 미리 구성됩니다.
+[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 사용자 환경에 다음 이름으로 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 이러한 변수 이름을 찾도록 미리 구성되어 있습니다.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -209,9 +209,9 @@ if err != nil {
 
 ### <a name="create-a-check-pointer-and-a-leaser"></a>확인 포인터 및 leaser 만들기 
 
-다른 수신기가 올바른 오프셋에서 읽기를 시작할 수 있도록 파티션을 특정 수신기에게 임대하는 일을 담당하는 **확인 포인터** 및 메시지 스트림에 대한 검사점을 작성하는 일을 담당하는 **leaser**를 만듭니다.
+다른 수신기가 올바른 오프셋에서 읽기를 시작할 수 있도록 파티션을 특정 수신기에게 임대하는 일을 담당하는 **확인 포인터** 및 메시지 스트림에 대한 검사점을 작성하는 일을 담당하는 **leaser** 를 만듭니다.
 
-현재는 동일한 Storage 컨테이너를 사용하여 임대와 검사점을 관리하는 단일 **StorageLeaserCheckpointer**가 제공됩니다. **StorageLeaserCheckpointer**는 컨테이너에 올바르게 액세스하려면 스토리지 계정 및 컨테이너 이름 외에도 이전 단계에서 만든 자격 증명과 Azure 환경 구조체가 필요합니다.
+현재는 동일한 Storage 컨테이너를 사용하여 임대와 검사점을 관리하는 단일 **StorageLeaserCheckpointer** 가 제공됩니다. **StorageLeaserCheckpointer** 는 컨테이너에 올바르게 액세스하려면 스토리지 계정 및 컨테이너 이름 외에도 이전 단계에서 만든 자격 증명과 Azure 환경 구조체가 필요합니다.
 
 ```go
 leaserCheckpointer, err := storageLeaser.NewStorageLeaserCheckpointer(
@@ -226,7 +226,7 @@ if err != nil {
 
 ### <a name="construct-event-processor-host"></a>구문 이벤트 프로세서 호스트
 
-이제 다음과 같이 EventProcessorHost를 작성하는 데 필요한 방법이 제공됩니다. 앞에서 설명했듯이, 동일한 **StorageLeaserCheckpointer**가 leaser 및 확인 포인터로 사용됩니다.
+이제 다음과 같이 EventProcessorHost를 작성하는 데 필요한 방법이 제공됩니다. 앞에서 설명했듯이, 동일한 **StorageLeaserCheckpointer** 가 leaser 및 확인 포인터로 사용됩니다.
 
 ```go
 ctx := context.Background()
@@ -284,4 +284,4 @@ if err != nil {
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

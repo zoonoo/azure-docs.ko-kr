@@ -1,32 +1,32 @@
 ---
-title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 AWS 인스턴스 평가
-description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 AWS 인스턴스에 액세스하는 방법을 알아봅니다.
+title: Azure Migrate를 사용하여 Azure로 마이그레이션할 AWS 인스턴스 평가
+description: Azure Migrate를 사용하여 Azure로 마이그레이션할 AWS 인스턴스에 액세스하는 방법을 알아봅니다.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: fe2deba007f987af466fcec53e1670e9d0b0460f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 942adacf5b9a3b1b717e28def5752591ef22ec52
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567485"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782336"
 ---
 # <a name="tutorial-assess-aws-instances-for-migration-to-azure"></a>자습서: Azure로 마이그레이션할 AWS 인스턴스 평가
 
 Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 워크로드를 평가하여 클라우드 준비 상태를 측정하고, 위험을 식별하고, 비용과 복잡성을 예측합니다.
 
-이 문서에서는 Azure Migrate: 서버 평가 도구를 사용하여 Azure로 마이그레이션할 AWS(Amazon Web Services) 인스턴스를 평가하는 방법을 보여 줍니다.
+이 문서에서는 Azure Migrate: 검색 및 평가 도구를 사용하여 Azure로 마이그레이션할 AWS(Amazon Web Services) 인스턴스를 평가하는 방법을 보여 줍니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 > [!div class="checklist"]
-- 머신 메타데이터 및 구성 정보에 따라 평가를 실행합니다.
+- 서버 메타데이터 및 구성 정보를 기반으로 하여 평가를 실행합니다.
 - 성능 데이터를 기반으로 평가를 실행합니다.
 
 > [!NOTE]
-> 이 자습서에서는 시나리오를 가장 빠르게 시도할 수 있는 경로를 보여주고, 가능한 경우 기본 옵션을 사용합니다. 
+> 이 자습서에서는 시나리오를 시도할 수 있는 가장 빠른 경로를 보여 주며, 가능한 경우 기본 옵션을 사용합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
@@ -34,36 +34,36 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 이 자습서의 단계를 수행하기 전에 이 시리즈의 첫 번째 자습서를 완료하여 [온-프레미스 인벤토리](tutorial-discover-aws.md)를 검색합니다. 
-- AWS 인스턴스가 Windows Server 2003 또는 SUSE Linux를 실행하고 있지 않은지 확인합니다. 이러한 머신에는 평가가 지원되지 않습니다.
+- AWS 인스턴스가 Windows Server 2003 또는 SUSE Linux를 실행하고 있지 않은지 확인합니다. 이러한 서버에는 평가가 지원되지 않습니다.
 
 
 ## <a name="decide-which-assessment-to-run"></a>실행할 평가 결정
 
 
-온-프레미스로 수집된 머신 구성 데이터/메타데이터 또는 동적 성능 데이터를 기반으로 크기 조정 기준을 사용하여 평가를 실행할지 여부를 결정합니다.
+온-프레미스에서 있는 그대로 수집된 서버 구성 데이터/메타데이터 또는 동적 성능 데이터를 기반으로 하는 크기 조정 기준을 사용하여 평가를 실행할지 여부를 결정합니다.
 
 **평가** | **세부 정보** | **권장**
 --- | --- | ---
-**온-프레미스인 경우** | 머신 구성 데이터/메타데이터를 기반으로 평가합니다.  | 권장 VM 크기는 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 Azure 디스크 유형은 평가의 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.
+**온-프레미스인 경우** | 서버 구성 데이터/메타데이터를 기반으로 평가합니다.  | 권장 VM 크기는 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 Azure 디스크 유형은 평가의 스토리지 유형 설정에서 선택한 항목을 기반으로 합니다.
 **성능 기반** | 수집된 동적 성능 데이터를 기반으로 평가합니다. | 권장 Azure VM 크기는 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 권장 디스크 유형은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
 
 ## <a name="run-an-assessment"></a>평가 실행
 
 다음과 같이 평가를 실행합니다.
 
-1. **서버** 페이지 > **Windows 및 Linux 서버** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
+1. **개요** 페이지 > **Windows, Linux 및 SQL Server** 에서 **서버 평가 및 마이그레이션** 을 클릭합니다.
 
    ![서버 평가 및 마이그레이션 단추의 위치](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. **Azure Migrate: 서버 평가** 에서 **평가** 를 클릭합니다.
+2. **Azure Migrate: 검색 및 평가** 에서 **평가** 를 클릭합니다.
 
     ![평가 단추의 위치](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. **평가 서버** > **평가 유형** 에서 **Azure VM** 을 선택합니다.
 4. **검색 소스** 에서 다음을 수행합니다.
 
-    - 어플라이언스를 사용하여 머신을 검색한 경우 **Azure Migrate 어플라이언스에서 검색된 머신** 을 선택합니다.
-    - 가져온 CSV 파일을 사용하여 머신을 검색한 경우 **가져온 머신** 을 선택합니다. 
+    - 어플라이언스를 사용하여 서버를 검색한 경우 **Azure Migrate 어플라이언스에서 검색된 서버** 를 선택합니다.
+    - 가져온 CSV 파일을 사용하여 서버를 검색한 경우 **가져온 서버** 를 선택합니다. 
     
 1. **편집** 을 클릭하여 평가 속성을 검토합니다.
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         - 예약 인스턴스를 사용하도록 선택하는 경우 '**할인(%)** 또는 **VM 작동 시간** 을 지정할 수 없습니다. 
         - [자세히 알아보기](https://aka.ms/azurereservedinstances).
  1. **VM 크기** 에서 다음을 수행합니다.
-     - **크기 조정 기준** 에서 머신 구성 데이터/메타데이터 또는 성능 기반 데이터를 기준으로 평가할지 여부를 선택합니다. 성능 데이터를 사용하는 경우:
+     - **크기 조정 기준** 에서 서버 구성 데이터/메타데이터 또는 성능 기반 데이터를 기준으로 평가할지 여부를 선택합니다. 성능 데이터를 사용하는 경우 다음을 수행합니다.
         - **성능 기록** 에서 평가의 기준이 될 데이터 기간을 표시합니다.
         - **백분위수 활용률** 에서 성능 샘플에 사용할 백분위수 값을 지정합니다. 
     - **VM 시리즈** 에서 고려하려는 Azure VM 시리즈를 지정합니다.
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         메모리 | 8GB | 16GB
    
 1. **가격 책정** 에서 다음을 수행합니다.
-    - **제품** 에서 등록하는 경우 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 지정합니다. 서버 평가는 해당 제품에 대한 비용을 추정합니다.
+    - **제품** 에서 등록하는 경우 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 지정합니다. 평가는 해당 제품에 대한 비용을 추정합니다.
     - **통화** 에서 계정의 청구 통화를 선택합니다.
     - **할인(%)** 에서 Azure 제품에 적용되는 구독별 할인을 추가합니다. 기본 설정은 0%입니다.
     - **VM 작동 시간** 에서 VM이 실행되는 기간(월당 일/일당 시간)을 지정합니다.
@@ -110,17 +110,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **서버 평가** 에서 **다음** 을 클릭합니다.
 
-1. **평가할 머신 선택** > **평가 이름** 에서 평가 이름을 지정합니다. 
+1. **평가할 서버 선택** > **평가 이름** 에서 평가 이름을 지정합니다. 
 
 1. **그룹 선택 또는 만들기** 에서 **새로 만들기** 를 선택하고 그룹 이름을 지정합니다. 
     
-    :::image type="content" source="./media/tutorial-assess-physical/assess-group.png" alt-text="그룹에 VM 추가":::
-
 1. 어플라이언스를 선택하고 그룹에 추가할 VM을 선택합니다. 그런 다음 **다음** 을 클릭합니다.
 
 1. **검토 + 평가 만들기** 에서 평가 세부 정보를 검토하고, **평가 만들기** 를 클릭하여 그룹을 만들고 평가를 실행합니다.
 
-1. 평가가 만들어지면 **서버** > **Azure Migrate: 서버 평가** > **평가** 에서 해당 평가를 확인합니다.
+1. 평가가 만들어지면 **서버** > **Azure Migrate: 검색 및 평가** > **평가** 에서 확인합니다.
 
 1. **평가 내보내기** 를 클릭하고, Excel 파일로 다운로드합니다.
     > [!NOTE]
@@ -136,7 +134,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 평가를 보려면 다음을 수행합니다.
 
-1. **서버** > **Azure Migrate: 서버 평가** 에서 **평가** 옆에 있는 숫자를 클릭합니다.
+1. **Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** 에서 **평가** 옆에 있는 숫자를 클릭합니다.
 2. **평가** 에서 평가를 선택하여 엽니다. 예를 들면(예제에만 해당되는 추정 및 비용) 다음과 같습니다. 
 
     ![평가 요약](./media/tutorial-assess-aws/assessment-summary.png)
@@ -161,7 +159,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 월별 총 비용을 검토합니다. 비용은 평가된 그룹의 모든 VM에 대해 집계됩니다.
 
-    - 예상 비용은 머신, 해당 디스크 및 해당 속성에 추천되는 크기를 기반으로 하며,
+    - 예상 비용은 서버, 해당 디스크 및 해당 속성에 추천되는 크기를 기반으로 합니다.
     - 컴퓨팅 및 스토리지의 월간 예상 비용이 표시됩니다.
     - 예상 비용은 Azure VM에서 온-프레미스 VM을 실행하는 데 들어가는 비용입니다. 예측은 PaaS 또는 SaaS 비용을 고려하지 않습니다.
 
@@ -170,7 +168,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="review-confidence-rating"></a>신뢰 등급 검토
 
-서버 평가는 성능 기반 평가에 신뢰 등급을 할당합니다. 등급은 별 1개(가장 낮음)부터 별 5개(가장 높음)까지입니다.
+Azure Migrate는 성능 기반 평가에 신뢰 등급을 할당합니다. 등급은 별 1개(가장 낮음)부터 별 5개(가장 높음)까지입니다.
 
 ![신뢰 등급](./media/tutorial-assess-aws/confidence-rating.png)
 
@@ -194,5 +192,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-- [종속성 매핑](concepts-dependency-visualization.md)을 사용하여 머신 종속성을 찾습니다.
+- [종속성 매핑](concepts-dependency-visualization.md)을 사용하여 서버 종속성을 찾습니다.
 - [에이전트 기반](how-to-create-group-machine-dependencies.md) 종속성 매핑을 설정합니다.

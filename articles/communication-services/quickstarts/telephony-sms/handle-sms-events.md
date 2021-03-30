@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - SMS 이벤트 처리
+title: 빠른 시작 - 배달 보고서 및 인바운드 메시지에 대한 SMS 이벤트 처리
 titleSuffix: An Azure Communication Services quickstart
 description: Azure Communication Services를 사용하여 SMS 이벤트를 처리하는 방법을 알아봅니다.
 author: mikben
@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655991"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105728592"
 ---
-# <a name="quickstart-handle-sms-events"></a>빠른 시작: SMS 이벤트 처리
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>빠른 시작: 배달 보고서 및 인바운드 메시지에 대한 SMS 이벤트 처리
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -117,6 +114,7 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 > [SMS 보내기](../telephony-sms/send.md)
 
 다음을 수행할 수도 있습니다.
+
 
  - [이벤트 처리 개념에 대해 알아보기](../../../event-grid/event-schema-communication-services.md)
  - [Event Grid에 대해 알아보기](../../../event-grid/overview.md)

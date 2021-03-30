@@ -3,12 +3,12 @@ title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 배포 단계입니다.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 60867c117c9f1fda6f8ba33333c19a7bd764d219
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 5c329a9d7175772e80ea6d9d8da3baf85ce0d170
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99822286"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669647"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플 배포
 
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |Azure SQL Database 리소스 그룹|Resource group|Name|**잠김** - **조직 이름** 을 `-workload-azsql-rg`와 연결하여 리소스 그룹을 고유하게 만듭니다.|
 |Azure SQL Database 리소스 그룹|Resource group|위치|**잠김** - 청사진 매개 변수를 사용합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리 사용자 이름|Azure SQL Server에 대한 사용자 이름입니다. **Key Vault 템플릿** 의 동일한 속성 값과 일치해야 합니다. 기본값은 _sql-admin-user_ 입니다.|
-|Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 리소스 ID)|Key Vault의 리소스 ID입니다. "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv"를 사용하고 `{subscriptionId}`를 구독 ID로, `{orgName}`을 **조직 이름** 청사진 매개 변수로 바꿉니다.|
+|Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 리소스 ID)|Key Vault의 리소스 ID입니다. "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-workload-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv"를 사용하고 `{subscriptionId}`를 구독 ID로, `{orgName}`을 **조직 이름** 청사진 매개 변수로 바꿉니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|Azure SQL Server 관리자 암호(Key Vault 비밀 이름)|SQL Server 관리자의 사용자 이름입니다. **Key Vault 템플릿** 속성 **Azure SQL Server 관리 사용자 이름** 의 값과 일치해야 합니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|로그 보존(일)|데이터 보존 기간(일)입니다. 기본값은 _365_ 입니다.|
 |Azure SQL Database 템플릿|Resource Manager 템플릿|AAD 관리자 개체 ID|Active Directory 관리자로 할당될 사용자의 AAD 개체 ID입니다. 기본값은 없으며 비워 둘 수 없습니다. Azure Portal에서 이 값을 찾으려면 _서비스_ 아래에서 "사용자"를 검색하여 선택합니다. _이름_ 상자를 사용하여 계정 이름을 필터링하고 해당 계정을 선택합니다. _사용자 프로필_ 페이지에서 _개체 ID_ 옆의 “복사하려면 클릭” 아이콘을 선택합니다.|

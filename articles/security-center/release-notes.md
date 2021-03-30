@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/11/2021
+ms.date: 03/22/2021
 ms.author: memildin
-ms.openlocfilehash: 4f2b31a4760a07779eebdd9492731ffe7e324d37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f6ec14c577d1203b92085b791f89e4873a97c41a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149643"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786098"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -26,7 +26,6 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
 
 
-
 ## <a name="march-2021"></a>2021년 3월
 
 3월의 업데이트는 다음과 같습니다.
@@ -38,6 +37,7 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 - [Azure Resource Graph에서 "ARG에서 살펴보기"를 사용하여 권장 사항 데이터 확인 가능](#recommendation-data-can-be-viewed-in-azure-resource-graph-with-explore-in-arg)
 - [워크플로 자동화 배포에 대한 정책 업데이트](#updates-to-the-policies-for-deploying-workflow-automation)
 - [두 가지 레거시 권장 사항은 더 이상 Azure 활동 로그에 직접 데이터를 쓰지 않습니다.](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
+- [권장 사항 페이지 개선](#recommendations-page-enhancements)
 
 
 ### <a name="azure-firewall-management-integrated-into-security-center"></a>Security Center에 Azure 방화벽 관리 통합
@@ -140,6 +140,22 @@ Security Center는 거의 모든 보안 권장 사항에 대한 데이터를 Azu
 
 활동 로그의 "TaskDiscovery 유형의 권장 사항" 범주에서 이 두 가지 권장 사항에 대한 정보에 액세스한 경우 이 정보는 더 이상 사용할 수 없습니다.
 
+
+### <a name="recommendations-page-enhancements"></a>권장 사항 페이지 개선 
+
+더 많은 정보를 한눈에 볼 수 있도록 향상된 버전의 권장 사항 목록이 출시되었습니다.
+
+이제 권장 사항 페이지에 다음 정보가 표시됩니다.
+
+1. 각 보안 컨트롤의 최고 점수 및 현재 점수
+1. **빠른 수정** 및 **미리 보기** 와 같은 태그를 대체하는 아이콘
+1. 각 권장 사항과 관련된 [정책 이니셔티브](security-policy-concept.md)를 보여주는 새 열 - "컨트롤 기준 그룹화"를 사용하지 않을 때 표시
+
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements.png" alt-text="Azure Security Center 권장 사항 페이지의 향상된 기능 - 2021년 3월" lightbox="media/release-notes/recommendations-grid-enhancements.png":::
+
+:::image type="content" source="media/release-notes/recommendations-grid-enhancements-initiatives.png" alt-text="Azure Security Center 권장 사항 'flat' 목록의 향상된 기능 - 2021년 3월" lightbox="media/release-notes/recommendations-grid-enhancements-initiatives.png":::
+
+[Azure Security Center의 보안 권장 사항](security-center-recommendations.md)에서 자세히 알아보세요.
 
 
 ## <a name="february-2021"></a>2021년 2월

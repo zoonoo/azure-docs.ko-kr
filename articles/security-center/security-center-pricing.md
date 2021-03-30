@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/08/2021
-ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.date: 03/23/2021
+ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454367"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889453"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center 무료 및 Azure Defender 사용 비교
 Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
@@ -48,6 +48,8 @@ Security Center는 두 모드로 제공됩니다.
 - [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 요금이 두 번 청구되나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 모든 작업 영역에서 500MB의 무료 데이터 수집을 사용할 수 있나요?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [500MB의 무료 데이터 수집이 전체 작업 영역에 계산됩니까, 아니면 머신별로 계산됩니까?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [하루에 500MB 데이터를 허용하는 데이터 형식은 무엇입니까?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?
 Azure 구독에는 가격 책정 설정을 변경할 수 있는 권한이 있는 여러 관리자가 있을 수 있습니다. 변경한 사용자를 확인하려면 Azure 활동 로그를 사용합니다.
@@ -114,6 +116,24 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 작업 영역에 연결된 모든 머신에 대해 매일 500MB의 무료 데이터 수집이 가능합니다. 특히 Azure Security Center에서 직접 수집하는 보안 데이터 유형에 적합합니다.
 
 이 데이터는 모든 노드에서 일일 평균 속도입니다. 따라서 일부 머신이 100MB를 보내고 다른 머신이 800MB를 보내더라도 총계가 **[머신 수] x 500MB** 사용 가능 제한을 초과하지 않으면 추가 요금이 부과되지 않습니다.
+
+### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>하루에 500MB 데이터를 허용하는 데이터 형식은 무엇입니까?
+
+Security Center의 대금 청구는 Log Analytics 대금 청구와 밀접하게 연관되어 있습니다. Security Center는 다음과 같은 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category.md#security) 하위 집합에 대해 노드당 하루 500MB의 할당량을 제공합니다.
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- 업데이트 관리 솔루션이 작업 영역에서 실행되고 있지 않거나 솔루션 대상 지정을 사용하는 경우 Update 및 UpdateSummary 데이터 형식
+
+작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 Security Center 및 Log Analytics 할당량이 결합되고, 요금이 청구될 수 있는 모든 수집 데이터에 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center의 가격 책정 옵션에 대해 설명했습니다. 관련 자료는 다음을 참조하세요.

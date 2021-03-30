@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 12ee827f297729682b0a5e1b1808afe312c657a4
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 847e100dfaa922c359b321f17d77d2d0c67afc9b
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499070"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802865"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -41,9 +41,9 @@ Table 스토리지 또는 Azure Cosmos DB를 사용하여 웹 애플리케이션
 
 이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 
-* [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 또는 3.6
+* [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상
 * [Python용 Azure Cosmos DB 테이블 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/) 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
-* [Azure Storage 계정](../storage/common/storage-account-create.md) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/try/cosmosdb/)
+* [Azure Storage 계정](../storage/common/storage-account-create.md) 또는 [Azure Cosmos DB 계정](https://azure.microsoft.com/try/cosmosdb/).
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
 

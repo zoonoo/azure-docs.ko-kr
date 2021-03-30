@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 45f18727b53b802ba746da41b47fe955543ed9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "75648550"
 ---
 # <a name="create-custom-actions-and-resources-in-azure"></a>Azure에서 사용자 지정 작업 및 리소스 만들기
@@ -40,7 +40,7 @@ ms.locfileid: "75648550"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 사용자 지정 공급자가 무엇이며, 어떻게 빌드하는지에 대해 알아보았습니다. 다음 자습서로 계속 진행하려면 [자습서: Azure 사용자 지정 공급자를 위한 Azure Functions 설정](./tutorial-custom-providers-function-setup.md)을 참조하세요.
+이 문서에서는 사용자 지정 공급자가 무엇이며, 어떻게 빌드하는지에 대해 알아보았습니다. 다음 자습서를 계속 진행하려면 [자습서: Azure 사용자 지정 공급자에 대한 Azure Functions 설정](./tutorial-custom-providers-function-setup.md)을 참조하세요.
 
 참조 또는 빠른 시작이 필요한 경우 다음과 같은 몇 가지 유용한 링크를 사용할 수 있습니다.
 

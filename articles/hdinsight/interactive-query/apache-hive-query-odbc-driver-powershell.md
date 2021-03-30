@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a6274ce36878af6cfbae04be935485c462bc86a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 34ee7eb25b1d106ea8bb53197d69ca5a9d528773
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822373"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871608"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>자습서: ODBC와 PowerShell로 Apache Hive 쿼리
 
@@ -26,7 +26,7 @@ Microsoft ODBC 드라이버는 Apache Hive를 비롯한 여러 종류의 데이�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. Windows에서 **시작** > **Windows 관리 도구** > **ODBC 데이터 원본(32비트)/(64비트)** 으로 이동합니다.  **ODBC 데이터 원본 관리자** 창이 열립니다.
 
-    ![OBDC 데이터 원본 관리자](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "ODBC 데이터 원본 관리자를 사용하여 DSN 구성")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="OBDC 데이터 원본 관리자" border="true":::
 
 1. **사용자 DSN** 탭에서 **추가** 를 선택하여 **새 데이터 원본 만들기** 창을 엽니다.
 
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    |  Rows fetched per block |많은 수의 레코드를 가져오는 경우 최적의 성능을 위해 이 매개 변수를 조정해야 할 수 있습니다. |
    |  Default string column length, Binary column length, Decimal column scale |데이터 형식 길이 및 정밀도는 데이터가 반환되는 방식에 영향을 줄 수 있습니다. 정밀도 손실 및 잘림으로 인해 잘못된 정보가 반환될 수 있습니다. |
 
-    ![고급 DSN 구성 옵션](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "고급 DSN 구성 옵션")
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="고급 DSN 구성 옵션" border="true":::
 
 1. **테스트** 를 선택하여 데이터 원본을 테스트합니다. 데이터 원본이 올바르게 구성된 경우 테스트 결과가 **성공** 으로 표시됩니다.  
 
