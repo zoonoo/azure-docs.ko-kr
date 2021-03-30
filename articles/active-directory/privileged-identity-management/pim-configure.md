@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 09/29/2020
+ms.date: 03/19/2021
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d42611705b7756ed2fd0c7a488339f0f638fb5b4
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370188"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802168"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -47,7 +47,7 @@ Privileged Identity Management는 중요한 리소스에 대한 과도한, 불�
 
 ## <a name="what-can-i-do-with-it"></a>Privileged Identity Management로 무엇을 할 수 있나요?
 
-Privileged Identity Management를 설정하면 **작업** , **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 관리, **Azure 리소스** 역할 또는 권한 있는 액세스 그룹 관리 등의 옵션 중에서 선택합니다. 관리할 항목을 선택하면 해당 옵션에 대한 적절한 옵션 세트가 표시됩니다.
+Privileged Identity Management를 설정하면 **작업**, **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 관리, **Azure 리소스** 역할 또는 권한 있는 액세스 그룹 관리 등의 옵션 중에서 선택합니다. 관리할 항목을 선택하면 해당 옵션에 대한 적절한 옵션 세트가 표시됩니다.
 
 ![Azure Portal의 Privileged Identity Management 스크린샷](./media/pim-configure/pim-quickstart.png)
 
@@ -92,8 +92,8 @@ Privileged Identity Management 및 설명서를 보다 정확하게 이해하려
 | 활성화됨 | 시스템 상태 | 적격 역할 할당이 있고, 역할을 활성화하기 위한 작업을 수행했으며, 현재 활성화된 사용자입니다.  활성화되면 사용자는 미리 구성된 기간 동안 역할을 사용할 수 있으며, 이 기간이 끝나면 다시 활성화해야 합니다. |
 | 영구 적격 | Duration | 사용자가 항상 역할을 활성화할 수 있는 자격이 있는 역할 할당입니다. |
 | 영구 활성 | Duration | 사용자가 어떤 작업도 수행하지 않고 항상 역할을 사용할 수 있는 역할 할당입니다. |
-| 만료 적격 | Duration | 사용자가 지정된 시작 및 종료 날짜 내에 역할을 활성화할 수 있는 자격이 있는 역할 할당입니다. |
-| 만료 활성화 | Duration | 사용자가 지정된 시작 및 종료 날짜 내에 어떤 작업도 수행하지 않고 역할을 사용할 수 있는 역할 할당입니다. |
+| 시간 범위 적격 | Duration | 사용자가 시작 및 종료 날짜 내에만 역할을 활성화할 수 있는 자격이 있는 역할 할당입니다. |
+| 시간 범위 활성 | Duration | 사용자가 시작 및 종료 날짜에만 역할을 사용할 수 있는 역할 할당입니다. |
 | JIT(Just In Time) 액세스 |  | 사용자가 권한 있는 작업을 수행하기 위해 임시 사용 권한을 받는 모델이며, 악의적 또는 권한이 없는 사용자가 권한이 만료된 후 액세스 권한을 획득하는 것을 방지합니다. 액세스 권한은 사용자에게 필요한 경우에만 부여됩니다. |
 | 최소 권한 액세스 원칙 |  | 모든 사용자에게 수행할 권한이 있는 작업을 수행하는 데 필요한 최소 권한만 제공하는 권장 보안 방법입니다. 이 방법은 글로벌 관리자 수를 최소화하고, 그 대신 특정 시나리오에 대해 구체적 관리자 역할을 사용합니다. |
 

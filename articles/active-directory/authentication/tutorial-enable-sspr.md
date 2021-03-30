@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198492"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887770"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
@@ -138,6 +138,22 @@ SSPR을 사용하도록 설정 및 구성되면 이전 섹션에서 선택한 �
 1. **Azure Active Directory** 를 검색하여 선택한 다음, 왼쪽 메뉴에서 **암호 재설정** 을 선택합니다.
 1. **속성** 페이지의 *셀프 서비스 암호 재설정이 사용하도록 설정됨* 옵션에서 **없음** 을 선택합니다.
 1. SSPR 변경 내용을 적용하려면 **저장** 을 선택합니다.
+
+## <a name="faqs"></a>FAQ
+
+이 섹션에서는 SSPR을 시도하는 관리자 및 최종 사용자의 일반적인 질문에 대해 설명합니다.
+
+- 페더레이션 사용자가 온-프레미스에서 동기화된 암호를 사용하기 전에 **암호가 다시 설정되었음** 을 확인한 후 최대 2분 동안 대기하는 이유는 무엇인가요?
+
+  암호가 동기화된 페더레이션 사용자의 경우 암호에 대한 권한 소스는 온-프레미스입니다. 결과적으로 SSPR은 온-프레미스 암호만 업데이트합니다. Azure AD로의 암호 해시 동기화는 2분 간격으로 예약됩니다.
+
+- 전화 및 이메일과 같은 SSPR 데이터로 미리 채워진 새로 만든 사용자가 SSPR 등록 페이지를 방문할 때 **계정에 대한 액세스 권한을 손실하지 마세요**. 페이지 제목으로 표시됩니다. SSPR 데이터가 미리 채워진 다른 사용자에게 메시지를 표시되지 않는 이유는 무엇인가요?
+
+  **계정에 대한 액세스 권한을 손실하지 마세요!** 가 표시되는 사용자는 테넌트에 대해 구성된 SSPR/결합 등록 그룹의 멤버입니다. **계정에 대한 액세스 권한을 손실하지 마세요!** 가 표시되지 않는 사용자는 SSPR/결합 등록 그룹의 일부가 아닙니다.
+
+- 일부 사용자가 SSPR 프로세스를 진행하여 암호를 재설정할 때 암호 강도 표시기가 표시되지 않는 이유는 무엇인가요?
+
+  약한/강한 암호 강도가 표시되지 않는 사용자는 동기화된 비밀 번호 쓰기 저장을 사용할 수 있습니다. SSPR은 고객의 온-프레미스 환경에 대한 암호 정책을 확인할 수 없기 때문에 암호 강도 또는 취약성의 유효성을 검사할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

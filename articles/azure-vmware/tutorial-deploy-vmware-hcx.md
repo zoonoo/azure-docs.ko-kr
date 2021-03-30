@@ -3,12 +3,12 @@ title: 자습서 - VMware HCX 배포 및 구성
 description: Azure VMware Solution 프라이빗 클라우드를 위한 VMware HCX 솔루션을 배포 및 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462315"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869092"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>VMware HCX 배포 및 구성
 
@@ -265,7 +265,7 @@ VMware HCX Connector는 여러 IP 세그먼트가 필요한 가상 어플라이�
 1. **네트워크 확장 분산 스위치 선택** 에서 계층 2 확장 네트워크의 Azure VMware Solution으로 마이그레이션할 가상 머신이 포함된 스위치를 선택합니다. 그런 다음, **계속** 을 선택합니다.
 
    > [!NOTE]
-   > 계층 2 확장 네트워크에서 가상 머신을 마이그레이션하지 않는 경우 이 단계를 건너뛸 수 있습니다.
+   > 계층 2(L2) 확장 네트워크에서 가상 머신을 마이그레이션하지 않는 경우 이 단계를 건너뛸 수 있습니다.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="분산 가상 스위치의 선택 항목과 [계속] 단추를 보여주는 스크린샷" lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -376,3 +376,4 @@ HCX 사용에 대한 자세한 내용은 다음 VMware 기술 문서를 참조�
 * [VMware HCX 설명서](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [VMware HCX를 사용하여 Virtual Machines 마이그레이션](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [HCX 필수 포트](https://ports.vmware.com/home/VMware-HCX)
+* [라이선스 키를 승인하기 전에 HCX 프록시 서버 설정](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

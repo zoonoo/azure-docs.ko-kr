@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-python
 ms.date: 9/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 954f4edcd10d701d00d9cd23280aaac7c287992d
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1be74ceeb1f4808a8df8f56b71b66aa870cdd91d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997458"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800876"
 ---
 # <a name="quickstart-create-a-python-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Python 앱 만들기
 
@@ -22,25 +22,25 @@ ms.locfileid: "91997458"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-- Python 2.7 또는 3.5 이상 - Windows에서 Python을 설정하는 방법에 대한 자세한 내용은 [Windows 기반의 Python 설명서]( https://docs.microsoft.com/windows/python/)를 참조하세요.
+- Python 2.7 또는 3.6 이상 - Windows에서 Python을 설정하는 방법에 대한 자세한 내용은 [Windows 기반의 Python 설명서]( https://docs.microsoft.com/windows/python/)를 참조하세요.
 
 ## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-7. **구성 탐색기** > **만들기** > **키-값**을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
+7. **구성 탐색기** > **만들기** > **키-값** 을 차례로 선택하여 다음 키-값 쌍을 추가합니다.
 
     | 키 | 값 |
     |---|---|
     | TestApp:Settings:Message | Azure App Configuration의 정보 |
 
-    지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
+    지금은 **레이블** 과 **콘텐츠 형식** 을 비워 두세요.
 
-8. **적용**을 선택합니다.
+8. **적용** 을 선택합니다.
 
 ## <a name="setting-up-the-python-app"></a>Python 앱 설정
 
-1. 이 자습서에서는 *app-configuration-quickstart*라는 프로젝트에 대한 새 디렉터리를 만듭니다.
+1. 이 자습서에서는 *app-configuration-quickstart* 라는 프로젝트에 대한 새 디렉터리를 만듭니다.
 
     ```console
     mkdir app-configuration-quickstart
@@ -58,7 +58,7 @@ ms.locfileid: "91997458"
     pip install azure-appconfiguration
     ```
 
-1. *app-configuration-quickstart.py*라는 새 파일을 *app-configuration-quickstart* 디렉터리에 만들고 다음 코드를 추가합니다.
+1. *app-configuration-quickstart.py* 라는 새 파일을 *app-configuration-quickstart* 디렉터리에 만들고 다음 코드를 추가합니다.
 
     ```python
     import os
@@ -77,7 +77,7 @@ ms.locfileid: "91997458"
 
 ## <a name="configure-your-app-configuration-connection-string"></a>App Configuration 연결 문자열 구성
 
-1. **AZURE_APP_CONFIG_CONNECTION_STRING**이라는 환경 변수를 설정하고, 이를 App Configuration 저장소에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행합니다.
+1. **AZURE_APP_CONFIG_CONNECTION_STRING** 이라는 환경 변수를 설정하고, 이를 App Configuration 저장소에 대한 액세스 키로 설정합니다. 명령줄에서 다음 명령을 실행합니다.
 
     ```cmd
     setx AZURE_APP_CONFIG_CONNECTION_STRING "connection-string-of-your-app-configuration-store"
@@ -102,7 +102,7 @@ ms.locfileid: "91997458"
 이 섹션의 샘플 코드 조각에서는 Python용 App Configuration 클라이언트 라이브러리를 사용하여 일반적인 작업을 수행하는 방법을 보여 줍니다. 이러한 코드 조각을 이전에 만든 *app-configuration-quickstart.py* 파일의 `try` 블록에 추가합니다.
 
 > [!NOTE]
-> App Configuration 클라이언트 라이브러리는 키-값 개체를 `ConfigurationSetting`으로 참조합니다. 따라서 이 문서에서는 App Configuration 저장소의 **키-값**을 **구성 설정**이라고 합니다.
+> App Configuration 클라이언트 라이브러리는 키-값 개체를 `ConfigurationSetting`으로 참조합니다. 따라서 이 문서에서는 App Configuration 저장소의 **키-값** 을 **구성 설정** 이라고 합니다.
 
 * [App Configuration 저장소에 연결](#connect-to-an-app-configuration-store)
 * [구성 설정 가져오기](#get-a-configuration-setting)
@@ -115,7 +115,7 @@ ms.locfileid: "91997458"
 
 ### <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
-다음 코드 조각에서는 환경 변수에 저장된 연결 문자열을 사용하여 **AzureAppConfigurationClient**의 인스턴스를 만듭니다.
+다음 코드 조각에서는 환경 변수에 저장된 연결 문자열을 사용하여 **AzureAppConfigurationClient** 의 인스턴스를 만듭니다.
 
 ```python
     connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')

@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: bbe28f4fda32ce7d55a437e4ac944dc206f436ee
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ecabfde624ba6d3393bbf6d5480b83dbb5303c5e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522362"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604562"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>자습서: 사용자 고유의 데이터 사용(4/4부)
 
@@ -39,7 +39,12 @@ ms.locfileid: "102522362"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 시리즈의 [3부](tutorial-1st-experiment-sdk-train.md) 완료
+이전 자습서에서 만든 pytorch 환경의 데이터 및 업데이트된 버전이 필요합니다.  다음 단계를 완료했는지 확인합니다.
+
+1. [학습 스크립트 만들기](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+1. [새 Python 환경 만들기](tutorial-1st-experiment-sdk-train.md#environment)
+1. [로컬로 테스트](tutorial-1st-experiment-sdk-train.md#test-local)
+1. [Conda 환경 파일 업데이트](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 ## <a name="adjust-the-training-script"></a>학습 스크립트 조정
 
@@ -75,6 +80,7 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+
 > [!div class="nextstepaction"]
 > [학습 스크립트를 조정했습니다.](?success=adjust-training-script#test-locally) [문제가 발생했습니다.](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
@@ -84,28 +90,27 @@ optimizer = optim.SGD(
 
 :::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="디렉터리 구조에는 .azureml, 데이터 및 src 하위 디렉터리가 표시됨":::
 
+1. 현재 환경을 종료합니다.
 
-이전 자습서에서 `train.py`를 로컬로 실행하지 않은 경우 `data/` 디렉터리가 없습니다. 이 경우 `train.py` 스크립트에서 `download=True`를 사용하여 `torchvision.datasets.CIFAR10` 메서드를 로컬로 실행합니다.
+    ```bash
+    conda deactivate
 
-또한 로컬에서 실행하려면 자습서 환경을 종료하고 새 conda 환경을 활성화해야 합니다.
+1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
-```bash
-conda deactivate                # If you are still using the tutorial environment, exit it
-```
 
-```bash
-conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
-```
+    ```bash
+    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+    ```
 
-```bash
-conda activate pytorch-aml-env          # activate new conda environment
-```
+    ```bash
+    conda activate pytorch-aml-env          # activate new conda environment
+    ```
 
-수정된 학습 스크립트를 로컬로 실행하려면 다음을 호출합니다.
+1. 마지막으로, 수정된 학습 스크립트를 로컬로 실행합니다.
 
-```bash
-python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-```
+    ```bash
+    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
+    ```
 
 데이터에 대한 로컬 경로를 전달하여 CIFAR10 데이터 세트를 다운로드할 필요가 없습니다. 또한 학습 스크립트에서 하드 코딩하지 않고도 다른 값을 _학습 속도_ 및 _모멘텀_ 하이퍼 매개 변수에 사용하여 실험할 수도 있습니다.
 

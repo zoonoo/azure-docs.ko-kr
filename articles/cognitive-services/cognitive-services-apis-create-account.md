@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 69c83e9172a8369b7ff31116ee4db74fc33d86bb
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: af957758918b99dcb44732eb536c0ca031231a7a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472118"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868225"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Cognitive Services 리소스 만들기
 
@@ -39,12 +39,10 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
 현재는 다중 서비스 리소스를 사용하여 다음 Cognitive Services에 액세스할 수 있습니다.
 
-* Computer Vision
-* Content Moderator
-* Face
-* 언어 이해(LUIS)
-* 텍스트 분석
-* 변환기
+* **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
+* **음성** - 음성
+* **언어** - Language Understanding(LUIS), Text Analytics, Translator
+* **의사 결정** - Personalizer, Content Moderator
 
 ### <a name="single-service-resource"></a>[단일 서비스 리소스](#tab/singleservice)
 
@@ -53,9 +51,10 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 | 시각                      | 음성                  | 언어                          | 의사 결정             |
 |-----------------------------|-------------------------|-----------------------------------|----------------------|
 | [컴퓨터 비전](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [음성 서비스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [몰입형 판독기](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | 
-| [Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [화자 인식](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
+| [Custom Vision Service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) |  | [언어 이해(LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | 
 | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     |
-| [Ink Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [텍스트 분석](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer)        |                         | [텍스트 분석](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2142156)                    |
+| | | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) | |
 
 ---
 
@@ -64,7 +63,7 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 
 ### <a name="multi-service-resource"></a>[다중 서비스 리소스](#tab/multiservice)
 
-|프로젝트 세부 정보| 설명   |
+|프로젝트 세부 정보| Description   |
 |--|--|
 | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
 | **리소스 그룹** | Cognitive Services 리소스를 포함할 Azure 리소스 그룹입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
@@ -72,13 +71,14 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 | **이름** | Cognitive Services 리소스를 설명하는 이름입니다. 예: *MyCognitiveServicesResource*. |
 | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
 
-![다중 서비스 리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+<!--![Multi-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen-multi.png" alt-text="다중 서비스 리소스 만들기 화면":::
 
-**만들기** 를 선택합니다.
+해당하는 조건을 읽고 동의한 다음, **검토 + 만들기** 를 선택합니다.
 
 ### <a name="single-service-resource"></a>[단일 서비스 리소스](#tab/singleservice)
 
-|프로젝트 세부 정보| 설명   |
+|프로젝트 세부 정보| Description   |
 |--|--|
 | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
 | **리소스 그룹** | Cognitive Services 리소스를 포함할 Azure 리소스 그룹입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
@@ -86,9 +86,10 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 | **이름** | Cognitive Services 리소스를 설명하는 이름입니다. 예: *MyCognitiveServicesResource*. |
 | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
 
-![단일 서비스 리소스 만들기 화면](media/cognitive-services-apis-create-account/resource_create_screen.png)
+<!--![Single-service resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)-->
+:::image type="content" source="media/cognitive-services-apis-create-account/resource_create_screen.png" alt-text="단일 서비스 리소스 만들기 화면":::
 
-**만들기** 를 선택합니다.
+**다음: Virtual Network** 를 선택하고 리소스에 대해 허용할 네트워크 액세스 유형을 선택한 다음, **검토 + 만들기** 를 선택합니다.
 
 ---
 
@@ -116,8 +117,8 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Cognitive Services에 대한 요청 인증](authentication.md)
-* [Azure Cognitive Services란?](./what-are-cognitive-services.md)
-* [Azure Management 클라이언트 라이브러리를 사용하여 새 리소스 만들기](.\cognitive-services-apis-create-account-client-library.md)
-* [자연어 지원](language-support.md)
-* [Docker 컨테이너 지원](cognitive-services-container-support.md)
+* Cognitive Services를 안전하게 사용하는 방법을 알아보려면 **[Azure Cognitive Services 요청 인증](authentication.md)** 을 참조하세요.
+* Cognitive Services에 포함된 다양한 범주 목록을 가져오려면 **[Azure Cognitive Services란?](./what-are-cognitive-services.md)** 을 참조하세요.
+* Cognitive Services에서 지원하는 자연어 목록을 보려면 **[자연어 지원](language-support.md)** 을 참조하세요.
+* Cognitive Services를 온-프레미스로 사용하는 방법은 **[Cognitive Services를 컨테이너로 사용](cognitive-services-container-support.md)** 을 참조하세요.
+* Cognitive Services 사용 비용을 추산하려면 **[Cognitive Services 비용 계획 및 관리](plan-manage-costs.md)** 를 참조하세요.

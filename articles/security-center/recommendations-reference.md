@@ -4,15 +4,15 @@ description: 이 문서에는 리소스를 강화하고 보호하는 데 도움�
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100409"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801481"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
@@ -28,9 +28,17 @@ Security Center 권장 사항은 [Azure 보안 벤치마크](../security/benchma
 > 권장 사항의 설명에 "관련 정책 없음"이라고 표시되는 경우가 있는데, 이는 권장 사항이 다른 권장 사항 및 _해당_ 정책에 따라 달라지기 때문입니다. 예를 들어 "엔드포인트 보호 상태 오류를 수정해야 합니다..."라는 내용의 권장 사항은 엔드포인트 보호 솔루션의 _설치_ 여부를 확인하는 권장 사항("엔드포인트 보호 솔루션을 설치해야 합니다...")에 의존합니다. 기본 권장 사항에는 정책이 _있습니다_.
 > 정책을 기본 권장 사항으로 제한하면 정책 관리가 간단해집니다.
 
+## <a name="appservices-recommendations"></a><a name='recs-appservices'></a>AppServices 권장 사항
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name="compute-recommendations"></a><a name='recs-compute'></a>컴퓨팅 권장 사항
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name="container-recommendations"></a><a name='recs-container'></a>컨테이너 권장 사항
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name="data-recommendations"></a><a name='recs-data'></a>데이터 권장 사항
 
@@ -39,6 +47,10 @@ Security Center 권장 사항은 [Azure 보안 벤치마크](../security/benchma
 ## <a name="identityandaccess-recommendations"></a><a name='recs-identityandaccess'></a>IdentityAndAccess 권장 사항
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
+
+## <a name="iot-recommendations"></a><a name='recs-iot'></a>IoT 권장 사항
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
 ## <a name="networking-recommendations"></a><a name='recs-networking'></a>네트워킹 권장 사항
 

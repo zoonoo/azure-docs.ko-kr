@@ -11,18 +11,18 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 문서 처리
-ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f83e13155fa851a06c8b7d36b87c3038257c0b3a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467296"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864383"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
+# <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 사용자 지정 모델 학습
 
 이 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 문서 처리 모델을 학습시킵니다. Form Recognizer를 사용한 감독 학습에 대한 자세한 내용은 개요의 [레이블을 사용하여 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
 
@@ -265,7 +265,7 @@ v2.1에서 학습 문서의 값이 채워져 있지 않으면 해당 값이 있�
 >
 > 날짜 서식을 지정하려면 서식(`dmy`, `mdy`, `ymd`)을 지정해야 합니다.
 >
-> 다음(`, - / . \`) 문자를 날짜 구분 기호로 사용할 수 있습니다. 공백은 구분 기호로 사용할 수 없습니다. 다음은 그 예입니다.
+> 다음(`, - / . \`) 문자를 날짜 구분 기호로 사용할 수 있습니다. 공백은 구분 기호로 사용할 수 없습니다. 예를 들면 다음과 같습니다.
 >
 > * 2020,01,01
 > * 2020-01-01
