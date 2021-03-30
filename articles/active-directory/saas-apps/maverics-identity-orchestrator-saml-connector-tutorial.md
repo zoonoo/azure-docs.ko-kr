@@ -9,67 +9,60 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 31392c1fa3d14d6f1e01a8b302575e9b592e42cd
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19f6b0601afe9ad84f02c93d7f6e1ae3a71a06a4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183152"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585097"
 ---
-# <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>자습서: Maverics Identity Orchestrator SAML Connector와 Azure AD Single Sign-On 통합
+# <a name="integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Maverics Identity Orchestrator SAML Connector와 Azure AD Single Sign-On 통합
 
-Strata는 인증 및 액세스 제어를 위해 온-프레미스 애플리케이션을 Azure AD(Azure Active Directory)와 통합하는 간단한 방법을 제공합니다.
+Strata의 Maverics Identity Orchestrator는 인증 및 액세스 제어를 위해 온-프레미스 애플리케이션을 Azure AD(Azure Active Directory)와 통합하는 간단한 방법을 제공합니다. Maverics Orchestrator는 현재 헤더, 쿠키 및 기타 독점 인증 방법에 의존하는 앱의 인증 및 권한 부여를 현대화할 수 있습니다. Maverics Orchestrator 인스턴스는 온-프레미스 또는 클라우드에 배포할 수 있습니다. 
 
-이 문서에서는 다음과 같은 작업을 수행하도록 Maverics Identity Orchestrator를 구성하는 방법을 안내합니다.
-* 레거시 온-프레미스 애플리케이션에 로그인한 동안 사용자를 온-프레미스 ID 시스템에서 Azure AD로 점진적으로 마이그레이션합니다.
-* 레거시 웹 액세스 관리 제품(예: CA SiteMinder 또는 Oracle Access Manager)의 로그인 요청을 Azure AD로 라우팅합니다.
-* 사용자를 Azure AD에 대해 인증한 후 HTTP 헤더 또는 독점적 세션 쿠키를 사용하여 보호되는 온-프레미스 애플리케이션에 사용자를 인증합니다.
+이 하이브리드 액세스 자습서에서는 인증 및 액세스 제어에 Azure AD를 사용하도록 기존 웹 액세스 관리 제품으로 보호되는 온-프레미스 웹 애플리케이션을 마이그레이션하는 방법을 보여줍니다. 기본 단계는 다음과 같습니다.
 
-Strata는 온-프레미스 또는 클라우드에 배포할 수 있는 소프트웨어를 제공합니다. 여러 ID 공급자를 검색, 연결 및 오케스트레이션하여 하이브리드 및 다중 클라우드 엔터프라이즈용 분산 ID 관리를 만드는 데 유용합니다.
-
-이 자습서에서는 인증 및 액세스 제어에 Azure AD를 사용하도록 기존 웹 액세스 관리 제품(CA SiteMinder)으로 보호되는 온-프레미스 웹 애플리케이션을 마이그레이션하는 방법을 보여줍니다. 기본 단계는 다음과 같습니다.
-1. Maverics Identity Orchestrator를 설치합니다.
-2. 엔터프라이즈 애플리케이션을 Azure AD에 등록하고 Maverics Azure AD SAML Zero Code Connector를 SAML 기반 SSO(Single Sign-On)에 사용하도록 구성합니다.
-3. Maverics를 SiteMinder 및 LDAP(Lightweight Directory Access Protocol) 사용자 저장소와 통합합니다.
-4. Azure Key Vault를 설정하고, Azure Key Vault를 비밀 관리 공급자로 사용하도록 Maverics를 구성합니다.
-5. 온-프레미스 Java 웹 애플리케이션에 대한 액세스를 제공하도록 Maverics를 사용하여 사용자 마이그레이션 및 세션 추상화를 수행하는 방법을 보여줍니다.
-
-설치 및 구성과 관련된 추가 지침은 [Strata 웹 사이트](https://www.strata.io)에서 참조하세요.
+1. Maverics Orchestrator 설정
+1. 애플리케이션 프록시 구성
+1. Azure AD에서 엔터프라이즈 애플리케이션 등록
+1. Azure를 통해 인증하고 애플리케이션에 대한 액세스 권한 부여
+1. 원활한 애플리케이션 액세스를 위한 헤더 추가
+1. 여러 애플리케이션과 연동
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-- Maverics Identity Orchestrator SAML Connector SSO가 설정된 구독. Maverics 소프트웨어를 얻으려면 [Strata sales](mailto:sales@strata.io)에 문의하세요.
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Maverics Identity Orchestrator SAML Connector SSO가 설정된 구독. Maverics 소프트웨어를 받으려면 [Strata sales](mailto:sales@strata.io)에 문의하세요.
+* 헤더 기반 인증을 사용하는 하나 이상의 애플리케이션. 이 예제는 https://app.sonarsystems.com 에 호스트되는 Sonar라는 애플리케이션 및 https://app.connectulum.com 에 호스트되는 Connectulum이라는 애플리케이션에 대해 작동합니다.
+* Maverics Orchestrator를 호스트하는 Linux 머신
+  * OS: RHEL 7.7 이상, CentOS 7 이상
+  * 디스크: 10GB 이상
+  * 메모리: 4GB 이상
+  * 포트: 22(SSH/SCP), 443, 7474
+  * 설치/관리 작업에 필요한 루트 액세스 권한
+  * Maverics Identity Orchestrator를 호스트하는 서버에서 보호된 애플리케이션으로의 네트워크 송신
 
-## <a name="install-maverics-identity-orchestrator"></a>Maverics Identity Orchestrator 설치
+## <a name="step-1-set-up-the-maverics-orchestrator"></a>1단계: Maverics Orchestrator 설정
 
-Maverics Identity Orchestrator 설치를 시작하려면 [설치 지침](https://www.strata.io)을 참조하세요.
+### <a name="install-maverics"></a>Maverics 설치
 
-### <a name="system-requirements"></a>시스템 요구 사항
-* 지원되는 운영 체제
-  * RHEL 7+
-  * CentOS 7+
+1. 최신 Maverics RPM을 받습니다. Maverics 소프트웨어를 설치할 시스템에 패키지를 복사합니다.
 
-* 종속성
-  * systemd
+1. `maverics.rpm` 대신 파일 이름을 대체하여 Mavericks 패키지를 설치합니다.
 
-### <a name="installation"></a>설치
+   `sudo rpm -Uvf maverics.rpm`
 
-1. Maverics RPM(Redhat Package Manager) 패키지를 가져옵니다. Maverics 소프트웨어를 설치할 시스템에 패키지를 복사합니다.
+   Maverics 설치가 완료되면 `systemd`에서 서비스로 실행됩니다. 서비스가 실행 중인지 확인하려면 다음 명령을 실행합니다.
 
-2. `maverics.rpm` 대신 파일 이름을 대체하여 Mavericks 패키지를 설치합니다.
+   `sudo systemctl status maverics`
 
-    `sudo rpm -Uvf maverics.rpm`
+1. Orchestrator를 다시 시작하고 로그를 따르려면 다음 명령을 실행합니다.
 
-3. Maverics 설치가 완료되면 `systemd`에서 서비스로 실행됩니다. 서비스가 실행 중인지 확인하려면 다음 명령을 실행합니다.
+   `sudo service maverics restart; sudo journalctl --identifier=maverics -f`
 
-    `sudo systemctl status maverics`
-
-기본적으로 Maverics는 */usr/local/bin* 디렉터리에 설치됩니다.
-
-Maverics를 설치하면 기본 *maverics.yaml* 파일이 */etc/maverics* 디렉터리에 만들어집니다. `workflows` 및 `connectors`를 포함하도록 구성을 편집하기 전의 구성 파일은 다음과 같습니다.
+Maverics를 설치하면 기본 `maverics.yaml` 파일이 `/etc/maverics` 디렉터리에 만들어집니다. `appgateways` 및 `connectors`를 포함하도록 구성을 편집하기 전의 구성 파일은 다음과 같습니다.
 
 ```yaml
 # © Strata Identity Inc. 2020. All Rights Reserved. Patents Pending.
@@ -77,133 +70,81 @@ Maverics를 설치하면 기본 *maverics.yaml* 파일이 */etc/maverics* 디렉
 version: 0.1
 listenAddress: ":7474"
 ```
-## <a name="configuration-options"></a>구성 옵션
-### <a name="version"></a>버전
-`version` 필드는 사용 중인 구성 파일의 버전을 선언합니다. 버전을 지정하지 않으면 최신 구성 버전이 사용됩니다.
+
+### <a name="configure-dns"></a>DNS 구성
+
+DNS를 구성하면 Orchestrator 서버의 IP를 기억할 필요가 없으므로 도움이 됩니다.
+
+가상 Orchestrator IP 12.34.56.78을 사용하여 브라우저 머신(노트북)의 호스트 파일을 편집합니다. Linux 기반 운영 체제에서 이 파일은 `/etc/hosts`에 있습니다. Windows에서 이 파일은 `C:\windows\system32\drivers\etc`에 있습니다.
+
+```
+12.34.56.78 sonar.maverics.com
+12.34.56.78 connectulum.maverics.com
+```
+
+DNS가 예상대로 구성되었는지 확인하려면 Orchestrator의 상태 엔드포인트로 요청을 보내면 됩니다. 브라우저에서 http://sonar.maverics.com:7474/status 를 요청합니다.
+
+### <a name="configure-tls"></a>TLS 구성
+
+보안 유지를 위해 보안 채널을 통해 Orchestrator와 통신하는 것이 중요합니다. `tls` 섹션에서 인증서/키 쌍을 추가하여 보안을 강화할 수 있습니다.
+
+Orchestrator 서버에 대한 자체 서명된 인증서와 키를 생성하려면 `/etc/maverics` 디렉터리 내에서 다음 명령을 실행합니다.
+
+`openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out maverics.crt -keyout maverics.key`
+
+> [!NOTE]
+> 프로덕션 환경의 경우 브라우저에서 경고가 발생하지 않도록 알려진 CA에서 서명한 인증서를 사용하는 것이 좋습니다. 신뢰할 수 있는 CA를 찾고 있다면 [Let's Encrypt](https://letsencrypt.org/)는 무료로 사용할 수 있는 훌륭한 옵션입니다.
+
+이제 Orchestrator에 대해 새로 생성한 인증서 및 키를 사용합니다. 이제 구성 파일에는 다음 코드가 포함되어 있습니다.
 
 ```yaml
 version: 0.1
-```
-### <a name="listenaddress"></a>listenAddress
-`listenAddress`는 Orchestrator가 수신 대기할 주소를 선언합니다. 주소의 호스트 섹션이 비어 있으면 Orchestrator는 로컬 시스템의 사용 가능한 모든 유니캐스트 및 애니캐스트 IP 주소를 수신 대기합니다. 주소의 포트 섹션이 비어 있으면 포트 번호가 자동으로 선택됩니다.
+listenAddress: ":443"
 
-```yaml
-listenAddress: ":453"
-```
-### <a name="tls"></a>TLS
-
-`tls` 필드는 TLS(전송 계층 보안) 개체의 맵을 선언합니다. TLS 개체는 커넥터 및 Orchestrator 서버에서 사용할 수 있습니다. 사용 가능한 모든 TLS 옵션은 `transport`의 패키지 설명서를 참조하세요.
-
-SAML 기반 SSO를 사용하는 경우 Microsoft Azure에는 TLS를 통한 통신이 필요합니다. 인증서 생성에 대한 자세한 내용은 [Let's Encrypt 웹 사이트](https://letsencrypt.org/getting-started/)를 참조하세요.
-
-`maverics` 키는 Orchestrator 서버용으로 예약되어 있습니다. 그 외의 모든 키는 사용 가능하며 지정된 커넥터에 TLS 개체를 삽입하는 데 사용할 수 있습니다.
-
-```yaml
 tls:
   maverics:
-    certFile: /etc/maverics/maverics.cert
+    certFile: /etc/maverics/maverics.crt
     keyFile: /etc/maverics/maverics.key
-```  
-### <a name="include-files"></a>포함 파일
-
-별도의 구성 파일에서 `connectors` 및 `workflows`를 정의하고, 다음 예제와 같이 `includeFiles`를 사용하여 *maverics.yaml* 파일에서 참조합니다.
-
-```yaml
-includeFiles:
-  - workflow/sessionAbstraction.yaml
-  - connector/AzureAD-saml.yaml
-  - connector/siteminder.yaml
-  ```
-
-이 자습서에서는 단일 *maverics.yaml* 구성 파일을 사용합니다.
-
-## <a name="use-azure-key-vault-as-your-secrets-provider"></a>Azure Key Vault를 비밀 공급자로 사용
-
-### <a name="manage-secrets"></a>비밀 관리
-
-비밀을 로드하기 위해, Maverics는 다양한 비밀 관리 솔루션과 통합할 수 있습니다. 현재 통합에는 파일, Hashicorp Vault 및 Azure Key Vault가 포함됩니다. 비밀 관리 솔루션이 지정되지 않으면 Maverics는 기본적으로 *maverics.yaml* 파일에서 일반 텍스트로 비밀을 로드합니다.
-
-*maverics.yaml* 구성 파일에서 값을 비밀로 선언하려면 비밀을 꺾쇠 괄호로 묶습니다.
-
-  ```yaml
-  connectors:
-  - name: AzureAD
-    type: AzureAD
-    apiToken: <AzureADAPIToken>
-    oauthClientID: <AzureADOAuthClientID>
-    oauthClientSecret: <AzureADOAuthClientSecret>
-  ```
-
-### <a name="load-secrets-from-a-file"></a>파일에서 비밀 로드
-
-1. 파일에서 비밀을 로드하려면 다음을 사용하여 */etc/maverics/maverics.env* 파일에 환경 변수 `MAVERICS_SECRET_PROVIDER`를 추가합니다.
-
-   `MAVERICS_SECRET_PROVIDER=secretfile:///<PATH TO SECRETS FILE>`
-
-2. 다음을 실행하여 Mavericks 서비스를 다시 시작합니다.
-
-   `sudo systemctl restart maverics`
-
-*secrets.yaml* 파일 콘텐츠에 `secrets`를 원하는 만큼 채울 수 있습니다.
-
-```yaml
-secrets:
-  AzureADAPIToken: aReallyGoodToken
-  AzureADOAuthClientID: aReallyUniqueID
-  AzureADOAuthClientSecret: aReallyGoodSecret
 ```
-### <a name="set-up-an-azure-key-vault"></a>Azure Key Vault 설정
 
-Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 있습니다.
+TLS가 예상대로 구성되었는지 확인하려면 Maverics 서비스를 다시 시작하고 상태 엔드포인트에 대한 요청을 만듭니다. 브라우저에서 https://sonar.maverics.com/status 를 요청합니다.
 
-**Azure Portal 사용**
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. [새 키 자격 증명 모음을 만듭니다.](../../key-vault/general/quick-create-portal.md)
-1. [키 자격 증명 모음에 비밀을 추가합니다.](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
-1. [Azure AD에 애플리케이션을 등록합니다](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
-1. [비밀을 사용하도록 애플리케이션에 권한을 부여합니다](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+## <a name="step-2-proxy-an-application"></a>2단계: 애플리케이션 프록시 구성
 
-**Azure CLI 사용**
+다음으로 `appgateways`를 사용하여 Orchestrator에서 기본 프록시를 구성합니다. 이 단계를 통해 Orchestrator와 보호된 애플리케이션이 연결되어 있는지 확인할 수 있습니다.
 
-1. [Azure CLI](/cli/azure/install-azure-cli)를 열고 다음 명령을 입력합니다.
+이제 구성 파일에는 다음 코드가 포함되어 있습니다.
 
-    ```azurecli
-    az login
-    ```
+```yaml
+version: 0.1
+listenAddress: ":443"
 
-1. 다음 명령을 실행하여 새 키 자격 증명 모음을 만듭니다.
-    ```azurecli
-    az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
-    ```
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
 
-1. 다음 명령을 실행하여 키 자격 증명 모음에 비밀을 추가합니다.
-    ```azurecli
-    az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
-    ```
+appgateways:
+  - name: sonar
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
+```
 
-1. 다음 명령을 실행하여 Azure AD에 애플리케이션을 등록합니다.
-    ```azurecli
-    az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
-    ```
+프록시가 예상대로 작동하는지 확인하려면 Maverics 서비스를 다시 시작하고 Maverics 프록시를 통해 애플리케이션에 대한 요청을 만듭니다. 브라우저에서 https://sonar.maverics.com 을 요청합니다. 필요에 따라 특정 애플리케이션 리소스(예: `https://sonar.maverics.com/RESOURCE`)에 대한 요청을 만들 수 있습니다. 여기서 `RESOURCE`는 보호된 업스트림 앱의 유효한 애플리케이션 리소스입니다.
 
-1. 다음 명령을 실행하여 비밀을 사용하도록 애플리케이션에 권한을 부여합니다.
-    ```azurecli
-    az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
-    #APPID can be found in the azure-credentials.json
-    generated in the previous step
-    ```
+## <a name="step-3-register-an-enterprise-application-in-azure-ad"></a>3단계: Azure AD에서 엔터프라이즈 애플리케이션 등록
 
-1. Azure Key Vault에서 비밀을 로드하려면 *azure-credentials.json* 파일에 있는 자격 증명을 사용하여 */etc/maverics/maverics.env* 파일의 환경 변수 `MAVERICS_SECRET_PROVIDER`를 다음과 같은 형식으로 설정합니다.
- 
-   `MAVERICS_SECRET_PROVIDER='azurekeyvault://<KEYVAULT NAME>.vault.azure.net?clientID=<APPID>&clientSecret=<PASSWORD>&tenantID=<TENANT>'`
+이제 Azure AD에서 최종 사용자를 인증하는 데 사용할 새 엔터프라이즈 애플리케이션을 만듭니다.
 
-1. Maverics 서비스를 다시 시작합니다. `sudo systemctl restart maverics`
+> [!NOTE]
+> 조건부 액세스와 같은 Azure AD 기능을 사용하는 경우 온-프레미스 애플리케이션마다 엔터프라이즈 애플리케이션을 만드는 것이 중요합니다. 이렇게 하면 앱별 조건부 액세스, 앱별 위험 평가, 앱별 할당된 권한 등이 허용됩니다. 일반적으로 Azure AD의 엔터프라이즈 애플리케이션은 Maverics의 Azure 커넥터에 매핑됩니다.
 
-## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Azure AD에서 SAML 기반 SSO를 사용하도록 애플리케이션 구성
+Azure AD에서 엔터프라이즈 애플리케이션을 등록하려면 다음을 수행합니다.
 
-1. Azure AD 테넌트에서 **엔터프라이즈 애플리케이션** 으로 이동하여 **Maverics Identity Orchestrator SAML Connector** 를 검색한 다음, 선택합니다.
+1. Azure AD 테넌트에서 **엔터프라이즈 애플리케이션** 으로 이동하여 **새 애플리케이션** 을 선택합니다. Azure AD 갤러리에서 **Maverics Identity Orchestrator SAML Connector** 를 검색하여 선택합니다.
 
-1. Maverics Identity Orchestrator SAML Connector **속성** 창에서 **사용자 할당이 필요합니까?** 를 **아니요** 로 설정하여 애플리케이션이 새로 마이그레이션된 사용자에 대해 작동하도록 설정합니다.
+1. Maverics Identity Orchestrator SAML Connector **속성** 창에서 **사용자 할당이 필요합니까?** 를 **아니요** 로 설정하여 애플리케이션이 디렉터리의 모든 사용자에게 작동하도록 설정합니다.
 
 1. Maverics Identity Orchestrator SAML Connector **개요** 창에서 **Single Sign-On 설정** 을 선택하고 **SAML** 을 선택합니다.
 
@@ -211,246 +152,196 @@ Azure Key Vault는 Azure Portal 또는 Azure CLI를 사용하여 설정할 수 �
 
    !["기본 SAML 구성" 편집 단추 스크린샷](common/edit-urls.png)
 
-1. 다음 형식으로 URL을 입력하여 **엔터티 ID** 를 입력합니다. `https://<SUBDOMAIN>.maverics.org` 엔터티 ID는 테넌트의 앱에서 고유해야 합니다. Maverics의 구성에 포함되도록 여기에 입력된 값을 저장합니다.
+1. **엔터티 ID** `https://sonar.maverics.com`을 입력합니다. 엔터티 ID는 테넌트의 앱에서 고유해야 하며 임의의 값을 사용할 수 있습니다. 다음 섹션에서 Azure 커넥터에 대한 `samlEntityID` 필드를 정의할 때 이 값을 사용합니다.
 
-1. **회신 URL** 을 다음과 같은 형식으로 입력합니다. `https://<AZURECOMPANY.COM>/<MY_APP>/` 
+1. **회신 URL** `https://sonar.maverics.com/acs`를 입력합니다. 다음 섹션에서 Azure 커넥터에 대한 `samlConsumerServiceURL` 필드를 정의할 때 이 값을 사용합니다.
 
-1. **로그온 URL** 을 다음과 같은 형식으로 입력합니다. `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` 
+1. **로그인 URL** `https://sonar.maverics.com/`을 입력합니다. 이 필드는 Maverics에서 사용되지 않지만, Azure AD에서 사용자가 Azure AD 내 앱 포털을 통해 애플리케이션에 액세스할 수 있도록 설정하는 데 필요합니다.
 
 1. **저장** 을 선택합니다.
 
-1. **SAML 서명 인증서** 섹션에서, **복사** 단추를 선택하여 **앱 페더레이션 메타데이터 URL** 을 복사한 다음, 컴퓨터에 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **복사** 단추를 선택하여 **앱 페더레이션 메타데이터 URL** 값을 복사한 다음, 컴퓨터에 저장합니다.
 
-    !["SAML 서명 인증서" 복사 단추 스크린샷](common/copy-metadataurl.png)
+   !["SAML 서명 인증서" 복사 단추 스크린샷](common/copy-metadataurl.png)
 
-## <a name="configure-maverics-identity-orchestrator-azure-ad-saml-connector"></a>Maverics Identity Orchestrator Azure AD SAML Connector 구성
+## <a name="step-4-authenticate-via-azure-and-authorize-access-to-the-application"></a>4단계: Azure를 통해 인증하고 애플리케이션에 대한 액세스 권한 부여
 
-Maverics Identity Orchestrator Azure AD Connector는 OpenID Connect 및 SAML Connect를 지원합니다. 커넥터를 구성하려면 다음을 수행합니다. 
+다음으로 방금 만든 엔터프라이즈 애플리케이션을 사용하여 Maverics에서 Azure 커넥터를 구성합니다. 이 `connectors` 구성을 `idps` 블록과 쌍으로 사용하면 Orchestrator에서 사용자를 인증할 수 있습니다.
 
-1. SAML 기반 SSO를 사용하려면 `authType: saml`을 설정합니다.
-
-1. `samlMetadataURL`의 값을 다음 형식으로 만듭니다. `samlMetadataURL:https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>`
-
-1. 사용자가 Azure 자격 증명을 사용하여 로그인한 후 Azure가 앱에서 다시 리디렉션될 URL을 정의합니다. 다음 형식을 사용합니다. `samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>`
-
-1. 이전에 구성된 EntityID `samlEntityID: https://<SUBDOMAIN>.maverics.org`에서 값을 복사합니다.
-
-1. Azure AD가 SAML 응답을 게시하는 데 사용할 회신 URL의 값을 복사합니다. `samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>`
-
-1. [OpenSSL 도구](https://www.openssl.org/source/)를 사용하여 Mavericks Identity Orchestrator 세션 정보를 보호하는 데 사용되는 JWT(JSON Web Token) 서명 키를 생성합니다.
-
-    ```console 
-    openssl rand 64 | base64
-    ```
-1. 응답을 `jwtSigningKey` config 속성 `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==`에 복사합니다.
-
-## <a name="attributes-and-attribute-mapping"></a>특성 및 특성 매핑
-특성 매핑은 사용자가 설정된 후 원본 온-프레미스 사용자 디렉터리에서 Azure AD 테넌트로 사용자 특성 매핑을 정의하는 데 사용됩니다.
-
-특성은 클레임의 애플리케이션에 반환되거나, 세션 쿠키에 전달되거나, HTTP 헤더 변수의 애플리케이션에 전달될 수 있는 사용자 데이터를 결정합니다.
-
-## <a name="configure-the-maverics-identity-orchestrator-azure-ad-saml-connector-yaml-file"></a>Maverics Identity Orchestrator Azure AD SAML Connector YAML 파일 구성
-
-Maverics Identity Orchestrator Azure AD Connector 구성은 다음과 같습니다.
+이제 구성 파일에는 다음 코드가 포함되어 있습니다. `METADATA_URL`을 이전 단계의 앱 페더레이션 메타데이터 URL 값으로 바꿔야 합니다.
 
 ```yaml
-- name: AzureAD
-  type: azure
-  authType: saml
-  samlMetadataURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>
-  samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>
-  samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>
-  jwtSigningKey: <SIGNING KEY>
-  samlEntityID: https://<SUBDOMAIN>.maverics.org
-  attributeMapping:
-    displayName: username
-    mailNickname: givenName
-    givenName: givenName
-    surname: sn
-    userPrincipalName: mail
-    password: password
-```
+version: 0.1
+listenAddress: ":443"
 
-## <a name="migrate-users-to-an-azure-ad-tenant"></a>사용자를 Azure AD 테넌트로 마이그레이션
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
 
-이 구성에 따라 CA SiteMinder, Oracle Access Manager, IBM Tivoli 등의 웹 액세스 관리 제품의 사용자를 점진적으로 마이그레이션할 수 있습니다. LDAP(Lightweight Directory Access Protocol) 디렉터리 또는 SQL 데이터베이스에서 마이그레이션할 수도 있습니다.
+idps:
+  - name: azureSonarApp
 
-### <a name="configure-your-application-permissions-in-azure-ad-to-create-users"></a>사용자를 만들기 위해 Azure AD에서 애플리케이션 권한 구성
+appgateways:
+  - name: sonar
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
 
-1. Azure AD 테넌트에서 `App registrations`로 이동하여 **Maverics Identity Orchestrator SAML Connector** 애플리케이션을 선택합니다.
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
 
-1. **Maverics Identity Orchestrator SAML Connector | 인증서 및 비밀** 창에서 `New client secret`을 선택한 다음, 만료 옵션을 선택합니다. **복사** 단추를 선택하고 비밀을 복사하여 컴퓨터에 저장합니다.
-
-1. **Maverics Identity Orchestrator SAML Connector | 사용 권한** 창에서 **권한 추가** 를 선택한 다음, **API 사용 권한 요청** 창에서 **Microsoft Graph** 및 **애플리케이션 권한** 을 선택합니다. 
-
-1. 다음 화면에서 **User.ReadWrite.All** 을 선택하고 **권한 추가** 를 선택합니다. 
-
-1. **API 권한** 창으로 돌아가서 **관리자 동의 허용** 을 선택합니다.
-
-### <a name="configure-the-maverics-identity-orchestrator-saml-connector-yaml-file-for-user-migration"></a>사용자 마이그레이션을 위해 Maverics Identity Orchestrator SAML Connector YAML 구성
-
-사용자 마이그레이션 워크플로를 사용하도록 설정하려면 구성 파일에 다음 속성을 추가합니다.
-1. **Azure Graph URL** 을 다음과 같은 형식으로 입력합니다. `graphURL: https://graph.microsoft.com`
-1. **OAuth 토큰 URL** 을 다음과 같은 형식으로 입력합니다. `oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>`
-1. 이전에 생성된 클라이언트 암호를 다음과 같은 형식으로 입력합니다. `oauthClientSecret: <CLIENT SECRET>`
-
-
-최종 Maverics Identity Orchestrator Azure AD Connector 구성 파일은 다음과 같습니다.
-
-```yaml
-- name: AzureAD
-  type: azure
-  authType: saml
-  samlMetadataURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>
-  samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>
-  samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>
-  jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==
-  samlEntityID: https://<SUBDOMAIN>.maverics.org
-  graphURL: https://graph.microsoft.com
-  oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/oauth2/v2.0/token
-  oauthClientID: <APP ID>
-  oauthClientSecret: <NEW CLIENT SECRET>
-  attributeMapping:
-    displayName: username
-    mailNickname: givenName
-    givenName: givenName
-    surname: sn
-    userPrincipalName: mail
-    password: password
-```
-
-### <a name="configure-maverics-zero-code-connector-for-siteminder"></a>SiteMinder에 대한 Maverics Zero Code Connector 구성
-
-SiteMinder 커넥터를 사용하여 사용자를 Azure AD 테넌트로 마이그레이션합니다. 새로 만든 Azure AD ID 및 자격 증명을 사용하여 SiteMinder로 보호되는 레거시 온-프레미스 애플리케이션에 사용자를 로그인합니다.
-
-이 자습서에서는 양식 기반 인증과 `SMSESSION` 쿠키를 사용하여 레거시 애플리케이션을 보호하도록 SiteMinder가 구성되었습니다. HTTP 헤더를 통해 인증 및 세션 정보를 사용하는 앱과 통합하려면 헤더 에뮬레이션 구성을 커넥터에 추가해야 합니다.
-
-이 예제에서는 다음과 같이 `username` 특성을 `SM_USER` HTTP 헤더에 매핑합니다.
-
-```yaml
-  headers:
-    SM_USER: username
-```
-
-`proxyPass`를 요청이 프록시 설정되는 위치로 설정합니다. 일반적으로 이 위치는 보호된 애플리케이션의 호스트입니다.
-
-`loginPage`는 인증을 위해 사용자를 리디렉션할 때 SiteMinder에서 현재 사용하는 로그인 양식의 URL과 일치해야 합니다.
-
-```yaml
 connectors:
-- name: siteminder-login-form
-  type: siteminder
-  loginType: form
-  loginPage: /siteminderagent/forms/login.fcc
-  proxyPass: http://host.company.com
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 ```
 
-### <a name="configure-maverics-zero-code-connector-for-ldap"></a>LDAP에 대한 Maverics Zero Code Connector 구성
+인증이 예상대로 작동하는지 확인하려면 Maverics 서비스를 다시 시작하고 Maverics 프록시를 통해 애플리케이션 리소스에 대한 요청을 만듭니다. 리소스에 액세스하려면 인증이 필요하도록 Azure로 리디렉션됩니다.
 
-애플리케이션이 SiteMinder 같은 WAM(웹 액세스 관리) 제품으로 보호되는 경우 사용자 ID 및 특성은 일반적으로 LDAP 디렉터리에 저장됩니다.
+## <a name="step-5-add-headers-for-seamless-application-access"></a>5단계: 원활한 애플리케이션 액세스를 위한 헤더 추가
 
-이 커넥터 구성은 LDAP 디렉터리에 연결하는 방법을 보여줍니다. 커넥터는 마이그레이션 워크플로 중에 올바른 사용자 프로필 정보를 수집하고 해당 사용자를 Azure AD에서 만들 수 있도록 SiteMinder의 사용자 저장소로 구성됩니다.
+아직 헤더를 업스트림 애플리케이션으로 보내지 않습니다. 업스트림 애플리케이션이 사용자를 식별할 수 있도록 Maverics 프록시를 통과하는 `headers`를 요청에 추가하겠습니다.
 
-* `baseDN`은 LDAP 검색을 수행할 디렉터리의 위치를 지정합니다.
-
-* `url`은 연결할 LDAP 서버의 주소 및 포트입니다.
-
-* `serviceAccountUsername`은 LDAP 서버에 연결하는 데 사용되는 사용자 이름으로, 일반적으로 바인딩 DN으로 표현됩니다(예: `CN=Directory Manager`).
-
-* `serviceAccountPassword`는 LDAP 서버 연결에 사용되는 암호입니다. 이 값은 이전에 구성한 Azure Key Vault 인스턴스에 저장됩니다.  
-
-* `userAttributes`는 쿼리할 사용자 관련 특성 목록을 정의합니다. 이러한 특성은 나중에 해당하는 Azure AD 특성에 매핑됩니다.
+이제 구성 파일에는 다음 코드가 포함되어 있습니다.
 
 ```yaml
-- name: company-ldap
-  type: ldap
-  url: "ldap://ldap.company.com:389"
-  baseDN: ou=People,o=company,c=US
-  serviceAccountUsername: uid=admin,ou=Admins,o=company,c=US
-  serviceAccountPassword: <vaulted-password>
-  userAttributes:
-    - uid
-    - cn
-    - givenName
-    - sn
-    - mail
-    - mobile
+version: 0.1
+listenAddress: ":443"
+
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
+
+idps:
+  - name: azureSonarApp
+
+appgateways:
+  - name: sonar
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
+
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
+
+    headers:
+      email: azureSonarApp.name
+      firstname: azureSonarApp.givenname
+      lastname: azureSonarApp.surname
+
+connectors:
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 ```
 
-### <a name="configure-the-migration-workflow"></a>마이그레이션 워크플로 구성
+인증이 예상대로 작동하는지 확인하려면 Maverics 프록시를 통해 애플리케이션 리소스에 대한 요청을 만듭니다. 이제 보호된 애플리케이션이 요청에서 헤더를 받습니다. 
 
-마이그레이션 워크플로 구성은 Maverics가 SiteMinder 또는 LDAP에서 Azure AD로 사용자를 마이그레이션하는 방법을 결정합니다.
+애플리케이션에 다른 헤더가 필요한 경우 헤더 키를 자유롭게 편집할 수 있습니다. Azure AD에서 SAML 흐름의 일부로 다시 들어오는 모든 클레임을 헤더에 사용할 수 있습니다. 예를 들어 또 다른 헤더 `secondary_email: azureSonarApp.email`을 포함할 수 있습니다. 여기서 `azureSonarApp`은 커넥터 이름이고 `email`은 Azure AD에서 반환된 클레임입니다. 
 
-이 워크플로는 다음과 같은 작업을 수행합니다.
-- SiteMinder 커넥터를 사용하여 SiteMinder 로그인을 프록시합니다. 사용자 자격 증명은 SiteMinder 인증을 통해 유효성 검사 후 워크플로의 후속 단계에 전달됩니다.
-- SiteMinder 사용자 저장소에서 사용자 프로필 특성을 검색합니다.
-- Azure AD 테넌트에 사용자를 만들어 달라고 Microsoft Graph API에 요청합니다.
+## <a name="step-6-work-with-multiple-applications"></a>6단계: 여러 애플리케이션과 연동
 
-마이그레이션 워크플로를 구성하려면 다음을 수행합니다.
+이번에는 서로 다른 호스트에 있는 여러 애플리케이션으로 프록시를 구성하는 데 필요한 작업을 살펴보겠습니다. 이 단계를 수행하기 위해 또 다른 App Gateway, Azure AD의 또 다른 엔터프라이즈 애플리케이션 그리고 또 다른 커넥터를 구성합니다.
 
-1. 워크플로의 이름을 지정합니다(예: **SiteMinder에서 Azure AD로 마이그레이션**).
-1. 요청에 대한 응답으로 해당 워크플로의 `actions`를 트리거하는 워크플로가 노출되는 HTTP 경로인 `endpoint`를 지정합니다. `endpoint`는 일반적으로 프록시 설정된 앱(예: `/my_app`)에 해당합니다. 이 값은 선행 슬래시와 후행 슬래시를 모두 포함해야 합니다.
-1. 워크플로에 적절한 `actions`를 추가합니다.
+이제 구성 파일에는 다음 코드가 포함되어 있습니다.
 
-   a. SiteMinder 커넥터에 대한 `login` 메서드를 정의합니다. 커넥터 값은 커넥터 구성의 이름 값과 일치해야 합니다.
+```yaml
+version: 0.1
+listenAddress: ":443"
 
-   b. LDAP 커넥터에 대한 `getprofile` 메서드를 정의합니다.
+tls:
+  maverics:
+    certFile: /etc/maverics/maverics.crt
+    keyFile: /etc/maverics/maverics.key
 
-   c.  AzureAD 커넥터에 대한 `createuser` 메서드를 정의합니다.
+idps:
+  - name: azureSonarApp
+  - name: azureConnectulumApp
 
-    ```yaml
-      workflows:
-      - name: SiteMinder to Azure AD Migration
-        endpoint: /my_app/
-        actions:
-        - connector: siteminder-login-form
-          method: login
-        - connector: company-ldap
-          method: getprofile
-        - connector: AzureAD
-          method: createuser
-    ```
-### <a name="verify-the-migration-workflow"></a>마이그레이션 워크플로 확인
+appgateways:
+  - name: sonar
+    host: sonar.maverics.com
+    location: /
+    # Replace https://app.sonarsystems.com with the address of your protected application
+    upstream: https://app.sonarsystems.com
 
-1. Maverics 서비스가 아직 실행되고 있지 않은 경우  명령을 실행하여 시작합니다. 
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureSonarApp.authenticated}}", "true"]
 
-   `sudo systemctl start maverics`
+    headers:
+      email: azureSonarApp.name
+      firstname: azureSonarApp.givenname
+      lastname: azureSonarApp.surname
 
-1. 프록시 설정된 로그인 URL `http://host.company.com/my_app`으로 이동합니다.
-1. SiteMinder로 보호되는 동안 애플리케이션에 로그인하는 데 사용되는 사용자 자격 증명을 입력합니다.
-4. **홈** > **사용자 | 모든 사용자** 로 이동하여 Azure AD 테넌트에 사용자가 만들어졌는지 확인합니다.  
+  - name: connectulum
+    host: connectulum.maverics.com
+    location: /
+    # Replace https://app.connectulum.com with the address of your protected application
+    upstream: https://app.connectulum.com
 
-### <a name="configure-the-session-abstraction-workflow"></a>세션 추상화 워크플로 구성
+    policies:
+      - resource: /
+        allowIf:
+          - equal: ["{{azureConnectulumApp.authenticated}}", "true"]
 
-세션 추상화 워크플로는 레거시 온-프레미스 웹 애플리케이션에 대한 인증 및 액세스 제어를 Azure AD 테넌트로 이동합니다.
+    headers:
+      email: azureConnectulumApp.name
+      firstname: azureConnectulumApp.givenname
+      lastname: azureConnectulumApp.surname
 
-Azure 커넥터는 `login` 메서드를 사용하여 사용자를 로그인 URL로 리디렉션하며, 세션이 없다고 가정합니다.
+connectors:
+  - name: azureSonarApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://sonar.maverics.com/acs
+    samlEntityID: https://sonar.maverics.com
 
-인증된 후 결과로 생성된 세션 토큰이 Maverics에 전달됩니다. SiteMinder 커넥터의 `emulate` 메서드는 쿠키 기반 세션 또는 헤더 기반 세션을 에뮬레이션한 다음, 애플리케이션에 필요한 추가 특성으로 요청을 데코레이트하는 데 사용됩니다.
+  - name: azureConnectulumApp
+    type: azure
+    authType: saml
+    # Replace METADATA_URL with the App Federation Metadata URL
+    samlMetadataURL: METADATA_URL
+    samlConsumerServiceURL: https://connectulum.maverics.com/acs
+    samlEntityID: https://connectulum.maverics.com
+```
 
-1. 워크플로에 이름을 지정합니다(예: **SiteMinder 세션 추상화**).
-1. 프록시 설정되는 앱에 해당하는 `endpoint`를 지정합니다. 이 값은 선행 슬래시와 후행 슬래시를 모두 포함해야 합니다(예: `/my_app/`).
-1. 워크플로에 적절한 `actions`를 추가합니다.
+이 코드는 App Gateway 정의에 `host` 필드를 추가합니다. `host` 필드를 사용하면 Maverics Orchestrator에서 트래픽을 프록시할 업스트림 호스트를 구분할 수 있습니다.
 
-   a. Azure 커넥터에 대한 `login` 메서드를 정의합니다. `connector` 값은 커넥터 구성의 `name` 값과 일치해야 합니다.
+새로 추가된 App Gateway가 예상대로 작동하는지 확인하려면 https://connectulum.maverics.com 에 대한 요청을 만듭니다.
 
-   b. SiteMinder 커넥터에 대한 `emulate` 메서드를 정의합니다.
+## <a name="advanced-scenarios"></a>고급 시나리오
 
-     ```yaml
-      - name: SiteMinder Session Abstraction
-        endpoint: /my_app/
-        actions:
-      - connector: azure
-        method: login
-      - connector: siteminder-login-form
-        method: emulate
-     ```
-### <a name="verify-the-session-abstraction-workflow"></a>세션 추상화 워크플로 확인
+### <a name="identity-migration"></a>ID 마이그레이션
 
-1. 프록시 설정된 애플리케이션 URL `https://<AZURECOMPANY.COM>/<MY_APP>`으로 이동합니다. 
-    
-    프록시 설정된 로그인 페이지로 리디렉션됩니다.
+수명이 종료된 웹 액세스 관리 도구에 불만이 많지만, 대량 암호 재설정 없이 사용자를 마이그레이션할 방법이 없나요? Maverics Orchestrator는 `migrationgateways`를 사용하여 ID 마이그레이션을 지원합니다.
 
-1. Azure AD 사용자 자격 증명을 입력합니다.
+### <a name="web-server-gateways"></a>웹 서버 게이트웨이
 
-   SiteMinder에서 직접 인증한 것처럼 애플리케이션으로 리디렉션됩니다.
+Maverics Orchestrator를 통해 네트워크 및 프록시 트래픽을 재작업하고 싶지 않은지요? 문제 없습니다. Maverics Orchestrator를 웹 서버 게이트웨이(모듈)와 페어링하면 프록시 없이 동일한 솔루션을 제공할 수 있습니다.
+
+## <a name="wrap-up"></a>마무리
+
+Maverics Orchestrator를 설치하고, Azure AD에서 엔터프라이즈 애플리케이션을 만들고 구성하고, 인증을 요구하고 정책을 적용하는 한편 보호된 애플리케이션에 프록시하도록 Orchestrator를 구성했습니다. Maverics Orchestrator를 분산 ID 관리 사용 사례에 사용할 수 있는 방법에 대한 자세한 내용은 [Strata에 문의](mailto:sales@strata.io)하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)

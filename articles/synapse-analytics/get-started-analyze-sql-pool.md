@@ -9,18 +9,34 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/18/2020
+ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426164"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654631"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
-Azure Synapse Analytics는 전용 SQL 풀을 사용하여 데이터를 분석하는 기능을 제공합니다. 이 자습서에서는 NYC Taxi 데이터를 사용하여 전용 SQL 풀의 기능을 탐색합니다.
+이 자습서에서는 NYC Taxi 데이터를 사용하여 전용 SQL 풀의 기능을 탐색합니다.
 
+## <a name="create-a-dedicated-sql-pool"></a>전용 SQL 풀 만들기
+
+1. Synapse Studio의 왼쪽 창에서 **관리** > **SQL 풀** 을 차례로 선택합니다.
+1. **새로 만들기** 를 선택합니다.
+1. **SQL 풀 이름** 에 대해 **SQLPOOL1** 을 선택합니다.
+1. **성능 수준** 의 경우 **DW100C** 를 선택합니다.
+1. **검토 + 만들기** > **만들기** 를 차례로 선택합니다. 몇 분 안에 전용 SQL 풀이 준비됩니다. 
+
+전용 SQL 풀이 **SQLPOOL1** 이라고도 하는 SQL 데이터베이스와 연결됩니다.
+1. **데이터** > **작업 영역** 으로 이동합니다.
+1. **SQLPOOL1** 이라는 데이터베이스가 표시되어야 합니다. 표시되지 않으면 **새로 고침** 을 클릭합니다.
+
+전용 SQL 풀은 활성 상태인 동안 청구 가능한 리소스를 사용합니다. 비용을 줄이기 위해 풀을 일시 중지할 수 있습니다.
+
+> [!NOTE] 
+> 작업 영역에서 새 전용 SQL 풀(이전의 SQL DW)을 만들 때 전용 SQL 풀 프로비저닝 페이지가 열립니다. 프로비저닝은 논리 SQL 서버에서 수행됩니다.
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>NYC Taxi 데이터를 SQLPOOL1에 로드
 
 1. Synapse Studio에서 **개발** 허브로 이동하여 **+** 단추를 클릭해 새 리소스를 추가한 다음, 새 SQL 스크립트를 만듭니다.
@@ -77,7 +93,6 @@ Azure Synapse Analytics는 전용 SQL 풀을 사용하여 데이터를 분석하
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>전용 SQL 풀에서 NYC Taxi 데이터 검색
 
 1. Synapse Studio에서 **데이터** 허브로 이동합니다.
-1. **SQLPOOL1** 이라는 데이터베이스가 표시되어야 합니다. 표시되지 않으면 **새로 고침** 을 클릭합니다.
 1. **SQLPOOL1** > **테이블** 로 이동합니다. 
 3. 마우스 오른쪽 단추로 **dbo.Trip** 테이블을 클릭하고, **새 SQL 스크립트** > **상위 100개 행 선택** 을 차례로 선택합니다.
 4. 새 SQL 스크립트가 만들어져 실행될 때까지 기다립니다.
@@ -103,4 +118,4 @@ Azure Synapse Analytics는 전용 SQL 풀을 사용하여 데이터를 분석하
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Spark를 사용하여 분석](get-started-analyze-spark.md)
+> [Azure Storage 계정의 데이터 분석](get-started-analyze-storage.md)

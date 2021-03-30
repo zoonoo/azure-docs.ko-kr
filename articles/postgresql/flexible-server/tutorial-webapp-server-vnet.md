@@ -6,14 +6,14 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 03/18/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ff9af90ca0b6b80ffece5ccd7d919c1d93e210c4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546571"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657589"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for PostgreSQL - 유연한 서버 만들기
 
@@ -22,9 +22,10 @@ ms.locfileid: "92546571"
 
 이 자습서에서는 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
 
-이 자습서에서는 다음을 수행합니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 >[!div class="checklist"]
 > * 가상 네트워크에 PostgreSQL 유연한 서버 만들기
+> * App Service에 위임할 서브넷 만들기
 > * 웹앱 만들기
 > * 가상 네트워크에 웹앱 추가
 > * 웹앱에서 Postgres에 연결 
@@ -44,7 +45,7 @@ az login
 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. [az account set](/cli/azure/account) 명령을 사용하여 계정에 속한 특정 구독 ID를 선택합니다. 구독에 대한 **az login** 출력의 **구독 ID** 속성을 구독 ID 자리 표시자로 바꿉니다.
 
 ```azurecli
-az account set --subscription <subscription id>
+az account set --subscription <subscription ID>
 ```
 
 ## <a name="create-a-postgresql-flexible-server-in-a-new-virtual-network"></a>새 가상 네트워크에 PostgreSQL 유연한 서버 만들기
@@ -68,14 +69,21 @@ az postgres flexible-server create --resource-group myresourcegroup --location w
 >  az postgres flexible-server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 >  ```
 
+## <a name="create-subnet-for-app-service-endpoint"></a>App Service 엔드포인트에 대한 서브넷 만들기
+이제 App Service 웹앱 엔드포인트에 위임된 서브넷이 있어야 합니다. 다음 명령을 실행하여 데이터베이스 서버가 생성된 것과 동일한 가상 네트워크에 새 서브넷을 만듭니다. 
+
+```azurecli
+az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
+```
+웹앱을 만든 후 웹앱에 대한 VNET 통합 규칙을 추가하는 데 필요하므로 이 명령 뒤에 가상 네트워크 이름과 서브넷 이름을 기록해 둡니다. 
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
-이 섹션에서는 App Service 앱에서 앱 호스트를 만들고, 이 앱을 Postgres 데이터베이스에 연결한 다음, 코드를 해당 호스트에 배포합니다. 터미널에서 애플리케이션 코드의 리포지토리 루트에 있는지 확인합니다.
+이 섹션에서는 App Service 앱에서 앱 호스트를 만들고, 이 앱을 Postgres 데이터베이스에 연결한 다음, 코드를 해당 호스트에 배포합니다. 터미널에서 애플리케이션 코드의 리포지토리 루트에 있는지 확인합니다. 참고: 기본 요금제에서는 VNET 통합이 지원되지 않습니다. 표준 또는 프리미엄을 사용하세요. 
 
 az webapp up 명령을 사용하여 App Service 앱(호스트 프로세스) 만들기
 
 ```azurecli
-az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku B1 --name mywebapp
+az webapp up --resource-group myresourcegroup --location westus2 --plan testappserviceplan --sku P2V2 --name mywebapp
 ```
 
 > [!NOTE]
@@ -85,7 +93,6 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 이 명령은 다음 작업을 수행하며 몇 분 정도 걸릴 수 있습니다.
 
 - 리소스 그룹이 없는 경우 생성합니다. (이 명령에서는 이전에 데이터베이스를 만든 것과 동일한 리소스 그룹을 사용합니다.)
-- ```testappserviceplan```이라는 App Service 요금제가 기본 가격 책정 계층(B1)에 없는 경우 이 요금제를 만듭니다. --plan 및 --sku는 선택 사항입니다.
 - 없는 경우 App Service 앱을 만듭니다.
 - 아직 사용하도록 설정되지 않은 경우 기본 로깅을 앱에 사용하도록 설정합니다.
 - 빌드 자동화를 사용하도록 설정된 ZIP 배포를 사용하여 리포지토리를 업로드합니다.
@@ -94,7 +101,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 **az webapp vnet-integration** 명령을 사용하여 지역 가상 네트워크 통합을 웹앱에 추가합니다. <vnet-name> 및 <subnet-name>을 유연한 서버에서 사용하는 가상 네트워크 및 서브넷 이름으로 바꿉니다.
 
 ```azurecli
-az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
+az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet VNETName --subnet webappsubnetName
 ```
 
 ## <a name="configure-environment-variables-to-connect-the-database"></a>데이터베이스를 연결하도록 환경 변수 구성

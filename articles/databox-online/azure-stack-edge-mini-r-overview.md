@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 7c28eb604de4f6e23f37b6ca2fcab3fdc976f237
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 14a425c3aca3a1c296b96855b2c920d558e89f9e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102125182"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585981"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>Azure Stack Edge Mini R이란?
 
@@ -79,6 +79,7 @@ Azure Stack Edge Mini R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edg
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Mini R 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
 
+Azure Stack Edge 서비스는 비 지역 서비스입니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 참조하세요. Azure Stack Edge 서비스는 특정 Azure 지역에 대한 종속성이 없으므로 영역 전체 중단 및 지역 전체 중단에 탄력적으로 대처할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

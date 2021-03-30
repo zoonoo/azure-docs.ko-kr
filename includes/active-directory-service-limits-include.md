@@ -5,22 +5,22 @@ services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 9be85a7da67fa659e29d802d1f77fa09008f4428
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 1102bcc18165d3bc705755f1bbb6faecddec4e91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371318"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613055"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
 | 범주 | 제한 |
 | --- | --- |
 | 테넌트 | 단일 사용자는 멤버 또는 게스트로 최대 500개의 Azure AD 테넌트에 속할 수 있습니다.<br/>단일 사용자는 최대 200개의 디렉터리를 만들 수 있습니다. |
-| 도메인 | 관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 모든 도메인을 온-프레미스 Active Directory와 페더레이션하도록 설정하는 경우 450개 이하의 도메인 이름을 각 테넌트에 추가할 수 있습니다. |
+| 도메인 | 관리되는 도메인 이름은 5000개까지 추가할 수 있습니다. 모든 도메인을 온-프레미스 Active Directory와 페더레이션하도록 설정하는 경우 2500개 이하의 도메인 이름을 각 테넌트에 추가할 수 있습니다. |
 |리소스 |<ul><li>기본적으로 Azure Active Directory 평가판 버전의 사용자는 최대 50,000개의 Azure AD 리소스를 단일 테넌트에 만들 수 있습니다. 확인된 도메인이 하나 이상 있는 경우 조직의 기본 Azure AD 서비스 할당량은 Azure AD 리소스 300,000개로 확장됩니다. 셀프 서비스 등록으로 만들어진 조직에 대한 Azure AD 서비스 할당량은 내부 관리자 인수를 수행하고 조직이 하나 이상의 확인된 도메인이 있는 관리형 테넌트로 변환된 후에도 50,000개의 Azure AD 리소스로 유지됩니다. 이 서비스 제한은 Azure AD 가격 책정 페이지의 리소스 500,000개 가격 책정 계층 제한과는 관련이 없습니다. 기본 할당량을 초과하여 사용하려면 Microsoft 지원에 문의해야 합니다.</li><li>관리자가 아닌 사용자는 Azure AD 리소스를 250개까지 만들 수 있습니다. 이러한 할당량에는 활성 리소스와 삭제되었지만 복원 가능한 리소스가 포함됩니다. 삭제 후 30일이 넘지 않은 Azure AD 리소스만 복원할 수 있습니다. 지난 30일 동안 삭제된 Azure AD 리소스 중 더 이상 복원할 수 없는 개체는 1/4 값으로 이 할당량에 포함됩니다. 정규 업무를 수행하는 동안 이 할당량을 반복적으로 초과할 가능성이 높은 개발자가 있는 경우 앱 등록을 무제한으로 만들 수 있는 권한이 있는 [사용자 지정 역할을 만들고 할당](../articles/active-directory/roles/quickstart-app-registration-limits.md)할 수 있습니다.</li></ul> |
 | 스키마 확장 |<ul><li>문자열 형식 확장은 최대 256자까지 가능합니다. </li><li>이진 형식 확장은 256바이트로 제한됩니다.</li><li>*모든* 형식 및 *모든* 애플리케이션에서 단일 Azure AD 리소스에는 확장 값을 100개만 작성할 수 있습니다.</li><li>User, Group, TenantDetail, Device, Application 및 ServicePrincipal 엔터티만 String 형식 또는 Binary 형식의 단일 값 특성으로 확장할 수 있습니다.</li><li>스키마 확장은 Graph API 버전 1.21 미리 보기에서만 사용할 수 있습니다. 확장을 등록하려면 애플리케이션에 쓰기 권한이 있어야 합니다.</li></ul> |
 | 애플리케이션 | <ul><li>최대 100명의 사용자가 단일 애플리케이션의 소유자가 될 수 있습니다.</li><li>암호 기반 SSO 앱의 사용자 수는 48명으로 제한됩니다. 즉, 앱당 사용자 이름/암호 쌍이 48개 키로 제한됩니다. 사용자를 더 추가하려면 [Azure AD에서 암호 기반 Single Sign-On 문제 해결](../articles/active-directory/manage-apps/troubleshoot-password-based-sso.md#i-cant-add-another-user-to-my-password-based-sso-app)의 문제 해결 지침을 참조하세요.</li></ul> |

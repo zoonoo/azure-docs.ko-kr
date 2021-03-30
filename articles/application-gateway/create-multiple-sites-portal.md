@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735076"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721633"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
@@ -27,7 +27,7 @@ Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-
 > * 백 엔드 서버로 백 엔드 풀 만들기
 > * 백 엔드 수신기 만들기
 > * 라우팅 규칙 만들기
-> * 도메인에서 CNAME 레코드 만들기
+> * 이름 확인을 위해 호스트 파일 편집
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="다중 사이트 Application Gateway":::
 
@@ -212,9 +212,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 배포가 완료될 때까지 기다렸다가 다음 단계로 진행합니다.
 
-## <a name="edit-your-hosts-file"></a>호스트 파일 편집
+## <a name="edit-your-hosts-file-for-name-resolution"></a>이름 확인을 위해 호스트 파일 편집
 
-공용 IP 주소를 사용하여 애플리케이션 게이트웨이를 만든 후 IP 주소를 가져와 호스트 파일을 편집하여 `www.contoso.com` 및 `www.fabrikam.com`을 확인하는 데 사용할 수 있습니다. 
+공용 IP 주소를 사용하여 애플리케이션 게이트웨이를 만든 후 IP 주소를 가져와 호스트 파일을 편집하여 `www.contoso.com` 및 `www.fabrikam.com`을 확인하는 데 사용할 수 있습니다. 프로덕션 환경에서는 이름 확인을 위해 DNS에 `CNAME`을 만들 수 있습니다.
 
 1. **모든 리소스** 를 클릭한 다음, **myAGPublicIPAddress** 를 클릭합니다.
 

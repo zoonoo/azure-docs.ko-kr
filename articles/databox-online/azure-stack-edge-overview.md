@@ -6,22 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 51469c23574f55c102f0c6fb98e5aa5178b59a4a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e6cd1f8a1f7d1777e786ab91637b4065a2c5e850
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455742"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585947"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-fpga"></a>Azure Stack Edge Pro with FPGA란?
 
-[!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
-Azure Stack Edge Pro with FPGA는 네트워크 데이터 전송 기능이 포함된 AI 지원 에지 컴퓨팅 디바이스입니다. 이 문서에서는 Azure Stack Edge Pro with FPGA 솔루션의 개요, 이점, 주요 기능 및 이 디바이스를 배포할 수 있는 시나리오를 소개합니다.
+Azure Stack Edge Pro with FPGA는 네트워크 데이터 전송 기능이 포함된 AI 지원 에지 컴퓨팅 디바이스입니다. 이 문서에서는 FPGA 솔루션, 주요 기능 및 배포 시나리오가 포함된 Azure Stack Edge Pro의 개요를 제공합니다.
 
-Azure Stack Edge Pro with FPGA는 Hardware-as-a-Service 솔루션입니다. Microsoft는 가속화된 AI 유추를 지원하고 네트워크 스토리지 게이트웨이의 모든 기능을 포함하는 기본 제공 FPGA(Field Programmable Gate Array)가 있는 클라우드 관리 디바이스를 제공합니다. 
+Azure Stack Edge Pro with FPGA는 Hardware-as-a-Service 솔루션입니다. Microsoft는 가속화된 AI 유추를 지원하고 네트워크 스토리지 게이트웨이의 모든 기능을 포함하는 기본 제공 FPGA(Field Programmable Gate Array)가 있는 클라우드 관리 디바이스를 제공합니다.
+
+Azure Data Box Edge는 Azure Stack Edge로 재브랜드되었습니다.
 
 ## <a name="use-cases"></a>사용 사례
 
@@ -46,7 +48,7 @@ Azure Stack Edge Pro의 기능은 다음과 같습니다.
 |---------|---------|
 |가속 AI 유추| 기본 제공 FPGA를 통해 지원됩니다.|
 |컴퓨팅       |데이터를 분석, 처리, 필터링할 수 있습니다.|
-|고성능 | 고성능 컴퓨팅 및 데이터 전송|
+|고성능 | 고성능 컴퓨팅 및 데이터 전송.|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다. 디바이스의 로컬 캐시는 가장 최근에 사용한 파일에 빠르게 액세스하는 데 사용됩니다.|
 |클라우드 관리     |디바이스 및 서비스는 Azure Portal를 통해 관리됩니다.  |
 |오프라인 업로드     | 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
@@ -60,13 +62,15 @@ Azure Stack Edge Pro의 기능은 다음과 같습니다.
 
 Azure Stack Edge Pro 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge Pro 물리적 디바이스 및 로컬 웹 UI로 구성됩니다.
 
-* **Azure Stack Edge Pro 물리적 디바이스** - Azure로 데이터를 전송하도록 구성할 수 있는 Microsoft 제공 1U 랙 탑재 서버입니다.
+* **Azure Stack Edge Pro 물리적 디바이스**: Azure로 데이터를 전송하도록 구성할 수 있는 Microsoft 제공 1U 랙 탑재 서버입니다.
     
-* **Azure Stack Edge 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Azure Stack Edge 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Azure Stack Edge 리소스를 사용하여 리소스를 생성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
+* **Azure Stack Edge 리소스**: 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Azure Stack Edge 디바이스를 관리할 수 있는 Azure Portal의 리소스입니다. Azure Stack Edge 리소스를 사용하여 리소스를 생성 및 관리하고, 공유를 관리하고, 디바이스와 경고를 보고 관리합니다.
+  
+   <!--[The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    <!--![The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
+   Azure Stack Edge Pro의 수명이 다함에 따라 새 Azure Stack Edge Pro 디바이스에 대한 주문이 채워지지 않습니다. 신규 고객인 경우 워크로드에 대한 Azure Stack Edge Pro - GPU 디바이스를 사용하여 탐색하는 것이 좋습니다. 자세한 내용은 [GPU를 사용하는 Edge Pro Azure Stack Pro란?](azure-stack-edge-gpu-overview.md)을 참조하세요. GPU 디바이스가 있는 Azure Stack Edge Pro를 주문하는 방법에 대한 자세한 내용은 [Azure Stack Edge Pro - GPU에 대한 새 리소스 만들기](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)를 참조하세요.
 
-    자세한 내용은 [Azure Stack Edge Pro 디바이스에 대한 주문 만들기](azure-stack-edge-deploy-prep.md#create-a-new-resource)를 참조하세요.
+   기존 고객인 경우 기존 Azure Stack Edge Pro 디바이스를 교체하거나 다시 설정해야 하는 경우에도 새 Azure Stack Edge Pro 리소스를 만들 수 있습니다. 지침은 [Azure Stack Edge Pro 디바이스에 대한 주문 만들기](azure-stack-edge-deploy-prep.md#create-new-resource-for-existing-device)를 참조하세요.
 
 * **Azure Stack Edge Pro 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Azure Stack Edge Pro 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, Microsoft 지원에 연락하여 서비스를 요청하세요.
 
@@ -81,6 +85,8 @@ Azure Stack Edge Pro 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge P
 - **리소스 가용성** - Azure Stack Edge 리소스를 사용할 수 있는 모든 지역 목록을 보려면 [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all)을 참조하세요. Azure Stack Edge Pro는 Azure Government 클라우드에도 배포할 수 있습니다. 자세한 내용은 [Azure Government란?](../azure-government/documentation-government-welcome.md)을 참조하세요.
     
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
+
+Azure Stack Edge 서비스는 비 지역 서비스입니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 참조하세요. Azure Stack Edge 서비스는 특정 Azure 지역에 대한 종속성이 없으므로 영역 전체 중단 및 지역 전체 중단에 탄력적으로 대처할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

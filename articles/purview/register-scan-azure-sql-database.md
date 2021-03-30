@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 62f4b6c76cafab5c6cc46a73851abce1e38551a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a708f0c1884073a2f2ea73092d25006415c59d5f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677743"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655226"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -157,7 +157,8 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 [!INCLUDE [create and manage scans](includes/manage-scans.md)]
 
 > [!NOTE]
-> 검사를 삭제해도 이전 Azure SQL Database 검사에서 자산이 삭제되지 않습니다.
+> * 검사를 삭제해도 이전 Azure SQL Database 검사에서 자산이 삭제되지 않습니다.
+> * 원본 테이블을 변경하고 Purview의 스키마 탭에서 설명을 편집한 후에 원본 테이블을 다시 검사하면 해당 자산이 스키마 변경 내용으로 더 이상 업데이트되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

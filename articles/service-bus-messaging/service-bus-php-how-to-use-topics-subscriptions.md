@@ -5,10 +5,10 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88066205"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>빠른 시작: PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
@@ -25,10 +25,10 @@ ms.locfileid: "88066205"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
-2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스**를 만들고 **연결 문자열**을 가져옵니다.
+2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스** 를 만들고 **연결 문자열** 을 가져옵니다.
 
     > [!NOTE]
-    > 이 빠른 시작에서는 **PHP**를 사용하여 **토픽** 및 해당 토픽에 대한 **구독**을 만들 것입니다. 
+    > 이 빠른 시작에서는 **PHP** 를 사용하여 **토픽** 및 해당 토픽에 대한 **구독** 을 만들 것입니다. 
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 애플리케이션 또는 메모장을 만들 수 있습니다.
@@ -88,7 +88,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 여기서 `Endpoint`는 일반적으로 `https://[yourNamespace].servicebus.windows.net` 형식입니다.
 
-Azure 서비스 클라이언트를 만들려면 `ServicesBuilder` 클래스를 사용해야 합니다. 다음을 수행할 수 있습니다.
+Azure 서비스 클라이언트를 만들려면 `ServicesBuilder` 클래스를 사용해야 합니다. 다음을 할 수 있습니다.
 
 * 연결 문자열을 직접 전달합니다.
 * **CCM(CloudConfigurationManager)** 을 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
@@ -181,7 +181,7 @@ catch(ServiceException $e){
 > 
 > 
 
-다음 예제에서는 사용자 지정 `MessageNumber` 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 이름이 `HighMessages`인 구독을 만듭니다. 사용자 지정 속성을 메시지에 추가하는 것과 관련한 정보는 [토픽에 메시지 보내기](#send-messages-to-a-topic)를 참조하세요.
+다음 예제에서는 사용자 지정 `MessageNumber` 속성이 3보다 큰 메시지만 선택하는 **SqlFilter** 를 사용하여 이름이 `HighMessages`인 구독을 만듭니다. 사용자 지정 속성을 메시지에 추가하는 것과 관련한 정보는 [토픽에 메시지 보내기](#send-messages-to-a-topic)를 참조하세요.
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -261,7 +261,7 @@ for($i = 0; $i < 5; $i++){
 Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 토픽 크기의 상한은 5GB입니다. 할당량에 대한 자세한 내용은 [Service Bus 할당량][Service Bus quotas]을 참조하세요.
 
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
-구독에서 메시지를 받는 가장 좋은 방법은 `ServiceBusRestProxy->receiveSubscriptionMessage` 메서드를 사용하는 것입니다. 메시지는 [*ReceiveAndDelete* 및 *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode)의 두 가지 모드로 받을 수 있습니다. **PeekLock**이 기본값입니다.
+구독에서 메시지를 받는 가장 좋은 방법은 `ServiceBusRestProxy->receiveSubscriptionMessage` 메서드를 사용하는 것입니다. 메시지는 [*ReceiveAndDelete* 및 *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode)의 두 가지 모드로 받을 수 있습니다. **PeekLock** 이 기본값입니다.
 
 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, Service Bus가 구독에서 메시지에 대한 읽기 요청을 받으면 메시지를 사용하는 것으로 표시하고 애플리케이션에 반환합니다. [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) * 모드는 가장 단순한 모델이며, 오류 발생 시 애플리케이션이 메시지를 처리하지 않아도 되는 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
 
@@ -313,7 +313,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 
 큐 내에서 잠긴 메시지와 연결된 시간 제한도 있으며, 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션이 크래시되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-애플리케이션이 메시지를 처리한 후 `deleteMessage` 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이러한 유형의 처리를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 작업은 배달을 여러 번 시도해도 일정하게 유지되는 메시지의 `getMessageId` 메서드를 사용하여 수행하는 경우가 많습니다.
+애플리케이션이 메시지를 처리한 후 `deleteMessage` 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이러한 유형의 처리를 *최소 한 번 이상 처리* 라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 작업은 배달을 여러 번 시도해도 일정하게 유지되는 메시지의 `getMessageId` 메서드를 사용하여 수행하는 경우가 많습니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
 토픽이나 구독을 삭제하려면 각각 `ServiceBusRestProxy->deleteTopic` 또는 `ServiceBusRestProxy->deleteSubscripton` 메서드를 사용합니다. 토픽을 삭제하면 토픽에 등록된 모든 구독도 삭제됩니다.

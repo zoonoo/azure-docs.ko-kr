@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736681"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599173"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -190,7 +190,7 @@ Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 �
 > [!NOTE]
 > 모든 의견의 전체 텍스트 대신 추출된 핵심 문구를 사용하여 Word Cloud를 생성하는 이유는 무엇일까요? 핵심 문구는 *가장 일반적인* 단어뿐 아니라 고객 의견에서 *중요한* 단어를 제공합니다. 또한 상대적으로 수가 적은 의견에서 특정 단어를 자주 사용하더라도 결과 클라우드의 단어 크기 조정이 왜곡되지 않습니다.
 
-아직 Word Cloud 사용자 지정 시각적 개체가 없으면 지금 설치합니다. 작업 영역 오른쪽의 [시각화] 패널에서 세 점( **...** )을 클릭하고 **스토어에서 가져오기** 를 선택합니다. "Cloud"를 검색하고 Word Cloud 시각적 개체 옆에 있는 **추가** 단추를 클릭합니다. Power BI는 Word Cloud 시각적 개체를 설치하고 성공적으로 설치되었음을 사용자에게 알려줍니다.
+아직 Word Cloud 사용자 지정 시각적 개체가 없으면 지금 설치합니다. 작업 영역 오른쪽의 [시각화] 패널에서 세 점( **...** )을 클릭하고 **시장에서 가져오기** 를 선택합니다. 목록에 표시된 시각화 도구에 "클라우드"라는 단어가 없으면 "클라우드"를 검색하고 Word Cloud 시각적 개체 옆에 있는 **추가** 단추를 클릭합니다. Power BI는 Word Cloud 시각적 개체를 설치하고 성공적으로 설치되었음을 사용자에게 알려줍니다.
 
 ![[사용자 지정 시각적 개체 추가]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Power BI Desktop이 필요한 HTTP 요청을 만들 때까지 잠시 시간이 �
 
 작업 영역에 새 보고서가 나타납니다. [시각화] 패널의 [필드] 패널에서 `keyphrases` 필드를 [범주] 필드로 끌어 놓습니다. 보고서 안에 Word Cloud가 나타납니다.
 
-이제 [시각화] 패널의 [형식] 페이지로 전환합니다. 클라우드에서 "of" 같은 짧고 일반적인 단어를 제거하도록, [중지 단어] 범주에서 **기본 중지 단어** 를 켭니다. 
+이제 [시각화] 패널의 [형식] 페이지로 전환합니다. 클라우드에서 "of" 같은 짧고 일반적인 단어를 제거하도록, [중지 단어] 범주에서 **기본 중지 단어** 를 켭니다. 그러나 주요 문구를 시각화하기 때문에 해당 구문에 중지 단어가 포함되어 있지 않을 수 있습니다.
 
 ![[기본 중지 단어 활성화]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ Microsoft Azure에서 제공하는 Cognitive Services 중 하나인 Text Analyti
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 두 가지 버전의 언어 검색 함수가 있습니다. 첫 번째는 ISO 언어 코드(예: 영어를 나타내는 `en`)를 반환하고, 두 번째는 “친숙한” 이름(예: `English`)을 반환합니다. 두 버전에서 본문의 마지막 줄만 다른 것을 확인할 수 있습니다.
@@ -249,8 +248,7 @@ in  sentiment
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 마지막으로, 다음은 이미 제공된 핵심 문구 함수의 변형으로, 문구를 쉼표로 구분된 문구의 단일 문자열이 아닌 목록 개체로 반환합니다. 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/19/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 231d3ab81c2376aa8a2a4bf182e1b5e9799e51d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649294"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669783"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -80,7 +80,7 @@ Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플
 
 ## <a name="integrate-with-identity-providers"></a>ID 공급자와 통합
 
-Azure AD는 Facebook, Microsoft 계정, Google 또는 엔터프라이즈 ID 공급자와 같은 외부 ID 공급자를 지원합니다. 외부 사용자가 애플리케이션에 대해서만 새 계정을 만드는 대신 기존 소셜 또는 엔터프라이즈 계정으로 로그인할 수 있도록 ID 공급자와의 페더레이션을 설정할 수 있습니다. External Identities용 ID 공급자에 대해 자세히 알아봅니다.
+Azure AD는 Facebook, Microsoft 계정, Google 또는 엔터프라이즈 ID 공급자와 같은 외부 ID 공급자를 지원합니다. 외부 사용자가 애플리케이션에 대해서만 새 계정을 만드는 대신 기존 소셜 또는 엔터프라이즈 계정으로 로그인할 수 있도록 ID 공급자와의 페더레이션을 설정할 수 있습니다. [External Identities용 ID 공급자](identity-providers.md)에 대해 자세히 알아봅니다.
 
 ![ID 공급자 페이지를 보여주는 스크린샷](media/what-is-b2b/identity-providers.png)
 

@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: e7d4770af38081353fc58eec9957f50e2b6a7348
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b33005b7f0d08e6da963457813b012199d89f5f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372793"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655103"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 
@@ -39,7 +39,8 @@ ms.locfileid: "100372793"
 1. Azure Portal 메뉴에서 **리소스 만들기** 를 선택합니다.
 1. **통합** 을 선택한 다음, **Data Factory** 를 선택합니다. 
    
-   !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="새로 만들기 창에서 Data Factory 선택.":::
+
 1. **Data Factory 만들기** 페이지의 **기본 사항** 탭에서 데이터 팩터리를 만들려는 위치에 Azure **구독** 을 선택합니다.
 1. **리소스 그룹** 에 대해 다음 단계 중 하나를 사용합니다.
 
@@ -55,8 +56,8 @@ ms.locfileid: "100372793"
  
 1. **이름** 에 **ADFTutorialDataFactory** 를 입력합니다.
    Azure Data Factory의 이름은 *전역적으로 고유* 해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: **&lt;yourname&gt;ADFTutorialDataFactory**) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
-  
-   ![이름을 사용할 수 없는 경우 오류](./media/doc-common-process/name-not-available-error.png)
+
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="중복된 이름에 대한 새 데이터 팩터리 오류 메시지.":::
 
 1. **버전** 에서 **V2** 를 선택합니다.
 
@@ -66,7 +67,7 @@ ms.locfileid: "100372793"
 
 1. **작성 및 모니터링** 타일을 선택하여 별도의 브라우저 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
-   !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
    
    > [!NOTE]
    > 웹 브라우저가 "권한 부여"에서 중단되는 것이 확인되면 **타사 쿠키 및 사이트 데이터 차단** 확인란의 선택을 취소합니다. 또는 이를 선택된 상태로 두고 **login.microsoftonline.com** 에 대한 예외를 만든 다음, 앱을 다시 엽니다.
@@ -79,7 +80,7 @@ ms.locfileid: "100372793"
 
 1. 연결된 서비스 페이지에서 **+새로 만들기** 를 선택하여 새로 연결된 서비스를 만듭니다.
 
-   ![새 연결된 서비스](./media/doc-common-process/new-linked-service.png)
+   :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="새 연결된 서비스.":::
    
 1. **새 연결된 서비스** 페이지에서 **Azure Blob Storage** 를 선택한 다음 **계속** 을 선택합니다. 
 
@@ -93,7 +94,7 @@ ms.locfileid: "100372793"
 
    d. **만들기** 를 선택하여 연결된 서비스를 저장합니다. 
 
-      ![연결된 서비스](./media/quickstart-create-data-factory-portal/linked-service.png)
+      :::image type="content" source="./media/quickstart-create-data-factory-portal/linked-service.png" alt-text="연결된 서비스.":::
 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
@@ -109,13 +110,13 @@ ms.locfileid: "100372793"
 
 1. **+** (더하기) 단추를 선택한 다음, **데이터 세트** 를 선택합니다.
 
-   ![데이터 세트 만들기에 대한 메뉴](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/new-dataset-menu.png" alt-text="데이터 세트 만들기에 대한 메뉴.":::
 
 1. **새 데이터 세트** 페이지에서 **Azure Blob Storage** 를 선택한 다음, **계속** 을 선택합니다. 
 
 1. **형식 선택** 페이지에서 데이터의 형식 유형을 선택한 다음, **계속** 을 선택합니다. 이 경우 콘텐츠를 구문 분석하지 않고 파일을 있는 그대로 복사할 때 **Binary** 를 선택합니다.
 
-   ![형식 선택](./media/quickstart-create-data-factory-portal/select-format.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/select-format.png" alt-text="형식을 선택합니다.":::   
    
 1. **속성 설정** 페이지에서 다음 단계를 완료합니다.
 
@@ -129,7 +130,8 @@ ms.locfileid: "100372793"
     
     e. **확인** 을 선택합니다.   
 
-    ![InputDataset에 대한 속성 설정](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png" alt-text="InputDataset에 대한 속성을 설정합니다.":::
+
 1. 단계를 반복하여 출력 데이터 세트를 만듭니다.  
 
     a. **+** (더하기) 단추를 선택한 다음, **데이터 세트** 를 선택합니다.
@@ -144,7 +146,7 @@ ms.locfileid: "100372793"
 
     f. **확인** 을 선택합니다.   
 
-    ![OutputDataset에 대한 속성 설정](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png" alt-text="OutputDataset에 대한 속성을 설정합니다.":::    
 
 ## <a name="create-a-pipeline"></a>파이프라인 만들기 
 이 절차에서는 입력 및 출력 데이터 세트를 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 작업은 입력 데이터 세트 설정에 지정된 파일의 데이터를 출력 데이터 세트 설정에 지정된 파일로 복사합니다. 입력 데이터 세트에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
@@ -155,7 +157,7 @@ ms.locfileid: "100372793"
 
 1. **활동** 도구 상자에서 **이동 및 변환** 을 펼칩니다. **데이터 복사** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. **이름** 에 대해 **CopyFromBlobToBlob** 을 지정합니다.
 
-   ![데이터 복사 작업 만들기](./media/quickstart-create-data-factory-portal/copy-activity.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-activity.png" alt-text="데이터 복사 작업 만들기.":::   
 
 1. 복사 활동 설정의 **원본** 탭으로 전환하고, **원본 데이터 세트** 에 대해 **InputDataset** 를 선택합니다.
 
@@ -163,7 +165,7 @@ ms.locfileid: "100372793"
 
 1. 캔버스 위에 있는 파이프라인 도구 모음에서 **유효성 검사** 를 클릭하여 파이프라인 설정의 유효성을 검사합니다. 파이프라인에 대한 유효성이 성공적으로 검사되었는지 확인합니다. 유효성 검사 출력을 닫으려면 오른쪽 위 모서리에 있는 유효성 검사 단추를 선택합니다. 
 
-   ![파이프라인 유효성 검사](./media/quickstart-create-data-factory-portal/pipeline-validate.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-validate.png"   alt-text="파이프라인의 유효성을 검사합니다.":::
 
 ## <a name="debug-the-pipeline"></a>파이프라인 디버깅
 이 단계에서는 Data Factory에 파이프라인을 배포하기 전에 파이프라인을 디버그합니다. 
@@ -172,7 +174,7 @@ ms.locfileid: "100372793"
     
 1. 맨 아래에 있는 파이프라인 설정의 **출력** 탭에서 파이프라인 실행 상태가 표시되는지 확인합니다. 
  
-    ![파이프라인 실행 출력](./media/quickstart-create-data-factory-portal/pipeline-output.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-output.png" alt-text="파이프라인 실행 출력":::
 
 1. **adftutorial** 컨테이너의 **outputfolder** 폴더에 있는 출력 파일이 표시되는지 확인합니다. 출력 폴더가 없는 경우 Data Factory 서비스에서 자동으로 생성됩니다. 
 
@@ -181,7 +183,7 @@ ms.locfileid: "100372793"
 
 1. 파이프라인을 트리거하기 전에 엔터티를 데이터 팩터리에 게시해야 합니다. 게시하려면 맨 위에서 **모두 게시** 를 선택합니다. 
 
-    ![모두 게시](./media/quickstart-create-data-factory-portal/publish-all.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/publish-all.png" alt-text="모두 게시합니다.":::    
 
 1. 파이프라인을 수동으로 트리거하려면 파이프라인 도구 모음에서 **트리거 추가** 를 선택한 다음, **지금 트리거** 를 선택합니다. **파이프라인 실행** 페이지에서 **확인** 을 선택합니다.
 
@@ -189,12 +191,12 @@ ms.locfileid: "100372793"
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **새로 고침** 단추를 사용하여 목록을 새로 고칩니다.
 
-   ![파이프라인 실행 모니터링용 탭](./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/monitor-trigger-now-pipeline.png" alt-text="파이프라인 실행 모니터링용 탭"::: 
 1. **CopyPipeline** 링크를 선택하면 이 페이지에서 복사 작업 실행의 상태가 표시됩니다. 
 
 1. 복사 작업에 대한 세부 정보를 보려면 **세부 정보**(안경 이미지) 링크를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
 
-   ![복사 작업 세부 정보](./media/quickstart-create-data-factory-portal/copy-operation-details.png)
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/copy-operation-details.png" alt-text="작업 세부 정보를 복사합니다.":::
 1. **output** 폴더에 있는 새 파일이 표시되는지 확인합니다. 
 1. **모든 파이프라인 실행** 링크를 선택하여 **활동 실행** 보기에서 **파이프라인 실행** 보기로 다시 전환할 수 있습니다. 
 
@@ -213,7 +215,7 @@ ms.locfileid: "100372793"
 
 1. **새 트리거** 페이지에서 **활성화됨** 확인란을 선택한 다음, **확인** 을 선택합니다. 
 
-   ![새 트리거 설정](./media/quickstart-create-data-factory-portal/trigger-settings-next.png)
+    :::image type="content" source="./media/quickstart-create-data-factory-portal/trigger-settings-next.png" alt-text="새 트리거 설정.":::   
 1. 경고 메시지를 검토하고 **확인** 을 선택합니다.
 
 1. **모두 게시** 를 선택하여 변경 내용을 Data Factory에 게시합니다. 

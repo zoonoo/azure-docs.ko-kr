@@ -2,16 +2,16 @@
 title: 자습서 - Azure Resource Manager Bicep 파일에 출력 추가
 description: Bicep 파일에 출력을 추가하여 구문을 단순화합니다.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 279417f22ded89db21abddad7a91a4cce520c6bd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b7d7a1414091c516dba2c474e1681ba357b55a1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742966"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594311"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>자습서: Azure Resource Manager Bicep 파일에 출력 추가
 
@@ -37,7 +37,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 출력을 사용하여 배포에서 값을 반환할 수 있습니다. 예를 들어 새 스토리지 계정에 대한 엔드포인트를 가져오는 것이 유용할 수 있습니다.
 
-다음 예제에는 출력 값을 추가하는 Bicep 파일에 대한 변경 내용이 강조 표시되어 있습니다. 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
+다음 예제에서는 출력 값을 추가하기 위한 Bicep 파일의 변경 내용을 보여줍니다. 전체 파일을 복사하고 Bicep 파일을 해당 콘텐츠로 바꿉니다.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -45,7 +45,9 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 반환되는 값의 유형은 `object`로 설정되어 템플릿 개체를 반환합니다.
 
-스토리지 계정에서 `primaryEndpoints` 속성을 가져오려면 스토리지 계정 기호화된 이름을 사용합니다.
+스토리지 계정에서 `primaryEndpoints` 속성을 가져오려면 스토리지 계정 기호화된 이름을 사용합니다. Visual Studio Code의 자동 완성 기능은 속성의 전체 목록을 제공합니다.
+
+   ![Visual Studio Code Bicep 기호 이름 개체 속성](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## <a name="deploy-bicep-file"></a>Bicep 파일 배포
 

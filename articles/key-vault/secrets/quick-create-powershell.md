@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f3b770a5790d5e9554c7bf5d7d24f1eeccff7662
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072222"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582454"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -57,7 +57,7 @@ Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincip
 $secretvalue = ConvertTo-SecureString "hVFkk965BuUv" -AsPlainText -Force
 ```
 
-그런 다음, 아래의 PowerShell 명령을 입력하여 Key Vault에 **hVFkk965BuUv** 라는 값을 가진 **ExamplePassword** 라는 비밀을 만듭니다.
+그런 다음, Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet을 사용하여 값 **hVFkk965BuUv** 를 통해 **ExamplePassword** 라는 Key Vault에 비밀을 만듭니다.
 
 
 ```azurepowershell-interactive
@@ -96,5 +96,6 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
+- [Key Vault에서 여러 줄 비밀을 저장](multiline-secrets.md)하는 방법을 알아봅니다.
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault)에 대한 참조를 참조하세요.
 - [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.

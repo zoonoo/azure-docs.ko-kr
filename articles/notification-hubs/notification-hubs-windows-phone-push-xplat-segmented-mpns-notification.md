@@ -18,24 +18,24 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998240"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 푸시 알림 보내기
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows Phone에 푸시 알림 보내기
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 Windows Phone 8 또는 Windows Phone 8.1 디바이스에 푸시 알림을 보내는 방법을 보여줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 이 자습서의 [Windows 범용](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 버전을 참조하세요.
 
-알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하여 이 시나리오를 활성화합니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
+알림 허브에서 등록을 만들 때 하나 이상의 *태그* 를 포함하여 이 시나리오를 활성화합니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
 
 > [!NOTE]
 > Notification Hubs Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS(Windows 푸시 알림 서비스) 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 [Notification Hubs - Windows Phone Silverlight 자습서]를 따릅니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 모바일 앱에 범주 선택 추가
@@ -43,9 +43,9 @@ ms.locfileid: "88998240"
 > * 태그가 지정된 알림 보내기
 > * 앱 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료하세요. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다.
+[자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료합니다. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 애플리케이션을 업데이트합니다.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>모바일 앱에 범주 선택 추가
 
@@ -207,7 +207,7 @@ ms.locfileid: "88998240"
     ```
 
     이 클래스는 격리된 스토리지를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
-4. `App.xaml.cs` 프로젝트 파일에서 `App` 클래스에 다음 속성을 추가합니다. `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
+4. `App.xaml.cs` 프로젝트 파일에서 `App` 클래스에 다음 속성을 추가합니다. `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature* 의 연결 문자열로 바꿉니다.
 
     ```csharp
     public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
@@ -299,7 +299,7 @@ ms.locfileid: "88998240"
     ![범주가 있는 모바일 앱][1]
 
     앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
-2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독**을 클릭합니다.
+2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독** 을 클릭합니다.
 
     앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다. 등록된 범주가 반환되어 대화 상자에 표시됩니다.
 

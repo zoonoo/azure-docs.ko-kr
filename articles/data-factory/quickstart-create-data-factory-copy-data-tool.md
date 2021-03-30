@@ -6,12 +6,12 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 48624e415649be2fb76aed99c5cb0e1b3b12f04b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 78bc815aff195124d3e79a83445b8d12506fc70d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372861"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613093"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 
@@ -57,7 +57,7 @@ ms.locfileid: "100372861"
 
 1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
-   !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
 
 ## <a name="start-the-copy-data-tool"></a>데이터 복사 도구 시작
 

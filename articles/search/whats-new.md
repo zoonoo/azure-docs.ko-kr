@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: 36f10bebfc42ae5e9e75206392e8a5f8ccef563a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694600"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600431"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -23,9 +23,10 @@ ms.locfileid: "101694600"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
 |------------------------------|---------------|---------------|
-| [의미 체계 검색](semantic-search-overview.md) | 적은 노력으로 검색 결과의 관련성을 향상시키는 쿼리 관련 기능 컬렉션입니다. 검색 요청을 약간만 변경하면 기존 인덱스에서 이러한 기능을 사용해볼 수 있습니다.</br></br>[의미 체계 쿼리](semantic-how-to-query-request.md)는 자연어 처리의 향상된 기능을 활용하여 순위 작성을 개선하고 쿼리 의도를 이해하여 답변, 캡션 및 의미론적 강조 표시를 제공하는 새로운 쿼리 유형입니다.</br></br>[의미 체계 순위 및 응답(답변, 캡션 및 강조 표시)](semantic-how-to-query-response.md)은 결과를 평가하는 모델과 응답에 구조를 추가하는 모델의 기능을 말합니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 및 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
+| [의미 체계 검색](semantic-search-overview.md) | 적은 노력으로 검색 결과의 관련성을 크게 향상시키는 쿼리 관련 기능 컬렉션입니다. </br></br>[의미 체계 순위](semantic-ranking.md)는 단어 및 내용 뒤에 있는 의미 체계를 사용하여 관련성 점수를 계산합니다. </br></br>[의미 체계 캡션](semantic-how-to-query-request.md)은 문서를 가장 잘 요약하는 문서의 관련 구절이며, 가장 중요한 용어 또는 구에 대한 강조 표시입니다. </br></br>[의미 체계 대답](semantic-answers.md)은 검색 문서에서 추출된 핵심 구절로, 질문처럼 보이는 쿼리를 직접 답변으로 작성됩니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 및 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
 | [맞춤법 검사 쿼리 용어](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 맞춤법 오류를 검사하도록 할 수 있습니다. `speller` 옵션은 모든 쿼리 유형(단순, 전체 또는 의미 체계)에서 작동합니다. |  공개 미리 보기, REST 전용, api-version=2020-06-30-Preview|
 | [SharePoint Online 인덱서](search-howto-index-sharepoint-online.md) | 이 인덱서는 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있도록 SharePoint Online 사이트에 연결합니다. | 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
+| [Normalizers](search-normalizers.md) | Normalizers는 전체 분석 체인을 거치지 않고도 대/소문자 구분, 악센트 제거, asciifolding 등과 같은 간단한 텍스트 전처리를 제공합니다.| 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>2021년 2월
 

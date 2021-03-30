@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998342"
 ---
 # <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 푸시 알림 보내기
@@ -36,14 +36,14 @@ ms.locfileid: "88998342"
 > [!NOTE]
 > Notification Hubs Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS(Windows 푸시 알림 서비스) 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 [Notification Hubs - Windows Phone Silverlight 자습서]를 따릅니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 알림 허브 만들기
 > * Windows Phone 애플리케이션 만들기
 > * 알림 테스트 보내기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 * [모바일 개발 구성 요소가 있는 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
@@ -57,8 +57,8 @@ ms.locfileid: "88998342"
 ### <a name="configure-windows-phone-mpns-settings"></a>Windows Phone(MPNS) 설정 구성
 
 1. **알림 설정** 아래에서 **Windows Phone(MPNS)** 을 선택합니다.
-2. **인증 푸시 사용**을 선택합니다.
-3. 도구 모음에서 **저장**을 선택합니다.
+2. **인증 푸시 사용** 을 선택합니다.
+3. 도구 모음에서 **저장** 을 선택합니다.
 
     ![Azure Portal - 인증되지 않은 푸시 알림 사용](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
 
@@ -78,8 +78,8 @@ ms.locfileid: "88998342"
     Visual Studio 2013 업데이트 2 이상에서는 대신 Windows Phone Silverlight 애플리케이션을 만듭니다.
 
     ![Visual Studio - 새 프로젝트 - 새 응용 프로그램 - Windows Phone Silverlight][11]
-2. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-3. `WindowsAzure.Messaging.Managed`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+2. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리** 를 클릭합니다.
+3. `WindowsAzure.Messaging.Managed`를 검색하고 **설치** 를 클릭한 후 사용 약관에 동의합니다.
 
     ![Visual Studio - NuGet 패키지 관리자][20]
 4. App.xaml.cs 파일을 열고 다음 `using` 문을 추가합니다.
@@ -125,7 +125,7 @@ ms.locfileid: "88998342"
    > [!NOTE]
    > 이 자습서에서는 알림 메시지를 디바이스로 보냅니다. 타일 알림을 보내는 경우 채널에서 `BindToShellTile` 메서드를 대신 호출해야 합니다. 알림 및 타일 알림을 둘 다 지원하려면 `BindToShellTile` 및 `BindToShellToast`를 모두 호출합니다.
 
-6. 솔루션 탐색기에서 **속성**을 확장하고 `WMAppManifest.xml` 파일을 연 후 **기능** 탭을 클릭하고 **ID_CAP_PUSH_NOTIFICATION** 기능이 선택되었는지 확인합니다. 앱은 이제 푸시 알림을 받을 수 있습니다.
+6. 솔루션 탐색기에서 **속성** 을 확장하고 `WMAppManifest.xml` 파일을 연 후 **기능** 탭을 클릭하고 **ID_CAP_PUSH_NOTIFICATION** 기능이 선택되었는지 확인합니다. 앱은 이제 푸시 알림을 받을 수 있습니다.
 
     ![Visual Studio - Windows Phone 앱 기능][14]
 7. `F5` 키를 눌러 앱을 실행합니다. 앱에 등록 메시지가 표시됩니다.
@@ -137,15 +137,15 @@ ms.locfileid: "88998342"
 ## <a name="test-send-a-notification"></a>알림 테스트 보내기
 
 1. Azure Portal에서 개요 탭으로 전환합니다.
-2. **테스트 보내기**를 선택합니다.
+2. **테스트 보내기** 를 선택합니다.
 
     ![테스트 보내기 단추](./media/notification-hubs-windows-phone-get-started/test-send-button.png)
 3. **테스트 보내기** 창에서 다음 단계를 수행합니다.
 
-    1. **플랫폼**에 대해 **Windows Phone**을 선택합니다.
-    2. **알림 유형**에 대해 **알림**을 선택합니다.
-    3. **보내기**를 선택합니다.
-    4. 창의 맨 아래에 있는 목록에 **결과**가 표시됩니다.
+    1. **플랫폼** 에 대해 **Windows Phone** 을 선택합니다.
+    2. **알림 유형** 에 대해 **알림** 을 선택합니다.
+    3. **보내기** 를 선택합니다.
+    4. 창의 맨 아래에 있는 목록에 **결과** 가 표시됩니다.
 
         ![테스트 보내기 창](./media/notification-hubs-windows-phone-get-started/test-send-window.png)
 4. Windows Phone 에뮬레이터 또는 Windows 휴대폰에서 알림 메시지가 표시되는지 확인합니다.

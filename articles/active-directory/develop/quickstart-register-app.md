@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647441"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578807"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -40,7 +40,8 @@ Microsoft ID 플랫폼은 등록된 애플리케이션에 대해서만 IAM(ID �
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴에서 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
-1. 애플리케이션의 **이름** 을 입력합니다. 앱 사용자에게 이 이름이 표시될 수 있습니다. 나중에 이를 변경할 수 있습니다.
+1. 애플리케이션의 표시 **이름** 을 입력합니다. 애플리케이션 사용자는 앱을 사용할 때 표시 이름(예: 로그인 중)을 볼 수 있습니다.
+    언제든지 표시 이름을 변경할 수 있으며 여러 앱 등록에서 같은 이름을 공유할 수 있습니다. 앱 등록 시 자동으로 생성된 애플리케이션(클라이언트) ID는 표시 이름이 아니라 ID 플랫폼 내에서 앱을 고유하게 식별합니다.
 1. 애플리케이션을 사용할 수 있는 사용자(*로그인 대상* 이라고도 함)를 지정합니다.
 
     | 지원되는 계정 유형 | Description |
@@ -88,7 +89,7 @@ Microsoft ID 플랫폼은 등록된 애플리케이션에 대해서만 IAM(ID �
     | **단일 페이지 애플리케이션** | 앱에 대한 **리디렉션 URI** 를 입력합니다. 이 URI는 Microsoft ID 플랫폼에서 사용자의 클라이언트를 리디렉션하고 인증 후에 보안 토큰을 보내는 위치입니다.<br/><br/>JavaScript 또는 프레임워크(예: Angular, Vue.js, React.js 또는 Blazor WebAssembly)를 사용하여 클라이언트 쪽 웹앱을 빌드하는 경우 이 플랫폼을 선택합니다. |
     | **iOS/macOS** | 앱 **번들 ID** 를 입력합니다. **빌드 설정** 또는 *Info.plist* 의 Xcode에서 찾을 수 있습니다.<br/><br/>**번들 ID** 를 지정하면 리디렉션 URI가 생성됩니다. |
     | **Android** | 앱 **패키지 이름** 을 입력합니다. *AndroidManifest.xml* 파일에서 찾을 수 있습니다. 또한 **서명 해시** 를 생성하여 입력합니다.<br/><br/>이러한 설정을 지정하면 리디렉션 URI가 생성됩니다. |
-    | **모바일 및 데스크톱 애플리케이션** | **제안된 리디렉션 URI** 중 하나를 선택합니다. 또는 **사용자 지정 리디렉션 URI** 를 지정합니다.<br/><br/>데스크톱 애플리케이션의 경우 다음을 사용하는 것이 좋습니다.<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>최신 MSAL(Microsoft 인증 라이브러리) 또는 broker를 사용하지 않는 모바일 애플리케이션의 경우 이 플랫폼을 선택합니다. 데스크톱 애플리케이션의 경우에도 이 플랫폼을 선택합니다. |
+    | **모바일 및 데스크톱 애플리케이션** | **제안된 리디렉션 URI** 중 하나를 선택합니다. 또는 **사용자 지정 리디렉션 URI** 를 지정합니다.<br/><br/>임베디드 브라우저를 사용하는 데스크톱 애플리케이션의 경우 다음을 권장합니다.<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>시스템 브라우저를 사용하는 데스크톱 애플리케이션의 경우 다음을 권장합니다.<br/>`http://localhost`<br/><br/>최신 MSAL(Microsoft 인증 라이브러리) 또는 broker를 사용하지 않는 모바일 애플리케이션의 경우 이 플랫폼을 선택합니다. 데스크톱 애플리케이션의 경우에도 이 플랫폼을 선택합니다. |
 1. **구성** 을 선택하여 플랫폼 구성을 완료합니다.
 
 ### <a name="redirect-uri-restrictions"></a>리디렉션 URI에 대한 제한 사항

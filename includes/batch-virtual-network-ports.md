@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: batch
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750051"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103561920"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -42,10 +42,10 @@ ms.locfileid: "101750051"
 
 **사용 권한** - VNet 구독에서 보안 정책이나 잠금 또는 리소스 그룹이 VNet 관리를 위한 사용자 권한을 제한하고 있는지 확인합니다.
 
-**추가 네트워킹 리소스** - Batch는 VNet을 포함하는 리소스 그룹에서 추가 네트워킹 리소스를 자동으로 할당합니다.
+**추가 네트워킹 리소스** - Batch는 VNet이 포함된 리소스 그룹에서 추가 네트워킹 리소스를 자동으로 만듭니다.
 
 > [!IMPORTANT]
-> Batch는 100개 전용 노드 또는 우선 순위가 낮은 노드 각각에 대해 NSG(네트워크 보안 그룹), 공용 IP 주소 및 부하 분산 장치를 하나씩 할당합니다. 이러한 리소스는 구독의 [리소스 할당량](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대형 풀의 경우 이러한 리소스 중 하나 이상에 대한 할당량을 늘리도록 요청해야 할 수 있습니다.
+> Batch는 100개 전용 노드 또는 우선 순위가 낮은 노드 각각에 대해 NSG(네트워크 보안 그룹), 공용 IP 주소 및 부하 분산 장치를 한 개씩 만듭니다. 이러한 리소스는 구독의 [리소스 할당량](../articles/azure-resource-manager/management/azure-subscription-service-limits.md)으로 제한됩니다. 대형 풀의 경우 이러한 리소스 중 하나 이상에 대한 할당량을 늘리도록 요청해야 할 수 있습니다.
 
 #### <a name="network-security-groups-batch-default"></a>네트워크 보안 그룹: Batch 기본값
 

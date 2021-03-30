@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 2c77eba69fd914e8ecc7d08a1b16f61ceefe101b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320583"
 ---
 # <a name="tutorial-send-notifications-to-specific-devices-running-universal-windows-platform-applications"></a>자습서: 유니버설 Windows 플랫폼 애플리케이션을 실행하는 특정 디바이스에 알림 전송
@@ -34,7 +34,7 @@ ms.locfileid: "92320583"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 UWP(유니버설 Windows 플랫폼) 애플리케이션을 실행하는 특정 Windows 디바이스에 알림을 푸시하는 방법을 알아봅니다. 자습서를 완료한 후 관심 있는 주요 뉴스 범주를 등록할 수 있습니다. 이러한 범주에 대해서만 푸시 알림을 받게 됩니다.
 
-브로드캐스트 시나리오를 사용하도록 설정하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함시킬 수 있습니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하도록 설정하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그* 를 포함시킬 수 있습니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
 > [!NOTE]
 > Windows Store 및 Windows Phone 프로젝트 버전 8.1 및 이전 버전은 Visual Studio 2019에서 지원되지 않습니다. 자세한 내용은 [Visual Studio 2019 플랫폼 대상 지정 및 호환성](/visualstudio/releases/2019/compatibility)을 참조하세요.
@@ -47,9 +47,9 @@ ms.locfileid: "92320583"
 > * 태그가 지정된 알림 보내기
 > * 앱 실행 및 알림 생성
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기][get-started]를 완료하세요.  
+이 자습서를 시작하기 전에 [자습서: Azure Notification Hubs를 사용하여 유니버설 Windows 플랫폼 앱에 알림 보내기][get-started]를 완료합니다.  
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
@@ -81,7 +81,7 @@ ms.locfileid: "92320583"
     </Grid>
     ```
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **클래스**를 선택합니다. **새 항목 추가**에서 클래스 이름을 *알림*으로 지정하고 **추가**를 선택합니다. 필요한 경우 `public` 한정자를 클래스 정의에 추가합니다.
+1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **클래스** 를 선택합니다. **새 항목 추가** 에서 클래스 이름을 *알림* 으로 지정하고 **추가** 를 선택합니다. 필요한 경우 `public` 한정자를 클래스 정의에 추가합니다.
 
 1. 다음 `using` 문을 새 파일에 추가합니다.
 
@@ -151,7 +151,7 @@ ms.locfileid: "92320583"
 
     이 속성을 사용하여 `Notifications` 인스턴스를 만들고 액세스합니다.
 
-    코드에서 `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 **DefaultListenSharedAccessSignature**의 연결 문자열로 바꿉니다.
+    코드에서 `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 **DefaultListenSharedAccessSignature** 의 연결 문자열로 바꿉니다.
 
    > [!NOTE]
    > 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 *수신 대기* 액세스용 키만 배포합니다. 수신 대기 액세스를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
@@ -197,7 +197,7 @@ ms.locfileid: "92320583"
 1. 범주 기반 구독에 `notifications` 클래스를 사용하려면 *App.xaml.cs* 파일을 연 다음, `InitNotificationsAsync` 메서드를 업데이트합니다.
 
     ```csharp
-    // *** Remove or comment out these lines **_
+    // *** Remove or comment out these lines ***
     //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     //var hub = new NotificationHub("your hub name", "your listen connection string");
     //var result = await hub.RegisterNativeAsync(channel.Uri);
@@ -232,7 +232,7 @@ ms.locfileid: "92320583"
 
    ![뉴스 속보 앱](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breaking-news.png)
 
-1. 하나 이상의 범주 토글을 사용하도록 설정한 다음, **구독**을 선택합니다.
+1. 하나 이상의 범주 토글을 사용하도록 설정한 다음, **구독** 을 선택합니다.
 
    앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다. 대화 상자에 등록된 범주가 앱에 표시됩니다.
 
