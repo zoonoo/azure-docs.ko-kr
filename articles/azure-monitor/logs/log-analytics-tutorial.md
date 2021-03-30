@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041147"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799295"
 ---
 # <a name="log-analytics-tutorial"></a>Log Analytics 자습서
 Log Analytics는 Azure Monitor Logs에서 수집된 데이터에서 로그 쿼리를 편집 및 실행하고 그 결과를 대화형으로 분석하는 Azure Portal의 도구입니다. Log Analytics 쿼리를 사용하여 특정 조건과 일치하는 레코드를 검색하고, 추세를 식별하고, 패턴을 분석하고, 데이터에 대한 다양한 인사이트를 제공할 수 있습니다. 
@@ -72,7 +72,7 @@ Log Analytics는 Azure Monitor Logs에서 수집된 데이터에서 로그 쿼�
 ## <a name="time-range"></a>시간 범위
 Log Analytics 작업 영역의 모든 테이블에는 **TimeGenerated** 라는 열이 있으며, 이것은 레코드가 생성된 시간입니다. 모든 쿼리에는 결과를 해당 범위 내의 **TimeGenerated** 값이 있는 레코드로 제한하는 시간 범위가 있습니다. 시간 범위는 쿼리에서 설정하거나 화면 맨 위에 있는 선택기로 설정할 수 있습니다.
 
-기본적으로 쿼리는 지난 24시간 동안의 레코드를 반환합니다. **시간 범위** 드롭다운을 선택하고 **7일** 로 변경합니다. **실행** 을 다시 클릭하여 결과를 반환합니다. 결과가 반환되는 것을 볼 수 있지만, 모든 결과가 표시되는 것은 아니라는 메시지가 있습니다. Log Analytics는 최대 10,000개의 레코드를 반환할 수 있지만 쿼리에서 그보다 많은 레코드를 반환했기 때문입니다. 
+기본적으로 쿼리는 지난 24시간 동안의 레코드를 반환합니다. **시간 범위** 드롭다운을 선택하고 **7일** 로 변경합니다. **실행** 을 다시 클릭하여 결과를 반환합니다. 결과가 반환되는 것을 볼 수 있지만, 모든 결과가 표시되는 것은 아니라는 메시지가 있습니다. Log Analytics는 최대 30,000개의 레코드를 반환할 수 있습니다. 이는 쿼리에서 그보다 많은 레코드를 반환했기 때문입니다. 
 
 [![시간 범위](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92314633"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows 앱에 지역화된 푸시 알림 보내기
@@ -32,25 +32,25 @@ ms.locfileid: "92314633"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Notification Hubs 서비스에 등록된 모바일 디바이스에 지역화된 알림을 푸시하는 방법을 보여줍니다. 자습서에서는 [자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서 만든 애플리케이션을 업데이트합니다.
+이 자습서에서는 Notification Hubs 서비스에 등록된 모바일 디바이스에 지역화된 알림을 푸시하는 방법을 보여줍니다. 이 자습서에서는 [자습서: 특정 디바이스에 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서 만든 애플리케이션을 업데이트하여 다음 시나리오를 지원합니다.
 
 - Windows 스토어 앱을 사용하면 클라이언트 디바이스에서 언어를 지정하고, 다른 속보 범주를 구독할 수 있습니다.
 - 백 엔드 앱에서 Azure Notification Hubs의 **태그** 및 **템플릿** 기능을 사용하여 알림을 브로드캐스트합니다.
 
 이 자습서를 완료하면 모바일 애플리케이션을 사용하여 관심 있는 범주에 등록하고, 알림을 수신할 언어를 지정할 수도 있습니다. 백 엔드 애플리케이션은 언어 및 디바이스별로 지역화된 알림을 보냅니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 로캘 정보를 지원하도록 Windows 앱 업데이트
 > * 지역화된 알림을 보내도록 백 엔드 앱 업데이트
 > * 앱 테스트
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 시작하기 전에 [자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서 만든 Visual Studio 솔루션을 엽니다.
+[자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)를 완료합니다.
 
-[자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서는 **태그**를 사용하여 다른 뉴스 **범주**에 대한 알림을 구독하는 앱을 빌드했습니다. 이 자습서에서는 Notification Hubs의 **템플릿** 기능을 사용하여 **지역화된** 속보 알림을 쉽게 제공할 수 있습니다.
+[자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서는 **태그** 를 사용하여 다른 뉴스 **범주** 에 대한 알림을 구독하는 앱을 빌드했습니다. 이 자습서에서는 Notification Hubs의 **템플릿** 기능을 사용하여 **지역화된** 속보 알림을 쉽게 제공할 수 있습니다.
 
 개괄적으로 볼 때 템플릿을 사용하면 특정 디바이스에서 알림을 받는 형식을 지정할 수 있습니다. 템플릿은 앱에서 백 엔드로 보낸 메시지에 포함된 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 이 자습서에서는 백 엔드 애플리케이션은 지원되는 모든 언어를 포함하는 로캘 독립적 메시지를 보냅니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "92314633"
 
 ## <a name="update-windows-app-to-support-locale-information"></a>로캘 정보를 지원하도록 Windows 앱 업데이트
 
-1. [자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)에서 만든 Visual Studio 솔루션을 엽니다.
+1. [자습서: 특정 디바이스로 알림 보내기(유니버설 Windows 플랫폼)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)를 위해 만든 Visual Studio 솔루션을 엽니다.
 2. 로캘 콤보 상자를 포함하도록 솔루션의 `MainPage.xaml` 파일을 업데이트합니다.
 
     ```xml
@@ -199,10 +199,10 @@ ms.locfileid: "92314633"
 1. 유니버설 Windows 플랫폼 애플리케이션을 실행합니다. **등록 성공** 메시지가 표시될 때까지 기다립니다.
 
     ![모바일 애플리케이션 및 등록](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. **범주** 및 **로캘**을 선택하고 **구독**을 클릭합니다. 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
+2. **범주** 및 **로캘** 을 선택하고 **구독** 을 클릭합니다. 앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다.
 
     ![모바일 애플리케이션](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. **구독**에 대한 **확인** 메시지가 표시됩니다.
+3. **구독** 에 대한 **확인** 메시지가 표시됩니다.
 
     ![구독 메시지](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
 
@@ -260,7 +260,7 @@ private static async void SendTemplateNotificationAsync()
 이 간단한 호출은 Notification Hub에서 올바른 네이티브 페이로드를 빌드하여 특정 태그에 가입된 모든 디바이스에 전달할 때 플랫폼과 상관없이 지역화된 뉴스를 **모든** 디바이스에 전달합니다.
 
 ## <a name="run-console-app-to-send-localized-notification"></a>지역화된 알림을 보내는 콘솔 앱 실행
-**콘솔 앱**을 실행하여 각 범주에 대한 알림을 지원되는 각 언어로 보냅니다. 구독한 범주에 대한 알림만 수신되는지와 메시지가 선택한 로캘에 대한 것인지 확인합니다.
+**콘솔 앱** 을 실행하여 각 범주에 대한 알림을 지원되는 각 언어로 보냅니다. 구독한 범주에 대한 알림만 수신되는지와 메시지가 선택한 로캘에 대한 것인지 확인합니다.
 
 ![알림 메시지](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: f57114fc4cb76c500cc422966635273c3a923046
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1891af9acae2b976a18f68983693a7df559b6476
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96181627"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800772"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 RingCentral 구성
 
@@ -46,15 +46,7 @@ ms.locfileid: "96181627"
 
 ## <a name="step-2-configure-ringcentral-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD에서 프로비저닝을 지원하도록 RingCentral 구성
 
-1. [RingCentral 관리자 콘솔](https://login.ringcentral.com/sw.html)에 로그인합니다. **도구 > 디렉터리 통합** 으로 이동합니다.
-
-    ![RingCentral 관리 콘솔](media/ringcentral-provisioning-tutorial/admin.png)
-
-2.  **디렉터리 공급자 선택** 에서 **SCIM** 을 선택합니다. (앞으로는 Azure Active Directory라는 옵션이 있습니다). **SCIM 서비스 사용** 을 클릭합니다.
-
-    ![RingCentral SCIM 추가](media/ringcentral-provisioning-tutorial/scim.png)
-
-3.  **SCIM 인증 토큰** 에 대해서는 matthew.hunt@ringcentral.com의 RingCentral 지원 팀에 문의하세요. 이 값은 Azure Portal에서 RingCentral 애플리케이션의 프로비저닝 탭에 있는 비밀 토큰 필드에 입력됩니다.
+5단계의 관리자 자격 증명 섹션에서 권한을 부여하려면 [RingCentral](https://www.ringcentral.com/office/plansandpricing.html) 관리자 계정이 필요합니다.
 
 > [!NOTE]
 > 사용자에게 라이선스를 할당하려면 [여기](https://support.ringcentral.com/s/article/5-10-Adding-Extensions-via-Web?language)의 비디오 링크를 참조하세요.
@@ -94,9 +86,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![자동 옵션이 호출된 프로비저닝 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래의 **테넌트 URL** 에 `https://platform.ringcentral.com/scim/v2`을 입력합니다. 이전에 검색한 **SCIM Authentication Token(SCIM 인증 토큰)** 값을 **비밀 토큰** 에 입력합니다. **연결 테스트** 를 클릭하여 Azure AD가 RingCentral에 연결할 수 있는지 확인합니다. 연결에 실패하면 RingCentral 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
+5. **관리자 자격 증명** 섹션 아래에서 **권한 부여** 를 클릭합니다. RingCentral 로그인 페이지로 리디렉션됩니다. 이메일/전화 번호 및 암호를 입력하고 **로그인** 단추를 클릭합니다. RingCentral **액세스 요청** 페이지에서 **권한 부여** 를 클릭합니다. **연결 테스트** 를 클릭하여 Azure AD가 RingCentral에 연결할 수 있는지 확인합니다. 연결에 실패하면 RingCentral 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
-    ![연결 테스트 옵션이 호출된 테넌트 URL 및 비밀 토큰 텍스트 필드의 스크린샷.](./media/ringcentral-provisioning-tutorial/provisioning.png)
+   ![AAD](./media/ringcentral-provisioning-tutorial/admincredentials.png)
+
+   ![Access](./media/ringcentral-provisioning-tutorial/authorize.png)
+
+   ![권한 부여](./media/ringcentral-provisioning-tutorial/accessrequest.png)
 
 6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
@@ -151,6 +147,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 ## <a name="change-log"></a>로그 변경
 
 * 2020년 9월 10일 - "displayName" 및 "manager" 특성에 대한 지원이 제거되었습니다.
+* 2021/03/15 - 인증 방법이 영구 전달자 토큰에서 OAuth 코드 부여 흐름으로 업데이트되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

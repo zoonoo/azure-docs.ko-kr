@@ -7,20 +7,20 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 41476c5f8165729caa6780f8e74eb6c3ae30a59c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: cca4612d3b22296209b4adfc6be97cbe95477aa3
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614635"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786671"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
 
 ## <a name="update-march-2021"></a>업데이트(2021년 3월)
-- Azure Migrate 어플라이언스에서 여러 서버 자격 증명을 제공하여 설치된 애플리케이션(소프트웨어 인벤토리), 에이전트 없는 종속성 분석을 검색하고 VMware 환경에서 SQL Server 인스턴스와 데이터베이스를 검색할 수 있도록 지원합니다. [자세한 정보](tutorial-discover-vmware.md#provide-server-credentials)
-- VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. [자세한 내용](concepts-azure-sql-assessment-calculation.md)<br/>이 기능을 사용해 보려면 [이 링크](https://aka.ms/AzureMigrate/SQL)를 통해 **오스트레일리아 동부** 지역의 프로젝트를 만드세요. 시작하려면 [검색](tutorial-discover-vmware.md) 및 [평가](tutorial-assess-sql.md) 자습서를 참조하세요.
+- Azure Migrate 어플라이언스에서 여러 서버 자격 증명을 제공하여 설치된 애플리케이션(소프트웨어 인벤토리), 에이전트 없는 종속성 분석을 검색하고 VMware 환경에서 SQL Server 인스턴스와 데이터베이스를 검색할 수 있도록 지원합니다. [자세히 알아보기](tutorial-discover-vmware.md#provide-server-credentials)
+- VMware 환경에서 실행되는 SQL Server 인스턴스 및 데이터베이스를 검색하고 평가하는 기능은 현재 미리 보기로 제공됩니다. [자세한 정보](concepts-azure-sql-assessment-calculation.md) 시작하려면 [검색](tutorial-discover-vmware.md) 및 [평가](tutorial-assess-sql.md) 자습서를 참조하세요.
 - 에이전트 없는 VMware 마이그레이션은 이제 vCenter당 500개의 VM 동시 복제를 지원합니다.
 - 이제 Azure Migrate는 에이전트 없는 VMware 마이그레이션 메서드를 사용하여 Azure로 마이그레이션하는 동안 VMware VM에 Azure VM 에이전트를 자동으로 설치합니다.
 

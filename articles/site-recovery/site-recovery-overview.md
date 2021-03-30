@@ -5,10 +5,10 @@ ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
 ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92281886"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
@@ -19,13 +19,13 @@ Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 빠른 서
 
 Azure Recovery Services는 BCDR 전략에 기여합니다.
 
-- **Site Recovery 서비스**: Site Recovery는 중단 기간 동안에도 비즈니스 앱과 워크로드를 유지하여 비즈니스 연속성을 보장합니다. Site Recovery는 물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제합니다. 기본 사이트에서 중단이 발생하면 보조 위치로 장애 조치(failover)하고 여기에서 앱에 액세스합니다. 기본 위치가 다시 실행되면 장애 복구(failback)할 수 있습니다.
-- **Backup 서비스**: [Azure Backup](../backup/index.yml) 서비스를 사용하여 데이터를 안전하고 복구 가능하게 유지합니다.
+- **Site Recovery 서비스**: Site Recovery는 중단 시간 중에도 비즈니스 앱과 워크로드를 지속적으로 실행하여 비즈니스 연속성을 보장합니다. Site Recovery는 물리적 컴퓨터와 VM(가상 머신)에서 실행되는 워크로드를 기본 사이트에서 보조 위치로 복제합니다. 기본 사이트에서 중단이 발생하면 보조 위치로 장애 조치(failover)하고 여기에서 앱에 액세스합니다. 기본 위치가 다시 실행되면 장애 복구(failback)할 수 있습니다.
+- **백업 서비스**: [Azure Backup](../backup/index.yml) 서비스는 데이터를 안전하고 복구 가능한 상태로 유지합니다.
 
 Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 - Azure 지역 간에 Azure VM 복제
-- 온-프레미스 VM, Azure Stack VM 및 물리적 서버.
+- 온-프레미스 VM, Azure Stack VM 및 실제 서버.
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery의 기능은 무엇입니까?
 
@@ -52,7 +52,7 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 **복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux), Azure Stack VM을 Azure에 복제합니다.<br/><br/> AWS Windows 인스턴스를 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
 **지역** | Site Recovery가 [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery)을 검토합니다. |
 **복제된 컴퓨터** | [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 복제, [온-프레미스 VMware VM 및 물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [온-프레미스 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)에 대한 복제 요구 사항을 검토합니다.
-**워크로드** | 복제가 지원되는 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 그리고 Site Recovery 팀은 [앱 수](site-recovery-workload.md#workload-summary)에 대해 앱별 테스트를 수행했습니다.
+**작업** | 복제가 지원되는 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 그리고 Site Recovery 팀은 [앱 수](site-recovery-workload.md#workload-summary)에 대해 앱별 테스트를 수행했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

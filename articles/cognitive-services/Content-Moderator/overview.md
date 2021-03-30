@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 콘텐츠 중재자, azure 콘텐츠 중재자, 온라인 중재자, 콘텐츠 필터링 소프트웨어, 콘텐츠 조정 서비스, 콘텐츠 조정
-ms.openlocfilehash: 57a390a1da1e3a10b9fda4b531a83ee48e91125b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560376"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867273"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
@@ -26,6 +26,13 @@ ms.locfileid: "97560376"
 Azure Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직하지 않은 콘텐츠를 처리할 수 있는 AI 서비스입니다. 여기에는 텍스트, 이미지 및 비디오를 검색하고 콘텐츠 플래그를 자동으로 적용하는 AI 기반 콘텐츠 조정 서비스와 사용자 검토자 팀을 위한 온라인 중재자 환경인 검토 도구가 포함됩니다.
 
 앱에 콘텐츠 필터링 소프트웨어를 빌드하여 규정을 준수하거나 사용자에게 의도된 환경을 유지 관리할 수 있습니다.
+
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
+
+* [**빠른 시작**](client-libraries.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.  
+* [**방법 가이드**](try-text-api.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.  
+* [**개념**](text-moderation-api.md)은 서비스 기능에 대한 심층적인 설명을 제공합니다.  
+* [**자습서**](ecommerce-retail-catalog-moderation.md)는 보다 광범위한 비즈니스 솔루션에서 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.  
 
 ## <a name="where-its-used"></a>사용 위치
 

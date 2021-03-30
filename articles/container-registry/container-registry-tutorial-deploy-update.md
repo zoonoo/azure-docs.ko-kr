@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74454697"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>자습서: 지역 웹앱 배포를 위해 업데이트된 컨테이너 이미지를 지리적으로 복제된 컨테이너 레지스트리로 푸시
@@ -99,7 +99,7 @@ v1: digest: sha256:4c3f2211569346fbe2d1006c18cbea2a4a9dcc1eb3a078608cef70d3a186e
 
 이미지가 복제 중인 동안 트리거되는 Azure Container Registry webhook를 볼 수 있습니다.
 
-이전 자습서에서 *Web App for Containers*에 컨테이너를 배포할 때 생성된 지역 webhook를 보려면 Azure Portal에서 컨테이너 레지스트리로 이동한 다음 **서비스** 아래에서 **Webhook**를 선택합니다.
+이전 자습서에서 *Web App for Containers* 에 컨테이너를 배포할 때 생성된 지역 webhook를 보려면 Azure Portal에서 컨테이너 레지스트리로 이동한 다음 **서비스** 아래에서 **Webhook** 를 선택합니다.
 
 ![Azure Portal의 컨테이너 레지스트리 Webhook][tutorial-portal-01]
 
@@ -115,7 +115,7 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 ![Azure Portal의 App Service 개요][tutorial-portal-03]
 
-업데이트된 애플리케이션을 보려면 App Service 개요에서 링크를 선택합니다. *미국 서부*에서 실행되는 앱의 예제 보기는 다음과 같습니다.
+업데이트된 애플리케이션을 보려면 App Service 개요에서 링크를 선택합니다. *미국 서부* 에서 실행되는 앱의 예제 보기는 다음과 같습니다.
 
 ![미국 서부 지역에서 실행되는 수정된 웹앱의 브라우저 보기][deployed-app-westus-modified]
 
@@ -129,7 +129,7 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 이 자습서에서는 지역에서 복제된 레지스트리에 새 버전의 웹 애플리케이션 컨테이너를 업데이트 및 푸시했습니다. Azure Container Registry의 웹후크가 가장 가까운 레지스트리 복제본에서 로컬 끌어오기를 트리거하는 업데이트를 Web App for Containers에 알렸습니다.
 
-### <a name="acr-build-automated-image-build-and-patch"></a>ACR 빌드: 자동화된 이미지 빌드 및 패치
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: 자동화된 이미지 빌드 및 패치
 
 지역 복제 외에도 ACR Build는 컨테이너 배포 파이프라인을 최적화할 수 있는 Azure Container Registry의 또 다른 기능입니다. ACR Build 개요부터 시작하여 그 기능을 알아보세요.
 

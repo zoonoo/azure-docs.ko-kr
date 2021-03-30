@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비스
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
-ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 08ff2f416a00002cde5767111ba5a6824a721324
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472097"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868174"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: Azure CLI(명령줄 인터페이스)를 사용하여 Cognitive Services 리소스 만들기
 
@@ -196,7 +196,8 @@ az group delete --name cognitive-services-resource-group
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Cognitive Services에 대한 요청 인증](authentication.md)
-* [Azure Cognitive Services란?](./what-are-cognitive-services.md)
-* [자연어 지원](language-support.md)
-* [Docker 컨테이너 지원](cognitive-services-container-support.md)
+* Cognitive Services를 안전하게 사용하는 방법을 알아보려면 **[Azure Cognitive Services 요청 인증](authentication.md)** 을 참조하세요.
+* Cognitive Services에 포함된 다양한 범주 목록을 가져오려면 **[Azure Cognitive Services란?](./what-are-cognitive-services.md)** 을 참조하세요.
+* Cognitive Services에서 지원하는 자연어 목록을 보려면 **[자연어 지원](language-support.md)** 을 참조하세요.
+* Cognitive Services를 온-프레미스로 사용하는 방법은 **[Cognitive Services를 컨테이너로 사용](cognitive-services-container-support.md)** 을 참조하세요.
+* Cognitive Services 사용 비용을 추산하려면 **[Cognitive Services 비용 계획 및 관리](plan-manage-costs.md)** 를 참조하세요.

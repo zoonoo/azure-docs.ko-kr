@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: overview
-ms.openlocfilehash: 37d31d753812924607c4d31df6d4f4d5e7b32d69
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 89ab25f45cd35a86d2ff4416ceb851ae6cd5e115
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890716"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657164"
 ---
 # <a name="what-is-custom-translator"></a>Custom Translator란?
 
@@ -24,13 +24,20 @@ ms.locfileid: "98890716"
 
 Custom Translator는 36개가 넘는 언어를 지원하며, NMT에 제공되는 언어에 직접 매핑됩니다. 전체 목록은 [Microsoft Translator 언어](../language-support.md#customization)를 참조하세요.
 
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.
+
+* [**빠른 시작**](quickstart-build-deploy-custom-model.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.  
+* [**방법 가이드**](how-to-create-project.md)에는 보다 구체적이거나 사용자 지정된 방식으로 기능을 사용하기 위한 지침이 포함되어 있습니다.  
+* [**개념**](workspace-and-project.md)은 기능에 대한 심층적인 설명을 제공합니다.  
+
+
 ## <a name="features"></a>기능
 
-Custom Translator는 사용자 지정 번역 시스템을 빌드하고 액세스하는 다양한 기능을 제공합니다.
+Custom Translator는 사용자 지정 번역 시스템을 빌드하고 나중에 액세스할 수 있는 다양한 기능을 제공합니다.
 
 |기능  |Description  |
 |---------|---------|
-|[인공신경망 기계 번역 기술 활용](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Custom translator가 제공하는 NMT(인공신경망 기계 번역)를 활용하여 번역 품질을 높일 수 있습니다.       |
+|[인공신경망 기계 번역 기술 적용](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  사용자 지정 번역기가 제공하는 NMT(인공신경망 기계 번역)를 적용하여 번역 품질을 높일 수 있습니다.       |
 |[비즈니스 용어를 알고 있는 시스템 빌드](what-are-parallel-documents.md)     |  병렬 문서를 사용하여 고객의 비즈니스 및 산업 분야에 사용되는 용어를 이해하는 시스템을 사용자 지정 및 빌드할 수 있습니다.       |
 |[사전을 사용하여 모델 빌드](what-is-dictionary.md)     |   학습 데이터 세트가 없는 경우 사전 데이터만으로 모델을 학습시킬 수 있습니다.       |
 |[다른 사람과 공동 작업](how-to-manage-settings.md#share-your-workspace)     |   다른 사용자와 작업을 공유하여 팀과 공동으로 작업할 수 있습니다.     |
@@ -52,7 +59,7 @@ Microsoft Translator는 2016년에 [NMT(인공신경망 기계 번역)](https://
 
 사용자는 안전한 [Custom Translator](https://portal.customtranslator.azure.ai) 포털을 사용하여 직관적인 사용자 인터페이스를 통해 교육 데이터를 업로드하고, 시스템을 교육하고, 시스템을 테스트하고, 프로덕션 환경에 배포할 수 있습니다. 그러면 몇 시간 내에 시스템을 대규모로 사용할 수 있습니다(실제 시간은 교육 데이터 크기에 따라 다름).
 
-[전용 API](https://custom-api.cognitive.microsofttranslator.com/swagger/)(현재 미리 보기로 제공)를 통해 프로그래밍 방식으로 [Custom Translator](https://portal.customtranslator.azure.ai)에 액세스할 수도 있습니다. API를 사용하면 사용자가 자체 앱 또는 웹 서비스를 통해 정기적으로 교유 데이터를 만들거나 업데이트할 수 있습니다.
+[전용 API](https://custom-api.cognitive.microsofttranslator.com/swagger/)(현재 미리 보기로 제공)를 통해 프로그래밍 방식으로 [Custom Translator](https://portal.customtranslator.azure.ai)에 액세스할 수도 있습니다. API를 사용하면 사용자가 자체 앱 또는 웹 서비스를 통해 학습 생성 또는 업데이트를 관리할 수 있습니다.
 
 사용자 지정 모델을 사용하여 콘텐츠를 번역하는 데 드는 비용은 사용자의 Translator Text API 가격 책정 계층에 따라 결정됩니다. 가격 책정 계층에 대한 자세한 내용은 Cognitive Services [Translator Text API 가격 책정 웹 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)를 참조하세요.
 

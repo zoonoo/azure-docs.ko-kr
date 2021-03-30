@@ -1,5 +1,5 @@
 ---
-title: 'CLI: 백업으로 앱 복원'
+title: 'CLI: 백업에서 앱 복원'
 description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 백업에서 앱을 복원하는 방법을 보여줍니다.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18
 ms.openlocfilehash: a8b7d20c3eee57d10a7025b05605603f82437cdb
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006422"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-cli"></a>CLI를 사용하여 백업에서 웹앱 복원

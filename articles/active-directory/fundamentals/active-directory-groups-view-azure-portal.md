@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ddedd753eb98a8656006c9dddc412e44330e1a21
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996732"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
@@ -46,7 +46,7 @@ _MDM policy - West_ 라는 이름의 새 그룹을 만듭니다. 그룹 만들�
     
     - **그룹 유형:** **보안** 선택
     
-    - **그룹 이름:** _MDM policy - West_ 입력
+    - **그룹 이름:**_MDM policy - West_ 이름
     
     - **멤버 자격 유형:** **할당됨** 선택
 
@@ -59,7 +59,7 @@ _Alain Charon_ 이라는 새 사용자를 만듭니다. 사용자는 그룹 멤�
 
 2. **사용자** 페이지를 완료합니다.
 
-    - **이름:** _Alain Charon_ 입력
+    - **이름:**_Alain Charon_ 입력
 
     - **사용자 이름:** *alain\@contoso.com* 을 입력합니다.
 

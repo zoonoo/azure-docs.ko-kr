@@ -2,13 +2,13 @@
 title: Azure 리소스 정보 보기 및 필터링
 description: 정보를 필터링하고 다양한 보기를 사용하여 Azure 리소스를 더 잘 이해할 수 있습니다.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738636"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771637"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Azure 리소스 정보 보기 및 필터링
 
@@ -48,7 +48,7 @@ Azure Portal을 사용하면 Azure 구독 전체에서 리소스에 대한 자�
 
 1. **보기 관리** 와 **모든 보기 찾아보기** 를 차례로 선택합니다.
 
-1. **"모든 리소스"에 대해 저장된 보기** 창에서 보기를 선택한 다음, **삭제** 아이콘![보기 삭제 아이콘](media/manage-filter-resource-views/icon-delete.png)을 선택합니다.
+1. **저장된 보기** 창에서 보기를 선택한 다음, **삭제** 아이콘 ![보기 삭제 아이콘](media/manage-filter-resource-views/icon-delete.png)을 선택합니다.
 
 ## <a name="export-information-from-a-view"></a>보기에서 정보 내보내기
 
@@ -64,7 +64,7 @@ Azure Portal을 사용하면 Azure 구독 전체에서 리소스에 대한 자�
 
 ## <a name="summarize-resources-with-visuals"></a>시각적 개체를 사용하여 리소스 요약
 
-지금까지 살펴본 보기는 목록 보기였지만 시각적 개체를 포함하는 요약 보기도 있습니다.  보기를 나열하듯이, 이러한 보기를 저장하고 사용할 수 있습니다. 필터는 두 가지 유형의 보기 사이에서 유지됩니다. 아래에 표시된 **위치** 보기와 같은 표준 보기뿐만 아니라 Azure Storage의 **상태** 보기와 같은 특정 서비스와 관련된 보기도 있습니다.
+지금까지 살펴본 보기는 목록 보기였지만 시각적 개체를 포함하는 요약 보기도 있습니다.  목록 보기에서 하던 것처럼 이러한 보기를 저장하고 사용할 수 있습니다. 필터는 두 가지 유형의 보기 사이에서 유지됩니다. 아래에 표시된 **위치** 보기와 같은 표준 보기뿐만 아니라 Azure Storage의 **상태** 보기와 같은 특정 서비스와 관련된 보기도 있습니다.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="맵 보기의 리소스 요약":::
 

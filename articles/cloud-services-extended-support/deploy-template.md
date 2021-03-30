@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706965"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865590"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>ARM 템플릿을 사용하여 Cloud Service(추가 지원)를 배포합니다.
 
@@ -44,6 +44,9 @@ ms.locfileid: "101706965"
 
 ## <a name="deploy-a-cloud-service-extended-support"></a>Cloud Service(추가 지원) 배포
 
+> [!NOTE]
+> [Azure Portal](https://portal.azure.com)을 통해 ARM 템플릿과 매개 변수 파일을 더 쉽고 빠르게 생성할 수 있습니다. [생성된 ARM 템플릿을 포털에서 다운로드](generate-template-portal.md)하여 Powershell을 통해 클라우드 서비스를 만들 수 있습니다.
+ 
 1. 가상 네트워크를 만듭니다. 가상 네트워크의 이름은 서비스 구성(.cscfg) 파일의 참조와 일치해야 합니다. 기존 가상 네트워크를 사용하는 경우 ARM 템플릿에서 이 섹션을 생략합니다.
 
     ```json
@@ -138,7 +141,7 @@ ms.locfileid: "101706965"
     ```
  
 
-4. 키 자격 증명 모음 참조를 ARM 템플릿의  `OsProfile` 섹션에 추가합니다. Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 인증서를 Key Vault에 추가한 다음, 서비스 구성(.cscfg) 파일에서 인증서 지문을 참조합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 Key Vault를 적절한 권한에 사용하도록 설정해야 합니다. 키 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
+4. 키 자격 증명 모음 참조를 ARM 템플릿의  `OsProfile` 섹션에 추가합니다. Key Vault는 Cloud Services(추가 지원)에 연결된 인증서를 저장하는 데 사용됩니다. 인증서를 Key Vault에 추가한 다음, 서비스 구성(.cscfg) 파일에서 인증서 지문을 참조합니다. 또한 Cloud Services(추가 지원) 리소스가 Key Vault에서 비밀로 저장된 인증서를 검색할 수 있도록 포털에서 '배포를 위한 Azure Virtual Machines'에 Key Vault '액세스 정책'을 사용하도록 설정해야 합니다. 키 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에 있어야 하며 고유한 이름을 사용해야 합니다. 자세한 내용은 [Cloud Services(추가 지원)에서 인증서 사용](certificates-and-key-vault.md)을 참조하세요.
      
     ```json
     "osProfile": { 
@@ -188,7 +191,9 @@ ms.locfileid: "101706965"
     ```
 
 6. (선택 사항) 확장을 클라우드 서비스에 추가하는 확장 프로필을 만듭니다. 다음 예제에서는 원격 데스크톱 및 Windows Azure 진단 확장을 추가합니다.
-    
+   > [!Note] 
+   > 원격 데스크톱의 암호는 8-123자 사이이고 다음과 같은 암호 복잡성 요구 사항 중 3개 이상을 만족해야 합니다. 1) 대문자 포함 2) 소문자 포함 3) 숫자 포함 4) 특수 문자 포함 5) 제어 문자 사용 불가
+
     ```json
         "extensionProfile": {
           "extensions": [

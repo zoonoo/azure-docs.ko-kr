@@ -1,19 +1,19 @@
 ---
-title: '빠른 시작: Azure HDInsight에서 Apache HBase 쿼리 - HBase 셸'
+title: '빠른 시작: Azure HDInsight에서 Apache HBase 쿼리 - HBase Shell'
 description: 이 빠른 시작에서는 Apache HBase 셸을 사용하여 Apache HBase 쿼리를 실행하는 방법을 알아봅니다.
 keywords: hdinsight,hadoop,HBase
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98844a7dab673fb98dcdb639fbc48c0f6035fbba
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942930"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865114"
 ---
-# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>빠른 시작: Azure HDInsight에서 HBase 셸을 사용하여 Apache HBase 쿼리
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>빠른 시작: Azure HDInsight에서 HBase Shell을 사용하여 Apache HBase 쿼리
 
 이 빠른 시작에서는 Apache HBase 셸을 사용하여 HBase 테이블을 만들고 데이터를 삽입한 다음, 테이블을 쿼리하는 방법을 알아봅니다.
 
@@ -29,11 +29,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
-![HDInsight Apache HBase 표 형식 데이터](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase 표 형식 데이터" border="true":::
 
 [Cloud BigTable](https://cloud.google.com/bigtable/)의 구현인 HBase에서는 동일한 데이터가 다음과 같이 표시됩니다.
 
-![HDInsight Apache HBase BigTable 데이터](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable 데이터" border="true":::
 
 SSH를 사용하여 HBase 클러스터를 연결한 다음, Apache HBase 셸을 사용하여 HBase 테이블을 만들고 데이터를 삽입하고 데이터를 쿼리할 수 있습니다.
 

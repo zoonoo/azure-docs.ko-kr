@@ -1,5 +1,5 @@
 ---
-title: '자습서: Blob Storage에서 정적 웹 사이트 호스트 - Azure Storage'
+title: '자습서: Blob 스토리지에서 정적 웹 사이트 호스팅 - Azure Storage'
 description: 정적 웹 사이트를 호스팅하기 위해 스토리지 계정을 구성하고 Azure Storage에 정적 웹 사이트를 배포하는 방법을 알아봅니다.
 author: normesta
 ms.service: storage
@@ -9,25 +9,25 @@ ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94888507"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
-# <a name="tutorial-host-a-static-website-on-blob-storage"></a>자습서: Blob Storage에서 정적 웹 사이트 호스트
+# <a name="tutorial-host-a-static-website-on-blob-storage"></a>자습서: Blob Storage에서 정적 웹 사이트 호스팅
 
 이 자습서에서는 정적 웹 사이트를 빌드하고 Azure Storage에 배포하는 방법을 알아봅니다. 작업을 완료하면 사용자가 공개적으로 액세스할 수 있는 정적 웹 사이트가 생성됩니다. 
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 정적 웹 사이트 호스팅 구성
 > * Hello World 웹 사이트 배포
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
 ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98200212"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>사용자 지정 공급자를 위한 RESTful 엔드포인트 작성
@@ -27,7 +27,7 @@ ms.locfileid: "98200212"
 - **GET(instance)** : 기존 리소스 검색
 - **DELETE**: 기존 리소스 삭제
 - **POST**: 작업 트리거
-- **GET(collection)** : 모든 기존 리소스 나열
+- **GET(컬렉션)** : 모든 기존 리소스 나열
 
  이 자습서에서는 Azure Table 스토리지를 사용합니다. 하지만 아무 데이터베이스 또는 스토리지 서비스를 사용해도 됩니다.
 
@@ -138,7 +138,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 ---|---|---
 **name** | {myCustomResourceName} | 사용자 지정 리소스의 이름입니다.
 **type** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | 리소스 유형 네임스페이스입니다.
-**id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | 리소스 ID입니다.
+**ID** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | 리소스 ID입니다.
 
 속성 추가 외에도, JSON 문서를 Azure Table 스토리지에 저장했습니다.
 
@@ -370,4 +370,4 @@ using Newtonsoft.Json.Linq;
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure 사용자 지정 공급자 엔드포인트에서 작동하는 RESTful 엔드포인트를 작성했습니다. 사용자 지정 공급자를 만드는 방법을 알아보려면 [자습서: 사용자 지정 공급자 만들기](./tutorial-custom-providers-create.md) 문서로 이동하세요.
+이 문서에서는 Azure 사용자 지정 공급자 엔드포인트에서 작동하는 RESTful 엔드포인트를 작성했습니다. 사용자 지정 공급자를 만드는 방법을 알아보려면 [자습서: 사용자 지정 공급자 만들기](./tutorial-custom-providers-create.md) 문서로 이동합니다.

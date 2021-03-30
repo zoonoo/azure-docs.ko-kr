@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
 ms.custom: mvc
-ms.openlocfilehash: fe7b1cdc96ae95ac361183342ea491432c3ab4b4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 73b0434065b06f25320a0666937fd7969c863b33
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928858"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870214"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>빠른 시작: Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링
 
@@ -48,11 +48,11 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 2. **토폴로지 요약** 의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
 
-    ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드.](./media/apache-storm-quickstart/hdi-topology-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-topology-summary.png" alt-text="storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드." border="true":::
 
     새 페이지에서는 다음 정보를 제공합니다.
 
-    |속성 | Description |
+    |속성 | 설명 |
     |---|---|
     |토폴로지 통계|기간으로 구성된 토폴로지 성능에 대한 기본 정보입니다. 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.|
     |Spout|각 Spout에서 반환된 마지막 오류를 포함한 Spout에 대한 기본 정보입니다.|
@@ -65,11 +65,11 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 3. 이 페이지의 **Spouts** 또는 **Bolts** 섹션에서 항목을 선택합니다. 선택한 구성 요소에 대한 정보가 표시됩니다.
 
-    ![선택한 구성 요소에 대한 정보가 있는 스톰 대시보드.](./media/apache-storm-quickstart/hdi-component-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-component-summary.png" alt-text="선택한 구성 요소에 대한 정보가 있는 스톰 대시보드." border="true":::
 
     새 페이지에는 다음 정보가 표시됩니다.
 
-    |속성 | Description |
+    |속성 | 설명 |
     |---|---|
     |Spout/Bolt 통계|기간으로 구성된 구성 요소 성능에 대한 기본 정보입니다. 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.|
     |입력 통계(Bolt에만 해당)|Bolt에서 사용되는 데이터를 생성하는 구성 요소에 대한 정보입니다.|
