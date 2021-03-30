@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4545e92767a427b8cd89af07ed4d06053685977a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644921"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578008"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -58,6 +58,9 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > Azure AD는 관리형 도메인에서 스마트 카드나 인증서를 지원하지 않습니다.
 
 Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 될 디바이스의 컴퓨터 개체를 동기화했는지 확인합니다. 컴퓨터 개체가 특정 OU(조직 구성 단위)에 속하는 경우 Azure AD Connect에서 동기화하도록 해당 OU를 구성합니다. Azure AD Connect를 사용하여 컴퓨터 개체를 동기화하는 방법에 대한 자세한 내용은 [조직 구성 단위 기반 필터링](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)을 참조하세요.
+
+> [!NOTE]
+> 디바이스 등록 동기화 조인을 성공하려면 디바이스 등록 구성의 일부로 기본 디바이스 특성을 Azure AD Connect 동기화 구성에서 제외하지 마세요. AAD에 동기화된 기본 디바이스 특성에 대한 자세한 내용은 [Azure AD Connect에서 동기화된 특성](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10)을 참조하세요.
 
 1\.1.819.0 버전부터 Azure AD Connect에는 하이브리드 Azure AD 조인을 구성하는 마법사가 포함되어 있습니다. 마법사를 사용하면 구성 프로세스를 크게 간소화할 수 있습니다. 마법사는 디바이스 등록을 위한 SCP(서비스 연결 지점)를 구성합니다.
 

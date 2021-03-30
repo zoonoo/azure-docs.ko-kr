@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e84a9fe15f648311c22fb0f7e8f8374454f5668a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1443ab37beb28706227159c53d336384216d8387
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989161"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582457"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -39,7 +39,7 @@ ms.locfileid: "99989161"
 
 자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 애플리케이션에서 사용할 수 있습니다. 암호는 **ExamplePassword** 로 지정되며 **hVFkk965BuUv** 값을 저장합니다.
 
-아래 명령을 입력하여 Key Vault에 **hVFkk965BuUv** 값을 저장하는 **ExamplePassword** 라는 비밀을 만듭니다.
+아래의 Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) 명령을 사용하여 **hVFkk965BuUv** 값을 저장하는 **ExamplePassword** 라는 Key Vault에서 비밀을 만듭니다.
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -64,5 +64,6 @@ az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyv
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](../general/overview.md) 참조
+- [Key Vault에서 여러 줄 비밀을 저장](multiline-secrets.md)하는 방법을 알아봅니다.
 - [Azure CLI az keyvault 명령](/cli/azure/keyvault)에 대한 참조를 참조하세요.
 - [Azure Key Vault 보안 개요](../general/security-overview.md)를 검토하세요.

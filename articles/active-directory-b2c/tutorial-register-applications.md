@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2ec67669edeb52af1044c97c984eb6ba36fd1a0b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "99821222"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579640"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 웹 애플리케이션 등록
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
-웹 애플리케이션의 경우 애플리케이션 비밀을 만들어야 합니다. 이 비밀은 애플리케이션에서 액세스 토큰의 권한 부여 코드를 교환하는 데 사용됩니다.
+웹 애플리케이션의 경우 애플리케이션 비밀을 만들어야 합니다. 클라이언트 암호는 *애플리케이션 암호* 라고도 합니다. 이 비밀은 애플리케이션에서 액세스 토큰의 권한 부여 코드를 교환하는 데 사용됩니다.
 
 #### <a name="app-registrations"></a>[앱 등록](#tab/app-reg-ga/)
 
@@ -89,7 +89,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **새 클라이언트 비밀** 을 선택합니다.
 1. **설명** 상자에 클라이언트 암호에 대한 설명을 입력합니다. 예: *clientsecret1*.
 1. **만료** 에서 암호가 유효한 기간을 선택한 다음 **추가** 를 선택합니다.
-1. 비밀의 **값** 을 기록합니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
+1. 클라이언트 애플리케이션 코드에서 사용할 비밀 **값** 을 기록합니다. 이 비밀 값은 이 페이지에서 나가면 다시 표시되지 않습니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
 
@@ -98,6 +98,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **저장** 을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 애플리케이션의 코드에서 애플리케이션 비밀로 사용합니다.
 
 * * *
+
+> [!NOTE]
+> 보안을 위해 주기적으로 또는 응급 상황이 발생할 경우 즉시 애플리케이션 비밀을 롤오버할 수 있습니다. Azure AD B2C와 통합되는 모든 애플리케이션은 발생 빈도에 관계없이 비밀 롤오버 이벤트를 처리할 준비가 되어 있어야 합니다. 두 개의 애플리케이션 비밀을 설정하여 애플리케이션이 애플리케이션 비밀 회전 이벤트 동안 이전 비밀을 계속 사용할 있습니다. 다른 클라이언트 암호를 추가하려면 이 섹션의 단계를 반복합니다. 
 
 ## <a name="enable-id-token-implicit-grant"></a>ID 토큰 암시적 허용 사용
 

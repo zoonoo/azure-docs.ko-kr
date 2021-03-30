@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1e2983fb50ce3ad1482db85025677cba5fee0c2e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "99821390"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889599"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>자습서: IoT 허브를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -219,7 +219,7 @@ IoT Hub의 할당량 및 제한 한도에 대한 자세한 내용은 [할당량 
 
 1. 먼저 경고가 트리거되는 조건을 구성합니다.
 
-    1. **조건** 에서 **조건 선택** 을 선택합니다. **신호 논리 구성** 창에서 검색 상자에 "원격 분석"을 입력하고 **전송된 원격 분석 메시지** 를 선택합니다.
+    1. **조건** 에서 **조건 추가** 를 선택합니다. **신호 논리 구성** 창에서 검색 상자에 "원격 분석"을 입력하고 **전송된 원격 분석 메시지** 를 선택합니다.
 
        :::image type="content" source="media/tutorial-use-metrics-and-diags/configure-signal-logic-telemetry-messages-sent.png" alt-text="메트릭 선택을 보여주는 스크린샷":::
 
@@ -245,7 +245,7 @@ IoT Hub의 할당량 및 제한 한도에 대한 자세한 내용은 [할당량 
 
 1. 이제 경고에 대한 작업을 구성합니다.
 
-    1. **경고 규칙 만들기** 창으로 돌아가서 **작업** 에서 **작업 그룹 선택** 을 선택합니다. **이 경고 규칙에 연결할 작업 그룹 선택** 창에서 **작업 그룹 만들기** 를 선택합니다.
+    1. **경고 규칙 만들기** 창으로 돌아가서 **작업** 에서 **작업 그룹 추가** 를 선택합니다. **이 경고 규칙에 연결할 작업 그룹 선택** 창에서 **작업 그룹 만들기** 를 선택합니다.
 
     1. **작업 그룹 만들기** 창의 **기본** 탭에서 작업 그룹에 이름 및 표시 이름을 지정합니다.
 
@@ -313,7 +313,7 @@ IoT Hub의 할당량 및 제한 한도에 대한 자세한 내용은 [할당량 
 
 ## <a name="run-the-simulated-device-app"></a>시뮬레이션된 디바이스 앱 실행
 
-[리소스 설정](#set-up-resources) 섹션에서는 IoT 디바이스를 사용하여 시뮬레이션하는 데 사용할 디바이스 ID를 등록했습니다. 이 섹션에서는 디바이스-클라우드 메시지를 IoT Hub로 보내는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드하고 이 메시지를 IoT 허브로 보내도록 구성한 다음, 실행합니다. 
+[리소스 설정](#set-up-resources) 섹션에서는 IoT 디바이스를 사용하여 시뮬레이션하는 데 사용할 디바이스 ID를 등록했습니다. 이 섹션에서는 디바이스-클라우드 메시지를 IoT Hub로 보내는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드하고 이 메시지를 IoT 허브로 보내도록 구성한 다음, 실행합니다.
 
 > [!IMPORTANT]
 >

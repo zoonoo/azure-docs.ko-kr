@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a455e1ee6f8f714cf50ebdf6a59dab568489ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 221b7bdbb8ab5d0121e9c8032be8f18d8ae60d1e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646302"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578059"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -85,6 +85,9 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > 조직에서 데이터 손실 방지 또는 Azure AD 테넌트 제한과 같은 시나리오에 대한 SSL 트래픽을 가로채는 프록시 서버를 사용하는 경우 'https://device.login.microsoftonline.com '에 대한 트래픽을 TLS 중단-검사에서 제외해야 합니다. 'https://device.login.microsoftonline.com '을 제외하지 않으면 클라이언트 인증서 인증에 방해가 되어 디바이스 등록 및 디바이스 기반 조건부 액세스에 문제가 발생할 수 있습니다.
 
 Windows 10 1803부터 AD FS를 사용하여 페더레이션된 환경에 대한 즉각적인 하이브리드 Azure AD 조인이 실패하는 경우 Azure AD Connect를 사용하여 Azure AD에서 컴퓨터 개체를 동기화한 다음, 하이브리드 Azure AD 조인에 대한 디바이스 등록을 완료합니다. Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 될 디바이스의 컴퓨터 개체를 동기화했는지 확인합니다. 컴퓨터 개체가 특정 OU(조직 구성 단위)에 속한 경우 Azure AD Connect에서도 이러한 OU에 동기화를 구성해야 합니다. Azure AD Connect를 사용하여 컴퓨터 개체를 동기화하는 방법을 자세히 알아보려면 [Azure AD Connect를 사용하여 필터링 구성](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)을 참조하세요.
+
+> [!NOTE]
+> 디바이스 등록 동기화 조인을 성공하려면 디바이스 등록 구성의 일부로 기본 디바이스 특성을 Azure AD Connect 동기화 구성에서 제외하지 마세요. AAD에 동기화된 기본 디바이스 특성에 대한 자세한 내용은 [Azure AD Connect에서 동기화된 특성](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10)을 참조하세요.
 
 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우에 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)를 구현](/previous-versions/tn-archive/cc995261(v%3dtechnet.10))하는 것이 좋습니다. WPAD를 구성하고 관리하는 문제가 발생하는 경우 [자동 검색 문제 해결](/previous-versions/tn-archive/cc302643(v=technet.10))을 참조하세요. 
 

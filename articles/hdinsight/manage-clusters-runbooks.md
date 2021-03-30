@@ -1,22 +1,22 @@
 ---
-title: '자습서: Azure Automation Runbook을 사용하여 클러스터 만들기 - Azure HDInsight'
+title: '자습서: Azure Automation Runbooks를 사용하여 클러스터 만들기 - Azure HDInsight'
 description: Azure Automation Runbook을 사용하여 클라우드에서 실행되는 스크립트로 Azure HDInsight 클러스터를 만들고 삭제하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "99822072"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864791"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>자습서: Azure Automation으로 Azure HDInsight 클러스터 만들기
 
 Azure Automation을 사용하여 클라우드에서 실행되고 요청 시 또는 일정에 따라 Azure 리소스를 관리하는 스크립트를 만들 수 있습니다. 이 문서에서는 PowerShell Runbook을 만들어 Azure HDInsight 클러스터를 만들고 삭제하는 방법을 설명합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * HDInsight와 상호 작용하는 데 필요한 모듈 설치
@@ -25,7 +25,7 @@ Azure Automation을 사용하여 클라우드에서 실행되고 요청 시 또�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 기존 [Azure Automation 계정](../automation/automation-quickstart-create-account.md)
 * 기존 [Azure Storage 계정](../storage/common/storage-account-create.md). 클러스터 스토리지로 사용됩니다.
@@ -38,16 +38,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 상자에 **AzureRM.Profile** 을 입력하고 Enter 키를 눌러 검색합니다. 사용 가능한 검색 결과를 선택합니다.
 1. **AzureRM.profile** 화면에서 **가져오기** 를 선택합니다. Azure 모듈 업데이트 확인란을 선택하고 **확인** 을 선택합니다.
 
-    ![AzureRM.profile 모듈 가져오기](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermprofile-module.png" alt-text="AzureRM.profile 모듈 가져오기" border="false":::
 
 1. **공유 리소스** 에서 **모듈 갤러리** 를 선택하여 모듈 갤러리로 돌아갑니다.
 1. **HDInsight** 를 입력합니다. **AzureRM.HDInsight** 를 선택합니다.
 
-    ![HDInsight 모듈 찾아보기](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/browse-modules-hdinsight.png" alt-text="HDInsight 모듈 찾아보기" border="true":::
 
 1. **AzureRM.HDInsight** 패널에서 **가져오기** 를 선택하고 **확인** 을 선택합니다.
 
-    ![AzureRM.HDInsight 모듈 가져오기](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermhdinsight-module.png" alt-text="AzureRM.HDInsight 모듈 가져오기" border="true":::
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     | 속성 | 값 |
     | --- | --- |
-    | 속성 | `cluster-password` |
+    | 이름 | `cluster-password` |
     | 사용자 이름 | `admin` |
     | 암호 | `SECURE_PASSWORD` |
     | 암호 확인 | `SECURE_PASSWORD` |
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **만들기** 를 선택합니다.
 1. 사용자 이름 `sshuser` 및 원하는 암호를 사용하여 새 자격 증명 `ssh-password`에도 동일한 프로세스를 반복합니다. **만들기** 를 선택합니다. 이 자격 증명은 클러스터의 SSH 암호를 저장하는 데 사용됩니다.
 
-    ![자격 증명 만들기](./media/manage-clusters-runbooks/create-credentials.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="자격 증명 만들기" border="true":::
 
 ## <a name="create-a-runbook-to-create-a-cluster"></a>클러스터를 만드는 Runbook 만들기
 
@@ -74,11 +74,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **Runbook 만들기** 패널에서 Runbook 이름을 입력합니다(예: `hdinsight-cluster-create`). **Runbook 유형** 드롭다운에서 **Powershell** 을 선택합니다.
 1. **만들기** 를 선택합니다.
 
-    ![Runbook 만들기](./media/manage-clusters-runbooks/create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="Runbook 만들기" border="true":::
 
 1. 다음과 같이 **PowerShell Runbook 편집** 화면에서 다음 코드를 입력하고 **게시** 를 선택합니다.
 
-    ![Runbook 게시](./media/manage-clusters-runbooks/publish-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/publish-runbook.png" alt-text="Runbook 게시" border="true":::
 
     ```powershell
     Param
@@ -154,7 +154,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **시작** 을 선택하여 Runbook을 즉시 실행합니다. 주기적으로 실행되도록 Runbook을 예약할 수도 있습니다. [Azure Automation에서 Runbook 예약](../automation/shared-resources/schedules.md)을 참조하세요.
 1. 스크립트에 필요한 매개 변수를 입력하고 **확인** 을 선택합니다. 그러면 **CLUSTERNAME** 매개 변수에서 지정한 이름을 사용하는 새 HDInsight 클러스터가 만들어집니다.
 
-    ![클러스터 만들기 Runbook 실행](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="클러스터 만들기 Runbook 실행" border="true":::
 
 ### <a name="delete-a-cluster"></a>클러스터 삭제
 

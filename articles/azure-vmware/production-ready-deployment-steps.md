@@ -2,23 +2,22 @@
 title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
-ms.date: 02/22/2021
-ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/17/2021
+ms.openlocfilehash: 2ded5d706ab71b3880633cd324fb366d0a1bccbe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733666"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584638"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
-이 문서에서는 배포 중에 사용되는 데이터를 식별하고 수집하기 위한 계획 프로세스를 제공합니다. 배포를 계획할 때 배포 중에 쉽게 참조할 수 있도록 수집한 정보를 문서화해야 합니다.
+이 문서에서는 배포 중에 사용할 정보를 식별하고 수집하기 위한 계획 프로세스를 제공합니다. 배포를 계획할 때 배포 중에 쉽게 참조할 수 있도록 수집한 정보를 문서화해야 합니다.
 
-이 빠른 시작 프로세스는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비 환경을 만듭니다. 
+이 빠른 시작에 설명된 단계는 VM(가상 머신)을 만들고 마이그레이션을 수행할 수 있는 프로덕션 준비 환경을 제공합니다. 
 
 >[!IMPORTANT]
 >Azure VMware Solution 리소스를 만들기 전에 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md) 문서에 따라 호스트가 할당되도록 지원 티켓을 제출합니다. 지원 팀에서 요청을 받으면 요청을 확인하고 호스트를 할당하는 데 최대 5일(영업일 기준)이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 진행합니다. 
-
 
 ## <a name="subscription"></a>Subscription
 
@@ -46,39 +45,44 @@ Azure VMware Solution을 배포하려는 지역을 확인합니다.  자세한 �
 
 Azure VMware Solution을 배포할 때 사용할 호스트 크기를 확인합니다.  전체 목록은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#hosts) 설명서를 참조하세요.
 
-## <a name="number-of-hosts"></a>호스트 수
+## <a name="number-of-clusters-and-hosts"></a>클러스터 및 호스트 수
 
-Azure VMware Solution 프라이빗 클라우드에 배포하려는 호스트 수를 정의합니다.  최소 호스트 수는 3개이고, 최대 노드 수는 클러스터당 16개입니다.  자세한 내용은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#clusters) 설명서를 참조하세요.
+사용자가 수행하는 첫 번째 Azure VMware Solution 배포는 단일 클러스터를 포함하는 프라이빗 클라우드로 구성됩니다. 배포의 경우 첫 번째 클러스터에 배포할 호스트 수를 정의해야 합니다.
 
-초기 배포 수를 초과해야 하는 경우 나중에 언제든지 클러스터를 확장할 수 있습니다.
+>[!NOTE]
+>클러스터당 최소 호스트 수는 3개이고 최대 호스트 수는 16개입니다. 프라이빗 클라우드당 최대 클러스터 수는 4개입니다. 
 
-## <a name="ip-address-segment"></a>IP 주소 세그먼트
+자세한 내용은 [Azure VMware Solution 프라이빗 클라우드 및 클러스터](concepts-private-clouds-clusters.md#clusters) 설명서를 참조하세요.
 
-배포를 계획하는 첫 번째 단계는 IP 조각화를 계획하는 것입니다.  Azure VMware Solution은 사용자가 제공하는 /22 네트워크를 수집합니다. 그런 다음, 더 작은 세그먼트로 분할하고, 해당 IP 세그먼트를 vCenter, VMware HCX, NSX-T 및 vMotion에 사용합니다.
+>[!TIP]
+>초기 배포 수를 초과해야 하는 경우 언제든지 나중에 클러스터를 확장하고 클러스터를 추가할 수 있습니다.
 
-Azure VMware Solution은 내부 ExpressRoute 회로를 통해 Microsoft Azure Virtual Network에 연결합니다. 대부분의 경우 ExpressRoute Global Reach를 통해 데이터 센터에 연결합니다. 
+## <a name="ip-address-segment-for-private-cloud-management"></a>프라이빗 클라우드 관리를 위한 IP 주소 세그먼트
 
-Azure VMware Solution, 기존 Azure 환경 및 온-프레미스 환경은 모두 경로를 교환합니다(일반적으로). 이 경우 이 단계에서 정의하는 /22 CIDR 네트워크 주소 블록은 온-프레미스 또는 Azure가 이미 있는 블록과 겹치지 않아야 합니다.
+배포를 계획하는 첫 번째 단계는 IP 조각화를 계획하는 것입니다. Azure VMware Solution에는 /22 CIDR 네트워크가 필요합니다. 이 주소 공간은 더 작은 네트워크 세그먼트(서브넷)로 분할되어 vCenter, VMware HCX, NSX-T 및 vMotion 기능을 비롯한 Azure VMware Solution 관리 세그먼트에 사용됩니다. 아래 시각화는 이 세그먼트가 사용되는 위치를 강조 표시합니다.
+
+이 /22 CIDR 네트워크 주소 블록은 온-프레미스 또는 Azure에 있는 기존 네트워크 세그먼트와 겹치지 않아야 합니다.
 
 **예:** 10.0.0.0/22
 
-자세한 내용은 [네트워크 계획 검사 목록](tutorial-network-checklist.md#routing-and-subnet-considerations)을 참조하세요.
+프라이빗 클라우드 [네트워크 계획 검사 목록](tutorial-network-checklist.md#routing-and-subnet-considerations)에 따라 /22 CIDR 네트워크가 어떻게 세분화되었는지 자세히 분석합니다.
 
 :::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="확인 - IP 주소 세그먼트" border="false":::  
 
 ## <a name="ip-address-segment-for-virtual-machine-workloads"></a>가상 머신 워크로드에 대한 IP 주소 세그먼트
 
-IP 세그먼트를 확인하여 첫 번째 네트워크(NSX 세그먼트)를 프라이빗 클라우드에 만듭니다.  즉, VM을 Azure VMware Solution에 배포할 수 있도록 네트워크 세그먼트를 Azure VMware Solution에 만들려고 합니다.   
+모든 VMware 환경과 마찬가지로 가상 머신은 네트워크 세그먼트에 연결해야 합니다. Azure VMware Solution에는 두 가지 유형의 세그먼트, 즉 L2 확장 세그먼트(뒷부분에서 설명)와 NSX-T 네트워크 세그먼트가 있습니다. Azure VMware Solution의 프로덕션 배포가 확장됨에 따라 온-프레미스 및 로컬 NSX-T 네트워크 세그먼트의 L2 확장 세그먼트 조합이 있는 경우가 많습니다. 초기 배포를 계획하려면 Azure VMware Solution에서 단일 네트워크 세그먼트(IP 네트워크)를 식별합니다. 이 네트워크는 온-프레미스 또는 Azure의 미사용 네트워크 세그먼트와 겹치지 않아야 하며 앞에서 정의한 /22 네트워크 세그먼트 내에 있지 않아야 합니다.
 
-L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성을 검사할 네트워크 세그먼트를 만듭니다.
+이 네트워크 세그먼트는 주로 초기 배포 중 테스트 목적으로 사용됩니다.
 
-만든 모든 IP 세그먼트는 Azure 및 온-프레미스 공간에서 고유해야 합니다.  
-
+>[!NOTE]
+>배포 중에는 이 네트워크가 필요하지 않습니다. 배포 후 단계로 생성됩니다.
+  
 **예:** 10.0.4.0/24
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="확인 - 가상 머신 워크로드에 대한 IP 주소 세그먼트" border="false":::     
 
-## <a name="optional-extend-networks"></a>(선택 사항) 네트워크 확장
+## <a name="optional-extend-your-networks"></a>(선택 사항) 네트워크 확장
 
 네트워크 세그먼트는 온-프레미스에서 Azure VMware Solution으로 확장할 수 있습니다. 이렇게 하는 경우 지금 해당 네트워크를 확인합니다.  
 
@@ -87,9 +91,12 @@ L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성
 - 온-프레미스에서 네트워크를 확장하려는 경우 해당 네트워크에서 온-프레미스 VMware 환경의 [vDS(vSphere 분산 스위치)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html)에 연결해야 합니다.  
 - [vSphere 표준 스위치](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html)에서 라이브로 확장하려는 네트워크인 경우 확장할 수 없습니다.
 
-## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Azure VMware Solution에 가상 네트워크 연결
+>[!NOTE]
+>이러한 네트워크는 배포 중이 아니라 구성의 마지막 단계로 확장됩니다.
 
-이 단계에서는 ExpressRoute 가상 네트워크 게이트웨이를 식별하고 Azure VMware Solution ExpressRoute 회로를 연결하는 데 사용되는 Azure Virtual Network를 지원합니다.  ExpressRoute 회로를 사용하면 Azure VMware Solution 프라이빗 클라우드와 다른 Azure 서비스, Azure 리소스 및 온-프레미스 환경을 편리하게 연결할 수 있습니다.
+## <a name="attach-azure-virtual-network-to-azure-vmware-solution"></a>Azure VMware Solution에 Azure Virtual Network 연결
+
+Azure VMware Solution에 대한 연결을 제공하기 위해 Azure VMware Solution 프라이빗 클라우드에서 ExpressRoute 가상 네트워크 게이트웨이로 ExpressRoute가 빌드됩니다.
 
 *기존* 또는 *새로운* ExpressRoute 가상 네트워크 게이트웨이를 사용할 수 있습니다.
 
@@ -97,17 +104,17 @@ L2 네트워크만 확장하려고 계획하는 경우에도 환경의 유효성
 
 ### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>기존 ExpressRoute 가상 네트워크 게이트웨이 사용
 
-*기존* ExpressRoute 가상 네트워크 게이트웨이 사용하는 경우 프라이빗 클라우드를 배포한 후 Azure VMware Solution ExpressRoute 회로가 설정됩니다. 이 경우 **Virtual Network** 필드를 비워 둡니다.  
+*기존* ExpressRoute 가상 네트워크 게이트웨이를 사용하려는 경우 Azure VMware Solution ExpressRoute 회로가 배포 후 단계로 설정됩니다. 이 경우 **Virtual Network** 필드를 비워 둡니다.
 
-사용할 ExpressRoute 가상 네트워크 게이트웨이를 적어 두고 다음 단계를 계속 진행합니다.
+일반적으로 기존 ExpressRoute 가상 네트워크 게이트웨이를 사용하는 것이 좋습니다. 계획을 수립하기 위해 사용할 ExpressRoute 가상 네트워크 게이트웨이를 기록한 후, 다음 단계를 계속 진행합니다.
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>새로운 ExpressRoute 가상 네트워크 게이트웨이 만들기
 
 *새로운* ExpressRoute 가상 네트워크 게이트웨이를 만드는 경우 기존 Azure Virtual Network를 사용하거나 새로 만들 수 있습니다.  
 
 - 기존 Azure Virtual Network의 경우:
-   1. 가상 네트워크에 기존 ExpressRoute 가상 네트워크 게이트웨이가 없는지 확인합니다. 
-   1. **Virtual Network** 목록에서 기존 Azure Virtual Network를 선택합니다.
+   1. 기존 ExpressRoute 가상 네트워크 게이트웨이가 없는 Azure Virtual Network를 식별합니다.
+   2. 배포하기 전에 Azure Virtual Network에서 [GatewaySubnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet)을 만듭니다.
 
 - 새로운 Azure Virtual Network의 경우 사전에 또는 배포 중에 만들 수 있습니다. **Virtual Network** 목록에서 **새로 만들기** 링크를 선택합니다.
 

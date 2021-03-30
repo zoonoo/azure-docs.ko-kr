@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 11daa548e90aa1906ba87e081fa1e0be6fe6aff8
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b022bff9db87c248881cd18cc21569aaef8f404a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430771"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562140"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>빠른 시작: Apache Cassandra용 Azure Managed Instance를 사용하여 하이브리드 클러스터 구성(미리 보기)
 
@@ -28,7 +28,7 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
 
 * 이 문서를 진행하려면 Azure CLI 버전 2.12.1 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
-* 자체 호스팅 또는 온-프레미스 환경에 연결된 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). 온-프레미스 환경을 Azure에 연결하는 방법에 대한 자세한 내용은 [Azure에 온-프레미스 네트워크 연결](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/) 문서를 참조하세요.
+* 자체 호스팅 또는 온-프레미스 환경에 연결된 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). 온-프레미스 환경을 Azure에 연결하는 방법에 대한 자세한 내용은 [Azure에 온-프레미스 네트워크 연결](/azure/architecture/reference-architectures/hybrid-networking/) 문서를 참조하세요.
 
 ## <a name="configure-a-hybrid-cluster"></a><a id="create-account"></a>하이브리드 클러스터 구성
 
@@ -48,16 +48,17 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    > [!NOTE]
    > 이전 명령에서 `assignee`와 `role` 값은 각각 고정된 서비스 주체 및 역할 식별자입니다.
 
-1. 다음으로, 하이브리드 클러스터의 리소스를 구성합니다. 클러스터가 이미 있으므로 여기서는 기존 클러스터의 이름을 식별하는 논리적 리소스만 클러스터 이름이 됩니다. 다음 스크립트에서 `clusterName` 및 `clusterNameOverride` 변수를 정의할 때는 기존 클러스터의 이름을 사용해야 합니다.
+1. 다음으로, 하이브리드 클러스터의 리소스를 구성합니다. 클러스터가 이미 있으므로 여기서는 기존 클러스터의 이름을 식별하는 논리적 리소스만 클러스터 이름이 됩니다. 다음 스크립트에서 `clusterName` 및 `clusterNameOverride` 변수를 정의할 때는 기존 클러스터의 이름을 사용해야 합니다. 또한 시드 노드, 퍼블릭 클라이언트 인증서(cassandra 엔드포인트에 퍼블릭/프라이빗 키를 구성한 경우) 및 기존 클러스터의 가십 인증서가 필요합니다.
 
-   또한 시드 노드, 퍼블릭 클라이언트 인증서(cassandra 엔드포인트에 퍼블릭/프라이빗 키를 구성한 경우) 및 기존 클러스터의 가십 인증서가 필요합니다. 위에서 복사한 리소스 ID를 사용하여 `delegatedManagementSubnetId` 변수도 정의해야 합니다.
+   > [!NOTE]
+   > 아래에 제공할 `delegatedManagementSubnetId` 변수 값은 위의 명령에서 제공한 `--scope` 값과 정확히 동일합니다.
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster-legal-name'
    clusterNameOverride='cassandra-hybrid-cluster-illegal-name'
    location='eastus2'
-   delegatedManagementSubnetId='<Resource ID>'
+   delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
     
    # You can override the cluster name if the original name is not legal for an Azure resource:
    # overrideClusterName='ClusterNameIllegalForAzureResource'
@@ -99,14 +100,13 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-   delegatedSubnetId= '<Resource ID>'
     
    az managed-cassandra datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName \
        --data-center-location $dataCenterLocation \
-       --delegated-subnet-id $delegatedSubnetId \
+       --delegated-subnet-id $delegatedManagementSubnetId \
        --node-count 9 
    ```
 
@@ -141,6 +141,15 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    ```bash
     ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
    ```
+
+## <a name="troubleshooting"></a>문제 해결
+
+Virtual Network에 권한을 적용할 때 *'e5007d2c-4b13-4a74-9b6a-605d99f03501'에 대한 그래프 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수 없음* 과 같은 오류가 발생하는 경우 Azure Portal에서 동일한 권한을 수동으로 적용할 수 있습니다. 포털에서 권한을 적용하려면 기존 가상 네트워크의 **액세스 제어(IAM)** 창으로 이동하여 "Azure Cosmos DB"에 대한 역할 할당을 "네트워크 관리자" 역할에 추가합니다. "Azure Cosmos DB"를 검색할 때 두 개의 항목이 나타나면 다음 이미지에 표시된 대로 항목을 추가합니다. 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="권한 적용" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> Azure Cosmos DB 역할 할당은 배포 목적으로만 사용됩니다. Azure Managed Instanced for Apache Cassandra에는 Azure Cosmos DB에 대한 백 엔드 종속성이 없습니다.  
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

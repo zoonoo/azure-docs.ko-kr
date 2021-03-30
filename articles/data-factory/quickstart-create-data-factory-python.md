@@ -3,18 +3,18 @@ title: '빠른 시작: Python을 사용하여 Azure Data Factory 만들기'
 description: 데이터 팩터리를 사용하여 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: f92a09e78d65f3723b9dfa83574f603dc113ebeb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372368"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889419"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -34,7 +34,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* [Python 3.4 이상](https://www.python.org/downloads/).
+* [Python 3.6 이상](https://www.python.org/downloads/).
 
 * [Azure Storage 계정](../storage/common/storage-account-create.md)
 
@@ -66,7 +66,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
     pip install azure-mgmt-datafactory
     ```
 
-    [Data Factory를 위한 Python SDK](https://github.com/Azure/azure-sdk-for-python)는 Python 2.7, 3.3, 3.4, 3.5, 3.6 및 3.7을 지원합니다.
+    [Data Factory용 Python SDK](https://github.com/Azure/azure-sdk-for-python)는 Python 2.7 및 3.6 이상을 지원합니다.
 
 4. Azure ID 인증을 위한 Python 패키지를 설치하려면 다음 명령을 실행합니다.
 

@@ -12,22 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/19/2021
 ms.author: b-juche
-ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571028"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955237"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
 
+## <a name="march-2021"></a>2021년 3월
+
+* [SMB CA(지속적인 가용성) 공유](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)(미리 보기)  
+
+    SMB 투명 장애 조치(Failover)를 사용하면 SMB 볼륨의 데이터를 저장 및 액세스하는 서버 애플리케이션에 대한 연결을 중단하지 않고도 Azure NetApp Files 서비스에서 유지 관리 작업을 수행할 수 있습니다. SMB 투명 장애 조치(Failover)를 지원하기 위해 Azure NetApp Files는 이제 Azure VM에서 실행되는 SMB를 통해 SQL Server 애플리케이션에서 사용할 수 있는 SMB 지속적인 가용성 공유 옵션을 지원합니다. 이 기능은 현재 Windows SQL Server에서 지원됩니다. Linux SQL Server는 현재 지원되지 않습니다. 이 기능을 사용하도록 설정하면 [단일 인스턴스, Always-On 장애 조치(Failover) 클러스터 인스턴스 및 Always-On 가용성 그룹 배포](azure-netapp-files-solution-architectures.md#sql-server)에 대한 SQL Server 성능 향상, 확장성 및 비용 혜택이 제공됩니다. [SQL Server 배포에 Azure NetApp Files 사용할 경우의 이점](solutions-benefits-azure-netapp-files-sql-server.md)을 참조하세요.
+
+* [지역 간 복제 대상 볼륨의 자동 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    지역 간 복제 관계에서 대상 볼륨은 원본 볼륨의 크기에 따라 자동으로 크기가 조정됩니다. 따라서 대상 볼륨의 크기를 별도로 조정할 필요가 없습니다. 이러한 자동 크기 조정 동작은 볼륨이 활성 복제 관계에 있거나 복제 피어링이 다시 동기화 작업으로 중단된 경우에 적용됩니다. 이 기능이 작동하려면 원본 볼륨과 대상 볼륨 모두에 대해 충분한 여유 공간이 용량 풀에 있어야 합니다.
+
 ## <a name="december-2020"></a>2020년 12월
 
-* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)(공개 미리 보기)    
+* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md)(미리 보기)    
 
     AzAcSnap(Azure Application Consistent Snapshot Tool)은 Linux 환경(예: SUSE 및 RHEL)에서 타사 데이터베이스(SAP HANA)에 대한 데이터 보호를 간소화하는 데 사용할 수 있는 명령줄 도구입니다.   
 
@@ -47,7 +57,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
 ## <a name="september-2020"></a>2020년 9월
 
-* [Azure NetApp Files 지역 간 복제](cross-region-replication-introduction.md)(공개 미리 보기)
+* [Azure NetApp Files 지역 간 복제](cross-region-replication-introduction.md)(미리 보기)
 
   Azure NetApp Files는 이제 지역 간 복제를 지원합니다. 이 새로운 재해 복구 기능을 사용하면 Azure NetApp Files 볼륨을 Azure 지역 간에 빠르고 비용 효율적인 방식으로 복제하여 예측할 수 없는 지역 오류로부터 데이터를 보호할 수 있습니다. Azure NetApp Files 지역 간 복제는 NetApp SnapMirror® 기술을 활용하며, 변경된 블록만 압축되고 효율적인 형식으로 네트워크를 통해 전송됩니다. 이 독점적 기술은 지역 간에 복제하는 데 필요한 데이터의 양을 최소화하여 데이터 전송 비용을 절감합니다. 또한 복제 시간이 단축되므로 더 작은 RPO(복원 지점 목표)를 달성할 수 있습니다.
 

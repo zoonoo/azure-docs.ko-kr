@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a1d745c95b89efefabbd0b83061f9dcd9fe13911
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702201"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567121"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -35,7 +35,7 @@ ms.locfileid: "101702201"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
@@ -91,7 +91,7 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
     - 플랫폼 관리형 키 및 고객 관리형 키를 사용한 이중 암호화
 
    > [!NOTE]
-   > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](https://go.microsoft.com/fwlink/?linkid=2151800)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
+   > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
   
 10. **Azure 하이브리드 혜택** 에서
 
@@ -111,7 +111,7 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
     > 가상 머신 세트에 대해 다른 가용성 옵션을 선택하려면 1단계로 이동하여 하나의 가상 머신 세트에 대한 복제를 시작한 후 다른 가용성 옵션을 선택하여 단계를 반복합니다.
 
 
- ![VM 컴퓨팅 설정](./media/tutorial-migrate-vmware/compute-settings.png)
+
 
 12. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
    
@@ -189,7 +189,7 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 ## <a name="complete-the-migration"></a>마이그레이션 완료
 
 1. 마이그레이션이 완료되면 마우스 오른쪽 단추로 VM > **복제 중지** 를 차례로 클릭합니다. 그러면 온-프레미스 머신에 대한 복제가 중지되고, VM에 대한 복제 상태 정보가 정리됩니다.
-2. 머신에 Linux OS가 있는 경우 마이그레이션된 머신에 Azure VM [Linux](../virtual-machines/extensions/agent-linux.md) 에이전트를 설치합니다. 마이그레이션 중에 Windows VM용 VM 에이전트를 자동으로 설치합니다.
+2. 마이그레이션 중에 Windows VM 및 Linux용 VM 에이전트를 자동으로 설치합니다. 머신에 Linux OS가 있는 경우 마이그레이션된 머신에서 Azure VM Linux 에이전트 [요구 사항](../virtual-machines/extensions/agent-linux.md#requirements)을 검토하여 Linux VM 에이전트 설치가 제대로 완료되었는지 확인합니다. 
 3. 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
 4. 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
 5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
@@ -202,6 +202,8 @@ Azure Migrate Server Migration은 VMware VM의 검색, 평가 및 에이전트 �
 - 복원력 개선:
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- 성능 향상을 위해 다음을 수행합니다.
+    - 기본적으로 데이터 디스크는 호스트 캐싱이 "없음"으로 설정된 상태로 생성됩니다. 워크로드 요구 사항에 맞게 데이터 디스크 캐싱을 검토하고 조정합니다. [자세히 알아보기](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - 보안 강화:
     - [Azure Security Center - Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하여 인바운드 트래픽 액세스를 잠그고 제한합니다.
     - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)을 사용하여 관리 엔드포인트에 대한 네트워크 트래픽을 제한합니다.

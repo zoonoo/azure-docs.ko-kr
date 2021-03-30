@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769149d49d4d233c5c202f570ceb871365728c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22f2ed2704f752ff2ca7a5bc21e856b076f0f70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671220"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584094"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Azure Synapse SQL에서 지원되는 Transact-SQL 기능
 
@@ -51,7 +51,7 @@ Synapse SQL에 사용되는 쿼리 언어는 소비 모델에 따라 지원되�
 
 |   | 전용 | 서버를 사용하지 않음 |
 | --- | --- | --- |
-| **SELECT 문** | 예. Transact-SQL 쿼리 절인 [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true) 및 [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true)는 지원되지 않습니다. | 예. Transact-SQL 쿼리 절인 [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true) 및 쿼리 힌트는 지원되지 않습니다. |
+| **SELECT 문** | 예. Transact-SQL 쿼리 절인 [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), OFFSET/FETCH는 지원되지 않습니다. | 예. Transact-SQL 쿼리 절인 [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG SETS 및 쿼리 힌트는 지원되지 않습니다. |
 | **INSERT 문** | 예 | 예 |
 | **UPDATE 문** | 예 | 예 |
 | **DELETE 문** | 예 | 예 |
@@ -153,10 +153,10 @@ Synapse SQL을 사용하면 기본 제공 보안 기능을 사용하여 데이�
 | **JSON** | 예 | [예](query-json-files.md) |
 | **Avro** | 예 | 예 |
 | **[Delta-lake](https://delta.io/)** | 예 | 예 |
-| **[CDM](/common-data-model/)** | 예 | 예 |
+| **[CDM](/common-data-model/)** | 예 | 아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 전용 SQL 풀 및 서버리스 SQL 풀의 모범 사례에 대한 추가 정보는 다음 문서에서 찾을 수 있습니다.
 
-- [전용 SQL 풀에 대한 모범 사례](best-practices-sql-pool.md)
-- [서버리스 SQL 풀에 대한 모범 사례](best-practices-sql-on-demand.md)
+- [전용 SQL 풀에 대한 모범 사례](best-practices-dedicated-sql-pool.md)
+- [서버리스 SQL 풀에 대한 모범 사례](best-practices-serverless-sql-pool.md)

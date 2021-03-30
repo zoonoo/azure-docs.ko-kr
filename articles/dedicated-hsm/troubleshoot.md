@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, seodec18
-ms.date: 12/07/2018
-ms.author: mbaldwin
-ms.openlocfilehash: 42bfa52721160a469db2aa0507dadfa85ff41389
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/25/2021
+ms.author: keithp
+ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97508274"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606949"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
-Azure Dedicated HSM 서비스에는 고유한 두 가지 측면이 있습니다. 먼저, Azure에서 기본 네트워크 구성 요소를 사용하여 HSM 디바이스를 등록하고 배포합니다. 다음으로, 지정된 워크로드 또는 애플리케이션을 사용하고 통합하도록 준비하는 데 필요한 HSM 디바이스를 구성합니다. Thales Luna Network HSM 디바이스는 Thales에서 직접 구입하는 것처럼 Azure에서 동일하지만, Azure의 리소스라는 사실로 인해 몇 가지 고유한 고려 사항이 있습니다. 중요한 정보에 대한 높은 가시성과 액세스를 보장하기 위해 이러한 고려 사항과 이에 따른 문제 해결 인사이트 또는 모범 사례를 여기서 문서화하고 있습니다. 서비스를 사용하고 있으면 Microsoft 또는 Thales에 대한 지원 요청을 통해 최종 정보를 직접 사용할 수 있습니다. 
+Azure Dedicated HSM 서비스에는 고유한 두 가지 측면이 있습니다. 먼저, Azure에서 기본 네트워크 구성 요소를 사용하여 HSM 디바이스를 등록하고 배포합니다. 다음으로, 지정된 워크로드 또는 애플리케이션을 사용하고 통합하도록 준비하는 데 필요한 HSM 디바이스를 구성합니다. Azure의 [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) 디바이스는 Thales에서 직접 구입한 것과 동일하지만, Azure의 리소스라는 사실로 인해 몇 가지 고유한 고려 사항이 있습니다. 중요한 정보에 대한 높은 가시성과 액세스를 보장하기 위해 이러한 고려 사항과 이에 따른 문제 해결 인사이트 또는 모범 사례를 여기서 문서화하고 있습니다. 서비스를 사용하고 있으면 Microsoft 또는 Thales에 대한 지원 요청을 통해 최종 정보를 직접 사용할 수 있습니다. 
 
 > [!NOTE]
 > 새로 배포된 HSM 디바이스에서 구성을 수행하기 전에 관련 패치로 업데이트해야 합니다. 특정 필수 패지는 재부팅 중에 시스템이 응답하지 않는 문제를 해결하는 Thales 지원 포털의 [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789)입니다.
 
 ## <a name="hsm-registration"></a>HSM 등록
 
-Dedicated HSM은 클라우드에서 하드웨어 리소스를 제공하므로 무료로 사용할 수 없으며, 이에 따라 보호해야 하는 소중한 리소스입니다. 따라서 HSMrequest@microsoft.com을 사용하는 이메일을 통해 허용 목록 프로세스를 사용합니다. 
+Dedicated HSM은 클라우드에서 하드웨어 리소스를 제공하므로 무료로 사용할 수 없으며, 이에 따라 보호해야 하는 소중한 리소스입니다. 따라서 HSMrequest@microsoft.com을 사용하여 이메일을 통한 허용 목록 프로세스를 사용합니다. 
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Dedicated HSM에 액세스
 
-Dedicated HSM이 주요 스토리지 요구 사항에 적합하다고 생각되면 액세스를 요청하는 이메일을 HSMrequest@microsoft.com으로 보냅니다. 애플리케이션, HSM을 원하는 지역 및 찾고 있는 HSM 볼륨을 간략히 설명합니다. 예를 들어 영업 책임자 또는 클라우드 솔루션 설계자와 같은 Microsoft 담당자와 협력하는 경우 요청에 포함시킵니다.
+먼저 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) 또는 [Azure Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview)으로 해결할 수 없는 사용 사례를 확인합니다. 그런 다음, Dedicated HSM만 주요 스토리지 요구 사항에 적합하다고 생각되면 액세스를 요청하는 이메일을 HSMrequest@microsoft.com으로 보냅니다. 애플리케이션과 사용 사례, HSM을 원하는 지역 및 찾고 있는 HSM 볼륨을 간략히 설명합니다. 예를 들어 영업 책임자 또는 클라우드 솔루션 설계자와 같은 Microsoft 담당자와 협력하는 경우 요청에 포함시킵니다.
 
 ## <a name="hsm-provisioning"></a>HSM 프로비저닝
 
@@ -56,7 +56,7 @@ Dedicated HSM은 배포에 대해 CLI 및 PowerShell을 지원하므로 포털 �
 
 ### <a name="hsm-deployment-using-terraform"></a>Terraform을 사용하여 HSM 배포
 
-일부 고객은 이 서비스에 등록할 때 제공되는 ARM 템플릿 대신 Terraform을 자동화 환경으로 사용했습니다. HSM은 이 방식으로 배포할 수 없지만 종속 네트워킹 리소스는 배포할 수 있습니다. Terraform에는 jut에서 HSM을 배포하는 최소 ARM 템플릿을 호출하는 모듈이 있습니다.  이 경우 HSM을 배포하기 전에 필요한 ExpressRoute 게이트웨이와 같은 네트워킹 리소스가 완전히 배포되도록 주의해야 합니다. 다음 CLI 명령을 사용하여 완료된 배포를 테스트하고 필요에 따라 통합할 수 있습니다. 특정 명명에 맞게 꺾쇠 괄호 자리 표시자를 바꿉니다. "provisioningState가 성공했습니다."의 결과가 표시됩니다.
+일부 고객은 이 서비스에 등록할 때 제공되는 ARM 템플릿 대신 Terraform을 자동화 환경으로 사용했습니다. HSM은 이 방식으로 배포할 수 없지만 종속 네트워킹 리소스는 배포할 수 있습니다. Terraform에는 HSM 배포가 있는 최소 ARM 템플릿을 호출하는 모듈이 있습니다.  이 경우 HSM을 배포하기 전에 필요한 ExpressRoute 게이트웨이와 같은 네트워킹 리소스가 완전히 배포되도록 주의해야 합니다. 다음 CLI 명령을 사용하여 완료된 배포를 테스트하고 필요에 따라 통합할 수 있습니다. 특정 명명에 맞게 꺾쇠 괄호 자리 표시자를 바꿉니다. "provisioningState가 성공했습니다."의 결과가 표시됩니다.
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -66,10 +66,10 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 스탬프당 2개의 HSM 및 지역당 4개의 HSM을 초과하면 배포가 실패할 수 있습니다. 이 상황을 방지하려면 이전에 실패한 배포에서 리소스를 삭제한 후 다시 배포해야 합니다. 리소스를 확인하려면 아래의 "HSM을 확인하는 방법" 항목을 참조하세요. 주로 보호 수단인 이 할당량을 초과해야 하는 경우 세부 정보가 포함된 이메일을 HSMrequest@microsoft.com으로 보내세요.
 
 ### <a name="deployment-failure-based-on-capacity"></a>용량 기반 배포 실패
-특정 스탬프 또는 지역이 가득 차면, 즉 거의 모든 사용 가능한 HSM이 프로비저닝되면 배포 실패가 발생할 수 있습니다. 각 스탬프에는 고객이 사용할 수 있는 11개의 HSM이 있으며, 이는 지역당 22개를 의미합니다. 각 스탬프에는 3개의 예비 디바이스 및 1개의 테스트 디바이스가 있습니다. 제한에 도달하는 경우 특정 스탬프의 채우기 수준에 대한 정보를 얻기 위해 이메일을 HSMrequest@microsoft.com으로 보내세요.
+특정 스탬프 또는 지역이 가득 차면, 즉 거의 모든 사용 가능한 HSM이 프로비저닝되면 배포 실패가 발생할 수 있습니다. 각 스탬프에는 고객이 사용할 수 있는 12개의 HSM이 있으며, 이는 지역당 24개를 의미합니다. 각 스탬프에는 2개의 예비 디바이스 및 1개의 테스트 디바이스가 있습니다. 제한에 도달하는 경우 특정 스탬프의 채우기 수준에 대한 정보를 얻기 위해 이메일을 HSMrequest@microsoft.com으로 보내세요.
 
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>프로비저닝할 때 HSM이 어떻게 표시되나요?
-Dedicated HSM은 허용 목록 서비스이므로 Azure Portal에서 "숨겨진 형식"으로 간주됩니다. HSM 리소스를 표시하려면 아래와 같이 "숨겨진 형식 표시" 확인란을 선택해야 합니다. NIC 리소스는 항상 HSM을 따르며, 먼저 HSM의 IP 주소를 확인한 후에 SSH를 사용하여 연결하는 것이 좋습니다.
+Dedicated HSM은 허용된 서비스이므로 Azure Portal에서 "숨겨진 형식"으로 간주됩니다. HSM 리소스를 표시하려면 아래와 같이 "숨겨진 형식 표시" 확인란을 선택해야 합니다. NIC 리소스는 항상 HSM을 따르며, 먼저 HSM의 IP 주소를 확인한 후에 SSH를 사용하여 연결하는 것이 좋습니다.
 
 ![숨겨진 형식 표시 검사를 강조 표시하는 스크린샷](./media/troubleshoot/hsm-provisioned.png)
 
@@ -112,7 +112,7 @@ HSM에 잘못된 자격 증명을 제공하면 파괴적인 결과가 발생할 
 다음 항목은 구성 오류가 일반적이거나 호출의 영향을 받는 경우입니다.
 
 ### <a name="hsm-documentation-and-software"></a>HSM 설명서 및 소프트웨어
-Thales SafeNet Luna 7 HSM 디바이스에 대한 소프트웨어 및 설명서는 Microsoft에서 사용할 수 없으며, Thales에서 직접 다운로드해야 합니다. 등록 프로세스 중에 받은 Thales 고객 ID를 사용하여 등록해야 합니다. Microsoft에서 제공하는 디바이스에는 소프트웨어 7.2 버전 및 펌웨어 7.0.3 버전이 있습니다. Thales는 2020년 초에 설명서를 공개했으며 [여기](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm)서 찾을 수 있습니다.  
+[Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) 디바이스에 대한 소프트웨어 및 설명서는 Microsoft에서 제공하지 않으며, Thales에서 직접 다운로드해야 합니다. 등록 프로세스 중에 받은 Thales 고객 ID를 사용하여 등록해야 합니다. Microsoft에서 제공하는 디바이스에는 소프트웨어 7.2 버전 및 펌웨어 7.0.3 버전이 있습니다. Thales는 2020년 초에 설명서를 공개했으며 [여기](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm)서 찾을 수 있습니다.  
 
 ### <a name="hsm-networking-configuration"></a>HSM 네트워킹 구성
 
@@ -120,7 +120,7 @@ HSM 내에서 네트워킹을 구성하는 경우에는 주의해야 합니다. 
 
 ### <a name="hsm-device-reboot"></a>HSM 디바이스 다시 부팅
 
-일부 구성을 변경하려면 HSM의 전원을 껐다 켜거나 다시 부팅해야 합니다. Microsoft에서 Azure의 HSM을 테스트한 결과 경우에 따라 다시 부팅이 응답하지 않을 수 있는 것으로 확인되었습니다. 즉, Azure Portal에서 하드 다시 부팅을 요청하는 지원 요청을 만들어야 하며, Azure 데이터 센터의 수동 프로세스임을 고려하여 이를 완료하는 데 최대 48시간이 걸릴 수 있습니다.  이러한 상황을 방지하려면 Thales에서 제공하는 다시 부팅 패치를 직접 배포해야 합니다. 재부팅 중에 시스템이 응답하지 않는 문제에 대한 권장 패치는 Thales Luna Network HSM 7.2 다운로드의 [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789)를 참조하세요(참고: 다운로드하려면 Thales 지원 포털에 등록되어 있어야 함).
+일부 구성을 변경하려면 HSM의 전원을 껐다 켜거나 다시 부팅해야 합니다. Microsoft에서 Azure의 HSM을 테스트한 결과 경우에 따라 다시 부팅이 응답하지 않을 수 있는 것으로 확인되었습니다. 즉, Azure Portal에서 하드 다시 부팅을 요청하는 지원 요청을 만들어야 하며, Azure 데이터 센터의 수동 프로세스임을 고려하여 이를 완료하는 데 최대 48시간이 걸릴 수 있습니다.  이러한 상황을 방지하려면 Thales에서 제공하는 다시 부팅 패치를 직접 배포해야 합니다. 재부팅 중에 시스템이 응답하지 않는 문제에 대한 권장 패치는 Thales Luna 7 HSM 7.2 다운로드의 [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789)를 참조하세요(참고: 다운로드하려면 [Thales 고객 지원 포털](https://supportportal.thalesgroup.com/csm)에 등록되어 있어야 함).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS 인증서 동기화되지 않음
 인증서가 만료되거나 구성 업데이트를 통해 덮어쓴 경우 클라이언트에서 HSM에 대한 연결이 끊어질 수 있습니다. 인증서 교환 클라이언트 구성을 각 HSM에 다시 적용해야 합니다.

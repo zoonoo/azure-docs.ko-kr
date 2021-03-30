@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703684"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587647"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -167,6 +167,18 @@ hdbuserstore list
 
 >[!NOTE]
 > `/usr/sap/{SID}/home/.hdb/` 아래에 고유한 SSFS 파일 세트가 있는지 확인하세요. 이 경로에는 하나의 폴더만 있어야 합니다.
+
+다음은 등록 전 스크립트 실행을 완료하는 데 필요한 단계의 요약입니다.
+
+|대상  |시작  |실행할 버전  |의견  |
+|---------|---------|---------|---------|
+|```<sid>```adm(OS)     |  HANA OS       |   자습서 읽기 및 등록 전 스크립트 다운로드      |   [위의 필수](#prerequisites) 구성 요소를 읽습니다. [여기](https://aka.ms/scriptforpermsonhana)에서 등록 전 스크립트를 다운로드합니다.  |
+|```<sid>```adm(OS) 및 시스템 사용자(HANA)    |      HANA OS   |   hdbuserstore Set 명령 실행      |   예: hdbuserstore Set SYSTEM hostname>:3```<Instance#>``` 13 시스템 ```<password>``` **정보:**  IP 주소 또는 FQDN 대신 호스트 이름을 사용해야 합니다.      |
+|```<sid>```adm(OS)    |   HANA OS      |  hdbuserstore List 명령 실행       |   결과에 ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```과 같은 기본 저장소가 포함되어 있는지 확인합니다.      |
+|루트(OS)     |   HANA OS        |    Azure Backup HANA 등록 전 스크립트 실행      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm(OS)    |  HANA OS       |   hdbuserstore List 명령 실행      |    결과에 ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```와 같은 새 줄이 포함되어 있는지 확인합니다.     |
+
+등록 전 스크립트를 성공적으로 실행하고 확인한 후 [연결 요구 사항](#set-up-network-connectivity)을 확인한 다음, Recovery Services 자격 증명 모음에서 [백업을 구성](#discover-the-databases)할 수 있습니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 

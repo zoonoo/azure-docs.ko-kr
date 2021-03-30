@@ -7,19 +7,19 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b130fd3f85b676f0a394ad95730181ff499dac96
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b83905280faf4486d2febfbd81514e1d85273ad5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216499"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950759"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
 > [!IMPORTANT]
-> 비밀 저장소 CSI 드라이버는 Azure 기술 지원에서 지원되지 않는 오픈 소스 프로젝트입니다. 페이지 하단의 github 링크에서 CSI 드라이버 Key Vault 통합과 관련된 모든 피드백과 문제를 보고하세요. 이 도구는 사용자가 클러스터에 직접 설치하고 커뮤니티에서 피드백을 수집할 수 있도록 제공됩니다.
+> 비밀 저장소 CSI 드라이버는 Azure 기술 지원에서 지원되지 않는 오픈 소스 프로젝트입니다. CSI 드라이버 [github](https://github.com/kubernetes-sigs/secrets-store-csi-driver)에서 CSI 드라이버 Key Vault 통합과 관련된 모든 피드백과 문제를 보고하세요. 이 도구는 사용자가 클러스터에 직접 설치하고 커뮤니티에서 피드백을 수집할 수 있도록 제공됩니다.
 
-이 자습서에서는 비밀 저장소 CSI(컨테이너 스토리지 인터페이스) 드라이버를 통해 비밀을 Kubernetes Pod에 탑재하여 Azure 키 자격 증명 모음에서 해당 비밀에 액세스하고 검색합니다.
+이 자습서에서는 비밀 저장소 CSI(컨테이너 스토리지 인터페이스) 드라이버를 사용하여 비밀을 Kubernetes Pod에 볼륨으로 탑재하여 Azure 키 자격 증명 모음에서 해당 비밀에 액세스하고 검색합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

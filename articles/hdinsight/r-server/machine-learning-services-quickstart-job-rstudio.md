@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 7604a327c43ed1942d336399b6d8b9dbb1e64d75
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935716"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104862836"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 
@@ -18,7 +18,7 @@ Azure HDInsight에서 ML Services를 사용하면 R 스크립트에서 Apache Sp
 
 이 빠른 시작에서는 분산 R 컴퓨팅을 위해 Spark를 사용하여 보여 주는 RStudio Server로 R 스크립트를 실행하는 방법을 알아봅니다. 컴퓨팅 컨텍스트를 정의하여 에지 노드에서 로컬로 컴퓨팅을 수행하고 HDInsight 클러스터의 노드 간에 다시 분산됩니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 HDInsight의 ML Services 클러스터. [Azure Portal을 사용하여 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하고 **클러스터 유형** 으로 **ML Services** 를 선택합니다.
 
@@ -34,7 +34,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 연결되면 다음 스크린샷과 유사한 화면이 표시됩니다.
 
-![R Studio 웹 콘솔 개요](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="R Studio 웹 콘솔 개요" border="true":::
 
 ## <a name="use-a-compute-context"></a>컴퓨팅 컨텍스트 사용
 
@@ -141,7 +141,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
     
       ---
     
-      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

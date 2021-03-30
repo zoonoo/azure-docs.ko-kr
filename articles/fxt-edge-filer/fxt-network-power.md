@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 80458d99ed6ad19c8a837f0989798d4dcc156b61
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219533"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>자습서: Azure FXT Edge Filer 노드에 네트워크 및 전원 공급 장치를 연결하는 방법
@@ -26,7 +26,7 @@ ms.locfileid: "92219533"
 > * CMA(케이블 관리 암)를 통해 케이블을 정리하는 방법
 > * 랙 탑재 디바이스에 전원을 연결하고 켜는 방법
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 시작하기 전에, Azure FXT Edge Filer가 표준 장비 랙에 설치되어야 합니다. Filer 노드에 CMA가 설치되어 있어야 합니다.
 

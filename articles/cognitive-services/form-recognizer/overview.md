@@ -11,12 +11,12 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: fdd482a6b0d6ca53d99cd17076ccd9a3545f7879
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 4465f88e3b0ccab8eace1936f426af8dd32af27b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467337"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872254"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -26,7 +26,16 @@ Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데�
 
 Form Recognizer는 사용자 지정 문서 처리 모델, 송장, 영수증, ID 및 명함용으로 미리 빌드된 모델, 레이아웃 모델로 구성됩니다. REST API 또는 클라이언트 라이브러리 SDK를 사용하여 Form Recognizer 모델을 호출하여 복잡성을 줄이고 워크플로 또는 애플리케이션에 통합할 수 있습니다.
 
-Form Recognizer는 다음과 같은 서비스로 구성됩니다.
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
+
+* [**빠른 시작**](quickstarts/client-library.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.  
+* [**방법 가이드**](build-training-data-set.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.  
+* [**개념**](concept-layout.md)은 서비스 기능에 대한 심층적인 설명을 제공합니다.  
+* [**자습서**](tutorial-bulk-processing.md)는 보다 광범위한 비즈니스 솔루션에서 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.  
+
+## <a name="form-recognizer-features"></a>Form Recognizer 기능
+
+Form Recognizer를 사용하면 다음과 같은 기능을 통해 양식 데이터를 쉽게 추출하고 분석할 수 있습니다.
 
 * **[레이아웃 API](#layout-api)** - 문서에서 경계 상자 좌표와 함께 텍스트, 선택 표시 및 표 구조를 추출합니다.
 * **[사용자 지정 모델](#custom-models)** - 양식에서 텍스트, 키/값 쌍, 선택 표시 및 표 데이터를 추출합니다. 이러한 모델은 사용자 고유의 데이터로 학습되므로 사용자의 양식에 맞게 조정됩니다.
@@ -38,11 +47,10 @@ Form Recognizer는 다음과 같은 서비스로 구성됩니다.
   * [명함](./concept-business-cards.md)
   * [식별(ID) 카드](./concept-identification-cards.md)
 
-## <a name="try-it-out"></a>사용해 보기
 
-Form Recognizer 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
-<!-- markdownlint-disable MD025 -->
-<!-- markdownlint-disable MD024 -->
+## <a name="get-started"></a>시작
+
+샘플 Form Recognizer 도구를 사용하여 레이아웃, 미리 빌드된 모델을 사용해 보고 문서에 대한 사용자 지정 모델을 학습합니다. Form Recognizer 서비스를 사용해보려면 Azure 구독([**무료로 하나 생성**](https://azure.microsoft.com/free/cognitive-services))과 [**Form Recognizer 리소스**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 엔드포인트 및 키가 필요합니다.
 
 ### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
 
@@ -55,8 +63,45 @@ Form Recognizer 서비스를 사용해보려면 다음과 같은 온라인 샘�
 > [Form Recognizer 사용해보기](https://fott.azurewebsites.net/)
 
 ---
+[클라이언트 라이브러리/REST API 빠른 시작](./quickstarts/client-library.md)에 따라 문서에서 데이터 추출을 시작합니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
-Form Recognizer 서비스를 사용해보려면 Azure 구독([무료로 하나 생성](https://azure.microsoft.com/free/cognitive-services))과 [Form Recognizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) 엔드포인트 및 키가 필요합니다.
+REST 샘플(GitHub)을 사용하여 시작할 수도 있습니다. 
+
+* 문서에서 텍스트, 선택 표시 및 표 구조 추출
+  * [레이아웃 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* 사용자 지정 모델 학습 및 양식 데이터 추출
+  * [레이블 없이 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [레이블을 사용하여 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* 송장에서 데이터 추출
+  * [송장 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* 판매 영수증에서 데이터 추출
+  * [영수증 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* 비즈니스 카드에서 데이터 추출
+  * [명함 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
+
+### <a name="review-the-rest-apis"></a>REST API 검토
+
+다음 API를 사용하여 모델을 학습시키고 양식에서 정형 데이터를 추출합니다.
+
+|Name |Description |
+|---|---|
+| **레이아웃 분석** | 스트림으로 전달된 문서를 분석하여 문서에서 텍스트, 선택 표시, 표 및 구조 추출 |
+| **사용자 지정 모델 학습**| 동일한 형식의 5개 양식을 사용하여 양식을 분석하는 새 모델을 학습시킵니다. _useLabelFile_ 매개 변수를 `true`로 설정하여 수동 레이블 지정 데이터로 학습합니다. |
+| **양식 분석** |스트림으로 전달된 양식을 분석하여 사용자 지정 모델을 통해 양식에서 텍스트, 키/값 쌍 및 표를 추출합니다.  |
+| **송장 분석** | 송장을 분석하여 주요 정보, 표 및 기타 송장 텍스트를 추출합니다.|
+| **영수증 분석** | 영수증 문서를 분석하여 키 정보 및 다른 영수증 텍스트를 추출합니다.|
+| **ID 분석** | ID 카드 문서를 분석하여 키 정보 및 기타 식별 카드 텍스트를 추출합니다.|
+| **명함 분석** | 명함을 분석하여 주요 정보 및 텍스트를 추출합니다.|
+
+### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
+
+자세히 알아보려면 [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+자세히 알아보려면 [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
+
+---
 
 ## <a name="layout-api"></a>레이아웃 API
 
@@ -113,61 +158,6 @@ Form Recognizer에는 고유한 양식 유형의 자동화된 데이터 처리�
 명함 모델을 사용하면 영어로 된 명함에서 사람의 이름, 직함, 주소, 이메일, 회사 및 전화번호와 같은 정보를 추출할 수 있습니다. 자세한 내용은 [비즈니스 카드](./concept-business-cards.md) 개념 가이드를 참조하세요.
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="샘플 명함" lightbox="./media/overview-business-card.jpg":::
-
-## <a name="get-started"></a>시작하기
-
-샘플 Form Recognizer 도구를 사용하여 레이아웃, 미리 빌드된 모델을 사용해 보고 문서에 대한 사용자 지정 모델을 학습합니다.  
-
-### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer 사용해보기](https://fott-preview.azurewebsites.net/)
-
-### <a name="v20"></a>[v2.0](#tab/v2-0)
-
-> [!div class="nextstepaction"]
-> [Form Recognizer 사용해보기](https://fott.azurewebsites.net/)
-
----
-[클라이언트 라이브러리/REST API 빠른 시작](./quickstarts/client-library.md)에 따라 문서에서 데이터 추출을 시작합니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
-
-REST 샘플(GitHub)을 사용하여 시작할 수도 있습니다. 
-
-* 문서에서 텍스트, 선택 표시 및 표 구조 추출
-  * [레이아웃 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-* 사용자 지정 모델 학습 및 양식 데이터 추출
-  * [레이블 없이 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
-  * [레이블을 사용하여 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
-* 송장에서 데이터 추출
-  * [송장 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
-* 판매 영수증에서 데이터 추출
-  * [영수증 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
-* 비즈니스 카드에서 데이터 추출
-  * [명함 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
-
-### <a name="review-the-rest-apis"></a>REST API 검토
-
-다음 API를 사용하여 모델을 학습시키고 양식에서 정형 데이터를 추출합니다.
-
-|Name |Description |
-|---|---|
-| **레이아웃 분석** | 스트림으로 전달된 문서를 분석하여 문서에서 텍스트, 선택 표시, 표 및 구조 추출 |
-| **사용자 지정 모델 학습**| 동일한 형식의 5개 양식을 사용하여 양식을 분석하는 새 모델을 학습시킵니다. _useLabelFile_ 매개 변수를 `true`로 설정하여 수동 레이블 지정 데이터로 학습합니다. |
-| **양식 분석** |스트림으로 전달된 양식을 분석하여 사용자 지정 모델을 통해 양식에서 텍스트, 키/값 쌍 및 표를 추출합니다.  |
-| **송장 분석** | 송장을 분석하여 주요 정보, 표 및 기타 송장 텍스트를 추출합니다.|
-| **영수증 분석** | 영수증 문서를 분석하여 키 정보 및 다른 영수증 텍스트를 추출합니다.|
-| **ID 분석** | ID 카드 문서를 분석하여 키 정보 및 기타 식별 카드 텍스트를 추출합니다.|
-| **명함 분석** | 명함을 분석하여 주요 정보 및 텍스트를 추출합니다.|
-
-### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/v2-1)
-
-자세히 알아보려면 [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
-
-### <a name="v20"></a>[v2.0](#tab/v2-0)
-
-자세히 알아보려면 [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.
-
----
 
 ## <a name="input-requirements"></a>입력 요구 사항
 

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941060"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869772"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>빠른 시작: Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행
 
@@ -28,13 +28,13 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
 
 2. 클러스터 로그인 사용자 이름 및 암호를 입력합니다. Zeppelin 페이지에서 새 노트를 만들거나 기존 노트를 열 수 있습니다. **HiveSample** 에는 몇 가지 샘플 Hive 쿼리가 포함되어 있습니다.  
 
-    ![HDInsight 대화형 쿼리 zeppelin](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight 대화형 쿼리 zeppelin" border="true":::
 
 3. **새 메모 만들기** 를 선택합니다.
 
 4. **새 메모 만들기** 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-    - 노트 이름: 메모의 이름을 입력합니다.
+    - 노트 이름: 노트의 이름을 입력합니다.
     - 기본 인터프리터: 드롭다운 목록에서 **jdbc** 를 선택합니다.
 
 5. **노트 만들기** 를 선택합니다.
@@ -46,7 +46,7 @@ HDInsight 대화형 쿼리 클러스터. [클러스터 만들기](../hadoop/apac
     show tables
     ```
 
-    ![HDInsight 대화형 쿼리 zeppelin 쿼리 실행](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight 대화형 쿼리 zeppelin 쿼리 실행" border="true":::
 
     첫 번째 줄의 **%jdbc(hive)** 문은 노트북이 Hive JDBC 인터프리터를 사용한다는 것을 나타냅니다.
 

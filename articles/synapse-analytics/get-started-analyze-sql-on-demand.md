@@ -10,24 +10,32 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: c9f8760bd1a7b5d3700f3fdf03331fe7013e116f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5f0a7477df2e281748c053ea8c7e7d3e79626296
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209409"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588021"
 ---
-# <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 데이터 분석
+# <a name="analyze-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 데이터 분석
 
 이 자습서에서는 Spark 데이터베이스에 있는 데이터를 사용하여 서버리스 SQL 풀로 데이터를 분석하는 방법을 알아봅니다. 
 
+## <a name="the-built-in-serverless-sql-pool"></a>기본 제공 서버리스 SQL 풀
+
+서버리스 SQL 풀을 사용하면 용량을 예약하지 않고도 SQL을 사용할 수 있습니다. 서버리스 SQL 풀에 대한 요금 청구는 쿼리를 실행하는 데 사용된 노드 수가 아니라 쿼리를 실행하는 데 처리된 데이터 양을 기준으로 합니다.
+
+모든 작업 영역에는 **기본 제공** 이라는 미리 구성된 서버리스 SQL 풀이 제공됩니다. 
+
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 Blob 스토리지에서 NYC Taxi 데이터 분석
 
-1. **연결됨** 아래의 **데이터** 허브에서 **Azure Blob Storage > 샘플 데이터 세트 > nyc_tlc_yellow**, **새 SQL 스크립트** 를 마우스 오른쪽 단추로 클릭하고 **상위 100개 행 선택** 을 선택합니다.
-1. 그러면 다음 코드에서 새 SQL 스크립트가 생성됩니다.
+이 섹션에서는 서버리스 SQL 풀을 사용하여 Azure Blob Storage 계정의 NYC Taxi 데이터를 분석합니다.
+
+1. Synapse Studio에서 **개발** 허브로 이동합니다.
+1. 새 SQL 스크립트를 만듭니다.
+1. 다음 코드를 스크립트에 붙여 넣습니다.
 
     ```
-    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -38,25 +46,7 @@ ms.locfileid: "98209409"
     ```
 1. **실행** 을 클릭합니다.
 
-## <a name="analyze-nyc-taxi-data-in-spark-databases-using-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 Spark 데이터베이스에서 NYC Taxi 데이터 분석
-
-Spark 데이터베이스의 테이블은 자동으로 표시되며, 서버리스 SQL 풀에서 이를 쿼리할 수 있습니다.
-
-1. Synapse Studio에서 **개발** 허브로 이동하여 새 SQL 스크립트를 만듭니다.
-1. **연결 대상** 을 **기본 제공** 서버리스 SQL 풀로 설정합니다.
-1. 다음 텍스트를 스크립트에 붙여넣고, 해당 스크립트를 실행합니다.
-
-    ```sql
-    SELECT *
-    FROM nyctaxi.dbo.passengercountstats
-    ```
-
-    > [!NOTE]
-    > 서버리스 SQL 풀을 사용하는 쿼리를 처음 실행하는 경우 서버리스 SQL 풀에서 쿼리를 실행하는 데 필요한 SQL 리소스를 수집하는 데 약 10초 정도 걸립니다. 이후 쿼리는 훨씬 더 빠릅니다.
-  
-
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [스토리지 데이터 분석](get-started-analyze-storage.md)
+> [서버리스 Spark 풀을 사용하여 데이터 분석](get-started-analyze-spark.md)

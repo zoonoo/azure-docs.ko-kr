@@ -7,10 +7,10 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88067565"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>빠른 시작: Ruby에서 Service Bus 토픽 및 구독을 사용하는 방법
@@ -28,10 +28,10 @@ ms.locfileid: "88067565"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
-2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스**를 만들고 **연결 문자열**을 가져옵니다. 
+2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스** 를 만들고 **연결 문자열** 을 가져옵니다. 
 
     > [!NOTE]
-    > 이 빠른 시작에서는 **Ruby**를 사용하여 **토픽** 및 해당 토픽에 대한 **구독**을 만들 것입니다. 
+    > 이 빠른 시작에서는 **Ruby** 를 사용하여 **토픽** 및 해당 토픽에 대한 **구독** 을 만들 것입니다. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -74,13 +74,13 @@ subscription = azure_service_bus_service.create_subscription("test-topic", "all-
 ### <a name="create-subscriptions-with-filters"></a>필터를 사용하여 구독 만들기
 토픽으로 전송된 메시지 중 특정 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 정의할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter](service-bus-messaging-sql-filter.md) 구문을 참조하세요.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **Azure::ServiceBus::SqlFilter** 입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter](service-bus-messaging-sql-filter.md) 구문을 참조하세요.
 
 **Azure::ServiceBusService** 개체의 `create_rule()` 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
-기본 필터는 모든 새 구독에 자동 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **Azure::ServiceBusService** 개체의 `delete_rule()` 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+기본 필터는 모든 새 구독에 자동 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll** 이 사용자가 지정하는 기타 필터를 재정의합니다. **Azure::ServiceBusService** 개체의 `delete_rule()` 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
-다음 예제에서는 사용자 지정 `message_number` 속성이 3보다 큰 메시지만 선택하는 **Azure::ServiceBus::SqlFilter**를 사용하여 "high-messages"라는 구독을 만듭니다.
+다음 예제에서는 사용자 지정 `message_number` 속성이 3보다 큰 메시지만 선택하는 **Azure::ServiceBus::SqlFilter** 를 사용하여 "high-messages"라는 구독을 만듭니다.
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
@@ -94,7 +94,7 @@ rule.filter = Azure::ServiceBus::SqlFilter.new({
 rule = azure_service_bus_service.create_rule(rule)
 ```
 
-마찬가지로, 다음 예제에서는 `message_number` 속성이 3보다 작거나 같은 메시지만 선택하는 **Azure::ServiceBus::SqlFilter**를 사용하여 `low-messages`라는 구독을 만듭니다.
+마찬가지로, 다음 예제에서는 `message_number` 속성이 3보다 작거나 같은 메시지만 선택하는 **Azure::ServiceBus::SqlFilter** 를 사용하여 `low-messages`라는 구독을 만듭니다.
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
@@ -126,13 +126,13 @@ end
 Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 토픽에 저장되는 메시지 수에는 제한이 없지만 한 토픽에 저장되는 총 메시지 크기는 제한됩니다. 이 토픽 크기는 생성 시 정의되며 상한이 5GB입니다.
 
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
-**Azure::ServiceBusService** 개체의 `receive_subscription_message()` 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지는 구독에서 삭제하지 않고 읽고(피크) 잠급니다. `peek_lock` 옵션을 **false**로 설정하여 메시지를 구독에서 읽고 삭제할 수 있습니다.
+**Azure::ServiceBusService** 개체의 `receive_subscription_message()` 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지는 구독에서 삭제하지 않고 읽고(피크) 잠급니다. `peek_lock` 옵션을 **false** 로 설정하여 메시지를 구독에서 읽고 삭제할 수 있습니다.
 
 기본 동작은 읽기 및 삭제가 2단계 작업으로 수행되도록 하므로 메시지 누락이 허용되지 않는 애플리케이션도 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 애플리케이션에 반환합니다. 애플리케이션은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, `delete_subscription_message()` 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. `delete_subscription_message()` 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
 
-`:peek_lock` 매개 변수를 **false**로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델이 됩니다. 이러한 모델은 오류 발생 시 애플리케이션이 메시지를 처리하지 않아도 되는 시나리오에 가장 적합합니다. 소비자가 수신 요청을 생성했는데 해당 요청을 처리하기 전에 응용 프로그램 작동이 중단되는 경우를 가정해 보겠습니다. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
+`:peek_lock` 매개 변수를 **false** 로 설정하면 메시지 읽기 및 삭제가 가장 간단한 모델이 됩니다. 이러한 모델은 오류 발생 시 애플리케이션이 메시지를 처리하지 않아도 되는 시나리오에 가장 적합합니다. 소비자가 수신 요청을 생성했는데 해당 요청을 처리하기 전에 응용 프로그램 작동이 중단되는 경우를 가정해 보겠습니다. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 애플리케이션이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
 
-다음 예제에서는 `receive_subscription_message()`를 사용하여 메시지를 받고 처리하는 방법을 보여줍니다. 이 예제에서는 먼저 **false**로 설정된 `:peek_lock`을 사용하여 `low-messages` 구독에서 메시지를 받고 삭제한 후 `high-messages`에서 다른 메시지를 받고 `delete_subscription_message()`를 사용하여 메시지를 삭제합니다.
+다음 예제에서는 `receive_subscription_message()`를 사용하여 메시지를 받고 처리하는 방법을 보여줍니다. 이 예제에서는 먼저 **false** 로 설정된 `:peek_lock`을 사용하여 `low-messages` 구독에서 메시지를 받고 삭제한 후 `high-messages`에서 다른 메시지를 받고 `delete_subscription_message()`를 사용하여 메시지를 삭제합니다.
 
 ```ruby
 message = azure_service_bus_service.receive_subscription_message(
@@ -147,7 +147,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 
 구독 내에서 잠긴 메시지와 연결된 제한 시간도 있으며, 애플리케이션에서 잠금 시간 제한이 만료되기 전에 메시지를 처리하지 못하는 경우(예: 애플리케이션 작동이 중단되는 경우) Service Bus가 메시지를 자동으로 잠금 해제하여 다시 받을 수 있게 합니다.
 
-애플리케이션이 메시지를 처리한 후 `delete_subscription_message()` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이를 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 논리는 배달 시도 간에 일정하게 유지되는 메시지의 `message_id` 속성을 사용하여 추가하는 경우가 많습니다.
+애플리케이션이 메시지를 처리한 후 `delete_subscription_message()` 메서드가 호출되기 전에 충돌하는 경우, 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이를 *최소 한 번 이상 처리* 라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 애플리케이션 개발자가 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 이 논리는 배달 시도 간에 일정하게 유지되는 메시지의 `message_id` 속성을 사용하여 추가하는 경우가 많습니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
 토픽 및 구독은 [AutoDeleteOnIdle 속성](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)이 설정되지 않는 한 영구적으로 유지됩니다. 토픽 및 구독은 [Azure Portal][Azure portal]을 통해 또는 프로그래밍 방식으로 삭제할 수 있습니다. 다음 예제는 `test-topic` 토픽을 삭제하는 방법을 보여 줍니다.

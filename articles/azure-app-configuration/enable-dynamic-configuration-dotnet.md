@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: alkemper
 ms.openlocfilehash: 03940a86176d0bc93c5066977fdc87de5c456060
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96932764"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
@@ -24,12 +24,12 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 .NET Framework 앱 만들기](./quickstart-dotnet-app.md)를 완료합니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * App Configuration 저장소의 변경에 따라 .NET Framework 앱의 해당 구성을 업데이트하도록 설정합니다.
 > * 애플리케이션에 최신 구성을 삽입합니다.
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)

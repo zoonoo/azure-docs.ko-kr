@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2ff07995cab2da6e53600be9bf60b30d1896cc9d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 40fa1bc776c5cd457e57cf170f629b6cf92800fe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102639249"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585998"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Azure Stack Edge Pro R이란?
 
@@ -78,6 +78,8 @@ Azure Stack Edge Pro R 솔루션은 Azure Stack Edge 리소스, Azure Stack Edge
 - **디바이스 가용성** - Azure Stack Edge Pro R 디바이스를 사용할 수 있는 모든 국가 목록을 보려면 [Azure Stack Edge Pro R 가격 책정](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR)의 **Azure Stack Edge Pro R** 탭에서 **가용성** 섹션으로 이동합니다.
 
 - **대상 스토리지 계정** - 데이터를 저장하는 스토리지 계정은 모든 Azure 지역에서 사용할 수 있습니다. 성능을 최적화하려면 스토리지 계정이 Azure Stack Edge Pro R 데이터를 저장하는 지역이 디바이스를 사용하는 지역과 가까이 있어야 합니다. 스토리지 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다.
+
+Azure Stack Edge 서비스는 비 지역 서비스입니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)을 참조하세요. Azure Stack Edge 서비스는 특정 Azure 지역에 대한 종속성이 없으므로 영역 전체 중단 및 지역 전체 중단에 탄력적으로 대처할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
