@@ -9,10 +9,10 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93092469"
 ---
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>자습서: Azure Cosmos DB에서 Cassandra API 테이블에 샘플 데이터 로드
@@ -28,7 +28,7 @@ ms.locfileid: "93092469"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 이 문서를 시작하기 전에 [Cassandra API 계정, 키스페이스 및 테이블을 만들어야 합니다](create-cassandra-api-account-java.md).   
 

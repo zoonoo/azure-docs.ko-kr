@@ -4,10 +4,10 @@ description: '빠른 시작: 이 문서에서는 Apache Storm을 사용하여 Az
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087580"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>빠른 시작: Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
@@ -30,13 +30,13 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트**를 차례로 클릭).
+4. Eclipse에서 새 Maven 프로젝트를 만듭니다(**파일**, **새로 만들기**, **프로젝트** 를 차례로 클릭).
    
     ![파일 > 새로 만들기 > 프로젝트][12]
-5. **Use default Workspace location**(기본 작업 영역 위치 사용)을 선택하고 **다음**을 클릭합니다.
-6. **maven-archetype-quickstart** 원형을 선택하고 **다음**을 클릭합니다.
-7. **GroupId** 및 **ArtifactId**를 삽입하고 **마침**을 클릭합니다.
-8. **pom.xml**에서 `<dependency>` 노드에 다음 종속성을 추가합니다.
+5. **Use default Workspace location**(기본 작업 영역 위치 사용)을 선택하고 **다음** 을 클릭합니다.
+6. **maven-archetype-quickstart** 원형을 선택하고 **다음** 을 클릭합니다.
+7. **GroupId** 및 **ArtifactId** 를 삽입하고 **마침** 을 클릭합니다.
+8. **pom.xml** 에서 `<dependency>` 노드에 다음 종속성을 추가합니다.
 
     ```xml  
     <dependency>
@@ -68,7 +68,7 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     </dependency>
     ```
 
-9. **src** 폴더에서 **Config.properties**라는 파일을 만들고 다음 콘텐츠를 복사하여 `receive rule key` 및 `event hub name` 값으로 대체합니다.
+9. **src** 폴더에서 **Config.properties** 라는 파일을 만들고 다음 콘텐츠를 복사하여 `receive rule key` 및 `event hub name` 값으로 대체합니다.
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -124,7 +124,7 @@ Event Hubs 수신기 패턴에 대한 자세한 내용은 [Event Hubs 개요][Ev
     ```
     
     이 Storm 볼트는 수신된 이벤트의 콘텐츠를 기록합니다. 튜플을 스토리지 서비스에 저장하도록 간단히 확장할 수 있습니다. [이벤트 허브를 사용한 HDInsight Storm 예제]에서도 이와 동일한 방법을 사용하여 Azure Storage 및 Power BI에 데이터를 저장합니다.
-11. 다음 코드를 포함하는 **LogTopology**라는 클래스를 만듭니다.
+11. 다음 코드를 포함하는 **LogTopology** 라는 클래스를 만듭니다.
     
     ```java
     import java.io.FileReader;

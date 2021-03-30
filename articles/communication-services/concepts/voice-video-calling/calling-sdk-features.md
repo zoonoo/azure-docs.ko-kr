@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489279"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598884"
 ---
 # <a name="calling-client-library-overview"></a>통화 클라이언트 라이브러리 개요
 
@@ -86,7 +86,7 @@ ms.locfileid: "102489279"
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*Safari 버전 13.1 이상이 지원됩니다. 
+*Safari 버전 13.1 이상이 지원됩니다. 1:1 호출은 Safari에서 지원되지 않습니다. 
 
 **발신 비디오 지원에 Safari 14+/macOS 11+가 필요합니다. 
 
@@ -120,8 +120,8 @@ Communication Services 통화 클라이언트 라이브러리는 다음과 같�
 
 |           |웹 | Android/iOS|
 |-----------|----|------------|
-|**# 동시에 보낼 수 있는 나가는 스트림 수** |비디오 1개 + 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
-|**# 동시에 렌더링할 수 있는 들어오는 스트림 수** |비디오 1개 + 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
+|**# 동시에 보낼 수 있는 나가는 스트림 수** |비디오 1개 또는 화면 공유 1개 | 비디오 1개 + 화면 공유 1개|
+|**# 동시에 렌더링할 수 있는 들어오는 스트림 수** |비디오 1개 또는 화면 공유 1개| 비디오 6개 + 화면 공유 1개 |
 
 
 ## <a name="next-steps"></a>다음 단계

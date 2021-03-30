@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: b5dd06c148c53517214b47b39f083c99d0f37e0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712201"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103465500"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -75,24 +75,24 @@ Azure Arc 사용 서버가 있는 컴퓨터는 Azure 리소스가 되며 Securit
 
     이 페이지에서, 온보딩하려는 컴퓨터의 종류에 따라 아래의 관련 절차를 선택합니다.
 
-    - [Azure Stack VM 온보딩](#onboard-your-azure-stack-vms)
+    - [Azure Stack Hub VM 온보딩](#onboard-your-azure-stack-hub-vms)
     - [Linux 컴퓨터 온보딩](#onboard-your-linux-machines)
     - [Windows 컴퓨터 온보딩](#onboard-your-windows-machines)
 
-### <a name="onboard-your-azure-stack-vms"></a>Azure Stack VM 온보딩
+### <a name="onboard-your-azure-stack-hub-vms"></a>Azure Stack Hub VM 온보딩
 
-Azure Stack VM을 추가하려면 **에이전트 관리** 페이지의 정보가 필요하며, Azure Stack에서 실행되는 가상 머신에 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 구성해야 합니다.
+Azure Stack Hub VM을 추가하려면 **에이전트 관리** 페이지의 정보가 필요하며, Azure Stack Hub 인스턴스에서 실행되는 가상 머신에 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 구성해야 합니다.
 
 1. **에이전트 관리** 페이지에서 **작업 영역 ID** 및 **기본 키** 를 복사하여 메모장에 붙여넣습니다.
-1. **Azure Stack** 포털에 로그인하여 **가상 머신** 페이지를 엽니다.
+1. **Azure Stack Hub** 포털에 로그인하여 **가상 머신** 페이지를 엽니다.
 1. Security Center로 보호하려는 가상 머신을 선택합니다.
     >[!TIP]
-    > Azure Stack에서 가상 머신을 만드는 방법에 대한 자세한 내용은 [Windows 가상 머신용 빠른 시작](/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Linux 가상 머신용 빠른 시작](/azure-stack/user/azure-stack-quick-linux-portal)을 참조하세요.
+    > Azure Stack Hub에서 가상 머신을 만드는 방법에 대한 자세한 내용은 [Windows 가상 머신용 빠른 시작](/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Linux 가상 머신용 빠른 시작](/azure-stack/user/azure-stack-quick-linux-portal)을 참조하세요.
 1. **확장** 을 섡택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
 1. **추가** 탭을 선택합니다. **새 리소스** 메뉴에 사용 가능한 가상 머신 확장 목록이 표시됩니다.
 1. **Azure Monitor, Update 및 Configuration Management** 확장을 선택하고 **만들기** 를 선택합니다. **확장 설치** 구성 페이지가 열립니다.
     >[!NOTE]
-    > **Azure Monitor, Update 및 Configuration Management** 확장이 Marketplace에 나열되지 않으면 사용할 수 있도록 Azure Stack 운영자에게 연락하세요.
+    > **Azure Monitor, Update 및 Configuration Management** 확장이 Marketplace에 나열되지 않으면 사용할 수 있도록 Azure Stack Hub 운영자에게 연락하세요.
 1. **확장 설치** 구성 페이지에서, 이전 단계에서 메모장에 복사해 둔 **작업 영역 ID** 와 **작업 영역 키(기본 키)** 를 붙여넣습니다.
 1. 구성이 완료되면 **확인** 을 선택합니다. 확장의 상태가 **프로비전 성공** 으로 표시됩니다. Security Center에 가상 머신이 나타날 때까지 최대 1시간이 걸릴 수 있습니다.
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 36a15560b88c823ff2ae41f160839796bf21e4f8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f26d6b258c1e22d5d28353486378acc9aa0bbd5d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730788"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889640"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -124,7 +124,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다.
 
 * Windows 10 Enterprise 다중 세션, 버전 1809 이상
-* Windows 10 Enterprise, 버전 1809 이상
+* Windows 10 Enterprise 버전 1809 이상(반기 채널에만 해당)
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016

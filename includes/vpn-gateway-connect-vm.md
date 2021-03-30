@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6986651d2b48d82382aa26a0a3947104c7e09981
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
+ms.openlocfilehash: 5d631d8492ed1869bdc244e2cc90595183892822
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028081"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104179"
 ---
 VM에 원격 데스크톱 연결을 만들어 VNet에 배포된 VM에 연결할 수 있습니다. 처음에 VM에 연결할 수 있는지 확인하는 가장 좋은 방법은 컴퓨터 이름이 아닌 개인 IP 주소를 사용하여 연결하는 것입니다. 이 방법을 사용하면 연결할 수 있는지, 이름 확인이 제대로 구성되었는지 테스트할 수 있습니다.
 
@@ -50,4 +50,4 @@ VPN 연결을 통해 가상 머신에 연결하는 데 문제가 있는 경우 �
 
 * 컴퓨터 이름이 아닌 개인 IP 주소를 사용하여 VM에 연결할 수 있는 경우 DNS를 올바르게 구성했는지 확인합니다. 이름 확인이 VM에서 작동하는 방법에 대한 자세한 내용은 [VM에서 이름 확인](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
-* RDP 연결에 대한 자세한 내용은 [VM에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)을 참조하세요.
+* RDP 연결에 대한 자세한 내용은 [VM에 대한 원격 데스크톱 연결 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)을 참조하세요.

@@ -3,15 +3,15 @@ title: TLS/SSL 인증서 추가 및 관리
 description: Azure App Service에서 무료 인증서를 만들거나, App Service 인증서를 가져오거나, Key Vault 인증서를 가져오거나, App Service 인증서를 구입합니다.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: e563981d3a68375105256aa6015aa94ada91326b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99dc8cb2acf06faae16df6d3a48c4d38b1be46d8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711708"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577787"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -26,27 +26,25 @@ ms.locfileid: "101711708"
 
 |옵션|Description|
 |-|-|
-| 무료 App Service Managed Certificate(미리 보기) 만들기 | `www`[사용자 지정 도메인](app-service-web-tutorial-custom-domain.md) 또는 App Service의 비-네이키드 도메인만 보호하면 되는 경우에 간편하게 사용할 수 있는 프라이빗 인증서입니다. |
+| 무료 App Service Managed Certificate(미리 보기) 만들기 | App Service에서 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하기만 하면 되는 경우 무료이며 간편하게 사용할 수 있는 프라이빗 인증서입니다. |
 | App Service 인증서 구매 | Azure에서 관리하는 프라이빗 인증서입니다. 간편한 자동 인증서 관리의와 유연한 갱신 및 내보내기 옵션이 결합되었습니다. |
 | Key Vault에서 인증서 가져오기 | [Azure Key Vault](../key-vault/index.yml)를 사용하여 [PKCS12 인증서](https://wikipedia.org/wiki/PKCS_12)를 관리하는 경우에 유용합니다. [프라이빗 인증서 요구 사항](#private-certificate-requirements)을 참조하세요. |
 | 프라이빗 인증서 업로드 | 타사 공급자의 프라이빗 인증서가 이미 있는 경우 해당 인증서를 업로드할 수 있습니다. [프라이빗 인증서 요구 사항](#private-certificate-requirements)을 참조하세요. |
 | 공용 인증서 업로드 | 공용 인증서는 사용자 지정 도메인을 보호하는 데 사용되지 않지만, 원격 리소스에 액세스할 때 필요한 경우 공용 인증서를 코드에 로드할 수 있습니다. |
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-이 방법 가이드를 수행하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [App Service 앱을 만듭니다](./index.yml).
-- 무료 인증서만 해당: [CNAME 레코드](app-service-web-tutorial-custom-domain.md#map-a-cname-record)를 사용하여 하위 도메인(예: `www.contoso.com`)을 App Service에 매핑합니다.
+- 프라이빗 인증서의 경우 [App Service의 모든 요구 사항](#private-certificate-requirements)을 충족하는지 확인합니다.
+- **무료 인증서 전용**:
+    - 인증서를 사용할 도메인을 App Service에 매핑합니다. 자세한 내응은 [자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
+    - 루트 도메인(예: contoso.com)의 경우 구성된 [IP 제한](app-service-ip-restrictions.md)이 없는지 확인합니다. 인증서 생성과 루트 도메인에 대한 정기 갱신은 모두 인터넷에서 연결할 수 있는 앱에 따라 달라집니다.
 
 ## <a name="private-certificate-requirements"></a>프라이빗 인증서 요구 사항
 
-> [!NOTE]
-> Azure Web Apps는 AES256을 지원하지 **않으며** 모든 pfx 파일은 TripleDES로 암호화해야 합니다.
+[무료 App Service 관리형 인증서](#create-a-free-managed-certificate-preview) 및 [App Service 인증서](#import-an-app-service-certificate)는 이미 App Service 요구 사항을 충족합니다. 프라이빗 인증서를 App Service에 업로드하거나 가져오기로 선택하는 경우 인증서가 다음 요구 사항을 충족해야 합니다.
 
-[무료 App Service Managed Certificate](#create-a-free-certificate-preview) 또는 [App Service 인증서](#import-an-app-service-certificate)가 이미 App Service 요구 사항을 충족합니다. 프라이빗 인증서를 App Service에 업로드하거나 가져오기로 선택하는 경우 인증서가 다음 요구 사항을 충족해야 합니다.
-
-* [암호로 보호된 PFX 파일](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)로 내보냄
+* 삼중 DES를 사용하여 암호화된 [암호로 보호된 PFX 파일](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)로 내보냅니다.
 * 길이가 2048비트 이상인 프라이빗 키 포함
 * 인증서 체인의 모든 중간 인증서를 포함함
 
@@ -60,21 +58,21 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-certificate-preview"></a>무료 인증서(미리 보기) 만들기
+## <a name="create-a-free-managed-certificate-preview"></a>무료 관리형 인증서 만들기(미리 보기)
+
+> [!NOTE]
+> 무료 관리형 인증서를 만들기 전에 앱의 [필수 구성 요소를 충족](#prerequisites)하는지 확인합니다.
 
 무료 App Service Managed Certificate는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 TLS/SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
 
 - 와일드카드 인증서를 지원하지 않습니다.
-- 네이키드 도메인을 지원하지 않습니다.
 - 내보낼 수 없습니다.
 - ASE(App Service Environment)에서 지원되지 않습니다.
-- A 레코드를 지원하지 않습니다. 예를 들어 A 레코드에서는 자동 갱신이 작동하지 않습니다.
+- Traffic Manager와 통합된 루트 도메인에서 지원되지 않습니다.
 
 > [!NOTE]
 > 무료 인증서는 DigiCert에서 발급됩니다. 일부 최상위 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.
 > 
-
-무료 App Service Managed Certificate를 만드는 방법은 다음과 같습니다.
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
@@ -82,7 +80,7 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 ![App Service에서 무료 인증서 만들기](./media/configure-ssl-certificate/create-free-cert.png)
 
-CNAME 레코드를 사용하여 앱에 올바르게 매핑된 비-네이키드 도메인이 대화 상자에 나열됩니다. 무료 인증서를 만들 사용자 지정 도메인을 선택하고 **만들기** 를 선택합니다. 지원되는 사용자 지정 도메인마다 인증서를 하나씩만 만들 수 있습니다.
+무료 인증서를 만들 사용자 지정 도메인을 선택하고 **만들기** 를 선택합니다. 지원되는 사용자 지정 도메인마다 인증서를 하나씩만 만들 수 있습니다.
 
 작업이 완료되면 **프라이빗 키 인증서** 목록에 인증서가 표시됩니다.
 
@@ -119,9 +117,9 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
-| 속성 | App Service Certificate에 대한 식별 이름입니다. |
+| Name | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기서 루트 도메인을 지정합니다. 발급된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호합니다. 발급된 인증서의 일반 이름 필드에는 루트 도메인이 포함되고, 주체 대체 이름 필드에는 `www` 도메인이 포함됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
 | Subscription | 인증서를 포함할 구독입니다. |
 | Resource group | 인증서를 포함할 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
@@ -144,9 +142,9 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리** 를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. App Service 앱과 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
-| 속성 | 영숫자와 대시로 구성된 고유한 이름입니다. |
+| Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
@@ -208,7 +206,7 @@ Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [�
 
 다음 표를 사용하여 인증서를 선택합니다.
 
-| 설정 | Description |
+| 설정 | 설명 |
 |-|-|
 | Subscription | Key Vault가 속한 구독입니다. |
 | Key Vault | 가져오려는 인증서가 포함된 자격 증명 모음입니다. |
@@ -333,7 +331,7 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 
 언제든 인증서 자동 갱신을 켜려면 [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) 페이지에서 인증서를 선택한 다음, 왼쪽 탐색 영역에서 **자동 갱신 설정** 을 클릭합니다. 기본적으로 App Service 인증서의 유효 기간은 1년입니다.
 
-**켜기** 를 선택하고 **저장** 을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 60일 전에 자동으로 갱신됩니다.
+**켜기** 를 선택하고 **저장** 을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 30일 전에 자동으로 갱신됩니다.
 
 ![App Service 인증서 자동 갱신](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 

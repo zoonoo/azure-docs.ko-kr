@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 5ceaaa7ed9288299019f3e87d8c214e53013f5ec
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d241cb5d7ece260de42088eecfd669e5d3f40096
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045754"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592288"
 ---
 # <a name="resource-manager-template-samples-for-data-collection-rules-in-azure-monitor"></a>Azure Monitor의 데이터 수집 규칙에 대한 Resource Manager 템플릿 샘플
-이 문서에는 Azure Monitor에서 가상 머신에 대한 [Log Analytics 에이전트](./log-analytics-agent.md) 및 [진단 확장](./diagnostics-extension-overview.md)을 배포하고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 [데이터 수집 규칙](data-collection-rule-overview.md)과 [Azure Monitor 에이전트](./azure-monitor-agent-overview.md) 간의 연결을 만들기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

@@ -2,16 +2,16 @@
 title: 자습서 - Azure Resource Manager Bicep 파일 만들기 및 배포
 description: Azure 리소스를 배포하기 위한 첫 번째 Bicep 파일을 만듭니다. 이 자습서에서는 Bicep 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036352"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594277"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>자습서: 첫 번째 Azure Resource Manager Bicep 파일 만들기 및 배포
 
@@ -27,15 +27,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="get-tools"></a>도구 가져오기
 
-먼저 Bicep 파일을 만들고 배포하는 데 필요한 도구가 있는지 확인합니다. 이러한 도구를 로컬 컴퓨터에 설치합니다.
+먼저 Bicep 파일을 만들고 배포하는 데 필요한 도구가 있는지 확인합니다. 이러한 도구를 로컬 머신에 설치합니다.
 
 ### <a name="editor"></a>편집기
 
-Bicep 파일을 만들려면 좋은 편집기가 필요합니다. Bicep 확장이 포함된 Visual Studio Code를 권장합니다. 이러한 도구를 설치해야 하는 경우 [빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기](quickstart-create-bicep-use-visual-studio-code.md)를 참조하세요.
+Bicep 파일을 만들려면 좋은 편집기가 필요합니다. Bicep 확장이 포함된 Visual Studio Code를 권장합니다. 이러한 도구를 설치해야 하는 경우 [Bicep 개발 도구 구성](./bicep-install.md#development-environment)을 참조하세요.
 
 ### <a name="command-line-deployment"></a>명령줄 배포
 
-Bicep 파일을 배포하려면 최신 Azure PowerShell 또는 최신 Azure CLI도 필요합니다. 설치 지침은 다음을 참조하세요.
+Azure CLI 또는 Azure PowerShell을 사용하여 Bicep 파일을 배포할 수 있습니다. Azure CLI의 경우 버전 2.20.0 이상이 필요합니다. Azure PowerShell의 경우 버전 5.6.0 이상 필요합니다. 설치 지침은 다음을 참조하세요.
 
 - [Azure PowerShell 설치](/powershell/azure/install-az-ps)
 - [Windows에 Azure CLI 설치](/cli/azure/install-azure-cli-windows)
@@ -76,7 +76,7 @@ Azure PowerShell 또는 Azure CLI가 설치되면 처음으로 로그인해야 �
     리소스 선언에는 다음 네 가지 구성 요소가 있습니다.
 
     - **리소스**: 키워드
-    - **기호 이름**(stg): 기호 이름은 bicep 파일 전체에서 리소스를 참조하는 식별자입니다. 배포되는 리소스의 이름이 아닙니다. 리소스 이름은 **name** 속성으로 정의됩니다.  이 목록에서 네 번째 구성 요소를 참조하세요. 자습서를 쉽게 따라 할 수 있도록 이 자습서 시리즈에서는 스토리지 계정 리소스의 기호 이름으로 **stg** 를 사용합니다.
+    - **기호 이름**(stg): 기호 이름은 bicep 파일 전체에서 리소스를 참조하는 식별자입니다. 배포되는 리소스의 이름이 아닙니다. 리소스 이름은 **name** 속성으로 정의됩니다.  이 목록에서 네 번째 구성 요소를 참조하세요. 자습서를 쉽게 따라 할 수 있도록 이 자습서 시리즈에서는 스토리지 계정 리소스의 기호 이름으로 **stg** 를 사용합니다. 기호 이름을 사용하여 개체 속성의 전체 목록을 가져오는 방법을 보려면 [출력 추가](./bicep-tutorial-add-outputs.md)를 참조하세요.
     - **리소스 유형**(Microsoft.Storage/storageAccounts@2019-06-01): 리소스 공급자(Microsoft.Storage), 리소스 유형(storageAccounts) 및 apiVersion(2019-06-01)으로 구성됩니다. 각 리소스 공급자는 자체 API 버전을 게시하므로 이 값은 유형에 따라 다릅니다. [ARM 템플릿 참조](/azure/templates/)에서 다양한 Azure 리소스에 대한 더 많은 유형과 apiVersion을 찾을 수 있습니다.
     - **속성**(내부의 모든 항목 = {...}): 주어진 리소스 종류에 대해 지정하려는 특정 속성입니다. 이러한 속성은 ARM 템플릿에서 사용할 수 있는 것과 정확히 같은 속성입니다. 모든 리소스에는 `name` 속성이 있습니다. 대부분의 리소스에는 `location` 속성이 있으며, 이 속성은 리소스가 배포되는 지역을 설정합니다. 다른 속성은 리소스 유형 및 API 버전에 따라 다릅니다. API 버전과 사용 가능한 속성 간의 연결을 이해하는 것이 중요하므로 좀 더 자세히 살펴보겠습니다.
 
