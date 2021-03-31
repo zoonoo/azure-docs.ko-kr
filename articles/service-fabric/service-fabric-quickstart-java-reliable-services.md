@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 2f1e5f8f73f74d4b427e574b9e6a75aaf84a4211
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91529863"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>빠른 시작:  Linux에서 Azure Service Fabric에 Java 앱 배포
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>빠른 시작: Linux에서 Azure Service Fabric에 Java 앱 배포
 
 이 빠른 시작에서는 Linux 개발자 머신에서 Eclipse IDE를 사용하여 Azure Service Fabric에 Java 애플리케이션을 배포합니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다.
 
@@ -32,7 +32,7 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
-## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
+## <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
 
 1. 다음 명령을 실행하여 클러스터를 만듭니다.
 
@@ -44,13 +44,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![정상 노드를 표시하는 Azure Service Fabric Explorer](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Eclipse를 엽니다.
-3. **파일** > **가져오기** > **Gradle** > **기존 Gradle 프로젝트**를 선택하고 마법사를 따릅니다.
-4. **디렉터리**를 선택하고 GitHub에서 복제한 **service-fabric-java-quickstart** 폴더에서 **Voting** 디렉터리를 선택합니다. **마침**을 선택합니다.
+3. **파일** > **가져오기** > **Gradle** > **기존 Gradle 프로젝트** 를 선택하고 마법사를 따릅니다.
+4. **디렉터리** 를 선택하고 GitHub에서 복제한 **service-fabric-java-quickstart** 폴더에서 **Voting** 디렉터리를 선택합니다. **마침** 을 선택합니다.
 
     ![Eclipse로 Gradle 프로젝트 가져오기](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. 이제 Eclipse용 Package Explorer에 `Voting` 프로젝트가 있습니다.
-6. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application**을 선택합니다. **PublishProfiles/Local.json**을 Target Profile로 선택하고 **Publish**를 선택합니다.
+6. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application** 을 선택합니다. **PublishProfiles/Local.json** 을 Target Profile로 선택하고 **Publish** 를 선택합니다.
 
     ![로컬 JSON을 게시하는 Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
@@ -66,18 +66,18 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스를 확장하는 방법에는 여러 가지가 있습니다. 예를 들어 Service Fabric CLI(`sfctl`)에서 스크립트나 명령을 사용할 수 있습니다. 다음 단계에서는 Service Fabric Explorer를 사용합니다.
 
-Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터의 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다. `http://localhost:19080`)을 입력합니다.
+Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터의 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다. 예: `http://localhost:19080`.
 
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음을 수행합니다.
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다. `https://localhost:19080`)을 입력합니다.
-2. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드 옆에 있는 줄임표( **...** )를 선택하고 **서비스 크기 조정**을 선택합니다.
+1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `https://localhost:19080`.
+2. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드 옆에 있는 줄임표(**...**)를 선택하고 **서비스 크기 조정** 을 선택합니다.
 
     ![Azure Service Fabric에서 서비스 크기 조정](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     이제 웹 프런트 엔드 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-3. 숫자를 **2**로 변경하고 **서비스 크기 조정**을 선택합니다.
+3. 숫자를 **2** 로 변경하고 **서비스 크기 조정** 을 선택합니다.
 4. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드를 선택하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
     ![Azure Service Fabric에서 크기 조정된 서비스](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
@@ -88,7 +88,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
+이 빠른 시작에서는 다음과 같은 방법을 배웠습니다.
 
 * Eclipse를 Service Fabric Java 애플리케이션을 위한 도구로 사용
 * 로컬 클러스터에 Java 애플리케이션 배포

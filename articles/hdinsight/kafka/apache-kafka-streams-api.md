@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
 ms.openlocfilehash: 5a1548cdf1d05a1f9d42f5c64b7fdc18f514518e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99822261"
 ---
 # <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Kafka Streams API 사용
@@ -22,7 +22,7 @@ Kafka 스트림 처리는 종종 Apache Spark 또는 Apache Storm을 사용하�
 
 Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https://kafka.apache.org/10/documentation/streams/) 문서를 참조하세요.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 코드 이해
@@ -30,7 +30,7 @@ Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https
 > * Kafka 토픽 구성
 > * 코드 실행
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * HDInsight 3.6 클러스터의 Kafka HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
 
@@ -53,7 +53,7 @@ Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https
 
 `pom.xml` 파일에서 이해할 중요한 사항은 다음과 같습니다.
 
-* 종속성: 이 프로젝트는 `kafka-clients` 패키지에서 제공하는 Kafka Streams API를 사용합니다. 다음 XML 코드는 이 종속성을 정의합니다.
+* 종속성: 이 프로젝트는 `kafka-clients` 패키지에서 제공하는 Kafka 스트림 API에 의존합니다. 다음 XML 코드는 이 종속성을 정의합니다.
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -69,7 +69,7 @@ Kafka Streams에 대한 자세한 내용은 Apache.org의 [Streams 소개](https
 * 플러그 인: Maven 플러그 인은 다양한 기능을 제공합니다. 이 프로젝트에서는 다음 플러그 인이 사용됩니다.
 
     * `maven-compiler-plugin`: 프로젝트에서 사용하는 Java 버전을 8로 설정하는 데 사용됩니다. HDInsight 3.6에는 Java 8이 필요합니다.
-    * `maven-shade-plugin`: 이 애플리케이션 및 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
+    * `maven-shade-plugin`: 이 애플리케이션과 모든 종속성을 포함하는 uber jar를 생성하는 데 사용됩니다. 또한 기본 클래스를 지정하지 않고 Jar 파일을 직접 실행할 수 있도록 애플리케이션의 진입점을 설정하는 데 사용됩니다.
 
 ### <a name="streamjava"></a>Stream.java
 

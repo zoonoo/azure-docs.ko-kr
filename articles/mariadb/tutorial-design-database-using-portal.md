@@ -3,15 +3,15 @@ title: '자습서: Azure Database for MariaDB 디자인 - Azure Portal'
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Database for MariaDB 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99822166"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MariaDB 데이터베이스 디자인
@@ -60,9 +60,9 @@ Azure Database for MariaDB 서버는 정의된 [컴퓨팅 및 스토리지 리�
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
     위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전을 사용하는 특정 요구 사항이 없는 경우).
-    가격 책정 계층  | 설명을 참조하세요. | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **가격 책정 계층** > **범용** 을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**컴퓨팅 세대**(Gen 5)</li><li>**vCore**(vCore 4개)</li><li>**스토리지**(100GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션** 에서 **지역 중복** 을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    가격 책정 계층 | 설명을 참조하세요. | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **가격 책정 계층** > **범용** 을 선택합니다. 다음 설정에 대해 기본값을 그대로 유지합니다.<br><ul><li>**컴퓨팅 세대**(Gen 5)</li><li>**vCore**(vCore 4개)</li><li>**스토리지**(100GB)</li><li>**백업 보존 기간**(7일)</li></ul><br>지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션** 에서 **지역 중복** 을 선택합니다. <br><br>이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
     
-   ![가격 책정 계층 ](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+   ![가격 책정 계층](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
    > **자동 증가** 를 사용하면 워크로드에 영향을 주지 않고 할당된 제한에 도달할 때 서버가 스토리지를 늘립니다.
