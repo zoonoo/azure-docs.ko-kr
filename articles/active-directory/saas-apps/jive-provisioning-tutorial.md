@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Jive 구성 | Microsoft Docs'
-description: Azure AD에서 Jive로 사용자 계정을 자동으로 프로 비전 및 프로 비전 해제 하기 위해 Jive 및 Azure AD에서 수행 해야 하는 단계를 알아봅니다.
+description: 사용자 계정을 Azure AD에서 Jive로 자동 프로비저닝 및 프로비저닝 해제를 하도록 Jive 및 Azure AD에서 수행해야 하는 단계를 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.openlocfilehash: ebee5d986007e07d497056620f0cfc437b2da4d1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94356402"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Jive 구성
@@ -55,7 +55,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 섹션에서는 Jive에 Active Directory 사용자 계정을 프로비저닝할 수 있도록 설정하는 방법을 간략하게 설명합니다.
 이 절차의 일부로 Jive.com에 요청해야 하는 사용자 보안 토큰을 입력해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > Enterprise Apps > 모든 응용 프로그램** 섹션으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 
 1. 이미 Jive에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Jive의 인스턴스를 검색합니다. 그러지 않은 경우 **추가** 를 선택하고 애플리케이션 갤러리에서 **Jive** 를 검색합니다. 검색 결과에서 Jive를 선택하고 애플리케이션 목록에 추가합니다.
 
@@ -63,7 +63,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **프로비전 모드** 를 **자동** 으로 설정합니다. 
 
-    ![스크린샷은 Jive 프로 비전 페이지를 표시 하며 프로 비전 모드를 자동으로 설정 하 고 다른 값을 설정할 수 있습니다.](./media/jive-provisioning-tutorial/provisioning.png)
+    ![스크린샷은 프로비저닝 모드를 자동으로 설정하고 설정할 수 있는 다른 값으로 설정된 Jive 프로비저닝 페이지를 보여 줍니다.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
    
@@ -71,11 +71,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     b. **Jive 관리자 암호** 텍스트 상자에 해당 계정의 암호를 입력합니다.
    
-    c. **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
+    다. **Jive 테넌트 URL** 텍스트 상자에 Jive 테넌트 URL을 입력합니다.
       
       > [!NOTE]
       > Jive 테넌트 URL은 조직에서 Jive에 로그인할 때 사용하는 URL입니다.  
-      > 일반적으로 URL의 형식은 다음과 같습니다. **www. \<organization\> . jive.com**.          
+      > 일반적으로 URL 형식은 **www.\<organization\>.jive.com** 입니다.          
 
 1. Azure Portal에서 **연결 테스트** 를 클릭하여 Azure AD가 Jive 앱에 연결할 수 있는지 확인합니다.
 
@@ -83,7 +83,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **저장** 을 클릭합니다.
 
-1. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Jive** (Azure Active Directory 사용자를 Jive에 동기화)를 선택합니다.
+1. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Jive**(Azure Active Directory 사용자를 Jive에 동기화)를 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Jive로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Jive의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -99,4 +99,4 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-* [Single Sign-on 구성](jive-tutorial.md)
+* [Single Sign-On 구성](jive-tutorial.md)

@@ -2,14 +2,14 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 2/3/21
+ms.date: 03/18/2021
 ms.author: parkerra
-ms.openlocfilehash: f6c2780ccbb914228a9870cb3b5fe4b0e3d0b214
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: d91c0aeda2b7ae2f133d2099cbc9d238fd19d287
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99569511"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719669"
 ---
 필요한 패키지를 다운로드하려면 <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a>이 설치되어 있어야 합니다.
 
@@ -25,6 +25,9 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > ```bash
 > npm view com.microsoft.azure.spatial-anchors-sdk.core --registry https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM versions
 > ```
+
+> [!WARNING]
+> ASA SDK 2.7.0은 지원되는 최소 버전입니다. Unity 2020을 사용하는 경우 지원되는 최소 버전은 ASA SDK 2.9.0입니다.
 
 Azure Spatial Anchors 코어 패키지는 명령을 실행한 폴더에 다운로드됩니다.
 

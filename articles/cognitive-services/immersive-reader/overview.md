@@ -12,16 +12,21 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: 리더, 언어 학습자, 사진 표시, 읽기 개선, 콘텐츠 읽기, 번역
-ms.openlocfilehash: 0661bd5f917a2bf071f11393ad8ac9af53ddfe97
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631242"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801573"
 ---
 # <a name="what-is-immersive-reader"></a>몰입형 판독기란?
 
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 몰입형 리더 클라이언트 라이브러리를 사용하면 Microsoft Word 및 Microsoft One Note에 사용된 것과 동일한 기술을 활용하여 웹 애플리케이션을 개선할 수 있습니다. 
+
+이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.  
+
+* **[빠른 시작](quickstarts/client-libraries.md)** 은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.
+* **[방법 가이드](how-to-create-immersive-reader.md)** 에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>몰입형 리더를 사용하여 읽기 가능성 향상 
 
@@ -72,10 +77,3 @@ ms.locfileid: "92631242"
 몰입형 리더 클라이언트 라이브러리는 C#, JavaScript, Java(Android), Kotlin(Android) 및 Swift(iOS)에서 사용할 수 있습니다. 다음을 사용하여 시작해 보세요.
 
 * [빠른 시작: 몰입형 리더 클라이언트 라이브러리 사용](quickstarts/client-libraries.md)
-
-## <a name="next-steps"></a>다음 단계
-
-몰입형 판독기로 시작:
-
-* [몰입형 리더 클라이언트 라이브러리 참조](./reference.md) 읽기
-* [GitHub의 몰입형 리더 클라이언트 라이브러리](https://github.com/microsoft/immersive-reader-sdk) 살펴보기

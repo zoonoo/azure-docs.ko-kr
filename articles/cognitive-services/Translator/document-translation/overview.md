@@ -6,16 +6,21 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713017"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656008"
 ---
 # <a name="what-is-document-translation-preview"></a>문서 번역(미리 보기)이란?
 
 문서 번역은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능이며 REST API의 Azure Cognitive Service 제품군의 일부입니다. 문서 번역 API는 문서 구조와 데이터 형식을 유지하면서 90개 언어와 방언으로 문서를 번역합니다.
+
+이 설명서에는 다음과 같은 문서 유형이 포함되어 있습니다.  
+
+* [**빠른 시작**](get-started-with-document-translation.md)은 서비스에 대한 요청을 수행하는 과정을 안내하는 시작 지침입니다.
+* [**방법 가이드**](create-sas-tokens.md)에는 보다 구체적이거나 사용자 지정된 방식으로 기능을 사용하기 위한 지침이 포함되어 있습니다.  
 
 ## <a name="document-translation-key-features"></a>문서 번역 주요 기능
 
@@ -64,5 +69,3 @@ ms.locfileid: "101713017"
 
 > [!div class="nextstepaction"]
 > [문서 번역 시작](get-started-with-document-translation.md)
->
->

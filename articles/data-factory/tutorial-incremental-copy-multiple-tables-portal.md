@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 3b97887e7bbd31fc1bb6ec0a074267aa081184c8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724900"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606710"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Azure Portal을 사용하여 SQL Server의 여러 테이블에서 Azure SQL Database의 데이터베이스로 데이터를 증분 로드
 
@@ -253,7 +253,7 @@ END
 8. **만들기** 를 클릭합니다.      
 9. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
    
-   ![데이터 팩터리 홈페이지](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
 10. **작성 및 모니터링** 타일을 클릭하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스)를 시작합니다.
 
 ## <a name="create-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기
@@ -291,7 +291,7 @@ END
 
 1. **연결** 창의 **통합 런타임** 탭에서 **연결된 서비스** 탭으로 전환하고 **+ 새로 만들기** 를 클릭합니다.
 
-   ![새 연결된 서비스](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="새 연결된 서비스.":::
 1. **새 연결된 서비스** 창에서 **SQL Server** 를 선택하고 **계속** 을 클릭합니다. 
 
 1. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.

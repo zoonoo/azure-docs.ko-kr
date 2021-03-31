@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/04/2020
+ms.date: 03/09/2021
 ms.author: aahi
-ms.openlocfilehash: 6ea7b992a682537471ce0e78385b37674199d687
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673056"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599145"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
-Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색하는 두 가지 방법을 제공합니다. 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다. 또한 감정 분석 엔드포인트를 사용하여 오피니언 마이닝 요청을 보내어 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다. 
+Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색하는 두 가지 방법을 제공합니다. 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다. 텍스트의 단어와 관련된 의견에 대한 세부 정보(예: 제품 또는 서비스의 특성)를 제공하는 감정 분석 엔드포인트를 사용하여 오피니언 마이닝 요청을 보낼 수도 있습니다. 
 
 API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용도로만 콘텐츠를 전송해야 합니다.
 
@@ -49,9 +49,9 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 ## <a name="opinion-mining"></a>오피니언 마이닝
 
-오피니언 마이닝은 버전 3.1 미리 보기부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 양상과 관련된 의견에 대한 더 세부적인 정보(예: 제품 또는 서비스의 특성)를 텍스트 형식으로 제공합니다.
+오피니언 마이닝은 버전 3.1 미리 보기부터 감정 분석에 도입된 기능입니다. NLP(자연어 처리)의 양상 기반 감정 분석이라고도 하는 이 기능은 텍스트의 제품 또는 서비스 특성과 관련된 의견에 대한 더 세부적인 정보를 제공합니다. API는 의견을 대상(명사 또는 동사) 및 평가(형용사)로 표시합니다.
 
-예를 들어 고객이 호텔에 대한 피드백을 "객실은 훌륭했어요. 그런데 직원이 불친절했어요"라고 남기면 오피니언 마이닝이 텍스트의 양상과 관련 의견 및 감정을 찾습니다. 감정 분석은 부정적인 감정만 보고할 수 있습니다.
+예를 들어 고객이 호텔에 대한 피드백을 "객실은 훌륭했어요. 그런데 직원이 불친절했어요"라고 남기면 오피니언 마이닝은 텍스트의 대상(양상)과 관련 평가(의견) 및 감정을 찾습니다. 감정 분석은 부정적인 감정만 보고할 수 있습니다.
 
 :::image type="content" source="../media/how-tos/opinion-mining.png" alt-text="오피니언 마이닝 다이어그램 예" lightbox="../media/how-tos/opinion-mining.png":::
 
@@ -72,7 +72,7 @@ API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔** 을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 [감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
 
@@ -89,17 +89,17 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 **감정 분석**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
 
 **오피니언 마이닝**
 
 오피니언 마이닝 결과를 얻으려면 `opinionMining=true` 매개 변수를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
 
 기본적으로 이 매개 변수는 `false`로 설정됩니다. 
 
@@ -142,7 +142,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다. 다국어 지원 및 emoji 지원으로 인해 응답에 텍스트 오프셋이 포함될 수 있습니다. 자세한 내용은 [오프셋 처리 방법](../concepts/text-offsets.md)을 참조하세요.
 
-#### <a name="version-31-preview3"></a>[버전 3.1-preview.3](#tab/version-3-1)
+#### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-and-opinion-mining-example-response"></a>감정 분석 및 오피니언 마이닝 예제 응답
 
@@ -151,97 +151,99 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 감정 분석 v3.1은 감정 분석과 오피니언 마이닝에 대한 응답 개체를 반환할 수 있습니다.
   
-감정 분석은 전체 문서와 그 안에 포함된 각 문장의 감정 레이블과 신뢰도 점수를 반환합니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 문서에는 여러 문장이 있을 수 있으며, 각 문서 또는 문장 내 신뢰도 점수의 합계는 1입니다.
+감정 분석은 전체 문서와 그 안에 포함된 각 문장의 감정 레이블과 신뢰도 점수를 반환합니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 문서에는 여러 문장이 있을 수 있으며, 각 문서 또는 문장 내 신뢰도 점수의 합계는 1입니다. assessments 
 
-오피니언 마이닝은 텍스트의 양상과 관련 의견 및 감정을 찾습니다. 아래 응답에서 *식당의 음식은 훌륭했고 웨이터도 친절했어요* 라는 문장에는 *음식* 및 *웨이터* 라는 두 가지 양상이 있습니다. 각 양상의 `relations` 속성에는 연결된 `documents`, `sentences` 및 `opinions` 개체에 대한 URI 참조를 포함하는 `ref` 값이 포함되어 있습니다.
+오피니언 마이닝은 텍스트에서 대상(명사 또는 동사)과 관련 평가(형용사)를 찾습니다. 아래 응답에서 *식당의 음식은 훌륭했고 웨이터도 친절했어요* 라는 문장에는 *음식* 및 *웨이터* 라는 두 가지 대상이 있습니다. 각 대상의 `relations` 속성에는 연결된 `documents`, `sentences` 및 `assessments` 개체에 대한 URI 참조가 있는 `ref` 값이 포함되어 있습니다.
+
+API는 의견을 대상(명사 또는 동사) 및 평가(형용사)로 반환합니다.
 
 ```json
 {
-    "documents": [
+  "documents": [
+    {
+      "id": "1",
+      "sentiment": "positive",
+      "confidenceScores": {
+        "positive": 1,
+        "neutral": 0,
+        "negative": 0
+      },
+      "sentences": [
         {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
+          "sentiment": "positive",
+          "confidenceScores": {
+            "positive": 1,
+            "neutral": 0,
+            "negative": 0
+          },
+          "offset": 0,
+          "length": 58,
+          "text": "The restaurant had great food and our waiter was friendly.",
+          "targets": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 25,
+              "length": 4,
+              "text": "food",
+              "relations": [
                 {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly.",
-                    "aspects": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 25,
-                            "length": 4,
-                            "text": "food",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/0"
-                                }
-                            ]
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 38,
-                            "length": 6,
-                            "text": "waiter",
-                            "relations": [
-                                {
-                                    "relationType": "opinion",
-                                    "ref": "#/documents/0/sentences/0/opinions/1"
-                                }
-                            ]
-                        }
-                    ],
-                    "opinions": [
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 19,
-                            "length": 5,
-                            "text": "great",
-                            "isNegated": false
-                        },
-                        {
-                            "sentiment": "positive",
-                            "confidenceScores": {
-                                "positive": 1.0,
-                                "negative": 0.0
-                            },
-                            "offset": 49,
-                            "length": 8,
-                            "text": "friendly",
-                            "isNegated": false
-                        }
-                    ]
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/0"
                 }
-            ],
-            "warnings": []
+              ]
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 38,
+              "length": 6,
+              "text": "waiter",
+              "relations": [
+                {
+                  "relationType": "assessment",
+                  "ref": "#/documents/0/sentences/0/assessments/1"
+                }
+              ]
+            }
+          ],
+          "assessments": [
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 19,
+              "length": 5,
+              "text": "great",
+              "isNegated": false
+            },
+            {
+              "sentiment": "positive",
+              "confidenceScores": {
+                "positive": 1,
+                "negative": 0
+              },
+              "offset": 49,
+              "length": 8,
+              "text": "friendly",
+              "isNegated": false
+            }
+          ]
         }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-04-01"
 }
 ```
 

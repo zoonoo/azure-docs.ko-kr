@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 40751401760d877fe3feab39f3fea1f2fbeee54b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664297"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608183"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>빠른 시작: Azure Percept DK 구성 요소 언박싱 및 조립
 
@@ -32,7 +32,7 @@ Azure Percept DK를 받은 후에는 이 가이드에서 구성 요소를 연결
 1. Devkit 구성 요소를 연결합니다.
 
     > [!NOTE]
-    > 전원 어댑터 포트는 캐리어 보드의 오른쪽에 있습니다. 나머지 포트(USB-A 2개, USB-C 1개, HDMI 1개 및 이더넷 1개)와 리셋 단추는 캐리어 보드의 왼쪽에 있습니다.
+    > 전원 어댑터 포트는 캐리어 보드의 오른쪽에 있습니다. 나머지 포트(2x USB-A, 1x USB-C 및 1x 이더넷)와 전원 단추는 캐리어 보드의 왼쪽에 있습니다.
 
     1. Wi-Fi 안테나를 캐리어 보드에 나사로 고정합니다.
 
@@ -44,11 +44,17 @@ Azure Percept DK를 받은 후에는 이 가이드에서 구성 요소를 연결
 
     1. 전원 어댑터/케이블을 캐리어 보드와 벽 콘센트에 연결합니다. 전원 케이블 커넥터를 캐리어 보드에 단단히 고정하기 위해 P7 드라이버(Devkit에 미포함)를 사용하여 커넥터 나사를 조입니다.
 
-    1. 벽 콘센트에 전원 케이블을 연결하면 디바이스가 자동으로 켜집니다. 캐리어 보드의 왼쪽에 있는 리셋 단추가 점등됩니다. 디바이스를 부팅하는 데는 어느 정도 시간이 걸릴 수 있습니다.
+    1. 벽 콘센트에 전원 케이블을 연결하면 디바이스가 자동으로 켜집니다. 캐리어 보드의 왼쪽에 있는 전원 단추가 점등됩니다. 디바이스를 부팅하는 데는 어느 정도 시간이 걸릴 수 있습니다.
 
         > [!NOTE]
-        > 리셋 단추는 전원 콘센트에 연결된 상태에서 디바이스의 전원을 끄거나 초기화할 때 사용할 수 있습니다. 정전 시에는 디바이스가 자동으로 초기화되고 전원이 켜집니다.
+        > 전원 단추는 전원 콘센트에 연결된 상태에서 디바이스의 전원을 끄거나 다시 시작하는 데 사용됩니다. 정전이 발생하면 디바이스가 자동으로 다시 시작됩니다.
+
+devkit 어셈블리의 시각적 데모는 다음 비디오의 0:00 ~ 0:50을 참조하세요.
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Devkit가 연결되고 전원이 켜졌으므로 Azure Percept DK 설정 환경 연습을 참조하여 디바이스 설정을 완료하세요. 설정 환경에서는 Devkit를 Wi-Fi 네트워크에 연결하고, SSH 로그인을 설정하고, IoT Hub를 만들고, Devkit를 Azure 계정에 프로비저닝할 수 있습니다. 디바이스 설정을 완료하면 프로토타입 생성을 시작할 준비가 된 것입니다.
+이제 devkit가 연결되고 전원이 켜졌으므로 [Azure Percept DK 설정 환경 연습](./quickstart-percept-dk-set-up.md)을 참조하여 디바이스 설정을 완료하세요. 설정 환경에서는 Devkit를 Wi-Fi 네트워크에 연결하고, SSH 로그인을 설정하고, IoT Hub를 만들고, Devkit를 Azure 계정에 프로비저닝할 수 있습니다. 디바이스 설정을 완료하면 프로토타입 생성을 시작할 준비가 된 것입니다.

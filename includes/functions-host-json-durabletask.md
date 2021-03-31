@@ -1,5 +1,5 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 author: ggailey777
 ms.service: azure-functions
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 6a862a051d0040ac99746d81f10ae63d5af7545f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013730"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719834"
 ---
 [지속형 함수](../articles/azure-functions/durable/durable-functions-overview.md)에 대한 구성 설정입니다.
 
@@ -100,15 +100,15 @@ ms.locfileid: "96013730"
 작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub** 입니다. 자세한 내용은 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md)를 참조하세요.
 
 |속성  |기본값 | Description |
-|---------|---------|---------|
+|---------|---------|----------|
 |hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
 |controlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
-|controlQueueBufferThreshold|256|메모리에 한 번에 버퍼링할 수 있는 컨트롤 큐 메시지의 수입니다. 이 시점에 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기합니다.|
+|controlQueueBufferThreshold| **사용 플랜**: 32 <br> **전용/프리미엄 계획**: 256 |메모리에 한 번에 버퍼링할 수 있는 컨트롤 큐 메시지의 수입니다. 이 시점에 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기합니다.|
 |partitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
 |controlQueueVisibilityTimeout |5분|큐에서 제거된 제어 큐 메시지의 표시 여부 시간 제한입니다.|
 |workItemQueueVisibilityTimeout |5분|큐에서 제거된 작업 항목 큐 메시지의 표시 여부 시간 제한입니다.|
-|maxConcurrentActivityFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
-|maxConcurrentOrchestratorFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 오케스트레이터 함수의 최대 개수입니다.|
+|maxConcurrentActivityFunctions | **사용 플랜**: 10 <br> **전용/프리미엄 계획**: 현재 머신의 프로세서 수의 10배|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
+|maxConcurrentOrchestratorFunctions | **사용 플랜**: 5 <br> **전용/프리미엄 계획**: 현재 머신의 프로세서 수의 10배 |단일 호스트 인스턴스에서 동시에 처리할 수 있는 오케스트레이터 함수의 최대 개수입니다.|
 |maxQueuePollingInterval|30초|최대 제어 및 작업 항목 큐 폴링 간격(*hh:mm:ss* 형식)입니다. 값이 높을수록 메시지 처리 대기 시간이 길어질 수 있습니다. 값이 낮을수록 스토리지 트랜잭션이 증가하기 때문에 스토리지 비용이 높아질 수 있습니다.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
 |trackingStoreConnectionStringName||기록 및 인스턴스 테이블에 사용할 연결 문자열의 이름입니다. 지정하지 않으면, `connectionStringName`(Durable 2.x) 또는 `azureStorageConnectionStringName`(Durable 1.x) 연결이 사용됩니다.|
