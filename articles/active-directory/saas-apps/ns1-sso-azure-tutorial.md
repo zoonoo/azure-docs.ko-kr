@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2020
 ms.author: jeedes
 ms.openlocfilehash: a7fad0af26d15bc77a52d55309c594937ba3be13
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92518622"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ns1-sso-for-azure"></a>자습서: NS1 SSO for Azure와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92518622"
 
 Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -92,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그온 URL** 텍스트 상자에서 `https://my.nsone.net/#/login/sso` URL을 입력합니다.
 
     > [!NOTE]
-    > 회신 URL 값은 실제 값이 아닙니다. 실제 회신 URL로 회신 URL 값을 업데이트합니다. 이 값을 얻으려면 [NS1 SSO for Azure 클라이언트 지원 팀](mailto:techops@nsone.net)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 회신 URL은 실제 값이 아닙니다. 실제 회신 URL로 회신 URL 값을 업데이트합니다. 이 값을 얻으려면 [NS1 SSO for Azure 클라이언트 지원 팀](mailto:techops@nsone.net)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. NS1 SSO for Azure 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 이러한 특성의 값은 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 연필 아이콘을 선택하여 **사용자 특성** 대화 상자를 엽니다.
 

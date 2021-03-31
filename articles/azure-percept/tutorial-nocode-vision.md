@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097910"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608200"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Azure Percept Studio에서 코드 없는 비전 솔루션 만들기
 
@@ -161,6 +161,16 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 1. **모든 리소스** 를 클릭합니다.
 1. 이 자습서에서 만든 리소스 옆에 있는 확인란을 클릭합니다. 리소스 종류는 **Cognitive Services** 로 나열됩니다.
 1. 화면 위쪽의 **삭제** 아이콘을 클릭합니다.
+
+## <a name="video-walkthrough"></a>연습 동영상
+
+위에서 설명한 단계에 대한 시각적 연습은 다음 비디오를 참조하세요.
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 6dbd39b5c56192ad2ca957c5500338b50e8c8963
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92453387"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-firmex-vdr"></a>자습서: Firmex VDR과 Azure Active Directory SSO(Single Sign-On) 통합
@@ -28,7 +28,7 @@ ms.locfileid: "92453387"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -41,7 +41,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Firmex VDR에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-* Firmex가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아보세요](/cloud-app-security/proxy-deployment-any-app).
+* Firmex가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-firmex-vdr-from-the-gallery"></a>갤러리에서 Firmex VDR 추가
 
@@ -92,7 +92,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Firmex VDR 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성|
+    | Name | 원본 특성|
     | ------------ | --------- |
     | 이메일 | user.mail |
 
@@ -108,11 +108,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -153,7 +153,7 @@ SSO를 구현하는 데 몇 분 정도 걸립니다. 사이트에서 SSO를 사�
 
 회사의 사용자가 로그인하는 도메인을 식별합니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 - @firmex.com
 - @firmex.ca
@@ -180,7 +180,7 @@ SSO를 구현하는 데 몇 분 정도 걸립니다. 사이트에서 SSO를 사�
 
     b. Azure Portal에서 복사한 **로그인 URL** 값을 **Identity Provider URL(ID 공급자 URL)** 텍스트 상자에 붙여넣습니다.
 
-    다. **Public Key Certificate(공개 키 인증서)** - 인증을 위해 발급자가 SAML 메시지를 디지털 방식으로 서명할 수 있습니다. 메시지의 서명을 확인하기 위해 메시지 수신자가 발급자에게 속하는 것으로 알려진 공개 키를 사용합니다. 마찬가지로 메시지를 암호화하려면 최종 수신자에게 속한 공개 암호화 키를 발급자에게 알려야 합니다. 서명 및 암호화 모두에서 신뢰할 수 있는 공개 키를 미리 공유해야 합니다.  이는 **페더레이션 메타데이터 XML** 의 **X509Certificate** 입니다.
+    c. **Public Key Certificate(공개 키 인증서)** - 인증을 위해 발급자가 SAML 메시지를 디지털 방식으로 서명할 수 있습니다. 메시지의 서명을 확인하기 위해 메시지 수신자가 발급자에게 속하는 것으로 알려진 공개 키를 사용합니다. 마찬가지로 메시지를 암호화하려면 최종 수신자에게 속한 공개 암호화 키를 발급자에게 알려야 합니다. 서명 및 암호화 모두에서 신뢰할 수 있는 공개 키를 미리 공유해야 합니다.  이는 **페더레이션 메타데이터 XML** 의 **X509Certificate** 입니다.
 
     d. **저장** 을 클릭하여 SSO 구성을 완료합니다. 변경 내용이 즉시 적용됩니다.
 

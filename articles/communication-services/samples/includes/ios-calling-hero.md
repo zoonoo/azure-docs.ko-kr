@@ -1,25 +1,29 @@
 ---
-title: 포함 파일
+title: 파일 포함
 description: 포함 파일
 services: azure-communication-services
 author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7d39decaa6376c614e48b65ad2fc1b3043aa0a3c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682417"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104783626"
 ---
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Communication Services 통화 iOS 클라이언트 라이브러리를 사용하여 음성 및 비디오가 포함된 그룹 통화 환경을 구축하는 방법을 보여 줍니다. 이 샘플 빠른 시작에서는 샘플을 설정하고 실행하는 방법에 대해 알아봅니다. 상황에 맞는 샘플 개요가 제공됩니다.
+
+## <a name="download-code"></a>코드 다운로드
+
+[GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
 
 ## <a name="overview"></a>개요
 
@@ -29,7 +33,7 @@ Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Commu
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="샘플 애플리케이션의 방문 페이지를 보여 주는 스크린샷":::
 
-"새 통화 시작" 단추를 누르면 iOS 애플리케이션에서 새 통화를 만들고 해당 통화에 참가합니다. 또한 애플리케이션을 사용하면 기존 통화의 ID를 지정하여 기존 Azure Communication Services 통화에 참가할 수 있습니다.
+"새 통화 시작" 단추를 누르면 iOS 애플리케이션에서 새 통화를 만들고 해당 통화에 참가합니다. 애플리케이션을 사용하면 기존 통화의 ID를 지정하여 기존 Azure Communication Services 통화에 참가할 수 있습니다. 모임 초대장에 있는 참가 링크를 제공하여 Teams 회의에 참가할 수도 있습니다.  (참가 링크는 `https://teams.microsoft.com/l/meetup-join/` 형식입니다.) Teams 상호 운용성에 대한 자세한 내용은 [Teams 상호 운용성 개념 설명서](../../concepts/teams-interop.md)를 참조하세요.
 
 통화에 참가하면 카메라와 마이크에 액세스할 수 있는 권한을 애플리케이션에 부여하라는 메시지가 표시됩니다. 표시 이름도 입력하라는 메시지가 표시됩니다.
 
@@ -51,7 +55,7 @@ Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Commu
 - 활성 구독이 있는 Azure 계정. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
 - 키 집합에 설치된 유효한 개발자 인증서와 함께 [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532)를 실행하는 Mac
 - Azure Communication Services 리소스. 자세한 내용은 [Azure Communication 리소스 만들기](../../quickstarts/create-communication-resource.md)를 참조하세요.
-- 액세스 토큰을 가져오기 위해 [신뢰할 수 있는 서비스 논리](../../tutorials/trusted-service-tutorial.md)를 실행하는 Azure Function
+- 액세스 토큰을 가져오기 위해 [인증 엔드포인트](../../tutorials/trusted-service-tutorial.md)를 실행하는 Azure Function
 
 ## <a name="running-sample-locally"></a>로컬로 샘플 실행
 
@@ -60,8 +64,8 @@ Azure Communication Services **iOS용 그룹 통화 주인공 샘플** 은 Commu
 ### <a name="before-running-the-sample-for-the-first-time"></a>처음으로 샘플을 실행하기 전에
 
 1. `pod install`을 실행하여 종속성을 설치합니다.
-2. XCode에서 `ACSCall.xcworkspace`를 엽니다.
-3. `AppSettings.plist`를 업데이트합니다. `acsTokenFetchUrl` 키의 값을 인증 엔드포인트에 대한 URL로 설정합니다.
+2. XCode에서 `AzureCalling.xcworkspace`를 엽니다.
+3. `AppSettings.plist`를 업데이트합니다. `communicationTokenFetchUrl` 키의 값을 인증 엔드포인트에 대한 URL로 설정합니다.
 
 ### <a name="run-sample"></a>샘플 실행
 
@@ -69,9 +73,9 @@ XCode에서 샘플을 빌드하고 실행합니다.
 
 ## <a name="optional-securing-an-authentication-endpoint"></a>(선택 사항) 인증 엔드포인트 보안
 
-데모를 위해 이 샘플은 기본적으로 공개적으로 액세스할 수 있는 엔드포인트를 사용하여 Azure Communication Services 토큰을 가져옵니다. 프로덕션 시나리오의 경우 사용자 고유의 보안 엔드포인트를 사용하여 사용자 고유의 토큰을 프로비저닝하는 것이 좋습니다.
+데모를 위해 이 샘플은 기본적으로 공개적으로 액세스할 수 있는 엔드포인트를 사용하여 Azure Communication Services 액세스 토큰을 가져옵니다. 프로덕션 시나리오의 경우 사용자 고유의 보안 엔드포인트를 사용하여 사용자 고유의 토큰을 프로비저닝하는 것이 좋습니다.
 
-추가 구성을 사용하는 경우 이 샘플은 **Azure AD**(Azure Active Directory) 보호 엔드포인트에 대한 연결을 지원하므로 앱에서 Azure Communication Services 토큰을 가져오려면 사용자 로그인이 필요합니다. 아래 단계를 참조하세요.
+추가 구성을 사용하는 경우 이 샘플은 **Azure AD**(Azure Active Directory) 보호 엔드포인트에 대한 연결을 지원하므로 앱에서 Azure Communication Services 액세스 토큰을 가져오려면 사용자 로그인이 필요합니다. 아래 단계를 참조하세요.
 
 1. 앱에서 Azure Active Directory 인증을 사용하도록 설정합니다.  
    - [Azure Active Directory에서 앱 등록(iOS/macOS 플랫폼 설정 사용)](../../../active-directory/develop/tutorial-v2-ios.md) 
@@ -81,7 +85,7 @@ XCode에서 샘플을 빌드하고 실행합니다.
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Portal의 Azure Active Directory 구성":::
 
 3. Xcode에서 `AppSettings.plist`를 열고, 다음 키 값을 추가합니다.
-   - `acsTokenFetchUrl`: Azure Communication Services 토큰을 요청하는 URL 
+   - `communicationTokenFetchUrl`: Azure Communication Services 토큰을 요청하는 URL 
    - `isAADAuthEnabled`: Azure Communication Services 토큰 인증이 필요한지 여부를 나타내는 부울 값
    - `aadClientId`: 사용자의 애플리케이션(클라이언트) ID
    - `aadTenantId`: 사용자의 디렉터리(테넌트) ID
@@ -94,6 +98,9 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 
 ## <a name="next-steps"></a>다음 단계
 
+>[!div class="nextstepaction"]
+>[GitHub에서 샘플 다운로드](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
+
 자세한 내용은 다음 문서를 참조하세요.
 
 - [통화 클라이언트 라이브러리 사용법](../../quickstarts/voice-video-calling/calling-client-samples.md) 숙지
@@ -102,3 +109,5 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 ### <a name="additional-reading"></a>추가 자료
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - 공식 GitHub 페이지에서 더 많은 예제 및 정보 찾기
+- [샘플](./../overview.md) - 샘플 개요 페이지에서 추가 샘플과 예제를 찾아보세요.
+- [Azure Communication 기능 호출](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - iOS sdk 호출에 대한 자세한 내용은 [Azure Communication iOS 호출 SDK](https://github.com/Azure/Communication/releases/)를 참조하세요.

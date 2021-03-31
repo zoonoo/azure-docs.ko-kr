@@ -7,21 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
-ms.openlocfilehash: d07b52d8abeab34d565ebde4bac58eec66780dce
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.date: 03/21/2021
+ms.openlocfilehash: d3e1b73789d6bd4df3dfe9a0e05048f9bbbb25bb
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179268"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104770974"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
-기술 세트는 딥 러닝 모델을 사용하여 크고 차별화되지 않은 텍스트 또는 이미지 파일에서 정보와 구조를 추출하여 Azure Cognitive Search에서 콘텐츠를 인덱싱하고 검색할 수 있도록 하는 AI 기반 기능입니다. 
+이 빠른 시작에서는 OCR(광학 문자 인식) 및 엔터티 인식을 사용하여 이미지 및 애플리케이션 파일에서 검색 가능한 텍스트 콘텐츠를 만드는 방법을 보여주는 포털의 기술 지원을 보여줍니다.
 
-이 빠른 시작에서는 Azure 클라우드에서 서비스와 데이터를 결합하여 기술 세트를 만듭니다. 모든 것이 준비되면 Azure Portal에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 포털([Search 탐색기](search-explorer.md))에서 쿼리할 수 있는 AI 처리에서 만든 데이터로 채워진 검색 가능한 인덱스입니다.
+준비하기 위해 몇 가지 리소스를 만들고 샘플 이미지와 애플리케이션 콘텐츠 파일을 업로드합니다. 모든 것이 준비되면 Azure Portal에서 **데이터 가져오기** 마법사를 실행하여 모두 가져옵니다. 최종 결과는 포털([Search 탐색기](search-explorer.md))에서 쿼리할 수 있는 AI 처리에서 만든 데이터로 채워진 검색 가능한 인덱스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+코드로 시작하겠습니까? [자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성](cognitive-search-tutorial-blob.md) 또는 [.NET 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성](cognitive-search-tutorial-blob-dotnet.md)을 대신 참조하세요.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음과 같은 필수 구성 요소를 갖추어야 합니다.
 
@@ -44,7 +46,7 @@ ms.locfileid: "98179268"
 
    + 대역폭 요금이 부과되지 않도록 Azure Cognitive Search와 동일한 지역을 선택합니다. 
 
-   + 나중에 다른 연습에서 지식 저장소 기능을 사용해 보려면 StorageV2(범용 V2) 계정 유형을 선택합니다. 그렇지 않으면 임의의 유형을 선택합니다.
+   + StorageV2(범용 V2)를 선택합니다.
 
 1. Blob 서비스 페이지를 열고 컨테이너를 만듭니다. 기본 퍼블릭 액세스 수준을 사용할 수 있습니다. 
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-python
-ms.openlocfilehash: 0eeb1333952533cdf392b93a926f256097557151
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: b4c25ceb2e7b3f224dccdd7d24d86389100c8a2e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585499"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801913"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>빠른 시작: Python용 Azure Queue Storage 클라이언트 라이브러리 v12
 
@@ -40,7 +40,7 @@ Python용 Azure Queue Storage 클라이언트 라이브러리 v12를 사용하�
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - Azure Storage 계정 - [스토리지 계정 만들기](../common/storage-account-create.md)
-- 운영 체제에 맞는 [Python](https://www.python.org/downloads/) - 2.7, 3.5 이상
+- 운영 체제에 맞는 [Python](https://www.python.org/downloads/) - 2.7, 3.6 이상
 
 ## <a name="setting-up"></a>설치
 

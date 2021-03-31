@@ -3,13 +3,13 @@ title: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대시보�
 description: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대시보드를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745726"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658331"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Portal에서 대시보드 만들기
 
@@ -30,9 +30,13 @@ Azure Portal의 대시보드는 클라우드 리소스에 대해 집중적으로
 
 이 빠른 시작의 다음 부분에서 만드는 대시보드에는 기존 VM이 필요합니다. 다음 단계에 따라 VM을 만듭니다.
 
-1. Azure Portal에서 Cloud Shell을 선택합니다.
+1. Azure Portal에서 **Cloud Shell** 을 선택합니다.
 
     ![Azure Portal 리본에서 Cloud Shell 선택](media/quick-create-template/cloud-shell.png)
+
+1. **Cloud Shell** 창에서 **PowerShell** 을 선택합니다.
+
+    ![터미널 창에서 PowerShell을 선택합니다.](media/quick-create-template/powershell.png)
 
 1. 다음 명령을 복사하고 명령 프롬프트에 입력하여 리소스 그룹을 만듭니다.
 
@@ -85,19 +89,7 @@ Azure Portal은 템플릿을 배포하는데 사용되었습니다. Azure Portal
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 
-대시보드가 성공적으로 만들어졌고 VM에서 데이터를 볼 수 있는지 확인합니다.
-
-1. Azure Portal에서 **대시보드** 를 선택합니다.
-
-    ![대시보드에 대한 Azure Portal 탐색](media/quick-create-template/navigate-to-dashboards.png)
-
-1. 대시보드 페이지에서 **단순 VM 대시보드** 를 선택합니다.
-
-    ![단순 VM 대시보드로 이동](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. ARM 템플릿에서 만든 대시보드를 검토합니다. 일부 콘텐츠는 정적이지만 처음에 만든 VM의 성능을 표시하는 차트도 있습니다.
-
-    ![단순 VM 대시보드로 검토](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

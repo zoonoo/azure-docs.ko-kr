@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530003"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>빠른 시작: Azure Service Fabric에 Java Spring Boot 앱 배포
@@ -53,7 +53,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     ![Spring Boot Yeoman 항목](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* 폴더에서 *entryPoint.sh*라는 파일을 만듭니다. *entryPoint.sh* 파일에 다음 코드를 추가합니다. 
+1. *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* 폴더에서 *entryPoint.sh* 라는 파일을 만듭니다. *entryPoint.sh* 파일에 다음 코드를 추가합니다. 
 
     ```bash
     #!/bin/bash
@@ -72,7 +72,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
        </Resources>
     ```
 
-    이제 *ServiceManifest.xml*은 다음과 같습니다. 
+    이제 *ServiceManifest.xml* 은 다음과 같습니다. 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -103,7 +103,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 이 단계에서는 Service Fabric에 배포할 수 있는 Spring Boot 시작 샘플에 Service Fabric 애플리케이션을 만들었습니다.
 
-## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
+## <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
 
 1. 다음 명령을 실행하여 Ubuntu 컴퓨터에서 로컬 클러스터를 시작합니다.
 
@@ -150,13 +150,13 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음을 수행합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
-1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표( **...** )를 선택하고 **서비스 크기 조정**을 선택합니다.
+1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표(**...**)를 선택하고 **서비스 크기 조정** 을 선택합니다.
 
     ![Service Fabric Explorer 크기 조정 서비스 샘플](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     이제 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-1. 숫자를 **3**으로 변경하고 **서비스 크기 조정**을 선택합니다.
+1. 숫자를 **3** 으로 변경하고 **서비스 크기 조정** 을 선택합니다.
 
     명령줄을 사용하여 서비스의 크기를 조정하는 다른 방법은 다음과 같습니다.
 
@@ -181,7 +181,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 서비스 장애 조치를 보여 주기 위해 Service Fabric Explorer를 사용하여 노드 다시 시작을 시뮬레이션합니다. 서비스의 인스턴스 하나만 실행되고 있는지 확인합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
-1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표( **...** )를 선택하고 노드를 다시 시작합니다.
+1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표(**...**)를 선택하고 노드를 다시 시작합니다.
 
     ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. 서비스의 인스턴스가 다른 노드로 이동되고, 애플리케이션에서 가동 중지 시간이 발생하지 않습니다.
@@ -190,7 +190,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 다음을 수행하는 방법을 알아보았습니다.
+이 빠른 시작에서는 다음과 같은 방법을 배웠습니다.
 
 * Service Fabric에 Spring Boot 애플리케이션 배포
 * 로컬 클러스터에 애플리케이션 배포
