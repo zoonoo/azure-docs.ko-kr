@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "73509837"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Portal(미리 보기)을 사용하여 인터넷 분석기 테스트 만들기
@@ -24,31 +24,31 @@ Internet Analyzer 리소스는 두 가지 방식, 즉 Azure Portal 또는 [CLI](
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-공개 미리 보기는 전 세계에서 사용할 수 있습니다. 하지만 데이터 스토리지는 미리 보기 기간 동안 *미국 서부 2*로 제한됩니다.
+공개 미리 보기는 전 세계에서 사용할 수 있습니다. 하지만 데이터 스토리지는 미리 보기 기간 동안 *미국 서부 2* 로 제한됩니다.
 
 ## <a name="basics"></a>기본 사항
 
 1. [Azure Internet Analyzer FAQ](internet-analyzer-faq.md)의 **미리 보기에 참여하는 방법** 지침에 따라 Internet Analyzer 미리 보기에 대한 액세스 권한을 얻으세요.
-2. [Azure Portal](https://preview.portal.azure.com)의 홈페이지에서 **+ 리소스 만들기**를 클릭합니다. 현재 Internet Analyzer는 Azure Portal 미리 보기 버전에서만 사용할 수 있습니다.
+2. [Azure Portal](https://preview.portal.azure.com)의 홈페이지에서 **+ 리소스 만들기** 를 클릭합니다. 현재 Internet Analyzer는 Azure Portal 미리 보기 버전에서만 사용할 수 있습니다.
 3. **새로 만들기** 페이지의 *Marketplace 검색* 필드에서 "Internet Analyzer"를 검색합니다.
-4. **Internet Analyzer(미리 보기)** 를 클릭합니다. 게시자가 *Microsoft*이고 범주가 *네트워킹*인지 확인합니다.
-5. **Internet Analyzer(미리 보기)** 페이지에서 **만들기**를 클릭하여 **Internet Analyzer 만들기** 페이지를 엽니다.
+4. **Internet Analyzer(미리 보기)** 를 클릭합니다. 게시자가 *Microsoft* 이고 범주가 *네트워킹* 인지 확인합니다.
+5. **Internet Analyzer(미리 보기)** 페이지에서 **만들기** 를 클릭하여 **Internet Analyzer 만들기** 페이지를 엽니다.
 6. Internet Analyzer 리소스에 대한 다음과 같은 구성 설정을 지정합니다.
 
-    * **구독:** 새 Internet Analyzer 리소스를 호스팅하는 Azure 구독입니다. ***미리 보기 액세스를 요청하는 데 사용된 것과 동일한 구독 ID를 사용하세요.***
+    * **구독:** 새 Internet Analyzer 리소스를 호스팅하는 Azure 구독입니다. **_미리 보기 액세스를 요청하는 데 사용된 것과 동일한 구독 ID를 사용하세요._**
     * **리소스 그룹:** 새 Internet Analyzer 리소스가 만들어질 Azure 리소스 그룹입니다. 기존 리소스 그룹이 없는 경우 새 리소스 그룹을 만들 수 있습니다.
     * **이름:** 새 Internet Analyzer 리소스 프로필의 이름입니다.
-    * **지역:** 리소스가 만들어질 Azure 공용 지역입니다. 미리 보기 중에는 *미국 서부 2*만 사용할 수 있습니다.
+    * **지역:** 리소스가 만들어질 Azure 공용 지역입니다. 미리 보기 중에는 *미국 서부 2* 만 사용할 수 있습니다.
 
-7. 프로필 설정 지정을 마쳤으면, **검토 + 만들기**를 클릭합니다.
+7. 프로필 설정 지정을 마쳤으면, **검토 + 만들기** 를 클릭합니다.
 
 ## <a name="configuration"></a>구성
 
-기본 단계를 완료하는 것은 테스트를 구성하고 JavaScript 클라이언트를 포함하기 위한 필수 조건입니다. 프로필을 만들었으면 **설정 > 구성**으로 이동하여 첫 테스트를 구성합니다.
+기본 단계를 완료하는 것은 테스트를 구성하고 JavaScript 클라이언트를 포함하기 위한 필수 조건입니다. 프로필을 만들었으면 **설정 > 구성** 으로 이동하여 첫 테스트를 구성합니다.
 
 1. **테스트 이름** 상자에 테스트 이름을 지정합니다.
 2. **설명** 필드에 테스트에 대한 설명을 추가합니다.
-3. **엔드포인트 구성**을 클릭하면 오른쪽에서 탭이 표시됩니다. 구성하려는 엔드포인트의 유형(단일 Azure 지역, 여러 Azure 지역 또는 사용자 지정 엔드포인트)을 선택합니다.
+3. **엔드포인트 구성** 을 클릭하면 오른쪽에서 탭이 표시됩니다. 구성하려는 엔드포인트의 유형(단일 Azure 지역, 여러 Azure 지역 또는 사용자 지정 엔드포인트)을 선택합니다.
 
     >
     ***미리 구성된 엔드포인트: 단일 및 여러 Azure 지역 조합***
@@ -62,15 +62,15 @@ Internet Analyzer 리소스는 두 가지 방식, 즉 Azure Portal 또는 [CLI](
     * 포털에 1픽셀 이미지의 HTTPS URL 위치를 붙여넣습니다.
     >
 
-4. **추가**를 클릭하여 테스트에 엔드포인트를 추가합니다.
+4. **추가** 를 클릭하여 테스트에 엔드포인트를 추가합니다.
 5. 1~4단계를 반복하여 두 번째 엔드포인트를 구성합니다. 엔드포인트 B는 항상 엔드포인트 A에 상대적으로 측정됩니다. 엔드포인트를 구성할 때 어떤 엔드포인트를 테스트 컨트롤로 사용할지 고려해야 합니다.
 6. **저장** 단추를 클릭하여 테스트를 저장합니다. 테스트를 저장한 후에는 더 이상 특정 테스트의 엔드포인트를 편집할 수 없습니다.
-7. 시작하려는 테스트를 선택하고 **테스트 시작**을 클릭합니다. 그러면 테스트의 ***상태***가 ***실행 중***으로 변경됩니다. 언제든지 테스트를 시작할 수 있지만 테스트가 측정값을 수집하려면 JavaScript 클라이언트가 포함되어 있어야 합니다.
+7. 시작하려는 테스트를 선택하고 **테스트 시작** 을 클릭합니다. 그러면 테스트의 **_상태_ *_가 _* _실행 중_** 으로 변경됩니다. 언제든지 테스트를 시작할 수 있지만 테스트가 측정값을 수집하려면 JavaScript 클라이언트가 포함되어 있어야 합니다.
 8. 아무 때나 테스트를 더 추가합니다. 테스트 하나를 만들기 전에는 고유한 JavaScript 클라이언트가 생성되지 않습니다.
 
 ## <a name="embed-client"></a>클라이언트 포함
 
-테스트를 시작하려면 웹 애플리케이션에 JavaScript 클라이언트를 포함시켜야 합니다. 하나 이상의 테스트를 구성한 후, **검토 + 만들기**를 클릭하고 **설정 > 구성**으로 이동하여 JavaScript 클라이언트를 복사합니다. 구체적인 지침은 [Internet Analyzer 클라이언트 포함](internet-analyzer-embed-client.md) 페이지에서 찾을 수 있습니다.  
+테스트를 시작하려면 웹 애플리케이션에 JavaScript 클라이언트를 포함시켜야 합니다. 하나 이상의 테스트를 구성한 후, **검토 + 만들기** 를 클릭하고 **설정 > 구성** 으로 이동하여 JavaScript 클라이언트를 복사합니다. 구체적인 지침은 [Internet Analyzer 클라이언트 포함](internet-analyzer-embed-client.md) 페이지에서 찾을 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
