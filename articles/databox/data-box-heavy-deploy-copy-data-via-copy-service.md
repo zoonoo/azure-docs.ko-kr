@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006562"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box Heavy로 데이터 복사(미리 보기)
@@ -29,11 +29,11 @@ ms.locfileid: "96006562"
 > [!div class="checklist"]
 > * Data Box Heavy에 데이터 복사
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. 이 자습서에서 [Azure Data Box Heavy를 설정합니다](data-box-heavy-deploy-set-up.md).
+1. 이 자습서에서 [Azure Data Box Heavy 설정](data-box-heavy-deploy-set-up.md)을 완료했습니다.
 2. Data Box Heavy를 받았고 포털의 주문 상태가 **배달됨** 입니다.
 3. 데이터를 복사하기 위해 연결하는 원본 NAS 디바이스의 자격 증명이 있어야 합니다.
 4. 고속 네트워크에 연결되어 있어야 합니다. 가장 빠른 복사 속도를 위해 40GbE 연결 2개(노드당 1개)를 병렬로 이용할 수 있습니다. 사용 가능한 40GbE 연결이 없는 경우 10GbE 연결이 2개(노드당 1개) 이상 있는 것이 좋습니다. 
