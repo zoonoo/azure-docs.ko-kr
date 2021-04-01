@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
 ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98631370"
 ---
 # <a name="common-errors"></a>일반 오류
@@ -25,9 +25,9 @@ Azure Database for MySQL은 MySQL 커뮤니티 버전을 기반으로 하는 완
 
 세션 수준에서 지원되지 않는 require_secure_transport와 같은 일부 서버 매개 변수가 있으므로 init_connect를 사용하여 이러한 매개 변수 값을 변경하려고 하면 아래와 같이 MySQL 서버에 연결하는 동안 1184 오류가 발생할 수 있습니다.
 
-mysql> 데이터베이스 표시; 오류 2006(HY000): MySQL 서버가 연결되지 않았습니다. 다시 연결하는 중... 연결 ID:    64897 현재 데이터베이스: *** 없음 **_ 오류 1184(08S01): db에 대한 연결 22 중단: 'db-name' 사용자: 'user' 호스트: 'hostIP'(init_connect 명령 실패)
+mysql> 데이터베이스 표시; 오류 2006(HY000): MySQL 서버가 연결되지 않았습니다. 다시 연결하는 중... 연결 ID:    64897 현재 데이터베이스: *** 없음 *** 오류 1184(08S01): db에 대한 연결 22 중단: 'db-name' 사용자: 'user' 호스트: 'hostIP'(init_connect 명령 실패)
 
-_ *해결 방법** : Azure Portal의 서버 매개 변수 탭에서 init_connect 값을 다시 설정하고 init_connect 매개 변수를 사용하여 지원되는 서버 매개 변수만 설정해야 합니다. 
+**해결 방법** : Azure Portal의 서버 매개 변수 탭에서 init_connect 값을 다시 설정하고 init_connect 매개 변수를 사용하여 지원되는 서버 매개 변수만 설정해야 합니다. 
 
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>SUPER 권한 및 DBA 역할 부족으로 인한 오류
