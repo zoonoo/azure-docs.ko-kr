@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92217527"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>자습서: 백 엔드 스토리지 추가 및 가상 네임스페이스 구성
@@ -136,7 +136,7 @@ vserver를 새로 만들려면 다음 정보가 필요합니다.
 
 ### <a name="create-a-junction"></a>접합 만들기
 
-*접합*은 백 엔드 스토리지 경로를 클라이언트에 표시되는 네임스페이스로 매핑합니다.
+*접합* 은 백 엔드 스토리지 경로를 클라이언트에 표시되는 네임스페이스로 매핑합니다.
 
 이 시스템을 사용하면 클라이언트 탑재 지점에 사용되는 경로를 간소화하고 용량을 원활하게 확장할 수 있습니다. 하나의 가상 경로가 여러 코어 파일러의 스토리지를 수용할 수 있기 때문입니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: OutSystems Azure AD와 Azure Active Directory 연결 | Microsoft Docs'
+title: '자습서: OutSystems Azure AD와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 OutSystems Azure AD 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 97d74a1a2e309b85ebad529b797dd4af9c1554ef
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92513724"
 ---
-# <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>자습서: Azure Active Directory와 OutSystems Azure AD 연결
+# <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>자습서: Azure Active Directory와 OutSystems Azure AD 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 OutSystems Azure AD를 연결하는 방법에 대해 알아봅니다. Azure AD와 OutSystems Azure AD를 연결하면 다음 작업을 수행할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "92513724"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -102,11 +102,11 @@ OutSystems 쪽에서 Single Sign-On을 구성하려면 [IdP 포지](https://www.
 
 이 섹션에서는 Azure Portal에서 B. Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B. Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `BrittaSimon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
