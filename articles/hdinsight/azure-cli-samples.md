@@ -6,10 +6,10 @@ ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 9367c1b4d82e984b2b4200768a3f83f9245c7f0f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99822320"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI 샘플
@@ -21,7 +21,7 @@ ms.locfileid: "99822320"
 
 이 문서에서는 일반적인 작업에 대한 샘플 스크립트를 제공합니다. 각 예제의 경우 적절한 값으로 변수를 업데이트한 다음, 명령을 실행합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure CLI. 단계는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
