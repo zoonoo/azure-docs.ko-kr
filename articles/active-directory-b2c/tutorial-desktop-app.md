@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78186202"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 네이티브 데스크톱 클라이언트에서 사용자 인증
@@ -31,16 +31,16 @@ ms.locfileid: "78186202"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
-- **.NET 데스크톱 개발**과 **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
+- **.NET 데스크톱 개발** 과 **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
 ## <a name="add-the-native-client-application"></a>원시 클라이언트 애플리케이션 추가
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
+이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID** 를 기록합니다.
 
 ## <a name="configure-the-sample"></a>샘플 구성
 
@@ -61,7 +61,7 @@ Azure AD B2C 테넌트와 함께 작동하도록 애플리케이션을 업데이
     private static readonly string ClientId = "{application-ID}";
     ```
 
-3. 필수 조건의 일부로 만든 사용자 흐름의 이름으로 정책 이름 변수를 업데이트합니다. 다음은 그 예입니다.
+3. 필수 조건의 일부로 만든 사용자 흐름의 이름으로 정책 이름 변수를 업데이트합니다. 예를 들면 다음과 같습니다.
 
     ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
@@ -75,7 +75,7 @@ Azure AD B2C 테넌트와 함께 작동하도록 애플리케이션을 업데이
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
-1. **로그인**을 선택하여 사용자로 가입합니다. 여기서는 **B2C_1_signupsignin1** 사용자 흐름을 사용합니다.
+1. **로그인** 을 선택하여 사용자로 가입합니다. 여기서는 **B2C_1_signupsignin1** 사용자 흐름을 사용합니다.
 2. Azure AD B2C에서 **지금 가입** 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 선택합니다.
 3. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
@@ -83,13 +83,13 @@ Azure AD B2C 테넌트와 함께 작동하도록 애플리케이션을 업데이
 
     ![로그인/등록 워크플로의 일부로 표시되는 등록 페이지](./media/tutorial-desktop-app/azure-ad-b2c-sign-up-workflow.png)
 
-4. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 테넌트에 만듭니다.
+4. **만들기** 를 선택하여 로컬 계정을 Azure AD B2C 테넌트에 만듭니다.
 
 이제 사용자는 이메일 주소를 사용하여 로그인하고 데스크톱 애플리케이션을 사용할 수 있습니다. 성공적으로 가입 또는 로그인한 후에는 토큰 정보가 WPF 앱의 아래쪽 창에 표시됩니다.
 
 ![WPF 데스크톱 애플리케이션의 아래쪽 창에 표시되는 토큰 정보](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
 
-**API 호출** 단추를 선택하는 경우 **오류 메시지**가 표시됩니다. 현재 상태에서 애플리케이션이 데모 테넌트인 `fabrikamb2c.onmicrosoft.com`에 의해 보호되는 API에 액세스하려고 하기 때문에 오류가 발생합니다. 액세스 토큰이 Azure AD B2C 테넌트에만 유효하므로 API 호출에 권한이 부여되지 않습니다.
+**API 호출** 단추를 선택하는 경우 **오류 메시지** 가 표시됩니다. 현재 상태에서 애플리케이션이 데모 테넌트인 `fabrikamb2c.onmicrosoft.com`에 의해 보호되는 API에 액세스하려고 하기 때문에 오류가 발생합니다. 액세스 토큰이 Azure AD B2C 테넌트에만 유효하므로 API 호출에 권한이 부여되지 않습니다.
 
 사용자의 테넌트에 보호되는 웹 API를 등록하고 **API 호출** 기능을 사용하도록 설정하려면 다음 자습서로 계속 진행합니다.
 
@@ -105,4 +105,4 @@ Azure AD B2C 테넌트와 함께 작동하도록 애플리케이션을 업데이
 다음으로 **API 호출** 단추 기능을 사용하도록 설정하려면 WPF 데스크톱 애플리케이션에 사용자의 Azure AD B2C 테넌트에 등록된 웹 API에 대한 액세스 권한을 부여합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 데스크톱 앱에서 Node.js 웹 API에 대한 액세스 권한 부여 >](tutorial-desktop-app-webapi.md)
+> [자습서: 스크톱 앱에서 Node.js 웹 API에 대한 액세스 권한 부여 >](tutorial-desktop-app-webapi.md)
