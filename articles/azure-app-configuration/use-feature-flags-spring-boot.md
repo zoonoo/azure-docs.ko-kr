@@ -15,10 +15,10 @@ ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92077833"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>자습서: Spring Boot 앱에서 기능 플래그 사용
@@ -75,9 +75,9 @@ Spring Boot 애플리케이션을 App Configuration에 연결하는 가장 쉬�
 
 각 기능 플래그는 기능의 상태가 *on*(즉, 값이 `True`)인지 평가하는 데 사용되는 하나 이상의 필터 이름과 목록으로 구성됩니다. 필터는 기능을 켜야 하는 사용 사례를 정의합니다.
 
-기능 플래그에 여러 필터가 있는 경우 그 중 한 필터가 기능을 사용하도록 설정해야 한다고 확인할 때까지 필터 목록이 순서대로 트래버스됩니다. 해당 시점에서 기능 플래그가 *on*으로 간주되므로 나머지 필터 결과를 건너뜁니다. 기능을 사용하도록 설정해야 한다는 필터가 없으면 기능 플래그가 *off*됩니다.
+기능 플래그에 여러 필터가 있는 경우 그 중 한 필터가 기능을 사용하도록 설정해야 한다고 확인할 때까지 필터 목록이 순서대로 트래버스됩니다. 해당 시점에서 기능 플래그가 *on* 으로 간주되므로 나머지 필터 결과를 건너뜁니다. 기능을 사용하도록 설정해야 한다는 필터가 없으면 기능 플래그가 *off* 됩니다.
 
-기능 관리자는 기능 플래그의 구성 원본으로 *application.yml*을 지원합니다. 다음 예제에서는 YAML 파일에서 기능 플래그를 설정하는 방법을 보여줍니다.
+기능 관리자는 기능 플래그의 구성 원본으로 *application.yml* 을 지원합니다. 다음 예제에서는 YAML 파일에서 기능 플래그를 설정하는 방법을 보여줍니다.
 
 ```yml
 feature-management:
@@ -94,13 +94,13 @@ feature-management:
 
 규칙에 따라 이 YML 문서의 `feature-management` 섹션은 기능 플래그 설정에 사용됩니다. 앞의 예제에서는 `EnabledFor` 속성에 필터가 정의된 다음 세 가지 기능 플래그를 보여줍니다.
 
-* `feature-a`는 *on*입니다.
-* `feature-b`는 *off*입니다.
-* `feature-c`는 `parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `feature-c` 플래그가 *on*이 될 50% 확률을 지정합니다.
+* `feature-a`는 *on* 입니다.
+* `feature-b`는 *off* 입니다.
+* `feature-c`는 `parameters` 속성을 사용하여 `Percentage`라는 필터를 지정합니다. `Percentage`는 구성 가능한 필터입니다. 이 예제에서 `Percentage`는 `feature-c` 플래그가 *on* 이 될 50% 확률을 지정합니다.
 
 ## <a name="feature-flag-checks"></a>기능 플래그 확인
 
-먼저 기능 플래그가 *on*으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 다음은 그 예입니다.
+먼저 기능 플래그가 *on* 으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 다음은 그 예입니다.
 
 ```java
 private FeatureManager featureManager;
@@ -128,7 +128,7 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>컨트롤러 작업
 
-MVC 컨트롤러에서 `@FeatureGate` 특성을 사용하여 특정 작업을 사용할 것인지 제어합니다. 다음 `Index` 작업은 `feature-a`가 *on*으로 설정되어야만 실행할 수 있습니다.
+MVC 컨트롤러에서 `@FeatureGate` 특성을 사용하여 특정 작업을 사용할 것인지 제어합니다. 다음 `Index` 작업은 `feature-a`가 *on* 으로 설정되어야만 실행할 수 있습니다.
 
 ```java
 @GetMapping("/")
@@ -138,7 +138,7 @@ public String index(Model model) {
 }
 ```
 
-제어하는 기능 플래그가 *off*로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 `IDisabledFeaturesHandler` 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
+제어하는 기능 플래그가 *off* 로 설정되어 MVC 컨트롤러 또는 작업이 차단되면 등록된 `IDisabledFeaturesHandler` 인터페이스가 호출됩니다. 기본 `IDisabledFeaturesHandler` 인터페이스는 응답 본문 없이 404 상태 코드를 클라이언트에 반환합니다.
 
 ## <a name="mvc-filters"></a>MVC 필터
 
