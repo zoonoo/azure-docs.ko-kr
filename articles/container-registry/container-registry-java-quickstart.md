@@ -7,10 +7,10 @@ ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.openlocfilehash: 9e400ee0bae2690a84f9cfd3f6a76359e08eabc2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92018341"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>빠른 시작: Java 컨테이너 이미지를 빌드하고 Azure Container Registry로 푸시
@@ -171,7 +171,7 @@ Spring과 Azure에 대한 자세한 사항은 Azure의 Spring 설명서 센터�
 
 ### <a name="additional-resources"></a>추가 리소스
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 자료를 참조하세요.
 
 * [Java 개발자를 위한 Azure](/azure/java)
 * [Azure DevOps 및 Java 사용하기](/azure/devops/java)
