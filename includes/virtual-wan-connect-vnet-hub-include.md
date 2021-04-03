@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-wan
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 999f3fb054eedab64a1f7bcebd9788e1edbf29f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86220610"
 ---
 이 단계에서는 허브와 VNet 간에 연결을 만듭니다. 연결하려는 각 VNet에 대해 이 단계를 반복합니다.
