@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: b83201ae864d1f1eb9124af5268360bb1748f6c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97507611"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 SQL Edge에서 Azure Blob 스토리지로 데이터 동기화
@@ -198,7 +198,7 @@ SQL Edge 인스턴스에서 다음 명령을 실행합니다.
 
     2. 저장 프로시저 매개 변수에 대한 값을 지정하려면 **가져오기 매개 변수** 를 선택하고, 다음 매개 변수 값을 입력합니다.
 
-    |Name|Type|값|
+    |Name|유형|값|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
     |TableName|String|@{activity('OldWaterMark').output.firstRow.TableName}|
