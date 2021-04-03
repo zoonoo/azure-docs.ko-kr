@@ -10,10 +10,10 @@ ms.date: 04/26/2018
 ms.reviewer: akjosh
 ms.custom: akjosh
 ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83124910"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Azure 확장 집합 템플릿에 사용자 지정 이미지 추가

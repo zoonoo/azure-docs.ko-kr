@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6811a06eb3483fd53b6e566033935c3b2e00ceca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84887256"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 경고
@@ -110,5 +110,5 @@ ms.locfileid: "84887256"
 ## <a name="next-steps"></a>다음 단계
 * [Azure CDN의 실시간 통계](cdn-real-time-stats.md)
 * [고급 HTTP 보고서](cdn-advanced-http-reports.md)
-* [사용 패턴](cdn-analyze-usage-patterns.md) 분석
+* [사용 패턴](cdn-analyze-usage-patterns.md)
 
