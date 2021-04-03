@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92108714"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합
@@ -29,7 +29,7 @@ ms.locfileid: "92108714"
 Data Lake Storage Gen1에 대한 가상 네트워크 통합에서는 가상 네트워크와 Azure AD(Azure Active Directory) 간에 가상 네트워크 서비스 엔드포인트 보안을 사용하여 액세스 토큰에서 추가 보안 클레임을 생성하게 됩니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다.
 
 > [!NOTE]
-> 이러한 기능을 사용하는 것과 관련된 추가 비용은 없습니다. 계정에 대해 Data Lake Storage Gen1에 대한 표준 요금이 청구됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)을 참조 하세요. 사용하는 다른 모든 Azure 서비스의 경우 [가격 책정](https://azure.microsoft.com/pricing/#product-picker)을 참조하세요.
+> 이러한 기능을 사용하는 것과 관련된 추가 비용은 없습니다. 계정에 대해 Data Lake Storage Gen1에 대한 표준 요금이 청구됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)을 참조하세요. 사용하는 다른 모든 Azure 서비스의 경우 [가격 책정](https://azure.microsoft.com/pricing/#product-picker)을 참조하세요.
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 가상 네트워크 통합 시나리오
 
@@ -75,7 +75,7 @@ az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resourc
 
 - Data Lake Storage Gen1 가상 네트워크 통합 지원을 사용할 수 있기 전에 만들어진 HDInsight 클러스터는 이 새 기능을 지원하기 위해 다시 만들어야 합니다.
  
-- 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용** 을 선택합니다. 그런 다음, HDInsight 클러스터를 만든 후에 최종적으로 가상 네트워크 규칙을 다시 사용하도록 설정하거나 **모든 네트워크 및 서비스에서 액세스 허용** 을 선택 취소합니다. 자세한 내용은 [예외](#exceptions) 섹션을 참조 하세요.
+- 가상 네트워크 통합을 사용하여 새 HDInsight 클러스터를 만들고 Data Lake Storage Gen1 계정을 선택하면 프로세스가 실패합니다. 먼저, 가상 네트워크 규칙을 사용하지 않습니다. 또는 Data Lake Storage 계정의 **방화벽 및 가상 네트워크** 블레이드에서 **모든 네트워크 및 서비스로부터 액세스 허용** 을 선택합니다. 그런 다음, HDInsight 클러스터를 만든 후에 최종적으로 가상 네트워크 규칙을 다시 사용하도록 설정하거나 **모든 네트워크 및 서비스에서 액세스 허용** 을 선택 취소합니다. 자세한 내용은 [예외](#exceptions) 섹션을 참조하세요.
 
 - Data Lake Storage Gen1 가상 네트워크 통합은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)에서 작동하지 않습니다.
   
@@ -120,7 +120,7 @@ az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resourc
 
 3.  **선택한 네트워크** 를 선택합니다.
  
-4.  **기존 가상 네트워크 추가** 를 선택 합니다.
+4.  **기존 가상 네트워크 선택** 을 선택합니다.
 
     ![기존 가상 네트워크 추가](media/data-lake-store-network-security/config-adls-2.png)
 

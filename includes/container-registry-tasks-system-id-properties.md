@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: container-registry
 author: dlepow
@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 1b7c8487eb42204f2741679c9ef6eb2717c272cd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86057360"
 ---
 명령 출력에서 `identity` 섹션은 `SystemAssigned` 형식의 ID가 작업에서 설정되었음을 보여줍니다. `principalId`는 태스크 ID의 보안 주체 ID입니다.

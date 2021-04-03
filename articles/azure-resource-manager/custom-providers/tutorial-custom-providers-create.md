@@ -7,10 +7,10 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 4f425af7681b666b42fbcc70ac0e4c31d9df6d49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87503755"
 ---
 # <a name="create-and-use-a-custom-provider"></a>사용자 지정 공급자 만들기 및 사용
@@ -32,13 +32,13 @@ ms.locfileid: "87503755"
 }
 ```
 
-속성 | 필수 | Description
+속성 | 필수 | 설명
 ---|---|---
 **name** | 예 | 엔드포인트 정의의 이름입니다. Azure는 이 이름을 해당 API를 통해 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName} 아래에 노출합니다.
 **routingType** | 예 | 엔드포인트 계약 형식입니다. 값을 지정하지 않으면 기본값은 “Proxy”입니다.
 **endpoint** | 예 | 요청을 라우팅하는 엔드포인트입니다. 이 엔드포인트는 응답 및 요청의 부작용을 처리합니다.
 
-**엔드포인트**의 값은 Azure 함수 앱의 트리거 URL입니다. `<yourapp>`, `<funcname>` 및 `<functionkey>` 자리 표시자는 생성한 함수 앱의 값으로 바꾸어야 합니다.
+**엔드포인트** 의 값은 Azure 함수 앱의 트리거 URL입니다. `<yourapp>`, `<funcname>` 및 `<functionkey>` 자리 표시자는 생성한 함수 앱의 값으로 바꾸어야 합니다.
 
 ## <a name="define-custom-actions-and-resources"></a>사용자 지정 작업 및 리소스 정의
 
@@ -157,7 +157,7 @@ az resource create --is-full-object \
                     }'
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 *is-full-object* | 예 | 속성 개체에 위치, 태그, SKU 또는 계획과 같은 다른 옵션이 포함되는지 여부를 나타냅니다.
 *id* | 예 | 사용자 지정 리소스의 리소스 ID입니다. 이 ID는 사용자 지정 공급자 리소스 ID의 확장입니다.
@@ -205,7 +205,7 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 }
 ```
 
-매개 변수 | 필수 | Description
+매개 변수 | 필수 | 설명
 ---|---|---
 *resourceTypeName* | 예 | 사용자 지정 공급자에 정의된 **resourceTypes** 속성의 `name` 값입니다.
 *resourceProviderName* | 예 | 사용자 지정 공급 기업 인스턴스 이름입니다.
