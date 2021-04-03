@@ -5,17 +5,17 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
 ms.openlocfilehash: 2ea3d285f00d38df84587d9a7c15242fff38453b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87500575"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 
 3부작 시리즈의 마지막 자습서입니다. 시리즈의 앞부분에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md)[Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 문서에서는 Azure Container Instances에 컨테이너를 배포하여 이 시리즈를 완료합니다.
 
-이 자습서에서는 다음을 수행합니다.
+이 자습서에서는 다음과 같은 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * Azure Container Registry에서 Azure Container Instances에 컨테이너 배포
@@ -34,7 +34,7 @@ ms.locfileid: "87500575"
 
 [두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 만든 이미지처럼 프라이빗 Azure 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리에 액세스하기 위한 자격 증명을 제공해야 합니다. 
 
-많은 시나리오에 대한 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 권한이 있는 서비스 주체를 생성하는 샘플 스크립트는 [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)을 참조하세요. *서비스 주체 ID* 및 *서비스 주체 암호*를 적어둡니다. 컨테이너를 배포할 때 이러한 자격 증명을 사용하여 레지스트리에 액세스합니다.
+많은 시나리오에 대한 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 권한이 있는 서비스 주체를 생성하는 샘플 스크립트는 [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)을 참조하세요. *서비스 주체 ID* 및 *서비스 주체 암호* 를 적어둡니다. 컨테이너를 배포할 때 이러한 자격 증명을 사용하여 레지스트리에 액세스합니다.
 
 또한 컨테이너 레지스트리 로그인 서버의 전체 이름이 필요합니다(`<acrName>`을 레지스트리 이름으로 바꾸기).
 
@@ -60,7 +60,7 @@ az container create --resource-group myResourceGroup --name aci-tutorial-app --i
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query instanceView.state
 ```
 
-상태가 *보류 중*에서 *실행 중*으로 변경될 때까지 [az container show][az-container-show] 명령을 1분 미만으로 반복합니다. 컨테이너가 *실행 중* 상태가 되면 다음 단계를 진행합니다.
+상태가 *보류 중* 에서 *실행 중* 으로 변경될 때까지 [az container show][az-container-show] 명령을 1분 미만으로 반복합니다. 컨테이너가 *실행 중* 상태가 되면 다음 단계를 진행합니다.
 
 ## <a name="view-the-application-and-container-logs"></a>애플리케이션 및 컨테이너 로그 보기
 
@@ -70,7 +70,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 ```output
 "aci-demo.eastus.azurecontainer.io"
 ```
