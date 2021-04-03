@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: b6a8f192cd26639431cc9fcb6b43e1bc5e8e2843
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96353632"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Meta Networks Connector 구성

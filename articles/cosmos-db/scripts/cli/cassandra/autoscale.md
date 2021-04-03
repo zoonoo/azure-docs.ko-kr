@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 7/29/2020
 ms.openlocfilehash: 810e896f5c2c6f45ce955b240041b33dc834d3ed
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94566438"
 ---
 # <a name="create-an-azure-cosmos-cassandra-api-account-keyspace-and-table-with-autoscale-using-azure-cli"></a>Azure CLI를 사용하여 자동 스케일링되는 Azure Cosmos Cassandra API 계정, 키스페이스 및 테이블 만들기

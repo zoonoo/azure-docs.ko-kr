@@ -10,10 +10,10 @@ ms.date: 12/26/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 89826eab7b1686ae695a2716a03b2f5d03da277f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93099257"
 ---
 # <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하여 글로벌 분산 데이터베이스 설정
