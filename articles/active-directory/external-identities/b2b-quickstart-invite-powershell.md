@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87910598"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
@@ -75,7 +75,7 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 
 ## <a name="send-an-invitation"></a>초대 보내기
 
-1. 테스트 메일 계정에 초대를 보내려면 다음 PowerShell 명령을 실행합니다( **“Sanda”** 및 **sanda\@fabrikam.com**을 테스트 메일 계정 이름 및 메일 주소로 바꾸기). 
+1. 테스트 메일 계정에 초대를 보내려면 다음 PowerShell 명령을 실행합니다(**“Sanda”** 및 **sanda\@fabrikam.com** 을 테스트 메일 계정 이름 및 메일 주소로 바꾸기). 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
@@ -91,7 +91,7 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. 출력에서 초대한 사용자가 *emailaddress*#EXT#\@*domain* 형식의 UPN(사용자 계정 이름)과 함께 나열되는지 확인합니다. 예를 들어 *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*에서 contoso.onmicrosoft.com은 초대를 보낸 조직입니다.
+3. 출력에서 초대한 사용자가 *emailaddress*#EXT#\@*domain* 형식의 UPN(사용자 계정 이름)과 함께 나열되는지 확인합니다. 예를 들어 *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com* 에서 contoso.onmicrosoft.com은 초대를 보낸 조직입니다.
 
    ![추가된 게스트 사용자를 보여 주는 PowerShell 출력](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

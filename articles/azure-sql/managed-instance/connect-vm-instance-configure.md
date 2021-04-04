@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
 ms.openlocfilehash: a1f496d59fa626dc8750493591128f7363afa40d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91620259"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Managed Instance에 연결하도록 Azure VM 구성
@@ -49,7 +49,7 @@ ms.locfileid: "91620259"
 
 3. 이 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ---------------- | ----------------- | ----------- |
    | **이름** | 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
@@ -78,7 +78,7 @@ SQL Managed Instance가 프라이빗 가상 네트워크에 배치되므로 SQL 
 
 2. 다음 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ---------------- | ----------------- | ----------- |
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[SQL Managed Instance 만들기](instance-create-quickstart.md) 빠른 시작에서 지정한 리소스 그룹|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
