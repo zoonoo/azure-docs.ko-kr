@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.openlocfilehash: 38b2ff6909dae15ff0f836316d5d12140ecc331a
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97672957"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>자습서: Clarizen과 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Clarizen을 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Clarizen과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -140,7 +140,7 @@ Clarizen에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     a. **페더레이션 인증 사용** 을 선택합니다.
 
-    b. 다운로드한 인증서를 업로드하려면 **업로드** 를 클릭합니다.
+    b. **업로드** 를 클릭하여 다운로드한 인증서를 업로드합니다.
 
     다. **로그인 URL** 상자에 Azure AD 애플리케이션 구성 창의 **로그인 URL** 값을 입력합니다.
 

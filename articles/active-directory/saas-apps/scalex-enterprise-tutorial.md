@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
 ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92895060"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>자습서: ScaleX Enterprise와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -28,7 +28,7 @@ ms.locfileid: "92895060"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -105,11 +105,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** , **사용자** , **모든 사용자** 를 차례로 선택합니다.
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
@@ -160,9 +160,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **Create any user who can authenticate with SSO(SSO로 인증할 수 있는 사용자 만들기)** 를 선택합니다.
 
-    b. **서비스 공급 기업 saml** : * *_urn:oasis:names:tc:SAML:2.0:nameid-format:persistent_* _ 값을 붙여넣습니다.
+    b. **서비스 공급자 saml**: **_urn:oasis:names:tc:SAML:2.0:nameid-format:persistent_** 값을 붙여넣습니다.
 
-    다. _*ACS 응답의 ID 공급자 이메일 필드 이름**: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 붙여넣습니다.
+    c. **Name of Identity Provider email field in ACS response(ACS 응답의 ID 공급자 전자 메일 필드 이름)** : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 값을 붙여 넣습니다.
 
     d. **ID 공급 기업 EntityDescriptor 엔터티 ID:** Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
