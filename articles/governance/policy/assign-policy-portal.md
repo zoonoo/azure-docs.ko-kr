@@ -4,10 +4,10 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 비규격 �
 ms.date: 01/29/2021
 ms.topic: quickstart
 ms.openlocfilehash: e5cbf31e897b5be404327efa254eb90ead990f5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99220890"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>비규격 리소스를 식별하는 정책 할당 만들기를 참조하세요.
