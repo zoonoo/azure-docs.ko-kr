@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions, devx-track-azurepowershell
 ms.openlocfilehash: b57c44e79d599ab41b2c3356ee337811acdf639d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91948360"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
