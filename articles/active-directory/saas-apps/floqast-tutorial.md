@@ -1,5 +1,5 @@
 ---
-title: '자습서: FloQast와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
+title: '자습서: FloQast와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
 description: Azure Active Directory와 FloQast 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.openlocfilehash: ed35a0b6e6f2ad620b528283a332507845e4f00d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97588300"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>자습서: FloQast와 Azure Active Directory SSO(Single Sign-On) 연결
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-floqast"></a>자습서: FloQast와 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 FloQast를 연결하는 방법을 알아봅니다. Azure AD와 FloQast를 연결하는 경우 다음을 수행할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "97588300"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -89,7 +89,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 FloQast 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | 속성 | 원본 특성|
+    | Name | 원본 특성|
     | ------------- | -------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
