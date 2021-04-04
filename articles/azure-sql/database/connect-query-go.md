@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: b4a22c734d2afb90d5ea7bc1bda17d3f8fcf585a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91327547"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Golang을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
