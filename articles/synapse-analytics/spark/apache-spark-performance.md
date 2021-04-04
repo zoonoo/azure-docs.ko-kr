@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: b94ece73d5f9dc9b8343e45fb1f616599b9a1c1f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96450935"
 ---
 # <a name="optimize-apache-spark-jobs-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Apache Spark 작업 최적화
@@ -154,7 +154,7 @@ Cartesian 조인의 병렬 처리를 관리하기 위해 중첩 구조, 창 작�
 동시 쿼리를 실행할 때는 다음 사항을 고려합니다.
 
 * 실행기당 30GB와 모든 컴퓨터 코어를 사용하여 시작합니다.
-* CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 애플리케이션을 만듭니다.
+* CPU를 초과 구독하여(약 30%의 대기 시간 개선) 여러 병렬 Spark 애플리케이션을 생성합니다.
 * 병렬 애플리케이션에서 쿼리를 배포합니다.
 * 평가판 실행과 GC 오버헤드와 같은 이전 요인을 기준으로 크기를 수정합니다.
 
