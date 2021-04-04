@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 157922cf597ff110b8d66ddaa44917bf2cb76029
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>자습서: SmartLPA와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ SmartLPA를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 SmartLPA와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
