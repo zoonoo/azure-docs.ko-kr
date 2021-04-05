@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.openlocfilehash: 36ba61c86082e191831c2c890de4466181f1a4db
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97674211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>자습서: Central Desktop와 Azure Active Directory 통합
@@ -30,7 +30,7 @@ Central Desktop을 Azure AD와 통합하면 다음과 같은 이점이 제공됩
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Central Desktop과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -159,7 +159,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
     다. 다운로드한 인증서를 메모장에서 엽니다. 그런 다음, 인증서의 내용을 복사하여 **SSO 인증서** 필드에 붙여넣습니다.
 
-    d. **SAMLv2 로그인 페이지의 링크 표시** 를 선택합니다.
+    d. **SAMLv2 로그인 페이지에 대한 링크 표시** 를 선택합니다.
 
     e. **업데이트** 를 선택합니다.
 
@@ -221,7 +221,7 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이
 > [!NOTE]
 > Azure AD 사용자 계정을 프로비전하려면 다른 Central Desktop 사용자 계정 생성 도구 또는 Central Desktop가 제공한 API를 사용합니다.
 
-**Central Desktop에 사용자 계정을 프로비전하려면**
+**Central Desktop에 사용자 계정을 프로 비전하려면**
 
 1. Central Desktop 테넌트에 로그인합니다.
 
