@@ -9,10 +9,10 @@ ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-js
 ms.openlocfilehash: 23c58526ba481a56b371bd077661d8d0bc7d45c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97586536"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Queue Storage 클라이언트 라이브러리 v12

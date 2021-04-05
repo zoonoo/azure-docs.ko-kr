@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
 ms.openlocfilehash: a005a62ec75d4cbedc4ea88095cab2a48c86fcf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821262"
 ---
 # <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Azure Cosmos DB - Gremlin API에 대한 데이터베이스 및 그래프 만들기

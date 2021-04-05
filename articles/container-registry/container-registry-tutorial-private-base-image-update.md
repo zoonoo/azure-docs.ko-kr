@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 11/20/2020
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: ce06e792fd5a4582e77d18313052ea91a38121a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821586"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>자습서: 다른 프라이빗 컨테이너 레지스트리에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
