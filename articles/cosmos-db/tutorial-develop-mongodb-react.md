@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
 ms.openlocfilehash: 1425b89e42450123c1696ddcee4458e1f69b8a6c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96348571"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
@@ -100,7 +100,7 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 
 > [!div class="checklist"]
 > * React, 노드, Express 및 Azure Cosmos DB에서 앱 만들기 
-> * Azure Cosmos DB 계정 만들기
+> * Azure Cosmos DB 계정 생성
 > * 앱을 Azure Cosmos DB 계정에 연결
 > * Postman을 사용하여 앱 테스트
 > * 애플리케이션 실행 및 데이터베이스에 Heroes 추가
