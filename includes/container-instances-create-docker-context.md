@@ -9,10 +9,10 @@ ms.date: 08/13/2020
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 3221c4f3e196cf1573bd7c0424fa3b4530c0b2ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90708267"
 ---
 ## <a name="create-azure-context"></a>Azure 컨텍스트 만들기
@@ -26,7 +26,7 @@ docker login azure
 메시지가 표시되면 Azure 자격 증명을 입력하거나 선택합니다.
 
 
-`docker context create aci`를 실행하여 ACI 컨텍스트를 만듭니다. 이 컨텍스트는 사용자가 컨테이너 인스턴스를 만들고 관리할 수 있도록 Docker를 Azure 구독 및 리소스 그룹과 연결합니다. 예를 들어, *myacicontext*라는 컨텍스트를 만듭니다.
+`docker context create aci`를 실행하여 ACI 컨텍스트를 만듭니다. 이 컨텍스트는 사용자가 컨테이너 인스턴스를 만들고 관리할 수 있도록 Docker를 Azure 구독 및 리소스 그룹과 연결합니다. 예를 들어, *myacicontext* 라는 컨텍스트를 만듭니다.
 
 ```
 docker context create aci myacicontext
