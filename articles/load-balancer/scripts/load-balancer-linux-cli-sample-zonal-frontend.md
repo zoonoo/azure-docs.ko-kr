@@ -16,13 +16,13 @@ ms.date: 06/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e0d43ae8f76e89ffe429ec1778922ee465ad7db4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696533"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Azure CLI 스크립트 예제: 특정 가용성 영역 내에 VM에 대한 트래픽 부하 분산
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Azure CLI 스크립트 예제: 특정 가용성 영역 내의 VM에 트래픽 부하 분산
 
 이 Azure CLI 스크립트 예제에서는 특정 가용성 영역 내에서 항상 사용 가능하고 부하 분산된 구성에서 구성된 여러 Ubuntu 가상 머신을 실행하는 데 필요한 모든 항목을 만듭니다. 스크립트를 실행하면 Azure 표준 Load Balancer를 통해 액세스할 수 있는 지역 내의 단일 가용성 집합에 3개의 가상 머신이 생성됩니다. 
 
