@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/07/2020
 ms.openlocfilehash: 1690b8d143b86e5caa691f5f8f479f715f57f0c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821236"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 자동화된 승인 기반 워크플로 만들기
@@ -58,7 +58,7 @@ ms.locfileid: "99821236"
 
    ![논리 앱 만들기 창 및 새 논리 앱에 대해 입력해야 하는 정보를 보여주는 스크린샷](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독 이름. 이 예에서는 `Pay-As-You-Go`를 사용합니다. |
    | **리소스 그룹** | LA-MailingList-RG | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)의 이름입니다. 이 예제는 새 리소스 그룹 `LA-MailingList-RG`를 만듭니다. |

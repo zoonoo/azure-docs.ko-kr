@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 4e648c57be699620e669ce7db0845dad2b876095
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99821288"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
@@ -18,7 +18,7 @@ ms.locfileid: "99821288"
 
 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Storage를 사용하려면 수정해야 할 수도 있습니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
 > * 스크립트 작업으로 클러스터 구성
@@ -27,7 +27,7 @@ ms.locfileid: "99821288"
 > * 출력 데이터 보기
 > * 토폴로지 중지
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [JDK(Java Developer Kit) 버전 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
@@ -114,7 +114,7 @@ Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/rel
 |스크립트 유형 |- 사용자 지정|
 |Bash 스크립트 URI |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |노드 유형 |Nimbus, Supervisor|
-|매개 변수 |None|
+|매개 변수 |없음|
 
 HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내용은 [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](./../hdinsight-hadoop-customize-cluster-linux.md) 문서를 참조하세요.
 
