@@ -4,10 +4,10 @@ description: 이 자습서에서는 정책을 사용하여 표준을 적용하�
 ms.date: 01/29/2021
 ms.topic: tutorial
 ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
-ms.translationtype: MT
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99221196"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
@@ -72,9 +72,9 @@ Azure Policy 준수를 적용하기 위한 첫 번째 단계는 정책 정의를
 
 1. 이 정책 정의는 [수정](../concepts/effects.md#modify) 효과를 사용하므로 **관리 ID 만들기** 가 자동으로 선택됩니다. **권한** 은 정책 정의에 따라 자동으로 _기여자_ 로 설정됩니다. 자세한 내용은 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 및 [수정 보안의 작동 방식](../how-to/remediate-resources.md#how-remediation-security-works)을 참조하세요.
 
-1. 마법사 위쪽의 **비호환 메시지** 탭을 선택 합니다.
+1. 마법사 맨 위에 있는 **비규격 메시지** 탭을 선택합니다.
 
-1. **비호환 메시지** 를이 리소스에 대 한 _필수 태그가_ 없습니다 .로 설정 합니다. 이 사용자 지정 메시지는 리소스가 거부 되거나 정기적으로 평가 하는 동안 비준수 리소스에 대해 표시 됩니다.
+1. **비규격 메시지** 를 _이 리소스는 필수 태그가 없음_ 으로 설정합니다. 이 사용자 지정 메시지는 리소스가 거부되거나 정기 평가 중에 비규격 리소스에 대해 표시됩니다.
 
 1. 마법사 맨 위에 있는 **검토 + 만들기** 탭을 선택합니다.
 

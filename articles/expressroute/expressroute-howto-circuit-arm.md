@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/12/2020
 ms.author: duau
 ms.openlocfilehash: 5397dd2745a0d4e61804cf631014846ae15ec4e1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91971543"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
