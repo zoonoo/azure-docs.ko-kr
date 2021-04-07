@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: cognitive-services
 manager: nitinme
@@ -9,10 +9,10 @@ ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.openlocfilehash: 8068199f2737367a8582820df151f74c9117170a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93135776"
 ---
 챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 예측 엔드포인트에 게시해야 합니다.

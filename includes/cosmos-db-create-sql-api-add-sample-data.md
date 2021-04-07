@@ -9,15 +9,15 @@ ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "70020163"
 ---
 이제 데이터 탐색기를 사용하여 새 컨테이너에 데이터를 추가할 수 있습니다.
 
-1. **Data Explorer**에서 **Tasks** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. **항목**을 선택한 다음, **새 항목**을 선택합니다.
+1. **Data Explorer** 에서 **Tasks** 데이터베이스를 확장하고 **Items** 컨테이너를 확장합니다. **항목** 을 선택한 다음, **새 항목** 을 선택합니다.
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
@@ -33,7 +33,7 @@ ms.locfileid: "70020163"
      }
      ```
 
-3. **문서** 탭에 json을 추가했으면 **저장**을 선택합니다.
+3. **문서** 탭에 json을 추가했으면 **저장** 을 선택합니다.
 
     ![Azure Portal의 Azure Data Explorer에서 Json 데이터를 복사하고 저장을 선택합니다.](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
 

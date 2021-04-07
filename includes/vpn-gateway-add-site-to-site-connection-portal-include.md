@@ -9,10 +9,10 @@ ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 48f33514510618abadf329a11a9ab71a020be0bd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92479591"
 ---
 1. 가상 네트워크 게이트웨이에 대한 페이지를 엽니다. **VNet 이름 -> 개요 -> 연결된 디바이스 -> 게이트웨이 이름** 으로 이동하여 게이트웨이로 이동할 수 있지만 다른 여러 가지 방법으로도 탐색할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "92479591"
    * **Azure 개인 IP 주소 사용** 을 선택하지 않은 상태로 둡니다.
    * **BGP 사용** 을 선택하지 않은 상태로 둡니다.
    * **IKEv2** 를 선택합니다.
-   * **구독** , **리소스 그룹** 및 **위치** 에 대한 나머지 값이 고정됩니다.
+   * **구독**, **리소스 그룹** 및 **위치** 에 대한 나머지 값이 고정됩니다.
 
 1. **확인** 을 선택하여 연결을 만듭니다. 화면에서 *연결 만들기* 플래시가 표시됩니다.
 1. 가상 네트워크 게이트웨이의 **연결** 페이지에서 연결을 볼 수 있습니다. 상태는 *알 수 없음* 에서 *연결 중* 으로 변한 다음 *성공함* 으로 변니다.
