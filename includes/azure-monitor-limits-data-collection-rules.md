@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 10/01/2020
 ms.author: robb
 ms.custom: include file
 ms.openlocfilehash: 2401bf29c26a4a43a7db500cc0b5a71948e77e7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95318079"
 ---
 | 제한 | 값 |
@@ -24,5 +24,5 @@ ms.locfileid: "95318079"
 | 최대 데이터 흐름 수 | 10 |
 | 최대 데이터 스트림 수 | 10 |
 | 최대 확장 수 | 10 |
-| 확장 프로그램 설정의 최대 크기 | 32 Kb |
+| 확장 설정의 최대 크기 | 32Kb |
 | 최대 Log Analytics 작업 영역 수 | 10 |

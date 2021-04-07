@@ -9,10 +9,10 @@ ms.date: 10/01/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 30a7f3ae878cebcd1e58287fc59241651dac2bfd
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94503963"
 ---
 1. 새 브라우저 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "94503963"
    
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
-    설정|값|Description
+    설정|값|설명
     ---|---|---
     Subscription|사용자의 구독|이 Azure Cosmos DB 계정에 사용하려는 Azure 구독을 선택합니다. 
     리소스 그룹|새로 만들기<br><br>그런 다음, 계정 이름과 같은 이름 입력|**새로 만들기** 를 선택합니다. 그런 다음, 계정의 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 Azure Cosmos 계정 이름과 동일한 이름을 사용합니다. 
@@ -36,7 +36,7 @@ ms.locfileid: "94503963"
     위치|사용자와 가장 가까운 지역 선택|Azure Cosmos DB 계정을 호스트할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.
     용량 모드|프로비저닝된 처리량 또는 서버리스|**프로비저닝된 처리량** 을 선택하여 [프로비저닝된 처리량](../articles/cosmos-db/set-throughput.md) 모드에서 계정을 만듭니다. **서버리스** 를 선택하여 [서버리스](../articles/cosmos-db/serverless.md) 모드에서 계정을 만듭니다.
 
-    **검토+만들기** 를 선택합니다. **네트워킹** , **백업** , **암호화** 및 **태그** 섹션을 건너뛸 수 있습니다. 
+    **검토+만들기** 를 선택합니다. **네트워킹**, **백업**, **암호화** 및 **태그** 섹션을 건너뛸 수 있습니다. 
 
     ![Azure Cosmos DB에 대한 새 계정 페이지](./media/cosmos-db-create-dbaccount-cassandra/azure-cosmos-db-create-new-account.png)
 

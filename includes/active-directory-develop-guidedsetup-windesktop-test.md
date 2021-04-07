@@ -15,15 +15,15 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 2325509f68ced7c66d9f733b07247ae01301b565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "82181541"
 ---
 ## <a name="test-your-code"></a>코드 테스트
 
-**F5**를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 애플리케이션 **MainWindow**는 다음과 같이 표시됩니다.
+**F5** 를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 애플리케이션 **MainWindow** 는 다음과 같이 표시됩니다.
 
 ![애플리케이션 테스트](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
@@ -41,7 +41,7 @@ ms.locfileid: "82181541"
 
 로그인하면, Microsoft Graph API에 대한 호출에서 반환되는 사용자 프로필 정보가 표시됩니다. 결과가 **API 호출 결과** 상자에 표시됩니다. `AcquireTokenInteractive` 또는 `AcquireTokenSilent`에 대한 호출을 통해 획득한 토큰에 관한 기본 정보는 **토큰 정보** 상자에 표시되어야 합니다. 결과에 다음 속성이 포함될 수 있습니다.
 
-|속성  |형식  |Description |
+|속성  |형식  |설명 |
 |---------|---------|---------|
 |**사용자 이름** |<span>user@domain.com</span> |사용자를 식별하는 데 사용하는 사용자 이름입니다.|
 |**토큰 만료** |DateTime |토큰이 만료되는 시간입니다. MSAL은 필요에 따라 토큰을 갱신하여 만료 날짜를 연장합니다.|
@@ -50,7 +50,7 @@ ms.locfileid: "82181541"
 
 Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을 읽을 수 있습니다. 이 범위는 애플리케이션 등록 포털에서 등록된 모든 애플리케이션에서 기본적으로 자동 추가됩니다. 다른 Microsoft Graph용 API와 백 엔드 서버용 사용자 지정 API에는 추가 범위가 필요할 수 있습니다. Microsoft Graph API는 *Calendars.Read* 범위가 있어야만 사용자 일정을 나열할 수 있습니다.
 
-애플리케이션의 컨텍스트에서 사용자 일정에 액세스하려면 애플리케이션 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음 *호출에*Calendars.Read`acquireTokenSilent` 범위를 추가합니다.
+애플리케이션의 컨텍스트에서 사용자 일정에 액세스하려면 애플리케이션 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음 `acquireTokenSilent` 호출에 *Calendars.Read* 범위를 추가합니다.
 
 >[!NOTE]
 >범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.

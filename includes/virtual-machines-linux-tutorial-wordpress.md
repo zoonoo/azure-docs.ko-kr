@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 76a080d40721fa78ad703f77f6dbe7a3363ab77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "68857438"
 ---
 ## <a name="install-wordpress"></a>WordPress 설치
@@ -37,7 +37,7 @@ MySQL 및 PHP를 사용하도록 WordPress를 구성합니다.
 sudo sensible-editor wordpress.sql
 ```
 
-다음 명령을 추가하여 *yourPassword*에 대한 데이터베이스 암호를 원하는 암호로 바꿉니다(다른 값을 변경하지 않고 둠). 이전에 암호 강도의 유효성을 검사하는 MySQL 보안 정책을 설정한 경우 암호가 강도 요구 사항에 부합해야 합니다. 파일을 저장합니다.
+다음 명령을 추가하여 *yourPassword* 에 대한 데이터베이스 암호를 원하는 암호로 바꿉니다(다른 값을 변경하지 않고 둠). 이전에 암호 강도의 유효성을 검사하는 MySQL 보안 정책을 설정한 경우 암호가 강도 요구 사항에 부합해야 합니다. 파일을 저장합니다.
 
 ```sql
 CREATE DATABASE wordpress;
@@ -64,7 +64,7 @@ PHP를 구성하려면 다음 명령을 실행하여 원하는 텍스트 편집�
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-파일에 다음 줄을 복사하여 *yourPassword*에 대한 WordPress 데이터베이스 암호를 대체합니다(다른 값을 변경하지 않고 둠). 그런 다음 파일을 저장합니다.
+파일에 다음 줄을 복사하여 *yourPassword* 에 대한 WordPress 데이터베이스 암호를 대체합니다(다른 값을 변경하지 않고 둠). 그런 다음, 파일을 저장합니다.
 
 ```php
 <?php
@@ -85,6 +85,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-이제 WordPress 설정을 완료하고 플랫폼에 게시할 수 있습니다. 웹 브라우저를 열고 `http://yourPublicIPAddress/wordpress`로 이동합니다. VM의 공용 IP 주소를 대체합니다. 이 이미지와 유사하게 표시됩니다.
+이제 WordPress 설정을 완료하고 플랫폼에 게시할 수 있습니다. 브라우저를 열고 `http://yourPublicIPAddress/wordpress`로 이동합니다. VM의 공용 IP 주소를 대체합니다. 이 이미지와 유사하게 표시됩니다.
 
 ![WordPress 설치 페이지](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

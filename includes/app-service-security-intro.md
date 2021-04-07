@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: cephalin
 ms.openlocfilehash: 0fccb1ed092190f88d197c9bf2cd17678a4d1731
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83649039"
 ---
 Azure VM, 스토리지, 네트워크 연결, 웹 프레임워크, 관리 및 통합 기능을 포함한 App Service의 플랫폼 구성 요소는 적극적으로 보호되고 강화됩니다. App Service는 다음 사항을 확인하기 위해 지속적으로 활발한 준수 확인을 수행합니다.
