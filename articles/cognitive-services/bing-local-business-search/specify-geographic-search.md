@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 2e72abd777ac4834385fd916b730d438b8540203
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96490264"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>지리적 경계를 사용하여 Bing Local Business Search API에서 결과를 필터링
@@ -55,7 +55,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restauran
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [로컬 비즈니스 검색 Java 빠른 시작](quickstarts/local-search-java-quickstart.md)
-- [로컬 비즈니스 검색 c # 빠른 시작](quickstarts/local-quickstart.md)
-- [로컬 비즈니스 검색 노드 빠른 시작](quickstarts/local-search-node-quickstart.md)
+- [Local Business Search Java 빠른 시작](quickstarts/local-search-java-quickstart.md)
+- [Local Business Search C# 빠른 시작](quickstarts/local-quickstart.md)
+- [Local Business Search Node 빠른 시작](quickstarts/local-search-node-quickstart.md)
 - [Local Business Search Python 빠른 시작](quickstarts/local-search-python-quickstart.md)
