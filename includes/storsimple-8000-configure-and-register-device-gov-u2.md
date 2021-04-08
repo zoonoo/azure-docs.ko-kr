@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 338332eb90fda9afe7655f9f2ad19ed726419b6c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95564186"
 ---
 ### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
@@ -73,7 +73,7 @@ ms.locfileid: "95564186"
     > [!IMPORTANT]
     > 직렬 콘솔 창에서 텍스트를 복사하려면 해당 텍스트를 선택하면 됩니다. 그런 다음 클립보드 또는 임의의 텍스트 편집기에 붙여넣을 수 있습니다.
     > 
-    > **Ctrl + C** 를 사용 하 여 서비스 데이터 암호화 키를 복사 하지 마세요. **Ctrl + C** 를 사용 하면 설치 마법사가 종료 됩니다. 결과적으로, 디바이스 관리자 암호는 변경되지 않으며 디바이스는 기본 암호로 되돌아갑니다.
+    > **Ctrl+C** 를 사용하여 서비스 데이터 암호화 키를 복사하지 마세요. **Ctrl+C** 를 사용하면 설치 마법사가 종료됩니다. 결과적으로, 디바이스 관리자 암호는 변경되지 않으며 디바이스는 기본 암호로 되돌아갑니다.
     
 14. 직렬 콘솔을 종료합니다.
 15. Azure Government 포털로 돌아가서 다음 단계를 완료합니다.
