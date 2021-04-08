@@ -1,13 +1,13 @@
 ---
-title: 패턴 정책 정의의 필드 속성
+title: '패턴: 정책 정의의 필드 속성'
 description: 이 Azure Policy 패턴은 정책 정의에서 필드 속성을 사용하는 방법에 대한 예를 제공합니다.
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072971"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Azure Policy 패턴: 필드 속성
@@ -26,9 +26,9 @@ ms.locfileid: "92072971"
 
 **field** 연산자는 [논리 연산자](../concepts/definition-structure.md#logical-operators) **allOf** 내에서 세 번 사용됩니다.
 
-- 첫 번째 용도는 **notIn** 조건이 있는 `location` 속성을 **listOfAllowedLocations** 매개 변수로 평가합니다. **notIn**은 _배열_이 필요한 만큼 작동하며 매개 변수는 _배열_입니다. 생성되거나 업데이트된 리소스의 `location`이 승인된 목록에 없는 경우 이 요소는 true로 평가됩니다.
-- 두 번째 용도는 `location` 속성도 평가하지만 **notEquals** 조건을 사용하여 리소스가 _글로벌_인지 확인합니다. 생성되거나 업데이트된 리소스의 `location`이 _글로벌_이 아닌 경우 이 요소는 true로 평가됩니다.
-- 마지막 용도는 `type` 속성을 평가하고 **notEquals** 조건을 사용하여 리소스 형식이 _Microsoft.AzureActiveDirectory/b2cDirectories_가 아닌지 확인합니다. 그렇지 않은 경우 이 요소는 true로 평가됩니다.
+- 첫 번째 용도는 **notIn** 조건이 있는 `location` 속성을 **listOfAllowedLocations** 매개 변수로 평가합니다. **notIn** 은 _배열_ 이 필요한 만큼 작동하며 매개 변수는 _배열_ 입니다. 생성되거나 업데이트된 리소스의 `location`이 승인된 목록에 없는 경우 이 요소는 true로 평가됩니다.
+- 두 번째 용도는 `location` 속성도 평가하지만 **notEquals** 조건을 사용하여 리소스가 _글로벌_ 인지 확인합니다. 생성되거나 업데이트된 리소스의 `location`이 _글로벌_ 이 아닌 경우 이 요소는 true로 평가됩니다.
+- 마지막 용도는 `type` 속성을 평가하고 **notEquals** 조건을 사용하여 리소스 형식이 _Microsoft.AzureActiveDirectory/b2cDirectories_ 가 아닌지 확인합니다. 그렇지 않은 경우 이 요소는 true로 평가됩니다.
 
 **allOf** 논리 연산자의 세 조건문이 모두 true로 평가되면 리소스 생성 또는 업데이트는 Azure Policy에 의해 차단됩니다.
 

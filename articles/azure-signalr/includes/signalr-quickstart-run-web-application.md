@@ -8,10 +8,10 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 2af9c1dfd13d3aeafa7cf1ac76537117ecc15aff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "84317770"
 ---
 ## <a name="run-the-web-application"></a>웹 애플리케이션 실행
@@ -19,7 +19,7 @@ ms.locfileid: "84317770"
 1. 클라이언트 테스트를 간소화하려면 샘플 단일 페이지 웹 애플리케이션 [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/)로 브라우저를 엽니다. 
 
     > [!NOTE]
-    > HTML 파일 소스는 [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html)에 있습니다. 그리고 HTML을 직접 호스트하려면 */docs/demo/chat-v2* 디렉터리에서 [http-server](https://www.npmjs.com/package/http-server)와 같은 로컬 HTTP 서버를 시작하세요. 원본이 샘플과 유사한 *local.settings.json*의 `CORS` 설정에 추가되어 있는지 확인합니다.
+    > HTML 파일 소스는 [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html)에 있습니다. 그리고 HTML을 직접 호스트하려면 */docs/demo/chat-v2* 디렉터리에서 [http-server](https://www.npmjs.com/package/http-server)와 같은 로컬 HTTP 서버를 시작하세요. 원본이 샘플과 유사한 *local.settings.json* 의 `CORS` 설정에 추가되어 있는지 확인합니다.
     > 
     > ```javascript
     > "Host": {

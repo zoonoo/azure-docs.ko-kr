@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
 ms.openlocfilehash: 2b2c043e70aac14c7fc6f0b58aae257624b05d13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80673288"
 ---
 Java 프로젝트에서 바인딩은 함수 메서드의 바인딩 주석으로 정의됩니다. 그런 다음, *function.json* 파일은 이러한 주석을 기반으로 자동으로 생성됩니다.
 
-_src/main/java_에서 함수 코드의 위치로 이동하여 *Function.java* 프로젝트 파일을 열고, 다음 매개 변수를 `run` 메서드 정의에 추가합니다.
+_src/main/java_ 에서 함수 코드의 위치로 이동하여 *Function.java* 프로젝트 파일을 열고, 다음 매개 변수를 `run` 메서드 정의에 추가합니다.
 
 ```java
 @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") OutputBinding<String> msg

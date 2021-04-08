@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: 978131a6cdc27849ff1e9b922d37854f35ff374a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85838954"
 ---
 Azure Data Lake Analytics는 분산 인프라와 복잡한 코드를 관리하는 복잡한 작업을 쉽게 해 줍니다. 이는 리소스를 동적으로 프로비저닝하며, 엑사바이트 단위의 데이터를 분석하는 데 사용될 수 있습니다. 작업이 완료되면 리소스가 자동으로 서서히 종료됩니다. 사용된 처리량에 대한 비용만 지불합니다. 저장된 데이터 크기 또는 사용된 컴퓨팅 양을 늘리거나 줄일 때 코드를 다시 작성할 필요가 없습니다. 구독의 기본 한도를 높이려면 고객 지원팀에 문의하세요.

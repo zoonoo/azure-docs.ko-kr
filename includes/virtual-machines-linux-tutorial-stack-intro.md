@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 046a4bc9abb936ca6f9fcecd0f660a723edb092b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80117182"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
-다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -25,7 +25,7 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만듭니다. 
 
-다음 예제에서는 *myVM*이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 또한 이 명령은 *azureuser*를 관리자 사용자 이름으로 설정합니다. 나중에 이 이름을 사용하여 VM에 연결합니다. 
+다음 예제에서는 *myVM* 이라는 VM을 만들고 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다. 또한 이 명령은 *azureuser* 를 관리자 사용자 이름으로 설정합니다. 나중에 이 이름을 사용하여 VM에 연결합니다. 
 
 ```azurecli-interactive
 az vm create \
@@ -71,7 +71,7 @@ VM의 공용 IP 주소를 알고 있는 경우 [az network public-ip list](/cli/
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 가상 머신의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142*입니다. *azureuser*는 VM을 만들 때 설정한 관리자 사용자 이름입니다.
+다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 가상 머신의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142* 입니다. *azureuser* 는 VM을 만들 때 설정한 관리자 사용자 이름입니다.
 
 ```bash
 ssh azureuser@40.68.254.142
