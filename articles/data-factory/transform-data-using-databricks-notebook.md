@@ -154,12 +154,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
           ![새 Notebook의 속성 설정](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       1. 새로 만든 "mynotebook" Notebook에서 다음 코드를 추가합니다.
+       1. 새로 만든 "mynotebook&quot; Notebook에서 다음 코드를 추가합니다.
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters
 
-           dbutils.widgets.text("input", "","")
+           dbutils.widgets.text(&quot;input&quot;, &quot;&quot;,&quot;")
            y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)

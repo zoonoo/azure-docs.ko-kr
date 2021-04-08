@@ -7,18 +7,18 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 3c5e6fd62e4f4db9ccc1306d32d09b8338cbf963
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 76333e11916641be71c72ce6142cd59b496a17e9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102098029"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023166"
 ---
 # <a name="create-a-voice-assistant-with-azure-percept-dk-and-azure-percept-audio"></a>Azure Percept DK 및 Azure Percept Audio를 사용하여 음성 도우미 만들기
 
 이 자습서에서는 템플릿을 통해 Azure Percept DK 및 Azure Percept Audio에서 사용할 음성 도우미를 만듭니다. 음성 도우미 데모는 [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) 내에서 실행되며 다양한 음성 제어 가상 개체를 포함하고 있습니다. 개체를 제어하려면 디바이스를 절전 모드에서 해제하는 단어 또는 짧은 문구인 키워드를 말한 다음, 명령을 말합니다. 각 템플릿은 특정 명령 세트에 응답합니다.
 
-이 가이드에서는 디바이스를 설정하고, 음성 도우미와 필요한 [음성 서비스](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview) 리소스를 만들고, 음성 도우미를 테스트하고, 키워드를 구성하고, 사용자 지정 키워드를 만드는 과정을 안내합니다.
+이 가이드에서는 디바이스를 설정하고, 음성 도우미와 필요한 [음성 서비스](../cognitive-services/speech-service/overview.md) 리소스를 만들고, 음성 도우미를 테스트하고, 키워드를 구성하고, 사용자 지정 키워드를 만드는 과정을 안내합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -172,7 +172,7 @@ ms.locfileid: "102098029"
 
     :::image type="content" source="./media/tutorial-no-code-speech/speech-studio.png" alt-text="Speech Studio 홈 화면을 보여 주는 스크린샷":::
 
-사용자 지정 명령 개발에 대한 자세한 내용은 [Speech Service 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands)를 참조하세요.
+사용자 지정 명령 개발에 대한 자세한 내용은 [Speech Service 설명서](../cognitive-services/speech-service/custom-commands.md)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

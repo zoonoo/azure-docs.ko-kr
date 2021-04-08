@@ -189,14 +189,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **활성화** 를 클릭합니다.
 
-## <a name="configuring-proxy-settings"></a>프록시 설정 구성
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Internet Explorer에서 프록시 설정을 구성하려면
+## <a name="configuring-proxy-settings&quot;></a>프록시 설정 구성
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Internet Explorer에서 프록시 설정을 구성하려면
 
 1. **Internet Explorer** 를 시작합니다.
 
 2. **도구** 메뉴에서 **인터넷 옵션** 을 선택하여 **인터넷 옵션** 대화 상자를 엽니다.   
 
-    ![인터넷 옵션](./media/zscaler-one-tutorial/ic769492.png "인터넷 옵션")
+    ![인터넷 옵션](./media/zscaler-one-tutorial/ic769492.png &quot;인터넷 옵션")
 
 3. **연결** 탭을 클릭합니다.   
 

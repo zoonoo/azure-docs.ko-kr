@@ -8,10 +8,10 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104576920"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 지역 간 Azure Load Balancer 만들기
@@ -123,7 +123,7 @@ Azure Portal에 [로그인](https://portal.azure.com)합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | **myHealthProbe** 를 입력합니다. |
+    | 이름 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다. |
     | 간격 | **5** 를 입력합니다. |
