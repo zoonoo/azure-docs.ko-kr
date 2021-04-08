@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>자습서: TeamSeer와 Azure Active Directory 통합
@@ -120,13 +120,13 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     다. 로그아웃 URL
 
-### <a name="configure-teamseer-single-sign-on"></a>TeamSeer Single Sign-On 구성
+### <a name="configure-teamseer-single-sign-on&quot;></a>TeamSeer Single Sign-On 구성
 
 1. 다른 웹 브라우저 창에서 TeamSeer 회사 사이트에 관리자로 로그인합니다.
 
 1. **HR 관리자** 로 이동합니다.
 
-    ![스크린샷은 TeamSeer 창에서 선택한 HR 관리자를 보여줍니다.](./media/teamseer-tutorial/ic789634.png "HR 관리자")
+    ![스크린샷은 TeamSeer 창에서 선택한 HR 관리자를 보여줍니다.](./media/teamseer-tutorial/ic789634.png &quot;HR 관리자")
 
 1. **설치** 를 클릭합니다.
 
@@ -205,7 +205,7 @@ TeamSeer에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-teamseer-test-user"></a>TeamSeer 테스트 사용자 만들기
+### <a name="create-teamseer-test-user&quot;></a>TeamSeer 테스트 사용자 만들기
 
 Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlanning으로 프로비저닝되어야 합니다. TeamSeer의 경우 프로비전은 수동 작업입니다.
 
@@ -215,7 +215,7 @@ Azure AD 사용자가 TeamSeer에 로그인할 수 있도록 하려면 ShiftPlan
 
 1. **HR 관리자 \> 사용자** 로 이동하여 **새 사용자 마법사 실행** 을 클릭합니다.
 
-    ![스크린샷은 실행할 마법사를 선택할 수 있는 HR 관리자 탭을 보여줍니다.](./media/teamseer-tutorial/ic789640.png "HR 관리자")
+    ![스크린샷은 실행할 마법사를 선택할 수 있는 HR 관리자 탭을 보여줍니다.](./media/teamseer-tutorial/ic789640.png &quot;HR 관리자")
 
 1. **사용자 세부 정보** 섹션에서 다음 단계를 수행합니다.
 

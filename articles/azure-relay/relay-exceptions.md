@@ -4,10 +4,10 @@ description: Azure Relay 예외 및 해결하기 위해 수행할 수 있는 권
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 44eeba6eb7b8cfd4e81a923c2d9a3155f1709f2c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98625151"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay 예외
@@ -24,7 +24,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 *   **설치/구성 오류**: [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception). 
 
     **일반 조치**: 구성을 검토합니다. 필요에 따라 구성을 변경합니다.
-*   **일시적인 예외**: [ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [ServiceBus, ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), ServiceBus. MessagingCommunicationException... [](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)입니다. 
+*   **일시적 예외**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **일반 조치**: 작업을 다시 시도하거나 사용자에게 알립니다.
 *   **다른 예외**: [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception), [System.TimeoutException](/dotnet/api/system.timeoutexception). 
@@ -43,7 +43,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 | [무단 액세스](/dotnet/api/system.unauthorizedaccessexception) |[TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 확보할 수 없거나, 토큰이 유효하지 않거나, 토큰에 작업 수행을 위해 필요한 클레임이 없습니다. |올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. ACS(Access Control Service) 구성을 확인합니다. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
 | [인수 예외](/dotnet/api/system.argumentexception)<br /> [인수 Null](/dotnet/api/system.argumentnullexception)<br />[인수가 범위를 벗어남](/dotnet/api/system.argumentoutofrangeexception) |다음 중 하나 이상의 상황이 발생했습니다.<br />메서드에 제공된 하나 이상의 인수가 잘못되었습니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create)에 제공된 URI에 하나 이상의 경로 세그먼트가 포함됩니다.<br />[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create)에 제공된 URI 스키마가 올바르지 않습니다. <br />속성 값이 32KB보다 큽니다. |호출 코드를 확인하고 인수가 정확한지 확인합니다. |재시도로 해결되지 않습니다. |
 | [서버 작업 중](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |서비스가 지금은 요청을 처리할 수 없습니다. |클라이언트가 잠시 대기한 후 작업을 다시 시도할 수 있습니다. |클라이언트는 특정 간격 후에 다시 시도될 수 있습니다. 재시도에서 다른 예외가 발생한 경우 해당 예외의 재시도 작동을 확인합니다. |
-| [할당량 초과](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)를 참조 하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
+| [할당량이 초과됨](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |메시징 엔터티의 최대 허용 크기에 도달했습니다. |엔터티나 하위 큐에서 메시지를 수신하여 엔터티에 공간을 만듭니다. [QuotaExceededException](#quotaexceededexception)을 참조하세요. |그 사이 메시지가 제거되었으면 재시도가 도움이 될 수 있습니다. |
 | [메시지 크기 초과됨](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |메시지 페이로드가 256KB 제한을 초과합니다. 256KB 제한은 총 메시지 크기입니다. 총 메시지 크기는 시스템 속성과 모든 Microsoft .NET 오버헤드가 포함됩니다. |메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. |재시도로 해결되지 않습니다. |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
@@ -62,7 +62,7 @@ Relay API는 다음과 같은 범주로 분류될 수 있는 예외를 생성합
 *   [OpenTimeout](/previous-versions/) 값이 너무 작을 수 있습니다(1초 미만).
 * 온-프레미스 릴레이 수신기는 응답하지 않을 수 있으며(또는 수신기에서 새 클라이언트 연결을 허용하지 못하도록 방지하는 방화벽 규칙 문제가 발생할 수 있음) [OpenTimeout](/previous-versions/) 값은 20초보다 작습니다.
 
-예제:
+예:
 
 ```
 'System.TimeoutException’: The operation did not complete within the allotted timeout of 00:00:10.
@@ -81,6 +81,6 @@ The time allotted to this operation may have been a portion of a longer timeout.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Relay FAQ](relay-faq.md)
-* [릴레이 네임 스페이스 만들기](relay-create-namespace-portal.md)
+* [릴레이 네임스페이스 만들기](relay-create-namespace-portal.md)
 * [Azure Relay 및 .NET 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [Azure Relay 및 Node 시작](relay-hybrid-connections-node-get-started.md)

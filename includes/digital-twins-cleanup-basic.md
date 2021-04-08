@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 2/4/2021
 ms.author: baanders
 ms.openlocfilehash: 9a02c4f5c5699b4a6308bfaa519fa9eb776414d6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102245021"
 ---
 * **이 자습서에서 만든 리소스가 필요하지 않은 경우** [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 이 문서에서 Azure Digital Twins 인스턴스와 기타 모든 리소스를 삭제할 수 있습니다. 이는 리소스 그룹의 모든 Azure 리소스와 리소스 그룹 자체를 삭제합니다.
