@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
 ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99052045"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>빠른 시작: 첫 번째 Logic Apps 워크플로 만들기 - Azure Portal
@@ -55,7 +55,7 @@ ms.locfileid: "99052045"
 
 1. **논리 앱** 창에서 논리 앱에 대한 기본 세부 정보와 설정을 제공합니다. 이 논리 앱 예제의 목적을 위해 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만듭니다.
 
-   | 속성 | 값 | 설명 |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | **이름** | <*logic-app-name*> | 지역에서 고유해야 하는 논리 앱의 이름입니다. 이름에는 문자, 숫자, 하이픈(`-`), 밑줄(`_`), 괄호(`(`, `)`) 및 마침표(`.`)만 포함될 수 있습니다. 이 예제에서는 “My-First-Logic-App”을 사용합니다. |
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름입니다. |
