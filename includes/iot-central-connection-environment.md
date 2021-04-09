@@ -9,10 +9,10 @@ ms.date: 11/03/2020
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: a3c85a7c76115ff72e5042788ad83fd31f601c9c
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96122687"
 ---
 환경 변수를 설정하여 샘플을 구성합니다. 다음 코드 조각에서는 Windows 명령 프롬프트에서 환경 변수를 설정하는 방법을 보여줍니다. **bash** 셸을 사용하는 경우 `set` 명령을 `export` 명령으로 바꿉니다.

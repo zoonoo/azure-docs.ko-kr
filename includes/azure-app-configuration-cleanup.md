@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: azure-app-configuration
 author: AlexandraKemperMS
@@ -9,10 +9,10 @@ ms.date: 1/31/2020
 ms.author: alkemper
 ms.custom: include file
 ms.openlocfilehash: 7d7f765a6a6dd9ef487b0bade7fa064af00f3149
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96929222"
 ---
 이 문서에서 만든 리소스를 계속 사용하지 않으려면 여기에서 만든 리소스 그룹을 삭제하여 요금이 부과되지 않도록 하세요.

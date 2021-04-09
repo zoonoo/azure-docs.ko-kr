@@ -7,10 +7,10 @@ ms.custom:
 - devx-track-powershell
 - devx-track-azurecli
 ms.openlocfilehash: abbe3b9ed4d9a8c9bf30c6be3e6980228d319090
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97937232"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 PowerShell 함수 만들기
