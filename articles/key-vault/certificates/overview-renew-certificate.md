@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c7948230164258aa785f3dd6c1f487c51ece9333
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: ffa130c0598d2405469d272a3ac6852f281ed965
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102487188"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105726365"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -29,7 +29,7 @@ Azure Key Vault를 사용하여 네트워크에 대한 디지털 인증서를 �
 인증서 수명 이벤트에 대한 알림을 받으려면 인증서 연락처를 추가해야 합니다. 인증서 연락처에는 인증서 수명 이벤트에서 트리거된 알림을 보내도록 연락처 정보가 포함됩니다. 연락처 정보는 키 자격 증명 모음의 모든 인증서에서 공유합니다. 알림은 키 자격 증명 모음의 모든 인증서에 대한 이벤트에 대해 지정한 모든 연락처로 보내집니다.
 
 ### <a name="steps-to-set-certificate-notifications"></a>인증서 알림을 설정하는 단계는 다음과 같습니다.
-먼저 인증서 연락처를 키 자격 증명 모음에 추가합니다. Azure Portal 또는 PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)를 사용하여 추가할 수 있습니다.
+먼저 인증서 연락처를 키 자격 증명 모음에 추가합니다. Azure Portal 또는 PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact)를 사용하여 추가할 수 있습니다.
 
 둘째, 인증서 만료에 대한 알림을 받을 조건을 구성합니다. 인증서의 수명 주기 특성을 구성하려면 [Key Vault에서 인증서 자동 순환 구성](./tutorial-rotate-certificates.md#update-lifecycle-attributes-of-a-stored-certificate)을 참조하세요.
 
@@ -41,9 +41,9 @@ Azure Key Vault를 사용하여 네트워크에 대한 디지털 인증서를 �
   인증서를 수동으로(이메일을 통해서만) 갱신하는 정책을 설정하는 경우 인증서를 갱신할 시간이 되면 알림이 전송됩니다.  
 
 Key Vault에는 다음과 같은 세 가지 범주의 인증서가 있습니다.
--   DigiCert 또는 GlobalSign과 같은 통합 CA(인증 기관)를 통해 생성된 인증서
--   비-통합 CA를 통해 생성된 인증서
--   자체 서명된 인증서
+-    DigiCert 또는 GlobalSign과 같은 통합 CA(인증 기관)를 통해 생성된 인증서
+-    비-통합 CA를 통해 생성된 인증서
+-    자체 서명된 인증서
 
 ## <a name="renew-an-integrated-ca-certificate"></a>통합 CA 인증서 갱신 
 Azure Key Vault는 신뢰할 수 있는 Microsoft 인증 기관 DigiCert 및 GlobalSign에서 발급한 인증서의 엔드투엔드 유지 관리를 처리합니다. [신뢰할 수 있는 CA를 Key Vault와 통합하는 방법](./how-to-integrate-certificate-authority.md)을 알아보세요.
@@ -89,5 +89,5 @@ Azure Key Vault는 자체 서명된 인증서의 자동 갱신도 처리합니�
 예, 자동 갱신 후 태그가 복제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-*   [DigiCert 인증 기관과 Key Vault 통합](how-to-integrate-certificate-authority.md)
-*   [자습서: Key Vault에서 인증서 자동 순환 구성](tutorial-rotate-certificates.md)
+*    [DigiCert 인증 기관과 Key Vault 통합](how-to-integrate-certificate-authority.md)
+*    [자습서: Key Vault에서 인증서 자동 순환 구성](tutorial-rotate-certificates.md)

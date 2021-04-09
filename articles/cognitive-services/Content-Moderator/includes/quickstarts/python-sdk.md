@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 07828e7faff61086ea982b8017bc3c590e386be1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 06ff04d8615b7ebdda07e993a3fc560d44fbf702
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444933"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105143"
 ---
 Python용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 PiPy 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. 
 
@@ -353,6 +353,3 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 > [!div class="nextstepaction"]
 >[이미지 조정 개념](../../image-moderation-api.md)
-
-* [Azure Content Moderator란?](../../overview.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py)에서 확인할 수 있습니다.

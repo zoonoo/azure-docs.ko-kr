@@ -5,14 +5,14 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 03/26/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 92080f119567d185ca6a5bccf0e89d8d10213f3b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8ff2e73a8557c6b1761c852ac58a46037a122ddb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732312"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105628529"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 프라이빗 엔드포인트 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "101732312"
 이 빠른 시작에서는 Azure Attestation에 대한 프라이빗 엔드포인트를 만들고, 가상 머신을 배포하여 프라이빗 연결을 테스트합니다.  
 
 > [!NOTE]
-> 현재 구현에는 자동 승인 옵션만 포함됩니다. 프라이빗 엔드포인트 만들기를 계속하려면 구독이 허용 목록에 포함되어야 합니다. 아래 단계를 진행하기 전에 서비스 팀에 연락하거나 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 Azure 지원 요청을 제출하세요.
+> 현재 구현에는 자동 승인 옵션만 포함됩니다. 프라이빗 엔드포인트 만들기를 계속하려면 구독을 허용 목록에 추가해야 합니다. 아래 단계를 진행하기 전에 서비스 팀에 연락하거나 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 Azure 지원 요청을 제출하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -174,7 +174,7 @@ New-AzPrivateDnsZoneGroup -ResourceGroupName $rg -PrivateEndpointName "myPrivate
 
 이 섹션에서는 이전 단계에서 만든 가상 머신을 사용하여 프라이빗 엔드포인트에서 SQL 서버에 연결합니다.
 
-1. [Azure 포털](https://portal.azure.com) 
+1. [Azure Portal](https://portal.azure.com) 
  
 2. 왼쪽 탐색 창에서 **리소스 그룹** 을 선택합니다.
 
