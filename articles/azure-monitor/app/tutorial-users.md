@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 4f6eeb5265d99a17ed18ace91fa5f2d2f744dbb2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: db63d763da8cfe13a07cab15f7f18ad6e2e73eb7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100597602"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026294"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법 이해
 
@@ -38,7 +38,7 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 애�
 - [Visual Studio 스냅샷 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
 - Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../app/asp-net.md)합니다. 
 - 사용자 지정 이벤트/페이지 보기 추가에 대한 [애플리케이션에서 원격 분석 전송](../app/usage-overview.md#send-telemetry-from-your-app)
-- [사용자 컨텍스트](../app/usage-send-user-context.md)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
+- [사용자 컨텍스트](./usage-overview.md)를 전송하여 시간에 따라 사용자 작업을 추적하고 사용량 기능을 최대한 활용합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
@@ -165,4 +165,3 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 > [!div class="nextstepaction"]
 > [사용자 지정 대시보드 만들기](./tutorial-app-dashboards.md)
-

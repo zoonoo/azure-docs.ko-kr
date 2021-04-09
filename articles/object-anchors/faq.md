@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 6de027f317072512bd9893303d3a79d0f34f3e3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101747979"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047578"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Azure Object Anchors FAQ
 
@@ -78,7 +78,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
  1. 정확한 렌더링을 얻으려면 안구 보정을 수행합니다.
  2. 공간에 풍부한 시각적 질감과 양호한 조명이 있어야 합니다.
  3. 개체를 고정 상태로 유지하고 가능하면 주위에 어수선한 물체가 없어야 합니다.
- 4. 필요에 따라 HoloLens 디바이스에서 [공간 매핑](https://docs.microsoft.com/windows/mixed-reality/spatial-mapping) 캐시를 제거합니다.
+ 4. 필요에 따라 HoloLens 디바이스에서 [공간 매핑](/windows/mixed-reality/spatial-mapping) 캐시를 제거합니다.
  5. 개체를 빙 돌면서 스캔합니다. 개체가 대부분 관찰되는지 확인합니다.
  6. 개체를 모두 포함할 수 있을 만큼 크게 검색 영역을 설정합니다.
  7. 검색하는 동안 개체는 고정 상태를 유지해야 합니다.

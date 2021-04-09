@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7356fb90914e948b6a74a478ce1e19722b224346
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7d6b0d01ec3de1cb4ce91b1c81cd8a0ccd73b1d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488060"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105825801"
 ---
 # <a name="quickstart-get-started-with-ui-framework-composite-components"></a>빠른 시작: UI 프레임워크 복합 구성 요소 시작
 
@@ -47,7 +47,7 @@ cd my-app
 
 ### <a name="install-the-package"></a>패키지 설치
 
-`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 설치합니다. 제공된 tarball(프라이빗 미리 보기)을 my-app 디렉터리로 이동합니다.
+`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services Calling SDK를 설치합니다. 제공된 tarball(프라이빗 미리 보기)을 my-app 디렉터리로 이동합니다.
 
 ```console
 
@@ -71,9 +71,9 @@ npm run start
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services UI 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services UI SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-| 속성                                  | Description                                                  |
+| 이름                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | GroupCall | 참가자 갤러리 및 컨트롤을 사용하여 그룹 통화 환경을 렌더링하는 복합 구성 요소입니다. |
 | GroupChat | 채팅 스레드 및 입력을 사용하여 그룹 채팅 환경을 렌더링하는 복합 구성 요소입니다. |

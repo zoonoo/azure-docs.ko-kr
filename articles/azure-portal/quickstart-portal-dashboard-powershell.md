@@ -3,13 +3,13 @@ title: PowerShell을 사용하여 Azure Portal 대시보드 만들기
 description: Azure Portal에서 Azure PowerShell을 사용하여 대시보드를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.date: 07/24/2020
-ms.openlocfilehash: 02e243a7296555d73427f8e31c4abdf9c3e56735
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/25/2021
+ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745743"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557448"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Portal 대시보드 만들기
 
@@ -104,7 +104,7 @@ Azure 대시보드는 리소스이므로 JSON으로 표현할 수 있습니다. 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
 
-$myPortalDashboardTemplatePath = "$env:TEMP\portal-dashboard-template-testvm.json"
+$myPortalDashboardTemplatePath = "$HOME\portal-dashboard-template-testvm.json"
 
 Invoke-WebRequest -Uri $myPortalDashboardTemplateUrl -OutFile $myPortalDashboardTemplatePath -UseBasicParsing
 ```
@@ -146,19 +146,7 @@ New-AzPortalDashboard @DashboardParams
 Get-AzPortalDashboard -Name $dashboardName -ResourceGroupName $resourceGroupName
 ```
 
-Azure Portal 내에서 VM에 대한 데이터를 볼 수 있는지 확인합니다.
-
-1. Azure Portal에서 **대시보드** 를 선택합니다.
-
-   ![대시보드에 대한 Azure Portal 탐색](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. 대시보드 페이지에서 **단순 VM 대시보드** 를 선택합니다.
-
-   ![단순 VM 대시보드로 이동](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. 대시보드를 검토합니다. 일부 콘텐츠는 정적이지만, VM의 성능을 보여주는 차트도 있습니다.
-
-   ![단순 VM 대시보드로 검토](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -170,6 +158,7 @@ VM 및 연결된 대시보드를 제거하려면 해당 VM이 속한 리소스 �
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroupName
+Remove-Item -Path "$HOME\portal-dashboard-template-testvm.json"
 ```
 
 ## <a name="next-steps"></a>다음 단계
