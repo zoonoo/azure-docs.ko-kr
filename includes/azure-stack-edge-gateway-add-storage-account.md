@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/12/2021
 ms.author: alkohli
 ms.openlocfilehash: cf67ea58c4c13756fdc6e437883f12124ca47eb9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105103998"
 ---
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Stack Edge 리소스를 선택한 다음, **개요** 로 이동합니다. 디바이스는 온라인 상태여야 합니다. **클라우드 저장소 게이트웨이 > 스토리지 계정** 으로 차례로 이동합니다.
