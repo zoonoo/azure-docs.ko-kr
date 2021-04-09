@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
 ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101722673"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Visual Studio를 사용하여 Azure Cloud Service(추가 지원) 만들기 및 배포

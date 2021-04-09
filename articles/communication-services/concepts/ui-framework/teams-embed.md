@@ -7,12 +7,12 @@ ms.author: chpalm
 ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 99263695aa0842daf59f23cda115dcb5b27b7add
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e55cfb1a4dff7bfda2323e68777d6f50514b1608
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104803917"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930237"
 ---
 # <a name="teams-embed"></a>Teams 포함
 
@@ -21,7 +21,7 @@ ms.locfileid: "104803917"
 
 Teams 포함은 일반적인 B2C(business-to-customer) 및 B2B(business-to-business) 통화 상호 작용에 초점을 맞춘 Azure Communication Services 기능입니다. Teams 포함 시스템의 핵심은 [화상 및 음성 통화](../voice-video-calling/calling-sdk-features.md)이지만, Teams 포함 시스템은 Microsoft Teams 모임 기반의 전체 사용자 환경을 제공하기 위해 Azure의 통화 기본 요소를 기반으로 하여 빌드됩니다.
 
-Teams 포함 클라이언트 라이브러리는 폐쇄형 소스이며, 이러한 기능을 턴키 방식의 복합 형식으로 사용할 수 있습니다. Teams 포함을 앱의 캔버스에 놓으면 클라이언트 라이브러리에서 전체 사용자 환경을 생성합니다. 이 사용자 환경은 Microsoft Teams 모임과 매우 비슷하므로 다음을 활용할 수 있습니다.
+Teams 포함 SDK는 폐쇄형 소스이며, 이러한 기능을 턴키 방식의 복합 형식으로 사용할 수 있습니다. Teams 포함을 앱의 캔버스에 놓으면 SDK에서 전체 사용자 환경을 생성합니다. 이 사용자 환경은 Microsoft Teams 모임과 매우 비슷하므로 다음을 활용할 수 있습니다.
 
 - 개발 시간 및 엔지니어링 복잡성 감소
 - 최종 사용자의 Teams에 대한 지식
