@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336982"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>자습서: Azure Database for PostgreSQL의 모니터링 및 튜닝 - Single Server
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>자습서: Azure Database for PostgreSQL 모니터링 및 튜닝 - 단일 서버
 
 Azure Database for PostgreSQL에는 서버 성능을 이해하고 개선하는 데 도움이 되는 기능이 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -27,10 +27,10 @@ Azure Database for PostgreSQL에는 서버 성능을 이해하고 개선하는 �
 PostgreSQL 버전 9.6 또는 10을 포함하는 Azure Database for PostgreSQL 서버가 필요합니다. [만들기 자습서](tutorial-design-database-using-azure-portal.md)의 단계에 따라 서버를 만들 수 있습니다.
 
 > [!IMPORTANT]
-> **쿼리 저장소** , **Query Performance Insight** 및 **성능 권장 사항** 은 공용 미리 보기로 제공됩니다.
+> **쿼리 저장소**, **Query Performance Insight** 및 **성능 권장 사항** 은 공용 미리 보기로 제공됩니다.
 
 ## <a name="enabling-data-collection"></a>데이터 수집 사용
-[쿼리 저장소](concepts-query-store.md)는 쿼리의 기록을 캡처하고 서버의 통계를 기다렸다가 서버의 **azure_sys** 데이터베이스에 저장합니다. 이 기능은 옵트인(opt-in) 기능입니다. 다음과 같이 사용하도록 설정합니다.
+[쿼리 저장소](concepts-query-store.md)는 쿼리의 기록을 캡처하고 서버의 통계를 기다렸다가 서버의 **azure_sys** 데이터베이스에 저장합니다. 이 기능은 옵트인(opt-in) 기능입니다. 포커스 표시를 사용하도록 설정하려면
 
 1. Azure Portal을 엽니다.
 
@@ -83,7 +83,7 @@ Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소�
 
 4. **성능 권장 사항** 창에는 권장 사항이 있는 경우 권장 사항 목록이 표시됩니다. 
 
-5. 권장 사항에는 관련 **데이터베이스** , **테이블** , **열** 및 **인덱스 크기** 에 대한 정보가 표시됩니다.
+5. 권장 사항에는 관련 **데이터베이스**, **테이블**, **열** 및 **인덱스 크기** 에 대한 정보가 표시됩니다.
 
    :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="성능 권장 사항 결과":::
 

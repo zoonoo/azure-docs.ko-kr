@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
 ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>자습서: Greenhouse와 Azure Active Directory 통합
@@ -146,7 +146,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     >[!NOTE]
     >또는 **파일 선택** 옵션을 클릭하여 **페더레이션 메타데이터 XML** 파일을 업로드할 수도 있습니다.
 
-### <a name="create-greenhouse-test-user"></a>Greenhouse 테스트 사용자 만들기
+### <a name="create-greenhouse-test-user&quot;></a>Greenhouse 테스트 사용자 만들기
 
 Azure AD 사용자가 Greenhouse에 로그인할 수 있도록 하려면 Greenhouse로 프로비전되어야 합니다. Greenhouse의 경우 프로비전은 수동 작업입니다.
 
@@ -159,7 +159,7 @@ Azure AD 사용자가 Greenhouse에 로그인할 수 있도록 하려면 Greenho
 
 2. **구성 > 사용자 > 새 사용자** 로 이동
    
-    ![사용자](./media/greenhouse-tutorial/create-user-1.png "사용자")
+    ![사용자](./media/greenhouse-tutorial/create-user-1.png &quot;사용자")
 
 4. **새 사용자 추가** 섹션에서 다음 단계를 수행합니다.
    

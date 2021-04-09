@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 48cb7df49fb918ebd30883edc573cc63b6e35e4a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821637"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
@@ -30,7 +30,7 @@ ms.locfileid: "99821637"
 > * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
