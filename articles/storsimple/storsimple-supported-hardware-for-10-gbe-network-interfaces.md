@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
 ms.openlocfilehash: fd30c7ec15eadd3d7945349a8aae4ac824bfdc7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94954089"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple 디바이스의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
@@ -63,7 +63,7 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 | 송수신 장치 제조사 |Juniper |
 | 송수신 장치 모델 |부품 번호 740-021308 <br></br>  부품 번호 740-030658 |
 | 송수신 장치 펌웨어 버전 |Rev 01 버전 0.0(보고됨) |
-| 케이블 모델 |이중 점퍼 LC/LC 50/125μ, OM3, LSZH |
+| 케이블 모델 |Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
 | StorSimple 모델 |8600 |
 | StorSimple 소프트웨어 버전 |6.3.9600.17491 |
 
