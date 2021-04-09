@@ -5,12 +5,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7013ef1e9b6dda4554b665fa8199edb86a8a9adb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 48df2cb6ac103d1f03d2d64fce0d10a8f2f128e2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97106515"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105043413"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>자습서: Python API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -30,7 +30,7 @@ ms.locfileid: "97106515"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Python 버전 2.7 또는 3.3 이상](https://www.python.org/downloads/)
+* [Python 버전 2.7 또는 3.6 이상](https://www.python.org/downloads/)
 
 * [pip](https://pip.pypa.io/en/stable/installing/) 패키지 관리자
 

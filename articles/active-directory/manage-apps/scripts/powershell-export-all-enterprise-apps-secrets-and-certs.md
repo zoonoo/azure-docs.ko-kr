@@ -12,10 +12,10 @@ ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
 ms.openlocfilehash: 20caefe74a7c047fb8690bb1d9e6f4eb9da7e9b7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102635198"
 ---
 # <a name="export-secrets-and-certificates-for-enterprise-apps"></a>엔터프라이즈 앱에 대한 비밀 및 인증서 내보내기
