@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure AD에 대 한 사용자 프로 비전'
+title: '자습서: Pingboard에 대한 사용자 프로비저닝 - Azure AD'
 description: 사용자 계정을 Pingboard에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 author: ArvindHarinder1
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.openlocfilehash: ac36f5d6d1f57fd8453c54bcc8cf19dd964f47f6
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94357898"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
@@ -26,7 +26,7 @@ ms.locfileid: "94357898"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 * Azure AD 테넌트
-* 가는 보드 테 넌 트 [Pro 계정](https://pingboard.com/pricing)
+* Pingboard 테넌트 [Pro 계정](https://pingboard.com/pricing)
 * 관리자 권한이 있는 Pingboard의 사용자 계정
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     b. 관리자 계정을 사용하여 [Pingboard](https://pingboard.com/)에 로그인합니다.
 
-    c. Azure Active Directory **Add-Ons**  >  **통합** 추가 기능  >  **Azure Active Directory** 을 선택 합니다.
+    다. **추가 기능** > **통합** > **Azure Active Directory** 를 선택합니다.
 
     d. **구성** 탭으로 가서 **Azure에서 사용자 프로비전 사용** 을 선택합니다.
 
@@ -77,11 +77,11 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. Azure Portal에서 **연결 테스트** 를 선택하여 Azure AD가 Pingboard 앱에 연결할 수 있는지 테스트합니다. 연결에 실패하면 Pingboard 계정에 관리자 권한이 있는지 테스트하고 **연결 테스트** 단계를 다시 시도합니다.
 
-1. 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일** 에 입력 합니다. 아래 확인란을 선택합니다.
+1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일** 에 입력합니다. 아래 확인란을 선택합니다.
 
 1. **저장** 을 선택합니다.
 
-1. **매핑** 섹션 아래에서 **사용자에 게 Azure Active Directory 사용자와 동기화 보드를 동기화** 합니다 .를 선택 합니다.
+1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화** 를 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../app-provisioning/customize-application-attributes.md)을 참조하세요.
 
