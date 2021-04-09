@@ -7,10 +7,10 @@ ms.service: cache
 author: curib
 ms.author: cauribeg
 ms.openlocfilehash: 5bdd6b0e6f97f7e5a738ab17d68282cf402004b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99056518"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
@@ -42,7 +42,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 빠
     4. **위에 명시된 사용 약관에 동의함** 확인란을 선택합니다. 
     5. **구매** 를 선택합니다. 
     
-    | 설정      | 제안 값  | 설명 |
+    | 설정      | 제안 값  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 드롭다운하여 구독을 선택합니다. | 이 웹앱을 만들 구독입니다. | 
     | **리소스 그룹** | 드롭다운하여 리소스 그룹을 선택하거나, **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -75,7 +75,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 빠
 
 4. **이벤트 구독 만들기** 페이지에서 다음을 입력합니다. 
 
-    | 설정      | 제안 값  | 설명 |
+    | 설정      | 제안 값  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
     | **이름** | 이벤트 구독의 이름을 입력합니다. | 값은 3~64자여야 합니다. 문자, 숫자 및 대시만 포함할 수 있습니다. | 
     | **이벤트 유형** | 드롭다운을 클릭하고 대상에 푸시할 이벤트 유형을 선택합니다. 이 빠른 시작에서는 캐시 인스턴스의 크기를 조정합니다. | 사용 가능한 옵션은 패치, 크기 조정, 가져오기 및 내보내기입니다. | 

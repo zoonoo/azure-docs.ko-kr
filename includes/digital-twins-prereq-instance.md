@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 3f46f7131d5465ec6542d9212e310c04a656f50c
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104774207"
 ---
 이 문서에서 Azure Digital Twins로 작업하려면 먼저 **Azure Digital Twins 인스턴스를 설정** 하고 이를 사용하는 데 필요한 권한이 필요합니다. 이전 작업에서 이미 Azure Digital Twins 인스턴스가 설정된 경우 해당 인스턴스를 사용할 수 있습니다.
