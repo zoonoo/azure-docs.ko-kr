@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/18/2020
-ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: a1f15330a912c8a8a93fe1f74e88ef8d117441c2
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654631"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047901"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>전용 SQL 풀을 사용하여 데이터 분석
 
@@ -112,9 +112,6 @@ ms.locfileid: "104654631"
     이 쿼리에서는 총 주행 거리 및 평균 주행 거리와 승객 수 간의 관계를 보여 줍니다.
 1. SQL 스크립트 결과 창에서 결과를 꺾은선형 차트로 시각화하려면 **보기** 를 **차트** 로 변경합니다.
     
-    > [!NOTE]
-    > 작업 영역이 활성화된 전용 SQL 풀(이전의 SQL DW)은 데이터 허브의 도구 설명을 통해 식별할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
