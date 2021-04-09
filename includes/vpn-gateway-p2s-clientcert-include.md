@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: include
 ms.date: 10/28/2020
 ms.author: cherylmc
 ms.openlocfilehash: 34986ac80a309bcfd495e5782496ba560f84c5f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93041566"
 ---
 지점 및 사이트 간 연결을 사용하여 VNet에 연결하는 각 클라이언트 컴퓨터에는 클라이언트 인증서가 설치되어 있어야 합니다. 이 인증서는 루트 인증서에서 생성하여 각 클라이언트 컴퓨터에 설치합니다. 유효한 클라이언트 인증서를 설치하지 않으면 클라이언트에서 VNet에 연결하려고 할 때 인증이 실패합니다.

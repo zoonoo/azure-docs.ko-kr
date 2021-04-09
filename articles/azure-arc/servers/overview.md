@@ -4,12 +4,12 @@ description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 863cab073018c5a592cba6e94451a9af038ebd52
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175977"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105023336"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -23,7 +23,7 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
 
 - Azure 가상 머신의 정책 할당과 동일한 환경을 사용하여 [Azure Policy 게스트 구성](../../governance/policy/concepts/guest-configuration.md)을 할당합니다. 오늘날 대부분의 게스트 구성 정책은 구성을 적용하지 않고 머신 내의 설정만 감사합니다. Arc 사용 서버에서 Azure Policy 게스트 구성 정책을 사용하는 비용을 파악하려면 Azure Policy [가격 책정 가이드](https://azure.microsoft.com/pricing/details/azure-policy/)를 참조하세요.
 
-- [서버용 Azure Defender](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction)를 사용하도록 설정한 서버의 경우, Azure Automation [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 및 [Azure Security Center 파일 무결성 모니터링](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)을 사용하여 모니터링되는 서버에 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 보고합니다.
+- [서버용 Azure Defender](../../security-center/defender-for-servers-introduction.md)를 사용하도록 설정한 서버의 경우, Azure Automation [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 및 [Azure Security Center 파일 무결성 모니터링](../../security-center/security-center-file-integrity-monitoring.md)을 사용하여 모니터링되는 서버에 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 보고합니다.
 
 - 연결된 머신 게스트 운영 체제 성능을 모니터링하고 애플리케이션 구성 요소를 검색하여 [VM용 Azure Monitor](../../azure-monitor/vm/vminsights-overview.md)를 통해 애플리케이션에서 통신하는 다른 리소스의 프로세스 및 종속성을 모니터링합니다.
 

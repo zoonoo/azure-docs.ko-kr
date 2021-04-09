@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 05/14/2018
 ms.openlocfilehash: 73d291fd76d9adbe2a095406b56bd879d497d3b5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98942657"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 애플리케이션 게시
@@ -19,10 +19,10 @@ HDInsight 애플리케이션은 *BYOL(사용자 라이선스 필요)* 모델을 
 
 자세한 내용은 다음 HDInsight 애플리케이션 관련 문서를 참조하세요.
 
-* [HDInsight 응용 프로그램을 설치](hdinsight-apps-install-applications.md)합니다. 클러스터에 HDInsight 애플리케이션을 설치하는 방법을 알아봅니다.
-* [사용자 지정 HDInsight 응용 프로그램을 설치](hdinsight-apps-install-custom-applications.md)합니다. 사용자 지정 HDInsight 애플리케이션을 설치하고 테스트하는 방법을 알아봅니다.
+* [HDInsight 애플리케이션 설치](hdinsight-apps-install-applications.md) - 클러스터에 HDInsight 애플리케이션을 설치하는 방법을 알아봅니다.
+* [사용자 지정 HDInsight 애플리케이션 설치](hdinsight-apps-install-custom-applications.md) - 사용자 지정 HDInsight 애플리케이션을 설치하고 테스트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 Marketplace에 사용자 지정 애플리케이션을 제출하려면 먼저 [사용자 지정 애플리케이션을 만들고 테스트해야 합니다](hdinsight-apps-install-custom-applications.md).
 
 또한 개발자 계정도 등록해야 합니다. 자세한 내용은 [Azure Marketplace에 제품 게시](../marketplace/overview.md) 및 [Microsoft 개발자 계정 만들기](../marketplace/overview.md)를 참조하세요.
@@ -41,7 +41,7 @@ Marketplace에 애플리케이션을 게시하는 데에는 두 단계가 있습
 }
 ```
 
-| 필드 | 설명 | 가능한 값 |
+| 필드 | Description | 가능한 값 |
 | --- | --- | --- |
 | types |애플리케이션과 호환되는 클러스터 종류입니다. |Hadoop, HBase, Storm, Spark(또는 이러한 클러스터의 조합) |
 | versions |애플리케이션과 호환되는 HDInsight 클러스터 종류입니다. |3.4 |
@@ -88,8 +88,8 @@ HDInsight 애플리케이션을 게시하려면
 3. 제목을 입력한 다음 **새 솔루션 템플릿 만들기** 를 선택합니다.
 4. 조직을 아직 등록하지 않은 경우 **개발자 센터 계정 만들기 및 Azure 프로그램 조인** 을 선택합니다.  자세한 내용은 [Microsoft 개발자 계정 만들기](../marketplace/overview.md)를 참조하세요.
 5. **시작할 몇 가지 토폴로지 정의** 를 선택합니다. 솔루션 템플릿은 해당하는 모든 토폴로지의 "부모"입니다. 하나의 제품 또는 솔루션 템플릿에 여러 토폴로지를 정의할 수 있습니다. 제품이 스테이징으로 푸시될 때 해당 토폴로지도 모두 함께 푸시됩니다. 
-6. 토폴로지 이름을 입력 한 다음를 선택 **+** 합니다.
-7. 새 버전을 입력 한 다음를 선택 **+** 합니다.
+6. 토폴로지 이름을 입력한 다음 **+** 를 선택합니다.
+7. 새 버전을 입력한 다음 **+** 를 선택합니다.
 8. 애플리케이션을 패키지했으면 만든 .zip 파일을 업로드합니다.  
 9. **인증 요청** 을 선택합니다. Microsoft 인증 팀에서 해당 파일을 검토하고 토폴로지를 인증합니다.
 
