@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
 ms.openlocfilehash: 7aaaa854ef7d0fd44bdccbe07cb38112475be367
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99821461"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>자습서: Jamf Pro와 Azure Active Directory SSO 통합
@@ -27,7 +27,7 @@ ms.locfileid: "99821461"
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 

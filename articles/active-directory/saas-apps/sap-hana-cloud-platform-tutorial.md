@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/27/2020
 ms.author: jeedes
 ms.openlocfilehash: b15c5a9f9f1e4e144caa2ddaa36d42a2a225b31b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97964051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure Active Directory 통합
