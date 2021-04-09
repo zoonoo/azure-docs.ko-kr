@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 01/26/2021
 ms.author: mbaldwin
 ms.openlocfilehash: 943555e9f7a26530a075aee27dd310d96974e652
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99072791"
 ---
 # <a name="quickstart-set-and-retrieve-a-managed-key-from-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault에서 관리형 키 설정 및 검색

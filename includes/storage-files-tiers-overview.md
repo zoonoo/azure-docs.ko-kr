@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: storage
 author: roygara
@@ -9,10 +9,10 @@ ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98633444"
 ---
 Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스토리지 계층을 제공하여 시나리오의 성능 및 가격 요구 사항에 맞게 공유를 조정할 수 있도록 지원합니다.
