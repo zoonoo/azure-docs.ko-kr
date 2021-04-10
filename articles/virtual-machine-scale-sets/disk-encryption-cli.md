@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 302f53bd218a2e01a039be4780a0e2ff5974e7b4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e6630cbb44157f25bd2cbfcff25ec3132c74c61c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102215955"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565574"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -61,7 +61,7 @@ az vmss extension set \
 
 Azure Key Vault는 애플리케이션 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다.
 
-사용자 고유의 *keyvault_name* 을 정의합니다. 그런 다음, [az keyvault create](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create)를 사용하여 확장 집합과 동일한 구독 및 영역에 KeyVault를 만들고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
+사용자 고유의 *keyvault_name* 을 정의합니다. 그런 다음, [az keyvault create](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-create)를 사용하여 확장 집합과 동일한 구독 및 영역에 KeyVault를 만들고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 이 단계는 디스크 암호화로 사용하려는 기존 Key Vault가 있는 경우에만 필요합니다. 이전 섹션에서 Key Vault를 만든 경우 이 단계를 건너뜁니다.
 
-사용자 고유의 *keyvault_name* 을 정의합니다. 그런 다음, [az keyvault update](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update)를 사용하여 KeyVault를 업데이트하고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
+사용자 고유의 *keyvault_name* 을 정의합니다. 그런 다음, [az keyvault update](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-update)를 사용하여 KeyVault를 업데이트하고 *--enabled-for-disk-encryption* 액세스 정책을 설정합니다.
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -87,7 +87,7 @@ az keyvault update --name $keyvault_name --enabled-for-disk-encryption
 
 ## <a name="enable-encryption"></a>암호화 사용
 
-확장 집합에서 VM 인스턴스를 암호화하려면 먼저 [az keyvault show](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-show)를 사용하여 Key Vault 리소스 ID에 대한 정보를 얻습니다. 이러한 변수는 [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable)로 암호화 프로세스를 시작하는 데 사용됩니다.
+확장 집합에서 VM 인스턴스를 암호화하려면 먼저 [az keyvault show](/cli/azure/keyvault#ext-keyvault-preview-az-keyvault-show)를 사용하여 Key Vault 리소스 ID에 대한 정보를 얻습니다. 이러한 변수는 [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable)로 암호화 프로세스를 시작하는 데 사용됩니다.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
