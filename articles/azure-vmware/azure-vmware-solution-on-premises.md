@@ -4,10 +4,10 @@ description: 온-프레미스 환경에 Azure VMware Solution을 연결하는 �
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.openlocfilehash: 0b26dc4756cb37544c2b2f8c5a75df0ac1a9d629
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103491795"
 ---
 # <a name="connect-azure-vmware-solution-to-your-on-premises-environment"></a>온-프레미스 환경에 Azure VMware Solution 연결

@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 ms.openlocfilehash: 533bd817b704db9976624b356a9950a9c48b8339
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104606022"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>자습서: Azure SQL Database를 사용하여 Azure에 ASP.NET 앱 배포
@@ -111,7 +111,7 @@ Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져
 
    | 설정  | 제안 값 | 참조 항목 |
    | ----------------- | ------------ | ----|
-   |**App Service 요금제**| myAppServicePlan | [App Service 요금제](../app-service/overview-hosting-plans.md) |
+   |**App Service 요금제**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
    |**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
    |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 

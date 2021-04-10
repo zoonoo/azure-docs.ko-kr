@@ -4,16 +4,16 @@ description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 9f8de6ed4f0312a342526fb2ba5d100dfd9ec91f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c3b95b92f2b76e669b4e207163f76f8cec2d3244
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100582615"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731686"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -85,6 +85,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |캐나다 중부     |     S8v2, S9v2   |    1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|미국 동부     |     S8v2, S9v2   |    1    |
 |미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |미국 동부 2     |     S8v2, S9v2   |    1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |

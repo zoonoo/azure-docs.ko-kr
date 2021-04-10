@@ -456,7 +456,84 @@
                   href: windows-voice-assistants-best-practices.md
                 - name: 샘플 및 질문과 대답
                   href: windows-voice-assistants-faq.md
-- name: 도구
+- name: 방법 가이드
+  items:
+    - name: 로깅 사용
+      href: how-to-use-logging.md
+    - name: 메모리 사용량 추적
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: 프라이빗 엔드포인트 사용
+      href: speech-services-private-link.md
+    - name: Linux용 OpenSSL 구성
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: RHEL/CentOS 7 구성
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: 컨테이너
+      items:
+        - name: 음성 컨테이너 설치 및 실행
+          displayName: 'containers,install container,run container'
+          href: speech-container-howto.md
+        - name: 음성 초기화 구성
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
+        - name: 음성 컨테이너를 사용하여 일괄 처리
+          href: speech-container-batch-processing.md
+        - name: Kubernetes 및 Helm이 있는 음성 컨테이너
+          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+          href: speech-container-howto-on-premises.md
+        - name: Azure 컨테이너 인스턴스의 음성 컨테이너
+          displayName: 'ACI,azure container instances,container instances,containers'
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: 컨테이너 FAQ
+          href: speech-container-faq.md
+        - name: Cognitive Services 컨테이너 설명서
+          href: ../containers/index.yml
+    - name: 마이그레이션
+      items:
+        - name: Bing Speech에서
+          href: how-to-migrate-from-bing-speech.md
+        - name: Translator Speech API에서
+          href: how-to-migrate-from-translator-speech-api.md
+- name: 디바이스
+  items:
+    - name: 음성 디바이스 설명서
+      href: index-devices.yml
+    - name: 개요
+      items:
+        - name: 음성 디바이스 SDK란?
+          href: speech-devices-sdk.md
+        - name: 음성 디바이스 SDK 가져오기
+          href: get-speech-devices-sdk.md
+        - name: 음성 디바이스 SDK 샘플(GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+    - name: 하드웨어
+      items:
+        - name: 마이크 배열 권장 사항
+          href: speech-devices-sdk-microphone.md
+        - name: Roobo v1 세부 정보
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Roobo v2 세부 정보
+          href: speech-devices-sdk-roobo-v2.md
+    - name: 방법 가이드
+      items:
+        - name: 마이크 배열을 구성하는 방법
+          href: how-to-devices-microphone-array-configuration.md
+    - name: 빠른 시작
+      items:
+        - name: 음성 디바이스 SDK 사용
+          href: speech-devices-sdk-quickstart.md
+    - name: 리소스
+      items:
+        - name: 음성 디바이스 SDK 문제 해결
+          href: speech-devices-sdk-troubleshooting.md
+    - name: 참조
+      items:
+        - name: 음성 디바이스 SDK 릴리스 정보
+          href: devices-sdk-release-notes.md
+- name: 리소스
   items:
     - name: Speech SDK
       items:
@@ -505,85 +582,6 @@
           href: 'https://speech.microsoft.com'
         - name: Speech Studio를 사용하여 사용자 지정 명령 앱 만들기
           href: ./quickstart-custom-commands-application.md
-- name: 배포
-  items:
-    - name: 로깅 사용
-      href: how-to-use-logging.md
-    - name: 메모리 사용량 추적
-      href: how-to-track-speech-sdk-memory-usage.md
-    - name: 프라이빗 엔드포인트 사용
-      href: speech-services-private-link.md
-    - name: Linux용 OpenSSL 구성
-      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-      href: how-to-configure-openssl-linux.md
-    - name: RHEL/CentOS 7 구성
-      href: how-to-configure-rhel-centos-7.md
-      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: 컨테이너
-      items:
-        - name: 음성 컨테이너 설치 및 실행
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: 음성 초기화 구성
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
-        - name: 음성 컨테이너를 사용하여 일괄 처리
-          href: speech-container-batch-processing.md
-        - name: Kubernetes 및 Helm이 있는 음성 컨테이너
-          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-          href: speech-container-howto-on-premises.md
-        - name: Azure 컨테이너 인스턴스의 음성 컨테이너
-          displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: 컨테이너 FAQ
-          href: speech-container-faq.md
-        - name: Cognitive Services 컨테이너 설명서
-          href: ../containers/index.yml
-- name: 디바이스
-  items:
-    - name: 음성 디바이스 설명서
-      href: index-devices.yml
-    - name: 개요
-      items:
-        - name: 음성 디바이스 SDK란?
-          href: speech-devices-sdk.md
-        - name: 음성 디바이스 SDK 가져오기
-          href: get-speech-devices-sdk.md
-        - name: 음성 디바이스 SDK 샘플(GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: 하드웨어
-      items:
-        - name: 마이크 배열 권장 사항
-          href: speech-devices-sdk-microphone.md
-        - name: Roobo v1 세부 정보
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Roobo v2 세부 정보
-          href: speech-devices-sdk-roobo-v2.md
-    - name: 방법 가이드
-      items:
-        - name: 마이크 배열을 구성하는 방법
-          href: how-to-devices-microphone-array-configuration.md
-    - name: 빠른 시작
-      items:
-        - name: 음성 디바이스 SDK 사용
-          href: speech-devices-sdk-quickstart.md
-    - name: 리소스
-      items:
-        - name: 음성 디바이스 SDK 문제 해결
-          href: speech-devices-sdk-troubleshooting.md
-    - name: 참조
-      items:
-        - name: 음성 디바이스 SDK 릴리스 정보
-          href: devices-sdk-release-notes.md
-- name: 마이그레이션
-  items:
-    - name: Bing Speech에서
-      href: how-to-migrate-from-bing-speech.md
-    - name: Translator Speech API에서
-      href: how-to-migrate-from-translator-speech-api.md
-- name: 리소스
-  items:
     - name: 지원 및 도움말 옵션
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Swagger 설명서

@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dc6ab94b3685e55125032b0afa52076eae72ba5b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016222"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링
@@ -67,13 +67,13 @@ Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때
 > [!NOTE]
 > 작업 상태 모니터링 방법으로 다음 예제와 같이 알림 메시지 수신을 권장합니다.
 >
-> 또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  **Ijob** 의 상태가 **완료** 로 설정 되기 전에 작업 완료에 대 한 알림 메시지가 도착할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
+> 또는 **IJob.State** 속성을 사용하여 작업 상태를 확인할 수 있습니다.  **IJob** 의 상태가 **완료됨** 으로 설정되기 전에 작업 완료에 대한 알림 메시지를 수신할 수 있습니다. **IJob.State** 속성은 약간의 지연 시간을 포함하여 정확한 상태를 반영합니다.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
+1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 2. 로컬 드라이브 내 임의의 위치에 새 폴더를 만들고, 인코딩하여 스트리밍하거나 점진적으로 다운로드하려는 .mp4 파일을 복사합니다. 이 예제에서는 "C:\Media" 경로가 사용됩니다.
 3. **System.Runtime.Serialization** 라이브러리에 참조를 추가합니다.
 

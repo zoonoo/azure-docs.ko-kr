@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5ae1bdfeeffdb904ba80ed42919e4f51411871c3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016155"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링
@@ -45,13 +45,13 @@ ms.locfileid: "103016155"
 
 [여기](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)에서는 이 문서에 나와 있는 항목을 포함하여 다양한 Media Services .NET Azure Functions의 정의를 찾을 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
-* [Azure Functions 사용 방법](../../azure-functions/functions-overview.md)이해 또한 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
+* [Azure Functions를 사용하는 방법](../../azure-functions/functions-overview.md)을 이해합니다. 또한 [Azure Functions HTTP 및 웹후크 바인딩](../../azure-functions/functions-bindings-http-webhook.md)을 검토합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -64,10 +64,10 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 [애플리케이션 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
 
-|Name|정의|예제| 
+|이름|정의|예제| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https: \/ /juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|
+|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -82,7 +82,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 Azure Function은 이 섹션에 설명된 코드 파일 및 기타 파일과 연결됩니다. 기본적으로 함수는 **function.json** 및 **run.csx**(C#) 파일과 연결됩니다. **project.json** 파일을 추가해야 합니다. 이 섹션의 나머지 부분에서는 이러한 파일의 정의를 보여 줍니다.
 
-![파일](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>function.json
 
@@ -384,7 +384,7 @@ URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg
 이 섹션에서는 태스크에 Webhook 알림을 추가하는 코드가 표시됩니다. 작업 수준 알림을 추가할 수도 있습니다. 그러면 연결된 태스크를 사용하여 작업에 더 유용합니다.  
 
 1. Visual Studio를 사용하여 새 C# 콘솔 애플리케이션을 만듭니다. 이름, 위치 및 솔루션 이름을 입력하고 확인을 클릭합니다.
-2. [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 을 사용 하 여 Azure Media Services를 설치 합니다.
+2. [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices)을 사용하여 Azure Media Services를 설치합니다.
 3. App.config 파일을 적절한 값으로 업데이트합니다. 
     
    * Azure Media Services 연결 정보 

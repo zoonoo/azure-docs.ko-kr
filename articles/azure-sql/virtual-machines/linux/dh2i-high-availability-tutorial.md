@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: amvin87
 ms.author: amitkh
 ms.reviewer: vanto
-ms.openlocfilehash: 0500f4143ad7cbdaaa8406af2b242e0d40b1caa2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 07752eb5c7f18a8952c43e77afed78b06432aca6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102219285"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568539"
 ---
 # <a name="tutorial---setup-a-three-node-always-on-availability-group-with-dh2i-dxenterprise-running-on-linux-based-azure-virtual-machines"></a>자습서 - Linux 기반 Azure Virtual Machines에서 실행되는 DH2i DxEnterprise를 사용하여 3개 노드 Always On 가용성 그룹 설정
 
@@ -39,22 +39,22 @@ DxEnterprise에 대한 자세한 내용은 [DH2i DxEnterprise](https://dh2i.com/
 
 ## <a name="prerequisites"></a>전제 조건
 
-- Azure에서 4개의 VM을 만듭니다. Linux 기반 가상 머신을 만들려면 [빠른 시작: Azure Portal에서 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) 문서를 따르세요. 마찬가지로 Windows 기반 가상 머신을 만들려면 [빠른 시작: Azure Portal에서 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 문서를 따르세요.
-- .NET 3.1을 클러스터에 포함될 모든 Linux 기반 VM에 설치합니다. 선택한 Linux 운영 체제에 따라 [여기](https://docs.microsoft.com/dotnet/core/install/linux)에 설명된 지침을 따르세요.
+- Azure에서 4개의 VM을 만듭니다. Linux 기반 가상 머신을 만들려면 [빠른 시작: Azure Portal에서 Linux 가상 머신 만들기](../../../virtual-machines/linux/quick-create-portal.md) 문서를 따르세요. 마찬가지로 Windows 기반 가상 머신을 만들려면 [빠른 시작: Azure Portal에서 Windows 가상 머신 만들기](../../../virtual-machines/windows/quick-create-portal.md) 문서를 따르세요.
+- .NET 3.1을 클러스터에 포함될 모든 Linux 기반 VM에 설치합니다. 선택한 Linux 운영 체제에 따라 [여기](/dotnet/core/install/linux)에 설명된 지침을 따르세요.
 - 가용성 그룹 관리 기능을 사용하도록 설정된 유효한 DxEnterprise 라이선스가 필요합니다. 평가판을 얻을 수 있는 방법에 대한 자세한 내용은 [DxEnterprise 평가판](https://dh2i.com/trial/)을 참조하세요.
 
 ## <a name="install-sql-server-on-all-the-azure-vms-that-will-be-part-of-the-availability-group"></a>가용성 그룹에 포함될 모든 Azure VM에 SQL Server 설치
 
-이 자습서에서는 가용성 그룹을 실행하는 3개 노드 Linux 기반 클러스터를 설정합니다. Linux 플랫폼의 선택에 따라 [Linux에 SQL Server 설치](https://docs.microsoft.com/sql/linux/sql-server-linux-overview#install) 설명서를 따르세요. 또한 이 자습서를 위해 [SQL Server 도구](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)를 설치하는 것이 좋습니다.
+이 자습서에서는 가용성 그룹을 실행하는 3개 노드 Linux 기반 클러스터를 설정합니다. Linux 플랫폼의 선택에 따라 [Linux에 SQL Server 설치](/sql/linux/sql-server-linux-overview#install) 설명서를 따르세요. 또한 이 자습서를 위해 [SQL Server 도구](/sql/linux/sql-server-linux-setup-tools)를 설치하는 것이 좋습니다.
  
 > [!NOTE]
-> 선택한 Linux OS가 [DH2i DxEnterprise(최소 시스템 요구 사항 섹션 참조)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) 및 [Microsoft SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms) 모두에서 지원하는 공통 배포인지 확인하세요.
+> 선택한 Linux OS가 [DH2i DxEnterprise(최소 시스템 요구 사항 섹션 참조)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) 및 [Microsoft SQL Server](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms) 모두에서 지원하는 공통 배포인지 확인하세요.
 >
 > 이 예에서는 DH2i DxEnterprise 및 Microsoft SQL Server 모두에서 지원하는 Ubuntu 18.04를 사용합니다.
 
 이 자습서에서는 SQL Server를 Windows VM에 설치하지 않습니다. 이 노드는 클러스터에 포함되지 않고 DxAdmin을 사용하여 클러스터를 관리하는 데만 사용되기 때문입니다.
 
-이 단계가 완료되면 SQL Server 및 [SQL Server 도구](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)(선택 사항)가 가용성 그룹에 참가하는 세 개의 Linux 기반 VM 모두에 설치되어 있어야 합니다.
+이 단계가 완료되면 SQL Server 및 [SQL Server 도구](/sql/linux/sql-server-linux-setup-tools)(선택 사항)가 가용성 그룹에 참가하는 세 개의 Linux 기반 VM 모두에 설치되어 있어야 합니다.
  
 ## <a name="install-dxenterprise-on-all-the-vms-and-configure-the-cluster"></a>모든 VM에 DxEnterprise 설치 및 클러스터 구성
 
@@ -84,7 +84,7 @@ DxAdmin 클라이언트 도구만 Windows VM에 설치하려면 [DxAdmin 클라�
 이 단계가 완료되면 DxEnterprise 클러스터가 Linux VM에 만들어지고, DxAdmin 클라이언트가 Windows 클라이언트 컴퓨터에 설치되어 있어야 합니다. 
 
 > [!NOTE]
-> [여기](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes)서 설명한 대로 노드 중 하나가 *구성 전용 모드* 로 추가되는 3개 노드 클러스터를 만들어 자동 장애 조치(failover)를 사용하도록 설정할 수도 있습니다. 
+> [여기](/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes)서 설명한 대로 노드 중 하나가 *구성 전용 모드* 로 추가되는 3개 노드 클러스터를 만들어 자동 장애 조치(failover)를 사용하도록 설정할 수도 있습니다. 
 
 ## <a name="create-the-virtual-hosts-to-provide-failover-support-and-high-availability"></a>장애 조치(failover) 지원 및 고가용성을 제공하는 가상 호스트 만들기
 
@@ -100,7 +100,7 @@ DxAdmin을 실행하는 Windows 클라이언트 컴퓨터에 연결하여 위 �
 
 ## <a name="create-the-internal-azure-load-balancer-for-listener-optional"></a>수신기에 대한 내부 Azure 부하 분산 장치 만들기(선택 사항)
 
-이 선택적 단계에서는 가용성 그룹 수신기에 대한 IP 주소를 보유하는 Azure 부하 분산 장치를 만들고 구성할 수 있습니다. Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 참조하세요. DxAdmin을 사용하여 Azure 부하 분산 장치 및 가용성 그룹 수신기를 구성하려면 DxEnterprise [Azure Load Balancer 빠른 시작 가이드](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/)를 따르세요.
+이 선택적 단계에서는 가용성 그룹 수신기에 대한 IP 주소를 보유하는 Azure 부하 분산 장치를 만들고 구성할 수 있습니다. Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md)를 참조하세요. DxAdmin을 사용하여 Azure 부하 분산 장치 및 가용성 그룹 수신기를 구성하려면 DxEnterprise [Azure Load Balancer 빠른 시작 가이드](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/)를 따르세요.
 
 이 단계가 완료되면 가용성 그룹 수신기가 만들어지고 내부 Azure 부하 분산 장치에 매핑됩니다.
 
@@ -121,7 +121,7 @@ DxEnterprise 내의 추가 작업에 대한 자세한 내용은 [DxEnterprise �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Linux의 가용성 그룹](https://docs.microsoft.com/sql/linux/sql-server-linux-availability-group-overview)에 대해 자세히 알아보기
-- [빠른 시작: Azure Portal에서 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
-- [빠른 시작: Azure 포털에서 Windows 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-- [Linux에서 SQL Server 2019에 지원되는 플랫폼](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)
+- [Linux의 가용성 그룹](/sql/linux/sql-server-linux-availability-group-overview)에 대해 자세히 알아보기
+- [빠른 시작: Azure Portal에서 Linux 가상 머신 만들기](../../../virtual-machines/linux/quick-create-portal.md)
+- [빠른 시작: Azure 포털에서 Windows 가상 머신 만들기](../../../virtual-machines/windows/quick-create-portal.md)
+- [Linux에서 SQL Server 2019에 지원되는 플랫폼](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)
