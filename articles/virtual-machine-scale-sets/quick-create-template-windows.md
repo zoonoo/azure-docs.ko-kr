@@ -5,16 +5,16 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.subservice: windows
+ms.collection: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: 03863171cb05c0557611fb8cd3c0ade667e7d79e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d968225ea9d6ed966091c8c8dabcca10d454d88c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88650080"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935468"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Windows 가상 머신 확장 집합 만들기
 

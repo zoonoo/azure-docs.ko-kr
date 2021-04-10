@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: d6f27ca3635ff1efb80e5261b7a5a07269304dfd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: bdf49f16b003c25da9fe8972a3fb7e3837d62819
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445194"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105911"
 ---
 .NET용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 NuGet 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -30,7 +30,7 @@ Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직�
 
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [샘플](../../samples-dotnet.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -297,6 +297,3 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 > [!div class="nextstepaction"]
 > [이미지 조정 개념](../../image-moderation-api.md)
-
-* [Azure Content Moderator란?](../../overview.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ContentModerator/Program.cs)에서 확인할 수 있습니다.

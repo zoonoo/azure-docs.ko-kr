@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: d5d47f097fa216d69b8ed59fdb057378724c2228
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 338e4f0c1c47a7786e21ad98bb3e56a1505f9bb2
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625382"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104816"
 ---
 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 기능을 포함하는 Bing Image Search 클라이언트 라이브러리를 사용하여 첫 번째 이미지 검색을 수행합니다. 이 간단한 Python 애플리케이션은 이미지 검색 쿼리를 보내고 JSON 응답을 구문 분석하고 반환된 첫 번째 이미지의 URL을 표시합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "94625382"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Python 2.7 또는 3.4](https://www.python.org/) 이상.
+* [Python 2.7 또는 3.6 이상](https://www.python.org/)
 
 * Python용 [Azure Image Search 클라이언트 라이브러리](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/)
     * `pip install azure-cognitiveservices-search-imagesearch`를 사용하여 설치
