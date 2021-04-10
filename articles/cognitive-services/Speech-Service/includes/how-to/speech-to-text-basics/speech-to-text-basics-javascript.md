@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104987833"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729875"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -26,7 +26,7 @@ Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 �
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
-작업을 수행하려면 먼저 Node.js용 Speech SDK를 설치해야 합니다. 설치할 패키지 이름만 알고 싶으면 `npm install microsoft-cognitiveservices-speech-sdk`를 실행합니다. 단계별 설치 지침은 [시작](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript) 문서를 참조하세요.
+작업을 수행하려면 먼저 Node.js용 Speech SDK를 설치해야 합니다. 설치할 패키지 이름만 알고 싶으면 `npm install microsoft-cognitiveservices-speech-sdk`를 실행합니다. 단계별 설치 지침은 [시작](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs) 문서를 참조하세요.
 
 다음 `require` 문을 사용하여 SDK를 가져옵니다.
 
@@ -62,7 +62,7 @@ const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-subscription
 
 ## <a name="recognize-from-file"></a>파일에서 인식 
 
-오디오 파일에서 음성을 인식하려면 `Buffer` 개체를 수락하는 `fromWavFileInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)를 초기화하고 `audioConfig` 및 `speechConfig`를 전달합니다.
+오디오 파일에서 음성을 인식하려면 `Buffer` 개체를 수락하는 `fromWavFileInput()`을 사용하여 `AudioConfig`를 만듭니다. 그런 다음, [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer)를 초기화하고 `audioConfig` 및 `speechConfig`를 전달합니다.
 
 ```javascript
 const fs = require('fs');
