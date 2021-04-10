@@ -2,19 +2,21 @@
 title: Bicep 파일 만들기 - Visual Studio Code
 description: Azure 리소스 배포를 위해 Visual Studio Code 및 Bicep 파일에 대한 Bicep 확장 사용
 author: mumian
-ms.date: 03/02/2021
+ms.date: 03/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a5b5533cd87c417d03db960c477392c24fa59f8a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4d1064351ddfacdebfa67fd9b2f517f592de3a7c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102504153"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612906"
 ---
 # <a name="quickstart-create-bicep-files-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Bicep 파일 만들기
 
 Visual Studio Code의 Bicep 확장은 언어 지원 및 리소스 자동 완성 기능을 제공합니다. 이러한 도구는 [Bicep](./bicep-overview.md) 파일을 만들고 유효성을 검사하는 데 유용합니다. 이 빠른 시작에서는 확장을 사용하여 Bicep 파일을 처음부터 새로 만듭니다. 이렇게 하는 동안 유효성 검사 및 완성과 같은 확장 기능을 사용하게 됩니다.
+
+[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 이 빠른 시작을 완료하려면 [Bicep 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)이 설치된 [Visual Studio Code](https://code.visualstudio.com/)가 필요합니다. 또한 [Azure CLI](/cli/azure/) 또는 [Azure PowerShell 모듈](/powershell/azure/new-azureps-module-az)이 설치 및 인증되어 있어야 합니다.
 

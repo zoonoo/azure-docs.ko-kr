@@ -7,14 +7,16 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3bfcfee0f5dab2d978eb1856bdc915c270d43ed6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98631370"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109797"
 ---
-# <a name="common-errors"></a>일반 오류
+# <a name="commonly-encountered-errors-during-or-post-migration-to-azure-database-for-mysql-service"></a>Azure Database for MySQL 서비스로 마이그레이션하는 동안 또는 마이그레이션 후 일반적으로 발생하는 오류
+
+[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 
 Azure Database for MySQL은 MySQL 커뮤니티 버전을 기반으로 하는 완전 관리형 서비스입니다. 관리되는 서비스 환경의 MySQL 환경은 사용자 환경에서 MySQL을 실행하는 것과 다를 수 있습니다. 이 문서에서는 처음으로 Azure Database for MySQL 서비스로 마이그레이션하거나 개발하는 동안 발생할 수 있는 일반적인 오류 중 일부를 확인할 수 있습니다.
 
@@ -48,7 +50,7 @@ BEGIN
 END;
 ```
 
-**해결 방법**:  이 오류를 해결하려면 포털의 [서버 매개 변수](howto-server-parameters.md) 블레이드에서 log_bin_trust_function_creators를 1로 설정하여 DDL 문을 실행하거나 스키마를 가져와서 원하는 개체를 만들고 log_bin_trust_function_creators 매개 변수를 만든 후에 이전 값으로 되돌립니다.
+**해결 방법**:  이 오류를 해결하려면 포털의 [서버 매개 변수](howto-server-parameters.md) 블레이드에서 log_bin_trust_function_creators를 1로 설정하여 DDL 문을 실행하거나 스키마를 가져와서 원하는 개체를 만듭니다. 나중에 오류가 발생하지 않도록 서버에 대해 log_bin_trust_function_creators를 1로 계속 유지 관리할 수 있습니다. bin 로그가 위험에 노출되지 않아 [MySQL 커뮤니티 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)에 강조 표시된 보안 위험이 Azure DB for MySQL 서비스에서 최소화되므로 log_bin_trust_function_creators를 설정하는 것이 좋습니다.
 
 #### <a name="error-1227-42000-at-line-101-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation-operation-failed-with-exitcode-1"></a>줄 101의 오류 1227(42000): 액세스가 거부되었습니다. 이 작업에 대한 SUPER 권한(하나 이상)이 필요합니다. 종료 코드 1로 인해 작업이 실패했습니다.
 
@@ -84,6 +86,14 @@ DELIMITER ;
 
 > [!Tip] 
 > sed 또는 perl을 사용하여 덤프 파일 또는 SQL 스크립트를 수정하여 DEFINER = 문을 바꿉니다.
+
+#### <a name="error-1227-42000-at-line-18-access-denied-you-need-at-least-one-of-the-super-privileges-for-this-operation"></a>줄 18의 오류 1227(42000): 액세스가 거부되었습니다. 이 작업에 대한 SUPER 권한(하나 이상)이 필요합니다.
+
+GTID가 활성화된 MySQL 서버에서 대상 Azure Database for MySQL 서버로 덤프 파일을 가져오려고 시도하는 경우 위의 오류가 발생할 수 있습니다. Mysqldump는 GTID가 사용 중인 서버의 덤프 파일에 SET @@SESSION.sql_log_bin=0 문을 추가하여 덤프 파일이 다시 로드되는 동안 이진 로깅을 비활성화합니다.
+
+**해결 방법**: 가져오기 작업을 수행하는 동안 이 오류를 해결하려면 mysqldump 파일에서 아래 줄을 제거하거나 주석으로 처리하고 가져오기를 다시 실행하여 성공적인지 확인합니다. 
+
+SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN; SET @@SESSION.SQL_LOG_BIN= 0; SET @@GLOBAL.GTID_PURGED=''; SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 
 ## <a name="common-connection-errors-for-server-admin-login"></a>서버 관리자 로그인에 대한 일반적인 연결 오류
 
