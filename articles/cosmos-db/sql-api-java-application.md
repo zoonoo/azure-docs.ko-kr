@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/10/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 930594d2c1af198aba3dae936cd0ce8fcf91c336
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 01c9a8b62190f3b545169bb5ba6732e6799ff9f2
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102214102"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559811"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,7 +52,7 @@ ms.locfileid: "102214102"
 * [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](../app-service/quickstart-java.md)
 
-이러한 도구를 처음 설치하는 경우 coreservlets.com에서 [자습서: TomCat7 설치 및 Eclipse에서 사용](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서에 있는 [빠른 시작] 섹션의 단계별 설치 지침을 제공합니다.
+이러한 도구를 처음 설치하는 경우 coreservlets.com에서 [자습서: TomCat7 설치 및 Eclipse에서 사용](https://www.youtube.com/watch?v=jOdCfW7-ybI&t=2s) 문서에 있는 [빠른 시작] 섹션의 단계별 설치 지침을 제공합니다.
 
 ## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Azure Cosmos DB 계정 만들기
 

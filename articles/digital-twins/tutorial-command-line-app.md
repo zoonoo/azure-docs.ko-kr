@@ -8,10 +8,10 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103493710"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱을 사용하여 Azure Digital Twins 그래프 만들기
@@ -200,7 +200,7 @@ Content-Type: application/json; charset=utf-8
 
 이 자습서에서 설정한 트윈과 관계는 다음과 같은 개념적 그래프를 만듭니다.
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="개념적 그래프를 보여주는 다이어그램. floor0은 relationship0을 통해 room0에 연결되고, floor1은 relationship1을 통해 room1에 연결됩니다." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="개념 그래프를 보여 주는 다이어그램. floor0은 relationship0을 통해 room0에 연결되고, floor1은 relationship1을 통해 room1에 연결되어 있습니다." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>트윈 그래프를 쿼리하여 환경 질문에 대답
 
