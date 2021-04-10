@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7c35e079a6f4bf6c40992debace60e10631a8ba
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821476"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105962050"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - .NET
 
@@ -36,7 +36,7 @@ ms.locfileid: "99821476"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
-- [Media Services 계정 만들기](./create-account-howto.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+- [Media Services 계정 만들기](./account-create-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
 - [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 
 ## <a name="download-and-configure-the-sample"></a>샘플 다운로드 및 구성

@@ -3,7 +3,6 @@ title: 가용성 영역 간 VM 부하 분산 - Azure CLI - Azure Load Balancer
 description: 이 Azure CLI 스크립트 예제는 가용성 영역에서 VM에 트래픽을 부하 분산하는 방법을 보여줍니다.
 documentationcenter: load-balancer
 author: asudbring
-Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region.
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9f47d79be186dd44e26f78eaf70bbedaca969d66
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e30c90152151dc51f74fb889b16c92208b1edf3d
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94696511"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056048"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Azure CLI 스크립트 예제: 가용성 영역에 VM 부하 분산
 

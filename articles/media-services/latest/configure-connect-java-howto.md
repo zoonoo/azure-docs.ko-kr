@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/17/2020
 ms.custom: devx-track-java
 ms.author: inhenkel
-ms.openlocfilehash: 769b4bc431040ee4d872fa60270196db96978ed2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 06923d7c198edc324d85b726cf91694d8cf7e1ca
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94748185"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105961356"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Media Services v3 API에 연결 - Java
 
@@ -37,7 +37,7 @@ ms.locfileid: "94748185"
    - Apache Maven
    - Java 확장 팩
 - `JAVA_HOME` 및 `PATH` 환경 변수를 설정해야 합니다.
-- [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
+- [Media Services 계정 만들기](./account-create-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
 - [액세스 API](./access-api-howto.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 애플리케이션 ID(클라이언트 ID), 인증 키(비밀) 및 테넌트 ID를 기록합니다.
 
 또한 다음을 검토합니다.

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Blob 스토리지 라이브러리 v12 - JavaScript'
 description: 이 빠른 시작에서는 JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 0883fd1546ac3b55ec4211e5048569556858de29
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6e26a375ebdc97026de09511b0bc0f11fe073e41
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179921"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280125"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 
