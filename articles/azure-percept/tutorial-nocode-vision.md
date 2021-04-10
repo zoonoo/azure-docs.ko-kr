@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608200"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023132"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Azure Percept Studio에서 코드 없는 비전 솔루션 만들기
 
@@ -106,7 +106,7 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 
 1. **Custom Vision** 페이지 왼쪽의 **태그** 아래에서 **태그 없음** 을 클릭하여 이전 단계에서 방금 수집한 이미지를 살펴봅니다. 태그가 없는 이미지를 하나 이상 선택합니다.
 
-1. **이미지 세부 정보** 창에서 태그 지정을 시작할 이미지를 클릭합니다. 프로젝트 형식으로 개체 감지를 선택한 경우 태그를 지정할 특정 개체 주위에 [경계 상자](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images)를 그려야 합니다. 필요에 따라 경계 상자를 조정합니다. 개체 태그를 입력하고 **+** 를 클릭하여 태그를 적용합니다. 예를 들어 매장 선반에 재고 보충이 필요할 때 알려주는 비전 솔루션을 만드는 경우에는 빈 선반의 이미지에 "Empty Shelf" 태그를 추가하고 재고가 가득 찬 선반의 이미지에 "Full Shelf" 태그를 추가합니다. 태그가 없는 모든 이미지에 대해 반복합니다.
+1. **이미지 세부 정보** 창에서 태그 지정을 시작할 이미지를 클릭합니다. 프로젝트 형식으로 개체 감지를 선택한 경우 태그를 지정할 특정 개체 주위에 [경계 상자](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images)를 그려야 합니다. 필요에 따라 경계 상자를 조정합니다. 개체 태그를 입력하고 **+** 를 클릭하여 태그를 적용합니다. 예를 들어 매장 선반에 재고 보충이 필요할 때 알려주는 비전 솔루션을 만드는 경우에는 빈 선반의 이미지에 "Empty Shelf" 태그를 추가하고 재고가 가득 찬 선반의 이미지에 "Full Shelf" 태그를 추가합니다. 태그가 없는 모든 이미지에 대해 반복합니다.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Custom Vision의 이미지 태그 지정 화면":::
 
@@ -116,7 +116,7 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="강조 표시된 학습 단추로 학습 이미지 선택":::
 
-1. 학습이 완료되면 화면에 모델 성능이 표시됩니다. 이러한 결과를 평가하는 방법에 대한 자세한 내용은 [모델 평가 설명서](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector)를 참조하세요. 학습 후에는 추가 이미지에 대해 [모델을 테스트](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model)하고 필요에 따라 다시 학습시킬 수도 있습니다. 모델을 학습시킬 때마다 새 반복으로 저장됩니다. 모델 성능을 향상시키는 방법에 대한 자세한 내용은 [Custom Vision 설명서](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)를 참조하세요.
+1. 학습이 완료되면 화면에 모델 성능이 표시됩니다. 이러한 결과를 평가하는 방법에 대한 자세한 내용은 [모델 평가 설명서](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector)를 참조하세요. 학습 후에는 추가 이미지에 대해 [모델을 테스트](../cognitive-services/custom-vision-service/test-your-model.md)하고 필요에 따라 다시 학습시킬 수도 있습니다. 모델을 학습시킬 때마다 새 반복으로 저장됩니다. 모델 성능을 향상시키는 방법에 대한 자세한 내용은 [Custom Vision 설명서](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)를 참조하세요.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="모델 학습 결과":::
 
@@ -143,7 +143,7 @@ Azure Percept Studio를 사용하면 코딩 없이 사용자 지정 컴퓨터 �
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>재학습을 설정하여 모델 개선
 
-모델을 학습하여 디바이스에 배포한 후에는 더 많은 학습 데이터를 캡처하도록 재학습 매개 변수를 설정하여 모델 성능을 개선할 수 있습니다. 이 기능은 확률 범위에 따라 이미지를 캡처하는 기능을 제공하여 학습된 모델의 성능을 개선하는 데 사용됩니다. 예를 들어 확률이 낮을 때만 학습 이미지를 캡처하도록 디바이스를 설정할 수 있습니다. 더 많은 이미지를 추가하고 학습 데이터를 분산하는 방법에 대한 몇 가지 [추가 지침](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier)은 다음과 같습니다.
+모델을 학습하여 디바이스에 배포한 후에는 더 많은 학습 데이터를 캡처하도록 재학습 매개 변수를 설정하여 모델 성능을 개선할 수 있습니다. 이 기능은 확률 범위에 따라 이미지를 캡처하는 기능을 제공하여 학습된 모델의 성능을 개선하는 데 사용됩니다. 예를 들어 확률이 낮을 때만 학습 이미지를 캡처하도록 디바이스를 설정할 수 있습니다. 더 많은 이미지를 추가하고 학습 데이터를 분산하는 방법에 대한 몇 가지 [추가 지침](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md)은 다음과 같습니다.
 
 1. 재학습을 설정하려면 **프로젝트** 로 돌아간 다음 **프로젝트 요약** 으로 이동합니다.
 1. **이미지 캡처** 탭에서 **자동 이미지 캡처**, **재학습 설정** 을 차례로 선택합니다.
