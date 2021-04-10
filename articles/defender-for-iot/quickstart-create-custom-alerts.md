@@ -4,10 +4,10 @@ description: Azure Defender for IoT 보안 서비스에 대한 사용자 지정 
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.openlocfilehash: 836619fa200983bc91d26db4d063e8545b11a1b5
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781044"
 ---
 # <a name="create-custom-alerts"></a>사용자 지정 경고 만들기

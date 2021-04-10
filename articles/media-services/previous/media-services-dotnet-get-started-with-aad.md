@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: fd19bce05d18eb8f9b8fd3806082caeebe98bdad
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103013995"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스
@@ -32,7 +32,7 @@ windowsazure.mediaservices 4.0.0.4부터는 Azure Media Services에서 Azure AD(
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요.
+- Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 - 최신 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 패키지.
 - [Azure AD 인증으로 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 항목 익히기.
