@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 4209e609420e610b9f3456da26b0afe0bf839d43
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>자습서: Corptax와 Azure Active Directory 통합
@@ -129,7 +129,7 @@ Corptax에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **이름** 필드에 **BrittaSimon** 을 입력합니다.
 
-    b. **사용자 이름** 필드에 `brittasimon@<yourcompanydomain.extension>`을 입력합니다. 예를 들어 `brittasimon@contoso.com`을 참조하십시오.
+    b. **사용자 이름** 필드에 `brittasimon@<yourcompanydomain.extension>`을 입력합니다. 예: `brittasimon@contoso.com`
 
     다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: e6c8e83838240b989c8c782840d8c771a6f6b7db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9b768d7af276b8bff0db2acd00d27eca03023c5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487805"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026737"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge란?
 
@@ -76,4 +76,19 @@ Azure IoT Edge는 Azure IoT 솔루션 가속기와 원활하게 통합되어 솔
 
 ## <a name="next-steps"></a>다음 단계
 
-[시뮬레이션된 디바이스에 IoT Edge를 배포](quickstart.md)하여 다음 개념을 시도해 봅니다.
+첫 번째 IoT Edge 모듈을 디바이스에 배포하여 이러한 개념을 사용해 보세요.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+* [Linux IoT Edge 디바이스에 모듈 배포](quickstart-linux.md)
+* [Windows IoT Edge 디바이스에 모듈 배포](quickstart.md)
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+[IoT Edge 디바이스에 모듈 배포](quickstart-linux.md)
+
+:::moniker-end
