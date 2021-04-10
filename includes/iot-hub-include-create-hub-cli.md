@@ -7,10 +7,10 @@ ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
 ms.openlocfilehash: 10bd2c4902157b9e01b1cb0ff10b3ebdf448568c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102244777"
 ---
 다음 섹션에서는 터미널을 설정하고 Azure CLI를 사용하여 IoT 허브를 만듭니다. Azure CLI 명령을 실행하는 터미널을 구성하려면 브라우저 기반 Azure Cloud Shell을 사용하거나 로컬 터미널을 사용할 수 있습니다.

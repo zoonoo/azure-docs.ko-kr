@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511017"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046813"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>빠른 시작: Python API를 사용하여 Azure Batch 작업 실행
 
@@ -28,7 +28,7 @@ Python API를 사용하여 앱에서 Azure Batch 작업을 실행하여 Azure Ba
 
 - Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
-- [pip](https://pip.pypa.io/en/stable/installing/) 패키지 관리자를 포함한 [Python](https://python.org/downloads) 버전 2.7 또는 3.3 이상
+- [pip](https://pip.pypa.io/en/stable/installing/) 패키지 관리자를 포함한 [Python](https://python.org/downloads) 버전 2.7 또는 3.6
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

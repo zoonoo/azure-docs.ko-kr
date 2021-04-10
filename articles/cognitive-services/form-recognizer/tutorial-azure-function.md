@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8c72a018f03b5284d3fc53be02d9eb526cdfcf28
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bf455d9401593b5c09fa295e492368a2a5bee240
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722245"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048695"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>자습서: Azure 함수를 사용하여 저장된 문서 처리
 
@@ -40,9 +40,9 @@ Azure Functions를 사용하여 빌드된 자동화된 데이터 처리 파이�
 * 분석할 로컬 PDF 문서. 이 [샘플 문서](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample-layout.pdf)를 다운로드하여 사용할 수 있습니다.
 * [Python 3.8. x](https://www.python.org/downloads/) 설치
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 설치
-* [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools) 설치
+* [Azure Functions Core Tools](../../azure-functions/functions-run-local.md?tabs=windows%2ccsharp%2cbash#install-the-azure-functions-core-tools) 설치
 * 다음 확장이 설치된 Visual Studio Code
-  * [Azure Functions 확장](https://docs.microsoft.com/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
+  * [Azure Functions 확장](/azure/developer/python/tutorial-vs-code-serverless-python-01#visual-studio-code-python-and-the-azure-functions-extension)
   * [Python 확장](https://code.visualstudio.com/docs/python/python-tutorial#_install-visual-studio-code-and-the-python-extension)
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
