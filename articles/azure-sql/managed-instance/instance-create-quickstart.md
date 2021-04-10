@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
 ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101691215"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Managed Instance 만들기
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    아래 표를 사용하여 이 탭에 필요한 정보를 참조합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ------ | --------------- | ----------- |
    | **구독** | 사용자의 구독. | 새 리소스를 만들 권한을 제공하는 구독입니다. |
    | **리소스 그룹** | 새 또는 기존 리소스 그룹입니다.|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|

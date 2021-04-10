@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: aab7966b3e7592407bb00d0c81634c5fbb3cc4a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103008278"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
@@ -35,7 +35,7 @@ Azure Media Services는 현재 PlayReady 라이선스를 배달하는 서비스�
 * 클라이언트의 영구 스토리지에 라이선스를 저장할지 여부. 일반적으로 영구 라이선스는 콘텐츠의 오프라인 재생을 허용하는 데 사용됩니다.
 * 플레이어에서 콘텐츠를 재생해야 하는 최소 보안 수준. 
 * 오디오/비디오 콘텐츠에 대한 출력 컨트롤의 출력 보호 수준. 
-* 자세한 내용은 [PlayReady 준수 규칙](https://www.microsoft.com/playready/licensing/compliance/) 문서에서 "출력 컨트롤" 섹션 (3.5)을 참조 하세요.
+* 자세한 내용은 [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/)(PlayReady 준수 규칙) 문서에서 “출력 컨트롤” 섹션(3.5)을 참조하세요.
 
 > [!NOTE]
 > 현재 PlayReady 라이선스의 PlayRight만 구성할 수 있습니다. 이 권한은 필수입니다. PlayRight는 콘텐츠를 재생할 능력을 클라이언트에 제공합니다. PlayRight를 사용하여 재생과 관련된 제한 사항을 구성할 수도 있습니다. 자세한 내용은 [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight)를 참조하세요.

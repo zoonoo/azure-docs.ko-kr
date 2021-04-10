@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>자습서: Bonusly와 Azure Active Directory 통합
@@ -124,13 +124,13 @@ Bonusly에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     다. 로그아웃 URL
 
-### <a name="configure-bonusly-single-sign-on"></a>Bonusly Single Sign-On 구성
+### <a name="configure-bonusly-single-sign-on&quot;></a>Bonusly Single Sign-On 구성
 
 1. 다른 브라우저 창에서 **Bonusly** 테넌트에 로그인합니다.
 
 1. 위쪽 도구 모음에서 **설정** 을 클릭한 다음, **통합 및 앱** 을 선택합니다.
 
-    ![Bonusly 소셜 섹션](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Bonusly 소셜 섹션](./media/bonus-tutorial/ic773686.png &quot;Bonusly")
 1. **Single Sign-On** 에서 **SAML** 을 선택합니다.
 
 1. **SAML** 대화 상자 페이지에서 다음 단계를 수행합니다.
@@ -197,7 +197,7 @@ Bonusly에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="create-bonusly-test-user"></a>Bonusly 테스트 사용자 만들기
+### <a name="create-bonusly-test-user&quot;></a>Bonusly 테스트 사용자 만들기
 
 Azure AD 사용자가 Bonusly에 로그인하려면 Bonusly에 프로비저닝되어야 합니다. Bonusly의 경우 프로비전은 수동 작업입니다.
 
@@ -210,7 +210,7 @@ Azure AD 사용자가 Bonusly에 로그인하려면 Bonusly에 프로비저닝�
 
 1. **설정** 을 클릭합니다.
 
-    ![설정](./media/bonus-tutorial/ic781041.png "설정")
+    ![설정](./media/bonus-tutorial/ic781041.png &quot;설정")
 
 1. **사용자 및 보너스** 탭을 클릭합니다.
 

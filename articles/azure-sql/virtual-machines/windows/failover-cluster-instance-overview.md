@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101690926"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
@@ -52,8 +52,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 |**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
 |**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
 |**지원되는 VM 가용성** |근접 배치 그룹을 사용하는 가용성 집합(프리미엄 SSD용) </br> 동일한 가용성 영역(울트라 SSD) |가용성 집합 및 가용성 영역|가용성 집합 |
-|**FileStream 지원**|예|아니요|예 |
-|**Azure Blob 캐시**|예|아니요|예|
+|**FileStream 지원**|예|예|예 |
+|**Azure Blob 캐시**|예|예|예|
 
 이 섹션의 나머지 부분에서는 Azure VM의 SQL Server에 사용할 수 있는 각 스토리지 옵션의 이점과 제한 사항을 나열합니다. 
 
