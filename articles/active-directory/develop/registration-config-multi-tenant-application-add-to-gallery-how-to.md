@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ROBOTS: NOINDEX
 ms.openlocfilehash: de0231a49c4f806660ea0cb305fdc1a70e2b36d3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98063130"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리에 다중 테넌트 애플리케이션 추가

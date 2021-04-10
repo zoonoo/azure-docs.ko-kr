@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeff14e1676389eb2204cad45ea7b00d5aa9796b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e5189df623325578bb3b579f5c4c3456067986ff
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566654"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105709483"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시에 대한 Azure AD PowerShell 예제
 
@@ -32,7 +32,7 @@ ms.locfileid: "102566654"
 | [모든 애플리케이션 프록시 앱에 대한 기본 정보 나열](scripts/powershell-get-all-app-proxy-apps-basic.md) | 디렉터리의 모든 애플리케이션 프록시 앱에 대한 기본 정보(AppId, DisplayName, ObjId)를 나열합니다. |
 | [모든 애플리케이션 프록시 앱에 대한 확장 정보 나열](scripts/powershell-get-all-app-proxy-apps-extended.md) | 디렉터리의 모든 애플리케이션 프록시 앱에 대한 확장 정보(AppId, DisplayName, ExternalUrl, InternalUrl, ExternalAuthenticationType)를 나열합니다.  |
 | [커넥터 그룹별로 모든 애플리케이션 프록시 앱 나열](scripts/powershell-get-all-app-proxy-apps-by-connector-group.md) | 디렉터리의 모든 애플리케이션 프록시 앱에 대한 정보 및 앱이 할당된 커넥터 그룹을 나열합니다. |
-| [토큰 수명 정책을 사용하여 모든 애플리케이션 프록시 앱 가져오기](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | 토큰 수명 정책 및 세부 정보를 사용하여 디렉터리의 모든 애플리케이션 프록시 앱을 나열합니다. 이 샘플을 사용하려면 [그래프 모듈에 대한 AzureAD V2 PowerShell 미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview)이 필요합니다. |
+| [토큰 수명 정책을 사용하여 모든 애플리케이션 프록시 앱 가져오기](scripts/powershell-get-all-app-proxy-apps-with-policy.md) | 토큰 수명 정책 및 세부 정보를 사용하여 디렉터리의 모든 애플리케이션 프록시 앱을 나열합니다. 이 샘플을 사용하려면 [그래프 모듈에 대한 AzureAD V2 PowerShell 미리 보기 버전](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)이 필요합니다. |
 |**커넥터 그룹**||
 | [디렉터리의 모든 커넥터 그룹 및 커넥터 가져오기](scripts/powershell-get-all-connectors.md) | 디렉터리의 커넥터 그룹 및 커넥터를 모두 나열합니다. |
 | [커넥터 그룹에 할당된 모든 앱을 다른 커넥터 그룹으로 이동](scripts/powershell-move-all-apps-to-connector-group.md) | 현재 커넥터 그룹에 할당된 모든 애플리케이션을 다른 커넥터 그룹으로 이동합니다. |
