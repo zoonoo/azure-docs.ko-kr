@@ -12,10 +12,10 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 76e7b061670f603007cefd6d7aed503e0e0d3d6b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98941769"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>자습서: 카메라 사진에서 Azure 서비스 로고 인식
@@ -31,7 +31,7 @@ ms.locfileid: "98941769"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2017 이상](https://www.visualstudio.com/downloads/)
 - Visual Studio용 Xamarin 워크로드([Xamarin 설치](/xamarin/cross-platform/get-started/installation/windows) 참조)

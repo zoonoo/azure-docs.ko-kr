@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: fc908f909cdb64e968db78b2c98b8f0edf1c61dd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009694"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal을 사용한 주문형 콘텐츠 제공 시작
@@ -30,11 +30,11 @@ ms.locfileid: "103009694"
 
 이 자습서에서는 Azure Portal을 사용한 Azure Media Services 애플리케이션으로 기본 주문형 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 자습서를 완료하는 데 필요한 항목은 다음과 같습니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조 하세요. 
-* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조 하세요.
+* Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
+* Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
@@ -54,8 +54,8 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 스트리밍 엔드포인트를 시작하려면
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. **설정**  >  **스트리밍 끝점** 을 선택 합니다. 
-3. 기본 스트리밍 엔드포인트를 선택합니다. **기본 스트리밍 끝점 세부 정보** 창이 나타납니다.
+2. **설정** > **스트리밍 엔드포인트** 를 선택합니다. 
+3. 기본 스트리밍 엔드포인트를 선택합니다. **기본 스트리밍 엔드포인트 세부 정보** 창이 나타납니다.
 4. **시작** 아이콘을 선택합니다.
 5. **저장** 단추를 선택합니다.
 
