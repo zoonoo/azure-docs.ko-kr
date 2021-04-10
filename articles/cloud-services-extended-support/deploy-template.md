@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865590"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564758"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>ARM 템플릿을 사용하여 Cloud Service(추가 지원)를 배포합니다.
 
@@ -29,15 +29,15 @@ ms.locfileid: "104865590"
 
 1. Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토하고 관련 리소스를 만듭니다.
 
-2. [Azure Portal](/azure/azure-resource-manager/management/manage-resource-groups-portal) 또는 [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell)을 사용하여 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우 이 단계는 선택 사항입니다.
+2. [Azure Portal](../azure-resource-manager/management/manage-resource-groups-portal.md) 또는 [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md)을 사용하여 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우 이 단계는 선택 사항입니다.
  
-3. [Azure Portal](/azure/storage/common/storage-account-create?tabs=azure-portal) 또는 [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell)을 사용하여 새 스토리지 계정을 만듭니다. 기존 스토리지 계정을 사용하는 경우 이 단계는 선택 사항입니다.
+3. [Azure Portal](../storage/common/storage-account-create.md?tabs=azure-portal) 또는 [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)을 사용하여 새 스토리지 계정을 만듭니다. 기존 스토리지 계정을 사용하는 경우 이 단계는 선택 사항입니다.
 
-4. [Azure Portal](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) 또는 [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container)을 사용하여 서비스 정의(.csdef) 및 서비스 구성(.cscfg) 파일을 스토리지 계정에 업로드합니다. 이 자습서의 뒷부분에서 ARM 템플릿에 추가할 두 파일의 SAS URI를 가져옵니다.
+4. [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container)을 사용하여 서비스 정의(.csdef) 및 서비스 구성(.cscfg) 파일을 스토리지 계정에 업로드합니다. 이 자습서의 뒷부분에서 ARM 템플릿에 추가할 두 파일의 SAS URI를 가져옵니다.
 
 5. (선택 사항) 키 자격 증명 모음을 만들고 인증서를 업로드합니다.
 
-    -  인증서를 클라우드 서비스에 연결하여 서비스와의 보안 통신을 실행할 수 있습니다. 인증서를 사용하려면 해당 지문을 서비스 구성(.cscfg) 파일에 지정하고 키 자격 증명 모음에 업로드해야 합니다. 키 자격 증명 모음은 [Azure Portal](/azure/key-vault/general/quick-create-portal) 또는 [PowerShell](/azure/key-vault/general/quick-create-powershell)을 통해 만들 수 있습니다.
+    -  인증서를 클라우드 서비스에 연결하여 서비스와의 보안 통신을 실행할 수 있습니다. 인증서를 사용하려면 해당 지문을 서비스 구성(.cscfg) 파일에 지정하고 키 자격 증명 모음에 업로드해야 합니다. 키 자격 증명 모음은 [Azure Portal](../key-vault/general/quick-create-portal.md) 또는 [PowerShell](../key-vault/general/quick-create-powershell.md)을 통해 만들 수 있습니다.
     - 연결된 키 자격 증명 모음은 클라우드 서비스와 동일한 지역 및 구독에 있어야 합니다.
     - Cloud Services(추가 지원) 리소스가 Key Vault에서 인증서를 검색할 수 있도록 연결된 키 자격 증명 모음에 적절한 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [인증서 및 Key Vault](certificates-and-key-vault.md)를 참조하세요.
     - 키 자격 증명 모음은 아래 단계에 표시된 ARM 템플릿의 OsProfile 섹션에서 참조해야 합니다.

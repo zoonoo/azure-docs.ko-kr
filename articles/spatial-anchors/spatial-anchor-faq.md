@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 01eb0ce83efa54366e027d35d9c3c3bbf86eff7b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: b67dcf038dbe13b8c040f317bb117f3b7a7afdde
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95487370"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106384241"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -80,7 +80,7 @@ Azure Spatial Anchors는 [Azure 서비스 계약 및 조건](https://go.microsof
 
 **Q: 적절한 제한 한도가 있나요?**
 
-**A**: 예, 제한 한도가 있습니다.  이러한 문제는 일반적인 애플리케이션 개발 및 테스트에서 해결하지 못할 것입니다. 프로덕션 배포의 경우 고객의 높은 확장성 요구 사항을 지원할 준비가 되어 있습니다. 검토를 위해 [문의해 주세요](mailto:azuremrs@microsoft.com). 
+**A**: 예, 제한 한도가 있습니다.  이러한 문제는 일반적인 애플리케이션 개발 및 테스트에서 해결하지 못할 것입니다. 프로덕션 배포의 경우 고객의 높은 확장성 요구 사항을 지원할 준비가 되어 있습니다. 검토를 위해 [문의해 주세요](mailto:azuremrscontact@microsoft.com).
 
 **Q: Azure Spatial Anchors를 사용할 수 있는 지역은 어떻게 되나요?**
 

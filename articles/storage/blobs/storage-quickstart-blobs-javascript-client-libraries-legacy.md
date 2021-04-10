@@ -2,19 +2,19 @@
 title: '빠른 시작: 브라우저의 JavaScript v10용 Azure Blob 스토리지'
 description: HTML 페이지에서 JavaScript v10 SDK를 사용하여 Blob을 업로드, 나열 및 삭제하는 방법을 알아봅니다.
 services: storage
-author: mhopkins-msft
+author: twooley
 ms.custom: mvc, devx-track-js
 ms.service: storage
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: d212029936bcd257ef5a78eeedc98c2d6e1df514
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b3cca61fe272b61f2227e7546b37e4ea37cfd693
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96012785"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280142"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

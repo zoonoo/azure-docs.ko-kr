@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728ca38cc3ef3bf989a75d757c69f7ca1993d82d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5390811c8da4a8cace32e0e7ba4524e8c537a26a
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91803122"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055589"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Azure 리소스용 관리 ID란?
 
