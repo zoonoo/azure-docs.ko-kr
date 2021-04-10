@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 211f58e26ec89c393bf9f91cc3a05044c6b1e802
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: e67a9b35291615b87edf918b4146ab8d77a0ae7f
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221281"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106065146"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -35,7 +35,7 @@ ms.locfileid: "99221281"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Content Moderator 구독 키. [Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
 - Computer Vision 구독 키(위와 동일한 지침)

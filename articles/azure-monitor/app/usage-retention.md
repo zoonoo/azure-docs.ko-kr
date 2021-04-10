@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025614"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Application Insights를 사용한 웹 애플리케이션의 사용자 재방문 주기 분석
@@ -36,7 +36,7 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
 
 사용자가 셀의 의미를 설명하는 분석 단추 및 도구 팁에 액세스하려면 재방문 주기 도구에서 셀을 마우스로 가리키면 됩니다. 분석 단추를 통해 셀에서 사용자를 생성하는 미리 입력된 쿼리를 사용하여 분석 도구로 이동합니다. 
 
-## <a name="use-business-events-to-track-retention"></a>비즈니스 이벤트를 사용하여 재방문 주기 추적
+## <a name="use-business-events-to-track-retention&quot;></a>비즈니스 이벤트를 사용하여 재방문 주기 추적
 
 유용한 재방문 주기 분석 기능을 최대한 활용하려면 유의한 비즈니스 활동을 나타내는 이벤트를 측정합니다. 
 
@@ -45,7 +45,7 @@ Application Insights 포털의 재방문 주기 도구에서 아직 데이터가
 주요 비즈니스 작업을 나타내는 사용자 지정 이벤트를 코딩하고 재방문 주기 분석에 사용하는 것이 좋습니다. 게임 결과를 캡처하려면 Application Insights에 사용자 지정 이벤트를 전송하는 코드 줄을 작성해야 합니다. 웹 페이지 코드 또는 Node.JS에서 작성할 경우 다음과 같습니다.
 
 ```JavaScript
-    appinsights.trackEvent("won game");
+    appinsights.trackEvent(&quot;won game");
 ```
 
 또는 ASP.NET 서버 코드:

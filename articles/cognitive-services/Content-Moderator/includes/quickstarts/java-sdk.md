@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/16/2020
 ms.custom: devx-track-java, cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: 17acd11b6ebb651be170135ab9789f788d4d8077
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: d1574d9728036bac393cbecb37e2097be6ef90e7
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444365"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104041"
 ---
 Java용 Azure Content Moderator 클라이언트 라이브러리를 시작합니다. 다음 단계에 따라 Maven 패키지를 설치하고 기본 작업에 대한 예제 코드를 사용해 보세요. 
 
@@ -238,6 +238,3 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 > [!div class="nextstepaction"]
 > [이미지 조정 개념](../../image-moderation-api.md)
-
-* [Azure Content Moderator란?](../../overview.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java)에서 확인할 수 있습니다.

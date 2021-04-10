@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 093fcfd95d291d959ed49cc39a227a99f14a0383
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 798b898f6e2367e3096bcf985715fd48de3d394f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488247"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105930220"
 ---
 # <a name="quickstart-create-your-own-ui-framework-component"></a>빠른 시작: 사용자 고유의 UI 프레임워크 구성 요소 만들기
 
@@ -47,7 +47,7 @@ cd my-app
 
 ### <a name="install-the-package"></a>패키지 설치
 
-`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services 통화 클라이언트 라이브러리를 설치합니다. 제공된 tarball(프라이빗 미리 보기)을 my-app 디렉터리로 이동합니다.
+`npm install` 명령을 사용하여 JavaScript용 Azure Communication Services Calling SDK를 설치합니다. 제공된 tarball(프라이빗 미리 보기)을 my-app 디렉터리로 이동합니다.
 
 ```console
 
@@ -71,9 +71,9 @@ npm run start
 
 ## <a name="object-model"></a>개체 모델
 
-Azure Communication Services UI 클라이언트 라이브러리의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
+Azure Communication Services UI SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페이스는 다음과 같습니다.
 
-| 속성                                  | 설명                                                  |
+| 이름                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | 공급자| 개발자가 기본 Fluent UI 구성 요소를 수정할 수 있도록 하는 Fluent UI 공급자입니다.|
 | CallingProvider| 통화를 인스턴스화하는 통화 공급자입니다. 기본 구성 요소를 추가하는 데 필요합니다.|

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
 ms.openlocfilehash: f015718c59178b8094f535280edadd641d22a806
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
-ms.translationtype: MT
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98741896"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Webroot Security Awareness Training 구성
@@ -160,7 +160,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](../app-provisioning/application-provisioning-quarantine-status.md)를 참조하세요.
 
 ## <a name="change-log"></a>로그 변경
-* 1/21/2021-사용자의 핵심 특성 "사용자 이름"에 대 한 지원이 추가 되었습니다.
+* 2021/1/21 - 사용자의 핵심 특성 "userName"에 대한 지원이 추가되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
