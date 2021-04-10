@@ -1,15 +1,15 @@
 ---
-author: MightyPen
+author: rothja
+ms.author: jroth
 ms.service: sql-database
 ms.topic: include
 ms.date: 12/10/2018
-ms.author: genemi
-ms.openlocfilehash: bca885f9b19086302fd91d29b8ff6553b7205f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5509c640fbf232cb6c613d96c30cb0e8d9d10ec5
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86544509"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551692"
 ---
 ## <a name="c-program-example"></a>C# 프로그램 예
 
@@ -24,22 +24,22 @@ ms.locfileid: "86544509"
 
 ### <a name="entity-relationship-diagram-erd"></a>엔터티 관계 다이어그램(ERD)
 
-`CREATE TABLE` 명령문에는 두 테이블 간의 *외래 키*(FK) 관계를 만들기 위해 **REFERENCES** 키워드가 있습니다. *tempdb*를 사용하는 경우 선행 대시의 쌍을 사용하여 `--REFERENCES` 키워드를 주석으로 처리합니다.
+`CREATE TABLE` 명령문에는 두 테이블 간의 *외래 키*(FK) 관계를 만들기 위해 **REFERENCES** 키워드가 있습니다. *tempdb* 를 사용하는 경우 선행 대시의 쌍을 사용하여 `--REFERENCES` 키워드를 주석으로 처리합니다.
 
 ERD는 두 테이블 간의 관계를 표시합니다. **tabEmployee.DepartmentCode** *자식* 열의 값은 **tabDepartment.DepartmentCode** *부모* 열의 값으로 제한됩니다.
 
 ![외래 키를 표시하는 ERD](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 > [!NOTE]
-> *tempdb*에서 `#`를 테이블 이름 앞에 추가하여 임시 테이블로 만드는 T-SQL 편집 옵션이 있습니다. 이는 사용할 수 있는 테스트 데이터베이스가 없는 경우 데모용으로 유용합니다. 외래 키에 대한 참조는 사용하는 동안 적용되지 않으며 프로그램 실행이 완료된 후 연결을 닫으면 임시 테이블은 자동으로 삭제됩니다.
+> *tempdb* 에서 `#`를 테이블 이름 앞에 추가하여 임시 테이블로 만드는 T-SQL 편집 옵션이 있습니다. 이는 사용할 수 있는 테스트 데이터베이스가 없는 경우 데모용으로 유용합니다. 외래 키에 대한 참조는 사용하는 동안 적용되지 않으며 프로그램 실행이 완료된 후 연결을 닫으면 임시 테이블은 자동으로 삭제됩니다.
 
 ### <a name="to-compile-and-run"></a>컴파일 및 실행
 
 C# 프로그램은 논리적으로 하나의 .cs 파일이며, 물리적으로 여러 코드 블록으로 분할되어 각 블록을 보다 쉽게 이해할 수 있습니다. 프로그램을 컴파일하고 실행하려면 다음 단계를 수행합니다.
 
-1. Visual Studio에서 C# 프로젝트를 만듭니다. 프로젝트 형식은 **템플릿** > **Visual C#**  > **Windows데스크톱** > **콘솔 앱(.NET Framework)** 에 있는 *콘솔*이어야 합니다.
+1. Visual Studio에서 C# 프로젝트를 만듭니다. 프로젝트 형식은 **템플릿** > **Visual C#**  > **Windows데스크톱** > **콘솔 앱(.NET Framework)** 에 있는 *콘솔* 이어야 합니다.
 
-1. 파일 *Program.cs*에서 다음 단계를 사용하여 코드의 시작 줄을 바꿉니다.
+1. 파일 *Program.cs* 에서 다음 단계를 사용하여 코드의 시작 줄을 바꿉니다.
 
     1. 표시되는 동일한 순서로 다음 코드 블록을 복사 및 붙여넣기합니다. [데이터베이스에 연결](#cs_1_connect), [T-SQL 생성](#cs_2_return) 및 [데이터베이스에 전송](#cs_3_submit)을 참조하세요.
 

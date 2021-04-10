@@ -188,8 +188,6 @@
           href: rest-text-to-speech.md
     - name: 리소스
       items:
-        - name: 표준 음성 지원
-          href: language-support.md#standard-voices
         - name: 인공 신경망 음성 지원
           href: language-support.md#neural-voices
         - name: 지역 지원
@@ -249,7 +247,7 @@
     - name: 의도 인식 개요
       href: intent-recognition.md
     - name: 의도 인식 빠른 시작
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: 방법 가이드
       items:
         - name: 'LUIS, C#을 통해 음성 의도 인식'
@@ -464,6 +462,8 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: 프라이빗 엔드포인트 사용
       href: speech-services-private-link.md
+    - name: VNet 서비스 엔드포인트 사용
+      href: speech-service-vnet-service-endpoint.md
     - name: Linux용 OpenSSL 구성
       displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
       href: how-to-configure-openssl-linux.md
