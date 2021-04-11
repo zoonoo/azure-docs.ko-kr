@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Mini R so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5076888e692ad16e89f30d455e7f8c4e22a41b9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92dfff13d964418ea5519d30c7a1b91621d5e98e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96465105"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061641"
 ---
 # <a name="tutorial-activate-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Pro Mini R 활성화
 
@@ -110,4 +109,4 @@ Azure Stack Edge Mini R 디바이스를 구성하고 설정하기 전에 다음 
 Azure Stack Edge Mini R 디바이스를 사용하여 데이터를 전송하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge Mini R을 사용하여 데이터 전송](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Azure Stack Edge Mini R을 사용하여 데이터 전송](./azure-stack-edge-gpu-deploy-add-shares.md)

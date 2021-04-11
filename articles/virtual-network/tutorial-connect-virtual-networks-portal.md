@@ -4,7 +4,6 @@ description: 이 자습서에서는 Azure Portal을 사용하여 가상 네트�
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017919"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059329"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -32,7 +31,9 @@ ms.locfileid: "96017919"
 
 원하는 경우 [Azure CLI](tutorial-connect-virtual-networks-cli.md) 또는 [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+시작하기 전에 활성 구독이 포함된 Azure 계정이 필요합니다. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -49,16 +50,16 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Subscription| 구독을 선택합니다.|
     |Resource group| **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력합니다.|
     |지역| **미국 동부** 를 선택합니다.|
-    |속성|myVirtualNetwork1|
+    |Name|myVirtualNetwork1|
 
 4. **IP 주소** 탭에서 **주소 공간** 필드에 10.0.0.0/16을 입력합니다. 아래 **서브넷 추가** 단추를 클릭하고 **서브넷 이름** 에 *Subnet1* 을 입력하고 **서브넷 주소 범위** 에 대해 10.0.0.0/24를 입력합니다.
-5. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다.
+5. **검토 + 생성** 를 선택한 다음, **생성** 를 선택합니다.
    
 5. 다음과 같은 변경 내용을 사용하여 1~5단계를 다시 완료합니다.
 
     |설정|값|
     |---|---|
-    |속성|myVirtualNetwork2|
+    |이름|myVirtualNetwork2|
     |주소 공간|10.1.0.0/16|
     |Resource group| **기존 항목 사용** 을 선택한 다음, **myResourceGroup** 을 선택합니다.|
     |서브넷 이름 | Subnet2|
@@ -171,6 +172,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 가상 네트워크 피어링을 사용하여 동일한 Azure 지역에 있는 두 네트워크를 연결하는 방법을 배웠습니다. 다른 [지원되는 지역](virtual-network-manage-peering.md#cross-region)과 [다른 Azure 구독](create-peering-different-subscriptions.md#portal)에 있는 가상 네트워크를 피어링하고 피어링을 사용하여 [허브 및 스포크 네트워크 디자인](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering)을 만들 수도 있습니다. 가상 네트워크 피어링에 대한 자세한 내용은 [가상 네트워크 피어링 개요](virtual-network-peering-overview.md) 및 [가상 네트워크 피어링 관리](virtual-network-manage-peering.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [가상 네트워크 피어링에 대한 자세한 정보](virtual-network-peering-overview.md)
 
-VPN을 통해 고유한 컴퓨터를 가상 네트워크에 연결하고 가상 네트워크 또는 피어링된 가상 네트워크의 리소스와 상호 작용하려면 [가상 네트워크에 컴퓨터 연결](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+

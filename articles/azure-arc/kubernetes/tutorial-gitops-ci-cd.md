@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 72caca47cde960eb7298ec2cf0c6994755cb3159
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121612"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076312"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 
@@ -37,12 +37,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 이 자습서에서는 여러분이 Azure DevOps, Azure Repos 및 Azure CLI에 대해 잘 알고 있다고 가정합니다.
 
 * [Azure DevOps Services](https://dev.azure.com/)에 로그인합니다.
-* [이전 자습서](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster)를 완료하여 CI/CD 환경에 사용할 GitOps 배포 방법을 알아봅니다.
-* 이 기능의 [이점과 아키텍처](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations)를 이해합니다.
+* [이전 자습서](./tutorial-use-gitops-connected-cluster.md)를 완료하여 CI/CD 환경에 사용할 GitOps 배포 방법을 알아봅니다.
+* 이 기능의 [이점과 아키텍처](./conceptual-configurations.md)를 이해합니다.
 * 다음을 확인합니다.
-  * **arc-cicd-cluster** 라는 [Azure Arc 지원 Kubernetes 클러스터가 연결되어 있습니다](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster).
-  * [AKS 통합](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) 또는 [비 AKS 클러스터 인증](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes)을 사용하는 ACR(Azure Container Registry)이 연결되어 있습니다.
-  * [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) 및 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started)에 대한 "Build Admin" 및 "Project admin" 권한이 있습니다.
+  * **arc-cicd-cluster** 라는 [Azure Arc 지원 Kubernetes 클러스터가 연결되어 있습니다](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster).
+  * [AKS 통합](../../aks/cluster-container-registry-integration.md) 또는 [비 AKS 클러스터 인증](../../container-registry/container-registry-auth-kubernetes.md)을 사용하는 ACR(Azure Container Registry)이 연결되어 있습니다.
+  * [Azure Repos](/azure/devops/repos/get-started/what-is-repos) 및 [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started)에 대한 "Build Admin" 및 "Project admin" 권한이 있습니다.
 * 다음 Azure Arc 지원 Kubernetes CLI 확장 버전 1.0.0 이상을 설치합니다.
 
   ```azurecli
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>애플리케이션 및 GitOps 리포지토리를 Azure Repos로 가져오기
 
-[애플리케이션 리포지토리](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#application-repo) 및 [GitOps 리포지토리](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#gitops-repo) 를 Azure Repos로 가져옵니다. 이 자습서에서는 다음 예제 리포지토리를 사용합니다.
+[애플리케이션 리포지토리](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) 및 [GitOps 리포지토리](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) 를 Azure Repos로 가져옵니다. 이 자습서에서는 다음 예제 리포지토리를 사용합니다.
 
 * **arc-cicd-demo-src** 애플리케이션 리포지토리
    * URL: https://github.com/Azure/arc-cicd-demo-src
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
    * Azure Vote 앱을 보관하는 클러스터 리소스의 베이스로 작동합니다.
 
-[Git 리포지토리 가져오기](https://docs.microsoft.com/azure/devops/repos/git/import-git-repository)에 대해 자세히 알아보세요.
+[Git 리포지토리 가져오기](/azure/devops/repos/git/import-git-repository)에 대해 자세히 알아보세요.
 
 >[!NOTE]
 > 애플리케이션 리포지토리와 GitOps 리포지토리에 각각 별도의 리포지토리를 가져와서 사용하면 보안과 단순성을 높일 수 있습니다. 애플리케이션 리포지토리와 GitOps 리포지토리의 권한 및 표시 유형을 개별적으로 조정할 수 있습니다.
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 CI/CD 워크플로는 매니페스트 디렉터리를 앱 배포를 위한 추가 매니페스트로 채웁니다.
 
 
-1. Azure Repos의 새로 가져온 **arc-cicd-demo-gitops** 리포지토리에 대한 [새 GitOps 연결을 만듭니다](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster).
+1. Azure Repos의 새로 가져온 **arc-cicd-demo-gitops** 리포지토리에 대한 [새 GitOps 연결을 만듭니다](./tutorial-use-gitops-connected-cluster.md).
 
    ```azurecli
    az k8sconfiguration create \
@@ -172,7 +172,7 @@ kubectl create secret docker-registry <secret-name> \
 ## <a name="create-environment-variable-groups"></a>환경 변수 그룹 만들기
 
 ### <a name="app-repo-variable-group"></a>앱 리포지토리 변수 그룹
-**az-vote-app-dev** 라는 [변수 그룹을 만듭니다](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups). 다음 값을 설정합니다.
+**az-vote-app-dev** 라는 [변수 그룹을 만듭니다](/azure/devops/pipelines/library/variable-groups). 다음 값을 설정합니다.
 
 | 변수 | 값 |
 | -------- | ----- |
@@ -182,13 +182,13 @@ kubectl create secret docker-registry <secret-name> \
 | ENVIRONMENT_NAME | 개발 |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | GitOps 리포지토리의 Git 연결 문자열 |
-| PAT | 원본 읽기/쓰기 권한이 있는 [개발자가 만든 PAT 토큰](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?#create-a-pat). 나중에 변수 그룹 `stage`를 만들 때 사용할 수 있도록 저장합니다. |
+| PAT | 원본 읽기/쓰기 권한이 있는 [개발자가 만든 PAT 토큰](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat). 나중에 변수 그룹 `stage`를 만들 때 사용할 수 있도록 저장합니다. |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
 > [!IMPORTANT]
-> PAT를 비밀 형식으로 표시합니다. 애플리케이션에서 [Azure KeyVault](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault)의 비밀을 연결하는 것이 좋습니다.
+> PAT를 비밀 형식으로 표시합니다. 애플리케이션에서 [Azure KeyVault](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault)의 비밀을 연결하는 것이 좋습니다.
 >
 ### <a name="stage-environment-variable-group"></a>Stage 환경 변수 그룹
 
@@ -255,7 +255,7 @@ dev 환경에서 배포 후 중단이 드러나는 경우 환경 승인을 사�
 1. 승인자 및 선택적 메시지를 입력합니다.
 1. **만들기** 를 다시 선택하여 추가적인 수동 승인 확인을 완료합니다.
 
-자세한 내용은 [승인 및 확인 정의](https://docs.microsoft.com/azure/devops/pipelines/process/approvals) 자습서를 참조하세요.
+자세한 내용은 [승인 및 확인 정의](/azure/devops/pipelines/process/approvals) 자습서를 참조하세요.
 
 다음에 CD 파이프라인이 실행되면 GitOps PR 생성 후 파이프라인이 일시 중지됩니다. 변경 내용이 제대로 동기화되었으며 기본 기능을 전달하는지 확인합니다. 파이프라인에서 확인을 승인하여 변경 내용이 다음 환경으로 전달되도록 합니다.
 
@@ -291,7 +291,7 @@ PR 파이프라인은 잘못된 변경을 방지하는 첫 번째 방어선입�
 파이프라인 실행이 완료되면 애플리케이션 코드와 이 코드를 배포할 템플릿의 품질이 보장됩니다. 이제 PR을 승인하고 완료할 수 있습니다. CI가 다시 실행되어 템플릿과 매니페스트를 다시 생성하고, CD 파이프라인을 트리거합니다.
 
 > [!TIP]
-> 실제 환경에서는 PR이 품질 검사를 통과하도록 잊지 말고 분기 정책을 설정해야 합니다. 자세한 내용은 [분기 정책 설정](https://docs.microsoft.com/azure/devops/repos/git/branch-policies) 문서를 참조하세요.
+> 실제 환경에서는 PR이 품질 검사를 통과하도록 잊지 말고 분기 정책을 설정해야 합니다. 자세한 내용은 [분기 정책 설정](/azure/devops/repos/git/branch-policies) 문서를 참조하세요.
 
 ## <a name="cd-process-approvals"></a>CD 프로세스 승인
 
@@ -338,4 +338,4 @@ CI 파이프라인이 성공적으로 실행되면 CD 파이프라인이 트리�
 개념 문서를 계속 진행하여 GitOps 및 Azure Arc 지원 Kubernetes를 사용한 구성에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd)
+> [GitOps - Azure Arc 지원 Kubernetes를 사용하는 CI/CD 워크플로](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
