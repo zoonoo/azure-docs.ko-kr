@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: a708f0c1884073a2f2ea73092d25006415c59d5f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 74a8bc4209696682c294bccab450d25ae86e3645
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655226"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643937"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -100,7 +100,7 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
     ```
 
     > [!Note]
-    > `Username`은 사용자 고유의 서비스 주체 또는 Purview의 관리 ID입니다. [고정 데이터베이스 역할 및 해당 기능](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles)에 대해 자세히 알아볼 수 있습니다.
+    > `Username`은 사용자 고유의 서비스 주체 또는 Purview의 관리 ID입니다. [고정 데이터베이스 역할 및 해당 기능](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles)에 대해 자세히 알아볼 수 있습니다.
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>키 자격 증명 모음 및 Purview의 자격 증명에 서비스 주체 추가
 
