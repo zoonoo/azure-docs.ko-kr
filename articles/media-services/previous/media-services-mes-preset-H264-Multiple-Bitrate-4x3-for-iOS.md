@@ -1,6 +1,6 @@
 ---
 title: iOS용 H264 다중 비트 전송률 4x3 | Microsoft Docs
-description: 이 항목에서는 **iOS 용 H264 다중 비트 전송률 4x3** 작업 미리 설정에 대 한 개요를 제공 합니다.
+description: 이 항목은 **iOS에 대한 H264 다중 비트 전송률 4x3** 태스크 미리 설정에 대한 개요를 제공합니다.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 4277ade29efe094a343ac250e10f4783433f0b9f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103015056"
 ---
 # <a name="h264-multiple-bitrate-4x3-for-ios"></a>iOS용 H264 다중 비트 전송률 4x3
