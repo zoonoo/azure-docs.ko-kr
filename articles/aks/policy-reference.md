@@ -1,15 +1,15 @@
 ---
 title: Azure Kubernetes Service에 대한 기본 제공 정책 정의
 description: Azure Kubernetes Service에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 092320670cd669ef66537a7fd7de287d28aa2c67
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 6cfa9564c6fc863740a5ab93c53bf9278b9fb530
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034833"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090287"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 Azure Policy 기본 제공 정의
 

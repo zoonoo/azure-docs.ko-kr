@@ -1,18 +1,18 @@
 ---
 title: 연결 풀링을 보여 주는 Java 샘플
 description: 이 문서에는 연결 풀링을 보여 주는 java 예제가 나와 있습니다.
-author: ambhatna
+author: rothja
+ms.author: jroth
 ms.custom: devx-track-java
-ms.author: ambhatna
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
-ms.openlocfilehash: b108dc8a04825826d7e0887d8fd5884b122827f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6874fb2664fbbaa284aba4703173dd8614c955e5
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87314699"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550391"
 ---
 # <a name="java-sample-to-illustrate-connection-pooling"></a>연결 풀링을 보여 주는 Java 샘플
 

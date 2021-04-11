@@ -1,18 +1,18 @@
 ---
 title: Azure Database for PostgreSQL에 대한 기본 제공 정책 정의
 description: Azure Database for PostgreSQL에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4b367890f552f26d3e3d84d1725f7fe4e07d4b34
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: cc2152823605054226fb1092db2498b7c458587f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105035095"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106090474"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대한 Azure Policy 기본 제공 정의
 
