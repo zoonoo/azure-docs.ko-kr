@@ -2,17 +2,17 @@
 title: Linux 기반 Azure Virtual Machines에서 실행되는 DH2i DxEnterprise를 사용하여 Always On 가용성 그룹 설정
 description: DH2i DxEnterprise를 클러스터 관리자로 사용하여 Linux Azure Virtual Machines의 SQL Server에서 가용성 그룹을 통해 고가용성을 달성합니다.
 ms.date: 03/04/2021
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sql
 ms.topic: tutorial
 author: amvin87
 ms.author: amitkh
 ms.reviewer: vanto
-ms.openlocfilehash: 07752eb5c7f18a8952c43e77afed78b06432aca6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56002aaa977b94b0fabee4f17343f483706eb77d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568539"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449429"
 ---
 # <a name="tutorial---setup-a-three-node-always-on-availability-group-with-dh2i-dxenterprise-running-on-linux-based-azure-virtual-machines"></a>자습서 - Linux 기반 Azure Virtual Machines에서 실행되는 DH2i DxEnterprise를 사용하여 3개 노드 Always On 가용성 그룹 설정
 

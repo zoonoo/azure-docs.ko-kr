@@ -4,12 +4,12 @@ ms.service: media-services
 ms.topic: include
 ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f4bdd5332b3c10cf375c7c04ede25137328714a2
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91329665"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073595"
 ---
 >[!NOTE]
 >고정되지 않은 리소스의 경우 지원 티켓을 열어 할당량 증가를 요청하세요. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 마세요.
@@ -41,7 +41,7 @@ ms.locfileid: "91329665"
 
 <sup>3</sup>작업 엔터티 목록을 요청할 때 요청당 최대 1,000개 작업이 반환됩니다. 제출된 모든 작업을 추적하려면 [OData 시스템 쿼리 옵션](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7))에 설명된 대로 top 또는 skip 쿼리를 사용합니다.
 
-<sup>4</sup>로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(디지털 권한 관리) 솔루션을 사용합니다. 자세한 내용은 [Azure Media Services를 사용하여 콘텐츠 보호](../articles/media-services/previous/media-services-content-protection-overview.md)를 참조하세요.
+<sup>4</sup>로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(디지털 권한 관리) 솔루션을 사용합니다. 자세한 내용은 [Azure Media Services를 사용하여 콘텐츠 보호](../articles/media-services/latest/drm-content-protection-concept.md)를 참조하세요.
 
 <sup>5</sup>스토리지 계정은 동일한 Azure 구독에 속해 있어야 합니다.
 
