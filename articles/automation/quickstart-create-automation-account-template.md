@@ -3,18 +3,17 @@ title: '빠른 시작: Automation 계정 만들기 - Azure 템플릿'
 titleSuffix: Azure Automation
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Automation 계정을 만드는 방법을 보여 줍니다.
 services: automation
-Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4d7d4b5af9b86fe5116dc29f6ed1a789cdbf2047
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: dda2e2e34ab1f0c8facafe62a4fc0b9c5116f9d9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100581093"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063171"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
 

@@ -1,18 +1,18 @@
 ---
 title: '빠른 시작: 서버 만들기 - Azure Portal - Azure Database for PostgreSQL - 단일 서버'
 description: 이 빠른 시작 가이드에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 서버를 만들고 관리합니다.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 000ab3e3911c65554622a48d34abda79d60411df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6b5b145e84a3844b646ec9adfb46f8a221c6d0a6
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96492389"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606507"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for PostgreSQL 서버 만들기
 
@@ -39,7 +39,7 @@ Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하�
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="단일 서버를 만들기 위한 기본 탭을 보여주는 스크린샷.":::
 
-   |설정|제안 값|설명|
+   |설정|제안 값|Description|
    |:---|:---|:---|
    |Subscription|구독 이름|원하는 Azure 구독을 선택합니다.|
    |Resource group|*myresourcegroup*| 구독에서 새 리소스 그룹 또는 기존 리소스 그룹입니다.|

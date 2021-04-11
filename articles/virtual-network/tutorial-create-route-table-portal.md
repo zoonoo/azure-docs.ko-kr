@@ -5,7 +5,6 @@ description: 이 자습서에서는 Azure Portal을 사용하여 경로 테이�
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: f8090ea9c0d307d1bd290c4cf4dac9bfaabf7c4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7da59e996ec37d3653dbde68c5f56caa9e8261ee
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576324"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061913"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -34,9 +33,11 @@ Azure에서는 기본적으로 가상 네트워크 내의 모든 서브넷 간�
 
 이 자습서에서는 [Azure Portal](https://portal.azure.com)을 사용합니다. [Azure CLI](tutorial-create-route-table-cli.md) 또는 [Azure PowerShell](tutorial-create-route-table-powershell.md)도 사용할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="prerequisites"></a>필수 구성 요소
+시작하기 전에 활성 구독이 포함된 Azure 계정이 필요합니다. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독
 
@@ -318,7 +319,7 @@ NVA(네트워크 가상 어플라이언스)는 라우팅 및 방화벽 최적화
 
 4. **연결** 페이지에서 파란색 **Bastion 사용** 단추를 선택합니다.
 
-5. **Bastion** 페이지에서, 이전에 가상 머신에 대해 만든 사용자 이름과 암호를 입력합니다.
+5. **Bastion** 페이지에서 이전에 가상 머신에 대해 만든 사용자 이름과 암호를 입력합니다.
 
 6. **연결** 을 선택합니다.
 
