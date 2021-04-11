@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc740acb366212640015ca0fb527d34fade1097d
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a19ca14a37bd24e499fdf0681b3510e9a4a8ea3f
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010765"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075035"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -61,7 +61,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | -------- | ------------------- | --------------------------------- |
 | ![이 이미지는 ASP.NET Core 로고를 표시](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [ASP.NET Core WebApp 로그인 사용자 자습서](https://aka.ms/aspnetcore-webapp-sign-in) | [ASP.NET Core 웹앱에서 Microsoft Graph 호출](https://aka.ms/aspnetcore-webapp-call-msgraph) 단계와 동일한 샘플</p>고급 샘플 [백그라운드 앱, API 및 서비스에서 로그인한 사용자의 토큰 캐시에 액세스](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
 | ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [개발자를 위한 AD FS에서 Azure AD로의 애플리케이션 마이그레이션 플레이북](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad): AD FS(Active Directory Federation Services)와 통합된 애플리케이션을 Azure AD(Azure Active Directory)로 안전하게 마이그레이션하는 방법을 알아봅니다. | |
-| ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![이 이미지는 ASP.NET Framework 로고를 보여줍니다.](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET 빠른 시작](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> [msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp) |
 | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png)  |[Java Servlet 자습서 - 1.1장](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) AAD로 로그인| |
 | ![이 이미지는 Java 로고를 보여 줍니다.](media/sample-v2-code/logo_java.png)  |[Java Servlet 자습서 - 1.2장](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) B2C로 로그인 |
 | ![이 이미지는 Java 로고를 보여 줍니다.](media/sample-v2-code/logo_java.png)  | | [Java Servlet 자습서 - 2.1장](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) AAD로 로그인하고 Graph 호출|

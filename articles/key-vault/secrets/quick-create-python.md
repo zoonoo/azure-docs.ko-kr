@@ -7,13 +7,13 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 14ea63e3b52d0673d6f64a5963a4de7a038f7021
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: b82c86983bc07f39c1adb5aa741497d8cc3246e9
+ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800468"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105967129"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -21,7 +21,7 @@ Python용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니
 
 [API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-secrets/)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 2.7 이상 또는 3.6 이상](/azure/developer/python/configure-local-development-environment)
@@ -80,17 +80,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-
 
 이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
 
-Windows
-```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
-````
-Windows PowerShell
-```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
-```
-
-macOS 또는 Linux
-```cmd
+```bash
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 

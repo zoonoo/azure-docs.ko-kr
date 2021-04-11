@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d2b80dfa091d6a2b892c8baf8e9c35084c5bee4e
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "100386852"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076391"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>자습서: Google Maps에서 웹 서비스 마이그레이션
 
@@ -46,11 +46,11 @@ Azure 및 Google Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세�
 | 지오코딩               | [검색](/rest/api/maps/search)                                   |                         
 | 장소 검색           | [검색](/rest/api/maps/search)                                   |                         
 | 장소 자동 완성      | [검색](/rest/api/maps/search)                                   |                         
-| 도로에 맞춤            | [경로 및 방향 계산](#calculate-routes-and-directions) 섹션을 참조하세요.            
-| 속도 제한            | [좌표 역방향 지오코딩](#reverse-geocode-a-coordinate) 섹션을 참조하세요.                  
+| 도로에 맞춤            | [경로 및 방향 계산](#calculate-routes-and-directions) 섹션을 참조하세요.  |        
+| 속도 제한            | [좌표 역방향 지오코딩](#reverse-geocode-a-coordinate) 섹션을 참조하세요.         |         
 | 정적 맵              | [Render](/rest/api/maps/render/getmapimage)                       |                         
 | 표준 시간대               | [표준 시간대](/rest/api/maps/timezone)                              |                         
-| 상승               | [권한 상승(미리 보기)](/rest/api/maps/elevation)                   |                         |
+| 상승               | [권한 상승(미리 보기)](/rest/api/maps/elevation)                   | 
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 

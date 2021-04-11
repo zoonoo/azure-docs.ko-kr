@@ -3,18 +3,17 @@ title: 가상 네트워크 만들기 - 빠른 시작 - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 가상 네트워크를 만듭니다. 가상 네트워크를 통해 Azure 리소스가 서로 통신하고 인터넷과 통신할 수 있습니다.
 author: KumudD
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b27f050d3d37daab05e8c5125d6b75a6bb4dea50
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 7ee10327ab95a3e66e5592593ae72d6e5cd8d606
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199036"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060604"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
