@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821566"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168453"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -282,7 +282,7 @@ Azure Maps REST API의 전체 목록은 다음을 참조하세요.
 
 IoT용 Azure Certified인 디바이스 목록을 가져오려면 다음을 방문하세요.
 
-* [Azure Certified 디바이스](https://catalog.azureiotsolutions.com/)
+* [Azure Certified 디바이스](https://devicecatalog.azure.com/)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
