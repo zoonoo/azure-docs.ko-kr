@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
-ms.date: 04/20/2020
-ms.openlocfilehash: 0d0fa88fdf182ae2214da40ee3fe8b20ced025e4
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 04/05/2021
+ms.openlocfilehash: a6fd603318a25e15d1d4dcc1e3eaf75f96fc5ade
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104956063"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448630"
 ---
 # <a name="azure-media-player-quickstart"></a>Azure Media Player 빠른 시작
 Azure Media Player는 설정하기 쉽습니다. Azure Media Services 계정에서 미디어 콘텐츠의 기본 재생을 가져오는 데 몇 분 밖에 걸리지 않습니다. 이 섹션에서는 세부 정보를 설명하지 않고 기본 단계를 보여줍니다. 다음 섹션에서는 Azure Media Player를 설정하고 구성하는 방법에 대해 자세히 설명합니다.  문서의 `<head>`에 다음과 같은 내용을 추가하기만 하면 됩니다.
@@ -22,7 +22,7 @@ Azure Media Player는 설정하기 쉽습니다. Azure Media Services 계정에�
 ```
 
 > [!IMPORTANT]
-> 주문형으로 변경될 수 있으므로 프로덕션에 `latest` 버전을 사용하지 **않아야** 합니다. `latest`를 Azure Media Player 버전으로 대체합니다. 예를 들어 `latest`를 `1.0.0`으로 대체합니다. [여기에서](azure-media-player-changelog.md) Azure Media Player 버전을 쿼리할 수 있습니다.
+> 주문형으로 변경될 수 있으므로 프로덕션에 `latest` 버전을 사용하지 **않아야** 합니다. `latest`를 Azure Media Player 버전으로 대체합니다. 예를 들어 `latest`를 `1.0.0`으로 대체합니다. [여기에서](https://amp.azure.net/libs/amp/latest/docs/changelog.html) Azure Media Player 버전을 쿼리할 수 있습니다.
 
 ## <a name="use-the-video-element"></a>비디오 요소 사용
 

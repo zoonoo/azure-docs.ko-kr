@@ -7,17 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 4926aa40831056556060cbf564022fa7f5e3aa7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 160797367e2daf0cb6fe708d626cbf217c9992c8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962770"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448606"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Central에 연결
 
 **적용 대상**: [임베디드 디바이스 개발](about-iot-develop.md#embedded-device-development)<br>
 **총 완료 시간**: 30분
+
+[![코드 찾아보기](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 이 자습서에서는 Azure RTOS를 사용하여 MXCHIP AZ3166 IoT DevKit(이하 MXCHIP DevKit)를 Azure IoT에 연결합니다. 이 문서는 [Azure IoT 임베디드 디바이스 개발 시작](quickstart-device-development.md) 시리즈의 일부입니다. 이 시리즈는 디바이스 개발자에게 Azure RTOS를 소개하고, 여러 디바이스 평가 키트를 Azure IoT에 연결하는 방법을 보여 줍니다.
 
@@ -26,9 +28,6 @@ ms.locfileid: "104962770"
 * C에서 MXCHIP DevKit를 프로그래밍하기 위한 임베디드 개발 도구 세트 설치
 * 이미지를 빌드하고 MXCHIP DevKit로 플래시
 * Azure IoT Central을 사용하여 클라우드 구성 요소 만들기, 속성 보기, 디바이스 원격 분석 보기 및 직접 명령 호출
-
-> [!NOTE]
-> 코드를 보기만 하고 이 문서를 완료하지 않으려면 [MXCHIP AZ3166을 Azure IoT에 연결](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)의 샘플을 참조하세요. 이 문서를 완료하려면 이후 단계에서 GitHub 리포지토리를 복제합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
