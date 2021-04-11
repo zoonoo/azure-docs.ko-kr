@@ -4,17 +4,16 @@ titlesuffix: Azure Virtual Network
 description: 이 자습서에서는 Azure Portal을 사용하여 네트워크 보안 그룹을 통해 서브넷에 네트워크 트래픽을 필터링하는 방법에 대해 알아봅니다.
 services: virtual-network
 author: KumudD
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
 ms.topic: tutorial
 ms.date: 03/06/2021
 ms.author: kumud
-ms.openlocfilehash: 746e44c85d4dd9a662556a73f1e4ab0701d31400
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: cfbb499c79761e1f2014c834e65dac35fe09ef90
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435927"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106057289"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -238,7 +237,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 공용 IP | 새 공용 IP(기본값)를 그대로 둡니다. |
     | NIC 네트워크 보안 그룹 추가 | **없음** 을 선택합니다. | 
 
-6. **검토 + 만들기** 탭을 선택하거나, 페이지 아래쪽에서 파란색 **검토 + 만들기** 단추를 선택합니다.
+6. **검토 + 만들기** 탭을 선택하거나 페이지 하단에 있는 파란색 **검토 + 만들기** 단추를 선택합니다.
 
 7. **만들기** 를 선택합니다.
 

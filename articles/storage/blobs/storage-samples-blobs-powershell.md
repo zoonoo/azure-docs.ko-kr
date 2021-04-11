@@ -1,18 +1,18 @@
 ---
 title: Azure Blob Storage에 대한 Azure PowerShell 샘플 | Microsoft Docs
 description: 스토리지 계정 만들기, 계정간 Blob 마이그레이션 등과 같은 Azure Blob 스토리지를 사용하기 위한 Azure PowerShell 스크립트 샘플에 대한 링크를 참조하세요.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 11/07/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.openlocfilehash: 1d343c952f01185d2360d6cf238dd3a7512849fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 10e4149b7c66e507c34e486abd64c66993900fbc
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95912130"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277915"
 ---
 # <a name="azure-powershell-samples-for-azure-blob-storage"></a>Azure Blob Storage에 대한 Azure PowerShell 샘플
 
