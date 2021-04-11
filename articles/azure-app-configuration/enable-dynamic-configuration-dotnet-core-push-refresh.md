@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: 이 자습서에서는 푸시 새로 고침을 사용하여 .NET Core 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
-author: abarora
+author: GrantMeStrength
 manager: zhenlan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
-ms.author: abarora
-ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: jken
+ms.openlocfilehash: f330e69d37ac36e2a374e81fbffc6235c86feedd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101701521"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105625724"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>자습서: .NET Core 앱에서 푸시 새로 고침을 사용하여 동적 구성 사용
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bdd68a4f0dafd3b336bf5a3fb34399d725c9ff5c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999164"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105626115"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>자습서: iQualify LMS와 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ iQualify LMS를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니
 Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 iQualify LMS와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -88,44 +88,41 @@ iQualify LMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 1. [Azure Portal](https://portal.azure.com/)의 **iQualify LMS** 애플리케이션 통합 페이지에서 **Single Sign-On** 을 선택합니다.
 
-    ![Single Sign-On 구성 링크](common/select-sso.png)
+   ![Single Sign-On 구성 링크](common/select-sso.png)
 
 2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML/WS-Fed** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
-    ![Single Sign-On 선택 모드](common/select-saml-option.png)
+   ![Single Sign-On 선택 모드](common/select-saml-option.png)
 
 3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 아이콘을 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
 
-    ![기본 SAML 구성 편집](common/edit-urls.png)
+   ![기본 SAML 구성 편집](common/edit-urls.png)
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
+   ![스크린샷은 식별자, 회신 URL을 입력하고 저장을 선택할 수 있는 기본 SAML 구성을 보여줍니다.](common/idp-intiated.png)
+   
+   1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
-    | |
-    |--|--|
-    | 프로덕션 환경: `https://<yourorg>.iqualify.com/`|
-    | 테스트 환경: `https://<yourorg>.iqualify.io`|
+      * 프로덕션 환경: `https://<yourorg>.iqualify.com/`
+      * 테스트 환경: `https://<yourorg>.iqualify.io`
 
-    b. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    | |
-    |--|--|
-    | 프로덕션 환경: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
-    | 테스트 환경: `https://<yourorg>.iqualify.io/auth/saml2/callback` |
+   2. **회신 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+
+      * 프로덕션 환경: `https://<yourorg>.iqualify.com/auth/saml2/callback` 
+      * 테스트 환경: `https://<yourorg>.iqualify.io/auth/saml2/callback`
 
 5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
+   ![스크린샷은 로그온 URL을 입력할 수 있는 추가 URL 설정을 보여줍니다.](common/metadata-upload-additional-signon.png)
 
-    **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    | |
-    |--|--|
-    | 프로덕션 환경: `https://<yourorg>.iqualify.com/login` |
-    | 테스트 환경: `https://<yourorg>.iqualify.io/login` |
+   **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
-    > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [iQualify LMS 클라이언트 지원 팀](https://www.iqualify.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+      * 프로덕션 환경: `https://<yourorg>.iqualify.com/login`
+      * 테스트 환경: `https://<yourorg>.iqualify.io/login`
+
+   > [!NOTE]
+   > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [iQualify LMS 클라이언트 지원 팀](https://www.iqualify.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 6. iQualify LMS 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
