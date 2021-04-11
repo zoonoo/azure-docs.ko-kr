@@ -1,18 +1,19 @@
 ---
 title: 자습서 - Azure Time Series Insights를 사용하여 Azure IoT 플러그 앤 플레이 디바이스 원격 분석 저장 및 분석
 description: 자습서 - Time Series Insights 환경을 설정하고 IoT 허브를 연결하여 IoT 플러그 앤 플레이 디바이스에서 원격 분석을 살펴보고 분석합니다.
-author: lyrana
-ms.author: lyhughes
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 588d680acc8c21c7f4dcf6569e23110f3c33c482
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 28cda9fb6997500f6cd7c4c4349635e7b7a36398
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057387"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504280"
 ---
 # <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>자습서: Time Series Insights Gen2 환경 만들기 및 구성
 
@@ -26,7 +27,7 @@ ms.locfileid: "106057387"
 > * 온도 조절기 및 자동 온도 조절기 디바이스에 사용한 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl) 샘플 모델 파일을 사용합니다.
 
 > [!NOTE]
-> Time Series Insights와 IoT 플러그 앤 플레이 간의 이러한 통합은 미리 보기에 있습니다. DTDL 디바이스 모델이 Time Series Insights 시계열 모델에 매핑되는 방식은 변경될 수 있습니다. 
+> Time Series Insights와 IoT 플러그 앤 플레이 간의 이러한 통합은 미리 보기에 있습니다. DTDL 디바이스 모델이 Time Series Insights 시계열 모델에 매핑되는 방식은 변경될 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -123,7 +124,7 @@ az tsi event-source iothub create --event-source-name iot-hub-event-source --env
 
 ### <a name="define-your-types"></a>형식 정의
 
-모델을 미리 정의하지 않고도 Azure Time Series Insights Gen2로 데이터 수집을 시작할 수 있습니다. 원격 분석을 받으면 Time Series Insights에서 시계열 ID 속성 값에 따라 시계열 인스턴스를 자동으로 확인하려고 시도합니다. 모든 인스턴스에는 *기본 형식* 이 할당됩니다. 인스턴스를 올바르게 범주화하려면 새 형식을 수동으로 만들어야 합니다. 
+모델을 미리 정의하지 않고도 Azure Time Series Insights Gen2로 데이터 수집을 시작할 수 있습니다. 원격 분석을 받으면 Time Series Insights에서 시계열 ID 속성 값에 따라 시계열 인스턴스를 자동으로 확인하려고 시도합니다. 모든 인스턴스에는 *기본 형식* 이 할당됩니다. 인스턴스를 올바르게 범주화하려면 새 형식을 수동으로 만들어야 합니다.
 
 다음 세부 정보는 디바이스 DTDL 모델을 시계열 모델 형식과 동기화하는 가장 간단한 방법에 대해 간략히 설명합니다.
 
@@ -139,7 +140,7 @@ az tsi event-source iothub create --event-source-name iot-hub-event-source --env
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
-| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
+| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |
 |`contents`(배열)| `variables`(개체)  | 다음 예제를 참조하세요.
 
 ![시계열 모델 형식에 대한 DTDL을 보여 주는 스크린샷](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
@@ -161,7 +162,7 @@ az tsi event-source iothub create --event-source-name iot-hub-event-source --env
           "kind": "numeric",
           "value": {
             "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
-          }, 
+          },
           "aggregation": {
             "tsx": "avg($value)"
           }

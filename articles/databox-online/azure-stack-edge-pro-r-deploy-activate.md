@@ -8,13 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/23/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: bae12b5ad7ce6c079161f42e1d6fe3e6c08e3f4b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2908f9c3cb39debed4f5a1bea38d15ccf6a22822
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101727535"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106059958"
 ---
 # <a name="tutorial-activate-azure-stack-edge-pro-r-device"></a>자습서: Azure Stack Edge Pro R 디바이스 활성화
 
@@ -108,4 +107,4 @@ Azure Stack Edge Pro R 디바이스를 구성하고 설정하기 전에 다음 �
 Azure Stack Edge Pro R 디바이스를 사용하여 데이터를 전송하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge Pro R을 사용하여 데이터 전송](./azure-stack-edge-j-series-deploy-add-shares.md)
+> [Azure Stack Edge Pro R을 사용하여 데이터 전송](./azure-stack-edge-gpu-deploy-add-shares.md)

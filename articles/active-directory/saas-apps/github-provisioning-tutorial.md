@@ -10,16 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: Zhchia
-ms.openlocfilehash: f1600dfc5705ca97f16e8966a796b54fc556d216
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d9699c564476e116654f700c32dd47b7f6d5b81
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94359265"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504569"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 GitHub로 자동으로 프로비전하고 프로비전 해제하기 위해 GitHub 및 Azure AD에서 수행해야 하는 단계를 보여주는 것입니다.
+
+> [!NOTE]
+> Azure AD 프로비저닝 통합은 [GitHub SCIM API](https://developer.github.com/v3/scim/)를 사용합니다. 이 기능은 [GitHub Enterprise 청구 플랜](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)에서 [GitHub Enterprise 클라우드](https://help.github.com/articles/github-s-products/#github-enterprise) 고객에게 제공됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -33,7 +36,7 @@ ms.locfileid: "94359265"
 * 단일 조직에 대한 SCIM 프로비저닝은 조직 수준에서 SSO를 사용하도록 설정한 경우에만 지원됩니다.
 
 > [!NOTE]
-> Azure AD 프로비저닝 통합은 [GitHub SCIM API](https://developer.github.com/v3/scim/)를 사용합니다. 이 기능은 [GitHub Enterprise 청구 플랜](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)에서 [GitHub Enterprise 클라우드](https://help.github.com/articles/github-s-products/#github-enterprise) 고객에게 제공됩니다.
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="assigning-users-to-github"></a>GitHub에 사용자 할당
 
