@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 600ca48cc19ee8723b423e484ec96736a55ae7fc
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: e159ead12179f86406fd7df22475229298f95ee8
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95532259"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285470"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -28,6 +28,12 @@ ms.locfileid: "95532259"
 Azure Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 AI 알고리즘을 제공합니다. 얼굴 인식 소프트웨어는 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석 및 관리, 모바일 앱, 로봇과 같은 다양한 시나리오에서 중요합니다.
 
 Face 서비스는 다음 섹션에 각각 설명된 여러 가지 얼굴 분석 기능을 제공합니다.
+
+이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.
+* [빠른 시작](./Quickstarts/client-libraries.md)은 서비스를 호출하고 짧은 시간 내에 결과를 얻을 수 있는 단계별 지침입니다. 
+* [방법 가이드](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md)에는 보다 구체적이거나 사용자 지정된 방식으로 서비스를 사용하기 위한 지침이 포함되어 있습니다.
+* [개념 문서](./concepts/face-detection.md)에서는 서비스의 기능 및 기능에 대한 자세한 설명을 제공합니다.
+* [자습서](./Tutorials/FaceAPIinCSharpTutorial.md)는 보다 광범위한 비즈니스 솔루션에서 이 서비스를 구성 요소로 사용하는 방법을 보여주는 긴 가이드입니다.
 
 ## <a name="face-detection"></a>얼굴 감지
 
