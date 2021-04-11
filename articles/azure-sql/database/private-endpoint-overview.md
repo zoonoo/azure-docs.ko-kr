@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 506982a22fd53dfb4f8f3d94735c11fc491469eb
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 0ce8e45f301ac0fd84f7d5d27d81b63103768f89
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097281"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567715"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -62,7 +62,7 @@ Private Link를 사용하면 고객이 [ExpressRoute](../../expressroute/express
 
  ![연결 옵션 다이어그램][1]
 
-또한 가상 네트워크에서 직접 실행되지는 않지만 가상 네트워크와 통합된 서비스(예: App Service 웹앱 또는 함수)는 데이터베이스에 대한 프라이빗 연결을 달성할 수도 있습니다. 이 특정 사용 사례에 대한 자세한 내용은 [Azure SQL 데이터베이스에 대한 프라이빗 연결을 사용하는 웹앱](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) 아키텍처 시나리오를 참조하세요.
+또한 가상 네트워크에서 직접 실행되지는 않지만 가상 네트워크와 통합된 서비스(예: App Service 웹앱 또는 함수)는 데이터베이스에 대한 프라이빗 연결을 달성할 수도 있습니다. 이 특정 사용 사례에 대한 자세한 내용은 [Azure SQL 데이터베이스에 대한 프라이빗 연결을 사용하는 웹앱](/azure/architecture/example-scenario/private-web-app/private-web-app) 아키텍처 시나리오를 참조하세요.
 
 ## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>동일한 가상 네트워크의 Azure VM에서 SQL Database로의 연결 테스트
 
@@ -185,7 +185,7 @@ PolyBase 및 COPY 문은 일반적으로 Azure Storage 계정에서 Azure Synaps
 
 - Azure SQL Database 보안 개요는 [데이터베이스 보안 설정](security-overview.md)을 참조하세요.
 - Azure SQL Database 연결에 대한 개요는 [Azure SQL 연결 아키텍처](connectivity-architecture.md)를 참조하세요.
-- 가상 네트워크 외부의 웹 애플리케이션을 데이터베이스의 프라이빗 엔드포인트에 연결하는 [Azure SQL 데이터베이스에 대한 프라이빗 연결이 있는 웹앱](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) 아키텍처 시나리오에 관심이 있을 수도 있습니다.
+- 가상 네트워크 외부의 웹 애플리케이션을 데이터베이스의 프라이빗 엔드포인트에 연결하는 [Azure SQL 데이터베이스에 대한 프라이빗 연결이 있는 웹앱](/azure/architecture/example-scenario/private-web-app/private-web-app) 아키텍처 시나리오에 관심이 있을 수도 있습니다.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

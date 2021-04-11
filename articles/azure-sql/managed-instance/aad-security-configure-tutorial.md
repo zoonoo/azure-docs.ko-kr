@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92788624"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639849"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>자습서: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Managed Instance 보안
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ SQL Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
 
     ![새로 추가된 로그인의 이름, principal_id, sid, 유형 및 type_desc를 보여 주는 S S M S 개체 탐색기의 결과 탭 스크린샷](./media/aad-security-configure-tutorial/native-login.png)
 
-자세한 내용은 [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)를 참조하세요.
+자세한 내용은 [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true)를 참조하세요.
 
 ## <a name="grant-permissions-to-create-logins"></a>로그인을 만들 수 있는 권한 부여
 
@@ -182,7 +182,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     GO
     ```
 
-1. [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 관리되는 인스턴스에 데이터베이스를 만듭니다. 이 데이터베이스는 다음 섹션에서 사용자 로그인을 테스트하는 데 사용됩니다.
+1. [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 구문을 사용하여 관리되는 인스턴스에 데이터베이스를 만듭니다. 이 데이터베이스는 다음 섹션에서 사용자 로그인을 테스트하는 데 사용됩니다.
     1. **개체 탐색기** 에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리** 를 선택합니다.
     1. 쿼리 창에서 다음 구문을 사용하여 **MyMITestDB** 라는 데이터베이스를 만듭니다.
 
@@ -264,7 +264,7 @@ Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이
     > [!IMPORTANT]
     > Azure AD 서버 보안 주체(로그인)에서 **USER** 를 만들 때 **LOGIN** 에서 user_name을 동일한 login_name으로 지정합니다.
 
-    자세한 내용은 [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current)를 참조하세요.
+    자세한 내용은 [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true)를 참조하세요.
 
 1. 새 쿼리 창에서 다음 T-SQL 명령을 사용하여 테스트 테이블을 만듭니다.
 

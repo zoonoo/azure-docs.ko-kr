@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 11/12/2020
-ms.openlocfilehash: 89c2a725b853b5a2a7578dccc1fd503917e12962
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: 8e149270d8f98cbf72d3864d238a3d8ddfd61c67
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659627"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639549"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
@@ -42,23 +42,10 @@ ms.locfileid: "94659627"
 다음은 SQL 원본에서 데이터를 공유하기 위한 필수 구성 요소 목록입니다. 
 
 #### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)에서 공유하기 위한 필수 구성 요소
-[단계별 데모](https://youtu.be/hIE-TjJD8Dc)에 따라 필수 구성 요소를 구성할 수 있습니다.
 
 * 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)
 * SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
-* Data Share 리소스의 관리 ID가 데이터베이스에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
-    1. Azure Portal에서 SQL 서버로 이동하고 자신을 **Azure Active Directory 관리자** 로 설정합니다.
-    1. [쿼리 편집기](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) 또는 Azure Active Directory 인증을 사용하는 SQL Server Management Studio를 사용하여 Azure SQL Database/Data Warehouse에 연결합니다. 
-    1. 다음 스크립트를 실행하여 Data Share 리소스 관리 ID를 db_datareader로 추가합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
-    
-        ```sql
-        create user "<share_acct_name>" from external provider;     
-        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
-        ```                   
-       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. Data Share 리소스를 아직 만들지 않은 경우 나중에 이 필수 조건으로 다시 돌아올 수 있습니다.  
-
-* 공유하려는 테이블 및/또는 보기를 탐색하고 선택할 수 있는 **'db_datareader'** 가 포함된 Azure SQL Database 사용자입니다. 
-
+* SQL 서버의 **Azure Active Directory 관리자**
 * SQL Server Firewall 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 SQL 서버로 이동합니다. 왼쪽 탐색에서 *방화벽 및 가상 네트워크* 를 선택합니다.
     1. *Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭합니다.
@@ -90,7 +77,6 @@ ms.locfileid: "94659627"
 ### <a name="share-from-azure-data-explorer"></a>Azure Data Explorer에서 공유
 * 공유하려는 데이터베이스가 있는 Azure Data Explorer 클러스터.
 * Azure Data Explorer 클러스터에 쓸 수 있는 권한으로, *Microsoft.Kusto/clusters/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
-* Azure Data Explorer 클러스터에 역할 할당을 추가할 수 있는 권한으로, *Microsoft.Authorization/role assignments/write* 에 있습니다. 이 권한은 **소유자** 역할에 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -186,7 +172,7 @@ Azure CLI에 대한 환경을 준비하는 것으로 시작합니다.
 
     ![공유에 데이터 세트 추가](./media/datasets.png "데이터 세트")
 
-1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)에서 공유하는 경우 테이블에 나열할 SQL 자격 증명을 입력하라는 메시지가 표시됩니다.
+1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL DW)에서 공유하는 경우 테이블에 나열할 인증 메서드를 입력하라는 메시지가 표시됩니다. AAD 인증을 선택하고 **데이터 공유가 사용자를 대신하여 위의 '사용자 만들기' 스크립트를 실행하도록 허용** 확인란을 선택합니다. 
 
     ![AddDatasets](./media/add-datasets.png "데이터 세트 추가")    
 
