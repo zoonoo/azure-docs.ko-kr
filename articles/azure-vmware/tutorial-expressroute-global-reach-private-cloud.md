@@ -3,12 +3,12 @@ title: 자습서 - 온-프레미스 환경을 프라이빗 클라우드로 피�
 description: Azure VMware Solution의 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 59ddc2dd4aed850328807a4543d2fabd6f5a99f1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103494173"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105564503"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>자습서: 온-프레미스 환경을 프라이빗 클라우드로 피어링
 
@@ -37,7 +37,7 @@ ExpressRoute Global Reach를 사용하여 두 ExpressRoute 회로 간에 연결�
 >[!IMPORTANT]
 >이러한 필수 구성 요소와 관련하여 온-프레미스 ExpressRoute 회로는 _회로 1_ 이고, 프라이빗 클라우드 ExpressRoute 회로는 다른 구독에 있으며 _회로 2_ 라는 레이블이 지정됩니다.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>온-프레미스 회로에서 ExpressRoute 권한 부여 키 만들기
+## <a name="create-an-expressroute-authorization-key-in-the-private-cloud-expressroute-circuit"></a>프라이빗 클라우드 ExpressRoute 회로에서 ExpressRoute 인증 키 만들기
 
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
@@ -71,7 +71,7 @@ ExpressRoute Global Reach를 사용하여 두 ExpressRoute 회로 간에 연결�
 [CLI 명령](../expressroute/expressroute-howto-set-global-reach-cli.md)은 온-프레미스 환경 간에 Azure VMware Solution 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 구성하는 데 도움이 되는 세부 정보 및 예제가 추가되었습니다.
 
 >[!TIP]
->Azure CLI 명령 출력을 간소화하기 위해 이러한 지침에서 [`–query` 인수](https://docs.microsoft.com/cli/azure/query-azure-cli)를 사용하여 JMESPath 쿼리를 실행하여 필요한 결과만 표시할 수 있습니다.
+>Azure CLI 명령 출력을 간소화하기 위해 이러한 지침에서 [`–query` 인수](/cli/azure/query-azure-cli)를 사용하여 JMESPath 쿼리를 실행하여 필요한 결과만 표시할 수 있습니다.
 
 1. 온-프레미스 ExpressRoute 회로와 동일한 구독을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
