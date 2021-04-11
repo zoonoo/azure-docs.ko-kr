@@ -3,77 +3,70 @@
 - name: 개요
   expanded: true
   items:
-    - name: Anomaly Detector API란?
+    - name: Anomaly Detector란?
       href: overview.md
-- name: 빠른 시작
-  expanded: true
+    - name: 가격 책정 및 제한
+      href: 'https://aka.ms/adpricing'
+- name: Anomaly Detector 빠른 시작
+  href: ./quickstarts/client-libraries.md
+- name: 샘플
   items:
-    - name: 클라이언트 라이브러리
-      items:
-        - name: Anomaly Detector 클라이언트 라이브러리
-          href: ./quickstarts/client-libraries.md
-- name: 자습서
-  items:
-    - name: Power BI를 사용하여 일괄 처리로 변칙 시각화
-      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: 대화형 데모
+      href: 'https://aka.ms/adDemo'
+    - name: Jupyter 노트북
+      href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
+    - name: Azure 샘플
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=anomaly-detector'
 - name: 방법 가이드
   items:
     - name: 데이터에서 변칙 식별
       href: how-to/identify-anomalies.md
-    - name: IoT Edge에 배포
-      href: how-to/deploy-anomaly-detection-on-iot-edge.md
-    - name: 컨테이너 사용
+    - name: Anomaly Detector 배포
       items:
-        - name: 컨테이너 설치 및 실행
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
-          href: anomaly-detector-container-howto.md
-        - name: 컨테이너 구성
-          href: anomaly-detector-container-configuration.md
-          displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
-        - name: 컨테이너 인스턴스 사용
-          href: how-to/deploy-anomaly-detection-on-container-instances.md
-        - name: Cognitive Services 컨테이너 설명서
-          href: ../containers/index.yml
+        - name: IoT Edge에 배포
+          href: how-to/deploy-anomaly-detection-on-iot-edge.md
+        - name: 컨테이너
+          items:
+            - name: Cognitive Services 컨테이너 설명서
+              href: 'https://docs.microsoft.com/azure/cognitive-services/containers/'
+            - name: 컨테이너 설치 및 실행
+              displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+              href: anomaly-detector-container-howto.md
+            - name: 컨테이너 구성
+              href: anomaly-detector-container-configuration.md
+              displayName: 'docker, container, apikey, billing, log, mount, run, pull, port'
+            - name: 컨테이너 인스턴스 사용
+              href: how-to/deploy-anomaly-detection-on-container-instances.md
 - name: 개념
   items:
     - name: Anomaly Detector API 모범 사례
       href: concepts/anomaly-detection-best-practices.md
+    - name: SR(Spectral Residual) 및 CNN(Convolutional Neural Net) 변칙 검색
+      href: 'https://arxiv.org/abs/1906.03821'
+- name: 자습서
+  items:
+    - name: Power BI를 사용하여 일괄 처리로 변칙 시각화
+      href: tutorials/batch-anomaly-detection-powerbi.md
 - name: 참조
   items:
-    - name: REST API 참조
+    - name: Anomaly Detector REST API
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'
-    - name: SDK
-      items:
-        - name: .NET
-          href: 'https://aka.ms/anomaly-detector-dotnet-ref'
-        - name: Go
-          href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
-        - name: Python
-          href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
-        - name: Node.js
-          href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
-    - name: 기술 블로그
-      items:
-        - name: Azure Anomaly Detector API 소개
-          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
-        - name: SR-CNN 알고리즘 개요
-          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
-    - name: 데모
-      items:
-        - name: 대화형 데모
-          href: 'https://aka.ms/adDemo'
-        - name: Jupyter Notebook에서
-          href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'
-    - name: KDD 2019에서 발표한 SR-CNN 관련 논문
-      href: 'https://arxiv.org/abs/1906.03821'
+    - name: .NET
+      href: 'https://aka.ms/anomaly-detector-dotnet-ref'
+    - name: Go
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089915'
+    - name: Python
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090370'
+    - name: Node.js
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090788'
 - name: 리소스
   items:
-    - name: 지원 및 도움말 옵션
-      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
-    - name: 가격 책정
-      href: 'https://aka.ms/adpricing'
-    - name: 국가별 가용성
+    - name: 지역 지원
       href: 'https://aka.ms/adregion'
+    - name: 모듈 배우기
+      href: 'https://docs.microsoft.com/learn/modules/intro-to-anomaly-detector/'
+    - name: 지원 및 도움말
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: 사용자 생성 콘텐츠
       href: user-generated-content.md
     - name: Microsoft Teams Anomaly Detector Advisors 그룹에 참여
@@ -82,3 +75,11 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: 규정 준수
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Azure 업데이트
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: 기술 블로그
+      items:
+        - name: Azure Anomaly Detector API 소개
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'
+        - name: SR-CNN 알고리즘 개요
+          href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798'
