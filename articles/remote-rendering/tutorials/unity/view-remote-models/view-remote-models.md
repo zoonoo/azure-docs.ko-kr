@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3370aac242fb47a133a5f7d6dc9b3444c65e3691
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: d8784bc4744e2d4beb6a72fdc0df0fd0b32346f9
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573118"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605011"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>자습서: 원격으로 렌더링된 모델 보기
 
@@ -33,10 +33,7 @@ ms.locfileid: "103573118"
 * Windows SDK 10.0.18362.0[(다운로드)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * 최신 버전의 Visual Studio 2019[(다운로드)](https://visualstudio.microsoft.com/vs/older-downloads/)
 * GIT([다운로드](https://git-scm.com/downloads))
-* 최신 버전(2019.3)의 Unity - Unity Hub를 이 구성 요소에 사용하는 것이 좋음[(다운로드)](https://unity3d.com/get-unity/download)
-  * 다음 모듈을 Unity에 설치합니다.
-    * **UWP** - 유니버설 Windows 플랫폼 빌드 지원
-    * **IL2CPP** - Windows 빌드 지원(IL2CPP)
+* Unity(지원되는 버전은 [시스템 요구 사항](../../../overview/system-requirements.md#unity) 참조)
 * Unity 및 C# 언어에 대한 중급 수준의 지식(예: 스크립트 및 개체 만들기, prefab 사용, Unity 이벤트 구성 등)
 
 ## <a name="provision-an-azure-remote-rendering-arr-instance"></a>ARR(Azure Remote Rendering) 인스턴스 프로비저닝
@@ -428,8 +425,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     private async Task<bool> IsSessionAvailable(string sessionID)
     {
-        var allSessions = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
-        return allSessions.SessionProperties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+        bool sessionAvailable = false;
+        try
+        {
+            RenderingSessionPropertiesArrayResult result = await ARRSessionService.Client.GetCurrentRenderingSessionsAsync();
+            if (result.ErrorCode == Result.Success)
+            {
+                RenderingSessionProperties[] properties = result.SessionProperties;
+                if (properties != null)
+                {
+                    sessionAvailable = properties.Any(x => x.Id == sessionID && (x.Status == RenderingSessionStatus.Ready || x.Status == RenderingSessionStatus.Starting));
+                }
+            }
+            else
+            {
+                Debug.LogError($"Failed to get current rendering sessions. Error: {result.Context.ErrorMessage}");
+            }
+        }
+        catch (RRException ex)
+        {
+            Debug.LogError($"Failed to get current rendering sessions. Error: {ex.Message}");
+        }
+        return sessionAvailable;
     }
 
     /// <summary>
@@ -756,7 +773,7 @@ private void LateUpdate()
 1. [원격 엔터티](../../../concepts/entities.md)를 만듭니다.
 1. 원격 엔터티를 나타낼 로컬 GameObject를 만듭니다.
 1. 로컬 GameObject에서 해당 상태(즉, Transform(변환))를 모든 프레임의 원격 엔터티와 동기화하도록 구성합니다.
-1. 이름을 설정하고, 안정화를 지원하기 위해 [**WorldAnchor**](https://docs.unity3d.com/ScriptReference/XR.WSA.WorldAnchor.html)를 추가합니다.
+1. 이름을 설정하고, 안정화를 지원하기 위해 [**WorldAnchor**](https://docs.unity3d.com/550/Documentation/ScriptReference/VR.WSA.WorldAnchor.html)를 추가합니다.
 1. 모델 데이터를 Blob Storage에서 원격 엔터티로 로드합니다.
 1. 나중에 참조할 수 있도록 부모 Entity를 반환합니다.
 

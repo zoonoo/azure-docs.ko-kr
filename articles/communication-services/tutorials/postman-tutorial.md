@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492611"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044297"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>자습서: Postman을 사용하여 서명 및 요청
 이 자습서에서는 HTTP를 사용하여 ACS(Azure Communication Services) 서비스에 대해 요청하기 위해 Postman을 설정하고 사용합니다. 이 자습서를 완료하면 ACS 및 Postman을 사용하여 SMS 메시지를 성공적으로 보내고 Postman을 사용하여 ACS 내의 다른 API를 검색할 수 있습니다.
@@ -68,7 +68,7 @@ Postman은 여러 가지 방법으로 요청을 구성할 수 있습니다. 이 
 
 ### <a name="creating-a-pre-request-script"></a>사전 요청 스크립트 만들기
 
-다음 단계에서는 Postman 내에서 사전 요청 스크립트를 만듭니다. 사전 요청 스크립트는 Postman에서 각 요청 전에 실행되는 스크립트이며, 사용자를 대신하여 요청 매개 변수를 수정하거나 변경할 수 있습니다. 이를 통해 ACS의 서비스에서 권한을 부여할 수 있도록 HTTP 요청에 서명합니다. 서명 요구 사항에 대한 자세한 내용은 [인증 가이드를 참조](https://docs.microsoft.com/rest/api/communication/authentication)하세요.
+다음 단계에서는 Postman 내에서 사전 요청 스크립트를 만듭니다. 사전 요청 스크립트는 Postman에서 각 요청 전에 실행되는 스크립트이며, 사용자를 대신하여 요청 매개 변수를 수정하거나 변경할 수 있습니다. 이를 통해 ACS의 서비스에서 권한을 부여할 수 있도록 HTTP 요청에 서명합니다. 서명 요구 사항에 대한 자세한 내용은 [인증 가이드를 참조](/rest/api/communication/authentication)하세요.
 
 컬렉션 내의 모든 요청에서 실행되도록 이 스크립트를 컬렉션 내에 만듭니다. 이렇게 하려면 컬렉션 탭 내에서 "사전 요청 스크립트" 하위 탭을 클릭합니다.
 
@@ -186,7 +186,7 @@ pm.request.headers.upsert({
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Postman의 더하기 단추":::
 
-그러면 Postman 내에서 요청에 대한 새 탭이 만들어집니다. 새 탭이 만들어지면 이를 구성해야 합니다. SMS 보내기 API에 대한 요청을 수행하므로 [도움이 필요하면 이 API의 설명서](https://docs.microsoft.com/rest/api/communication/sms/send)를 참조하세요. Postman의 요청을 구성해 보겠습니다.
+그러면 Postman 내에서 요청에 대한 새 탭이 만들어집니다. 새 탭이 만들어지면 이를 구성해야 합니다. SMS 보내기 API에 대한 요청을 수행하므로 [도움이 필요하면 이 API의 설명서](/rest/api/communication/sms/send)를 참조하세요. Postman의 요청을 구성해 보겠습니다.
 
 먼저 요청 형식을 `POST`로 설정하고, 요청 URL 필드에서 `{{endpoint}}/sms?api-version=2021-03-07`을 입력합니다. 이 URL은 이전에 만든 `endpoint` 변수를 사용하여 ACS 리소스에 자동으로 보냅니다.
 
@@ -238,8 +238,8 @@ pm.request.headers.upsert({
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [ACS API 살펴보기](https://docs.microsoft.com/rest/api/communication/)
-> [인증에 대해 자세히 알아보기](https://docs.microsoft.com/rest/api/communication/authentication)
+> [ACS API 살펴보기](/rest/api/communication/)
+> [인증에 대해 자세히 알아보기](/rest/api/communication/authentication)
 > [Postman에 대해 자세히 알아보기](https://learning.postman.com/)
 
 다음을 수행할 수도 있습니다.

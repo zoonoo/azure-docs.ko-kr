@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b4701260a7d8da030f9f3019060aaa83e7a3a483
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98052812"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803373"
 ---
 | 리소스 | Basic | Standard | Premium |
 |---|---|---|---|
@@ -30,6 +30,7 @@ ms.locfileid: "98052812"
 | 콘텐츠 신뢰 | 해당 없음 | 해당 없음 | [지원됨][content-trust] |
 | 프라이빗 엔드포인트가 있는 프라이빗 링크 | 해당 없음 | 해당 없음 | [지원됨][plink] |
 | &bull; 프라이빗 엔드포인트 | 해당 없음 | 해당 없음 | 10 |
+| 공용 IP 네트워크 규칙 | 해당 없음 | 해당 없음 | 100 |
 | 서비스 엔드포인트 VNet 액세스 | 해당 없음 | 해당 없음 | [미리 보기][vnet] |
 | 고객 관리형 키 | 해당 없음 | 해당 없음 | [지원됨][cmk] |
 | 리포지토리 범위 권한 | 해당 없음 | 해당 없음 | [미리 보기][token]|

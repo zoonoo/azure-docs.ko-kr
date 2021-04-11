@@ -1,18 +1,18 @@
 ---
 title: Azure Percept 개요
 description: Azure Percept 플랫폼에 대한 자세한 정보
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953599"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567664"
 ---
 # <a name="introduction-to-azure-percept"></a>Azure Percept 소개
 
@@ -28,21 +28,21 @@ Azure Percept는 Edge에서 IoT 및 AI를 사용하여 비즈니스 전환을 �
 
 Azure Percept의 주요 구성 요소는 다음과 같습니다.
 
-1. [Azure Percept DK.](./overview-azure-percept-dk.md)
+- [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - 디바이스 빌더, 솔루션 빌더 및 고객을 위한 다양한 프로토타입 시나리오를 지원하기에 충분한 유연성을 제공하는 개발 키트입니다.
 
         > [!div class="nextstepaction"]
         > [지금 구입](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. 에지 AI 모델 및 솔루션 개발을 가속화하는 서비스 및 워크플로.
+- 에지 AI 모델 및 솔루션 개발을 가속화하는 서비스 및 워크플로.
 
     - [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)에서 액세스할 수 있는 개발 워크플로 및 미리 빌드된 모델입니다.
     - 모델 개발 서비스.
     - 규모에 맞는 디바이스 관리 서비스입니다.
     - 엔드투엔드 보안.
 
-1. AI 하드웨어 참조 디자인 및 인증 프로그램.
+- AI 하드웨어 참조 디자인 및 인증 프로그램.
 
     - Azure AI 및 IoT 서비스와 쉽게 통합할 수 있는 Edge AI 하드웨어 개발을 위한 패턴 및 모범 사례를 하드웨어 개발자 에코시스템에 제공합니다.
 

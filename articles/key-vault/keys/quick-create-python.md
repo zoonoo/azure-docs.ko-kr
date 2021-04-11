@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 7d1e4018382d26e4df289838ffbb03f1c87505e6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b2c69b4358b99bfd4fff2a3434ff8fe956a2a1f5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935022"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801165"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 키 클라이언트 라이브러리
 
@@ -24,14 +24,14 @@ Python용 Azure Key Vault 클라이언트 라이브러리를 시작합니다. �
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Python 2.7+ 또는 3.5.3+](/azure/developer/python/configure-local-development-environment)
+- [Python 2.7 이상 또는 3.6 이상](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 이 빠른 시작에서는 Linux 터미널 창에서 [Azure CLI](/cli/azure/install-azure-cli)를 실행하고 있다고 가정합니다.
 
 ## <a name="set-up-your-local-environment"></a>로컬 환경 설정
 
-이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/java/api/overview/azure/identity-readme)을 참조하세요.
+이 빠른 시작에서는 Azure CLI와 함께 Azure ID 라이브러리를 사용하여 사용자를 Azure Services에 인증합니다. 개발자는 Visual Studio 또는 Visual Studio Code를 사용하여 해당 호출을 인증할 수도 있습니다. 자세한 내용은 [Azure ID 클라이언트 라이브러리를 사용하여 클라이언트 인증](/python/api/overview/azure/identity-readme)을 참조하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
