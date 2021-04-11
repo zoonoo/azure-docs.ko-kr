@@ -5,18 +5,18 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: ff83b488a6e3193eee8cb12af7de0a60b42e4c75
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: f461778f988fafeacc480e100b00be7d4c165dfb
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771399"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105612520"
 ---
 # <a name="tutorial-discover-servers-running-on-hyper-v-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate: 검색 및 평가를 사용하여 Hyper-V에서 실행되는 서버 검색
 
-Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 인벤토리 및 워크로드를 검색합니다. 
+Azure로 마이그레이션하는 과정의 일환으로 온-프레미스 인벤토리 및 워크로드를 검색합니다.
 
 이 자습서에서는 간단한 Azure Migrate 어플라이언스를 사용하여 Azure Migrate: 검색 및 평가 도구를 통해 Hyper-V 호스트에서 온-프레미스 서버를 검색하는 방법을 보여 줍니다. 어플라이언스를 Hyper-V의 서버로 배포하여 컴퓨터 및 성능 메타데이터를 지속적으로 검색합니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 --- | ---
 **Hyper-V 호스트** | 서버가 있는 Hyper-V 호스트는 독립 실행형이거나 클러스터에 있을 수 있습니다.<br/><br/> 호스트에서 Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2가 실행되고 있어야 합니다.<br/><br/> 어플라이언스에서 CIM(Common Information Model) 세션을 사용하여 서버 메타데이터 및 성능 데이터를 가져오기 위해 연결할 수 있도록 5985 WinRM 포트(HTTP)에서 인바운드 연결이 허용되는지 확인합니다.
 **어플라이언스 배포** | Hyper-V 호스트에는 서버를 어플라이언스에 할당하는 리소스가 필요합니다.<br/><br/> - 16GB RAM, 8개 vCPU 및 약 80GB 디스크 스토리지.<br/><br/> - 외부 가상 스위치 및 어플라이언스에서 직접 또는 프록시를 통한 인터넷 액세스
-**서버** | 서버는 모든 Windows 또는 Linux 운영 체제를 실행할 수 있습니다. 
+**서버** | 서버는 모든 Windows 또는 Linux 운영 체제를 실행할 수 있습니다.
 
 ## <a name="prepare-an-azure-user-account"></a>Azure 사용자 계정 준비
 
@@ -56,7 +56,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
 
     ![Azure 구독을 검색하는 검색 상자](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. **구독** 페이지에서 프로젝트를 만들려는 구독을 선택합니다. 
+2. **구독** 페이지에서 프로젝트를 만들 구독을 선택합니다.
 3. 구독에서 **액세스 제어(IAM)**  > **액세스 확인** 을 선택합니다.
 4. **액세스 확인** 에서 관련 사용자 계정을 검색합니다.
 5. **역할 할당 추가** 에서 **추가** 를 클릭합니다.
@@ -101,7 +101,7 @@ Hyper-V 통합 서비스 설정 | 호스트에서 관리하는 모든 서버에�
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. 스크립트 무결성의 유효성이 검사되면 다음 PowerShell 명령을 사용하여 각 Hyper-V 호스트에서 스크립트를 실행합니다.
+3. 스크립트 무결성의 유효성이 검사되면 상승된 권한으로 다음 PowerShell 명령을 사용하여 각 Hyper-V 호스트에서 스크립트를 실행합니다.
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
@@ -176,7 +176,7 @@ Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용합니다. 이
 
         **시나리오** | **다운로드** | **SHA256**
         --- | --- | ---
-        Hyper-V(8.91GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V(8.91GB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
 
     - Azure Government의 경우:
 
@@ -224,7 +224,7 @@ Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용합니다. 이
       - HTTP 프록시만 지원됩니다.
       - 프록시 세부 정보를 추가하거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장** 을 클릭하여 연결 확인을 다시 트리거합니다.
     - **시간 동기화**: 시간이 확인됩니다. 서버 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure Migrate: 검색 및 평가에서 최신 업데이트가 어플라이언스에 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스에서 실행되는 구성 요소의 상태와 버전을 확인할 수 있습니다.
+    - **업데이트 설치**: Azure Migrate: 검색 및 평가에서 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기** 를 클릭하여 어플라이언스에서 실행되는 구성 요소의 상태와 버전을 확인할 수 있습니다.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
@@ -234,7 +234,7 @@ Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용합니다. 이
     ![디바이스 코드를 보여주는 모달](./media/tutorial-discover-vmware/device-code.png)
 
 1. **코드 복사 및 로그인** 을 클릭하여 디바이스 코드를 복사하고 새 브라우저 탭에서 Azure 로그인 프롬프트를 엽니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-1. 새 탭에서 디바이스 코드를 붙여넣고, Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+1. 새 탭에서 디바이스 코드를 붙여넣고 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
    
    PIN을 사용한 로그인은 지원되지 않습니다.
 3. 로그인 탭을 실수로 로그인하지 않고 닫은 경우에는 어플라이언스 구성 관리자의 브라우저 탭을 새로 고쳐 로그인 단추를 다시 사용하도록 설정해야 합니다.
@@ -293,5 +293,3 @@ SMB에서 VHD를 실행하는 경우 자격 증명을 어플라이언스에서 H
 
 - Azure VM으로 마이그레이션하기 위해 [Hyper-V 환경의 서버를 평가](tutorial-assess-hyper-v.md)합니다.
 - 검색 중에 어플라이언스에서 수집하는 [데이터를 검토](migrate-appliance.md#collected-data---hyper-v)합니다.
-
-

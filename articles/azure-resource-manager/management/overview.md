@@ -2,14 +2,14 @@
 title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
-ms.date: 09/01/2020
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: fad49db94195bbd2f9e5e32f8596f33fab586752
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.custom: contperf-fy21q1,contperf-fy21q3-portal
+ms.openlocfilehash: 6cd9aa82ad2f8a821ae82a361b3f11b72ca25f7a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97858521"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105608547"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -91,7 +91,7 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
 * 리소스 그룹을 삭제하면 리소스 그룹의 모든 리소스도 삭제됩니다. Azure Resource Manager가 이러한 삭제를 오케스트레이션하는 방법에 대한 자세한 내용은 [Azure Resource Manager 리소스 그룹 및 리소스 삭제](delete-resource-group.md)를 참조하세요.
 
-* 각 리소스 그룹에 리소스 종류의 인스턴스를 최대 800개까지 배포할 수 있습니다. 일부 리소스 종류는 [800개 인스턴스 제한에서 제외](resources-without-resource-group-limit.md)됩니다.
+* 각 리소스 그룹에 리소스 종류의 인스턴스를 최대 800개까지 배포할 수 있습니다. 일부 리소스 종류는 [800개 인스턴스 제한에서 제외](resources-without-resource-group-limit.md)됩니다. 자세한 내용은 [리소스 그룹 제한](azure-subscription-service-limits.md#resource-group-limits)을 참조하세요.
 
 * 일부 리소스는 리소스 그룹 외부에 존재할 수 있습니다. 이러한 리소스는 [구독](../templates/deploy-to-subscription.md), [관리 그룹](../templates/deploy-to-management-group.md) 또는 [테넌트](../templates/deploy-to-tenant.md)에 배포됩니다. 이러한 범위에서는 특정 리소스 유형만 지원됩니다.
 
@@ -112,6 +112,8 @@ Azure Resource Manager 서비스는 복원력 및 지속적인 가용성을 위�
 이 복원력은 Resource Manager를 통해 요청을 수신하는 서비스에 적용됩니다. 예를 들어 Key Vault는 이 복원력의 이점을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+* Azure 서비스에 적용되는 제한에 대해 알아보려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조하세요.
 
 * 리소스 이동에 대해 알아보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](move-resource-group-and-subscription.md)을 참조하세요.
 

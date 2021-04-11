@@ -12,7 +12,7 @@ ms.service: media-services ms.workload: ms.topic: tutorial ms.custom: mvc ms.dat
 > [!NOTE]
 > 이 자습서에서 [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent) 예제를 사용하지만, 일반적인 단계는 [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event) 또는 지원되는 기타 [SDK](media-services-apis-overview.md#sdks)와 동일합니다.
 
-Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생되는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩에 대한 도움말은 [인코딩 개념](encoding-concept.md)을 참조하세요. 이 자습서는 로컬 비디오 파일을 업로드하고 업로드된 파일을 인코딩합니다. 콘텐츠를 인코딩하고 HTTPS URL을 통해 액세스할 수 있게 만들 수도 있습니다. 자세한 내용은 [HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md)를 참조하세요.
+Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생되는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩에 대한 도움말은 [인코딩 개념](encode-concept.md)을 참조하세요. 이 자습서는 로컬 비디오 파일을 업로드하고 업로드된 파일을 인코딩합니다. 콘텐츠를 인코딩하고 HTTPS URL을 통해 액세스할 수 있게 만들 수도 있습니다. 자세한 내용은 [HTTP URL에서 작업 입력 만들기](job-input-from-http-how-to.md)를 참조하세요.
 
 ![Azure Media Player로 비디오 재생](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -30,7 +30,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)를 가져올 수 있습니다.
-- [Media Services 계정 만들기](./create-account-howto.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+- [Media Services 계정 만들기](./account-create-how-to.md)<br/>리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
 - [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
 
 ## <a name="download-and-set-up-the-sample"></a>샘플 다운로드 및 설정
@@ -93,9 +93,9 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 #### <a name="transform"></a>변환
 
-새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 **TransformOutput** 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](autogen-bitrate-ladder.md)를 참조하세요.
+새로운 [Transform](/rest/api/media/transforms) 인스턴스를 만드는 경우 이 인스턴스를 통해 출력하려는 것이 무엇인지 지정해야 합니다. 필수 매개 변수는 아래 코드와 같이 **TransformOutput** 개체입니다. 각 **TransformOutput** 에는 **Preset** 이 포함됩니다. **Preset** 은 원하는 **TransformOutput** 을 생성하는 데 사용되는 비디오 및/또는 오디오 처리 작업에 대한 단계별 지침을 설명합니다. 이 자습서에서 설명하는 샘플은 **AdaptiveStreaming** 이라는 기본 제공 Preset을 사용합니다. Preset은 입력 해상도 및 비트 전송률을 기반으로 자동 생성된 비트 전송률 사다리(비트 전송률-해상도 쌍)에 입력 비디오를 인코딩하고 각 비트 전송률-해상도 쌍에 해당하는 H.264 비디오 및 AAC 오디오가 포함된 ISO MP4 파일을 생성합니다. 이 Preset에 대한 정보는 [자동 생성된 비트 전송률 사다리](encode-autogen-bitrate-ladder.md)를 참조하세요.
 
-기본 제공 EncoderNamedPreset을 사용하거나 사용자 지정 사전 설정을 사용할 수 있습니다. 자세한 내용은 [인코더 사전 설정을 사용자 지정하는 방법](customize-encoder-presets-how-to.md)을 참조하세요.
+기본 제공 EncoderNamedPreset을 사용하거나 사용자 지정 사전 설정을 사용할 수 있습니다. 자세한 내용은 [인코더 사전 설정을 사용자 지정하는 방법](encode-custom-presets-how-to.md)을 참조하세요.
 
 [Transform](/rest/api/media/transforms)을 만드는 경우 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인해야 합니다. 아래 코드를 참조하세요. Media Services v3의 경우, 엔터티가 존재하지 않으면 엔터티에 대한 **Get** 메서드는 **null** 을 반환합니다(이름의 대/소문자를 구분하지 않음).
 
@@ -200,4 +200,4 @@ Azure Media Services v3 SDK는 스레드로부터 안전하지 않습니다. 다
 비디오를 업로드, 인코딩 및 스트리밍하는 방법을 알아보았으니 이제 다음 문서를 참조하십시오. 
 
 > [!div class="nextstepaction"]
-> [비디오 분석](analyze-videos-tutorial-with-api.md)
+> [비디오 분석](analyze-videos-tutorial.md)

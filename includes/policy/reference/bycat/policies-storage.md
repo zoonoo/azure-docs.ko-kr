@@ -2,22 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 25b41546ceaebaa99c266ac6604a3caf69141604
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 80000f16e4e6b0b50f530ec541b896e1ba59f85b
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105033451"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106091207"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure 파일 동기화는 프라이빗 링크를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d320205-c6a1-4ac6-873d-46224024e8e2) |표시된 Storage Sync Service 리소스의 프라이빗 엔드포인트를 만들면 인터넷에서 액세스할 수 있는 퍼블릭 엔드포인트를 사용하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스를 처리할 수 있습니다. 프라이빗 엔드포인트를 자체적으로 만든다고 해서 퍼블릭 엔드포인트가 비활성화되지 않습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_AuditIfNotExists.json) |
 |[프라이빗 DNS 영역을 사용하도록 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06695360-db88-47f6-b976-7500d4297475) |등록된 서버에서 Storage Sync Service 리소스 인터페이스의 프라이빗 엔드포인트에 액세스하려면 프라이빗 엔드포인트의 개인 IP 주소에 대한 올바른 이름을 확인하도록 DNS를 구성해야 합니다. 이 정책은 Storage Sync Service 프라이빗 엔드포인트의 인터페이스에 대한 필수 Azure 프라이빗 DNS 영역 및 A 레코드를 만듭니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateDNSZone_DeployIfNotExists.json) |
 |[프라이빗 엔드포인트를 사용하여 Azure 파일 동기화 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb35dddd9-daf7-423b-8375-5a5b86806d5a) |표시된 Storage Sync Service 리소스에 대해 프라이빗 엔드포인트가 배포됩니다. 이렇게 하면 인터넷에 액세스할 수 있는 퍼블릭 엔드포인트를 통하지 않고 조직 네트워크의 개인 IP 주소 공간 내에서 Storage Sync Service 리소스 주소를 지정할 수 있습니다. 하나 이상의 프라이빗 엔드포인트가 자체적으로 있다고 하더라도 퍼블릭 엔드포인트가 비활성화되지는 않습니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageSync_PrivateEndpoint_DeployIfNotExists.json) |
-|[스토리지 계정의 진단 설정을 Log Analytics 작업 영역으로 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6f8f98a4-f108-47cb-8e98-91a0d85cd474) |스토리지 계정의 진단 설정을 배포하여 해당 진단 설정이 없는 스토리지 계정이 생성되거나 업데이트될 때 리소스 로그를 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/DataConnectorsStorageAccounts%20_PolicyAssignment.json) |
+|[스토리지 계정의 진단 설정을 Log Analytics 작업 영역으로 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6f8f98a4-f108-47cb-8e98-91a0d85cd474) |스토리지 계정의 진단 설정을 배포하여 해당 진단 설정이 없는 스토리지 계정이 생성되거나 업데이트될 때 리소스 로그를 Log Analytics 작업 영역으로 스트리밍합니다. |DeployIfNotExists, 사용 안 함 |[1.3.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/DataConnectorsStorageAccounts%20_PolicyAssignment.json) |
 |[프라이빗 링크 연결을 사용하도록 스토리지 계정 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9f766f00-8d11-464e-80e1-4091d7874074) |프라이빗 엔드포인트는 원본 또는 대상에서 공용 IP 주소 없이 Azure 서비스에 가상 네트워크를 연결합니다. 프라이빗 엔드포인트를 스토리지 계정에 매핑하면 데이터 유출 위험을 줄일 수 있습니다. [https://aka.ms/azureprivatelinkoverview](https://aka.ms/azureprivatelinkoverview)에서 프라이빗 링크에 대해 자세히 알아보세요. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccountPrivateEndpointEnabled_DeployIfNotExists.json) |
 |[스토리지 계정에 Advanced Threat Protection 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F361c2074-3595-4e5d-8cab-4f21dffc835c) |이 정책은 스토리지 계정에서 Advanced Threat Protection을 사용하도록 설정합니다. |DeployIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAdvancedThreatProtection_Deploy.json) |
 |[스토리지 계정에 대해 지역 중복 스토리지를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf045164-79ba-4215-8f95-f8048dc1780b) |지역 중복을 사용하여 고가용성 애플리케이션 만들기 |감사, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/GeoRedundant_StorageAccounts_Audit.json) |

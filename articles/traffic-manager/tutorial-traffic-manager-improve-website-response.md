@@ -3,7 +3,6 @@ title: 자습서 - Traffic Manager를 사용하여 웹 사이트 응답 향상
 description: 이 자습서에서는 Traffic Manager 프로필을 만들어서 응답 속도가 빠른 웹 사이트를 구축하는 방법을 설명합니다.
 services: traffic-manager
 author: duongau
-Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e95a1c5c2ab0803ba628e44275c4805f325ae3f0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96003823"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106067251"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선
 

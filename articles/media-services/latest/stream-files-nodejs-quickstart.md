@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212759"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109189"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Node.JS를 사용하여 비디오 파일을 인코딩하고 스트림하는 방법
 
@@ -58,7 +58,7 @@ ms.locfileid: "102212759"
 
 샘플은 다음 작업을 수행합니다.
 
-1. [콘텐츠 인식 인코딩 사전 설정](./content-aware-encoding.md)을 사용하여 **변환** 을 만듭니다. 먼저 지정된 변환이 있는지 확인합니다.
+1. [콘텐츠 인식 인코딩 사전 설정](./encode-content-aware-concept.md)을 사용하여 **변환** 을 만듭니다. 먼저 지정된 변환이 있는지 확인합니다.
 1. 인코딩 **작업** 에서 출력을 포함하는 데 사용되는 출력 **자산** 을 만듭니다.
 1. 필요에 따라 Storage Blob SDK를 사용하여 로컬 파일을 업로드합니다.
 1. HTTPS URL 또는 업로드된 파일을 기반으로 하는 **작업** 입력을 만듭니다.
@@ -71,7 +71,7 @@ ms.locfileid: "102212759"
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-1. 애플리케이션에서 인코딩된 파일을 다운로드합니다. 출력 파일을 저장할 폴더를 만들고, [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59) 파일에서 **outputFolder** 변수의 값을 업데이트합니다. 기본적으로 "Temp"로 설정됩니다.
+1. 애플리케이션에서 인코딩된 파일을 다운로드합니다. 출력 파일을 저장할 폴더를 만들고, [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59) 파일에서 **outputFolder** 변수의 값을 업데이트합니다. 기본적으로 "Temp"로 설정됩니다.
 1. **명령 프롬프트** 를 열고, 샘플의 디렉터리로 이동합니다.
 1. 디렉터리를 AMSv3Samples 폴더로 변경합니다.
 

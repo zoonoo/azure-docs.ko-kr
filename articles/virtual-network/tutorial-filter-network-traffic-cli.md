@@ -7,7 +7,6 @@ author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -17,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d2cabecfb2a70e6d325129335c066bb35aeb02ba
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 57657637afd9e3e527942fb262a085fa4b8b053e
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98221901"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066598"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -229,7 +228,7 @@ sudo apt-get -y install nginx
 curl myVmWeb
 ```
 
-*myVmMgmt* VM에서 로그아웃합니다. Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 자신의 컴퓨터에서 `curl <publicIpAddress>`를 입력합니다. 포트 80은 인터넷에서 *Myvmweb* VM에 연결 된 네트워크 인터페이스가 있는 *Myasgwebservers* 응용 프로그램 보안 그룹으로 들어오는 인바운드를 허용 하기 때문에 연결에 성공 합니다.
+*myVmMgmt* VM에서 로그아웃합니다. Azure 외부에서 *myVmWeb* 웹 서버에 액세스할 수 있는지 확인하기 위해 자신의 컴퓨터에서 `curl <publicIpAddress>`를 입력합니다. 포트 80은 *myVmWeb* VM에 연결된 네트워크 인터페이스가 In인 *myAsgWebServers* 애플리케이션 보안 그룹으로 가는 인터넷의 인바운드 트래픽을 허용하기 때문에 연결에 성공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

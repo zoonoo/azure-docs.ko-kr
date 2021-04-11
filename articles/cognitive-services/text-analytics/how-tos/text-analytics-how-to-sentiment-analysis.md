@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/09/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: e9d8e7b514dca7d4930ad33bf08d4ceb07fb860d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599145"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276997"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
-Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색하는 두 가지 방법을 제공합니다. 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다. 텍스트의 단어와 관련된 의견에 대한 세부 정보(예: 제품 또는 서비스의 특성)를 제공하는 감정 분석 엔드포인트를 사용하여 오피니언 마이닝 요청을 보낼 수도 있습니다. 
+Text Analytics API의 감정 분석 기능은 긍정 및 부정 감정을 검색하는 두 가지 방법을 제공합니다. 감정 분석 요청을 보내면 API가 감정 레이블(예: "부정적", "중립적" 및 "긍정적")과 문장 및 문서 수준의 신뢰도 점수를 반환합니다. 텍스트의 단어와 관련된 의견에 대한 세부 정보(예: 제품 또는 서비스의 특성)를 제공하는 감정 분석 엔드포인트를 사용하여 오피니언 마이닝 요청을 보낼 수도 있습니다.
 
 API에서 사용하는 AI 모델은 서비스를 통해 제공되며, 분석 용도로만 콘텐츠를 전송해야 합니다.
 
@@ -151,7 +151,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 감정 분석 v3.1은 감정 분석과 오피니언 마이닝에 대한 응답 개체를 반환할 수 있습니다.
   
-감정 분석은 전체 문서와 그 안에 포함된 각 문장의 감정 레이블과 신뢰도 점수를 반환합니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 문서에는 여러 문장이 있을 수 있으며, 각 문서 또는 문장 내 신뢰도 점수의 합계는 1입니다. assessments 
+감정 분석은 전체 문서와 그 안에 포함된 각 문장의 감정 레이블과 신뢰도 점수를 반환합니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 문서에는 여러 문장이 있을 수 있으며, 각 문서 또는 문장 내 신뢰도 점수의 합계는 1입니다.
 
 오피니언 마이닝은 텍스트에서 대상(명사 또는 동사)과 관련 평가(형용사)를 찾습니다. 아래 응답에서 *식당의 음식은 훌륭했고 웨이터도 친절했어요* 라는 문장에는 *음식* 및 *웨이터* 라는 두 가지 대상이 있습니다. 각 대상의 `relations` 속성에는 연결된 `documents`, `sentences` 및 `assessments` 개체에 대한 URI 참조가 있는 `ref` 값이 포함되어 있습니다.
 
