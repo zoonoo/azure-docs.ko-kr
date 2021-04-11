@@ -4,12 +4,12 @@ description: 이 자습서에서는 소스 코드를 Git 리포지토리에 커�
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: be5c8c4012267dc7ce6362502c806a9f238732b7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 71440a8bd18029c913a61633fc3e1941338040b0
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821226"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066435"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 다단계 컨테이너 워크플로 실행
 

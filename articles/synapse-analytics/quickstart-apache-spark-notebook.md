@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
 ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669487"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 서버리스 Apache Spark 풀 만들기
@@ -25,7 +25,7 @@ ms.locfileid: "101669487"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse Analytics 작업 영역](quickstart-create-workspace.md)
@@ -82,9 +82,9 @@ Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 환경입
 
     스토리지 탐색기를 사용하는 경우 위에서 사용한 파일을 작성하는 서로 다른 두 가지 방법의 영향을 확인할 수 있습니다. 파일 시스템이 지정되지 않으면 기본값(이 경우 `default>user>trusted-service-user>demo_df`)이 사용됩니다. 데이터가 지정된 파일 시스템의 위치에 저장됩니다.
 
-    "csv" 및 "parquet" 형식 모두에서 분할된 여러 파일이 있는 디렉터리를 만드는 작업을 작성합니다.
+    "csv&quot; 및 &quot;parquet&quot; 형식 모두에서 분할된 여러 파일이 있는 디렉터리를 만드는 작업을 작성합니다.
 
-    ![출력의 스토리지 탐색기 보기](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "출력의 스토리지 탐색기 보기")
+    ![출력의 스토리지 탐색기 보기](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png &quot;출력의 스토리지 탐색기 보기")
 
     ![기본값 > demodata > demo_df 경로를 강조 표시하는 스크린샷.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "출력의 스토리지 탐색기 보기")
 

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 11/17/2020
 ms.openlocfilehash: 88a081f1ebbda52653302384c06403e223128c60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101668387"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Search 배포

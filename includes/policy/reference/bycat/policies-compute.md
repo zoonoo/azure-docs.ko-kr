@@ -2,22 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: bfb985dc005c4c56a4cbbb67f5d52a755448e202
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f894058e3465f5a73494107c0758f9165b3c3fd
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605453"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105033276"
 ---
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[허용된 가상 머신 크기 SKU](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |이 정책을 통해 조직에서 배포할 수 있는 가상 머신 크기 SKU 세트를 지정할 수 있습니다. |거부 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json) |
 |[재해 복구가 구성되어 있지 않은 가상 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |재해 복구가 구성되지 않은 가상 머신을 감사합니다. 재해 복구에 대한 자세한 내용은 [https://aka.ms/asr-doc](https://aka.ms/asr-doc)를 참조하세요. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[관리 디스크를 사용하지 않는 VM 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |이 정책은 관리 디스크를 사용하지 않는 VM을 감사합니다. |감사 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |
-|[복제를 사용하도록 설정하여 가상 머신에서 재해 복구 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |재해 복구 구성이 없는 가상 머신은 중단 및 기타 중단에 취약합니다. 가상 머신에 재해 복구가 아직 구성되지 않은 경우에는 미리 설정된 구성을 사용하여 복제를 사용하도록 설정해 비즈니스 연속성을 촉진함으로써 동일한 작업을 시작합니다. 재해 복구에 대한 자세한 내용은 [https://aka.ms/asr-doc](https://aka.ms/asr-doc)를 참조하세요. |DeployIfNotExists, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
+|[복제를 사용하도록 설정하여 가상 머신에서 재해 복구 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |재해 복구 구성이 없는 가상 머신은 중단 및 기타 중단에 취약합니다. 가상 머신에 재해 복구가 아직 구성되지 않은 경우에는 미리 설정된 구성을 사용하여 복제를 사용하도록 설정해 비즈니스 연속성을 촉진함으로써 동일한 작업을 시작합니다. 재해 복구에 대한 자세한 내용은 [https://aka.ms/asr-doc](https://aka.ms/asr-doc)를 참조하세요. |DeployIfNotExists, 사용 안 함 |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
 |[Windows Server용 기본 Microsoft IaaSAntimalware 확장 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |이 정책은 VM이 맬웨어 방지 프로그램 확장으로 구성되지 않은 경우 기본 구성으로 Microsoft IaaSAntimalware 확장을 배포합니다. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json) |
 |[관리 디스크는 플랫폼 관리형 및 고객 관리형 키를 둘 다 사용하여 이중 암호화해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fca91455f-eace-4f96-be59-e6e2c35b4816) |특정 암호화 알고리즘, 구현 또는 손상되는 키와 연결된 위험에 관해 우려하는 높은 수준의 보안을 중요시하는 고객은 플랫폼 관리형 암호화 키를 사용하는 인프라 계층에서 다른 암호화 알고리즘/모드를 사용하는 추가적인 암호화 계층을 선택할 수 있습니다. 이중 암호화를 사용하려면 디스크 암호화 집합이 필요합니다. [https://aka.ms/disks-doubleEncryption](https://aka.ms/disks-doubleEncryption)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/DoubleEncryptionRequired_Deny.json) |
 |[관리 디스크는 고객 관리형 키 암호화에 대해 디스크 암호화 집합의 특정 세트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd461a302-a187-421a-89ac-84acdb4edc04) |특정 디스크 암호화 집합 세트를 관리 디스크와 함께 사용하도록 설정하면 미사용 암호화에 사용되는 키를 제어할 수 있습니다. 허용되는 암호화된 집합을 선택할 수 있으며 다른 모든 항목은 디스크에 연결될 때 거부됩니다. [https://aka.ms/disks-cmk](https://aka.ms/disks-cmk)에서 자세히 알아보세요. |감사, 거부, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ManagedDiskEncryptionSetsAllowed_Deny.json) |
