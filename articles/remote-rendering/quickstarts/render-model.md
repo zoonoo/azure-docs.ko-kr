@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5b3e9c944aece3b3e22ee7a5a6144751725ddf67
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3f565f456dde1d802a82faffb4a23f7a6e54d950
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729966"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031548"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 
@@ -25,7 +25,7 @@ ARR API 자체 또는 새 Unity 프로젝트를 설정하는 방법은 자세히
 >* Unity용 ARR 빠른 시작 샘플 앱을 가져와서 빌드
 >* ARR 빠른 시작 샘플 앱에서 모델 렌더링
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들어야 합니다](../how-tos/create-an-account.md).
 
@@ -37,10 +37,7 @@ Azure Remote Rendering 서비스에 액세스하려면 먼저 [계정을 만들�
   * **C++를 사용한 데스크톱 개발**
   * **UWP(유니버설 Windows 플랫폼) 개발**
 * GIT([다운로드](https://git-scm.com/downloads))
-* Unity 2019.3.1[(다운로드)](https://unity3d.com/get-unity/download)
-  * 다음 모듈을 Unity에 설치합니다.
-    * **UWP** - 유니버설 Windows 플랫폼 빌드 지원
-    * **IL2CPP** - Windows 빌드 지원(IL2CPP)
+* Unity(지원되는 버전은 [시스템 요구 사항](../overview/system-requirements.md#unity) 참조)
 
 ## <a name="clone-the-sample-app"></a>샘플 앱 복제
 

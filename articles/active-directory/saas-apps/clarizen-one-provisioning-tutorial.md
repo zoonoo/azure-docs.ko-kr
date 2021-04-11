@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
 ms.openlocfilehash: f3a19d3c3bf3e4340bb36fd683453541fa15eb6c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101650835"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Clarizen One 구성
