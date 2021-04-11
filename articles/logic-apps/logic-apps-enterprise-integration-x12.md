@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 87a2bcc386ec5688fadb68aabdd2e5239e205516
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96015199"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106077474"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 X12 메시지 교환
 
@@ -79,7 +79,6 @@ Azure Logic Apps에서 X12 메시지를 작업하려면 X12 통신을 관리하�
 |----------|-------------|
 | **TA1이 예상됨** | 교환 보낸 사람에게 기술 승인(TA1)을 반환합니다. |
 | **FA가 예상됨** | 교환 보낸 사람에게 기능 승인(FA)을 반환합니다. <p>**FA Version** 속성의 경우 스키마 버전에 따라 997 또는 999 승인을 선택합니다. <p>수락된 트랜잭션 세트의 기능 승인에서 AK2 루프를 생성할 수 있도록 설정하려면 **AK2/IK2 루프 포함** 을 선택합니다. |
-||||
 
 <a name="inbound-schemas"></a>
 
