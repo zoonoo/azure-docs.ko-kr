@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 03/04/2021
 ms.author: memildin
 ms.openlocfilehash: 17f3440df4fa88995f2148680aba926207a0e46b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102561265"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-azure-security-center"></a>Azure Security Center에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
@@ -203,7 +203,7 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 1. 자동 프로비저닝을 사용하지 않도록 설정합니다.
 
-1. 필요에 따라 작업 영역을 만듭니다.
+1. 필요에 따라 작업 영역을 생성합니다.
 
 1. Log Analytics 에이전트를 설치할 작업 영역에서 Azure Defender를 사용하도록 설정합니다.
 
