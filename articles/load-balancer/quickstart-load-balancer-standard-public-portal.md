@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 634f09c7862f6e3e2f147094503f5a574476ef91
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7c19c4963ad8c378e1282180800fd839e20edfdd
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034390"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056337"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -109,7 +108,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHealthProbe** 를 입력합니다. |
+    | 이름 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 간격 | 프로브 시도 **간격**(초)으로 **15** 를 입력합니다. |
@@ -137,7 +136,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHTTPRule** 을 입력합니다. |
+    | Name | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |
@@ -452,7 +451,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHealthProbe** 를 입력합니다. |
+    | 이름 | **myHealthProbe** 를 입력합니다. |
     | 프로토콜 | **HTTP** 를 선택합니다. |
     | 포트 | **80** 을 입력합니다.|
     | 경로 | **/** 를 입력합니다. |
@@ -480,7 +479,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
     
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | **myHTTPRule** 을 입력합니다. |
+    | Name | **myHTTPRule** 을 입력합니다. |
     | IP 버전 | **IPv4** 를 선택합니다. |
     | 프런트 엔드 IP 주소 | **LoadBalancerFrontEnd** 를 입력합니다. |
     | 프로토콜 | **TCP** 를 선택합니다. |

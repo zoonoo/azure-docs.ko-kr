@@ -5,10 +5,10 @@ keywords: portal
 ms.date: 03/12/2021
 ms.topic: overview
 ms.openlocfilehash: 8f61934e6af150c18d1331c2b28e2686641967d1
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103563997"
 ---
 # <a name="azure-portal-overview"></a>Azure 포털 개요
@@ -59,7 +59,7 @@ Azure Portal 메뉴와 페이지 헤더는 항상 존재하는 글로벌 요소�
 
 ![확장된 포털 메뉴를 보여주는 스크린샷](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
 
-|키|Description
+|키|설명
 |:---:|---|
 |1|페이지 헤더. 모든 포털 페이지의 맨 위에 표시되며 글로벌 요소를 보관합니다.|
 |2| 글로벌 검색. 검색 창을 사용하여 특정 리소스, 서비스 또는 설명서를 신속하게 찾을 수 있습니다.|

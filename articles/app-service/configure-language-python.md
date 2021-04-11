@@ -2,15 +2,15 @@
 title: Linux Python 앱 구성
 description: Azure Portal 및 Azure CLI를 사용하여 웹앱이 실행되는 Python 컨테이너를 구성하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: cfbbb7064fcadc06714b237066bb6a009246baac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 094755ed6c018b3ac82d6f62a43f17e2536bbd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709090"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953513"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 
@@ -114,7 +114,7 @@ Linux에서 App Service를 실행하고 Python 앱을 빌드하는 방법에 대
 
 1. **앱 시작**: 이 문서의 뒷부분에 나오는 [컨테이너 시작 프로세스](#container-startup-process) 섹션을 검토하여 App Service에서 앱 실행을 시도하는 방법을 이해합니다. App Service는 기본적으로 Gunicorn 웹 서버를 사용하며, 이 서버는 앱 개체 또는 *wsgi.py* 폴더를 찾을 수 있어야 합니다. 필요한 경우 [시작 명령을 사용자 지정](#customize-startup-command)할 수 있습니다.
 
-1. **지속적인 배포**: Azure Pipelines 또는 Kudu 배포를 사용하는 경우 [Azure App Service에 지속적인 배포](deploy-continuous-deployment.md)에서 설명한 대로 지속적인 배포를 설정하거나, GitHub 작업을 사용하는 경우 [GitHub Actions를 사용하여 App Service에 배포](deploy-github-actions.md)합니다.
+1. **지속적인 배포**: Azure Pipelines 또는 Kudu 배포를 사용하는 경우 [Azure App Service에 지속적인 배포](deploy-continuous-deployment.md)에서 설명한 대로 지속적인 배포를 설정하거나, GitHub 작업을 사용하는 경우 [GitHub Actions를 사용하여 App Service에 배포](./deploy-continuous-deployment.md)합니다.
 
 1. **사용자 지정 작업**: Django 데이터베이스 마이그레이션과 같이 앱을 호스팅하는 App Service 컨테이너 내에서 작업을 수행하려면 [SSH를 통해 컨테이너에 연결](configure-linux-open-ssh-session.md)할 수 있습니다. Django 데이터베이스 마이그레이션을 실행하는 방법에 대한 예제는 [자습서: PostgreSQL을 사용하는 Django 웹앱 배포 - 데이터베이스 마이그레이션 실행](tutorial-python-postgresql-app.md#43-run-django-database-migrations)을 참조하세요.
     - 지속적인 배포를 사용하는 경우 이러한 작업은 앞부분의 [빌드 자동화 사용자 지정](#customize-build-automation)에서 설명한 대로 빌드 후 명령을 사용하여 수행할 수 있습니다.
@@ -373,6 +373,7 @@ SSH 세션에 성공적으로 연결되면 창 아래쪽에 "SSH 연결 설정�
 - [앱이 표시되지 않음 - "서비스를 사용할 수 없음" 메시지](#service-unavailable)
 - [setup.py 또는 requirements.txt 파일을 찾을 수 없음](#could-not-find-setuppy-or-requirementstxt)
 - [시작 시 ModuleNotFoundError](#modulenotfounderror-when-app-starts)
+- [데이터베이스가 잠겼습니다.](#database-is-locked)
 - [암호를 입력할 때 SSH 세션에 표시되지 않음](#other-issues)
 - [SSH 세션의 명령이 잘려서 표시됨](#other-issues)
 - [정적 자산이 Django 앱에 표시되지 않음](#other-issues)
@@ -409,6 +410,14 @@ SSH 세션에 성공적으로 연결되면 창 아래쪽에 "SSH 연결 설정�
 #### <a name="modulenotfounderror-when-app-starts"></a>앱 시작 시 ModuleNotFoundError
 
 `ModuleNotFoundError: No module named 'example'`과 같은 오류가 표시되는 경우 애플리케이션이 시작될 때 Python에서 하나 이상의 모듈을 찾지 못했음을 의미합니다. 이 오류는 코드를 사용하여 가상 환경을 배포하는 경우에 주로 발생합니다. 가상 환경은 이식할 수 없으므로 애플리케이션 코드를 사용하여 가상 환경을 배포할 수 없습니다. 대신, 앱 설정 `SCM_DO_BUILD_DURING_DEPLOYMENT`를 만들고 `1`로 설정하여 Oryx에서 가상 환경을 만들고 웹앱에 패키지를 설치하도록 합니다. 이렇게 하면 App Service에 배포할 때마다 Oryx에서 패키지를 강제로 설치합니다. 자세한 내용은 [가상 환경 이식성에 대한 이 문서](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html)를 참조하세요.
+
+### <a name="database-is-locked"></a>데이터베이스가 잠겼습니다.
+
+Django 앱을 사용하여 데이터베이스 마이그레이션을 실행하려고 할 때 "sqlite3 OperationalError: 데이터베이스가 잠겼습니다."가 표시될 수 있습니다. 이 오류는 애플리케이션이 PostgreSQL for Azure와 같은 클라우드 데이터베이스를 사용하는 대신 기본적으로 Django가 구성된 SQLite 데이터베이스를 사용하고 있음을 나타냅니다.
+
+앱의 *settings.py* 파일에서 `DATABASES` 변수를 확인하여 앱이 SQLite 대신 클라우드 데이터베이스를 사용하고 있는지 확인합니다.
+
+[자습서: PostgreSQL을 사용하여 Django 웹앱 배포](tutorial-python-postgresql-app.md)의 샘플에서 이 오류가 발생하는 경우 [데이터베이스를 연결하도록 환경 구성](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database) 단계를 완료했는지 확인합니다.
 
 #### <a name="other-issues"></a>기타 문제
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: f894fd5ca7bb98c48b106c13b8fe6130b2c76c6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fa5d34d195cfed2d5dbfa6954d83b28487bf0bba
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102201059"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106167756"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>자습서: Azure Front Door와 Azure WAF(Web Application Firewall)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
@@ -140,7 +140,7 @@ DNS 레코드를 업데이트하는 구체적인 단계는 DNS 서비스 공급�
 
 ## <a name="lock-down-your-web-application"></a>웹 애플리케이션 잠금
 
-Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하는 것이 좋습니다. 이렇게 하면 아무도 Azure Front Door 보호를 우회하고 애플리케이션에 직접 액세스할 수 없습니다. 이러한 잠금을 설정하려면 [내 백엔드에 Azure Front Door만 액세스하도록 잠그는 방법은 무엇인가요?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)를 참조하세요.
+Azure Front Door 에지만 웹 애플리케이션과 통신할 수 있도록 하는 것이 좋습니다. 이렇게 하면 아무도 Azure Front Door 보호를 우회하고 애플리케이션에 직접 액세스할 수 없습니다. 이러한 잠금을 설정하려면 [내 백엔드에 Azure Front Door만 액세스하도록 잠그는 방법은 무엇인가요?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
