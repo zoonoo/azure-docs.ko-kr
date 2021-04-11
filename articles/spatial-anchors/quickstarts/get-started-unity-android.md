@@ -5,15 +5,15 @@ author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3c17eadfad71f58b4557f8115a0d1d3de392b4b9
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: e1554b1728b120145a06124e4703065a98a4e466
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96015131"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670103"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity Android 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "96015131"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- **Android SDK 및 NDK 도구** 및 **OpenJDK** 모듈이 있는 **Android 빌드 지원** 을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a>가 설치된 Windows 또는 macOS 머신.
+- **Android SDK 및 NDK 도구** 및 **OpenJDK** 모듈이 있는 **Android 빌드 지원** 을 포함하여 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity(LTS)</a>가 설치된 Windows 또는 macOS 머신. ASA SDK 버전 2.9 이상([Unity XR 플러그 인 프레임워크](https://docs.unity3d.com/Manual/XRPluginArchitecture.html) 사용)에서 **Unity 2020 LTS** 를 사용하거나 ASA SDK 버전 2.8 이하에서 **Unity 2019 LTS** 를 사용합니다.
   - Windows에서 실행하는 경우 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 필요합니다.
   - macOS에서 실행하는 경우 HomeBrew를 통해 Git이 설치됩니다. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git` 및 `brew install git-lfs`를 실행합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
